@@ -1,6 +1,6 @@
 ---
-title: Befehl „nslookup exit“
-description: Referenz Thema für * * * *-
+title: Nslookup beenden
+description: Referenz Thema für den Befehl "nslookup Exit", der das Befehlszeilen Tool "nslookup" beendet.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,30 +9,29 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 25696b5889d4b430586285de1f4d6471f9e28b27
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: c233e39d711c37540c30bc64296c6b24b57689c8
+ms.sourcegitcommit: 99d548141428c964facf666c10b6709d80fbb215
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82723733"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84721483"
 ---
-# <a name="nslookup-exit-command"></a>Befehl „nslookup exit“
+# <a name="nslookup-exit"></a>Nslookup/Exit
 
-
-
-Beendet **nslookup**.
+Beendet das Befehlszeilen Tool Nslookup.
 
 ## <a name="syntax"></a>Syntax
 
 ```
-Nslookup /exit
+nslookup /exit
 ```
 
 ### <a name="parameters"></a>Parameter
 
 | Parameter | BESCHREIBUNG |
-|-----------|-------------|
-|   {Hilfe   |     ?}      |
+| --------- | ----------- |
+| /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
+| /help | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 

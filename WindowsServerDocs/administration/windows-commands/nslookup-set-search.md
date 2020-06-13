@@ -1,6 +1,6 @@
 ---
 title: nslookup set search
-description: Referenz Thema für * * * *-
+description: Referenz Thema für den Befehl nslookup Set Search, der die Domain Name System (DNS)-Domänen Namen in der DNS-Domänen Suchliste an die Anforderung anfügt, bis eine Antwort empfangen wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2e3f5bce42d3614b535b2dfb00c4c9ea9cac2346
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: c3219434f768a573c9e433c44b6b38bc9dc75f14
+ms.sourcegitcommit: 99d548141428c964facf666c10b6709d80fbb215
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82723566"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84721425"
 ---
 # <a name="nslookup-set-search"></a>nslookup set search
-
-
 
 Fügt Domain Name System die DNS-Domänen Namen (DNS) in der DNS-Domänen Suchliste an die Anforderung an, bis eine Antwort empfangen wird. Dies gilt, wenn die Set-und die Suche-Anforderung mindestens einen Zeitraum enthalten, aber nicht mit einem nachfolgenden Zeitraum enden.
 
@@ -30,11 +28,12 @@ set [no]search
 
 ### <a name="parameters"></a>Parameter
 
-|  Parameter   |                                                                          BESCHREIBUNG                                                                          |
-|--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **noSearch** |                            Beendet das Anfügen der Domain Name System (DNS)-Domänen Namen in der DNS-Domänen Suchliste an die Anforderung.                            |
-|  **search**  | Fügt Domain Name System die DNS-Domänen Namen (DNS) in der DNS-Domänen Suchliste an die Anforderung an, bis eine Antwort empfangen wird. Die Standard Syntax lautet **Search**. |
-|    {Hilfe     |                                                                              ?}                                                                               |
+| Parameter | BESCHREIBUNG |
+| --------- | ----------- |
+| noSearch | Beendet das Anfügen der DNS-Domänen Namen (Domain Name System) in der DNS-Domänen Suchliste für die Anforderung. |
+| search | Fügt Domain Name System die DNS-Domänen Namen (DNS) in der DNS-Domänen Suchliste für die Anforderung an, bis eine Antwort empfangen wird. Dies ist der Standardwert. |
+| /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
+| /help | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 

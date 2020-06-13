@@ -8,12 +8,12 @@ manager: lizross
 author: JasonGerend
 ms.author: jgerend
 ms.date: 10/18/2018
-ms.openlocfilehash: 926c9c862d77c9fe082274a44af57e3b8339a655
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: cdc9280c4c7129d2e76341bd97b0ae3b8209888f
+ms.sourcegitcommit: 7200143aa787c7ac05ae0e012263b1c9a95b87ed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82720504"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84721738"
 ---
 # <a name="whats-new-in-failover-clustering"></a>What's new in Failover Clustering (Neues beim Failoverclustering)
 
@@ -76,7 +76,7 @@ Das parallele Upgrade des Cluster Betriebssystems ermöglicht einem Administrato
 
 **Welchen Nutzen bietet diese Änderung?**  
 
-Zum Aktualisieren eines Hyper-V-oder Dateiserver mit horizontaler Skalierung Clusters von Windows Server 2012 R2 auf Windows Server 2016 sind keine Ausfallzeiten mehr erforderlich. Der Cluster funktioniert weiterhin auf Windows Server 2012 R2-Ebene, bis auf allen Knoten im Cluster Windows Server 2016 ausgeführt wird. Die Cluster Funktionsebene wird mithilfe des Windows PowerShell-Cmdlet `Update-ClusterFunctionalLevel`auf Windows Server 2016 aktualisiert.
+Zum Aktualisieren eines Hyper-V-oder Dateiserver mit horizontaler Skalierung Clusters von Windows Server 2012 R2 auf Windows Server 2016 sind keine Ausfallzeiten mehr erforderlich. Der Cluster funktioniert weiterhin auf Windows Server 2012 R2-Ebene, bis auf allen Knoten im Cluster Windows Server 2016 ausgeführt wird. Die Cluster Funktionsebene wird mithilfe des Windows PowerShell-Cmdlet auf Windows Server 2016 aktualisiert `Update-ClusterFunctionalLevel` .
 
 > [!WARNING]  
 > - Nachdem Sie die Cluster Funktionsebene aktualisiert haben, können Sie nicht mehr zu einer Windows Server 2012 R2-Cluster Funktionsebene zurückkehren.
@@ -95,11 +95,11 @@ Die Cluster Betriebssysteme für das Upgrade in Phasen lauten wie folgt für jed
 -   An diesem Punkt wird der Cluster als im gemischten Modus ausgeführt, da auf den Cluster Knoten entweder Windows Server 2012 R2 oder Windows Server 2016 ausgeführt wird. 
 -   Die Cluster Funktionsebene bleibt bei Windows Server 2012 R2. Auf dieser Funktionsebene sind neue Features in Windows Server 2016, die sich auf die Kompatibilität mit früheren Versionen des Betriebssystems auswirken, nicht verfügbar. 
 -   Schließlich werden alle Knoten auf Windows Server 2016 aktualisiert. 
--   Die Cluster Funktionsebene wird dann mithilfe des Windows PowerShell-Cmdlets `Update-ClusterFunctionalLevel`in Windows Server 2016 geändert. An diesem Punkt können Sie die Features von Windows Server 2016 nutzen. 
+-   Die Cluster Funktionsebene wird dann mithilfe des Windows PowerShell-Cmdlets in Windows Server 2016 geändert `Update-ClusterFunctionalLevel` . An diesem Punkt können Sie die Features von Windows Server 2016 nutzen. 
 
 Weitere Informationen finden Sie unter [Cluster Operating System Rolling Upgrade](cluster-operating-system-rolling-upgrade.md). 
 
-### <a name="storage-replica"></a><a name="BKMK_SR"></a>Speicherreplikat  
+### <a name="storage-replica"></a><a name="BKMK_SR"></a>Speicher Replikat  
 Das Speicher Replikat ist ein neues Feature, das Speicher agnostische, synchrone Replikation auf Blockebene zwischen Servern oder Clustern für die Notfall Wiederherstellung sowie das Strecken eines Failoverclusters Zwischenstand Orten ermöglicht. Die synchrone Replikation ermöglicht die Spiegelung von Daten an physischen Standorten mit ausfallsicheren Volumes, um auf Dateisystemebene sicherzustellen, dass kein Datenverlust auftritt. Die asynchrone Replikation ermöglicht die Standorterweiterung über regionale Bereiche hinaus mit der Möglichkeit von Datenverlusten. 
 
 **Welchen Nutzen bietet diese Änderung?**  
@@ -176,13 +176,13 @@ In Windows Server 2016 ist die Resilienz von Speicher für virtuelle Computer f�
 
 Zum Diagnostizieren von Problemen mit Failoverclustern umfasst Windows Server 2016 Folgendes:  
 
-- Mehrere Verbesserungen an Cluster Protokolldateien (z. b. Zeitzoneninformationen und diagnosticverbose-Protokoll), die das Beheben von Problemen mit dem Failoverclustering erleichtern. Weitere Informationen finden Sie unter [Windows Server 2016-Failovercluster-Problembehandlung bei Verbesserungen-Cluster Protokoll](https://blogs.msdn.com/b/clustering/archive/2015/05/15/10614930.aspx). 
+- Mehrere Verbesserungen an Cluster Protokolldateien (z. b. Zeitzoneninformationen und diagnosticverbose-Protokoll), die das Beheben von Problemen mit dem Failoverclustering vereinfachen. Weitere Informationen finden Sie unter [Windows Server 2016-Failovercluster-Problembehandlung bei Verbesserungen-Cluster Protokoll](https://techcommunity.microsoft.com/t5/failover-clustering/windows-server-2016-failover-cluster-troubleshooting/ba-p/372005).
 
-- Ein neuer dumptyp des **aktiven Speicher Abbilds**, das die meisten Speicherseiten filtert, die virtuellen Maschinen zugeordnet sind. Dadurch wird der Speicher. dmp wesentlich kleiner und leichter zu speichern oder zu kopieren. Weitere Informationen finden Sie unter [Verbesserungen bei der Problembehandlung für Windows Server 2016-Failovercluster-aktives Dump](https://blogs.msdn.com/b/clustering/archive/2015/05/18/10615526.aspx) 
+- Ein neuer dumptyp des **aktiven Speicher Abbilds**, das die meisten Speicherseiten filtert, die virtuellen Maschinen zugeordnet sind. Dadurch wird der Speicher. dmp wesentlich kleiner und leichter zu speichern oder zu kopieren. Weitere Informationen finden Sie unter [Verbesserungen bei der Problembehandlung für Windows Server 2016-Failovercluster-aktives Dump](https://techcommunity.microsoft.com/t5/failover-clustering/windows-server-2016-failover-cluster-troubleshooting/ba-p/372008)
 
 ### <a name="site-aware-failover-clusters"></a><a name="BKMK_SiteAware"></a>Standortabhängige Failovercluster
 
-Windows Server 2016 umfasst standortabhängige Failovercluster, die Gruppenknoten in gestreckten Clustern basierend auf dem physischen Standort (Standort) aktivieren. Cluster Site-Awareness erweitert wichtige Vorgänge während des Cluster Lebenszyklus, z. b. Failoververhalten, Platzierungs Richtlinien, Takt zwischen den Knoten und Quorum Verhalten. Weitere Informationen finden Sie unter [Site-Aware Failover Clusters in Windows Server 2016](https://blogs.msdn.com/b/clustering/archive/2015/08/19/10636304.aspx). 
+Windows Server 2016 umfasst standortabhängige Failovercluster, die Gruppenknoten in gestreckten Clustern basierend auf dem physischen Standort (Standort) aktivieren. Cluster Site-Awareness erweitert wichtige Vorgänge während des Cluster Lebenszyklus, z. b. Failoververhalten, Platzierungs Richtlinien, Takt zwischen den Knoten und Quorum Verhalten. Weitere Informationen finden Sie unter [Site-Aware Failover Clusters in Windows Server 2016](https://techcommunity.microsoft.com/t5/failover-clustering/site-aware-failover-clusters-in-windows-server-2016/ba-p/372060).
 
 ### <a name="workgroup-and-multi-domain-clusters"></a><a name="BKMK_multidomainclusters"></a>Arbeitsgruppencluster und Cluster mit mehreren Domänen
 
@@ -194,7 +194,7 @@ In Windows Server 2012 R2 und früheren Versionen kann ein Cluster nur zwischen 
 
 -   **Arbeitsgruppen Cluster.** Cluster mit Knoten, die Mitglied Server/Arbeitsgruppe sind (nicht mit der Domäne verknüpft). 
 
-Weitere Informationen finden Sie unter [Arbeitsgruppe und Cluster mit mehreren Domänen in Windows Server 2016](https://blogs.msdn.com/b/clustering/archive/2015/08/17/10635825.aspx) .
+Weitere Informationen finden Sie unter [Arbeitsgruppe und Cluster mit mehreren Domänen in Windows Server 2016](https://techcommunity.microsoft.com/t5/failover-clustering/workgroup-and-multi-domain-clusters-in-windows-server-2016/ba-p/372059) .
 
 ### <a name="virtual-machine-load-balancing"></a><a name="BKMK_VMLoadBalancing"></a>Lastenausgleich für virtuelle Computer  
 
@@ -212,5 +212,5 @@ Weitere Informationen finden Sie unter [vereinfachte SMB Multichannel-und Multi-
 
 ## <a name="see-also"></a>Weitere Informationen
 
-* [Storage](../storage/storage.md)  
+* [Speicher](../storage/storage.md)  
 * [Neuerungen beim Speicher in Windows Server 2016](../storage/whats-new-in-storage.md)  

@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ce18c615d45d4922c8819d30ff47d54328111170
-ms.sourcegitcommit: 29bc8740e5a8b1ba8f73b10ba4d08afdf07438b0
+ms.openlocfilehash: 3ad664548dce51d7631a6d1a02d628af91e1921f
+ms.sourcegitcommit: 99d548141428c964facf666c10b6709d80fbb215
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84222939"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84721140"
 ---
 # <a name="logman-import-and-logman-export"></a>Importieren und logman-Export von logman
 
@@ -25,13 +25,13 @@ Importiert einen Datensammler Satz aus einer XML-Datei oder exportiert einen Dat
 ## <a name="syntax"></a>Syntax
 
 ```
-logman import <[-n] <name>> <-xml <name>> [options]
-logman export <[-n] <name>> <-xml <name>> [options]
+logman import <[-n] <name> <-xml <name> [options]
+logman export <[-n] <name> <-xml <name> [options]
 ```
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | -s`<computer name>` | Führen Sie den Befehl auf dem angegebenen Remote Computer aus. |
 | -config`<value>` | Gibt die Einstellungsdatei an, die Befehlsoptionen enthält. |
@@ -44,7 +44,7 @@ logman export <[-n] <name>> <-xml <name>> [options]
 
 ### <a name="examples"></a>Beispiele
 
-Um die XML-Datei " *c:\windows\ perf_log. XML* " vom Computer *server_1* als Datensammler Satz mit dem Namen *perf_log*zu importieren, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um die XML-Datei *c:\windows\perf_log.xml* vom Computer *server_1* als Datensammler Satz mit dem Namen *perf_log*zu importieren:
 
 ```
 logman import perf_log -s server_1 -xml c:\windows\perf_log.xml

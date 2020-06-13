@@ -1,6 +1,6 @@
 ---
 title: nslookup set all
-description: Referenz Thema für * * * *-
+description: Referenz Thema für den Befehl "nslookup alle festlegen", der die aktuellen Konfigurations Einstellungs Werte ausgibt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,34 +9,29 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 04ffa560f45a0569c063ac35a7aa0e056e8d1a73
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: b541f1f68fd3f43a8e4ab05f8e3e4351b7d8bc71
+ms.sourcegitcommit: 99d548141428c964facf666c10b6709d80fbb215
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82723659"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84721643"
 ---
 # <a name="nslookup-set-all"></a>nslookup set all
 
-
-
-Druckt die aktuellen Werte der Konfigurationseinstellungen.
+Gibt die aktuellen Konfigurations Einstellungs Werte einschließlich des Standard Servers und-Computers (dem Host) aus.
 
 ## <a name="syntax"></a>Syntax
 
 ```
-set all 
+set all
 ```
 
 ### <a name="parameters"></a>Parameter
 
 | Parameter | BESCHREIBUNG |
-|-----------|-------------|
-|   {Hilfe   |     ?}      |
-
-## <a name="remarks"></a>Bemerkungen
-
--   **Alle festlegen** gibt auch Informationen zum Standard Server und-Computer (d. h. zum Host) aus.
+| --------- | ----------- |
+| /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
+| /help | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 

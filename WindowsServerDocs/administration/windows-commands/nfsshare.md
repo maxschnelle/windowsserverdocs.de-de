@@ -1,6 +1,6 @@
 ---
 title: nfsshare
-description: Referenz Thema für * * * *-
+description: Referenz Thema für den nfsshare-Befehl, der NFS-Freigaben (Network File System) steuert.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,49 +9,48 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: dac9271568d8a18718b378de63dc5faa258df16a
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 4774d5ce929de5e79e2cde78e45b0cd9bdca163c
+ms.sourcegitcommit: 99d548141428c964facf666c10b6709d80fbb215
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82723759"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84721523"
 ---
 # <a name="nfsshare"></a>nfsshare
 
-
-
-Sie können **nfsshare** verwenden, um NFS-Freigaben (Network File System) zu steuern.
+Steuert NFS-Freigaben (Network File System). Der Befehl wird ohne Parameter verwendet und zeigt alle NFS-Freigaben (Network File System) an, die vom Server für NFS exportiert wurden.
 
 ## <a name="syntax"></a>Syntax
 
 ```
-nfsshare <ShareName>=<Drive:Path> [-o <Option=value>...]
-nfsshare {<ShareName> | <Drive>:<Path> | * } /delete
+nfsshare <sharename>=<drive:path> [-o <option=value>...]
+nfsshare {<sharename> | <drive>:<path> | * } /delete
 ```
 
-## <a name="description"></a>BESCHREIBUNG
+### <a name="parameters"></a>Parameter
 
-Ohne Argumente listet das Befehlszeilen-Hilfsprogramm **nfsshare** alle von Server für NFS exportierten NFS-Freigaben (Network File System) auf. Mit *ShareName* als einziges Argument listet **nfsshare** die Eigenschaften der von *ShareName*identifizierten NFS-Freigabe auf. Wenn *ShareName* und <em>Laufwerk</em>**:**<em>path</em> bereitgestellt werden, exportiert **nfsshare** den von <em>Laufwerk</em>**:**<em>path</em> identifizierten Ordner als *ShareName*. Wenn die **/Delete** -Option verwendet wird, wird der angegebene Ordner nicht mehr für NFS-Clients zur Verfügung gestellt.
+| Parameter | BESCHREIBUNG |
+| --------- | ----------- |
+| -o anon =`{yes|no}` | Gibt an, ob anonyme (nicht zugeordnete) Benutzer auf das Freigabe Verzeichnis zugreifen können. |
+| -o RW =`[<host>[:<host>]...]` | Bietet Lese-/Schreibzugriff auf das freigegebene Verzeichnis durch die Hosts oder Client Gruppen, die vom *Host*angegeben werden. Host-und Gruppennamen müssen mit einem Doppelpunkt (**:**) getrennt werden. Wenn der *Host* nicht angegeben wird, erhalten alle Hosts und Client Gruppen (außer den mit der Option **RO** angegebenen) Lese-/Schreibzugriff. Wenn weder die **RO** -noch die **RW** -Option festgelegt ist, haben alle Clients Lese-/Schreibzugriff auf das freigegebene Verzeichnis. |
+| -o Ro =`[<host>[:<host>]...]` | Bietet schreibgeschützten Zugriff auf das freigegebene Verzeichnis durch die Hosts oder Client Gruppen, die vom *Host*angegeben werden. Host-und Gruppennamen müssen mit einem Doppelpunkt (**:**) getrennt werden. Wenn der *Host* nicht angegeben wird, erhalten alle Clients (außer den mit der Option **RW** angegebenen) schreibgeschützten Zugriff. Wenn die Option " **RO** " für mindestens einen Client festgelegt ist, die Option " **RW** " jedoch nicht festgelegt ist, haben nur die mit der Option " **RO** " angegebenen Clients Zugriff auf das freigegebene Verzeichnis. |
+| -o Encoding =`{euc-jp|euc-tw|euc-kr|shift-jis|Big5|Ksc5601|Gb2312-80|Ansi)` | Gibt die sprach Codierung an, die auf einer NFS-Freigabe konfiguriert werden soll. Sie können nur eine Sprache auf der Freigabe verwenden. Dieser Wert kann einen der folgenden Werte enthalten:<ul><li>**EUC-JP:** Japanisch</li><li>**EUC-TW:** Chinesisch</li><li>**EUC-KR:** Koreanisch</li><li>**Shift-JIS:** Japanisch</li><li>**Big5:** Chinesisch</li><li>**Ksc5601:** Koreanisch</li><li>**GB2312-80:** Vereinfachtes Chinesisch</li><li>**ANSI:** ANSI-codiert</li></ul> |
+| -o anongid =`<gid>` | Gibt an, dass anonyme (nicht zugeordnete) Benutzer auf das Freigabe Verzeichnis mithilfe von *gid* als Gruppen Bezeichner (GID) zugreifen. Der Standardwert ist **-2**. Die anonyme gid wird verwendet, wenn der Besitzer einer Datei, die im Besitz eines nicht zugeordneten Benutzers ist, gemeldet wird, auch wenn der anonyme Zugriff deaktiviert ist. |
+| -o anonuid =`<uid>` | Gibt an, dass anonyme (nicht zugeordnete) Benutzer mithilfe von *UID* als Benutzer-ID (UID) auf das Freigabe Verzeichnis zugreifen. Der Standardwert ist **-2**. Die anonyme UID wird verwendet, wenn der Besitzer einer Datei, die im Besitz eines nicht zugeordneten Benutzers ist, gemeldet wird, auch wenn der anonyme Zugriff deaktiviert ist. |
+| -o root =`[<host>[:<host>]...]` | Ermöglicht den Stamm Zugriff auf das freigegebene Verzeichnis durch die Hosts oder Client Gruppen, die durch den *Host*angegeben werden. Host-und Gruppennamen müssen mit einem Doppelpunkt (**:**) getrennt werden. Wenn der *Host* nicht angegeben wird, erhalten alle Clients Zugriff auf den Stamm. Wenn die **root** -Option nicht festgelegt ist, haben keine Clients Stamm Zugriff auf das freigegebene Verzeichnis. |
+| /delete | Wenn *ShareName* oder `<drive>:<path>` angegeben wird, löscht dieser Parameter die angegebene Freigabe. Wenn ein Platzhalter (*) angegeben wird, löscht dieser Parameter alle NFS-Freigaben. |
+| /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-## <a name="options"></a>Tastatur
+#### <a name="remarks"></a>Hinweise
 
-Der Befehl **nfsshare** akzeptiert die folgenden Optionen und Argumente:
+- Wenn *ShareName* als einziger Parameter angegeben ist, werden mit diesem Befehl die Eigenschaften der von *ShareName*identifizierten NFS-Freigabe aufgelistet.
 
+- Wenn *ShareName* und `<drive>:<path>` verwendet werden, exportiert dieser Befehl den von identifizierten Ordner `<drive>:<path>` als *ShareName*. Wenn Sie die Option **/Delete** verwenden, ist der angegebene Ordner für NFS-Clients nicht mehr verfügbar.
 
-|             Begriff              |                                                                                                                                                                                                                      Definition                                                                                                                                                                                                                       |
-|-------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|         -o anon = {ja          |                                                                                                                                                                                                                          gar                                                                                                                                                                                                                          |
-|  -o RW [=\<Host> [:<Host>]...]  |                       Bietet Lese-/Schreibzugriff auf das freigegebene Verzeichnis durch die Hosts oder Client Gruppen, die vom *Host*angegeben werden. Trennen Sie Host-und Gruppennamen mit einem Doppelpunkt (**:**). Wenn kein *Host* angegeben ist, haben alle Hosts und Client Gruppen (außer den mit der Option **RO** angegebenen) Lese-/Schreibzugriff. Wenn weder die **RO** -noch die **RW** -Option festgelegt ist, haben alle Clients Lese-/Schreibzugriff auf das freigegebene Verzeichnis.                       |
-|  -o RO [=\<Host> [:<Host>]...]  | Bietet schreibgeschützten Zugriff auf das freigegebene Verzeichnis durch die Hosts oder Client Gruppen, die vom *Host*angegeben werden. Trennen Sie Host-und Gruppennamen mit einem Doppelpunkt (**:**). Wenn kein *Host* angegeben ist, haben alle Clients (außer den mit der Option **RW** angegebenen) schreibgeschützten Zugriff. Wenn die Option " **RO** " für mindestens einen Client festgelegt ist, die Option " **RW** " jedoch nicht festgelegt ist, haben nur die mit der Option " **RO** " angegebenen Clients Zugriff auf das freigegebene Verzeichnis. |
-|       -o Encoding = {Big5       |                                                                                                                                                                                                                        EUC-JP                                                                                                                                                                                                                         |
-|       -o anongid =\<gid>       |                                                                                     Gibt an, dass anonyme (nicht zugeordnete) Benutzer auf das Freigabe Verzeichnis mithilfe von *gid* als Gruppen Bezeichner (GID) zugreifen. Der Standardwert ist-2. Die anonyme gid wird verwendet, wenn der Besitzer einer Datei, die im Besitz eines nicht zugeordneten Benutzers ist, gemeldet wird, auch wenn der anonyme Zugriff deaktiviert ist.                                                                                      |
-|      -o anonuid =\<UID>       |                                                                                      Gibt an, dass anonyme (nicht zugeordnete) Benutzer auf das Freigabe Verzeichnis mithilfe von *UID* als Benutzer-ID (UID) zugreifen. Der Standardwert ist-2. Die anonyme UID wird verwendet, wenn der Besitzer einer Datei, die im Besitz eines nicht zugeordneten Benutzers ist, gemeldet wird, auch wenn der anonyme Zugriff deaktiviert ist.                                                                                      |
-| -o root [=\<Host> [:<Host>]...] |                                                                         Ermöglicht den Stamm Zugriff auf das freigegebene Verzeichnis durch die Hosts oder Client Gruppen, die durch den *Host*angegeben werden. Trennen Sie Host-und Gruppennamen mit einem Doppelpunkt (**:**). Wenn kein *Host* angegeben ist, haben alle Clients root-Zugriff. Wenn die **root** -Option nicht festgelegt ist, haben keine Clients Stamm Zugriff auf das freigegebene Verzeichnis.                                                                         |
-|            /delete            |                                                                                                                                                       Wenn *ShareName* oder <em>Laufwerk</em>**:**<em>path</em> angegeben ist, wird die angegebene Freigabe von gelöscht. Wenn \* angegeben wird, löscht alle NFS-Freigaben.                                                                                                                                                       |
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
-> [!NOTE]
-> Geben Sie zum Anzeigen der vollständigen Syntax für diesen Befehl an der Eingabeaufforderung Folgendes ein:</br>> **nfsshare/?**
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
-## <a name="see-also"></a>Weitere Informationen
+- [Dienste für Network File System-Befehlsreferenz](services-for-network-file-system-command-reference.md)
 
-[Dienste für Network File System-Befehlsreferenz](services-for-network-file-system-command-reference.md)
+- [Referenz zu NFS-Cmdlets](https://docs.microsoft.com/powershell/module/nfs)

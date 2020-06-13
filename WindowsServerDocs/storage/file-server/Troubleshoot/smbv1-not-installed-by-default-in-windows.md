@@ -6,12 +6,12 @@ manager: dcscontentpm
 ms.topic: article
 ms.author: delhan
 ms.date: 12/25/2019
-ms.openlocfilehash: fdc90c6e5d6790348fafc12079eec5ac7e387b3f
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: a1e1a30530f937289770bcef9e71189bf69719ce
+ms.sourcegitcommit: 7200143aa787c7ac05ae0e012263b1c9a95b87ed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80815313"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84721758"
 ---
 # <a name="smbv1-is-not-installed-by-default-in-windows-10-version-1709-windows-server-version-1709-and-later-versions"></a>SMBv1 wird nicht standardmäßig unter Windows 10, Version 1709, Windows Server Version 1709 und höheren Versionen installiert.
 
@@ -30,7 +30,7 @@ SMBv1 hat das folgende Verhalten in Windows 10 Fall Creators Update und Windows 
 - Direkte Upgrades und Insider-Flüge der Editionen Windows 10 Enterprise und Windows 10 Education werden SMBv1 nicht automatisch entfernt. Ein Administrator muss entscheiden, SMBv1 in diesen verwalteten Umgebungen zu deinstallieren. In Windows 10, Version 1809 (RS5) und höheren Versionen, kann ein Administrator das automatische Entfernen von SMBv1 durch Aktivieren der Funktion "Automatisches Entfernen von SMB 1.0/CIFS" aktivieren.    
 - Das automatische Entfernen von SMBv1 nach 15 Tagen ist ein einmal Vorgang. Wenn ein Administrator SMBv1 erneut installiert, werden keine weiteren Versuche unternommen, ihn zu deinstallieren.
 - Die Features der SMB-Version 2,02, 2,1, 3,0, 3,02 und 3.1.1 werden weiterhin vollständig unterstützt und sind standardmäßig als Teil der SMBv2-Binärdateien enthalten.    
-- Da der Computer Browser Dienst auf SMBv1 basiert, wird der Dienst deinstalliert, wenn der SMBv1-Client oder-Server deinstalliert wird. Dies bedeutet, dass Explorer networkwindows-Computer nicht mehr über die Legacy-Methode NetBIOS-Datagramm-Browsen anzeigen kann.    
+- Da der Computer Browser Dienst auf SMBv1 basiert, wird der Dienst deinstalliert, wenn der SMBv1-Client oder-Server deinstalliert wird. Dies bedeutet, dass das Explorer-Netzwerk Windows-Computer nicht mehr über die Legacy Methode NetBIOS-Datagramm-Browsen anzeigen kann.    
 - SMBv1 kann weiterhin in allen Editionen von Windows 10 und Windows Server 2016 neu installiert werden.    
  
   > [!NOTE]
@@ -108,7 +108,7 @@ Guidance:
 The client has SMB1 disabled or uninstalled. For more information: https://go.microsoft.com/fwlink/?linkid=852747.     
 ```
 
-Diese Geräte werden wahrscheinlich nicht unter Windows ausgeführt. Sie führen eher ältere Versionen von Linux, Samba oder anderen Arten von Drittanbieter Software aus, um SMB-Dienste bereitzustellen. Häufig werden diese Versionen von Linux und Samba nicht mehr unterstützt. 
+Diese Geräte werden wahrscheinlich nicht unter Windows ausgeführt.Sie führen eher ältere Versionen von Linux, Samba oder anderen Arten von Drittanbieter Software aus, um SMB-Dienste bereitzustellen. Häufig werden diese Versionen von Linux und Samba nicht mehr unterstützt. 
 
 > [!NOTE]
 > Windows 10, Version 1709, wird auch als "Fall Creators Update" bezeichnet.   
@@ -122,7 +122,7 @@ Um dieses Problem zu umgehen, wenden Sie sich an den Hersteller des Produkts, da
 
 Wenn SMBv1 erforderlich ist, um Anwendungs Kompatibilität für Legacy Software Verhalten bereitzustellen, z. b. eine Anforderung zum Deaktivieren von oplocks, bietet Windows ein neues SMB-freigabeflag, das als Leasing Modus bezeichnet wird. Dieses Flag gibt an, ob eine Freigabe eine moderne SMB-Semantik, wie z. b. Leases und oplocks, deaktiviert.
 
-Sie können eine Freigabe angeben, ohne oplocks oder Leasing zu verwenden, damit eine Legacy Anwendung mit SMBv2 oder einer höheren Version arbeiten kann. Verwenden Sie hierzu die PowerShell-Cmdlets " **New-smbshare** " oder " **Set-smbshare** " gemeinsam mit dem Parameter " **-leasingmode None** ".
+Sie können eine Freigabe angeben, ohne oplocks oder Leasing zu verwenden, damit eine Legacy Anwendung mit SMBv2 oder einer höheren Version arbeiten kann. Verwenden Sie hierzu die PowerShell-Cmdlets " **New-smbshare** " oder " **Set-smbshare** " gemeinsam mit dem Parameter " **-leasingmode None**"   .
 
 > [!NOTE]
 > Sie sollten diese Option nur für Freigaben verwenden, die von einer Drittanbieter Anwendung für ältere Unterstützung benötigt werden, wenn der Hersteller feststellt, dass Sie erforderlich ist. Geben Sie nicht den Leasing Modus für Benutzerdaten Freigaben oder ca-Freigaben an, die von Dateiservern mit horizontaler Skalierung verwendet werden. Dies liegt daran, dass durch das Entfernen von oplocks und Leases in den meisten Anwendungen Instabilität und beschädigte Daten verursacht werden. Der Leasing Modus funktioniert nur im Freigabe Modus. Sie kann von jedem Client Betriebssystem verwendet werden.
@@ -140,7 +140,7 @@ Wenn Sie jedoch weiterhin den Explorer Netzwerk eingehend Home-und Small Busines
 Alle Windows-Geräte in diesem Subnetz, die über diese Einstellungen verfügen, werden jetzt im Netzwerk zum Durchsuchen angezeigt. Dabei wird das WS-Discovery-Protokoll verwendet. Wenden Sie sich an andere Hersteller und Hersteller, wenn Ihre Geräte nach der Anzeige der Windows-Geräte noch nicht in dieser Liste angezeigt werden. Es ist möglich, dass dieses Protokoll deaktiviert ist oder nur SMBv1 unterstützt.
 
 > [!NOTE]
-> wir empfehlen, dass Sie Laufwerke und Drucker zuordnen, anstatt diese Funktion zu aktivieren, die weiterhin das Suchen und Durchsuchen nach Ihren Geräten erfordert. Zugeordnete Ressourcen sind leichter zu finden, erfordern weniger Schulungen und sind sicherer zu verwenden. Dies trifft vor allem dann zu, wenn diese Ressourcen automatisch über Gruppenrichtlinie bereitgestellt werden. Ein Administrator kann Drucker für den Speicherort mithilfe von IP-Adressen, Active Directory Domain Services (AD DS), Bonjour, mdns, UPnP usw. für den Speicherort konfigurieren.
+> Es wird empfohlen, dass Sie Laufwerke und Drucker zuordnen, anstatt diese Funktion zu aktivieren, die weiterhin das Suchen und Durchsuchen Ihrer Geräte erfordert. Zugeordnete Ressourcen sind leichter zu finden, erfordern weniger Schulungen und sind sicherer zu verwenden. Dies trifft vor allem dann zu, wenn diese Ressourcen automatisch über Gruppenrichtlinie bereitgestellt werden.Ein Administrator kann Drucker für den Speicherort mithilfe von IP-Adressen, Active Directory Domain Services (AD DS), Bonjour, mdns, UPnP usw. für den Speicherort konfigurieren.
 
 Wenn Sie keine dieser Problem Umgehungen verwenden können, oder wenn der Anwendungshersteller keine unterstützten Versionen von SMB bereitstellen kann, können Sie SMBv1 manuell erneut aktivieren, indem Sie die Schritte unter [erkennen, aktivieren und Deaktivieren von SMBv1, SMBv2 und SMBv3 in Windows](detect-enable-and-disable-smbv1-v2-v3.md)ausführen.
 
@@ -161,6 +161,6 @@ Windows Server 2012 und spätere Server Betriebssysteme enthalten einen Best Pra
 
 Sie sollten diese spezielle Richtlinie der BPA-Regel ignorieren, da sie veraltet ist. Wir wiederholen Folgendes: Aktivieren Sie SMB 1,0 nicht.
 
-## <a name="references"></a>Verweise
+## <a name="references"></a>Referenzen
 
 [Verwendung von Server Message Block nicht mehr](https://aka.ms/stopusingsmb1)

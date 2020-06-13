@@ -6,12 +6,12 @@ manager: dcscontentpm
 ms.topic: article
 ms.author: delhan
 ms.date: 12/25/2019
-ms.openlocfilehash: d6c47843dedaf45842f70d1bb408b59d63c03eb4
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: dd2f4c6b6bb17231ac04b3344e9a39df2cad79d0
+ms.sourcegitcommit: fb808a6fc851a3e5c47e6a7654366145d2f19554
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80815503"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84740643"
 ---
 # <a name="how-to-detect-enable-and-disable-smbv1-smbv2-and-smbv3-in-windows"></a>Erkennen, aktivieren und Deaktivieren von SMBv1, SMBv2 und SMBv3 in Windows
 
@@ -35,7 +35,7 @@ In Windows 7 und Windows Server 2008 R2 werden bei der Deaktivierung von SMBv2 d
 - Unterstützung großer MTU-für die vollständige Nutzung von 10-gigabye (GB) Ethernet    
 - Verbesserte Energieeffizienz: Clients mit geöffneten Dateien auf einem Server können in den Standbymodus wechseln.    
 
-In Windows 8, Windows 8.1, Windows 10, Windows Server 2012 und Windows Server 2016 deaktiviert die Deaktivierung von SMBv3 die folgende Funktionalität (und außerdem die SMBv2-Funktionalität, die in der vorherigen Liste beschrieben wird): 
+In Windows 8, Windows 8.1, Windows 10, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016 und Windows Server 2019 deaktiviert die Deaktivierung von SMBv3 die folgende Funktionalität (und außerdem die SMBv2-Funktionalität, die in der vorherigen Liste beschrieben wird): 
  
 - Transparentes Failover: Clients stellen während Wartung oder Failover keine Unterbrechung der Cluster Knoten wieder her.    
 - Scale Out – gleichzeitigen Zugriff auf freigegebene Daten auf allen Datei Cluster Knoten     
@@ -57,11 +57,11 @@ Weitere Informationen zu den Funktionen der SMBv2-und SMBv3-Funktionen finden Si
 
 [Neues in SMB](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ff625695(v=ws.10))  
 
-## <a name="how-to-gracefully-remove-smb-v1-in-windows-81-windows-10-windows-2012-r2-and-windows-server-2016"></a>Vorgehensweise zum ordnungsgemäßen Entfernen von SMB V1 in Windows 8.1, Windows 10, Windows 2012 R2 und Windows Server 2016
+## <a name="how-to-gracefully-remove-smb-v1-in-windows-81-windows-10-windows-2012-r2-windows-server-2016-and-windows-server-2019"></a>Vorgehensweise zum ordnungsgemäßen Entfernen von SMB V1 in Windows 8.1, Windows 10, Windows 2012 R2, Windows Server 2016 und Windows Server 2019
 
-#### <a name="windows-server-2012-r2--2016-powershell-methods"></a>Windows Server 2012 R2 & 2016: PowerShell-Methoden
+#### <a name="powershell-methods"></a>PowerShell-Methoden
 
-##### <a name="smb-v1"></a>SMB v1
+##### <a name="smb-v1-client-and-server"></a>SMB v1 (Client und Server)
 
 - Auf 
 
@@ -75,33 +75,13 @@ Weitere Informationen zu den Funktionen der SMBv2-und SMBv3-Funktionen finden Si
   Disable-WindowsOptionalFeature -Online -FeatureName smb1protocol
   ```
 
-- Fähigen 
+- Aktivieren Sie: 
 
   ```PowerShell
   Enable-WindowsOptionalFeature -Online -FeatureName smb1protocol
   ```
 
-##### <a name="smb-v2v3"></a>SMB v2/v3
-
-- Auf
-  
-  ```PowerShell
-  Get-SmbServerConfiguration | Select EnableSMB2Protocol
-  ```
-
-- Ier
-
-  ```PowerShell
-  Set-SmbServerConfiguration -EnableSMB2Protocol $false
-  ```
-
-- Fähigen
-
-  ```PowerShell
-  Set-SmbServerConfiguration -EnableSMB2Protocol $true 
-  ```
-
-#### <a name="windows-server-2012-r2-and-windows-server-2016-server-manager-method-for-disabling-smb"></a>Windows Server 2012 R2 und Windows Server 2016: Server-Manager Methode zum Deaktivieren von SMB
+#### <a name="windows-server-2012-r2-windows-server-2016-windows-server-2019-server-manager-method-for-disabling-smb"></a>Windows Server 2012 R2, Windows Server 2016, Windows Server 2019: Server-Manager Methode zum Deaktivieren von SMB
 
 ##### <a name="smb-v1"></a>SMB v1
 
@@ -123,13 +103,13 @@ Weitere Informationen zu den Funktionen der SMBv2-und SMBv3-Funktionen finden Si
   Disable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol
   ```
 
-- Fähigen 
+- Aktivieren Sie: 
 
   ```PowerShell
   Enable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol
   ```
 
-##### <a name="smb-v2v3protocol"></a>SMB v2/v3-Protokoll
+##### <a name="smb-v2v3protocol-only-disables-smb-v2v3-server"></a>SMB v2/v3-Protokoll (nur der SMB v2/v3-Server wird deaktiviert)
 
 - Auf 
   
@@ -143,7 +123,7 @@ Weitere Informationen zu den Funktionen der SMBv2-und SMBv3-Funktionen finden Si
   Set-SmbServerConfiguration –EnableSMB2Protocol $false
   ```
 
-- Fähigen
+- Aktivieren Sie:
 
   ```PowerShell
   Set-SmbServerConfiguration –EnableSMB2Protocol $true
@@ -178,7 +158,7 @@ Sie müssen den Computer nach dem Ausführen des Cmdlets " **Set-smbserverconfig
   Set-SmbServerConfiguration -EnableSMB1Protocol $false
   ```
 
-- Fähigen 
+- Aktivieren Sie: 
   ```PowerShell
   Set-SmbServerConfiguration -EnableSMB1Protocol $true
   ```
@@ -198,7 +178,7 @@ Weitere Informationen finden Sie unter [Server Speicher bei Microsoft](https://t
   Set-SmbServerConfiguration -EnableSMB2Protocol $false
   ```
 
-- Fähigen
+- Aktivieren Sie:
   
   ```PowerShell
   Set-SmbServerConfiguration -EnableSMB2Protocol $true
@@ -206,7 +186,7 @@ Weitere Informationen finden Sie unter [Server Speicher bei Microsoft](https://t
 
 ### <a name="for-windows-7-windows-server-2008-r2-windows-vista-and-windows-server-2008"></a>Für Windows 7, Windows Server 2008 R2, Windows Vista und Windows Server 2008
 
-Verwenden Sie Windows PowerShell oder den Registrierungs-Editor, um SMB-Protokolle auf einem SMB-Server mit runningwindows 7, Windows Server 2008 R2, Windows Vista oder Windows Server 2008 zu aktivieren bzw. zu deaktivieren. 
+Zum Aktivieren oder Deaktivieren von SMB-Protokollen auf einem SMB-Server, auf dem Windows 7, Windows Server 2008 R2, Windows Vista oder Windows Server 2008 ausgeführt wird, verwenden Sie Windows PowerShell oder den Registrierungs-Editor. 
 
 #### <a name="powershell-methods"></a>PowerShell-Methoden
 
@@ -229,7 +209,7 @@ Ier
 Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" SMB1 -Type DWORD -Value 0 –Force
 ```
 
-Fähigen  
+Aktivieren Sie:  
 
 ```PowerShell
 Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" SMB1 -Type DWORD -Value 1 –Force
@@ -250,7 +230,7 @@ Ier
 Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" SMB2 -Type DWORD -Value 0 –Force  
 ```
 
-Fähigen
+Aktivieren Sie:
 
 ```PowerShell
 Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" SMB2 -Type DWORD -Value 1 –Force 
@@ -262,7 +242,7 @@ Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Par
 #### <a name="registry-editor"></a>Registrierungs-Editor
 
 > [!IMPORTANT]
-> Folgen Sie den Schritten in diesem Abschnitt sorgfältig. Wenn Ihnen beim Bearbeiten der Registrierung ein Fehler unterläuft, kann dies zu schwerwiegenden Problemen führen. Bevor Sie sie ändern, [sichern Sie die Registrierung zwecks Wiederherstellung](https://support.microsoft.com/help/322756) für den Fall, dass Probleme auftreten.
+> Folgen Sie den Schritten in diesem Abschnitt sorgfältig. Wird die Registrierung falsch angepasst, können schwerwiegende Probleme auftreten. Bevor Sie sie ändern, [sichern Sie die Registrierung zwecks Wiederherstellung](https://support.microsoft.com/help/322756) für den Fall, dass Probleme auftreten.
  
 Um SMBv1 auf dem SMB-Server zu aktivieren oder zu deaktivieren, konfigurieren Sie den folgenden Registrierungsschlüssel:
 
@@ -287,7 +267,7 @@ Default: 1 = Enabled (No registry key is created)
 ```
 
 > [!NOTE]
-> müssen Sie den Computer neu starten, nachdem Sie diese Änderungen vorgenommen haben. 
+> Sie müssen den Computer neu starten, nachdem Sie diese Änderungen vorgenommen haben. 
 
 ## <a name="how-to-detect-status-enable-and-disable-smb-protocols-on-the-smb-client"></a>Erkennen von Status, aktivieren und Deaktivieren von SMB-Protokollen auf dem SMB-Client
 
@@ -298,7 +278,7 @@ Default: 1 = Enabled (No registry key is created)
 
 ##### <a name="smb-v1-on-smb-client"></a>SMB v1 auf dem SMB-Client
 
-- Erkennen
+- Detect
   
   ```cmd
   sc.exe qc lanmanworkstation
@@ -311,7 +291,7 @@ Default: 1 = Enabled (No registry key is created)
   sc.exe config mrxsmb10 start= disabled
   ```
 
-- Fähigen
+- Aktivieren Sie:
 
   ```cmd
   sc.exe config lanmanworkstation depend= bowser/mrxsmb10/mrxsmb20/nsi
@@ -334,7 +314,7 @@ Weitere Informationen finden Sie unter [Server Speicher bei Microsoft](https://b
   sc.exe config mrxsmb20 start= disabled 
   ```
 
-- Fähigen
+- Aktivieren Sie:
 
   ```cmd
   sc.exe config lanmanworkstation depend= bowser/mrxsmb10/mrxsmb20/nsi
@@ -399,7 +379,7 @@ Registrierungs Eintrag: **Start** REG_DWORD: **4**= deaktiviert
 Registrierungs Eintrag: **DependOnService** REG_MULTI_SZ: **"Bowser", "MRxSmb20", "NSI"**   
 
 > [!NOTE]
-> die Standard MRxSMB10, die jetzt als Abhängigkeit entfernt wurde.
+> Der Standard MRxSMB10, der nun als Abhängigkeit entfernt wurde.
 
 Führen Sie die folgenden Schritte aus, um dies mithilfe Gruppenrichtlinie zu konfigurieren:
  

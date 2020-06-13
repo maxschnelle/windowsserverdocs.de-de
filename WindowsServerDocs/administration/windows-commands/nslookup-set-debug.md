@@ -1,6 +1,6 @@
 ---
 title: nslookup set debug
-description: Referenz Thema für * * * *-
+description: Referenz Thema für den nslookup Set Debug-Befehl, mit dem der Debugmodus ein-und ausgeschaltet wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 92a6f53105c682500d68fa7bf07fdcbacea75f34
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 910dd197fe756e733b61318243130e85b4410eb1
+ms.sourcegitcommit: 99d548141428c964facf666c10b6709d80fbb215
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82723630"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84721173"
 ---
 # <a name="nslookup-set-debug"></a>nslookup set debug
-
-
 
 Schaltet den Debugmodus ein oder aus.
 
@@ -30,15 +28,12 @@ set [no]debug
 
 ### <a name="parameters"></a>Parameter
 
-|  Parameter  |                         BESCHREIBUNG                          |
-|-------------|--------------------------------------------------------------|
-| **NoDebug** | Deaktiviert den Debugmodus. Die Standard Syntax ist **NoDebug**. |
-|  **gen**  |                   Schaltet den Debugmodus um.                   |
-|  \*\*{Hilfe  |                            ?}\*\*                            |
-
-## <a name="remarks"></a>Bemerkungen
-
--   Wenn der Debugmodus aktiviert ist, werden weitere Informationen über das an den Server gesendete Paket und die sich ergebende Antwort ausgegeben.
+| Parameter | BESCHREIBUNG |
+| ---------- | ---------- |
+| NoDebug | Deaktiviert den Debugmodus. Dies ist der Standardwert. |
+| debug | Schaltet den Debugmodus um. Wenn Sie den Debugmodus aktivieren, können Sie weitere Informationen über das an den Server gesendete Paket und die sich ergebende Antwort anzeigen. |
+| /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
+| /help | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 

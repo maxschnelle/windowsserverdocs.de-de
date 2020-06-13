@@ -1,6 +1,6 @@
 ---
 title: nslookup set retry
-description: Referenz Thema für * * * *-
+description: Referenz Thema für den Befehl nslookup Set Wiederholen Sie, mit dem die Anzahl der Versuche zum Abrufen von Informationen von einem angegebenen Server festgelegt wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,31 +9,38 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1baeeaefedc211434f46bd0cfad713f093a873bf
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 268a9f0023c0e7e19e8ed413895f639444fe3b88
+ms.sourcegitcommit: 99d548141428c964facf666c10b6709d80fbb215
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82723585"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84721463"
 ---
 # <a name="nslookup-set-retry"></a>nslookup set retry
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Legt die Anzahl der Wiederholungen fest.
+Wenn eine Antwort nicht innerhalb einer bestimmten Zeitspanne empfangen wird, wird der Timeout Zeitraum verdoppelt, und die Anforderung wird erneut gesendet. Mit diesem Befehl wird festgelegt, wie oft eine Anforderung erneut an einen Server gesendet wird, um weitere Informationen zu erhalten.
+
+> [!NOTE]
+> Verwenden Sie den Befehl [nslookup Set Timeout](nslookup-set-timeout.md) , um die Zeitspanne zu ändern, bevor das Timeout der Anforderung abgelaufen ist.
+
 ## <a name="syntax"></a>Syntax
+
 ```
-set retry=<Number>
+set retry=<number>
 ```
+
 ### <a name="parameters"></a>Parameter
 
-|    Parameter    |                                      BESCHREIBUNG                                       |
-|-----------------|----------------------------------------------------------------------------------------|
-|    <Number>     | Gibt den neuen Wert für die Anzahl der Wiederholungs Versuche an. Die Standard Anzahl von Wiederholungen ist 4. |
-| {Help &#124;?} |                 Zeigt eine kurze Zusammenfassung der **nslookup** -Unterbefehle an.                  |
+| Parameter | BESCHREIBUNG |
+| ---------- | ---------- |
+| `<number>` | Gibt den neuen Wert für die Anzahl der Wiederholungs Versuche an. Die Standard Anzahl von Wiederholungen ist **4**. |
+| /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
+| /help | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-## <a name="remarks"></a>Bemerkungen
-- Wenn eine Antwort auf eine Anforderung nicht innerhalb einer bestimmten Zeitspanne empfangen wird, wird der Timeout Zeitraum verdoppelt, und die Anforderung wird erneut gesendet. Der wiederholen Sie-Wert steuert, wie oft eine Anforderung erneut gesendet wird, bevor Sie den Vorgang aufgibt. Sie können den Timeout Zeitraum mit dem Unterbefehl **Set Timeout** ändern.
-  ## <a name="additional-references"></a>Zusätzliche Referenzen
-  - [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
-  [nslookup Satz Timeout](nslookup-set-timeout.md)
+## <a name="additional-references"></a>Zusätzliche Referenzen
+
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [nslookup set timeout](nslookup-set-timeout.md)

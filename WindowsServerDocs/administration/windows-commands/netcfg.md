@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6910f7e3f3d2f100942897bd9712293f7eb0f4d9
-ms.sourcegitcommit: 5e313a004663adb54c90962cfdad9ae889246151
+ms.openlocfilehash: 5a308441df55873b205972d703ec52f53345beb5
+ms.sourcegitcommit: 99d548141428c964facf666c10b6709d80fbb215
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84354260"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84721553"
 ---
 # <a name="netcfg"></a>netcfg
 
@@ -40,7 +40,7 @@ netcfg [/v] [/e] [/winpe] [/l ] /c /i
 | /i | Stellt die Komponenten-ID bereit. |
 | /s | Gibt den Typ der anzuzeigenden Komponenten an, einschließlich **\ta** für Adapter oder **n** für NET-Komponenten. |
 | /b | Zeigt die Bindungs Pfade an, wenn eine Zeichenfolge mit dem Namen des Pfads folgt. |
-| /? | Zeigt die Hilfe an der Eingabeaufforderung an. |                                                    |
+| /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
 ### <a name="examples"></a>Beispiele
 

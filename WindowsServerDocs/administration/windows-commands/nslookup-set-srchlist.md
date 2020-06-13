@@ -1,6 +1,6 @@
 ---
 title: nslookup set srchlist
-description: Referenz Thema für * * * *-
+description: Referenz Thema für den Befehl "nslookup set srchlist", mit dem der DNS-Domain Name System Standard Domänen Name und die Suchliste geändert werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,38 +9,49 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8936daa3505b02295ae2f09c2910dead8d4c0ff8
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: ed9bbce1910324c4cae5da4228a6d3d1f269d050
+ms.sourcegitcommit: 99d548141428c964facf666c10b6709d80fbb215
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82723551"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84721400"
 ---
 # <a name="nslookup-set-srchlist"></a>nslookup set srchlist
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-ändert den Domain Name System Standard-DNS-Domänen Namen und die Suchliste.
+Ändert den Domain Name System Standard-DNS-Domänen Namen und die Suchliste. Dieser Befehl überschreibt den Standard-DNS-Domänen Namen und die Suchliste des Befehls [nslookup Set Domain](nslookup-set-domain.md) .
 
 ## <a name="syntax"></a>Syntax
+
 ```
-Set srchlist=<DomainName>[/...]
+set srchlist=<domainname>[/...]
 ```
+
 ### <a name="parameters"></a>Parameter
 
-|    Parameter    |                                                                                        BESCHREIBUNG                                                                                        |
-|-----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|  <DomainName>   | Gibt neue Namen für die DNS-Standard Domäne und-Suchliste an. Der Standardwert für den Domänen Namen basiert auf dem Hostnamen. Sie können maximal sechs Namen angeben, die durch Schrägstriche (/) getrennt sind. |
-| {Help &#124;?} |                                                                   Zeigt eine kurze Zusammenfassung der **nslookup** -Unterbefehle an.                                                                   |
+| Parameter | BESCHREIBUNG |
+| --------- | ----------- |
+| `<domainname>` | Gibt neue Namen für die DNS-Standard Domäne und-Suchliste an. Der Standardwert für den Domänen Namen basiert auf dem Hostnamen. Sie können maximal sechs Namen angeben, die durch Schrägstriche (/) getrennt sind. |
+| /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
+| /help | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-## <a name="remarks"></a>Bemerkungen
-- Der Befehl **set srchlist**überschreibt den Standard-DNS-Domänen Namen und die Suchliste des Befehls **Set Domain** . Verwenden Sie den Befehl **alle festlegen** , um die Liste anzuzeigen.
-  ## <a name="examples"></a>Beispiele
-  So legen Sie die DNS-Domäne auf MFG.widgets.com und die Suchliste auf die drei Namen fest:
-  ```
-  set srchlist=mfg.widgets.com/mrp2.widgets.com/widgets.com
-  ```
-  ## <a name="additional-references"></a>Zusätzliche Referenzen
-  - [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
-  [nslookup legen Sie Domäne](nslookup-set-domain.md)
-  [nslookup alle festlegen fest](nslookup-set-all.md) .
+#### <a name="remarks"></a>Hinweise
+
+- Verwenden Sie den Befehl [nslookup alle festlegen](nslookup-set-all.md) , um die Liste anzuzeigen.
+
+### <a name="examples"></a>Beispiele
+
+So legen Sie die DNS-Domäne auf *MFG.widgets.com* und die Suchliste auf die drei Namen fest:
+
+```
+set srchlist=mfg.widgets.com/mrp2.widgets.com/widgets.com
+```
+
+## <a name="additional-references"></a>Zusätzliche Referenzen
+
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [nslookup set domain](nslookup-set-domain.md)
+
+- [nslookup set all](nslookup-set-all.md)
