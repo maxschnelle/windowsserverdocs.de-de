@@ -1,26 +1,26 @@
 ---
 ms.assetid: c91c7196-ee0d-4856-8cfb-4c38494ccf1f
-title: 'Übersicht: Arbeitsordner'
+title: Übersicht über Arbeitsordner
 ms.prod: windows-server
 ms.technology: storage-work-folders
 ms.topic: article
 author: JasonGerend
 manager: dougkim
 ms.author: jgerend
-ms.date: 06/07/2019
-description: Eine Übersicht über die Arbeitsordner - eine Serverrolle in Windows Server, durch die Benutzer auf einheitliche Art und Weise über PCs und Geräte auf ihre Arbeitsdateien zugreifen können.
-ms.openlocfilehash: 67c62d81c7d9b6d33a198f5282fa39a88e07f2e8
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.date: 06/15/2020
+description: 'Eine Übersicht über Arbeitsordner: eine Server Rolle in Windows Server, die Benutzern eine konsistente Möglichkeit bietet, auf Arbeitsdateien von PCs und Geräten zuzugreifen.'
+ms.openlocfilehash: 8bd60cc0ab57935a7ce2da0ca33bd0d4c840fa2b
+ms.sourcegitcommit: cb266c8ea42b9800babbbe96b17885e82b55787d
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80820783"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84795727"
 ---
-# <a name="work-folders-overview"></a>Übersicht: Arbeitsordner
+# <a name="work-folders-overview"></a>Übersicht über Arbeitsordner
 
 >Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows 10, Windows 8.1, Windows 7
 
-In diesem Thema werden Arbeitsordner behandelt, ein Rollendienst für Dateiserver mit Windows Servern, durch die Benutzer auf einheitliche Art und Weise über PCs und Geräte auf ihre Arbeitsdateien zugreifen können.  
+In diesem Thema werden Arbeitsordner erläutert, ein Rollen Dienst für Dateiserver unter Windows Server, der Benutzern eine konsistente Möglichkeit bietet, von ihren PCs und Geräten auf Ihre Arbeitsdateien zuzugreifen.  
   
 Wenn Sie Arbeitsordner auf Windows 10, Windows 7 oder einem Android-oder IOS-Gerät herunterladen oder verwenden möchten, finden Sie hier weitere Informationen:
 
@@ -34,45 +34,48 @@ Wenn Sie Arbeitsordner auf Windows 10, Windows 7 oder einem Android-oder IOS-Ger
 
  Benutzer können nicht nur mit Firmen-PCs sondern auch mit ihren eigenen Computern und Geräten auf Arbeitsdaten zugreifen und mit ihnen arbeiten. Dies wird als BYOD (bring-your-own-device) bezeichnet. Benutzer erhalten einen komfortablen Ort, um Arbeitsdateien zu speichern und von beliebigem Ort aus darauf zuzugreifen. Organisationen behalten die Kontrolle über Unternehmensdaten durch Speichern der Dateien auf zentral verwalteten Dateiservern und optionale Festlegung von Benutzerrichtlinien für Geräte (z.B. Verschlüsselung und Sperrbildschirmkennwörter).  
   
- Die Arbeitsordner können mit der vorhandenen Bereitstellung von Ordnerumleitung, Offlinedateien und Stammordner bereitgestellt werden. Arbeitsordner speichern Benutzerdateien in einem Ordner auf dem Server mit dem Namen *sync share*. Sie können einen Ordner angeben, der bereits Benutzerdaten enthält. Dadurch können Sie Arbeitsordner übernehmen, ohne Server und Daten zu migrieren oder sofort eine vorhandene Lösung abzulösen.  
+ Arbeitsordner können mit vorhandenen bereit Stellungen von Ordner Umleitung, Offlinedateien und Basis Ordnern bereitgestellt werden. In Arbeits Ordnern werden Benutzer Dateien in einem Ordner auf dem Server gespeichert, der als *Synchronisierungs Freigabe*bezeichnet wird. Sie können einen Ordner angeben, der bereits Benutzerdaten enthält. Dadurch können Sie Arbeitsordner übernehmen, ohne Server und Daten zu migrieren oder die vorhandene Lösung sofort auszulagern.  
   
-## <a name="practical-applications"></a>Praktische Anwendungsfälle
+## <a name="practical-applications"></a>Praktische Anwendung
 
- Administratoren können Arbeitsordner verwenden, um Benutzern Zugriff auf ihre Dateien zu ermöglichen und gleichzeitig die zentrale Speicherung und Kontrolle über die Daten des Unternehmens beizubehalten. Spezifische Anwendungen für Arbeitsordner umfassen:  
+ Administratoren können Arbeitsordner verwenden, um Benutzern Zugriff auf Ihre Arbeitsdateien zu gewähren und gleichzeitig zentralisierte Speicherung und Kontrolle über die Daten der Organisation zu behalten. Einige bestimmte Anwendungen für Arbeitsordner umfassen Folgendes:  
   
--   Eine zentrale Anlaufstelle für den Zugriff auf die Arbeitsdateien über private und geschäftliche PCs und Geräte des Benutzers bieten  
+-   Bereitstellen eines einzelnen Zugriffs Punkts für Arbeitsdateien von der Arbeit eines Benutzers und von persönlichen Computern und Geräten  
   
--   Zugriff auf Dateien offline und Synchronisierung mit dem zentralen Dateiserver, wenn der PC oder das Gerät mit dem Internet oder Intranet verbunden ist  
+-   Greifen Sie offline auf Arbeitsdateien zu, und synchronisieren Sie dann mit dem zentralen Dateiserver, wenn der PC oder das Gerät das nächste Internet oder Intranetkonnektivität hat.  
   
--   Mit vorhandenen Bereitstellungen von Ordnerumleitung, Offlinedateien und Stammordner bereitstellen  
+-   Bereitstellung mit vorhandenen bereit Stellungen von Ordner Umleitung, Offlinedateien und Basis Ordnern  
   
--   Vorhandene Dateiserververwaltung-Technologien wie z. B. Dateiklassifizierung und Ordnerkontingente zum Verwalten von Benutzerdaten verwenden  
+-   Verwenden vorhandener Technologien zur Dateiserver Verwaltung, z. b. Datei Klassifizierung und Ordner Kontingente, zum Verwalten von Benutzerdaten  
   
--   Sicherheitsrichtlinien für PCs und Geräte der Benutzer festlegen, um Arbeitsordner zu verschlüsseln und einen Sperrbildschirm mit Kennwort zu verwenden  
+-   Angeben von Sicherheitsrichtlinien, um PCs und Geräte des Benutzers anzuweisen, Arbeitsordner zu verschlüsseln und ein Kennwort für den Sperrbildschirm zu verwenden  
   
--   Failoverclustering mit Arbeitsordner für eine Hochverfügbarkeitslösung verwenden  
+-   Verwenden des Failoverclustering mit Arbeits Ordnern zum Bereitstellen einer Lösung mit hoher Verfügbarkeit  
   
 ## <a name="important-functionality"></a>Wichtige Funktionalität
 
- Arbeitsordner enthalten folgende Funktionen.  
+ Arbeitsordner beinhalten die folgenden Funktionen.  
   
-| Funktionalität | Verfügbarkeit | Beschreibung |  
+| Funktionalität | Verfügbarkeit | BESCHREIBUNG |  
 | ------------------- | ------------------ | ----------------- |  
-| Rollendienst für Arbeitsordner im Server-Manager | Windows Server 2019, Windows Server 2016 oder Windows Server 2012 R2 | Datei- und Speicherdienste bietet eine Möglichkeit zur Bereitstellung der Synchronisierungsfreigabe (Ordner, die Arbeitsdateien des Benutzers speichern), zur Überwachung von Arbeitsordnern und zur Verwaltung der Synchronisierungsfreigabe und der Zugriffsrechte von Benutzern |
-| -Cmdlets für Arbeitsordner | Windows Server 2019, Windows Server 2016 oder Windows Server 2012 R2 | Ein Windows PowerShell-Modul, das umfassende -Cmdlets zum Verwalten von Arbeitsordnerservern enthält |  
-| Integration der Arbeitsordner mit Windows | Windows 10<p> Windows 8.1<p> Windows RT 8.1<p> Windows 7 (Download erforderlich) | Arbeitsordner bietet folgende Funktionen in Windows-Computern:<p> -   Ein Systemsteuerungselement, das Arbeitsordner einrichtet und überwacht<br />-   Datei-Explorer-Integration, die den einfachen Zugriff auf Dateien in den Arbeitsordnern ermöglicht<br />-   Ein Synchronisierungsmodul, das Dateien von und zu einem zentralen Dateiserver überträgt und gleichzeitig die Akkulaufzeit und Systemleistung maximiert |
-| Arbeitsordner-App für Geräte | Android<p> Apple iPhone und iPad® | Eine App, die häufig verwendeten Geräten Zugriff auf Dateien in den Arbeitsordnern ermöglicht |  
+| Rollen Dienst "Arbeitsordner" in Server-Manager | Windows Server 2019, Windows Server 2016 oder Windows Server 2012 R2 | Datei-und Speicherdienste bieten eine Möglichkeit, Synchronisierungs Freigaben (Ordner, in denen die Arbeitsdateien des Benutzers gespeichert sind) einzurichten, Arbeitsordner zu überwachen und Synchronisierungs Freigaben und den Benutzer Zugriff zu verwalten |
+| Arbeitsordner-Cmdlets | Windows Server 2019, Windows Server 2016 oder Windows Server 2012 R2 | Ein Windows PowerShell-Modul, das umfassende Cmdlets zum Verwalten von Arbeitsordner Servern enthält |  
+| Integration von Arbeits Ordnern in Windows | Windows 10<p> Windows 8.1<p> Windows RT 8.1<p> Windows 7 (Download erforderlich) | Arbeitsordner bieten die folgenden Funktionen auf Windows-Computern:<p> -Ein System Steuerungselement, das Arbeitsordner einrichtet und überwacht.<br />-Datei-Explorer-Integration, die den einfachen Zugriff auf Dateien in Arbeits Ordnern ermöglicht<br />-Ein Synchronisierungs Modul, das Dateien an einen und von einem zentralen Dateiserver überträgt und gleichzeitig die Akku Lebensdauer und die Systemleistung maximiert |
+| Arbeitsordner-App für Geräte | Android<p> Apple iPhone und iPad® | Eine APP, die gängigen Geräten den Zugriff auf Dateien in Arbeits Ordnern ermöglicht |  
   
 ## <a name="new-and-changed-functionality"></a>Neue und geänderte Funktionalität
   
-In der folgenden Tabelle werden einige der wichtigen Änderungen für Arbeitsordner beschrieben.  
+In der folgenden Tabelle werden einige der wichtigsten Änderungen in den Arbeits Ordnern beschrieben.  
   
 | Feature/Funktionalität | Neu oder aktualisiert? | Beschreibung |
 | ---------------------------- | --------------------- | ----------------- |
-| Azure AD-Anwendungs-Proxyunterstützung | Wurde Windows 10, Version 1703, Android, iOS hinzugefügt | Remote-Benutzer können mithilfe von Azure AD-Anwendungsproxy sicher auf ihre Dateien auf dem Arbeitsordnerserver zugreifen. |
-| Replikation schneller ändern | In Windows 10 und Windows Server 2016 aktualisiert | Werden unter Windows Server 2012 R2 Dateiänderungen auf die Arbeitsordner-Server synchronisiert, werden die Clients nicht über die Änderung benachrichtigt, und es dauert bis zu 10 Minuten, bis die Aktualisierungen verfügbar sind. Bei Verwendung von Windows Server 2016 benachrichtigt der Arbeitsordner Server sofort Windows 10-Clients, und die Dateiänderungen werden sofort synchronisiert. Diese Funktion ist neu in Windows Server 2016 und erfordert einen Windows 10-Client. Wenn Sie einen älteren Client verwenden oder wenn auf dem Arbeitsordnerserver Windows Server 2012 R2 ausgeführt wird, sucht der Client weiterhin alle zehn Minuten nach Änderungen. |  
-| WIP-Integration (Windows Information Protection) | Wurde Windows 10 Version 1607 hinzugefügt | Wenn ein Administrator WIP bereit stellt, können die Arbeitsordner Datenschutz erzwingen, indem sie Daten auf dem PC verschlüsseln. Die Verschlüsselung verwendet einen der Enterprise-ID zugeordneten Schlüssel, der remote mithilfe eines unterstützten Mobilgerät Management-Pakets wie Microsoft Intune zurückgesetzt werden kann. |  
-| Microsoft Office-Integration | Wurde Windows 10 Version 1511 hinzugefügt | Sie können in Windows 8.1 innerhalb der Office-Apps durch Anklicken oder Tippen auf „Dieser PC” zu den Arbeitsordnern auf den Speicherorten der Arbeitsordner auf Ihrem PC navigieren. In Windows 10 gelangen Sie noch einfacher zu den Arbeitsordnern, indem Sie diese der Liste der Speicherorte hinzufügen, die Office beim Speichern oder Öffnen von Dateien anzeigt. Weitere Informationen finden Sie unter [Arbeitsordner unter Windows 10](https://windows.microsoft.com/windows-10/work-folders-in-windows-10) und [Problembehandlung bei der Verwendung von Arbeitsordnern in Microsoft Office](https://social.technet.microsoft.com/wiki/contents/articles/32881.troubleshooting-using-work-folders-as-a-place-in-microsoft-office.aspx). |  
+| Verbesserte Protokollierung. | Neu in Windows Server 2019 | Ereignisprotokolle auf dem Arbeitsordner Server können zum Überwachen der Synchronisierungs Aktivität und zum Identifizieren von Benutzern verwendet werden, bei denen Synchronisierungs Sitzungen fehlschlagen. Verwenden Sie die Ereignis-ID 4020 im Ereignisprotokoll Microsoft-Windows-syncshare/Operational, um zu ermitteln, für welche Benutzer Synchronisierungs Sitzungen fehlschlagen. Verwenden Sie die Ereignis-ID 7000 und Ereignis-ID 7001 im Ereignisprotokoll Microsoft-Windows-syncshare/Reporting, um Benutzer zu überwachen, die das Hochladen und Herunterladen von Synchronisierungs Sitzungen erfolgreich abgeschlossen haben. |
+| Leistungsindikatoren | Neu in Windows Server 2019 | Die folgenden Leistungsindikatoren wurden hinzugefügt: Bytes heruntergeladen/Sek., hochgeladene Bytes/Sek., verbundene Benutzer, heruntergeladene Dateien/Sek., hochgeladene Dateien/Sek., Benutzer mit Änderungs Erkennung, eingehende Anforderungen/Sek. und ausstehende Anforderungen. |
+| Verbesserte Serverleistung | Aktualisiert in Windows Server 2019 | Leistungsverbesserungen wurden vorgenommen, um mehr Benutzer pro Server zu verarbeiten. Der Grenzwert pro Server variiert und basiert auf der Anzahl der Dateien und der Datei Änderung. Zum Ermitteln des Limits pro Server sollten Benutzer in Phasen dem Server hinzugefügt werden. |
+| On-Demand-Dateizugriff | Zu Windows 10 Version 1803 hinzugefügt | Ermöglicht Ihnen, alle Dateien anzuzeigen und darauf zuzugreifen. Sie steuern, welche Dateien auf dem PC gespeichert und offline verfügbar sind. Die restlichen Dateien sind immer sichtbar und belegen keinen Speicherplatz auf Ihrem PC, aber Sie benötigen eine Verbindung mit dem Dateiserver für Arbeitsordner, um darauf zuzugreifen. |
+| Unterstützung für Azure AD-Anwendungs Proxy | Zu Windows 10, Version 1703, Android, IOS hinzugefügt | Remote Benutzer können mithilfe Azure AD Anwendungs Proxys sicher auf Ihre Dateien auf dem Arbeitsordner Server zugreifen. |
+| Schnellere Änderungs Replikation | Aktualisiert in Windows 10 und Windows Server 2016 | Werden unter Windows Server 2012 R2 Dateiänderungen auf die Arbeitsordner-Server synchronisiert, werden die Clients nicht über die Änderung benachrichtigt, und es dauert bis zu 10 Minuten, bis die Aktualisierungen verfügbar sind. Bei Verwendung von Windows Server 2016 benachrichtigt der Arbeitsordner Server sofort Windows 10-Clients, und die Dateiänderungen werden sofort synchronisiert. Diese Funktion ist neu in Windows Server 2016 und erfordert einen Windows 10-Client. Wenn Sie einen älteren Client verwenden oder der Server "Arbeitsordner" Windows Server 2012 R2 ist, wird der Client weiterhin alle 10 Minuten nach Änderungen suchen. |  
+| Integriert in Windows Information Protection (WIP) | Zu Windows 10 Version 1607 hinzugefügt | Wenn ein Administrator WIP bereitstellt, können Arbeitsordner den Schutz von Daten erzwingen, indem die Daten auf dem PC verschlüsselt werden. Die Verschlüsselung verwendet einen Schlüssel, der mit der Unternehmens-ID verknüpft ist, die mithilfe eines unterstützten Pakets für die Verwaltung mobiler Geräte wie Microsoft InTune Remote zurückgesetzt werden kann. | 
   
 ## <a name="software-requirements"></a>Softwareanforderungen
 
@@ -84,92 +87,92 @@ Für Arbeitsordner gelten die folgenden Softwareanforderungen für Dateiserver u
   
 -   Sie müssen Kennwortrichtlinien für Gruppenrichtlinien verwenden, um Kennwortrichtlinien auf Computern mit Windows 7 zu erzwingen. Sie müssen die Computer mit Windows 7 auch aus Kennwortrichtlinien für Arbeitsordner ausschließen (wenn Sie diese verwenden).
 
--   Ein Serverzertifikat für jeden Dateiserver, der Arbeitsordner hostet. Diese Zertifikate sollten von einer Zertifizierungsstelle (ZS) stammen, die von den Benutzern als vertrauenswürdig eingestuft wird – im Idealfall von einer öffentlichen ZS.
+-   Ein Serverzertifikat für jeden Dateiserver, der Arbeitsordner hostet. Diese Zertifikate müssen von einer Zertifizierungsstelle (Certification Authority, ca) sein, die von Ihren Benutzern als vertrauenswürdig eingestuft wird – idealerweise eine öffentliche Zertifizierungsstelle.
 
 -   Optionale Eine Active Directory Domain Services-Gesamtstruktur mit den-Schema Erweiterungen in Windows Server 2012 R2 zur Unterstützung der automatischen referenzierende von PCs und Geräten an den korrekten Dateiserver, wenn mehrere Dateiserver verwendet werden.  
   
 Für die von Benutzern durchgeführte Synchronisierung über das Internet gelten die folgenden zusätzlichen Anforderungen:  
   
--   Die Möglichkeit, den Internetzugriff auf einen Server durch Erstellen von Veröffentlichungsregeln im Reverseproxy oder Netzwerkgateway der Organisation zu ermöglichen.  
+-   Die Möglichkeit, einen Server über das Internet zugänglich zu machen, indem Veröffentlichungs Regeln im Reverseproxy oder Netzwerk Gateway Ihrer Organisation erstellt werden.  
   
--   (Optional) Ein öffentlich registrierter Domänenname und die Möglichkeit, zusätzliche öffentliche DNS-Einträge für die Domäne zu erstellen.  
+-   Optionale Einen öffentlich registrierten Domänen Namen und die Möglichkeit, zusätzliche öffentliche DNS-Einträge für die Domäne zu erstellen  
   
--   (Optional) Active Directory-Verbunddienste (AD FS) (AD FS)-Infrastruktur bei Verwendung der AD FS-Authentifizierung.  
+-   (Optional) Active Directory-Verbunddienste (AD FS)-Infrastruktur bei Verwendung der AD FS-Authentifizierung.  
   
 Für Arbeitsordner gelten die folgenden Softwareanforderungen für Clientcomputer:  
   
--   Auf dem PCs und Geräten muss eines der folgenden Betriebssysteme ausgeführt werden:  
+-   Auf PCs und Geräten muss eines der folgenden Betriebssysteme ausgeführt werden:  
   
-    -   Windows 10  
+    -   Windows 10  
   
-    -   Windows 8.1  
+    -   Windows 8.1  
   
     -   Windows RT 8.1  
   
     -   Windows 7  
   
-    -   Android 4.4 KitKat und Nachfolgeversionen  
+    -   Android 4,4 KitKat und höher  
   
-    -   iOS 10.2 und höher  
+    -   iOS 10.2 und höher  
   
 -   Computer mit Windows 7 müssen eine der folgenden Versionen von Windows ausführen:  
   
-    -   Windows 7 Professional  
+    -   Windows 7 Professional  
   
     -   Windows 7 Ultimate  
   
     -   Windows 7 Enterprise  
   
--   Computer mit Windows 7 müssen der Domäne Ihrer Organisation hinzugefügt werden (sie können keiner Arbeitsgruppe hinzugefügt werden).  
+-   Windows 7-PCs müssen mit der Domäne Ihrer Organisation verknüpft werden (Sie können nicht zu einer Arbeitsgruppe hinzugefügt werden).  
   
--   Ausreichend freier Speicherplatz auf einem lokalen, mit NTFS formatierten Laufwerk zum Speichern aller Dateien des Benutzers in Arbeitsordnern sowie zusätzliche 6 GB freier Speicherplatz, wenn sich Arbeitsordner auf dem Systemlaufwerk befinden (Standard). Arbeitsordner verwendet den folgenden Speicherort als Standardeinstellung: **%USERPROFILE%\Work Folders**  
+-   Ausreichend freier Speicherplatz auf einem lokalen NTFS-formatierten Laufwerk, um alle Dateien des Benutzers in Arbeits Ordnern zu speichern, zuzüglich weiterer 6 GB freier Speicherplatz, wenn sich die Arbeitsordner auf dem Systemlaufwerk befinden, wie dies standardmäßig der Fall ist. Für Arbeitsordner wird standardmäßig der folgende Speicherort verwendet: **%UserProfile%\Work Folders**  
   
      Benutzer können den Speicherort jedoch während der Installation ändern (mit dem NTFS-Dateisystem formatierte microSD-Karten und USB-Laufwerke werden als Speicherorte unterstützt, die Synchronisierung wird allerdings beendet, wenn die Laufwerke entfernt werden).  
   
-     Die maximale Größe für einzelne Dateien beträgt standardmäßig 10 GB. Es gibt keine Speicherbegrenzung pro Benutzer, Administratoren können jedoch mit der Kontingentfunktion des Ressourcen-Managers für Dateiserver Kontingente implementieren.  
+     Die maximale Größe für einzelne Dateien beträgt standardmäßig 10 GB. Es gibt keine Speicherbegrenzung pro Benutzer, Administratoren können jedoch mit der Kontingentfunktion des Ressourcen-Managers für Dateiserver Kontingente implementieren.  
   
--   Arbeitsordner unterstützen das Zurücksetzen des Status von virtuellen Clientcomputern nicht. Führen Sie Sicherungs- und Wiederherstellungsvorgänge stattdessen innerhalb des virtuellen Clientcomputers mithilfe der Systemabbildsicherung oder einer anderen Sicherungsanwendung durch.  
+-   Arbeitsordner unterstützen nicht das Rollback des Status virtueller Maschinen von virtuellen Client Computern. Führen Sie Sicherungs- und Wiederherstellungsvorgänge stattdessen innerhalb des virtuellen Clientcomputers mithilfe der Systemabbildsicherung oder einer anderen Sicherungsanwendung durch.  
   
-## <a name="work-folders-compared-to-other-sync-technologies"></a>Arbeitsordner im Vergleich zu anderen Synchronisierungstechniken  
+## <a name="work-folders-compared-to-other-sync-technologies"></a>Arbeitsordner im Vergleich zu anderen Synchronisierungs Technologien  
 
-In der folgende Tabelle wird beschrieben, wie die verschiedenen Microsoft Synchronisierungstechnologien positioniert sind, und wann sie verwendet werden.  
+In der folgenden Tabelle wird erläutert, wie verschiedene Microsoft Sync-Technologien positioniert werden und wann Sie verwendet werden.  
   
 | | Arbeitsordner | Offlinedateien | OneDrive for Business | OneDrive |
 | - | ------------------ | ------------------- | -------------------------- | -------------- |
-| **Zusammenfassung der Technologie** | Dateien synchronisieren, die auf einem Dateiserver mit PCs und Geräten gespeichert sind | Dateien synchronisieren, die auf einem Dateiserver mit PCs gespeichert sind, die auf Unternehmensnetzwerke zugreifen können (können durch Arbeitsordner ersetzt werden) | Dateien synchronisieren, die auf Office 365 oder SharePoint auf PCs und Geräte innerhalb oder außerhalb eines Unternehmensnetzwerks gespeichert sind und eine Funktion für die Zusammenarbeit bei Dokumenten bieten | Persönliche Dateien synchronisieren, die auf OneDrive mit PCs, Mac-Computern und Geräten gespeichert sind |
+| **Zusammenfassung der Technologie** | Synchronisieren von Dateien, die auf einem Dateiserver gespeichert sind, mit PCs und Geräten | Synchronisiert Dateien, die auf einem Dateiserver gespeichert sind, mit PCs, die Zugriff auf das Unternehmensnetzwerk haben (kann durch Arbeitsordner ersetzt werden). | Synchronisiert Dateien, die in Office 365 oder in SharePoint gespeichert sind, mit PCs und Geräten innerhalb oder außerhalb eines Unternehmensnetzwerks und bietet Funktionen für die Zusammenarbeit in Dokumenten. | Synchronisieren persönlicher Dateien, die in onedrive gespeichert sind, mit PCs, Macintosh-Computern und Geräten |
 | **Bereitstellen des Benutzer Zugriffs auf Arbeitsdateien** | Ja | Ja | Ja | Nein |
-| **Clouddienst** | Keine | Keine | Office 365 | Microsoft OneDrive |
-| **Interne Netzwerkserver** | Dateiserver unter Windows Server 2012 R2 oder Windows Server 2016 | Dateiserver | SharePoint-Server (optional) | Keine |
-| **Unterstützte Clients** | PCs, iOS, Android | In Unternehmensnetzwerken oder über DirectAccess, VPN oder andere RAS-Technologien verbundene PCs | PCs, iOS, Android, Windows Phone | PCs, Mac-Computer, Windows Phone, iOS, Android |
+| **Clouddienst** | Keine | Keine | Office 365 | Microsoft OneDrive |
+| **Interne Netzwerkserver** | Dateiserver, auf denen Windows Server 2012 R2 oder Windows Server 2016 ausgeführt wird | Dateiserver | SharePoint Server (optional) | Keine |
+| **Unterstützte Clients** | PCs, Ios, Android | PCs in einem Unternehmensnetzwerk oder über DirectAccess, VPNs oder andere Remote Zugriffs Technologien | PCs, Ios, Android, Windows Phone | PCs, Mac-Computer, Windows Phone, Ios, Android |
   
 > [!NOTE]
->  Zusätzlich zu den in der vorherigen Tabelle aufgeführten Synchronisierungstechnologien bietet Microsoft andere Replikationstechnologien an, einschließlich DFS-Replikation, die für die Server-zu-Server-Replikation vorgesehen ist und BranchCache, die als WAN-Beschleunigungstechnologie für Zweigstellen vorgesehen ist. Weitere Informationen finden Sie unter [Übersicht über DFS-Namespaces und DFS-Replikation](https://technet.microsoft.com/library/jj127250(v=ws.11).aspx) und [Übersicht über BranchCache](https://technet.microsoft.com/library/hh831696(v=ws.11).aspx) 
+>  Zusätzlich zu den in der obigen Tabelle aufgeführten Synchronisierungs Technologien bietet Microsoft andere Replikations Technologien, einschließlich DFS-Replikation, die für die Server-zu-Server-Replikation konzipiert ist, und BranchCache, der als WAN-Beschleunigungs Technologie für Zweigstellen konzipiert ist. Weitere Informationen finden Sie unter [DFS-Namespaces und DFS-Replikation](https://technet.microsoft.com/library/jj127250(v=ws.11).aspx) und [Übersicht über BranchCache](https://technet.microsoft.com/library/hh831696(v=ws.11).aspx) . 
   
 ## <a name="server-manager-information"></a>Informationen zum Server-Manager  
 
-Arbeitsordner sind Teil der Datei- und Speicherdienste-Rolle. Sie können Arbeitsordner mit dem Assistent zum Hinzufügen von Rollen und Features oder dem Cmdlet `Install-WindowsFeature` installieren. Beide Methoden erreichen Folgendes:  
+Arbeitsordner sind Teil der Datei-und Speicherdienste-Rolle. Sie können Arbeitsordner mithilfe des Assistenten zum Hinzufügen von Rollen und Features oder des- `Install-WindowsFeature` Cmdlets installieren. Beide Methoden führen folgendes aus:  
   
--   Fügt die Seite **Arbeitsordner** im Server Manager unter **Datei- und Speicherdienste** hinzu  
+-   Fügt die **Arbeitsordner** Seite den **Datei-und Speicherdiensten** in Server-Manager  
   
--   Installiert den Windows-Synchronisierungsfreigabedienst, der von Windows Server zum Hosten von Synchronisierungsfreigaben verwendet wird  
+-   Installiert den Windows Sync-Freigabe Dienst, der von Windows Server zum Hosten von Synchronisierungs Freigaben verwendet wird.  
   
--   Installiert das Windows PowerShell-Synchronisierungsfreigabemodul zum Verwalten von Arbeitsordnern auf dem Server  
+-   Hiermit wird das Windows PowerShell-Modul syncshare installiert, um Arbeitsordner auf dem Server zu verwalten.  
   
-## <a name="interoperability-with-windows-azure-virtual-machines"></a>Interoperabilität mit virtuellen Windows Azure-Computern
+## <a name="interoperability-with-windows-azure-virtual-machines"></a>Interoperabilität mit virtuellen Computern in Windows Azure
 
- Sie können diesen Windows Server-Rollendienst auf einem virtuellen Computer in Windows Azure ausführen. Dieses Szenario wurde für Windows Server 2012 R2 und Windows Server 2016 getestet.  
+ Sie können diesen Windows Server-Rollen Dienst auf einem virtuellen Computer in Windows Azure ausführen. Dieses Szenario wurde mit Windows Server 2012 R2 und Windows Server 2016 getestet.  
   
 Weitere Informationen zu den ersten Schritten mit virtuellen Windows Azure-Computern finden Sie auf der [Windows Azure-Website](http://www.windowsazure.com/documentation/services/virtual-machines).  
   
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 
  Weitere verwandte Informationen finden Sie in den folgenden Ressourcen:  
   
-| Art des Inhalts | Verweise |
+| Inhaltstyp | Referenzen |
 | ------------------ | ---------------- |
-| **Produktbewertung** | -   [Arbeitsordner für Android – veröffentlicht](https://blogs.technet.microsoft.com/filecab/2016/03/16/work-folders-for-android-released) (Blogbeitrag)<br />-   [Arbeitsordner für IOS – iPad-App-Version](https://blogs.technet.com/b/filecab/archive/2015/01/16/work-folders-for-ios-ipad-app-release.aspx) (Blogbeitrag)<br />-   [Einführung in Arbeitsordner unter Windows Server 2012 R2](https://blogs.technet.com/b/filecab/archive/2013/07/09/introducing-work-folders-on-windows-server-2012-r2.aspx) (Blogbeitrag)<br />-   [Einführung in Arbeitsordner](https://channel9.msdn.com/posts/Introduction-to-Work-Folders) (Channel 9-Video)<br />[Arbeitsordner-Test Umgebungs Bereitstellung](https://blogs.technet.com/b/filecab/archive/2013/07/10/work-folders-test-lab-deployment.aspx) -   (Blogbeitrag)<br />[Arbeitsordner für Windows 7](https://blogs.technet.com/b/filecab/archive/2014/04/24/work-folders-for-windows-7.aspx) -   (Blogbeitrag) |
-| **Bereitstellung** | -   [Entwerfen einer Arbeitsordner Implementierung](plan-work-folders.md)<br />-   Bereitstellen von [Arbeits Ordnern](deploy-work-folders.md)<br />-   bereitstellen [von Arbeits Ordnern mit AD FS und webanwendungsproxy (WAP)](deploy-work-folders-adfs-overview.md)<br />-   bereitstellen [von Arbeits Ordnern mit Azure AD Anwendungs Proxy](https://blogs.technet.microsoft.com/filecab/2017/05/31/enable-remote-access-to-work-folders-using-azure-active-directory-application-proxy/)<br />[Migrations Handbuch für den - Offlinedateien (CSC) zu Arbeits Ordnern](https://blogs.technet.microsoft.com/filecab/2016/08/12/offline-files-csc-to-work-folders-migration-guide/)<br />[Überlegungen zur -   Leistung für Arbeitsordner Bereitstellungen](https://blogs.technet.com/b/filecab/archive/2013/11/01/performance-considerations-for-large-scale-work-folders-deployments.aspx)<br />[Arbeitsordner für Windows 7 -   (64 Bit herunterladen)](https://www.microsoft.com/download/details.aspx?id=42558)<br />[Arbeitsordner für Windows 7 -   (32 Bit herunterladen)](https://www.microsoft.com/download/details.aspx?id=42559) |
-| **Betrieb** | -   [Arbeitsordner iPad-App: FAQ](https://windows.microsoft.com/windows/work-folders-ipad-faq) (für Benutzer)<br />-   [Arbeitsordner Zertifikat Verwaltung](https://blogs.technet.com/b/filecab/archive/2013/08/09/work-folders-certificate-management.aspx) (Blogbeitrag)<br />-   über [Wachen von Windows Server 2012 R2-Arbeitsordner Bereitstellungen](https://blogs.technet.com/b/filecab/archive/2013/10/15/monitoring-windows-server-2012-r2-work-folders-deployments.aspx) (Blogbeitrag)<br />-   [syncshare-Cmdlets (Arbeitsordner) in Windows PowerShell](https://docs.microsoft.com/powershell/module/syncshare/?view=win10-ps)<br />-   [Storage-und Dateidienste PowerShell-Cmdlets kurz Referenzkarte für Windows Server 2012 R2 Preview Edition](https://blogs.technet.com/b/filecab/archive/2013/07/30/storage-and-file-services-powershell-cmdlets-quick-reference-card-for-windows-server-2012-r2-preview-edition.aspx) |
-| **Problembehandlung** | -   [Windows Server 2012 R2 – Auflösen von Port Konflikten mit IIS-Websites und Arbeits Ordnern](https://blogs.technet.com/b/filecab/archive/2013/10/15/windows-server-2012-r2-resolving-port-conflict-with-iis-websites-and-work-folders.aspx) (Blogbeitrag)<br />-   von [häufigen Fehlern in Arbeits Ordnern](https://social.technet.microsoft.com/wiki/contents/articles/30578.common-errors-in-work-folders.aspx) |
-| **Communityressourcen** | -   [Dateidienste und Speicher Forum](https://social.technet.microsoft.com/Forums/windowsserver/home?forum=winserverfiles)<br />-   [the Storage Team on Microsoft-File Cabinet Blog](https://blogs.technet.com/b/filecab/)<br />-   [Fragen Sie den Verzeichnisdienste-Teamblog](https://blogs.technet.com/b/askds/) |  
-| **Verwandte Technologien** | -   [Speicher in Windows Server 2016](../storage.md)<br>[Datei-und Speicherdienste](https://technet.microsoft.com/library/hh831487(v=ws.11).aspx) -   <br />-   [Datei Server Ressourcen-Manager](https://technet.microsoft.com/library/hh831701(v=ws.11).aspx)<br />-   [Ordner Umleitung, Offlinedateien und Roamingbenutzerprofile](https://technet.microsoft.com/library/hh848267(v=ws.11).aspx)<br />[BranchCache](https://technet.microsoft.com/library/hh831696(v=ws.11).aspx) -   <br />-   [DFS-Namespaces und DFS-Replikation](https://technet.microsoft.com/library/jj127250(v=ws.11).aspx) |
+| **Produktbewertung** | -   [Arbeitsordner für Android – veröffentlicht](https://blogs.technet.microsoft.com/filecab/2016/03/16/work-folders-for-android-released) (Blogbeitrag)<br />-   [Arbeitsordner für IOS – iPad-App-Version](https://blogs.technet.com/b/filecab/archive/2015/01/16/work-folders-for-ios-ipad-app-release.aspx) (Blogbeitrag)<br />-   [Einführung in Arbeitsordner unter Windows Server 2012 R2](https://blogs.technet.com/b/filecab/archive/2013/07/09/introducing-work-folders-on-windows-server-2012-r2.aspx) (Blogbeitrag)<br />-   [Einführung in Arbeitsordner](https://channel9.msdn.com/posts/Introduction-to-Work-Folders) (Channel 9-Video)<br />-   [Test Umgebungs Bereitstellung für Arbeitsordner](https://blogs.technet.com/b/filecab/archive/2013/07/10/work-folders-test-lab-deployment.aspx) (Blogbeitrag)<br />-   [Arbeitsordner für Windows 7](https://blogs.technet.com/b/filecab/archive/2014/04/24/work-folders-for-windows-7.aspx) (Blogbeitrag) |
+| **Bereitstellung** | -   [Entwerfen einer Arbeitsordner Implementierung](plan-work-folders.md)<br />-   [Bereitstellen von Arbeits Ordnern](deploy-work-folders.md)<br />-   [Bereitstellen von Arbeits Ordnern mit AD FS und webanwendungsproxy (WAP)](deploy-work-folders-adfs-overview.md)<br />-   [Bereitstellen von Arbeits Ordnern mit Azure AD Anwendungs Proxy](https://blogs.technet.microsoft.com/filecab/2017/05/31/enable-remote-access-to-work-folders-using-azure-active-directory-application-proxy/)<br />- [Migrations Handbuch für Offlinedateien (CSC) zu Arbeits Ordnern](https://blogs.technet.microsoft.com/filecab/2016/08/12/offline-files-csc-to-work-folders-migration-guide/)<br />-   [Überlegungen zur Leistung von Arbeitsordner Bereitstellungen](https://blogs.technet.com/b/filecab/archive/2013/11/01/performance-considerations-for-large-scale-work-folders-deployments.aspx)<br />-   [Arbeitsordner für Windows 7 (64-Bit-Download)](https://www.microsoft.com/download/details.aspx?id=42558)<br />-   [Arbeitsordner für Windows 7 (32-Bit-Download)](https://www.microsoft.com/download/details.aspx?id=42559) |
+| **Vorgänge** | -   [Arbeitsordner iPad-App: FAQ](https://windows.microsoft.com/windows/work-folders-ipad-faq) (für Benutzer)<br />-   [Arbeitsordner-Zertifikat Verwaltung](https://blogs.technet.com/b/filecab/archive/2013/08/09/work-folders-certificate-management.aspx) (Blogbeitrag)<br />-   Über [Wachen von Windows Server 2012 R2-Arbeitsordner Bereitstellungen](https://blogs.technet.com/b/filecab/archive/2013/10/15/monitoring-windows-server-2012-r2-work-folders-deployments.aspx) (Blogbeitrag)<br />-   [Cmdlets für syncshare (Arbeitsordner) in Windows PowerShell](https://docs.microsoft.com/powershell/module/syncshare/?view=win10-ps)<br />-   [Speicher-und Dateidienste PowerShell-Cmdlets kurz Referenzkarte für Windows Server 2012 R2 Preview Edition](https://blogs.technet.com/b/filecab/archive/2013/07/30/storage-and-file-services-powershell-cmdlets-quick-reference-card-for-windows-server-2012-r2-preview-edition.aspx) |
+| **Problembehandlung** | -   [Windows Server 2012 R2 – Auflösen von Port Konflikten mit IIS-Websites und Arbeits Ordnern](https://blogs.technet.com/b/filecab/archive/2013/10/15/windows-server-2012-r2-resolving-port-conflict-with-iis-websites-and-work-folders.aspx) (Blogbeitrag)<br />-   [Häufige Fehler in Arbeits Ordnern](https://social.technet.microsoft.com/wiki/contents/articles/30578.common-errors-in-work-folders.aspx) |
+| **Communityressourcen** | -   [Forum zu Datei Diensten und Speicher](https://social.technet.microsoft.com/Forums/windowsserver/home?forum=winserverfiles)<br />-   [Das Speicher Team im Microsoft-Datei CAB-Blog](https://blogs.technet.com/b/filecab/)<br />-   [Fragen Sie den Verzeichnisdienste-Teamblog](https://blogs.technet.com/b/askds/) |  
+| **Verwandte Technologien** | -   [Speicherung in Windows Server 2016](../storage.md)<br>-   [Datei-und Speicherdienste](https://technet.microsoft.com/library/hh831487(v=ws.11).aspx)<br />-   [Datei Server Ressourcen-Manager](https://technet.microsoft.com/library/hh831701(v=ws.11).aspx)<br />-   [Ordner Umleitung, Offlinedateien und Roamingbenutzerprofile](https://technet.microsoft.com/library/hh848267(v=ws.11).aspx)<br />-   [BranchCache](https://technet.microsoft.com/library/hh831696(v=ws.11).aspx)<br />-   [DFS-Namespaces und-DFS-Replikation](https://technet.microsoft.com/library/jj127250(v=ws.11).aspx) |
