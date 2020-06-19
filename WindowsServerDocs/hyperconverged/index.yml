@@ -1,65 +1,60 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Hub
 title: Dokumentation zur hyperkonvergenten Infrastruktur
+summary: Konsolidieren von softwaredefinierten Compute-, Speicher- und Netzwerkressourcen in einem Cluster, um hoch leistungsfähige, kostengünstige und einfach skalierbare Virtualisierung zu ermöglichen.
+brand: windows
 metadata:
-  document_id: null
   title: Dokumentation zur hyperkonvergenten Infrastruktur
-  description: Dokumentation zur hyperkonvergenten Infrastruktur
-  text: 'Konsolidieren von softwaredefinierten Compute-, Speicher- und Netzwerkressourcen in einem Cluster, um hoch leistungsfähige, kostengünstige und einfach skalierbare Virtualisierung zu ermöglichen'
-  keywords: 'Windows Server, Windows Server 2016, Hyper-V, SDN, Direkte Speicherplätze, WSSD'
-  ms.localizationpriority: high
+  description: Konsolidieren von softwaredefinierten Compute-, Speicher- und Netzwerkressourcen in einem Cluster, um hoch leistungsfähige, kostengünstige und einfach skalierbare Virtualisierung zu ermöglichen.
+  ms.service: help
+  ms.topic: hub-page
   author: coreyp-at-msft
   ms.author: coreyp
-  ms.topic: article
-  ms.devlang: na
-sections:
-  - title: null
-  - items:
-      - type: markdown
-        text: 'Konsolidieren von softwaredefinierten Compute-, Speicher- und Netzwerkressourcen in einem Cluster, um hoch leistungsfähige, kostengünstige und einfach skalierbare Virtualisierung zu ermöglichen.'
-  - items:
-      - type: list
-        style: cards
-        className: cardsI
-        columns: 2
-        items:
-          - href: ../virtualization/hyper-v/index.md
-            html: '<p>Virtualisiert Serverhardware, sodass Sie virtuelle Computer serverübergreifend in einem hyperkonvergenten Cluster ausführen können</p>'
-            image:
-              src: ../media/i-virtualize.svg
-            title: Hyper-V
-          - href: ../storage/storage-spaces/storage-spaces-direct-overview.md
-            html: '<p>Virtualisiert Speicherhardware, sodass Sie Volumes auf einem virtualisierten Pool von Laufwerken erstellen können, die in einem hyperkonvergenten Cluster auf Server verteilt sind.</p>'
-            image:
-              src: ../media/i-store.svg
-            title: Speicherplätze DAS
-          - href: ../failover-clustering/failover-clustering-overview.md
-            html: '<p>Gruppiert mehrere Server, sodass Workloads wie z.B. virtuelle Computer auf einem beliebigen Server im Cluster ausgeführt werden können, wobei Lastenausgleich und Failover ordnungsgemäß auf die Server verteilt werden.</p>'
-            image:
-              src: ../media/i-cluster.svg
-            title: Failoverclusterunterstützung
-          - href: 'https://docs.microsoft.com/windows-server/networking/sdn/'
-            html: '<p>Virtualisiert die Netzwerkhardware, sodass Sie Netzwerke und Richtlinien, die Ihre Workloads aus zugrunde liegenden physischen Netzwerken abstrahieren, dynamisch erstellen und verwalten können.</p>'
-            image:
-              src: ../media/i-network.svg
-            title: Software-Defined Networking
-          - href: ../manage/windows-admin-center/overview.md
-            html: <p>Verwaltet Ihren Cluster und andere Windows-Server.</p>
-            image:
-              src: ../media/i-admin-center.svg
-            title: Windows Admin Center
-          - href: ../azure-hybrid-services.md
-            html: '<p>Verbindet Ihren Cluster mit Azure-Hybriddiensten für Site Recovery, Überwachung und mehr.</p>'
-            image:
-              src: ../media/i-microsoft-azure.svg
-            title: Herstellen einer Verbindung mit Azure-Hybriddiensten
-          - href: ../azure-stack-hci
-            html: '<p>Koppelt Virtualisierungs- und Clustertechnologien von Windows Server 2019 mit überprüften Hardwarelösungen des Partners Ihrer Wahl, sodass Sie bei der Optimierung eines softwaredefinierten Rechenzentrums nichts dem Zufall überlassen müssen.</p>'
-            image:
-              src: ../media/i-azure-stack.svg
-            title: Azure Stack HCI
-          - href: 'https://www.microsoft.com/cloud-platform/software-defined-datacenter'
-            html: '<p>Koppelt Virtualisierungs- und Clustertechnologien von Windows Server 2016 mit überprüften Hardwarelösungen des Partners Ihrer Wahl, sodass Sie bei der Optimierung eines softwaredefinierten Rechenzentrums nichts dem Zufall überlassen müssen.</p>'
-            image:
-              src: 'https://docs.microsoft.com/media/common/i_data-collection.svg'
-            title: Windows Server Software-Defined (WSSD)
+  ms.date: 06/10/2020
+  ms.openlocfilehash: 1d2ec270e90423f2405b664f22de7ca85c540498
+  ms.sourcegitcommit: 568b924d32421256f64abfee171304f1daf320d2
+  ms.translationtype: HT
+  ms.contentlocale: de-DE
+  ms.lasthandoff: 06/18/2020
+  ms.locfileid: "85070168"
+productDirectory:
+  items:
+  - title: Hyper-V
+    imageSrc: https://docs.microsoft.com/en-us/windows-server/media/i-virtualize.svg
+    links:
+    - url: https://docs.microsoft.com/en-us/windows-server/virtualization/hyper-v/
+      text: Virtualisiert Serverhardware, sodass Sie virtuelle Computer serverübergreifend in einem hyperkonvergenten Cluster ausführen können.
+  - title: Speicherplätze DAS
+    imageSrc: https://docs.microsoft.com/en-us/windows-server/media/i-store.svg
+    links:
+    - url: https://docs.microsoft.com/en-us/windows-server/storage/storage-spaces/storage-spaces-direct-overview
+      text: Virtualisiert Speicherhardware, sodass Sie Volumes auf einem virtualisierten Pool von Laufwerken erstellen können, die in einem hyperkonvergenten Cluster auf Server verteilt sind.
+  - title: Failoverclusterunterstützung
+    imageSrc: https://docs.microsoft.com/en-us/windows-server/media/i-cluster.svg
+    links:
+    - url: https://docs.microsoft.com/en-us/windows-server/failover-clustering/failover-clustering-overview
+      text: Gruppiert mehrere Server, sodass Workloads wie z.B. virtuelle Computer auf einem beliebigen Server im Cluster ausgeführt werden können, wobei Lastenausgleich und Failover ordnungsgemäß auf die Server verteilt werden.
+  - title: Software-Defined Networking
+    imageSrc: https://docs.microsoft.com/en-us/windows-server/media/i-network.svg
+    links:
+    - url: https://docs.microsoft.com/windows-server/networking/sdn/
+      text: Virtualisiert die Netzwerkhardware, sodass Sie Netzwerke und Richtlinien, die Ihre Workloads aus zugrunde liegenden physischen Netzwerken abstrahieren, dynamisch erstellen und verwalten können.
+  - title: Windows Admin Center
+    imageSrc: https://docs.microsoft.com/en-us/windows-server/media/i-admin-center.svg
+    links:
+    - url: https://docs.microsoft.com/en-us/windows-server/manage/windows-admin-center/overview
+      text: Virtualisiert Serverhardware, sodass Sie virtuelle Computer serverübergreifend in einem hyperkonvergenten Cluster ausführen können.
+  - title: Herstellen einer Verbindung mit Azure-Hybriddiensten
+    imageSrc: https://docs.microsoft.com/en-us/windows-server/media/i-microsoft-azure.svg
+    links:
+    - url: https://docs.microsoft.com/en-us/windows-server/azure-hybrid-services
+      text: Verbindet Ihren Cluster mit Azure-Hybriddiensten für Site Recovery, Überwachung und mehr.
+  - title: Azure Stack HCI
+    imageSrc: https://docs.microsoft.com/en-us/windows-server/media/i-azure-stack.svg
+    links:
+    - url: https://docs.microsoft.com/en-us/windows-server/azure-stack-hci
+      text: Koppelt Virtualisierungs- und Clustertechnologien von Windows Server 2019 mit überprüften Hardwarelösungen des Partners Ihrer Wahl, sodass Sie bei der Optimierung eines softwaredefinierten Rechenzentrums nichts dem Zufall überlassen müssen.
+  - title: Windows Server Software-Defined (WSSD)
+    imageSrc: https://docs.microsoft.com/media/common/i_data-collection.svg
+    links:
+    - url: https://www.microsoft.com/cloud-platform/software-defined-datacenter
+      text: Koppelt Virtualisierungs- und Clustertechnologien von Windows Server 2016 mit überprüften Hardwarelösungen des Partners Ihrer Wahl, sodass Sie bei der Optimierung eines softwaredefinierten Rechenzentrums nichts dem Zufall überlassen müssen.

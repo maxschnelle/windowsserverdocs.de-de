@@ -7,12 +7,12 @@ author: rpsqrd
 ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 09/25/2019
-ms.openlocfilehash: 09e09fa30a38ef5f6046f623e24be0bc7b6ce87e
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: abc1a2af7353bd85e0ae7ac55debc36d63d1782f
+ms.sourcegitcommit: fe89b8001ad664b3618708b013490de93501db05
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80856753"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84942289"
 ---
 # <a name="create-a-shielded-vm-using-powershell"></a>Erstellen einer abgeschirmten VM mithilfe von PowerShell
 
@@ -22,7 +22,7 @@ In der Produktionsumgebung verwenden Sie in der Regel einen Fabric-Manager (z. b
 
 Kurz gesagt, erstellen Sie einen Vorlagen Datenträger, eine geschützte Datendatei, eine Antwortdatei für die unbeaufsichtigte Installation und andere Sicherheits Artefakte auf einem beliebigen Computer. Kopieren Sie diese Dateien dann auf einen überwachten Host, und stellen Sie die abgeschirmte VM bereit.
 
-## <a name="create-a-signed-template-disk"></a>Erstellen einer signierten Vorlagen Festplatte
+## <a name="create-a-signed-template-disk"></a>Erstellen eines signierten Vorlagedatenträgers
 
 Zum Erstellen einer neuen abgeschirmten VM benötigen Sie zunächst einen abgeschirmten VM-Vorlagen Datenträger, der mit dem zugehörigen Betriebssystem Volume (bzw. Start-und Stamm Partitionen unter Linux) vorverschlüsselt ist.
 Befolgen Sie die nachstehenden Links, um weitere Informationen zum Erstellen eines Vorlagen Datenträgers zu finden.
@@ -42,7 +42,7 @@ Save-VolumeSignatureCatalog -TemplateDiskPath "C:\temp\MyTemplateDisk.vhdx" -Vol
 Für jedes virtualisierungsfabrics, in dem Sie Ihre abgeschirmte VM ausführen möchten, müssen Sie die Überwachungs Metadaten für die HGS-Cluster des Fabrics abrufen.
 Ihr Hostinganbieter sollte diese Informationen für Sie bereitstellen können.
 
-Wenn Sie sich in einer Unternehmensumgebung befinden und mit dem HGS-Server kommunizieren können, finden Sie die Überwachungs Metadaten unter *http://\<hgsclustername\>/KeyProtection/Service/Metadata/2014-07/Metadata.XML*
+Wenn Sie sich in einer Unternehmensumgebung befinden und mit dem HGS-Server kommunizieren können, finden Sie die Überwachungs Metadaten unter *http:// \<HGSCLUSTERNAME\> /KeyProtection/Service/Metadata/2014-07/#b0*
 
 ## <a name="create-shielding-data-pdk-file"></a>Erstellen einer Datei mit geschützten Daten (PDK)
 
@@ -51,7 +51,7 @@ Geschützte Daten werden so verschlüsselt, dass Sie nur von den HGS-Servern und
 Nachdem Sie vom Mandanten/VM-Besitzer erstellt wurde, muss die resultierende PDK-Datei in das geschützte Fabric kopiert werden.
 Weitere Informationen finden Sie unter [Was sind geschützte Daten und warum ist es erforderlich?](guarded-fabric-and-shielded-vms.md#what-is-shielding-data-and-why-is-it-necessary).
 
-Außerdem benötigen Sie eine Antwortdatei für die unbeaufsichtigte Installation (Unattend. XML für Windows, variiert für Linux). Eine Anleitung zum Einbeziehen der Antwortdatei finden Sie unter [Erstellen einer Antwortdatei](guarded-fabric-tenant-creates-shielding-data.md#create-an-answer-file) .
+Außerdem benötigen Sie eine Antwortdatei für die unbeaufsichtigte Installation (unattend.xml für Windows, variiert für Linux). Eine Anleitung zum Einbeziehen der Antwortdatei finden Sie unter [Erstellen einer Antwortdatei](guarded-fabric-tenant-creates-shielding-data.md#create-an-answer-file) .
 
 Führen Sie die folgenden Cmdlets auf einem Computer aus, auf dem die Remoteserver-Verwaltungstools für abgeschirmte VMS installiert ist.
 Wenn Sie ein PDK für eine Linux-VM erstellen, müssen Sie dies auf einem Server ausführen, auf dem Windows Server, Version 1709 oder höher, ausgeführt wird.
@@ -72,6 +72,10 @@ New-ShieldingDataFile -ShieldingDataFilePath 'C:\temp\Contoso.pdk' -Owner $Owner
 ```
     
 ## <a name="provision-shielded-vm-on-a-guarded-host"></a>Bereitstellen einer abgeschirmten VM auf einem überwachten Host
+Auf einem Host, auf dem Windows Server 2016 ausgeführt wird, können Sie überwachen, ob der virtuelle Computer heruntergefahren wird, um den Abschluss des Bereitstellungs Tasks zu signalisieren, und die Hyper-V-Ereignisprotokolle auf Fehlerinformationen überprüfen, wenn die Bereitstellung nicht erfolgreich ist.
+
+Sie können auch jedes Mal einen neuen Vorlagen Datenträger erstellen, bevor Sie eine neue abgeschirmte VM erstellen.
+
 Kopieren Sie die Vorlagen Datenträger-Datei (serveros. vhdx) und die PDK-Datei (". PDK") auf den überwachten Host, um die Bereitstellung vorzubereiten.
 
 Installieren Sie auf dem überwachten Host das PowerShell-Modul für geschützte Fabric-Tools, das das Cmdlet New-shieldedvm enthält, um den Bereitstellungs Prozess zu vereinfachen. Wenn der überwachte Host auf das Internet zugreifen kann, führen Sie den folgenden Befehl aus:
@@ -80,7 +84,7 @@ Installieren Sie auf dem überwachten Host das PowerShell-Modul für geschützte
 Install-Module GuardedFabricTools -Repository PSGallery -MinimumVersion 1.0.0
 ```
 
-Sie können das Modul auch auf einen anderen Computer herunterladen, der über Internet Zugriff verfügt, und das resultierende Modul in `C:\Program Files\WindowsPowerShell\Modules` auf dem überwachten Host kopieren.
+Sie können das Modul auch auf einen anderen Computer herunterladen, der über Internet Zugriff verfügt, und das resultierende Modul auf `C:\Program Files\WindowsPowerShell\Modules` dem überwachten Host in kopieren.
 
 ```powershell
 Save-Module GuardedFabricTools -Repository PSGallery -MinimumVersion 1.0.0 -Path C:\temp\
@@ -105,13 +109,13 @@ New-ShieldedVM -Name 'MyStaticIPVM' -TemplateDiskPath 'C:\temp\MyTemplateDisk.vh
 
 ```
 
-Wenn Ihr Vorlagen Datenträger ein Linux-basiertes Betriebssystem enthält, schließen Sie beim Ausführen des Befehls das `-Linux`-Flag ein:
+Wenn Ihr Vorlagen Datenträger ein Linux-basiertes Betriebssystem enthält, schließen Sie das Flag ein, `-Linux` Wenn Sie den Befehl ausführen:
 
 ```powershell
 New-ShieldedVM -Name 'MyLinuxVM' -TemplateDiskPath 'C:\temp\MyTemplateDisk.vhdx' -ShieldingDataFilePath 'C:\temp\Contoso.pdk' -Wait -Linux
 ```
 
-Überprüfen Sie den Hilfe Inhalt mithilfe `Get-Help New-ShieldedVM -Full`, um mehr über andere Optionen zu erfahren, die Sie an das Cmdlet übergeben können.
+Überprüfen Sie den Hilfe Inhalt mithilfe `Get-Help New-ShieldedVM -Full` von, um mehr über andere Optionen zu erfahren, die Sie an das Cmdlet übergeben können.
 
 Nachdem die Bereitstellung des virtuellen Computers abgeschlossen ist, wird er in die betriebssystemspezifische Spezialisierungs Phase eingegeben, in der er zur Verwendung bereit ist.
 Stellen Sie sicher, dass Sie die VM mit einem gültigen Netzwerk verbinden, damit Sie eine Verbindung mit dem virtuellen Computer herstellen können, sobald er ausgeführt wird (mithilfe von RDP, PowerShell, SSH oder Ihrem bevorzugten Verwaltungs Tool).

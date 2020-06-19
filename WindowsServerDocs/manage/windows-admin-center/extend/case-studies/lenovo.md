@@ -8,12 +8,12 @@ ms.author: jol
 ms.date: 1/7/2019
 ms.localizationpriority: medium
 ms.prod: windows-server
-ms.openlocfilehash: 812091715ed6541294650ba7e6ddde9ab1f2fecb
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a51b4bb5f6dc7dcd002b8e7a8998ce731fa374ed
+ms.sourcegitcommit: fe89b8001ad664b3618708b013490de93501db05
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407026"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84942327"
 ---
 # <a name="lenovo-xclarity-integrator-extension"></a>Lenovo xclarity Integrator-Erweiterung
 
@@ -33,9 +33,19 @@ Dieselben Tools sind auch bei der Verwaltung von Servern im Windows Admin Center
 
 ![Lenovo-Erweiterung](../../media/extend-case-study-lenovo/lenovo-3.png)
 
-Die Tool Erweiterung für Failovercluster und hyperkonvergierte Cluster enthält ein Dashboard, das den Gesamt Integritäts Status der Cluster Hardware, Status Warnungen, den firmwarekonsistenz-Status und-Bericht, Stromverbrauch und Temperatur sowie Lüfter und Netzteil anzeigt. Integritäts Status.
+Die Tool Erweiterung für Failovercluster und hyperkonvergierte Cluster enthält ein Dashboard, das den Gesamt Integritäts Status der Cluster Hardware, Status Warnungen, den firmwareplikationsstatus und-Bericht, den Energieverbrauch und die Temperatur sowie den Integritäts Status des Lüfters und des
 
-![Lenovo-Erweiterung](../../media/extend-case-study-lenovo/lenovo-4.png)
-![Lenovo-Erweiterung](../../media/extend-case-study-lenovo/lenovo-5.png)
+![Lenovo-Erweiterung ](../../media/extend-case-study-lenovo/lenovo-4.png)
+ ![ Lenovo-Erweiterung](../../media/extend-case-study-lenovo/lenovo-5.png)
+
+Die Lösungs Erweiterung und die Tool Erweiterungen für Windows-Server und-Cluster bieten die parallelen (Cluster fähigen) Server Aktualisierungs Funktionen. Dadurch kann die Unterbrechung der Arbeitsauslastung bei Server Updates verhindert werden. Derzeit unterstützen die Erweiterungen individuelle Firmwareupdates und firmwareupdateaktualisierungen für beliebige Lenovo-Server. Außerdem unterstützen Sie die besten Rezept Firmware/Treiber Updates für Lenovo thinkagile MX HCI-Cluster Server.
+
+![Lenovo-Erweiterung](../../media/extend-case-study-lenovo/lenovo-6-fwupdate.png)
+
+Die Tool Erweiterung für hyperkonvergierte Cluster stellt die Datenträger-/Speicherpool-Verwaltungsfunktionen für Lenovo thinkagile MX HCI-Cluster Server bereit. Zu diesen Funktionen gehört die Ansicht "rückwärts/Front" des Servers, um den Server-und Datenträger Status anzuzeigen. Mithilfe des Assistenten und der grafischen Ansicht werden Vorgänge wie das Hinzufügen eines Datenträgers zum Speicherpool, das Entfernen eines Datenträgers aus dem Speicherpool, das Ersetzen eines Datenträgers oder das Auffinden eines Servers/Datenträgers durch Beleuchtung auf den Servern/Datenträger-Standort-LEDs erheblich vereinfacht.
+
+![Lenovo-Erweiterung](../../media/extend-case-study-lenovo/lenovo-7-diskmgr.png)
+
+In Version 2,1 haben Lenovo-Erweiterungen rollenbasierte Zugriffs Steuerungsfunktionen eingeführt. Diese Funktionen sind aktiviert, wenn Lenovo xclarity-Administrator für die Hardware Verwaltung angewendet wird.
 
 Weitere Informationen zu den Lenovo xclarity Integrator-angeboten für Windows Admin Center finden Sie auf der [Lenovo-Website](https://support.lenovo.com/us/en/solutions/ht507549).
