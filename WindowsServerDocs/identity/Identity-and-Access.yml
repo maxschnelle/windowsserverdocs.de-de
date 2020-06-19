@@ -1,0 +1,53 @@
+### YamlMime:Landing
+title: Dokumentation zu Identität und Zugriff
+summary: Zugriffs- und Identitätstechnologien ermöglichen sichere Active Directory-Umgebungen lokal und in reinen Cloud- und hybriden Bereitstellungen, in denen einige Anwendungen und Dienste in der Cloud und andere lokal gehostet werden.
+metadata:
+  title: Dokumentation zu Identität und Zugriff
+  description: Zugriffs- und Identitätstechnologien ermöglichen sichere Active Directory-Umgebungen lokal und in reinen Cloud- und hybriden Bereitstellungen, in denen einige Anwendungen und Dienste in der Cloud und andere lokal gehostet werden.
+  ms.topic: landing-page
+  author: billmath
+  ms.author: billmath
+  ms.date: 5/18/2020
+  ms.openlocfilehash: 10723952ab4b146c491f469e6569670ad0f1c5e1
+  ms.sourcegitcommit: 5bc5aaf341c711113ca03d1482f933b05b146007
+  ms.translationtype: MT
+  ms.contentlocale: de-DE
+  ms.lasthandoff: 06/19/2020
+  ms.locfileid: "85095681"
+landingContent:
+- title: Informationen zu Identitäts-und Zugriffs Technologien
+  linkLists:
+  - linkListType: whats-new
+    links:
+    - text: Neuigkeiten
+      url: ad-fs/overview/whats-new-active-directory-federation-services-windows-server.md
+  - linkListType: overview
+    links:
+    - text: Privileged Access Management für Active Directory Domain Services & AD DS
+      url: https://technet.microsoft.com/library/dn903243.aspx
+    - text: 'Windows 10 für Unternehmen: Möglichkeiten zur Verwendung von Geräten für die Arbeit'
+      url: https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-windows10-devices-overview/?rnd=1
+    - text: Active Directory Domain Services
+      url: ../identity/ad-ds/Active-Directory-Domain-Services.md
+    - text: Active Directory-Verbunddienste (AD FS)
+      url: Active-Directory-Federation-Services.md
+- title: Handbücher zu Lösungen und Szenarien
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Sicherer Zugriff auf Unternehmensressourcen von jedem Ort auf jedem Gerät
+      url: https://technet.microsoft.com/library/dn550982.aspx
+    - text: Arbeitsplatzbeitritt von einem beliebigen Gerät für SSO und die nahtlose zweistufige Authentifizierung bei allen Unternehmensanwendungen
+      url: https://technet.microsoft.com/library/dn280945.aspx
+    - text: Verwalten von Risiken mit zusätzlicher mehrstufiger Authentifizierung für sensible Anwendungen
+      url: https://technet.microsoft.com/library/dn280949.aspx
+    - text: Verwalten von Risiken mit der bedingten Zugriffssteuerung
+      url: https://technet.microsoft.com/library/dn280937.aspx
+- title: Ältere Versionen von Windows Server
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Dokumentation zu früheren Windows-Versionen
+      url: https://docs.microsoft.com/previous-versions/windows/
+    - text: Suchen nach bestimmten Informationen
+      url: https://docs.microsoft.com/search/?search=Windows+Server&dataSource=previousVersions

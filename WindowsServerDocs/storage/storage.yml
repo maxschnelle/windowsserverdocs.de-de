@@ -1,0 +1,89 @@
+### YamlMime:Landing
+title: Dokumentation zu Windows Server-Speicher
+summary: 'Storage in Windows Server bietet neue und verbesserte Features für softwaredefinierte Rechenzentrumskunden (SDDC), die sich auf virtualisierte Workloads konzentrieren. Windows Server bietet außerdem umfassende Unterstützung für Unternehmenskunden, die Dateiserver mit vorhandenen Workloads verwenden. Gilt für: Windows Server 2019, Windows Server 2016, Windows Server (halbjährlicher Kanal).'
+metadata:
+  title: Dokumentation zu Windows Server-Speicher
+  description: Storage in Windows Server bietet neue und verbesserte Features für softwaredefinierte Rechenzentrumskunden (SDDC), die sich auf virtualisierte Workloads konzentrieren.
+  ms.topic: landing-page
+  author: JasonGerend
+  ms.author: jgerend
+  ms.date: 06/09/2020
+  ms.openlocfilehash: 288c6da7afdd2b218227af0db83c487053a11d58
+  ms.sourcegitcommit: 568b924d32421256f64abfee171304f1daf320d2
+  ms.translationtype: MT
+  ms.contentlocale: de-DE
+  ms.lasthandoff: 06/18/2020
+  ms.locfileid: "85070976"
+landingContent:
+- title: Informationen zum Windows Server-Speicher
+  linkLists:
+  - linkListType: whats-new
+    links:
+    - text: Neuigkeiten
+      url: whats-new-in-storage.md
+- title: Softwaredefinierter Speicher für virtualisierte Workloads
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Speicherplätze DAS
+      url: storage-spaces/overview.md
+    - text: Speicherreplikat
+      url: storage-replica/storage-replica-overview.md
+    - text: Quality of Service (QoS) für Speicher
+      url: storage-qos/storage-qos-overview.md
+    - text: Datendeduplizierung
+      url: data-deduplication/overview.md
+- title: Allgemeine Dateiserver
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Speichermigrationsdienst
+      url: storage-migration-service/overview.md
+    - text: Arbeitsordner
+      url: work-folders/work-folders-overview.md
+    - text: Offlinedateien und Ordnerumleitung
+      url: folder-redirection/folder-redirection-rup-overview.md
+    - text: Roamingbenutzerprofile
+      url: folder-redirection/deploy-roaming-user-profiles.md
+    - text: DFS-Namespaces
+      url: dfs-namespaces/dfs-overview.md
+    - text: DFS-Replikation
+      url: dfs-replication/dfsr-overview.md
+    - text: File Server Resource Manager
+      url: fsrm/fsrm-overview.md
+    - text: iSCSI Target Server
+      url: iscsi/iscsi-target-server.md
+    - text: iSCSI-Ziel Start
+      url: iscsi/iscsi-boot-overview.md
+- title: Dateisysteme, Protokolle usw.
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ReFS
+      url: refs/refs-overview.md
+    - text: Server Message Block-Protokoll (SMB)
+      url: file-server/file-server-smb-overview.md
+    - text: Speicherklassenspeicher
+      url: storage-spaces/Storage-class-memory-health.md
+    - text: BitLocker-Laufwerkverschlüsselung
+      url: https://technet.microsoft.com/library/cc766295(v=ws.10).aspx
+    - text: NTFS
+      url: https://technet.microsoft.com/library/dn466522(v=ws.11).aspx
+    - text: Network File System (NFS)
+      url: https://technet.microsoft.com/library/jj592688(v=ws.11).aspx
+- title: In Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Storage
+      url: https://azure.microsoft.com/documentation/services/storage/
+    - text: Azure StorSimple
+      url: https://www.microsoft.com/cloud-platform/azure-storsimple
+- title: Ältere Versionen von Windows Server
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Dokumentation zu früheren Windows-Versionen
+      url: https://docs.microsoft.com/previous-versions/windows/
+    - text: Suchen nach bestimmten Informationen
+      url: https://docs.microsoft.com/search/?search=Windows+Server&dataSource=previousVersions

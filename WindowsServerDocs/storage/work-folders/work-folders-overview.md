@@ -9,12 +9,12 @@ manager: dougkim
 ms.author: jgerend
 ms.date: 06/15/2020
 description: 'Eine Übersicht über Arbeitsordner: eine Server Rolle in Windows Server, die Benutzern eine konsistente Möglichkeit bietet, auf Arbeitsdateien von PCs und Geräten zuzugreifen.'
-ms.openlocfilehash: 8bd60cc0ab57935a7ce2da0ca33bd0d4c840fa2b
-ms.sourcegitcommit: cb266c8ea42b9800babbbe96b17885e82b55787d
+ms.openlocfilehash: 4e670d61729d35ee9569b09e91ef5a953961241e
+ms.sourcegitcommit: 568b924d32421256f64abfee171304f1daf320d2
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84795727"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85070094"
 ---
 # <a name="work-folders-overview"></a>Übersicht über Arbeitsordner
 
@@ -164,7 +164,7 @@ Arbeitsordner sind Teil der Datei-und Speicherdienste-Rolle. Sie können Arbeits
   
 Weitere Informationen zu den ersten Schritten mit virtuellen Windows Azure-Computern finden Sie auf der [Windows Azure-Website](http://www.windowsazure.com/documentation/services/virtual-machines).  
   
-## <a name="see-also"></a>Weitere Informationen
+## <a name="see-also"></a>Siehe auch
 
  Weitere verwandte Informationen finden Sie in den folgenden Ressourcen:  
   
@@ -175,4 +175,4 @@ Weitere Informationen zu den ersten Schritten mit virtuellen Windows Azure-Compu
 | **Vorgänge** | -   [Arbeitsordner iPad-App: FAQ](https://windows.microsoft.com/windows/work-folders-ipad-faq) (für Benutzer)<br />-   [Arbeitsordner-Zertifikat Verwaltung](https://blogs.technet.com/b/filecab/archive/2013/08/09/work-folders-certificate-management.aspx) (Blogbeitrag)<br />-   Über [Wachen von Windows Server 2012 R2-Arbeitsordner Bereitstellungen](https://blogs.technet.com/b/filecab/archive/2013/10/15/monitoring-windows-server-2012-r2-work-folders-deployments.aspx) (Blogbeitrag)<br />-   [Cmdlets für syncshare (Arbeitsordner) in Windows PowerShell](https://docs.microsoft.com/powershell/module/syncshare/?view=win10-ps)<br />-   [Speicher-und Dateidienste PowerShell-Cmdlets kurz Referenzkarte für Windows Server 2012 R2 Preview Edition](https://blogs.technet.com/b/filecab/archive/2013/07/30/storage-and-file-services-powershell-cmdlets-quick-reference-card-for-windows-server-2012-r2-preview-edition.aspx) |
 | **Problembehandlung** | -   [Windows Server 2012 R2 – Auflösen von Port Konflikten mit IIS-Websites und Arbeits Ordnern](https://blogs.technet.com/b/filecab/archive/2013/10/15/windows-server-2012-r2-resolving-port-conflict-with-iis-websites-and-work-folders.aspx) (Blogbeitrag)<br />-   [Häufige Fehler in Arbeits Ordnern](https://social.technet.microsoft.com/wiki/contents/articles/30578.common-errors-in-work-folders.aspx) |
 | **Communityressourcen** | -   [Forum zu Datei Diensten und Speicher](https://social.technet.microsoft.com/Forums/windowsserver/home?forum=winserverfiles)<br />-   [Das Speicher Team im Microsoft-Datei CAB-Blog](https://blogs.technet.com/b/filecab/)<br />-   [Fragen Sie den Verzeichnisdienste-Teamblog](https://blogs.technet.com/b/askds/) |  
-| **Verwandte Technologien** | -   [Speicherung in Windows Server 2016](../storage.md)<br>-   [Datei-und Speicherdienste](https://technet.microsoft.com/library/hh831487(v=ws.11).aspx)<br />-   [Datei Server Ressourcen-Manager](https://technet.microsoft.com/library/hh831701(v=ws.11).aspx)<br />-   [Ordner Umleitung, Offlinedateien und Roamingbenutzerprofile](https://technet.microsoft.com/library/hh848267(v=ws.11).aspx)<br />-   [BranchCache](https://technet.microsoft.com/library/hh831696(v=ws.11).aspx)<br />-   [DFS-Namespaces und-DFS-Replikation](https://technet.microsoft.com/library/jj127250(v=ws.11).aspx) |
+| **Verwandte Technologien** | -   [Speicherung in Windows Server 2016](../storage.yml)<br>-   [Datei-und Speicherdienste](https://technet.microsoft.com/library/hh831487(v=ws.11).aspx)<br />-   [Datei Server Ressourcen-Manager](https://technet.microsoft.com/library/hh831701(v=ws.11).aspx)<br />-   [Ordner Umleitung, Offlinedateien und Roamingbenutzerprofile](https://technet.microsoft.com/library/hh848267(v=ws.11).aspx)<br />-   [BranchCache](https://technet.microsoft.com/library/hh831696(v=ws.11).aspx)<br />-   [DFS-Namespaces und-DFS-Replikation](https://technet.microsoft.com/library/jj127250(v=ws.11).aspx) |

@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5ae082ebd2b5cf98be891d8f557f9e42d7724d22
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: de96280f42f1e3002c4379390367856dcdcb885a
+ms.sourcegitcommit: 568b924d32421256f64abfee171304f1daf320d2
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82716095"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85070185"
 ---
 # <a name="change-user"></a>change user
 
@@ -40,7 +40,7 @@ change user {/execute | /install | /query}
 | /Query "aus | Zeigt die aktuelle Einstellung für die INI-Datei Zuordnung an. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Verwenden Sie **Benutzer ändern/install** , bevor Sie eine Anwendung installieren, um INI-Dateien für die Anwendung im System Verzeichnis zu erstellen. Diese Dateien werden als Quelle verwendet, wenn benutzerspezifische ini-Dateien erstellt werden. Verwenden Sie nach der Installation der Anwendung **Change user/execute** , um die Datei Zuordnung der Standard-INI-Datei wiederherzustellen.
 
@@ -50,7 +50,7 @@ change user {/execute | /install | /query}
 
 - Wenn das System **Change user/install**ausgeführt wird, treten mehrere Dinge auf. Alle Registrierungseinträge, die erstellt werden, werden unter **HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Windows NT\CurrentVersion\Terminal server\install**im Unterschlüssel **\Software** oder Unterschlüssel **\Machine** schattiert. Unterschlüssel, die **HKEY_CURRENT_USER** hinzugefügt werden, werden unter dem Unterschlüssel **\Software** kopiert, und die zu **HKEY_LOCAL_MACHINE** hinzugefügten Unterschlüssel werden unter dem Unterschlüssel **\Machine** kopiert. Wenn die Anwendung das Windows-Verzeichnis mithilfe von Systemaufrufen abfragt (z. b. GetWindowsDirectory), gibt der RD-Sitzungs Host Server das Verzeichnis systemroot zurück. Wenn eine INI-Datei Einträge mithilfe von Systemaufrufen (z. b. "Write-PrivateProfileString") hinzugefügt werden, werden Sie den INI-Dateien im Verzeichnis "SystemRoot" hinzugefügt.
 
-- Wenn das System zurückkehrt, um die **Benutzer/Execute zu ändern**, und die Anwendung versucht, einen Registrierungs Eintrag unter **HKEY_CURRENT_USER** zu lesen, der nicht vorhanden ist, prüft Remotedesktopdienste, ob eine Kopie des Schlüssels unter dem Unterschlüssel **\terminal server\install** vorhanden ist. Wenn dies der Fall ist, werden die Unterschlüssel an den entsprechenden Speicherort unter **HKEY_CURRRENT_USER**kopiert. Wenn die Anwendung versucht, aus einer nicht vorhandenen ini-Datei zu lesen, sucht Remotedesktopdienste nach dieser INI-Datei im Stammverzeichnis des Systems. Wenn sich die INI-Datei im Stammverzeichnis des Systems befindet, wird Sie in das Unterverzeichnis "\Windows" des Basisverzeichnisses des Benutzers kopiert. Wenn die Anwendung das Windows-Verzeichnis abfragt, gibt der RD-Sitzungs Host Server das Unterverzeichnis "\Windows" des Basisverzeichnisses des Benutzers zurück.
+- Wenn das System zurückkehrt, um die **Benutzer/Execute zu ändern**, und die Anwendung versucht, einen Registrierungs Eintrag unter **HKEY_CURRENT_USER** zu lesen, der nicht vorhanden ist, prüft Remotedesktopdienste, ob eine Kopie des Schlüssels unter dem Unterschlüssel **\terminal server\install** vorhanden ist. Wenn dies der Fall ist, werden die Unterschlüssel an den entsprechenden Speicherort unter **HKEY_CURRENT_USER**kopiert. Wenn die Anwendung versucht, aus einer nicht vorhandenen ini-Datei zu lesen, sucht Remotedesktopdienste nach dieser INI-Datei im Stammverzeichnis des Systems. Wenn sich die INI-Datei im Stammverzeichnis des Systems befindet, wird Sie in das Unterverzeichnis "\Windows" des Basisverzeichnisses des Benutzers kopiert. Wenn die Anwendung das Windows-Verzeichnis abfragt, gibt der RD-Sitzungs Host Server das Unterverzeichnis "\Windows" des Basisverzeichnisses des Benutzers zurück.
 
 - Wenn Sie sich anmelden, wird Remotedesktopdienste überprüft, ob die System. ini-Dateien neuer als die INI-Dateien auf dem Computer sind. Wenn die System Version neuer ist, wird die INI-Datei entweder ersetzt oder mit der neueren Version zusammengeführt. Dies hängt davon ab, ob das INISYNC-Bit 0x40 für diese INI-Datei festgelegt ist. Ihre vorherige Version der INI-Datei wurde in "inifile. ctx" umbenannt. Wenn die System Registrierungs Werte unter dem Unterschlüssel **\terminal server\install** neuer als Ihre Version unter **HKEY_CURRENT_USER**sind, wird Ihre Version der Unterschlüssel gelöscht und durch die neuen untergeordneten Schlüssel von **\terminal server\install**ersetzt.
 
