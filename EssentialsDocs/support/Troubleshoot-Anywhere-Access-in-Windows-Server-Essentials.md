@@ -8,12 +8,12 @@ ms.assetid: 68f2b05c-09eb-4cba-8db4-a91353b513c6
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 9ebb4f27201e7cdb8e412bc35b217185616df3cb
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 313b4fae48a5b70cb16cae0cfb3a7bc048ef97a3
+ms.sourcegitcommit: 56ac7cf3f4bbcc5175f140d2df5f37cc42ba76d1
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80852253"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85217560"
 ---
 # <a name="troubleshoot-anywhere-access-in-windows-server-essentials"></a>Problembehandlung von "Zugriff überall" in Windows Server Essentials
 
@@ -48,13 +48,8 @@ Dieses Thema enthält allgemeine Anweisungen für die Verwendung des Assistenten
  Wenn der Assistent zum Reparieren von "Zugriff überall" keine Reparatur ausführen kann, überprüfen Sie die folgenden Ressourcen für die Problembehandlung bei Problemen im Zusammenhang mit Remote Web Access, VPN und DirectAccess:  
   
 
--   [Behandeln von Problemen mit der Remote Webzugriff Konnektivität](Troubleshoot-Remote-Web-Access-connectivity-in-Windows-Server-Essentials.md)  
+-   [Behandeln von Problemen mit der Remotewebzugriff-Verbindung](Troubleshoot-Remote-Web-Access-connectivity-in-Windows-Server-Essentials.md)  
   
--   [Behandeln von Problemen mit der Firewall](Troubleshoot-your-firewall-in-Windows-Server-Essentials.md)  
-
--   [Behandeln von Problemen mit der Remote Webzugriff Konnektivität](../support/Troubleshoot-Remote-Web-Access-connectivity-in-Windows-Server-Essentials.md)  
-  
--   [Behandeln von Problemen mit der Firewall](../support/Troubleshoot-your-firewall-in-Windows-Server-Essentials.md)  
-
+-   [Behandeln von Problemen mit der Firewall](Troubleshoot-your-firewall-in-Windows-Server-Essentials.md)
   
 -   Im [Windows Server Essentials-Forum](https://social.technet.microsoft.com/Forums/winserveressentials/threads) finden Sie die neuesten Probleme, die von der Windows Server Essentials-Community gemeldet wurden.

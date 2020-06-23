@@ -8,12 +8,12 @@ ms.assetid: 5f570492-ee21-471b-92c1-3fd9bfb84f55
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: ad75f815173c53ca40fdc5146f6f27fbc1e2740b
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 3f2cd1a9746b03ba7642e78c468dafd718f84959
+ms.sourcegitcommit: 56ac7cf3f4bbcc5175f140d2df5f37cc42ba76d1
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80852143"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85217610"
 ---
 # <a name="play-digital-media-in-windows-server-essentials"></a>Wiedergeben von digitalen Medien in Windows Server Essentials
 
@@ -28,29 +28,15 @@ Digitale Medien sind Audio-, Video- und Fotoinhalte, die digital komprimiert wur
   
 -   [Wiedergeben und Freigeben digitaler Medien](Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_2)  
   
--   [Wiedergeben frei gegebener digitaler Mediendateien von einem Remote Standort aus](Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_3)  
+-   [Wiedergeben freigegebener digitaler Mediendateien von einem Remotestandort aus](Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_3)  
   
 -   [Hinzufügen digitaler Mediendateien zum Server](Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_4)  
   
--   [Download Formatoptionen](Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_5)  
+-   [Formatoptionen für Downloads](Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_5)  
   
 -   [Einfaches Tool zum Hochladen von Dateien](Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_6)  
   
 -   [Anzeigen und Durchsuchen von freigegebenen digitalen Medien](Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_7)  
-
--   [Übersicht über digitale Medien](../use/Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_1)  
-  
--   [Wiedergeben und Freigeben digitaler Medien](../use/Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_2)  
-  
--   [Wiedergeben frei gegebener digitaler Mediendateien von einem Remote Standort aus](../use/Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_3)  
-  
--   [Hinzufügen digitaler Mediendateien zum Server](../use/Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_4)  
-  
--   [Download Formatoptionen](../use/Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_5)  
-  
--   [Einfaches Tool zum Hochladen von Dateien](../use/Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_6)  
-  
--   [Anzeigen und Durchsuchen von freigegebenen digitalen Medien](../use/Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_7)  
 
   
 ##  <a name="digital-media-overview"></a><a name="BKMK_1"></a>Übersicht über digitale Medien  
@@ -85,38 +71,24 @@ Digitale Medien sind Audio-, Video- und Fotoinhalte, die digital komprimiert wur
   
 -   [Senden von Mediendateien in Windows Server Essentials an Windows Media Player, Xbox 360 oder an einen vernetzten Digital Media-Player im Netzwerk](Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_SendToDevice)  
 
--   [Suchen und Wiedergeben von Mediendateien in Windows Server Essentials auf einem Computer oder Digital Media-Player im Netzwerk](../use/Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_2.1)  
-  
--   [Senden von Mediendateien in Windows Server Essentials an Windows Media Player, Xbox 360 oder an einen vernetzten Digital Media-Player im Netzwerk](../use/Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_SendToDevice)  
 
   
 ###  <a name="search-for-and-play-media-files-on-windows-server-essentials-from-a-computer-or-digital-media-player-on-the-network"></a><a name="BKMK_2.1"></a>Suchen und Wiedergeben von Mediendateien in Windows Server Essentials auf einem Computer oder Digital Media-Player im Netzwerk  
  Wenn Ihr Gerät mit dem Windows Server Essentials-Netzwerk verbunden ist, können Sie digitale Mediendateien auf folgende Weise suchen und wiedergeben:  
   
 
--   [Suchen und Wiedergeben von Mediendateien auf einem Computer, auf dem Windows Media Center ausgeführt wird](Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_WMC)  
+-   [Suchen und Wiedergeben von Mediendateien auf einem Computer mit Windows Media Center](Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_WMC)  
   
--   [Suchen und Wiedergeben von Mediendateien auf einem Computer unter Windows mithilfe von Windows Media Player](Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_MWP)  
+-   [Suchen und Wiedergeben von Mediendateien auf einem Windows-Computer unter Verwendung von Windows Media Player](Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_MWP)  
   
--   [Suchen und Wiedergeben von Mediendateien mithilfe von Xbox 360](Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_Xbox)  
+-   [Suchen und Wiedergeben von Mediendateien mit der Xbox 360](Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_Xbox)  
   
 -   [Suchen und Wiedergeben von Mediendateien mit anderen Digital Media-Playern oder Empfängern, die mit Windows Server Essentials kompatibel sind](Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_Other)  
   
--   [Suchen und Wiedergeben von Mediendateien mit der Funktion "freigegebene Ordner" des Launchpad](Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_SharedFolders)  
+-   [Suchen und Wiedergeben von Mediendateien mit der Funktion für freigegebene Ordner im Launchpad](Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_SharedFolders)  
   
--   [Suchen und wiedergeben frei gegebener Medien mithilfe von Remote Webzugriff](Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_RWA2)  
+-   [Suchen und Wiedergeben freigegebener Medien mithilfe von Remotewebzugriff](Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_RWA2)  
 
--   [Suchen und Wiedergeben von Mediendateien auf einem Computer, auf dem Windows Media Center ausgeführt wird](../use/Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_WMC)  
-  
--   [Suchen und Wiedergeben von Mediendateien auf einem Computer unter Windows mithilfe von Windows Media Player](../use/Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_MWP)  
-  
--   [Suchen und Wiedergeben von Mediendateien mithilfe von Xbox 360](../use/Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_Xbox)  
-  
--   [Suchen und Wiedergeben von Mediendateien mit anderen Digital Media-Playern oder Empfängern, die mit Windows Server Essentials kompatibel sind](../use/Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_Other)  
-  
--   [Suchen und Wiedergeben von Mediendateien mit der Funktion "freigegebene Ordner" des Launchpad](../use/Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_SharedFolders)  
-  
--   [Suchen und wiedergeben frei gegebener Medien mithilfe von Remote Webzugriff](../use/Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_RWA2)  
 
   
 ####  <a name="search-for-and-play-media-files-from-a-computer-that-is-running-windows-media-center"></a><a name="BKMK_WMC"></a>Suchen und Wiedergeben von Mediendateien auf einem Computer, auf dem Windows Media Center ausgeführt wird  
@@ -188,10 +160,10 @@ Digitale Medien sind Audio-, Video- und Fotoinhalte, die digital komprimiert wur
   
 1. Öffnen Sie einen Internetbrowser.  
   
-2. Wechseln Sie zur Website für Remotewebzugriff. Geben Sie in der Adressleiste des Internet Browsers **https://< yourDomainName\>/Remote** ein, und drücken Sie dann die EINGABETASTE.  
+2. Wechseln Sie zur Website für Remotewebzugriff. Geben Sie **https://<yourDomainName \> /Remote** in der Adressleiste des Internet Browsers ein, und drücken Sie dann die EINGABETASTE.  
   
    > [!NOTE]
-   >  *< yourDomainName\>* ist ein Platzhalter. Dabei handelt es sich um einen eindeutigen Namen für Ihren Server, sodass die von Ihnen Typisierungs Adresse wie **https://contoso.com/remote** aussehen wird. Wenn Sie den Namen der Domäne nicht kennen, erkundigen Sie sich beim Administrator, der den Domänennamen bei der Einrichtung der Remotezugriffsfunktion auf dem Server ausgewählt hat. Weitere Informationen finden Sie unter [Aktivieren von Remotewebzugriff](../manage/Manage-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_TurnOnRWA).  
+   >  *<yourDomainName \> * ist ein Platzhalter. Dabei handelt es sich um einen eindeutigen Namen für Ihren Server, sodass die von Ihnen Typisierungs Adresse wie folgt aussieht **https://contoso.com/remote** . Wenn Sie den Namen der Domäne nicht kennen, erkundigen Sie sich beim Administrator, der den Domänennamen bei der Einrichtung der Remotezugriffsfunktion auf dem Server ausgewählt hat. Weitere Informationen finden Sie unter [Aktivieren von Remotewebzugriff](../manage/Manage-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_TurnOnRWA).  
   
 3. Geben Sie auf der Anmeldeseite für den Remotewebzugriff Ihren Benutzernamen und Ihr Kennwort ein, und klicken Sie dann auf den Pfeil.  
   
@@ -237,14 +209,14 @@ Digitale Medien sind Audio-, Video- und Fotoinhalte, die digital komprimiert wur
   
  Wählen Sie im Folgenden die Option, die Ihre Downloadanforderungen erfüllt:  
   
-- **Komprimierte ZIP-Datei (. zip)**  
+- **Komprimierte ZIP-Datei (.zip)**  
   
    Durch das Zippen einer Datei wird eine komprimierte Dateiversion erstellt, die kleiner als die Originaldatei ist. Die komprimierte Dateiversion verfügt über die Dateierweiterung ".zip". Dateitypen, die am meisten von der Komprimierung profitieren, sind textorientierte Dateitypen (z. B. TXT-, DOC- und XLS-Dateien) und Grafiken, die nicht komprimierte Dateitypen verwenden (z. B. ".bmp"). Einige Grafikdateien wie JPG- und GIF-Dateien nutzen bereits die Komprimierung, sodass sich die Dateigröße durch das Komprimieren nur geringfügig verkleinert. Darüber hinaus reduziert sich die Dateigröße eines Word-Dokuments mit vielen Grafiken nicht in dem Maße wie ein Dokument, das hauptsächlich Text enthält.  
   
   > [!NOTE]
   >  Diese Option bietet eingeschränkte Unterstützung für internationale Dateinamen.  
   
-- **Selbst extrahierende ausführbare Datei (. exe)**  
+- **Selbstextrahierende ausführbare Datei (.exe)**  
   
    Eine selbstextrahierende ausführbare Datei ist eine herunterladbare Datei, die das Dekomprimierungsprogramm (ausführbare Datei) mit den komprimierten Dateien kombiniert. Beim Ausführen des Programms werden die komprimierten Dateien automatisch dekomprimiert. Mit diesem gängigen Verfahren können komprimierte Daten verteilt werden, ohne dass der Empfänger über das nötige Dekomprimierungshilfsprogramm verfügen muss.  
   
@@ -285,7 +257,7 @@ Digitale Medien sind Audio-, Video- und Fotoinhalte, die digital komprimiert wur
   
 3.  Doppelklicken Sie auf einen Ordner, um dessen Inhalt anzuzeigen.  
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
   
 -   [Verwalten von digitalen Medien](../manage/Manage-Digital-Media-in-Windows-Server-Essentials.md)  
   
@@ -295,10 +267,4 @@ Digitale Medien sind Audio-, Video- und Fotoinhalte, die digital komprimiert wur
 -   [Verwenden von freigegebenen Ordnern](Use-Shared-Folders-in-Windows-Server-Essentials.md)  
   
 -   [Remote arbeiten](Work-Remotely-in-Windows-Server-Essentials.md)
-
--   [Verbindung herstellen](../use/Get-Connected-in-Windows-Server-Essentials.md)  
-  
--   [Verwenden von freigegebenen Ordnern](../use/Use-Shared-Folders-in-Windows-Server-Essentials.md)  
-  
--   [Remote arbeiten](../use/Work-Remotely-in-Windows-Server-Essentials.md)
 

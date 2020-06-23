@@ -8,12 +8,12 @@ ms.assetid: 51a7f1f1-088b-4487-b2c6-4f97aad3004d
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 49ffab44c1d385bd149ec048ff0bd4b627529fef
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: ff8d3c1b467039bf16a7d598a22b84a284807e89
+ms.sourcegitcommit: 56ac7cf3f4bbcc5175f140d2df5f37cc42ba76d1
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80852133"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85217590"
 ---
 # <a name="quick-start-guide-to-using-microsoft-office-365-with-windows-server-essentials"></a>Erste Schritte für die Verwendung von Microsoft Office 365 mit Windows Server Essentials
 
@@ -23,12 +23,12 @@ ms.locfileid: "80852133"
 
  Eine kurze Einführung in Office 365 finden Sie in den Videos zu [Office 365: a Tour for users](https://onlinehelp.microsoft.com/office365-smallbusinesses/hh534379.aspx) auf der Office 365-Website.  
 
- Wenn Ihre Organisation Office 365-Web-Apps verwendet, können Sie die apps in Office 365 mit vertrauten Tools wie dem Windows Server Essentials-Launchpad und My Server 2012 R2 öffnen. (Sie können sich natürlich auch [direkt bei Office 365 anmelden](https://login.microsoftonline.com/login.srf?wa=wsignin1.0&rpsnv=2&ct=1384059583&rver=6.1.6206.0&wp=MBI_KEY&wreply=https:%2F%2F www.outlook.com%2Fowa%2F&id=260563&whr=students.tamuk.edu&CBCXT=out) , indem Sie die Online-ID Ihrer Organisation und Ihr Netzwerkkennwort verwenden.)  
+ Wenn Ihre Organisation Office 365-Web-Apps verwendet, können Sie die apps in Office 365 mit vertrauten Tools wie dem Windows Server Essentials-Launchpad und My Server 2012 R2 öffnen. (Sie können sich natürlich auch [direkt bei Office 365 anmelden](https://login.microsoftonline.com/login.srf?wa=wsignin1.0&rpsnv=2&ct=1384059583&rver=6.1.6206.0&wp=MBI_KEY&wreply=https:%2F%2Fwww.outlook.com%2Fowa%2F&id=260563&whr=students.tamuk.edu&CBCXT=out) , indem Sie die Online-ID Ihrer Organisation und Ihr Netzwerkkennwort verwenden.)  
 
 > [!IMPORTANT]
 >  Wenn Sie ein mobiles Gerät verlieren, das Sie zum Herstellen einer Verbindung mit Exchange Online verwenden, wenden Sie sich an Ihren Administrator, damit er vertrauliche Daten vom Gerät entfernen kann, wenn es das nächste Mal eingeschaltet wird.  
 
-### <a name="before-you-begin"></a>Vorbemerkungen  
+### <a name="before-you-begin"></a>Voraussetzungen  
 
 1.  Sie müssen über ein Microsoft Online Services-Konto (in Windows Server Essentials, das als *Office 365-Konto*bezeichnet wird) verfügen, das Ihrem Benutzerkonto zugewiesen ist. Wenn Sie noch nicht über ein Onlinekonto für Office 365 verfügen, wenden Sie sich an die Person, die Ihr Computernetzwerk verwaltet, um eine für Sie zu erstellen.  
 
@@ -50,7 +50,7 @@ ms.locfileid: "80852133"
 >  Wenn Sie Ihren Computer nicht für die Arbeit mit Office 365 eingerichtet haben, führen Sie die Schritte im Abschnitt **hier starten** des Office 365-Portals aus.  
 
 ## <a name="work-with-documents-in-your-sharepoint-online-libraries-from-my-server-2012-r2"></a>Arbeiten Sie mit Dokumenten in Ihren SharePoint Online-Bibliotheken von My Server 2012 R2  
- Wenn Ihr Server über das Betriebssystem Windows Server Essentials verfügt und Ihr Administrator Office 365 vom Server verwaltet, können Sie mit den Dokumenten in Ihren SharePoint Online-Bibliotheken auf Ihrem Laptop, mobilen Gerät oder Telefon über den My Server 2012 arbeiten. R2-app. Die App ist kostenlos. Sie müssen Sie zuerst installieren.  
+ Wenn Ihr Server über das Windows Server Essentials-Betriebssystem verfügt und Ihr Administrator Office 365 vom Server verwaltet, können Sie mit den Dokumenten in Ihren SharePoint Online-Bibliotheken auf Ihrem Laptop, mobilen Gerät oder Telefon arbeiten, indem Sie die My Server 2012 R2-App verwenden. Die Apps ist kostenlos. Sie müssen Sie zuerst installieren.  
 
 #### <a name="to-install-my-server-2012-r2"></a>So installieren Sie My Server 2012 R2  
 
@@ -80,18 +80,13 @@ ms.locfileid: "80852133"
 ~~~
 
 
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
 
--   [Launchpad (Übersicht)](../manage/Overview-of-the-Launchpad-in-Windows-Server-Essentials.md)  
+-   [Launchpad-Übersicht](../manage/Overview-of-the-Launchpad-in-Windows-Server-Essentials.md)  
 
 -   [Verwalten von Office 365](../manage/Manage-Office-365-in-Windows-Server-Essentials.md)  
-
 
 -   [Remote arbeiten](Work-Remotely-in-Windows-Server-Essentials.md)  
 
 -   [Verwenden von Windows Server Essentials](Use-Windows-Server-Essentials.md)
-
--   [Remote arbeiten](../use/Work-Remotely-in-Windows-Server-Essentials.md)  
-
--   [Verwenden von Windows Server Essentials](../use/Use-Windows-Server-Essentials.md)
 

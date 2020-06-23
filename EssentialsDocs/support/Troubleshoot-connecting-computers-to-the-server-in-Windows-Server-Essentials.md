@@ -8,12 +8,12 @@ ms.assetid: e45b3d89-c057-4c70-a627-86fb06dd22aa
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 2d98d4cc561a3c29ce73455f38f787709149d056
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 6e3c6d58744f24e3027dedc41ad94ee133786a54
+ms.sourcegitcommit: 56ac7cf3f4bbcc5175f140d2df5f37cc42ba76d1
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80852193"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85217500"
 ---
 # <a name="troubleshoot-connecting-computers-to-the-server-in-windows-server-essentials"></a>Problembehandlung beim Verbinden von Computern mit dem Server in Windows Server Essentials
 
@@ -49,31 +49,9 @@ ms.locfileid: "80852193"
   
 -   Problem 11: [Problem 11](Troubleshoot-connecting-computers-to-the-server-in-Windows-Server-Essentials.md#BKMK_UpgradeClientOS)  
 
--   Problem 1: [Problem 1](../support/Troubleshoot-connecting-computers-to-the-server-in-Windows-Server-Essentials.md#BMRK_Package)  
-  
--   Problem 2: [Problem 2](../support/Troubleshoot-connecting-computers-to-the-server-in-Windows-Server-Essentials.md#BKMK_ConnectorIssue2)  
-  
--   Problem 3: [Problem 3](../support/Troubleshoot-connecting-computers-to-the-server-in-Windows-Server-Essentials.md#BKMK_ConnectorIssue2a)  
-  
--   Problem 4: [Problem 4](../support/Troubleshoot-connecting-computers-to-the-server-in-Windows-Server-Essentials.md#BKMK_ConnectorIssueNetFramework)  
-  
--   Problem 5: [Problem 5](../support/Troubleshoot-connecting-computers-to-the-server-in-Windows-Server-Essentials.md#BKMK_Time)  
-  
--   Problem 6: [Problem 6](../support/Troubleshoot-connecting-computers-to-the-server-in-Windows-Server-Essentials.md#BKMK_ServiceStopped)  
-  
--   Problem 7: [Problem 7](../support/Troubleshoot-connecting-computers-to-the-server-in-Windows-Server-Essentials.md#BKMK_ConnectorIssueReconnect)  
-  
--   Problem 8: [Problem 8](../support/Troubleshoot-connecting-computers-to-the-server-in-Windows-Server-Essentials.md#BKMK_JoinWin7)  
-  
--   Problem 9: [Problem 9](../support/Troubleshoot-connecting-computers-to-the-server-in-Windows-Server-Essentials.md#BKMK_ConnectorIssueAutologon)  
-  
--   Problem 10: [Problem 10](../support/Troubleshoot-connecting-computers-to-the-server-in-Windows-Server-Essentials.md#BKMK_ConnectorIssueOldLogs)  
-  
--   Problem 11: [Problem 11](../support/Troubleshoot-connecting-computers-to-the-server-in-Windows-Server-Essentials.md#BKMK_UpgradeClientOS)  
-
   
 ##  <a name="issue-1"></a><a name="BMRK_Package"></a>Problem 1  
- **Problem:**  
+ **Problem**  
   
  Ich erhalte, dass eine Paketinstallation nicht erfolgreich war. Versuchen Sie, den Windows Server Essentials-Connector erneut zu installieren. Wenn das Problem weiterhin besteht, wenden Sie sich an den Netzwerkadministrator, wenn Sie einen Computer mit dem Server verbinden.  
   
@@ -86,7 +64,7 @@ ms.locfileid: "80852193"
  Schließen Sie alle anderen Updates und Anwendungsinstallationen ab. Starten Sie den Computer bei entsprechender Aufforderung neu.  
   
 ##  <a name="issue-2"></a><a name="BKMK_ConnectorIssue2"></a>Problem 2  
- **Problem:**  
+ **Problem**  
   
  Ein Computer kann nicht mit Windows Server Essentials verknüpft werden.  
   
@@ -99,7 +77,7 @@ ms.locfileid: "80852193"
  Benennen Sie den Client Computer mit einem Namen um, der nur ASCII-Zeichen enthält, und versuchen Sie, den Computer erneut zu Windows Server Essentials hinzuzufügen.  
   
 ##  <a name="issue-3"></a><a name="BKMK_ConnectorIssue2a"></a>Problem 3  
- **Problem:**  
+ **Problem**  
   
  Ich erhalte den Fehler "die Installation der Connector-Software wird abgebrochen" beim Verbinden eines Computers mit dem Server.  
   
@@ -130,13 +108,13 @@ ms.locfileid: "80852193"
 8.  Klicken Sie zweimal auf **OK**, um die Berechtigungen zu aktualisieren, und schließen Sie **Eigenschaften**.  
   
 ##  <a name="issue-4"></a><a name="BKMK_ConnectorIssueNetFramework"></a>Problem 4  
- **Problem:**  
+ **Problem**  
   
  Zum Ausführen dieser Anwendung erhalte ich eine der folgenden Versionen des .NET Framework: v 4.5.50709 "Fehler beim Verbinden eines Computers mit dem Server.  
   
  **Beschreibung**  
   
- Wenn Sie einen Computer mit einem Server verbinden, auf dem Windows Server Essentials oder Windows Server Essentials ausgeführt wird, versucht der Assistent, .NET Framework Version 4.5.50709 auf dem Computer zu installieren. Wenn jedoch eine frühere Version von .NET Framework Version 4,5 vorhanden ist, kann die aktualisierte Version nicht installiert werden, und der Verbindungsversuch schlägt mit folgender Fehlermeldung fehl: zum Ausführen dieser Anwendung müssen Sie eine der folgenden Versionen der .NET Framework installieren: V 4.5.50709. Wenden Sie sich an Ihren Allocation Publisher, um eine Anleitung zum Abrufen der entsprechenden Version des .NET Framework zu erhalten.  
+ Wenn Sie einen Computer mit einem Server verbinden, auf dem Windows Server Essentials oder Windows Server Essentials ausgeführt wird, versucht der Assistent, .NET Framework Version 4.5.50709 auf dem Computer zu installieren. Wenn jedoch eine frühere Version von .NET Framework Version 4,5 vorhanden ist, kann die aktualisierte Version nicht installiert werden, und der Verbindungsversuch schlägt mit folgender Fehlermeldung fehl: zum Ausführen dieser Anwendung müssen Sie eine der folgenden Versionen der .NET Framework installieren: v 4.5.50709. Wenden Sie sich an Ihren Allocation Publisher, um eine Anleitung zum Abrufen der entsprechenden Version des .NET Framework zu erhalten.  
   
  **Lösung**  
   
@@ -153,7 +131,7 @@ ms.locfileid: "80852193"
 4.  Nach der erfolgreichen Deinstallation von .NET Framework 4.5 verbinden Sie den Computer mit dem Server. Die richtige Version von .NET Framework 4.5 wird zusammen mit der Connectorsoftware installiert.  
   
 ##  <a name="issue-5"></a><a name="BKMK_Time"></a>Problem 5  
- **Problem:**  
+ **Problem**  
   
  Ich erhalte, dass der Server nicht verfügbar ist. Wenden Sie sich an die für Ihr Netzwerk verantwortliche Person, um dieses Problem zu beheben. wenn sich ein Computer mit dem Server verbindet.  
   
@@ -205,7 +183,7 @@ ms.locfileid: "80852193"
 6.  Versuchen Sie auf dem Clientcomputer erneut, diesen mit dem Server zu verbinden. Anleitungen finden Sie unter "Verbinden von Computern mit dem Server".  
   
 ##  <a name="issue-6"></a><a name="BKMK_ServiceStopped"></a>Problem 6  
- **Problem:**  
+ **Problem**  
   
  Es ist ein unerwarteter Fehler aufgetreten. Wenden Sie sich an die für Ihr Netzwerk verantwortliche Person, um dieses Problem zu beheben. wenn sich ein Computer mit dem Server verbindet.  
   
@@ -228,7 +206,7 @@ ms.locfileid: "80852193"
 3.  Klicken Sie im Bereich **Aktionen** auf **Starten**.  
   
 ##  <a name="issue-7"></a><a name="BKMK_ConnectorIssueReconnect"></a>Problem 7  
- **Problem:**  
+ **Problem**  
   
  Wenn ich versuche, einen Computer nach einem erfolglosen Verbindungsversuch erneut mit dem Server zu verbinden, erhalte ich die Warnung, dass ein Computer mit diesem Namen bereits mit dem Server verbunden ist.  
   
@@ -239,7 +217,7 @@ ms.locfileid: "80852193"
  **Lösung** Wenn Sie sicher sind, dass keine anderer Computer mit demselben Namen bereits mit dem Server verbunden ist, klicken Sie auf **Weiter** und befolgen dann die Anweisungen im Assistenten **Computer mit dem Server verbinden**.  
   
 ##  <a name="issue-8"></a><a name="BKMK_JoinWin7"></a>Problem 8  
- **Problem:**  
+ **Problem**  
   
  Beim Versuch, einen Clientcomputer mit Windows 7 Home mit dem Server zu verbinden, wird die Webseite für die Ausführung der Connectorsoftware geöffnet, aber der Clientcomputer kann keine Verbindung mit dem Server herstellen.  
   
@@ -252,7 +230,7 @@ ms.locfileid: "80852193"
  Deaktivieren Sie Multicast auf dem Router. Bei einigen Routern schließt dies ggf. das Deaktivieren des Routingprotokolls RIP-2M ein. Weitere Informationen finden Sie in der Dokumentation des Routerherstellers.  
   
 ##  <a name="issue-9"></a><a name="BKMK_ConnectorIssueAutologon"></a>Problem 9  
- **Problem:**  
+ **Problem**  
   
  Die automatische Anmeldung wurde beendet, nachdem ich den Computer mit dem Server verbunden habe.  
   
@@ -266,13 +244,13 @@ ms.locfileid: "80852193"
 >  Das Windows Server Essentials-Domänen Konto erfordert ein Kennwort, das den Standardanforderungen für die Kenn Wort Richtlinien entspricht.  
   
 ##  <a name="issue-10"></a><a name="BKMK_ConnectorIssueOldLogs"></a>Problem 10  
- **Problem:**  
+ **Problem**  
   
  Beim Deinstallieren einer Vorabversion der Connectorsoftware werden vorhandene Protokolle nicht entfernt.  
   
  **Beschreibung**  
   
- Nachdem Sie von einer Vorabversion (Beta oder RC) von Windows Server Essentials auf die freigegebene Version aktualisiert haben, müssen Sie die Connectorsoftware von jedem Computer entfernen, der mit dem Server verbunden war, und den Computer dann erneut verbinden, um die freigegebene Version zu installieren. die Version der Connector-Software.  
+ Nachdem Sie von einer Vorabversion (Beta oder RC) von Windows Server Essentials auf die freigegebene Version aktualisiert haben, müssen Sie die Connectorsoftware von jedem Computer entfernen, der mit dem Server verbunden war, und den Computer dann erneut verbinden, um die veröffentlichte Version der Connectorsoftware zu installieren.  
   
  Wenn Sie die Connectorsoftware von einem Computer im Netzwerk entfernen, werden die vorhandenen Protokolldateien im Ordner "%ProgramData%\Microsoft\Windows Server\Logs\" auf diesem Computer jedoch nicht gelöscht. Wenn Sie den Ordner "Logs" nicht löschen, können die Protokolldateien beschädigt werden, wenn Sie den Computer mit der veröffentlichten Version von Windows Server Essentials verbinden.  
   
@@ -287,7 +265,7 @@ ms.locfileid: "80852193"
 3.  Verbinden Sie den Computer erneut mit dem Server. Hierdurch wird die Connectorsoftware in der endgültigen Produktversion installiert, wobei ein neuer Ordner "Logs" und Protokolldateien erstellt werden.  
   
 ##  <a name="issue-11"></a><a name="BKMK_UpgradeClientOS"></a>Problem 11  
- **Problem:**  
+ **Problem**  
   
  Ich möchte ein Upgrade des Betriebssystems auf einem Clientcomputer ausführen.  
   
@@ -301,8 +279,8 @@ ms.locfileid: "80852193"
   
  Wenn den Client bereits mit der Connectorsoftware aktualisiert haben, verwenden Sie **Software** oder **Programme und Funktionen**, um die Connectorsoftware zu deinstallieren. Installieren Sie anschließend die Connectorsoftware erneut.  
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
   
 -   [Verwalten von Windows Server Essentials](../manage/Manage-Windows-Server-Essentials.md)  
   
--   [Windows 2012 Server Essentials ConnectComputer Troubleshooting (TechNet-wiki)](https://social.technet.microsoft.com/wiki/contents/articles/14370.windows-2012-server-essentials-connectcomputer-troubleshooting.aspx)
+-   [Windows 2012 Server Essentials ConnectComputer Troubleshooting (TechNet-Wiki)](https://social.technet.microsoft.com/wiki/contents/articles/14370.windows-2012-server-essentials-connectcomputer-troubleshooting.aspx)

@@ -8,12 +8,12 @@ ms.assetid: d271c54f-1ffa-464e-afa5-27b8df61854e
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 4ea922142b43e35d6f17207d448c48b2da52ebc8
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: ecffbfd3157720ad2762ba77d528af05e5abf53f
+ms.sourcegitcommit: 56ac7cf3f4bbcc5175f140d2df5f37cc42ba76d1
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80852283"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85217540"
 ---
 # <a name="install-the-windows-server-essentials-log-collector"></a>Installieren des Windows Server Essentials-Protokollsammlers
 
@@ -45,13 +45,9 @@ Der Installations-Assistent für den Windows Server Essentials Log Collector ins
   
 1.  Öffnen Sie das Dashboard.  
   
-2.  Wählen Sie auf der **Add-in** Registerkarte **Log Collector** aus der Liste aus und klicken Sie dann auf **Deinstallieren**.  
-  
+2.  Wählen Sie auf der **Add-in** Registerkarte **Log Collector** aus der Liste aus und klicken Sie dann auf **Deinstallieren**.
 
-3.  Laden Sie den Log Collector herunter und führen Sie die Installation anhand der Schritte im vorherigen Verfahren [Installieren des Log Collectors](Install-the-Windows-Server-Essentials-Log-Collector.md#BKMK_ToInstall) aus.  
-
-3.  Laden Sie den Log Collector herunter und führen Sie die Installation anhand der Schritte im vorherigen Verfahren [Installieren des Log Collectors](../support/Install-the-Windows-Server-Essentials-Log-Collector.md#BKMK_ToInstall) aus.  
-
+3.  Laden Sie den Log Collector herunter und führen Sie die Installation anhand der Schritte im vorherigen Verfahren [Installieren des Log Collectors](Install-the-Windows-Server-Essentials-Log-Collector.md#BKMK_ToInstall) aus.   
   
 ### <a name="manually-install-the-log-collector"></a>Den Log Collector manuell installieren  
  Wenn der Installations-Assistent den Log Collector nicht installieren konnte, können Sie den Log Collector auf einem einzelnen Computer mithilfe des folgenden Verfahrens installieren.  

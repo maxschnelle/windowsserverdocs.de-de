@@ -8,12 +8,12 @@ ms.assetid: cb7f3d7d-4225-409a-9f6b-34a106e8dd24
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 6f81041a2a1938add2fd8bfc03aa492d1da266cd
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 0c0e72f37057d50f7d7164ea84c9c7771fca0de8
+ms.sourcegitcommit: 56ac7cf3f4bbcc5175f140d2df5f37cc42ba76d1
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80852103"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85217570"
 ---
 # <a name="use-shared-folders-in-windows-server-essentials"></a>Verwenden von freigegebenen Ordnern in Windows Server Essentials
 
@@ -24,9 +24,9 @@ ms.locfileid: "80852103"
  Es gibt mehrere Möglichkeiten, wie Sie auf die freigegebenen Ordner auf Windows Server Essentials von einem Gerät zugreifen können, das mit dem Server verbunden ist:  
   
 
--   [Verwenden des Windows Server Essentials-LaunchPads](Use-Shared-Folders-in-Windows-Server-Essentials.md#BKMK_UsingLaunchpad)  
+-   [Verwenden des Windows Server Essentials-Launchpads](Use-Shared-Folders-in-Windows-Server-Essentials.md#BKMK_UsingLaunchpad)  
   
--   [Verwenden von Remote Webzugriff](Use-Shared-Folders-in-Windows-Server-Essentials.md#BKMK_UsingRWA)  
+-   [Verwenden von Remotewebzugriff](Use-Shared-Folders-in-Windows-Server-Essentials.md#BKMK_UsingRWA)  
   
 -   [Verwenden der My Server-App für Windows Phone](Use-Shared-Folders-in-Windows-Server-Essentials.md#BKMK_Phone)  
   
@@ -35,9 +35,9 @@ ms.locfileid: "80852103"
 ##  <a name="using-the-windows-server-essentials-launchpad"></a><a name="BKMK_UsingLaunchpad"></a>Verwenden des Windows Server Essentials-LaunchPads  
  Sie können das Launchpad von einem beliebigen Computer aus verwenden, der mit dem Server mithilfe des Assistenten zum Verbinden eines Computers verbunden ist. Weitere Informationen zum Verbinden eines Computers mit dem Server finden Sie unter [Verbinden von Computern mit dem Server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_9).  
 
--   [Verwenden des Windows Server Essentials-LaunchPads](../use/Use-Shared-Folders-in-Windows-Server-Essentials.md#BKMK_UsingLaunchpad)  
+-   [Verwenden des Windows Server Essentials-Launchpads](../use/Use-Shared-Folders-in-Windows-Server-Essentials.md#BKMK_UsingLaunchpad)  
   
--   [Verwenden von Remote Webzugriff](../use/Use-Shared-Folders-in-Windows-Server-Essentials.md#BKMK_UsingRWA)  
+-   [Verwenden von Remotewebzugriff](../use/Use-Shared-Folders-in-Windows-Server-Essentials.md#BKMK_UsingRWA)  
   
 -   [Verwenden der My Server-App für Windows Phone](../use/Use-Shared-Folders-in-Windows-Server-Essentials.md#BKMK_Phone)  
   
@@ -63,9 +63,9 @@ ms.locfileid: "80852103"
   
 ##  <a name="using-remote-web-access"></a><a name="BKMK_UsingRWA"></a>Verwenden von Remote Webzugriff  
 
- Mithilfe der Remotewebzugriff-Website können Sie auf freigegebene Dateien und Ordner über einen Remotecomputer zugreifen. Öffnen Sie auf einem Computer innerhalb des Server Netzwerks den Internet Browser, und geben Sie https://< Servername\>/Remote. ein, um auf die Remote Webzugriff-Website zuzugreifen. Mit Remotewebzugriff können Sie Dateien in freigegebenen Ordnern anzeigen und verwalten. Schritt-für-Schritt-Anweisungen finden Sie unter [Verwenden von Remote Webzugriff](Use-Remote-Web-Access-in-Windows-Server-Essentials.md).  
+ Mithilfe der Remotewebzugriff-Website können Sie auf freigegebene Dateien und Ordner über einen Remotecomputer zugreifen. Öffnen Sie auf einem Computer innerhalb des Server Netzwerks den Internet Browser, und geben Sie https://<Servername/Remote. ein, um auf die Remote Webzugriff-Website zuzugreifen. \> Mit Remotewebzugriff können Sie Dateien in freigegebenen Ordnern anzeigen und verwalten. Schritt-für-Schritt-Anweisungen finden Sie unter [Verwenden von Remote Webzugriff](Use-Remote-Web-Access-in-Windows-Server-Essentials.md).  
 
- Mithilfe der Remotewebzugriff-Website können Sie auf freigegebene Dateien und Ordner über einen Remotecomputer zugreifen. Öffnen Sie auf einem Computer innerhalb des Server Netzwerks den Internet Browser, und geben Sie https://< Servername\>/Remote. ein, um auf die Remote Webzugriff-Website zuzugreifen. Mit Remotewebzugriff können Sie Dateien in freigegebenen Ordnern anzeigen und verwalten. Schritt-für-Schritt-Anweisungen finden Sie unter [Verwenden von Remote Webzugriff](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md).  
+ Mithilfe der Remotewebzugriff-Website können Sie auf freigegebene Dateien und Ordner über einen Remotecomputer zugreifen. Öffnen Sie auf einem Computer innerhalb des Server Netzwerks den Internet Browser, und geben Sie https://<Servername/Remote. ein, um auf die Remote Webzugriff-Website zuzugreifen. \> Mit Remotewebzugriff können Sie Dateien in freigegebenen Ordnern anzeigen und verwalten. Schritt-für-Schritt-Anweisungen finden Sie unter [Verwenden von Remote Webzugriff](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md).  
 
   
 > [!NOTE]
@@ -90,22 +90,15 @@ ms.locfileid: "80852103"
 ##  <a name="using-my-server-app-for-windows-8"></a><a name="BKMK_App"></a>Verwenden der My Server-App für Windows 8  
  Mithilfe der My Server-App für Windows 8 können Sie auf freigegebene Ordner über Windows 8 zugreifen. Sie können diese App aus dem [Windows 8-App-Store](https://windows.microsoft.com/windows-8/apps)herunterladen.  
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
   
--   [Verwalten von Server Ordnern](../manage/Manage-Server-Folders-in-Windows-Server-Essentials.md)  
+-   [Verwalten von Serverordnern](../manage/Manage-Server-Folders-in-Windows-Server-Essentials.md)  
   
--   [Verwalten von Server Speicher](../manage/Manage-Server-Storage-in-Windows-Server-Essentials.md)  
-  
+-   [Verwalten von Serverspeicher](../manage/Manage-Server-Storage-in-Windows-Server-Essentials.md)  
 
 -   [Verbindung herstellen](Get-Connected-in-Windows-Server-Essentials.md)  
   
 -   [Remote arbeiten](Work-Remotely-in-Windows-Server-Essentials.md)  
   
--   [Wiedergeben digitaler Medien](Play-Digital-Media-in-Windows-Server-Essentials.md)
-
--   [Verbindung herstellen](../use/Get-Connected-in-Windows-Server-Essentials.md)  
-  
--   [Remote arbeiten](../use/Work-Remotely-in-Windows-Server-Essentials.md)  
-  
--   [Wiedergeben digitaler Medien](../use/Play-Digital-Media-in-Windows-Server-Essentials.md)
+-   [Wiedergeben von digitalen Medien](Play-Digital-Media-in-Windows-Server-Essentials.md)
 

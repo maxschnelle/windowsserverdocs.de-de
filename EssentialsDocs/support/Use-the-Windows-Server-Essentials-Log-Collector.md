@@ -8,12 +8,12 @@ ms.assetid: c6985518-b42d-4cfb-9761-eaa75306b6d7
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: fa7ad24eec7c2732ee1c840aae678e3b0bff768c
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 16fc2c8b6029a4793eafd5ca7c51e66d6bc36d80
+ms.sourcegitcommit: 56ac7cf3f4bbcc5175f140d2df5f37cc42ba76d1
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80852163"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85217430"
 ---
 # <a name="use-the-windows-server-essentials-log-collector"></a>Verwenden des Windows Server Essentials-Protokollsammlers
 
@@ -30,21 +30,16 @@ Bei der Behandlung von Computerproblemen werden Sie möglicherweise von einem Ve
 >[Herunterladen des Windows Server Essentials Log Collector-Installationspakets](https://www.microsoft.com/download/details.aspx?id=34821).  
   
  Zum Installieren und Ausführen von Log Collector führen Sie die Schritte in den folgenden Themen aus:  
-  
 
-1. [Installieren des Log Collector](Install-the-Windows-Server-Essentials-Log-Collector.md)  
+1. [Installieren Sie den Log Collector](../support/Install-the-Windows-Server-Essentials-Log-Collector.md)  
   
-2. [Ausführen des Protokoll Sammlers](Run-the-Windows-Server-Essentials-Log-Collector.md)  
-
-3. [Installieren des Log Collector](../support/Install-the-Windows-Server-Essentials-Log-Collector.md)  
-  
-4. [Ausführen des Protokoll Sammlers](../support/Run-the-Windows-Server-Essentials-Log-Collector.md)  
+2. [Ausführen der Protokollerfassung](../support/Run-the-Windows-Server-Essentials-Log-Collector.md)  
 
 
 ## <a name="environment-information-collected"></a>Erfasste Umgebungsinformationen  
  Für jeden Netzwerkcomputer oder Server, den Sie angeben, erfasst Lob Collector folgende Umgebungsinformationen in der Protokollerfassungsdatei.  
   
--   Betriebssystemversion  
+-   Version des Betriebssystems  
   
 -   CPU-Hersteller und -Beschreibung  
   
@@ -109,7 +104,7 @@ Bei der Behandlung von Computerproblemen werden Sie möglicherweise von einem Ve
   
 ### <a name="server-logs-and-registry-information"></a>Server-Protokoll- und Registrierungsinformationen  
   
--   Server-Produkt Protokolle, von < ProgramData\>\Microsoft\Windows Server\Logs  
+-   Server-Produkt Protokolle, von <ProgramData \> \Microsoft\Windows Server\Logs  
   
 -   Geplante Aufgaben  
   
@@ -131,15 +126,15 @@ Bei der Behandlung von Computerproblemen werden Sie möglicherweise von einem Ve
   
     -   \\\ HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Windows Server \  
   
-    -   \\\ HKEY_LOCAL_MACHINE \system\currentcontrolset\services\tvicesprovidersvc  
+    -   \\\ HKEY_LOCAL_MACHINE \system\currentcontrolset\services\geräte providersvc  
   
     -   \\\ HKEY_LOCAL_MACHINE \system\currentcontrolset\services\domainmanagerprovidersvc  
   
 ### <a name="network-computer-logs-and-registry-information"></a>Informationen zu Netzwerkcomputerprotokollen und -registrierung  
   
--   Netzwerk Computer-Produkt Protokolle bei < ProgramData\>\Microsoft\Windows Server\Logs  
+-   Netzwerk Computer-Produkt Protokolle unter <ProgramData \> \Microsoft\Windows Server\Logs  
   
--   Integritäts Warnungs Datei unter < ProgramData\>\Microsoft\Windows Server\Data  
+-   Integritäts Warnungs Datei unter <ProgramData \> \Microsoft\Windows Server\Data  
   
 -   Windows Update-Protokolle  
   
@@ -147,7 +142,7 @@ Bei der Behandlung von Computerproblemen werden Sie möglicherweise von einem Ve
   
 -   Info zu geplanten Aufgaben  
   
--   Registrierungsschlüssel aus \\\ HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Windows Server \  
+-   Registrierungsschlüssel von \\ \ HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Windows Server \  
   
 ## <a name="logs-for-computers-that-do-not-run-a-version-of-the-windows-operating-system"></a>Protokolle für Computer, die keine Version des Windows-Betriebssystems ausführen  
  Log Collector erfasst nur Protokolldateien von Computern, die eine Version des Windows-Betriebssystems ausführen. Bei Nicht-Windows-Computern kopieren Sie die folgenden Protokolldateien manuell an den gleichen Speicherort, an dem die Log Collector-Dateien gespeichert sind.  
@@ -156,14 +151,11 @@ Bei der Behandlung von Computerproblemen werden Sie möglicherweise von einem Ve
   
 -   Library/Logs/Windows Server.log  
   
--   Bibliothek/Protokolle/CrashReporter/Launchpad-< nnn-\> (Kopieren Sie alle Launchpad-< nnn-\>. Crash-Dateien)  
+-   Library/Logs/CrashReporter/Launchpad-<nnn \> (Kopieren Sie alle Launchpad-<nnn \> . Crash-Dateien)  
   
--   Bibliothek/Protokolle/diagnostikreports/Launchpad-< nnn-\> (Kopieren Sie alle Launchpad-< nnn-\>. Crash-Dateien)  
+-   Bibliothek/Protokolle/diagnostikreports/Launchpad-<nnn \> (Kopieren Sie alle Launchpad-<nnn \> . Crash-Dateien)  
   
-## <a name="see-also"></a>Siehe auch  
-  
-
--   [Problembehandlung für Log Collector-Fehler](Troubleshoot-Windows-Server-Essentials-Log-Collector-Errors.md)
+## <a name="see-also"></a>Weitere Informationen  
 
 -   [Problembehandlung für Log Collector-Fehler](../support/Troubleshoot-Windows-Server-Essentials-Log-Collector-Errors.md)
 
