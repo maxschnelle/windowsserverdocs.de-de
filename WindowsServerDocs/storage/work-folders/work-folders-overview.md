@@ -9,12 +9,12 @@ manager: dougkim
 ms.author: jgerend
 ms.date: 06/15/2020
 description: 'Eine Übersicht über Arbeitsordner: eine Server Rolle in Windows Server, die Benutzern eine konsistente Möglichkeit bietet, auf Arbeitsdateien von PCs und Geräten zuzugreifen.'
-ms.openlocfilehash: 4e670d61729d35ee9569b09e91ef5a953961241e
-ms.sourcegitcommit: 568b924d32421256f64abfee171304f1daf320d2
+ms.openlocfilehash: f48c03d97cab94f836ef6fafa77fccf07a04331b
+ms.sourcegitcommit: 44a96d505b5c96da62937f5dd2d724342ee9d835
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85070094"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85141029"
 ---
 # <a name="work-folders-overview"></a>Übersicht über Arbeitsordner
 
@@ -56,7 +56,7 @@ Wenn Sie Arbeitsordner auf Windows 10, Windows 7 oder einem Android-oder IOS-Ger
 
  Arbeitsordner beinhalten die folgenden Funktionen.  
   
-| Funktionalität | Verfügbarkeit | BESCHREIBUNG |  
+| Funktionalität | Verfügbarkeit | Beschreibung |  
 | ------------------- | ------------------ | ----------------- |  
 | Rollen Dienst "Arbeitsordner" in Server-Manager | Windows Server 2019, Windows Server 2016 oder Windows Server 2012 R2 | Datei-und Speicherdienste bieten eine Möglichkeit, Synchronisierungs Freigaben (Ordner, in denen die Arbeitsdateien des Benutzers gespeichert sind) einzurichten, Arbeitsordner zu überwachen und Synchronisierungs Freigaben und den Benutzer Zugriff zu verwalten |
 | Arbeitsordner-Cmdlets | Windows Server 2019, Windows Server 2016 oder Windows Server 2012 R2 | Ein Windows PowerShell-Modul, das umfassende Cmdlets zum Verwalten von Arbeitsordner Servern enthält |  
@@ -140,9 +140,9 @@ In der folgenden Tabelle wird erläutert, wie verschiedene Microsoft Sync-Techno
 | | Arbeitsordner | Offlinedateien | OneDrive for Business | OneDrive |
 | - | ------------------ | ------------------- | -------------------------- | -------------- |
 | **Zusammenfassung der Technologie** | Synchronisieren von Dateien, die auf einem Dateiserver gespeichert sind, mit PCs und Geräten | Synchronisiert Dateien, die auf einem Dateiserver gespeichert sind, mit PCs, die Zugriff auf das Unternehmensnetzwerk haben (kann durch Arbeitsordner ersetzt werden). | Synchronisiert Dateien, die in Office 365 oder in SharePoint gespeichert sind, mit PCs und Geräten innerhalb oder außerhalb eines Unternehmensnetzwerks und bietet Funktionen für die Zusammenarbeit in Dokumenten. | Synchronisieren persönlicher Dateien, die in onedrive gespeichert sind, mit PCs, Macintosh-Computern und Geräten |
-| **Bereitstellen des Benutzer Zugriffs auf Arbeitsdateien** | Ja | Ja | Ja | Nein |
+| **Bereitstellen des Benutzer Zugriffs auf Arbeitsdateien** | Yes | Ja | Ja | Nein |
 | **Clouddienst** | Keine | Keine | Office 365 | Microsoft OneDrive |
-| **Interne Netzwerkserver** | Dateiserver, auf denen Windows Server 2012 R2 oder Windows Server 2016 ausgeführt wird | Dateiserver | SharePoint Server (optional) | Keine |
+| **Interne Netzwerkserver** | Dateiserver unter Windows Server 2012 R2, Windows Server 2016 und Windows Server 2019 | Dateiserver | SharePoint Server (optional) | Keine |
 | **Unterstützte Clients** | PCs, Ios, Android | PCs in einem Unternehmensnetzwerk oder über DirectAccess, VPNs oder andere Remote Zugriffs Technologien | PCs, Ios, Android, Windows Phone | PCs, Mac-Computer, Windows Phone, Ios, Android |
   
 > [!NOTE]
@@ -160,7 +160,7 @@ Arbeitsordner sind Teil der Datei-und Speicherdienste-Rolle. Sie können Arbeits
   
 ## <a name="interoperability-with-windows-azure-virtual-machines"></a>Interoperabilität mit virtuellen Computern in Windows Azure
 
- Sie können diesen Windows Server-Rollen Dienst auf einem virtuellen Computer in Windows Azure ausführen. Dieses Szenario wurde mit Windows Server 2012 R2 und Windows Server 2016 getestet.  
+ Sie können diesen Windows Server-Rollen Dienst auf einem virtuellen Computer in Windows Azure ausführen. Dieses Szenario wurde mit Windows Server 2012 R2, Windows Server 2016 und Windows Server 2019 getestet.  
   
 Weitere Informationen zu den ersten Schritten mit virtuellen Windows Azure-Computern finden Sie auf der [Windows Azure-Website](http://www.windowsazure.com/documentation/services/virtual-machines).  
   
