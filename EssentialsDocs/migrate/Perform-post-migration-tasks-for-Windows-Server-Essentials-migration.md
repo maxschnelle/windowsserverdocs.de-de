@@ -8,12 +8,12 @@ ms.assetid: f2d236a4-0d62-4961-9d1f-332054e06f6d
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: b5093772e22fc95a19e800db5c83dec261e7b63a
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: b421ab7b234c9ae2ffb7d0765fe0937c4376996a
+ms.sourcegitcommit: 6d6a0225b1f83b71fcb494b94d666cd5e54c7566
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80852424"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85267521"
 ---
 # <a name="perform-post-migration-tasks-for-windows-server-essentials-migration1"></a>Ausführen von Aufgaben nach der Migration für Windows Server Essentials Migration1
 
@@ -22,21 +22,13 @@ ms.locfileid: "80852424"
 Die folgenden Aufgaben helfen Ihnen bei der Einrichtung der Zielserver mit einigen gleichen Einstellungen, die sich auf dem Quellserver befinden. Möglicherweise haben Sie einige dieser Einstellungen auf Ihrem Quellserver beim Migrieren deaktiviert, damit sie nicht auf den Zielserver migriert wurden. Oder es sind optionale Konfigurationsschritte, die Sie ausführen sollten.  
   
 
--   [Löschen von DNS-Einträgen des Quell Servers](Perform-post-migration-tasks-for-Windows-Server-Essentials-migration.md#BKMK_DeleteDNSEntries)  
+-   [Löschen von DNS-Einträgen des Quellservers](Perform-post-migration-tasks-for-Windows-Server-Essentials-migration.md#BKMK_DeleteDNSEntries)  
   
--   [Freigeben von Branchen-und anderen Anwendungsdaten Ordnern](Perform-post-migration-tasks-for-Windows-Server-Essentials-migration.md#BKMK_ShareLineOfBusinessAndOtherApplications)  
+-   [Freigeben von Branchen- und anderen Anwendungsordnern für Daten](Perform-post-migration-tasks-for-Windows-Server-Essentials-migration.md#BKMK_ShareLineOfBusinessAndOtherApplications)  
   
--   [Beheben von Problemen mit Client Computern nach der Migration](Perform-post-migration-tasks-for-Windows-Server-Essentials-migration.md#BKMK_FixClientComputerIssuesAfterMigrating)  
+-   [Beheben von Clientcomputerproblemen nach der Migration](Perform-post-migration-tasks-for-Windows-Server-Essentials-migration.md#BKMK_FixClientComputerIssuesAfterMigrating)  
   
--   [Der integrierten Gruppe "Administratoren" das Recht zum Anmelden als Batch Auftrag einräumen](Perform-post-migration-tasks-for-Windows-Server-Essentials-migration.md#BKMK_AdminGroup)  
-
--   [Löschen von DNS-Einträgen des Quell Servers](../migrate/Perform-post-migration-tasks-for-Windows-Server-Essentials-migration.md#BKMK_DeleteDNSEntries)  
-  
--   [Freigeben von Branchen-und anderen Anwendungsdaten Ordnern](../migrate/Perform-post-migration-tasks-for-Windows-Server-Essentials-migration.md#BKMK_ShareLineOfBusinessAndOtherApplications)  
-  
--   [Beheben von Problemen mit Client Computern nach der Migration](../migrate/Perform-post-migration-tasks-for-Windows-Server-Essentials-migration.md#BKMK_FixClientComputerIssuesAfterMigrating)  
-  
--   [Der integrierten Gruppe "Administratoren" das Recht zum Anmelden als Batch Auftrag einräumen](../migrate/Perform-post-migration-tasks-for-Windows-Server-Essentials-migration.md#BKMK_AdminGroup)  
+-   [Erteilen des Rechts zum Anmelden als Stapelverarbeitungsauftrag für die integrierte Administratorengruppe](Perform-post-migration-tasks-for-Windows-Server-Essentials-migration.md#BKMK_AdminGroup)  
 
   
 ##  <a name="delete-dns-entries-of-the-source-server"></a><a name="BKMK_DeleteDNSEntries"></a>Löschen von DNS-Einträgen des Quell Servers  
@@ -56,7 +48,7 @@ Die folgenden Aufgaben helfen Ihnen bei der Einrichtung der Zielserver mit einig
   
 6.  Klicken Sie auf einen Eintrag im Feld **Server benennen**, der auf de Quellserver verweist, klicken Sie auf **Entfernen**,und klicken Sie dann auf **OK**.  
   
-7.  Wiederholen Sie die Schritte 5 und 6, bis alle Verweise auf den Quellserver entfernt sind.  
+7.  Wiederholen Sie die Schritte 5 und 6, bis sämtliche, auf den Quellserver zeigenden Elemente entfernt sind.  
   
 8.  Klicken Sie auf **OK**, um das Dialogfeld **Eigenschaften** zu schließen.  
   
@@ -70,9 +62,9 @@ Die folgenden Aufgaben helfen Ihnen bei der Einrichtung der Zielserver mit einig
  Wenn Sie ein Anmeldeskript zum Zuordnen von Laufwerken für die freigegebenen Ordner verwenden, müssen Sie das Skript zum Zuordnen der Laufwerke auf dem Zielserver aktualisieren.  
   
 ##  <a name="fix-client-computer-issues-after-migrating"></a><a name="BKMK_FixClientComputerIssuesAfterMigrating"></a>Beheben von Problemen mit Client Computern nach der Migration  
- Wenn Sie von Windows Small Business Server 2003 Premium Edition zu Windows Server Essentials migrieren, auf dem Microsoft Internet Security and Acceleration (ISA) Server installiert ist, haben Client Computer im Netzwerk weiterhin den Microsoft Firewall-Client und das Internet. Der Explorer ist für die Verwendung eines Proxy Servers konfiguriert.  
+ Bei der Migration zu Windows Server Essentials von Windows Small Business Server 2003 Premium Edition mit installiertem Microsoft Internet Security and Acceleration (ISA) Server haben Client Computer im Netzwerk weiterhin den Microsoft Firewall-Client und Internet Explorer für die Verwendung eines Proxy Servers konfiguriert.  
   
- Dies verursacht Konnektivitätsprobleme auf den Clientcomputern, da der Proxyserver nicht mehr vorhanden ist. Wenn ein anderer Proxy Server konfiguriert ist, verwenden die Client Computer weiterhin den Server, auf dem Windows SSB 2003 ausgeführt wird, für den Proxy Server. Um dieses Problem zu beheben, müssen Sie den Internet Explorer neu konfigurieren, so dass er weder den Proxyserver noch den neuen Proxyserver verwendet.  
+ Dies verursacht Konnektivitätsprobleme auf den Clientcomputern, da der Proxyserver nicht mehr vorhanden ist. Ist ein anderer Proxyserver konfiguriert, verwenden die Clientcomputer weiterhin den Server mit Windows SBS 2003 für den Proxyserver. Um dieses Problem zu beheben, müssen Sie den Internet Explorer neu konfigurieren, so dass er weder den Proxyserver noch den neuen Proxyserver verwendet.  
   
 #### <a name="to-reconfigure-internet-explorer"></a>So konfigurieren Sie den Internet Explorer neu  
   
@@ -80,7 +72,7 @@ Die folgenden Aufgaben helfen Ihnen bei der Einrichtung der Zielserver mit einig
   
 2.  Klicken Sie auf der Registerkarte **Verbindungen** auf **LAN-Einstellungen**, und führen Sie eine der folgenden Optionen aus:  
   
-    -   Wenn Sie keinen Proxyserver im Netzwerk verwenden, deaktivieren Sie alle Kontrollkästchen im Dialogfeld **Einstellungen für lokales Netzwerk (LAN)** .  
+    -   Wenn Sie keinen Proxyserver im Netzwerk verwenden, deaktivieren Sie alle Kontrollkästchen im Dialogfeld **Einstellungen für lokales Netzwerk (LAN)**.  
   
     -   Wenn Sie einen neuen Proxyserver im Netzwerk verwenden möchten:  
   
@@ -90,9 +82,9 @@ Die folgenden Aufgaben helfen Ihnen bei der Einrichtung der Zielserver mit einig
   
         3.  Geben Sie im Feld **Adresse** den vollqualifizierten Domänennamen (FQDN) des Proxyservers ein.  
   
-        4.  Geben Sie im Feld **Port** **80** ein.  
+        4.  Geben Sie im Feld **Port****80** ein.  
   
-3.  Klicken Sie zweimal auf **OK** .  
+3.  Klicken Sie zweimal auf **OK**.  
   
 4.  Navigieren Sie zu einer Website, um sicherzustellen, dass die Verbindungseinstellungen richtig sind.  
   
@@ -103,11 +95,11 @@ Die folgenden Aufgaben helfen Ihnen bei der Einrichtung der Zielserver mit einig
   
 1. Öffnen Sie auf dem Zielserver das Verwaltungstool **Gruppenrichtlinienverwaltung**.  
   
-2. Erweitern Sie in der Konsolen Struktur **Gruppenrichtlinie Verwaltung** den Eintrag Gesamtstruktur **:** *< Servername\>* , erweitern Sie Domänen, und erweitern Sie dann den Server.  
+2. Erweitern Sie in der Konsolen Struktur der **Gruppenrichtlinie Verwaltung** den Eintrag Gesamtstruktur **:** *<Servername \> *, erweitern Sie Domänen, und erweitern Sie dann den Server.  
   
 3. Erweitern Sie **Domänencontroller**, klicken Sie mit der rechten Maustaste auf **Standard-Domänencontrollerrichtlinie**, und klicken Sie dann auf **Bearbeiten**.  
   
-4. Klicken Sie in **Gruppenrichtlinienverwaltungs-Editor**auf **Standard Domänen Controller-Richtlinie**<em>< Servername\></em> **Richtlinie**, und erweitern Sie dann **Computer Konfiguration**.  
+4. Klicken Sie in **Gruppenrichtlinienverwaltungs-Editor**auf **Standard Domänen Controller-Richtlinie** <em><Servername \> </em>**Richtlinie**, und erweitern Sie dann **Computer Konfiguration**.  
   
 5. Erweitern Sie **Richtlinien**, erweitern Sie **Windows-Einstellungen** und erweitern Sie dann **Sicherheitseinstellungen**.  
   
@@ -119,18 +111,14 @@ Die folgenden Aufgaben helfen Ihnen bei der Einrichtung der Zielserver mit einig
   
 9. Klicken Sie im Dialogfeld auf **Benutzer oder Gruppe hinzufügen** auf **Durchsuchen**.  
   
-10. Geben Sie im Dialogfeld **Benutzer, Computer oder Gruppen auswählen** **Administrators** ein.  
+10. Geben Sie im Dialogfeld **Benutzer, Computer oder Gruppen auswählen****Administrators** ein.  
   
 11. Klicken Sie auf **Namen überprüfen**, um zu überprüfen, ob die integrierten Administratorengruppe angezeigt wird, und klicken Sie dann dreimal auf **OK**, um die Einstellung zu speichern.  
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
   
 
--   [Migrieren von Windows SSB 2003](Migrate-Windows-Small-Business-Server-2003-to-Windows-Server-Essentials.md)  
+-   [Migration von Windows SBS 2003](Migrate-Windows-Small-Business-Server-2003-to-Windows-Server-Essentials.md)  
   
 -   [Migrieren von Serverdaten zu Windows Server Essentials](Migrate-Server-Data-to-Windows-Server-Essentials.md)
-
--   [Migrieren von Windows SSB 2003](../migrate/Migrate-Windows-Small-Business-Server-2003-to-Windows-Server-Essentials.md)  
-  
--   [Migrieren von Serverdaten zu Windows Server Essentials](../migrate/Migrate-Server-Data-to-Windows-Server-Essentials.md)
 

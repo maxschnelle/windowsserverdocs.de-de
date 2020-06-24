@@ -8,12 +8,12 @@ ms.assetid: 166262f8-b2a5-4b1c-a4a7-a141e1c54f10
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 50f132d7f6422c32b2a72948ca96b5bd82e701df
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: fbe1c042c965a639ac860a7151d16e6548324d9e
+ms.sourcegitcommit: 6d6a0225b1f83b71fcb494b94d666cd5e54c7566
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80817743"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85267511"
 ---
 # <a name="add-branding-to-the-dashboard-remote-web-access-and-launchpad"></a>Hinzufügen von Branding zum Dashboard, zu Remotewebzugriff und zum Launchpad
 
@@ -66,18 +66,16 @@ ms.locfileid: "80817743"
   
 ### <a name="registry-strings-and-values"></a>Registrierungszeichenfolgen und -werte  
   
-|Branding|Beschreibung|Zeichenfolgenname|Datenwert|  
+|Branding|BESCHREIBUNG|Zeichenfolgenname|Datenwert|  
 |--------------------------|-----------------|-----------------|----------------|  
 |Dashboard-Logo|Fügt das Logobild dem Dashboard hinzu. Das Dashboard-Logo muss das PNG-Format aufweisen und darf nicht größer als 350 x 38 Pixel (Breite x Höhe) sein.<br /><br /> **Wichtig:** Um das Dashboard mit Ihrem Logo zu versehen, müssen Sie die Kachel "Grafik" Bearbeiten, die auf der OPK-DVD enthalten ist, und Ihr Firmenlogo an das Image anfügen, während Sie die entsprechenden Leerraum Anforderungen befolgen. Weitere Informationen finden Sie im bereitgestellten Beispiel.|DashboardLogo|Name der Datei mit dem Logobild|  
 |DashboardClientLogo|Fügt das Logobild zum Dashboard Client-Anmeldebildschirm hinzu.|DashboardClientLogo|Name der Datei mit dem Logobild|  
 |Hintergrundbild der Website|Ändert das Hintergrundbild, das auf der Anmeldeseite für Remotewebzugriff angezeigt wird. Häufig verwendete Auflösungen werden wie folgt dargestellt:<br /><br /> -1024 x 768 Pixel Auflösung wird die Anmeldeseite genau ausfüllen<br /><br /> -800 x 600 Pixel Auflösung wird auf der Seite zentriert und mit einem schwarzen Rand angezeigt.<br /><br /> -die Auflösung von 1.280 x 720 Pixel wird zentriert, und die Pixel, die den Wert 1024 x 768 überschreiten, werden nicht angezeigt.|LogonBackground|Name der Datei für das Hintergrundbild|  
-|Titel der Website|Ersetzt den Titel der Remote Webzugriff Site von Windows Server Essentials zu einem von Ihnen ausgewählten Titel.|Websitename|Neuer Titel der Website für Remotewebzugriff|  
+|Titel der Website|Ersetzt den Titel der Remote Webzugriff Site von Windows Server Essentials zu einem von Ihnen ausgewählten Titel.|WebsiteName|Neuer Titel der Website für Remotewebzugriff|  
 |Logo der Website|Ändert das Standardlogo auf der Website für Remotewebzugriff. Die geforderte Größe des Logos beträgt 32 x 32 Pixel. Wenn das Logo kleiner oder größer ist, wird es gestreckt oder verkleinert, damit es diesen Abmessungen entspricht.|WebsiteLogo|Name der Datei mit dem Logobild|  
 |Angefügtes Logo der Website|Ihr Partnerlogo wird genau unter dem Microsoft-Logo angezeigt, das auf der Website für Remotewebzugriff angezeigt wird. Die geforderte Größe des Logos beträgt 200 x 50 Pixel (Höhe x Breite). Wenn Ihr Logo größer ist, wird es unter Beibehaltung des ursprünglichen Seitenverhältnisses verkleinert. Wenn Ihr Logo kleiner ist, wird es im Pixelbereich von 200 x 50 zentriert, und weder Größe noch Seitenverhältnis werden geändert.|OEMLogo|Name der Datei mit dem Logobild|  
 
-| Links auf der Startseite der Website und der Anmeldeseite | Fügen Sie Links zur Anmeldeseite und der Startseite der Remote Webzugriff-Website hinzu. Die XML-Datei mit den Linkinformationen muss sich unter "%programFiles%\Windows Server\Bin\OEM" befinden. Im folgenden Beispiel wird das Format der XML-Datei veranschaulicht:<br /><br /> < oemlinks\><br /> < von logonlinks\><br /> < Linkname\=logonlinkname ><br /> < Text\>logonlinkdescription </Text\><br /> < URL\>logonlinkurl </URL\><br /> < Symbol\>linkicon </Icon\><br /> </Link\><br /> </LogonLinks\><br /> < HomepageLinks\><br /> < Linkname\=HomepageLinkName ><br /> < Text\>HomepageLinkDescription </Text\><br /> < URL\>HomepageLinkURL </URL\><br /> </Link\><br /> </HomepageLinks\><br /> </OemLinks\>| Linksxml | Eine Liste der Elemente und Beschreibungen finden Sie in der Tabelle [linksxml-Elemente](Add-Branding-to-the-Dashboard--Remote-Web-Access--and-Launchpad.md#BKMK_Links) .  
-
-| Links auf der Startseite der Website und der Anmeldeseite | Fügen Sie Links zur Anmeldeseite und der Startseite der Remote Webzugriff-Website hinzu. Die XML-Datei mit den Linkinformationen muss sich unter "%programFiles%\Windows Server\Bin\OEM" befinden. Im folgenden Beispiel wird das Format der XML-Datei veranschaulicht:<br /><br /> < oemlinks\><br /> < von logonlinks\><br /> < Linkname\=logonlinkname ><br /> < Text\>logonlinkdescription </Text\><br /> < URL\>logonlinkurl </URL\><br /> < Symbol\>linkicon </Icon\><br /> </Link\><br /> </LogonLinks\><br /> < HomepageLinks\><br /> < Linkname\=HomepageLinkName ><br /> < Text\>HomepageLinkDescription </Text\><br /> < URL\>HomepageLinkURL </URL\><br /> </Link\><br /> </HomepageLinks\><br /> </OemLinks\>| Linksxml | Eine Liste der Elemente und Beschreibungen finden Sie in der Tabelle [linksxml-Elemente](../install/Add-Branding-to-the-Dashboard--Remote-Web-Access--and-Launchpad.md#BKMK_Links) .  
+| Links auf der Startseite der Website und der Anmeldeseite | Fügen Sie Links zur Anmeldeseite und der Startseite der Remote Webzugriff-Website hinzu. Die XML-Datei mit den Linkinformationen muss sich unter "%programFiles%\Windows Server\Bin\OEM" befinden. Im folgenden Beispiel wird das Format der XML-Datei veranschaulicht:<br /><br /> <oemlinks\><br /> <von logonlinks\><br /> <Linkname \= logonlinkname><br /> <Text \> logonlinkdescription</Text\><br /> <URL \> logonlinkurl</URL\><br /> <Symbol \> linkicon</Icon\><br /> </Link\><br /> </logonlinks\><br /> <HomepageLinks\><br /> <Linkname \= HomepageLinkName><br /> <Text \> HomepageLinkDescription</Text\><br /> <URL \> HomepageLinkURL</URL\><br /> </Link\><br /> </Homepagelinks\><br /> </oemlinks \> | Linksxml | Eine Liste der Elemente und Beschreibungen finden Sie in der Tabelle [linksxml-Elemente](Add-Branding-to-the-Dashboard--Remote-Web-Access--and-Launchpad.md#BKMK_Links) .    
 
 | Launchpad-Logo | Fügt das Logobild dem Launchpad hinzu. Das Launchpad-Logo muss im PNG-Format vorliegen und darf nicht größer als 64 Pixel sein. | Launchpadlogo | Name der Logobilddatei |  
   
@@ -85,9 +83,9 @@ ms.locfileid: "80817743"
   
 ### <a name="linksxml-elements"></a>LinksXML-Elemente  
   
-|LinksXML-Element|Beschreibung|  
+|LinksXML-Element|BESCHREIBUNG|  
 |----------------------|-----------------|  
-|**Logonlinks**|  
+|**LogonLinks**|  
 |LogonLinkName|Name des Links zur Anmeldeseite.|  
 |LogonLinkDescription|Text, der als Link zur Anmeldeseite angezeigt wird.|  
 |LogonLinkURL|URL, die in den Link zur Anmeldeseite aufgelöst wird.|  
@@ -100,13 +98,13 @@ ms.locfileid: "80817743"
   
 ## <a name="see-also"></a>Weitere Informationen  
 
- [Erstellen und Anpassen des Abbilds](Creating-and-Customizing-the-Image.md)   
+ [Erstellen und Anpassen des Bilds](Creating-and-Customizing-the-Image.md)   
  [Weitere Anpassungen](Additional-Customizations.md)   
- [Vorbereiten des Abbilds für die Bereitstellung](Preparing-the-Image-for-Deployment.md)   
+ [Vorbereiten des Images für die Bereitstellung](Preparing-the-Image-for-Deployment.md)   
  [Testen der Benutzerfreundlichkeit](Testing-the-Customer-Experience.md)
 
- [Erstellen und Anpassen des Abbilds](../install/Creating-and-Customizing-the-Image.md)   
+ [Erstellen und Anpassen des Bilds](../install/Creating-and-Customizing-the-Image.md)   
  [Weitere Anpassungen](../install/Additional-Customizations.md)   
- [Vorbereiten des Abbilds für die Bereitstellung](../install/Preparing-the-Image-for-Deployment.md)   
+ [Vorbereiten des Images für die Bereitstellung](../install/Preparing-the-Image-for-Deployment.md)   
  [Testen der Benutzerfreundlichkeit](../install/Testing-the-Customer-Experience.md)
 

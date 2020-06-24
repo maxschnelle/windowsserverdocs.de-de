@@ -8,12 +8,12 @@ ms.assetid: 104d0412-2d77-4cd4-99f7-65a885522850
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: e55dc757b93c7e11b29ed4fd579362900e54f909
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: d5281afa423360779924ff212ff300195fac5695
+ms.sourcegitcommit: 6d6a0225b1f83b71fcb494b94d666cd5e54c7566
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80819843"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85267501"
 ---
 # <a name="replace-the-list-of-domain-name-providers"></a>Ersetzen der Liste von Domänennamenanbietern
 
@@ -22,13 +22,13 @@ ms.locfileid: "80819843"
 Mit den folgenden Schritten können Sie die Liste der Domänennamenanbieter ersetzen, die im Assistenten zum Einrichten von Domänennamen angezeigt wird:  
 
 
--   [Erstellen der Referenzdienst Dateien](Replace-the-List-of-Domain-Name-Providers.md#BKMK_ReferralFiles)  
+-   [Erstellen der Referenzdienstdateien](Replace-the-List-of-Domain-Name-Providers.md#BKMK_ReferralFiles)  
 
--   [Hinzufügen eines Eintrags zur Registrierung auf dem Referenz Computer](Replace-the-List-of-Domain-Name-Providers.md#BKMK_AddRegistry)  
+-   [Hinzufügen eines Eintrags zur Registrierung auf dem Referenzcomputer](Replace-the-List-of-Domain-Name-Providers.md#BKMK_AddRegistry)  
 
--   [Erstellen der Referenzdienst Dateien](../install/Replace-the-List-of-Domain-Name-Providers.md#BKMK_ReferralFiles)  
+-   [Erstellen der Referenzdienstdateien](../install/Replace-the-List-of-Domain-Name-Providers.md#BKMK_ReferralFiles)  
 
--   [Hinzufügen eines Eintrags zur Registrierung auf dem Referenz Computer](../install/Replace-the-List-of-Domain-Name-Providers.md#BKMK_AddRegistry)  
+-   [Hinzufügen eines Eintrags zur Registrierung auf dem Referenzcomputer](../install/Replace-the-List-of-Domain-Name-Providers.md#BKMK_AddRegistry)  
 
 
 ###  <a name="create-the-referral-service-files"></a><a name="BKMK_ReferralFiles"></a>Erstellen der Referenzdienst Dateien  
@@ -85,7 +85,7 @@ Mit den folgenden Schritten können Sie die Liste der Domänennamenanbieter erse
 ~~~
 
 ###  <a name="domain-name-status-issues"></a><a name="BKMK_ReplaceDomainNameProviders"></a>Domänen Namen-Status Probleme  
- Wenn ein Partner Domänen Namen Anbieter hinzufügt und eine Anwendungsprogrammierschnittstelle (Application Programming Interface, API) im Windows Server Essentials SDK verwendet, um den Status "unknown", "failed" und "certificaterequestnotsubmitted" für das Zertifikat festzulegen, erhält der Kunde einen falschen Meldungs-und Konfigurations Ergebnis. Der Grund hierfür ist, dass die Fälle von Ausnahmen behandelt werden und kein Status zurückgegeben wird.  
+ Wenn ein Partner Domänen Namen Anbieter hinzufügt und eine API (Application Programming Interface) im Windows Server Essentials SDK verwendet, um den Status "unknown", "failed" und "certificaterequestnotsubmitted" für das Zertifikat festzulegen, erhält der Kunde ein falsches Meldungs-und Konfigurations Ergebnis. Der Grund hierfür ist, dass die Fälle von Ausnahmen behandelt werden und kein Status zurückgegeben wird.  
 
  Die folgenden Statusangaben für Domänen sind falsch und sollten als Fehler gemeldet werden:  
 
@@ -111,13 +111,8 @@ Mit den folgenden Schritten können Sie die Liste der Domänennamenanbieter erse
 
 ## <a name="see-also"></a>Weitere Informationen  
 
- [Erstellen und Anpassen des Abbilds](Creating-and-Customizing-the-Image.md)   
+ [Erstellen und Anpassen des Bilds](Creating-and-Customizing-the-Image.md)   
  [Weitere Anpassungen](Additional-Customizations.md)   
- [Vorbereiten des Abbilds für die Bereitstellung](Preparing-the-Image-for-Deployment.md)   
+ [Vorbereiten des Images für die Bereitstellung](Preparing-the-Image-for-Deployment.md)   
  [Testen der Benutzerfreundlichkeit](Testing-the-Customer-Experience.md)
-
- [Erstellen und Anpassen des Abbilds](../install/Creating-and-Customizing-the-Image.md)   
- [Weitere Anpassungen](../install/Additional-Customizations.md)   
- [Vorbereiten des Abbilds für die Bereitstellung](../install/Preparing-the-Image-for-Deployment.md)   
- [Testen der Benutzerfreundlichkeit](../install/Testing-the-Customer-Experience.md)
 

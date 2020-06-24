@@ -8,12 +8,12 @@ ms.assetid: c20b06b9-ce0d-4c20-bf49-257c3f5dc01b
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: a566a8f342ba076ee402d1f19e35f99c58b931e4
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: c4a2a6f0c19425103c96a3eb69fd8531ec7a122b
+ms.sourcegitcommit: 6d6a0225b1f83b71fcb494b94d666cd5e54c7566
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80817873"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85267601"
 ---
 # <a name="hardware-requirements-for-the-target-computer"></a>Hardwareanforderungen für den Zielcomputer
 
@@ -32,18 +32,18 @@ Dieser Abschnitt enthält die Hardwareanforderungen für Windows Server Essentia
 |Arbeitsspeicher (RAM)|2 GB|16 GB|64 GB|  
 |Festplatten und verfügbarer Speicherplatz|160-GB-Festplatte mit einer 60-GB-Systempartition||Keine Begrenzung|  
   
- \* Empfohlene Hardwareanforderungen zur Unterstützung der maximalen Anzahl von Benutzer-und Geräte Limits in Windows Server Essentials.  
+ * Empfohlene Hardwareanforderungen zur Unterstützung der maximalen Anzahl von Benutzer-und Geräte Limits in Windows Server Essentials.  
   
 ## <a name="additional-hardware-and-software-requirements"></a>Zusätzliche Hardware- und Softwareanforderungen  
  Die folgende Tabelle enthält zusätzliche Hardware- und Softwareanforderungen.  
   
-|Komponente|Beschreibung|  
+|Komponente|BESCHREIBUNG|  
 |---------------|-----------------|  
 |Netzwerkadapter|Gigabit-Ethernet-Adapter (10/100/1000baseT PHY/MAC)|  
-|Internet|Für einige Funktionen ist möglicherweise ein Internet Zugang (ggf. Gebühren) oder ein Windows Live&reg; ID-Konto erforderlich.|  
+|Internet|Für einige Funktionen ist möglicherweise ein Internet Zugang (ggf. Gebühren) oder ein Windows Live ID-Konto erforderlich. &reg;|  
 |Unterstützte Clientbetriebssysteme|-Windows 7<br />-Windows 8<br />-Macintosh OS X 10,5 bis 10,8.<br /><br /> **Hinweis:** Für einige Features sind Editionen von Professional oder höher erforderlich.<br /><br /> 1 GB verfügbarer Festplatten-Speicherplatz (ein Teil des Datenträgers wird nach der Installation freigegeben)|  
 |Router|Ein Router oder eine Firewall mit Unterstützung für IPv4 NAT|  
-|Weitere Anforderungen|DVD-ROM-Laufwerk|  
+|Zusätzliche Anforderungen|DVD-ROM-Laufwerk|  
   
  Die tatsächlichen Anforderungen sind von der Systemkonfiguration und den zu installierenden Anwendungen und Funktionen abhängig. Die Prozessorleistung ist nicht nur von der Taktfrequenz des Prozessors abhängig, sondern auch von der Anzahl der Prozessorkerne und der Größe des Prozessorcaches. Bei den Speicherplatzanforderungen für die Systempartition handelt es sich um ungefähre Angaben. Zusätzlicher verfügbarer Speicherplatz ist ggf. erforderlich, wenn die Installation über ein Netzwerk erfolgt.  
   
@@ -53,15 +53,9 @@ Dieser Abschnitt enthält die Hardwareanforderungen für Windows Server Essentia
   
 ## <a name="see-also"></a>Weitere Informationen  
 
- [Die ersten Schritte mit dem Windows Server Essentials ADK](Getting-Started-with-the-Windows-Server-Essentials-ADK.md) -   
- [Erstellen und Anpassen des Abbilds](Creating-and-Customizing-the-Image.md)   
+ [Einführung in das Windows Server Essentials ADK](Getting-Started-with-the-Windows-Server-Essentials-ADK.md)   
+ [Erstellen und Anpassen des Bilds](Creating-and-Customizing-the-Image.md)   
  [Weitere Anpassungen](Additional-Customizations.md)   
- [Vorbereiten des Abbilds für die Bereitstellung](Preparing-the-Image-for-Deployment.md)   
+ [Vorbereiten des Images für die Bereitstellung](Preparing-the-Image-for-Deployment.md)   
  [Testen der Benutzerfreundlichkeit](Testing-the-Customer-Experience.md)
-
- [Die ersten Schritte mit dem Windows Server Essentials ADK](../install/Getting-Started-with-the-Windows-Server-Essentials-ADK.md) -   
- [Erstellen und Anpassen des Abbilds](../install/Creating-and-Customizing-the-Image.md)   
- [Weitere Anpassungen](../install/Additional-Customizations.md)   
- [Vorbereiten des Abbilds für die Bereitstellung](../install/Preparing-the-Image-for-Deployment.md)   
- [Testen der Benutzerfreundlichkeit](../install/Testing-the-Customer-Experience.md)
 

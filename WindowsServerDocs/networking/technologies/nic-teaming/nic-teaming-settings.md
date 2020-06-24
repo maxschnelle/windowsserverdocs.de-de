@@ -9,12 +9,12 @@ ms.assetid: a4caaa86-5799-4580-8775-03ee213784a3
 ms.author: lizross
 author: eross-msft
 ms.date: 09/13/2018
-ms.openlocfilehash: 8ae461f8e9236451e9a6b442cafecee4981ed8ce
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 133e44c83032976f08819529508b3990b6e78596
+ms.sourcegitcommit: fdc3ce1992f4dd6ea1771479d525126abbbcfa72
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80853713"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85256680"
 ---
 # <a name="nic-teaming-settings"></a>Nic-Team Vorgangs Einstellungen
 In diesem Thema erhalten Sie einen Überblick über die NIC-Team Eigenschaften, z. b. Team-und Lasten ausgleichsmodi. Außerdem erhalten Sie Informationen über die standbyadaptereinstellung und die Eigenschaft "primäre Team Schnittstelle". Wenn Sie über mindestens zwei Netzwerkadapter in einem NIC-Team verfügen, müssen Sie keinen Standby-Adapter für die Fehlertoleranz festlegen.
@@ -24,12 +24,12 @@ In diesem Thema erhalten Sie einen Überblick über die NIC-Team Eigenschaften, 
 ![Nic-Team Eigenschaften](../../media/Create-a-New-NIC-Team-on-a-Host-Computer-or-VM/nict_06_properties.jpg)  
 
 ## <a name="teaming-modes"></a>Teaming-Modi 
-Die Optionen für den Team Vorgangs Modus sind **Switch Independent** und **Switch Dependent**. Der Switch-abhängige Modus umfasst den **statischen** Team Vorgang und das **Link Aggregation Control Protocol (LACP)** . 
+Die Optionen für den Team Vorgangs Modus sind **Switch Independent** und **Switch Dependent**. Der Switch-abhängige Modus umfasst den **statischen** Team Vorgang und das **Link Aggregation Control Protocol (LACP)**. 
 
 >[!TIP]
 >Für eine optimale NIC-Team Leistung empfiehlt es sich, einen Lasten Ausgleichs Modus für die dynamische Verteilung zu verwenden.  
   
-### <a name="switch-independent"></a>Wechsel unabhängig
+### <a name="switch-independent"></a>Switch-unabhängig
   
 [!INCLUDE [switch-independent-shortdesc-include](../../includes/switch-independent-shortdesc-include.md)] 
   
@@ -78,7 +78,7 @@ Da der angrenzende Switch immer eine bestimmte MAC-Adresse an einem Port sieht, 
   
 Wenn der Host jedoch nur über wenige VMS verfügt, ist dieser Modus möglicherweise nicht genau genug, um eine ausgewogene Verteilung zu erzielen. In diesem Modus wird außerdem immer eine einzelne VM (d. h. der Datenverkehr von einem einzelnen Switchport) auf die Bandbreite beschränkt, die auf einer einzelnen Schnittstelle verfügbar ist. Der NIC-Team Vorgang verwendet den virtuellen Hyper-V-Switchport als Bezeichner anstelle der Quell-MAC-Adresse, da ein virtueller Computer in manchen Fällen mit mehr als einer Mac-Adresse für einen Switchport konfiguriert werden kann.  
   
-### <a name="dynamic"></a>Dynamic
+### <a name="dynamic"></a>Dynamisch
   
 [!INCLUDE [dynamic-shortdesc-include](../../includes/dynamic-shortdesc-include.md)]
   
@@ -108,7 +108,7 @@ Nachdem Sie auf den markierten Link klicken, wird das folgende Dialogfeld " **ne
   
 Wenn Sie VLANs verwenden, können Sie in diesem Dialogfeld eine VLAN-Nummer angeben.  
   
-Unabhängig davon, ob Sie VLANs verwenden, können Sie einen tnic-Namen für das NIC-Team angeben.  
+Unabhängig davon, ob Sie VLANs verwenden, können Sie einen NIC-Namen für das NIC-Team angeben.  
   
 
 

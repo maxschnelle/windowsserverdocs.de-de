@@ -8,19 +8,19 @@ ms.assetid: 9bd191d6-ecc5-4230-a88e-f3fc281cb956
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 7a297ed077f4c1457bd1e59fc0ea22feedd5de0d
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 8b397a8fd2047c1a6fcaf5de2f5e1af167f1029f
+ms.sourcegitcommit: 6d6a0225b1f83b71fcb494b94d666cd5e54c7566
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80817585"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85267451"
 ---
 # <a name="add-microsoft-online-service-partner-agreement-partner-of-record-information"></a>Hinzufügen von Informationen zum zuständigen Partner im Rahmen des Microsoft Online Services-Partnervertrags
 
 >Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
 ##  <a name="BKMK_3rdLevelDomanNames"></a>   
- Wenn Sie ein Microsoft Online Services-Partner Vertragspartner für Office 365 sind, müssen Sie zum sicherstellen, dass Sie ordnungsgemäß kompensiert werden, wenn eine Abonnement Anforderung über das Office 365-Integrationsmodul aus Windows Server Essentials stammt, eine Registrierungsschlüssel, der die Identifikations-ID (Partner-of-Record Identification, por ID) enthält. Die folgenden Informationen werden gelesen und über die Anmelde-URLs für Office 365 an den Dienstanbieter übermittelt.  
+ Wenn Sie ein Microsoft Online Services-Partner Vertragspartner für Office 365 sind, müssen Sie einen Registrierungsschlüssel erstellen, der Ihre ID (Partner-of-Record Identification, por ID) enthält, um sicherzustellen, dass Sie ordnungsgemäß kompensiert werden, wenn eine Abonnement Anforderung über das Office 365-Integrationsmodul aus Windows Server Essentials stammt. Die folgenden Informationen werden gelesen und über die Anmelde-URLs für Office 365 an den Dienstanbieter übermittelt.  
   
 -   HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Server\MSO  
   
@@ -50,13 +50,8 @@ ms.locfileid: "80817585"
   
 ## <a name="see-also"></a>Weitere Informationen  
 
- [Erstellen und Anpassen des Abbilds](Creating-and-Customizing-the-Image.md)   
+ [Erstellen und Anpassen des Bilds](Creating-and-Customizing-the-Image.md)   
  [Weitere Anpassungen](Additional-Customizations.md)   
- [Vorbereiten des Abbilds für die Bereitstellung](Preparing-the-Image-for-Deployment.md)   
+ [Vorbereiten des Images für die Bereitstellung](Preparing-the-Image-for-Deployment.md)   
  [Testen der Benutzerfreundlichkeit](Testing-the-Customer-Experience.md)
-
- [Erstellen und Anpassen des Abbilds](../install/Creating-and-Customizing-the-Image.md)   
- [Weitere Anpassungen](../install/Additional-Customizations.md)   
- [Vorbereiten des Abbilds für die Bereitstellung](../install/Preparing-the-Image-for-Deployment.md)   
- [Testen der Benutzerfreundlichkeit](../install/Testing-the-Customer-Experience.md)
 

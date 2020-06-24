@@ -1,5 +1,5 @@
 ---
-title: Umstellung von Windows Server Essentials auf Windows Server 2012 R2 Standard
+title: Umstellung von Windows Server Essentials auf Windows Server 2012 R2 Standard
 description: Beschreibt die Verwendung von Windows Server Essentials
 ms.date: 10/03/2016
 ms.prod: windows-server
@@ -8,14 +8,14 @@ ms.assetid: a14689e3-2310-4229-bd3e-dafc0e739e02
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: f7914ff205382ed2c74cb130061f850e2c0675f5
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 145d4ef1039093f224e1dc73cb5d8286ddd8e494
+ms.sourcegitcommit: fdc3ce1992f4dd6ea1771479d525126abbbcfa72
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80852293"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85256480"
 ---
-# <a name="transition-from-windows-server-essentials-to-windows-server-2012-r2-standard"></a>Umstellung von Windows Server Essentials auf Windows Server 2012 R2 Standard
+# <a name="transition-from-windows-server-essentials-to-windows-server-2012-r2-standard"></a>Umstellung von Windows Server Essentials auf Windows Server 2012 R2 Standard
 
 >Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
@@ -37,11 +37,11 @@ Windows Server 2016 ist das für die Cloud geeignete Betriebssystem, das Ihre ak
   
 -   Außerdem sollten Sie sicherstellen, dass Sie den Endbenutzer-Lizenzvertrag (EULA) für Windows Server 2012 R2 Standard lesen und verstehen. So zeigen Sie die EULA an:  
   
-    1.  Öffnen Sie als Administrator ein Befehlsfenster.  
+    1.  Öffnen Sie ein Befehlsfenster als Administrator.  
   
     2.  Führen Sie den folgenden Befehl aus:  
   
-         **/Online/Set-Edition: Serverstandard/geteula:** *EULA Path* (wobei *EULA Path* für den Speicherort steht, an dem die EULA-Datei gespeichert werden soll. Beispiel: c:\ ws8std_eula. RTF). Achten Sie darauf, RTF als Dateierweiterung zu verwenden.  
+         **dism /online /set-edition:ServerStandard /geteula:** *eula path* (wobei *eula path* für den Speicherort steht, an dem die EULA-Datei gespeichert werden soll. Beispiel: C:\ws8std_eula.rtf). Achten Sie darauf, RTF als Dateierweiterung zu verwenden.  
   
     3.  Navigieren Sie zum Speicherort der Datei, und doppelklicken Sie darauf, um sie zu öffnen.  
   
@@ -67,10 +67,8 @@ Windows Server 2016 ist das für die Cloud geeignete Betriebssystem, das Ihre ak
   
    Nach dem Übergang verbleiben die Windows Server Essentials-Features auf dem Server und werden von bis zu 100 Benutzern und 200 Geräten unterstützt.  
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
   
 
 -   [Migrieren von Serverdaten zu Windows Server Essentials](Migrate-Server-Data-to-Windows-Server-Essentials.md)
-
--   [Migrieren von Serverdaten zu Windows Server Essentials](../migrate/Migrate-Server-Data-to-Windows-Server-Essentials.md)
 

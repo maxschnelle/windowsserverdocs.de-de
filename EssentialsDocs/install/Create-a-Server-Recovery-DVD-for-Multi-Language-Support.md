@@ -7,12 +7,12 @@ ms.topic: article
 ms.assetid: c7da0f6c-9732-4784-9c28-7dad72c4071d
 author: daveba
 ms.author: daveba
-ms.openlocfilehash: b71fc748f7cc8d82420b7a62fe502135036db727
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 9cafaf25a18ffe17894e11ff0676e492656e5831
+ms.sourcegitcommit: fdc3ce1992f4dd6ea1771479d525126abbbcfa72
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80312117"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85256669"
 ---
 # <a name="create-a-server-recovery-dvd-for-multi-language-support"></a>Erstellen einer Serverwiederherstellungs-DVD für die Unterstützung mehrerer Sprachen
 
@@ -44,7 +44,7 @@ ms.locfileid: "80312117"
   
 2.  Erstellen verteilbarer Medien  
   
-### <a name="prerequisites"></a>Erforderliche Komponenten  
+### <a name="prerequisites"></a>Voraussetzungen  
  Sie benötigen Folgendes, um Windows Setup mehrsprachige Unterstützung hinzuzufügen:  
   
 
@@ -66,7 +66,7 @@ ms.locfileid: "80312117"
 > [!NOTE]
 >  Vergewissern Sie sich, dass Sie Sprachpakete für Windows Server 2012 installieren. Dadurch wird das richtige Branding sichergestellt. Die Sprachpakete für die mehrsprachige Benutzeroberfläche von Windows Server 2012 sind auf [Microsoft.com](https://www.microsoft.com/OEM/en/installation/downloads/Pages/technical-downloads.aspx)verfügbar. Befolgen Sie die Anweisungen unter Exemplarische Vorgehensweise [: Erstellen von Windows-Images](https://technet.microsoft.com/library/jj126995.aspx) in mehreren Sprachen zum Erstellen eines mehrsprachigen Windows-Abbilds, bevor Sie "install. wim" das Windows Server Essentials-Sprachpaket hinzufügen.  
 >   
->  Windows Server Essentials Language Packs sind auf dem Sprachpaket Medium unter \language Packs\\< cultureName\>verfügbar.  
+>  Windows Server Essentials Language Packs sind auf dem Sprachpaket Medium unter \language Packs \\<cultureName verfügbar \> .  
   
 > [!NOTE]
 >  Vor der Veröffentlichung von Windows Server 2012 sind nicht alle Sprachpakete möglicherweise nicht verfügbar.  
@@ -104,13 +104,8 @@ ms.locfileid: "80312117"
   
 ## <a name="see-also"></a>Weitere Informationen  
 
- [Erstellen und Anpassen des Abbilds](Creating-and-Customizing-the-Image.md)   
+ [Erstellen und Anpassen des Bilds](Creating-and-Customizing-the-Image.md)   
  [Weitere Anpassungen](Additional-Customizations.md)   
- [Vorbereiten des Abbilds für die Bereitstellung](Preparing-the-Image-for-Deployment.md)   
+ [Vorbereiten des Images für die Bereitstellung](Preparing-the-Image-for-Deployment.md)   
  [Testen der Benutzerfreundlichkeit](Testing-the-Customer-Experience.md)
-
- [Erstellen und Anpassen des Abbilds](../install/Creating-and-Customizing-the-Image.md)   
- [Weitere Anpassungen](../install/Additional-Customizations.md)   
- [Vorbereiten des Abbilds für die Bereitstellung](../install/Preparing-the-Image-for-Deployment.md)   
- [Testen der Benutzerfreundlichkeit](../install/Testing-the-Customer-Experience.md)
 

@@ -8,12 +8,12 @@ ms.assetid: f5861ae9-77cb-4d37-b4c5-8f0757213385
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: d7a718e9e84866b6a1f626499b7e2bec58de498f
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 1af895dd6711446408b063f5715ba2a5a73857c3
+ms.sourcegitcommit: 6d6a0225b1f83b71fcb494b94d666cd5e54c7566
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80852403"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85267392"
 ---
 # <a name="prepare-your-source-server-for-windows-server-essentials-migration1"></a>Vorbereiten des Quell Servers für Windows Server Essentials Migration1
 
@@ -22,35 +22,25 @@ ms.locfileid: "80852403"
 Führen Sie vorab folgende Schritte aus, um sicherzustellen, dass eine erfolgreiche Migration der Einstellungen und Daten vom Quellserver zum Zielserver möglich ist.  
   
 #### <a name="to-prepare-for-migration"></a>So bereiten Sie die Migration vor  
-  
+
 
 1.  [Sichern des Quell Servers](Prepare-your-Source-Server-for-Windows-Server-Essentials-migration.md#BKMK_BackUpYourSourceServerToPrepareForMigration)  
   
 2.  [Installieren der aktuellsten Service Packs](Prepare-your-Source-Server-for-Windows-Server-Essentials-migration.md#BKMK_InstallTheMostRecentServicePacksToPrepareForMigration)  
   
-3.  [Auswerten der Integrität des Quell Servers](Prepare-your-Source-Server-for-Windows-Server-Essentials-migration.md#BKMK_UseWindowsBestPracticeAnalyzer)  
+3.  [Bewerten Sie die Integrität des Quellservers](Prepare-your-Source-Server-for-Windows-Server-Essentials-migration.md#BKMK_UseWindowsBestPracticeAnalyzer)  
   
-4.  [Ausführen des Tools zum Vorbereiten der Migration auf dem Quell Server](Prepare-your-Source-Server-for-Windows-Server-Essentials-migration.md#BKMK_MPT)  
+4.  [Ausführen des Tools zum Vorbereiten der Migration auf dem Quellserver](Prepare-your-Source-Server-for-Windows-Server-Essentials-migration.md#BKMK_MPT)  
   
-5.  [Erstellen eines Plans für die Migration von Branchen Anwendungen](Prepare-your-Source-Server-for-Windows-Server-Essentials-migration.md#BKMK_PlanToMigrateLineOfBusinessApplications)  
+5.  [Aufstellen eines Plans für die Migration von Branchenanwendungen](Prepare-your-Source-Server-for-Windows-Server-Essentials-migration.md#BKMK_PlanToMigrateLineOfBusinessApplications)  
 
-1.  [Sichern des Quell Servers](../migrate/Prepare-your-Source-Server-for-Windows-Server-Essentials-migration.md#BKMK_BackUpYourSourceServerToPrepareForMigration)  
-  
-2.  [Installieren der aktuellsten Service Packs](../migrate/Prepare-your-Source-Server-for-Windows-Server-Essentials-migration.md#BKMK_InstallTheMostRecentServicePacksToPrepareForMigration)  
-  
-3.  [Auswerten der Integrität des Quell Servers](../migrate/Prepare-your-Source-Server-for-Windows-Server-Essentials-migration.md#BKMK_UseWindowsBestPracticeAnalyzer)  
-  
-4.  [Ausführen des Tools zum Vorbereiten der Migration auf dem Quell Server](../migrate/Prepare-your-Source-Server-for-Windows-Server-Essentials-migration.md#BKMK_MPT)  
-  
-5.  [Erstellen eines Plans für die Migration von Branchen Anwendungen](../migrate/Prepare-your-Source-Server-for-Windows-Server-Essentials-migration.md#BKMK_PlanToMigrateLineOfBusinessApplications)  
-
-  
 ###  <a name="back-up-your-source-server"></a><a name="BKMK_BackUpYourSourceServerToPrepareForMigration"></a>Sichern des Quell Servers  
  Sichern Sie den Quellserver, bevor Sie mit dem Migrationsprozess beginnen. Durch diese Sicherung schützen Sie sich vor Datenverlusten, wenn während der Migration ein nicht behebbarer Fehler auftritt.  
+ 
   
 ##### <a name="to-back-up-the-source-server"></a>So sichern Sie den Zielserver  
   
-1.  Führen Sie eine vollständige Sicherung des Quellservers durch. Weitere Informationen zum Sichern von Windows Small Business Server 2011 Essentials finden Sie unter [Weitere Informationen zum Einrichten der Server Sicherung](https://technet.microsoft.com/library/server-backup-support-1.aspx).  
+1.  Führen Sie eine vollständige Sicherung des Quellservers durch. Weitere Informationen zum Sichern von Windows Small Business Server 2011 Essentials finden Sie unter [Learn more about setting up server backup](https://technet.microsoft.com/library/server-backup-support-1.aspx).  
   
 2.  Überprüfen Sie, ob die Sicherung erfolgreich ausgeführt wurde. Zum Prüfen der Integrität der Sicherung wählen Sie beliebige Dateien der Sicherung aus und stellen diese an einem anderen Speicherort wieder her. Überprüfen Sie dann, ob die wiederhergestellten Dateien mit den Originaldateien identisch sind.  
   
@@ -77,7 +67,7 @@ Führen Sie vorab folgende Schritte aus, um sicherzustellen, dass eine erfolgrei
 #### <a name="run-the-windows-server-solutions-best-practices-analyzer"></a>Führen Sie den Best Practices Analyzer für Windows Server Solutions aus  
  Sie können den Best Practices Analyzer (BPA) für Windows Server Solutions ausführen, um sicherzustellen, dass keine Probleme auf Ihrem Server, Netzwerk, oder Ihrer Domäne vor Beginn des Migrationsvorgangs vorliegen. Das BPA erfasst Konfigurationsinformationen aus den folgenden Quellen:  
   
--   Active Directory&reg; Windows-Verwaltungsinstrumentation (WMI)  
+-   Active Directory &reg; Windows-Verwaltungsinstrumentation (WMI)  
   
 -   Registrierung  
   
@@ -85,7 +75,7 @@ Führen Sie vorab folgende Schritte aus, um sicherzustellen, dass eine erfolgrei
   
 ###### <a name="to-use-the-windows-server-solutions-bpa-to-analyze-your-source-server"></a>So analysieren Sie den Quellserver mithilfe des BPA für Windows Server Solutions  
   
-1. Laden Sie die [Windows Server-Lösungen Best Practices Analyzer](https://www.microsoft.com/download/details.aspx?id=15556) im Microsoft Download Center herunter, und installieren Sie Sie.  
+1. Laden Sie den [Best Practices Analyzer für Windows Server-Lösungen](https://www.microsoft.com/download/details.aspx?id=15556) im Microsoft Download Center herunter, und installieren Sie ihn.  
   
 2. Gehen Sie nach dem Abschluss des Downloads auf **Start**, **Alle Programme** und dann auf **SBS Best Practices Analyzer Tool**.  
   
@@ -100,13 +90,13 @@ Führen Sie vorab folgende Schritte aus, um sicherzustellen, dass eine erfolgrei
   
    Nach dem Sammeln von Informationen zur Server-Konfiguration überprüft der Windows Server Solutions BPA, ob die Informationen korrekt sind und wird dann Administratoren eine Liste von Informationen und Problemen nach Schweregrad sortiert anzeigen. Die Liste beschreibt jedes Problem und bietet eine Empfehlung oder eine mögliche Lösung. Folgende drei Berichtstypen sind verfügbar:  
   
-|Berichttyp|Beschreibung|  
+|Berichttyp|BESCHREIBUNG|  
 |-----------------|-----------------|  
 |Listenberichte|Zeigt Berichte in einer eindimensionalen Liste an.|  
 |Strukturberichte|Zeigt Berichte in einer hierarchischen Liste an.|  
-|Andere Berichte|Zeigt Berichte wie z. B. ein Laufzeitprotokoll an.|  
+|Andere Berichte|Zeigt Berichte wie z. B. ein Laufzeitprotokoll an.|  
   
- Wenn Sie die Beschreibung und Lösungen für ein Problem anzeigen möchten, klicken Sie im Bericht auf das betreffende Problem. Nicht alle Probleme, die von Windows SB 2011 Essentials BPA gemeldet werden, wirken sich auf die Migration aus. Sie sollten jedoch möglichst viele der Probleme beheben, um eine erfolgreiche Migration sicherzustellen.  
+ Wenn Sie die Beschreibung und Lösungen für ein Problem anzeigen möchten, klicken Sie im Bericht auf das betreffende Problem. Nicht alle von BPA für Windows SBS 2011 Essentials erfassten Probleme wirken sich auf die Migration aus, Sie sollten jedoch möglichst viele der Probleme beheben, um eine erfolgreiche Migration sicherzustellen.  
   
 ####  <a name="synchronize-the-source-server-time-with-an-external-time-source"></a><a name="BKMK_SynchronizeTheSourceServerTimeWithAnExternalTimeSource"></a>Synchronisieren der Quell Server Uhrzeit mit einer externen Zeit Quelle  
  Die Uhrzeit auf dem Quellserver darf maximal fünf Minuten von der Uhrzeit auf dem Zielserver abweichen, und die Datums- und Zeitzone muss auf beiden Servern gleich sein. Wenn der Quellserver einen virtuellen Computer ausführt, müssen das Datum, die Uhrzeit und die Zeitzone auf dem Hostserver diesen Angaben auf dem Quell- und dem Zielserver entsprechen. Um sicherzustellen, dass Windows Server Essentials erfolgreich installiert wurde, müssen Sie die Uhrzeit des Quell Servers mit dem NTP-Server (Network Time Protocol) im Internet synchronisieren.  
@@ -154,13 +144,13 @@ Führen Sie vorab folgende Schritte aus, um sicherzustellen, dass eine erfolgrei
   
    Mithilfe der neuesten Version des Windows Update-Agents können Sie sicherstellen, dass das Serverupdate ordnungsgemäß ausgeführt wird.  
   
-   Bevor Sie Windows Update-Agent auf dem Quell Server installieren können, müssen Sie zuerst Windows PowerShell 2,0 und Microsoft Baseline Configuration Analyzer 2,0 installieren.  
+   Bevor Sie den Windows Update-Agent auf dem Quellserver installieren können, müssen Sie zuerst Windows PowerShell 2.0 und Microsoft Baseline Configuration Analyzer 2.0 installieren.  
   
--   Informationen zum herunterladen und Installieren von Windows PowerShell 2,0 finden Sie im [Artikel 968929](https://go.microsoft.com/fwlink/p/?LinkId=241483) der Microsoft Knowledge Base.  
+-   Informationen zum Herunterladen und Installieren von Windows PowerShell 2.0 finden Sie im [Artikel 968929](https://go.microsoft.com/fwlink/p/?LinkId=241483) der Microsoft Knowledge Base.  
   
--   Informationen zum herunterladen und Installieren von Microsoft Baseline Configuration Analyzer 2,0 finden Sie unter [Microsoft Baseline Configuration Analyzer 2,0](https://go.microsoft.com/fwlink/p/?LinkId=241484) im Microsoft Download Center.  
+-   Informationen zum Herunterladen und Installieren von Microsoft Baseline Configuration Analyzer 2.0 finden Sie unter [Microsoft Baseline Configuration Analyzer 2.0](https://go.microsoft.com/fwlink/p/?LinkId=241484) im Microsoft Download Center.  
   
--   Informationen zum herunterladen und Installieren der neuesten Version von Windows Update-Agent finden Sie im [Artikel 949104](https://go.microsoft.com/fwlink/p/?LinkId=237493) in der Microsoft Knowledge Base.  
+-   Informationen zum Herunterladen und Installieren der neuesten Version des Windows Update-Agents finden Sie im [Artikel 949104](https://go.microsoft.com/fwlink/p/?LinkId=237493) in der Microsoft Knowledge Base.  
   
 ##### <a name="to-install-and-run-the-migration-preparation-tool-on-the-source-server"></a>So installieren Sie das Tool zum Vorbereiten der Migration auf dem Quellserver und führen es aus  
   

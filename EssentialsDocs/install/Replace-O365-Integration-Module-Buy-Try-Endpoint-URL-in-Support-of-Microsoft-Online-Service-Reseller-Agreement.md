@@ -8,12 +8,12 @@ ms.assetid: 9860a6b9-baea-4bf0-9a9f-6f1a288f996e
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: a517fd56c16860b0c3bfeeaf5cac0d4049b9041e
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 10f7e58aad26f85455388654c65b73fd72f9ae13
+ms.sourcegitcommit: fdc3ce1992f4dd6ea1771479d525126abbbcfa72
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80819873"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85256650"
 ---
 # <a name="replace-o365-integration-module-buy-try-endpoint-url-in-support-of-microsoft-online-service-reseller-agreement"></a>Ersetzen der Endpunkt-URLs des O365-Integrationsmoduls (Abonnement/Testabonnement) zur Unterstützung des Microsoft Online Services-Wiederverkäufervertrags
 
@@ -32,7 +32,7 @@ ms.locfileid: "80819873"
   
     -   Schlüsselname = MOSRASTDBUY  
   
-    -   Wert = *xxxxx*, wobei xxxxx die Abonnement-URL Ihres Unternehmens ist. Beispiel: Value = http://syndicatepartner.office365.com/enterprisebuy.html  
+    -   Wert = *xxxxx*, wobei xxxxx die Abonnement-URL Ihres Unternehmens ist. Beispiel: Wert =http://syndicatepartner.office365.com/enterprisebuy.html  
   
 2.  Endpunkt für ein Office 365 Enterprise-Testabonnement.  
   
@@ -42,7 +42,7 @@ ms.locfileid: "80819873"
   
     -   Schlüsselname = MOSRASTDTRY  
   
-    -   Wert = *xxxxx*, wobei xxxxx die Abonnement-URL Ihres Unternehmens ist. Beispiel: Value = http://syndicatepartner.office365.com/enterprisetry.html  
+    -   Wert = *xxxxx*, wobei xxxxx die Abonnement-URL Ihres Unternehmens ist. Beispiel: Wert =http://syndicatepartner.office365.com/enterprisetry.html  
   
 3.  Ein Office 365 Small Business Premium-Abonnement Kauf Endpunkt.  
   
@@ -52,7 +52,7 @@ ms.locfileid: "80819873"
   
     -   Schlüsselname = MOSRALITEBUY  
   
-    -   Wert = *xxxxx*, wobei xxxxx die Abonnement-URL Ihres Unternehmens ist. Beispiel: Value = http://syndicatepartner.office365.com/smallbizbuy.html  
+    -   Wert = *xxxxx*, wobei xxxxx die Abonnement-URL Ihres Unternehmens ist. Beispiel: Wert =http://syndicatepartner.office365.com/smallbizbuy.html  
   
 4.  Einen Test Endpunkt für Office 365 Small Business Premium-Abonnements.  
   
@@ -62,7 +62,7 @@ ms.locfileid: "80819873"
   
     -   Schlüsselname = MOSRALITETRY  
   
-    -   Wert = *xxxxx*, wobei xxxxx die Abonnement-URL Ihres Unternehmens ist. Beispiel: Value = http://syndicatepartner.office365.com/smallbiztry.html  
+    -   Wert = *xxxxx*, wobei xxxxx die Abonnement-URL Ihres Unternehmens ist. Beispiel: Wert =http://syndicatepartner.office365.com/smallbiztry.html  
   
 #### <a name="to-add-an-endpoint-url-key-to-the-registry"></a>So fügen Sie der Registrierung einen Schlüssel für die Endpunkt-URL hinzu  
   
@@ -90,11 +90,8 @@ ms.locfileid: "80819873"
   
 ## <a name="see-also"></a>Weitere Informationen  
 
- [Erstellen und Anpassen des Abbilds](Creating-and-Customizing-the-Image.md)   
+ [Erstellen und Anpassen des Bilds](Creating-and-Customizing-the-Image.md)   
  [Weitere Anpassungen](Additional-Customizations.md)   
- [Vorbereiten des Abbilds für die Bereitstellung](Preparing-the-Image-for-Deployment.md)   
- [Testen der Benutzerfreundlichkeit](Testing-the-Customer-Experience.md) beim [Erstellen und Anpassen des Abbilds](../install/Creating-and-Customizing-the-Image.md)   
- [Weitere Anpassungen](../install/Additional-Customizations.md)   
- [Vorbereiten des Abbilds für die Bereitstellung](../install/Preparing-the-Image-for-Deployment.md)   
- [Testen der Benutzerfreundlichkeit](../install/Testing-the-Customer-Experience.md)
-
+ [Vorbereiten des Images für die Bereitstellung](Preparing-the-Image-for-Deployment.md)   
+ [Testen der Benutzerfreundlichkeit](Testing-the-Customer-Experience.md)
+ 

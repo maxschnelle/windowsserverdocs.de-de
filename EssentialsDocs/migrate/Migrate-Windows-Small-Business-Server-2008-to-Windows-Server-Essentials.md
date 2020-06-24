@@ -8,31 +8,29 @@ ms.assetid: 71e3243e-2da9-409a-ae1f-813d4c9062e1
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 6a8c8a142cb40b8211450d16753ec9796987d208
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 3a64bbb83f416d6791abbb51f3fc000b418bc0e4
+ms.sourcegitcommit: fdc3ce1992f4dd6ea1771479d525126abbbcfa72
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80852513"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85256544"
 ---
 # <a name="migrate-windows-small-business-server-2008-to-windows-server-essentials"></a>Migration von Windows Small Business Server 2008 zu Windows Server Essentials
 
 >Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-In diesem Leitfaden wird beschrieben, wie Sie eine vorhandene Windows SSB 2008-Domäne zu Windows Server&reg; 2012 Essentials auf neuer Hardware migrieren und dann die Einstellungen und Daten migrieren. Außerdem wird in diesem Handbuch beschrieben, wie Sie den vorhandenen Server aus dem Windows Server Essentials-Netzwerk entfernen, nachdem Sie die Migration abgeschlossen haben.  
+In diesem Leitfaden wird beschrieben, wie Sie eine vorhandene Windows SSB 2008-Domäne &reg; auf neuer Hardware zu Windows Server 2012 Essentials migrieren und dann die Einstellungen und Daten migrieren. Außerdem wird in diesem Handbuch beschrieben, wie Sie den vorhandenen Server aus dem Windows Server Essentials-Netzwerk entfernen, nachdem Sie die Migration abgeschlossen haben.  
   
 > [!NOTE]
 >  Um Probleme während der Migration zu vermeiden, empfiehlt das Windows Server Essentials-Produktentwicklungsteam dringend, dieses Dokument zu lesen, bevor Sie mit der Migration beginnen.  
 > 
 > [!NOTE]
 > 
->  Informationen zum Migrieren der Serverdaten zur neuesten Version von Windows Server Essentials finden Sie unter [Migrieren zu Windows Server Essentials](Migrate-from-Previous-Versions-to-Windows-Server-Essentials-or-Windows-Server-Essentials-Experience.md).  
-> 
->  Informationen zum Migrieren der Serverdaten zur neuesten Version von Windows Server Essentials finden Sie unter [Migrieren zu Windows Server Essentials](../migrate/Migrate-from-Previous-Versions-to-Windows-Server-Essentials-or-Windows-Server-Essentials-Experience.md).  
+>  Informationen zum Migrieren der Serverdaten zur neuesten Version von Windows Server Essentials finden Sie unter [Migrieren zu Windows Server Essentials](Migrate-from-Previous-Versions-to-Windows-Server-Essentials-or-Windows-Server-Essentials-Experience.md).
 
   
-## <a name="additional-resources"></a>Weitere Ressourcen  
- Links zu weiteren Informationen, Tools und Communityressourcen, die Ihnen den Migrationsprozess erleichtern, finden Sie auf der [Windows Small Business Server-Migrations](https://go.microsoft.com/fwlink/?LinkId=217520) Website.  
+## <a name="additional-resources"></a>Zusätzliche Ressourcen  
+ Links zu weiteren Informationen, Tools und Communityressourcen, die Ihnen beim Migrationsprozess behilflich sein können finden Sie auf der Website [Windows Small Business Server-Migration](https://go.microsoft.com/fwlink/?LinkId=217520).  
   
 ## <a name="terms-and-definitions"></a>Begriffe und Definitionen  
  **Quell Server:** Der vorhandene Server, von dem Sie die Einstellungen und Daten migrieren.  
@@ -64,11 +62,11 @@ In diesem Leitfaden wird beschrieben, wie Sie eine vorhandene Windows SSB 2008-D
   
 ###  <a name="to-open-a-command-prompt-window-on-the-source-server-as-an-administrator"></a><a name="BKMK_OpenACommandPromptAsAdmin"></a>So öffnen Sie ein Eingabe Aufforderungs Fenster auf dem Quell Server als Administrator  
   
-1.  Klicken Sie auf Start.  
+1.  Klicken Sie auf %%amp;quot;Start%%amp;quot;.  
   
-2.  Geben Sie im Suchfeld Cmd ein.  
+2.  Geben Sie im Suchfeld %%amp;quot;cmd%%amp;quot; ein.  
   
-3.  Klicken Sie in der Ergebnisliste mit der rechten Maustaste auf cmd, und klicken Sie dann auf Als Administrator ausführen.  
+3.  Klicken Sie in der Ergebnisliste mit der rechten Maustaste auf "cmd", und klicken Sie dann auf "Als Administrator ausführen".  
   
 #### <a name="to-open-a-command-prompt-window-on-the-destination-server-as-an-administrator"></a>So öffnen Sie auf dem Zielserver ein Eingabeaufforderungsfenster als Administrator  
   

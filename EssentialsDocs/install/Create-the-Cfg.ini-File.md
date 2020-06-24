@@ -8,12 +8,12 @@ ms.assetid: 93a73556-22ef-402d-b8d4-582b74c22bcf
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 241e7adf280e908ced8804969947d2a03400b06f
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 52a4af1e5cadcec1bae46aacb4ac4624c3ecc584
+ms.sourcegitcommit: 6d6a0225b1f83b71fcb494b94d666cd5e54c7566
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80818283"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85267651"
 ---
 # <a name="create-the-cfgini-file"></a>Erstellen der Datei "Cfg.ini"
 
@@ -99,20 +99,20 @@ Die Datei "cfg.ini" dient zum automatischen Installieren des Betriebssystems in 
     |Parametername|Beschreibung des Parameters|  
     |--------------------|---------------------------|  
     |*AcceptEula*|Gibt an, dass der Benutzer die Microsoft-Software-Lizenzbedingungen akzeptiert. Der Wert kann "True" oder "False" sein. Die Installation wird aber nur bei "True" fortgesetzt.|  
-    |*Akzeptakemeula*|(Optional) Gibt an, dass der Benutzer die Partner-Lizenzbedingungen akzeptiert. Der Wert kann "True" oder "False" sein. Dieses Feld ist nur erforderlich, wenn der Server bei einem Partner gekauft wurde, der gesonderte Lizenzbedingungen anbietet.|  
+    |*AcceptOEMEula*|(Optional) Gibt an, dass der Benutzer die Partner-Lizenzbedingungen akzeptiert. Der Wert kann "True" oder "False" sein. Dieses Feld ist nur erforderlich, wenn der Server bei einem Partner gekauft wurde, der gesonderte Lizenzbedingungen anbietet.|  
     |*CompanyName*|(Optional) Name der Firma. Der Firmenname wird verwendet, um den Server der Firma zuzuordnen und die Geschäftsberichte anzupassen. Er darf höchstens 254 Zeichen lang sein.|  
-    |*Land/Region*|(Optional) Zeichenfolge, die das gewünschte Land bzw. die gewünschte Region angibt. Beispiel: "US" für die USA.|  
-    |*Servername*|Mit dem Servernamen wird der Server im Netzwerk eindeutig identifiziert. Der Servername muss die folgenden Kriterien erfüllen:<br /><br /> -Kann bis zu 15 Zeichen lang sein.<br /><br /> -Kann Buchstaben, Ziffern und Bindestriche (-) enthalten.<br /><br /> -Darf nicht mit einem Bindestrich beginnen.<br /><br /> -Darf keine Leerzeichen enthalten.<br /><br /> -Darf nicht nur Ziffern enthalten.<br /><br /> Beispiel: ContosoServer.|  
+    |*Country*|(Optional) Zeichenfolge, die das gewünschte Land bzw. die gewünschte Region angibt. Beispiel: "US" für die USA.|  
+    |*ServerName*|Mit dem Servernamen wird der Server im Netzwerk eindeutig identifiziert. Der Servername muss die folgenden Kriterien erfüllen:<br /><br /> -Kann bis zu 15 Zeichen lang sein.<br /><br /> -Kann Buchstaben, Ziffern und Bindestriche (-) enthalten.<br /><br /> -Darf nicht mit einem Bindestrich beginnen.<br /><br /> -Darf keine Leerzeichen enthalten.<br /><br /> -Darf nicht nur Ziffern enthalten.<br /><br /> Beispiel: ContosoServer.|  
     |*DNSName*|Eine interne Domäne gruppiert den Server und die Clientcomputer zur gemeinsamen Nutzung einer allgemeinen Datenbank mit Benutzernamen, Kennwörtern und anderen allgemeinen Informationen. Den Benutzern wird der Name zwar angezeigt, wenn sie sich an ihren Computern anmelden, aber er wird nur intern verwendet und darf nicht mit einem Internetdomänennamen verwechselt werden. Der interne Domänenname muss die gleichen Kriterien erfüllen, die für *ServerName* angegeben sind.<br /><br /> Beispiel: contoso.local.|  
     |*NetbiosName*|Mit einem NetBIOS-Namen werden Ressourcen identifiziert, die auf dem Server ausgeführt werden. Er darf höchstens 15 Zeichen lang sein. Beispiel: Contoso.|  
     |*Sprache*|(Optional) Gibt die Anzeigesprache an. Es kann nur eine der installierten Sprachen verwendet werden. Beispiel: "en-us" für Englisch, wie es in den USA verwendet wird.|  
-    |*Konfigurations*|(Optional) Gibt das Datums- und Währungsformat mit einem *LocaleID*-Format an. Beispiel "en-us" für die Anzeige von Währung und Uhrzeit in Englisch und formatiert nach den in den USA geltenden Standards.|  
-    |*Tastatur*|Die Tastatur kann eines der beiden folgenden Formate aufweisen:<br /><br /> - **Eingabe Sprache: Tastaturlayout.** Beispielsweise 0409:00000409, wobei "0409" vor dem **:** der Eingabesprache und **00000409** dem Tastaturlayout entsprechen. Die Liste der Tastaturlayouts finden Sie unter dem Registrierungsschlüssel **HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Keyboard Layouts**.<br /><br /> - **Eingabe Sprache: die IME** -ID. Nachstehend finden Sie eine vollständige Liste der IME-IDs.<br /><br /> -{E429B25A-E5D3-4D1F-9BE3-0C608477E3A1} {8F 96574e-c86c-4bd6-9666-3F 7327d4cbe8} amharin Input-Methode<br /><br /> -{81d4e9c9-1d3b-41bc-9e6c-4b40bf 79e35e} {FA550B04-5AD7-411F-A5AC-CA038EC515D7} Microsoft Pinyin-Simple fast (Chinesisch vereinfacht)<br /><br /> -{531f -9b4c-4a43-a2aa-960e8f cdc732} {B2F9C502-1742-11D4-9790-0080C882687E} Chinesisch (traditionell)-neues phonetisch<br /><br /> -{531f -9b4c-4a43-a2aa-960e8f cdc732} {4bdf9f 03-c7d3-11D4-B2ab-0080c882687e} Chinesisch (traditionell)-ChangJie<br /><br /> -{531f -9b4c-4a43-a2aa-960e8f cdc732} {6024b45f -5c54-11D4-b921-0080c882687e} Chinesisch (traditionell)-schnell<br /><br /> -{E429B25A-E5D3-4D1F-9BE3-0C608477E3A1} {D38EFF65-AA46-4FD5-91A7-67845FB02F5B} traditionelles Chinesisch (traditionell)<br /><br /> -{E429B25A-E5D3-4D1F-9BE3-0C608477E3A1} {037b2c25-480c-4d7b027-b69788d6ca6b a} Chinesisch herkömmliches DaYi<br /><br /> -{03b5835l-f 03c-411b-9ce2-aa23e1171e36} {A76C93D9-5523-4E90-AAFA-4DB112F9AC76} Microsoft IME (Japanisch)<br /><br /> -{A028AE76-01B1-46C2-99C4-ACD9858AE02F} {B5FE1F02-D5F2-4445-9C03-C568F23C99A1} Microsoft IME (Koreanisch)<br /><br /> -{A1E2B86B-924A-4D43-80F6-8A820DF7190F} {B60AF051-257A-46BC-B9D3-84DAD819BAFB} Alter Hangul IME (Koreanisch)<br /><br /> -{E429B25A-E5D3-4D1F-9BE3-0C608477E3A1} {409c8376-007b-4357-AE8E-26316ee3sb0d} Eingabemethode "Yi"<br /><br /> -{E429B25A-E5D3-4D1F-9BE3-0C608477E3A1} {3cab88b7-cc3e-46a6-9765-b772ad7761ff} Eingabemethode "Tigrinya"|  
-    |*Einstellungen*|Legt die Benutzerauswahl für Updates fest. Verwenden Sie einen der folgenden Werte:<br /><br /> **-"All** " verwendet Empfohlene Einstellungen.<br /><br /> **-Updates** entsprechen wichtige Updates installieren. nur<br /><br /> **-None** ist nicht auf Updates überprüfen.|  
-    |*UserName*|: Der Name des neuen Administrator Kontos, das während des Setups erstellt wird. Die Namen von Administrator- und Standardbenutzerkonten müssen die folgenden Kriterien erfüllen:<br /><br /> -Kann bis zu 19 Zeichen lang sein.<br /><br /> -Kann/\ [] &#124; < nicht enthalten > + =; , ? *<br /><br /> -Darf nicht mit einem-Zeitraum beginnen oder enden.<br /><br /> -Darf nicht zwei aufeinander folgende Zeiträume enthalten.<br /><br /> -Darf nicht mit dem Servernamen oder dem internen Domänen Namen identisch sein.<br /><br /> -Darf nicht mit einem vordefinierten Benutzernamen wie "Administrator" oder "Gast" identisch sein.|  
-    |*Klartext-Kennwort*|Dies ist das Kennwort für das neue Administratorkonto, das während des Setups erstellt wird.<br /><br /> -Muss mindestens acht Zeichen lang sein.<br /><br /> -Muss mindestens drei der vier folgenden Kategorien enthalten:<br /><br /> -Großbuchstaben.<br /><br /> -Kleinbuchstaben.<br /><br /> Zahlen.<br /><br /> MB.|  
-    |*Stdusername*|Der Name des neuen Standardbenutzerkontos, das während des Setups erstellt wird. Die Anforderungen finden Sie unter dem *UserName*-Parameter.|  
-    |*Stduserplaintextpassword*|Das Kennwort für das neue Standardbenutzerkonto, das während des Setups erstellt wird.|  
+    |*Gebietsschema*|(Optional) Gibt das Datums- und Währungsformat mit einem *LocaleID*-Format an. Beispiel "en-us" für die Anzeige von Währung und Uhrzeit in Englisch und formatiert nach den in den USA geltenden Standards.|  
+    |*Tastatur*|Die Tastatur kann eines der beiden folgenden Formate aufweisen:<br /><br /> - **Eingabe Sprache: Tastaturlayout.** Beispielsweise 0409:00000409, wobei "0409" vor dem **:** der Eingabesprache und **00000409** dem Tastaturlayout entsprechen. Die Liste der Tastaturlayouts finden Sie unter dem Registrierungsschlüssel **HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Keyboard Layouts**.<br /><br /> - **Eingabe Sprache: die IME-ID.** Nachstehend finden Sie eine vollständige Liste der IME-IDs.<br /><br /> -{E429B25A-E5D3-4D1F-9BE3-0C608477E3A1} {8F 96574e-c86c-4bd6-9666-3F 7327d4cbe8} amharin Input-Methode<br /><br /> -{81d4e9c9-1d3b-41bc-9e6c-4b40bf 79e35e} {FA550B04-5AD7-411F-A5AC-CA038EC515D7} Microsoft Pinyin-Simple fast (Chinesisch vereinfacht)<br /><br /> -{531f -9b4c-4a43-a2aa-960e8f cdc732} {B2F9C502-1742-11D4-9790-0080C882687E} Chinesisch (traditionell)-neues phonetisch<br /><br /> -{531f -9b4c-4a43-a2aa-960e8f cdc732} {4bdf9f 03-c7d3-11D4-B2ab-0080c882687e} Chinesisch (traditionell)-ChangJie<br /><br /> -{531f -9b4c-4a43-a2aa-960e8f cdc732} {6024b45f -5c54-11D4-b921-0080c882687e} Chinesisch (traditionell)-schnell<br /><br /> -{E429B25A-E5D3-4D1F-9BE3-0C608477E3A1} {D38EFF65-AA46-4FD5-91A7-67845FB02F5B} traditionelles Chinesisch (traditionell)<br /><br /> -{E429B25A-E5D3-4D1F-9BE3-0C608477E3A1} {037b2c25-480c-4d7b027-b69788d6ca6b a} Chinesisch herkömmliches DaYi<br /><br /> -{03b5835l-f 03c-411b-9ce2-aa23e1171e36} {A76C93D9-5523-4E90-AAFA-4DB112F9AC76} Microsoft IME (Japanisch)<br /><br /> -{A028AE76-01B1-46C2-99C4-ACD9858AE02F} {B5FE1F02-D5F2-4445-9C03-C568F23C99A1} Microsoft IME (Koreanisch)<br /><br /> -{A1E2B86B-924A-4D43-80F6-8A820DF7190F} {B60AF051-257A-46BC-B9D3-84DAD819BAFB} Alter Hangul IME (Koreanisch)<br /><br /> -{E429B25A-E5D3-4D1F-9BE3-0C608477E3A1} {409c8376-007b-4357-AE8E-26316ee3sb0d} Eingabemethode "Yi"<br /><br /> -{E429B25A-E5D3-4D1F-9BE3-0C608477E3A1} {3cab88b7-cc3e-46a6-9765-b772ad7761ff} Eingabemethode "Tigrinya"|  
+    |*Einstellungen*|Legt die Benutzerauswahl für Updates fest. Verwenden Sie einen der folgenden Werte:<br /><br /> **-"All** " verwendet Empfohlene Einstellungen.<br /><br /> **-Updates** entsprechen wichtige Updates installieren. Machine Learning<br /><br /> **-None** ist nicht auf Updates überprüfen.|  
+    |*User*|: Der Name des neuen Administrator Kontos, das während des Setups erstellt wird. Die Namen von Administrator- und Standardbenutzerkonten müssen die folgenden Kriterien erfüllen:<br /><br /> -Kann bis zu 19 Zeichen lang sein.<br /><br /> -Kann/\ []  &#124; < > + =; nicht enthalten. , ? *<br /><br /> -Darf nicht mit einem-Zeitraum beginnen oder enden.<br /><br /> -Darf nicht zwei aufeinander folgende Zeiträume enthalten.<br /><br /> -Darf nicht mit dem Servernamen oder dem internen Domänen Namen identisch sein.<br /><br /> -Darf nicht mit einem vordefinierten Benutzernamen wie "Administrator" oder "Gast" identisch sein.|  
+    |*PlainTextPassword*|Dies ist das Kennwort für das neue Administratorkonto, das während des Setups erstellt wird.<br /><br /> -Muss mindestens acht Zeichen lang sein.<br /><br /> -Muss mindestens drei der vier folgenden Kategorien enthalten:<br /><br /> -Großbuchstaben.<br /><br /> -Kleinbuchstaben.<br /><br /> Zahlen.<br /><br /> MB.|  
+    |*StdUserName*|Der Name des neuen Standardbenutzerkontos, das während des Setups erstellt wird. Die Anforderungen finden Sie unter dem *UserName*-Parameter.|  
+    |*StdUserPlainTextPassword*|Das Kennwort für das neue Standardbenutzerkonto, das während des Setups erstellt wird.|  
     |WebDomainName|(Optional) Konfigurieren Sie den Internetdomänennamen des Servers. Mit dieser Datei können Sie den Domänennamen entsprechend der für die manuelle Konfiguration verwendeten Methode im Assistenten zum Einrichten von Domänennamen konfigurieren.|  
     |TrustedCertFileName|(Optional) Konfigurieren Sie das vertrauenswürdige Zertifikat für den Domänennamen. Dadurch können Sie ein PFX-Zertifikat hinzufügen, das den privaten Schlüssel enthält.|  
     |TrustedCertPassword|(Optional) Das Kennwort zum Importieren des PFX-Zertifikats.|  
@@ -130,12 +130,12 @@ Die Datei "cfg.ini" dient zum automatischen Installieren des Betriebssystems in 
     |StaticIPv6Gateway|(Optional) Geben Sie die Standardgatewayadresse an, wenn Sie statt einer dynamischen eine statische IP-Adresse konfigurieren möchten.|  
     |ClientBackupOn|(Optional) Aktivieren Sie standardmäßig die Clientsicherung, die ausgeführt wird, wenn dem Server neue Clients hinzugefügt werden.|  
     |FileHistoryOn|(Optional) Deaktivieren Sie standardmäßig die Sicherung des Dateiverlaufs, die ausgeführt wird, wenn dem Server neue Clients mit Windows 8 Consumer Preview hinzugefügt werden.|  
-    |EnableRWA|Bei der Installation von Windows Server Essentials wird Remote Webzugriff aktiviert, die Routerkonfiguration wird jedoch übersprungen. Dies wird nur bei einer Neuinstallation des Produkts unterstützt. Der Standardwert ist false.|  
+    |EnableRWA|Bei der Installation von Windows Server Essentials wird Remote Webzugriff aktiviert, die Routerkonfiguration wird jedoch übersprungen. Dies wird nur bei einer Neuinstallation des Produkts unterstützt. Der Standardwert ist „FALSE“.|  
     |IPv4DNSForwarder|Legen Sie die IPv4-DNS-Weiterleitung fest.|  
     |IPv6DNSForwarder|Legen Sie die IPv6-DNS-Weiterleitung fest.|  
     |LaunchPadHiddenTasks|-(Optional) Sie können den Eintrag "Sicherungs Eintrag" oder "/und Administrator Dashboard" in Launchpad ausblenden.<br /><br /> -So deaktivieren Sie das Dashboard: launchpadhiddentasks = Microsoft. launchpad. admindashboard<br /><br /> -So deaktivieren Sie die Sicherung: launchpadhiddentasks = Microsoft. launchpad. Backup<br /><br /> -So deaktivieren Sie die Sicherung und das Dashboard: launchpadhiddentasks = Microsoft. launchpad. Backup, Microsoft. launchpad. admindashboard|  
   
-3.  Speichern Sie die Datei. Stellen Sie sicher, dass Sie die Datei unter dem Namen "Cfg.ini" und nicht unter dem Namen "Cfg.ini.txt" speichern.  
+3.  Speichern Sie die Datei . Stellen Sie sicher, dass Sie die Datei unter dem Namen "Cfg.ini" und nicht unter dem Namen "Cfg.ini.txt" speichern.  
   
     > [!NOTE]
     >  Sie können die Datei auf einem USB-Speicherstick speichern, der für spezielle Phasen der Installation verwendet werden kann. Alternativ können Sie die Datei "Cfg.ini" im Stamm einer beliebigen Festplatte auf dem Zielserver ablegen. Die Codierung für die Datei muss auf ANSI oder Unicode festgelegt werden; UTF-8-Verschlüsselung wird nicht unterstützt.  
@@ -145,15 +145,9 @@ Die Datei "cfg.ini" dient zum automatischen Installieren des Betriebssystems in 
   
 ## <a name="see-also"></a>Weitere Informationen  
 
- [Die ersten Schritte mit dem Windows Server Essentials ADK](Getting-Started-with-the-Windows-Server-Essentials-ADK.md) -   
- [Erstellen und Anpassen des Abbilds](Creating-and-Customizing-the-Image.md)   
+ [Einführung in das Windows Server Essentials ADK](Getting-Started-with-the-Windows-Server-Essentials-ADK.md)   
+ [Erstellen und Anpassen des Bilds](Creating-and-Customizing-the-Image.md)   
  [Weitere Anpassungen](Additional-Customizations.md)   
- [Vorbereiten des Abbilds für die Bereitstellung](Preparing-the-Image-for-Deployment.md)   
+ [Vorbereiten des Images für die Bereitstellung](Preparing-the-Image-for-Deployment.md)   
  [Testen der Benutzerfreundlichkeit](Testing-the-Customer-Experience.md)
-
- [Die ersten Schritte mit dem Windows Server Essentials ADK](../install/Getting-Started-with-the-Windows-Server-Essentials-ADK.md) -   
- [Erstellen und Anpassen des Abbilds](../install/Creating-and-Customizing-the-Image.md)   
- [Weitere Anpassungen](../install/Additional-Customizations.md)   
- [Vorbereiten des Abbilds für die Bereitstellung](../install/Preparing-the-Image-for-Deployment.md)   
- [Testen der Benutzerfreundlichkeit](../install/Testing-the-Customer-Experience.md)
 

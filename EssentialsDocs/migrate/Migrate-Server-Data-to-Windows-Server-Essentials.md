@@ -8,12 +8,12 @@ ms.assetid: dff2bf27-5d97-409b-81e8-286f7d933d90
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: d2c4d21012b8b5710b3a7c7f05d60a8a6ba79d49
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 40d86cf54f269c843f8dfc70c57e88a404498f91
+ms.sourcegitcommit: fdc3ce1992f4dd6ea1771479d525126abbbcfa72
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80852553"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85256600"
 ---
 # <a name="migrate-server-data-to-windows-server-essentials"></a>Migrieren von Serverdaten zu Windows Server Essentials
 
@@ -29,10 +29,6 @@ Die folgenden Handbücher enthalten Informationen zum Migrieren zu Windows Serve
   
 -   [Umstellung auf Windows Server 2012 R2 Standard](Transition-from-Windows-Server-2012-R2-Essentials-to-Windows-Server-2012-R2-Standard.md)  
 
--   [Migrieren zu Windows Server Essentials](../migrate/Migrate-from-Previous-Versions-to-Windows-Server-Essentials-or-Windows-Server-Essentials-Experience.md)  
-  
--   [Umstellung auf Windows Server 2012 R2 Standard](../migrate/Transition-from-Windows-Server-2012-R2-Essentials-to-Windows-Server-2012-R2-Standard.md)  
-
   
 ## <a name="migrate-to-windows-server-essentials"></a>Migrieren zu Windows Server Essentials  
  Um Probleme beim Migrieren des vorhandenen Servers zu Windows Server Essentials zu vermeiden, lesen Sie das Migrations Handbuch für ihr Geschäftsszenario, bevor Sie mit der Migration beginnen.  
@@ -40,46 +36,30 @@ Die folgenden Handbücher enthalten Informationen zum Migrieren zu Windows Serve
 
 -   [Umstellung auf Windows Server 2012 Standard](Transition-from-Windows-Server-2012-Essentials-to-Windows-Server-2012-Standard.md)  
   
--   [Migrieren von Windows SSB 2011 Essentials](Migrate-Windows-Small-Business-Server-2011-Essentials-to-Windows-Server-Essentials.md)  
+-   [Migration von Windows SBS 2011 Essentials](Migrate-Windows-Small-Business-Server-2011-Essentials-to-Windows-Server-Essentials.md)  
   
--   [Migrieren von Windows SSB 2011 Standard](Migrate-Windows-Small-Business-Server-2011-Standard-to-Windows-Server-Essentials.md)  
+-   [Migration von Windows SBS 2011 Standard](Migrate-Windows-Small-Business-Server-2011-Standard-to-Windows-Server-Essentials.md)  
   
--   [Migrieren von Windows SSB 2008](Migrate-Windows-Small-Business-Server-2008-to-Windows-Server-Essentials.md)  
+-   [Migration von Windows SBS 2008](Migrate-Windows-Small-Business-Server-2008-to-Windows-Server-Essentials.md)  
   
 -   [Migrieren von Windows Server 2008 Foundation](Migrate-Windows-Server-2008-Foundation-to-Windows-Server-Essentials.md)  
   
--   [Migrieren von Windows SSB 2003](Migrate-Windows-Small-Business-Server-2003-to-Windows-Server-Essentials.md)  
+-   [Migration von Windows SBS 2003](Migrate-Windows-Small-Business-Server-2003-to-Windows-Server-Essentials.md)  
   
--   [Migrieren zu neuer Hardware](Migrate-Windows-Server-Essentials-to-New-Hardware.md)  
+-   [Migration zu neuer Hardware](Migrate-Windows-Server-Essentials-to-New-Hardware.md)  
   
 -   [Von Windows Server Essentials Best Practices Analyzer (BPA) verwendete Regeln](Rules-used-by-the-Windows-Server-Essentials-Best-Practices-Analyzer--BPA--Tool.md)  
-
--   [Umstellung auf Windows Server 2012 Standard](../migrate/Transition-from-Windows-Server-2012-Essentials-to-Windows-Server-2012-Standard.md)  
-  
--   [Migrieren von Windows SSB 2011 Essentials](../migrate/Migrate-Windows-Small-Business-Server-2011-Essentials-to-Windows-Server-Essentials.md)  
-  
--   [Migrieren von Windows SSB 2011 Standard](../migrate/Migrate-Windows-Small-Business-Server-2011-Standard-to-Windows-Server-Essentials.md)  
-  
--   [Migrieren von Windows SSB 2008](../migrate/Migrate-Windows-Small-Business-Server-2008-to-Windows-Server-Essentials.md)  
-  
--   [Migrieren von Windows Server 2008 Foundation](../migrate/Migrate-Windows-Server-2008-Foundation-to-Windows-Server-Essentials.md)  
-  
--   [Migrieren von Windows SSB 2003](../migrate/Migrate-Windows-Small-Business-Server-2003-to-Windows-Server-Essentials.md)  
-  
--   [Migrieren zu neuer Hardware](../migrate/Migrate-Windows-Server-Essentials-to-New-Hardware.md)  
-  
--   [Von Windows Server Essentials Best Practices Analyzer (BPA) verwendete Regeln](../migrate/Rules-used-by-the-Windows-Server-Essentials-Best-Practices-Analyzer--BPA--Tool.md)  
 
   
 ## <a name="end-to-end-solution-guides"></a>Anleitungen für durchgängige Lösungen  
   
--    Informationen zum Zentralisieren der Datenspeicherung, einschränken von Datenzugriffs Berechtigungen und Sichern Ihrer Daten sowohl lokal als auch in der Cloud finden Sie unter [Bereitstellen von Datenschutz in kleinen und mittelständischen Unternehmen](https://technet.microsoft.com/library/dn582043.aspx).  
+-    Informationen zum Zentralisieren der Datenspeicherung, Einschränken von Datenzugriffsberechtigungen und Sichern Ihrer Daten sowohl lokal als auch in der Cloud finden Sie unter [Bereitstellen von Datenschutzmaßnahmen in kleinen und mittelständischen Unternehmen](https://technet.microsoft.com/library/dn582043.aspx).  
   
--    Informationen zum sicheren Zugriff auf Geschäftsdaten auf einem beliebigen Standort mit Internet Verbindung finden Sie unter [sicherer Remote Zugriff in kleinen und mittelständischen Unternehmen](https://technet.microsoft.com/library/dn629457.aspx).  
+-    Informationen zum sicheren Zugriff auf Unternehmensdaten unter Verwendung verschiedener mit dem Internet verbundener Geräte von einem beliebigen Ort aus finden Sie unter [Sicherer Remotezugriff in kleinen und mittleren Unternehmen](https://technet.microsoft.com/library/dn629457.aspx).  
   
--    Informationen zur sicheren Zusammenarbeit mit Partnern und Lieferanten finden Sie unter [verbessern der Zusammenarbeit in kleinen und mittelständischen Unternehmen](https://technet.microsoft.com/library/dn747893.aspx).  
+-    Informationen zur sicheren Zusammenarbeit mit Partnern und Lieferanten finden Sie unter [Bessere Zusammenarbeit in kleinen und mittleren Unternehmen](https://technet.microsoft.com/library/dn747893.aspx).  
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
   
 -   [Installieren von Windows Server Essentials](../install/Install-Windows-Server-Essentials.md)  
   

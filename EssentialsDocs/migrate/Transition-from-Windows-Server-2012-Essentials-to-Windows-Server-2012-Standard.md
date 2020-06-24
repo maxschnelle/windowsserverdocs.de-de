@@ -8,18 +8,18 @@ ms.assetid: 51bcf124-c215-4e9d-9fa8-a90fa2c2fa22
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: aace7849244bb65ec0042971e6ec899f554a62d2
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 20b38be01d091f5dfeb819712c57c1f87eaf770f
+ms.sourcegitcommit: fdc3ce1992f4dd6ea1771479d525126abbbcfa72
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80852303"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85256629"
 ---
 # <a name="transition-from-windows-server-essentials-to-windows-server-2012-standard"></a>Umstellung von Windows Server Essentials auf Windows Server 2012 Standard
 
 >Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
- Windows Server&reg; 2012 Essentials unterstützt bis zu 25 Benutzer und 50 Geräte. Wenn Ihr Geschäftsbedarf den Grenzwert überschreitet, können Sie eine direkte Lizenz Umstellung von Windows Server Essentials auf Windows Server 2012 Standard durchführen, um die Lizenz Konformität zu gewährleisten.  
+ Windows Server &reg; 2012 Essentials unterstützt bis zu 25 Benutzer und 50 Geräte. Wenn Ihr Geschäftsbedarf den Grenzwert überschreitet, können Sie eine direkte Lizenz Umstellung von Windows Server Essentials auf Windows Server 2012 Standard durchführen, um die Lizenz Konformität zu gewährleisten.  
   
 ## <a name="how-the-transition-affects-user-and-device-limits"></a>So wirkt sich die Umstellung auf Benutzer- und Gerätebegrenzungen aus  
  Nach dem Wechsel zu Windows Server 2012 Standard werden die Benutzerkonten-und Geräte Limits entfernt, aber die Features, die für Windows Server Essentials eindeutig sind (z. b. das Dashboard, die Remote Webzugriff und die Client Computer Sicherung), bleiben weiterhin verfügbar. Aufgrund technischer Einschränkungen für diese Funktionen werden jedoch höchstens 75 Benutzerkonten und 75 Geräte unterstützt. Wenn es erforderlich ist, mehr als 75 Benutzerkonten oder Geräte hinzuzufügen, sollten Sie die Windows Server Essentials-Features deaktivieren und die systemeigenen Windows Server 2012-Tools zum Verwalten von Benutzerkonten und Geräten verwenden.  
@@ -36,7 +36,7 @@ ms.locfileid: "80852303"
   
 -   Stellen Sie außerdem sicher, dass Sie den Endbenutzer-Lizenzvertrag (EULA) für Windows Server 2012 Standard gelesen und verstanden haben. So zeigen Sie die EULA an:  
   
-    1.  Öffnen Sie als Administrator ein Befehlsfenster.  
+    1.  Öffnen Sie ein Befehlsfenster als Administrator.  
   
     2.  Führen Sie den folgenden Befehl aus:  
   
@@ -62,7 +62,7 @@ ms.locfileid: "80852303"
   
 2. Öffnen Sie Windows PowerShell als Administrator, und führen Sie dann den folgenden Befehl aus.  
   
-    **dismus/Online/Set-Edition: Server Standard/AcceptEULA/ProductKey:** *Product Key*  
+    **dism /online /set-edition:ServerStandard /accepteula /productkey:** *Product Key*  
   
     Dabei ist *Product Key* die Product Key für Ihre Kopie von Windows Server 2012 Standard.  
   
@@ -85,7 +85,7 @@ ms.locfileid: "80852303"
   
 #### <a name="from-the-alert"></a>In der Warnmeldung  
   
-1.  Öffnen Sie auf dem Dashboard die Meldungsanzeige.  
+1.  Öffnen Sie im Dashboard die Meldungsanzeige.  
   
 2.  Wählen Sie in der Liste organisieren die Warnung aus, die Informationen über das Ausschalten von Windows Server Essentials-Features nach dem Übergang meldet.  
   
@@ -99,16 +99,12 @@ ms.locfileid: "80852303"
   
    Es ist möglich, dass einige vom Assistenten zum **Deaktivieren von Windows Server Essentials-Funktionen** ausgeführte Aufgaben nicht erfolgreich abgeschlossen werden. In einigen Fällen wird dadurch die Ausführung des Dashboards verhindert. In diesem Fall können Sie den Assistenten manuell starten, indem Sie folgende Datei ausführen:  
   
-   **%SYSTEMDRIVE%\Programme\Windows server\bin\turnofffeatureswizard.exe**  
+   **%SYSTEMDRIVE%\Programme\Windows Server\Bin\TurnOffFeaturesWizard.exe**  
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
   
 
 -   [Umstellung auf Windows Server 2012 R2 Standard](Transition-from-Windows-Server-2012-R2-Essentials-to-Windows-Server-2012-R2-Standard.md)  
   
 -   [Migrieren von Serverdaten zu Windows Server Essentials](Migrate-Server-Data-to-Windows-Server-Essentials.md)
-
--   [Umstellung auf Windows Server 2012 R2 Standard](../migrate/Transition-from-Windows-Server-2012-R2-Essentials-to-Windows-Server-2012-R2-Standard.md)  
-  
--   [Migrieren von Serverdaten zu Windows Server Essentials](../migrate/Migrate-Server-Data-to-Windows-Server-Essentials.md)
 

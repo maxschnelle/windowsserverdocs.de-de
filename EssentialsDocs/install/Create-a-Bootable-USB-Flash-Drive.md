@@ -8,12 +8,12 @@ ms.assetid: 2fe8e35c-69f9-40b3-a270-22e2402510d8
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: ddcdb9576072af6b7014f6dc9b0c38e9f5bdd25d
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 69a57333990a225663d2cd3cc61c75947d07cdab
+ms.sourcegitcommit: 6d6a0225b1f83b71fcb494b94d666cd5e54c7566
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80818363"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85267371"
 ---
 # <a name="create-a-bootable-usb-flash-drive"></a>Erstellen eines startfähigen USB-Speichersticks
 
@@ -36,17 +36,17 @@ Sie können einen Start baren USB-Speicherstick erstellen, um Windows Server Ess
   
 1.  Verbinden Sie einen USB-Speicherstick mit einem eingeschalteten Computer.  
   
-2.  Öffnen Sie ein Eingabeaufforderungsfenster als Administrator.  
+2.  Öffnen Sie ein Eingabeaufforderungsfenster als ein Administrator.  
   
-3.  Geben Sie `diskpart` ein.  
+3.  Geben Sie `diskpart`ein.  
   
-4.  Geben Sie in dem neu geöffneten Befehlszeilenfenster zum Ermitteln der Laufwerknummer oder des Laufwerkbuchstabens des USB-Speichersticks an der Eingabeaufforderung `list disk` ein, und drücken Sie dann die EINGABETASTE. Mit dem Befehl `list disk` werden alle Datenträger im Computer angezeigt. Notieren Sie sich die Laufwerknummer oder den Laufwerkbuchstaben des USB-Speichersticks.  
+4.  Geben Sie in dem neu geöffneten Befehlszeilenfenster zum Ermitteln der Laufwerknummer oder des Laufwerkbuchstabens des USB-Speichersticks an der Eingabeaufforderung `list disk`ein, und drücken Sie dann die EINGABETASTE. Mit dem Befehl `list disk` werden alle Datenträger im Computer angezeigt. Notieren Sie sich die Laufwerknummer oder den Laufwerkbuchstaben des USB-Speichersticks.  
   
-5.  Geben Sie an der Eingabeaufforderung `select disk <X>` ein, wobei X die Laufwerknummer oder der Laufwerkbuchstabe des USB-Speichersticks ist, und drücken Sie dann die EINGABETASTE.  
+5.  Geben Sie an der Eingabeaufforderung `select disk <X>`ein, wobei X die Laufwerknummer oder der Laufwerkbuchstabe des USB-Speichersticks ist, und drücken Sie dann die EINGABETASTE.  
   
 6.  Geben Sie `clean`ein, und drücken Sie dann die EINGABETASTE. Mit diesem Befehl werden alle Daten vom USB-Speicherstick gelöscht.  
   
-7.  Um eine neue primäre Partition auf dem USB-Speicherstick zu erstellen, geben Sie `create partition primary` ein, und drücken Sie dann die EINGABETASTE.  
+7.  Um eine neue primäre Partition auf dem USB-Speicherstick zu erstellen, geben Sie `create partition primary`ein, und drücken Sie dann die EINGABETASTE.  
   
 8.  Um die soeben erstellte Partition auszuwählen, geben Sie `select partition 1`ein, und drücken Sie dann die EINGABETASTE.  
   
@@ -63,16 +63,10 @@ Sie können einen Start baren USB-Speicherstick erstellen, um Windows Server Ess
   
 ## <a name="see-also"></a>Weitere Informationen  
 
- [Die ersten Schritte mit dem Windows Server Essentials ADK](Getting-Started-with-the-Windows-Server-Essentials-ADK.md) -   
- [Erstellen und Anpassen des Abbilds](Creating-and-Customizing-the-Image.md)   
+ [Einführung in das Windows Server Essentials ADK](Getting-Started-with-the-Windows-Server-Essentials-ADK.md)   
+ [Erstellen und Anpassen des Bilds](Creating-and-Customizing-the-Image.md)   
  [Weitere Anpassungen](Additional-Customizations.md)   
- [Vorbereiten des Abbilds für die Bereitstellung](Preparing-the-Image-for-Deployment.md)   
- [Testen der Benutzerfreundlichkeit](Testing-the-Customer-Experience.md)   
-
- [Die ersten Schritte mit dem Windows Server Essentials ADK](../install/Getting-Started-with-the-Windows-Server-Essentials-ADK.md) -   
- [Erstellen und Anpassen des Abbilds](../install/Creating-and-Customizing-the-Image.md)   
- [Weitere Anpassungen](../install/Additional-Customizations.md)   
- [Vorbereiten des Abbilds für die Bereitstellung](../install/Preparing-the-Image-for-Deployment.md)   
- [Testen der Benutzerfreundlichkeit](../install/Testing-the-Customer-Experience.md)   
+ [Vorbereiten des Images für die Bereitstellung](Preparing-the-Image-for-Deployment.md)   
+ [Testen der Benutzerfreundlichkeit](Testing-the-Customer-Experience.md)     
 
  [Wie können wir Ihnen helfen?](https://windows.microsoft.com/windows/support)
