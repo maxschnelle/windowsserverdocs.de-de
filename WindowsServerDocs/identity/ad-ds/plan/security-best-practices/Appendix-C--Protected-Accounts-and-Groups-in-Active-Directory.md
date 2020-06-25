@@ -8,20 +8,20 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 3036176127cbb5401c582d81ddb2704d790a209a
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 18a293f4ec7d96516bd89396c13562ba68dc471f
+ms.sourcegitcommit: a1641b80c88205c0253f354f2d427d77bb879643
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80821683"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85345434"
 ---
 # <a name="appendix-c-protected-accounts-and-groups-in-active-directory"></a>Anhang C: Geschützte Konten und Gruppen in Active Directory
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 ## <a name="appendix-c-protected-accounts-and-groups-in-active-directory"></a>Anhang C: Geschützte Konten und Gruppen in Active Directory
 
-Innerhalb Active Directory werden ein Standardsatz von Konten und Gruppen mit hohen Berechtigungen als geschützte Konten und Gruppen angesehen. Bei den meisten Objekten in Active Directory können Delegierte Administratoren (Benutzer, die Berechtigungen zum Verwalten von Active Directory Objekten delegiert haben) die Berechtigungen für die Objekte ändern, einschließlich der Änderung von Berechtigungen, um die Gruppenmitgliedschaften zu ändern, z. b.  
+Innerhalb Active Directory werden ein Standardsatz von Konten und Gruppen mit hohen Berechtigungen als geschützte Konten und Gruppen angesehen. Bei den meisten Objekten in Active Directory können Delegierte Administratoren (Benutzer, die Berechtigungen zum Verwalten von Active Directory Objekten delegiert haben) die Berechtigungen für die Objekte ändern, einschließlich der Änderung von Berechtigungen, um die Gruppenmitgliedschaften zu ändern, z. b..  
 
 Bei geschützten Konten und Gruppen werden die Berechtigungen der Objekte jedoch über einen automatischen Prozess festgelegt und erzwungen, der sicherstellt, dass die Berechtigungen für die Objekte konsistent bleiben, auch wenn die Objekte das Verzeichnis verschieben. Auch wenn jemand die Berechtigungen eines geschützten Objekts manuell ändert, stellt dieser Vorgang sicher, dass die Berechtigungen schnell auf ihre Standardwerte zurückgegeben werden.  
 
@@ -31,28 +31,26 @@ In der folgenden Tabelle sind die geschützten Gruppen in Active Directory aufge
 
 #### <a name="protected-accounts-and-groups-in-active-directory-by-operating-system"></a>Geschützte Konten und Gruppen in Active Directory nach Betriebs System
 
-| Windows Server 2003 RTM | Windows Server 2003 SP1 und höher | Windows Server 2012, <br> Windows Server 2008 R2, <br> WindowsServer 2008 | Windows Server 2016 |
+| Windows Server 2003 RTM | Windows Server 2003 SP1 und höher | Windows Server 2012, <br> Windows Server 2008 R2, <br> Windows Server 2008 | Windows Server 2016 |
 | --- | --- | --- | --- |
 |Konten-Operatoren|Konten-Operatoren|Konten-Operatoren|Konten-Operatoren|
 |Administrator|Administrator|Administrator|Administrator|
-|Administratoren|Administratoren|Administratoren|Administratoren|
+|Administrators|Administrators|Administrators|Administratoren|
 |Sicherungsoperatoren|Sicherungsoperatoren|Sicherungsoperatoren|Sicherungsoperatoren|
 |Zertifikatherausgeber|||
-|Domänen-Admins|Domänen-Admins|Domänen-Admins|Domänen-Admins|
+|Domänenadministratoren|Domänenadministratoren|Domänenadministratoren|Domänenadministratoren|
 |Domänencontroller|Domänencontroller|Domänencontroller|Domänencontroller|
-|Organisations-Admins|Organisations-Admins|Organisations-Admins|Organisations-Admins|
-||||Enterprise Key-Administratoren|
-||||Haupt Administratoren|
+|Organisationsadministratoren|Organisationsadministratoren|Organisationsadministratoren|Organisationsadministratoren|
 |Krbtgt|Krbtgt|Krbtgt|Krbtgt|
 |Druck-Operatoren|Druck-Operatoren|Druck-Operatoren|Druck-Operatoren|
 |||Read-only-Domänencontroller|Read-only-Domänencontroller|
-|Replikations-Operator|Replikations-Operator|Replikations-Operator|Replikations-Operator|
+|Replicator|Replicator|Replicator|Replicator|
 |Schema-Admins|Schema-Admins|Schema-Admins|Schema-Admins|
 |Server-Operatoren|Server-Operatoren|Server-Operatoren|Server-Operatoren|
 
 #### <a name="adminsdholder"></a>AdminSDHolder
 
-Das AdminSDHolder-Objekt dient zum Bereitstellen von "Template"-Berechtigungen für die geschützten Konten und Gruppen in der Domäne. "AdminSDHolder" wird automatisch als Objekt im System Container jeder Active Directory Domäne erstellt. Der Pfad lautet: **CN = AdminSDHolder, CN = System, DC = < domain_component >, DC = < domain_component >?.**  
+Das AdminSDHolder-Objekt dient zum Bereitstellen von "Template"-Berechtigungen für die geschützten Konten und Gruppen in der Domäne. "AdminSDHolder" wird automatisch als Objekt im System Container jeder Active Directory Domäne erstellt. Der Pfad lautet: **CN = AdminSDHolder, CN = System, DC =<domain_component>, DC =<domain_component>?.**  
 
 Im Gegensatz zu den meisten Objekten in der Active Directory Domäne, die sich im Besitz der Gruppe "Administratoren" befinden, gehört "AdminSDHolder" der Gruppe "Domänen-Admins". Standardmäßig kann EAS Änderungen an den AdminSDHolder-Objekten beliebiger Domänen vornehmen, wie die Domänen-Admins und Administratoren der Domäne. Obwohl der Standard Besitzer von AdminSDHolder die Gruppe der Domänen-Admins der Domäne ist, können Mitglieder von Administratoren oder Organisations Administratoren den Besitz des Objekts übernehmen.  
 
@@ -76,9 +74,9 @@ Prozeduren zum manuellen Ausführen von SDPROP unter älteren Betriebssystemen f
 
 ###### <a name="running-sdprop-manually-in-windows-server-2008-or-earlier"></a>Manuelles Ausführen von SDPROP in Windows Server 2008 oder früher
 
-Sie können die Ausführung von SDPROP erzwingen, indem Sie "Ldp. exe" oder ein LDAP-Änderungs Skript ausführen. Führen Sie die folgenden Schritte aus, nachdem Sie das AdminSDHolder-Objekt in einer Domäne geändert haben, um SDPROP mithilfe von "Ldp. exe" auszuführen:  
+Sie können die Ausführung von SDPROP erzwingen, indem Sie Ldp.exe oder ein LDAP-Änderungs Skript ausführen. Führen Sie die folgenden Schritte aus, nachdem Sie das AdminSDHolder-Objekt in einer Domäne geändert haben, um SDPROP mithilfe von Ldp.exe auszuführen:  
 
-1. Starten Sie " **Ldp. exe**".  
+1. Starten Sie **Ldp.exe**.  
 2. Klicken Sie im Dialogfeld Ldp auf **Verbindung** , und klicken Sie auf **verbinden**.  
 
    ![geschützte Konten und Gruppen](media/Appendix-C--Protected-Accounts-and-Groups-in-Active-Directory/SAD_9.gif)  
@@ -114,9 +112,9 @@ Wenn Sie SDPROP lieber manuell über LDIFDE oder ein Skript ausführen möchten,
 
 ###### <a name="running-sdprop-manually-in-windows-server-2012-or-windows-server-2008-r2"></a>Manuelles Ausführen von SDPROP in Windows Server 2012 oder Windows Server 2008 R2
 
-Sie können auch erzwingen, dass SDPROP mithilfe von "Ldp. exe" oder durch Ausführen eines LDAP-Änderungs Skripts ausgeführt wird. Führen Sie die folgenden Schritte aus, nachdem Sie das AdminSDHolder-Objekt in einer Domäne geändert haben, um SDPROP mithilfe von "Ldp. exe" auszuführen:  
+Sie können auch die Ausführung von SDPROP erzwingen, indem Sie Ldp.exe oder ein LDAP-Änderungs Skript ausführen. Führen Sie die folgenden Schritte aus, nachdem Sie das AdminSDHolder-Objekt in einer Domäne geändert haben, um SDPROP mithilfe von Ldp.exe auszuführen:  
 
-1. Starten Sie " **Ldp. exe**".  
+1. Starten Sie **Ldp.exe**.  
 
 2. Klicken Sie im Dialogfeld **LDP** auf **Verbindung**, und klicken Sie dann auf **verbinden**.  
 
