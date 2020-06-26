@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 10/28/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 16bf61ae4601848f12d7ecd56d751837dd153408
-ms.sourcegitcommit: 2cc251eb5bc3069bf09bc08e06c3478fcbe1f321
+ms.openlocfilehash: 1786b7c9a10e11e95f736d1db20bdc12eb4844b7
+ms.sourcegitcommit: fea590c092d7abcb55be2b424458faa413795f5c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84333961"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85372217"
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Bereitstellen von Active Directory-Verbunddiensten in Azure
 AD FS verfügt über Funktionen für den vereinfachten, geschützten Identitätsverbund und die einmalige Webanmeldung (SSO). Der Verbund mit Azure AD oder O365 ermöglicht Benutzern die Authentifizierung mit lokalen Anmeldeinformationen und den Zugriff auf Ressourcen in der Cloud. Daher ist es wichtig, dass eine hoch verfügbare AD FS-Infrastruktur vorhanden ist, um den Zugriff auf lokale Ressourcen und Ressourcen in der Cloud sicherzustellen. Durch die Bereitstellung von AD FS in Azure kann die erforderliche Hochverfügbarkeit mit wenig Aufwand erzielt werden.
@@ -198,8 +198,13 @@ Um den Datenverkehr effektiv ausgleichen zu können, sollte der ILB mit Lastenau
 
 **6.5. Aktualisieren des DNS mit ILB**
 
-Wechseln Sie auf Ihren DNS-Server, und erstellen Sie einen CNAME für den ILB. Der CNAME sollte für den Verbunddienst gelten, und die IP-Adresse sollte auf die IP-Adresse des ILB verweisen. Wenn die ILB-DIP-Adresse beispielsweise 10.3.0.8 lautet und der installierte Verbunddienst „fs.contoso.com“ ist, sollten Sie einen CNAME für „fs.contoso.com“ erstellen, für den auf 10.3.0.8 verwiesen wird.
-So wird sichergestellt, dass die gesamte Kommunikation mit „fs.contoso.com“ über den ILB läuft und richtig weitergeleitet wird.
+Erstellen Sie mit Ihrem internen DNS-Server einen A-Datensatz für den ILB. Der A-Datensatz sollte für den Verbund Dienst mit der IP-Adresse sein, die auf die IP-Adresse des ILB verweist. Wenn beispielsweise die ILB-IP-Adresse 10.3.0.8 und der installierte Verbund Dienst FS.contoso.com ist, erstellen Sie einen A-Datensatz für FS.contoso.com, der auf 10.3.0.8 zeigt.
+Dadurch wird sichergestellt, dass alle Daten, die an FS.contoso.com gesendet werden, am ILB enden und entsprechend weitergeleitet werden. 
+
+> [!NOTE]
+>Wenn die Bereitstellung auch IPv6 verwendet, achten Sie darauf, einen entsprechenden AAAA-Datensatz zu erstellen.
+>
+>
 
 ### <a name="7-configuring-the-web-application-proxy-server"></a>7. Konfigurieren des webanwendungsproxy-Servers
 **7.1. Konfigurieren der Webanwendungsproxy-Server für die Verbindung mit AD FS-Servern**

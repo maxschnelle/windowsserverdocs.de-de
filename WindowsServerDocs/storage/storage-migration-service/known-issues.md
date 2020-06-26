@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: 5a4a99434d67c08551d97589f8f2638e1024754d
-ms.sourcegitcommit: 5fac756c2c9920757e33ef0a68528cda0c85dd04
+ms.openlocfilehash: 638f4d122b25c870ed323b94d32b6cefca4be5ff
+ms.sourcegitcommit: fea590c092d7abcb55be2b424458faa413795f5c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84306499"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85372197"
 ---
 # <a name="storage-migration-service-known-issues"></a>Bekannte Probleme bei Storage Migration Service
 
@@ -70,7 +70,7 @@ Dieses Problem wird durch eine extrem große Anzahl übertragener Dateien verurs
 
 So umgehen Sie dieses Problem:
 
-1. Bearbeiten Sie auf dem Orchestrator-Computer die Datei *%systemroot%\SMS\Microsoft.StorageMigration.Service.exe.config* mithilfe von "Notepad. exe", um "SendTimeout" von der 1-minütigen Standardeinstellung in 10 Minuten zu ändern.
+1. Bearbeiten Sie auf dem Orchestrator-Computer die Datei *% systemroot% \SMS\Microsoft.StorageMigration.Service.exe.config* mit Notepad.exe, um "SendTimeout" von der 1-minütigen Standardeinstellung in 10 Minuten zu ändern.
 
    ```
      <bindings>
@@ -80,7 +80,7 @@ So umgehen Sie dieses Problem:
    ```
 
 2. Starten Sie den Dienst "Storage Migration Service" auf dem Orchestrator-Computer neu. 
-3. Starten Sie auf dem Orchestrator-Computer "regedit. exe".
+3. Starten Sie auf dem Orchestrator-Computer Regedit.exe
 4. Suchen Sie den folgenden Registrierungsunterschlüssel, und klicken Sie darauf: 
 
    `HKEY_LOCAL_MACHINE\Software\Microsoft\SMSPowershell`
@@ -142,11 +142,11 @@ Quelldatei:
 
   icacls d:\test\quelle:
 
-  icacls d:\test\thatcher.png/Save out. txt/t Thatcher. png d:Ai (A;; FA;;; BA) (A;; 0 x1200a9;;;D D) (A;; 0 x1301bf;;;D U) (A; ID; FA;;; BA) (A; ID; FA;;; SY) (A; ID; 0x1200a9;;; ECM
+  icacls d:\test\thatcher.png/Save out.txt/t thatcher.png d:Ai (A;; FA;;; BA) (A;; 0 x1200a9;;;D D) (A;; 0 x1301bf;;;D U) (A; ID; FA;;; BA) (A; ID; FA;;; SY) (A; ID; 0x1200a9;;; ECM
 
 Zieldatei:
 
-  icacls d:\test\thatcher.png/Save out. txt/t Thatcher. png d:Ai (A;; FA;;; BA) (A;; 0 x1301bf;;;D U) (A;; 0 x1200a9;;;D D) (A; ID; FA;;; BA) (A; ID; FA;;; SY) (A; ID; 0x1200a9;;; BU)**S: PAINO_ACCESS_CONTROL**
+  icacls d:\test\thatcher.png/Save out.txt/t thatcher.png d:Ai (A;; FA;;; BA) (A;; 0 x1301bf;;;D U) (A;; 0 x1200a9;;;D D) (A; ID; FA;;; BA) (A; ID; FA;;; SY) (A; ID; 0x1200a9;;; BU)**S: PAINO_ACCESS_CONTROL**
 
 DFSR-Debugprotokoll:
 
@@ -378,7 +378,7 @@ Für dieses Problem gibt es zwei Lösungen:
 
 1. Dieses Problem wurde zuerst durch das [KB4537818](https://support.microsoft.com/help/4537818/windows-10-update-kb4537818) -Update gelöst. Der vorherige Code Fehler verhinderte die Verwendung statischer IP-Adressen.
 
-2. Wenn Sie auf den Netzwerkschnittstellen des Quell Computers keine Standard-Gateway-IP-Adresse angegeben haben, tritt dieses Problem auch mit dem KB4537818-Update auf. Um dieses Problem zu umgehen, legen Sie eine gültige Standard-IP-Adresse auf den Netzwerkschnittstellen fest, indem Sie das Applet Network Connections (NCPA) verwenden. CPL) oder das PowerShell-Cmdlet Set-nettroute.   
+2. Wenn Sie auf den Netzwerkschnittstellen des Quell Computers keine Standard-Gateway-IP-Adresse angegeben haben, tritt dieses Problem auch mit dem KB4537818-Update auf. Um dieses Problem zu umgehen, legen Sie eine gültige Standard-IP-Adresse auf den Netzwerkschnittstellen fest, indem Sie das Applet Network Connections (NCPA.CPL) oder das PowerShell-Cmdlet Set-nettroute verwenden.   
 
 ## <a name="slower-than-expected-re-transfer-performance"></a>Langsamer als erwartete erneute Übertragungsleistung
 
@@ -431,7 +431,7 @@ Wenn Sie die Übertragung bereits einmal ausgeführt haben, gehen Sie wie folgt 
  
  Wenn Sie Storage Migration Service mit Domänen Controllern zu Übertragungszwecken verwenden möchten, stellen Sie sicher, dass Sie immer "Benutzer und Gruppen nicht übertragen" im Windows Admin Center auf der Seite "Übertragungs Einstellungen" auswählen.
  
- ## <a name="error-53-failed-to-inventory-all-specified-devices-when-running-inventory"></a>Fehler 53: "Fehler beim Inventarisieren aller angegebenen Geräte" beim Ausführen des Inventars. 
+## <a name="error-53-failed-to-inventory-all-specified-devices-when-running-inventory"></a>Fehler 53: "Fehler beim Inventarisieren aller angegebenen Geräte" beim Ausführen des Inventars. 
 
 Wenn Sie versuchen, die Inventur auszuführen, erhalten Sie Folgendes:
 
@@ -490,7 +490,7 @@ Zu diesem Zeitpunkt versucht der Speicher Migrationsdienst-Orchestrator, die Que
  - Das Quell Migrations Konto verfügt nicht über Remote Registrierungs Berechtigungen zum Herstellen einer Verbindung mit dem Quellcomputer.
  - Das Quell Migrations Konto verfügt nicht über Leseberechtigungen in der Registrierung des Quell Computers unter "HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Windows NT\CurrentVersion" oder unter "HKEY_LOCAL_MACHINE \system\currentcontrolset\services\lanmanserver".
  
- ## <a name="cutover-hangs-on-38-mapping-network-interfaces-on-the-source-computer"></a>Die Umstellung hängt von "38% Mapping Network Interfaces on the Source Computer..." ab. 
+## <a name="cutover-hangs-on-38-mapping-network-interfaces-on-the-source-computer"></a>Die Umstellung hängt von "38% Mapping Network Interfaces on the Source Computer..." ab. 
 
 Bei dem Versuch, einen Ausschneide Versuch eines Quell Computers auszuführen, bleibt die Ausschneide in der Phase "38% Mapping Netzwerkschnittstellen auf dem Quellcomputer..." hängen. und Sie erhalten den folgenden Fehler im Ereignisprotokoll für den Speicher Migrationsdienst:
 
@@ -531,6 +531,16 @@ Um dieses Problem zu umgehen, verwenden Sie eine der folgenden Optionen:
 1. Verschieben Sie den Quellcomputer temporär aus der Active Directory Organisationseinheit, die dieses widersprüchliche GPO anwendet. 
 2. Deaktivieren Sie das GPO, das diese widersprüchliche Richtlinie anwendet, vorübergehend.
 3. Temporäres Erstellen eines neuen Gruppenrichtlinien Objekts, das diese Einstellung auf deaktiviert festlegt und für bestimmte Organisationseinheiten der Quell Server gilt, die Vorrang vor anderen GPOs haben.
+
+## <a name="inventory-or-transfer-fail-when-using-credentials-from-a-different-domain"></a>Inventar oder Übertragung schlägt fehl, wenn Anmelde Informationen aus einer anderen Domäne verwendet werden
+
+Wenn Sie versuchen, eine Inventur oder Übertragung mit dem Speicher Migrationsdienst auszuführen und einen Windows-Server zu verwenden, während Sie die Migrations Anmelde Informationen von einer anderen Domäne als dem Zielserver verwenden, erhalten Sie die folgenden Fehler: 
+
+    The server was unable to process the request due to an internal error
+    
+    04/28/2020-11:31:01.169 [Erro] Failed device discovery stage SystemInfo with error: (0x490) Could not find computer object 'myserver' in Active Directory    [d:\os\src\base\dms\proxy\discovery\discoveryproxy\DeviceDiscoveryOperation.cs::TryStage::1042]
+
+Dieses Problem wird durch einen Code Fehler im Speicher Migrationsdienst verursacht. Um dieses Problem zu umgehen, verwenden Sie die Anmelde Informationen für die Migration aus derselben Domäne, zu der der Quell-und Zielcomputer gehören. Wenn der Quell-und Zielcomputer z. b. zur Domäne "Corp.contoso.com" in der Gesamtstruktur "contoso.com" gehören, verwenden Sie "corp\myaccount", um die Migration auszuführen, nicht die Anmelde Informationen "contoso\myaccount".
 
 ## <a name="see-also"></a>Siehe auch
 

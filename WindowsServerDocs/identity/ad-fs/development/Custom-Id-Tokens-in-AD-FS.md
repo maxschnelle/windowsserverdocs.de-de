@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.reviewer: anandy
 ms.technology: identity-adfs
-ms.openlocfilehash: 331e5ff2dbe7f172488543d1d1f5ed0f757cd584
-ms.sourcegitcommit: 2cc251eb5bc3069bf09bc08e06c3478fcbe1f321
+ms.openlocfilehash: 9ffc8351c2c5033346f04e3cd4dc6f8ba4914149
+ms.sourcegitcommit: fea590c092d7abcb55be2b424458faa413795f5c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84333951"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85372207"
 ---
 # <a name="customize-claims-to-be-emitted-in-id_token-when-using-openid-connect-or-oauth-with-ad-fs-2016-or-later"></a>Anpassen von Anspruchs, die in id_token ausgegeben werden sollen, wenn OpenID Connect oder OAuth mit AD FS 2016 oder höher verwendet wird
 
@@ -40,7 +40,7 @@ In bestimmten Szenarien ist es möglich, dass die Client Anwendung nicht über e
 
 ![Einschränken](media/Custom-Id-Tokens-in-AD-FS/restrict2.png)
 
-Mit installiertem [KB4019472](https://support.microsoft.com/help/4019472/windows-10-update-kb4019472) auf Ihren AD FS Servern
+Das Sicherheitsupdate [KB4019472](https://support.microsoft.com/help/4019472/windows-10-update-kb4019472) oder höher ist auf Ihren AD FS-Servern installiert.
 1. `response_mode`wird als form_post festgelegt
 2. Sowohl öffentliche als auch vertrauliche Clients können benutzerdefinierte Ansprüche im ID-Token erhalten.
 3. Weisen `allatclaims` Sie dem Client – RP-paar den Gültigkeitsbereich zu.
@@ -62,12 +62,12 @@ Führen Sie die folgenden Schritte aus, um die Anwendung in AD FS zum Empfangen 
 
    ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap1.png)
 
-3. Kopieren Sie den Wert für den **Client Bezeichner** .  Sie wird später als Wert für "Ida: ClientID" in der Datei "Web. config" der Anwendung verwendet.
+3. Kopieren Sie den Wert für den **Client Bezeichner** .  Sie wird später als Wert für "Ida: ClientID" in der Anwendung web.config Datei verwendet.
 4. Geben Sie für **Umleitungs-URI Folgendes ein:**  -  **https://localhost:44320/** .  Klicken Sie auf **Hinzufügen**. Klicken Sie auf **Weiter**.
 
    ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap2.png)
 
-5. Geben Sie auf dem Bildschirm **Web-API konfigurieren** den folgenden Wert für **Bezeichner**ein  -  **https://contoso.com/WebApp** .  Klicken Sie auf **Hinzufügen**. Klicken Sie auf **Weiter**.  Dieser Wert wird später für " **Ida: ResourceId** " in der Datei "Web. config" der Anwendung verwendet.
+5. Geben Sie auf dem Bildschirm **Web-API konfigurieren** den folgenden Wert für **Bezeichner**ein  -  **https://contoso.com/WebApp** .  Klicken Sie auf **Hinzufügen**. Klicken Sie auf **Weiter**.  Dieser Wert wird später für " **Ida: ResourceId** " in der Anwendungs web.config Datei verwendet.
 
    ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap3.png)
 
@@ -96,7 +96,7 @@ Führen Sie die folgenden Schritte aus, um die Anwendung in AD FS zum Empfangen 
 
     ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap9.PNG)
 
-13. Geben Sie im **Assistenten zum Hinzufügen von Transformations Anspruchs Regeln** im Fenster " **Anspruchs Regel Name** " den Namen " **forcustomittel Token** " und in **benutzerdefinierte Regel**die folgende Anspruchs Regel ein. Klicken auf **Fertig** stellen
+13. Geben Sie im **Assistenten zum Hinzufügen von Transformations Anspruchs Regeln** im Fenster " **Anspruchs Regel Name** " den Namen " **forcustomittel Token** " und in **benutzerdefinierte Regel**die folgende Anspruchs Regel ein. Klicken Sie auf **Fertig stellen**.
 
     ```
     x:[]
@@ -128,7 +128,7 @@ git clone https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-op
 
 1. Öffnen Sie das Beispiel mithilfe von Visual Studio.
 2. Erstellen Sie die APP neu, sodass alle fehlenden nugets wieder hergestellt werden.
-3. Öffnen Sie die Datei "Web. config".  Ändern Sie die folgenden Werte so, dass Sie wie folgt aussehen:
+3. Öffnen Sie die Datei web.config.  Ändern Sie die folgenden Werte so, dass Sie wie folgt aussehen:
 
    ```xml
    <add key="ida:ClientId" value="[Replace this Client Id from #3 above under section Create and configure an Application Group in AD FS 2016 or later]" />
