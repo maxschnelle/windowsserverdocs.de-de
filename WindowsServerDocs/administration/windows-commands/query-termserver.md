@@ -1,6 +1,6 @@
 ---
-title: termserver Abfragen
-description: Referenz Thema für * * * *-
+title: query termserver
+description: Referenz Thema für den Abfrage-termserver-Befehl, der eine Liste aller Remotedesktop-Sitzungshost Server im Netzwerk anzeigt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,57 +9,72 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9b3ae6858a70d22b3ad928474648a3b2ee156235
-ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
+ms.openlocfilehash: c41ed824ee0b1e9dc2672646ef0af03e2593ec07
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2020
-ms.locfileid: "83436235"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85471975"
 ---
-# <a name="query-termserver"></a>termserver Abfragen
+# <a name="query-termserver"></a>query termserver
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Zeigt eine Liste aller Remotedesktop-Sitzungshost Server (RD-Sitzungs Host Server) im Netzwerk an.
+Zeigt eine Liste aller Remotedesktop-Sitzungshost Server im Netzwerk an. Mit diesem Befehl wird das Netzwerk nach allen angefügten Remotedesktop-Sitzungshost Servern durchsucht und die folgenden Informationen zurückgegeben:
+
+- Name des Servers
+
+- Netzwerk (und Knotenadresse, wenn die/Address-Option verwendet wird)
 
 > [!NOTE]
-> In Windows Server 2008 R2 heißen die Terminaldienste nun Remotedesktopdienste. Weitere Informationen zu den Neuerungen in der neuesten Version finden Sie unter [What es New in Remotedesktopdienste in Windows Server 2012](https://technet.microsoft.com/library/hh831527) in der TechNet-Bibliothek für Windows Server.
-> ## <a name="syntax"></a>Syntax
-> ```
-> query termserver [<ServerName>] [/domain:<Domain>] [/address] [/continue]
-> ```
-> ### <a name="parameters"></a>Parameter
->
-> |    Parameter     |                                                                        Beschreibung                                                                         |
-> |------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> |   <ServerName>   |                                               Gibt den Namen an, der den RD-Sitzungs Host Server identifiziert.                                               |
-> | /Domain<Domain> | Gibt die Domäne an, die für Terminal Server abgefragt werden soll. Sie müssen keine Domäne angeben, wenn Sie die Domäne Abfragen, in der Sie gerade arbeiten. |
-> |     /address     |                                                  Zeigt die Netzwerk-und Knoten Adressen für jeden Server an.                                                  |
-> |    /Continue     |                                              Verhindert, dass angehalten wird, nachdem jeder Bildschirm mit Informationen angezeigt wird.                                               |
-> |        /?        |                                                            Zeigt die Hilfe an der Eingabeaufforderung an.                                                            |
->
->#### <a name="remarks"></a>Hinweise
-> - **query termserver** durchsucht das Netzwerk nach allen angeschlossenen RD-Sitzungs Host Servern und gibt die folgenden Informationen zurück:
->   - Name des Servers
->   - Das Netzwerk (und die Knotenadresse, wenn die/Address-Option verwendet wird)
->     ## <a name="examples"></a>Beispiele
-> - Geben Sie Folgendes ein, um Informationen über alle RD-Sitzungs Host Server im Netzwerk anzuzeigen:
->   ```
->   query termserver
->   ```
-> - Geben Sie Folgendes ein, um Informationen zum Remote Desktop-Sitzungs Host Server mit dem Namen Server3 anzuzeigen:
->   ```
->   query termserver Server3
->   ```
-> - Geben Sie Folgendes ein, um Informationen über alle RD-Sitzungs Host Server in der Domäne "ca" anzuzeigen:
->   ```
->   query termserver /domain:CONTOSO
->   ```
-> - Geben Sie Folgendes ein, um die Netzwerk-und Knotenadresse für den RD-Sitzungs Host Server mit dem Namen Server3 anzuzeigen:
->   ```
->   query termserver Server3 /address
->   ```
->   ## <a name="additional-references"></a>Zusätzliche Referenzen
->   - [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md) 
->    [Abfrage](query.md) 
->    [Befehlsreferenz für Remotedesktopdienste (Terminal Dienste)](remote-desktop-services-terminal-services-command-reference.md)
+> Weitere Informationen zu den Neuerungen in der neuesten Version finden Sie unter [What es New in Remotedesktopdienste in Windows Server](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn283323(v=ws.11)).
+
+## <a name="syntax"></a>Syntax
+
+```
+query termserver [<servername>] [/domain:<domain>] [/address] [/continue]
+```
+
+### <a name="parameters"></a>Parameter
+
+| Parameter | BESCHREIBUNG |
+|--|--|
+| `<servername>` | Gibt den Namen an, der den Remotedesktop-Sitzungshost Server identifiziert. |
+| /Domain`<domain>` | Gibt die Domäne an, die für Terminal Server abgefragt werden soll. Sie müssen keine Domäne angeben, wenn Sie die Domäne Abfragen, in der Sie gerade arbeiten. |
+| /address | Zeigt die Netzwerk-und Knoten Adressen für jeden Server an. |
+| /Continue | Verhindert, dass angehalten wird, nachdem jeder Bildschirm mit Informationen angezeigt wird. |
+| /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
+
+### <a name="examples"></a>Beispiele
+
+Um Informationen zu allen Remotedesktop-Sitzungshost Servern im Netzwerk anzuzeigen, geben Sie Folgendes ein:
+
+```
+query termserver
+```
+
+Geben Sie Folgendes ein, um Informationen zum Remotedesktop-Sitzungshost Server mit dem Namen *Server3*anzuzeigen:
+
+```
+query termserver Server3
+```
+
+Geben Sie Folgendes ein, um Informationen zu allen Remotedesktop-Sitzungshost Servern in *der Domäne "* Configuration Manager" anzuzeigen:
+
+```
+query termserver /domain:CONTOSO
+```
+
+Geben Sie Folgendes ein, um die Netzwerk-und Knotenadresse für den Remotedesktop-Sitzungshost Server mit dem Namen *Server3*anzuzeigen:
+
+```
+query termserver Server3 /address
+```
+
+## <a name="additional-references"></a>Zusätzliche Referenzen
+
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Abfragebefehl](query.md)
+
+- [Remotedesktopdienste (Terminaldienste): Befehlsreferenz](remote-desktop-services-terminal-services-command-reference.md)

@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: c836da8f83510e6547e0e182ac06fd2151dd9c41
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 9eb93e46adb0e8a7c956bd8db2795fe06bc04724
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80857063"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85472947"
 ---
 # <a name="credentials-protection-and-management"></a>Schutz und Verwaltung von Anmeldeinformationen
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 In diesem Thema für IT-Experten werden die in Windows Server 2012 R2 eingeführten Features und Methoden sowie die Windows 8.1 für den Schutz von Anmelde Informationen und die Domänen Authentifizierung erläutert, um den Diebstahl von Anmelde Informationen zu verringern.
 
@@ -47,7 +47,7 @@ Mitglieder der Gruppe "Geschützte Benutzer" werden mithilfe der folgenden Authe
 -   Die Standardeinstellung für die Lebensdauer von Kerberos-TGTs (Ticket Granting Tickets) von vier Stunden kann mit Authentifizierungsrichtlinien und -silos konfiguriert werden, auf die über das Active Directory-Verwaltungscenter zugegriffen werden kann. Das heißt, dass sich der Benutzer nach Ablauf von vier Stunden erneut authentifizieren muss.
 
 > [!WARNING]
-> Konten für Dienste und Computer sollten nicht Mitglieder der Benutzergruppe Geschützte Benutzer sein. Diese Gruppe bietet keinen lokalen Schutz, da das Kennwort oder Zertifikat immer auf dem Host verfügbar ist. Die Authentifizierung schlägt mit dem Fehler "der Benutzername oder das Kennwort ist falsch" für jeden Dienst oder Computer fehl, der der Gruppe "geschützte Benutzer" hinzugefügt wird.
+> Konten für Dienste und Computer sollten nicht Mitglieder der Benutzergruppe "Geschützte Benutzer" sein. Diese Gruppe bietet keinen lokalen Schutz, da das Kennwort oder Zertifikat immer auf dem Host verfügbar ist. Die Authentifizierung schlägt mit dem Fehler "der Benutzername oder das Kennwort ist falsch" für jeden Dienst oder Computer fehl, der der Gruppe "geschützte Benutzer" hinzugefügt wird.
 
 Weitere Informationen zu dieser Gruppe finden Sie unter [Sicherheitsgruppe "Geschützte Benutzer"](protected-users-security-group.md).
 
@@ -68,7 +68,7 @@ Weitere Informationen finden Sie unter [Authentifizierungsrichtlinien und Authen
 
 Weitere Informationen zum Konfigurieren geschützter Konten finden Sie unter [Konfigurieren geschützter Konten](how-to-configure-protected-accounts.md).
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Zusätzliche Referenzen
 Weitere Informationen zu LSA und LSASS finden Sie unter [Technische Übersicht über die Windows-Anmeldung und -Authentifizierung](https://technet.microsoft.com/library/dn169029(v=ws.10).aspx).
 
 

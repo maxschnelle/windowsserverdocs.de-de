@@ -1,6 +1,6 @@
 ---
 title: pagefileconfig
-description: Referenz Thema für * * * *-
+description: Referenz Thema für den pagefileconfig-Befehl. Dieser Befehl ist veraltet und wird in zukünftigen Versionen von Windows nicht mehr unterstützt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,22 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 74accc6a1551530eaa967cc5896fc3bfe5f168bf
-ms.sourcegitcommit: fad2ba64bbc13763772e21ed3eabd010f6a5da34
+ms.openlocfilehash: 562421db96ebb62cc75a1ff04ffe532bc8c63652
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82993393"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85472576"
 ---
 # <a name="pagefileconfig"></a>pagefileconfig
 
-> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Gilt für: Windows Server 2003, Windows Server 2003 R2, Windows Server 2003 mit SP1, Windows Server 2003 mit SP2
 
-pagefileconfig ist veraltet und wird in zukünftigen Versionen von Windows nicht mehr unterstützt.
-Dieses Tool ist in Windows Server 2003 enthalten. Weitere Informationen finden Sie unter [pagefileconfig](https://technet.microsoft.com/library/cc772827.aspx).
+>[!IMPORTANT]
+> Dieser Befehl ist veraltet.
+
+Ermöglicht es einem Administrator, die Einstellungen für den virtuellen Arbeitsspeicher eines System Auslagerungs Datei anzuzeigen und zu konfigurieren. Beschreibungen und Verwendungs Informationen finden Sie unter [pagefileconfig](https://docs.microsoft.com/previous-versions/orphan-topics/ws.10/cc772827(v=ws.10)).
+
+## <a name="additional-references"></a>Zusätzliche Referenzen
+
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

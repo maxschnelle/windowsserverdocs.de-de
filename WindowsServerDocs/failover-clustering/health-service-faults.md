@@ -7,12 +7,12 @@ ms.technology: storage-health-service
 ms.topic: article
 author: cosmosdarwin
 ms.date: 10/05/2017
-ms.openlocfilehash: 5fe2f98c89d97325c1f59dc6ba292831e0ffa5ff
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: de2e9939302c0b9937fb54b4082feeecf6de5295
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82720564"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85473107"
 ---
 # <a name="health-service-faults"></a>Integritätsdienst Fehler
 
@@ -20,9 +20,9 @@ ms.locfileid: "82720564"
 
 ## <a name="what-are-faults"></a>Was sind Fehler?
 
-Der Integritätsdienst überwacht ständig ihren direkte Speicherplätze Cluster, um Probleme zu erkennen und "Fehler" zu generieren. Mit einem neuen Cmdlet werden alle aktuellen Fehler angezeigt, sodass Sie die Integrität Ihrer Bereitstellung problemlos überprüfen können, ohne dass Sie die einzelnen Entitäten oder Features nacheinander betrachten müssen. Fehler sind auf Präzision, leichte Verständlichkeit und Umsetzbarkeit ausgelegt.  
+Der Integritätsdienst überwacht ständig ihren direkte Speicherplätze Cluster, um Probleme zu erkennen und "Fehler" zu generieren. Mit einem neuen Cmdlet werden alle aktuellen Fehler angezeigt, sodass Sie die Integrität Ihrer Bereitstellung problemlos überprüfen können, ohne dass Sie die einzelnen Entitäten oder Features nacheinander betrachten müssen. Fehler sind auf Präzision, leichte Verständlichkeit und Umsetzbarkeit ausgelegt.
 
-Jeder Fehler enthält fünf wichtige Felder:  
+Jeder Fehler enthält fünf wichtige Felder:
 
 -   severity
 -   Beschreibung des Problems
@@ -30,51 +30,51 @@ Jeder Fehler enthält fünf wichtige Felder:
 -   Identifizierende Informationen zur fehlerbehafteten Entität
 -   Die physische Stelle (falls zutreffend)
 
-Es folgt ein Beispiel eines typischen Fehlers:  
+Es folgt ein Beispiel eines typischen Fehlers:
 
 ```
-Severity: MINOR                                         
-Reason: Connectivity has been lost to the physical disk.                           
-Recommendation: Check that the physical disk is working and properly connected.    
-Part: Manufacturer Contoso, Model XYZ9000, Serial 123456789                        
+Severity: MINOR
+Reason: Connectivity has been lost to the physical disk.
+Recommendation: Check that the physical disk is working and properly connected.
+Part: Manufacturer Contoso, Model XYZ9000, Serial 123456789
 Location: Seattle DC, Rack B07, Node 4, Slot 11
 ```
 
  >[!NOTE]
- > Die physische Stelle wird von der Konfiguration der Fehlerdomäne abgeleitet. Weitere Informationen zu Fehler Domänen finden Sie unter [Fehler Domänen in Windows Server 2016](fault-domains.md). Wenn Sie diese Informationen nicht angeben, ist das Feld mit der Stelle weniger hilfreich, sodass z. B. nur die Steckplatznummer angezeigt wird.  
+ > Die physische Stelle wird von der Konfiguration der Fehlerdomäne abgeleitet. Weitere Informationen zu Fehler Domänen finden Sie unter [Fehler Domänen in Windows Server 2016](fault-domains.md). Wenn Sie diese Informationen nicht angeben, ist das Feld mit der Stelle weniger hilfreich, sodass z. B. nur die Steckplatznummer angezeigt wird.
 
 ## <a name="root-cause-analysis"></a>Analyse der Grundursache
 
-Der Integritätsdienst kann die potenzielle Kausalität zwischen fehlerentitäten einschätzen, um Fehler zu identifizieren und zu kombinieren, die Folgen desselben zugrunde liegenden Problems sind. Durch erkennen von Kausalketten ergeben sich kürzere Berichte. Wenn ein Server z. b. herunterfährt, wird erwartet, dass er auch keine Konnektivität hat. Daher wird nur ein Fehler für die Grundursache ausgelöst, in diesem Fall der Server.  
+Der Integritätsdienst kann die potenzielle Kausalität zwischen fehlerentitäten einschätzen, um Fehler zu identifizieren und zu kombinieren, die Folgen desselben zugrunde liegenden Problems sind. Durch erkennen von Kausalketten ergeben sich kürzere Berichte. Wenn ein Server z. b. herunterfährt, wird erwartet, dass er auch keine Konnektivität hat. Daher wird nur ein Fehler für die Grundursache ausgelöst, in diesem Fall der Server.
 
 ## <a name="usage-in-powershell"></a>Verwendung in PowerShell
 
 Um aktuelle Fehler in PowerShell anzuzeigen, führen Sie dieses Cmdlet aus:
 
 ```PowerShell
-Get-StorageSubSystem Cluster* | Debug-StorageSubSystem  
+Get-StorageSubSystem Cluster* | Debug-StorageSubSystem
 ```
 
-Dadurch werden alle Fehler zurückgegeben, die sich auf den gesamten direkte Speicherplätze Cluster auswirken. In den meisten Fällen beziehen sich diese Fehler auf die Hardware oder die Konfiguration. Wenn keine Fehler vorliegen, gibt dieses Cmdlet nichts zurück.  
+Dadurch werden alle Fehler zurückgegeben, die sich auf den gesamten direkte Speicherplätze Cluster auswirken. In den meisten Fällen beziehen sich diese Fehler auf die Hardware oder die Konfiguration. Wenn keine Fehler vorliegen, gibt dieses Cmdlet nichts zurück.
 
 >[!NOTE]
 > In einer nicht Produktionsumgebung können Sie mit dieser Funktion experimentieren, indem Sie Fehler selbst auslösen, z. b. durch Entfernen eines physischen Datenträgers oder Herunterfahren eines Knotens. Wenn der Fehler aufgetreten ist, fügen Sie den physischen Datenträger erneut ein, oder starten Sie den Knoten neu, und der Fehler wird wieder verschwindet.
 
-Mithilfe der folgenden Cmdlets können Sie auch Fehler anzeigen, die sich nur auf bestimmte Volumes oder Dateifreigaben auswirken:  
+Mithilfe der folgenden Cmdlets können Sie auch Fehler anzeigen, die sich nur auf bestimmte Volumes oder Dateifreigaben auswirken:
 
 ```PowerShell
-Get-Volume -FileSystemLabel <Label> | Debug-Volume  
+Get-Volume -FileSystemLabel <Label> | Debug-Volume
 
-Get-FileShare -Name <Name> | Debug-FileShare  
+Get-FileShare -Name <Name> | Debug-FileShare
 ```
 
-Dadurch werden alle Fehler zurückgegeben, die sich nur auf das jeweilige Volume oder die Dateifreigabe auswirken. In den meisten Fällen beziehen sich diese Fehler auf die Kapazitätsplanung, die datenresilienz oder Features wie Speicher Qualität oder Speicher Replikat. 
+Dadurch werden alle Fehler zurückgegeben, die sich nur auf das jeweilige Volume oder die Dateifreigabe auswirken. In den meisten Fällen beziehen sich diese Fehler auf die Kapazitätsplanung, die datenresilienz oder Features wie Speicher Qualität oder Speicher Replikat.
 
 ## <a name="usage-in-net-and-c"></a>Verwendung in .net und C #
 
 ### <a name="connect"></a>Verbinden
 
-Um den Integritätsdienst abzufragen, müssen Sie eine **cimsession** mit dem Cluster einrichten. Zu diesem Zweck benötigen Sie einige Dinge, die nur in der Vollversion von .net verfügbar sind, was bedeutet, dass Sie dies nicht direkt über ein Web oder Mobile App durchführen können. Diese Codebeispiele verwenden C\#, die einfachste Wahl für diese Datenzugriffs Schicht.
+Um den Integritätsdienst abzufragen, müssen Sie eine **cimsession** mit dem Cluster einrichten. Zu diesem Zweck benötigen Sie einige Dinge, die nur in der Vollversion von .net verfügbar sind, was bedeutet, dass Sie dies nicht direkt über ein Web oder Mobile App durchführen können. Diese Codebeispiele verwenden C \# , die einfachste Wahl für diese Datenzugriffs Schicht.
 
 ```
 using System.Security;
@@ -105,7 +105,7 @@ Es wird empfohlen, dass Sie das Kennwort **SecureString** direkt aus Benutzerein
 
 Nachdem die **cimsession** eingerichtet wurde, können Sie Windows-Verwaltungsinstrumentation (WMI) im Cluster Abfragen.
 
-Bevor Sie Fehler oder Metriken erhalten können, müssen Sie Instanzen von mehreren relevanten Objekten erhalten. Zuerst das **MSFT\_storagesubsystem** , das direkte Speicherplätze im Cluster darstellt. Mit diesem können Sie jede **\_MSFT storagenode** -Instanz im Cluster und alle **MSFT\_**-Volumes, die Datenvolumes, erhalten. Schließlich benötigen Sie auch **MSFT\_storagehealth**, den Integritätsdienst selbst.
+Bevor Sie Fehler oder Metriken erhalten können, müssen Sie Instanzen von mehreren relevanten Objekten erhalten. Zuerst das **MSFT \_ storagesubsystem** , das direkte Speicherplätze im Cluster darstellt. Mit diesem können Sie jede **MSFT \_ storagenode** -Instanz im Cluster und alle **MSFT-Volumes \_ ,** die Datenvolumes, erhalten. Schließlich benötigen Sie auch **MSFT \_ storagehealth**, den Integritätsdienst selbst.
 
 ```
 CimInstance Cluster;
@@ -153,7 +153,7 @@ Rufen Sie **Diagnose** auf, um alle aktuellen Fehler zu ermitteln, die auf die Z
 
 Die komplette Liste der Fehler, die in jedem Bereich in Windows Server 2016 verfügbar sind, ist unten dokumentiert.
 
-```       
+```
 public void GetFaults(CimSession Session, CimInstance Target)
 {
     // Set Parameters (None)
@@ -176,7 +176,7 @@ public void GetFaults(CimSession Session, CimInstance Target)
 
 Möglicherweise ist es sinnvoll, eine eigene Darstellung von Fehlern zu erstellen und beizubehalten. Diese **myfault** -Klasse speichert beispielsweise verschiedene wichtige Eigenschaften von Fehlern, einschließlich der **faultid**, die später verwendet werden kann, um Aktualisierungs-oder Entfernungs Benachrichtigungen zuzuordnen, oder um eine Deduplizierung durchzuführen, wenn derselbe Fehler mehrmals erkannt wird, aus einem beliebigen Grund.
 
-```       
+```
 public class MyFault {
     public String FaultId { get; set; }
     public String Reason { get; set; }
@@ -212,9 +212,9 @@ Die komplette Liste der Eigenschaften in den einzelnen Fehlern (**diagnoseresult
 
 Wenn Fehler erstellt, entfernt oder aktualisiert werden, generiert der Integritätsdienst WMI-Ereignisse. Diese sind erforderlich, um den Anwendungs Status ohne häufige Abruf Vorgänge synchron zu halten, und können dabei helfen, wie z. b. das Festlegen von e-Mail-Benachrichtigungen. Um diese Ereignisse zu abonnieren, wird in diesem Beispielcode das Observer-Entwurfsmuster erneut verwendet.
 
-Abonnieren Sie zuerst **MSFT\_storagefaultevent** -Ereignisse.
+Abonnieren Sie zuerst **MSFT \_ storagefaultevent** -Ereignisse.
 
-```      
+```
 public void ListenForFaultEvents()
 {
     IObservable<CimSubscriptionResult> Events = Session.SubscribeAsync(
@@ -222,7 +222,7 @@ public void ListenForFaultEvents()
     // Subscribe the Observer
     FaultsObserver<CimSubscriptionResult> Observer = new FaultsObserver<CimSubscriptionResult>(this);
     IDisposable Disposeable = Events.Subscribe(Observer);
-}   
+}
 ```
 
 Implementieren Sie als nächstes einen Beobachter, dessen **OnNext ()** -Methode aufgerufen wird, wenn ein neues Ereignis generiert wird.
@@ -241,7 +241,7 @@ class FaultsObserver : IObserver
 
         if (SubscriptionResult != null)
         {
-            // Unpack            
+            // Unpack
             CimKeyedCollection<CimProperty> Properties = SubscriptionResult.Instance.CimInstanceProperties;
             String ChangeType = Properties["ChangeType"].Value.ToString();
             String FaultId = Properties["FaultId"].Value.ToString();
@@ -283,7 +283,7 @@ In einigen Fällen können jedoch Fehler von der Integritätsdienst (z. b. nach 
 
 ### <a name="properties-of-faults"></a>Eigenschaften von Fehlern
 
-Diese Tabelle enthält mehrere Schlüsseleigenschaften des Fault-Objekts. Überprüfen Sie für das vollständige Schema die Klasse " **\_MSFT storagediagnoseresult** " in der Datei " *storagewmi. MOF*".
+Diese Tabelle enthält mehrere Schlüsseleigenschaften des Fault-Objekts. Überprüfen Sie für das vollständige Schema die Klasse " **MSFT \_ storagediagnoseresult** " in der Datei " *storagewmi. MOF*".
 
 | **Eigenschaft**              | **Beispiel**                                                     |
 |---------------------------|-----------------------------------------------------------------|
@@ -307,7 +307,7 @@ Diese Tabelle enthält mehrere Schlüsseleigenschaften des Fault-Objekts. Überp
 
 ## <a name="properties-of-fault-events"></a>Eigenschaften von Fehlerereignissen
 
-Diese Tabelle enthält mehrere Schlüsseleigenschaften des Fault-Ereignisses. Überprüfen Sie für das vollständige Schema die Klasse **MSFT\_storagefaultevent** in *storagewmi. MOF*.
+Diese Tabelle enthält mehrere Schlüsseleigenschaften des Fault-Ereignisses. Überprüfen Sie für das vollständige Schema die Klasse **MSFT \_ storagefaultevent** in *storagewmi. MOF*.
 
 Beachten Sie den **ChangeType**, der angibt, ob ein Fehler erstellt, entfernt oder aktualisiert wird, und die **faultid**. Ein Ereignis enthält auch alle Eigenschaften des betroffenen Fehlers.
 
@@ -326,7 +326,7 @@ Beachten Sie den **ChangeType**, der angibt, ob ein Fehler erstellt, entfernt od
 
 ## <a name="coverage"></a>Abdeckung
 
-In Windows Server 2016 stellt die Integritätsdienst die folgende Fehlerabdeckung bereit:  
+In Windows Server 2016 stellt die Integritätsdienst die folgende Fehlerabdeckung bereit:
 
 ### <a name="physicaldisk-8"></a>**PhysicalDisk (8)**
 
@@ -513,12 +513,12 @@ In Windows Server 2016 stellt die Integritätsdienst die folgende Fehlerabdeckun
 * Ursache: *"mindestens ein speicherconsumer (in der Regel Virtual Machines) verwendet eine nicht vorhandene Richtlinie mit der ID {ID}".*
 * Empfehlungs Aktion: *"alle fehlenden Speicher-QoS-Richtlinien neu erstellen".*
 
-<sup>1</sup> gibt an, dass das Volume 80% vollständig (neben Schweregrad) oder 90% voll (Schweregrad) erreicht hat.  
-<sup>2</sup> gibt an, dass einige VHDs auf dem Volume nicht ihren minimalen IOPS-Aufwand für über 10% (neben Version), 30% (Hauptversion) oder 50% (kritisch) des parallelen 24-Stunden-Fensters erreicht haben.  
+<sup>1</sup> gibt an, dass das Volume 80% vollständig (neben Schweregrad) oder 90% voll (Schweregrad) erreicht hat.
+<sup>2</sup> gibt an, dass einige VHDs auf dem Volume nicht ihren minimalen IOPS-Aufwand für über 10% (neben Version), 30% (Hauptversion) oder 50% (kritisch) des parallelen 24-Stunden-Fensters erreicht haben.
 
 >[!NOTE]
-> Die Integrität von Speichergehäusekomponenten wie Lüfter, Netzteile und Sensoren wird von SES (SCSI Enclosure Services) abgeleitet. Wenn Ihr Anbieter diese Informationen nicht bereitstellt, kann der Integritätsdienst sie nicht anzeigen.  
+> Die Integrität von Speichergehäusekomponenten wie Lüfter, Netzteile und Sensoren wird von SES (SCSI Enclosure Services) abgeleitet. Wenn Ihr Anbieter diese Informationen nicht bereitstellt, kann der Integritätsdienst sie nicht anzeigen.
 
-## <a name="see-also"></a>Weitere Informationen
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Der Integritätsdienst in Windows Server 2016](health-service-overview.md)

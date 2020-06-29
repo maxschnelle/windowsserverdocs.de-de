@@ -8,12 +8,12 @@ author: JasonGerend
 manager: dougkim
 ms.author: jgerend
 ms.date: 09/11/2018
-ms.openlocfilehash: 31853f1adaed6794138861da0991aa47e79602bc
-ms.sourcegitcommit: 568b924d32421256f64abfee171304f1daf320d2
+ms.openlocfilehash: 6799e0e3b47d6cc98cbb42407ffbed1a9578675a
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85070573"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85473437"
 ---
 # <a name="iscsi-target-server-scalability-limits"></a>Skalierbarkeits Limits für iSCSI-Ziel Server
 
@@ -105,7 +105,7 @@ Dieses Thema enthält die unterstützten und getesteten Beschränkungen von Micr
 <tr class="even">
 <td><p>Mehrere aktive Cluster Knoten</p></td>
 <td><p>Unterstützt</p></td>
-<td> 
+<td>
 <p>–</p></td>
 <td><p>Jeder aktive Knoten im Failovercluster besitzt eine andere gruppierte Instanz des iSCSI-Zielservers mit anderen Knoten, die als mögliche Besitzer Knoten fungieren.</p></td>
 </tr>
@@ -537,7 +537,7 @@ Wir haben auch die folgenden iSCSI-Initiatoren getestet, die einen Datenträger 
 
   - CD oder USB-Datenträger mit IPxE
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 Die folgende Liste enthält zusätzliche Ressourcen zum iSCSI-Zielserver und zu verwandten Technologien.
 

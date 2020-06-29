@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: f2a2b9db60842ba7889116cf35163c579d9131d1
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: da4f173a5d91f73c73d3f537f58228890f90b136
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80861723"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85471675"
 ---
 # <a name="windows-authentication-architecture"></a>Architektur der Windows-Authentifizierung
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 Dieses Übersichts Thema für IT-Experten erläutert das grundlegende architektonische Schema für die Windows-Authentifizierung.
 
@@ -40,7 +40,7 @@ Die Security Support Provider-Schnittstelle (Security Support Provider Interface
 
 SSPI ist die Implementierung der Generic Security Service API (GSSAPI). SSPI bietet einen Mechanismus, mit dem eine verteilte Anwendung einen von mehreren Sicherheitsanbietern zum Abrufen einer authentifizierten Verbindung abrufen kann, ohne die Details des Sicherheitsprotokolls kennen zu müssen.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 -   [Architektur der Security Support Provider-Schnittstelle](security-support-provider-interface-architecture.md)
 

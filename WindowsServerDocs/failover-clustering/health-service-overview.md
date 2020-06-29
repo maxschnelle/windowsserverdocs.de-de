@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: 5bc71e71-920e-454f-8195-afebd2a23725
 author: cosmosdarwin
 ms.date: 02/09/2018
-ms.openlocfilehash: 158681e2038e3d8015933771d06d3bfb24d31586
-ms.sourcegitcommit: b5c12007b4c8fdad56076d4827790a79686596af
+ms.openlocfilehash: 1b607869245ff46bd01824ebe4392e283be50b0d
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78865399"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85473077"
 ---
 # <a name="health-service-in-windows-server"></a>Integritätsdienst in Windows Server
 
@@ -21,9 +21,9 @@ ms.locfileid: "78865399"
 
 Der Integritätsdienst ist ein neues Feature in Windows Server 2016, das die tägliche Überwachung und Betriebsbereitschaft für Cluster mit direkte Speicherplätze verbessert.
 
-## <a name="prerequisites"></a>Erforderliche Komponenten  
+## <a name="prerequisites"></a>Voraussetzungen
 
-Für „Direkte Speicherplätze“ ist der Integritätsdienst standardmäßig aktiviert. Für seine Einrichtung und seinen Start sind keine weiteren Aktionen erforderlich. Weitere Informationen zu direkte Speicherplätze finden Sie unter [direkte Speicherplätze in Windows Server 2016](../storage/storage-spaces/storage-spaces-direct-overview.md).  
+Für „Direkte Speicherplätze“ ist der Integritätsdienst standardmäßig aktiviert. Für seine Einrichtung und seinen Start sind keine weiteren Aktionen erforderlich. Weitere Informationen zu direkte Speicherplätze finden Sie unter [direkte Speicherplätze in Windows Server 2016](../storage/storage-spaces/storage-spaces-direct-overview.md).
 
 ## <a name="reports"></a>Berichte
 
@@ -37,73 +37,73 @@ Siehe [Integritätsdienst Fehler](health-service-faults.md).
 
 Siehe [Integritätsdienst Aktionen](health-service-actions.md).
 
-## <a name="automation"></a>Automatisierung  
+## <a name="automation"></a>Automation
 
-Im nächsten Abschnitt werden Workflows beschrieben, die vom Integritätsdienst im Lebenszyklus von Datenträgern automatisiert werden.  
+Im nächsten Abschnitt werden Workflows beschrieben, die vom Integritätsdienst im Lebenszyklus von Datenträgern automatisiert werden.
 
-### <a name="disk-lifecycle"></a>Lebenszyklus von Datenträgern   
+### <a name="disk-lifecycle"></a>Lebenszyklus von Datenträgern
 
-Der Integritätsdienst automatisiert die meisten Phasen des Lebenszyklus physischer Datenträger. Angenommen, der Ausgangsstatus Ihrer Bereitstellung ist eine perfekte Integrität, was heißt, dass alle physischen Datenträger ordnungsgemäß funktionieren.  
+Der Integritätsdienst automatisiert die meisten Phasen des Lebenszyklus physischer Datenträger. Angenommen, der Ausgangsstatus Ihrer Bereitstellung ist eine perfekte Integrität, was heißt, dass alle physischen Datenträger ordnungsgemäß funktionieren.
 
-#### <a name="retirement"></a>Deaktivierung  
+#### <a name="retirement"></a>Außerkraftsetzung
 
-Physische Datenträger werden automatisch deaktiviert, wenn sie nicht mehr verwendet werden können, woraufhin ein entsprechender Fehler ausgelöst wird. Es gibt mehrere Fälle:  
+Physische Datenträger werden automatisch deaktiviert, wenn sie nicht mehr verwendet werden können, woraufhin ein entsprechender Fehler ausgelöst wird. Es gibt mehrere Fälle:
 
--   Medienfehler: Der physische Datenträger ist definitiv ausgefallen oder beschädigt und muss ausgetauscht werden.  
+-   Medienfehler: Der physische Datenträger ist definitiv ausgefallen oder beschädigt und muss ausgetauscht werden.
 
--   Kommunikationsverlust: Der physische Datenträger hatte 15 Minuten lang keine Verbindung.  
+-   Kommunikationsverlust: Der physische Datenträger hatte 15 Minuten lang keine Verbindung.
 
--   Keine Reaktion: Der physische Datenträger hatte binnen einer Stunde dreimal oder öfter eine Latenz von 5,0 Sekunden zu verzeichnen.  
-
->[!NOTE]
-> Wenn die Verbindung mit zahlreichen physischen Datenträgern gleichzeitig bzw. mit einem gesamten Knoten oder Speichergehäuse verloren geht, werden diese Datenträger vom Integritätsdienst *nicht* deaktiviert, weil sie wahrscheinlich nicht die Ursache sind.  
-
-Wenn der deaktivierte Datenträger als Cache für viele andere physische Datenträger fungiert hat, werden diese, sofern verfügbar, automatisch einem anderen Cachedatenträger neu zugewiesen. Es ist keine spezielle Benutzeraktion erforderlich.  
-
-#### <a name="restoring-resiliency"></a>Wiederherstellen der Ausfallsicherheit  
-
-Nachdem ein physischer Datenträger deaktiviert wurde, beginnt der Integritätsdienst sofort mit dem Kopieren seiner Daten auf die restlichen physischen Datenträger, um die vollständige Ausfallsicherheit wiederherzustellen. Sobald dies abgeschlossen ist, sind die Daten vollständig sicher und wieder fehlertolerant.  
+-   Keine Reaktion: Der physische Datenträger hatte binnen einer Stunde dreimal oder öfter eine Latenz von 5,0 Sekunden zu verzeichnen.
 
 >[!NOTE]
-> Die sofortige Wiederherstellung erfordert ausreichend verfügbare Kapazität auf den verbleibenden physischen Datenträgern.  
+> Wenn die Verbindung mit zahlreichen physischen Datenträgern gleichzeitig bzw. mit einem gesamten Knoten oder Speichergehäuse verloren geht, werden diese Datenträger vom Integritätsdienst *nicht* deaktiviert, weil sie wahrscheinlich nicht die Ursache sind.
 
-#### <a name="blinking-the-indicator-light"></a>Blinken der Leuchte  
+Wenn der deaktivierte Datenträger als Cache für viele andere physische Datenträger fungiert hat, werden diese, sofern verfügbar, automatisch einem anderen Cachedatenträger neu zugewiesen. Es ist keine spezielle Benutzeraktion erforderlich.
 
-Falls möglich, aktiviert der Integritätsdienst das Blinken der Leuchte auf dem deaktivierten physischen Datenträger oder an seinem Steckplatz. Dies wird dauerhaft fortgesetzt, bis der deaktivierte Datenträger ausgetauscht wird.  
+#### <a name="restoring-resiliency"></a>Wiederherstellen der Ausfallsicherheit
+
+Nachdem ein physischer Datenträger deaktiviert wurde, beginnt der Integritätsdienst sofort mit dem Kopieren seiner Daten auf die restlichen physischen Datenträger, um die vollständige Ausfallsicherheit wiederherzustellen. Sobald dies abgeschlossen ist, sind die Daten vollständig sicher und wieder fehlertolerant.
 
 >[!NOTE]
-> Mitunter kann der Datenträger ggf. auf eine Weise ausfallen, die selbst das Funktionieren der Leuchte verhindert, z. B. beim Totalausfall des Stroms.  
+> Die sofortige Wiederherstellung erfordert ausreichend verfügbare Kapazität auf den verbleibenden physischen Datenträgern.
 
-#### <a name="physical-replacement"></a>Physischer Austausch  
+#### <a name="blinking-the-indicator-light"></a>Blinken der Leuchte
 
-Nach Möglichkeit sollten Sie den deaktivierten physischen Datenträger austauschen. In den meisten Fällen besteht dies aus einem Hot-Swap-Vorgang, d. h., das Ausschalten des Knotens oder des Speicher Gehäuses ist nicht erforderlich. In den Informationen zum Fehler finden Sie hilfreiche Angaben zu Stelle und Teil.  
+Falls möglich, aktiviert der Integritätsdienst das Blinken der Leuchte auf dem deaktivierten physischen Datenträger oder an seinem Steckplatz. Dies wird dauerhaft fortgesetzt, bis der deaktivierte Datenträger ausgetauscht wird.
+
+>[!NOTE]
+> Mitunter kann der Datenträger ggf. auf eine Weise ausfallen, die selbst das Funktionieren der Leuchte verhindert, z. B. beim Totalausfall des Stroms.
+
+#### <a name="physical-replacement"></a>Physischer Austausch
+
+Nach Möglichkeit sollten Sie den deaktivierten physischen Datenträger austauschen. In den meisten Fällen besteht dies aus einem Hot-Swap-Vorgang, d. h., das Ausschalten des Knotens oder des Speicher Gehäuses ist nicht erforderlich. In den Informationen zum Fehler finden Sie hilfreiche Angaben zu Stelle und Teil.
 
 #### <a name="verification"></a>Überprüfung
 
 Wenn der Ersetzungs Datenträger eingefügt wird, wird er anhand des Dokuments "Unterstützte Komponenten" überprüft (Weitere Informationen finden Sie im nächsten Abschnitt).
 
-#### <a name="pooling"></a>Pooling  
+#### <a name="pooling"></a>Pooling
 
-Falls zulässig, wird der Austauschdatenträger automatisch dem Pool seines Vorgängers hinzugefügt, um den Betrieb aufzunehmen. Sobald der Fehler verschwunden ist, wird das System in seinen Ausgangszustand mit perfekter Integrität zurückgesetzt.  
+Falls zulässig, wird der Austauschdatenträger automatisch dem Pool seines Vorgängers hinzugefügt, um den Betrieb aufzunehmen. Sobald der Fehler verschwunden ist, wird das System in seinen Ausgangszustand mit perfekter Integrität zurückgesetzt.
 
-## <a name="supported-components-document"></a>Dokument zu unterstützten Komponenten  
+## <a name="supported-components-document"></a>Dokument zu unterstützten Komponenten
 
 Der Integritätsdienst stellt einen Erzwingungs Mechanismus bereit, mit dem die von direkte Speicherplätze verwendeten Komponenten auf die von dem Administrator oder dem Lösungs Hersteller bereitgestellten Komponenten beschränkt werden. Diese kann verwendet werden, um eine versehentliche Nutzung nicht unterstützter Hardware durch Sie oder andere zu verhindern, sodass Garantie- und Supportvertragsbedingungen besser eingehalten werden. Diese Funktion ist zurzeit auf physische Festplattengeräte beschränkt, einschließlich SSDs, HDDs und nvme-Laufwerke. Das Dokument "Unterstützte Komponenten" kann für das Modell, den Hersteller (optional) und die Firmwareversion (optional) eingeschränkt werden.
 
-### <a name="usage"></a>Verwendung  
+### <a name="usage"></a>Zweck
 
 Im Dokument "Unterstützte Komponenten" wird eine XML-inspirierte Syntax verwendet. Es wird empfohlen, Ihren bevorzugten Text-Editor, z. b. die kostenlose [Visual Studio Code](https://code.visualstudio.com/) oder den Editor, zum Erstellen eines XML-Dokuments zu verwenden, das Sie speichern und wieder verwenden können.
 
-#### <a name="sections"></a>Strecken
+#### <a name="sections"></a>Abschnitte
 
-Das Dokument weist zwei unabhängige Abschnitte auf: `Disks` und `Cache`.
+Das Dokument enthält zwei unabhängige Abschnitte: `Disks` und `Cache` .
 
-Wenn der `Disks` Abschnitt angegeben ist, können nur die aufgeführten Laufwerke (wie `Disk`) mit Pools verknüpft werden. Nicht aufgelistete Laufwerke werden daran gehindert, Pools beizutreten, was die Verwendung in der Produktion praktisch ausschließt. Wenn dieser Abschnitt leer bleibt, wird jedem Laufwerk das beitreten zu Pools gestattet.
+Wenn der `Disks` Abschnitt angegeben ist, können nur die aufgeführten Laufwerke (als `Disk` ) mit Pools verknüpft werden. Nicht aufgelistete Laufwerke werden daran gehindert, Pools beizutreten, was die Verwendung in der Produktion praktisch ausschließt. Wenn dieser Abschnitt leer bleibt, wird jedem Laufwerk das beitreten zu Pools gestattet.
 
-Wenn der `Cache` Abschnitt angegeben wird, werden nur die aufgeführten Laufwerke (wie `CacheDisk`) für die Zwischenspeicherung verwendet. Wenn dieser Abschnitt leer bleibt, versucht direkte Speicherplätze, [basierend auf Medientyp und Bustyp zu erraten](../storage/storage-spaces/understand-the-cache.md#cache-drives-are-selected-automatically). Die hier aufgeführten Laufwerke sollten auch unter `Disks`aufgeführt werden.
+Wenn der `Cache` Abschnitt angegeben wird, werden nur die aufgeführten Laufwerke (als) für die Zwischenspeicherung `CacheDisk` verwendet. Wenn dieser Abschnitt leer bleibt, versucht direkte Speicherplätze, [basierend auf Medientyp und Bustyp zu erraten](../storage/storage-spaces/understand-the-cache.md#cache-drives-are-selected-automatically). Die hier aufgeführten Laufwerke sollten auch in aufgeführt werden `Disks` .
 
 >[!IMPORTANT]
-> Das Dokument "Unterstützte Komponenten" gilt nicht rückwirkend für bereits in einem Pool zusammengefasste und verwendete Laufwerke.  
+> Das Dokument "Unterstützte Komponenten" gilt nicht rückwirkend für bereits in einem Pool zusammengefasste und verwendete Laufwerke.
 
 #### <a name="example"></a>Beispiel
 
@@ -141,36 +141,36 @@ Wenn der `Cache` Abschnitt angegeben wird, werden nur die aufgeführten Laufwerk
 
 ```
 
-Fügen Sie zum Auflisten mehrerer Laufwerke einfach zusätzliche `<Disk>` oder `<CacheDisk>` Tags hinzu.
+Fügen Sie zum Auflisten mehrerer Laufwerke einfach zusätzliche- `<Disk>` oder- `<CacheDisk>` Tags hinzu.
 
-Um diese XML-Datei beim Bereitstellen von direkte Speicherplätze einzufügen, verwenden Sie den Parameter `-XML`:
+Um diese XML-Datei beim Bereitstellen von direkte Speicherplätze einzufügen, verwenden Sie den `-XML` Parameter:
 
 ```PowerShell
-$MyXML = Get-Content <Filepath> | Out-String  
+$MyXML = Get-Content <Filepath> | Out-String
 Enable-ClusterS2D -XML $MyXML
 ```
 
 So können Sie das Dokument "Unterstützte Komponenten" nach der Bereitstellung direkte Speicherplätze festlegen oder ändern:
 
 ```PowerShell
-$MyXML = Get-Content <Filepath> | Out-String  
-Get-StorageSubSystem Cluster* | Set-StorageHealthSetting -Name "System.Storage.SupportedComponents.Document" -Value $MyXML  
+$MyXML = Get-Content <Filepath> | Out-String
+Get-StorageSubSystem Cluster* | Set-StorageHealthSetting -Name "System.Storage.SupportedComponents.Document" -Value $MyXML
 ```
 
 >[!NOTE]
->Die Eigenschaften „Model“, „Manufacturer“ und „FirmwareVersion“ müssen exakt mit den Werten übereinstimmen, die Sie mit dem Cmdlet **Get-PhysicalDisk** abrufen. Je nach Implementierung des Herstellers weichen diese von Ihren Erwartungen ab. Anstatt „Contoso“ kann der Hersteller (Manufacturer) „CONTOSO-LTD“ heißen, oder dieser Eintrag ist leer, während das Modell „Contoso-XZY9000“ ist.  
+>Die Eigenschaften „Model“, „Manufacturer“ und „FirmwareVersion“ müssen exakt mit den Werten übereinstimmen, die Sie mit dem Cmdlet **Get-PhysicalDisk** abrufen. Je nach Implementierung des Herstellers weichen diese von Ihren Erwartungen ab. Anstatt „Contoso“ kann der Hersteller (Manufacturer) „CONTOSO-LTD“ heißen, oder dieser Eintrag ist leer, während das Modell „Contoso-XZY9000“ ist.
 
-Sie können dies mit dem folgenden PowerShell-Cmdlet überprüfen:  
+Sie können dies mit dem folgenden PowerShell-Cmdlet überprüfen:
 
 ```PowerShell
-Get-PhysicalDisk | Select Model, Manufacturer, FirmwareVersion  
+Get-PhysicalDisk | Select Model, Manufacturer, FirmwareVersion
 ```
 
 ## <a name="settings"></a>Einstellungen
 
 Siehe [Integritätsdienst Einstellungen](health-service-settings.md).
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Integritätsdienst Berichte](health-service-reports.md)
 - [Integritätsdienst Fehler](health-service-faults.md)

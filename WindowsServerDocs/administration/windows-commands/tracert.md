@@ -9,18 +9,19 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 00ae2f60181126657bfb3fe77144e6bc33167b4d
-ms.sourcegitcommit: ef089864980a1d4793a35cbf4cbdd02ce1962054
+ms.openlocfilehash: a6ef48350a0b8a4f67f1e564a9ca16db8b4dd5e6
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84149753"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85472927"
 ---
 # <a name="tracert"></a>tracert
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Bestimmt den Pfad zu einem Ziel, indem ICMP-Echo Anforderungen (Internet Control Message Protocol) oder ICMPv6-Nachrichten an das Ziel gesendet werden, wobei die Werte für die Gültigkeitsdauer (TTL) inkrementell erhöht werden. Der angezeigte Pfad ist die Liste der Schnittstellen, die sich im Pfad zwischen einem Quellhost und einem Ziel befinden. Die Near/Side-Schnittstelle ist die Schnittstelle des Routers, die dem sendenden Host im Pfad am nächsten liegt. Wird ohne Parameter verwendet, zeigt tracert die Hilfe an.
+
 
 ## <a name="syntax"></a>Syntax
 
@@ -38,8 +39,8 @@ tracert [/d] [/h <MaximumHops>] [/j <Hostlist>] [/w <timeout>] [/R] [/S <Srcaddr
 |/w\<timeout>|Gibt die Zeit in Millisekunden an, die auf die überschreiten der ICMP-Zeit gewartet wird, oder eine Echo Antwortnachricht, die einer gegebenen Echo Anforderungs Nachricht entspricht, die empfangen werden soll. Wenn Sie nicht innerhalb des Timeouts empfangen werden, wird ein Sternchen (*) angezeigt. Das Standard Timeout beträgt 4000 (4 Sekunden).|
 |/R|Gibt an, dass der IPv6-Routing Erweiterungs Header verwendet wird, um eine Echo Anforderungs Nachricht an den lokalen Host zu senden, wobei das Ziel als Zwischenziel verwendet und die umgekehrte Route getestet wird.|
 |/S\<Srcaddr>|Gibt die Quelladresse an, die in den Echo Anforderungs Nachrichten verwendet werden soll. Verwenden Sie diesen Parameter nur bei der Ablauf Verfolgung von IPv6-Adressen.|
-|/4|Gibt an, dass tracert. exe für diese Ablauf Verfolgung nur IPv4 verwenden kann.|
-|/6|Gibt an, dass tracert. exe für diese Ablauf Verfolgung nur IPv6 verwenden kann.|
+|/4|Gibt an, dass tracert.exe für diese Ablauf Verfolgung nur IPv4 verwenden darf.|
+|/6|Gibt an, dass tracert.exe für diese Ablauf Verfolgung nur IPv6 verwenden kann.|
 |\<TargetName>|Gibt das Ziel an, das entweder durch die IP-Adresse oder den Hostnamen identifiziert wird.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 

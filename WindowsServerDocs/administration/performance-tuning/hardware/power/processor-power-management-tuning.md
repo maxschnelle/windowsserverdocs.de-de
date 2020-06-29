@@ -3,16 +3,16 @@ title: Optimieren der Prozessor Energie Verwaltung (ppm) für den Energie Sparpl
 description: Optimieren der Prozessor Energie Verwaltung (ppm) für den Energie Sparplan von Windows Server ausgeglichen
 ms.prod: windows-server
 ms.technology: performance-tuning-guide
-ms.topic: article
+ms.topic: conceptual
 ms.author: qizha;tristanb
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 5c7319c843609f8bf846dd6ccf4bc2bf91f3b942
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 25244ecb653f7a1b8461130bba40901b35945765
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851973"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85471615"
 ---
 # <a name="processor-power-management-ppm-tuning-for-the-windows-server-balanced-power-plan"></a>Optimieren der Prozessor Energie Verwaltung (ppm) für den Energie Sparplan von Windows Server ausgeglichen
 
@@ -25,36 +25,35 @@ Wenn Sie ein Server System mit stark unterschiedlichen workloadmerkmalen oder Le
 
 ## <a name="windows-processor-power-tuning-methodology"></a>Methodik der Energieoptimierung für Windows-Prozessoren
 
-
 ### <a name="tested-workloads"></a>Getestete Workloads
 
 Arbeits Auslastungen werden ausgewählt, um einen bestmöglichen Satz von "typischen" Windows Server-Workloads abzudecken. Natürlich ist dieser Satz nicht für die gesamte Breite der realen Serverumgebungen repräsentativ.
 
 Die Optimierung der einzelnen Energierichtlinien basiert auf den Daten, die von den folgenden fünf Workloads gesteuert werden:
 
--   **IIS-Webserver-Arbeitsauslastung**
+- **IIS-Webserver-Arbeitsauslastung**
 
     Ein interner Microsoft-Vergleichstest mit dem Namen "Web Fundamentals" wird verwendet, um die Energieeffizienz von Plattformen mit IIS-Webserver zu optimieren Das Setup enthält einen Webserver und mehrere Clients, die den Web Access-Datenverkehr simulieren. Die Verteilung dynamischer, statischer (in-Memory) und statischer kalter (Datenträger Zugriff erforderlich) Web Pages basiert auf statistischen Studien von Produktionsservern. Um die CPU-Kerne des Servers auf die vollständige Auslastung (ein Ende des getesteten Spektrums) zu übersetzen, benötigt das Setup ausreichend schnelle Netzwerk-und Datenträger Ressourcen.
 
--   **Arbeitsauslastung der SQL Server Datenbank**
+- **Arbeitsauslastung der SQL Server Datenbank**
 
     [TPC-E](http://www.tpc.org/tpce/default.asp) Benchmark ist ein beliebter Benchmark für die Analyse der Datenbankleistung. Es wird verwendet, um eine OLTP-Arbeitsauslastung für ppm-Optimierungs Optimierungen zu generieren. Diese Arbeitsauslastung weist eine beträchtliche Datenträger-e/a auf und hat daher eine hohe Leistungsanforderung für das Speichersystem und die Speichergröße.
 
--   **Datei Server-Arbeitsauslastung**
+- **Datei Server-Arbeitsauslastung**
 
     Ein von Microsoft entwickelter Benchmark namens [FSCT](http://www.snia.org/sites/default/files2/sdc_archives/2009_presentations/tuesday/BartoszNyczkowski-JianYan_FileServerCapacityTool.pdf) wird verwendet, um eine SMB-Dateiserver-Arbeitsauslastung zu generieren. Er erstellt einen großen Datei Satz auf dem Server und verwendet viele Client Systeme (tatsächlich oder virtualisiert) zum Generieren von Datei Öffnungs-, Schließ-, Lese-und Schreibvorgängen. Die Vorgangs Mischung basiert auf statistischen Studien von Produktionsservern. Er betont CPU-, Datenträger-und Netzwerkressourcen.
 
--   **Specpower – Java-Arbeitsauslastung**
+- **Specpower – Java-Arbeitsauslastung**
 
-    [Specpower\_ssj2008](http://spec.org/power_ssj2008/) ist der erste Branchen standardspezifikations-Benchmark, der die Leistungs-und Leistungsmerkmale gemeinsam evaluiert. Dabei handelt es sich um eine serverseitige Java-Arbeitsauslastung mit unterschiedlichen CPU-Lade Graden. Es sind nicht viele Datenträger-oder Netzwerkressourcen erforderlich, es sind jedoch bestimmte Anforderungen an die Arbeitsspeicher Bandbreite erforderlich. Fast alle CPU-Aktivitäten werden im Benutzermodus ausgeführt. die kernelmodusaktivität hat keine großen Auswirkungen auf die Leistungs-und Leistungsmerkmale der Benchmarks, mit Ausnahme der Energie Verwaltungsentscheidungen.
+    [Specpower \_ ssj2008](http://spec.org/power_ssj2008/) ist der erste Branchen standardspezifikations-Benchmark, der die Leistungs-und Leistungsmerkmale zusammen wertet. Dabei handelt es sich um eine serverseitige Java-Arbeitsauslastung mit unterschiedlichen CPU-Lade Graden. Es sind nicht viele Datenträger-oder Netzwerkressourcen erforderlich, es sind jedoch bestimmte Anforderungen an die Arbeitsspeicher Bandbreite erforderlich. Fast alle CPU-Aktivitäten werden im Benutzermodus ausgeführt. die kernelmodusaktivität hat keine großen Auswirkungen auf die Leistungs-und Leistungsmerkmale der Benchmarks, mit Ausnahme der Energie Verwaltungsentscheidungen.
 
--   **Anwendungs Server-Arbeitsauslastung**
+- **Anwendungs Server-Arbeitsauslastung**
 
     Der [SAP-SD-](http://global.sap.com/campaigns/benchmark/index.epx) Vergleichstest wird verwendet, um eine Anwendungsserver-Arbeitsauslastung zu generieren. Es wird eine zweistufige Installation mit der-Datenbank und dem Anwendungsserver auf demselben Server Host verwendet. Diese Arbeitsauslastung nutzt auch die Antwortzeit als Leistungs Metrik, die von anderen getesteten Workloads abweicht. Daher wird es verwendet, um die Auswirkung von ppm-Parametern auf Reaktionsfähigkeit zu überprüfen. Es ist jedoch nicht für alle Latenz sensiblen produktionsworkloads repräsentativ.
 
 Alle Benchmarks außer specpower wurden ursprünglich für die Leistungsanalyse entwickelt und daher für die Ausführung bei Spitzenlast Ebenen erstellt. Allerdings sind Mittel-zu-Licht-Ladestufen für reale Produktionsserver häufiger und für **ausgeglichene** Plan Optimierungen interessanter. Wir führen die Benchmarks mit verschiedenen einschränkenden Methoden (z. b. durch Verringern der Anzahl aktiver Benutzer/Clients) auf unterschiedlichen Belastungsstufen von 100% bis zu 10% (in 10%-Schritten) aus.
 
-### <a name="hardware-configurations"></a>Hardware Konfigurationen
+### <a name="hardware-configurations"></a>Hardwarekonfigurationen
 
 Für jede Version von Windows werden die aktuellen Produktionsserver in der Energie Sparplan-Analyse und-Optimierung verwendet. In einigen Fällen wurden die Tests in präproduktionssystemen ausgeführt, deren releasezeitplan mit der nächsten Windows-Version übereinstimmt.
 
@@ -126,7 +125,7 @@ Dies erhöht wiederum die Komplexität des Optimierungsprozesses, sodass es eine
 Aus diesem Grund bietet Windows einen **ausgeglichenen** Energie Sparplan an erster Stelle, denn in vielen Fällen ist es wahrscheinlich nicht sinnvoll, eine manuelle Optimierung für eine bestimmte Arbeitsauslastung auf einem bestimmten Server durchzuführen.
 
 ## <a name="see-also"></a>Weitere Informationen
-- [Überlegungen zur Server Hardware Leistung](../index.md)
+- [Überlegungen zur Leistung von Serverhardware](../index.md)
 - [Server Hardware Power Considerations](../power.md) (Überlegungen zum Energiebedarf von Serverhardware)
 - [Power and Performance Tuning](power-performance-tuning.md) (Leistungs- und Energieoptimierung)
 - [Processor Power Management (PPM) Tuning for the Windows Server Balanced Power Plan](processor-power-management-tuning.md) (Optimieren der Prozessorenergieverwaltung (Processor Power Management (PPM)) für den ausgewogenen Energiesparplan von Windows Server)

@@ -1,6 +1,6 @@
 ---
 title: quser
-description: Referenz Thema für * * * *-
+description: Referenz Thema für den Befehl "quser", der Informationen zu Benutzersitzungen auf einem Remotedesktop-Sitzungshost Server anzeigt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,26 +9,76 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ef18266a963f4575ce9a4685abcbb31b43fa7b6b
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: e51abe030ca0f473246cdc85fd01d89fddf8b056
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82722670"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85471925"
 ---
 # <a name="quser"></a>quser
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Zeigt Informationen zu Benutzersitzungen auf einem Remotedesktop-Sitzungshost Server (RD-Sitzungs Host) an.  
+Zeigt Informationen zu Benutzersitzungen auf einem Remotedesktop-Sitzungshost Server an. Mit diesem Befehl können Sie herausfinden, ob ein bestimmter Benutzer an einem bestimmten Remotedesktop-Sitzungshost Server angemeldet ist. Dieser Befehl gibt folgende Information zurück:
 
-> [!NOTE]  
-> In Windows Server 2008 R2 heißen die Terminaldienste nun Remotedesktopdienste. Weitere Informationen zu den Neuerungen in der neuesten Version finden Sie unter [What es New in Remotedesktopdienste in Windows Server 2012](https://technet.microsoft.com/library/hh831527) in der TechNet-Bibliothek für Windows Server.  
+- Name des Benutzers
 
-## <a name="remarks"></a>Bemerkungen  
-Dieser Befehl ist mit dem Befehl für die **Abfrage Benutzer** identisch.  
+- Name der Sitzung auf dem Remotedesktop-Sitzungshost Server
 
-## <a name="additional-references"></a>Zusätzliche Referenzen  
-[Benutzer Abfragen](query-user.md)  
-- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  
-[Remotedesktopdienste (Terminaldienste): Befehlsreferenz](remote-desktop-services-terminal-services-command-reference.md)  
+- Sitzungs-ID
+
+- Status der Sitzung (aktiv oder getrennt)
+
+- Leerlaufzeit (die Anzahl der Minuten seit dem letzten Tastatur Strich oder der Mausbewegung bei der Sitzung)
+
+- Datum und Uhrzeit der Anmeldung des Benutzers
+
+> [!NOTE]
+> Dieser Befehl ist mit dem Befehl für die [Abfrage Benutzer](query-user.md)identisch. Weitere Informationen zu den Neuerungen in der neuesten Version finden Sie unter [What es New in Remotedesktopdienste in Windows Server](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn283323(v=ws.11)).
+
+## <a name="syntax"></a>Syntax
+
+```
+quser [<username> | <sessionname> | <sessionID>] [/server:<servername>]
+```
+
+### <a name="parameters"></a>Parameter
+
+| Parameter | BESCHREIBUNG |
+|--|--|
+| `<username>` | Gibt den Anmelde Namen des Benutzers an, den Sie Abfragen möchten. |
+| `<sessionname>` | Gibt den Namen der Sitzung an, die Sie Abfragen möchten. |
+| `<sessionID>` | Gibt die ID der Sitzung an, die Sie Abfragen möchten. |
+| /server:`<servername>` | Gibt den Remotedesktop-Sitzungshost Server an, den Sie Abfragen möchten. Andernfalls wird der aktuelle Remotedesktop-Sitzungshost Server verwendet. Dieser Parameter ist nur erforderlich, wenn Sie diesen Befehl auf einem Remote Server verwenden. |
+| /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
+
+#### <a name="remarks"></a>Hinweise
+
+- Um diesen Befehl verwenden zu können, müssen Sie über die Berechtigung "Vollzugriff" oder eine spezielle Zugriffsberechtigung verfügen.
+
+- Wenn Sie keinen Benutzer mit den Parametern <*username*>, <*Sessionname*> oder *SessionID* angeben, wird eine Liste aller Benutzer zurückgegeben, die beim Server angemeldet sind. Alternativ können Sie auch den Befehl **Abfrage Sitzung** verwenden, um eine Liste aller Sitzungen auf einem Server anzuzeigen.
+
+- Wenn **quser** Informationen zurückgibt, `(>)` wird vor der aktuellen Sitzung ein größer-als-Symbol angezeigt.
+
+### <a name="examples"></a>Beispiele
+
+Geben Sie Folgendes ein, um Informationen über alle Benutzer anzuzeigen, die auf dem System angemeldet sind:
+
+```
+quser
+```
+
+Geben Sie Folgendes ein, um Informationen zum Benutzer *User1* auf Server *Server1*anzuzeigen:
+
+```
+quser USER1 /server:Server1
+```
+
+## <a name="additional-references"></a>Zusätzliche Referenzen
+
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Befehl "Abfrage Benutzer"](query-user.md)
+
+- [Remotedesktopdienste (Terminaldienste): Befehlsreferenz](remote-desktop-services-terminal-services-command-reference.md)

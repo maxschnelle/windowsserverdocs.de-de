@@ -8,12 +8,12 @@ author: greg-lindsay
 ms.author: greg-lindsay
 ms.localizationpriority: high
 ms.date: 05/07/2018
-ms.openlocfilehash: 8b359ac883c24d559e2c3d47db5b68e4f5341338
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: c4676ee720780ac7f347d98048c920bd4ce68e59
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80826003"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85473187"
 ---
 # <a name="whats-new-in-windows-server-version-1803"></a>Neuerungen in Windows Server, Version 1803
 
@@ -35,7 +35,7 @@ Windows Server, Version 1709, wurde im September 2017 als die erste Version des 
 
 Basierend auf Feedback und Telemetrie, haben diese Kanäle demonstriert, dass sie auch der folgenden allgemeinen Strategie entsprechen:
 - Der halbjährliche Kanal eignet sich ideal für moderne Anwendungen und Innovationsszenarien, beispielsweise Container und Micro-Dienste.
-- Long-Term Servicing Channel ist die bevorzugte Version für Infrastruktur-Szenarien wie softwaredefiniertes Rechenzentrum und hyperkonvergente Infrastruktur (HCI). 
+- Long-Term Servicing Channel ist die bevorzugte Version für Infrastruktur-Szenarien wie softwaredefiniertes Rechenzentrum und hyperkonvergente Infrastruktur (HCI).
 
 Die spezifischen Szenarien für den halbjährlichen Kanal und Long-Term Servicing Channel lauten wie folgt:
 
@@ -51,7 +51,7 @@ Die spezifischen Szenarien für den halbjährlichen Kanal und Long-Term Servicin
 ## <a name="application-platform-and-containers"></a>Anwendungsplattform und Container
 
 - Optimization (Optimierung)
-    - Das Server Core-Containerimage wird von Windows Server, Version 1709, um 30% reduziert. 
+    - Das Server Core-Containerimage wird von Windows Server, Version 1709, um 30% reduziert.
     - Die Anwendungskompatibilität wurde auch zur Unterstützung der herkömmlichen Anwendungscontainer verbessert.
     - Die Start- und Laufzeitleistung von Containern wurden dank verschiedener Fixes und Optimierungen verbessert.
 - Containernetzwerke: Localhost und HTTP-Proxy-Unterstützung wurde hinzugefügt, und Container-Skalierbarkeit und -Startzeit wurden verbessert.
@@ -70,16 +70,16 @@ Ein kleinerer Server Core-Container mit besserer Anwendungskompatibilität ist j
 
 WSL ermöglicht Serveradministratoren, vorhandene Tools und Linux-Skripts auf Windows Server zu verwenden. Zahlreiche Verbesserungen, die im [Blog „Befehlszeile”](https://blogs.msdn.microsoft.com/commandline/tag/wsl/) präsentiert werden, sind nun Teil von Windows Server, einschließlich Hintergrundaufgaben, DriveFS, WSLPath und vieles mehr.
 
-### <a name="kubernetes"></a>Kubernetes 
+### <a name="kubernetes"></a>Kubernetes
 
-Kubernetes (häufig K8s genannt) ist ein Open-Source-System für die Automatisierung der Bereitstellung, Skalierung und Verwaltung von containerisierten Anwendungen, die unter dem Engagement der [Cloud Native Computing Foundation](https://www.cncf.io) entwickelt wurden. 
+Kubernetes (häufig K8s genannt) ist ein Open-Source-System für die Automatisierung der Bereitstellung, Skalierung und Verwaltung von containerisierten Anwendungen, die unter dem Engagement der [Cloud Native Computing Foundation](https://www.cncf.io) entwickelt wurden.
 
 In Windows Server, Version 1709, konnten Benutzer Kubernetes auf Windows-Netzwerken nutzen, einschließlich:
 - Freigegebene Pod-Depots: Infrastruktur- und Worker-Pods teilen sich jetzt ein Netzwerkdepot (vergleichbar mit einem Linux-Namespace).
 - Optimierung der Endpunkte: Dank der Depotfreigabe müssen Containerdienste (mindestens) nur halb so viele Endpunkte wie zuvor nachverfolgen.
 - Optimierung des Datenpfads: Verbesserungen der virtuellen Filterplattform und des Host Networking Service ermöglichen einen Kernel-basierten Lastenausgleich.
 
-Mit der Veröffentlichung von Windows Server, Version 1803, werden weitere Features in kommenden Kubernetes-Versionen zur Verfügung stehen: 
+Mit der Veröffentlichung von Windows Server, Version 1803, werden weitere Features in kommenden Kubernetes-Versionen zur Verfügung stehen:
 - [Speicher-Plug-Ins](https://github.com/Microsoft/K8s-Storage-Plugins) für Windows-Container, von Kubernetes koordiniert.
 - Netzwerke auf Cloud-Niveau mit Initiativen wie unsere Partnerschaft mit Unterstützung von [Tigera auf Projekt Calico](https://cloudblogs.microsoft.com/windowsserver/2017/12/07/securing-modernized-apps-and-simplified-networking-on-windows-with-calico/).
 - Windows-Plattform-Unterstützung für Hyper-V isolierte Pods mit mehreren Containern pro Pod.
@@ -90,7 +90,7 @@ Mit der Veröffentlichung von Windows Server, Version 1803, werden weitere Featu
 - Ein Problem, das ASP.NET-Leistungsindikatoren aufhob, wurde behoben.
 - Ein Problem, in dem Dienste in Containern keine Benachrichtigung zum Herunterfahren erhielten, wurde behoben.
     - Insbesondere wurde die Benachrichtigung für Server Core- und Nano Server Container-basierte Images wurde in ein CTRL_SHUTDOWN_EVENT geändert. Darüber hinaus erweitert es die Benachrichtigung in Server Core Container-basierten Images auf alle Prozesse, die im Container ausgeführt werden, einschließlich des Sendens von Servicebenachrichtigungen zum Herunterfahren für im Container ausgeführte Dienste.
-- Eine Inkompatibilität von Docker Pull & Docker Last mit der Richtlinieneinstellung, die bestimmt, ob der BitLocker-Schutz für Festplattenlaufwerke erforderlich ist, um darauf schreiben zu können (FDVDenyWriteAccess), wurde korrigiert. 
+- Eine Inkompatibilität von Docker Pull & Docker Last mit der Richtlinieneinstellung, die bestimmt, ob der BitLocker-Schutz für Festplattenlaufwerke erforderlich ist, um darauf schreiben zu können (FDVDenyWriteAccess), wurde korrigiert.
 
 ## <a name="storage"></a>Speicher
 
@@ -108,7 +108,7 @@ Den folgenden Windows PowerShell-Befehl können Sie verwenden, um den Transport-
 Install-WindowsFeature -Name WDS
 ```
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Weitere Verweise
 
 [Dateiinformationen für die Windows Server-Version](https://docs.microsoft.com/windows-server/get-started/windows-server-release-info)<br>
 [Neues in Windows 10, Version 1803 – Infos für IT-Experten](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1803)

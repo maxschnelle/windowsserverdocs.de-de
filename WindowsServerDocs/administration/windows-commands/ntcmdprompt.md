@@ -1,6 +1,6 @@
 ---
 title: ntcmdprompt
-description: Referenz Thema für * * * *-
+description: Referenz Thema für den Befehl "ntcmdprompt", bei dem der Befehls Interpreter **Cmd.exe**anstelle von " **Command.com**" ausgeführt wird, nachdem eine Beendigungs-und Ruhezustand (After) oder nach dem Starten der Eingabeaufforderung in einer MS-DOS-Anwendung ausgeführt wurde.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,32 +9,35 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b5b0dcbc0735f20b63cbf441f4014411acd3a48e
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 08d5ee1af4c019724a77eda6370e63541e16a72a
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82723475"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85472775"
 ---
 # <a name="ntcmdprompt"></a>ntcmdprompt
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Führt den Befehls Interpreter " **cmd. exe**" anstelle von " **Command.com**" aus, nachdem ein "beenden" und "bleiben Residenter" (Wahrheits Dienst) oder nach dem Starten der Eingabeaufforderung in einer MS-DOS-Anwendung ausgeführt wurde.
+Führt den Befehls Interpreter **Cmd.exe**anstelle von **Command.com**nach dem Ausführen eines Beendigungs-und Aufenthalts Residenten (After) oder nach dem Starten der Eingabeaufforderung in einer MS-DOS-Anwendung aus.
+
 ## <a name="syntax"></a>Syntax
+
 ```
 ntcmdprompt
 ```
-#### <a name="parameters"></a>Parameter
 
-| Parameter |             BESCHREIBUNG              |
-|-----------|--------------------------------------|
-|    /?     | Zeigt die Hilfe an der Eingabeaufforderung an. |
+### <a name="parameters"></a>Parameter
 
-## <a name="remarks"></a>Bemerkungen
-- Wenn **Command.com** ausgeführt wird, sind einige Features von " **cmd. exe**" (z. b. die **doskey** -Anzeige des Befehls Verlaufs) nicht verfügbar. Wenn Sie den Befehls Interpreter " **cmd. exe** " ausführen möchten, nachdem Sie einen "beenden" und "bleiben" in einer Anwendung gestartet haben oder die Eingabeaufforderung in einer Anwendung, die auf MS-DOS basiert, gestartet haben, können Sie den Befehl " **ntcmdprompt** " verwenden. Beachten Sie jedoch, dass die "ZR" möglicherweise nicht zur Verwendung verfügbar ist, wenn Sie " **cmd. exe**" ausführen. Sie können den Befehl " **ntcmdprompt** " in die Datei " **config. NT** " oder die entsprechende benutzerdefinierte Startdatei in die Programm Informationsdatei (PIF) einer Anwendung einschließen.
-  ## <a name="examples"></a>Beispiele
-  Geben Sie Folgendes ein, um **ntcmdprompt** in die Datei " **config. NT** " oder die in der PIF angegebene Konfigurations Startdatei einzuschließen: **ntcmdprompt**
-  ## <a name="additional-references"></a>Zusätzliche Referenzen
-- - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+| Parameter | BESCHREIBUNG |
+| --------- | ----------- |
+| /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
+#### <a name="remarks"></a>Hinweise
+
+- Wenn **Command.com** ausgeführt wird, sind einige Features von **Cmd.exe**, z. b. die **doskey** -Anzeige von Befehlsverlauf, nicht verfügbar. Wenn Sie lieber den **Cmd.exe** Befehls Interpreter ausführen möchten, nachdem Sie einen "beenden" und "bleiben" in der Anwendung gestartet haben, oder die Eingabeaufforderung in einer Anwendung, die auf MS-DOS basiert, gestartet haben, können Sie den Befehl " **ntcmdprompt** " verwenden. Beachten Sie jedoch, dass die Wahrheits-r möglicherweise nicht zur Verwendung verfügbar ist, wenn Sie **Cmd.exe**ausführen. Sie können den Befehl " **ntcmdprompt** " in die Datei " **config. NT** " oder die entsprechende benutzerdefinierte Startdatei in die Programm Informationsdatei (PIF) einer Anwendung einschließen.
+
+## <a name="additional-references"></a>Zusätzliche Referenzen
+
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

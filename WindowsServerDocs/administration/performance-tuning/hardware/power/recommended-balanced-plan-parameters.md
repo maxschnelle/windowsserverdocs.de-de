@@ -1,18 +1,18 @@
 ---
 title: Empfohlene ausgeglichene Energie Sparplan Parameter für schnelle Antwortzeiten
-description: Empfohlene ausgeglichene Energie Sparplan Parameter für die schnelle Reaktionszeit
+description: Empfohlene ausgeglichene Energie Sparplan Parameter für schnelle Antwortzeiten
 ms.prod: windows-server
 ms.technology: performance-tuning-guide
-ms.topic: article
+ms.topic: conceptual
 ms.author: qizha;tristanb
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 288746b5361c550e167f64886a929c96c81ff8d0
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 62dc6168e76bf3951443df0f06c47a8684d2df26
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851963"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85471585"
 ---
 # <a name="recommended-balanced-power-plan-parameters-for-workloads-requiring-quick-response-times"></a>Empfohlene ausgeglichene Energie Sparplan Parameter für Workloads, die schnelle Antwortzeiten erfordern
 
@@ -21,7 +21,7 @@ Der standardmäßige **ausgeglichene** Energie Sparplan verwendet den **Durchsat
 Die **Reaktionszeit** kann jedoch exponentiell zunehmen, wenn die Auslastung zunimmt. Heutzutage hat sich die Anforderung der schnellen Reaktionszeit erheblich erhöht. Obwohl Microsoft die Benutzer dazu vorgeschlagen hat, zum **hochleistungsfähigen** Energie Sparplan zu wechseln, wenn er eine schnelle Reaktionszeit benötigt, ist es für einige Benutzer nicht empfehlenswert, den energievorteil bei der leichten bis mittleren Auslastung zu verlieren. Daher bietet Microsoft die folgenden vorgeschlagenen Parameteränderungen für die Arbeits Auslastungen, die eine schnelle Reaktionszeit erfordern.
 
 
-| Parameter | Beschreibung | Standardwert | Vorgeschlagene Werte |
+| Parameter | BESCHREIBUNG | Standardwert | Vorgeschlagene Werte |
 |------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Schwellenwert für die Prozessorleistung erhöhen | Schwellenwert für die Auslastung oberhalb der Häufigkeit | 90 | 60 |
 | Schwellenwert für die Prozessorleistung verringern | Schwellenwert für die Auslastung, unter dem die Häufigkeit verringert werden soll | 80 | 40 |
@@ -45,9 +45,9 @@ Diese Änderung basiert auf der Leistungs-und Leistungsanalyse Analyse mithilfe 
 
 ## <a name="specpower--java-workload"></a>Specpower – Java-Arbeitsauslastung
 
-[Specpower\_ssj2008](http://spec.org/power_ssj2008/), der beliebteste Industriestandard-Spezifikations Benchmark für Serverleistung und Leistungsmerkmale, wird verwendet, um die Auswirkungen auf die Leistung zu überprüfen. Da es nur einen **Durchsatz** als Leistungs Metrik verwendet, bietet der standardmäßige **ausgeglichene** Energie Sparplan die beste Energieeffizienz.
+[Specpower \_ ssj2008](http://spec.org/power_ssj2008/), der beliebteste standardmäßige Spezifikations Benchmark für Serverleistung und Leistungsmerkmale, wird verwendet, um die Auswirkungen auf die Leistung zu überprüfen. Da es nur einen **Durchsatz** als Leistungs Metrik verwendet, bietet der standardmäßige **ausgeglichene** Energie Sparplan die beste Energieeffizienz.
 
-Die vorgeschlagene Parameter Änderung verbraucht etwas höhere Stromversorgung (d. h. < = 20%). Lade Ebenen. Mit der höheren Auslastung erhöht sich der Unterschied, und es wird damit begonnen, die gleiche Leistung wie der **High Performance** -Energie Sparplan nach der Auslastung von 60% zu verbrauchen. Um die vorgeschlagenen Änderungs Parameter zu verwenden, sollten die Benutzer während der Planung der Gestell-Kapazität die Stromkosten bei mittelgroßen bis hohen Lade Graden berücksichtigen.
+Die vorgeschlagene Parameter Änderung verbraucht etwas höhere Stromversorgung (d. h. <= 20%). Lade Ebenen. Mit der höheren Auslastung erhöht sich der Unterschied, und es wird damit begonnen, die gleiche Leistung wie der **High Performance** -Energie Sparplan nach der Auslastung von 60% zu verbrauchen. Um die vorgeschlagenen Änderungs Parameter zu verwenden, sollten die Benutzer während der Planung der Gestell-Kapazität die Stromkosten bei mittelgroßen bis hohen Lade Graden berücksichtigen.
 
 ## <a name="geekbench-3"></a>Geekbench 3
 
@@ -65,7 +65,7 @@ Wir haben einen [Failovercluster] eingerichtet und mithilfe von diskspd zufälli
 >Ab Intel [Broadwell]-Prozessoren, die Windows Server 2016 ausführen, werden die meisten Verwaltungsentscheidungen für die Prozessorleistung im Prozessor statt auf der Betriebssystemebene vorgenommen, um eine schnellere Anpassung an die Änderungen an der Arbeitsauslastung zu erzielen. Die vom Betriebssystem verwendeten älteren ppm-Parameter wirken sich nur minimal auf die tatsächlichen Häufigkeits Entscheidungen aus, mit dem Unterschied, dass der Prozessor eine Stromversorgung oder Leistungsfähigkeit bevorzugen oder die minimalen und maximalen Frequenzen umrechnen muss. Daher ist die vorgeschlagene Änderung von ppm-Parametern nur für die Pre-Broadwell-Systeme ausgelegt.
 
 ## <a name="see-also"></a>Weitere Informationen
-- [Überlegungen zur Server Hardware Leistung](../index.md)
+- [Überlegungen zur Leistung von Serverhardware](../index.md)
 - [Server Hardware Power Considerations](../power.md) (Überlegungen zum Energiebedarf von Serverhardware)
 - [Power and Performance Tuning](power-performance-tuning.md) (Leistungs- und Energieoptimierung)
 - [Processor Power Management (PPM) Tuning for the Windows Server Balanced Power Plan](processor-power-management-tuning.md) (Optimieren der Prozessorenergieverwaltung (Processor Power Management (PPM)) für den ausgewogenen Energiesparplan von Windows Server)

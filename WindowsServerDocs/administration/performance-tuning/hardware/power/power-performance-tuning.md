@@ -1,20 +1,20 @@
 ---
-title: Leistungs-und Leistungsoptimierung
-description: Optimieren der Prozessor Energie Verwaltung (ppm) für den Energie Sparplan von Windows Server ausgeglichen
+title: Übersicht über Leistungs-und Leistungsoptimierung für Windows Server
+description: Übersicht über die Optimierung der Prozessor Energie Verwaltung (ppm) für den Windows-Server.
 ms.prod: windows-server
 ms.technology: performance-tuning-guide
-ms.topic: article
+ms.topic: conceptual
 ms.author: qizha;tristanb
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 1457328a151c87d2d4cb41c4ee91b4759f4fb8e2
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 67e72967d29fc96fe3f57b714bd8aaf19f406565
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851993"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85471655"
 ---
-# <a name="power-and-performance-tuning"></a>Leistungs-und Leistungsoptimierung
+# <a name="power-and-performance-tuning"></a>Energie- und Leistungsoptimierung
 
 Die Energieeffizienz ist in Enterprise-und Rechenzentrums Umgebungen immer wichtiger, und es werden weitere Kompromisse in der Mischung der Konfigurationsoptionen hinzugefügt.
 
@@ -58,14 +58,14 @@ Sie müssen ihre workloadanforderungen gründlich verstehen, um eine optimale Ko
 
 ## <a name="diagnosing-energy-efficiency-issues"></a>Diagnostizieren von energieeffizienzproblemen
 
-**Powercfg. exe** unterstützt eine Befehlszeilenoption, die Sie verwenden können, um die Energieeffizienz im Leerlauf Ihres Servers zu analysieren. Wenn Sie powercfg. exe mit der Option **/Energy** ausführen, führt das Tool einen 60-Sekunden-Test aus, um potenzielle Probleme mit der Energieeffizienz zu erkennen. Das Tool generiert einen einfachen HTML-Bericht im aktuellen Verzeichnis.
+**PowerCfg.exe** unterstützt eine Befehlszeilenoption, die Sie verwenden können, um die Energieeffizienz im Leerlauf Ihres Servers zu analysieren. Wenn Sie PowerCfg.exe mit der Option **/Energy** ausführen, führt das Tool einen 60-Sekunden-Test aus, um potenzielle Probleme mit der Energieeffizienz zu erkennen. Das Tool generiert einen einfachen HTML-Bericht im aktuellen Verzeichnis.
 
 > [!Important]
-> Stellen Sie sicher, dass alle lokalen apps geschlossen sind, bevor Sie **powercfg. exe**ausführen, um eine genaue Analyse sicherzustellen. 
+> Stellen Sie sicher, dass alle lokalen apps geschlossen sind, bevor Sie **PowerCfg.exe**ausführen, um eine genaue Analyse sicherzustellen. 
 
 Verkürzte Zeit Geber Raten, Treiber, die keine Unterstützung der Energie Verwaltung haben, und übermäßige CPU-Auslastung sind einige der Verhaltensprobleme, die vom Befehl " **powercfg/Energy** " erkannt werden. Dieses Tool bietet eine einfache Möglichkeit, Probleme mit der Energie Verwaltung zu erkennen und zu beheben, was potenziell zu erheblichen Kosteneinsparungen in einem großen Rechenzentrum führen kann.
 
-Weitere Informationen zu "Powercfg. exe" finden [Sie unter Verwenden von PowerCfg zum Auswerten der Energieeffizienz des Systems](https://msdn.microsoft.com/windows/hardware/gg463250.aspx).
+Weitere Informationen zu PowerCfg.exe finden [Sie unter Verwenden von PowerCfg zum Auswerten der Energieeffizienz des Systems](https://msdn.microsoft.com/windows/hardware/gg463250.aspx).
 
 ## <a name="using-power-plans-in-windows-server"></a>Verwenden von Energie Sparplänen in Windows Server
 
@@ -73,8 +73,8 @@ Windows Server 2016 verfügt über drei integrierte Energie Sparpläne, die auf 
 
 | **Planen** | **Beschreibung** | **Allgemeine anwendbare Szenarien** | **Implementierungs Highlights** |
 |------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Ausgeglichen (empfohlen) | Die Standardeinstellung. Zielt auf eine gute Energieeffizienz mit minimalen Auswirkungen auf die Leistung ab. | Allgemeines Computing | Entspricht der Kapazität für die Nachfrage. Energiesparende Features sind ein ausgewogenes Verhältnis zwischen Leistung und Leistung. |
-| Hohe Leistung | Steigert die Leistung auf Kosten des hohen Energieverbrauchs. Leistungs-und wärmegrenzen, Betriebsausgaben und Zuverlässigkeits Überlegungen gelten. | Apps mit geringer Latenz und app-Code, der von den Prozessor Leistungsänderungen abhängig ist | Prozessoren werden immer mit dem höchsten Leistungsstatus (einschließlich der Frequenzen "Turbo") gesperrt. Alle Kerne werden entgeparkt. Die thermische Ausgabe kann signifikant sein. |
+| Ausgeglichen (empfohlen) | Standardeinstellung. Zielt auf eine gute Energieeffizienz mit minimalen Auswirkungen auf die Leistung ab. | Allgemeines Computing | Entspricht der Kapazität für die Nachfrage. Energiesparende Features sind ein ausgewogenes Verhältnis zwischen Leistung und Leistung. |
+| Leistung | Steigert die Leistung auf Kosten des hohen Energieverbrauchs. Leistungs-und wärmegrenzen, Betriebsausgaben und Zuverlässigkeits Überlegungen gelten. | Apps mit geringer Latenz und app-Code, der von den Prozessor Leistungsänderungen abhängig ist | Prozessoren werden immer mit dem höchsten Leistungsstatus (einschließlich der Frequenzen "Turbo") gesperrt. Alle Kerne werden entgeparkt. Die thermische Ausgabe kann signifikant sein. |
 | Energiesparmodus | Schränkt die Leistung ein, um Energie zu sparen und Betriebskosten zu senken. Nicht empfohlen, ohne gründliche Tests, um sicherzustellen, dass die Leistung ausreichend ist. | Bereit Stellungen mit eingeschränkten Energie Budgets und thermischen Einschränkungen | Begrenzt die Prozessorfrequenz mit einem Prozentsatz des maximalen Werts (falls unterstützt) und ermöglicht andere energiesparende Features. |
 
 
@@ -112,13 +112,13 @@ In Windows Server 2016 ist der Standardwert für den Boost-Modus 3.
 
 | **Name** | **P-Zustands basiertes Verhalten** | **Cppc-Verhalten** |
 |--------------------------|------------------------|-------------------|
-| 0 (deaktiviert) | Deaktiviert | Deaktiviert |
+| 0 (deaktiviert) | Disabled | Disabled |
 | 1 (aktiviert) | Aktiviert | Effizient aktiviert |
 | 2 (aggressiv) | Aktiviert | Aggressive |
-| 3 (effizient aktiviert) | Effizienz | Effizient aktiviert |
-| 4 (effizient aggressiv) | Effizienz | Aggressive |
+| 3 (effizient aktiviert) | Effizient | Effizient aktiviert |
+| 4 (effizient aggressiv) | Effizient | Aggressive |
 
- 
+
 Die folgenden Befehle aktivieren den Prozessor Leistungs Boost-Modus für den aktuellen Energie Sparplan (geben Sie die Richtlinie mit einem GUID-Alias an):
 
 ``` syntax
@@ -129,7 +129,7 @@ Powercfg -setactive scheme_current
 > [!Important]
 > Sie müssen den **POWERCFG-SETACTIVE-** Befehl ausführen, um die neuen Einstellungen zu aktivieren. Der Server muss nicht neu gestartet werden.
 
-Wenn Sie diesen Wert für andere Energie Sparpläne als den aktuell ausgewählten Plan festlegen möchten, können Sie Aliase wie Schema\_Max (Energiesparmodus), Schema\_min (hohe Leistung) und Schema\_ausgeglichen (ausgeglichen) anstelle von Schema\_Current verwenden. Ersetzen Sie "Schema Current" in den POWERCFG-SETACTIVE-Befehlen, die zuvor durch den gewünschten Alias angezeigt wurden, um diesen Energie Sparplan zu aktivieren.
+Wenn Sie diesen Wert für andere Energie Sparpläne als den aktuell ausgewählten Plan festlegen möchten, können Sie \_ anstelle des aktuellen Schemas Aliase wie "Schema Max (Strom Schoner)", "Schema \_ Min (hohe Leistung)" und "Schema \_ ausgeglichen" (ausgeglichen) verwenden \_ . Ersetzen Sie "Schema Current" in den POWERCFG-SETACTIVE-Befehlen, die zuvor durch den gewünschten Alias angezeigt wurden, um diesen Energie Sparplan zu aktivieren.
 
 Wenn Sie z. b. den Boost-Modus im Energiespar Plan anpassen und diesen als aktuellen Plan festlegen möchten, führen Sie die folgenden Befehle aus:
 
@@ -220,8 +220,9 @@ Powercfg -setacvalueindex scheme_current sub_processor DISTRIBUTEUTIL 0
 Powercfg -setactive scheme_current
 ```
 
-## <a name="see-also"></a>Weitere Informationen
-- [Überlegungen zur Server Hardware Leistung](../index.md)
+## <a name="additional-references"></a>Zusätzliche Referenzen
+
+- [Überlegungen zur Leistung von Serverhardware](../index.md)
 - [Server Hardware Power Considerations](../power.md) (Überlegungen zum Energiebedarf von Serverhardware)
 - [Processor Power Management (PPM) Tuning for the Windows Server Balanced Power Plan](processor-power-management-tuning.md) (Optimieren der Prozessorenergieverwaltung (Processor Power Management (PPM)) für den ausgewogenen Energiesparplan von Windows Server)
 - [Recommended Balanced Power Plan Parameters for Workloads Requiring Quick Response Times](recommended-balanced-plan-parameters.md) (Empfohlene Parameter für den ausgewogenen Energiesparplan für Workloads, die kurze Antwortzeiten erfordern)

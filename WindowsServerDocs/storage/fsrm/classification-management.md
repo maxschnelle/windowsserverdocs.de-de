@@ -8,31 +8,31 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: f87614d5884d25c4e462cdccd8de72a7980368ec
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e742b5f9f94da06d43127c437f6ce693d4bcfc16
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402005"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85472886"
 ---
 # <a name="classification-management"></a>Klassifizierungsverwaltung
 
 > Gilt für: Windows Server 2019, Windows Server 2016, Windows Server (halbjährlicher Kanal), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
-Klassifizierungseigenschaften dienen zum Kategorisieren von Dateien und können verwendet werden, um Dateien für geplante Dateiverwaltungsaufgaben auszuwählen.
+Klassifizierungs Eigenschaften werden zum Kategorisieren von Dateien verwendet und können verwendet werden, um Dateien für geplante Datei Verwaltungsaufgaben auszuwählen.
 
-Es gibt zahlreiche Methoden zum Klassifizieren einer Datei. Eine Möglichkeit ist das Erstellen einer Klassifizierungseigenschaft, die alle Dateien in einem angegebenen Verzeichnis ein Wert zuweist. Eine weitere Möglichkeit ist die Erstellung von Regeln, um zu bestimmen, welcher Wert für eine bestimmte Eigenschaft festgelegt werden soll.
+Es gibt zahlreiche Methoden zum Klassifizieren einer Datei. Eine Möglichkeit besteht darin, eine Klassifizierungs Eigenschaft zu erstellen, die allen Dateien innerhalb eines angegebenen Verzeichnisses einen Wert zuweist. Eine andere Möglichkeit ist das Erstellen von Regeln, um zu entscheiden, welcher Wert für eine bestimmte Eigenschaft festgelegt werden soll.
 
-In diesem Abschnitt werden folgende Themen behandelt:
+Dieser Abschnitt schließt folgende Themen ein:
 
 -   [Erstellen einer Klassifizierungseigenschaft](create-classification-property.md)
 -   [Erstellen einer automatischen Klassifizierungsregel](create-automatic-classification-rule.md)
 
 
 > [!Note]
-> Zum Festlegen von E-Mail-Benachrichtigungen und bestimmten Berichtsfunktionen müssen Sie zuerst die Optionen des Ressourcen-Manager für Dateiserverkonfigurieren konfigurieren.
+> Um e-Mail-Benachrichtigungen und bestimmte Berichterstattungs Funktionen festzulegen, müssen Sie zunächst die allgemeinen Optionen für den Datei Server Ressourcen-Manager konfigurieren.
 
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 [Festlegen der Optionen des Ressourcen-Managers für Dateiserver](setting-file-server-resource-manager-options.md)

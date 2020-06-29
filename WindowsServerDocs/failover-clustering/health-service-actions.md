@@ -7,12 +7,12 @@ ms.technology: storage-health-service
 ms.topic: article
 author: cosmosdarwin
 ms.date: 08/14/2017
-ms.openlocfilehash: a4ef08a4ca552211b64d11677153775d6b18b4fa
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 541b5cbbc18d3ea8619f34d9bcc8aeb34fd0066b
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80827623"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85473127"
 ---
 # <a name="health-service-actions"></a>Integritätsdienst Aktionen
 
@@ -20,31 +20,31 @@ ms.locfileid: "80827623"
 
 Der Integritätsdienst ist ein neues Feature in Windows Server 2016, das die tägliche Überwachung und Betriebsbereitschaft für Cluster mit direkte Speicherplätze verbessert.
 
-## <a name="actions"></a>Aktionen  
+## <a name="actions"></a>Aktionen
 
-Im nächsten Abschnitt werden Workflows beschrieben, die vom Integritätsdienst automatisiert werden. Um sicherzustellen, dass eine Aktivität tatsächlich autonom erfolgt, oder um ihren Fortschritt oder ihr Ergebnis nachzuverfolgen, generiert der Integritätsdienst „Aktionen“. Im Gegensatz zu Protokollen verschwinden Aktionen, kurz nachdem sie erfolgt sind, und dienen hauptsächlich zum Gewinnen von Einblicken in laufende Aktivitäten, die sich auf die Leistung oder Kapazität auswirken können (z. B. Wiederherstellen der Ausfallsicherheit oder Neuverteilen von Daten).  
+Im nächsten Abschnitt werden Workflows beschrieben, die vom Integritätsdienst automatisiert werden. Um sicherzustellen, dass eine Aktivität tatsächlich autonom erfolgt, oder um ihren Fortschritt oder ihr Ergebnis nachzuverfolgen, generiert der Integritätsdienst „Aktionen“. Im Gegensatz zu Protokollen verschwinden Aktionen, kurz nachdem sie erfolgt sind, und dienen hauptsächlich zum Gewinnen von Einblicken in laufende Aktivitäten, die sich auf die Leistung oder Kapazität auswirken können (z. B. Wiederherstellen der Ausfallsicherheit oder Neuverteilen von Daten).
 
-### <a name="usage"></a>Verwendung  
+### <a name="usage"></a>Zweck
 
-Mit einem neuen PowerShell-Cmdlet werden alle Aktionen angezeigt:  
+Mit einem neuen PowerShell-Cmdlet werden alle Aktionen angezeigt:
 
 ```PowerShell
-Get-StorageHealthAction  
+Get-StorageHealthAction
 ```
 
-### <a name="coverage"></a>Abdeckung  
+### <a name="coverage"></a>Abdeckung
 
-In Windows Server 2016 kann das Cmdlet **Get-storagehealthaction** die folgenden Informationen zurückgeben:  
+In Windows Server 2016 kann das Cmdlet **Get-storagehealthaction** die folgenden Informationen zurückgeben:
 
--   Außerbetriebnahme misslungen, Verbindung verloren oder nicht reagierender physischer Datenträger  
+-   Außerbetriebnahme misslungen, Verbindung verloren oder nicht reagierender physischer Datenträger
 
--   Wechsel des Speicherpools, um physischen Austauschdatenträger zu verwenden  
+-   Wechsel des Speicherpools, um physischen Austauschdatenträger zu verwenden
 
--   Wiederherstellen der vollständigen Ausfallsicherheit für Daten  
+-   Wiederherstellen der vollständigen Ausfallsicherheit für Daten
 
--   Neuverteilen von Speicherpools  
+-   Neuverteilen von Speicherpools
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
-- [Integritätsdienst in Windows Server 2016](health-service-overview.md)
+- [Der Integritätsdienst in Windows Server 2016](health-service-overview.md)
 - [Entwicklerdokumentation, Beispielcode und API-Referenz auf MSDN](https://msdn.microsoft.com/windowshealthservice)

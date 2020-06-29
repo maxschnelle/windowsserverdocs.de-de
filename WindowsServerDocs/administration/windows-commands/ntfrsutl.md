@@ -1,6 +1,6 @@
 ---
 title: ntfrsutl
-description: Referenz Thema für * * * *-
+description: Referenz Thema für den NTFRSUTL-Befehl, der die internen Tabellen, den Thread und die Arbeitsspeicher Informationen für den NT-Datei Replikations Dienst (NTFRS) absichert.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: dc1275b7936a88b14b7658e2fe27d3958a035a04
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: f931d916888a372d66a1cc06cb7543067b9b9d3b
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83820924"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85472766"
 ---
 # <a name="ntfrsutl"></a>ntfrsutl
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Sichert die internen Tabellen-, Thread-und Speicherinformationen für den NT-Datei Replikations Dienst \( NTFRS \) . Sie wird auf lokalen und Remote Servern ausgeführt. Die Wiederherstellungs Einstellung für NTFRS im Dienststeuerungs-Manager \( SCM \) kann für die Suche und Aufbewahrung wichtiger Protokollereignisse auf dem Computer von entscheidender Bedeutung sein. Dieses Tool bietet eine bequeme Methode zum Überprüfen dieser Einstellungen.
+Sichert die internen Tabellen-, Thread-und Speicherinformationen für den NT-Datei Replikations Dienst (NTFRS) sowohl vom lokalen Server als auch vom Remote Server. Die Wiederherstellungs Einstellung für NTFRS im Dienststeuerungs-Manager (Service Control Manager, SCM) kann für die Suche und Aufbewahrung wichtiger Protokollereignisse auf dem Computer von entscheidender Bedeutung sein. Dieses Tool bietet eine bequeme Methode zum Überprüfen dieser Einstellungen.
 
 ## <a name="syntax"></a>Syntax
 
@@ -30,35 +30,36 @@ ntfrsutl[memory|threads|stage][<computer>]
 ntfrsutl ds[<computer>]
 ntfrsutl [sets][<computer>]
 ntfrsutl [version][<computer>]
-ntfrsutl poll[/quickly[=[<N>]]][/slowly[=[<N>]]][/now][<computer>]
+ntfrsutl poll[/quickly[=[<n>]]][/slowly[=[<n>]]][/now][<computer>]
 ```
 
-#### <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
-|  Parameter  |                                                                                                                                                                                                                                                                                                                                        BESCHREIBUNG                                                                                                                                                                                                                                                                                                                                         |
-|-------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|   IDtable   |                                                                                                                                                                                                                                                                                                                                          ID-Tabelle                                                                                                                                                                                                                                                                                                                                          |
-| ConfigTable |                                                                                                                                                                                                                                                                                                                                  FRS-Konfigurations Tabelle                                                                                                                                                                                                                                                                                                                                   |
-|    inlog    |                                                                                                                                                                                                                                                                                                                                        Eingehendes Protokoll                                                                                                                                                                                                                                                                                                                                         |
-|   OUTLOG    |                                                                                                                                                                                                                                                                                                                                        Ausgeh Endes Protokoll                                                                                                                                                                                                                                                                                                                                        |
-| <computer>  |                                                                                                                                                                                                                                                                                                                                  Gibt den Computer an.                                                                                                                                                                                                                                                                                                                                   |
-|   memory    |                                                                                                                                                                                                                                                                                                                                        Speicherauslastung                                                                                                                                                                                                                                                                                                                                        |
-|   Threads   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-|    Stufe    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-|     ds      |                                                                                                                                                                                                                                                                                                                         Listet die Ansicht der DS des NTFRS-dienstanders auf.                                                                                                                                                                                                                                                                                                                          |
-|    Mengen     |                                                                                                                                                                                                                                                                                                                             Gibt die aktiven Replikat Gruppen an                                                                                                                                                                                                                                                                                                                              |
-|   version   |                                                                                                                                                                                                                                                                                                                       Gibt die API-und NtFrs-Dienst Versionen an.                                                                                                                                                                                                                                                                                                                        |
-|    Umfrage     | Gibt die aktuellen Abruf Intervalle an.<p>Parameter:<p><ul><li>** \/ schnell** \[ **\=** \[ <N>\]\]\( Schnelle Umfragen  \)<p><ul><li>**schnell** \- Ruft schnell auf, bis eine stabile Konfiguration wiederholt wird.</li><li>**schnell \= ** Ruft \- schnell alle Standard Minuten ab.</li><li>**schnell \= ** <N> \-Schneller Abruf alle *N* Minuten</li></ul></li><li>** \/ langsam** \[ **\=** \[ <N>\]\] \(Langsam Abfragen\)<p><ul><li>**langsam** \- Ruft langsam auf, bis eine stabile Konfiguration abgerufen wird.</li><li>**langsam \= ** Ruft \- alle Standard Minuten langsam ab</li><li>**langsam \= ** <N> \-Schneller Abruf alle *N* Minuten</li></ul></li><li>** \/ jetzt** \( Jetzt abfragt\)</li></ul> |
-|     \/?     |                                                                                                                                                                                                                                                                                                                            Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                                                                                                                                                                                                                            |
+| Parameter | BESCHREIBUNG |
+| --------- | ----------- |
+| IDtable | Gibt die ID-Tabelle an. |
+| ConfigTable | Gibt die FRS-Konfigurations Tabelle an. |
+| inlog | Gibt das eingehende Protokoll an. |
+| OUTLOG | Gibt das ausgehende Protokoll an. |
+| `<computer>` | Gibt den Computer an. |
+| memory | Gibt die Speicherauslastung an. |
+| Threads | Gibt die Speicherauslastung an. |
+| Stufe | Gibt die Speicherauslastung an. |
+| ds | Listet die Ansicht der DS des NTFRS-dienstanders auf. |
+| Mengen | Gibt die aktiven Replikat Sätze an. |
+| version | Gibt die API-und NtFrs-Dienst Versionen an. |
+| Umfrage | Gibt die aktuellen Abruf Intervalle an.<ul><li>`/quickly`-Ruft schnell ab, bis eine stabile Konfiguration abgerufen wird.</li><li>`/quickly=`-Ruft schnell jede Standard Anzahl von Minuten ab.</li><li>`/quickly=<n>`-Ruft schnell alle *n* Minuten ab.</li><li>`/slowly`-Ruft langsam ab, bis eine stabile Konfiguration abgerufen wird.</li><li>`/slowly=`-Ruft langsam jede Standard Anzahl von Minuten ab.</li><li>`/slowly=<n>`-Ruft alle *n* Minuten langsam ab.</li><li>`/now`-Ruft jetzt ab.</li></ul>|
+| /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-## <a name="examples"></a>Beispiele
-So bestimmen Sie das Abruf Intervall für die Datei Replikation:
+### <a name="examples"></a>Beispiele
+
+Geben Sie zum Bestimmen des Abruf Intervalls für die Datei Replikation Folgendes ein:
 
 ```
 C:\Program Files\SupportTools>ntfrsutl poll wrkstn-1
 ```
 
-So bestimmen Sie die aktuelle API-Version der NTFRS-Anwendungsprogramm Schnittstelle \( \) :
+Geben Sie Folgendes ein, um die aktuelle API-Version (Application Program Interface) von NTFRS zu ermitteln:
 
 ```
 C:\Program Files\SupportTools>ntfrsutl version
@@ -67,7 +68,3 @@ C:\Program Files\SupportTools>ntfrsutl version
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
-
-
-
-

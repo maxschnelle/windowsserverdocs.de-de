@@ -8,12 +8,12 @@ ms.author: jgerend
 manager: lizross
 ms.technology: storage-failover-clustering
 ms.date: 01/14/2020
-ms.openlocfilehash: eea98579a66f1db7f7ec873bda6a2c934841736f
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 24be2b39c8130b97d22ee182c0064986b3378549
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82720506"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85472977"
 ---
 # <a name="failover-clustering-system-log-events"></a>Failoverclustering-System Protokollereignisse
 
@@ -185,7 +185,7 @@ Die Zeit Quarantäne wird automatisch gelöscht: %3
 
 ### <a name="event-1024-cp_reg_ckpt_restore_failed"></a>Ereignis 1024: CP_REG_CKPT_RESTORE_FAILED
 
-Der Registrierungs Prüf Punkt für die Cluster Ressource "%1" konnte nicht im Registrierungsschlüssel HKEY_LOCAL_MACHINE\\"%2" wieder hergestellt werden. Die Ressource funktioniert möglicherweise nicht ordnungsgemäß.
+Der Registrierungs Prüf Punkt für die Cluster Ressource "%1" konnte nicht im Registrierungsschlüssel HKEY_LOCAL_MACHINE "%2" wieder hergestellt werden \\ . Die Ressource funktioniert möglicherweise nicht ordnungsgemäß.
 Stellen Sie sicher, dass keine anderen Prozesse über geöffnete Handles für Registrierungsschlüssel in dieser Registrierungs Unterstruktur verfügen.
 
 ### <a name="event-1034-res_disk_missing"></a>Ereignis 1034: RES_DISK_MISSING
@@ -464,7 +464,7 @@ Generische Cluster Skript Ressource "%1": die Anforderung zum Ausführen des Vor
 
 ### <a name="event-1234-cluster_event_account_missing_privs"></a>Ereignis 1234: CLUSTER_EVENT_ACCOUNT_MISSING_PRIVS
 
-Die Clusterdienst hat festgestellt, dass für das Dienst Konto mindestens eine der erforderlichen Berechtigungen fehlt. Die Liste der fehlenden Berechtigungen lautet: "%1" und wird dem Dienst Konto derzeit nicht gewährt. Verwenden Sie "SC. exe qprivs ClusSvc", um die Berechtigungen des Clusterdienst (ClusSvc) zu überprüfen. Überprüfen Sie außerdem, ob in Active Directory Domain Services Sicherheitsrichtlinien oder Gruppenrichtlinien vorhanden sind, die möglicherweise die Standard Berechtigungen geändert haben. Geben Sie den folgenden Befehl ein, um dem Clusterdienst die erforderlichen Berechtigungen für die ordnungsgemäße Funktion zu erteilen:
+Die Clusterdienst hat festgestellt, dass für das Dienst Konto mindestens eine der erforderlichen Berechtigungen fehlt. Die Liste der fehlenden Berechtigungen lautet: "%1" und wird dem Dienst Konto derzeit nicht gewährt. Verwenden Sie die sc.exe qprivs ClusSvc, um die Berechtigungen des Clusterdienst (ClusSvc) zu überprüfen. Überprüfen Sie außerdem, ob in Active Directory Domain Services Sicherheitsrichtlinien oder Gruppenrichtlinien vorhanden sind, die möglicherweise die Standard Berechtigungen geändert haben. Geben Sie den folgenden Befehl ein, um dem Clusterdienst die erforderlichen Berechtigungen für die ordnungsgemäße Funktion zu erteilen:
 
 ```
 sc.exe privs
@@ -600,7 +600,7 @@ Die Cluster Netzwerk-namens Ressource "%1" kann nicht online geschaltet werden. 
 
 ### <a name="event-1567-service_failed_to_change_log_size"></a>Ereignis 1567: SERVICE_FAILED_TO_CHANGE_LOG_SIZE
 
-Clusterdienst konnte die Größe des Ablauf Verfolgungs Protokolls nicht ändern. Überprüfen Sie die ClusterLogSize-Einstellung mit dem PowerShell \| -Cmdlet "Get-Cluster Format-List \*". Überprüfen Sie außerdem mit dem Leistungs Monitor-Snap-in die Sitzungs Einstellungen der Ereignis Ablauf Verfolgung für Failoverclustering.
+Clusterdienst konnte die Größe des Ablauf Verfolgungs Protokolls nicht ändern. Überprüfen Sie die ClusterLogSize-Einstellung mit dem \| PowerShell-Cmdlet "Get-Cluster Format-List \* ". Überprüfen Sie außerdem mit dem Leistungs Monitor-Snap-in die Sitzungs Einstellungen der Ereignis Ablauf Verfolgung für Failoverclustering.
 
 ### <a name="event-1567-res_vipaddr_address_interface_failed"></a>Ereignis 1567: RES_VIPADDR_ADDRESS_INTERFACE_FAILED
 
@@ -608,7 +608,7 @@ Fehler bei der Integritäts Überprüfung für die IP-Schnittstelle "%1" (Adress
 
 ### <a name="event-1568-res_cloud_witness_cant_communicate_to_azure"></a>Ereignis 1568: RES_CLOUD_WITNESS_CANT_COMMUNICATE_TO_AZURE
 
-Die cloudzeugen Ressource konnte Microsoft Azure Speicherdienste nicht erreichen.<br><br>Cluster Ressource: %1 <br>Cluster Knoten: %2 
+Die cloudzeugen Ressource konnte Microsoft Azure Speicherdienste nicht erreichen.<br><br>Cluster Ressource: %1 <br>Cluster Knoten: %2
 
 #### <a name="guidance"></a>Anleitungen
 
@@ -620,7 +620,7 @@ Das Netzwerk "%1", das für die Verwendung des Failoverclusters deaktiviert wurd
 
 ### <a name="event-1569-res_cloud_witness_token_expired"></a>Ereignis 1569: RES_CLOUD_WITNESS_TOKEN_EXPIRED
 
-Die Cloud-Zeugen Ressource konnte sich nicht bei Microsoft Azure Speicherdiensten authentifizieren. Beim Kontaktieren des Microsoft Azure Speicher Kontos wurde ein Fehler vom Typ "Zugriff verweigert" zurückgegeben. <br><br>Cluster Ressource: %1 
+Die Cloud-Zeugen Ressource konnte sich nicht bei Microsoft Azure Speicherdiensten authentifizieren. Beim Kontaktieren des Microsoft Azure Speicher Kontos wurde ein Fehler vom Typ "Zugriff verweigert" zurückgegeben. <br><br>Cluster Ressource: %1
 
 #### <a name="guidance"></a>Anleitungen
 
@@ -664,11 +664,11 @@ Der Datei Server konnte nicht gestartet werden, da die erwartete Abhängigkeit v
 
 ### <a name="event-1606-res_disk_cno_check_failed"></a>Ereignis 1606: RES_DISK_CNO_CHECK_FAILED
 
-Die Cluster Datenträger Ressource "%1" enthält ein durch BitLocker geschütztes Volume "%2". für dieses Volume ist das Active Directory Cluster Namen Konto (auch als Cluster Namen Objekt oder CNO bezeichnet) keine BitLocker-Schutzvorrichtung für das Volume. Dies ist für mit BitLocker geschützte Volumes erforderlich. Um dies zu beheben, entfernen Sie zunächst den Datenträger aus dem Cluster. Fügen Sie als nächstes mit dem Befehlszeilen Tool "manage-bde. exe den Cluster Namen als adaccountorgroup-Schutzvorrichtung hinzu, und verwenden Sie\\dabei das Format\$ Domain Cluster Name für den Cluster Namen. Fügen Sie dann den Datenträger wieder zum Cluster hinzu. Weitere Informationen finden Sie in der Dokumentation zu "manage-bde. exe.
+Die Cluster Datenträger Ressource "%1" enthält ein durch BitLocker geschütztes Volume "%2". für dieses Volume ist das Active Directory Cluster Namen Konto (auch als Cluster Namen Objekt oder CNO bezeichnet) keine BitLocker-Schutzvorrichtung für das Volume. Dies ist für mit BitLocker geschützte Volumes erforderlich. Um dies zu beheben, entfernen Sie zunächst den Datenträger aus dem Cluster. Fügen Sie als nächstes mit dem Befehlszeilen Tool "Manage-bde.exe" den Cluster Namen als adaccountorgroup-Schutz hinzu, und verwenden Sie dabei das Format Domäne \\ Cluster Name \$ für den Cluster Namen. Fügen Sie dann den Datenträger wieder zum Cluster hinzu. Weitere Informationen finden Sie in der Dokumentation zu Manage-bde.exe
 
 ### <a name="event-1607-res_disk_cno_unlock_failed"></a>Ereignis 1607: RES_DISK_CNO_UNLOCK_FAILED
 
-Die Cluster Datenträger Ressource "%1" konnte das durch BitLocker geschützte Volume "%2" nicht entsperren. Das Cluster Namen Objekt (CNO) ist nicht als gültige BitLocker-Schutzvorrichtung für dieses Volume festgelegt. Um dies zu beheben, entfernen Sie den Datenträger aus dem Cluster. Fügen Sie dann mit dem Befehlszeilen Tool "manage-bde. exe den Cluster Namen als adaccountorgroup-Schutzvorrichtung unter Verwendung des Formats Domain\\Cluster Name\$hinzu, und fügen Sie den Datenträger wieder zum Cluster hinzu. Weitere Informationen finden Sie in der Dokumentation zu "manage-bde. exe.
+Die Cluster Datenträger Ressource "%1" konnte das durch BitLocker geschützte Volume "%2" nicht entsperren. Das Cluster Namen Objekt (CNO) ist nicht als gültige BitLocker-Schutzvorrichtung für dieses Volume festgelegt. Um dies zu beheben, entfernen Sie den Datenträger aus dem Cluster. Fügen Sie dann mit dem Befehlszeilen Tool Manage-bde.exe den Cluster Namen als adaccountorgroup-Schutzvorrichtung unter Verwendung des Formats Domain \\ Cluster Name hinzu \$ , und fügen Sie den Datenträger wieder zum Cluster hinzu. Weitere Informationen finden Sie in der Dokumentation zu Manage-bde.exe.
 
 ### <a name="event-1608-res_fileserver_leader_failed"></a>Ereignis 1608: RES_FILESERVER_LEADER_FAILED
 
@@ -725,7 +725,7 @@ Fehler bei Knoten Ableitung auf Cluster Knoten %1. <br><br>Verweisen Sie auf die
 
 ### <a name="event-1683-res_netname_computer_account_no_dc"></a>Ereignis 1683: RES_NETNAME_COMPUTER_ACCOUNT_NO_DC
 
-Der Cluster Dienst konnte keinen verfügbaren Domänen Controller in der Domäne erreichen. Dies kann Auswirkungen auf die Funktionalität haben, die von der Authentifizierung des Cluster Netzwerk namens abhängig ist.<br><br>DC-Server: %1 
+Der Cluster Dienst konnte keinen verfügbaren Domänen Controller in der Domäne erreichen. Dies kann Auswirkungen auf die Funktionalität haben, die von der Authentifizierung des Cluster Netzwerk namens abhängig ist.<br><br>DC-Server: %1
 
 #### <a name="guidance"></a>Anleitungen
 
@@ -780,7 +780,7 @@ Der gruppierte Datenträger mit der ID "%2" wurde vom Partitions-Manager nicht f
 
 ### <a name="event-4613-nodecleanup_clear_clusdisk_database_failed"></a>Ereignis 4613: NODECLEANUP_CLEAR_CLUSDISK_DATABASE_FAILED
 
-Der Cluster Dienst konnte einen gruppierten Datenträger mit der ID "%2" nicht ordnungsgemäß bereinigen, während der Cluster zerstört wurde. Fehlercode: ' %1 '. Möglicherweise ist der Zugriff auf diesen Datenträger erst möglich, wenn der Bereinigung erfolgreich abgeschlossen wurde. Löschen Sie für manuelles Cleanup den Wert ' attacheddisks ' des Schlüssels '\\HKEY_LOCAL_MACHINE\\System\\CurrentControlSet\\Services Clusdisk\\Parameters ' in der Windows-Registrierung.
+Der Cluster Dienst konnte einen gruppierten Datenträger mit der ID "%2" nicht ordnungsgemäß bereinigen, während der Cluster zerstört wurde. Fehlercode: ' %1 '. Möglicherweise ist der Zugriff auf diesen Datenträger erst möglich, wenn der Bereinigung erfolgreich abgeschlossen wurde. Löschen Sie für manuelles Cleanup den Wert ' attacheddisks ' des Schlüssels ' HKEY_LOCAL_MACHINE \\ System \\ CurrentControlSet \\ Services \\ Clusdisk \\ Parameters ' in der Windows-Registrierung.
 
 ### <a name="event-4615-nodecleanup_disable_cluster_service_failed"></a>Ereignis 4615: NODECLEANUP_DISABLE_CLUSTER_SERVICE_FAILED
 
@@ -1106,7 +1106,7 @@ Die Cluster Datenträger Ressource "%1" hat eine Beschädigung für Volume "%2" 
 
 ### <a name="event-1605-res_disk_spotfix_performed"></a>Ereignis 1605: RES_DISK_SPOTFIX_PERFORMED
 
-Die Cluster Datenträger Ressource "%1" hat die Ausführung von Chkdsk. exe/spotfix auf Volume "%2" abgeschlossen.
+Die Cluster Datenträger Ressource "%1" wurde mit dem Ausführen ChkDsk.exe/spotfix auf Volume "%2" abgeschlossen.
 Der Rückgabecode war "%4". Die Ausgabe von CHKDSK wurde in der Datei "%3" protokolliert.<br>
 Überprüfen Sie das Anwendungs Ereignisprotokoll auf zusätzliche Informationen von Chkdsk.
 
@@ -1251,6 +1251,6 @@ Auf Freigegebenes Clustervolume ' %1 ' (' %2 ') kann von diesem Cluster Knoten a
 Die physische Datenträger Ressource "%1" des Clusters löschte eine Software Momentaufnahme. Die Software Momentaufnahme auf Freigegebenes Clustervolume ' %2 ' wurde gelöscht, weil Sie älter als ' %3 ' Tag (e) war. Die Momentaufnahme-ID lautete "%4" und wurde aus dem Knoten "%5" auf "%6" erstellt.
 Es wird erwartet, dass Momentaufnahmen von einer Sicherungs Anwendung gelöscht werden, nachdem ein Sicherungsauftrag abgeschlossen wurde. Diese Momentaufnahme hat die Zeit überschritten, die für das vorhanden sein einer Momentaufnahme erwartet wird. Überprüfen Sie mit der Sicherungs Anwendung, ob Sicherungsaufträge erfolgreich abgeschlossen werden.
 
-## <a name="see-also"></a>Weitere Informationen
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 -   [Ausführliche Ereignis Informationen für Failoverclustering-Komponenten in Windows Server 2008](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753362(v%3dws.10))

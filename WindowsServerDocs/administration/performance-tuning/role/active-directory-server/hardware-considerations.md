@@ -7,14 +7,14 @@ ms.topic: article
 ms.author: timwi; chrisrob; herbertm; kenbrumf;  mleary; shawnrab
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: c40faca06668adf6fd29a5e4e753e5790b8104b7
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 1fef257f860895b20c1ca1a24b6fa50e16f70c8c
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851913"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85471575"
 ---
-# <a name="hardware-considerations-in-adds-performance-tuning"></a>Überlegungen zur Hardware in werden Leistungsoptimierungen hinzugefügt 
+# <a name="hardware-considerations-in-adds-performance-tuning"></a>Überlegungen zur Hardware in werden Leistungsoptimierungen hinzugefügt
 
 >[!Important]
 > Im folgenden finden Sie eine Zusammenfassung der wichtigsten Empfehlungen und Überlegungen zur Optimierung der Server Hardware für Active Directory Arbeits Auslastungen, die in der [Kapazitätsplanung für Active Directory Domain Services](https://go.microsoft.com/fwlink/?LinkId=324566) Artikel ausführlicher behandelt werden. Leser werden dringend empfohlen, die [Kapazitätsplanung für Active Directory Domain Services](https://go.microsoft.com/fwlink/?LinkId=324566) zu überprüfen, um das technische Verständnis und die Auswirkungen dieser Empfehlungen zu überprüfen.
@@ -25,9 +25,9 @@ Active Directory speichert so viele Datenbanken wie der Arbeitsspeicher zulässt
 
 -   Active Directory bewährten Methoden empfehlen, genügend RAM zu platzieren, um die gesamte dit in den Arbeitsspeicher zu laden, sowie das Betriebssystem und andere installierte Anwendungen wie Antivirensoftware, Sicherungssoftware, Überwachung usw.
 
-    -   Informationen zu den Einschränkungen der Legacy Plattformen finden Sie unter [Speicherauslastung durch den LSASS. exe-Prozess auf Domänen Controllern, auf denen Windows Server 2003 oder Windows 2000 Server ausgeführt](https://support.microsoft.com/kb/308356)wird.
+    -   Informationen zu den Einschränkungen der Legacy Plattformen finden Sie unter [Speicherauslastung durch den Lsass.exe Prozess auf Domänen Controllern, auf denen Windows Server 2003 oder Windows 2000 Server ausgeführt](https://support.microsoft.com/kb/308356)wird.
 
-    -   Verwenden Sie den Leistungs bearbeits Speicher\\langfristigen Dauer des standbycache-Cache &gt; 30 Minuten.
+    -   Verwenden Sie den \\ Leistungs Begriffswert für die langfristige durchschnittliche Dauer des standbycache-standbycaches von &gt; 30 Minuten.
 
 -   Legen Sie das Betriebssystem, die Protokolle und die Datenbank auf separaten Volumes ab. Wenn der gesamte oder der Großteil der DIT zwischengespeichert werden kann, wird der Cache nach dem Aufwärmen und im stabilen Zustand weniger relevant und bietet ein wenig mehr Flexibilität beim Speicher Layout. In Szenarien, in denen die gesamte dit nicht zwischengespeichert werden kann, wird die Wichtigkeit der Aufteilung des Betriebssystems, der Protokolle und der Datenbank auf separaten Volumes wichtiger.
 
@@ -41,13 +41,13 @@ Active Directory speichert so viele Datenbanken wie der Arbeitsspeicher zulässt
 
 -   Überprüfen Sie die Leistung des Datenträger Subsystems einzeln für jedes Volume. Die meisten Active Directory Szenarios sind hauptsächlich Schreib basiert, daher sind die Statistiken auf dem Volume, das die DIT-Anwendung gehostet, die wichtigste zu überprüfen. Übersehen Sie jedoch nicht die Überwachung der restlichen Laufwerke, einschließlich des Betriebssystems und der Protokolldatei Laufwerke. Um zu ermitteln, ob der Domänen Controller ordnungsgemäß konfiguriert ist, um zu vermeiden, dass Speicher als Engpass für die Leistung dient, finden Sie im Abschnitt Speicher Subsysteme Informationen zu Standard Speicher Empfehlungen. In vielen Umgebungen besteht die Philosophie darin, sicherzustellen, dass genügend Platz zur Verfügung steht, um Spitzen oder Spitzen bei Last zu bewältigen. Bei diesen Schwellenwerten handelt es sich um Schwellenwerte für Warnungen, bei denen der haupthfad für die Aufnahme von Spitzen oder Spitzenlast eingeschränkt wird und die Client Reaktionsfähigkeit Kurz gesagt: das Überschreiten dieser Schwellenwerte ist kurzfristig nicht schlecht (5 bis 15 Minuten mehrmals täglich), aber ein System, das mit dieser Art von Statistiken nicht vollständig ausgeführt wird, wird die Datenbank nicht vollständig Zwischenspeichern und ist möglicherweise übersteuert und sollte untersucht werden.
 
-    -   Database = =&gt; Instanzen (LSASS/NTDSA)\\I/O Database liest die durchschnittliche Latenz &lt; 15ms
+    -   Database = = &gt; Instanzen (LSASS/NTDSA) e/a- \\ Datenbank liest durchschnittliche Latenz &lt; 15ms
 
-    -   Database = =&gt; Instanzen (LSASS/NTDSA)\\e/a-Daten Bank Lesevorgänge/Sek &lt; 10
+    -   Database = = &gt; Instanzen (LSASS/NTDSA) e/a- \\ Daten Bank Lesevorgänge/Sek. &lt; 10
 
-    -   Database = =&gt; Instanzen (LSASS/NTDSA)\\e/a-Protokoll Schreibt die durchschnittliche Latenz &lt; 10 ms
+    -   Database = = &gt; Instanzen (LSASS/NTDSA) e/a- \\ Protokoll Schreibvorgänge mit durchschnittlicher Latenz &lt; 10 ms
 
-    -   Database = =&gt; Instanzen (LSASS/NTDSA)\\e/a-Protokoll Schreibvorgängen/Sek. – nur Information.
+    -   Database = = &gt; Instanzen (LSASS/NTDSA) e/a- \\ Protokoll Schreibvorgänge/Sek. – nur Information.
 
         Um die Konsistenz der Daten aufrechtzuerhalten, müssen alle Änderungen in das Protokoll geschrieben werden. Hier gibt es keine gute oder ungültige Zahl. es handelt sich lediglich um ein Maß dafür, wie viel Speicherplatz unterstützt wird.
 
@@ -61,7 +61,7 @@ Prozessoren, die nicht über genügend freie Zyklen verfügen, können lange War
 
 -   Fügen Sie Hardware hinzu, optimieren Sie die Last, leiten Sie Clients an einem anderen Ort weiter, oder entfernen Sie die Auslastung aus der Umgebung, um
 
--   Verwenden Sie die Prozessor Informationen (\_gesamt)\\Prozessorauslastung von% &lt; 60%.
+-   Verwenden Sie den Leistungswert Prozessor Informationen ( \_ gesamt) \\ % Prozessorauslastung &lt; 60%.
 
 ## <a name="avoid-overloading-the-network-adapter"></a>Vermeiden Sie das Überladen des Netzwerkadapters.
 
@@ -69,11 +69,11 @@ Ebenso wie bei Prozessoren führt eine übermäßige Auslastung des Netzwerkadap
 
 -   Weitere Informationen zum Optimieren des Netzwerk Subsystems finden Sie unter [Leistungsoptimierung für Netzwerk Subsysteme](../../../../networking/technologies/network-subsystem/net-sub-performance-top.md).
 
--   Verwenden Sie den Vergleich NetworkInterface (\*)\\gesendete Bytes/Sek. mit NetworkInterface (\*)\\aktuellen Bandbreiten Leistungs Zählers. Das Verhältnis sollte weniger als 60% betragen.
+-   Verwenden Sie den Leistungs Leistungs Dienst "netzwerkschnittstellenbytes ( \* ) \\ mit gesendete Bytes/Sek." mit NetworkInterface ( \* ) \\ . Das Verhältnis sollte weniger als 60% betragen.
 
-## <a name="see-also"></a>Siehe auch
-- [Leistungsoptimierung Active Directory Server](index.md)
+## <a name="additional-references"></a>Zusätzliche Referenzen
+- [Optimierung der Leistung von Active Directory-Servern](index.md)
 - [Überlegungen zu LDAP](ldap-considerations.md)
 - [Ordnungsgemäße Platzierung von Domänencontrollern und Überlegungen zum Standort](site-definition-considerations.md)
-- [Problembehandlung bezüglich der ADDS-Leistung](troubleshoot.md) 
+- [Problembehandlung bezüglich der ADDS-Leistung](troubleshoot.md)
 - [Kapazitätsplanung für Active Directory Domain Services](https://go.microsoft.com/fwlink/?LinkId=324566)

@@ -8,12 +8,12 @@ author: Teresa-Motiv
 ms.author: v-tea
 manager: dcscontentpm
 ms.localizationpriority: medium
-ms.openlocfilehash: fc673d2c3e1404dbd750d4c0ef05ec6db50017aa
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: dc84edaebda64d3ae359e17b683411ac479c9397
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "71963076"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85473217"
 ---
 # <a name="guidelines-for-troubleshooting-the-key-management-service-kms"></a>Richtlinien für die Problembehandlung des Schlüsselverwaltungsdiensts (KMS)
 
@@ -44,14 +44,14 @@ Die wichtigsten Felder für die Problembehandlung sind die folgenden. Wonach du 
 - **Name**: Dies zeigt die Edition von Windows an, die auf dem KMS-Hostsystem installiert ist. Dies kann für die Problembehandlung wichtig sein, wenn du Probleme beim Hinzufügen oder Ändern des KMS-Hostschlüssels hast (z. B. um zu überprüfen, ob der Schlüssel von dieser Betriebssystemversion unterstützt wird).
 - **Beschreibung** Hier wird der Schlüssel angezeigt, der installiert ist. Verwende dieses Feld, um zu überprüfen, welcher Schlüssel verwendet wurde, um den Dienst zu aktivieren, und ob dies der richtige für die von dir bereitgestellten KMS-Clients ist.
 - **Lizenzstatus**. Dies ist der Status des KMS-Hostsystems. Der Wert sollte **Lizenziert** lauten. Jeder andere Wert bedeutet, dass etwas falsch ist und dass du den Host möglicherweise erneut aktivieren musst.
-- **Aktuelle Anzahl**. Die angezeigte Anzahl liegt zwischen **0** und **50**. Die Anzahl ist kumulativ (zwischen Betriebssystemen) und gibt die Anzahl gültiger Systeme an, die innerhalb eines Zeitraums von 30 Tagen versucht haben, sich zu aktivieren.  
-  
-  Wenn die Anzahl **0** ist, wurde der Dienst entweder kürzlich aktiviert, oder es sind keine gültigen Clients mit dem KMS-Host verbunden.  
-  
-  Die Anzahl steigt nicht über **50**, unabhängig davon, wie viele gültige Systeme in der Umgebung vorhanden sind. Dies liegt daran, dass die Anzahl darauf festgelegt ist, nur das Doppelte der maximalen Lizenzrichtlinie zwischenzuspeichern, die von einem KMS-Client zurückgegeben wird. Die maximale Richtlinie wird heute vom Windows-Clientbetriebssystem festgelegt, das eine Anzahl von **25** oder höher vom KMS-Host erfordert, um sich selbst zu aktivieren. Daher beträgt die höchste Anzahl auf dem KMS-Host 2 x 25, also 50. Beachte, dass in Umgebungen, die nur Windows Server-KMS-Clients enthalten, die maximale Anzahl auf dem KMS-Host **10** ist. Dies liegt daran, dass der Schwellenwert für die Windows Server-Editionen **5** (2 x 5, also 10) ist.  
-  
-  Ein häufiges Problem, das sich auf die Anzahl bezieht, besteht darin, dass die Umgebung über einen aktivierten KMS-Host und eine ausreichende Anzahl von Clients verfügt, die Anzahl jedoch nicht auf mehr als 1 erhöht wird. Das Hauptproblem besteht darin, dass das bereitgestellte Clientimage nicht korrekt konfiguriert wurde (**sysprep /generalize**) und dass die Systeme keine eindeutigen Clientcomputer-IDs (CMIDs) verfügen. Weitere Informationen findest du unter [KMS-Client](#kms-client) und [Die aktuelle KMS-Anzahl erhöht sich nicht, wenn Sie neue Windows Vista- oder Windows 7-basierte Clientcomputer im Netzwerk hinzufügen](https://support.microsoft.com/help/929829/the-kms-current-count-does-not-increase-when-you-add-new-windows-vista). Einer unserer Supporteskalationstechniker hat auch in einem Blog zu diesem Thema geschrieben unter [KMS Host Client Count not Increasing Due to Duplicate CMID’S](https://blogs.technet.microsoft.com/askcore/2009/10/16/kms-host-client-count-not-increasing-due-to-duplicate-cmids/).  
-  
+- **Aktuelle Anzahl**. Die angezeigte Anzahl liegt zwischen **0** und **50**. Die Anzahl ist kumulativ (zwischen Betriebssystemen) und gibt die Anzahl gültiger Systeme an, die innerhalb eines Zeitraums von 30 Tagen versucht haben, sich zu aktivieren.
+
+  Wenn die Anzahl **0** ist, wurde der Dienst entweder kürzlich aktiviert, oder es sind keine gültigen Clients mit dem KMS-Host verbunden.
+
+  Die Anzahl steigt nicht über **50**, unabhängig davon, wie viele gültige Systeme in der Umgebung vorhanden sind. Dies liegt daran, dass die Anzahl darauf festgelegt ist, nur das Doppelte der maximalen Lizenzrichtlinie zwischenzuspeichern, die von einem KMS-Client zurückgegeben wird. Die maximale Richtlinie wird heute vom Windows-Clientbetriebssystem festgelegt, das eine Anzahl von **25** oder höher vom KMS-Host erfordert, um sich selbst zu aktivieren. Daher beträgt die höchste Anzahl auf dem KMS-Host 2 x 25, also 50. Beachte, dass in Umgebungen, die nur Windows Server-KMS-Clients enthalten, die maximale Anzahl auf dem KMS-Host **10** ist. Dies liegt daran, dass der Schwellenwert für die Windows Server-Editionen **5** (2 x 5, also 10) ist.
+
+  Ein häufiges Problem, das sich auf die Anzahl bezieht, besteht darin, dass die Umgebung über einen aktivierten KMS-Host und eine ausreichende Anzahl von Clients verfügt, die Anzahl jedoch nicht auf mehr als 1 erhöht wird. Das Hauptproblem besteht darin, dass das bereitgestellte Clientimage nicht korrekt konfiguriert wurde (**sysprep /generalize**) und dass die Systeme keine eindeutigen Clientcomputer-IDs (CMIDs) verfügen. Weitere Informationen findest du unter [KMS-Client](#kms-client) und [Die aktuelle KMS-Anzahl erhöht sich nicht, wenn Sie neue Windows Vista- oder Windows 7-basierte Clientcomputer im Netzwerk hinzufügen](https://support.microsoft.com/help/929829/the-kms-current-count-does-not-increase-when-you-add-new-windows-vista). Einer unserer Supporteskalationstechniker hat auch in einem Blog zu diesem Thema geschrieben unter [KMS Host Client Count not Increasing Due to Duplicate CMID’S](https://blogs.technet.microsoft.com/askcore/2009/10/16/kms-host-client-count-not-increasing-due-to-duplicate-cmids/).
+
   Ein weiterer Grund, warum die Anzahl möglicherweise nicht zunimmt, liegt darin, dass zu viele KMS-Hosts in der Umgebung vorhanden sind und die Anzahl über alle verteilt wird.
 - **Lauschen am Port**. Bei der Kommunikation mit KMS werden anonyme Remoteprozeduraufrufe (RPC) verwendet. Standardmäßig verwenden die Clients den TCP-Port 1688, um eine Verbindung mit dem KMS-Host herzustellen. Stelle sicher, dass dieser Port zwischen deinen KMS-Clients und dem KMS-Host geöffnet ist. Du kannst den Port auf dem KMS-Host ändern oder konfigurieren. Während der Kommunikation sendet der KMS-Host die Portfestlegung an die KMS-Clients. Wenn du den Port auf einem KMS-Client änderst, wird die Portfestlegung überschrieben, wenn dieser Client den Host kontaktiert.
 
@@ -61,7 +61,7 @@ Häufig erhalten wir Fragen zu dem Abschnitt „Kumulative Anforderungen“ der 
 
 #### <a name="event-id-12290"></a>Ereignis-ID 12290
 
-Der KMS-Host protokolliert die Ereignis-ID 12290, wenn ein KMS-Client den Host kontaktiert, um sich zu aktivieren. Die Ereignis-ID 12290 enthält eine beträchtliche Menge an Informationen, die du verwenden kannst, um herauszufinden, welche Art von Client den Host kontaktiert hat und warum ein Fehler aufgetreten ist. Das folgende Segment eines Ereignis-ID 12290-Eintrags stammt aus dem Ereignisprotokoll des Schlüsselverwaltungsdiensts des KMS-Hosts.  
+Der KMS-Host protokolliert die Ereignis-ID 12290, wenn ein KMS-Client den Host kontaktiert, um sich zu aktivieren. Die Ereignis-ID 12290 enthält eine beträchtliche Menge an Informationen, die du verwenden kannst, um herauszufinden, welche Art von Client den Host kontaktiert hat und warum ein Fehler aufgetreten ist. Das folgende Segment eines Ereignis-ID 12290-Eintrags stammt aus dem Ereignisprotokoll des Schlüsselverwaltungsdiensts des KMS-Hosts.
 
 ![KMS-Ereignis 12290](./media/ee939272.kms_12290_event(en-us,technet.10).png)
 
@@ -113,7 +113,7 @@ Wenn sich ein KMS-Client erfolgreich aktiviert oder erneut aktiviert, protokolli
 
 ![KMS-Client-Ereignis-ID 12288](./media/ee939272.client_12288(en-us,technet.10).png)
 
-Wenn nur die Ereignis-ID 12288 (ohne die entsprechende Ereignis-ID 12289) angezeigt wird, bedeutet dies, dass der KMS-Client den KMS-Host nicht erreichen konnte, der KMS-Host nicht geantwortet hat, oder der Client keine Antwort empfangen hat. Vergewissere dich in diesem Fall, dass der KMS-Host ermittelt werden kann und dass die KMS-Clients ihn kontaktieren können.  
+Wenn nur die Ereignis-ID 12288 (ohne die entsprechende Ereignis-ID 12289) angezeigt wird, bedeutet dies, dass der KMS-Client den KMS-Host nicht erreichen konnte, der KMS-Host nicht geantwortet hat, oder der Client keine Antwort empfangen hat. Vergewissere dich in diesem Fall, dass der KMS-Host ermittelt werden kann und dass die KMS-Clients ihn kontaktieren können.
 
 Die relevantesten Informationen in der Ereignis-ID 12288 sind die Daten im Abschnitt „Info“. In diesem Abschnitt werden z. B. der aktuelle Zustand des Clients sowie der FQDN und der TCP-Port angezeigt, die vom Client beim Versuch der Aktivierung verwendet wurden. Du kannst den FQDN verwenden, um Problemfälle zu beheben, bei denen die Anzahl auf einem KMS-Host nicht zunimmt. Wenn z. B. den Clients (entweder legitimen oder nicht autorisierte Systeme) zu viele KMS-Hosts zur Verfügung stehen, wird die Anzahl möglicherweise über alle verteilt.
 
@@ -133,7 +133,7 @@ Wenn du den Support anrufen musst, um eine Problembehandlung bei der Aktivierung
 - **Slmgr.vbs**-Ausgabe des KMS-Hosts und der KMS-Clientsysteme. Unabhängig davon, ob du den Befehl mit „wscript“ oder „cscript“ ausführst, kannst du die Ausgabe mithilfe von STRG+C kopieren und dann in Editor einfügen, um sie an den Supportkontakt zu senden.
 - Ereignisprotokolle sowohl vom KMS-Host (Schlüsselverwaltungsdienst-Protokoll) und den KMS-Clientsystemen (Anwendungsprotokoll).
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Weitere Verweise
 - [Ask the Core Team: #Activation](https://blogs.technet.microsoft.com/askcore/tag/Activation/)
 
 

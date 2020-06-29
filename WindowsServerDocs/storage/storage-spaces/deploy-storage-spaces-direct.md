@@ -1,5 +1,5 @@
 ---
-title: Bereitstellen von direkte Speicherplätze
+title: Bereitstellen von direkten Speicherplätzen
 ms.prod: windows-server
 manager: eldenc
 ms.author: stevenek
@@ -10,14 +10,14 @@ author: stevenek
 ms.date: 06/07/2019
 description: Eine Schritt-für-Schritt-Anleitung zum Bereitstellen von Software definiertem Speicher mit direkte Speicherplätze in Windows Server als hyperkonvergierte Infrastruktur oder konvergierte Infrastruktur (auch als disaggiert bezeichnet).
 ms.localizationpriority: medium
-ms.openlocfilehash: 60b29cbebb19cd8f1ce364d1eb7e920759375285
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 50bcdc175610d6e5c5264f9cb62c7d99d2990ac0
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79323292"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85472827"
 ---
-# <a name="deploy-storage-spaces-direct"></a>Bereitstellen von direkte Speicherplätze
+# <a name="deploy-storage-spaces-direct"></a>Bereitstellen von direkten Speicherplätzen
 
 > Gilt für: Windows Server 2019, Windows Server 2016
 
@@ -29,7 +29,7 @@ Dieses Thema enthält Schritt-für-Schritt-Anweisungen zum Bereitstellen von [di
 > [!Tip]
 > Sie können virtuelle Hyper-V-Computer (einschließlich in Microsoft Azure) verwenden, um [direkte Speicherplätze ohne Hardware auszuwerten](storage-spaces-direct-in-vm.md). Sie können auch die praktischen [Windows Server-schnell-Lab-Bereitstellungs Skripts](https://aka.ms/wslab)überprüfen, die wir zu Schulungszwecken verwenden.
 
-## <a name="before-you-start"></a>Vorbereitungen
+## <a name="before-you-start"></a>Vorbereitung
 
 Überprüfen Sie die [direkte Speicherplätze Hardwareanforderungen](Storage-Spaces-Direct-Hardware-Requirements.md) , und lesen Sie dieses Dokument, um sich mit dem allgemeinen Ansatz und wichtigen Notizen vertraut zu machen, die mit einigen Schritten verknüpft sind.
 
@@ -39,7 +39,7 @@ Sammeln Sie die folgenden Informationen:
 
 - **Server Namen.** Machen Sie sich mit den Benennungs Richtlinien Ihrer Organisation für Computer, Dateien, Pfade und andere Ressourcen vertraut. Sie müssen mehrere Server bereitstellen, die jeweils über eindeutige Namen verfügen.
 
-- **Domänen Name.** Machen Sie sich mit den Richtlinien Ihrer Organisation für Domänen Namen und Domänen Beitritt vertraut.  Sie werden die Server zu Ihrer Domäne hinzufügen, und Sie müssen den Domänen Namen angeben. 
+- **Domänen Name.** Machen Sie sich mit den Richtlinien Ihrer Organisation für Domänen Namen und Domänen Beitritt vertraut.  Sie werden die Server zu Ihrer Domäne hinzufügen, und Sie müssen den Domänen Namen angeben.
 
 - **RDMA-Netzwerk.** Es gibt zwei Arten von RDMA-Protokollen: IWarp und ROCE. Beachten Sie, welche der Netzwerkadapter verwendet und ob ROCE auch die Version (v1 oder v2) beachten soll. Beachten Sie für ROCE auch das Modell Ihres Top-of-Rack-Schalters.
 
@@ -80,26 +80,26 @@ Geben Sie die PS-Sitzung ein, und verwenden Sie entweder den Servernamen oder di
    ```
 
 > [!TIP]
-> Wenn Sie eine Remote Bereitstellung von einem Verwaltungssystem aus durchführt, erhalten Sie möglicherweise eine Fehlermeldung wie *WinRM kann die Anforderung nicht verarbeiten.* Um dieses Problem zu beheben, fügen Sie mithilfe von Windows PowerShell jeden Server der Liste vertrauenswürdiger Hosts auf dem Verwaltungs Computer hinzu:  
->   
-> `Set-Item WSMAN:\Localhost\Client\TrustedHosts -Value Server01 -Force`
->  
-> Hinweis: die Liste vertrauenswürdiger Hosts unterstützt Platzhalter, wie z. b. `Server*`.
+> Wenn Sie eine Remote Bereitstellung von einem Verwaltungssystem aus durchführt, erhalten Sie möglicherweise eine Fehlermeldung wie *WinRM kann die Anforderung nicht verarbeiten.* Um dieses Problem zu beheben, fügen Sie mithilfe von Windows PowerShell jeden Server der Liste vertrauenswürdiger Hosts auf dem Verwaltungs Computer hinzu:
 >
-> Geben Sie `Get-Item WSMAN:\Localhost\Client\TrustedHosts`ein, um die Liste der vertrauenswürdigen Hosts anzuzeigen.  
->   
-> Geben Sie `Clear-Item WSMAN:\Localhost\Client\TrustedHost`ein, um die Liste zu leeren.  
+> `Set-Item WSMAN:\Localhost\Client\TrustedHosts -Value Server01 -Force`
+>
+> Hinweis: die Liste vertrauenswürdiger Hosts unterstützt Platzhalter, wie z `Server*` . b..
+>
+> Geben Sie ein, um die Liste der vertrauenswürdigen Hosts anzuzeigen `Get-Item WSMAN:\Localhost\Client\TrustedHosts` .
+>
+> Geben Sie ein, um die Liste zu leeren `Clear-Item WSMAN:\Localhost\Client\TrustedHost` .
 
 ### <a name="step-13-join-the-domain-and-add-domain-accounts"></a>Schritt 1,3: beitreten zur Domäne und Hinzufügen von Domänen Konten
 
-Bisher haben Sie die einzelnen Server mit dem lokalen Administrator Konto konfiguriert, `<ComputerName>\Administrator`.
+Bisher haben Sie die einzelnen Server mit dem lokalen Administrator Konto konfiguriert `<ComputerName>\Administrator` .
 
 Um direkte Speicherplätze zu verwalten, müssen Sie die Server einer Domäne hinzufügen und ein Active Directory Domain Services Domänen Konto verwenden, das sich in der Gruppe "Administratoren" auf jedem Server befindet.
 
-Öffnen Sie aus dem Verwaltungssystem eine PowerShell-Konsole mit Administrator Rechten. Verwenden Sie `Enter-PSSession`, um eine Verbindung zu den einzelnen Servern herzustellen, und führen Sie das folgende Cmdlet aus. ersetzen Sie dabei ihre eigenen Computernamen, Domänen Namen und Domänen Anmelde Informationen
+Öffnen Sie aus dem Verwaltungssystem eine PowerShell-Konsole mit Administrator Rechten. Verwenden `Enter-PSSession` Sie, um eine Verbindung zu den einzelnen Servern herzustellen, und führen Sie das folgende Cmdlet aus. ersetzen Sie dabei ihre eigenen Computernamen, Domänen Namen und Domänen Anmelde Informationen
 
-```PowerShell  
-Add-Computer -NewName "Server01" -DomainName "contoso.com" -Credential "CONTOSO\User" -Restart -Force  
+```PowerShell
+Add-Computer -NewName "Server01" -DomainName "contoso.com" -Credential "CONTOSO\User" -Restart -Force
 ```
 
 Wenn Ihr Speicher Administrator Konto kein Mitglied der Gruppe "Domänen-Admins" ist, fügen Sie das Speicher Administrator Konto der lokalen Gruppe "Administratoren" auf jedem Knoten hinzu, oder fügen Sie die Gruppe, die Sie für Speicher Administratoren verwenden, hinzu. Sie können den folgenden Befehl verwenden (oder eine Windows PowerShell-Funktion schreiben, um weitere Informationen zu erhalten. Weitere Informationen finden Sie unter [Verwenden von PowerShell zum Hinzufügen von Domänen Benutzern zu einer lokalen Gruppe](https://blogs.technet.com/b/heyscriptingguy/archive/2010/08/19/use-powershell-to-add-domain-users-to-a-local-group.aspx) ):
@@ -115,7 +115,7 @@ Der nächste Schritt besteht darin, Server Rollen auf jedem Server zu installier
 - Failoverclustering
 - Hyper-V
 - Datei Server (wenn Sie Dateifreigaben hosten möchten, z. b. für eine konvergierte Bereitstellung)
-- Daten-Center-Bridging (Wenn Sie RoCEv2 anstelle von iWARP Netzwerkadaptern verwenden)
+- Data-Center-Bridging (bei Verwendung von RoCEv2 anstelle von IWarp-Netzwerkadaptern)
 - RSAT-Clustering-PowerShell
 - Hyper-V-PowerShell
 
@@ -204,7 +204,7 @@ Count Name                          PSComputerName
 
 ### <a name="step-32-validate-the-cluster"></a>Schritt 3,2: Überprüfen des Clusters
 
-In diesem Schritt führen Sie das Cluster Validierungs Tool aus, um sicherzustellen, dass die Server Knoten ordnungsgemäß konfiguriert sind, um einen Cluster mit direkte Speicherplätze zu erstellen. Wenn die Cluster Überprüfung (`Test-Cluster`) vor der Erstellung des Clusters ausgeführt wird, werden die Tests ausgeführt, mit denen überprüft wird, ob die Konfiguration für eine erfolgreiche Funktion als Failovercluster geeignet ist. Im direkt folgenden Beispiel wird der `-Include`-Parameter verwendet, und anschließend werden die spezifischen Testkategorien angegeben. Dadurch wird sichergestellt, dass die für „Direkte Speicherplätze“ spezifischen Tests in der Validierung enthalten sind.
+In diesem Schritt führen Sie das Cluster Validierungs Tool aus, um sicherzustellen, dass die Server Knoten ordnungsgemäß konfiguriert sind, um einen Cluster mit direkte Speicherplätze zu erstellen. Wenn die Cluster Überprüfung ( `Test-Cluster` ) ausgeführt wird, bevor der Cluster erstellt wird, werden die Tests ausgeführt, mit denen überprüft wird, ob die Konfiguration für eine erfolgreiche Funktion als Failovercluster geeignet ist. Im direkt folgenden Beispiel wird der `-Include` -Parameter verwendet, und anschließend werden die spezifischen Testkategorien angegeben. Dadurch wird sichergestellt, dass die für „Direkte Speicherplätze“ spezifischen Tests in der Validierung enthalten sind.
 
 Verwenden Sie den folgenden PowerShell-Befehl, um eine Gruppe von Servern zu überprüfen, die als Cluster für „Direkte Speicherplätze“ verwendet werden soll.
 
@@ -216,7 +216,7 @@ Test-Cluster –Node <MachineName1, MachineName2, MachineName3, MachineName4> �
 
 In diesem Schritt erstellen Sie mit dem folgenden PowerShell-Cmdlet einen Cluster mit den Knoten, die Sie im vorherigen Schritt für die Cluster Erstellung überprüft haben.
 
-Beim Erstellen des Clusters erhalten Sie eine Warnung mit dem Hinweis, dass beim Erstellen der Cluster Rolle Probleme aufgetreten sind, die den Start verhindern können. Weitere Informationen finden Sie in der folgenden Berichtsdatei.“ Sie können diese Warnung gefahrlos ignorieren. Die Ursache dieser Warnung liegt darin, dass keine Datenträger für das Clusterquorum verfügbar sind. Es wird empfohlen, nach der Erstellung des Clusters einen Dateifreigabe- oder Cloudzeugen zu konfigurieren.
+Beim Erstellen des Clusters erhalten Sie eine Warnung mit dem Hinweis, dass beim Erstellen der Cluster Rolle Probleme aufgetreten sind, die den Start verhindern können. Weitere Informationen finden Sie in der folgenden Berichtsdatei.“ Sie können diese Warnung problemlos ignorieren. Die Ursache dieser Warnung liegt darin, dass keine Datenträger für das Clusterquorum verfügbar sind. Es wird empfohlen, nach der Erstellung des Clusters einen Dateifreigabe- oder Cloudzeugen zu konfigurieren.
 
 > [!Note]
 > Wenn die Server statische IP-Adressen verwenden, ändern Sie den folgenden Befehl so, dass die statische IP-Adresse reflektiert wird. Fügen Sie dazu den folgenden Parameter hinzu, und geben Sie die IP-Adresse an: „–StaticAddress &lt;X.X.X.X&gt;“.
@@ -229,18 +229,18 @@ Nach der Erstellung des Clusters kann es einige Zeit dauern, bis der DNS-Eintrag
 
 ### <a name="step-34-configure-a-cluster-witness"></a>Schritt 3,4: Konfigurieren eines Cluster Zeugen
 
-Es wird empfohlen, einen Zeugen für den Cluster zu konfigurieren, sodass Cluster mit drei oder mehr Servern den Ausfall oder das offline schalten von zwei Servern überstehen können. Eine Bereitstellung mit zwei Servern erfordert einen Cluster Zeugen. andernfalls wird der andere Server auch offline geschaltet. Bei diesen Systemen können Sie eine Dateifreigabe als Zeugen bzw. Cloudzeugen verwenden. 
+Es wird empfohlen, einen Zeugen für den Cluster zu konfigurieren, sodass Cluster mit drei oder mehr Servern den Ausfall oder das offline schalten von zwei Servern überstehen können. Eine Bereitstellung mit zwei Servern erfordert einen Cluster Zeugen. andernfalls wird der andere Server auch offline geschaltet. Bei diesen Systemen können Sie eine Dateifreigabe als Zeugen bzw. Cloudzeugen verwenden.
 
-Weitere Informationen finden Sie unter den folgenden Themen:
+Weitere Informationen finden Sie in folgenden Themen:
 
 - [Konfigurieren und Verwalten des Quorums](../../failover-clustering/manage-cluster-quorum.md)
-- [Bereitstellen eines cloudzeugen für einen Failovercluster](../../failover-clustering/deploy-cloud-witness.md)
+- [Bereitstellen eines Cloudzeugen für einen Failovercluster](../../failover-clustering/deploy-cloud-witness.md)
 
 ### <a name="step-35-enable-storage-spaces-direct"></a>Schritt 3.5: Aktivieren von „Direkte Speicherplätze“
 
 Verwenden Sie nach dem Erstellen des Clusters das `Enable-ClusterStorageSpacesDirect` PowerShell-Cmdlet, das das Speichersystem in den direkte Speicherplätze Modus versetzt, und führen Sie die folgenden Schritte automatisch aus:
 
--   **Erstellen eines Pools:** Erstellt einen einzelnen großen Pool mit einem Namen wie z. B. „S2D auf Cluster1“.
+-   **Erstellen eines Pools:** Erstellt einen einzelnen großen Pool mit einem Namen wie "S2D on Cluster1".
 
 -   **Konfigurieren der Caches von „Direkte Speicherplätze“** Falls mehr als ein Medientyp bzw. Laufwerkstyp für die Verwendung von „Direkte Speicherplätze“ verfügbar ist, werden die schnellsten Typen als Cachegeräte aktiviert (in den meisten Fällen wird von diesen gelesen und auf diese geschrieben)
 
@@ -254,13 +254,13 @@ Enable-ClusterStorageSpacesDirect –CimSession <ClusterName>
 
 Um „Direkte Speicherplätze“ mit dem oben stehenden Befehl zu aktivieren, können Sie auch den Knotennamen anstelle des Clusternamens verwenden. Die Verwendung des Knotennamens ist unter Umständen zuverlässiger, da bei einem neu erstellten Clusternamen Verzögerungen bei der DNS-Replikation auftreten können.
 
-Wenn die Ausführung des Befehls beendet ist, was einige Minuten dauern kann, ist das System bereit für die Erstellung von Volumes.
+Wenn dieser Befehl abgeschlossen ist, was einige Minuten in Anspruch nehmen kann, ist das System bereit für die Erstellung von Volumes.
 
 ### <a name="step-36-create-volumes"></a>Schritt 3.6: Erstellen von Volumes
 
-Es wird empfohlen, das Cmdlet "`New-Volume`" zu verwenden, da es die schnellste und einfachste Möglichkeit bietet. Dieses einzelne Cmdlet erstellt, partitioniert und formatiert automatisch den virtuellen Datenträger, erstellt das Volume mit demselben Namen und fügt es freigegebenen Clustervolumes hinzu – alles in einem einfachen Schritt.
+Es wird empfohlen, das `New-Volume` Cmdlet zu verwenden, da es die schnellste und einfachste Möglichkeit bietet. Dieses Cmdlet erstellt automatisch den virtuellen Datenträger, partitioniert und formatiert ihn, erstellt das Volume mit einem übereinstimmenden Namen und fügt es zu freigegebenen Clustervolumes hinzu – alles in einem einfachen Schritt.
 
-Weitere Informationen finden Sie unter [Erstellen von Volumes in Direkte Speicherplätze](create-volumes.md).
+Weitere Informationen finden Sie unter [Erstellen von Volumes in direkte Speicherplätze](create-volumes.md).
 
 ### <a name="step-37-optionally-enable-the-csv-cache"></a>Schritt 3,7: Aktivieren Sie optional den CSV-Cache.
 
@@ -268,7 +268,7 @@ Optional können Sie den CSV-Cache (Cluster Shared Volume) für die Verwendung v
 
 Wenn Sie den CSV-Cache aktivieren, verringert sich der Arbeitsspeicher, der für die Ausführung von VMS in einem hyperkonvergenten Cluster verfügbar ist. Daher müssen Sie die Speicherleistung mit dem für VHDs verfügbaren Arbeitsspeicher ausgleichen.
 
-Öffnen Sie zum Festlegen der Größe des CSV-Caches eine PowerShell-Sitzung auf dem Verwaltungssystem mit einem Konto, das über Administrator Berechtigungen für den Speicher Cluster verfügt, und verwenden Sie dieses Skript, um die `$ClusterName`-und `$CSVCacheSize` Variablen nach Bedarf zu ändern (in diesem Beispiel wird ein 2-GB-CSV-Cache pro Server festgelegt):
+Um die Größe des CSV-Caches festzulegen, öffnen Sie eine PowerShell-Sitzung auf dem Verwaltungssystem mit einem Konto, das über Administrator Berechtigungen für den Speicher Cluster verfügt, und verwenden Sie dieses Skript, um die Variablen und nach Bedarf zu ändern `$ClusterName` `$CSVCacheSize` (in diesem Beispiel wird ein 2-GB-CSV-Cache pro Server festgelegt):
 
 ```PowerShell
 $ClusterName = "StorageSpacesDirect1"
@@ -287,7 +287,7 @@ Weitere Informationen finden Sie unter [Verwenden des CSV-Speichers im Arbeitssp
 
 Wenn Sie einen hyperkonvergierten Cluster bereitstellen, besteht der letzte Schritt darin, virtuelle Maschinen auf dem direkte Speicherplätze Cluster bereitzustellen.
 
-Die Dateien der virtuellen Maschine sollten im CSV-Namespace des Systems gespeichert werden (Beispiel: c:\\ClusterStorage\\volume1), genau wie gruppierte VMs in Failoverclustern.
+Die Dateien der virtuellen Maschine sollten im CSV-Namespace des Systems (z. b. c: \\ ClusterStorage \\ volume1) genau wie gruppierte VMs in Failoverclustern gespeichert werden.
 
 Sie können die in-Box-Tools oder andere Tools verwenden, um den Speicher und die virtuellen Maschinen zu verwalten, z. b. System Center Virtual Machine Manager.
 
@@ -301,7 +301,7 @@ Der nächste Schritt beim Einrichten der Cluster Dienste für den Dateiserver is
 
 #### <a name="to-create-a-scale-out-file-server-role-by-using-server-manager"></a>So erstellen Sie eine Dateiserver mit horizontaler Skalierung Rolle mithilfe von Server-Manager
 
-1. Wählen Sie in Failovercluster-Manager den Cluster aus, navigieren Sie zu **Rollen**, und klicken Sie dann auf **Rolle konfigurieren...** .<br>Der Assistent für hohe Verfügbarkeit wird angezeigt.
+1. Wählen Sie in Failovercluster-Manager den Cluster aus, navigieren Sie zu **Rollen**, und klicken Sie dann auf **Rolle konfigurieren...**.<br>Der Assistent für hohe Verfügbarkeit wird angezeigt.
 2. Klicken Sie auf der Seite **Rolle auswählen** auf **Datei Server**.
 3. Klicken Sie auf der Seite **Datei Servertyp** auf **Dateiserver mit horizontaler Skalierung für Anwendungsdaten**.
 4. Geben Sie auf der Seite **Client Zugriffspunkt** einen Namen für das Dateiserver mit horizontaler Skalierung ein.
@@ -312,8 +312,8 @@ Der nächste Schritt beim Einrichten der Cluster Dienste für den Dateiserver is
     **Abbildung 1** Failovercluster-Manager mit dem Status "wird ausgeführt" Dateiserver mit horizontaler Skalierung angezeigt
 
 > [!NOTE]
->  Nach dem Erstellen der Cluster Rolle können einige Verzögerungen bei der Netzwerk Weitergabe auftreten, die das Erstellen von Dateifreigaben für ein paar Minuten oder potenziell länger verhindern können.  
-  
+>  Nach dem Erstellen der Cluster Rolle können einige Verzögerungen bei der Netzwerk Weitergabe auftreten, die das Erstellen von Dateifreigaben für ein paar Minuten oder potenziell länger verhindern können.
+
 #### <a name="to-create-a-scale-out-file-server-role-by-using-windows-powershell"></a>So erstellen Sie eine Dateiserver mit horizontaler Skalierung Rolle mithilfe von Windows PowerShell
 
  Geben Sie in einer Windows PowerShell-Sitzung, die mit dem Dateiserver Cluster verbunden ist, die folgenden Befehle ein, um die Dateiserver mit horizontaler Skalierung-Rolle zu erstellen, und ändern Sie den *fscluester* so, dass er dem Namen Ihres Clusters entspricht, und *sofs* entsprechend dem Namen, den Sie der Dateiserver mit horizontaler Skalierung Rolle geben möchten:
@@ -337,7 +337,7 @@ Verwenden Sie die Skripts in der [SMB-Freigabe Konfiguration für Hyper-V-Arbeit
 Gehen Sie folgendermaßen vor, um Dateifreigaben mithilfe von PowerShell-Skripts zu erstellen:
 
 1. Laden Sie die in der [SMB-Freigabe Konfiguration für Hyper-V-Arbeits Auslastungen](https://gallery.technet.microsoft.com/SMB-Share-Configuration-4a36272a) enthaltenen Skripts auf einen der Knoten des Dateiserver Clusters herunter.
-2. Öffnen Sie eine Windows PowerShell-Sitzung mit Anmelde Informationen des Domänen Administrators auf dem Verwaltungssystem, und erstellen Sie dann mit dem folgenden Skript eine Active Directory Gruppe für die Hyper-V-Computer Objekte. ändern Sie die Werte für die Variablen entsprechend Ihren Umgebung
+2. Öffnen Sie eine Windows PowerShell-Sitzung mit Anmelde Informationen des Domänen Administrators auf dem Verwaltungssystem, und erstellen Sie dann mithilfe des folgenden Skripts eine Active Directory Gruppe für die Hyper-V-Computer Objekte. ändern Sie dabei die Werte für die Variablen entsprechend Ihrer Umgebung:
 
     ```PowerShell
     # Replace the values of these variables
@@ -371,7 +371,7 @@ Gehen Sie folgendermaßen vor, um Dateifreigaben mithilfe von PowerShell-Skripts
 
 ### <a name="step-43-enable-kerberos-constrained-delegation"></a>Schritt 4,3 Aktivieren der eingeschränkten Kerberos-Delegierung
 
-Wenn Sie die eingeschränkte Kerberos-Delegierung für die Remote szenarioverwaltung einrichten und die Livemigration Sicherheit erhöhen möchten, verwenden Sie auf einem der Speicher Cluster Knoten das in der [SMB-Freigabe Konfiguration für Hyper-V-Arbeits Auslastungen](https://gallery.technet.microsoft.com/SMB-Share-Configuration-4a36272a)enthaltene Skript kcdsetup. ps1. Hier ist ein kleines Wrapper für das Skript:
+Um die eingeschränkte Kerberos-Delegierung für die Remote szenarioverwaltung einzurichten und die Livemigration Sicherheit zu erhöhen, verwenden Sie auf einem der Speicher Cluster Knoten das KCDSetup.ps1 Skript, das in der [SMB-Freigabe Konfiguration für Hyper-V-Workloads](https://gallery.technet.microsoft.com/SMB-Share-Configuration-4a36272a)enthalten ist Hier ist ein kleines Wrapper für das Skript:
 
 ```PowerShell
 $HyperVClusterName = "Compute01"
@@ -386,11 +386,11 @@ CD $ScriptFolder
 
 Nachdem Sie den Cluster Dateiserver bereitgestellt haben, empfiehlt es sich, die Leistung Ihrer Lösung mithilfe synthetischer Workloads zu testen, bevor Sie echte Workloads bereitstellen. Auf diese Weise können Sie überprüfen, ob die Lösung ordnungsgemäß funktioniert, und alle veralteten Probleme beheben, bevor Sie die Komplexität von Workloads hinzufügen. Weitere Informationen finden Sie unter [Testen der Leistung von Speicherplätzen mithilfe synthetischer Workloads](https://technet.microsoft.com/library/dn894707.aspx).
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 -   [Direkte Speicherplätze in Windows Server 2016](storage-spaces-direct-overview.md)
--   [Grundlegendes zum Cache in direkte Speicherplätze](understand-the-cache.md)
+-   [Verstehen des Caches in direkten Speicherplätzen](understand-the-cache.md)
 -   [Planen von Volumes in direkte Speicherplätze](plan-volumes.md)
 -   [Fehlertoleranz bei Speicherplätzen](storage-spaces-fault-tolerance.md)
--   [Direkte Speicherplätze Hardware Anforderungen](Storage-Spaces-Direct-Hardware-Requirements.md)
--   [To RDMA, or not to RDMA – that is the question](https://blogs.technet.microsoft.com/filecab/2017/03/27/to-rdma-or-not-to-rdma-that-is-the-question/) (RDMA oder kein RDMA – das ist hier die Frage) (TechNet-Blog)
+-   [Hardwareanforderungen für direkte Speicherplätze](Storage-Spaces-Direct-Hardware-Requirements.md)
+-   [An RDMA oder nicht an RDMA – Dies ist die Frage](https://blogs.technet.microsoft.com/filecab/2017/03/27/to-rdma-or-not-to-rdma-that-is-the-question/) (TechNet-Blog)

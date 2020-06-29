@@ -8,18 +8,18 @@ ms.topic: article
 author: jasongerend
 ms.author: jgerend
 ms.localizationpriority: medium
-ms.openlocfilehash: 6c424d19c006cfae6343d577dc08ff3553a5616b
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 46b4502bb0408b3fb7afe51234c81695ec54e48b
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80825873"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85473137"
 ---
 # <a name="whats-new-in-windows-server"></a>Neues in Windows Server
 
 > Gilt für: Windows Server 2019, Windows Server 2016, Windows Server (halbjährlicher Kanal)
 
-Hier finden Sie die neuen Features für jede der folgenden Windows Server-Releases.  
+Hier finden Sie die neuen Features für jede der folgenden Windows Server-Releases.
 
 Long-Term Servicing Channel (LTSC)-Releases:
 
@@ -35,7 +35,7 @@ Releases im halbjährlichen Kanal:
 
 Releases von Windows Server (halbjährlicher Kanal) stellen in kürzeren Abständen neue Betriebssystemfunktionen zur Verfügung. Alle sechs Monate wird ein neues Release veröffentlicht, und es wird 18 Monate Support bereitgestellt. In den [Versionsinformationen zu Windows Server](windows-server-release-info.md) und auf der [Microsoft Lifecycle-Seite](https://support.microsoft.com/lifecycle) finden Sie Informationen zum Supportlifecycle. Verwenden Sie möglichst immer das neueste Release.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Versionshinweise: Wichtige Probleme in Windows Server 2019](../get-started-19/rel-notes-19.md)
 - [Versionshinweise: Wichtige Probleme in Windows Server 2016](Windows-Server-2016-GA-Release-Notes.md)

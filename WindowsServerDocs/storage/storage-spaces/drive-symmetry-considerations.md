@@ -7,14 +7,14 @@ ms.topic: article
 author: cosmosdarwin
 ms.date: 10/08/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: b06d69c020ea38a2fb9f23df2cfd9cd4191ae315
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 5e7a4469a3f72737801a5110e322533df9764e20
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80857553"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85473587"
 ---
-# <a name="drive-symmetry-considerations-for-storage-spaces-direct"></a>Überlegungen zur Laufwerk Symmetrie für direkte Speicherplätze 
+# <a name="drive-symmetry-considerations-for-storage-spaces-direct"></a>Überlegungen zur Laufwerk Symmetrie für direkte Speicherplätze
 
 > Gilt für: Windows Server 2019, Windows Server 2016
 
@@ -48,9 +48,9 @@ Es wird empfohlen, nach Möglichkeit Laufwerke desselben Modells und einer Firmw
    > [!NOTE]
    > Es ist in Ordnung, ähnliche SATA-und SAS-Laufwerke zu kombinieren und zu vergleichen.
 
-### <a name="size"></a>Größe
+### <a name="size"></a>Size
 
-Es empfiehlt sich, möglichst wenige Laufwerke mit denselben Größen zu verwenden. Die Verwendung von Kapazitäts Laufwerken mit unterschiedlichen Größen kann zu einer nicht verwendbaren Kapazität führen, und die Verwendung von Cache Laufwerken mit unterschiedlichen Größen kann die Cache Leistung nicht Weitere Informationen finden Sie im nächsten Abschnitt.
+Es empfiehlt sich, möglichst wenige Laufwerke mit denselben Größen zu verwenden. Die Verwendung von Kapazitäts Laufwerken mit unterschiedlichen Größen kann zu einer nicht verwendbaren Kapazität führen, und die Verwendung von Cache Laufwerken mit unterschiedlichen Größen kann die Cache Leistung nicht Nähere Informationen finden Sie im nächsten Abschnitt.
 
    > [!WARNING]
    > Abweichende Größen von Kapazitäts Laufwerken auf Servern können zu einer nicht verstrandeten Kapazität führen.
@@ -90,7 +90,7 @@ Allerdings kann die Verwendung von Cache Laufwerken mit unterschiedlichen Größ
 
 Im folgenden finden Sie einige unterstützte und nicht unterstützte Konfigurationen:
 
-### <a name="supported-supported-different-models-between-servers"></a>![unterstützt](media/drive-symmetry-considerations/supported.png) Unterstützt: verschiedene Modelle zwischen Servern
+### <a name="supported-supported-different-models-between-servers"></a>![Unterstützt](media/drive-symmetry-considerations/supported.png) Unterstützt: verschiedene Modelle zwischen Servern
 
 Die ersten beiden Server verwenden das nvme-Modell "X", aber der dritte Server verwendet das nvme-Modell "Z", das sehr ähnlich ist.
 
@@ -101,7 +101,7 @@ Die ersten beiden Server verwenden das nvme-Modell "X", aber der dritte Server v
 
 Dies wird unterstützt.
 
-### <a name="supported-supported-different-models-within-server"></a>![unterstützt](media/drive-symmetry-considerations/supported.png) Unterstützt: verschiedene Modelle innerhalb des Servers
+### <a name="supported-supported-different-models-within-server"></a>![Unterstützt](media/drive-symmetry-considerations/supported.png) Unterstützt: verschiedene Modelle innerhalb des Servers
 
 Jeder Server verwendet eine andere Mischung aus HDD-Modellen "Y" und "Z", die sehr ähnlich sind. Jeder Server hat insgesamt 10 HDD.
 
@@ -113,7 +113,7 @@ Jeder Server verwendet eine andere Mischung aus HDD-Modellen "Y" und "Z", die se
 
 Dies wird unterstützt.
 
-### <a name="supported-supported-different-sizes-across-servers"></a>![unterstützt](media/drive-symmetry-considerations/supported.png) Unterstützt: verschiedene Server übergreifende Größen
+### <a name="supported-supported-different-sizes-across-servers"></a>![Unterstützt](media/drive-symmetry-considerations/supported.png) Unterstützt: verschiedene Server übergreifende Größen
 
 Die ersten beiden Server verwenden 4 TB HDD, der dritte Server verwendet jedoch eine sehr ähnliche HDD mit 6 TB.
 
@@ -124,7 +124,7 @@ Die ersten beiden Server verwenden 4 TB HDD, der dritte Server verwendet jedoch 
 
 Dies wird zwar unterstützt, wird jedoch zu einer nicht mehrstufigen Kapazität.
 
-### <a name="supported-supported-different-sizes-within-server"></a>![unterstützt](media/drive-symmetry-considerations/supported.png) Unterstützt: unterschiedliche Größen innerhalb des Servers
+### <a name="supported-supported-different-sizes-within-server"></a>![Unterstützt](media/drive-symmetry-considerations/supported.png) Unterstützt: unterschiedliche Größen innerhalb des Servers
 
 Jeder Server verwendet eine andere Mischung aus 1,2 TB und sehr ähnlichen 1,6 TB SSD. Jeder Server verfügt über vier SSD-SSD-gesamt.
 
@@ -136,7 +136,7 @@ Jeder Server verwendet eine andere Mischung aus 1,2 TB und sehr ähnlichen 1,6 T
 
 Dies wird unterstützt.
 
-### <a name="unsupported-not-supported-different-types-of-drives-across-servers"></a>![Nicht unterstützt](media/drive-symmetry-considerations/unsupported.png) Nicht unterstützt: verschiedene Arten von Laufwerken Server übergreifend
+### <a name="unsupported-not-supported-different-types-of-drives-across-servers"></a>![nicht unterstützt](media/drive-symmetry-considerations/unsupported.png) Nicht unterstützt: verschiedene Arten von Laufwerken Server übergreifend
 
 Server 1 hat nvme, die anderen aber nicht.
 
@@ -148,7 +148,7 @@ Server 1 hat nvme, die anderen aber nicht.
 
 Dies wird nicht unterstützt. Die Laufwerkstypen sollten auf jedem Server identisch sein.
 
-### <a name="unsupported-not-supported-different-number-of-each-type-across-servers"></a>![Nicht unterstützt](media/drive-symmetry-considerations/unsupported.png) Nicht unterstützt: unterschiedliche Anzahl der einzelnen Typen Server übergreifend
+### <a name="unsupported-not-supported-different-number-of-each-type-across-servers"></a>![nicht unterstützt](media/drive-symmetry-considerations/unsupported.png) Nicht unterstützt: unterschiedliche Anzahl der einzelnen Typen Server übergreifend
 
 Server 3 verfügt über mehr Laufwerke als die anderen.
 
@@ -159,12 +159,12 @@ Server 3 verfügt über mehr Laufwerke als die anderen.
 
 Dies wird nicht unterstützt. Die Anzahl der Laufwerke der einzelnen Typen sollte auf jedem Server identisch sein.
 
-### <a name="unsupported-not-supported-only-hdd-drives"></a>![Nicht unterstützt](media/drive-symmetry-considerations/unsupported.png) Nicht unterstützt: nur HDD-Laufwerke
+### <a name="unsupported-not-supported-only-hdd-drives"></a>![nicht unterstützt](media/drive-symmetry-considerations/unsupported.png) Nicht unterstützt: nur HDD-Laufwerke
 
 Auf allen Servern sind nur HDD-Laufwerke verbunden.
 
 |Server 1|Server 2|Server 3|
-|-|-|-| 
+|-|-|-|
 |18 x HDD (Kapazität) |18 x HDD (Kapazität)|18 x HDD (Kapazität)|
 
 Dies wird nicht unterstützt. Sie müssen mindestens zwei Cache Laufwerke (nvme oder SSD) hinzufügen, die an jeden Server angeschlossen sind.
@@ -173,14 +173,14 @@ Dies wird nicht unterstützt. Sie müssen mindestens zwei Cache Laufwerke (nvme 
 
 Zur Wiederholung sollte jeder Server im Cluster die gleichen Laufwerke und die gleiche Anzahl der einzelnen Typen aufweisen. Die Kombination von Laufwerk Modellen und Laufwerk Größen nach Bedarf wird mit den oben beschriebenen Überlegungen unterstützt.
 
-| Einschränkung                               |               |
+| Constraint                               |               |
 |------------------------------------------|---------------|
 | Die gleichen Laufwerkstypen auf jedem Server     | **Erforderlich**  |
 | Die gleiche Anzahl der einzelnen Typen auf jedem Server | **Erforderlich**  |
 | Die gleichen Laufwerks Modelle in jedem Server        | Empfohlen   |
 | Die gleichen Laufwerk Größen auf jedem Server         | Empfohlen   |
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Direkte Speicherplätze Hardwareanforderungen](storage-spaces-direct-hardware-requirements.md)
 - [Übersicht über direkte Speicherplätze](storage-spaces-direct-overview.md)
