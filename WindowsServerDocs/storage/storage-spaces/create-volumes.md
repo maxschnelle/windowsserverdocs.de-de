@@ -1,5 +1,5 @@
 ---
-title: Erstellen von Volumes in Direkte Speicherplätze
+title: Erstellen von Volumes in direkte Speicherplätze
 description: Erstellen von Volumes in direkte Speicherplätze mithilfe von Windows Admin Center und PowerShell.
 ms.prod: windows-server
 ms.reviewer: cosmosdarwin
@@ -8,25 +8,25 @@ ms.author: cosdar
 manager: eldenc
 ms.technology: storage-spaces
 ms.date: 02/25/2020
-ms.openlocfilehash: fb53ae74e471d590f83e1017662f33bb5a4b7c1d
-ms.sourcegitcommit: 92e0e4224563106adc9a7f1e90f27da468859d90
+ms.openlocfilehash: 40750acb260335e858a7763c950dfc4ad2cd7979
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77608803"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85473827"
 ---
-# <a name="creating-volumes-in-storage-spaces-direct"></a>Erstellen von Volumes in Direkte Speicherplätze
+# <a name="creating-volumes-in-storage-spaces-direct"></a>Erstellen von Volumes in direkte Speicherplätze
 
 > Gilt für: Windows Server 2019, Windows Server 2016
 
 In diesem Thema wird beschrieben, wie Sie mithilfe des Windows Admin Centers und PowerShell Volumes auf einem direkte Speicherplätze-Cluster erstellen.
 
 > [!TIP]
-> Lesen Sie zunächst [Planen von Volumes in Direkte Speicherplätze](plan-volumes.md), falls noch nicht geschehen.
+> Wenn Sie dies noch nicht getan haben, besuchen Sie zuerst die [Planungs Volumes in direkte Speicherplätze](plan-volumes.md) .
 
 ## <a name="create-a-three-way-mirror-volume"></a>Erstellen eines drei-Wege-Spiegelungs Volumens
 
-So erstellen Sie ein drei-Wege-Spiegelungs Volume im Windows Admin Center: 
+So erstellen Sie ein drei-Wege-Spiegelungs Volume im Windows Admin Center:
 
 1. Stellen Sie im Windows Admin Center eine Verbindung mit einem direkte Speicherplätze Cluster her, und wählen Sie dann im Bereich **Tools** die Option **Volumes** aus.
 2. Wählen Sie auf der Seite Volumes die Registerkarte **Inventar** aus, und wählen Sie dann **Volume erstellen**aus.
@@ -88,7 +88,7 @@ Deduplizierung und Komprimierung werden pro Volume verwaltet. Bei der Deduplizie
 
     Anstelle komplizierter Einstellungen können Sie mit dem Windows Admin Center zwischen vorgefertigten Profilen für verschiedene Workloads wählen. Wenn Sie sich nicht sicher sind, verwenden Sie die Standardeinstellung.
 
-6. Klicken Sie auf **Aktivieren**.
+6. Wählen Sie **Aktivieren** aus.
 
 Sehen Sie sich ein kurzes Video zum Aktivieren der Deduplizierung und Komprimierung an.
 
@@ -96,33 +96,33 @@ Sehen Sie sich ein kurzes Video zum Aktivieren der Deduplizierung und Komprimier
 
 ## <a name="create-volumes-using-powershell"></a>Erstellen von Volumes mithilfe von PowerShell
 
-Wir empfehlen die Verwendung des Cmdlets **New-Volume** zum Erstellen von Volumes für Direkte Speicherplätze. Es bietet die schnellste und einfachste Methode dafür. Dieses einzelne Cmdlet erstellt, partitioniert und formatiert automatisch den virtuellen Datenträger, erstellt das Volume mit demselben Namen und fügt es freigegebenen Clustervolumes hinzu – alles in einem einfachen Schritt.
+Es wird empfohlen, das Cmdlet **New-Volume** zum Erstellen von Volumes für direkte Speicherplätze zu verwenden. Dies ist die schnellste und einfachste Möglichkeit. Mit diesem Cmdlet wird mit nur einem einfachen Schritt Folgendes durchgeführt: Der virtuelle Datenträger wird automatisch erstellt und anschließend partitioniert und formatiert, und das Volume wird mit dem entsprechenden Namen erstellt und den freigegebenen Clustervolumes hinzugefügt.
 
-Das Cmdlet **New-Volume** hat vier Parameter, die Sie immer angeben müssen:
+Das Cmdlet **New-Volume** verfügt über vier Parameter, die Sie immer angeben müssen:
 
-- **FriendlyName:** Eine beliebige Zeichenfolge, z. B. *"Volume1"*
-- **Dateisystem:** Entweder **CSVFS_ReFS** (empfohlen) oder **CSVFS_NTFS**
-- **StoragePoolFriendlyName:** Der Name Ihres Speicherpools, z. B. *"S2D auf ClusterName"*
-- **Größe:** Die Größe des Volumes, z. B. *"10 TB"*
+- **FriendlyName:** Eine beliebige Zeichenfolge, z. B. *„Volume1“* .
+- **FileSystem:** Entweder **CSVFS_ReFS** (empfohlen) oder **CSVFS_NTFS**.
+- **StoragePoolFriendlyName:** Der Name Ihres Speicherpools, z. B. *„S2D auf Clustername“* .
+- **Size:** Die Größe des Volumes, z. B. *„10TB“* .
 
    > [!NOTE]
-   > Windows, einschließlich PowerShell, zählt mithilfe von binären Zahlen (Basis 2), während Laufwerke häufig mithilfe von Dezimalzahlen (Basis 10) bezeichnet werden. Dies erklärt, warum ein "Ein Terabyte"-Laufwerk, das als 1,000,000,000,000 Bytes definiert ist, in Windows mit etwa "909 GB" angezeigt wird. Dies ist das erwartungsgemäße Verhalten. Beim Erstellen von Volumes mithilfe von **New-Volume**, müssen Sie den Parameter **Größe** in binären (Basis 2) Zahlen angeben. Beispiel: Bei Angaben von "909 GB" oder "0,909495 TB" wird ein Volume von ungefähr 1,000,000,000,000 Bytes erstellt.
+   > Unter Windows, einschließlich PowerShell, wird basierend auf Binärzahlen (Basis 2) gezählt, während für Laufwerke häufig Dezimalzahlen (Basis 10) verwendet werden. Dies ist der Grund, warum für ein Laufwerk mit „einem Terabyte“ (als 1.000.000.000.000 Byte definiert) in Windows die Größe als „909 GB“ angezeigt wird. Dies entspricht dem erwarteten Verhalten. Beim Erstellen von Volumes mit **New-Volume** sollten Sie den Parameter **Size** als Binärzahl (Basis 2) angeben. Wenn Sie beispielsweise „909GB“ oder „0,909495TB“ angeben, wird ein Volume mit ca. 1.000.000.000.000 Byte erstellt.
 
-### <a name="example-with-2-or-3-servers"></a>Beispiel: Mit 2 oder 3 Servern
+### <a name="example-with-2-or-3-servers"></a>Beispiel: Mit zwei oder drei Servern
 
-Wenn Ihre Bereitstellung nur zwei Server hat, verwendet Direkte Speicherplätze zur Vereinfachung automatisch die Zweiwegespiegelung, um Robustheit zu erzielen. Wenn Ihre Bereitstellung nur drei Server hat, wird automatisch die Dreiwegespiegelung verwendet.
+Falls Ihre Bereitstellung nur über zwei Server verfügt, nutzt „Direkte Speicherplätze“der Einfachheit halber automatisch die Zwei-Wege-Spiegelung zur Erzielung von Resilienz. Falls Ihre Bereitstellung nur drei Server umfasst, wird automatisch die Drei-Wege-Spiegelung genutzt.
 
 ```PowerShell
 New-Volume -FriendlyName "Volume1" -FileSystem CSVFS_ReFS -StoragePoolFriendlyName S2D* -Size 1TB
 ```
 
-### <a name="example-with-4-servers"></a>Beispiel: mit 4 oder mehr Servern
+### <a name="example-with-4-servers"></a>Beispiel: Mit vier oder mehr Servern
 
-Wenn Sie vier oder mehr Server haben, können Sie mithilfe des optionalen Parameters **ResiliencySettingName** den Resilienztyp auswählen.
+Wenn Sie über vier oder mehr Server verfügen, können Sie den optionalen Parameter **ResiliencySettingName** verwenden, um Ihren Resilienztyp zu wählen.
 
--   **ResiliencySettingName:** entweder **Spiegelung** oder **Parität**.
+-   **ResiliencySettingName:** Entweder **Mirror** (Spiegelung) oder **Parity** (Parität).
 
-Im folgenden Beispiel verwendet *"Volume2"* die Dreiwegespiegelung und *"Volume3"* die duale Parität (häufig als "Erasure Coding" bezeichnet).
+Im folgenden Beispiel wird für *„Volume2“* die Drei-Wege-Spiegelung und für *„Volume3“* die duale Parität (häufig als „Erasure Coding“ bezeichnet) verwendet.
 
 ```PowerShell
 New-Volume -FriendlyName "Volume2" -FileSystem CSVFS_ReFS -StoragePoolFriendlyName S2D* -Size 1TB -ResiliencySettingName Mirror
@@ -131,27 +131,27 @@ New-Volume -FriendlyName "Volume3" -FileSystem CSVFS_ReFS -StoragePoolFriendlyNa
 
 ### <a name="example-using-storage-tiers"></a>Beispiel: Verwenden von Speicherebenen
 
-In Bereitstellungen mit drei Arten von Laufwerken kann ein Volume SSD- und HDD-Ebenen umfassen und sich teilweise auf beiden befinden. Ebenso kann ein Volume in Bereitstellungen mit vier oder mehr Servern die Spiegelung und die duale Parität mischen und sich teilweise auf beiden befinden.
+Bei Bereitstellungen mit drei Arten von Laufwerken kann ein Volume für die SSD- und HDD-Ebene übergreifend verwendet werden und jeweils teilweise auf diesen Laufwerken angeordnet werden. Bei Bereitstellungen mit vier oder mehr Servern können für ein Volume Spiegelung und duale Parität so gemischt werden, dass sie darauf jeweils teilweise angeordnet sind.
 
-Damit Sie solche Volumes erstellen können, bietet Direkte Speicherplätze Standardebenenvorlagen namens *Leistung* und *Kapazität*. Darin sind Definitionen für die Dreiwegespiegelung auf den schnelleren Laufwerken (falls zutreffend) und die duale Parität auf den langsameren Laufwerken (sofern zutreffend) gekapselt.
+Als Hilfe bei der Erstellung dieser Volumes werden von „Direkte Speicherplätze“ Standardvorlagen für Ebenen bereitgestellt, die die Bezeichnungen *Leistung* und *Kapazität* haben. Sie enthalten Definitionen für die Drei-Wege-Spiegelung auf den schnelleren Kapazitätslaufwerken (falls zutreffend) und für die duale Parität auf den langsameren Kapazitätslaufwerken (falls zutreffend).
 
-Sie können diese anzeigen, indem Sie das Cmdlet **Get-StorageTier** ausführen.
+Sie können dies anzeigen, indem Sie das Cmdlet **Get-StorageTier** ausführen.
 
 ```PowerShell
 Get-StorageTier | Select FriendlyName, ResiliencySettingName, PhysicalDiskRedundancy
 ```
 
-![PowerShell-Speicherebenen – Screenshot](media/creating-volumes/storage-tiers-screenshot.png)
+![Screenshot: Speicherebenen in PowerShell](media/creating-volumes/storage-tiers-screenshot.png)
 
-Zum Erstellen von Volumes mit mehreren Ebenen verweisen Sie mithilfe der Parameter **StorageTierFriendlyNames** und **StorageTierSizes** des Cmdlets **New-Volume** auf diese Ebenenvorlagen. Beispiel: Das folgende Cmdlet erstellt ein Volume, das die Dreiwegespiegelung und duale Parität im Verhältnis 30:70 mischt.
+Verweisen Sie zum Erstellen von mehrstufigen Volumes auf diese Ebenenvorlagen, indem Sie die Parameter **StorageTierFriendlyNames** und **StorageTierSizes** des Cmdlets **New-Volume** nutzen. Beispielsweise wird mit dem folgenden Cmdlet ein Volume erstellt, für das die Drei-Wege-Spiegelung und die duale Parität im Verhältnis 30:70 gemischt werden.
 
 ```PowerShell
 New-Volume -FriendlyName "Volume4" -FileSystem CSVFS_ReFS -StoragePoolFriendlyName S2D* -StorageTierFriendlyNames Performance, Capacity -StorageTierSizes 300GB, 700GB
 ```
 
-Fertig! Wiederholen Sie diese Schritte ggf., um mehrere Volumes zu erstellen.
+Sie haben es geschafft! Wiederholen Sie diese Schritte bei Bedarf, um mehr als ein Volume zu erstellen.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Übersicht über direkte Speicherplätze](storage-spaces-direct-overview.md)
 - [Planen von Volumes in direkte Speicherplätze](plan-volumes.md)

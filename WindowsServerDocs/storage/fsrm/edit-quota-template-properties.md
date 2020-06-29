@@ -1,6 +1,6 @@
 ---
 title: Bearbeiten von Kontingentvorlageneigenschaften
-description: Dieser Artikel beschreibt, wie Kontingentvorlageneigenschaften bearbeitet werden, um die Änderungen an Kontingenten zu erweitern, die mit der ursprünglichen Kontingentvorlage erstellt wurden
+description: In diesem Artikel wird beschrieben, wie Sie Kontingent Vorlagen Eigenschaften bearbeiten, um Änderungen an Kontingenten, die aus der ursprünglichen Kontingent Vorlage erstellt wurden
 ms.date: 7/7/2017
 ms.prod: windows-server
 ms.technology: storage
@@ -8,41 +8,41 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 37719656e107869b97045af98c1a63744e4f6b38
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f4793616caf9ba4a8f9db09cd1902432323c081b
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403029"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85474037"
 ---
 # <a name="edit-quota-template-properties"></a>Bearbeiten von Kontingentvorlageneigenschaften
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
-Wenn Sie eine Kontingentvorlage ändern, haben Sie die Möglichkeit, diese Änderungen auf Kontingente anzuwenden, die mit der ursprünglichen Kontingentvorlage erstellt wurden. Sie haben die Möglichkeit, nur die Kontingente zu ändern, die der ursprünglichen Vorlage entsprechen oder alle Kontingente zu ändern, die von der ursprünglichen Vorlage abgeleitet sind, unabhängig von den Änderungen, die Sie an den Kontingenten vorgenommen haben, seit sie erstellt wurden. Dieses Feature vereinfacht die Aktualisierung der Eigenschaften der Kontingente, da alle Änderungen an einem zentralen Ort ausgeführt werden können.
+Wenn Sie Änderungen an einer Kontingent Vorlage vornehmen, haben Sie die Möglichkeit, diese Änderungen auf Kontingente auszudehnen, die aus der ursprünglichen Kontingent Vorlage erstellt wurden. Sie können auswählen, ob Sie nur die Kontingente ändern möchten, die noch mit der ursprünglichen Vorlage oder allen Kontingenten, die von der ursprünglichen Vorlage abgeleitet wurden, identisch sind, unabhängig von Änderungen, die seit der Erstellung an den Kontingenten vorgenommen wurden. Diese Funktion vereinfacht die Aktualisierung der Eigenschaften ihrer Kontingente, indem ein zentraler Punkt bereitgestellt wird, an dem alle Änderungen vorgenommen werden können.
 
 > [!Note]
-> Wenn Sie die Änderungen auf alle Kontingente anwenden möchten, die von der ursprünglichen Vorlage abgeleitet wurden, überschreiben Sie alle benutzerdefinierten Kontingente, die Sie erstellt haben.
+> Wenn Sie die Änderungen auf alle Kontingente anwenden, die von der ursprünglichen Vorlage abgeleitet wurden, überschreiben Sie alle benutzerdefinierten Kontingent Eigenschaften, die Sie erstellt haben.
 
-## <a name="to-edit-quota-template-properties"></a>So bearbeiten Sie Kontingentvorlageneigenschaften
+## <a name="to-edit-quota-template-properties"></a>So bearbeiten Sie Kontingent Vorlagen Eigenschaften
 
-1.  Wählen Sie im Dialogfeld **Kontingentvorlagen** die zu ändernde Vorlage aus.
+1.  Wählen Sie in **Kontingent Vorlagen**die Vorlage aus, die Sie ändern möchten.
 
-2.  Klicken Sie mit der rechten Maustaste auf die Kontingentvorlage und klicken Sie dann auf **Vorlageneigenschaften bearbeiten** (oder wählen Sie im Bereich **Aktionen** unter **Ausgewählte Kontingentvorlagen** die Option **Kontingentvorlagen bearbeiten** aus). Das Dialogfeld **Kontingentvorlageneigenschaften** wird geöffnet.
+2.  Klicken Sie mit der rechten Maustaste auf die Kontingent Vorlage, und klicken Sie dann auf **Vorlagen Eigenschaften bearbeiten** (oder wählen Sie im Bereich **Aktionen** unter **ausgewählte Kontingent Vorlagen** die Option **Vorlagen Eigenschaften bearbeiten**aus). Dadurch wird das Dialogfeld **Eigenschaften der Kontingent Vorlage** geöffnet.
 
-3.  Führen Sie alle notwendigen Änderungen aus. Die Einstellungs- und Benachrichtigungsoptionen sind mit denen identisch, die Sie einstellen können, wenn Sie eine Kontingentvorlage erstellen. Optional können Sie die Eigenschaften einer anderen Vorlage kopieren und sie für diese ändern.
+3.  Führen Sie alle erforderlichen Änderungen aus. Die Einstellungen und Benachrichtigungs Optionen sind identisch mit den Optionen, die Sie festlegen können, wenn Sie eine Kontingent Vorlage erstellen. Optional können Sie die Eigenschaften aus einer anderen Vorlage kopieren und für diese ändern.
 
-4.  Wenn Sie mit der Bearbeitung der Vorlageneigenschaften fertig sind, klicken Sie auf **OK**. Das Dialogfeld **Aus Vorlage abgeleitete Kontingente aktualisieren** wird geöffnet.
+4.  Wenn Sie mit dem Bearbeiten der Vorlagen Eigenschaften fertig sind, klicken Sie auf **OK**. Dadurch wird das Dialogfeld **aus Vorlage abgeleitete Kontingente aktualisieren** geöffnet.
 
-5.  Wählen Sie den Aktualisierungstyp aus, den Sie anwenden möchten:
+5.  Wählen Sie den Typ des Updates aus, das Sie anwenden möchten:
 
-    -   Wenn Sie Kontingente haben, die seit der Erstellung mit der ursprünglichen Vorlage geändert wurden und Sie diese nicht ändern möchten, wählen Sie **Vorlage nur auf abgeleitete Kontingente anwenden, die mit der Originalvorlage übereinstimmen** aus. Diese Option aktualisiert nur die Kontingente, die seit der Erstellung mit den ursprünglichen Vorlage nicht bearbeitet wurden.
-    -   Wenn Sie alle vorhandenen Kontingente ändern möchten, die mit der ursprünglichen Vorlage erstellt wurden, wählen Sie **Vorlage auf alle abgeleiteten Kontingente anwenden** aus.
-    -   Wenn Sie die vorhandenen Kontingente unverändert beibehalten möchten, wählen Sie **Vorlage nicht auf abgeleitete Kontingente anwenden** aus.
+    -   Wenn Sie über Kontingente verfügen, die geändert wurden, nachdem Sie mit der ursprünglichen Vorlage erstellt wurden, und Sie diese nicht ändern möchten, wählen Sie **Vorlage nur auf abgeleitete Kontingente anwenden, die mit der ursprünglichen Vorlage**identisch sind aus. Mit dieser Option werden nur die Kontingente aktualisiert, die seit der Erstellung mit der ursprünglichen Vorlage nicht bearbeitet wurden.
+    -   Wenn Sie alle vorhandenen Kontingente ändern möchten, die aus der ursprünglichen Vorlage erstellt wurden, wählen Sie **Vorlage auf alle abgeleiteten Kontingente anwenden**aus.
+    -   Wenn Sie die vorhandenen Kontingente unverändert halten möchten, wählen Sie **Vorlage nicht auf abgeleitete Kontingente anwenden**aus.
 
 6.  Klicken Sie auf **OK**.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 -   [Kontingentverwaltung](quota-management.md)
 -   [Erstellen einer Kontingent Vorlage](create-quota-template.md)

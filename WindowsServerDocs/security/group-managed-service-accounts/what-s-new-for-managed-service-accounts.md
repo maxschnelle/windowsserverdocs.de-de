@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: facc816ef46ebeadb30ccabac9c0b3e6a896264d
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 1411f312def0da79de4c18d6d652e0223ea27b48
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80856963"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85474447"
 ---
-# <a name="what39s-new-for-managed-service-accounts"></a>&#39;Neues für verwaltete Dienst Konten
+# <a name="what39s-new-for-managed-service-accounts"></a>Neues für verwaltete Dienst Konten&#39;
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 In diesem Thema für IT-Experten werden die Funktionsänderungen für verwaltete Dienst Konten mit der Einführung des Gruppen verwalteten Dienst Kontos (Group Managed Service Account, GMSA) in Windows Server 2012 und Windows 8 beschrieben.
 
@@ -47,12 +47,12 @@ Auf Computern, auf denen Windows Server 2012 oder Windows 8 ausgeführt wird, ka
 ### <a name="removed-or-deprecated-functionality"></a><a name="interoperability"></a>Entfernte oder veraltete Funktionen
 Für Windows Server 2012 werden die Windows PowerShell-Cmdlets standardmäßig für die Verwaltung der Gruppen verwalteten Dienst Konten anstelle der Server verwalteten Dienst Konten verwendet.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
--   [Übersicht über Gruppen verwaltete Dienst Konten](group-managed-service-accounts-overview.md)
+-   [Group Managed Service Accounts Overview](group-managed-service-accounts-overview.md) (Übersicht über gruppenverwaltete Dienstkonten)
 
--   [Übersicht über Active Directory-Domänendienste](active-directory-domain-services-overview.md)
+-   [Übersicht über die Active Directory Domain Services](active-directory-domain-services-overview.md)
 
--   [Verwaltete Dienst Konten: Grundlegendes, Implementierung, bewährte Methoden und Problembehandlung](https://blogs.technet.com/b/askds/archive/20../managed-service-accounts-understanding-implementing-best-practices-and-troubleshooting.aspx)
+-   [Verwaltete Dienstkonten: Grundlegendes, Implementierung, bewährte Methoden und Problembehandlung](https://blogs.technet.com/b/askds/archive/20../managed-service-accounts-understanding-implementing-best-practices-and-troubleshooting.aspx)
 
 

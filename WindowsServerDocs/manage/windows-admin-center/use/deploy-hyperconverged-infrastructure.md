@@ -6,16 +6,16 @@ ms.author: cosdar
 ms.prod: windows-server
 ms.technology: manage
 ms.date: 11/04/2019
-ms.openlocfilehash: 62bf21dd0afcb99aa77cff8a733e80fc4cffe2fb
-ms.sourcegitcommit: 1da993bbb7d578a542e224dde07f93adfcd2f489
+ms.openlocfilehash: 088fb7b8f03ab7e575b562572f2e29e1b5774760
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73587230"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85474487"
 ---
 # <a name="deploy-hyperconverged-infrastructure-with-windows-admin-center"></a>Bereitstellen hyperkonvergierter Infrastrukturen mit dem Windows Admin Center
 
-> Applies to: Windows Admin Center, Windows Admin Center Preview
+> Gilt für: Windows Admin Center, Windows Admin Center-Vorschau
 
 Sie können Windows Admin Center, [Version 1910](https://docs.microsoft.com/windows-server/manage/windows-admin-center/understand/windows-admin-center) oder höher, verwenden, um eine hyperkonvergierte Infrastruktur mithilfe von mindestens zwei passenden Windows-Servern bereitzustellen. Dieses neue Feature ist ein mehrstufiger Workflow, der Sie durch die Installation von Features, das Konfigurieren von Netzwerken, das Erstellen des Clusters und das Bereitstellen von direkte Speicherplätze und/oder Software-Defined Networking (SDN) (sofern ausgewählt) führt.
 
@@ -31,7 +31,7 @@ Sie können Windows Admin Center, [Version 1910](https://docs.microsoft.com/wind
 Der Clustererstellungs-Workflow im Windows Admin Center führt keine Bare-Metal-Betriebssystem Installation aus. Daher müssen Sie Windows Server zunächst auf jedem Server installieren. Die unterstützten Versionen sind Windows Server 2016, Windows Server 2019 und Windows Server Insider Preview. Sie müssen jeden Server auch der gleichen Active Directory Domäne beitreten, in der das Windows Admin Center ausgeführt wird, bevor Sie den Workflow starten.
 
 ### <a name="2-install-windows-admin-center"></a>2. Installieren Sie das Windows Admin Center.
- 
+
 Befolgen Sie die Anweisungen zum [herunterladen und installieren](https://docs.microsoft.com/windows-server/manage/windows-admin-center/understand/windows-admin-center) der neuesten Version von Windows Admin Center.
 
 ### <a name="3-install-the-cluster-creation-extension"></a>3. Installieren der Erweiterung für die Cluster Erstellung
@@ -68,7 +68,7 @@ Abgesehen von der Behebung dieser Einschränkungen gibt es unzählige potenziell
 
 Verwenden Sie diese Windows PowerShell-Cmdlets, um zu sehen, wie der Workflow ausgeführt wird.
 
-Verwenden Sie das Cmdlet "`Get-WindowsFeature`", um zu sehen, welche Windows-Features installiert sind. Zum Beispiel:
+Verwenden Sie das-Cmdlet, um anzuzeigen, welche Windows-Features installiert sind `Get-WindowsFeature` . Beispiel:
 
 ```PowerShell
 Get-WindowsFeature "Hyper-V", "Failover-Clustering", "Data-Center-Bridging", "BitLocker"
@@ -79,7 +79,7 @@ Get-WindowsFeature "Hyper-V", "Failover-Clustering", "Data-Center-Bridging", "Bi
   > [!Note]
   > Welche Features installiert werden, hängt vom Typ des ausgewählten Clusters ab.
 
-So zeigen Sie Netzwerkadapter und deren Eigenschaften an, z. b. Name, IPv4-Adressen und VLAN-ID:
+So zeigen Sie Netzwerkadapter und deren Eigenschaften an, z. B. Name, IPv4-Adressen und VLAN-ID:
 
 ```PowerShell
 Get-NetAdapter | Where Status -Eq "Up" | Sort InterfaceAlias | Format-Table Name, InterfaceDescription, Status, LinkSpeed, VLANID, MacAddress
@@ -88,7 +88,7 @@ Get-NetAdapter | Where Status -Eq "Up" | Get-NetIPAddress -AddressFamily IPv4 -E
 
 ![Screenshot der PowerShell-Ausgabe](../media/deploy-hyperconverged-infrastructure/script-out-2.png)
 
-So zeigen Sie virtuelle Hyper-V-Switches an und wie physische Netzwerkadapter kombiniert werden:
+So zeigen Sie virtuelle Hyper-V-Switches und die Kombination von physischen Netzwerkadaptern an:
 
 ```PowerShell
 Get-VMSwitch
@@ -176,12 +176,12 @@ Get-VMSwitch | Remove-VMSwitch
 ```
 
 > [!Note]
-> Das Cmdlet "`Remove-VMSwitch`" entfernt automatisch alle virtuellen Adapter und macht den Switch-Embedded-Team Vorgang physischer Adapter rückgängig.
+> `Remove-VMSwitch`Mit dem-Cmdlet werden alle virtuellen Adapter automatisch entfernt, und der Switch-Embedded-Team Vorgang physischer Adapter wird rückgängig machen.
 
 Wenn Sie die Eigenschaften des Netzwerkadapters geändert haben, z. b. Name, IPv4-Adresse und VLAN-ID:
 
 > [!Warning]
-> Mit diesen Cmdlets werden Netzwerkadapter Namen und IP-Adressen entfernt. Make sure you have the information you need to connect afterward, such as an adapter for management that is excluded from the script below. Also make sure that you know how the servers are connected in terms of physical properties like MAC Address, not just the adapter's name in Windows.
+> Mit diesen Cmdlets werden Netzwerkadapter Namen und IP-Adressen entfernt. Stellen Sie sicher, dass Sie über die erforderlichen Informationen verfügen, um eine Verbindung herzustellen, z. b. einen Adapter für die Verwaltung, der aus dem folgenden Skript ausgeschlossen wird. Stellen Sie außerdem sicher, dass Sie wissen, wie die Server in Bezug auf physische Eigenschaften wie Mac-Adresse, nicht nur den Namen des Adapters in Windows verbunden sind.
 
 ```PowerShell
 Get-NetAdapter | Where Name -Ne "Management" | Rename-NetAdapter -NewName $(Get-Random)
@@ -189,30 +189,30 @@ Get-NetAdapter | Where Name -Ne "Management" | Get-NetIPAddress -ErrorAction Sil
 Get-NetAdapter | Where Name -Ne "Management" | Set-NetAdapter -VlanID 0
 ```
 
-You're now ready to start the workflow.
+Sie sind jetzt bereit, um den Workflow zu starten.
 
-## <a name="feedback"></a>Feedback senden
+## <a name="feedback"></a>Feedback
 
-This preview release is all about your feedback. Here are some ways you can reach our team:
+In dieser Vorschauversion geht es um Ihr Feedback. Hier sind einige Möglichkeiten, wie Sie unser Team erreichen können:
 
-- [Submit and vote for feature requests on UserVoice](https://windowsserver.uservoice.com/forums/295071/category/319162?query=%5Bhci%5D)
-- [Join the Windows Admin Center forum on Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Windows-Server-Management/bd-p/WindowsServerManagement)
-- Email hci-deployment [at] microsoft.com
-- Tweet to [@servermgmt](https://twitter.com/servermgmt)
+- [Übermitteln und abstimmen von featureanfragen auf UserVoice](https://windowsserver.uservoice.com/forums/295071/category/319162?query=%5Bhci%5D)
+- [Besuchen Sie das Forum zum Windows Admin Center in der Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Windows-Server-Management/bd-p/WindowsServerManagement)
+- E-Mail HCI-Bereitstellung [at] Microsoft.com
+- Tweet zu[@servermgmt](https://twitter.com/servermgmt)
 
-## <a name="report-an-issue"></a>Report an issue
+## <a name="report-an-issue"></a>Melden eines Problems
 
-Use the channels listed above to report an issue with the cluster creation workflow.
+Verwenden Sie die oben aufgeführten Kanäle, um ein Problem mit dem Cluster Erstellungs Workflow zu melden.
 
-If possible, include the following information to help us quickly reproduce and resolve your issue:
+Fügen Sie nach Möglichkeit die folgenden Informationen ein, um uns bei der schnellen Reproduktion und Lösung Ihres Problems zu unterstützen:
 
-- Type of cluster you selected (example: *"Hyperconverged"* )
-- Step where you encountered the issue (example: *"3.2 Create cluster"* )
-- Version of the cluster creation extension. Go to **Settings** > **Extensions** > **Installed extensions** and see the **Version** column (example: *"1.0.30"* ).
-- Error messages, whether on screen or in the browser console, which you can open by pressing **F12**.
-- Any other relevant information about your environment 
+- Typ des Clusters, den Sie ausgewählt haben (Beispiel: *"hyperkonvergiert"*)
+- Schritt, in dem das Problem aufgetreten ist (Beispiel: *"3,2 CREATE Cluster"*)
+- Version der Erweiterung für die Cluster Erstellung. Wechseln Sie zu **Einstellungen**  >  **Erweiterungen**  >  **installierte Erweiterungen** , und sehen Sie sich die Spalte **Version** an (Beispiel: *"1.0.30"*).
+- Fehlermeldungen, ob auf dem Bildschirm oder in der Browser Konsole, die Sie öffnen können, indem Sie **F12**drücken.
+- Alle anderen relevanten Informationen zu Ihrer Umgebung
 
-## <a name="see-also"></a>Weitere Informationen:
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
-- [Hello, Windows Admin Center](https://docs.microsoft.com/windows-server/manage/windows-admin-center/understand/windows-admin-center)
+- [Hallo, Windows Admin Center](https://docs.microsoft.com/windows-server/manage/windows-admin-center/understand/windows-admin-center)
 - [Bereitstellen von direkten Speicherplätzen](https://docs.microsoft.com/windows-server/storage/storage-spaces/deploy-storage-spaces-direct)

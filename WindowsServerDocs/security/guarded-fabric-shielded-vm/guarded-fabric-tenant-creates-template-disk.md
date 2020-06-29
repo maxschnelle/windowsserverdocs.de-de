@@ -8,37 +8,37 @@ author: rpsqrd
 ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 1f51a0f90f60847929f6fe46732c98f355a6a859
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: d5cdaf915de94e73374459c41b090f197b8f56ef
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80856443"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85475077"
 ---
 # <a name="shielded-vms-for-tenants---creating-a-template-disk-optional"></a>Abgeschirmte VMs für Mandanten: Erstellen eines Vorlagen Datenträgers (optional)
 
 >Gilt für: Windows Server 2019, Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Zum Erstellen einer neuen abgeschirmten VM müssen Sie einen speziell vorbereiteten, signierten Vorlagen Datenträger verwenden. Mithilfe von Metadaten von signierten Vorlagen Datenträgern können Sie sicherstellen, dass die Datenträger nicht geändert werden, nachdem Sie erstellt wurden, und Sie können als Mandant festlegen, welche Datenträger zum Erstellen Ihrer abgeschirmten VMS verwendet werden können. Eine Möglichkeit, diesen Datenträger bereitzustellen, besteht darin, den Mandanten zu erstellen, wie in diesem Thema beschrieben. 
+Zum Erstellen einer neuen abgeschirmten VM müssen Sie einen speziell vorbereiteten, signierten Vorlagen Datenträger verwenden. Mithilfe von Metadaten von signierten Vorlagen Datenträgern können Sie sicherstellen, dass die Datenträger nicht geändert werden, nachdem Sie erstellt wurden, und Sie können als Mandant festlegen, welche Datenträger zum Erstellen Ihrer abgeschirmten VMS verwendet werden können. Eine Möglichkeit, diesen Datenträger bereitzustellen, besteht darin, den Mandanten zu erstellen, wie in diesem Thema beschrieben.
 
 > [!IMPORTANT]
 > Wenn Sie möchten, können Sie stattdessen einen vom hostingdienstanbieter bereitgestellten Vorlagen Datenträger verwenden. Wenn Sie dies tun, ist es wichtig, einen virtuellen Testcomputer mit diesem Vorlagen Datenträger bereitzustellen und ihre eigenen Tools (Antivirus, Sicherheitsrisiko Scanner usw.) auszuführen, um zu überprüfen, ob der Datenträger tatsächlich in einem vertrauenswürdigen Zustand ist.
 
 ## <a name="prepare-an-operating-system-vhdx"></a>Vorbereiten einer vhdx-Betriebssystem Datei
 
-Um einen geschützten Vorlagen Datenträger zu erstellen, müssen Sie zunächst einen Betriebssystem Datenträger vorbereiten, der über den Vorlagen-Assistenten für Datenträger ausgeführt wird. Dieser Datenträger wird als Betriebssystem Datenträger auf abgeschirmten VMS verwendet. Zum Erstellen dieses Datenträgers können Sie beliebige vorhandene Tools verwenden, z. b. Microsoft Desktop Image Service Manager (Mage), oder Sie können manuell einen virtuellen Computer mit einer leeren vhdx einrichten und das Betriebssystem auf diesem Datenträger installieren. Beim Einrichten des Datenträgers müssen die folgenden Anforderungen erfüllt werden, die für die Generation 2 und/oder abgeschirmte VMS spezifisch sind: 
+Um einen geschützten Vorlagen Datenträger zu erstellen, müssen Sie zunächst einen Betriebssystem Datenträger vorbereiten, der über den Vorlagen-Assistenten für Datenträger ausgeführt wird. Dieser Datenträger wird als Betriebssystem Datenträger auf abgeschirmten VMS verwendet. Zum Erstellen dieses Datenträgers können Sie beliebige vorhandene Tools verwenden, z. b. Microsoft Desktop Image Service Manager (Mage), oder Sie können manuell einen virtuellen Computer mit einer leeren vhdx einrichten und das Betriebssystem auf diesem Datenträger installieren. Beim Einrichten des Datenträgers müssen die folgenden Anforderungen erfüllt werden, die für die Generation 2 und/oder abgeschirmte VMS spezifisch sind:
 
-| Anforderung für vhdx | Grund |
+| Anforderung für vhdx | `Reason` |
 |-----------|----|
 |Muss ein GPT-Datenträger (GUID-Partitionstabelle) sein. | Erforderlich für virtuelle Computer der Generation 2 zur Unterstützung von UEFI|
 |Der Datenträgertyp muss Standard und nicht **dynamisch** **sein.** <br>Hinweis: Dies bezieht sich auf den Typ des logischen Datenträgers, nicht auf das von Hyper-V unterstützte "dynamisch erweiterbare" vhdx-Feature. | BitLocker unterstützt keine dynamischen Datenträger.|
 |Der Datenträger verfügt über mindestens zwei Partitionen. Eine Partition muss das Laufwerk enthalten, auf dem Windows installiert ist. Dies ist das Laufwerk, das von BitLocker verschlüsselt wird. Die andere Partition ist die aktive Partition, die den Bootloader enthält und unverschlüsselt bleibt, damit der Computer gestartet werden kann.|Für BitLocker erforderlich|
 |Dateisystem ist NTFS | Für BitLocker erforderlich|
 |Das auf der vhdx installierte Betriebssystem ist einer der folgenden:<br>-Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 <br>-Windows 10, Windows 8.1, Windows 8| Erforderlich zur Unterstützung virtueller Maschinen der Generation 2 und der Microsoft-Vorlage für den sicheren Start|
-|Das Betriebssystem muss generalisiert sein (führen Sie "syspree. exe" aus). | Die Vorlagen Bereitstellung umfasst spezialisierte VMs für die Arbeitsauslastung eines bestimmten Mandanten.| 
+|Das Betriebssystem muss generalisiert sein (sysprep.exe ausführen). | Die Vorlagen Bereitstellung umfasst spezialisierte VMs für die Arbeitsauslastung eines bestimmten Mandanten.|
 
 > [!NOTE]
-> Kopieren Sie den Vorlagen Datenträger in dieser Phase nicht in die VMM-Bibliothek. 
+> Kopieren Sie den Vorlagen Datenträger in dieser Phase nicht in die VMM-Bibliothek.
 
 ### <a name="required-packages-to-create-a-nano-server-template-disk"></a>Erforderliche Pakete zum Erstellen eines Nano Server-Vorlagen Datenträgers
 
@@ -72,9 +72,9 @@ Führen Sie die folgenden Schritte auf einem Computer aus, auf dem Windows Serve
 
         New-SelfSignedCertificate -DnsName publisher.fabrikam.com
 
-4. Starten Sie den Vorlagen Datenträger- **Assistenten** im Ordner " **Verwaltung** " im Startmenü, oder geben Sie " **templatediskwizard. exe** " an einer Eingabeaufforderung ein.
+4. Starten Sie den Vorlagen Datenträger- **Assistenten** im Ordner " **Verwaltung** " im Startmenü, oder geben Sie **TemplateDiskWizard.exe** in eine Eingabeaufforderung ein.
 
-5. Klicken Sie auf der Seite **Zertifikat** auf **Durchsuchen** , um eine Liste mit Zertifikaten anzuzeigen. Wählen Sie das Zertifikat aus, mit dem die Datenträger Vorlage signiert werden soll. Klicken Sie auf **OK** und dann auf **Weiter**.
+5. Klicken Sie auf der Seite **Zertifikat** auf **Durchsuchen** , um eine Liste mit Zertifikaten anzuzeigen. Wählen Sie das Zertifikat aus, mit dem die Datenträger Vorlage signiert werden soll. Klicken Sie auf **OK** und anschließend auf **Weiter**.
 
 6. Klicken Sie auf der Seite virtueller Datenträger auf **Durchsuchen** , um das vhdx auszuwählen, das Sie vorbereitet haben, und klicken Sie dann auf **weiter**.
 
@@ -84,14 +84,14 @@ Führen Sie die folgenden Schritte auf einem Computer aus, auf dem Windows Serve
 
 8. Überprüfen Sie Ihre Auswahl auf der Seite Einstellungen überprüfen des Assistenten. Wenn Sie auf **generieren**klicken, aktiviert der Assistent BitLocker auf dem Vorlagen Datenträger, berechnet den Hash des Datenträgers und erstellt den volumensignaturkatalog, der in den vhdx-Metadaten gespeichert ist.
 
-    Warten Sie, bis der Signatur Vorgang abgeschlossen ist, bevor Sie versuchen, den Vorlagen Datenträger zu starten Der Vorgang kann je nach Größe des Datenträgers einige Zeit in Anspruch nehmen. 
+    Warten Sie, bis der Signatur Vorgang abgeschlossen ist, bevor Sie versuchen, den Vorlagen Datenträger zu starten Der Vorgang kann je nach Größe des Datenträgers einige Zeit in Anspruch nehmen.
 
 9. Auf der Seite **Zusammenfassung** werden Informationen zur Datenträger Vorlage, zum Zertifikat, das zum Signieren der Vorlage verwendet wird, und zum Aussteller des Zertifikats angezeigt. Klicken Sie auf **Schließen**, um den Assistenten zu beenden.
 
 
 Geben Sie dem hostingdienstanbieter die Vorlage für abgeschirmte Datenträger sowie eine geschützte Datendatei an, die Sie erstellen, wie unter [Erstellen von Schutz Daten zum Definieren einer abgeschirmten VM](guarded-fabric-tenant-creates-shielding-data.md)beschrieben.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Bereitstellen von abgeschirmten VMs](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
 - [Geschütztes Fabric und abgeschirmte VMs](guarded-fabric-and-shielded-vms-top-node.md)

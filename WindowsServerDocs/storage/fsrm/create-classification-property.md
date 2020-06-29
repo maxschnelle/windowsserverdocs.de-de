@@ -1,6 +1,6 @@
 ---
 title: Erstellen einer Klassifizierungseigenschaft
-description: Dieser Artikel beschreibt die verwendeten Klassifizierungseigenschaften, um Dateien im angegebenen Ordner oder Volumes Werte zuzuweisen.
+description: In diesem Artikel werden die Klassifizierungs Eigenschaften beschrieben, die zum Zuweisen von Werten zu Dateien in einem angegebenen Ordner oder Volume verwendet werden.
 ms.date: 7/7/2017
 ms.prod: windows-server
 ms.technology: storage
@@ -8,48 +8,48 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: d330f896c71cced8e97701af2c1008b3531e065d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f8e0ba45883385a2b2bf161b04f99f8077fdef28
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71394222"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85473757"
 ---
 # <a name="create-a-classification-property"></a>Erstellen einer Klassifizierungseigenschaft
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
-Klassifizierungseigenschaften werden verwendet, um Dateien im angegebenen Ordner oder Volumes Werte zuzuweisen. Es gibt viele Eigenschaftstypen, die Sie je nach Bedarf auswählen können. In der folgenden Tabelle werden die verfügbaren Eigenschaftstypen beschrieben:
+Klassifizierungs Eigenschaften werden verwendet, um Dateien in einem angegebenen Ordner oder Volume Werte zuzuweisen. Es gibt viele Eigenschafts Typen, aus denen Sie auswählen können, je nach Ihren Anforderungen. In der folgenden Tabelle sind die verfügbaren Eigenschafts Typen definiert.
 
-|Eigenschaft | Beschreibung |
+|Eigenschaft | BESCHREIBUNG |
 | --- | --- |
-| Ja/Nein | Eine boolesche Eigenschaft kann **Ja** oder **Nein** sein. Wenn Sie mehrere Werte während der Klassifizierung oder von Dateiinhalten kombinieren, wird ein **Nein**-Wert wird von einem **Ja**‑Wert überschrieben. |
-| Datum und Uhrzeit | Eine einfache Datum/Uhrzeit-Eigenschaft. Wenn Sie mehrere Werte während der Klassifizierung oder aus Dateiinhalten kombinieren, verhindern die in Konflikt stehenden Werte eine erneute Klassifizierung. |
-| Number | Eigenschaft einer einfachen Zahl. Wenn Sie mehrere Werte während der Klassifizierung oder aus Dateiinhalten kombinieren, verhindern die in Konflikt stehenden Werte eine erneute Klassifizierung. |
-| Sortierte Liste | Eine Liste der festen Werte. Einer Eigenschaft kann jeweils nur ein Wert zugewiesen werden. Wenn Sie mehrere Werte während der Klassifizierung oder von Dateiinhalten kombinieren, wird der höchste Wert der Liste verwendet. |
-| Zeichenfolge | Eigenschaft einer einfachen Zeichenfolge. Wenn Sie mehrere Werte während der Klassifizierung oder aus Dateiinhalten kombinieren, verhindern die in Konflikt stehenden Werte eine erneute Klassifizierung. |
-| Mehrfachauswahl | Eine Liste der Werte, die einer Eigenschaft zugewiesen werden können. Einer Eigenschaft können mehrere Werte zugewiesen werden. Wenn Sie mehrere Werte während der Klassifizierung oder von Dateiinhalten kombinieren, wird jeder Wert der Liste verwendet. |
-| Mehrteilige Zeichenfolge | Eine Liste der Zeichenfolgen, die einer Eigenschaft zugewiesen werden können. Einer Eigenschaft können mehrere Werte zugewiesen werden. Wenn Sie mehrere Werte während der Klassifizierung oder von Dateiinhalten kombinieren, wird jeder Wert der Liste verwendet. |
+| Ja/Nein | Eine boolesche Eigenschaft, die " **Yes** " oder " **No**" sein kann. Wenn Sie mehrere Werte bei der Klassifizierung oder dem Dateiinhalt kombinieren, wird ein **kein** Wert durch einen **Yes** -Wert überschrieben. |
+| Datum/Uhrzeit | Eine einfache Datums-/Uhrzeit-Eigenschaft. Beim Kombinieren mehrerer Werte während der Klassifizierung oder des Datei Inhalts wird durch widersprüchliche Werte die erneute Klassifizierung verhindert. |
+| Number | Eine einfache Number-Eigenschaft. Beim Kombinieren mehrerer Werte während der Klassifizierung oder des Datei Inhalts wird durch widersprüchliche Werte die erneute Klassifizierung verhindert. |
+| Geordnete Liste | Eine Liste fester Werte. Einer Eigenschaft kann jeweils nur ein Wert zugewiesen werden. Wenn Sie mehrere Werte bei der Klassifizierung oder dem Dateiinhalt kombinieren, wird der Wert, der in der Liste am höchsten ist, verwendet. |
+| String | Eine einfache Zeichen folgen Eigenschaft. Beim Kombinieren von mehreren Werten während der Klassifizierung oder bei in Konflikt stehenden Werten von Dateiinhalten wird eine erneute Klassifizierung verhindert. |
+| Mehrere Auswahlmöglichkeiten | Eine Liste von Werten, die einer Eigenschaft zugewiesen werden können. Einer Eigenschaft können jeweils mehr als ein Wert zugewiesen werden. Beim Kombinieren mehrerer Werte während der Klassifizierung oder des Datei Inhalts wird jeder Wert in der Liste verwendet. |
+| Mehrere Zeichen folgen | Eine Liste von Zeichen folgen, die einer Eigenschaft zugewiesen werden können. Einer Eigenschaft können jeweils mehr als ein Wert zugewiesen werden. Beim Kombinieren mehrerer Werte während der Klassifizierung oder des Datei Inhalts wird jeder Wert in der Liste verwendet. |
 
 <br />
 
-Die folgende Anweisung führt Sie durch den Prozess zum Erstellen einer Klassifizierungseigenschaft.
+Das folgende Verfahren führt Sie durch den Prozess der Erstellung einer Klassifizierungs Eigenschaft.
 
-## <a name="to-create-a-classification-property"></a>So erstellen Sie eine Klassifizierungseigenschaft
+## <a name="to-create-a-classification-property"></a>So erstellen Sie eine Klassifizierungs Eigenschaft
 
-1.  Klicken Sie in der **Klassifizierungsverwaltung** auf den Knoten **Klassifizierungseigenschaft**.
+1.  Klicken Sie in der **Klassifizierungs Verwaltung**auf den Knoten **Klassifizierungs Eigenschaften** .
 
-2.  Klicken Sie mit der rechten Maustaste auf **Klassifizierungseigenschaften** und dann auf **Neue Eigenschaft erstellen** (oder klicken Sie auf **Neue Eigenschaft erstellen** im Bereich **Aktionen** aus). Daraufhin wird das Dialogfeld **Definitionen für Klassifizierungseigenschaften** geöffnet.
+2.  Klicken Sie mit der rechten Maustaste auf **Klassifizierungs Eigenschaften**, und klicken Sie dann auf **Eigenschaft erstellen** (oder klicken Sie im **Aktions** Bereich auf **Eigenschaft erstellen** ). Dadurch wird das Dialogfeld **Klassifizierungs Eigenschafts Definitionen** geöffnet.
 
-3.  Geben Sie im Textfeld **Eigenschaftenname** einen Namen für die Eigenschaft ein.
+3.  Geben Sie im Textfeld **Eigenschaftsname** einen Namen für die Eigenschaft ein.
 
-4.  Geben Sie in das Textfeld **Beschreibung** eine optionale Beschreibung für die Eigenschaft ein.
+4.  Fügen Sie im Textfeld **Beschreibung** eine optionale Beschreibung für die Eigenschaft hinzu.
 
 5.  Wählen Sie im Dropdownmenü **Eigenschaftentyp** einen Eigenschaftentyp aus der Liste aus.
 
 6.  Klicken Sie auf **OK**.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 -   [Erstellen einer automatischen Klassifizierungsregel](create-automatic-classification-rule.md)
 -   [Klassifizierungsverwaltung](classification-management.md)

@@ -8,12 +8,12 @@ ms.topic: article
 author: eldenchristensen
 ms.date: 02/20/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: d9ebc40b69373dafbebdb87f2abe624a5a7a4375
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: fff78ddc831ae9f6cba103d7630da3afec2c87d7
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80858953"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85474237"
 ---
 # <a name="using-storage-spaces-direct-with-the-csv-in-memory-read-cache"></a>Verwenden von direkte Speicherplätze mit dem CSV-in-Memory-Lesecache
 > Gilt für: Windows Server 2016, Windows Server 2019
@@ -24,7 +24,7 @@ Direkte Speicherplätze ist mit dem in-Memory-Lese Cache (freigegebenes Clusterv
 
 Da der in-Memory-Cache Server lokal ist, verbessert er die Daten Lokalität für hyperkonvergierte direkte Speicherplätze-bereit Stellungen: zuletzt verwendete Lesevorgänge werden im Arbeitsspeicher auf demselben Host zwischengespeichert, auf dem der virtuelle Computer ausgeführt wird, und reduzieren, wie oft Lesevorgänge über das Netzwerk durchgeführt werden. Dies führt zu einer geringeren Latenz und einer besseren Speicherleistung.
 
-## <a name="planning-considerations"></a>Planungsüberlegungen
+## <a name="planning-considerations"></a>Überlegungen zur Planung
 
 Der in-Memory-Lese Cache ist am effektivsten für Workloads mit vielen Lesevorgängen, wie z. b. Virtual Desktop Infrastructure (VDI). Wenn die Arbeitsauslastung hingegen äußerst Schreib intensiv ist, kann der Cache mehr Aufwand als den Wert verursachen und sollte deaktiviert werden.
 
@@ -40,7 +40,7 @@ Sie können bis zu 80% des gesamten physischen Arbeitsspeichers für den CSV-Cac
 
 Der CSV-Speicher in-Memory-Lese Cache ist sowohl in Windows Server 2016 als auch in Windows Server 2019 mit der gleichen Funktionalität verfügbar. In Windows Server 2016 ist es standardmäßig deaktiviert. In Windows Server 2019 ist es standardmäßig aktiviert, wobei 1 GB zugeordnet werden.
 
-| BS-Version          | Standard-CSV-Cache Größe |
+| Betriebssystemversion          | Standard-CSV-Cache Größe |
 |---------------------|------------------------|
 | Windows Server 2016 | 0 (deaktiviert)           |
 | Windows Server 2019 | 1 GiB                   |
@@ -51,7 +51,7 @@ Führen Sie Folgendes aus, um zu sehen, wie viel Arbeitsspeicher mithilfe von Po
 (Get-Cluster).BlockCacheSize
 ```
 
-Der zurückgegebene Wert erfolgt in mebibytes (MIB) pro Server. `1024` stellt z. b. 1 gibibyte (Gib) dar.
+Der zurückgegebene Wert erfolgt in mebibytes (MIB) pro Server. Beispielsweise `1024` stellt 1 gibibyte (Gib) dar.
 
 Ändern Sie diesen Wert mithilfe von PowerShell, um zu ändern, wie viel Arbeitsspeicher zugeordnet wird. Führen Sie z. b. Folgendes aus, um 2 Gib pro Server zuzuordnen:
 
@@ -69,6 +69,6 @@ Get-ClusterSharedVolume | ForEach {
 }
 ```
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Übersicht über direkte Speicherplätze](storage-spaces-direct-overview.md)

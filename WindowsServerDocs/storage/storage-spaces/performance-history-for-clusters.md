@@ -7,12 +7,12 @@ ms.topic: article
 author: cosmosdarwin
 ms.date: 02/02/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 7a5eec986d6e7d633f1917c599ab6fcd244c7008
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 8ee2e85723cc2449e8cb9c42ccb7d6b761482e3a
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80856203"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85474867"
 ---
 # <a name="performance-history-for-clusters"></a>Leistungs Verlauf für Cluster
 
@@ -20,7 +20,7 @@ ms.locfileid: "80856203"
 
 In diesem Unterthema des [Leistungs Verlaufs für direkte Speicherplätze](performance-history.md) wird der Leistungs Verlauf beschrieben, der für Cluster erfasst wurde.
 
-Es sind keine Reihen vorhanden, die von der Cluster Ebene stammen. Stattdessen werden Server Reihen, wie z. b. `clusternode.cpu.usage`, für alle Server im Cluster aggregiert. Volumereihen, wie z. b. `volume.iops.total`, werden für alle Volumes im Cluster aggregiert. Und Laufwerks Reihen, wie z. b. `physicaldisk.size.total`, werden für alle Laufwerke im Cluster aggregiert.
+Es sind keine Reihen vorhanden, die von der Cluster Ebene stammen. Stattdessen werden Server Reihen, wie z `clusternode.cpu.usage` . b., für alle Server im Cluster aggregiert. Volumereihen, wie z `volume.iops.total` . b., werden für alle Volumes im Cluster aggregiert. Und Laufwerks Reihen, wie z `physicaldisk.size.total` . b., werden für alle Laufwerke im Cluster aggregiert.
 
 ## <a name="usage-in-powershell"></a>Verwendung in PowerShell
 
@@ -30,6 +30,6 @@ Verwenden Sie das Cmdlet " [Get-Cluster](https://docs.microsoft.com/powershell/m
 Get-Cluster | Get-ClusterPerf
 ```
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
-- [Leistungs Verlauf für direkte Speicherplätze](performance-history.md)
+- [Leistungsverlauf für Direkte Speicherplätze](performance-history.md)

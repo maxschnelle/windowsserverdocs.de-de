@@ -8,89 +8,89 @@ ms.topic: article
 author: gawatu
 ms.date: 10/17/2018
 ms.assetid: ''
-ms.openlocfilehash: 752073e4f12db3b994261a70a9306d45b9a00d77
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 3efbc6ae29ddaa4f3a4a4f2a2409bbeb87fec2ed
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80861513"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85475167"
 ---
 # <a name="mirror-accelerated-parity"></a>Durch Spiegelung beschleunigte Parität
 
 >Gilt für: Windows Server 2019, Windows Server 2016
 
-Speicherplätze können eine Fehlertoleranz für Daten mithilfe von zwei grundlegende Verfahren anbieten: Spiegelung und Parität. In [Direkte Speicherplätze](../storage-spaces/storage-spaces-direct-overview.md) führt ReFS die durch Spiegelung beschleunigte Parität ein und ermöglicht so das Erstellen von Volumes, die sowohl Spiegelungs- als auch Paritätsresilienz verwenden. Die durch Spiegelung beschleunigte Parität bietet kostengünstigen, platzsparenden Speicher ohne Kompromisse bei der Leistung an. 
+Speicherplätze können Fehlertoleranz für Daten mit zwei grundlegenden Techniken bereitstellen: Spiegelung und Parität. In [direkte Speicherplätze](../storage-spaces/storage-spaces-direct-overview.md)führt Refs eine Spiegel beschleunigte Parität ein, mit der Sie Volumes erstellen können, die sowohl Spiegel-als auch Paritäts resilienzen verwenden. Die Spiegel Beschleunigung bietet eine kostengünstige, Speicherplatz effiziente Speicherung ohne Leistungseinbußen.
 
-![Durch Spiegelung beschleunigte Paritätsvolumes](media/mirror-accelerated-parity/Mirror-Accelerated-Parity-Volume.png)
+![Spiegel-Accelerated-Parität-Volume](media/mirror-accelerated-parity/Mirror-Accelerated-Parity-Volume.png)
 
 ## <a name="background"></a>Hintergrund
 
-Spiegelungs- und Paritätsresilienz-Schemata weisen grundlegend unterschiedliche Speicherplatz- und Leistungsanforderungsmerkmale auf:
-- Die Spiegelungs Resilienz ermöglicht es Benutzern, eine schnelle Schreibleistung zu erzielen, aber das Replizieren der Daten für jede Kopie ist nicht Speicher fähig. 
-- Parität, muss andererseits für jeden Schreibvorgang die Parität neu berechnen, worunter die zufällige Leistung der Schreibvorgänge leidet. Parität ermöglicht dem Benutzer allerdings, seine Daten Speicherplatz mit einer größeren Effizienz des Speicherplatzes zu speichern. Weitere Informationen finden Sie unter [Fehlertoleranz für Speicherplätze](../storage-spaces/Storage-Spaces-Fault-Tolerance.md).
+Die resilienzschemas für Spiegelung und Parität haben grundlegend andere Speicher-und Leistungsmerkmale:
+- Die Spiegelungs Resilienz ermöglicht es Benutzern, eine schnelle Schreibleistung zu erzielen, aber das Replizieren der Daten für jede Kopie ist nicht Speicher fähig.
+- Parität hingegen muss die Parität für jeden Schreibvorgang neu berechnen, wodurch die Leistung von zufälligem Schreibvorgang beeinträchtigt wird. Parität ermöglicht es Benutzern jedoch, Ihre Daten mit größerer Speicherplatz Effizienz zu speichern. Weitere Informationen finden Sie unter [Fehlertoleranz für Speicherplätze](../storage-spaces/Storage-Spaces-Fault-Tolerance.md).
 
-Daher bietet die Spiegelung leistungsrelevante Speicher, während die Parität eine bessere Nutzung der Speicherkapazität bietet. Bei einer durch Spiegelung beschleunigten Parität nutzt ReFS die Vorteile der einzelnen Resilienztypen, um sowohl effizient Speicherkapazität als auch leistungsrelevante Speicherung durch die Kombination der beiden Resilienzschematas innerhalb eines einzelnen Volumes zu bieten.
+Daher ist die Spiegelung vorab freigegeben, um Leistungs sensitiven Speicher bereitzustellen, während die Parität eine verbesserte Auslastung der Speicherkapazität bietet. Bei der Zusammenführung der Spiegel Beschleunigung nutzt Refs die Vorteile der einzelnen resilienztypen, um die Kapazitäts effiziente und leistungsabhängige Speicherung zu gewährleisten, indem beide resilienzschemas innerhalb eines einzelnen Volumes kombiniert werden.
 
-## <a name="data-rotation-on-mirror-accelerated-parity"></a>Daten-Drehung auf durch Spiegelung beschleunigte Parität
+## <a name="data-rotation-on-mirror-accelerated-parity"></a>Daten Drehung bei Spiegel beschleunigter Parität
 
-ReFS dreht aktiv Daten zwischen Spiegelung und Parität, und zwar in Echtzeit. Dadurch können eingehende Schreibvorgänge schnell auf die Spiegelung geschrieben werden, und anschließend auf die Parität gedreht und so auf effiziente Weise gespeichert werden. Dadurch werden eingehende E/A-Vorgänge schnell in der Spiegelung bearbeitet, während kalte Daten effizient in der Parität bearbeitet werden. Dies bietet gleichzeitig eine optimale Leistung und kostengünstigen Speicher auf demselben Datenträger. 
+Refs dreht Daten in Echtzeit zwischen Spiegelung und Parität. Dadurch können eingehende Schreibvorgänge schnell in die Spiegelung geschrieben und dann in die Parität gedreht werden, um effizient gespeichert zu werden. Auf diese Weise werden eingehende e/a-Vorgänge schnell in der Spiegelung gewartet, während die kalten Daten effizient in Parität gespeichert werden, sodass sowohl eine optimale Leistung als auch ein verlorener Speicherplatz auf demselben Volume erzielt werden
 
-Um Daten zwischen Spiegelung und Parität zu drehen, teilt ReFS das Volume logisch in Regionen von 64 MiB ein, der Einheit der Drehung. Das folgende Bild zeigt ein in Regionen unterteiltes durch Spiegelung beschleunigtes Paritätsvolume an. 
+Um Daten zwischen Spiegelung und Parität zu drehen, dividiert Refs das Volume logisch in Bereiche der 64-MIB-Einheit, die die Dreheinheit darstellt. Die folgende Abbildung zeigt ein in Regionen unterteilte Spiegel beschleunigtes Paritäts Volume.
 
-![Durch Spiegelung beschleunigte Paritätsvolumes mit Speichercontainern](media/mirror-accelerated-parity/Mirror-Accelerated-Parity-Volume-with-Storage-Containers.png)
+![Spiegel-Accelerated-Parität-Volume-with-Storage-Containers](media/mirror-accelerated-parity/Mirror-Accelerated-Parity-Volume-with-Storage-Containers.png)
 
-ReFS beginnt, vollständige Regionen von Spiegelung auf Parität zu drehen, sobald die Spiegelebene eine angegebene Kapazität erreicht hat. Anstatt die Daten sofort von der Spiegelung auf die Parität zu verschieben, wartet ReFS und speichert Daten so lange wie möglich in der Spiegelung, was ReFS ermöglicht, auch weiterhin eine optimale Leistung für die Daten zu bieten (siehe "E/A-Leistung" weiter unten). 
+Refs beginnt mit dem Drehen der vollständigen Bereiche von der Spiegelung in die Parität, sobald die Spiegelebene eine angegebene Kapazitäts Stufe erreicht hat. Anstatt Daten von Spiegelung in Parität zu verschieben, wartet Refs so lange wie möglich auf die Spiegelung und speichert Daten in der Spiegelung. Dies ermöglicht es Refs, die optimale Leistung für die Daten bereitzustellen (siehe "e/a-Leistung" weiter unten).
 
-Wenn Daten von der Spiegelung auf die Parität verschoben werden, werden die Daten gelesen, wird die Paritätscodierung berechnet und die Daten werden anschließend in die Parität geschrieben. Die folgende Animation zeigt dies mithilfe eines gespiegelten Drei-Wege-Bereichs, der während der Drehung in einer Erasure codierten Region konvertiert wird:
+Wenn Daten von Spiegelung in Parität verschoben werden, werden die Daten gelesen, Paritäts Codierungen werden berechnet, und dann werden die Daten in die Parität geschrieben. In der folgenden Animation wird dies mithilfe eines drei-Wege-gespiegelten Bereichs veranschaulicht, der während der Rotation in einen von Löschung codierten Bereich konvertiert wird:
 
-![Durch Spiegelung beschleunigte Parität-Drehung](media/mirror-accelerated-parity/Container-Rotation.gif)
+![Spiegelung-Accelerated-Parität-Rotation](media/mirror-accelerated-parity/Container-Rotation.gif)
 
-## <a name="io-on-mirror-accelerated-parity"></a>E/A auf durch Spiegelung beschleunigter Parität
-### <a name="io-behavior"></a>E/A-Verhalten
-**Schreibvorgänge:** eingehende Schreibvorgänge von ReFS-Services geschehen auf drei verschiedene Arten:
+## <a name="io-on-mirror-accelerated-parity"></a>E/a auf der Spiegel beschleunigten Parität
+### <a name="io-behavior"></a>IO-Verhalten
+**Schreibvorgänge:** Eingehende Schreibvorgänge von refs-Diensten auf drei verschiedene Arten:
 
 1.  **Zu spiegelnde Schreibvorgänge:**
 
-    - **1a.** wenn der eingehende Schreibvorgang vorhandene Daten in der Spiegelung ändert, ändert ReFS die vorhandenen Daten.
-    - **1B.** Wenn der eingehende Schreibvorgang ein neuer Schreibvorgang ist und ReFS erfolgreich genügend freien Speicherplatz in der Spiegelung für den Schreibvorgang findet, schreibt schreibt ReFS auf die Spiegelung.
-    ![Schreib-zu-Spiegelung](media/mirror-accelerated-parity/Write-to-Mirror.png)
+    - **1a.** Wenn der eingehende Schreibvorgang vorhandene Daten in der Spiegelung ändert, werden die Daten von refs geändert.
+    - **1B.** Wenn der eingehende Schreibvorgang ein neuer Schreibvorgang ist und Refs den freien Speicherplatz in der Spiegelung erfolgreich finden kann, um diesen Schreibvorgang zu verarbeiten, schreiben Refs in die Spiegelung.
+    ![Schreiben in Spiegelung](media/mirror-accelerated-parity/Write-to-Mirror.png)
 
 2. **Schreibvorgänge in Spiegelung, neu zugeordnet aus Parität:**
 
-    Wenn der eingehende Schreibvorgang Daten ändert, die gleichwertig sind, und Refs den freien Speicherplatz in der Spiegelung erfolgreich finden kann, um den eingehenden Schreibvorgang zu verarbeiten, werden die vorherigen Daten von refs zunächst in der Parität ungültig und anschließend in die Spiegelung geschrieben. Diese Ungültigkeit ist ein schneller und kostengünstiger Metadatenvorgang, der nennenswerten dazu beiträgt, die Leistung der Schreibvorgänge für die Parität zu verbessern.
-    ![erneut zugeordneter Schreib](media/mirror-accelerated-parity/Reallocated-Write.png)
+    Wenn der eingehende Schreibvorgang Daten ändert, die gleichwertig sind, und Refs den freien Speicherplatz in der Spiegelung erfolgreich finden kann, um den eingehenden Schreibvorgang zu verarbeiten, werden die vorherigen Daten von refs zunächst in der Parität ungültig und anschließend in die Spiegelung geschrieben. Diese Invalidierung ist ein schneller und kostengünstiger Metadatenvorgang, der zur sinnvollen Verbesserung der auf Parität vorgenommenen Schreibleistung beiträgt.
+    ![Neu zugeordnet-schreiben](media/mirror-accelerated-parity/Reallocated-Write.png)
 
 3. **Schreibvorgänge in Parität:**
-    
-    Wenn ReFS nicht genügend freien Speicherplatz in der Spiegelung finden kann, schreibt ReFS neue Daten auf die Parität oder ändert direkt vorhandene Daten in der Parität. Der Abschnitt "Leistungsoptimierungen" enthält Richtlinien, die die Schreibvorgänge auf die Parität minimieren.
-    ![Schreib-zu-Parität-](media/mirror-accelerated-parity/Write-to-Parity.png)
 
-**Lesevorgänge:** ReFS liest direkt aus der Ebene der relevanten Daten. Wenn die Parität mit HDDs erstellt wird, wird der Cache in den direkten Speicherplätzen diese Daten zur Beschleunigung zukünftiger Lesevorgänge zwischenspeichern. 
+    Wenn von refs nicht ausreichend freier Speicherplatz in der Spiegelung gefunden werden kann, werden neue Daten von refs in die Parität geschrieben oder vorhandene Daten direkt in Parität geändert. Der Abschnitt "Leistungsoptimierungen" enthält Anleitungen, mit denen Sie die Parität von Schreibvorgängen minimieren können.
+    ![Schreiben in Parität](media/mirror-accelerated-parity/Write-to-Parity.png)
+
+**Lesevorgänge:** Refs liest direkt aus der Ebene, die die relevanten Daten enthält. Wenn die Parität mit HDDs erstellt wird, werden diese Daten vom Cache in direkte Speicherplätze zwischengespeichert, um zukünftige Lesevorgänge zu beschleunigen.
 
 > [!NOTE]
-> Lesevorgänge bringen ReFS nie dazu, Daten zurück auf die Spiegelebene zu drehen. 
+> Lesevorgänge bewirken nie, dass Refs Daten zurück in die Spiegelebene drehen.
 
 ### <a name="io-performance"></a>IO-Leistung
 
-**Schreibvorgänge:** jede Art Schreibvorgang, der oben beschrieben wurde, verfügt über seine eigenen Leistungsmerkmale. Grob gesagt sind Schreibvorgänge auf der Spiegelebene viel schneller als neu zugeordnete Schreibvorgänge und neu zugeordnete Schreibvorgänge sind deutlich schneller als Schreibvorgänge, die direkt auf Paritätsebene ausgeführt werden. Diese Beziehung wird durch die folgende Ungleichheit veranschaulicht: 
+**Schreibvorgänge:** Jeder oben beschriebene Schreib Typ weist seine eigenen Leistungsmerkmale auf. Grob gesagt sind Schreibvorgänge auf der Spiegelebene viel schneller als neu zugewiesene Schreibvorgänge, und neu zugeordnete Schreibvorgänge sind deutlich schneller als Schreibvorgänge, die direkt in die Paritäts Ebene gestellt werden. Diese Beziehung wird durch die folgende Ungleichheit veranschaulicht:
 
 
-- **Spiegelebene > neu zugeordnete Schreibvorgänge > > Parität-Ebene**
+- **Spiegelebene > neu zugeordnete Schreibvorgänge >> Paritäts Ebene**
 
 
-**Lesevorgänge:** es gibt keine negativen Leistungseinbußen beim Lesen aus der Parität:
-- Wenn Spiegelung und Parität mit dem gleichen Medientyp erstellt werden, ist die Leistung der Lesevorgänge gleichwertig. 
-- Wenn Spiegelung und Parität nicht mit dem gleichen Medientyp erstellt werden – z. B. gespiegelte SSDs, Paritäts-HDDs – dient [der Cache in den direkten Speicherplätzen](../storage-spaces/understand-the-cache.md) als Cache für heiße Daten, um alle Lesevorgänge von der Parität aus zu beschleunigen.
+**Lesevorgänge:** Beim Lesen von Parität gibt es keine sinnvollen negativen Auswirkungen auf die Leistung:
+- Wenn Spiegelung und Parität mit demselben Medientyp erstellt werden, entspricht die Leseleistung.
+- Wenn Spiegelung und Parität mit verschiedenen Medientypen erstellt werden – gespiegelte SSDs, Paritäts-HDDs, z. –.[der Cache in direkte Speicherplätze](../storage-spaces/understand-the-cache.md) unterstützt das Zwischenspeichern von Daten, um Lesevorgänge aus Parität zu beschleunigen.
 
-## <a name="refs-compaction"></a>ReFS-Komprimierung
+## <a name="refs-compaction"></a>Refs-Komprimierung
 
-In der halbjährlichen Version dieses Jahres führt Refs eine Komprimierung ein, die die Leistung für Daten mit Spiegelungs beschleunigter Parität von 90 +% erheblich verbessert. 
+In der halbjährlichen Version dieses Jahres führt Refs eine Komprimierung ein, die die Leistung für Daten mit Spiegelungs beschleunigter Parität von 90 +% erheblich verbessert.
 
-**Hintergrund:** Wenn zuvor die durch Spiegelung beschleunigte Paritätsvolumes voll waren, wurde die Leistung dieser Volumes oft beeinträchtigt. Die Leistung nimmt ab, da die heißen und kalten Daten der gesamten das Volume im Laufe der Zeit vermischt werden. Dies bedeutet, dass weniger heiße Daten in der Spiegelung gespeichert werden können, da kalte Daten in der Spiegelung den Speicherplatz belegen, der andernfalls von heißen Daten verwendet werden könnte. Das Speichern von heißen Daten in der Spiegelung ist entscheidend, um die optimale Leistung aufrechtzuerhalten, da direkte Schreibvorgänge auf die Spiegelung schneller als das neue Zuordnen von Schreibvorgängen ist, und die Größenordnungen schneller als direkte Schreibvorgänge auf die Parität sind. Daher wirkt sich das Speichern kalter Daten in der Spiegelung negativ auf die Leistung aus, da es die Wahrscheinlichkeit verringert, dass ReFS Schreibvorgänge direkt auf die Spiegelung schreibt. 
+**Hintergrund:** Bisher konnten die Leistung dieser Volumes beeinträchtigt werden, da Volumes mit Spiegelungs beschleunigter Parität vollständig waren. Die Leistung wird beeinträchtigt, da heiße und kalte Daten während der volumeüberstunden gemischt werden. Dies bedeutet, dass weniger heiße Daten in der Spiegel Datenbank gespeichert werden können, da kalte Datenspeicher Platz belegen, der andernfalls von heißen Daten verwendet werden kann. Das Speichern von heißen Daten in der Spiegelung ist wichtig für die Aufrechterhaltung der hohen Leistung, da Schreibvorgänge direkt in die Spiegelung erheblich schneller sind als die Neuzuordnung von Schreibvorgängen und der Größenordnung schneller als direkt Daher ist das vorhanden sein von kaltdaten in Spiegelung für die Leistung schlecht, da dadurch die Wahrscheinlichkeit verringert wird, dass Refs Schreibvorgänge direkt in die Spiegelung schreiben kann.
 
-Die ReFS-Komprimierung behandelt diese Leistungsprobleme durch das Freigeben von Speicherplatz in der Spiegelung für heiße Daten. Eine Komprimierung konsolidiert zuerst alle Daten – von Spiegelung und Parität – in Parität. Dies reduziert die Fragmentierung des Volumes und erhöht den adressierbaren Speicherplatz in der Spiegelung. Was noch wichtiger ist: dieser Prozess ermöglicht ReFS, heiße Daten wieder in der Spiegelung zu konsolidieren:
--   Wenn neue Schreibvorgänge eingehen, werden diese in der Spiegelung bearbeitet. Die neu geschriebenen heißen Daten befinden sich daher in der Spiegelung. 
--   Beim Ändern des Schreibvorgangs auf Daten in der Parität führt ReFS einen neu zugeordneten Schreibvorgang durch, damit dieser Schreibvorgang ebenfalls in der Spiegelung bearbeitet wird. Aus diesem Grund werden heiße Daten, die bei der Komprimierung in die Parität verschoben wurden erneut der Spiegelung zugewiesen. 
+Refs-Komprimierung behandelt diese Leistungsprobleme, indem für heiße Datenspeicher Platz in der Spiegelung freigegeben wird. Compaction konsolidiert zuerst alle Daten – von Spiegelung und Parität – in Parität. Dies reduziert die Fragmentierung innerhalb des Volumes und erhöht den Umfang des adressierbaren Speicherplatzes in der Spiegelung. Noch wichtiger ist, dass dieser Prozess es Refs ermöglicht, heiße Daten zurück in die Spiegelung zu konsolidieren:
+-   Wenn neue Schreibvorgänge eingehen, werden Sie in der Spiegelung gewartet. Daher befinden sich neu geschriebene, heiße Daten in Spiegelung.
+-   Wenn ein ändernder Schreibvorgang an Daten in Parität vorgenommen wird, wird von refs ein neu zugeordneter Schreibvorgang durchgeführt, sodass dieser Schreibvorgang auch in Spiegelung verarbeitet wird. Folglich werden heiße Daten, die während der Komprimierung in die Parität verschoben wurden, wieder in den Spiegel zugewiesen.
 
 ## <a name="performance-optimizations"></a>Leistungsoptimierungen
 
@@ -99,8 +99,8 @@ Die ReFS-Komprimierung behandelt diese Leistungsprobleme durch das Freigeben von
 
 ### <a name="performance-counters"></a>Leistungsindikatoren
 
-ReFS behält Leistungsindikatoren, um die Leistung der durch Spiegelung beschleunigten Parität zu bewerten. 
-- Wie oben im Abschnitt Schreiben in Parität beschrieben, schreiben Refs direkt in die Parität, wenn der freie Speicherplatz in der Spiegelung nicht gefunden werden kann. Das tritt in der Regel dann auf, wenn die gespiegelte Ebene schneller gefüllt wird, als die ReFS Daten auf die Parität drehen kann. Anders ausgedrückt, kann die ReFS-Drehung nicht mit der Aufnahme der Änderungsrate mithalten. Die folgenden Leistungsindikatoren ermitteln, wann ReFS direkt auf die Parität schreibt:
+Refs verwaltet Leistungsindikatoren, um die Leistung der Spiegel beschleunigten Parität zu bewerten.
+- Wie oben im Abschnitt Schreiben in Parität beschrieben, schreiben Refs direkt in die Parität, wenn der freie Speicherplatz in der Spiegelung nicht gefunden werden kann. Dies tritt im Allgemeinen auf, wenn die gespiegelte Ebene schneller aufgefüllt wird, als Refs Daten in Parität drehen kann. Anders ausgedrückt: die refs-Rotation ist nicht in der Lage, mit der Erfassungs Rate zu mithalten. Die folgenden Leistungsindikatoren identifizieren, wann Refs direkt in die Parität schreibt:
 
   ```
   # Windows Server 2016
@@ -112,24 +112,24 @@ ReFS behält Leistungsindikatoren, um die Leistung der durch Spiegelung beschleu
   ReFS\Allocation of Metadata Clusters on Slow Tier/sec
   ```
 
-- Wenn diese Indikatoren ungleich NULL sind, bedeutet die, dass ReFS die Daten nicht schnell genug aus der Spiegelung dreht. Damit dies vermieden wird, kann die Aggressivität der Drehung geändert oder die Größe der gespiegelten Ebene erhöht werden.
+- Wenn diese Indikatoren ungleich 0 (null) sind, bedeutet dies, dass Refs Daten nicht schnell genug außerhalb des Spiegels dreht. Um dies zu erleichtern, können Sie entweder die Rotations Aggressivität ändern oder die Größe der gespiegelten Ebene vergrößern.
 
 ### <a name="rotation-aggressiveness"></a>Aggressivität der Drehung
 
-ReFS beginnt mit dem Drehen der Daten, wenn die Spiegelung einen angegebenen Kapazitätsschwellenwert erreicht hat.
--   Höhere Werte des Drehungsschwellenwerts führen dazu, dass ReFS die Daten in der Spiegelebene länger beibehält. Heiße Daten in der Spiegelebene zu lassen ist für die Leistung optimal, doch ReFS ist nicht in der Lage, große Mengen an eingehenden E/A-Prozessen effektiv zu verarbeiten. 
--   Niedrigere Werte ermöglichen ReFS, proaktiv Daten auszulagern und eingehende E/A-Prozesse besser zu verarbeiten. Dies gilt für Arbeitsauslastungen mit hoher Aufnahmekapazität wie die Archivierungsspeicherung. Niedrigere Werte können jedoch die Leistung für allgemeine Workloads beeinträchtigen. Das Drehen unnötiger Daten aus der Spiegelebene führt zu Leistungseinbußen. 
+Refs beginnt mit dem Drehen von Daten, sobald der Spiegel einen angegebenen Kapazitäts Schwellenwert erreicht hat.
+-   Höhere Werte dieses Rotations Schwellenwerts bewirken, dass die Daten in der Spiegelebene von refs beibehalten werden. Das belassen von Hot-Daten auf der Spiegelebene eignet sich optimal für die Leistung, aber Refs ist nicht in der Lage, große Mengen eingehender e/a-Vorgänge effektiv zu verarbeiten.
+-   Mit niedrigeren Werten können Refs proaktiv Daten bereitstellen und eingehende e/a-Vorgänge besser erfassen. Dies gilt für Erfassungs intensive Workloads, wie z. b. Archivierung. Niedrigere Werte können jedoch die Leistung für allgemeine Workloads beeinträchtigen. Unnötiges Drehen von Daten aus der Spiegelebene führt zu einer Leistungs Einbuße.
 
-ReFS führt einen einstellbaren Parameter für diesen Schwellenwert ein, der mit einem Registrierungsschlüssel konfiguriert werden kann. Dieser Registrierungsschlüssel muss unter **jeden Knoten in einer Bereitstellung mit direkten Speicherplätzen** konfiguriert werden, und ein Neustart ist erforderlich, damit die Änderungen wirksam werden. 
--   **Schlüssel:** HKEY_LOCAL_MACHINE\System\CurrentControlSet\Policies
--   **ValueName (DWORD):** DataDestageSsdFillRatioThreshold
--   **ValueType:** Prozentsatz
+Refs führt einen anpassbaren Parameter ein, um diesen Schwellenwert anzupassen, der mit einem Registrierungsschlüssel konfigurierbar ist. Dieser Registrierungsschlüssel muss auf **jedem Knoten in einer direkte Speicherplätze-Bereitstellung**konfiguriert werden, und ein Neustart ist erforderlich, damit alle Änderungen wirksam werden.
+-   **Schlüssel:** HKEY_LOCAL_MACHINE \system\currentcontrolset\policies
+-   **ValueName (DWORD):** Datadestagessdfillratiothreshold
+-   **ValueType:** Aler
 
-Wenn dieser Registrierungsschlüssel nicht festgelegt ist, verwendet ReFS einen Standardwert von 85 %.  Dieser Standardwert wird für die meisten Bereitstellungen empfohlen und Werte unter 50 % werden nicht empfohlen. Der folgende PowerShell-Befehl veranschaulicht, wie dieser Registrierungsschlüssel mit dem Wert 75 % erstellt werden kann: 
+Wenn dieser Registrierungsschlüssel nicht festgelegt ist, wird von refs der Standardwert 85% verwendet.  Dieser Standardwert wird für die meisten bereit Stellungen empfohlen, und Werte unter 50% werden nicht empfohlen. Der folgende PowerShell-Befehl zeigt, wie dieser Registrierungsschlüssel mit einem Wert von 75% festgelegt wird:
 ```PowerShell
 Set-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Policies -Name DataDestageSsdFillRatioThreshold -Value 75
  ```
- Um diesen Registrierungsschlüssel auf allen Knoten in einer Bereitstellung mit direkten Speicherplätzen zu konfigurieren, können Sie den folgenden PowerShell-Befehl ausführen:
+ Um diesen Registrierungsschlüssel für jeden Knoten in einer direkte Speicherplätze Bereitstellung zu konfigurieren, können Sie den folgenden PowerShell-Befehl verwenden:
  ```PowerShell
  $Nodes = 'S2D-01', 'S2D-02', 'S2D-03', 'S2D-04'
  Invoke-Command $Nodes {Set-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Policies -Name DataDestageSsdFillRatioThreshold -Value 75}
@@ -137,25 +137,25 @@ Set-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Policies -Name DataDestage
 
 ### <a name="increasing-the-size-of-the-mirrored-tier"></a>Erhöhen der Größe der gespiegelten Ebene
 
-Das Erhöhen der gespiegelten Ebene ermöglicht ReFS, einen größeren Teil des Arbeitssatzes in der Spiegelung beizubehalten. Dies verbessert die Wahrscheinlichkeit, das ReFS direkt in die Spiegelung schreiben kann, was zur Verbesserung der Leistung führt. Die folgenden PowerShell-Cmdlets veranschaulichen, wie Sie die Größe der gespiegelten Ebene erhöhen können:
+Das Erhöhen der Größe der gespiegelten Ebene ermöglicht es Refs, einen größeren Teil des Arbeits Satzes in der Spiegelung beizubehalten. Dies verbessert die Wahrscheinlichkeit, dass Refs direkt in die Spiegelung schreiben kann, was zu einer besseren Leistung führt. Die folgenden PowerShell-Cmdlets veranschaulichen, wie Sie die Größe der gespiegelten Ebene vergrößern:
 ```PowerShell
 Resize-StorageTier -FriendlyName “Performance” -Size 20GB
 Resize-StorageTier -InputObject (Get-StorageTier -FriendlyName “Performance”) -Size 20GB
 ```
 >[!TIP]
->Stellen Sie sicher, dass Sie die Größe der **Partition** und des **Volumes** ändern, nachdem Sie die Größe des **StorageTier** geändert haben. Weitere Informationen und Beispiele finden Sie unter [Volumes skalieren](../storage-spaces/resize-volumes.md).
+>Stellen Sie sicher, dass die Größe der **Partition** **und des** Volumes geändert wird, nachdem Sie die Größe des **storagetier**geändert haben Weitere Informationen und Beispiele finden Sie unter [Resize-Volumes](../storage-spaces/resize-volumes.md).
 
-## <a name="creating-a-mirror-accelerated-parity-volume"></a>Erstellen von durch Spiegelung beschleunigter Paritätsvolumes
+## <a name="creating-a-mirror-accelerated-parity-volume"></a>Erstellen eines volumebeschleunigten Paritäts Volumes
 
-Das folgende PowerShell-Cmdlet erstellt ein durch Spiegelung beschleunigtes Paritätsvolumes mit einem Spiegelung: Parität-Verhältnis von 20: 80. Dies ist die empfohlene Konfiguration für die meisten Arbeitslasten. Weitere Informationen und Beispiele finden Sie unter [Erstellen von Volumes in Direkte Speicherplätze](../storage-spaces/Create-volumes.md).
+Mit dem folgenden PowerShell-Cmdlet wird ein zwischengespeicherten Paritäts Volume mit einem Spiegel-und Paritäts Verhältnis von 20:80 erstellt. Dies ist die empfohlene Konfiguration für die meisten Arbeits Auslastungen. Weitere Informationen und Beispiele finden Sie unter [Erstellen von Volumes in direkte Speicherplätze](../storage-spaces/Create-volumes.md).
 
 ```PowerShell
 New-Volume – FriendlyName “TestVolume” -FileSystem CSVFS_ReFS -StoragePoolFriendlyName “StoragePoolName” -StorageTierFriendlyNames Performance, Capacity -StorageTierSizes 200GB, 800GB
 ```
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
--   [Übersicht über Refs](refs-overview.md)
--   [Neuklonen von refs-Blöcken](block-cloning.md)
--   [Refs-Integritäts Datenströme](integrity-streams.md)
+-   [ReFS – Übersicht](refs-overview.md)
+-   [Block-Clone-Vorgänge auf ReFS](block-cloning.md)
+-   [ReFS Integrity Streams](integrity-streams.md)
 -   [Übersicht über direkte Speicherplätze](../storage-spaces/storage-spaces-direct-overview.md)

@@ -8,19 +8,19 @@ author: rpsqrd
 ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 9972ec77b78c6c4efa2d52fffd44d27d71a1afe0
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 85cfdbe5e95c9177194a2b6ac7b5d22e1fd9fc0e
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80856363"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85475013"
 ---
 # <a name="shielded-vms---preparing-a-vm-shielding-helper-vhd"></a>Abgeschirmte VMS: Vorbereiten einer VHD für ein VM-Schutz Hilfsprogramm
 
 >Gilt für: Windows Server 2019, Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 > [!IMPORTANT]
-> Bevor Sie mit diesen Verfahren beginnen, stellen Sie sicher, dass Sie das neueste kumulative Update für Windows Server 2016 installiert haben oder die neuesten Windows 10- [Remoteserver-Verwaltungstools](https://www.microsoft.com/download/details.aspx?id=45520)verwenden. Andernfalls funktionieren die Prozeduren nicht. 
+> Bevor Sie mit diesen Verfahren beginnen, stellen Sie sicher, dass Sie das neueste kumulative Update für Windows Server 2016 installiert haben oder die neuesten Windows 10- [Remoteserver-Verwaltungstools](https://www.microsoft.com/download/details.aspx?id=45520)verwenden. Andernfalls funktionieren die Prozeduren nicht.
 
 In diesem Abschnitt werden die Schritte beschrieben, die von einem hostingdienstanbieter ausgeführt werden, um die Unterstützung für die Umstellung vorhandener virtueller
 
@@ -59,7 +59,7 @@ Der Schutz Vorgang für vorhandene VMS ist nur für VMS verfügbar, die die folg
 
 ![VMM-Einstellungen für den Host-Überwachungsdienst](../media/Guarded-Fabric-Shielded-VM/guarded-host-vmm-hgs-settings-01.png)
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
-- [Konfigurationsschritte des hostingdienstanbieters für geschützte Hosts und abgeschirmte VMS](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
+- [Geschützte Hosts und abgeschirmte VMs: Konfigurationsschritte für Hosting-Anbieter](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
 - [Geschütztes Fabric und abgeschirmte VMs](guarded-fabric-and-shielded-vms-top-node.md)

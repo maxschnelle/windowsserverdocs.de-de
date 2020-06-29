@@ -7,12 +7,12 @@ ms.topic: article
 author: cosmosdarwin
 ms.date: 02/02/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: e2379ce540cb26c02bc79f591d2a597874ab287c
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 597abd8e389421eb6875ff3cc94b457f341be3b7
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80856213"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85474747"
 ---
 # <a name="performance-history-for-network-adapters"></a>Leistungs Verlauf für Netzwerkadapter
 
@@ -27,7 +27,7 @@ In diesem Unterthema des [Leistungs Verlaufs für direkte Speicherplätze](perfo
 
 Diese Reihen werden für jeden berechtigten Netzwerkadapter erfasst:
 
-| Reihe                               | Einheit            |
+| Reihen                               | Einheit            |
 |--------------------------------------|-----------------|
 | `netadapter.bandwidth.inbound`       | Bits pro Sekunde |
 | `netadapter.bandwidth.outbound`      | Bits pro Sekunde |
@@ -41,7 +41,7 @@ Diese Reihen werden für jeden berechtigten Netzwerkadapter erfasst:
 
 ## <a name="how-to-interpret"></a>Interpretieren
 
-| Reihe                               | Interpretieren                                                      |
+| Reihen                               | Interpretieren                                                      |
 |--------------------------------------|-----------------------------------------------------------------------|
 | `netadapter.bandwidth.inbound`       | Rate der vom Netzwerkadapter empfangenen Daten.                         |
 | `netadapter.bandwidth.outbound`      | Rate der vom Netzwerkadapter gesendeten Daten.                             |
@@ -52,24 +52,24 @@ Diese Reihen werden für jeden berechtigten Netzwerkadapter erfasst:
 
 ## <a name="where-they-come-from"></a>Woher Sie stammen
 
-Die `bytes.*` Reihe wird auf dem Server, auf dem der Netzwerkadapter installiert ist, auf dem Server, auf dem der Netzwerkadapter installiert ist, und einer Instanz pro Netzwerkadapter `Network Adapter` erfasst.
+Die `bytes.*` Reihe wird `Network Adapter` anhand des Leistungs Zählers erfasst, der auf dem Server, auf dem der Netzwerkadapter installiert ist, einer Instanz pro Netzwerkadapter festgelegt ist.
 
-| Reihe                           | Quellen Counter           |
+| Reihen                           | Quellen Counter           |
 |----------------------------------|--------------------------|
-| `netadapter.bandwidth.inbound`   | 8 × `Bytes Received/sec` |
-| `netadapter.bandwidth.outbound`  | 8 × `Bytes Sent/sec`     |
-| `netadapter.bandwidth.total`     | 8 × `Bytes Total/sec`    |
+| `netadapter.bandwidth.inbound`   | 8 ×`Bytes Received/sec` |
+| `netadapter.bandwidth.outbound`  | 8 ×`Bytes Sent/sec`     |
+| `netadapter.bandwidth.total`     | 8 ×`Bytes Total/sec`    |
 
-Die `rdma.*` Reihe wird auf dem Server, auf dem der Netzwerkadapter installiert ist, auf dem Server, auf dem der Netzwerkadapter installiert ist, und einer Instanz pro Netzwerkadapter mit aktiviertem RDMA `RDMA Activity` gesammelt.
+Die `rdma.*` Reihe wird `RDMA Activity` anhand des Leistungs Zählers erfasst, der auf dem Server festgelegt ist, auf dem der Netzwerkadapter installiert ist, einer Instanz pro Netzwerkadapter mit aktiviertem RDMA.
 
-| Reihe                               | Quellen Counter           |
+| Reihen                               | Quellen Counter           |
 |--------------------------------------|--------------------------|
-| `netadapter.bandwidth.rdma.inbound`  | 8 × `Inbound bytes/sec`  |
-| `netadapter.bandwidth.rdma.outbound` | 8 × `Outbound bytes/sec` |
+| `netadapter.bandwidth.rdma.inbound`  | 8 ×`Inbound bytes/sec`  |
+| `netadapter.bandwidth.rdma.outbound` | 8 ×`Outbound bytes/sec` |
 | `netadapter.bandwidth.rdma.total`    | 8 × *Summe der oben genannten*   |
 
    > [!NOTE]
-   > Leistungsindikatoren werden über das gesamte Intervall gemessen, nicht als Stichprobe. Wenn sich der Netzwerkadapter z. b. für 9 Sekunden im Leerlauf befindet, aber 200 Bits in der 10. Sekunde überträgt, wird sein `netadapter.bandwidth.total` im Durchschnitt in diesem 10-Sekunden-Intervall als 20 Bits pro Sekunde aufgezeichnet. Dadurch wird sichergestellt, dass der Leistungs Verlauf alle Aktivitäten erfasst und stabil ist.
+   > Leistungsindikatoren werden über das gesamte Intervall gemessen, nicht als Stichprobe. Wenn sich der Netzwerkadapter z. b. für 9 Sekunden im Leerlauf befindet, aber 200 Bits in der 10. Sekunde überträgt, wird der zugehörige im `netadapter.bandwidth.total` Durchschnitt in diesem Intervall von 10 Sekunden als 20 Bits pro Sekunde aufgezeichnet. Dadurch wird sichergestellt, dass der Leistungs Verlauf alle Aktivitäten erfasst und stabil ist.
 
 ## <a name="usage-in-powershell"></a>Verwendung in PowerShell
 
@@ -79,6 +79,6 @@ Verwenden Sie das Cmdlet " [Get-netadapter](https://docs.microsoft.com/powershel
 Get-NetAdapter <Name> | Get-ClusterPerf
 ```
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
-- [Leistungs Verlauf für direkte Speicherplätze](performance-history.md)
+- [Leistungsverlauf für Direkte Speicherplätze](performance-history.md)

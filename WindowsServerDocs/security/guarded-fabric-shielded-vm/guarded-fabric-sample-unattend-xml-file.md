@@ -8,21 +8,21 @@ author: rpsqrd
 ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: be099a234b7e2e73375d23b19161e59876f71d61
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 526ded03c877613766b8a0b762f1db1a693d2019
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80856503"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85474997"
 ---
 # <a name="create-os-specialization-answer-file"></a>Erstellen einer Antwortdatei für die BS-Spezialisierung
 
 >Gilt für: Windows Server 2019, Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Zur Vorbereitung der Bereitstellung von abgeschirmten VMS müssen Sie möglicherweise eine Antwortdatei für die Betriebssystem Spezialisierung erstellen. Unter Windows wird dies häufig als die Datei "Unattend. xml" bezeichnet. Die Windows PowerShell-Funktion **New-shieldingdatabeantworsdatei** unterstützt Sie dabei. Anschließend können Sie die Antwortdatei verwenden, wenn Sie abgeschirmte VMS mithilfe System Center Virtual Machine Manager (oder einer anderen Fabric Controller) aus einer Vorlage erstellen.
+Zur Vorbereitung der Bereitstellung von abgeschirmten VMS müssen Sie möglicherweise eine Antwortdatei für die Betriebssystem Spezialisierung erstellen. Unter Windows wird dies in der Regel als "unattend.xml" bezeichnet. Die Windows PowerShell-Funktion **New-shieldingdatabeantworsdatei** unterstützt Sie dabei. Anschließend können Sie die Antwortdatei verwenden, wenn Sie abgeschirmte VMS mithilfe System Center Virtual Machine Manager (oder einer anderen Fabric Controller) aus einer Vorlage erstellen.
 
 Allgemeine Richtlinien für Dateien für die unbeaufsichtigte Installation für abgeschirmte VMS finden Sie unter [Erstellen einer Antwortdatei](guarded-fabric-tenant-creates-shielding-data.md#create-an-answer-file).
- 
+
 ## <a name="downloading-the-new-shieldingdataanswerfile-function"></a>Herunterladen der New-shieldingdatabeantworfile-Funktion
 
 Sie können die Funktion **New-shieldingdatabeantworsdatei** aus dem [PowerShell-Katalog](https://aka.ms/gftools)abrufen. Wenn Ihr Computer über eine Internet Verbindung verfügt, können Sie ihn mit dem folgenden Befehl aus PowerShell installieren:
@@ -31,9 +31,9 @@ Sie können die Funktion **New-shieldingdatabeantworsdatei** aus dem [PowerShell
 Install-Module GuardedFabricTools -Repository PSGallery -MinimumVersion 1.0.0
 ```
 
-Die `unattend.xml` Ausgabe kann zusammen mit zusätzlichen Artefakten in die Schutz Daten gepackt werden, damit Sie zum Erstellen von abgeschirmten VMS aus Vorlagen verwendet werden kann.
+Die `unattend.xml` Ausgabe kann zusammen mit zusätzlichen Artefakten in die geschützten Daten gepackt werden, damit Sie zum Erstellen von abgeschirmten VMS aus Vorlagen verwendet werden kann.
 
-In den folgenden Abschnitten wird gezeigt, wie Sie die Funktionsparameter für eine `unattend.xml` Datei mit verschiedenen Optionen verwenden können:
+In den folgenden Abschnitten wird gezeigt, wie Sie die Funktionsparameter für eine Datei verwenden können, die `unattend.xml` verschiedene Optionen enthält:
 
 - [Grundlegende Windows-Antwortdatei](#basic-windows-answer-file)
 - [Windows-Antwortdatei mit Domänen Beitritt](#windows-answer-file-with-domain-join)
@@ -92,7 +92,7 @@ Sie müssen Ihren Netzwerkadapter für den virtuellen Computer konfigurieren. De
 
 ![Konfigurieren der Hardware zur Verwendung statischer IP-Adressen](../media/Guarded-Fabric-Shielded-VM/guarded-host-unattend-static-ip-address-pool-network-adapter-settings.png)
 
-Anschließend können Sie den `-StaticIPPool`-Parameter verwenden, um die statischen IP-Elemente in die Antwortdatei einzuschließen. Die Parameter `@IPAddr-1@`, `@NextHop-1-1@`und `@DNSAddr-1-1@` in der Antwortdatei werden dann durch die tatsächlichen Werte ersetzt, die Sie zum Zeitpunkt der Bereitstellung in Virtual Machine Manager angegeben haben.
+Anschließend können Sie den `-StaticIPPool` -Parameter verwenden, um die statischen IP-Elemente in die Antwortdatei einzuschließen. Die Parameter `@IPAddr-1@` , `@NextHop-1-1@` und `@DNSAddr-1-1@` in der Antwortdatei werden dann durch die tatsächlichen Werte ersetzt, die Sie zum Zeitpunkt der Bereitstellung in Virtual Machine Manager angegeben haben.
 
 ```powershell
 $adminCred = Get-Credential -Message "Local administrator account"
@@ -128,7 +128,7 @@ $rootPassword = Read-Host -Prompt "Root password" -AsSecureString
 New-ShieldingDataAnswerFile -Path '.\ShieldedVMAnswerFile.xml' -RootPassword $rootPassword -RootSshKey '~\.ssh\id_rsa.pub'
 ```
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Bereitstellen von abgeschirmten VMs](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
 - [Geschütztes Fabric und abgeschirmte VMs](guarded-fabric-and-shielded-vms-top-node.md)

@@ -1,5 +1,5 @@
 ---
-title: Bereitstellen geschützter Hosts
+title: Bereitstellen überwachter Hosts
 ms.prod: windows-server
 ms.topic: article
 ms.assetid: 2379ca26-b32d-4055-8b4b-99d1f2df37e1
@@ -8,14 +8,14 @@ author: rpsqrd
 ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 0f678172d397ff61fd336b7c844d43f77bea7fad
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 59b6aaa22fa89620df2ce6757b2d9f5ffe91c652
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80856833"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85475347"
 ---
-# <a name="deploy-guarded-hosts"></a>Bereitstellen geschützter Hosts
+# <a name="deploy-guarded-hosts"></a>Bereitstellen überwachter Hosts
 
 >Gilt für: Windows Server 2019, Windows Server (halbjährlicher Kanal), Windows Server 2016
 
@@ -28,16 +28,16 @@ In den Themen in diesem Abschnitt werden die Schritte beschrieben, die ein Fabri
 
 **Für Host Schlüssel**Nachweis:
 1. [Erstellen eines Host Schlüssels](guarded-fabric-create-host-key.md#create-a-host-key): erläutert, wie Sie eine DNS-Weiterleitung von der Fabric-Domäne zur HGS-Domäne einrichten.
-2. [Hinzufügen des Host Schlüssels zum Nachweis Dienst](guarded-fabric-create-host-key.md#add-the-host-key-to-the-attestation-service): erläutert das Einrichten einer Active Directory Sicherheitsgruppe in der Fabric-Domäne, das Hinzufügen von überwachten Hosts als Mitglieder dieser Gruppe und das Bereitstellen dieser Gruppen-ID für den HGS-Administrator. 
+2. [Hinzufügen des Host Schlüssels zum Nachweis Dienst](guarded-fabric-create-host-key.md#add-the-host-key-to-the-attestation-service): erläutert das Einrichten einer Active Directory Sicherheitsgruppe in der Fabric-Domäne, das Hinzufügen von überwachten Hosts als Mitglieder dieser Gruppe und das Bereitstellen dieser Gruppen-ID für den HGS-Administrator.
 3. [Bestätigen, dass geschützte Hosts bestätigen können](guarded-fabric-confirm-hosts-can-attest-successfully.md)
 
 
 **Für admin-Trusted Nachweis**:
 1. [Konfigurieren des Fabric-DNS](guarded-fabric-configuring-fabric-dns.md): erläutert, wie Sie eine DNS-Weiterleitung von der Fabric-Domäne zur HGS-Domäne einrichten.
-2. [Erstellen einer Sicherheitsgruppe](guarded-fabric-admin-trusted-attestation-creating-a-security-group.md): erläutert, wie Sie eine Active Directory Sicherheitsgruppe in der Fabric-Domäne einrichten, überwachte Hosts als Mitglieder dieser Gruppe hinzufügen und diese Gruppen-ID dem HGS-Administrator bereitstellen. 
+2. [Erstellen einer Sicherheitsgruppe](guarded-fabric-admin-trusted-attestation-creating-a-security-group.md): erläutert, wie Sie eine Active Directory Sicherheitsgruppe in der Fabric-Domäne einrichten, überwachte Hosts als Mitglieder dieser Gruppe hinzufügen und diese Gruppen-ID dem HGS-Administrator bereitstellen.
 3. [Bestätigen, dass geschützte Hosts bestätigen können](guarded-fabric-confirm-hosts-can-attest-successfully.md)
 
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Bereitstellungs Aufgaben für geschützte Fabrics und abgeschirmte VMS](guarded-fabric-deploying-hgs-overview.md#deployment-tasks-for-guarded-fabrics-and-shielded-vms)

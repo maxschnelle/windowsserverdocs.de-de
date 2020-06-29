@@ -1,6 +1,6 @@
 ---
-title: Namespacetyp auswählen
-description: Dieser Artikel beschreibt, wie Sie einen Namespacetyp auswählen.
+title: Auswählen eines Namespacetyps
+description: In diesem Artikel wird beschrieben, wie Sie einen Namespace-Typ auswählen.
 ms.date: 6/5/2017
 ms.prod: windows-server
 ms.technology: storage
@@ -8,42 +8,42 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: becaab1b4c35492200ad3d75d5f31829d85e10f8
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b4addd18629bd54cd9d5fc2df5c660c621e735de
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402200"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85473787"
 ---
-# <a name="choose-a-namespace-type"></a>Namespacetyp auswählen
+# <a name="choose-a-namespace-type"></a>Wählen Sie einen Namespace aus.
 
 > Gilt für: Windows Server 2019, Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
 
-Wenn Sie einen Namespace erstellen, müssen Sie einen von zwei Namespacetypen auswählen: einen eigenständigen Namespace oder einen domänenbasierten Namespace. Wenn Sie einen domänenbasierten Namespace auswählen, müssen Sie außerdem einen Namespace Modus auswählen: Windows 2000-Server Modus oder Windows Server 2008-Modus.
+Wenn Sie einen Namespace erstellen, müssen Sie einen von zwei Namespace Typen auswählen: einen eigenständigen Namespace oder einen domänenbasierten Namespace. Wenn Sie einen domänenbasierten Namespace auswählen, müssen Sie außerdem einen Namespace Modus auswählen: Windows 2000-Server Modus oder Windows Server 2008-Modus.
 
-## <a name="choosing-a-namespace-type"></a>Auswählen eines Namespacetyps
+## <a name="choosing-a-namespace-type"></a>Auswählen eines Namespace Typs
 
-Wählen Sie einen eigenständigen Namespace aus, wenn eine der folgenden Bedingungen für Ihre Umgebung zutrifft:
+Wählen Sie einen eigenständigen Namespace aus, wenn für Ihre Umgebung eine der folgenden Bedingungen zutrifft:
 
 -   Ihre Organisation verwendet nicht Active Directory Domain Services (AD DS).
--   Sie sollten einen Failovercluster zum Erhöhen der Verfügbarkeit der Namespace verwenden.
+-   Sie möchten die Verfügbarkeit des Namespace mithilfe eines Failoverclusters erhöhen.
 -   Sie müssen einen einzelnen Namespace mit mehr als 5.000 DFS-Ordnern in einer Domäne erstellen, die die Anforderungen für einen domänenbasierten Namespace (Windows Server 2008-Modus) nicht erfüllt, wie weiter unten in diesem Thema beschrieben.
 
 > [!NOTE]
-> Um die Größe des Namespaces zu überprüfen, klicken Sie mit der rechten Maustaste auf den Namespace in der Konsolenstruktur der DFS-Verwaltung und dann auf **Eigenschaften**, und zeigen Sie die Namespace-Größe im Dialogfeld **Namespace Eigenschaften** an. Weitere Informationen zur Skalierbarkeit von DFS-Namespaces, finden Sie auf der Microsoft-Website [Dateidienste](https://technet.microsoft.com/library/cc771548.aspx).
+> Um die Größe eines Namespaces zu überprüfen, klicken Sie in der Struktur der DFS-Verwaltungskonsole mit der rechten Maustaste auf den Namespace, klicken Sie auf **Eigenschaften**, und zeigen Sie dann die Namespace Größe im Dialogfeld **Namespace Eigenschaften** an. Weitere Informationen zur Skalierbarkeit von DFS-Namespaces finden Sie in den Microsoft-Website- [Datei Diensten](https://technet.microsoft.com/library/cc771548.aspx).
 
-Wählen Sie einen domänenbasierten Namespace aus, wenn eine der folgenden Bedingungen für Ihre Umgebung zutrifft:
+Wählen Sie einen domänenbasierten Namespace aus, wenn für Ihre Umgebung eine der folgenden Bedingungen zutrifft:
 
--   Sie sollten mehrere Namespaceserver zum Sichern der Verfügbarkeit des Namespaces verwenden.
--   Sie sollten den Namen des Namespaceservers vor den Benutzern ausblenden. Dies erleichtert das Ersetzen des Namespaceservers oder das Migrieren des Namespaces auf einen anderen Server.
+-   Sie möchten sicherstellen, dass der Namespace mit mehreren Namespace Servern verfügbar ist.
+-   Sie möchten den Namen des Namespace Servers vor Benutzern ausblenden. Dadurch wird der Namespace Server einfacher ersetzt oder der Namespace zu einem anderen Server migriert.
 
-## <a name="choosing-a-domain-based-namespace-mode"></a>Auswählen eines domänenbasierten Namespacemodus
+## <a name="choosing-a-domain-based-namespace-mode"></a>Auswählen eines domänenbasierten Namespace Modus
 
 Wenn Sie einen domänenbasierten Namespace auswählen, müssen Sie auswählen, ob der Windows 2000-Server Modus oder der Windows Server 2008-Modus verwendet werden soll. Der Windows Server 2008-Modus bietet Unterstützung für die Zugriffs basierte Aufzählung und eine größere Skalierbarkeit. Der Domänen basierte Namespace, der in Windows Server Server 2000 eingeführt wurde, wird jetzt als "Domänen basierter Namespace (Windows 2000-Server Modus)" bezeichnet.
 
 Um den Windows Server 2008-Modus zu verwenden, müssen die Domäne und der Namespace die folgenden Mindestanforderungen erfüllen:
 
--   Die Gesamtstruktur verwendet die Funktionsebene von Windows Server 2003 oder höher.
+-   Die Gesamtstruktur verwendet die Gesamtstruktur Funktionsebene Windows Server 2003 oder höher.
 -   Die Domäne verwendet die Domänen Funktionsebene Windows Server 2008 oder höher.
 -   Auf allen Namespace Servern wird Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 oder Windows Server 2008 ausgeführt.
 
@@ -53,23 +53,23 @@ Informationen zum Migrieren eines Namespaces zum Windows Server 2008-Modus finde
 
 Wenn Ihre Umgebung Domänen basierte Namespaces im Windows Server 2008-Modus nicht unterstützt, verwenden Sie den vorhandenen Windows 2000-Server Modus für den Namespace.
 
-## <a name="comparing-namespace-types-and-modes"></a>Vergleichen von Namespacetypen und -Modi
+## <a name="comparing-namespace-types-and-modes"></a>Vergleichen von Namespace Typen und-Modi
 
-Die Merkmale der einzelnen Namespacetypen und Modi werden in der folgenden Tabelle beschrieben.
+Die Merkmale der einzelnen Namespacetyp und-Modi werden in der folgenden Tabelle beschrieben.
 
-|Merkmal|Eigenständiger Namespace|Domänenbasierter Namespace (Windows Server 2000 Server-Modus) |Domänenbasierter Namespace (Windows Server 2008 Server Modus) | 
+|Merkmal|Eigenständiger Namespace|Domänen basierter Namespace (Windows 2000-Server Modus) |Domänen basierter Namespace (Windows Server 2008-Modus) |
 |---|---|---|---|
-|Namespacepfad|\\\ *servername\rootname* |\\\ *netbiosdomainname\rootname* <br />\\\ *dnsdomainname\rootname*|\\\ *netbiosdomainname\rootname* <br /> \\\ *dnsdomainname\rootname*|
-|Speicherort der Namespaceinformationen|In der Registrierung und in einem Speichercache auf dem Namespaceserver|In AD DS und in einem Speichercache auf jedem Namespaceserver|In AD DS und in einem Speichercache auf jedem Namespaceserver|
-|Empfehlungen für die Größe des Namespaces|Der Namespace kann mehr als 5.000 Ordner mit Zielen enthalten. Die empfohlene Grenze beträgt 50.000 Ordner mit Zielen|Die Größe des Namespace-Objekts in AD DS sollte geringer als 5 Megabyte (MB) sein, um die Kompatibilität mit Domänencontrollern aufrecht zu erhalten, die nicht unter Windows Server 2008 ausgeführt werden. Dies bedeutet nicht mehr als ca. 5.000 Ordner mit Zielen.|Der Namespace kann mehr als 5.000 Ordner mit Zielen enthalten. Die empfohlene Grenze beträgt 50.000 Ordner mit Zielen |
-|Minimale AD DS Gesamtstruktur-Funktionsebene|AD DS ist nicht erforderlich|Windows 2000|Windows Server 2003|
-|Minimale AD DS Domän-Funktionsebene|AD DS ist nicht erforderlich|Windows 2000 im gemischten Modus|WindowsServer 2008|
-|Minimale unterstützte Namespaceserver|Windows 2000 Server|Windows 2000 Server|WindowsServer 2008|
-|Support für die zugriffsbasierte Aufzählung (falls aktiviert)|Ja, erfordert Windows Server 2008-Namespaceserver|Nein|Ja|
-|Unterstützte Methoden zum Gewährleisten der Verfügbarkeit von Namespace|Erstellen Sie einen eigenständigen Namespace auf einem Failovercluster.|Verwenden Sie mehrerer Namespaceserver zum Hosten des Namespace. (Die Namespaceserver müssen in der gleichen Domäne sein.)|Verwenden Sie mehrerer Namespaceserver zum Hosten des Namespace. (Die Namespaceserver müssen in der gleichen Domäne sein.)|
-|Unterstützung für die Verwendung der DFS-Replikation zum Replizieren von Ordnerzielen|Unterstützt, wenn einer AD DS-Domäne beigetreten|Unterstützt|Unterstützt|
+|Pfad zu Namespace|\\\ *Servername\rootname* |\\\ *Netbiosdomainname\rootname* <br />\\\ *Dnsdomainname\rootname*|\\\ *Netbiosdomainname\rootname* <br /> \\\ *Dnsdomainname\rootname*|
+|Speicherort der Namespace Informationen|In der Registrierung und in einem Arbeitsspeicher Cache auf dem Namespace Server|In AD DS und in einem Arbeitsspeicher Cache auf jedem Namespace Server|In AD DS und in einem Arbeitsspeicher Cache auf jedem Namespace Server|
+|Empfehlungen zur Namespace Größe|Der Namespace kann mehr als 5.000 Ordner mit Zielen enthalten. der empfohlene Grenzwert ist 50.000 Ordner mit Zielen.|Die Größe des Namespace Objekts in AD DS sollte kleiner als 5 Megabyte (MB) sein, um die Kompatibilität mit Domänen Controllern zu gewährleisten, auf denen nicht Windows Server 2008 ausgeführt wird. Dies bedeutet, dass nicht mehr als ungefähr 5.000 Ordner mit Zielen.|Der Namespace kann mehr als 5.000 Ordner mit Zielen enthalten. der empfohlene Grenzwert ist 50.000 Ordner mit Zielen. |
+|Minimale AD DS Gesamtstruktur Funktionsebene|AD DS ist nicht erforderlich.|Windows 2000|Windows Server 2003|
+|Minimale AD DS Domänen Funktionsebene|AD DS ist nicht erforderlich.|Windows 2000 im gemischten Modus bezeichnet|Windows Server 2008|
+|Mindestens unterstützte Namespace Server|Windows 2000 Server|Windows 2000 Server|Windows Server 2008|
+|Unterstützung für die Zugriffs basierte Enumeration (sofern aktiviert)|Ja, erfordert Windows Server 2008-Namespace Server|Nein|Ja|
+|Unterstützte Methoden zum Sicherstellen der Namespace Verfügbarkeit|Erstellen Sie einen eigenständigen Namespace auf einem Failovercluster.|Verwenden Sie mehrere Namespace Server, um den Namespace zu hosten. (Die Namespace Server müssen sich in der gleichen Domäne befinden.)|Verwenden Sie mehrere Namespace Server, um den Namespace zu hosten. (Die Namespace Server müssen sich in der gleichen Domäne befinden.)|
+|Unterstützung für die Verwendung DFS-Replikation zum Replizieren von Ordner Zielen|Unterstützt, wenn einer AD DS Domäne hinzugefügt wird|Unterstützt|Unterstützt|
 
-## <a name="see-also"></a>Weitere Informationen
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 -   [Bereitstellen von DFS-Namespaces](deploying-dfs-namespaces.md)
 -   [Migrieren Sie einen domänenbasierten Namespace zum Windows Server 2008-Modus](migrate-a-domain-based-namespace-to-windows-server-2008-mode.md)

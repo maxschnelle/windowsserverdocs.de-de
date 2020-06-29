@@ -10,12 +10,12 @@ ms.date: 06/26/2019
 ms.assetid: 8bd0d09a-0421-40a4-b752-40ecb5350ffd
 description: Eine Übersicht über direkte Speicherplätze, ein Feature von Windows Server, mit dem Sie Server mit internem Speicher in einer Software definierten Speicherlösung Clustern können.
 ms.localizationpriority: medium
-ms.openlocfilehash: b032d286398b3c1719d290ca83da8bbc9c6b9f85
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: f3af42e2dde5b137ab2d49c1385dfa178f224ed8
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80859133"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85474477"
 ---
 # <a name="storage-spaces-direct-overview"></a>Direkte Speicherplätze – Übersicht
 
@@ -23,7 +23,7 @@ ms.locfileid: "80859133"
 
 „Direkte Speicherplätze“ verwendet branchenübliche Server mit lokal angeschlossenen Laufwerken, um hoch verfügbare, hoch skalierbare softwaredefinierte Speicher zu einem Bruchteil der Kosten von herkömmlichen SAN- oder NAS-Arrays zu erstellen. Die konvergierte oder hyperkonvergierte Architektur vereinfacht die Beschaffung und Bereitstellung, während Features wie Caching, Speicherebenen und Lösch Programmierung zusammen mit den neuesten Hardware Innovationen wie RDMA-Netzwerk-und nvme-Laufwerke eine nicht über rivalisierte Effizienz und Leistung bieten.
 
-Direkte Speicherplätze ist in den Builds Windows Server 2019 Datacenter, Windows Server 2016 Datacenter und [Windows Server Insider Preview](https://insider.windows.com/for-business-getting-started-server/)enthalten. 
+Direkte Speicherplätze ist in den Builds Windows Server 2019 Datacenter, Windows Server 2016 Datacenter und [Windows Server Insider Preview](https://insider.windows.com/for-business-getting-started-server/)enthalten.
 
 Informationen zu anderen Anwendungen von Speicherplätzen, wie freigegebene SAS-Cluster und eigenständige Server, finden Sie unter [Übersicht über Speicherplätze](overview.md). Informationen zur Verwendung von Speicherplätzen auf einem Windows 10-PC finden Sie unter [Speicherplätze in Windows 10](https://support.microsoft.com/help/12438/windows-10-storage-spaces).
 
@@ -51,62 +51,62 @@ Informationen zu anderen Anwendungen von Speicherplätzen, wie freigegebene SAS-
 
 > [!Video https://www.youtube-nocookie.com/embed/LK2ViRGbWs]
 
-## <a name="key-benefits"></a>Wichtige Vorteile
+## <a name="key-benefits"></a>Hauptvorteile
 
 |       |       |
 |   -   |   -   |
 | ![Einfachheit](media/storage-spaces-direct-in-windows-server-2016/simplicity-icon.png)   | **Theit.** Wechseln Sie in weniger als 15 Minuten von branchenüblichen Servern unter Windows Server 2016 zu Ihrem ersten „Direkte Speicherplätze“-Cluster. Für System Center-Benutzer erfolgt die Bereitstellung über ein einziges Kontrollkästchen.       |
-| ![Nicht über rivalisierte Leistung](media/storage-spaces-direct-in-windows-server-2016/performance-icon.png)   | **Nicht über rivalisierte Leistung.** Ganz gleich, ob All-Flash- oder Hybridspeicher, mit „Direkte Speicherplätze“ erreichen Sie mühelos über [150.000 gemischte zufällige 4K-Random-IOPS (E/A-Vorgänge pro Sekunde) pro Server](https://blogs.technet.microsoft.com/filecab/2016/07/26/storage-iops-update-with-storage-spaces-direct/) mit konsistenter, geringer Latenz dank der in den Hypervisor eingebetteten Architektur, dem integrierten Lese-/Schreibcache und der Unterstützung für innovative, direkt auf dem PCIe-Bus montierte NVMe-Laufwerke.      |
+| ![Nicht über rivalisierte Leistung](media/storage-spaces-direct-in-windows-server-2016/performance-icon.png)   | **Unübertroffene Leistung.** Ganz gleich, ob All-Flash- oder Hybridspeicher, mit „Direkte Speicherplätze“ erreichen Sie mühelos über [150.000 gemischte zufällige 4K-Random-IOPS (E/A-Vorgänge pro Sekunde) pro Server](https://blogs.technet.microsoft.com/filecab/2016/07/26/storage-iops-update-with-storage-spaces-direct/) mit konsistenter, geringer Latenz dank der in den Hypervisor eingebetteten Architektur, dem integrierten Lese-/Schreibcache und der Unterstützung für innovative, direkt auf dem PCIe-Bus montierte NVMe-Laufwerke.      |
 | ![Fehlertoleranz](media/storage-spaces-direct-in-windows-server-2016/fault-tolerance-icon.png)   | **Fehlertoleranz.** Integrierte Resilienz verarbeitet Laufwerk-, Server- oder Komponentenausfälle bei fortlaufender Verfügbarkeit. Größere Bereitstellungen können auch für [Gehäuse- und Rack-Fehlertoleranz](../../failover-clustering/fault-domains.md) konfiguriert werden. Bei Ausfall von Hardware brauchen Sie diese nur auszutauschen. Die Software setzt sich selbst und ohne komplizierte Verwaltungsschritte wieder instand.       |
-| ![Ressourceneffizienz](media/storage-spaces-direct-in-windows-server-2016/efficiency-icon.png)   | **Ressourceneffizienz.** Erasure Coding bietet bis zu 2,4 x höhere Speichereffizienz mit einzigartigen Innovationen wie Code für die lokale Wiederherstellung und ReFS-Ebenen in Echtzeit, um diese Effizienz auf Festplattenlaufwerke und gemischte Hot/Cold-Workloads auszudehnen, und das alles bei gleichzeitiger Minimierung der CPU-Auslastung, um Ressourcen dorthin zurückzugeben, wo sie am meisten benötigt werden: an die VMs.       |
+| ![Ressourceneffizienz](media/storage-spaces-direct-in-windows-server-2016/efficiency-icon.png)   | **Ressourceneffizienz.** Die Löschung von Lösch Vorgängen bietet eine bis zu 2,4-fache höhere Speichereffizienz mit einzigartigen Innovationen wie z. b. lokalen Erstellungs Codes und Refs-echt Zeitebenen, um diese Vorteile auf Festplattenlaufwerke und gemischte heiße/kalte Workloads auszuweiten       |
 | ![Verwaltbarkeit](media/storage-spaces-direct-in-windows-server-2016/manageability-icon.png)   | **Verwaltbarkeit**. Verwenden Sie [Storage QoS-Steuerelemente](../storage-qos/storage-qos-overview.md), um zu gewährleisten, dass übermäßig ausgelastete VMs die Mindest- und Höchstgrenzen für IOPS pro-VM nicht unter- bzw. überschreiten. Der [Integritätsdienst](../../failover-clustering/health-service-overview.md) bietet fortlaufende integrierte Überwachung und Warnung, und neue APIs erleichtern das Sammeln umfassender, clusterweiter Leistungs- und Kapazitätsmetriken.      |
-| ![Skalierbarkeit](media/storage-spaces-direct-in-windows-server-2016/scalability-icon.png)   | **Skalierbarkeit**. Skalierung auf bis zu 16 Server und über 400 Laufwerke für bis zu 1 Petabyte (1.000 Terabyte) Speicher pro Cluster möglich. Zum horizontalen Skalieren fügen Sie einfach Laufwerke oder weitere Server hinzu. „Direkte Speicherplätze“ integriert und nutzt neue Laufwerke automatisch. Speichereffizienz und Leistung lassen sich berechenbar in großem Maßstab verbessern.       |
+| ![Skalierbarkeit](media/storage-spaces-direct-in-windows-server-2016/scalability-icon.png)   | **Skalierbarkeit**. Gehen Sie bis zu 16 Server und mehr als 400 Laufwerke, um bis zu 1 Peer-(1.000 Terabytes) Speicher pro Cluster zu erhalten. Zum horizontalen Skalieren fügen Sie einfach Laufwerke oder weitere Server hinzu. „Direkte Speicherplätze“ integriert und nutzt neue Laufwerke automatisch. Speichereffizienz und Leistung lassen sich berechenbar in großem Maßstab verbessern.       |
 
 ## <a name="deployment-options"></a>Bereitstellungsoptionen
 
-„Direkte Speicherplätze“ wurde für zwei unterschiedliche Bereitstellungsoptionen entwickelt:
+„Direkte Speicherplätze“ wurde für zwei unterschiedliche Bereitstellungsoptionen entworfen:
 
 ### <a name="converged"></a>Konvergente Bereitstellung
 
-**Speicher und COMPUTE in separaten Clustern.** Die Option der konvergenten Bereitstellung ordnet einen Dateiserver mit horizontaler Skalierung (Scale-out File Server, SoFS) in Ebenen über „Direkte Speicherplätze“ an, um NAS über SMB3-Dateifreigaben bereitzustellen. Dies ermöglicht die Skalierung von Compute/Workload unabhängig vom Speichercluster, was für Dienstanbieter und Unternehmen bei größeren Bereitstellungen wie Hyper-V-IaaS (Infrastruktur als Dienst) unerlässlich ist.
+**Speicher und Compute in separaten Clustern.** Die Option der konvergenten Bereitstellung ordnet einen Dateiserver mit horizontaler Skalierung (Scale-out File Server, SoFS) in Ebenen über „Direkte Speicherplätze“ an, um NAS über SMB3-Dateifreigaben bereitzustellen. Dies ermöglicht die Skalierung von Compute/Workload unabhängig vom Speichercluster, was für größere Bereitstellungen, z. B. Hyper-V-IaaS (Infrastruktur als Dienst) für Dienstanbieter und Unternehmen unerlässlich ist.
 
-![„Direkte Speicherplätze“ stellt Speicher mit dem Feature „Dateiserver mit horizontaler Skalierung“ für Hyper-V-VMs in einem anderen Server oder Cluster bereit](media/storage-spaces-direct-in-windows-server-2016/converged-minimal.png)
+![Direkte Speicherplätze bietet Speicher mithilfe des Dateiserver mit horizontaler Skalierung Features für Hyper-V-VMS auf einem anderen Server oder Cluster.](media/storage-spaces-direct-in-windows-server-2016/converged-minimal.png)
 
 ### <a name="hyper-converged"></a>Hyperkonvergente Bereitstellung
 
-**Ein Cluster für Compute und Speicher.** Die Option der hyperkonvergenten Bereitstellung führt virtuelle Hyper-V-Computer oder SQL Server-Datenbanken direkt auf den Servern aus, stellt den Speicher bereit und speichert die Dateien der virtuellen Computer auf den lokalen Volumes. Dadurch entfällt die Notwendigkeit, den Zugriff auf Dateiserver und die entsprechenden Berechtigungen zu konfigurieren, und die Hardwarekosten für kleine und mittelständische Unternehmen oder Installationen in Remotebüros/Filialen werden gesenkt. Siehe Bereitstellen von [direkte Speicherplätze](deploy-storage-spaces-direct.md).
+**Ein einzelner Cluster für Compute und Speicher.** Die Option der hyperkonvergenten Bereitstellung führt virtuelle Hyper-V-Computer oder SQL Server-Datenbanken direkt auf den Servern aus, stellt den Speicher bereit und speichert die Dateien der VMs auf den lokalen Volumes. Dadurch entfällt die Notwendigkeit, den Zugriff auf Dateiserver und die entsprechenden Berechtigungen zu konfigurieren, und die Hardwarekosten für kleine und mittelständische Unternehmen oder Installationen in Remotebüros/Filialen werden gesenkt. Siehe Bereitstellen von [direkte Speicherplätze](deploy-storage-spaces-direct.md).
 
-![„Direkte Speicherplätze“ stellt Speicher für Hyper-V-VMs in demselben Cluster bereit](media/storage-spaces-direct-in-windows-server-2016/hyper-converged-minimal.png)
+![Direkte Speicherplätze bietet Speicher für Hyper-V-VMS im gleichen Cluster.](media/storage-spaces-direct-in-windows-server-2016/hyper-converged-minimal.png)
 
-## <a name="how-it-works"></a>So funktioniert's
+## <a name="how-it-works"></a>Funktionsweise
 
-„Direkte Speicherplätze“ ist die Weiterentwicklung von „Speicherplätze“, das mit Windows Server 2012 eingeführt wurde. „Direkte Speicherplätze“ nutzt viele Features von Windows Server, die Sie bereits kennen, z. B. Failoverclustering, das CSV-Dateisystem (Cluster Shared Volume, freigegebenes Clustervolume), SMB3 (Server Message Block) und natürlich „Speicherplätze“. Außerdem werden neuen Technologie eingeführt, insbesondere der Softwarespeicherbus.
+„Direkte Speicherplätze“ ist die Weiterentwicklung von „Speicherplätze“, das mit Windows Server 2012 eingeführt wurde. „Direkte Speicherplätze“ nutzt viele Features von Windows Server, die Sie bereits kennen, z. B. Failoverclustering, das CSV-Dateisystem (Cluster Shared Volume, freigegebenes Clustervolume), SMB3 (Server Message Block) und natürlich „Speicherplätze“. Außerdem werden neuen Technologie eingeführt, insbesondere der Softwarespeicherbus.
 
 Hier finden Sie eine Übersicht über den „Direkte Speicherplätze“-Stapel:
 
 ![Stapel bei Verwendung von „Direkte Speicherplätze“](media/storage-spaces-direct-in-windows-server-2016/converged-full-stack.png)
 
-**Netzwerk Hardware.** „Direkte Speicherplätze“ verwendet für die Kommunikation zwischen Servern SMB3, einschließlich SMB Direct und SMB Multichannel über Ethernet. Es wird dringend empfohlen, mehr als 10 GbE mit RDMA (Remote Direct Memory Access, Remotezugriff auf den direkten Speicher) zu verwenden, entweder iWARP oder RoCE.
+**Netzwerkhardware.** „Direkte Speicherplätze“ verwendet für die Kommunikation zwischen Servern SMB3, einschließlich SMB Direct und SMB Multichannel über Ethernet. Es wird dringend empfohlen, mehr als 10 GbE mit RDMA (Remote Direct Memory Access, Remotezugriff auf den direkten Speicher) zu verwenden, entweder iWARP oder RoCE.
 
-**Speicher Hardware.** Zwischen 2 und 16 Server mit lokal angeschlossenen SATA- SAS-, oder NVMe-Laufwerken. Jeder Server muss über mindestens 2 SSDs und mindestens 4 zusätzliche Laufwerke verfügen. Die SATA- und SAS-Geräte sollten sich hinter einem Hostbusadapter (HBA) und einer SAS-Erweiterung befinden. Wir empfehlen dringend die sorgfältig entwickelten und umfassend geprüften Plattformen unserer Partner (demnächst verfügbar).
+**Speicherhardware.** Zwischen 2 und 16 Server mit lokal angeschlossenen SATA- SAS-, oder NVMe-Laufwerken. Jeder Server muss über mindestens 2 SSDs und mindestens 4 zusätzliche Laufwerke verfügen. Die SATA- und SAS-Geräte sollten sich hinter einem Hostbusadapter (HBA) und einer SAS-Erweiterung befinden. Wir empfehlen dringend die sorgfältig entwickelten und umfassend geprüften Plattformen unserer Partner (demnächst verfügbar).
 
 **Failoverclustering.** Das integrierte Clusteringfeature von Windows Server wird verwendet, um den Server zu verbinden.
 
-**Software Speicherbus.** Der Softwarespeicherbus ist neu in „Direkte Speicherplätze“. Er umfasst den Cluster und richtet ein softwaredefiniertes Speicherfabric ein, wodurch alle Server alle lokalen Laufwerke der jeweils anderen sehen können. Sie können es sich als Ersatz für die kostspielige und eingeschränkte Fibre Channel- oder Shared SAS-Verkabelung vorstellen.
+**Softwarespeicherbus.** Der Softwarespeicherbus ist neu in „Direkte Speicherplätze“. Er umfasst den Cluster und stellt ein softwaredefiniertes speicherfabric her, in dem alle Server alle lokalen Laufwerke sehen können. Sie können es sich als Ersatz für die kostspielige und eingeschränkte Fibre Channel- oder Shared SAS-Verkabelung vorstellen.
 
-**Cache der Speicherbus Schicht.** Der Software Speicherbus bindet die schnellsten Laufwerke (z. b. SSD) dynamisch an langsamere Laufwerke (z. b. HDDs), um serverseitiges Lese-/Schreibcache bereitzustellen, der e/a beschleunigt und den Durchsatz steigert.
+**Cache der Speicherbusebene.** Der Softwarespeicherbus bindet dynamisch die schnellsten vorhandenen Laufwerke (z. B. SSD) mit langsameren Laufwerken (z. B. HDDs), um das Zwischenspeichern von serverseitigen Lese-/Schreibzugriff zum Beschleunigen von E/A-Vorgängen und zum Steigern des Durchsatzes zu ermöglichen.
 
-**Speicher Pool.** Die Sammlung der Laufwerke, die die Grundlage für „Speicherplätze“ darstellt, wird als Speicherpool bezeichnet. Der Speicherpool wird automatisch erstellt, und alle geeigneten Laufwerke werden automatisch ermittelt und hinzugefügt. Es wird dringend empfohlen, pro Cluster einen Pool mit den Standardeinstellungen zu verwenden. Weitere Informationen finden Sie in unserem [Deep Dive-Artikel für den Speicherpool](https://blogs.technet.microsoft.com/filecab/2016/11/21/deep-dive-pool-in-spaces-direct/).
+**Speicher Pool.** Die Sammlung der Laufwerke, die die Grundlage für „Speicherplätze“ darstellt, wird als Speicherpool bezeichnet. Der Speicherpool wird automatisch erstellt, und alle geeigneten Laufwerke werden automatisch ermittelt und hinzugefügt. Es wird dringend empfohlen, einen Pool pro Cluster mit den Standardeinstellungen zu verwenden. Weitere Informationen finden Sie in unserem [Deep Dive-Artikel für den Speicherpool](https://blogs.technet.microsoft.com/filecab/2016/11/21/deep-dive-pool-in-spaces-direct/).
 
-**Speicherplätze.** „Speicherplätze“ bietet Fehlertoleranz für virtuelle „Festplatten“ mit [Spiegelung und/oder Erasure Coding](storage-spaces-fault-tolerance.md). Stellen Sie sich „Speicherplätze“ als verteiltes, softwaredefiniertes RAID mit den Laufwerken im Pool vor. In „Direkte Speicherplätze“ verfügen diese virtuellen Laufwerke in der Regel über Resilienz für zwei gleichzeitige Laufwerk- oder Serverausfälle (z. B. Drei-Wege-Spiegelung, wobei jede Datenkopie auf einem anderen Server gespeichert ist). Zusätzlich ist Gehäuse- und Rack-Fehlertoleranz verfügbar.
+**Speicherplätze.** Speicherplätze bieten Fehlertoleranz für virtuelle "Datenträger" mithilfe von [Spiegelung, Löschung Coding oder beides](storage-spaces-fault-tolerance.md). Stellen Sie sich „Speicherplätze“ als verteiltes, softwaredefiniertes RAID vor, das die Laufwerken im Pool verwendet. In „Direkte Speicherplätze“ verfügen diese virtuellen Laufwerke in der Regel über Resilienz für zwei gleichzeitige Laufwerk- oder Serverausfälle (z. B. Drei-Wege-Spiegelung, wobei jede Datenkopie auf einem anderen Server gespeichert ist). Zusätzlich ist Gehäuse- und Rack-Fehlertoleranz verfügbar.
 
-**Robustes Datei System (Refs).** ReFS ist das wichtigste, speziell für die Virtualisierung entwickelte Dateisystem. Es bietet erhebliche Beschleunigungen für VHDX-Dateivorgänge, wie Erstellung, Erweiterung und Prüfpunkt-Zusammenführung, sowie integrierte Prüfsummen zum Erkennen und Beheben von Bitfehlern. Außerdem werden Echtzeitebenen eingeführt, auf denen die Daten basierend auf ihrer Verwendung zwischen so genannten „Hot-“ und „Cold“-Speicherebenen in Echtzeit rotiert werden.
+**Robustes Datei System (Refs).** ReFS ist das wichtigste, speziell für die Virtualisierung entwickelte Dateisystem. Es bietet erhebliche Beschleunigungen für VHDX-Dateivorgänge, wie Erstellung, Erweiterung und Prüfpunkt-Zusammenführung, sowie integrierte Prüfsummen zum Erkennen und Beheben von Bitfehlern. Außerdem werden echt Zeitebenen eingeführt, die Daten basierend auf der Nutzung zwischen so genannten "heißen" und "kalten" Speicherebenen in Echtzeit drehen.
 
-**Freigegebene Clustervolumes.** Das CSV-Dateisystem vereint alle ReFS-Volumes zu einem einzigen Namespace, auf den über jeden beliebigen Server zugegriffen werden kann, sodass alle Volumes für jeden Server aussehen und funktionieren, als ob sie lokal bereitgestellt worden wären.
+**Freigegebene Clustervolumes.** Das CSV-Dateisystem vereinigt alle Refs-Volumes in einem einzelnen Namespace, auf den über einen beliebigen Server zugegriffen werden kann, sodass jedes Volume auf jedem Server so aussieht, als ob es lokal bereitgestellt wird.
 
 **Dateiserver mit horizontaler Skalierung.** Diese letzte Ebene ist nur für konvergente Bereitstellungen erforderlich. Der Dateiserver mit horizontaler Skalierung bietet Clients, z. B. einem anderen Cluster mit Hyper-V, mithilfe des SMB3-Zugriffsprotokolls Remotezugriff auf Dateien über das Netzwerk, und wandelt „Direkte Speicherplätze“ dadurch effizient in NAS (Network Attached Storage) um.
 
-## <a name="customer-stories"></a>Kundengeschichten
+## <a name="customer-stories"></a>Kundenstimmen
 
 Es gibt weltweit [mehr als 10.000 Cluster, auf](https://blogs.technet.microsoft.com/filecab/2018/03/27/storage-spaces-direct-momentum/) denen direkte Speicherplätze ausgeführt wird. Organisationen aller Größen, von kleinen Unternehmen, die nur zwei Knoten bereitstellen, für große Unternehmen und Regierungsbehörden, die Hunderte von Knoten bereitstellen, hängen von direkte Speicherplätze für Ihre kritischen Anwendungen und Infrastrukturen ab.
 
@@ -120,21 +120,21 @@ Die folgenden Tools können zum Verwalten und/oder Überwachen von direkte Speic
 
 | Name | Grafisch oder Befehlszeile? | Kostenpflichtig oder inbegriffen? |
 |-----------------|----------------------------|-------------------|
-| [Windows Admin Center](../../manage/windows-admin-center/overview.md)     | Grafischen    | Einbezogen |
-| Server-Manager & Failovercluster-Manager                                 | Grafischen    | Einbezogen |
-| Windows PowerShell                                                        | Befehlszeile | Einbezogen |
-| [System Center Virtual Machine Manager (SCVMM)](https://technet.microsoft.com/system-center-docs/vmm/manage/manage-storage-spaces-direct-vmm) <br>& [Operations Manager (SCOM)](https://www.microsoft.com/download/details.aspx?id=54700) | Grafischen    | Kostenpflichtig     |
+| [Windows Admin Center](../../manage/windows-admin-center/overview.md)     | Grafisch    | Enthalten |
+| Server-Manager & Failovercluster-Manager                                 | Grafisch    | Enthalten |
+| Windows PowerShell                                                        | Befehlszeile | Enthalten |
+| [System Center Virtual Machine Manager (SCVMM)](https://technet.microsoft.com/system-center-docs/vmm/manage/manage-storage-spaces-direct-vmm) <br>& [Operations Manager (SCOM)](https://www.microsoft.com/download/details.aspx?id=54700) | Grafisch    | Bezahlt     |
 
 ## <a name="get-started"></a>Erste Schritte
 
-Testen Sie Direkte Speicherplätze [in Microsoft Azure](https://blogs.technet.microsoft.com/filecab/2016/05/05/s2dazuretp5/), oder laden Sie eine für 180 Tage lizenzierte Evaluierungskopie von Windows Server von [Windows Server-Evaluierungsversionen](https://go.microsoft.com/fwlink/?linkid=842602) herunter.
+Probieren Sie direkte Speicherplätze [in Microsoft Azure](https://blogs.technet.microsoft.com/filecab/2016/05/05/s2dazuretp5/)aus, oder laden Sie eine 180-tägige Evaluierungsversion von Windows Server aus den [Windows Server-Auswertungen](https://go.microsoft.com/fwlink/?linkid=842602)herunter.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Fehlertoleranz und Speichereffizienz](storage-spaces-fault-tolerance.md)
 - [Speicherreplikat](../storage-replica/storage-replica-overview.md)
 - [Storage im Microsoft-Blog](https://blogs.technet.microsoft.com/filecab/)
-- [Storage Spaces Direct throughput with iWARP](https://blogs.technet.microsoft.com/filecab/2017/03/13/storage-spaces-direct-throughput-with-iwarp) (Durchsatz von „Direkte Speicherplätze“ mit iWARP (TechNet-Blog)
-- [Neues beim Failoverclustering unter Windows Server](../../failover-clustering/whats-new-in-failover-clustering.md)  
-- [Speicher Quality of Service](../storage-qos/storage-qos-overview.md)
-- [Unterstützung für Windows IT pro](https://www.microsoft.com/itpro/windows/support)
+- [Direkte Speicherplätze Durchsatz mit IWarp](https://blogs.technet.microsoft.com/filecab/2017/03/13/storage-spaces-direct-throughput-with-iwarp) (TechNet-Blog)
+- [Neues beim Failoverclustering unter Windows Server](../../failover-clustering/whats-new-in-failover-clustering.md)
+- [Quality of Service für Speicher](../storage-qos/storage-qos-overview.md)
+- [Windows IT Pro-Support](https://www.microsoft.com/itpro/windows/support)

@@ -1,6 +1,6 @@
 ---
 title: Berichte nach Bedarf erstellen
-description: Dieser Artikel beschreibt, wie Berichte nach Bedarf zum Analysieren der Datenträgerverwendung auf dem Server erstellt werden
+description: Dieser Artikel beschreibt, wie Berichte Bedarfs gesteuert generiert werden, um die Datenträger Verwendung auf dem Server zu analysieren.
 ms.date: 7/7/2017
 ms.prod: windows-server
 ms.technology: storage
@@ -8,65 +8,65 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 9b3cde8a01c40a04df1bc433687029a2e0e7c394
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 1802ab4fdabafd0a0344922fd861087c166d4499
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403005"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85474217"
 ---
 # <a name="generate-reports-on-demand"></a>Berichte nach Bedarf erstellen
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
-Während des täglichen Betriebs können Sie die Option **Berichte jetzt generieren** auswählen, um einen oder mehrere Berichte nach Bedarf zu erstellen. Mit diesen Berichten können Sie verschiedene Aspekte der aktuellen Datenträgerverwendung auf dem Server analysieren. Aktuelle Daten werden gesammelt, bevor die Berichte generiert werden.
+Bei täglichen Vorgängen können Sie die Option " **Berichte jetzt generieren** " verwenden, um einen oder mehrere Berichte bei Bedarf zu generieren. Mit diesen Berichten können Sie die verschiedenen Aspekte der aktuellen Datenträger Verwendung auf dem Server analysieren. Aktuelle Daten werden gesammelt, bevor die Berichte generiert werden.
 
-Wenn Sie Berichte nach Bedarf erstellen, werden die Berichte an einem Standardspeicherort gespeichert, den Sie im Dialogfeld **Optionen für den Ressourcen-Manager für Dateiserver** festlegen. Es wird allerdings keine Berichtsaufgabe zur späteren Verwendung erstellt. Sie können die Berichte sofort nach der Erstellung einsehen oder nachdem sie per E-Mail an eine Gruppe von Administratoren gesendet werden.
+Wenn Sie Berichte bei Bedarf generieren, werden die Berichte an einem Standard Speicherort gespeichert, den Sie im Dialogfeld **Datei Server Ressourcen-Manager Option** angeben, es wird jedoch keine Berichts Aufgabe für die spätere Verwendung erstellt. Sie können die Berichte sofort anzeigen, nachdem Sie generiert wurden, oder die Berichte per e-Mail an eine Gruppe von Administratoren senden.
 
 > [!Note]
-> Wenn Sie die Berichte sofort öffnen möchten, müssen Sie warten, bis die Berichte generiert werden. Die Verarbeitungszeit variiert je nach den Arten von Berichten und Umfang der Daten.
+> Wenn Sie die Berichte sofort öffnen möchten, müssen Sie warten, während die Berichte generiert werden. Die Verarbeitungszeit variiert je nach Art der Berichte und dem Umfang der Daten.
 
-## <a name="to-generate-reports-immediately"></a>So erstellen Sie Bericht sofort
+## <a name="to-generate-reports-immediately"></a>So generieren Sie Berichte sofort
 
-1. Klicken Sie auf den Knoten **Speicherberichtmanagement**.
+1. Klicken Sie auf den Knoten **Speicher Berichte-Verwaltung** .
 
-2. Klicken Sie mit der rechten Maustaste auf **Speicherberichtmanagement** und dann auf **Berichte jetzt generieren** (oder wählen Sie **Berichte jetzt generieren** im Bereich **Aktionen** aus). Das Dialogfeld **Speicherberichts-Aufgabeneigenschaften** wird geöffnet.
+2. Klicken Sie mit der rechten Maustaste auf **Speicher Berichte Verwaltung**, und klicken Sie dann auf **Berichte jetzt generieren** (oder klicken Sie im Bereich **Aktionen** auf **Berichte jetzt generieren** ). Dadurch wird das Dialogfeld Eigenschaften von " **Speicher Berichte** " geöffnet.
 
-3. So wählen Sie Volumes oder Ordner aus, in die Sie die Berichte erstellen:
+3. So wählen Sie Volumes oder Ordner aus, für die Berichte generiert werden sollen:
 
-   -   Klicken Sie unter **Umfang** auf **Hinzufügen**.
-   -   Navigieren Sie zu dem Volume oder Ordner, auf den Sie die Berichte erstellen möchten und wählen Sie sie aus und klicken Sie dann auf **OK**, um den Pfad der Liste hinzuzufügen.
-   -   Fügen Sie so viele Volumes oder Ordner aus, wie in den Berichten enthalten sein sollen. (Um ein Volume oder Ordner zu entfernen, klicken Sie auf den Pfad und dann auf **Entfernen**).
+   -   Klicken Sie unter **Bereich**auf **Hinzufügen**.
+   -   Navigieren Sie zu dem Volume oder Ordner, in dem Sie die Berichte generieren möchten, wählen Sie es aus, und klicken Sie dann auf **OK** , um den Pfad zur Liste hinzuzufügen.
+   -   Fügen Sie beliebig viele Volumes oder Ordner hinzu, die Sie in die Berichte einschließen möchten. (Um ein Volume oder einen Ordner zu entfernen, klicken Sie auf den Pfad, und klicken Sie dann auf **Entfernen**.)
 
-4. So geben Sie die zu erstellenden Berichte an:
+4. So geben Sie an, welche Berichte generiert werden sollen:
 
-    -   Wählen Sie unter **Berichtsdaten** jeden Bericht aus, den Sie hinzufügen möchten.
+    -   Wählen Sie unter **Berichtsdaten**die einzelnen Berichte aus, die Sie einschließen möchten.
 
    So bearbeiten Sie die Parameter eines Berichts:
 
-   -   Klicken Sie auf die Bezeichnung des Berichts und dann auf **Parameter bearbeiten**.
-   -   Bearbeiten Sie im Dialogfeld **Berichtsparameter** die Parameter nach Wunsch und klicken Sie dann auf **OK**.
-   -  Um eine Liste der Parameter für alle ausgewählten Berichte anzuzeigen, klicken Sie auf **Ausgewählte Berichte überprüfen** und dann auf **Schließen**.
- 
-5. So geben Sie das Speicherformat des Berichts an:
+   -   Klicken Sie auf die Bezeichnung Bericht, und klicken Sie dann auf **Parameter bearbeiten**.
+   -   Bearbeiten Sie im Dialogfeld **Berichts Parameter** die Parameter nach Bedarf, und klicken Sie dann auf **OK**.
+   -  Wenn Sie eine Liste der Parameter für alle ausgewählten Berichte anzeigen möchten, klicken Sie auf **ausgewählte Berichte überprüfen** und dann auf **Schließen**.
 
-   -  Wählen Sie unter **Berichtsformate** ein oder mehrere Formate für die geplanten Berichte aus. Standardmäßig werden Berichte in Dynamic HTML (DHTML) generiert. Sie können auch HTML, XML, CSV und Text-Formate auswählen. Die Berichte werden im Standardspeicherort für bedarfsgesteuerte Berichte gespeichert.
+5. So geben Sie die Formate zum Speichern der Berichte an:
 
-6. So übermitteln Sie Kopien der Berichte per E-Mail an Administratoren:
+   -  Wählen Sie unter **Berichtsformate**mindestens ein Format für die geplanten Berichte aus. Standardmäßig werden Berichte in Dynamic HTML (DHTML) generiert. Sie können auch HTML-, XML-, CSV-und Textformate auswählen. Die Berichte werden für Bedarfs gesteuerte Berichte am Standard Speicherort gespeichert.
 
-   - Aktivieren Sie auf der Registerkarte **Übermittlung** das Kontrollkästchen die **Berichte an die folgenden Administratoren senden** aus und geben Sie die Namen der administrativen Konten, die die Berichte erhalten sollen. 
-   - Verwenden Sie das Format <em>account@domain</em>, und verwenden Sie Semikolons zum Trennen mehrerer Konten.
+6. So übermitteln Sie Kopien der Berichte per e-Mail an Administratoren:
 
-7. Klicken Sie auf **OK**, um die Daten zu sammeln und die Berichte zu erstellen. Das Dialogfeld **Speicherberichte generieren** wird geöffnet.
+   - Aktivieren Sie auf der Registerkarte **Übermittlung** das Kontrollkästchen **Berichte an folgende Administratoren senden** , und geben Sie dann die Namen der Administrator Konten ein, die Berichte erhalten sollen.
+   - Verwenden Sie das Format <em>account@domain</em> , und verwenden Sie Semikolons zum Trennen mehrerer Konten.
 
-8. Geben Sie an, wie Sie die bedarfsgesteuerten Berichte generieren möchten:
+7. Klicken Sie auf **OK**, um die Daten zu erfassen und die Berichte zu generieren. Dadurch wird das Dialogfeld **Speicher Berichte generieren** geöffnet.
 
-   -   Wenn Sie die Berichte sofort nach der Erstellung anzeigen möchten, klicken Sie auf **Auf zu generierende Berichte warten und sie dann anzeigen**. Jeder Bericht wird in seinem eigenen Fenster geöffnet.
-   -   Wenn Sie die Berichte später anzeigen möchten, klicken Sie auf **Berichte im Hintergrund generieren**.
+8. Wählen Sie aus, wie die bedarfsgesteuerten Berichte generiert werden sollen:
 
-   Beide Optionen speichern die Berichte, und wenn Sie die Übermittlung per E-Mail aktiviert haben, werden die Berichte an die Administratoren in den Formaten gesendet, die Sie ausgewählt haben.
+   -   Wenn Sie die Berichte sofort nach ihrer Generierung anzeigen möchten, klicken Sie auf **warten, bis Berichte generiert werden, und zeigen Sie Sie**an. Jeder Bericht wird in einem eigenen Fenster geöffnet.
+   -   Klicken Sie **im Hintergrund auf Berichte generieren**, um die Berichte später anzuzeigen.
 
-## <a name="see-also"></a>Siehe auch
+   Mit beiden Optionen werden die Berichte gespeichert, und wenn Sie die Übermittlung per e-Mail aktiviert haben, senden Sie die Berichte in den von Ihnen ausgewählten Formaten an Administratoren.
+
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 -   [Speicherberichtmanagement](storage-reports-management.md)
 -   [Festlegen der Optionen des Ressourcen-Managers für Dateiserver](setting-file-server-resource-manager-options.md)

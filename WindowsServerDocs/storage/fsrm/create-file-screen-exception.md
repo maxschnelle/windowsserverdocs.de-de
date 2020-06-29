@@ -1,6 +1,6 @@
 ---
 title: Erstellen einer Dateiprüfungsausnahme
-description: In diesem Artikel wird beschrieben, wie Sie eine Dateiprüfungsausnahme erstellen
+description: In diesem Artikel wird beschrieben, wie Sie eine Datei Bildschirm Ausnahme erstellen.
 ms.date: 7/7/2017
 ms.prod: windows-server
 ms.technology: storage
@@ -8,44 +8,44 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 6a0fa660db6b03104b585c8ee78a4f20aafe5c88
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: c496151ed1f38cd1f2c604bd227627a586e582c6
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403144"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85473697"
 ---
 # <a name="create-a-file-screen-exception"></a>Erstellen einer Dateiprüfungsausnahme
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
-Gelegentlich sind Ausnahmen bei der Dateiprüfung notwendig. Wenn Sie beispielsweise Videodateien von einem Dateiserver sperren möchten, jedoch Ihrer Schulungsgruppe das Speichern der Video-Dateien für ihre Lernprogramm erlauben müssen. Um Dateien zuzulassen, die von anderen Dateiprüfungen blockiert werden, erstellen Sie eine *Dateiprüfungsausnahme*.
+Gelegentlich müssen Sie Ausnahmen für das Überprüfen von Dateien zulassen. Beispielsweise möchten Sie möglicherweise Videodateien von einem Dateiserver blockieren, aber Sie müssen der Trainingsgruppe gestatten, die Videodateien für Ihre computerbasierten Schulungen zu speichern. Wenn Sie zulassen möchten, dass Dateien von anderen Datei Bildschirmen blockiert werden, erstellen Sie eine *Datei Bildschirm Ausnahme*.
 
-Eine Dateiprüfungsausnahme ist eine besondere Art von Dateiprüfung, die jede Dateiprüfung außer Kraft setzt, die andernfalls auf den Ordner angewandt werden möchten und alle Unterordner in einem Ausnahmepfad angegebenen außer Kraft setzt. Das heißt, es wird eine Ausnahme für alle Regeln erstellt, die von einem übergeordneten Ordner abgeleitet werden.
+Eine Datei Bildschirm Ausnahme ist eine besondere Art von Datei Bildschirm, die alle Datei Prüfungen überschreibt, die andernfalls auf einen Ordner und alle zugehörigen Unterordner in einem bestimmten Ausnahme Pfad angewendet werden. Das heißt, es wird eine Ausnahme für alle Regeln erstellt, die von einem übergeordneten Ordner abgeleitet werden.
 
 > [!Note]
-> Sie können keine Dateiprüfungsausnahme für einen übergeordneten Ordner erstellen, in denen diese bereits definiert ist. Sie müssen die Ausnahme einem Unterordner zuordnen oder Änderungen an der vorhandene Dateiprüfung vornehmen.
+> Es ist nicht möglich, eine Datei Bildschirm Ausnahme für einen übergeordneten Ordner zu erstellen, in dem bereits ein Datei Bildschirm definiert ist. Sie müssen die Ausnahme einem Unterordner zuweisen oder Änderungen am vorhandenen Datei Bildschirm vornehmen.
 
 <br />
-Um Dateigruppen zuzuweisen, die bestimmen, welche Dateitypen für die Dateiprüfungsausnahme zugelassen werden sollen.
+Sie weisen Dateigruppen zu, um zu bestimmen, welche Dateitypen in der Datei Bildschirm Ausnahme zulässig sind.
 
-## <a name="to-create-a-file-screen-exception"></a>So erstellen Sie eine Dateiprüfungsausnahme
+## <a name="to-create-a-file-screen-exception"></a>So erstellen Sie eine Ausnahme für den Datei Bildschirm
 
-1.  Klicken Sie unter **Dateiprüfungsverwaltung** auf den Knoten **Dateiprüfungen**.
+1.  Klicken Sie unter **Datei-Überprüfungs Verwaltung**auf den Knoten **Datei Bildschirme** .
 
-2.  Klicken Sie mit der rechten Maustaste auf **Dateiprüfungsausnahme,** und dann auf **Dateiprüfungsausnahme erstellen** (oder wählen Sie **Dateiprüfungsausnahme erstellen** im Bereich **Aktionen** aus). Daraufhin wird das Dialogfeld **Dateiprüfungsausnahme erstellen** geöffnet.
+2.  Klicken Sie mit der rechten Maustaste auf **Datei Bildschirme**, und klicken Sie auf **Datei Bildschirm Ausnahme erstellen** (oder wählen Sie im Bereich **Aktionen** die Option **Datei Bildschirm Ausnahme erstellen** ) aus. Dadurch wird das Dialogfeld **Datei Bildschirm Ausnahme erstellen** geöffnet.
 
-3.  Geben Sie in das Textfeld **Ausnahmepfad** den Pfad ein oder wählen Sie den Pfad aus, auf den die Ausnahme angewendet wird. Die Ausnahme gilt für den ausgewählten Ordner und alle Unterordner.
+3.  Geben Sie im Textfeld **Ausnahme Pfad** den Pfad ein, auf den die Ausnahme angewendet werden soll, oder wählen Sie ihn aus. Die Ausnahme gilt für den ausgewählten Ordner und alle zugehörigen Unterordner.
 
-4.  So geben Sie die Dateien an, die von der Dateiprüfung ausgeschlossen werden sollen:
+4.  So geben Sie an, welche Dateien aus der Dateiüberprüfung ausgeschlossen werden sollen:
 
-    -   Wählen Sie unter **Dateigruppen** jede Dateigruppe aus, die von Ihrer Dateiprüfung ausgeschlossen werden sollen. (Um das Kontrollkästchen für die Dateigruppe zu aktivieren, doppelklicken Sie auf die Bezeichnung der Dateigruppe.)
+    -   Wählen Sie unter **Dateigruppen**die einzelnen Dateigruppen aus, die Sie aus der Dateiüberprüfung ausschließen möchten. (Doppelklicken Sie auf die Dateigruppen Bezeichnung, um das Kontrollkästchen für die Datei Gruppe auszuwählen.)
     -   Wenn Sie die Dateitypen anzeigen möchten, die eine Datei Gruppe einschließt und ausschließt, klicken Sie auf die Dateigruppen Bezeichnung, und klicken Sie auf **Bearbeiten**.
     -   Klicken Sie zum Erstellen einer neuen Dateigruppe auf **Erstellen**.
 
 5.  Klicken Sie auf **OK**.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 -   [Datei Prüfungsverwaltung](file-screening-management.md)
 -   [Definieren von Dateigruppen für die Prüfung](define-file-groups-for-screening.md)

@@ -8,12 +8,12 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 8ad14225592d627b6ff88b9e2286b686aa549392
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: f8ad7ca8fedfa3493a7f5369f8f603913879b50d
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "75351942"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85475427"
 ---
 # <a name="change-a-dynamic-disk-back-to-a-basic-disk"></a>Zurückkonvertieren eines dynamischen Datenträgers in eine Basisfestplatte
 
@@ -68,6 +68,6 @@ In diesem Thema erfährst du, wie du alle Daten auf einem dynamischen Datenträg
 -   Der Datenträger, der in eine Basisfestplatte zurückkonvertiert werden soll, darf keine Volumes oder Daten enthalten. Wenn du deine Daten behalten möchtest, musst du sie sichern oder auf ein anderes Volume verschieben, bevor du den Datenträger in eine Basisfestplatte konvertierst.
 -   Nachdem du einen dynamischen Datenträger wieder in eine Basisfestplatte konvertiert hast, kannst du darauf nur Partitionen und logische Laufwerke erstellen.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Command-line syntax notation](https://technet.microsoft.com/library/cc742449(v=ws.11).aspx) (Notation der Befehlszeilensyntax)

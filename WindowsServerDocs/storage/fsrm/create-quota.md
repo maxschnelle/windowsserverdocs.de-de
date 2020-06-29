@@ -1,6 +1,6 @@
 ---
 title: Erstellen eines Kontingents
-description: Dieser Artikel enthält Informationen zum Erstellen von Kontingenten basierend auf einer Vorlage
+description: In diesem Artikel wird beschrieben, wie ein Kontingent basierend auf einer Vorlage erstellt wird.
 ms.date: 7/7/2017
 ms.prod: windows-server
 ms.technology: storage
@@ -8,48 +8,48 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 6b199d8cc520021fcbbe32397997cc483f9c68cb
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b3513510ef00eec7ea78a3193cf44c25ddb17c7e
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403140"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85475217"
 ---
 # <a name="create-a-quota"></a>Erstellen eines Kontingents
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
-Kontingente können aus einer Vorlage oder mit benutzerdefinierten Eigenschaften erstellt werden. Die folgenden Anweisungen beschreiben, wie ein Kontingent basierend auf einer Vorlage (empfohlen) erstellt wird. Wenn Sie ein Kontingent mit benutzerdefinierten Eigenschaften erstellen müssen, können Sie diese Eigenschaften als Vorlage zur Wiederverwendung zu einem späteren Zeitpunkt speichern.
+Kontingente können aus einer Vorlage oder mit benutzerdefinierten Eigenschaften erstellt werden. Im folgenden Verfahren wird beschrieben, wie Sie ein Kontingent erstellen, das auf einer Vorlage basiert (empfohlen). Wenn Sie ein Kontingent mit benutzerdefinierten Eigenschaften erstellen müssen, können Sie diese Eigenschaften als Vorlage speichern, um Sie zu einem späteren Zeitpunkt wiederzuverwenden.
 
-Wenn Sie ein Kontingent erstellen, wählen Sie einen Kontingentpfad aus, der ein Volume oder ein Ordner ist, auf den die Speicherbeschränkungen zutreffen. Sie können für jeden angegebenen Pfad eine Vorlage verwenden, um einen der folgenden Typen von Kontingent zu erstellen:
+Wenn Sie ein Kontingent erstellen, wählen Sie einen Kontingent Pfad aus. Hierbei handelt es sich um ein Volume oder einen Ordner, für das das Speicherlimit gilt. In einem bestimmten Kontingent Pfad können Sie eine Vorlage verwenden, um einen der folgenden Kontingent Typen zu erstellen:
 
--   Ein einzelnes Kontingent, das den Platz für ein gesamtes Volume oder einen Ordner beschränkt.
--   Ein automatisch zugewiesenes Kontingent, das die Kontingentvorlage einem Volume oder Ordner zuweist. Kontingente, die auf dieser Vorlage basieren, werden automatisch generiert und auf alle Unterordner angewendet. Weitere Informationen zum Erstellen von automatisch zugewiesene Kontingenten finden Sie unter [Erstellen eines automatisch zugewiesenen Kontingents](create-auto-apply-quota.md).
+-   Ein einzelnes Kontingent, das den Speicherplatz für ein gesamtes Volume oder einen Ordner einschränkt.
+-   Ein automatisches Apply-Kontingent, das die Kontingent Vorlage einem Ordner oder einem Volume zuweist. Kontingente, die auf dieser Vorlage basieren, werden automatisch generiert und auf alle Unterordner angewendet. Weitere Informationen zum Erstellen von automatischen Apply-Kontingenten finden Sie unter [Erstellen eines automatischen Apply-Kontingents](create-auto-apply-quota.md).
 
 
 > [!Note]
-> Wenn Sie Kontingente ausschließlich auf der Grundlage von Vorlagen erstellen, können Sie die Kontingente zentral verwalten, indem Sie die Vorlagen anstatt die verschiedenen Kontingente aktualisieren. Anschließend können Sie die Änderungen auf alle Kontingente basierend auf der geänderten Vorlage anwenden. Dieses Feature vereinfacht die Implementierung von Änderungen an den Speicherrichtlinien, da alle Updates an einem zentralen Ort ausgeführt werden können.
+> Indem Sie Kontingente exklusiv aus Vorlagen erstellen, können Sie Ihre Kontingente zentral verwalten, indem Sie die Vorlagen anstelle der individuellen Kontingente aktualisieren. Anschließend können Sie auf der Grundlage der geänderten Vorlage Änderungen auf alle Kontingente anwenden. Diese Funktion vereinfacht die Implementierung von Speicher Richtlinien Änderungen, indem Sie einen zentralen Punkt bereitstellt, an dem alle Updates vorgenommen werden können.
 
-## <a name="to-create-a-quota-that-is-based-on-a-template"></a>So erstellen Sie ein Kontingent, das auf der Vorlage basiert.
+## <a name="to-create-a-quota-that-is-based-on-a-template"></a>So erstellen Sie ein Kontingent, das auf einer Vorlage basiert
 
 1.  Klicken Sie unter **Kontingentverwaltung** auf den Knoten **Kontingentvorlagen**.
 
-2.  Wählen Sie im Ergebnisbereich die Vorlage, auf der Ihr neues Kontingent basieren soll.
+2.  Wählen Sie im Ergebnisbereich die Vorlage aus, auf der das neue Kontingent basieren soll.
 
-3.  Klicken Sie mit der rechten Maustaste auf die Vorlage, und klicken Sie anschließend auf **Kontingent mithilfe einer Vorlage erstellen** (oder wählen Sie im **Aktionsbereich** die Option **Kontingentvorlage erstellen** aus). Daraufhin wird das Dialogfeld **Kontingent erstellen** mit der Zusammenfassung der Eigenschaften der Kontingentvorlage angezeigt.
+3.  Klicken Sie mit der rechten Maustaste auf die Vorlage, und klicken Sie auf **Kontingent aus Vorlage erstellen** (oder wählen Sie im **Aktions** Bereich die Option **Kontingent aus Vorlage erstellen** ). Dadurch wird das Dialogfeld **Kontingent erstellen** geöffnet, in dem die Zusammenfassungs Eigenschaften der angezeigten Kontingent Vorlage angezeigt werden.
 
-4.  Geben Sie unter **Kontingentpfad** den Ordner ein (oder navigieren Sie dahin), auf den das Kontingent angewendet wird.
+4.  Geben Sie unter **Kontingent Pfad**den Ordner ein, auf den das Kontingent angewendet werden soll, oder navigieren Sie zu diesem.
 
-5.  Klicken Sie auf die Option **Kontingent im Pfad erstellen**. Beachten Sie, dass die Kontingenteigenschaften auf den gesamten Ordner angewendet werden.
+5.  Klicken Sie auf die Option **Kontingent für Pfad erstellen** . Beachten Sie, dass die Kontingent Eigenschaften auf den gesamten Ordner angewendet werden.
 
      > [!Note]
-     > Um ein automatisch zugewiesenes Kontingent zu erstellen, klicken Sie auf die Option **Vorlage automatisch anwenden und Kontingente für vorhandene und neue Unterordner erstellen**. Weitere Informationen über automatisch zugewiesene Kontingente finden Sie unter [Erstellen eines automatisch zugewiesenen Kontingents](create-auto-apply-quota.md).
+     > Zum Erstellen eines automatischen Apply-Kontingents klicken Sie auf die Option **Vorlage automatisch anwenden und Kontingente für vorhandene und neue Unterordner erstellen** . Weitere Informationen zu automatischen Anwendungs Kontingenten finden Sie unter [Erstellen eines automatischen Apply-Kontingents](create-auto-apply-quota.md) .
 
-6.  Unter **Eigenschaften aus dieser Kontingentvorlage ableiten** ist die zum Erstellen des neuen Kontingents in Schritt 2 verwendete Vorlage aktiviert (oder Sie können eine andere Vorlage aus der Liste auswählen). Beachten Sie, das die Eigenschaften der Vorlage unter **Zusammenfassung der Eigenschaften von Kontingenten** angezeigt werden.
+6.  Unter **Eigenschaften von dieser Kontingent Vorlage ableiten**ist die Vorlage, die Sie in Schritt 2 zum Erstellen des neuen Kontingents verwendet haben, vorab ausgewählt (oder Sie können eine andere Vorlage aus der Liste auswählen). Beachten Sie, dass die Eigenschaften der Vorlage unter **Zusammenfassung der Kontingent Eigenschaften**angezeigt werden.
 
 7.  Klicken Sie auf **Erstellen**.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 -   [Kontingentverwaltung](quota-management.md)
 -   [Erstellen eines automatisch zugewiesenen Kontingents](create-auto-apply-quota.md)

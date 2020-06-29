@@ -8,12 +8,12 @@ ms.date: 03/26/2020
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: 0765c43333f23fb09c0f69ceca1ff21cfce25874
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: fab7dff1efc8b21a3b8fdacdeb9d446d7bc0cc30
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80310507"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85475307"
 ---
 # <a name="storage-migration-service-overview"></a>Übersicht über den Speicher Migrationsdienst
 
@@ -44,21 +44,21 @@ Die Migration ist ein dreistufiger Prozess:
 2. **Übertragen (kopieren) von Daten** von den Quell Servern auf die Zielserver.
 3. **Überschneiden Sie die neuen Server** (optional).<br>Die Zielserver übernehmen die früheren Identitäten der Quell Server, damit apps und Benutzer nichts ändern müssen. <br>Die Quell Server wechseln in einen Wartungszustand, in dem Sie immer noch dieselben Dateien enthalten, die Sie immer besitzen (es werden niemals Dateien von den Quell Servern entfernt), sind aber für Benutzer und apps nicht verfügbar. Anschließend können Sie die Server in ihrer freundlichen Zeit außer Betrieb setzen.
 
-![Screenshot, der einen zu scannenden Server anzeigt](media/migrate/inventory.png)
-**Abbildung 2: Inventarisierung von Servern durch den Speicher Migrationsdienst**
+![Screenshot, der einen zu überprüfenden Server anzeigt ](media/migrate/inventory.png)
+ **Abbildung 2: Inventarisierung von Servern durch den Speicher Migrationsdienst**
 
 Im folgenden Video wird gezeigt, wie Sie Storage Migration Service verwenden, um einen Server zu erstellen, z. b. einen Windows Server 2008 R2-Server, der jetzt nicht mehr unterstützt wird, und den Speicher auf einen neueren Server zu verschieben.
 
 > [!VIDEO https://www.youtube.com/embed/h-Xc9j1w144]
 
-## <a name="requirements"></a>Voraussetzungen
+## <a name="requirements"></a>Anforderungen
 
 Um Storage Migration Service verwenden zu können, benötigen Sie Folgendes:
 
 - Einen **Quell Server** oder **Failovercluster** zum Migrieren von Dateien und Daten aus
 - Ein **Zielserver** , auf dem Windows Server 2019 (gruppiert oder eigenständig) ausgeführt wird, um zu zu migrieren. Windows Server 2016 und Windows Server 2012 R2 funktionieren ebenso gut, sind aber um 50% langsamer.
 - Ein **Orchestrator-Server** , auf dem Windows Server 2019 zum Verwalten der Migration ausgeführt wird  <br>Wenn Sie nur wenige Server migrieren und auf einem der Server Windows Server 2019 ausgeführt wird, können Sie diesen als Orchestrator verwenden. Wenn Sie weitere Server migrieren, empfiehlt es sich, einen separaten Orchestrator-Server zu verwenden.
-- Ein **PC oder Server, auf dem [Windows Admin Center](../../manage/windows-admin-center/understand/windows-admin-center.md)**  ausgeführt wird, um die Benutzeroberfläche von Storage Migration Service auszuführen, es sei denn, Sie verwenden lieber PowerShell zum Verwalten der Migration. Die Version Windows Admin Center und Windows Server 2019 muss mindestens Version 1809 aufweisen.
+- Ein **PC oder Server, auf dem [Windows Admin Center](../../manage/windows-admin-center/understand/windows-admin-center.md) ** ausgeführt wird, um die Benutzeroberfläche von Storage Migration Service auszuführen, es sei denn, Sie verwenden lieber PowerShell zum Verwalten der Migration. Die Version Windows Admin Center und Windows Server 2019 muss mindestens Version 1809 aufweisen.
 
 Es wird dringend empfohlen, dass Orchestrator-und Zielcomputer über mindestens zwei Kerne oder zwei vCPUs und mindestens 2 GB Arbeitsspeicher verfügen. Inventur-und Übertragungs Vorgänge werden mit mehr Prozessoren und Arbeitsspeicher erheblich beschleunigt.
 
@@ -72,7 +72,7 @@ Es wird dringend empfohlen, dass Orchestrator-und Zielcomputer über mindestens 
   - Anmeldedienst (NP-in)
   - Windows Management Instrumentation (DCOM-In)
   - Windows Management Instrumentation (WMI-In)
-  
+
   > [!TIP]
   > Bei der Installation des Speicher Migrationsdienst-Proxy Dienstanbieter auf einem Computer mit Windows Server 2019 werden automatisch die erforderlichen Firewallports auf diesem Computer geöffnet. Stellen Sie hierzu im Windows Admin Center eine Verbindung mit dem Zielserver her, und navigieren Sie dann zu **Server-Manager** (im Windows Admin Center) > **Rollen und Features**, wählen Sie **Speicher Migrationsdienst-Proxy**aus, und klicken Sie dann auf **Installieren**.
 
@@ -100,12 +100,12 @@ Auf dem Quell Server muss eines der folgenden Betriebssysteme ausgeführt werden
 - Windows Server 2016 Essentials
 - Windows Server 2019 Essentials
 - Windows Storage Server 2008
-- Windows Storage Server 2008 R2
+- Windows Storage Server 2008 R2
 - Windows Storage Server 2012
-- Windows Storage Server 2012 R2
+- Windows Storage Server 2012 R2
 - Windows Storage Server 2016
 
-Hinweis: Windows Small Business Server und Windows Server Essentials sind Domänen Controller. Der Speicher Migrationsdienst kann noch nicht von Domänen Controllern entfernt werden, kann jedoch Dateien inventarisieren und übertragen.   
+Hinweis: Windows Small Business Server und Windows Server Essentials sind Domänen Controller. Der Speicher Migrationsdienst kann noch nicht von Domänen Controllern entfernt werden, kann jedoch Dateien inventarisieren und übertragen.
 
 Sie können die folgenden zusätzlichen Quell Typen migrieren, wenn der Orchestrator unter Windows Server, Version 1903 oder höher, ausgeführt wird, oder wenn der Orchestrator eine frühere Version von Windows Server mit installiertem [KB4512534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534) ausgeführt hat:
 
@@ -132,10 +132,10 @@ Auf dem Zielserver muss eines der folgenden Betriebssysteme ausgeführt werden:
 
 ## <a name="azure-vm-migration"></a>Azure-VM-Migration
 
-In Windows Admin Center, Version 1910, können Sie virtuelle Azure-Computer bereitstellen. Dadurch wird die VM-Bereitstellung in den Speicher Migrationsdienst integriert. Anstatt vor dem Bereitstellen der Arbeitsauslastung neue Server und VMS im Azure-Portal zu entwickeln, und möglicherweise Fehlende erforderliche Schritte und Konfiguration: das Windows Admin Center kann den virtuellen Azure-Computer bereitstellen, seinen Speicher konfigurieren, ihn Ihrer Domäne hinzufügen, Rollen installieren und richten Sie dann Ihr verteiltes System ein. 
+In Windows Admin Center, Version 1910, können Sie virtuelle Azure-Computer bereitstellen. Dadurch wird die VM-Bereitstellung in den Speicher Migrationsdienst integriert. Anstatt vor dem Bereitstellen der Arbeitsauslastung neue Server und VMS im Azure-Portal zu entwickeln, und möglicherweise Fehlende erforderliche Schritte und Konfiguration: das Windows Admin Center kann den virtuellen Azure-Computer bereitstellen, seinen Speicher konfigurieren, ihn Ihrer Domäne hinzufügen, Rollen installieren und dann Ihr verteiltes System einrichten.
 
    Im folgenden Video wird gezeigt, wie Sie mithilfe von Storage Migration Service zu Azure-VMS migrieren.
-   > [!VIDEO https://www.youtube-nocookie.com/embed/k8Z9LuVL0xQ] 
+   > [!VIDEO https://www.youtube-nocookie.com/embed/k8Z9LuVL0xQ]
 
 ## <a name="whats-new-in-storage-migration-service"></a>Neuerungen bei Storage Migration Service
 
@@ -149,7 +149,7 @@ Die folgenden neuen Funktionen sind verfügbar, wenn Sie den Speicher Migrations
 - Vereinfachte Synchronisierung von migrierten Freigaben zu Azure mithilfe von Azure-Dateisynchronisierung
 - Migrieren zu neuen Netzwerken wie etwa Azure
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Migrieren eines Dateiservers mithilfe von Storage Migration Service](migrate-data.md)
 - [Häufig gestellte Fragen (FAQ) zu Storage Migration Services](faq.md)

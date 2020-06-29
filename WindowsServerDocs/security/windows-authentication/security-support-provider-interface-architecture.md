@@ -1,5 +1,5 @@
 ---
-title: Architektur der SecuritySupportProvider-Schnittstelle
+title: Architektur der Security Support Provider-Schnittstelle
 description: Windows Server-Sicherheit
 ms.prod: windows-server
 ms.technology: security-windows-auth
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 89e6696c286cae7c3e89346d2044869082cdd8bc
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 2faf67f71d5bb04e23f034e738b64c62a7df4f05
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80861733"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85475247"
 ---
-# <a name="security-support-provider-interface-architecture"></a>Architektur der SecuritySupportProvider-Schnittstelle
+# <a name="security-support-provider-interface-architecture"></a>Architektur der Security Support Provider-Schnittstelle
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 In diesem Referenz Thema für IT-Experten werden die Windows-Authentifizierungsprotokolle beschrieben, die in der SSPI-Architektur (Security Support Provider Interface) verwendet werden.
 
@@ -57,7 +57,7 @@ Auch in diesem Thema enthalten:
 ### <a name="kerberos-security-support-provider"></a><a name="BKMK_KerbSSP"></a>Kerberos-Sicherheits Unterstützungs Anbieter
 Dieser SSP verwendet nur das Kerberos 5-Protokoll, das von Microsoft implementiert wird. Dieses Protokoll basiert auf den RFC 4120 und den Entwurfs Revisionen der Netzwerk Arbeitsgruppe. Dabei handelt es sich um ein Industriestandard Protokoll, das mit einem Kennwort oder einer Smartcard für eine interaktive Anmeldung verwendet wird. Es ist auch die bevorzugte Authentifizierungsmethode für Dienste in Windows.
 
-Da das Kerberos-Protokoll seit Windows 2000 das Standard Authentifizierungsprotokoll ist, unterstützen alle Domänen Dienste den Kerberos-SSP. Hierzu gehören:
+Da das Kerberos-Protokoll seit Windows 2000 das Standard Authentifizierungsprotokoll ist, unterstützen alle Domänen Dienste den Kerberos-SSP. Zu diesen Diensten gehören:
 
 -   Active Directory Abfragen, die das Lightweight Directory Access Protocol (LDAP) verwenden
 
@@ -77,7 +77,7 @@ Da das Kerberos-Protokoll seit Windows 2000 das Standard Authentifizierungsproto
 
 -   Zertifikat Anforderungen an Active Directory Zertifikat Dienste für Domänen Benutzer und-Computer
 
-Speicherort:%windir%\windows\system32\kerberos.dll
+Speicherort:% windir% \Windows\System32\kerberos.dll
 
 Dieser Anbieter ist standardmäßig in Versionen enthalten, die in der Liste **gilt für** am Anfang dieses Themas angegeben sind, sowie unter Windows Server 2003 und Windows XP.
 
@@ -85,15 +85,15 @@ Dieser Anbieter ist standardmäßig in Versionen enthalten, die in der Liste **g
 
 -   [Microsoft Kerberos (Windows)](https://msdn.microsoft.com/library/aa378747(VS.85).aspx)
 
--   [\[MS-kile\]: Kerberos-Protokoll Erweiterungen](https://msdn.microsoft.com/library/cc233855(PROT.10).aspx)
+-   [\[MS-kile \] : Kerberos-Protokoll Erweiterungen](https://msdn.microsoft.com/library/cc233855(PROT.10).aspx)
 
--   [\[MS-SFU\]: Kerberos-Protokoll Erweiterungen: Dienst für Benutzer und eingeschränkte Delegierungs Protokollspezifikation](https://msdn.microsoft.com/library/cc246071(PROT.13).aspx)
+-   [\[MS-SFU \] : Kerberos-Protokoll Erweiterungen: Dienst für Benutzer und eingeschränkte Delegierungs Protokollspezifikation](https://msdn.microsoft.com/library/cc246071(PROT.13).aspx)
 
 -   [Kerberos SSP/AP (Windows)](https://msdn.microsoft.com/library/aa377942(VS.85).aspx)
 
 -   [Kerberos-Erweiterungen](https://technet.microsoft.com/library/cc749438(v=ws.10).aspx) für Windows Vista
 
--   [Änderungen bei der Kerberos-Authentifizierung](https://technet.microsoft.com/library/dd560670(v=ws.10).aspx) für Windows 7 
+-   [Änderungen bei der Kerberos-Authentifizierung](https://technet.microsoft.com/library/dd560670(v=ws.10).aspx) für Windows 7
 
 -   [Technische Referenz für die Kerberos-Authentifizierung](https://technet.microsoft.com/library/cc739058(v=ws.10).aspx)
 
@@ -110,7 +110,7 @@ Die unterstützten Windows-Betriebssysteme können den NTLM-SSP für Folgendes v
 
 -   Sicherer Remote Prozedur aufrufsdienst oder DCOM-Dienst
 
-Speicherort:%windir%\WINDOWS\system32\ Msv1_0. dll
+Speicherort:% windir% \Windows\System32\msv1_0.dll
 
 Dieser Anbieter ist standardmäßig in Versionen enthalten, die in der Liste **gilt für** am Anfang dieses Themas angegeben sind, sowie unter Windows Server 2003 und Windows XP.
 
@@ -118,22 +118,22 @@ Dieser Anbieter ist standardmäßig in Versionen enthalten, die in der Liste **g
 
 -   [MSV1_0 Authentifizierungs Paket (Windows)](https://msdn.microsoft.com/library/aa378753(VS.85).aspx)
 
--   [Änderungen bei der NTLM-Authentifizierung](https://technet.microsoft.com/library/dd566199(v=ws.10).aspx) in Windows 7 
+-   [Änderungen bei der NTLM-Authentifizierung](https://technet.microsoft.com/library/dd566199(v=ws.10).aspx) in Windows 7
 
 -   [Microsoft NTLM (Windows)](https://msdn.microsoft.com/library/aa378749(VS.85).aspx)
 
--   [Leitfaden zur Überwachung und Einschränkung der NTLM-Verwendung](https://technet.microsoft.com/library/jj865674(v=ws.10).aspx)
+-   [Handbuch zur Überwachung und Einschränkung der NTLM-Verwendung](https://technet.microsoft.com/library/jj865674(v=ws.10).aspx)
 
 ### <a name="digest-security-support-provider"></a><a name="BKMK_DigestSSP"></a>Digest-Sicherheits Unterstützungs Anbieter
 Die Digest-Authentifizierung ist ein Industriestandard, der für LDAP (Lightweight Directory Access Protocol) und die Webauthentifizierung verwendet wird. Die Digest-Authentifizierung überträgt Anmelde Informationen über das Netzwerk als MD5-Hash oder Nachrichten Digest.
 
-Digest SSP (wdigest. dll) wird für Folgendes verwendet:
+Digest-SSP (Wdigest.dll) wird für Folgendes verwendet:
 
 -   Internet Explorer-und Internetinformationsdienste Zugriff (IIS)
 
 -   LDAP-Abfragen
 
-Speicherort:%windir%\windows\system32\digest.dll
+Speicherort:% windir% \Windows\System32\Digest.dll
 
 Dieser Anbieter ist standardmäßig in Versionen enthalten, die in der Liste **gilt für** am Anfang dieses Themas angegeben sind, sowie unter Windows Server 2003 und Windows XP.
 
@@ -141,7 +141,7 @@ Dieser Anbieter ist standardmäßig in Versionen enthalten, die in der Liste **g
 
 -   [Microsoft Digest Authentifizierung (Windows)](https://msdn.microsoft.com/library/aa378745(VS.85).aspx)
 
--   [\[MS-dpsp\]: Digest-Protokoll Erweiterungen](https://msdn.microsoft.com/library/cc227906(PROT.13).aspx)
+-   [\[MS-dpsp \] : Digest-Protokoll Erweiterungen](https://msdn.microsoft.com/library/cc227906(PROT.13).aspx)
 
 ### <a name="schannel-security-support-provider"></a><a name="BKMK_SchannelSSP"></a>SChannel Security Support Provider
 Der sichere Kanal (SChannel) wird für die webbasierte Server Authentifizierung verwendet, z. b. Wenn ein Benutzer versucht, auf einen sicheren Webserver zuzugreifen.
@@ -166,7 +166,7 @@ Das ausgewählte Protokoll ist das bevorzugte Authentifizierungsprotokoll, das v
 
 DTLS wird verwendet, wenn Sie von der Anwendung explizit aufgerufen wird. Weitere Informationen zu DTLS und den anderen Protokollen, die vom SChannel-Anbieter verwendet werden, finden Sie [unter SChannel Security Support Provider Technical Reference](../tls/schannel-security-support-provider-technical-reference.md).
 
-Speicherort:%windir%\windows\system32\schannel.dll
+Speicherort:% windir% \Windows\System32\Schannel.dll
 
 Dieser Anbieter ist standardmäßig in Versionen enthalten, die in der Liste **gilt für** am Anfang dieses Themas angegeben sind, sowie unter Windows Server 2003 und Windows XP.
 
@@ -179,16 +179,16 @@ Dieser Anbieter ist standardmäßig in Versionen enthalten, die in der Liste **g
 
 -   [Technische Referenz zu TLS/SSL](https://technet.microsoft.com/library/cc784149(v=ws.10).aspx)
 
--   [\[MS-TLSP\]: Transport Layer Security (TLS)-Profil](https://msdn.microsoft.com/library/dd207968(PROT.13).aspx)
+-   [\[MS-TLSP \] : Transport Layer Security (TLS)-Profil](https://msdn.microsoft.com/library/dd207968(PROT.13).aspx)
 
 ### <a name="negotiate-security-support-provider"></a><a name="BKMK_NegoSSP"></a>Sicherheits Unterstützungs Anbieter aushandeln
-Der einfache und geschützte GSS-API-Aushandlungs Mechanismus (spnetgo) bildet die Grundlage für den Aushandlungs-SSP, der zum Aushandeln eines bestimmten Authentifizierungs Protokolls verwendet werden kann. Wenn eine Anwendung SSPI aufruft, um sich bei einem Netzwerk anzumelden, kann ein SSP zum Verarbeiten der Anforderung angegeben werden. Wenn die Anwendung den Aushandlungs-SSP angibt, analysiert Sie die Anforderung und wählt den entsprechenden Anbieter für die Verarbeitung der Anforderung auf der Grundlage der vom Kunden konfigurierten Sicherheitsrichtlinien aus.
+Der einfache und geschützte GSS-API-Aushandlungs Mechanismus (spnetgo) bildet die Grundlage für den Aushandlungs-SSP, der zum Aushandeln eines bestimmten Authentifizierungs Protokolls verwendet werden kann. Wenn eine SSPI zur Anmeldung bei einem Netzwerk von einer Anwendung aufgerufen wird, kann ein SSP zur Verarbeitung der Anforderung angegeben werden. Wenn die Anwendung den Aushandlungs-SSP angibt, analysiert Sie die Anforderung und wählt den entsprechenden Anbieter für die Verarbeitung der Anforderung auf der Grundlage der vom Kunden konfigurierten Sicherheitsrichtlinien aus.
 
 Spnetgo ist in RFC 2478 angegeben.
 
 In unterstützten Versionen der Windows-Betriebssysteme wählt der Aushandlungs Security Support Provider zwischen dem Kerberos-Protokoll und NTLM aus. Aushandeln wählt das Kerberos-Protokollstandard mäßig aus, es sei denn, das Protokoll kann von einem der an der Authentifizierung beteiligten Systeme verwendet werden, oder die aufrufende Anwendung hat keine ausreichenden Informationen für die Verwendung des Kerberos-Protokolls bereitgestellt.
 
-Speicherort:%windir%\windows\system32\lsasrv.dll
+Speicherort:% windir% \Windows\System32\lsasrv.dll
 
 Dieser Anbieter ist standardmäßig in Versionen enthalten, die in der Liste **gilt für** am Anfang dieses Themas angegeben sind, sowie unter Windows Server 2003 und Windows XP.
 
@@ -196,20 +196,20 @@ Dieser Anbieter ist standardmäßig in Versionen enthalten, die in der Liste **g
 
 -   [Microsoft aushandeln (Windows)](https://msdn.microsoft.com/library/aa378748(VS.85).aspx)
 
--   [\[MS-SPNG\]: Simple und Protected GSS-API-Aushandlungs Mechanismus-Erweiterungen (spnetgo)](https://msdn.microsoft.com/library/cc247021(PROT.13).aspx)
+-   [\[MS-SPNG \] : einfache und geschützte GSS-API-Aushandlungs Mechanismus-Erweiterungen (spnetgo)](https://msdn.microsoft.com/library/cc247021(PROT.13).aspx)
 
--   [\[MS-N2HT\]: Aushandlungs-und Nego2 http-Authentifizierungsprotokoll Spezifikation](https://msdn.microsoft.com/library/dd303576(PROT.13).aspx)
+-   [\[MS-N2HT \] : Aushandlungs-und Nego2 http-Authentifizierungsprotokoll Spezifikation](https://msdn.microsoft.com/library/dd303576(PROT.13).aspx)
 
 ### <a name="credential-security-support-provider"></a><a name="BKMK_CredSSP"></a>Anmelde Informationsanbieter für Sicherheitsunterstützung
 Der Anmelde Informations Sicherheits-Dienstanbieter (Credential Security Service Provider, shdssp) stellt beim Starten neuer terminaldienstedienste und Remotedesktopdienste Sitzungen eine Single Sign-on Benutzer Darstellung (SSO) bereit. Mit "andssp" können Anwendungen die Anmelde Informationen des Benutzers vom Client Computer (mithilfe des Client seitigen SSP) an den Zielserver (über den serverseitigen SSP) delegieren, basierend auf den Richtlinien des Clients. Die Richtlinien für die aufwärtssp werden mithilfe von Gruppenrichtlinie konfiguriert. die Delegierung von Anmelde Informationen ist standardmäßig deaktiviert.
 
-Speicherort:%windir%\windows\system32\kredssp.dll
+Speicherort:% windir% \Windows\System32\credssp.dll
 
 Dieser Anbieter ist standardmäßig in Versionen enthalten, die in der Liste **gilt für** am Anfang dieses Themas angegeben sind.
 
 **Weitere Ressourcen für die Anmelde Informationen SSP**
 
--   [\[MS-CSSp\]: die Anmelde Informationsanbieter-Protokollspezifikation (Security Support Provider, fidssp)](https://msdn.microsoft.com/library/cc226764(PROT.13).aspx)
+-   [\[MS-CSSp \] : Credential Security Support Provider (kredssp)-Protokollspezifikation](https://msdn.microsoft.com/library/cc226764(PROT.13).aspx)
 
 -   [Anmelde Informationen Sicherheits Dienstanbieter und SSO für Terminaldiensteanmeldung](https://technet.microsoft.com/library/cc749211(v=ws.10).aspx)
 
@@ -226,18 +226,18 @@ Diese Erweiterung des Aushandlungs Pakets ermöglicht die folgenden Szenarien:
 
 -   **Umfassende Client Verfügbarkeit zwischen Client Computern und Servern.** Die Netzwerk-und Authentifizierungs Komponenten des Betriebssystems werden verwendet.
 
-Das Windows-Aushandlungs Paket behandelt den "NegoExts SSP" auf die gleiche Weise wie für Kerberos und NTLM. "NegoExts. dll" wird beim Start in die lokale System Zertifizierungsstelle (Local System Authority, LSA) geladen. Wenn eine Authentifizierungsanforderung empfangen wird, die auf der Anforderungs Quelle basiert, verhandelt NegoExts zwischen den unterstützten SSPs. Sie sammelt die Anmelde Informationen und Richtlinien, verschlüsselt Sie und sendet diese Informationen an den entsprechenden SSP, in dem das Sicherheits Token erstellt wird.
+Das Windows-Aushandlungs Paket behandelt den "NegoExts SSP" auf die gleiche Weise wie für Kerberos und NTLM. NegoExts.dll wird beim Start in die lokale System Zertifizierungsstelle (Local System Authority, LSA) geladen. Wenn eine Authentifizierungsanforderung empfangen wird, die auf der Anforderungs Quelle basiert, verhandelt NegoExts zwischen den unterstützten SSPs. Sie sammelt die Anmelde Informationen und Richtlinien, verschlüsselt Sie und sendet diese Informationen an den entsprechenden SSP, in dem das Sicherheits Token erstellt wird.
 
 Die von "NegoExts" unterstützten SSPs sind keine eigenständigen SSPs, wie z. b. Kerberos und NTLM. Wenn die Authentifizierungsmethode aus irgendeinem Grund fehlschlägt, wird im SSP von Negoexts daher eine Authentifizierungsfehler Meldung angezeigt oder protokolliert. Es sind keine Methoden für die erneute Aushandlung oder Alternative Authentifizierung möglich.
 
-Speicherort:%windir%\windows\system32\negoexts.dll
+Speicherort:% windir% \Windows\System32\negoexts.dll
 
 Dieser Anbieter ist standardmäßig in Versionen enthalten, die in der Liste **gilt für** am Anfang dieses Themas angegeben sind, ausgenommen Windows Server 2008 und Windows Vista.
 
 ### <a name="pku2u-security-support-provider"></a><a name="BKMK_PKU2USSP"></a>PKU2U Security Support Provider
 Das PKU2U-Protokoll wurde in Windows 7 und Windows Server 2008 R2 als SSP eingeführt und implementiert. Dieser SSP ermöglicht die Peer-zu-Peer-Authentifizierung, insbesondere über das Medien-und Dateifreigabe Feature namens HomeGroup, das in Windows 7 eingeführt wurde. Die Funktion ermöglicht die Freigabe von Computern, die nicht Mitglied einer Domäne sind.
 
-Speicherort:%windir%\windows\system32\pku2u.dll
+Speicherort:% windir% \Windows\System32\pku2u.dll
 
 Dieser Anbieter ist standardmäßig in Versionen enthalten, die in der Liste **gilt für** am Anfang dieses Themas angegeben sind, ausgenommen Windows Server 2008 und Windows Vista.
 
@@ -280,7 +280,7 @@ Die Option aushandeln kann verwendet werden, um dem Client und dem Server zu erm
 
     -   Wenn der Client Computer keines der aufgelisteten Protokolle unterstützt, schlägt der Authentifizierungs Austausch fehl.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Zusätzliche Referenzen
 [Architektur der Windows-Authentifizierung](https://technet.microsoft.com/library/dn169024(v=ws.10).aspx)
 
 

@@ -9,12 +9,12 @@ ms.assetid: a08648eb-eea0-4e2b-87fb-52bfe8953491
 author: shirgall
 ms.author: kathydav
 ms.date: 04/15/2020
-ms.openlocfilehash: d8861369abe24ea0d34dce209a5d98e854c4c95d
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 75b471d4083ef1597d5edcc775ea6fc847992483
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82072236"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85474467"
 ---
 # <a name="best-practices-for-running-linux-on-hyper-v"></a>Bewährte Methoden für die Ausführung von Linux unter Hyper-V
 
@@ -78,7 +78,7 @@ Konfigurieren und verwenden Sie den virtuellen Ethernet-Adapter, bei dem es sich
 
 Der Linux-Kernel bietet zwei Sätze von Datenträger-e/a-Zeit Planungs Modulen für die Neuanordnung von Anforderungen.  Ein Satz gilt für das ältere ' BLK '-Subsystem, und ein Satz ist für das neuere ' BLK-mq '-Subsystem. In beiden Fällen empfiehlt es sich, einen Scheduler zu verwenden, der die Planungsentscheidungen an den zugrunde liegenden Hyper-V-Hypervisor übergibt. Bei Linux-Kernels, die das "BLK"-Subsystem verwenden, handelt es sich hierbei um den "NOOP"-Scheduler. Bei Linux-Kernels, die das "BLK-MQ"-Subsystem verwenden, handelt es sich hierbei um den Scheduler "None".
 
-Bei einem bestimmten Datenträger können die verfügbaren Planer an diesem Dateisystem Speicherort angezeigt werden:`<diskname>`/sys/class/Block//Queue/Scheduler, wobei der aktuell ausgewählte Planer in eckigen Klammern steht. Sie können den Scheduler ändern, indem Sie an diesem Dateisystem Speicherort schreiben. Die Änderung muss zu einem Initialisierungs Skript hinzugefügt werden, damit Sie über Neustarts hinweg beibehalten werden. Weitere Informationen finden Sie in der Dokumentation zur Linux-Distribution.
+Bei einem bestimmten Datenträger können die verfügbaren Planer an diesem Dateisystem Speicherort angezeigt werden:/sys/class/Block/ `<diskname>` /Queue/Scheduler, wobei der aktuell ausgewählte Planer in eckigen Klammern steht. Sie können den Scheduler ändern, indem Sie an diesem Dateisystem Speicherort schreiben. Die Änderung muss zu einem Initialisierungs Skript hinzugefügt werden, damit Sie über Neustarts hinweg beibehalten werden. Weitere Informationen finden Sie in der Dokumentation zur Linux-Distribution.
 
 ## <a name="numa"></a>NUMA
 
@@ -94,7 +94,7 @@ Hyper-V ermöglicht das Verkleinern von virtuellen Festplatten Dateien (vhdx) oh
 
 Nachdem die Größe einer VHD-oder vhdx-Datei geändert wurde, sollten Administratoren ein Hilfsprogramm wie fdisk oder parted verwenden, um die Größe der Partition, des Volumes und des Dateisystems zu aktualisieren und die Größe des Datenträgers widerzuspiegeln. Das Verkleinern oder Erweitern der Größe einer VHD oder vhdx mit einer GUID-Partitionstabelle (GPT) führt zu einer Warnung, wenn ein Partitions Verwaltungs Tool zum Überprüfen des Partitionslayouts verwendet wird, und der Administrator wird gewarnt, den ersten und sekundären GPT-Header zu korrigieren. Dieser manuelle Schritt kann ohne Datenverlust sicher durchgeführt werden.
 
-## <a name="see-also"></a>Weitere Informationen
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 * [Unterstützte virtuelle Linux-und FreeBSD-Computer für Hyper-V unter Windows](Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows.md)
 

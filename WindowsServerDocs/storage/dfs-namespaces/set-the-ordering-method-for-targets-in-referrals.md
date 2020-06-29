@@ -1,6 +1,6 @@
 ---
 title: Festlegen der Sortiermethode für Ziele in Verweisen
-description: Dieser Artikel beschreibt die Vorgehensweise beim Festlegen der Sortiermethode für Ziele in Verweisen.
+description: In diesem Artikel wird beschrieben, wie die Bestellmethode für Ziele in verweisen festgelegt wird.
 ms.date: 6/5/2017
 ms.prod: windows-server
 ms.technology: storage
@@ -8,88 +8,88 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: bb42a98666941c5dfa50a8dfbf45635ad25dc767
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9b420e311c98477d369c81f10eca274e665dae3a
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386143"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85475157"
 ---
 # <a name="set-the-ordering-method-for-targets-in-referrals"></a>Festlegen der Sortiermethode für Ziele in Verweisen
 
 > Gilt für: Windows Server 2019, Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
 
-Ein Verweis ist eine sortierte Zielliste, die ein Client-PC von einem Domänencontroller oder Namespaceserver empfängt, wenn der Benutzer auf einen Namespacestamm oder -ordner mit Zielen zugreift. Nach Eingang des Verweises auf dem Client wird versucht, auf das erste Ziel in der Liste zuzugreifen. Ist das Ziel nicht verfügbar, wird vom Clientcomputer versucht, auf das nächste Ziel zuzugreifen.
-Ziele am Standort des Clients werden in einem Verweis immer zuerst aufgeführt. Ziele außerhalb des Standorts des Clients werden gemäß der Sortiermethode aufgelistet.
+Ein Verweis ist eine geordnete Liste von Zielen, die ein Client Computer von einem Domänen Controller oder einem Namespace Server empfängt, wenn der Benutzer auf einen Namespace Stamm oder-Ordner mit Zielen zugreift. Nachdem der Client den Verweis empfangen hat, versucht der Client, auf das erste Ziel in der Liste zuzugreifen. Wenn das Ziel nicht verfügbar ist, versucht der Client, auf das nächste Ziel zuzugreifen.
+Ziele am Standort des Clients werden immer zuerst in einem Verweis aufgeführt. Ziele außerhalb des Client Standorts werden entsprechend der Bestellmethode aufgelistet.
 
-Verwenden Sie die folgenden Abschnitte, um anzugeben, in welcher Reihenfolge Ziele an Clients verwiesen werden sollen und die verschiedenen Sortiermethoden für Zielverweise zu verstehen:
+Verwenden Sie die folgenden Abschnitte, um anzugeben, in welcher Reihenfolge die Ziele auf Clients verwiesen werden sollen, und um die verschiedenen Methoden zum Sortieren der Ziel Verweise zu verstehen:
 
-## <a name="to-set-the-ordering-method-for-targets-in-namespace-root-referrals"></a>So legen Sie Sortiermethoden für Ziele in Namespacestamm-Verweisen fest
+## <a name="to-set-the-ordering-method-for-targets-in-namespace-root-referrals"></a>So legen Sie die Reihenfolge Methode für Ziele in Namespace-Stamm verweisen fest
 
-Verwenden Sie das folgende Verfahren, um die Sortiermethode für den Namespacestamm festzulegen:
+Verwenden Sie das folgende Verfahren, um die Reihen folgen Methode für den Namespace Stamm festzulegen:
 
 1.  Klicken Sie auf **Start**, zeigen Sie auf **Verwaltung**, und klicken Sie dann auf **DFS-Verwaltung**.
 
 2.  Klicken Sie in der Konsolenstruktur unter dem Knoten **Namespaces** mit der rechten Maustaste auf einen Namespace, und klicken Sie anschließend auf **Eigenschaften**.
 
-3.  Wählen Sie eine Sortiermethode auf der Registerkarte **Verweise**.
+3.  Wählen Sie auf der Registerkarte **Verweise** eine Bestellmethode aus.
 
 > [!NOTE]
-> Um Windows PowerShell für die Sortiermethode für Ziele in Namespacestammverweisen festzulegen, verwenden Sie das Cmdlet [Set-DfsnRoot](https://technet.microsoft.com/library/jj884281.aspx) mit einem der folgenden Parameter:
->    -   **EnableSiteCosting** gibt die Methode für die **kostengünstigste Reihenfolge** an
->    -   **EnableInsiteReferrals** gibt die Sortiermethode für **Ziele außerhalb des Standorts des Clients ausschließen**
->    -   Das Auslassen beider Parameter legt die **zufällige Reihenfolge** der Sortiermethode fest. 
+> Verwenden Sie das Cmdlet [Set-dfsnroot](https://technet.microsoft.com/library/jj884281.aspx) mit einem der folgenden Parameter, um Windows PowerShell zum Festlegen der Anordnungs Methode für Ziele in Namespace-Stamm verweisen zu verwenden:
+>    -   **Enablesitecost** gibt die **niedrigste Kosten Anordnungs** Methode an.
+>    -   **Enableinsitereferrals** gibt die **Ausschluss Ziele außerhalb der Standort Anordnungs Methode des Clients an** .
+>    -   Durch das Weglassen eines der beiden Parameter wird die Sortiermethode für die **zufällige Reihenfolge** der
 
 Das DFSN-Windows PowerShell-Modul wurde in Windows Server 2012 eingeführt.
-   
-## <a name="to-set-the-ordering-method-for-targets-in-folder-referrals"></a>So legen Sie die Sortiermethode für Ziele in Ordnerverweisen fest
 
-Ordner mit Zielen erben die Sortiermethode des Namespacestamms. Sie können die Sortiermethode mit dem folgenden Verfahren überschreiben:
+## <a name="to-set-the-ordering-method-for-targets-in-folder-referrals"></a>So legen Sie die Bestellmethode für Ziele in Ordner verweisen fest
+
+Ordner mit Zielen erben die Bestellmethode vom Namespace Stamm. Mithilfe des folgenden Verfahrens können Sie die-Bestellmethode überschreiben:
 
 1.  Klicken Sie auf **Start**, zeigen Sie auf **Verwaltung**, und klicken Sie dann auf **DFS-Verwaltung**.
 
 2.  Klicken Sie in der Konsolenstruktur unter dem Knoten **Namespaces** mit der rechten Maustaste auf einen Ordner mit Zielen, und klicken Sie anschließend auf **Eigenschaften**.
 
-3.  Wählen Sie auf der Registerkarte **Verweise** das Kontrollkästchen **Ziele außerhalb des Standorts des Clients ausschließen**.
+3.  Aktivieren Sie auf der Registerkarte **Verweise** das Kontrollkästchen **Ziele außerhalb des Client Standorts ausschließen** .
 
 > [!NOTE]
-> Um Ordnerziele, die Ziele außerhalb des Standorts des Clients ausschließen, mit Windows PowerShell zu verwenden, verwenden Sie das Cmdlet [Set-DfsnFolder – EnableInsiteReferrals](https://technet.microsoft.com/library/jj884283.aspx).
+> Wenn Sie Windows PowerShell verwenden möchten, um Ordner Ziele außerhalb des Client Standorts auszuschließen, verwenden Sie das Cmdlet [Set-dfsnfolder – enableinsitereferrals](https://technet.microsoft.com/library/jj884283.aspx) .
 
-## <a name="target-referral-ordering-methods"></a>Sortiermethoden für Zielverweise
+## <a name="target-referral-ordering-methods"></a>Ziel Weiterleitungs Methoden für Verweise
 
-Diese drei Sortiermethoden sind:
+Die drei Reihenfolge Methoden sind:
 
 -   Zufällige Reihenfolge
 -   Niedrigste Kosten
--   Ausschließen von Zielen außerhalb des Standorts des Clients
+-   Ziele außerhalb des Client Standorts ausschließen
 
 ## <a name="random-order"></a>Zufällige Reihenfolge
 
-Bei dieser Methode werden Ziele wie folgt sortiert:
+In dieser Methode werden Ziele wie folgt angeordnet:
 
 1.  Ziele, die sich auf derselben Active Directory Verzeichnisdienste-Website (AD DS) wie der Client befinden, werden in zufälliger Reihenfolge am Anfang des Verweises aufgeführt.
-2.  Ziele außerhalb des Standorts des Clients werden in zufälliger Reihenfolge aufgelistet.
+2.  Ziele, die sich außerhalb des Client Standorts befinden, werden in zufälliger Reihenfolge aufgelistet.
 
-Wenn keine Zielserver mit demselben Standort verfügbar sind, wird der Clientcomputer einem zufälligen Zielserver zugeordnet, unabhängig davon, wie teuer die Verbindung ist oder wie weit davon entfernt das Ziel ist.
+Wenn keine Zielserver auf demselben Standort verfügbar sind, wird der Client Computer auf einen zufälligen Zielserver verwiesen, unabhängig davon, wie teuer die Verbindung ist oder wie weit das Ziel liegt.
 
 ## <a name="lowest-cost"></a>Niedrigste Kosten
 
-Bei dieser Methode werden Ziele wie folgt sortiert:
+In dieser Methode werden Ziele wie folgt angeordnet:
 
-1.  Ziele am selben Standort wie der Client werden in zufälliger Reihenfolge am oberen Rand der Verweise aufgelistet.
-2.  Ziele außerhalb des Standorts des Clients werden in der Reihenfolge der niedrigste Kosten zu den höchsten Kosten aufgelistet. Verweise mit gleichen Kosten werden gruppiert zusammengefasst, und die Ziele werden in zufälliger Reihenfolge in jeder Gruppe aufgeführt.
-
-> [!NOTE]
-> Standortverknüpfungskosten werden nicht im DFS-Verwaltungs-Snap-In angezeigt. Um die Standortverknüpfungskosten zu sehen, verwenden Sie „Active Directory-Standorte und -Dienste“.
-
-## <a name="exclude-targets-outside-of-the-clients-site"></a>Ausschließen von Zielen außerhalb des Standorts des Clients
-
-Bei dieser Methode enthalten Die Verweise nur die Ziele, die am selben Standort wie der Client sind. Diese Ziele mit gleichem Standort werden in zufälliger Reihenfolge aufgelistet. Wenn keine Ziele mit gleichem Standort vorhanden sind, empfängt der Client keinen Verweis und kann nicht auf den Teil des Namespace zugreifen.
+1.  Ziele, die sich an demselben Standort wie der Client befinden, werden in zufälliger Reihenfolge am Anfang des Verweises aufgeführt.
+2.  Ziele, die sich außerhalb des Client Standorts befinden, werden in der Reihenfolge der niedrigsten Kosten für die höchsten Kosten aufgeführt. Verweise mit denselben Kosten werden gruppiert, und die Ziele werden in zufälliger Reihenfolge in jeder Gruppe aufgeführt.
 
 > [!NOTE]
-> Ziele, deren Zielpriorität auf "Das erste von allen Zielen" oder "Das letzte von allen Zielen" festgelegt ist, werden weiterhin im Verweis aufgelistet, auch wenn die Sortiermethode als **Ziele außerhalb des Standorts des Clients ausschließen** festgelegt ist.
+> Die Kosten für die Standort Verknüpfung werden im DFS-Verwaltungs-Snap-in nicht angezeigt. Verwenden Sie das Snap-in "Active Directory Sites und Dienste", um die Standort Verknüpfungs Kosten anzuzeigen.
 
-## <a name="see-also"></a>Siehe auch 
+## <a name="exclude-targets-outside-of-the-clients-site"></a>Ziele außerhalb des Client Standorts ausschließen
+
+Bei dieser Methode enthält der Verweis nur die Ziele, die sich an demselben Standort wie der Client befinden. Diese gleichen Site Ziele werden in zufälliger Reihenfolge aufgelistet. Wenn keine gleichen Standort Ziele vorhanden sind, erhält der Client keinen Verweis und kann nicht auf diesen Teil des Namespaces zugreifen.
+
+> [!NOTE]
+> Ziele, bei denen die Ziel Priorität auf "zuerst bei allen Zielen" oder "letzte für alle Ziele" festgelegt ist, werden weiterhin im Verweis aufgeführt, auch wenn die Bestellmethode auf das **Ausschließen von Zielen außerhalb des Client Standorts**festgelegt ist.
+
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 -   [Optimieren von DFS-Namespaces](tuning-dfs-namespaces.md)
 -   [Delegieren von Verwaltungsberechtigungen für DFS-Namespaces](delegate-management-permissions-for-dfs-namespaces.md)

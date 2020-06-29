@@ -7,12 +7,12 @@ ms.technology: storagespaces
 ms.topic: article
 author: cosmosdarwin
 ms.date: 03/15/2019
-ms.openlocfilehash: ac4edccf0c1f8882dd2544b2544c3d8555bbc716
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 4faf4ade53074677b34b037c5ba6d551beb8542e
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80857343"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85474907"
 ---
 # <a name="nested-resiliency-for-storage-spaces-direct"></a>Direkte Speicherplätze für die
 
@@ -20,7 +20,7 @@ ms.locfileid: "80857343"
 
 Geschlagene Resilienz ist eine neue Funktion von [direkte Speicherplätze](storage-spaces-direct-overview.md) in Windows Server 2019, mit der ein Cluster mit zwei Servern gleichzeitig mit mehreren Hardwarefehlern arbeiten kann, ohne dass Speicherverfügbarkeit verloren geht, sodass Benutzer, Apps und virtuelle Computer weiterhin ohne Unterbrechung ausgeführt werden. In diesem Thema wird erläutert, wie es funktioniert, eine Schritt-für-Schritt-Anleitung für den Einstieg bietet und die am häufigsten gestellten Fragen beantwortet.
 
-## <a name="prerequisites"></a>Erforderliche Komponenten
+## <a name="prerequisites"></a>Voraussetzungen
 
 ### <a name="green-checkmark-icon-consider-nested-resiliency-if"></a>![Grünes Häkchen.](media/nested-resiliency/supported.png) Beachten Sie die folgenden Punkte:
 
@@ -40,7 +40,7 @@ Volumes, die geschlagene Resilienz verwenden, können **online bleiben und zugä
 
 Der Nachteil besteht darin, dass die **Leistungsfähigkeit der gespiegelten Sicherheit eine geringere Kapazitäts Effizienz aufweist als**bei der klassischen bidirektionalen Spiegelung Weitere Informationen finden Sie unten im Abschnitt [Kapazitäts Effizienz](#capacity-efficiency) .
 
-## <a name="how-it-works"></a>So funktioniert's
+## <a name="how-it-works"></a>Funktionsweise
 
 ### <a name="inspiration-raid-51"></a>Inspiration: RAID 5 + 1
 
@@ -73,7 +73,7 @@ Kapazitäts Effizienz ist das Verhältnis zwischen nutzbarem Speicherplatz und [
   | 4                          | 35,7%      | 34,1%      | 32,6%      |
   | 5                          | 37,7%      | 35,7%      | 33,9%      |
   | 6                          | 39,1%      | 36,8%      | 34,7%      |
-  | 7 +                         | 40,0%      | 37,5%      | 35,3%      |
+  | 7 und höher                         | 40,0%      | 37,5%      | 35,3%      |
 
   > [!NOTE]
   > **Wenn Sie neugierig sind, finden Sie hier ein Beispiel für die vollständige mathematische Version.** Angenommen, wir verfügen über sechs Kapazitäts Laufwerke auf jedem der beiden Server, und wir möchten 1 100 GB-Volumen erstellen, bestehend aus 10 GB Spiegel und 90 GB Parität. Die Server-lokale bidirektionale Spiegelung ist 50,0% effizient, d. h., die 10 GB an Spiegel Daten Verb müssen 20 GB für die Speicherung auf den einzelnen Servern. Der gesamte Speicherbedarf beträgt 40 GB. Server-Local Single Parität, in diesem Fall, ist 5/6 = 83,3% effizient, was bedeutet, dass die 90 GB der Paritäts Daten auf jedem Server 108 GB speichern. Der gesamte Speicherbedarf beträgt 216 GB. Der Gesamt Speicherbedarf beträgt daher [(10 GB/50,0%) + (90 GB/83,3%)] × 2 = 256 GB, für die Gesamt Kapazitäts Effizienz von 39,1%.
@@ -88,30 +88,30 @@ Sie können bekannte Storage-Cmdlets in PowerShell verwenden, um Volumes mit der
 
 ### <a name="step-1-create-storage-tier-templates"></a>Schritt 1: Erstellen von Speicherebenen-Vorlagen
 
-Erstellen Sie zunächst mit dem-Cmdlet "`New-StorageTier`" neue Speicherebenen Vorlagen. Sie müssen dies nur einmal durchführen, und dann kann jedes neu erstellte Volume auf diese Vorlage verweisen. Geben Sie die `-MediaType` der Kapazitäts Laufwerke und optional die `-FriendlyName` Ihrer Wahl an. Ändern Sie die anderen Parameter nicht.
+Erstellen Sie zunächst mithilfe des-Cmdlets neue Vorlagen für Speicherebenen `New-StorageTier` . Sie müssen dies nur einmal durchführen, und dann kann jedes neu erstellte Volume auf diese Vorlage verweisen. Geben Sie den Ihres `-MediaType` Kapazitäts Laufwerks und optional den `-FriendlyName` Ihrer Wahl an. Ändern Sie die anderen Parameter nicht.
 
 Wenn Ihre Kapazitäts Laufwerke Festplattenlaufwerke (HDD) sind, starten Sie PowerShell als Administrator, und führen Sie Folgendes aus:
 
-```PowerShell 
+```PowerShell
 # For mirror
 New-StorageTier -StoragePoolFriendlyName S2D* -FriendlyName NestedMirror -ResiliencySettingName Mirror -MediaType HDD -NumberOfDataCopies 4
 
 # For parity
-New-StorageTier -StoragePoolFriendlyName S2D* -FriendlyName NestedParity -ResiliencySettingName Parity -MediaType HDD -NumberOfDataCopies 2 -PhysicalDiskRedundancy 1 -NumberOfGroups 1 -FaultDomainAwareness StorageScaleUnit -ColumnIsolation PhysicalDisk 
-``` 
+New-StorageTier -StoragePoolFriendlyName S2D* -FriendlyName NestedParity -ResiliencySettingName Parity -MediaType HDD -NumberOfDataCopies 2 -PhysicalDiskRedundancy 1 -NumberOfGroups 1 -FaultDomainAwareness StorageScaleUnit -ColumnIsolation PhysicalDisk
+```
 
-Wenn es sich bei den Kapazitäts Laufwerken um SSD (Solid-State Drives) handelt, legen Sie den `-MediaType` stattdessen auf `SSD` fest. Ändern Sie die anderen Parameter nicht.
+Wenn es sich bei den Kapazitäts Laufwerken um SSD (Solid-State Drives) handelt, legen Sie `-MediaType` stattdessen auf fest `SSD` . Ändern Sie die anderen Parameter nicht.
 
 > [!TIP]
-> Überprüfen Sie die erfolgreich erstellten Tarife mit `Get-StorageTier`.
+> Überprüfen Sie, ob die Tarife erfolgreich mit erstellt wurden `Get-StorageTier` .
 
 ### <a name="step-2-create-volumes"></a>Schritt 2: Erstellen von Volumes
 
-Erstellen Sie dann mit dem Cmdlet "`New-Volume`" neue Volumes.
+Erstellen Sie dann mithilfe des `New-Volume` Cmdlets neue Volumes.
 
 #### <a name="nested-two-way-mirror"></a>Zwei-Wege-Spiegelung
 
-Wenn Sie eine zwei-Wege-Spiegelung verwenden möchten, verweisen Sie auf die Vorlage `NestedMirror` Ebene, und geben Sie die Größe an. Beispiel:
+Wenn Sie die zweistufige Spiegelung verwenden möchten, verweisen Sie auf die `NestedMirror` Ebenenvorlage, und geben Sie die Größe an. Beispiel:
 
 ```PowerShell
 New-Volume -StoragePoolFriendlyName S2D* -FriendlyName Volume01 -StorageTierFriendlyNames NestedMirror -StorageTierSizes 500GB
@@ -119,7 +119,7 @@ New-Volume -StoragePoolFriendlyName S2D* -FriendlyName Volume01 -StorageTierFrie
 
 #### <a name="nested-mirror-accelerated-parity"></a>Gespiegelte gespiegelte Spiegelung
 
-Wenn Sie die Geviert beschleunigte Parität der Spiegelung verwenden möchten, verweisen Sie sowohl auf die Vorlagen für `NestedMirror` als auch auf `NestedParity` Ebene, und geben Sie zwei Größen an, eine für jeden Teil des Volumes (Spiegelung zuerst, Parität Sekunde). Führen Sie beispielsweise Folgendes aus, um ein Volume mit einer Größe von 20% mit einer zwei-Wege-Spiegelung und einer 80%-Parität zu 1 500 erstellen:
+Verweisen Sie auf die- `NestedMirror` und- `NestedParity` ebenenvorlagen, und legen Sie zwei Größen fest, eine für jeden Teil des Volumes (Spiegelung zuerst, Parität (Sekunde) Führen Sie beispielsweise Folgendes aus, um ein Volume mit einer Größe von 20% mit einer zwei-Wege-Spiegelung und einer 80%-Parität zu 1 500 erstellen:
 
 ```PowerShell
 New-Volume -StoragePoolFriendlyName S2D* -FriendlyName Volume02 -StorageTierFriendlyNames NestedMirror, NestedParity -StorageTierSizes 100GB, 400GB
@@ -145,7 +145,7 @@ Get-StorageSubSystem Cluster* | Set-StorageHealthSetting -Name "System.Storage.N
 
 Nach der Festlegung auf " **true**" lautet das Cache Verhalten wie folgt:
 
-| Situation                       | Cache Verhalten                           | Kann der Verlust von Cache Laufwerken toleriert werden? |
+| Situation                       | Cacheverhalten                           | Kann der Verlust von Cache Laufwerken toleriert werden? |
 |---------------------------------|------------------------------------------|--------------------------------|
 | Beide Server hoch                 | Cache Lese-und Schreibvorgänge, vollständige Leistung | Ja                            |
 | Server nach unten, erste 30 Minuten   | Cache Lese-und Schreibvorgänge, vollständige Leistung | Nein (vorübergehend)               |
@@ -159,7 +159,7 @@ Nein, Volumes können nicht zwischen resilienztypen konvertiert werden. Bei neue
 
 ### <a name="can-i-use-nested-resiliency-with-multiple-types-of-capacity-drives"></a>Kann ich die Sicherheit von Netzwerken mit mehreren Typen von Kapazitäts Laufwerken verwenden?
 
-Ja, geben Sie in [Schritt 1](#step-1-create-storage-tier-templates) die `-MediaType` der einzelnen Ebenen entsprechend an. Bei nvme, SSD und HDD im gleichen Cluster stellt der nvme z. b. einen Cache bereit, während die beiden beiden die Kapazität bereitstellen: Legen Sie die `NestedMirror`-Ebene auf `-MediaType SSD` und die `NestedParity`-Ebene auf `-MediaType HDD`fest. Beachten Sie in diesem Fall, dass die Kapazitäts Effizienz der Parität nur von der Anzahl von HDD-Laufwerken abhängt, und Sie benötigen mindestens 4 von Ihnen pro Server.
+Ja, geben Sie einfach den `-MediaType` der einzelnen Ebenen in [Schritt 1](#step-1-create-storage-tier-templates) an. Bei nvme, SSD und HDD im gleichen Cluster stellt der nvme z. b. einen Cache bereit, während die beiden beiden Kapazitäten Kapazität bereitstellen: legen `NestedMirror` Sie die Ebene auf `-MediaType SSD` und die `NestedParity` Ebene auf fest `-MediaType HDD` . Beachten Sie in diesem Fall, dass die Kapazitäts Effizienz der Parität nur von der Anzahl von HDD-Laufwerken abhängt, und Sie benötigen mindestens 4 von Ihnen pro Server.
 
 ### <a name="can-i-use-nested-resiliency-with-3-or-more-servers"></a>Kann ich die Ausfallsicherheit mit drei oder mehr Servern verwenden?
 
@@ -171,11 +171,11 @@ Die Mindestanzahl der für direkte Speicherplätze erforderlichen Laufwerke betr
 
 ### <a name="does-nested-resiliency-change-how-drive-replacement-works"></a>Ändert sich die durch die Änderung von Netzwerken ersetzende Stabilität?
 
-Nein.
+Nein
 
 ### <a name="does-nested-resiliency-change-how-server-node-replacement-works"></a>Ändert sich die geänderte Resilienz, wie die Server Knoten Ersetzung funktioniert?
 
-Nein. Um einen Server Knoten und seine Laufwerke zu ersetzen, befolgen Sie die folgende Reihenfolge:
+Nein Um einen Server Knoten und seine Laufwerke zu ersetzen, befolgen Sie die folgende Reihenfolge:
 
 1. Außerbetriebnahme der Laufwerke auf dem ausgehenden Server
 2. Fügen Sie den neuen Server mit seinen Laufwerken dem Cluster hinzu.
@@ -184,7 +184,7 @@ Nein. Um einen Server Knoten und seine Laufwerke zu ersetzen, befolgen Sie die f
 
 Weitere Informationen finden Sie im Thema [Entfernen von Servern](remove-servers.md) .
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Übersicht über direkte Speicherplätze](storage-spaces-direct-overview.md)
 - [Grundlegendes zur Fehlertoleranz in direkte Speicherplätze](storage-spaces-fault-tolerance.md)

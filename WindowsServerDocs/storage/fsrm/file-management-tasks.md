@@ -1,6 +1,6 @@
 ---
 title: Dateiverwaltungsaufgaben
-description: Dieser Artikel beschreibt das Automatisieren von Dateiverwaltungsaufgaben
+description: In diesem Artikel wird der Prozess der Automatisierung von Datei Verwaltungsaufgaben beschrieben.
 ms.date: 7/7/2017
 ms.prod: windows-server
 ms.technology: storage
@@ -8,40 +8,40 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 257ee2955c4f521d14f01ec197fd45e5194eef02
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 402af4bd7c00bedfc3d01d43071af4fcd374d428
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71394104"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85473997"
 ---
 # <a name="file-management-tasks"></a>Dateiverwaltungsaufgaben
 
 > Gilt für: Windows Server 2019, Windows Server 2016, Windows Server (halbjährlicher Kanal), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
-Dateiverwaltungsaufgaben automatisieren die Suche nach Teilmengen von Dateien auf einem Server und das Anwenden von einfachen Befehlen. Diese Aufgaben können so geplant werden, dass sie automatisch in regelmäßigen Abständen ausgeführt werden, um sich wiederholende Kosten zu senken. Dateien, die durch eine Dateiverwaltungsaufgabe verarbeitet werden, können über folgende Eigenschaften festgelegt werden:
+Datei Verwaltungsaufgaben automatisieren das Auffinden von Teilmengen von Dateien auf einem Server und das Anwenden einfacher Befehle. Diese Aufgaben können in regelmäßigen Abständen ausgeführt werden, um sich wiederholende Kosten zu reduzieren. Dateien, die von einer Datei Verwaltungsaufgabe verarbeitet werden, können durch eine der folgenden Eigenschaften definiert werden:
 
--   Speicherort
--   Klassifizierungseigenschaften
+-   Standort
+-   Klassifizierungs Eigenschaften
 -   Erstellungszeit
--   Zeitpunkt der Änderung
+-   Änderungszeit
 -   Zeitpunkt des letzten Zugriffs
 
-Dateiverwaltungsaufgaben können auch konfiguriert werden, um Dateibesitzer über alle bevorstehenden Richtlinien zu benachrichtigen, die auf ihre Dateien angewendet werden.
+Datei Verwaltungsaufgaben können auch so konfiguriert werden, dass Dateibesitzer von allen bevorstehenden Richtlinien benachrichtigt werden, die auf Ihre Dateien angewendet werden.
 
 > [!Note]
-> Einzelne Dateiverwaltungsaufgaben werden unabhängig von Zeitplänen ausgeführt.
+> Einzelne Datei Verwaltungsaufgaben werden in unabhängigen Zeitplänen ausgeführt.
 
 <br />
-In diesem Abschnitt werden folgende Themen behandelt:
+Dieser Abschnitt schließt folgende Themen ein:
 
 -   [Erstellen einer Dateiablaufaufgabe](create-file-expiration-task.md)
 -   [Erstellen einer benutzerdefinierten Dateiverwaltungsaufgabe](create-custom-file-management-task.md)
 
 > [!Note]
-> Zum Festlegen von E-Mail-Benachrichtigungen und bestimmten Berichtsfunktionen müssen Sie zuerst die Optionen des Ressourcen-Manager für Dateiserverkonfigurieren konfigurieren.
+> Um e-Mail-Benachrichtigungen und bestimmte Berichterstattungs Funktionen festzulegen, müssen Sie zunächst die allgemeinen Optionen für den Datei Server Ressourcen-Manager konfigurieren.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 -   [Festlegen der Optionen des Ressourcen-Managers für Dateiserver](setting-file-server-resource-manager-options.md)
 

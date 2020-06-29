@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 4051bfea26d5c96d02132b50373f56b7b17ce5fb
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 0b26dca42d64338adeb8d818629e6a5f8b037f30
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80857473"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85475237"
 ---
 # <a name="windows-authentication-concepts"></a>Windows-Authentifizierungskonzepte
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 In diesem Referenz Übersichts Thema werden die Konzepte beschrieben, auf denen die Windows-Authentifizierung basiert.
 
@@ -54,7 +54,7 @@ Auf ähnliche Weise können Sie allen Benutzern aus einer bestimmten Domäne Ber
 ## <a name="credentials"></a>Anmeldeinformationen
 Ein Passport-und möglicherweise zugeordnetes Visum sind die akzeptierten Anmelde Informationen für einen Reisenden. Mit diesen Anmelde Informationen kann ein Reisender jedoch nicht auf alle Ressourcen in einem Land zugreifen oder darauf zugreifen. Beispielsweise sind für die Teilnahme an einer Konferenz zusätzliche Anmelde Informationen erforderlich. In Windows können Anmelde Informationen verwaltet werden, damit Kontoinhaber über das Netzwerk auf Ressourcen zugreifen können, ohne dass Sie wiederholt ihre Anmelde Informationen angeben müssen. Diese Art des Zugriffs ermöglicht Benutzern das einmalige Authentifizieren von Benutzern, um auf alle Anwendungen und Datenquellen zuzugreifen, für die Sie autorisiert sind, ohne einen anderen Konto Bezeichner oder ein anderes Kennwort einzugeben. Die Windows-Plattform nutzt die Möglichkeit, eine einzelne Benutzeridentität (durch Active Directory) im Netzwerk zu verwenden, indem Benutzer Anmelde Informationen lokal in der lokalen Sicherheits Autorität (LSA) des Betriebssystems zwischengespeichert werden. Wenn sich ein Benutzer bei der Domäne anmeldet, verwenden Windows-Authentifizierungs Pakete die Anmelde Informationen transparent, um beim Authentifizieren der Anmelde Informationen für Netzwerkressourcen Single Sign-on bereitzustellen. Weitere Informationen zu Anmelde Informationen finden Sie unter Anmelde Informationen für [Prozesse in der Windows-Authentifizierung](credentials-processes-in-windows-authentication.md).
 
-Eine Form der Multi-Factor Authentication für den Reisenden ist möglicherweise die Anforderung, mehrere Dokumente zu übertragen und zu präsentieren, um Ihre Identität zu authentifizieren, z. b. Pass-und Konferenz Registrierungsinformationen. Windows implementiert dieses Formular oder die Authentifizierung mithilfe von Smartcards, virtuellen Smartcards und biometrischen Technologien. 
+Eine Form der Multi-Factor Authentication für den Reisenden ist möglicherweise die Anforderung, mehrere Dokumente zu übertragen und zu präsentieren, um Ihre Identität zu authentifizieren, z. b. Pass-und Konferenz Registrierungsinformationen. Windows implementiert dieses Formular oder die Authentifizierung mithilfe von Smartcards, virtuellen Smartcards und biometrischen Technologien.
 
 ## <a name="security-principals-and-accounts"></a>Sicherheits Prinzipale und Konten
 In Windows ist jeder Benutzer, jeder Dienst, jede Gruppe oder jeder Computer, der eine Aktion initiieren kann, ein Sicherheits Prinzipal. Sicherheits Prinzipale verfügen über Konten, die auf einem Computer lokal sein können oder Domänen basiert sind. Beispielsweise können Windows-Client Computer, die einer Domäne angehören, an einer Netzwerk Domäne teilnehmen, indem Sie mit einem Domänen Controller kommunizieren, auch wenn kein Benutzer angemeldet ist. Zum Initiieren der Kommunikation muss der Computer über ein aktives Konto in der Domäne verfügen. Vor der Annahme der Kommunikation vom Computer wird die Identität des Computers von der lokalen Sicherheits Autorität auf dem Domänen Controller authentifiziert. Anschließend wird der Sicherheitskontext des Computers genau wie für einen Human Security Principal definiert. Dieser Sicherheitskontext definiert die Identität und die Funktionen eines Benutzers oder Diensts auf einem bestimmten Computer oder einem Benutzer, einem Dienst, einer Gruppe oder einem Computer in einem Netzwerk. Er definiert z. b. die Ressourcen, z. b. eine Dateifreigabe oder einen Drucker, auf die zugegriffen werden kann, sowie die Aktionen, wie z. b. lesen, schreiben oder ändern, die von einem Benutzer, einem Dienst oder einem Computer auf dieser Ressource ausgeführt werden können. Weitere Informationen finden Sie unter [Sicherheits Prinzipale](https://technet.microsoft.com/itpro/windows/keep-secure/security-principals).
@@ -67,15 +67,15 @@ Eigenständige verwaltete Dienst Konten und virtuelle Konten wurden in Windows S
 
 Weitere Informationen zu Konten finden Sie unter:
 
--   [Active Directory Konten](https://technet.microsoft.com/itpro/windows/keep-secure/active-directory-accounts)
+-   [Active Directory-Konten](https://technet.microsoft.com/itpro/windows/keep-secure/active-directory-accounts)
 
--   [Sicherheitsgruppen Active Directory](https://technet.microsoft.com/itpro/windows/keep-secure/active-directory-security-groups)
+-   [Active Directory-Sicherheitsgruppen](https://technet.microsoft.com/itpro/windows/keep-secure/active-directory-security-groups)
 
 -   [Lokale Konten](https://technet.microsoft.com/itpro/windows/keep-bastion.local-accounts)
 
 -   [Microsoft-Konten](https://technet.microsoft.com/itpro/windows/keep-secure/microsoft-accounts)
 
--   [Dienst Konten](https://technet.microsoft.com/itpro/windows/keep-secure/service-accounts)
+-   [Dienstkonten](https://technet.microsoft.com/itpro/windows/keep-secure/service-accounts)
 
 -   [Besondere Identitäten](https://technet.microsoft.com/itpro/windows/keep-secure/special-identities)
 
@@ -103,7 +103,7 @@ Die eingeschränkte Delegierung bietet Administratoren die Möglichkeit, Anwendu
 
 Weitere Informationen zur eingeschränkten Delegierung finden Sie unter [Übersicht über die eingeschränkte Kerberos-Delegierung](../kerberos/kerberos-constrained-delegation-overview.md).
 
-## <a name="see-also"></a>Siehe auch
-[Technische Übersicht über die Windows-Anmeldung und-Authentifizierung](https://technet.microsoft.com/library/dn269029.aspx)
+## <a name="additional-references"></a>Zusätzliche Referenzen
+[Technische Übersicht zur Windows-Anmeldung und -Authentifizierung.](https://technet.microsoft.com/library/dn269029.aspx)
 
 

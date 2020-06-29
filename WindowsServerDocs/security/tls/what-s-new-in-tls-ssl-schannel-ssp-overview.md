@@ -9,12 +9,12 @@ author: justinha
 ms.author: justinha
 manager: brianlic
 ms.date: 05/16/2018
-ms.openlocfilehash: 105225736d6b883e8451aa599af1937068ebe43d
-ms.sourcegitcommit: f22e4d67dd2a153816acf8355e50319dbffc5acf
+ms.openlocfilehash: fac7e780fc584f0ce4dde8bb87ce37035840a40a
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/18/2020
-ms.locfileid: "83546563"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85474877"
 ---
 # <a name="overview-of-tls---ssl-schannel-ssp"></a>Übersicht über TLS-SSL (Schannel SSP)
 
@@ -58,7 +58,7 @@ Beim Empfang der TLS-Anfrage des Clients durch den Server wertet dieser die List
 ### <a name="management-of-trusted-issuers-for-client-authentication"></a><a name="BKMK_TrustedIssuers"></a>Verwaltung vertrauenswürdiger Aussteller für die Clientauthentifizierung
 Wenn die Authentifizierung des Clientcomputers über SSL oder TLS erforderlich ist, kann der Server so konfiguriert werden, dass eine Liste vertrauenswürdiger Zertifikataussteller gesendet wird. Diese Liste enthält die Gruppe der Zertifikataussteller, denen der Server vertraut, und hilft dem Clientcomputer bei der Auswahl des Clientzertifikats, falls mehrere Zertifikate vorhanden sind. Darüber hinaus muss die Zertifikatkette, die der Clientcomputer an den Server sendet, anhand der Liste der konfigurierten vertrauenswürdigen Aussteller überprüft werden.
 
-Vor Windows Server 2012 und Windows 8 konnten Anwendungen oder Prozesse, die den Schannel SSP verwendeten (einschließlich http. sys und IIS), eine Liste der vertrauenswürdigen Aussteller bereitstellen, die für die Client Authentifizierung über eine Zertifikat Vertrauens Liste unterstützt werden.
+Vor Windows Server 2012 und Windows 8 konnten Anwendungen oder Prozesse, die den Schannel SSP verwendeten (einschließlich HTTP.sys und IIS), eine Liste der vertrauenswürdigen Aussteller bereitstellen, die für die Client Authentifizierung über eine Zertifikat Vertrauens Liste unterstützt werden.
 
 In Windows Server 2012 und Windows 8 wurden Änderungen am zugrunde liegenden Authentifizierungsprozess vorgenommen, um Folgendes zu tun:
 
@@ -104,7 +104,7 @@ Informationen dazu, welche Daten einschließlich des anwendungsdefinierten Speic
 
 Es gibt drei Vertrauensstellungsmodi für die Clientauthentifizierung durch den Schannel-Anbieter. Der Vertrauensstellungs Modus steuert, wie die Überprüfung der Zertifikat Kette des Clients durchgeführt wird, und ist eine systemweite Einstellung, die von der REG_DWORD "clientauthtrustmode" unter HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannelgesteuert wird.
 
-|Value|Vertrauensstellungsmodus|Beschreibung|
+|Wert|Vertrauensstellungsmodus|Beschreibung|
 |-----|-------|--------|
 |0|Maschinenvertrauensstellung (Standard)|Erfordert, dass das Clientzertifikat von einem Zertifikat in der Liste der vertrauenswürdigen Aussteller ausgestellt wurde.|
 |1|Exklusive Stammvertrauensstellung|Erfordert, dass das Clientzertifikat in der Zertifikatkette auf ein Stammzertifikat zurückgeht, das in dem durch den Aufrufer festgelegten Speicher für vertrauenswürdige Aussteller enthalten ist. Das Zertifikat muss auch von einem Herausgeber in der Liste der vertrauenswürdigen Aussteller ausgestellt worden sein.|
@@ -147,7 +147,7 @@ Anwendungen, die DTLS über UDP nutzen, können das SSPI-Modell in Windows Serve
 ### <a name="deprecated-functionality"></a><a name="BKMK_Deprecated"></a>Veraltete Funktionen
 Im Schannel SSP für Windows Server 2012 und Windows 8 gibt es keine veralteten Features oder Funktionen.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Zusätzliche Referenzen
 -   [Sicherheitsmodell für die private Cloud – Wrapperfunktion](https://social.technet.microsoft.com/wiki/contents/articles/6756.private-cloud-security-model-wrapper-functionality.aspx)
 
 

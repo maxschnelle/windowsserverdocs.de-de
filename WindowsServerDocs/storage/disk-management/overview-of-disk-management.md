@@ -8,12 +8,12 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 46ed1256ed9039311939f9de12ea46416443be9c
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: e200901d8ddd59f0c0bc45b34681f3aa41b44923
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "71402147"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85474417"
 ---
 # <a name="overview-of-disk-management"></a>Datenträgerverwaltung: Übersicht
 
@@ -49,7 +49,7 @@ Falls du neugierig bist (wir haben deine Kommentare gelesen!): Windows umfasst t
 
 Wenn die Datenträgerverwaltung die EFI-Systempartition und die Wiederherstellungspartition als 100% frei anzeigt, lügt sie. Diese Partitionen enthalten in der Regel viele wirklich wichtige Dateien, die dein PC benötigt, um ordnungsgemäß zu funktionieren. Du solltest sie einfach in Ruhe ihre Arbeit erledigen lassen, damit sie deinen PC starten und dir helfen, Probleme zu beheben.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Verwalten von Datenträgern](manage-disks.md)
 - [Verwalten von Basisvolumes](manage-basic-volumes.md)

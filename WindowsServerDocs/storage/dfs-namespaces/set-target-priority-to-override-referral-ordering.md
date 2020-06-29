@@ -1,6 +1,6 @@
 ---
 title: Festlegen der Zielpriorität zum Überschreiben der Sortiermethode von Verweisen
-description: Dieser Artikel beschreibt die Vorgehensweise beim Festlegen der Zielpriorität, um die Verweisreihenfolge außer Kraft zu setzen
+description: In diesem Artikel wird beschrieben, wie Sie die Ziel Priorität festlegen
 ms.date: 6/5/2017
 ms.prod: windows-server
 ms.technology: storage
@@ -8,54 +8,54 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: f0a6496802d2be16e84ef62c41fea6f0ae9f6438
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 401e15c248687c7585cb85172b1d4d57125cdc86
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386120"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85475177"
 ---
-# <a name="set-target-priority-to-override-referral-ordering"></a>Legen Sie die Zielpriorität zum Überschreiben der Sortiermethode von Verweisen fest
+# <a name="set-target-priority-to-override-referral-ordering"></a>Festlegen der Ziel Priorität zum Überschreiben der Verweis Anordnung
 
 > Gilt für: Windows Server 2019, Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
 
-Ein Verweis ist eine sortierte Zielliste, die ein Client-PC von einem Domänencontroller oder Namespaceserver empfängt, wenn der Benutzer auf einen Namespacestamm oder -ordner mit Zielen im Namespace zugreift. Die einzelnen Ziele in einem Verweis werden gemäß der Sortiermethode für den Namespacestamm oder -ordner sortiert. 
+Ein Verweis ist eine sortierte Zielliste, die ein Client-PC von einem Domänencontroller oder Namespaceserver empfängt, wenn der Benutzer auf einen Namespacestamm oder -ordner mit Zielen im Namespace zugreift. Die einzelnen Ziele in einem Verweis werden gemäß der Sortiermethode für den Namespacestamm oder -ordner sortiert.
 
-Sie können für einzelne Ziele eine Priorität festlegen, um die Sortierung der Ziele zu optimieren. Sie können z. B. angeben, dass das Ziel das erste von allen Zielen, das letzte von allen Zielen oder das erste oder letzte von allen Zielen mit gleichen Kosten ist.
+Um die Anordnung von Zielen zu verfeinern, können Sie die Priorität für einzelne Ziele festlegen. Sie können z. b. angeben, dass das Ziel zuerst für alle Ziele, zuletzt für alle Ziele oder für alle Ziele der gleichen Kosten gleich ist.
 
 ## <a name="to-set-target-priority-on-a-root-target-for-a-domain-based-namespace"></a>So legen Sie die Zielpriorität eines Stammziels für einen domänenbasierten Namespace fest
 
-Gehen Sie wie im Folgenden beschrieben vor, um die Zielpriorität eines Stammziels für einen domänenbasierten Namespace festzulegen:
+Gehen Sie folgendermaßen vor, um die Ziel Priorität eines Stamm Ziels für einen domänenbasierten Namespace festzulegen:
 
 1.  Klicken Sie auf **Start**, zeigen Sie auf **Verwaltung**, und klicken Sie dann auf **DFS-Verwaltung**.
 
-2.  Klicken Sie in der Konsolenstruktur unter dem Knoten **Namespaces** auf den domänenbasierten Namespace für die Stammziele, für die Sie eine Priorität festlegen möchten.
+2.  Klicken Sie in der Konsolen Struktur unter dem Knoten **Namespaces** auf den domänenbasierten Namespace für die Stamm Ziele, für die Sie die Priorität festlegen möchten.
 
-3.  Klicken Sie im **Detailbereich** auf der Registerkarte **Namespaceserver** mit der rechten Maustaste auf das Stammziel mit der zu ändernden Priorität, und klicken Sie dann auf **Eigenschaften**.
+3.  Klicken Sie im **Detail** Bereich auf der Registerkarte **Namespace Server** mit der rechten Maustaste auf das Stamm Ziel mit der Priorität, die Sie ändern möchten, und klicken Sie dann auf **Eigenschaften**.
 
-4.  Klicken Sie auf der Registerkarte **Erweitert** auf **Folgende Verweisreihenfolge außer Kraft setzen**, und klicken Sie dann auf die gewünschte Priorität.
+4.  Klicken Sie auf der Registerkarte **erweitert** auf **Verweis Reihenfolge außer Kraft setzen**, und klicken Sie dann auf die gewünschte Priorität.
 
-    -   **Das erste von allen Zielen** Gibt an, dass Benutzer immer an dieses Ziel verwiesen werden sollen, wenn das Ziel verfügbar ist.
-    -   **Das letzte von allen Zielen** Gibt an, dass Benutzer nie an dieses Ziel verwiesen werden sollen, es sei denn, alle anderen Ziele sind nicht verfügbar.
-    -   **Das erste unter den Zielen mit gleichen Kosten** Gibt an, dass Benutzer an dieses Ziel verwiesen werden sollen, bevor sie an andere Ziele mit gleichen Kosten verwiesen werden (hierbei handelt es sich gewöhnlich um weitere Ziele am selben Standort).
-    -   **Das letzte Ziel bei gleichen Kosten** Gibt an, dass Benutzer nie an dieses Ziel verwiesen werden sollen, wenn andere Ziele mit gleichen Kosten verfügbar sind (hierbei handelt es sich gewöhnlich um weitere Ziele am selben Standort).
+    -   **Erster unter allen Zielen**  Gibt an, dass Benutzer immer auf dieses Ziel verwiesen werden sollen, wenn das Ziel verfügbar ist.
+    -   **Letzte zwischen allen Zielen** Gibt an, dass Benutzer nie auf dieses Ziel verwiesen werden sollten, es sei denn, alle anderen Ziele sind nicht verfügbar.
+    -   **Zuerst unter den Zielen der gleichen Kosten**  Gibt an, dass Benutzer auf dieses Ziel vor anderen Zielen gleicher Kosten verwiesen werden sollen (was in der Regel andere Ziele an derselben Site bedeutet).
+    -   Die **letzten Ziele der gleichen Kosten**  Gibt an, dass Benutzer nie auf dieses Ziel verwiesen werden sollen, wenn andere Ziele mit gleichen Kosten verfügbar sind (Dies bedeutet in der Regel andere Ziele am selben Standort).
 
 ## <a name="to-set-target-priority-on-a-folder-target"></a>So legen Sie die Zielpriorität eines Ordnerziels fest
 
-Verwenden Sie zum Festlegen der Zielpriorität eines Ordnerziels das folgende Verfahren:
+Verwenden Sie das folgende Verfahren, um die Ziel Priorität für ein Ordner Ziel festzulegen:
 
 1.  Klicken Sie auf **Start**, zeigen Sie auf **Verwaltung**, und klicken Sie dann auf **DFS-Verwaltung**.
 
-2.  Klicken Sie in der Konsolenstruktur unter dem Knoten **Namespaces** auf den Ordner der Ziele, für die Sie eine Priorität festlegen möchten.
+2.  Klicken Sie in der Konsolen Struktur unter dem Knoten **Namespaces** auf den Ordner der Ziele, für die Sie die Priorität festlegen möchten.
 
-3.  Klicken Sie im **Detailbereich** auf der Registerkarte **Ordnerziele** mit der rechten Maustaste auf das Ordnerziel mit der zu ändernden Priorität, und klicken Sie dann auf **Eigenschaften**.
+3.  Klicken Sie im **Detail** Bereich auf der Registerkarte **Ordner Ziele** mit der rechten Maustaste auf das Ordner Ziel mit der Priorität, die Sie ändern möchten, und klicken Sie dann auf **Eigenschaften** .
 
-4.  Klicken Sie auf der Registerkarte **Erweitert** auf **Folgende Verweisreihenfolge außer Kraft setzen**, und klicken Sie dann auf die gewünschte Priorität.
+4.  Klicken Sie auf der Registerkarte **erweitert** auf **Verweis Anordnung außer Kraft setzen** , und klicken Sie dann auf die gewünschte Priorität.
 
 > [!NOTE]
-> Um Zielprioritäten mithilfe von Windows PowerShell festzulegen, verwenden Sie die Cmdlets [Set-DfsnRootTarget](https://technet.microsoft.com/library/jj884266.aspx) und [Set-DfsnFolderTarget](https://technet.microsoft.com/library/jj884264.aspx) mit den Parametern **ReferralPriorityClass** und **ReferralPriorityRank**. Diese Cmdlets wurden in Windows Server 2012 eingeführt.
+> Um Ziel Prioritäten mithilfe von Windows PowerShell festzulegen, verwenden Sie die Cmdlets " [Set-dfsnroottarget](https://technet.microsoft.com/library/jj884266.aspx) " und " [Set-dfsnfoldertarget](https://technet.microsoft.com/library/jj884264.aspx) " mit den Parametern " **referenralpriorityclass** " und " **referralpriorityrank** ". Diese Cmdlets wurden in Windows Server 2012 eingeführt.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 -   [Optimieren von DFS-Namespaces](tuning-dfs-namespaces.md)
 -   [Delegieren von Verwaltungsberechtigungen für DFS-Namespaces](delegate-management-permissions-for-dfs-namespaces.md)

@@ -8,12 +8,12 @@ author: rpsqrd
 ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 09/25/2019
-ms.openlocfilehash: aa2075bda71c6713fa76577b685315118199e63b
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 69ff4bcfb407d01e184abd039be8aa0117372b4a
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80856783"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85475337"
 ---
 # <a name="confirm-guarded-hosts-can-attest"></a>Bestätigen, dass geschützte Hosts bestätigen können
 
@@ -31,7 +31,7 @@ Ein fabricadministrator muss bestätigen, dass Hyper-V-Hosts als geschützte Hos
 
 3. Konfigurieren Sie die Schlüsselschutz-und Nachweis-URLs des Hosts:
 
-    - **Über Windows PowerShell**: Sie können die Schlüsselschutz-und Nachweis-URLs konfigurieren, indem Sie den folgenden Befehl in einer Windows PowerShell-Konsole mit erhöhten Rechten ausführen. Verwenden Sie für &lt;FQDN&gt;den voll qualifizierten Domänen Namen (Fully Qualified Domain Name, FQDN) Ihres HGS-Clusters (z. b. HGS. Bastion. local), oder bitten Sie den HGS-Administrator, das Cmdlet **Get-hgsserver** auf dem HGS-Server auszuführen, um die URLs abzurufen.
+    - **Über Windows PowerShell**: Sie können die Schlüsselschutz-und Nachweis-URLs konfigurieren, indem Sie den folgenden Befehl in einer Windows PowerShell-Konsole mit erhöhten Rechten ausführen. &lt;Verwenden Sie für den FQDN &gt; den voll qualifizierten Domänen Namen (Fully Qualified Domain Name, FQDN) Ihres HGS-Clusters (z. b. HGS. Bastion. local), oder bitten Sie den HGS-Administrator, das Cmdlet **Get-hgsserver** auf dem HGS-Server auszuführen, um die URLs abzurufen.
 
         ```PowerShell
         Set-HgsClientConfiguration -AttestationServerUrl 'http://<FQDN>/Attestation' -KeyProtectionServerUrl 'http://<FQDN>/KeyProtection'
@@ -41,8 +41,8 @@ Ein fabricadministrator muss bestätigen, dass Hyper-V-Hosts als geschützte Hos
 
     - **Über VMM**: Wenn Sie System Center 2016-Virtual Machine Manager (VMM) verwenden, können Sie die URLs für den Nachweis und den Schlüsselschutz in VMM konfigurieren. Weitere Informationen finden Sie unter [Konfigurieren globaler HGS-Einstellungen](https://technet.microsoft.com/system-center-docs/vmm/scenario/guarded-hosts#configure-global-hgs-settings) in Bereitstellen von über **wachten Hosts in VMM**.
 
-    >**Hinweise**
-    > - Wenn der HGS-Administrator [https auf dem HGS-Server aktiviert](guarded-fabric-configure-hgs-https.md)hat, starten Sie die URLs mit `https://`.
+    >**Notizen**
+    > - Wenn der HGS-Administrator [https auf dem HGS-Server aktiviert](guarded-fabric-configure-hgs-https.md)hat, beginnen Sie mit den URLs `https://` .
     > - Wenn der HGS-Administrator HTTPS auf dem HGS-Server aktiviert und ein selbst signiertes Zertifikat verwendet hat, müssen Sie das Zertifikat in den Speicher vertrauenswürdiger Stamm Zertifizierungsstellen auf jedem Host importieren. Führen Sie hierzu den folgenden Befehl auf jedem Host aus:
        ```PowerShell
        Import-Certificate -FilePath "C:\temp\HttpsCertificate.cer" -CertStoreLocation Cert:\LocalMachine\Root
@@ -55,14 +55,14 @@ Ein fabricadministrator muss bestätigen, dass Hyper-V-Hosts als geschützte Hos
     Get-HgsClientConfiguration
     ```
 
-    Die Ausgabe des Befehls gibt an, ob der Host den Nachweis überschritten hat und nun geschützt ist. Wenn `IsHostGuarded` nicht " **true**" zurückgibt, können Sie das HGS-Diagnosetool " [Get-hgstrace](https://technet.microsoft.com/library/mt718831.aspx)" ausführen, um dies zu untersuchen. Um die Diagnose auszuführen, geben Sie den folgenden Befehl in einer Windows PowerShell-Eingabeaufforderung mit erhöhten Rechten auf dem Host ein:
+    Die Ausgabe des Befehls gibt an, ob der Host den Nachweis überschritten hat und nun geschützt ist. Wenn `IsHostGuarded` nicht " **true**" zurückgibt, können Sie das HGS-Diagnosetool [Get-hgstrace](https://technet.microsoft.com/library/mt718831.aspx)ausführen, um dies zu untersuchen. Um die Diagnose auszuführen, geben Sie den folgenden Befehl in einer Windows PowerShell-Eingabeaufforderung mit erhöhten Rechten auf dem Host ein:
 
     ```powershell
     Get-HgsTrace -RunDiagnostics -Detailed
     ```
 
     > [!IMPORTANT]
-    > Wenn Sie Windows Server 2019 oder Windows 10, Version 1809, verwenden und Code Integritäts Richtlinien verwenden, wird `Get-HgsTrace` einen Fehler für die **aktive Diagnose der Code Integritätsrichtlinie** zurückgeben.
+    > Wenn Sie Windows Server 2019 oder Windows 10, Version 1809, verwenden und Code Integritäts Richtlinien verwenden, sollten Sie `Get-HgsTrace` einen Fehler für die aktive Diagnose der **Code Integritätsrichtlinie** zurückgeben.
     > Sie können dieses Ergebnis gefahrlos ignorieren, wenn es die einzige Fehlerdiagnose ist.
 
 ## <a name="next-step"></a>Nächster Schritt
@@ -70,7 +70,7 @@ Ein fabricadministrator muss bestätigen, dass Hyper-V-Hosts als geschützte Hos
 > [!div class="nextstepaction"]
 > [Bereitstellen von abgeschirmten VMs](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
-- [Bereitstellen des Host-Überwachungs Diensts (HGS)](guarded-fabric-deploying-hgs-overview.md)
+- [Bereitstellen des Host-Überwachungsdiensts](guarded-fabric-deploying-hgs-overview.md)
 - [Bereitstellen von abgeschirmten VMs](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)

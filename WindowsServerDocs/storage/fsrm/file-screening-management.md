@@ -1,6 +1,6 @@
 ---
-title: Dateiprüfungsverwaltung
-description: Dieser Artikel beschreibt, wie Dateiprüfungen erstellt, Benachrichtigungen generiert, Dateiprüfungsvorlagen festgelegt und Dateiprüfungsausnahmen erstellt werden
+title: Datei Prüfungsverwaltung
+description: Dieser Artikel beschreibt das Erstellen von Datei Bildschirmen, das Generieren von Benachrichtigungen, das Definieren von Datei Überprüfungs Vorlagen und das Erstellen von Datei Überprüfungs Ausnahmen.
 ms.date: 7/7/2017
 ms.prod: windows-server
 ms.technology: storage
@@ -8,29 +8,29 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: ac5032630f960329675f896a303ef197d6a4dbb3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 43aed09aead02883f91c168e1cfaf6388aedfa85
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403107"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85473977"
 ---
-# <a name="file-screening-management"></a>Dateiprüfungsverwaltung
+# <a name="file-screening-management"></a>Datei Prüfungsverwaltung
 
 > Gilt für: Windows Server 2019, Windows Server 2016, Windows Server (halbjährlicher Kanal), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
-Sie können auf dem Knoten **Dateiprüfungsverwaltung** des Ressourcen-Manager für Dateiserver-MMC-Snap-Ins folgende Aufgaben ausführen:
+Im Knoten **Datei Überprüfungs Verwaltung** des-Dateiservers Ressourcen-Manager MMC-Snap-in können Sie die folgenden Aufgaben ausführen:
 
--   Erstellen Sie Dateiprüfungen, um die Dateitypen zu steuern, die Benutzer speichern können und um Benachrichtigungen zu generieren, wenn Benutzer versuchen, nicht autorisierte Dateien zu speichern.
--   Legen Sie Dateiprüfungsvorlagen fest, die auf neue Volumes oder Ordner angewendet werden und die in der gesamten Organisation verwendet werden können.
--   Erstellen Sie Dateiprüfungsausnahmen, die die Flexibilität der Dateiprüfungsregeln erweitern.
+-   Erstellen Sie Datei Bildschirme, um die Dateitypen zu steuern, die Benutzer speichern können, und generieren Sie Benachrichtigungen, wenn Benutzer versuchen, nicht autorisierte Dateien zu speichern.
+-   Definieren Sie Datei Überprüfungs Vorlagen, die auf neue Volumes oder Ordner angewendet werden können und die in einer Organisation verwendet werden können.
+-   Erstellen Sie Datei Überprüfungs Ausnahmen, die die Flexibilität der Datei Überprüfungs Regeln erweitern.
 
-Sie haben u. a. folgende Möglichkeiten:
+Beispielsweise können Sie folgende Aktionen ausführen:
 
--   Stellen Sie sicher, dass keine Musikdateien in persönlichen Ordnern auf einem Server gespeichert sind. Sie können allerdings das Speichern bestimmter Arten von Mediendateien erlauben, die die Verwaltung gesetzlicher Rechte unterstützt oder die Unternehmensrichtlinien einhält. Das gleiche Szenario empfiehlt sich unter Umständen, wenn Sie einem Vice President des Unternehmens besondere Rechte zum Speichern von allen Dateitypen in seinem persönlichen Ordner gewähren.
--   Implementieren Sie einen Prüfungsprozess, der Sie per E-Mail benachrichtigt, wenn eine ausführbare Datei in einem freigegebenen Ordner gespeichert wird, einschließlich Informationen über den Benutzer, der die Datei gespeichert hat und den genauen Speicherort der Datei, damit Sie entsprechende vorbeugende Maßnahmen ergreifen können.
+-   Stellen Sie sicher, dass keine Musikdateien in persönlichen Ordnern auf einem Server gespeichert werden. Sie können jedoch die Speicherung bestimmter Arten von Mediendateien zulassen, die die Rechteverwaltung unterstützen oder die Unternehmensrichtlinien einhalten. Im gleichen Szenario empfiehlt es sich, einem Vizepräsidenten in den Unternehmen spezielle Berechtigungen zum Speichern beliebiger Dateitypen in seinem persönlichen Ordner zu geben.
+-   Implementieren Sie einen Überprüfungsprozess, um Sie per e-Mail zu benachrichtigen, wenn eine ausführbare Datei in einem freigegebenen Ordner gespeichert wird, einschließlich Informationen über den Benutzer, der die Datei und den genauen Speicherort der Datei gespeichert hat, sodass Sie die entsprechenden Vorsichtsmaßnahmen ergreifen können.
 
-In diesem Abschnitt werden folgende Themen behandelt:
+Dieser Abschnitt schließt folgende Themen ein:
 
 -   [Definieren von Dateigruppen für die Prüfung](define-file-groups-for-screening.md)
 -   [Erstellen einer Dateiprüfung](create-file-screen.md)
@@ -39,9 +39,9 @@ In diesem Abschnitt werden folgende Themen behandelt:
 -   [Bearbeiten der Eigenschaften der Dateiprüfungsvorlage](edit-file-screen-template-properties.md)
 
 > [!Note]
-> Zum Festlegen von E-Mail-Benachrichtigungen und bestimmten Berichtsfunktionen müssen Sie zuerst die Optionen des Ressourcen-Manager für Dateiserverkonfigurieren konfigurieren.
+> Um e-Mail-Benachrichtigungen und bestimmte Berichterstattungs Funktionen festzulegen, müssen Sie zunächst die allgemeinen Optionen für den Datei Server Ressourcen-Manager konfigurieren.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 -   [Festlegen der Optionen des Ressourcen-Managers für Dateiserver](setting-file-server-resource-manager-options.md)
 

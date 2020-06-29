@@ -7,12 +7,12 @@ ms.topic: article
 author: cosmosdarwin
 ms.date: 09/07/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: aefc9c3c33cb93be241aae4ef18d815a9f8defef
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 418ab095f5f0af35f3aa176614ad73f48d727a35
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80856143"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85474687"
 ---
 # <a name="performance-history-for-virtual-machines"></a>Leistungs Verlauf für virtuelle Computer
 
@@ -27,26 +27,26 @@ In diesem Unterthema des [Leistungs Verlaufs für direkte Speicherplätze](perfo
 
 Diese Reihen werden für jeden berechtigten virtuellen Computer gesammelt:
 
-| Reihe                            | Einheit             |
+| Reihen                            | Einheit             |
 |-----------------------------------|------------------|
-| `vm.cpu.usage`                    | percent          |
-| `vm.memory.assigned`              | Bytes            |
-| `vm.memory.available`             | Bytes            |
-| `vm.memory.maximum`               | Bytes            |
-| `vm.memory.minimum`               | Bytes            |
+| `vm.cpu.usage`                    | Prozent          |
+| `vm.memory.assigned`              | Byte            |
+| `vm.memory.available`             | Byte            |
+| `vm.memory.maximum`               | Byte            |
+| `vm.memory.minimum`               | Byte            |
 | `vm.memory.pressure`              | -                |
-| `vm.memory.startup`               | Bytes            |
-| `vm.memory.total`                 | Bytes            |
+| `vm.memory.startup`               | Byte            |
+| `vm.memory.total`                 | Byte            |
 | `vmnetworkadapter.bandwidth.inbound`  | Bits pro Sekunde |
 | `vmnetworkadapter.bandwidth.outbound` | Bits pro Sekunde |
 | `vmnetworkadapter.bandwidth.total`    | Bits pro Sekunde |
 
-Außerdem werden alle virtuellen Festplatten (Virtual Hard Disk, VHD), wie z. b. `vhd.iops.total`, für jede VHD aggregiert, die an den virtuellen Computer angefügt ist.
+Außerdem werden alle virtuellen Festplatten (Virtual Hard Disk, VHD), wie z `vhd.iops.total` . b., für jede VHD aggregiert, die an den virtuellen Computer angefügt ist.
 
 ## <a name="how-to-interpret"></a>Interpretieren
 
 
-| Reihe                            | Beschreibung                                                                                                  |
+| Reihen                            | BESCHREIBUNG                                                                                                  |
 |-----------------------------------|--------------------------------------------------------------------------------------------------------------|
 | `vm.cpu.usage`                    | Der Prozentsatz, den der virtuelle Computer für die Prozessoren des Host Servers verwendet.                                   |
 | `vm.memory.assigned`              | Die Menge an Arbeitsspeicher, die dem virtuellen Computer zugewiesen ist.                                                      |
@@ -61,7 +61,7 @@ Außerdem werden alle virtuellen Festplatten (Virtual Hard Disk, VHD), wie z. b.
 | `vmnetworkadapter.bandwidth.total`    | Die Gesamtrate der Daten, die von der virtuellen Maschine über alle virtuellen Netzwerkadapter empfangen oder gesendet wurden.          |
 
    > [!NOTE]
-   > Leistungsindikatoren werden über das gesamte Intervall gemessen, nicht als Stichprobe. Wenn sich der virtuelle Computer z. b. für 9 Sekunden im Leerlauf befindet, aber Spitzen für die Verwendung von 50% der Host-CPU in der 10. Sekunde ist, werden die zugehörigen `vm.cpu.usage` im Durchschnitt dieses 10-Sekunden-Intervalls als 5% aufgezeichnet. Dadurch wird sichergestellt, dass der Leistungs Verlauf alle Aktivitäten erfasst und stabil ist.
+   > Leistungsindikatoren werden über das gesamte Intervall gemessen, nicht als Stichprobe. Wenn sich der virtuelle Computer z. b. für 9 Sekunden im Leerlauf befindet, aber Spitzen für die Verwendung von 50% der Host-CPU in `vm.cpu.usage` der 10. Dadurch wird sichergestellt, dass der Leistungs Verlauf alle Aktivitäten erfasst und stabil ist.
 
 ## <a name="usage-in-powershell"></a>Verwendung in PowerShell
 
@@ -74,6 +74,6 @@ Get-VM <Name> | Get-ClusterPerf
    > [!NOTE]
    > Mit dem "Get-VM"-Cmdlet werden nur virtuelle Computer auf dem lokalen (oder angegebenen) Server, nicht auf dem Cluster zurückgegeben.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
-- [Leistungs Verlauf für direkte Speicherplätze](performance-history.md)
+- [Leistungsverlauf für Direkte Speicherplätze](performance-history.md)

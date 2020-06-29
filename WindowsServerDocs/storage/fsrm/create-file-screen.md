@@ -1,6 +1,6 @@
 ---
 title: Erstellen einer Dateiprüfung
-description: In diesem Artikel wird beschrieben, wie Sie eine Dateiprüfung erstellen
+description: In diesem Artikel wird beschrieben, wie ein Datei Bildschirm erstellt wird.
 ms.date: 7/7/2017
 ms.prod: windows-server
 ms.technology: storage
@@ -8,53 +8,53 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: e049162e7aff449774928d6a1d25cc1116f9aee9
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e7827f1e80b1cfe2288bee968cc3c4e3cd428e15
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403157"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85474377"
 ---
 # <a name="create-a-file-screen"></a>Erstellen einer Dateiprüfung
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
-Beim Erstellen einer neuen Dateiprüfung können Sie eine Dateiprüfungsvorlage speichern, die auf den benutzerdefinierten Dateiprüfungseigenschaften basiert, die Sie definieren. Der Vorteil besteht darin, dass eine Verknüpfung zwischen den Dateiprüfungen und der verwendeten Vorlage bestehen bleibt, sodass in Zukunft durch ein Ändern der Vorlage diese Änderung auf alle Dateiprüfungen angewendet werden kann, die davon abgeleitet sind. Dieses Feature vereinfacht die Implementierung von Änderungen an den Speicherrichtlinien, da alle Updates an einem zentralen Ort ausgeführt werden können.
+Wenn Sie einen neuen Bildschirm erstellen, können Sie wählen, ob Sie eine Datei Bildschirm Vorlage speichern möchten, die auf den von Ihnen definierten benutzerdefinierten Datei Bildschirm Eigenschaften basiert. Der Vorteil besteht darin, dass ein Link zwischen Datei Bildschirmen und der Vorlage, mit der Sie erstellt werden, verwaltet wird, sodass Änderungen an der Vorlage in Zukunft auf alle Datei Bildschirme angewendet werden können, die davon abgeleitet sind. Dabei handelt es sich um ein Feature, das die Implementierung von Änderungen an der Speicher Richtlinie vereinfacht, indem ein zentraler Punkt bereitgestellt wird, an dem Sie alle Updates vornehmen
 
-## <a name="to-create-a-file-screen-with-custom-properties"></a>So erstellen Sie eine Dateiprüfung mit benutzerdefinierten Eigenschaften
+## <a name="to-create-a-file-screen-with-custom-properties"></a>So erstellen Sie einen Datei Bildschirm mit benutzerdefinierten Eigenschaften
 
-1.  Klicken Sie unter **Dateiprüfungsverwaltung** auf den Knoten **Dateiprüfungen**.
+1.  Klicken Sie unter **Datei-Überprüfungs Verwaltung**auf den Knoten **Datei Bildschirme** .
 
-2.  Klicken Sie mit der rechten Maustaste auf **Dateiprüfungen,** und dann auf **Dateiprüfung erstellen** (oder wählen Sie **Dateiprüfung erstellen** im Bereich **Aktionen** aus). Daraufhin wird das Dialogfeld **Dateiprüfung erstellen** geöffnet.
+2.  Klicken Sie mit der rechten Maustaste auf **Datei Bildschirme,** und klicken Sie auf **Datei Bildschirm erstellen** (oder wählen Sie im **Aktions** Bereich **Datei erstellen** ) aus. Daraufhin wird das Dialogfeld **Datei Bildschirm erstellen** geöffnet.
 
-3.  Geben Sie unter **Dateiprüfungspfad** den Namen des übergeordneten Ordner ein (oder navigieren Sie dahin), auf den die Dateiprüfung angewendet wird. Die Dateiprüfung gilt für den ausgewählten Ordner und alle Unterordner.
+3.  Geben Sie unter **Datei Bildschirm Pfad**den Namen ein, oder navigieren Sie zu dem Ordner, für den der Datei Bildschirm gilt. Der Bildschirm Datei wird auf den ausgewählten Ordner und alle zugehörigen Unterordner angewendet.
 
-4.  Klicken Sie unter **Wie möchten Sie die Dateiprüfungseigenschaften konfigurieren?** auf **Definieren von benutzerdefinierten Dateiprüfungseigenschaften**, und klicken Sie dann auf **Benutzerdefinierte Eigenschaften**. Daraufhin wird das Dialogfeld **Dateiprüfungseigenschaften** geöffnet.
+4.  Klicken Sie unter **wie möchten Sie die Eigenschaften des Datei Bildschirms konfigurieren?** auf **benutzerdefinierte Datei Bildschirm Eigenschaften definieren**, und klicken Sie dann auf **benutzerdefinierte Eigenschaften**. Dadurch wird das Dialogfeld **Eigenschaften des Datei Bildschirms** geöffnet.
 
-5.  Wenn Sie die Eigenschaften einer vorhandenen Vorlage als Grundlage für eine Datenprüfung kopieren und verwenden möchten, wählen Sie in der Dropdownliste **Eigenschaften aus Vorlage kopieren** aus. Klicken Sie anschließend auf **Kopieren**.
+5.  Wenn Sie die Eigenschaften einer vorhandenen Vorlage kopieren möchten, die als Basis für den Datei Bildschirm verwendet werden soll, wählen Sie eine Vorlage aus der Dropdown Liste **Eigenschaften aus Vorlage kopieren** aus. Klicken Sie dann auf **Kopieren**.
 
-    Ändern oder legen Sie im Dialogfeld **Dateiprüfungseigenschaften** die Werte der Registerkarte **Einstellungen** fest:
+    Ändern oder legen Sie auf der Registerkarte "Einstellungen" **auf der Register** Karte " **Einstellungen** " die folgenden Werte fest:
 
-6.  Klicken Sie unter **Prüfungstyp** auf die Option **Aktives prüfen** oder **Passives prüfen**. (Aktives Prüfen verhindert, dass Benutzer Dateien speichern, die blockierten Dateigruppen angehören und Benachrichtigungen generieren, wenn Benutzer versuchen, nicht autorisierte Dateien zu speichern. Passives Prüfen sendet Konfigurationsbenachrichtigungen, aber es verhindert nicht, dass Benutzer Dateien speichern können.)
+6.  Klicken Sie unter **Screentyp**auf die Option **aktives Screening** oder **Passives Screening** . (Das aktive Screening verhindert, dass Benutzer Dateien speichern, die Mitglieder von blockierten Dateigruppen sind, und generiert Benachrichtigungen, wenn Benutzer versuchen, nicht autorisierte Dateien zu speichern. Passives Screening sendet konfigurierte Benachrichtigungen, verhindert jedoch nicht, dass Benutzer Dateien speichern.)
 
-7.  Wählen Sie unter **Dateigruppen** jede Dateigruppe aus, die in Ihrer Dateiprüfung enthalten sein sollen. (Um das Kontrollkästchen für die Dateigruppe zu aktivieren, doppelklicken Sie auf die Bezeichnung der Dateigruppe.)
+7.  Wählen Sie unter **Dateigruppen**die einzelnen Dateigruppen aus, die Sie in den Datei Bildschirm einschließen möchten. (Doppelklicken Sie auf die Dateigruppen Bezeichnung, um das Kontrollkästchen für die Datei Gruppe auszuwählen.)
 
     Wenn Sie die Dateitypen anzeigen möchten, die eine Datei Gruppe einschließt und ausschließt, klicken Sie auf die Dateigruppen Bezeichnung, und klicken Sie dann auf **Bearbeiten**. Zum Erstellen einer neuen Datei Gruppe klicken Sie auf **Erstellen**.
 
-8.  Darüber hinaus können Sie den **Ressourcen-Manager für Dateiserver** so konfigurieren, dass eine oder mehrere Benachrichtigungen erstellt werden. Dies geschieht durch das Festlegen der Optionen in den Registerkarten **E-Mail-Nachricht**, **Ereignisprotokoll**, **Befehl**, und **Bericht**. Weitere Informationen zu den Benachrichtigungsoptionen der Dateiprüfung finden Sie unter [Erstellen einer Dateiprüfungsvorlage](create-file-screen-template.md).
+8.  Außerdem können Sie den **Datei Server Ressourcen-Manager** so konfigurieren, dass eine oder mehrere Benachrichtigungen generiert werden, indem Sie Optionen auf den Registerkarten **E-Mail**, **Ereignisprotokoll**, **Befehl**und **Bericht** festlegen. Weitere Informationen zu Datei Bildschirm-Benachrichtigungs Optionen finden Sie unter [Erstellen einer Datei Bildschirm Vorlage](create-file-screen-template.md).
 
-9.  Wählen Sie zunächst alle Dateiprüfungseigenschaften aus, die verwendet werden sollen, und klicken Sie anschließend auf **OK**, um das Dialogfeld **Dateiprüfungseigenschaften** zu schließen.
+9.  Nachdem Sie alle Datei Bildschirm Eigenschaften ausgewählt haben, die Sie verwenden möchten, klicken Sie auf **OK** , um das Dialogfeld **Eigenschaften des Datei Bildschirms** zu schließen.
 
-10. Klicken Sie im Dialogfeld **Dateiprüfung erstellen** auf **Erstellen**, um die Dateiprüfung zu speichern. Daraufhin wird das Dialogfeld **Benutzerdefinierte Eigenschaften als Vorlage speichern** geöffnet.
+10. Klicken Sie im Dialogfeld **Datei erstellen** auf **Erstellen** , um den Datei Bildschirm zu speichern. Dadurch wird das Dialogfeld **benutzerdefinierte Eigenschaften als Vorlage speichern** geöffnet.
 
-11. Wählen Sie den Typ der benutzerdefinierten Dateiprüfung aus, den Sie erstellen möchten:
+11. Wählen Sie den Typ des benutzerdefinierten Datei Bildschirms aus, den Sie erstellen möchten:
 
-    -   Wenn Sie eine Vorlage speichern möchten, die auf diesen benutzerdefinierten Eigenschaften (empfohlen) basiert, klicken Sie auf **Benutzerdefinierte Eigenschaften als Vorlage speichern** und geben Sie einen Namen für die Vorlage ein. Diese Option wendet die Vorlage auf die neue Datei an, und Sie können die Vorlage verwenden, um in Zukunft zusätzliche Dateiprüfungen zu erstellen. Dadurch können Sie später die Dateiprüfungen automatisch aktualisieren, indem Sie die Vorlage aktualisieren.
-    -   Wenn Sie die Vorlage nicht mit der Datei speichern möchten, klicken Sie auf **Benutzerdefinierte Dateiprüfung ohne Erstellen einer Vorlage speichern**.
+    -   Zum Speichern einer Vorlage, die auf diesen angepassten Eigenschaften basiert (empfohlen), klicken Sie auf **benutzerdefinierte Eigenschaften als Vorlage speichern** , und geben Sie einen Namen für die Vorlage ein. Mit dieser Option wird die Vorlage auf den neuen Datei Bildschirm angewendet, und Sie können die Vorlage verwenden, um in Zukunft weitere Datei Bildschirme zu erstellen. Dadurch können Sie die Datei Bildschirme später automatisch aktualisieren, indem Sie die Vorlage aktualisieren.
+    -   Wenn Sie beim Speichern der Datei auf dem Bildschirm keine Vorlage speichern möchten, klicken Sie auf **den Bildschirm benutzerdefinierte Datei speichern, ohne eine Vorlage zu erstellen**.
 
 12. Klicken Sie auf **OK**.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 -   [Datei Prüfungsverwaltung](file-screening-management.md)
 -   [Definieren von Dateigruppen für die Prüfung](define-file-groups-for-screening.md)

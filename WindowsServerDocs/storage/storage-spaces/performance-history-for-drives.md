@@ -7,12 +7,12 @@ ms.topic: article
 author: cosmosdarwin
 ms.date: 02/02/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: a6c6065b8d7963ada5d80844b270fe088eaa6e56
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 7e1620f7010d4f37713de20f2b4c12f100be61dc
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80859453"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85474767"
 ---
 # <a name="performance-history-for-drives"></a>Leistungs Verlauf für Laufwerke
 
@@ -27,7 +27,7 @@ In diesem Unterthema des [Leistungs Verlaufs für direkte Speicherplätze](perfo
 
 Diese Reihen werden für jedes berechtigte Laufwerk erfasst:
 
-| Reihe                          | Einheit             |
+| Reihen                          | Einheit             |
 |---------------------------------|------------------|
 | `physicaldisk.iops.read`        | pro Sekunde       |
 | `physicaldisk.iops.write`       | pro Sekunde       |
@@ -38,12 +38,12 @@ Diese Reihen werden für jedes berechtigte Laufwerk erfasst:
 | `physicaldisk.latency.read`     | Sekunden          |
 | `physicaldisk.latency.write`    | Sekunden          |
 | `physicaldisk.latency.average`  | Sekunden          |
-| `physicaldisk.size.total`       | Bytes            |
-| `physicaldisk.size.used`        | Bytes            |
+| `physicaldisk.size.total`       | Byte            |
+| `physicaldisk.size.used`        | Byte            |
 
 ## <a name="how-to-interpret"></a>Interpretieren
 
-| Reihe                          | Interpretieren                                                            |
+| Reihen                          | Interpretieren                                                            |
 |---------------------------------|-----------------------------------------------------------------------------|
 | `physicaldisk.iops.read`        | Anzahl der Lesevorgänge pro Sekunde, die vom Laufwerk abgeschlossen wurden.                |
 | `physicaldisk.iops.write`       | Anzahl der Schreibvorgänge pro Sekunde, die vom Laufwerk abgeschlossen wurden.               |
@@ -59,9 +59,9 @@ Diese Reihen werden für jedes berechtigte Laufwerk erfasst:
 
 ## <a name="where-they-come-from"></a>Woher Sie stammen
 
-Die `iops.*`-, `throughput.*`-und `latency.*` Reihe werden aus dem `Physical Disk` Leistungs Bezeichner erfasst, der auf dem Server, auf dem das Laufwerk angeschlossen ist, einer Instanz pro Laufwerk, festgelegt ist. Diese Leistungsindikatoren werden `partmgr.sys` gemessen und enthalten weder einen Großteil des Windows-Software Stapels noch Netzwerk Hops. Sie sind repräsentativ für die Hardware Leistung des Geräts.
+Die `iops.*` `throughput.*` -,-und- `latency.*` Reihen werden aus dem Leistungs Bezeichner, der `Physical Disk` auf dem Server festgelegt ist, auf den das Laufwerk angeschlossen ist, einer Instanz pro Laufwerk gesammelt. Diese Leistungsindikatoren werden von gemessen `partmgr.sys` und enthalten weder einen Großteil des Windows-Software Stapels noch Netzwerk Hops. Sie sind repräsentativ für die Hardware Leistung des Geräts.
 
-| Reihe                          | Quellen Counter           |
+| Reihen                          | Quellen Counter           |
 |---------------------------------|--------------------------|
 | `physicaldisk.iops.read`        | `Disk Reads/sec`         |
 | `physicaldisk.iops.write`       | `Disk Writes/sec`        |
@@ -74,11 +74,11 @@ Die `iops.*`-, `throughput.*`-und `latency.*` Reihe werden aus dem `Physical Dis
 | `physicaldisk.latency.average`  | `Avg. Disk sec/Transfer` |
 
    > [!NOTE]
-   > Leistungsindikatoren werden über das gesamte Intervall gemessen, nicht als Stichprobe. Wenn sich das Laufwerk z. b. für 9 Sekunden im Leerlauf befindet, aber 30 IOS in der 10. Sekunde abschließt, wird sein `physicaldisk.iops.total` im Durchschnitt in diesem 10-Sekunden-Intervall als 3 IOS pro Sekunde aufgezeichnet. Dadurch wird sichergestellt, dass der Leistungs Verlauf alle Aktivitäten erfasst und stabil ist.
+   > Leistungsindikatoren werden über das gesamte Intervall gemessen, nicht als Stichprobe. Wenn sich das Laufwerk z. b. in einem Zeitraum von 9 Sekunden befindet, aber 30 IOS in der 10. Sekunde abgeschlossen ist, `physicaldisk.iops.total` wird im Durchschnitt im Rahmen dieses 10-Sekunden-Intervalls als 3 IOS pro Sekunde aufgezeichnet. Dadurch wird sichergestellt, dass der Leistungs Verlauf alle Aktivitäten erfasst und stabil ist.
 
-Die `size.*` Reihe wird von der `MSFT_PhysicalDisk`-Klasse in WMI, einer Instanz pro Laufwerk, gesammelt.
+Die `size.*` Reihe wird von der- `MSFT_PhysicalDisk` Klasse in WMI, einer Instanz pro Laufwerk, gesammelt.
 
-| Reihe                          | Source-Eigenschaft        |
+| Reihen                          | Source (Eigenschaft)        |
 |---------------------------------|------------------------|
 | `physicaldisk.size.total`       | `Size`                 |
 | `physicaldisk.size.used`        | `VirtualDiskFootprint` |
@@ -91,6 +91,6 @@ Verwenden [Sie das Get-PhysicalDisk-](https://docs.microsoft.com/powershell/modu
 Get-PhysicalDisk -SerialNumber <SerialNumber> | Get-ClusterPerf
 ```
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
-- [Leistungs Verlauf für direkte Speicherplätze](performance-history.md)
+- [Leistungsverlauf für Direkte Speicherplätze](performance-history.md)

@@ -8,12 +8,12 @@ author: rpsqrd
 ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 01/29/2019
-ms.openlocfilehash: 766ea9688b7f08914ca68a960cc21393963bd0e9
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 82725e654fb4c7296b092019db111f9d3debad6d
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80856773"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85475387"
 ---
 # <a name="create-a-windows-shielded-vm-template-disk"></a>Erstellen eines Datenträgers für eine geschützte Windows-VM-Vorlage
 
@@ -26,19 +26,19 @@ Informationen dazu, wie sich dieses Thema in den Gesamtprozess der Bereitstellun
 
 ## <a name="prepare-an-operating-system-vhdx"></a>Vorbereiten einer vhdx-Betriebssystem Datei
 
-Bereiten Sie zuerst einen Betriebssystem Datenträger vor, den Sie dann mit dem Assistenten zum Erstellen einer abgeschirmten Vorlage ausführen Dieser Datenträger wird als Betriebssystem Datenträger in den virtuellen Computern Ihres Mandanten verwendet. Zum Erstellen dieses Datenträgers können Sie beliebige vorhandene Tools verwenden, z. b. Microsoft Desktop Image Service Manager (Mage), oder Sie können manuell einen virtuellen Computer mit einer leeren vhdx einrichten und das Betriebssystem auf diesem Datenträger installieren. Beim Einrichten des Datenträgers müssen die folgenden Anforderungen erfüllt werden, die für die Generation 2 und/oder abgeschirmte VMS spezifisch sind: 
+Bereiten Sie zuerst einen Betriebssystem Datenträger vor, den Sie dann mit dem Assistenten zum Erstellen einer abgeschirmten Vorlage ausführen Dieser Datenträger wird als Betriebssystem Datenträger in den virtuellen Computern Ihres Mandanten verwendet. Zum Erstellen dieses Datenträgers können Sie beliebige vorhandene Tools verwenden, z. b. Microsoft Desktop Image Service Manager (Mage), oder Sie können manuell einen virtuellen Computer mit einer leeren vhdx einrichten und das Betriebssystem auf diesem Datenträger installieren. Beim Einrichten des Datenträgers müssen die folgenden Anforderungen erfüllt werden, die für die Generation 2 und/oder abgeschirmte VMS spezifisch sind:
 
-| Anforderung für vhdx | Grund |
+| Anforderung für vhdx | `Reason` |
 |-----------|----|
 |Muss ein GPT-Datenträger (GUID-Partitionstabelle) sein. | Erforderlich für virtuelle Computer der Generation 2 zur Unterstützung von UEFI|
 |Der Datenträgertyp muss Standard und nicht **dynamisch** **sein.** <br>Hinweis: Dies bezieht sich auf den Typ des logischen Datenträgers, nicht auf das von Hyper-V unterstützte "dynamisch erweiterbare" vhdx-Feature. | BitLocker unterstützt keine dynamischen Datenträger.|
 |Der Datenträger verfügt über mindestens zwei Partitionen. Eine Partition muss das Laufwerk enthalten, auf dem Windows installiert ist. Dies ist das Laufwerk, das von BitLocker verschlüsselt wird. Die andere Partition ist die aktive Partition, die den Bootloader enthält und unverschlüsselt bleibt, damit der Computer gestartet werden kann.|Für BitLocker erforderlich|
 |Dateisystem ist NTFS | Für BitLocker erforderlich|
 |Das auf der vhdx installierte Betriebssystem ist einer der folgenden:<br>-Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 <br>-Windows 10, Windows 8.1, Windows 8| Erforderlich zur Unterstützung virtueller Maschinen der Generation 2 und der Microsoft-Vorlage für den sicheren Start|
-|Das Betriebssystem muss generalisiert sein (führen Sie "syspree. exe" aus). | Die Vorlagen Bereitstellung umfasst spezialisierte VMs für die Arbeitsauslastung eines bestimmten Mandanten.| 
+|Das Betriebssystem muss generalisiert sein (sysprep.exe ausführen). | Die Vorlagen Bereitstellung umfasst spezialisierte VMs für die Arbeitsauslastung eines bestimmten Mandanten.|
 
 > [!NOTE]
-> Wenn Sie VMM verwenden, kopieren Sie den Vorlagen Datenträger in dieser Phase nicht in die VMM-Bibliothek. 
+> Wenn Sie VMM verwenden, kopieren Sie den Vorlagen Datenträger in dieser Phase nicht in die VMM-Bibliothek.
 
 ## <a name="run-windows-update-on-the-template-operating-system"></a>Ausführen von Windows Update auf dem Vorlagen Betriebssystem
 
@@ -58,7 +58,7 @@ Führen Sie die folgenden Schritte auf einem Computer aus, auf dem Windows Serve
 2. Um den Server lokal zu verwalten, installieren Sie das Feature der **abgeschirmten VM-Tools** von **Remoteserver-Verwaltungstools** auf dem Server.
 
         Install-WindowsFeature RSAT-Shielded-VM-Tools -Restart
-        
+
     Sie können den Server auch über einen Client Computer verwalten, auf dem Sie die [Windows 10-Remoteserver-Verwaltungstools](https://www.microsoft.com/download/details.aspx?id=45520)installiert haben.
 
 3. Abrufen oder Erstellen eines Zertifikats zum Signieren des VSC für die vhdx-Datei, die als Vorlagen Datenträger für neue abgeschirmte VMS verwendet wird. Details zu diesem Zertifikat werden den Mandanten angezeigt, wenn Sie Ihre geschützten Datendateien erstellen und die Datenträger autorisierst, denen Sie vertrauen. Daher ist es wichtig, dass Sie dieses Zertifikat von einer Zertifizierungsstelle abrufen, die von Ihnen und ihren Mandanten als nicht vertrauenswürdig eingestuft wird. In Unternehmens Szenarios, in denen Sie sowohl der Host als auch der Mandant sind, sollten Sie das Zertifikat aus Ihrer PKI ausgeben.
@@ -67,9 +67,9 @@ Führen Sie die folgenden Schritte auf einem Computer aus, auf dem Windows Serve
 
         New-SelfSignedCertificate -DnsName publisher.fabrikam.com
 
-4. Starten Sie den Vorlagen Datenträger- **Assistenten** im Ordner " **Verwaltung** " im Startmenü, oder geben Sie " **templatediskwizard. exe** " an einer Eingabeaufforderung ein.
+4. Starten Sie den Vorlagen Datenträger- **Assistenten** im Ordner " **Verwaltung** " im Startmenü, oder geben Sie **TemplateDiskWizard.exe** in eine Eingabeaufforderung ein.
 
-5. Klicken Sie auf der Seite **Zertifikat** auf **Durchsuchen** , um eine Liste mit Zertifikaten anzuzeigen. Wählen Sie das Zertifikat aus, mit dem die Datenträger Vorlage vorbereitet werden soll. Klicken Sie auf **OK** und dann auf **Weiter**.
+5. Klicken Sie auf der Seite **Zertifikat** auf **Durchsuchen** , um eine Liste mit Zertifikaten anzuzeigen. Wählen Sie das Zertifikat aus, mit dem die Datenträger Vorlage vorbereitet werden soll. Klicken Sie auf **OK** und anschließend auf **Weiter**.
 
 6. Klicken Sie auf der Seite virtueller Datenträger auf **Durchsuchen** , um das vhdx auszuwählen, das Sie vorbereitet haben, und klicken Sie dann auf **weiter**.
 
@@ -87,19 +87,19 @@ Führen Sie die folgenden Schritte auf einem Computer aus, auf dem Windows Serve
 
 9. Auf der Seite **Zusammenfassung** werden Informationen zur Datenträger Vorlage, zum Zertifikat, das zum Signieren des VSC und zum Aussteller des Zertifikats verwendet wird, angezeigt. Klicken Sie auf **Schließen**, um den Assistenten zu beenden.
 
-Wenn Sie VMM verwenden, führen Sie die Schritte in den restlichen Abschnitten in diesem Thema aus, um einen Vorlagen Datenträger in eine geschützte VM-Vorlage in VMM einzubinden. 
+Wenn Sie VMM verwenden, führen Sie die Schritte in den restlichen Abschnitten in diesem Thema aus, um einen Vorlagen Datenträger in eine geschützte VM-Vorlage in VMM einzubinden.
 
 ## <a name="copy-the-template-disk-to-the-vmm-library"></a>Kopieren Sie den Vorlagen Datenträger in die VMM-Bibliothek
 
 Wenn Sie VMM verwenden, müssen Sie nach dem Erstellen eines Vorlagen Datenträgers diese Datei in eine VMM-Bibliotheks Freigabe kopieren, damit Hosts den Datenträger herunterladen und verwenden können, wenn Sie neue VMs bereitstellen. Verwenden Sie das folgende Verfahren, um den Vorlagen Datenträger in die VMM-Bibliothek zu kopieren und dann die Bibliothek zu aktualisieren.
 
-1. Kopieren Sie die vhdx-Datei in den Ordner der VMM-Bibliotheks Freigabe. Wenn Sie die VMM-Standardkonfiguration verwendet haben, kopieren Sie den Vorlagen Datenträger in _\\<vmmserver>\msscvmmlibrary\vhds_.
+1. Kopieren Sie die vhdx-Datei in den Ordner der VMM-Bibliotheks Freigabe. Wenn Sie die VMM-Standardkonfiguration verwendet haben, kopieren Sie den Vorlagen Datenträger in _ \\ <vmmserver> \msscvmmlibrary\vhds_.
 
 2. Aktualisieren Sie den Bibliothek Server. Öffnen Sie den Arbeitsbereich **Bibliothek** , erweitern Sie **Bibliothek Server**, klicken Sie mit der rechten Maustaste auf den Bibliothek Server, den Sie aktualisieren möchten, und klicken Sie auf **Aktualisieren**.
 
 3. Als Nächstes stellen Sie VMM Informationen zum Betriebssystem bereit, das auf dem Vorlagen Datenträger installiert ist:
 
-    a. Suchen Sie den neu importierten Vorlagen Datenträger auf dem Bibliothek Server im Arbeitsbereich **Bibliothek** .
+    ein. Suchen Sie den neu importierten Vorlagen Datenträger auf dem Bibliothek Server im Arbeitsbereich **Bibliothek** .
 
     b. Klicken Sie mit der rechten Maustaste auf den Datenträger und dann auf **Eigenschaften**.
 
@@ -125,9 +125,9 @@ Mit einem vorbereiteten Vorlagen Datenträger in der VMM-Bibliothek können Sie 
 
 5. Geben Sie auf der Seite **Hardware konfigurieren** die Funktionen der virtuellen Computer an, die aus dieser Vorlage erstellt wurden. Stellen Sie sicher, dass mindestens eine NIC für die VM-Vorlage verfügbar und konfiguriert ist. Die einzige Möglichkeit für einen Mandanten, eine Verbindung mit einer abgeschirmten VM herzustellen, ist die Remotedesktopverbindung, Windows-Remoteverwaltung oder anderen vorkonfigurierten Remote Verwaltungs Tools, die über Netzwerkprotokolle arbeiten.
 
-    Wenn Sie statische IP-Pools in VMM nutzen möchten, anstatt einen DHCP-Server im Mandanten Netzwerk ausführen zu müssen, müssen Sie Ihre Mandanten für diese Konfiguration benachrichtigen. Wenn ein Mandant seine Schutz Datendatei bereitstellt, die die Datei für die unbeaufsichtigte Installation für VMM enthält, muss er spezielle Platzhalter Werte für die Informationen des statischen IP-Pools angeben. Weitere Informationen zu VMM-Platzhaltern in Dateien für die unbeaufsichtigte Installation von Mandanten finden Sie unter [Erstellen einer Antwortdatei](guarded-fabric-tenant-creates-shielding-data.md#create-an-answer-file). 
+    Wenn Sie statische IP-Pools in VMM nutzen möchten, anstatt einen DHCP-Server im Mandanten Netzwerk ausführen zu müssen, müssen Sie Ihre Mandanten für diese Konfiguration benachrichtigen. Wenn ein Mandant seine Schutz Datendatei bereitstellt, die die Datei für die unbeaufsichtigte Installation für VMM enthält, muss er spezielle Platzhalter Werte für die Informationen des statischen IP-Pools angeben. Weitere Informationen zu VMM-Platzhaltern in Dateien für die unbeaufsichtigte Installation von Mandanten finden Sie unter [Erstellen einer Antwortdatei](guarded-fabric-tenant-creates-shielding-data.md#create-an-answer-file).
 
-6. Auf der Seite **Betriebs System konfigurieren** werden von VMM nur einige Optionen für abgeschirmte VMS angezeigt, einschließlich der Product Key, der Zeitzone und des Computer namens. Einige sichere Informationen, z. b. das Administrator Kennwort und der Domänen Name, werden vom Mandanten über eine geschützte Datendatei () angegeben. PDK-Datei). 
+6. Auf der Seite **Betriebs System konfigurieren** werden von VMM nur einige Optionen für abgeschirmte VMS angezeigt, einschließlich der Product Key, der Zeitzone und des Computer namens. Einige sichere Informationen, z. b. das Administrator Kennwort und der Domänen Name, werden vom Mandanten über eine geschützte Datendatei () angegeben. PDK-Datei).
 
     > [!NOTE]
     > Wenn Sie einen Product Key auf dieser Seite angeben, stellen Sie sicher, dass er für das Betriebssystem auf dem Vorlagen Datenträger gültig ist. Wenn eine falsche Product Key verwendet wird, tritt bei der VM-Erstellung ein Fehler auf.
@@ -139,7 +139,7 @@ Nachdem die Vorlage erstellt wurde, können Mandanten Sie zum Erstellen neuer vi
 Als Alternative zum Ausführen des Assistenten für Vorlagen Datenträger können Sie den Vorlagen Datenträger und das Zertifikat auf einen Computer mit RSAT kopieren und [Protect-templatedisk](https://docs.microsoft.com/powershell/module/shieldedvmtemplate/protect-templatedisk?view=win10-ps
 ) ausführen, um den Signatur Prozess zu initiieren.
 Im folgenden Beispiel werden der Name und die Versionsinformationen verwendet, die von den Parametern _templatename_ und _Version_ angegeben werden.
-Die vhdx, die Sie dem `-Path`-Parameter bereitstellen, wird mit dem aktualisierten Vorlagen Datenträger überschrieben. Stellen Sie daher sicher, dass Sie vor dem Ausführen des Befehls eine Kopie erstellen
+Die vhdx-Datei, die Sie für den-Parameter bereitstellen `-Path` , wird mit dem aktualisierten Vorlagen Datenträger überschrieben. Achten Sie daher darauf, dass Sie vor dem Ausführen des Befehls
 
 ```powershell
 # Replace "THUMBPRINT" with the thumbprint of your template disk signing certificate in the line below
@@ -167,7 +167,7 @@ Save-VolumeSignatureCatalog -TemplateDiskPath 'C:\temp\MyLinuxTemplate.vhdx' -Vo
 > [!div class="nextstepaction"]
 > [Erstellen einer Schutz Datendatei](guarded-fabric-tenant-creates-shielding-data.md)
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
-- [Konfigurationsschritte des hostingdienstanbieters für geschützte Hosts und abgeschirmte VMS](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
+- [Geschützte Hosts und abgeschirmte VMs: Konfigurationsschritte für Hosting-Anbieter](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
 - [Geschütztes Fabric und abgeschirmte VMs](guarded-fabric-and-shielded-vms-top-node.md)

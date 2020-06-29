@@ -7,12 +7,12 @@ ms.topic: article
 author: cosmosdarwin
 ms.date: 02/09/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: d917c2d75c1e4078438b94e8aa4a6f921019af5a
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 18694975e48d199f2f690aebe8af2a4613a4b1f0
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80856163"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85474707"
 ---
 # <a name="performance-history-for-virtual-hard-disks"></a>Leistungs Verlauf für virtuelle Festplatten
 
@@ -27,7 +27,7 @@ In diesem Unterthema des [Leistungs Verlaufs für direkte Speicherplätze](perfo
 
 Diese Reihen werden für jede berechtigte virtuelle Festplatte erfasst:
 
-| Reihe                    | Einheit             |
+| Reihen                    | Einheit             |
 |---------------------------|------------------|
 | `vhd.iops.read`           | pro Sekunde       |
 | `vhd.iops.write`          | pro Sekunde       |
@@ -36,12 +36,12 @@ Diese Reihen werden für jede berechtigte virtuelle Festplatte erfasst:
 | `vhd.throughput.write`    | Bytes pro Sekunde |
 | `vhd.throughput.total`    | Bytes pro Sekunde |
 | `vhd.latency.average`     | Sekunden          |
-| `vhd.size.current`        | Bytes            |
-| `vhd.size.maximum`        | Bytes            |
+| `vhd.size.current`        | Byte            |
+| `vhd.size.maximum`        | Byte            |
 
 ## <a name="how-to-interpret"></a>Interpretieren
 
-| Reihe                    | Interpretieren                                                                                                 |
+| Reihen                    | Interpretieren                                                                                                 |
 |---------------------------|------------------------------------------------------------------------------------------------------------------|
 | `vhd.iops.read`           | Anzahl der Lesevorgänge pro Sekunde, die von der virtuellen Festplatte abgeschlossen wurden.                                         |
 | `vhd.iops.write`          | Anzahl der Schreibvorgänge pro Sekunde, die von der virtuellen Festplatte abgeschlossen wurden.                                        |
@@ -55,9 +55,9 @@ Diese Reihen werden für jede berechtigte virtuelle Festplatte erfasst:
 
 ## <a name="where-they-come-from"></a>Woher Sie stammen
 
-Die `iops.*`-, `throughput.*`-und `latency.*`-Reihe werden aus dem `Hyper-V Virtual Storage Device` Leistungs Zählers, der auf dem Server, auf dem der virtuelle Computer ausgeführt wird, und einer Instanz pro VHD oder vhdx gesammelt.
+Die `iops.*` `throughput.*` Reihen, und `latency.*` werden aus dem `Hyper-V Virtual Storage Device` Leistungs Bezeichner, der auf dem Server festgelegt ist, auf dem der virtuelle Computer ausgeführt wird, einer Instanz pro VHD oder vhdx gesammelt.
 
-| Reihe                    | Quellen Counter         |
+| Reihen                    | Quellen Counter         |
 |---------------------------|------------------------|
 | `vhd.iops.read`           | `Read Operations/Sec`  |
 | `vhd.iops.write`          | `Write Operations/Sec` |
@@ -68,7 +68,7 @@ Die `iops.*`-, `throughput.*`-und `latency.*`-Reihe werden aus dem `Hyper-V Virt
 | `vhd.latency.average`     | `Latency`              |
 
    > [!NOTE]
-   > Leistungsindikatoren werden über das gesamte Intervall gemessen, nicht als Stichprobe. Wenn die virtuelle Festplatte z. b. für eine Dauer von 9 Sekunden inaktiv ist, aber 30 IOS in der 10. Sekunde abgeschlossen ist, werden die zugehörigen `vhd.iops.total` im Durchschnitt in diesem 10-Sekunden-Intervall auf 3 IOS pro Sekunde aufgezeichnet. Dadurch wird sichergestellt, dass der Leistungs Verlauf alle Aktivitäten erfasst und stabil ist.
+   > Leistungsindikatoren werden über das gesamte Intervall gemessen, nicht als Stichprobe. Wenn die virtuelle Festplatte z. b. für 9 Sekunden inaktiv ist, aber 30 IOS in der 10. Sekunde abschließt, wird Ihre im `vhd.iops.total` Durchschnitt in diesem 10-Sekunden-Intervall auf 3 IOS pro Sekunde aufgezeichnet. Dadurch wird sichergestellt, dass der Leistungs Verlauf alle Aktivitäten erfasst und stabil ist.
 
 ## <a name="usage-in-powershell"></a>Verwendung in PowerShell
 
@@ -87,6 +87,6 @@ So erhalten Sie den Pfad für jede VHD von der virtuellen Maschine:
    > [!NOTE]
    > Für das Cmdlet "Get-VHD" muss ein Dateipfad angegeben werden. Enumeration wird nicht unterstützt.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
-- [Leistungs Verlauf für direkte Speicherplätze](performance-history.md)
+- [Leistungsverlauf für Direkte Speicherplätze](performance-history.md)

@@ -1,6 +1,6 @@
 ---
 title: Erstellen einer Dateiablaufaufgabe
-description: In diesem Artikel wird das Verfahren zum Erstellen einer Dateiablaufaufgabe für Dateien beschrieben, die in Kürze ablaufen
+description: Dieser Artikel beschreibt den Prozess der Erstellung einer Datei Verwaltungsaufgabe für Dateien, die ablaufen.
 ms.date: 7/7/2017
 ms.prod: windows-server
 ms.technology: storage
@@ -8,95 +8,95 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 0901c17203252414a37ccc5205a0946b8bef0d41
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ce458ab84e7f6ba40ab3578c9b4a3e5d58755dc5
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71394229"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85473767"
 ---
 # <a name="create-a-file-expiration-task"></a>Erstellen einer Dateiablaufaufgabe
 
-> Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
-Die folgende Prozedur dient zum Erstellen einer Dateiverwaltungsaufgabe für ablaufende Dateien. Dateiablaufaufgaben werden verwendet, um alle Dateien, die bestimmte Kriterien erfüllen, automatisch in ein bestimmtes Ablaufverzeichnis zu verschieben.
+Das folgende Verfahren führt Sie durch die Schritte zum Erstellen einer Datei Verwaltungsaufgabe für ablaufende Dateien. Datei Ablauf Tasks werden verwendet, um automatisch alle Dateien, die bestimmte Kriterien erfüllen, in ein bestimmtes Ablauf Verzeichnis zu verschieben, in dem ein Administrator diese Dateien sichern und löschen kann.
 
-Bei Ausführung einer Dateiablaufaufgabe wird innerhalb des Ablaufverzeichnisses ein neues Verzeichnis erstellt.
+Wenn eine Datei Ablauf Aufgabe ausgeführt wird, wird ein neues Verzeichnis innerhalb des Ablauf Verzeichnisses erstellt, gruppiert nach dem Servernamen, auf dem die Aufgabe ausgeführt wurde.
 
-Der neue Verzeichnisname basiert auf dem Namen der Dateiverwaltungsaufgabe und der Ausführungszeit. Wenn eine abgelaufene Datei gefunden wird, wird Sie in das neue Verzeichnis verschoben, während die ursprüngliche Verzeichnisstruktur beibehalten wird.
+Der neue Verzeichnisname basiert auf dem Namen der Dateiverwaltungsaufgabe und der Ausführungszeit.Wird eine abgelaufene Datei gefunden, wird sie in das neue Verzeichnis verschoben, ohne dabei die ursprüngliche Verzeichnisstruktur zu verändern.
 
-## <a name="to-create-a-file-expiration-task"></a>So erstellen Sie eine Dateiablaufaufgabe
+## <a name="to-create-a-file-expiration-task"></a>So erstellen Sie eine Datei Ablauf Aufgabe
 
 1. Klicken Sie auf den Knoten **Dateiverwaltungsaufgaben**.
 
-2. Klicken Sie mit der rechten Maustaste auf **Dateiverwaltungsaufgaben**und dann auf **Dateiverwaltungsaufgabe erstellen** (oder klicken Sie auf **Dateiverwaltungsaufgabe erstellen** im Bereich **Aktionen** aus). Daraufhin wird das Dialogfeld **Dateiverwaltungsaufgabe erstellen** geöffnet.
+2. Klicken Sie mit der rechten Maustaste auf **Datei Verwaltungsaufgaben**, und klicken Sie dann auf **Datei Verwaltungsaufgabe erstellen** (oder klicken Sie im **Aktions** Bereich auf **Datei Verwaltungsaufgabe erstellen** ). Daraufhin wird das Dialogfeld **Dateiverwaltungsaufgabe erstellen** geöffnet.
 
 3. Geben Sie auf der Registerkarte **Allgemein** folgende Informationen ein:
 
-   -   **Name**: Geben Sie einen Namen für die neue Aufgabe ein.  
+   -   **Name**: Geben Sie einen Namen für die neue Aufgabe ein.
 
-   -   **Beschreibung** Geben Sie eine optionale aussagekräftige Bezeichnung für die Aufgabe ein.  
-    
-   -   **Umfang**. Fügen Sie mithilfe der Schaltfläche **Hinzufügen** die Verzeichnisse hinzu, in der diese Aufgabe angewendet werden sollen. Optional: Verzeichnisse können aus der Liste mithilfe der Schaltfläche **Entfernen** entfernt werden. Die Dateiverwaltungsaufgabe gilt für alle Ordner und die zugehörigen Unterordner in dieser Liste.
+   -   **Beschreibung**. Geben Sie eine optionale aussagekräftige Bezeichnung für die Aufgabe ein.
+
+   -   **Umfang**. Fügen Sie mithilfe der Schaltfläche **Hinzufügen** die Verzeichnisse hinzu, mit denen diese Aufgabe arbeiten soll. Optional können Verzeichnisse mithilfe der Schaltfläche " **Entfernen** " aus der Liste entfernt werden. Die Datei Verwaltungsaufgabe gilt für alle Ordner und deren Unterordner in dieser Liste.
 
 4. Geben Sie auf der Registerkarte **Aktion** folgende Informationen ein:
 
-   - **Typ**. Wählen Sie im Dropdownfeld **Dateiablauf** aus.
+   - **Typ**. Wählen Sie im Dropdown Feld **Datei Ablauf** aus.
 
-   - **Ablaufverzeichnis** Wählen Sie ein Verzeichnis als Ziel für abgelaufene Dateien aus.
+   - **Ablaufverzeichnis** Wählen Sie ein Verzeichnis aus, in das die Dateien abgelaufen sein sollen.
 
      > [!Warning]
      > Wählen Sie dabei kein Verzeichnis aus, das sich gemäß der Definition im vorangegangenen Schritt im Bereich der Aufgabe befindet. Andernfalls entsteht unter Umständen eine iterative Schleife, die zu Systeminstabilität und Datenverlusten führen kann.
 
 5. Optional können Sie auf der Registerkarte **Benachrichtigung** auf **Hinzufügen** klicken, um E-Mail-Benachrichtigungen zu senden, Ereignisse zu protokollieren oder um einen Befehl oder ein Skript für eine minimale Anzahl von Tagen auszuführen, bevor von der Aufgabe eine Aktion für die Datei ausgeführt wird.
 
-   - Geben Sie oder wählen Sie aus dem Kombinationsfeld **Tage vor Aufgabenausführung bis zur Benachrichtigung** den Wert ein, um die minimale Anzahl von Tagen auszuwählen, in der die Datei behandelt wird, bevor eine Benachrichtigung gesendet wird.
+   - Geben Sie im Kombinations Feld **Anzahl der Tage vor dem Ausführen der Aufgabe zum Senden von Benachrichtigungen** einen Wert ein, oder wählen Sie einen Wert aus, um die Mindestanzahl von Tagen anzugeben, bevor eine Datei bearbeitet wird, in der eine Benachrichtigung gesendet wird.
 
      > [!Note]
-     > Benachrichtigungen werden nur gesendet, wenn eine Aufgabe ausgeführt wird. Wenn die angegebene minimale Anzahl von Tagen zum Senden einer Benachrichtigung nicht mit einer geplanten Aufgabe übereinstimmt, wird die Benachrichtigung am Tag der vorherigen geplanten Aufgabe gesendet.
+     > Benachrichtigungen werden nur gesendet, wenn eine Aufgabe ausgeführt wird. Wenn die angegebene Mindestanzahl von Tagen, für die eine Benachrichtigung gesendet wird, nicht mit einer geplanten Aufgabe übereinstimmt, wird die Benachrichtigung am Tag der vorhergehenden geplanten Aufgabe gesendet.
 
-   - Um E-Mail-Benachrichtigungen zu konfigurieren, klicken Sie auf die Registerkarte **E-Mail-Nachricht** und geben Sie folgende Informationen ein:
+   - Klicken Sie zum Konfigurieren von e-Mail-Benachrichtigungen auf die Registerkarte **e-Mail** , und geben Sie die folgenden Informationen ein
 
-     - Um Administratoren zu benachrichtigen, wenn ein Schwellenwert erreicht wird, aktivieren Sie das Kontrollkästchen **E-Mail an die folgenden Administratoren senden** und geben Sie die Namen der administrativen Konten ein, die die Benachrichtigungen erhalten sollen. Verwenden Sie das Format <em>account@domain</em>, und verwenden Sie Semikolons zum Trennen mehrerer Konten.  
+     - Wenn Sie Administratoren benachrichtigen möchten, wenn ein Schwellenwert erreicht wird, aktivieren Sie das Kontrollkästchen **e-Mail an folgende Administratoren senden** , und geben Sie dann die Namen der Administrator Konten ein, die die Benachrichtigungen erhalten sollen. Verwenden Sie das Format <em>account@domain</em> , und verwenden Sie Semikolons zum Trennen mehrerer Konten.
 
-     - Aktivieren Sie zum Senden einer E-Mail an die Person, deren Dateien ablaufen, das Kontrollkästchen **E-Mail an den Benutzer senden, dessen Dateien demnächst ablaufen**.
+     - Wenn Sie eine e-Mail an die Person senden möchten, deren Dateien ablaufen, aktivieren Sie das Kontrollkästchen **e-Mail an den Benutzer senden, dessen Dateien demnächst ablaufen** .
 
-     - Um die Nachricht zu konfigurieren, ändern Sie den vorgegebenen standardmäßigen Betreff und Textkörper. Der Text in Klammern fügt die Variableninformationen über das Kontingent-Ereignis ein, das die Benachrichtigung verursacht hat. Beispielsweise fügt der **\[Quelldatei Besitzer\]** Variable den Namen des Benutzers ein, dessen Datei demnächst abläuft. Um zusätzliche Variablen in den Text einzufügen, klicken Sie auf **Variable einfügen**.
+     - Um die Meldung zu konfigurieren, bearbeiten Sie die Standard Betreffzeile und den Nachrichtentext, die bereitgestellt werden. Der Text in Klammern fügt Variablen Informationen über das Kontingent Ereignis ein, das die Benachrichtigung verursacht hat. Beispielsweise fügt die ** \[ Quelldatei Besitzer \] ** -Variable den Namen des Benutzers ein, dessen Datei demnächst abläuft. Um zusätzliche Variablen in den Text einzufügen, klicken Sie auf **Variable einfügen**.
 
-     - Um eine Liste der Dateien einzufügen, die demnächst abläuft, klicken Sie auf **An die E-Mail-Liste der Dateien anhängen, für die die Aktion ausgeführt wird** und geben oder wählen Sie einen Wert für **Maximale Anzahl von Dateien in der Liste** aus.
+     - Um eine Liste der Dateien anzufügen, die ablaufen, klicken Sie auf **an die e-Mail-Liste der Dateien anfügen, für die die Aktion ausgeführt**werden soll, und geben Sie einen Wert ein, oder wählen Sie einen Wert für **Maximale Anzahl von Dateien in der Liste**aus.
 
-     - Wenn Sie weitere Header konfigurieren möchten (einschließlich Von, Cc, Bcc und Antwort an), klicken Sie auf **Weitere E-Mail-Kopfzeilen**.  
+     - Um zusätzliche Header (einschließlich from, CC, BCC und Reply-to) zu konfigurieren, klicken Sie auf **zusätzliche e-Mail-Header**.
 
-   - Um ein Ereignis zu protokollieren, klicken Sie auf die Registerkarte **Ereignisprotokoll** und wählen Sie das Kontrollkästchen **Warnung an Ereignisprotokoll senden**. Bearbeiten Sie anschließend den Standard-Protokolleintrag.  
+   - Wenn Sie ein Ereignis protokollieren möchten, klicken Sie auf die Registerkarte **Ereignisprotokoll** , und aktivieren Sie das Kontrollkästchen **Warnung an Ereignisprotokoll senden** , und bearbeiten Sie dann den Standardprotokoll Eintrag.
 
-   - Um einen Befehl oder ein Skript auszuführen, klicken Sie auf die Registerkarte **Befehl** und aktivieren Sie das Kontrollkästchen **Diesen Befehl oder dieses Skript ausführen**. Geben Sie anschließend den Befehl ein oder klicken Sie auf **Durchsuchen**, um den Speicherort zu suchen, in dem das Skript gespeichert ist. Sie können ebenfalls Befehlsargumente eingeben, ein Arbeitsverzeichnis für den Befehl oder ein Skript auswählen oder die Sicherheitsstufeneinstellungen für den Befehl ändern.
+   - Wenn Sie einen Befehl oder ein Skript ausführen möchten, klicken Sie auf die Registerkarte **Befehl** , und aktivieren Sie das Kontrollkästchen **diesen Befehl oder Skript ausführen** . Geben Sie dann den Befehl ein, oder klicken Sie auf **Durchsuchen** , um den Speicherort des Skripts zu suchen. Sie können auch Befehlsargumente eingeben, ein Arbeitsverzeichnis für den Befehl oder das Skript auswählen oder die Einstellung für die Befehls Sicherheit ändern.
 
 6. Optional: Generieren Sie mithilfe der Registerkarte **Bericht** Protokolle oder Speicherberichte.
 
-   - Aktivieren Sie zum Erstellen der Protokolldateien das Kontrollkästchen **Protokoll erstellen** und wählen Sie dann einen oder mehrere verfügbare Protokolle.  
+   - Aktivieren Sie das Kontrollkästchen **Protokoll generieren** , und wählen Sie ein oder mehrere verfügbare Protokolle aus, um Protokolle zu generieren.
 
-   - Aktivieren Sie zum Erstellen der Berichte das Kontrollkästchen **Bericht erstellen** und wählen Sie dann einen oder mehrere verfügbare Berichtsformate aus.  
+   - Zum Generieren von Berichten aktivieren Sie das Kontrollkästchen **Bericht generieren** , und wählen Sie dann ein oder mehrere verfügbare Berichtsformate aus.
 
-   - Aktivieren Sie zum Erstellen von E-Mail-Protokolldateien oder Speicherberichten das Kontrollkästchen **Berichte an die folgenden Administratoren senden** und geben Sie einen oder mehrere Administratoren als E-Mail-Empfänger mit dem Format <em>account@domain</em> ein. Trennen Sie mehrere E-Mail-Adressen durch Semikola.
+   - Aktivieren Sie das Kontrollkästchen **Berichte an folgende Administratoren senden** , um per e-Mail generierte Protokolle oder Speicher Berichte zu erstellen, und geben Sie einen oder mehrere Administrator-e-Mail-Empfänger im Format ein <em>account@domain</em> . Verwenden Sie ein Semikolon, um mehrere Adressen voneinander zu trennen.
 
      > [!Note]
      > Der Bericht wird am Standardort für Schadensberichte gespeichert. Dieser kann im Dialogfeld **Optionen für den Ressourcen-Manager für Dateiserver** geändert werden.
-        
+
 7. Optional: Verwenden Sie die Registerkarte **Bedingung**, um diese Aufgabe nur für Dateien auszuführen, von denen bestimmte Bedingungen erfüllt werden. Die folgenden Einstellungen sind verfügbar:
 
-    -   **Eigenschaftenbedingungen**. Klicken Sie auf **Hinzufügen**, um basierend auf der Klassifizierung der Datei eine neue Bedingung zu erstellen. Daraufhin öffnet sich das Dialogfeld **Eigenschaftenbedingung**, das Ihnen ermöglicht, eine Eigenschaft, einen Operator zum Ausführen der Eigenschaft und den Wert der zu vergleichenden Eigenschaft auszuwählen. Nach dem Klicken auf **OK** können Sie zusätzliche Bedingungen erstellen oder eine vorhandene Bedingung bearbeiten oder entfernen.
+    -   **Eigenschafts Bedingungen**. Klicken Sie auf **Hinzufügen** , um eine neue Bedingung basierend auf der Klassifizierung der Datei zu erstellen. Dadurch wird das Dialogfeld **Eigenschaften Bedingung** geöffnet, in dem Sie eine Eigenschaft, einen Operator, der für die Eigenschaft auszuführen ist, und den Wert, mit dem die Eigenschaft verglichen werden soll, auswählen können. Nachdem Sie auf " **OK**" geklickt haben, können Sie weitere Bedingungen erstellen oder eine vorhandene Bedingung bearbeiten oder entfernen.
 
-    -   **Tage seit der letzten Dateiänderung**. Klicken Sie auf das Kontrollkästchen und geben Sie die Anzahl der Tage in das Drehfeld ein. Dadurch wird die Dateiverwaltungsaufgabe nur auf Dateien angewendet, die nicht seit mehr als der angegebenen Anzahl von Tagen geändert wurden.
+    -   **Tage seit der letzten Änderung der Datei**. Aktivieren Sie das Kontrollkästchen, und geben Sie dann eine Anzahl von Tagen in das Drehfeld ein. Dies führt dazu, dass die Datei Verwaltungsaufgabe nur auf Dateien angewendet wird, die seit mehr als der angegebenen Anzahl von Tagen nicht geändert wurden.
 
-    -   **Tage seit letztem Zugriff auf die Datei**. Klicken Sie auf das Kontrollkästchen und geben Sie die Anzahl der Tage in das Drehfeld ein. Wenn der Server so konfiguriert ist, dass er die Zeitstempel für Dateien konfiguriert, auf die zuletzt zugegriffen wurde, wird dadurch die Dateiverwaltungsaufgabe nur auf Dateien ausgeführt, auf die nicht in der mehr als die angegebene Anzahl von Tagen zugegriffen wurde. Wenn der Server nicht konfiguriert ist, um die Zugriffszeiten zu verfolgen, sind diese Bedingung wirkungslos.
+    -   **Tage seit dem letzten Zugriff**auf die Datei. Aktivieren Sie das Kontrollkästchen, und geben Sie dann eine Anzahl von Tagen in das Drehfeld ein. Wenn der Server für die Nachverfolgung von Zeitstempeln für den letzten Zugriff auf Dateien konfiguriert ist, führt dies dazu, dass die Datei Verwaltungsaufgabe nur auf Dateien angewendet wird, auf die seit mehr als der angegebenen Anzahl von Tagen nicht mehr zugegriffen wurde. Wenn der Server nicht für die Nachverfolgung der Zugriffszeiten konfiguriert ist, ist dieser Zustand wirkungslos.
 
-    -   **Tage seit der Dateierstellung**. Klicken Sie auf das Kontrollkästchen und geben Sie die Anzahl der Tage in das Drehfeld ein. Dadurch wird die Aufgabe nur auf Dateien angewendet, die mindestens in der angegebenen Anzahl von Tagen erstellt wurden.  
+    -   **Tage seit der Erstellung der Datei**. Aktivieren Sie das Kontrollkästchen, und geben Sie dann eine Anzahl von Tagen in das Drehfeld ein. Dies führt dazu, dass die Aufgabe nur auf Dateien angewendet wird, die mindestens vor der angegebenen Anzahl von Tagen erstellt wurden.
 
-    -   **Gültig ab**. Legen Sie ein Startdatum für den Beginn der Dateiverwaltungsaufgabe für diese Dateien fest. Diese Option ist nützlich für das Verzögern der Aufgabe, bis Sie die Gelegenheit haben, die Benutzer zu benachrichtigen oder andere Vorkehrungen zu treffen.
+    -   **Effektive Starts**. Legen Sie ein Datum fest, an dem diese Datei Verwaltungsaufgabe die Verarbeitung von Dateien starten soll. Diese Option ist nützlich, um die Aufgabe zu verzögern, bis Sie die Möglichkeit haben, Benutzer zu benachrichtigen oder andere Vorbereitungen im Voraus zu treffen.
 
-8. Klicken Sie auf der Registerkarte **Zeitplan** auf **Zeitplan erstellen** und dann im Dialogfeld **Zeitplan** auf **Neu**. Die zeigt den Standardzeitplan für 9:00 Uhr täglich an, Sie können allerdings den Standardzeitplan ändern. Wenn Sie die Konfiguration des Zeitplans abgeschlossen haben, klicken Sie auf **OK** und dann erneut auf **OK**.
+8. Klicken Sie auf der Registerkarte **Zeitplan** auf **Zeitplan erstellen**, und klicken Sie dann im Dialogfeld **Zeitplan** auf **neu**. Hiermit wird ein Standard Zeitplan für 9:00 Uhr angezeigt. täglich, Sie können den Standard Zeitplan jedoch ändern. Wenn Sie die Konfiguration des Zeitplans abgeschlossen haben, klicken Sie auf **OK** , und klicken Sie dann erneut auf **OK** .
 
-## <a name="see-also"></a>Weitere Informationen
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 -   [Klassifizierungsverwaltung](classification-management.md)
 -   [Dateiverwaltungsaufgaben](file-management-tasks.md)

@@ -7,12 +7,12 @@ manager: dongill
 author: rpsqrd
 ms.author: ryanpu
 ms.technology: security-guarded-fabric
-ms.openlocfilehash: 9b2460a9aa7f85de47e6198bcec2132c437a35c7
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 0b5711b8c512974d795fa5220c5a4848b3fa726f
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80856543"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85473747"
 ---
 # <a name="managing-a-guarded-fabric"></a>Verwalten eines geschützten Fabrics
 
@@ -23,6 +23,6 @@ In den folgenden Themen wird beschrieben, wie Sie ein geschütztes Fabric verwal
 - [Verwalten des Host-Überwachungsdiensts](guarded-fabric-manage-hgs.md)
 - [Überlegungen zu Filialen](guarded-fabric-manage-branch-office.md)
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Bereitstellen eines geschützten Fabrics](guarded-fabric-deploying-hgs-overview.md)

@@ -1,6 +1,6 @@
 ---
 title: Konfigurieren der Benachrichtigungsgrenze
-description: In diesem Artikel wird beschrieben, wie Sie den verschiedene Arten von Benachrichtigungen Zeitlimits hinzufügen können
+description: In diesem Artikel wird beschrieben, wie Sie verschiedenen Benachrichtigungs Typen Zeitlimits hinzufügen.
 ms.date: 7/7/2017
 ms.prod: windows-server
 ms.technology: storage
@@ -8,40 +8,40 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 4a33b7f125479da1e7b701f5427a0f15903caf66
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 32728fc9b19fca458b7ac4b86f3b550d9ff29490
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71401945"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85474167"
 ---
 # <a name="configure-notification-limits"></a>Konfigurieren der Benachrichtigungsgrenze
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
-Um die Anzahl der sich wiederholenden, gesammelten Benachrichtigungen zu reduzieren, die einen Schwellenwert überschreiten, oder die versuchen, nicht autorisierte Datei zu speichern, setzt der Ressourcen-Manager für Dateiserver Zeitlimits für die folgenden Benachrichtigungstypen fest:
+Um die Anzahl der Benachrichtigungen zu verringern, die sich für das wiederholte überschreiten eines Kontingent Schwellenwerts oder des Versuchs, eine nicht autorisierte Datei zu speichern, wendet der Datei Server Ressourcen-Manager Zeitlimits auf die folgenden Benachrichtigungs Typen an
 
 -   E-Mail
 -   Ereignisprotokoll
 -   Befehl
 -   Bericht
 
-Jedes Limit gibt einen Zeitraum an, bevor eine weitere konfigurierte Benachrichtigung desselben Typs für ein identisches Problem generiert wird.
+Jede Grenze gibt einen Zeitraum an, bevor eine andere konfigurierte Benachrichtigung desselben Typs für ein identisches Problem generiert wird.
 
-Standardmäßig ist 60 Minuten für jeden Benachrichtigungstyp festgelegt, Sie können diese Grenzwerte allerdings ändern. Das Limit gilt für bestimmte Arten von Benachrichtigungen, egal ob sie über Kontingentschwellenwerte oder Dateiprüfungsereignisse generiert werden.
+Für jeden Benachrichtigungstyp wird ein Standard Limit von 60 Minuten festgelegt. Sie können diese Limits jedoch ändern. Das Limit gilt für alle Benachrichtigungen eines bestimmten Typs, unabhängig davon, ob Sie durch Kontingent Schwellenwerte oder durch Datei Überprüfungs Ereignisse generiert werden.
 
-## <a name="to-specify-a-standard-notification-limit-for-each-notification-type"></a>So setzen Sie ein standardmäßiges Benachrichtigungslimit für jeden Benachrichtigungstyp fest
+## <a name="to-specify-a-standard-notification-limit-for-each-notification-type"></a>So geben Sie ein Standard Benachrichtigungs Limit für jeden Benachrichtigungstyp an
 
-1.  Klicken Sie mit der rechten Maustaste in der Konsolenstruktur auf **Ressourcen-Manager für Dateiserver**, und klicken Sie dann auf **Optionen konfigurieren**. Das Dialogfeld **Optionen für den Ressourcen-Manager für Dateiserver** wird geöffnet.
+1.  Klicken Sie in der Konsolen Struktur mit der rechten Maustaste auf **Datei Server Ressourcen-Manager**, und klicken Sie dann auf **Optionen konfigurieren**. Das Dialogfeld **Optionen für den Ressourcen-Manager für Dateiserver** wird geöffnet.
 
-2.  Geben Sie auf der Registerkarte **Benachrichtigungslimit** einen Wert in Minuten für jeden Benachrichtigungstyp ein, der angezeigt wird.
+2.  Geben Sie auf der Registerkarte **Benachrichtigungs Limits** für jeden angezeigten Benachrichtigungstyp einen Wert in Minuten ein.
 
 3.  Klicken Sie auf **OK**.
 
 > [!Note]
-> Um Zeitlimits individuell anzupassen, die Benachrichtigungen für ein bestimmtes Kontingent oder für eine Dateiprüfung zugeordnet sind, können Sie die Befehlszeilentools des Ressourcen-Manager für Dateiservers **Dirquota.exe** und **Filescrn.exe** oder die Cmdlets des [Ressourcen-Manager für Dateiservers](https://technet.microsoft.com/itpro/powershell/windows/fileserverresourcemanager/fileserverresourcemanager) verwenden.
+> Zum Anpassen von Zeitlimits, die Benachrichtigungen für ein bestimmtes Kontingent oder einen bestimmten Datei Bildschirm zugeordnet sind, können Sie den Dateiserver Ressourcen-Manager Befehlszeilen Tools **Dirquota.exe** und **Filescrn.exe**verwenden oder die [Dateiserver Ressourcen-Manager](https://technet.microsoft.com/itpro/powershell/windows/fileserverresourcemanager/fileserverresourcemanager) -Cmdlets verwenden.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 -   [Festlegen der Optionen des Ressourcen-Managers für Dateiserver](setting-file-server-resource-manager-options.md)
 -   [Befehlszeilentools](command-line-tools.md)

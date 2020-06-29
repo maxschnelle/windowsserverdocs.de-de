@@ -8,12 +8,12 @@ author: rpsqrd
 ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 1d759af575f98d305a67734d0e23680f701f6b72
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 4632c218f0638885e3094446704a91c442859d4c
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80856713"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85473967"
 ---
 # <a name="shielded-vms---hosting-service-provider-sets-up-windows-azure-pack"></a>Abgeschirmte VMs: Hosting-Anbieter richtet Windows Azure Pack ein
 
@@ -27,7 +27,7 @@ Sie führen die folgenden Aufgaben aus, um Windows Azure Pack in Ihrer Umgebung 
 
 1. Vervollständigen Sie die Konfiguration von System Center 2016-Virtual Machine Manager (VMM) für Ihr hostingfabric. Dies umfasst das Einrichten von VM-Vorlagen und eine VM-Cloud, die über Windows Azure Pack verfügbar gemacht wird:
 
-    [Szenario: Bereitstellen von überwachten Hosts und abgeschirmten virtuellen Maschinen in VMM](https://technet.microsoft.com/system-center-docs/vmm/scenario/guarded-overview)
+    [Szenario: Bereitstellen von überwachten Hosts und geschützten virtuellen Maschinen in VMM](https://technet.microsoft.com/system-center-docs/vmm/scenario/guarded-overview)
 
 2. Installieren und Konfigurieren von System Center 2016-Service Provider Foundation (SPF). Diese Software ermöglicht Windows Azure Pack die Kommunikation mit Ihren VMM-Servern:
 
@@ -52,7 +52,7 @@ Installieren und konfigurieren Sie Windows Azure Pack (WAP) auf dem Computer, au
 
 3.  Öffnen Sie den Webplattform-Installer, und suchen Sie nach **Windows Azure Pack: Portal und API Express** auf der Registerkarte **Produkte** . Klicken Sie auf **Hinzufügen**, und **Installieren** Sie dann am unteren Rand des Fensters.
 
-4.  Führen Sie die weiteren Schritte der Installation aus. Nachdem die Installation abgeschlossen ist, wird die Konfigurations Website (*https://&lt;wapserver&gt;: 30101/* ) in Ihrem Webbrowser geöffnet. Geben Sie auf dieser Website Informationen zu Ihrem SQL-Server an, und schließen Sie die Konfiguration von WAP ab.
+4.  Führen Sie die weiteren Schritte der Installation aus. Nachdem die Installation abgeschlossen ist, wird die Konfigurations Website (*https:// &lt; wapserver &gt; : 30101/*) in Ihrem Webbrowser geöffnet. Geben Sie auf dieser Website Informationen zu Ihrem SQL-Server an, und schließen Sie die Konfiguration von WAP ab.
 
 Hilfe zum Einrichten von Windows Azure Pack finden Sie unter [Installieren einer Express-Bereitstellung Windows Azure Pack](https://technet.microsoft.com/dn296439.aspx).
 
@@ -63,7 +63,7 @@ Hilfe zum Einrichten von Windows Azure Pack finden Sie unter [Installieren einer
 
 Bevor Sie Windows Azure Pack verwenden, sollten Sie es bereits installiert und für Ihre Infrastruktur konfiguriert haben.
 
-1.  Navigieren Sie zum Windows Azure Pack Admin-Portal unter *https://&lt;wapserver&gt;: 30091*, und melden Sie sich dann mit Ihren Administrator Anmelde Informationen an.
+1.  Navigieren Sie zum Windows Azure Pack Admin-Portal unter *https:// &lt; wapserver &gt; : 30091*, und melden Sie sich dann mit Ihren Administrator Anmelde Informationen an.
 
 2.  Klicken Sie im linken Bereich auf **VM-Clouds**.
 
@@ -77,7 +77,7 @@ Bevor Sie Windows Azure Pack verwenden, sollten Sie es bereits installiert und f
 
 Damit Mandanten VMs in WAP erstellen können, müssen Sie zuerst einen Hostingplan erstellen, den Mandanten abonnieren können. Pläne definieren die zulässigen VM-Clouds,-Vorlagen,-Netzwerke und-Abrechnungs Entitäten für Ihre Mandanten.
 
-1. Klicken Sie im unteren Bereich des Portals auf **+ neu** &gt; **Plan** &gt; Plan **Erstellen**.
+1. Klicken Sie im unteren Bereich des Portals auf **+ neuer** &gt; **Plan** &gt; **Create Plan**.
 
 2. Wählen Sie im ersten Schritt des Assistenten einen Namen für den Plan aus. Dies ist der Name, den Ihre Mandanten beim Abonnieren sehen.
 
@@ -98,7 +98,7 @@ Damit Mandanten VMs in WAP erstellen können, müssen Sie zuerst einen Hostingpl
 9. Wählen Sie die Kontingente aus, die Sie in diesem Plan anwenden möchten. (Z. b. Grenzwerte für CPU-Kern und RAM-Auslastung). Vergewissern Sie sich, dass das Kontrollkästchen **Virtual Machines als geschützt zulassen** aktiviert ist.
 
    ![Einstellungen für Clouds für virtuelle Computer in Windows Azure Pack](../media/Guarded-Fabric-Shielded-VM/guarded-host-azure-pack-03-virtual-machine-clouds.png)
-    
+
 10. Scrollen Sie nach unten zum Abschnitt **Vorlagen**, und wählen Sie dann eine oder mehrere Vorlagen aus, die ihren Mandanten angeboten werden sollen. Sie können Mandanten sowohl abgeschirmte als auch unsadierte Vorlagen anbieten, aber es muss eine geschützte Vorlage angeboten werden, um Mandanten eine End-to-End-Zusicherung über die Integrität der VM und ihrer geheimen Schlüssel zu geben.
 
 11. Fügen Sie im Abschnitt " **Netzwerke** " ein oder mehrere Netzwerke für Ihre Mandanten hinzu.
@@ -113,7 +113,7 @@ Damit Mandanten VMs in WAP erstellen können, müssen Sie zuerst einen Hostingpl
 
     An diesem Punkt ist Windows Azure Pack konfiguriert, und Mandanten können den soeben erstellten Plan abonnieren und abgeschirmte VMS bereitstellen. Weitere Schritte, die Mandanten ausführen müssen, finden Sie unter [abgeschirmte VMs für Mandanten: Bereitstellen einer abgeschirmten VM mithilfe von Windows Azure Pack](guarded-fabric-shielded-vm-windows-azure-pack.md).
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
-- [Konfigurationsschritte des hostingdienstanbieters für geschützte Hosts und abgeschirmte VMS](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
+- [Geschützte Hosts und abgeschirmte VMs: Konfigurationsschritte für Hosting-Anbieter](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
 - [Geschütztes Fabric und abgeschirmte VMs](guarded-fabric-and-shielded-vms-top-node.md)

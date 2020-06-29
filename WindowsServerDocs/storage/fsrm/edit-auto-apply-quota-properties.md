@@ -1,6 +1,6 @@
 ---
 title: Bearbeiten der Eigenschaften des automatisch zugewiesenen Kontingents
-description: Dieser Artikel beschreibt, wie automatisch zugewiesenes Kontingenteigenschaften bearbeitet werden
+description: In diesem Artikel wird beschrieben, wie Sie die Eigenschaften des automatischen Anwendungs Kontingents
 ms.date: 7/7/2017
 ms.prod: windows-server
 ms.technology: storage
@@ -8,41 +8,41 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 4b4fda5cdfeed8df02fee922c8dc5fddc75c56ff
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2d520d80dc06969f21211d461fc33e2e9336df12
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403115"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85474937"
 ---
 # <a name="edit-auto-apply-quota-properties"></a>Bearbeiten der Eigenschaften des automatisch zugewiesenen Kontingents
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
-Wenn Sie Änderungen an einem automatisch zugewiesenen Kontingent vornehmen, haben Sie die Möglichkeit, diese Änderungen auf vorhandene Kontingente des automatisch zugewiesenen Kontingentpfads anzuwenden. Sie haben die Möglichkeit, nur die Kontingente zu ändern, die mit dem ursprünglichen automatisch zugewiesenen Kontingent übereinstimmen oder alle Kontingente des automatisch zugewiesenen Kontingentpfads zu ändern, unabhängig von den Änderungen, die an den Kontingenten vorgenommen wurden, seit sie erstellt wurden. Dieses Feature vereinfacht das Aktualisieren der Eigenschaften von Kontingenten, die von einem automatisch zugewiesenen Kontingent abgeleitet wurden, da alle Updates an einem zentralen Ort ausgeführt werden können.
+Wenn Sie Änderungen an einem automatischen Apply-Kontingent vornehmen, haben Sie die Möglichkeit, diese Änderungen im Pfad zum automatischen Anwenden von Kontingenten auf vorhandene Kontingente auszuweiten. Sie können auswählen, ob Sie nur die Kontingente ändern möchten, die weiterhin mit dem ursprünglichen Kontingent für automatische Anwendungs Kontingente oder mit allen Kontingenten für das automatische Anwenden des Kontingents identisch sind, unabhängig von Änderungen, die seit der Erstellung an den Kontingenten vorgenommen wurden. Diese Funktion vereinfacht das Aktualisieren der Eigenschaften von Kontingenten, die von einem automatischen Apply-Kontingent abgeleitet wurden, indem ein zentraler Punkt bereitgestellt wird, an dem Sie alle Änderungen vornehmen können.
 
 > [!Note]
-> Wenn Sie die Änderungen an allen Kontingente des automatisch zugewiesenen Kontingentpfads vornehmen möchten, überschreiben Sie alle benutzerdefinierten Kontingenteigenschaften, die Sie erstellt haben.
+> Wenn Sie die Änderungen auf alle Kontingente im Pfad zum automatischen Anwenden des Kontingents anwenden, überschreiben Sie alle benutzerdefinierten Kontingent Eigenschaften, die Sie erstellt haben.
 
-## <a name="to-edit-an-auto-apply-quota"></a>So bearbeiten Sie ein automatisch zugewiesenes Kontingent
+## <a name="to-edit-an-auto-apply-quota"></a>So bearbeiten Sie ein automatisches Apply-Kontingent
 
-1.  Wählen Sie unter **Kontingente** die automatisch zugewiesenen Kontingent aus, die Sie ändern möchten. Sie können die Kontingente filtern, um nur die automatisch zugewiesenen Kontingente anzuzeigen.
+1.  Wählen Sie in **Kontingente**das automatisch anzuwendende Kontingent aus, das Sie ändern möchten. Sie können die Kontingente filtern, um nur automatische Apply-Kontingente anzuzeigen.
 
-2.  Klicken Sie mit der rechten Maustaste auf den Kontingenteintrag und klicken Sie dann auf **Kontingenteigenschaften bearbeiten** (oder wählen Sie im Bereich **Aktionen** unter **Ausgewählte Kontingente** die Option **Kontingenteigenschaften bearbeiten** aus). Das Dialogfeld **Automatisch zugewiesene Kontingente bearbeiten** wird geöffnet.
+2.  Klicken Sie mit der rechten Maustaste auf den Kontingent Eintrag, und klicken Sie dann auf **Kontingent Eigenschaften bearbeiten** (oder klicken Sie im **Aktions** Bereich unter **Ausgewählte Kontingente** auf **Kontingent Eigenschaften bearbeiten**). Dadurch wird das Dialogfeld " **Kontingent automatisch anwenden** " geöffnet.
 
-3.  Wählen Sie unter **Eigenschaften aus dieser Kontingentvorlage ableiten**die Kontingentvorlage aus, die Sie anwenden möchten. Sie können die Eigenschaften jeder Kontingentvorlage im Übersichtslistenfeld überprüfen.
+3.  Wählen Sie unter **Eigenschaften von dieser Kontingent Vorlage ableiten**die Kontingent Vorlage aus, die Sie anwenden möchten. Sie können die Eigenschaften jeder Kontingent Vorlage im Listenfeld Zusammenfassung überprüfen.
 
-4.  Klicken Sie auf **OK**. Das Dialogfeld **Aus dem automatisch zugewiesenen Kontingent abgeleitete Kontingente aktualisieren** wird geöffnet.
+4.  Klicken Sie auf **OK**. Dadurch wird das Dialogfeld **Kontingente aktualisieren, das von der Quote automatisch anwenden abgeleitet** wird geöffnet.
 
-5.  Wählen Sie den Aktualisierungstyp aus, den Sie anwenden möchten:
+5.  Wählen Sie den Typ des Updates aus, das Sie anwenden möchten:
 
-    -   Wenn Sie Kontingente haben, die seit der automatischen Erstellung geändert wurden und Sie diese nicht ändern möchten, wählen Sie **Zugewiesenes Kontingent nur auf Kontingente anwenden, die mit dem urspr. übereinstimmen** aus. Diese Option aktualisiert nur die Kontingente in den automatisch zugewiesenen Kontingenten, die seit der automatischen Erstellung nicht bearbeitet wurden.
-    -   Wenn Sie alle vorhandenen Kontingente im automatisch zugewiesenen Kontingentpfad ändern möchten, wählen Sie **Zugewiesenes Kontingent auf alle abgeleiteten Kontingente anwenden** aus.
-    -   Wenn Sie die vorhandenen Kontingente unverändert lassen möchten, jedoch die geänderten automatisch zugewiesenen Kontingente für neue Unterordner des automatisch zugewiesenen Kontingentpfads wirksam machen möchten, wählen Sie **Zugewiesenes Kontingent nicht auf abgeleitete Kontingente anwenden** aus.
+    -   Wenn Sie über Kontingente verfügen, die seit der automatischen Generierung geändert wurden, und Sie diese nicht ändern möchten, wählen Sie **die Option Automatisches Anwenden von Kontingenten nur auf abgeleitete Kontingente anwenden, die dem ursprünglichen automatischen Anwendungs Kontingent entsprechen**. Mit dieser Option werden nur die Kontingente im Pfad zum automatischen Anwenden von Kontingenten aktualisiert, die seit der automatischen Generierung nicht bearbeitet wurden.
+    -   Wenn Sie alle vorhandenen Kontingente im Pfad Kontingent automatisch anwenden ändern möchten, wählen Sie die Option **Automatisches Anwenden von Kontingenten auf alle abgeleiteten Kontingente anwenden**aus.
+    -   Wenn Sie die vorhandenen Kontingente unverändert halten möchten, aber das geänderte automatisch geltende Kontingent für neue Unterordner im Pfad Kontingent automatisch anwenden aktivieren möchten, wählen Sie **nicht automatisch auf abgeleitete Kontingente anwenden**aus.
 
 6.  Klicken Sie auf **OK**.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 -   [Kontingentverwaltung](quota-management.md)
 -   [Erstellen eines automatisch zugewiesenen Kontingents](create-auto-apply-quota.md)
