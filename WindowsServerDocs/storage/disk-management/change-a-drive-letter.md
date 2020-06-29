@@ -1,34 +1,34 @@
 ---
 title: Ändern eines Laufwerkbuchstabens
 description: Hier erfährst du, wie du unter Windows mithilfe der Datenträgerverwaltung einen Laufwerkbuchstaben änderst oder zuweist.
-ms.date: 10/24/2018
+ms.date: 06/08/2020
 ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 3e18092a71e12cadb86052204738fafc8a149ff4
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 424fa2c81954e022d7e1b297a60bd3415fdafa39
+ms.sourcegitcommit: a538474d2c0a9520567f4e6ad0933f8660273098
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "71386020"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84505772"
 ---
 # <a name="change-a-drive-letter"></a>Ändern eines Laufwerkbuchstabens
 
-> **Gilt für:** Windows 10, Windows 8.1, Windows 7, Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> **Gilt für:** Windows 10, Windows 8.1, Windows 7, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Wenn du einem Laufwerk einen anderen Laufwerkbuchstaben zuweisen möchtest oder ein Laufwerk ohne Laufwerkbuchstaben besitzt, kannst du den Laufwerkbuchstaben mithilfe der Datenträgerverwaltung ändern oder zuweisen.
+Wenn du einem Laufwerk einen anderen Laufwerkbuchstaben zuweisen möchtest oder ein Laufwerk ohne Laufwerkbuchstaben besitzt, kannst du den Laufwerkbuchstaben mithilfe der Datenträgerverwaltung ändern oder zuweisen. Wenn Sie das Laufwerk stattdessen in einem leeren Ordner bereitstellen möchten, sodass es nur als ein weiterer Ordner angezeigt wird, finden Sie unter [Bereitstellen eines Laufwerks in einem Ordner](assign-a-mount-point-folder-path-to-a-drive.md) weitere Informationen.
 
 > [!IMPORTANT]
 > Falls du den Laufwerkbuchstaben eines Laufwerks mit Windows- oder App-Installation änderst, können Apps unter Umständen nicht richtig ausgeführt werden oder das Laufwerk möglicherweise nicht finden. Aus diesem Grund wird empfohlen, den Laufwerkbuchstaben des Laufwerks nicht zu ändern, auf dem Windows oder Apps installiert ist bzw. sind.
 
-Nachfolgend wird erläutert, wie du den Laufwerkbuchstaben änderst. (Wenn du stattdessen das Laufwerk in einen leeren Ordner einbinden möchtest, sodass es einfach als weiterer Ordner angezeigt wird, lies die Informationen unter [Zuweisen eines Ordnerpfads mit Bereitstellungspunkt zu einem Laufwerk](assign-a-mount-point-folder-path-to-a-drive.md).)
+Hier erfahren Sie, wie Sie den Laufwerkbuchstaben ändern können:
 
-1. Öffne die Datenträgerverwaltung mit Administratorberechtigungen. 
-    Gib dazu ins Suchfeld auf der Taskleiste **Datenträgerverwaltung** ein, halte **Datenträgerverwaltung** gedrückt (oder klicke mit der rechten Maustaste darauf), und wähle anschließend **Als Administrator ausführen** > **Ja** aus. Falls das Öffnen als Administrator nicht funktioniert, gib stattdessen **Computerverwaltung** ein, und navigiere anschließend zu **Speicher** > **Datenträgerverwaltung**.
-1. Klicke in der Datenträgerverwaltung mit der rechten Maustaste auf das Laufwerk, für das du den Laufwerkbuchstaben ändern oder hinzufügen möchtest, und wähle dann **Laufwerkbuchstaben und -pfade ändern...** aus.
+1. Öffne die Datenträgerverwaltung mit Administratorberechtigungen.
+    Halten Sie dazu die Startschaltfläche gedrückt (oder klicken Sie mit der rechten Maustaste darauf), und wählen Sie dann **Datenträgerverwaltung** aus.
+1. Halten Sie in „Datenträgerverwaltung“ das Volume gedrückt (oder klicken Sie mit der rechten Maustaste darauf), für das Sie den Laufwerkbuchstaben ändern oder hinzufügen möchten, und wählen Sie dann **Laufwerkbuchstaben und -pfade ändern** aus.
 
     ![Datenträgerverwaltung mit angezeigtem Laufwerk](media/change-drive-letter.png)
     > [!TIP]

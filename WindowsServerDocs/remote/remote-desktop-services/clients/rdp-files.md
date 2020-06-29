@@ -7,18 +7,18 @@ ms.topic: article
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 05/08/2020
+ms.date: 06/16/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 745f911367471d3708c57a3c777743a65c5bd4a8
-ms.sourcegitcommit: fad2ba64bbc13763772e21ed3eabd010f6a5da34
+ms.openlocfilehash: 4606938a6c01e20c847b3a6c198de8a1c61c59f0
+ms.sourcegitcommit: 5bc5aaf341c711113ca03d1482f933b05b146007
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82993352"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85094523"
 ---
 # <a name="supported-remote-desktop-rdp-file-settings"></a>Unterstützte RDP-Dateieinstellungen für Remotedesktop
 
-Die folgende Tabelle enthält eine Liste der unterstützten RDP-Dateieinstellungen, die du mit Remotedesktopclients verwenden kannst.
+Die folgende Tabelle enthält eine Liste der unterstützten RDP-Dateieinstellungen, die du mit Remotedesktopclients verwenden kannst. Wenn Sie Einstellungen konfigurieren, überprüfen Sie [Clientvergleiche](./remote-desktop-app-compare.md), um zu ermitteln, welche Umleitungen die einzelnen Clients unterstützen.
 
 In der Tabelle werden auch die Einstellungen gezeigt, die als benutzerdefinierte Eigenschaften für Windows Virtual Desktop unterstützt werden. In [dieser Dokumentation](https://go.microsoft.com/fwlink/?linkid=2098243&clcid=0x409) findest du Informationen dazu, wie du mithilfe von PowerShell RDP-Eigenschaften für Windows Virtual Desktop-Hostpools anpasst.
 
@@ -31,7 +31,7 @@ In der Tabelle werden auch die Einstellungen gezeigt, die als benutzerdefinierte
 | username:s:value | Gibt den Namen des Benutzerkontos an, das zum Anmelden beim Remotecomputer verwendet wird. | Jeder gültige Benutzername | | |
 | domain:s:value | Gibt den Namen der Domäne an, in der sich das Benutzerkonto befindet, das zum Anmelden beim Remotecomputer verwendet wird. | Ein gültiger Domänenname, z. B. „CONTOSO“. | | |
 | gatewayhostname:s:value | Gibt den Hostnamen des RD-Gateways an. | Ein gültiger Name, eine IPv4-Adresse oder eine IPv6-Adresse. | | |
-| gatewaycredentialssource:i:value | Gibt die Authentifizierungsmethode für das RD-Gateway an. | - 0: Kennwort anfordern (NTLM)</br>- 1: Smartcard verwenden</br>- 4: Dem Benutzer die spätere Auswahl ermöglichen | 0 | |
+| gatewaycredentialssource:i:value | Gibt die Authentifizierungsmethode für das RD-Gateway an. | - 0: Kennwort anfordern (NTLM)</br>- 1: Smartcard verwenden</br>- 2: Anmeldeinformationen für den aktuell angemeldeten Benutzer verwenden.</br>- 3: Benutzer zur Eingabe der Anmeldeinformationen auffordern und die Standardauthentifizierung verwenden</br>- 4: Dem Benutzer die spätere Auswahl ermöglichen</br>- 5: Cookiebasierte Authentifizierung verwenden | 0 | |
 | gatewayprofileusagemethod:i:value | Gibt an, ob Standardeinstellungen für das RD-Gateway verwendet werden sollen. | - 0: Standardprofilmodus verwenden, wie vom Administrator angegeben</br>- 1: Explizite Einstellungen verwenden, wie vom Benutzer angegeben | 0 | |
 | gatewayusagemethod:i:value | Gibt an, wann ein RD-Gateway für die Verbindung verwendet werden soll. | - 0: Kein RD-Gateway verwenden</br>- 1: Immer ein RD-Gateway verwenden</br>- 2: RD-Gateway verwenden, wenn keine direkte Verbindung mit dem RD-Sitzungshost hergestellt werden kann</br>- 3: Standardeinstellungen für das RD-Gateway verwenden</br>- 4: Kein RD-Gateway verwenden, Gateway für lokale Adressen umgehen</br>Das Festlegen dieses Eigenschaftswerts auf „0“ oder „4“ ist effektiv gleichwertig, aber der Wert „4“ aktiviert die Option zum Umgehen lokaler Adressen. | 0 | |
 | promptcredentialonce:i:value | Bestimmt, ob die Anmeldeinformationen eines Benutzers gespeichert und sowohl für das RD-Gateway als auch den Remotecomputer verwendet werden. | - 0: Remotesitzung verwendet nicht die gleichen Anmeldeinformationen</br>- 1: Remotesitzung verwendet die gleichen Anmeldeinformationen | 1 | |
@@ -87,7 +87,7 @@ In der Tabelle werden auch die Einstellungen gezeigt, die als benutzerdefinierte
 |------------------------------------|------------------------|------------------------|:----------------------:|:-----------------------:|
 | remoteapplicationcmdline:s:value | Optionale Befehlszeilenparameter für die RemoteApp. | Gültige Befehlszeilenparameter. | | |
 | remoteapplicationexpandcmdline:i:value | Bestimmt, ob im RemoteApp-Befehlszeilenparameter enthaltene Umgebungsvariablen lokal oder remote erweitert werden sollten. | - 0: Umgebungsvariablen sollten auf die Werte des lokalen Computers erweitert werden</br>- 1: Umgebungsvariablen sollten auf die Werte des Remotecomputers erweitert werden. | 1 | |
-| remoteapplicationexpandworkingdir | Bestimmt, ob im Parameter für das RemoteApp-Arbeitsverzeichnis enthaltene Umgebungsvariablen lokal oder remote erweitert werden sollten. | - 0: Umgebungsvariablen sollten auf die Werte des lokalen Computers erweitert werden</br> - 1: Umgebungsvariablen sollten auf die Werte des Remotecomputers erweitert werden.</br>das RemoteApp-Arbeitsverzeichnis wird durch den Parameter für das Arbeitsverzeichnis der Shell angegeben | 1 | |
+| remoteapplicationexpandworkingdir:i:value | Bestimmt, ob im Parameter für das RemoteApp-Arbeitsverzeichnis enthaltene Umgebungsvariablen lokal oder remote erweitert werden sollten. | - 0: Umgebungsvariablen sollten auf die Werte des lokalen Computers erweitert werden</br> - 1: Umgebungsvariablen sollten auf die Werte des Remotecomputers erweitert werden.</br>das RemoteApp-Arbeitsverzeichnis wird durch den Parameter für das Arbeitsverzeichnis der Shell angegeben | 1 | |
 | remoteapplicationfile:s:value | Gibt eine Datei an, die von der RemoteApp auf dem Remotecomputer geöffnet werden soll.</br>Damit lokale Dateien geöffnet werden, muss auch die Laufwerkumleitung für das Quelllaufwerk aktiviert werden. | Gültiger Dateipfad. | | |
 | remoteapplicationicon:s:value | Gibt an, dass beim Starten einer RemoteApp die Symboldatei auf der Benutzeroberfläche des Clients angezeigt werden soll. Wenn kein Dateiname angegeben wird, verwendet der Client das standardmäßige Remotedesktopsymbol. Nur ICO-Dateien werden unterstützt. | Gültiger Dateipfad. | | |
 | remoteapplicationmode:i:value | Legt fest, ob eine Verbindung als RemoteApp-Sitzung gestartet wird. | - 0: Keine RemoteApp-Sitzung starten</br>- 1: RemoteApp-Sitzung starten | 1 | |

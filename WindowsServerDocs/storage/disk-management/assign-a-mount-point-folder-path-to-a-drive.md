@@ -1,53 +1,54 @@
 ---
 title: Zuweisen eines Ordnerpfads mit Bereitstellungspunkt zu einem Laufwerk
 description: In diesem Artikel wird beschrieben, wie du einem Laufwerk einen Ordnerpfad mit Bereitstellungspunkt (anstelle eines Laufwerkbuchstaben) zuweist.
-ms.date: 06/07/2019
+ms.date: 06/07/2020
 ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: b2fda216b57fbf036ce20c40b4c8b38d44404f3c
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 9757f5f5f68eea0fc1d468a8d8e6fd341e2ecc6a
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80815533"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85475437"
 ---
-# <a name="assign-a-mount-point-folder-path-to-a-drive"></a>Zuweisen eines Ordnerpfads mit Bereitstellungspunkt zu einem Laufwerk
+# <a name="mount-a-drive-in-a-folder"></a>Bereitstellen eines Laufwerks in einem Ordner
 
-> **Gilt für:** Windows 10, Windows 8.1, Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> **Gilt für:** Windows 10, Windows 8.1, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Du kannst die Datenträgerverwaltung verwenden, um dem Laufwerk einen Ordnerpfad mit Bereitstellungspunkt (anstelle eines Laufwerkbuchstabens) zuzuweisen. Ordnerpfade mit Bereitstellungspunkt sind nur für leere Ordner mit NTFS-Basisvolumes oder dynamischen NTFS-Volumes verfügbar.
+Sie können die Datenträgerverwaltung verwenden, um ein Laufwerk in einem Ordner statt einem Laufwerksbuchstaben bereitzustellen (zugänglich zu machen), wenn Sie dies wünschen. Dadurch wird das Laufwerk nur als ein weiterer Ordner angezeigt. Sie können Laufwerke nur in leeren Ordnern auf Basis- oder dynamischen NTFS-Volumes bereitstellen.
 
-## <a name="assigning-a-mount-point-folder-path-to-a-drive"></a>Zuweisen eines Ordnerpfads mit Bereitstellungspunkt zu einem Laufwerk
+## <a name="mounting-a-drive-in-an-empty-folder"></a>Bereitstellen eines Laufwerks in einem leeren Ordner
 
 > [!NOTE]
 > Du musst mindestens Mitglied der Gruppe **Sicherungsoperatoren** oder **Administratoren** sein, um diese Schritte ausführen zu können.
 
-#### <a name="to-assign-a-mount-point-folder-path-to-a-drive-by-using-the-windows-interface"></a>So weist du mithilfe der Windows-Benutzeroberfläche einem Laufwerk einen Ordnerpfad mit Bereitstellungspunkt zu
+### <a name="to-mount-a-drive-in-an-empty-folder-by-using-the-windows-interface"></a>So stellen Sie ein Laufwerk mithilfe der Windows-Benutzeroberfläche in einem leeren Ordner bereit
 
-1.  Klicke in der Datenträgerverwaltung mit der rechten Maustaste auf die Partition oder das Volume, in der bzw. auf dem du den Ordnerpfad mit Bereitstellungspunkt zuweisen möchtest. 
-2. Klicke auf **Laufwerkbuchstaben und -pfade ändern...** und dann auf **Hinzufügen**. 
+1.  Klicken Sie in der Datenträgerverwaltung mit der rechten Maustaste auf die Partition oder das Volume, in der bzw. auf dem sich der Ordner befindet, in dem Sie das Laufwerk bereitstellen möchten.
+2. Klicke auf **Laufwerkbuchstaben und -pfade ändern...** und dann auf **Hinzufügen**.
 3. Klicke auf **In folgendem leeren NTFS-Ordner bereitstellen**.
 4. Gib den Pfad zu einem leeren Ordner auf einem NTFS-Volume an, oder klicke auf **Durchsuchen**, um ihn zu suchen.
 
-#### <a name="to-assign-a-mount-point-folder-path-to-a-drive-using-a-command-line"></a>So weist du mithilfe einer Befehlszeile einem Laufwerk einen Ordnerpfad mit Bereitstellungspunkt zu
+### <a name="to-mount-a-drive-in-an-empty-folder-using-a-command-line"></a>So stellen Sie ein Laufwerk mithilfe einer Befehlszeile in einem leeren Ordner bereit
 
 1.  Öffnen Sie eine Eingabeaufforderung, und geben Sie `diskpart` ein.
 
 2.  Gib an der **DISKPART**-Eingabeaufforderung `list volume` ein, und notiere die Volumenummer, der du den Pfad zuweisen möchtest.
 
-3.  Gib an der Eingabeaufforderung **DISKPART** Folgendes ein: `select volume <volumenumber>`. 
-
-4. Wähle *volumenumber* des einfachen Volumes aus, dem du den Pfad zuweisen möchtest.
+3.  Geben Sie an der **DISKPART**-Eingabeaufforderung `select volume <volumenumber>` und die Volumenummer ein, der Sie den Pfad zuweisen möchten.
 
 5.  Gib an der Eingabeaufforderung **DISKPART** Folgendes ein: `assign [mount=<path>]`.
 
-#### <a name="to-remove-a-mount-point-folder-path-to-a-drive"></a>So entfernst du den Ordnerpfad mit Bereitstellungspunkt eines Laufwerks
+### <a name="to-remove-a-mount-point"></a>So entfernen Sie einen Bereitstellungspunkt
 
--   Klicke zum Entfernen des Ordnerpfads mit Bereitstellungspunkt auf den Pfad und dann auf **Entfernen**.
+So entfernen Sie den Bereitstellungspunkt, damit der Zugriff auf das Laufwerk über den Ordner nicht mehr möglich ist:
+
+1. Halten Sie das in einem Ordner bereitgestellte Laufwerk gedrückt (oder klicken Sie mit der rechten Maustaste darauf), und wählen Sie dann **Laufwerkbuchstaben und Pfade ändern** aus.
+2. Wählen Sie den Ordner aus der Liste und dann **Entfernen** aus.
 
 | Value | Beschreibung |
 | --- | --- |
@@ -64,7 +65,5 @@ Du kannst die Datenträgerverwaltung verwenden, um dem Laufwerk einen Ordnerpfad
 -   Verwende beim Zuweisen eines Ordnerpfads mit Bereitstellungspunkt zu einem Laufwerk die **Ereignisanzeige**, um das Systemprotokoll auf Clusterdienstfehler oder -warnungen zu überprüfen, die auf Fehler beim Ordnerpfad mit Bereitstellungspunkt hinweisen. Diese Fehler werden in der Spalte **Quelle** als **ClusSvc** und in der Spalte **Kategorie** als **Physische Datenträgerressource** aufgeführt.
 -   Du kannst ein bereitgestelltes Laufwerk auch mit dem Befehl [mountvol](https://go.microsoft.com/fwlink/?linkid=64111) erstellen.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Weitere Verweise
 -   [Command-line syntax notation](https://technet.microsoft.com/library/cc742449(v=ws.11).aspx) (Notation der Befehlszeilensyntax)
-
-

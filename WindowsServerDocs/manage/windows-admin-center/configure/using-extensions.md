@@ -7,12 +7,12 @@ author: daniellee-msft
 ms.author: jol
 ms.localizationpriority: medium
 ms.prod: windows-server
-ms.openlocfilehash: 2b8a9f5ebab22891b8b97c9c56bba3837cbb9371
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 4ba2e760d57f1c3f59e40b78b449a8831b8093d2
+ms.sourcegitcommit: fe89b8001ad664b3618708b013490de93501db05
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "81269297"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84942309"
 ---
 # <a name="install-and-manage-extensions"></a>Installieren und Verwalten von Erweiterungen
 
@@ -56,12 +56,12 @@ Wenn das Windows Admin Center auf einem Computer installiert ist, der nicht mit 
 
 ### <a name="manually-downloading-extension-packages"></a>Manuelles Herunterladen von Erweiterungspaketen
 
-1. Öffne auf einem anderen Computer mit Internetverbindung einen Webbrowser, und navigiere zur folgenden URL: [https://msft-sme.myget.org/gallery/windows-admin-center-feed](https://msft-sme.myget.org/gallery/windows-admin-center-feed). 
+1. Öffne auf einem anderen Computer mit Internetverbindung einen Webbrowser, und navigiere zur folgenden URL: [https://dev.azure.com/WindowsAdminCenter/Windows%20Admin%20Center%20Feed/_packaging?_a=feed&feed=WAC](https://dev.azure.com/WindowsAdminCenter/Windows%20Admin%20Center%20Feed/_packaging?_a=feed&feed=WAC). 
 
-   * Möglicherweise musst du ein Konto auf „msft-sme.myget.org“ erstellen und dich anmelden, um die Erweiterungspakete anzeigen zu können.
+   * Möglicherweise müssen Sie ein Microsoft-Konto erstellen und sich anmelden, um die Erweiterungspakete anzeigen zu können.
 
 2. Klicke auf den Namen des Pakets, das du installieren möchtest, um die Seite mit den Paketdetails anzuzeigen.
-3. Klicke im rechten Bereich der Seite „Paketdetails“ auf den Link **Herunterladen**, und lade die NUPKG-Datei für die Erweiterung herunter.
+3. Klicken Sie in der oberen Navigationsleiste der Seite „Paketdetails“ auf den Link **Herunterladen**, und laden Sie die NUPKG-Datei für die Erweiterung herunter.
 4. Wiederhole die Schritte 2 und 3 für alle Pakete, die du herunterladen möchtest.
 5. Kopiere die Paketdateien auf eine Dateifreigabe, auf die von dem Computer aus, auf dem Windows Admin Center installiert ist, zugegriffen werden kann, oder auf den lokalen Datenträger des Computers.
 6. [Befolge die Anweisungen zum Installieren von Erweiterungen aus einem anderen Feed](#installing-extensions-from-a-different-feed).

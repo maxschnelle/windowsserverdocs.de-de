@@ -7,14 +7,14 @@ ms.topic: article
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 05/27/2020
+ms.date: 06/23/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 0d49c49def8b110f42a6d56354c73e5a75b04b7e
-ms.sourcegitcommit: 4fec7d82f0772d03a9e8cac20092a4309b0f796e
+ms.openlocfilehash: 5c3fc20ea42deaa9dd96fd9f7bfabfcb85462bdd
+ms.sourcegitcommit: 6d6a0225b1f83b71fcb494b94d666cd5e54c7566
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84025511"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85267661"
 ---
 # <a name="whats-new-in-the-windows-desktop-client"></a>Neuigkeiten im Windows-Desktopclient
 
@@ -26,8 +26,21 @@ Der Client kann für verschiedene [Benutzergruppen](windowsdesktop-admin.md#conf
 
 |Benutzergruppe |Version  |
 |-----------|---------|
-|Öffentlich     |1.2.1026 |
-|Insider    |1.2.1026 |
+|Öffentlich     |1.2.1104 |
+|Insider    |1.2.1104 |
+
+## <a name="updates-for-version-121104"></a>Updates für Version 1.2.1104
+
+*Veröffentlicht am: 23.06.2020*
+
+Download: [Windows 64-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4zeHS), [Windows 32-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4zrAd), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4zeHR)
+
+- Die automatische Ermittlungslogik für die Option „**Subscribe**“ wurde aktualisiert, um das Windows Virtual Desktop Spring 2020-Update zu unterstützen. Kunden, die nur über Ressourcen des Spring-Updates verfügen, sollten für das Fall 2019-Release keine Zustimmung mehr geben müssen.
+- Verbesserte Unterstützung für Geräte mit hohen DPI-Werten und einem Skalierungsfaktor von bis zu 400 %.
+- Ein Problem wurde behoben, bei dem das Dialogfeld zum Trennen nicht angezeigt wurde.
+- Ein Problem wurde behoben, bei dem die QuickInfos der Befehlsleiste länger als erwartet sichtbar blieben.
+- Die Ursache für einen Absturz wurde behoben, der beim Versuch des Abonnierens unmittelbar nach einer Aktualisierung auftrat.
+- Die Ursache für einen Absturz durch ein falsches Analysieren von Datum und Uhrzeit in einigen Sprachen wurde behoben.
 
 ## <a name="updates-for-version-121026"></a>Updates für Version 1.2.1026
 
@@ -76,8 +89,6 @@ Download: [Windows 64-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/b
 
 *Veröffentlicht am: 24.03.2020*
 
-Download: [Windows 64-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4siSh), [Windows 32-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4siSi), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4sllb)
-
 - Die Aktion „Update“ für Arbeitsbereiche wurde in „Aktualisieren“ umbenannt, um Konsistenz mit anderen Remotedesktopclients zu gewährleisten.
 - Ein Arbeitsbereich kann jetzt direkt über das zugehörige Kontextmenü aktualisiert werden.
 - Durch manuelles Aktualisieren eines Arbeitsbereichs wird sichergestellt, dass alle lokalen Inhalte aktualisiert werden.
@@ -90,8 +101,6 @@ Download: [Windows 64-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/b
 
 *Veröffentlicht am: 25.02.2020*
 
-Download: [Windows 64-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4qeak), [Windows 32-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4qm7h), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4qm7g)
-
 - Verbindungen mit Windows Virtual Desktop werden jetzt blockiert, wenn der RDP-Datei die Signatur fehlt oder eine der signscope-Eigenschaften geändert wurde.
 - Wenn ein Arbeitsbereich leer ist oder entfernt wurde, scheint das Verbindungscenter nicht mehr leer zu sein.
 - Trennungsmeldungen wurden die Aktivitäts-ID und der Fehlercode hinzugefügt, um die Problembehandlung zu verbessern. Du kannst die Dialogmeldung mit **STRG+C** kopieren.
@@ -102,8 +111,6 @@ Download: [Windows 64-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/b
 ## <a name="updates-for-version-12605"></a>Updates für Version 1.2.605
 
 *Veröffentlicht am: 29.01.2020*
-
-Download: [Windows 64-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4oHrD), [Windows 32-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4oJZs), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4oXhD)
 
 - Du kannst jetzt auswählen, welche Anzeigen für Desktopverbindungen verwendet werden sollen. Zum Ändern dieser Einstellung klicke mit der rechten Maustaste auf das Symbol der Desktopverbindung, und wähle **Einstellungen** aus.
 - Es wurde ein Problem behoben, bei dem in den Verbindungseinstellungen nicht die richtigen verfügbaren Skalierungsfaktoren angezeigt wurden.
@@ -116,8 +123,6 @@ Download: [Windows 64-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/b
 
 *Veröffentlicht am: 04.12.2019*
 
-Download: [Windows 64-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4k7jH), [Windows 32-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4k7jL), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4k27O)
-
 - Sie können jetzt direkt über die Schaltfläche „Weitere Optionen“ in der Befehlsleiste am oberen Rand des Clients auf Informationen über Updates zugreifen.
 - Außerdem können Sie nun Feedback über die Befehlsleiste des Clients mitteilen.
 - Die Feedbackoption wird jetzt nur angezeigt, wenn der Feedback-Hub verfügbar ist.
@@ -128,8 +133,6 @@ Download: [Windows 64-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/b
 ## <a name="updates-for-version-12431"></a>Updates für Version 1.2.431
 
 *Veröffentlicht am: 12.11.2019*
-
-Download: [Windows 64-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE48kow), [Windows 32-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE48koA), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE48zYj)
 
 - Die 32-Bit-Version und die ARM64-Version des Clients sind nun verfügbar.
 - Der Client speichert jetzt alle an der Verbindungsleiste vorgenommenen Änderungen (z.B. Position, Größe und angehefteter Zustand), und wendet diese Änderungen sitzungsübergreifend an.
@@ -148,8 +151,6 @@ Download: [Windows 64-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/b
 ## <a name="updates-for-version-12247"></a>Updates für Version 1.2.247
 
 *Veröffentlicht am: 17.09.2019*
-
-Download: [Windows 64-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3LkSa)
 
 - Verbesserung der Reservesprachen für lokalisierte Versionen. (Beispielsweise wird FR-CA ordnungsgemäß in Französisch anstelle von Englisch angezeigt.)
 - Beim Entfernen eines Abonnements entfernt der Client nun die gespeicherten Anmeldeinformationen ordnungsgemäß aus der Anmeldeinformationsverwaltung.
