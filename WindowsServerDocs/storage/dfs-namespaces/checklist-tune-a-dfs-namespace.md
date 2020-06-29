@@ -1,6 +1,6 @@
 ---
-title: 'Prüfliste: Optimieren eines DFS-Namespaces'
-description: Dieser Artikel beschreibt, wie Sie die Behandlung von DFS-Namespaces für Verweise und Abfragen von AD DS für aktualisierte Namespacedaten optimieren
+title: Prüfliste optimieren eines DFS-Namespace
+description: In diesem Artikel wird beschrieben, wie Sie optimieren, wie der DFS-Namespace Verweise behandelt und AD DS nach aktualisierten Namespace Daten abruft.
 ms.date: 6/5/2017
 ms.prod: windows-server
 ms.technology: storage
@@ -8,12 +8,12 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 8a4c581801cbb1dcfe3db2813fb66fb4514d6434
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a6632e363b933ff0bce2fd59999e0a1dcffbe665
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402184"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85475617"
 ---
 # <a name="checklist-tune-a-dfs-namespace"></a>Prüfliste: Optimieren eines DFS-Namespace
 
@@ -21,18 +21,18 @@ ms.locfileid: "71402184"
 
 Nachdem Sie einen Namespace erstellt und Ordner und Ziele hinzugefügt haben, verwenden Sie die folgende Prüfliste, um die Methode zu optimieren oder zu optimieren, in der der DFS-Namespace Verweise behandelt und Active Directory Domain Services (AD DS) nach aktualisierten Namespace Daten abruft.
 
--   Verhindern Sie, dass Benutzer Ordner in einem Namespace sehen, auf die sie keine Zugriffsberechtigung haben. [Aktivieren der Zugriffs basierten Enumeration für einen Namespace](enable-access-based-enumeration-on-a-namespace.md) 
--   Erlauben Sie oder verhindern Sie, dass Benutzer beim Zugriff auf einen Ordner im Namespace zu einem Namespace oder Ordnerziel verwiesen werden. [Aktivieren oder Deaktivieren von Verweisen und Clientfailbacks](enable-or-disable-referrals-and-client-failback.md) 
--   Passen Sie den Zwischenspeicherungszeitraum bis zur Anforderung eines neuen Verweises durch die Clients an. [Ändern der Zeitspanne, für die Clients Cache Verweise ausführen](change-the-amount-of-time-that-clients-cache-referrals.md)
--   Optimieren Sie, wie Namespaceserver AD DS zum Erhalt der aktuellen Namespacedaten abrufen. [Optimieren der Namespaceabfrage](optimize-namespace-polling.md)
--   Verwenden Sie geerbte Berechtigungen, um zu kontrollieren, welche Benutzer die Ordner in einem Namespace sehen können, für die eine zugriffsbasierte Aufzählung aktiviert sind. [Verwenden von geerbten Berechtigungen mit Zugriffs basierter Enumeration](using-inherited-permissions-with-access-based-enumeration.md)
+-   Verhindern, dass Benutzerordner in einem Namespace sehen, für die Sie keine Zugriffsberechtigungen besitzen. [Aktivieren der Zugriffs basierten Enumeration für einen Namespace](enable-access-based-enumeration-on-a-namespace.md)
+-   Aktivieren oder verhindern Sie, dass Benutzer auf einen Namespace oder ein Ordner Ziel verweisen, wenn Sie auf einen Ordner im-Namespace zugreifen. [Aktivieren oder Deaktivieren von Verweisen und Clientfailbacks](enable-or-disable-referrals-and-client-failback.md)
+-   Passen Sie an, wie lange Clients einen Verweis zwischenspeichern, bevor Sie einen neuen anfordern. [Ändern der Zeitspanne, für die Clients Cache Verweise ausführen](change-the-amount-of-time-that-clients-cache-referrals.md)
+-   Optimieren Sie, wie Namespace Server AD DS abrufen, um die aktuellsten Namespace Daten abzurufen. [Optimieren der Namespaceabfrage](optimize-namespace-polling.md)
+-   Verwenden Sie geerbte Berechtigungen, um zu steuern, welche Benutzerordner in einem Namespace anzeigen können, für die die Zugriffs basierte Enumeration aktiviert ist. [Verwenden von geerbten Berechtigungen mit Zugriffs basierter Enumeration](using-inherited-permissions-with-access-based-enumeration.md)
 
-Außerdem können Sie mithilfe einer Erweiterung für DFS-Namespaces, die als Ziel Priorität bezeichnet wird, die Priorität der Server angeben, sodass ein bestimmter Server immer zuerst in der Liste der Server (als Verweis bezeichnet) platziert wird, die der Client beim Zugriff auf einen Ordner empfängt. mit Zielen im-Namespace.
+Außerdem können Sie mithilfe einer Erweiterung für DFS-Namespaces, die als Ziel Priorität bezeichnet wird, die Priorität von Servern angeben, sodass ein bestimmter Server immer zuerst in der Liste der Server (als Verweis bezeichnet) platziert wird, die der Client empfängt, wenn er auf einen Ordner mit Zielen im-Namespace zugreift.
 
--   Geben Sie an, in welcher Reihenfolge Benutzer an Ordnerziele verwiesen werden sollen. [Festlegen der Sortiermethode für Ziele in Verweisen](set-the-ordering-method-for-targets-in-referrals.md)
--   Überschreiben Sie die Sortiermethode für Verweise für einen bestimmten Namespace oder ein Ordnerziel. [Festlegen der Zielpriorität zum Überschreiben der Sortiermethode von Verweisen](set-target-priority-to-override-referral-ordering.md)
+-   Geben Sie in der Reihenfolge an, in der die Benutzer auf Ordner Ziele verweisen möchten. [Festlegen der Sortiermethode für Ziele in Verweisen](set-the-ordering-method-for-targets-in-referrals.md)
+-   Überschreiben der Verweis Reihenfolge für einen bestimmten Namespace Server oder ein bestimmtes Ordner Ziel. [Festlegen der Zielpriorität zum Überschreiben der Sortiermethode von Verweisen](set-target-priority-to-override-referral-ordering.md)
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 -   [Namespaces](https://technet.microsoft.com/library/cc771914(v=ws.11).aspx)
 -   [Prüfliste: Bereitstellen von DFS-Namespaces](checklist-deploy-dfs-namespaces.md)

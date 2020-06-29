@@ -1,6 +1,6 @@
 ---
 title: Speicherberichtmanagement
-description: Dieser Artikel beschreibt, wie Speicherberichte in regelmäßigen Abständen generiert, geplant und überwacht werden
+description: In diesem Artikel wird beschrieben, wie Speicher Berichte generiert, geplant und überwacht werden.
 ms.date: 7/7/2017
 ms.prod: windows-server
 ms.technology: storage
@@ -8,39 +8,39 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: c78718508194cec834d248f30459b7e50a32b3b0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5bdcada1b445298c8743bdb39491726b594d0a66
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403065"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85475477"
 ---
 # <a name="storage-reports-management"></a>Speicherberichtmanagement
 
 > Gilt für: Windows Server 2019, Windows Server 2016, Windows Server (halbjährlicher Kanal), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
-Sie können auf dem Knoten **Speicherberichteverwaltung** des Ressourcen-Manager für Dateiserver Microsoft <sup>®</sup> Management Console (MMC)-Snap-Ins folgende Aufgaben ausführen:
+Im Knoten **Speicher Berichte-Verwaltung** des-Dateiservers Ressourcen-Manager Microsoft<sup>®</sup> Management Console (MMC)-Snap-in können Sie die folgenden Aufgaben ausführen:
 
--   Planen Sie regelmäßige Speicherberichte, mit denen Sie Trends bei der Datenträgerverwendung identifizieren können.
--   Überwachen Sie Versuche, nicht autorisierte Dateien für alle Anwender oder für ausgewählte Gruppen von Anwendern zu speichern.
--   Generieren Sie umgehend Speicherberichte.
+-   Planen Sie regelmäßige Speicher Berichte, mit denen Sie Trends bei der Datenträger Verwendung identifizieren können.
+-   Monitor versucht, nicht autorisierte Dateien für alle Benutzer oder eine ausgewählte Benutzergruppe zu speichern.
+-   Speicher Berichte sofort generieren.
 
-Sie haben u. a. folgende Möglichkeiten:
+Beispielsweise können Sie folgende Aktionen ausführen:
 
--   Planen eines Berichts, der jeden Sonntag um Mitternacht ausgeführt wird und eine Liste mit den Dateien generiert, auf die in den beiden vorherigen Tagen zuletzt zugegriffen wurde. Anhand dieser Informationen können Sie Speicheraktivität am Wochenende überwachen und Server-Ausfallzeit mit den weniger Auswirkungen auf Benutzer planen, die von zu Hause aus am Wochenende eine Verbindung herstellen.
--   Führen Sie jederzeit einen Bericht aus, um alle doppelt vorhandenen Dateien eines Volumes auf einem Server zu identifizieren, damit der Festplattenspeicher ohne Verlust von Daten schnell freigegeben werden kann.
--   Führen Sie einen Bericht „Dateien nach Dateigruppe” aus, um zu identifizieren, wie Speicherressourcen zwischen verschiedenen Dateigruppen aufgeteilt sind 
--   Führen Sie einen Bericht „Dateien nach Besitzer” aus, um zu analysieren, wie einzelne Benutzer freigegebene Speicherressourcen verwenden.
+-   Planen eines Berichts, der jeden Sonntag um Mitternacht ausgeführt wird und eine Liste mit den Dateien generiert, auf die in den beiden vorherigen Tagen zuletzt zugegriffen wurde. Mit diesen Informationen können Sie die Speicher Aktivität für das Wochenende überwachen und die Server-Betriebszeit planen, die weniger Auswirkungen auf die Benutzer haben, die über das Wochenende eine Verbindung herstellen.
+-   Sie können jederzeit einen Bericht ausführen, um alle doppelten Dateien in einem Volume auf einem Server zu identifizieren, damit der Speicherplatz schnell freigegeben werden kann, ohne dass Daten verloren gehen.
+-   Ausführen eines Dateien nach Dateigruppe Berichts, um zu ermitteln, wie Speicherressourcen in verschiedenen Dateigruppen segmentiert werden
+-   Führen Sie einen Dateien nach Besitzer Bericht aus, um zu analysieren, wie einzelne Benutzer freigegebene Speicherressourcen verwenden.
 
-In diesem Abschnitt werden folgende Themen behandelt:
+Dieser Abschnitt schließt folgende Themen ein:
 
 -   [Planen eines Satzes von Berichten](schedule-set-of-reports.md)
 -   [Berichte nach Bedarf erstellen](generate-reports-on-demand.md)
 
 > [!Note]
-> Zum Festlegen von E-Mail-Benachrichtigungen und bestimmten Berichtsfunktionen müssen Sie zuerst die Optionen des Ressourcen-Manager für Dateiserverkonfigurieren konfigurieren.
+> Um e-Mail-Benachrichtigungen und bestimmte Berichterstattungs Funktionen festzulegen, müssen Sie zunächst die allgemeinen Optionen für den Datei Server Ressourcen-Manager konfigurieren.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 -   [Festlegen der Optionen des Ressourcen-Managers für Dateiserver](setting-file-server-resource-manager-options.md)
 

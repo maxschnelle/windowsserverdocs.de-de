@@ -9,12 +9,12 @@ author: rpsqrd
 ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: a5ca3ab29b83d0cb6cb2d55507471790f65800a2
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: c6753ae5d767f0c71b86fc47c1d8bf9971a2a5cc
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80856723"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85475527"
 ---
 # <a name="shielded-vms-for-tenants---creating-a-new-shielded-vm-on-premises-and-moving-it-to-a-guarded-fabric"></a>Abgeschirmte VMs für Mandanten: lokales Erstellen einer neuen abgeschirmten VM und verschieben in ein geschütztes Fabric
 
@@ -34,7 +34,7 @@ Informationen dazu, wie sich dieses Thema in den Gesamtprozess der Bereitstellun
 
     - Features
 
-        - Remoteserver-Verwaltungstools\\Features-Verwaltungs Tools\\abgeschirmte VM-Tools
+        - Remoteserver-Verwaltungstools \\ \\ Tools für geschützte VM-Features
 
     > [!NOTE]
     > Der hier verwendete Host sollte *kein* Host im geschützten Fabric sein. Dabei handelt es sich um einen separaten Host, auf dem VMS vorbereitet werden, bevor Sie in das geschützte Fabric verschoben werden.
@@ -51,9 +51,9 @@ Informationen dazu, wie sich dieses Thema in den Gesamtprozess der Bereitstellun
 
 4.  Führen Sie den folgenden Befehl aus, um den Überwachungs Schlüssel zu importieren, den Sie in einem späteren Verfahren benötigen.
 
-    Geben Sie für &lt;Pfad&gt;&lt;filename-&gt;den Pfad und den Dateinamen der XML-Datei ein, die Sie im vorherigen Schritt gespeichert haben, z. b.: **C:\\Temp\\guardiankey. XML**
+    &lt; &gt; &lt; Ersetzen Sie für Pfad Dateiname &gt; den Pfad und den Dateinamen der XML-Datei, die Sie im vorherigen Schritt gespeichert haben, z. b.: **C: \\ Temp \\GuardianKey.xml**
 
-    Geben Sie für den&gt;&lt;guardianname einen Namen für den Hostinganbieter oder das Unternehmens Rechenzentrum ein, z. b. **HostingProvider1**. Notieren Sie sich den Namen für das nächste Verfahren.
+    Geben Sie für "Wächter &lt; Name" &gt; einen Namen für den Hostinganbieter oder das Unternehmens Rechenzentrum ein, z. b. **HostingProvider1**. Notieren Sie sich den Namen für das nächste Verfahren.
 
     Include **-zuordnertreuhändroot** nur, wenn der HGS-Server mit selbst signierten Zertifikaten eingerichtet wurde. (Diese Zertifikate sind Teil des Schlüsselschutz Dienstanbieter in HGS.)
 
@@ -73,11 +73,11 @@ Eine Abbildung der Schlüssel Schutzvorrichtung, bei der es sich um ein Element 
 
 1. Führen Sie auf einem Mandanten-Hyper-V-Host den folgenden Befehl aus, um einen neuen virtuellen Computer der Generation 2 zu erstellen.
 
-   Geben Sie für &lt;shieldebug Name&gt;einen Namen für den virtuellen Computer an, z. b.: **ShieldVM1**
-    
-   Geben Sie für &lt;vhdpath-&gt;einen Speicherort zum Speichern der vhdx-Datei des virtuellen Computers an, z. b.: **C:\\VMS\\ShieldVM1\\ShieldVM1. vhdx**
-    
-   Geben Sie für &lt;nngb-&gt;eine Größe für die vhdx-Datei an, z. b. **60 GB** .
+   Geben Sie für &lt; Shiel-Debug-Name &gt; einen Namen für den virtuellen Computer an, z. b.: **ShieldVM1**
+
+   &lt;Geben Sie für vhdpath &gt; einen Speicherort zum Speichern der vhdx-Datei des virtuellen Computers an, z **. b.: C: \\ VMS \\ ShieldVM1 \\ ShieldVM1. vhdx**
+
+   Geben Sie für &lt; nngb &gt; eine Größe für die vhdx an, z. b. **60 GB** .
 
        New-VM -Generation 2 -Name "<ShieldedVMname>" -NewVHDPath <VHDPath>.vhdx -NewVHDSizeBytes <nnGB>
 
@@ -87,7 +87,7 @@ Eine Abbildung der Schlüssel Schutzvorrichtung, bei der es sich um ein Element 
 
 4. Führen Sie den folgenden Befehl aus, um eine neue Schlüssel Schutzvorrichtung zu erstellen (die am Anfang dieses Abschnitts beschrieben wird).
 
-   Verwenden Sie für &lt;guardianname&gt;den Namen, den Sie im vorherigen Verfahren angegeben haben, z. b.: **HostingProvider1**
+   &lt;Verwenden Sie für Wächter Name &gt; den Namen, den Sie im vorherigen Verfahren angegeben haben, z. b.: **HostingProvider1**
 
    Include **-zusorwuntreuhändroot** , um selbst signierte Zertifikate zuzulassen.
 
@@ -97,9 +97,9 @@ Eine Abbildung der Schlüssel Schutzvorrichtung, bei der es sich um ein Element 
 
        $KP = New-HgsKeyProtector -Owner $Owner -Guardian $Guardian -AllowUntrustedRoot
 
-   Wenn Sie möchten, dass mehr als ein Rechenzentrum Ihre abgeschirmte VM ausführen kann (z. b. ein Standort für die Notfall Wiederherstellung und ein Public Cloud Anbieter), können Sie dem **-Wächter-** Parameter eine Liste von Erziehungsberechtigten bereitstellen. Weitere Informationen finden Sie unter [New-hgskeyprotector] (https://docs.microsoft.com/powershell/module/hgsclient/new-hgskeyprotector?view=win10-ps.
+   Wenn Sie möchten, dass mehr als ein Rechenzentrum Ihre abgeschirmte VM ausführen kann (z. b. ein Standort für die Notfall Wiederherstellung und ein Public Cloud Anbieter), können Sie dem **-Wächter-** Parameter eine Liste von Erziehungsberechtigten bereitstellen. Weitere Informationen finden Sie unter [New-hgskeyprotector] ( https://docs.microsoft.com/powershell/module/hgsclient/new-hgskeyprotector?view=win10-ps .
 
-5. Um das vtpm mithilfe der Schlüssel Schutzvorrichtung zu aktivieren, führen Sie den folgenden Befehl aus. Verwenden Sie für &lt;shieldedvmname-&gt;denselben VM-Namen, den Sie in den vorherigen Schritten verwendet haben.
+5. Um das vtpm mithilfe der Schlüssel Schutzvorrichtung zu aktivieren, führen Sie den folgenden Befehl aus. Verwenden Sie für &lt; shieldedvmname &gt; denselben VM-Namen, den Sie in den vorherigen Schritten verwendet haben.
 
        $VMName="<ShieldedVMname>"
 
@@ -130,7 +130,7 @@ Eine Abbildung der Schlüssel Schutzvorrichtung, bei der es sich um ein Element 
 
     Importieren Sie den abgeschirmten virtuellen Computer mit dem Hyper-V-Manager oder mit Windows PowerShell. Sie müssen die VM-Konfigurationsdatei vom Besitzer der VM importieren, um den virtuellen Computer zu starten. Dies liegt daran, dass die Schlüssel Schutzvorrichtung und das virtuelle TPM des virtuellen Computers in der Konfigurationsdatei gespeichert werden. Wenn der virtuelle Computer für die Durchführung auf dem geschützten Fabric konfiguriert ist, sollte er erfolgreich gestartet werden können.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
-- [Konfigurationsschritte des hostingdienstanbieters für geschützte Hosts und abgeschirmte VMS](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
+- [Geschützte Hosts und abgeschirmte VMs: Konfigurationsschritte für Hosting-Anbieter](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
 - [Geschütztes Fabric und abgeschirmte VMs](guarded-fabric-and-shielded-vms-top-node.md)

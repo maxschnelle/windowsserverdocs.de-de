@@ -6,12 +6,12 @@ ms.technology: storage-spaces
 ms.topic: article
 author: cosmosdarwin
 ms.date: 03/29/2018
-ms.openlocfilehash: 26454881279e1d33392a827f794788370def2cab
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: ce3b32bdb0dfb51237f934f23207167a215a0024
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80858973"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85475607"
 ---
 # <a name="delimit-the-allocation-of-volumes-in-storage-spaces-direct"></a>Begrenzen der Zuordnung von Volumes in direkte Speicherplätze
 > Gilt für: Windows Server 2019
@@ -19,9 +19,9 @@ ms.locfileid: "80858973"
 In Windows Server 2019 wird eine Option eingeführt, mit der die Zuordnung von Volumes in direkte Speicherplätze manuell getrennt wird. Dadurch kann die Fehlertoleranz unter bestimmten Bedingungen erheblich erhöht werden, es werden jedoch einige zusätzliche Überlegungen zur Verwaltung und Komplexität auferlegt. In diesem Thema wird erläutert, wie es funktioniert und wie es Beispiele in PowerShell gibt.
 
    > [!IMPORTANT]
-   > Diese Funktion ist neu in Windows Server 2019. Es ist in Windows Server 2016 nicht verfügbar. 
+   > Diese Funktion ist neu in Windows Server 2019. Es ist in Windows Server 2016 nicht verfügbar.
 
-## <a name="prerequisites"></a>Erforderliche Komponenten
+## <a name="prerequisites"></a>Voraussetzungen
 
 ### <a name="green-checkmark-icon-consider-using-this-option-if"></a>![Grünes Häkchen.](media/delimit-volume-allocation/supported.png) Verwenden Sie diese Option, wenn Folgendes gilt:
 
@@ -33,7 +33,7 @@ In Windows Server 2019 wird eine Option eingeführt, mit der die Zuordnung von V
 - Ihr Cluster verfügt über weniger als sechs Server. noch
 - Ihr [Cluster verwendet die](storage-spaces-fault-tolerance.md#parity) Resilienz der Parität oder der [Spiegelungs Beschleunigung](storage-spaces-fault-tolerance.md#mirror-accelerated-parity) .
 
-## <a name="understand"></a>Verstehen
+## <a name="understand"></a>Grundlegende Informationen
 
 ### <a name="review-regular-allocation"></a>Review: reguläre Zuordnung
 
@@ -68,13 +68,13 @@ Durch Trennzeichen getrennte Zuordnung werden zusätzliche Verwaltungs Aspekte u
 
 1. Der-Administrator ist dafür verantwortlich, die Zuordnung der einzelnen Volumes zu begrenzen, um die Speicherauslastung über mehrere Server hinweg auszugleichen und eine hohe Wahrscheinlichkeit für das Überleben aufrechtzuerhalten, wie im Abschnitt mit den [bewährten Methoden](#best-practices) beschrieben.
 
-2. Reservieren Sie mit einer durch Trennzeichen getrennten Zuordnung das Äquivalent eines **Kapazitäts Laufwerks pro Server (ohne Maximum)** . Dies ist mehr als die [veröffentlichte Empfehlung](plan-volumes.md#choosing-the-size-of-volumes) für die reguläre Zuordnung, die bei vier Kapazitäts Laufwerken insgesamt liegt.
+2. Reservieren Sie mit einer durch Trennzeichen getrennten Zuordnung das Äquivalent eines **Kapazitäts Laufwerks pro Server (ohne Maximum)**. Dies ist mehr als die [veröffentlichte Empfehlung](plan-volumes.md#choosing-the-size-of-volumes) für die reguläre Zuordnung, die bei vier Kapazitäts Laufwerken insgesamt liegt.
 
 3. Wenn ein Server ausfällt und ersetzt werden muss, wie unter [Entfernen eines Servers und seiner Laufwerke](remove-servers.md#remove-a-server-and-its-drives)beschrieben, ist der Administrator für das Aktualisieren der Abgrenzung betroffener Volumes verantwortlich, indem der neue Server hinzugefügt und das fehlerhafte –-Beispiel unten entfernt wird.
 
 ## <a name="usage-in-powershell"></a>Verwendung in PowerShell
 
-Sie können das Cmdlet "`New-Volume`" verwenden, um Volumes in direkte Speicherplätze zu erstellen.
+Sie können das `New-Volume` Cmdlet zum Erstellen von Volumes in direkte Speicherplätze verwenden.
 
 So erstellen Sie z. b. ein reguläres Volume mit drei-Wege-Spiegelung:
 
@@ -86,7 +86,7 @@ New-Volume -FriendlyName "MyRegularVolume" -Size 100GB
 
 So erstellen Sie ein Volume mit drei-Wege-Spiegelung und begrenzen die Zuordnung:
 
-1. Weisen Sie zuerst die Server in Ihrem Cluster der Variablen `$Servers`zu:
+1. Weisen Sie zuerst die Server in Ihrem Cluster der Variablen zu `$Servers` :
 
     ```PowerShell
     $Servers = Get-StorageFaultDomain -Type StorageScaleUnit | Sort FriendlyName
@@ -95,7 +95,7 @@ So erstellen Sie ein Volume mit drei-Wege-Spiegelung und begrenzen die Zuordnung
    > [!TIP]
    > In direkte Speicherplätze bezieht sich der Begriff "Speicher Skalierungs Einheit" auf den gesamten rohspeicher, der mit einem Server verbunden ist, einschließlich direkt angefügter Laufwerke und direkt angeschlossenen externen Gehäusen mit Laufwerken. In diesem Kontext ist es identisch mit "Server".
 
-2. Geben Sie an, welche Server mit dem neuen `-StorageFaultDomainsToUse`-Parameter und durch Indizierung in `$Servers`verwendet werden sollen. Um z. b. die Zuordnung zum ersten, zweiten, dritten und vierten Server (Indizes 0, 1, 2 und 3) zu begrenzen:
+2. Geben Sie an, welche Server mit dem neuen `-StorageFaultDomainsToUse` Parameter und durch Indizierung in verwendet werden sollen `$Servers` . Um z. b. die Zuordnung zum ersten, zweiten, dritten und vierten Server (Indizes 0, 1, 2 und 3) zu begrenzen:
 
     ```PowerShell
     New-Volume -FriendlyName "MyVolume" -Size 100GB -StorageFaultDomainsToUse $Servers[0,1,2,3]
@@ -110,14 +110,14 @@ PS C:\> .\Get-VirtualDiskFootprintBySSU.ps1
 
 VirtualDiskFriendlyName TotalFootprint Server1 Server2 Server3 Server4 Server5 Server6
 ----------------------- -------------- ------- ------- ------- ------- ------- -------
-MyVolume                300 GB         100 GB  100 GB  100 GB  100 GB  0       0      
+MyVolume                300 GB         100 GB  100 GB  100 GB  100 GB  0       0
 ```
 
 Beachten Sie, dass nur Server1, Server2, Server3 und Server4 Platten von *myvolume*enthalten.
 
 ### <a name="change-a-delimited-allocation"></a>Ändern einer durch Trennzeichen getrennten Zuordnung
 
-Verwenden Sie die neuen `Add-StorageFaultDomain` und `Remove-StorageFaultDomain`-Cmdlets, um zu ändern, wie die Zuordnung getrennt ist.
+Verwenden Sie die neuen `Add-StorageFaultDomain` -und- `Remove-StorageFaultDomain` Cmdlets, um zu ändern, wie die Zuordnung getrennt ist.
 
 Um beispielsweise *myvolume* auf einen Server zu verschieben, gehen Sie wie folgt vor:
 
@@ -139,21 +139,21 @@ Um beispielsweise *myvolume* auf einen Server zu verschieben, gehen Sie wie folg
     Get-StoragePool S2D* | Optimize-StoragePool
     ```
 
-Sie können den Fortschritt des Ausgleichs mit `Get-StorageJob`überwachen.
+Sie können den Fortschritt des Ausgleichs mit überwachen `Get-StorageJob` .
 
-Vergewissern Sie sich nach Abschluss des Vorgangs, dass *myvolume* durch Ausführen von `Get-VirtualDiskFootprintBySSU.ps1` verschoben wurde.
+Vergewissern Sie sich nach Abschluss des Vorgangs, dass *myvolume* verschoben wurde, indem Sie es `Get-VirtualDiskFootprintBySSU.ps1` erneut ausführen.
 
 ```PowerShell
 PS C:\> .\Get-VirtualDiskFootprintBySSU.ps1
 
 VirtualDiskFriendlyName TotalFootprint Server1 Server2 Server3 Server4 Server5 Server6
 ----------------------- -------------- ------- ------- ------- ------- ------- -------
-MyVolume                300 GB         0       100 GB  100 GB  100 GB  100 GB  0      
+MyVolume                300 GB         0       100 GB  100 GB  100 GB  100 GB  0
 ```
 
 Beachten Sie, dass server1 keine Platten von *myvolume* mehr enthält – sondern auch Server5.
 
-## <a name="best-practices"></a>Empfohlene Methoden
+## <a name="best-practices"></a>Bewährte Methoden
 
 Im folgenden finden Sie die empfohlenen Vorgehensweisen bei der Verwendung von durch Trennzeichen getrennten Volumes:
 
@@ -167,11 +167,11 @@ Gleichgewicht der Menge an Speicher, die jedem Server zugewiesen ist, und berüc
 
 ### <a name="stagger-delimited-allocation-volumes"></a>Durch Trennzeichen getrennte Zuordnungs Volumes Staffeln
 
-Um die Fehlertoleranz zu maximieren, machen Sie die Zuordnung der einzelnen Volumes eindeutig, d. h., Sie verwendet nicht *alle* Server mit einem anderen Volume (einige Überlappungen sind okay). 
+Um die Fehlertoleranz zu maximieren, machen Sie die Zuordnung der einzelnen Volumes eindeutig, d. h., Sie verwendet nicht *alle* Server mit einem anderen Volume (einige Überlappungen sind okay).
 
 Beispielsweise auf einem System mit acht Knoten: Volume 1: Server 1, 2, 3, 4 Volume 2: Server 5, 6, 7, 8 Volume 3: Server 3, 4, 5, 6 Volume 4: Server 1, 2, 7, 8
 
-## <a name="analysis"></a>Experten
+## <a name="analysis"></a>Analyse
 
 In diesem Abschnitt wird die mathematische Wahrscheinlichkeit abgeleitet, mit der ein Volume online und zugänglich (oder gleichermaßen der erwartete Anteil des gesamten Speichers, der Online und zugänglich bleibt) als Funktion der Anzahl von Fehlern und der Clustergröße angezeigt wird.
 
@@ -200,7 +200,7 @@ Ja. Sie können pro Volume auswählen, ob die Zuordnung begrenzt werden soll.
 
 Nein, es ist das gleiche wie bei der regulären Zuordnung.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Übersicht über direkte Speicherplätze](storage-spaces-direct-overview.md)
 - [Fehlertoleranz in direkte Speicherplätze](storage-spaces-fault-tolerance.md)
@@ -209,7 +209,7 @@ Nein, es ist das gleiche wie bei der regulären Zuordnung.
 
 Mit diesem Skript können Sie sehen, wie Ihre Volumes zugeordnet werden.
 
-Um es wie oben beschrieben zu verwenden, kopieren/einfügen und speichern unter `Get-VirtualDiskFootprintBySSU.ps1`.
+Um es wie oben beschrieben zu verwenden, kopieren/einfügen und speichern unter `Get-VirtualDiskFootprintBySSU.ps1` .
 
 ```PowerShell
 Function ConvertTo-PrettyCapacity {

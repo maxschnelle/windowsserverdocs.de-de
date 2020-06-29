@@ -1,5 +1,5 @@
 ---
-title: In der Windows-Authentifizierung verwendete Gruppenrichtlinieneinstellungen
+title: In der Windows-Authentifizierung verwendete Gruppenrichtlinien
 description: Windows Server-Sicherheit
 ms.prod: windows-server
 ms.technology: security-windows-auth
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 7acd7439ec2e0382f1e2c725d66363e6b3a50b40
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: d5268a5d95dd99bade89015863ea3eadf1b7913a
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80857573"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85475507"
 ---
-# <a name="group-policy-settings-used-in-windows-authentication"></a>In der Windows-Authentifizierung verwendete Gruppenrichtlinieneinstellungen
+# <a name="group-policy-settings-used-in-windows-authentication"></a>In der Windows-Authentifizierung verwendete Gruppenrichtlinien
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 In diesem Referenz Thema für IT-Experten werden die Verwendung und Auswirkung von Gruppenrichtlinie Einstellungen im Authentifizierungsprozess beschrieben.
 
@@ -39,28 +39,28 @@ Beispielsweise können Sie die folgenden Richtlinien auf Grundlage ihrer Funktio
 
 In der folgenden Tabelle sind die für die-Authentifizierung relevanten Richtlinien Gruppen aufgeführt. es enthält Links zu Dokumentationen, mit denen Sie diese Richtlinien konfigurieren können.
 
-|Richtlinien Gruppe|Location|Beschreibung|
+|Richtlinien Gruppe|Standort|Beschreibung|
 |--------|------|--------|
 |**Kenn Wort Richtlinie**|Lokaler Computer policy\computerkonfiguration\windows-einstellungen\sicherheitseinstellungen\konto Richtlinien|Kenn Wort Richtlinien beeinflussen die Merkmale und das Verhalten von Kenn Wörtern. Kenn Wort Richtlinien werden für Domänen Konten oder lokale Benutzerkonten verwendet. Sie bestimmen Einstellungen für Kenn Wörter, z. b. Erzwingung und Lebensdauer.<p>Informationen zu bestimmten Einstellungen finden Sie unter Kenn [Wort Richtlinie](https://technet.microsoft.com/itpro/windows/keep-secure/password-policy).|
 |**Konto Sperr Richtlinie**|Lokaler Computer policy\computerkonfiguration\windows-einstellungen\sicherheitseinstellungen\konto Richtlinien|Optionen für die Konto Sperrungs Richtlinie deaktivieren Sie Konten nach einer festgelegten Anzahl fehlerhafter Anmeldeversuche. Mithilfe dieser Optionen können Sie Versuche zum Unterbrechen von Kenn Wörtern erkennen und blockieren.<p>Informationen zu den Optionen für die Konto Sperrungs Richtlinie finden Sie unter [Konto Sperr Richtlinie](https://technet.microsoft.com/itpro/windows/keep-secure/account-lockout-policy).|
 |**Kerberos-Richtlinie**|Lokaler Computer policy\computerkonfiguration\windows-einstellungen\sicherheitseinstellungen\konto Richtlinien|Die Kerberos-bezogenen Einstellungen umfassen die Ticket Lebensdauer und Erzwingungs Regeln. Die Kerberos-Richtlinie gilt nicht für lokale Konto Datenbanken, da das Kerberos-Authentifizierungsprotokoll nicht verwendet wird, um lokale Konten zu authentifizieren. Aus diesem Grund können die Kerberos-Richtlinien Einstellungen nur mithilfe des standardmäßigen Domänen Gruppenrichtlinie Objekts (GPO) konfiguriert werden, wo es sich auf Domänen Anmeldungen auswirkt.<p>Informationen zu Kerberos-Richtlinien Optionen für den Domänen Controller finden Sie unter [Kerberos-Richtlinie](https://technet.microsoft.com/itpro/windows/keep-secure/kerberos-policy).|
 |**Überwachungsrichtlinie**|Lokaler Computer policy\computerkonfiguration\windows-Einstellungen\Sicherheitseinstellungen\Lokale Richtlinien \ Überwachungsrichtlinie|Mithilfe der Überwachungsrichtlinie können Sie den Zugriff auf Objekte, wie z. b. Dateien und Ordner, Steuern und verstehen sowie Benutzer-und Gruppenkonten sowie Benutzeranmeldungen und-Abrechnungen verwalten. Mit Überwachungs Richtlinien können die Kategorien von Ereignissen angegeben werden, die Sie überwachen möchten, die Größe und das Verhalten des Sicherheitsprotokolls festlegen und bestimmen, welche Objekte der Zugriff überwacht werden sollen und welche Art von Zugriff Sie überwachen möchten.<p>|
-|**Zuweisung von Benutzerrechten**|Lokale Computer policy\computerkonfiguration\windows-Einstellungen\Sicherheitseinstellungen\Lokale Richtlinien\Zuweisen von Benutzerrechten|Benutzerrechte werden in der Regel auf Basis der Sicherheitsgruppen zugewiesen, zu denen ein Benutzer gehört, z. b. Administratoren, Hauptbenutzer oder Benutzer. Die Richtlinien Einstellungen in dieser Kategorie werden in der Regel verwendet, um Berechtigungen für den Zugriff auf einen Computer basierend auf der Zugriffs-und Sicherheitsgruppen Mitgliedschaften zu erteilen oder zu verweigern.|
+|**Zuweisen von Benutzerrechten**|Lokale Computer policy\computerkonfiguration\windows-Einstellungen\Sicherheitseinstellungen\Lokale Richtlinien\Zuweisen von Benutzerrechten|Benutzerrechte werden in der Regel auf Basis der Sicherheitsgruppen zugewiesen, zu denen ein Benutzer gehört, z. b. Administratoren, Hauptbenutzer oder Benutzer. Die Richtlinien Einstellungen in dieser Kategorie werden in der Regel verwendet, um Berechtigungen für den Zugriff auf einen Computer basierend auf der Zugriffs-und Sicherheitsgruppen Mitgliedschaften zu erteilen oder zu verweigern.|
 |**Sicherheitsoptionen**|Lokale Computer policy\computerkonfiguration\windows-Einstellungen\Sicherheitseinstellungen\Lokale Richtlinien\Sicherheitsoptionen|Zu den für die Authentifizierung relevanten Richtlinien gehören:<p>-Geräte<br />-Domänen Controller<br />-Domänen Mitglied<br />-Interaktive Anmeldung<br />-Microsoft-Netzwerkserver<br />-Netzwerk Zugriff<br />-Netzwerksicherheit<br />-Wiederherstellungskonsole<br />-Herunterfahren<p>|
-|**Delegierungs Delegierungen**|Computerkonfiguration\Administrative vorlagen\system\anmeldeinformationen Delegierung|Bei der Delegierung von Anmelde Informationen handelt es sich um einen Mechanismus, mit dem lokale Anmelde Informationen auf anderen Systemen verwendet werden können, insbesondere Mitglieds Server und Domänen Controller innerhalb einer Domäne. Diese Einstellungen gelten für Anwendungen mithilfe des Credential Security Support Provider (SSP). Remotedesktopverbindung ist ein Beispiel.|
+|**Delegierung von Anmeldeinformationen**|Computerkonfiguration\Administrative vorlagen\system\anmeldeinformationen Delegierung|Bei der Delegierung von Anmelde Informationen handelt es sich um einen Mechanismus, mit dem lokale Anmelde Informationen auf anderen Systemen verwendet werden können, insbesondere Mitglieds Server und Domänen Controller innerhalb einer Domäne. Diese Einstellungen gelten für Anwendungen mithilfe des Credential Security Support Provider (SSP). Remotedesktopverbindung ist ein Beispiel.|
 |**KDC**|Computerkonfiguration\Administrative vorlagen\system\kdc|Diese Richtlinien Einstellungen wirken sich darauf aus, wie die Schlüsselverteilungscenter (KDC), bei der es sich um einen Dienst auf dem Domänen Controller handelt, Kerberos-Authentifizierungsanforderungen verarbeitet.|
 |**Kerberos**|Computerkonfiguration\Administrative vorlagen\system\kerberos|Diese Richtlinien Einstellungen beeinflussen, wie Kerberos für die Unterstützung von Ansprüchen, Kerberos armoring, Verbund Authentifizierung, Identifizierung von Proxy Servern und anderen Konfigurationen konfiguriert ist.|
-|**Anmelden**|Computerkonfiguration\Administrative Vorlagen\System\Anmeldung|Mit diesen Richtlinien Einstellungen wird gesteuert, wie das System den Anmeldevorgang für Benutzer anzeigt.|
-|**Anmelde Namen**|Computerkonfiguration\Administrative vorlagen\system\net-Anmeldung|Mit diesen Richtlinien Einstellungen wird gesteuert, wie das System Netzwerk Anmelde Anforderungen behandelt, einschließlich der Art des Domänen Controller-Locators.<p>Weitere Informationen zur Funktionsweise des Domänen Controller-Locators in Replikations Prozesse finden Sie Untergrund Legendes zur [Replikation Zwischenstand Orten](https://technet.microsoft.com/library/cc771251.aspx).|
+|**Anmelden**|Computerkonfiguration\Administrative vorlagen\system\logon|Mit diesen Richtlinien Einstellungen wird gesteuert, wie das System den Anmeldevorgang für Benutzer anzeigt.|
+|**Netzwerkanmeldung**|Computerkonfiguration\Administrative vorlagen\system\net-Anmeldung|Mit diesen Richtlinien Einstellungen wird gesteuert, wie das System Netzwerk Anmelde Anforderungen behandelt, einschließlich der Art des Domänen Controller-Locators.<p>Weitere Informationen zur Funktionsweise des Domänen Controller-Locators in Replikations Prozesse finden Sie Untergrund Legendes zur [Replikation Zwischenstand Orten](https://technet.microsoft.com/library/cc771251.aspx).|
 |**Biometrie**|Computerkonfiguration\Administrative Vorlagen\Windows-komponents\biometrie|Diese Richtlinien Einstellungen erlauben oder verweigern die Verwendung von Biometrie als Authentifizierungsmethode.<p>Weitere Informationen zur Windows-Implementierung von Biometrie finden Sie unter Windows-Biometrieframework Übersicht.|
 |**Anmelde Informationen-Benutzeroberfläche**|Computerkonfiguration\Administrative Vorlagen\Windows-komponents\benutzerbenutzerschnittstelle|Diese Richtlinien Einstellungen steuern, wie Anmelde Informationen zum Zeitpunkt des Eintrags verwaltet werden.|
-|**Kenn Wort Synchronisierung**|Computerkonfiguration\Administrative Vorlagen\Windows-komponents\kenn Wort Synchronisierung|Mit diesen Richtlinien Einstellungen wird festgelegt, wie das System die Synchronisierung von Kenn Wörtern zwischen Windows-und UNIX-basierten Betriebssystemen verwaltet.<p>Weitere Informationen finden Sie unter Kenn [Wort Synchronisierung](https://technet.microsoft.com/library/cc732609.aspx).|
+|**Kennwortsynchronisierung**|Computerkonfiguration\Administrative Vorlagen\Windows-komponents\kenn Wort Synchronisierung|Mit diesen Richtlinien Einstellungen wird festgelegt, wie das System die Synchronisierung von Kenn Wörtern zwischen Windows-und UNIX-basierten Betriebssystemen verwaltet.<p>Weitere Informationen finden Sie unter Kenn [Wort Synchronisierung](https://technet.microsoft.com/library/cc732609.aspx).|
 |**Smartcard**|Computerkonfiguration\Administrative Vorlagen\Windows-komponents\smartcard|Mit diesen Richtlinien Einstellungen wird gesteuert, wie Smartcardanmeldungen vom System verwaltet werden.<p>|
 |**Windows-Anmelde Optionen**|Computerkonfiguration\Administrative Vorlagen\Windows-komponents\windows-Anmelde Optionen|Diese Richtlinien Einstellungen steuern, wann und wie Anmelde Chancen verfügbar sind.|
 |**STRG + ALT + ENTF-Optionen**|Computerkonfiguration\Administrative Vorlagen\Windows-komponents\strg + ALT + ENTF-Optionen|Diese Richtlinien Einstellungen wirken sich auf die Darstellung von und den Zugriff auf Funktionen auf der Anmelde Benutzeroberfläche (sicherer Desktop) aus, z. b. Task-Manager und die Tastatursperre des Computers.|
 |**Anmelden**|Computerkonfiguration\Administrative Vorlagen\Windows-komponents\logon|Mit diesen Richtlinien Einstellungen wird festgelegt, ob oder welche Prozesse ausgeführt werden können, wenn sich der Benutzer anmeldet.|
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Zusätzliche Referenzen
 [Windows-Authentifizierung: Technische Übersicht](windows-authentication-technical-overview.md)
 
 

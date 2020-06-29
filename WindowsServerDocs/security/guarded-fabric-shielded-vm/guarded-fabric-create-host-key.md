@@ -8,12 +8,12 @@ author: rpsqrd
 ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 664b3cfc1e529fe3591f6477ae0eb0b64e32441a
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 24714e7af844116629fa4c0eebf5050f9c150c50
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80856733"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85475537"
 ---
 # <a name="create-a-host-key-and-add-it-to-hgs"></a>Erstellen eines Host Schlüssels und Hinzufügen des Schlüssels zu HGS
 
@@ -29,7 +29,7 @@ In diesem Thema wird beschrieben, wie Hyper-V-Hosts mithilfe des Host Schlüssel
 
     ```powershell
     Install-WindowsFeature Hyper-V, HostGuardian -IncludeManagementTools -Restart
-    ``` 
+    ```
 
 3.    Generieren Sie automatisch einen Host Schlüssel, oder wählen Sie ein vorhandenes Zertifikat aus. Wenn Sie ein benutzerdefiniertes Zertifikat verwenden, sollte es mindestens einen 2048-Bit-RSA-Schlüssel, eine Clientauthentifizierungs-EKU und die Verwendung von digitalen Signatur Schlüsseln aufweisen.
 
@@ -37,7 +37,7 @@ In diesem Thema wird beschrieben, wie Hyper-V-Hosts mithilfe des Host Schlüssel
     Set-HgsClientHostKey
     ```
 
-    Alternativ können Sie einen Fingerabdruck angeben, wenn Sie Ihr eigenes Zertifikat verwenden möchten. 
+    Alternativ können Sie einen Fingerabdruck angeben, wenn Sie Ihr eigenes Zertifikat verwenden möchten.
     Dies kann hilfreich sein, wenn Sie ein Zertifikat für mehrere Computer freigeben möchten, oder wenn Sie ein Zertifikat verwenden möchten, das an ein TPM oder ein HSM gebunden ist. Hier ist ein Beispiel für das Erstellen eines TPM-gebundenen Zertifikats (das verhindert, dass der private Schlüssel gestohlen und auf einem anderen Computer verwendet wird und nur ein TPM 1,2 erforderlich ist):
 
     ```powershell
@@ -59,13 +59,13 @@ Dieser Schritt wird auf dem HGS-Server ausgeführt und ermöglicht es dem Host, 
 
 ```powershell
 Add-HgsAttestationHostKey -Name MyHost01 -Path "C:\temp\MyHost01-HostKey.cer"
-``` 
+```
 
 ## <a name="next-step"></a>Nächster Schritt
 
 > [!div class="nextstepaction"]
-> [Bestätigen, dass Hosts erfolgreich bestätigen können](guarded-fabric-confirm-hosts-can-attest-successfully.md)
+> [Bestätigen, dass Hosts erfolgreich einen Nachweis führen können](guarded-fabric-confirm-hosts-can-attest-successfully.md)
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
-- [Bereitstellen des Host-Überwachungs Diensts für geschützte Hosts und abgeschirmte VMS](guarded-fabric-deploying-hgs-overview.md)
+- [Bereitstellen des Host-Überwachungsdiensts für überwachte Hosts und abgeschirmte VMs](guarded-fabric-deploying-hgs-overview.md)
