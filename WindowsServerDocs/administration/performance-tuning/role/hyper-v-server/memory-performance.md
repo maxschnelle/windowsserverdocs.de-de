@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: asmahi; sandysp; jopoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 5f683b85657b8dd263e93380b71c646ad677950c
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: b513dd3346d593ec4c823808f540bce68dd472ce
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851723"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85471365"
 ---
 # <a name="hyper-v-memory-performance"></a>Hyper-V-Speicherleistung
 
@@ -41,7 +41,7 @@ Die Stamm Partition muss über ausreichend Arbeitsspeicher verfügen, um Dienste
 
 Hyper-V in Windows Server 2016 überwacht den Lauf Zeit Zustand des Verwaltungs Betriebssystems der Stamm Partition, um zu bestimmen, wie viel Arbeitsspeicher den untergeordneten Partitionen sicher zugeordnet werden kann, während gleichzeitig hohe Leistung und Zuverlässigkeit der Stamm Partition sichergestellt werden.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 -   [Hyper-V-Terminologie](terminology.md)
 

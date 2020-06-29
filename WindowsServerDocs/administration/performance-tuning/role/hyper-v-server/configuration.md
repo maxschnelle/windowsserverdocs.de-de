@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: asmahi; sandysp; jopoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: e3c4fa32b97761ad05c88722ef090f96fff21cf3
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 3fb1001c99e084ab69f37db9779e5d5ae7acf58e
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851793"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85471435"
 ---
 # <a name="hyper-v-configuration"></a>Hyper-V – Konfiguration
 
@@ -38,9 +38,9 @@ Die Hardware Überlegungen für Server, auf denen Hyper-v ausgeführt wird, ähn
 
 ## <a name="power-plan-considerations"></a>Überlegungen zum Energie Tarif
 
-Als Kerntechnologie ist die Virtualisierung ein leistungsfähiges Tool, das für die Erhöhung der Server Arbeitsauslastung nützlich ist, die Anzahl der erforderlichen physischen Server in Ihrem Rechenzentrum verringert, die operative Effizienz erhöht und die Kosten für den Energieverbrauch reduziert. Die Energie Verwaltung ist wichtig für die Kostenverwaltung. 
+Als Kerntechnologie ist die Virtualisierung ein leistungsfähiges Tool, das für die Erhöhung der Server Arbeitsauslastung nützlich ist, die Anzahl der erforderlichen physischen Server in Ihrem Rechenzentrum verringert, die operative Effizienz erhöht und die Kosten für den Energieverbrauch reduziert. Die Energie Verwaltung ist wichtig für die Kostenverwaltung.
 
-In einer idealen Rechenzentrumsumgebung wird der Energieverbrauch durch Konsolidieren der Arbeit auf Computern verwaltet, bis Sie größtenteils ausgelastet sind, und die Computer im Leerlauf ausschalten. Wenn dieser Ansatz nicht praktikabel ist, können Administratoren Energie Sparpläne auf den physischen Hosts nutzen, um sicherzustellen, dass Sie nicht mehr Leistung als notwendig beanspruchen. 
+In einer idealen Rechenzentrumsumgebung wird der Energieverbrauch durch Konsolidieren der Arbeit auf Computern verwaltet, bis Sie größtenteils ausgelastet sind, und die Computer im Leerlauf ausschalten. Wenn dieser Ansatz nicht praktikabel ist, können Administratoren Energie Sparpläne auf den physischen Hosts nutzen, um sicherzustellen, dass Sie nicht mehr Leistung als notwendig beanspruchen.
 
 Die Verfahren zur Server Energie Verwaltung sind mit Kosten verbunden, besonders weil Mandanten Arbeits Auslastungen nicht vertrauenswürdig sind, um Richtlinien zur physischen Infrastruktur des anheters zu überschreiben. Die Software auf der Hostebene gibt an, wie der Durchsatz maximiert werden soll, während der Energieverbrauch minimiert wird. In den Computern, die sich größtenteils im Leerlauf befinden, kann dies dazu führen, dass die physische Infrastruktur den Schluss ergibt, dass eine mittlere Stromversorgung angemessen ist, was dazu führt, dass einzelne mandantenworkloads langsamer ausgeführt werden
 
@@ -72,22 +72,22 @@ Hyper-V unterstützt und wurde für eine Reihe von unterschiedlichen Gastbetrieb
 
 ## <a name="cpu-statistics"></a>CPU-Statistik
 
-Hyper-V veröffentlicht Leistungsindikatoren, um das Verhalten des virtualisierungsserverservers zu bestimmen und die Ressourcenverwendung zu melden. Der Standardsatz von Tools zum Anzeigen von Leistungsindikatoren in Windows umfasst System Monitor und logman. exe, mit denen die Hyper-V-Leistungsindikatoren angezeigt und protokolliert werden können. Die Namen der relevanten Counter-Objekte haben das Präfix **Hyper-V**.
+Hyper-V veröffentlicht Leistungsindikatoren, um das Verhalten des virtualisierungsserverservers zu bestimmen und die Ressourcenverwendung zu melden. Der Standardsatz von Tools zum Anzeigen von Leistungsindikatoren in Windows umfasst System Monitor und Logman.exe, mit denen die Hyper-V-Leistungsindikatoren angezeigt und protokolliert werden können. Die Namen der relevanten Counter-Objekte haben das Präfix **Hyper-V**.
 
 Die CPU-Auslastung des physischen Systems sollte immer mithilfe der Leistungsindikatoren für den logischen Hyper-V-Hypervisor-Prozessor gemessen werden. Die CPU-Auslastungs Indikatoren, die der Task Manager und der System Monitor in den Stamm-und untergeordneten Partitionen melden, entsprechen nicht der tatsächlichen physischen CPU-Auslastung. Verwenden Sie die folgenden Leistungsindikatoren, um die Leistung zu überwachen:
 
-- **Logischer Hyper-V-Hypervisor-Prozessor (\*)\\% Gesamtlaufzeit** Die Gesamtdauer der logischen Prozessoren, die nicht im Leerlauf ist.
+- **Logischer Hyper-V-Hypervisor-Prozessor ( \* ) \\ % Gesamtlaufzeit** die gesamte nicht im Leerlauf befindliche Zeit der logischen Prozessoren
 
-- **Logischer Hyper-V-Hypervisor-Prozessor (\*)\\% Gast Laufzeit** Die Zeit, die für das Ausführen von Zyklen in einem Gast oder innerhalb des Hosts aufgewendet wurde
+- **Logischer Hyper-V-Hypervisor-Prozessor ( \* ) \\ % Gast Laufzeit Zeit** für das Ausführen von Zyklen innerhalb eines Gast Betriebssystems oder innerhalb des Hosts
 
-- **Logischer Hyper-V-Hypervisor-Prozessor (\*)\\% Hypervisor-Laufzeit** Die Zeit, die für die Ausführung im Hypervisor aufgewendet wurde.
+- **Logischer Hyper-V-Hypervisor-Prozessor ( \* ) \\ % Hypervisor Laufzeit** die Zeit, die für die Ausführung im Hypervisor aufgewendet wurde
 
-- **Virtueller Hyper-V-Hypervisor-Stamm Prozessor (\*)\\\\** * misst die CPU-Auslastung der Stamm Partition.
+- **Virtueller Hyper-V-Hypervisor-Stamm \* Prozessor \\ \\ ()*** misst die CPU-Auslastung der Stamm Partition.
 
-- **Virtueller Hyper-V-Hypervisor-Prozessor (\*)\\\\** * misst die CPU-Auslastung von Gast Partitionen
+- **Virtueller Hyper-V-Hypervisor-Prozessor ( \* ) \\ \\ *** misst die CPU-Auslastung von Gast Partitionen.
 
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 -   [Hyper-V-Terminologie](terminology.md)
 

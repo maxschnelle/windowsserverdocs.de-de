@@ -1,5 +1,5 @@
 ---
-title: Verstehen und Bereitstellen von persistentem Speicher
+title: Grundlagen und Bereitstellung des persistenten Speichers
 description: Ausführliche Informationen dazu, was beständiger Speicher ist und wie Sie ihn mit "direkte Speicherplätze" in Windows Server 2019 einrichten können.
 ms.prod: windows-server
 ms.author: adagashe
@@ -8,14 +8,14 @@ ms.topic: article
 author: adagashe
 ms.date: 1/27/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 43268986f0ef42aabc218062ac19f1d98f27be6d
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 2f5f88ac2ec728e176735ad58d9d67112583c527
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80861033"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85469645"
 ---
-# <a name="understand-and-deploy-persistent-memory"></a>Verstehen und Bereitstellen von persistentem Speicher
+# <a name="understand-and-deploy-persistent-memory"></a>Grundlagen und Bereitstellung des persistenten Speichers
 
 > Gilt für: Windows Server 2019
 
@@ -37,15 +37,15 @@ Alle Speichersysteme, die Fehlertoleranz bereitstellen, machen notwendigerweise 
 
 Wenn Sie das Video genau ansehen, werden Sie feststellen, dass die Latenz durch eine noch größere Anzahl von Unterbrechungen sinkt. Sogar bei mehr als 13,7 Mio. IOPS meldet das Dateisystem in Windows eine Latenzzeit, die konstant weniger als 40 μs! (Das ist das Symbol für Mikrosekunden, ein Millionstel einer Sekunde.) Diese Geschwindigkeit ist eine höhere Reihenfolge, als Sie heutzutage von allen Flash Anbietern angekündigt werden.
 
-Direkte Speicherplätze in Windows Server 2019 und Intel&reg; optane&trade; DC persistente Arbeitsspeicher bieten eine bahnbrechende Leistung. Dieser branchenführende HCI-Benchmark mit mehr als 13,7 Mio. IOPS, eine vorhersagbare und extrem geringe Latenzzeit, ist größer als der bisherige branchenführende Benchmarkwert von 6.7 Mio. IOPS. Weitere Informationen: dieses Mal benötigte ich nur 12 Server Knoten&mdash;25% vor weniger als zwei Jahren.
+Die direkte Speicherplätze im permanenten Speicher von Windows Server 2019 und Intel &reg; optane &trade; DC bieten eine bahnbrechende Leistung. Dieser branchenführende HCI-Benchmark mit mehr als 13,7 Mio. IOPS, eine vorhersagbare und extrem geringe Latenzzeit, ist größer als der bisherige branchenführende Benchmarkwert von 6.7 Mio. IOPS. Weitere Informationen: dieses Mal benötigte ich nur 12 Server Knoten, die &mdash; 25% weniger als zwei Jahre vor dem Zeitpunkt liegen.
 
 ![IOPS-Zuwachs](media/deploy-pmem/iops-gains.png)
 
-Die Testhardware war ein 12-Server-Cluster, der für die Verwendung von drei-Wege-Spiegelung und getrennten Refs-Volumes konfiguriert wurde. **12** x Intel&reg; S2600WFT, **384 gib** Memory, 2 x 28-Core "cascadelake", **1,5 TB** Intel&reg; optane&trade; DC persistente Speicher as Cache, **32 TB** nvme (4 x 8 TB Intel&reg; DC P4510) als Kapazität, **2** x Mellanox ConnectX-4 25 Gbit/s.
+Die Testhardware war ein 12-Server-Cluster, der für die Verwendung von drei-Wege-Spiegelung und getrennten Refs-Volumes konfiguriert wurde. **12** x Intel &reg; S2600WFT, **384 gib** Memory, 2 x 28-Core "cascadelake", **1,5 TB** Intel &reg; optane &trade; DC Persistent Memory as Cache, **32 TB** nvme (4 x 8 TB Intel &reg; DC P4510) als Kapazität, **2** x Mellanox ConnectX-4 25 Gbit/s.
 
-In der folgenden Tabelle werden die vollständigen Leistungszahlen angezeigt.  
+In der folgenden Tabelle werden die vollständigen Leistungszahlen angezeigt.
 
-| Richtungs                   | Leistung         |
+| Vergleichstest                   | Leistung         |
 |-----------------------------|---------------------|
 | 4K 100% zufälliger Lesevorgang         | 13,8 Millionen IOPS   |
 | 4K 90/10% zufälliger Lese-/Schreibzugriff | 9.450.000 IOPS   |
@@ -53,24 +53,24 @@ In der folgenden Tabelle werden die vollständigen Leistungszahlen angezeigt.
 
 ### <a name="supported-hardware"></a>Unterstützte Hardware
 
-In der folgenden Tabelle wird die unterstützte persistente Speicherhardware für Windows Server 2019 und Windows Server 2016 angezeigt.  
+In der folgenden Tabelle wird die unterstützte persistente Speicherhardware für Windows Server 2019 und Windows Server 2016 angezeigt.
 
 | Persistente Speichertechnologie                                      | Windows Server 2016 | Windows Server 2019 |
 |-------------------------------------------------------------------|--------------------------|--------------------------|
 | **Nvdimm-N** im persistenten Modus                                  | Unterstützt                | Unterstützt                |
-| **Intel optane&trade; persistenter Speicher** im App-direkt Modus             | Nicht unterstützt            | Unterstützt                |
-| **Intel optane&trade; persistenter Speicher** im Speicher Modus | Unterstützt            | Unterstützt                |
+| **Intel optane &trade; Persistenter DC-Speicher** im App Direct-Modus             | Nicht unterstützt            | Unterstützt                |
+| **Intel optane &trade; Persistenter DC-Speicher** im Speicher Modus | Unterstützt            | Unterstützt                |
 
-> [!NOTE]  
+> [!NOTE]
 > Intel optane unterstützt sowohl den *Speicher* Modus (flüchtig) als auch den *App Direct* -Modus (persistent).
-   
-> [!NOTE]  
-> Wenn Sie ein System neu starten, das über mehrere Intel&reg; optane&trade; pMem-Module im App Direct-Modus verfügt, die in mehrere Namespaces aufgeteilt sind, verlieren Sie möglicherweise den Zugriff auf einige oder alle zugehörigen logischen Speicher Datenträger. Dieses Problem tritt auf Windows Server 2019-Versionen auf, die älter sind als Version 1903.
->   
+
+> [!NOTE]
+> Wenn Sie ein System neu starten, das über mehrere Intel &reg; optane &trade; pMem-Module im App Direct-Modus verfügt, die in mehrere Namespaces aufgeteilt sind, verlieren Sie möglicherweise den Zugriff auf einige oder alle zugehörigen logischen Speicher Datenträger. Dieses Problem tritt auf Windows Server 2019-Versionen auf, die älter sind als Version 1903.
+>
 > Dieser Verlust des Zugriffs tritt auf, weil ein pMem-Modul untrainiert ist oder andernfalls fehlschlägt, wenn das System gestartet wird. In einem solchen Fall schlagen alle Storage-Namespaces in einem beliebigen pMem-Modul im System fehl, einschließlich Namespaces, die dem fehlerhaften Modul nicht physisch zugeordnet werden.
->   
+>
 > Wenn Sie den Zugriff auf alle Namespaces wiederherstellen möchten, ersetzen Sie das fehlerhafte Modul.
->   
+>
 > Wenn ein Modul unter Windows Server 2019 Version 1903 oder höher ausfällt, verlieren Sie nur den Zugriff auf Namespaces, die physisch dem betroffenen Modul zugeordnet sind. Andere Namespaces sind nicht betroffen.
 
 Sehen wir uns nun an, wie Sie persistenten Speicher konfigurieren.
@@ -90,7 +90,7 @@ DiskNumber Size   HealthStatus AtomicityType CanBeRemoved PhysicalDeviceIds Unsa
 3          252 GB Healthy      None          True         {1020, 1120}      0
 ```
 
-Wir sehen, dass die logische pMem-Datenträger #2 die physischen Geräte Id20 und Id120 und die logische pMem-Datenträger #3 die die physischen Geräte Id1020 und Id1120 verwendet.  
+Wir sehen, dass die logische pMem-Datenträger #2 die physischen Geräte Id20 und Id120 und die logische pMem-Datenträger #3 die die physischen Geräte Id1020 und Id1120 verwendet.
 
 Zum Abrufen weiterer Informationen über die überlappende Menge, die von einem logischen Laufwerk verwendet wird, führen **Sie das Get-pmemphysicaldevice** -Cmdlet aus:
 
@@ -158,9 +158,9 @@ Direkte Speicherplätze unter Windows Server 2019 unterstützt die Verwendung vo
 
 ### <a name="understanding-dax"></a>Grundlegendes zu DAX
 
-Es gibt zwei Methoden, um auf permanenten Speicher zuzugreifen. Sie lauten folgendermaßen:
+Es gibt zwei Methoden, um auf permanenten Speicher zuzugreifen. Sie lauten wie folgt:
 
-1. **Direkter Zugriff (DAX)** , der wie der Arbeitsspeicher funktioniert, um die geringste Latenz zu erzielen. Die app ändert den persistenten Speicher direkt, wobei der Stapel umgangen wird. Beachten Sie, dass Sie DAX nur in Kombination mit NTFS verwenden können.
+1. **Direkter Zugriff (DAX)**, der wie der Arbeitsspeicher funktioniert, um die geringste Latenz zu erzielen. Die app ändert den persistenten Speicher direkt, wobei der Stapel umgangen wird. Beachten Sie, dass Sie DAX nur in Kombination mit NTFS verwenden können.
 1. **Blockieren**Sie den Zugriff, der wie der Speicher für die APP-Kompatibilität funktioniert. In dieser configuraion fließen die Daten durch den Stapel. Sie können diese Konfiguration in Kombination mit NTFS und Refs verwenden.
 
 Die folgende Abbildung zeigt ein Beispiel für eine DAX-Konfiguration:
@@ -253,7 +253,7 @@ SerialNumber               HealthStatus OperationalStatus  OperationalDetails
 802c-01-1602-117cb64f      Warning      Predictive Failure {Threshold Exceeded,NVDIMM_N Error}
 ```
 
-**Healthstatus** zeigt an, ob die pMem-Festplatte fehlerfrei ist.  
+**Healthstatus** zeigt an, ob die pMem-Festplatte fehlerfrei ist.
 
 Mit dem Wert **unsafeshutdowncount** wird die Anzahl der Herunterfahr Vorgänge nachverfolgt, die auf diesem logischen Datenträger zu einem Datenverlust führen können. Dies ist die Summe der unsicheren Beendigungs Anzahl aller zugrunde liegenden pMem-Geräte auf diesem Datenträger. Weitere Informationen zum Integritäts Status erhalten Sie mithilfe des Cmdlets **Get-pmemphysicaldevice** , um Informationen wie **OperationalStatus**zu suchen.
 
@@ -289,7 +289,7 @@ Remove the persistent memory disk(s)?
 Removing the persistent memory disk. This may take a few moments.
 ```
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > Das Entfernen eines permanenten Speicher Datenträgers führt zu Datenverlusten auf diesem Datenträger.
 
 Ein weiteres Cmdlet, das Sie möglicherweise benötigen, ist **Initialize-pmemphysicaldevice**. Mit diesem Cmdlet werden die Speicherbereiche der Bezeichnung auf den physischen permanenten Speichergeräten initialisiert, und die Speicherinformationen für beschädigte Bezeichnungen können auf den pMem-Geräten gelöscht werden.
@@ -306,11 +306,11 @@ Initializing the physical persistent memory device. This may take a few moments.
 Initializing the physical persistent memory device. This may take a few moments.
 ```
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > **Initialize-pmemphysicaldevice** führt zu Datenverlusten im persistenten Speicher. Verwenden Sie es als letzten Ausweg, um persistente speicherbezogene Probleme zu beheben.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Übersicht über direkte Speicherplätze](storage-spaces-direct-overview.md)
-- [Integritäts Verwaltung für Speicher Klassen Speicher (nvdimm-N) in Windows](storage-class-memory-health.md)
+- [Integritätsverwaltung für Speicherklassenspeicher (NVDIMM-N) in Windows](storage-class-memory-health.md)
 - [Grundlegendes zum Cache](understand-the-cache.md)

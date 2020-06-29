@@ -9,18 +9,18 @@ ms.assetid: 2d34e98c-6134-479b-8000-3eb360b8b8a3
 author: kbdazure
 ms.author: kathydav
 ms.date: 12/06/2016
-ms.openlocfilehash: 592bb6352c4ca56770e1a3051ecbc88d9d378467
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: bbd96e35cbab94f3e10a4f62f785db7724308a0f
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80859413"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85471105"
 ---
-# <a name="remotely-manage-hyper-v-hosts-with-hyper-v-manager"></a>Remote Verwaltung von Hyper-v-Hosts mit dem Hyper-v-Manager
+# <a name="remotely-manage-hyper-v-hosts-with-hyper-v-manager"></a>Remoteverwaltung von Hyper-V-Hosts mit Hyper-V-Manager
 
 >Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows 10, Windows 8.1
 
-In diesem Artikel werden die unterstützten Kombinationen von Hyper-v-Hosts und Hyper-v-Manager-Versionen aufgelistet, und es wird beschrieben, wie Sie eine Verbindung mit Remote-und lokalen Hyper-v-Hosts herstellen, um 
+In diesem Artikel werden die unterstützten Kombinationen von Hyper-v-Hosts und Hyper-v-Manager-Versionen aufgelistet, und es wird beschrieben, wie Sie eine Verbindung mit Remote-und lokalen Hyper-v-Hosts herstellen, um
 
 Mit dem Hyper-v-Manager können Sie eine kleine Anzahl von Hyper-v-Hosts sowohl Remote als auch lokal verwalten. Die Installation wird bei der Installation der Hyper-v-Verwaltungs Tools installiert, die Sie entweder über eine vollständige Hyper-v-Installation oder eine reine Tools-Installation durchführen können. Wenn Sie eine nur-Tools-Installation durchführen, können Sie die Tools auf Computern verwenden, die die Hardwareanforderungen zum Hosten von Hyper-V nicht erfüllen. Weitere Informationen zu Hardware für Hyper-V-Hosts finden Sie unter [System Anforderungen](../System-requirements-for-Hyper-V-on-Windows.md).
 
@@ -34,8 +34,8 @@ In der folgenden Tabelle ist aufgeführt, welche Versionen eines Hyper-v-Hosts v
 
 |Hyper-V-Manager-Version | Hyper-V-Host Version|
 |---|---|
-|Windows 2016, Windows 10|-Windows Server 2016 – alle Editionen und Installationsoptionen, einschließlich nano Server, und die entsprechende Version von Hyper-V Server <br>-Windows Server 2012 R2 – alle Editionen und Installationsoptionen sowie die entsprechende Version von Hyper-V Server <br>-Windows Server 2012 – alle Editionen und Installationsoptionen und die entsprechende Version von Hyper-V Server <br> -Windows 10 <br> -Windows 8.1  |
-| Windows Server 2012 R2, Windows 8.1 | -Windows Server 2012 R2 – alle Editionen und Installationsoptionen sowie die entsprechende Version von Hyper-V Server <br>-Windows Server 2012 – alle Editionen und Installationsoptionen und die entsprechende Version von Hyper-V Server <br>-Windows 8.1
+|Windows 2016, Windows 10|-Windows Server 2016 – alle Editionen und Installationsoptionen, einschließlich nano Server, und die entsprechende Version von Hyper-V Server <br>-Windows Server 2012 R2 – alle Editionen und Installationsoptionen sowie die entsprechende Version von Hyper-V Server <br>-Windows Server 2012 – alle Editionen und Installationsoptionen und die entsprechende Version von Hyper-V Server <br> – Windows 10 <br> – Windows 8.1  |
+| Windows Server 2012 R2, Windows 8.1 | -Windows Server 2012 R2 – alle Editionen und Installationsoptionen sowie die entsprechende Version von Hyper-V Server <br>-Windows Server 2012 – alle Editionen und Installationsoptionen und die entsprechende Version von Hyper-V Server <br>– Windows 8.1
 | Windows Server 2012 | -Windows Server 2012 – alle Editionen und Installationsoptionen und die entsprechende Version von Hyper-V Server
 | Windows Server 2008 R2 Service Pack 1, Windows 7 Service Pack 1 | -Windows Server 2008 R2 – alle Editionen und Installationsoptionen sowie die entsprechende Version von Hyper-V Server
 | Windows Server 2008, Windows Vista Service Pack 2 | -Windows Server 2008 – alle Editionen und Installationsoptionen und die entsprechende Version von Hyper-V Server
@@ -49,7 +49,7 @@ Zum Herstellen einer Verbindung mit einem Hyper-v-Host über den Hyper-v-Manager
 
 ## <a name="manage-hyper-v-on-a-local-computer"></a>Verwalten von Hyper-V auf einem lokalen Computer
 
-Mit dem Hyper-v-Manager werden keine Computer aufgelistet, auf denen Hyper-v gehostet wird, bis Sie den Computer einschließlich eines lokalen Computers hinzufügen. Dazu gehen Sie folgendermaßen vor:
+Mit dem Hyper-v-Manager werden keine Computer aufgelistet, auf denen Hyper-v gehostet wird, bis Sie den Computer einschließlich eines lokalen Computers hinzufügen. Gehen Sie dazu folgendermaßen vor:
 
 1. Klicken Sie im linken Bereich mit der rechten Maustaste auf **Hyper-V-Manager**.
 2. Klicken Sie auf **Verbindung mit Server herstellen**.
@@ -61,13 +61,13 @@ Wenn keine Verbindung hergestellt werden kann:
 * Überprüfen Sie, ob Ihre Hardware die Anforderungen erfüllt. Siehe [System Anforderungen](../System-requirements-for-Hyper-V-on-Windows.md).
 * Überprüfen Sie, ob Ihr Benutzerkonto der Gruppe "Administratoren" oder der Gruppe "Hyper-V-Administratoren" angehört.
 
-## <a name="manage-hyper-v-hosts-remotely"></a>Remote Verwaltung von Hyper-V-Hosts  
+## <a name="manage-hyper-v-hosts-remotely"></a>Remote Verwaltung von Hyper-V-Hosts
 
 Zum Verwalten von Hyper-V-Remote Hosts aktivieren Sie die Remote Verwaltung auf dem lokalen Computer und Remote Host.
 
-Öffnen Sie unter Windows Server Server-Manager \>**lokalen Server** \>**Remote Verwaltung** , und klicken Sie dann auf **Remote Verbindungen mit diesem Computer zulassen**. 
+Öffnen Sie unter Windows Server Server-Manager \> **Local Server** \> **Remote Verwaltung** lokaler Server, und klicken Sie dann auf **Remote Verbindungen mit diesem Computer zulassen**.
 
-Oder öffnen Sie Windows PowerShell von einem der beiden Betriebssysteme als Administrator, und führen Sie Folgendes aus: 
+Oder öffnen Sie Windows PowerShell von einem der beiden Betriebssysteme als Administrator, und führen Sie Folgendes aus:
 
 ```
 Enable-PSRemoting
@@ -77,13 +77,13 @@ Enable-PSRemoting
 
 Bei Windows 8.1 und früheren Versionen funktioniert die Remote Verwaltung nur, wenn sich der Host in derselben Domäne befindet und das lokale Benutzerkonto auch auf dem Remote Host ausgeführt wird.
 
-Wählen Sie zum Hinzufügen eines Hyper-v-Remote Hosts zu Hyper-v-Manager **einen anderen Computer** im Dialogfeld **Computer auswählen** aus, und geben Sie den Hostnamen des Remote Hosts, den NetBIOS-Namen oder den voll qualifizierten Domänen Namen \(FQDN\)ein.
+Wählen Sie zum Hinzufügen eines Hyper-v-Remote Hosts zu Hyper-v-Manager **einen anderen Computer** im Dialogfeld **Computer auswählen** aus, und geben Sie den Hostnamen des Remote Hosts, den NetBIOS-Namen oder den voll qualifizierten Domänen Namen- \( FQDN ein \) .
 
-Der Hyper-V-Manager in Windows Server 2016 und Windows 10 bietet mehr Typen von Remote Verbindungen als vorherige Versionen, die in den folgenden Abschnitten beschrieben werden.  
+Der Hyper-V-Manager in Windows Server 2016 und Windows 10 bietet mehr Typen von Remote Verbindungen als vorherige Versionen, die in den folgenden Abschnitten beschrieben werden.
 
 ### <a name="connect-to-a-windows-2016-or-windows-10-remote-host-as-a-different-user"></a>Herstellen einer Verbindung mit einem Windows 2016-oder Windows 10-Remote Host als anderer Benutzer
 
-Auf diese Weise können Sie eine Verbindung mit dem Hyper-v-Host herstellen, wenn Sie nicht auf dem lokalen Computer als Benutzer ausgeführt werden, der Mitglied der Gruppe "Hyper-v-Administratoren" oder der Gruppe "Administratoren" auf dem Hyper-v-Host ist. Dazu gehen Sie folgendermaßen vor:
+Auf diese Weise können Sie eine Verbindung mit dem Hyper-v-Host herstellen, wenn Sie nicht auf dem lokalen Computer als Benutzer ausgeführt werden, der Mitglied der Gruppe "Hyper-v-Administratoren" oder der Gruppe "Administratoren" auf dem Hyper-v-Host ist. Gehen Sie dazu folgendermaßen vor:
 
 1. Klicken Sie im linken Bereich mit der rechten Maustaste auf **Hyper-V-Manager**.
 1. Klicken Sie auf **Verbindung mit Server herstellen**.
@@ -95,7 +95,7 @@ Auf diese Weise können Sie eine Verbindung mit dem Hyper-v-Host herstellen, wen
 
 ### <a name="connect-to-a-windows-2016-or-windows-10-remote-host-using-ip-address"></a>Herstellen einer Verbindung mit einem Windows 2016-oder Windows 10-Remote Host über die IP-Adresse
 
-Dazu gehen Sie folgendermaßen vor:
+Gehen Sie dazu folgendermaßen vor:
 
 1. Klicken Sie im linken Bereich mit der rechten Maustaste auf **Hyper-V-Manager**.
 1. Klicken Sie auf **Verbindung mit Server herstellen**.
@@ -106,18 +106,18 @@ Dazu gehen Sie folgendermaßen vor:
 
 ### <a name="connect-to-a-windows-2016-or-windows-10-remote-host-outside-your-domain-or-with-no-domain"></a>Herstellen einer Verbindung mit einem Windows 2016-oder Windows 10-Remote Host außerhalb Ihrer Domäne oder ohne Domäne
 
-Dazu gehen Sie folgendermaßen vor:
+Gehen Sie dazu folgendermaßen vor:
 
 1. Öffnen Sie auf dem zu verwaltenden Hyper-V-Host eine Windows PowerShell-Sitzung als Administrator.
 
-1. Erstellen Sie die erforderlichen Firewallregeln für private Netzwerk Zonen:   
-   
+1. Erstellen Sie die erforderlichen Firewallregeln für private Netzwerk Zonen:
+
    ```
    Enable-PSRemoting
    ```
 
 2. Um den Remote Zugriff auf Öffentliche Zonen zuzulassen, aktivieren Sie Firewallregeln für "kredssp" und "WinRM":
-  
+
    ```
    Enable-WSManCredSSP -Role server
    ```
@@ -127,7 +127,7 @@ Dazu gehen Sie folgendermaßen vor:
 Konfigurieren Sie als nächstes den Computer, den Sie zum Verwalten des Hyper-V-Hosts verwenden.
 
 1. Öffnen Sie eine Windows PowerShell-Sitzung als Administrator.
-1. Führen Sie die folgenden Befehle aus:
+1. Führen Sie diese Befehle aus:
 
      ```
      Set-Item WSMan:\localhost\Client\TrustedHosts -Value "fqdn-of-hyper-v-host"
@@ -135,8 +135,8 @@ Konfigurieren Sie als nächstes den Computer, den Sie zum Verwalten des Hyper-V-
      ```
      Enable-WSManCredSSP -Role client -DelegateComputer "fqdn-of-hyper-v-host"
      ```
-1. Möglicherweise müssen Sie auch die folgende Gruppenrichtlinie konfigurieren: 
-    * **Computer Konfiguration** \> **Administrative Vorlagen** \> Delegierung von **Anmelde** Informationen für den **System** \> \> **Zulassen der Delegierung von neuen Anmelde Informationen mit nur NTLM-Server Authentifizierung**
+1. Möglicherweise müssen Sie auch die folgende Gruppenrichtlinie konfigurieren:
+    * **Computer Konfiguration** \> **Administrative Vorlagen** \> **System** \> **Delegierungs Delegierungen** \> **Delegierung von neuen Anmelde Informationen mit nur NTLM-Server Authentifizierung zulassen**
     * Klicken Sie auf **aktivieren** , und fügen Sie *WSMAN/sqdn-of-Hyper-v-Host*hinzu.
 1. Öffnen Sie den **Hyper-V-Manager**.
 1. Klicken Sie im linken Bereich mit der rechten Maustaste auf **Hyper-V-Manager**.
@@ -151,11 +151,11 @@ Informationen zu Cmdlets finden Sie unter [Set-Item](https://msdn.microsoft.com/
 
 Wenn Sie ein UI-Tool verwenden möchten, wählen Sie das geeignete für das Betriebssystem auf dem Computer aus, auf dem Sie Hyper-V-Manager ausführen möchten:
 
-Öffnen Sie unter Windows Server Server-Manager \> **Verwalten** **Sie \> Rollen und Features hinzufügen**. Wechseln Sie zur Seite " **Features** ", und erweitern Sie **Remote Server-Verwaltungs Tools** \> **Rollen Verwaltungs Tools** \> **Hyper-V-Verwaltungs Tools**. 
+Öffnen Sie unter Windows Server Server-Manager \> **Verwalten** \> **Rollen und Features hinzufügen**. Wechseln Sie zur Seite " **Features** ", und erweitern Sie **Remote Server-Verwaltungs Tools** \> **Rollen Verwaltungs Tools** \> **Hyper-V-Verwaltungs Tools**.
 
 Unter Windows ist Hyper-v-Manager auf [jedem Windows-Betriebssystem verfügbar, das Hyper-v umfasst](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_compatibility).
 
-1. Klicken Sie auf dem Windows-Desktop auf die Schaltfläche Start, und geben Sie **Programme und Funktionen**ein. 
+1. Klicken Sie auf dem Windows-Desktop auf die Schaltfläche Start, und geben Sie **Programme und Funktionen**ein.
 1. Klicken Sie in den Suchergebnissen auf **Programme und Funktionen**.
 1. Klicken Sie im linken **Bereich auf Windows-Funktionen ein-oder ausschalten**.
 1. Erweitern Sie den Hyper-v-Ordner, und **Klicken Sie auf Hyper-v-Verwaltungs Tools**.
@@ -167,7 +167,7 @@ Um Windows PowerShell zu verwenden, führen Sie den folgenden Befehl als Adminis
 add-windowsfeature rsat-hyper-v-tools
 ```
 
-## <a name="see-also"></a>Siehe auch  
- 
-[Installieren von Hyper-V](../get-started/Install-the-Hyper-V-role-on-Windows-Server.md) 
+## <a name="additional-references"></a>Zusätzliche Referenzen
+
+[Installieren von Hyper-V](../get-started/Install-the-Hyper-V-role-on-Windows-Server.md)
 

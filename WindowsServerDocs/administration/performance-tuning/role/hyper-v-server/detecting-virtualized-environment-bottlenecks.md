@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: asmahi; sandysp; jopoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 211f35c151e94bc8b8a11a614edad18053cb18b9
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 11b2f596fc8c1f8c193100e4a9f1ee792d3d7502
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851777"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85471415"
 ---
 # <a name="detecting-bottlenecks-in-a-virtualized-environment"></a>Erkennen von Engpässen in einer virtualisierten Umgebung
 
@@ -28,15 +28,15 @@ Im folgenden finden Sie einige häufige Szenarien, die Prozessor Engpässe verur
 
 Sie können die folgenden Leistungsindikatoren auf dem Host verwenden:
 
--   Auslastung des logischen Prozessors-\\logischer Hyper-V-Hypervisor-Prozessor (\*)\\% Gesamtlaufzeit
+-   Auslastung des logischen Prozessors: \\ logischer Hyper-V-Hypervisor-Prozessor ( \* ) \\ % Gesamtlaufzeit
 
--   Auslastung des virtuellen Prozessors-\\virtuellen Hyper-V-Hypervisor-Prozessor (\*)\\% Gesamtlaufzeit
+-   Auslastung des virtuellen Prozessors- \\ virtueller Hyper-V-Hypervisor-Prozessor ( \* ) \\ % Gesamtlaufzeit
 
--   Auslastung des virtuellen Stamm Prozessors-\\virtuellen Hyper-V-Hypervisor-Stamm Prozessor (\*)\\% Gesamtlaufzeit
+-   Auslastung des virtuellen Prozessor Stamms- \\ virtueller Hyper-V-Hypervisor-Stamm Prozessor ( \* ) \\ % Gesamtlaufzeit
 
-Wenn der **logische Prozessor des Hyper-V-Hypervisors (\_gesamt)\\% Total Runtime** Counter über 90% ist, wird der Host überladen. Sie sollten eine höhere Verarbeitungsleistung hinzufügen oder einige virtuelle Maschinen auf einen anderen Host verschieben.
+Wenn der **logische Prozessor des Hyper-V-Hypervisor-Prozessors ( \_ gesamt) \\ % der Lauf** Zeit Zahl über 90% beträgt, wird der Host überladen. Sie sollten eine höhere Verarbeitungsleistung hinzufügen oder einige virtuelle Maschinen auf einen anderen Host verschieben.
 
-Wenn der **virtuelle Hyper-V-Hypervisor-Prozessor (VM-Name: VP x)\\% Total Runtime** -Wert für alle virtuellen Prozessoren mehr als 90% beträgt, sollten Sie die folgenden Schritte ausführen:
+Wenn der **virtuelle Hyper-V-Hypervisor-Prozessor (VM-Name: VP x) \\ % Total Runtime** Counter für alle virtuellen Prozessoren mehr als 90% beträgt, sollten Sie die folgenden Schritte ausführen:
 
 -   Überprüfen, ob der Host nicht überladen ist
 
@@ -44,7 +44,7 @@ Wenn der **virtuelle Hyper-V-Hypervisor-Prozessor (VM-Name: VP x)\\% Total Runti
 
 -   Zuweisen von mehr virtuellen Prozessoren zum virtuellen Computer
 
-Wenn der **virtuelle Hyper-V-Hypervisor-Prozessor (VM-Name: VP x)\\% Total-Lauf** Zeit Zählers bei einigen, jedoch nicht allen virtuellen Prozessoren mehr als 90% beträgt, sollten Sie folgende Schritte ausführen:
+Wenn der **virtuelle Hyper-V-Hypervisor-Prozessor (VM-Name: VP x) \\ % Total Runtime** Counter bei einigen, jedoch nicht allen virtuellen Prozessoren mehr als 90% beträgt, sollten Sie die folgenden Schritte ausführen:
 
 -   Wenn Ihre Arbeitsauslastung Netzwerk intensiv ist, sollten Sie die Verwendung von vrss in Erwägung gezogen.
 
@@ -52,9 +52,9 @@ Wenn der **virtuelle Hyper-V-Hypervisor-Prozessor (VM-Name: VP x)\\% Total-Lauf*
 
 -   Wenn Ihre Arbeitsauslastung Speicher intensiv ist, sollten Sie virtuelle NUMA aktivieren und weitere virtuelle Datenträger hinzufügen.
 
-Wenn der **virtuelle Hyper-V-Hypervisor-Stamm Prozessor (Stamm-VP x)\\% Total Runtime** -Zählers für einige über 90% beträgt, aber nicht alle virtuellen Prozessoren und Prozessor **(x)\\% Interruptzeit und Prozessor (x)\\% DPC-Zeit** Leistungsindikatoren summiert ungefähr den Wert für den Stamm- **virtuellen Prozessor (Stamm-VP x)\\% Total Runtime** -Leistungsindikatoren. Stellen Sie sicher, dass VMQ auf den Netzwerkadaptern aktiviert ist.
+Wenn der **virtuelle Hyper-V-Hypervisor-Stamm Prozessor (Stamm-VP x) \\ % Total Runtime** Counter für einige über 90% liegt, jedoch werden nicht alle virtuellen Prozessoren und Prozessorzeit (x)% **DPC-Zeit (%) \\ und Prozessor (x) \\ % DPC-Zeit (** %) auf den Wert für den Leistungswert des **virtuellen Stamm Prozessors (Stamm-VP x) \\ % Gesamter Lauf** Zeit Leistungsindikatoren. Sie sollten sicherstellen, dass VMQ für die Netzwerkadapter aktiviert ist.
 
-## <a name="memory-bottlenecks"></a>Arbeitsspeicher Engpässe
+## <a name="memory-bottlenecks"></a>Arbeitsspeicherengpässe
 
 Im folgenden finden Sie einige häufige Szenarien, die Arbeitsspeicher Engpässe verursachen können:
 
@@ -66,17 +66,17 @@ Im folgenden finden Sie einige häufige Szenarien, die Arbeitsspeicher Engpässe
 
 Sie können die folgenden Leistungsindikatoren auf dem Host verwenden:
 
--   Arbeitsspeicher\\verfügbare MB
+-   Verfügbarer Arbeitsspeicher (MB) \\
 
--   Hyper-V dynamischer Arbeitsspeicher Balancer (\*)\\verfügbaren Arbeitsspeicher
+-   \*Verfügbarer Arbeitsspeicher für Hyper-V dynamischer Arbeitsspeicher Balancer () \\
 
 Sie können die folgenden Leistungsindikatoren auf dem virtuellen Computer verwenden:
 
--   Arbeitsspeicher\\verfügbare MB
+-   Verfügbarer Arbeitsspeicher (MB) \\
 
-Wenn die **Speicher\\verfügbare** MB und **Hyper-V dynamischer Arbeitsspeicher Balancer (\*)\\verfügbaren Arbeitsspeicher** auf dem Host gering sind, sollten Sie nicht erforderliche Dienste anhalten und eine oder mehrere virtuelle Maschinen zu einem anderen Host migrieren.
+Wenn die Leistungsindikatoren verfügbarer Arbeits **Speicher \\ ** (MB **) und Hyper-V-dynamischer Arbeitsspeicher Balancer ( \* ) \\ ** auf dem Host niedrig sind, sollten Sie nicht erforderliche Dienste anhalten und eine oder mehrere virtuelle Maschinen zu einem anderen Host migrieren.
 
-Wenn der virtuelle Computer den Arbeits **Speicher\\verfügbare** MB-Anzahl (MB) niedrig ist, sollten Sie dem virtuellen Computer mehr Arbeitsspeicher zuweisen. Wenn Sie dynamischer Arbeitsspeicher verwenden, sollten Sie die Einstellung für den maximalen Arbeitsspeicher erhöhen.
+Wenn der virtuelle Computer im Arbeits **Speicher \\ Verfügbare** MB nicht verfügbar ist, sollten Sie dem virtuellen Computer mehr Arbeitsspeicher zuweisen. Wenn Sie dynamischer Arbeitsspeicher verwenden, sollten Sie die Einstellung für den maximalen Arbeitsspeicher erhöhen.
 
 ## <a name="network-bottlenecks"></a>Netzwerk Engpässe
 
@@ -88,11 +88,11 @@ Im folgenden finden Sie einige häufige Szenarien, die zu Netzwerk Engpässen f�
 
 Sie können die folgenden Leistungsindikatoren auf dem Host verwenden:
 
--   Netzwerkschnittstelle (*Netzwerkadapter Name*)\\Bytes/Sek.
+-   Netzwerkschnittstelle (*Netzwerkadapter Name*) \\ Bytes/Sek.
 
 Sie können die folgenden Leistungsindikatoren auf dem virtuellen Computer verwenden:
 
--   Hyper-V-Virtual Network Adapter (*Name des virtuellen Computers&lt;GUID&gt;* )\\Bytes/Sek.
+-   Hyper-V-Virtual Network Adapter (Name der VM-*namens- &lt; GUID &gt; *) \\ Bytes/Sek.
 
 Wenn der Leistungswert für **physische NIC-Bytes/Sek** . größer als oder gleich 90% der Kapazität ist, sollten Sie zusätzliche Netzwerkadapter hinzufügen, virtuelle Maschinen zu einem anderen Host migrieren und Netzwerk-QoS konfigurieren.
 
@@ -110,13 +110,13 @@ Im folgenden finden Sie einige häufige Szenarien, die Speicher Engpässe verurs
 
 Sie können die folgenden Leistungsindikatoren auf dem Host verwenden:
 
--   Physischer Datenträger (Datenträger*Buchstabe*)\\Mittlere Sek./Lesevorgänge
+-   Physischer Datenträger (Datenträger*Buchstabe*) \ mittlere \\ Sek./Lesevorgänge
 
--   Physischer Datenträger (Datenträger*Buchstabe*)\\Mittlere Sek./Schreibvorgänge
+-   Physischer Datenträger (Datenträger*Buchstabe*) mittlere \\ Sek./Schreibvorgänge
 
--   Physischer Datenträger (Datenträger*Buchstabe*)\\Durchschnittl. Warteschlangen Länge des Datenträgers
+-   Physischer Datenträger (Datenträger*Buchstabe*) \\ Durchschn. Warteschlangen Länge des Datenträgers
 
--   Physischer Datenträger (Datenträger*Buchstabe*)\\durchschnittliche Warteschlangen Länge des Datenträgers
+-   Physischer Datenträger (Datenträger*Buchstabe*) Durchschn \\ . Warteschlangen Länge des Datenträgers
 
 Wenn die Latenzzeit konstant größer als 50 ms ist, sollten Sie folgende Schritte ausführen:
 
@@ -130,7 +130,7 @@ Wenn die Latenzzeit konstant größer als 50 ms ist, sollten Sie folgende Schrit
 
 -   Verwenden von vhdx
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 -   [Hyper-V-Terminologie](terminology.md)
 

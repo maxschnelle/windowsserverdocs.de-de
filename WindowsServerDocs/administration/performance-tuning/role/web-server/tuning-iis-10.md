@@ -1,5 +1,5 @@
 ---
-title: Optimieren von IIS 10,0
+title: Optimieren von IIS 10.0
 description: Neukommungen für die Leistungsoptimierung von IIS 10,0-Webservern unter Windows Server 16
 ms.prod: windows-server
 ms.technology: performance-tuning-guide
@@ -7,26 +7,26 @@ ms.topic: landing-page
 ms.author: davso; ericam; yashi
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 229c4f53578430e35a66e3dbe50f0d9a8e9ac2f5
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 5e001ef3a51c93e3b1c7e4bf3d1af0a014243e56
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851663"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85471215"
 ---
-# <a name="tuning-iis-100"></a>Optimieren von IIS 10,0
+# <a name="tuning-iis-100"></a>Optimieren von IIS 10.0
 
-Internetinformationsdienste (IIS) 10,0 ist in Windows Server 2016 enthalten. Dabei wird ein Prozessmodell verwendet, das dem von IIS 8,5 und IIS 7,0 ähnelt. Ein Kernel Modus-webtreiber (http. sys) empfängt HTTP-Anforderungen und leitet diese weiter und erfüllt Anforderungen aus dem Antwort Cache. Arbeitsprozesse registrieren sich für URL-Teilbereiche, und http. sys leitet die Anforderung an den entsprechenden Prozess (oder Satz von Prozessen für Anwendungs Pools) weiter.
+Internetinformationsdienste (IIS) 10,0 ist in Windows Server 2016 enthalten. Dabei wird ein Prozessmodell verwendet, das dem von IIS 8,5 und IIS 7,0 ähnelt. Ein Kernel Modus-webtreiber (http.sys) empfängt HTTP-Anforderungen und leitet diese weiter und erfüllt Anforderungen aus dem Antwort Cache. Arbeitsprozesse registrieren sich für URL-Teilbereiche, und http.sys leitet die Anforderung an den entsprechenden Prozess (oder Satz von Prozessen für Anwendungs Pools) weiter.
 
-HTTP. sys ist für die Verbindungs Verwaltung und die Anforderungs Verarbeitung verantwortlich. Die Anforderung kann aus dem http. sys-Cache bereitgestellt oder zur weiteren Verarbeitung an einen Arbeitsprozess weitergeleitet werden. Es können mehrere Arbeitsprozesse konfiguriert werden, wodurch die Isolation zu geringeren Kosten ermöglicht wird. Weitere Informationen zur Funktionsweise der Anforderungs Verarbeitung finden Sie in der folgenden Abbildung:
+HTTP.sys ist für die Verbindungs Verwaltung und die Anforderungs Verarbeitung verantwortlich. Die Anforderung kann aus dem HTTP.sys Cache bereitgestellt oder zur weiteren Verarbeitung an einen Arbeitsprozess weitergeleitet werden. Es können mehrere Arbeitsprozesse konfiguriert werden, wodurch die Isolation zu geringeren Kosten ermöglicht wird. Weitere Informationen zur Funktionsweise der Anforderungs Verarbeitung finden Sie in der folgenden Abbildung:
 
 ![Anforderungs Verarbeitung in IIS 10,0](../../media/perftune-guide-iis-request-handling.png)
 
-HTTP. sys enthält einen Antwort Cache. Wenn eine Anforderung mit einem Eintrag im Antwort Cache übereinstimmt, sendet http. sys die Cache Antwort direkt aus dem Kernel Modus. Einige Webanwendungs Plattformen, z. b. ASP.net, stellen Mechanismen bereit, mit denen dynamische Inhalte im Kernelmoduscache zwischengespeichert werden können. Der statische Datei Handler in IIS 10,0 speichert häufig angeforderte Dateien in http. sys automatisch zwischen.
+HTTP.sys enthält einen Antwort Cache. Wenn eine Anforderung mit einem Eintrag im Antwort Cache übereinstimmt, sendet HTTP.sys die Cache Antwort direkt aus dem Kernel Modus. Einige Webanwendungs Plattformen, z. b. ASP.net, stellen Mechanismen bereit, mit denen dynamische Inhalte im Kernelmoduscache zwischengespeichert werden können. Der statische Datei Handler in IIS 10,0 speichert häufig angeforderte Dateien automatisch in http.sys zwischen.
 
 Da ein Webserver über Kernel Modus-und Benutzermoduskomponenten verfügt, müssen beide Komponenten auf eine optimale Leistung abgestimmt werden. Daher umfasst die Optimierung von IIS 10,0 für eine bestimmte Arbeitsauslastung Folgendes:
 
--   HTTP. sys und der zugehörige Kernel Modus-Cache
+-   HTTP.sys und der zugehörige Kernelmoduscache
 
 -   Arbeitsprozesse und Benutzermodus-IIS, einschließlich der Anwendungs Pool Konfiguration
 
@@ -36,23 +36,23 @@ In den folgenden Abschnitten wird erläutert, wie Sie die Kernel Modus-und benut
 
 ## <a name="kernel-mode-settings"></a>Kernelmoduseinstellungen
 
-Leistungsbezogene http. sys-Einstellungen fallen in zwei allgemeine Kategorien: Cache Verwaltung und Verbindungs-und Anforderungs Verwaltung. Alle Registrierungs Einstellungen werden unter dem folgenden Registrierungs Eintrag gespeichert:
+Leistungsbezogene HTTP.sys Einstellungen fallen in zwei allgemeine Kategorien: Cache Verwaltung und Verbindungs-und Anforderungs Verwaltung. Alle Registrierungs Einstellungen werden unter dem folgenden Registrierungs Eintrag gespeichert:
 
 ``` syntax
 HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Http\Parameters
 ```
 
-**Beachten** Sie  wenn der HTTP-Dienst bereits ausgeführt wird, müssen Sie ihn neu starten, damit die Änderungen wirksam werden.
+**Hinweis**   Wenn der HTTP-Dienst bereits ausgeführt wird, müssen Sie ihn neu starten, damit die Änderungen wirksam werden.
 
 Â 
 
 ## <a name="cache-management-settings"></a>Einstellungen für die Cache Verwaltung
 
-Ein von http. sys bereitgestellte Vorteil ist ein Kernelmoduscache. Wenn sich die Antwort im Kernel Modus-Cache befindet, können Sie eine HTTP-Anforderung vollständig aus dem Kernel Modus erfüllen, wodurch die CPU-Kosten für die Verarbeitung der Anforderung erheblich gesenkt werden. Der Kernelmoduscache von IIS 10,0 basiert jedoch auf physischem Arbeitsspeicher, und die Kosten für einen Eintrag sind der Speicherplatz, den er einnimmt.
+Ein Vorteil, den HTTP.sys bietet, ist ein Kernel Modus-Cache. Wenn sich die Antwort im Kernel Modus-Cache befindet, können Sie eine HTTP-Anforderung vollständig aus dem Kernel Modus erfüllen, wodurch die CPU-Kosten für die Verarbeitung der Anforderung erheblich gesenkt werden. Der Kernelmoduscache von IIS 10,0 basiert jedoch auf physischem Arbeitsspeicher, und die Kosten für einen Eintrag sind der Speicherplatz, den er einnimmt.
 
-Ein Eintrag im Cache ist nur hilfreich, wenn er verwendet wird. Der Eintrag beansprucht jedoch immer physischen Speicher, unabhängig davon, ob der Eintrag verwendet wird. Sie müssen die Nützlichkeit eines Elements im Cache (die Einsparungen, die es aus dem Cache verarbeiten kann) und seine Kosten (der physische Arbeitsspeicher belegt) über die Lebensdauer des Eintrags auswerten, indem Sie die verfügbaren Ressourcen (CPU-und physischer Arbeitsspeicher) und die workloadanforderungen berücksichtigen. HTTP. sys versucht, nur nützliche, aktiv auf Elemente im Cache zuzugreifen, aber Sie können die Leistung des Webservers steigern, indem Sie den http. sys-Cache für bestimmte Arbeits Auslastungen optimieren.
+Ein Eintrag im Cache ist nur hilfreich, wenn er verwendet wird. Der Eintrag beansprucht jedoch immer physischen Speicher, unabhängig davon, ob der Eintrag verwendet wird. Sie müssen die Nützlichkeit eines Elements im Cache (die Einsparungen, die es aus dem Cache verarbeiten kann) und seine Kosten (der physische Arbeitsspeicher belegt) über die Lebensdauer des Eintrags auswerten, indem Sie die verfügbaren Ressourcen (CPU-und physischer Arbeitsspeicher) und die workloadanforderungen berücksichtigen. HTTP.sys versucht, nur nützliche, aktiv auf Elemente im Cache zuzugreifen, aber Sie können die Leistung des Webservers steigern, indem Sie den HTTP.sys Cache für bestimmte Arbeits Auslastungen optimieren.
 
-Im folgenden sind einige hilfreiche Einstellungen für den http. sys-kernelmoduscocache aufgeführt:
+Im folgenden finden Sie einige hilfreiche Einstellungen für den HTTP.sys Kernel Modus-Cache:
 
 -   **Urienablecache** Standardwert: 1
 
@@ -72,11 +72,11 @@ Im folgenden sind einige hilfreiche Einstellungen für den http. sys-kernelmodus
 
 -   **Uriscavengerperiod** Standardwert: 120 Sekunden
 
-    Der http. sys-Cache wird in regelmäßigen Abständen von einer Scavenger gescannt, und Einträge, auf die zwischen Scavenger-Scans nicht zugegriffen wird, werden entfernt. Wenn Sie den Scavenger-Zeitraum auf einen hohen Wert festlegen, wird die Anzahl der Scavenger-Scans reduziert. Allerdings kann sich die Cache Speicherauslastung erhöhen, da ältere Einträge, auf die seltener zugegriffen wird, im Cache verbleiben können. Wenn Sie den Zeitraum zu niedrig festlegen, werden häufigere Scavenger-Scans durchführt, und es kann zu vielen Leerungen und Cache Änderungen kommen.
+    Der HTTP.sys Cache wird in regelmäßigen Abständen von einem Scavenger gescannt, und Einträge, auf die zwischen Scavenger-Scans nicht zugegriffen wird, werden entfernt. Wenn Sie den Scavenger-Zeitraum auf einen hohen Wert festlegen, wird die Anzahl der Scavenger-Scans reduziert. Allerdings kann sich die Cache Speicherauslastung erhöhen, da ältere Einträge, auf die seltener zugegriffen wird, im Cache verbleiben können. Wenn Sie den Zeitraum zu niedrig festlegen, werden häufigere Scavenger-Scans durchführt, und es kann zu vielen Leerungen und Cache Änderungen kommen.
 
 ## <a name="request-and-connection-management-settings"></a>Anforderungs-und Verbindungs Verwaltungs Einstellungen
 
-In Windows Server 2016 werden Verbindungen von http. sys automatisch verwaltet. Die folgenden Registrierungs Einstellungen werden nicht mehr verwendet:
+In Windows Server 2016 werden Verbindungen von HTTP.sys automatisch verwaltet. Die folgenden Registrierungs Einstellungen werden nicht mehr verwendet:
 
 -   **MaxConnections**
 
@@ -119,9 +119,9 @@ In Windows Server 2016 werden Verbindungen von http. sys automatisch verwaltet. 
 
 Die Einstellungen in diesem Abschnitt wirken sich auf das Verhalten des Workerprozesses von iis10,0 aus. Die meisten dieser Einstellungen finden Sie in der folgenden XML-Konfigurationsdatei:
 
-% Systemroot%\\System32\\inetsrv\\config\\ApplicationHost. config
+% Systemroot% \\ system32 \\ inetsrv \\ config \\applicationHost.config
 
-Ändern Sie die Cmdlets "Appcmd. exe", die IIS 10,0-Verwaltungskonsole, die Webadministration oder die iisadministration-PowerShell-Cmdlets. Die meisten Einstellungen werden automatisch erkannt, und es ist kein Neustart der IIS 10,0-Workerprozesse oder des Webanwendungs Servers erforderlich. Weitere Informationen zur Datei "applicationHost. config" finden [Sie unter Einführung in "applicationHost. config](https://www.iis.net/learn/get-started/planning-your-iis-architecture/introduction-to-applicationhostconfig)".
+Verwenden Sie Appcmd.exe, die IIS 10,0-Verwaltungskonsole, die Webadministration oder die iisadministration PowerShell-Cmdlets, um Sie zu ändern. Die meisten Einstellungen werden automatisch erkannt, und es ist kein Neustart der IIS 10,0-Workerprozesse oder des Webanwendungs Servers erforderlich. Weitere Informationen zur applicationHost.config Datei finden [Sie unter Einführung in ApplicationHost.config](https://www.iis.net/learn/get-started/planning-your-iis-architecture/introduction-to-applicationhostconfig).
 
 
 ## <a name="ideal-cpu-setting-for-numa-hardware"></a>Ideale CPU-Einstellung für NUMA-Hardware
@@ -134,15 +134,15 @@ HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\InetInfo\Parameters\ThreadP
 
 Wenn diese Funktion aktiviert ist, unternimmt der IIS-Thread-Manager den besten Aufwand für die gleichmäßige Verteilung von IIS-Threadpoolthreads auf alle CPUs in allen NUMA-Knoten auf der Grundlage ihrer aktuellen Auslastung. Im Allgemeinen empfiehlt es sich, diese Standardeinstellung für NUMA-Hardware unverändert zu lassen.
 
-**Beachten Sie**  sich die ideale CPU-Einstellung von den Einstellungen für die NUMA-Knoten Zuweisung des Arbeitsprozesses (numanodezuweisung und numanodeaffinitymode) unterscheidet, die in den [CPU-Einstellungen für einen Anwendungs Pool](https://www.iis.net/configreference/system.applicationhost/applicationpools/add/cpu)eingeführt wurden. Die ideale CPU-Einstellung wirkt sich darauf aus, wie IIS die Threads des Thread Pools verteilt, während die Einstellungen der NUMA-Knoten Zuweisung des Arbeitsprozesses bestimmen, welcher NUMA-Knoten von einem Arbeitsprozess gestartet wird
+**Hinweis**   Die ideale CPU-Einstellung unterscheidet sich von den Arbeitsprozess-NUMA-Knoten Zuweisungs Einstellungen (numanodezuweisung und numanodeaffinitymode), die in den [CPU-Einstellungen für einen Anwendungs Pool](https://www.iis.net/configreference/system.applicationhost/applicationpools/add/cpu)eingeführt wurden. Die ideale CPU-Einstellung wirkt sich darauf aus, wie IIS die Threads des Thread Pools verteilt, während die Einstellungen der NUMA-Knoten Zuweisung des Arbeitsprozesses bestimmen, welcher NUMA-Knoten von einem Arbeitsprozess gestartet wird
 
 ## <a name="user-mode-cache-behavior-settings"></a>Einstellungen für das Cache Verhalten im Benutzermodus
 
-In diesem Abschnitt werden die Einstellungen beschrieben, die sich auf das zwischen Speicherungs Verhalten in iis10,0 auswirken. Der Cache im Benutzermodus wird als Modul implementiert, das die globalen zwischen Speicherungs Ereignisse überwacht, die von der integrierten Pipeline ausgelöst werden. Um den Cache im Benutzermodus vollständig zu deaktivieren, entfernen Sie das Modul "flecachemodule (cachfile. dll)" aus der Liste der installierten Module im Konfigurations Abschnitt "System. Webserver/globalModules" in der Datei "applicationHost. config".
+In diesem Abschnitt werden die Einstellungen beschrieben, die sich auf das zwischen Speicherungs Verhalten in iis10,0 auswirken. Der Cache im Benutzermodus wird als Modul implementiert, das die globalen zwischen Speicherungs Ereignisse überwacht, die von der integrierten Pipeline ausgelöst werden. Um den Cache im Benutzermodus vollständig zu deaktivieren, entfernen Sie das Modul "flecachemodule (cachfile.dll)" aus der Liste der installierten Module im Konfigurations Abschnitt System. Webserver/globalModules in applicationHost.config.
 
 **System. Webserver/Caching**
 
-|Attribut|Beschreibung|Standard|
+|attribute|Beschreibung|Standard|
 |--- |--- |--- |
 |Aktiviert|Deaktiviert den IIS-Cache im Benutzermodus, wenn der Wert auf **false**festgelegt ist. Wenn die Cache-Treffer Rate sehr klein ist, können Sie den Cache vollständig deaktivieren, um den mehr Aufwand zu vermeiden, der mit dem Cache Codepfad verknüpft ist. Durch das Deaktivieren des Cache im Benutzermodus wird der Kernelmoduscache nicht deaktiviert.|True|
 |enablekernelcache|Deaktiviert den Kernelmoduscache, wenn der Wert auf **false**festgelegt ist.|True|
@@ -153,20 +153,20 @@ In diesem Abschnitt werden die Einstellungen beschrieben, die sich auf das zwisc
 
 Von IIS ab 7,0 werden statische Inhalte standardmäßig komprimiert. Außerdem ist die Komprimierung dynamischer Inhalte standardmäßig aktiviert, wenn dynamiccompressionmodule installiert ist. Durch die Komprimierung wird die Bandbreitenauslastung reduziert, aber die CPU Komprimierte Inhalte werden, sofern möglich, im Kernel Modus Cache zwischengespeichert. Ab 8,5 kann die Komprimierung von IIS unabhängig von statischem und dynamischem Inhalt gesteuert werden. Statischer Inhalt bezieht sich in der Regel auf Inhalte, die sich nicht ändern, wie GIF-oder HTM-Dateien. Dynamische Inhalte werden in der Regel von Skripts oder Code auf dem Server generiert, d. h. ASP.NET Seiten. Sie können die Klassifizierung einer bestimmten Erweiterung als statisch oder dynamisch anpassen.
 
-Um die Komprimierung vollständig zu deaktivieren, entfernen Sie StaticCompressionModule und dynamiccompressionmodule aus der Liste der Module im Abschnitt System. Webserver/globalModules in ApplicationHost. config.
+Um die Komprimierung vollständig zu deaktivieren, entfernen Sie StaticCompressionModule und dynamiccompressionmodule aus der Liste der Module im Abschnitt System. Webserver/globalModules in applicationHost.config.
 
 **System. Webserver/httpCompression**
 
-|Attribut|Beschreibung|Standard|
+|attribute|Beschreibung|Standard|
 |--- |--- |--- |
 |staticcompression-enablecpuusage<br><br>staticcompression-disablecpuusage<br><br>dynamiccompression-enablecpuusage<br><br>dynamiccompression-disablecpuusage|Aktiviert oder deaktiviert die Komprimierung, wenn der aktuelle Prozentsatz der CPU-Auslastung die angegebenen Grenzwerte über oder unterschreitet.<br><br>Ab IIS 7,0 wird die Komprimierung automatisch deaktiviert, wenn die CPU des Konstanten Zustands über dem Schwellenwert für die Deaktivierung zunimmt. Die Komprimierung ist aktiviert, wenn die CPU unter den Aktivierungs Schwellenwert sinkt.|50, 100, 50 und 90|
-|Verzeichnis|Gibt das Verzeichnis an, in dem komprimierte Versionen von statischen Dateien temporär gespeichert und zwischengespeichert werden. Erwägen Sie, dieses Verzeichnis vom Systemlaufwerk zu verschieben, wenn häufig darauf zugegriffen wird.|%SystemDrive%\inetpub\temp\IIS temporäre komprimierte Dateien|
+|directory|Gibt das Verzeichnis an, in dem komprimierte Versionen von statischen Dateien temporär gespeichert und zwischengespeichert werden. Erwägen Sie, dieses Verzeichnis vom Systemlaufwerk zu verschieben, wenn häufig darauf zugegriffen wird.|%SystemDrive%\inetpub\temp\IIS Temporary Compressed Files|
 |dodiskspaceliangrenzungs|Gibt an, ob eine Beschränkung vorhanden ist, die angibt, wie viel Speicherplatz alle komprimierten Dateien belegen dürfen. Komprimierte Dateien werden im Komprimierungs Verzeichnis gespeichert, das durch das **Directory** -Attribut angegeben wird.|True|
-|maxdiskspaceusage|Gibt die Anzahl der Bytes an Speicherplatz an, die komprimierte Dateien im Komprimierungs Verzeichnis belegen können.<br><br>Diese Einstellung muss möglicherweise angehoben werden, wenn die Gesamtgröße aller komprimierten Inhalte zu groß ist.|100 MB|
+|maxdiskspaceusage|Gibt die Anzahl der Bytes an Speicherplatz an, die komprimierte Dateien im Komprimierungs Verzeichnis belegen können.<br><br>Diese Einstellung muss möglicherweise angehoben werden, wenn die Gesamtgröße aller komprimierten Inhalte zu groß ist.|100 MB|
 
 **System. Webserver/urlCompression**
 
-|Attribut|Beschreibung|Standard|
+|attribute|Beschreibung|Standard|
 |--- |--- |--- |
 |DoStaticCompression|Gibt an, ob statischer Inhalt komprimiert ist.|True|
 |DoDynamicCompression|Gibt an, ob dynamischer Inhalt komprimiert wird.|True|
@@ -176,20 +176,20 @@ Um die Komprimierung vollständig zu deaktivieren, entfernen Sie StaticCompressi
 
 ### <a name="tuning-the-default-document-list"></a>Optimieren der Standarddokument Liste
 
-Das Standarddokument Modul verarbeitet HTTP-Anforderungen für den Stamm eines Verzeichnisses und übersetzt Sie in Anforderungen für eine bestimmte Datei, z. b. "default. htm" oder "index. htm". Im Durchschnitt übersteigen 25 Prozent aller Anforderungen im Internet den Standarddokument Pfad. Dies variiert für einzelne Websites erheblich. Wenn eine HTTP-Anforderung keinen Dateinamen angibt, durchsucht das Standarddokument Modul die Liste der zulässigen Standarddokumente nach den einzelnen Namen im Dateisystem. Dies kann sich negativ auf die Leistung auswirken, insbesondere, wenn das Erreichen des Inhalts einen Netzwerkroundtrip oder einen Datenträger erfordert.
+Das Standarddokument Modul verarbeitet HTTP-Anforderungen für den Stamm eines Verzeichnisses und übersetzt Sie in Anforderungen für eine bestimmte Datei, z. b. Default.htm oder Index.htm. Im Durchschnitt übersteigen 25 Prozent aller Anforderungen im Internet den Standarddokument Pfad. Dies variiert für einzelne Websites erheblich. Wenn eine HTTP-Anforderung keinen Dateinamen angibt, durchsucht das Standarddokument Modul die Liste der zulässigen Standarddokumente nach den einzelnen Namen im Dateisystem. Dies kann sich negativ auf die Leistung auswirken, insbesondere, wenn das Erreichen des Inhalts einen Netzwerkroundtrip oder einen Datenträger erfordert.
 
 Sie können den Aufwand vermeiden, indem Sie die Standarddokumente selektiv deaktivieren und die Liste der Dokumente reduzieren oder anordnen. Bei Websites, die ein Standarddokument verwenden, sollten Sie die Liste auf die verwendeten Standarddokument Typen reduzieren. Ordnen Sie außerdem die Liste so an, dass Sie mit dem am häufigsten verwendeten Standarddokument Dateinamen beginnt.
 
-Sie können das standardmäßige Dokument Verhalten selektiv für bestimmte URLs festlegen, indem Sie die Konfiguration innerhalb eines Location-Tags in "applicationHost. config" anpassen oder indem Sie eine Web. config-Datei direkt in das Inhaltsverzeichnis einfügen. Dies ermöglicht einen Hybrid Ansatz, bei dem Standarddokumente nur an der Stelle, an der Sie benötigt werden, aktiviert werden und die Liste für jede URL auf den richtigen Dateinamen festgelegt wird.
+Sie können das standardmäßige Dokument Verhalten für bestimmte URLs selektiv festlegen, indem Sie die Konfiguration innerhalb eines Location-Tags in applicationHost.config anpassen oder indem Sie eine web.config Datei direkt in das Inhaltsverzeichnis einfügen. Dies ermöglicht einen Hybrid Ansatz, bei dem Standarddokumente nur an der Stelle, an der Sie benötigt werden, aktiviert werden und die Liste für jede URL auf den richtigen Dateinamen festgelegt wird.
 
-Um Standarddokumente vollständig zu deaktivieren, entfernen Sie defaultdocumentmodule aus der Liste der Module im Abschnitt System. Webserver/globalModules in ApplicationHost. config.
+Um Standarddokumente vollständig zu deaktivieren, entfernen Sie defaultdocumentmodule aus der Liste der Module im Abschnitt System. Webserver/globalModules in applicationHost.config.
 
 **System. Webserver/defaultDocument**
 
-|Attribut|Beschreibung|Standard|
+|attribute|Beschreibung|Standard|
 |--- |--- |--- |
 |enabled|Gibt an, dass Standarddokumente aktiviert sind.|True|
-|&lt;Dateien&gt; Element|Gibt die Dateinamen an, die als Standarddokumente konfiguriert sind.|Die Standardliste lautet Default. htm, Default. ASP, Index. htm, Index. html, iisstart. htm und default. aspx.|
+|&lt;Files- &gt; Element|Gibt die Dateinamen an, die als Standarddokumente konfiguriert sind.|Die Standardliste ist Default.htm, Default. ASP, Index.htm, Index.html, Iisstart.htm und default. aspx.|
 
 ## <a name="central-binary-logging"></a>Zentrale binäre Protokollierung
 
@@ -199,16 +199,16 @@ Sie können die zentrale binäre Protokollierung aktivieren, indem Sie das centr
 
 **System. applicationHost/Log**
 
-|Attribut|Beschreibung|Standard|
+|attribute|Beschreibung|Standard|
 |--- |--- |--- |
-|centrzuweisung FileMode|Gibt den Protokollierungs Modus für einen Server an. Ändern Sie diesen Wert in centralbinary, um die zentrale binäre Protokollierung zu aktivieren.|Site|
+|centrzuweisung FileMode|Gibt den Protokollierungs Modus für einen Server an. Ändern Sie diesen Wert in centralbinary, um die zentrale binäre Protokollierung zu aktivieren.|Website|
 
 **System. applicationHost/Log/centralbinarylogfile**
 
-|Attribut|Beschreibung|Standard|
+|attribute|Beschreibung|Standard|
 |--- |--- |--- |
 |enabled|Gibt an, ob die zentrale binäre Protokollierung aktiviert ist.|False|
-|Verzeichnis|Gibt das Verzeichnis an, in das Protokolleinträge geschrieben werden.|%SystemDrive%\inetpub\logs\LogFiles|
+|directory|Gibt das Verzeichnis an, in das Protokolleinträge geschrieben werden.|%SystemDrive%\inetpub\logs\LogFiles|
 
 
 ## <a name="application-and-site-tunings"></a>Anwendungs-und Standort-Tunings
@@ -217,16 +217,16 @@ Die folgenden Einstellungen beziehen sich auf die Anwendungs Pool-und Standort-T
 
 **System. applicationHost/ApplicationPools/applicationPoolDefaults**
 
-|Attribut|Beschreibung|Standard|
+|attribute|Beschreibung|Standard|
 |--- |--- |--- |
-|queueLength|Gibt http. sys an, wie viele Anforderungen für einen Anwendungs Pool in die Warteschlange eingereiht werden, bevor zukünftige Anforderungen zurückgewiesen werden. Wenn der Wert für diese Eigenschaft überschritten wird, lehnt IIS nachfolgende Anforderungen mit einem Fehler 503 ab.<br><br>Erhöhen Sie diese für Anwendungen, die mit Daten speichern mit hoher Latenz kommunizieren, wenn 503-Fehler festgestellt werden.|1000|
+|queueLength|Gibt an, HTTP.sys wie viele Anforderungen für einen Anwendungs Pool in die Warteschlange eingereiht werden, bevor zukünftige Anforderungen zurückgewiesen werden. Wenn der Wert für diese Eigenschaft überschritten wird, lehnt IIS nachfolgende Anforderungen mit einem Fehler 503 ab.<br><br>Erhöhen Sie diese für Anwendungen, die mit Daten speichern mit hoher Latenz kommunizieren, wenn 503-Fehler festgestellt werden.|1000|
 |Enable32BitAppOnWin64|Wenn der Wert true ist, kann eine 32-Bit-Anwendung auf einem Computer mit einem 64-Bit-Prozessor ausgeführt werden.<br><br>Aktivieren Sie den 32-Bit-Modus, wenn die Arbeitsspeicher Nutzung von Bedeutung ist. Da Zeiger Größen und Anweisungs Größen kleiner sind, verwenden 32-Bit-Anwendungen weniger Arbeitsspeicher als 64-Bit-Anwendungen. Der Nachteil der Ausführung von 32-Bit-Anwendungen auf einem 64-Bit-Computer besteht darin, dass der Adressraum im Benutzermodus auf 4 GB beschränkt ist.|False|
 
 **System. applicationHost/Sites/virtualdirecterydefault**
 
-|Attribut|Beschreibung|Standard|
+|attribute|Beschreibung|Standard|
 |--- |--- |--- |
-|allowSubDirConfig|Gibt an, ob IIS nach Web. config-Dateien in Inhaltsverzeichnissen sucht, die niedriger als die aktuelle Ebene sind (true), oder ob Web. config-Dateien in Inhaltsverzeichnissen unterhalb der aktuellen Ebene (false) gesucht werden. Durch die Durchsetzung einer einfachen Einschränkung, die nur die Konfiguration in virtuellen Verzeichnissen zulässt, kann IIS-10,0 wissen, dass, sofern **/&lt;Namen&gt;. htm** ein virtuelles Verzeichnis ist, nicht nach einer Konfigurationsdatei suchen sollte. Das Überspringen der zusätzlichen Datei Vorgänge kann die Leistung von Websites erheblich verbessern, die über einen sehr großen Satz von statisch zugänglichen statischen Inhalten verfügen.|True|
+|allowSubDirConfig|Gibt an, ob IIS in Inhaltsverzeichnissen, die niedriger als die aktuelle Ebene sind (true), nach web.config Dateien sucht, oder sucht nicht nach web.config Dateien in Inhaltsverzeichnissen, die niedriger als die aktuelle Ebene (false) sind. Durch die Durchsetzung einer einfachen Einschränkung, die nur die Konfiguration in virtuellen Verzeichnissen zulässt, kann IIS-10,0 wissen, dass, sofern " ** / &lt; Name &gt; . htm** " kein virtuelles Verzeichnis ist, nicht nach einer Konfigurationsdatei gesucht wird. Das Überspringen der zusätzlichen Datei Vorgänge kann die Leistung von Websites erheblich verbessern, die über einen sehr großen Satz von statisch zugänglichen statischen Inhalten verfügen.|True|
 
 ## <a name="managing-iis-100-modules"></a>Verwalten von IIS 10,0-Modulen
 
@@ -234,7 +234,7 @@ IIS 10,0 wurde in mehrere Benutzer erweiterbare Module integriert, um eine modul
 
 Ein Webserver, der auf einfache statische Dateien abgestimmt ist, kann nur die folgenden fünf Module enthalten: uricachemodule, httpcachemodule, StaticFileModule, anonymousauthenticationmodule und HttpLoggingModule.
 
-Um Module aus "applicationHost. config" zu entfernen, entfernen Sie alle Verweise auf das Modul aus den Abschnitten "System. Webserver/Handlers" und "System. Webserver/Module", und entfernen Sie die Modul Deklaration in "System. Webserver/globalModules".
+Entfernen Sie alle Verweise auf das Modul aus den Abschnitten System. Webserver/Handlers und System. Webserver/modules, und entfernen Sie die Modul Deklaration in System. Webserver/globalModules, um Module aus applicationHost.config zu entfernen.
 
 ## <a name="classic-asp-settings"></a>Klassische ASP-Einstellungen
 
@@ -244,30 +244,30 @@ Die folgenden Einstellungen werden verwendet, um den klassischen ASP-Vorlagen Ca
 
 **System. Webserver/ASP/Cache**
 
-|Attribut|Beschreibung|Standard|
+|attribute|Beschreibung|Standard|
 |--- |--- |--- |
-|diskTemplateCacheDirectory|Der Name des Verzeichnisses, das ASP zum Speichern kompilierter Vorlagen verwendet, wenn der in-Memory-Cache überläuft.<br><br>Empfehlung: Legen Sie auf ein Verzeichnis fest, das nicht häufig verwendet wird, z. b. ein Laufwerk, das nicht für das Betriebssystem, das IIS-Protokoll oder andere Inhalte verwendet wird, auf die häufig zugegriffen wird.|%SystemDrive%\inetpub\temp\asp kompilierte Vorlagen|
-|maxDiskTemplateCacheFiles|Gibt die maximale Anzahl kompilierter ASP-Vorlagen an, die auf dem Datenträger zwischengespeichert werden können.<br><br>Empfehlung: Legen Sie auf den maximalen Wert von 0x7FFFFFFF fest.|2\.000|
+|diskTemplateCacheDirectory|Der Name des Verzeichnisses, das ASP zum Speichern kompilierter Vorlagen verwendet, wenn der in-Memory-Cache überläuft.<br><br>Empfehlung: Legen Sie auf ein Verzeichnis fest, das nicht häufig verwendet wird, z. b. ein Laufwerk, das nicht für das Betriebssystem, das IIS-Protokoll oder andere Inhalte verwendet wird, auf die häufig zugegriffen wird.|%SystemDrive%\inetpub\temp\ASP Compiled Templates|
+|maxDiskTemplateCacheFiles|Gibt die maximale Anzahl kompilierter ASP-Vorlagen an, die auf dem Datenträger zwischengespeichert werden können.<br><br>Empfehlung: Legen Sie auf den maximalen Wert von 0x7FFFFFFF fest.|2000|
 |scriptmelecachesize|Dieses Attribut gibt die maximale Anzahl kompilierter ASP-Vorlagen an, die im Arbeitsspeicher zwischengespeichert werden können.<br><br>Empfehlung: Legen Sie auf mindestens so viele wie die Anzahl der häufig angeforderten ASP-Skripts fest, die von einem Anwendungs Pool bedient werden. Wenn möglich, legen Sie auf so viele ASP-Vorlagen fest, wie die Speicher Limits dies zulassen.|500|
 |scriptEngineCacheMax|Gibt die maximale Anzahl von Skript-Engines an, die im Arbeitsspeicher zwischengespeichert werden.<br><br>Empfehlung: Legen Sie auf mindestens so viele wie die Anzahl der häufig angeforderten ASP-Skripts fest, die von einem Anwendungs Pool bedient werden. Wenn möglich, legen Sie auf so viele Skript-Engines fest, wie das Arbeitsspeicher Limit zulässt.|250|
 
 **System. Webserver/ASP/Limits**
 
-|Attribut|Beschreibung|Standard|
+|attribute|Beschreibung|Standard|
 |--- |--- |--- |
 |processorthread Max|Gibt die maximale Anzahl von Arbeitsthreads pro Prozessor an, die ASP erstellen kann. Erhöhen Sie diese Einstellung, wenn die aktuelle Einstellung für die Verarbeitung der Last unzureichend ist, was zu Fehlern führen kann, wenn Sie Anforderungen verarbeiten oder eine Unterauslastung der CPU-Ressourcen verursachen.|25|
 
 **System. Webserver/ASP/ComPlus**
 
-|Attribut|Beschreibung|Standard|
+|attribute|Beschreibung|Standard|
 |--- |--- |--- |
 |executeingemta|Legen Sie diese Einstellung auf **true** fest, wenn Fehler oder Fehler erkannt werden, während IIS ASP-Inhalte bedient. Dies kann beispielsweise der Fall sein, wenn mehrere isolierte Standorte gehostet werden, an denen die einzelnen Standorte unter einem eigenen Arbeitsprozess ausgeführt werden. Fehler werden in der Regel von com+ im Ereignisanzeige gemeldet. Diese Einstellung aktiviert das Multithread-Apartment Modell in ASP.|False|
 
 
 ## <a name="aspnet-concurrency-setting"></a>ASP.net-Parallelitäts Einstellung
 
-### <a name="aspnet-35"></a>ASP.NET 3,5
-Standardmäßig wird durch ASP.net Limits die Parallelität angefordert, um den Speicherverbrauch des stabilen Zustands auf dem Server zu verringern. Hohe Parallelitäts Anwendungen müssen möglicherweise einige Einstellungen anpassen, um die Gesamtleistung zu verbessern. Sie können diese Einstellung in der Datei Aspnet. config ändern:
+### <a name="aspnet-35"></a>ASP.NET 3.5
+Standardmäßig wird durch ASP.net Limits die Parallelität angefordert, um den Speicherverbrauch des stabilen Zustands auf dem Server zu verringern. Hohe Parallelitäts Anwendungen müssen möglicherweise einige Einstellungen anpassen, um die Gesamtleistung zu verbessern. Sie können diese Einstellung in aspnet.config Datei ändern:
 
 ``` syntax
 <system.web>
@@ -281,8 +281,8 @@ Die folgende Einstellung ist nützlich, um Ressourcen auf einem System vollstän
 
     Mit dieser Einstellung wird die maximale Anzahl gleichzeitig ausgeführter ASP.NET-Anforderungen auf einem System beschränkt. Der Standardwert ist konservativ, um den Arbeitsspeicher Verbrauch von ASP.NET-Anwendungen zu verringern. Ziehen Sie in Erwägung, dieses Limit für Systeme zu erhöhen, die Anwendungen ausführen, die lange synchrone e/a-Vorgänge ausführen. Andernfalls kann es bei Benutzern aufgrund von Warteschlangen-oder Anforderungs Fehlern zu einer hohen Latenz kommen, wenn die Warteschlangen Limits bei hoher Auslastung überschritten werden, wenn die Standardeinstellung verwendet wird.
 
-### <a name="aspnet-46"></a>ASP.NET 4.6
-Neben der Einstellung maxconcurrentrequestpercpu bietet ASP.NET 4,7 auch Einstellungen zum Verbessern der Leistung in den Anwendungen, die stark von einem asynchronen Vorgang abhängig sind. Die Einstellung kann in der Datei "ASPNET. config" geändert werden.
+### <a name="aspnet-46"></a>ASP.NET 4,6
+Neben der Einstellung maxconcurrentrequestpercpu bietet ASP.NET 4,7 auch Einstellungen zum Verbessern der Leistung in den Anwendungen, die stark von einem asynchronen Vorgang abhängig sind. Die Einstellung kann in aspnet.config Datei geändert werden.
 
 ``` syntax
 <system.web>
@@ -301,11 +301,11 @@ Sie können die Prozess Wiederverwendung für eine bestimmte Anwendung aktiviere
 
 **System. applicationHost/ApplicationPools/applicationPoolDefaults/recyceln/periodikrestart**
 
-|Attribut|Beschreibung|Standard|
+|attribute|Beschreibung|Standard|
 |--- |--- |--- |
-|Memory|Prozess Wiederverwendung aktivieren, wenn die Auslastung des virtuellen Arbeitsspeichers den angegebenen Grenzwert in Kilobyte überschreitet. Dies ist eine nützliche Einstellung für 32-Bit-Computer, die über einen kleinen, 2 GB großen Adressraum verfügen. Dadurch können fehlgeschlagene Anforderungen aufgrund von Fehlern aufgrund von nicht genügend Arbeitsspeicher vermieden werden.|0|
+|memory|Prozess Wiederverwendung aktivieren, wenn die Auslastung des virtuellen Arbeitsspeichers den angegebenen Grenzwert in Kilobyte überschreitet. Dies ist eine nützliche Einstellung für 32-Bit-Computer, die über einen kleinen, 2 GB großen Adressraum verfügen. Dadurch können fehlgeschlagene Anforderungen aufgrund von Fehlern aufgrund von nicht genügend Arbeitsspeicher vermieden werden.|0|
 |PrivateMemory|Aktivieren Sie die Prozess Wiederverwendung, wenn private Speicher Belegungen die angegebene Grenze in Kilobyte überschreiten.|0|
-|Anforderungen|Aktivieren Sie die Prozess Wiederverwendung nach einer bestimmten Anzahl von Anforderungen.|0|
+|requests|Aktivieren Sie die Prozess Wiederverwendung nach einer bestimmten Anzahl von Anforderungen.|0|
 |time|Aktivieren Sie die Prozess Wiederverwendung nach einem bestimmten Zeitraum.|29:00:00|
 
 
@@ -317,7 +317,7 @@ Der Hauptzweck sowohl der Seiten-out-als auch der Arbeitsprozess Beendigungs Fun
 
 Bevor wir uns mit den Besonderheiten befassen, müssen wir beachten, dass es wahrscheinlich am besten ist, dass die Sites nie angehalten oder beendet werden, wenn keine Speicher Einschränkungen vorliegen. Schließlich ist es nur wenig Wert, wenn ein Arbeitsprozess beendet wird, wenn es sich um das einzige auf dem Computer handelt.
 
-**Beachten Sie**  für den Fall, dass die Site instabilen Code ausführt, z. b. Code mit einem Speichermangel oder anderweitig instabil, kann das Festlegen der Site, die im Leerlauf beendet werden soll, eine schnelle und geänderte Alternative zum Beheben des Code Fehlers sein. Dies ist nicht zu empfehlen, aber es kann besser sein, dieses Feature als Bereinigungs Mechanismus zu verwenden, während eine permanente Lösung in der Arbeit ist.\]
+**Hinweis**   Für den Fall, dass die Site instabilen Code ausführt, z. b. Code mit einem Speichermangel oder anderweitig instabil, kann das Festlegen der Site, die im Leerlauf beendet werden soll, eine schnelle und geänderte Alternative zum Beheben des Code Fehlers sein. Dies ist nicht zu empfehlen, aber es kann besser sein, dieses Feature als Bereinigungs Mechanismus zu verwenden, während eine permanente Lösung in der Arbeit ist.\]
 
 Â 
 
@@ -332,7 +332,7 @@ Beachten Sie, dass Sie, sobald ein bestimmter Benutzer eine Verbindung mit der W
 ||Anforderungs-URL|Anforderungs Zeit|Delta|
 |--- |--- |--- |--- |
 |1|/SourceSilverLight/Geosource.Web/grosource.html|10:01||
-|2|/SourceSilverLight/Geosource.web/sliverlight.js|10:10|0:09|
+|2|/SourceSilverLight/Geosource.Web/sliverlight.js|10:10|0:09|
 |3|/SourceSilverLight/Geosource.web/clientbin/geo/1.aspx|10:11|0:01|
 |4|/lClientAccessPolicy.xml|10:12|0:01|
 |5|/Sourcesilverlight/geosourcewebservice/Service. asmx|10:23|0:11|
@@ -341,7 +341,7 @@ Beachten Sie, dass Sie, sobald ein bestimmter Benutzer eine Verbindung mit der W
 |8|/Rest/Services/cachedservices/Silverlight_basemap....|12:51|0:01|
 |9|/Rest/Services/DynamicService/Silverlight_basemap....|12:59|0:08|
 |10|/Rest/Services/cachedservices/Ortho_2004_cache...|13:40|0:41|
-|11|/Rest/Services/cachedservices/Ortho_2005_cache. js|13:40|0:00|
+|11|/Rest/Services/CachedServices/Ortho_2005_cache.js|13:40|0:00|
 |12|/rest/Services/CachedServices/OrthoBaseEngine.aspx|13:41|0:01|
 
 Der schwierigste Teil ist jedoch, herauszufinden, welche Einstellung auf "Sense" angewendet werden soll. In unserem Fall erhält der Standort eine Reihe von Anforderungen von Benutzern, und die obige Tabelle zeigt, dass insgesamt vier eindeutige Sitzungen in einem Zeitraum von 4 Stunden stattgefunden haben. Mit den Standardeinstellungen für die Arbeitsprozess Unterbrechung des Anwendungs Pools wird die Website nach dem Standard Timeout von 20 Minuten beendet. Dies bedeutet, dass jeder dieser Benutzer den Standort Aufgliederungs Prozess sehen würde. Dies ist ein idealer Kandidat für die Unterbrechung des Arbeitsprozesses, weil sich die Website in den meisten Fällen im Leerlauf befindet. durch das Anhalten wird die Ressource gespart, und die Benutzer können die Website fast sofort erreichen.
@@ -350,7 +350,7 @@ Ein letztes und sehr wichtiger Hinweis darauf ist, dass die Datenträger Leistun
 
 Unabhängig davon, ob Sie eine SSD verwenden oder nicht, empfiehlt es sich auch, die Größe der Auslagerungs Datei zu beheben, um die Auslagerungs Daten ohne Dateigröße in diese zu schreiben. Die Größenänderung von Seiten Dateien kann auftreten, wenn das Betriebssystem Daten in der Auslagerungs Datei speichern muss, da Windows standardmäßig so konfiguriert ist, dass seine Größe nach Bedarf automatisch angepasst wird. Durch Festlegen der Größe auf einen festgelegten Wert können Sie die Größenänderung verhindern und die Leistung deutlich verbessern.
 
-Zum Konfigurieren einer Dateigröße mit vorab fester Größe müssen Sie die ideale Größe berechnen, die davon abhängt, wie viele Standorte Sie anhalten und wie viel Arbeitsspeicher Sie verbrauchen. Wenn der Durchschnitt für einen aktiven Arbeitsprozess 200 MB beträgt und Sie über 500 Standorte auf den Servern verfügen, die angehalten werden, sollte die Auslagerungs Datei mindestens (200 \* 500) MB über der Basis Größe der Auslagerungs Datei (also "Base + 100 GB" in unserem Beispiel) sein.
+Zum Konfigurieren einer Dateigröße mit vorab fester Größe müssen Sie die ideale Größe berechnen, die davon abhängt, wie viele Standorte Sie anhalten und wie viel Arbeitsspeicher Sie verbrauchen. Wenn der Durchschnitt für einen aktiven Arbeitsprozess 200 MB beträgt und Sie über 500 Standorte auf den Servern verfügen, die angehalten werden, sollte die Auslagerungs Datei mindestens (200 \* 500) MB über der Basis Größe der Auslagerungs Datei (also "Base + 100 GB" in unserem Beispiel) lauten.
 
 **Hinweis** Wenn Standorte angehalten werden, verbrauchen Sie jeweils ungefähr 6 MB. in diesem Fall beträgt die Speicherauslastung, wenn alle Standorte angehalten werden, etwa 3 GB. In der Realität werden Sie jedoch wahrscheinlich nicht alle gleichzeitig angehalten.
 
@@ -402,6 +402,6 @@ Die folgenden Probleme können sich auf die IIS-Leistung auswirken:
 
     Aus Leistungsgründen wird die Verwendung von CGI-Anwendungen zum Verarbeiten von Anforderungen nicht mit IIS empfohlen. Das häufige erstellen und Löschen von CGI-Prozessen umfasst erheblichen Aufwand. Bessere Alternativen sind die Verwendung von FastCGI, ISAPI-Anwendungs Skripts und ASP-oder ASP.net-Skripts. Für jede dieser Optionen ist eine Isolation verfügbar.
 
-## <a name="see-also"></a>Siehe auch
-- [Leistungsoptimierung für Webserver](index.md) 
+## <a name="additional-references"></a>Zusätzliche Referenzen
+- [Leistungsoptimierung für Webserver](index.md)
 - [HTTP 1.1/2-Optimierung](http-performance.md)

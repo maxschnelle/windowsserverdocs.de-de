@@ -8,12 +8,12 @@ ms.date: 07/06/2018
 ms.topic: article
 author: heidilohr
 manager: lizross
-ms.openlocfilehash: 64e433ed379ca322996bcfe2d0ddd513e074b85e
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 2ee11e40d5fb69141ad5dd5342f8574b22232bbd
+ms.sourcegitcommit: 568b924d32421256f64abfee171304f1daf320d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80854713"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85070480"
 ---
 # <a name="desktop-hosting-service"></a>Desktophosting-Dienst
 
@@ -70,7 +70,7 @@ Bei kleinen Mandanten können der Dateiserver und die [RD-Lizenzierungsrolle](rd
 
 Weitere Informationen findest du in den folgenden Artikeln:
 
-* [Speicher](../../storage/storage.md)
+* [Speicher](../../storage/storage.yml)
 * [Anfügen eines verwalteten Datenträgers an einen virtuellen Windows-Computer im Azure-Portal](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fclassic%2Ftoc.json)
 
 ### <a name="user-profile-disks"></a>Benutzerprofil-Datenträger

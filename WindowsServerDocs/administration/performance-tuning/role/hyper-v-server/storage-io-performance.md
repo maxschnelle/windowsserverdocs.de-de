@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: asmahi; sandysp; jopoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 83b22c47cb23b02bb9984e03d78fcae93be1ca0a
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: c77f084e06e71c9aafd658b59ff385af85ef0b9d
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851813"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85471315"
 ---
 # <a name="hyper-v-storage-io-performance"></a>Hyper-V-Speicher-e/a-Leistung
 
@@ -110,7 +110,7 @@ IsDeleted               : False
 Number                  :
 ```
 
-## <a name="vhdx-format"></a>Vhdx-Format
+## <a name="vhdx-format"></a>VHDX-Format
 
 Vhdx ist ein neues Format der virtuellen Festplatte, das in Windows Server 2012 eingeführt wurde, mit dem Sie robuste hochleistungsfähige virtuelle Festplatten mit bis zu 64 Terabytes erstellen können. Zu den Vorteilen dieses Formats gehören:
 
@@ -160,7 +160,7 @@ Die VHD verweist auf eine übergeordnete VHD-Datei. Alle Schreibvorgänge in Bl�
 
 ## <a name="block-size-considerations"></a>Überlegungen zur Block Größe
 
-Die Block Größe kann sich erheblich auf die Leistung auswirken. Es ist optimal, die Blockgröße mit den Zuordnungs Mustern der Arbeitsauslastung zu vergleichen, die den Datenträger verwendet. Wenn eine Anwendung z. b. in Blöcken von 16 MB zugeordnet ist, wäre es optimal, eine virtuelle Festplatten Blockgröße von 16 MB zu haben. Eine Blockgröße von &gt;2 MB ist nur auf virtuellen Festplatten im vhdx-Format möglich. Wenn eine größere Blockgröße als das Zuordnungs Muster für eine zufällige e/a-Arbeitsauslastung vorhanden ist, erhöht sich die Speicherauslastung auf dem Host erheblich.
+Die Block Größe kann sich erheblich auf die Leistung auswirken. Es ist optimal, die Blockgröße mit den Zuordnungs Mustern der Arbeitsauslastung zu vergleichen, die den Datenträger verwendet. Wenn eine Anwendung z. b. in Blöcken von 16 MB zugeordnet ist, wäre es optimal, eine virtuelle Festplatten Blockgröße von 16 MB zu haben. Eine Blockgröße von &gt; 2 MB ist nur auf virtuellen Festplatten im vhdx-Format möglich. Wenn eine größere Blockgröße als das Zuordnungs Muster für eine zufällige e/a-Arbeitsauslastung vorhanden ist, erhöht sich die Speicherauslastung auf dem Host erheblich.
 
 ## <a name="sector-size-implications"></a>Auswirkungen auf Sektorgröße
 
@@ -176,7 +176,7 @@ Ein 512 e-Datenträger kann Schreibvorgänge nur im Hinblick auf einen physische
 
 -   Die Daten im 4-KB-Puffer werden geändert, sodass sie den aktualisierten 512-Byte-Sektor einschließen.
 
--   Der Datenträger führt einen Schreibvorgang des aktualisierten 4-KB-Puffers auf dem Datenträger zurück.
+-   Das Laufwerk schreibt den Inhalt des aktualisierten 4-KB-Puffers zurück auf den physischen Sektor auf dem Laufwerk.
 
 Dieser Vorgang wird als "Read-Modify-Write" (RMW) bezeichnet. Die Auswirkungen auf die Gesamtleistung des RMW-Prozesses sind abhängig von den Arbeits Auslastungen. Der RMW-Prozess verursacht aus folgenden Gründen eine Leistungsminderung bei virtuellen Festplatten:
 
@@ -244,7 +244,7 @@ Die folgenden wichtigen Verbesserungen, die zuerst in den Windows Server 2012-Sp
 
 -   Ein effizienterer e/a-Abschlussmechanismus zur Unterbrechung der Verteilung zwischen den virtuellen Prozessoren, um teure interprozessorunterbrechungen zu vermeiden.
 
-In Windows Server 2012 wurden einige Registrierungseinträge in HKLM\\System\\CurrentControlSet\\Enum\\VMBus\\{Geräte-ID}\\{Instanz-ID}\\storchannel gefunden, mit denen die Anzahl der Kanäle angepasst werden kann. Außerdem richten Sie die virtuellen Prozessoren, die die e/a-Vervollständigung verarbeiten, an die virtuellen CPUs aus, die von der Anwendung als e/a-Prozessoren zugewiesen werden. Die Registrierungs Einstellungen werden auf Adapter Basis mit dem Hardwareschlüssel des Geräts konfiguriert.
+In Windows Server 2012 wurden einige Registrierungseinträge in der Datei "HKLM \\ System \\ CurrentControlSet \\ Enum \\ VMBus \\ {Device ID} \\ {instance ID}" gespeichert, mit \\ denen die Anzahl der Kanäle angepasst werden kann. Außerdem richten Sie die virtuellen Prozessoren, die die e/a-Vervollständigung verarbeiten, an die virtuellen CPUs aus, die von der Anwendung als e/a-Prozessoren zugewiesen werden. Die Registrierungs Einstellungen werden auf Adapter Basis mit dem Hardwareschlüssel des Geräts konfiguriert.
 
 -   **ChannelCount (DWORD)** Die Gesamtanzahl der zu verwendenden Kanäle mit maximal 16. Standardmäßig wird eine Obergrenze verwendet. Dies ist die Anzahl der virtuellen Prozessoren/16.
 
@@ -270,7 +270,7 @@ Nur Hyper-V-spezifische SCSI-, aktivierte IDE-und virtuelle Fibre Channel Contro
 
 Aus diesen Gründen wird empfohlen, dass Sie vhdx-Dateien verwenden, die an einen SCSI-Controller angeschlossen sind, wenn keine virtuellen Fibre Channel-Datenträger verwendet werden.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 -   [Hyper-V-Terminologie](terminology.md)
 

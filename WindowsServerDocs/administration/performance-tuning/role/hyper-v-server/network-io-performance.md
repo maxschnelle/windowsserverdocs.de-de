@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: asmahi; sandysp; jopoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 17551da6cd270f05cf2d6b1a8147958f82b2c9b3
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: dcf43bf41edada0a2e3df6fde825ff128a119a8f
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851803"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85471355"
 ---
 # <a name="hyper-v-network-io-performance"></a>Hyper-V-Netzwerk-e/a-Leistung
 
@@ -35,7 +35,7 @@ Außerdem kann das Erhöhen der Anzahl der Sende-und Empfangs Puffer auf jedem N
 
 Windows Server 2012 R2 hat eine Option eingeführt, um Livemigration zu beschleunigen, indem Sie Speicher vor der Übertragung über das Netzwerk komprimieren oder den Remote Zugriff auf den direkten Speicher (RDMA) verwenden, wenn Ihre Hardware dies unterstützt.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 -   [Hyper-V-Terminologie](terminology.md)
 

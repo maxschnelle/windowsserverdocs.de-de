@@ -7,12 +7,12 @@ ms.topic: landing-page
 ms.author: davso; ericam; yashi
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: ec36d87957e5bbe897597e330e766c3193cd30d0
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 249500249921d21184dc8cd14993741392927586
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80851693"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85471205"
 ---
 # <a name="performance-tuning-web-servers"></a>Leistungsoptimierung für Webserver
 
@@ -57,7 +57,7 @@ Das Deaktivieren der Updates ist wirkungsvoll, wenn Sie große Datensätze (oder
 >[!Warning]
 > Einige Anwendungen, wie z.B. die Hilfsprogramme für inkrementelle Sicherungen, sind auf diese Aktualisierungsinformationen angewiesen und funktionieren ohne sie nicht ordnungsgemäß.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Weitere Verweise
 - [IIS 10.0-Leistungsfeineinstellung](tuning-iis-10.md)
 - [HTTP 1.1/2-Optimierung](http-performance.md)
 

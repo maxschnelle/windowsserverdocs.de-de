@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 5/22/2017
-ms.openlocfilehash: 3bb365c627840d4152b0dc450e24dd83d82103ca
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 07095fbbe16464645564f07434285c76b8cfd4a1
+ms.sourcegitcommit: fb808a6fc851a3e5c47e6a7654366145d2f19554
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80828632"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84740633"
 ---
 # <a name="windows-server-update-services-wsus"></a>Windows Server Update Services (WSUS)
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Windows Server Update Services (WSUS) ermöglicht IT-Administratoren das Bereitstellen der aktuellen Microsoft-Produktupdates. Du kannst WSUS verwenden, um die Verteilung von Updates, die über Microsoft Update veröffentlicht werden, auf den Computern in deinem Netzwerk vollständig zu verwalten. Dieses Thema enthält einen Überblick über diese Serverrolle sowie weitere Informationen zum Bereitstellen und Warten von WSUS.
 

@@ -7,14 +7,14 @@ ms.topic: article
 ms.author: timwi; chrisrob; herbertm; kenbrumf;  mleary; shawnrab
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: aac7b8f37de2132778bd681d2f2e29ad0ad0810d
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 19574c859e038374a4cf3fe1e452adae0891e067
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851873"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85471485"
 ---
-# <a name="proper-placement-of-domain-controllers-and-site-considerations"></a>Ordnungsgemäße Platzierung von Domänen Controllern und Standort Überlegungen
+# <a name="proper-placement-of-domain-controllers-and-site-considerations"></a>Ordnungsgemäße Platzierung von Domänencontrollern und Überlegungen zum Standort
 
 Die richtige Site Definition ist wichtig für die Leistung. Clients, die sich außerhalb des Standorts befinden, können bei Authentifizierungen und Abfragen eine schlechte Leistung erleben. Darüber hinaus kann die Anforderung mit der Einführung von IPv6 auf Clients entweder von der IPv4-oder der IPv6-Adresse stammen, und Active Directory muss Standorte ordnungsgemäß für IPv6 definiert haben. Das Betriebssystem bevorzugt IPv6 zu IPv4, wenn beide konfiguriert sind.
 
@@ -34,7 +34,7 @@ Verweise sind die Art und Weise, wie LDAP-Abfragen umgeleitet werden, wenn der D
 
 ## <a name="optimization-considerations-for-trusts"></a>Überlegungen zur Optimierung für Vertrauens Stellungen
 
-In einem Szenario innerhalb der Gesamtstruktur werden Vertrauens Stellungen gemäß der folgenden Domänen Hierarchie verarbeitet: untergeordnete Domänen&gt; Domäne&gt; Gesamtstruktur Stamm Domäne-&gt; untergeordnete Domäne&gt; untergeordnete Domäne. Dies bedeutet, dass sichere Kanäle im Gesamtstruktur Stamm und jedes übergeordnete Element aufgrund der Aggregation von Authentifizierungsanforderungen, die die DCS in der Vertrauens Hierarchie übertragen, überlastet werden können. Dies kann auch Verzögerungen in aktiven Verzeichnissen großer geografischer Datenmengen verursachen, wenn die Authentifizierung auch sehr latente Verknüpfungen übertragen muss, um den oben genannten Flow zu beeinflussen. Über Ladungen können in Gesamtstruktur-und untergeordneten Vertrauens Szenarien auftreten. Die folgenden Empfehlungen gelten für alle Szenarien:
+In einem Szenario innerhalb der Gesamtstruktur werden Vertrauens Stellungen gemäß der folgenden Domänen Hierarchie verarbeitet: failoverdomäne-untergeordnete Domäne-Gesamtstruktur Stamm Domäne-untergeordnete Domäne-untergeordnete Domäne &gt; &gt; &gt; &gt; . Dies bedeutet, dass sichere Kanäle im Gesamtstruktur Stamm und jedes übergeordnete Element aufgrund der Aggregation von Authentifizierungsanforderungen, die die DCS in der Vertrauens Hierarchie übertragen, überlastet werden können. Dies kann auch Verzögerungen in aktiven Verzeichnissen großer geografischer Datenmengen verursachen, wenn die Authentifizierung auch sehr latente Verknüpfungen übertragen muss, um den oben genannten Flow zu beeinflussen. Über Ladungen können in Gesamtstruktur-und untergeordneten Vertrauens Szenarien auftreten. Die folgenden Empfehlungen gelten für alle Szenarien:
 
 -   Optimieren Sie MaxConcurrentApi ordnungsgemäß, um die Last über den sicheren Kanal zu unterstützen. Weitere Informationen finden Sie unter [Verwenden der "MaxConcurrentApi"-Einstellung zur Leistungsoptimierung für die NTLM-Authentifizierung](https://support.microsoft.com/kb/2688798/EN-US).
 
@@ -67,18 +67,18 @@ Domänen Übergreifende Vertrauensstellungs Szenarien sind ein Bereich, der für
         > [!NOTE]
         > Es gibt ein praktisches Limit von ca. 50 bis zur Anzahl der Domänen Controller, die vom Client genutzt werden können. Dabei sollte es sich um die meisten Site-optimal und die höchsten Kapazitäts Domänen Controller handeln.
 
-    
+
     -  Erwägen Sie, Domänen Controller aus vertrauenswürdigen und vertrauenswürdigen Domänen am gleichen physischen Standort zu platzieren.
 
 Für alle Vertrauensstellungs Szenarien werden Anmelde Informationen entsprechend der in den Authentifizierungsanforderungen angegebenen Domäne weitergeleitet. Dies gilt auch für Abfragen von "LookupAccountName" und "lsalookupnames" (ebenso wie für andere, nur die am häufigsten verwendeten APIs). Wenn den Domänen Parametern für diese APIs ein NULL-Wert übermittelt wird, versucht der Domänen Controller, den Kontonamen zu finden, der in jeder verfügbaren vertrauenswürdigen Domäne angegeben ist.
 
 -   Deaktiviert die Überprüfung aller verfügbaren Vertrauens Stellungen, wenn NULL-Domäne angegeben ist [Einschränken der Suche isolierter Namen in externen vertrauenswürdigen Domänen mithilfe des Registrierungs Eintrags "lsalookuprestrictisolatednamelevel"](https://support.microsoft.com/kb/818024)
 
--   Hiermit deaktivieren Sie das Übergeben von Authentifizierungsanforderungen mit einer NULL-Domäne, die für alle verfügbaren [Der LSASS. exe-Prozess reagiert möglicherweise nicht mehr, wenn Sie über viele externe Vertrauens Stellungen auf einem Active Directory Domänen Controller verfügen.](https://support.microsoft.com/kb/923241/EN-US)
+-   Hiermit deaktivieren Sie das Übergeben von Authentifizierungsanforderungen mit einer NULL-Domäne, die für alle verfügbaren [Der Lsass.exe Prozess reagiert möglicherweise nicht mehr, wenn Sie über viele externe Vertrauens Stellungen auf einem Active Directory Domänen Controller verfügen.](https://support.microsoft.com/kb/923241/EN-US)
 
-## <a name="see-also"></a>Siehe auch
-- [Leistungsoptimierung Active Directory Server](index.md)
-- [Überlegungen zur Hardware](hardware-considerations.md)
+## <a name="additional-references"></a>Zusätzliche Referenzen
+- [Optimierung der Leistung von Active Directory-Servern](index.md)
+- [Hardwareaspekte](hardware-considerations.md)
 - [Überlegungen zu LDAP](ldap-considerations.md)
-- [Problembehandlung bezüglich der ADDS-Leistung](troubleshoot.md) 
+- [Problembehandlung bezüglich der ADDS-Leistung](troubleshoot.md)
 - [Kapazitätsplanung für Active Directory Domain Services](https://go.microsoft.com/fwlink/?LinkId=324566)

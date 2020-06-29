@@ -10,12 +10,12 @@ author: jasongerend
 ms.author: jgerend
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: 0c140c61a5887cc63b2a9d0b468f8d1daf02cd76
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: c3eb62d53ef11d5531590e1a6d46cd6cacaf2e4a
+ms.sourcegitcommit: 5bc5aaf341c711113ca03d1482f933b05b146007
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "76822713"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85094538"
 ---
 # <a name="whats-new-in-windows-server-2016"></a>Neuerungen in Windows Server 2016
 
@@ -59,7 +59,7 @@ Windows Server 2016 bietet eine neue Hyper-V-basierte abgeschirmte VM, um jeden 
 
 Weitere Einzelheiten und Anweisungen zur Arbeit mit abgeschirmten virtuellen Computern finden Sie unter [Shielded VMs and Guarded Fabric Validation Guide for Windows Server 2016 (TPM)](https://aka.ms/shieldedvms) (Validierungsleitfaden für abgeschirmte virtuelle Computer und geschützte Fabrics für Windows Server 2016 [TPM]).  
 
-## <a name="identity-and-access"></a>[Identität und Zugriff](../identity/Identity-and-Access.md)  
+## <a name="identity-and-access"></a>[Identität und Zugriff](../identity/Identity-and-Access.yml)  
 Mit den neuen Features für Identitäten wird die Möglichkeit verbessert, Active Directory-Umgebungen zu schützen. Außerdem können Unternehmen eine Migration zu reinen Cloudbereitstellungen oder Hybridbereitstellungen durchführen, bei denen einige Anwendungen und Dienste in der Cloud und andere Anwendungen und Dienste lokal gehostet werden.  
 
 ### <a name="active-directory-certificate-services"></a>Active Directory-Zertifikatdienste  
@@ -74,7 +74,7 @@ Neuerungen in Active Directory-Verbunddienste. Active Directory-Verbunddienste 
 ### <a name="web-application-proxy"></a>Webanwendungsproxy  
 Im Fokus der aktuellen Version des Webanwendungsproxys stehen neue Features, die die Veröffentlichung und Vorauthentifizierung weiterer Anwendungen ermöglichen und das Benutzererlebnis verbessern. Sehen Sie sich die vollständige Liste der neuen Features an, die die Präauthentifizierung für funktionsreiche Client-Apps wie Exchange ActiveSync sowie Platzhalterdomänen für die einfachere Veröffentlichung von SharePoint-Apps umfassen. Weitere Informationen finden Sie unter [Webanwendungsproxy unter Windows Server 2016](../remote/remote-access/web-application-proxy/web-application-proxy-windows-server.md).  
 
-##  <a name="administration"></a>[Verwaltung](../administration/manage-windows-server.md)  
+##  <a name="administration"></a>[Verwaltung](../administration/manage-windows-server.yml)  
 Im Bereich Verwaltung und Automatisierung liegt der Schwerpunkt auf Tool- und Referenzinformationen für IT-Profis, die Windows Server 2016 (einschließlich Windows PowerShell) ausführen und verwalten möchten.
 
 Windows PowerShell 5.1 enthält wichtige neue Features – einschließlich Unterstützung für die Entwicklung mit Klassen und neue Sicherheitsfunktionen –, die den Funktionsumfang erweitern, die Benutzerfreundlichkeit verbessern und die Steuerung und Verwaltung von Windows-basierten Umgebungen erleichtern und erweitern. Weitere Informationen finden Sie unter [Neue Szenarien und Features in WMF 5.1](https://docs.microsoft.com/powershell/wmf/5.1/scenarios-features).
@@ -98,7 +98,7 @@ Um das Team zu unterstützen, das für die Untersuchung kompromittierter Systeme
 
 Weitere Informationen finden Sie im Artikel zum [PowerShell ♥ Blue Team](https://blogs.msdn.microsoft.com/powershell/2015/06/09/powershell-the-blue-team/).
 
-## <a name="networking"></a>[Netzwerk](../networking/Networking.md)  
+## <a name="networking"></a>[Netzwerk](../networking/index.yml)  
 Dieser Bereich befasst sich mit Netzwerkprodukten und -features, die IT-Spezialisten beim Entwerfen, Bereitstellen und Warten von Windows Server 2016 verwenden können.  
 
 ### <a name="software-defined-networking"></a>Softwaredefinierte Netzwerke
@@ -132,7 +132,7 @@ Device Guard bietet Codeintegrität im Kernelmodus (Kernel Mode Code Integrity, 
 Beim Ablaufsteuerungsschutz (Control Flow Guard, CFG) handelt es sich um eine Plattformsicherheitsfunktion, die erstellt wurde, um auf Speicherbeschädigungs-Sicherheitsrisiken zu reagieren. Weitere Informationen finden Sie unter [Control Flow Guard (Ablaufsteuerungsschutz)](https://msdn.microsoft.com/library/windows/desktop/mt637065(v=vs.85).aspx).
 
 
-## <a name="storage"></a>[Speicher](../storage/storage.md)
+## <a name="storage"></a>[Speicher](../storage/storage.yml)
 
 Der Speicher in Windows Server 2016 umfasst neue Funktionen und Verbesserungen für den softwaredefinierten Speicher sowie für herkömmliche Dateiserver. Nachstehend werden einige der neuen Funktionen dargestellt, weitere Verbesserungen und Informationen finden Sie unter [What's New in Storage in Windows Server 2016 (Neues im Speicher in Windows Server 2016)](../storage/whats-new-in-storage.md).
 

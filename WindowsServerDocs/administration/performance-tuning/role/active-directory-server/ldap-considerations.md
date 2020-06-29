@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: timwi; chrisrob; herbertm; kenbrumf;  mleary; shawnrab
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 86aef48575388ad76ff22fc6027c5ce2d4b6694a
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 2ef32b379dcc5d1c2d8217564b639f44d024e5ee
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851893"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85471546"
 ---
 # <a name="ldap-considerations-in-adds-performance-tuning"></a>Überlegungen zu LDAP in Hinzufügen von Leistungsoptimierungen
 
@@ -47,12 +47,12 @@ Indizierungs Attribute sind bei der Suche nach Objekten mit dem Attributnamen in
 
 - Große Mengen von Abfragen mit hoher Dauer führen zu einer Auslastung und Erschöpfung von ATQ-LDAP-Threads. Überwachen Sie die folgenden Leistungsindikatoren:
 
-    - **NTDS-\\Anforderungs** Wartezeit – dies hängt davon ab, wie lange die Anforderung verarbeitet werden muss. Bei der Active Directory von Anforderungen nach 120 Sekunden (Standard) werden die meisten Anforderungen deutlich schneller ausgeführt, und extrem lange ausgestellte Abfragen sollten in den Gesamtzahlen ausgeblendet werden. Suchen Sie anstelle absoluter Schwellenwerte nach Änderungen in dieser Baseline.
+    - **NTDS \\ Anforderungs Latenz** – dies unterliegt der Ausführungsdauer der Anforderung. Bei der Active Directory von Anforderungen nach 120 Sekunden (Standard) werden die meisten Anforderungen deutlich schneller ausgeführt, und extrem lange ausgestellte Abfragen sollten in den Gesamtzahlen ausgeblendet werden. Suchen Sie anstelle absoluter Schwellenwerte nach Änderungen in dieser Baseline.
 
         > [!NOTE]
         > Hohe Werte können auch Indikatoren von Verzögerungen bei "Proxy Anforderungen" an andere Domänen und CRL-Überprüfungen sein.
 
-    - **NTDS\\geschätzte Warteschlangen Verzögerung** – dies sollte idealerweise fast 0 sein, um eine optimale Leistung zu erzielen. Dies bedeutet, dass Anforderungen keinen Zeitaufwand haben, gewartet zu werden.
+    - **NTDS \\ Geschätzte Warteschlangen Verzögerung** – dies sollte idealerweise nahe bei 0 liegen, um eine optimale Leistung zu erzielen. Dies bedeutet, dass Anforderungen keinen Zeitaufwand haben, gewartet zu werden.
 
 Diese Szenarien können mithilfe eines oder mehrerer der folgenden Ansätze erkannt werden:
 
@@ -64,7 +64,7 @@ Diese Szenarien können mithilfe eines oder mehrerer der folgenden Ansätze erka
 
 -   [Microsoft Server Performance Advisor](../../../server-performance-advisor/microsoft-server-performance-advisor.md) Active Directory Advisor-Paket
 
--   Sucht mit einem beliebigen Filter neben "(objectClass =\*)", der den Vorgänger Index verwendet.
+-   Sucht mit einem beliebigen Filter neben "(objectClass = \* )", der den Vorgänger Index verwendet.
 
 ### <a name="other-index-considerations"></a>Weitere Überlegungen zum Index
 
@@ -80,11 +80,11 @@ Diese Szenarien können mithilfe eines oder mehrerer der folgenden Ansätze erka
 
 -   Tupelindizes sind erforderlich, um mediale Such Zeichenfolgen und abschließende Such Zeichenfolgen zu unterstützen. Tupelindizes werden für die ersten Such Zeichenfolgen nicht benötigt.
 
-    -   Anfängliche Such Zeichenfolge – (sAMAccountName = MyPC\*)
+    -   Anfängliche Such Zeichenfolge – (sAMAccountName = MyPC \* )
 
-    -   Mediale Such Zeichenfolge-(sAMAccountName =\*MyPC\*)
+    -   Mediale Such Zeichenfolge-(sAMAccountName = \* MyPC \* )
 
-    -   Abschließende Such Zeichenfolge – (sAMAccountName =\*MyPC $)
+    -   Abschließende Such Zeichenfolge – (sAMAccountName = \* MyPC $)
 
 -   Beim Erstellen eines Indexes werden Datenträger-e/a generiert, während der Index erstellt wird. Dies erfolgt in einem Hintergrund Thread mit niedrigerer Priorität, und eingehende Anforderungen werden über den indexbuild priorisiert. Wenn die Kapazitätsplanung für die Umgebung ordnungsgemäß durchgeführt wurde, sollte dies transparent sein. Schreib intensive Szenarien oder eine Umgebung, in der die Auslastung des Domänen Controller Speichers unbekannt ist, könnten die Client Umgebung beeinträchtigen und sollten außerhalb der Geschäftszeiten ausgeführt werden.
 
@@ -98,10 +98,10 @@ Weitere Informationen finden Sie in den folgenden Bereichen:
 
 -   [Indizierte Attribute](https://msdn.microsoft.com/library/windows/desktop/ms677112.aspx)
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
-- [Leistungsoptimierung Active Directory Server](index.md)
-- [Überlegungen zur Hardware](hardware-considerations.md)
+- [Optimierung der Leistung von Active Directory-Servern](index.md)
+- [Hardwareaspekte](hardware-considerations.md)
 - [Ordnungsgemäße Platzierung von Domänencontrollern und Überlegungen zum Standort](site-definition-considerations.md)
-- [Problembehandlung bezüglich der ADDS-Leistung](troubleshoot.md) 
+- [Problembehandlung bezüglich der ADDS-Leistung](troubleshoot.md)
 - [Kapazitätsplanung für Active Directory Domain Services](https://go.microsoft.com/fwlink/?LinkId=324566)

@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: asmahi; sandysp; jopoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: fc1d6bdb848ea9662ba9b3d3119f286af3476688
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: d165413dfbf89b2debd77806110ca80e9b6af7c8
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851753"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85471295"
 ---
 # <a name="hyper-v-processor-performance"></a>Hyper-V-Prozessorleistung
 
@@ -41,7 +41,7 @@ Wenn Sie die Hintergrund Aktivität auf virtuellen Computern im Leerlauf minimie
 
 -   Überprüfen Sie die geplanten Tasks und Dienste, die standardmäßig aktiviert sind.
 
--   Überprüfen Sie die ETW-Ablauf Verfolgungs Anbieter, die standardmäßig aktiviert sind, indem Sie **logman. exe Query-ETS ausführen.**
+-   Überprüfen der etw-Ablauf Verfolgungs Anbieter, die standardmäßig aktiviert sind, durch Ausführen von **logman.exe-Abfrage-ETS**
 
 -   Verbessern von Server Anwendungen, um regelmäßige Aktivitäten (z. b. Timer) zu reduzieren
 
@@ -55,7 +55,7 @@ Im folgenden finden Sie weitere bewährte Methoden zum Konfigurieren einer *Clie
 
 -   Deaktivieren Sie geplante Aufgaben, z. b. geplante Defragmentierung.
 
-## <a name="virtual-numa"></a>Virtueller NUMA
+## <a name="virtual-numa"></a>Virtuelle NUMA
 
 Um die Virtualisierung von großen hochskalierbaren Arbeits Auslastungen zu ermöglichen, wurden von Hyper-V in Windows Server 2016 die Skalierungs Grenzwerte virtueller Computer erweitert. Einem einzelnen virtuellen Computer können bis zu 240 virtuelle Prozessoren und 12 TB Arbeitsspeicher zugewiesen werden. Wenn Sie solche großen virtuellen Maschinen erstellen, wird wahrscheinlich der Arbeitsspeicher von mehreren NUMA-Knoten auf dem Host System genutzt. Wenn virtuelle Prozessoren und Arbeitsspeicher nicht über denselben NUMA-Knoten zugeordnet werden, kann es bei der Konfiguration einer virtuellen Maschine zu einer ungültigen Leistung kommen, da die NUMA-Optimierungen nicht genutzt werden können.
 
@@ -69,7 +69,7 @@ Die Features virtuelles NUMA und dynamischer Arbeitsspeicher können nicht gleic
 
 Weitere Informationen zu virtuellem NUMA finden Sie unter [virtueller Hyper-V-NUMA (Übersicht](https://technet.microsoft.com/library/dn282282.aspx)).
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 -   [Hyper-V-Terminologie](terminology.md)
 

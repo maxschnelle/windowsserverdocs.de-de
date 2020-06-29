@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: ivanpash; gmonte
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 5e62f7428f015193896aba5c7d9c146bd11e7225
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: a0a4464d7a13911ec9cc7d104b6fe9292a64586e
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851683"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85471245"
 ---
 # <a name="performance-tuning-http-112"></a>Leistungsoptimierung HTTP 1.1/2
 
@@ -20,6 +20,6 @@ HTTP/2 soll die Leistung auf Clientseite verbessern (z. b. Seitenladezeit in ein
 
 Für einige Situationen ist ein HTTP/1.1-Fall Back erforderlich (Zurücksetzen der http/2-Verbindung und stattdessen das Einrichten einer neuen Verbindung für die Verwendung von HTTP/1.1). Insbesondere für die TLS-Aushandlung und die HTTP-Authentifizierung (außer Basic und Digest) ist ein HTTP/1.1-Fallback erforderlich. Obwohl dadurch mehr Aufwand entsteht, implizieren diese Vorgänge bereits einige Verzögerungen und sind daher nicht besonders Leistungs sensibel.
 
-## <a name="see-also"></a>Siehe auch
-- [Leistungsoptimierung für Webserver](index.md) 
+## <a name="additional-references"></a>Zusätzliche Referenzen
+- [Leistungsoptimierung für Webserver](index.md)
 - [IIS 10.0-Leistungsfeineinstellung](tuning-iis-10.md)

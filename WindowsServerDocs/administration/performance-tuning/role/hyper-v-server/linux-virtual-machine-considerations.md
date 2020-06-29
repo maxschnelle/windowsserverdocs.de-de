@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: asmahi; sandysp; jopoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 7abc1ef5473365dd26dce1167bb685f116822a7d
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 1109eb50bbe052b39fe7a91903fa0aea58b6e4f1
+ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851743"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85471385"
 ---
 # <a name="linux-virtual-machine-considerations"></a>Überlegungen zu virtuellen Linux-Computern
 
@@ -24,9 +24,9 @@ Auch wenn der Gast Integration Services ausgeführt wird, kann er mit Legacy Har
 
 ## <a name="linux-network-performance"></a>Linux-Netzwerkleistung
 
-Linux aktiviert standardmäßig Hardwarebeschleunigung und-Abladungen. Wenn vrss in den Eigenschaften einer NIC auf dem Host aktiviert ist und der Linux-Gast die Funktion zur Verwendung von vrss hat, wird die Funktion aktiviert. In PowerShell kann derselbe Parameter mit dem `EnableNetAdapterRSS`-Befehl geändert werden.
+Linux aktiviert standardmäßig Hardwarebeschleunigung und-Abladungen. Wenn vrss in den Eigenschaften einer NIC auf dem Host aktiviert ist und der Linux-Gast die Funktion zur Verwendung von vrss hat, wird die Funktion aktiviert. In PowerShell kann derselbe Parameter mit dem Befehl geändert werden `EnableNetAdapterRSS` .
 
-Ebenso kann die vmmq-Funktion (Virtual Switch RSS) auf der physischen NIC aktiviert werden, die von den Gast **Eigenschaften** > **konfigurieren...**  > Registerkarte " **erweitert** " > legen Sie den **virtuellen Switch RSS** auf **aktiviert** fest, oder aktivieren Sie vmmq in PowerShell, indem Sie Folgendes verwenden:
+Ebenso kann die vmmq-Funktion (Virtual Switch RSS) auf der physischen NIC aktiviert werden, die von den Gast **Eigenschaften**  >  **konfiguriert wird...**  >  Die Registerkarte **erweitert** > den **virtuellen Switch RSS** auf **aktiviert** festlegen oder vmmq in PowerShell aktivieren, indem Sie Folgendes verwenden:
 
 ```PowerShell
  Set-VMNetworkAdapter -VMName **$VMName** -VmmqEnabled $True
@@ -49,15 +49,15 @@ net.ipv4.ip_local_port_range = 10240 65535
 net.ipv4.tcp_abort_on_overflow = 1
 ```
 
-Ein nützliches Tool für Netzwerk-Mikrobenchmarks ist ntttcp, das unter Linux und Windows verfügbar ist. Die Linux-Version ist Open Source und ist [über ntttcp-for-Linux auf GitHub.com](https://github.com/Microsoft/ntttcp-for-linux)verfügbar. Die Windows-Version finden [Sie im Download Center](https://gallery.technet.microsoft.com/NTttcp-Version-528-Now-f8b12769). Beim Optimieren von Arbeits Auslastungen empfiehlt es sich, möglichst viele Streams zu verwenden, um den besten Durchsatz zu erzielen. Durch die Verwendung von ntttcp zum Modellieren von Datenverkehr wird mit dem `-P`-Parameter die Anzahl der verwendeten parallelen Verbindungen festgelegt.
+Ein nützliches Tool für Netzwerk-Mikrobenchmarks ist ntttcp, das unter Linux und Windows verfügbar ist. Die Linux-Version ist Open Source und ist [über ntttcp-for-Linux auf GitHub.com](https://github.com/Microsoft/ntttcp-for-linux)verfügbar. Die Windows-Version finden [Sie im Download Center](https://gallery.technet.microsoft.com/NTttcp-Version-528-Now-f8b12769). Beim Optimieren von Arbeits Auslastungen empfiehlt es sich, möglichst viele Streams zu verwenden, um den besten Durchsatz zu erzielen. Durch die Verwendung von ntttcp zum Modellieren von Datenverkehr legt der- `-P` Parameter die Anzahl der verwendeten parallelen Verbindungen fest.
 
 ## <a name="linux-storage-performance"></a>Linux-Speicherleistung
 
-Einige bewährte Methoden, wie z. b. die folgenden, werden unter Empfohlene [Vorgehensweisen für die Ausführung von Linux unter Hyper-V](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/best-practices-for-running-linux-on-hyper-v)aufgeführt. Der Linux-Kernel verfügt über unterschiedliche e/a-Planer, um Anforderungen mit unterschiedlichen Algorithmen neu anzuordnen. NOOP ist eine First-in-First-Out-Warteschlange, die die vom Hypervisor vorgenommene Zeit Plan Entscheidung übergibt. Es wird empfohlen, NOOP als Scheduler zu verwenden, wenn Sie virtuelle Linux-Computer unter Hyper-V ausführen. Um den Scheduler für ein bestimmtes Gerät zu ändern, fügen Sie in der Konfiguration des Start Laders (z. b./etc/grub.conf) `elevator=noop` zu den Kernel Parametern hinzu, und starten Sie dann neu.
+Einige bewährte Methoden, wie z. b. die folgenden, werden unter Empfohlene [Vorgehensweisen für die Ausführung von Linux unter Hyper-V](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/best-practices-for-running-linux-on-hyper-v)aufgeführt. Der Linux-Kernel verfügt über unterschiedliche e/a-Planer, um Anforderungen mit unterschiedlichen Algorithmen neu anzuordnen. NOOP ist eine First-in-First-Out-Warteschlange, die die vom Hypervisor vorgenommene Zeit Plan Entscheidung übergibt. Es wird empfohlen, NOOP als Scheduler zu verwenden, wenn Sie virtuelle Linux-Computer unter Hyper-V ausführen. Um den Scheduler für ein bestimmtes Gerät zu ändern, fügen Sie in der Konfiguration des Start Laders (z. b./etc/grub.conf) `elevator=noop` die Kernel Parameter hinzu, und starten Sie dann neu.
 
 Ähnlich wie bei Netzwerken profitiert die Leistung der Linux-gastleistung mit dem Speicher am meisten von mehreren Warteschlangen mit ausreichender Tiefe, um den Host ausgelastet zu halten. Die Speicherleistung von Mikro Benchmarks ist wahrscheinlich am besten mit dem fio-Benchmark-Tool mit der libaio-Engine.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 -   [Hyper-V-Terminologie](terminology.md)
 
