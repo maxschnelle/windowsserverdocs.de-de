@@ -6,13 +6,13 @@ manager: mchad
 ms.technology: storage-file-systems
 ms.topic: article
 author: gawatu
-ms.date: 06/17/2019
-ms.openlocfilehash: 7d33f15aafa432cb3f3174087c3b27855b4f35b2
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.date: 06/29/2019
+ms.openlocfilehash: 5bcdbc76259d1dfecaaa5266bb952a21bcbc7825
+ms.sourcegitcommit: 457e88e5aa6be13a2bffdb8e434a8efc3698678f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85475137"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85548895"
 ---
 # <a name="resilient-file-system-refs-overview"></a>Robustes Dateisystem (ReFS) : Übersicht
 
@@ -104,7 +104,7 @@ Das Bereitstellen von refs als Sicherungs Ziel eignet sich am besten für Anwend
 
 ## <a name="feature-comparison"></a>Funktionsvergleiche
 
-### <a name="limits"></a>Grenzwerte
+### <a name="limits"></a>Einschränkungen
 
 | Funktion       | ReFS                                        | NTFS |
 |----------------|------------------------------------------------|-----------------------|
@@ -166,9 +166,10 @@ Das Bereitstellen von refs als Sicherungs Ziel eignet sich am besten für Anwend
 | Unterstützung von Seiten Dateien | Nein | Ja |
 | Auf Wechselmedien unterstützt | Nein | Ja |
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Empfehlungen für die Clustergröße für ReFS und NTFS](https://techcommunity.microsoft.com/t5/Storage-at-Microsoft/Cluster-size-recommendations-for-ReFS-and-NTFS/ba-p/425960)
 - [Übersicht über direkte Speicherplätze](../storage-spaces/storage-spaces-direct-overview.md)
 - [Block-Clone-Vorgänge auf ReFS](block-cloning.md)
 - [ReFS Integrity Streams](integrity-streams.md)
+- [Problembehandlung bei Refs mit Ref](../../administration/windows-commands/refsutil.md)

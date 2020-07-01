@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6eae779216724d82ef7ca05026bcfd9725e6ea35
-ms.sourcegitcommit: 99d548141428c964facf666c10b6709d80fbb215
+ms.openlocfilehash: 6e9cd59169922bb6d76b6c65f3381e653df97109
+ms.sourcegitcommit: 457e88e5aa6be13a2bffdb8e434a8efc3698678f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84721543"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85548844"
 ---
 # <a name="netstat"></a>netstat
 
@@ -28,7 +28,7 @@ Zeigt aktive TCP-Verbindungen, Ports an, die der Computer überwacht, Ethernet-S
 ## <a name="syntax"></a>Syntax
 
 ```
-netstat [-a] [-e] [-n] [-o] [-p <Protocol>] [-r] [-s] [<interval>]
+netstat [-a] [-b] [-e] [-n] [-o] [-p <Protocol>] [-r] [-s] [<interval>]
 ```
 
 ### <a name="parameters"></a>Parameter
@@ -36,6 +36,7 @@ netstat [-a] [-e] [-n] [-o] [-p <Protocol>] [-r] [-s] [<interval>]
 | Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | -a | Zeigt alle aktiven TCP-Verbindungen und die TCP-und UDP-Ports an, die der Computer abhört. |
+| -b | Zeigt die ausführbare Datei an, die zum Erstellen der einzelnen Verbindungen oder des Überwachungsports gehört In einigen Fällen hosten bekannte ausführbare Dateien mehrere unabhängige Komponenten, und in diesen Fällen wird die Abfolge der Komponenten, die beim Erstellen der Verbindung oder des Überwachungsports beteiligt sind, angezeigt. In diesem Fall befindet sich der Name der ausführbaren Datei unten in [], oben ist die Komponente, die Sie aufgerufen hat, und so weiter, bis TCP/IP erreicht wurde. Beachten Sie, dass diese Option zeitaufwändig sein kann und fehlschlägt, es sei denn, Sie verfügen über ausreichende Berechtigungen.
 | -E | Zeigt Ethernet-Statistiken an, z. b. die Anzahl der gesendeten und empfangenen Bytes. Dieser Parameter kann mit **-s**kombiniert werden. |
 | -n | Zeigt aktive TCP-Verbindungen an. Adressen und Portnummern werden jedoch numerisch ausgedrückt, und es wird kein Versuch unternommen, Namen zu ermitteln. |
 | -o | Zeigt aktive TCP-Verbindungen an und schließt die Prozess-ID (PID) für jede Verbindung ein. Sie finden die Anwendung auf der Grundlage der PID auf der Registerkarte "Prozesse" im Windows Task-Manager. Dieser Parameter kann mit **-a**, **-n**und **-p**kombiniert werden. |
@@ -54,7 +55,7 @@ netstat [-a] [-e] [-n] [-o] [-p <Protocol>] [-r] [-s] [<interval>]
     | Proto | Der Name des Protokolls (TCP oder UDP). |
     | Lokale Adresse | Die IP-Adresse des lokalen Computers und die verwendete Portnummer. Der Name des lokalen Computers, der der IP-Adresse und dem Namen des Ports entspricht, wird angezeigt, es sei denn, der Parameter " **-n** " wird angegeben. Wenn der Port noch nicht festgelegt ist, wird die Portnummer als Sternchen (*) angezeigt. |
     | Fremd Adresse | Die IP-Adresse und die Portnummer des Remote Computers, mit dem der Socket verbunden ist. Die Namen, die der IP-Adresse und dem Port entsprechen, werden angezeigt, es sei denn, der **-n-** Parameter wird angegeben. Wenn der Port noch nicht festgelegt ist, wird die Portnummer als Sternchen (*) angezeigt. |
-    | Staat | Gibt den Status einer TCP-Verbindung an, einschließlich:<ul><li>CLOSE_WAIT</li><li>CLOSED</li><li>Nieder</li><li>FIN_WAIT_1</li><li>FIN_WAIT_2</li><li>LAST_ACK</li><li>Hin</li><li>SYN_RECEIVED</li><li>SYN_SEND</li><li>TIMED_WAIT</li></ul> |
+    | Status | Gibt den Status einer TCP-Verbindung an, einschließlich:<ul><li>CLOSE_WAIT</li><li>CLOSED</li><li>Nieder</li><li>FIN_WAIT_1</li><li>FIN_WAIT_2</li><li>LAST_ACK</li><li>Hin</li><li>SYN_RECEIVED</li><li>SYN_SEND</li><li>TIMED_WAIT</li></ul> |
 
 ### <a name="examples"></a>Beispiele
 
@@ -82,6 +83,6 @@ Geben Sie Folgendes ein, um aktive TCP-Verbindungen und die Prozess-IDs in numer
 netstat -n -o
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

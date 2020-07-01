@@ -1,0 +1,75 @@
+### YamlMime:Landing
+title: Dokumentation zur Virtualisierung
+summary: Virtualisierung in Windows Server ist eine der grundlegenden Technologien, die zum Erstellen Ihrer softwaredefinierten Infrastruktur erforderlich sind. Zusammen mit Netzwerk- und Speicherressourcen bieten Virtualisierungsfeatures die Flexibilität, die Sie benötigen, um die Workloads Ihrer Kunden zu beschleunigen.
+metadata:
+  title: Dokumentation zur Virtualisierung
+  description: Virtualisierung in Windows Server ist eine der grundlegenden Technologien, die zum Erstellen Ihrer softwaredefinierten Infrastruktur erforderlich sind.
+  ms.topic: landing-page
+  author: eross-msft
+  ms.author: lizross
+  ms.prod: windows-server
+  manager: brianlic
+  ms.technology: compute
+  ms.assetid: c248b41f-0de3-7136-9a25-b4b07e41ebf0
+  ms.localizationpriority: high
+  ms.openlocfilehash: 65230ad9d35239a86f5c213807c5f8eed9edfa68
+  ms.sourcegitcommit: 457e88e5aa6be13a2bffdb8e434a8efc3698678f
+  ms.translationtype: MT
+  ms.contentlocale: de-DE
+  ms.lasthandoff: 06/30/2020
+  ms.locfileid: "85549156"
+landingContent:
+- title: Windows-Container
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Windows-Container
+      url: /virtualization/windowscontainers
+    - text: Informationen zu Fenster Containern
+      url: /virtualization/windowscontainers/about/
+    - text: Container im Vergleich zu virtuellen Computern
+      url: /virtualization/windowscontainers/about/containers-vs-vm
+- title: Hyper-V in Windows 10
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Übersicht über Hyper-V unter Windows 10
+      url: /virtualization/hyper-v-on-windows
+    - text: Informationen zu Hyper-V unter Windows 10
+      url: /virtualization/hyper-v-on-windows/about/
+  - linkListType: get-started
+    links:
+    - text: Installieren von Hyper-V
+      url: /virtualization/hyper-v-on-windows/quick-start/enable-hyper-v
+    - text: Erstellen eines virtuellen Computers
+      url: /virtualization/hyper-v-on-windows/quick-start/create-virtual-machine
+- title: Hyper-V unter Windows Server
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Hyper-V unter Windows Server
+      url: hyper-v/Hyper-V-on-Windows-Server.md
+    - text: Übersicht über die Hyper-V-Technologie
+      url: hyper-v/Hyper-V-Technology-Overview.md
+  - linkListType: reference
+    links:
+    - text: Microsoft Hyper-V Server 2016
+      url: /windows-server/virtualization/hyper-v/hyper-v-server-2016
+    - text: System Anforderungen für Hyper-V unter Windows Server
+      url: hyper-v/System-requirements-for-Hyper-V-on-Windows.md
+- title: Virtueller Hyper-V-Switch
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Virtueller Hyper-V-Switch
+      url: hyper-v-virtual-switch/Hyper-V-Virtual-Switch.md
+  - linkListType: how-to-guide
+    links:
+    - text: Verwalten virtueller Hyper-V-Switches
+      url: hyper-v-virtual-switch/Manage-Hyper-V-Virtual-Switch.md
+- title: Verwenden eines geschützten Fabrics zum Bereitstellen einer sicheren Umgebung für virtuelle Computer
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Geschütztes Fabric und abgeschirmte VMs
+      url: ../security/guarded-fabric-shielded-vm/guarded-fabric-and-shielded-vms.md

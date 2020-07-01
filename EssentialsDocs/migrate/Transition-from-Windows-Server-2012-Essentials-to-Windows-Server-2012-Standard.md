@@ -8,12 +8,12 @@ ms.assetid: 51bcf124-c215-4e9d-9fa8-a90fa2c2fa22
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: e99cceb1acc6df7c9b30cef9f473531a6c35c5c7
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 2477cac206af4e70d10e28d7b1da637b7b7accff
+ms.sourcegitcommit: 457e88e5aa6be13a2bffdb8e434a8efc3698678f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85470245"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85548814"
 ---
 # <a name="transition-from-windows-server-essentials-to-windows-server-2012-standard"></a>Umstellung von Windows Server Essentials auf Windows Server 2012 Standard
 
@@ -75,11 +75,13 @@ ms.locfileid: "85470245"
 ## <a name="turn-off--windows-server-essentials-features"></a>Windows Server Essentials-Features deaktivieren
  Wenn Sie das Windows Server Essentials-Dashboard oder andere Features zum Verwalten des Servers nicht mehr benötigen, können Sie die Funktionen deaktivieren und Sie vom Server entfernen.
 
- Der **Assistent zum Deaktivieren von Windows Server Essentials-Funktionen** unterstützt Sie beim Deinstallieren der Features. Außerdem wird der Server von Dateien bereinigt, die von der Windows Server Essentials-Server Software erstellt wurden.  Einige Bereinigungsoptionen werden sofort ausgeführt, während andere nach einem Neustart des Servers initiiert werden.
+ Der **Assistent zum Deaktivieren von Windows Server Essentials-Features:**
+ 
+- hilft Ihnen bei der Deinstallation der Features. Außerdem wird der Server von Dateien bereinigt, die von der Windows Server Essentials-Server Software erstellt wurden.  Einige Bereinigungsoptionen werden sofort ausgeführt, während andere nach einem Neustart des Servers initiiert werden.
 
- Der **Assistent zum Deaktivieren von Windows Server Essentials-Funktionen** erfordert, dass Sie alle Add-ins manuell deinstallieren, bevor Sie den Assistenten beenden können. Zum Anzeigen einer Liste der installierten Add-Ins öffnen Sie im Dashboard die Anwendungsseite. Wenn der Assistent installierte Add-Ins ermittelt werden Sie benachrichtigt und aufgefordert, diese zu deinstallieren.
+- erfordert, dass Sie alle Add-ins manuell deinstallieren, bevor Sie den Assistenten beenden können. Zum Anzeigen einer Liste der installierten Add-Ins öffnen Sie im Dashboard die Anwendungsseite. Wenn der Assistent installierte Add-Ins ermittelt werden Sie benachrichtigt und aufgefordert, diese zu deinstallieren.
 
- Mit dem **Assistenten zum Deaktivieren von Windows Server Essentials-Features** können Sie auswählen, ob Sicherungsdateien für Client Computer aufbewahrt werden sollen, nachdem die Windows Server Essentials-Features ausgeschaltet wurden.
+- Hiermit können Sie auswählen, ob Sicherungsdateien für Client Computer aufbewahrt werden sollen, nachdem die Windows Server Essentials-Features ausgeschaltet wurden.
 
  Es gibt zwei Möglichkeiten, den **Assistenten zum Deaktivieren von Windows Server Essentials-Features über** das Dashboard auszuführen:
 
@@ -101,7 +103,7 @@ ms.locfileid: "85470245"
 
    **%SYSTEMDRIVE%\Programme\Windows Server\Bin\TurnOffFeaturesWizard.exe**
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 
 -   [Umstellung auf Windows Server 2012 R2 Standard](Transition-from-Windows-Server-2012-R2-Essentials-to-Windows-Server-2012-R2-Standard.md)

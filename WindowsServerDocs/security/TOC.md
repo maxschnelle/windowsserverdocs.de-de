@@ -1,4 +1,4 @@
-# [Sicherheit und Zuverlässigkeit](security-and-assurance.md)
+# [Sicherheit und Zuverlässigkeit](security-and-assurance.yml)
 ## [Ihre Reise in die Datenschutz-Grundverordnung (DSGVO) für Windows Server 2016](gdpr/gdpr-winserver-whitepaper.md)
 ## [Einrichten des Host-Überwachungsdiensts (HGS) für eine geschützte Fabric und abgeschirmte VMs](guarded-fabric-shielded-vm/guarded-fabric-and-shielded-vms-top-node.md)
 ### [Übersicht](guarded-fabric-shielded-vm/guarded-fabric-and-shielded-vms.md)
