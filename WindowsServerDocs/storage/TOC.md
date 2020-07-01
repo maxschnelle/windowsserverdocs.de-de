@@ -104,6 +104,7 @@
 ### [Durch Spiegelung beschleunigte Parität](refs/mirror-accelerated-parity.md)
 ### [Block-Clone-Vorgänge](refs/block-cloning.md)
 ### [ReFS-Integritätsdatenströme](refs/integrity-streams.md)
+### [ReFSUtil](../administration/windows-commands/refsutil.md)
 
 ## Speichermigrationsdienst
 ### [Übersicht](storage-migration-service/overview.md)

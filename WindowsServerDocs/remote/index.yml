@@ -1,0 +1,86 @@
+### YamlMime:Landing
+title: Remote
+summary: Anleitung zur Nutzung von Remotezugriff und Serververwaltung.
+metadata:
+  title: Remote
+  description: Anleitung zur Nutzung von Remotezugriff und Serververwaltung.
+  ms.service: help
+  ms.prod: windows-server
+  ms.technology: manage-rsat
+  author: coreyp-at-msft
+  ms.author: coreyp
+  manager: dougkim
+  ms.localizationpriority: high
+  ms.topic: landing-page
+  ms.date: 06/29/2020
+  ms.openlocfilehash: e9b87bf12add79075d1999f2b8f048314aad57ed
+  ms.sourcegitcommit: 457e88e5aa6be13a2bffdb8e434a8efc3698678f
+  ms.translationtype: HT
+  ms.contentlocale: de-DE
+  ms.lasthandoff: 06/30/2020
+  ms.locfileid: "85549203"
+landingContent:
+- title: MultiPoint Services
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Planen einer MultiPoint Services-Bereitstellung
+      url: /windows-server/remote/multipoint-services/planning-a-multipoint-services-deployment
+    - text: MultiPoint Services-Migration
+      url: /windows-server/remote/multipoint-services/multipoint-services-migrate
+    - text: Bereitstellen von MultiPoint Services
+      url: /windows-server/remote/multipoint-services/deploying-multipoint-services
+    - text: Verwalten von MultiPoint Services
+      url: /windows-server/remote/multipoint-services/managing-multipoint-services
+- title: Remotedesktopdienste
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Erste Schritte
+      url: /windows-server/remote/remote-desktop-services/rds-get-started
+  - linkListType: how-to-guide
+    links:
+    - text: Planen und Entwerfen
+      url: /windows-server/remote/remote-desktop-services/rds-plan-and-design
+    - text: Erstellen und Bereitstellen
+      url: /windows-server/remote/remote-desktop-services/rds-build-and-deploy
+    - text: Ausführen und Abstimmen
+      url: /windows-server/remote/remote-desktop-services/rds-run-and-tune
+    - text: Zugriff auf Remotedesktopressourcen
+      url: /windows-server/remote/remote-desktop-services/clients/remote-desktop-clients
+- title: Remotezugriff
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Always On VPN
+      url: /windows-server/remote/remote-access/vpn/always-on-vpn
+    - text: Border Gateway Protocol (BGP)
+      url: /windows-server/remote/remote-access/bgp/border-gateway-protocol-bgp
+    - text: RAS-Gateway
+      url: /windows-server/remote/remote-access/ras-gateway/ras-gateway
+    - text: Remotezugriffsserver-Rolle
+      url: /windows-server/remote/remote-access/ras/remote-access-server-role-documentation
+    - text: Virtual Private Networking (VPN)
+      url: /windows-server/remote/remote-access/vpn/vpn-top
+- title: Webanwendungsproxy
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Webanwendungsproxy in Windows Server 2016
+      url: /windows-server/remote/remote-access/web-application-proxy/web-application-proxy-windows-server
+  - linkListType: how-to-guide
+    links:
+    - text: Veröffentlichen von Anwendungen mit AD FS-Vorauthentifizierung
+      url: /windows-server/remote/remote-access/web-application-proxy/publishing-applications-using-ad-fs-preauthentication
+    - text: Veröffentlichen von Anwendungen mit SharePoint, Exchange und RDG
+      url: /windows-server/remote/remote-access/web-application-proxy/publishing-applications-with-sharepoint,-exchange-and-rdg
+    - text: 'Problembehandlung: Webanwendungsproxy'
+      url: /windows-server/remote/remote-access/web-application-proxy/troubleshooting-web-application-proxy
+- title: Tools
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Remoteserver-Verwaltungstools
+      url: /windows-server/remote/remote-server-administration-tools
+    - text: OpenSSH in Windows
+      url: /windows-server/administration/openssh/openssh_overview
