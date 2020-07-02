@@ -7,32 +7,40 @@ manager: eldenc
 ms.technology: storage-spaces
 ms.topic: article
 author: cosmosdarwin
-ms.date: 09/19/2019
+ms.date: 07/01/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 19679a6838d583ef93175f5f95aa21e8aeca9b36
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 2ffe34097971f4477f0f536637b49b704678c93e
+ms.sourcegitcommit: c40c29683d25ed75b439451d7fa8eda9d8d9e441
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85475257"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85833364"
 ---
 # <a name="choosing-drives-for-storage-spaces-direct"></a>Auswählen von Laufwerken für direkte Speicherplätze
 
->Gilt für: Windows 2019, Windows Server 2016
+>Gilt für: Windows Server 2019, Windows Server 2016
 
 Dieses Thema enthält Anleitungen zum Auswählen von Laufwerken für [direkte Speicherplätze](storage-spaces-direct-overview.md) , um Ihre Leistungs-und Kapazitätsanforderungen zu erfüllen.
 
 ## <a name="drive-types"></a>Laufwerkstypen
 
-Direkte Speicherplätze funktioniert derzeit mit drei Arten von Laufwerken:
+Direkte Speicherplätze funktioniert derzeit mit vier Arten von Laufwerken:
 
 <table>
+    <tr style="border: 0;">
+        <td style="padding: 10px; border: 0; width:70px">
+            <img src="media/understand-the-cache/pmem-100px.png">
+        </td>
+        <td style="padding: 10px; border: 0;" valign="middle">
+            <b>PMem</b> bezieht sich auf den dauerhaften Speicher, einen neuen Typ von niedriger Latenz und Hochleistungsspeicher.
+        </td>
+    </tr>
     <tr style="border: 0;">
         <td style="padding: 10px; border: 0; width:70px">
             <img src="media/understand-the-cache/NVMe-100px.png">
         </td>
         <td style="padding: 10px; border: 0;" valign="middle">
-            <b>Nvme</b> (Non-volatile-Speicher Express) bezieht sich auf Solid State Drives, die sich direkt auf dem PCIe-Bus befinden. Allgemeine Formfaktoren sind 2,5 Zoll U.2 PCI-Add-In-Karte (AIC) und M.2. NVMe bietet einen höheren IOPS-Wert und E/A-Durchsatz mit geringerer Latenz als jedes andere Laufwerk, das wir heute unterstützen.
+            <b>Nvme</b> (Non-volatile-Speicher Express) bezieht sich auf Solid State Drives, die sich direkt auf dem PCIe-Bus befinden. Allgemeine Formfaktoren sind 2,5 Zoll U.2 PCI-Add-In-Karte (AIC) und M.2. Nvme bietet einen höheren IOPS-und e/a-Durchsatz mit geringerer Latenz als alle anderen von uns unterstützten Laufwerke mit Ausnahme des permanenten Speichers.
         </td>
     </tr>
     <tr style="border: 0;">
@@ -116,7 +124,7 @@ Der Cache sollte die Größe des Arbeits Satzes Ihrer Anwendungen und Arbeits Au
 
 Es wird empfohlen, die gesamte Speicherkapazität pro Server auf ungefähr 400 Terabyte (TB) zu begrenzen. Je mehr Speicherkapazität pro Server existiert, desto länger dauert die Neusynchronisierung der Daten nach dem Herunterfahren des Systems oder nach einem Neustart wie z. B. beim Aktualisieren von Software. Die aktuelle maximale Größe pro Speicherpool beträgt 4 Petabytebereich (PB) (4.000 TB) für Windows Server 2019 oder 1 Petabytebereich für Windows Server 2016.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Übersicht über direkte Speicherplätze](storage-spaces-direct-overview.md)
 - [Verstehen des Caches in direkten Speicherplätzen](understand-the-cache.md)

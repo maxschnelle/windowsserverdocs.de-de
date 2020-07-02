@@ -5,13 +5,13 @@ author: Deland-Han
 manager: dcscontentpm
 ms.topic: article
 ms.author: delhan
-ms.date: 12/25/2019
-ms.openlocfilehash: a1e1a30530f937289770bcef9e71189bf69719ce
-ms.sourcegitcommit: 7200143aa787c7ac05ae0e012263b1c9a95b87ed
+ms.date: 07/01/2020
+ms.openlocfilehash: 18c315a8b3562c25b5fe1c537a8922fc148e444b
+ms.sourcegitcommit: c40c29683d25ed75b439451d7fa8eda9d8d9e441
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84721758"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85833286"
 ---
 # <a name="smbv1-is-not-installed-by-default-in-windows-10-version-1709-windows-server-version-1709-and-later-versions"></a>SMBv1 wird nicht standardmäßig unter Windows 10, Version 1709, Windows Server Version 1709 und höheren Versionen installiert.
 
@@ -19,23 +19,28 @@ ms.locfileid: "84721758"
 
 In Windows 10 Fall Creators Update und Windows Server, Version 1709 (RS3) und höheren Versionen, wird das Netzwerkprotokoll Server Message Block Version 1 (SMBv1) nicht mehr standardmäßig installiert. Sie wurde ab 2007 durch SMBv2 und spätere Protokolle abgelöst. Microsoft hat das SMBv1-Protokoll in 2014 öffentlich als veraltet eingestuft. 
 
-SMBv1 hat das folgende Verhalten in Windows 10 Fall Creators Update und Windows Server, Version 1709 (RS3): 
+SMBv1 hat das folgende Verhalten in Windows 10 und Windows Server ab Version 1709 (RS3): 
  
 - SMBv1 verfügt nun sowohl über Client-als auch Server-unter Funktionen, die separat deinstalliert werden können.    
-- Windows 10 Enterprise und Windows 10 Education enthalten den SMBv1-Client bzw.-Server nicht mehr standardmäßig nach einer Neuinstallation.    
+- Windows 10 Enterprise, Windows 10 Education und Windows 10 pro für Arbeitsstationen enthalten standardmäßig den SMBv1-Client bzw.-Server nicht mehr standardmäßig nach einer Neuinstallation.    
 - Windows Server 2016 enthält den SMBv1-Client bzw.-Server nicht mehr standardmäßig nach einer Neuinstallation.    
-- Windows 10 Home und Windows 10 Professional enthalten standardmäßig den SMBv1-Server nicht mehr standardmäßig nach einer Neuinstallation.    
-- Windows 10 Home und Windows 10 Professional enthalten nach einer Neuinstallation weiterhin standardmäßig den SMBv1-Client. Wenn der SMBv1-Client nicht 15 Tage lang verwendet wird (mit Ausnahme des Computers, der ausgeschaltet wird), wird er automatisch deinstalliert.    
-- Direkte Upgrades und Insider-Flüge von Windows 10 Home und Windows 10 Professional entfernen SMBv1 anfänglich nicht automatisch. Wenn der SMBv1-Client bzw.-Server nicht 15 Tage lang verwendet wird (außer dem Zeitpunkt, an dem der Computer ausgeschaltet ist), werden diese automatisch deinstalliert.     
-- Direkte Upgrades und Insider-Flüge der Editionen Windows 10 Enterprise und Windows 10 Education werden SMBv1 nicht automatisch entfernt. Ein Administrator muss entscheiden, SMBv1 in diesen verwalteten Umgebungen zu deinstallieren. In Windows 10, Version 1809 (RS5) und höheren Versionen, kann ein Administrator das automatische Entfernen von SMBv1 durch Aktivieren der Funktion "Automatisches Entfernen von SMB 1.0/CIFS" aktivieren.    
+- Windows 10 Home und Windows 10 pro enthalten nach einer Neuinstallation nicht mehr standardmäßig den SMBv1-Server.    
+- Windows 10 Home und Windows 10 pro enthalten nach einer Neuinstallation weiterhin standardmäßig den SMBv1-Client. Wenn der SMBv1-Client nicht 15 Tage lang verwendet wird (mit Ausnahme des Computers, der ausgeschaltet wird), wird er automatisch deinstalliert.    
+- Bei direkten Upgrades und Insider-Flügen von Windows 10 Home und Windows 10 pro wird SMBv1 anfänglich nicht automatisch entfernt. Wenn der SMBv1-Client bzw.-Server nicht 15 Tage lang verwendet wird (außer dem Zeitpunkt, an dem der Computer ausgeschaltet ist), werden diese automatisch deinstalliert.     
+- Durch direkte Upgrades und Insider-Flüge der Editionen Windows 10 Enterprise, Windows 10 Education und Windows 10 pro für Arbeitsstationen wird SMBv1 nicht automatisch entfernt. Ein Administrator muss entscheiden, SMBv1 in diesen verwalteten Umgebungen zu deinstallieren. 
 - Das automatische Entfernen von SMBv1 nach 15 Tagen ist ein einmal Vorgang. Wenn ein Administrator SMBv1 erneut installiert, werden keine weiteren Versuche unternommen, ihn zu deinstallieren.
 - Die Features der SMB-Version 2,02, 2,1, 3,0, 3,02 und 3.1.1 werden weiterhin vollständig unterstützt und sind standardmäßig als Teil der SMBv2-Binärdateien enthalten.    
 - Da der Computer Browser Dienst auf SMBv1 basiert, wird der Dienst deinstalliert, wenn der SMBv1-Client oder-Server deinstalliert wird. Dies bedeutet, dass das Explorer-Netzwerk Windows-Computer nicht mehr über die Legacy Methode NetBIOS-Datagramm-Browsen anzeigen kann.    
 - SMBv1 kann weiterhin in allen Editionen von Windows 10 und Windows Server 2016 neu installiert werden.    
- 
+
+SMBv1 verfügt über die folgenden zusätzlichen Verhaltensweisen in Windows 10 ab Version 1809 (RS5). Alle anderen Verhalten von Version 1709 gelten weiterhin:
+
+- Windows 10 pro enthält den SMBv1-Client standardmäßig nicht mehr standardmäßig nach einer Neuinstallation.
+- In Windows 10 Enterprise, Windows 10 Education und Windows 10 pro für Arbeitsstationen können Administratoren das automatische Entfernen von SMBv1 aktivieren, indem Sie das Feature "Automatisches Entfernen von SMB 1.0/CIFS" aktivieren.
+
   > [!NOTE]
-  > Windows 10, Version 1803 (RS4) Professional Handles SMBv1 auf die gleiche Weise wie Windows 10, Version 1703 (RS2) und Windows 10, Version 1607 (RS1). Dieses Problem wurde in Windows 10, Version 1809 (RS5) behoben. Sie können SMBv1 weiterhin manuell deinstallieren. In den folgenden Szenarien wird Windows jedoch nicht automatisch deinstalliert SMBv1 nach 15 Tagen: 
- 
+  > Windows 10, Version 1803 (RS4) pro verarbeitet SMBv1 auf die gleiche Weise wie Windows 10, Version 1703 (RS2) und Windows 10, Version 1607 (RS1). Dieses Problem wurde in Windows 10, Version 1809 (RS5) behoben. Sie können SMBv1 weiterhin manuell deinstallieren. In den folgenden Szenarien wird Windows jedoch nicht automatisch deinstalliert SMBv1 nach 15 Tagen: 
+
 -  Sie führen eine saubere Installation von Windows 10, Version 1803, durch.     
 -  Sie führen ein Upgrade von Windows 10, Version 1607 oder Windows 10, Version 1703, auf Windows 10, Version 1803, direkt durch, ohne zuvor ein Upgrade auf Windows 10, Version 1709, auszuführen.     
  

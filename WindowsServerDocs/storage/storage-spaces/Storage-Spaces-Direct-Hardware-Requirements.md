@@ -1,5 +1,5 @@
 ---
-title: Hardwareanforderungen für Direkte Speicherplätze
+title: Hardwareanforderungen für direkte Speicherplätze
 ms.prod: windows-server
 description: Mindesthardwareanforderungen zum Testen von „Direkte Speicherplätze“.
 ms.author: eldenc
@@ -7,14 +7,14 @@ manager: eldenc
 ms.technology: storage-spaces
 ms.topic: article
 author: eldenchristensen
-ms.date: 08/05/2019
+ms.date: 06/24/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 42022b6e2e3564d1440e2ba1d45f9f98430242c0
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 0e34f74226edb56e8db0290fd5dc83f0c6e54221
+ms.sourcegitcommit: c40c29683d25ed75b439451d7fa8eda9d8d9e441
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80861053"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85833323"
 ---
 # <a name="storage-spaces-direct-hardware-requirements"></a>Hardwareanforderungen für „Direkte Speicherplätze“
 
@@ -27,13 +27,13 @@ In der Produktionsumgebung empfiehlt Microsoft, eine überprüfte Hardware-/Soft
    > [!TIP]
    > Möchten Sie direkte Speicherplätze auswerten, aber keine Hardware? Verwenden Sie Hyper-V oder Azure Virtual Machines, wie in [Verwenden von direkte Speicherplätze in virtuellen Gastcomputer Clustern](storage-spaces-direct-in-vm.md)beschrieben.
 
-## <a name="base-requirements"></a>Grundvoraussetzungen
+## <a name="base-requirements"></a>Basisanforderungen
 
 Systeme, Komponenten, Geräte und Treiber müssen gemäß dem [Windows Server-Katalog](https://www.windowsservercatalog.com) **Windows Server 2016-zertifiziert** sein. Außerdem wird empfohlen, dass Server, Laufwerke, Hostbus Adapter und Netzwerkadapter über das **Software-Defined Data Center (SDDC) Standard** -und/oder **Software-Defined Data Center (SDDC) Premium** -Standard Qualifizierungen (AQS) verfügen, wie unten dargestellt. Es sind mehr als 1.000 Komponenten mit dem SDDC AQS vorhanden.
 
 ![Screenshot des Windows Server-Katalogs mit dem SDDC-AQS](media/hardware-requirements/sddc-aqs.png)
 
-Der vollständig konfigurierte Cluster (Server, Netzwerk und Speicher) muss alle [Cluster Validierungstests](https://technet.microsoft.com/library/cc732035(v=ws.10).aspx) gemäß dem Assistenten in Failovercluster-Manager oder mit dem `Test-Cluster`- [Cmdlet](https://docs.microsoft.com/powershell/module/failoverclusters/test-cluster?view=win10-ps) in PowerShell bestehen.
+Der vollständig konfigurierte Cluster (Server, Netzwerk und Speicher) muss alle [Cluster Validierungstests](https://technet.microsoft.com/library/cc732035(v=ws.10).aspx) gemäß dem Assistenten in Failovercluster-Manager oder mit dem `Test-Cluster` [Cmdlet](https://docs.microsoft.com/powershell/module/failoverclusters/test-cluster?view=win10-ps) in PowerShell bestehen.
 
 Außerdem gelten die folgenden Anforderungen:
 
@@ -47,12 +47,12 @@ Außerdem gelten die folgenden Anforderungen:
 - Intel Nehalem oder höher kompatibler Prozessor; noch
 - Mit AMD epyc oder höher kompatibler Prozessor
 
-## <a name="memory"></a>Arbeitsspeicher
+## <a name="memory"></a>Memory
 
 - Arbeitsspeicher für Windows Server, VMS und andere apps oder Arbeits Auslastungen; ZZ
 - 4 GB RAM pro Terabyte (TB) der Cache Laufwerks Kapazität auf jedem Server, für direkte Speicherplätze-Metadaten
 
-## <a name="boot"></a>Starten
+## <a name="boot"></a>Start
 
 - Alle Start Geräte, die von Windows Server unterstützt werden und [nun SATADOM enthalten](https://cloudblogs.microsoft.com/windowsserver/2017/08/30/announcing-support-for-satadom-boot-drives-in-windows-server-2016/)
 - RAID 1-Spiegel ist **nicht** erforderlich, wird jedoch für den Start unterstützt.
@@ -78,15 +78,16 @@ Umgeschaltete oder switchlose Knoten Verbindungen
 
 ## <a name="drives"></a>Laufwerke
 
-Direkte Speicherplätze funktioniert mit direkt angeschlossenen SATA-, SAS-oder nvme-Laufwerken, die physisch an jeweils nur einen Server angeschlossen sind. Weitere Hilfe zum Auswählen von Laufwerken finden Sie im Thema [Auswählen von Laufwerken](choosing-drives.md).
+Direkte Speicherplätze funktioniert mit direkt angeschlossenen SATA-, SAS-, nvme-oder persistenten Speicher Laufwerken (pMem), die physisch an nur einen Server angeschlossen sind. Weitere Informationen zum Auswählen von Laufwerken finden Sie in den Themen [Auswählen von Laufwerken](choosing-drives.md) und verstehen und Bereitstellen von [persistenten Speicher](deploy-pmem.md)
 
-- SATA-, SAS-und nvme-Laufwerke (M. 2, U. 2 und Add-in-Card) werden unterstützt.
+- SATA-, SAS-, persistente Speicher-und nvme-Laufwerke (M. 2, U. 2 und Add-in-Card) werden unterstützt.
 - 512 n, 512 e und 4K Native Laufwerke werden unterstützt.
 - Solid-State-Laufwerke müssen den [Schutz von Energieverlusten](https://blogs.technet.microsoft.com/filecab/2016/11/18/dont-do-it-consumer-ssd/) bereitstellen.
 - Gleiche Anzahl und Arten von Laufwerken auf jedem Server – siehe [Überlegungen zur Laufwerk Symmetrie](drive-symmetry-considerations.md)
 - Cache Geräte müssen 32 GB oder größer sein.
+- Persistente Speichergeräte werden im Blockspeicher Modus verwendet.
 - Wenn Sie persistente Speichergeräte als Cache Geräte verwenden, müssen Sie nvme-oder SSD-Kapazitäts Geräte verwenden (HDDs können nicht verwendet werden).
-- Der nvme-Treiber ist der von Microsoft bereitgestellte, der in Windows enthalten ist. (stornvme. sys)
+- Der nvme-Treiber ist der von Microsoft bereitgestellte, der in Windows enthalten ist (stornvme.sys).
 - Empfohlen: die Anzahl der Kapazitäts Laufwerke ist ein gesamtes Vielfaches der Anzahl von Cache Laufwerken.
 - Empfohlen: Cache Laufwerke sollten hohe Schreib Ausdauer aufweisen: mindestens 3 Laufwerke pro Tag (dwpd) oder mindestens 4 Terabyte (TBW) pro Tag – Siehe Grundlegendes [zu Laufwerks Schreibvorgängen pro Tag (dwpd), Terabyte (TBW) und die empfohlene Mindestanzahl für direkte Speicherplätze](https://blogs.technet.microsoft.com/filecab/2017/08/11/understanding-dwpd-tbw/)
 
@@ -111,7 +112,7 @@ Laufwerke können für den Server oder ein externes Gehäuse, das mit nur einem 
 ### <a name="minimum-number-of-drives-excludes-boot-drive"></a>Mindestanzahl von Laufwerken (durch das Start Laufwerk ausgeschlossen)
 
 - Wenn Laufwerke als Cache verwendet werden, sind mindestens zwei pro Server erforderlich.
-- Pro Server müssen mindestens vier Kapazitätslaufwerke vorhanden sein, die nicht als Cache fungieren.
+- Es müssen mindestens vier Kapazitäts Laufwerke (ohne Cache) pro Server vorhanden sein.
 
 | Vorhandene Laufwerktypen   | Erforderliche Mindestanzahl |
 |-----------------------|-------------------------|
