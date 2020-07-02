@@ -9,12 +9,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: mas
-ms.openlocfilehash: 5fefdb83667ba7893218de21df1f6c36cae40e12
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 806a2aced95421bd469ba885d4a81c219ae1b651
+ms.sourcegitcommit: 457e88e5aa6be13a2bffdb8e434a8efc3698678f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80855123"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85548834"
 ---
 # <a name="securing-privileged-access"></a>Schützen des privilegierten Zugriffs
 
@@ -62,11 +62,11 @@ Diese Roadmap wurde dazu entworfen, den Nutzen Ihrer bereits bereitgestellten Mi
 
 Die Roadmap mit den Empfehlungen von Microsoft ist in 3 Phasen unterteilt:
 
-* [Phase 1: Die ersten 30 Tage]()
+* [Phase 1: Die ersten 30 Tage](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access#phase-1-quick-wins-with-minimal-operational-complexity)
    * Schnelle Ergebnisse mit bedeutsamen positiven Auswirkungen
-* [Phase 2: 90 Tage]()
+* [Phase 2: 90 Tage](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access#phase-2-significant-incremental-improvements)
    * Bedeutende inkrementelle Verbesserungen
-* [Phase 3: Fortlaufend]()
+* [Phase 3: Fortlaufend](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access#phase-3-security-improvement-and-sustainment)
    * Verbesserung und Aufrechterhaltung der Sicherheit
 
 Der Leitfaden ist so priorisiert, dass basierend auf unseren Erfahrungen mit diesen Angriffen und der Umsetzung von Lösungen die wirkungsvollsten und schnellen Umsetzungen zuerst geplant werden. 

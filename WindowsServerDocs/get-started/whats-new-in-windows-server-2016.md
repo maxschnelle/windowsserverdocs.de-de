@@ -10,12 +10,12 @@ author: jasongerend
 ms.author: jgerend
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: c3eb62d53ef11d5531590e1a6d46cd6cacaf2e4a
-ms.sourcegitcommit: 5bc5aaf341c711113ca03d1482f933b05b146007
+ms.openlocfilehash: 01b06c2869469ee65e23df2b1f5ca35fb266d234
+ms.sourcegitcommit: 457e88e5aa6be13a2bffdb8e434a8efc3698678f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85094538"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85548733"
 ---
 # <a name="whats-new-in-windows-server-2016"></a>Neuerungen in Windows Server 2016
 
@@ -23,7 +23,7 @@ ms.locfileid: "85094538"
 
 ![Symbol einer Zeitung](media/whats-new.png) Informationen über die neuesten Features in Windows finden Sie unter [Neues in Windows Server](whats-new-in-windows-server.md). In diesem Abschnitt wird beschrieben, was in Windows Server&reg; 2016 neu ist und was sich geändert hat. Die hier aufgeführten Neuerungen und Änderungen haben bei der Arbeit in dieser Version vermutlich die größte Auswirkung.
 
-## <a name="compute"></a>[Compute](../virtualization/virtualization.md)
+## <a name="compute"></a>[Compute](../virtualization/virtualization.yml)
 
 Der Virtualisierungsbereich umfasst Virtualisierungsprodukte und -features, mit denen IT-Profis Windows Server entwerfen, bereitstellen und warten können.  
 
@@ -109,8 +109,8 @@ Das standardmäßige anfängliche Überlastungsfenster (Initial Congestion Windo
 
 Zur Verbesserung des TCP-Verhaltens bei der Wiederherstellung nach einem Paketverlust wurden TCP: Tail Loss Probe (TLP) und Recent ACKnowledgement (RACK) implementiert. TLP hilft bei der Konvertierung von RTOs (Retransmit TimeOuts) in schnelle Wiederherstellungen, und RACK reduziert die Zeit, die die schnelle Wiederherstellung benötigt, um ein verlorenes Paket erneut zu übertragen. 
 
-## <a name="security-and-assurance"></a>[Sicherheit und Zuverlässigkeit](../security/Security-and-Assurance.md)  
-Dieser Bereich umfasst Sicherheitslösungen und -features für Ihr Rechenzentrum und Ihre Cloudumgebung. Informationen zur allgemeinen Sicherheit in Windows Server 2016 finden Sie unter [Sicherheit und Zusicherungen](../security/Security-and-Assurance.md).  
+## <a name="security-and-assurance"></a>[Sicherheit und Zuverlässigkeit](../security/Security-and-Assurance.yml)  
+Dieser Bereich umfasst Sicherheitslösungen und -features für Ihr Rechenzentrum und Ihre Cloudumgebung. Informationen zur allgemeinen Sicherheit in Windows Server 2016 finden Sie unter [Sicherheit und Zusicherungen](../security/Security-and-Assurance.yml).  
 
 ### <a name="just-enough-administration"></a>Just Enough Administration  
 Just Enough Administration in Windows Server 2016 ist eine Sicherheitstechnologie, die eine delegierte Verwaltung für sämtliche Bereiche bietet, die sich mit Windows PowerShell verwalten lassen. Die Funktionen umfassen die Unterstützung für die Ausführung unter einer Netzwerkidentität, für das Herstellen einer Verbindung über PowerShell Direct, das sichere Kopieren von Dateien von/zu JEA-Endpunkten sowie das Konfigurieren der PowerShell-Konsole für den standardmäßigen Start in einem JEA-Kontext. Weitere Einzelheiten finden Sie auf den Webseiten zu [JEA auf GitHub](https://aka.ms/JEA).

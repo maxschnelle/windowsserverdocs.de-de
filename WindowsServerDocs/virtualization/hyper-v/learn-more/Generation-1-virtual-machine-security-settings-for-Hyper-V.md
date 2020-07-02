@@ -9,12 +9,12 @@ ms.assetid: f8f8c569-8b74-4c19-876e-1c7d00cce308
 author: larsiwer
 ms.author: kathydav
 ms.date: 10/04/2016
-ms.openlocfilehash: f745ccd9e5a82aa79fb58798f233bf2662b00a70
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 01a4882ec766673af5ff8f57debb829ace743d77
+ms.sourcegitcommit: 457e88e5aa6be13a2bffdb8e434a8efc3698678f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85475637"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85548703"
 ---
 # <a name="generation-1-virtual-machine-security-settings"></a>Sicherheitseinstellungen für virtuelle Computer der 1. Generation
 
@@ -39,11 +39,11 @@ Um die Inhalte des Schlüsselspeicher-Laufwerks zu entschlüsseln und den virtue
 - Er muss Teil einer autorisierten geschützten Fabric für diesen virtuellen Computer sein oder
 - Über den privaten Schlüssel eines der Wächter des virtuellen Computers verfügen.
 
-Weitere Informationen zu geschützten Fabrics erhalten Sie im Abschnitt zur Einführung in abgeschirmte VMs in [Sicherheit und Zusicherung](../../../security/Security-and-Assurance.md).
+Weitere Informationen zu geschützten Fabrics erhalten Sie im Abschnitt zur Einführung in abgeschirmte VMs in [Sicherheit und Zusicherung](../../../security/Security-and-Assurance.yml).
 
 Sie können einem leeren Steckplatz auf einem der IDE-Controller des virtuellen Computers ein Schlüsselspeicher-Laufwerk hinzufügen. Klicken Sie dazu auf **Schlüsselspeicher-Laufwerk hinzufügen**, um dem ersten freien Steckplatz auf dem IDE-Controller des virtuellen Computers ein Schlüsselspeicher-Laufwerk hinzuzufügen.
 
 ## <a name="additional-references"></a>Weitere Verweise
 
 - [Sicherheitseinstellungen für virtuelle Computer der 2. Generation in Hyper-V-Manager](Generation-2-virtual-machine-security-settings-for-hyper-v.md)
-- [Sicherheit und Zuverlässigkeit](../../../security/Security-and-Assurance.md)
+- [Sicherheit und Zuverlässigkeit](../../../security/Security-and-Assurance.yml)

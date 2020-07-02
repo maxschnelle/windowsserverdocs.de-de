@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 04/05/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 5f2e8a0816fdd78491c18e196a57a38734e3368e
-ms.sourcegitcommit: 5bc5aaf341c711113ca03d1482f933b05b146007
+ms.openlocfilehash: 8a2a76c0cdd4433ecdf445bcde01f8af5bae66a7
+ms.sourcegitcommit: 457e88e5aa6be13a2bffdb8e434a8efc3698678f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85094510"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85548875"
 ---
 # <a name="folder-redirection-offline-files-and-roaming-user-profiles-overview"></a>Ordnerumleitung, Offlinedateien und Roamingbenutzerprofile – Übersicht
 
@@ -135,4 +135,4 @@ Weitere verwandte Informationen finden Sie in den folgenden Ressourcen:
 | Bereitstellung | [Bereitstellen von Ordnerumleitung, Offlinedateien und Roamingbenutzerprofilen](deploy-folder-redirection.md)<br>[Implementieren einer Endbenutzerlösung für die Datenzentralisierung: Validierung und Bereitstellung von Technologien für Ordnerumleitung und Offlinedateien](https://download.microsoft.com/download/3/0/1/3019A3DA-2F41-4F2D-BBC9-A6D24C4C68C4/Implementing%20an%20End-User%20Data%20Centralization%20Solution.docx)<br>[Leitfaden zur Verwaltung von Roamingbenutzerdaten](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc766489(v=ws.10)>)<br>[Schrittweise Anleitung: Konfigurieren von neuen Offlinedateifunktionen für Windows 7-Computer](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ff633429(v=ws.10)>)<br>[Verwenden von Ordnerumleitung](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753996(v=ws.11)>)<br>[Implementieren von Ordnerumleitung](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc737434(v=ws.10)>) (Windows Server 2003) |
 | Tools und Einstellungen | [Offlinedateien auf MSDN](https://msdn.microsoft.com/library/cc296092.aspx)<br>[Gruppenrichtlinienreferenz für Offlinedateien](https://msdn.microsoft.com/library/ms878937.aspx) (Windows 2000) |
 | Communityressourcen | [Forum zu Dateidiensten und Speicher](https://social.technet.microsoft.com/forums/windowsserver/home?forum=winserverfiles)<br>[Hey, Scripting Guy! Wie kann ich mit dem Feature „Offlinedateien“ in Windows arbeiten?](<https://blogs.technet.microsoft.com/heyscriptingguy/2009/06/02/hey-scripting-guy-how-can-i-enable-and-disable-offline-files/>)<br>[Hey, Scripting Guy! Wie kann ich Offlinedateien aktivieren und deaktivieren?](<https://blogs.technet.microsoft.com/heyscriptingguy/2009/06/02/hey-scripting-guy-how-can-i-enable-and-disable-offline-files/>) |
-| Verwandte Technologien|[Identität und Zugriff in Windows Server](../../identity/identity-and-access.yml)<br>[Speicher](../storage.yml)<br>[Remotezugriff und Serververwaltung](../../remote/index.md) |
+| Verwandte Technologien|[Identität und Zugriff in Windows Server](../../identity/identity-and-access.yml)<br>[Speicher](../storage.yml)<br>[Remotezugriff und Serververwaltung](../../remote/index.yml) |

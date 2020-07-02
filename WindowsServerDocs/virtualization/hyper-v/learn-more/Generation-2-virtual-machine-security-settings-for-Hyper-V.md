@@ -9,12 +9,12 @@ ms.assetid: 06ab4f5f-6b8e-4058-8108-76785aa93d4c
 author: larsiwer
 ms.author: kathydav
 ms.date: 10/04/2016
-ms.openlocfilehash: 7eb867529d38ab21ee21c19f92c89ed4128b0ea4
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 1b3c7b636d9c93ff0392f266d1e6e18d36dfd15f
+ms.sourcegitcommit: 457e88e5aa6be13a2bffdb8e434a8efc3698678f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80860803"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85548914"
 ---
 # <a name="generation-2-virtual-machine-security-settings-for-hyper-v"></a>Sicherheitseinstellungen für virtuelle Computer der 2. Generation für Hyper-V
 
@@ -83,4 +83,4 @@ Um bessere Sicherheit virtueller Computer zu erreichen, verwenden Sie die Option
 
 Sie können einen abgeschirmten virtuellen Computer lokal ausführen, ohne einen Host-Überwachungsdienst einzurichten. Wenn Sie sie auf einen anderen Host migrieren, können Sie sie möglicherweise nicht starten. Sie müssen die Schlüsselschutzvorrichtung für den betreffenden virtuellen Computer aktualisieren, um den neuen Host zur Ausfühung des virtuellen Computers zu autorisieren. Weitere Informationen finden Sie unter [Geschützte Fabric und abgeschirmte VMs](https://go.microsoft.com/fwlink/?LinkId=746381).  
 
-Weitere Informationen zur Sicherheit in Windows Server finden Sie unter [Sicherheit und Zusicherungen](../../../security/Security-and-Assurance.md).  
+Weitere Informationen zur Sicherheit in Windows Server finden Sie unter [Sicherheit und Zusicherungen](../../../security/Security-and-Assurance.yml).  
