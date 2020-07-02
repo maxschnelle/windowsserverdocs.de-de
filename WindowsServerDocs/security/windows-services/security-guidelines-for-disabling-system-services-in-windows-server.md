@@ -8,12 +8,12 @@ ms.date: 11/26/2018
 ms.assetid: b886b2fd-3567-4f0a-8aa3-4ba7923d2d21
 author: nirb
 ms.author: nirb
-ms.openlocfilehash: 314b53d41fde81936b70154feeee407e89d2cca3
-ms.sourcegitcommit: c710fea2c0591febfc1bc9a705d59979be6f699b
+ms.openlocfilehash: 71687bc7090eabfaf690dc526cce013798413fdb
+ms.sourcegitcommit: 643a9916efb95ad0bb5cc0a9b115ac29af4cb076
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83705593"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85586725"
 ---
 # <a name="guidance-on-disabling-system-services-on-windows-server-2016-with-desktop-experience"></a>Anleitungen zur Deaktivierung von Systemdiensten unter Windows Server 2016 mit Desktopdarstellung
 
@@ -42,7 +42,7 @@ Geplante Aufgaben:
 1. \Microsoft\XblGameSave\XblGameSaveTask
 2. \Microsoft\XblGameSave\XblGameSaveTaskLogon
 
-(Du kannst auf die Informationen zu allen Diensten in diesem Artikel auch zugreifen, indem du die angefügte Microsoft Excel-Tabelle anzeigst: [Anleitungen zur Deaktivierung von Systemdiensten unter Windows Server 2016 mit Desktopdarstellung](https://msdnshared.blob.core.windows.net/media/2017/05/Service-management-WS2016.xlsx).)
+Sie können auf die Informationen zu allen Diensten in diesem Artikel auch zugreifen, indem Sie die angefügte Microsoft Excel-Tabelle anzeigen: [Anleitungen zur Deaktivierung von Systemdiensten unter Windows Server 2016 mit Desktopdarstellung](https://msdnshared.blob.core.windows.net/media/2017/05/Service-management-WS2016.xlsx).)
 
 
 ### <a name="disabling-services-not-installed-by-default"></a>Deaktivieren von nicht standardmäßig installierten Diensten
@@ -244,7 +244,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 | **Installation**   | Nur mit Desktopdarstellung
 | **Starttyp**   | Manuell
 | **Empfehlung** | Deaktivierung OK
-| **Kommentare**       | Die Deaktivierung ist in Ordnung, wenn der Dienst nicht verwendet wird. Ein weiterer Mechanismus für die Deaktivierung: https://technet.microsoft.com/library/dd252791.aspx
+| **Kommentare**       | Die Deaktivierung ist in Ordnung, wenn der Dienst nicht verwendet wird. Ein weiterer Mechanismus für die Deaktivierung: [Deaktivieren von Bluetooth und Infrarot-Übertragung](https://docs.microsoft.com/previous-versions/tn-archive/dd252791(v=technet.10))
 |||
 
 
@@ -1321,7 +1321,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 | **Installation**   | Immer installiert
 | **Starttyp**   | Automatisch
 | **Empfehlung** | Kann deaktiviert werden, wenn es sich nicht um einen Druckerserver oder einen Domänencontroller handelt.
-| **Kommentare**       | Auf einem Domänencontroller wird dem Spoolerdienst bei Installation der Domänencontroller-Rolle ein Thread hinzugefügt, der für die Durchführung der Druckbereinigung zuständig ist. Hiermit werden die veralteten Objekte der Druckwarteschlange aus Active Directory entfernt.  Wenn der Spoolerdienst nicht auf mindestens einem DC auf jeder Site ausgeführt wird, kann AD keine alten Warteschlangen entfernen, die nicht mehr vorhanden sind. [https://blogs.technet.microsoft.com/askperf/2008/11/18/disabling-unnecessary-services-a-word-to-the-wise/](https://blogs.technet.microsoft.com/askperf/2008/11/18/disabling-unnecessary-services-a-word-to-the-wise/ )
+| **Kommentare**       | Auf einem Domänencontroller wird dem Spoolerdienst bei Installation der Domänencontroller-Rolle ein Thread hinzugefügt, der für die Durchführung der Druckbereinigung zuständig ist. Hiermit werden die veralteten Objekte der Druckwarteschlange aus Active Directory entfernt.  Wenn der Spoolerdienst nicht auf mindestens einem DC auf jeder Site ausgeführt wird, kann AD keine alten Warteschlangen entfernen, die nicht mehr vorhanden sind. [Blog „Ask the Performance Team“](https://techcommunity.microsoft.com/t5/ask-the-performance-team/bg-p/AskPerf).
 |||
 
 
