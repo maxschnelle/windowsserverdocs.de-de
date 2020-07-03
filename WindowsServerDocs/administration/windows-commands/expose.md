@@ -1,6 +1,6 @@
 ---
-title: sichtbar
-description: Referenz Thema für den Befehl "verfügbar machen", der eine persistente Schatten Kopie als Laufwerksbuchstaben, Freigabe-oder Einfügepunkt verfügbar macht.
+title: expose
+description: Referenz Artikel für den Befehl "verfügbar machen", der eine persistente Schatten Kopie als Laufwerk Buchstabe, Freigabe oder Einstellungspunkt verfügbar macht.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d4e8ebf71f6ddcb457460f8174793586e81c73a6
-ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
+ms.openlocfilehash: 816aad0ba57a30d9d3a05709941b1915d9a97d03
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2020
-ms.locfileid: "83437175"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85932405"
 ---
-# <a name="expose"></a>sichtbar
+# <a name="expose"></a>expose
 
 Macht eine persistente Schatten Kopie als Laufwerk Buchstaben, Freigabe oder Einfügepunkt verfügbar.
 
@@ -43,7 +43,7 @@ Geben Sie Folgendes ein, um die dem VSS_SHADOW_1-Umgebungsvariable zugeordnete p
 expose %vss_shadow_1% x:
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

@@ -1,6 +1,6 @@
 ---
-title: FTP-ASCII
-description: Referenz Thema für den FTP-ASCII-Befehl, mit dem der Datei Übertragungstyp auf ASCII festgelegt wird.
+title: ftp ascii
+description: Referenz Artikel für den FTP-ASCII-Befehl, mit dem der Datei Übertragungstyp auf ASCII festgelegt wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f9bf3f278bb478c7244f90533a689f41fd910783
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: e3ba10ba6498b48a19aacf6235c84a890c7db63a
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83820040"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85933324"
 ---
-# <a name="ftp-ascii"></a>FTP-ASCII
+# <a name="ftp-ascii"></a>ftp ascii
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -36,7 +36,7 @@ Geben Sie Folgendes ein, um den Datei Übertragungstyp auf ASCII festzulegen:
 ascii
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

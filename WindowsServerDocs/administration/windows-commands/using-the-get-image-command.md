@@ -1,6 +1,6 @@
 ---
 title: Get-Image
-description: Referenz Thema für Get-Image, das Informationen zu einem Bild abruft.
+description: Referenz Artikel zu Get-Image, das Informationen zu einem Image abruft.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 04cc7b8d90415e32be4103ef6c7f7b709c3550c3
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: d37989fa681e5694b0c15b77aa1baddcfebbeecf
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82719920"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85932233"
 ---
 # <a name="get-image"></a>Get-Image
 
@@ -32,14 +32,14 @@ für Installations Images:
 wdsutil [Options] /Get-Imagmedia:<Image name> [/Server:<Server name>mediatype:InstallmediaGroup:<Image group name>] [/Filename:<File name>]
 ```
 ### <a name="parameters"></a>Parameter
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |-------|--------|
 Medien<Image name>|Gibt den Namen des Images an.|
 |[/Server:<Server name>]|Gibt den Namen des Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.|
 MediaType: {Boot &#124; Installation}|Gibt den Typ des Bilds an.|
 |/Architecture: {x86 &#124; ia64 &#124; x64}|Gibt die Architektur des Bilds an. Da es möglich ist, den gleichen Image Namen für Start Images in verschiedenen Architekturen zu haben, wird durch Angeben des Architektur Werts sichergestellt, dass das richtige Bild zurückgegeben wird.|
 |[/Filename:<File name>]|Wenn das Bild nicht eindeutig anhand des Namens identifiziert werden kann, müssen Sie diese Option verwenden, um den Dateinamen anzugeben.|
-|\mediagroup:<Image group name>]|Gibt die Bild Gruppe an, die das Bild enthält. Wenn keine Abbild Gruppe angegeben wird und nur eine Abbild Gruppe auf dem Server vorhanden ist, wird diese Gruppe verwendet. Wenn auf dem Server mehr als eine Abbild Gruppe vorhanden ist, müssen Sie diesen Parameter verwenden, um die Abbild Gruppe anzugeben.|
+|\mediagroup: <Image group name> ]|Gibt die Bild Gruppe an, die das Bild enthält. Wenn keine Abbild Gruppe angegeben wird und nur eine Abbild Gruppe auf dem Server vorhanden ist, wird diese Gruppe verwendet. Wenn auf dem Server mehr als eine Abbild Gruppe vorhanden ist, müssen Sie diesen Parameter verwenden, um die Abbild Gruppe anzugeben.|
 ## <a name="examples"></a>Beispiele
 Zum Abrufen von Informationen zu einem Start Abbild geben Sie eine der folgenden Informationen ein:
 ```
@@ -51,11 +51,11 @@ Zum Abrufen von Informationen zu einem Installations Abbild geben Sie eine der f
 wdsutil /Get-Imagmedia:Windows Vista with Officemediatype:Install
 wdsutil /verbose /Get-Imagmedia:Windows Vista with Office /Server:MyWDSServemediatype:InstalmediaGroup:ImageGroup1 /Filename:install.wim
 ```
-## <a name="additional-references"></a>Zusätzliche Referenzen
-- [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
-mit dem Befehl "[Add-Image](using-the-add-image-command.md)
-" mithilfe des Befehls "[Copy-Image](using-the-copy-image-command.md)
-" mithilfe des Befehls "[Export-](using-the-export-image-command.md)
-Image" mithilfe des Befehls "[Remove](using-the-remove-image-command.md)
--Image" mithilfe des Befehls "[Replace-](using-the-replace-image-command.md)
-Image"-Befehls[Unterbefehl: Set-Image](subcommand-set-image.md)
+## <a name="additional-references"></a>Weitere Verweise
+- [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md) 
+ [Verwenden des Befehls](using-the-add-image-command.md) 
+ "Add-Image" [Verwenden des Befehls](using-the-copy-image-command.md) 
+ "Copy-Image" [Verwenden des Befehls](using-the-export-image-command.md) 
+ "Export-Image" [Verwenden des Remove-Image-Befehls](using-the-remove-image-command.md) 
+ [Verwenden des "Replace-Image"-Befehls](using-the-replace-image-command.md) 
+ [Unterbefehl: Set-Image](subcommand-set-image.md)

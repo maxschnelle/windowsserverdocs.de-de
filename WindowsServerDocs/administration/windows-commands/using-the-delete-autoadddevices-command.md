@@ -1,6 +1,6 @@
 ---
 title: DELETE-AutoAddDevices
-description: Referenz Thema für "Delete-AutoAddDevices", mit dem Computer gelöscht werden, die ausstehend, abgelehnt oder aus der Datenbank zum automatischen Hinzufügen genehmigt werden.
+description: Referenz Artikel zu "Delete-AutoAddDevices", mit dem Computer gelöscht werden, die aus der Datenbank zum automatischen Hinzufügen ausstehend, abgelehnt oder genehmigt wurden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 90b5b24b68b2cfe3d387cb02b3715b70edba4300
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 60acfbb5ec1bc3f9268044eb0dbcc9ea19ff8ab9
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82720992"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85933977"
 ---
 # <a name="delete-autoadddevices"></a>DELETE-AutoAddDevices
 
@@ -27,7 +27,7 @@ Löscht Computer, die aus der Datenbank zum automatischen Hinzufügen ausstehend
 wdsutil /delete-AutoaddDevices [/Server:<Server name>] /Devicetype:{PendingDevices | RejectedDevices |ApprovedDevices}
 ```
 ### <a name="parameters"></a>Parameter
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |-------|--------|
 |[/Server:<Server name>]|Gibt den Namen des Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.|
 |/DeviceType: {pdingdevices &#124; rejecteddevices &#124;approveddevices}|Gibt den Typ des Computers an, der aus der Datenbank gelöscht werden soll. Dies kann einer der folgenden drei Typen sein:<p>-   Mit " **pdingdevices** " werden alle Computer in der Datenbank mit dem Status "Ausstehend" zurückgegeben.<br />-   **Rejecteddevices** gibt alle Computer in der Datenbank zurück, die den Status "abgelehnt" aufweisen.<br />-   **Approveddevices** gibt alle Computer zurück, die den Status "genehmigt" aufweisen.|
@@ -40,8 +40,8 @@ Geben Sie Folgendes ein, um alle genehmigten Computer zu löschen:
 ```
 wdsutil /verbose /delete-AutoaddDevices /Server:MyWDSServer /Devicetype:ApprovedDevices
 ```
-## <a name="additional-references"></a>Zusätzliche Referenzen
-- [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
-mithilfe des Befehls "[genehmigen-AutoAddDevices](using-the-approve-autoadddevices-command.md)
-" mithilfe des Befehls "[Get-AutoAddDevices](using-the-get-autoadddevices-command.md)
-"[mit dem Befehl "ablehnen-AutoAddDevices](using-the-reject-autoadddevices-command.md) "
+## <a name="additional-references"></a>Weitere Verweise
+- [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md) 
+ [Verwenden des Befehls](using-the-approve-autoadddevices-command.md) 
+ "genehmigen-AutoAddDevices" [Verwenden des Befehls](using-the-get-autoadddevices-command.md) 
+ Get-AutoAddDevices [Verwenden des ablehnen-AutoAddDevices-Befehls](using-the-reject-autoadddevices-command.md)

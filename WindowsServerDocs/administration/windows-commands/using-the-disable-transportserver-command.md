@@ -1,6 +1,6 @@
 ---
 title: Deaktivieren-Transportserver
-description: Referenz Thema für "deaktivieren-Transportserver", mit dem alle Dienste für einen Transport Server deaktiviert werden.
+description: Referenz Artikel zu "deaktivieren-Transportserver", mit dem alle Dienste für einen Transport Server deaktiviert werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 81ae150b4f8e4de577e377a2d10a7a69675adac7
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: e9d25159cb81408b5a8085fb830eec4479d953f4
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82720957"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85933931"
 ---
 # <a name="disable-transportserver"></a>Deaktivieren-Transportserver
 
@@ -27,7 +27,7 @@ Deaktiviert alle Dienste für einen Transport Server.
 wdsutil [Options] /Disable-TransportServer [/Server:<Server name>]
 ```
 ### <a name="parameters"></a>Parameter
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |-------|--------|
 |[/Server:<Server name>]|Gibt den Namen des zu deaktivierenden Transport Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn kein Transport Servername angegeben ist, wird der lokale Server verwendet.|
 ## <a name="examples"></a>Beispiele
@@ -36,10 +36,10 @@ Um den Server zu deaktivieren, geben Sie Folgendes ein:
 wdsutil /Disable-TransportServer
 wdsutil /verbose /Disable-TransportServer /Server:MyWDSServer
 ```
-## <a name="additional-references"></a>Zusätzliche Referenzen
-- [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
-[mithilfe des Befehls Enable-Transportserver](using-the-enable-transportserver-command.md)
-[mit dem Befehl Get-TransportServer Command](using-the-get-transportserver-command.md)
-[unter Command: Set-TransportServer](subcommand-set-transportserver.md)
-[unter Command: Start-TransportServer](subcommand-start-transportserver.md)
-[unter Command:-Transportserver](subcommand-stop-transportserver.md)
+## <a name="additional-references"></a>Weitere Verweise
+- [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md) 
+ [Verwenden des Befehls](using-the-enable-transportserver-command.md) 
+ enable-Transportserver [Verwenden des Befehls](using-the-get-transportserver-command.md) 
+ Get-TransportServer [Unterbefehl: Set-TransportServer](subcommand-set-transportserver.md) 
+ [Unterbefehl: Start-TransportServer](subcommand-start-transportserver.md) 
+ [Unterbefehl: "beendet-Transportserver](subcommand-stop-transportserver.md) "

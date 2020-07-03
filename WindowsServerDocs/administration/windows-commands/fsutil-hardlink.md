@@ -1,6 +1,6 @@
 ---
 title: fsutil hardlink
-description: Referenz Thema für den Befehl "ssutil hardlink", mit dem eine feste Verknüpfung zwischen einer vorhandenen Datei und einer neuen Datei erstellt wird.
+description: Referenz Artikel für den Befehl "ssutil hardlink", mit dem eine feste Verknüpfung zwischen einer vorhandenen Datei und einer neuen Datei erstellt wird.
 ms.prod: windows-server
 manager: dmoss
 ms.author: toklima
@@ -9,12 +9,12 @@ ms.technology: storage
 ms.assetid: 835fc6f1-cc84-4189-b29a-dde90792469e
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: ef0f8347a73a2522f6c4b9298799ad2e3536c4c9
-ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
+ms.openlocfilehash: b4cbc3912339464a061c027234d0d22b2d73ea09
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2020
-ms.locfileid: "83435925"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85932286"
 ---
 # <a name="fsutil-hardlink"></a>fsutil hardlink
 
@@ -36,11 +36,11 @@ fsutil hardlink list <filename>
 | Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | create | Legt eine NTFS-feste Verknüpfung zwischen einer vorhandenen Datei und einer neuen Datei fest. (Ein virtueller NTFS-Link ähnelt einem festen POSIX-Link.) |
-| \<NewFileName-> | Gibt die Datei an, mit der Sie einen festen Link erstellen möchten. |
-| \<existingfilename-> | Gibt die Datei an, aus der ein fester Link erstellt werden soll. |
+| \<newfilename> | Gibt die Datei an, mit der Sie einen festen Link erstellen möchten. |
+| \<existingfilename> | Gibt die Datei an, aus der ein fester Link erstellt werden soll. |
 | list | Listet die festen Links zu *Dateiname*auf. |
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

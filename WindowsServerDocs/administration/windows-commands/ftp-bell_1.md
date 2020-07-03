@@ -1,6 +1,6 @@
 ---
-title: FTP-Glocke
-description: Referenz Thema für den FTP-Glocken Befehl, der einen hörbaren Sound umschaltet, der nach Abschluss der einzelnen Datei Übertragungs Befehle auftritt.
+title: ftp bell
+description: Referenz Artikel für den Befehl FTP-Glocke, der einen Audioton umschaltet, der nach Abschluss der einzelnen Datei Übertragungs Befehle auftritt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c445e929c9d3adad2bfa620b522e4befbb7c1cff
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: 9481911f9de9eb62baea492964987908daa94ce1
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83820020"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85933301"
 ---
-# <a name="ftp-bell"></a>FTP-Glocke
+# <a name="ftp-bell"></a>ftp bell
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -36,7 +36,7 @@ Geben Sie Folgendes ein, um einen hörbaren Sound zu aktivieren, der nach Abschl
 bell
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

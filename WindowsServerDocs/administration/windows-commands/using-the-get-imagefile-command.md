@@ -1,6 +1,6 @@
 ---
 title: Get-ImageFile
-description: Referenz Thema zu "Get-ImageFile", das Informationen zu den in einer Windows-Abbild Datei (WIM) enthaltenen Images abruft.
+description: Referenz Artikel zu Get-ImageFile, der Informationen zu den Bildern abruft, die in einer Windows-Abbild Datei (WIM-Datei) enthalten sind.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4f60be17f13e1436a0e895991c72d5ccb7130782
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 127b5282b74020f002c7ccc55663fc2571584582
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82719912"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85932218"
 ---
 # <a name="get-imagefile"></a>Get-ImageFile
 
@@ -28,9 +28,9 @@ WDSUTIL [Options] /Get-ImageFile /ImageFile:<wim file path> [/Detailed]
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |---------|-----------|
-|/ImageFile:\<WIM-Dateipfad>|Gibt den vollständigen Pfad und den Dateinamen der WIM-Datei an.|
+|/ImageFile:\<WIM file path>|Gibt den vollständigen Pfad und den Dateinamen der WIM-Datei an.|
 |/Detailed|Gibt alle Bild Metadaten aus jedem Bild zurück. Wenn diese Option nicht verwendet wird, besteht das Standardverhalten darin, nur den Bildnamen, die Beschreibung und den Dateinamen zurückzugeben.|
 
 ## <a name="examples"></a>Beispiele
@@ -44,6 +44,6 @@ Geben Sie Folgendes ein, um ausführliche Informationen anzuzeigen:
 WDSUTIL /Verbose /Get-ImageFile /ImageFile:\\Server\Share\My Folder \install.wim /Detailed
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

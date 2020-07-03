@@ -1,6 +1,6 @@
 ---
-title: FTP-CD
-description: Referenz Thema für den FTP-CD-Befehl, mit dem das Arbeitsverzeichnis auf dem Remote Computer geändert wird.
+title: ftp cd
+description: Referenz Artikel für den Befehl FTP CD, der das Arbeitsverzeichnis auf dem Remote Computer ändert.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: dbeff9c2fca654120347f0f616325b700f5c9be3
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: 0442e2ad6070b84e84632bc6d8646b979d7f948b
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83820000"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85933289"
 ---
-# <a name="ftp-cd"></a>FTP-CD
+# <a name="ftp-cd"></a>ftp cd
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -30,7 +30,7 @@ cd <remotedirectory>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | <remotedirectory> | Gibt das Verzeichnis auf dem Remote Computer an, das Sie ändern möchten. |
 
@@ -48,7 +48,7 @@ Um das Verzeichnis auf dem Remote Computer in *Videos*zu ändern, geben Sie Folg
 cd  May Videos
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

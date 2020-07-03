@@ -1,6 +1,6 @@
 ---
-title: rundll32 printui. dll, PrintUIEntry
-description: Referenz Thema für den Befehl rundll32 printui. dll, PrintUIEntry, mit dem viele Drucker Konfigurationsaufgaben automatisiert werden.
+title: rundll32 printui.dll, PrintUIEntry
+description: Referenz Artikel zum rundll32-printui.dll, PrintUIEntry-Befehl, mit dem viele Drucker Konfigurationsaufgaben automatisiert werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 05/25/2018
-ms.openlocfilehash: 3644af74918089e837b01c531099c0e61a6eb771
-ms.sourcegitcommit: 29bc8740e5a8b1ba8f73b10ba4d08afdf07438b0
+ms.openlocfilehash: 04678bcaf13bbdc5f325dc56af39c4e0385bcd06
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84223055"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85932792"
 ---
-# <a name="rundll32-printuidllprintuientry"></a>rundll32 printui. dll, PrintUIEntry
+# <a name="rundll32-printuidllprintuientry"></a>rundll32 printui.dll, PrintUIEntry
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Automatisiert viele Drucker Konfigurationsaufgaben. printui. dll ist die ausführbare Datei, die die Funktionen enthält, die von den Dialogfeldern für die Druckerkonfiguration verwendet werden. Diese Funktionen können auch innerhalb eines Skripts oder einer Befehlszeilen-Batchdatei aufgerufen werden, oder Sie können interaktiv von der Eingabeaufforderung aus ausgeführt werden.
+Automatisiert viele Drucker Konfigurationsaufgaben. printui.dll ist die ausführbare Datei, die die Funktionen enthält, die von den Dialogfeldern für die Druckerkonfiguration verwendet werden. Diese Funktionen können auch innerhalb eines Skripts oder einer Befehlszeilen-Batchdatei aufgerufen werden, oder Sie können interaktiv von der Eingabeaufforderung aus ausgeführt werden.
 
 ## <a name="syntax"></a>Syntax
 
@@ -102,7 +102,7 @@ Es gibt zwei Arten von Parametern: Basisparameter und Änderungs Parameter. Basi
 
 ## <a name="remarks"></a>Hinweise
 - Beim **PrintUIEntry** -Schlüsselwort wird die Groß-/Kleinschreibung beachtet, und Sie müssen die Syntax für diesen Befehl mit der exakten groß Schreibung eingeben, die in den Beispielen in diesem Thema gezeigt wird
-- Weitere Beispiele erhalten Sie, wenn Sie an einer Eingabeaufforderung Folgendes eingeben: **rundll32 printui. dll, PrintUIEntry/?**
+- Weitere Beispiele erhalten Sie, wenn Sie an einer Eingabeaufforderung Folgendes eingeben: **rundll32 printui.dll, PrintUIEntry/?**
   ## <a name="examples"></a>Beispiele
   Zum Hinzufügen eines neuen Remote Druckers, printer1, für einen Computer CLIENT1, der für das Benutzerkonto sichtbar ist, in dem dieser Befehl ausgeführt wird, geben Sie Folgendes ein:
   ```
@@ -132,7 +132,7 @@ Es gibt zwei Arten von Parametern: Basisparameter und Änderungs Parameter. Basi
   ```
   rundll32 printui.dll PrintUIEntry /p /n\\printer3
   ```
-  ## <a name="additional-references"></a>Zusätzliche Referenzen
+  ## <a name="additional-references"></a>Weitere Verweise
 
 - [rundll32](rundll32.md)
 - [Befehls Verweis drucken](print-command-reference.md)

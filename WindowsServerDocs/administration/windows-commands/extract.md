@@ -1,6 +1,6 @@
 ---
 title: extract
-description: Referenz Thema für den Extract-Befehl, mit dem Dateien aus einem Quell Speicherort extrahiert werden.
+description: Referenz Artikel für den Extract-Befehl, mit dem Dateien aus einem Quell Speicherort extrahiert werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: dbadcc555fc9bb0b02e568b1126a317a9d59d336
-ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
+ms.openlocfilehash: 1de26d444f8c8fdc838fc2fe0c662afefe8c172c
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2020
-ms.locfileid: "83437185"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85932384"
 ---
 # <a name="extract"></a>extract
 
@@ -34,7 +34,7 @@ extract [/y] /c source destination
 | --------- | ----------- |
 | KEs | Verwenden Sie, wenn Sie zwei oder mehr Dateien extrahieren möchten. |
 | filename | Der Name der Datei, die aus der CAB-Datei extrahiert werden soll. Platzhalter und mehrere Dateinamen (durch Leerzeichen getrennt) können verwendet werden. |
-| Quelle | Komprimierte Datei (eine CAB-Datei mit nur einer Datei). |
+| source | Komprimierte Datei (eine CAB-Datei mit nur einer Datei). |
 | newname | Neuer Dateiname für die extrahierte Datei. Wenn kein Wert angegeben wird, wird der ursprüngliche Name verwendet. |
 | /a | Alle Schränke verarbeiten. Folgt der CAB-Kette, beginnend mit dem ersten beschriebenen CAB. |
 | /C | Kopieren Sie die Quelldatei in das Ziel (zum Kopieren von DMF-Datenträgern). |
@@ -43,6 +43,6 @@ extract [/y] /c source destination
 | /l dir | Speicherort für extrahierte Dateien (Standardwert ist Aktuelles Verzeichnis). |
 | /y | Vor dem Überschreiben einer vorhandenen Datei wird keine Aufforderung angezeigt. |
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

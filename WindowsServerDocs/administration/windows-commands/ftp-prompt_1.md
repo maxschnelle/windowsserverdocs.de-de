@@ -1,6 +1,6 @@
 ---
-title: FTP-Eingabeaufforderung
-description: Referenz Thema für den Befehl FTP prompt, bei dem der Eingabe Aufforderungs Modus ein-und ausgeschaltet wird.
+title: ftp prompt
+description: Referenz Artikel für den Befehl FTP prompt, bei dem der Eingabe Aufforderungs Modus ein-und ausgeschaltet wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 57f0e1eead36665c19845944bf22325b1aecebbb
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: e0859d3989a054d03421f08f5df7823a690dc85c
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83820380"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85933108"
 ---
-# <a name="ftp-prompt"></a>FTP-Eingabeaufforderung
+# <a name="ftp-prompt"></a>ftp prompt
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -39,7 +39,7 @@ Um den Eingabe Aufforderungs Modus ein-und auszuschalten, geben Sie Folgendes ei
 prompt
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

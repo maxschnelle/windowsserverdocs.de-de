@@ -1,6 +1,6 @@
 ---
-title: logman Update-Warnung
-description: Referenz Thema für den Befehl logman update Alert, mit dem die Eigenschaften eines vorhandenen Warnungs Daten Sammlers aktualisiert werden.
+title: logman update alert
+description: Referenz Artikel für den Befehl logman update Alert, mit dem die Eigenschaften eines vorhandenen Warnungs Daten Sammlers aktualisiert werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 49d07744df911b054c9c9235b297090e8c39019b
-ms.sourcegitcommit: 29bc8740e5a8b1ba8f73b10ba4d08afdf07438b0
+ms.openlocfilehash: 84e198ef528d1f9192662ed89ad39b6884fab742
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84222800"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85932272"
 ---
-# <a name="logman-update-alert"></a>logman Update-Warnung
+# <a name="logman-update-alert"></a>logman update alert
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -70,7 +70,7 @@ Um die vorhandene Warnung mit dem Namen *new_alert*zu aktualisieren, geben Sie F
 logman update alert new_alert -th \Processor(_Total)\% Processor time>40
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

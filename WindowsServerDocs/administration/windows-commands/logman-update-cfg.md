@@ -1,6 +1,6 @@
 ---
 title: logman update cfg
-description: Referenz Thema für den Befehl logman update cfg, mit dem die Eigenschaften eines vorhandenen Konfigurationsdaten Sammlers aktualisiert werden.
+description: Referenz Artikel für den Befehl logman update cfg, mit dem die Eigenschaften eines vorhandenen Konfigurationsdaten Sammlers aktualisiert werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: af4d61372aa5b10d5bb2a5c93e16df391eadfd2f
-ms.sourcegitcommit: 29bc8740e5a8b1ba8f73b10ba4d08afdf07438b0
+ms.openlocfilehash: 6e2d50504d8d4b9a92d36e4279a10526ddbd7877
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84222788"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85933889"
 ---
 # <a name="logman-update-cfg"></a>logman update cfg
 
@@ -69,7 +69,7 @@ Um einen Konfigurationsdaten Sammler namens *cfg_log*zu aktualisieren, geben Sie
 logman update cfg cfg_log -reg HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\Currentverion\
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

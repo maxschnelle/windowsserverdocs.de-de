@@ -1,6 +1,6 @@
 ---
-title: FTP-Bye
-description: Referenz Thema für den Befehl FTP Bye, der die FTP-Sitzung auf dem Remote Computer beendet und dann beendet wird.
+title: ftp bye
+description: Referenz Artikel für den Befehl FTP Bye, der die FTP-Sitzung auf dem Remote Computer beendet und dann beendet wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a2e7f45cca68a34de521dbd94cdf6122af31363d
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: 430a343c4ae8bd06975a77b2818a8c3bc4d26d19
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83820030"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85933309"
 ---
-# <a name="ftp-bye"></a>FTP-Bye
+# <a name="ftp-bye"></a>ftp bye
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -39,7 +39,7 @@ Um die FTP-Sitzung mit dem Remote Computer zu beenden und zu beenden, geben Sie 
 bye
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

@@ -1,6 +1,6 @@
 ---
 title: Genehmigen-AutoAddDevices
-description: Referenz Thema zu "genehmigen-AutoAddDevices", mit dem Computer genehmigt werden, für die die administrative Genehmigung aussteht.
+description: Referenz Artikel zu "genehmigen-AutoAddDevices", mit dem Computer genehmigt werden, für die die administrative Genehmigung aussteht.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0143c9ab6221eb5633284bd3f2982312bbcda15c
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 8c7a4756a90c329ba6cccd1c1b7c1b93d58d06b4
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82721043"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85934133"
 ---
 # <a name="approve-autoadddevices"></a>Genehmigen-AutoAddDevices
 
@@ -24,23 +24,23 @@ Genehmigt Computer, für die die administrative Genehmigung aussteht. Wenn die R
 
 ## <a name="syntax"></a>Syntax
 ```
-wdsutil [Options] /Approve-AutoaddDevices [/Server:<Server name>] /RequestId:{<Request ID>| ALL} [/MachineName:<Device name>] [/OU:<DN of OU>] 
+wdsutil [Options] /Approve-AutoaddDevices [/Server:<Server name>] /RequestId:{<Request ID>| ALL} [/MachineName:<Device name>] [/OU:<DN of OU>]
 [/User:<Domain\User | User@Domain>] [/JoinRights:{JoinOnly | Full}] [/JoinDomain:{Yes | No}] [/ReferralServer:<Server name>] [/BootProgram:<Relative path>] [/WdsClientUnattend:<Relative path>] [/BootImagepath:<Relative path>]
 ```
 ### <a name="parameters"></a>Parameter
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |-------|--------|
 |[/Server:<Server name>]|Gibt den Namen des Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn Sie keinen Servernamen angeben, wird der lokale Server verwendet.|
 |/RequestId: {Anforderungs-ID &#124; alle}|Gibt die Anforderungs-ID an, die dem ausstehenden Computer zugewiesen ist. Geben Sie **all** an, um alle ausstehenden Computer zu genehmigen.|
-|[/MachineName:<Device name>]|Gibt den Namen des hinzu zufügenden Computers an. Sie können diese Option nicht verwenden, wenn Sie alle Computer genehmigen.|
-|[/Ou:<DN of OU>]|Gibt den Distinguished Name der Organisationseinheit (OU) an, in der das Computer Konto Objekt erstellt werden soll. Beispiel: **OU = MyOU, CN = Test, DC = Domain, DC = com**. Der Standard Speicherort ist der Container des Standard Computers.|
+|[/MachineName: <Device name> ]|Gibt den Namen des hinzu zufügenden Computers an. Sie können diese Option nicht verwenden, wenn Sie alle Computer genehmigen.|
+|[/Ou: <DN of OU> ]|Gibt den Distinguished Name der Organisationseinheit (OU) an, in der das Computer Konto Objekt erstellt werden soll. Beispiel: **OU = MyOU, CN = Test, DC = Domain, DC = com**. Der Standard Speicherort ist der Container des Standard Computers.|
 |[/User: <Domäne \ Benutzer &#124; User@Domain>]|Legt Berechtigungen für das Computer Konto Objekt fest, um dem angegebenen Benutzer die erforderlichen Rechte zuzuweisen.|
 |[/JoinRights: {joinonly &#124; Full}]|Gibt den Typ der Rechte an, die dem angegebenen Benutzer zugewiesen werden sollen.<p>-   Für **joinonly** muss der Administrator das Computer Konto zurücksetzen, bevor der Benutzer den Computer der Domäne hinzufügen kann.<br />-   **Full** bietet vollen Zugriff auf den Benutzer, der das Recht zum Hinzufügen des Computers zur Domäne umfasst.|
 |[/JoinDomain: {yes &#124; No}]|Gibt an, ob der Computer während der Installation des Betriebssystems mit der Domäne verknüpft werden soll oder nicht. Der Standardwert ist **Ja**.|
-|[/ReferralServer:<Server name>]|Gibt den Namen des Servers an, für den eine Verbindung hergestellt werden soll, um das Netzwerkstart Programm und das Start Abbild mit Trivial File Transfer Protocol (TFTP) herunterzuladen.|
-|[/BootProgram:<Relative path>]|Gibt den relativen Pfad vom Ordner RemoteInstall zum Netzwerkstart Programm an, das von diesem Computer empfangen werden soll. Beispiel: **boot\x86\pxeboot.com**.|
-|[/WdsClientUnattend:<Relative path>]|Gibt den relativen Pfad vom Ordner RemoteInstall zur Datei für die unbeaufsichtigte Installation an, mit der der Windows-Bereitstellungsdiensteclient automatisiert wird.|
-|[/BootImagepath:<Relative path>]|Gibt den relativen Pfad vom Ordner RemoteInstall zum Start Abbild an, das von diesem Computer empfangen werden soll.|
+|[/ReferralServer: <Server name> ]|Gibt den Namen des Servers an, für den eine Verbindung hergestellt werden soll, um das Netzwerkstart Programm und das Start Abbild mit Trivial File Transfer Protocol (TFTP) herunterzuladen.|
+|[/BootProgram: <Relative path> ]|Gibt den relativen Pfad vom Ordner RemoteInstall zum Netzwerkstart Programm an, das von diesem Computer empfangen werden soll. Beispiel: **boot\x86\pxeboot.com**.|
+|[/WdsClientUnattend: <Relative path> ]|Gibt den relativen Pfad vom Ordner RemoteInstall zur Datei für die unbeaufsichtigte Installation an, mit der der Windows-Bereitstellungsdiensteclient automatisiert wird.|
+|[/BootImagepath: <Relative path> ]|Gibt den relativen Pfad vom Ordner RemoteInstall zum Start Abbild an, das von diesem Computer empfangen werden soll.|
 ## <a name="examples"></a>Beispiele
 Geben Sie Folgendes ein, um den Computer mit der RequestId 12 zu genehmigen:
 ```
@@ -48,15 +48,15 @@ wdsutil /Approve-AutoaddDevices /RequestId:12
 ```
 Geben Sie Folgendes ein, um den Computer mit einer RequestId von 20 zu genehmigen und das Abbild mit den angegebenen Einstellungen bereitzustellen:
 ```
-wdsutil /Approve-AutoaddDevices /RequestId:20 /MachineName:computer1 /OU:OU=Test,CN=company,DC=Domain,DC=Com /User:Domain\User1 
+wdsutil /Approve-AutoaddDevices /RequestId:20 /MachineName:computer1 /OU:OU=Test,CN=company,DC=Domain,DC=Com /User:Domain\User1
 /JoinRights:Full /ReferralServer:MyWDSServer /BootProgram:boot\x86\pxeboot.n12 /WdsClientUnattend:WDSClientUnattend\Unattend.xml /BootImagepath:boot\x86\images\boot.wim
 ```
 Geben Sie Folgendes ein, um alle ausstehenden Computer zu genehmigen:
 ```
 wdsutil /verbose /Approve-AutoaddDevices /RequestId:ALL
 ```
-## <a name="additional-references"></a>Zusätzliche Referenzen
-- [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
-mithilfe des Befehls "[Delete-AutoAddDevices](using-the-delete-autoadddevices-command.md)
-" mithilfe des Befehls "[Get-AutoAddDevices](using-the-get-autoadddevices-command.md)
-"[mit dem Befehl "ablehnen-AutoAddDevices](using-the-reject-autoadddevices-command.md) "
+## <a name="additional-references"></a>Weitere Verweise
+- [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md) 
+ [Verwenden des Befehls](using-the-delete-autoadddevices-command.md) 
+ Delete-AutoAddDevices [Verwenden des Befehls](using-the-get-autoadddevices-command.md) 
+ Get-AutoAddDevices [Verwenden des ablehnen-AutoAddDevices-Befehls](using-the-reject-autoadddevices-command.md)

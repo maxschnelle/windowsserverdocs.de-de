@@ -1,6 +1,6 @@
 ---
-title: FTP-schließen
-description: Referenz Thema für den Befehl FTP Close, der die FTP-Sitzung mit dem Remote Server beendet und an der FTP-Eingabeaufforderung verbleibt.
+title: ftp close
+description: Referenz Artikel für den Befehl FTP Close, der die FTP-Sitzung mit dem Remote Server beendet und an der FTP-Eingabeaufforderung verbleibt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 12b8ef1dd750da0f40279088be66b8249c0d78f4
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: 7123a0aaa26d9b7cc046f0b045e5d1219827d7c9
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83819990"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85933284"
 ---
-# <a name="ftp-close"></a>FTP-schließen
+# <a name="ftp-close"></a>ftp close
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -36,7 +36,7 @@ Geben Sie Folgendes ein, um die FTP-Sitzung mit dem Remote Server zu beenden und
 close
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

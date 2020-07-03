@@ -1,6 +1,6 @@
 ---
 title: nfsadmin
-description: Referenz Thema für den NF Sadmin-Befehl, der den Server für NFS und den Client für NFS verwaltet.
+description: Referenz Artikel für den NF Sadmin-Befehl, der den Server für NFS und den Client für NFS verwaltet.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c122577758dd28d11d25445ca9dc98ed03024c77
-ms.sourcegitcommit: 99d548141428c964facf666c10b6709d80fbb215
+ms.openlocfilehash: ad88594d534c64c0651fcc4e094fef669a02f16c
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84721533"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85932328"
 ---
 # <a name="nfsadmin"></a>nfsadmin
 
@@ -42,7 +42,7 @@ nfsadmin client [computername] [-u Username [-p Password]] config option[...]
 
 ### <a name="general-parameters"></a>Allgemeine Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | computername | Gibt den Remote Computer an, den Sie verwalten möchten. Sie können den Computer mithilfe eines WINS-Namens (Windows Internet Name Service) oder eines Domain Name System (DNS) oder über eine IP-Adresse (Internet Protocol) angeben. |
 | -u Benutzername | Gibt den Benutzernamen des Benutzers an, dessen Anmelde Informationen verwendet werden sollen. Möglicherweise ist es erforderlich, den Domänen Namen dem Benutzernamen im Format "Domäne *\ Benutzer*Name" hinzuzufügen. |
@@ -50,7 +50,7 @@ nfsadmin client [computername] [-u Username [-p Password]] config option[...]
 
 ### <a name="server-for-nfs-related-parameters"></a>Server für NFS-bezogene Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | -l | Listet alle Sperren auf, die von-Clients gehalten werden. |
 | -r`{client|all}` | Gibt die Sperren frei, die von einem Client oder, sofern angegeben, von allen Clients aufbewahrt werden. |
@@ -108,7 +108,7 @@ nfsadmin server config
 nfsadmin client config
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

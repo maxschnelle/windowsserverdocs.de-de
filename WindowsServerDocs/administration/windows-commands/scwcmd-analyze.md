@@ -1,6 +1,6 @@
 ---
 title: Scwcmd-Analyse
-description: Referenz Thema für * * * *-
+description: Referenz Artikel für * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 13e33329c399a77c1dd9b2e6ff63de6196c30420
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: dc8616112cc94ae88995e9fd9fe635622b767f17
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83820990"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85932785"
 ---
-# <a name="scwcmd-analyze"></a>Scwcmd: analyze
+# <a name="scwcmd-analyze"></a>Scwcmd: analysieren
 
 > Gilt für: Windows Server 2012 R2, Windows Server 2012
 
@@ -31,46 +31,46 @@ scwcmd analyze [[[/m:<ComputerName> | /ou:<Ou>] /p:<Policy>] | /i:<ComputerList>
 
 #### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |---------|-----------|
-|/m: \< Computername>|Gibt den NetBIOS-Namen, den DNS-Namen oder die IP-Adresse des zu analysierenden Computers an. Wenn der **/m** -Parameter angegeben wird, muss auch der **/p** -Parameter angegeben werden.|
-|/OU: \< OUNAME>|Gibt den voll qualifizierten Domänen Namen (Fully Qualified Domain Name, FQDN) einer Organisationseinheit (OE) in Active Directory Domain Services an. Wenn der **/OU** -Parameter angegeben wird, muss auch der **/p** -Parameter angegeben werden. Alle Computer in der Organisationseinheit werden anhand der angegebenen Richtlinie analysiert.|
-|/p: \< Richtlinien>|Gibt den Pfad und den Dateinamen der XML-Richtlinien Datei an, die zum Durchführen der Analyse verwendet werden soll.|
-|/i: \< Computer List>|Gibt den Pfad und den Dateinamen einer XML-Datei an, die eine Liste von Computern sowie die erwarteten Richtlinien Dateien enthält. Alle Computer in der XML-Datei werden anhand ihrer entsprechenden Richtlinien Dateien analysiert. Eine XML-Beispieldatei ist%windir%\Security\SampleMachineList.Xml.|
-|/o: \< resultdir->|Gibt den Pfad und das Verzeichnis an, in dem die Analyseergebnis Dateien gespeichert werden sollen. Der Standardwert ist das aktuelle Verzeichnis.|
-|/u: \< username->|Gibt alternative Benutzer Anmelde Informationen an, die beim Ausführen der Analyse auf einem Remote Computer verwendet werden sollen. Der Standardwert ist der angemeldete Benutzer.|
-|/PW: \< Kennwort>|Gibt alternative Benutzer Anmelde Informationen an, die beim Ausführen der Analyse auf einem Remote Computer verwendet werden sollen. Der Standardwert ist das Kennwort des angemeldeten Benutzers.|
-|/t: \< Threads>|Gibt die Anzahl von gleichzeitigen ausstehenden Analyse Vorgängen an, die während der Analyse gewartet werden sollen (DefaultValue = 40, MinValue = 1, MaxValue = 1000).|
+|/m\<ComputerName>|Gibt den NetBIOS-Namen, den DNS-Namen oder die IP-Adresse des zu analysierenden Computers an. Wenn der **/m** -Parameter angegeben wird, muss auch der **/p** -Parameter angegeben werden.|
+|/ou\<OuName>|Gibt den voll qualifizierten Domänen Namen (Fully Qualified Domain Name, FQDN) einer Organisationseinheit (OE) in Active Directory Domain Services an. Wenn der **/OU** -Parameter angegeben wird, muss auch der **/p** -Parameter angegeben werden. Alle Computer in der Organisationseinheit werden anhand der angegebenen Richtlinie analysiert.|
+|/p\<Policy>|Gibt den Pfad und den Dateinamen der XML-Richtlinien Datei an, die zum Durchführen der Analyse verwendet werden soll.|
+|/i\<ComputerList>|Gibt den Pfad und den Dateinamen einer XML-Datei an, die eine Liste von Computern sowie die erwarteten Richtlinien Dateien enthält. Alle Computer in der XML-Datei werden anhand ihrer entsprechenden Richtlinien Dateien analysiert. Eine XML-Beispieldatei ist% windir% \security\SampleMachineList.xml.|
+|/o\<ResultDir>|Gibt den Pfad und das Verzeichnis an, in dem die Analyseergebnis Dateien gespeichert werden sollen. Der Standardwert ist das aktuelle Verzeichnis.|
+|/u\<UserName>|Gibt alternative Benutzer Anmelde Informationen an, die beim Ausführen der Analyse auf einem Remote Computer verwendet werden sollen. Der Standardwert ist der angemeldete Benutzer.|
+|/PW\<Password>|Gibt alternative Benutzer Anmelde Informationen an, die beim Ausführen der Analyse auf einem Remote Computer verwendet werden sollen. Der Standardwert ist das Kennwort des angemeldeten Benutzers.|
+|/t:\<Threads>|Gibt die Anzahl von gleichzeitigen ausstehenden Analyse Vorgängen an, die während der Analyse gewartet werden sollen (DefaultValue = 40, MinValue = 1, MaxValue = 1000).|
 |/l|Bewirkt, dass der Analyseprozess protokolliert wird. Für jeden Computer, der analysiert wird, wird eine Protokolldatei generiert. Die Protokolldateien werden im selben Verzeichnis wie die Ergebnisdateien gespeichert. Verwenden Sie die Option **/o** , um das Verzeichnis für die Ergebnisdateien anzugeben.|
 |/e|Protokolliert ein Ereignis im Anwendungs Ereignisprotokoll, wenn keine Übereinstimmung gefunden wird.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise
 
-Scwcmd. exe ist nur auf Computern verfügbar, auf denen Windows Server 2008 R2, Windows Server 2008 oder Windows Server 2003 ausgeführt wird.
+Scwcmd.exe ist nur auf Computern verfügbar, auf denen Windows Server 2008 R2, Windows Server 2008 oder Windows Server 2003 ausgeführt wird.
 
 ## <a name="examples"></a>Beispiele
 
-Geben Sie Folgendes ein, um eine Sicherheitsrichtlinie für die Datei webpolicy. XML zu analysieren:
+Geben Sie Folgendes ein, um eine Sicherheitsrichtlinie für die Datei webpolicy.xml zu analysieren:
 ```
 scwcmd analyze /p:webpolicy.xml
 
 ```
-Geben Sie Folgendes ein, um eine Sicherheitsrichtlinie auf dem Computer mit dem Namen Webserver für die Datei webpolicy. XML mithilfe der Anmelde Informationen des webadmin-Kontos zu analysieren:
+Geben Sie Folgendes ein, um eine Sicherheitsrichtlinie auf dem Computer mit dem Namen Webserver für die Datei webpolicy.xml mithilfe der Anmelde Informationen des webadmin-Kontos zu analysieren:
 ```
 scwcmd analyze /m:webserver /p:webpolicy.xml /u:webadmin
 
 ```
-Geben Sie Folgendes ein, um eine Sicherheitsrichtlinie für die Datei "webpolicy. xml" mit maximal 100 Threads zu analysieren und die Ergebnisse in eine Datei mit dem Namen "Results" in der resultserver-Freigabe auszugeben:
+Geben Sie Folgendes ein, um eine Sicherheitsrichtlinie für die Datei webpolicy.xml mit maximal 100 Threads zu analysieren und die Ergebnisse in eine Datei mit dem Namen results in der resultserver-Freigabe auszugeben. Geben Sie Folgendes ein:
 ```
 scwcmd analyze /i:webpolicy.xml /t:100 /o:\\resultserver\results
 
 ```
-Geben Sie Folgendes ein, um eine Sicherheitsrichtlinie für die Webserver-Organisationseinheit mit der Datei "webpolicy. xml" zu analysieren
+Geben Sie Folgendes ein, um eine Sicherheitsrichtlinie für die Webservers-Organisationseinheit mit der Datei webpolicy.xml mithilfe der Domänen Administrator-Anmelde Informationen zu analysieren:
 ```
 scwcmd analyze /ou:OU=WebServers,DC=Marketing,DC=ABCCompany,DC=com /p:webpolicy.xml /u:DomainAdmin
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

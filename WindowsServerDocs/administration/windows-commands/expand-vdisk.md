@@ -1,6 +1,6 @@
 ---
-title: Erweitern von Vdisk
-description: Referenz Thema für den Expand Vdisk-Befehl, mit dem eine virtuelle Festplatte (VHD) auf eine angegebene Größe erweitert wird.
+title: expand vdisk
+description: Referenz Artikel zum Erweitern des Vdisk-Befehls, mit dem eine virtuelle Festplatte (VHD) auf eine angegebene Größe erweitert wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 48973178f35f792b52fa81e5ed59449ca5db2559
-ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
+ms.openlocfilehash: a7951d4875249e46d850883f7863262774dd9bab
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2020
-ms.locfileid: "83436185"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85932307"
 ---
-# <a name="expand-vdisk"></a>Erweitern von Vdisk
+# <a name="expand-vdisk"></a>expand vdisk
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -44,7 +44,7 @@ Geben Sie Folgendes ein, um die ausgewählte VHD auf 20 GB zu erweitern:
 expand vdisk maximum=20000
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

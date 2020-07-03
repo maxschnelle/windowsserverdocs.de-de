@@ -1,6 +1,6 @@
 ---
 title: ktmutil
-description: Referenz Thema für den Befehl "ktmutil", mit dem das Hilfsprogramm "Kernel Transaction Manager" gestartet wird.
+description: Referenz Artikel für den Befehl "ktmutil", der das Hilfsprogramm "Kernel Transaction Manager" startet.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9ca26d2289e32d8eb618ab7cc9393678a16e318b
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: aa4cbd503894cd99910f401ec026022a9ba1453c
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83817310"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85933881"
 ---
 # <a name="ktmutil"></a>ktmutil
 
@@ -42,6 +42,6 @@ Geben Sie Folgendes ein, um eine unzweifel hafte Transaktion mit der GUID 311a92
 ktmutil force commit {311a9209-03f4-11dc-918f-00188b8f707b}
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

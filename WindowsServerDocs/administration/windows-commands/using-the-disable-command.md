@@ -1,6 +1,6 @@
 ---
 title: disable
-description: Referenz Thema zum deaktivieren, das alle Dienste für die Windows-Bereitstellungs Dienste deaktiviert.
+description: Referenz Artikel zum deaktivieren, bei dem alle Dienste für die Windows-Bereitstellungs Dienste deaktiviert werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e4523c75af4f75488f6dc0fad5dbb4ebc2442f7d
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 54c8fdd3014ecd7a11039ecdb7771b0517e756e1
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82720982"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85933964"
 ---
 # <a name="disable"></a>disable
 
@@ -23,7 +23,7 @@ ms.locfileid: "82720982"
 Deaktiviert alle Dienste für die Windows-Bereitstellungs Dienste.
 
 ## <a name="subcommands"></a>Unterbefehle
-|Unterbefehl|BESCHREIBUNG|
+|Unterbefehl|Beschreibung|
 |-------|--------|
 |[Verwenden des Befehls "deaktivierte Server"](using-the-disable-server-command.md)|Deaktiviert alle Dienste der Windows-Bereitstellungs Dienste auf einem angegebenen Server (Bereitstellungs Server).|
 |[Verwenden des Befehls "deaktivierte Transport Server"](using-the-disable-transportserver-command.md)|Deaktiviert alle Dienste der Windows-Bereitstellungs Dienste auf einem angegebenen Transport Server.|

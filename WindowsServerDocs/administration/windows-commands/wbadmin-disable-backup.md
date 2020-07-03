@@ -1,6 +1,6 @@
 ---
-title: Wbadmin-Sicherung deaktivieren
-description: Referenz Thema für die Wbadmin-Sicherung deaktivieren, bei der die Ausführung der vorhandenen geplanten täglichen Sicherungen beendet wird.
+title: wbadmin disable backup
+description: Referenz Artikel für die Wbadmin-Sicherung deaktivieren, bei der die Ausführung der vorhandenen geplanten täglichen Sicherungen beendet wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6bc211946c908b44b196995a9e5000d6ff3b7f82
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: 88383975aa3ae8d6821698159e6ee445198301c5
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83821420"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85933674"
 ---
-# <a name="wbadmin-disable-backup"></a>Wbadmin-Sicherung deaktivieren
+# <a name="wbadmin-disable-backup"></a>wbadmin disable backup
 
 
 
@@ -33,11 +33,11 @@ wbadmin disable backup
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |---------|-----------|
 |-quiet|Führt den Unterbefehl ohne Aufforderungen an den Benutzer aus.|
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)

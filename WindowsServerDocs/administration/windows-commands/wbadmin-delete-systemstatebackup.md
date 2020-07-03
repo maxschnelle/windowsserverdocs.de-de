@@ -1,6 +1,6 @@
 ---
-title: Wbadmin delete systemstatebackup
-description: Referenz Thema für Wbadmin delete systemstatebackup, mit dem die von Ihnen angegebenen Systemstatus Sicherungen gelöscht werden.
+title: wbadmin delete systemstatebackup
+description: Referenz Artikel für Wbadmin delete systemstatebackup, mit dem die von Ihnen angegebenen Systemstatus Sicherungen gelöscht werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a84112191ad1b5873ad09c467fb3668107f2b24e
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: a17ed3595f0e1dd369e762150c8f45fe6f983822
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83821430"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85933714"
 ---
-# <a name="wbadmin-delete-systemstatebackup"></a>Wbadmin delete systemstatebackup
+# <a name="wbadmin-delete-systemstatebackup"></a>wbadmin delete systemstatebackup
 
 
 
@@ -44,7 +44,7 @@ wbadmin delete systemstatebackup
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |---------|-----------|
 |-keepversions|Gibt die Anzahl der aktuellen Sicherungen des Systemstatus an, die aufbewahrt werden sollen. Der Wert muss eine positive ganze Zahl sein. Mit dem Parameterwert **-keepversions: 0** werden alle Systemstatus Sicherungen gelöscht.|
 |-version|Gibt den Versions Bezeichner der Sicherung im Format mm/dd/yyyy-HH: mm an. Wenn Sie den Versions Bezeichner nicht kennen, geben Sie **Wbadmin Get Versions**ein.</br>Versionen, die ausschließlich Systemstatus Sicherungen sind, können mit diesem Befehl gelöscht werden. Verwenden Sie **Wbadmin Get Items** , um den Versionstyp anzuzeigen.|
@@ -68,7 +68,7 @@ Geben Sie Folgendes ein, um die älteste auf Laufwerk f gespeicherte Systemstatu
 wbadmin delete systemstatebackup -backupTarget:f -deleteOldest
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)

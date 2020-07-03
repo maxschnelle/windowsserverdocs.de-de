@@ -1,6 +1,6 @@
 ---
-title: FTP löschen
-description: Referenz Thema für den Befehl FTP DELETE, mit dem Dateien auf Remote Computern gelöscht werden.
+title: ftp delete
+description: Referenz Artikel für den Befehl FTP DELETE, mit dem Dateien auf Remote Computern gelöscht werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 43ea2ef90f29970a42b0196717ce4d2d3552a32c
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: 5e59abdb18104ad23e5e46ffa01b9bfcf015768c
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83819951"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85933267"
 ---
-# <a name="ftp-delete"></a>FTP löschen
+# <a name="ftp-delete"></a>ftp delete
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -30,19 +30,19 @@ delete <remotefile>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<remotefile>` | Gibt die Datei an, die gelöscht werden soll. |
 
 ### <a name="examples"></a>Beispiele
 
-Um die Datei " *Test. txt* " auf dem Remote Computer zu löschen, geben Sie Folgendes ein:
+Um die *test.txt* Datei auf dem Remote Computer zu löschen, geben Sie Folgendes ein:
 
 ```
 delete test.txt
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

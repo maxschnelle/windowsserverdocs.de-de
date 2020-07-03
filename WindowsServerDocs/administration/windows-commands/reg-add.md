@@ -1,6 +1,6 @@
 ---
-title: reg hinzufügen
-description: Referenz Thema für * * * *-
+title: reg add
+description: Referenz Artikel für den Befehl "reg Add", mit dem der Registrierung ein neuer Unterschlüssel oder Eintrag hinzugefügt wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,68 +9,75 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 85880a1a0fd92dca1f203d3b29df5300fab4eb00
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: db968e8fb55a4de73f5221f8149f794600f6884e
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82722603"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85933516"
 ---
-# <a name="reg-add"></a>reg hinzufügen
-
+# <a name="reg-add"></a>reg add
 
 Fügt der Registrierung einen neuen Unterschlüssel oder Eintrag hinzu.
 
 ## <a name="syntax"></a>Syntax
 
 ```
-reg add <KeyName> [{/v ValueName | /ve}] [/t DataType] [/s Separator] [/d Data] [/f]
+reg add <keyname> [{/v Valuename | /ve}] [/t datatype] [/s Separator] [/d Data] [/f]
 ```
 
 ### <a name="parameters"></a>Parameter
 
-|      Parameter      |                                                                                                                                                                                                                                                                   BESCHREIBUNG                                                                                                                                                                                                                                                                   |
-|---------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| \<KeyName<em>></em> | Gibt den vollständigen Pfad des hinzu zufügenden unter Schlüssels oder Eintrags an. Um einen Remote Computer anzugeben, schließen Sie den Computernamen (im Format \\ \\ \<Computername>\) als Teil von *keyName*ein. Wenn Computer \\ \\Name \ weggelassen wird, wird der Vorgang standardmäßig auf dem lokalen Computer durchgesetzt. Der *keyName* muss einen gültigen Stamm Schlüssel enthalten. Gültige Stamm Schlüssel für den lokalen Computer sind: HKLM, HKCU, HKCR, HKU und HKCC. Wenn ein Remote Computer angegeben ist, lauten gültige Stamm Schlüssel: HKLM und HKU. Wenn der Registrierungsschlüssel Name ein Leerzeichen enthält, müssen Sie den Schlüsselnamen in Anführungszeichen einschließen. |
-|   /v \<valueName>   |                                                                                                                                                                                                                                Gibt den Namen des Registrierungs Eintrags an, der unter dem angegebenen Unterschlüssel hinzugefügt werden soll.                                                                                                                                                                                                                                 |
-|         /ve         |                                                                                                                                                                                                                                Gibt an, dass der Registrierungs Eintrag, der der Registrierung hinzugefügt wird, einen NULL-Wert aufweist.                                                                                                                                                                                                                                |
-|     /t \<-Typ>      |                                                                                                                                          Gibt den Typ des Registrierungs Eintrags an. Der *Typ* muss einer der folgenden sein:</br>REG_SZ</br>REG_MULTI_SZ</br>REG_DWORD_BIG_ENDIAN</br>REG_DWORD</br>REG_BINARY</br>REG_DWORD_LITTLE_ENDIAN</br>REG_LINK</br>REG_FULL_RESOURCE_DESCRIPTOR</br>REG_EXPAND_SZ                                                                                                                                          |
-|   /s \<-Trennzeichen>   |                                                                                                                                                              Gibt das Zeichen an, das verwendet werden soll, um mehrere Instanzen von Daten zu trennen, wenn der REG_MULTI_SZ-Datentyp angegeben wird und mehr als ein Eintrag aufgeführt werden muss. Wenn kein Wert angegeben wird, ist das Standard Trennzeichen **\ 0**.                                                                                                                                                              |
-|     /d \<Daten>      |                                                                                                                                                                                                                                                 Gibt die Daten für den neuen Registrierungs Eintrag an.                                                                                                                                                                                                                                                  |
-|         /f          |                                                                                                                                                                                                                                           Fügt den Registrierungs Eintrag hinzu, ohne zur Bestätigung aufzufordern.                                                                                                                                                                                                                                           |
-|         /?          |                                                                                                                                                                                                                                              Zeigt die Hilfe zu **reg Add** an der Eingabeaufforderung an.                                                                                                                                                                                                                                               |
+| Parameter | Beschreibung |
+|--|--|
+| `<keyname>` | Gibt den vollständigen Pfad des hinzu zufügenden unter Schlüssels oder Eintrags an. Wenn Sie einen Remote Computer angeben möchten, schließen Sie den Computernamen (im Format `\\<computername>\` ) als Teil des *keyName*-Steuerelement ein. Das Weglassen bewirkt, dass `\\<computername>\` der Vorgang standardmäßig auf dem lokalen Computer durchgesetzt wird. Der *keyName* muss einen gültigen Stamm Schlüssel enthalten. Gültige Stamm Schlüssel für den lokalen Computer sind: **HKLM**, **HKCU**, **HKCR**, **HKU**und **HKCC**. Wenn ein Remote Computer angegeben ist, lauten gültige Stamm Schlüssel: **HKLM** und **HKU**. Wenn der Registrierungsschlüssel Name ein Leerzeichen enthält, müssen Sie den Schlüsselnamen in Anführungszeichen einschließen. |
+| /v`<Valuename>` | Gibt den Namen des Registrierungs Eintrags "Add" an. |
+| /ve | Gibt an, dass der hinzugefügte Registrierungs Eintrag einen NULL-Wert aufweist. |
+| /t`<Type>` | Gibt den Typ des Registrierungs Eintrags an. Der *Typ* muss einer der folgenden sein:<ul><li>REG_SZ</li><li>REG_MULTI_SZ</li><li>REG_DWORD_BIG_ENDIAN</li><li>REG_DWORD</li><li>REG_BINARY</li><li>REG_DWORD_LITTLE_ENDIAN</li><li>REG_LINK</li><li>REG_FULL_RESOURCE_DESCRIPTOR</li><li>REG_EXPAND_SZ</li></ul> |
+| /s`<Separator>` | Gibt das Zeichen an, das verwendet werden soll, um mehrere Instanzen von Daten zu trennen, wenn der **REG_MULTI_SZ** -Datentyp angegeben wird und mehr als ein Eintrag aufgeführt wird. Wenn kein Wert angegeben wird, ist das Standard Trennzeichen **\ 0**. |
+| /d`<Data>` | Gibt die Daten für den neuen Registrierungs Eintrag an. |
+| /f | Fügt den Registrierungs Eintrag hinzu, ohne zur Bestätigung aufzufordern. |
+| /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-## <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
--   Mit diesem Vorgang können keine Teil Strukturen hinzugefügt werden. Diese Version von **reg** fordert beim Hinzufügen eines unter Schlüssels nicht zur Bestätigung auf.
--   In der folgenden Tabelle sind die Rückgabewerte für den **reg-Add** -Vorgang aufgeführt.
+- Mit diesem Vorgang können keine Teil Strukturen hinzugefügt werden. Diese Version von **reg** fordert beim Hinzufügen eines unter Schlüssels nicht zur Bestätigung auf.
 
-| Wert | BESCHREIBUNG |
-|-------|-------------|
-|   0   |   Erfolg   |
-|   1   |   Fehler   |
+- Die Rückgabewerte für den reg-Vorgang zum **Hinzufügen** lauten:
 
--   Verwenden Sie für den REG_EXPAND_SZ Schlüsseltyp das Caretzeichen **^** () **%** mit dem/d-Parameter.
+| Wert | Beschreibung |
+|--|--|
+| 0 | Erfolgreich |
+| 1 | Fehler |
 
-## <a name="examples"></a>Beispiele
+- Verwenden Sie für den **REG_EXPAND_SZ** Schlüsseltyp das Caretzeichen Symbol ( **^** ) mit **%** im/d-Parameter.
 
-Geben Sie Folgendes ein, um den Schlüssel HKLM\Software\MyCo auf Remote Computer ABC hinzuzufügen:
+### <a name="examples"></a>Beispiele
+
+Geben Sie Folgendes ein, um den Schlüssel *HKLM\Software\MyCo* auf Remote Computer *ABC*hinzuzufügen:
+
 ```
-REG ADD \\ABC\HKLM\Software\MyCo
-```
-Geben Sie zum Hinzufügen eines Registrierungs Eintrags zu HKLM\Software\MyCo mit einem Wert mit dem Namen **Data** of type REG_BINARY und den Daten **fe340ead**Folgendes ein:
-```
-REG ADD HKLM\Software\MyCo /v Data /t REG_BINARY /d fe340ead
-```
-Zum Hinzufügen eines mehrwertigen Registrierungs Eintrags zu "HKLM\Software\MyCo" mit dem Wert Namen " **MRU** " vom Typ "REG_MULTI_SZ" und "Daten von **fax\0mail\0\0**" geben Sie Folgendes ein:
-```
-REG ADD HKLM\Software\MyCo /v MRU /t REG_MULTI_SZ /d fax\0mail\0\0
-```
-Zum Hinzufügen eines erweiterten Registrierungs Eintrags zu "HKLM\Software\MyCo" mit einem Wertnamen **vom Typ** "REG_EXPAND_SZ" und Daten von " **% systemroot%**" geben Sie Folgendes ein:
-```
-REG ADD HKLM\Software\MyCo /v Path /t REG_EXPAND_SZ /d ^%systemroot^%
+reg add \\ABC\HKLM\Software\MyCo
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+Zum Hinzufügen eines Registrierungs Eintrags zu *HKLM\Software\MyCo* mit einem Wert namens *Data*, dem Typ *REG_BINARY*und den Daten von *fe340ead*geben Sie Folgendes ein:
+
+```
+reg add HKLM\Software\MyCo /v Data /t REG_BINARY /d fe340ead
+```
+
+Zum Hinzufügen eines mehrwertigen Registrierungs Eintrags zu *HKLM\Software\MyCo* mit einem Wert namens *MRU*, dem Typ *REG_MULTI_SZ*und den Daten von *fax\0mail\0\0*geben Sie Folgendes ein:
+
+```
+reg add HKLM\Software\MyCo /v MRU /t REG_MULTI_SZ /d fax\0mail\0\0
+```
+
+Zum Hinzufügen eines erweiterten Registrierungs Eintrags zu *HKLM\Software\MyCo* mit einem Wert namens *path*, dem Typ *REG_EXPAND_SZ*und den Daten von *% systemroot%* geben Sie Folgendes ein:
+
+```
+reg add HKLM\Software\MyCo /v Path /t REG_EXPAND_SZ /d ^%systemroot^%
+```
+
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -1,6 +1,6 @@
 ---
 title: fsutil file
-description: Referenz Thema für den Befehl "fsutil file", der eine Datei anhand des Benutzernamens findet, zugeordnete Bereiche für eine Datei abfragt, den Kurznamen einer Datei festlegt, die gültige Daten Länge einer Datei festlegt, keine Daten für eine Datei festlegt oder eine neue Datei erstellt.
+description: Referenz Artikel zum Befehl "fsutil file", der eine Datei anhand des Benutzernamens findet, zugeordnete Bereiche für eine Datei abfragt, den Kurznamen einer Datei festlegt, die gültige Daten Länge einer Datei festlegt, keine Daten für eine Datei festlegt oder eine neue Datei erstellt.
 ms.prod: windows-server
 manager: dmoss
 ms.author: toklima
@@ -9,12 +9,12 @@ ms.technology: storage
 ms.assetid: 9f3dc104-dd69-4b03-b824-a29896780164
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: e9be8f6d21b89d1017371b9697e1227122826a7d
-ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
+ms.openlocfilehash: 6909d381ef5dfebb343e70ad117a1a5b400481fa
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2020
-ms.locfileid: "83435875"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85932288"
 ---
 # <a name="fsutil-file"></a>fsutil file
 
@@ -116,13 +116,13 @@ Geben Sie Folgendes ein, um das EOF für eine Datei festzulegen:
 fsutil file seteof C:\testfile.txt 1000
 ```
 
-Geben Sie Folgendes ein, um den Kurznamen für die Datei ( *longfilename. txt* auf Laufwerk C zu *longfile. txt*) festzulegen:
+Um den Kurznamen für die Datei festzulegen, *longfilename.txt* auf Laufwerk C auf *longfile.txt*, geben Sie Folgendes ein:
 
 ```
 fsutil file setshortname c:\longfilename.txt longfile.txt
 ```
 
-Geben Sie Folgendes ein, um für eine Datei mit dem Namen *Testfile. txt* auf einem NTFS-Volume die gültige Daten Länge auf *4096 Byte* festzulegen:
+Wenn Sie für eine Datei mit dem Namen *testfile.txt* auf einem NTFS-Volume die gültige Daten Länge auf *4096 Bytes* festlegen möchten, geben Sie Folgendes ein:
 
 ```
 fsutil file setvaliddata c:\testfile.txt 4096
@@ -134,7 +134,7 @@ Geben Sie Folgendes ein, um einen Bereich einer Datei auf einem NTFS-Volume auf 
 fsutil file setzerodata offset=100 length=150 c:\temp\sample.txt
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

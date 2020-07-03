@@ -1,6 +1,6 @@
 ---
-title: Ksetup setenctypeattr
-description: Referenz Thema für den Ksetup setenctypeattr-Befehl, mit dem das Verschlüsselungstyp Attribut für die Domäne festgelegt wird.
+title: ksetup setenctypeattr
+description: Referenz Artikel für den Ksetup-Befehl setenctypeattr, der das Attribut für den Verschlüsselungstyp für die Domäne festlegt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e76ad3d08505208346ff2a3e100194239187953d
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: 8bb8411a795d0167af1fc921fdf1c19febcb8527
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83817360"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85933911"
 ---
-# <a name="ksetup-setenctypeattr"></a>Ksetup setenctypeattr
+# <a name="ksetup-setenctypeattr"></a>ksetup setenctypeattr
 
 Legt das Verschlüsselungstyp Attribut für die Domäne fest. Bei erfolgreicher oder fehlgeschlagener Ausführung wird eine Statusmeldung angezeigt.
 
@@ -30,7 +30,7 @@ ksetup /setenctypeattr <domainname> {DES-CBC-CRC | DES-CBC-MD5 | RC4-HMAC-MD5 | 
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<domainname>` | Der Name der Domäne, zu der Sie eine Verbindung herstellen möchten. Verwenden Sie den voll qualifizierten Domänen Namen oder eine einfache Form des Namens, z. b. Corp.contoso.com oder Configuration Manager. |
 | Verschlüsselungstyp | Muss einer der folgenden unterstützten Verschlüsselungstypen sein:<ul><li>DES-CBC-CRC</li><li>DES-CBC-MD5</li><li>RC4-HMAC-MD5</li><li>AES128-CTS-HMAC-SHA1-96</li><li>AES256-CTS-HMAC-SHA1-96</li></ul> |
@@ -65,7 +65,7 @@ Geben Sie Folgendes ein, um zu überprüfen, ob das Verschlüsselungstyp Attribu
 ksetup /getenctypeattr corp.contoso.com
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

@@ -1,6 +1,6 @@
 ---
-title: logman Update-API
-description: Referenz Thema für den Befehl logman Update API, mit dem die Eigenschaften eines vorhandenen API-Überwachungsdaten Sammlers aktualisiert werden.
+title: logman update api
+description: Referenz Artikel für den Befehl logman Update API, mit dem die Eigenschaften eines vorhandenen API-Überwachungsdaten Sammlers aktualisiert werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0087edc7cd96bf2bf7611d9a3975d97384c02949
-ms.sourcegitcommit: 29bc8740e5a8b1ba8f73b10ba4d08afdf07438b0
+ms.openlocfilehash: 40575772e5f82474c4afbd4809773f47d7e4e075
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84222780"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85933874"
 ---
-# <a name="logman-update-api"></a>logman Update-API
+# <a name="logman-update-api"></a>logman update api
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -65,13 +65,13 @@ logman update api <[-n] <name>> [options]
 
 ### <a name="examples"></a>Beispiele
 
-Zum Aktualisieren eines vorhandenen API-Ablaufverfolgungs-Leistungs Zählers namens " *trace_notepad*" für die ausführbare Datei "c:\windows\notepad.exe", indem Sie den API-Aufruf "TlsGetValue", der vom Modul Kernel32
+Zum Aktualisieren eines vorhandenen API-Ablaufverfolgungs-Leistungs Zählers namens *trace_notepad*für die ausführbare Datei c:\windows\notepad.exe, indem Sie den API-Aufruf TlsGetValue, der vom Modul kernel32.dll erzeugt wurde, ausschließen
 
 ```
 logman update api trace_notepad -exe c:\windows\notepad.exe -exapis kernel32.dll!TlsGetValue
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

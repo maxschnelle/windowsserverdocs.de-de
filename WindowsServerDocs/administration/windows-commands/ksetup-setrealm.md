@@ -1,6 +1,6 @@
 ---
-title: Ksetup setrealm
-description: Referenz Thema für den Ksetup setrealm-Befehl, mit dem der Name eines Kerberos-Bereichs festgelegt wird.
+title: ksetup setrealm
+description: Referenz Artikel für den Ksetup setrealm-Befehl, mit dem der Name eines Kerberos-Bereichs festgelegt wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 03b33977f57e187a8bea69be78c1e9c094b9a73e
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: c6fa5573322237dfee5909d9afc2e99696ac82b3
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83817280"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85933137"
 ---
-# <a name="ksetup-setrealm"></a>Ksetup setrealm
+# <a name="ksetup-setrealm"></a>ksetup setrealm
 
 Legt den Namen eines Kerberos-Bereichs fest.
 
@@ -31,7 +31,7 @@ ksetup /setrealm <DNSdomainname>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<DNSdomainname>` | Gibt den Großbuchstaben-DNS-Namen an, z. b. Corp. CONTOSO.com. Sie können den voll qualifizierten Domänen Namen oder eine einfache Form des Namens verwenden. Wenn Sie den DNS-Namen nicht in Großbuchstaben verwenden, werden Sie zur Überprüfung aufgefordert, um den Vorgang fortzusetzen. |
 
@@ -43,10 +43,10 @@ Geben Sie Folgendes ein, um den Bereich dieses Computers auf einen bestimmten Do
 ksetup /setrealm CONTOSO
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
 - [Ksetup-Befehl](ksetup.md)
 
-- [Ksetup removerealm](ksetup-removerealm.md)
+- [ksetup removerealm](ksetup-removerealm.md)

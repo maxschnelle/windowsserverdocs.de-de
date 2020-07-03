@@ -1,6 +1,6 @@
 ---
 title: Scwcmd
-description: Referenz Thema für * * * *-
+description: Referenz Artikel für * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9a8c002aa735b188fdd9ad75b0db7dbe06053516
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: bb651c2b527d332f70cd0686a7d57f089bc987ac
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83821160"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85932626"
 ---
 # <a name="scwcmd"></a>Scwcmd
 
 > Gilt für: Windows Server 2012 R2, Windows Server 2012
 
-Das Befehlszeilen Tool scwcmd. exe, das im Sicherheitskonfigurations-Assistenten (Security Configuration Wizard, SCW) enthalten ist, kann zum Ausführen der folgenden Aufgaben verwendet werden:
+Mit dem Befehlszeilen Tool Scwcmd.exe, das im Sicherheitskonfigurations-Assistenten (Security Configuration Wizard, SCW) enthalten ist, können folgende Aufgaben ausgeführt werden:
 -   Konfigurieren Sie einen oder mehrere Server mit einer vom SCW generierten Richtlinie.
 -   Analysieren Sie einen oder mehrere Server mit einer vom SCW generierten Richtlinie.
 -   Anzeigen der Analyseergebnisse im HTML-Format.
@@ -38,7 +38,7 @@ scwcmd <command> [<subcommand>]
 
 ### <a name="parameters"></a>Parameter
 
-|Unterbefehl|BESCHREIBUNG|
+|Unterbefehl|Beschreibung|
 |----------|-----------|
 |/analyze|Bestimmt, ob ein Computer mit einer Richtlinie konform ist.</br>Weitere Informationen finden Sie unter [scwcmd: analysieren](scwcmd-analyze.md) für Syntax und Optionen.|
 |/configure|Wendet eine vom SCW generierte Sicherheitsrichtlinie auf einen Computer an.</br>Weitere Informationen finden Sie unter [scwcmd: Configure](scwcmd-configure.md) for Syntax and options.|
@@ -48,6 +48,6 @@ scwcmd <command> [<subcommand>]
 |/view|Rendert eine XML-Datei mithilfe einer angegebenen XSL-Transformation.</br>Informationen zur Syntax und zu Optionen finden Sie unter [scwcmd: View](scwcmd-view.md) .|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

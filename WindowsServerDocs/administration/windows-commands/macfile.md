@@ -1,6 +1,6 @@
 ---
 title: macfile
-description: Referenz Thema für den MacFile-Befehl, der den Datei Server für Macintosh-Server, Volumes, Verzeichnisse und Dateien verwaltet.
+description: Referenz Artikel für den MacFile-Befehl, der den Datei Server für Macintosh-Server, Volumes, Verzeichnisse und Dateien verwaltet.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 740044088bef1537b5b41493f46be9275be84874
-ms.sourcegitcommit: 29bc8740e5a8b1ba8f73b10ba4d08afdf07438b0
+ms.openlocfilehash: 6937e8bbf40ec9ce908be095e5de0e04f793f40e
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84223017"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85933654"
 ---
 # <a name="macfile"></a>macfile
 
@@ -49,8 +49,8 @@ Die Position der Berechtigungs Ziffer bestimmt, welche Berechtigung festgelegt w
 
 | Position | Sets-Berechtigung |
 | -------- | --------------- |
-| First (Erster) | Besitzer Dateien |
-| Sekunde | Besitzer Ordner |
+| First | Besitzer Dateien |
+| Second | Besitzer Ordner |
 | Dritter | Besitzmakechanges |
 | Vierter | GroupSeeFiles |
 | 5. | Groupseedner |
@@ -113,7 +113,7 @@ So erstellen Sie die Datei *tree_app* auf dem vom Macintosh zugänglichen *Volum
 macfile forkize /resourcefork:c:\cross\mac\appcode /type:APPL /creator:MAGNOLIA /targetfile:D:\Release\tree_app
 ```
 
-Um den Datei Ersteller in *Microsoft Word 5,1*zu ändern, geben Sie für die Datei " *Word. txt* " im Verzeichnis " *d:\Word documents\group files*" auf dem Server * \\ Servera*Folgendes ein:
+Um den Datei Ersteller in *Microsoft Word 5,1*zu ändern, geben Sie für die Datei *Word.txt* im Verzeichnis *d:\Word documents\group files*auf dem Server * \\ Servera*Folgendes ein:
 
 ```
 macfile forkize /server:\\ServerA /creator:MSWD /type:TEXT /targetfile:d:\Word documents\Group files\Word.txt
@@ -206,6 +206,6 @@ Geben Sie Folgendes ein, um das Volume namens *Sales Reports* auf dem lokalen Se
 macfile volume /remove /name:Sales Reports
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

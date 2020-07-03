@@ -1,6 +1,6 @@
 ---
 title: Get-DriverPackageFile
-description: Referenz Thema zu Get-DriverPackageFile, in dem Informationen zu einem Treiber Paket einschließlich der darin enthaltenen Treiber und Dateien angezeigt werden.
+description: Referenz Artikel zu Get-DriverPackageFile, in dem Informationen zu einem Treiber Paket einschließlich der darin enthaltenen Treiber und Dateien angezeigt werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 71fc38e31471a1deb9d6be29b04d3cd911be1bd6
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 1daa93cb8976229c4c847390416f9332769c5ff5
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82719930"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85932238"
 ---
 # <a name="get-driverpackagefile"></a>Get-DriverPackageFile
 
@@ -28,11 +28,11 @@ WDSUTIL /Get-DriverPackageFile /InfFile:<Inf File path> [/Architecture:{x86 | ia
 
 ### <a name="parameters"></a>Parameter
 
-|         Parameter         |                              BESCHREIBUNG                               |
+|         Parameter         |                              Beschreibung                               |
 |---------------------------|------------------------------------------------------------------------|
-| /InfFile:\<INF-Dateipfad> | Gibt den vollständigen Pfad und den Dateinamen der INF-Datei des Treiber Pakets an. |
+| /InfFile:\<Inf File path> | Gibt den vollständigen Pfad und den Dateinamen der INF-Datei des Treiber Pakets an. |
 |    [/Architecture: {x86    |                                  ia64                                  |
-|     [/Show: {Drivers      |                                 Dateien                                  |
+|     [/Show: {Drivers      |                                 Files                                  |
 
 ## <a name="examples"></a>Beispiele
 
@@ -41,6 +41,6 @@ Geben Sie Folgendes ein, um Informationen zu einer Treiberdatei anzuzeigen:
 WDSUTIL /Get-DriverPackageFile /InfFile:C:\temp\1394.inf /Architecture:x86
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

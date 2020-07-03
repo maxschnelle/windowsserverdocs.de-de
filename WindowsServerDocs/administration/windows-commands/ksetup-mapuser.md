@@ -1,6 +1,6 @@
 ---
-title: Ksetup mapuser
-description: Referenz Thema für den Ksetup mapuser-Befehl, der den Namen eines Kerberos-Prinzipals einem Konto zuordnet.
+title: ksetup mapuser
+description: Referenz Artikel für den Ksetup mapuser-Befehl, der den Namen eines Kerberos-Prinzipals einem Konto zuordnet.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0ac2f3e30b3057ceea4376d7ffe8286875d5301d
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: f387b8c3ff7cf7515a4f2ed9b8ea62d379332ec7
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83817670"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85933695"
 ---
-# <a name="ksetup-mapuser"></a>Ksetup mapuser
+# <a name="ksetup-mapuser"></a>ksetup mapuser
 
 Ordnet den Namen eines Kerberos-Prinzipals einem Konto zu.
 
@@ -28,7 +28,7 @@ ksetup /mapuser <principal> <account>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<principal>` | Gibt den voll qualifizierten Domänen Namen eines Prinzipal Benutzers an. Beispiel: mike@corp.CONTOSO.COM. Wenn Sie keinen Konto Parameter angeben, wird die Zuordnung für den angegebenen Prinzipal gelöscht. |
 | `<account>` | Gibt einen beliebigen Konto-oder Sicherheitsgruppen Namen an, der auf diesem Computer vorhanden ist, z. b. **Gast**, **Domänen Benutzer**oder **Administrator**. Wenn dieser Parameter ausgelassen wird, wird die Zuordnung für den angegebenen Prinzipal gelöscht. |
@@ -76,7 +76,7 @@ Geben Sie Folgendes ein, um alle Konten innerhalb des Bereichs "" von "" in "" v
 ksetup /mapuser * *
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

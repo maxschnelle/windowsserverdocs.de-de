@@ -1,6 +1,6 @@
 ---
 title: New-MulticastTransmission
-description: Referenz Thema für New-MulticastTransmission, das eine neue Multicast Übertragung für ein Abbild erstellt.
+description: Referenz Artikel für New-MulticastTransmission, mit dem eine neue Multicast Übertragung für ein Abbild erstellt wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 779dd0937f6889f795268bf59aa35837e84aca42
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: c3d9c2b507243b9a024728e99885c7a429b34178
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82720880"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85932454"
 ---
 # <a name="new-multicasttransmission"></a>New-MulticastTransmission
 
@@ -49,16 +49,16 @@ wdsutil [Options] /New-MulticastTransmissiomedia:<Image name>
         [/Filename:<File name>]
 ```
 ### <a name="parameters"></a>Parameter
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |-------|--------|
 Medien<Image name>|Gibt den Namen des Abbilds an, das mithilfe von Multicasting übertragen werden soll.|
 |[/Server:<Server name>]|Gibt den Namen des Servers an. Dabei kann es sich um den NetBIOS-Namen oder den voll qualifizierten Domänen Namen (FQDN) handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.|
 |FriendlyName<Friendly name>|Gibt den anzeigen amen der Übertragung an.|
 |/Description<Description>]|Gibt die Beschreibung der Übertragung an.|
 MediaType: {Boot&#124;Installation}|Gibt den Typ des Bilds an, das mithilfe von Multicasting übertragen werden soll. Beachten Sie, dass der **Start** nur für Windows Server 2008 R2 unterstützt wird.|
-|\mediagroup:<Image group name>]|Gibt die Bild Gruppe an, die das Bild enthält. Wenn kein Bildgruppen Name angegeben wird und nur eine Abbild Gruppe auf dem Server vorhanden ist, wird diese Abbild Gruppe verwendet. Wenn auf dem Server mehr als eine Abbild Gruppe vorhanden ist, müssen Sie diese Option verwenden, um den Namen der Abbild Gruppe anzugeben.|
+|\mediagroup: <Image group name> ]|Gibt die Bild Gruppe an, die das Bild enthält. Wenn kein Bildgruppen Name angegeben wird und nur eine Abbild Gruppe auf dem Server vorhanden ist, wird diese Abbild Gruppe verwendet. Wenn auf dem Server mehr als eine Abbild Gruppe vorhanden ist, müssen Sie diese Option verwenden, um den Namen der Abbild Gruppe anzugeben.|
 |[/Filename:<File name>]|Gibt den Dateinamen an. Wenn das Quell Image nicht anhand des Namens eindeutig identifiziert werden kann, müssen Sie diese Option verwenden, um den Dateinamen anzugeben.|
-|/TransmissionType: {AutoCast &#124; ScheduledCast}|Gibt an, ob die Übertragung automatisch (AutoCast) oder basierend auf den angegebenen Start Kriterien (ScheduledCast) gestartet werden soll.<p><ul><li>**Automatische**Umwandlung. Dieser Übertragungstyp gibt an, dass die Multicast Übertragung des ausgewählten Images beginnt, sobald ein anwendbarer Client ein Installations Abbild anfordert. Wenn andere Clients dasselbe Abbild anfordern, werden Sie mit der Übertragung verknüpft, die bereits gestartet wurde.</li><li>**Geplante**Umwandlung. Mit diesem Übertragungstyp werden die Start Kriterien für die Übertragung basierend auf der Anzahl von Clients, von denen ein Abbild angefordert wird, bzw. an einem bestimmten Tag und einer bestimmten Uhrzeit festgelegt Sie können die folgenden Optionen angeben:<p><ul><li>[/Time: <time>]: legt die Uhrzeit fest, zu der die Übertragung beginnen soll, indem Sie das folgende Format verwendet: yyyy/mm/dd: hh: mm.</li><li>[/Clients: <Number of clients>]: legt die Mindestanzahl von Clients fest, auf die gewartet werden soll, bevor die Übertragung beginnt.</li></ul></li></ul>|
+|/TransmissionType: {AutoCast &#124; ScheduledCast}|Gibt an, ob die Übertragung automatisch (AutoCast) oder basierend auf den angegebenen Start Kriterien (ScheduledCast) gestartet werden soll.<p><ul><li>**Automatische**Umwandlung. Dieser Übertragungstyp gibt an, dass die Multicast Übertragung des ausgewählten Images beginnt, sobald ein anwendbarer Client ein Installations Abbild anfordert. Wenn andere Clients dasselbe Abbild anfordern, werden Sie mit der Übertragung verknüpft, die bereits gestartet wurde.</li><li>**Geplante**Umwandlung. Mit diesem Übertragungstyp werden die Start Kriterien für die Übertragung basierend auf der Anzahl von Clients, von denen ein Abbild angefordert wird, bzw. an einem bestimmten Tag und einer bestimmten Uhrzeit festgelegt Sie können die folgenden Optionen angeben:<p><ul><li>[/Time: <time> ] : Legt fest, wie lange die Übertragung beginnen soll, indem Sie das folgende Format verwendet: yyyy/mm/dd: hh: mm.</li><li>[/Clients: <Number of clients> ] : Legt die Mindestanzahl von Clients fest, auf die gewartet werden soll, bevor die Übertragung beginnt.</li></ul></li></ul>|
 |/Architecture: {x86 &#124; ia64 &#124; x64}|Gibt die Architektur des Start Abbilds an, das mithilfe von Multicasting übertragen wird. Da es möglich ist, den gleichen Namen für Start Abbilder verschiedener Architekturen zu verwenden, sollten Sie die Architektur angeben, um sicherzustellen, dass das richtige Image verwendet wird.|
 |[/Filename:<File name>]|Gibt den Dateinamen an. Wenn das Quell Image nicht anhand des Namens eindeutig identifiziert werden kann, müssen Sie den Dateinamen angeben.|
 ## <a name="examples"></a>Beispiele
@@ -74,12 +74,12 @@ wdsutil /New-MulticastTransmission /FriendlyName:WDS AutoCast Transmission
 ```
 Geben Sie Folgendes ein, um eine Übertragung mit geplanter Umwandlung eines Installations Abbilds zu erstellen:
 ```
-wdsutil /New-MulticastTransmission /FriendlyName:WDS SchedCast Transmission /Server:MyWDSServemedia:Vista with Officemediatype:Install 
+wdsutil /New-MulticastTransmission /FriendlyName:WDS SchedCast Transmission /Server:MyWDSServemedia:Vista with Officemediatype:Install
 /Transmissiontype:ScheduledCast /time:2006/11/20:17:00 /Clients:100
 ```
-## <a name="additional-references"></a>Zusätzliche Referenzen
-- [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
-mithilfe[des Befehls Get-allmulticasttransmission](using-the-get-allmulticasttransmissions-command.md)
-mithilfe des Befehls[Get-MulticastTransmission](using-the-get-multicasttransmission-command.md)
-mithilfe des Befehls Unterbefehl[Remove-MulticastTransmission](using-the-remove-multicasttransmission-command.md)
-[: Start-MulticastTransmission](subcommand-start-multicasttransmission.md)
+## <a name="additional-references"></a>Weitere Verweise
+- [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md) 
+ [Verwenden des Befehls](using-the-get-allmulticasttransmissions-command.md) 
+ Get-allmulticasttransmissions [Verwenden des Befehls](using-the-get-multicasttransmission-command.md) 
+ Get-MulticastTransmission [Verwenden des Remove-MulticastTransmission-Befehls](using-the-remove-multicasttransmission-command.md) 
+ [Unterbefehl: Start-MulticastTransmission](subcommand-start-multicasttransmission.md)
