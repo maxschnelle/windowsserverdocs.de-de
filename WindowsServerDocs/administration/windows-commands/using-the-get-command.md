@@ -1,6 +1,6 @@
 ---
 title: get
-description: Referenz Thema für Get, das Eigenschaften oder Attribute für das angegebene Objekt abruft.
+description: Referenz Artikel für Get, der Eigenschaften oder Attribute zum angegebenen Objekt abruft.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 981ed8978df3d53505e6da5296dbb25cce38bb71
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 6e61be9480065518cf053966a851458af39f5c5d
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82719973"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85935018"
 ---
 # <a name="get"></a>get
 
@@ -23,7 +23,7 @@ ms.locfileid: "82719973"
 Ruft Eigenschaften oder Attribute für das angegebene Objekt ab.
 
 ## <a name="subcommands"></a>Unterbefehle
-|Unterbefehl|BESCHREIBUNG|
+|Unterbefehl|Beschreibung|
 |-------|--------|
 |[Verwenden des Befehls Get-alldevices](using-the-get-alldevices-command.md)|Hiermit werden Informationen zu allen vorab bereitgestellten Computern angezeigt.|
 |[Verwenden des Befehls Get-allimagegroups](using-the-get-allimagegroups-command.md)|Zeigt Informationen zu allen Bildgruppen an.|

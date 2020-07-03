@@ -1,6 +1,6 @@
 ---
 title: 'secedit: Validate'
-description: Referenz Thema für * * * *-
+description: Referenz Artikel für * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b93ad6ceadb08f6df8390edc3fc454d951519aad
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: 7f2da0792768a6b6d6113842614bc6f93c258822
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83821097"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85935968"
 ---
 # <a name="seceditvalidate"></a>secedit: Validate
 
@@ -31,7 +31,7 @@ Secedit /validate <configuration file name>
 
 #### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |---------|-----------|
 |Konfigurationsdateiname|Erforderlich.</br>Gibt den Pfad und den Dateinamen für die Sicherheits Vorlage an, die überprüft wird.|
 
@@ -52,7 +52,7 @@ Nachdem ein Rollback für eine Sicherheits Vorlage ausgeführt wurde, sollten Si
 Secedit /validate secRBKcontoso.inf
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Secedit:generaterollback](secedit-generaterollback.md)
 -   [Secedit](secedit.md)

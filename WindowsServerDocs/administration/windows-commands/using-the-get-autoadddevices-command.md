@@ -1,6 +1,6 @@
 ---
 title: Get-AutoAddDevices
-description: Referenz Thema zu Get-AutoAddDevices, in dem alle Computer angezeigt werden, die sich in der Datenbank zum automatischen Hinzufügen auf einem Windows-Bereitstellungsdiensteserver befinden.
+description: Referenz Artikel zu Get-AutoAddDevices, in dem alle Computer angezeigt werden, die sich in der Datenbank zum automatischen Hinzufügen auf einem Windows-Bereitstellungsdiensteserver befinden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c15836fa81c694aa9295d0a98376f4bef3125243
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: f2d470f8443da4612e97a2aa488adef256727382
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82719989"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85935035"
 ---
 # <a name="get-autoadddevices"></a>Get-AutoAddDevices
 
@@ -27,7 +27,7 @@ Zeigt alle Computer an, die sich auf einem Windows-Bereitstellungsdiensteserver 
 wdsutil [Options] /Get-AutoaddDevices [/Server:<Server name>] /Devicetype:{PendingDevices | RejectedDevices | ApprovedDevices}
 ```
 ### <a name="parameters"></a>Parameter
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |-------|--------|
 |[/Server:<Server name>]|Gibt den Namen des Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.|
 |/DeviceType: {pdingdevices &#124; rejecteddevices &#124; approveddevices}|Gibt den Typ des zurück zugebende Computers an.<p>-   Mit " **pdingdevices** " werden alle Computer in der Datenbank mit dem Status "Ausstehend" zurückgegeben.<br />-   **Rejecteddevices** gibt alle Computer in der Datenbank zurück, die den Status "abgelehnt" aufweisen.<br />-   **Approveddevices** gibt alle Computer in der Datenbank zurück, die den Status "genehmigt" aufweisen.|
@@ -40,8 +40,8 @@ Wenn Sie alle abgelehnten Computer anzeigen möchten, geben Sie Folgendes ein:
 ```
 wdsutil /verbose /Get-AutoaddDevices /Devicetype:RejectedDevices /Server:MyWDSServer
 ```
-## <a name="additional-references"></a>Zusätzliche Referenzen
-- [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
-mithilfe des Befehls "[Delete-AutoAddDevices](using-the-delete-autoadddevices-command.md)
-" mithilfe des Befehls "[genehmigen](using-the-approve-autoadddevices-command.md)
--AutoAddDevices"[mit dem Befehl "ablehnen-AutoAddDevices](using-the-reject-autoadddevices-command.md) "
+## <a name="additional-references"></a>Weitere Verweise
+- [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md) 
+ [Verwenden des Befehls](using-the-delete-autoadddevices-command.md) 
+ Delete-AutoAddDevices [Verwenden des Befehls](using-the-approve-autoadddevices-command.md) 
+ "genehmigen-AutoAddDevices" [Verwenden des ablehnen-AutoAddDevices-Befehls](using-the-reject-autoadddevices-command.md)

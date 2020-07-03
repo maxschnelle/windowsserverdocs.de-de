@@ -1,6 +1,6 @@
 ---
 title: get-allnamespaces
-description: Referenz Thema zu get-allnamespaces, in dem Informationen zu allen Namespaces auf einem Server angezeigt werden.
+description: Referenz Artikel zu get-allnamespaces, in dem Informationen zu allen Namespaces auf einem Server angezeigt werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 710918eb11ef7a746716a1a2bff9200cfa1d98c1
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: de44d659657a8d6df10c0f2ea7b7fb2a670b7f88
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82719997"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85935048"
 ---
 # <a name="get-allnamespaces"></a>get-allnamespaces
 
@@ -36,7 +36,7 @@ wdsutil /Get-AllNamespaces [/Server:<Server name>] [/ContentProvider:<name>] [/d
 |         Parameter         |                                                                               WindowsServer 2008                                                                               | Windows Server 2008 R2 |
 |---------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------|
 |  [/Server:<Server name>]  | Gibt den Namen des Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet. |                        |
-| [/Contentprovider:<name>] |                                                        Zeigt nur die Namespaces für den angegebenen Inhaltsanbieter an.                                                         |                        |
+| [/Contentprovider: <name> ] |                                                        Zeigt nur die Namespaces für den angegebenen Inhaltsanbieter an.                                                         |                        |
 |      [/Show: Clients]      |                            Wird nur für Windows Server 2008 unterstützt. Hiermit werden Informationen zu Client Computern angezeigt, die mit dem-Namespace verbunden sind.                             |                        |
 |    [/Details: Clients]     |                           Wird nur für Windows Server 2008 R2 unterstützt. Hiermit werden Informationen zu Client Computern angezeigt, die mit dem-Namespace verbunden sind.                           |                        |
 |  [/ExcludedeletePending]  |                                                              Schließt alle deaktivierten Übertragungen aus der Liste aus.                                                              |                        |
@@ -55,8 +55,8 @@ Wenn Sie alle Namespaces außer den deaktivierten anzeigen möchten, geben Sie F
   ```
   wdsutil /Get-AllNamespaces /Server:MyWDSServer /ContentProvider:MyContentProv /details:Clients /ExcludedeletePending
   ```
-  ## <a name="additional-references"></a>Zusätzliche Referenzen
-  - [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
-  [mithilfe des Befehls "New-Namespace](using-the-new-namespace-command.md)
-  "[mit dem Befehl "Remove-Namespace](using-the-remove-namespace-command.md)
-  "[Unterbefehl: Start-Namespace](subcommand-start-namespace.md)
+  ## <a name="additional-references"></a>Weitere Verweise
+  - [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md) 
+   [Verwenden des New-Namespace-Befehls](using-the-new-namespace-command.md) 
+   [Verwenden des Remove-Namespace-Befehls](using-the-remove-namespace-command.md) 
+   [Unterbefehl: Start-Namespace](subcommand-start-namespace.md)

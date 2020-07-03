@@ -1,6 +1,6 @@
 ---
 title: msg
-description: Referenz Thema für den msg-Befehl, der eine Nachricht an einen Benutzer auf einem Remotedesktop-Sitzungshost Server sendet
+description: Referenz Artikel für den Befehl "msg", der eine Nachricht an einen Benutzer auf einem Remotedesktop-Sitzungshost Server sendet
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5eca19eee696e7a45cec2f16398055a7b06d00d6
-ms.sourcegitcommit: 5e313a004663adb54c90962cfdad9ae889246151
+ms.openlocfilehash: 6eff557b1fb7eb2c5f67b2902762786bbfc839c1
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84354360"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85934972"
 ---
 # <a name="msg"></a>msg
 
@@ -33,7 +33,7 @@ msg {<username> | <sessionname> | <sessionID>| @<filename> | *} [/server:<server
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<username>` | Gibt den Namen des Benutzers an, der die Nachricht empfangen soll. Wenn Sie keinen Benutzer oder eine Sitzung angeben, wird mit diesem Befehl eine Fehlermeldung angezeigt. Wenn eine Sitzung angegeben wird, muss Sie aktiv sein. |
 | `<sessionname>` | Gibt den Namen der Sitzung an, die die Nachricht empfangen soll. Wenn Sie keinen Benutzer oder eine Sitzung angeben, wird mit diesem Befehl eine Fehlermeldung angezeigt. Wenn eine Sitzung angegeben wird, muss Sie aktiv sein. |
@@ -79,6 +79,6 @@ Geben Sie Folgendes ein, um die Nachricht mit einem Timeout der Bestätigung (z.
 msg * /time:10 Let's meet at 1PM today
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

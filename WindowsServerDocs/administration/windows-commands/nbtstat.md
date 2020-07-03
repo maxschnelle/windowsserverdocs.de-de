@@ -1,6 +1,6 @@
 ---
 title: nbtstat
-description: Referenz Thema für den nbtstat-Befehl, der NetBT-Protokoll Statistiken (NetBIOS over TCP/IP), NetBIOS-Namens Tabellen sowohl für den lokalen Computer als auch für die Remote Computer und den NetBIOS-Namen Cache anzeigt.
+description: Referenz Artikel für den nbtstat-Befehl, der NetBT-Protokoll Statistiken (NetBIOS over TCP/IP), NetBIOS-Namens Tabellen sowohl für den lokalen Computer als auch für die Remote Computer und den NetBIOS-Namen Cache anzeigt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e205013dc5716b76981e0c9bae667d48802dfc74
-ms.sourcegitcommit: 5e313a004663adb54c90962cfdad9ae889246151
+ms.openlocfilehash: e663559686d95a4aaa123e2d43731a6b613de080
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84354320"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85934851"
 ---
 # <a name="nbtstat"></a>nbtstat
 
@@ -46,7 +46,7 @@ nbtstat [/a <remotename>] [/A <IPaddress>] [/c] [/n] [/r] [/R] [/RR] [/s] [/S] [
 | `<interval>` | Zeigt die ausgewählte Statistik an und hält die Anzahl der Sekunden an, die im *Intervall* zwischen den einzelnen anzeigen angegeben sind. Drücken Sie STRG + C, um die Anzeige von Statistiken zu verhindern. Wenn dieser Parameter ausgelassen wird, druckt **nbtstat** die aktuellen Konfigurationsinformationen nur einmal. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Bei den **nbtstat** -Befehlszeilen Parametern wird die Groß-/Kleinschreibung beachtet.
 
@@ -55,19 +55,19 @@ nbtstat [/a <remotename>] [/A <IPaddress>] [/c] [/n] [/r] [/R] [/RR] [/s] [/S] [
     | Richtung | BESCHREIBUNG |
     | ------- | ----------- |
     | Eingabe | Die Anzahl der empfangenen Bytes. |
-    | Output | Die Anzahl der gesendeten Bytes. |
+    | Ausgabe | Die Anzahl der gesendeten Bytes. |
     | Ein/Aus | Gibt an, ob die Verbindung vom Computer (ausgehend) oder von einem anderen Computer zum lokalen Computer (eingehend) erfolgt. |
     | Life | Die verbleibende Zeit, in der ein Name Table Cache-Eintrag aktiv wird, bevor er gelöscht wird. |
     | Lokaler Name | Der lokale NetBIOS-Name, der der Verbindung zugeordnet ist. |
     | Remote Host | Der Name oder die IP-Adresse, die dem Remote Computer zugeordnet ist. |
     | `<03>` | Das letzte Byte eines NetBIOS-Namens, das in Hexadezimal konvertiert wurde. Jeder NetBIOS-Name hat eine Länge von 16 Zeichen. Das letzte Byte hat häufig eine besondere Bedeutung, da derselbe Name mehrmals auf einem Computer vorhanden sein kann, der sich nur im letzten Byte unterscheidet. Beispielsweise `<20>` ist ein Leerzeichen im ASCII-Text. |
-    | type | Der Typ des Namens. Ein Name kann entweder ein eindeutiger Name oder ein Gruppenname sein. |
+    | Typ | Der Typ des Namens. Ein Name kann entweder ein eindeutiger Name oder ein Gruppenname sein. |
     | Status | Gibt an, ob der NetBIOS-Dienst auf dem Remote Computer ausgeführt wird (registriert ist) oder ob ein doppelter Computername denselben Dienst registriert hat (Konflikt). |
-    | Staat | Der Status von NetBIOS-Verbindungen. |
+    | Status | Der Status von NetBIOS-Verbindungen. |
 
 - Folgende NetBIOS-Verbindungszustände sind möglich:
 
-    | Staat | BESCHREIBUNG |
+    | State | Beschreibung |
     | ------- | ----------- |
     | Verbunden | Eine Sitzung wurde eingerichtet. |
     | Raum | Dieser Endpunkt ist für eine eingehende Verbindung verfügbar. |
@@ -124,6 +124,6 @@ Geben Sie Folgendes ein, um NetBIOS-Sitzungs Statistiken nach IP-Adresse alle f�
 nbtstat /S 5
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

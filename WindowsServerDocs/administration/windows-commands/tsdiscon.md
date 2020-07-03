@@ -1,6 +1,6 @@
 ---
 title: tsdiscon
-description: Referenz Thema für "zdiscon", das eine Sitzung von einem Remote Desktop-Sitzungs Host Server trennt.
+description: Referenz Artikel zu "zdiscon", der eine Sitzung von einem Remote Desktop-Sitzungs Host Server trennt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e2a97d1b157445fd43acce5a80f3d793ed5ae5af
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 05bf4e05648b0e5dd87657396df763432fab38f0
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82721264"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85934195"
 ---
 # <a name="tsdiscon"></a>tsdiscon
 
@@ -34,15 +34,15 @@ tsdiscon [<SessionID> | <SessionName>] [/server:<ServerName>] [/v]
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |-------|--------|
-|\<SessionID->|Gibt die ID der Sitzung an, die getrennt werden soll.|
-|\<Sessionname->|Gibt den Namen der Sitzung an, die getrennt werden soll.|
-|/Server:\<Servername>|Gibt den Terminal Server an, der die Sitzung enthält, die Sie trennen möchten. Andernfalls wird der aktuelle RD-Sitzungs Host Server verwendet.|
+|\<SessionId>|Gibt die ID der Sitzung an, die getrennt werden soll.|
+|\<SessionName>|Gibt den Namen der Sitzung an, die getrennt werden soll.|
+|/server:\<ServerName>|Gibt den Terminal Server an, der die Sitzung enthält, die Sie trennen möchten. Andernfalls wird der aktuelle RD-Sitzungs Host Server verwendet.|
 |/v|Zeigt Informationen zu den Aktionen an, die ausgeführt werden.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 -   Sie müssen über die Berechtigung "Vollzugriff" verfügen oder eine spezielle Zugriffsberechtigung trennen, um einen anderen Benutzer von einer Sitzung zu trennen.
 -   Wenn keine Sitzungs-ID oder kein Sitzungsname angegeben ist, wird die aktuelle Sitzung **von zdiscon** getrennt.
 -   Alle Anwendungen, die ausgeführt wurden, als Sie die Sitzung getrennt haben, werden automatisch ausgeführt, wenn Sie die Verbindung zu dieser Sitzung ohne Datenverlust wiederherstellen. Verwenden Sie die **Reset-Sitzung** , um die ausgewendenden Anwendungen der getrennten Sitzung zu beenden, aber beachten Sie, dass dies zu einem Datenverlust in der Sitzung führen kann.
@@ -62,6 +62,6 @@ tsdiscon [<SessionID> | <SessionName>] [/server:<ServerName>] [/v]
   ```
   tsdiscon TERM04
   ```
-  ## <a name="additional-references"></a>Zusätzliche Referenzen
-  - [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
-  [Remotedesktopdienste Befehls Verweis (Terminal Dienste)](remote-desktop-services-terminal-services-command-reference.md)
+  ## <a name="additional-references"></a>Weitere Verweise
+  - [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md) 
+   [Befehlsreferenz für Remotedesktopdienste (Terminal Dienste)](remote-desktop-services-terminal-services-command-reference.md)

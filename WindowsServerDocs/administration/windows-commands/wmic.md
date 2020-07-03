@@ -1,6 +1,6 @@
 ---
 title: wmic
-description: Referenz Thema für WMIC, das WMI-Informationen in einer interaktiven Befehlsshell anzeigt.
+description: Referenz Artikel für WMIC, in dem WMI-Informationen in einer interaktiven Befehlsshell angezeigt werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 252ba6b59c29378dd1f5e437de21a2ec4f5ec5c8
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: c14f877c226bdd376da39cfa6e8f11116d59fe56
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82720647"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85936117"
 ---
 # <a name="wmic"></a>wmic
 
@@ -34,12 +34,12 @@ wmic </parameter>
 
 Die folgenden Unterbefehle sind jederzeit verfügbar:
 
-|Unterbefehl|BESCHREIBUNG|
+|Unterbefehl|Beschreibung|
 |-----------|-----------|
 |class|Schützt den Standardalias Modus von WMIC, um direkt auf Klassen im WMI-Schema zuzugreifen.|
-|path|Gibt einen Escapezeichen aus dem Standardalias Modus von WMIC für den direkten Zugriff auf Instanzen im WMI-Schema aus.|
+|Pfad|Gibt einen Escapezeichen aus dem Standardalias Modus von WMIC für den direkten Zugriff auf Instanzen im WMI-Schema aus.|
 |context|Zeigt die aktuellen Werte aller globalen Switches an.|
-|[beenden \| beenden]|Beendet die WMIC-Befehlsshell.|
+|[Beenden Beenden \| ]|Beendet die WMIC-Befehlsshell.|
 
 ## <a name="examples"></a>Beispiele
 
@@ -71,6 +71,6 @@ Wenn Sie die von der Befehlszeile verwendete Sprach-ID in Englisch (Gebiets Sche
 wmic /locale:ms_409
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

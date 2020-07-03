@@ -1,6 +1,6 @@
 ---
-title: Telnet nicht festgelegt
-description: Referenz Thema für die Unmenge von Telnet, die zuvor festgelegte Optionen deaktiviert.
+title: telnet unset
+description: Referenz Artikel für die Unmenge von Telnet, die zuvor festgelegte Optionen deaktiviert.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1d2ae8c3e96e0416a8b9f5f477778e5e89339842
-ms.sourcegitcommit: 29bc8740e5a8b1ba8f73b10ba4d08afdf07438b0
+ms.openlocfilehash: 3efbf7d4f2507d16dbe0beb704ab0c80467a56d3
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84222658"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85935292"
 ---
 # <a name="telnet-unset"></a>Telnet: nicht festgelegt
 
@@ -34,7 +34,7 @@ u[nset] {bsasdel | crlf | delasbs | escape | localecho | logging | ntlm} [?]
 |Delta-|Sendet **Delete** als **Delete**.|
 |Escape|entfernt die Einstellung für das Escapezeichen.|
 |LOCALECHO|Deaktiviert LOCALECHO.|
-|logging|Schaltet die Protokollierung aus.|
+|Protokollierung|Schaltet die Protokollierung aus.|
 |ntlm|Deaktiviert die NTLM-Authentifizierung.|
 |?|Zeigt die Hilfe für diesen Befehl an.|
 ## <a name="examples"></a>Beispiele
@@ -42,5 +42,5 @@ Deaktivieren Sie die Protokollierung.
 ```
 u logging
 ```
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

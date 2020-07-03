@@ -1,6 +1,6 @@
 ---
 title: lpq
-description: Referenz Thema für den lpq-Befehl, der den Status einer Druck Warteschlange auf einem Computer anzeigt, auf dem der liniendrucksdaemon (LPD) ausgeführt wird.
+description: Referenz Artikel für den lpq-Befehl, der den Status einer Druck Warteschlange auf einem Computer anzeigt, auf dem der liniendrucksdaemon (LPD) ausgeführt wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1ecce9b1b4255e5e769fe76b0f753226d61fa916
-ms.sourcegitcommit: 29bc8740e5a8b1ba8f73b10ba4d08afdf07438b0
+ms.openlocfilehash: 373b1af5acbc43cbf52c45667c6feb571f1855a8
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84222728"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85934552"
 ---
 # <a name="lpq"></a>lpq
 
@@ -45,7 +45,7 @@ Wenn Sie den Status der *Laserprinter1* -Drucker Warteschlange auf einem LPD-Hos
 lpq -S 10.0.0.45 -P Laserprinter1
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

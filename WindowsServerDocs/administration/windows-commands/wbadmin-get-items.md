@@ -1,6 +1,6 @@
 ---
-title: Wbadmin-Get-Elemente
-description: Referenz Thema für Wbadmin Get Items, das die Elemente auflistet, die in einer bestimmten Sicherung enthalten sind.
+title: wbadmin get items
+description: Referenz Artikel für Wbadmin Get Items, der die in einer bestimmten Sicherung enthaltenen Elemente auflistet.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9987a3628682c47cde53433558ef89c01684ccf5
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: d69ac0aa200a694b94d8428e4ae333ae21ed20e1
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83821200"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85934360"
 ---
-# <a name="wbadmin-get-items"></a>Wbadmin-Get-Elemente
+# <a name="wbadmin-get-items"></a>wbadmin get items
 
 
 
@@ -35,7 +35,7 @@ wbadmin get items
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |---------|-----------|
 |-version|Gibt die Version der Sicherung im Format mm/dd/yyyy-HH: mm an. Wenn Sie die Versionsinformationen nicht kennen, geben Sie **Wbadmin Get Versions**ein.|
 |-backupTarget|Gibt den Speicherort an, der die Sicherungen enthält, für die Sie Details anzeigen möchten. Verwenden Sie zum Auflisten der an diesem Ziel Speicherort gespeicherten Sicherungen. Bei Sicherungs Ziel Standorten kann es sich um ein lokal angefügtes Laufwerk oder einen freigegebenen Remote Ordner handeln. Wenn **Wbadmin Get Items**auf dem gleichen Computer ausgeführt wird, auf dem die Sicherung erstellt wurde, wird dieser Parameter nicht benötigt. Dieser Parameter ist jedoch erforderlich, um Informationen zu einer Sicherung zu erhalten, die von einem anderen Computer erstellt wurde.|
@@ -52,7 +52,7 @@ So Listen Sie Elemente aus der Sicherung von Server01 auf, die am 2013 30. April
 wbadmin get items -version:04/30/2013-09:00 -backupTarget:\\servername\share -machine:server01
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)

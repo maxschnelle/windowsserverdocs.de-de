@@ -1,6 +1,6 @@
 ---
 title: nfsstat
-description: Referenz Thema für den nfsstat-Befehl, in dem statistische Informationen zu den Aufrufen von Network File System (NFS) und Remote Prozedur Aufruf (RPC) angezeigt werden.
+description: Referenz Artikel für den Befehl nfsstat, in dem statistische Informationen zu den Aufrufen von Network File System (NFS) und Remote Prozedur Aufruf (RPC) angezeigt werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 85eb1184d3eb8ee731cf698a6d805e3f11d878ce
-ms.sourcegitcommit: 99d548141428c964facf666c10b6709d80fbb215
+ms.openlocfilehash: 833081baa3ae9a0c2493623a7d015334087ee26d
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84721513"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85934796"
 ---
 # <a name="nfsstat"></a>nfsstat
 
@@ -28,7 +28,7 @@ nfsstat [-c][-s][-n][-r][-z][-m]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | -c | Zeigt nur die vom Client gesendeten und abgelehnten Client seitigen NFS-und RPC-und NFS-Aufrufe an. Um nur NFS-oder RPC-Informationen anzuzeigen, kombinieren Sie dieses Flag mit dem Parameter **-n** oder **-r** . |
 | -S | Zeigt nur die serverseitigen NFS-und RPC-und NFS-Aufrufe an, die vom Server gesendet und abgelehnt wurden. Um nur NFS-oder RPC-Informationen anzuzeigen, kombinieren Sie dieses Flag mit dem Parameter **-n** oder **-r** . |
@@ -69,7 +69,7 @@ Geben Sie Folgendes ein, um alle aufrufbezogenen Informationen auf dem Client un
 nfsstat -z
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

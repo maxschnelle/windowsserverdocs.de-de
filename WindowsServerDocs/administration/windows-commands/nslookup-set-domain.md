@@ -1,6 +1,6 @@
 ---
 title: nslookup set domain
-description: Referenz Thema für den Befehl "nslookup-Domäne", der den Domain Name System Standard-DNS-Domänen Namen (DNS) in den angegebenen Namen ändert.
+description: Referenz Artikel für den Befehl nslookup Set Domain, der den Domain Name System Standard-DNS-Domänen Namen (DNS) in den angegebenen Namen ändert.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e672bf53e655ef12cadb2a30aaa377b24e49afec
-ms.sourcegitcommit: 99d548141428c964facf666c10b6709d80fbb215
+ms.openlocfilehash: eaa12029beab301f955a4c9bed4595831f6ebf12
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84721633"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85934410"
 ---
 # <a name="nslookup-set-domain"></a>nslookup set domain
 
@@ -30,7 +30,7 @@ set domain=<domainname>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<domainname>` | Gibt einen neuen Namen für den Standard-DNS-Domänen Namen an. Der Standardwert ist der Name des Hosts. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
@@ -44,7 +44,7 @@ set domain=<domainname>
 
 - Verwenden Sie den Befehl [nslookup set srchlist](nslookup-set-srchlist.md) , um eine andere Liste anzugeben, und den Befehl [nslookup alle festlegen](nslookup-set-all.md) , um die Liste anzuzeigen.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

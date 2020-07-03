@@ -1,6 +1,6 @@
 ---
 title: netstat
-description: Referenz Thema für den netstat-Befehl, in dem aktive TCP-Verbindungen, Ports, die der Computer überwacht, Ethernet-Statistiken, die IP-Routing Tabelle, IPv4-Statistiken und IPv6-Statistiken angezeigt werden.
+description: Referenz Artikel für den netstat-Befehl, in dem aktive TCP-Verbindungen, Ports, die der Computer überwacht, Ethernet-Statistiken, die IP-Routing Tabelle, IPv4-Statistiken und IPv6-Statistiken angezeigt werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6e9cd59169922bb6d76b6c65f3381e653df97109
-ms.sourcegitcommit: 457e88e5aa6be13a2bffdb8e434a8efc3698678f
+ms.openlocfilehash: c53ac83c1037d5f4998bb6efa43d66b418119df8
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85548844"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85934805"
 ---
 # <a name="netstat"></a>netstat
 
@@ -33,7 +33,7 @@ netstat [-a] [-b] [-e] [-n] [-o] [-p <Protocol>] [-r] [-s] [<interval>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | -a | Zeigt alle aktiven TCP-Verbindungen und die TCP-und UDP-Ports an, die der Computer abhört. |
 | -b | Zeigt die ausführbare Datei an, die zum Erstellen der einzelnen Verbindungen oder des Überwachungsports gehört In einigen Fällen hosten bekannte ausführbare Dateien mehrere unabhängige Komponenten, und in diesen Fällen wird die Abfolge der Komponenten, die beim Erstellen der Verbindung oder des Überwachungsports beteiligt sind, angezeigt. In diesem Fall befindet sich der Name der ausführbaren Datei unten in [], oben ist die Komponente, die Sie aufgerufen hat, und so weiter, bis TCP/IP erreicht wurde. Beachten Sie, dass diese Option zeitaufwändig sein kann und fehlschlägt, es sei denn, Sie verfügen über ausreichende Berechtigungen.
@@ -50,7 +50,7 @@ netstat [-a] [-b] [-e] [-n] [-o] [-p <Protocol>] [-r] [-s] [<interval>]
 
 - Der **netstat** -Befehl stellt Statistiken für Folgendes bereit:
 
-    | Parameter | BESCHREIBUNG |
+    | Parameter | Beschreibung |
     | --------- | ----------- |
     | Proto | Der Name des Protokolls (TCP oder UDP). |
     | Lokale Adresse | Die IP-Adresse des lokalen Computers und die verwendete Portnummer. Der Name des lokalen Computers, der der IP-Adresse und dem Namen des Ports entspricht, wird angezeigt, es sei denn, der Parameter " **-n** " wird angegeben. Wenn der Port noch nicht festgelegt ist, wird die Portnummer als Sternchen (*) angezeigt. |

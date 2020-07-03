@@ -1,6 +1,6 @@
 ---
 title: logman
-description: Referenz Thema für den Befehl logman, mit dem Ereignis Ablauf Verfolgungs Sitzung und Leistungs Protokolle erstellt und verwaltet werden und die zahlreiche Funktionen des System Monitors von der Befehlszeile aus unterstützt werden.
+description: Referenz Artikel für den Befehl logman, der Ereignis Ablauf Verfolgungs Sitzung und Leistungs Protokolle erstellt und verwaltet und viele Funktionen des System Monitors von der Befehlszeile aus unterstützt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 44b5e134440d71eed61ca8e03739abcc962df1f9
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: 993c96fbbcccd1b2a48303cc5926f25fd7899c4d
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83820550"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85934562"
 ---
 # <a name="logman"></a>logman
 
@@ -30,7 +30,7 @@ logman [create | query | start | stop | delete| update | import | export | /?] [
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | [logman create](logman-create.md) | Erstellt einen Counter, eine Ablauf Verfolgung, einen Konfigurationsdaten Sammler oder eine API. |
 | [logman query](logman-query.md) | Fragt Datensammler Eigenschaften ab. |
@@ -39,6 +39,6 @@ logman [create | query | start | stop | delete| update | import | export | /?] [
 | [logman update](logman-update.md) | Aktualisiert die Eigenschaften eines vorhandenen Daten Sammlers. |
 | [logman import &#124; export](logman-import-export.md) | Importiert einen Datensammler Satz aus einer XML-Datei oder exportiert einen Datensammler Satz in eine XML-Datei. |
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -8,12 +8,12 @@ ms.date: 05/20/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 13f25252d60cb0bde67cca1e1aa5106435c3f361
-ms.sourcegitcommit: 2cc251eb5bc3069bf09bc08e06c3478fcbe1f321
+ms.openlocfilehash: 77e3b48874d2b8898b7510ff04ebb133b9358a73
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84333914"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85935546"
 ---
 # <a name="ad-fs-extranet-lockout-and-extranet-smart-lockout"></a>AD FS Extranet Lockout und Extranet Smart Lockout
 
@@ -42,7 +42,7 @@ Alle sekundären Knoten wenden sich bei jeder neuen Anmeldung über Port 80 an d
 
  Wenn der sekundäre Knoten den Master nicht kontaktieren kann, werden Fehlerereignisse in das AD FS Administrator Protokoll geschrieben. Authentifizierungen werden weiterhin verarbeitet, aber AD FS schreiben den aktualisierten Status nur lokal. AD FS wird alle 10 Minuten eine Verbindung mit dem Master hergestellt und wechselt zurück zum Master, sobald der Master verfügbar ist.
 
-### <a name="terminology"></a>Terminologie
+### <a name="terminology"></a>Begriff
 - **Familiarlocation**: während einer Authentifizierungsanforderung prüft ESL alle dargestellten IPS. Diese IPS bestehen aus einer Kombination aus Netzwerk-IP, weiter geleiteter IP-Adresse und der optionalen x-weitergeleiteten IP-Adresse. Wenn die Anforderung erfolgreich ist, werden alle IPS der Konto Aktivitäts Tabelle als "vertraute IPS" hinzugefügt. Wenn für die Anforderung alle IPS in den "vertrauten IPS" vorhanden sind, wird die Anforderung als "vertrauter"-Speicherort behandelt.
 - **Unknownlocation**: Wenn eine Anforderung, die in enthalten ist, mindestens eine IP-Adresse nicht in der vorhandenen "familiarlocation"-Liste enthalten ist, wird die Anforderung als "Unbekannter" Speicherort behandelt. Dies dient zum Verarbeiten von Proxy Szenarien wie der Legacy Authentifizierung von Exchange Online, bei der Exchange Online-Adressen sowohl erfolgreiche als auch fehlgeschlagene Anforderungen verarbeiten.  
 - **BadPwdCount**: ein Wert, der angibt, wie oft ein falsches Kennwort übermittelt und die Authentifizierung nicht erfolgreich war. Für jeden Benutzer werden separate Indikatoren für vertraute Standorte und unbekannte Speicherorte aufbewahrt.
@@ -251,7 +251,7 @@ AD FS schreibt extranetsperrungsereignisse in das Sicherheits Überwachungs Prot
 Im Modus "nur Protokoll" können Sie das Sicherheits Überwachungs Protokoll auf Sperr Ereignisse überprüfen. Für gefundene Ereignisse können Sie den Benutzer Zustand mithilfe des Cmdlets Get-adfsaccountactivity überprüfen, um festzustellen, ob die Sperre von vertrauten oder unbekannten IP-Adressen aufgetreten ist, und die Liste der vertrauten IP-Adressen für diesen Benutzer zu überprüfen.
 
 
-|Ereignis-ID|BESCHREIBUNG|
+|Ereignis-ID|Beschreibung|
 |-----|-----|
 |1203|Dieses Ereignis wird für jeden ungültigen Kennwort-Versuch geschrieben. Sobald BadPwdCount den in extranetlockoutthreshold angegebenen Wert erreicht, wird das Konto für die in extranetobservationwindow angegebene Dauer in ADFS gesperrt.</br>Aktivitäts-ID: %1</br>XML: %2|
 |1201|Dieses Ereignis wird jedes Mal geschrieben, wenn ein Benutzer gesperrt wird. </br>Aktivitäts-ID: %1</br>XML: %2|
@@ -285,12 +285,12 @@ A: Wenn die Clients eine direkte Verbindung mit den AD FS-Servern herstellen und
 A: ESL funktioniert gut, um Exchange Online-oder andere ältere Authentifizierungs Szenarien für Brute-Force-Angriffe zu verhindern. Eine Legacy Authentifizierung hat eine "Aktivitäts-ID" von 00000000-0000-0000-0000-000000000000.In diesen Angriffen nutzt der schlechte Akteur die Exchange Online-Standard Authentifizierung (auch als ältere Authentifizierung bezeichnet), sodass die Client-IP-Adresse als Microsoft-Adresse angezeigt wird. Die Exchange Online-Server im cloudproxy die Authentifizierungs Überprüfung für den Outlook-Client. In diesen Szenarien wird die IP-Adresse des bösartigen submitters in "x-ms-weitergeleitet-Client-IP" angezeigt, und die IP-Adresse von Microsoft Exchange Online Server ist im Wert x-MS-Client-IP.
 Extranet Smart Lockout überprüft Netzwerk-IP-Adressen, weitergeleitete IPS, den Wert x-weitergeleitete Client-IP und den Wert x-MS-Client-IP. Wenn die Anforderung erfolgreich ist, werden alle IPS der vertrauten Liste hinzugefügt. Wenn eine Anforderung empfangen wird und eine der dargestellten IPS nicht in der vertrauten Liste enthalten ist, wird die Anforderung als unbekannt gekennzeichnet. Der vertraute Benutzer kann sich erfolgreich anmelden, während Anforderungen von den unbekannten Standorten blockiert werden.  
 
-* * F: kann ich die Größe von adfsartifactstore vor dem Aktivieren von ESL schätzen?
+**Kann ich die Größe von „ADFSArtifactStore“ vor dem Aktivieren von ESL schätzen?**
 
 A: bei aktiviertem ESL werden AD FS die Kontoaktivität und die bekannten Speicherorte für Benutzer in der adfsartifactstore-Datenbank nachverfolgt. Die Größe dieser Datenbank wird relativ zur Anzahl der nachverfolgten Benutzer und bekannten Standorte skaliert. Beim Planen der Aktivierung von ESL können Sie die Größenzunahme für die ADFSArtifactStore-Datenbank auf eine Rate von bis zu 1 GB pro 100.000 Benutzer schätzen. Wenn die AD FS-Farm die interne Windows-Datenbank (WID) verwendet, lautet der Standard Speicherort für die Datenbankdateien c:\windows\wid\data\. Um das Auffüllen dieses Laufwerks zu verhindern, stellen Sie sicher, dass mindestens 5 GB freier Speicherplatz verfügbar sind, bevor Sie ESL aktivieren. Planen Sie zusätzlich zum Datenträgerspeicher, dass der gesamte Prozessspeicher nach der Aktivierung von ESL um bis zu weitere 1 GB RAM für Benutzerauffüllungen von maximal 500.000 größer wird.
 
 
-## <a name="additional-references"></a>Weitere Verweise  
+## <a name="additional-references"></a>Zusätzliche Verweise  
 [Bewährte Methoden zum Sichern von Active Directory-Verbunddienste (AD FS)](../../ad-fs/deployment/best-practices-securing-ad-fs.md)
 
 [Set-ADF sproperties](https://technet.microsoft.com/itpro/powershell/windows/adfs/set-adfsproperties)

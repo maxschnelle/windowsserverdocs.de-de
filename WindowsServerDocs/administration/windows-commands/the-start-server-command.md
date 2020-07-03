@@ -1,6 +1,6 @@
 ---
 title: Start-Server
-description: Referenz Thema zu Start-Server, mit dem die Multicast Übertragung, der Namespace, der Transport Server oder alle Dienste auf dem Windows-Bereitstellungsdiensteserver gestartet werden.
+description: Referenz Artikel zu Start-Server, mit dem die Multicast Übertragung, der Namespace, der Transport Server oder alle Dienste auf dem Server der Windows-Bereitstellungs Dienste gestartet werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 199f84f4ca75f45ff9d1964bfe06b9f643663efb
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 159adf8431c45684217b29a44eb8588e6c998037
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82721412"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85934579"
 ---
 # <a name="start-server"></a>Start-Server
 
@@ -23,7 +23,7 @@ ms.locfileid: "82721412"
 Startet die Multicast Übertragung, den Namespace, den Transport Server oder alle Dienste auf dem Windows-Bereitstellungsdiensteserver.
 
 ## <a name="subcommands"></a>Unterbefehle
-|Unterbefehl|BESCHREIBUNG|
+|Unterbefehl|Beschreibung|
 |-------|--------|
 |[Unterbefehl: Start-MulticastTransmission](subcommand-start-multicasttransmission.md)|startet eine Übertragung.|
 |[Unterbefehl: Start-Namespace](subcommand-start-namespace.md)|startet einen Namespace.|

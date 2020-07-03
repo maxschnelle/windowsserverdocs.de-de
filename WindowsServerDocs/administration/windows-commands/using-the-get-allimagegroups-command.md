@@ -1,6 +1,6 @@
 ---
 title: Get-allimagegroups
-description: Referenz Thema für Get-allimagegroups, das Informationen zu allen Image Gruppen auf einem Server und alle Images in diesen Abbild Gruppen abruft.
+description: Referenz Artikel zu Get-allimagegroups, der Informationen zu allen Image Gruppen auf einem Server und alle Images in diesen Abbild Gruppen abruft.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 204618955e91f1c9c9659d37ac3dfe2a01897c51
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: d5863ecc22ff5b96024cb3ba2bdbcac9f7ae8455
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82720029"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85935184"
 ---
 # <a name="get-allimagegroups"></a>Get-allimagegroups
 
@@ -27,7 +27,7 @@ Ruft Informationen zu allen Abbild Gruppen auf einem Server und alle Images in d
 wdsutil [Options] /Get-AllImageGroups [/Server:<Server name>] [/detailed]
 ```
 ### <a name="parameters"></a>Parameter
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |-------|--------|
 |[/Server:<Server name>]|Gibt den Namen des Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.|
 |/Detailed|Gibt die Bild Metadaten aus jedem Bild zurück. Wenn dieser Parameter nicht verwendet wird, besteht das Standardverhalten darin, nur den Bildnamen, die Beschreibung und den Dateinamen für jedes Image zurückzugeben.|
@@ -37,9 +37,9 @@ Zum Anzeigen von Informationen zu den Bildgruppen geben Sie eine der folgenden I
 wdsutil /Get-AllImageGroups
 wdsutil /verbose /Get-AllImageGroups /Server:MyWDSServer /detailed
 ```
-## <a name="additional-references"></a>Zusätzliche Referenzen
-- [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
-mithilfe des Befehls "[Add-ImageGroup](using-the-add-imagegroup-command.md)
-" mithilfe des Befehls "[Get-ImageGroup](using-the-get-imagegroup-command.md)
-" mit dem Befehl "[Remove-ImageGroup Command](using-the-remove-imagegroup-command.md)
-[unter Command: Set-ImageGroup](subcommand-set-imagegroup.md) "
+## <a name="additional-references"></a>Weitere Verweise
+- [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md) 
+ [Verwenden des Befehls](using-the-add-imagegroup-command.md) 
+ "Add-ImageGroup" [Verwenden des Befehls](using-the-get-imagegroup-command.md) 
+ Get-ImageGroup [Verwenden des Remove-ImageGroup-Befehls](using-the-remove-imagegroup-command.md) 
+ [Unterbefehl: Set-ImageGroup](subcommand-set-imagegroup.md)

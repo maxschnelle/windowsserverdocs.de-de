@@ -1,6 +1,6 @@
 ---
 title: xcopy
-description: Referenz Thema für xcopy, das Dateien und Verzeichnisse einschließlich Unterverzeichnissen kopiert.
+description: Referenz Artikel für xcopy, der Dateien und Verzeichnisse einschließlich Unterverzeichnissen kopiert.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 01/05/2019
-ms.openlocfilehash: c55d6ae5ff701555eb9bfb7135ffa28692bd4391
-ms.sourcegitcommit: 4894649cc47dfa535306cc334871f81155198f76
+ms.openlocfilehash: e33450cd330ac962c111b145d71c2595f926da2c
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84254723"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85936062"
 ---
 # <a name="xcopy"></a>xcopy
 
@@ -64,7 +64,7 @@ Xcopy <Source> [<Destination>] [/w] [/p] [/c] [/v] [/q] [/f] [/l] [/g] [/d [:MM-
 |/j|Kopiert Dateien ohne Pufferung. Empfohlen für sehr große Dateien. Dieser Parameter wurde in Windows Server 2008 R2 hinzugefügt.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 
 - Verwenden von **"/z**
 
@@ -206,7 +206,7 @@ rem  3 File(s) copied
 
 Im vorherigen Beispiel ist dieser bestimmte Quellparameter Wert **. \\ "Dec \* . yml** " kopiert dieselben drei Dateien, auch wenn die beiden **Pfad \\ Zeichen entfernt wurden.** Es werden jedoch keine Dateien kopiert, wenn der Platzhalter Platzhalter aus dem Quellparameter entfernt wurde **. \\ **"Inhaltsverzeichnis".
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Kopieren](copy.md)
 - [Verschieben](move.md)

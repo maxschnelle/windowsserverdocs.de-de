@@ -1,6 +1,6 @@
 ---
 title: )
-description: Referenz Thema für den weiteren Befehl, der einen Bildschirm der Ausgabe gleichzeitig anzeigt.
+description: Referenz Artikel für den weiteren Befehl, der einen Bildschirm der Ausgabe gleichzeitig anzeigt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/26/2019
-ms.openlocfilehash: 042669aa638990375157d08d9e12840ade486165
-ms.sourcegitcommit: 5e313a004663adb54c90962cfdad9ae889246151
+ms.openlocfilehash: fec0ffbd7f2ce5d1efe1953cb4ab283d33f06ec8
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84354570"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85935731"
 ---
 # <a name="more"></a>)
 
@@ -33,7 +33,7 @@ more [/c] [/p] [/s] [/t<n>] [+<n>] [<files>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<command>` | Gibt einen Befehl an, für den die Ausgabe angezeigt werden soll. |
 | /C | Löscht den Bildschirm, bevor eine Seite angezeigt wird. |
@@ -45,11 +45,11 @@ more [/c] [/p] [/s] [/t<n>] [+<n>] [<files>]
 | `<files>` | Gibt eine Liste der anzuzeigenden Dateien an. Dateien müssen mithilfe von Leerzeichen getrennt werden. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Die folgenden Unterbefehle werden an der **ausführlicheren** Eingabeaufforderung ( `-- More --` ) akzeptiert, einschließlich:
 
-    | Key | Aktion |
+    | Schlüssel | Aktion |
     | --- | ------ |
     | LEERTASTE | Drücken Sie die **LEERTASTE** , um den nächsten Bildschirm anzuzeigen. |
     | EINGABETASTE | Drücken **Sie die Eingabe** Taste, um die Datei nacheinander anzuzeigen. |
@@ -106,7 +106,7 @@ more s
 
 Wenn Sie die Eingabeaufforderung anfordern, werden Sie wie folgt zur **Eingabe der Anzahl** der zu über springenden Zeilen aufgefordert: `-- More -- Lines:` . Geben Sie die Anzahl der zu über springenden Zeilen ein, und drücken Sie die EINGABETASTE. Der Bildschirm wird geändert, um anzuzeigen, dass diese Zeilen übersprungen werden.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

@@ -1,6 +1,6 @@
 ---
-title: logman Create Trace
-description: Referenz Thema für den Befehl logman Create Trace, der einen Ereignis Ablauf Verfolgungs Datensammler erstellt.
+title: logman create trace
+description: Referenz Artikel für den Befehl logman Create Trace, der einen Ereignis Ablauf Verfolgungs Datensammler erstellt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 015fb7842146e372b36c71fe95a3598bdfa48676
-ms.sourcegitcommit: 29bc8740e5a8b1ba8f73b10ba4d08afdf07438b0
+ms.openlocfilehash: 2e4d824bbdba93f220b744c334381a2751f11476
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84222988"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85934294"
 ---
-# <a name="logman-create-trace"></a>logman Create Trace
+# <a name="logman-create-trace"></a>logman create trace
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -75,7 +75,7 @@ Zum Erstellen eines Ereignis-Ablauf Verfolgungs Daten Sammlers mit dem Namen *tr
 logman create trace trace_log -nb 16 256 -bs 64 -o c:\logfile
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

@@ -1,6 +1,6 @@
 ---
 title: writer
-description: Referenz Thema für Writer, mit dem überprüft wird, ob ein Writer oder eine Komponente ein Writer oder eine Komponente aus dem Sicherungs-oder Wiederherstellungsverfahren umfasst oder ausschließt.
+description: Referenz Artikel für Writer, mit dem überprüft wird, ob ein Writer oder eine Komponente ein Writer oder eine Komponente aus dem Sicherungs-oder Wiederherstellungsverfahren umfasst oder ausschließt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: aed202ac774b17041f48df24333565727b110c53
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 16746f2f070b87e0c287f3a49b19a480ba5399c9
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82720642"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85936089"
 ---
 # <a name="writer"></a>writer
 
@@ -31,11 +31,11 @@ writer exclude [<Writer> | <Component>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter  |                                                                                      BESCHREIBUNG                                                                                      |
+| Parameter  |                                                                                      Beschreibung                                                                                      |
 |------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |   Überprüfen   | Überprüft, ob der angegebene Writer oder die angegebene Komponente in der Sicherungs-oder Wiederherstellungs Prozedur enthalten ist. Die Sicherungs-oder Wiederherstellungs Prozedur schlägt fehl, wenn der Writer oder die Komponente nicht enthalten ist. |
-|  exclude   |                                                   Schließt den angegebenen Writer oder die Komponente vom Sicherungs-oder Wiederherstellungsverfahren aus.                                                    |
-| [\<Writer-> |                                                                                     <Component>]                                                                                      |
+|  Ausschließen   |                                                   Schließt den angegebenen Writer oder die Komponente vom Sicherungs-oder Wiederherstellungsverfahren aus.                                                    |
+| [\<Writer> |                                                                                     <Component>]                                                                                      |
 
 ## <a name="examples"></a>Beispiele
 
@@ -48,6 +48,6 @@ Um einen Writer mit dem Namen System-Writer auszuschließen, geben Sie Folgendes
 writer exclude System Writer
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

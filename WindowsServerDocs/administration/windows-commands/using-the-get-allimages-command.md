@@ -1,6 +1,6 @@
 ---
 title: Get-allimages
-description: Referenz Thema zu Get-allimages, das Informationen zu allen Images auf einem Server abruft.
+description: Referenz Artikel zu Get-allimages, der Informationen zu allen Images auf einem Server abruft.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c1f32a1789b22d04b7b61979d0ea49d91f0cf157
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 9834552ebe6395f13333e81fbc2996a8ff49f39c
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82720020"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85935176"
 ---
 # <a name="get-allimages"></a>Get-allimages
 
@@ -27,7 +27,7 @@ Ruft Informationen zu allen Images auf einem Server ab.
 wdsutil /Get-AllImages [/Server:<Server name>] /Show:{Boot | Install | LegacyRis | All} [/detailed]
 ```
 ### <a name="parameters"></a>Parameter
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |-------|--------|
 |[/Server:<Server name>]|Gibt den Namen des Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.|
 |/Show: {Boot &#124; Installation &#124; legacyris &#124; alle}|-   Beim **Start** werden nur Start Abbilder zurückgegeben.<br />-   Bei der **Installation** werden Installations Images sowie Informationen zu den Abbild Gruppen zurückgegeben, in denen Sie enthalten sind.<br />-   **Legacyris** gibt nur Remoteinstallations Dienste (Remote Installation Services, RIS) zurück.<br />-   **Alle** gibt Informationen zum Start Abbild zurück, zum Installieren von Image Informationen (einschließlich Informationen zu den Abbild Gruppen) und zum RIS-Image.|
@@ -38,11 +38,11 @@ Wenn Sie Informationen zu den Bildern anzeigen möchten, geben Sie eine der folg
 wdsutil /Get-AllImages /Show:Install
 wdsutil /verbose /Get-AllImages /Server:MyWDSServer /Show:All /detailed
 ```
-## <a name="additional-references"></a>Zusätzliche Referenzen
-- [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
-mit dem Befehl "[Add-Image](using-the-add-image-command.md)
-" mithilfe des Befehls "[Copy-Image](using-the-copy-image-command.md)
-" mithilfe des Befehls "[Export-](using-the-export-image-command.md)
-Image" mithilfe des Befehls "[Remove](using-the-remove-image-command.md)
--Image" mithilfe des Befehls "[Replace-](using-the-replace-image-command.md)
-Image"-Befehls[Unterbefehl: Set-Image](subcommand-set-image.md)
+## <a name="additional-references"></a>Weitere Verweise
+- [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md) 
+ [Verwenden des Befehls](using-the-add-image-command.md) 
+ "Add-Image" [Verwenden des Befehls](using-the-copy-image-command.md) 
+ "Copy-Image" [Verwenden des Befehls](using-the-export-image-command.md) 
+ "Export-Image" [Verwenden des Remove-Image-Befehls](using-the-remove-image-command.md) 
+ [Verwenden des "Replace-Image"-Befehls](using-the-replace-image-command.md) 
+ [Unterbefehl: Set-Image](subcommand-set-image.md)

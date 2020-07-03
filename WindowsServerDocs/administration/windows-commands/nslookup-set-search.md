@@ -1,6 +1,6 @@
 ---
 title: nslookup set search
-description: Referenz Thema für den Befehl nslookup Set Search, der die Domain Name System (DNS)-Domänen Namen in der DNS-Domänen Suchliste an die Anforderung anfügt, bis eine Antwort empfangen wird.
+description: Referenz Artikel für den Befehl nslookup Set Search, der Domain Name System die DNS-Domänen Namen (DNS) in der DNS-Domänen Suchliste an die Anforderung anfügt, bis eine Antwort empfangen wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c3219434f768a573c9e433c44b6b38bc9dc75f14
-ms.sourcegitcommit: 99d548141428c964facf666c10b6709d80fbb215
+ms.openlocfilehash: 7b1740dd9bb3eb35c4cd1ef4890fcb977b2dc1ff
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84721425"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85935507"
 ---
 # <a name="nslookup-set-search"></a>nslookup set search
 
@@ -28,13 +28,13 @@ set [no]search
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | noSearch | Beendet das Anfügen der DNS-Domänen Namen (Domain Name System) in der DNS-Domänen Suchliste für die Anforderung. |
-| search | Fügt Domain Name System die DNS-Domänen Namen (DNS) in der DNS-Domänen Suchliste für die Anforderung an, bis eine Antwort empfangen wird. Dies ist der Standardwert. |
+| Suchen | Fügt Domain Name System die DNS-Domänen Namen (DNS) in der DNS-Domänen Suchliste für die Anforderung an, bis eine Antwort empfangen wird. Dies ist der Standardwert. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 | /help | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

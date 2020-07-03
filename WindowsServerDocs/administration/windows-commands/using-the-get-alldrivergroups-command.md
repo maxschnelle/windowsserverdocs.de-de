@@ -1,6 +1,6 @@
 ---
 title: "\"Get-alldrivergroups\""
-description: Referenz Thema zu Get-alldrivergroups, das Informationen zu allen Treiber Gruppen auf einem Server anzeigt.
+description: Referenz Artikel zu Get-alldrivergroups, in dem Informationen zu allen Treiber Gruppen auf einem Server angezeigt werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c4ac3e0c7b05c96383714c3a702cffd6aa8df18a
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 4c254ee19cb7f447d0fb071469c50107205de98b
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82720888"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85935214"
 ---
 # <a name="get-alldrivergroups"></a>"Get-alldrivergroups"
 
@@ -27,7 +27,7 @@ Zeigt Informationen zu allen Treiber Gruppen auf einem Server an.
 wdsutil /Get-AllDriverGroups [/Server:<Server name>] [/Show:{PackageMetaData | Filters | All}]
 ```
 ### <a name="parameters"></a>Parameter
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |-------|--------|
 |[/Server:<Server name>]|Gibt den Namen des Servers an. Dabei kann es sich um den NetBIOS-Namen oder den voll qualifizierten Namen handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.|
 |[/Show: {packagemetadata &#124; Filter &#124; all}]|Zeigt die Metadaten für alle Treiber Pakete in der angegebenen Gruppe an. **Packagemetadata** zeigt Informationen zu allen Filtern für die Treiber Gruppe an. **Filter** zeigt die Metadaten für alle Treiber Pakete und Filter für die Gruppe an.|
@@ -39,6 +39,6 @@ wdsutil /Get-AllDriverGroups /Server:MyWdsServer /Show:All
 ```
 wdsutil /Get-AllDriverGroups [/Show:PackageMetaData]
 ```
-## <a name="additional-references"></a>Zusätzliche Referenzen
-- [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
-[mit dem Get-drivergroup-Befehl](using-the-get-drivergroup-command.md)
+## <a name="additional-references"></a>Weitere Verweise
+- [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md) 
+ [Verwenden des Befehls Get-drivergroup](using-the-get-drivergroup-command.md)

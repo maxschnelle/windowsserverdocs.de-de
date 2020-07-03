@@ -1,6 +1,6 @@
 ---
 title: nslookup set d2
-description: Referenz Thema für den Befehl nslookup Set D2, mit dem der ausführliche Debugmodus ein-oder ausgeschaltet wird.
+description: Referenz Artikel für den Befehl nslookup Set D2, mit dem der ausführliche Debugmodus ein-oder ausgeschaltet wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8179d91dfbc50ecd60740ad13db66c80a45af6c1
-ms.sourcegitcommit: 99d548141428c964facf666c10b6709d80fbb215
+ms.openlocfilehash: ce7de098069dc4536a1516d982bf7107795545b2
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84721573"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85934432"
 ---
 # <a name="nslookup-set-d2"></a>nslookup set d2
 
@@ -28,13 +28,13 @@ set [no]d2
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ---------- | ---------- |
 | NOD2 " | Deaktiviert den ausführlichen Debugmodus. Dies ist der Standardwert. |
 | d2 | Schaltet den ausführlichen Debugmodus um. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 | /help | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

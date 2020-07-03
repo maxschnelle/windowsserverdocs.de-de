@@ -1,6 +1,6 @@
 ---
 title: manage-bde on
-description: Referenz Thema für den Befehl "manage-bde on", mit dem das Laufwerk verschlüsselt und BitLocker eingeschaltet wird.
+description: Referenz Artikel für den Befehl manage-bde on, der das Laufwerk verschlüsselt und BitLocker einschaltet.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bad56c9ade19d94fc5acc9b34a8cc42fe43b7c0d
-ms.sourcegitcommit: 29bc8740e5a8b1ba8f73b10ba4d08afdf07438b0
+ms.openlocfilehash: b06c8a37524544201bf9f37a446a8d227f878ee4
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84222860"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85935454"
 ---
 # <a name="manage-bde-on"></a>manage-bde on
 
@@ -93,7 +93,7 @@ Geben Sie Folgendes ein, um BitLocker für Betriebssystem Laufwerk C zu aktivier
 manage-bde –on C: -fet hardware
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

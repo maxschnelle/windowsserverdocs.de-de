@@ -1,6 +1,6 @@
 ---
 title: netcfg
-description: Referenz Thema für den netcfg-Befehl, der die Windows Preinstallation Environment (WinPE) installiert, eine vereinfachte Version von Windows, die zum Bereitstellen von Arbeitsstationen verwendet wird.
+description: Referenz Artikel für den Befehl "netcfg", der die Windows Preinstallation Environment (WinPE) installiert, eine vereinfachte Version von Windows, die zum Bereitstellen von Arbeitsstationen verwendet wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5a308441df55873b205972d703ec52f53345beb5
-ms.sourcegitcommit: 99d548141428c964facf666c10b6709d80fbb215
+ms.openlocfilehash: 0f9ed2dde5d85be5432fb7b3af8279b2e71e9db0
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84721553"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85934810"
 ---
 # <a name="netcfg"></a>netcfg
 
@@ -30,7 +30,7 @@ netcfg [/v] [/e] [/winpe] [/l ] /c /i
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | /v | Wird im ausführlichen (ausführlichen) Modus ausgeführt. |
 | /e | Verwendet Wartungs Umgebungsvariablen während der Installation und Deinstallation. |
@@ -86,6 +86,6 @@ Um Bindungs Pfade anzuzeigen, die *MS_TCPIP*enthalten, geben Sie Folgendes ein:
 netcfg /b ms_tcpip
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

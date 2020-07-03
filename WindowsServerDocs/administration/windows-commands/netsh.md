@@ -1,6 +1,6 @@
 ---
 title: Netsh
-description: Referenz Thema für den Netsh-Befehl, bei dem es sich um ein Befehlszeilen-Skript Programm handelt, mit dem Sie die Netzwerkkonfiguration eines derzeit ausgelaufenden Computers entweder lokal oder Remote anzeigen oder ändern können.
+description: Referenz Artikel für den Befehl netsh, bei dem es sich um ein Befehlszeilen-Skript Programm handelt, mit dem Sie die Netzwerkkonfiguration eines derzeit ausgelaufenden Computers entweder lokal oder Remote anzeigen oder ändern können.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c538dd10f86d252390a4e862e7b97204d1c945c9
-ms.sourcegitcommit: 99d548141428c964facf666c10b6709d80fbb215
+ms.openlocfilehash: 4d39b891b9a8b6e313121756aa8266c79b5bfaca
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84721103"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85934779"
 ---
 # <a name="netsh"></a>Netsh
 
@@ -30,7 +30,7 @@ netsh [-a <Aliasfile>][-c <Context>][-r <Remotecomputer>][-u [<domainname>\<user
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | -a`<Aliasfile>` | Gibt an, dass Sie nach dem Ausführen von aliasfile und dem Namen der Textdatei, die mindestens einen netsh-Befehl enthält, an die Netsh-Eingabeaufforderung zurückgegeben werden. |
 | -c`<Context>` | Gibt an, dass netsh den angegebenen Netsh-Kontext und den Netsh-Kontext für die Eingabe eingibt. |
@@ -47,6 +47,6 @@ netsh [-a <Aliasfile>][-c <Context>][-r <Remotecomputer>][-u [<domainname>\<user
 
 - Wenn der Zeichen folgen Wert Leerzeichen zwischen Zeichen enthält, müssen Sie den Zeichen folgen Wert in Anführungszeichen einschließen. Beispiel: `-r "contoso remote device"`
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

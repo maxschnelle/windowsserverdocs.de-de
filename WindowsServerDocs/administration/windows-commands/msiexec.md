@@ -1,6 +1,6 @@
 ---
 title: msiexec
-description: Referenz Thema für den msiexec-Befehl, der die Möglichkeit bietet, Windows Installer über die Befehlszeile zu installieren, zu ändern und auszuführen.
+description: Referenz Artikel für den Befehl "msiexec", der die Möglichkeit bietet, Windows Installer über die Befehlszeile zu installieren, zu ändern und auszuführen.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f84df28104f581873fe1fd86a3abd6a51532b020
-ms.sourcegitcommit: 5e313a004663adb54c90962cfdad9ae889246151
+ms.openlocfilehash: aacdc55ac3895efad7dd9499ea1402b538fb8a9b
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84354340"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85934962"
 ---
 # <a name="msiexec"></a>msiexec
 
@@ -32,7 +32,7 @@ msiexec.exe [/i][/a][/j{u|m|/g|/t}][/x] <path_to_package>
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ------- | -------- |
 | /i | Gibt die normale Installation an. |
 | /a | Gibt die administrative Installation an. |
@@ -45,7 +45,7 @@ msiexec.exe [/i][/a][/j{u|m|/g|/t}][/x] <path_to_package>
 
 #### <a name="examples"></a>Beispiele
 
-Geben Sie Folgendes ein, um ein Paket mit dem Namen " *example. msi* " vom Laufwerk "C:" mit einem normalen Installationsvorgang zu installieren:
+Geben Sie Folgendes ein, um ein Paket mit dem Namen *example.msi* vom Laufwerk C: zu installieren. verwenden Sie dazu einen normalen Installationsvorgang:
 
 ```
 msiexec.exe /i "C:\example.msi"
@@ -63,7 +63,7 @@ msiexec.exe /i <path_to_package> [/quiet][/passive][/q{n|b|r|f}]
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ------- | -------- |
 | `<path_to_package>` | Gibt den Speicherort und den Namen der Installationspaket Datei an. |
 | /quiet | Gibt den stillen Modus an. Dies bedeutet, dass keine Benutzerinteraktion erforderlich ist. |
@@ -75,13 +75,13 @@ msiexec.exe /i <path_to_package> [/quiet][/passive][/q{n|b|r|f}]
 | /qr | Gibt eine reduzierte Benutzeroberfläche während des Installationsvorgangs an. |
 | /qf | Gibt eine vollständige Benutzeroberfläche während des Installationsvorgangs an. |
 
-##### <a name="remarks"></a>Bemerkungen
+##### <a name="remarks"></a>Hinweise
 
 - Das modale Feld wird nicht angezeigt, wenn die Installation vom Benutzer abgebrochen wird. Sie können **qb +! verwenden.** oder **qb! +** , um die Schaltfläche " **Abbrechen** " auszublenden.
 
 #### <a name="examples"></a>Beispiele
 
-Geben Sie Folgendes ein, um das Paket " *c:\example.msi*" mit einem normalen Installationsvorgang und ohne Benutzeroberfläche zu installieren:
+Geben Sie Folgendes ein, um Paket *C:\example.msi*zu installieren, indem Sie einen normalen Installationsvorgang und keine Benutzeroberfläche verwenden:
 
 ```
 msiexec.exe /i "C:\example.msi" /qn
@@ -99,7 +99,7 @@ msiexec.exe /i <path_to_package> [/norestart][/promptrestart][/forcerestart]
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ------- | -------- |
 | `<path_to_package>` | Gibt den Speicherort und den Namen der Installationspaket Datei an. |
 | /norestart | Beendet das Starten des Geräts nach Abschluss der Installation. |
@@ -108,7 +108,7 @@ msiexec.exe /i <path_to_package> [/norestart][/promptrestart][/forcerestart]
 
 #### <a name="examples"></a>Beispiele
 
-Geben Sie Folgendes ein, um das Paket " *c:\example.msi*" mit einem normalen Installationsprozess ohne Neustart am Ende zu installieren:
+Geben Sie Folgendes ein, um die Paket *C:\example.msi*zu installieren. verwenden Sie dazu einen normalen Installationsprozess ohne Neustart am Ende:
 
 ```
 msiexec.exe /i "C:\example.msi" /norestart
@@ -126,7 +126,7 @@ msiexec.exe [/i][/x] <path_to_package> [/L{i|w|e|a|r|u|c|m|o|p|v|x+|!|*}] <path_
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ------- | -------- |
 | /i | Gibt die normale Installation an. |
 | /x | Deinstalliert das Paket. |
@@ -152,7 +152,7 @@ msiexec.exe [/i][/x] <path_to_package> [/L{i|w|e|a|r|u|c|m|o|p|v|x+|!|*}] <path_
 
 #### <a name="examples"></a>Beispiele
 
-Geben Sie Folgendes ein, um das Paket *c:\example.msi*zu installieren. verwenden Sie dazu einen normalen Installationsprozess mit allen bereitgestellten Protokollierungs Informationen, einschließlich ausführlicher Ausgabe und Speichern der Ausgabeprotokoll Datei unter " *c:\Package.log*":
+Geben Sie Folgendes ein, um die Paket *C:\example.msi*zu installieren. verwenden Sie dazu einen normalen Installationsvorgang mit allen bereitgestellten Protokollinformationen, einschließlich ausführlicher Ausgabe und Speichern der Ausgabeprotokoll Datei unter " *c:\Package.log*":
 
 ```
 msiexec.exe /i "C:\example.msi" /L*V "C:\package.log"
@@ -170,7 +170,7 @@ msiexec.exe [/p][/update][/uninstall[/package<product_code_of_package>]] <path_t
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ------- | -------- |
 | /p | Installiert einen Patch. Wenn Sie eine unbeaufsichtigte Installation durcharbeiten, müssen Sie auch die Eigenschaft REINSTALLMODE auf *ecmus* festlegen und auf *alle*neu installieren. Andernfalls aktualisiert der Patch nur die MSI-Datei, die auf dem Zielgerät zwischengespeichert ist. |
 | /update | Option zum Installieren von Patches. Wenn Sie mehrere Updates anwenden, müssen Sie Sie mit einem Semikolon (;)) trennen. |
@@ -202,7 +202,7 @@ msiexec.exe [/f{p|o|e|d|c|a|u|m|s|v}] <product_code>
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ------- | -------- |
 | /fp | Repariert das Paket, wenn eine Datei fehlt. |
 | /fo | Repariert das Paket, wenn eine Datei nicht vorhanden ist, oder wenn eine ältere Version installiert ist. |
@@ -227,10 +227,10 @@ msiexec.exe /fa {AAD3D77A-7476-469F-ADF4-04424124E91D}
 
 Sie können öffentliche Eigenschaften mithilfe dieses Befehls festlegen. Informationen zu den verfügbaren Eigenschaften und deren Festlegung finden Sie unter [öffentliche Eigenschaften](https://docs.microsoft.com/windows/win32/msi/public-properties).
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
-- [Msiexec. exe-Befehlszeilenoptionen](https://docs.microsoft.com/windows/win32/msi/command-line-options)
+- [Msiexec.exe Befehlszeilenoptionen](https://docs.microsoft.com/windows/win32/msi/command-line-options)
 
 - [Standard Installationsprogramm-Befehlszeilenoptionen](https://docs.microsoft.com/windows/win32/msi/standard-installer-command-line-options)

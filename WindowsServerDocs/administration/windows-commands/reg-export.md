@@ -1,6 +1,6 @@
 ---
-title: reg-Export
-description: Referenz Thema für * * * *-
+title: reg export
+description: Referenz Artikel für den Befehl "reg Export", bei dem die angegebenen Unterschlüssel, Einträge und Werte des lokalen Computers in eine Datei für die Übertragung an andere Server kopiert werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,52 +9,49 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b2c697595d5d19c953ef85f7a2e334c6fe05329d
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 4c0cad839569651823e1c1a2bcca3c17c5550c8a
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82722564"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85934644"
 ---
-# <a name="reg-export"></a>reg-Export
-
-
+# <a name="reg-export"></a>reg export
 
 Kopiert die angegebenen Unterschlüssel, Einträge und Werte des lokalen Computers in eine Datei für die Übertragung an andere Server.
-
-
 
 ## <a name="syntax"></a>Syntax
 
 ```
-Reg export KeyName FileName [/y]
+reg export <keyname> <filename> [/y]
 ```
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
-|---------|-----------|
-|\<KeyName->|Gibt den vollständigen Pfad des unter Schlüssels an. Der Export Vorgang funktioniert nur mit dem lokalen Computer. Der KeyName muss einen gültigen Stamm Schlüssel enthalten. Gültige Stamm Schlüssel sind: HKLM, HKCU, HKCR, HKU und HKCC.|
-|\<Dateiname>|Gibt den Namen und Pfad der Datei an, die während des Vorgangs erstellt werden soll. Die Datei muss die Erweiterung ". reg" aufweisen.|
-|/y|Überschreibt alle vorhandenen Dateien mit dem Namen *filename* , ohne zur Bestätigung aufzufordern.|
-|/?|Zeigt die Hilfe für den **reg-Export** an der Eingabeaufforderung an.|
+| Parameter | Beschreibung |
+|--|--|
+| `<keyname>` | Gibt den vollständigen Pfad des unter Schlüssels an. Der Export Vorgang funktioniert nur mit dem lokalen Computer. Der *keyName* muss einen gültigen Stamm Schlüssel enthalten. Gültige Stamm Schlüssel für den lokalen Computer sind: **HKLM**, **HKCU**, **HKCR**, **HKU**und **HKCC**. Wenn der Registrierungsschlüssel Name ein Leerzeichen enthält, müssen Sie den Schlüsselnamen in Anführungszeichen einschließen. |
+| `<filename>` | Gibt den Namen und Pfad der Datei an, die während des Vorgangs erstellt werden soll. Die Datei muss die Erweiterung ". reg" aufweisen. |
+| /y | Überschreibt alle vorhandenen Dateien mit dem Namen *filename* , ohne zur Bestätigung aufzufordern. |
+| /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-## <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
-In der folgenden Tabelle sind die Rückgabewerte für den **reg-Export** Vorgang aufgeführt.
+- Die Rückgabewerte für den **reg-Export** Vorgang lauten:
 
-|Wert|BESCHREIBUNG|
-|-----|-----------|
-|0|Erfolg|
-|1|Fehler|
+    | Wert | Beschreibung |
+    |--|--|
+    | 0 | Erfolgreich |
+    | 1 | Fehler |
 
-## <a name="examples"></a>Beispiele
+### <a name="examples"></a>Beispiele
 
 Geben Sie Folgendes ein, um den Inhalt aller Unterschlüssel und Werte des Schlüssels "MyApp" in die Datei "appbkup. reg" zu exportieren:
+
 ```
 reg export HKLM\Software\MyCo\MyApp AppBkUp.reg
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

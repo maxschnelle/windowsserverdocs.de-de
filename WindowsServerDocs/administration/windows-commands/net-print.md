@@ -1,6 +1,6 @@
 ---
-title: NET Print
-description: Referenz Thema für den Befehl net Print. Dieser Befehl ist veraltet und wird in zukünftigen Versionen von Windows nicht mehr unterstützt.
+title: net print
+description: Referenz Artikel für den Befehl net Print. Dieser Befehl ist veraltet und wird in zukünftigen Versionen von Windows nicht mehr unterstützt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2d8744c3ef4540652b495aea0037e97f433238f2
-ms.sourcegitcommit: 5e313a004663adb54c90962cfdad9ae889246151
+ms.openlocfilehash: af02ca14156c8a85ee54700983e2af6807752f91
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84354310"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85934824"
 ---
-# <a name="net-print"></a>NET Print
+# <a name="net-print"></a>net print
 
 > [!IMPORTANT]
 > Dieser Befehl ist veraltet. Sie können jedoch viele der gleichen Aufgaben mit dem [Befehl prnjobs](prnjobs.md)ausführen, [Windows-Verwaltungsinstrumentation (WMI)](https://docs.microsoft.com/windows/win32/wmisdk/wmi-start-page), [Printmanagement in PowerShell](https://docs.microsoft.com/powershell/module/printmanagement)oder [Skript Ressourcen für IT-Experten](https://gallery.technet.microsoft.com/ScriptCenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=printing&f%5B0%5D.Text=Printing).
@@ -31,7 +31,7 @@ net print {\\<computername>\<sharename> | \\<computername> <jobnumber> [/hold | 
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ---------- | ----------- |
 | `\\<computername>\<sharename>` | Gibt (nach Name) den Computer und die Druck Warteschlange an, über die Sie Informationen anzeigen möchten. |
 | `\\<computername>` | Gibt (nach Name) den Computer an, der den Druckauftrag hostet, den Sie steuern möchten. Wenn Sie keinen Computer angeben, wird der lokale Computer angenommen. Erfordert den- `<jobnumber>` Parameter. |
@@ -39,7 +39,7 @@ net print {\\<computername>\<sharename> | \\<computername> <jobnumber> [/hold | 
 | `[/hold | /release | /delete]` | Gibt die Aktion an, die mit dem Druckauftrag ausgeführt werden soll. Wenn Sie eine Auftragsnummer angeben, aber keine Aktion angeben, werden Informationen zum Druckauftrag angezeigt.<ul><li>**/Hold** -verzögert den Auftrag, sodass andere Druckaufträge ihn umgehen können, bis er freigegeben wird.</li><li>**/Release** : gibt einen verzögerten Druckauftrag frei.</li><li>**/Delete** -entfernt einen Druckauftrag aus einer Druck Warteschlange.</li></ul> |
 | help | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Der- `net print\\<computername>` Befehl zeigt Informationen über Druckaufträge in einer freigegebenen Drucker Warteschlange an. Im folgenden finden Sie ein Beispiel für einen Bericht für alle Druckaufträge in einer Warteschlange für einen freigegebenen Drucker mit dem Namen " *Laser*":
 
@@ -93,7 +93,7 @@ Geben Sie Folgendes ein, um die Auftragsnummer *263* auf dem * \\ Produktions* C
 net print \\Production 263 /release
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

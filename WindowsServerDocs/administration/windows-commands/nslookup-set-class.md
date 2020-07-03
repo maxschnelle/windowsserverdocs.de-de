@@ -1,6 +1,6 @@
 ---
 title: nslookup set class
-description: Referenz Thema für den Befehl "nslookup Set Class", mit dem die Abfrage Klasse geändert wird.
+description: Referenz Artikel für den Befehl "nslookup Set Class", durch den die Abfrage Klasse geändert wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e939be13eedcab557dc6dcbe16f2e83f810c20d5
-ms.sourcegitcommit: 99d548141428c964facf666c10b6709d80fbb215
+ms.openlocfilehash: 073f27f6f10721b11e6d0889d1cb8c16f15db283
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84721563"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85934423"
 ---
 # <a name="nslookup-set-class"></a>nslookup set class
 
@@ -28,12 +28,12 @@ set class=<class>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<class>` | Gültige Werte sind:<ul><li>**In:** Gibt die Internet Klasse an. Dies ist der Standardwert.</li><li>**Chaos:** Gibt die Chaos-Klasse an.</li><li>**Hesiod:** Gibt die mit-Athena-Hesiod-Klasse an.</li><li>**Beliebig:** Gibt an, dass die zuvor aufgelisteten Werte verwendet werden sollen.</li></ul> |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 | /help | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -1,6 +1,6 @@
 ---
 title: setlocal
-description: Referenz Thema für SETLOCAL, das die Lokalisierung von Umgebungsvariablen in einer Batchdatei startet.
+description: Referenz Artikel für SETLOCAL, mit dem die Lokalisierung von Umgebungsvariablen in einer Batchdatei gestartet wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: def4e8c58399af498e3c097f53e526fbedf9de0d
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 4e990cf931e72bd8f6972db448d24db08c2e5208
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82721862"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85934617"
 ---
 # <a name="setlocal"></a>setlocal
 
@@ -30,7 +30,7 @@ setlocal [enableextensions | disableextensions] [enabledelayedexpansion | disabl
 
 ## <a name="arguments"></a>Argumente
 
-|Argument|BESCHREIBUNG|
+|Argument|Beschreibung|
 |--------|-----------|
 |ENABLEEXTENSIONS|Aktiviert die Befehls Erweiterungen, bis der entsprechende **endlocal** -Befehl gefunden wird, unabhängig von der Einstellung, bevor der Befehl " **setlocal** " ausgeführt wurde.|
 |DISABLEEXTENSIONS|Deaktiviert die Befehls Erweiterungen, bis der entsprechende **endlocal** -Befehl gefunden wird, unabhängig von der Einstellung, bevor der Befehl " **setlocal** " ausgeführt wurde.|
@@ -38,26 +38,26 @@ setlocal [enableextensions | disableextensions] [enabledelayedexpansion | disabl
 |disabledelayedexpansion|Deaktiviert die Erweiterung der verzögerten Umgebungsvariablen, bis der entsprechende **endlocal** -Befehl gefunden wird, unabhängig von der Einstellung, bevor der Befehl " **setlocal** " ausgeführt wurde.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 
 -   Verwenden von **setlocal**
 
     Wenn Sie **setlocal** außerhalb eines Skripts oder einer Batchdatei verwenden, hat dies keine Auswirkungen.
 -   Ändern von Umgebungsvariablen
 
-    Verwenden Sie **setlocal** , um Umgebungsvariablen zu ändern, wenn Sie eine Batchdatei ausführen. Umgebungs Änderungen, die nach der Ausführung von **setlocal** vorgenommen werden, sind lokal in der Batchdatei. Das cmd. exe-Programm stellt vorherige Einstellungen wieder her, wenn ein **endlocal** -Befehl gefunden wird oder das Ende der Batchdatei erreicht wird.
+    Verwenden Sie **setlocal** , um Umgebungsvariablen zu ändern, wenn Sie eine Batchdatei ausführen. Umgebungs Änderungen, die nach der Ausführung von **setlocal** vorgenommen werden, sind lokal in der Batchdatei. Das Cmd.exe Programm stellt vorherige Einstellungen wieder her, wenn es auf einen **endlocal** -Befehl stößt oder das Ende der Batchdatei erreicht.
 -   Schachteln von Befehlen
 
     Sie können in einem Batch-Programm mehr als einen Befehl " **setlocal** " oder " **endlocal** " haben (d. h. in einem Batch-Programm).
 -   Testen von Befehls Erweiterungen in Batch Dateien
 
-    Mit dem Befehl **setlocal** wird die ERRORLEVEL-Variable festgelegt. Wenn Sie {**ENABLEEXTENSIONS** | **DISABLEEXTENSIONS**} oder {**enabledelayedexpansion** | **disabledelayedexpansion**} übergeben, wird die ERRORLEVEL-Variable auf **0** (null) festgelegt. Andernfalls wird Sie auf **1**festgelegt. Sie können diese Informationen in Batch Skripts verwenden, um zu bestimmen, ob die Erweiterungen verfügbar sind, wie im folgenden Beispiel gezeigt:  
+    Mit dem Befehl **setlocal** wird die ERRORLEVEL-Variable festgelegt. Wenn Sie {**ENABLEEXTENSIONS**  |  **DISABLEEXTENSIONS**} oder {**enabledelayedexpansion**  |  **disabledelayedexpansion**} übergeben, wird die ERRORLEVEL-Variable auf **0** (null) festgelegt. Andernfalls wird Sie auf **1**festgelegt. Sie können diese Informationen in Batch Skripts verwenden, um zu bestimmen, ob die Erweiterungen verfügbar sind, wie im folgenden Beispiel gezeigt:
     ```
     setlocal enableextensions
     verify other 2>nul
     if errorlevel 1 echo Unable to enable extensions
-    ```  
-    Da **cmd** die ERRORLEVEL-Variable nicht festgelegt, wenn die Befehls Erweiterungen deaktiviert sind, initialisiert der **Verify** -Befehl die ERRORLEVEL-Variable auf einen Wert ungleich 0 (null), wenn Sie Sie mit einem ungültigen Argument verwenden. Wenn Sie den Befehl **setlocal** mit den Argumenten {**ENABLEEXTENSIONS** | **DISABLEEXTENSIONS**} oder {**enabledelayedexpansion** | **disabledelayedexpansion**} verwenden und die ERRORLEVEL-Variable nicht auf **1**festgelegt ist, sind keine Befehls Erweiterungen verfügbar.
+    ```
+    Da **cmd** die ERRORLEVEL-Variable nicht festgelegt, wenn die Befehls Erweiterungen deaktiviert sind, initialisiert der **Verify** -Befehl die ERRORLEVEL-Variable auf einen Wert ungleich 0 (null), wenn Sie Sie mit einem ungültigen Argument verwenden. Wenn Sie den Befehl **setlocal** mit den Argumenten {**ENABLEEXTENSIONS**  |  **DISABLEEXTENSIONS**} oder {**enabledelayedexpansion**  |  **disabledelayedexpansion**} verwenden und die ERRORLEVEL-Variable nicht auf **1**festgelegt ist, sind keine Befehls Erweiterungen verfügbar.
 
 ## <a name="examples"></a>Beispiele
 
@@ -76,6 +76,6 @@ endlocal
 start notepad c:\superapp.out
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

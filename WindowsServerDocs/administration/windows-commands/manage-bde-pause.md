@@ -1,6 +1,6 @@
 ---
 title: manage-bde Pause
-description: Referenz Thema für den Befehl manage-bde Pause, mit dem die BitLocker-Verschlüsselung oder-Entschlüsselung angehalten wird.
+description: Referenz Artikel für den Befehl manage-bde Pause, der die BitLocker-Verschlüsselung oder-Entschlüsselung anhält.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d8eaa28d6be61c5a06698a39be02cd20ff8b72a8
-ms.sourcegitcommit: 29bc8740e5a8b1ba8f73b10ba4d08afdf07438b0
+ms.openlocfilehash: 244d18ff9763ccb12c9567fbab68e2fd72f0f076
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84222844"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85935462"
 ---
 # <a name="manage-bde-pause"></a>manage-bde Pause
 
@@ -31,7 +31,7 @@ manage-bde -pause [<volume>] [-computername <name>] [{-?|/?}] [{-help|-h}]
 | Parameter | Beschreibung |
 | --------- | ----------- |
 | `<volume>` | Gibt einen Laufwerk Buchstaben an, gefolgt von einem Doppelpunkt, einem Volume-GUID-Pfad oder einem bereitgestellten Volume. |
-| -Computername | Gibt an, dass "manage-bde. exe verwendet wird, um den BitLocker-Schutz auf einem anderen Computer zu ändern. Sie können auch **-CN** als abgekürzte Version dieses Befehls verwenden. |
+| -Computername | Gibt an, dass manage-bde.exe zum Ändern des BitLocker-Schutzes auf einem anderen Computer verwendet wird. Sie können auch **-CN** als abgekürzte Version dieses Befehls verwenden. |
 | `<name>` | Stellt den Namen des Computers dar, auf dem der BitLocker-Schutz geändert werden soll. Akzeptierte Werte sind der NetBIOS-Name des Computers und die IP-Adresse des Computers. |
 | -? oder /? | Zeigt eine kurze Hilfe an der Eingabeaufforderung an. |
 | -Help oder-h | Zeigt die gesamte Hilfe an der Eingabeaufforderung an. |
@@ -44,7 +44,7 @@ Geben Sie Folgendes ein, um die BitLocker-Verschlüsselung auf Laufwerk C anzuha
 manage-bde pause C:
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

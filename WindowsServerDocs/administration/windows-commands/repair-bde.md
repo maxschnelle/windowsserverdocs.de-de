@@ -1,6 +1,6 @@
 ---
 title: repair-bde
-description: Referenz Thema für * * * *-
+description: Referenz Artikel für * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 235640cacc6c0cca5ee9e820606082afe5d39d41
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: a2ba82708acd9c5830e2dc8a09cd804ade342066
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83820110"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85935647"
 ---
 # <a name="repair-bde"></a>repair-bde
 
@@ -39,10 +39,10 @@ repair-bde <InputVolume> <OutputVolumeorImage> [-rk] [–rp] [-pw] [–kp] [–l
 
 #### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |---------|-----------|
-|\<Inputvolume->|Gibt den Laufwerk Buchstaben des zu reparierenden BitLocker-verschlüsselten Laufwerks an. Der Laufwerk Buchstabe muss einen Doppelpunkt enthalten. Beispiel: **C:**.|
-|\<Outputvolumeorimage->|Gibt das Laufwerk an, auf dem der Inhalt des reparierten Laufwerks gespeichert werden soll. Alle Informationen auf dem Ausgabe Laufwerk werden überschrieben.|
+|\<InputVolume>|Gibt den Laufwerk Buchstaben des zu reparierenden BitLocker-verschlüsselten Laufwerks an. Der Laufwerk Buchstabe muss einen Doppelpunkt enthalten. Beispiel: **C:**.|
+|\<OutputVolumeorImage>|Gibt das Laufwerk an, auf dem der Inhalt des reparierten Laufwerks gespeichert werden soll. Alle Informationen auf dem Ausgabe Laufwerk werden überschrieben.|
 |-RK|Gibt den Speicherort des Wiederherstellungs Schlüssels an, der zum Entsperren des Volumes verwendet werden soll. Dieser Befehl kann auch als **-Wiederherstellungsschlüssel**angegeben werden.|
 |-RP|Identifiziert das numerische Wiederherstellungs Kennwort, das zum Entsperren des Volumes verwendet werden soll. Dieser Befehl kann auch als **-wiederherstellungkennwort**angegeben werden.|
 |-PW|Gibt das Kennwort an, das zum Entsperren des Volumes verwendet werden soll. Dieser Befehl kann auch als **-Kennwort** angegeben werden.|
@@ -57,7 +57,7 @@ Wenn der Pfad zu einem Schlüssel Paket nicht angegeben wird, durchsucht **Repai
 
 ## <a name="examples"></a>Beispiele
 
-Zum Reparieren von Laufwerk c und zum Schreiben des Inhalts von Laufwerk c auf Laufwerk D mithilfe der Wiederherstellungs Schlüsseldatei (Wiederherstellungsschlüssel. Bek), die auf Laufwerk F gespeichert ist, und Schreiben der Ergebnisse dieses Versuchs in die Protokolldatei (Log. txt) auf Laufwerk Z.
+Zum Reparieren von Laufwerk c und zum Schreiben des Inhalts von Laufwerk c auf Laufwerk D mithilfe der Wiederherstellungs Schlüsseldatei (Wiederherstellungsschlüssel. Bek), die auf Laufwerk F gespeichert ist, und Schreiben der Ergebnisse dieses Versuchs in die Protokolldatei (log.txt) auf Laufwerk Z.
 ```
 repair-bde C: D: -rk F:\RecoveryKey.bek –lf Z:\log.txt
 ```
@@ -74,6 +74,6 @@ Wenn Sie versuchen, Laufwerk c zu reparieren und den Inhalt von Laufwerk c auf L
 repair-bde C: D: -pw
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
