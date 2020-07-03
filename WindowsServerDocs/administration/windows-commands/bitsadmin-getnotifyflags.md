@@ -1,6 +1,6 @@
 ---
 title: bitsadmin getnotifyflags
-description: Referenz Thema für den bizadmin getnotifyflags-Befehl, der die Benachrichtigungs-Flags für den angegebenen Auftrag abruft.
+description: Referenz Artikel für den bizadmin getnotifyflags-Befehl, der die Benachrichtigungs-Flags für den angegebenen Auftrag abruft.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 36e4c3584b2e3be9c9985756aeaec08b40e74b0c
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 0ea97c039f372a2211b1e2a6c640c4499a38dfe4
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82717768"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85926929"
 ---
 # <a name="bitsadmin-getnotifyflags"></a>bitsadmin getnotifyflags
 
@@ -32,11 +32,11 @@ bitsadmin /getnotifyflags <job>
 | -------------- | -------------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 
 Der Auftrag kann eine oder mehrere der folgenden Benachrichtigungs Flags enthalten:
 
-| Flag | BESCHREIBUNG |
+| Flag | Beschreibung |
 | ----- | ----- |
 | 0x001 | Generiert ein Ereignis, wenn alle Dateien im Auftrag übertragen wurden. |
 | 0x002 | Generiert ein Ereignis, wenn ein Fehler auftritt. |
@@ -51,7 +51,7 @@ So rufen Sie die Benachrichtigungs-Flags für den Auftrag mit dem Namen *mydownl
 bitsadmin /getnotifyflags myDownloadJob
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

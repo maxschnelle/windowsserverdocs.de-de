@@ -1,6 +1,6 @@
 ---
-title: FTP-LCD
-description: Referenz Thema für den Befehl FTP LCD, mit dem das Arbeitsverzeichnis auf dem lokalen Computer geändert wird.
+title: ftp lcd
+description: Referenz Artikel für den Befehl FTP LCD, der das Arbeitsverzeichnis auf dem lokalen Computer ändert.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c941adcc8c56d2598ad4ff56852309a256656878
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: 7a325569717cb60ad0750447b2367ad18965d915
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83820130"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85927220"
 ---
-# <a name="ftp-lcd"></a>FTP-LCD
+# <a name="ftp-lcd"></a>ftp lcd
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -30,7 +30,7 @@ lcd [<directory>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `[<directory>]` | Gibt das Verzeichnis auf dem lokalen Computer an, in dem die Änderung vorgenommen werden soll. Wenn das *Verzeichnis* nicht angegeben wird, wird das aktuelle Arbeitsverzeichnis in das Standardverzeichnis geändert. |
 
@@ -42,7 +42,7 @@ Wenn Sie das Arbeitsverzeichnis auf dem lokalen Computer in " *c:\dir1*" ändern
 lcd c:\dir1
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

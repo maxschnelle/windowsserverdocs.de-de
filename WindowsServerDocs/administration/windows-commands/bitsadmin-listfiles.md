@@ -1,6 +1,6 @@
 ---
 title: bitsadmin listfiles
-description: Referenz Thema für den bizadmin-Befehl "listFiles", der die Dateien im angegebenen Auftrag auflistet.
+description: Referenz Artikel für den Befehl bizadmin listFiles, der die Dateien im angegebenen Auftrag auflistet.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6826c1ec2f624a06d11fedcb8ca9f14d86b7ec27
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 2702fbaec76aac666d931264c9855017b602e8ea
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82717418"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85926531"
 ---
 # <a name="bitsadmin-listfiles"></a>bitsadmin listfiles
 
@@ -28,7 +28,7 @@ bitsadmin /listfiles <job>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | -------------- | -------------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 
@@ -40,7 +40,7 @@ So rufen Sie die Liste der Dateien für den Auftrag mit dem Namen *mydownloadjob
 bitsadmin /listfiles myDownloadJob
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

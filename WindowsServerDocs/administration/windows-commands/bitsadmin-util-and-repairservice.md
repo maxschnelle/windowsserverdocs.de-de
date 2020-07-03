@@ -1,6 +1,6 @@
 ---
 title: bitsadmin util and repairservice
-description: Referenz Thema für den BITSAdmin-Befehl util und repaunservice, mit dem bekannte Probleme in verschiedenen Versionen des Bits-Dienes behoben werden.
+description: Referenz Artikel für den Befehl BITSAdmin util und repaunservice, der bekannte Probleme in verschiedenen Versionen des Bits-diensdienstanweises korrigiert.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0104a3f2ace972821151bf5083f9b0795e427ff1
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: cf62a9410765914187b6a60ff5376e8ff5aabe03
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82707654"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85927340"
 ---
 # <a name="bitsadmin-util-and-repairservice"></a>bitsadmin util and repairservice
 
@@ -31,9 +31,9 @@ bitsadmin /util /repairservice [/force]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
-| /Force | Optional. Löscht und erstellt den Dienst erneut.|
+| /Force | Dies ist optional. Löscht und erstellt den Dienst erneut.|
 
 > [!NOTE]
 > Wenn BITS den Dienst erneut erstellt, kann die Dienst Beschreibungs Zeichenfolge auch in einem lokalisierten System auf Englisch festgelegt werden.
@@ -46,7 +46,7 @@ So reparieren Sie die BITS-Dienst Konfiguration:
 bitsadmin /util /repairservice
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

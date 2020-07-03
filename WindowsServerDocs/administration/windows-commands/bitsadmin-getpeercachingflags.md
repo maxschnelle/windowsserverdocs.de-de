@@ -1,6 +1,6 @@
 ---
 title: bitsadmin getpeercachingflags
-description: Referenz Thema für den BITSAdmin getpeercachingflags-Befehl, der Flags abruft, die bestimmen, ob die Dateien des Auftrags zwischengespeichert und für Peers bereitgestellt werden können, und ob Bits Inhalt für den Auftrag von Peers herunterladen kann.
+description: Referenz Artikel für den BITSAdmin getpeercachingflags-Befehl, der Flags abruft, die bestimmen, ob die Dateien des Auftrags zwischengespeichert und für Peers bereitgestellt werden können, und ob Bits Inhalt für den Auftrag von Peers herunterladen kann.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f30eead56958af3cd0fb0d91f6ee2bf9f79fdc4e
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: ad270fb8003c518c43bae86b066fea5ebc31d008
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82717691"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85926864"
 ---
 # <a name="bitsadmin-getpeercachingflags"></a>bitsadmin getpeercachingflags
 
@@ -30,7 +30,7 @@ bitsadmin /getpeercachingflags <job>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | -------------- | -------------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 
@@ -42,7 +42,7 @@ So rufen Sie die Flags für den Auftrag mit dem Namen *mydownloadjob*ab:
 bitsadmin /getpeercachingflags myDownloadJob
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

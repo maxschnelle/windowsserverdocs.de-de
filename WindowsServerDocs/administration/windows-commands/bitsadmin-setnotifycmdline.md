@@ -1,6 +1,6 @@
 ---
 title: bitsadmin setnotifycmdline
-description: Referenz Thema für den bitadmin setnotifycmdline-Befehl, mit dem der Befehlszeilen Befehl festgelegt wird, der ausgeführt wird, wenn der Auftrag das Übertragen von Daten abgeschlossen hat, oder wenn ein Auftrag in einen Zustand wechselt.
+description: Referenz Artikel für den Befehl "bitadmin setnotifycmdline", mit dem der Befehlszeilen Befehl festgelegt wird, der ausgeführt wird, wenn die Übertragung von Daten durch den Auftrag abgeschlossen ist, oder wenn ein Auftrag in einen Zustand wechselt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b21d7151a5b646a4fe07d073220614f5e3c99539
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: c4466a0011f7bb1648cb7e2a51113f0a3d21c7e5
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82720131"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85927654"
 ---
 # <a name="bitsadmin-setnotifycmdline"></a>bitsadmin setnotifycmdline
 
@@ -31,7 +31,7 @@ bitsadmin /setnotifycmdline <job> <program_name> [program_parameters]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 | program_name | Der Name des Befehls, der ausgeführt werden soll, wenn der Auftrag abgeschlossen ist. Sie können diesen Wert als Null festlegen, aber wenn Sie dies tun, müssen *program_parameters* auch auf NULL festgelegt werden. |
@@ -39,19 +39,19 @@ bitsadmin /setnotifycmdline <job> <program_name> [program_parameters]
 
 ## <a name="examples"></a>Beispiele
 
-So führen Sie "Notepad. exe" nach Beendigung des Auftrags mit dem Namen " *mydownloadjob*" aus:
+So führen Sie Notepad.exe nach Beendigung des Auftrags mit dem Namen *mydownloadjob*aus:
 
 ```
 bitsadmin /setnotifycmdline myDownloadJob c:\winnt\system32\notepad.exe NULL
 ```
 
-So zeigen Sie den EULA-Text in Notepad. exe an, wenn der Auftrag mit dem Namen mydownloadjob abgeschlossen ist:
+So zeigen Sie den EULA-Text beim Abschluss des Auftrags mydownloadjob in Notepad.exe an:
 
 ```
 bitsadmin /setnotifycmdline myDownloadJob c:\winnt\system32\notepad.exe notepad c:\eula.txt
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

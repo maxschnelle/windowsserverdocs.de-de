@@ -1,6 +1,6 @@
 ---
 title: bitsadmin cache and delete
-description: Referenz Thema für den bizadmin-Cache und den DELETE-Befehl, der einen bestimmten Cache Eintrag löscht.
+description: Referenz Artikel für den bistiadmin-Cache und den DELETE-Befehl, der einen bestimmten Cache Eintrag löscht.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 62c0c3d5b2cc188e8a8987c7ca502cdeaf932410
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 739215722eac761aed45d6b4dba32b2b001450b3
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82718459"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85927040"
 ---
 # <a name="bitsadmin-cache-and-delete"></a>bitsadmin cache and delete
 
@@ -28,7 +28,7 @@ bitsadmin /cache /delete recordID
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | -------------- | -------------- |
 | Datensatz | Die GUID, die dem Cache Eintrag zugeordnet ist. |
 
@@ -40,7 +40,7 @@ So löschen Sie den Cache Eintrag mit der RecordID von {6511fb02-E195-40A2-B595-
 bitsadmin /cache /delete {6511FB02-E195-40A2-B595-E8E2F8F47702}
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

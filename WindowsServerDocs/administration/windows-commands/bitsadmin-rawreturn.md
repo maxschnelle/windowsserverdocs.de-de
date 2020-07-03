@@ -1,6 +1,6 @@
 ---
 title: bitsadmin rawreturn
-description: Referenz Thema für den bizadmin rawreturn-Befehl, der für die Verarbeitung geeignete Daten zurückgibt.
+description: Referenz Artikel für den Befehl bizadmin rawreturn, der für die Verarbeitung geeignete Daten zurückgibt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: af465bb9f51ab6f43980c43bf2be1f5158429a82
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 1b537b21678c100364406d4c59eaa02efd143e21
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82717085"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85926465"
 ---
 # <a name="bitsadmin-rawreturn"></a>bitsadmin rawreturn
 
@@ -37,7 +37,7 @@ So rufen Sie die Rohdaten für den Status des Auftrags mit dem Namen *mydownload
 bitsadmin /rawreturn /getstate myDownloadJob
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

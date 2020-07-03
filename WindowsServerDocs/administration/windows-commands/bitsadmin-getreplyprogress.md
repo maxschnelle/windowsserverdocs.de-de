@@ -1,6 +1,6 @@
 ---
 title: bitsadmin getreplyprogress
-description: Referenz Thema für den BITSAdmin getreplyprogress-Befehl, der die Größe und den Fortschritt des Server Uploads (Upload-Reply) abruft.
+description: Referenz Artikel für den Befehl "BITSAdmin getreplyprogress", der die Größe und den Fortschritt des Servers "Upload-Reply" abruft.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7c355c796d480e9deb444b8fd9ee7570136cade6
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 728a6ba9c63f31403da59dc392cff581ec0e5c83
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82717589"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85926713"
 ---
 # <a name="bitsadmin-getreplyprogress"></a>bitsadmin getreplyprogress
 
@@ -31,7 +31,7 @@ bitsadmin /getreplyprogress <job>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | -------------- | -------------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 
@@ -43,7 +43,7 @@ So rufen Sie den Upload-Antwort-Status für den Auftrag *mydownloadjob*ab:
 bitsadmin /getreplyprogress myDownloadJob
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

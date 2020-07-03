@@ -1,6 +1,6 @@
 ---
 title: bitsadmin util and getieproxy
-description: Referenz Thema für den bizadmin-Befehl util und GETIEPROXY, der die Proxy Verwendung für das angegebene Dienst Konto abruft.
+description: Referenz Artikel für den Befehl bizadmin util und GETIEPROXY, der die Proxy Verwendung für das angegebene Dienst Konto abruft.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 576f308bc7fb9a4e448638d06621f95eebef0cd0
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 15093341ef2dcaca6dd0f5efb4c48d4b9d1934a1
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82707662"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85927407"
 ---
 # <a name="bitsadmin-util-and-getieproxy"></a>bitsadmin util and getieproxy
 
@@ -30,10 +30,10 @@ bitsadmin /util /getieproxy <account> [/conn <connectionname>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ---------- |
 | account | Gibt das Dienst Konto an, dessen Proxy Einstellungen Sie abrufen möchten. Mögliche Werte sind:<ul><li>LOCALSYSTEM</li><li>   Network Service</li><li>LOCALSERVICE.</li></ul> |
-| ConnectionName | Optional. Wird zusammen mit dem **/conn** -Parameter verwendet, um anzugeben, welche Modemverbindung verwendet werden soll. Wenn Sie den **/conn** -Parameter nicht angeben, verwendet Bits die LAN-Verbindung. |
+| ConnectionName | Dies ist optional. Wird zusammen mit dem **/conn** -Parameter verwendet, um anzugeben, welche Modemverbindung verwendet werden soll. Wenn Sie den **/conn** -Parameter nicht angeben, verwendet Bits die LAN-Verbindung. |
 
 ## <a name="examples"></a>Beispiele
 
@@ -43,7 +43,7 @@ So zeigen Sie die Proxy Verwendung für das Netzwerkdienst Konto an
 bitsadmin /util /getieproxy NETWORKSERVICE
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

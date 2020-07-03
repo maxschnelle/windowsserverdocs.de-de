@@ -1,6 +1,6 @@
 ---
 title: bitsadmin replaceremoteprefix
-description: Referenz Thema für den bizadmin REPLACEREMOTEPREFIX-Befehl, der die Remote-URL für alle Dateien im Auftrag von *oldprefix* in *newprefix*ändert, je nach Bedarf.
+description: Referenz Artikel für den Befehl bizadmin REPLACEREMOTEPREFIX, der die Remote-URL für alle Dateien im Auftrag von *oldprefix* in *newprefix*ändert, wenn erforderlich.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 745d026513413db799e86df3422d5ee19c89274f
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: e2453ac4c223baa049980578c81d9bc6539baac7
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82717038"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85927977"
 ---
 # <a name="bitsadmin-replaceremoteprefix"></a>bitsadmin replaceremoteprefix
 
@@ -28,7 +28,7 @@ bitsadmin /replaceremoteprefix <job> <oldprefix> <newprefix>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | -------------- | -------------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 | oldprefix | Vorhandenes URL-Präfix. |
@@ -36,7 +36,7 @@ bitsadmin /replaceremoteprefix <job> <oldprefix> <newprefix>
 
 ## <a name="examples"></a>Beispiele
 
-Um die Remote-URL für alle Dateien im Auftrag mit dem Namen *mydownloadjob*zu ändern, von *http://stageserver* auf *http://prodserver*.
+Um die Remote-URL für alle Dateien im Auftrag mit dem Namen *mydownloadjob*zu ändern, von *http://stageserver* auf *http://prodserver* .
 
 ```
 bitsadmin /replaceremoteprefix myDownloadJob http://stageserver http://prodserver

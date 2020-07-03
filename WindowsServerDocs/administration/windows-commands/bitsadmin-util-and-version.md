@@ -1,6 +1,6 @@
 ---
 title: bitsadmin util and version
-description: Referenz Thema für den Befehl BITSAdmin util und Version, der die Version des Bits-diensdienstanweises anzeigt.
+description: Referenz Artikel für den Befehl BITSAdmin util und Version, der die Version des Bits-diensdienstanweises anzeigt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 20c3db6e6fcd5ef3d00287f36c9f9624ab5224dd
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 9b0a1a6b6c866acafa8eaccd6ade170abd58bf01
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82707591"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85927295"
 ---
 # <a name="bitsadmin-util-and-version"></a>bitsadmin util and version
 
@@ -31,7 +31,7 @@ bitsadmin /util /version [/verbose]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | /verbose | Verwenden Sie diesen Schalter, um die Dateiversion für jede Bits-bezogene dll anzuzeigen und zu überprüfen, ob der BITS-Dienst gestartet werden kann.|
 
@@ -43,7 +43,7 @@ bitsadmin /util /version [/verbose]
 bitsadmin /util /version
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

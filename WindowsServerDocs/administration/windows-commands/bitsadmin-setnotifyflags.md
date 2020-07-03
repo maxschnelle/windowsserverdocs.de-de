@@ -1,6 +1,6 @@
 ---
 title: bitsadmin setnotifyflags
-description: Referenz Thema für den bitadmin setnotifyflags-Befehl, mit dem die ereignisbenachrichtigungsflags für den angegebenen Auftrag festgelegt werden.
+description: Referenz Artikel für den Befehl "bitadmin setnotifyflags", mit dem die ereignisbenachrichtigungsflags für den angegebenen Auftrag festgelegt werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 00b704bf0943790ef01bbfbdbcbbde4dfd1845c6
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: b4054788bb8c14e4bd9be38296f5c0f933de9462
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82717278"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85927615"
 ---
 # <a name="bitsadmin-setnotifyflags"></a>bitsadmin setnotifyflags
 
@@ -28,7 +28,7 @@ bitsadmin /setnotifyflags <job> <notifyflags>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 | notifyflags | Kann eine oder mehrere der folgenden Benachrichtigungs Flags enthalten, einschließlich:<ul><li>**1.** generiert ein Ereignis, wenn alle Dateien im Auftrag übertragen wurden.</li><li>**2.** generiert ein Ereignis, wenn ein Fehler auftritt.</li><li>**3.** generiert ein Ereignis, wenn alle Dateien die Übertragung abgeschlossen haben oder wenn ein Fehler auftritt.</li><li>**4.** deaktiviert Benachrichtigungen.</li></ul> |
@@ -41,7 +41,7 @@ So legen Sie die Benachrichtigungs Flags so fest, dass bei Auftreten eines Fehle
 bitsadmin /setnotifyflags myDownloadJob 2
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

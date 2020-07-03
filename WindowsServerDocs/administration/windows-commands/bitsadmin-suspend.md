@@ -1,6 +1,6 @@
 ---
 title: bitsadmin suspend
-description: Referenz Thema für den bizadmin Suspend-Befehl, der den angegebenen Auftrag anhält.
+description: Referenz Artikel für den Befehl "bizadmin Suspend", der den angegebenen Auftrag anhält.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8117cf9f4286994847e53dca8065da6821d47c5d
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 42257d31dbada2badc12b44b6375702ac41a91ca
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82720450"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85927472"
 ---
 # <a name="bitsadmin-suspend"></a>bitsadmin suspend
 
@@ -30,7 +30,7 @@ bitsadmin /suspend <job>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ---------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 
@@ -43,7 +43,7 @@ So brechen Sie den Auftrag mit dem Namen *mydownloadjob*ab:
 bitsadmin /suspend myDownloadJob
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

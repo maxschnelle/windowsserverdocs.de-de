@@ -1,6 +1,6 @@
 ---
-title: FTP-Verbindung trennen
-description: Referenz Thema für den FTP-Disconnect-Befehl, der die Verbindung mit dem Remote Computer trennt und die FTP-Eingabeaufforderung beibehält.
+title: ftp disconnect
+description: Referenz Artikel für den Befehl FTP Disconnect, der die Verbindung mit dem Remote Computer trennt und die FTP-Eingabeaufforderung beibehält.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 151ffa7d54fda13a87dedc98806150f31587867a
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: 3287c5714d5174390e6c17e0f6345f2fb25c079b
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83819771"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85927239"
 ---
-# <a name="ftp-disconnect"></a>FTP-Verbindung trennen
+# <a name="ftp-disconnect"></a>ftp disconnect
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -36,7 +36,7 @@ Geben Sie Folgendes ein, um die Verbindung mit dem Remote Computer zu trennen, u
 disconnect
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

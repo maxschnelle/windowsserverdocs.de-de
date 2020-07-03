@@ -1,6 +1,6 @@
 ---
 title: bitsadmin
-description: Referenz Thema für den bizadmin-Befehl, bei dem es sich um ein Befehlszeilenprogramm handelt, das zum Erstellen, herunterladen oder Hochladen von Aufträgen und zum Überwachen des Status verwendet wird.
+description: Referenz Artikel für den bizadmin-Befehl, bei dem es sich um ein Befehlszeilenprogramm handelt, das zum Erstellen, herunterladen oder Hochladen von Aufträgen und zum Überwachen des Status verwendet wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,20 +9,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 94a829ce21c4571188fb5ffeb9a0a1d991637d07
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: e9fd70e4e74dc25c32ff3a74be2fc1c66d697367
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82710048"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85926373"
 ---
 # <a name="bitsadmin"></a>bitsadmin
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows 10
 
-Bitadmin ist ein Befehlszeilen Tool, mit dem Aufträge erstellt, heruntergeladen oder hochgeladen und der Fortschritt überwacht werden kann. Das bitadmin-Tool verwendet Schalter, um die auszuführende Arbeit zu identifizieren. Sie können oder `bitsadmin /?` `bitsadmin /help` abrufen, um eine Liste von Switches abzurufen.
+Bitadmin ist ein Befehlszeilen Tool, mit dem Aufträge erstellt, heruntergeladen oder hochgeladen und der Fortschritt überwacht werden kann. Das bitadmin-Tool verwendet Schalter, um die auszuführende Arbeit zu identifizieren. Sie können `bitsadmin /?` oder Abrufen `bitsadmin /help` , um eine Liste von Switches abzurufen.
 
-Die meisten Schalter benötigen `<job>` einen Parameter, den Sie auf den anzeigen amen des Auftrags oder die GUID festlegen. Der Anzeige Name eines Auftrags muss nicht eindeutig sein. Die Schalter **/Create** und **/List** geben die GUID eines Auftrags zurück.
+Die meisten Schalter benötigen einen `<job>` Parameter, den Sie auf den anzeigen amen des Auftrags oder die GUID festlegen. Der Anzeige Name eines Auftrags muss nicht eindeutig sein. Die Schalter **/Create** und **/List** geben die GUID eines Auftrags zurück.
 
 Standardmäßig können Sie auf Informationen zu ihren eigenen Aufträgen zugreifen. Für den Zugriff auf Informationen für die Aufträge eines anderen Benutzers müssen Sie über Administratorrechte verfügen. Wenn der Auftrag mit erhöhten Rechten erstellt wurde, müssen Sie **bizadmin** über ein Fenster mit erhöhten Rechten ausführen. Andernfalls haben Sie schreibgeschützten Zugriff auf den Auftrag.
 

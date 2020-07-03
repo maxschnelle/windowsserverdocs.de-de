@@ -1,6 +1,6 @@
 ---
 title: bootcfg raw
-description: Referenz Thema für den BOOTCFG Raw-Befehl, mit dem Betriebssystem-Lade Optionen, die als Zeichenfolge angegeben werden, einem Betriebssystem Eintrag im Abschnitt "Betriebssystem" der Datei "Boot. ini" hinzugefügt werden.
+description: Referenz Artikel zum Befehl "unformatierte bootcfg", mit dem Betriebssystem-Lade Optionen, die als Zeichenfolge angegeben werden, einem Betriebssystem Eintrag im Abschnitt "Betriebssystem" der Boot.ini Datei hinzugefügt werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b9127b278a41bb8f1f36f7b45c544bf09f5c4ff7
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 74ab3c957623178e54b8a5debcf4aebffc942070
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82708957"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85926227"
 ---
 # <a name="bootcfg-raw"></a>bootcfg raw
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Fügt einem Betriebssystem Eintrag im Abschnitt [Betriebssysteme] der Datei "Boot. ini" die Optionen für das Betriebssystem laden hinzu, die als Zeichenfolge angegeben sind. Dieser Befehl überschreibt alle vorhandenen Optionen für den Betriebssystem Eintrag.
+Fügt einem Betriebssystem Eintrag im Abschnitt [Betriebssysteme] der Boot.ini Datei die als Zeichenfolge angegebenen Betriebssystem-Lade Optionen hinzu. Dieser Befehl überschreibt alle vorhandenen Optionen für den Betriebssystem Eintrag.
 
 ## <a name="syntax"></a>Syntax
 
@@ -30,13 +30,13 @@ bootcfg /raw [/s <computer> [/u <domain>\<user> /p <password>]] <osloadoptionsst
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
-| `/s <computer>` | Gibt den Namen oder die IP-Adresse eines Remote Computers an (verwenden Sie keine umgekehrten Schrägstriche). Der Standardwert ist der lokale Computer. |
-| `/u <domain>\<user>`  | Führt den Befehl mit den Konto Berechtigungen des Benutzers aus, der `<user>` von `<domain>\<user>`oder angegeben wird. Der Standardwert sind die Berechtigungen des aktuell angemeldeten Benutzers auf dem Computer, von dem der Befehl ausgegeben wird. |
+| `/s <computer>` | Gibt den Namen oder die IP-Adresse eines Remote Computers an (verwenden Sie keine umgekehrten Schrägstriche). Die Standardeinstellung ist der lokale Computer. |
+| `/u <domain>\<user>`  | Führt den Befehl mit den Konto Berechtigungen des Benutzers aus, der von oder angegeben wird `<user>` `<domain>\<user>` . Der Standardwert sind die Berechtigungen des aktuell angemeldeten Benutzers auf dem Computer, von dem der Befehl ausgegeben wird. |
 | `/p <password>` | Gibt das Kennwort des Benutzerkontos an, das im **/u** -Parameter angegeben ist. |
-| `<osloadoptionsstring>` | Gibt die Betriebssystem-Lade Optionen an, die dem Betriebssystem Eintrag hinzugefügt werden sollen. Diese Lade Optionen ersetzen alle vorhandenen Lade Optionen, die dem Betriebssystem Eintrag zugeordnet sind. Es gibt keine Validierung für den `<osloadoptions>` -Parameter.
-| `/id <osentrylinenum>` | Gibt die Betriebssystem-Eintrags Zeilennummer im Abschnitt [Betriebssysteme] der Datei Boot. ini an, der die Betriebssystem-Lade Optionen hinzugefügt werden. Die erste Zeile nach der Abschnitts Kopfzeile [Betriebssystem] ist 1. |
+| `<osloadoptionsstring>` | Gibt die Betriebssystem-Lade Optionen an, die dem Betriebssystem Eintrag hinzugefügt werden sollen. Diese Lade Optionen ersetzen alle vorhandenen Lade Optionen, die dem Betriebssystem Eintrag zugeordnet sind. Es gibt keine Validierung für den- `<osloadoptions>` Parameter.
+| `/id <osentrylinenum>` | Gibt die Betriebssystem-Eintrags Zeilennummer im Abschnitt [Betriebssysteme] der Boot.ini Datei an, der die Betriebssystem-Lade Optionen hinzugefügt werden. Die erste Zeile nach der Abschnitts Kopfzeile [Betriebssystem] ist 1. |
 | /a | Gibt an, welche Betriebssystem Optionen an vorhandene Betriebssystem Optionen angefügt werden sollen. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
@@ -57,7 +57,7 @@ bootcfg /raw /debug /sos /id 2
 bootcfg /raw /s srvmain /u maindom\hiropln /p p@ssW23 /crashdebug  /id 2
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

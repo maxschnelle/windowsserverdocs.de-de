@@ -1,6 +1,6 @@
 ---
 title: lpr
-description: Referenz Thema für den LPR-Befehl, der eine Datei an einen Computer oder ein Druckerfreigabe Gerät sendet, auf dem der LPD-Dienst (Line Printer Daemon) ausgeführt wird, um den Druck vorzubereiten.
+description: Referenz Artikel für den LPR-Befehl, der eine Datei an einen Computer oder ein Druckerfreigabe Gerät sendet, auf dem der LPD-Dienst (Line Printer Daemon) ausgeführt wird, um den Druck vorzubereiten.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d11b72ee807869613505052cfb51e80a89a80d70
-ms.sourcegitcommit: 29bc8740e5a8b1ba8f73b10ba4d08afdf07438b0
+ms.openlocfilehash: 9ea40ef71da7804f01c963049f07e1f6b5395354
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84223023"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85927111"
 ---
 # <a name="lpr"></a>lpr
 
@@ -44,7 +44,7 @@ lpr [-S <servername>] -P <printername> [-C <bannercontent>] [-J <jobname>] [-o |
 
 ### <a name="examples"></a>Beispiele
 
-Geben Sie Folgendes ein, um die Textdatei *Document. txt* in der *Laserprinter1* -Drucker Warteschlange auf einem LPD-Host unter *10.0.0.45*auszugeben:
+Geben Sie Folgendes ein, um die *Document.txt* Textdatei in der *Laserprinter1* -Drucker Warteschlange auf einem LPD-Host unter *10.0.0.45*auszugeben:
 
 ```
 lpr -S 10.0.0.45 -P Laserprinter1 -o Document.txt
@@ -56,7 +56,7 @@ Geben Sie Folgendes ein, um die Adobe PostScript-Datei *PostScript_file. PS* in 
 lpr -S 10.0.0.45 -P Laserprinter1 -o l PostScript_file.ps
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

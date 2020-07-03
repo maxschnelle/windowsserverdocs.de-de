@@ -1,6 +1,6 @@
 ---
 title: bitsadmin removecredentials
-description: Referenz Thema für den Befehl "bizadmin removecredenseins", mit dem Anmelde Informationen aus einem Auftrag entfernt werden.
+description: Referenz Artikel für den Befehl "bizadmin removecredenseins", mit dem Anmelde Informationen aus einem Auftrag entfernt werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e4dcfaa55847e531871c6a7ad9fd84c3861c4cd9
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: cebfac50504a02cd98ea94d9f0611f804148feac
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82717044"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85926432"
 ---
 # <a name="bitsadmin-removecredentials"></a>bitsadmin removecredentials
 
@@ -31,7 +31,7 @@ bitsadmin /removecredentials <job> <target> <scheme>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | -------------- | -------------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 | target | Verwenden Sie entweder den **Server** oder den **Proxy**. |
@@ -45,7 +45,7 @@ So entfernen Sie Anmelde Informationen aus dem Auftrag *mydownloadjob*:
 bitsadmin /removecredentials myDownloadJob SERVER BASIC
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

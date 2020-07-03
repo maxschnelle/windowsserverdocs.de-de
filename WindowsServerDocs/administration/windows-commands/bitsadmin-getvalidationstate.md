@@ -1,6 +1,6 @@
 ---
 title: bitsadmin getvalidationstate
-description: Referenz Thema für den BITSAdmin getvalidationstate-Befehl, der den Status der Inhalts Überprüfung der angegebenen Datei innerhalb des Auftrags meldet.
+description: Referenz Artikel für den Befehl BITSAdmin getvalidationstate, der den Status der Inhalts Überprüfung der angegebenen Datei innerhalb des Auftrags meldet.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ca753b20a1b7834d2e05d4ff8729a08332256f8c
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 72d53572411a33259467fa8023b9ef08fe4a5595
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82717460"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85926620"
 ---
 # <a name="bitsadmin-getvalidationstate"></a>bitsadmin getvalidationstate
 
@@ -28,7 +28,7 @@ bitsadmin /getvalidationstate <job> <file_index>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | -------------- | -------------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 | file_index | Beginnt bei 0. |
@@ -41,7 +41,7 @@ So rufen Sie den Status der Inhalts Überprüfung der Datei 2 innerhalb des Auft
 bitsadmin /getvalidationstate myDownloadJob 1
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

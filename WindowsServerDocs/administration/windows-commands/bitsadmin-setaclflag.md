@@ -1,6 +1,6 @@
 ---
 title: bitsadmin setaclflag
-description: Referenz Thema für den BITSAdmin-Befehl setaclflag, mit dem die weitergabesteuerungsflags der Zugriffs Steuerungs Liste (ACL) festgelegt werden.
+description: Referenz Artikel für den BITSAdmin-Befehl setaclflag, mit dem die weitergabesteuerungsflags der Zugriffs Steuerungs Liste (ACL) festgelegt werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1852bd267fe22825d55f7522a81179e9290e2a00
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: dcf07f944813c0c8d7a4ff4c4f52c598c0f3bf47
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82716988"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85927950"
 ---
 # <a name="bitsadmin-setaclflag"></a>bitsadmin setaclflag
 
-Legt die weitergabesteuerungsflags für die Zugriffs Steuerungs Liste (ACL) für den Auftrag fest. Die Flags geben an, dass Sie den Besitzer und die ACL-Informationen mit der heruntergeladenen Datei verwalten möchten. Um z. b. den Besitzer und die Gruppe mit der Datei beizubehalten, **flags** legen Sie den `og`Flags-Parameter auf fest.
+Legt die weitergabesteuerungsflags für die Zugriffs Steuerungs Liste (ACL) für den Auftrag fest. Die Flags geben an, dass Sie den Besitzer und die ACL-Informationen mit der heruntergeladenen Datei verwalten möchten. Um z. b. den Besitzer und die Gruppe mit der Datei beizubehalten, legen Sie den **Flags** -Parameter auf fest `og` .
 
 ## <a name="syntax"></a>Syntax
 
@@ -28,7 +28,7 @@ bitsadmin /setaclflag <job> <flags>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 | flags | Geben Sie einen oder mehrere der Werte an, einschließlich:<ul><li>**o** -Besitzer Informationen mit Datei kopieren.</li><li>**g** -Gruppeninformationen in Datei kopieren.</li><li>**d** : Kopieren Sie die DACL-Informationen ("-Zugriffs Steuerungs Liste") mit der Datei.</li><li>**s** -Informationen zur System Zugriffs Steuerungs Liste (SACL) mit Datei kopieren.</li></ul> |
@@ -41,7 +41,7 @@ Um die Weitergabeflags für die Zugriffs Steuerungs Liste für den Auftrag mit d
 bitsadmin /setaclflags myDownloadJob og
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

@@ -1,6 +1,6 @@
 ---
 title: bitsadmin peercaching
-description: Referenz Thema für den bizadmin-Befehl "Peer Caching", der die/Peercaching-Switches auflistet.
+description: Referenz Artikel für den bizadmin-Befehl "Peer Caching", der die/Peercaching-Switches auflistet.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a70ad9927a77c07fa4fd638d359cfcfda53d4005
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 57c0ab442c65494bbaf5c0ab6b6668dfa67b48ac
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82717219"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85928108"
 ---
 # <a name="bitsadmin-peercaching"></a>bitsadmin peercaching
 
@@ -34,13 +34,13 @@ bitsadmin /peercaching /getconfigurationflags
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | -------------- | -------------- |
 | [bitsadmin peercaching and help](bitsadmin-peercaching-and-help.md) | Zeigt die Verwendung der Befehlszeile für die/Peercaching-Switches an.|
 | [bitsadmin peercaching and setconfigurationflags](bitsadmin-peercaching-and-setconfigurationflags.md) | Legt die Konfigurationsflags fest, die bestimmen, ob der Computer Inhalte für Peers bereitstellen kann und ob Inhalt von Peers heruntergeladen werden kann. |
 | [bitsadmin peercaching and getconfigurationflags](bitsadmin-peercaching-and-getconfigurationflags.md) | Ruft die Konfigurationsflags ab, die bestimmen, ob der Computer Inhalt für Peers bereitstellt und Inhalt von Peers herunterladen kann. |
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
