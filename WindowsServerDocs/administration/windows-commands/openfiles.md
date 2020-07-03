@@ -1,6 +1,6 @@
 ---
 title: openfiles
-description: Referenz Thema für den openfiles-Befehl, der es einem Administrator ermöglicht, Dateien und Verzeichnisse, die auf einem System geöffnet wurden, abzufragen, anzuzeigen oder zu trennen.
+description: Referenz Artikel für den openfiles-Befehl, der es einem Administrator ermöglicht, Dateien und Verzeichnisse, die auf einem System geöffnet wurden, abzufragen, anzuzeigen oder zu trennen.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e55dd88052f1bbfdebb02d1fb6d6f48261643c5c
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 1c1683bb916e068d83ab30e03fdd76e35abb77df
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85472596"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85936793"
 ---
 # <a name="openfiles"></a>openfiles
 
@@ -32,7 +32,7 @@ openfiles /disconnect [/s <system> [/u [<domain>\]<username> [/p [<password>]]]]
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 |--|--|
 | /s`<system>` | Gibt das Remote System an, mit dem eine Verbindung hergestellt werden soll (nach Name oder IP-Adresse). Verwenden Sie keine umgekehrten Schrägstriche. Wenn Sie die Option **/s** nicht verwenden, wird der Befehl standardmäßig auf dem lokalen Computer ausgeführt. Dieser Parameter gilt für alle Dateien und Ordner, die im Befehl angegeben sind. |
 | /u`[<domain>\]<username>` | Führt den Befehl mit den Berechtigungen des angegebenen Benutzerkontos aus. Wenn Sie die Option **/u** nicht verwenden, werden standardmäßig System Berechtigungen verwendet. |
@@ -88,7 +88,7 @@ openfiles /query [/s <system> [/u [<domain>\]<username> [/p [<password>]]]] [/fo
 #### <a name="parameters"></a>Parameter
 
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 |--|--|
 | /s`<system>` | Gibt das Remote System an, mit dem eine Verbindung hergestellt werden soll (nach Name oder IP-Adresse). Verwenden Sie keine umgekehrten Schrägstriche. Wenn Sie die Option **/s** nicht verwenden, wird der Befehl standardmäßig auf dem lokalen Computer ausgeführt. Dieser Parameter gilt für alle Dateien und Ordner, die im Befehl angegeben sind. |
 | /u`[<domain>\]<username>` | Führt den Befehl mit den Berechtigungen des angegebenen Benutzerkontos aus. Wenn Sie die Option **/u** nicht verwenden, werden standardmäßig System Berechtigungen verwendet. |
@@ -142,7 +142,7 @@ openfiles /local [on | off]
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 |--|--|
 | `[on | off]` | Aktiviert oder deaktiviert das globale Flag für die Liste der System verwalteten **Objekte** , das lokale Datei Handles nachverfolgt. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
@@ -171,6 +171,6 @@ Geben Sie Folgendes ein, um das globale Flag zum Verwalten von **Objekten** zu d
 openfiles /local off
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

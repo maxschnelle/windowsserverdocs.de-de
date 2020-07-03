@@ -1,6 +1,6 @@
 ---
 title: query process
-description: Referenz Thema für den Abfrageprozess Befehl, der Informationen zu Prozessen anzeigt, die auf einem Remotedesktop-Sitzungshost Server ausgeführt werden.
+description: Referenz Artikel für den Abfrageprozess Befehl, der Informationen zu Prozessen anzeigt, die auf einem Remotedesktop-Sitzungshost Server ausgeführt werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 32f755fe3e275f2f1adccffacaf2a6999d46298a
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: a11177ad62e83efd9dbe5da844b159b40266837d
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85472025"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85936996"
 ---
 # <a name="query-process"></a>query process
 
@@ -43,7 +43,7 @@ query process [*|<processID>|<username>|<sessionname>|/id:<nn>|<programname>] [/
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 |--|--|
 | * | Listet die Prozesse für alle Sitzungen auf. |
 | `<processID>` | Gibt die numerische ID an, die den Prozess identifiziert, den Sie Abfragen möchten. |
@@ -76,7 +76,7 @@ Geben Sie Folgendes ein, um Informationen über die Prozesse anzuzeigen, die von
 query process /ID:2
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

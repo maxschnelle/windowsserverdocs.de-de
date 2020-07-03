@@ -1,6 +1,6 @@
 ---
 title: query session
-description: Referenz Thema für den Abfrage Sitzungs Befehl, der Informationen zu Sitzungen auf einem Remotedesktop-Sitzungshost Server anzeigt.
+description: Referenz Artikel für den Abfrage Sitzungs Befehl, der Informationen zu Sitzungen auf einem Remotedesktop-Sitzungshost Server anzeigt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 57b8587c0a02067a3472561e08fbfa461c1448b9
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 440830af55763fbb3ebee7cdbdca97ca11cde30c
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85472005"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85937040"
 ---
 # <a name="query-session"></a>query session
 
@@ -33,7 +33,7 @@ query session [<sessionname> | <username> | <sessionID>] [/server:<servername>] 
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 |--|--|
 | `<sessionname>` | Gibt den Namen der Sitzung an, die Sie Abfragen möchten. |
 | `<username>` | Gibt den Namen des Benutzers an, dessen Sitzungen Sie Abfragen möchten. |
@@ -85,7 +85,7 @@ Geben Sie Folgendes ein, um Informationen zu aktiven Sitzungs- *modeM02*anzuzeig
 query session modeM02
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

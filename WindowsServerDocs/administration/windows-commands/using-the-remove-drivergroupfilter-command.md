@@ -1,6 +1,6 @@
 ---
 title: Remove-drivergroupfilter
-description: Referenz Thema für Remove-drivergroupfilter, das eine Filterregel aus einer Treiber Gruppe auf einem Server entfernt.
+description: Referenz Artikel zu Remove-drivergroupfilter, mit dem eine Filterregel aus einer Treiber Gruppe auf einem Server entfernt wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: dd6fcbc8f87539ac687927b9e58ed15edb524ef6
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 98d2253cc5148ba4581399d688b74cd426a649fb
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82720411"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85936328"
 ---
 # <a name="remove-drivergroupfilter"></a>Remove-drivergroupfilter
 
@@ -30,11 +30,11 @@ WDSUTIL /Remove-DriverGroupFilter /DriverGroup:<Group Name> [/Server:<Server nam
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |---------|-----------|
-|/DriverGroup:\<Gruppen Name>|Gibt den Namen der Treiber Gruppe an.|
-|[/Server:\<Server Name>]|Gibt den Namen des Servers an. Dabei kann es sich um den NetBIOS-Namen oder den voll qualifizierten Namen handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.|
-|[/FILTERTYPE:\<FilterType->]|Gibt den Typ des Filters an, der aus der Gruppe entfernt werden soll. \<Ein Filter Type-> kann eines der folgenden sein:</br>**Biosvendor**</br>**Biosversion**</br>**ChassisType**</br>**Hersteller**</br>**UUID**</br>**OsVersion**</br>**Odition**</br>**OSLanguage**|
+|/DriverGroup:\<Group Name>|Gibt den Namen der Treiber Gruppe an.|
+|[/Server:\<Server name>]|Gibt den Namen des Servers an. Dabei kann es sich um den NetBIOS-Namen oder den voll qualifizierten Namen handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.|
+|[/FILTERTYPE: \<FilterType> ]|Gibt den Typ des Filters an, der aus der Gruppe entfernt werden soll. \<FilterType>kann eines der folgenden sein:</br>**Biosvendor**</br>**Biosversion**</br>**ChassisType**</br>**Hersteller**</br>**UUID**</br>**OsVersion**</br>**Odition**</br>**OSLanguage**|
 
 ## <a name="examples"></a>Beispiele
 
@@ -46,6 +46,6 @@ WDSUTIL /Remove-DriverGroupFilter /DriverGroup:PrinterDrivers /FilterType:Manufa
 WDSUTIL /Remove-DriverGroupFilter /DriverGroup:PrinterDrivers /FilterType:Manufacturer /FilterType:OSLanguage
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -1,6 +1,6 @@
 ---
 title: whoami
-description: Referenz Thema für whoami, das Benutzer-, Gruppen-und Berechtigungsinformationen für den Benutzer anzeigt, der zurzeit am lokalen System angemeldet ist.
+description: Referenz Artikel zu whoami, der Benutzer-, Gruppen-und Berechtigungsinformationen für den Benutzer anzeigt, der zurzeit am lokalen System angemeldet ist.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2d672b3aaa20125c5c1da10fa3a5811fb5060d11
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 7a8ab5b02ab8670145887bcbf1ecfaa5efac95ad
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82725805"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85936584"
 ---
 # <a name="whoami"></a>whoami
 
@@ -34,7 +34,7 @@ whoami /all [/fo <Format>] [/nh]
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |---------|-----------|
 |/upn|Zeigt den Benutzernamen im UPN-Format (User Principal Name) an.|
 |/fqdn|Zeigt den Benutzernamen im voll qualifizierten Domänen Namen (FQDN)-Format an.|
@@ -42,7 +42,7 @@ whoami /all [/fo <Format>] [/nh]
 |/User|Zeigt den aktuellen Domänen-und Benutzernamen sowie die Sicherheits-ID (SID) an.|
 |/groups|Zeigt die Benutzergruppen an, zu denen der aktuelle Benutzer gehört.|
 |/priv|Zeigt die Sicherheits Privilegien des aktuellen Benutzers an.|
-|/FO \<-Format>|Gibt das Ausgabeformat an. Gültige Werte:</br>**Tabelle** Zeigt die Ausgabe in einer Tabelle an. Dies ist der Standardwert.</br>**Liste** Zeigt die Ausgabe in einer Liste an.</br>**CSV** Zeigt die Ausgabe im CSV-Format (Comma-Separated Value) an.|
+|/FO\<Format>|Gibt das Ausgabeformat an. Gültige Werte:</br>**Tabelle** Zeigt die Ausgabe in einer Tabelle an. Dies ist der Standardwert.</br>**Liste** Zeigt die Ausgabe in einer Liste an.</br>**CSV** Zeigt die Ausgabe im CSV-Format (Comma-Separated Value) an.|
 |/all|Zeigt alle Informationen im aktuellen Zugriffs Token an, einschließlich des aktuellen Benutzernamens, der Sicherheits-IDs (SID), der Berechtigungen und der Gruppen, denen der aktuelle Benutzer angehört.|
 |/nh|Gibt an, dass der Spaltenheader nicht in der Ausgabe angezeigt werden soll. Dies gilt nur für Tabellen-und CSV-Formate.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
@@ -62,6 +62,6 @@ Wenn Sie alle Informationen im aktuellen Zugriffs Token anzeigen möchten, geben
 whoami /all
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

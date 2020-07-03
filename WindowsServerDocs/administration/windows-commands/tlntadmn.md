@@ -1,6 +1,6 @@
 ---
 title: tlntadmn
-description: Referenz Thema für tlntadmn, bei dem ein lokaler Computer oder ein Remote Computer verwaltet wird, auf dem der Telnet-Server Dienst ausgeführt wird.
+description: Referenz Artikel zu tlntadmn, bei dem ein lokaler Computer oder ein Remote Computer verwaltet wird, auf dem der Telnet-Server Dienst ausgeführt wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: fcade72f7170e94463abb9b473d4c6bd2251f086
-ms.sourcegitcommit: 29bc8740e5a8b1ba8f73b10ba4d08afdf07438b0
+ms.openlocfilehash: 602f3aa99f9d0e47fbbde1ab5c09b193446d8a7c
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84222649"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85936910"
 ---
 # <a name="tlntadmn"></a>tlntadmn
 
@@ -30,7 +30,7 @@ tlntadmn [<computerName>] [-u <UserName>] [-p <Password>] [{start | stop | pause
 
 |                   Parameter                    |                                                                                                                                                       Beschreibung                                                                                                                                                        |
 |------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|                \<computerName>                 |                                                                                                                    Gibt den Namen des Servers an, mit dem eine Verbindung hergestellt werden soll. Der Standardwert ist der lokale Computer.                                                                                                                    |
+|                \<computerName>                 |                                                                                                                    Gibt den Namen des Servers an, mit dem eine Verbindung hergestellt werden soll. Die Standardeinstellung ist der lokale Computer.                                                                                                                    |
 |         -u \<UserName> -p\<Password>          |                                                Gibt administrative Anmelde Informationen für einen Remote Server an, den Sie verwalten möchten. Dieser Parameter ist erforderlich, wenn Sie einen Remote Server verwalten möchten, für den Sie nicht mit administrativen Anmelde Informationen angemeldet sind.                                                |
 |                     start                      |                                                                                                                                            startet den Telnet-Server Dienst.                                                                                                                                             |
 |                      stop                      |                                                                                                                                             Beendet den Telnet-Server Dienst.                                                                                                                                              |
@@ -64,6 +64,6 @@ Aktive Telnet-Sitzungen anzeigen.
 tlntadmn -s
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 -   [Telnet-Betriebshandbuch](https://technet.microsoft.com/library/cc753164(v=ws.10).aspx)
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -1,6 +1,6 @@
 ---
-title: Vdisk auswählen
-description: Referenz Thema für * * * *-
+title: select vdisk
+description: Referenz Artikel für * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 23741d9211ebdf98ac198af2ae1c562724a1955b
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: 734b31d9c9bcf174bf4617418978935bc49ad6da
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83821080"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85936434"
 ---
-# <a name="select-vdisk"></a>Vdisk auswählen
+# <a name="select-vdisk"></a>select vdisk
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -33,7 +33,7 @@ select vdisk file=<full path> [noerr]
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |-------|--------|
 |Datei\=<full path>|Gibt den vollständigen Pfad und den Dateinamen einer vorhandenen VHD-Datei an.|
 |Noerr|Wird nur für die Skripterstellung verwendet. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird.|
@@ -45,21 +45,21 @@ Um den Fokus auf die VHD mit dem Namen Test. VHD zu verschieben, geben Sie Folge
 select vdisk file=c:\test\test.vhd
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
 -   [attach vdisk](attach-vdisk.md)
 
--   [Compact Vdisk](compact-vdisk.md)
+-   [compact vdisk](compact-vdisk.md)
 
 
 
 -   [Vdisk trennen](detach-vdisk.md)
 
--   [Detail-Vdisk](detail-vdisk.md)
+-   [detail vdisk](detail-vdisk.md)
 
--   [Erweitern von Vdisk](expand-vdisk.md)
+-   [expand vdisk](expand-vdisk.md)
 
 -   [Vdisk zusammenführen](merge-vdisk.md)
 

@@ -1,6 +1,6 @@
 ---
 title: nslookup ls
-description: Referenz Thema für den Befehl nslookup ls, der DNS-Domänen Informationen auflistet.
+description: Referenz Artikel für den Befehl nslookup ls, der DNS-Domänen Informationen auflistet.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 87e30ed5d5b44b805c3b3b004feb5ed252b5a760
-ms.sourcegitcommit: 99d548141428c964facf666c10b6709d80fbb215
+ms.openlocfilehash: 7c0c0aeb01cdffb1f2b779178f0298e1f120348e
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84721123"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85936574"
 ---
 # <a name="nslookup-ls"></a>nslookup ls
 
@@ -30,7 +30,7 @@ ls [<option>] <DNSdomain> [{[>] <filename>|[>>] <filename>}]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<option>` | Folgende Optionen sind gültig:<ul><li>**-t:** Listet alle Datensätze des angegebenen Typs auf. Weitere Informationen finden Sie unter [nslookup Set QueryType](nslookup-set-querytype.md).</li><li>**-a:** Listet die Aliase von Computern in der DNS-Domäne auf. Dieser Parameter entspricht dem Wert **-t CNAME** .</li><li>**-d:** Listet alle Datensätze für die DNS-Domäne auf. Dieser Parameter entspricht dem Wert **-t any** .</li><li>**-h:** Listet die CPU-und Betriebssysteminformationen für die DNS-Domäne auf. Dieser Parameter ist identisch mit " **-t hinfo** ".</li><li>**-s:** Listet bekannte Dienste von Computern in der DNS-Domäne auf. Dieser Parameter entspricht dem **-t-Wi**. |
 | `<DNSdomain>` | Gibt die DNS-Domäne an, für die Sie Informationen wünschen. |
@@ -44,7 +44,7 @@ ls [<option>] <DNSdomain> [{[>] <filename>|[>>] <filename>}]
 
 - Wenn die Ausgabe an eine Datei weitergeleitet wird, werden für alle vom Server empfangenen 50-Datensätze Hash Markierungen hinzugefügt.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

@@ -1,6 +1,6 @@
 ---
 title: nslookup set all
-description: Referenz Thema für den Befehl "nslookup alle festlegen", der die aktuellen Konfigurations Einstellungs Werte ausgibt.
+description: Referenz Artikel zum Befehl "nslookup alle festlegen", der die aktuellen Konfigurations Einstellungs Werte ausgibt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b541f1f68fd3f43a8e4ab05f8e3e4351b7d8bc71
-ms.sourcegitcommit: 99d548141428c964facf666c10b6709d80fbb215
+ms.openlocfilehash: 1844e2254a694e39dc12e66bf65182df512601e8
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84721643"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85936538"
 ---
 # <a name="nslookup-set-all"></a>nslookup set all
 
@@ -28,11 +28,11 @@ set all
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 | /help | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

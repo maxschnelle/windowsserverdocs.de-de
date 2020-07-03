@@ -1,6 +1,6 @@
 ---
 title: SET-Option
-description: Referenz Thema für die Set-Option, mit der die Optionen für die Erstellung von Schatten Kopien festgelegt werden.
+description: Referenz Artikel für die Set-Option, mit der die Optionen für die Erstellung von Schatten Kopien festgelegt werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a4aba049e29cd74450467cf28057a2ff4e4a7094
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: b7944cd51adffabdc85bc6d419b527b1b643d4a8
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82721899"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85937084"
 ---
 # <a name="set-option"></a>SET-Option
 
@@ -28,7 +28,7 @@ set option {[differential | plex] [transportable] [[rollbackrecover] [txfrecover
 
 ### <a name="parameters"></a>Parameter
 
-|     Parameter     |                                                                                                  BESCHREIBUNG                                                                                                  |
+|     Parameter     |                                                                                                  Beschreibung                                                                                                  |
 |-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |   [differenziell   |                                                                                                     Plex                                                                                                     |
 |  austauschen  |                       Gibt an, dass die Schatten Kopie noch nicht importiert werden soll. Die Datei "Metadata. cab" kann später verwendet werden, um die Schatten Kopie auf denselben oder einen anderen Computer zu importieren.                       |
@@ -36,6 +36,6 @@ set option {[differential | plex] [transportable] [[rollbackrecover] [txfrecover
 |   [txfrecover]    |                                                               Fordert VSS auf, die schattenkopiekonsistenz während der Erstellung Transaktions konsistent zu machen.                                                                |
 |  [noautorecover]  | Hindert Writer und das Dateisystem daran, Wiederherstellungs Änderungen an der Schatten Kopie in einem Transaktions konsistenten Zustand auszuführen. **Noautorecover** kann nicht mit **txfrecover** oder **rollbackrecover**verwendet werden. |
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

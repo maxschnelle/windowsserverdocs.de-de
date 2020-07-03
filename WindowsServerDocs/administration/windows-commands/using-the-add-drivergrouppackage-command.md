@@ -1,6 +1,6 @@
 ---
 title: Add-drivergrouppackage
-description: Referenz Thema zu "Add-drivergrouppackage", mit dem einer Treiber Gruppe ein Treiber Paket hinzugefügt wird.
+description: Referenz Artikel zu "Add-drivergrouppackage", mit dem einer Treiber Gruppe ein Treiber Paket hinzugefügt wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4baf4f16740e65c432cc09ca24270ab479346ac2
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 5782fe849669619bf46426ad698866c05007e426
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82721110"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85937210"
 ---
 # <a name="add-drivergrouppackage"></a>Add-drivergrouppackage
 
@@ -28,7 +28,7 @@ wdsutil /add-DriverGroupPackage /DriverGroup:<Group Name> [/Server:<Server Name>
 ```
 ### <a name="parameters"></a>Parameter
 
-|         Parameter         |                                                                                                                                               BESCHREIBUNG                                                                                                                                               |
+|         Parameter         |                                                                                                                                               Beschreibung                                                                                                                                               |
 |---------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | /DriverGroup:<Group Name> |                                                                                                                                 Gibt den Namen der Treiber Gruppe an.                                                                                                                                 |
 |   Servers<Server name>   |                                                                                  Gibt den Namen des Servers an. Dabei kann es sich um den NetBIOS-Namen oder den voll qualifizierten Namen handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.                                                                                  |
@@ -43,8 +43,8 @@ wdsutil /add-DriverGroupPackage /DriverGroup:printerdrivers /PackageId:{4D36E972
 ```
 wdsutil /add-DriverGroupPackage /DriverGroup:printerdrivers /DriverPackage:XYZ
 ```
-## <a name="additional-references"></a>Zusätzliche Referenzen
-- [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
-mithilfe des Befehls "Add[-drivergrouppackages](using-the-add-drivergrouppackages-command.md)
-" mithilfe des Befehls "Add[-DriverPackage](using-the-add-driverpackage-command.md)
-"[mit dem Add-AllDriverPackages-Unterbefehl](using-the-add-alldriverpackages-subcommand.md)
+## <a name="additional-references"></a>Weitere Verweise
+- [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md) 
+ [Verwenden des Befehls "Add-drivergrouppackages](using-the-add-drivergrouppackages-command.md) 
+ " [Verwenden des Befehls](using-the-add-driverpackage-command.md) 
+ "Add-DriverPackage" [Verwenden des Add-AllDriverPackages-Unterbefehls](using-the-add-alldriverpackages-subcommand.md)

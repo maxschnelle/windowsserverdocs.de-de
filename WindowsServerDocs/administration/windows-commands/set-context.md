@@ -1,6 +1,6 @@
 ---
 title: Kontext festlegen
-description: Referenz Thema für den festgelegten Kontext, mit dem der Kontext für die Erstellung von Schatten Kopien festgelegt wird.
+description: Referenz Artikel für den festgelegten Kontext, der den Kontext für die Erstellung von Schatten Kopien festlegt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9494cb8a0a6b0e320240d74980049a4e49843ecd
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 98fb69f84b15a2444d24e4b6515ff9ff665b9aa7
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82721931"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85937109"
 ---
 # <a name="set-contex"></a>Festlegen des Verbindungs Punkts
 
@@ -30,14 +30,14 @@ set context {clientaccessible | persistent [nowriters] | volatile [nowriters]}
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |---------|-----------|
 |clientbarrierefreiheits|Gibt an, dass die Schatten Kopie von Client Versionen von Windows verwendet werden kann.|
 |hartnäck|Gibt an, dass die Schatten Kopie über das Beenden, zurücksetzen oder Neustarten des Programms hinweg beibehalten wird.|
 |volatile|Löscht die Schatten Kopie beim Beenden oder zurücksetzen.|
 |nowriter|Gibt an, dass alle Writer ausgeschlossen werden.|
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 
 -   Der *Client barrierefreie* Kontext ist standardmäßig persistent.
 
@@ -48,6 +48,6 @@ Geben Sie Folgendes ein, um zu verhindern, dass Schatten Kopien beim Beenden von
 set context persistent
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

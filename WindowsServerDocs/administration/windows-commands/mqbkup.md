@@ -1,6 +1,6 @@
 ---
 title: mqbkup
-description: Referenz Thema für den Mqbkup-Befehl, der MSMQ-Nachrichten Dateien und Registrierungs Einstellungen auf einem Speichergerät sichert und zuvor gespeicherte Nachrichten und Einstellungen wiederherstellt.
+description: Referenz Artikel zum Mqbkup-Befehl, der MSMQ-Nachrichten Dateien und Registrierungs Einstellungen auf einem Speichergerät sichert und zuvor gespeicherte Nachrichten und Einstellungen wiederherstellt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1c07dd5f912a70157052017fc17875c00eaedd3b
-ms.sourcegitcommit: 5e313a004663adb54c90962cfdad9ae889246151
+ms.openlocfilehash: 131d80f32a3c3324dad08b876dd4f4f8610b93e2
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84354421"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85936301"
 ---
 # <a name="mqbkup"></a>mqbkup
 
@@ -34,14 +34,14 @@ mqbkup {/b | /r} <folder path_to_storage_device>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ------- | -------- |
 | /b | Gibt den Sicherungs Vorgang an. |
 | /r | Gibt den Wiederherstellungs Vorgang an. |
 | `<folder path_to_storage_device>` | Gibt den Pfad an, in dem die MSMQ-Nachrichten Dateien und Registrierungs Einstellungen gespeichert werden. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Wenn ein angegebener Ordner nicht vorhanden ist, während der Sicherungs-oder Wiederherstellungs Vorgang durchgeführt wird, wird der Ordner automatisch vom Hilfsprogramm erstellt.
 
@@ -69,7 +69,7 @@ Geben Sie Folgendes ein, um MSMQ-Nachrichten und Registrierungs Einstellungen wi
 mqbkup /r c:\msmqbkup
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

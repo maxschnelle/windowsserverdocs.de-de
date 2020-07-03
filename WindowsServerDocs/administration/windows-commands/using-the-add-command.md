@@ -1,6 +1,6 @@
 ---
 title: add
-description: Referenz Thema für die verschiedenen Add-Befehle.
+description: Referenz Artikel zu den verschiedenen Add-Befehlen.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,19 +9,19 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3320a6074a1eb385eeca36207ac699287b0258f9
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 23bcfa5d304839094151d8baa9a7ebd77334d469
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82721149"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85937257"
 ---
 # <a name="add"></a>add
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 ## <a name="subcommands"></a>Unterbefehle
-|Unterbefehl|BESCHREIBUNG|
+|Unterbefehl|Beschreibung|
 |-------|--------|
 |[Verwenden des Befehls "Add-Device"](using-the-add-device-command.md)|Vorab Stufen eines Computers in Active Directory.|
 |[Verwenden des Befehls "Add-Image"](using-the-add-image-command.md)|Hiermit werden Start-oder Installations Images hinzugefügt.|

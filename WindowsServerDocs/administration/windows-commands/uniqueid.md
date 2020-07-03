@@ -1,6 +1,6 @@
 ---
-title: UniqueId
-description: Referenz Thema für UniqueId, das die GUID-Partitionstabelle (GPT) oder die Master Boot Record (MBR)-Signatur für den Datenträger mit dem Fokus anzeigt oder festlegt.
+title: uniqueid
+description: Referenz Artikel für UniqueId, der die GUID-Partitionstabelle (GPT) oder die Master Boot Record (MBR)-Signatur für den Datenträger mit dem Fokus anzeigt oder festlegt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: efaafe889f04511ceef7441b0a42b73259aadedf
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 5acf29d9a7dfd505a5ecdad2a08dfdb1a9f4d975
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82721185"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85937279"
 ---
-# <a name="uniqueid"></a>UniqueId
+# <a name="uniqueid"></a>uniqueid
 
 Zeigt den GPT-Bezeichner (GUID-Partitionstabelle) oder die Master Boot Record (MBR)-Signatur für den Datenträger mit Fokus an oder legt ihn fest.
 
@@ -31,12 +31,12 @@ uniqueid disk [id={<dword> | <GUID>}] [noerr]
 
 ### <a name="parameters"></a>Parameter
 
-|  Parameter   |                                                                                             BESCHREIBUNG                                                                                              |
+|  Parameter   |                                                                                             Beschreibung                                                                                              |
 |--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ID = {\<DWORD> |                                                                                               <GUID>}                                                                                                |
+| ID = {\<dword> |                                                                                               <GUID>}                                                                                                |
 |    Noerr     | Nur für Skripterstellung. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird. |
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 
 -   Dieser Befehl funktioniert auf grundlegenden und dynamischen Datenträgern.
 -   Ein Datenträger muss ausgewählt werden, damit dieser Befehl erfolgreich ausgeführt werden konnte. Wählen Sie mit dem Befehl Datenträger **auswählen** einen Datenträger aus, und verschieben Sie den Fokus auf den Datenträger.
@@ -56,5 +56,5 @@ Um den Bezeichner des GPT-Datenträgers mit dem Fokus auf baf784e7-6bbd-4cfb-aaa
 uniqueid disk id=baf784e7-6bbd-4cfb-aaac-e86c96e166ee
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 

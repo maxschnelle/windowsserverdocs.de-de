@@ -1,6 +1,6 @@
 ---
 title: Metadaten festlegen
-description: Referenz Thema für Set Metadata, das den Namen und den Speicherort der Metadatendatei für die Schatten Erstellung festlegt, die zum Übertragen von Schatten Kopien von einem Computer auf einen anderen verwendet wird.
+description: Referenz Artikel für Set Metadata, der den Namen und den Speicherort der Metadatendatei für die Schatten Erstellung festlegt, die zum Übertragen von Schatten Kopien von einem Computer auf einen anderen verwendet wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 683e54a7efc072d8709d6257771ba6bc5bde206e
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 50c9ceebf072db2e7cefada1601accc97b5d0f7f
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82721912"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85937092"
 ---
 # <a name="set-metadata"></a>Metadaten festlegen
 
@@ -28,11 +28,11 @@ set metadata [<Drive>:][<Path>]<MetaData.cab>
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |---------|-----------|
-|[\<Laufwerk>:] [<Path>]|Gibt den Speicherort zum Erstellen der Metadatendatei an.|
-|\<> "Metadata. cab"|Gibt den Namen der CAB-Datei zum Speichern von Metadaten für die Schatten Erstellung an.|
+|[\<Drive>:][<Path>]|Gibt den Speicherort zum Erstellen der Metadatendatei an.|
+|\<MetaData.cab>|Gibt den Namen der CAB-Datei zum Speichern von Metadaten für die Schatten Erstellung an.|
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -1,6 +1,6 @@
 ---
 title: wevtutil
-description: Referenz Thema für wevtutil, mit dem Sie Informationen über Ereignisprotokolle und Herausgeber abrufen können.
+description: Referenz Artikel zu wevtutil, mit dem Sie Informationen über Ereignisprotokolle und Herausgeber abrufen können.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 22195f3a163e1a4123b51d005b0367cc61411651
-ms.sourcegitcommit: 29bc8740e5a8b1ba8f73b10ba4d08afdf07438b0
+ms.openlocfilehash: f87ab51c0e24f9df421d7540e85d05a534635947
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84222616"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85936644"
 ---
 # <a name="wevtutil"></a>wevtutil
 
@@ -124,11 +124,11 @@ Anzeigen von Informationen zum Microsoft-Windows-EventLog-Ereignis Herausgeber, 
 ```
 wevtutil gp Microsoft-Windows-Eventlog /ge:true
 ```
-Installieren Sie Herausgeber und Protokolle aus der Manifest-Datei "mymanifest. xml":
+Installieren Sie Herausgeber und Protokolle aus der myManifest.xml Manifest-Datei:
 ```
 wevtutil im myManifest.xml
 ```
-Deinstallieren Sie Herausgeber und Protokolle aus der Manifest-Datei "mymanifest. xml":
+Deinstallieren Sie Herausgeber und Protokolle aus der myManifest.xml Manifest-Datei:
 ```
 wevtutil um myManifest.xml
 ```
@@ -149,6 +149,6 @@ Löschen Sie alle Ereignisse aus dem Anwendungsprotokoll, nachdem Sie Sie im Ver
 wevtutil cl Application /bu:C:\admin\backups\a10306.evtx
 ```
 
-#### <a name="additional-references"></a>Zusätzliche Referenzen
+#### <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

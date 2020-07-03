@@ -1,6 +1,6 @@
 ---
 title: Befehlsreferenz zur Windows Server-Sicherung
-description: Referenz Thema für die Backup-Befehlsreferenz.
+description: Referenz Artikel zur Referenz für den Sicherungs Befehl.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 69121e445e5c7a967c30b0a911c639431c7dd74a
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 32dfcc619fd12f4ac2e409fe8119bfa5dca225a7
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82720719"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85936256"
 ---
 # <a name="windows-server-backup-command-reference"></a>Befehlsreferenz zur Windows Server-Sicherung
 
@@ -26,7 +26,7 @@ Sie müssen ein Mitglied der Gruppe " **Administratoren** " sein, um einen Siche
 
 Sie müssen **Wbadmin** über eine Eingabeaufforderung mit erhöhten Rechten ausführen. (Klicken Sie zum Öffnen einer Eingabeaufforderung mit erhöhten Rechten auf **Start**, klicken Sie mit der rechten Maustaste auf **Eingabeaufforderung**, und klicken Sie dann auf **als Administrator ausführen**.)
 
-|Unterbefehl|BESCHREIBUNG|
+|Unterbefehl|Beschreibung|
 |----------|-----------|
 |[Wbadmin enable backup](wbadmin-enable-backup.md)|Konfiguriert und aktiviert einen täglichen Sicherungs Zeitplan.|
 |[Wbadmin disable backup](wbadmin-disable-backup.md)|Deaktiviert tägliche Sicherungen.|

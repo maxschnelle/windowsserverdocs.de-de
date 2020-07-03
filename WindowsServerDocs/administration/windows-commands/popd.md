@@ -1,6 +1,6 @@
 ---
 title: popd
-description: Referenz Thema für den PnPUtil-Befehl, mit dem das aktuelle Verzeichnis in das Verzeichnis geändert wird, das zuletzt durch den Befehl pushd gespeichert wurde.
+description: Referenz Artikel für den PnPUtil-Befehl, der das aktuelle Verzeichnis in das Verzeichnis ändert, das zuletzt durch den Befehl pushd gespeichert wurde.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 0784d925eedb1202bf94fbd2951081efcc0c496b
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 002a0d84770738db2b00bedcd1e01df3b1b61b76
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85472386"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85937004"
 ---
 # <a name="popd"></a>popd
 
@@ -34,7 +34,7 @@ popd
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 |--|--|
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
@@ -52,7 +52,7 @@ cls
 echo All text files deleted in the %1 directory
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

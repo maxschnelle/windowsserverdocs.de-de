@@ -1,6 +1,6 @@
 ---
 title: mountvol
-description: Referenz Thema für den Befehl "mountvol", der einen Volumebereitstellungspunkt erstellt, löscht oder auflistet.
+description: Referenz Artikel für den Befehl "mountvol", der einen Volumebereitstellungspunkt erstellt, löscht oder auflistet.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e024ed1e0684da4e1450343dfd097b43fde5c8f4
-ms.sourcegitcommit: 5e313a004663adb54c90962cfdad9ae889246151
+ms.openlocfilehash: 1617149fac677069d97b5b7c1353e85b4e1fea14
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84354550"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85936322"
 ---
 # <a name="mountvol"></a>mountvol
 
@@ -34,7 +34,7 @@ mountvol <drive>: /s
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `[<drive>:]<path>` | Gibt das vorhandene NTFS-Verzeichnis an, in dem sich der Einstellungspunkt befinden soll. |
 | `<volumename>` | Gibt den Volumenamen an, der das Ziel des Bereitstellungs Punkts ist. Der Volumename verwendet die folgende Syntax, wobei *GUID* eine Globally Unique Identifier ist: `\\?\volume\{GUID}\` . Die Klammern `{ }` sind erforderlich. |
@@ -47,7 +47,7 @@ mountvol <drive>: /s
 | /s | Stellt die EFI-Systempartition auf dem angegebenen Laufwerk bereit. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 
 - Wenn Sie die Bereitstellung des Volumes aufheben, während Sie den **/p** -Parameter verwenden, wird in der Volumeliste angezeigt, dass das Volume erst bereitgestellt wird, wenn ein volumeeinstellungspunkt
 
@@ -63,6 +63,6 @@ Geben Sie zum Erstellen eines Einfügepunkts Folgendes ein:
 mountvol \sysmount \\?\volume\{2eca078d-5cbc-43d3-aff8-7e8511f60d0e}\
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

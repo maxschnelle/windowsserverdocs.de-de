@@ -1,6 +1,6 @@
 ---
 title: tzutil
-description: Referenz Thema für TZUtil, das das Windows-Zeit Zonen-Hilfsprogramm anzeigt.
+description: Referenz Artikel zu "TZUtil", in dem das Windows-Zeit Zonen Dienstprogramm angezeigt wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5d4a94fa9f776af1ae21ad9057b6f9225691b516
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: 99d88057c88a55aaf529d238088f8422c33e9ba7
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83821300"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85937294"
 ---
 # <a name="tzutil"></a>tzutil
 
@@ -27,12 +27,12 @@ Zeigt das Windows-Zeit Zonen Dienstprogramm an.
 tzutil [/?] [/g] [/s <timeZoneID>[_dstoff]] [/l]
 ```
 #### <a name="parameters"></a>Parameter
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |-------|--------|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 |/g|Zeigt die aktuelle Zeit Zonen-ID an.|
-|/s \< TimeZoneId> [_dstoff]|Legt die aktuelle Zeitzone mithilfe der angegebenen Zeit Zonen-ID fest. Mit dem **_dstoff** Suffix werden die Anpassungen der Sommerzeit für die Zeitzone deaktiviert (falls zutreffend).|
-|/l|Listet alle gültigen Zeit Zonen-IDs und anzeigen Amen auf. Ausgabe:<p>-   \<Anzeige Name><br />-   \<Zeit Zonen-ID>|
+|/s \<timeZoneID> [_dstoff]|Legt die aktuelle Zeitzone mithilfe der angegebenen Zeit Zonen-ID fest. Mit dem **_dstoff** Suffix werden die Anpassungen der Sommerzeit für die Zeitzone deaktiviert (falls zutreffend).|
+|/l|Listet alle gültigen Zeit Zonen-IDs und anzeigen Amen auf. Ausgabe:<p>-   \<display name><br />-   \<time zone ID>|
 
 ## <a name="remarks"></a>Hinweise
 Der Exitcode **0** gibt an, dass der Befehl erfolgreich abgeschlossen wurde.
@@ -50,6 +50,6 @@ Geben Sie Folgendes ein, um die aktuelle Zeitzone auf Pacific Normalzeit festzul
 ```
 tzutil /s Pacific Standard time_dstoff
 ```
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

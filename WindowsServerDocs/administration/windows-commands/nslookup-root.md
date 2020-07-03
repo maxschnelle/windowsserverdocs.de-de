@@ -1,6 +1,6 @@
 ---
 title: nslookup root
-description: Referenz Thema für den nslookup-Stamm Befehl, mit dem der Standard Server für den Stamm des Domänen Namespace der Domain Name System (DNS) auf den Server geändert wird.
+description: Referenz Artikel für den nslookup-Stamm Befehl, der den Standard Server auf den Server für den Stamm des Domänen Namespace der Domain Name System (DNS) ändert.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0f1f2bbe3b71660d079a0b7c87f5be487e0ff437
-ms.sourcegitcommit: 99d548141428c964facf666c10b6709d80fbb215
+ms.openlocfilehash: 07dbfcf401314145cb0e7553d71480072da4b574
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84721653"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85936286"
 ---
 # <a name="nslookup-root"></a>nslookup root
 
@@ -33,12 +33,12 @@ root
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 | /help | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

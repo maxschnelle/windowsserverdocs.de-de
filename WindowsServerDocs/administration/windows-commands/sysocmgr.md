@@ -1,6 +1,6 @@
 ---
 title: sysocmgr
-description: Referenz Thema für Sysocmgr, das veraltet ist und in zukünftigen Versionen von Windows nicht mehr unterstützt wird.
+description: Referenz Artikel für Sysocmgr, der veraltet ist und in zukünftigen Versionen von Windows nicht mehr unterstützt wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 66479158bfd8e175ffe96b458ff0356ee8191e94
-ms.sourcegitcommit: fad2ba64bbc13763772e21ed3eabd010f6a5da34
+ms.openlocfilehash: a69ce5519f3b7700a9eb53ed4098752ac872571c
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82993422"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85937345"
 ---
 # <a name="sysocmgr"></a>sysocmgr
 

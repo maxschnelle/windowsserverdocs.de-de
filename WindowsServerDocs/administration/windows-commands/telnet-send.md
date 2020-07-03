@@ -1,6 +1,6 @@
 ---
-title: Telnet-Sendevorgang
-description: Referenz Thema für Telnet Send, das Telnet-Befehle an den Telnet-Server sendet.
+title: telnet send
+description: Referenz Artikel für Telnet Send, bei dem Telnet-Befehle an den Telnet-Server gesendet werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 36feeff49c3b139de8ec05b075571bae2539ddd1
-ms.sourcegitcommit: 29bc8740e5a8b1ba8f73b10ba4d08afdf07438b0
+ms.openlocfilehash: 44a0415a3516fcb15cd292c9e4c9c0a4a18e5ad9
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84222682"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85937371"
 ---
 # <a name="telnet-send"></a>Telnet: senden
 
@@ -44,5 +44,5 @@ Senden Sie an den Telnet-Server.
 ```
 sen ayt
 ```
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

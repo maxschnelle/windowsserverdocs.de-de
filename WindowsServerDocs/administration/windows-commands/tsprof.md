@@ -1,6 +1,6 @@
 ---
 title: tsprof
-description: Referenz Thema für TSPROF, das die Remotedesktopdienste Benutzer Konfigurationsinformationen von einem Benutzer auf einen anderen kopiert.
+description: Referenz Artikel für TSPROF, der die Remotedesktopdienste Benutzer Konfigurationsinformationen von einem Benutzer auf einen anderen kopiert.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b5a4980455eb2901db949a06f0c6dfec9ecf5793
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: b0b030f6f1353a6570883cf44c17e383b929cb3a
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82721226"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85937329"
 ---
 # <a name="tsprof"></a>tsprof
 
@@ -38,20 +38,20 @@ tsprof /q {/domain:<DomainName> | /local} <UserName>
 ```
 
 ### <a name="parameters"></a>Parameter
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |-------|--------|
 |/update|Aktualisiert Profilpfad Informationen für <*Benutzernamen*> in *Domänen* <Domain Name> auf <*ProfilePath* ->.|
-|/Domain:\<Domänen Name>|Gibt den Namen der Domäne an, in der der Vorgang angewendet wird.|
+|/Domain\<DomainName>|Gibt den Namen der Domäne an, in der der Vorgang angewendet wird.|
 |/local ein|Wendet den Vorgang nur auf lokale Benutzerkonten an.|
-|/Profile:\<Pfad>|Gibt den Profilpfad an, der in den Remotedesktopdienste Erweiterungen in lokale Benutzer und Gruppen und Active Directory-Benutzer und-Computer angezeigt wird.|
-|\<Benutzername>|Gibt den Namen des Benutzers an, für den Sie den Serverprofil Pfad aktualisieren oder Abfragen möchten.|
-|/Copy|Kopiert die Benutzer Konfigurationsinformationen \<aus dem *SOURCEUSER* -> in den \< *destinationuser* -> und aktualisiert \<die Profilpfad Informationen für \< *destinationuser*> auf die> von " *ProfilePath* ". Sowohl \< *SOURCEUSER*> als \<auch *destinationuser*> müssen entweder lokal oder in \< *Domänen Domänen Name*> sein.|
+|/profile\<path>|Gibt den Profilpfad an, der in den Remotedesktopdienste Erweiterungen in lokale Benutzer und Gruppen und Active Directory-Benutzer und-Computer angezeigt wird.|
+|\<UserName>|Gibt den Namen des Benutzers an, für den Sie den Serverprofil Pfad aktualisieren oder Abfragen möchten.|
+|/Copy|Kopiert Benutzer Konfigurationsinformationen aus \<*SourceUser*> in \<*DestinationUser*> und aktualisiert die Profilpfad Informationen für \<*DestinationUser*> in \<*Profilepath*> . Sowohl \<*SourceUser*> als auch \<*DestinationUser*> müssen entweder lokal oder in der Domäne sein \<*DomainName*> .|
 |\<Src_usr>|Gibt den Namen des Benutzers an, von dem Sie die Benutzer Konfigurationsinformationen kopieren möchten.|
 |\<Dest_usr>|Gibt den Namen des Benutzers an, in den die Benutzer Konfigurationsinformationen kopiert werden sollen.|
 |/q|Zeigt den aktuellen Profilpfad des Benutzers an, für den Sie den Serverprofil Pfad Abfragen möchten.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 -   Der Befehl " **TSPROF** " ist nur verfügbar, wenn Sie den Terminal Server-Rollen Dienst auf einem Computer mit Windows Server 2008 oder RD-Sitzungshost Rollen Dienst auf einem Computer mit Windows Server 2008 R2 installiert haben.
 
 ## <a name="examples"></a>Beispiele
@@ -64,6 +64,6 @@ tsprof /q {/domain:<DomainName> | /local} <UserName>
     tsprof /update /local /profile:c:\profiles LocalUser1
     ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
-- [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
-[Remotedesktopdienste Befehls Verweis (Terminal Dienste)](remote-desktop-services-terminal-services-command-reference.md)
+## <a name="additional-references"></a>Weitere Verweise
+- [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md) 
+ [Befehlsreferenz für Remotedesktopdienste (Terminal Dienste)](remote-desktop-services-terminal-services-command-reference.md)
