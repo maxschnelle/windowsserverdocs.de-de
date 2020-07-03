@@ -8,12 +8,12 @@ ms.date: 03/26/2020
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: fab7dff1efc8b21a3b8fdacdeb9d446d7bc0cc30
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 6ec1093a77b036cada9e54c82234d653362ce4d3
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85475307"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85930104"
 ---
 # <a name="storage-migration-service-overview"></a>Übersicht über den Speicher Migrationsdienst
 
@@ -87,7 +87,7 @@ Auf dem Quell Server muss eines der folgenden Betriebssysteme ausgeführt werden
 - Windows Server 2019
 - Windows Server 2016
 - Windows Server 2012 R2
-- Windows Server 2012
+- Windows Server 2012
 - Windows Server 2008 R2
 - WindowsServer 2008
 - Windows Server 2003 R2
@@ -136,6 +136,8 @@ In Windows Admin Center, Version 1910, können Sie virtuelle Azure-Computer bere
 
    Im folgenden Video wird gezeigt, wie Sie mithilfe von Storage Migration Service zu Azure-VMS migrieren.
    > [!VIDEO https://www.youtube-nocookie.com/embed/k8Z9LuVL0xQ]
+   
+Wenn Sie virtuelle Computer zu Azure migrieren und verschieben möchten, ohne zu einem späteren Betriebssystem zu migrieren, sollten Sie die Verwendung von Azure migrate in Erwägung gezogen. Weitere Informationen finden Sie unter [Azure migrate Übersicht](https://go.microsoft.com/fwlink/?linkid=2056064).
 
 ## <a name="whats-new-in-storage-migration-service"></a>Neuerungen bei Storage Migration Service
 
@@ -149,7 +151,7 @@ Die folgenden neuen Funktionen sind verfügbar, wenn Sie den Speicher Migrations
 - Vereinfachte Synchronisierung von migrierten Freigaben zu Azure mithilfe von Azure-Dateisynchronisierung
 - Migrieren zu neuen Netzwerken wie etwa Azure
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Migrieren eines Dateiservers mithilfe von Storage Migration Service](migrate-data.md)
 - [Häufig gestellte Fragen (FAQ) zu Storage Migration Services](faq.md)

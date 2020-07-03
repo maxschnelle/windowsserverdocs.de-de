@@ -1,6 +1,6 @@
 ---
 title: create
-description: Referenz Thema für den CREATE-Befehl, mit dem eine Partition oder eine Schatten Partition auf einem Datenträger, ein Volume auf einem oder mehreren Datenträgern oder eine virtuelle Festplatte (VHD) erstellt wird.
+description: Referenz Artikel für den CREATE-Befehl, mit dem eine Partition oder eine Schatten Partition auf einem Datenträger, ein Volume auf einem oder mehreren Datenträgern oder eine virtuelle Festplatte (VHD) erstellt wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f371bee591e29a45b1488b2c36112b55ed54d3f8
-ms.sourcegitcommit: fad2ba64bbc13763772e21ed3eabd010f6a5da34
+ms.openlocfilehash: 0b5b31f43e58b9e2eddb18f624c1054c9d028f4c
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82993193"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85929536"
 ---
 # <a name="create"></a>create
 
@@ -29,7 +29,7 @@ create volume
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | [create partition primary-Befehl](create-partition-primary.md) | Erstellt eine primäre Partition auf dem Basis Datenträger mit dem Fokus. |
 | [Create Partition (EFI-Befehl)](create-partition-efi.md) | Erstellt eine Extensible Firmware Interface (EFI)-Systempartition auf einem GPT-Datenträger (GUID-Partitionstabelle) auf Itanium-basierten Computern. |
@@ -41,6 +41,6 @@ create volume
 | [Create Volume-RAID-Befehl](create-volume-raid.md) | Erstellt ein RAID-5-Volume mit drei oder mehr angegebenen dynamischen Datenträgern. |
 | [Create Volume Stripe-Befehl](create-volume-stripe.md) | Erstellt ein Stripesetvolume mit zwei oder mehr angegebenen dynamischen Datenträgern. |
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

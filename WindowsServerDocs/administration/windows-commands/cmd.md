@@ -1,6 +1,6 @@
 ---
 title: cmd
-description: Referenz Thema für den CMD-Befehl, mit dem eine neue Instanz des Befehls Interpreters, cmd. exe, gestartet wird.
+description: Referenz Artikel zum CMD-Befehl, der eine neue Instanz des Befehls Interpreters startet, Cmd.exe.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8d381dd56d6648f749cd4a19d71422897e4b9b05
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 69176c69434813745f6039b607f2992675df879c
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82712588"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85929861"
 ---
 # <a name="cmd"></a>cmd
 
-Startet eine neue Instanz des Befehls interpreterers, cmd. exe. Bei Verwendung ohne Parameter zeigt **cmd** die Version und die Copyright Informationen des Betriebssystems an.
+Startet eine neue Instanz des Befehls interpreterers, Cmd.exe. Bei Verwendung ohne Parameter zeigt **cmd** die Version und die Copyright Informationen des Betriebssystems an.
 
 ## <a name="syntax"></a>Syntax
 
@@ -28,7 +28,7 @@ cmd [/c|/k] [/s] [/q] [/d] [/a|/u] [/t:{<b><f> | <f>}] [/e:{on | off}] [/f:{on |
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | /C | Führt den durch die *Zeichenfolge* angegebenen Befehl aus und wird dann beendet. |
 | /k | Führt den durch die *Zeichenfolge* angegebenen Befehl aus und wird fortgesetzt. |
@@ -47,30 +47,30 @@ cmd [/c|/k] [/s] [/q] [/d] [/a|/u] [/t:{<b><f> | <f>}] [/e:{on | off}] [/f:{on |
 | `<string>` | Gibt den Befehl an, den Sie ausführen möchten. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-In der folgenden Tabelle werden gültige hexadezimale Ziffern aufgelistet, die Sie als Werte `<b>` für `<f>`und verwenden können:
+In der folgenden Tabelle werden gültige hexadezimale Ziffern aufgelistet, die Sie als Werte für und verwenden können `<b>` `<f>` :
 
-| Wert | Color |
+| Wert | Farbe |
 | ----- | ----- |
 | 0 | Schwarz |
-| 1 | Blau |
+| 1 | Blue |
 | 2 | Grün |
 | 3 | Aqua |
 | 4 | Red |
-| 5 | Violett |
-| 6 | Gelb |
+| 5 | Purple |
+| 6 | Yellow |
 | 7 | White |
 | 8 | Grau |
 | 9 | Hellblau |
-| a | Hellgrün |
-| b | Hell Aqua |
+| eine | Hellgrün |
+| k | Hell Aqua |
 | c | Hellrot |
 | d | Hell lila |
 | e | Hellgelb |
 | f | Helles Weiß |
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 
-- Wenn Sie mehrere Befehle für `<string>`verwenden möchten, trennen Sie diese durch **&&** das Befehls Trennzeichen, und schließen Sie Sie in Anführungszeichen ein. Beispiel:
+- Wenn Sie mehrere Befehle für verwenden möchten `<string>` , trennen Sie diese durch das Befehls **&&** Trennzeichen, und schließen Sie Sie in Anführungszeichen ein. Beispiel:
 
     ```
     "<command1>&&<command2>&&<command3>"
@@ -90,7 +90,7 @@ In der folgenden Tabelle werden gültige hexadezimale Ziffern aufgelistet, die S
 
     Wenn die vorherigen Bedingungen nicht erfüllt sind, wird die *Zeichenfolge* verarbeitet, indem das erste Zeichen untersucht wird, um zu überprüfen, ob es sich um ein öffnendes Wenn das erste Zeichen ein öffnendes Anführungszeichen ist, wird es zusammen mit dem schließenden Anführungszeichen entfernt. Jeder Text, der auf die schließenden Anführungszeichen folgt, wird beibehalten.
 
-- Wenn Sie **/d** nicht in der *Zeichenfolge*angeben, sucht cmd. exe nach den folgenden Registrierungs unter Schlüsseln:
+- Wenn Sie **/d** nicht in der *Zeichenfolge*angeben, sucht Cmd.exe nach den folgenden Registrierungs unter Schlüsseln:
 
     - **HKEY_LOCAL_MACHINE \software\microsoft\command processor\autorun\ REG_SZ**
 
@@ -107,12 +107,12 @@ In der folgenden Tabelle werden gültige hexadezimale Ziffern aufgelistet, die S
 
     - **HKEY_CURRENT_USER \software\microsoft\command processor\enableextensions\ REG_DWORD**
 
-    Legen Sie den **REG_DWORD** -Wert in der Registrierung mithilfe von regedit. exe entweder auf **0 × 1** (aktiviert) oder auf **0 × 0** (deaktiviert) fest. Benutzerdefinierte Einstellungen haben Vorrang vor Computereinstellungen, und Befehlszeilenoptionen haben Vorrang vor den Registrierungs Einstellungen.
+    Legen Sie den **REG_DWORD** -Wert in der Registrierung mithilfe von Regedit.exe entweder auf **0 × 1** (aktiviert) oder auf **0 × 0** (deaktiviert) fest. Benutzerdefinierte Einstellungen haben Vorrang vor Computereinstellungen, und Befehlszeilenoptionen haben Vorrang vor den Registrierungs Einstellungen.
 
     > [!CAUTION]
     > Durch eine fehlerhafte Bearbeitung der Registrierung können schwerwiegende Schäden am System verursacht werden. Bevor Sie Änderungen an der Registrierung vornehmen, sollten Sie alle wichtigen Computerdaten sichern.
 
-    Wenn Sie Befehls Erweiterungen aktivieren, sind die folgenden Befehle betroffen:  
+    Wenn Sie Befehls Erweiterungen aktivieren, sind die folgenden Befehle betroffen:
     - **assoc**
 
     - **call**
@@ -151,7 +151,7 @@ In der folgenden Tabelle werden gültige hexadezimale Ziffern aufgelistet, die S
 
 - Wenn Sie die verzögerte Erweiterung der Umgebungsvariablen aktivieren, können Sie das Ausrufezeichen verwenden, um den Wert einer Umgebungsvariablen zur Laufzeit zu ersetzen.
 
-- Die Vervollständigung von Datei-und Verzeichnisnamen ist standardmäßig nicht aktiviert. Sie können den Abschluss des Datei namens für einen bestimmten Prozess des **cmd** -Befehls mit **/f:**{**on** | **Off**} aktivieren oder deaktivieren. Sie können den Abschluss von Datei-und Verzeichnisnamen für alle Prozesse des Befehls " **cmd** " auf einem Computer oder für eine Benutzer Anmelde Sitzung aktivieren bzw. deaktivieren, indem Sie die folgenden **REG_DWORD** Werte festlegen:
+- Die Vervollständigung von Datei-und Verzeichnisnamen ist standardmäßig nicht aktiviert. Sie können den Abschluss des Datei namens für einen bestimmten Prozess des **cmd** -Befehls mit **/f:**{**on**  |  **Off**} aktivieren oder deaktivieren. Sie können den Abschluss von Datei-und Verzeichnisnamen für alle Prozesse des Befehls " **cmd** " auf einem Computer oder für eine Benutzer Anmelde Sitzung aktivieren bzw. deaktivieren, indem Sie die folgenden **REG_DWORD** Werte festlegen:
 
     - **HKEY_LOCAL_MACHINE \software\microsoft\command processor\completionchar\ REG_DWORD**
 
@@ -161,7 +161,7 @@ In der folgenden Tabelle werden gültige hexadezimale Ziffern aufgelistet, die S
 
     - **HKEY_CURRENT_USER \software\microsoft\command processor\pathcompletionchar\ REG_DWORD**
 
-    Wenn Sie den **REG_DWORD** Wert festlegen möchten, führen Sie regedit. exe aus, und verwenden Sie den Hexadezimalwert eines Steuer Zeichens für eine bestimmte Funktion (z. b. **0 × 9** ist Tab, und **0 × 08** ist RÜCKTASTE). Benutzerdefinierte Einstellungen haben Vorrang vor Computereinstellungen, und Befehlszeilenoptionen haben Vorrang vor den Registrierungs Einstellungen.
+    Wenn Sie den **REG_DWORD** Wert festlegen möchten, führen Sie Regedit.exe aus, und verwenden Sie den Hexadezimalwert eines Steuer Zeichens für eine bestimmte Funktion (z. b. **0 × 9** ist Tab, und **0 × 08** ist RÜCKTASTE). Benutzerdefinierte Einstellungen haben Vorrang vor Computereinstellungen, und Befehlszeilenoptionen haben Vorrang vor den Registrierungs Einstellungen.
 
     > [!CAUTION]
     > Durch eine fehlerhafte Bearbeitung der Registrierung können schwerwiegende Schäden am System verursacht werden. Bevor Sie Änderungen an der Registrierung vornehmen, sollten Sie alle wichtigen Computerdaten sichern.
@@ -178,6 +178,6 @@ In der folgenden Tabelle werden gültige hexadezimale Ziffern aufgelistet, die S
 
   - Wenn Sie die Vervollständigung von Datei-und Verzeichnisnamen innerhalb der *Zeichenfolge*verarbeiten, wird jeder Teil des *Pfads* rechts vom Cursor verworfen (an der Stelle in der *Zeichenfolge* , an der der Abschluss verarbeitet wurde).
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

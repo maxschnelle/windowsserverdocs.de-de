@@ -1,6 +1,6 @@
 ---
 title: convert basic
-description: Referenz Thema für den Befehl "grundlegend konvertieren", der einen leeren dynamischen Datenträger in einen Basis Datenträger konvertiert.
+description: Referenz Artikel zum Convert Basic-Befehl, der einen leeren dynamischen Datenträger in einen Basis Datenträger konvertiert.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e44ecc9f5d18bbe426c63f8854e7c3347f418bb2
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: a61c3d9fd8d708a41347f0bcf46aa627e960153c
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82720793"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85928980"
 ---
 # <a name="convert-basic"></a>convert basic
 
@@ -34,7 +34,7 @@ convert basic [noerr]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | Noerr | Nur für Skripterstellung. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird. |
 
@@ -46,7 +46,7 @@ Geben Sie Folgendes ein, um den ausgewählten dynamischen Datenträger in Basic 
 convert basic
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

@@ -1,6 +1,6 @@
 ---
 title: bitsadmin getfilestransferred
-description: Referenz Thema für den bizadmin getfilestransferred-Befehl, der die Anzahl der für den angegebenen Auftrag übertragenen Dateien abruft.
+description: Referenz Artikel für den bigsadmin getfilestransferred-Befehl, der die Anzahl der für den angegebenen Auftrag übertragenen Dateien abruft.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ed11739029338ecce5fc4efbe1918873a7f37f62
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 43257dcb8350974bfb258a9970c1a6fec787a226
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82717915"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85928253"
 ---
 # <a name="bitsadmin-getfilestransferred"></a>bitsadmin getfilestransferred
 
@@ -28,7 +28,7 @@ bitsadmin /getfilestransferred <job>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | -------------- | -------------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 
@@ -40,7 +40,7 @@ So rufen Sie die Anzahl der Dateien ab, die im Auftrag mit dem Namen *mydownload
 bitsadmin /getfilestransferred myDownloadJob
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

@@ -1,6 +1,6 @@
 ---
 title: Clip
-description: Referenz Thema für den Clip-Befehl, der die Befehlszeile von der Befehlszeile an die Windows-Zwischenablage umleitet.
+description: Referenz Artikel für den Clip-Befehl, der die Befehlszeile von der Befehlszeile an die Windows-Zwischenablage umleitet.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 61c905e3dcce52f3a3d35adeac55fc5df574f664
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 3c0e23c18d356740a639af760fc7433db59d012a
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82712792"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85929899"
 ---
 # <a name="clip"></a>Clip
 
@@ -29,7 +29,7 @@ clip < <filename>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<command>` | Gibt einen Befehl an, dessen Ausgabe Sie an die Windows-Zwischenablage senden möchten. |
 | `<filename>` | Gibt eine Datei an, deren Inhalt Sie an die Windows-Zwischenablage senden möchten. |
@@ -49,12 +49,12 @@ Geben Sie Folgendes ein, um die Ausgabe eines Programms namens *Generic. awk* in
 awk -f generic.awk input.txt | clip
 ```
 
-Geben Sie Folgendes ein, um den Inhalt einer Datei namens "Infodatei *. txt* " in die Windows-Zwischenablage zu kopieren:
+Um den Inhalt einer Datei mit dem Namen *readme.txt* in die Windows-Zwischenablage zu kopieren, geben Sie Folgendes ein:
 
 ```
 clip < readme.txt
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

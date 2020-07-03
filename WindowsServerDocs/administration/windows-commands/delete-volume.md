@@ -1,6 +1,6 @@
 ---
-title: Volume löschen
-description: Referenz Thema für den Befehl Volume löschen, mit dem das ausgewählte Volume gelöscht wird.
+title: delete volume
+description: Referenz Artikel für den Befehl Volume löschen, mit dem das ausgewählte Volume gelöscht wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 59856e89ff96d2881040365d157540dc62c1aeb0
-ms.sourcegitcommit: fad2ba64bbc13763772e21ed3eabd010f6a5da34
+ms.openlocfilehash: 217e9ff1ccb470b5431143360286d312b09a1951
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82993098"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85928716"
 ---
 # <a name="delete-volume"></a>delete volume
 
@@ -31,7 +31,7 @@ delete volume [noerr]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | Noerr | Nur für Skripterstellung. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird. |
 
@@ -43,7 +43,7 @@ Um das Volume mit dem Fokus zu löschen, geben Sie Folgendes ein:
 delete volume
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

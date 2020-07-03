@@ -1,6 +1,6 @@
 ---
-title: logische Partition erstellen
-description: Referenz Thema für den logischen Befehl CREATE Partition, mit dem eine logische Partition in einer vorhandenen erweiterten Partition erstellt wird.
+title: create partition logical
+description: Referenz Artikel zum logischen Befehl "Create Partition", der eine logische Partition in einer vorhandenen erweiterten Partition erstellt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 99b8c837fe5da295087f9b146bf429d91ebc8693
-ms.sourcegitcommit: fad2ba64bbc13763772e21ed3eabd010f6a5da34
+ms.openlocfilehash: 4860f61d23c9ae51732c1fb0e127047c4944d2ed
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82993269"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85929676"
 ---
-# <a name="create-partition-logical"></a>logische Partition erstellen
+# <a name="create-partition-logical"></a>create partition logical
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -35,10 +35,10 @@ create partition logical [size=<n>] [offset=<n>] [align=<n>] [noerr]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | Größe =`<n>` | Gibt die Größe der logischen Partition in Megabyte (MB) an, die kleiner als die erweiterte Partition sein muss. Wenn keine Größe angegeben wird, wird die Partition so lange fortgesetzt, bis der freie Speicherplatz in der erweiterten Partition nicht mehr verfügbar ist. |
-| Offset =`<n>` | Gibt den Offset in Kilobyte (KB) an, bei dem die Partition erstellt wird. Der Offset wird aufgerundet, um die verwendete Zylinder Größe vollständig auszufüllen. Wenn kein Offset angegeben wird, wird die Partition in den ersten Datenträger Block eingefügt, der groß genug ist, um Sie zu speichern. Die Partition ist mindestens so lang wie die Zahl, die durch **size =`<n>`** angegeben wird. Wenn Sie eine Größe für die logische Partition angeben, muss sie kleiner als die erweiterte Partition sein. |
+| Offset =`<n>` | Gibt den Offset in Kilobyte (KB) an, bei dem die Partition erstellt wird. Der Offset wird aufgerundet, um die verwendete Zylinder Größe vollständig auszufüllen. Wenn kein Offset angegeben wird, wird die Partition in den ersten Datenträger Block eingefügt, der groß genug ist, um Sie zu speichern. Die Partition ist mindestens so lang wie die Zahl, die durch **size = `<n>` **angegeben wird. Wenn Sie eine Größe für die logische Partition angeben, muss sie kleiner als die erweiterte Partition sein. |
 | ausrichten =`<n>` | Richtet alle Volumes oder Partitions Blöcke an der nächstgelegenen Ausrichtungs Grenze aus. Wird in der Regel mit den Hardware-RAID-Arrays der logischen Gerätenummer verwendet, um die Leistung zu verbessern. `<n>`die Anzahl der Kilobyte (KB) vom Anfang des Datenträgers bis zur nächsten Ausrichtungs Grenze. |
 | Noerr | Nur für Skripterstellung. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird. |
 
@@ -54,7 +54,7 @@ Geben Sie in der erweiterten Partition des ausgewählten Datenträgers Folgendes
 create partition logical size=1000
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

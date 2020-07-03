@@ -1,6 +1,6 @@
 ---
 title: bitsadmin cache
-description: Referenz Thema für den bizadmin-Cache Befehl, der eine Liste der bizadmin-Cache Switches enthält.
+description: Referenz Artikel für den bizadmin-Cache Befehl, der eine Liste der bizadmin-Cache Switches enthält.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bf54225263b238cc7b6ba04d9881f4bc224d29b9
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 57b3897e89c70658d5b4015668d7b966222ce15d
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82718268"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85928411"
 ---
 # <a name="bitsadmin-cache"></a>bitsadmin cache
 
@@ -41,7 +41,7 @@ bitsadmin /cache /setexpirationtime
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | -------------- | -------------- |
 | [bitsadmin cache and help](bitsadmin-cache-and-help.md) | Zeigt die Verwendung der Befehlszeile für die/Cache-Switches an. |
 | [bitsadmin cache and clear](bitsadmin-cache-clear.md) | Löscht den lokalen Cache. |
@@ -54,7 +54,7 @@ bitsadmin /cache /setexpirationtime
 | [bitsadmin cache and getexpirationtime](bitsadmin-cache-and-getexpirationtime.md) | Ruft den Cache Ablauf Zeitpunkt ab. |
 | [bitsadmin cache and setexpirationtime](bitsadmin-cache-and-setexpirationtime.md) | Legt die Ablaufzeit für den Cache fest. |
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

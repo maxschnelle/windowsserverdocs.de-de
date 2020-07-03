@@ -1,6 +1,6 @@
 ---
 title: diskcopy
-description: Referenz Thema für den Befehl diskcopy, bei dem der Inhalt der Diskette im Quelllaufwerk in eine formatierte oder unformatierte Diskette auf dem Ziellaufwerk kopiert wird.
+description: Referenz Artikel für den Befehl diskcopy, der den Inhalt der Diskette im Quelllaufwerk in eine formatierte oder unformatierte Diskette auf dem Ziellaufwerk kopiert.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 05/07/2018
-ms.openlocfilehash: 99d1007a7c6f154b621e43d674d06f25b2911f00
-ms.sourcegitcommit: aed942d11f1a361fc1d17553a4cf190a864d1268
+ms.openlocfilehash: 7b29e81dc1befff8cd90b460b1117207146fa191
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83235181"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85929344"
 ---
 # <a name="diskcopy"></a>diskcopy
 
@@ -97,7 +97,7 @@ Wenn Sie Diskettenlaufwerk A verwenden möchten, um eine Diskette in eine andere
 diskcopy a: a:
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

@@ -1,6 +1,6 @@
 ---
-title: Dfsdiag Testsites
-description: Referenz Thema für Dfsdiag Testsites, das die Konfiguration der Active Directory-Domänen Dienste-Standorte (AD DS) überprüft, indem überprüft wird, ob Server, die als Namespace Server oder Ordner (Verknüpfungs Ziele) fungieren, auf allen Domänen Controllern über die gleichen Standort Zuordnungen verfügen.
+title: dfsdiag testsites
+description: Referenz Artikel für Dfsdiag Testsites, der die Konfiguration von Active Directory-Domänen Diensten (AD DS) überprüft, indem überprüft wird, ob Server, die als Namespace Server oder Ordner (Verknüpfungs Ziele) fungieren, auf allen Domänen Controllern über die gleichen Standort Zuordnungen verfügen.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 54eb7c7ec44d7cd4872960ca29cd3146b710f472
-ms.sourcegitcommit: fad2ba64bbc13763772e21ed3eabd010f6a5da34
+ms.openlocfilehash: 7942b1535957366af9485580d75c9eec17120f4d
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82992852"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85928686"
 ---
-# <a name="dfsdiag-testsites"></a>Dfsdiag Testsites
+# <a name="dfsdiag-testsites"></a>dfsdiag testsites
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -30,7 +30,7 @@ dfsdiag /testsites </machine:<server name>| /DFSpath:<namespace root or DFS fold
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `/machine:<server name>` | Der Name des Servers, auf dem die Standort Zuordnung überprüft werden soll. |
 | `/DFSpath:<namespace root or DFS folder>` | Der Namespace Stamm oder verteiltes Dateisystem Ordner (DFS) (Link) mit Zielen, für die die Standort Zuordnung überprüft werden soll. |
@@ -57,7 +57,7 @@ Um einen Namespace Stamm zum Überprüfen der Standort Zuordnung zu überprüfen
 dfsdiag /testsites /DFSpath:\\contoso.com\namespace2 /recurse /full
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

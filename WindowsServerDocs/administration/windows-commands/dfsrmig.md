@@ -1,6 +1,6 @@
 ---
 title: dfsrmig
-description: Referenz Thema für den DFSRMIG-Befehl, der die SYSVOL-Replikation von FRS zu DFS-Replikation migriert, Informationen zum Fortschritt der Migration bereitstellt und AD DS Objekte zur Unterstützung der Migration ändert.
+description: Referenz Artikel für den DFSRMIG-Befehl, der die SYSVOL-Replikation von FRS zu DFS-Replikation migriert, Informationen zum Fortschritt der Migration bereitstellt und AD DS Objekte zur Unterstützung der Migration ändert.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a0329bd5829941595f9e1938f68eefb17036c132
-ms.sourcegitcommit: fad2ba64bbc13763772e21ed3eabd010f6a5da34
+ms.openlocfilehash: 87882ebe0beb687f704c5573091f56c067c278ee
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82992722"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85928635"
 ---
 # <a name="dfsrmig"></a>dfsrmig
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Das Migrationstool für den DFS-Replikation-Dienst DFSRMIG. exe wird mit dem DFS-Replikation-Dienst installiert. Dieses Tool migriert die SYSVOL-Replikation vom Datei Replikations Dienst (File Replication Service, FRS) verteiltes Dateisystem zur DFS-Replikation. Außerdem finden Sie hier Informationen zum Fortschritt der Migration und zum ändern Active Directory Domain Services (AD DS)-Objekten zur Unterstützung der Migration.
+Das Migrationstool für den DFS-Replikation-Dienst, dfsrmig.exe, wird mit dem DFS-Replikation-Dienst installiert. Dieses Tool migriert die SYSVOL-Replikation vom Datei Replikations Dienst (File Replication Service, FRS) verteiltes Dateisystem zur DFS-Replikation. Außerdem finden Sie hier Informationen zum Fortschritt der Migration und zum ändern Active Directory Domain Services (AD DS)-Objekten zur Unterstützung der Migration.
 
 ## <a name="syntax"></a>Syntax
 
@@ -31,25 +31,25 @@ dfsrmig [/setglobalstate <state> | /getglobalstate | /getmigrationstate | /creat
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `/setglobalstate <state>` | Legt den globalen Migrations Zustand der Domäne auf einen Wert fest, der dem durch *State*angegebenen Wert entspricht. Der globale Migrations Zustand kann nur auf einen stabilen Zustand festgelegt werden. Zu den *Zustands* Werten gehören:<ul><li>**0** -Start Status</li><li>**1** -vorbereiteter Zustand</li><li>**2** -umgeleiteter Zustand</li><li>**3** : Zustand wird gelöscht</li></ul> |
 | /getglobalstate | Ruft den aktuellen globalen Migrationsstatus für die Domäne aus der lokalen Kopie der AD DS Datenbank ab, wenn Sie auf dem PDC-Emulator ausgeführt wird. Verwenden Sie diese Option, um zu bestätigen, dass Sie den richtigen globalen Migrationsstatus festgelegt haben.<p>**Wichtig:** Sie sollten diesen Befehl nur für den PDC-Emulator ausführen. |
 | /getmigrationstate | Ruft den aktuellen Zustand der lokalen Migration für alle Domänen Controller in der Domäne ab und bestimmt, ob diese lokalen Zustände dem aktuellen globalen Migrationsstatus entsprechen. Verwenden Sie diese Option, um zu bestimmen, ob alle Domänen Controller den globalen Migrations Zustand erreicht haben. |
 | /createglobalobjects | Erstellt die globalen Objekte und Einstellungen in AD DS, die von DFS-Replikation verwendet werden. Die einzigen Situationen, in denen Sie diese Option verwenden sollten, um Objekte und Einstellungen manuell zu erstellen, sind:<ul><li>**Während der Migration wird ein neuer Schreib geschützter Domänen Controller**herauf gestuft. Wenn ein neuer Schreib geschützter Domänen Controller in der Domäne herauf gestuft wird, nachdem er in den Zustand " **vorbereitet** " versetzt wurde, aber **vor der Migration in den Zustand** "entfernt", werden die Objekte, die dem neuen Domänen Controller entsprechen, nicht erstellt, wodurch die Replikation und die Migration fehlschlagen.</li><li>**Die globalen Einstellungen für den DFS-Replikation Dienst fehlen oder wurden gelöscht**. Wenn diese Einstellungen für einen Domänen Controller fehlen, wird die Migration vom **Start** Status in den Status **vorbereitet** in den Zustand **Vorbereitung** versetzt. **Hinweis:** Da die globalen AD DS Einstellungen für den DFS-Replikation-Dienst für einen schreibgeschützten Domänen Controller auf dem PDC-Emulator erstellt werden, müssen diese Einstellungen auf den schreibgeschützten Domänen Controller aus dem PDC-Emulator repliziert werden, bevor der DFS-Replikation Dienst auf dem schreibgeschützten Domänen Controller diese Einstellungen verwenden kann. Aufgrund Active Directory Replikations Wartezeiten kann diese Replikation einige Zeit in Anspruch nehmen. |
-| `/deleterontfrsmember [<read_only_domain_controller_name>]` | Löscht die globalen AD DS Einstellungen für die FRS-Replikation, die dem angegebenen schreibgeschützten Domänen Controller entsprechen, oder löscht die globalen AD DS Einstellungen für die FRS-Replikation für alle schreibgeschützten Domänen Controller `<read_only_domain_controller_name>`, wenn kein Wert für angegeben ist.<p>Diese Option sollte bei einem normalen Migrations Vorgang nicht verwendet werden, da der DFS-Replikation Dienst diese AD DS Einstellungen während der Migration vom **umgeleiteten** in **den Zustand "** entfernt" automatisch löscht. Verwenden Sie diese Option, um die AD DS Einstellungen nur manuell zu löschen, wenn der automatische Löschvorgang auf einem schreibgeschützten Domänen Controller fehlschlägt und den schreibgeschützten Domänen Controller während der Migration vom **umgeleiteten** in den **Zustand "** entfernt" versetzt. |
-| `/deleterodfsrmember [<read_only_domain_controller_name>]` | Löscht die globalen AD DS Einstellungen für DFS-Replikation, die dem angegebenen schreibgeschützten Domänen Controller entsprechen, oder löscht die globalen AD DS Einstellungen für DFS-Replikation für alle schreibgeschützten Domänen Controller, wenn kein Wert für `<read_only_domain_controller_name>`angegeben ist.<p>Verwenden Sie diese Option, um die AD DS Einstellungen nur dann manuell zu löschen, wenn der automatische Löschvorgang auf einem schreibgeschützten Domänen Controller fehlschlägt und den schreibgeschützten Domänen Controller für einen längeren Zeitraum anhält, wenn ein Rollback der Migration vom Zustand "vorbereitet" in den Startstatus erfolgt. |
+| `/deleterontfrsmember [<read_only_domain_controller_name>]` | Löscht die globalen AD DS Einstellungen für die FRS-Replikation, die dem angegebenen schreibgeschützten Domänen Controller entsprechen, oder löscht die globalen AD DS Einstellungen für die FRS-Replikation für alle schreibgeschützten Domänen Controller, wenn kein Wert für angegeben ist `<read_only_domain_controller_name>` .<p>Diese Option sollte bei einem normalen Migrations Vorgang nicht verwendet werden, da der DFS-Replikation Dienst diese AD DS Einstellungen während der Migration vom **umgeleiteten** in **den Zustand "** entfernt" automatisch löscht. Verwenden Sie diese Option, um die AD DS Einstellungen nur manuell zu löschen, wenn der automatische Löschvorgang auf einem schreibgeschützten Domänen Controller fehlschlägt und den schreibgeschützten Domänen Controller während der Migration vom **umgeleiteten** in den **Zustand "** entfernt" versetzt. |
+| `/deleterodfsrmember [<read_only_domain_controller_name>]` | Löscht die globalen AD DS Einstellungen für DFS-Replikation, die dem angegebenen schreibgeschützten Domänen Controller entsprechen, oder löscht die globalen AD DS Einstellungen für DFS-Replikation für alle schreibgeschützten Domänen Controller, wenn kein Wert für angegeben ist `<read_only_domain_controller_name>` .<p>Verwenden Sie diese Option, um die AD DS Einstellungen nur dann manuell zu löschen, wenn der automatische Löschvorgang auf einem schreibgeschützten Domänen Controller fehlschlägt und den schreibgeschützten Domänen Controller für einen längeren Zeitraum anhält, wenn ein Rollback der Migration vom Zustand "vorbereitet" in den Startstatus erfolgt. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
 #### <a name="remarks"></a>Hinweise
 
-- Verwenden Sie `/setglobalstate <state>` den Befehl zum Festlegen des globalen Migrations Zustands in AD DS auf dem PDC-Emulator, um den Migrationsprozess zu initiieren und zu steuern. Wenn der PDC-Emulator nicht verfügbar ist, schlägt dieser Befehl fehl.
+- Verwenden `/setglobalstate <state>` Sie den Befehl zum Festlegen des globalen Migrations Zustands in AD DS auf dem PDC-Emulator, um den Migrationsprozess zu initiieren und zu steuern. Wenn der PDC-Emulator nicht verfügbar ist, schlägt dieser Befehl fehl.
 
 - **Die Migration** in den Zustand "entfernt" ist nicht rückgängig, und ein Rollback ist nicht möglich. verwenden Sie daher den Wert **3** nur für " *State* ", wenn Sie mit der Verwendung DFS-Replikation für die SYSVOL-Replikation
 
 - Globale Migrations Zustände müssen einen stabilen Migrationsstatus aufweisen.
 
-- Active Directory Replikation repliziert den globalen Status auf andere Domänen Controller in der Domäne, aber aufgrund von Replikations Wartezeiten können Sie Inkonsistenzen erhalten, wenn Sie auf einem anderen Domänen Controller als dem PDC-Emulator ausführen `dfsrmig /getglobalstate` .
+- Active Directory Replikation repliziert den globalen Status auf andere Domänen Controller in der Domäne, aber aufgrund von Replikations Wartezeiten können Sie Inkonsistenzen erhalten, wenn Sie `dfsrmig /getglobalstate` auf einem anderen Domänen Controller als dem PDC-Emulator ausführen.
 
 - Die Ausgabe von `dsfrmig /getmigrationstate` gibt an, ob die Migration zum aktuellen globalen Status beendet ist. dabei wird der lokale Migrationsstatus für alle Domänen Controller aufgelistet, die den aktuellen globalen Migrationsstatus noch nicht erreicht haben. Der lokale Migrationsstatus für Domänen Controller kann auch Übergangszustände für Domänen Controller einschließen, die den aktuellen globalen Migrationsstatus nicht erreicht haben.
 
@@ -152,10 +152,10 @@ dfsrmig
 dfsrmig /?
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](https://go.microsoft.com/fwlink/?LinkId=122056)
 
-- [SYSVOL-Migrations Reihe: Teil 2 DFSRMIG. exe: das SYSVOL-Migrations Tool](https://techcommunity.microsoft.com/t5/storage-at-microsoft/sysvol-migration-series-part-2-8211-dfsrmig-exe-the-sysvol/ba-p/423470)
+- [SYSVOL-Migrations Reihe: Teil 2 dfsrmig.exe: das SYSVOL-Migrations Tool](https://techcommunity.microsoft.com/t5/storage-at-microsoft/sysvol-migration-series-part-2-8211-dfsrmig-exe-the-sysvol/ba-p/423470)
 
 - [Active Directory Domain Services](../../identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview.md)

@@ -1,6 +1,6 @@
 ---
 title: del
-description: Referenz Thema für den Befehl "del", mit dem eine oder mehrere Dateien gelöscht werden.
+description: Referenz Artikel für den Befehl "del", mit dem eine oder mehrere Dateien gelöscht werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f32efd6e29a715cdc67b5a1ddcb166922d1cfcc9
-ms.sourcegitcommit: fad2ba64bbc13763772e21ed3eabd010f6a5da34
+ms.openlocfilehash: 57f0026aebd7ff2119c7de49a03679792c3e5f0c
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82993129"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85928774"
 ---
 # <a name="del"></a>del
 
@@ -34,7 +34,7 @@ erase [/p] [/f] [/s] [/q] [/a[:]<attributes>] <names>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<names>` | Gibt eine Liste von mindestens einer Datei oder einem Verzeichnis an. Platzhalter können verwendet werden, um mehrere Dateien zu löschen. Wenn ein Verzeichnis angegeben wird, werden alle Dateien im Verzeichnis gelöscht. |
 | /p | Fordert vor dem Löschen der angegebenen Datei eine Bestätigung an. |
@@ -96,7 +96,7 @@ Wenn Sie alle schreibgeschützten Dateien im aktuellen Verzeichnis löschen möc
 del /a:r *.*
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

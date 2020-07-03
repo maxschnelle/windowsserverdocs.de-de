@@ -1,6 +1,6 @@
 ---
 title: defrag
-description: Referenz Thema für den Defragmentierung-Befehl, der fragmentierte Dateien auf lokalen Volumes sucht und konsolidiert, um die Systemleistung zu verbessern.
+description: Referenz Artikel für den Defragmentierung-Befehl, der fragmentierte Dateien auf lokalen Volumes sucht und konsolidiert, um die Systemleistung zu verbessern.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bf3ca6febfa07c7780b959389ff57fe4f3a0018b
-ms.sourcegitcommit: fad2ba64bbc13763772e21ed3eabd010f6a5da34
+ms.openlocfilehash: c952ff78147d3b4c6097aaf9dd87e55ecc7911ad
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82993148"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85928794"
 ---
 # <a name="defrag"></a>defrag
 
@@ -35,7 +35,7 @@ defrag <volume> [<parameters>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<volume>` | Gibt den Laufwerk Buchstaben oder den Bereitstellungspunktpfad des Volumes an, das zerlegt oder analysiert werden soll. |
 | /a | Führt eine Analyse der angegebenen Volumes aus. |
@@ -61,7 +61,7 @@ defrag <volume> [<parameters>]
 
   - Volumes, die vom Dateisystem gesperrt sind.
 
-  - Volumes das Dateisystem, das als geändert gekennzeichnet ist, und deutet auf mögliche Beschädigungen hin.<br>Sie müssen Ausführen `chkdsk` , bevor Sie dieses Volume oder Laufwerk zerlegen können. Mithilfe des `fsutil dirty` -Befehls können Sie feststellen, ob ein Volume geändert wurde.
+  - Volumes das Dateisystem, das als geändert gekennzeichnet ist, und deutet auf mögliche Beschädigungen hin.<br>Sie müssen ausführen, `chkdsk` bevor Sie dieses Volume oder Laufwerk zerlegen können. Mithilfe des-Befehls können Sie feststellen, ob ein Volume geändert wurde `fsutil dirty` .
 
   - Netzwerklaufwerke.
 
@@ -79,7 +79,7 @@ defrag <volume> [<parameters>]
 
 - Standardmäßig zeigt **Defragmentierung** eine Zusammenfassung der Analyse-und Defragmentierungsberichte an, wenn Sie die Parameter **/a** und **/v** nicht angeben.
 
-- Sie können die Berichte in eine Textdatei senden, indem **>** Sie <em>filename. txt</em>eingeben, wobei *filename. txt* für einen von Ihnen angegebenen Dateinamen steht. Beispiel: `defrag volume /v > FileName.txt`
+- Sie können die Berichte an eine Textdatei senden, indem Sie **>** <em>FileName.txt</em>eingeben, wobei *FileName.txt* für einen von Ihnen angegebenen Dateinamen steht. Beispiel: `defrag volume /v > FileName.txt`
 
 - Um den Defragmentierungs Prozess zu unterbrechen, drücken Sie in der Befehlszeile **STRG + C**.
 
@@ -131,7 +131,7 @@ Der Defragmentierungsprozess führt die geplante Aufgabe als Wartungs Task aus, 
 
     - Der Computer wurde erneut gestartet (im Leerlauf wieder aufgenommen).
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
@@ -139,6 +139,6 @@ Der Defragmentierungsprozess führt die geplante Aufgabe als Wartungs Task aus, 
 
 - [fsutil](fsutil.md)
 
-- [nicht geändert](fsutil-dirty.md)
+- [fsutil dirty](fsutil-dirty.md)
 
 - [PowerShell-Volumen Optimierung](https://docs.microsoft.com/powershell/module/storage/optimize-volume?view=win10-ps)

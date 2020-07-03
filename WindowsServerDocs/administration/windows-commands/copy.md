@@ -1,6 +1,6 @@
 ---
 title: copy
-description: Referenz Thema für den Kopier Befehl, bei dem eine oder mehrere Dateien von einem Speicherort in einen anderen kopiert werden.
+description: Referenz Artikel für den Kopier Befehl, mit dem eine oder mehrere Dateien von einem Speicherort in einen anderen kopiert werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 909bcdf83c87440dafe2653711c4d7e215f8d66b
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 6ea742ab8fce296a88c8c9e6a41262c7aef88813
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82719297"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85928896"
 ---
 # <a name="copy"></a>copy
 
@@ -31,7 +31,7 @@ copy [/d] [/v] [/n] [/y | /-y] [/z] [/a | /b] <source> [/a | /b] [+<source> [/a 
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | /d | Ermöglicht, dass verschlüsselte Dateien, die kopiert werden, als entschlüsselte Dateien am Ziel gespeichert werden. |
 | /v | Überprüft, ob neue Dateien ordnungsgemäß geschrieben werden. |
@@ -45,7 +45,7 @@ copy [/d] [/v] [/n] [/y | /-y] [/z] [/a | /b] <source> [/a | /b] [+<source> [/a 
 | `<destination>` | Erforderlich. Gibt den Speicherort an, an den Sie eine Datei oder einen Satz von Dateien kopieren möchten. Das *Ziel* kann aus einem Laufwerk Buchstaben und einem Doppelpunkt, einem Verzeichnisnamen, einem Dateinamen oder einer Kombination aus diesen bestehen. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Sie können eine ASCII-Textdatei mit einem Dateiendezeichen (STRG + Z) kopieren, um das Ende der Datei anzugeben.
 
@@ -65,8 +65,8 @@ copy [/d] [/v] [/n] [/y | /-y] [/z] [/a | /b] <source> [/a | /b] [+<source> [/a 
 - Wenn ein Schreibvorgang nicht überprüft werden kann, wird eine Fehlermeldung angezeigt. Obwohl das Aufzeichnen von Fehlern selten mit dem **Kopier** Befehl auftritt, können Sie **/v** verwenden, um zu überprüfen, ob wichtige Daten ordnungsgemäß aufgezeichnet wurden. Die Befehlszeilenoption **/v** verlangsamt auch den **Kopier** Befehl, da jeder auf dem Datenträger aufgezeichnete Sektor geprüft werden muss.
 
 - Wenn **/y** in der **COPYCMD** -Umgebungsvariablen voreingestellt ist, können Sie diese Einstellung mithilfe von **/-y** in der Befehlszeile überschreiben. Standardmäßig werden Sie aufgefordert, wenn Sie diese Einstellung ersetzen, es sei denn, der **Copy** -Befehl wird in einem Batch Skript ausgeführt.
-  
-- Um Dateien anzufügen, geben Sie eine einzelne Datei für das *Ziel*an, aber mehrere Dateien für die *Quelle* (verwenden Sie Platzhalter Zeichen oder das *file1*+*file2*+*datei3* -Format).
+
+- Um Dateien anzufügen, geben Sie eine einzelne Datei für das *Ziel*an, aber mehrere Dateien für die *Quelle* (verwenden Sie Platzhalter Zeichen oder das *file1* + *file2* + *datei3* -Format).
 
 - Wenn die Verbindung während der Kopier Phase unterbrochen wird (z. b. wenn der Server, der offline geschaltet wird, die Verbindung unterbrochen), können Sie **Copy "/z** verwenden, um den Vorgang fortzusetzen, nachdem die Verbindung wieder hergestellt wurde. Die Option **"/z** zeigt auch den Prozentsatz des Kopiervorgangs an, der für jede Datei abgeschlossen ist.
 
@@ -85,7 +85,7 @@ copy [/d] [/v] [/n] [/y | /-y] [/z] [/a | /b] <source> [/a | /b] [+<source> [/a 
 
 - Um Dateien mit einer Länge von 0 Bytes zu kopieren oder alle Dateien und Unterverzeichnisse eines Verzeichnisses zu kopieren, verwenden Sie den [xcopy-Befehl](xcopy.md).
 
-- Verwenden Sie die folgende Syntax, um die aktuelle Uhrzeit und das aktuelle Datum einer Datei zuzuweisen, ohne die Datei zu ändern:  
+- Verwenden Sie die folgende Syntax, um die aktuelle Uhrzeit und das aktuelle Datum einer Datei zuzuweisen, ohne die Datei zu ändern:
 
     ```
     copy /b <source> +,,
@@ -95,7 +95,7 @@ copy [/d] [/v] [/n] [/y | /-y] [/z] [/a | /b] <source> [/a | /b] [+<source> [/a 
 
 ## <a name="examples"></a>Beispiele
 
-Geben Sie Folgendes ein, um eine Datei namens *Memo. doc* in *Letter. doc* auf dem aktuellen Laufwerk zu kopieren und sicherzustellen, dass sich das Dateiendezeichen (STRG + Z) am Ende der kopierten Datei befindet:
+Um eine Datei mit dem Namen *memo.doc* in *letter.doc* auf dem aktuellen Laufwerk zu kopieren und sicherzustellen, dass sich ein Dateiendezeichen (STRG + Z) am Ende der kopierten Datei befindet, geben Sie Folgendes ein:
 
 ```
 copy memo.doc letter.doc /a
@@ -125,7 +125,7 @@ Wenn Sie alle Dateien im *Bericht*kombinieren möchten, wenn bereits eine Datei 
 copy report + mar89.rpt + apr89.rpt + may89.rpt
 ```
 
-Geben Sie Folgendes ein, um alle Dateien im aktuellen Verzeichnis mit der Dateinamenerweiterung ". txt" in einer einzelnen Datei mit dem Namen " *kombinierte. doc*" zu kombinieren:
+Geben Sie Folgendes ein, um alle Dateien im aktuellen Verzeichnis mit der Dateinamenerweiterung ". txt" in einer einzigen Datei mit dem Namen " *Combined.doc*" zu kombinieren:
 
 ```
 copy *.txt Combined.doc
@@ -140,19 +140,19 @@ copy /b *.exe Combined.exe
 > [!CAUTION]
 > Wenn Sie Binärdateien kombinieren, kann die resultierende Datei aufgrund interner Formatierung nicht verwendet werden.
 
-- Wenn Sie jede Datei mit der Erweiterung. txt und der entsprechenden Ref-Datei kombinieren, wird eine Datei mit dem gleichen Dateinamen erstellt, aber mit der Erweiterung. doc. Der **Copy** -Befehl kombiniert *File1. txt* mit *File1. Ref* , um *File1. doc*zu bilden, und der Befehl kombiniert *File2. txt* mit *File2. Ref* , um *File2. doc*zu bilden usw. Beispiel:
+- Wenn Sie jede Datei mit der Erweiterung. txt und der entsprechenden Ref-Datei kombinieren, wird eine Datei mit dem gleichen Dateinamen erstellt, aber mit der Erweiterung. doc. Der **Kopier** Befehl kombiniert *file1.txt* mit *File1. Ref* , um *file1.doc*zu bilden, und anschließend kombiniert der Befehl *file2.txt* mit *File2. Ref* , um *file2.doc*zu bilden usw. Beispiel:
 
 ```
 copy *.txt + *.ref *.doc
 ```
 
-Wenn Sie alle Dateien mit der Erweiterung. txt kombinieren und dann alle Dateien mit der Erweiterung. ref in einer Datei mit dem Namen " *kombinierte. doc*" kombinieren möchten, geben Sie Folgendes ein:
+Wenn Sie alle Dateien mit der Erweiterung. txt kombinieren und dann alle Dateien mit der Erweiterung. ref in einer Datei mit dem Namen *Combined.doc*kombinieren möchten, geben Sie Folgendes ein:
 
 ```
 copy *.txt + *.ref Combined.doc
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

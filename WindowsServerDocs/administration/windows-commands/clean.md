@@ -1,6 +1,6 @@
 ---
 title: clean
-description: Referenz Thema für den "Diskpart Clean"-Befehl, mit dem alle Partitionen oder volumeformatierung aus dem Datenträger mit dem Fokus entfernt werden.
+description: Referenz Artikel zum Clean-Befehl DiskPart, mit dem alle Partitionen oder volumeformatierung aus dem Datenträger mit dem Fokus entfernt werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 45a23919dc07c8c1525808859471fdcb9f9e9403
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 7a30e1f765959ed60efa662301f95defc21d6587
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82712875"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85929908"
 ---
 # <a name="clean"></a>clean
 
@@ -33,11 +33,11 @@ clean [all]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
-| all | Gibt an, dass jeder und jeder Sektor auf dem Datenträger auf NULL festgelegt ist, wodurch alle Daten auf dem Datenträger vollständig gelöscht werden. |
+| alle | Gibt an, dass jeder und jeder Sektor auf dem Datenträger auf NULL festgelegt ist, wodurch alle Daten auf dem Datenträger vollständig gelöscht werden. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Auf Master Boot Record (MBR)-Datenträgern werden nur die MBR-Partitionierungs Informationen und die Informationen zum verborgenen Sektor überschrieben.
 
@@ -53,7 +53,7 @@ Geben Sie Folgendes ein, um die gesamte Formatierung des ausgewählten Datenträ
 clean
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Befehl "Clear-Disk"](https://docs.microsoft.com/powershell/module/storage/clear-disk)
 

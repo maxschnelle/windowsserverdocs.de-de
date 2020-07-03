@@ -1,6 +1,6 @@
 ---
 title: color
-description: Referenz Thema für den Color-Befehl, mit dem die Vordergrund-und Hintergrundfarben im Eingabe Aufforderungs Fenster für die aktuelle Sitzung geändert werden.
+description: Referenz Artikel für den Color-Befehl, mit dem die Vordergrund-und Hintergrundfarben im Eingabe Aufforderungs Fenster für die aktuelle Sitzung geändert werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 94b5a1e4ca4d4a01ea714adc45e64a6efaa32aa6
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 93c51fdbf1909adfda06730c3a517f602f8024b8
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82711934"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85929803"
 ---
 # <a name="color"></a>color
 
@@ -28,7 +28,7 @@ color [[<b>]<f>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<b>` | Gibt die Hintergrundfarbe an. |
 | `<f>` | Gibt die Vordergrundfarbe an. |
@@ -36,36 +36,36 @@ color [[<b>]<f>]
 
 Hierbei gilt:
 
-In der folgenden Tabelle werden gültige hexadezimale Ziffern aufgelistet, die Sie als Werte `<b>` für `<f>`und verwenden können:
+In der folgenden Tabelle werden gültige hexadezimale Ziffern aufgelistet, die Sie als Werte für und verwenden können `<b>` `<f>` :
 
-| Wert | Color |
+| Wert | Farbe |
 | ----- | ----- |
 | 0 | Schwarz |
-| 1 | Blau |
+| 1 | Blue |
 | 2 | Grün |
 | 3 | Aqua |
 | 4 | Red |
-| 5 | Violett |
-| 6 | Gelb |
+| 5 | Purple |
+| 6 | Yellow |
 | 7 | White |
 | 8 | Grau |
 | 9 | Hellblau |
-| a | Hellgrün |
-| b | Hell Aqua |
+| eine | Hellgrün |
+| k | Hell Aqua |
 | c | Hellrot |
 | d | Hell lila |
 | e | Hellgelb |
 | f | Helles Weiß |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
-- Verwenden Sie keine Leerzeichen `<b>` zwischen `<f>`und.
+- Verwenden Sie keine Leerzeichen zwischen `<b>` und `<f>` .
 
 - Wenn Sie nur eine hexadezimale Ziffer angeben, wird die entsprechende Farbe als Vordergrundfarbe verwendet, und die Hintergrundfarbe wird auf die Standardfarbe festgelegt.
 
 - Wenn Sie die standardmäßige Eingabe Aufforderungs Fenster Farbe festlegen möchten, wählen Sie die linke obere Ecke des **Eingabe** Aufforderungs Fensters aus, wählen Sie **Standard**aus, wählen Sie die Registerkarte **Farben** aus, und wählen Sie dann die Farben aus, die Sie für den **Bildschirm Text** und den **Bildschirmhintergrund**verwenden möchten.
 
-- Wenn `<b>` und `<f>` den gleichen Farbwert haben, wird ERRORLEVEL auf `1`festgelegt, und es wird keine Änderung an der Vorder-oder Hintergrundfarbe vorgenommen.
+- Wenn `<b>` und `<f>` den gleichen Farbwert haben, wird ERRORLEVEL auf festgelegt `1` , und es wird keine Änderung an der Vorder-oder Hintergrundfarbe vorgenommen.
 
 ## <a name="examples"></a>Beispiele
 
@@ -84,6 +84,6 @@ color e
 > [!NOTE]
 > In diesem Beispiel wird der Hintergrund auf die Standardfarbe festgelegt, da nur eine hexadezimale Ziffer angegeben wird.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -1,6 +1,6 @@
 ---
 title: bitsadmin create
-description: Referenz Thema für den Befehl bizadmin Create, mit dem ein Übertragungs Auftrag mit dem angegebenen anzeigen Amen erstellt wird.
+description: Referenz Artikel für den Befehl bizadmin Create, mit dem ein Übertragungs Auftrag mit dem angegebenen anzeigen Amen erstellt wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 728027eb4680805c1f9a2afc32d8d37a14239597
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: b3e0f8fb7d8396a238cabcbeb375f61cbe526c3f
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82718220"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85928344"
 ---
 # <a name="bitsadmin-create"></a>bitsadmin create
 
@@ -23,7 +23,7 @@ ms.locfileid: "82718220"
 Erstellt einen Übertragungs Auftrag mit dem angegebenen anzeigen Amen.
 
 > [!NOTE]
-> Die Parametertypen **"/Upload"** und **/Upload-Reply** werden von Bits 1,2 und früher nicht unterstützt.
+> Die **/Upload**   Parametertypen "/Upload" und **/Upload-Reply** werden von Bits 1,2 und früher nicht unterstützt.
 
 ## <a name="syntax"></a>Syntax
 
@@ -46,7 +46,7 @@ So erstellen Sie einen Download Auftrag mit dem Namen *mydownloadjob*:
 bitsadmin /create myDownloadJob
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

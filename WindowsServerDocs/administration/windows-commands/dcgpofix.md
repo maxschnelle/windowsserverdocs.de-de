@@ -1,6 +1,6 @@
 ---
 title: dcgpofix
-description: Referenz Thema zum Dcgpofix-Befehl, mit dem die Standard-Gruppenrichtlinie Objekte (GPOs) für eine Domäne neu erstellt werden.
+description: Referenz Artikel zum Dcgpofix-Befehl, mit dem die Standard-Gruppenrichtlinie Objekte (GPOs) für eine Domäne neu erstellt werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f11b7db8110cd2d7dcf08cd250eba411e7ff21a8
-ms.sourcegitcommit: fad2ba64bbc13763772e21ed3eabd010f6a5da34
+ms.openlocfilehash: cf9e3c37c054c34d602e472a2c5f83e9a8b284b9
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82993166"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85928803"
 ---
 # <a name="dcgpofix"></a>dcgpofix
 
@@ -31,7 +31,7 @@ dcgpofix [/ignoreschema] [/target: {domain | dc | both}] [/?]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | /ignoreschema | Ignoriert die Version des Active Directory Schemas, wenn Sie diesen Befehl ausführen. Andernfalls funktioniert der Befehl nur für dieselbe Schema Version wie die Windows-Version, in der der Befehl ausgeliefert wurde. |
 | `/target {domain | dc | both` | Gibt an, ob die Standard Domänen Richtlinie, die Standard Domänen Controller-Richtlinie oder beide Richtlinien Typen als Ziel festgelegt werden sollen. |
@@ -51,6 +51,6 @@ Geben Sie Folgendes ein, um das Gruppenrichtlinien Objekt Standard Domänen Cont
 dcgpofix /ignoreschema /target:dc
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

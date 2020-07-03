@@ -1,6 +1,6 @@
 ---
 title: detach vdisk
-description: Referenz Thema für den Befehl "Vdisk trennen", mit dem die ausgewählte virtuelle Festplatte (VHD) nicht mehr als lokales Festplattenlaufwerk auf dem Host Computer angezeigt wird.
+description: Referenz Artikel zum Befehl "Vdisk trennen", mit dem die ausgewählte virtuelle Festplatte (VHD) nicht mehr als lokales Festplattenlaufwerk auf dem Host Computer angezeigt wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 427b27630341589f3ff6dd422667e1247f5b64ec
-ms.sourcegitcommit: fad2ba64bbc13763772e21ed3eabd010f6a5da34
+ms.openlocfilehash: bce18dcf55940ca8529e4bee21af2f09282d0e00
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82993081"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85928702"
 ---
 # <a name="detach-vdisk"></a>detach vdisk
 
@@ -31,7 +31,7 @@ detach vdisk [noerr]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | Noerr | Nur für Skripterstellung. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird. |
 
@@ -43,7 +43,7 @@ Geben Sie Folgendes ein, um die ausgewählte VHD zu trennen:
 detach vdisk
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

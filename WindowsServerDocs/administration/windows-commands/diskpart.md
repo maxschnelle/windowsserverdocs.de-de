@@ -1,17 +1,17 @@
 ---
 title: diskpart
-description: Referenz Thema für den DiskPart-Befehls Interpreter, der Sie bei der Verwaltung der Laufwerke Ihres Computers unterstützt.
+description: Referenz Artikel für den DiskPart-Befehls Interpreter, der Sie bei der Verwaltung der Laufwerke Ihres Computers unterstützt.
 ms.prod: windows-server
 ms.technology: storage
 author: jasongerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: 8b6d36e428daaefd7cf26e42170442373fc7551c
-ms.sourcegitcommit: fad2ba64bbc13763772e21ed3eabd010f6a5da34
+ms.openlocfilehash: 87fc3a2e91b2f5ac22e87485d9258ef369ff0da0
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82992570"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85929308"
 ---
 # <a name="diskpart"></a>diskpart
 
@@ -58,7 +58,7 @@ diskpart <parameter>
 
 Sie können die folgenden Befehle über den DiskPart-Befehls Interpreter ausführen:
 
-| Get-Help | BESCHREIBUNG |
+| Befehl | Beschreibung |
 | ------- | ----------- |
 | [active](active.md) | Markiert die Partition des Datenträgers mit dem Fokus als aktiv. |
 | [add](add.md) | Spiegelt das einfache Volume mit dem Fokus auf den angegebenen Datenträger. |
@@ -68,38 +68,38 @@ Sie können die folgenden Befehle über den DiskPart-Befehls Interpreter ausfüh
 | [automount](automount.md) | Aktiviert oder deaktiviert das Feature "automatischen Bereitstellung". |
 | [break](break.md) | Unterbricht das gespiegelte Volume mit dem Fokus auf zwei einfache Volumes. |
 | [clean](clean.md) | Entfernt alle Partitionen oder volumeformatierung aus dem Datenträger mit dem Fokus. |
-| [Compact Vdisk](compact-vdisk.md) | Verringert die physische Größe einer dynamisch erweiterbaren virtuellen Festplatten Datei (VHD). |
+| [compact vdisk](compact-vdisk.md) | Verringert die physische Größe einer dynamisch erweiterbaren virtuellen Festplatten Datei (VHD). |
 | [convert](convert.md) | Konvertiert Dateizuordnungs-und FAT32-Volumes in das NTFS-Dateisystem, sodass vorhandene Dateien und Verzeichnisse intakt bleiben. |
-| [Stelle](create.md) | Erstellt eine Partition auf einem Datenträger, einem Volume auf einem oder mehreren Datenträgern oder einer virtuellen Festplatte (VHD). |
+| [create](create.md) | Erstellt eine Partition auf einem Datenträger, einem Volume auf einem oder mehreren Datenträgern oder einer virtuellen Festplatte (VHD). |
 | [delete](delete.md) | Löscht eine Partition oder ein Volume. |
 | [detach vdisk](detach-vdisk.md) | Verhindert, dass die ausgewählte virtuelle Festplatte (VHD) als lokales Festplattenlaufwerk auf dem Host Computer angezeigt wird. |
-| [einzelnen](detail.md) | Zeigt Informationen zum ausgewählten Datenträger, der Partition, dem Volume oder der virtuellen Festplatte (VHD) an. |
+| [detail](detail.md) | Zeigt Informationen zum ausgewählten Datenträger, der Partition, dem Volume oder der virtuellen Festplatte (VHD) an. |
 | [exit](exit.md) | Beendet den DiskPart-Befehls Interpreter. |
-| [Erweitern von Vdisk](expand-vdisk.md) | Erweitert eine virtuelle Festplatte (VHD) auf die Größe, die Sie angeben. |
+| [expand vdisk](expand-vdisk.md) | Erweitert eine virtuelle Festplatte (VHD) auf die Größe, die Sie angeben. |
 | [extend](extend.md) | Erweitert das Volume oder die Partition mit dem Fokus zusammen mit dem Dateisystem in den freien (nicht zugeordneten) Speicherplatz auf einem Datenträger. |
-| [Dateisysteme](filesystems.md) | Zeigt Informationen zum aktuellen Dateisystem des Volumes mit dem Fokus an und listet die Dateisysteme auf, die zum Formatieren des Volumes unterstützt werden. |
+| [filesystems](filesystems.md) | Zeigt Informationen zum aktuellen Dateisystem des Volumes mit dem Fokus an und listet die Dateisysteme auf, die zum Formatieren des Volumes unterstützt werden. |
 | [format](format.md) | Formatiert einen Datenträger zum Akzeptieren von Windows-Dateien. |
-| [GPT](gpt.md) | Weist die GPT-Attribute der Partition zu, wobei der Fokus auf Basis Datenträgern für die GUID-Partitionstabelle (GPT) liegt. |
+| [gpt](gpt.md) | Weist die GPT-Attribute der Partition zu, wobei der Fokus auf Basis Datenträgern für die GUID-Partitionstabelle (GPT) liegt. |
 | [help](help.md) | Zeigt eine Liste der verfügbaren Befehle oder ausführliche Hilfe Informationen zu einem angegebenen Befehl an. |
 | [import](import.md) | Importiert eine fremde Datenträger Gruppe in die Datenträger Gruppe des lokalen Computers. |
-| [VSTE](inactive.md) | Markiert die Systempartition oder Start Partition, deren Fokus auf grundlegenden Master Boot Record-Datenträgern (MBR) liegt. |
+| [inactive](inactive.md) | Markiert die Systempartition oder Start Partition, deren Fokus auf grundlegenden Master Boot Record-Datenträgern (MBR) liegt. |
 | [list](list.md) | Zeigt eine Liste von Datenträgern, von Partitionen auf einem Datenträger, von Volumes auf einem Datenträger oder von virtuellen Festplatten (VHDs) an. |
-| [Vdisk zusammenführen](merge-vdisk.md) | Führt eine differenzierende virtuelle Festplatte (VHD) mit der entsprechenden übergeordneten VHD zusammen. |
-| [aufzu](offline.md) | Nimmt einen Online Datenträger oder ein Online Volume in den Offline Zustand. |
-| [Internet](online.md) | Nimmt einen Offline Datenträger oder ein Offline Volume in den Online Zustand. |
+| [merge vdisk](merge-vdisk.md) | Führt eine differenzierende virtuelle Festplatte (VHD) mit der entsprechenden übergeordneten VHD zusammen. |
+| [offline](offline.md) | Nimmt einen Online Datenträger oder ein Online Volume in den Offline Zustand. |
+| [online](online.md) | Nimmt einen Offline Datenträger oder ein Offline Volume in den Online Zustand. |
 | [recover](recover.md) | Aktualisiert den Status aller Datenträger in einer Datenträger Gruppe, versucht, Datenträger in einer ungültigen Datenträger Gruppe wiederherzustellen, und synchronisiert die gespiegelten Volumes und RAID-5-Volumes mit veralteten Daten erneut. |
 | [rem](rem.md) | Bietet eine Möglichkeit zum Hinzufügen von Kommentaren zu einem Skript. |
 | [remove](remove.md) | Entfernt einen Laufwerk Buchstaben oder einen Einfügepunkt von einem Volume. |
-| [Reparatur](repair.md) | Repariert das RAID-5-Volume mit dem Fokus, indem der fehlerhafte Datenträger Bereich durch die angegebene dynamische Festplatte ersetzt wird. |
-| [neu einlesen](rescan.md) | Es werden neue Datenträger gesucht, die möglicherweise dem Computer hinzugefügt wurden. |
-| [erhalten](retain.md) | Bereitet ein vorhandenes dynamisches einfaches Volume vor, das als Start-oder System Volume verwendet werden soll. |
-| [chen](san.md) | Zeigt die Storage Area Network-Richtlinie (San) für das Betriebssystem an oder legt diese fest. |
+| [repair](repair.md) | Repariert das RAID-5-Volume mit dem Fokus, indem der fehlerhafte Datenträger Bereich durch die angegebene dynamische Festplatte ersetzt wird. |
+| [rescan](rescan.md) | Es werden neue Datenträger gesucht, die möglicherweise dem Computer hinzugefügt wurden. |
+| [retain](retain.md) | Bereitet ein vorhandenes dynamisches einfaches Volume vor, das als Start-oder System Volume verwendet werden soll. |
+| [san](san.md) | Zeigt die Storage Area Network-Richtlinie (San) für das Betriebssystem an oder legt diese fest. |
 | [select](select.md) | Verschiebt den Fokus auf einen Datenträger, eine Partition, ein Volume oder eine virtuelle Festplatte (VHD). |
-| [ID festlegen](set-id.md) | Ändert das Feld Partitionstyp für die Partition mit dem Fokus. |
+| [set id](set-id.md) | Ändert das Feld Partitionstyp für die Partition mit dem Fokus. |
 | [shrink](shrink.md) | Verringert die Größe des ausgewählten Volumes um den angegebenen Betrag. |
-| [UniqueId](uniqueid.md) | Zeigt den GPT-Bezeichner (GUID-Partitionstabelle) oder die Master Boot Record (MBR)-Signatur für den Datenträger mit Fokus an oder legt ihn fest. |
+| [uniqueid](uniqueid.md) | Zeigt den GPT-Bezeichner (GUID-Partitionstabelle) oder die Master Boot Record (MBR)-Signatur für den Datenträger mit Fokus an oder legt ihn fest. |
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

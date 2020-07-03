@@ -1,6 +1,6 @@
 ---
 title: delete
-description: Referenz Thema für den DELETE-Befehl, mit dem eine Partition oder ein Volume gelöscht wird.
+description: Referenz Artikel für den DELETE-Befehl, mit dem eine Partition oder ein Volume gelöscht wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d87c3696c9f459098b3b1834f46dbb76a49d5d74
-ms.sourcegitcommit: fad2ba64bbc13763772e21ed3eabd010f6a5da34
+ms.openlocfilehash: c3ebd26438836d19f0bcae51a26ba09ebe4fa723
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82993088"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85929489"
 ---
 # <a name="delete"></a>delete
 
@@ -31,13 +31,13 @@ delete volume
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 |---------- | ----------- |
 | [Datenträger löschen](delete-disk.md) | Löscht eine fehlende dynamische Festplatte aus der Liste der Datenträger. |
 | [Partition löschen](delete-partition.md) | Löscht eine Partition. |
 | [Schatten löschen](delete-shadows.md) | Löscht Schatten Kopien. |
-| [Löschen eines Volume](delete-volume.md) | Löscht ein Volume. |
+| [Volume löschen](delete-volume.md) | Löscht ein Volume. |
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

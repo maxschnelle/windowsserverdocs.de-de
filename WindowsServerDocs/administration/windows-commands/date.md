@@ -1,6 +1,6 @@
 ---
 title: date
-description: Referenz Thema für den Date-Befehl, mit dem das Systemdatum angezeigt oder festgelegt wird. Bei Verwendung ohne Parameter
+description: Referenz Artikel zum Date-Befehl, mit dem das Systemdatum angezeigt oder festgelegt wird. Bei Verwendung ohne Parameter
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 64d0d94061e1b5c7891b364f4c0fe153b44a564e
-ms.sourcegitcommit: fad2ba64bbc13763772e21ed3eabd010f6a5da34
+ms.openlocfilehash: d22c354af45aa0c6383c0dde911b03704bd7a150
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82993204"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85928811"
 ---
 # <a name="date"></a>date
 
@@ -31,7 +31,7 @@ date [/t | <month-day-year>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<month-day-year>` | Legt das angegebene Datum fest, wobei *Month* der Monat ist (eine oder zwei Ziffern, einschließlich der Werte 1 bis 12), *Day* der Tag (eine oder zwei Ziffern, einschließlich der Werte 1 bis 31) und *year* das Jahr (zwei oder vier Ziffern, einschließlich der Werte 00 bis 99 oder 1980 bis 2099). Sie müssen Werte für " *Month*", " *Day*" und " *year* " durch Punkte (.), Bindestriche (-) oder Schrägstriche (/) aufteilen.<p>**Hinweis:** Beachten Sie, dass bei Verwendung von 2 Ziffern zur Darstellung des Jahres die Werte 80-99 1980 bis 1999 entsprechen. |
 | /t | Zeigt das aktuelle Datum an, ohne Sie zur Eingabe eines neuen Datums aufzufordern. |
@@ -62,6 +62,6 @@ Enter the new date: (mm-dd-yyyy)
 
 Drücken **Sie die Eingabe**Taste, um das aktuelle Datum beizubehalten und zur Eingabeaufforderung zurückzukehren. Um das aktuelle Datum zu ändern, geben Sie das neue Datum ein, und drücken Sie dann die **Eingabe**Taste.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

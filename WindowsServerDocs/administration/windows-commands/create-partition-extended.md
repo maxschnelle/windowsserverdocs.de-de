@@ -1,6 +1,6 @@
 ---
 title: Erstellen einer Partition erweitert
-description: Referenz Thema für den erweiterten Create Partition-Befehl, mit dem eine erweiterte Partition auf dem Datenträger mit dem Fokus erstellt wird.
+description: Referenz Artikel für den erweiterten Befehl "Partition erstellen", mit dem eine erweiterte Partition auf dem Datenträger mit dem Fokus erstellt wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9d2cc591dca276f70b3ddda1827607d5e2953ed2
-ms.sourcegitcommit: fad2ba64bbc13763772e21ed3eabd010f6a5da34
+ms.openlocfilehash: 6acc766a6d9e2fd51bc9c6726d5dec2168ec7eef
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82993283"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85929685"
 ---
 # <a name="create-partition-extended"></a>Erstellen einer Partition erweitert
 
@@ -35,7 +35,7 @@ create partition extended [size=<n>] [offset=<n>] [align=<n>] [noerr]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | Größe =`<n>` | Gibt die Größe der Partition in Megabyte (MB) an. Wenn keine Größe angegeben wird, wird die Partition so lange fortgesetzt, bis der freie Speicherplatz in der erweiterten Partition nicht mehr verfügbar ist. |
 | Offset =`<n>` | Gibt den Offset in Kilobyte (KB) an, bei dem die Partition erstellt wird. Wenn kein Offset angegeben wird, wird die Partition am Anfang des freien Speicherplatzes auf dem Datenträger gestartet, der groß genug ist, um die neue Partition zu speichern. |
@@ -50,7 +50,7 @@ Geben Sie Folgendes ein, um eine erweiterte Partition mit einer Größe von 1000
 create partition extended size=1000
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

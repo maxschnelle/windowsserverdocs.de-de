@@ -1,6 +1,6 @@
 ---
-title: Ksetup getenctypeattr
-description: Referenz Thema für den Befehl "Ksetup getenctypeattr", mit dem das Verschlüsselungstyp Attribut für die Domäne abgerufen wird.
+title: ksetup getenctypeattr
+description: Referenz Artikel für den Befehl "Ksetup getenctypeattr", der das Verschlüsselungstyp Attribut für die Domäne abruft.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2acead4ff1179002303c18d4feff262080203a28
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: 1fa86e8f9a9f2a2e552c7b968c447707b09e7e86
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83817700"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85929141"
 ---
-# <a name="ksetup-getenctypeattr"></a>Ksetup getenctypeattr
+# <a name="ksetup-getenctypeattr"></a>ksetup getenctypeattr
 
 Ruft das Verschlüsselungstyp Attribut für die Domäne ab. Bei erfolgreicher oder fehlgeschlagener Ausführung wird eine Statusmeldung angezeigt.
 
@@ -30,7 +30,7 @@ ksetup /getenctypeattr <domainname>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<domainname>` | Der Name der Domäne, zu der Sie eine Verbindung herstellen möchten. Verwenden Sie den voll qualifizierten Domänen Namen oder eine einfache Form des Namens, z. b. Corp.contoso.com oder Configuration Manager. |
 
@@ -42,7 +42,7 @@ Um das Verschlüsselungstyp Attribut für die Domäne zu überprüfen, geben Sie
 ksetup /getenctypeattr mit.contoso.com
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

@@ -1,6 +1,6 @@
 ---
 title: fsutil volume
-description: Referenz Thema für den Befehl "fsutil Volume", bei dem ein Volume getrennt wird, oder zum Abfragen des Festplatten Laufwerks, um zu bestimmen, wie viel freier Speicherplatz auf dem Festplattenlaufwerk aktuell verfügbar ist oder welche Datei einen bestimmten Cluster verwendet.
+description: Referenz Artikel für den Befehl fsutil Volume, bei dem ein Volume getrennt wird, oder zum Abfragen des Festplatten Laufwerks, um zu bestimmen, wie viel freier Speicherplatz auf dem Festplattenlaufwerk aktuell verfügbar ist oder welche Datei einen bestimmten Cluster verwendet.
 ms.prod: windows-server
 manager: dmoss
 ms.author: toklima
@@ -9,12 +9,12 @@ ms.technology: storage
 ms.assetid: 0397c204-b3f8-4fd8-b71d-b7efb117766d
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: 18671447664c47af48b4ca074aab823fd2b78625
-ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
+ms.openlocfilehash: aef1012cef33aeb2718dac4681b9119ea1a16590
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2020
-ms.locfileid: "83436835"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85929240"
 ---
 # <a name="fsutil-volume"></a>fsutil volume
 
@@ -87,7 +87,7 @@ Geben Sie Folgendes ein, um die Dateien zu finden, die die Cluster verwenden, di
 fsutil volume querycluster C: 50 0x2000
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

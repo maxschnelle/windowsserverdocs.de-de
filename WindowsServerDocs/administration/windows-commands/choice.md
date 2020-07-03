@@ -1,6 +1,6 @@
 ---
 title: choice
-description: Referenz Thema für den Choice-Befehl, mit dem der Benutzer aufgefordert wird, ein Element aus einer Liste von Einzelzeichen in einem Batch Programm auszuwählen, und dann den Index der ausgewählten Auswahl zurückgibt.
+description: Referenz Artikel für den Choice-Befehl, der den Benutzer auffordert, ein Element aus einer Liste von Einzelzeichen in einem Batch Programm auszuwählen, und dann den Index der ausgewählten Auswahl zurückgibt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 32c0daa680178c1952015c62c6c6749acf5f6143
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 745321c6388e6faa9de1ce1a8a24afe66514d259
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82713534"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85929987"
 ---
 # <a name="choice"></a>choice
 
@@ -28,9 +28,9 @@ choice [/c [<choice1><choice2><…>]] [/n] [/cs] [/t <timeout> /d <choice>] [/m 
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
-| /c`<choice1><choice2><…>` | Gibt die Liste der zu erstellenden Optionen an. Gültige Optionen sind a-z, a-z, 0-9 und erweiterte ASCII-Zeichen (128-254). Die Standardliste ist yn, das als `[Y,N]?`angezeigt wird. |
+| /c`<choice1><choice2><…>` | Gibt die Liste der zu erstellenden Optionen an. Gültige Optionen sind a-z, a-z, 0-9 und erweiterte ASCII-Zeichen (128-254). Die Standardliste ist yn, das als angezeigt wird `[Y,N]?` . |
 | /n | Blendet die Liste der Auswahlmöglichkeiten aus, obwohl die Auswahl weiterhin aktiviert ist und der Meldungs Text (falls durch **/m**angegeben) weiterhin angezeigt wird. |
 | /CS | Gibt an, dass die Groß-/Kleinschreibung beachtet werden soll. Standardmäßig wird die Groß-/Kleinschreibung nicht beachtet. |
 | /t`<timeout>` | Gibt die Anzahl der Sekunden an, die angehalten werden soll, bevor die von **/d**angegebene Standardauswahl verwendet wird. Zulässige Werte liegen zwischen **0** und **9999**. Wenn **/t** auf **0**festgelegt ist, wird die **Auswahl** nicht angehalten, bevor die Standardauswahl zurückgegeben wird. |
@@ -38,11 +38,11 @@ choice [/c [<choice1><choice2><…>]] [/n] [/cs] [/t <timeout> /d <choice>] [/m 
 | /m`<text>` | Gibt eine Meldung an, die vor der Auswahlliste angezeigt werden soll. Wenn **/m** nicht angegeben ist, wird nur die Auswahl Aufforderung angezeigt. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 
-- Die **ERRORLEVEL** -Umgebungsvariable wird auf den Index des Schlüssels festgelegt, den der Benutzer aus der Liste der Optionen auswählt. Die erste Auswahl in der Liste gibt den Wert zurück `1`, der zweite Wert von `2`usw. Wenn der Benutzer eine Taste drückt, bei der es sich nicht um eine gültige Auswahl handelt, wird von der **Auswahl** eine Warnung angezeigt. 
+- Die **ERRORLEVEL** -Umgebungsvariable wird auf den Index des Schlüssels festgelegt, den der Benutzer aus der Liste der Optionen auswählt. Die erste Auswahl in der Liste gibt den Wert zurück `1` , der zweite Wert von `2` usw. Wenn der Benutzer eine Taste drückt, bei der es sich nicht um eine gültige Auswahl handelt, wird von der **Auswahl** eine Warnung angezeigt.
 
-- Wenn **Choice** eine Fehlerbedingung erkennt, wird der `255` **ERRORLEVEL** -Wert zurückgegeben. Wenn der Benutzer STRG + Pause oder STRG + C drückt, gibt **Choice** einen **ERRORLEVEL** -Wert `0`von zurück.
+- Wenn **Choice** eine Fehlerbedingung erkennt, wird der **ERRORLEVEL** -Wert zurückgegeben `255` . Wenn der Benutzer STRG + Pause oder STRG + C drückt, gibt **Choice** einen **ERRORLEVEL** -Wert von zurück `0` .
 
 > [!NOTE]
 > Wenn Sie **ERRORLEVEL** -Werte in einem Batch-Programm verwenden, müssen Sie Sie in absteigender Reihenfolge auflisten.
@@ -83,8 +83,8 @@ choice /c ync /t 5 /d n
 ```
 
 > [!NOTE]
-> Wenn der Benutzer in diesem Beispiel nicht innerhalb von fünf Sekunden eine Taste drückt, wählt **Choice** standardmäßig **N** aus und gibt einen Fehlerwert `2`von zurück. Andernfalls gibt **Choice** den Wert zurück, der der Auswahl des Benutzers entspricht.
+> Wenn der Benutzer in diesem Beispiel nicht innerhalb von fünf Sekunden eine Taste drückt, wählt **Choice** standardmäßig **N** aus und gibt einen Fehlerwert von zurück `2` . Andernfalls gibt **Choice** den Wert zurück, der der Auswahl des Benutzers entspricht.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

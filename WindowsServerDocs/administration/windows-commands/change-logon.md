@@ -1,6 +1,6 @@
 ---
 title: change logon
-description: Referenz Thema zum Ändern des Anmelde Befehls, mit dem Anmeldungen von Client Sitzungen aktiviert oder deaktiviert werden oder der aktuelle Anmeldestatus angezeigt wird.
+description: Referenz Artikel zum Ändern des Anmelde Befehls, mit dem Anmeldungen von Client Sitzungen aktiviert oder deaktiviert werden oder der aktuelle Anmeldestatus angezeigt wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4a2ebe75f6efa8c3bcfc0018d1f4e6051bb9ebb7
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 1561434347bc6a56e628f185e0984e33587bd999
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82716122"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85929120"
 ---
 # <a name="change-logon"></a>change logon
 
@@ -33,7 +33,7 @@ change logon {/query | /enable | /disable | /drain | /drainuntilrestart}
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | /Query "aus | Zeigt den aktuellen Anmeldestatus an, ob aktiviert oder deaktiviert. |
 | /enable | Aktiviert Anmeldungen von Client Sitzungen, jedoch nicht über die-Konsole. |
@@ -42,7 +42,7 @@ change logon {/query | /enable | /disable | /drain | /drainuntilrestart}
 | /drainuntilrestart | Deaktiviert Anmeldungen von neuen Client Sitzungen, bis der Computer neu gestartet wird, ermöglicht aber das erneute Herstellen von Verbindungen mit vorhandenen Sitzungen. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Anmeldungen werden erneut aktiviert, wenn Sie das System neu starten.
 
@@ -51,7 +51,7 @@ change logon {/query | /enable | /disable | /drain | /drainuntilrestart}
 ### <a name="examples"></a>Beispiele
 
 - Geben Sie Folgendes ein, um den aktuellen Anmeldestatus anzuzeigen:
-  
+
   ```
   change logon /query
   ```
@@ -67,8 +67,8 @@ change logon {/query | /enable | /disable | /drain | /drainuntilrestart}
   ```
   change logon /disable
   ```
-  
-## <a name="additional-references"></a>Zusätzliche Referenzen
+
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

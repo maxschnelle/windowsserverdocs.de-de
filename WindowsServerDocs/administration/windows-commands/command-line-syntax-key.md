@@ -1,6 +1,6 @@
 ---
 title: Befehlszeilen-Syntax Schlüssel
-description: Referenz Thema für den Befehlszeilen-Syntax Schlüssel, in dem die Notation zum Angeben der Befehlszeilen Syntax beschrieben wird.
+description: Referenz Artikel für den Befehlszeilen-Syntax Schlüssel, der die Notation beschreibt, die zur Angabe der Befehlszeilen Syntax verwendet wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3a3c78b6081733164be3a656e67c35dd3e2b5e2d
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 7beaab6b6ac05f8e440276424d2cbdb81ddc73b4
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82711948"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85929729"
 ---
 # <a name="command-line-syntax-key"></a>Befehlszeilen-Syntax Schlüssel
 
 In der folgenden Tabelle wird die Notation beschrieben, mit der die Befehlszeilen Syntax angegeben wird.
 
-| Notation | BESCHREIBUNG |
+| Notation | Beschreibung |
 | -------- | ----------- |
 | Text ohne eckige Klammern oder geschweifte Klammern | Elemente, die Sie wie gezeigt eingeben müssen. |
 | `<Text inside angle brackets>` | Platzhalter, für den Sie einen Wert angeben müssen. |

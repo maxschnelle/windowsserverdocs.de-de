@@ -1,6 +1,6 @@
 ---
 title: chgusr
-description: Referenz Thema für den chgusr-Befehl, mit dem der Installationsmodus für den Remotedesktop-Sitzungshost Server geändert wird.
+description: Referenz Artikel für den chgusr-Befehl, mit dem der Installationsmodus für den Remotedesktop-Sitzungshost Server geändert wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 41f4dba85e88e34e085fe60882e00ecd42d1c0c8
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 450d19dc8b7b415a44d290ee3ed360a4f5014ee3
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82714444"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85930018"
 ---
 # <a name="chgusr"></a>chgusr
 
@@ -25,7 +25,7 @@ ms.locfileid: "82714444"
 > [!NOTE]
 > Dieser Befehl wurde durch den **Benutzer Änderungs Befehl**ersetzt. Weitere Informationen, einschließlich Syntax und Parameter Details, finden Sie unter [Change User Command](change-user.md).
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

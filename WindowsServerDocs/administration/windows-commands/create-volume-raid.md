@@ -1,6 +1,6 @@
 ---
-title: Erstellen eines Volume-RAID
-description: Referenz Thema zum Create Volume RAID-Befehl, mit dem ein RAID-5-Volume mit drei oder mehr angegebenen dynamischen Datenträgern erstellt wird.
+title: create volume raid
+description: Referenz Artikel zum Create Volume RAID-Befehl, mit dem ein RAID-5-Volume mit drei oder mehr angegebenen dynamischen Datenträgern erstellt wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1c773cf4412640759910e8c127a95f7cc34581d4
-ms.sourcegitcommit: fad2ba64bbc13763772e21ed3eabd010f6a5da34
+ms.openlocfilehash: 0c3b142e7fd678af04d1bc4e109ac399807da06e
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82993231"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85929547"
 ---
-# <a name="create-volume-raid"></a>Erstellen eines Volume-RAID
+# <a name="create-volume-raid"></a>create volume raid
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -30,10 +30,10 @@ create volume raid [size=<n>] disk=<n>,<n>,<n>[,<n>,...] [align=<n>] [noerr]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | Größe =`<n>` | Die Menge des Speicherplatzes in Megabyte (MB), die das Volume auf den einzelnen Datenträgern einnimmt. Wenn keine Größe angegeben wird, wird das größte mögliche RAID-5-Volume erstellt. Der Datenträger mit dem kleinsten verfügbaren, verfügbaren freien Speicherplatz bestimmt die Größe des RAID-5-Volumes, und der Speicherplatz wird von jedem Datenträger zugeordnet. Der tatsächliche Speicherplatz auf dem RAID-5-Volume ist geringer als die kombinierte Menge an Speicherplatz, da ein Teil des Speicherplatzes für die Parität benötigt wird. |
-| Festplatte =`<n>,<n>,<n>[,<n>,...]` | Die dynamischen Datenträger, auf denen das RAID-5-Volume erstellt werden soll. Zum Erstellen eines RAID-5-Volumes benötigen Sie mindestens drei dynamische Datenträger. Eine Menge an Speicherplatz, `size=<n>` der gleich ist, wird auf jedem Datenträger zugeordnet. |
+| Festplatte =`<n>,<n>,<n>[,<n>,...]` | Die dynamischen Datenträger, auf denen das RAID-5-Volume erstellt werden soll. Zum Erstellen eines RAID-5-Volumes benötigen Sie mindestens drei dynamische Datenträger. Eine Menge an Speicherplatz, der gleich `size=<n>` ist, wird auf jedem Datenträger zugeordnet. |
 | ausrichten =`<n>` | Richtet alle volumeblöcke an der nächstgelegenen Ausrichtungs Grenze aus. Wird in der Regel mit den Hardware-RAID-Arrays der logischen Gerätenummer verwendet, um die Leistung zu verbessern. `<n>`die Anzahl der Kilobyte (KB) vom Anfang des Datenträgers bis zur nächsten Ausrichtungs Grenze. |
 | Noerr | Nur für Skripterstellung. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird. |
 
@@ -45,7 +45,7 @@ Geben Sie Folgendes ein, um ein RAID-5-Volume mit einer Größe von 1000 Megabyt
 create volume raid size=1000 disk=1,2,3
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

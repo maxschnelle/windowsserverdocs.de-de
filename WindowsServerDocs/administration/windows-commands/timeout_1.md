@@ -1,6 +1,6 @@
 ---
 title: timeout
-description: Referenz Thema für Timeout, bei dem der Befehlsprozessor für die angegebene Anzahl von Sekunden angehalten wird.
+description: Referenz Artikel für Timeout, bei dem der Befehlsprozessor für die angegebene Anzahl von Sekunden angehalten wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ed66342c4f0bbe22e9d2dc6440d291941c769cd7
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 62ead9473a9034c02fab18f2318ecb5162511922
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82721349"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85930093"
 ---
 # <a name="timeout"></a>timeout
 
@@ -25,18 +25,18 @@ Hält den Befehlsprozessor für die angegebene Anzahl von Sekunden an.
 ## <a name="syntax"></a>Syntax
 
 ```
-timeout /t <TimeoutInSeconds> [/nobreak] 
+timeout /t <TimeoutInSeconds> [/nobreak]
 ```
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |---------|-----------|
-|/t \<timeoutinseconds>|Gibt die Dezimalzahl von Sekunden (zwischen-1 und 99999) an, die gewartet wird, bevor der Befehlsprozessor die Verarbeitung fortsetzt. Der Wert-1 bewirkt, dass der Computer unbegrenzt auf eine Tastenkombination wartet.|
+|/t\<TimeoutInSeconds>|Gibt die Dezimalzahl von Sekunden (zwischen-1 und 99999) an, die gewartet wird, bevor der Befehlsprozessor die Verarbeitung fortsetzt. Der Wert-1 bewirkt, dass der Computer unbegrenzt auf eine Tastenkombination wartet.|
 |/nobreak|Gibt an, dass Benutzer Tastatur Striche ignoriert werden.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 
 -   Der **Timeout** -Befehl wird in der Regel in Batch Dateien verwendet.
 -   Eine Benutzer Tastatur wird die Ausführung des Befehls Prozessors sofort fortsetzen, auch wenn der Timeout Zeitraum nicht abgelaufen ist.
@@ -57,6 +57,6 @@ Um den Befehlsprozessor unbegrenzt anzuhalten, bis eine Taste gedrückt wird, ge
 timeout /t -1
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

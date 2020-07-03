@@ -1,6 +1,6 @@
 ---
 title: bitsadmin getmaxdownloadtime
-description: Referenz Thema für den bistiadmin getmaxdownloadtime-Befehl, der das Download Timeout in Sekunden abruft.
+description: Referenz Artikel für den Befehl bistiadmin getmaxdownloadtime, der das Download Timeout in Sekunden abruft.
 ms.prod: windows-servemr
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c63acee7629267ed10df11fb8cf4eeb0c911e118
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 9737e25e05b372cb6bb1057cc3a60fd5e2cf0ca8
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82717864"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85928176"
 ---
 # <a name="bitsadmin-getmaxdownloadtime"></a>bitsadmin getmaxdownloadtime
 
@@ -30,7 +30,7 @@ bitsadmin /getmaxdownloadtime <job>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | -------------- | -------------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 
@@ -42,7 +42,7 @@ So erhalten Sie die maximale Downloadzeit für den Auftrag mit dem Namen *mydown
 bitsadmin /getmaxdownloadtime myDownloadJob
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

@@ -1,6 +1,6 @@
 ---
-title: logman update Counter
-description: Referenz Thema für den Befehl logman update Counter, mit dem die Eigenschaften eines vorhandenen Counter-Daten Sammlers aktualisiert werden.
+title: logman update counter
+description: Referenz Artikel für den Befehl logman update Counter, mit dem die Eigenschaften eines vorhandenen Counter-Daten Sammlers aktualisiert werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f482e58417e5e3246989169bbb01917fcb6503b0
-ms.sourcegitcommit: 29bc8740e5a8b1ba8f73b10ba4d08afdf07438b0
+ms.openlocfilehash: 4bfeb3bf8e0bc88bdefcee308d5c77121477b095
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84222766"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85928588"
 ---
-# <a name="logman-update-counter"></a>logman update Counter
+# <a name="logman-update-counter"></a>logman update counter
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -75,7 +75,7 @@ Zum Aktualisieren eines vorhandenen Zählers mit dem Namen *perf_log*, zum Ände
 logman update counter perf_log -si 10 -f csv -v mmddhhmm
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

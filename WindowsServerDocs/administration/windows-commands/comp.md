@@ -1,6 +1,6 @@
 ---
 title: comp
-description: Referenz Thema für den Comp-Befehl, der den Inhalt von zwei Dateien oder Datei Sätzen Byte für Byte vergleicht.
+description: Referenz Artikel für den Comp-Befehl, der den Inhalt von zwei Dateien oder Datei Sätzen Byte für Byte vergleicht.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c2939ee2166d961cae8ae0699c130e91117dd8a6
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 65008945e2994b9040fcac663185d0526910b8bc
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82711469"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85929716"
 ---
 # <a name="comp"></a>comp
 
@@ -28,7 +28,7 @@ comp [<data1>] [<data2>] [/d] [/a] [/l] [/n=<number>] [/c]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<data1>` | Gibt den Speicherort und den Namen der ersten Datei oder Gruppe von Dateien an, die Sie vergleichen möchten. Sie können Platzhalter Zeichen (**&#42;** und **?**) verwenden, um mehrere Dateien anzugeben. |
 | `<data2>` | Gibt den Speicherort und den Namen der zweiten Datei oder Gruppe von Dateien an, die Sie vergleichen möchten. Sie können Platzhalter Zeichen (**&#42;** und **?**) verwenden, um mehrere Dateien anzugeben. |
@@ -40,7 +40,7 @@ comp [<data1>] [<data2>] [/d] [/a] [/l] [/n=<number>] [/c]
 | /Off [Zeile] | Verarbeitet Dateien mit dem Offline-Attribut Satz. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 
 - Während des Vergleichs zeigt **Comp** Meldungen an, die die Positionen der ungleichen Informationen zwischen den Dateien identifizieren. Jede Meldung gibt die Offset-Speicheradresse der ungleichen Bytes und den Inhalt der Bytes an (in Hexadezimal Schreibweise, es sei denn, der **/a** -oder **/d** -Befehlszeilenparameter wird angegeben). Nachrichten werden im folgenden Format angezeigt:
 
@@ -81,7 +81,7 @@ comp [<data1>] [<data2>] [/d] [/a] [/l] [/n=<number>] [/c]
 
 ## <a name="examples"></a>Beispiele
 
-Geben Sie Folgendes ein, um den Inhalt des Verzeichnisses *c:\Reports* mit `\\sales\backup\april`dem Sicherungs Verzeichnis zu vergleichen:
+Geben Sie Folgendes ein, um den Inhalt des Verzeichnisses *c:\Reports* mit dem Sicherungs Verzeichnis zu vergleichen `\\sales\backup\april` :
 
 ```
 comp c:\reports \\sales\backup\april
@@ -93,6 +93,6 @@ Wenn Sie die ersten zehn Zeilen der Textdateien im Verzeichnis " *\rechnungs* " 
 comp \invoice\*.txt \invoice\backup\*.txt /n=10 /d
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

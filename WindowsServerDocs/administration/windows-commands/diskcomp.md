@@ -1,6 +1,6 @@
 ---
 title: diskcomp
-description: Referenz Thema für den diskcomp-Befehl, der den Inhalt von zwei Disketten vergleicht.
+description: Referenz Artikel für den diskcomp-Befehl, der den Inhalt von zwei Disketten vergleicht.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: fcb810f4cd18d51f8151b27a6f447c86130624fd
-ms.sourcegitcommit: fad2ba64bbc13763772e21ed3eabd010f6a5da34
+ms.openlocfilehash: efd935d4630d9397d97863d6d373db3801a97b17
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82992521"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85929350"
 ---
 # <a name="diskcomp"></a>diskcomp
 
@@ -138,6 +138,6 @@ goto exit
 :exit
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

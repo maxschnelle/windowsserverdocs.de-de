@@ -1,6 +1,6 @@
 ---
-title: einfaches Volume erstellen
-description: Referenz Thema zum Create Volume Simple-Befehl, mit dem ein einfaches Volume auf dem angegebenen dynamischen Datenträger erstellt wird.
+title: create volume simple
+description: Referenz Artikel für den Befehl Volume Simple erstellen, mit dem ein einfaches Volume auf dem angegebenen dynamischen Datenträger erstellt wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: eb5aeebbcbde581fe3259d6cb5aca6445a3b27aa
-ms.sourcegitcommit: fad2ba64bbc13763772e21ed3eabd010f6a5da34
+ms.openlocfilehash: 1e7924ca4394a64fd5a8d92577a3f3f62b917461
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82993222"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85929513"
 ---
-# <a name="create-volume-simple"></a>einfaches Volume erstellen
+# <a name="create-volume-simple"></a>create volume simple
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -30,7 +30,7 @@ create volume simple [size=<n>] [disk=<n>] [align=<n>] [noerr]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | Größe =`<n>`  | Die Größe des Volumes in Megabyte (MB). Wenn keine Größe angegeben wird, nimmt das neue Volume den verbleibenden freien Speicherplatz auf dem Datenträger an. |
 | Festplatte =`<n>`  | Der dynamische Datenträger, auf dem das Volume erstellt wird. Wenn kein Datenträger angegeben ist, wird der aktuelle Datenträger verwendet. |
@@ -45,7 +45,7 @@ Geben Sie auf Datenträger 1 Folgendes ein, um ein Volume mit einer Größe von 
 create volume simple size=1000 disk=1
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

@@ -1,6 +1,6 @@
 ---
-title: Detail-Vdisk
-description: Referenz Thema für den VHD-Detail Befehl, der die Eigenschaften der ausgewählten virtuellen Festplatte (VHD) anzeigt.
+title: detail vdisk
+description: Referenz Artikel für den VHD-Detail Befehl, der die Eigenschaften der ausgewählten virtuellen Festplatte (VHD) anzeigt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: fe754b5f089900ac97f288bc2cc8c72327a1bc82
-ms.sourcegitcommit: fad2ba64bbc13763772e21ed3eabd010f6a5da34
+ms.openlocfilehash: 5d3f061706bef2d4636e9f18ba428e7ddfb90bdd
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82993026"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85929368"
 ---
-# <a name="detail-vdisk"></a>Detail-Vdisk
+# <a name="detail-vdisk"></a>detail vdisk
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -36,7 +36,7 @@ Geben Sie Folgendes ein, um Details zur ausgewählten VHD anzuzeigen:
 detail vdisk
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
@@ -52,6 +52,6 @@ detail vdisk
 
 - [Befehl "Vdisk zusammenführen"](merge-vdisk.md)
 
-- [Vdisk auswählen](select-vdisk.md)
+- [select vdisk](select-vdisk.md)
 
 - [List-Befehl](list.md)

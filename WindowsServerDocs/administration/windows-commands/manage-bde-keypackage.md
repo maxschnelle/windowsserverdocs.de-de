@@ -1,6 +1,6 @@
 ---
 title: manage-bde KeyPackage
-description: Referenz Thema für den Befehl "manage-bde KeyPackage", mit dem ein Schlüssel Paket für ein Laufwerk generiert wird.
+description: Referenz Artikel zum Befehl "manage-bde KeyPackage", mit dem ein Schlüssel Paket für ein Laufwerk generiert wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c4d0956154d6b20d5ceedb44d0781614f8da5fb1
-ms.sourcegitcommit: 29bc8740e5a8b1ba8f73b10ba4d08afdf07438b0
+ms.openlocfilehash: 4bdbd9bb46b75e7dc87cae1cd6e9b3a101ff91ff
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84222887"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85928569"
 ---
 # <a name="manage-bde-keypackage"></a>manage-bde KeyPackage
 
@@ -33,7 +33,7 @@ manage-bde -keypackage [<drive>] [-ID <keyprotectoryID>] [-path <pathtoexternalk
 | `<drive>` | Stellt einen von einem Doppelpunkt gefolgten Laufwerkbuchstaben dar. |
 | -ID | Erstellt ein Schlüssel Paket mithilfe der Schlüssel Schutzvorrichtung mit dem Bezeichner, der durch diesen ID-Wert angegeben wird. **Tipp:** Verwenden Sie den Befehl **manage-bde – Protector – Get** zusammen mit dem Laufwerk Buchstaben, für den Sie ein Schlüssel Paket erstellen möchten, um eine Liste der verfügbaren GUIDs abzurufen, die als ID-Wert verwendet werden sollen. |
 | -path | Gibt den Speicherort an, an dem das erstellte Schlüssel Paket gespeichert wird. |
-| -Computername | Gibt an, dass "manage-bde. exe verwendet wird, um den BitLocker-Schutz auf einem anderen Computer zu ändern. Sie können auch **-CN** als abgekürzte Version dieses Befehls verwenden. |
+| -Computername | Gibt an, dass manage-bde.exe zum Ändern des BitLocker-Schutzes auf einem anderen Computer verwendet wird. Sie können auch **-CN** als abgekürzte Version dieses Befehls verwenden. |
 | `<name>` | Stellt den Namen des Computers dar, auf dem der BitLocker-Schutz geändert werden soll. Akzeptierte Werte sind der NetBIOS-Name des Computers und die IP-Adresse des Computers. |
 | -? oder /? | Zeigt eine kurze Hilfe an der Eingabeaufforderung an. |
 | -Help oder-h | Zeigt die gesamte Hilfe an der Eingabeaufforderung an. |
@@ -46,7 +46,7 @@ Zum Erstellen eines Schlüssel Pakets für Laufwerk C, basierend auf der durch d
 manage-bde -keypackage C: -id {84E151C1...7A62067A512} -path f:\Folder
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

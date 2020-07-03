@@ -1,6 +1,6 @@
 ---
-title: Erstellen einer Partition MSR
-description: Referenz Thema für Create Partition MSR, das eine Microsoft Reserved (MSR)-Partition auf einem GPT-Datenträger (GUID-Partitionstabelle) erstellt.
+title: create partition msr
+description: Referenz Artikel zu CREATE Partition MSR, mit dem eine Microsoft Reserved-Partition (MSR) auf einem GPT-Datenträger (GUID-Partitionstabelle) erstellt wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d427e9f96023f8b66f72e3895b30519ab7cd2de1
-ms.sourcegitcommit: fad2ba64bbc13763772e21ed3eabd010f6a5da34
+ms.openlocfilehash: 2714c47c467fda9c6ca3451331ab9bc7991d4591
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82993262"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85929643"
 ---
-# <a name="create-partition-msr"></a>Erstellen einer Partition MSR
+# <a name="create-partition-msr"></a>create partition msr
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -35,9 +35,9 @@ create partition msr [size=<n>] [offset=<n>] [noerr]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
-| Größe =`<n>` | Die Größe der Partition in Megabyte (MB). Die Partition ist mindestens so lang wie die Zahl, die durch `<n>`angegeben wird. Wenn keine Größe angegeben wird, wird die Partition so lange fortgesetzt, bis in der aktuellen Region kein freier Speicherplatz mehr verfügbar ist. |
+| Größe =`<n>` | Die Größe der Partition in Megabyte (MB). Die Partition ist mindestens so lang wie die Zahl, die durch angegeben wird `<n>` . Wenn keine Größe angegeben wird, wird die Partition so lange fortgesetzt, bis in der aktuellen Region kein freier Speicherplatz mehr verfügbar ist. |
 | Offset =`<n>` | Gibt den Offset in Kilobyte (KB) an, bei dem die Partition erstellt wird. Der Offset wird aufgerundet, um alle verwendeten Sektorgrößen vollständig auszufüllen. Wenn kein Offset angegeben wird, wird die Partition in den ersten Datenträger Block eingefügt, der groß genug ist, um Sie zu speichern. |
 | Noerr | Nur für Skripterstellung. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird. |
 
@@ -55,7 +55,7 @@ Geben Sie Folgendes ein, um eine reservierte Microsoft-Partition mit einer Grö�
 create partition msr size=1000
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

@@ -1,6 +1,6 @@
 ---
 title: mklink
-description: Referenz Thema für den mklink-Befehl, mit dem ein Verzeichnis oder eine Datei als symbolischer oder fester Link erstellt wird.
+description: Referenz Artikel für den mklink-Befehl, mit dem ein Verzeichnis oder eine Datei als symbolischer oder fester Link erstellt wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2f998533ce3184213786a341c2413e7323496e96
-ms.sourcegitcommit: 5e313a004663adb54c90962cfdad9ae889246151
+ms.openlocfilehash: cb8339f7dcb2f397d6b90105e2ccd9bdc8cc07a5
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84354610"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85928539"
 ---
 # <a name="mklink"></a>mklink
 
@@ -28,7 +28,7 @@ mklink [[/d] | [/h] | [/j]] <link> <target>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | /d | Erstellt einen symbolischen Verzeichnis Link. Standardmäßig erstellt dieser Befehl einen symbolischen Datei Link. |
 | /h | Erstellt einen festen Link anstelle eines symbolischen Links. |
@@ -48,7 +48,7 @@ rd \MyFolder
 del \MyFile.file
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

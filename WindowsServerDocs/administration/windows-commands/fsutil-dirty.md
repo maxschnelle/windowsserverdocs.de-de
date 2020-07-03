@@ -1,6 +1,6 @@
 ---
-title: nicht geändert
-description: Referenz Thema für den Befehl "bereinigen" mit dem Befehl "", der das geänderte Bit eines Volumes abfragt oder festlegt.
+title: fsutil dirty
+description: Referenz Artikel für den Befehl "fehlerhaft", der das geänderte Bit eines Volumes abfragt oder festlegt.
 ms.prod: windows-server
 manager: dmoss
 ms.author: toklima
@@ -9,14 +9,14 @@ ms.technology: storage
 ms.assetid: 385a2a7c-d6bd-4f11-9c18-fca0413f9e97
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: 72defd974177675f53e89fb8570f028580b7e167
-ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
+ms.openlocfilehash: c61ab5405fb5b469b6f4513459e4096524f4b7fe
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2020
-ms.locfileid: "83435865"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85929262"
 ---
-# <a name="fsutil-dirty"></a>nicht geändert
+# <a name="fsutil-dirty"></a>fsutil dirty
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8
 
@@ -70,7 +70,7 @@ Geben Sie Folgendes ein, um das Dirty Bit auf Laufwerk C festzulegen:
 fsutil dirty set C:
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
