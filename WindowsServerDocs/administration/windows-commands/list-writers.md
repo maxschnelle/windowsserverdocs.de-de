@@ -1,6 +1,6 @@
 ---
-title: Writer auflisten
-description: Referenz Thema für den Befehl auflisten von Writer, in dem die Writer auf dem System aufgelistet sind.
+title: list writers
+description: Referenz Artikel für den Befehl auflisten von Writer, in dem die Writer aufgelistet sind, die sich auf dem System befinden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 85f351ca20332ad67f24c7d66142f7209c0ec425
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: a3b4334d9f1f1a76b390a29a1b9cfd877da91185
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83817160"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85931776"
 ---
-# <a name="list-writers"></a>Writer auflisten
+# <a name="list-writers"></a>list writers
 
 Listet Writer auf, die sich auf dem System befinden. Bei Verwendung ohne Parameter zeigt **List** standardmäßig die Ausgabe für **Listen Metadaten** an.
 
@@ -28,7 +28,7 @@ list writers [metadata | detailed | status]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | metadata | Listet die Identität und den Status von Writern auf und zeigt Metadaten wie z. b. Komponenten Details und ausgeschlossene Dateien an. Dies ist der Standardparameter. |
 | Details | Listet die gleichen Informationen wie **Metadaten**auf, enthält jedoch auch die vollständige Datei Liste für alle Komponenten. |
@@ -64,6 +64,6 @@ Listing writer status ...
 8 writers listed.
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

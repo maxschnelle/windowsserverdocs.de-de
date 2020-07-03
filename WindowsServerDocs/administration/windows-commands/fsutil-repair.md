@@ -1,6 +1,6 @@
 ---
 title: fsutil repair
-description: Referenz Thema für den Befehl "der Befehl" ", der die Selbstreparatur von NTFS verwaltet und überwacht.
+description: Referenz Artikel für den Befehl "sasutil Repair", der Selbstreparatur Vorgänge für NTFS verwaltet und überwacht.
 ms.prod: windows-server
 manager: dmoss
 ms.author: toklima
@@ -9,18 +9,18 @@ ms.technology: storage
 ms.assetid: 62d77150-1d9e-4069-ab4a-299f33024912
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: 449bd39b6b2df0e302085b71ef9db87d2020b0f0
-ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
+ms.openlocfilehash: 700e1f713d503565321ab29f5384d74382c64f21
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2020
-ms.locfileid: "83435755"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85931207"
 ---
 # <a name="fsutil-repair"></a>fsutil repair
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8
 
-Verwaltet und überwacht die Selbstreparatur Vorgänge von NTFS. Die Selbstreparatur von NTFS versucht, die Beschädigungen des NTFS-Dateisystems online zu korrigieren, ohne dass " **Chkdsk. exe** " ausgeführt werden muss. Weitere Informationen finden Sie unter [Selbstreparatur von NTFS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771388(v=ws.10)).
+Verwaltet und überwacht die Selbstreparatur Vorgänge von NTFS. Die Selbstreparatur von NTFS versucht, die Beschädigungen des NTFS-Dateisystems online zu korrigieren, ohne dass **Chkdsk.exe** ausgeführt werden müssen. Weitere Informationen finden Sie unter [Selbstreparatur von NTFS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771388(v=ws.10)).
 
 ## <a name="syntax"></a>Syntax
 
@@ -46,7 +46,7 @@ fsutil repair [wait][<waittype>] <volumepath>
 | `<flags>` | Gibt die zu verwendende Reparaturmethode an, wenn der Selbstreparatur Zustand des Volumes festgelegt wird.<p>Dieser Parameter kann auf drei Werte festgelegt werden:<ul><li>**0x01** : ermöglicht die allgemeine Reparatur.</li><li>**0x09** : warnt vor einem möglichen Datenverlust ohne Reparatur.</li><li>**0x00** : deaktiviert die Reparatur Vorgänge für die Selbstreparatur von NTFS.</li></ul> |
 | state | Fragt den Beschädigungs Status des Systems oder für ein bestimmtes Volume ab. |
 | wait | Wartet auf den Abschluss der Reparatur (en). Wenn NTFS auf einem Volume, auf dem es repariert wird, ein Problem festgestellt hat, kann mit dieser Option gewartet werden, bis die Reparatur abgeschlossen ist, bevor ausstehende Skripts ausgeführt werden. |
-| `[waittype {0|1}]` | Gibt an, ob auf den Abschluss der aktuellen Reparatur gewartet werden soll oder ob auf den Abschluss aller Reparaturen gewartet werden soll. Der *waittype* -Parameter kann auf die folgenden Werte festgelegt werden:<ul><li>**0** -wartet auf den Abschluss aller Reparaturen.  (Standardwert)</li><li>**1** : wartet auf den Abschluss der aktuellen Reparatur.</li></ul> |
+| `[waittype {0|1}]` | Gibt an, ob auf den Abschluss der aktuellen Reparatur gewartet werden soll oder ob auf den Abschluss aller Reparaturen gewartet werden soll. Der *waittype* -Parameter kann auf die folgenden Werte festgelegt werden:<ul><li>**0** -wartet auf den Abschluss aller Reparaturen. (Standardwert)</li><li>**1** : wartet auf den Abschluss der aktuellen Reparatur.</li></ul> |
 
 ### <a name="examples"></a>Beispiele
 
@@ -68,7 +68,7 @@ Geben Sie Folgendes ein, um die Reparatur der Selbstreparatur auf Laufwerk C zu 
 fsutil repair set c: 0
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

@@ -1,6 +1,6 @@
 ---
 title: nfsshare
-description: Referenz Thema für den nfsshare-Befehl, der NFS-Freigaben (Network File System) steuert.
+description: Referenz Artikel für den nfsshare-Befehl, der NFS-Freigaben (Network File System) steuert.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4774d5ce929de5e79e2cde78e45b0cd9bdca163c
-ms.sourcegitcommit: 99d548141428c964facf666c10b6709d80fbb215
+ms.openlocfilehash: 4901e0c9ee0701261dc6abb8cfd69cc02d4dd02e
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84721523"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85932041"
 ---
 # <a name="nfsshare"></a>nfsshare
 
@@ -29,7 +29,7 @@ nfsshare {<sharename> | <drive>:<path> | * } /delete
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | -o anon =`{yes|no}` | Gibt an, ob anonyme (nicht zugeordnete) Benutzer auf das Freigabe Verzeichnis zugreifen können. |
 | -o RW =`[<host>[:<host>]...]` | Bietet Lese-/Schreibzugriff auf das freigegebene Verzeichnis durch die Hosts oder Client Gruppen, die vom *Host*angegeben werden. Host-und Gruppennamen müssen mit einem Doppelpunkt (**:**) getrennt werden. Wenn der *Host* nicht angegeben wird, erhalten alle Hosts und Client Gruppen (außer den mit der Option **RO** angegebenen) Lese-/Schreibzugriff. Wenn weder die **RO** -noch die **RW** -Option festgelegt ist, haben alle Clients Lese-/Schreibzugriff auf das freigegebene Verzeichnis. |
@@ -47,7 +47,7 @@ nfsshare {<sharename> | <drive>:<path> | * } /delete
 
 - Wenn *ShareName* und `<drive>:<path>` verwendet werden, exportiert dieser Befehl den von identifizierten Ordner `<drive>:<path>` als *ShareName*. Wenn Sie die Option **/Delete** verwenden, ist der angegebene Ordner für NFS-Clients nicht mehr verfügbar.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

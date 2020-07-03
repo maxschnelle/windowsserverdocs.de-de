@@ -1,6 +1,6 @@
 ---
-title: REG speichern
-description: Referenz Thema für * * * *-
+title: reg save
+description: Referenz Artikel für den Befehl reg Save, mit dem eine Kopie der angegebenen Unterschlüssel, Einträge und Werte der Registrierung in einer angegebenen Datei gespeichert wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,53 +9,53 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1dd3e932e67df7eb972bd625ecec24f986cf3f3d
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 4051d69819cfd3550d094de8e9d4bc73f77c4e4b
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82722513"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85931028"
 ---
-# <a name="reg-save"></a>REG speichern
-
-
+# <a name="reg-save"></a>reg save
 
 Speichert eine Kopie der angegebenen Unterschlüssel, Einträge und Werte der Registrierung in einer angegebenen Datei.
-
-
 
 ## <a name="syntax"></a>Syntax
 
 ```
-reg save <KeyName> <FileName> [/y]
+reg save <keyname> <filename> [/y]
 ```
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
-|---------|-----------|
-|\<KeyName->|Gibt den vollständigen Pfad des unter Schlüssels an. Zum Angeben von Remote Computern müssen Sie den Computernamen (im Format \\ \\Computername\) als Teil von *keyName*) einschließen. Wenn Computer \\ \\Name \ weggelassen wird, wird der Vorgang standardmäßig auf dem lokalen Computer durchgesetzt. Der *keyName* muss einen gültigen Stamm Schlüssel enthalten. Gültige Stamm Schlüssel für den lokalen Computer sind: HKLM, HKCU, HKCR, HKU und HKCC. Wenn ein Remote Computer angegeben ist, lauten gültige Stamm Schlüssel: HKLM und HKU.|
-|\<Dateiname>|Gibt den Namen und Pfad der Datei an, die erstellt wird. Wenn kein Pfad angegeben ist, wird der aktuelle Pfad verwendet.|
-|/y|Überschreibt eine vorhandene Datei mit dem Namen *filename* , ohne zur Bestätigung aufzufordern.|
-|/?|Zeigt die Hilfe für den **reg Save** -Befehl an der Eingabeaufforderung an.|
+| Parameter | Beschreibung |
+|--|--|
+| `<keyname>` | Gibt den vollständigen Pfad des unter Schlüssels an. Wenn Sie einen Remote Computer angeben möchten, schließen Sie den Computernamen (im Format `\\<computername>\` ) als Teil des *keyName*-Steuerelement ein. Das Weglassen bewirkt, dass `\\<computername>\` der Vorgang standardmäßig auf dem lokalen Computer durchgesetzt wird. Der *keyName* muss einen gültigen Stamm Schlüssel enthalten. Gültige Stamm Schlüssel für den lokalen Computer sind: **HKLM**, **HKCU**, **HKCR**, **HKU**und **HKCC**. Wenn ein Remote Computer angegeben ist, lauten gültige Stamm Schlüssel: **HKLM** und **HKU**. Wenn der Registrierungsschlüssel Name ein Leerzeichen enthält, müssen Sie den Schlüsselnamen in Anführungszeichen einschließen. |
+| `<filename>` | Gibt den Namen und den Pfad der erstellten Datei an. Wenn kein Pfad angegeben ist, wird der aktuelle Pfad verwendet. |
+| /y | Überschreibt eine vorhandene Datei mit dem Namen *filename* , ohne zur Bestätigung aufzufordern. |
+| /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-## <a name="remarks-optional-section"></a>Hinweise \<optionale Abschnitte>
+#### <a name="remarks"></a>Hinweise
 
--   In der folgenden Tabelle sind die Rückgabewerte für den **reg-Speicher** Vorgang aufgeführt.
+- Vor dem Bearbeiten von Registrierungs Einträgen müssen Sie den übergeordneten Unterschlüssel mithilfe des Befehls **reg Save** speichern. Wenn die Bearbeitung fehlschlägt, können Sie den ursprünglichen Unterschlüssel mit dem **reg Restore** -Vorgang wiederherstellen.
 
-|Wert|BESCHREIBUNG|
-|-----|-----------|
-|0|Erfolg|
-|1|Fehler|
--   Bevor Sie Registrierungseinträge bearbeiten, speichern Sie den übergeordneten Unterschlüssel mit dem **reg-Speicher** Vorgang. Wenn die Bearbeitung fehlschlägt, stellen Sie den ursprünglichen Unterschlüssel mit dem **reg Restore** -Vorgang wieder her.
+- Die Rückgabewerte für den **reg-Speicher** Vorgang lauten:
 
-## <a name="examples"></a>Beispiele
+    | Wert | Beschreibung |
+    |--|--|
+    | 0 | Erfolgreich |
+    | 1 | Fehler |
+
+### <a name="examples"></a>Beispiele
 
 Geben Sie Folgendes ein, um die Hive-Datei "MyApp" als Datei mit dem Namen appbkup. HIV im aktuellen Ordner zu speichern:
+
 ```
-REG SAVE HKLM\Software\MyCo\MyApp AppBkUp.hiv
+reg save HKLM\Software\MyCo\MyApp AppBkUp.hiv
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Befehl "reg Restore"](reg-restore.md)

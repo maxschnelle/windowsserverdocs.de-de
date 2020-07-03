@@ -1,6 +1,6 @@
 ---
 title: endlocal
-description: Referenz Thema für den ENDLOCAL-Befehl, der die Lokalisierung von Umgebungs Änderungen in einer Batchdatei beendet und vor der Ausführung des entsprechenden setlocal-Befehls Umgebungsvariablen in ihren Werten wiederherstellt.
+description: Referenz Artikel für den Befehl "endlocal", der die Lokalisierung von Umgebungs Änderungen in einer Batchdatei beendet und Umgebungsvariablen in ihren Werten wiederherstellt, bevor der entsprechende Befehl "setlocal" ausgeführt wurde.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 229914ddbfa7361738cad79903630be9e749c795
-ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
+ms.openlocfilehash: a17ef4b25a0b0bb4d77068aa3bff3d879955aec5
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2020
-ms.locfileid: "83436885"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85932121"
 ---
 # <a name="endlocal"></a>endlocal
 
@@ -56,6 +56,6 @@ endlocal
 start notepad c:\superapp.out
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

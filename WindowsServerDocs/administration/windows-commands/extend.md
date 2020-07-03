@@ -1,6 +1,6 @@
 ---
 title: extend
-description: Referenz Thema für den Erweiterungs Befehl, mit dem das Volume oder die Partition mit dem Fokus und dem zugehörigen Dateisystem auf freien (nicht zugeordneten) Speicherplatz auf einem Datenträger erweitert wird.
+description: Referenz Artikel für den Erweiterungs Befehl, der das Volume oder die Partition mit dem Fokus und dem zugehörigen Dateisystem auf freien (nicht zugeordneten) Speicherplatz auf einem Datenträger erweitert.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: fd10e2ad4d6d647f37e1ad113f1516104e66315f
-ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
+ms.openlocfilehash: 4749b2ddcd47aa5445d9d77ff86c3473ae37b355
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2020
-ms.locfileid: "83437195"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85931444"
 ---
 # <a name="extend"></a>extend
 
@@ -35,7 +35,7 @@ extend filesystem [noerr]
 | --------- | ----------- |
 | Größe =`<n>` | Gibt die Größe des Speicherplatzes in Megabyte (MB) an, der dem aktuellen Volume oder der aktuellen Partition hinzugefügt werden soll. Wenn keine Größe angegeben wird, wird der gesamte zusammenhängende freie Speicherplatz verwendet, der auf dem Datenträger verfügbar ist. |
 | Festplatte =`<n>` | Gibt den Datenträger an, auf dem das Volume oder die Partition erweitert wird. Wenn kein Datenträger angegeben ist, wird das Volume oder die Partition auf dem aktuellen Datenträger erweitert. |
-| verwendet | Erweitert das Dateisystem des Volumes mit dem Fokus. Zur Verwendung nur auf Datenträgern, auf denen das Dateisystem nicht mit dem Volume erweitert wurde. |
+| filesystem | Erweitert das Dateisystem des Volumes mit dem Fokus. Zur Verwendung nur auf Datenträgern, auf denen das Dateisystem nicht mit dem Volume erweitert wurde. |
 | Noerr | Nur für Skripterstellung. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird. |
 
 #### <a name="remarks"></a>Hinweise
@@ -66,6 +66,6 @@ Um das Dateisystem eines Volumes nach der Erweiterung zu erweitern, geben Sie Fo
 extend filesystem
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -1,6 +1,6 @@
 ---
 title: doskey
-description: Referenz Thema für den Doskey-Befehl und "Doskey. exe", die zuvor eingegebene Befehlszeilen Befehle, bearbeitbare Befehlszeilen und Makros erstellt.
+description: Referenz Artikel für den Doskey-Befehl und Doskey.exe, der zuvor eingegebene Befehlszeilen Befehle, bearbeitbare Befehlszeilen und Makros erstellt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 96a47a40463c5cd6af16ab637f96382228f7d0f8
-ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
+ms.openlocfilehash: 4a92c9e1d6ffe1f8d7ace5500179697b2a00df1b
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2020
-ms.locfileid: "83437025"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85930556"
 ---
 # <a name="doskey"></a>doskey
 
-Ruft "Doskey. exe" auf, das zuvor eingegebene Befehlszeilen Befehle, bearbeitbare Befehlszeilen und Makros erstellt.
+Ruft Doskey.exe auf, der zuvor eingegebene Befehlszeilen Befehle, bearbeitbare Befehlszeilen und Makros erstellt.
 
 ## <a name="syntax"></a>Syntax
 
@@ -30,7 +30,7 @@ doskey [/reinstall] [/listsize=<size>] [/macros:[all | <exename>] [/history] [/i
 
 | Parameter | Beschreibung |
 | --------- | ----------- |
-| /REINSTALL | Installiert eine neue Kopie von "Doskey. exe" und löscht den Puffer für den Befehlsverlauf. |
+| /REINSTALL | Installiert eine neue Kopie von Doskey.exe und löscht den Puffer für den Befehlsverlauf. |
 | /ListSize =`<size>` | Gibt die maximale Anzahl der Befehle im Verlaufs Puffer an. |
 | /macros | Zeigt eine Liste aller **doskey** -Makros an. Sie können das Umleitungs Symbol ( `>` ) mit **/Macros** verwenden, um die Liste in eine Datei umzuleiten. Sie können **/Macros** auf **/m**abkürzen. |
 | /Macros: alle | Zeigt **doskey** -Makros für alle ausführbaren Dateien an. |
@@ -45,13 +45,13 @@ doskey [/reinstall] [/listsize=<size>] [/macros:[all | <exename>] [/history] [/i
 
 #### <a name="remarks"></a>Hinweise
 
-- Bestimmte zeichenbasierte, interaktive Programme, wie z. b. Programm-Debugger oder FTP (File Transfer programs), verwenden automatisch "Doskey. exe". Um "Doskey. exe" verwenden zu können, muss ein Programm ein Konsolen Prozess sein und gepufferte Eingaben verwenden. Programmschlüssel Zuweisungen überschreiben **doskey** -schlüsselzuweisungen. Wenn das Programm z. b. die Taste F7 für eine Funktion verwendet, können Sie keinen **doskey** -Befehlsverlauf in einem Popup Fenster erhalten.
+- Bestimmte zeichenbasierte, interaktive Programme, wie z. b. Programm-Debugger oder FTP (File Transfer programs), verwenden automatisch Doskey.exe. Um Doskey.exe zu verwenden, muss ein Programm ein Konsolen Prozess sein und gepufferte Eingaben verwenden. Programmschlüssel Zuweisungen überschreiben **doskey** -schlüsselzuweisungen. Wenn das Programm z. b. die Taste F7 für eine Funktion verwendet, können Sie keinen **doskey** -Befehlsverlauf in einem Popup Fenster erhalten.
 
-- Sie können "Doskey. exe" verwenden, um die aktuelle Befehlszeile zu bearbeiten, aber Sie können die Befehlszeilenoptionen in der Eingabeaufforderung eines Programms nicht verwenden. Vor dem Starten eines Programms müssen Sie **doskey** -Befehlszeilenoptionen ausführen. Wenn Sie "Doskey. exe" innerhalb eines Programms verwenden, haben die schlüsselzuweisungen des Programms Vorrang, und einige Bearbeitungs Schlüssel von "Doskey. exe" funktionieren möglicherweise nicht.
+- Sie können Doskey.exe verwenden, um die aktuelle Befehlszeile zu bearbeiten, aber Sie können die Befehlszeilenoptionen von der Eingabeaufforderung eines Programms aus nicht verwenden. Vor dem Starten eines Programms müssen Sie **doskey** -Befehlszeilenoptionen ausführen. Wenn Sie Doskey.exe innerhalb eines Programms verwenden, haben die schlüsselzuweisungen dieses Programms Vorrang, und einige Doskey.exe Bearbeitungs Schlüssel funktionieren möglicherweise nicht.
 
-- Mit "Doskey. exe" können Sie einen Befehlsverlauf für jedes Programm beibehalten, das Sie starten oder wiederholen. Sie können vorherige Befehle an der Programm Eingabeaufforderung bearbeiten und **doskey** -Makros starten, die für das Programm erstellt wurden. Wenn Sie ein Programm von einem Eingabe Aufforderungs Fenster aus beenden und dann neu starten, ist der Befehlsverlauf aus der vorherigen Programm Sitzung verfügbar.
+- Mit Doskey.exe können Sie einen Befehlsverlauf für jedes Programm beibehalten, das Sie starten oder wiederholen. Sie können vorherige Befehle an der Programm Eingabeaufforderung bearbeiten und **doskey** -Makros starten, die für das Programm erstellt wurden. Wenn Sie ein Programm von einem Eingabe Aufforderungs Fenster aus beenden und dann neu starten, ist der Befehlsverlauf aus der vorherigen Programm Sitzung verfügbar.
 
-- Zum Abrufen eines Befehls können Sie einen der folgenden Schlüssel verwenden, nachdem Sie "Doskey. exe" gestartet haben:
+- Zum Abrufen eines Befehls können Sie einen der folgenden Schlüssel verwenden, nachdem Sie Doskey.exe gestartet haben:
 
   | Schlüssel | BESCHREIBUNG |
   | --- | ----------- |
@@ -72,8 +72,8 @@ doskey [/reinstall] [/listsize=<size>] [/macros:[all | <exename>] [/history] [/i
   | ENDE | Verschiebt die Einfügemarke an das Ende der Zeile. |
   | ESC | Löscht den Befehl aus der Anzeige. |
   | F1 | Kopiert ein Zeichen aus einer Spalte in der Vorlage in dieselbe Spalte im Eingabe Aufforderungs Fenster. (Die Vorlage ist ein Arbeitsspeicher Puffer, der den zuletzt eingegebenen Befehl enthält.) |
-  | F2 | Sucht in der Vorlage nach dem nächsten Schlüssel, den Sie nach dem Drücken von F2 eingeben. "Doskey. exe" fügt den Text aus der Vorlage ein – bis zum, jedoch nicht einschließlich, das Zeichen, das Sie angeben. |
-  | F3 | Kopiert den Rest der Vorlage in die Befehlszeile. "Doskey. exe" beginnt mit dem Kopieren von Zeichen von der Position in der Vorlage, die der von der Einfügemarke in der Befehlszeile festgelegten Position entspricht. |
+  | F2 | Sucht in der Vorlage nach dem nächsten Schlüssel, den Sie nach dem Drücken von F2 eingeben. Doskey.exe fügt den Text aus der Vorlage – bis zum, jedoch nicht einschließlich, das von Ihnen angegebene Zeichen ein. |
+  | F3 | Kopiert den Rest der Vorlage in die Befehlszeile. Doskey.exe beginnt mit dem Kopieren von Zeichen von der Position in der Vorlage, die der von der Einfügemarke in der Befehlszeile festgelegten Position entspricht. |
   | F4 | Löscht alle Zeichen von der aktuellen Position der Einfügemarke bis zum, jedoch nicht einschließlich des nächsten Vorkommens des Zeichens, das Sie eingeben, nachdem Sie F4 drücken. |
   | F5 | Kopiert die Vorlage in die aktuelle Befehlszeile. |
   | F6 | Fügt ein Dateiendezeichen (STRG + Z) an der aktuellen Position der Einfügemarke ein. |
@@ -83,13 +83,13 @@ doskey [/reinstall] [/listsize=<size>] [/macros:[all | <exename>] [/history] [/i
   | F9 | Fordert Sie zur Eingabe einer Verlaufs Puffer-Befehls Nummer auf und zeigt dann den Befehl an, der der von Ihnen angegebenen Zahl zugeordnet ist. Drücken Sie die EINGABETASTE, um den Befehl auszuführen. Drücken Sie F7, um alle Zahlen und die zugehörigen Befehle anzuzeigen. |
   | ALT+F10 | Löscht alle Makro Definitionen. |
 
-- Wenn Sie die Einfügetaste drücken, können Sie Text in der **doskey** -Befehlszeile in der Mitte des vorhandenen Texts eingeben, ohne den Text zu ersetzen. Nachdem Sie die EINGABETASTE gedrückt haben, gibt "Doskey. exe" die Tastatur zum **ersetzen** -Modus zurück. Sie müssen erneut INSERT drücken, um zum **Einfügemodus** zurückzukehren.
+- Wenn Sie die Einfügetaste drücken, können Sie Text in der **doskey** -Befehlszeile in der Mitte des vorhandenen Texts eingeben, ohne den Text zu ersetzen. Wenn Sie jedoch die EINGABETASTE drücken, wird Doskey.exe die Tastatur zum **ersetzen** des Modus zurückgegeben. Sie müssen erneut INSERT drücken, um zum **Einfügemodus** zurückzukehren.
 
 - Die Form der Einfügemarke ändert sich, wenn Sie die INSERT-Taste verwenden, um von einem Modus in den anderen zu wechseln.
 
-- Wenn Sie die Funktionsweise von "Doskey. exe" mit einem Programm anpassen und **doskey** -Makros für dieses Programm erstellen möchten, können Sie ein Batch-Programm erstellen, das "Doskey. exe" ändert und das Programm startet.
+- Wenn Sie anpassen möchten, wie Doskey.exe mit einem Programm funktioniert und **doskey** -Makros für dieses Programm erstellen, können Sie ein Batch-Programm erstellen, das Doskey.exe ändert und das Programm startet.
 
-- Sie können "Doskey. exe" verwenden, um Makros zu erstellen, die einen oder mehrere Befehle ausführen. In der folgenden Tabelle sind Sonderzeichen aufgeführt, mit denen Sie Befehls Vorgänge steuern können, wenn Sie ein-Makro definieren.
+- Sie können Doskey.exe verwenden, um Makros zu erstellen, die einen oder mehrere Befehle ausführen. In der folgenden Tabelle sind Sonderzeichen aufgeführt, mit denen Sie Befehls Vorgänge steuern können, wenn Sie ein-Makro definieren.
 
   | Zeichen | Beschreibung |
   |---------- | ----------- |
@@ -124,7 +124,7 @@ Geben Sie Folgendes ein, um die in Macinit gespeicherten Makros zu verwenden:
 doskey /macrofile=macinit
 ```
 
-Geben Sie Folgendes ein, um ein Batch Programm mit dem Namen tmp. bat zu erstellen, das zuletzt verwendete Befehle enthält:
+Geben Sie Folgendes ein, um ein Batch Programm mit dem Namen Tmp.bat zu erstellen, das zuletzt verwendete Befehle enthält:
 
 ```
 doskey /history> tmp.bat
@@ -152,7 +152,7 @@ Geben Sie Folgendes ein, um das vorangehende Makro zum Erstellen und ändern in 
 mc books
 ```
 
-Zum Erstellen eines **doskey** -Makros für ein Programm mit dem Namen " *FTP. exe*" fügen Sie **/EXEName** wie folgt ein:
+Um ein **doskey** -Makro für ein Programm namens *Ftp.exe*zu erstellen, schließen Sie **/EXEName** wie folgt ein:
 
 ```
 doskey /exename=ftp.exe go=open 172.27.1.100$tmget *.TXT c:\reports$tbye
@@ -184,6 +184,6 @@ Zum Löschen eines Makros namens *Vlist*geben Sie Folgendes ein:
 doskey vlist =
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -1,6 +1,6 @@
 ---
-title: reg-Wiederherstellung
-description: Referenz Thema für * * * *-
+title: reg restore
+description: Referenz Artikel für den Befehl "reg Restore", mit dem gespeicherte Unterschlüssel und Einträge in die Registrierung zurückgeschrieben werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,52 +9,52 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4d490f99f032b38c8bbbe9352b8571b4a85202e1
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 1483fc6998d7b286a81dc3cb1df021afb7e66650
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82722522"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85931045"
 ---
-# <a name="reg-restore"></a>reg-Wiederherstellung
-
-
+# <a name="reg-restore"></a>reg restore
 
 Schreibt gespeicherte Unterschlüssel und Einträge zurück in die Registrierung.
-
-
 
 ## <a name="syntax"></a>Syntax
 
 ```
-Reg restore <KeyName> <FileName>
+reg restore <keyname> <filename>
 ```
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
-|---------|-----------|
-|\<KeyName->|Gibt den vollständigen Pfad des unter Schlüssels an, der wieder hergestellt werden soll. Der Wiederherstellungs Vorgang funktioniert nur mit dem lokalen Computer. Der KeyName muss einen gültigen Stamm Schlüssel enthalten. Gültige Stamm Schlüssel sind: HKLM, HKCU, HKCR, HKU und HKCC.|
-|\<Dateiname>|Gibt den Namen und Pfad der Datei mit Inhalt an, der in die Registrierung geschrieben werden soll. Diese Datei muss im Voraus mit dem reg- **Speicher** Vorgang mit der Erweiterung. HIV erstellt werden.|
-|/?|Zeigt die Hilfe für die **reg-Wiederherstellung** an der Eingabeaufforderung an.|
+| Parameter | Beschreibung |
+|--|--|
+| `<keyname>` | Gibt den vollständigen Pfad des unter Schlüssels an, der wieder hergestellt werden soll. Der Wiederherstellungs Vorgang funktioniert nur mit dem lokalen Computer. Der *keyName* muss einen gültigen Stamm Schlüssel enthalten. Gültige Stamm Schlüssel für den lokalen Computer sind: **HKLM**, **HKCU**, **HKCR**, **HKU**und **HKCC**. Wenn der Registrierungsschlüssel Name ein Leerzeichen enthält, müssen Sie den Schlüsselnamen in Anführungszeichen einschließen. |
+| `<filename>` | Gibt den Namen und Pfad der Datei mit Inhalt an, der in die Registrierung geschrieben werden soll. Diese Datei muss im Voraus mit dem Befehl **reg Save** erstellt werden, und Sie muss über die Erweiterung. HIV verfügen. |
+| /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-## <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
--   Bevor Sie Registrierungseinträge bearbeiten, speichern Sie den übergeordneten Unterschlüssel mit dem **reg-Speicher** Vorgang. Wenn die Bearbeitung fehlschlägt, stellen Sie den ursprünglichen Unterschlüssel mit dem **reg Restore** -Vorgang wieder her.
--   In der folgenden Tabelle sind die Rückgabewerte für den **reg Restore** -Vorgang aufgeführt.
+- Vor dem Bearbeiten von Registrierungs Einträgen müssen Sie den übergeordneten Unterschlüssel mithilfe des Befehls **reg Save** speichern. Wenn die Bearbeitung fehlschlägt, können Sie den ursprünglichen Unterschlüssel mit dem **reg Restore** -Vorgang wiederherstellen.
 
-|Wert|BESCHREIBUNG|
-|-----|-----------|
-|0|Erfolg|
-|1|Fehler|
+- Die Rückgabewerte für den **reg-Wiederherstellungs** Vorgang lauten:
 
-## <a name="examples"></a>Beispiele
+    | Wert | Beschreibung |
+    |--|--|
+    | 0 | Erfolgreich |
+    | 1 | Fehler |
+
+### <a name="examples"></a>Beispiele
 
 Geben Sie Folgendes ein, um die Datei mit dem Namen "NTRKBkUp. HIV" im Schlüssel "HKLM\Software\Microsoft\ResKit" wiederherzustellen, und überschreiben Sie den vorhandenen Inhalt des Schlüssels:
+
 ```
-REG RESTORE HKLM\Software\Microsoft\ResKit NTRKBkUp.hiv
+reg restore HKLM\Software\Microsoft\ResKit NTRKBkUp.hiv
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Befehl zum Speichern von reg](reg-save.md)

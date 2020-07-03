@@ -1,6 +1,6 @@
 ---
 title: nslookup set srchlist
-description: Referenz Thema für den Befehl "nslookup set srchlist", mit dem der DNS-Domain Name System Standard Domänen Name und die Suchliste geändert werden.
+description: Referenz Artikel für den Befehl nslookup set srchlist, der den Domain Name System Standard-DNS-Domänen Namen und die Suchliste ändert.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ed9bbce1910324c4cae5da4228a6d3d1f269d050
-ms.sourcegitcommit: 99d548141428c964facf666c10b6709d80fbb215
+ms.openlocfilehash: 5d43107ed2c777349a8cac1a0411c035371bc0f7
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84721400"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85930408"
 ---
 # <a name="nslookup-set-srchlist"></a>nslookup set srchlist
 
@@ -30,7 +30,7 @@ set srchlist=<domainname>[/...]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<domainname>` | Gibt neue Namen für die DNS-Standard Domäne und-Suchliste an. Der Standardwert für den Domänen Namen basiert auf dem Hostnamen. Sie können maximal sechs Namen angeben, die durch Schrägstriche (/) getrennt sind. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
@@ -48,7 +48,7 @@ So legen Sie die DNS-Domäne auf *MFG.widgets.com* und die Suchliste auf die dre
 set srchlist=mfg.widgets.com/mrp2.widgets.com/widgets.com
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

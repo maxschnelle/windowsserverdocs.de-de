@@ -1,6 +1,6 @@
 ---
 title: diantz
-description: Referenz Thema für den diantz-Befehl, mit dem vorhandene Dateien in eine CAB-Datei (CAB-Datei) verpackt werden.
+description: Referenz Artikel für den diantz-Befehl, mit dem vorhandene Dateien in eine CAB-Datei (CAB-Datei) verpackt werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e45c0c4f71bc7faf6d5de0fa198ac872f6ff2597
-ms.sourcegitcommit: fad2ba64bbc13763772e21ed3eabd010f6a5da34
+ms.openlocfilehash: 61a10c2fb67225de1060d64db6fda4e4ff703a7b
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82992499"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85930598"
 ---
 # <a name="diantz"></a>diantz
 
@@ -31,17 +31,17 @@ diantz [/v[<n>]] [/d var=<value> ...] /f <directives_file> [...]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<source>` | Die zu komprimierende Datei. |
 | `<destination>` | Dateiname, der komprimierte Dateien zugewiesen werden soll. Wenn der Name ausgelassen wird, wird das letzte Zeichen des Quell Dateinamens durch einen Unterstrich (_) ersetzt und als Ziel verwendet. |
 | /f `<directives_file>` | Eine Datei mit **diantz** -Direktiven (kann wiederholt werden). |
 | /d var =`<value>` | Definiert die Variable mit dem angegebenen Wert. |
 | /l`<dir>` | Speicherort für das Ziel (Standard ist Aktuelles Verzeichnis). |
-| /v [`<n>`] | Ausführlichkeits Grad für das Debuggen festlegen (0 = keine,..., 3 = vollständig). |
+| /v [ `<n>` ] | Ausführlichkeits Grad für das Debuggen festlegen (0 = keine,..., 3 = vollständig). |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

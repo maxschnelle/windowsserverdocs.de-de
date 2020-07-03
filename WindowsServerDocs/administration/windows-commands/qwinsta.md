@@ -1,6 +1,6 @@
 ---
 title: qwinsta
-description: Referenz Thema für den qwinsta-Befehl, der Informationen zu Sitzungen auf einem Remotedesktop-Sitzungshost Server anzeigt.
+description: Referenz Artikel für den qwinsta-Befehl, der Informationen zu Sitzungen auf einem Remotedesktop-Sitzungshost Server anzeigt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9122576cc0b972e01a7593fae918aed378297fc8
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: c9b79495d3fa142fd343b9c521563e093d20fc68
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85471875"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85931998"
 ---
 # <a name="qwinsta"></a>qwinsta
 
@@ -33,7 +33,7 @@ qwinsta [<sessionname> | <username> | <sessionID>] [/server:<servername>] [/mode
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 |--|--|
 | `<sessionname>` | Gibt den Namen der Sitzung an, die Sie Abfragen möchten. |
 | `<username>` | Gibt den Namen des Benutzers an, dessen Sitzungen Sie Abfragen möchten. |
@@ -85,7 +85,7 @@ Geben Sie Folgendes ein, um Informationen zu aktiven Sitzungs- *modeM02*anzuzeig
 qwinsta modeM02
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

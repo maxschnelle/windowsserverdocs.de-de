@@ -1,6 +1,6 @@
 ---
 title: wbadmin
-description: Referenz Thema für Wbadmin, mit dem Sie das Betriebssystem, die Volumes, Dateien, Ordner und Anwendungen über eine Eingabeaufforderung sichern und wiederherstellen können.
+description: Referenz Artikel für Wbadmin, mit dem Sie das Betriebssystem, die Volumes, Dateien, Ordner und Anwendungen über eine Eingabeaufforderung sichern und wiederherstellen können.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 94f07d17d46dad4e5301ba3ea6be94b10f26a3af
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: fab17e2d3f1806543eedd8a918ae679a32265742
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82725836"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85930846"
 ---
 # <a name="wbadmin"></a>wbadmin
 
@@ -28,7 +28,7 @@ Sie müssen **Wbadmin** über eine Eingabeaufforderung mit erhöhten Rechten aus
 
 ## <a name="subcommands"></a>Unterbefehle
 
-|Unterbefehl|BESCHREIBUNG|
+|Unterbefehl|Beschreibung|
 |----------|-----------|
 |[Wbadmin enable backup](wbadmin-enable-backup.md)|Konfiguriert und aktiviert eine regelmäßig geplante Sicherung.|
 |[Wbadmin disable backup](wbadmin-disable-backup.md)|Deaktiviert tägliche Sicherungen.|
@@ -46,7 +46,7 @@ Sie müssen **Wbadmin** über eine Eingabeaufforderung mit erhöhten Rechten aus
 |[Wbadmin restore catalog](wbadmin-restore-catalog.md)|Stellt einen Sicherungs Katalog von einem angegebenen Speicherort wieder her, wenn der Sicherungs Katalog auf dem lokalen Computer beschädigt ist.|
 |[Wbadmin delete catalog](wbadmin-delete-catalog.md)|Löscht den Sicherungs Katalog auf dem lokalen Computer. Verwenden Sie diesen Unterbefehl nur, wenn der Sicherungs Katalog auf diesem Computer beschädigt ist und Sie keine Sicherungen an einem anderen Speicherort gespeichert haben, der zum Wiederherstellen des Katalogs verwendet werden kann.|
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Sicherung und Wiederherstellung](https://go.microsoft.com/fwlink/?LinkID=195054)
 -   [Windows Server-Sicherung-Cmdlets in Windows PowerShell](https://technet.microsoft.com/library/jj902428.aspx)

@@ -1,6 +1,6 @@
 ---
 title: tskill
-description: Referenz Thema für tskills, mit dem ein Prozess beendet wird, der in einer Sitzung auf einem Remotedesktop-Sitzungshost Server ausgeführt wird.
+description: Referenz Artikel zu tskills, der einen Prozess beendet, der in einer Sitzung auf einem Remotedesktop-Sitzungshost Server ausgeführt wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 13bd18a84dccbbeee88c24b9b07208b3174bc558
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 496d5d4e0002ba2c9f8ae6916aafcd08e686ce99
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82721240"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85931474"
 ---
 # <a name="tskill"></a>tskill
 
@@ -33,17 +33,17 @@ tskill {<ProcessID> | <ProcessName>} [/server:<ServerName>] [/id:<SessionID> | /
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |-------|--------|
-|\<> ProcessID|Gibt die ID des Prozesses an, den Sie beenden möchten.|
-|\<ProcessName->|Gibt den Namen des Prozesses an, den Sie beenden möchten. Dieser Parameter kann Platzhalter Zeichen enthalten.|
-|/Server:\<Servername>|Gibt den Terminal Server an, der den Prozess enthält, den Sie beenden möchten. Wenn **/Server** nicht angegeben ist, wird der aktuelle RD-Sitzungshost Server verwendet.|
-|/ID:\<SessionID>|Beendet den Prozess, der in der angegebenen Sitzung ausgeführt wird.|
+|\<ProcessID>|Gibt die ID des Prozesses an, den Sie beenden möchten.|
+|\<ProcessName>|Gibt den Namen des Prozesses an, den Sie beenden möchten. Dieser Parameter kann Platzhalter Zeichen enthalten.|
+|/server:\<ServerName>|Gibt den Terminal Server an, der den Prozess enthält, den Sie beenden möchten. Wenn **/Server** nicht angegeben ist, wird der aktuelle RD-Sitzungshost Server verwendet.|
+|/ID\<SessionID>|Beendet den Prozess, der in der angegebenen Sitzung ausgeführt wird.|
 |/a|Beendet den Prozess, der in allen Sitzungen ausgeführt wird.|
 |/v|Zeigt Informationen zu den Aktionen an, die ausgeführt werden.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 - Sie können **tskills** verwenden, um nur die Prozesse zu beenden, die Ihnen angehören, es sei denn, Sie sind ein Administrator. Administratoren haben Vollzugriff auf alle **tskills** -Funktionen und können Prozesse beenden, die in anderen Benutzersitzungen ausgeführt werden.
 - Wenn alle Prozesse, die in einer Sitzung ausgeführt werden, beendet werden, wird die Sitzung ebenfalls beendet.
 - Wenn Sie die Parameter " *ProcessName* " und " **/Server:**<em>Servername</em> " verwenden, müssen Sie auch den Parameter " **/ID:**<em>SessionID</em> " oder " **/a** " angeben.
@@ -57,6 +57,6 @@ tskill {<ProcessID> | <ProcessName>} [/server:<ServerName>] [/id:<SessionID> | /
   ```
   tskill explorer /id:5
   ```
-  ## <a name="additional-references"></a>Zusätzliche Referenzen
-  - [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
-  [Remotedesktopdienste Befehls Verweis (Terminal Dienste)](remote-desktop-services-terminal-services-command-reference.md)
+  ## <a name="additional-references"></a>Weitere Verweise
+  - [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md) 
+   [Befehlsreferenz für Remotedesktopdienste (Terminal Dienste)](remote-desktop-services-terminal-services-command-reference.md)

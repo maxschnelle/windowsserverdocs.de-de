@@ -1,6 +1,6 @@
 ---
 title: pushprinterconnections
-description: Referenz Thema für den Befehl pushprconnections, bei dem die Einstellungen der bereitgestellten Druckerverbindung aus Gruppenrichtlinie gelesen und Drucker Verbindungen bei Bedarf bereitgestellt bzw. entfernt werden.
+description: Referenz Artikel zum pushprconnections-Befehl, der die bereitgestellten Drucker Verbindungseinstellungen aus Gruppenrichtlinie liest und Drucker Verbindungen bei Bedarf bereitstellt bzw. entfernt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 701089f2597b1d4e7bc05f7949dbc80dee3535bb
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 7b22fd5143a9477b40a515df44c9a0b5663dfd7a
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85472125"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85931385"
 ---
 # <a name="pushprinterconnections"></a>pushprinterconnections
 
@@ -31,12 +31,12 @@ pushprinterconnections <-log> <-?>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 |--|--|
 | < Protokoll> | Schreibt eine pro-Benutzer-Debug-Protokolldatei in *% Temp*oder schreibt ein pro-Computer-Debugprotokoll in " *%WINDIR%\Temp*". |
 | <-? > | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

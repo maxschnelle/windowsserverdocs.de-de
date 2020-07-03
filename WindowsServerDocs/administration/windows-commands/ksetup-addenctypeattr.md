@@ -1,6 +1,6 @@
 ---
-title: Ksetup addenctypeattr
-description: Referenz Thema für den Befehl "Ksetup addenctypeattr", mit dem das Attribut "Verschlüsselungstyp" der Liste der möglichen Typen für die Domäne hinzugefügt wird.
+title: ksetup addenctypeattr
+description: Referenz Artikel für den Befehl "Ksetup addenctypeattr", mit dem das Attribut "Verschlüsselungstyp" der Liste der möglichen Typen für die Domäne hinzugefügt wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b7162e35c88cea0cfa2828e12cc4af59eaed66c9
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: e52a3fc7303bcd3db3f289ff8155bcb13b145b04
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83818150"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85931404"
 ---
-# <a name="ksetup-addenctypeattr"></a>Ksetup addenctypeattr
+# <a name="ksetup-addenctypeattr"></a>ksetup addenctypeattr
 
 Fügt der Liste der möglichen Typen für die Domäne das Attribut Verschlüsselungstyp hinzu. Bei erfolgreicher oder fehlgeschlagener Ausführung wird eine Statusmeldung angezeigt.
 
@@ -28,7 +28,7 @@ ksetup /addenctypeattr <domainname> {DES-CBC-CRC | DES-CBC-MD5 | RC4-HMAC-MD5 | 
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<domainname>` | Der Name der Domäne, zu der Sie eine Verbindung herstellen möchten. Verwenden Sie den voll qualifizierten Domänen Namen oder eine einfache Form des Namens, z. b. Corp.contoso.com oder Configuration Manager. |
 | Verschlüsselungstyp | Muss einer der folgenden unterstützten Verschlüsselungstypen sein:<ul><li>DES-CBC-CRC</li><li>DES-CBC-MD5</li><li>RC4-HMAC-MD5</li><li>AES128-CTS-HMAC-SHA1-96</li><li>AES256-CTS-HMAC-SHA1-96</li></ul> |
@@ -69,7 +69,7 @@ Geben Sie Folgendes ein, um zu überprüfen, ob das Verschlüsselungstyp Attribu
 ksetup /getenctypeattr corp.contoso.com
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

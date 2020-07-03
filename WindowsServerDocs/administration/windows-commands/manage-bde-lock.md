@@ -1,6 +1,6 @@
 ---
 title: manage-bde-Sperre
-description: Referenz Thema für den Befehl "manage-bde Lock", mit dem ein durch BitLocker geschütztes Laufwerk gesperrt wird, um den Zugriff darauf zu verhindern, wenn der entsperrungs Schlüssel nicht angegeben wird.
+description: Referenz Artikel für den Befehl manage-bde Lock, mit dem ein durch BitLocker geschütztes Laufwerk gesperrt wird, um den Zugriff darauf zu verhindern, sofern der entsperrungs Schlüssel nicht verfügbar ist.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 340dc7eb07eaab2583e8b325042803fd8fc82184
-ms.sourcegitcommit: 29bc8740e5a8b1ba8f73b10ba4d08afdf07438b0
+ms.openlocfilehash: b67342579c827ad195ddf506e529fbfb370a6d94
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84222875"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85931624"
 ---
 # <a name="manage-bde-lock"></a>manage-bde-Sperre
 
@@ -31,7 +31,7 @@ manage-bde -lock [<drive>] [-computername <name>] [{-?|/?}] [{-help|-h}]
 | Parameter | Beschreibung |
 | --------- | ----------- |
 | `<drive>` | Stellt einen von einem Doppelpunkt gefolgten Laufwerkbuchstaben dar. |
-| -Computername | Gibt an, dass "manage-bde. exe verwendet wird, um den BitLocker-Schutz auf einem anderen Computer zu ändern. Sie können auch **-CN** als abgekürzte Version dieses Befehls verwenden. |
+| -Computername | Gibt an, dass manage-bde.exe zum Ändern des BitLocker-Schutzes auf einem anderen Computer verwendet wird. Sie können auch **-CN** als abgekürzte Version dieses Befehls verwenden. |
 | `<name>` | Stellt den Namen des Computers dar, auf dem der BitLocker-Schutz geändert werden soll. Akzeptierte Werte sind der NetBIOS-Name des Computers und die IP-Adresse des Computers. |
 | -? oder /? | Zeigt eine kurze Hilfe an der Eingabeaufforderung an. |
 | -Help oder-h | Zeigt die gesamte Hilfe an der Eingabeaufforderung an. |
@@ -44,7 +44,7 @@ Zum Sperren von Daten Laufwerk D geben Sie Folgendes ein:
 manage-bde –lock D:
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

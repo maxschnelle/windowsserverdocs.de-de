@@ -1,6 +1,6 @@
 ---
 title: fsutil reparsepoint
-description: Referenz Thema für den Befehl "bsutil-Analyse Punkt", mit dem Analyse Punkte abgefragt oder gelöscht werden.
+description: Referenz Artikel für den Befehl "bsutil-Analyse Punkt", der Analyse Punkte abfragt oder löscht.
 ms.prod: windows-server
 manager: dmoss
 ms.author: toklima
@@ -9,12 +9,12 @@ ms.technology: storage
 ms.assetid: fb95c8ee-a418-4520-a12a-7754ae947c3c
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: 56ca18cc4f3b4cdfd9021eb8361d980bb855bdc3
-ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
+ms.openlocfilehash: edbbc578b6a84ebd4e342493e29cbe2bd5c5a2cd
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2020
-ms.locfileid: "83435725"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85931217"
 ---
 # <a name="fsutil-reparsepoint"></a>fsutil reparsepoint
 
@@ -43,7 +43,7 @@ fsutil reparsepoint [delete] <filename>
 | --------- | ----------- |
 | Abfrage | Ruft die Analyse Punktdaten ab, die der Datei oder dem Verzeichnis zugeordnet sind, die durch das angegebene Handle identifiziert werden. |
 | delete | Löscht einen Analyse Punkt aus der durch das angegebene Handle identifizierten Datei oder dem Verzeichnis, löscht jedoch weder die Datei noch das Verzeichnis. |
-| `<filename>` | Gibt den vollständigen Pfad zur Datei einschließlich des Datei namens und der Erweiterung an, z. b. *c:\documents\dateiname.txt*. |
+| `<filename>` | Gibt den vollständigen Pfad zur Datei einschließlich des Datei namens und der Erweiterung an, z. b. *C:\documents\filename.txt*. |
 
 #### <a name="remarks"></a>Hinweise
 
@@ -63,7 +63,7 @@ Verwenden Sie das folgende Format, um einen Analyse Punkt aus einer angegebenen 
 fsutil reparsepoint delete c:\server
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

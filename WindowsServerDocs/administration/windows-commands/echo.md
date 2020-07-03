@@ -1,6 +1,6 @@
 ---
 title: Echo
-description: Referenz Thema für den echo-Befehl, der Nachrichten anzeigt oder das Befehls Echo Feature aktiviert oder deaktiviert.
+description: Referenz Artikel für den Befehl echo, der Nachrichten anzeigt oder das Befehls Echo Feature aktiviert oder deaktiviert.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ca2a10a5d52c9d175d453a164f3ab4f47ca0841d
-ms.sourcegitcommit: 430c6564c18f89eecb5bbc39cfee1a6f1d8ff85b
+ms.openlocfilehash: bc463efef38e07c1ce8b9ebee1ddd7bdfd7d3066
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83855664"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85930527"
 ---
 # <a name="echo"></a>Echo
 
@@ -29,7 +29,7 @@ echo [on | off]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | [ein \| ] | Aktiviert oder deaktiviert die Funktion zum Wiederholen von Befehlen. Die Befehls Echo Prüfung ist standardmäßig aktiviert. |
 | `<message>` | Gibt den Text an, der auf dem Bildschirm angezeigt werden soll. |
@@ -104,7 +104,7 @@ Wenn beim Ausführen der Batchdatei keine txt-Dateien gefunden werden, wird die 
 This directory contains no text files.
 ```
 
-Wenn txt-Dateien beim Ausführen der Batchdatei gefunden werden, wird die folgende Ausgabe angezeigt (in diesem Beispiel wird angenommen, dass die Dateien file1. txt, file2. txt und datei3. txt vorhanden sind):
+Wenn txt-Dateien beim Ausführen der Batchdatei gefunden werden, wird die folgende Ausgabe angezeigt (in diesem Beispiel wird davon ausgegangen, dass die Dateien File1.txt, File2.txt und File3.txt vorhanden sind):
 
 ```
 This directory contains the following text files:
@@ -113,6 +113,6 @@ File2.txt
 File3.txt
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

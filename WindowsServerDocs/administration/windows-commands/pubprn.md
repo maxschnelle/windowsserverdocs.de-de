@@ -1,6 +1,6 @@
 ---
 title: pubprn
-description: Referenz Thema für den Pubprn-Befehl, mit dem ein Drucker im Active Directory Domain Services veröffentlicht wird.
+description: Referenz Artikel für den Pubprn-Befehl, mit dem ein Drucker im Active Directory Domain Services veröffentlicht wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3d45291b22978dd3fe2781699eaf616b9d08a4bf
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: c73c79450d4feb4d2567f29bfed56364dea9b5a8
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85472145"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85932008"
 ---
 # <a name="pubprn"></a>pubprn
 
@@ -30,7 +30,7 @@ cscript pubprn {<servername> | <UNCprinterpath>} LDAP://CN=<container>,DC=<conta
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 |--|--|
 | `<servername>` | Gibt den Namen des Windows-Servers an, der den zu veröffentlichenden Drucker hostet. Wenn Sie keinen Computer angeben, wird der lokale Computer verwendet. |
 | `<UNCprinterpath>` | Der UNC-Pfad (Universal Naming Convention) zu dem freigegebenen Drucker, den Sie veröffentlichen möchten. |
@@ -55,7 +55,7 @@ Zum Veröffentlichen des Laserprinter1-Druckers auf dem \\ Server "\server1" im 
 cscript pubprn \\Server1\Laserprinter1 LDAP://CN=MyContainer,DC=MyDomain,DC=company,DC=Com
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

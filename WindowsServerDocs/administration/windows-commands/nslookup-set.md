@@ -1,6 +1,6 @@
 ---
 title: nslookup set
-description: Referenz Thema für den Befehl nslookup Set, mit dem Konfigurationseinstellungen geändert werden, die sich auf das Verhalten von Such Vorgängen auswirken.
+description: Referenz Artikel für den Befehl "nslookup Set", mit dem die Konfigurationseinstellungen geändert werden, die sich auf das Verhalten von Such Vorgängen
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 579334b3b6b0cd5e9373876144f46fa21d57c745
-ms.sourcegitcommit: 99d548141428c964facf666c10b6709d80fbb215
+ms.openlocfilehash: 4b8b8fc0c27f283d88ca6645ffd92704c34eba9d
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84721183"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85930268"
 ---
 # <a name="nslookup-set"></a>nslookup set
 
@@ -30,7 +30,7 @@ set all [class | d2 | debug | domain | port | querytype | recurse | retry | root
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | [nslookup set all](nslookup-set-all.md) | Listet alle aktuellen Einstellungen auf. |
 | [nslookup set class](nslookup-set-class.md) | Ändert die Query-Klasse, die die Protokoll Gruppe der Informationen angibt. |
@@ -48,6 +48,6 @@ set all [class | d2 | debug | domain | port | querytype | recurse | retry | root
 | [nslookup set type](nslookup-set-type.md) | Ändert den Ressourcen Daten Satz für die Abfrage. |
 | [nslookup set vc](nslookup-set-vc.md) | Gibt an, ob beim Senden von Anforderungen an den Server eine virtuelle Verbindung verwendet werden soll. |
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

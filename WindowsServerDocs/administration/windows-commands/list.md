@@ -1,6 +1,6 @@
 ---
 title: list
-description: Referenz Thema für den List-Befehl, der eine Liste von Datenträgern, von Partitionen auf einem Datenträger, von Volumes auf einem Datenträger oder von virtuellen Festplatten (VHDs) anzeigt.
+description: Referenz Artikel für den List-Befehl, der eine Liste von Datenträgern, von Partitionen auf einem Datenträger, von Volumes auf einem Datenträger oder von virtuellen Festplatten (VHDs) anzeigt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 422460fc405326b5802ff1f00827f690d6599b1b
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: fda60b0520da00659d0ac8fc9cab483c62e2a6a7
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83820200"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85931717"
 ---
 # <a name="list"></a>list
 
@@ -28,7 +28,7 @@ list { disk | partition | volume | vdisk }
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | disk | Zeigt eine Liste der Datenträger und Informationen dazu an, z. b. die Größe, die Menge des verfügbaren freien Speicherplatzes, ob es sich um einen einfachen oder dynamischen Datenträger handelt und ob der Datenträger den Partitions Stil Master Boot Record (MBR) oder GUID-Partitionstabelle (GPT) verwendet. |
 | partition | Zeigt die Partitionen an, die in der Partitionstabelle des aktuellen Datenträgers aufgeführt sind. |
@@ -52,6 +52,6 @@ list volume
 list vdisk
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

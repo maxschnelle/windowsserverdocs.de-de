@@ -1,6 +1,6 @@
 ---
 title: pathping
-description: Referenz Thema für den Befehl "pathping", der Informationen zu Netzwerk Latenz und Netzwerk Verlust bei zwischen Hops zwischen einer Quelle und einem Ziel abruft.
+description: Referenz Artikel für den Befehl "pathping", der Informationen zu Netzwerk Latenz und Netzwerk Verlust bei zwischen Hops zwischen einer Quelle und einem Ziel abruft.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 6f3f90be7be29f1c50e70fa8ec49685ee1843c45
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 887a819c28d546f8c73d07fedbefbe27b65e7a5a
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85472556"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85931389"
 ---
 # <a name="pathping"></a>pathping
 
@@ -35,7 +35,7 @@ pathping [/n] [/h <maximumhops>] [/g <hostlist>] [/p <Period>] [/q <numqueries> 
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 |--|--|
 | /n | Verhindert, dass der **pfadping** versucht, die IP-Adressen der zwischen Router in ihre Namen aufzulösen. Dadurch wird möglicherweise die Anzeige von **pathping** -Ergebnissen beschleunigt. |
 | /h`<maximumhops>` | Gibt die maximale Anzahl von Hops in dem Pfad an, der nach dem Ziel (Ziel) gesucht werden soll. Der Standardwert ist 30 Hops. |
@@ -90,7 +90,7 @@ Im obigen Beispiel Bericht zeigt die Spalten **This Node/Link**, **Lost/Sent = P
 
 Die für die Verknüpfungen angezeigten Verlustraten, die als senkrechter Strich ( **|** ) in der **Adress** Spalte identifiziert werden, geben eine Link Überlastung an, die den Verlust von Paketen verursacht, die an den Pfad weitergeleitet werden. Die für Router angezeigten Verlustraten (identifiziert durch Ihre IP-Adressen) geben an, dass diese Router überladen werden können.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

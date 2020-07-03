@@ -1,6 +1,6 @@
 ---
-title: Detail Volume
-description: Referenz Thema für das Detail Volume, in dem die Datenträger angezeigt werden, auf denen sich das aktuelle Volume befindet.
+title: detail volume
+description: Referenz Artikel für das Detail Volume, in dem die Datenträger angezeigt werden, auf denen sich das aktuelle Volume befindet.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: eac3749304a06ea4cc11bf90a3220f5e24f9b5ae
-ms.sourcegitcommit: fad2ba64bbc13763772e21ed3eabd010f6a5da34
+ms.openlocfilehash: cb74b788c93f4de57ce8fcc017c096ba888cc7a1
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82993013"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85930680"
 ---
-# <a name="detail-volume"></a>Detail Volume
+# <a name="detail-volume"></a>detail volume
 
 Zeigt die Datenträger an, auf denen sich das aktuelle Volume befindet. Bevor Sie beginnen, müssen Sie ein Volume auswählen, damit dieser Vorgang erfolgreich ausgeführt werden kann. Wählen Sie mit dem Befehl [Volume auswählen](select-volume.md) ein Volume aus, und verschieben Sie den Fokus auf das Volume. Die Volumedetails gelten nicht für schreibgeschützte Volumes, wie z. b. ein DVD-ROM-oder CD-ROM-Laufwerk.
 
@@ -34,7 +34,7 @@ Um alle Datenträger anzuzeigen, in denen sich das aktuelle Volume befindet, geb
 detail volume
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

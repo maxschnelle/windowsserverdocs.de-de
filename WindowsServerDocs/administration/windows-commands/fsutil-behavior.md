@@ -1,6 +1,6 @@
 ---
 title: fsutil-Verhalten
-description: Referenz Thema für den Befehl "bsutil Behavior", der das NTFS-volumeverhalten abfragt oder festlegt.
+description: Referenz Artikel für den Befehl "bsutil Behavior", der das NTFS-volumeverhalten abfragt oder festlegt.
 ms.prod: windows-server
 manager: dmoss
 ms.author: toklima
@@ -9,12 +9,12 @@ ms.technology: storage
 ms.topic: article
 ms.date: 10/16/2017
 ms.assetid: 84eaba2c-c0af-49e1-bbbd-2ed2928e5e4b
-ms.openlocfilehash: f1196169ea1d198c4855f06edef542ef34876a2a
-ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
+ms.openlocfilehash: 74a974bcb7f8138d28e563db35bbde7ae689e110
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2020
-ms.locfileid: "83436005"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85931835"
 ---
 # <a name="fsutil-behavior"></a>fsutil-Verhalten
 
@@ -66,7 +66,7 @@ fsutil behavior set {allowextchar {1|0} | bugcheckoncorrupt {1|0} | disable8dot3
 | memoryusage`<value>` | Konfiguriert die internen Cache Ebenen für den Speicher des NTFS-Auslagerungs Pools und den Speicher für nicht auslagerbare NTFS-Pools. Legen Sie auf **1** oder **2**fest. Wenn der Wert auf **1** festgelegt ist (Standardeinstellung), verwendet NTFS die Standardgröße des Arbeitsspeichers für Auslagerungs Pools. Wenn der Wert auf **2**festgelegt ist, vergrößert NTFS die Größe seiner Lookaside-Listen und Arbeitsspeicher Schwellenwerte. (Eine Lookaside-Liste ist ein Pool von Speicher Puffern fester Größe, die der Kernel und die Gerätetreiber als private Speicher Caches für Dateisystem Vorgänge erstellen, z. b. das Lesen einer Datei.)<p>Sie müssen den Computer neu starten, damit dieser Parameter wirksam wird. |
 | quotanotify`<frequency>` | Konfiguriert, wie oft NTFS-Kontingent Verletzungen im System Protokoll gemeldet werden. Gültige Werte für liegen im Bereich von **0 – 4294967295**. Die Standard Häufigkeit beträgt **3600** Sekunden (eine Stunde).<p>Sie müssen den Computer neu starten, damit dieser Parameter wirksam wird. |
 | symlinkevaluation`<symboliclinktype>` | Steuert die Art von symbolischen Verknüpfungen, die auf einem Computer erstellt werden können. Folgende Optionen sind gültig:<ul><li>**1** -lokale und lokale symbolische Links,`L2L:{0|1}`</li><li>**2** -lokale zu-Remote-symbolische Verknüpfungen,`L2R:{1|0}`</li><li>**3** : Symbol Verknüpfungen für Remote-zu-lokal`R2R:{1|0}`</li><li>**4** -symbolische Links zu Remote-zu-Remote`R2L:{1|0}`</li></ul> |
-| disabledeletenotify | Deaktiviert (**1**) oder aktiviert (**0**) Benachrichtigungen löschen. DELETE-Benachrichtigungen (auch als Trim oder unmap bezeichnet) ist ein Feature, das das zugrunde liegende Speichergerät von Clustern benachrichtigt, die aufgrund eines Datei Löschvorgangs freigegeben wurden. Außerdem:<ul><li>Für Systeme, die refs v2 verwenden, ist Trim standardmäßig deaktiviert.</li><li>Für Systeme, die refs v1 verwenden, ist Trim standardmäßig aktiviert.</li><li>Für Systeme, die NTFS verwenden, ist Trim standardmäßig aktiviert, es sei denn, Sie werden von einem Administrator deaktiviert.</li><li>Wenn Ihr Festplattenlaufwerk oder San meldet, dass Trim nicht unterstützt wird, erhalten die Festplatte und die Sans keine Trim-Benachrichtigungen.</li><li>Die Aktivierung oder Deaktivierung erfordert keinen Neustart.</li><li>Trim ist wirksam, wenn der nächste aufheben-Befehl ausgegeben wird.</li><li>Vorhandene Flight-e/a sind von der Registrierungs Änderung nicht betroffen.</li><li>Erfordert keinen Dienst Neustart, wenn Sie Trim aktivieren oder deaktivieren.</li></ul> |
+| disabledeletenotify | Deaktiviert (**1**) oder aktiviert (**0**) Benachrichtigungen löschen. DELETE-Benachrichtigungen (auch als Trim oder unmap bezeichnet) ist ein Feature, das das zugrunde liegende Speichergerät von Clustern benachrichtigt, die aufgrund eines Datei Löschvorgangs freigegeben wurden. Berücksichtigen Sie zudem Folgendes:<ul><li>Für Systeme, die refs v2 verwenden, ist Trim standardmäßig deaktiviert.</li><li>Für Systeme, die refs v1 verwenden, ist Trim standardmäßig aktiviert.</li><li>Für Systeme, die NTFS verwenden, ist Trim standardmäßig aktiviert, es sei denn, Sie werden von einem Administrator deaktiviert.</li><li>Wenn Ihr Festplattenlaufwerk oder San meldet, dass Trim nicht unterstützt wird, erhalten die Festplatte und die Sans keine Trim-Benachrichtigungen.</li><li>Die Aktivierung oder Deaktivierung erfordert keinen Neustart.</li><li>Trim ist wirksam, wenn der nächste aufheben-Befehl ausgegeben wird.</li><li>Vorhandene Flight-e/a sind von der Registrierungs Änderung nicht betroffen.</li><li>Erfordert keinen Dienst Neustart, wenn Sie Trim aktivieren oder deaktivieren.</li></ul> |
 
 #### <a name="remarks"></a>Hinweise
 
@@ -129,7 +129,7 @@ Um das Standardverhalten für Trim (disabledeletenotify) für NTFS und Refs V1 z
 fsutil behavior set disabledeletenotify 1
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

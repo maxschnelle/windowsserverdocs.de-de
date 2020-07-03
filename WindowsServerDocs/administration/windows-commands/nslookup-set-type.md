@@ -1,6 +1,6 @@
 ---
 title: nslookup set type
-description: Referenz Thema für den Befehl "nslookup Set Type", der den Ressourcen Daten Satz für die Abfrage ändert.
+description: Referenz Artikel für den Befehl "nslookup Set Type", der den Ressourcen Daten Satz für die Abfrage ändert.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 793ab40bbc47df09eb71642623e42a6f65c56842
-ms.sourcegitcommit: 99d548141428c964facf666c10b6709d80fbb215
+ms.openlocfilehash: 93ef4d6c607c3edc1bcf1209237ba726e27852d0
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84721353"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85930317"
 ---
 # <a name="nslookup-set-type"></a>nslookup set type
 
@@ -33,13 +33,13 @@ set type=<resourcerecordtype>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<resourcerecordtype>` | Gibt einen DNS-Ressourcen eingabentyp an. Der Standard Ressourcen Daten Satz-Typ ist **ein**, aber Sie können einen der folgenden Werte verwenden:<ul><li>**A:** Gibt die IP-Adresse eines Computers an.</li><li>**Beliebig:** Gibt die IP-Adresse eines Computers an.</li><li>**CNAME:** Gibt einen kanonischen Namen für einen Alias an.</li><li>**Gid** Gibt einen Gruppen Bezeichner eines Gruppennamens an.</li><li>**Hinfo:** Gibt die CPU und den Typ des Betriebssystems eines Computers an.</li><li>**MB:** Gibt einen Post Fach Domänen Namen an.</li><li>**Mg:** Gibt ein e-Mail-Gruppenmitglied an.</li><li>**MINFO:** Gibt Postfach-oder e-Mail-Listen Informationen an.</li><li>**Mr:** Gibt den Namen der Umbenennungs Domäne an.</li><li>**MX:** Gibt den e-Mail-Austausch an</li><li>**NS:** Gibt einen DNS-Namen Server für die benannte Zone an.</li><li>**PTR:** Gibt einen Computernamen an, wenn die Abfrage eine IP-Adresse ist. Andernfalls gibt den Zeiger auf andere Informationen an.</li><li>**SOA:** Gibt den Autorisierungs Anfang für eine DNS-Zone an.</li><li>**Txt:** Gibt die Textinformationen an.</li><li>**UID:** Gibt die Benutzer-ID an.</li><li>**Uinfo:** Gibt die Benutzerinformationen an.</li><li>**Wert:** Beschreibt einen bekannten Dienst.</li></ul> |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 | /help | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

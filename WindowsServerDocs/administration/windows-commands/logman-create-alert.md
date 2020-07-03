@@ -1,6 +1,6 @@
 ---
-title: Warnung zu logman Create
-description: Referenz Thema für den Befehl logman Create Alert, mit dem ein Warnungs Datensammler erstellt wird.
+title: logman create alert
+description: Referenz Artikel für den Befehl logman Create Alert, mit dem ein Warnungs Datensammler erstellt wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 10d19f6c86d09c698a6871ae0f0e530c5189c0ca
-ms.sourcegitcommit: 29bc8740e5a8b1ba8f73b10ba4d08afdf07438b0
+ms.openlocfilehash: cb2c1372caefd18e9625eedfe71538a78bfc84e4
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84222830"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85931641"
 ---
-# <a name="logman-create-alert"></a>Warnung zu logman Create
+# <a name="logman-create-alert"></a>logman create alert
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -73,7 +73,7 @@ logman create alert new_alert -th \Processor(_Total)\% Processor time>50
 > [!NOTE]
 > Der definierte Schwellenwert basiert auf dem Wert, der vom Leistungs Schwellenwert erfasst wird. in diesem Beispiel entspricht der Wert 50 der Prozessorzeit von 50%.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

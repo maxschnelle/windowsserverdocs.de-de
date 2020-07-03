@@ -1,6 +1,6 @@
 ---
 title: driverquery
-description: Referenz Thema für den driverquery-Befehl, mit dem ein Administrator eine Liste der installierten Gerätetreiber und deren Eigenschaften anzeigen kann.
+description: Referenz Artikel für den Befehl "driverquery", der es einem Administrator ermöglicht, eine Liste der installierten Gerätetreiber und deren Eigenschaften anzuzeigen.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f4754cba8cf4cb3a5f01b0aeb0095f727a072a5c
-ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
+ms.openlocfilehash: 8ad0a028217e07d8c15b59dc96e31c8f236dd743
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2020
-ms.locfileid: "83436935"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85931461"
 ---
 # <a name="driverquery"></a>driverquery
 
@@ -30,10 +30,10 @@ driverquery [/s <system> [/u [<domain>\]<username> [/p <password>]]] [/fo {table
 
 | Parameter | Beschreibung |
 | --------- |------------ |
-| /s`<system>` | Gibt den Namen oder die IP-Adresse eines Remote Computers an. Verwenden Sie keine umgekehrten Schrägstriche. Der Standardwert ist der lokale Computer. |
+| /s`<system>` | Gibt den Namen oder die IP-Adresse eines Remote Computers an. Verwenden Sie keine umgekehrten Schrägstriche. Die Standardeinstellung ist der lokale Computer. |
 | /u`[<domain>]<username>` | Führt den Befehl mit den Anmelde Informationen des Benutzerkontos aus, wie von " *User* " oder " *Domäne \ Benutzer*" angegeben. Standardmäßig verwendet */s* die Anmelde Informationen des Benutzers, der zurzeit auf dem Computer angemeldet ist, von dem der Befehl ausgegeben wird. **/u** kann nur verwendet werden, wenn **/s** angegeben wird. |
 | /p`<password>` | Gibt das Kennwort des Benutzerkontos an, das im **/u** -Parameter angegeben ist. **/p** kann nur verwendet werden, wenn **/u** angegeben wird. |
-| /FO-Tabelle | Formatiert die Ausgabe als Tabelle. Dies ist der Standardwert. |
+| /FO-Tabelle | Formatiert die Ausgabe als Tabelle. Dies ist die Standardeinstellung. |
 | /FO-Liste | Formatiert die Ausgabe als Liste. |
 | CSV/FO | Formatiert die Ausgabe mit durch Trennzeichen getrennten Werten. |
 | /nh | Lässt die Kopfzeile der angezeigten Treiber Informationen aus. Ungültig, wenn der **/FO** -Parameter auf **List**festgelegt ist. |
@@ -73,6 +73,6 @@ Wenn Sie den Befehl " **driverquery** " auf einem Remote Server mit dem Namen *S
 driverquery /s server1 /u maindom\user1 /p p@ssw3d
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -1,6 +1,6 @@
 ---
 title: Dfsutil
-description: Referenz Thema für den Dfsutil-Befehl, der DFS-Namespaces, Server und Clients verwaltet.
+description: Referenz Artikel für den Dfsutil-Befehl, der DFS-Namespaces, Server und Clients verwaltet.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d6905d90ee42958e47dfed4869520000a4fd3ddf
-ms.sourcegitcommit: fad2ba64bbc13763772e21ed3eabd010f6a5da34
+ms.openlocfilehash: c741635b2566a7bec7775de691105c15591caa62
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82992623"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85930615"
 ---
 # <a name="dfsutil"></a>Dfsutil
 
@@ -26,7 +26,7 @@ Der Dfsutil-Befehl verwaltet DFS-Namespaces,-Server und-Clients.
 
 Das [DFSN](https://docs.microsoft.com/powershell/module/dfsn/?view=win10-ps) -PowerShell-Modul bietet entsprechende Funktionen für die folgenden Dfsutil-Parameter.
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | root | Zeigt, erstellt, entfernt, importiert und exportiert Namespace Stämme. |
 | link | Hiermit werden Ordner angezeigt, erstellt, entfernt oder verschoben (links). |
@@ -39,14 +39,14 @@ Das [DFSN](https://docs.microsoft.com/powershell/module/dfsn/?view=win10-ps) -Po
 
 Die folgende Funktionalität ist nur als Dfsutil-Parameter verfügbar:
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | Client | Zeigt Client Informationen oder Registrierungsschlüssel an oder ändert Sie. |
 | Diag | Ausführen von Diagnosen oder Anzeigen von dfsdirs/dfspath. |
 | cache | Zeigt den Client Cache an oder leert ihn. |
 
-Weitere Informationen zu den einzelnen Befehlen erhalten Sie, indem Sie auf einem Server, auf dem die DFS-Namespaces-Verwaltungs Tools installiert sind, `dfsutil client /?`eine `dfsutil diag /?`Eingabeaufforderung `dfsutil cache /?`öffnen und dann, oder eingeben.
+Weitere Informationen zu den einzelnen Befehlen erhalten Sie, indem Sie auf einem Server, auf dem die DFS-Namespaces-Verwaltungs Tools installiert sind, eine Eingabeaufforderung öffnen und dann `dfsutil client /?` , `dfsutil diag /?` oder eingeben `dfsutil cache /?` .
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

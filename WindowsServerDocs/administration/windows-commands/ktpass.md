@@ -1,6 +1,6 @@
 ---
 title: ktpass
-description: Referenz Thema für den Befehl "ktpass", mit dem der Server Prinzipal Name für den Host oder Dienst in AD DS konfiguriert wird und eine keytab-Datei generiert wird, die den gemeinsamen geheimen Schlüssel des Diensts enthält.
+description: Referenz Artikel für den Befehl "ktpass", mit dem der Server Prinzipal Name für den Host oder Dienst in AD DS konfiguriert wird und eine keytab-Datei generiert wird, die den gemeinsamen geheimen Schlüssel des Diensts enthält.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 432918343ccee70f0c30d294a349fb721f18f705
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: fbf7b47f4f21a2c964d14dd1200b15ad635d7471
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83817230"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85931824"
 ---
 # <a name="ktpass"></a>ktpass
 
@@ -44,12 +44,12 @@ ktpass
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ------------|
 | /Out`<filename>` | Gibt den Namen der zu generierenden Datei "Kerberos 5. keytab" an. **Hinweis:** Dies ist die Datei ". keytab", die Sie auf einen Computer übertragen, auf dem das Windows-Betriebssystem nicht ausgeführt wird, und dann ersetzen oder Zusammenführen mit der vorhandenen Keytab-Datei, */etc/krb5.keytab*. |
-| /princ`<principalname>` | Gibt den Prinzipal Namen im Formular an host/computer.contoso.com@CONTOSO.COM . **Warnung:** Bei diesem Parameter wird die Groß-/Kleinschreibung beachtet. |
-| /mapuser`<useraccount>` | Ordnet den Namen des Kerberos-Prinzipals, der vom **princ** -Parameter angegeben wird, dem angegebenen Domänen Konto zu. |
-| /mapop`{add|set}` | Gibt an, wie das Mapping-Attribut festgelegt wird.<ul><li>**Add** -addiert den Wert des angegebenen lokalen Benutzernamens. Dies ist der Standardwert.</li><li>**Set** : legt den Wert für die reine Daten Verschlüsselungs Standard-Verschlüsselung für den angegebenen lokalen Benutzernamen fest.</li></ul> |
+| /princ `<principalname>` | Gibt den Prinzipal Namen im Formular an host/computer.contoso.com@CONTOSO.COM . **Warnung:** Bei diesem Parameter wird die Groß-/Kleinschreibung beachtet. |
+| /mapuser `<useraccount>` | Ordnet den Namen des Kerberos-Prinzipals, der vom **princ** -Parameter angegeben wird, dem angegebenen Domänen Konto zu. |
+| /mapop`{add|set}` | Gibt an, wie das Mapping-Attribut festgelegt wird.<ul><li>**Add** -addiert den Wert des angegebenen lokalen Benutzernamens. Dies ist die Standardeinstellung.</li><li>**Set** : legt den Wert für die reine Daten Verschlüsselungs Standard-Verschlüsselung für den angegebenen lokalen Benutzernamen fest.</li></ul> |
 | `{-|+}`nicht ordnungsgemäß | Die nur-der-Verschlüsselung wird standardmäßig festgelegt.<ul><li>**+** Legt ein Konto für die reine des-Verschlüsselung fest.</li><li>**-** Gibt die Einschränkung für ein Konto für die reine des-Verschlüsselung frei. **Wichtig:** Der Standardwert von Windows wird von Windows nicht unterstützt.</li></ul> |
 | /in`<filename>` | Gibt die Keytab-Datei an, die von einem Host Computer gelesen werden soll, auf dem das Windows-Betriebssystem nicht ausgeführt wird. |
 | /pass`{password|*|{-|+}rndpass}` | Gibt ein Kennwort für den Prinzipal Benutzernamen an, der durch den **princ** -Parameter angegeben wird. Verwenden `*` Sie, um ein Kennwort einzugeben. |
@@ -58,7 +58,7 @@ ktpass
 | /crypto`{DES-CBC-CRC|DES-CBC-MD5|RC4-HMAC-NT|AES256-SHA1|AES128-SHA1|All}` | Gibt die Schlüssel an, die in der Schlüssel Tabellendatei-Datei generiert werden:<ul><li>**Des-CBC-CRC** -verwendet aus Kompatibilitätsgründen.</li><li>**Des-CBC-MD5** -hält die mit-Implementierung genauer an und wird aus Kompatibilitätsgründen verwendet.</li><li>**RC4-HMAC-NT** : verwendet die 128-Bit-Verschlüsselung.</li><li>**AES256-SHA1** : verwendet AES256-CTS-HMAC-SHA1-96-Verschlüsselung.</li><li>   **AES128-SHA1** : verwendet AES128-CTS-HMAC-SHA1-96-Verschlüsselung.</li><li>**Alle** -Zustände, die alle unterstützten kryptografietypen verwenden können.</li></ul><p>**Hinweis:** Da die Standardeinstellungen auf älteren mit-Versionen basieren, sollten Sie immer den- `/crypto` Parameter verwenden. |
 | /itercount | Gibt die Anzahl der Iterationen an, die für die AES-Verschlüsselung verwendet wird. Der Standardwert ignoriert **itercount** für die nicht-AES-Verschlüsselung und legt die AES-Verschlüsselung auf 4.096 fest. |
 | /ptype`{KRB5_NT_PRINCIPAL|KRB5_NT_SRV_INST|KRB5_NT_SRV_HST}` | Gibt den Prinzipaltyp an.<ul><li>**KRB5_NT_PRINCIPAL** : der allgemeine Prinzipaltyp (empfohlen).</li><li>**KRB5_NT_SRV_INST** : die Instanz des Benutzer Dienstanbieter</li><li>  **KRB5_NT_SRV_HST** -die Host Dienst Instanz</li></ul> |
-| /kvno`<keyversionnum>` | Gibt die Versionsnummer des Schlüssels an. Der Standardwert ist 1. |
+| /kvno`<keyversionnum>` | Gibt die Versionsnummer des Schlüssels an. Der Standardwert ist 1. |
 | /Answer`{-|+}` | Legt den Hintergrund Antwortmodus fest:<ul><li>**-** Antworten auf Kenn Wort Zurücksetzungen automatisch zurücksetzen, **ohne**.</li><li>**+** Antworten Zurücksetzen von Kenn Wort Eingabe Aufforderungen mit **Ja**.</li></ul> |
 | /target | Legt fest, welcher Domänen Controller verwendet werden soll. Standardmäßig wird der Domänen Controller basierend auf dem Prinzipal Namen erkannt. Wenn der Domänen Controller Name nicht aufgelöst wird, werden Sie in einem Dialogfeld zur Eingabe eines gültigen Domänen Controllers aufgefordert. |
 | /rawsalt | erzwingt, dass "ktpass" den rawsalt-Algorithmus beim Erzeugen des Schlüssels verwendet. Dieser Parameter ist optional. |
@@ -94,6 +94,6 @@ Wenn Sie eine Kerberos. keytab-Datei für einen Host Computer erstellen möchten
 
 3. Führen Sie die Datei ". keytab" mit der Datei */etc/krb5.keytab* auf einem Host Computer zusammen, auf dem das Windows-Betriebssystem nicht ausgeführt wird.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

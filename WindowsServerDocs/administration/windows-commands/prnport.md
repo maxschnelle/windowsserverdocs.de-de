@@ -1,6 +1,6 @@
 ---
 title: prnport
-description: Referenz Thema für den prnport-Befehl, der die standardmäßigen TCP/IP-Drucker Anschlüsse erstellt, löscht und auflistet, zusätzlich zum Anzeigen und Ändern der Port Konfiguration.
+description: Referenz Artikel zum prnport-Befehl, der die TCP/IP-Standarddrucker Anschlüsse erstellt, löscht und auflistet, zusätzlich zum Anzeigen und Ändern der Port Konfiguration.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9c209c06c2253e924e5a71753fec0b8ab0ee158d
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 4b373547050d3d3dfb1d64160959c8dbb9e6f5c5
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85472205"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85931162"
 ---
 # <a name="prnport"></a>prnport
 
@@ -30,7 +30,7 @@ cscript prnport {-a | -d | -l | -g | -t | -?} [-r <portname>] [-s <Servername>] 
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 |--|--|
 | -a | Erstellt einen standardmäßigen TCP/IP-Druckerport. |
 | -d | Löscht einen standardmäßigen TCP/IP-Druckerport. |
@@ -86,7 +86,7 @@ Um einen standardmäßigen TCP/IP-druckport auf dem lokalen Computer hinzuzufüg
 cscript prnport -a -r IP_10.2.3.4 -h 10.2.3.4
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

@@ -1,6 +1,6 @@
 ---
 title: recover
-description: Referenz Thema für * * * *-
+description: Referenz Artikel für den Wiederherstellungs Befehl, der lesbare Informationen von einem fehlerhaften oder fehlerhaften Datenträger wiederherstellt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,48 +9,40 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b316ed26f008a62f88aaeb4a7a7f3030d08f1588
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: ab7f502b046bf30a40b1fdd386c7faddc5c8f15a
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82722623"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85931935"
 ---
 # <a name="recover"></a>recover
 
+Stellt lesbare Informationen von einem ungültigen oder fehlerhaften Datenträger wieder her Mit diesem Befehl wird eine Datei (sektorweise) gelesen und Daten aus den guten Sektoren wieder hergestellt. Daten in fehlerhaften Sektoren gehen verloren. Da alle Daten in fehlerhaften Sektoren verloren gehen, wenn Sie eine Datei wiederherstellen, sollten Sie jeweils nur eine Datei wiederherstellen.
 
-
-Stellt lesbare Informationen von einem ungültigen oder fehlerhaften Datenträger wieder her
-
-
+Ungültige, vom **chkdsk** -Befehl gemeldete Sektoren wurden als schlecht gekennzeichnet, als der Datenträger für den Betrieb vorbereitet wurde. Sie stellen keine Gefahr dar, und die **Wiederherstellung** wirkt sich nicht auf diese aus.
 
 ## <a name="syntax"></a>Syntax
 
 ```
-recover [<Drive>:][<Path>]<FileName>
+recover [<drive>:][<path>]<filename>
 ```
 
 ### <a name="parameters"></a>Parameter
 
-|           Parameter           |                                          BESCHREIBUNG                                          |
-|-------------------------------|-----------------------------------------------------------------------------------------------|
-| [\<Laufwerk>:] [<Path>]<FileName> | Gibt den Speicherort und den Namen der Datei an, die Sie wiederherstellen möchten. *Dateiname* ist erforderlich. |
-|              /?               |                             Zeigt die Hilfe an der Eingabeaufforderung an.                              |
+| Parameter | Beschreibung |
+|--|--|
+| `[<drive>:][<path>]<filename>` | Gibt den Dateinamen (und den Speicherort der Datei an, wenn er sich nicht im aktuellen Verzeichnis befindet), die Sie wiederherstellen möchten. *Dateiname* ist erforderlich, und Platzhalter werden nicht unterstützt. |
+| /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-## <a name="remarks"></a>Bemerkungen
+### <a name="examples"></a>Beispiele
 
--   Mit dem Befehl "Wiederherstellen" wird eine Datei sektorweise gelesen und Daten aus den guten Sektoren **wieder hergestellt** . Daten in fehlerhaften Sektoren gehen verloren.
--   Ungültige von **chkdsk** gemeldete Sektoren wurden als schlecht gekennzeichnet, als der Datenträger für den Betrieb vorbereitet wurde. Sie stellen keine Gefahr dar, und die **Wiederherstellung** wirkt sich nicht auf diese aus.
--   Da alle Daten in fehlerhaften Sektoren verloren gehen, wenn Sie eine Datei wiederherstellen, sollten Sie jeweils nur eine Datei wiederherstellen.
--   Mit dem **Wiederherstellungs** Befehl können keine Platzhalter Zeichen (**&#42;** und **?**) verwendet werden. Sie müssen eine Datei angeben (und den Speicherort der Datei, wenn Sie sich nicht im aktuellen Verzeichnis befindet).
+Wenn Sie die Datei *story.txt* im Verzeichnis " *\fiction* " auf Laufwerk D wiederherstellen möchten, geben Sie Folgendes ein:
 
-## <a name="examples"></a>Beispiele
-
-Um die Datei Story. txt im Verzeichnis "\fiction" auf Laufwerk D wiederherzustellen, geben Sie Folgendes ein:
 ```
-recover d:\fiction\story.txt 
+recover d:\fiction\story.txt
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

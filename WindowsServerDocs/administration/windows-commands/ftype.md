@@ -1,6 +1,6 @@
 ---
 title: ftype
-description: Referenz Thema für den ftype-Befehl, der den in Dateinamen Erweiterungs Zuordnungen verwendeten Dateityp anzeigt oder ändert.
+description: Referenz Artikel für den ftype-Befehl, der den in Dateinamen Erweiterungs Zuordnungen verwendeten Dateityp anzeigt oder ändert.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,19 +9,19 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a1387a9f8cb607d3563a381c757ea237104e6032
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: 0ab401c4dd4707cf05c69c1746368927c0bfaa83
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83820210"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85930465"
 ---
 # <a name="ftype"></a>ftype
 
 Zeigt Dateitypen an, die in Zuordnungen für Dateinamen Erweiterungen verwendet werden, oder ändert Sie. Wenn Sie ohne einen Zuweisungs Operator (=) verwendet wird, zeigt dieser Befehl die aktuelle geöffnete Befehls Zeichenfolge für den angegebenen Dateityp an. Bei Verwendung ohne Parameter zeigt dieser Befehl die Dateitypen an, für die geöffnete Befehls Zeichenfolgen definiert sind.
 
 > [!NOTE]
-> Dieser Befehl wird nur in "cmd. exe" unterstützt und ist in PowerShell nicht verfügbar.
+> Dieser Befehl wird nur in cmd.exe unterstützt und ist in PowerShell nicht verfügbar.
 > Obwohl Sie als Problem `cmd /c ftype` Umgehung verwenden können.
 
 ## <a name="syntax"></a>Syntax
@@ -32,7 +32,7 @@ ftype [<filetype>[=[<opencommandstring>]]]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<filetype>` | Gibt den Dateityp an, der angezeigt oder geändert werden soll. |
 | `<opencommandstring>` | Gibt die geöffnete Befehls Zeichenfolge an, die beim Öffnen von Dateien vom angegebenen Dateityp verwendet werden soll.|
@@ -73,7 +73,7 @@ Zum Löschen der geöffneten Befehls Zeichenfolge für einen Dateityp mit dem Na
 ftype example=
 ```
 
-Um die Dateinamenerweiterung. pl dem Dateityp PerlScript zuzuordnen, und aktivieren Sie den Dateityp Perl Script, um perl auszuführen. EXE, geben Sie die folgenden Befehle ein:
+Geben Sie die folgenden Befehle ein, um die Dateinamenerweiterung. pl dem Dateityp Perl Script zuzuordnen und den Dateityp Perl Script zum Ausführen von PERL.EXE zu aktivieren:
 
 ```
 assoc .pl=PerlScript
@@ -86,6 +86,6 @@ Wenn Sie die Dateinamenerweiterung. pl beim Aufrufen eines Perl-Skripts nicht ei
 set PATHEXT=.pl;%PATHEXT%
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

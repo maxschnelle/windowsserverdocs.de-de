@@ -1,6 +1,6 @@
 ---
-title: ftp-mdelete
-description: Referenz Thema für den ftp-mdelete-Befehl, mit dem Dateien auf dem Remote Computer gelöscht werden.
+title: ftp mdelete
+description: Referenz Artikel für den ftp-mdelete-Befehl, mit dem Dateien auf dem Remote Computer gelöscht werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8ee1882878ce06a16bd6ff6f0dcaa512d6d8b56a
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: 720ae8b5ebb0ef380f6547a85913cd84c6d98c7e
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83820230"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85931168"
 ---
-# <a name="ftp-mdelete"></a>ftp-mdelete
+# <a name="ftp-mdelete"></a>ftp mdelete
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -29,19 +29,19 @@ mdelete <remotefile>[...]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<remotefile>` | Gibt die zu löschende Remote Datei an. |
 
 ### <a name="examples"></a>Beispiele
 
-Geben Sie Folgendes ein, um Remote Dateien " *exe* " und " *b. exe*" zu löschen:
+Zum Löschen von Remote Dateien *a.exe* und *b.exe*geben Sie Folgendes ein:
 
 ```
 mdelete a.exe b.exe
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

@@ -1,6 +1,6 @@
 ---
 title: nslookup set timeout
-description: Referenz Thema für den nslookup-Satz Timeout-Befehl, der die anfängliche Anzahl von Sekunden ändert, die auf eine Antwort auf eine Such Anforderung gewartet werden soll.
+description: Referenz Artikel für den nslookup-Satz Timeout-Befehl, der die anfängliche Anzahl von Sekunden ändert, die auf eine Antwort auf eine Such Anforderung gewartet werden soll.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0d8fd0d96226e193ba723cc0a726ddf5362a538c
-ms.sourcegitcommit: 99d548141428c964facf666c10b6709d80fbb215
+ms.openlocfilehash: 6df8d1229dd57a84cb0dced3829bb328e41f092c
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84721385"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85930348"
 ---
 # <a name="nslookup-set-timeout"></a>nslookup set timeout
 
@@ -30,7 +30,7 @@ set timeout=<number>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ---------- | ---------- |
 | `<number>` | Gibt die Anzahl der Sekunden an, die auf eine Antwort gewartet werden soll. Die Standard Anzahl von Sekunden, die gewartet werden soll, ist **5**. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
@@ -44,7 +44,7 @@ So legen Sie das Timeout für das erhalten einer Antwort auf 2 Sekunden fest:
 set timeout=2
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

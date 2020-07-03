@@ -1,6 +1,6 @@
 ---
 title: tsecimp
-description: Referenz Thema für TSecImp, das Zuweisungs Informationen aus einer Extensible Markup Language-Datei (XML) in die TAPI-Server Sicherheits Datei (Tsec. ini) importiert.
+description: Referenz Artikel für t-CIMP, der Zuweisungs Informationen aus einer Extensible Markup Language (XML)-Datei in die TAPI-Server Sicherheits Datei (Tsec.ini) importiert.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: afd38f7081a9b4674eb6cac26f52849794b8d5e6
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: d221479e23c737529305a2354e6a5a52b957bd8e
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82721254"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85931483"
 ---
 # <a name="tsecimp"></a>tsecimp
 
-Importiert Zuweisungs Informationen aus einer Extensible Markup Language-Datei (XML) in die TAPI-Server Sicherheits Datei (Tsec. ini). Sie können diesen Befehl auch verwenden, um die Liste der TAPI-Anbieter und der zugehörigen Geräte anzuzeigen, die Struktur der XML-Datei zu überprüfen, ohne den Inhalt zu importieren, und die Domänen Mitgliedschaft zu überprüfen.
+Importiert Zuweisungs Informationen aus einer Extensible Markup Language-Datei (XML) in die Sicherheits Datei des TAPI-Servers (Tsec.ini). Sie können diesen Befehl auch verwenden, um die Liste der TAPI-Anbieter und der zugehörigen Geräte anzuzeigen, die Struktur der XML-Datei zu überprüfen, ohne den Inhalt zu importieren, und die Domänen Mitgliedschaft zu überprüfen.
 
 ## <a name="syntax"></a>Syntax
 
@@ -29,17 +29,17 @@ tsecimp /d
 
 #### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |---------|-----------|
-|/f \<filename->|Erforderlich. Gibt den Namen der XML-Datei an, die die Zuweisungs Informationen enthält, die Sie importieren möchten.|
-|/v|Überprüft die Struktur der XML-Datei, ohne die Informationen in die Datei "tsec. ini" zu importieren.|
+|/f \<Filename>|Erforderlich. Gibt den Namen der XML-Datei an, die die Zuweisungs Informationen enthält, die Sie importieren möchten.|
+|/v|Überprüft die Struktur der XML-Datei, ohne die Informationen in die Tsec.ini Datei zu importieren.|
 |/U|Überprüft, ob jeder Benutzer ein Mitglied der Domäne ist, die in der XML-Datei angegeben ist. Der Computer, auf dem Sie diesen Parameter verwenden, muss mit dem Netzwerk verbunden sein. Dieser Parameter kann die Leistung erheblich verlangsamen, wenn Sie eine große Menge an Benutzer Zuweisungs Informationen verarbeiten.|
 |/d|Zeigt eine Liste installierter Telefonieanbieter an. Für jeden Telefonieanbieter werden die zugeordneten liniengeräte sowie die den einzelnen Zeilen Geräten zugeordneten Adressen und Benutzer aufgelistet.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 
--   Die XML-Datei, aus der Sie Zuweisungs Informationen importieren möchten, muss der unten beschriebenen Struktur folgen.  
+-   Die XML-Datei, aus der Sie Zuweisungs Informationen importieren möchten, muss der unten beschriebenen Struktur folgen.
     -   **Userlist** -Element
 
         Die **userlist** ist das oberste Element der XML-Datei.
@@ -62,16 +62,16 @@ tsecimp /d
         Für jedes **Line** -Element können Sie das **Remove** -Attribut festlegen. Wenn Sie dieses Attribut festlegen, wird der Benutzer nicht mehr diesem Geräte Gerät zugewiesen. Wenn dieses Attribut nicht festgelegt ist, erhält der Benutzer Zugriff auf dieses liniengerät. Wenn das liniengerät für den Benutzer nicht verfügbar ist, wird kein Fehler ausgegeben.
 
 ## <a name="examples"></a>Beispiele
-- Die folgenden XML-Beispielcode Segmente veranschaulichen die korrekte Verwendung der oben definierten Elemente.  
-  - Mit dem folgenden Code werden alle Linien Geräte entfernt, die user1 zugewiesen sind.  
+- Die folgenden XML-Beispielcode Segmente veranschaulichen die korrekte Verwendung der oben definierten Elemente.
+  - Mit dem folgenden Code werden alle Linien Geräte entfernt, die user1 zugewiesen sind.
     ```
     <UserList>
       <User NoMerge=1>
         <DomainUser>domain1\user1</DomainUser>
       </User>
     </UserList>
-    ```  
-  - Mit dem folgenden Code werden alle Zeilen Geräte entfernt, die user1 zugewiesen sind, bevor eine Zeile mit der Adresse 99999 zugewiesen wird. User1 werden keine anderen Linien Geräte zugewiesen, unabhängig davon, ob zuvor Zeilen Geräte zugewiesen wurden.  
+    ```
+  - Mit dem folgenden Code werden alle Zeilen Geräte entfernt, die user1 zugewiesen sind, bevor eine Zeile mit der Adresse 99999 zugewiesen wird. User1 werden keine anderen Linien Geräte zugewiesen, unabhängig davon, ob zuvor Zeilen Geräte zugewiesen wurden.
     ```
     <UserList>
       <User NoMerge=1>
@@ -84,8 +84,8 @@ tsecimp /d
         </LineList>
       </User>
     </UserList>
-    ```  
-  - Mit dem folgenden Code wird ein Zeilen Gerät für User1 hinzugefügt, ohne zuvor zugewiesene Linien Geräte zu löschen.  
+    ```
+  - Mit dem folgenden Code wird ein Zeilen Gerät für User1 hinzugefügt, ohne zuvor zugewiesene Linien Geräte zu löschen.
     ```
     <UserList>
       <User>
@@ -98,8 +98,8 @@ tsecimp /d
         </LineList>
       </User>
     </UserList>
-    ```  
-  - Mit dem folgenden Code wird die Zeilen Adresse 99999 hinzugefügt und die Zeilen Adresse 88888 aus User1's Access entfernt.  
+    ```
+  - Mit dem folgenden Code wird die Zeilen Adresse 99999 hinzugefügt und die Zeilen Adresse 88888 aus User1's Access entfernt.
     ```
     <UserList>
       <User>
@@ -115,8 +115,8 @@ tsecimp /d
         </LineList>
       </User>
     </UserList>
-    ```  
-  - Mit dem folgenden Code wird das permanente Gerät 1000 hinzugefügt, und die Zeile 88888 wird aus User1's Access entfernt.  
+    ```
+  - Mit dem folgenden Code wird das permanente Gerät 1000 hinzugefügt, und die Zeile 88888 wird aus User1's Access entfernt.
     ```
     <UserList>
       <User>
@@ -134,7 +134,7 @@ tsecimp /d
     </UserList>
     ```
 
--   Die folgende Beispielausgabe wird angezeigt, nachdem die Befehlszeilenoption **/d** angegeben wurde, um die aktuelle TAPI-Konfiguration anzuzeigen. Für jeden Telefonieanbieter werden die zugeordneten liniengeräte sowie die den einzelnen Zeilen Geräten zugeordneten Adressen und Benutzer aufgelistet.  
+-   Die folgende Beispielausgabe wird angezeigt, nachdem die Befehlszeilenoption **/d** angegeben wurde, um die aktuelle TAPI-Konfiguration anzuzeigen. Für jeden Telefonieanbieter werden die zugeordneten liniengeräte sowie die den einzelnen Zeilen Geräten zugeordneten Adressen und Benutzer aufgelistet.
     ```
     NDIS Proxy TAPI Service Provider
             Line: WAN Miniport (L2TP)
@@ -152,7 +152,7 @@ tsecimp /d
 
     ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

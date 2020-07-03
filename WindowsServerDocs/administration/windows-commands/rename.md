@@ -1,6 +1,6 @@
 ---
 title: rename
-description: Referenz Thema für * * * *-
+description: Referenz Artikel für * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8cc81d813f1e7d0474337adc1afa22a0cf1040c5
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: a5dead0be17d38e4978e9bc8cc624a9e3dad02f6
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83820120"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85931363"
 ---
 # <a name="rename"></a>rename
 
@@ -22,6 +22,6 @@ ms.locfileid: "83820120"
 
 Dies ist das gleiche wie der **ren** -Befehl.
 Weitere Informationen zu Syntax und Parametern finden Sie unter [ren](ren.md) .
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

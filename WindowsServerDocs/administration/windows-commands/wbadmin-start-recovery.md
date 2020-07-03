@@ -1,6 +1,6 @@
 ---
-title: Wbadmin-Wiederherstellung starten
-description: Referenz Thema für die Wbadmin-start Wiederherstellung, mit der ein Wiederherstellungs Vorgang basierend auf den von Ihnen angegebenen Parametern ausgeführt wird.
+title: wbadmin start recovery
+description: Referenz Artikel für die Wbadmin-start Wiederherstellung, mit der ein Wiederherstellungs Vorgang basierend auf den von Ihnen angegebenen Parametern ausgeführt wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ec116bb69dd70cb58f6cb71ccf9ccfa04dea2e54
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 2a8934d9177d81cd05124175e64746ecdb4a1bc1
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82725885"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85930955"
 ---
-# <a name="wbadmin-start-recovery"></a>Wbadmin-Wiederherstellung starten
+# <a name="wbadmin-start-recovery"></a>wbadmin start recovery
 
 Führt einen Wiederherstellungs Vorgang basierend auf den Parametern aus, die Sie angeben.
 
@@ -42,7 +42,7 @@ wbadmin start recovery
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |---------|-----------|
 |-version|Gibt den Versions Bezeichner der wiederherzustellenden Sicherung im Format mm/dd/yyyy-HH: mm an. Wenn Sie den Versions Bezeichner nicht kennen, geben Sie **Wbadmin Get Versions**ein.|
 |-Elemente|Gibt eine durch Trennzeichen getrennte Liste von Volumes, Anwendungen, Dateien oder Ordnern an, die wieder hergestellt werden sollen.</br>Wenn **-ItemType** ein **Volume**ist, können Sie nur ein einzelnes Volume angeben – indem Sie den volumedatenträger, den volumeeinstellungspunkt oder den GUID-basierten Volumenamen angeben.</br>-Wenn **-ItemType** eine **App**ist, können Sie nur eine einzige Anwendung angeben. Damit die Anwendung wieder hergestellt werden kann, muss Sie bei Windows Server-Sicherung registriert sein. Sie können auch den Wert **adifm** verwenden, um eine Installation von Active Directory wiederherzustellen. Weitere Informationen finden Sie in den Hinweisen unter.</br>Wenn **-ItemType** auf **File**festgelegt ist, können Sie Dateien oder Ordner angeben, aber Sie sollten Teil desselben Volumes sein, und Sie sollten sich im selben übergeordneten Ordner befinden.|
@@ -57,7 +57,7 @@ wbadmin start recovery
 |-norollforward|Nur beim Wiederherstellen von Anwendungen gültig. Ermöglicht die vorherige Wiederherstellung einer Anwendung zu einem bestimmten Zeitpunkt, wenn die neueste Version aus den Sicherungen ausgewählt ist. Bei anderen Versionen der Anwendung, bei denen es sich nicht um die neuesten handelt, wird die vorherige Zeit Punkt Wiederherstellung als Standardeinstellung ausgeführt.|
 |-quiet|Führt den Unterbefehl ohne Aufforderungen an den Benutzer aus.|
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 
 -   Verwenden Sie zum Anzeigen einer Liste von Elementen, die von einer bestimmten Sicherungs Version für die Wiederherstellung verfügbar sind, **Wbadmin Get Items**. Wenn ein Volume zum Zeitpunkt der Sicherung keinen Einfügepunkt oder Laufwerk Buchstabe enthielt, gibt dieser Unterbefehl einen GUID-basierten Volumenamen zurück, der für die Wiederherstellung des Volumes verwendet werden soll.
 -   Wenn " **-ItemType** " eine **App**ist, können Sie den Wert " **adifm** for **-Item** " verwenden, um eine Installation von einem Medien Vorgang auszuführen, um alle zugehörigen Daten wiederherzustellen, die für die Active Directory Domain Services benötigt werden. **Adifm** erstellt eine Kopie der Active Directory Datenbank-, Registrierungs-und SYSVOL-Status und speichert diese Informationen dann an dem Speicherort, der von **-Wiederherstellungsziel**angegeben wird. Verwenden Sie diesen Parameter nur, wenn " **-herstellytarget** " angegeben wird.
@@ -79,17 +79,17 @@ Geben Sie Folgendes ein, um eine Wiederherstellung der Sicherung vom 31. März 2
 ```
 wbadmin start recovery -version:03/31/2013-09:00 -itemType:File -items:d:\folder -recursive
 ```
-Zum Ausführen einer Wiederherstellung der Sicherung ab dem \\ \\31. März 2013 (um 9:00 Uhr) des Volumes? \Volume{cc566d14-44a0-11d9-9d93-806e6f6e6963}\, :
+Zum Ausführen einer Wiederherstellung der Sicherung ab dem 31. März 2013 (um 9:00 Uhr) des Volumes \\ \\ ? \Volume{cc566d14-44a0-11d9-9d93-806e6f6e6963} \, :
 ```
-wbadmin start recovery -version:03/31/2013-09:00 -itemType:Volume 
+wbadmin start recovery -version:03/31/2013-09:00 -itemType:Volume
 -items:\\?\Volume{cc566d14-44a0-11d9-9d93-806e6f6e6963}\
 ```
-Geben Sie Folgendes ein, um eine Wiederherstellung der Sicherung ab dem 30. April 2013 (um 9:00 Uhr) \\ \\des freigegebenen Ordners servername\share von Server01 durchzuführen:
+Geben Sie Folgendes ein, um eine Wiederherstellung der Sicherung ab dem 30. April 2013 (um 9:00 Uhr) des freigegebenen Ordners \\ \\ servername\share von Server01 durchzuführen:
 ```
 wbadmin start recovery -version:04/30/2013-09:00 -backupTarget:\\servername\share -machine:server01
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)

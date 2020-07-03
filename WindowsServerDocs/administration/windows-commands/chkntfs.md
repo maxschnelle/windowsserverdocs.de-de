@@ -1,6 +1,6 @@
 ---
 title: chkntfs
-description: Referenz Thema für den Chkntfs-Befehl, der die automatische Datenträger Überprüfung beim Starten des Computers anzeigt oder ändert.
+description: Referenz Artikel für den Chkntfs-Befehl, der die automatische Datenträger Überprüfung beim Starten des Computers anzeigt oder ändert.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 69b8e21a7b43538b6296666d813f2b33daa8045f
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 4d2a19a479ec3b00bda83ecded91f5fbb7941ca0
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82713659"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85930714"
 ---
 # <a name="chkntfs"></a>chkntfs
 
@@ -35,11 +35,11 @@ chkntfs [/c <volume> [...]]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<volume>` [...] | Gibt mindestens ein Volume an, das beim Starten des Computers überprüft werden soll. Zu den gültigen Volumes zählen Laufwerk Buchstaben (gefolgt von einem Doppelpunkt), Einstellungspunkte oder Volumenamen. |
 | /d | Stellt alle **chkntfs** -Standardeinstellungen wieder her, außer der Countdownzeit für die automatische Dateiüberprüfung. Standardmäßig werden alle Volumes geprüft, wenn der Computer gestartet wird, und **chkdsk** wird auf dem Computer ausgeführt, der geändert wurde. |
-| /t [`:<time>`] | Ändert die countdownzeitdauer von Autochk. exe auf die in Sekunden angegebene Zeitspanne. Wenn Sie keine Uhrzeit eingeben, zeigt **/t** den aktuellen countdownzeitraum an. |
+| /t [ `:<time>` ] | Ändert die Zeit für den Autochk.exe Initialisierungs Countdownzeit in die in Sekunden angegebene Zeitspanne. Wenn Sie keine Uhrzeit eingeben, zeigt **/t** den aktuellen countdownzeitraum an. |
 | /x `<volume>` [...] | Gibt an, dass ein oder mehrere Volumes von der Überprüfung beim Start des Computers ausgeschlossen werden sollen, auch wenn das Volume als erforderliches **chkdsk**markiert ist. |
 | /c `<volume>` [...] | Plant das Überprüfen eines oder mehrerer Volumes, wenn der Computer gestartet wird, und führt **chkdsk** auf den geänderten Datenträgern aus. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
@@ -55,20 +55,20 @@ chkntfs c:
 > [!NOTE]
 > Wenn die automatische Dateiüberprüfung geplant ist, wird eine zusätzliche Ausgabe angezeigt, die angibt, ob das Laufwerk geändert wurde oder manuell geplant wurde, wenn der Computer das nächste Mal gestartet wird.
 
-Geben Sie Folgendes ein, um die Initialisierungs Zeit für Autochk. exe anzuzeigen:
+Geben Sie Folgendes ein, um die Countdownzeit des Autochk.exe
 
 ```
 chkntfs /t
 ```
 
-Geben Sie Folgendes ein, um die countdownzeitdauer für Autochk. exe auf 30 Sekunden zu ändern:
+Geben Sie Folgendes ein, um die Countdownzeit für Autochk.exe-Initiierung auf 30 Sekunden
 
 ```
 chkntfs /t:30
 ```
 
 > [!NOTE]
-> Obwohl Sie die Countdownzeit für die Initiierung von Autochk. exe auf NULL festlegen können, wird dadurch verhindert, dass Sie eine potenziell zeitaufwändige automatische Dateiüberprüfung abbrechen.
+> Obwohl Sie die Countdownzeit für Autochk.exe Initiierung auf NULL festlegen können, wird dadurch verhindert, dass Sie eine potenziell zeitaufwändige automatische Dateiüberprüfung abbrechen.
 
 Wenn Sie mehrere Volumes von der Überprüfung ausschließen möchten, müssen Sie diese in einem einzigen Befehl auflisten. Wenn Sie z. b. die Volumes D und E ausschließen möchten, geben Sie Folgendes ein:
 
@@ -90,6 +90,6 @@ chkntfs /c d:
 > [!IMPORTANT]
 > Die Befehlszeilenoption **/c** ist akkumulierend. Wenn Sie **/c** mehrmals eingeben, bleibt jeder Eintrag erhalten. Um sicherzustellen, dass nur ein bestimmtes Volume überprüft wird, setzen Sie die Standardwerte zurück, um alle vorherigen Befehle zu löschen, alle Volumes von der Überprüfung ausschließen und dann die automatische Dateiüberprüfung auf dem gewünschten Volume zu planen.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

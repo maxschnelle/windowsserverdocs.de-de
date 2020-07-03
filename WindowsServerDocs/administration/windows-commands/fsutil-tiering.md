@@ -1,6 +1,6 @@
 ---
 title: fsutil tiering
-description: Referenz Thema für den Befehl "ssutil Tiering", der die Verwaltung von Funktionen für die Speicher Ebene ermöglicht, z. b. das Festlegen und Deaktivieren von Flags und das Auflisten von Ebenen.
+description: Referenz Artikel für den Befehl "ssutil Tiering", der die Verwaltung von Funktionen für die Speicher Ebene ermöglicht, z. b. das Festlegen und Deaktivieren von Flags und das Auflisten von Ebenen.
 ms.prod: windows-server
 manager: dmoss
 ms.author: toklima
@@ -9,12 +9,12 @@ ms.technology: storage
 ms.assetid: e5f55f3e-8d2a-4526-8d67-36a539126c22
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: 4fad2f5a7d868a38e187f49598235c40590e8eeb
-ms.sourcegitcommit: ef089864980a1d4793a35cbf4cbdd02ce1962054
+ms.openlocfilehash: 1463a6c50d2f735456e0675bdeef235cb5484b3e
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84149763"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85932089"
 ---
 # <a name="fsutil-tiering"></a>fsutil tiering
 
@@ -34,7 +34,7 @@ fsutil tiering [tierlist] <volume>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | ClearFlags | Deaktiviert die Tiering-verhaltenflags eines Volumes. |
 | `<volume>` | Gibt das Volume an. |
@@ -76,7 +76,7 @@ Geben Sie Folgendes ein, um die Ebenen von Volume C aufzulisten:
 fsutil tiering tierlist C:
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

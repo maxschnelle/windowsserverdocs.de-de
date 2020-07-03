@@ -1,6 +1,6 @@
 ---
-title: Telnet-Anzeige
-description: Referenz Thema für die Telnet-Anzeige, in der die Betriebsparameter angezeigt werden.
+title: telnet display
+description: Referenz Artikel für die Telnet-Anzeige, in der die Betriebsparameter angezeigt werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b91ab1619404e1cb5d1a2ba4c47282328b9e0920
-ms.sourcegitcommit: 29bc8740e5a8b1ba8f73b10ba4d08afdf07438b0
+ms.openlocfilehash: fffee5059172ad0a3f2c14489bda07ce76da9cb8
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84222703"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85930141"
 ---
 # <a name="telnet-display"></a>Telnet: Anzeige
 
@@ -33,5 +33,5 @@ Anzeigen von Betriebsparametern.
 ```
 d
 ```
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

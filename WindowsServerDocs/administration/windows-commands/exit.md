@@ -1,6 +1,6 @@
 ---
 title: exit
-description: Referenz Thema für Exit, mit dem der Befehls Interpreter beendet wird.
+description: Referenz Artikel zum Beenden, mit dem der Befehls Interpreter beendet wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: fdfec9861e63f7484a9c45c45a22d19873cabbe9
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: d28f15ba1453b32d8e464fd768a3b7895819d11c
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83819500"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85931448"
 ---
 # <a name="exit"></a>exit
 
@@ -30,9 +30,9 @@ exit [/b] [<exitcode>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
-| /b | Beendet das aktuelle Batch Skript, anstatt "cmd. exe" zu beenden. Wenn die Ausführung von außerhalb eines Batch Skripts erfolgt, wird "cmd. exe" beendet. |
+| /b | Beendet das aktuelle Batch Skript, anstatt Cmd.exe zu beenden. Wenn Sie von außerhalb eines Batch Skripts ausgeführt wird, wird Cmd.exe beendet. |
 | `<exitcode>` | Gibt eine numerische Zahl an. Wenn **/b** angegeben wird, wird die ERRORLEVEL-Umgebungsvariable auf diese Zahl festgelegt. Wenn Sie den Befehls Interpreter verlassen, wird der Prozessexitcode auf diese Zahl festgelegt. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
@@ -44,6 +44,6 @@ Geben Sie Folgendes ein, um den Befehls Interpreter zu schließen:
 exit
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

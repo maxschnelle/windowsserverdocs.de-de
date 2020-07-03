@@ -1,6 +1,6 @@
 ---
-title: FTP-Typ
-description: Referenz Thema für den Befehl FTP Type, mit dem der Datei Übertragungstyp festgelegt oder angezeigt wird.
+title: ftp type
+description: Referenz Artikel für den Befehl FTP Type, mit dem der Datei Übertragungstyp festgelegt oder angezeigt wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 02b6d5b4bd7944c9f4126ba4877360de02586cfb
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: ea0b2a319dae65104db8a215e17fa4b579ee6ffa
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83820270"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85931195"
 ---
-# <a name="ftp-type"></a>FTP-Typ
+# <a name="ftp-type"></a>ftp type
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -34,7 +34,7 @@ type [<typename>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `[<typename>]` | Gibt den Dateiübertragungstyp an. Wenn Sie diesen Parameter nicht angeben, wird der aktuelle Typ angezeigt.|
 
@@ -52,7 +52,7 @@ Geben Sie Folgendes ein, um den Dateityp für die Übertragung auf Binär
 type binary
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

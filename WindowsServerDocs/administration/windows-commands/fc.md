@@ -1,6 +1,6 @@
 ---
-title: FC
-description: Referenz Thema für den FC-Befehl, der zwei Dateien oder Datei Sätze vergleicht und die Unterschiede zwischen Ihnen anzeigt.
+title: fc
+description: Referenz Artikel für den FC-Befehl, der zwei Dateien oder Datei Sätze vergleicht und die Unterschiede zwischen Ihnen anzeigt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 146ae51334f40284e15c2a4564de8dd04660bf25
-ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
+ms.openlocfilehash: 6d9e12853d2634f7e7bcbd976b6c301f8e02c0dc
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2020
-ms.locfileid: "83437155"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85930480"
 ---
-# <a name="fc"></a>FC
+# <a name="fc"></a>fc
 
 Vergleicht zwei Dateien oder Sätze von Dateien und zeigt die Unterschiede zwischen diesen an.
 
@@ -48,7 +48,7 @@ fc /b [<drive1:>][<path1>]<filename1> [<drive2:>][<path2>]<filename2>
 
 #### <a name="remarks"></a>Hinweise
 
-- Dieser Befehl wird durch c:\windows\fc.exe implementiert. Sie können diesen Befehl in PowerShell verwenden, aber achten Sie darauf, die vollständige ausführbare Datei ("FC. exe") zu benennen, da "FC" auch ein Alias für Format-Custom ist.
+- Dieser Befehl wird durch c:\WINDOWS\fc.exe implementiert. Sie können diesen Befehl in PowerShell verwenden, aber achten Sie darauf, die vollständige ausführbare Datei (fc.exe) zu benennen, da "FC" auch ein Alias für Format-Custom ist.
 
 - Wenn Sie **FC** für einen ASCII-Vergleich verwenden, zeigt **FC** die Unterschiede zwischen zwei Dateien in der folgenden Reihenfolge an:
 
@@ -86,7 +86,7 @@ Geben Sie Folgendes ein, um einen ASCII-Vergleich von zwei Textdateien ( *monatl
 fc /a monthly.rpt sales.rpt
 ```
 
-Geben Sie Folgendes ein, um einen binären Vergleich von zwei Batch Dateien ( *Profit. bat* und *Gewinn. bat*) vorzunehmen:
+Geben Sie Folgendes ein, um einen binären Vergleich von zwei Batch Dateien ( *profits.bat* und *earnings.bat*vorzunehmen:
 
 ```
 fc /b profits.bat earnings.bat
@@ -102,20 +102,20 @@ fc /b profits.bat earnings.bat
 FC: earnings.bat longer than profits.bat
 ```
 
-Wenn die Dateien "Profit. bat" und "Profit. bat" identisch sind, zeigt **FC** die folgende Meldung an:
+Wenn die profits.bat-und earnings.bat Dateien identisch sind, zeigt **FC** die folgende Meldung an:
 
 ```
 Comparing files profits.bat and earnings.bat
 FC: no differences encountered
 ```
 
-Wenn Sie jede bat-Datei im aktuellen Verzeichnis mit der Datei " *New. bat*" vergleichen möchten, geben Sie Folgendes ein:
+Wenn Sie jede bat-Datei im aktuellen Verzeichnis mit der Datei *new.bat*vergleichen möchten, geben Sie Folgendes ein:
 
 ```
 fc *.bat new.bat
 ```
 
-Geben Sie Folgendes ein, um die Datei *New. bat* auf Laufwerk C mit der Datei *New. bat* auf Laufwerk D zu vergleichen:
+Wenn Sie die Datei *new.bat* auf Laufwerk C mit der Datei *new.bat* auf Laufwerk D vergleichen möchten, geben Sie Folgendes ein:
 
 ```
 fc c:new.bat d:*.bat
@@ -127,6 +127,6 @@ Geben Sie Folgendes ein, um die einzelnen Batch Dateien im Stammverzeichnis auf 
 fc c:*.bat d:*.bat
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

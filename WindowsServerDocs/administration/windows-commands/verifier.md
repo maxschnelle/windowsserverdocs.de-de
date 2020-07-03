@@ -1,6 +1,6 @@
 ---
 title: verifier
-description: Referenz Thema für Verifier, mit dem der treiberverifier-Manager ausgeführt wird.
+description: Referenz Artikel für Verifier, der den Treiber Verifier-Manager ausführt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 679681593ba8c94db8462f54cdccf976700debce
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: a7c8ee51a5a085b97093c417a143ee36cffbc979
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83821410"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85931332"
 ---
 # <a name="verifier"></a>verifier
 
@@ -38,15 +38,15 @@ verifier /query
 verifier /log <LogFileName> [/interval <seconds>]
 ```
 #### <a name="parameters"></a>Parameter
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |-------|--------|
-|\<Flags>|Muss eine Zahl im Dezimal-oder Hexadezimal Format sein, eine Kombination aus Bits:<p>-   **Wert: Beschreibung**<br />-   **Bit 0:** Überprüfung des speziellen Pools<br />-   **Bit 1:** erzwingen der unql-Überprüfung<br />-   **Bit 2:** Simulation mit geringer Ressourcen<br />-   **Bit 3:** Pool Überwachung<br />-   **Bit 4:** E/a-Überprüfung<br />-   **Bit 5:** Deadlockerkennung<br />-   **Bit 6:** nicht verwendet<br />-   **Bit 7:** DMA-Überprüfung<br />-   **Bit 8:** Sicherheitsüberprüfungen<br />-   **Bit 9:** Erzwingen von ausstehenden e/a-Anforderungen<br />-   **Bit 10:** Unp-Protokollierung<br />-   **Bit 11:** sonstige Überprüfungen<p>Beispielsweise entspricht **/Flags 27** **/Flags 0x1B** .|
+|\<flags>|Muss eine Zahl im Dezimal-oder Hexadezimal Format sein, eine Kombination aus Bits:<p>-   **Wert: Beschreibung**<br />-   **Bit 0:** Überprüfung des speziellen Pools<br />-   **Bit 1:** erzwingen der unql-Überprüfung<br />-   **Bit 2:** Simulation mit geringer Ressourcen<br />-   **Bit 3:** Pool Überwachung<br />-   **Bit 4:** E/a-Überprüfung<br />-   **Bit 5:** Deadlockerkennung<br />-   **Bit 6:** nicht verwendet<br />-   **Bit 7:** DMA-Überprüfung<br />-   **Bit 8:** Sicherheitsüberprüfungen<br />-   **Bit 9:** Erzwingen von ausstehenden e/a-Anforderungen<br />-   **Bit 10:** Unp-Protokollierung<br />-   **Bit 11:** sonstige Überprüfungen<p>Beispielsweise entspricht **/Flags 27** **/Flags 0x1B** .|
 |/volatile|Wird verwendet, um die verifizierereinstellungen dynamisch zu ändern, ohne das System neu zu starten. Alle neuen Einstellungen gehen verloren, wenn das System neu gestartet wird.|
-|\<Wahrscheinlichkeits>|Zahl zwischen 1 und 10.000, die die Wahrscheinlichkeit für die Fehler Injektion angibt. Wenn Sie z. b. 100 angeben, wird eine Fehler einschleusungs Wahrscheinlichkeit von 1% (100/10000) angegeben.<p>Wenn dieser Parameter nicht angegeben wird, wird die Standard Wahrscheinlichkeit von 6% verwendet.|
-|\<Tags>|Gibt die Pooltags an, die durch Leerzeichen getrennt eingefügt werden. Wenn dieser Parameter nicht angegeben wird, kann eine Pool Zuordnung mit Fehlern eingefügt werden.|
-|\<Anwendungen>|Gibt den Bilddateinamen der Anwendungen an, die durch Leerzeichen getrennt eingefügt werden. Wenn dieser Parameter nicht angegeben wird, kann es vorkommen, dass eine geringe Ressourcen Simulation in jeder Anwendung stattfindet.|
-|\<Minuten>|Eine positive Zahl, die die Länge des Zeitraums nach dem Neustart (in Minuten) angibt, in dem keine Fehler Injektion stattfindet. Wenn dieser Parameter nicht angegeben wird, wird die Standardlänge von 8 Minuten verwendet.|
+|\<probability>|Zahl zwischen 1 und 10.000, die die Wahrscheinlichkeit für die Fehler Injektion angibt. Wenn Sie z. b. 100 angeben, wird eine Fehler einschleusungs Wahrscheinlichkeit von 1% (100/10000) angegeben.<p>Wenn dieser Parameter nicht angegeben wird, wird die Standard Wahrscheinlichkeit von 6% verwendet.|
+|\<tags>|Gibt die Pooltags an, die durch Leerzeichen getrennt eingefügt werden. Wenn dieser Parameter nicht angegeben wird, kann eine Pool Zuordnung mit Fehlern eingefügt werden.|
+|\<applications>|Gibt den Bilddateinamen der Anwendungen an, die durch Leerzeichen getrennt eingefügt werden. Wenn dieser Parameter nicht angegeben wird, kann es vorkommen, dass eine geringe Ressourcen Simulation in jeder Anwendung stattfindet.|
+|\<minutes>|Eine positive Zahl, die die Länge des Zeitraums nach dem Neustart (in Minuten) angibt, in dem keine Fehler Injektion stattfindet. Wenn dieser Parameter nicht angegeben wird, wird die Standardlänge von 8 Minuten verwendet.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

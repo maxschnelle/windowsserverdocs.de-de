@@ -1,6 +1,6 @@
 ---
-title: Metadaten laden
-description: Referenz Thema für den Befehl "Metadaten laden", mit dem eine Datei "Metadata. cab" geladen wird, bevor eine austauschen-Schatten Kopie importiert wird, oder die Writer-Metadaten im Fall einer Wiederherstellung geladen werden.
+title: load metadata
+description: Referenz Artikel für den Befehl "Metadaten laden", der vor dem Importieren einer austauschen-Schatten Kopie eine Datei vom Typ "Metadata. cab" lädt oder die Writer-Metadaten bei einer Wiederherstellung lädt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c7dc967476412261e7afc228088566f74ec4208c
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: 01e782d0214da70f831b81120aff3c5097895036
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83820190"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85931678"
 ---
 # <a name="load-metadata"></a>Metadaten laden
 
@@ -28,10 +28,10 @@ load metadata [<drive>:][<path>]<metadata.cab>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `[<drive>:][<path>]` | Gibt den Speicherort der Metadatendatei an. |
-| Metadaten. cab | Gibt die zu ladende Datei "Metadata. cab" an. |
+| metadata.cab | Gibt die zu ladende Datei "Metadata. cab" an. |
 
 ## <a name="remarks"></a>Hinweise
 
@@ -41,13 +41,13 @@ load metadata [<drive>:][<path>]<metadata.cab>
 
 ## <a name="examples"></a>Beispiele
 
-Zum Laden einer Metadatendatei namens "Metafile. cab" aus dem Standard Speicherort geben Sie Folgendes ein:
+Zum Laden einer Metadatendatei namens metafile.cab vom Standard Speicherort geben Sie Folgendes ein:
 
 ```
 load metadata metafile.cab
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

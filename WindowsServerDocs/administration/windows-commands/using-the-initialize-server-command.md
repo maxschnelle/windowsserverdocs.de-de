@@ -1,6 +1,6 @@
 ---
 title: Initialize-Server
-description: Referenz Thema für Initialize-Server, mit dem ein Windows-Bereitstellungsdiensteserver für die erstmalige Verwendung nach der Installation der Server Rolle konfiguriert wird.
+description: Referenz Artikel zu Initialize-Server, mit dem ein Windows-Bereitstellungsdiensteserver für die erstmalige Verwendung nach der Installation der Server Rolle konfiguriert wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 54180923a077c0b423e73588bcbd1c03b0154d08
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 22c93a07e4c2785e8cda497e9698b2031c764a42
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82719720"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85932158"
 ---
 # <a name="initialize-server"></a>Initialize-Server
 
@@ -26,7 +26,7 @@ Konfiguriert einen Windows-Bereitstellungsdiensteserver für die erstmalige Verw
 wdsutil /Initialize-Server [/Server:<Server name>] /remInst:<Full path> [/Authorize]
 ```
 ### <a name="parameters"></a>Parameter
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |-------|--------|
 |[/Server:<Server name>]|Gibt den Namen des Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.|
 |remInst<Full path>|Gibt den vollständigen Pfad und den Namen des Ordners "RemoteInstall" an. Wenn der angegebene Ordner nicht bereits vorhanden ist, wird er durch diese Option erstellt, wenn der Befehl ausgeführt wird. Sie sollten immer einen lokalen Pfad eingeben, auch wenn es sich um einen Remote Computer handelt. Beispiel: **d:\RemoteInstall**.|
@@ -40,12 +40,12 @@ Um den Server zu initialisieren und den freigegebenen RemoteInstall-Ordner auf L
 ```
 wdsutil /verbose /Progress /Initialize-Server /Server:MyWDSServer /remInst:C:\remoteInstall
 ```
-## <a name="additional-references"></a>Zusätzliche Referenzen
-- [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
-[mithilfe des](using-the-disable-server-command.md)
-Befehls "Enable-Server" mit dem Befehl "[Enable-Server](using-the-enable-server-command.md)
-" mit dem Befehl "[Get-Server Command](using-the-get-server-command.md)
-[unter Command: Set-Server](subcommand-set-server.md)
-[subcommand: Start-Server](subcommand-start-server.md)
-[unter Command: beenden-Server](subcommand-stop-server.md)
-[The Uninitialize-Server](the-uninitialize-server-option.md) "
+## <a name="additional-references"></a>Weitere Verweise
+- [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md) 
+ [Verwenden des Befehls](using-the-disable-server-command.md) 
+ "deaktivierte Server" [Verwenden des Befehls](using-the-enable-server-command.md) 
+ "Enable-Server" [Verwenden des Befehls](using-the-get-server-command.md) 
+ Get-Server [Unterbefehl: Set-Server](subcommand-set-server.md) 
+ [Unterbefehl: Start-Server](subcommand-start-server.md) 
+ [Unterbefehl: "Ende-Server](subcommand-stop-server.md) 
+ " [Die Option "nicht initialisieren-Server](the-uninitialize-server-option.md) "

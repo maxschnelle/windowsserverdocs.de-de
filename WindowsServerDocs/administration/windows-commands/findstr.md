@@ -1,6 +1,6 @@
 ---
 title: findstr
-description: Referenz Thema für den findstr-Befehl, der in Dateien nach Textmustern sucht.
+description: Referenz Artikel für den findstr-Befehl, der in Dateien nach Textmustern sucht.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7f8d353b6d3aee77960b208d89372aee5dca07e3
-ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
+ms.openlocfilehash: f0cf30f19ef23c1b3275b6b7632b03f0dd8e433a
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2020
-ms.locfileid: "83436116"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85931434"
 ---
 # <a name="findstr"></a>findstr
 
@@ -64,7 +64,7 @@ findstr [/b] [/e] [/l | /r] [/s] [/i] [/x] [/v] [/n] [/m] [/o] [/p] [/f:<file>] 
 
     Folgende Meta-Zeichen werden akzeptiert:
 
-    | Meta-Zeichen | Value |
+    | Meta-Zeichen | Wert |
     | -------------- | ----- |
     | `.` | Platz **Halter-** beliebiges Zeichen |
     | `*` | **Wiederholen** Sie 0 (null) oder mehr Vorkommen des vorherigen Zeichens oder der vorherigen Klasse. |
@@ -99,7 +99,7 @@ Geben Sie Folgendes ein, um in der Datei *x. y*nach " *Hello* " zu suchen:
 findstr /c:hello there x.y
 ```
 
-Wenn Sie alle Vorkommen des Word- *Windows* (mit dem ersten Großbuchstaben "W") in der Datei "" "" " *. txt*" suchen möchten, geben Sie
+Wenn Sie alle Vorkommen der Word- *Fenster* (mit dem ersten Großbuchstaben "W") in der Datei *proposal.txt*suchen möchten, geben Sie Folgendes ein:
 
 ```
 findstr Windows proposal.txt
@@ -117,7 +117,7 @@ Geben Sie Folgendes ein, um alle Vorkommen von Zeilen zu suchen, die mit *für* 
 findstr /b /n /r /c:^ *FOR *.bas
 ```
 
-Um die genauen Dateien aufzulisten, die Sie in einer Textdatei suchen möchten, verwenden Sie die Suchkriterien in der Datei " *stringlist. txt*", um die in " *FileList. txt*" aufgeführten Dateien zu durchsuchen und die Ergebnisse dann in den Datei Ergebnissen zu speichern *. Geben Sie*Folgendes ein:
+Zum Auflisten der Dateien, die Sie in einer Textdatei suchen möchten, verwenden Sie die Suchkriterien in der Datei *stringlist.txt*, um die in *filelist.txt*aufgeführten Dateien zu durchsuchen und die Ergebnisse dann in den Datei Ergebnissen zu speichern *. Geben Sie*Folgendes ein, und geben Sie Folgendes ein:
 
 ```
 findstr /g:stringlist.txt /f:filelist.txt > results.out
@@ -135,6 +135,6 @@ Geben Sie Folgendes ein, um alle Dateien mit dem Wort Computer und alle anderen 
 findstr /s /i /m <comp.* *.*
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

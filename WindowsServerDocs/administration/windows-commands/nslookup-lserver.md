@@ -1,6 +1,6 @@
 ---
 title: nslookup lserver
-description: Referenz Thema für den nslookup lserver-Befehl, der den ursprünglichen Server in die angegebene Domain Name System Domäne (DNS) ändert.
+description: Referenz Artikel für den nslookup lserver-Befehl, der den ursprünglichen Server in die angegebene Domain Name System Domäne (DNS) ändert.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 868142f251d62ebc3efd7913aded8e22aa077bd3
-ms.sourcegitcommit: 99d548141428c964facf666c10b6709d80fbb215
+ms.openlocfilehash: 1f8d40a39abb6f96e900aee6dc029963ed7c0486
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84721590"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85931276"
 ---
 # <a name="nslookup-lserver"></a>nslookup lserver
 
@@ -32,13 +32,13 @@ lserver <DNSdomain>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<DNSdomain>` | Gibt die DNS-Domäne für den ursprünglichen Server an. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 | /help | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

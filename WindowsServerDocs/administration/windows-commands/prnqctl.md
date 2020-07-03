@@ -1,6 +1,6 @@
 ---
 title: prnqctl
-description: Referenz Thema für den prnqctl-Befehl, der eine Testseite ausgibt und einen Drucker anhält oder fortsetzt.
+description: Referenz Artikel für den prnqctl-Befehl, der eine Testseite ausgibt und einen Drucker anhält oder fortsetzt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: b8a551e34754771a69af1b41e5da3fd726df1185
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 7bcc6a36fb2387a82e25afd41be2d22615565bfe
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85472195"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85931152"
 ---
 # <a name="prnqctl"></a>prnqctl
 
@@ -30,7 +30,7 @@ cscript Prnqctl {-z | -m | -e | -x | -?} [-s <Servername>] [-p <Printername>] [-
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 |--|--|
 | -Z | Hält den Druck auf dem Drucker an, der durch den **-p-** Parameter angegeben wird. |
 | -M | Setzt den Druckvorgang auf dem Drucker fort, der durch den **-p-** Parameter angegeben wird. |
@@ -65,7 +65,7 @@ Um alle Druckaufträge auf dem Laserprinter1-Drucker auf dem lokalen Computer ab
 cscript prnqctl -x -p Laserprinter1
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

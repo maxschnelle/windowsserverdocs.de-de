@@ -1,6 +1,6 @@
 ---
 title: quser
-description: Referenz Thema für den Befehl "quser", der Informationen zu Benutzersitzungen auf einem Remotedesktop-Sitzungshost Server anzeigt.
+description: Referenz Artikel für den Befehl quser, der Informationen zu Benutzersitzungen auf einem Remotedesktop-Sitzungshost Server anzeigt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e51abe030ca0f473246cdc85fd01d89fddf8b056
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 7df52ea8d2b30d9e365d6dc79d53aad9bd0782f9
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85471925"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85931108"
 ---
 # <a name="quser"></a>quser
 
@@ -45,7 +45,7 @@ quser [<username> | <sessionname> | <sessionID>] [/server:<servername>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 |--|--|
 | `<username>` | Gibt den Anmelde Namen des Benutzers an, den Sie Abfragen möchten. |
 | `<sessionname>` | Gibt den Namen der Sitzung an, die Sie Abfragen möchten. |
@@ -75,7 +75,7 @@ Geben Sie Folgendes ein, um Informationen zum Benutzer *User1* auf Server *Serve
 quser USER1 /server:Server1
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

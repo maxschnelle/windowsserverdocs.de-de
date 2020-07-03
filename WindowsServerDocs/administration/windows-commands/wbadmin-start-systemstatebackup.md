@@ -1,6 +1,6 @@
 ---
-title: Wbadmin start systemstatebackup
-description: Referenz Thema für Wbadmin start systemstatebackup, mit dem eine Systemstatus Sicherung des lokalen Computers erstellt und am angegebenen Speicherort gespeichert wird.
+title: wbadmin start systemstatebackup
+description: Referenz Artikel für Wbadmin start systemstatebackup, mit dem eine Systemstatus Sicherung des lokalen Computers erstellt und am angegebenen Speicherort gespeichert wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5de3531f19312b9d0d7969a63639db6388487bc2
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: 1e92c508d2c9ca9ae759d81292ec3d511144dbd7
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83821180"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85930914"
 ---
-# <a name="wbadmin-start-systemstatebackup"></a>Wbadmin start systemstatebackup
+# <a name="wbadmin-start-systemstatebackup"></a>wbadmin start systemstatebackup
 
 
 
@@ -37,7 +37,7 @@ wbadmin start systemstatebackup
 
 ### <a name="parameters"></a>Parameter
 
-|   Parameter   |                                                                                                                                                                                                                      BESCHREIBUNG                                                                                                                                                                                                                      |
+|   Parameter   |                                                                                                                                                                                                                      Beschreibung                                                                                                                                                                                                                      |
 |---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | -backupTarget | Gibt den Speicherort an, an dem die Sicherung gespeichert werden soll. Der Speicherort erfordert einen Laufwerk Buchstaben oder ein GUID-basiertes Volume mit dem folgenden Format: \\ \\ ? \Volume{*GUID*}.</br>Eine Systemstatus Sicherung in einem freigegebenen Netzwerkordner wird auf Computern, auf denen Windows Server 2008 ausgeführt wird, nicht unterstützt. Wenn auf Ihrem Server Windows Server 2008 R2 oder höher ausgeführt wird, können Sie den Befehl " **backupTarget: \\ \\ servername\sharedfolder \\ ** " verwenden, um Systemstatus Sicherungen zu speichern. |
 |    -quiet     |                                                                                                                                                                                                   Führt den Unterbefehl ohne Aufforderungen an den Benutzer aus.                                                                                                                                                                                                    |
@@ -53,7 +53,7 @@ Geben Sie Folgendes ein, um eine Systemstatus Sicherung zu erstellen und auf Vol
 wbadmin start systemstatebackup -backupTarget:f:
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)

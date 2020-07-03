@@ -1,6 +1,6 @@
 ---
 title: dir
-description: Referenz Thema für den dir-Befehl, der eine Liste der Dateien und Unterverzeichnisse eines Verzeichnisses anzeigt.
+description: Referenz Artikel für den Befehl dir, mit dem eine Liste der Dateien und Unterverzeichnisse eines Verzeichnisses angezeigt wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b6d5b99e905d70d81962f96a303e0bcaae0bd9e9
-ms.sourcegitcommit: 5e10afbd128befb7400a6bcf576f0239cf2ed47f
+ms.openlocfilehash: 2372476e153a6dc37b7d068201a40ba17c11fa54
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84302825"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85930822"
 ---
 # <a name="dir"></a>dir
 
@@ -65,7 +65,7 @@ dir [<drive>:][<path>][<filename>] [...] [/p] [/q] [/w] [/d] [/a[[:]<attributes>
 
   - `dir read *.*`Listet alle Dateien im aktuellen Verzeichnis auf, die mit dem Lesen mit einer beliebigen Erweiterung beginnen.
 
-  Der Platzhalter Platzhalter verwendet immer eine kurze Zuordnung von Dateinamen, sodass Sie möglicherweise unerwartete Ergebnisse erhalten. Das folgende Verzeichnis enthält z. b. zwei Dateien (t. txt2 und T97. txt):
+  Der Platzhalter Platzhalter verwendet immer eine kurze Zuordnung von Dateinamen, sodass Sie möglicherweise unerwartete Ergebnisse erhalten. Das folgende Verzeichnis enthält z. b. zwei Dateien (t.txt2 und t97.txt):
 
   ```
   C:\test>dir /x
@@ -80,9 +80,9 @@ dir [<drive>:][<path>][<filename>] [...] [/p] [/q] [/w] [/d] [/a[[:]<attributes>
   11/30/2004  01:16 PM 0 t97.txt
   ```
 
-  Sie erwarten möglicherweise, dass `dir t97\*` die Eingabe die Datei T97. txt zurückgibt. `dir t97\*`Bei der Eingabe von werden jedoch beide Dateien zurückgegeben, da das Sternchen-Platzhalter Zeichen mit der Kurznamen Zuordnung *T97B4 ~ 1. txt*mit der Datei t. txt2 und T97. txt übereinstimmt. Ebenso werden bei der Eingabe `del t97\*` beide Dateien gelöscht.
+  Sie erwarten möglicherweise, dass `dir t97\*` die Eingabe die Datei t97.txt zurückgibt. `dir t97\*`Bei der Eingabe von werden jedoch beide Dateien zurückgegeben, da das Sternchen-Platzhalter Zeichen mit der Datei t.txt2 t97.txt, indem die Kurzname Map *T97B4 ~1.TXT*verwendet wird. Ebenso werden bei der Eingabe `del t97\*` beide Dateien gelöscht.
 
-- Sie können das Fragezeichen (?) als Ersatz für ein einzelnes Zeichen in einem Namen verwenden. Wenn Sie z. b. eingeben, `dir read???.txt` werden alle Dateien im aktuellen Verzeichnis mit der Erweiterung ". txt" aufgelistet, die mit "Read" beginnen und von bis zu drei Zeichen gefolgt sind. Hierzu gehören Read. txt, Read1. txt, Read12. txt, Read123. txt und Readme1. txt, jedoch nicht Readme12. txt.
+- Sie können das Fragezeichen (?) als Ersatz für ein einzelnes Zeichen in einem Namen verwenden. Wenn Sie z. b. eingeben, `dir read???.txt` werden alle Dateien im aktuellen Verzeichnis mit der Erweiterung ". txt" aufgelistet, die mit "Read" beginnen und von bis zu drei Zeichen gefolgt sind. Dies schließt Read.txt, Read1.txt, Read12.txt, Read123.txt und Readme1.txt, aber nicht Readme12.txt ein.
 
 - Wenn Sie **/a** mit mehr als einem Wert in *Attributen*verwenden, werden mit diesem Befehl nur die Namen der Dateien mit allen angegebenen Attributen angezeigt. Wenn Sie z. b. **/a** mit **r** und **-h** als Attribute verwenden (mit `/a:r-h` oder `/ar-h` ), werden mit diesem Befehl nur die Namen der schreibgeschützten Dateien angezeigt, die nicht ausgeblendet sind.
 
@@ -114,13 +114,13 @@ dir > prn
 
 Wenn Sie **PRN**angeben, wird die Verzeichnisliste an den Drucker gesendet, der mit dem LPT1-Port verbunden ist. Wenn Ihr Drucker an einen anderen Port angefügt ist, müssen Sie **PRN** durch den Namen des richtigen Ports ersetzen.
 
-Sie können die Ausgabe des **dir** -Befehls auch in eine Datei umleiten, indem Sie **PRN** durch einen Dateinamen ersetzen. Sie können auch einen Pfad eingeben. Geben Sie beispielsweise Folgendes ein, um die **dir** -Ausgabe an die Datei "dir. doc" im Verzeichnis "Records" zu leiten:
+Sie können die Ausgabe des **dir** -Befehls auch in eine Datei umleiten, indem Sie **PRN** durch einen Dateinamen ersetzen. Sie können auch einen Pfad eingeben. Geben Sie beispielsweise Folgendes ein, um die **dir** -Ausgabe an die Datei dir.doc im Verzeichnis "Records" weiterzuleiten:
 
 ```
 dir > \records\dir.doc
 ```
 
-Wenn dir. doc nicht vorhanden ist, wird es von **dir** erstellt, es sei denn, das Verzeichnis " **Records** " ist nicht vorhanden. In diesem Fall wird die folgende Meldung angezeigt:
+Wenn dir.doc nicht vorhanden ist, wird Sie von **dir** erstellt, es sei denn, das Verzeichnis " **Records** " ist nicht vorhanden. In diesem Fall wird die folgende Meldung angezeigt:
 
 ```
 File creation error
@@ -134,6 +134,6 @@ dir c:\*.txt /w/o/s/p
 
 Der Befehl **dir** zeigt im breiten Format eine alphabetisch sortierte Liste der übereinstimmenden Dateinamen in jedem Verzeichnis an und wird jedes Mal angehalten, wenn der Bildschirm ausgefüllt wird, bis Sie eine Taste drücken, um den Vorgang fortzusetzen.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

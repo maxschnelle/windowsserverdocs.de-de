@@ -1,6 +1,6 @@
 ---
-title: Dfsdiag testdfsconfig
-description: Referenz Thema für Dfsdiag testdfsconfig, das die Konfiguration eines verteiltes Dateisystem-Namespace (DFS) prüft.
+title: dfsdiag testdfsconfig
+description: Referenz Artikel für Dfsdiag testdfsconfig, der die Konfiguration eines verteiltes Dateisystem-Namespace (DFS) prüft.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2d9490f35c2d509c83d9008aa87627bd3c55a875
-ms.sourcegitcommit: fad2ba64bbc13763772e21ed3eabd010f6a5da34
+ms.openlocfilehash: 3387b661f454cff089f76f7c9c0d1abe59387010
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82992994"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85930642"
 ---
-# <a name="dfsdiag-testdfsconfig"></a>Dfsdiag testdfsconfig
+# <a name="dfsdiag-testdfsconfig"></a>dfsdiag testdfsconfig
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -42,7 +42,7 @@ dfsdiag /testdfsconfig /DFSroot:<namespace>
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | /DFSroot:`<namespace>` | Der zu diagnostizieren Namespace (DFS-Stamm). |
 
@@ -54,7 +54,7 @@ Geben Sie Folgendes ein, um die Konfiguration von verteiltes Dateisystem-Namespa
 dfsdiag /testdfsconfig /DFSroot:\contoso.com\MyNamespace
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

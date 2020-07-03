@@ -1,6 +1,6 @@
 ---
 title: nslookup set vc
-description: Referenz Thema für den Befehl "nslookup Set VC", der angibt, ob beim Senden von Anforderungen an den Server eine virtuelle Verbindung verwendet werden soll.
+description: Referenz Artikel für den Befehl "nslookup Set VC", der angibt, ob beim Senden von Anforderungen an den Server eine virtuelle Verbindung verwendet werden soll.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 49220589de2d2440735e056a8aa3acdd2122a376
-ms.sourcegitcommit: 99d548141428c964facf666c10b6709d80fbb215
+ms.openlocfilehash: c289315c55c1611360bbc2b0ba9ef9a612ee9b64
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84721203"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85930287"
 ---
 # <a name="nslookup-set-vc"></a>nslookup set vc
 
@@ -29,13 +29,13 @@ set [no]vc
 ### <a name="parameters"></a>Parameter
 
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ---------- | ---------- |
 | novc | Gibt an, dass beim Senden von Anforderungen an den Server nie eine virtuelle Verbindung verwendet werden soll. Dies ist der Standardwert. |
 | PVC | Gibt an, dass beim Senden von Anforderungen an den Server immer eine virtuelle Verbindung verwendet werden soll. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 | /help | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

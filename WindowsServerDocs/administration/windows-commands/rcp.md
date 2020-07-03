@@ -1,6 +1,6 @@
 ---
 title: rcp
-description: Referenz Thema für den RCP-Befehl, mit dem Dateien zwischen Computern kopiert werden. Dieser Befehl ist veraltet und wird in zukünftigen Versionen von Windows nicht mehr unterstützt.
+description: Referenz Artikel zum RCP-Befehl, mit dem Dateien zwischen Computern kopiert werden. Dieser Befehl ist veraltet und wird in zukünftigen Versionen von Windows nicht mehr unterstützt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1e06f9751a690e1593a0fb3e30dc31c14c8f960a
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 34e58471a3f79e2f8ae6f060ec945bfc43b004c3
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85471865"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85931989"
 ---
 # <a name="rcp"></a>rcp
 
@@ -25,6 +25,6 @@ Sie können das Subsystem für UNIX-basierte Anwendungen mithilfe des **Assisten
 
 Nach der Installation können Sie ein C-Shellfenster (csh oder tcsh) oder ein Kornshell-Befehlsfenster öffnen und **RCP**ausführen. Weitere Informationen erhalten Sie, wenn Sie an der C-Shell oder der Kornshell-Eingabeaufforderung den Befehl **man RCP**
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

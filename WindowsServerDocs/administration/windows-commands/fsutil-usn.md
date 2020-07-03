@@ -1,6 +1,6 @@
 ---
 title: fsutil usn
-description: Referenz Thema für den Befehl "fisutil-Befehl", der das Änderungs Journal für die Aktualisierungs Sequenznummer verwaltet.
+description: Referenz Artikel für den Befehl "fisutil-Befehl", der das Änderungs Journal für die Aktualisierungs Sequenznummer verwaltet.
 ms.prod: windows-server
 manager: dmoss
 ms.author: toklima
@@ -9,12 +9,12 @@ ms.technology: storage
 ms.assetid: faad34aa-4ba1-4129-bc1f-08088399e2fa
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: d21de9ecb1d63116ee2d186965f7f47fc3a7235e
-ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
+ms.openlocfilehash: b3f71588c7221f0ba8e3659d9a1a1dd133971ce9
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2020
-ms.locfileid: "83437115"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85930468"
 ---
 # <a name="fsutil-usn"></a>fsutil usn
 
@@ -54,7 +54,7 @@ fsutil usn [readjournal] [c= <chunk-size> s=<file-size-threshold>] <volumepath>
 | `<highUSN>` | Gibt die obere Grenze des Bereichs von USN-Werten an, die zum Filtern der zurückgegebenen Dateien verwendet werden. |
 | queryjournal | Fragt die Daten eines volumedatentyps ab, um Informationen über das aktuelle Änderungs Journal, seine Datensätze und seine Kapazität zu erfassen. |
 | ReadData | Liest die Daten der Datenquelle für eine Datei. |
-| `<filename>` | Gibt den vollständigen Pfad zur Datei an, einschließlich des Datei namens und der Erweiterung, z. b.: *c:\documents\dateiname.txt*. |
+| `<filename>` | Gibt den vollständigen Pfad zur Datei an, einschließlich des Datei namens und der Erweiterung, z. b. *C:\documents\filename.txt*. |
 | "lesjournal" | Liest die Datensätze der Datensätze im US-Journal. |
 | Minver =`<number>` | Die minimale Haupt Version USN_RECORD, die zurückgegeben werden soll. Standardwert = 2. |
 | MaxVer =`<number>` | Die maximale Haupt Version USN_RECORD, die zurückgegeben werden soll. Standardwert = 4. |
@@ -116,7 +116,7 @@ Geben Sie Folgendes ein, um das US-Journal mit einer bestimmten Start-Start-n zu
 fsutil usn readjournal startusn=0xF00
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

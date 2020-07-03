@@ -1,6 +1,6 @@
 ---
-title: path
-description: Referenz Thema zum Festlegen des Befehls Pfads in der PATH-Umgebungsvariablen, der den Satz von Verzeichnissen angibt, die für die Suche nach ausführbaren Dateien (. exe) verwendet werden.
+title: Pfad
+description: Referenz Artikel zum Festlegen des Befehls Pfads in der PATH-Umgebungsvariablen, der den Satz von Verzeichnissen angibt, die für die Suche nach ausführbaren Dateien (. exe) verwendet werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6fadeb2108f0e59ee2f45f3cf45338046a345006
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: f324c2b0fc84d2df05f7df93d83799b3ac463d5d
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85472566"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85932024"
 ---
-# <a name="path"></a>path
+# <a name="path"></a>Pfad
 
 Legt den Befehlspfad in der PATH-Umgebungsvariablen fest und gibt den Satz von Verzeichnissen an, die für die Suche nach ausführbaren Dateien (. exe) verwendet werden. Bei Verwendung ohne Parameter zeigt dieser Befehl den aktuellen Befehlspfad an.
 
@@ -29,7 +29,7 @@ path ;
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 |--|--|
 | `[<drive>:]<path>` | Gibt das Laufwerk und das Verzeichnis an, die im Befehlspfad festgelegt werden sollen. Das aktuelle Verzeichnis wird immer vor den im Befehlspfad angegebenen Verzeichnissen durchsucht. |
 | ; | Trennt Verzeichnisse im Befehlspfad. Wenn es ohne andere Parameter verwendet wird, löscht die vorhandenen Befehls Pfade aus der PATH-Umgebungsvariablen und leitet **Cmd.exe, nur** im aktuellen Verzeichnis zu suchen. |
@@ -53,6 +53,6 @@ Geben Sie Folgendes ein, um die Pfade *c:\user\steuern*, *b:\user\invest*und *b:
 path c:\user\taxes;b:\user\invest;b:\bin
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

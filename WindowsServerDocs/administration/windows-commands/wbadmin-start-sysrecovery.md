@@ -1,6 +1,6 @@
 ---
-title: WBADMIN-START SYSRECOVERY
-description: Referenz Thema für "WBADMIN START SYSRECOVERY", das eine Systemwiederherstellung (Bare-Metal-Recovery) mit den von Ihnen angegebenen Parametern ausführt.
+title: wbadmin start sysrecovery
+description: Referenz Artikel für Wbadmin starten Sie sysrecovery, bei dem eine Systemwiederherstellung (Bare-Metal-Recovery) mit den von Ihnen angegebenen Parametern durchführt wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a7c32818461c46a7d582029ec127c574d6a8f3e3
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: 2f7e23a82afba85ea8a670c636e0f700cb7def2e
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83819110"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85930919"
 ---
-# <a name="wbadmin-start-sysrecovery"></a>WBADMIN-START SYSRECOVERY
+# <a name="wbadmin-start-sysrecovery"></a>wbadmin start sysrecovery
 
 
 
@@ -43,7 +43,7 @@ wbadmin start sysrecovery
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |---------|-----------|
 |-version|Gibt den Versions Bezeichner für die wieder herzustellende Sicherung im Format mm/dd/yyyy-HH: mm an. Wenn Sie den Versions Bezeichner nicht kennen, geben Sie **Wbadmin Get Versions**ein.|
 |-backupTarget|Gibt den Speicherort an, der die Sicherung oder Sicherungen enthält, die Sie wiederherstellen möchten. Dieser Parameter ist hilfreich, wenn sich der Speicherort von dem Speicherort unterscheidet, in dem die Sicherungen dieses Computers normalerweise gespeichert werden.|
@@ -65,7 +65,7 @@ Geben Sie Folgendes ein, um mit der Wiederherstellung der Informationen aus der 
 wbadmin start sysrecovery -version:04/30/2013-09:00 -backupTarget:\\servername\share -machine:server01
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)

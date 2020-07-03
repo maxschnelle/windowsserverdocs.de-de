@@ -1,6 +1,6 @@
 ---
-title: Wbadmin start Systemstatus
-description: Referenz Thema für Wbadmin start systemstaterecovery, das eine Wiederherstellung des Systemstatus an einem Speicherort und von einer von Ihnen angegebenen Sicherung ausführt.
+title: wbadmin start systemstaterecovery
+description: Referenz Artikel für Wbadmin start systemstaterecovery, der eine Systemstatus Wiederherstellung an einem Speicherort und von einer von Ihnen angegebenen Sicherung ausführt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: edbd6acefe2ef921b9325de4808753d5929efd1e
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: a1645c1612bcc0e10fc6b2526805b169004e4ce1
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83821380"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85930897"
 ---
-# <a name="wbadmin-start-systemstaterecovery"></a>Wbadmin start Systemstatus
+# <a name="wbadmin-start-systemstaterecovery"></a>wbadmin start systemstaterecovery
 
 
 
@@ -57,7 +57,7 @@ wbadmin start systemstaterecovery
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |---------|-----------|
 |-version|Gibt den Versions Bezeichner für die wieder herzustellende Sicherung im Format mm/dd/yyyy-HH: mm an. Wenn Sie den Versions Bezeichner nicht kennen, geben Sie **Wbadmin Get Versions**ein.|
 |-ShowSummary|Gibt die Zusammenfassung der letzten Wiederherstellung des Systemstatus an (nach dem Neustart, der zum Abschluss des Vorgangs erforderlich ist). Dieser Parameter darf nicht von anderen Parametern begleitet werden.|
@@ -79,7 +79,7 @@ wbadmin start systemstaterecovery
   wbadmin start systemstaterecovery -version:04/30/2013-09:00 -backupTarget:\\servername\share -machine:server01
   ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)

@@ -1,6 +1,6 @@
 ---
-title: reg-Vergleich
-description: Referenz Thema für * * * *-
+title: reg compare
+description: Referenz Artikel für den Befehl "reg Compare", der die angegebenen Registrierungs Unterschlüssel oder Einträge vergleicht.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,75 +9,76 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 49e9b993f512fdbc4728ee08ec42a8bc7ce0ab8f
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 3b508a52d0f110455b09002a1044fefcf1be048a
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82722587"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85930730"
 ---
-# <a name="reg-compare"></a>reg-Vergleich
-
-
+# <a name="reg-compare"></a>reg compare
 
 Vergleicht die angegebenen Registrierungs Unterschlüssel oder-Einträge.
-
-
 
 ## <a name="syntax"></a>Syntax
 
 ```
-reg compare <KeyName1> <KeyName2> [{/v ValueName | /ve}] [{/oa | /od | /os | on}] [/s]
+reg compare <keyname1> <keyname2> [{/v Valuename | /ve}] [{/oa | /od | /os | on}] [/s]
 ```
 
 ### <a name="parameters"></a>Parameter
 
-|    Parameter    |                                                                                                                                                                                                                                                                                          BESCHREIBUNG                                                                                                                                                                                                                                                                                           |
-|-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|   \<KeyName1>   |                                                               Gibt den vollständigen Pfad des ersten zu vergleichenden unter Schlüssels an. Wenn Sie einen Remote Computer angeben möchten, schließen Sie den Computernamen ( \\ \\im Format\) Computername als Teil des *keyName*-Steuerelement ein. Wenn Computer \\ \\Name \ weggelassen wird, wird der Vorgang standardmäßig auf dem lokalen Computer durchgesetzt. Der *keyName* muss einen gültigen Stamm Schlüssel enthalten. Gültige Stamm Schlüssel für den lokalen Computer sind: HKLM, HKCU, HKCR, HKU und HKCC. Wenn ein Remote Computer angegeben ist, lauten gültige Stamm Schlüssel: HKLM und HKU.                                                                |
-|   \<KeyName2>   | Gibt den vollständigen Pfad des zweiten unter Schlüssels an, der verglichen werden soll. Wenn Sie einen Remote Computer angeben möchten, schließen Sie den Computernamen ( \\ \\im Format\) Computername als Teil des *keyName*-Steuerelement ein. Wenn Computer \\ \\Name \ weggelassen wird, wird der Vorgang standardmäßig auf dem lokalen Computer durchgesetzt. Wenn Sie nur den Computernamen in *KeyName2* angeben, wird vom-Vorgang der Pfad zum Unterschlüssel verwendet, der in *KeyName1*angegeben ist. Der *keyName* muss einen gültigen Stamm Schlüssel enthalten. Gültige Stamm Schlüssel für den lokalen Computer sind: HKLM, HKCU, HKCR, HKU und HKCC. Wenn ein Remote Computer angegeben ist, lauten gültige Stamm Schlüssel: HKLM und HKU. |
-| /v \<valueName> |                                                                                                                                                                                                                                                                     Gibt den Namen des Werts an, der unter dem Unterschlüssel verglichen werden soll.                                                                                                                                                                                                                                                                      |
-|       /ve       |                                                                                                                                                                                                                                                         Gibt an, dass nur Einträge mit dem Wertnamen NULL verglichen werden sollen.                                                                                                                                                                                                                                                         |
-|      [{/oa      |                                                                                                                                                                                                                                                                                              /od                                                                                                                                                                                                                                                                                               |
-|       /oa       |                                                                                                                                                                                                                                             Gibt an, dass alle Unterschiede und Übereinstimmungen angezeigt werden. Standardmäßig sind nur die Unterschiede aufgeführt.                                                                                                                                                                                                                                             |
-|       /od       |                                                                                                                                                                                                                                                          Gibt an, dass nur Unterschiede angezeigt werden. Dies ist das Standardverhalten.                                                                                                                                                                                                                                                          |
-|       /OS       |                                                                                                                                                                                                                                                    Gibt an, dass nur Übereinstimmungen angezeigt werden. Standardmäßig sind nur die Unterschiede aufgeführt.                                                                                                                                                                                                                                                     |
-|       /on       |                                                                                                                                                                                                                                                       Gibt an, dass nichts angezeigt wird. Standardmäßig sind nur die Unterschiede aufgeführt.                                                                                                                                                                                                                                                        |
-|       /s        |                                                                                                                                                                                                                                                                         Vergleicht alle Unterschlüssel und Einträge rekursiv.                                                                                                                                                                                                                                                                          |
-|       /?        |                                                                                                                                                                                                                                                                    Zeigt die Hilfe für den **reg Compare** an der Eingabeaufforderung an.                                                                                                                                                                                                                                                                    |
+| Parameter | Beschreibung |
+|--|--|
+| `<keyname1>` | Gibt den vollständigen Pfad des hinzu zufügenden unter Schlüssels oder Eintrags an. Wenn Sie einen Remote Computer angeben möchten, schließen Sie den Computernamen (im Format `\\<computername>\` ) als Teil des *keyName*-Steuerelement ein. Das Weglassen bewirkt, dass `\\<computername>\` der Vorgang standardmäßig auf dem lokalen Computer durchgesetzt wird. Der *keyName* muss einen gültigen Stamm Schlüssel enthalten. Gültige Stamm Schlüssel für den lokalen Computer sind: **HKLM**, **HKCU**, **HKCR**, **HKU**und **HKCC**. Wenn ein Remote Computer angegeben ist, lauten gültige Stamm Schlüssel: **HKLM** und **HKU**. Wenn der Registrierungsschlüssel Name ein Leerzeichen enthält, müssen Sie den Schlüsselnamen in Anführungszeichen einschließen. |
+| `<keyname2>` | Gibt den vollständigen Pfad des zweiten unter Schlüssels an, der verglichen werden soll. Wenn Sie einen Remote Computer angeben möchten, schließen Sie den Computernamen (im Format `\\<computername>\` ) als Teil des *keyName*-Steuerelement ein. Das Weglassen bewirkt, dass `\\<computername>\` der Vorgang standardmäßig auf dem lokalen Computer durchgesetzt wird. Wenn Sie nur den Computernamen in *keyname2* angeben, wird vom-Vorgang der Pfad zum Unterschlüssel verwendet, der in *keyname1*angegeben ist. Der *keyName* muss einen gültigen Stamm Schlüssel enthalten. Gültige Stamm Schlüssel für den lokalen Computer sind: **HKLM**, **HKCU**, **HKCR**, **HKU**und **HKCC**. Wenn ein Remote Computer angegeben ist, lauten gültige Stamm Schlüssel: **HKLM** und **HKU**. Wenn der Registrierungsschlüssel Name ein Leerzeichen enthält, müssen Sie den Schlüsselnamen in Anführungszeichen einschließen. |
+| /v`<Valuename>` | Gibt den Namen des Werts an, der unter dem Unterschlüssel verglichen werden soll. |
+| /ve | Gibt an, dass nur Einträge mit dem Wertnamen NULL verglichen werden sollen. |
+| /oa | Gibt an, dass alle Unterschiede und Übereinstimmungen angezeigt werden. Standardmäßig sind nur die Unterschiede aufgeführt. |
+| /od | Gibt an, dass nur Unterschiede angezeigt werden. Dies ist das Standardverhalten. |
+| /OS | Gibt an, dass nur Übereinstimmungen angezeigt werden. Standardmäßig sind nur die Unterschiede aufgeführt. |
+| /on | Gibt an, dass nichts angezeigt wird. Standardmäßig sind nur die Unterschiede aufgeführt. |
+| /s | Vergleicht alle Unterschlüssel und Einträge rekursiv. |
+| /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-## <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
-In der folgenden Tabelle sind die Rückgabewerte für **reg Compare**aufgeführt.
+- Die Rückgabewerte für den **reg-Vergleichs** Vorgang lauten wie folgt:
 
-|Wert|Beschreibung|
-|-----|-----------|
-|0|Der Vergleich ist erfolgreich, und das Ergebnis ist identisch.|
-|1|Der Vergleich ist fehlgeschlagen.|
-|2|Der Vergleich war erfolgreich, und es wurden Unterschiede gefunden.|
+    | Wert | Beschreibung |
+    |--|--|
+    | 0 | Der Vergleich ist erfolgreich, und das Ergebnis ist identisch. |
+    | 1 | Der Vergleich ist fehlgeschlagen. |
+    | 2 | Der Vergleich war erfolgreich, und es wurden Unterschiede gefunden. |
 
-In der folgenden Tabelle werden die Symbole aufgelistet, die in den Ergebnissen angezeigt werden.
+- Zu den Symbolen, die in den Ergebnissen angezeigt werden, gehören:
 
-|Symbol|BESCHREIBUNG|
-|------|-----------|
-|=|*KeyName1* -Daten sind gleich *KeyName2* -Daten.|
-|<|*KeyName1* -Daten sind kleiner als *KeyName2* -Daten.|
-|>|*KeyName1* -Daten sind größer als *KeyName2* -Daten.|
+    | Symbol | Beschreibung |
+    |--|--|
+    | = | *KeyName1* -Daten sind gleich *KeyName2* -Daten. |
+    | < | *KeyName1* -Daten sind kleiner als *KeyName2* -Daten. |
+    | > | *KeyName1* -Daten sind größer als *KeyName2* -Daten. |
 
-## <a name="examples"></a>Beispiele
+### <a name="examples"></a>Beispiele
 
 Geben Sie Folgendes ein, um alle Werte unter dem Schlüssel " **myapp** " mit allen Werten unter dem Schlüssel " **SaveMyApp**" zu vergleichen:
 
-REG COMPARE HKLM\Software\MyCo\MyApp HKLM\Software\MyCo\SaveMyApp
+```
+reg compare HKLM\Software\MyCo\MyApp HKLM\Software\MyCo\SaveMyApp
+```
 
 Um den Wert für die Version unter dem Schlüssel **myco** und den Wert für die Version unter dem Schlüssel **MyCo1**zu vergleichen, geben Sie Folgendes ein:
 
-REG COMPARE HKLM\Software\MyCo hklm\software\meineco1/v Version
+```
+reg compare HKLM\Software\MyCo HKLM\Software\MyCo1 /v Version
+```
 
 Geben Sie Folgendes ein, um alle untergeordneten Schlüssel und Werte unter "HKLM\Software\MyCo" auf dem Computer mit dem Namen "Zodiac" mit allen unter Schlüsseln und Werten unter "HKLM\Software\MyCo" auf dem lokalen Computer zu vergleichen:
 
-REG Compare \\ \\zodiac\hklm\software\myco \\ \\. /s
+```
+reg compare \\ZODIAC\HKLM\Software\MyCo \\. /s
+```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
