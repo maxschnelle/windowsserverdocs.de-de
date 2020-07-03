@@ -1,6 +1,6 @@
 ---
 title: manage-bde-Schutzvorrichtungen
-description: Referenz Thema für den Befehl manage-bde Protector, der die für den BitLocker-Verschlüsselungsschlüssel verwendeten Schutzmethoden verwaltet.
+description: Referenz Artikel für den Befehl manage-bde Protector, der die Schutzmethoden verwaltet, die für den BitLocker-Verschlüsselungsschlüssel verwendet werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 08/06/2018
-ms.openlocfilehash: 999c92fd9f2bfedad92a9c68c1528ee66836f315
-ms.sourcegitcommit: 29bc8740e5a8b1ba8f73b10ba4d08afdf07438b0
+ms.openlocfilehash: d277c070ff0cdee0d93d7a8be11dc13bea5adb95
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84222629"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85922310"
 ---
 # <a name="manage-bde-protectors"></a>manage-bde-Schutzvorrichtungen
 
@@ -40,7 +40,7 @@ manage-bde -protectors [{-get|-add|-delete|-disable|-enable|-adbackup|-aadbackup
 | -adbackup | Sichert alle Wiederherstellungs Informationen für das angegebene Laufwerk Active Directory Domain Services (AD DS). Wenn Sie nur einen einzelnen Wiederherstellungs Schlüssel in AD DS sichern möchten, fügen Sie den Parameter **-ID** an, und geben Sie die ID eines bestimmten Wiederherstellungs Schlüssels an, der gesichert werden soll. |
 | -aadbackup | Sichert alle Wiederherstellungs Informationen für das angegebene Laufwerk Azure Active Directory (Azure AD). Wenn Sie nur einen einzelnen Wiederherstellungs Schlüssel in Azure AD sichern möchten, fügen Sie den Parameter **-ID** an, und geben Sie die ID eines bestimmten Wiederherstellungs Schlüssels an, der gesichert werden soll. |
 | `<drive>` | Stellt einen von einem Doppelpunkt gefolgten Laufwerkbuchstaben dar. |
-| -Computername | Gibt an, dass "manage-bde. exe verwendet wird, um den BitLocker-Schutz auf einem anderen Computer zu ändern. Sie können auch **-CN** als abgekürzte Version dieses Befehls verwenden. |
+| -Computername | Gibt an, dass manage-bde.exe zum Ändern des BitLocker-Schutzes auf einem anderen Computer verwendet wird. Sie können auch **-CN** als abgekürzte Version dieses Befehls verwenden. |
 | `<name>` | Stellt den Namen des Computers dar, auf dem der BitLocker-Schutz geändert werden soll. Akzeptierte Werte sind der NetBIOS-Name des Computers und die IP-Adresse des Computers. |
 | -? oder /? | Zeigt eine kurze Hilfe an der Eingabeaufforderung an. |
 | -Help oder-h | Zeigt die gesamte Hilfe an der Eingabeaufforderung an. |
@@ -99,10 +99,10 @@ manage-bde -protectors -delete <drive> [-type {recoverypassword|externalkey|cert
 | TPMAndPIN | Gibt an, dass alle dem Laufwerk zugeordneten TPM-und PIN-basierten Schlüsselschutz Vorrichtungen gelöscht werden sollen. |
 | tpmandpinandstartupkey | Gibt an, dass alle dem Laufwerk zugeordneten TPM-, PIN-und Start Schlüssel-Schlüssel Schutzvorrichtungen gelöscht werden sollen. |
 | password | Gibt an, dass alle dem Laufwerk zugeordneten Kennwort-Schlüsselschutz Vorrichtungen gelöscht werden sollen. |
-| Identität | Gibt an, dass alle dem Laufwerk zugeordneten Identitätsschlüssel Schutzvorrichtungen gelöscht werden sollen. |
+| identity | Gibt an, dass alle dem Laufwerk zugeordneten Identitätsschlüssel Schutzvorrichtungen gelöscht werden sollen. |
 | -ID | Identifiziert die zu löschende Schlüssel Schutzvorrichtung mithilfe des Schlüssel Bezeichners. Dieser Parameter ist eine alternative Option für den **-Type-** Parameter. |
 | `<keyprotectorID>` | Identifiziert eine einzelne Schlüssel Schutzvorrichtung auf dem zu löschenden Laufwerk. Schlüsselschutzschutzids können mithilfe des Befehls **manage-bde-Protector-Get** angezeigt werden. |
-| -Computername | Gibt an, dass "manage-bde. exe verwendet wird, um den BitLocker-Schutz auf einem anderen Computer zu ändern. Sie können auch **-CN** als abgekürzte Version dieses Befehls verwenden. |
+| -Computername | Gibt an, dass manage-bde.exe zum Ändern des BitLocker-Schutzes auf einem anderen Computer verwendet wird. Sie können auch **-CN** als abgekürzte Version dieses Befehls verwenden. |
 | `<name>` | Stellt den Namen des Computers dar, auf dem der BitLocker-Schutz geändert werden soll. Akzeptierte Werte sind der NetBIOS-Name des Computers und die IP-Adresse des Computers. |
 | -? oder /? | Zeigt eine kurze Hilfe an der Eingabeaufforderung an. |
 | -Help oder-h | Zeigt die gesamte Hilfe an der Eingabeaufforderung an. |
@@ -117,7 +117,7 @@ manage-bde -protectors -disable <drive> [-rebootcount <integer 0 - 15>] [-comput
 | --------- | ----------- |
 | `<drive>` | Stellt einen von einem Doppelpunkt gefolgten Laufwerkbuchstaben dar. |
 | rebootcount | Gibt an, dass der Schutz für das Betriebssystem Volume angehalten wurde und fortgesetzt wird, sobald Windows neu gestartet wurde, und zwar so oft wie im Parameter " **rebootcount** " angegeben. Geben Sie **0** an, um den Schutz unbegrenzt anzuhalten. Wenn dieser Parameter nicht angegeben wird, wird der BitLocker-Schutz nach dem Neustart von Windows automatisch fortgesetzt. Sie können auch **-RC** als abgekürzte Version dieses Befehls verwenden. |
-| -Computername | Gibt an, dass "manage-bde. exe verwendet wird, um den BitLocker-Schutz auf einem anderen Computer zu ändern. Sie können auch **-CN** als abgekürzte Version dieses Befehls verwenden. |
+| -Computername | Gibt an, dass manage-bde.exe zum Ändern des BitLocker-Schutzes auf einem anderen Computer verwendet wird. Sie können auch **-CN** als abgekürzte Version dieses Befehls verwenden. |
 | `<name>` | Stellt den Namen des Computers dar, auf dem der BitLocker-Schutz geändert werden soll. Akzeptierte Werte sind der NetBIOS-Name des Computers und die IP-Adresse des Computers. |
 | -? oder /? | Zeigt eine kurze Hilfe an der Eingabeaufforderung an. |
 | -Help oder-h | Zeigt die gesamte Hilfe an der Eingabeaufforderung an. |
@@ -154,7 +154,7 @@ Geben Sie Folgendes ein, um alle Wiederherstellungs Informationen für das Laufw
 manage-bde -protectors -adbackup C:
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

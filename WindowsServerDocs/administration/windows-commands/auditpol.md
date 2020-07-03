@@ -1,6 +1,6 @@
 ---
 title: auditpol
-description: Referenz Thema zum Auditpol-Befehl, in dem Informationen zu und zum Bearbeiten von Überwachungs Richtlinien angezeigt werden.
+description: Referenz Artikel zum Auditpol-Befehl, in dem Informationen zu und zum Bearbeiten von Überwachungs Richtlinien angezeigt werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 89fee7ccd3b6671a6f2633c3b5d15d0cbee261fa
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: f3f503b957175ba2a3997202d83c171cf8683032
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82718835"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85923661"
 ---
 # <a name="auditpol"></a>auditpol
 
@@ -42,7 +42,7 @@ auditpol command [<sub-command><options>]
 
 ### <a name="parameters"></a>Parameter
 
-| Unterbefehl | BESCHREIBUNG |
+| Unterbefehl | Beschreibung |
 | ----------- | ----------- |
 | /Get | Zeigt die aktuelle Überwachungsrichtlinie an. Weitere Informationen finden Sie unter [Auditpol Get](auditpol-get.md) für Syntax und Optionen. |
 | /Set | Legt die Überwachungsrichtlinie fest. Weitere Informationen finden Sie unter [Auditpol Set](auditpol-set.md) für Syntax und Optionen. |
@@ -54,6 +54,6 @@ auditpol command [<sub-command><options>]
 | /resourceSACL | Konfiguriert globale Ressourcensystem-Zugriffs Steuerungs Listen (SACLs). **Hinweis:** Gilt nur für Windows 7 und Windows Server 2008 R2. Weitere Informationen finden Sie unter [Auditpol resourcesacl](auditpol-resourcesacl.md). |
 | /?| Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

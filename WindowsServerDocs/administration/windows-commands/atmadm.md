@@ -1,6 +1,6 @@
 ---
 title: atmadm
-description: Referenz Thema für den atmadm-Befehl, der die Verbindungen und Adressen überwacht, die vom ATM-Telefon-Manager in einem Netzwerk mit einem asynchronen Übertragungsmodus (ATM) registriert werden.
+description: Referenz Artikel für den atmadm-Befehl, der die Verbindungen und Adressen überwacht, die vom ATM-Telefon-Manager in einem Netzwerk mit einem asynchronen Übertragungsmodus (ATM) registriert werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 32dad00e5a4d03c905f95c48e112f512a9dbc2e5
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 1985634cdbaff0dfe0dcefd53395bc4f62614f2a
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82718921"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85923926"
 ---
 # <a name="atmadm"></a>atmadm
 
@@ -30,14 +30,14 @@ atmadm [/c][/a][/s]
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ------- | -------- |
 | /C | Zeigt die Telefon Informationen für alle aktuellen Verbindungen mit dem auf diesem Computer installierten atM-Netzwerkadapter an. |
 | /a | Zeigt die registrierte Netzwerkdienst-Netzwerkdienst-Netzwerkadresse (Network Service Access Point, NSAP) für jeden auf diesem Computer installierten Adapter an. |
 | /s | Zeigt eine Statistik zum Überwachen des Status aktiver atM-Verbindungen an. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-### <a name="remarks"></a>Bemerkungen
+### <a name="remarks"></a>Hinweise
 
 - Der Befehl **atmadm/c** erzeugt eine Ausgabe ähnlich der folgenden:
 
@@ -74,7 +74,7 @@ atmadm [/c][/a][/s]
 
     Die folgende Tabelle enthält Beschreibungen der einzelnen Elemente in der/c-Beispielausgabe von **atmadm** .
 
-    | Datentyp | Bildschirm Anzeige | BESCHREIBUNG |
+    | Datentyp | Bildschirm Anzeige | Beschreibung |
     | -------- | --------- | -------- |
     | Verbindungsinformationen | Ein/Aus | Die Richtung des Aufrufes. **In** ist der atM-Netzwerkadapter von einem anderen Gerät aus.  **Out** ist vom atM-Netzwerkadapter auf ein anderes Gerät. |
     | PMP | Punkt-zu-Multipoint-Aufrufe. |
@@ -112,7 +112,7 @@ atmadm [/c][/a][/s]
 
     Die folgende Tabelle enthält Beschreibungen der einzelnen Elemente in der/s-Beispielausgabe von **atmadm** .
 
-    | Statistik zum CallManager | BESCHREIBUNG |
+    | Statistik zum CallManager | Beschreibung |
     | ------------- | -------- |
     | Aktuelle aktive Aufrufe | Aufrufe, die zurzeit auf dem auf diesem Computer installierten atM-Adapter aktiv sind. |
     | Gesamtanzahl erfolgreicher eingehender Aufrufe | Aufrufe, die von anderen Geräten in diesem atM-Netzwerk erfolgreich empfangen wurden. |
@@ -144,6 +144,6 @@ Geben Sie Folgendes ein, um Statistiken zum Überwachen des Status aktiver atM-V
 atmadm /s
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

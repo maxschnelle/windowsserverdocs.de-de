@@ -1,6 +1,6 @@
 ---
 title: aktiv
-description: Referenz Thema für den aktiven Befehl, der auf Basis Datenträgern die Partition mit dem Fokus als aktiv markiert.
+description: Im Referenz Artikel für den aktiven Befehl, der auf Basis Datenträgern Festplatten, wird die Partition mit dem Fokus als aktiv markiert.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 997c57b93434738c87396812c9b5e5b12d7a8e89
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: a5df2f67c087be31190c512be0f6b20d8a1d72cb
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82719019"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85924140"
 ---
 # <a name="active"></a>aktiv
 
@@ -37,7 +37,7 @@ Geben Sie Folgendes ein, um die Partition mit dem Fokus als aktive Partition zu 
 active
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

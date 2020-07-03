@@ -1,6 +1,6 @@
 ---
 title: autofmt
-description: Referenz Thema für den autofmt-Befehl, der ein Laufwerk oder eine Partition formatiert, wenn es von der Windows-Wiederherstellungskonsole aufgerufen wird.
+description: Referenz Artikel für den autofmt-Befehl, der ein Laufwerk oder eine Partition formatiert, wenn Sie in der Windows-Wiederherstellungskonsole aufgerufen wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b7b82d940f2d8bd54d023a2a105208d1a18fc4c8
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 1b6f4ae3fe630ba01d9c789a9f7d73a11a31f456
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82718753"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85923550"
 ---
 # <a name="autofmt"></a>autofmt
 
@@ -23,7 +23,7 @@ Startet das Dienstprogramm für automatisches Datei System, das ein Laufwerk ode
 > [!IMPORTANT]
 > **Autof** kann nicht direkt über die Befehlszeile ausgeführt werden.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

@@ -1,6 +1,6 @@
 ---
 title: ksetup
-description: Referenz Thema für den Ksetup-Befehl, der Aufgaben im Zusammenhang mit der Einrichtung und Wartung des Kerberos-Protokolls und der Schlüsselverteilungscenter (KDC) zur Unterstützung von Kerberos-Bereichen ausführt.
+description: Referenz Artikel für den Ksetup-Befehl, der Aufgaben im Zusammenhang mit der Einrichtung und Wartung des Kerberos-Protokolls und der Schlüsselverteilungscenter (KDC) zur Unterstützung von Kerberos-Bereichen ausführt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 82b1627a8ddbc9e51ac32825c5a42c3df9effbf7
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: a0398d53516f81de68a7de5854ed2c996a78d1e5
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83817350"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85922628"
 ---
 # <a name="ksetup"></a>ksetup
 
@@ -56,31 +56,31 @@ ksetup
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
-| [Ksetup setrealm](ksetup-setrealm.md) | Dieser Computer ist ein Mitglied eines Kerberos-Bereichs. |
-| [Ksetup-addkdc](ksetup-addkdc.md) | Definiert einen KDC-Eintrag für den angegebenen Bereich. |
-| [Ksetup-Delta Controller](ksetup-delkdc.md) | Löscht einen KDC-Eintrag für den Bereich. |
-| [Ksetup addkpasswd](ksetup-addkpasswd.md) | Fügt eine kpasswd-Server Adresse für einen Bereich hinzu. |
-| [Ksetup-Delta Pass WD](ksetup-delkpasswd.md) | Löscht eine kpasswd-Server Adresse für einen Bereich. |
-| [Ksetup-Server](ksetup-server.md) | Ermöglicht es Ihnen, den Namen eines Windows-Computers anzugeben, auf dem die Änderungen angewendet werden sollen. |
-| [Ksetup setcomputerpassword](ksetup-setcomputerpassword.md) | Legt das Kennwort für das Domänen Konto des Computers (oder den Host Prinzipal) fest. |
-| [Ksetup removerealm](ksetup-removerealm.md) | Löscht alle Informationen für den angegebenen Bereich aus der Registrierung. |
-| [Ksetup-Domäne](ksetup-domain.md) | Ermöglicht das Angeben einer Domäne (wenn das `<domainname>` nicht bereits durch den **/Domain** -Parameter festgelegt wurde). |
-| [Kennwort für Ksetup](ksetup-changepassword.md) | Ermöglicht die Verwendung von kpasswd zum Ändern des Kennworts des angemeldeten Benutzers. |
-| [Ksetup listrealmflags](ksetup-listrealmflags.md) | Listet die verfügbaren bereichflags auf, die von **Ksetup** erkannt werden können. |
+| [ksetup setrealm](ksetup-setrealm.md) | Dieser Computer ist ein Mitglied eines Kerberos-Bereichs. |
+| [ksetup addkdc](ksetup-addkdc.md) | Definiert einen KDC-Eintrag für den angegebenen Bereich. |
+| [ksetup delkdc](ksetup-delkdc.md) | Löscht einen KDC-Eintrag für den Bereich. |
+| [ksetup addkpasswd](ksetup-addkpasswd.md) | Fügt eine kpasswd-Server Adresse für einen Bereich hinzu. |
+| [ksetup delkpasswd](ksetup-delkpasswd.md) | Löscht eine kpasswd-Server Adresse für einen Bereich. |
+| [ksetup server](ksetup-server.md) | Ermöglicht es Ihnen, den Namen eines Windows-Computers anzugeben, auf dem die Änderungen angewendet werden sollen. |
+| [ksetup setcomputerpassword](ksetup-setcomputerpassword.md) | Legt das Kennwort für das Domänen Konto des Computers (oder den Host Prinzipal) fest. |
+| [ksetup removerealm](ksetup-removerealm.md) | Löscht alle Informationen für den angegebenen Bereich aus der Registrierung. |
+| [ksetup domain](ksetup-domain.md) | Ermöglicht das Angeben einer Domäne (wenn das `<domainname>` nicht bereits durch den **/Domain** -Parameter festgelegt wurde). |
+| [ksetup changepassword](ksetup-changepassword.md) | Ermöglicht die Verwendung von kpasswd zum Ändern des Kennworts des angemeldeten Benutzers. |
+| [ksetup listrealmflags](ksetup-listrealmflags.md) | Listet die verfügbaren bereichflags auf, die von **Ksetup** erkannt werden können. |
 | [ksetup setrealmflags](ksetup-setrealmflags.md) | Legt bereichflags für einen bestimmten Bereich fest. |
-| [Ksetup-adressalm-Flags](ksetup-addrealmflags.md) | Fügt einem Bereich weitere bereichflags hinzu. |
-| [Ksetup-Delta Flags](ksetup-delrealmflags.md) | Löscht bereichflags aus einem Bereich. |
-| [Ksetup dumpstate](ksetup-dumpstate.md) | Analysiert die Kerberos-Konfiguration auf dem angegebenen Computer. Fügt der Registrierung einen Host für die Bereichs Zuordnung hinzu. |
-| [Ksetup addhosttorealmmap](ksetup-addhosttorealmmap.md) | Fügt einen Registrierungs Wert hinzu, um den Host dem Kerberos-Bereich zuzuordnen. |
-| [Ksetup Delta Host-Karte](ksetup-delhosttorealmmap.md) | Löscht den Registrierungs Wert, der den Host Computer dem Kerberos-Bereich zugeordnet hat. |
-| [Ksetup setenctypeattr](ksetup-setenctypeattr.md) | Legt ein oder mehrere Vertrauens Attribute der Verschlüsselungstypen für die Domäne fest. |
-| [Ksetup getenctypeattr](ksetup-getenctypeattr.md) | Ruft das Vertrauens Attribut der Verschlüsselungstypen für die Domäne ab. |
-| [Ksetup addenctypeattr](ksetup-addenctypeattr.md) | Fügt Verschlüsselungstypen zum Vertrauens Attribut der Verschlüsselungstypen für die Domäne hinzu. |
-| [Ksetup-Delta TYPEATTR](ksetup-delenctypeattr.md) | Löscht das Vertrauens Attribut der Verschlüsselungstypen für die Domäne. |
+| [ksetup addrealmflags](ksetup-addrealmflags.md) | Fügt einem Bereich weitere bereichflags hinzu. |
+| [ksetup delrealmflags](ksetup-delrealmflags.md) | Löscht bereichflags aus einem Bereich. |
+| [ksetup dumpstate](ksetup-dumpstate.md) | Analysiert die Kerberos-Konfiguration auf dem angegebenen Computer. Fügt der Registrierung einen Host für die Bereichs Zuordnung hinzu. |
+| [ksetup addhosttorealmmap](ksetup-addhosttorealmmap.md) | Fügt einen Registrierungs Wert hinzu, um den Host dem Kerberos-Bereich zuzuordnen. |
+| [ksetup delhosttorealmmap](ksetup-delhosttorealmmap.md) | Löscht den Registrierungs Wert, der den Host Computer dem Kerberos-Bereich zugeordnet hat. |
+| [ksetup setenctypeattr](ksetup-setenctypeattr.md) | Legt ein oder mehrere Vertrauens Attribute der Verschlüsselungstypen für die Domäne fest. |
+| [ksetup getenctypeattr](ksetup-getenctypeattr.md) | Ruft das Vertrauens Attribut der Verschlüsselungstypen für die Domäne ab. |
+| [ksetup addenctypeattr](ksetup-addenctypeattr.md) | Fügt Verschlüsselungstypen zum Vertrauens Attribut der Verschlüsselungstypen für die Domäne hinzu. |
+| [ksetup delenctypeattr](ksetup-delenctypeattr.md) | Löscht das Vertrauens Attribut der Verschlüsselungstypen für die Domäne. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

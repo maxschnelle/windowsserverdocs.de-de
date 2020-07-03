@@ -1,6 +1,6 @@
 ---
-title: Telnet schließen
-description: Referenz Thema für Telnet Close, das die aktuelle Telnet-Verbindung schließt.
+title: telnet close
+description: Referenz Artikel für Telnet Close, mit dem die aktuelle Telnet-Verbindung geschlossen wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 34a575fecaa33619611a28c54c018623ebcede3c
-ms.sourcegitcommit: 29bc8740e5a8b1ba8f73b10ba4d08afdf07438b0
+ms.openlocfilehash: ec185f29f428e760e5cee9514e522723214a65ec
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84223066"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85922586"
 ---
 # <a name="telnet-close"></a>Telnet: schließen
 
@@ -33,5 +33,5 @@ Schließen Sie die aktuelle Verbindung.
 ```
 c
 ```
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -1,6 +1,6 @@
 ---
 title: "\"manage-bde Unlock\""
-description: Referenz Thema für den Befehl manage-bde Unlock, mit dem ein durch BitLocker geschütztes Laufwerk mithilfe eines Wiederherstellungs Kennworts oder eines Wiederherstellungs Schlüssels entsperrt wird.
+description: Referenz Artikel für den Befehl manage-bde Unlock, mit dem ein durch BitLocker geschütztes Laufwerk mithilfe eines Wiederherstellungs Kennworts oder eines Wiederherstellungs Schlüssels entsperrt wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 67d4c0ec78870af45f0b98f2ab04d85b19e92af9
-ms.sourcegitcommit: 29bc8740e5a8b1ba8f73b10ba4d08afdf07438b0
+ms.openlocfilehash: 1be2bf029a378015cd20f21c236c0d519f2e072a
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84222156"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85922203"
 ---
 # <a name="manage-bde-unlock"></a>"manage-bde Unlock"
 
@@ -39,7 +39,7 @@ manage-bde -unlock {-recoverypassword <password>|-recoverykey <pathtoexternalkey
 | -CF`<pathtocertificatefile>` | Pfad zur Zertifikatsdatei |
 | -CT`<certificatethumbprint>` | Der Zertifikat Fingerabdruck, der optional die PIN (-PIN) enthalten kann. |
 | -password | Zeigt eine Eingabeaufforderung für das Kennwort zum Entsperren des Volumes an. Sie können auch **-PW** als abgekürzte Version dieses Befehls verwenden. |
-| -Computername | Gibt an, dass "manage-bde. exe verwendet wird, um den BitLocker-Schutz auf einem anderen Computer zu ändern. Sie können auch **-CN** als abgekürzte Version dieses Befehls verwenden. |
+| -Computername | Gibt an, dass manage-bde.exe zum Ändern des BitLocker-Schutzes auf einem anderen Computer verwendet wird. Sie können auch **-CN** als abgekürzte Version dieses Befehls verwenden. |
 | `<name>` | Stellt den Namen des Computers dar, auf dem der BitLocker-Schutz geändert werden soll. Akzeptierte Werte sind der NetBIOS-Name des Computers und die IP-Adresse des Computers. |
 | -? oder /? | Zeigt eine kurze Hilfe an der Eingabeaufforderung an. |
 | -Help oder-h | Zeigt die gesamte Hilfe an der Eingabeaufforderung an. |
@@ -52,7 +52,7 @@ Zum Entsperren von Laufwerk E mit einer Wiederherstellungs Schlüsseldatei, die 
 manage-bde –unlock E: -recoverykey F:\Backupkeys\recoverykey.bek
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

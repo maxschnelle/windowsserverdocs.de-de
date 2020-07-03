@@ -1,6 +1,6 @@
 ---
 title: evntcmd
-description: Referenz Thema für den evntcmd-Befehl, mit dem die Übersetzung von Ereignissen in Traps, Trap Ziele oder beides basierend auf Informationen in einer Konfigurationsdatei konfiguriert wird.
+description: Referenz Artikel für den evntcmd-Befehl, der die Übersetzung von Ereignissen in Traps, Trap Ziele oder beides basierend auf Informationen in einer Konfigurationsdatei konfiguriert.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e922d7876a8065a0e05e9fa7bf2cf8db45bffd25
-ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
+ms.openlocfilehash: 291b13163f5c5a13442ed6dc80b769d0170df42e
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2020
-ms.locfileid: "83437095"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85922784"
 ---
 # <a name="evntcmd"></a>evntcmd
 
@@ -150,6 +150,6 @@ Geben Sie Folgendes ein, um das Senden von Trap-Nachrichten innerhalb der Commun
 #pragma delete_TRAP_DEST private localhost
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

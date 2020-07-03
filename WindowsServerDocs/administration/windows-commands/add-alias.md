@@ -1,6 +1,6 @@
 ---
 title: add alias
-description: Referenz Thema für den Befehl Alias hinzufügen, mit dem Aliase zur Alias Umgebung hinzugefügt werden.
+description: Referenz Artikel für den Befehl Alias hinzufügen, der Aliase zur Alias Umgebung hinzufügt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 66301a39a1e969e270b42b5ce92a73392a134357
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: 405c04b17b32477654f0349c04c6059cf246f804
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83819660"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85924127"
 ---
 # <a name="add-alias"></a>add alias
 
@@ -28,7 +28,7 @@ add alias <aliasname> <aliasvalue>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<aliasname>` | Gibt den Namen des Alias an. |
 | `<aliasvalue>` | Gibt den Wert des Alias an. |
@@ -61,7 +61,7 @@ Alternativ können Sie den Alias mithilfe der Schattenkopiekennung zuweisen:
 add alias System1 {ff47165a-1946-4a0c-b7f4-80f46a309278}
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

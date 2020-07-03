@@ -1,6 +1,6 @@
 ---
 title: logman create
-description: Referenz Thema für den Befehl logman Create, der einen Counter, eine Ablauf Verfolgung, einen Konfigurationsdaten Sammler oder eine API erstellt.
+description: Referenz Artikel für den Befehl logman Create, der einen Counter, eine Ablauf Verfolgung, einen Konfigurationsdaten Sammler oder eine API erstellt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c4a68be098f868cdd9cd48c1e7c68fc183fa1fab
-ms.sourcegitcommit: 29bc8740e5a8b1ba8f73b10ba4d08afdf07438b0
+ms.openlocfilehash: 695a101a0aa6a720b64ffee6617085d13b6e83d1
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84222954"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85922326"
 ---
 # <a name="logman-create"></a>logman create
 
@@ -32,13 +32,13 @@ logman create <counter | trace | alert | cfg | api> <[-n] <name>> [options]
 
 | Parameter | Beschreibung |
 | --------- | ----------- |
-| [logman Create Counter](logman-create-counter.md) | Erstellt einen Counter-Datensammler. |
-| [logman Create Trace](logman-create-trace.md) | Erstellt einen Ablauf Verfolgungs Datensammler. |
-| [Warnung zu logman Create](logman-create-alert.md) | Erstellt einen Warnungs Datensammler. |
-| [logman Create cfg](logman-create-cfg.md) | Erstellt einen Konfigurationsdaten Sammler. |
-| [logman Create-API](logman-create-api.md) | Erstellt einen API-Ablauf Verfolgungs Datensammler. |
+| [logman create counter](logman-create-counter.md) | Erstellt einen Counter-Datensammler. |
+| [logman create trace](logman-create-trace.md) | Erstellt einen Ablauf Verfolgungs Datensammler. |
+| [logman create alert](logman-create-alert.md) | Erstellt einen Warnungs Datensammler. |
+| [logman create cfg](logman-create-cfg.md) | Erstellt einen Konfigurationsdaten Sammler. |
+| [logman create api](logman-create-api.md) | Erstellt einen API-Ablauf Verfolgungs Datensammler. |
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

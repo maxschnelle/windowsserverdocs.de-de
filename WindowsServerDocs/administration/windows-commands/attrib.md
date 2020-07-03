@@ -1,6 +1,6 @@
 ---
 title: attrib
-description: Referenz Thema für den atzb-Befehl, mit dem Attribute angezeigt, festgelegt oder entfernt werden, die Dateien oder Verzeichnissen zugewiesen sind.
+description: Referenz Artikel für den atzb-Befehl, mit dem Attribute angezeigt, festgelegt oder entfernt werden, die Dateien oder Verzeichnissen zugewiesen sind.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c525fe1dc5b78032f20358492a1bfde4df909add
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: bc5d780ffd32976df306e2221987f24ec8553854
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82719197"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85923908"
 ---
 # <a name="attrib"></a>attrib
 
@@ -28,13 +28,13 @@ attrib [{+|-}r] [{+|-}a] [{+|-}s] [{+|-}h] [{+|-}i] [<drive>:][<path>][<filename
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
-| `{+|-}r` | Legt das**+** schreibgeschützte Datei Attribut**-** fest () oder löscht sie (). |
-| `{+\|-}a` | Legt das**+** Archivdatei Attribut fest**-**() oder löscht es (). Dieses Attribut legt die Dateien fest, die sich seit der letzten Sicherung geändert haben. Beachten Sie, dass der **xcopy** -Befehl Archiv Attribute verwendet. |
-| `{+\|-}s` | Legt das**+** System Datei Attribut fest**-**() oder löscht es (). Wenn in einer Datei dieser Attribut Satz verwendet wird, müssen Sie das-Attribut löschen, bevor Sie andere Attribute für die Datei ändern können. |
-| `{+\|-}h` | Legt das**+** ausgeblendete**-** Datei Attribut fest () oder löscht es (). Wenn in einer Datei dieser Attribut Satz verwendet wird, müssen Sie das-Attribut löschen, bevor Sie andere Attribute für die Datei ändern können. |
-| `{+\|-}i` | Legt (**+**) oder löscht (**-**) das nicht-Inhalts indizierte Datei Attribut. |
+| `{+|-}r` | Legt das schreibgeschützte **+** Datei Attribut fest () oder löscht **-** Sie (). |
+| `{+\|-}a` | Legt **+** das Archivdatei Attribut fest () oder löscht es ( **-** ). Dieses Attribut legt die Dateien fest, die sich seit der letzten Sicherung geändert haben. Beachten Sie, dass der **xcopy** -Befehl Archiv Attribute verwendet. |
+| `{+\|-}s` | Legt **+** das System Datei Attribut fest () oder löscht es ( **-** ). Wenn in einer Datei dieser Attribut Satz verwendet wird, müssen Sie das-Attribut löschen, bevor Sie andere Attribute für die Datei ändern können. |
+| `{+\|-}h` | Legt das ausgeblendete **+** Datei Attribut fest () oder löscht es ( **-** ). Wenn in einer Datei dieser Attribut Satz verwendet wird, müssen Sie das-Attribut löschen, bevor Sie andere Attribute für die Datei ändern können. |
+| `{+\|-}i` | Legt ( **+** ) oder löscht ( **-** ) das nicht-Inhalts indizierte Datei Attribut. |
 | `[<drive>:][<path>][<filename>]` | Gibt den Speicherort und den Namen des Verzeichnisses, der Datei oder der Gruppe von Dateien an, für die Sie Attribute anzeigen oder ändern möchten.<p>Sie können den **?** und **&#42;** Platzhalter Zeichen im *filename* -Parameter, um die Attribute für eine Gruppe von Dateien anzuzeigen oder zu ändern. |
 | /s | Wendet **atungb** und alle Befehlszeilenoptionen auf übereinstimmende Dateien im aktuellen Verzeichnis und allen Unterverzeichnissen an. |
 | /d | Wendet **attrb** und alle Befehlszeilenoptionen auf Verzeichnisse an. |
@@ -49,7 +49,7 @@ Geben Sie Folgendes ein, um die Attribute einer Datei mit dem Namen News86 anzuz
 attrib news86
 ```
 
-Wenn Sie das Attribut "schreibgeschützt" der Datei "Report. txt" zuweisen möchten, geben Sie Folgendes ein:
+Um das Attribut "schreibgeschützt" der Datei mit dem Namen "report.txt" zuzuweisen, geben Sie Folgendes ein:
 
 ```
 attrib +r report.txt
@@ -67,7 +67,7 @@ Um das Archive-Attribut für alle Dateien auf Laufwerk a: festzulegen, und lösc
 attrib +a a:*.* & attrib -a a:*.bak
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

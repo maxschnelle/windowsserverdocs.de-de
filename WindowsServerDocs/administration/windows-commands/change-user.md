@@ -1,6 +1,6 @@
 ---
 title: change user
-description: Referenz Thema für den Befehl "Benutzer ändern", mit dem der Installationsmodus für den Remotedesktop-Sitzungshost Server geändert wird.
+description: Referenz Artikel für den Befehl "Benutzer ändern", mit dem der Installationsmodus für den Remotedesktop-Sitzungshost Server geändert wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: de96280f42f1e3002c4379390367856dcdcb885a
-ms.sourcegitcommit: 568b924d32421256f64abfee171304f1daf320d2
+ms.openlocfilehash: 42d6a5575ebf732a91477a425d93b10f3293e89e
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85070185"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85922495"
 ---
 # <a name="change-user"></a>change user
 
@@ -33,7 +33,7 @@ change user {/execute | /install | /query}
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | /execute | Ermöglicht die Zuordnung von INI-Dateien zum Basisverzeichnis. Dies ist die Standardeinstellung. |
 | /install | Deaktiviert die Zuordnung der INI-Datei zum Basisverzeichnis. Alle INI-Dateien werden gelesen und in das System Verzeichnis geschrieben. Sie müssen die INI-Datei Zuordnung deaktivieren, wenn Sie Anwendungen auf einem Remotedesktop-Sitzungshost Server installieren. |
@@ -74,7 +74,7 @@ change user {/execute | /install | /query}
   change user /query
   ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

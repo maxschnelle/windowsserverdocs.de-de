@@ -1,6 +1,6 @@
 ---
 title: bitsadmin geterrorcount
-description: Referenz Thema für den bizadmin GetErrorCount-Befehl, der die Anzahl der Male abruft, mit denen der angegebene Auftrag einen vorübergehenden Fehler generiert hat.
+description: Referenz Artikel für den Befehl bizadmin GetErrorCount, der die Anzahl der Male abruft, mit denen der angegebene Auftrag einen vorübergehenden Fehler generiert hat.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 516bd02ed296a2eba75e174c6f084926bde63e90
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 90eaa150f2decba4bbee693ac117cd269d5a7c97
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82718011"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85923056"
 ---
 # <a name="bitsadmin-geterrorcount"></a>bitsadmin geterrorcount
 
@@ -28,7 +28,7 @@ bitsadmin /geterrorcount <job>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | -------------- | -------------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 
@@ -40,7 +40,7 @@ So rufen Sie Fehler Anzahl Informationen für den Auftrag mit dem Namen *mydownl
 bitsadmin /geterrorcount myDownloadJob
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

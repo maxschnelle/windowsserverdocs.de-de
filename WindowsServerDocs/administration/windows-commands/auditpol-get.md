@@ -1,6 +1,6 @@
 ---
-title: Auditpol Get
-description: Referenz Thema für den Befehl Auditpol Get, der die System Richtlinie, die Richtlinie für benutzerspezifische Richtlinien, Überwachungs Optionen und das Überwachungs Sicherheits Deskriptor-Objekt abruft.
+title: auditpol get
+description: Referenz Artikel für den Befehl Auditpol Get, der die System Richtlinie, die Richtlinie für benutzerspezifische Richtlinien, Überwachungs Optionen und das Überwachungs Sicherheits Deskriptor-Objekt abruft.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 859ea9e2e42af0fe7f34f4e378166685f8316b9e
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 698823ae48dd4ca52cb26d583a35d3faf1c1d03a
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82719136"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85923740"
 ---
-# <a name="auditpol-get"></a>Auditpol Get
+# <a name="auditpol-get"></a>auditpol get
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server, 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -38,7 +38,7 @@ auditpol /get
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | /User | Zeigt den Sicherheits Prinzipal an, für den die Überwachungsrichtlinie pro Benutzer abgefragt wird. Der/Category-Parameter oder der/SubCategory-Parameter muss angegeben werden. Der Benutzer kann als Sicherheits-ID (SID) oder Name angegeben werden. Wenn kein Benutzerkonto angegeben ist, wird die System Überwachungsrichtlinie abgefragt. |
 | /category | Eine oder mehrere Überwachungs Kategorien, die durch Globally Unique Identifier (GUID) oder den Namen angegeben werden. Ein Sternchen (*) kann verwendet werden, um anzugeben, dass alle Überwachungs Kategorien abgefragt werden sollen. |
@@ -48,7 +48,7 @@ auditpol /get
 | /r | Zeigt die Ausgabe im Berichtsformat an, durch Kommas getrennte Werte (CSV). |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-### <a name="remarks"></a>Bemerkungen
+### <a name="remarks"></a>Hinweise
 
 Alle Kategorien und Unterkategorien können durch die GUID oder den Namen angegeben werden, die in Anführungszeichen (") eingeschlossen ist. Benutzer können nach SID oder Name angegeben werden.
 
@@ -61,7 +61,7 @@ auditpol /get /user:{S-1-5-21-1443922412-3030960370-963420232-51} /category:Syst
 ```
 
 > [!NOTE]
-> Dieser Befehl ist in zwei Szenarios nützlich. 1) Wenn Sie ein bestimmtes Benutzerkonto auf verdächtige Aktivitäten überwachen, können Sie `/get` den Befehl verwenden, um die Ergebnisse in bestimmten Kategorien abzurufen, indem Sie eine Inklusions Richtlinie verwenden, um zusätzliche Überwachung zu aktivieren. 2) Wenn die Überwachungs Einstellungen für ein Konto zahlreiche, aber überflüssige Ereignisse protokollieren, `/get` können Sie den Befehl verwenden, um überflüssige Ereignisse für dieses Konto mit einer Ausschluss Richtlinie herauszufiltern. Eine Liste aller Kategorien erhalten Sie mit dem `auditpol /list /category` Befehl.
+> Dieser Befehl ist in zwei Szenarios nützlich. 1) Wenn Sie ein bestimmtes Benutzerkonto auf verdächtige Aktivitäten überwachen, können Sie den Befehl verwenden, `/get` um die Ergebnisse in bestimmten Kategorien abzurufen, indem Sie eine Inklusions Richtlinie verwenden, um zusätzliche Überwachung zu aktivieren. 2) Wenn die Überwachungs Einstellungen für ein Konto zahlreiche, aber überflüssige Ereignisse protokollieren, können Sie den Befehl verwenden, um überflüssige `/get` Ereignisse für dieses Konto mit einer Ausschluss Richtlinie herauszufiltern. Eine Liste aller Kategorien erhalten Sie mit dem `auditpol /list /category` Befehl.
 
 Zum Abrufen der Überwachungsrichtlinie pro Benutzer für eine Kategorie und eine bestimmte Unterkategorie, in der die inklusiven und exklusiven Einstellungen für diese Unterkategorie in der Kategorie System für das Gastkonto gemeldet werden, geben Sie Folgendes ein:
 
@@ -105,7 +105,7 @@ Die verfügbaren Optionen sind auditbaseobjects, auditbaseoperations und FullPri
 auditpol /get /option:CrashOnAuditFail /r
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

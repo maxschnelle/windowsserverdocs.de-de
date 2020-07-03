@@ -1,6 +1,6 @@
 ---
 title: assoc
-description: Referenz Thema für den Befehl "Assoc", mit dem Dateinamen Erweiterungs Zuordnungen angezeigt oder geändert werden.
+description: Referenz Artikel für den Befehl "Assoc", mit dem Dateinamen Erweiterungs Zuordnungen angezeigt oder geändert werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,19 +9,19 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 58735201a1a0711db4d0cee9c292363acf5121f3
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: 6e6d72dce2a3e820b52a33bf11dbf38890278fb8
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83819640"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85924043"
 ---
 # <a name="assoc"></a>assoc
 
 Zeigt Zuordnungen für Dateinamen Erweiterungen an oder ändert diese. Bei Verwendung ohne Parameter zeigt **Assoc** eine Liste aller aktuellen Zuordnungen für Dateinamen Erweiterungen an.
 
 > [!NOTE]
-> Dieser Befehl wird nur in "cmd. exe" unterstützt und ist in PowerShell nicht verfügbar.
+> Dieser Befehl wird nur in cmd.exe unterstützt und ist in PowerShell nicht verfügbar.
 
 ## <a name="syntax"></a>Syntax
 
@@ -31,7 +31,7 @@ assoc [<.ext>[=[<filetype>]]]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<.ext>` | Gibt die Dateinamenerweiterung an. |
 | `<filetype>` | Gibt den Dateityp an, der der angegebenen Dateinamenerweiterung zugeordnet werden soll. |
@@ -68,13 +68,13 @@ Geben Sie Folgendes ein, um die Ausgabe von **Assoc** auf einem Bildschirm anzuz
 assoc | more
 ```
 
-Geben Sie Folgendes ein, um die Ausgabe von **Assoc** an die Datei "Assoc. txt" zu senden:
+Um die Ausgabe von **Assoc** an die Datei assoc.txt zu senden, geben Sie Folgendes ein:
 
 ```
 assoc>assoc.txt
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

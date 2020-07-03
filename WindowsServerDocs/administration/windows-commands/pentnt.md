@@ -1,6 +1,6 @@
 ---
 title: pentnt
-description: Referenz Thema für den Befehl "pentnt". Dieser Befehl ist veraltet und wird in zukünftigen Versionen von Windows nicht mehr unterstützt.
+description: Referenz Artikel für den Befehl "pentnt". Dieser Befehl ist veraltet und wird in zukünftigen Versionen von Windows nicht mehr unterstützt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 99ef498c148e8277e95fb496979e51eedccfb897
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 8006bf74c26b26575f7e2aea2e928d5db4985580
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85472486"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85922859"
 ---
 # <a name="pentnt"></a>pentnt
 
@@ -25,6 +25,6 @@ ms.locfileid: "85472486"
 
 Erkennt einen Fehler bei der Gleit Komma Teilung (falls vorhanden) im Pentium-Chip, deaktiviert Gleit Komma Hardware und aktiviert die Gleit Komma Emulation. Beschreibungen und Verwendungs Informationen finden Sie unter " [pentnt](https://docs.microsoft.com/previous-versions/orphan-topics/ws.10/cc755868(v=ws.10))".
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

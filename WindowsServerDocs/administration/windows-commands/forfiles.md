@@ -1,6 +1,6 @@
 ---
 title: forfiles
-description: Referenz Thema für den forfiles-Befehl, mit dem ein Befehl für eine Datei oder einen Satz von Dateien ausgewählt und ausgeführt wird.
+description: Referenz Artikel zum forfiles-Befehl, mit dem ein Befehl für eine Datei oder einen Satz von Dateien ausgewählt und ausgeführt wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 05/20/2020
-ms.openlocfilehash: 96ef7d016bd13961a4814ba4cd09095aed4f0e97
-ms.sourcegitcommit: 29f7a4811b4d36d60b8b7c55ce57d4ee7d52e263
+ms.openlocfilehash: 26c443aa05d081fc257dc49d2f2c7f6a9adae865
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83716845"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85922396"
 ---
 # <a name="forfiles"></a>forfiles
 
@@ -55,7 +55,7 @@ forfiles [/P pathname] [/M searchmask] [/S] [/C command] [/D [+ | -] [{<date> | 
     | @FDATE | Der Datumsstempel der letzten Änderung in der Datei. |
     | @FTIME | Der Zeitstempel der letzten Änderung in der Datei. |
 
-- Mit dem Befehl " **forfiles** " können Sie einen Befehl auf Ausführen oder Argumente an mehrere Dateien übergeben. Beispielsweise können Sie den Befehl Befehl für alle Dateien in einer Struktur **mit der Datei** Namen Erweiterung ". txt" ausführen. Oder Sie können jede Batchdatei (*. bat) auf Laufwerk C mit dem Dateinamen MyInput. txt als erstes Argument ausführen.
+- Mit dem Befehl " **forfiles** " können Sie einen Befehl auf Ausführen oder Argumente an mehrere Dateien übergeben. Beispielsweise können Sie den Befehl Befehl für alle Dateien in einer Struktur **mit der Datei** Namen Erweiterung ". txt" ausführen. Oder Sie können jede Batchdatei (*. bat) auf Laufwerk C ausführen, wobei der Dateiname Myinput.txt als erstes Argument ist.
 
 - Dieser Befehl kann folgende Aktionen ausführen:
 
@@ -101,6 +101,6 @@ Wenn Sie die Dateinamen Erweiterungen aller Dateien im aktuellen Verzeichnis im 
 forfiles /S /M *.* /C "cmd /c echo The extension of @file is 0x09@ext"
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

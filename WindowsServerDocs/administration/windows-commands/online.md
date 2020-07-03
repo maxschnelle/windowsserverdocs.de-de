@@ -1,6 +1,6 @@
 ---
 title: online
-description: Referenz Thema für den Online-Befehl, bei dem ein Offline Datenträger oder ein Offline Volume in den Online Status versetzt wird.
+description: Referenz Artikel für den Online-Befehl, bei dem ein Offline Datenträger oder ein Offline Volume in den Online Status versetzt wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b5983e033755cdc9cd28b2b149fea657a06bd164
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: d18ba172af7ab003368b36daa89ef0d7ac88a7a3
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85472606"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85922596"
 ---
 # <a name="online"></a>online
 
@@ -29,11 +29,11 @@ online volume
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 |--|--|
 | [online disk](online-disk.md) | Der Offline Datenträger wird mit dem Fokus auf den Online Zustand versetzt. |
 | [online volume](online-volume.md) | Nimmt das Offline-Volume mit dem Fokus auf den Online Status. |
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

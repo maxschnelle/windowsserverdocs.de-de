@@ -1,6 +1,6 @@
 ---
 title: set
-description: Referenz Thema für Set, in dem die Umgebungsvariablen cmd. exe angezeigt, festgelegt oder entfernt werden.
+description: Referenz Artikel für Set, mit dem cmd.exe-Umgebungsvariablen angezeigt, festgelegt oder entfernt werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5de835dd591e1f70acc896772df501d5ddbdf237
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: 002ac4624d9ed501fab7816a83c2a0c5fc6a2bce
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83819390"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85922825"
 ---
 # <a name="set"></a>set
 
-Zeigt die Umgebungsvariablen "cmd. exe" an, legt Sie fest oder entfernt Sie. Bei Verwendung ohne Parameter zeigt **Set** die aktuellen Umgebungsvariablen Einstellungen an.
+Zeigt cmd.exe Umgebungsvariablen an, legt Sie fest oder entfernt Sie. Bei Verwendung ohne Parameter zeigt **Set** die aktuellen Umgebungsvariablen Einstellungen an.
 
 
 
@@ -32,14 +32,14 @@ set /a <Variable>=<Expression>
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |---------|-----------|
 |\<Variable>|Gibt die Umgebungsvariable an, die festgelegt oder geändert werden soll.|
-|\<Zeichen folgen>|Gibt die Zeichenfolge an, die der angegebenen Umgebungsvariablen zugeordnet werden soll.|
+|\<String>|Gibt die Zeichenfolge an, die der angegebenen Umgebungsvariablen zugeordnet werden soll.|
 |/p|Legt den Wert der *Variablen* auf eine Zeile der Eingabe fest, die vom Benutzer eingegeben wurde.|
-|\<PromptString->|Optional. Gibt eine Meldung an, mit der der Benutzer zur Eingabe aufgefordert wird. Dieser Parameter wird mit der Befehlszeilenoption **/p** verwendet.|
+|\<PromptString>|Dies ist optional. Gibt eine Meldung an, mit der der Benutzer zur Eingabe aufgefordert wird. Dieser Parameter wird mit der Befehlszeilenoption **/p** verwendet.|
 |/a|Legt die *Zeichenfolge* auf einen numerischen Ausdruck fest, der ausgewertet wird.|
-|\<Ausdruck>|Gibt einen numerischen Ausdruck an. Informationen zu gültigen Operatoren, die in *Ausdrücken*verwendet werden können, finden Sie unter Hinweise.|
+|\<Expression>|Gibt einen numerischen Ausdruck an. Informationen zu gültigen Operatoren, die in *Ausdrücken*verwendet werden können, finden Sie unter Hinweise.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise
@@ -68,7 +68,7 @@ set /a <Variable>=<Expression>
   |        Betreiber         | Ausgeführte Operation  |
   |-------------------------|----------------------|
   |           ( )           |       Gruppierung       |
-  |          ! ~ -          |        Unär         |
+  |          ! ~ -          |        Unäroperatoren         |
   |         \* / %          |      Arithmetik      |
   |           + -           |      Arithmetik      |
   |          << >>          |    Logische Verschiebung     |
@@ -145,6 +145,6 @@ set p
 > [!NOTE]
 > Dieser Befehl erfordert Befehls Erweiterungen, die standardmäßig aktiviert sind.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

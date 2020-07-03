@@ -1,6 +1,6 @@
 ---
 title: arp
-description: Referenz Thema für den ARP-Befehl, in dem Einträge im ARP-Cache (Address Resolution Protocol), die zum Speichern von IP-Adressen und deren aufgelösten physischen Adressen verwendet werden, angezeigt und geändert werden.
+description: Referenz Artikel für den ARP-Befehl, der Einträge im ARP-Cache (Address Resolution Protocol), die zum Speichern von IP-Adressen und deren aufgelösten physischen Adressen verwendet werden, anzeigt und ändert.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: fdbb9fe636bb30be90164d9a2163c495a9c2e704
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: 41f9ebde5faa3eda99402aa86a0aef5e55b42eba
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83819650"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85924000"
 ---
 # <a name="arp"></a>arp
 
@@ -30,7 +30,7 @@ arp [/a [<inetaddr>] [/n <ifaceaddr>]] [/g [<inetaddr>] [-n <ifaceaddr>]] [/d <i
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `[/a [<inetaddr>] [/n <ifaceaddr>]` | Zeigt die aktuellen ARP-Cache Tabellen für alle Schnittstellen an. Beim Parameter **/n** wird die Groß-/Kleinschreibung beachtet. Wenn Sie den ARP-Cache Eintrag für eine bestimmte IP-Adresse anzeigen möchten, verwenden Sie **ARP/a** mit dem **inetaddr** -Parameter, wobei **inetaddr** eine IP-Adresse ist. Wenn **inetaddr** nicht angegeben wird, wird die erste anwendbare Schnittstelle verwendet. Zum Anzeigen der ARP-Cache Tabelle für eine bestimmte Schnittstelle verwenden Sie den **/n ifaceaddr** -Parameter in Verbindung mit dem **/a** -Parameter, wobei **inetaddr** die der Schnittstelle zugewiesene IP-Adresse ist. |
 | `[/g [<inetaddr>] [/n <ifaceaddr>]` | Identisch mit **/a**. |
@@ -66,6 +66,6 @@ Um einen statischen ARP-Cache Eintrag hinzuzufügen, der die IP-Adresse *10.0.0.
 arp /s 10.0.0.80 00-AA-00-4F-2A-9C
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

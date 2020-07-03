@@ -1,6 +1,6 @@
 ---
 title: bitsadmin getcompletiontime
-description: Referenz Thema für den bizadmin getcompletiontime-Befehl, der den Zeitpunkt abruft, zu dem der Auftrag das Übertragen von Daten abgeschlossen hat.
+description: Referenz Artikel für den bizadmin getcompletiontime-Befehl, der den Zeitpunkt abruft, zu dem der Auftrag das Übertragen von Daten abgeschlossen hat.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9b3721401e450ae60fb77534f8eb845ff5ac3443
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: e07dd6a345cd1bd58277ef08e08802a62d6e6772
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82718120"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85923106"
 ---
 # <a name="bitsadmin-getcompletiontime"></a>bitsadmin getcompletiontime
 
@@ -28,7 +28,7 @@ bitsadmin /getcompletiontime <job>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | -------------- | -------------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 
@@ -40,7 +40,7 @@ So rufen Sie die Zeit ab, zu der der Auftrag mit dem Namen *mydownloadjob* die D
 bitsadmin /getcompletiontime myDownloadJob
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

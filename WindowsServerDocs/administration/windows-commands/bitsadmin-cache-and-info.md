@@ -1,6 +1,6 @@
 ---
 title: bitsadmin cache and info
-description: Referenz Thema für den bizadmin-Cache und den Info-Befehl, der einen bestimmten Cache Eintrag absichert.
+description: Referenz Artikel für den bistiadmin-Cache und den Info-Befehl, der einen bestimmten Cache Eintrag absichert.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3a50e6575a5496ff9f7bcd6a0dc429c7960c6933
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: dabf9b229138bf1d39863643574c5509ffcfcd91
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82718347"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85923264"
 ---
 # <a name="bitsadmin-cache-and-info"></a>bitsadmin cache and info
 
@@ -28,7 +28,7 @@ bitsadmin /cache /info recordID [/verbose]
 
 ### <a name="parameters"></a>Parameter
 
-| Paramreter | BESCHREIBUNG |
+| Paramreter | Beschreibung |
 | -------------- | -------------- |
 | Datensatz | Die GUID, die dem Cache Eintrag zugeordnet ist. |
 
@@ -40,7 +40,7 @@ So sichern Sie den Cache Eintrag mit dem Datensatz-Wert {6511fb02-E195-40A2-B595
 bitsadmin /cache /info {6511FB02-E195-40A2-B595-E8E2F8F47702}
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

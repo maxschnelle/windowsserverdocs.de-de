@@ -1,6 +1,6 @@
 ---
 title: beim
-description: Referenz Thema für den at-Befehl, der Befehle und Programme plant, die auf einem Computer zu einem bestimmten Zeitpunkt (Datum und Uhrzeit) ausgeführt werden.
+description: Referenz Artikel für den at-Befehl, der Befehle und Programme plant, die auf einem Computer zu einem bestimmten Zeitpunkt (Datum und Uhrzeit) ausgeführt werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3aafcf4cbc4a6626a3390fe5ad6a305b90dfaec0
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 1ead4132b70cc98d9bdd7f478a8e3f18ab6da1aa
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82718928"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85923934"
 ---
 # <a name="at"></a>beim
 
@@ -31,7 +31,7 @@ at [\computername] <time> [/interactive] [/every:date[,...] | /next:date[,...]] 
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `\<computername\>` | Gibt einen Remotecomputer an. Wenn Sie diesen Parameter weglassen, plant die Befehle und **Programme auf dem** lokalen Computer. |
 | `<id>` | Gibt die Identifikationsnummer an, die einem geplanten Befehl zugewiesen ist. |
@@ -45,9 +45,9 @@ at [\computername] <time> [/interactive] [/every:date[,...] | /next:date[,...]] 
 | `<command>` | Gibt den Windows-Befehl, das Programm (d. h. eine exe-oder com-Datei) oder ein Batch Programm (also bat-oder cmd-Datei) an, das Sie ausführen möchten. Wenn der Befehl einen Pfad als Argument erfordert, verwenden Sie den absoluten Pfad (d. h. den gesamten Pfad, der mit dem Laufwerk Buchstaben beginnt). Wenn sich der Befehl auf einem Remote Computer befindet, geben Sie Universal Naming Convention (UNC)-Notation für den Server und den Freigabe Namen anstelle eines Remote Laufwerk Buchstabens an. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-### <a name="remarks"></a>Bemerkungen
+### <a name="remarks"></a>Hinweise
 
-- Mit diesem Befehl wird "cmd. exe" vor dem Ausführen von Befehlen nicht automatisch geladen. Wenn Sie keine ausführbare Datei (exe-Datei) ausführen, müssen Sie "cmd. exe" wie folgt explizit am Anfang des Befehls laden:
+- Mit diesem Befehl werden cmd.exe vor dem Ausführen von Befehlen nicht automatisch geladen. Wenn Sie keine ausführbare Datei (exe-Datei) ausführen, müssen Sie cmd.exe am Anfang des Befehls wie folgt explizit laden:
 
     ```
     cmd /c dir > c:\test.out
@@ -62,7 +62,7 @@ at [\computername] <time> [/interactive] [/every:date[,...] | /next:date[,...]] 
     OK      3    Each F     11:59 PM    backup2.bat
     ```
 
-- Wenn Sie mit diesem Befehl eine Identifikationsnummer (*ID*) einschließen, werden nur Informationen für einen einzelnen Eintrag in einem Format angezeigt, das dem folgenden ähnelt:  
+- Wenn Sie mit diesem Befehl eine Identifikationsnummer (*ID*) einschließen, werden nur Informationen für einen einzelnen Eintrag in einem Format angezeigt, das dem folgenden ähnelt:
 
     ```
     Task ID: 1
@@ -74,7 +74,7 @@ at [\computername] <time> [/interactive] [/every:date[,...] | /next:date[,...]] 
 
 - Nachdem Sie einen Befehl, insbesondere einen Befehl mit Befehlszeilenoptionen, geplant haben, überprüfen Sie, ob die Befehlssyntax korrekt ist, indem Sie **mit** ohne Befehlszeilenoptionen eingeben. Wenn die Informationen in der Spalte **Befehlszeile** falsch sind, löschen Sie den Befehl, und geben Sie ihn erneut ein. Wenn dies immer noch nicht korrekt ist, müssen Sie den Befehl mit weniger Befehlszeilenoptionen erneut eingeben.
 
-- Mit geplante Befehle **bei** Ausführung als Hintergrundprozesse. Die Ausgabe wird nicht auf dem Computerbildschirm angezeigt. Verwenden Sie das Umleitungs Symbol `>`, um die Ausgabe in eine Datei umzuleiten. Wenn Sie die Ausgabe in eine Datei umleiten, müssen Sie das Escapesymbol `^` vor dem Umleitungs Symbol verwenden, unabhängig davon, ob Sie **an** der Befehlszeile oder in einer Batchdatei verwenden. Geben Sie z. b. Folgendes ein, um die Ausgabe an *Output. txt*umzuleiten:
+- Mit geplante Befehle **bei** Ausführung als Hintergrundprozesse. Die Ausgabe wird nicht auf dem Computerbildschirm angezeigt. Verwenden Sie das Umleitungs Symbol, um die Ausgabe in eine Datei umzuleiten `>` . Wenn Sie die Ausgabe in eine Datei umleiten, müssen Sie das Escapesymbol `^` vor dem Umleitungs Symbol verwenden, unabhängig davon, ob Sie **an** der Befehlszeile oder in einer Batchdatei verwenden. Geben Sie beispielsweise Folgendes ein, um die Ausgabe an *output.txt*umzuleiten:
 
     ```
     at 14:45 c:\test.bat ^>c:\output.txt
@@ -86,13 +86,13 @@ at [\computername] <time> [/interactive] [/every:date[,...] | /next:date[,...]] 
 
 - Geplante Befehle werden in der Registrierung gespeichert. Daher verlieren Sie keine geplanten Aufgaben, wenn Sie den Zeit Plan Dienst neu starten.
 
-- Verwenden Sie für geplante Aufträge, die auf das Netzwerk zugreifen, kein umgeleitetes Laufwerk. Der Zeit Plan Dienst ist möglicherweise nicht in der Lage, auf das umgeleitete Laufwerk zuzugreifen, oder das umgeleitete Laufwerk ist möglicherweise nicht vorhanden, wenn beim Ausführen des geplanten Tasks ein anderer Benutzer angemeldet ist. Verwenden Sie stattdessen UNC-Pfade für geplante Aufträge. Beispiel:  
+- Verwenden Sie für geplante Aufträge, die auf das Netzwerk zugreifen, kein umgeleitetes Laufwerk. Der Zeit Plan Dienst ist möglicherweise nicht in der Lage, auf das umgeleitete Laufwerk zuzugreifen, oder das umgeleitete Laufwerk ist möglicherweise nicht vorhanden, wenn beim Ausführen des geplanten Tasks ein anderer Benutzer angemeldet ist. Verwenden Sie stattdessen UNC-Pfade für geplante Aufträge. Beispiel:
 
     ```
     at 1:00pm my_backup \\server\share
     ```
 
-    Verwenden Sie nicht die folgende Syntax, wobei **x:** eine vom Benutzer hergestellte Verbindung ist:  
+    Verwenden Sie nicht die folgende Syntax, wobei **x:** eine vom Benutzer hergestellte Verbindung ist:
 
     ```
     at 1:00pm my_backup x:
@@ -107,7 +107,7 @@ at [\computername] <time> [/interactive] [/every:date[,...] | /next:date[,...]] 
     > [!Caution]
     > Durch eine fehlerhafte Bearbeitung der Registrierung können schwerwiegende Schäden am System verursacht werden. Bevor Sie Änderungen an der Registrierung vornehmen, sollten Sie alle wichtigen Computerdaten sichern.
 
-    1. Starten Sie den Registrierungs-Editor (regedit. exe).
+    1. Starten Sie den Registrierungs-Editor (regedit.exe).
 
     2. Suchen Sie den folgenden Schlüssel in der Registrierung, und klicken Sie darauf:`HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Schedule`
 
@@ -115,7 +115,7 @@ at [\computername] <time> [/interactive] [/every:date[,...] | /next:date[,...]] 
 
         - **Wertname.** attaskmaxhours
 
-        - **Datentyp.** reg_DWOrd 
+        - **Datentyp.** reg_DWOrd
 
         - **Basis.** Decimal
 
@@ -137,7 +137,7 @@ Wenn Sie mehr über einen Befehl mit der Identifikationsnummer 3 auf dem Corp-Se
 at \\corp 3
 ```
 
-So planen Sie die Ausführung eines net share-Befehls auf dem Corp-Server um 8:00 Uhr und geben Sie die Auflistung an den Wartungs Server, im freigegebenen Verzeichnis "Reports" und in der Datei "Corp. txt" an. Geben Sie Folgendes ein:
+So planen Sie die Ausführung eines net share-Befehls auf dem Corp-Server um 8:00 Uhr und geben Sie die Auflistung an den Wartungs Server, im freigegebenen Verzeichnis Reports und in der Corp.txt-Datei an. Geben Sie Folgendes ein:
 
 ```
 at \\corp 08:00 cmd /c net share reports=d:\marketing\reports >> \\maintenance\reports\corp.txt
@@ -155,13 +155,13 @@ Wenn Sie alle Befehle abbrechen möchten, die auf dem aktuellen Server geplant s
 at /delete
 ```
 
-Um einen Befehl auszuführen, bei dem es sich nicht um eine ausführbare Datei (exe-Datei) handelt, stellen Sie dem Befehl das **cmd-/c** voran, um cmd. exe wie folgt zu laden:
+Um einen Befehl auszuführen, bei dem es sich nicht um eine ausführbare Datei (exe-Datei) handelt, müssen Sie den Befehl mit **cmd/c** , um cmd.exe wie folgt zu laden:
 
 ```
 cmd /c dir > c:\test.out
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

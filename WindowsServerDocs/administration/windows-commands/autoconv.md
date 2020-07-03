@@ -1,6 +1,6 @@
 ---
 title: autoconv
-description: Referenz Thema für den autoenv-Befehl, mit dem Datei Zuordnungs Tabellen-und FAT32-Volumes in das NTFS-Dateisystem konvertiert werden.
+description: Referenz Artikel für den autoenv-Befehl, mit dem Datei Zuordnungs Tabellen-(FAT) und FAT32-Volumes in das NTFS-Dateisystem konvertiert werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ea8f55270435c6632be2e527569b4a4b4ca81136
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: c6d54f413ab9d4f680f59294a3f01c1de02db222
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82718773"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85923565"
 ---
 # <a name="autoconv"></a>autoconv
 
@@ -23,9 +23,9 @@ ms.locfileid: "82718773"
 Konvertiert Dateizuordnungs-und FAT32-Volumes in das NTFS-Dateisystem, wobei vorhandene Dateien und Verzeichnisse beim Start nach der Ausführung von **Autochk** intakt bleiben. Volumes, die in das NTFS-Dateisystem konvertiert werden, können nicht zurück in FAT oder FAT32 konvertiert werden.
 
 > [!IMPORTANT]
-> **Autovs** kann nicht über die Befehlszeile ausgeführt werden. Diese kann nur beim Start ausgeführt werden, wenn Sie durch **Convert. exe**festgelegt ist.
+> **Autovs** kann nicht über die Befehlszeile ausgeführt werden. Diese kann nur beim Start ausgeführt werden, wenn Sie durch **convert.exe**festgelegt wird.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

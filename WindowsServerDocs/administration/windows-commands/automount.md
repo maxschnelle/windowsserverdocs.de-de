@@ -1,6 +1,6 @@
 ---
 title: automount
-description: Referenz Thema für den automatischen Bereitstellung-Befehl, mit dem die Funktion "automatischen Bereitstellung" aktiviert oder deaktiviert wird.
+description: Referenz Artikel für den automatischen Bereitstellung-Befehl, der die Funktion "automatischen Bereitstellung" aktiviert oder deaktiviert.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0a3ff8782b2110dd1b8039477c0b748dc4ab8f44
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 897927c48a1ba2c2023e35ff1f4c93e6c33fb291
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82718729"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85923542"
 ---
 # <a name="automount"></a>automount
 
@@ -31,7 +31,7 @@ automatischen Bereitstellung [{Enable | enable | scru}] [noerr]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | enable | Ermöglicht Windows das automatische Einbinden neuer grundlegender und dynamischer Volumes, die dem System hinzugefügt werden, und das Zuweisen von Laufwerk Buchstaben. |
 | disable | Verhindert, dass Windows neue grundlegende und dynamische Volumes, die dem System hinzugefügt werden, automatisch bereitstellen.<p>**Hinweis**: durch das Deaktivieren der automatischen Problem Umgehung können Failovercluster den Speicher Teil des Konfigurationsüberprüfungs-Assistenten nicht beeinträchtigen. |
@@ -58,7 +58,7 @@ Geben Sie zum Deaktivieren der automatischen Bereitstellung-Funktion Folgendes e
 automount disable
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

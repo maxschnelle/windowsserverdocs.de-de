@@ -1,6 +1,6 @@
 ---
-title: Auditpol-Liste
-description: Referenz Thema für den Befehl auditpol list, der Überwachungs Richtlinien Kategorien und Unterkategorien auflistet oder Benutzer auflistet, für die eine Überwachungsrichtlinie pro Benutzer definiert ist.
+title: auditpol list
+description: Referenz Artikel für den Befehl auditpol list, der Überwachungs Richtlinien Kategorien und Unterkategorien auflistet oder Benutzer auflistet, für die eine Überwachungsrichtlinie pro Benutzer definiert ist.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 96ee4388c716c066a2e9b55b57dd2e70b4b4f69c
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: a0ce67b9907fa4c5207d75422dc972d70f5e6eea
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82719099"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85923711"
 ---
-# <a name="auditpol-list"></a>Auditpol-Liste
+# <a name="auditpol-list"></a>auditpol list
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -34,7 +34,7 @@ auditpol /list
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ------- | -------- |
 | /User | Ruft alle Benutzer ab, für die die Überwachungsrichtlinie pro Benutzer definiert wurde. Wenn Sie mit dem/v-Parameter verwendet wird, wird auch die Sicherheits-ID (SID) des Benutzers angezeigt. |
 | /category | Zeigt die Namen der Kategorien an, die vom System interpretiert werden. Wenn Sie mit dem/v-Parameter verwendet wird, wird auch die Kategorie Globally Unique Identifier (GUID) angezeigt. |
@@ -69,7 +69,7 @@ Geben Sie Folgendes ein, um die Unterkategorien der detaillierten nach Verfolgun
 auditpol /list /subcategory:detailed Tracking,DS Access
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

@@ -1,6 +1,6 @@
 ---
 title: mapadmin
-description: Referenz Thema für den Befehl "mapadmin", der Benutzernamenzuordnung für Microsoft-Dienste für das Netzwerkdatei System verwaltet.
+description: Referenz Artikel zum mapadmin-Befehl, der Benutzernamenzuordnung für Microsoft-Dienste für das Netzwerkdatei System verwaltet.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 059419a134b62ec92b30feacd086e7d7116aab25
-ms.sourcegitcommit: 5e313a004663adb54c90962cfdad9ae889246151
+ms.openlocfilehash: b2ebe5626057bd7f7ddac238360d171c87fd15c6
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84354650"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85922183"
 ---
 # <a name="mapadmin"></a>mapadmin
 
@@ -42,7 +42,7 @@ mapadmin [<computer>] [-u <user> [-p <password>]] listdomainmaps
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<computer>` | Gibt den Remote Computer an, auf dem der Benutzernamenzuordnung-Dienst ausgeführt wird, den Sie verwalten möchten. Sie können den Computer mithilfe eines WINS-Namens (Windows Internet Name Service) oder eines Domain Name System (DNS) oder über eine IP-Adresse (Internet Protocol) angeben. |
 | -u`<user>` | Gibt den Benutzernamen des Benutzers an, dessen Anmelde Informationen verwendet werden sollen. Möglicherweise ist es erforderlich, den Domänen Namen dem Benutzernamen im Format "Domäne *\ Benutzer*Name" hinzuzufügen. |
@@ -59,7 +59,7 @@ mapadmin [<computer>] [-u <user> [-p <password>]] listdomainmaps
 | removedomainmap | Entfernt eine einfache Zuordnung zwischen einer Windows-Domäne und einer NIS-Domäne. Die folgenden Optionen und Argumente sind für diesen Parameter verfügbar:<ul><li>**-d `<windowsdomain>` :** gibt die Windows-Domäne der zu entfernenden Karte an.</li><li>**-y `<NISdomain>` :** gibt die NIS-Domäne der zu entfernenden Karte an.</li><li>**-alle:** Gibt an, dass alle einfachen Zuordnungen zwischen Windows-und NIS-Domänen entfernt werden sollen. Dadurch werden auch alle einfachen Zuordnungen zwischen einer Windows-Domäne und den Kennwort-und Gruppen Dateien entfernt.</li></ul> |
 | listdomainmaps | Listet die Windows-Domänen auf, die NIS-Domänen oder Kennwort-und Gruppen Dateien zugeordnet sind. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Wenn Sie keine Parameter angeben, zeigt der Befehl **mapadmin** die aktuellen Einstellungen für Benutzernamenzuordnung an.
 
@@ -73,6 +73,6 @@ mapadmin [<computer>] [-u <user> [-p <password>]] listdomainmaps
 
     - Verwenden Sie für UNIX-Gruppen die folgenden Formate: `<NISdomain>\<groupname>` , `<groupname>@<NISdomain>` , `<groupname>@PCNFS` oder`PCNFS\<groupname>`
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

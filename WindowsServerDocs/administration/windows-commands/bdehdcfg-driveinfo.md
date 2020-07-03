@@ -1,6 +1,6 @@
 ---
-title: bdehdcfg DriveInfo
-description: Referenz Thema für den Befehl bdehdcfg DriveInfo, der den Laufwerk Buchstaben, die Gesamtgröße, den maximalen freien Speicherplatz und die Partitions Merkmale anzeigt.
+title: bdehdcfg driveinfo
+description: Referenz Artikel für den Befehl bdehdcfg DriveInfo, der den Laufwerk Buchstaben, die Gesamtgröße, den maximalen freien Speicherplatz und die Partitions Merkmale anzeigt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b18b4c3e128cd17353d369b418a049d0208cb654
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 0063c73cd20aca8c8fe5cc21b245517475268c64
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82718687"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85923481"
 ---
 # <a name="bdehdcfg-driveinfo"></a>bdehdcfg: DriveInfo
 
@@ -33,7 +33,7 @@ bdehdcfg -driveinfo <drive_letter>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | <drive_letter> | Gibt einen Laufwerk Buchstaben gefolgt von einem Doppelpunkt an. |
 
@@ -45,7 +45,7 @@ So zeigen Sie die Laufwerk Informationen für das Laufwerk "C:" an:
 bdehdcfg  driveinfo C:
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

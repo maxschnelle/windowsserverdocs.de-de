@@ -1,6 +1,6 @@
 ---
 title: pbadmin
-description: Referenz Thema für den pbadmin-Befehl. Dieser Befehl ist veraltet und wird in zukünftigen Versionen von Windows nicht mehr unterstützt.
+description: Referenz Artikel für den pbadmin-Befehl. Dieser Befehl ist veraltet und wird in zukünftigen Versionen von Windows nicht mehr unterstützt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 68535895386910a358ee0515dc7f09edb2122be8
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: da114c6b6501e9a8c305cd416d58ca0396745f27
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85472496"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85922868"
 ---
 # <a name="pbadmin"></a>pbadmin
 
@@ -25,6 +25,6 @@ ms.locfileid: "85472496"
 
 Verwaltet Telefonbücher. Pbadmin wird ohne Parameter verwendet und startet den Telefonbuch Administrator. Beschreibungen und Verwendungs Informationen finden Sie unter [pbadmin](https://docs.microsoft.com/previous-versions/orphan-topics/ws.10/cc755767(v=ws.10)).
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

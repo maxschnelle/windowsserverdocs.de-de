@@ -1,6 +1,6 @@
 ---
 title: assign
-description: Referenz Thema für den Assign-Befehl, der dem Volume einen Laufwerk Buchstaben oder einen Einfügepunkt mit Fokus zuweist.
+description: Referenz Artikel für den Assign-Befehl, der dem Volume einen Laufwerk Buchstaben oder einen Einfügepunkt mit Fokus zuweist.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f17c22a0052ade6f16e7842813a04c95e76b57ab
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 8bfcb43b2e42ca65d767f0683bf13dc971073c27
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82718988"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85923992"
 ---
 # <a name="assign"></a>assign
 
@@ -35,7 +35,7 @@ assign [{letter=<d> | mount=<path>}] [noerr]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `letter=<d>` | Der Laufwerk Buchstabe, der dem Volume zugewiesen werden soll. |
 | `mount=<path>` | Der Pfad des einstellungspunkts, der dem Volume zugewiesen werden soll. Anweisungen zur Verwendung dieses Befehls finden [Sie unter Zuweisen eines Ordners für einen einstellungspunktpfad zu einem Laufwerk](https://docs.microsoft.com/windows-server/storage/disk-management/assign-a-mount-point-folder-path-to-a-drive). |
@@ -49,7 +49,7 @@ Geben Sie Folgendes ein, um den Buchstaben E dem Volume im Fokus zuzuweisen:
 assign letter=e
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

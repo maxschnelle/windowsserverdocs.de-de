@@ -1,6 +1,6 @@
 ---
-title: Auditpol Clear
-description: Referenz Thema für den Befehl "Auditpol Clear", mit dem die Überwachungsrichtlinie pro Benutzer für alle Benutzer gelöscht wird, setzt die System Überwachungsrichtlinie für alle Unterkategorien zurück (deaktiviert Sie) und legt alle Überwachungs Optionen auf deaktiviert fest.
+title: auditpol clear
+description: Der Referenz Artikel für den Befehl Auditpol Clear, der die Überwachungsrichtlinie für alle Benutzer pro Benutzer löscht, setzt die System Überwachungsrichtlinie für alle Unterkategorien zurück (deaktiviert Sie) und legt alle Überwachungs Optionen auf deaktiviert fest.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a3d4765907f1dd614f5d0a61585ea09069652ecb
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 797f26ab9e191176808bbce917ca5ac0fa3d73a3
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82719146"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85923797"
 ---
-# <a name="auditpol-clear"></a>Auditpol Clear
+# <a name="auditpol-clear"></a>auditpol clear
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -32,7 +32,7 @@ auditpol /clear [/y]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ----------- | --------------- |
 | /y | Unterdrückt die Eingabeaufforderung, um zu bestätigen, dass alle Überwachungs Richtlinien Einstellungen gelöscht werden sollen. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
@@ -54,7 +54,7 @@ auditpol /clear /y
 > [!NOTE]
 > Das vorangehende Beispiel ist nützlich, wenn ein Skript verwendet wird, um diesen Vorgang auszuführen.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

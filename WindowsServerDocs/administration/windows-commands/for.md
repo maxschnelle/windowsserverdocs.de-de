@@ -1,6 +1,6 @@
 ---
 title: für
-description: Referenz Thema für den for-Befehl, der einen angegebenen Befehl für jede Datei in einem Satz von Dateien ausführt.
+description: Referenz Artikel für den for-Befehl, der einen angegebenen Befehl für jede Datei in einem Satz von Dateien ausführt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 24ef5bc159e67862d419bd2728b14585f8b095d4
-ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
+ms.openlocfilehash: 44b6497af626079b05768fd245c1b86693bdfe61
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2020
-ms.locfileid: "83437015"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85922417"
 ---
 # <a name="for"></a>für
 
@@ -147,7 +147,7 @@ for {%% | %}<variable> in (<set>) do <command> [<commandlineoptions>]
 
 - **Eine Zeichenfolge** wird verarbeitet: Sie können die- `for /f` parameterlogik für eine sofortige Zeichenfolge verwenden `<literalstring>` , indem Sie entweder doppelte Anführungszeichen (*ohne* usebackq) oder in einfache Anführungszeichen (*mit* usebackq) einschließen, z. b. (myString) oder (' myString '). `<literalstring>`wird als eine einzelne Zeile der Eingabe aus einer Datei behandelt. Beim Auswerten `<literalstring>` in doppelten Anführungszeichen werden Befehls Symbole (z. b. `\ & | > < ^` ) als normale Zeichen behandelt.
 
-- **Ausgabe der Ausgabe:** Sie können den `for /f` Befehl verwenden, um die Ausgabe eines Befehls zu analysieren, indem Sie eine backanführungs Zeichen `<command>` zwischen den Klammern platzieren. Sie wird als Befehlszeile behandelt, die an eine untergeordnete Datei "cmd. exe" übergeben wird. Die Ausgabe wird im Arbeitsspeicher aufgezeichnet und so analysiert, als ob es sich um eine Datei handelt.
+- **Ausgabe der Ausgabe:** Sie können den `for /f` Befehl verwenden, um die Ausgabe eines Befehls zu analysieren, indem Sie eine backanführungs Zeichen `<command>` zwischen den Klammern platzieren. Sie wird als Befehlszeile behandelt, die an eine untergeordnete Cmd.exe geleitet wird. Die Ausgabe wird im Arbeitsspeicher aufgezeichnet und so analysiert, als ob es sich um eine Datei handelt.
 
 ## <a name="examples"></a>Beispiele
 
@@ -171,7 +171,7 @@ Geben Sie Folgendes ein, um eine Datei zu analysieren und kommentierte Zeilen zu
 for /f eol=; tokens=2,3* delims=, %i in (myfile.txt) do @echo %i %j %k
 ```
 
-Dieser Befehl analysiert jede Zeile in *MyFile. txt*. Sie ignoriert Zeilen, die mit einem Semikolon beginnen, und übergibt das zweite und dritte Token von jeder Zeile an den **für** Text (Token werden durch Kommas oder Leerzeichen getrennt). Der Text der **for** -Anweisung verweist auf " **% i** ", um das zweite Token zu erhalten, **% j** , um das dritte Token zu erhalten, und " **% k** ", um alle verbleibenden Token zu erhalten. Wenn die von Ihnen bereitgestellten Dateinamen Leerzeichen enthalten, verwenden Sie den Text in Anführungszeichen (z. b. Dateiname). Zum Verwenden von Anführungszeichen müssen Sie **usebackq**verwenden. Andernfalls werden die Anführungszeichen als Definieren einer Literalzeichenfolge interpretiert, die analysiert werden soll.
+Dieser Befehl analysiert jede Zeile in *myfile.txt*. Sie ignoriert Zeilen, die mit einem Semikolon beginnen, und übergibt das zweite und dritte Token von jeder Zeile an den **für** Text (Token werden durch Kommas oder Leerzeichen getrennt). Der Text der **for** -Anweisung verweist auf " **% i** ", um das zweite Token zu erhalten, **% j** , um das dritte Token zu erhalten, und " **% k** ", um alle verbleibenden Token zu erhalten. Wenn die von Ihnen bereitgestellten Dateinamen Leerzeichen enthalten, verwenden Sie den Text in Anführungszeichen (z. b. Dateiname). Zum Verwenden von Anführungszeichen müssen Sie **usebackq**verwenden. Andernfalls werden die Anführungszeichen als Definieren einer Literalzeichenfolge interpretiert, die analysiert werden soll.
 
 **% i** ist explizit in der **for** -Anweisung deklariert. **% j** und **% k** werden implizit mithilfe von **Tokens =** deklariert. Sie können **Tokens =** zum Angeben von bis zu 26 Token verwenden, vorausgesetzt, es wird nicht versucht, eine Variable zu deklarieren, die höher als der Buchstabe z oder z ist.
 
@@ -181,6 +181,6 @@ Um die Ausgabe eines Befehls zu analysieren, indem Sie eine *Menge* zwischen den
 for /f usebackq delims== %i in ('set') do @echo %i
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
