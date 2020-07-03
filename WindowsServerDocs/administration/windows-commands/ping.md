@@ -1,6 +1,6 @@
 ---
 title: ping
-description: Referenz Thema zum Ping-Befehl, mit dem die Netzwerk Konnektivität überprüft wird.
+description: Referenz Artikel zum Ping-Befehl, mit dem die Netzwerk Konnektivität überprüft wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 1c1bd15d6536c73feb00decb9ad306f327a6464d
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: b995edf4943cfbaac8bd96cf098d62687c32396f
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85472446"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85924272"
 ---
 # <a name="ping"></a>ping
 
@@ -35,7 +35,7 @@ ping [/t] [/a] [/n <count>] [/l <size>] [/f] [/I <TTL>] [/v <TOS>] [/r <count>] 
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 |--|--|
 | /t | Gibt an, dass der Ping das Senden von Echo Request-Nachrichten an das Ziel fortsetzen soll Drücken Sie Strg + Eingabe, um die Statistiken zu unterbrechen und anzuzeigen. Um diesen Befehl zu unterbrechen und zu beenden, drücken Sie STRG + C. |
 | /a | Gibt an, dass die umgekehrte Namensauflösung für die Ziel-IP-Adresse ausgeführt wird. Wenn dies erfolgreich ist, zeigt Ping den entsprechenden Hostnamen an. |
@@ -93,6 +93,6 @@ Geben Sie Folgendes ein, um das Ziel 10.0.99.221 zu pingen und die lose Quell Ro
 ping /j 10.12.0.1 10.29.3.1 10.1.44.1 10.0.99.221
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

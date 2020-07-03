@@ -1,6 +1,6 @@
 ---
-title: ftp-rmdir
-description: Referenz Thema für den FTP-Befehl rmdir, mit dem ein Stammverzeichnis gelöscht wird.
+title: ftp rmdir
+description: Referenz Artikel für den FTP-Befehl rmdir, mit dem ein Stammverzeichnis gelöscht wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1abbc66ee470d7939f45e7e961c502a3b4689f7b
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: feaa9d5d2dac1b0ccac3706eb2f8838dc6bd6c07
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83821450"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85925708"
 ---
-# <a name="ftp-rmdir"></a>ftp-rmdir
+# <a name="ftp-rmdir"></a>ftp rmdir
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -30,7 +30,7 @@ rmdir <directory>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<directory>` | Gibt den Namen des zu löschenden Remote Verzeichnisses an. |
 
@@ -42,7 +42,7 @@ Um das *Bild* Remote Verzeichnis zu löschen, geben Sie Folgendes ein:
 rmdir pictures
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

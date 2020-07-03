@@ -1,6 +1,6 @@
 ---
 title: irftp
-description: Referenz Thema für den Befehl "unftp", mit dem Dateien über einen Infrarot Link gesendet werden.
+description: Referenz Artikel für den Befehl "iriftp", mit dem Dateien über einen Infrarot Link gesendet werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0d19e4f0c325baf46c0a92bf04e39bc63863fe90
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: 92bb484650245555597121c8b6f6378d3c09209c
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83818310"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85924348"
 ---
 # <a name="irftp"></a>irftp
 
@@ -33,7 +33,7 @@ irftp [<drive>:\] [[<path>] <filename>] [/h][/s]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<drive>:\` | Gibt das Laufwerk an, das die Dateien enthält, die über einen Infrarot Link gesendet werden sollen. |
 | `[path]<filename>` | Gibt den Speicherort und den Namen der Datei oder des Satzes von Dateien an, die über einen Infrarot Link gesendet werden sollen. Wenn Sie einen Satz von Dateien angeben, müssen Sie den vollständigen Pfad für jede Datei angeben. |
@@ -42,12 +42,12 @@ irftp [<drive>:\] [[<path>] <filename>] [/h][/s]
 
 ### <a name="examples"></a>Beispiele
 
-Um " *c:\example.txt* " über die Infrarot Verknüpfung zu senden, geben Sie Folgendes ein:
+Um *c:\example.txt* über die Infrarot Verknüpfung zu senden, geben Sie Folgendes ein:
 
 ```
 irftp c:\example.txt
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

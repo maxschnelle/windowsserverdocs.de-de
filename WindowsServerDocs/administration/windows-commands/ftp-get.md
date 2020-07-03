@@ -1,6 +1,6 @@
 ---
-title: FTP-Get
-description: Referenz Thema für den Befehl FTP Get, bei dem eine Remote Datei mithilfe des aktuellen Datei Übertragungs Typs auf den lokalen Computer kopiert wird.
+title: ftp get
+description: Referenz Artikel für den Befehl FTP Get, bei dem eine Remote Datei mithilfe des aktuellen Datei Übertragungs Typs auf den lokalen Computer kopiert wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b7254cac15afc446695f22ee1a63f2f4573d3565
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: de084813ee837ecea2f0871589218d3262b40bba
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83819710"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85925927"
 ---
-# <a name="ftp-get"></a>FTP-Get
+# <a name="ftp-get"></a>ftp get
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -33,26 +33,26 @@ get <remotefile> [<localfile>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<remotefile>` | Gibt die zu Kopier-Remote Datei an. |
 | `[<localfile>]` | Gibt den Namen der Datei an, die auf dem lokalen Computer verwendet werden soll. Wenn *LocalFile* nicht angegeben wird, erhält die Datei den Namen der *remotefile*. |
 
 ### <a name="examples"></a>Beispiele
 
-Wenn Sie " *Test. txt* " mithilfe der aktuellen Dateiübertragung auf den lokalen Computer kopieren möchten, geben Sie Folgendes ein:
+Wenn Sie *test.txt* mithilfe der aktuellen Dateiübertragung auf den lokalen Computer kopieren möchten, geben Sie Folgendes ein:
 
 ```
 get test.txt
 ```
 
-Zum Kopieren von " *Test. txt* " auf den lokalen Computer als " *test1. txt* " mithilfe der aktuellen Dateiübertragung geben Sie Folgendes ein:
+*test1.txt* Wenn Sie *test.txt* mithilfe der aktuellen Dateiübertragung auf den lokalen Computer kopieren möchten, geben Sie Folgendes ein:
 
 ```
 get test.txt test1.txt
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

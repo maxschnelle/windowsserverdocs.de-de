@@ -1,6 +1,6 @@
 ---
 title: F-Datei (f)
-description: Referenz Thema für den Befehl "f" mit dem Befehl "f", der alle Laufwerke auflistet, den Laufwerkstyp abfragt, Volumeinformationen abfragt, NTFS-spezifische Volumeinformationen abfragt oder Dateisystem Statistiken abfragt.
+description: Referenz Artikel für den Befehl "f" mit dem Befehl "f", der alle Laufwerke auflistet, den Laufwerkstyp abfragt, Volumeinformationen abfragt, NTFS-spezifische Volumeinformationen abfragt oder Dateisystem Statistiken abfragt.
 ms.prod: windows-server
 manager: dmoss
 ms.author: toklima
@@ -9,12 +9,12 @@ ms.technology: storage
 ms.assetid: 7787a72e-a26b-415f-b700-a32806803478
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: 04d64bf0d7d29290cfc5e1ca88a013432322dbc1
-ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
+ms.openlocfilehash: 0cb4e5b747e07c9409c7dbb80ac9950e765617bc
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2020
-ms.locfileid: "83435825"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85924730"
 ---
 # <a name="fsutil-fsinfo"></a>fsutil fsinfo
 
@@ -141,7 +141,7 @@ UserFileReadBytes : 1305244512
 LogFileWriteBytes : 180936704
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

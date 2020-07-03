@@ -1,6 +1,6 @@
 ---
-title: Ksetup-addkdc
-description: Referenz Thema für den Befehl "Ksetup addkdc", mit dem eine Schlüsselverteilungscenter (KDC)-Adresse für den angegebenen Kerberos-Bereich angezeigt wird.
+title: ksetup addkdc
+description: Referenz Artikel für den Befehl "Ksetup addkdc", der eine Schlüsselverteilungscenter (KDC)-Adresse für den angegebenen Kerberos-Bereich anzeigen kann.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e51279166bf60196d12f877506d3228b78c4a711
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: 32839c0f8c1e408cfa6ab1e067c250551ee7b490
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83818090"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85925569"
 ---
-# <a name="ksetup-addkdc"></a>Ksetup-addkdc
+# <a name="ksetup-addkdc"></a>ksetup addkdc
 
 Fügt eine Schlüsselverteilungscenter (KDC)-Adresse für den angegebenen Kerberos-Bereich hinzu.
 
@@ -33,7 +33,7 @@ ksetup /addkdc <realmname> [<KDCname>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<realmname>` | Gibt den Großbuchstaben-DNS-Namen an, z. b. Corp. CONTOSO.com. Dieser Wert wird auch als Standardbereich angezeigt, wenn **Ksetup** ausgeführt wird, und ist der Bereich, dem Sie den anderen KDC hinzufügen möchten. |
 | `<KDCname>` | Gibt den voll qualifizierten Domänen Namen der Groß-/Kleinschreibung an, z. b. mitkdc.contoso.com. Wenn der KDC-Name ausgelassen wird, sucht DNS nach KDCs. |
@@ -59,7 +59,7 @@ ksetup
 ```
 Überprüfen Sie die Registrierung, um sicherzustellen, dass die Zuordnung wie beabsichtigt erfolgt ist.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

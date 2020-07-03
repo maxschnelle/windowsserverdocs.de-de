@@ -1,6 +1,6 @@
 ---
-title: Ksetup-adressalm-Flags
-description: Referenz Thema für den Ksetup-Befehl "adressalmflags", mit dem dem angegebenen Bereich weitere bereichsflags hinzugefügt werden.
+title: ksetup addrealmflags
+description: Referenz Artikel für den Ksetup-Befehl "adressalmflags", mit dem dem angegebenen Bereich weitere bereichsflags hinzugefügt werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c0862462f47189f4904421943e4d3de55c856ace
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: 0206d56563544e48fec5e714febdd3c3be52ab40
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83818030"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85925525"
 ---
-# <a name="ksetup-addrealmflags"></a>Ksetup-adressalm-Flags
+# <a name="ksetup-addrealmflags"></a>ksetup addrealmflags
 
 Fügt dem angegebenen Bereich weitere bereichflags hinzu.
 
@@ -28,7 +28,7 @@ ksetup /addrealmflags <realmname> [sendaddress] [tcpsupported] [delegate] [ncsup
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<realmname>` | Gibt den Großbuchstaben-DNS-Namen an, z. b. Corp. CONTOSO.com. |
 
@@ -36,9 +36,9 @@ ksetup /addrealmflags <realmname> [sendaddress] [tcpsupported] [delegate] [ncsup
 
 - Die bereichsflags geben zusätzliche Features eines Kerberos-Bereichs an, die nicht auf dem Windows Server-Betriebssystem basieren. Computer, auf denen Windows Server ausgeführt wird, können einen Kerberos-Server verwenden, um die Authentifizierung im Kerberos-Bereich zu verwalten, anstatt eine Domäne zu verwenden, die ein Windows Server-Betriebssystem ausgeführt wird. Mit diesem Eintrag werden die Funktionen des Bereichs festgelegt, und es gibt folgende Möglichkeiten:
 
-| Wert | Bereichsflag | BESCHREIBUNG |
+| Wert | Bereichsflag | Beschreibung |
 | ----- | ---------- | ----------- |
-| 0xF | All | Alle bereichflags werden festgelegt. |
+| 0xF | Alle | Alle bereichflags werden festgelegt. |
 | 0x00 | Keine | Es wurden keine bereichflags festgelegt, und es sind keine weiteren Funktionen aktiviert. |
 | 0x01 | Element sendaddress | Die IP-Adresse wird in den Tickets für Ticket Gewährung enthalten sein. |
 | 0x02 | tcpsupported | In diesem Bereich werden sowohl das Transmission Control Protocol (TCP) als auch das User Datagram-Protokoll (UDP) unterstützt. |
@@ -72,7 +72,7 @@ ksetup /addrealmflags CONTOSO SendAddress
 
 Wenn Sie überprüfen möchten, ob das bereichsflag festgelegt ist, geben Sie ein, `ksetup` und **Realm flags =** zeigen Sie dann die Ausgabe an, und suchen Sie nach dem Text Wenn der Text nicht angezeigt wird, bedeutet dies, dass das Flag nicht festgelegt wurde.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

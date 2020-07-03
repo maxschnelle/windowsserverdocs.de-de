@@ -1,6 +1,6 @@
 ---
-title: FTP-Status
-description: Referenz Thema für den Befehl FTP-Status, der den aktuellen Status Ihrer FTP-Verbindungen anzeigt.
+title: ftp status
+description: Referenz Artikel für den Befehl FTP-Status, der den aktuellen Status Ihrer FTP-Verbindungen anzeigt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c1f773bc7ec0e330258eafaf62c13a884fe112bb
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: 6488a8292f266a6f0ab979957c2833d30509824f
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83820280"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85925670"
 ---
-# <a name="ftp-status"></a>FTP-Status
+# <a name="ftp-status"></a>ftp status
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -36,7 +36,7 @@ Geben Sie Folgendes ein, um den aktuellen Status von FTP-Verbindungen anzuzeigen
 status
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

@@ -1,6 +1,6 @@
 ---
-title: Ksetup addhosttorealmmap
-description: Referenz Thema für den Befehl "Ksetup addhosttorealmmap", mit dem eine SPN-Zuordnung (Service Principal Name) zwischen dem angegebenen Host und dem Bereich hinzugefügt wird.
+title: ksetup addhosttorealmmap
+description: Referenz Artikel für den Befehl "Ksetup addhosttorealmmap", mit dem eine SPN-Zuordnung (Service Principal Name) zwischen dem angegebenen Host und dem Bereich hinzugefügt wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ee2639a5bb071bdd3d6ac3f6373e881c18f3bf9a
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: 830db84e210b94088e74fd08909f7c47ff84df98
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83818110"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85925578"
 ---
-# <a name="ksetup-addhosttorealmmap"></a>Ksetup addhosttorealmmap
+# <a name="ksetup-addhosttorealmmap"></a>ksetup addhosttorealmmap
 
 Fügt eine Zuordnung des Dienst Prinzipal namens (SPN) zwischen dem angegebenen Host und dem Bereich hinzu. Mit diesem Befehl können Sie auch einen Host oder mehrere Hosts, die das gleiche DNS-Suffix gemeinsam nutzen, dem Bereich zuordnen.
 
@@ -30,7 +30,7 @@ ksetup /addhosttorealmmap <hostname> <realmname>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- |------------ |
 | `<hostname>` | Der Hostname ist der Computername, und er kann als voll qualifizierter Domänen Name des Computers angegeben werden. |
 | `<realmname>` | Der Bereichs Name wird als Großbuchstabe (DNS-Name) angegeben, z. b. Corp. CONTOSO.com. |
@@ -45,7 +45,7 @@ ksetup /addhosttorealmmap IPops897 CONTOSO
 
 Überprüfen Sie die Registrierung, um sicherzustellen, dass die Zuordnung wie beabsichtigt erfolgt ist.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

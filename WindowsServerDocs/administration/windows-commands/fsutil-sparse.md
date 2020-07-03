@@ -1,6 +1,6 @@
 ---
 title: fsutil sparse
-description: Referenz Thema für den Befehl "" mit geringer Dichte, der sparsesdateien verwaltet.
+description: Referenz Artikel für den Befehl "" mit geringer Dichte, der sparsesdateien verwaltet.
 ms.prod: windows-server
 manager: dmoss
 ms.author: toklima
@@ -9,12 +9,12 @@ ms.technology: storage
 ms.assetid: 77545920-2d13-4f35-a4d1-14dbec8340dc
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: e68ac844bb7aa7e22a9df0ddb0c982b3701231d7
-ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
+ms.openlocfilehash: c765b096f1b41b211d3a779d8f838aa56f31aeb8
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2020
-ms.locfileid: "83435715"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85925216"
 ---
 # <a name="fsutil-sparse"></a>fsutil sparse
 
@@ -41,7 +41,7 @@ fsutil sparse [setrange] <filename> <beginningoffset> <length>
 | queryrange | Scannt eine Datei und sucht nach Bereichen, die möglicherweise Daten enthalten, die nicht NULL sind. |
 | setflag | Markiert die gekennzeichnete Datei als "Sparse". |
 | SetRange | Füllt einen angegebenen Bereich einer Datei mit Nullen. |
-| `<filename>` | Gibt den vollständigen Pfad zur Datei einschließlich des Datei namens und der Erweiterung an, z. b. *c:\documents\dateiname.txt*. |
+| `<filename>` | Gibt den vollständigen Pfad zur Datei einschließlich des Datei namens und der Erweiterung an, z. b. *C:\documents\filename.txt*. |
 | `<beginningoffset>` | Gibt den Offset in der Datei an, der als Sparse markiert werden soll. |
 | `<length>` | Gibt die Länge des Bereichs in der Datei an, der als Sparse (in Bytes) gekennzeichnet werden soll. |
 
@@ -57,13 +57,13 @@ fsutil sparse [setrange] <filename> <beginningoffset> <length>
 
 ### <a name="examples"></a>Beispiele
 
-Geben Sie Folgendes ein, um eine Datei mit dem Namen *Sample. txt* im Verzeichnis *c:\temp* als Sparse zu markieren:
+Um eine Datei namens *sample.txt* im Verzeichnis " *c:\temp* " als "Sparse" zu markieren, geben Sie Folgendes ein:
 
 ```
 fsutil sparse setflag c:\temp\sample.txt
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

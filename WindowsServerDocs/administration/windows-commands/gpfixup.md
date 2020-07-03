@@ -1,6 +1,6 @@
 ---
 title: gpfixup
-description: Referenz Thema für den Gpfixup-Befehl, mit dem Domänen Namen Abhängigkeiten in Gruppenrichtlinie Objekten und Gruppenrichtlinie links nach einem Domänen Umbenennungs Vorgang korrigiert werden.
+description: Referenz Artikel für den Gpfixup-Befehl, mit dem Domänen Namen Abhängigkeiten in Gruppenrichtlinie Objekten und Gruppenrichtlinie links nach einem Domänen Umbenennungs Vorgang korrigiert werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 14a225209e719707093ddd87918587e24e4572a6
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: c09efb2fc8b1de124cbefc1b2dff73df29d2a4f1
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83818870"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85924656"
 ---
 # <a name="gpfixup"></a>gpfixup
 
@@ -32,7 +32,7 @@ gpfixup [/v]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- |------------ |
 | /v | Zeigt detaillierte Statusmeldungen an. Wenn dieser Parameter nicht verwendet wird, werden nur Fehlermeldungen oder eine Zusammenfassungs Statusmeldung mit der Angabe, **Erfolg** oder **Fehler** angezeigt. |
 | /olddns:`<olddnsname>` | Gibt den alten DNS-Namen der umbenannten Domäne so an, dass der `<olddnsname>` DNS-Name einer Domäne durch den Domänen Umbenennungs Vorgang geändert wird. Sie können diesen Parameter nur verwenden, wenn Sie auch den **/newdns** -Parameter verwenden, um einen neuen DNS-Domänen Namen anzugeben. |
@@ -61,7 +61,7 @@ Dieses Beispiel ist mit dem vorherigen identisch, mit dem Unterschied, dass der 
 gpfixup /olddns: MyOldDnsName /newdns:MyNewDnsName /dc:MyDcDnsName 2>&1 >gpfixup.log
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

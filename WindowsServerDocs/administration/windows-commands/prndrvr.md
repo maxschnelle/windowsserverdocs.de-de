@@ -1,6 +1,6 @@
 ---
 title: prndrvr
-description: Referenz Thema für den prndrvr-Befehl, der Druckertreiber hinzufügt, löscht und auflistet.
+description: Referenz Artikel zum prndrvr-Befehl, der Druckertreiber hinzufügt, löscht und auflistet.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 62c63819c175f4b3f3770d90da0bd560443ccb77
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 4f256d003ac0884b100aedb24bbb55e663444911
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85472295"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85924208"
 ---
 # <a name="prndrvr"></a>prndrvr
 
@@ -32,7 +32,7 @@ cscript prndrvr {-a | -d | -l | -x | -?} [-m <model>] [-v {0|1|2|3}] [-e <enviro
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 |--|--|
 | -a | Installiert einen Treiber. |
 | -d | Löscht einen Treiber. |
@@ -73,7 +73,7 @@ Zum Löschen eines Windows x64-Druckertreibers der Version 3 für das Laser Druc
 cscript prndrvr -a -m Laser printer model 1 -v 3 -e Windows x64
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

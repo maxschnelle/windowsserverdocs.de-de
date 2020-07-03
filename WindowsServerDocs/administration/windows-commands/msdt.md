@@ -1,6 +1,6 @@
 ---
 title: msdt
-description: Referenz Thema für den MSDT-Befehl, der ein Problem Behandlungspaket in der Befehlszeile oder als Teil eines automatisierten Skripts aufruft und zusätzliche Optionen ohne Benutzereingaben ermöglicht.
+description: Referenz Artikel für den MSDT-Befehl, der ein Problem Behandlungspaket in der Befehlszeile oder als Teil eines automatisierten Skripts aufruft und zusätzliche Optionen ohne Benutzereingaben ermöglicht.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 47eaf859c86a939777ce8878937d36f2c581ab31
-ms.sourcegitcommit: 5e313a004663adb54c90962cfdad9ae889246151
+ms.openlocfilehash: 99ba1320171e4e305209f06fbee617e54c979d30
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84354371"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85925020"
 ---
 # <a name="msdt"></a>msdt
 
@@ -45,14 +45,14 @@ msdt </id <name> | /path <name> | /cab < name>> <</parameter> [options] … <par
 
 Die Problembehandlung von Paketen besteht aus einer Reihe von Hauptursachen, von denen jedes ein bestimmtes technisches Problem beschreibt. Nach Abschluss der Tasks "Problembehandlung" gibt jede Ursache den Status "Fixed", "Fixed", "found" (aber nicht fixiert) oder "nicht gefunden" zurück. Zusätzlich zu den auf der Benutzeroberfläche von Problembehandlung gemeldeten Ergebnissen gibt die Problembehandlungs-Engine einen Code in den Ergebnissen zurück, der in der Regel beschreibt, ob die Problembehandlung das ursprüngliche Problem behoben hat oder nicht. Folgende Codes sind möglich:
 
-| Code | BESCHREIBUNG |
+| Code | Beschreibung |
 | ---- | ----------- |
 | -1 | Unter **Brechung:** Die Problembehandlung wurde geschlossen, bevor die Aufgaben zur Problembehandlung abgeschlossen wurden. |
 | 0 | **Korrigiert:** Die Problembehandlung hat mindestens eine Ursache identifiziert und korrigiert, und keine Hauptursachen sind in einem nicht festgelegten Zustand. |
 | 1 | **Vorhanden, aber nicht korrigiert:** Die Problembehandlung hat eine oder mehrere Grundursachen identifiziert, die in einem nicht festgelegten Zustand bleiben. Dieser Code wird auch dann zurückgegeben, wenn eine andere Ursache korrigiert wurde. |
 | 2 | **Nicht gefunden:** Die Problembehandlung hat keine Grundursachen identifiziert. |
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

@@ -1,6 +1,6 @@
 ---
-title: FTP-Sendevorgang
-description: Referenz Thema für den FTP-Befehl "Send", bei dem eine lokale Datei mit dem aktuellen Datei Übertragungstyp auf den Remote Computer kopiert wird.
+title: ftp send
+description: Referenz Artikel zum Befehl FTP Send, bei dem eine lokale Datei mit dem aktuellen Datei Übertragungstyp auf den Remote Computer kopiert wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 12ce45a0eb26e1aa4a0d7daace831751e1b67f4a
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: 4d261db79483800507d62e9d4253a58b2b9359fe
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83820300"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85925699"
 ---
-# <a name="ftp-send"></a>FTP-Sendevorgang
+# <a name="ftp-send"></a>ftp send
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -33,26 +33,26 @@ send <localfile> [<remotefile>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<localfile>` | Gibt die zu Kopier lokale Datei an. |
 | `<remotefile>` | Gibt den Namen an, der auf dem Remote Computer verwendet werden soll. Wenn Sie keine *remotefile*-Datei angeben, erhält die Datei den *LocalFile* -Namen. |
 
 ### <a name="examples"></a>Beispiele
 
-Wenn Sie die lokale Datei " *Test. txt* " Kopieren und Sie " *test1. txt* " auf dem Remote Computer benennen, geben Sie Folgendes ein:
+Wenn Sie die lokale Datei *test.txt* kopieren und *test1.txt* auf dem Remote Computer benennen möchten, geben Sie Folgendes ein:
 
 ```
 send test.txt test1.txt
 ```
 
-Wenn Sie die lokale Datei *Programm. exe* auf den Remote Computer kopieren möchten, geben Sie Folgendes ein:
+Wenn Sie die lokale Datei *program.exe* auf den Remote Computer kopieren möchten, geben Sie Folgendes ein:
 
 ```
 send program.exe
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

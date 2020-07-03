@@ -1,6 +1,6 @@
 ---
 title: goto
-description: Referenz Thema für den GOTO-Befehl, bei dem "cmd. exe" an eine in einem Batch-Programm gekennzeichnete Zeile weitergeleitet wird.
+description: Referenz Artikel für den GOTO-Befehl, der cmd.exe an eine bezeichnete Zeile in einem Batch-Programm weiterleitet.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1eb1b6b275887de535614fa5df4adabe33406a31
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: afc77f7837ddaeb0552052538537285f0d652682
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83818970"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85924689"
 ---
 # <a name="goto"></a>goto
 
-Leitet "cmd. exe" an eine gekennzeichnete Zeile in einem Batch-Programm weiter. In einem Batch Programm leitet dieser Befehl die Befehls Verarbeitung an eine Zeile weiter, die durch eine Bezeichnung gekennzeichnet ist. Wenn die Bezeichnung gefunden wird, wird die Verarbeitung fortgesetzt, beginnend mit den Befehlen, die in der nächsten Zeile beginnen.
+Leitet cmd.exe an eine gekennzeichnete Zeile in einem Batch Programm weiter. In einem Batch Programm leitet dieser Befehl die Befehls Verarbeitung an eine Zeile weiter, die durch eine Bezeichnung gekennzeichnet ist. Wenn die Bezeichnung gefunden wird, wird die Verarbeitung fortgesetzt, beginnend mit den Befehlen, die in der nächsten Zeile beginnen.
 
 ## <a name="syntax"></a>Syntax
 
@@ -28,7 +28,7 @@ goto <label>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<label>` | Gibt eine Text Zeichenfolge an, die im Batch Programm als Bezeichnung verwendet wird. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
@@ -56,7 +56,7 @@ echo An error occurred during formatting.
 echo End of batch program.
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

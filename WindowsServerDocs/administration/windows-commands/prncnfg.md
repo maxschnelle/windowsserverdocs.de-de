@@ -1,6 +1,6 @@
 ---
 title: prncnfg
-description: Referenz Thema für den prncnfg-Befehl, mit dem Konfigurationsinformationen zu einem Drucker konfiguriert oder angezeigt werden.
+description: Referenz Artikel zum prncnfg-Befehl, mit dem Konfigurationsinformationen zu einem Drucker konfiguriert oder angezeigt werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: b60faaa5537ebdf8860c9b0471cf879677b80f1d
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 11eb66c3e1d4fb457f9655750d92ab90ad9b473b
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85472305"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85924231"
 ---
 # <a name="prncnfg"></a>prncnfg
 
@@ -30,7 +30,7 @@ cscript prncnfg {-g | -t | -x | -?} [-S <Servername>] [-P <Printername>] [-z <ne
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 |--|--|
 | -g | Zeigt Konfigurationsinformationen zu einem Drucker an. |
 | -t | Konfiguriert einen Drucker. |
@@ -82,7 +82,7 @@ Geben Sie Folgendes ein, um den Namen eines Druckers auf dem Remote Computer mit
 cscript prncnfg -x -S HRServer -P colorprinter_2 -z "colorprinter 3"
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

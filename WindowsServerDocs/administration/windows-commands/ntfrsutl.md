@@ -1,6 +1,6 @@
 ---
 title: ntfrsutl
-description: Referenz Thema für den NTFRSUTL-Befehl, der die internen Tabellen, den Thread und die Arbeitsspeicher Informationen für den NT-Datei Replikations Dienst (NTFRS) absichert.
+description: Referenz Artikel zum NTFRSUTL-Befehl, der die internen Tabellen, den Thread und die Arbeitsspeicher Informationen für den NT-Datei Replikations Dienst (NTFRS) absichert.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f931d916888a372d66a1cc06cb7543067b9b9d3b
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 56aefc1277f67dc6a06ba4686c26f81592afc2f3
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85472766"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85925333"
 ---
 # <a name="ntfrsutl"></a>ntfrsutl
 
@@ -35,7 +35,7 @@ ntfrsutl poll[/quickly[=[<n>]]][/slowly[=[<n>]]][/now][<computer>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | IDtable | Gibt die ID-Tabelle an. |
 | ConfigTable | Gibt die FRS-Konfigurations Tabelle an. |
@@ -65,6 +65,6 @@ Geben Sie Folgendes ein, um die aktuelle API-Version (Application Program Interf
 C:\Program Files\SupportTools>ntfrsutl version
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

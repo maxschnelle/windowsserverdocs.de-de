@@ -1,6 +1,6 @@
 ---
-title: logman Create-API
-description: Referenz Thema für den Befehl logman Create API, mit dem ein API-Tracing-Datensammler erstellt wird.
+title: logman create api
+description: Referenz Artikel für den Befehl logman Create API, mit dem ein API-Tracing-Datensammler erstellt wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f479fcdf3db4bb5a61b0cd0724220d27c934872f
-ms.sourcegitcommit: 29bc8740e5a8b1ba8f73b10ba4d08afdf07438b0
+ms.openlocfilehash: 2294cb7ba7ab962dbba33b0e2612b8dee2d72004
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84222808"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85925432"
 ---
-# <a name="logman-create-api"></a>logman Create-API
+# <a name="logman-create-api"></a>logman create api
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -65,24 +65,24 @@ logman create api <[-n] <name>> [options]
 
 ### <a name="examples"></a>Beispiele
 
-Geben Sie Folgendes ein, um einen API-Ablaufverfolgungs-Counter namens "trace_notepad" für die ausführbare Datei "c:\windows\notepad.exe" und die Ergebnisse in der Datei "c:\notepad.ETL" zu erstellen:
+Geben Sie Folgendes ein, um einen API-Ablaufverfolgungs-Counter namens "trace_notepad" für die ausführbare Datei c:\windows\notepad.exe und die Ergebnisse in der Datei "c:\notepad.ETL" zu erstellen:
 
 ```
 logman create api trace_notepad -exe c:\windows\notepad.exe -o c:\notepad.etl
 ```
 
-Geben Sie zum Erstellen eines API-Ablaufverfolgungs-Zählers namens trace_notepad für die ausführbare Datei c:\windows\notepad.exe die Werte, die vom Modul unter c:\windows\system32\advapi32.dll erzeugt werden, Folgendes ein:
+Um einen API-Ablaufverfolgungs-Counter namens trace_notepad zu erstellen, geben Sie für die ausführbare Datei c:\windows\notepad.exe den Wert ein, der vom Modul beim c:\windows\system32\advapi32.dll erzeugt wird
 
 ```
 logman create api trace_notepad -exe c:\windows\notepad.exe -mods c:\windows\system32\advapi32.dll
 ```
 
-Zum Erstellen eines API-Ablaufverfolgungs-Leistungs Zählers namens "trace_notepad" für die ausführbare Datei "c:\windows\notepad.exe", ohne den API-Aufruf "TlsGetValue", der vom Modul Kernel32. dll erstellt wird,
+Zum Erstellen eines API-Ablaufverfolgungs-Leistungs Zählers namens trace_notepad für die ausführbare Datei c:\windows\notepad.exe mit Ausnahme des API-Aufrufs TlsGetValue, der vom Modul kernel32.dll erzeugt wird
 ```
 logman create api trace_notepad -exe c:\windows\notepad.exe -exapis kernel32.dll!TlsGetValue
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

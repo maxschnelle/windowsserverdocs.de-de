@@ -1,6 +1,6 @@
 ---
-title: Ksetup Delta Host-Karte
-description: Referenz Thema für den Ksetup-Befehl "chosttorealmmap", mit dem eine SPN-Zuordnung (Service Principal Name, Dienst Prinzipal Name) zwischen dem angegebenen Host und dem Bereich entfernt wird.
+title: ksetup delhosttorealmmap
+description: Referenz Artikel für den Befehl "Ksetup Delta Host Map", der eine Dienst Prinzipal Namen-Zuordnung (Service Principal Name, SPN) zwischen dem angegebenen Host und dem Bereich entfernt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 17fc30e76247c570c653d5ec38501a2199435c7f
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: c55fe25a147c23026ddf97900d6da856f04314a3
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83817860"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85925493"
 ---
-# <a name="ksetup-delhosttorealmmap"></a>Ksetup Delta Host-Karte
+# <a name="ksetup-delhosttorealmmap"></a>ksetup delhosttorealmmap
 
 Entfernt die Zuordnung eines Dienst Prinzipal namens (SPN) zwischen dem angegebenen Host und dem Bereich. Dieser Befehl entfernt auch die Zuordnung zwischen einem Host und dem Bereich (oder mehreren Hosts zum Bereich).
 
@@ -30,7 +30,7 @@ ksetup /delhosttorealmmap <hostname> <realmname>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<hostname>` | Gibt den voll qualifizierten Domänen Namen des Computers an. |
 | `<realmname>` | Gibt den Großbuchstaben-DNS-Namen an, z. b. Corp. CONTOSO.com. |
@@ -43,7 +43,7 @@ Geben Sie Folgendes ein, um die Konfiguration des Bereichs "Configuration Manage
 ksetup /delhosttorealmmap IPops897 CONTOSO
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

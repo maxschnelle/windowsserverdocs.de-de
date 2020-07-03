@@ -1,6 +1,6 @@
 ---
 title: fsutil quota
-description: Referenz Thema für den Befehl "fsutil Quota", der Datenträger Kontingente auf NTFS-Volumes verwaltet, um eine präzisere Steuerung des netzwerkbasierten Speichers zu ermöglichen.
+description: Referenz Artikel für den Befehl "fsutil Quota", der Datenträger Kontingente auf NTFS-Volumes verwaltet, um eine präzisere Steuerung des netzwerkbasierten Speichers zu ermöglichen.
 ms.prod: windows-server
 manager: dmoss
 ms.author: toklima
@@ -9,12 +9,12 @@ ms.technology: storage
 ms.assetid: 21225c11-7c72-4ea2-96bd-e63d4beb3be5
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: 54c4f6fe5fd5ae7a43d5057cd5837374f1b94ecd
-ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
+ms.openlocfilehash: f757f822a903f6b5c6d221e17f87cf1e73d1555f
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2020
-ms.locfileid: "83435815"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85925224"
 ---
 # <a name="fsutil-quota"></a>fsutil quota
 
@@ -68,7 +68,7 @@ Zum Auflisten vorhandener Datenträger Kontingente für ein Datenträger Volume,
 fsutil quota query C:
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

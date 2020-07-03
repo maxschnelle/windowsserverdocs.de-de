@@ -1,6 +1,6 @@
 ---
 title: ipconfig
-description: Referenz Thema für den Befehl "ipconfig", in dem alle aktuellen TCP/IP-Netzwerk Konfigurationswerte angezeigt werden und Einstellungen für das Dynamic Host Configuration-Protokoll (DHCP) und die Domain Name System (DNS) aktualisiert werden.
+description: Referenz Artikel für den Befehl "ipconfig", in dem alle aktuellen TCP/IP-Netzwerk Konfigurationswerte angezeigt werden und Einstellungen für das Dynamic Host Configuration-Protokoll (DHCP) und die Domain Name System (DNS) aktualisiert werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e08e8c493b40475ba61ea76be6b49b9c4e21c1cf
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: 3567f855a6066ed318f10daa22f1ca8de0d565c4
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83818390"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85924351"
 ---
 # <a name="ipconfig"></a>ipconfig
 
@@ -28,7 +28,7 @@ ipconfig [/allcompartments] [/all] [/renew [<adapter>]] [/release [<adapter>]] [
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | /all | Zeigt die vollständige TCP/IP-Konfiguration für alle Adapter an. Adapter können für physikalische Schnittstellen, z. B. installierte Netzwerkadapter, oder logische Schnittstellen stehen, z. B. DFÜ-Verbindungen. |
 | /displaydns | Zeigt den Inhalt des DNS-Client Auflösungs Caches an. dieser enthält sowohl Einträge, die vorab aus der lokalen Hostdatei geladen wurden, als auch alle zuletzt erhaltenen Ressourcen Einträge für namens Abfragen, die vom Computer aufgelöst wurden. Der DNS-Client Dienst verwendet diese Informationen, um häufig abgefragte Namen schnell zu beheben, bevor die konfigurierten DNS-Server abgefragt werden. |
@@ -88,6 +88,6 @@ Geben Sie Folgendes ein, um die DHCP-Klassen-ID für den zu testenden lokalen Ve
 ipconfig /setclassid Local Area Connection TEST
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

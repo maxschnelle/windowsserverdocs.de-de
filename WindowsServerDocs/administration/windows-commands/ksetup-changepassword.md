@@ -1,6 +1,6 @@
 ---
-title: Kennwort für Ksetup
-description: Referenz Thema für den Befehl "Ksetup ChangePassword", bei dem das Kennwort für den Schlüsselverteilungscenter (KDC)-Kennwort (kpasswd) verwendet wird, um das Kennwort des angemeldeten Benutzers zu ändern.
+title: ksetup changepassword
+description: Referenz Artikel für den Befehl "Ksetup ChangePassword", bei dem das Kennwort für den Schlüsselverteilungscenter (KDC)-Kennwort (kpasswd) verwendet wird, um das Kennwort des angemeldeten Benutzers zu ändern.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5c1ed9d9b611a7911c4a22c7ca803b480f52f323
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: e49a9c0a796357c89efd3c86373c77468670176c
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83817980"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85925505"
 ---
-# <a name="ksetup-changepassword"></a>Kennwort für Ksetup
+# <a name="ksetup-changepassword"></a>ksetup changepassword
 
 Verwendet das Kennwort für den Schlüsselverteilungscenter (KDC)-Kennwort (kpasswd), um das Kennwort des angemeldeten Benutzers zu ändern. Die Ausgabe des Befehls informiert Sie über den Status Erfolg oder Fehler.
 
@@ -31,7 +31,7 @@ ksetup /changepassword <oldpassword> <newpassword>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<oldpassword>` | Gibt das vorhandene Kennwort des angemeldeten Benutzers an. |
 | `<newpassword>` | Gibt das neue Kennwort des angemeldeten Benutzers an. Dieses Kennwort muss alle Kenn Wort Anforderungen erfüllen, die auf diesem Computer festgelegt sind. |
@@ -64,7 +64,7 @@ Geben Sie Folgendes ein, um zu erzwingen, dass der aktuell angemeldete Benutzer 
 ksetup /changepassword Pas$w0rd *
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

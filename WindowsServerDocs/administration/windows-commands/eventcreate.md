@@ -1,6 +1,6 @@
 ---
 title: eventcreate
-description: Referenz Thema für den eventcreate-Befehl, der es einem Administrator ermöglicht, ein benutzerdefiniertes Ereignis in einem angegebenen Ereignisprotokoll zu erstellen.
+description: Referenz Artikel für den eventcreate-Befehl, der es einem Administrator ermöglicht, ein benutzerdefiniertes Ereignis in einem angegebenen Ereignisprotokoll zu erstellen.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8348e61f6cd94c9b660d0ad9cac4cb1f96920cad
-ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
+ms.openlocfilehash: 60ed97eeffc8ae2410fdd8f296a0e8348f376652
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2020
-ms.locfileid: "83436875"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85925316"
 ---
 # <a name="eventcreate"></a>eventcreate
 
@@ -33,7 +33,7 @@ eventcreate [/s <computer> [/u <domain\user> [/p <password>]] {[/l {APPLICATION|
 
 | Parameter | Beschreibung |
 | --------- |------------ |
-| /s`<computer>` | Gibt den Namen oder die IP-Adresse eines Remote Computers an (verwenden Sie keine umgekehrten Schrägstriche). Der Standardwert ist der lokale Computer. |
+| /s`<computer>` | Gibt den Namen oder die IP-Adresse eines Remote Computers an (verwenden Sie keine umgekehrten Schrägstriche). Die Standardeinstellung ist der lokale Computer. |
 | /u`<domain\user>` | Führt den Befehl mit den Konto Berechtigungen des Benutzers aus, der von oder angegeben wird `<user>` `<domain\user>` . Der Standardwert sind die Berechtigungen des aktuell angemeldeten Benutzers auf dem Computer, von dem der Befehl ausgegeben wird. |
 | /p`<password>` | Gibt das Kennwort des Benutzerkontos an, das im **/u** -Parameter angegeben ist. |
 | /l`{APPLICATION | SYSTEM}` | Gibt den Namen des Ereignis Protokolls an, in dem das Ereignis erstellt wird. Gültige Protokollnamen sind " **Application** " oder " **System**". |
@@ -57,6 +57,6 @@ eventcreate /s server1 /s server2 /u user /p password /id 100 /t error /so winmg
 eventcreate /s server /u user /id 100 /t warning /so winmgmt /d Remote machine with partial user credentials
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

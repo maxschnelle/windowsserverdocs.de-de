@@ -1,6 +1,6 @@
 ---
 title: gpupdate
-description: Referenz Thema für den gpupdate-Befehl, der Gruppenrichtlinie Einstellungen aktualisiert.
+description: Referenz Artikel zum gpupdate-Befehl, der Gruppenrichtlinie Einstellungen aktualisiert.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a2047d6beb515350a534343ca484bc2deeb50daa
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: 78ff3f50a53cfa8f2dd2e1050e6b904896b51cfd
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83818740"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85924607"
 ---
 # <a name="gpupdate"></a>gpupdate
 
@@ -28,7 +28,7 @@ gpupdate [/target:{computer | user}] [/force] [/wait:<VALUE>] [/logoff] [/boot] 
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- |------------ |
 | /target:`{computer|user}` | Gibt an, dass nur Benutzer-oder nur Computer Richtlinien Einstellungen aktualisiert werden. Standardmäßig werden die Benutzer-und Computer Richtlinien Einstellungen aktualisiert. |
 | /Force | Wendet alle Richtlinien Einstellungen erneut an. Standardmäßig werden nur Richtlinien Einstellungen angewendet, die geändert wurden. |
@@ -46,6 +46,6 @@ Wenn Sie ein Hintergrund Update aller Gruppenrichtlinie Einstellungen erzwingen 
 gpupdate /force
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

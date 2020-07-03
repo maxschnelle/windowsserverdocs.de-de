@@ -1,6 +1,6 @@
 ---
 title: print
-description: Referenz Thema für den Print-Befehl, der eine Textdatei an einen Drucker sendet.
+description: Referenz Artikel für den Print-Befehl, der eine Textdatei an einen Drucker sendet.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2d9cbb4230976572ddd7a26565d616c87ce2ea8d
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: a8e8cf07ca19af1cf0a0445b9feed06916be10c0
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85472315"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85926035"
 ---
 # <a name="print"></a>print
 
@@ -31,7 +31,7 @@ print [/d:<printername>] [<drive>:][<path>]<filename>[ ...]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 |--|--|
 | /d`<printername>` | Gibt den Drucker an, den Sie den Auftrag drucken möchten. Geben Sie den Port auf dem Computer an, auf dem der Drucker angeschlossen ist, um auf einem lokal verbundenen Drucker zu drucken. Gültige Werte für parallele Ports sind **LPT1**, **LPT2**und **LPT3**. Gültige Werte für serielle Ports sind **COM1**, **COM2**, **COM3**und **COM4**. Sie können auch einen Netzwerkdrucker angeben, indem Sie den Warteschlangen Namen ( `\\server_name\printer_name` ) verwenden. Wenn Sie keinen Drucker angeben, wird der Druckauftrag standardmäßig an **LPT1** gesendet. |
 | `<drive>`: | Gibt das logische oder physische Laufwerk an, auf dem sich die Datei befindet, die Sie drucken möchten. Dieser Parameter ist nicht erforderlich, wenn sich die Datei, die Sie drucken möchten, auf dem aktuellen Laufwerk befindet. |
@@ -53,7 +53,7 @@ Geben Sie Folgendes ein, um die **report.txt** Datei, die sich im Verzeichnis **
 print /d:\\copyroom\printer1 c:\accounting\report.txt
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

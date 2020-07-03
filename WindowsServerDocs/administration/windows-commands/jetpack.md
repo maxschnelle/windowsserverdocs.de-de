@@ -1,6 +1,6 @@
 ---
 title: jetpack
-description: Referenz Thema für den Jetpack-Befehl, der eine Windows Internet Name Service (WINS)-oder DHCP-Datenbank (Dynamic Host Configuration Protocol) komprimiert.
+description: Referenz Artikel für den Jetpack-Befehl, der eine Windows Internet Name Service (WINS)-oder DHCP-Datenbank (Dynamic Host Configuration Protocol) komprimiert.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6d77f9c964f5820fc7a44b803bb765e94cb35637
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: b0aa52bad06865641da5fabf25c27ceb8c7a0bbd
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83818250"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85924320"
 ---
 # <a name="jetpack"></a>jetpack
 
@@ -22,7 +22,7 @@ ms.locfileid: "83818250"
 
 Komprimiert eine Windows Internet Name Service (WINS)-oder DHCP-Datenbank (Dynamic Host Configuration-Protokoll). Es wird empfohlen, die WINS-Datenbank zu komprimieren, wenn Sie 30 MB erreicht.
 
-Jetpack. exe komprimiert die Datenbank wie folgt:
+Jetpack.exe komprimiert die Datenbank wie folgt:
 
 1. Kopieren der Datenbankinformationen in eine temporäre Datenbankdatei.
 
@@ -38,10 +38,10 @@ jetpack.exe <database_name> <temp_database_name>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ------- | -------- |
 | `<database_name>` | Gibt den Namen der ursprünglichen Datenbankdatei an. |
-| `<temp_database_name>` | Gibt den Namen der temporären Datenbankdatei an, die von Jetpack. exe erstellt werden soll.<p>Hinweis: Diese temporäre Datei wird entfernt, wenn der Compact-Prozess beendet ist. Damit dieser Befehl ordnungsgemäß funktioniert, müssen Sie sicherstellen, dass der temporäre Dateiname eindeutig ist und dass eine Datei mit diesem Namen nicht bereits vorhanden ist. |
+| `<temp_database_name>` | Gibt den Namen der temporären Datenbankdatei an, die von jetpack.exe erstellt werden soll.<p>Hinweis: Diese temporäre Datei wird entfernt, wenn der Compact-Prozess beendet ist. Damit dieser Befehl ordnungsgemäß funktioniert, müssen Sie sicherstellen, dass der temporäre Dateiname eindeutig ist und dass eine Datei mit diesem Namen nicht bereits vorhanden ist. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
 ### <a name="examples"></a>Beispiele
@@ -64,6 +64,6 @@ jetpack Dhcp.mdb Tmp.mdb
 NET start DHCPSERVER
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

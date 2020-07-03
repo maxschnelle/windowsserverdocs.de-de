@@ -1,6 +1,6 @@
 ---
 title: if
-description: Referenz Thema für den if-Befehl, mit dem die bedingte Verarbeitung in Batch Programmen durchführt wird.
+description: Referenz Artikel zum if-Befehl, der die bedingte Verarbeitung in Batch Programmen ausführt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d6f73e784d6fb394db258a056f38045b6a545469
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: dd55ebb6ae3562906efdc710f7a067a7e7514e59
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83818550"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85924471"
 ---
 # <a name="if"></a>if
 
@@ -38,16 +38,16 @@ if defined <variable> <command> [else <expression>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- |------------ |
 | not | Gibt an, dass der Befehl nur ausgeführt werden soll, wenn die Bedingung false ist. |
-| ERRORLEVEL`<number>` | Gibt eine echte Bedingung nur an, wenn das vorherige Programm, das von "cmd. exe" ausgeführt wird, einen *number*Exitcode zurückgegeben hat, der größer oder gleich |
+| ERRORLEVEL`<number>` | Gibt eine echte Bedingung nur dann an, wenn das vorherige Programm, das von Cmd.exe ausgeführt wird, einen Exitcode zurückgegeben hat, der gleich oder *größer als* |
 | `<command>` | Gibt den Befehl an, der ausgeführt werden soll, wenn die vorangehende Bedingung erfüllt ist. |
 | `<string1>==<string2>` | Gibt eine echte Bedingung nur an, wenn *Zeichenfolge1* und *Zeichenfolge2* identisch sind. Diese Werte können Literalzeichenfolgen oder Batch Variablen (z `%1` . b.) sein. Sie müssen keine Literalzeichenfolgen in Anführungszeichen einschließen. |
 | existierten`<filename>` | Gibt eine echte Bedingung an, wenn der angegebene Dateiname vorhanden ist. |
 | `<compareop>` | Gibt einen Vergleichs Operator mit drei Buchstaben an, einschließlich:<ul><li>**EQU** -gleich</li><li>**NEQ** Nicht gleich</li><li>**LSS** -kleiner als</li><li>**Leq** -kleiner als oder gleich</li><li>**GTR** (größer als)</li><li>**GEQ** -größer als oder gleich</li></ul> |
 | /i | Erzwingt die Groß-/Kleinschreibung von Zeichen folgen vergleichen Sie können **/i** im Format verwenden, `string1==string2` **Wenn**. Diese Vergleiche sind generisch, d. h., wenn sowohl *Zeichenfolge1* als auch *Zeichenfolge2* nur aus numerischen Ziffern bestehen, werden die Zeichen folgen in Zahlen konvertiert, und es wird ein numerischer Vergleich ausgeführt. |
-| cmdextversion`<number>` | Gibt eine echte Bedingung nur an, wenn die der Befehls Erweiterungs Funktion von "cmd. exe" zugeordnete interne Versionsnummer größer oder gleich der angegebenen Zahl ist. Die erste Version ist 1. Sie vergrößert sich um einen Schritt von 1, wenn den Befehls Erweiterungen bedeutende Erweiterungen hinzugefügt werden. Die bedingte **cmdextversion** ist nie true, wenn Befehls Erweiterungen deaktiviert sind (Standardmäßig sind die Befehls Erweiterungen aktiviert). |
+| cmdextversion`<number>` | Gibt eine echte Bedingung nur an, wenn die interne Versionsnummer, die dem Befehls Erweiterungs Feature von Cmd.exe zugeordnet ist, größer oder gleich der angegebenen Zahl ist. Die erste Version ist 1. Sie vergrößert sich um einen Schritt von 1, wenn den Befehls Erweiterungen bedeutende Erweiterungen hinzugefügt werden. Die bedingte **cmdextversion** ist nie true, wenn Befehls Erweiterungen deaktiviert sind (Standardmäßig sind die Befehls Erweiterungen aktiviert). |
 | defined `<variable>` | Gibt eine echte Bedingung an, wenn *Variable* definiert ist. |
 | `<expression>` | Gibt einen Befehlszeilen Befehl und alle Parameter an, die an den Befehl in einer **else** -Klausel weitergegeben werden sollen. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
@@ -62,7 +62,7 @@ if defined <variable> <command> [else <expression>]
 
   - **% ERRORLEVEL%**: wird in eine Zeichen folgen Darstellung des aktuellen Werts der Umgebungsvariablen ERRORLEVEL erweitert. Diese Variable geht davon aus, dass noch keine Umgebungsvariable mit dem Namen ERRORLEVEL vorhanden ist. Wenn dies der Fall ist, erhalten Sie stattdessen den Wert ERRORLEVEL.
 
-  - **% cmdcmdline%**: wird in die ursprüngliche Befehlszeile erweitert, die vor der Verarbeitung durch "cmd. exe" an "cmd. exe" übergeben wurde. Dabei wird davon ausgegangen, dass noch keine Umgebungsvariable mit dem Namen "cmdcmdline" vorhanden ist. Wenn dies der Fall ist, erhalten Sie stattdessen diesen cmdcmdline-Wert.
+  - **% cmdcmdline%**: wird in die ursprüngliche Befehlszeile erweitert, die vor der Verarbeitung durch Cmd.exe an Cmd.exe übergeben wurde. Dabei wird davon ausgegangen, dass noch keine Umgebungsvariable mit dem Namen "cmdcmdline" vorhanden ist. Wenn dies der Fall ist, erhalten Sie stattdessen diesen cmdcmdline-Wert.
 
   - **% cmdextversion%**: wird in die Zeichen folgen Darstellung des aktuellen Werts von **cmdextversion**erweitert. Dabei wird davon ausgegangen, dass noch keine Umgebungsvariable mit dem Namen "cmdextversion" vorhanden ist. Wenn dies der Fall ist, erhalten Sie stattdessen den Wert cmdextversion.
 
@@ -124,7 +124,7 @@ Wenn der Wert der Umgebungsvariablen ERRORLEVEL kleiner oder gleich 1 sein soll,
 if %errorlevel% LEQ 1 goto okay
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

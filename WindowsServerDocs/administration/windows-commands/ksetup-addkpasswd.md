@@ -1,6 +1,6 @@
 ---
-title: Ksetup addkpasswd
-description: Referenz Thema für den Befehl "Ksetup addkpasswd", mit dem ein Kerberos-Kennwort (kpasswd)-Server Adresse für einen Bereich hinzugefügt wird.
+title: ksetup addkpasswd
+description: Referenz Artikel für den Befehl "Ksetup addkpasswd", mit dem ein Kerberos-Kennwort (kpasswd)-Server Adresse für einen Bereich hinzugefügt wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e0cff2f3d74e6d862bbdd000602a1d03312373d2
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: 2db728684e713df35a39995c8ca95196f0b745ed
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83818070"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85925552"
 ---
-# <a name="ksetup-addkpasswd"></a>Ksetup addkpasswd
+# <a name="ksetup-addkpasswd"></a>ksetup addkpasswd
 
 Fügt ein Kerberos-Kennwort (kpasswd)-Server Adresse für einen Bereich hinzu.
 
@@ -28,7 +28,7 @@ ksetup /addkpasswd <realmname> [<kpasswdname>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<realmname>` | Gibt den Großbuchstaben-DNS-Namen an, z. b. Corp. CONTOSO.com, und wird als Standardbereich bzw. **Bereich** angezeigt, wenn **Ksetup** ausgeführt wird. |
 | `<kpasswdname>` | Gibt den Kerberos-Kenn Wort Server an. Sie wird als voll qualifizierter Domänen Name, wie z. b. mitkdc.contoso.com, als Nichtbeachtung der Groß-/Kleinschreibung angegeben. Wenn der KDC-Name weggelassen wird, kann DNS verwendet werden, um nach KDCs zu suchen. |
@@ -49,7 +49,7 @@ ksetup /addkpasswd CORP.CONTOSO.COM mitkdc.contoso.com
 
 Um sicherzustellen, dass der KDC-Name festgelegt ist, geben Sie ein, und zeigen Sie `ksetup` die Ausgabe an, und suchen Sie nach dem Text **kpasswd =** Wenn der Text nicht angezeigt wird, bedeutet dies, dass die Zuordnung nicht konfiguriert wurde.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

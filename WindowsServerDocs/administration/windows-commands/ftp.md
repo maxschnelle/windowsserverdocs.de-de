@@ -1,6 +1,6 @@
 ---
 title: ftp
-description: Referenz Thema für den FTP-Befehl, der Dateien an einen Computer überträgt, auf dem ein Dateiübertragungsprotokoll (FTP)-Server Dienst ausgeführt wird.
+description: Referenz Artikel für den FTP-Befehl, der Dateien an einen Computer überträgt, auf dem ein Dateiübertragungsprotokoll (FTP)-Server Dienst ausgeführt wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3920306ce05aeb1b1e364c8146c461ea187f6560
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: e78148e1e7dc4f402d80bb4ebfbcbdac52249407
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83820240"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85925617"
 ---
 # <a name="ftp"></a>ftp
 
@@ -30,7 +30,7 @@ ftp [-v] [-d] [-i] [-n] [-g] [-s:<filename>] [-a] [-A] [-x:<sendbuffer>] [-r:<re
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ----------| ----------- |
 | -v | Unterdrückt die Anzeige von Remote Server Antworten. |
 | -d | Aktiviert das Debuggen und zeigt alle Befehle an, die zwischen dem FTP-Client und dem FTP-Server |
@@ -65,13 +65,13 @@ Um sich am FTP-Server mit dem Namen anzumelden, geben Sie Folgendes ein `ftp.exa
 ftp ftp.example.microsoft.com
 ```
 
-Geben Sie Folgendes ein, um sich am FTP-Server mit dem Namen anzumelden `ftp.example.microsoft.com` und die **FTP** -Befehle auszuführen, die in einer Datei namens *Resync. txt*enthalten sind:
+Geben Sie Folgendes ein, um sich am FTP-Server mit dem Namen anzumelden `ftp.example.microsoft.com` und die in einer Datei namens *resync.txt*enthaltenen **FTP** -Befehle auszuführen:
 
 ```
 ftp -s:resync.txt ftp.example.microsoft.com
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

@@ -1,6 +1,6 @@
 ---
-title: FTP geöffnet
-description: Referenz Thema für den Befehl FTP Open, der eine Verbindung mit dem angegebenen FTP-Server herstellt.
+title: ftp open
+description: Referenz Artikel für den Befehl FTP Open, der eine Verbindung mit dem angegebenen FTP-Server herstellt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 63e428164ece405a6a83041edd46ffe332b13c3a
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: 888b8f917d82d72f47a737c2f0edc42451de7164
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83820400"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85925794"
 ---
-# <a name="ftp-open"></a>FTP geöffnet
+# <a name="ftp-open"></a>ftp open
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -30,7 +30,7 @@ open <computer> [<port>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<computer>` | Gibt den Remote Computer an, mit dem Sie eine Verbindung herstellen möchten. Sie können eine IP-Adresse oder einen Computernamen verwenden (in diesem Fall muss ein DNS-Server oder eine Datei mit Hosts verfügbar sein). |
 | `[<port>]` | Gibt eine TCP-Portnummer an, die für die Verbindung mit einem FTP-Server verwendet wird. Standardmäßig wird TCP-Port 21 verwendet. |
@@ -49,7 +49,7 @@ Zum Herstellen einer Verbindung mit dem FTP-Server unter *FTP.Microsoft.com* , d
 open ftp.microsoft.com 755
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

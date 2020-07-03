@@ -1,6 +1,6 @@
 ---
 title: ipxroute
-description: Referenz Thema für den ipxroute-Befehl, in dem Informationen zu den Routing Tabellen, die vom IPX-Protokoll verwendet werden, angezeigt und geändert werden.
+description: Referenz Artikel für den ipxroute-Befehl, der Informationen zu den vom IPX-Protokoll verwendeten Routing Tabellen anzeigt und ändert.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: afcb5064bc8d4eb4a3b4a8920fcfcf71591d7af5
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: a737ede8b56502cfbbf347d9f54fec848922badb
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83818320"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85924388"
 ---
 # <a name="ipxroute"></a>ipxroute
 
@@ -33,7 +33,7 @@ ipxroute config
 ```
 
 ### <a name="parameters"></a>Parameter
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ------- | -------- |
 | Webserver`[/type=x]` | Zeigt die Tabelle für den Dienst Zugriffspunkt (SAP) für den angegebenen Servertyp an. **x** muss eine ganze Zahl sein. Zeigt beispielsweise `/type=4` alle Dateiserver an. Wenn Sie **/Type**nicht angeben, werden `ipxroute servers` alle Server Typen angezeigt, die nach Servernamen aufgelistet sind. |
 | Auflösen `{GUID | name}``{GUID | adaptername}` | Löst den Namen der GUID in ihren anzeigen Amen oder den anzeigen Amen für die GUID auf. |
@@ -53,6 +53,6 @@ Geben Sie Folgendes ein, um die Netzwerksegmente anzuzeigen, an die die Arbeitss
 ipxroute config
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -1,6 +1,6 @@
 ---
 title: Aufruf
-description: Referenz Thema für den Aufruf Befehl, der ein Batch Programm von einem anderen aufruft, ohne das übergeordnete Batch Programm zu beenden.
+description: Referenz Artikel für den Aufruf Befehl, der ein Batch Programm von einem anderen aufruft, ohne das übergeordnete Batch Programm zu beenden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 06/05/2018
-ms.openlocfilehash: 64c4b89d18ab869a7e6c8b1ee8537c4f808bce8f
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: e73199b9d5633d5b3f1f7b8afd2bd35eb826bfd7
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82719671"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85924836"
 ---
 # <a name="call"></a>Aufruf
 
@@ -31,12 +31,12 @@ call [drive:][path]<filename> [<batchparameters>] [:<label> [<arguments>]]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `[<drive>:][<path>]<filename>` | Gibt den Speicherort und den Namen des aufzurufenden Batch Programms an. Der `<filename>` -Parameter ist erforderlich und muss über die Erweiterung ". bat" oder ". cmd" verfügen. |
 | `<batchparameters>` | Gibt alle Befehlszeilen Informationen an, die vom Batch Programm benötigt werden. |
 | `:<label>` | Gibt die Bezeichnung an, zu der ein Batch Programm-Steuerelement springen soll. |
-| `<arguments>` | Gibt die Befehlszeilen Informationen an, die an die neue Instanz des Batch-Programms, beginnend bei `:<label>`, geleitet werden.|
+| `<arguments>` | Gibt die Befehlszeilen Informationen an, die an die neue Instanz des Batch-Programms, beginnend bei, geleitet werden `:<label>` .|
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
 ## <a name="batch-parameters"></a>Batch Parameter
@@ -47,7 +47,7 @@ Die Verwendung des Werts " **% &#42;** " in einem Batch Skript bezieht sich auf 
 
 Sie können die folgenden optionalen Syntaxen als Ersatz für Batch Parameter (**% n**) verwenden:
 
-| Batch-Parameter | BESCHREIBUNG |
+| Batch-Parameter | Beschreibung |
 | --------------- | ----------- |
 | % ~ 1 | Erweitert **%1** und entfernt umgebende Anführungszeichen. |
 | % ~ F1 | " **%1** " wird in einen voll qualifizierten Pfad erweitert. |
@@ -63,7 +63,7 @@ Sie können die folgenden optionalen Syntaxen als Ersatz für Batch Parameter (*
 
 In der folgenden Tabelle wird gezeigt, wie Modifizierern mit den Batch Parametern für Verbund Ergebnisse kombiniert werden können:
 
-| Batch-Parameter mit Modifizierer | BESCHREIBUNG |
+| Batch-Parameter mit Modifizierer | Beschreibung |
 | ----------------------------- | ----------- |
 | % ~ DP1 | " **%1** " wird nur auf einen Laufwerk Buchstaben und einen Pfad erweitert. |
 | % ~ NX1 | " **%1** " wird nur in einen Dateinamen und eine Erweiterung erweitert. |
@@ -72,19 +72,19 @@ In der folgenden Tabelle wird gezeigt, wie Modifizierern mit den Batch Parameter
 
 In den obigen Beispielen können **%1** und path durch andere gültige Werte ersetzt werden. Die **%~** Syntax wird mit einer gültigen Argument Nummer beendet. Die **%~** modifiziererer können nicht mit **% #b0 **verwendet werden.
 
-### <a name="remarks"></a>Bemerkungen
+### <a name="remarks"></a>Hinweise
 
 - Verwenden von Batch-Parametern:
 
     Batch Parameter können alle Informationen enthalten, die an ein Batch-Programm übergeben werden können, einschließlich Befehlszeilenoptionen, Dateinamen, Batch Parameter **%0** bis **%9**und Variablen (z. b. **% Baud%**).
 
-- Verwenden des `<label>` -Parameters:
+- Verwenden des- `<label>` Parameters:
 
-    Wenn Sie einen-Befehl `<label>` **mit dem-Parameter verwenden,** erstellen Sie einen neuen Batchdatei Kontext und übergeben die Steuerung an die Anweisung nach der angegebenen Bezeichnung. Wenn das Ende der Batchdatei das erste Mal erreicht wird (d. h. nach dem Springen zur Bezeichnung), wird die Steuerung an die Anweisung nach der **Aufruf** Anweisung zurückgegeben. Das zweite Mal, wenn das Ende der Batchdatei gefunden wird, wird das Batch Skript beendet.
+    Wenn Sie einen- **Befehl mit dem** - `<label>` Parameter verwenden, erstellen Sie einen neuen Batchdatei Kontext und übergeben die Steuerung an die Anweisung nach der angegebenen Bezeichnung. Wenn das Ende der Batchdatei das erste Mal erreicht wird (d. h. nach dem Springen zur Bezeichnung), wird die Steuerung an die Anweisung nach der **Aufruf** Anweisung zurückgegeben. Das zweite Mal, wenn das Ende der Batchdatei gefunden wird, wird das Batch Skript beendet.
 
 - Verwenden von Pipes und Umleitungs Symbolen:
 
-    Verwenden Sie keine Pipes `(|)` oder Umleitungs Symbole`<` ( `>`oder) **mit dem**-Befehl.
+    Verwenden Sie keine Pipes `(|)` oder Umleitungs Symbole ( `<` oder `>` ) **call**mit dem-Befehl.
 
 - Rekursiver Rückruf
 
@@ -92,22 +92,22 @@ In den obigen Beispielen können **%1** und path durch andere gültige Werte ers
 
 - Arbeiten mit Befehls Erweiterungen
 
-    Wenn Befehls Erweiterungen aktiviert **sind, wird** als `<label>` Ziel des Aufrufes akzeptiert. Die korrekte Syntax lautet:`call :<label> <arguments>`
+    Wenn Befehls Erweiterungen aktiviert **sind, wird** `<label>` als Ziel des Aufrufes akzeptiert. Die korrekte Syntax lautet:`call :<label> <arguments>`
 
 ## <a name="examples"></a>Beispiele
 
-Um das Programm checknew. bat von einem anderen Batch Programm auszuführen, geben Sie den folgenden Befehl in das übergeordnete Batch-Programm ein:
+Um das checknew.bat Programm von einem anderen Batch Programm auszuführen, geben Sie den folgenden Befehl in das übergeordnete Batch-Programm ein:
 
 ```
 call checknew
 ```
 
-Wenn das übergeordnete Batch-Programm zwei Batch Parameter annimmt und Sie diese Parameter an checknew. bat übergeben möchten, geben Sie den folgenden Befehl in das übergeordnete Batch-Programm ein:
+Wenn das übergeordnete Batch-Programm zwei Batch Parameter annimmt und Sie diese Parameter an checknew.bat übergeben möchten, geben Sie den folgenden Befehl in das übergeordnete Batch-Programm ein:
 
 ```
 call checknew %1 %2
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -1,6 +1,6 @@
 ---
 title: Importieren von DiskShadow
-description: Referenz Thema für den Import-Befehl, der eine austauschen-Schatten Kopie aus einer geladenen Metadatendatei in das System importiert.
+description: Referenz Artikel für den Import-Befehl, der eine austauschen-Schatten Kopie aus einer geladenen Metadatendatei in das System importiert.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f4eaf4afcbe2485a893a3e5335c595b3d9b256b5
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: ab1c3c6d324cec939a2529191cbc8ce40165b807
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83818510"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85924443"
 ---
 # <a name="import-diskshadow"></a>Importieren (DiskShadow)
 
@@ -53,7 +53,7 @@ IMPORT
 #The shadow copy will now be loaded into the system.
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

@@ -1,6 +1,6 @@
 ---
-title: Ksetup-Domäne
-description: Referenz Thema für den Ksetup-Domänen Befehl, mit dem der Domänen Name für alle Kerberos-Vorgänge festgelegt wird.
+title: ksetup domain
+description: Referenz Artikel für den Ksetup-Domänen Befehl, mit dem der Domänen Name für alle Kerberos-Vorgänge festgelegt wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1d497f2bc76bae8a95b077658c661e0fdc1e93f3
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: 70454205f73375b11dc63e3496a2d7fc1bb3e50e
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83817800"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85926105"
 ---
-# <a name="ksetup-domain"></a>Ksetup-Domäne
+# <a name="ksetup-domain"></a>ksetup domain
 
 Legt den Domänen Namen für alle Kerberos-Vorgänge fest.
 
@@ -28,7 +28,7 @@ ksetup /domain <domainname>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<domainname>` | Der Name der Domäne, zu der Sie eine Verbindung herstellen möchten. Verwenden Sie den voll qualifizierten Domänen Namen oder eine einfache Form des Namens, z. b. contoso.com oder Configuration Manager.|
 
@@ -42,7 +42,7 @@ ksetup /mapuser principal@realm domain-user /domain domain-name
 
 Nach einer erfolgreichen Verbindung erhalten Sie ein neues TGT, oder ein vorhandenes TGT wird aktualisiert.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

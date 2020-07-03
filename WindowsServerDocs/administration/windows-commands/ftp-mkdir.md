@@ -1,6 +1,6 @@
 ---
-title: FTP-mkdir
-description: Referenz Thema für den FTP-Befehl "mkdir", mit dem ein Verzeichnis auf dem Remote Computer erstellt wird.
+title: ftp mkdir
+description: Referenz Artikel für den FTP-Befehl "mkdir", mit dem ein Verzeichnis auf dem Remote Computer erstellt wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 98559664b2288ccf495a039e83e92fb7ba555717
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: 2741733191b76547d8639d925cf4288efb35a530
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83820420"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85925889"
 ---
-# <a name="ftp-mkdir"></a>FTP-mkdir
+# <a name="ftp-mkdir"></a>ftp mkdir
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -30,7 +30,7 @@ mkdir <directory>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<directory>` | Gibt den Namen des neuen Remote Verzeichnisses an. |
 
@@ -42,7 +42,7 @@ Geben Sie Folgendes ein, um ein Verzeichnis mit dem Namen *dir1* auf dem Remote 
 mkdir dir1
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

@@ -9,30 +9,32 @@ manager: jgerend
 ms.date: 01/28/2020
 ms.localizationpriority: medium
 ms.prod: windows-server
-ms.openlocfilehash: 2249a69f60fe87758c74a58aa13b47124da41361
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 15c9526e4049b218a3fcd7c85bd30dc917629425
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80319373"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85925944"
 ---
 # <a name="deploy-azure-virtual-machines-from-within-windows-admin-center"></a>Bereitstellen von virtuellen Azure-Computern innerhalb des Windows Admin Centers
 
->Gilt für: Windows Admin Center, Windows Admin Center Preview
+>Gilt für: Windows Admin Center, Windows Admin Center-Vorschau
 
-In Windows Admin Center, Version 1910, können Sie virtuelle Azure-Computer bereitstellen. Dadurch wird die VM-Bereitstellung in von Windows Admin Center verwaltete Workloads wie [Speicher Migrationsdienst](../../../storage/storage-migration-service/overview.md) und [Speicher Replikat](../../../storage/storage-replica/storage-replica-overview.md)integriert. Anstatt vor dem Bereitstellen der Arbeitsauslastung neue Server und VMS im Azure-Portal zu entwickeln, und möglicherweise Fehlende erforderliche Schritte und Konfiguration: das Windows Admin Center kann den virtuellen Azure-Computer bereitstellen, seinen Speicher konfigurieren, ihn Ihrer Domäne hinzufügen, Rollen installieren und richten Sie dann Ihr verteiltes System ein. Sie können auch neue virtuelle Azure-Computer ohne Arbeitsauslastung auf der Windows Admin Center-Verbindungs Seite bereitstellen.
+In Windows Admin Center, Version 1910, können Sie virtuelle Azure-Computer bereitstellen. Dadurch wird die VM-Bereitstellung in von Windows Admin Center verwaltete Workloads wie [Speicher Migrationsdienst](../../../storage/storage-migration-service/overview.md) und [Speicher Replikat](../../../storage/storage-replica/storage-replica-overview.md)integriert. Anstatt vor dem Bereitstellen der Arbeitsauslastung neue Server und VMS im Azure-Portal zu entwickeln, und möglicherweise Fehlende erforderliche Schritte und Konfiguration: das Windows Admin Center kann den virtuellen Azure-Computer bereitstellen, seinen Speicher konfigurieren, ihn Ihrer Domäne hinzufügen, Rollen installieren und dann Ihr verteiltes System einrichten. Sie können auch neue virtuelle Azure-Computer ohne Arbeitsauslastung auf der Windows Admin Center-Verbindungs Seite bereitstellen.
 
 Windows Admin Center verwaltet auch eine Vielzahl von Azure-Diensten. [Erfahren Sie mehr über die Azure-Integrationsoptionen, die im Windows Admin Center verfügbar sind](../plan/azure-integration-options.md).
+
+Wenn Sie virtuelle Computer zu Azure migrieren und verschieben möchten, anstatt neue zu erstellen, sollten Sie die Verwendung von Azure migrate in Erwägung gezogen. Weitere Informationen finden Sie unter [Azure migrate Übersicht](https://go.microsoft.com/fwlink/?linkid=2056064).
 
 ## <a name="scenarios"></a>Szenarien
 
 Windows Admin Center Version 1910 die Azure-VM-Bereitstellung unterstützt die folgenden Szenarien:
 
-- [Speicher Migrationsdienst](../../../storage/storage-migration-service/overview.md)
+- [Speichermigrationsdienst](../../../storage/storage-migration-service/overview.md)
 - [Speicherreplikat](../../../storage/storage-replica/storage-replica-overview.md)
 - [Neuer eigenständiger Server (ohne Rollen)](index.md#extend-on-premises-capacity-with-azure)
 
-## <a name="requirements"></a>Voraussetzungen
+## <a name="requirements"></a>Anforderungen
 
 Zum Erstellen eines neuen virtuellen Azure-Computers innerhalb des Windows Admin Centers benötigen Sie Folgendes:
 
@@ -42,7 +44,7 @@ Zum Erstellen eines neuen virtuellen Azure-Computers innerhalb des Windows Admin
 - Eine vorhandene [Azure-Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) und ein Subnetz.
 - Eine [Azure Express Route](https://azure.microsoft.com/services/expressroute/) -oder [Azure-VPN-Lösung](https://azure.microsoft.com/services/vpn-gateway/) , die an das virtuelle Netzwerk und Subnetz gebunden ist und die Konnektivität von Azure-VMS mit Ihren lokalen Clients, Domänen Controllern, dem Windows Admin Center-Computer und allen Servern zulässt, die im Rahmen einer workloadbereitstellung mit diesem virtuellen Computer kommunizieren müssen. Wenn Sie z. b. den Speicher Migrationsdienst zum Migrieren von Speicher zu einem virtuellen Azure-Computer verwenden möchten, müssen der Orchestrator-Computer und der Quellcomputer beide in der Lage sein, eine Verbindung mit dem virtuellen Azure-Zielcomputer aufzunehmen, zu dem
 
-## <a name="usage"></a>Verwendung
+## <a name="usage"></a>Verbrauch
 
 Azure-VM-Bereitstellungs Schritte und-Assistenten variieren je nach Szenario. Ausführliche Informationen zum Gesamtszenario finden Sie in der Dokumentation der Arbeitsauslastung.
 

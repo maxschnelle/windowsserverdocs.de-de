@@ -1,6 +1,6 @@
 ---
-title: FTP-Binärdatei
-description: Referenz Thema für den FTP-Befehl, mit dem der Datei Übertragungstyp auf Binary festgelegt wird.
+title: ftp binary
+description: Referenz Artikel zum binären FTP-Befehl, mit dem der Datei Übertragungstyp auf Binary festgelegt wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 93b5bcdf473997b10eda86af4a865aed4bcaac0d
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: daf300598f8a31fc35d5702b5bd42507dd9e8211
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83820010"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85925952"
 ---
-# <a name="ftp-binary"></a>FTP-Binärdatei
+# <a name="ftp-binary"></a>ftp binary
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -36,7 +36,7 @@ Um den Datei Übertragungstyp auf Binär festzulegen, geben Sie Folgendes ein:
 binary
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

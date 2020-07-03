@@ -1,6 +1,6 @@
 ---
 title: gpresult
-description: Referenz Thema für den Gpresult-Befehl, der die Richtlinien Ergebnissatz-Informationen (RSoP) für einen Remote Benutzer und-Computer anzeigt.
+description: Referenz Artikel für den Gpresult-Befehl, der die Richtlinien Ergebnissatz-Informationen (RSoP) für einen Remote Benutzer und-Computer anzeigt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e88a75a15168baaf2e49ca08ff20d3a8ffb5620c
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: b55db74c0c8f9c527ade8412f50ef83ea675a5c6
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83818860"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85924637"
 ---
 # <a name="gpresult"></a>gpresult
 
@@ -33,9 +33,9 @@ gpresult [/s <system> [/u <username> [/p [<password>]]]] [/user [<targetdomain>\
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
-| /s`<system>` | Gibt den Namen oder die IP-Adresse eines Remote Computers an. Verwenden Sie keine umgekehrten Schrägstriche. Der Standardwert ist der lokale Computer. |
+| /s`<system>` | Gibt den Namen oder die IP-Adresse eines Remote Computers an. Verwenden Sie keine umgekehrten Schrägstriche. Die Standardeinstellung ist der lokale Computer. |
 | /u`<username>` | Verwendet die Anmelde Informationen des angegebenen Benutzers, um den Befehl auszuführen. Der Standardbenutzer ist der Benutzer, der auf dem Computer angemeldet ist, der den Befehl ausgibt. |
 | /p`[<password>]` | Gibt das Kennwort des Benutzerkontos an, das im **/u** -Parameter angegeben wird. Wenn **/p** ausgelassen wird, fordert **gpresult** das Kennwort an. Der **/p** -Parameter kann nicht mit **/x** oder **/h**verwendet werden. |
 | /User`[<targetdomain>\]<targetuser>]` | Gibt den Remote Benutzer an, dessen RSOP-Daten angezeigt werden sollen. |
@@ -63,7 +63,7 @@ Zum Abrufen von RSoP-Daten nur für den Remote Benutzer, *maindom\hiropln* mit d
 gpresult /s srvmain /u maindom\hiropln /p p@ssW23 /user targetusername /scope user /r
 ```
 
-Wenn Sie alle verfügbaren Informationen über Gruppenrichtlinie in einer *Datei mit dem* Namen " *Policy. txt*" speichern möchten, *p@ssW23* Geben Sie auf dem Computer " *srvmain*" Folgendes ein:
+Wenn Sie alle verfügbaren Informationen über Gruppenrichtlinie in einer Datei mit dem Namen *policy.txt*speichern möchten, geben Sie für den Remote Benutzer *maindom\hiropln* mit dem Kennwort *p@ssW23* auf dem Computer *srvmain*Folgendes ein:
 
 ```
 gpresult /s srvmain /u maindom\hiropln /p p@ssW23 /user targetusername /z > policy.txt
@@ -75,6 +75,6 @@ Zum Anzeigen von RSoP-Daten für den angemeldeten Benutzer, *maindom\hiropln* mi
 gpresult /s srvmain /u maindom\hiropln /p p@ssW23 /r
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

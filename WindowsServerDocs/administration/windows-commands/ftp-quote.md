@@ -1,6 +1,6 @@
 ---
-title: FTP-Anführungszeichen
-description: Referenz Thema für den Befehl FTP-Anführungszeichen, mit dem wörtliche Argumente an den Remote-FTP-Server gesendet werden.
+title: ftp quote
+description: Referenz Artikel für den Befehl FTP-Anführungszeichen, mit dem wörtliche Argumente an den Remote-FTP-Server gesendet werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 87dd81d4feb6a5509a8609f5c479e3352d5fb7ea
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: ce1f0c009ff9e68c4b8f1f9bc074d91d235d1955
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83820340"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85925079"
 ---
-# <a name="ftp-quote"></a>FTP-Anführungszeichen
+# <a name="ftp-quote"></a>ftp quote
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -33,7 +33,7 @@ quote <argument>[ ]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<argument>` | Gibt das Argument an, das an den FTP-Server gesendet werden soll. |
 
@@ -45,7 +45,7 @@ Geben Sie Folgendes ein, um einen Befehl zum **Beenden** an den FTP-Remote Serve
 quote quit
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

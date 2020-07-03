@@ -1,6 +1,6 @@
 ---
 title: certreq
-description: Referenz Thema für den Certreq-Befehl der Zertifikate von einer Zertifizierungsstelle (ca) anfordert, eine Antwort auf eine vorherige Anforderung von einer Zertifizierungsstelle abruft, eine neue Anforderung aus einer INF-Datei erstellt, eine Antwort auf eine Anforderung akzeptiert und installiert, eine Kreuz Zertifizierung oder eine qualifizierte Unterordnung von einem vorhandenen Zertifizierungsstellen Zertifikat oder einer vorhandenen Zertifizierungsstelle erstellt und eine Kreuz Zertifizierung oder eine qualifizierte Unterordnungs Anforderung signiert.
+description: Referenz Artikel für den Certreq-Befehl der Zertifikate von einer Zertifizierungsstelle (ca) anfordert, eine Antwort auf eine vorherige Anforderung von einer Zertifizierungsstelle abruft, eine neue Anforderung aus einer INF-Datei erstellt, eine Antwort auf eine Anforderung akzeptiert und installiert, eine Kreuz Zertifizierung oder eine qualifizierte Unterordnung von einem vorhandenen Zertifizierungsstellen Zertifikat oder einer vorhandenen Zertifizierungsstelle erstellt und eine Kreuz Zertifizierung oder eine qualifizierte Unterordnungs Anforderung signiert.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,19 +9,19 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 14fc717ad49a676387206692af32842f212c4296
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 22fc496eddc17f4e6a1a5f02321c921009f9fd95
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82719647"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85924810"
 ---
 # <a name="certreq"></a>certreq
 
 Der Befehl "Certreq" kann zum Anfordern von Zertifikaten von einer Zertifizierungsstelle (Certification Authority, ca) verwendet werden. so rufen Sie eine Antwort auf eine vorherige Anforderung von einer Zertifizierungsstelle ab, um eine neue Anforderung aus einer INF-Datei zu erstellen, eine Antwort auf eine Anforderung zu akzeptieren und zu installieren, um eine Kreuz Zertifizierung oder eine qualifizierte Unterordnungs Anforderung von einem vorhandenen Zertifizierungsstellen Zertifikat oder einer vorhandenen Zertifizierungsstelle zu erstellen und eine Kreuz Zertifizierung oder eine qualifizierte Unterordnungs Anforderung zu signieren.
 
 > [!IMPORTANT]
-> In früheren Versionen des Certreq-Befehls werden möglicherweise nicht alle hier beschriebenen Optionen bereitgestellt. Um die unterstützten Optionen auf der Grundlage bestimmter Versionen von Certreq anzuzeigen, führen Sie die Befehlszeilen Hilfe `certreq -v -?`-Option aus.
+> In früheren Versionen des Certreq-Befehls werden möglicherweise nicht alle hier beschriebenen Optionen bereitgestellt. Um die unterstützten Optionen auf der Grundlage bestimmter Versionen von Certreq anzuzeigen, führen Sie die Befehlszeilen Hilfe-Option aus `certreq -v -?` .
 >
 > Der Certreq-Befehl unterstützt das Erstellen einer neuen Zertifikat Anforderung auf Grundlage einer Schlüssel Nachweis Vorlage nicht, wenn in einer CEP/CES-Umgebung.
 
@@ -42,7 +42,7 @@ certreq –enroll –cert certId [options] renew [reusekeys]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | -------- | ----------- |
 | -übermitteln | Sendet eine Anforderung an eine Zertifizierungsstelle. |
 | -Abrufen`<requestid>` | Ruft eine Antwort auf eine vorherige Anforderung von einer Zertifizierungsstelle ab. |
@@ -65,11 +65,11 @@ So übermitteln Sie eine einfache Zertifikat Anforderung:
 certreq –submit certrequest.req certnew.cer certnew.pfx
 ```
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
-- Dies ist der Standardparameter "Certreq. exe". Wenn an der Eingabeaufforderung keine Option angegeben ist, versucht Certreq. exe, eine Zertifikat Anforderung an eine Zertifizierungsstelle zu übermitteln. Sie müssen eine Zertifikat Anforderungs Datei angeben, wenn Sie die Option **– Submit** verwenden. Wenn dieser Parameter ausgelassen wird, wird ein gemeinsames **Datei Öffnungs** Fenster angezeigt, in dem Sie die entsprechende Zertifikat Anforderungs Datei auswählen können.
+- Dies ist der Standard certreq.exe Parameter. Wenn an der Eingabeaufforderung keine Option angegeben ist, wird von certreq.exe versucht, eine Zertifikat Anforderung an eine Zertifizierungsstelle zu übermitteln. Sie müssen eine Zertifikat Anforderungs Datei angeben, wenn Sie die Option **– Submit** verwenden. Wenn dieser Parameter ausgelassen wird, wird ein gemeinsames **Datei Öffnungs** Fenster angezeigt, in dem Sie die entsprechende Zertifikat Anforderungs Datei auswählen können.
 
-- Informationen zum Anfordern eines Zertifikats durch Angabe des San-Attributs finden Sie im Abschnitt *Verwenden des Hilfsprogramms "Certreq. exe" zum Erstellen und Übermitteln einer Zertifikat Anforderung* im Microsoft Knowledge Base-Artikel 931351 [How to Add a Subject Alternative Name to a Secure LDAP Certificate](https://support.microsoft.com/kb/931351).
+- Informationen zum Anfordern eines Zertifikats durch Angabe des San-Attributs finden Sie im Abschnitt *Verwenden des certreq.exe Hilfsprogramms zum Erstellen und Übermitteln einer Zertifikat Anforderung* im Microsoft Knowledge Base-Artikel 931351 [How to Add a Subject Alternative Name to a Secure LDAP Certificate](https://support.microsoft.com/kb/931351).
 
 ### <a name="certreq--retrieve"></a>Certreq-Abruf
 
@@ -79,7 +79,7 @@ Zum Abrufen der Zertifikat-ID 20 und zum Erstellen einer Zertifikatsdatei (. cer
 certreq -retrieve 20 MyCertificate.cer
 ```
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Verwenden Sie certreq-retrieve *RequestId* , um das Zertifikat abzurufen, nachdem es von der Zertifizierungsstelle ausgestellt wurde. Das *RequestId-* PKC kann ein Dezimal-oder hexadezimal mit einem 0x-Präfix sein, und es kann sich um eine Zertifikat Seriennummer ohne 0x-Präfix Sie können damit auch alle Zertifikate abrufen, die jemals von der Zertifizierungsstelle ausgestellt wurden, einschließlich widerrufener oder abgelaufener Zertifikate, ohne Rücksicht darauf, ob die Anforderung des Zertifikats jemals den Status "Ausstehend" hatte.
 
@@ -101,38 +101,38 @@ Im folgenden finden Sie einige der möglichen Abschnitte, die der INF-Datei hinz
 
 Dieser Bereich der INF-Datei ist für alle neuen Zertifikat Anforderungs Vorlagen obligatorisch und muss mindestens einen Parameter mit einem Wert enthalten.
 
-| Schlüssel<sup>1</sup> | BESCHREIBUNG | Wert<sup>2</sup> | Beispiel |
+| Schlüssel<sup>1</sup> | Beschreibung | Wert<sup>2</sup> | Beispiel |
 | --- | ---------- | ----- | ------- |
-| Subject | Mehrere apps basieren auf den Betreff-Informationen in einem Zertifikat. Es wird empfohlen, einen Wert für diesen Schlüssel anzugeben. Wenn der Betreff hier nicht festgelegt ist, empfiehlt es sich, einen Antragsteller Namen als Teil der Zertifikat Erweiterung für den alternativen Antragsteller Namen einzuschließen. | Relative Distinguished Name-Zeichen folgen Werte | Subject = CN = computer1. "Subject. com subject = CN = John Smith, CN = Users, DC =% $ so, DC = com" |
+| Antragsteller | Mehrere apps basieren auf den Betreff-Informationen in einem Zertifikat. Es wird empfohlen, einen Wert für diesen Schlüssel anzugeben. Wenn der Betreff hier nicht festgelegt ist, empfiehlt es sich, einen Antragsteller Namen als Teil der Zertifikat Erweiterung für den alternativen Antragsteller Namen einzuschließen. | Relative Distinguished Name-Zeichen folgen Werte | Subject = CN = computer1. "Subject. com subject = CN = John Smith, CN = Users, DC =% $ so, DC = com" |
 | Exportable | Wenn der Wert auf true festgelegt ist, kann der private Schlüssel mit dem Zertifikat exportiert werden. Um ein hohes Maß an Sicherheit sicherzustellen, sollten private Schlüssel nicht exportierbar sein. in einigen Fällen ist es jedoch möglicherweise erforderlich, wenn mehrere Computer oder Benutzer denselben privaten Schlüssel gemeinsam verwenden müssen. | `true | false` | `Exportable = TRUE`. CNG-Schlüssel können zwischen diesem und nur-Text-Text unterscheiden. CAPI1 Keys können nicht. |
 | Exportableverschlüsselt | Gibt an, ob der private Schlüssel als exportierbar festgelegt werden soll. | `true | false` | `ExportableEncrypted = true`<p>**Tipp:** Nicht alle Größen und Algorithmen von öffentlichen Schlüsseln funktionieren mit allen Hash Algorithmen. Der angegebene CSP muss auch den angegebenen Hash Algorithmus unterstützen. Wenn Sie die Liste der unterstützten Hash Algorithmen anzeigen möchten, können Sie den folgenden Befehl ausführen:`certutil -oid 1 | findstr pwszCNGAlgid | findstr /v CryptOIDInfo` |
 | HashAlgorithm | Der für diese Anforderung zu verwendende Hash Algorithmus. | `Sha256, sha384, sha512, sha1, md5, md4, md2` | `HashAlgorithm = sha1`. Um die Liste der unterstützten Hash Algorithmen anzuzeigen, verwenden Sie: certutil-OID 1 | findstr pwszcngalgid | findstr/v cryptoidinfo|
 | KeyAlgorithm| Der Algorithmus, der vom Dienstanbieter verwendet wird, um ein paar aus einem öffentlichen und einem privaten Schlüssel zu generieren.| `RSA, DH, DSA, ECDH_P256, ECDH_P521, ECDSA_P256, ECDSA_P384, ECDSA_P521` | `KeyAlgorithm = RSA` |
-| KeyContainer | Es wird nicht empfohlen, diesen Parameter für neue Anforderungen festzulegen, bei denen ein neues Schlüsselmaterial generiert wird. Der Schlüssel Container wird vom System automatisch generiert und verwaltet.<p>Bei Anforderungen, bei denen das vorhandene Schlüsselmaterial verwendet werden soll, kann dieser Wert auf den Schlüssel Container Namen des vorhandenen Schlüssels festgelegt werden. Verwenden Sie `certutil –key` den Befehl, um die Liste der verfügbaren Schlüssel Container für den Computer Kontext anzuzeigen. Verwenden Sie `certutil –key –user` den-Befehl für den Kontext des aktuellen Benutzers.| Zufälliger Zeichen folgen Wert<p>**Tipp:** Verwenden Sie doppelte Anführungszeichen um alle INF-Schlüsselwerte, die Leerzeichen oder Sonderzeichen enthalten, um potenzielle Probleme mit der INF-Verarbeitung zu vermeiden. | `KeyContainer = {C347BD28-7F69-4090-AA16-BC58CF4D749C}` |
+| KeyContainer | Es wird nicht empfohlen, diesen Parameter für neue Anforderungen festzulegen, bei denen ein neues Schlüsselmaterial generiert wird. Der Schlüssel Container wird vom System automatisch generiert und verwaltet.<p>Bei Anforderungen, bei denen das vorhandene Schlüsselmaterial verwendet werden soll, kann dieser Wert auf den Schlüssel Container Namen des vorhandenen Schlüssels festgelegt werden. Verwenden `certutil –key` Sie den Befehl, um die Liste der verfügbaren Schlüssel Container für den Computer Kontext anzuzeigen. Verwenden Sie den `certutil –key –user` -Befehl für den Kontext des aktuellen Benutzers.| Zufälliger Zeichen folgen Wert<p>**Tipp:** Verwenden Sie doppelte Anführungszeichen um alle INF-Schlüsselwerte, die Leerzeichen oder Sonderzeichen enthalten, um potenzielle Probleme mit der INF-Verarbeitung zu vermeiden. | `KeyContainer = {C347BD28-7F69-4090-AA16-BC58CF4D749C}` |
 | KeyLength | Definiert die Länge des öffentlichen und des privaten Schlüssels. Die Schlüssellänge wirkt sich auf die Sicherheitsstufe des Zertifikats aus. Eine größere Schlüssellänge bietet in der Regel eine höhere Sicherheitsstufe. Einige Anwendungen haben jedoch möglicherweise Einschränkungen hinsichtlich der Schlüssellänge. | Jede gültige Schlüssellänge, die vom Kryptografiedienstanbieter unterstützt wird. | `KeyLength = 2048` |
 | KeySpec | Bestimmt, ob der Schlüssel für Signaturen, für Exchange (Verschlüsselung) oder für beides verwendet werden kann. | `AT_NONE, AT_SIGNATURE, AT_KEYEXCHANGE` | `KeySpec = AT_KEYEXCHANGE` |
 | Endeinheits Zertifikaten der | Definiert, wofür der Zertifikat Schlüssel verwendet werden soll. | <ul><li>`CERT_DIGITAL_SIGNATURE_KEY_USAGE -- 80 (128)`</li><li>`CERT_NON_REPUDIATION_KEY_USAGE -- 40 (64)`</li><li>`CERT_KEY_ENCIPHERMENT_KEY_USAGE -- 20 (32)`</li><li>`CERT_DATA_ENCIPHERMENT_KEY_USAGE -- 10 (16)`</li><li>`CERT_KEY_AGREEMENT_KEY_USAGE -- 8`</li><li>`CERT_KEY_CERT_SIGN_KEY_USAGE -- 4`</li><li>`CERT_OFFLINE_CRL_SIGN_KEY_USAGE -- 2`</li><li>`CERT_CRL_SIGN_KEY_USAGE -- 2`</li><li>`CERT_ENCIPHER_ONLY_KEY_USAGE -- 1`</li><li>`CERT_DECIPHER_ONLY_KEY_USAGE -- 8000 (32768)`</li></ul> | `KeyUsage = CERT_DIGITAL_SIGNATURE_KEY_USAGE | CERT_KEY_ENCIPHERMENT_KEY_USAGE`<p>**Tipp:** Mehrere Werte verwenden eine Pipe (|) Symbol Trennzeichen. Stellen Sie sicher, dass Sie doppelte Anführungszeichen verwenden, wenn Sie mehrere Werte verwenden, um INF-Probleme zu vermeiden. Die angezeigten Werte sind hexadezimale Werte (Dezimalwerte) für jede bitdefinition. Ältere Syntax kann auch verwendet werden: ein einzelner Hexadezimalwert mit mehreren Bits, der anstelle der symbolischen Darstellung festgelegt ist. Beispiel: `KeyUsage = 0xa0`. |
 | Keyusageproperty | Ruft einen Wert ab, der den spezifischen Zweck angibt, für den ein privater Schlüssel verwendet werden kann. | <ul><li>`NCRYPT_ALLOW_DECRYPT_FLAG -- 1`</li><li>`NCRYPT_ALLOW_SIGNING_FLAG -- 2`</li><li>`NCRYPT_ALLOW_KEY_AGREEMENT_FLAG -- 4`</li><li>`NCRYPT_ALLOW_ALL_USAGES -- ffffff (16777215)`</li></ul> | `KeyUsageProperty = NCRYPT_ALLOW_DECRYPT_FLAG | NCRYPT_ALLOW_SIGNING_FLAG` |
 | Machinekeyset | Dieser Schlüssel ist wichtig, wenn Sie Zertifikate erstellen müssen, die sich im Besitz des Computers befinden, nicht für einen Benutzer. Das Schlüsselmaterial, das generiert wird, wird im Sicherheitskontext des Sicherheits Prinzipals (Benutzer-oder Computer Konto) verwaltet, von dem die Anforderung erstellt wurde. Wenn ein Administrator im Auftrag eines Computers eine Zertifikat Anforderung erstellt, muss das Schlüsselmaterial im Sicherheitskontext des Computers und nicht im Sicherheitskontext des Administrators erstellt werden. Andernfalls konnte der Computer nicht auf den privaten Schlüssel zugreifen, da er sich im Sicherheitskontext des Administrators befinden würde. | `true | false`. Die Standardeinstellung ist „false“. | `MachineKeySet = true` |
-| NotBefore | Gibt ein Datum oder ein Datum und eine Uhrzeit an, bevor die Anforderung nicht ausgegeben werden kann. `NotBefore`kann mit `ValidityPeriod` und `ValidityPeriodUnits`verwendet werden. | Datum oder Datum und Uhrzeit | `NotBefore = 7/24/2012 10:31 AM`<p>**Tipp:** `NotBefore` und `NotAfter` sind nur für`equestType=cert` R vorgesehen. Beim Auswerten von Datumsangaben wird Gebiets Schema unterschieden. Die Verwendung von Monatsnamen wird unterschieden und sollte in jedem Gebiets Schema funktionieren. |
-| NotAfter | Gibt ein Datum oder ein Datum und eine Uhrzeit an, nach der die Anforderung nicht mehr ausgegeben werden kann. `NotAfter`kann nicht mit `ValidityPeriod` oder `ValidityPeriodUnits`verwendet werden. | Datum oder Datum und Uhrzeit | `NotAfter = 9/23/2014 10:31 AM`<p>**Tipp:** `NotBefore` und `NotAfter` sind nur `RequestType=cert` für. Beim Auswerten von Datumsangaben wird Gebiets Schema unterschieden. Die Verwendung von Monatsnamen wird unterschieden und sollte in jedem Gebiets Schema funktionieren. |
+| NotBefore | Gibt ein Datum oder ein Datum und eine Uhrzeit an, bevor die Anforderung nicht ausgegeben werden kann. `NotBefore`kann mit und verwendet `ValidityPeriod` werden `ValidityPeriodUnits` . | Datum oder Datum und Uhrzeit | `NotBefore = 7/24/2012 10:31 AM`<p>**Tipp:** `NotBefore` und `NotAfter` sind nur für R vorgesehen `equestType=cert` . Beim Auswerten von Datumsangaben wird Gebiets Schema unterschieden. Die Verwendung von Monatsnamen wird unterschieden und sollte in jedem Gebiets Schema funktionieren. |
+| NotAfter | Gibt ein Datum oder ein Datum und eine Uhrzeit an, nach der die Anforderung nicht mehr ausgegeben werden kann. `NotAfter`kann nicht mit oder verwendet werden `ValidityPeriod` `ValidityPeriodUnits` . | Datum oder Datum und Uhrzeit | `NotAfter = 9/23/2014 10:31 AM`<p>**Tipp:** `NotBefore` und `NotAfter` sind `RequestType=cert` nur für. Beim Auswerten von Datumsangaben wird Gebiets Schema unterschieden. Die Verwendung von Monatsnamen wird unterschieden und sollte in jedem Gebiets Schema funktionieren. |
 | Privatekeyarchive | Die privatekeyarchive-Einstellung kann nur verwendet werden, wenn der entsprechende RequestType auf "CMC" festgelegt ist, da nur das Anforderungs Format "Certificate Management messages over CMS (CMC)" die sichere Übertragung des privaten Schlüssels des Anforderers an die Zertifizierungsstelle für die Schlüssel Archivierung ermöglicht. | `true | false` | `PrivateKeyArchive = true` |
-| EncryptionAlgorithm | Der zu verwendende Verschlüsselungsalgorithmus. | Mögliche Optionen sind abhängig von der Betriebssystemversion und dem Satz installierter Kryptografieanbieter. Um die Liste der verfügbaren Algorithmen anzuzeigen, führen Sie den `certutil -oid 2 | findstr pwszCNGAlgid`folgenden Befehl aus:. Der angegebene CSP-verwendet muss auch den angegebenen symmetrischen Verschlüsselungsalgorithmus und die angegebene Länge unterstützen. | `EncryptionAlgorithm = 3des` |
+| EncryptionAlgorithm | Der zu verwendende Verschlüsselungsalgorithmus. | Mögliche Optionen sind abhängig von der Betriebssystemversion und dem Satz installierter Kryptografieanbieter. Um die Liste der verfügbaren Algorithmen anzuzeigen, führen Sie den folgenden Befehl aus: `certutil -oid 2 | findstr pwszCNGAlgid` . Der angegebene CSP-verwendet muss auch den angegebenen symmetrischen Verschlüsselungsalgorithmus und die angegebene Länge unterstützen. | `EncryptionAlgorithm = 3des` |
 | Verschlüsselungs Dauer | Die Länge des zu verwendenden Verschlüsselungsalgorithmus. | Jede vom angegebenen Verschlüsselungsalgorithmus zulässige Länge. | `EncryptionLength = 128` |
-| ProviderName | Der Anbieter Name ist der Anzeige Name des CSP. | Wenn Sie den Anbieter Namen des von Ihnen verwendeten CSP nicht kennen, führen `certutil –csplist` Sie den Befehl über die Befehlszeile aus. Mit dem Befehl werden die Namen aller CSPs angezeigt, die auf dem lokalen System verfügbar sind. | `ProviderName = Microsoft RSA SChannel Cryptographic Provider` |
-| ProviderType | Der Anbietertyp wird verwendet, um bestimmte Anbieter basierend auf einer bestimmten algorithmusfunktion, z. b. RSA Full, auszuwählen. | Wenn Sie den Anbietertyp des verwendeten CSP nicht kennen, führen `certutil –csplist` Sie an einer Eingabeaufforderung aus. Der Befehl zeigt den Anbietertyp aller CSPs an, die auf dem lokalen System verfügbar sind. | `ProviderType = 1` |
-| Erneuerungs Zertifikat | Wenn Sie ein Zertifikat erneuern müssen, das auf dem System vorhanden ist, auf dem die Zertifikat Anforderung generiert wird, müssen Sie den Zertifikat Hash als Wert für diesen Schlüssel angeben. | Der Zertifikat Hash eines beliebigen Zertifikats, das auf dem Computer verfügbar ist, auf dem die Zertifikat Anforderung erstellt wurde. Wenn Sie den Zertifikat Hash nicht kennen, verwenden Sie das MMC-Snap-in "Zertifikate", und überprüfen Sie das Zertifikat, das erneuert werden soll. Öffnen Sie die Zertifikat Eigenschaften, und `Thumbprint` sehen Sie sich das-Attribut des Zertifikats an. Für die Zertifikat Erneuerung ist `PKCS#7` entweder ein `CMC` -oder ein-Anforderungs Format erforderlich. | `RenewalCert = 4EDF274BD2919C6E9EC6A522F0F3B153E9B1582D` |
-| RequesterName | Fordert die Registrierung für eine andere Benutzer Anforderung an. Die Anforderung muss auch mit einem Registrierungs-Agent-Zertifikat signiert werden, oder die Zertifizierungsstelle lehnt die Anforderung ab. Verwenden Sie `-cert` die Option, um das Registrierungs-Agent-Zertifikat anzugeben. Der Anforderer Name kann für Zertifikat Anforderungen angegeben werden, `RequestType` wenn auf `PKCS#7` oder `CMC`festgelegt ist. Wenn auf `RequestType` `PKCS#10`festgelegt ist, wird dieser Schlüssel ignoriert. Der `Requestername` kann nur als Teil der Anforderung festgelegt werden. Sie können `Requestername` in einer ausstehenden Anforderung nicht bearbeiten. | `Domain\User` | `Requestername = Contoso\BSmith` |
+| ProviderName | Der Anbieter Name ist der Anzeige Name des CSP. | Wenn Sie den Anbieter Namen des von Ihnen verwendeten CSP nicht kennen, führen Sie den Befehl über die `certutil –csplist` Befehlszeile aus. Mit dem Befehl werden die Namen aller CSPs angezeigt, die auf dem lokalen System verfügbar sind. | `ProviderName = Microsoft RSA SChannel Cryptographic Provider` |
+| ProviderType | Der Anbietertyp wird verwendet, um bestimmte Anbieter basierend auf einer bestimmten algorithmusfunktion, z. b. RSA Full, auszuwählen. | Wenn Sie den Anbietertyp des verwendeten CSP nicht kennen, führen Sie `certutil –csplist` an einer Eingabeaufforderung aus. Der Befehl zeigt den Anbietertyp aller CSPs an, die auf dem lokalen System verfügbar sind. | `ProviderType = 1` |
+| Erneuerungs Zertifikat | Wenn Sie ein Zertifikat erneuern müssen, das auf dem System vorhanden ist, auf dem die Zertifikat Anforderung generiert wird, müssen Sie den Zertifikat Hash als Wert für diesen Schlüssel angeben. | Der Zertifikat Hash eines beliebigen Zertifikats, das auf dem Computer verfügbar ist, auf dem die Zertifikat Anforderung erstellt wurde. Wenn Sie den Zertifikat Hash nicht kennen, verwenden Sie das MMC-Snap-in "Zertifikate", und überprüfen Sie das Zertifikat, das erneuert werden soll. Öffnen Sie die Zertifikat Eigenschaften, und sehen Sie sich das- `Thumbprint` Attribut des Zertifikats an. Für die Zertifikat Erneuerung ist entweder ein- `PKCS#7` oder ein- `CMC` Anforderungs Format erforderlich. | `RenewalCert = 4EDF274BD2919C6E9EC6A522F0F3B153E9B1582D` |
+| RequesterName | Fordert die Registrierung für eine andere Benutzer Anforderung an. Die Anforderung muss auch mit einem Registrierungs-Agent-Zertifikat signiert werden, oder die Zertifizierungsstelle lehnt die Anforderung ab. Verwenden `-cert` Sie die Option, um das Registrierungs-Agent-Zertifikat anzugeben. Der Anforderer Name kann für Zertifikat Anforderungen angegeben werden `RequestType` , wenn auf oder festgelegt ist `PKCS#7` `CMC` . Wenn `RequestType` auf festgelegt ist `PKCS#10` , wird dieser Schlüssel ignoriert. Der `Requestername` kann nur als Teil der Anforderung festgelegt werden. Sie können `Requestername` in einer ausstehenden Anforderung nicht bearbeiten. | `Domain\User` | `Requestername = Contoso\BSmith` |
 | RequestType | Bestimmt den Standard, der verwendet wird, um die Zertifikat Anforderung zu generieren und zu senden. | <ul><li>`PKCS10 -- 1`</li><li>`PKCS7 -- 2`</li><li>`CMC -- 3`</li><li>`Cert -- 4`</li><li>`SCEP -- fd00 (64768)`</li></ul>**Tipp:** Mit dieser Option wird ein selbst signiertes oder selbst ausgestelltes Zertifikat angegeben. Es wird keine Anforderung, sondern ein neues Zertifikat generiert, und das Zertifikat wird installiert. Der Standardwert ist selbst signiert. Geben Sie ein Signaturzertifikat an, indem Sie die Option – CERT verwenden, um ein selbst ausgestelltes Zertifikat zu erstellen, das nicht selbst signiert ist. | `RequestType = CMC` |
 | SecurityDescriptor | Enthält die Sicherheitsinformationen, die Sicherungs fähigen Objekten zugeordnet sind. Bei den meisten Sicherungs fähigen Objekten können Sie die Sicherheits Beschreibung eines Objekts im Funktionsaufruf angeben, von dem das Objekt erstellt wird. Zeichen folgen, die auf der [Sicherheits Deskriptor-Definitions Sprache](https://msdn.microsoft.com/library/aa379567(v=vs.85).aspx)basieren.<p>**Tipp:** Dies ist nur für Computer Kontext-nicht-Smartcardschlüssel relevant. | `SecurityDescriptor = D:P(A;;GA;;;SY)(A;;GA;;;BA)` |
-| AlternateSignatureAlgorithm | Gibt einen booleschen Wert an, der angibt, ob der Signatur Algorithmus-Objekt Bezeichner (OID) für eine PKCS # 10-Anforderung oder Zertifikat Signatur diskret oder kombiniert ist, oder ruft diesen ab. | `true | false` | `AlternateSignatureAlgorithm = false`<p>`false` Gibt für eine RSA-Signatur eine `Pkcs1 v1.5`an, `true` während eine `v2.1` Signatur angibt. |
+| AlternateSignatureAlgorithm | Gibt einen booleschen Wert an, der angibt, ob der Signatur Algorithmus-Objekt Bezeichner (OID) für eine PKCS # 10-Anforderung oder Zertifikat Signatur diskret oder kombiniert ist, oder ruft diesen ab. | `true | false` | `AlternateSignatureAlgorithm = false`<p>Gibt für eine RSA-Signatur `false` eine an `Pkcs1 v1.5` , während `true` eine `v2.1` Signatur angibt. |
 | Automatisch | Standardmäßig ermöglicht diese Option dem CSP-Zugriff auf den interaktiven Benutzer Desktop und das Anfordern von Informationen, z. b. eine Smartcard-PIN vom Benutzer. Wenn dieser Schlüssel auf true festgelegt ist, darf der CSP nicht mit dem Desktop interagieren und wird daran gehindert, eine Benutzeroberfläche für den Benutzer anzuzeigen. | `true | false` | `Silent = true` |
 | SMIME | Wenn dieser Parameter auf true festgelegt ist, wird der Anforderung eine Erweiterung mit dem Objektbezeichnerwert 1.2.840.113549.1.9.15 hinzugefügt. Die Anzahl der Objekt Bezeichner hängt von der installierten Betriebssystemversion und der CSP-Funktion ab, die auf symmetrische Verschlüsselungsalgorithmen verweisen, die möglicherweise von Secure Multipurpose Internet Mail Extensions (S/MIME)-Anwendungen wie Outlook verwendet werden. | `true | false` | `SMIME = true` |
 | Useexistingkeyset | Dieser Parameter wird verwendet, um anzugeben, dass ein vorhandenes Schlüsselpaar beim Aufbau einer Zertifikat Anforderung verwendet werden soll. Wenn dieser Schlüssel auf true festgelegt ist, müssen Sie auch einen Wert für den renewalcert-Schlüssel oder den keycontainer-Namen angeben. Der exportierbare Schlüssel darf nicht festgelegt werden, da Sie die Eigenschaften eines vorhandenen Schlüssels nicht ändern können. In diesem Fall wird kein Schlüsselmaterial generiert, wenn die Zertifikat Anforderung erstellt wird. | `true | false` | `UseExistingKeySet = true` |
 | Keyprotection | Gibt einen Wert an, der angibt, wie ein privater Schlüssel vor der Verwendung geschützt wird. | <ul><li>`XCN_NCRYPT_UI_NO_PROTCTION_FLAG -- 0`</li><li>`XCN_NCRYPT_UI_PROTECT_KEY_FLAG -- 1`</li><li>`XCN_NCRYPT_UI_FORCE_HIGH_PROTECTION_FLAG -- 2`</li></ul> | `KeyProtection = NCRYPT_UI_FORCE_HIGH_PROTECTION_FLAG` |
 | Suppressdefaults | Gibt einen booleschen Wert an, der angibt, ob die Standard Erweiterungen und Attribute in der Anforderung enthalten sind. Die Standardwerte werden durch ihre Objekt-IDs (OIDs) dargestellt. | `true | false` | `SuppressDefaults = true` |
 | FriendlyName | Ein Anzeige Name für das neue Zertifikat. | Text | `FriendlyName = Server1` |
-| ValidityPeriodUnits | Gibt eine Anzahl von Einheiten an, die mit ValidityPeriod verwendet werden sollen. Hinweis: Dies wird nur bei der `request type=cert`Verwendung von verwendet. | Numeric | `ValidityPeriodUnits = 3` |
+| ValidityPeriodUnits | Gibt eine Anzahl von Einheiten an, die mit ValidityPeriod verwendet werden sollen. Hinweis: Dies wird nur bei der Verwendung von verwendet `request type=cert` . | Numeric | `ValidityPeriodUnits = 3` |
 | ValidityPeriod | ValidityPeriod muss ein US-Englisch-Plural-Zeitraum sein. Hinweis: Dies wird nur verwendet, wenn der Request Type = CERT lautet. | `Years |  Months | Weeks | Days | Hours | Minutes | Seconds` | `ValidityPeriod = Years` |
 
 <sup>1</sup> -Parameter auf der linken Seite des Gleichheitszeichens (=)
@@ -174,7 +174,7 @@ Dieser Abschnitt ist optional.
 > [!NOTE]
 > `SubjectNameFlags`ermöglicht der INF- **Datei, anzugeben, welche Antrags** Teller-und **Subjektname** -Erweiterungs Felder von Certreq automatisch aufgefüllt werden sollen, basierend auf den Eigenschaften des aktuellen Benutzers oder der aktuellen Computer: DNS-Name, UPN usw. Die Verwendung der literalvorlage bedeutet, dass stattdessen die Vorlagen Namen-Flags verwendet werden. Dadurch kann eine einzelne INF-Datei in mehreren Kontexten verwendet werden, um Anforderungen mit kontextspezifischen Betreffinformationen zu generieren.
 >
-> `X500NameFlags`Gibt die Flags an, die direkt an `CertStrToName` die API über `Subject INF keys` mittelt werden sollen, wenn der Wert in einen ASN. 1-codierten Distinguished **Name**konvertiert wird.
+> `X500NameFlags`Gibt die Flags an, die direkt an die API übermittelt werden sollen, `CertStrToName` Wenn der `Subject INF keys` Wert in einen ASN. 1-codierten Distinguished **Name**konvertiert wird.
 
 #### <a name="example"></a>Beispiel
 
@@ -232,7 +232,7 @@ certreq -accept certnew.cer
 ```
 
 > [!WARNING]
-> Die Verwendung `-accept` des-para `-user` meters `–machine` mit den Optionen und gibt an, ob das Installations Zertifikat im **Benutzer** -oder **Computer** Kontext installiert werden soll. Wenn eine ausstehende Anforderung in einem der beiden Kontext vorhanden ist, die mit dem installierten öffentlichen Schlüssel übereinstimmt, sind diese Optionen nicht erforderlich. Wenn keine ausstehende Anforderung vorhanden ist, muss eine dieser Angaben angegeben werden.
+> Die Verwendung des `-accept` -Parameters mit den `-user` `–machine` Optionen und gibt an, ob das Installations Zertifikat im **Benutzer** -oder **Computer** Kontext installiert werden soll. Wenn eine ausstehende Anforderung in einem der beiden Kontext vorhanden ist, die mit dem installierten öffentlichen Schlüssel übereinstimmt, sind diese Optionen nicht erforderlich. Wenn keine ausstehende Anforderung vorhanden ist, muss eine dieser Angaben angegeben werden.
 
 ### <a name="certreq--policy"></a>Certreq: Richtlinie
 
@@ -260,9 +260,9 @@ certreq -sign myrequest.req myrequest.req
 certreq -submit myrequest_sign.req myrequest_cert.cer
 ```
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
-- Wenn `certreq -sign` Sie ohne zusätzlichen Parameter verwenden, wird ein Dialogfenster geöffnet, in dem Sie die angeforderte Datei (req, CMC, txt, der, CER oder CRT) auswählen können.
+- Wenn Sie `certreq -sign` ohne zusätzlichen Parameter verwenden, wird ein Dialogfenster geöffnet, in dem Sie die angeforderte Datei (req, CMC, txt, der, CER oder CRT) auswählen können.
 
 - Das Signieren der qualifizierten Unterordnung erfordert möglicherweise **Unternehmens Administrator** -Anmelde Informationen. Dies ist eine bewährte Vorgehensweise zum Ausstellen von Signatur Zertifikaten für die qualifizierte Unterordnung.
 
@@ -292,23 +292,23 @@ certreq –enroll -machine –cert 61 2d 3c fe 00 00 00 00 00 05 renew
 
 Sie können nur gültige Zertifikate erneuern. Abgelaufene Zertifikate können nicht erneuert werden und müssen durch ein neues Zertifikat ersetzt werden.
 
-## <a name="options"></a>Tastatur
+## <a name="options"></a>Optionen
 
-| Tastatur | BESCHREIBUNG |
+| Optionen | Beschreibung |
 | ------- | ----------- |
 | -beliebig | `Force ICertRequest::Submit`um den Codierungstyp zu bestimmen.|
-| -atungb`<attributestring>` | Gibt die **Name** - **Wert** -Zeichen folgen Paare an, getrennt durch einen Doppelpunkt.<p>Getrennte **Name** - **Wert** -Zeichen folgen `\n` Paare mit (z. b. Name1: value1\nName2: Value2). |
+| -atungb`<attributestring>` | Gibt die **Name** - **Wert** -Zeichen folgen Paare an, getrennt durch einen Doppelpunkt.<p>Getrennte **Name** - **Wert** -Zeichen folgen Paare mit `\n` (z. b. Name1: value1\nName2: Value2). |
 | -Binary | Formatiert Ausgabedateien als Binärdaten anstelle von Base64-codiert. |
-| -policyserver`<policyserver>` | standardi`<path>`<br>Fügen Sie den URI oder die eindeutige ID für einen Computer ein, auf dem der Zertifikat Registrierungsrichtlinien-Webdienst ausgeführt wird.<p>Um anzugeben, dass Sie eine Anforderungs Datei beim Durchsuchen verwenden möchten, verwenden Sie einfach ein Minuszeichen (-) `<policyserver>`für. |
-| -config`<ConfigString>` | Verarbeitet den Vorgang mit der in der Konfigurations Zeichenfolge angegebenen Zertifizierungsstelle ( **cahostname\caname**). Geben Sie für HTTPS\\: \ Connection den Registrierungs Server-URI an. Verwenden Sie für die lokale Computerspeicher Zertifizierungsstelle ein Minuszeichen (-). |
+| -policyserver`<policyserver>` | standardi`<path>`<br>Fügen Sie den URI oder die eindeutige ID für einen Computer ein, auf dem der Zertifikat Registrierungsrichtlinien-Webdienst ausgeführt wird.<p>Um anzugeben, dass Sie eine Anforderungs Datei beim Durchsuchen verwenden möchten, verwenden Sie einfach ein Minuszeichen (-) für `<policyserver>` . |
+| -config`<ConfigString>` | Verarbeitet den Vorgang mit der in der Konfigurations Zeichenfolge angegebenen Zertifizierungsstelle ( **cahostname\caname**). Geben Sie für https: \\ \ Connection den Registrierungs Server-URI an. Verwenden Sie für die lokale Computerspeicher Zertifizierungsstelle ein Minuszeichen (-). |
 | -Anonym | Verwenden Sie anonyme Anmelde Informationen für Zertifikatregistrierungs-Webdienste. |
 | -Kerberos | Verwenden Sie die Kerberos-Anmelde Informationen (Domäne) für Zertifikatregistrierungs-Webdienste. |
-| -ClientCertificate`<ClientCertId>` | Sie können den `<ClientCertId>` durch einen Zertifikat Fingerabdruck, CN, EKU, Template, Email, UPN oder die neue `name=value` Syntax ersetzen. |
-| -username`<username>` | Wird mit Zertifikatregistrierungs-Webdiensten verwendet. Sie können durch `<username>` den SAM-Namen oder den Wert von " **Domäne \ Benutzer** " ersetzen. Diese Option ist für die Verwendung mit `-p` der Option vorgesehen. |
-| -p`<password>` | Wird mit Zertifikatregistrierungs-Webdiensten verwendet. Ersetzen `<password>` Sie durch das tatsächliche Kennwort des Benutzers. Diese Option ist für die Verwendung mit `-username` der Option vorgesehen. |
+| -ClientCertificate`<ClientCertId>` | Sie können den `<ClientCertId>` durch einen Zertifikat Fingerabdruck, CN, EKU, Template, Email, UPN oder die neue Syntax ersetzen `name=value` . |
+| -username`<username>` | Wird mit Zertifikatregistrierungs-Webdiensten verwendet. Sie können `<username>` durch den SAM-Namen oder den Wert von " **Domäne \ Benutzer** " ersetzen. Diese Option ist für die Verwendung mit der `-p` Option vorgesehen. |
+| -p`<password>` | Wird mit Zertifikatregistrierungs-Webdiensten verwendet. Ersetzen Sie `<password>` durch das tatsächliche Kennwort des Benutzers. Diese Option ist für die Verwendung mit der `-username` Option vorgesehen. |
 | -Benutzer | Konfiguriert den `-user` Kontext für eine neue Zertifikat Anforderung oder gibt den Kontext für eine Zertifikat Annahme an. Dies ist der Standardkontext, wenn kein Wert in der INF-oder-Vorlage angegeben ist. |
 | -Computer | Konfiguriert eine neue Zertifikat Anforderung oder gibt den Kontext für eine Zertifikat Annahme für den Computer Kontext an. Bei neuen Anforderungen muss Sie mit dem machinekeyset-INF-Schlüssel und dem Vorlagen Kontext konsistent sein. Wenn diese Option nicht festgelegt ist und die Vorlage keinen Kontext festgelegt, ist der Standardwert der Benutzer Kontext. |
-| -CRL | Schließt Zertifikat Sperr Listen (CRLs) in der Ausgabe an die Base64-codierten PKCS-#7 Datei `certchainfileout` , die durch angegeben wird, oder in die `requestfileout`Base64-codierte Datei ein, die durch angegeben wird. |
+| -CRL | Schließt Zertifikat Sperr Listen (CRLs) in der Ausgabe an die Base64-codierten PKCS-#7 Datei, die durch angegeben wird `certchainfileout` , oder in die Base64-codierte Datei ein, die durch angegeben wird `requestfileout` . |
 | -RPC | Weist Active Directory Zertifikat Dienste (AD CS) an, anstelle von verteiltem com eine RPC-Server Verbindung (Remote Procedure Aufruf) zu verwenden. |
 | -adminforcemachine | Verwenden Sie den Schlüsseldienst oder den Identitätswechsel, um die Anforderung aus dem lokalen System Kontext zu übermitteln. Erfordert, dass der Benutzer, der diese Option aufruft, ein Mitglied der lokalen Administratoren ist. |
 | -renewonbehalfof | Übermitteln Sie eine Verlängerung für den Antragsteller, der im Signaturzertifikat identifiziert wird. Dies legt CR_IN_ROBO fest, wenn die [ICertRequest:: Submit-Methode](https://docs.microsoft.com/windows/win32/api/certcli/nf-certcli-icertrequest-submit) aufgerufen wird. |
@@ -319,15 +319,15 @@ Sie können nur gültige Zertifikate erneuern. Abgelaufene Zertifikate können n
 
 ## <a name="formats"></a>Formate
 
-| Formate | BESCHREIBUNG |
+| Formate | Beschreibung |
 | ------- | ----------- |
 | RequestFileIn | Base64-codierter oder binärer Eingabe Dateiname: PKCS #10 Zertifikat Anforderung, CMS-Zertifikat Anforderung, PKCS #7 Zertifikat Erneuerungs Anforderung, X. 509-Zertifikat für eine Kreuz Zertifizierung oder eine Zertifikat Anforderung im KeyGen-Tagformat. |
 | RequestFileOut | Name der Base64-codierten Ausgabedatei. |
 | CertFileOut | Base64-codierter X-509-Dateiname. |
-| PKCS10fileout | Nur für die Verwendung `certreq -policy` mit dem-Parameter. Base64-codierter PKCS10-Ausgabe Dateiname. |
+| PKCS10fileout | Nur für die Verwendung mit dem- `certreq -policy` Parameter. Base64-codierter PKCS10-Ausgabe Dateiname. |
 | certchainfinileout | Base64-codierter PKCS-#7 Dateiname. |
 | fullresponse FileOut | Base64-codierter vollständiger Antwort Dateiname. |
-| PolicyFileIn | Nur für die Verwendung `certreq -policy` mit dem-Parameter. INF-Datei, die eine Textdarstellung der Erweiterungen enthält, die zum qualifizieren einer Anforderung verwendet werden. |
+| PolicyFileIn | Nur für die Verwendung mit dem- `certreq -policy` Parameter. INF-Datei, die eine Textdarstellung der Erweiterungen enthält, die zum qualifizieren einer Anforderung verwendet werden. |
 
 ## <a name="additional-resources"></a>Weitere Ressourcen
 
@@ -337,7 +337,7 @@ Die folgenden Artikel enthalten Beispiele für die Verwendung von Certreq:
 
 - [Test Lab Guide: Deploying an AD CS Two-Tier PKI Hierarchy](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831348(v=ws.11))
 
-- [Anhang 3: Syntax von "Certreq. exe"](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc736326(v=ws.10))
+- [Anhang 3: Certreq.exe Syntax](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc736326(v=ws.10))
 
 - [Manuelles Erstellen eines Webserver-SSL-Zertifikats](https://techcommunity.microsoft.com/t5/core-infrastructure-and-security/how-to-create-a-web-server-ssl-certificate-manually/ba-p/1128529)
 

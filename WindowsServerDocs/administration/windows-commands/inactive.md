@@ -1,6 +1,6 @@
 ---
 title: inactive
-description: Referenz Thema für den inaktiven Befehl, der die Systempartition oder Start Partition mit dem Fokus auf grundlegenden Master Boot Record-Datenträgern (MBR) als inaktiv markiert.
+description: Referenz Artikel für den inaktiven Befehl, der die Systempartition oder Start Partition mit dem Fokus als inaktiv auf grundlegenden Master Boot Record (MBR) kennzeichnet.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9861a54c284002e53b0a8fc354aa883d80fff0e7
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: db7d279577b8120137b4397551a480ea2d2a0e8a
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83818440"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85924417"
 ---
 # <a name="inactive"></a>inactive
 
@@ -39,7 +39,7 @@ inactive
 inactive
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

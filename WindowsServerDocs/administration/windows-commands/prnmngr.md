@@ -1,6 +1,6 @@
 ---
 title: prnmngr
-description: Referenz Thema für den prnmngr-Befehl, der Drucker oder Drucker Verbindungen hinzufügt, löscht und auflistet, zusätzlich zum Festlegen und Anzeigen des Standard Druckers.
+description: Referenz Artikel zum prnmngr-Befehl, der Drucker oder Drucker Verbindungen hinzufügt, löscht und auflistet, zusätzlich zum Festlegen und Anzeigen des Standard Druckers.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 1ccc04e7e040612d9243fe1e3f5ed67b8131ab9d
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 562d25a95fa3ccd556b65d0a29b866557c842c55
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85472215"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85924178"
 ---
 # <a name="prnmngr"></a>prnmngr
 
@@ -31,7 +31,7 @@ cscript prnmngr {-a | -d | -x | -g | -t | -l | -?}[c] [-s <Servername>] [-p <Pri
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 |--|--|
 | -a | Fügt eine lokale Druckerverbindung hinzu. |
 | -d | Löscht eine Druckerverbindung. |
@@ -65,7 +65,7 @@ Geben Sie Folgendes ein, um den Drucker mit dem Namen colorprinter_2 vom Remote 
 cscript prnmngr -d -s HRServer -p colorprinter_2
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

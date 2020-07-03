@@ -1,6 +1,6 @@
 ---
 title: nslookup
-description: Referenz Thema für den Befehl "nslookup", in dem Informationen angezeigt werden, die Sie zur Diagnose Domain Name System (DNS)-Infrastruktur verwenden können.
+description: Referenz Artikel für den Befehl "nslookup", in dem Informationen angezeigt werden, die Sie verwenden können, um die DNS-Infrastruktur (Domain Name System) zu diagnostizieren.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 589b8dd5e1244a5aeb27f33b4985f07b776bc7bd
-ms.sourcegitcommit: 99d548141428c964facf666c10b6709d80fbb215
+ms.openlocfilehash: 87f973349426016b6d62bd1f018f268d4e873c51
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84721153"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85925386"
 ---
 # <a name="nslookup"></a>nslookup
 
@@ -90,6 +90,6 @@ nslookup [exit | finger | help | ls | lserver | root | server | set | view] [opt
   | Verweigerte | Der DNS-Namen Server hat die Anforderung der Anforderung verweigert. |
   | Formatierungs Fehler | Der DNS-Namen Server hat festgestellt, dass das Anforderungspaket nicht im richtigen Format vorliegt. Dies kann auf einen Fehler in **nslookup**hindeuten. |
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

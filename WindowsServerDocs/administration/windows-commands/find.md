@@ -1,6 +1,6 @@
 ---
 title: Suchen
-description: Referenz Thema für den Find-Befehl, der nach einer Text Zeichenfolge in Dateien sucht und die angegebene Text Zeichenfolge in der Datei anzeigt.
+description: Referenz Artikel für den Find-Befehl, der nach einer Text Zeichenfolge in Dateien sucht und die angegebene Text Zeichenfolge in der Datei anzeigt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0273405ce5e5b4958a347cd1eaddee0a38897f0c
-ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
+ms.openlocfilehash: 8ebebcd29faad50aec84dd464ff0f745d2ddf52c
+ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2020
-ms.locfileid: "83437005"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85925257"
 ---
 # <a name="find"></a>Suchen
 
@@ -63,7 +63,7 @@ Geben Sie Folgendes ein, um alle Zeilen aus *Pencil.AD* anzuzeigen, die den zeic
 find pencil sharpener pencil.ad
 ```
 
-Um den Text zu finden, "die Analysten haben das jeweilige Papier zur Diskussion geführt. Es handelt sich nicht um einen abschließenden Bericht. " Geben Sie in der Datei " *Report. doc* " Folgendes ein:
+Um den Text zu finden, "die Analysten haben das jeweilige Papier zur Diskussion geführt. Es handelt sich nicht um einen abschließenden Bericht. " Geben Sie in der *report.doc* -Datei Folgendes ein:
 
 ```
 find ""The scientists labeled their paper for discussion only. It is not a final report."" report.doc
@@ -83,7 +83,7 @@ dir c:\ /s /b | find CPU
 
 Da **bei** Such Suchvorgängen die Groß-/Kleinschreibung beachtet wird und **dir** die Großbuchstaben Ausgabe erzeugt, müssen Sie entweder die Zeichen folgen-CPU in Großbuchstaben eingeben oder die Befehlszeilenoption **/i** with **Find**verwenden.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
