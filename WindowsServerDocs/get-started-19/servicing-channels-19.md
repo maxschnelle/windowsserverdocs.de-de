@@ -8,12 +8,12 @@ author: jasongerend
 ms.author: jgerend
 ms.localizationpriority: high
 ms.date: 05/21/2019
-ms.openlocfilehash: a4b8f2f21a7d13c31d6c952a74d3026a750466ce
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 2bf56e69d1a28007c35c320d1d5cc73c2ba9fa53
+ms.sourcegitcommit: 643a9916efb95ad0bb5cc0a9b115ac29af4cb076
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85472916"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85586692"
 ---
 # <a name="windows-server-servicing-channels-ltsc-and-sac"></a>Windows Server-Wartungskanäle: LTSC und SAC
 
@@ -25,21 +25,21 @@ Sie können Server im Long-Term Servicing Channel (LTSC) belassen, sie in den ha
 
 ## <a name="long-term-servicing-channel-ltsc"></a>Long-Term Servicing Channel (LTSC)
 
-Sie sind mit diesem Releasemodell bereits vertraut (es wurde früher „Long-Term Servicing *Branch*“ genannt), in dem alle 2 bis 3 Jahre eine neue Hauptversion von Windows Server veröffentlicht wird. Benutzer haben Anspruch auf 5 Jahre Mainstreamsupport und 5 Jahre erweiterten Support. Dieser Kanal eignet sich für Systeme, die eine längere Wartungsoption und funktionale Stabilität erfordern. Bereitstellungen von Windows Server 2016 und frühere Versionen von Windows Server sind von den Releases im neuen Semi-Annual Channel nicht betroffen. Der Long-Term Servicing Channel erhält weiterhin sicherheitsrelevante und nicht sicherheitsrelevante Updates, jedoch keine neuen Features und Funktionen.
+Sie sind mit diesem Releasemodell bereits vertraut (es wurde früher „Long-Term Servicing *Branch*“ genannt), in dem alle 2 bis 3 Jahre eine neue Hauptversion von Windows Server veröffentlicht wird. Benutzer haben Anspruch auf 5 Jahre Mainstreamsupport und 5 Jahre erweiterten Support. Dieser Kanal eignet sich für Systeme, die eine längere Wartungsoption und funktionale Stabilität erfordern. Bereitstellungen von Windows Server 2019 und frühere Versionen von Windows Server sind von den Releases im neuen Semi-Annual Channel nicht betroffen. Der Long-Term Servicing Channel erhält weiterhin sicherheitsrelevante und nicht sicherheitsrelevante Updates, jedoch keine neuen Features und Funktionen.
 
 > [!Note]
 > **Das aktuelle LTSC-Produkt ist Windows Server 2019**. Wenn Sie diesen Kanal beibehalten möchten, sollten Sie Windows Server 2019 installieren (oder weiterhin nutzen), der im Server Core-Installationsmodus oder als Server mit der Desktopdarstellungs-Installationsoption installiert werden kann.
 
 ## <a name="semi-annual-channel"></a>Halbjährlicher Kanal
 
-Der halbjährliche Kanal wurde für Kunden konzipiert, die schnell Neuerungen einführen, um von neuen Betriebssystemfunktionen frühzeitig zu profitieren, sowohl in Anwendungen – insbesondere solchen, die auf Containern und Microservices basieren – als auch in hybriden, softwaredefinierten Rechenzentren. Für Windows Server-Produkte ‫im halbjährlichen Kanal werden zweimal im Jahr neue Versionen bereitgestellt, im Frühjahr und Herbst. Jede Version in diesen Kanal wird nach der ersten Veröffentlichung 18 Monate lang unterstützt.
+Der halbjährliche Kanal eignet sich hervorragend für Kunden, die schnell Neuerungen einführen, um von neuen Betriebssystemfunktionen frühzeitig zu profitieren – insbesondere in Containern und Microservices. Für Windows Server-Produkte ‫im halbjährlichen Kanal werden zweimal im Jahr neue Versionen bereitgestellt, im Frühjahr und Herbst. Jede Version in diesen Kanal wird nach der ersten Veröffentlichung 18 Monate lang unterstützt.
 
 Die meisten der im halbjährlichen Kanal eingeführten Features werden in der nächsten Long-Term Servicing Channel-Release von Windows Server zusammengefasst. Die Editionen, die Funktionen und die unterstützenden Inhalte können sich je nach Kundenfeedback von Release zu Release unterscheiden.
 
 Der halbjährliche Kanal steht Kunden mit Volumenlizenz mit [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default.aspx) zur Verfügung sowie über den Azure Marketplace oder andere Cloud/Hosting-Dienstanbieter und Treueprogramme wie z.B. Visual Studio-Abonnements.
 
-> [!Note]
-> **Die aktuelle Version des Semi-Annual Channel ist Windows Server, Version 1903**. Wenn Sie Server in diesen Kanal übertragen möchten, sollten Sie die Version 1903 von Windows Server installieren, die im Server Core-Modus oder als Nanoserver in einem Container installiert werden kann. Direkte Upgrades von einer Release aus dem Long-Term Servicing Channel werden nicht unterstützt, da sie sich in **verschiedenen Releasekanälen** befinden. Releases im halbjährlichen Kanal stellen keine Updates dar – bei ihnen handelt es sich um das nächste Release von Windows Server im halbjährlichen Kanal.
+> [!Note]  
+> **Die aktuelle Version des Semi-Annual Channel ist Windows Server, Version 1909**. Wenn Sie Server in diesen Kanal übertragen möchten, sollten Sie die Version 1909 von Windows Server installieren, die im Server Core-Modus oder als Nanoserver in einem Container installiert werden kann. Direkte Upgrades von einer Release aus dem Long-Term Servicing Channel werden nicht unterstützt, da sie sich in **verschiedenen Releasekanälen** befinden. Releases im halbjährlichen Kanal stellen keine Updates dar – bei ihnen handelt es sich um das nächste Release von Windows Server im halbjährlichen Kanal.
 
 In diesem neuen Modell werden Windows Server-Versionen je nach Jahr und Monat der Veröffentlichung gekennzeichnet: z.B. wird eine Version aus dem 9. Monat im Jahr 2017 (September) als **Version 1709** bezeichnet. Im halbjährlichen Kanal werden zweimal pro Jahr neue Versionen von Windows Server bereitgestellt. Der Supportlebenszyklus für jede Version beträgt 18 Monate.
 
@@ -47,8 +47,8 @@ In diesem neuen Modell werden Windows Server-Versionen je nach Jahr und Monat de
 
 Diese wichtigen Unterschiede sind zu berücksichtigen:
 
-- Müssen Sie schnell innovativ sein? Benötigen Sie frühzeitig Zugriff auf die neuesten Windows Server-Features? Müssen Sie in schneller Folge Hybrid-Anwendungen, Dev-Ops und Hyper-V-Fabrics unterstützen? Wenn ja, sollten Sie dem **Halbjährlichen Kanal beitreten**, indem Sie **Windows Server, Version 1903** installieren. Wie in diesem Thema beschrieben, erhalten Sie zweimal pro Jahr neue Versionen mit 18 Monaten Mainstream-Support für Produktionsumgebungen pro Release. Sie erhalten diese über Volumenlizenzierung, Azure oder Visual Studio-Abonnementdienste. Derzeit erfordern Versionen im halbjährlichen Kanal Volumenlizenzierung und Software Assurance, wenn Sie beabsichtigen, das Produkt in Produktionsumgebungen einzusetzen.
-- Benötigen Sie Stabilität und Vorhersagbarkeit? Müssen Sie virtuelle Computer und herkömmliche Workloads auf physischen Servern ausführen? Wenn ja, sollten Sie **diese Server im Long-Term Servicing Channel belassen**. Die aktuelle LTSC-Version ist **Windows Server 2019**. Wie in diesem Thema beschrieben, haben Sie alle 2 bis 3 Jahre Zugriff auf neue Versionen, mit 5 Jahren Mainstream-Support, auf die 5 Jahre erweiterter Support pro Version folgen. LTSC-Versionen stehen über alle Releasemechanismen zur Verfügung. Versionen im LTSC sind für alle Benutzer verfügbar, unabhängig vom verwendeten Lizenzierungsmodell.
+- Müssen Sie die neuen Technologien für DevOps, Container und Microservices steigern? Wenn ja, sollten Sie dem **Halbjährlichen Kanal beitreten**, indem Sie **Windows Server, Version 1909** installieren. Wie in diesem Thema beschrieben, erhalten Sie zweimal pro Jahr neue Versionen mit 18 Monaten Mainstream-Support für Produktionsumgebungen pro Release. Sie erhalten diese über Volumenlizenzierung, Azure oder Visual Studio-Abonnementdienste. Derzeit erfordern Versionen im halbjährlichen Kanal Volumenlizenzierung und Software Assurance, wenn Sie beabsichtigen, das Produkt in Produktionsumgebungen einzusetzen.
+- Benötigen Sie Stabilität und Vorhersagbarkeit? Müssen Sie virtuelle Computer und herkömmliche Workloads auf physischen Servern ausführen? Wenn ja, sollten Sie **diese Server im Long-Term Servicing Channel belassen**. Die aktuelle LTSC-Version ist **Windows Server 2019**. Wie in diesem Thema beschrieben, haben Sie alle 2 bis 3 Jahre Zugriff auf neue Versionen, mit 5 Jahren Mainstream-Support, auf die 5 Jahre erweiterter Support pro Version folgen. LTSC-Versionen stehen über alle Releasemechanismen zur Verfügung. Versionen im LTSC sind für alle Benutzer verfügbar, unabhängig vom verwendeten Lizenzierungsmodell. 
 
 In der folgenden Tabelle sind die wichtigsten Unterschiede zwischen den Kanälen zusammengefasst:
 
