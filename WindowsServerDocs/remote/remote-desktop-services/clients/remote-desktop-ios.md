@@ -10,12 +10,12 @@ manager: lizross
 ms.author: helohr
 date: 06/01/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 978c42b70f1c74a009640f7feda8dee7a82c9cff
-ms.sourcegitcommit: 75b4cf49dd918ff98258dcae6e6e8d7825c9adec
+ms.openlocfilehash: 4eae1c991b3ce418f95b6b47eda485845a336e2f
+ms.sourcegitcommit: 9a72fa784206a4b780d6d1d630ec6f21fecb8db3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84269234"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86052585"
 ---
 # <a name="get-started-with-the-ios-client"></a>Erste Schritte mit dem iOS-Client
 
@@ -167,7 +167,7 @@ Der Client verwendet Standardtouchgesten. Sie können auch Touchgesten verwenden
 | Mauszeiger | Klicken Sie mit der rechten Maustaste auf          | Mit zwei Fingern tippen                                              |
 | Mauszeiger | Rechtsklick und ziehen | Doppeltippen und mit zwei Fingern halten, dann ziehen                    |
 | Mauszeiger | Mausrad          | Doppeltippen und mit zwei Fingern halten, dann nach oben oder unten ziehen                |
-| Mauszeiger | Zoom                 | Zwei Finger zusammenführen, um die Ansicht zu vergrößern, oder auseinander bewegen, um sie zu verkleinern |
+| Mauszeiger | Zoom                 | Zwei Finger auseinander bewegen, um die Ansicht zu vergrößern, oder zusammenführen, um sie zu verkleinern |
 
 ## <a name="supported-input-devices"></a>Unterstützte Eingabegeräte
 
