@@ -1,5 +1,5 @@
 ---
-title: Bereitstellen von Grafik Geräten mithilfe von remotefx vgpu
+title: Bereitstellen von Grafikgeräten mit RemoteFX vGPU
 description: Erfahren Sie, wie Sie remotefx vgpu in Windows Server bereitstellen und konfigurieren.
 ms.prod: windows-server
 ms.reviewer: rickman
@@ -7,17 +7,20 @@ author: rick-man
 ms.author: rickman
 manager: stevelee
 ms.topic: article
-ms.date: 08/21/2019
-ms.openlocfilehash: 4ae185232ec39d92997929f8f916ff49caf26dcf
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.date: 07/14/2020
+ms.openlocfilehash: ab16dcdc8ce29f2440207ea5bbc7c421f171ed4a
+ms.sourcegitcommit: f81aa22739d818382d314561dece59a9341dfb6f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80310512"
+ms.lasthandoff: 07/15/2020
+ms.locfileid: "86390087"
 ---
-# <a name="deploy-graphics-devices-using-remotefx-vgpu"></a>Bereitstellen von Grafik Geräten mithilfe von remotefx vgpu
+# <a name="deploy-graphics-devices-using-remotefx-vgpu"></a>Bereitstellen von Grafikgeräten mit RemoteFX vGPU
 
 > Gilt für: Windows Server 2016, Microsoft Hyper-V Server 2016
+
+> [!NOTE]
+> Aus Sicherheitsgründen ist remotefx vgpu standardmäßig für alle Versionen von Windows ab dem 2020-Sicherheits Update vom 14. Juli deaktiviert. Weitere Informationen finden Sie in [KB 4570006](https://support.microsoft.com/help/4570006).
 
 Die vgpu-Funktion für remotefx ermöglicht es mehreren virtuellen Computern, eine physische GPU gemeinsam zu nutzen. Rendering-und computeressourcen werden dynamisch zwischen virtuellen Computern gemeinsam genutzt, sodass remotefx vgpu für hochleistungsfähige Workloads geeignet ist, bei denen keine dedizierten GPU-Ressourcen erforderlich sind. Beispielsweise kann in einem VDI-Dienst remotefx vgpu zum Auslagern von App-renderingkosten an die GPU verwendet werden, wobei die CPU-Auslastung verringert und die Dienst Skalierbarkeit verbessert wird.
 
@@ -80,13 +83,13 @@ Verwenden Sie die folgenden PowerShell-Cmdlets, um den Adapter hinzuzufügen, zu
 
 ## <a name="monitor-performance"></a>Überwachen der Leistung
 
-Die Leistung und Skalierbarkeit eines remotefx-vgpu-fähigen dienstangs werden durch eine Vielzahl von Faktoren festgelegt, wie z. b. die Anzahl von GPUs auf Ihrem System, den gesamten GPU-Arbeitsspeicher, die Menge an System Arbeitsspeicher und die Arbeitsspeicher Geschwindigkeit, die Anzahl der CPU-Kerne und die CPU-Taktfrequenz Ausführungs.
+Die Leistung und Skalierbarkeit eines remotefx-vgpu-fähigen dienstangs werden durch eine Vielzahl von Faktoren bestimmt, wie z. b. die Anzahl von GPUs auf Ihrem System, den gesamten GPU-Arbeitsspeicher, den Umfang des System Speichers und die Arbeitsspeicher Geschwindigkeit, die Anzahl der CPU-Kerne und die CPU-Taktfrequenz, die Speichergeschwindigkeit und die
 
 ### <a name="host-system-memory"></a>Host System Arbeitsspeicher
 
 Für jede mit einer vgpu aktivierte VM verwendet remotefx den System Arbeitsspeicher sowohl im Gast Betriebssystem als auch auf dem Host Server. Der Hypervisor gewährleistet die Verfügbarkeit von System Arbeitsspeicher für ein Gast Betriebssystem. Auf dem Host muss jeder vgpu-fähige virtuelle Desktop seine Systemspeicher Anforderung für den Hypervisor ankündigen. Beim Starten des vgpu-fähigen virtuellen Desktops reserviert der Hypervisor zusätzlichen System Arbeitsspeicher auf dem Host.
 
-Die Arbeitsspeicher Anforderung für den remotefx-fähigen Server ist dynamisch, weil der auf dem remotefx-fähigen Server belegte Arbeitsspeicher von der Anzahl der Monitore abhängig ist, die den vgpu-fähigen virtuellen Desktops zugeordnet sind, und der maximalen Auflösung für Diese Monitore.
+Die Arbeitsspeicher Anforderung für den remotefx-fähigen Server ist dynamisch, weil der auf dem remotefx-fähigen Server belegte Arbeitsspeicher von der Anzahl der Monitore abhängig ist, die den vgpu-fähigen virtuellen Desktops zugeordnet sind, und der maximalen Auflösung für diese Monitore.
 
 ### <a name="host-gpu-video-memory"></a>Host-GPU-Videospeicher
 
@@ -94,7 +97,7 @@ Jeder für vgpu aktivierte virtuelle Desktop verwendet den GPU-Hardware Videospe
 
 ### <a name="host-cpu"></a>Host-CPU
 
-Der Hypervisor plant den Host und die VMs auf der CPU. Der mehr Aufwand wird auf einem remotefx-fähigen Host gesteigert, da das System einen zusätzlichen Prozess (rdvgm. exe) pro vgpu-aktiviertem virtuellen Desktop ausführt. Dieser Prozess verwendet den Grafikgeräte Treiber zum Ausführen von Befehlen auf der GPU. Der Codec verwendet die CPU auch zum Komprimieren von Bildschirm Daten, die an den Client zurückgesendet werden müssen.
+Der Hypervisor plant den Host und die VMs auf der CPU. Der mehr Aufwand wird auf einem remotefx-fähigen Host gesteigert, da das System einen zusätzlichen Prozess (rdvgm.exe) pro vgpu-aktiviertem virtuellen Desktop ausführt. Dieser Prozess verwendet den Grafikgeräte Treiber zum Ausführen von Befehlen auf der GPU. Der Codec verwendet die CPU auch zum Komprimieren von Bildschirm Daten, die an den Client zurückgesendet werden müssen.
 
 Mehr virtuelle Prozessoren bedeuten eine bessere Benutzer Leistung. Es wird empfohlen, mindestens zwei virtuelle CPUs pro vgpu-aktiviertem virtuellen Desktop zuzuordnen. Außerdem wird die Verwendung der x64-Architektur für vgpu-fähige virtuelle Desktops empfohlen, da die Leistung auf virtuellen x64-Computern besser als x86 Virtual Machines ist.
 

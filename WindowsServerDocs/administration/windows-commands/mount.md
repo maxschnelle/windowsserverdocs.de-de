@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 505094251ab6b0053cc3d46801ba5f6170201ecd
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: a81e5d6583eeb6859d5c82065b5bab5fff7c6c9f
+ms.sourcegitcommit: 102a929be3523dbd6523079f0a5738844cef81b4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85935722"
+ms.lasthandoff: 07/14/2020
+ms.locfileid: "86384640"
 ---
 # <a name="mount"></a>mount
 
@@ -31,7 +31,7 @@ mount [-o <option>[...]] [-u:<username>] [-p:{<password> | *}] {\\<computername>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter  | Beschreibung |
+| Parameter  | BESCHREIBUNG |
 | ---------- | ----------- |
 | -o rsize =`<buffersize>` | Legt die Größe des Lese Puffers in Kilobyte fest. Zulässige Werte sind 1, 2, 4, 8, 16 und 32; der Standardwert ist 32 KB. |
 | -o wsize =`<buffersize>` | Legt die Größe des Schreib Puffers in Kilobyte fest. Zulässige Werte sind 1, 2, 4, 8, 16 und 32; der Standardwert ist 32 KB. |
@@ -43,8 +43,8 @@ mount [-o <option>[...]] [-u:<username>] [-p:{<password> | *}] {\\<computername>
 | -o CaseSensitive | Erzwingt bei Datei Suchvorgängen auf dem Server die Groß-/Kleinschreibung. |
 | -o FileAccess =`<mode>` | Gibt den Standard Berechtigungs Modus von neuen Dateien an, die auf der NFS-Freigabe erstellt werden. Geben Sie den *Modus* als dreistellige Zahl in der Form *OGW*an, wobei *o*, *g*und *w* jede Ziffer sind, die den Zugriff auf den Besitzer, die Gruppe und die Welt der Datei darstellt. Die Ziffern müssen im Bereich 0-7 liegen, einschließlich:<ul><li>**0:** Kein Zugriff</li><li>**1:** x (Zugriff ausführen)</li><li>**2:** w (Schreibzugriff)</li><li>**3:** WX (Schreib-und Ausführungs Zugriff)</li><li>**4:** r (Lesezugriff)</li><li>**5:** RX (Lese-und Ausführungs Zugriff)</li><li>**6:** RW (Lese-und Schreibzugriff)</li><li>**7:** rwx (Lese-, Schreib-und Ausführungs Zugriff)</li></ul> |
 | -o lang =`{euc-jp|euc-tw|euc-kr|shift-jis|Big5|Ksc5601|Gb2312-80|Ansi)` | Gibt die sprach Codierung an, die auf einer NFS-Freigabe konfiguriert werden soll. Sie können nur eine Sprache auf der Freigabe verwenden. Dieser Wert kann einen der folgenden Werte enthalten:<ul><li>**EUC-JP:** Japanisch</li><li>**EUC-TW:** Chinesisch</li><li>**EUC-KR:** Koreanisch</li><li>**Shift-JIS:** Japanisch</li><li>**Big5:** Chinesisch</li><li>**Ksc5601:** Koreanisch</li><li>**GB2312-80:** Vereinfachtes Chinesisch</li><li>**ANSI:** ANSI-codiert</li></ul> |
-| u`<username>` | Gibt den Benutzernamen an, der zum Einbinden der Freigabe verwendet werden soll. Wenn einem *Benutzer* Namen kein umgekehrter Schrägstrich (* *\** ) vorangestellt ist, wird er als Unix-Benutzername behandelt. |
-| -p:`<password>` | Das Kennwort, das zum Einbinden der Freigabe verwendet werden soll. Wenn Sie ein Sternchen (**&#42;**) verwenden, werden Sie zur Eingabe des Kennworts aufgefordert. |
+| u`<username>` | Gibt den Benutzernamen an, der zum Einbinden der Freigabe verwendet werden soll. Wenn einem *Benutzer* Namen kein umgekehrter Schrägstrich ( **\\** ) vorangestellt ist, wird er als Unix-Benutzername behandelt. |
+| cker`<password>` | Das Kennwort, das zum Einbinden der Freigabe verwendet werden soll. Wenn Sie ein Sternchen (**&#42;**) verwenden, werden Sie zur Eingabe des Kennworts aufgefordert. |
 | `<computername>` | Gibt den Namen des NFS-Servers an. |
 | `<sharename>` | Gibt den Namen des Dateisystems an. |
 | `<devicename>` | Gibt den Laufwerk Buchstaben und den Namen des Geräts an. Wenn Sie ein Sternchen (**&#42;**) verwenden, stellt dieser Wert den ersten verfügbaren Treiber Buchstaben dar. |

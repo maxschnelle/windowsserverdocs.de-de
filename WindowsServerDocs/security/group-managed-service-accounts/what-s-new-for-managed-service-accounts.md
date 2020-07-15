@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 1411f312def0da79de4c18d6d652e0223ea27b48
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 0932493c157bc9de39d3b3c819fa03b9a760a059
+ms.sourcegitcommit: 102a929be3523dbd6523079f0a5738844cef81b4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85474447"
+ms.lasthandoff: 07/14/2020
+ms.locfileid: "86384650"
 ---
 # <a name="what39s-new-for-managed-service-accounts"></a>Neues für verwaltete Dienst Konten&#39;
 
@@ -47,12 +47,12 @@ Auf Computern, auf denen Windows Server 2012 oder Windows 8 ausgeführt wird, ka
 ### <a name="removed-or-deprecated-functionality"></a><a name="interoperability"></a>Entfernte oder veraltete Funktionen
 Für Windows Server 2012 werden die Windows PowerShell-Cmdlets standardmäßig für die Verwaltung der Gruppen verwalteten Dienst Konten anstelle der Server verwalteten Dienst Konten verwendet.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Group Managed Service Accounts Overview](group-managed-service-accounts-overview.md) (Übersicht über gruppenverwaltete Dienstkonten)
 
 -   [Übersicht über die Active Directory Domain Services](active-directory-domain-services-overview.md)
 
--   [Verwaltete Dienstkonten: Grundlegendes, Implementierung, bewährte Methoden und Problembehandlung](https://blogs.technet.com/b/askds/archive/20../managed-service-accounts-understanding-implementing-best-practices-and-troubleshooting.aspx)
+-   [Verwaltete Dienstkonten: Grundlegendes, Implementierung, bewährte Methoden und Problembehandlung](https://techcommunity.microsoft.com/t5/ask-the-directory-services-team/managed-service-accounts-understanding-implementing-best/ba-p/397009)
 
 
