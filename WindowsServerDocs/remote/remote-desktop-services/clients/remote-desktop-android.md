@@ -8,14 +8,14 @@ ms.assetid: 64f038e1-40ec-4c67-938b-72edea49e5d8
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 03/12/2020
+ms.date: 07/16/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: a9cb49f2570b297c81f41412ad041215090538d0
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: b76ded74b311265a22e32d836cb7a5dd5fe03f0d
+ms.sourcegitcommit: b363d8ceed863c8fd5a464bc8afdc4ef1af9a6f8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80856233"
+ms.lasthandoff: 07/17/2020
+ms.locfileid: "86445724"
 ---
 # <a name="get-started-with-the-android-client"></a>Erste Schritte mit dem Android-Client
 
@@ -76,7 +76,9 @@ Bei Remoteressourcen handelt es sich um RemoteApp-Programme, sitzungsbasierte De
 
 1. Tippe im Verbindungscenter auf **+** , und tippe dann auf **Remoteressourcenfeed**.
 2. Geben Sie die **Feed-URL** ein. Dies kann eine URL oder eine E-Mail-Adresse sein:
-   - Die **URL** ist der RD-Webzugriffsserver, der dir von deinem Administrator zur Verfügung gestellt wird. Wenn Sie auf Ressourcen von Windows Virtual Desktop zugreifen, können Sie `https://rdweb.wvd.microsoft.com` verwenden.
+   - Die **URL** ist der RD-Webzugriffsserver, der dir von deinem Administrator zur Verfügung gestellt wird. Wenn Sie auf Ressourcen von Windows Virtual Desktop zugreifen, können Sie eine der folgenden URLs verwenden, je nachdem, welche Version Sie verwenden:
+     - Für die Fall 2019-Version verwenden Sie `https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx`.
+     - Für die Spring 2020-Version verwenden Sie `https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery`.
    - Wenn Sie **E-Mail** verwenden möchten, geben Sie in diesem Feld Ihre E-Mail-Adresse ein. Dies weist den Client an, nach einem RD-Webzugriffsserver zu suchen, der Ihrer E-Mail-Adresse zugeordnet ist, wenn dies von Ihrem Administrator konfiguriert wurde.
 3. Tippen Sie auf **Weiter**.
 4. Geben Sie auf Aufforderung Ihre Anmeldeinformationen ein. Diese können sich je nach Bereitstellung unterscheiden und können Folgendes beinhalten:

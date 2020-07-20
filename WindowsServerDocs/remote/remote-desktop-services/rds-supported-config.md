@@ -4,17 +4,17 @@ description: Enthält Informationen zu Konfigurationen für RDS in Windows Serve
 ms.prod: windows-server
 ms.technology: remote-desktop-services
 ms.author: elizapo
-ms.date: 10/22/2019
+ms.date: 07/14/2020
 ms.topic: article
 ms.assetid: c925c7eb-6880-411f-8e59-bd0f57cc5fc3
 author: lizap
 manager: dongill
-ms.openlocfilehash: dae6c00bd09e9c10e32932701095244a75f9ca7a
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 406112eae884b1e34d54eb18700c3ad28c3f52c6
+ms.sourcegitcommit: f81aa22739d818382d314561dece59a9341dfb6f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80860113"
+ms.lasthandoff: 07/15/2020
+ms.locfileid: "86390077"
 ---
 # <a name="supported-configurations-for-remote-desktop-services"></a>Unterstützte Konfigurationen für Remotedesktopdienste
 
@@ -53,7 +53,7 @@ Windows Server 2016 hebt die Beschränkung für die Anzahl der Verbindungsbroker
 
 Remotedesktopdienste unterstützen Systeme, die mit GPUs ausgestattet sind. Anwendungen, die eine GPU erfordern, können über die Remoteverbindung verwendet werden. Darüber hinaus können Sie das GPU-beschleunigte Rendering und die Codierung aktivieren, um die Leistung und Skalierbarkeit der App zu verbessern.
 
-Remotedesktopdienste-Sitzungshosts und Betriebssysteme von Einzelsitzungsclients können die Vorteile von physischen oder virtuellen GPUs nutzen, die auf vielfältige Weise für das Betriebssystem bereitgestellt werden, z. B. [für Azure-GPU optimierte VM-Größen](/en-us/azure/virtual-machines/windows/sizes-gpu), für den physischen RDSH-Server verfügbare GPUs, RemoteFX vGPUs (nur unter Windows Server 2016) und GPUs, die für VMs über unterstützte Hypervisoren bereitgestellt werden.
+Remotedesktopdienste-Sitzungshosts und Betriebssysteme von Einzelsitzungsclients können die Vorteile von physischen oder virtuellen GPUs nutzen, die auf vielfältige Weise für das Betriebssystem bereitgestellt werden, z. B. [für Azure-GPU optimierte VM-Größen](/en-us/azure/virtual-machines/windows/sizes-gpu), für den physischen RDSH-Server verfügbare GPUs und GPUs, die für VMs über unterstützte Hypervisoren bereitgestellt werden.
 
 Hilfe zum Ermitteln Ihrer Anforderungen finden Sie unter [Welche Grafikvirtualisierungstechnologie ist für Sie geeignet?](rds-graphics-virtualization.md). Spezielle Informationen zu DDA finden Sie unter [Planen der Bereitstellung der diskreten Gerätezuweisung](../../virtualization/hyper-v/plan/plan-for-deploying-devices-using-discrete-device-assignment.md).
 
@@ -87,13 +87,15 @@ Die folgende Tabelle enthält eine Übersicht der Unterstützung für GPU-Szenar
 
 ### <a name="remotefx-3d-video-adapter-vgpu-support"></a>Unterstützung für RemoteFX 3D-Grafikkarte (vGPU)
 
+> [!NOTE]
+> Aufgrund von Sicherheitsbedenken ist RemoteFX vGPU auf allen Windows-Versionen ab dem Sicherheitsupdate vom 14. Juli 2020 standardmäßig deaktiviert. Weitere Informationen dazu finden Sie in [KB 4570006](https://support.microsoft.com/help/4570006).
+
 Remotedesktopdienste unterstützen RemoteFX vGPUs, wenn der virtuelle Computer als Hyper-V-Gast unter Windows Server 2012 R2 oder Windows Server 2016 ausgeführt wird. Die folgenden Gastbetriebssysteme bieten RemoteFX vGPU-Unterstützung:
 
 - Windows 7 SP1
 - Windows 8.1
 - Windows 10 1703 oder höher
 - Windows Server 2016, nur in einer Einzelsitzungsbereitstellung
-- Windows Server 2019, nur in einer Einzelsitzungsbereitstellung
 
 ### <a name="discrete-device-assignment-support"></a>Unterstützung der diskreten Gerätezuweisung
 

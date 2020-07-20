@@ -7,14 +7,14 @@ ms.topic: article
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 06/23/2020
+ms.date: 07/14/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 5c3fc20ea42deaa9dd96fd9f7bfabfcb85462bdd
-ms.sourcegitcommit: 6d6a0225b1f83b71fcb494b94d666cd5e54c7566
+ms.openlocfilehash: e9449da93e52471d1f21c2b7079a8fed0415a03a
+ms.sourcegitcommit: e6becfd2266fd434b7994455c7782de36af4ff80
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85267661"
+ms.lasthandoff: 07/14/2020
+ms.locfileid: "86377004"
 ---
 # <a name="whats-new-in-the-windows-desktop-client"></a>Neuigkeiten im Windows-Desktopclient
 
@@ -27,7 +27,18 @@ Der Client kann für verschiedene [Benutzergruppen](windowsdesktop-admin.md#conf
 |Benutzergruppe |Version  |
 |-----------|---------|
 |Öffentlich     |1.2.1104 |
-|Insider    |1.2.1104 |
+|Insider    |1.2.1185 |
+
+## <a name="updates-for-version-121185"></a>Updates für Version 1.2.1185
+
+*Veröffentlicht am: 14.07.2020*
+
+Download: [Windows 64-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4B1Hr), [Windows 32-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4B1Hs), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4B1Hq)
+
+- Sie können jetzt Arbeitsbereiche mit mehreren Benutzerkonten abonniert, indem Sie die Überlaufmenüoption ( **...** ) auf der Befehlsleiste oben im Client verwenden. Um Arbeitsbereiche zu unterscheiden, enthalten die Arbeitsbereichstitel jetzt den Benutzernamen, ebenso wie alle Titel von App-Verknüpfungen.
+- Zusätzliche Informationen zu Abonnementfehlermeldungen wurden hinzugefügt, um die Problembehandlung zu verbessern.
+- Der reduzierte/erweiterte Status von Arbeitsbereichen wird jetzt während einer Aktualisierung beibehalten.
+- Dem Dialogfeld **Verbindungsinformationen** wurde eine Schaltfläche **Diagnose senden und schließen** hinzugefügt.
 
 ## <a name="updates-for-version-121104"></a>Updates für Version 1.2.1104
 

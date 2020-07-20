@@ -8,14 +8,14 @@ ms.assetid: 7afc65f8-3158-49c9-9d48-4dab1c69afba
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.date: 05/06/2020
+ms.date: 07/16/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 6c219a6dbc5922e9d7240b3004c1dd92eb7d057a
-ms.sourcegitcommit: 67116322915066b85decb4261d47cedec2cfe12f
+ms.openlocfilehash: 7be6b7542ca77c80a638df6404aefe77d8d7d19c
+ms.sourcegitcommit: b363d8ceed863c8fd5a464bc8afdc4ef1af9a6f8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82903462"
+ms.lasthandoff: 07/17/2020
+ms.locfileid: "86445704"
 ---
 # <a name="get-started-with-the-macos-client"></a>Erste Schritte mit dem macOS-Client
 
@@ -50,7 +50,9 @@ So abonnierst du einen Feed
 
 1. Wähle auf der Hauptseite **Feed hinzufügen** aus, um eine Verbindung mit dem Dienst herzustellen und deine Ressourcen abzurufen.
 2. Gib die Feed-URL ein. Dies kann eine URL oder eine E-Mail-Adresse sein:
-   - Verwende im Fall einer URL die vom Administrator erhaltene. Normalerweise lautet die URL <https://rdweb.wvd.microsoft.com>.
+   - Diese URL ist normalerweise eine Windows Virtual Desktop-URL. Welche URL Sie verwenden, hängt von Ihrer Windows Virtual Desktop-Version ab.
+      - Für die Fall 2019-Version verwenden Sie `https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx`.
+      - Für die Spring 2020-Version verwenden Sie `https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery`.
    - Um E-Mail zu verwenden, gib deine E-Mail-Adresse ein. Dies weist den Client an, nach einer URL zu suchen, die deiner E-Mail-Adresse zugeordnet ist, sofern der Administrator dies entsprechend konfiguriert hat.
 3. Wähle **Abonnieren** aus.
 4. Melde dich bei entsprechender Aufforderung mit deinem Benutzerkonto an.
@@ -63,12 +65,14 @@ Nachdem du einen Feed abonniert hast, wird der Inhalt dieses Feeds automatisch r
 
 Sie können eine Remotedesktop-Verbindungsdefinition exportieren und auf einem anderen Gerät verwenden. Remotedesktops werden in separaten RDP-Dateien gespeichert.
 
+So exportieren Sie eine RDP-Datei
+
 1. Klicken Sie im Connection Center mit der rechten Maustaste auf den Remotedesktop.
 2. Wähle **Exportieren** aus.
 3. Navigieren Sie zu dem Speicherort, an dem die Remotedesktopdatei (RDP) gespeichert werden soll.
 4. Wählen Sie **OK** aus.
 
-Führen Sie die folgenden Schritte aus, um eine Remotedesktopdatei (RDP) zu importieren.
+So importieren Sie eine RDP-Datei
 
 1. Wähle auf der Menüleiste **Datei** > **Importieren** aus.
 2. Navigieren Sie zur RDP-Datei.
@@ -83,7 +87,7 @@ Bei Remoteressourcen handelt es sich um RemoteApp-Programme, sitzungsbasierte De
 
 Gehen Sie wie folgt vor, um eine Remoteressource hinzuzufügen:
 
-1. Wähle im Connection Center das Pluszeichen ( **+** ) und dann **Remoteressourcen hinzufügen** aus. 
+1. Wähle im Connection Center das Pluszeichen ( **+** ) und dann **Remoteressourcen hinzufügen** aus.
 2. Geben Sie Informationen für die Remoteressource ein:
    - **Feed-URL**: Die URL des Servers mit Web Access für Remotedesktop. In dieses Feld können Sie auch Ihr geschäftliches E-Mail-Konto eingeben. Dies weist den Client an, nach dem Ihrer E-Mail-Adresse zugeordneten Server mit Web Access für Remotedesktop zu suchen.
    - **Benutzername**: Der Benutzername, der für den Server mit Web Access für Remotedesktop verwendet werden soll, mit dem Sie eine Verbindung herstellen.
@@ -128,7 +132,9 @@ Sie können die Bildschirmauflösung für die Remotedesktopsitzung angeben.
 
 Um die Auflösung zu löschen, wähle sie aus, und wähle dann das Minuszeichen ( **-** ) aus.
 
-**Monitore verwenden verschiedene Spaces**: Wenn Sie das Betriebssystem Mac OS X 10.9 verwenden und in Mavericks die Option **Monitore verwenden verschiedene Spaces** (unter **Systemeinstellungen > Mission Control**) deaktiviert haben, müssen Sie diese Einstellung im Remotedesktopclient mit der gleichen Option konfigurieren.
+## <a name="displays-have-separate-spaces"></a>Monitore verwenden verschiedene Spaces
+
+Wenn Sie das Betriebssystem Mac OS X 10.9 verwenden und in Mavericks die Option **Monitore verwenden verschiedene Spaces** (unter **Systemeinstellungen > Mission Control**) deaktiviert haben, müssen Sie diese Einstellung im Remotedesktopclient mit der gleichen Option konfigurieren.
 
 ### <a name="drive-redirection-for-remote-resources"></a>Laufwerkumleitung für Remoteressourcen
 
@@ -139,18 +145,18 @@ Die Laufwerkumleitung wird für Remoteressourcen unterstützt, sodass Sie mit ei
 
 ## <a name="use-a-keyboard-in-a-remote-session"></a>Verwenden einer Tastatur in einer Remotesitzung
 
-Mac-Tastaturlayouts unterscheiden sich von Windows-Tastaturlayouts. 
+Mac-Tastaturlayouts unterscheiden sich von Windows-Tastaturlayouts.
 
 - Die Befehlstaste auf der Mac-Tastatur entspricht der Windows-Taste.
-- Um Aktionen auszuführen, für die auf dem Mac die Befehlstaste verwendet wird, müssen Sie unter Windows die STRG-TASTE verwenden (z. B.: Kopieren = STRG+C).
-- Die Funktionstasten können in der Sitzung aktiviert werden, indem Sie zusätzlich die FN-Taste drücken (z. B.: FN+F1).
+- Um Aktionen auszuführen, für die auf dem Mac die Befehlstaste verwendet wird, müssen Sie unter Windows die STRG-TASTE verwenden (z. B. Kopieren = STRG+C).
+- Die Funktionstasten können in der Sitzung aktiviert werden, indem Sie zusätzlich die FN-Taste drücken (z. B. FN+F1).
 - Auf der Mac-Tastatur entspricht die ALT-TASTE rechts neben der LEERTASTE auf einer Windows-Tastatur der ALT GR-TASTE (der rechten ALT-TASTE).
 
 Die Remotesitzung verwendet standardmäßig dasselbe Tastaturgebietsschema wie das Betriebssystem, unter dem der Client ausgeführt wird. (Wird Ihr Mac unter einem englischen Betriebssystem (en-us) ausgeführt, wird dieses Betriebssystem auch für die Remotesitzungen verwendet.) Wenn das Tastaturgebietsschema des Betriebssystems nicht verwendet wird, überprüfen Sie die Tastatureinstellung auf dem Remotecomputer, und ändern Sie die Einstellung manuell. Weitere Informationen zu Tastaturen und Gebietsschemas finden Sie unter [Häufig gestellte Fragen zu den Remotedesktopclients](remote-desktop-client-faq.md).
 
 ## <a name="support-for-remote-desktop-gateway-pluggable-authentication-and-authorization"></a>Unterstützung für die austauschbare Remotedesktopgateway-Authentifizierung und -Autorisierung
 
-In Windows Server 2012 R2 wurde die Unterstützung für eine neue Authentifizierungsmethode, die austauschbare Remotedesktopgateway-Authentifizierung und -Autorisierung eingeführt, die mehr Flexibilität für benutzerdefinierte Authentifizierungsroutinen bietet. Sie können dieses Authentifizierungsmodell jetzt mit dem Mac-Client ausprobieren. 
+In Windows Server 2012 R2 wurde die Unterstützung für eine neue Authentifizierungsmethode, die austauschbare Remotedesktopgateway-Authentifizierung und -Autorisierung eingeführt, die mehr Flexibilität für benutzerdefinierte Authentifizierungsroutinen bietet. Sie können dieses Authentifizierungsmodell jetzt mit dem Mac-Client ausprobieren.
 
 > [!IMPORTANT]
 > Benutzerdefinierte Authentifizierungs- und Autorisierungsmodelle vor Windows 8.1 werden nicht unterstützt, aber im obigen Artikel erläutert.
