@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.localizationpriority: medium
 ms.prod: windows-server
 ms.date: 05/31/2019
-ms.openlocfilehash: ec01431b320c710eddedc2f9c5e174bea1355b1c
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 49b07845003208dc9c0bd3aaab4082a3e7d6a83a
+ms.sourcegitcommit: b35fbd2a67d7a3395b50b2a3acd0817ba4e36b26
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85475697"
+ms.lasthandoff: 07/22/2020
+ms.locfileid: "86891355"
 ---
 # <a name="connecting-windows-server-to-azure-hybrid-services"></a>Verbinden von Windows Server mit Azure Hybriddiensten
 
@@ -33,11 +33,11 @@ Zwar können die meisten hybriden Azure-Dienste durch Herunterladen einer App un
 
 Das Azure-Hybriddienstetool in [Windows Admin Center](../overview.md) konsolidiert alle integrierten Azure-Dienste in einem zentralen Hub, in dem du mühelos alle verfügbaren Azure-Dienste erkennen kannst, die einen Mehrwert für Ihre lokale oder hybride Umgebung bieten.
 
-![Screenshot von Windows Admin Center mit dem Azure-Hybriddienstetool](../media/azure-services/ahs-discover.png)
+![Screenshot von Windows Admin Center mit dem Azure-Hybriddienstetool](../media/azure-services/Azure-Hybrid-Services-Discover.png)
 
 Wenn du eine Verbindung mit einem Server herstellst, auf dem bereits Azure-Dienste aktiviert sind, dient das Azure-Hybriddienstetool als zentrale Benutzeroberfläche zur Anzeige aller aktivierten Dienste auf diesem Server. Du kannst mühelos zum entsprechenden Tool in Windows Admin Center gelangen, das Azure-Portal für eine bessere Verwaltung dieser Azure-Dienste aufrufen oder über die immer verfügbare Dokumentation mehr erfahren.
 
-![Screenshot von Windows Admin Center mit Azure-Diensten, die bereits auf dem Server installiert sind](../media/azure-services/ahs-dayN.png)
+![Screenshot von Windows Admin Center mit Azure-Diensten, die bereits auf dem Server installiert sind](../media/azure-services/Azure-Hybrid-Services-DayN.png)
 
 Über das Azure-Hybriddienstetool hast du folgende Möglichkeiten:
 
