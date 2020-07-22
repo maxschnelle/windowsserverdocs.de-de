@@ -8,12 +8,12 @@ ms.author: jeffrew
 ms.localizationpriority: medium
 ms.prod: windows-server
 ms.date: 06/07/2019
-ms.openlocfilehash: d7dc3455c5d7c6b00940008ceea646436b40bed0
-ms.sourcegitcommit: e51dd9dabec82c59e805e7a04c27e56c83773857
+ms.openlocfilehash: f7e62f05a340a2186a012d7ed99e3ecc46654256
+ms.sourcegitcommit: b35fbd2a67d7a3395b50b2a3acd0817ba4e36b26
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82613732"
+ms.lasthandoff: 07/22/2020
+ms.locfileid: "86891403"
 ---
 # <a name="windows-admin-center-known-issues"></a>Bekannte Probleme im Windows Admin Center
 
@@ -31,7 +31,7 @@ Wenn Sie ein Problem feststellen, das nicht auf dieser Seite beschrieben wird, [
 
 - In der 1910,2-Version des Windows Admin Centers können Sie möglicherweise keine Verbindung zu Hyper-V-Servern auf bestimmter Hardware herstellen. Wenn dieses Problem blockiert ist, laden Sie [den vorherigen Build herunter](https://aka.ms/wacprevious). 
 
-- Wenn Sie Windows Admin Center als Gateway unter **Windows Server 2016** unter starker Verwendung installiert haben, stürzt der Dienst möglicherweise mit einem Fehler im Ereignisprotokoll ab, der ```Faulting application name: sme.exe``` und ```Faulting module name: WsmSvc.dll```enthält. Der Grund hierfür ist ein Fehler, der in Windows Server 2019 behoben wurde. Der Patch für Windows Server 2016 enthielt das kumulative Update vom Februar 2019, [KB4480977](https://www.catalog.update.microsoft.com/Search.aspx?q=4480977).
+- Wenn Sie Windows Admin Center als Gateway unter **Windows Server 2016** unter starker Verwendung installiert haben, stürzt der Dienst möglicherweise mit einem Fehler im Ereignisprotokoll ab, der ```Faulting application name: sme.exe``` und enthält ```Faulting module name: WsmSvc.dll``` . Der Grund hierfür ist ein Fehler, der in Windows Server 2019 behoben wurde. Der Patch für Windows Server 2016 enthielt das kumulative Update vom Februar 2019, [KB4480977](https://www.catalog.update.microsoft.com/Search.aspx?q=4480977).
 
 - Wenn Sie Windows Admin Center als Gateway installiert haben und die Verbindungsliste beschädigt erscheint, führen Sie die folgenden Schritte aus:
 
@@ -55,7 +55,7 @@ Wenn Sie ein Problem feststellen, das nicht auf dieser Seite beschrieben wird, [
 
 ### <a name="microsoft-edge"></a>Microsoft Edge
 
-- Wenn Sie das Windows Admin Center als Dienst bereitgestellt haben und Microsoft Edge als Browser verwenden, kann das Verbinden Ihres Gateways mit Azure nach dem Auslösen eines neuen Browserfensters fehlschlagen. Versuchen Sie, dieses Problem zu umgehen, https://login.microsoftonline.comindem https://login.live.comSie, und die URL Ihres Gateways als vertrauenswürdige Sites und zulässige Websites für die Popup Blocker Einstellungen in Ihrem Client seitigen Browser hinzufügen. Weitere Anleitungen zur Behebung dieses Problem finden Sie im [Handbuch zur Problem](troubleshooting.md#azure-features-dont-work-properly-in-edge)Behandlung. [17990376]
+- Wenn Sie das Windows Admin Center als Dienst bereitgestellt haben und Microsoft Edge als Browser verwenden, kann das Verbinden Ihres Gateways mit Azure nach dem Auslösen eines neuen Browserfensters fehlschlagen. Versuchen Sie, dieses Problem zu umgehen, indem Sie https://login.microsoftonline.com , https://login.live.com und die URL Ihres Gateways als vertrauenswürdige Sites und zulässige Websites für die Popup Blocker Einstellungen in Ihrem Client seitigen Browser hinzufügen. Weitere Anleitungen zur Behebung dieses Problem finden Sie im [Handbuch zur Problem](troubleshooting.md#azure-features-dont-work-properly-in-edge)Behandlung. [17990376]
 
 ### <a name="google-chrome"></a>Google Chrome
 
@@ -69,7 +69,7 @@ Wenn Sie ein Problem feststellen, das nicht auf dieser Seite beschrieben wird, [
 
 Windows Admin Center wird nicht mit Mozilla Firefox getestet, aber die meisten Funktionen sollten funktionieren.
 
-- Windows 10-Installation: Mozilla Firefox verfügt über einen eigenen Zertifikat Speicher, sodass Sie das ```Windows Admin Center Client``` Zertifikat in Firefox importieren müssen, damit Windows Admin Center unter Windows 10 verwendet werden kann.
+- Windows 10-Installation: Mozilla Firefox verfügt über einen eigenen Zertifikat Speicher, sodass Sie das Zertifikat in Firefox importieren müssen, damit ```Windows Admin Center Client``` Windows Admin Center unter Windows 10 verwendet werden kann.
 
 ## <a name="websocket-compatibility-when-using-a-proxy-service"></a>WebSocket-Kompatibilität bei Verwendung eines Proxy Dienstanbieter
 
@@ -106,9 +106,9 @@ Wenn dies nicht der Fall ist, kannst du [herunterladen und WMF 5.1 installieren
 
   - Um dieses Problem zu beheben, verwenden Sie den folgenden Befehl an einer Eingabeaufforderung mit erhöhten Rechten auf dem Gatewaycomputer:```winrm set winrm/config @{MaxEnvelopeSizekb="8192"}```
 
-### <a name="files"></a>Dateien
+### <a name="files"></a>Files
 
-- Das Hochladen oder Herunterladen großer Dateien wurde noch nicht unterstützt. (\~Limit von 100 MB) [12524234]
+- Das Hochladen oder Herunterladen großer Dateien wurde noch nicht unterstützt. ( \~ Limit von 100 MB) [12524234]
 
 ### <a name="powershell"></a>PowerShell
 
@@ -130,9 +130,9 @@ Wenn dies nicht der Fall ist, kannst du [herunterladen und WMF 5.1 installieren
 
 - Das Remotedesktop Tool kann bei der Verwaltung von Windows Server 2012 möglicherweise keine Verbindung herstellen. [20258278]
 
-- Wenn Sie die Remotedesktop zum Herstellen einer Verbindung mit einem Computer verwenden, der keiner Domäne beigetreten ist, müssen Sie ```MACHINENAME\USERNAME``` Ihr Konto im Format eingeben.
+- Wenn Sie die Remotedesktop zum Herstellen einer Verbindung mit einem Computer verwenden, der keiner Domäne beigetreten ist, müssen Sie Ihr Konto im ```MACHINENAME\USERNAME``` Format eingeben.
 
-- Einige Konfigurationen können den Remote Desktop Client des Windows Admin Centers mit der Gruppenrichtlinie blockieren. Wenn dies der gibt, aktivieren ```Allow users to connect remotely by using Remote Desktop Services``` Sie unter```Computer Configuration/Policies/Administrative Templates/Windows Components/Remote Desktop Services/Remote Desktop Session Host/Connections```
+- Einige Konfigurationen können den Remote Desktop Client des Windows Admin Centers mit der Gruppenrichtlinie blockieren. Wenn dies der gibt, aktivieren Sie ```Allow users to connect remotely by using Remote Desktop Services``` unter```Computer Configuration/Policies/Administrative Templates/Windows Components/Remote Desktop Services/Remote Desktop Session Host/Connections```
 
 - Remotedesktop wird von der [WebSocket-Kompatibilität beeinflusst.](#websocket-compatibility-when-using-a-proxy-service)
 
@@ -154,7 +154,7 @@ Wenn dies nicht der Fall ist, kannst du [herunterladen und WMF 5.1 installieren
 
 - Wenn Sie einen automatischen Neustart durchführen, erfolgt der Neustart, bevor der Status auf 100% aktualisiert wird. [13098852]
 
-### <a name="storage"></a>Speicher
+### <a name="storage"></a>Storage
 
 - Unterebene: DVD/CD/Diskettenlaufwerke werden nicht als Volumes auf der Ebene der untergeordneten Ebene angezeigt.
 
@@ -162,7 +162,7 @@ Wenn dies nicht der Fall ist, kannst du [herunterladen und WMF 5.1 installieren
 
 - Herabstufen: Wenn Sie ein neues Volume erstellen, unterstützt Refs nur die Größe der Zuordnungs Einheiten von 64 KB auf Computern mit Windows 2012 und 2012 R2. Wenn ein Refs-Volume mit einer geringeren Zuordnungs Einheitsgröße für Ziele auf niedrigerer Ebene erstellt wird, schlägt die Formatierung des Dateisystems fehl. Das neue Volume kann nicht verwendet werden. Die Lösung besteht darin, das Volume zu löschen und die Größe der Zuordnungs Einheiten von 64K zu verwenden.
 
-### <a name="updates"></a>Aktualisierungen
+### <a name="updates"></a>Updates
 
 - Nach der Installation von Updates kann der Installationsstatus zwischengespeichert werden und eine Browser Aktualisierung erfordern.
 
@@ -195,15 +195,91 @@ Die Lösung für die Computer Verwaltung enthält eine Teilmenge der Tools aus d
 
 - Für Windows 10 ist standardmäßig kein WinRM-/PowerShell-Remoting aktiviert.
   
-  - Um die Verwaltung des Windows 10-Clients zu aktivieren, müssen Sie den ```Enable-PSRemoting``` Befehl an einer PowerShell-Eingabeaufforderung mit erhöhten Rechten ausgeben.
+  - Um die Verwaltung des Windows 10-Clients zu aktivieren, müssen Sie den Befehl an ```Enable-PSRemoting``` einer PowerShell-Eingabeaufforderung mit erhöhten Rechten ausgeben.
 
-  - Möglicherweise müssen Sie die Firewall auch aktualisieren, um Verbindungen von außerhalb des lokalen Subnetzes mit ```Set-NetFirewallRule -Name WINRM-HTTP-In-TCP -RemoteAddress Any```zuzulassen. Weitere einschränkende Netzwerk Szenarios finden Sie in [dieser Dokumentation](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/enable-psremoting?view=powershell-5.1).
+  - Möglicherweise müssen Sie die Firewall auch aktualisieren, um Verbindungen von außerhalb des lokalen Subnetzes mit zuzulassen ```Set-NetFirewallRule -Name WINRM-HTTP-In-TCP -RemoteAddress Any``` . Weitere einschränkende Netzwerk Szenarios finden Sie in [dieser Dokumentation](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/enable-psremoting?view=powershell-5.1).
+
+## <a name="cluster-deployment"></a>Cluster Bereitstellung
+
+### <a name="step-12"></a>Schritt 1,2
+Gemischte Arbeitsgruppen Computer werden beim Hinzufügen von Servern derzeit nicht unterstützt. Alle Computer, die für das Clustering verwendet werden, müssen derselben Arbeitsgruppe angehören. Wenn dies nicht der Fall ist, wird die Schaltfläche Weiter deaktiviert, und der folgende Fehler wird angezeigt: "ein Cluster mit Servern in anderen Active Directory Domänen kann nicht erstellt werden. Vergewissern Sie sich, dass die Servernamen richtig sind. Verschieben Sie alle Server in dieselbe Domäne, und wiederholen Sie den Vorgang. "
+
+### <a name="step-14"></a>Schritt 1,4
+Hyper-V muss auf virtuellen Computern installiert werden, auf denen das Azure Stack HCI-Betriebssystem ausgeführt wird. Der Versuch, das Hyper-V-Feature für diese virtuellen Computer zu aktivieren, schlägt mit dem folgenden Fehler fehl: 
+
+![Screenshot des Hyper-V-Aktivierungs Fehlers](../media/cluster-create-install-hyperv.png)
+
+Führen Sie den folgenden Befehl aus, um Hyper-V auf virtuellen Computern zu installieren, auf denen die Azure Stack HCI OS ausgeführt wird: 
+
+```PowerShell
+Enable-windowsoptionalfeature -online -featurename Microsoft-hyper-v 
+```
+
+### <a name="step-17"></a>Schritt 1,7
+Manchmal dauert es länger, bis Server nach der Installation von Updates neu gestartet werden. Der Assistent für die Cluster Bereitstellung in Windows Admin Center prüft regelmäßig den Neustart Status des Servers, um zu ermitteln, ob der Server erfolgreich neu gestartet wurde. Wenn der Benutzer den Server jedoch manuell außerhalb des Assistenten neu startet, bietet der Assistent keine Möglichkeit, den Server Zustand in angemessener Weise zu erfassen. 
+
+Wenn Sie den Server manuell neu starten möchten, beenden Sie die aktuelle Assistenten Sitzung. Nachdem Sie den Server neu gestartet haben, können Sie den Assistenten neu starten. 
+
+### <a name="stretch-cluster-creation"></a>Stretch-Cluster Erstellung
+Es wird empfohlen, bei der Erstellung eines Stretch-Clusters Server zu verwenden, die einer Domäne beigetreten sind. Bei der Verwendung von Arbeitsgruppen Computern für die Stretch-Cluster Bereitstellung aufgrund von WinRM-Einschränkungen gibt es ein Problem mit der Netzwerksegmentierung.
+
+### <a name="undo-and-start-over"></a>Rückgängig machen und beginnen
+Wenn Sie dieselben Computer für die Cluster Bereitstellung wiederholt verwenden, ist die Bereinigung vorheriger Cluster Entitäten wichtig, um eine erfolgreiche Cluster Bereitstellung auf derselben Gruppe von Computern zu erhalten. Anweisungen zum Bereinigen des Clusters finden Sie auf der Seite zum Bereitstellen der [hyperkonvergierten Infrastruktur](https://docs.microsoft.com/windows-server/manage/windows-admin-center/use/deploy-hyperconverged-infrastructure#undo-and-start-over) . 
+
+### <a name="credssp"></a>CredSSP
+Der Assistent für die Cluster Bereitstellung in Windows Admin Center verwendet an verschiedenen Stellen "kredssp". Diese Fehlermeldung wird während des Assistenten angezeigt (Dies tritt am häufigsten im Schritt "Cluster überprüfen" auf):
+
+![Screenshot: Fehler beim Erstellen eines Clusters mit Cluster Erstellung](../media/cluster-create-credssp-error.jpg)
+
+Mit den folgenden Schritten können Sie Probleme beheben: 
+
+1. Deaktivieren Sie die Einstellungen für die Einstellungen auf allen Knoten und dem Windows Admin Center-Gatewaycomputer. Führen Sie den ersten Befehl auf Ihrem Gatewaycomputer und den zweiten Befehl auf allen Knoten im Cluster aus: 
+
+```PowerShell
+Disable-WsmanCredSSP -Role Client
+```
+```PowerShell
+Disable-WsmanCredSSP -Role Server
+```
+2. Reparieren Sie die Vertrauensstellung auf allen Knoten. Führen Sie den folgenden Befehl auf allen Knoten aus: 
+```PowerShell
+Test-ComputerSecureChannel -Verbose -Repair -Credential <account name>
+```
+
+3. Zurücksetzen von Gruppenrichtlinien-datasregierten Daten mit dem Befehl
+```Command Line
+gpupdate /force
+```
+
+4. Starten Sie die Knoten neu. Testen Sie nach dem Neustart die Konnektivität zwischen dem Gatewaycomputer und den Zielknoten sowie der Konnektivität zwischen den Knoten mit dem folgenden Befehl: 
+```PowerShell
+Enter-PSSession -computername <node fqdn>
+```
+
+### <a name="nested-virtualization"></a>Geschachtelte Virtualisierung
+Wenn Sie Azure Stack HCI-Betriebssystem Cluster-Bereitstellung auf virtuellen Computern validieren, muss die schsted Virtualisierung aktiviert werden, bevor Rollen/Features mithilfe des folgenden PowerShell-Befehls aktiviert werden:
+
+```PowerShell
+Set-VMProcessor -VMName <VMName> -ExposeVirtualizationExtensions $true 
+```
+
+  > [!Note]
+  > Damit der Team Vorgang für virtuelle Switches erfolgreich in einer Umgebung für virtuelle Computer ausgeführt werden kann, muss der folgende Befehl in PowerShell auf dem Host ausgeführt werden, kurz nachdem die virtuellen Maschinen erstellt wurden: Get-VM | % {Set-vmnetworkadapter-VMName $ _. Name-macaddressspoofing on-allowteaming für} 
+
+Wenn Sie einen Cluster mit dem Azure Stack HCI-Betriebssystem bereitstellen, müssen Sie zusätzliche Voraussetzungen erfüllen. Die virtuelle Festplatte des VM-Starts muss mit den Hyper-V-Features vorinstalliert werden. Führen Sie hierzu den folgenden Befehl aus, bevor Sie die virtuellen Computer erstellen: 
+
+```PowerShell
+Install-WindowsFeature –VHD <Path to the VHD> -Name Hyper-V, RSAT-Hyper-V-Tools, Hyper-V-PowerShell
+```
+
+### <a name="support-for-rdma"></a>Unterstützung für RDMA
+Der Assistent für die Cluster Bereitstellung in Windows Admin Center, Version 2007, bietet keine Unterstützung für die RDMA-Konfiguration.   
 
 ## <a name="failover-cluster-manager-solution"></a>Failovercluster-Manager Lösung
 
 - Beim Verwalten eines Clusters (hyperkonvergiert oder traditionell) wird möglicherweise die Fehlermeldung " **Shell wurde nicht gefunden** " angezeigt. Wenn dies der Fall ist, laden Sie Ihren Browser neu, oder navigieren Sie zu einem anderen Tool und wieder zurück. [13882442]
 
-- Ein Problem kann auftreten, wenn ein Windows Server 2012-oder 2012 R2-Cluster verwaltet wird, der noch nicht vollständig konfiguriert wurde. Um dieses Problem zu beheben, müssen Sie sicherstellen, dass die Windows-Funktion **rsat-Clustering-PowerShell** auf **jedem Mitglieds Knoten** des Clusters installiert und aktiviert ist. Um dies mit PowerShell zu erreichen, geben Sie `Install-WindowsFeature -Name RSAT-Clustering-PowerShell` den Befehl auf allen Cluster Knoten ein. [12524664]
+- Ein Problem kann auftreten, wenn ein Windows Server 2012-oder 2012 R2-Cluster verwaltet wird, der noch nicht vollständig konfiguriert wurde. Um dieses Problem zu beheben, müssen Sie sicherstellen, dass die Windows-Funktion **rsat-Clustering-PowerShell** auf **jedem Mitglieds Knoten** des Clusters installiert und aktiviert ist. Um dies mit PowerShell zu erreichen, geben Sie den Befehl `Install-WindowsFeature -Name RSAT-Clustering-PowerShell` auf allen Cluster Knoten ein. [12524664]
 
 - Der Cluster muss ggf. mit dem gesamten FQDN hinzugefügt werden, damit er ordnungsgemäß ermittelt werden kann.
 
@@ -220,8 +296,8 @@ Die Lösung für die Computer Verwaltung enthält eine Teilmenge der Tools aus d
 Azure-Dateisynchronisierung erfordert Berechtigungen in Azure, die von Windows Admin Center vor Version 1910 nicht bereitgestellt wurden. Wenn Sie Ihr Windows Admin Center-Gateway in Azure mit einer älteren Version als Windows Admin Center, Version 1910, registriert haben, müssen Sie Ihre Azure Active Directory Anwendung aktualisieren, um die richtigen Berechtigungen für die Verwendung Azure-Dateisynchronisierung in der neuesten Version von Windows Admin Center zu erhalten. Mit der zusätzlichen Berechtigung können Azure-Dateisynchronisierung die automatische Konfiguration des Speicherkonto Zugriffs ausführen, wie in diesem Artikel beschrieben: [sicherstellen, dass Azure-Dateisynchronisierung Zugriff auf das Speicherkonto hat](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tabpanel_CeZOj-G++Q-5_azure-portal).
 
 Zum Aktualisieren Ihrer Azure Active Directory-App können Sie eine der beiden folgenden Aktionen ausführen:
-1. Wechseln Sie zu **Einstellungen** > **Azure** > **Unregister**, und registrieren Sie dann das Windows Admin Center erneut bei Azure. Stellen Sie sicher, dass Sie eine neue Azure Active Directory Anwendung erstellen. 
-2. Wechseln Sie zu ihrer Azure Active Directory Anwendung, und fügen Sie die erforderliche Berechtigung manuell zu Ihrer vorhandenen Azure Active Directory-APP hinzu, die im Windows Admin Center registriert ist. Wechseln Sie zu diesem Zweck zu **Einstellungen** > **Azure** > -**Ansicht in Azure**. Navigieren Sie auf dem Blatt für die **App-Registrierung** in Azure zu **API-Berechtigungen**, und wählen Sie **Berechtigung hinzufügen**aus. Scrollen Sie nach unten, und wählen Sie **Azure Active Directory Graph**aus, wählen Sie **Delegierte Berechtigungen**und dann **Verzeichnis**, und wählen Sie **Directory. accessasuser. all**aus. Klicken Sie auf **Berechtigungen hinzufügen** , um die Updates für die APP zu speichern.
+1. Wechseln Sie zu **Einstellungen**  >  **Azure**  >  **Unregister**, und registrieren Sie dann das Windows Admin Center erneut bei Azure. Stellen Sie sicher, dass Sie eine neue Azure Active Directory Anwendung erstellen. 
+2. Wechseln Sie zu ihrer Azure Active Directory Anwendung, und fügen Sie die erforderliche Berechtigung manuell zu Ihrer vorhandenen Azure Active Directory-APP hinzu, die im Windows Admin Center registriert ist. Wechseln Sie zu diesem Zweck zu **Einstellungen**  >  **Azure**-  >  **Ansicht in Azure**. Navigieren Sie auf dem Blatt für die **App-Registrierung** in Azure zu **API-Berechtigungen**, und wählen Sie **Berechtigung hinzufügen**aus. Scrollen Sie nach unten, und wählen Sie **Azure Active Directory Graph**aus, wählen Sie **Delegierte Berechtigungen**und dann **Verzeichnis**, und wählen Sie **Directory. accessasuser. all**aus. Klicken Sie auf **Berechtigungen hinzufügen** , um die Updates für die APP zu speichern.
 
 ### <a name="options-for-setting-up-azure-management-services"></a>Optionen zum Einrichten von Azure-Verwaltungsdiensten
 

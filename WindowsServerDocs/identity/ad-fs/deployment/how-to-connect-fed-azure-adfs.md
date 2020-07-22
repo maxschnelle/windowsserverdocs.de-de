@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 10/28/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1786b7c9a10e11e95f736d1db20bdc12eb4844b7
-ms.sourcegitcommit: fea590c092d7abcb55be2b424458faa413795f5c
+ms.openlocfilehash: eaad015d0097d9b65a4aba8a5846c7782b6966d1
+ms.sourcegitcommit: 4af8ab2e5c199ecff0697e5331fa7f61f2556a8f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85372217"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86866039"
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Bereitstellen von Active Directory-Verbunddiensten in Azure
 AD FS verfügt über Funktionen für den vereinfachten, geschützten Identitätsverbund und die einmalige Webanmeldung (SSO). Der Verbund mit Azure AD oder O365 ermöglicht Benutzern die Authentifizierung mit lokalen Anmeldeinformationen und den Zugriff auf Ressourcen in der Cloud. Daher ist es wichtig, dass eine hoch verfügbare AD FS-Infrastruktur vorhanden ist, um den Zugriff auf lokale Ressourcen und Ressourcen in der Cloud sicherzustellen. Durch die Bereitstellung von AD FS in Azure kann die erforderliche Hochverfügbarkeit mit wenig Aufwand erzielt werden.
@@ -61,7 +61,7 @@ Der nächste Schritt ist das Hinzufügen eines weiteren Subnetzes zum Netzwerk, 
 
 **1.2. Erstellen der Netzwerksicherheitsgruppen**
 
-Eine Netzwerksicherheitsgruppe (NSG) enthält eine Zugriffssteuerungsliste (Access Control List, ACL) zum Zulassen oder Verweigern von Netzwerkdatenverkehr an Ihre VM-Instanzen in einem virtuellen Netzwerk. NSGs können Subnetzen oder einzelnen VM-Instanzen innerhalb dieses Subnetzes zugeordnet werden. Wenn eine NSG einem Subnetz zugeordnet ist, gelten die ACL-Regeln für alle VM-Instanzen in diesem Subnetz.
+Eine Netzwerksicherheitsgruppe (NSG) enthält eine Zugriffssteuerungsliste (Access Control List, ACL) zum Zulassen oder Verweigern von Netzwerkdatenverkehr an Ihre VM-Instanzen in einem virtuellen Netzwerk. NSGs können Subnetzen oder einzelnen VM-Instanzen innerhalb dieses Subnetzes zugeordnet werden. Wenn eine Netzwerksicherheitsgruppe einem Subnetz zugeordnet ist, gelten die ACL-Regeln für alle VM-Instanzen in diesem Subnetz.
 In dieser Anleitung erstellen wir zwei NSGs: jeweils eine für ein internes Netzwerk und eine DMZ. Sie erhalten die Namen NSG_INT und NSG_DMZ.
 
 ![NSG erstellen](./media/how-to-connect-fed-azure-adfs/creatensg1.png)
@@ -85,7 +85,7 @@ Nach der Konfiguration sollte der Bereich für Subnetze wie folgt aussehen:
 
 Wir benötigen eine Verbindung mit einem lokalen Ort, um den Domänencontroller (DC) in Azure bereitzustellen. Azure verfügt über verschiedene Verbindungsoptionen, um für Ihre lokale Infrastruktur eine Verbindung mit der Azure-Infrastruktur herzustellen.
 
-* Punkt-zu-Standort
+* Point-to-Site
 * Standort-zu-Standort für virtuelle Netzwerke
 * ExpressRoute
 
@@ -181,7 +181,13 @@ Wählen Sie den neu erstellten ILB im Bereich „Lastenausgleichsmodule“ aus. 
 Wählen Sie im Bereich mit den ILB-Einstellungen die Option „Integritätstests“.
 
 1. Klicken Sie auf „Hinzufügen“.
-2. Geben Sie die Details für den Test an. a. **Name**: Name des Tests. b. **Protokoll**: HTTP c. **Port**: 80 (HTTP) d. **Pfad**: /adfs/probe e. **Intervall**: 5 (Standardwert). Dies ist das Intervall, in dem der ILB die Computer im Back-End-Pool testet. f. **Fehlerschwellenwert**: 2 (Standardwert). Dies ist der Schwellenwert für aufeinanderfolgende fehlgeschlagene Tests, nach denen der ILB einen Computer im Back-End-Pool als nicht reagierend deklariert und keinen Datenverkehr mehr sendet.
+2. Details für Test angeben  
+   a. **Name**: Testname  
+   b. **Protokoll**: HTTP  
+   c. **Port**: 80 (http)  
+   d. **Pfad**:/ADFS/Probe   
+   e. **Intervall**: 5 (Standardwert) – Dies ist das Intervall, in dem ILB die Computer im Back-End-Pool testet.  
+   f. **Fehlerschwellenwert**: 2 (Standardwert). Dies ist der Schwellenwert für aufeinanderfolgende fehlgeschlagene Tests, nach denen der ILB einen Computer im Back-End-Pool als nicht reagierend deklariert und keinen Datenverkehr mehr sendet.
 
 
 Hier wird der Endpunkt „/adfs/probe“ verwendet, der explizit für Integritätsprüfungen in einer AD FS-Umgebung erstellt wurde, in der keine vollständige HTTPS-Pfadüberprüfung möglich ist.  Dies ist wesentlich besser als eine allgemeine Überprüfung von Port 443, die den Status einer modernen AD FS-Bereitstellung nicht genau widerspiegelt.  Weitere Informationen dazu finden Sie unter https://blogs.technet.microsoft.com/applicationproxyblog/2014/10/17/hardware-load-balancer-health-checks-and-web-application-proxy-ad-fs-2012-r2/.
@@ -192,7 +198,13 @@ Um den Datenverkehr effektiv ausgleichen zu können, sollte der ILB mit Lastenau
 
 1. Wählen Sie im Bereich „Einstellungen“ des ILB die Option „Lastenausgleichsregel“.
 2. Klicken Sie im Bereich „Lastenausgleichsregel“ auf „Hinzufügen“.
-3. Bereich „Lastenausgleichsregel hinzufügen“: **Name**: Geben Sie einen Namen für die Regel an. b. **Protokoll**: Wählen Sie „TCP“ aus. c. **Port**: 443. d. **Back-End-Port**: 443. e. **Back-End-Pool**: Wählen Sie den Pool aus, den Sie zuvor für den AD FS-Cluster erstellt haben. f. **Test**: Wählen Sie den Test aus, den Sie zuvor für AD FS-Server erstellt haben.
+3. Im Bereich "Lasten Ausgleichs Regel hinzufügen"  
+   a. **Name**: Geben Sie einen Namen für die Regel an.  
+   b. **Protokoll**: Wählen Sie TCP aus.  
+   c. **Port**: 443  
+   d. Back-End- **Port**: 443  
+   e. Back-End- **Pool**: Wählen Sie den Pool aus, den Sie zuvor für den AD FS Cluster  
+   f. **Test**: Wählen Sie den Test aus, den Sie zuvor für AD FS-Server erstellt haben.
 
 ![ILB-Ausgleichsregeln konfigurieren](./media/how-to-connect-fed-azure-adfs/ilbdeployment5.png)
 
@@ -201,15 +213,21 @@ Um den Datenverkehr effektiv ausgleichen zu können, sollte der ILB mit Lastenau
 Erstellen Sie mit Ihrem internen DNS-Server einen A-Datensatz für den ILB. Der A-Datensatz sollte für den Verbund Dienst mit der IP-Adresse sein, die auf die IP-Adresse des ILB verweist. Wenn beispielsweise die ILB-IP-Adresse 10.3.0.8 und der installierte Verbund Dienst FS.contoso.com ist, erstellen Sie einen A-Datensatz für FS.contoso.com, der auf 10.3.0.8 zeigt.
 Dadurch wird sichergestellt, dass alle Daten, die an FS.contoso.com gesendet werden, am ILB enden und entsprechend weitergeleitet werden. 
 
+> [!WARNING]
+> Wenn Sie die wid (interne Windows-Datenbank) für die AD FS-Datenbank verwenden, sollte dieser Wert stattdessen temporär so festgelegt werden, dass er auf Ihren primären AD FS Server verweist, oder der webanwendungsproxy schlägt nicht bei der Einschreibung fehl. Nachdem Sie alle Webanwendungs Proxy Server erfolgreich registriert haben, ändern Sie diesen DNS-Eintrag so, dass er auf den Load Balancer verweist.
+
 > [!NOTE]
->Wenn die Bereitstellung auch IPv6 verwendet, achten Sie darauf, einen entsprechenden AAAA-Datensatz zu erstellen.
->
+> Wenn die Bereitstellung auch IPv6 verwendet, achten Sie darauf, einen entsprechenden AAAA-Datensatz zu erstellen.
 >
 
 ### <a name="7-configuring-the-web-application-proxy-server"></a>7. Konfigurieren des webanwendungsproxy-Servers
 **7.1. Konfigurieren der Webanwendungsproxy-Server für die Verbindung mit AD FS-Servern**
 
 Erstellen Sie für den ILB einen Eintrag unter „%systemroot%\system32\drivers\etc\hosts“, um sicherzustellen, dass Webanwendungsproxy-Server die AD FS-Server hinter dem ILB erreichen. Beachten Sie, dass der Distinguished Name (DN) der Verbunddienstname sein sollte, z.B. „fs.contoso.com“. Und der IP-Eintrag sollte die IP-Adresse des ILB lauten (wie im Beispiel 10.3.0.8).
+
+> [!WARNING]
+> Wenn Sie die wid (interne Windows-Datenbank) für die AD FS-Datenbank verwenden, sollte dieser Wert stattdessen temporär so festgelegt werden, dass er auf den primären AD FS Server verweist, oder der webanwendungsproxy schlägt nicht bei der Einschreibung fehl. Nachdem Sie alle Webanwendungs Proxy Server erfolgreich registriert haben, ändern Sie diesen DNS-Eintrag so, dass er auf den Load Balancer verweist.
+
 
 **7.2. Installieren der Webanwendungsproxy-Rolle**
 
@@ -266,7 +284,7 @@ Führen Sie die gleichen Schritte wie für den ILB aus, um die Lastenausgleichsr
 
 Generell benötigen Sie die folgenden Regeln, um Ihr internes Subnetz effizient zu schützen (in der unten angegebenen Reihenfolge).
 
-| Regel | BESCHREIBUNG | Flow |
+| Regel | Beschreibung | Flow |
 |:--- |:--- |:---:|
 | AllowHTTPSFromDMZ |Mit dieser Regel wird die HTTPS-Kommunikation von der DMZ zugelassen. |Eingehend |
 | DenyInternetOutbound |Es besteht kein Zugriff auf das Internet. |Ausgehend |
@@ -275,7 +293,7 @@ Generell benötigen Sie die folgenden Regeln, um Ihr internes Subnetz effizient 
 
 **9.2. Schützen des DMZ-Subnetzes**
 
-| Regel | BESCHREIBUNG | Flow |
+| Regel | Beschreibung | Flow |
 |:--- |:--- |:---:|
 | AllowHTTPSFromInternet |HTTPS aus dem Internet an die DMZ zulassen |Eingehend |
 | DenyInternetOutbound |Alles außer HTTPS-Verbindungen ins Internet blockieren |Ausgehend |
@@ -283,7 +301,7 @@ Generell benötigen Sie die folgenden Regeln, um Ihr internes Subnetz effizient 
 ![EXT-Zugriffsregeln (eingehend)](./media/how-to-connect-fed-azure-adfs/nsg_dmz.png)
 
 > [!NOTE]
-> Wenn eine Clientauthentifizierung mit Benutzerzertifikat (clientTLS-Authentifizierung mit X509-Benutzerzertifikaten) erforderlich ist, muss für AD FS der TCP-Port 49443 für eingehenden Zugriff aktiviert werden.
+> Wenn die Client Zertifikat Authentifizierung (clienttls-Authentifizierung mit X. 509-Benutzer Zertifikaten) erforderlich ist, muss für AD FS der TCP-Port 49443 für den eingehenden Zugriff aktiviert werden.
 > 
 > 
 
@@ -338,8 +356,8 @@ Sie können ein vorhandenes virtuelles Netzwerk verwenden oder beim Bereitstelle
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 * [Verfügbarkeits Gruppen](https://aka.ms/Azure/Availability) 
-* [Azure-Lastenausgleich](https://aka.ms/Azure/ILB)
-* [Interner Lastenausgleich](https://aka.ms/Azure/ILB/Internal)
+* [Azure Load Balancer](https://aka.ms/Azure/ILB)
+* [Interner Load Balancer](https://aka.ms/Azure/ILB/Internal)
 * [Load Balancer mit Internetzugriff](https://aka.ms/Azure/ILB/Internet)
 * [Speicherkonten](https://aka.ms/Azure/Storage)
 * [Virtuelle Azure-Netzwerke](https://aka.ms/Azure/VNet)

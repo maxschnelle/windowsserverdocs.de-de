@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 9389d1565462572a5617856f0f2531580b069745
-ms.sourcegitcommit: 074b59341640a8ae0586d6b37df7ba256e03a0c6
+ms.openlocfilehash: b6fc6c662630af5658e5f186c958f4ddaffccc42
+ms.sourcegitcommit: 4af8ab2e5c199ecff0697e5331fa7f61f2556a8f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81650076"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86866029"
 ---
 # <a name="upgrading-to-ad-fs-in-windows-server-2016-using-a-wid-database"></a>Aktualisieren auf AD FS unter Windows Server 2016 unter Verwendung einer WID-Datenbank
 
@@ -144,6 +144,9 @@ Set-WebApplicationProxyConfiguration -ConnectedServersName WAPServerName1, WAPSe
 ```PowerShell
 Get-WebApplicationProxyConfiguration
 ```
+> [!NOTE]
+> Überspringen Sie den nächsten Schritt, wenn configurationversion Windows Server 2016 ist. Dies ist der richtige Wert für den webanwendungsproxy unter Windows Server 2016/2019.
+
 Führen Sie den folgenden PowerShell-Befehl aus, um die configurationversion der WAP-Server zu aktualisieren.
 
 ```PowerShell
