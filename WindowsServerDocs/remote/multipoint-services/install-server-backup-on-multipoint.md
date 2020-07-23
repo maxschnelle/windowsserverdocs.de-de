@@ -9,12 +9,12 @@ ms.assetid: e4331370-ba07-4529-92ab-db14a41bfc3b
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: f8fe5ac8b57105d421af431b12c8dc17250b622d
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 7aa2c422151247d13dcb1dafd474fb70873f54e1
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80820333"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86966912"
 ---
 # <a name="install-server-backup-on-your-multipoint-server"></a>Installieren der Server Sicherung auf dem Multipoint-Server
 Es wird empfohlen, dass Sie einen Sicherungs-und Wiederherstellungs Plan für Ihre Multipoint-Server in Erwägung gezogen.
@@ -56,4 +56,4 @@ Verwenden Sie die folgenden Verfahren, um den erforderlichen Sicherungstyp einzu
   
 ## <a name="configure-backups-using-windows-server-backup"></a>Konfigurieren von Sicherungen mithilfe von Windows Server-Sicherung  
   
--   Befolgen Sie die Anweisungen unter [Sichern des Servers](https://technet.microsoft.com/library/cc753528.aspx). 
+-   Befolgen Sie die Anweisungen unter [Sichern des Servers](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753528(v=ws.11)). 

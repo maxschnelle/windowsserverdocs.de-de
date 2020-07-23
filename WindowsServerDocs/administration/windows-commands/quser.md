@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7df52ea8d2b30d9e365d6dc79d53aad9bd0782f9
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 372622de4e94debcff019f2ab5b7cc793381aedf
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85931108"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86956402"
 ---
 # <a name="quser"></a>quser
 
@@ -35,7 +35,7 @@ Zeigt Informationen zu Benutzersitzungen auf einem Remotedesktop-Sitzungshost Se
 - Datum und Uhrzeit der Anmeldung des Benutzers
 
 > [!NOTE]
-> Dieser Befehl ist mit dem Befehl für die [Abfrage Benutzer](query-user.md)identisch. Weitere Informationen zu den Neuerungen in der neuesten Version finden Sie unter [What es New in Remotedesktopdienste in Windows Server](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn283323(v=ws.11)).
+> Dieser Befehl ist mit dem Befehl für die [Abfrage Benutzer](query-user.md)identisch. Weitere Informationen zu den Neuerungen in der neuesten Version finden Sie unter [What es New in Remotedesktopdienste in Windows Server](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn283323(v=ws.11)).
 
 ## <a name="syntax"></a>Syntax
 
@@ -45,7 +45,7 @@ quser [<username> | <sessionname> | <sessionID>] [/server:<servername>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 |--|--|
 | `<username>` | Gibt den Anmelde Namen des Benutzers an, den Sie Abfragen möchten. |
 | `<sessionname>` | Gibt den Namen der Sitzung an, die Sie Abfragen möchten. |
@@ -53,7 +53,7 @@ quser [<username> | <sessionname> | <sessionID>] [/server:<servername>]
 | /server:`<servername>` | Gibt den Remotedesktop-Sitzungshost Server an, den Sie Abfragen möchten. Andernfalls wird der aktuelle Remotedesktop-Sitzungshost Server verwendet. Dieser Parameter ist nur erforderlich, wenn Sie diesen Befehl auf einem Remote Server verwenden. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Um diesen Befehl verwenden zu können, müssen Sie über die Berechtigung "Vollzugriff" oder eine spezielle Zugriffsberechtigung verfügen.
 
@@ -75,7 +75,7 @@ Geben Sie Folgendes ein, um Informationen zum Benutzer *User1* auf Server *Serve
 quser USER1 /server:Server1
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

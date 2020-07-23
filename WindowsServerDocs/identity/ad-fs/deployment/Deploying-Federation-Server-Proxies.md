@@ -8,26 +8,25 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: f348b7dbc9b786cfe401eb72b82592a51e1e6343
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 418fd3bc1c53a4f8f3bdb4b945df29b70806272a
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80855553"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86965962"
 ---
 # <a name="deploying-federation-server-proxies"></a>Bereitstellen von Verbundserverproxys
 
-Zum Bereitstellen von Verbund Server Proxys in Active Directory-Verbunddienste (AD FS) \(AD FS\)führen Sie alle Aufgaben in Prüfliste [: Einrichten eines Verbund Server Proxys](Checklist--Setting-Up-a-Federation-Server-Proxy.md)aus.  
+Zum Bereitstellen von Verbund Server \( Proxys in Active Directory-Verbunddienste (AD FS) AD FS führen Sie \) alle Aufgaben in Prüfliste [: Einrichten eines Verbund Server Proxys](Checklist--Setting-Up-a-Federation-Server-Proxy.md)aus.  
   
 > [!NOTE]  
-> Wenn Sie diese Prüfliste verwenden, empfiehlt es sich, zuerst die Verweise auf die Planungs Anleitung für Verbund Server Proxys im [AD FS Entwurfs Handbuch in Windows Server 2012](https://technet.microsoft.com/library/dd807036.aspx) zu lesen, bevor Sie mit den Verfahren zum Konfigurieren der Server beginnen. Nach der Prüfliste erhalten Sie ein besseres Verständnis des Entwurfs-und Bereitstellungs Prozesses für Verbund Server Proxys.  
+> Wenn Sie diese Prüfliste verwenden, empfiehlt es sich, zuerst die Verweise auf die Planungs Anleitung für Verbund Server Proxys im [AD FS Entwurfs Handbuch in Windows Server 2012](../design/ad-fs-design-guide-in-windows-server-2012.md) zu lesen, bevor Sie mit den Verfahren zum Konfigurieren der Server beginnen. Nach der Prüfliste erhalten Sie ein besseres Verständnis des Entwurfs-und Bereitstellungs Prozesses für Verbund Server Proxys.  
   
 ## <a name="about-federation-server-proxies"></a>Informationen zu Verbund Server Proxys  
-Verbund Server Proxys sind Computer, auf denen Windows Server&reg; 2012 ausgeführt wird, und AD FS Software, die manuell konfiguriert wurde, um in der Proxy Rolle zu agieren. Sie können die Verbundserverproxys in Ihrer Organisation verwenden, um Vermittlungsdienste zwischen einem Internetclient und einem Verbundserver bereitzustellen, der in Ihrem Unternehmensnetzwerk hinter einer Firewall liegt.  
+Verbund Server Proxys sind Computer, auf denen Windows Server 2012 ausgeführt wird, &reg; und AD FS Software, die manuell konfiguriert wurde, um in der Proxy Rolle zu agieren. Sie können Verbund Server Proxys in Ihrer Organisation verwenden, um zwischen einem Internet Client und einem Verbund Server, der sich hinter einer Firewall im Unternehmensnetzwerk befindet, Vermittler Dienste bereitzustellen.  
   
 > [!NOTE]  
-> Obwohl der Verbund Server und die Verbund Server Proxy-Rollen nicht auf demselben Computer installiert werden können, kann ein Verbund Server Verbund Server Proxy-Funktionen ausführen. Weitere Informationen finden Sie unter [When to Create a Federation Server](https://technet.microsoft.com/library/dd807101.aspx).  
+> Obwohl der Verbund Server und die Verbund Server Proxy-Rollen nicht auf demselben Computer installiert werden können, kann ein Verbund Server Verbund Server Proxy-Funktionen ausführen. Weitere Informationen finden Sie unter [When to Create a Federation Server](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dd807101(v=ws.11)).  
   
-Durch die Installation der AD FS Software auf einem Windows Server&reg; 2012-Computer und dessen Konfiguration für die Proxy Rolle wird dieser Computer zu einem Verbund Server Proxy.  
+Durch die Installation der AD FS Software auf einem Computer mit Windows Server &reg; 2012 und deren Konfiguration zur Bereitstellung in der Proxy Rolle wird dieser Computer zu einem Verbund Server Proxy.  
   
-

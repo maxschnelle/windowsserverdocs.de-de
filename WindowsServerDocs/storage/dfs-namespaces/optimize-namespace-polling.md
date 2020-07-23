@@ -8,12 +8,12 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: ea867cbb36286297ff3c5274d11c36b5815ab9ac
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 4ffcf974bd809d1692e16d632153c213081041c4
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85475457"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86961232"
 ---
 # <a name="optimize-namespace-polling"></a>Optimieren der Namespaceabfrage
 
@@ -35,7 +35,7 @@ Verwenden Sie das folgende Verfahren, um die Art der Namespace Abruf Optimierung
     -   Wählen Sie **für Skalierbarkeit optimieren aus** , wenn mehr als 16 Namespace Server vorhanden sind. Dadurch wird die Last auf dem PDC-Emulator (primärer Domänen Controller) reduziert, aber es wird die erforderliche Zeit für die Replikation von Änderungen am Namespace auf alle Namespace Server erhöht. Bis Änderungen zu allen Servern repliziert werden, verfügen die Benutzer möglicherweise über eine uneinheitliche Ansicht des Namespaces.
 
 > [!NOTE]
-> Verwenden Sie das Cmdlet [Set-dfsnroot enablerootscalability](https://technet.microsoft.com/library/jj884281.aspx) , das in Windows Server 2012 eingeführt wurde, um den Namespace-Abruf Modus mithilfe von Windows PowerShell festzulegen.
+> Verwenden Sie das Cmdlet [Set-dfsnroot enablerootscalability](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771913(v=ws.11)) , das in Windows Server 2012 eingeführt wurde, um den Namespace-Abruf Modus mithilfe von Windows PowerShell festzulegen.
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 

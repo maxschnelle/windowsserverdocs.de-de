@@ -8,18 +8,18 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 2acce64aa14d60503a5b443b831a03338c204be2
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 793c9d705cc225de2372d65bf92ce924b498032a
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85472816"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86961542"
 ---
 # <a name="file-server-resource-manager-command-line-tools"></a>Datei Server Ressourcen-Manager Befehlszeilen Tools
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
-Datei Server Ressourcen-Manager installiert die PowerShell-Cmdlets [fileserverresourcemanager](https://technet.microsoft.com/itpro/powershell/windows/fileserverresourcemanager/fileserverresourcemanager) und die folgenden Befehlszeilen Tools:
+Datei Server Ressourcen-Manager installiert die PowerShell-Cmdlets [fileserverresourcemanager](/powershell/module/fileserverresourcemanager/?view=win10-ps) und die folgenden Befehlszeilen Tools:
 
 -   **Dirquota.exe**. Verwenden Sie zum Erstellen und Verwalten von Kontingenten, zum automatischen Anwenden von Kontingenten und Kontingent Vorlagen.
 -   **Filescrn.exe**. Verwenden Sie, um Datei Bildschirme, Datei Bildschirm Vorlagen, Datei Bildschirm Ausnahmen und Dateigruppen zu erstellen und zu verwalten.

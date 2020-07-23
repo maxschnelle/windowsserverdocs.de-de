@@ -8,12 +8,12 @@ ms.date: 08/08/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: e6142d3facb32a81d8d7c54afe9c2f60fc9eb674
-ms.sourcegitcommit: 11421f4005f9f3a3f6c0db95b1836d0f765a9fa3
+ms.openlocfilehash: ad4e89be7eeb6190d27ee0e15e370bcaa1806cb8
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81623808"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86959372"
 ---
 # <a name="planning-operations-master-role-placement"></a>Planen der Platzierung der Rolle „Betriebsmaster“
 
@@ -55,9 +55,9 @@ Auch wenn alle Domänen Controller auf Windows 2000, Windows Server 2003 und Win
 
 Platzieren Sie den PDC-Emulator an einem Speicherort, der bei Bedarf eine große Anzahl von Benutzern aus dieser Domäne für Vorgänge zur Kenn Wort Weiterleitung enthält. Stellen Sie außerdem sicher, dass der Standort mit anderen Standorten verbunden ist, um die Replikations Latenz zu minimieren.
 
-Ein Arbeitsblatt unterstützt Sie bei der Dokumentation der Informationen zum Platzieren von PDC-Emulatoren und der Anzahl der Benutzer für jede Domäne, die an jedem Standort dargestellt wird, unter [Auftrags Hilfen für Windows Server 2003 Deployment Kit](https://microsoft.com/download/details.aspx?id=9608), Download Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip und Open Domain Controller Placement (DSSTOPO_4. doc).
+Ein Arbeitsblatt unterstützt Sie bei der Dokumentation der Informationen zum Platzieren von PDC-Emulatoren und der Anzahl der Benutzer für jede Domäne, die an jedem Standort dargestellt wird, unter [Auftrags Hilfen für Windows Server 2003 Deployment Kit](https://microsoft.com/download/details.aspx?id=9608), Download Job_Aids_Designing_and_Deploying_Directory_and_Security_Services.zip und Open Domain Controller Placement (DSSTOPO_4.doc).
 
-Sie müssen die Informationen zu Standorten, an denen Sie PDC-Emulatoren platzieren müssen, auf die Bereitstellung regionaler Domänen verweisen. Weitere Informationen zum Bereitstellen von regionalen Domänen finden Sie unter Bereitstellen von [regionalen Windows Server 2008-Domänen](https://technet.microsoft.com/library/cc755118.aspx).
+Sie müssen die Informationen zu Standorten, an denen Sie PDC-Emulatoren platzieren müssen, auf die Bereitstellung regionaler Domänen verweisen. Weitere Informationen zum Bereitstellen von regionalen Domänen finden Sie unter Bereitstellen von [regionalen Windows Server 2008-Domänen](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc755118(v=ws.10)).
 
 ## <a name="requirements-for-infrastructure-master-placement"></a>Anforderungen für die Platzierung der Infrastruktur Master
 
@@ -82,9 +82,9 @@ Obwohl diese Konfiguration zu einer erfolgreichen Replikation zwischen allen Sta
 - Domänen Controller an Standorten C und D können keine Verzeichnis-, DNS-oder benutzerdefinierten Anwendungs Partitionen hinzufügen oder entfernen.
 - Die Domänen Controller an den Standorten C und D können keine Schema Änderungen vornehmen.
 
-Ein Arbeitsblatt, das Sie bei der Planung der Platzierung von Betriebs Master Rollen unterstützt, finden Sie unter [Job Aids for Windows Server 2003 Deployment Kit](https://microsoft.com/download/details.aspx?id=9608), Download Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip und Open Domain Controller Placement (DSSTOPO_4. doc).
+Ein Arbeitsblatt, das Sie bei der Planung der Platzierung von Betriebs Master Rollen unterstützt, finden Sie unter [Job Aids for Windows Server 2003 Deployment Kit](https://microsoft.com/download/details.aspx?id=9608), Download Job_Aids_Designing_and_Deploying_Directory_and_Security_Services.zip und Open Domain Controller Placement (DSSTOPO_4.doc).
 
-Sie müssen diese Informationen beachten, wenn Sie die Stamm Domäne der Gesamtstruktur und die regionalen Domänen erstellen. Weitere Informationen zum Bereitstellen der Stamm Domäne der Gesamtstruktur finden Sie unter Bereitstellen einer [Windows Server 2008](https://technet.microsoft.com/library/cc731174.aspx)-Gesamtstruktur-Stamm Domäne. Weitere Informationen zum Bereitstellen von regionalen Domänen finden Sie unter Bereitstellen von [regionalen Windows Server 2008-Domänen](https://technet.microsoft.com/library/cc755118.aspx).
+Sie müssen diese Informationen beachten, wenn Sie die Stamm Domäne der Gesamtstruktur und die regionalen Domänen erstellen. Weitere Informationen zum Bereitstellen der Stamm Domäne der Gesamtstruktur finden Sie unter Bereitstellen einer [Windows Server 2008](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731174(v=ws.10))-Gesamtstruktur-Stamm Domäne. Weitere Informationen zum Bereitstellen von regionalen Domänen finden Sie unter Bereitstellen von [regionalen Windows Server 2008-Domänen](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc755118(v=ws.10)).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

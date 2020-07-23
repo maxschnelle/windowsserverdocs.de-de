@@ -8,19 +8,19 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 41e7ea7c2bc627f2fce198e5c7227148e8b03d88
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 28d22b6364b7b5f3facd9aa0f84a74f9448f7455
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80853823"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86958602"
 ---
 # <a name="when-to-use-a-custom-claim-rule"></a>Wann sollte eine benutzerdefinierte Anspruchsregel verwendet werden?
-Sie schreiben eine benutzerdefinierte Anspruchs Regel in Active Directory-Verbunddienste (AD FS) \(AD FS\) mithilfe der Anspruchs Regel Sprache, bei der es sich um das Framework handelt, das die Anspruchs Ausstellungs-Engine verwendet, um Ansprüche Programm gesteuert zu generieren, zu transformieren, weiterzuleiten und zu filtern. Mithilfe einer benutzerdefinierten Regel können Sie Regeln mit komplexerer Logik als bei einer Standardvorlage erstellen. Erwägen Sie eine benutzerdefinierte Regel, wenn Sie Folgendes vorhaben:  
+Sie schreiben eine benutzerdefinierte Anspruchs Regel in Active Directory-Verbunddienste (AD FS) \( AD FS \) mithilfe der Anspruchs Regel Sprache. dabei handelt es sich um das Framework, das von der Anspruchs Ausstellungs-Engine verwendet wird, um Ansprüche Programm gesteuert zu generieren, zu transformieren, weiterzuleiten und zu filtern. Mithilfe einer benutzerdefinierten Regel können Sie Regeln mit komplexerer Logik als bei einer Standardvorlage erstellen. Erwägen Sie eine benutzerdefinierte Regel, wenn Sie Folgendes vorhaben:  
   
--   Senden von Ansprüchen basierend auf Werten, die aus einem strukturierte Abfragesprache \(SQL\)-Attribut Speicher extrahiert werden.  
+-   Senden von Ansprüchen basierend auf Werten, die aus einem strukturierte Abfragesprache \( SQL- \) Attribut Speicher extrahiert werden.  
   
--   Senden von Ansprüchen basierend auf Werten, die mithilfe eines benutzerdefinierten LDAP-Filters aus einem Lightweight Directory Access-Protokoll \(LDAP\) Attribut Speicher extrahiert werden.  
+-   Senden von Ansprüchen basierend auf Werten, die \( \) mit einem benutzerdefinierten LDAP-Filter aus einem LDAP-Attribut Speicher für Lightweight Directory Access Protocol extrahiert werden.  
   
 -   Senden von Ansprüchen basierend auf Werten, die aus einem benutzerdefinierten Attributspeicher extrahiert werden.  
   
@@ -41,35 +41,35 @@ Die Anspruchsregelsprache ist regelbasiert. Sie hat einen Bedingungsteil und ein
 Die folgenden Abschnitte enthalten eine grundlegende Einführung in Anspruchsregeln. Sie bieten außerdem Details dazu, wann eine benutzerdefinierte Anspruchsregel verwendet werden sollte.  
   
 ## <a name="about-claim-rules"></a>Informationen zu Anspruchsregeln  
-Eine Anspruchs Regel stellt eine Instanz der Geschäftslogik dar, die einen eingehenden Anspruch annimmt, eine Bedingung darauf anwenden \(wenn x, dann y\) und einen ausgehenden Anspruch basierend auf den Bedingungs Parametern erzeugt.  
+Eine Anspruchs Regel stellt eine Instanz der Geschäftslogik dar, die einen eingehenden Anspruch annimmt, eine Bedingung darauf anwendet \( , wenn x, dann y \) und einen ausgehenden Anspruch basierend auf den Bedingungs Parametern erzeugt.  
   
 > [!IMPORTANT]  
-> -   Im AD FS Verwaltungs-Snap\-in können Anspruchs Regeln nur mithilfe von Anspruchs Regel Vorlagen erstellt werden.  
-> -   Anspruchs Regeln verarbeiten eingehende Ansprüche entweder direkt von einem Anspruchs Anbieter \(z. b. Active Directory oder einer anderen Verbunddienst\) oder aus der Ausgabe der Akzeptanz Transformationsregeln für eine Anspruchs Anbieter-Vertrauensstellung.  
-> -   Anspruchsregeln werden vom Anspruchsausstellungsmodul chronologisch nach einem bestimmten Regelsatz verarbeitet. Indem Sie eine Rangfolge der Regeln festlegen, können Sie Ansprüche, die durch vorausgehende Regeln in einem bestimmten Regelsatz generiert werden, weiter optimieren oder filtern.  
+> -   Im Snap-in "AD FS-Verwaltung" \- können Anspruchs Regeln nur mithilfe von Anspruchs Regel Vorlagen erstellt werden.  
+> -   Anspruchs Regeln verarbeiten eingehende Ansprüche entweder direkt von einem Anspruchs Anbieter ( \( z. b. Active Directory oder einem anderen Verbunddienst \) oder von der Ausgabe der Akzeptanz Transformationsregeln für eine Anspruchs Anbieter-Vertrauensstellung.  
+> -   Anspruchsregeln werden von der Anspruchsausstellungs-Engine chronologisch nach einem bestimmten Regelsatz verarbeitet. Indem Sie eine Rangfolge der Regeln festlegen, können Sie Ansprüche, die durch vorausgehende Regeln in einem bestimmten Regelsatz generiert werden, weiter optimieren oder filtern.  
 > -   Anspruchsregelvorlagen erfordern immer, dass Sie einen eingehenden Anspruchstyp angeben. Allerdings können Sie mehrere Anspruchswerte mit dem gleichen Anspruchstyp mithilfe einer einzigen Regel verarbeiten.  
   
 Ausführlichere Informationen zu Anspruchs Regeln und Anspruchs Regelsätzen finden Sie [unter Rolle der Anspruchs Regeln](The-Role-of-Claim-Rules.md). Weitere Informationen zur Verarbeitung von Regeln finden Sie [unter The Role of the Claims Engine](The-Role-of-the-Claims-Engine.md). Weitere Informationen zur Verarbeitung von Anspruchs Regelsätzen finden Sie [unter der Rolle der Anspruchs Pipeline](The-Role-of-the-Claims-Pipeline.md).  
   
 ## <a name="how-to-create-this-rule"></a>Erstellen dieser Regel  
-Sie erstellen diese Regel, indem Sie zunächst die für Ihren Vorgang benötigte Syntax mithilfe der Anspruchs Regel Sprache erstellen und das Ergebnis anschließend in das Textfeld einfügen, das in den Eigenschaften einer Anspruchs Anbieter-Vertrauensstellung oder einer Vertrauensstellung der vertrauenden Seite in den Eigenschaften einer Anspruchs Anbieter-Vertrauensstellung oder einer Vertrauensstellung der vertrauenden Seite in der AD FS Verwaltungs-Snap\-in bereitgestellt wird.  
+Sie erstellen diese Regel, indem Sie zuerst die für Ihren Vorgang benötigte Syntax mithilfe der Anspruchs Regel Sprache erstellen und das Ergebnis dann in das Textfeld einfügen, das in der Vorlage senden von Ansprüchen mithilfe einer benutzerdefinierten Regel für die Eigenschaften einer Anspruchs Anbieter-Vertrauensstellung oder einer Vertrauensstellung der vertrauenden Seite im Snap-in für die AD FS-Verwaltung bereitgestellt wird \- .  
   
 Diese Regelvorlage bietet die folgenden Optionen:  
   
--   Anspruchsregelname angeben  
+-   Angeben eines Anspruchsregelnamens  
   
 -   Geben Sie eine oder mehrere optionale Bedingungen und eine Ausstellungs Anweisung mithilfe der AD FS Anspruchs Regel Sprache ein.  
   
-Weitere Anweisungen zum Erstellen einer benutzerdefinierten Regel mit dieser Vorlage finden Sie unter [Erstellen einer Regel zum Senden von Ansprüchen mithilfe einer benutzerdefinierten Regel](https://technet.microsoft.com/library/dd807049.aspx) im AD FS Bereitstellungs Handbuch.  
+Weitere Anweisungen zum Erstellen einer benutzerdefinierten Regel mit dieser Vorlage finden Sie unter [Erstellen einer Regel zum Senden von Ansprüchen mithilfe einer benutzerdefinierten Regel](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dd807049(v=ws.11)) im AD FS Bereitstellungs Handbuch.  
   
-Um ein besseres Verständnis der Funktionsweise der Anspruchs Regel Sprache zu erhalten, zeigen Sie die Syntax der Anspruchs Regel Sprache von anderen Regeln an, die bereits im Snap\-in vorhanden sind, indem Sie in den Eigenschaften für diese Regel auf die Registerkarte **Regel Sprache anzeigen** klicken. Anhand der Informationen in diesem Abschnitt und der Syntaxinformationen auf dieser Registerkarte erhalten Sie einen Einblick in die Vorgehensweise zum Erstellen von eigenen benutzerdefinierten Regeln.  
+Um besser zu verstehen, wie die Anspruchs Regel Sprache funktioniert, zeigen Sie die Syntax der Anspruchs Regel Sprache von anderen Regeln an, die bereits im Snap-in vorhanden sind, \- indem Sie in den Eigenschaften für diese Regel auf die Registerkarte **Regel Sprache anzeigen** klicken. Anhand der Informationen in diesem Abschnitt und der Syntaxinformationen auf dieser Registerkarte erhalten Sie einen Einblick in die Vorgehensweise zum Erstellen von eigenen benutzerdefinierten Regeln.  
   
 Weitere Informationen zum Verwenden der Anspruchs Regel Sprache finden Sie [unter der Rolle der Anspruchs Regel Sprache](The-Role-of-the-Claim-Rule-Language.md).  
   
 ## <a name="using-the-claim-rule-language"></a>Verwenden der Anspruchsregelsprache  
   
 ### <a name="example-how-to-combine-first-and-last-names-based-on-a-users-name-attribute-values"></a>Beispiel: Kombinieren von vor-und Nachnamen basierend auf den Namensattribut Werten eines Benutzers  
-Die folgende Regelsyntax kombiniert Vor- und Nachnamen aus Attributwerten in einem bestimmten Attributspeicher. Das Richtlinienmodul bildet ein kartesisches Produkt mit den Ergebnissen für jede Bedingung. Beispielsweise ist die Ausgabe für den Vornamen {"Frank", "Alan"} und Nachnamen {"Miller", "Shen"} {"Frank Miller", "Frank Shen", "Alan Miller", "Alan Shen"}:  
+Die folgende Regelsyntax kombiniert Vor- und Nachnamen aus Attributwerten in einem bestimmten Attributspeicher. Die Richtlinien-Engine bildet ein kartesisches Produkt mit den Ergebnissen für jede Bedingung. Beispielsweise ist die Ausgabe für den Vornamen {"Frank", "Alan"} und Nachnamen {"Miller", "Shen"} {"Frank Miller", "Frank Shen", "Alan Miller", "Alan Shen"}:  
   
 ```  
 c1:[type == "http://exampleschema/firstname" ]  
@@ -86,7 +86,7 @@ count([type == "http://schemas.xmlsoap.org/claims/Reports"] ) > 0 => issue(= "ht
 ```  
   
 ### <a name="example-how-to-issue-a-ppid-claim-based-on-an-ldap-attribute"></a>Beispiel: Ausstellen eines PPID-Anspruchs basierend auf einem LDAP-Attribut  
-Die folgende Regel stellt einen privaten persönlichen Bezeichner \(PPID\) Anspruch basierend auf den Attributen **windowsaccountname** und **originalissuer** von Benutzern in einem LDAP-Attribut Speicher aus:  
+Die folgende Regel stellt einen privaten persönlichen Bezeichner \( PPID- \) Anspruch auf Grundlage der Attribute **windowsaccountname** und **originalissuer** von Benutzern in einem LDAP-Attribut Speicher aus:  
   
 ```  
 c:[Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"]  
@@ -95,10 +95,9 @@ c:[Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/windowsacco
   
 Zu allgemeinen Attribute, die zur eindeutigen Identifizierung des Benutzers für diese Abfrage verwendet werden können, gehören die folgenden:  
   
--   **Benutzer-sid**  
+-   **Benutzer-SID**  
   
 -   **windowsaccountname**  
   
 -   **sAMAccountName**  
   
-

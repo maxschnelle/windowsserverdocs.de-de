@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c7f4ca42cc053e943d89f40a71eb24372c0399e5
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: e751ad4c229faf2e4dbd74ab216ee855023c858a
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85934237"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86956482"
 ---
 # <a name="query-termserver"></a>query termserver
 
@@ -27,7 +27,7 @@ Zeigt eine Liste aller Remotedesktop-Sitzungshost Server im Netzwerk an. Mit die
 - Netzwerk (und Knotenadresse, wenn die/Address-Option verwendet wird)
 
 > [!NOTE]
-> Weitere Informationen zu den Neuerungen in der neuesten Version finden Sie unter [What es New in Remotedesktopdienste in Windows Server](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn283323(v=ws.11)).
+> Weitere Informationen zu den Neuerungen in der neuesten Version finden Sie unter [What es New in Remotedesktopdienste in Windows Server](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn283323(v=ws.11)).
 
 ## <a name="syntax"></a>Syntax
 
@@ -37,7 +37,7 @@ query termserver [<servername>] [/domain:<domain>] [/address] [/continue]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 |--|--|
 | `<servername>` | Gibt den Namen an, der den Remotedesktop-Sitzungshost Server identifiziert. |
 | /Domain`<domain>` | Gibt die Domäne an, die für Terminal Server abgefragt werden soll. Sie müssen keine Domäne angeben, wenn Sie die Domäne Abfragen, in der Sie gerade arbeiten. |
@@ -71,7 +71,7 @@ Geben Sie Folgendes ein, um die Netzwerk-und Knotenadresse für den Remotedeskto
 query termserver Server3 /address
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

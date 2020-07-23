@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 602f3aa99f9d0e47fbbde1ab5c09b193446d8a7c
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 995b2332f98906a1a5b9cb53f504a87fb831c3e0
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85936910"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86958802"
 ---
 # <a name="tlntadmn"></a>tlntadmn
 
@@ -28,7 +28,7 @@ tlntadmn [<computerName>] [-u <UserName>] [-p <Password>] [{start | stop | pause
 ```
 #### <a name="parameters"></a>Parameter
 
-|                   Parameter                    |                                                                                                                                                       Beschreibung                                                                                                                                                        |
+|                   Parameter                    |                                                                                                                                                       BESCHREIBUNG                                                                                                                                                        |
 |------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |                \<computerName>                 |                                                                                                                    Gibt den Namen des Servers an, mit dem eine Verbindung hergestellt werden soll. Die Standardeinstellung ist der lokale Computer.                                                                                                                    |
 |         -u \<UserName> -p\<Password>          |                                                Gibt administrative Anmelde Informationen für einen Remote Server an, den Sie verwalten möchten. Dieser Parameter ist erforderlich, wenn Sie einen Remote Server verwalten möchten, für den Sie nicht mit administrativen Anmelde Informationen angemeldet sind.                                                |
@@ -50,7 +50,7 @@ tlntadmn [<computerName>] [-u <UserName>] [-p <Password>] [{start | stop | pause
 |     config Mode = {Console &#124; Stream}      |                                                                                                                                             Gibt den Modus des Vorgangs an.                                                                                                                                             |
 |                       -?                       |                                                                                                                                           Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                                           |
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 -   Zum Anzeigen der Servereinstellungen geben Sie **tlntadmn** ohne Parameter ein.
 -   Wenn Sie den Befehl " **tlntadmn** " verwenden möchten, müssen Sie sich mit Administrator Anmelde Informationen am lokalen Computer anmelden. Um einen Remote Computer zu verwalten, müssen Sie auch administrative Anmelde Informationen für den Remote Computer angeben. Melden Sie sich auf dem lokalen Computer mit einem Konto an, das über Administrator Anmelde Informationen für den lokalen Computer und den Remote Computer verfügt. Wenn Sie diese Methode nicht verwenden können, können Sie die Parameter **-u** und **-p** verwenden, um administrative Anmelde Informationen für den Remote Computer bereitzustellen.
 
@@ -64,6 +64,6 @@ Aktive Telnet-Sitzungen anzeigen.
 tlntadmn -s
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
--   [Telnet-Betriebshandbuch](https://technet.microsoft.com/library/cc753164(v=ws.10).aspx)
+## <a name="additional-references"></a>Zusätzliche Referenzen
+-   [Telnet-Betriebshandbuch](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753164(v=ws.10))
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

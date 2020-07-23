@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 08/21/2018
-ms.openlocfilehash: bfa92f7e80bbf89fac615a3cd6ddf7057c0d6a4c
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: a07ad9b33000b17f5c6f41835a1a36531b3945af
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85936074"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86958882"
 ---
 # <a name="wscript"></a>wscript
 
@@ -30,7 +30,7 @@ wscript [<scriptname>] [/b] [/d] [/e:<engine>] [{/h:cscript|/h:wscript}] [/i] [/
 
 #### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
 |ScriptName|Gibt den Pfad und den Dateinamen der Skriptdatei an.|
 |/b|Gibt den Batch Modus an, in dem keine Warnungen, Skript Fehler oder Eingabe Aufforderungen angezeigt werden. Dies ist das Gegenteil von **/i**.|
@@ -48,7 +48,7 @@ wscript [<scriptname>] [/b] [/d] [/e:<engine>] [{/h:cscript|/h:wscript}] [/i] [/
 |Scriptarguments|Gibt die Argumente an, die an das Skript geleitet werden. Jedem Skript Argument muss ein Schrägstrich (/) vorangestellt werden.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 -   Zum Ausführen dieser Aufgabe benötigen Sie keine Administratorrechte. Daher sollten Sie als Best Practice für die Sicherheit diese Aufgabe als Benutzer ohne Administratorrechte ausführen.
 -   Geben Sie zum Öffnen einer Eingabeaufforderung auf dem **Startbildschirm****cmd** ein, und klicken Sie auf **Eingabeaufforderung**.
@@ -56,9 +56,9 @@ wscript [<scriptname>] [/b] [/d] [/e:<engine>] [{/h:cscript|/h:wscript}] [/i] [/
 -   Der **/t** -Parameter verhindert eine übermäßige Ausführung von Skripts durch Festlegen eines Timers. Wenn die Zeit den angegebenen Wert überschreitet, unterbricht **WScript** die Skript-Engine und beendet den Prozess.
 -   Windows-Skriptdateien haben in der Regel eine der folgenden Dateinamen Erweiterungen: **. wsf**, **. VSB**, **. js**.
 -   Wenn Sie auf eine Skriptdatei mit einer Erweiterung ohne Zuordnung doppelklicken, wird das Dialogfeld **Öffnen mit** angezeigt. Wählen Sie **WScript** oder **cscript**aus, und wählen Sie dann **dieses Programm immer verwenden aus, um diesen Dateityp zu öffnen**. Dadurch wird **wscript.exe** oder **cscript.exe** als Standardskript Host für Dateien dieses Dateityps registriert.
--   Sie können Eigenschaften für einzelne Skripts festlegen. Weitere Informationen finden Sie unter [Übersicht über Windows Script Host](https://technet.microsoft.com/library/cc738350(v=ws.10).aspx) .
+-   Sie können Eigenschaften für einzelne Skripts festlegen. Weitere Informationen finden Sie unter [Übersicht über Windows Script Host](/previous-versions/windows/it-pro/windows-server-2003/cc738350(v=ws.10)) .
 -   Die **WSF** -Skriptdateien können von Windows Script Host verwendet werden. Jede **WSF** -Datei kann mehrere Skript-Engines verwenden und mehrere Aufträge ausführen.
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

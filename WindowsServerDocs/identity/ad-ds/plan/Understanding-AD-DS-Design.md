@@ -8,12 +8,12 @@ ms.date: 08/07/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 734d5eaef97b23b774eb286134d07a17dc380da1
-ms.sourcegitcommit: 11421f4005f9f3a3f6c0db95b1836d0f765a9fa3
+ms.openlocfilehash: 72abc2b5b45ec1eefbff3ca82b619649ffd0fda9
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81623908"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86959762"
 ---
 # <a name="understanding-ad-ds-design"></a>Grundlegendes zum AD DS-Entwurf
 
@@ -25,6 +25,6 @@ Ein AD DS Bereitstellungs Projekt umfasst drei Phasen: eine Entwurfsphase, eine 
 
 Obwohl die Windows Server-AD DS Entwurfs-und Bereitstellungs Strategien, die in diesem Handbuch vorgestellt werden, auf umfassenden Testprogrammen und Pilotprogrammen und erfolgreicher Implementierung in Kundenumgebungen basieren, müssen Sie möglicherweise Ihren AD DS Entwurf und die Bereitstellung anpassen, um bestimmte, komplexe Umgebungen besser anzupassen.
 
-- Weitere Informationen zum Bereitstellen von AD DS in einer Zweigstellen Umgebung finden [Sie im Planungs Handbuch für den schreibgeschützten Domänen Controller (RODC)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd734758(v=ws.10)).
-- Weitere Informationen zum Bereitstellen von AD DS in einer Exchange-Umgebung finden Sie im Artikel [Active Directory in Exchange Server-Organisationen](https://docs.microsoft.com/Exchange/plan-and-deploy/active-directory/active-directory).
-- Weitere Informationen zum Bereitstellen von AD DS in einer Umgebung mit mehreren Gesamtstrukturen finden Sie im Artikel Überlegungen zur Gesamtstruktur [in Windows 2000 und Windows Server 2003](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc739395(v=ws.10)).
+- Weitere Informationen zum Bereitstellen von AD DS in einer Zweigstellen Umgebung finden [Sie im Planungs Handbuch für den schreibgeschützten Domänen Controller (RODC)](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/dd734758(v=ws.10)).
+- Weitere Informationen zum Bereitstellen von AD DS in einer Exchange-Umgebung finden Sie im Artikel [Active Directory in Exchange Server-Organisationen](/exchange/plan-and-deploy/active-directory/active-directory).
+- Weitere Informationen zum Bereitstellen von AD DS in einer Umgebung mit mehreren Gesamtstrukturen finden Sie im Artikel Überlegungen zur Gesamtstruktur [in Windows 2000 und Windows Server 2003](/previous-versions/windows/it-pro/windows-server-2003/cc739395(v=ws.10)).

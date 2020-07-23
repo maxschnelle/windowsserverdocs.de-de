@@ -8,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: b424d758d98315ff63f05926880a23970f54e49c
-ms.sourcegitcommit: 11421f4005f9f3a3f6c0db95b1836d0f765a9fa3
+ms.openlocfilehash: 5a67e85a239036851d628ad1c261a21f6fbc4566
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81623968"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86959432"
 ---
 # <a name="planning-global-catalog-server-placement"></a>Planen der Platzierung des globalen Katalogservers
 
@@ -49,6 +49,6 @@ Roamingbenutzer müssen die globalen Katalogserver immer dann kontaktieren, wenn
 
 ## <a name="enabling-universal-group-membership-caching"></a>Aktivieren der Zwischenspeicherung universeller Gruppenmitgliedschaften
 
-Für Standorte, die weniger als 100 Benutzer enthalten und keine große Anzahl Roamingbenutzer oder-Anwendungen enthalten, die einen globalen Katalogserver erfordern, können Sie Domänen Controller unter Windows Server 2008 bereitstellen und das Zwischenspeichern der universellen Gruppenmitgliedschaft aktivieren. Stellen Sie sicher, dass es sich bei den globalen Katalog Servern nicht um mehr als einen Replikations Hop vom Domänen Controller handelt, auf dem das Zwischenspeichern der universellen Gruppenmitgliedschaft aktiviert ist, sodass universelle Gruppeninformationen im Cache aktualisiert werden können Informationen zur Funktionsweise des universellen Gruppen Caching finden Sie im Artikel [Funktionsweise des globalen Katalogs](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc737410(v=ws.10)).
+Für Standorte, die weniger als 100 Benutzer enthalten und keine große Anzahl Roamingbenutzer oder-Anwendungen enthalten, die einen globalen Katalogserver erfordern, können Sie Domänen Controller unter Windows Server 2008 bereitstellen und das Zwischenspeichern der universellen Gruppenmitgliedschaft aktivieren. Stellen Sie sicher, dass es sich bei den globalen Katalog Servern nicht um mehr als einen Replikations Hop vom Domänen Controller handelt, auf dem das Zwischenspeichern der universellen Gruppenmitgliedschaft aktiviert ist, sodass universelle Gruppeninformationen im Cache aktualisiert werden können Informationen zur Funktionsweise des universellen Gruppen Caching finden Sie im Artikel [Funktionsweise des globalen Katalogs](/previous-versions/windows/it-pro/windows-server-2003/cc737410(v=ws.10)).
 
-Ein Arbeitsblatt unterstützt Sie bei der Dokumentation zum Platzieren von globalen Katalog Servern und Domänen Controllern mit aktiviertem universellen Gruppen Caching. Weitere Informationen finden Sie unter [Job Aids for Windows Server 2003 Deployment Kit](https://microsoft.com/download/details.aspx?id=9608), Download Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip und Open Domain Controller Placement (DSSTOPO_4. doc). Lesen Sie die Informationen zu Standorten, an denen Sie globale Katalogserver platzieren müssen, wenn Sie die Gesamtstruktur-Stamm Domäne und die regionalen Domänen bereitstellen.
+Ein Arbeitsblatt unterstützt Sie bei der Dokumentation zum Platzieren von globalen Katalog Servern und Domänen Controllern mit aktiviertem universellen Gruppen Caching. Weitere Informationen finden Sie unter [Job Aids for Windows Server 2003 Deployment Kit](https://microsoft.com/download/details.aspx?id=9608), Download Job_Aids_Designing_and_Deploying_Directory_and_Security_Services.zip und Open Domain Controller Placement (DSSTOPO_4.doc). Lesen Sie die Informationen zu Standorten, an denen Sie globale Katalogserver platzieren müssen, wenn Sie die Gesamtstruktur-Stamm Domäne und die regionalen Domänen bereitstellen.

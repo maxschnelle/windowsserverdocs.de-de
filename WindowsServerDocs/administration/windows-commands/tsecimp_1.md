@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d221479e23c737529305a2354e6a5a52b957bd8e
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: c5c3362571df5a3b22dda1b663fcbba749ee6df6
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85931483"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86954892"
 ---
 # <a name="tsecimp"></a>tsecimp
 
@@ -29,7 +29,7 @@ tsecimp /d
 
 #### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
 |/f \<Filename>|Erforderlich. Gibt den Namen der XML-Datei an, die die Zuweisungs Informationen enthält, die Sie importieren möchten.|
 |/v|Überprüft die Struktur der XML-Datei, ohne die Informationen in die Tsec.ini Datei zu importieren.|
@@ -37,7 +37,7 @@ tsecimp /d
 |/d|Zeigt eine Liste installierter Telefonieanbieter an. Für jeden Telefonieanbieter werden die zugeordneten liniengeräte sowie die den einzelnen Zeilen Geräten zugeordneten Adressen und Benutzer aufgelistet.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 -   Die XML-Datei, aus der Sie Zuweisungs Informationen importieren möchten, muss der unten beschriebenen Struktur folgen.
     -   **Userlist** -Element
@@ -152,8 +152,8 @@ tsecimp /d
 
     ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
-[Übersicht über Befehlsshell](https://technet.microsoft.com/library/cc737438(v=ws.10).aspx)
+[Übersicht über Befehlsshell](/previous-versions/windows/it-pro/windows-server-2003/cc737438(v=ws.10))

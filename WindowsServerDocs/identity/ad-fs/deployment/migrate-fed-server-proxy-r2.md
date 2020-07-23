@@ -8,12 +8,12 @@ ms.date: 07/10/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 57367cadd3c7ce3d031c6eb3a53c333422543dae
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9a9b5f6454ec93ec27f557588016295935827c18
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71359371"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86966212"
 ---
 # <a name="migrate-the-active-directory-federation-services-proxy-server-to-windows-server-2012-r2"></a>Migrieren des Active Directory-Verbunddienste (AD FS) Proxy Servers zu Windows Server 2012 R2
 
@@ -26,19 +26,18 @@ Wenn Sie AD FS in einer migrierten Windows Server 2012 R2-Farm für den Extranet
   
 Wenn Sie die Bereitstellung eines Webanwendungsproxys planen, lesen Sie die Informationen in den folgenden Themen:  
   
-- [Planen der webanwendungsproxy-Infrastruktur](https://technet.microsoft.com/library/dn383648.aspx)  
+- [Planen der Infrastruktur für den Webanwendungsproxy](/previous-versions/orphan-topics/ws.11/dn383648(v=ws.11))  
   
-- [Planen des webanwendungsproxy-Servers](https://technet.microsoft.com/library/dn383647.aspx)  
+- [Planen des Webanwendungsproxy-Servers](/previous-versions/orphan-topics/ws.11/dn383647(v=ws.11))  
   
   Sie können zum Bereitstellen eines Webanwendungsproxys die Schritte in den folgenden Themen ausführen:  
   
-- [Konfigurieren der webanwendungsproxy-Infrastruktur](https://technet.microsoft.com/library/dn383644.aspx)  
+- [Konfigurieren der Infrastruktur für den Webanwendungsproxy](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383644(v=ws.11))  
   
-- [Installieren und Konfigurieren des webanwendungsproxy-Servers](https://technet.microsoft.com/library/dn383662.aspx)  
+- [Installieren und Konfigurieren des Webanwendungsproxy-Servers](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383662(v=ws.11))  
   
 ## <a name="next-steps"></a>Nächste Schritte
  [Migrieren Active Directory-Verbunddienste (AD FS) Rollen Dienste zu Windows Server 2012 R2](migrate-ad-fs-service-role-to-windows-server-r2.md)   
  [Vorbereiten der Migration des AD FS Verbund Servers](prepare-migrate-ad-fs-server-r2.md)   
  [Migrieren des AD FS Verbund Servers](migrate-ad-fs-fed-server-r2.md)    
- [Überprüfen der AD FS Migration zu Windows Server 2012 R2](verify-ad-fs-migration.md)
-
+ [Überprüfen der AD FS-Migration zu Windows Server 2012 R2](verify-ad-fs-migration.md)

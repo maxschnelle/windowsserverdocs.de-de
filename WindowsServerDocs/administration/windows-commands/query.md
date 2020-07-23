@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a00ef08f72108643a045e5b48ec1c69155dd0fd8
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: d00a0e3433b196db62599c628c8485032a82d54b
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85931132"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86956392"
 ---
 # <a name="query"></a>Abfrage
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Zeigt Informationen zu Prozessen, Sitzungen und Remotedesktop-Sitzungshost Servern an. Weitere Informationen zu den Neuerungen in der neuesten Version finden Sie unter [What es New in Remotedesktopdienste in Windows Server](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn283323(v=ws.11)).
+Zeigt Informationen zu Prozessen, Sitzungen und Remotedesktop-Sitzungshost Servern an. Weitere Informationen zu den Neuerungen in der neuesten Version finden Sie unter [What es New in Remotedesktopdienste in Windows Server](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn283323(v=ws.11)).
 
 ## <a name="syntax"></a>Syntax
 
@@ -33,14 +33,14 @@ query user
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 |--|--|
 | [query process](query-process.md) | Zeigt Informationen zu Prozessen an, die auf einem Remotedesktop-Sitzungshost Server ausgeführt werden. |
 | [query session](query-session.md) | Zeigt Informationen zu Sitzungen auf einem Remotedesktop-Sitzungshost Server an. |
 | [query termserver](query-termserver.md) | Zeigt eine Liste aller Remotedesktop-Sitzungshost Server im Netzwerk an. |
 | [query user](query-user.md) | Zeigt Informationen zu Benutzersitzungen auf einem Remotedesktop-Sitzungshost Server an. |
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

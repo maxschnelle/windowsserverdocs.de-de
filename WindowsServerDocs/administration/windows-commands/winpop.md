@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 90c31ed4da01f0d83bc59ea4e9cb6120c633e8ac
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 73aea1793b560831cae8dbaa115a21f8b05e58a5
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85936140"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86958922"
 ---
 # <a name="winpop"></a>winpop
 
@@ -22,4 +22,4 @@ ms.locfileid: "85936140"
 
 Winpop ist veraltet und wird in zukünftigen Versionen von Windows nicht mehr unterstützt.
 
-Dieses Tool ist in Windows Server 2003 enthalten. Weitere Informationen finden Sie unter [winpop](https://technet.microsoft.com/library/cc772824(v=ws.10).aspx).
+Dieses Tool ist in Windows Server 2003 enthalten. Weitere Informationen finden Sie unter [winpop](/previous-versions/orphan-topics/ws.10/cc772824(v=ws.10)).

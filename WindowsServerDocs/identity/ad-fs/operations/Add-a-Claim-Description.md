@@ -8,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 9c5293dc6070c9483054ce1dd827a20ec377573b
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: a022ec618c7255021cd424120330671e007a658a
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80859713"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86962702"
 ---
 # <a name="add-a-claim-description"></a>Hinzufügen einer Anspruchsbeschreibung
 
@@ -28,7 +28,7 @@ Zum Ausführen dieses Verfahrens ist mindestens die Mitgliedschaft in der Gruppe
 
 ## <a name="to-add-a-claim-description"></a>So fügen Sie eine Anspruchs Beschreibung hinzu
 
-1. Klicken Sie in Server-Manager **auf Extras**, und wählen Sie dann **AD FS Verwaltung**aus. 
+1. Klicken Sie im Server-Manager auf **Tools**, und wählen Sie **AD FS-Verwaltung** aus. 
 
 2. Erweitern Sie **Dienst** , und klicken Sie auf der rechten Seite auf **Anspruchs Beschreibung hinzufügen**
    ![Anspruchs Beschreibung hinzufügen](media/Add-a-Claim-Description/claimdesc1.png)
@@ -55,4 +55,4 @@ Zum Ausführen dieses Verfahrens ist mindestens die Mitgliedschaft in der Gruppe
 
 
 ## <a name="see-also"></a>Weitere Informationen  
-[AD FS-Vorgänge](../../ad-fs/AD-FS-2016-Operations.md) 
+[AD FS-Vorgänge](../ad-fs-operations.md) 

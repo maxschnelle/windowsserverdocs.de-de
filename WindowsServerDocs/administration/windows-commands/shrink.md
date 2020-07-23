@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 69405e7eda6b7565e9c8effe6639b6ba4dc9e4c2
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 68848976b80dc2fe18ac57011c47a935db2d44e2
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85932597"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86956162"
 ---
 # <a name="shrink"></a>shrink
 
@@ -29,7 +29,7 @@ shrink querymax [noerr]
 ```
 ### <a name="parameters"></a>Parameter
 
-|  Parameter  |                                                                                             Beschreibung                                                                                              |
+|  Parameter  |                                                                                             BESCHREIBUNG                                                                                              |
 |-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | gewünscht =<n> |                                                     Gibt die gewünschte Menge an Speicherplatz in Megabyte (MB) an, um die Größe des Volumes um zu verringern.                                                     |
 | minimal =<n> |                                                           Gibt den minimalen Speicherplatz in MB an, um die Größe des Volumes zu verringern.                                                           |
@@ -37,7 +37,7 @@ shrink querymax [noerr]
 |   nowait    |                                                       erzwingt, dass der Befehl sofort zurückgegeben wird, während der Verkleinerungs Prozess noch ausgeführt wird.                                                        |
 |    Noerr    | nur für Skripterstellung. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird. |
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 - Sie können die Größe eines Volumes nur verringern, wenn er mit dem NTFS-Dateisystem formatiert ist oder wenn kein Dateisystem vorhanden ist.
 - Dieser Befehl funktioniert auf grundlegenden Volumes und auf einfachen oder übergreifenden dynamischen Volumes.
 - Wenn ein gewünschter Betrag nicht angegeben wird, wird das Volume um den minimalen Betrag (sofern angegeben) reduziert.
@@ -56,4 +56,4 @@ shrink querymax [noerr]
   shrink querymax
   ```
 
-[Resize-Partition](https://technet.microsoft.com/library/hh848680.aspx)
+[Resize-Partition](/powershell/module/storage/resize-partition?view=win10-ps)

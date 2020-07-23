@@ -8,12 +8,12 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 3a4f76e43c2dbf5296afd163055adeafb36a5576
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 399d9915cccc5d66c2b25b1e9f51c30e37d8dff6
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85474397"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86966442"
 ---
 # <a name="replicate-folder-targets-using-dfs-replication"></a>Replizieren von Ordner Zielen mithilfe von DFS-Replikation
 
@@ -30,9 +30,9 @@ Sie können DFS-Replikation verwenden, um den Inhalt der Ordner Ziele synchron z
 3.  Befolgen Sie die Anweisungen im Assistenten zum Replizieren von Ordnern.
 
 > [!NOTE]
-> Konfigurationsänderungen werden nicht sofort auf alle Mitglieder angewendet, außer wenn die Cmdlets [Suspend-dfsreplicationgroup](https://technet.microsoft.com/itpro/powershell/windows/dfsr/suspend-dfsreplicationgroup) und [Sync-dfsreplicationgroup](https://technet.microsoft.com/itpro/powershell/windows/dfsr/sync-dfsreplicationgroup) verwendet werden. Die neue Konfiguration muss auf allen Domänencontrollern repliziert werden, und jedes Mitglied in der Replikationsgruppe muss seinen nächstgelegenen Domänencontroller zum Abrufen der Änderungen abfragen. Die benötigte Zeit hängt von der Replikations Latenz der Active Directory Directory-Dienste (AD DS) und dem langen Abruf Intervall (60 Minuten) für jedes Mitglied ab. Um Konfigurationsänderungen sofort abzurufen, öffnen Sie ein Eingabe Aufforderungs Fenster, und geben Sie dann den folgenden Befehl für jedes Mitglied der Replikations Gruppe ein: <br /> dfsrdiag.exe PollAD /Member:DOMAIN\Server1
+> Konfigurationsänderungen werden nicht sofort auf alle Mitglieder angewendet, außer wenn die Cmdlets [Suspend-dfsreplicationgroup](/powershell/module/dfsr/suspend-dfsreplicationgroup?view=win10-ps) und [Sync-dfsreplicationgroup](/powershell/module/dfsr/sync-dfsreplicationgroup?view=win10-ps) verwendet werden. Die neue Konfiguration muss auf allen Domänencontrollern repliziert werden, und jedes Mitglied in der Replikationsgruppe muss seinen nächstgelegenen Domänencontroller zum Abrufen der Änderungen abfragen. Die benötigte Zeit hängt von der Replikations Latenz der Active Directory Directory-Dienste (AD DS) und dem langen Abruf Intervall (60 Minuten) für jedes Mitglied ab. Um Konfigurationsänderungen sofort abzurufen, öffnen Sie ein Eingabe Aufforderungs Fenster, und geben Sie dann den folgenden Befehl für jedes Mitglied der Replikations Gruppe ein: <br /> dfsrdiag.exe PollAD /Member:DOMAIN\Server1
 <br />
-Verwenden Sie hierzu das Cmdlet [Update-dfsrconfigurationfromad](https://technet.microsoft.com/itpro/powershell/windows/dfsr/update-dfsrconfigurationfromad) , das in Windows Server 2012 R2 eingeführt wurde.
+Verwenden Sie hierzu das Cmdlet [Update-dfsrconfigurationfromad](/powershell/module/dfsr/update-dfsrconfigurationfromad?view=win10-ps) , das in Windows Server 2012 R2 eingeführt wurde.
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 

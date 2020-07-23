@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 60203390ab0955e3f8a2c52887b21192d1ec32f2
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 2364ebc2de3a0be1051a4450ebf60214986bd6e9
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85933545"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86957082"
 ---
 # <a name="makecab"></a>makecab
 
@@ -35,7 +35,7 @@ makecab [/v[<n>]] [/d var=<value> ...] /f <directives_file> [...]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `<source>` | Die zu komprimierende Datei. |
 | `<destination>` | Dateiname, der komprimierte Dateien zugewiesen werden soll. Wenn der Name ausgelassen wird, wird das letzte Zeichen des Quell Dateinamens durch einen Unterstrich (_) ersetzt und als Ziel verwendet. |
@@ -45,10 +45,10 @@ makecab [/v[<n>]] [/d var=<value> ...] /f <directives_file> [...]
 | /v [ `<n>` ] | Ausführlichkeits Grad für das Debuggen festlegen (0 = keine,..., 3 = vollständig). |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
 - [diantz-Befehl](diantz.md)
 
-- [Microsoft-CAB-Format](https://docs.microsoft.com/previous-versions/bb417343(v=msdn.10))
+- [Microsoft-CAB-Format](/previous-versions/bb417343(v=msdn.10))

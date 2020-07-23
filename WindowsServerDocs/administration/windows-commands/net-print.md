@@ -9,17 +9,17 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: af02ca14156c8a85ee54700983e2af6807752f91
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 6ac91d2226e9a5394d6f7ea00ab6f268eb99015b
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85934824"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86956802"
 ---
 # <a name="net-print"></a>net print
 
 > [!IMPORTANT]
-> Dieser Befehl ist veraltet. Sie können jedoch viele der gleichen Aufgaben mit dem [Befehl prnjobs](prnjobs.md)ausführen, [Windows-Verwaltungsinstrumentation (WMI)](https://docs.microsoft.com/windows/win32/wmisdk/wmi-start-page), [Printmanagement in PowerShell](https://docs.microsoft.com/powershell/module/printmanagement)oder [Skript Ressourcen für IT-Experten](https://gallery.technet.microsoft.com/ScriptCenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=printing&f%5B0%5D.Text=Printing).
+> Dieser Befehl ist veraltet. Sie können jedoch viele der gleichen Aufgaben mit dem [Befehl prnjobs](prnjobs.md)ausführen, [Windows-Verwaltungsinstrumentation (WMI)](/windows/win32/wmisdk/wmi-start-page), [Printmanagement in PowerShell](/powershell/module/printmanagement)oder [Skript Ressourcen für IT-Experten](https://gallery.technet.microsoft.com/ScriptCenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=printing&f%5B0%5D.Text=Printing).
 
 Zeigt Informationen zu einer angegebenen Drucker Warteschlange oder einem angegebenen Druckauftrag an oder steuert einen angegebenen Druckauftrag.
 
@@ -31,7 +31,7 @@ net print {\\<computername>\<sharename> | \\<computername> <jobnumber> [/hold | 
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ---------- | ----------- |
 | `\\<computername>\<sharename>` | Gibt (nach Name) den Computer und die Druck Warteschlange an, über die Sie Informationen anzeigen möchten. |
 | `\\<computername>` | Gibt (nach Name) den Computer an, der den Druckauftrag hostet, den Sie steuern möchten. Wenn Sie keinen Computer angeben, wird der lokale Computer angenommen. Erfordert den- `<jobnumber>` Parameter. |
@@ -39,7 +39,7 @@ net print {\\<computername>\<sharename> | \\<computername> <jobnumber> [/hold | 
 | `[/hold | /release | /delete]` | Gibt die Aktion an, die mit dem Druckauftrag ausgeführt werden soll. Wenn Sie eine Auftragsnummer angeben, aber keine Aktion angeben, werden Informationen zum Druckauftrag angezeigt.<ul><li>**/Hold** -verzögert den Auftrag, sodass andere Druckaufträge ihn umgehen können, bis er freigegeben wird.</li><li>**/Release** : gibt einen verzögerten Druckauftrag frei.</li><li>**/Delete** -entfernt einen Druckauftrag aus einer Druck Warteschlange.</li></ul> |
 | help | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Der- `net print\\<computername>` Befehl zeigt Informationen über Druckaufträge in einer freigegebenen Drucker Warteschlange an. Im folgenden finden Sie ein Beispiel für einen Bericht für alle Druckaufträge in einer Warteschlange für einen freigegebenen Drucker mit dem Namen " *Laser*":
 
@@ -93,7 +93,7 @@ Geben Sie Folgendes ein, um die Auftragsnummer *263* auf dem * \\ Produktions* C
 net print \\Production 263 /release
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
@@ -101,8 +101,8 @@ net print \\Production 263 /release
 
 - [prnjobs-Befehl](prnjobs.md)
 
-- [Windows-Verwaltungsinstrumentation (WMI, Windows Management Instrumentation)](https://docs.microsoft.com/windows/win32/wmisdk/wmi-start-page)
+- [Windows-Verwaltungsinstrumentation (WMI)](/windows/win32/wmisdk/wmi-start-page)
 
-- [Printmanagement in PowerShell](https://docs.microsoft.com/powershell/module/printmanagement)
+- [Printmanagement in PowerShell](/powershell/module/printmanagement)
 
 - [Skripterstellung für Ressourcen für IT-Experten](https://gallery.technet.microsoft.com/ScriptCenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=printing&f%5B0%5D.Text=Printing)

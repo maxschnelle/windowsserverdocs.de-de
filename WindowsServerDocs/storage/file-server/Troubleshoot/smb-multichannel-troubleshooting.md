@@ -6,12 +6,12 @@ manager: dcscontentpm
 ms.topic: article
 ms.author: delhan
 ms.date: 12/25/2019
-ms.openlocfilehash: 210bc2057f25dc196fe9d76495c42f76c8b36311
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 662a58fdeb3cda14a0e54c8d0ab7bd0b85387fd7
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80815343"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86960132"
 ---
 # <a name="smb-multichannel-troubleshooting"></a>Problembehandlung bei SMB Multichannel
 
@@ -19,7 +19,7 @@ In diesem Artikel wird beschrieben, wie Sie Probleme im Zusammenhang mit SMB Mul
 
 ## <a name="check-the-network-interface-status"></a>Überprüfen des Status der Netzwerkschnittstelle
 
-Stellen Sie sicher, dass die Bindung für die Netzwerkschnittstelle auf dem SMB-Client (MS\_Client) und auf dem SMB-Server (MS\_Server) auf **true** festgelegt ist. Wenn Sie den folgenden Befehl ausführen, sollte in der **Ausgabe für beide** Netzwerkschnittstellen der Wert **true** angezeigt werden:
+Stellen Sie sicher, dass die Bindung für die Netzwerkschnittstelle auf **True** dem SMB-Client (MS \_ -Client) und auf dem SMB-Server (MS-Server) auf true festgelegt ist \_ . Wenn Sie den folgenden Befehl ausführen, sollte in der **Ausgabe für beide** Netzwerkschnittstellen der Wert **true** angezeigt werden:
 
 ```PowerShell
 Get-NetAdapterBinding -ComponentID ms_server,ms_msclient
@@ -59,23 +59,23 @@ Sie benötigen die Informationen zur Ablauf Verfolgung für die SMB-Verbindung, 
 
 Stellen Sie sicher, dass die SMBv3.*x* -Verbindung ausgehandelt wird und dass sich nichts zwischen dem Server und dem Client auf die Dialekt Aushandlung auswirkt. SMBv2 und frühere Versionen unterstützen Multichannel nicht.
 
-Suchen Sie nach der Netzwerk\_Schnittstelle\_Info-Paketen. An dieser Stelle fordert der SMB-Client eine Liste von Adaptern vom SMB-Server an. Wenn diese Pakete nicht ausgetauscht werden, funktioniert Multichannel nicht.
+Suchen Sie nach den Netzwerk \_ Schnittstellen \_ Info-Paketen. An dieser Stelle fordert der SMB-Client eine Liste von Adaptern vom SMB-Server an. Wenn diese Pakete nicht ausgetauscht werden, funktioniert Multichannel nicht.
 
 Der Server antwortet, indem er eine Liste gültiger Netzwerkschnittstellen zurückgibt. Der SMB-Client fügt diese dann der Liste der verfügbaren Adapter für Multichannel hinzu. An diesem Punkt sollte Multichannel beginnen und zumindest versuchen, die Verbindung zu starten.
 
 Weitere Informationen finden Sie in den folgenden Artikeln:
 
-- [3.2.4.20.10 Anwendungsanforderungen Abfragen von Netzwerkschnittstellen des Servers](https://docs.microsoft.com/openspecs/windows_protocols/ms-smb2/147adde4-d936-4597-924a-8caa3429c6b0)
+- [3.2.4.20.10 Anwendungsanforderungen Abfragen von Netzwerkschnittstellen des Servers](/openspecs/windows_protocols/ms-smb2/147adde4-d936-4597-924a-8caa3429c6b0)
 
-- [2.2.32.5-Netzwerk\_Schnittstelle\_Info-Antwort](https://docs.microsoft.com/openspecs/windows_protocols/ms-smb2/fcd862d1-1b85-42df-92b1-e103199f531f)
+- [2.2.32.5 Netzwerk \_ Schnittstellen \_ Info-Antwort](/openspecs/windows_protocols/ms-smb2/fcd862d1-1b85-42df-92b1-e103199f531f)
 
-- [3.2.5.14.11 behandeln von Netzwerkschnittstellen Antworten](https://docs.microsoft.com/openspecs/windows_protocols/ms-smb2/5459722b-1eaa-4ead-b465-284363264cad)
+- [3.2.5.14.11 behandeln von Netzwerkschnittstellen Antworten](/openspecs/windows_protocols/ms-smb2/5459722b-1eaa-4ead-b465-284363264cad)
 
 In den folgenden Szenarien kann ein Adapter nicht verwendet werden:
 
 - Auf dem Client ist ein Routing Problem aufgetreten. Dies wird in der Regel durch eine falsche Routing Tabelle verursacht, die den Datenverkehr über die falsche Schnittstelle erzwingt.
 
-- Multichannel-Einschränkungen wurden festgelegt. Weitere Informationen finden Sie unter [New-smbmultichanneleinschränkung](https://docs.microsoft.com/powershell/module/smbshare/new-smbmultichannelconstraint).
+- Multichannel-Einschränkungen wurden festgelegt. Weitere Informationen finden Sie unter [New-smbmultichanneleinschränkung](/powershell/module/smbshare/new-smbmultichannelconstraint).
 
 - Die Anforderungs-und Antwort Pakete der Netzwerkschnittstelle wurden blockiert.
 

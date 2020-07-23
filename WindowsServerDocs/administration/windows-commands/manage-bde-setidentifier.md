@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7d20120bf4c6ec76fa6ba040141afadea2a748d5
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: c6a04b4f7c04174158a165cf0d41493078af0056
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85922258"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86957042"
 ---
 # <a name="manage-bde-setidentifier"></a>manage-bde-Spezifizierer
 
@@ -28,7 +28,7 @@ manage-bde –setidentifier <drive> [-computername <name>] [{-?|/?}] [{-help|-h}
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `<drive>` | Stellt einen von einem Doppelpunkt gefolgten Laufwerkbuchstaben dar. |
 | -Computername | Gibt an, dass manage-bde.exe zum Ändern des BitLocker-Schutzes auf einem anderen Computer verwendet wird. Sie können auch **-CN** als abgekürzte Version dieses Befehls verwenden. |
@@ -44,10 +44,10 @@ Geben Sie Folgendes ein, um das BitLocker-Laufwerk Bezeichner für C festzulegen
 manage-bde –setidentifier C:
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
 - [Befehl "Manage-BDE"](manage-bde.md)
 
-- [Leitfaden zur BitLocker-Wiederherstellung](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-recovery-guide-plan)
+- [Leitfaden zur BitLocker-Wiederherstellung](/windows/security/information-protection/bitlocker/bitlocker-recovery-guide-plan)

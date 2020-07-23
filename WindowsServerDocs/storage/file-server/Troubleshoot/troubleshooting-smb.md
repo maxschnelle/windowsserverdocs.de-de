@@ -6,12 +6,12 @@ manager: dcscontentpm
 ms.topic: article
 ms.author: delhan
 ms.date: 12/25/2019
-ms.openlocfilehash: 654cb1b0eea65457d521d201739721ed8c3c0203
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 21b090e8e70f287e9609d28588403e3aa0988ce4
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80815193"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86966302"
 ---
 # <a name="advanced-troubleshooting-server-message-block-smb"></a>Erweiterte Problembehandlung für Server Message Block (SMB)
 
@@ -49,7 +49,7 @@ Um die Ursache des Problems zu ermitteln, können Sie die zweiseitigen Ablauf Ve
 Dieser Abschnitt enthält die Schritte zum Verwenden von NetShell zum Erfassen der Netzwerk Ablauf Verfolgung.
 
 > [!NOTE]  
-> Eine Netsh-Ablauf Verfolgung erstellt eine ETL-Datei. ETL-Dateien können nur in Message Analyzer (MA) und Netzwerkmonitor 3,4 geöffnet werden (legen Sie den Parser auf Netzwerkmonitor Parser \> Fenster fest).
+> Eine Netsh-Ablauf Verfolgung erstellt eine ETL-Datei. ETL-Dateien können nur in Message Analyzer (MA) und Netzwerkmonitor 3,4 geöffnet werden (legen Sie den Parser auf Netzwerkmonitor Parsers \> Fenster fest).
 
 1. Erstellen Sie auf dem SMB-Server und dem SMB- **Client einen temporären** Ordner auf Laufwerk **C**. Führen Sie dann den folgenden Befehl aus:
 
@@ -99,17 +99,17 @@ SMB ist ein Protokoll auf Anwendungsebene, bei dem TCP/IP als Netzwerk Transport
 
 4. Das TCP-Empfangs Fenster wird verringert. Dies kann durch eine langsame Speicherung oder ein anderes Problem verursacht werden, das verhindert, dass Daten aus dem Winsock-Puffer des hilfsfunktionstreibers abgerufen werden.
 
-Wenn kein auffälliges TCP/IP-Problem vorliegt, suchen Sie nach SMB-Fehlern. Gehen Sie hierzu folgendermaßen vor:
+Wenn kein auffälliges TCP/IP-Problem vorliegt, suchen Sie nach SMB-Fehlern. Gehen Sie hierzu wie folgt vor:
 
 1. Überprüfen Sie immer SMB-Fehler anhand der MS-SMB2-Protokollspezifikation. Viele SMB-Fehler sind nicht schädlich (nicht schädlich). Beachten Sie die folgenden Informationen, um zu ermitteln, warum SMB den Fehler zurückgegeben hat, bevor Sie den Fehler mit einem der folgenden Probleme in Verbindung bringen:
 
-   - Im Thema [MS-SMB2 Message-Syntax](https://docs.microsoft.com/openspecs/windows_protocols/ms-smb2/6eaf6e75-9c23-4eda-be99-c9223c60b181) werden die einzelnen SMB-Befehle und deren Optionen ausführlich erläutert.
+   - Im Thema [MS-SMB2 Message-Syntax](/openspecs/windows_protocols/ms-smb2/6eaf6e75-9c23-4eda-be99-c9223c60b181) werden die einzelnen SMB-Befehle und deren Optionen ausführlich erläutert.
     
-   - Im Thema [MS-SMB2 Client processing](https://docs.microsoft.com/openspecs/windows_protocols/ms-smb2/df0625a5-6516-4fbe-bf97-01bef451cab2) wird erläutert, wie der SMB-Client Anforderungen erstellt und auf Server Nachrichten antwortet.
+   - Im Thema [MS-SMB2 Client processing](/openspecs/windows_protocols/ms-smb2/df0625a5-6516-4fbe-bf97-01bef451cab2) wird erläutert, wie der SMB-Client Anforderungen erstellt und auf Server Nachrichten antwortet.
 
-   - Im Thema [MS-SMB2 Server processing](https://docs.microsoft.com/openspecs/windows_protocols/ms-smb2/e1d08834-42e0-41ca-a833-fc26f5132a6f) wird erläutert, wie der SMB-Serveranforderungen erstellt und auf Client Anforderungen antwortet.
+   - Im Thema [MS-SMB2 Server processing](/openspecs/windows_protocols/ms-smb2/e1d08834-42e0-41ca-a833-fc26f5132a6f) wird erläutert, wie der SMB-Serveranforderungen erstellt und auf Client Anforderungen antwortet.
 
-2. Überprüfen Sie, ob ein TCP-Reset-Befehl unmittelbar nach\_dem überprüfen\_aushandeln\_Info (Validate Aushandlungs)-Befehl gesendet wurde. Wenn dies der Fall ist, lesen Sie die folgenden Informationen:
+2. Überprüfen Sie, ob ein TCP-Reset-Befehl unmittelbar nach dem Befehl zum Überprüfen der Überprüfung (Überprüfen von Aushandlung) von a \_ \_ \_ Wenn dies der Fall ist, lesen Sie die folgenden Informationen:
 
    - Die SMB-Sitzung muss beendet werden (TCP Reset), wenn der Überprüfungs Aushandlungs Prozess auf dem Client oder dem Server fehlschlägt.
 
@@ -128,7 +128,7 @@ Sehen Sie sich die tatsächlichen SMB-Protokoll Details in der Netzwerk Ablauf V
 
 - Überprüfen Sie die SMB-Befehle, um zu erfahren, was die Anwendung tun soll.
 
-Vergleichen Sie die Befehle und Vorgänge mit der Protokollspezifikation, um sicherzustellen, dass alles ordnungsgemäß funktioniert. Wenn dies nicht der Fall ist, erfassen Sie Daten, die näher an oder auf einer niedrigeren Ebene liegen, um nach weiteren Informationen zur Ursache zu suchen. Gehen Sie hierzu folgendermaßen vor:
+Vergleichen Sie die Befehle und Vorgänge mit der Protokollspezifikation, um sicherzustellen, dass alles ordnungsgemäß funktioniert. Wenn dies nicht der Fall ist, erfassen Sie Daten, die näher an oder auf einer niedrigeren Ebene liegen, um nach weiteren Informationen zur Ursache zu suchen. Gehen Sie hierzu wie folgt vor:
 
 1. Erfassen Sie eine Standardpaket Erfassung.
 
@@ -159,33 +159,33 @@ Sowohl der SMB-Client als auch der SMB-Server verfügen über eine detaillierte 
 
 In diesem Abschnitt werden die SMB-bezogenen Systemdateien aufgelistet. Stellen Sie sicher, dass das aktuellste Updaterollup [update rollup](https://support.microsoft.com/help/4498140/windows-10-update-history) installiert ist, um die Systemdateien zu aktualisieren.
 
-SMB-Client Binärdateien, die unter **% windir%\\System32\\-Treibern**aufgeführt sind:
+SMB-Client Binärdateien, die unter **% windir% \\ system32 \\ Drivers**aufgeführt sind:
 
-- Rdbss. sys
+- RDBSS.sys
 
-- MRxSmb. sys
+- MRXSMB.sys
 
-- MRXSMB10. sys
+- MRXSMB10.sys
 
-- MRXSMB20. sys
+- MRXSMB20.sys
 
-- MUP. sys
+- MUP.sys
 
-- Smbdirect. sys
+- SMBdirect.sys
 
-SMB-Server-Binärdateien, die unter **% windir%\\System32\\-Treibern**aufgeführt sind:
+SMB-Server-Binärdateien, die unter **% windir% \\ system32 \\ Drivers**aufgeführt sind:
 
-- Srvnet. sys
+- SRVNET.sys
 
-- SRV. sys
+- SRV.sys
 
-- SRV2. sys
+- SRV2.sys
 
-- Smbdirect. sys
+- SMBdirect.sys
 
-- Unter **% windir%\\System32**
+- Unter **% windir% \\ system32**
 
-- srvsvc. dll
+- srvsvc.dll
 
 ![SMB-Komponenten](media/troubleshooting-smb-2.png)
 
@@ -201,4 +201,4 @@ Es wird empfohlen, dass Sie die folgenden Komponenten aktualisieren, bevor Sie S
 
 ## <a name="reference"></a>Verweis
 
-[Microsoft SMB Protocol-Paket Austausch Szenario](https://docs.microsoft.com/windows/win32/fileio/microsoft-smb-protocol-packet-exchange-scenario)
+[Microsoft SMB Protocol-Paket Austausch Szenario](/windows/win32/fileio/microsoft-smb-protocol-packet-exchange-scenario)

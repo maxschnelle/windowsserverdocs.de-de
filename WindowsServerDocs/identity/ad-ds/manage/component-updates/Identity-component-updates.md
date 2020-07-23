@@ -1,6 +1,6 @@
 ---
 ms.assetid: 7e87ce2b-062e-479f-bcf2-585b6c42026a
-title: Updates von Identitätskomponenten
+title: Updates von Komponenten
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -8,16 +8,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: c81fa11b8f2fdc534b427f85452ca29c5b37487d
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: e42e82c444202065e9c90cee2ba6fbb98103260d
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80823023"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86966372"
 ---
-# <a name="identity-component-updates"></a>Updates von Identitätskomponenten
+# <a name="identity-component-updates"></a>Updates von Komponenten
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
   
 ## <a name="lesson-1-identity-component-updates"></a>Lektion 1: Updates der Identitäts Komponente  
@@ -30,7 +30,7 @@ Nachdem Sie diese Lektion abgeschlossen haben, können Sie folgende Aktionen aus
   
     -   [SPN- und UPN-Eindeutigkeit](../../../ad-ds/manage/component-updates/SPN-and-UPN-uniqueness.md)  
   
-    -   [Winlogon-Anmeldung beim automatischen Neustart &#40;von ARSO&#41;](../../../ad-ds/manage/component-updates/Winlogon-Automatic-Restart-Sign-On--ARSO-.md)  
+    -   [Automatisches Anmelden bei Winlogon &#40;ARSO&#41;](../../../ad-ds/manage/component-updates/Winlogon-Automatic-Restart-Sign-On--ARSO-.md)  
   
     -   [TPM-Schlüsselnachweis](../../../ad-ds/manage/component-updates/TPM-Key-Attestation.md)  
   
@@ -38,12 +38,10 @@ Nachdem Sie diese Lektion abgeschlossen haben, können Sie folgende Aktionen aus
   
     -   [Überwachen von Befehlszeilenprozessen](../../../ad-ds/manage/component-updates/Command-line-process-auditing.md)  
   
-    -   [Schutz und Verwaltung von Anmeldeinformationen](https://technet.microsoft.com/library/dn408190.aspx)  
+    -   [Schutz und Verwaltung von Anmeldeinformationen](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn408190(v=ws.11))  
   
 **Autor**: Justin Turner, Senior Support Eskalations Techniker mit der Windows-Gruppe  
   
 > [!NOTE]  
 > Dieser Inhalt wurde von einem Mitarbeiter des Microsoft-Kundendiensts geschrieben und richtet sich an erfahrene Administratoren und Systemarchitekten, die einen tieferen technischen Einblick in die Funktionen und Lösungen von Windows Server 2012 R2 suchen, als Ihnen die Themen im TechNet bieten können. Allerdings wurde er nicht mit der gleichen linguistischen Sorgfalt überprüft wie für die Artikel des TechNet üblich, so dass die Sprache gelegentlich holprig klingen mag.  
   
-
-

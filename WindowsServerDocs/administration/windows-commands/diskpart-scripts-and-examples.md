@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f2715332a8a6adff29f31a4dbd7d3e7a27a4a6f2
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 64355bd452934909d0600fa791e7a4c2d2066b6f
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85929320"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86958292"
 ---
 # <a name="diskpart-scripts-and-examples"></a>DiskPart-Skripts und-Beispiele
 
@@ -47,18 +47,18 @@ Erstellen Sie zum Erstellen eines DiskPart-Skripts eine Textdatei, die die Diskp
     diskpart /s scriptname.txt > logfile.txt
     ```
 
-### <a name="remarks"></a>Hinweise
+### <a name="remarks"></a>Bemerkungen
 
 - Wenn Sie den **DiskPart** -Befehl als Teil eines Skripts verwenden, empfiehlt es sich, alle DiskPart-Vorgänge zusammen als Teil eines einzelnen DiskPart-Skripts abzuschließen. Sie können aufeinander folgende DiskPart-Skripts ausführen. Sie müssen jedoch mindestens 15 Sekunden zwischen den einzelnen Skripts für das vollständige Herunterfahren der vorherigen Ausführung zulassen, bevor Sie den **DiskPart** -Befehl erneut in aufeinander folgenden Skripts ausführen. Andernfalls können die nachfolgenden Skripts fehlschlagen. Sie können eine Pause zwischen aufeinander folgenden DiskPart-Skripts hinzufügen, indem Sie den `timeout /t 15` Befehl der Batchdatei zusammen mit den DiskPart-Skripts hinzufügen.
 
 - Wenn Diskpart gestartet wird, werden die Diskpart-Version und der Computername an der Eingabeaufforderung angezeigt. Wenn Diskpart beim Versuch, eine Skript gesteuerte Aufgabe auszuführen, einen Fehler feststellt, beendet DiskPart standardmäßig die Verarbeitung des Skripts und zeigt einen Fehlercode an (es sei denn, Sie haben den **Noerr** -Parameter angegeben). DiskPart gibt jedoch immer Fehler zurück, wenn Syntax Fehler auftreten, unabhängig davon, ob Sie den **Noerr** -Parameter verwendet haben. Mit dem **Noerr** -Parameter können Sie nützliche Aufgaben ausführen, z. b. die Verwendung eines einzelnen Skripts, um alle Partitionen auf allen Datenträgern unabhängig von der Gesamtzahl der Datenträger zu löschen.
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
-- [Beispiel: Konfigurieren von UEFI/GPT-basierten Festplattenpartitionen mit Windows PE und DiskPart](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-8.1-and-8/hh825686(v=win.10))
+- [Beispiel: Konfigurieren von UEFI/GPT-basierten Festplattenpartitionen mit Windows PE und DiskPart](/previous-versions/windows/it-pro/windows-8.1-and-8/hh825686(v=win.10))
 
-- [Beispiel: Konfigurieren von BIOS/MBR-basierten Festplattenpartitionen mit Windows PE und DiskPart](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-8.1-and-8/hh825677(v=win.10))
+- [Beispiel: Konfigurieren von BIOS/MBR-basierten Festplattenpartitionen mit Windows PE und DiskPart](/previous-versions/windows/it-pro/windows-8.1-and-8/hh825677(v=win.10))
 
-- [Speicher-Cmdlets in Windows PowerShell](https://docs.microsoft.com/powershell/module/storage/?view=win10-ps)
+- [Speicher-Cmdlets in Windows PowerShell](/powershell/module/storage/?view=win10-ps)

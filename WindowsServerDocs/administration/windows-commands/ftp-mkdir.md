@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2741733191b76547d8639d925cf4288efb35a530
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: f97b9fe5edc885c35d29f1b17701e0666f6c2c4e
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85925889"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86957690"
 ---
 # <a name="ftp-mkdir"></a>ftp mkdir
 
@@ -30,7 +30,7 @@ mkdir <directory>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `<directory>` | Gibt den Namen des neuen Remote Verzeichnisses an. |
 
@@ -42,8 +42,8 @@ Geben Sie Folgendes ein, um ein Verzeichnis mit dem Namen *dir1* auf dem Remote 
 mkdir dir1
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
-- [Zusätzlicher FTP-Leitfaden](https://docs.microsoft.com/previous-versions/orphan-topics/ws.10/cc756013(v=ws.10))
+- [Zusätzlicher FTP-Leitfaden](/previous-versions/orphan-topics/ws.10/cc756013(v=ws.10))

@@ -8,12 +8,12 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: b4addd18629bd54cd9d5fc2df5c660c621e735de
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: ce991a628b63732f645e859a4855a18eacbacd77
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85473787"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86953732"
 ---
 # <a name="choose-a-namespace-type"></a>Wählen Sie einen Namespace aus.
 
@@ -30,7 +30,7 @@ Wählen Sie einen eigenständigen Namespace aus, wenn für Ihre Umgebung eine de
 -   Sie müssen einen einzelnen Namespace mit mehr als 5.000 DFS-Ordnern in einer Domäne erstellen, die die Anforderungen für einen domänenbasierten Namespace (Windows Server 2008-Modus) nicht erfüllt, wie weiter unten in diesem Thema beschrieben.
 
 > [!NOTE]
-> Um die Größe eines Namespaces zu überprüfen, klicken Sie in der Struktur der DFS-Verwaltungskonsole mit der rechten Maustaste auf den Namespace, klicken Sie auf **Eigenschaften**, und zeigen Sie dann die Namespace Größe im Dialogfeld **Namespace Eigenschaften** an. Weitere Informationen zur Skalierbarkeit von DFS-Namespaces finden Sie in den Microsoft-Website- [Datei Diensten](https://technet.microsoft.com/library/cc771548.aspx).
+> Um die Größe eines Namespaces zu überprüfen, klicken Sie in der Struktur der DFS-Verwaltungskonsole mit der rechten Maustaste auf den Namespace, klicken Sie auf **Eigenschaften**, und zeigen Sie dann die Namespace Größe im Dialogfeld **Namespace Eigenschaften** an. Weitere Informationen zur Skalierbarkeit von DFS-Namespaces finden Sie in den Microsoft-Website- [Datei Diensten](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771548(v=ws.10)).
 
 Wählen Sie einen domänenbasierten Namespace aus, wenn für Ihre Umgebung eine der folgenden Bedingungen zutrifft:
 
@@ -73,5 +73,3 @@ Die Merkmale der einzelnen Namespacetyp und-Modi werden in der folgenden Tabelle
 
 -   [Bereitstellen von DFS-Namespaces](deploying-dfs-namespaces.md)
 -   [Migrieren Sie einen domänenbasierten Namespace zum Windows Server 2008-Modus](migrate-a-domain-based-namespace-to-windows-server-2008-mode.md)
-
-

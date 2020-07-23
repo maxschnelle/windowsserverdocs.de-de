@@ -9,12 +9,12 @@ ms.assetid: 16c217ad-700a-48a3-8398-4a7f7e9edb52
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.openlocfilehash: a0a0e4f50134102bab7c258e47e63bf7d24e60c8
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 1609ff02c8e1b1480d004104bdc7e37f1240729a
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80858713"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86959272"
 ---
 # <a name="multipoint-services-migration-in-windows-server-2016"></a>Migration von Multipoint Services in Windows Server 2016
 >Gilt für: Windows Server 2016
@@ -29,7 +29,7 @@ Beachten Sie Folgendes, bevor Sie mit der Migration beginnen:
 - Bei der Migration werden Einstellungen für Anwendungen in der Multipoint Services-Rolle nicht automatisch erfasst oder aufgezeichnet. Sie sollten einen angepassten Migrationsplan für alle Anwendungen erstellen, die Sie migrieren möchten. Dies gilt auch, wenn das Feature für virtuelle Desktops in Multipoint Services verwendet wird.
 - Dieses Handbuch enthält keine Anleitungen zum Verschieben von Daten, die in Benutzer-oder freigegebenen Ordnern auf dem Multipoint-Server gespeichert sind. Dies gilt für reguläre Stationen und virtuelle Desktop Stationen.
 - Dieses Handbuch enthält keine Anweisungen zum Migrieren, wenn auf dem Quell Server mehrere Rollen ausgeführt werden. Wenn auf dem Server mehrere Rollen ausgeführt werden, müssen Sie ein benutzerdefiniertes Migrationsverfahren entwerfen, das für Ihre Serverumgebung spezifisch ist, basierend auf Informationen, die in den Handbüchern für die Rollen Migration bereitgestellt werden.
-- Dieses Handbuch enthält keine Informationen zum Migrieren von Remotedesktopdienste CALs. Informationen zu diesen Informationen finden Sie unter [Migrieren von Remotedesktopdienste Client Zugriffs Lizenzen (RDS-CALs)](https://technet.microsoft.com/library/dd851844.aspx).
+- Dieses Handbuch enthält keine Informationen zum Migrieren von Remotedesktopdienste CALs. Informationen zu diesen Informationen finden Sie unter [Migrieren von Remotedesktopdienste Client Zugriffs Lizenzen (RDS-CALs)](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd851844(v=ws.11)).
 
 ## <a name="supported-migration-scenarios-for-multipoint-services-in-windows-server-2016"></a>Unterstützte Migrationsszenarien für Multipoint Services in Windows Server 2016
 Die Multipoint Service-Rollen Dienste sind in Windows Server 2016 Standard und Datacenter verfügbar. In diesem Migrations Handbuch wird beschrieben, wie Sie die Multipoint Services-Rollen Dienste von einem Quell Server unter Windows Server 2016 zu einem Zielserver migrieren, auf dem die gleiche Version ausgeführt wird.

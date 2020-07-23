@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bbfc9a0238d258f11233b0e48a30048c1d62cef4
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 0e453ef94aedb8920c0310123ff6033fafbaddab
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80833413"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86958622"
 ---
 # <a name="tcmsetup"></a>tcmsetup
 
@@ -31,30 +31,29 @@ tcmsetup  [/q] /c /d
 
 #### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
 |/q|Verhindert die Anzeige von Meldungs Feldern.|
 |/x|Gibt an, dass Verbindungs orientierte Rückrufe für große Verkehrs Netzwerke verwendet werden, bei denen der Paketverlust hoch ist. Wenn dieser Parameter ausgelassen wird, werden verbindungslose Rückrufe verwendet.|
-|/c|Erforderlich Gibt die Client Einrichtung an.|
-|\<Server1 >|Erforderlich Gibt den Namen des Remote Servers an, der über die TAPI-Dienstanbieter verfügt, die vom Client verwendet werden. Der Client verwendet die Zeilen und Telefone des Dienstanbietern. Der Client muss sich in derselben Domäne wie der-Server oder in einer Domäne befinden, die über eine bidirektionale Vertrauensstellung mit der Domäne verfügt, in der der Server enthalten ist.|
-|\<Server2 >...|Gibt alle zusätzlichen Server an, die für diesen Client verfügbar sein werden. Wenn Sie eine Liste der Server angeben, verwenden Sie ein Leerzeichen, um die Servernamen zu trennen.|
+|/C|Erforderlich. Gibt die Client Einrichtung an.|
+|\<Server1>|Erforderlich. Gibt den Namen des Remote Servers an, der über die TAPI-Dienstanbieter verfügt, die vom Client verwendet werden. Der Client verwendet die Zeilen und Telefone des Dienstanbietern. Der Client muss sich in derselben Domäne wie der-Server oder in einer Domäne befinden, die über eine bidirektionale Vertrauensstellung mit der Domäne verfügt, in der der Server enthalten ist.|
+|\<Server2>…|Gibt alle zusätzlichen Server an, die für diesen Client verfügbar sein werden. Wenn Sie eine Liste der Server angeben, verwenden Sie ein Leerzeichen, um die Servernamen zu trennen.|
 |/d|Löscht die Liste der Remote Server. Deaktiviert den TAPI-Client, indem verhindert wird, dass er die TAPI-Dienstanbieter verwendet, die sich auf den Remote Servern befinden.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
--   Um die folgenden Schritte durchführen zu können, müssen Sie als Mitglied der Gruppe „Administratoren“ auf dem lokalen Computer angemeldet sein, oder Ihnen müssen die entsprechenden Rechte übertragen worden sein. Damit Mitglieder der Gruppe „Domänen-Admins“ diese Schritte ausführen zu können, muss der Computer zu einer Domäne gehören. Als Best Practice für die Sicherheit sollten Sie dieses Verfahren über **Ausführen als** ausführen.
+-   Um diese Schritte auszuführen, müssen Sie Mitglied der Gruppe "Administratoren" auf dem lokalen Computer sein, oder die entsprechende Berechtigung muss an Sie delegiert worden sein. Wenn der Computer zu einer Domäne gehört, können möglicherweise Mitglieder der Gruppe "Domänen-Admins" dieses Verfahren ausführen. Als Best Practice für die Sicherheit sollten Sie dieses Verfahren über **Ausführen als** ausführen.
 -   Damit TAPI ordnungsgemäß funktioniert, müssen Sie **tcmsetup** ausführen, um die Remote Server anzugeben, die von TAPI-Clients verwendet werden.
 -   Bevor ein Client Benutzer ein Telefon oder eine Zeile auf einem TAPI-Server verwenden kann, muss der Benutzer des Telefonieservers den Benutzer dem Telefon oder der Zeile zuweisen.
 -   Die Liste der von diesem Befehl erstellten Telefonieserver ersetzt jede vorhandene Liste von Telefonieservern, die für den Client verfügbar sind. Sie können diesen Befehl nicht verwenden, um der vorhandenen Liste hinzuzufügen.
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
-[Übersicht über Befehlsshell](https://technet.microsoft.com/library/cc737438(v=ws.10).aspx)
+[Übersicht über Befehlsshell](/previous-versions/windows/it-pro/windows-server-2003/cc737438(v=ws.10))
 
-[Angeben von Telefonieservern auf einem Client Computer](https://technet.microsoft.com/library/cc759226(v=ws.10).aspx)
+[Angeben von Telefonieservern auf einem Client Computer](/previous-versions/windows/it-pro/windows-server-2003/cc759226(v=ws.10))
 
-[Zuweisen eines Telefoniebenutzers zu einer Zeile oder einem Telefon](https://technet.microsoft.com/library/cc736875(v=ws.10).aspx)
-
+[Zuweisen eines Telefoniebenutzers zu einer Zeile oder einem Telefon](/previous-versions/windows/it-pro/windows-server-2003/cc736875(v=ws.10))

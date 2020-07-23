@@ -8,12 +8,12 @@ ms.date: 08/07/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 1788989d3f2e3ceae46b59e393c925e3b5a7b588
-ms.sourcegitcommit: 11421f4005f9f3a3f6c0db95b1836d0f765a9fa3
+ms.openlocfilehash: 4216dea74b72d2257db32045ffda1a21ba6a4f43
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81623819"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86965512"
 ---
 # <a name="using-the-organizational-domain-forest-model"></a>Verwenden des Domänen Gesamtstruktur Modells der Organisation
 
@@ -57,4 +57,4 @@ Beachten Sie Folgendes: Wenn ein Gesamtstruktur Besitzer die Dienst Verwaltung a
 Alle Domänen Besitzer müssen sich bewusst sein, dass die Organisations Domänen in eine Bereitstellung mit mehreren Gesamtstrukturen verschoben werden können, wenn sich diese Bedingungen in der Zukunft ändern.
 
 > [!NOTE]
-> Eine weitere Möglichkeit zur Minimierung von Sicherheitsrisiken für eine Windows Server 2008-Active Directory Domäne besteht darin, die Administrator Rollen Trennung zu verwenden, die die Bereitstellung eines schreibgeschützten Domänen Controllers (Read-Only Domain Controller, RODC) in Ihrer Active Directory-Infrastruktur erfordert Ein RODC ist eine neue Art von Domänen Controller im Betriebssystem Windows Server 2008, das schreibgeschützte Partitionen der Active Directory-Datenbank hostet. Vor der Veröffentlichung von Windows Server 2008 musste jede Server Wartung auf einem Domänen Controller von einem Domänen Administrator ausgeführt werden. In Windows Server 2008 können Sie lokale Administrator Berechtigungen für einen RODC an beliebige Domänen Benutzer delegieren, ohne dass diesem Benutzer Administratorrechte für die Domäne oder andere Domänen Controller gewährt werden. Dies ermöglicht es dem Delegierten Benutzer, sich bei einem RODC anzumelden und Wartungsarbeiten wie das Upgrade eines Treibers auf dem Server auszuführen. Allerdings kann sich dieser Delegierte Benutzer nicht bei einem anderen Domänen Controller anmelden oder andere administrative Aufgaben in der Domäne ausführen. Auf diese Weise kann jeder vertrauenswürdige Benutzer die Fähigkeit zur effektiven Verwaltung des RODC delegieren, ohne die Sicherheit der übrigen Domäne zu beeinträchtigen. Weitere Informationen zu RODCs finden Sie unter [AD DS: schreibgeschützte Domänen Controller](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc732801(v=ws.10)).
+> Eine weitere Möglichkeit zur Minimierung von Sicherheitsrisiken für eine Windows Server 2008-Active Directory Domäne besteht darin, die Administrator Rollen Trennung zu verwenden, die die Bereitstellung eines schreibgeschützten Domänen Controllers (Read-Only Domain Controller, RODC) in Ihrer Active Directory-Infrastruktur erfordert Ein RODC ist eine neue Art von Domänen Controller im Betriebssystem Windows Server 2008, das schreibgeschützte Partitionen der Active Directory-Datenbank hostet. Vor der Veröffentlichung von Windows Server 2008 musste jede Server Wartung auf einem Domänen Controller von einem Domänen Administrator ausgeführt werden. In Windows Server 2008 können Sie lokale Administrator Berechtigungen für einen RODC an beliebige Domänen Benutzer delegieren, ohne dass diesem Benutzer Administratorrechte für die Domäne oder andere Domänen Controller gewährt werden. Dies ermöglicht es dem Delegierten Benutzer, sich bei einem RODC anzumelden und Wartungsarbeiten wie das Upgrade eines Treibers auf dem Server auszuführen. Allerdings kann sich dieser Delegierte Benutzer nicht bei einem anderen Domänen Controller anmelden oder andere administrative Aufgaben in der Domäne ausführen. Auf diese Weise kann jeder vertrauenswürdige Benutzer die Fähigkeit zur effektiven Verwaltung des RODC delegieren, ohne die Sicherheit der übrigen Domäne zu beeinträchtigen. Weitere Informationen zu RODCs finden Sie unter [AD DS: schreibgeschützte Domänen Controller](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc732801(v=ws.10)).

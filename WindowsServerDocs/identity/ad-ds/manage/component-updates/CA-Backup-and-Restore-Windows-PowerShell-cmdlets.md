@@ -8,16 +8,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: d1dd406780dc61e1ce52d423ca6148d2a9dd2c3d
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 02393a7f34e20b50b60a738ceb0f5f3a2ac17990
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80823083"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86958642"
 ---
 # <a name="ca-backup-and-restore-windows-powershell-cmdlets"></a>Windows PowerShell-Cmdlets zum Sichern und Wiederherstellen von Zertifizierungsstellen
 
-> Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 > 
 > **Autor**: Justin Turner, Senior Support Eskalations Techniker mit der Windows-Gruppe  
 > 
@@ -32,11 +32,11 @@ Das Windows PowerShell-Modul adcsadministration wurde in Windows Server 2012 ein
 -   Restore-CARoleService  
   
 ## <a name="backup-caroleservice"></a>Backup-CARoleService  
-**Tabelle: Tabelle \\\* Arabisch 17: Sichern und Wiederherstellen von Windows PowerShell-Cmdlets**  
+**Tabelle "Tabelle", \\ \* Arabisch 17: Sichern und Wiederherstellen von Windows PowerShell-Cmdlets**  
   
 **Adcsadministration-Cmdlet: Backup-caroleservice**  
   
-|Argumente: **Fett** formatierte Argumente sind erforderlich.|Beschreibung|  
+|Argumente: **Fett** formatierte Argumente sind erforderlich.|BESCHREIBUNG|  
 |------------------------------------------------|---------------|  
 |**-Path**|-Zeichenfolge-Speicherort zum Speichern der Sicherung<br />: Dies ist der einzige unbenannte Parameter.<br />-Positions Parameter<p>**Beispiel:**<p>Backup-caroleservice.-Path c:\adcsbackup1<p>Backup-caroleservice c:\adcsbackup2|  
 |-Keyonly|-Sichern des Zertifizierungsstellen Zertifikats ohne die Datenbank<p>**Beispiel:**<p>Backup-caroleservice c:\adcsbackup3-keyonly|  
@@ -46,7 +46,7 @@ Das Windows PowerShell-Modul adcsadministration wurde in Windows Server 2012 ein
 |Inkrementell|-Ausführen einer inkrementellen Sicherung<p>Backup-caroleservice c:\adcsbackup7-inkrementell|  
 |-Keeplog|1. weist den Befehl an, Protokolldateien beizubehalten. Wenn der Schalter nicht angegeben ist, werden Protokolldateien mit Ausnahme des inkrementellen Szenarios standardmäßig abgeschnitten.<p>Backup-caroleservice c:\adcsbackup7-keeplog|  
   
-### <a name="-password-secure-string"></a>-Kennwort <Secure String>  
+### <a name="-password-secure-string"></a>-Kennwort<Secure String>  
 Wenn der-password-Parameter verwendet wird, muss das angegebene Kennwort eine sichere Zeichenfolge sein.  Verwenden Sie das Cmdlet " **Read-Host** ", um eine interaktive Eingabeaufforderung für einen sicheren Kenn Wort Eintrag zu starten, oder verwenden Sie das Cmdlet **ConvertTo-SecureString** , um das Kennwort Inline anzugeben.  
   
 Überprüfen Sie die folgenden Beispiele.  
@@ -66,7 +66,7 @@ Backup-CARoleService c:\adcsbackup5 -Password (ConvertTo-SecureString "Pa55w0rd!
 ## <a name="restore-caroleservice"></a>Restore-CARoleService  
 **Adcsadministration-Cmdlet: Restore-caroleservice**  
   
-|Argumente: **Fett** formatierte Argumente sind erforderlich.|Beschreibung|  
+|Argumente: **Fett** formatierte Argumente sind erforderlich.|BESCHREIBUNG|  
 |------------------------------------------------|---------------|  
 |**-Path**|-String-Speicherort für die Wiederherstellung der Sicherung<br />: Dies ist der einzige unbenannte Parameter.<br />-Positions Parameter<p>**Beispiel:**<p>Restore-caroleservice.-Path c:\adcsbackup1-Force<p>Restore-caroleservice c:\adcsbackup2-Force|  
 |-Keyonly|-Das Zertifizierungsstellen Zertifikat ohne die Datenbank wiederherstellen<br />-Muss angegeben werden, wenn die Sicherung mit der Option-keyonly erstellt wurde.<p>**Beispiel:**<p>Restore-caroleservice c:\adcsbackup3-keyonly-Force|  
@@ -79,9 +79,9 @@ Eine nicht Kenn Wort geschützte Sicherung wird durchgeführt, wenn die ConvertT
   
 ![Sichern und Wiederherstellen von Zertifizierungsstellen](media/CA-Backup-and-Restore-Windows-PowerShell-cmdlets/GTR_ADDS_BackupCARole.gif)  
   
-**Table-Tabelle \\\* Arabisch 18: häufige Fehler**  
+**Table-Tabelle, \\ \* Arabisch, 18: häufige Fehler**  
   
-|Aktion|Error|Anmerkungen|  
+|Aktion|Fehler|Comment|  
 |----------|---------|-----------|  
 |**Restore-caroleservice c:\adcsbackup**|Restore-caroleservice: der Prozess kann nicht auf die Datei zugreifen, da Sie von einem anderen Prozess verwendet wird. (Ausnahme von HRESULT:<p>0x80070020|Vor dem Ausführen des Cmdlets "Restore-caroleservice" den Active Directory Certificate Services-Dienst abbrechen|  
 |**Restore-caroleservice c:\adcsbackup**|Restore-caroleservice: das Verzeichnis ist nicht leer. (Ausnahme von HRESULT: 0x80070091)|Verwenden Sie den Parameter-Force, um bereits vorhandene Schlüssel zu überschreiben.|  
@@ -89,12 +89,12 @@ Eine nicht Kenn Wort geschützte Sicherung wird durchgeführt, wenn die ConvertT
 |**Restore-caroleservice c:\adcsback15-Password (Read-Host-prompt "Password:"-assecurestring)-DatabaseOnly**|Restore-caroleservice: der Parameter Satz kann mit den angegebenen benannten Parametern nicht aufgelöst werden.|Der Parameter "-Password" wird nur zum Kenn Wort Schutz für private Schlüssel verwendet und ist daher ungültig, wenn Sie nicht wieder hergestellt werden.|  
 |**Restore-caroleservice c:\adcsback14-Password (Read-Host-prompt "Password:"-assecurestring)**|Restore-caroleservice: die angegebene Datei kann nicht gefunden werden. (Ausnahme von HRESULT: 0x80070002)|Der angegebene Pfad enthält keine gültige Datenbanksicherung.  Der Pfad ist möglicherweise ungültig, oder die Sicherung wurde mit der Option "-keysonly" erstellt?|  
   
-## <a name="additional-resources"></a>Zusätzliche Ressourcen  
-[Active Directory Certificate Services Migration Guide](https://technet.microsoft.com/library/ee126170(v=ws.10).aspx) (Migrationshandbuch für die Active Directory-Zertifikatdienste)  
+## <a name="additional-resources"></a>Weitere Ressourcen  
+[Active Directory Certificate Services Migration Guide](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee126170(v=ws.10)) (Migrationshandbuch für die Active Directory-Zertifikatdienste)  
   
-[Sichern der Datenbank der Zertifizierungsstelle und des privaten Schlüssels](https://technet.microsoft.com/library/ee126140(v=ws.10).aspx#BKMK_BackUpDB)  
+[Sichern der Datenbank der Zertifizierungsstelle und des privaten Schlüssels](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee126140(v=ws.10)#BKMK_BackUpDB)  
   
-[Wiederherstellen der Datenbank und Konfiguration der Zertifizierungsstelle auf dem Zielserver](https://technet.microsoft.com/library/ee126140(v=ws.10).aspx#BKMK_RestoreCA)  
+[Wiederherstellen der Datenbank und Konfiguration der Zertifizierungsstelle auf dem Zielserver](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee126140(v=ws.10)#BKMK_RestoreCA)  
   
 ## <a name="try-this-backup-the-ca-in-your-lab-using-windows-powershell"></a>Versuchen Sie Folgendes: Sichern Sie die Zertifizierungsstelle in Ihrem Lab mithilfe von Windows PowerShell.  
   
@@ -102,5 +102,3 @@ Eine nicht Kenn Wort geschützte Sicherung wird durchgeführt, wenn die ConvertT
   
 2.  Halten Sie die Wiederherstellung der Zertifizierungsstelle zu diesem Zeitpunkt an.  
   
-
-

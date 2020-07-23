@@ -8,12 +8,12 @@ ms.date: 03/01/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 293618b3fe2a24caff8fd6b52c5528cc699f93de
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5e90ad9fbd2ae9dbb08d2137ead0705556184858
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407283"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86966902"
 ---
 # <a name="ad-fs-troubleshooting---azure-ad"></a>AD FS Problembehandlung-Azure AD
 Mit dem Wachstum der Cloud können viele Unternehmen Azure AD für ihre verschiedenen apps und Dienste nutzen.  Der Verbund mit Azure AD wurde in vielen Organisationen zu einer Standardübung.  In diesem Dokument werden einige Aspekte der Problembehandlung für diesen Verbund behandelt.  Einige der Themen im Dokument zur allgemeinen Problembehandlung betreffen weiterhin den Verbund mit Azure, sodass sich dieses Dokument auf Besonderheiten bei der Azure AD-und AD FS Interaktion konzentriert.
@@ -35,7 +35,7 @@ Wenn keine Umleitung erfolgt, müssen Sie einige Dinge überprüfen.
    ![](media/ad-fs-tshoot-azure/azure3.png)
 
 2. Zum Schluss sollten Sie [DNS](ad-fs-tshoot-dns.md) überprüfen und sicherstellen, dass Ihre AD FS Server oder WAP-Server über das Internet aufgelöst werden.  Vergewissern Sie sich, dass dieser Vorgang aufgelöst wird und Sie dorthin navigieren können.
-3. Sie können auch die PowerShell-Cmdlet-`Get-AzureADDomain` verwenden, um diese Informationen zu erhalten.
+3. Sie können auch das PowerShell-Cmdlet verwenden `Get-AzureADDomain` , um diese Informationen zu erhalten.
 
 ![](media/ad-fs-tshoot-azure/azure6.png)
 
@@ -59,15 +59,15 @@ Um eine Authentifizierungsmethode zu erzwingen, verwenden Sie eine der folgenden
 
 |Authentifizierungsmethode erwünscht|WAUTH-URI|
 |-----|-----|
-|Authentifizierung mit Benutzername und Kennwort|urn: Oasis: names: TC: SAML: 1.0: am: Password|
-|SSL-Client Authentifizierung|urn:ietf:rfc:2246|
+|Benutzernamen- und Kennwortauthentifizierung|urn:oasis:names:tc:SAML:1.0:am:password|
+|SSL-Client Authentifizierung|urn: IETF: RFC: 2246|
 |Integrierte Windows-Authentifizierung|urn: Verbund: Authentifizierung: Windows|
 
 Unterstützte SAML-Authentifizierungs Kontext Klassen
 
 |Authentifizierungsmethode|URI der Authentifizierungs Kontext Klasse|
 |-----|-----| 
-|Benutzername und Kennwort|urn: Oasis: names: TC: SAML: 2.0: AC: Classes: Password|
+|Benutzername und Kennwort|urn:oasis:names:tc:SAML:2.0:ac:classes:Password|
 |Kenn Wort geschützter Transport|urn: Oasis: names: TC: SAML: 2.0: AC: Classes: passwordprotectedtransport|
 |Transport Layer Security (TLS)-Client|urn: Oasis: names: TC: SAML: 2.0: AC: Classes: tlsclient
 |X.509-Zertifikat|urn: Oasis: names: TC: SAML: 2.0: AC: Classes: X509
@@ -76,9 +76,9 @@ Unterstützte SAML-Authentifizierungs Kontext Klassen
 
 Überprüfen Sie Folgendes, um sicherzustellen, dass die Authentifizierungsmethode auf AD FS Ebene unterstützt wird.
 
-#### <a name="ad-fs-20"></a>AD FS 2,0 
+#### <a name="ad-fs-20"></a>AD FS 2.0 
 
-Stellen Sie unter **/adfs/ls/Web.config**sicher, dass der Eintrag für den Authentifizierungstyp vorhanden ist.
+Stellen Sie sicher, dass unter **/adfs/ls/web.config**der Eintrag für den Authentifizierungstyp vorhanden ist.
 
 ```
 <microsoft.identityServer.web>
@@ -98,7 +98,7 @@ Klicken Sie im Abschnitt **primäre Authentifizierung** neben globale Einstellun
 
 Im Fenster Globale Authentifizierungs Richtlinie bearbeiten auf der Registerkarte Primär können Sie Einstellungen als Teil der globalen Authentifizierungs Richtlinie konfigurieren. Bei der primären Authentifizierung können Sie beispielsweise unter Extranet und Intranet verfügbare Authentifizierungsmethoden auswählen.
 
-\* * Stellen Sie sicher, dass das Kontrollkästchen erforderliche Authentifizierungsmethode aktiviert ist. 
+* * Stellen Sie sicher, dass das Kontrollkästchen erforderliche Authentifizierungsmethode aktiviert ist. 
 
 #### <a name="ad-fs-2016"></a>AD FS 2016
 
@@ -117,18 +117,18 @@ Wenn AD FS ein Token ausgibt, kann Azure AD einen Fehler auslösen. Überprüfen
 - Die Ansprüche, die von AD FS im Token ausgegeben werden, sollten den jeweiligen Attributen des Benutzers in Azure AD entsprechen.
 - Das Token für Azure AD sollte die folgenden erforderlichen Ansprüche enthalten:
     - WSFED 
-        - UPN Der Wert dieses Anspruchs sollte mit dem UPN der Benutzer in Azure AD identisch sein.
-        - ImmutableID Der Wert dieses Anspruchs sollte mit "sourceanchor" oder "immutableid" des Benutzers in Azure AD identisch sein.
+        - UPN: der Wert dieses Anspruchs sollte mit dem UPN der Benutzer in Azure AD identisch sein.
+        - Immutableid: der Wert dieses Anspruchs sollte mit "sourceanchor" oder "immutableid" des Benutzers in Azure AD identisch sein.
 
-Um den Wert des Benutzer Attributs in Azure AD zu erhalten, führen Sie die folgende Befehlszeile aus: `Get-AzureADUser –UserPrincipalName <UPN>`
+Um den Wert des Benutzer Attributs in Azure AD zu erhalten, führen Sie die folgende Befehlszeile aus:`Get-AzureADUser –UserPrincipalName <UPN>`
 
 ![](media/ad-fs-tshoot-azure/azure5.png)
 
    - SAML 2,0:
-       - IDPEmail Der Wert dieses Anspruchs sollte mit dem Benutzer Prinzipal Namen der Benutzer in Azure AD identisch sein.
-       - NAMEID Der Wert dieses Anspruchs sollte mit "sourceanchor" oder "immutableid" des Benutzers in Azure AD identisch sein.
+       - Idpeer Mail: der Wert dieses Anspruchs sollte mit dem Benutzer Prinzipal Namen der Benutzer in Azure AD identisch sein.
+       - NameID: der Wert dieses Anspruchs sollte mit "sourceanchor" oder "immutableid" des Benutzers in Azure AD identisch sein.
 
-Weitere Informationen finden Sie unter [Verwenden eines SAML 2,0-Identitäts Anbieters zum Implementieren von Single Sign-on](https://technet.microsoft.com/library/dn641269.aspx).
+Weitere Informationen finden Sie unter [Verwenden eines SAML 2,0-Identitäts Anbieters zum Implementieren von Single Sign-on](/previous-versions/azure/azure-services/dn641269(v=azure.100)).
 
 ### <a name="token-signing-certificate-mismatch-between-ad-fs-and-azure-ad"></a>Das Tokensignaturzertifikat ist zwischen AD FS und Azure AD nicht übereinstimmen.
 
@@ -136,7 +136,7 @@ AD FS verwendet das Tokensignaturzertifikat, um das Token zu signieren, das an d
 
 Wenn jedoch das Tokensignaturzertifikat auf der AD FS Seite aufgrund eines automatischen zertifikatrol Lovers oder durch einen gewissen Eingriff geändert wird, müssen die Details des neuen Zertifikats auf Azure AD Seite für die Verbund Domäne aktualisiert werden. Wenn das primäre Tokensignaturzertifikat für die AD FS von Azure ADS abweicht, wird das von AD FS ausgegebene Token von Azure AD nicht als vertrauenswürdig eingestuft. Der Verbund Benutzer darf sich daher nicht anmelden.
 
-Um dieses Problem zu beheben, können Sie die Schritte in [Erneuern von Verbund Zertifikaten für Office 365 und Azure Active Directory](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-o365-certs)verwenden.
+Um dieses Problem zu beheben, können Sie die Schritte in [Erneuern von Verbund Zertifikaten für Office 365 und Azure Active Directory](/azure/active-directory/connect/active-directory-aadconnect-o365-certs)verwenden.
 
 ## <a name="other-common-things-to-check"></a>Weitere gängige Dinge, die überprüft werden müssen
 Im folgenden finden Sie eine kurze Liste der Dinge, die Sie überprüfen sollten, wenn Sie Probleme mit AD FS und Azure AD Interaktion haben.

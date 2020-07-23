@@ -1,5 +1,5 @@
 ---
-title: Bereitstellen von Stammzertifikate für bedingten Zugriff auf lokale AD
+title: Bereitstellen von Stammzertifikaten für bedingten Zugriff auf der lokalen AD-Instanz
 ms.prod: windows-server
 ms.technology: networking-ras
 ms.topic: article
@@ -8,14 +8,14 @@ ms.author: v-tea
 author: Teresa-MOTIV
 ms.localizationpriority: medium
 ms.reviewer: deverette
-ms.openlocfilehash: 27a99696f575afa61d3e39aff13fb58cc955936b
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: cc3e96ff0ea98acbfafef5aba37f4e20a103f029
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80818783"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86959662"
 ---
-# <a name="step-74-deploy-conditional-access-root-certificates-to-on-premises-ad"></a>Schritt 7.4. Bereitstellen von Stamm Zertifikaten für den bedingten Zugriff im lokalen AD
+# <a name="step-74-deploy-conditional-access-root-certificates-to-on-premises-ad"></a>Schritt 7.4: Bereitstellen von Stamm Zertifikaten für den bedingten Zugriff im lokalen AD
 
 >Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
@@ -34,7 +34,7 @@ In diesem Schritt stellen Sie das Stamm Zertifikat für den bedingten Zugriff al
    >[!NOTE]
    >Für Umgebungen, in denen der VPN-Server nicht mit der Active Directory Domäne verknüpft ist, müssen die Stamm Zertifikate der Cloud manuell zum Speicher der _vertrauenswürdigen Stamm Zertifizierungs_ stellen hinzugefügt werden.
 
-   | Befehl | Beschreibung |
+   | Befehl | BESCHREIBUNG |
    | --- | --- |
    | `certutil -dspublish -f VpnCert.cer RootCA` | Erstellt zwei Container der Generation **1 der Microsoft-VPN** -Stamm Zertifizierungsstellen unter den Containern **CN = AIA** und **CN = Certification Autoritäten** und veröffentlicht jedes Stamm Zertifikat als Wert für das Attribut _cACertificate_ der beiden Container der Microsoft-VPN-Stamm Zertifizierungsstelle **Gen 1** . |
    | `certutil -dspublish -f VpnCert.cer NTAuthCA` | Erstellt einen **CN = ntauthcertificate** -Container unter den Containern **CN = AIA** und **CN = Certification Autoritäten** und veröffentlicht jedes Stamm Zertifikat als Wert für das _cACertificate_ -Attribut des **CN = ntauthcertificate** -Containers. |
@@ -56,4 +56,4 @@ In diesem Schritt stellen Sie das Stamm Zertifikat für den bedingten Zugriff al
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Schritt 7,5. Erstellen von OMA-DM-basierten VPNv2-Profilen für Windows 10-Geräte](vpn-create-oma-dm-based-vpnv2-profiles.md): in diesem Schritt können Sie OMA-DM-basierte VPNv2-Profile mithilfe von InTune erstellen, um eine VPN-Geräte Konfigurationsrichtlinie bereitzustellen. Wenn Sie zum Erstellen von VPNv2-Profilen Microsoft-Endpunkt Configuration Manager oder PowerShell-Skript verwenden möchten, finden Sie weitere Informationen unter [VPNv2 CSP Settings](https://docs.microsoft.com/windows/client-management/mdm/vpnv2-csp) .
+[Schritt 7,5. Erstellen von OMA-DM-basierten VPNv2-Profilen für Windows 10-Geräte](vpn-create-oma-dm-based-vpnv2-profiles.md): in diesem Schritt können Sie OMA-DM-basierte VPNv2-Profile mithilfe von InTune erstellen, um eine VPN-Geräte Konfigurationsrichtlinie bereitzustellen. Wenn Sie zum Erstellen von VPNv2-Profilen Microsoft-Endpunkt Configuration Manager oder PowerShell-Skript verwenden möchten, finden Sie weitere Informationen unter [VPNv2 CSP Settings](/windows/client-management/mdm/vpnv2-csp) .

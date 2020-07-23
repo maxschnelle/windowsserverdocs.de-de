@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d8025e897a8ce7083b938e984f9a11b6c32ed312
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 2384ea5a94de64051dc45caecd88e08960b567b0
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85928957"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86958532"
 ---
 # <a name="convert-gpt"></a>convert gpt
 
@@ -24,7 +24,7 @@ Konvertiert einen leeren Basis Datenträger mit dem Partitions Stil Master Boot 
 > Der Datenträger muss leer sein, um ihn in einen Basis Datenträger zu konvertieren. Sichern Sie Ihre Daten, und löschen Sie dann alle Partitionen oder Volumes, bevor Sie den Datenträger umstellen. Die erforderliche Mindestgröße für die Datenträger Größe für die Konvertierung in GPT beträgt 128 Megabyte.
 
 > [!NOTE]
-> Anweisungen zur Verwendung dieses Befehls finden Sie unter [Ändern eines Master Boot Record-Datenträgers in einen Datenträger mit einer GUID-Partitionstabelle](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc725671(v=ws.11)).
+> Anweisungen zur Verwendung dieses Befehls finden Sie unter [Ändern eines Master Boot Record-Datenträgers in einen Datenträger mit einer GUID-Partitionstabelle](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc725671(v=ws.11)).
 
 ## <a name="syntax"></a>Syntax
 
@@ -34,7 +34,7 @@ convert gpt [noerr]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | Noerr | Nur für Skripterstellung. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird. |
 
@@ -46,7 +46,7 @@ Geben Sie Folgendes ein, um eine Basis-CD von MBR-Partitions Stil in GPT-Partiti
 convert gpt
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

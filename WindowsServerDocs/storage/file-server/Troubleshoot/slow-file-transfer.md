@@ -1,19 +1,19 @@
 ---
-title: Langsame Übertragungsgeschwindigkeit bei SMB-Dateien
+title: Langsame Dateiübertragungsgeschwindigkeit bei SMB
 description: Erläutert die Behandlung von Problemen bei der Übertragung von SMB-Dateien.
 author: Deland-Han
 manager: dcscontentpm
 ms.topic: article
 ms.author: delhan
 ms.date: 12/25/2019
-ms.openlocfilehash: af05daa164b5b2c5eca73eff51d97d4c25ba1ca3
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: cb575015ea8a8fc6cbc35358103774a931b0b749
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80815393"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86958862"
 ---
-# <a name="slow-smb-files-transfer-speed"></a>Langsame Übertragungsgeschwindigkeit bei SMB-Dateien
+# <a name="slow-smb-files-transfer-speed"></a>Langsame Dateiübertragungsgeschwindigkeit bei SMB
 
 Dieser Artikel enthält empfohlene Vorgehensweisen zur Problembehandlung bei langsamen Übertragungsgeschwindigkeiten durch SMB.
 
@@ -29,7 +29,7 @@ Wenn Sie langsame Übertragungen großer Dateien bemerken, sollten Sie die folge
     
   - Dies tritt normalerweise auf, wenn die anfängliche Kopie zwischengespeichert oder gepuffert wird (entweder im Arbeitsspeicher oder im Arbeitsspeicher Cache des RAID-Controllers) und der Cache abläuft. Dadurch wird erzwungen, dass Daten direkt auf den Datenträger geschrieben werden (durch Schreiben). Dies ist ein langsamer Vorgang.
     
-  - Verwenden Sie die Speicher Leistungsindikatoren, um zu bestimmen, ob die Speicherleistung im Zeitverlauf beeinträchtigt wird. Weitere Informationen finden Sie unter [Leistungsoptimierung für SMB-Dateiserver](https://docs.microsoft.com/windows-server/administration/performance-tuning/role/file-server/smb-file-server).
+  - Verwenden Sie die Speicher Leistungsindikatoren, um zu bestimmen, ob die Speicherleistung im Zeitverlauf beeinträchtigt wird. Weitere Informationen finden Sie unter [Leistungsoptimierung für SMB-Dateiserver](../../../administration/performance-tuning/role/file-server/smb-file-server.md).
 
 - Verwenden Sie rammap (Sysinternals), um zu bestimmen, ob die Nutzung von "zugeordneten Dateien" im Arbeitsspeicher aufgrund der freien Speicherauslastung nicht mehr zunimmt.
 
@@ -37,7 +37,7 @@ Wenn Sie langsame Übertragungen großer Dateien bemerken, sollten Sie die folge
 
 - Stellen Sie für SMBv3 und spätere Versionen sicher, dass SMB Multichannel aktiviert ist und funktioniert.
 
-- Aktivieren Sie auf dem SMB-Client große MTU in SMB, und deaktivieren Sie die Bandbreitendrosselung. Führen Sie hierzu den folgenden Befehl aus:  
+- Aktivieren Sie auf dem SMB-Client große MTU in SMB, und deaktivieren Sie die Bandbreitendrosselung. Führen Sie zu diesem Zweck den folgenden Befehl aus:  
   
   ```PowerShell
   Set-SmbClientConfiguration -EnableBandwidthThrottling 0 -EnableLargeMtu 1
@@ -45,7 +45,7 @@ Wenn Sie langsame Übertragungen großer Dateien bemerken, sollten Sie die folge
 
 ## <a name="small-file-transfer-is-slow"></a>Kleine Dateiübertragung ist langsam
 
-Eine langsame Übertragung von kleinen Dateien über SMB erfolgt am häufigsten, wenn viele Dateien vorhanden sind. Dies ist ein erwartetes Verhalten.
+Eine langsame Übertragung von kleinen Dateien über SMB erfolgt am häufigsten, wenn viele Dateien vorhanden sind. Dies entspricht dem erwarteten Verhalten.
 
 Während der Dateiübertragung verursacht die Dateierstellung sowohl einen hohen Protokoll Aufwand als auch einen hohen Aufwand für das Dateisystem. Bei großen Dateiübertragungen treten diese Kosten nur einmal auf. Wenn eine große Anzahl von kleinen Dateien übertragen wird, werden die Kosten wiederholt und verursachen langsame Übertragungen.
 
@@ -65,7 +65,7 @@ Im folgenden finden Sie technische Details zu diesem Problem:
 
 Dieses Problem tritt im Allgemeinen bei einer WAN-Verbindung auf. Dies ist häufig der Fall, der in der Regel durch die Art und Weise verursacht wird, in der Office-Apps (insbesondere Microsoft Excel) auf Daten zugreifen und diese lesen.
 
-Es wird empfohlen, dass Sie sicherstellen, dass die Office-und SMB-Binärdateien auf dem neuesten Stand sind, und dann testen, ob das Leasing auf dem SMB-Server deaktiviert ist. Gehen Sie hierzu folgendermaßen vor:
+Es wird empfohlen, dass Sie sicherstellen, dass die Office-und SMB-Binärdateien auf dem neuesten Stand sind, und dann testen, ob das Leasing auf dem SMB-Server deaktiviert ist. Gehen Sie hierzu wie folgt vor:
    
 1. Führen Sie den folgenden PowerShell-Befehl in Windows 8 und Windows Server 2012 oder höheren Versionen von Windows aus:
       
@@ -89,4 +89,4 @@ Es wird empfohlen, dass Sie sicherstellen, dass die Office-und SMB-Binärdateien
    NET START SERVER
    ```
 
-Um dieses Problem zu vermeiden, können Sie die Datei auch auf einen lokalen Dateiserver replizieren. Weitere Informationen finden Sie unter [Überprüfen von Office-Dokumenten auf einem Netzwerkserver ist langsam bei der Verwendung von EFS](https://docs.microsoft.com/office/troubleshoot/office/saving-file-to-network-server-slow).
+Um dieses Problem zu vermeiden, können Sie die Datei auch auf einen lokalen Dateiserver replizieren. Weitere Informationen finden Sie unter [Überprüfen von Office-Dokumenten auf einem Netzwerkserver ist langsam bei der Verwendung von EFS](/office/troubleshoot/office/saving-file-to-network-server-slow).

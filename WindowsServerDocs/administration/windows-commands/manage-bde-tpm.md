@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bed203c5de5351162f4c465e43631a4869f0e9a1
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 4eacf664a372d178a6391c8fa2359d2301484c36
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85922197"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86957032"
 ---
 # <a name="manage-bde-tpm"></a>manage-bde TPM
 
@@ -30,7 +30,7 @@ manage-bde -tpm [-turnon] [-takeownership <ownerpassword>] [-computername <name>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | -turnon | Aktiviert und aktiviert das TPM, sodass das TPM-Besitzer Kennwort festgelegt werden kann. Sie können auch **-t** als abgekürzte Version dieses Befehls verwenden. |
 | -Take Ownership | Übernimmt den Besitz des TPM durch Festlegen eines Besitzer Kennworts. Sie können **-o** auch als abgekürzte Version dieses Befehls verwenden. |
@@ -54,10 +54,10 @@ Um den Besitz des TPM zu übernehmen und das Besitzer Kennwort auf festzulegen, 
 manage-bde  tpm  takeownership 0wnerP@ss
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
-- [TPM-Verwaltungs-Cmdlets für Windows PowerShell](https://docs.microsoft.com/powershell/module/trustedplatformmodule/)
+- [TPM-Verwaltungs-Cmdlets für Windows PowerShell](/powershell/module/trustedplatformmodule/)
 
 - [Befehl "Manage-BDE"](manage-bde.md)

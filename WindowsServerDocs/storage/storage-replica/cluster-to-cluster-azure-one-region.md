@@ -8,16 +8,16 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: storage-replica
 manager: mchad
-ms.openlocfilehash: 00dbf709139ef245b94a3f083ab83a12503131c2
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: ad806577c1daa46ba77895b6a422c6fdace23c98
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80856293"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86966812"
 ---
 # <a name="cluster-to-cluster-storage-replica-within-the-same-region-in-azure"></a>Cluster-zu-Cluster-Speicher Replikat innerhalb derselben Region in Azure
 
-> Gilt für: Windows Server 2019, Windows Server 2016, Windows Server (Semi-Annual Channel)
+> Gilt für: Windows Server 2019, Windows Server 2016, Windows Server (halbjährlicher Kanal)
 
 Sie können die Cluster-zu-Cluster-Speicher Replikation innerhalb derselben Region in Azure konfigurieren. In den folgenden Beispielen wird ein Cluster mit zwei Knoten verwendet, aber Cluster-zu-Cluster-Speicher Replikate sind nicht auf einen Cluster mit zwei Knoten beschränkt. Die folgende Abbildung zeigt einen Cluster für direkte Speicherplätze mit zwei Knoten, der miteinander kommunizieren kann, sich in derselben Domäne und innerhalb derselben Region befindet.
 
@@ -75,13 +75,13 @@ Teil 2
 11. Erstellen Sie für jeden Cluster einen internen Standard-SKU- [Load Balancer](https://ms.portal.azure.com/#create/Microsoft.LoadBalancer-ARM) (**azlbr1**,**azlbr2**). 
    
     Geben Sie die Cluster-IP-Adresse als statische private IP-Adresse für den Load Balancer an.
-    - azlbr1 = > Front-End-IP: 10.3.0.100 (übernehmen Sie eine nicht verwendete IP-Adresse aus dem Subnetz des virtuellen Netzwerks (**az2az-vnet**))
+    - azlbr1 => Front-End-IP: 10.3.0.100 (übernehmen Sie eine nicht verwendete IP-Adresse aus dem Subnetz des virtuellen Netzwerks (**az2az-vnet**))
     - Erstellen Sie einen Back-End-Pool für jeden Load Balancer. Fügen Sie die zugeordneten Cluster Knoten hinzu.
     - Erstellen eines Integritätstests: Port 59999
     - Lasten Ausgleichs Regel erstellen: hochverfügbarkeitsports mit aktivierter Floating IP zulassen. 
    
     Geben Sie die Cluster-IP-Adresse als statische private IP-Adresse für den Load Balancer an.
-    - azlbr2 = > Front-End-IP: 10.3.0.101 (übernehmen Sie eine nicht verwendete IP-Adresse aus dem Subnetz des virtuellen Netzwerks (**az2az-vnet**))
+    - azlbr2 => Front-End-IP: 10.3.0.101 (übernehmen Sie eine nicht verwendete IP-Adresse aus dem Subnetz des virtuellen Netzwerks (**az2az-vnet**))
     - Erstellen Sie einen Back-End-Pool für jeden Load Balancer. Fügen Sie die zugeordneten Cluster Knoten hinzu.
     - Erstellen eines Integritätstests: Port 59999
     - Lasten Ausgleichs Regel erstellen: hochverfügbarkeitsports mit aktivierter Floating IP zulassen. 
@@ -95,7 +95,7 @@ Teil 2
 13. Weisen Sie den Cluster an, auf dem Port 59999 auf Integritätstest Nachrichten zu lauschen und von dem Knoten zu antworten, der derzeit diese Ressource besitzt. 
     Führen Sie es für jeden Cluster einmal von einem beliebigen Knoten des Clusters aus. 
     
-    Stellen Sie in unserem Beispiel sicher, dass Sie das "ilbip" entsprechend ihren Konfigurations Werten ändern. Führen Sie den folgenden Befehl von einem beliebigen Knoten aus **az2az1**/**az2az2**:
+    Stellen Sie in unserem Beispiel sicher, dass Sie das "ilbip" entsprechend ihren Konfigurations Werten ändern. Führen Sie den folgenden Befehl von einem beliebigen Knoten aus **az2az1** / **az2az2**:
 
     ```PowerShell
      $ClusterNetworkName = "Cluster Network 1" # Cluster network name (Use Get-ClusterNetwork on Windows Server 2012 or higher to find the name. And use Get-ClusterResource to find the IPResourceName).
@@ -105,7 +105,7 @@ Teil 2
      Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"ProbeFailureThreshold"=5;"EnableDhcp"=0}
     ```
 
-14. Führen Sie den folgenden Befehl von einem beliebigen Knoten aus **az2az3**/**az2az4**. 
+14. Führen Sie den folgenden Befehl von einem beliebigen Knoten aus **az2az3** / **az2az4**. 
 
     ```PowerShell
     $ClusterNetworkName = "Cluster Network 1" # Cluster network name (Use Get-ClusterNetwork on Windows Server 2012 or higher to find the name. And use Get-ClusterResource to find the IPResourceName).
@@ -132,7 +132,7 @@ Teil 2
 
 16. Führen Sie [Cluster Validierungstests](../../failover-clustering/create-failover-cluster.md#validate-the-configuration) aus, bevor Sie mit dem nächsten Schritt fortfahren.
 
-17. Starten Sie Windows PowerShell, und überprüfen Sie mithilfe des Cmdlets [Test-SRTopology](https://docs.microsoft.com/powershell/module/storagereplica/test-srtopology?view=win10-ps), ob alle Anforderungen für das Speicherreplikatfeature erfüllt sind. Sie können das Cmdlet in einem reinen Anforderungs Modus für einen Schnelltest und einen Leistungs Bewertungsmodus mit langer Ausführungszeit verwenden.
+17. Starten Sie Windows PowerShell, und überprüfen Sie mithilfe des Cmdlets [Test-SRTopology](/powershell/module/storagereplica/test-srtopology?view=win10-ps), ob alle Anforderungen für das Speicherreplikatfeature erfüllt sind. Sie können das Cmdlet in einem reinen Anforderungs Modus für einen Schnelltest und einen Leistungs Bewertungsmodus mit langer Ausführungszeit verwenden.
 
 18. Konfigurieren Sie das Cluster-zu-Cluster-Speicher Replikat.
    

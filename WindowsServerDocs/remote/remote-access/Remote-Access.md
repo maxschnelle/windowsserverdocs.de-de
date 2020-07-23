@@ -9,12 +9,12 @@ ms.assetid: eeca4cf7-90f0-485d-843c-76c5885c54b0
 ms.author: lizross
 author: eross-msft
 ms.date: 05/18/2018
-ms.openlocfilehash: dbcd0380dffca29e782be2179024270da73a2c11
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 9fc6fef0bc868e2f2db1fa8deb102eb46e959264
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80309416"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86959502"
 ---
 # <a name="remote-access"></a>Remotezugriff
 
@@ -23,26 +23,26 @@ ms.locfileid: "80309416"
 Im Handbuch für den Remote Zugriff erhalten Sie eine Übersicht über die RAS-Server Rolle in Windows Server 2016 und die folgenden Themen:
 
 - [Always on VPN-Bereitstellungs Handbuch](vpn/always-on-vpn/deploy/always-on-vpn-deploy.md)
-- [Border Gateway Protocol &#40;BGP&#41;](bgp/Border-Gateway-Protocol-BGP.md)
+- [Border Gateway Protocol &#40;BGP-&#41;](bgp/Border-Gateway-Protocol-BGP.md)
 - [RAS-Gateway](ras-gateway/RAS-Gateway.md) 
 - [RAS-Serverrolle: Dokumentation](ras/Remote-Access-Server-Role-Documentation.md)
 - [RAS-Gateway für SDN](../../networking/sdn/technologies/network-function-virtualization/RAS-Gateway-for-SDN.md)
 - [Virtual Private Networking (VPN)](vpn/vpn-top.md)
  
-Weitere Informationen zu anderen Netzwerktechnologien finden Sie unter [Netzwerk in Windows Server 2016](https://docs.microsoft.com/windows-server/networking/networking).
+Weitere Informationen zu anderen Netzwerktechnologien finden Sie unter [Netzwerk in Windows Server 2016](../../networking/index.yml).
 
 Die Remote Zugriffs-Server Rolle ist eine logische Gruppierung dieser verwandten Netzwerk Zugriffs Technologien: [RAS (Remote Access Service)](#bkmk_da), [Routing](#bkmk_rras)und [webanwendungsproxy](#bkmk_proxy). Diese Technologien sind die *Rollendienste* der Serverrolle "Remotezugriff". Wenn Sie die Remote Zugriffs-Server Rolle mit dem **Assistenten zum Hinzufügen von Rollen und Features** oder mit Windows PowerShell installieren, können Sie einen oder mehrere dieser drei Rollen Dienste installieren.
 
 >[!IMPORTANT]
->Versuchen Sie nicht, den Remote Zugriff auf einem virtuellen Computer \(VM-\) in Microsoft Azure bereitzustellen. Die Verwendung des Remote Zugriffs in Microsoft Azure wird nicht unterstützt. Sie können den Remote Zugriff auf einem virtuellen Azure-Computer nicht verwenden, um VPN, DirectAccess oder andere Remote Zugriffs Funktionen in Windows Server 2016 oder früheren Versionen von Windows Server bereitzustellen. Weitere Informationen finden Sie [unter Microsoft Server Software Support for Microsoft Azure Virtual Machines](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).
+>Versuchen Sie nicht, den Remote Zugriff auf einem virtuellen VM-Computer \( \) in Microsoft Azure bereitzustellen. Die Verwendung des Remote Zugriffs in Microsoft Azure wird nicht unterstützt. Sie können den Remote Zugriff auf einem virtuellen Azure-Computer nicht verwenden, um VPN, DirectAccess oder andere Remote Zugriffs Funktionen in Windows Server 2016 oder früheren Versionen von Windows Server bereitzustellen. Weitere Informationen finden Sie [unter Microsoft Server Software Support for Microsoft Azure Virtual Machines](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).
 
-## <a name="remote-access-service-ras---ras-gateway"></a><a name="bkmk_da"></a>RAS-Dienst \(RAS-\)-RAS-Gateway
+## <a name="remote-access-service-ras---ras-gateway"></a><a name="bkmk_da"></a>\(RAS-Dienst RAS \) -RAS-Gateway
 
-Wenn Sie den **DirectAccess-und VPN-Rollen Dienst (RAS)** installieren, stellen Sie das RAS-Gateway \(**RAS-Gateway**\)bereit. Sie können das RAS-Gateway mit einem virtuellen privaten Netzwerk eines einzelnen Mandanten-RAS-Gateways \(VPN\) Server, eines mehr Instanzen fähigen RAS-Gateway-VPN-Servers und als DirectAccess-Server bereitstellen.
+Wenn Sie den **DirectAccess-und VPN-Rollen Dienst (RAS)** installieren, stellen Sie das RAS-Gateway des Remote Zugriffs Diensts bereit \( **RAS Gateway** \) . Sie können das RAS-Gateway als \( VPN-Server eines einzelnen Mandanten-RAS \) -Gateways, eines mehr Instanzen fähigen RAS-Gateway-VPN-Servers und als DirectAccess-Server bereitstellen.
 
-- **RAS-Gateway: einzelner**Mandant. Mithilfe des RAS-Gateways können Sie VPN-Verbindungen bereitstellen, um Endbenutzern Remote Zugriff auf das Netzwerk und die Ressourcen Ihrer Organisation zu bieten. Wenn auf Ihren Clients Windows 10 ausgeführt wird, können Sie Always on VPN bereitstellen, das immer dann eine permanente Verbindung zwischen Clients und Ihrem Organisations Netzwerk unterhält, wenn Remote Computer mit dem Internet verbunden sind. Mit dem RAS-Gateway können Sie auch eine Site-to-Site-VPN-Verbindung zwischen zwei Servern an unterschiedlichen Standorten erstellen, z. b. zwischen Ihrer primären Niederlassung und einer Zweigstelle, und die Netzwerk Adressübersetzung \(NAT-\) verwenden, damit Benutzer im Netzwerk auf externe Ressourcen zugreifen können, z. b. das Internet. Außerdem unterstützt das RAS-Gateway Border Gateway Protocol (BGP), das dynamische Routing Dienste bereitstellt, wenn Ihre Remote Niederlassungen auch Edge-Gateways aufweisen, die BGP unterstützen.
+- **RAS-Gateway: einzelner**Mandant. Mithilfe des RAS-Gateways können Sie VPN-Verbindungen bereitstellen, um Endbenutzern Remote Zugriff auf das Netzwerk und die Ressourcen Ihrer Organisation zu bieten. Wenn auf Ihren Clients Windows 10 ausgeführt wird, können Sie Always on VPN bereitstellen, das immer dann eine permanente Verbindung zwischen Clients und Ihrem Organisations Netzwerk unterhält, wenn Remote Computer mit dem Internet verbunden sind. Mit dem RAS-Gateway können Sie auch eine Site-to-Site-VPN-Verbindung zwischen zwei Servern an unterschiedlichen Standorten erstellen, z. b. zwischen Ihrer primären Niederlassung und einer Zweigstelle, und die NAT-Netzwerk Adressübersetzung verwenden, \( \) damit Benutzer im Netzwerk auf externe Ressourcen wie z. b. das Internet zugreifen können. Außerdem unterstützt das RAS-Gateway Border Gateway Protocol (BGP), das dynamische Routing Dienste bereitstellt, wenn Ihre Remote Niederlassungen auch Edge-Gateways aufweisen, die BGP unterstützen.
 
-- **RAS-Gateway: mehr**Instanzen fähig. Wenn Sie die Hyper\-V-Netzwerkvirtualisierung verwenden oder VM-Netzwerke mit virtuellen lokalen Netzwerken \(VLANs\)bereitgestellt werden, können Sie das RAS-Gateway als mehrinstanzfähiges, softwarebasiertes Edge-Gateway und Router bereitstellen. Beim RAS-Gateway können clouddienstanbieter \(CSPs\) und Unternehmen das Routing von Daten Center-und cloudnetzwerkdatenverkehr zwischen virtuellen und physischen Netzwerken, einschließlich Internet, ermöglichen. Mit dem RAS-Gateway können Ihre Mandanten Punkt-Standort-Standort-VPN-Verbindungen verwenden, um von überall aus auf Ihre VM-Netzwerkressourcen im Rechenzentrum zuzugreifen. Sie können Mandanten auch Standort-zu-Standort-VPN-Verbindungen zwischen ihren Remote Standorten und Ihrem CSP-Rechenzentrum bereitstellen. Darüber hinaus können Sie das RAS-Gateway mit BGP für dynamisches Routing konfigurieren, und Sie können die Netzwerk Adressübersetzung \(NAT-\) aktivieren, um den Internet Zugriff für virtuelle Computer in VM-Netzwerken bereitzustellen.
+- **RAS-Gateway: mehr**Instanzen fähig. Wenn Sie die Hyper- \- V-Netzwerkvirtualisierung verwenden oder VM-Netzwerke mit virtuellen lokalen Netzwerken (VLANs) bereitgestellt werden, können Sie das RAS-Gateway als mehrinstanzfähiges, softwarebasiertes Edge-Gateway und Router bereitstellen \( \) . Mit dem RAS-Gateway können clouddienstanbieter ( \( CSPs \) und Unternehmen) Rechenzentrums-und cloudnetzwerkdatenverkehr zwischen virtuellen und physischen Netzwerken (einschließlich Internet) aktivieren. Mit dem RAS-Gateway können Ihre Mandanten Punkt-Standort-Standort-VPN-Verbindungen verwenden, um von überall aus auf Ihre VM-Netzwerkressourcen im Rechenzentrum zuzugreifen. Sie können Mandanten auch Standort-zu-Standort-VPN-Verbindungen zwischen ihren Remote Standorten und Ihrem CSP-Rechenzentrum bereitstellen. Darüber hinaus können Sie das RAS-Gateway mit BGP für dynamisches Routing konfigurieren, und Sie können die NAT der Netzwerk Adressübersetzung aktivieren, \( \) um den Internet Zugriff für VMs in VM-Netzwerken bereitzustellen.
 
 >[!IMPORTANT]
 > Das RAS-Gateway mit mehr Instanzen fähigen Funktionen ist auch in Windows Server 2012 R2 verfügbar.
@@ -61,7 +61,7 @@ Verwenden Sie zum Installieren des Remote Zugriffs als LAN-Router entweder den A
 Install-RemoteAccess -VpnType RoutingOnly
 ```  
 
-## <a name="web-application-proxy"></a><a name="bkmk_proxy"></a>Webanwendungs Proxy
+## <a name="web-application-proxy"></a><a name="bkmk_proxy"></a>Webanwendungsproxy
 
 Der webanwendungsproxy ist ein Remote Zugriffs-Rollen Dienst in Windows Server 2016. Der Webanwendungsproxy bietet Reverseproxyfunktionen für Webanwendungen in Ihrem Unternehmensnetzwerk, damit Benutzer außerhalb des Unternehmensnetzwerks von allen Geräten auf die Anwendungen zugreifen können. Der webanwendungsproxy authentifiziert den Zugriff auf Webanwendungen mit Active Directory-Verbunddienste (AD FS) (AD FS) und fungiert auch als AD FS Proxy.
 
@@ -71,7 +71,7 @@ Verwenden Sie zum Installieren des Remote Zugriffs als webanwendungsproxy den As
 Install-RemoteAccess -VpnType SstpProxy  
 ```  
 
-Weitere Informationen finden Sie unter [webanwendungsproxy](https://technet.microsoft.com/windows-server-docs/identity/web-application-proxy/web-application-proxy-windows-server).
+Weitere Informationen finden Sie unter [webanwendungsproxy](./web-application-proxy/web-application-proxy-windows-server.md).
 
 
 ---

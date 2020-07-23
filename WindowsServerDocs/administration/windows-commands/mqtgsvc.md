@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: cd5222623931bbd940c7ff6e8c6285874c89a385
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 4081a0e34911ef3b80d988fdb333c8b88e6fb982
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85932063"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86956902"
 ---
 # <a name="mqtgsvc"></a>mqtgsvc
 
-Überwacht eine Warteschlange auf eingehende Nachrichten und führt eine Aktion in Form einer ausführbaren Datei oder COM-Komponente aus, wenn die Regeln eines Auslösers als true ausgewertet werden. Beispiele dazu, wie der Dienst für Message Queuing Trigger verwendet werden kann, finden Sie unter [Message Queuing Trigger](https://docs.microsoft.com/previous-versions/windows/desktop/legacy/ms703197(v=vs.85)).
+Überwacht eine Warteschlange auf eingehende Nachrichten und führt eine Aktion in Form einer ausführbaren Datei oder COM-Komponente aus, wenn die Regeln eines Auslösers als true ausgewertet werden. Beispiele dazu, wie der Dienst für Message Queuing Trigger verwendet werden kann, finden Sie unter [Message Queuing Trigger](/previous-versions/windows/desktop/legacy/ms703197(v=vs.85)).
 
 ## <a name="syntax"></a>Syntax
 
@@ -26,8 +26,8 @@ ms.locfileid: "85932063"
 mqtgsvc.exe
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
-- [MSMQ PowerShell-Referenz](https://docs.microsoft.com/powershell/module/msmq/?view=win10-ps)
+- [MSMQ PowerShell-Referenz](/powershell/module/msmq/?view=win10-ps)

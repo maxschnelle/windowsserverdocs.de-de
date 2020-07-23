@@ -9,12 +9,12 @@ ms.technology: storage
 ms.assetid: 0397c204-b3f8-4fd8-b71d-b7efb117766d
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: aef1012cef33aeb2718dac4681b9119ea1a16590
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 6c486e47bde08ad002e39cec81e72ace90946cd7
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85929240"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86958112"
 ---
 # <a name="fsutil-volume"></a>fsutil volume
 
@@ -35,7 +35,7 @@ fsutil volume [querycluster] <volumepath> <cluster> [<cluster>] … …
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | Zuordnung von Berichten | Zeigt Informationen zur Verwendung von Speicher auf einem bestimmten Volume an. |
 | `<volumepath>` | Gibt den Laufwerk Buchstaben (gefolgt von einem Doppelpunkt) an. |
@@ -87,10 +87,10 @@ Geben Sie Folgendes ein, um die Dateien zu finden, die die Cluster verwenden, di
 fsutil volume querycluster C: 50 0x2000
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
 - [fsutil](fsutil.md)
 
-- [Funktionsweise von NTFS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc781134(v=ws.10))
+- [Funktionsweise von NTFS](/previous-versions/windows/it-pro/windows-server-2003/cc781134(v=ws.10))

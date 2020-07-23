@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 131d80f32a3c3324dad08b876dd4f4f8610b93e2
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 00518ab36f1886ccb3a1221a065715668fb02f47
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85936301"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86956922"
 ---
 # <a name="mqbkup"></a>mqbkup
 
@@ -34,14 +34,14 @@ mqbkup {/b | /r} <folder path_to_storage_device>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ------- | -------- |
 | /b | Gibt den Sicherungs Vorgang an. |
 | /r | Gibt den Wiederherstellungs Vorgang an. |
 | `<folder path_to_storage_device>` | Gibt den Pfad an, in dem die MSMQ-Nachrichten Dateien und Registrierungs Einstellungen gespeichert werden. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Wenn ein angegebener Ordner nicht vorhanden ist, während der Sicherungs-oder Wiederherstellungs Vorgang durchgeführt wird, wird der Ordner automatisch vom Hilfsprogramm erstellt.
 
@@ -69,8 +69,8 @@ Geben Sie Folgendes ein, um MSMQ-Nachrichten und Registrierungs Einstellungen wi
 mqbkup /r c:\msmqbkup
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
-- [MSMQ PowerShell-Referenz](https://docs.microsoft.com/powershell/module/msmq/?view=win10-ps)
+- [MSMQ PowerShell-Referenz](/powershell/module/msmq/?view=win10-ps)

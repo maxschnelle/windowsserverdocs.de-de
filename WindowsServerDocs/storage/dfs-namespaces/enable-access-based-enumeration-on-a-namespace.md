@@ -8,12 +8,12 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 7f011bc12c26567ed3a0e912dca3c3a8de9bfff9
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 04b023a931f8d66205a07f05bb8d3e955f8b83ca
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85474927"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86964072"
 ---
 # <a name="enable-access-based-enumeration-on-a-namespace"></a>Aktivieren der Zugriffs basierten Enumeration für einen Namespace
 
@@ -36,7 +36,7 @@ Wenn Sie die Zugriffs basierte Enumeration mit DFS-Namespaces verwenden möchten
 
 
 > [!WARNING]
-> Die Zugriffs basierte Enumeration verhindert nicht, dass Benutzer einen Verweis auf ein Ordner Ziel erhalten, wenn Sie den DFS-Pfad bereits kennen. Nur die Freigabe Berechtigungen oder die NTFS-Dateisystem Berechtigungen des Ordner Ziels (frei gegebener Ordner) können verhindern, dass Benutzer auf ein Ordner Ziel zugreifen. DFS-Ordner Berechtigungen werden nur zum Anzeigen oder Ausblenden von DFS-Ordnern verwendet, nicht zum Steuern des Zugriffs, sodass Lesezugriff auf die einzige relevante Berechtigung auf der DFS-Ordnerebene ermöglicht wird. Weitere Informationen finden Sie unter [Verwenden von geerbten Berechtigungen mit Zugriffs basierter Enumeration](https://technet.microsoft.com/library/dd834874(v=ws.11).aspx) .
+> Die Zugriffs basierte Enumeration verhindert nicht, dass Benutzer einen Verweis auf ein Ordner Ziel erhalten, wenn Sie den DFS-Pfad bereits kennen. Nur die Freigabe Berechtigungen oder die NTFS-Dateisystem Berechtigungen des Ordner Ziels (frei gegebener Ordner) können verhindern, dass Benutzer auf ein Ordner Ziel zugreifen. DFS-Ordner Berechtigungen werden nur zum Anzeigen oder Ausblenden von DFS-Ordnern verwendet, nicht zum Steuern des Zugriffs, sodass Lesezugriff auf die einzige relevante Berechtigung auf der DFS-Ordnerebene ermöglicht wird. Weitere Informationen finden Sie unter [Verwenden von geerbten Berechtigungen mit Zugriffs basierter Enumeration](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd834874(v=ws.11)) .
 
 <br />
 Sie können die Zugriffs basierte Enumeration für einen Namespace aktivieren, indem Sie entweder die Windows-Benutzeroberfläche oder eine Befehlszeile verwenden.
@@ -58,7 +58,7 @@ Sie können die Zugriffs basierte Enumeration für einen Namespace aktivieren, i
     ```
 
 > [!TIP]
-> Verwenden Sie zum Verwalten der Zugriffs basierten Enumeration für einen Namespace mithilfe von Windows PowerShell die Cmdlets [Set-dfsnroot](https://technet.microsoft.com/library/jj884281.aspx), [Grant-dfsnaccess](https://technet.microsoft.com/library/jj884272.aspx)und [Revo-dfsnaccess](https://technet.microsoft.com/library/jj884273.aspx) . Das DFSN-Windows PowerShell-Modul wurde in Windows Server 2012 eingeführt.
+> Verwenden Sie zum Verwalten der Zugriffs basierten Enumeration für einen Namespace mithilfe von Windows PowerShell die Cmdlets [Set-dfsnroot](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd834874(v=ws.11)), [Grant-dfsnaccess](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd834874(v=ws.11))und [Revo-dfsnaccess](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd834874(v=ws.11)) . Das DFSN-Windows PowerShell-Modul wurde in Windows Server 2012 eingeführt.
 
 Sie können steuern, welche Benutzer und Gruppen einzelne DFS-Ordner anzeigen können, indem Sie entweder die Windows-Benutzeroberfläche oder eine Befehlszeile verwenden.
 
@@ -95,15 +95,15 @@ Sie können steuern, welche Benutzer und Gruppen einzelne DFS-Ordner anzeigen k�
 3. Verwenden Sie die folgenden Befehle, um zusätzliche Aufgaben an der Eingabeaufforderung auszuführen:
 
 
-| Befehl | Beschreibung |
+| Befehl | BESCHREIBUNG |
 |---|---|
-|[Dfsutil-Eigenschaft SD Deny](https://msdn.microsoft.com/library/dd759150(v=ws.11).aspx)|Verweigert einer Gruppe oder einem Benutzer die Möglichkeit, den Ordner anzuzeigen.|
-|[Dfsutil-Eigenschaft SD Reset](https://msdn.microsoft.com/library/dd759150(v=ws.11).aspx) |Entfernt alle Berechtigungen aus dem Ordner.|
-|[Dfsutil-Eigenschaft, SD-Widerruf](https://msdn.microsoft.com/library/dd759150(v=ws.11).aspx)| Entfernt einen Gruppen-oder Benutzer-ACE aus dem Ordner. |
+|[Dfsutil-Eigenschaft SD Deny](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd759150(v=ws.11))|Verweigert einer Gruppe oder einem Benutzer die Möglichkeit, den Ordner anzuzeigen.|
+|[Dfsutil-Eigenschaft SD Reset](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd759150(v=ws.11)) |Entfernt alle Berechtigungen aus dem Ordner.|
+|[Dfsutil-Eigenschaft, SD-Widerruf](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd759150(v=ws.11))| Entfernt einen Gruppen-oder Benutzer-ACE aus dem Ordner. |
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 
 -   [Erstellen eines DFS-Namespaces](create-a-dfs-namespace.md)
 -   [Delegieren von Verwaltungsberechtigungen für DFS-Namespaces](delegate-management-permissions-for-dfs-namespaces.md)
--   [Installieren von DFS](https://technet.microsoft.com/library/cc731089(v=ws.11).aspx)
+-   [Installieren von DFS](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731089(v=ws.11))
 -   [Verwenden von geerbten Berechtigungen mit Zugriffs basierter Enumeration](using-inherited-permissions-with-access-based-enumeration.md)

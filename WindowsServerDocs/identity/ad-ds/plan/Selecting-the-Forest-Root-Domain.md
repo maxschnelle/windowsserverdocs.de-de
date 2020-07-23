@@ -8,12 +8,12 @@ ms.date: 08/08/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 1abf845ce69b395bf46a0f155db2c683c359207c
-ms.sourcegitcommit: 11421f4005f9f3a3f6c0db95b1836d0f765a9fa3
+ms.openlocfilehash: 451a0b46cd45d0dd28ceb3634da9d847864bd519
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81623878"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86953772"
 ---
 # <a name="selecting-the-forest-root-domain"></a>Auswählen der Stammdomäne der Gesamtstruktur
 
@@ -25,7 +25,7 @@ Die Stamm Domäne der Gesamtstruktur enthält die Gruppen Organisations-Admins u
 
 Wenn Sie die Gesamtstruktur-Stamm Domäne auswählen, müssen Sie bestimmen, ob eine der Active Directory Domänen im Domänen Entwurf als Gesamtstruktur-Stamm Domäne fungieren kann oder ob Sie eine dedizierte Gesamtstruktur-Stamm Domäne bereitstellen müssen.
 
-Weitere Informationen zum Bereitstellen einer Gesamtstruktur-Stamm Domäne finden Sie unter Bereitstellen [einer Windows Server 2008](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731174(v=ws.10))-Gesamtstruktur-Stamm Domäne.
+Weitere Informationen zum Bereitstellen einer Gesamtstruktur-Stamm Domäne finden Sie unter Bereitstellen [einer Windows Server 2008](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc731174(v=ws.10))-Gesamtstruktur-Stamm Domäne.
 
 ## <a name="choosing-a-regional-or-dedicated-forest-root-domain"></a>Auswählen einer regionalen oder dedizierten Gesamtstruktur-Stamm Domäne
 
@@ -88,4 +88,4 @@ Es ist wichtig, dass der Active Directory DNS-Besitzer mit dem DNS-Besitzer für
 
 ## <a name="documenting-the-forest-root-domain-name"></a>Dokumentieren des Gesamtstruktur-Stamm Domänen Namens
 
-Dokumentieren Sie das DNS-Präfix und das Suffix, das Sie für die Stamm Domäne der Gesamtstruktur auswählen. Identifizieren Sie an diesem Punkt, welche Domäne der Gesamtstruktur Stamm sein wird. Sie können dem Arbeitsblatt "Domänen Planung", das Sie erstellt haben, die Namen der Gesamtstruktur-Stamm Domäne hinzufügen, um den Plan für neue und aktualisierte Domänen und ihre Domänen Namen zu dokumentieren. Um es zu öffnen, laden Sie Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip aus den [Auftrags Hilfen für Windows Server 2003 Deployment Kit](https://microsoft.com/download/details.aspx?id=9608) herunter, und öffnen Sie "Domänen Planung" (DSSLOGI_5. doc).
+Dokumentieren Sie das DNS-Präfix und das Suffix, das Sie für die Stamm Domäne der Gesamtstruktur auswählen. Identifizieren Sie an diesem Punkt, welche Domäne der Gesamtstruktur Stamm sein wird. Sie können dem Arbeitsblatt "Domänen Planung", das Sie erstellt haben, die Namen der Gesamtstruktur-Stamm Domäne hinzufügen, um den Plan für neue und aktualisierte Domänen und ihre Domänen Namen zu dokumentieren. Um es zu öffnen, laden Sie Job_Aids_Designing_and_Deploying_Directory_and_Security_Services.zip aus den [Auftrags Hilfen für Windows Server 2003 Deployment Kit](https://microsoft.com/download/details.aspx?id=9608) herunter, und öffnen Sie "Domänen Planung" (DSSLOGI_5.doc).

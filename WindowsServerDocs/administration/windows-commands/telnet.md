@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a5f588328deb51109ee9139b6e7dfaad8f0166dc
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 70c4eb44a654094410432dd9d37d0ad0082f5874
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85934219"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86958812"
 ---
 # <a name="telnet"></a>telnet
 
@@ -27,7 +27,7 @@ Kommuniziert mit einem Computer, auf dem der Telnet-Server Dienst ausgeführt wi
 telnet [/a] [/e <EscapeChar>] [/f <FileName>] [/l <UserName>] [/t {vt100 | vt52 | ansi | vtnt}] [<Host> [<Port>]] [/?]
 ```
 #### <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |-------|--------|
 |/a|versuchen Sie die automatische Anmeldung. Identisch mit der Option/l, mit der Ausnahme, dass der Name des aktuell angemeldeten Benutzers verwendet wird.|
 |/e\<EscapeChar>|Escapezeichen für die Eingabe der Telnet-Client Eingabeaufforderung.|
@@ -37,8 +37,8 @@ telnet [/a] [/e <EscapeChar>] [/f <FileName>] [/l <UserName>] [/t {vt100 | vt52 
 |\<Host> [\<Port>]|Gibt den Hostnamen oder die IP-Adresse des Remote Computers an, mit dem eine Verbindung hergestellt werden soll, und optional den zu verwendenden TCP-Port (standardmäßig TCP-Port 23).|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an. Alternativ können Sie/h. eingeben.|
 
-## <a name="remarks"></a>Hinweise
--   Sie müssen die Telnet-Client Software installieren, bevor Sie diesen Befehl ausführen können. Weitere Informationen finden Sie unter [Installieren von Telnet](https://technet.microsoft.com/library/cc754293(v=ws.10).aspx).
+## <a name="remarks"></a>Bemerkungen
+-   Sie müssen die Telnet-Client Software installieren, bevor Sie diesen Befehl ausführen können. Weitere Informationen finden Sie unter [Installieren von Telnet](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754293(v=ws.10)).
 -   Sie können Telnet ohne Parameter ausführen, um den Telnet-Kontext einzugeben, der durch die Telnet-Eingabeaufforderung (**Microsoft Telnet>**) angegeben wird. Über die Telnet-Eingabeaufforderung können Sie den Computer, auf dem der Telnet-Client ausgeführt wird, mit Telnet-Befehlen verwalten.
 
 ## <a name="examples"></a>Beispiele
@@ -51,7 +51,7 @@ Stellen Sie mithilfe von Telnet eine Verbindung mit dem Computer her, auf dem de
 telnet /f telnetlog.txt telnet.microsoft.com 44
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
--   [Installieren von Telnet](https://technet.microsoft.com/library/cc754293(v=ws.10).aspx)
--   [Technische Referenz für Telnet](https://technet.microsoft.com/library/cc754987(v=ws.10).aspx)
+## <a name="additional-references"></a>Zusätzliche Referenzen
+-   [Installieren von Telnet](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754293(v=ws.10))
+-   [Technische Referenz für Telnet](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754987(v=ws.10))
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

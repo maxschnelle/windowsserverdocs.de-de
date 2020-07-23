@@ -8,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 4862116253f51b7072f112c5f6ece72605b63ddb
-ms.sourcegitcommit: 11421f4005f9f3a3f6c0db95b1836d0f765a9fa3
+ms.openlocfilehash: e04f82094128dac3e00d28014541da480e56999d
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81624098"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86959782"
 ---
 # <a name="mapping-your-requirements-to-an-ad-ds-deployment-strategy"></a>Zuordnen Ihren Anforderungen zu einer AD DS-Bereitstellungsstrategie
 
@@ -35,12 +35,12 @@ Sie können jedoch eine Hybrid-oder benutzerdefinierte AD DS Bereitstellungs Str
 
 | AD DS Entwurfs-und Bereitstellungs Anforderungen | Bereitstellen von AD DS in einer neuen Organisation | Bereitstellen von AD DS in einer Windows Server 2003-Organisation | Bereitstellen von AD DS in einer Windows 2000-Organisation |
 | ---------------------------------------- | ------------------------------------- | ----------------------------------------------------- |----------------------------------------------- |
-| [Entwerfen der logischen Struktur für Windows Server 2008 AD DS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770806(v=ws.10)) | Ja | Ja | Ja |
+| [Entwerfen der logischen Struktur für Windows Server 2008 AD DS](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc770806(v=ws.10)) | Ja | Ja | Ja |
 | [Entwerfen der Standort Topologie für Windows Server 2008 AD DS](Designing-the-Site-Topology.md) | Ja | Ja | Ja |
 | Planen der Domänencontrollerkapazität | Ja | Ja | Ja |
-| [Bereitstellen einer Windows Server 2008-Gesamtstruktur-Stamm Domäne](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731174(v=ws.10)) | Ja | Nein | Nein |
-| [Bereitstellen von regionalen Windows Server 2008-Domänen](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc755118(v=ws.10)) | Ja | Ja | Ja |
+| [Bereitstellen einer Windows Server 2008-Gesamtstruktur-Stamm Domäne](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc731174(v=ws.10)) | Ja | Nein | Nein |
+| [Bereitstellen von regionalen Windows Server 2008-Domänen](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc755118(v=ws.10)) | Ja | Ja | Ja |
 | [Aktivieren erweiterter Funktionen für die AD DS](../../ad-ds/plan/Enabling-Advanced-Features-for-AD-DS.md) | Ja |Ja, allerdings müssen alle Domänen Controller in der Umgebung Windows Server 2008 ausführen, bevor Sie die Domänen-oder Gesamtstruktur Funktionsebene auf Windows Server 2008 festlegen. | Ja, allerdings müssen alle Domänen Controller in der Umgebung Windows Server 2008 ausführen, bevor Sie die Domänen-oder Gesamtstruktur Funktionsebene auf Windows Server 2008 festlegen. |
-| [Aktualisieren von Active Directory Domänen auf Windows Server 2008 und Windows Server 2008 R2 AD DS Domänen](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731188(v=ws.10)) | Nein  | Ja | Ja |
-| [ADMT-Handbuch: Migrieren und umstrukturieren von Active Directory Domänen](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc974332(v=ws.10)) | Ja, wenn Sie eine Pilot Domäne in Ihre Produktionsumgebung migrieren möchten, führen Sie eine Zusammenführung mit einer anderen Organisation durch, und konsolidieren Sie die beiden IT-Infrastrukturen, oder konsolidieren Sie Ressourcen-und Konto Domänen, die Sie direkt aus den Umgebungen Windows 2000 oder Windows Server 2003 aktualisiert haben. | Ja, wenn Sie mit einer anderen Organisation zusammenführen und die beiden IT-Infrastrukturen konsolidieren oder Ressourcen-und Konto Domänen konsolidieren möchten, die Sie direkt aus den Umgebungen Windows 2000 oder Windows Server 2003 aktualisiert haben. | Ja, wenn Sie mit einer anderen Organisation zusammenführen und die beiden IT-Infrastrukturen konsolidieren oder Ressourcen-und Konto Domänen konsolidieren möchten, die Sie direkt aus den Umgebungen Windows 2000 oder Windows Server 2003 aktualisiert haben. |
-| [ADMT-Handbuch: Migrieren und umstrukturieren von Active Directory Domänen](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc974332(v=ws.10)) | Nein | Ja, wenn Sie die Anzahl der Domänen reduzieren müssen, verringern Sie den Replikations Datenverkehr und die erforderliche Benutzer-und Gruppenverwaltung, oder vereinfachen Sie die Verwaltung von Gruppenrichtlinie. | Ja, wenn Sie die Anzahl der Domänen reduzieren müssen, verringern Sie den Replikations Datenverkehr und die erforderliche Benutzer-und Gruppenverwaltung, oder vereinfachen Sie die Verwaltung von Gruppenrichtlinie. |
+| [Aktualisieren von Active Directory Domänen auf Windows Server 2008 und Windows Server 2008 R2 AD DS Domänen](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc731188(v=ws.10)) | Nein  | Ja | Ja |
+| [ADMT-Handbuch: Migrieren und umstrukturieren von Active Directory Domänen](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc974332(v=ws.10)) | Ja, wenn Sie eine Pilot Domäne in Ihre Produktionsumgebung migrieren möchten, führen Sie eine Zusammenführung mit einer anderen Organisation durch, und konsolidieren Sie die beiden IT-Infrastrukturen, oder konsolidieren Sie Ressourcen-und Konto Domänen, die Sie direkt aus den Umgebungen Windows 2000 oder Windows Server 2003 aktualisiert haben. | Ja, wenn Sie mit einer anderen Organisation zusammenführen und die beiden IT-Infrastrukturen konsolidieren oder Ressourcen-und Konto Domänen konsolidieren möchten, die Sie direkt aus den Umgebungen Windows 2000 oder Windows Server 2003 aktualisiert haben. | Ja, wenn Sie mit einer anderen Organisation zusammenführen und die beiden IT-Infrastrukturen konsolidieren oder Ressourcen-und Konto Domänen konsolidieren möchten, die Sie direkt aus den Umgebungen Windows 2000 oder Windows Server 2003 aktualisiert haben. |
+| [ADMT-Handbuch: Migrieren und umstrukturieren von Active Directory Domänen](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc974332(v=ws.10)) | Nein | Ja, wenn Sie die Anzahl der Domänen reduzieren müssen, verringern Sie den Replikations Datenverkehr und die erforderliche Benutzer-und Gruppenverwaltung, oder vereinfachen Sie die Verwaltung von Gruppenrichtlinie. | Ja, wenn Sie die Anzahl der Domänen reduzieren müssen, verringern Sie den Replikations Datenverkehr und die erforderliche Benutzer-und Gruppenverwaltung, oder vereinfachen Sie die Verwaltung von Gruppenrichtlinie. |

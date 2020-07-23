@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 480f44c6467587918ad347413315b208c874f8cd
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: e7e248f507ca6d38248bc931cb3d1b98aa385c88
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85922122"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86956992"
 ---
 # <a name="manage-bde"></a>manage-bde
 
@@ -32,7 +32,7 @@ manage-bde [-status] [–on] [–off] [–pause] [–resume] [–lock] [–unloc
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- |------------ |
 | [manage-bde-Status](manage-bde-status.md) | Enthält Informationen zu allen Laufwerken auf dem Computer, unabhängig davon, ob Sie durch BitLocker geschützt sind. |
 | [manage-bde on](manage-bde-on.md) | Verschlüsselt das Laufwerk und schaltet BitLocker ein. |
@@ -55,8 +55,8 @@ manage-bde [-status] [–on] [–off] [–pause] [–resume] [–lock] [–unloc
 | -? oder /? | Zeigt eine kurze Hilfe an der Eingabeaufforderung an. |
 | -Help oder-h | Zeigt die gesamte Hilfe an der Eingabeaufforderung an. |
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
-- [Aktivieren von BitLocker über die Befehlszeile](https://technet.microsoft.com/library/dd894351(v=ws.10).aspx)
+- [Aktivieren von BitLocker über die Befehlszeile](/previous-versions/windows/it-pro/windows-7/dd894351(v=ws.10))

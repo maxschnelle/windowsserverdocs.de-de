@@ -8,12 +8,12 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 9b420e311c98477d369c81f10eca274e665dae3a
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: a993d53611382dcd0007bfecae95da6221cf6016
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85475157"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86966802"
 ---
 # <a name="set-the-ordering-method-for-targets-in-referrals"></a>Festlegen der Sortiermethode für Ziele in Verweisen
 
@@ -35,7 +35,7 @@ Verwenden Sie das folgende Verfahren, um die Reihen folgen Methode für den Name
 3.  Wählen Sie auf der Registerkarte **Verweise** eine Bestellmethode aus.
 
 > [!NOTE]
-> Verwenden Sie das Cmdlet [Set-dfsnroot](https://technet.microsoft.com/library/jj884281.aspx) mit einem der folgenden Parameter, um Windows PowerShell zum Festlegen der Anordnungs Methode für Ziele in Namespace-Stamm verweisen zu verwenden:
+> Verwenden Sie das Cmdlet [Set-dfsnroot](/powershell/module/dfsr/update-dfsrconfigurationfromad?view=win10-ps) mit einem der folgenden Parameter, um Windows PowerShell zum Festlegen der Anordnungs Methode für Ziele in Namespace-Stamm verweisen zu verwenden:
 >    -   **Enablesitecost** gibt die **niedrigste Kosten Anordnungs** Methode an.
 >    -   **Enableinsitereferrals** gibt die **Ausschluss Ziele außerhalb der Standort Anordnungs Methode des Clients an** .
 >    -   Durch das Weglassen eines der beiden Parameter wird die Sortiermethode für die **zufällige Reihenfolge** der
@@ -53,7 +53,7 @@ Ordner mit Zielen erben die Bestellmethode vom Namespace Stamm. Mithilfe des fol
 3.  Aktivieren Sie auf der Registerkarte **Verweise** das Kontrollkästchen **Ziele außerhalb des Client Standorts ausschließen** .
 
 > [!NOTE]
-> Wenn Sie Windows PowerShell verwenden möchten, um Ordner Ziele außerhalb des Client Standorts auszuschließen, verwenden Sie das Cmdlet [Set-dfsnfolder – enableinsitereferrals](https://technet.microsoft.com/library/jj884283.aspx) .
+> Wenn Sie Windows PowerShell verwenden möchten, um Ordner Ziele außerhalb des Client Standorts auszuschließen, verwenden Sie das Cmdlet [Set-dfsnfolder – enableinsitereferrals](/powershell/module/dfsr/update-dfsrconfigurationfromad?view=win10-ps) .
 
 ## <a name="target-referral-ordering-methods"></a>Ziel Weiterleitungs Methoden für Verweise
 

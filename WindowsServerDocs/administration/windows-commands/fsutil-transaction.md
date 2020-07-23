@@ -9,12 +9,12 @@ ms.technology: storage
 ms.assetid: f2eefaaf-2817-4ac7-abac-d2b65fa971dc
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: 95cd9a8f62aa9dd64d46a875a90847a65589b447
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 776903b820c7d7381aff61bb754446b5682f88db
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85922332"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86958172"
 ---
 # <a name="fsutil-transaction"></a>fsutil transaction
 
@@ -34,7 +34,7 @@ fsutil transaction [rollback] <GUID>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | Commit | Markiert das Ende einer erfolgreichen impliziten oder expliziten angegebenen Transaktion. |
 | `<GUID>` | Gibt den GUID-Wert an, der eine Transaktion darstellt. |
@@ -52,10 +52,10 @@ Geben Sie Folgendes ein, um Transaktionsinformationen für Datei *c:\test.txt*an
 fsutil transaction fileinfo c:\test.txt
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
 - [fsutil](fsutil.md)
 
-- [Transaktions-NTFS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc730726(v=ws.10))
+- [Transaktions-NTFS](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc730726(v=ws.10))

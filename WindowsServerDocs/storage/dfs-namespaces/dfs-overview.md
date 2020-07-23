@@ -8,12 +8,12 @@ ms.topic: article
 author: jasongerend
 ms.date: 06/07/2019
 description: In diesem Thema werden DFS-Namespaces beschrieben, bei denen es sich um einen Rollen Dienst in Windows Server handelt, der es Ihnen ermöglicht, freigegebene Ordner auf verschiedenen Servern in einem oder mehreren logisch strukturierten Namespaces zu gruppieren.
-ms.openlocfilehash: fd02f0b65cc57300c673d72c7879a80d48747fa2
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 57d2d8bb7565677afcd2a031807061ab50b6ff16
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85471884"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86964092"
 ---
 # <a name="dfs-namespaces-overview"></a>Übersicht über DFS-Namespaces
 
@@ -32,7 +32,7 @@ Im folgenden finden Sie eine Beschreibung der Elemente, die einen DFS-Namespace 
 
 In diesem Thema wird erläutert, wie Sie DFS installieren, welche Neuerungen es gibt und wo Sie Evaluierungs-und Bereitstellungs Informationen finden.
 
-Sie können Namespaces mithilfe der DFS-Verwaltung, der [DFS-Namespace (DFSN)-Cmdlets in Windows PowerShell](https://docs.microsoft.com/powershell/module/dfsn/?view=win10-ps), des **dfsutil** -Befehls oder mithilfe von WMI-Skripts verwalten.
+Sie können Namespaces mithilfe der DFS-Verwaltung, der [DFS-Namespace (DFSN)-Cmdlets in Windows PowerShell](/powershell/module/dfsn/?view=win10-ps), des **dfsutil** -Befehls oder mithilfe von WMI-Skripts verwalten.
 
 ## <a name="server-requirements-and-limits"></a>Server Anforderungen und-Einschränkungen
 
@@ -65,7 +65,7 @@ In der folgenden Tabelle werden zusätzliche Faktoren beschrieben, die bei der A
 
 DFS-Namespaces und die DFS-Replikation sind Teil der Rolle %%amp;quot;Datei- und Speicherdienste%%amp;quot;. Die Verwaltungstools für DFS (DFS-Verwaltung, das DFS-Namespaces-Modul für Windows PowerShell sowie Befehlszeilentools) werden separat im Rahmen der Remoteserver-Verwaltungstools installiert.
 
-Installieren Sie DFS-Namespaces mithilfe des [Windows Admin Centers](../../manage/windows-admin-center/understand/windows-admin-center.md), Server-Manager oder PowerShell, wie in den folgenden Abschnitten beschrieben.
+Installieren Sie DFS-Namespaces mithilfe des [Windows Admin Centers](../../manage/windows-admin-center/overview.md), Server-Manager oder PowerShell, wie in den folgenden Abschnitten beschrieben.
 
 ### <a name="to-install-dfs-by-using-server-manager"></a>So installieren Sie DFS mithilfe des Server-Managers
 
@@ -114,7 +114,7 @@ Die Verwendung von DFS-Namespaces auf einer virtuellen Maschine in Microsoft Azu
 
 - Sie können Domänen basierte Namespaces auf virtuellen Azure-Computern hosten, einschließlich Umgebungen mit Azure Active Directory.
 
-Informationen zu den ersten Schritten mit virtuellen Azure-Computern finden Sie in der [Dokumentation zu Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/).
+Informationen zu den ersten Schritten mit virtuellen Azure-Computern finden Sie in der [Dokumentation zu Azure Virtual Machines](/azure/virtual-machines/).
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 
@@ -122,10 +122,10 @@ Weitere verwandte Informationen finden Sie in den folgenden Ressourcen:
 
 | Inhaltstyp        | Referenzen |
 | ------------------  | ----------------|
-| **Produktbewertung** | [Neues in DFS-Namespaces und DFS-Replikation in Windows Server](https://technet.microsoft.com/library/dn281957(v=ws.11).aspx) |
-| **Bereitstellung**    | [Überlegungen zur Skalierbarkeit von DFS-Namespaces](https://blogs.technet.com/b/filecab/archive/2012/08/26/dfs-namespace-scalability-considerations.aspx) |
-| **Vorgänge**    | [DFS-Namespaces: Häufig gestellte Fragen](https://technet.microsoft.com/library/ee404780.aspx) |
+| **Produktbewertung** | [Neues in DFS-Namespaces und DFS-Replikation in Windows Server](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn281957(v=ws.11)) |
+| **Bereitstellung**    | [Überlegungen zur Skalierbarkeit von DFS-Namespaces](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB) |
+| **Vorgänge**    | [DFS-Namespaces: Häufig gestellte Fragen](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee404780(v=ws.10)) |
 | **Communityressourcen** | [TechNet-Forum für Dateidienste und Speicher](https://social.technet.microsoft.com/forums/winserverfiles/threads/) |
-| **Protokolle**        | [Datei Dienst Protokolle in Windows Server](https://msdn.microsoft.com/library/cc239318.aspx) (veraltet) |
+| **Protokolle**        | [Datei Dienst Protokolle in Windows Server](/openspecs/windows_protocols/MS-WINPROTLP/df36f95e-6a6b-48d6-a3ae-35a17674f546) (veraltet) |
 | **Verwandte Technologien** | [Failoverclustering](../../failover-clustering/failover-clustering-overview.md)|
 | **Unterstützung** | [Windows IT Pro-Support](https://www.microsoft.com/itpro/windows/support)|

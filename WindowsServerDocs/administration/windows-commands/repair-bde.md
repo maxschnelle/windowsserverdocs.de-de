@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a2ba82708acd9c5830e2dc8a09cd804ade342066
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 5aaa915ef416130dd2017b8f0f35cd255d207678
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85935647"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86956282"
 ---
 # <a name="repair-bde"></a>repair-bde
 
 
 
-Der Zugriff auf verschlüsselte Daten auf einer schwer beschädigten Festplatte, wenn das Laufwerk mithilfe von BitLocker verschlüsselt wurde. Mit Repair-bde können wichtige Laufwerksbereiche wiederhergestellt und wiederherstellbare Daten repariert werden, vorausgesetzt ein gültiges Wiederherstellungskennwort oder ein gültiger Wiederherstellungsschlüssel wird zum Entschlüsseln der Daten verwendet. Wenn die BitLocker-Metadaten auf dem Laufwerk beschädigt sind, muss neben einem Wiederherstellungskennwort oder Wiederherstellungsschlüssel ein Sicherungsschlüsselpaket angegeben werden. Dieses Schlüsselpaket wird in den Active Directory-Domänendiensten (AD DS) gesichert, wenn Sie die Standardeinstellung für die AD DS-Sicherung verwendet haben. Mit diesem Schlüsselpaket dem Wiederherstellungskennwort oder Wiederherstellungsschlüssel können Sie Teile eines mit BitLocker geschützten Laufwerks entschlüsseln, wenn die Festplatte beschädigt ist. Jeder Schlüsselpaket funktioniert nur für ein Laufwerk mit der entsprechenden Laufwerkskennung. Mit dem [BitLocker-Wiederherstellungs Kennwort-Viewer](https://technet.microsoft.com/library/dd875531(v=ws.10).aspx) können Sie Active Directory dieses Schlüssel Paket von AD DS abrufen.
+Der Zugriff auf verschlüsselte Daten auf einer schwer beschädigten Festplatte, wenn das Laufwerk mithilfe von BitLocker verschlüsselt wurde. Mit Repair-bde können wichtige Laufwerksbereiche wiederhergestellt und wiederherstellbare Daten repariert werden, vorausgesetzt ein gültiges Wiederherstellungskennwort oder ein gültiger Wiederherstellungsschlüssel wird zum Entschlüsseln der Daten verwendet. Wenn die BitLocker-Metadaten auf dem Laufwerk beschädigt sind, muss neben einem Wiederherstellungskennwort oder Wiederherstellungsschlüssel ein Sicherungsschlüsselpaket angegeben werden. Dieses Schlüsselpaket wird in den Active Directory-Domänendiensten (AD DS) gesichert, wenn Sie die Standardeinstellung für die AD DS-Sicherung verwendet haben. Mit diesem Schlüsselpaket dem Wiederherstellungskennwort oder Wiederherstellungsschlüssel können Sie Teile eines mit BitLocker geschützten Laufwerks entschlüsseln, wenn die Festplatte beschädigt ist. Jeder Schlüsselpaket funktioniert nur für ein Laufwerk mit der entsprechenden Laufwerkskennung. Mit dem [BitLocker-Wiederherstellungs Kennwort-Viewer](/previous-versions/windows/it-pro/windows-7/dd875531(v=ws.10)) können Sie Active Directory dieses Schlüssel Paket von AD DS abrufen.
 
 > [!NOTE]
 > Der BitLocker-Wiederherstellungs Kennwort-Viewer ist als eines der optionalen Verwaltungsfunktionen enthalten, die mithilfe von Server Verwaltung unter Windows Server 2012 installiert werden können.
@@ -39,7 +39,7 @@ repair-bde <InputVolume> <OutputVolumeorImage> [-rk] [–rp] [-pw] [–kp] [–l
 
 #### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
 |\<InputVolume>|Gibt den Laufwerk Buchstaben des zu reparierenden BitLocker-verschlüsselten Laufwerks an. Der Laufwerk Buchstabe muss einen Doppelpunkt enthalten. Beispiel: **C:**.|
 |\<OutputVolumeorImage>|Gibt das Laufwerk an, auf dem der Inhalt des reparierten Laufwerks gespeichert werden soll. Alle Informationen auf dem Ausgabe Laufwerk werden überschrieben.|
@@ -51,7 +51,7 @@ repair-bde <InputVolume> <OutputVolumeorImage> [-rk] [–rp] [-pw] [–kp] [–l
 |-f|Erzwingt das Aufheben der Bereitstellung eines Volumes, auch wenn es nicht gesperrt werden kann. Dieser Befehl kann auch als **-Force**angegeben werden.|
 |-? oder /?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 Wenn der Pfad zu einem Schlüssel Paket nicht angegeben wird, durchsucht **Repair-bde** das Laufwerk nach einem Schlüssel Paket. Wenn die Festplatte jedoch beschädigt wurde, ist **Repair-bde** möglicherweise nicht in der Lage, das Paket zu finden, und Sie werden aufgefordert, den Pfad anzugeben.
 
@@ -74,6 +74,6 @@ Wenn Sie versuchen, Laufwerk c zu reparieren und den Inhalt von Laufwerk c auf L
 repair-bde C: D: -pw
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

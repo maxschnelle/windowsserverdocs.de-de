@@ -8,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 02620fdce6132fa3868207ffe2afbf6c95e6a37b
-ms.sourcegitcommit: 11421f4005f9f3a3f6c0db95b1836d0f765a9fa3
+ms.openlocfilehash: a67c1f5e0c144cecf1c66aaba8b16aa612270ad3
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81624198"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86959852"
 ---
 # <a name="identifying-your-functional-level-upgrade"></a>Bestimmen der Funktionsebenenaktualisierung
 
@@ -54,7 +54,7 @@ Wenn Sie alle Features auf Gesamtstruktur-und Domänen Ebene in Windows Server 2
 
 - Führen Sie neu installierte Windows Server 2008-oder Windows Server 2008 R2-basierte Domänen Controller in die Gesamtstruktur ein, und ziehen Sie dann alle Domänen Controller unter Windows 2000 außer Betrieb.
 
-- Führen Sie ein direktes Upgrade aller vorhandenen Domänen Controller unter Windows 2000 in der Gesamtstruktur auf Domänen Controller unter Windows Server 2003 aus. Führen Sie dann ein direktes Upgrade dieser Domänen Controller auf Windows Server 2008 oder Windows Server 2008 R2 aus. Weitere Informationen finden Sie unter [Aktualisieren von Active Directory Domänen auf Windows Server 2008 und Windows Server 2008 R2 AD DS Domänen](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731188(v=ws.10)).
+- Führen Sie ein direktes Upgrade aller vorhandenen Domänen Controller unter Windows 2000 in der Gesamtstruktur auf Domänen Controller unter Windows Server 2003 aus. Führen Sie dann ein direktes Upgrade dieser Domänen Controller auf Windows Server 2008 oder Windows Server 2008 R2 aus. Weitere Informationen finden Sie unter [Aktualisieren von Active Directory Domänen auf Windows Server 2008 und Windows Server 2008 R2 AD DS Domänen](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc731188(v=ws.10)).
 
     > [!IMPORTANT]
     >  Windows Server 2008 R2 ist ein x64-basiertes Betriebssystem. Wenn auf Ihrem Server eine x64-basierte Version von Windows Server 2003 ausgeführt wird, können Sie ein direktes Upgrade des Betriebssystems dieses Computers auf Windows Server 2008 R2 durchführen. Wenn auf Ihrem Server eine x86-basierte Version von Windows Server 2003 ausgeführt wird, können Sie diesen Computer nicht auf Windows Server 2008 R2 aktualisieren.
@@ -66,7 +66,7 @@ Um die Features auf Domänen Ebene in Windows Server 2008 oder Windows Server 20
 
 Nachdem Sie alle Windows 2000-basierten Domänen Controller in der Gesamtstruktur durch Domänen Controller ersetzt haben, auf denen Windows Server 2008 oder Windows Server 2008 R2 ausgeführt wird, können Sie die Gesamtstruktur Funktionsebene auf Windows Server 2008 oder Windows Server 2008 R2 erhöhen. Dadurch wird die Funktionsebene aller Domänen in der Gesamtstruktur, die auf Windows 2000 native oder höher festgelegt sind, automatisch auf Windows Server 2008 oder Windows Server 2008 R2 angehoben.
 
-Weitere Informationen zum Erhöhen der Gesamtstruktur-und Domänen Funktionsebenen sowie zu Verfahren zum Ausführen dieser Aufgaben finden Sie unter Bereitstellen [einer Windows Server 2008](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc731174(v=ws.10))-Gesamtstruktur-Stamm Domäne.
+Weitere Informationen zum Erhöhen der Gesamtstruktur-und Domänen Funktionsebenen sowie zu Verfahren zum Ausführen dieser Aufgaben finden Sie unter Bereitstellen [einer Windows Server 2008](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc731174(v=ws.10))-Gesamtstruktur-Stamm Domäne.
 
 ## <a name="upgrading-functional-levels-in-a-windows-server-2003-active-directory-forest"></a>Aktualisieren von Funktionsebenen in einer Windows Server 2003 Active Directory-Gesamtstruktur
 In einer Windows Server 2003-Umgebung, die nur aus Windows Server 2003-basierten Domänen Controllern besteht, werden die Funktionsebenen standardmäßig auf die folgenden Ebenen festgelegt und bleiben so lange erhalten, bis Sie Sie manuell erhöhen:
@@ -79,7 +79,7 @@ Wenn Sie alle Features auf Gesamtstruktur-und Domänen Ebene in Windows Server 2
 
 - Führen Sie einen neu installierten Windows Server 2008-oder Windows Server 2008 R2-basierten Domänen Controller in die Gesamtstruktur ein, und ziehen Sie dann alle Domänen Controller unter Windows Server 2003 außer Betrieb, oder führen Sie ein Upgrade auf Windows Server 2008 oder Windows Server 2008 R2 aus.
 
-- Führen Sie ein direktes Upgrade aller vorhandenen Domänen Controller unter Windows Server 2003 auf Domänen Controllern aus, auf denen Windows Server 2008 oder Windows Server 2008 R2 ausgeführt wird. Weitere Informationen finden Sie unter [Aktualisieren von Active Directory Domänen auf Windows Server 2008 und Windows Server 2008 R2 AD DS Domänen](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731188(v=ws.10)).
+- Führen Sie ein direktes Upgrade aller vorhandenen Domänen Controller unter Windows Server 2003 auf Domänen Controllern aus, auf denen Windows Server 2008 oder Windows Server 2008 R2 ausgeführt wird. Weitere Informationen finden Sie unter [Aktualisieren von Active Directory Domänen auf Windows Server 2008 und Windows Server 2008 R2 AD DS Domänen](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc731188(v=ws.10)).
 
 > [!IMPORTANT]
 > Windows Server 2008 R2 ist ein x64-basiertes Betriebssystem. Wenn auf Ihrem Server eine x64-basierte Version von Windows Server 2003 ausgeführt wird, können Sie ein direktes Upgrade des Betriebssystems dieses Computers auf Windows Server 2008 R2 durchführen. Wenn auf Ihrem Server eine x86-basierte Version von Windows Server 2003 ausgeführt wird, können Sie diesen Computer nicht aktualisieren, um Windows Server 2008 R2 auszuführen.
@@ -91,7 +91,7 @@ Wenn Sie alle Windows Server 2008-oder Windows Server 2008 R2-Features auf Domä
 
 Nachdem Sie alle Windows Server 2003-basierten Domänen Controller in der Gesamtstruktur auf Windows Server 2008 oder Windows Server 2008 R2 aktualisiert haben, können Sie die Gesamtstruktur Funktionsebene auf Windows Server 2008 oder Windows Server 2008 R2 erhöhen. Dadurch wird die Funktionsebene aller Domänen in der Gesamtstruktur, die auf Windows Server 2003 auf Windows Server 2008 oder Windows Server 2008 R2 festgelegt sind, automatisch erhöht.
 
-Weitere Informationen zum Erhöhen der Gesamtstruktur-und Domänen Funktionsebenen sowie zu Verfahren zum Ausführen dieser Aufgaben finden Sie unter Bereitstellen [einer Windows Server 2008](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc731174(v=ws.10))-Gesamtstruktur-Stamm Domäne.
+Weitere Informationen zum Erhöhen der Gesamtstruktur-und Domänen Funktionsebenen sowie zu Verfahren zum Ausführen dieser Aufgaben finden Sie unter Bereitstellen [einer Windows Server 2008](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc731174(v=ws.10))-Gesamtstruktur-Stamm Domäne.
 
 ## <a name="upgrading-functional-levels-in-a-new-windows-server-2008-forest"></a>Aktualisieren von Funktionsebenen in einer neuen Windows Server 2008-Gesamtstruktur
 Wenn Sie den ersten Domänen Controller in einer neuen Windows Server 2008-Gesamtstruktur installieren, werden die Funktionsebenen standardmäßig auf die folgenden Ebenen festgelegt und bleiben so lange erhalten, bis Sie Sie manuell erhöhen:
@@ -105,7 +105,7 @@ Funktionsebenen werden auf diesen Standard Ebenen festgelegt, um Ihnen das Hinzu
 > [!IMPORTANT]
 > Wenn die Gesamtstruktur auf der Windows Server 2008-Funktionsebene ausgeführt wird und Sie versuchen, Active Directory auf einem Windows Server 2003-basierten Mitglieds Server oder einem Windows 2000-basierten Mitglieds Server zu installieren, tritt bei der Installation ein Fehler auf.
 
-Weitere Informationen zum Erhöhen der Gesamtstruktur-und Domänen Funktionsebenen sowie zu Verfahren zum Ausführen dieser Aufgaben finden Sie unter Bereitstellen [einer Windows Server 2008](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc731174(v=ws.10))-Gesamtstruktur-Stamm Domäne.
+Weitere Informationen zum Erhöhen der Gesamtstruktur-und Domänen Funktionsebenen sowie zu Verfahren zum Ausführen dieser Aufgaben finden Sie unter Bereitstellen [einer Windows Server 2008](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc731174(v=ws.10))-Gesamtstruktur-Stamm Domäne.
 
 ## <a name="upgrading-functional-levels-in-a-new-windows-server-2008-r2-forest"></a>Aktualisieren von Funktionsebenen in einer neuen Windows Server 2008 R2-Gesamtstruktur
 Wenn Sie den ersten Domänen Controller in einer neuen Windows Server 2008 R2-Gesamtstruktur installieren, werden die Funktionsebenen standardmäßig auf die folgenden Ebenen festgelegt, und Sie verbleiben auf diesen Ebenen, bis Sie Sie manuell erhöhen:
@@ -119,7 +119,7 @@ Funktionsebenen werden auf diesen Standard Ebenen festgelegt, um Ihnen das Hinzu
 > [!IMPORTANT]
 > Wenn die Gesamtstruktur auf der Windows Server 2008 R2-Funktionsebene ausgeführt wird und Sie versuchen, Active Directory auf einem Windows Server 2008-basierten oder Windows Server 2003-basierten Mitglieds Server oder auf einem Windows 2000-basierten Mitglieds Server zu installieren, tritt bei der Installation ein Fehler auf.
 
-Weitere Informationen zum Erhöhen der Gesamtstruktur-und Domänen Funktionsebenen sowie zu Verfahren zum Ausführen dieser Aufgaben finden Sie unter Bereitstellen [einer Windows Server 2008](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc731174(v=ws.10))-Gesamtstruktur-Stamm Domäne.
+Weitere Informationen zum Erhöhen der Gesamtstruktur-und Domänen Funktionsebenen sowie zu Verfahren zum Ausführen dieser Aufgaben finden Sie unter Bereitstellen [einer Windows Server 2008](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc731174(v=ws.10))-Gesamtstruktur-Stamm Domäne.
 
 > [!NOTE]
 > Obwohl ADMT v 3.1 auf Windows Server 2008 installiert werden muss, können Sie ADMT v 3.1 zum Migrieren von Objekten zu einer Domäne verwenden, die von einem oder mehreren Windows Server 2008 R2-Domänen Controllern gehostet wird. Weitere Informationen finden Sie im Artikel 976659 in der Microsoft Knowledge Base, [bekannte Probleme, die auftreten können, wenn Sie ADMT 3,1 zum Migrieren zu einer Domäne verwenden, die Windows Server 2008 R2-Domänen Controller enthält](https://support.microsoft.com/help/976659/).

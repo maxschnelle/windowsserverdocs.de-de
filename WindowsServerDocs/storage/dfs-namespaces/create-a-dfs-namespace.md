@@ -8,18 +8,18 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 90a6c0f72fc1a11d9070fa7866c0b64044131a07
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 60b31b90ed54137898043e79c3c6504afb3f4b7f
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85469715"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86953362"
 ---
 # <a name="create-a-dfs-namespace"></a>Erstellen eines DFS-Namespace
 
 > Gilt für: Windows Server 2019, Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
 
-Zum Erstellen eines neuen Namespace können Sie Server-Manager verwenden, um den Namespace zu erstellen, wenn Sie den DFS-Namespaces-Rollen Dienst installieren. Sie können auch das [Cmdlet New-dfsnroot](https://docs.microsoft.com/powershell/module/dfsn/new-dfsnroot) aus einer Windows PowerShell-Sitzung verwenden.
+Zum Erstellen eines neuen Namespace können Sie Server-Manager verwenden, um den Namespace zu erstellen, wenn Sie den DFS-Namespaces-Rollen Dienst installieren. Sie können auch das [Cmdlet New-dfsnroot](/powershell/module/dfsn/new-dfsnroot) aus einer Windows PowerShell-Sitzung verwenden.
 
 Das DFSN-Windows PowerShell-Modul wurde in Windows Server 2012 eingeführt.
 
@@ -44,5 +44,3 @@ Mit der folgenden Vorgehensweise können Sie nach der Installation des Rollen di
 -   [Auswählen eines Namespacetyps](choose-a-namespace-type.md)
 -   [Hinzufügen von Namespaceservern zu einem domänenbasierten DFS-Namespace](add-namespace-servers-to-a-domain-based-dfs-namespace.md)
 -   [Delegieren von Verwaltungs Berechtigungen für DFS-Namespaces](delegate-management-permissions-for-dfs-namespaces.md).
-
-

@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 720ae8b5ebb0ef380f6547a85913cd84c6d98c7e
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 0e763a1989ba820e4a4bb19842432368e17f1044
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85931168"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86957282"
 ---
 # <a name="ftp-mdelete"></a>ftp mdelete
 
@@ -29,7 +29,7 @@ mdelete <remotefile>[...]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `<remotefile>` | Gibt die zu löschende Remote Datei an. |
 
@@ -41,8 +41,8 @@ Zum Löschen von Remote Dateien *a.exe* und *b.exe*geben Sie Folgendes ein:
 mdelete a.exe b.exe
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
-- [Zusätzlicher FTP-Leitfaden](https://docs.microsoft.com/previous-versions/orphan-topics/ws.10/cc756013(v=ws.10))
+- [Zusätzlicher FTP-Leitfaden](/previous-versions/orphan-topics/ws.10/cc756013(v=ws.10))

@@ -8,18 +8,18 @@ ms.date: 08/08/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: f5b88afe50e9cb498eacf1bbc872718d50cd64da
-ms.sourcegitcommit: 11421f4005f9f3a3f6c0db95b1836d0f765a9fa3
+ms.openlocfilehash: 574c5a4c0d009a34b1d327ac4aef3b9f5210b0bf
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81623924"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86959392"
 ---
 # <a name="planning-regional-domain-controller-placement"></a>Planen der Platzierung regionaler Domänen Controller
 
 > Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Um die Kosteneffizienz zu gewährleisten, sollten Sie so viele regionale Domänen Controller wie möglich platzieren. Überprüfen Sie zunächst das Arbeitsblatt "geografische Standorte und Kommunikations Links" (DSSTOPO_1. doc), das zum [Erfassen von Netzwerkinformationen](../../ad-ds/plan/Collecting-Network-Information.md) verwendet wird, um festzustellen, ob es sich um einen Hub handelt.
+Um die Kosteneffizienz zu gewährleisten, sollten Sie so viele regionale Domänen Controller wie möglich platzieren. Überprüfen Sie zunächst das Arbeitsblatt "geografische Standorte und Kommunikations Links" (DSSTOPO_1.doc), das zum [Erfassen von Netzwerkinformationen](../../ad-ds/plan/Collecting-Network-Information.md) verwendet wird, um festzustellen, ob es sich um einen Hub handelt.
 
 Planen Sie, regionale Domänen Controller für jede Domäne zu platzieren, die an jedem Hub-Standort repräsentiert wird. Wenn Sie regionale Domänen Controller an allen Hub-Standorten platzieren, sollten Sie die Notwendigkeit zum Platzieren regionaler Domänen Controller an Satellitenstandorten beurteilen. Wenn Sie unnötige regionale Domänen Controller von Satellitenstandorten entfernen, werden die für die Verwaltung einer Remote Serverinfrastruktur erforderlichen Supportkosten reduziert.
 
@@ -79,6 +79,6 @@ Nehmen wir beispielsweise an, ein Netzwerk mit Zweigstellen, die über langsame 
 
 Wenn das Verringern der Kosten für die Verwaltung von Domänen Controllern wichtiger als der Netzwerkverkehr ist, zentralisieren Sie entweder die Domänen Controller für diese Domäne, und platzieren Sie keine regionalen Domänen Controller am Standort, oder platzieren Sie die RODCs am Standort.
 
-Ein Arbeitsblatt, in dem Sie die Platzierung der regionalen Domänen Controller und die Anzahl der Benutzer für jede Domäne unterstützen können, die an den einzelnen Standorten repräsentiert wird, finden Sie unter [Job Aids for Windows Server 2003 Deployment Kit](https://microsoft.com/download/details.aspx?id=9608), Download Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip, und öffnen Sie "Platzierung des Domänen Controllers" (DSSTOPO_4. doc).
+Ein Arbeitsblatt, in dem Sie die Platzierung der regionalen Domänen Controller und die Anzahl der Benutzer für jede Domäne unterstützen können, die an den einzelnen Standorten repräsentiert wird, finden Sie unter [Auftrags Hilfen für das Windows Server 2003 Deployment Kit](https://microsoft.com/download/details.aspx?id=9608), herunterladen Job_Aids_Designing_and_Deploying_Directory_and_Security_Services.zip und Öffnen von "Domänen Controller Platzierung" (DSSTOPO_4.doc).
 
-Sie müssen die Informationen zu Standorten, an denen Sie regionale Domänen Controller platzieren müssen, in Bezug auf die Bereitstellung regionaler Domänen untersuchen. Weitere Informationen zum Bereitstellen von regionalen Domänen finden Sie unter Bereitstellen von [regionalen Windows Server 2008-Domänen](https://technet.microsoft.com/library/cc755118.aspx).
+Sie müssen die Informationen zu Standorten, an denen Sie regionale Domänen Controller platzieren müssen, in Bezug auf die Bereitstellung regionaler Domänen untersuchen. Weitere Informationen zum Bereitstellen von regionalen Domänen finden Sie unter Bereitstellen von [regionalen Windows Server 2008-Domänen](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc755118(v=ws.10)).

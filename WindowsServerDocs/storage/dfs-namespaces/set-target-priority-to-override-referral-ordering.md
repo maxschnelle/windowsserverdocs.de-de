@@ -8,12 +8,12 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 401e15c248687c7585cb85172b1d4d57125cdc86
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 77fe5b82b73a0f37ba81dda210f15d6017788822
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85475177"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86966822"
 ---
 # <a name="set-target-priority-to-override-referral-ordering"></a>Festlegen der Ziel Priorität zum Überschreiben der Verweis Anordnung
 
@@ -53,7 +53,7 @@ Verwenden Sie das folgende Verfahren, um die Ziel Priorität für ein Ordner Zie
 4.  Klicken Sie auf der Registerkarte **erweitert** auf **Verweis Anordnung außer Kraft setzen** , und klicken Sie dann auf die gewünschte Priorität.
 
 > [!NOTE]
-> Um Ziel Prioritäten mithilfe von Windows PowerShell festzulegen, verwenden Sie die Cmdlets " [Set-dfsnroottarget](https://technet.microsoft.com/library/jj884266.aspx) " und " [Set-dfsnfoldertarget](https://technet.microsoft.com/library/jj884264.aspx) " mit den Parametern " **referenralpriorityclass** " und " **referralpriorityrank** ". Diese Cmdlets wurden in Windows Server 2012 eingeführt.
+> Um Ziel Prioritäten mithilfe von Windows PowerShell festzulegen, verwenden Sie die Cmdlets " [Set-dfsnroottarget](/powershell/module/dfsr/update-dfsrconfigurationfromad?view=win10-ps) " und " [Set-dfsnfoldertarget](/powershell/module/dfsr/update-dfsrconfigurationfromad?view=win10-ps) " mit den Parametern " **referenralpriorityclass** " und " **referralpriorityrank** ". Diese Cmdlets wurden in Windows Server 2012 eingeführt.
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 

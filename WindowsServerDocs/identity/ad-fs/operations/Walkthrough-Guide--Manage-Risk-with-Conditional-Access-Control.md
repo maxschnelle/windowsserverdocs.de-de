@@ -8,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 2ce45d3952b6f848635ed601f7ff251fcda3982c
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 670c853cb1c41fbbc799eca4cc6ac54588c55761
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80857643"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86960502"
 ---
 # <a name="walkthrough-guide-manage-risk-with-conditional-access-control"></a>Handbuch mit exemplarischer Vorgehensweise: Verwalten von Risiken mit der bedingten Zugriffssteuerung
 
@@ -25,15 +25,15 @@ Diese exemplarische Vorgehensweise enthält Anweisungen zum Verwalten von Risike
 
 Die exemplarische Vorgehensweise enthält die folgenden Abschnitte:
 
--   [Schritt 1: Einrichten der Lab-Umgebung](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Conditional-Access-Control.md#BKMK_1)
+-   [Schritt 1: Einrichten der Testumgebung](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Conditional-Access-Control.md#BKMK_1)
 
--   [Schritt 2: Überprüfen des Standardmechanismus für die AD FS-Zugriffs Steuerung](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Conditional-Access-Control.md#BKMK_2)
+-   [Schritt 2: Überprüfen des Standardmechanismus für die AD FS-Zugriffssteuerung](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Conditional-Access-Control.md#BKMK_2)
 
--   [Schritt 3: Konfigurieren der Richtlinie für die bedingte Zugriffs Steuerung basierend auf Benutzerdaten](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Conditional-Access-Control.md#BKMK_3)
+-   [„Schritt 3: Konfigurieren von Richtlinien für die bedingte Zugriffssteuerung auf Grundlage von Benutzerdaten](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Conditional-Access-Control.md#BKMK_3)
 
--   [Schritt 4: Überprüfen des Mechanismus für die bedingte Zugriffs Steuerung](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Conditional-Access-Control.md#BKMK_4)
+-   [Schritt 4: Überprüfung des Mechanismus der bedingten Zugriffssteuerung](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Conditional-Access-Control.md#BKMK_4)
 
-## <a name="step-1-setting-up-the-lab-environment"></a><a name="BKMK_1"></a>Schritt 1: Einrichten der Lab-Umgebung
+## <a name="step-1-setting-up-the-lab-environment"></a><a name="BKMK_1"></a>Schritt 1: Einrichten der Testumgebung
 Damit die exemplarische Vorgehensweise abgeschlossen werden kann, benötigen Sie eine Umgebung mit den folgenden Komponenten:
 
 -   Eine Active Directory Domäne mit einem Test Benutzer und Gruppenkonten unter Windows Server 2008, Windows Server 2008 R2 oder Windows Server 2012 mit dem aktualisierten Schema auf Windows Server 2012 R2 oder einer Active Directory Domäne, die unter Windows Server 2012 R2 ausgeführt wird
@@ -51,10 +51,10 @@ In dieser Umgebung gibt der Verbundserver die erforderlichen Ansprüche aus, sod
 
 Anweisungen zum Einrichten dieser Umgebung finden Sie unter [Einrichten der Lab-Umgebung für AD FS in Windows Server 2012 R2](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md).
 
-## <a name="step-2-verify-the-default-ad-fs-access-control-mechanism"></a><a name="BKMK_2"></a>Schritt 2: Überprüfen des Standardmechanismus für die AD FS-Zugriffs Steuerung
+## <a name="step-2-verify-the-default-ad-fs-access-control-mechanism"></a><a name="BKMK_2"></a>Schritt 2: Überprüfen des Standardmechanismus für die AD FS-Zugriffssteuerung
 In diesem Schritt überprüfen Sie den Standardmechanismus für die AD FS-Zugriffssteuerung, bei dem der Benutzer auf die AD FS-Anmeldeseite umgeleitet wird, gültige Anmeldeinformationen eingibt und Zugriff auf die Anwendung erhält. Sie können das Konto **Robert Hatley** AD und die Beispielanwendung **claimapp** verwenden, die Sie unter [Einrichten der Lab-Umgebung für AD FS in Windows Server 2012 R2](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md)konfiguriert haben.
 
-#### <a name="to-verify-the-default-ad-fs-access-control-mechanism"></a>So überprüfen Sie den Standardmechanismus für die AD FS-Zugriffssteuerung
+#### <a name="to-verify-the-default-ad-fs-access-control-mechanism"></a>So überprüfen Sie den Standardmechanismus für die AD FS-Zugriffssteuerung
 
 1.  Öffnen Sie auf dem Client Computer ein Browserfenster, und navigieren Sie zur Beispielanwendung: **https://webserv1.contoso.com/claimapp** .
 
@@ -64,7 +64,7 @@ In diesem Schritt überprüfen Sie den Standardmechanismus für die AD FS-Zugrif
 
     Ihnen wird der Zugriff auf die Anwendung gewährt.
 
-## <a name="step-3-configure-conditional-access-control-policy-based-on-user-data"></a><a name="BKMK_3"></a>Schritt 3: Konfigurieren der Richtlinie für die bedingte Zugriffs Steuerung basierend auf Benutzerdaten
+## <a name="step-3-configure-conditional-access-control-policy-based-on-user-data"></a><a name="BKMK_3"></a>„Schritt 3: Konfigurieren von Richtlinien für die bedingte Zugriffssteuerung auf Grundlage von Benutzerdaten
 In diesem Schritt richten Sie basierend auf den Daten der Benutzergruppenmitgliedschaft eine Richtlinie für die Zugriffssteuerung ein. Sie konfigurieren also eine **Ausstellungsautorisierungsregel** auf dem Verbundserver für eine Vertrauensstellung der vertrauenden Seite, die Ihre Beispielanwendung **claimapp** darstellt. Anhand der Logik dieser Regel werden für den AD-Benutzer **Robert Hatley** Ansprüche ausgestellt, die für den Zugriff auf diese Anwendung erforderlich sind, da er zu einer **Finance** -Gruppe gehört. Sie haben das Konto **Robert Hatley** der Gruppe **Finance** in [Einrichten der Lab-Umgebung für AD FS in Windows Server 2012 R2](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md)hinzugefügt.
 
 Sie können diese Aufgabe über die AD FS-Verwaltungskonsole oder über Windows PowerShell ausführen.
@@ -112,10 +112,10 @@ Set-AdfsRelyingPartyTrust -TargetRelyingParty $rp -IssuanceAuthorizationRules $G
 > [!NOTE]
 > Achten Sie darauf, <group_SID> durch den Wert der SID der AD-Gruppe **Finance** zu ersetzen.
 
-## <a name="step-4-verify-conditional-access-control-mechanism"></a><a name="BKMK_4"></a>Schritt 4: Überprüfen des Mechanismus für die bedingte Zugriffs Steuerung
+## <a name="step-4-verify-conditional-access-control-mechanism"></a><a name="BKMK_4"></a>Schritt 4: Überprüfung des Mechanismus der bedingten Zugriffssteuerung
 In diesem Schritt überprüfen Sie die Richtlinie für die bedingte Zugriffssteuerung, die Sie im vorherigen Schritt eingerichtet haben. Sie können mithilfe der folgenden Vorgehensweise überprüfen, ob der AD-Benutzer **Robert Hatley** auf die Beispielanwendung zugreifen kann, da er zur Gruppe **Finance** gehört. AD-Benutzer, die nicht zur Gruppe **Finance** gehören, können nicht auf die Beispielanwendung zugreifen.
 
-1.  Öffnen Sie auf dem Client Computer ein Browserfenster, und navigieren Sie zur Beispielanwendung: **https://webserv1.contoso.com/claimapp**
+1.  Öffnen Sie auf dem Client Computer ein Browserfenster, und navigieren Sie zur Beispielanwendung:**https://webserv1.contoso.com/claimapp**
 
     Mit dieser Aktion wird die Anforderung automatisch an den Verbundserver umgeleitet, und Sie werden zur Anmeldung mit einem Benutzernamen und einem Kennwort aufgefordert.
 
@@ -123,13 +123,10 @@ In diesem Schritt überprüfen Sie die Richtlinie für die bedingte Zugriffssteu
 
     Ihnen wird der Zugriff auf die Anwendung gewährt.
 
-3.  Geben Sie die Anmeldeinformationen eines anderen AD-Benutzers ein, der NICHT zur Gruppe **Finance** gehört. (Weitere Informationen zum Erstellen von Benutzerkonten in AD finden Sie unter [https://technet.microsoft.com/library/cc7833232.aspx](https://technet.microsoft.com/library/cc783323%28v=ws.10%29.aspx).
+3.  Geben Sie die Anmeldeinformationen eines anderen AD-Benutzers ein, der NICHT zur Gruppe **Finance** gehört. (Weitere Informationen zum Erstellen von Benutzerkonten in AD finden Sie unter [https://technet.microsoft.com/library/cc7833232.aspx](/previous-versions/windows/it-pro/windows-server-2003/cc783323(v=ws.10)) .)
 
-    Aufgrund der Zugriffs Steuerungs Richtlinie, die Sie im vorherigen Schritt eingerichtet haben, wird die Meldung "Zugriff verweigert" für diesen AD-Benutzer angezeigt, der nicht zur Gruppe **Finance** gehört. Der Standardtext der Meldung ist **, dass Sie nicht berechtigt sind, auf diese Website zuzugreifen. Klicken Sie hier, um sich anzumelden, und melden Sie sich erneut an, oder wenden Sie sich an den Administrator.** . Dieser Text kann jedoch vollständig angepasst werden. Weitere Informationen zum Anpassen der Anmeldeseiten finden Sie unter [Customizing the AD FS Sign-in Pages](https://technet.microsoft.com/library/dn280950.aspx).
+    Aufgrund der Zugriffs Steuerungs Richtlinie, die Sie im vorherigen Schritt eingerichtet haben, wird die Meldung "Zugriff verweigert" für diesen AD-Benutzer angezeigt, der nicht zur Gruppe **Finance** gehört. Der Standardtext der Meldung ist **, dass Sie nicht berechtigt sind, auf diese Website zuzugreifen. Klicken Sie hier, um sich anzumelden, und melden Sie sich erneut an, oder wenden Sie sich an den Administrator.** . Dieser Text kann jedoch vollständig angepasst werden. Weitere Informationen zum Anpassen der Anmeldeseiten finden Sie unter [Customizing the AD FS Sign-in Pages](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn280950(v=ws.11)).
 
 ## <a name="see-also"></a>Weitere Informationen
-[Verwalten von Risiken mit bedingten Access Control](../../ad-fs/operations/Manage-Risk-with-Conditional-Access-Control.md)
-[Einrichten der Lab-Umgebung für AD FS in Windows Server 2012 R2](../deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md)
-
-
-
+[Verwalten von Risiken mit bedingtem Access Control](../../ad-fs/operations/Manage-Risk-with-Conditional-Access-Control.md) 
+ [Einrichten der Lab-Umgebung für AD FS in Windows Server 2012 R2](../deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md)

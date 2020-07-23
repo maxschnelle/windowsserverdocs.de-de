@@ -8,12 +8,12 @@ ms.technology: storage
 ms.topic: article
 author: jasongerend
 ms-date: 06/05/2017
-ms.openlocfilehash: 2f4e0deb82f16c905f580c13115a5214556d4f5f
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: e5a81f2967953b985028407d53d6a039fd8990eb
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85475557"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86961272"
 ---
 # <a name="add-folder-targets"></a>Ordner Ziele hinzufügen
 
@@ -34,7 +34,7 @@ Gehen Sie folgendermaßen vor, um mithilfe der DFS-Verwaltung ein Ordner Ziel hi
 4.  Wenn der Ordner mithilfe DFS-Replikation repliziert wird, können Sie angeben, ob das neue Ordner Ziel der Replikations Gruppe hinzugefügt werden soll.
 
 > [!TIP]
-> Verwenden Sie zum Hinzufügen eines Ordner Ziels mithilfe von Windows PowerShell das Cmdlet [New-dfsnfoldertarget](https://docs.microsoft.com/powershell/module/dfsn/new-dfsnfoldertarget) . Das DFSN-Windows PowerShell-Modul wurde in Windows Server 2012 eingeführt.
+> Verwenden Sie zum Hinzufügen eines Ordner Ziels mithilfe von Windows PowerShell das Cmdlet [New-dfsnfoldertarget](/powershell/module/dfsn/new-dfsnfoldertarget) . Das DFSN-Windows PowerShell-Modul wurde in Windows Server 2012 eingeführt.
 
 > [!NOTE]
 > Ordner können Ordner Ziele oder andere DFS-Ordner, aber nicht beides auf derselben Ebene in der Ordnerhierarchie enthalten.

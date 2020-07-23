@@ -7,24 +7,24 @@ ms.date: 04/24/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 1620a63658a8c78975b8ccab955177d3562bf6ba
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: ffaac0200609cdfbc91fce4520365621922cbeee
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80860213"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86965882"
 ---
-# <a name="user-privacy-and-ad-fs"></a>Schutz der Privatsphäre und AD FS
+# <a name="user-privacy-and-ad-fs"></a>Schutz der Privatsphäre und AD FS
 
 
 
 >[!Note] 
-> Dieser Artikel enthält Schritte zum Löschen persönlicher Daten vom Gerät und kann zur Unterstützung ihrer Verpflichtungen unter der dsgvo verwendet werden. Allgemeine Informationen zur dsgvo finden Sie im Abschnitt zur dsgvo im [Dienst Vertrauensstellungs Center](https://www.microsoft.com/TrustCenter/Privacy/gdpr/default.aspx).
+> Dieser Artikel enthält Schritte zum Löschen von persönlichen Daten vom Gerät und kann zur Unterstützung Ihrer Verpflichtungen im Rahmen der Datenschutz-Grundverordnung (DSGVO) verwendet werden. Allgemeine Informationen zur dsgvo finden Sie im Abschnitt zur dsgvo im [Dienst Vertrauensstellungs Center](https://www.microsoft.com/TrustCenter/Privacy/gdpr/default.aspx).
 
 >[!Note] 
->Wenn Sie personenbezogene Daten anzeigen oder löschen möchten, finden Sie weitere Informationen im Artikel [Azure Data Subject Requests](https://docs.microsoft.com/microsoft-365/compliance/gdpr-dsr-azure) (dsgvo). Allgemeine Informationen zur dsgvo finden Sie im Abschnitt zur dsgvo im [Dienst Vertrauensstellungs Center](https://www.microsoft.com/TrustCenter/Privacy/gdpr/default.aspx).
+>Wenn Sie mehr über das Anzeigen oder Löschen von personenbezogenen Daten erfahren möchten, finden Sie weitere Informationen im Artikel [Anträge betroffener Personen für Azure im Rahmen der DSGVO](/microsoft-365/compliance/gdpr-dsr-azure). Allgemeine Informationen zur dsgvo finden Sie im Abschnitt zur dsgvo im [Dienst Vertrauensstellungs Center](https://www.microsoft.com/TrustCenter/Privacy/gdpr/default.aspx).
 
 ## <a name="next-steps"></a>Nächste Schritte
-* [Überprüfen der Microsoft-Datenschutzrichtlinie im Trust Center](https://www.microsoft.com/trustcenter)
+* [Die Microsoft-Datenschutzrichtlinie im Trust Center](https://www.microsoft.com/trustcenter)
 
  
