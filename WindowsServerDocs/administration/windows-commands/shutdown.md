@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 64bfd5ceed29bff5d9ae39e03a99aba2f7a2f39e
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 2f31e5b0ee1252bf015c964fa76dd2852df3515b
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85936384"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86956122"
 ---
 # <a name="shutdown"></a>shutdown
 
@@ -30,7 +30,7 @@ shutdown [/i | /l | /s | /r | /a | /p | /h | /e] [/f] [/m \\<ComputerName>] [/t 
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
 |/i|Zeigt das **Dialog Feld Remote herunter** fahren an. Die **/i** -Option muss der erste Parameter sein, der dem Befehl folgt. Wenn **/i** angegeben wird, werden alle anderen Optionen ignoriert.|
 |/l|Meldet den aktuellen Benutzer sofort und ohne Timeout Zeitraum ab. **/L** kann nicht mit **/m** oder **/t**verwendet werden.|
@@ -47,12 +47,12 @@ shutdown [/i | /l | /s | /r | /a | /p | /h | /e] [/f] [/m \\<ComputerName>] [/t 
 |/c\<Comment>|Hier können Sie detaillierte Kommentare zum Grund für das Herunterfahren eingeben. Sie müssen zuerst einen Grund angeben, indem Sie die Option **/d** verwenden. Sie müssen Kommentare in Anführungszeichen einschließen. Sie können maximal 511 Zeichen verwenden.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an, einschließlich einer Liste der Haupt-und neben Gründe, die auf dem lokalen Computer definiert sind.|
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 -   Benutzern muss das **System** Benutzerrecht Herunterfahren zugewiesen werden, um einen lokalen oder remote verwalteten Computer zu beenden, der den Befehl **Shutdown** verwendet.
--   Benutzer müssen Mitglied der Gruppe "Administratoren" sein, um ein unerwartetes Herunterfahren eines lokalen oder remote verwalteten Computers zu kommentieren. Wenn der Zielcomputer einer Domäne angehört, können Mitglieder der Gruppe "Domänen-Admins" dieses Verfahren möglicherweise ausführen. Weitere Informationen finden Sie unter:
-    -   [Lokale Standardgruppen](https://technet.microsoft.com/library/cc785098(v=ws.10).aspx)
-    -   [Standardgruppen](https://technet.microsoft.com/library/cc756898(v=ws.10).aspx)
+-   Benutzer müssen Mitglied der Gruppe "Administratoren" sein, um ein unerwartetes Herunterfahren eines lokalen oder remote verwalteten Computers zu kommentieren. Wenn der Zielcomputer einer Domäne angehört, können Mitglieder der Gruppe "Domänen-Admins" dieses Verfahren möglicherweise ausführen. Weitere Informationen finden Sie unter
+    -   [Lokale Standardgruppen](/previous-versions/windows/it-pro/windows-server-2003/cc785098(v=ws.10))
+    -   [Standardgruppen](/previous-versions/windows/it-pro/windows-server-2003/cc756898(v=ws.10))
 -   Wenn Sie mehrere Computer gleichzeitig Herunterfahren möchten, können Sie das **herunter** fahren für jeden Computer mithilfe eines Skripts aufrufen, oder Sie können **Shutdown** **/i** verwenden, um das Dialog Feld Remote Herunterfahren anzuzeigen.
 -   Wenn Sie Haupt-und Nebengrund Codes angeben, müssen Sie diese Ursachen Codes zunächst auf jedem Computer definieren, auf dem Sie die Gründe verwenden möchten. Wenn die Ursachen Codes nicht auf dem Zielcomputer definiert sind, kann die Shutdown-Ereignisprotokollierung den richtigen Grund Text nicht protokollieren.
 -   Denken Sie daran, dass ein Herunterfahren mithilfe des Parameters " **p:** " geplant ist. **P:** gibt an, dass ein Herunterfahren nicht geplant ist. Wenn Sie **p:** gefolgt von dem Ursachen Code für ein ungeplantes Herunterfahren eingeben, führt der Befehl das Herunterfahren nicht aus. Wenn Sie hingegen **p:** weglassen und den Grund Code für ein geplantes Herunterfahren eingeben, führt der Befehl das Herunterfahren nicht aus.
@@ -68,6 +68,6 @@ Um den Remote Computer \\ \\ Servername mit denselben Parametern neu zu starten,
 shutdown /r /m \\servername /t 60 /c Reconfiguring myapp.exe /f /d p:4:1
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

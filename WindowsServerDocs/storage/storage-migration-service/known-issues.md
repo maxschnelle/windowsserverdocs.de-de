@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: 934dbc181131d395ea4fdeb79c5f32121746b5e8
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: a6ee550a0652f5b357a966e4074afdf499fcea34
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85475297"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86953912"
 ---
 # <a name="storage-migration-service-known-issues"></a>Bekannte Probleme bei Storage Migration Service
 
@@ -384,7 +384,7 @@ Für dieses Problem gibt es zwei Lösungen:
 
 Nachdem Sie eine Übertragung abgeschlossen und dann eine nachfolgende erneute Übertragung derselben Daten ausgeführt haben, wird die Übertragungszeit möglicherweise nicht wesentlich verbessert, auch wenn sich in der Zwischenzeit nur wenige Daten auf dem Quell Server geändert haben.
 
-Dies ist das erwartete Verhalten beim Übertragen einer sehr großen Anzahl von Dateien und von untergeordneten Ordnern. Die Größe der Daten ist nicht relevant. Wir haben zunächst Verbesserungen an diesem Verhalten in [KB4512534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534) vorgenommen und optimieren weiterhin die Übertragungsleistung. Um die Leistung weiter zu optimieren, lesen Sie [Optimieren von Inventur-und Übertragungsleistung](https://docs.microsoft.com/windows-server/storage/storage-migration-service/faq#optimizing-inventory-and-transfer-performance).
+Dies ist das erwartete Verhalten beim Übertragen einer sehr großen Anzahl von Dateien und von untergeordneten Ordnern. Die Größe der Daten ist nicht relevant. Wir haben zunächst Verbesserungen an diesem Verhalten in [KB4512534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534) vorgenommen und optimieren weiterhin die Übertragungsleistung. Um die Leistung weiter zu optimieren, lesen Sie [Optimieren von Inventur-und Übertragungsleistung](./faq.md#optimizing-inventory-and-transfer-performance).
 
 ## <a name="data-does-not-transfer-user-renamed-when-migrating-to-or-from-a-domain-controller"></a>Die Daten werden nicht übertragen, der Benutzer wurde bei der Migration zu oder von einem Domänen Controller umbenannt.
 
@@ -542,6 +542,6 @@ Wenn Sie versuchen, eine Inventur oder Übertragung mit dem Speicher Migrationsd
 
 Dieses Problem wird durch einen Code Fehler im Speicher Migrationsdienst verursacht. Um dieses Problem zu umgehen, verwenden Sie die Anmelde Informationen für die Migration aus derselben Domäne, zu der der Quell-und Zielcomputer gehören. Wenn der Quell-und Zielcomputer z. b. zur Domäne "Corp.contoso.com" in der Gesamtstruktur "contoso.com" gehören, verwenden Sie "corp\myaccount", um die Migration auszuführen, nicht die Anmelde Informationen "contoso\myaccount".
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 
 - [Übersicht über den Speicher Migrationsdienst](overview.md)

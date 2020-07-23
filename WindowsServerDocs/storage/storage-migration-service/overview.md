@@ -8,12 +8,12 @@ ms.date: 03/26/2020
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: 6ec1093a77b036cada9e54c82234d653362ce4d3
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 1403e0ecd12c4c15924781d75bd9127874018451
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85930104"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86953892"
 ---
 # <a name="storage-migration-service-overview"></a>Übersicht über den Speicher Migrationsdienst
 
@@ -51,14 +51,14 @@ Im folgenden Video wird gezeigt, wie Sie Storage Migration Service verwenden, um
 
 > [!VIDEO https://www.youtube.com/embed/h-Xc9j1w144]
 
-## <a name="requirements"></a>Anforderungen
+## <a name="requirements"></a>Requirements (Anforderungen)
 
 Um Storage Migration Service verwenden zu können, benötigen Sie Folgendes:
 
 - Einen **Quell Server** oder **Failovercluster** zum Migrieren von Dateien und Daten aus
 - Ein **Zielserver** , auf dem Windows Server 2019 (gruppiert oder eigenständig) ausgeführt wird, um zu zu migrieren. Windows Server 2016 und Windows Server 2012 R2 funktionieren ebenso gut, sind aber um 50% langsamer.
 - Ein **Orchestrator-Server** , auf dem Windows Server 2019 zum Verwalten der Migration ausgeführt wird  <br>Wenn Sie nur wenige Server migrieren und auf einem der Server Windows Server 2019 ausgeführt wird, können Sie diesen als Orchestrator verwenden. Wenn Sie weitere Server migrieren, empfiehlt es sich, einen separaten Orchestrator-Server zu verwenden.
-- Ein **PC oder Server, auf dem [Windows Admin Center](../../manage/windows-admin-center/understand/windows-admin-center.md) ** ausgeführt wird, um die Benutzeroberfläche von Storage Migration Service auszuführen, es sei denn, Sie verwenden lieber PowerShell zum Verwalten der Migration. Die Version Windows Admin Center und Windows Server 2019 muss mindestens Version 1809 aufweisen.
+- Ein **PC oder Server, auf dem [Windows Admin Center](../../manage/windows-admin-center/overview.md) ** ausgeführt wird, um die Benutzeroberfläche von Storage Migration Service auszuführen, es sei denn, Sie verwenden lieber PowerShell zum Verwalten der Migration. Die Version Windows Admin Center und Windows Server 2019 muss mindestens Version 1809 aufweisen.
 
 Es wird dringend empfohlen, dass Orchestrator-und Zielcomputer über mindestens zwei Kerne oder zwei vCPUs und mindestens 2 GB Arbeitsspeicher verfügen. Inventur-und Übertragungs Vorgänge werden mit mehr Prozessoren und Arbeitsspeicher erheblich beschleunigt.
 
@@ -87,7 +87,7 @@ Auf dem Quell Server muss eines der folgenden Betriebssysteme ausgeführt werden
 - Windows Server 2019
 - Windows Server 2016
 - Windows Server 2012 R2
-- Windows Server 2012
+- Windows Server 2012
 - Windows Server 2008 R2
 - WindowsServer 2008
 - Windows Server 2003 R2
@@ -151,7 +151,7 @@ Die folgenden neuen Funktionen sind verfügbar, wenn Sie den Speicher Migrations
 - Vereinfachte Synchronisierung von migrierten Freigaben zu Azure mithilfe von Azure-Dateisynchronisierung
 - Migrieren zu neuen Netzwerken wie etwa Azure
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Migrieren eines Dateiservers mithilfe von Storage Migration Service](migrate-data.md)
 - [Häufig gestellte Fragen (FAQ) zu Storage Migration Services](faq.md)
