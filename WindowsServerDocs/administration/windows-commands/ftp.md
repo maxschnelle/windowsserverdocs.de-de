@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e78148e1e7dc4f402d80bb4ebfbcbdac52249407
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 01d597bf4520fc41fa31f90c643c852ec9f77b2f
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85925617"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86957292"
 ---
 # <a name="ftp"></a>ftp
 
@@ -47,7 +47,7 @@ ftp [-v] [-d] [-i] [-n] [-g] [-s:<filename>] [-a] [-A] [-x:<sendbuffer>] [-r:<re
 | `<host>` | Gibt den Computernamen, die IP-Adresse oder die IPv6-Adresse des FTP-Servers an, mit dem eine Verbindung hergestellt werden soll. Der Hostname oder die Adresse, falls angegeben, muss der letzte Parameter in der Zeile sein. |
 | -? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Bei den **FTP** -Befehlszeilen Parametern wird die Groß-/Kleinschreibung beachtet.
 
@@ -71,12 +71,12 @@ Geben Sie Folgendes ein, um sich am FTP-Server mit dem Namen anzumelden `ftp.exa
 ftp -s:resync.txt ftp.example.microsoft.com
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
-- [Zusätzlicher FTP-Leitfaden](https://docs.microsoft.com/previous-versions/orphan-topics/ws.10/cc756013(v=ws.10))
+- [Zusätzlicher FTP-Leitfaden](/previous-versions/orphan-topics/ws.10/cc756013(v=ws.10))
 
-- [IP-Version 6](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc738636(v=ws.10))
+- [IP-Version 6](/previous-versions/windows/it-pro/windows-server-2003/cc738636(v=ws.10))
 
-- [IPv6-Anwendungen](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc782509(v=ws.10))
+- [IPv6-Anwendungen](/previous-versions/windows/it-pro/windows-server-2003/cc782509(v=ws.10))

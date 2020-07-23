@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/26/2019
-ms.openlocfilehash: fec0ffbd7f2ce5d1efe1953cb4ab283d33f06ec8
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: ec7f8c29f71389a6b583fda805c32ddf872321b4
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85935731"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86956952"
 ---
 # <a name="more"></a>)
 
@@ -45,7 +45,7 @@ more [/c] [/p] [/s] [/t<n>] [+<n>] [<files>]
 | `<files>` | Gibt eine Liste der anzuzeigenden Dateien an. Dateien müssen mithilfe von Leerzeichen getrennt werden. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Die folgenden Unterbefehle werden an der **ausführlicheren** Eingabeaufforderung ( `-- More --` ) akzeptiert, einschließlich:
 
@@ -106,8 +106,8 @@ more s
 
 Wenn Sie die Eingabeaufforderung anfordern, werden Sie wie folgt zur **Eingabe der Anzahl** der zu über springenden Zeilen aufgefordert: `-- More -- Lines:` . Geben Sie die Anzahl der zu über springenden Zeilen ein, und drücken Sie die EINGABETASTE. Der Bildschirm wird geändert, um anzuzeigen, dass diese Zeilen übersprungen werden.
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
-- [Windows-Wiederherstellungs Umgebung (WinRE)](https://docs.microsoft.com/windows-hardware/manufacture/desktop/windows-recovery-environment--windows-re--technical-reference)
+- [Windows-Wiederherstellungs Umgebung (WinRE)](/windows-hardware/manufacture/desktop/windows-recovery-environment--windows-re--technical-reference)
