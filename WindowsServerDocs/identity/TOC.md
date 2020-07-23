@@ -275,7 +275,7 @@
 #### [Bereitstellen von AD FS in Azure](ad-fs/deployment/how-to-connect-fed-azure-adfs.md)
 #### [AD FS in Azure mit Azure Traffic Manager](ad-fs/deployment/active-directory-adfs-in-azure-with-azure-traffic-manager.md)  
 #### [Aktualisieren auf AD FS unter Windows Server 2016 unter Verwendung einer SQL-Datenbank](ad-fs/deployment/Upgrading-to-AD-FS-in-Windows-Server-SQL.md)
-#### [Bereitstellen von Azure AD Connect Health zum Überwachen der lokalen Identitätsinfrastruktur in der Cloud](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-health)
+#### [Bereitstellen von Azure AD Connect Health zum Überwachen der lokalen Identitätsinfrastruktur in der Cloud](/azure/active-directory/hybrid/whatis-hybrid-identity)
 
 
 #### [Bereitstellungshandbuch für AD FS unter Windows Server 2016 und 2012 R2](ad-fs/deployment/Windows-Server-2012-R2-AD-FS-Deployment-Guide.md)
@@ -330,8 +330,8 @@
 ##### [Bereitstellen von Verbundserverproxys](ad-fs/deployment/Deploying-Federation-Server-Proxies.md)
 ###### [Prüfliste: Einrichten eines Verbundserverproxys](ad-fs/deployment/Checklist--Setting-Up-a-Federation-Server-Proxy.md)
 ###### [Hinzufügen eines Computers zu einer Domäne](ad-fs/deployment/Join-a-computer-to-a-Domain.md)
-###### [Konfigurieren der Namensauflösung für einen Verbundserverproxy in einer DNS-Zone, die nur das Umkreisnetzwerk bedient](ad-fs/deployment/Configure-Name-Resolution-for-a-Federation-Server-Proxy-in-a-DNS-Zone-That-Serves-Only-the-Perimeter-Network.md)
-###### [Konfigurieren der Namensauflösung für einen Verbundserverproxy in einer DNS-Zone, die sowohl das Umkreisnetzwerk als auch Internetclients bedient](ad-fs/deployment/Configure-Name-Resolution-for-a-Federation-Server-Proxy-in-a-DNS-Zone-That-Serves-Both-the-Perimeter-Network-and-Internet-Clients.md)
+###### [Konfigurieren der Namensauflösung für einen Verbundserverproxy in einer DNS-Zone, die nur das Umkreisnetzwerk bedient](./ad-fs/deployment/configure-name-resolution-for-federation-server-proxy-in-dns-zone-serving-only-perimeter-network.md)
+###### [Konfigurieren der Namensauflösung für einen Verbundserverproxy in einer DNS-Zone, die sowohl das Umkreisnetzwerk als auch Internetclients bedient](./ad-fs/deployment/configure-name-resolution-for-federation-server-proxy-in-dns-zone-serving-only-perimeter-network.md)
 ###### [Exportieren des Bereichs mit dem privaten Schlüssel aus einem Serverauthentifizierungszertifikat](ad-fs/deployment/Export-the-Private-Key-Portion-of-a-Server-Authentication-Certificate.md)
 ###### [Importieren eines Serverauthentifizierungszertifikats in die Standardwebsite](ad-fs/deployment/import-a-Server-Authentication-Certificate-to-the-Default-Web-Site.md)
 ###### [Installieren des Verbundserverproxy-Rollendiensts](ad-fs/deployment/Install-the-Federation-Service-Proxy-Role-Service.md)
@@ -345,7 +345,7 @@
 ###### [Manuelles Erstellen einer Vertrauensstellung der vertrauenden Seite](ad-fs/operations/create-a-Relying-Party-Trust.md)
 ###### [Manuelles Erstellen einer Anspruchsanbieter-Vertrauensstellung](ad-fs/operations/create-a-Claims-Provider-Trust.md)
 ###### [Erstellen einer Regel zum Senden eines mit AD FS 1.x kompatiblen Anspruchs](ad-fs/operations/create-a-Rule-to-Send-an-AD-FS-1x-compatible-Claim.md)
-#### [Bereitstellen von Azure AD Connect Health](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-health/)
+#### [Bereitstellen von Azure AD Connect Health](/azure/active-directory/hybrid/whatis-hybrid-identity)
 #### [Migrieren von Rollendiensten der Active Directory-Verbunddienste (AD FS) zu Windows Server 2012 R2](ad-fs/deployment/migrate-ad-fs-service-role-to-windows-server-r2.md)
 ##### [Vorbereiten der Migration des AD FS-Verbundservers](ad-fs/deployment/prepare-migrate-ad-fs-server-r2.md)
 #####[Migrieren des AD FS-Verbundservers](ad-fs/deployment/migrate-ad-fs-fed-server-r2.md)

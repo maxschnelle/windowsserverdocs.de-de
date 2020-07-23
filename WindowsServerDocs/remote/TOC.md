@@ -201,9 +201,9 @@
 
 ### [Virtual Private Networking (VPN)](remote-access/vpn/vpn-top.md)
 #### [VPN-Gerätetunnel unter Windows 10](remote-access/vpn/vpn-device-tunnel-config.md)
-#### [Technische Anleitung für Windows 10-VPN](https://docs.microsoft.com/windows/security/identity-protection/vpn/vpn-guide)
-#### [Gewusst wie: Konfigurieren eines Diffie-Hellman-Protokolls über IKEv2-VPN-Verbindungen](https://docs.microsoft.com/windows/security/identity-protection/vpn/how-to-configure-diffie-hellman-protocol-over-ikev2-vpn-connections)
-#### [Verwenden des einmaligen Anmeldens (Single Sign-On, SSO) über VPN- und WLAN-Verbindungen](https://docs.microsoft.com/windows/security/identity-protection/vpn/how-to-use-single-sign-on-sso-over-vpn-and-wi-fi-connections)
+#### [Technische Anleitung für Windows 10-VPN](/windows/security/identity-protection/vpn/vpn-guide)
+#### [Gewusst wie: Konfigurieren eines Diffie-Hellman-Protokolls über IKEv2-VPN-Verbindungen](/windows/security/identity-protection/vpn/how-to-configure-diffie-hellman-protocol-over-ikev2-vpn-connections)
+#### [Verwenden des einmaligen Anmeldens (Single Sign-On, SSO) über VPN- und WLAN-Verbindungen](/windows/security/identity-protection/vpn/how-to-use-single-sign-on-sso-over-vpn-and-wi-fi-connections)
 
 
 #### [DirectAccess](remote-access/directaccess/directAccess.md)
@@ -286,4 +286,3 @@
 ### [Veröffentlichen von Anwendungen mit AD FS-Vorauthentifizierung](remote-access//web-application-proxy/Publishing-Applications-using-AD-FS-Preauthentication.md)
 ### [Veröffentlichen von Anwendungen mit SharePoint, Exchange und RDG](remote-access//web-application-proxy/Publishing-Applications-with-SharePoint,-Exchange-and-RDG.md)
 ### [Problembehandlung: Webanwendungsproxy](remote-access//web-application-proxy/Troubleshooting-Web-Application-Proxy.md)
-
