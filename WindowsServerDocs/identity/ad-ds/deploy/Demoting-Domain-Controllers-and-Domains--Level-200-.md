@@ -1,6 +1,6 @@
 ---
 ms.assetid: 65ed5956-6140-4e06-8d99-8771553637d1
-title: Tieferstufen von Domänencontrollern und Domänen (Stufe 200)
+title: Herabstufen von Domänencontrollern und Domänen (Stufe 200)
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -8,12 +8,12 @@ ms.date: 11/14/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: b8c5502f50b065e8c75d0167328868ac129dfad1
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 7fc5b8b2f29c0eee2f11f2b581e6ccdd56635236
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80825429"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86954292"
 ---
 # <a name="demoting-domain-controllers-and-domains"></a>Herabstufen von Domänen Controllern und Domänen
 
@@ -34,16 +34,16 @@ Dieser Artikel beschreibt die Deinstallation von AD DS mit Server-Manager oder W
 
 |||  
 |-|-|  
-|**Addsdeployment-und Server Manager-Cmdlets**|Argumente (erforderliche Argumente sind **fett** markiert. Argumente in *Kursivschrift* können mithilfe von Windows PowerShell oder dem AD DS-Konfigurations-Assistenten angegeben werden.)|  
-|Uninstall-ADDSDomainController|-SkipPreChecks<p>*-LocalAdministratorPassword*<p>-Confirm<p>***-Credential***<p>-DemoteOperationMasterRole<p>*-Dnsdelegationremovalcredential*<p>-Force<p>*-Forceremoval*<p>*-Ignorelastdcindomainmismatch*<p>*-Ignorelastdnsserverforzone*<p>*-Lastdomaincontrollerindomain*<p>-Norebootoncompletion<p>*-RemoveApplicationPartitions*<p>*-Removednsdelegation*<p>-RetainDCMetadata|  
-|Uninstall-WindowsFeature/Remove-WindowsFeature|***-Name***<p>***-Includemanagementtools***<p>*-Neu starten*<p>-Remove<p>-Force<p>-ComputerName<p>-Credential<p>-LogPath<p>-Vhd|  
+|**ADDSDeployment- und ServerManager-Cmdlets**|Argumente (erforderliche Argumente sind **fett** markiert. Argumente in *Kursivschrift* können mithilfe von Windows PowerShell oder dem AD DS-Konfigurations-Assistenten angegeben werden.)|  
+|Uninstall-ADDSDomainController|-SkipPreChecks<p>*-LocalAdministratorPassword*<p>-Confirm<p>***-Credential***<p>-DemoteOperationMasterRole<p>*-DNSDelegationRemovalCredential*<p>-Force<p>*-ForceRemoval*<p>*-IgnoreLastDCInDomainMismatch*<p>*-IgnoreLastDNSServerForZone*<p>*-LastDomainControllerInDomain*<p>-Norebootoncompletion<p>*-RemoveApplicationPartitions*<p>*-RemoveDNSDelegation*<p>-RetainDCMetadata|  
+|Uninstall-WindowsFeature/Remove-WindowsFeature|***-Name***<p>***-IncludeManagementTools***<p>*-Neu starten*<p>-Remove<p>-Force<p>-ComputerName<p>-Credential<p>-LogPath<p>-Vhd|  
   
 > [!NOTE]  
 > Das **-credential**-Argument wird nur benötigt, wenn Sie nicht bereits als Mitglied der Gruppe Unternehmens-Admins (Herabstufung des letzten DC in einer Domäne) oder der Gruppe Domänen-Admins (Herabstufung eines Replikat-DC) angemeldet sind. Das **-includemanagementtools**-Argument wird nur benötigt, wenn Sie alle AD DS-Verwaltungshilfsprogramme entfernen möchten.  
   
 ## <a name="demote"></a>Tiefer stufen  
   
-### <a name="remove-roles-and-features"></a>Rollen und Features entfernen
+### <a name="remove-roles-and-features"></a>Entfernen von Rollen und Features
 
 Server-Manager bietet zwei Benutzeroberflächen zum Entfernen der Active Directory-Domänendienste-Rolle:  
   
@@ -121,10 +121,10 @@ Die entsprechenden ADDSDeployment Windows PowerShell-Argumente sind:
 
 ![Konfigurations-Assistent für Active Directory Domain Services-Anmelde Informationen](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_Warnings.png)  
 
-Die Seite **Warnungen** weist Sie auf die möglichen Konsequenzen beim Entfernen dieses Domänencontrollers hin. Wählen Sie **Entfernen fortsetzen**aus, um fortzufahren.
+Die Seite **Warnungen** weist Sie auf die möglichen Konsequenzen beim Entfernen dieses Domänencontrollers hin. Wählen Sie **Entfernen fortsetzen** aus, um fortzufahren.
 
 > [!WARNING]  
-> Falls Sie zuvor **Entfernen dieses Domänencontrollers erzwingen** auf der Seite **Anmeldeinformationen** ausgewählt haben, werden auf der Seite **Warnungen** alle von diesem Domänencontroller gehosteten FSMO-Rollen angezeigt. Sie *müssen* die Rollen von einem anderen Domänencontroller *sofort* nach der Herabstufung dieses Servers übernehmen. Weitere Informationen zum Übernehmen von FSMO-Rollen finden Sie unter [Übernehmen der Rolle des Betriebsmasters](https://technet.microsoft.com/library/cc816779(WS.10).aspx).
+> Falls Sie zuvor **Entfernen dieses Domänencontrollers erzwingen** auf der Seite **Anmeldeinformationen** ausgewählt haben, werden auf der Seite **Warnungen** alle von diesem Domänencontroller gehosteten FSMO-Rollen angezeigt. Sie *müssen* die Rollen von einem anderen Domänencontroller *sofort* nach der Herabstufung dieses Servers übernehmen. Weitere Informationen zum Übernehmen von FSMO-Rollen finden Sie unter [Übernehmen der Rolle des Betriebsmasters](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc816779(v=ws.10)).
 
 Für diese Seite gibt es kein entsprechendes ADDSDeployment Windows PowerShell-Argument.
 
@@ -153,12 +153,12 @@ Die entsprechenden ADDSDeployment-Cmdlet-Argumente sind:
 
 Auf der Seite **Neues Administrator Kennwort** müssen Sie ein Kennwort für das Administrator Konto des integrierten lokalen Computers angeben, nachdem die Herabstufung abgeschlossen und der Computer zu einem Domänen Mitglieds Server oder Arbeitsgruppen Computer wird.
 
-Die **Unistall-ADDSDomainController** -Argumente verwenden dieselben Standardwerte wie Server-Manager, wenn diese nicht angegeben sind.
+Die **Unistall-ADDSDomainController**-Argumente verwenden dieselben Standardwerte wie Server-Manager, wenn diese nicht angegeben sind.
 
 Für das **LocalAdministratorPassword**-Argument gelten Sonderregeln:
 
 * Wenn dieses Argument *nicht angegeben* wird, fordert Sie das Cmdlet zur Eingabe und Bestätigung eines maskierten Kennworts auf. Dies ist die bevorzugte Verwendung bei einer interaktiven Cmdlet-Ausführung.
-* Bei Angabe *mit einem Wert*muss der Wert eine sichere Zeichenfolge sein. Dies ist nicht die bevorzugte Verwendung bei einer interaktiven Cmdlet-Ausführung.
+* Bei Angabe *mit einem Wert* muss der Wert eine sichere Zeichenfolge sein. Dies ist nicht die bevorzugte Verwendung bei einer interaktiven Cmdlet-Ausführung.
 
 Beispielsweise können Sie manuell mithilfe des Cmdlets **Read-Host** nach einem Kennwort Fragen, um den Benutzer zur Eingabe einer sicheren Zeichenfolge aufzufordern.
 
@@ -213,7 +213,7 @@ Da **Uninstall-addsdomaincontroller** und **Uninstall-Windows Feature** nur übe
 
 ![PowerShell-Beispiel "Uninstall-Windows Feature"](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_PSUninstallWindowsFeature.png)
 
-Mit dem **-force** -Argument oder dem **-confirm:$false** -Argument können Sie den Neustart in allen Windows PowerShell-Cmdlets vom Typ „ADDSDeployment“ automatisch akzeptieren. Verwenden Sie das **-norebootoncompletion:$false**-Argument, um zu verhindern, dass der Server am Ende der Heraufstufung automatisch neu gestartet wird.
+Mit dem **-force**-Argument oder dem **-confirm:$false**-Argument können Sie den Neustart in allen Windows PowerShell-Cmdlets vom Typ "ADDSDeployment" automatisch akzeptieren. Verwenden Sie das **-norebootoncompletion:$false**-Argument, um zu verhindern, dass der Server am Ende der Heraufstufung automatisch neu gestartet wird.
 
 > [!WARNING]
 > Es wird davon abgeraten, den Neustart zu verhindern. Der Mitgliedsserver muss neu gestartet werden, um korrekt zu funktionieren.

@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4b1350b39633580dd60bbc0eb07e567029447d5f
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: c72829ac264e5d5553bcfe6e3442ad73e793c259
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85922456"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86955272"
 ---
 # <a name="change"></a>change (Ändern)
 
@@ -23,7 +23,7 @@ ms.locfileid: "85922456"
 Ändert Remotedesktop-Sitzungshost Servereinstellungen für Anmeldungen, com-Port Zuordnungen und Installationsmodus.
 
 > [!NOTE]
-> In Windows Server 2008 R2 heißen die Terminaldienste nun Remotedesktopdienste. Weitere Informationen zu den Neuerungen in der neuesten Version finden Sie unter [What es New in Remotedesktopdienste in Windows Server](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn283323(v=ws.11)).
+> In Windows Server 2008 R2 heißen die Terminaldienste nun Remotedesktopdienste. Weitere Informationen zu den Neuerungen in der neuesten Version finden Sie unter [What es New in Remotedesktopdienste in Windows Server](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn283323(v=ws.11)).
 
 ## <a name="syntax"></a>Syntax
 
@@ -41,7 +41,7 @@ ms.locfileid: "85922456"
 | [Befehl "Port ändern"](change-port.md) | Listet die COM-Port Zuordnungen auf, die mit MS-DOS-Anwendungen kompatibel sind, oder ändert Sie. |
 | [Benutzer Befehl ändern](change-user.md) | Ändert den Installationsmodus für den Remotedesktop-Sitzungshost-Server. |
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

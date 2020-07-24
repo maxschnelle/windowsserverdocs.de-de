@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e410132ea3d7ce151c47d4708f284a8e44448aaf
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 486cd3a567fe8742d680a77378d8f5a933b876ae
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85937246"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86954803"
 ---
 # <a name="add-device"></a>Gerät hinzufügen
 
@@ -51,9 +51,9 @@ Um einen Computer mithilfe einer GUID-Zeichenfolge hinzuzufügen, geben Sie Folg
 wdsutil /add-Device /Device:computer1 /ID:{E8A3EFAC-201F-4E69-953F-B2DAA1E8B1B6} /ReferralServer:WDSServer1 /BootProgram:boot\x86\pxeboot.com
 /WDSClientUnattend:WDSClientUnattend\unattend.xml /User:Domain\MyUser/JoinRights:Full /BootImagepath:boot\x86\images\boot.wim /OU:OU=MyOU,CN=Test,DC=Domain,DC=com
 ```
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 - [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md) 
  [Verwenden des Befehls](using-the-get-alldevices-command.md) 
  Get-alldevices [Verwenden des Befehls](using-the-get-device-command.md) 
  Get-Device [Unterbefehl: Set-Device](subcommand-set-device.md) 
- [New-wdsclient](https://technet.microsoft.com/library/dn283430.aspx)
+ [New-wdsclient](/previous-versions/windows/powershell-scripting/dn283430(v=wps.630))

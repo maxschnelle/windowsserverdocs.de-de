@@ -8,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: e0c581a29db92cfb73e4225c72e7e1c2bad4ca68
-ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
+ms.openlocfilehash: b97a9cb50743972a85826d10aba89f9e6fffb5a6
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77465277"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86954462"
 ---
 # <a name="managing-ssltls-protocols-and-cipher-suites-for-ad-fs"></a>Verwalten von SSL/TLS-Protokollen und Verschlüsselungs Sammlungen für AD FS
 Die folgende Dokumentation enthält Informationen zum Deaktivieren und Aktivieren bestimmter TLS/SSL-Protokolle und Verschlüsselungs Sammlungen, die von verwendet werden AD FS
@@ -30,11 +30,11 @@ Eine Verschlüsselungssammlung ist ein Satz von Kryptografiealgorithmen. Die Sch
 - Massenverschlüsselung
 - Nachrichtenauthentifizierung
 
-AD FS verwendet Schannel. dll zum Durchführen der sicheren kommunikationinteraktionen.  Derzeit werden AD FS alle Protokolle und Verschlüsselungs Sammlungen unterstützt, die von Schannel. dll unterstützt werden.
+AD FS verwendet Schannel.dll, um sichere Kommunikations Interaktionen auszuführen.  Derzeit werden AD FS alle Protokolle und Verschlüsselungs Sammlungen unterstützt, die von Schannel.dll unterstützt werden.
 
-## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>Verwalten der TLS/SSL-Protokolle und Verschlüsselungs Sammlungen
+## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>Verwalten von TLS/SSL-Protokollen und Verschlüsselungssammlungen
 > [!IMPORTANT]
-> Dieser Abschnitt enthält Schritte, die Ihnen zeigen, wie Sie die Registrierung ändern können. Fehlerhafte Änderungen an der Registrierung können zu schwerwiegenden Problemen führen. Daher sollten Sie diese Schritte unbedingt genau befolgen. 
+> Dieser Abschnitt enthält Schritte, die Ihnen zeigen, wie Sie die Registrierung ändern können. Wenn Sie die Registrierung falsch ändern, können jedoch schwerwiegende Probleme auftreten. Achten Sie darum auf eine sorgfältige Ausführung der folgenden Schritte. 
 > 
 > Beachten Sie, dass das Ändern der Standard Sicherheitseinstellungen für SChannel die Kommunikation zwischen bestimmten Clients und Servern unterbrechen oder verhindern kann.  Dies tritt auf, wenn eine sichere Kommunikation erforderlich ist und Sie nicht über ein Protokoll zum Aushandeln der Kommunikation verfügen.
 > 
@@ -87,7 +87,7 @@ Verwenden Sie die folgenden Registrierungsschlüssel und deren Werte, um SSL 3,0
 - [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols\ssl 3.0 \ Client] "Aktiviert" = DWORD: 00000001
 - [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols\ssl 3.0 \ Client] "Disabledbydefault" = DWORD: 00000000 
 
-### <a name="disable-ssl-30"></a>SSL 3,0 deaktivieren
+### <a name="disable-ssl-30"></a>Deaktivieren von SSL 3.0
 - [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols\ssl 3.0 \ Server] "Aktiviert" = DWORD: 00000000
 - [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols\ssl 3.0 \ Server] "Disabledbydefault" = DWORD: 00000001
 - [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols\ssl 3.0 \ Client] "Aktiviert" = DWORD: 00000000
@@ -124,7 +124,7 @@ Verwenden Sie die folgenden Registrierungsschlüssel und deren Werte, um TLS 1,0
 - [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols\tls 1.0 \ Client] "Aktiviert" = DWORD: 00000001
 - [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols\tls 1.0 \ Client] "Disabledbydefault" = DWORD: 00000000 
 
-### <a name="disable-tls-10"></a>Deaktivieren von TLS 1,0
+### <a name="disable-tls-10"></a>Deaktivieren von TLS 1.0
 - [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols\tls 1.0 \ Server] "Aktiviert" = DWORD: 00000000
 - [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols\tls 1.0 \ Server] "Disabledbydefault" = DWORD: 00000001
 - [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols\tls 1.0 \ Client] "Aktiviert" = DWORD: 00000000
@@ -184,17 +184,17 @@ Verwenden Sie die folgenden Registrierungsschlüssel und deren Werte, um TLS 1,1
 
 Verwenden Sie die folgenden Registrierungsschlüssel und deren Werte, um TLS 1,2 zu aktivieren und zu deaktivieren.
 
-### <a name="enable-tls-12"></a>Aktivieren von TLS 1,2
-- [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols\tls 1.2 \ Server] "Aktiviert" = DWORD: 00000001
-- [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols\tls 1.2 \ Server] "Disabledbydefault" = DWORD: 00000000 
-- [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols\tls 1.2 \ Client] "Aktiviert" = DWORD: 00000001
-- [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols\tls 1.2 \ Client] "Disabledbydefault" = DWORD: 00000000
+### <a name="enable-tls-12"></a>Aktivieren von TLS 1.2
+- [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server] "Enabled"=dword:00000001
+- [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server] "DisabledByDefault"=dword:00000000 
+- [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client] "Enabled"=dword:00000001
+- [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client] "DisabledByDefault"=dword:00000000
 
-### <a name="disable-tls-12"></a>Deaktivieren von TLS 1,2
-- [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols\tls 1.2 \ Server] "Aktiviert" = DWORD: 00000000
-- [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols\tls 1.2 \ Server] "Disabledbydefault" = DWORD: 00000001
-- [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols\tls 1.2 \ Client] "Aktiviert" = DWORD: 00000000
-- [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols\tls 1.2 \ Client] "Disabledbydefault" = DWORD: 00000001
+### <a name="disable-tls-12"></a>Deaktivieren von TLS 1.2
+- [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server] "Enabled"=dword:00000000
+- [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server] "DisabledByDefault"=dword:00000001
+- [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client] "Enabled"=dword:00000000
+- [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client] "DisabledByDefault"=dword:00000001
 
 ### <a name="using-powershell-to-disable-tls-12"></a>Deaktivieren von TLS 1,2 mithilfe von PowerShell
 
@@ -229,13 +229,13 @@ Verwenden Sie die folgenden Registrierungsschlüssel und deren Werte, um RC4 zu 
 - [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\ciphers\rc4 40/128] "Aktiviert" = DWORD: 00000001
 - [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\ciphers\rc4 56/128] "Aktiviert" = DWORD: 00000001 
 
-### <a name="disable-rc4"></a>RC4 deaktivieren
+### <a name="disable-rc4"></a>Disable RC4
 
 - [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\ciphers\rc4 128/128] "Aktiviert" = DWORD: 00000000
 - [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\ciphers\rc4 40/128] "Aktiviert" = DWORD: 00000000
 - [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\ciphers\rc4 56/128] "Aktiviert" = DWORD: 00000000 
 
-### <a name="using-powershell"></a>Verwenden von PowerShell
+### <a name="using-powershell"></a>PowerShell
 
 ```powershell
     ([Microsoft.Win32.RegistryKey]::OpenRemoteBaseKey([Microsoft.Win32.RegistryHive]::LocalMachine,$env:COMPUTERNAME)).CreateSubKey('SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers\RC4 128/128') 
@@ -256,20 +256,20 @@ Sie können bestimmte bestimmte Chiffren deaktivieren, indem Sie Sie aus HKEY_LO
 
 Um eine Verschlüsselungs Sammlung zu aktivieren, fügen Sie Ihren Zeichen folgen Wert dem Schlüssel für den funktionsfähigen mehr Zeichen folgen Wert hinzu.  Wenn Sie z. b. TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P521 aktivieren möchten, fügen wir ihn der Zeichenfolge hinzu.
 
-Eine vollständige Liste der unterstützten Verschlüsselungs Sammlungen finden Sie unter Verschlüsselungs Sammlungen [in TLS/SSL (Schannel SSP)](https://msdn.microsoft.com/library/windows/desktop/aa374757.aspx).  Dieses Dokument enthält eine Tabelle mit Suites, die standardmäßig aktiviert sind und die unterstützt, aber nicht standardmäßig aktiviert sind.  Informationen zum Priorisieren der Verschlüsselungs Sammlungen finden Sie unter [Priorisieren von SChannel](https://msdn.microsoft.com/library/windows/desktop/bb870930.aspx)-Verschlüsselungs Sammlungen.
+Eine vollständige Liste der unterstützten Verschlüsselungs Sammlungen finden Sie unter Verschlüsselungs Sammlungen [in TLS/SSL (Schannel SSP)](/windows/win32/secauthn/cipher-suites-in-schannel).  Dieses Dokument enthält eine Tabelle mit Suites, die standardmäßig aktiviert sind und die unterstützt, aber nicht standardmäßig aktiviert sind.  Informationen zum Priorisieren der Verschlüsselungs Sammlungen finden Sie unter [Priorisieren von SChannel](/windows/win32/secauthn/prioritizing-schannel-cipher-suites)-Verschlüsselungs Sammlungen.
 
 ## <a name="enabling-strong-authentication-for-net-applications"></a>Aktivieren der starken Authentifizierung für .NET-Anwendungen
 Die .NET Framework 3.5/4.0/4.5. x-Anwendungen können das Standardprotokoll auf TLS 1,2 umstellen, indem Sie den Registrierungsschlüssel "schutsstrongcrypto" aktivieren.  Dieser Registrierungsschlüssel erzwingt .NET-Anwendungen, TLS 1,2 zu verwenden.
 
 > [!IMPORTANT]
-> Für AD FS unter Windows Server 2016 und Windows Server 2012 R2 müssen Sie die .NET Framework 4.0/4.5. x-Taste verwenden: HKEY_LOCAL_MACHINE \Software\Microsoft\\. NETFramework\v4.0.30319
+> Für AD FS unter Windows Server 2016 und Windows Server 2012 R2 müssen Sie die .NET Framework 4.0/4.5. x-Taste verwenden: HKEY_LOCAL_MACHINE \Software\Microsoft \\ . NETFramework\v4.0.30319
 
 
 Verwenden Sie für den .NET Framework 3,5 den folgenden Registrierungsschlüssel:
 
-[HKEY_LOCAL_MACHINE \software\wow6432node \Microsoft\\. NETFramework\v2.0.50727] "schugstrongcrypto" = DWORD: 00000001
+[HKEY_LOCAL_MACHINE \software\wow6432node \ Microsoft \\ . NETFramework\v2.0.50727] "schugstrongcrypto" = DWORD: 00000001
 
-Verwenden Sie für den .NET Framework 4.0/4.5. x den folgenden Registrierungsschlüssel: HKEY_LOCAL_MACHINE \Software\Microsoft\\. NETFramework\v4.0.30319 "schugstrongcrypto" = DWORD: 00000001
+Verwenden Sie für den .NET Framework 4.0/4.5. x den folgenden Registrierungsschlüssel: HKEY_LOCAL_MACHINE \Software\Microsoft \\ . NETFramework\v4.0.30319 "schugstrongcrypto" = DWORD: 00000001
 
 ![Strenge Authentifizierung](media/Managing-SSL-Protocols-in-AD-FS/strongauth.png)
 
@@ -280,7 +280,7 @@ Verwenden Sie für den .NET Framework 4.0/4.5. x den folgenden Registrierungssch
 
 ## <a name="additional-information"></a>Zusätzliche Informationen
 
-- [Verschlüsselungs Sammlungen in TLS/SSL (Schannel SSP)](https://msdn.microsoft.com/library/windows/desktop/aa374757.aspx)
-- [TLS-Verschlüsselungs Sammlungen in Windows 8.1](https://msdn.microsoft.com/library/windows/desktop/mt767781.aspx)
-- [Priorisieren von SChannel-Verschlüsselungs Sammlungen](https://msdn.microsoft.com/library/windows/desktop/bb870930.aspx)
-- [Sprechen in Chiffren und anderen rätselhaften Zungen](https://blogs.technet.microsoft.com/askds/2015/12/08/speaking-in-ciphers-and-other-enigmatic-tonguesupdate/)
+- [Verschlüsselungs Sammlungen in TLS/SSL (Schannel SSP)](/windows/win32/secauthn/cipher-suites-in-schannel)
+- [TLS-Verschlüsselungs Sammlungen in Windows 8.1](/windows/win32/secauthn/tls-cipher-suites-in-windows-8-1)
+- [Priorisieren von SChannel-Verschlüsselungs Sammlungen](/windows/win32/secauthn/prioritizing-schannel-cipher-suites)
+- [Sprechen in Chiffren und anderen rätselhaften Zungen](/archive/blogs/askds/speaking-in-ciphers-and-other-enigmatic-tonguesupdate)

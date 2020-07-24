@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c1c33a82b34c803961abff6ee5a9693990a0ca00
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 4558d18b065cd668294952131b494342d600aee0
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85923705"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86955492"
 ---
 # <a name="auditpol-resourcesacl"></a>resourcesacl für Auditpol
 
@@ -51,7 +51,7 @@ auditpol /resourceSACL
 | /type | Die Ressource, für die die Objekt Zugriffs Überwachung konfiguriert wird. Die unterstützten, Unterscheidung nach Groß-/Kleinschreibung, Argument Werte sind *File* (für Verzeichnisse und Dateien) und *Key* (für Registrierungsschlüssel). |
 | /Success | Gibt die erfolgreiche Überwachung an. |
 | /Failure | Gibt die Fehlerüberwachung an. |
-| /User | Gibt einen Benutzer in einer der folgenden Formen an:<ul><li> DOMAINNAME\ACCOUNT (z. b. Domänen Name \ Administratoren)</li><li>Standaloneserver\group-Konto (siehe [LookupAccountName-Funktion](https://docs.microsoft.com/windows/win32/api/winbase/nf-winbase-lookupaccountnamea))</li><li>{S-1-x-x-x-x} (x wird als Dezimal ausgedrückt, und die gesamte sid muss in geschweifte Klammern eingeschlossen werden.) Beispiel: {S-1-5-21-5624481-130208933-164394174-1001}<p>**Hinweis:** Wenn das sid-Formular verwendet wird, wird keine Überprüfung durchgeführt, um zu überprüfen, ob dieses Konto vorhanden ist.</li></ul> |
+| /User | Gibt einen Benutzer in einer der folgenden Formen an:<ul><li> DOMAINNAME\ACCOUNT (z. b. Domänen Name \ Administratoren)</li><li>Standaloneserver\group-Konto (siehe [LookupAccountName-Funktion](/windows/win32/api/winbase/nf-winbase-lookupaccountnamea))</li><li>{S-1-x-x-x-x} (x wird als Dezimal ausgedrückt, und die gesamte sid muss in geschweifte Klammern eingeschlossen werden.) Beispiel: {S-1-5-21-5624481-130208933-164394174-1001}<p>**Hinweis:** Wenn das sid-Formular verwendet wird, wird keine Überprüfung durchgeführt, um zu überprüfen, ob dieses Konto vorhanden ist.</li></ul> |
 | /access | Gibt eine Berechtigungs Maske an, die durch angegeben werden kann:<p>Allgemeine Zugriffsrechte, einschließlich:<ul><li>Allgemeine allgemeine Verfügbarkeit</li><li>Gr-generischer Lesevorgang</li><li>GW-generischer Schreibvorgang</li><li>GX-generisches ausführen</li></ul><p>Zugriffsrechte für Dateien, einschließlich:<ul><li>FA-Dateizugriff</li><li>allgemeiner Lesezugriff auf die FR-Datei</li><li>FW-Datei generischer Schreibvorgang</li><li>FX-Datei (generisch) ausführen</li></ul><p>Zugriffsrechte für Registrierungsschlüssel, einschließlich:<ul><li>Zugriffsschlüssel für alle Zugriffsrechte</li><li>KR-Schlüssel Lesevorgang</li><li>kW-Schlüssel Schreibvorgänge</li><li>Kx-Schlüssel ausführen</li></ul><p>Beispiel: `/access:FRFW` aktiviert Überwachungs Ereignisse für Lese-und Schreibvorgänge.<p>Ein Hexadezimalwert, der die Zugriffs Maske darstellt (z. b. 0x1200a9).<p>Dies ist nützlich, wenn Ressourcen spezifische Bitmasken verwendet werden, die nicht Teil des SDDL (Security Deskriptor Definition Language)-Standards sind. Wenn der Wert nicht weggelassen wird, wird Vollzugriff verwendet. |
 
 ## <a name="examples"></a>Beispiele
@@ -92,7 +92,7 @@ So Listen Sie die Einträge für die globale Objekt Zugriffs Überwachung für e
 auditpol /resourceSACL /type:File /view /user:MYDOMAIN\myuser
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

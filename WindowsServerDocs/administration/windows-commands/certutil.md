@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0a2cea23d96c4cb438a2acac6d14c1bd37c67b56
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 159a3d2eb54d6a3040c4a22864a1c90e16bf2247
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85922646"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86955332"
 ---
 # <a name="certutil"></a>certutil
 
@@ -130,7 +130,7 @@ Hierbei gilt:
 [-config Machine\CAName]
 ```
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Namen und Werte müssen durch Doppelpunkte getrennt sein, während mehrere Name-Wert-Paare zeilenweise getrennt sein müssen. Beispiel: `CertificateTemplate:User\nEMail:User@Domain.com` `\n` gibt an, wo die Sequenz in ein Zeilen Trennzeichen konvertiert wird.
 
@@ -154,7 +154,7 @@ Hierbei gilt:
 [-config Machine\CAName]
 ```
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Wenn der letzte Parameter numerisch ist, wird er als **Long**-Wert angenommen.
 
@@ -519,7 +519,7 @@ Hierbei gilt:
 [-silent] [-split] [-config Machine\CAName] [-restrict RestrictionList] [-out ColumnList]
 ```
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Wenn Sie die Spalte **Statuscode** für alle Einträge anzeigen möchten, geben Sie ein.`-out StatusCode`
 
@@ -721,7 +721,7 @@ Hierbei gilt:
 [-f] [-user] [-p password] [-csp provider]
 ```
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Der Standardwert ist der persönliche Computerspeicher.
 
@@ -1096,7 +1096,7 @@ Hierbei gilt:
 [-f] [-config Machine\CAName] [-dc DCName]
 ```
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Die `-config` Option ist für eine einzelne Zertifizierungsstelle vorgesehen (standardmäßig alle Zertifizierungsstellen).
 
@@ -1360,7 +1360,7 @@ Hierbei gilt:
 [-f] [-user] [-silent] [-config Machine\CAName]
 ```
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Wenn keine Argumente angegeben werden, wird jedes Signatur Zertifizierungsstellen Zertifikat anhand des privaten Schlüssels überprüft.
 
@@ -1399,7 +1399,7 @@ Hierbei gilt:
 [-f] [-enterprise] [-user] [-silent] [-split] [-urlfetch] [-t timeout]
 ```
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Die Verwendung von **applicationpolicylist** schränkt die Ketten Bildung auf die für die angegebenen Anwendungsrichtlinien gültigen Ketten ein.
 
@@ -1493,7 +1493,7 @@ Hierbei gilt:
 [-nullsign] [-f] [-silent] [-cert certID]
 ```
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Wenn Sie das Minuszeichen (-) verwenden, werden Seriennummern und Erweiterungen entfernt.
 
@@ -1685,7 +1685,7 @@ Hierbei gilt:
 [-f] [-user] [-grouppolicy] [-config Machine\CAName]
 ```
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Wenn ein Zeichen folgen Wert mit `+` oder beginnt `-` und der vorhandene Wert ein `REG_MULTI_SZ` Wert ist, wird die Zeichenfolge dem vorhandenen Registrierungs Wert hinzugefügt oder daraus entfernt. Um das Erstellen eines Werts zu erzwingen `REG_MULTI_SZ` , fügen Sie am `\n` Ende des Zeichen folgen Werts ein.
 
@@ -1729,7 +1729,7 @@ Hierbei gilt:
 [-f] [-user] [-grouppolicy] [-config Machine\CAName]
 ```
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Wenn ein Zeichen folgen Wert mit `+` oder beginnt `-` und der vorhandene Wert ein `REG_MULTI_SZ` Wert ist, wird die Zeichenfolge dem vorhandenen Registrierungs Wert hinzugefügt oder daraus entfernt. Um das Erstellen eines Werts zu erzwingen `REG_MULTI_SZ` , fügen Sie am `\n` Ende des Zeichen folgen Werts ein.
 
@@ -1773,7 +1773,7 @@ Hierbei gilt:
 [-f] [-user] [-grouppolicy] [-config Machine\CAName]
 ```
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Wenn ein Zeichen folgen Wert mit `+` oder beginnt `-` und der vorhandene Wert ein `REG_MULTI_SZ` Wert ist, wird die Zeichenfolge dem vorhandenen Registrierungs Wert hinzugefügt oder daraus entfernt. Um das Erstellen eines Werts zu erzwingen `REG_MULTI_SZ` , fügen Sie am `\n` Ende des Zeichen folgen Werts ein.
 
@@ -1823,7 +1823,7 @@ Hierbei gilt:
 [-f] [-config Machine\CAName]
 ```
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 Die Zertifizierungsstelle muss möglicherweise auch für die Unterstützung von fremd Zertifikaten konfiguriert werden. Geben Sie hierzu ein `import - certutil -setreg ca\KRAFlags +KRAF_ENABLEFOREIGN` .
 
@@ -1901,7 +1901,7 @@ Hierbei gilt:
 [-f] [-user] [-split] [-p password] [-protectto SAMnameAndSIDlist] [-csp provider]
 ```
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Das in der Befehlszeile angegebene Kennwort muss eine durch Trennzeichen getrennte Kenn Wort Liste sein.
 
@@ -1936,7 +1936,7 @@ Hierbei gilt:
 [-f] [-silent] [-split] [-dc DCName] [-p password] [-csp provider]
 ```
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Das in der Befehlszeile angegebene Kennwort muss eine durch Trennzeichen getrennte Kenn Wort Liste sein.
 
@@ -1999,13 +1999,13 @@ Dieser Abschnitt definiert alle Optionen, die Sie basierend auf dem Befehl angeb
 | -t Timeout | URL-Abruf Timeout in Millisekunden. |
 | -symkeyalg symmetrickeyalgorithmus [, keylength] | Der Name des symmetrischen Schlüssel Algorithmus mit optionaler Schlüssellänge. Beispiel: `AES,128` oder `3DES`. |
 
-### <a name="additional-references"></a>Weitere Verweise
+### <a name="additional-references"></a>Zusätzliche Referenzen
 
 Weitere Beispiele zur Verwendung dieses Befehls finden Sie unter.
 
 - [Certutil-Beispiele für die Verwaltung von Active Directory Zertifikat Diensten (AD CS) über die Befehlszeile](https://social.technet.microsoft.com/wiki/contents/articles/3063.certutil-examples-for-managing-active-directory-certificate-services-ad-cs-from-the-command-line.aspx)
 
-- [Certutil-Aufgaben für die Verwaltung von Zertifikaten](https://docs.microsoft.com/previous-versions/orphan-topics/ws.10/cc772898(v=ws.10))
+- [Certutil-Aufgaben für die Verwaltung von Zertifikaten](/previous-versions/orphan-topics/ws.10/cc772898(v=ws.10))
 
 - [Binärer Anforderungs Export mithilfe der exemplarischen Vorgehensweise für das certutil.exe-Befehlszeilen Tool](https://social.technet.microsoft.com/wiki/contents/articles/7573.active-directory-certificate-services-pki-key-archival-and-management.aspx)
 

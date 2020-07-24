@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7a30e1f765959ed60efa662301f95defc21d6587
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 39029c82dffe004d65b1279e5baafc14fbcc8257
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85929908"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86955672"
 ---
 # <a name="clean"></a>clean
 
@@ -23,7 +23,7 @@ ms.locfileid: "85929908"
 Entfernt alle Partitionen oder volumeformatierung von der Festplatte mit dem Fokus.
 
 >[!NOTE]
-> Eine PowerShell-Version dieses Befehls finden Sie unter [Clear-Disk-Befehl](https://docs.microsoft.com/powershell/module/storage/clear-disk).
+> Eine PowerShell-Version dieses Befehls finden Sie unter [Clear-Disk-Befehl](/powershell/module/storage/clear-disk).
 
 ## <a name="syntax"></a>Syntax
 
@@ -37,7 +37,7 @@ clean [all]
 | --------- | ----------- |
 | alle | Gibt an, dass jeder und jeder Sektor auf dem Datenträger auf NULL festgelegt ist, wodurch alle Daten auf dem Datenträger vollständig gelöscht werden. |
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Auf Master Boot Record (MBR)-Datenträgern werden nur die MBR-Partitionierungs Informationen und die Informationen zum verborgenen Sektor überschrieben.
 
@@ -53,8 +53,8 @@ Geben Sie Folgendes ein, um die gesamte Formatierung des ausgewählten Datenträ
 clean
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
-- [Befehl "Clear-Disk"](https://docs.microsoft.com/powershell/module/storage/clear-disk)
+- [Befehl "Clear-Disk"](/powershell/module/storage/clear-disk)
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

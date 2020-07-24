@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 05/18/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: df4ca03d5d3655a5b12592ef56580c1dea83e697
-ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
+ms.openlocfilehash: b897fdc481faf69a423200030fe71a28529eb82d
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2020
-ms.locfileid: "83436639"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86954752"
 ---
 # <a name="vssadmin-list-writers"></a>Vssadmin-Listen Schreiber
 
@@ -33,5 +33,5 @@ Keine Parameter.
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 
-* [Befehlszeilen-Syntax Schlüssel](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc771080(v%3dws.11))
+* [Befehlszeilen-Syntax Schlüssel](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc771080(v%3dws.11))
 * [Vssadmin](vssadmin.md)

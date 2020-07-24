@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 03/05/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: e32fe419899c0f553f36976ecee95fb3a922f1a6
-ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
+ms.openlocfilehash: 8b723fd3768561da7d636dd1724bd0c75ee2ee85
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2020
-ms.locfileid: "83436625"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86954702"
 ---
 # <a name="vssadmin-resize-shadowstorage"></a>Vssadmin residieren von ShadowStorage
 
@@ -21,7 +21,7 @@ ms.locfileid: "83436625"
 
 Ändert die maximale Speicherplatz Größe, die für den schattenkopiespeicherspeicher verwendet werden kann.
 
-Die minimale Menge an Speicherplatz, die zum Speichern von Schatten Kopien verwendet werden kann, kann mit dem Registrierungs Wert **MinDiffAreaFileSize** angegeben werden. Weitere Informationen finden Sie unter [MinDiffAreaFileSize](https://docs.microsoft.com/windows/win32/backup/registry-keys-for-backup-and-restore#mindiffareafilesize).
+Die minimale Menge an Speicherplatz, die zum Speichern von Schatten Kopien verwendet werden kann, kann mit dem Registrierungs Wert **MinDiffAreaFileSize** angegeben werden. Weitere Informationen finden Sie unter [MinDiffAreaFileSize](/windows/win32/backup/registry-keys-for-backup-and-restore#mindiffareafilesize).
 
 > [!WARNING]
 > Die Größe der Speicher Zuordnung kann dazu führen, dass Schatten Kopien ausgeblendet werden.
@@ -50,5 +50,5 @@ vssadmin Resize ShadowStorage /For=C: /On=C: /MaxSize=20%
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 
-* [Befehlszeilen-Syntax Schlüssel](https://docs.microsoft.com/windows-server/administration/windows-commands/command-line-syntax-key)
+* [Befehlszeilen-Syntax Schlüssel](./command-line-syntax-key.md)
 * [Vssadmin](vssadmin.md)

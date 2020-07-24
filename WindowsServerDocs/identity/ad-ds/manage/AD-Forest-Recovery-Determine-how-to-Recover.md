@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.assetid: 5a291f65-794e-4fc3-996e-094c5845a383
 ms.technology: identity-adds
-ms.openlocfilehash: fea55dc5551198f7bc06afb2ec38077398b9cf77
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: fbb1f0f0f1b21c626f344bb01b793211586c7cf3
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80824053"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86953972"
 ---
 # <a name="determine-how-to-recover-the-forest"></a>Festlegen der Wiederherstellung der Gesamtstruktur
 
@@ -44,19 +44,19 @@ Wenn Sie Active Directory auf anderer Hardware wiederherstellen müssen, erstell
 > Ab Windows Server 2008 wird die Wiederherstellung der Systemstatus Sicherung in einer neuen Installation von Windows Server auf neuer Hardware oder auf derselben Hardware nicht unterstützt. Wenn Windows Server auf derselben Hardware neu installiert wird, wie es später in diesem Handbuch empfohlen wird, können Sie den Domänen Controller in dieser Reihenfolge wiederherstellen:
 >
 > 1. Führen Sie eine vollständige Server Wiederherstellung aus, um das Betriebssystem und alle Dateien und Anwendungen wiederherzustellen.
-> 2. Führen Sie eine Systemstatus Wiederherstellung mithilfe von "Wbadmin. exe" aus, um SYSVOL als autorisierend zu markieren.
+> 2. Führen Sie eine Systemstatus Wiederherstellung mithilfe von wbadmin.exe aus, um SYSVOL als autorisierend zu markieren.
 >
 > Weitere Informationen finden Sie im Microsoft KB-Artikel [249694](https://support.microsoft.com/kb/249694).
 
 Wenn der Zeitpunkt des Auftretens des Fehlers unbekannt ist, untersuchen Sie weitere Informationen, um Sicherungen zu identifizieren, die den letzten sicheren Zustand der Gesamtstruktur enthalten. Diese Vorgehensweise ist weniger wünschenswert. Daher wird dringend empfohlen, dass Sie detaillierte Protokolle über den Integritäts Status von AD DS täglich aufbewahren, damit bei einem Gesamtstruktur weiten Ausfall die ungefähre Zeit des Fehlers identifiziert werden kann. Sie sollten auch eine lokale Kopie der Sicherungen aufbewahren, um eine schnellere Wiederherstellung zu ermöglichen.
 
-Wenn Active Directory Papierkorb aktiviert ist, ist die Sicherungs Lebensdauer gleich dem **deletedObjectLifetime** -Wert oder dem **tombstoneLifetime** -Wert, je nachdem, welcher Wert kleiner ist. Weitere Informationen finden Sie unter [schrittweise Anleitung zum Active Directory Papierkorb](https://go.microsoft.com/fwlink/?LinkId=178657) (https://go.microsoft.com/fwlink/?LinkId=178657).
+Wenn Active Directory Papierkorb aktiviert ist, ist die Sicherungs Lebensdauer gleich dem **deletedObjectLifetime** -Wert oder dem **tombstoneLifetime** -Wert, je nachdem, welcher Wert kleiner ist. Weitere Informationen finden Sie unter [schrittweise Anleitung zum Active Directory Papierkorb](https://go.microsoft.com/fwlink/?LinkId=178657) () https://go.microsoft.com/fwlink/?LinkId=178657) .
 
-Als Alternative können Sie auch das Active Directory Database-Bereitstellungs Tool (Dsamain. exe) und ein Lightweight Directory Access Protocol (LDAP)-Tool (z. b. LDP. exe) oder Active Directory Benutzer und Computer verwenden, um zu ermitteln, welche Sicherung den letzten sicheren Zustand der Gesamtstruktur aufweist. Das Active Directory-Daten Bank Bereitstellungs Tool, das in Windows Server 2008 und späteren Windows Server-Betriebssystemen enthalten ist, macht Active Directory Daten verfügbar, die in Sicherungen oder Momentaufnahmen als LDAP-Server gespeichert sind. Anschließend können Sie ein LDAP-Tool verwenden, um die Daten zu durchsuchen. Dieser Ansatz hat den Vorteil, dass Sie keinen Domänen Controller im Verzeichnisdienst-Wiederherstellungs Modus (Directory Services Restore Mode, DSRM) neu starten müssen, um den Inhalt der Sicherung AD DS zu untersuchen.
+Als Alternative können Sie auch das Active Directory Database-Bereitstellungs Tool (Dsamain.exe) und ein LDAP-Tool (Lightweight Directory Access Protocol) verwenden, wie z. b. Ldp.exe oder Active Directory Benutzer und Computer, um zu ermitteln, welche Sicherung den letzten sicheren Zustand der Gesamtstruktur aufweist. Das Active Directory-Daten Bank Bereitstellungs Tool, das in Windows Server 2008 und späteren Windows Server-Betriebssystemen enthalten ist, macht Active Directory Daten verfügbar, die in Sicherungen oder Momentaufnahmen als LDAP-Server gespeichert sind. Anschließend können Sie ein LDAP-Tool verwenden, um die Daten zu durchsuchen. Dieser Ansatz hat den Vorteil, dass Sie keinen Domänen Controller im Verzeichnisdienst-Wiederherstellungs Modus (Directory Services Restore Mode, DSRM) neu starten müssen, um den Inhalt der Sicherung AD DS zu untersuchen.
 
-Weitere Informationen zur Verwendung des Active Directory-Daten Bank Bereitstellungs Tools finden Sie in der [schrittweisen Anleitung für die Active Directory-Daten Bank](https://technet.microsoft.com/library/cc753609\(WS.10\).aspx)Bereitstellung.
+Weitere Informationen zur Verwendung des Active Directory-Daten Bank Bereitstellungs Tools finden Sie in der [schrittweisen Anleitung für die Active Directory-Daten Bank](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771232(v=ws.10))Bereitstellung.
 
-Sie können auch den Befehl **Ntdsutil snapshot** verwenden, um Momentaufnahmen der Active Directory Datenbank zu erstellen. Wenn Sie eine Aufgabe planen, in regelmäßigen Abständen Momentaufnahmen zu erstellen, können Sie im Laufe der Zeit zusätzliche Kopien der Active Directory Datenbank abrufen. Mit diesen Kopien können Sie besser erkennen, wann der Gesamtstruktur weite Fehler aufgetreten ist, und dann die beste Sicherung für die Wiederherstellung auswählen. Um Momentaufnahmen zu erstellen, verwenden Sie die Version von **Ntdsutil** , die im Lieferumfang von Windows Server 2008 oder dem Remoteserver-Verwaltungstools (RSAT) für Windows Vista oder höher enthalten ist. Der Ziel-DC kann eine beliebige Version von Windows Server ausführen. Weitere Informationen zum Verwenden des Befehls " **Ntdsutil snapshot** " finden Sie unter [Momentaufnahme](https://technet.microsoft.com/library/cc731620\(WS.10\).aspx).
+Sie können auch den Befehl **Ntdsutil snapshot** verwenden, um Momentaufnahmen der Active Directory Datenbank zu erstellen. Wenn Sie eine Aufgabe planen, in regelmäßigen Abständen Momentaufnahmen zu erstellen, können Sie im Laufe der Zeit zusätzliche Kopien der Active Directory Datenbank abrufen. Mit diesen Kopien können Sie besser erkennen, wann der Gesamtstruktur weite Fehler aufgetreten ist, und dann die beste Sicherung für die Wiederherstellung auswählen. Um Momentaufnahmen zu erstellen, verwenden Sie die Version von **Ntdsutil** , die im Lieferumfang von Windows Server 2008 oder dem Remoteserver-Verwaltungstools (RSAT) für Windows Vista oder höher enthalten ist. Der Ziel-DC kann eine beliebige Version von Windows Server ausführen. Weitere Informationen zum Verwenden des Befehls " **Ntdsutil snapshot** " finden Sie unter [Momentaufnahme](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771232(v=ws.10)).
 
 ## <a name="determining-which-domain-controllers-to-restore"></a>Ermitteln der wiederherzustellenden Domänen Controller
 
@@ -81,7 +81,7 @@ Wählen Sie einen DC aus, der am besten die folgenden Kriterien erfüllt:
 
    HKEY_LOCAL_MACHINESoftwarePoliciesMicrosoftSystemCertificatesFVE_NKP
 
-Behalten Sie Sicherheitsverfahren bei der Behandlung oder Wiederherstellung von Sicherungsdateien bei, die Active Directory enthalten. Die Dringlichkeit, die die Wiederherstellung in der Gesamtstruktur begleitet, kann unbeabsichtigt zu bewährten Sicherheitsmethoden führen. Weitere Informationen finden Sie im Abschnitt "Einrichten von Sicherungs-und Wiederherstellungs Strategien für Domänen Controller" im [Leitfaden mit bewährten Methoden zum Sichern von Active Directory Installationen und alltäglichen Vorgängen: Teil II](https://technet.microsoft.com/library/bb727066.aspx).
+Behalten Sie Sicherheitsverfahren bei der Behandlung oder Wiederherstellung von Sicherungsdateien bei, die Active Directory enthalten. Die Dringlichkeit, die die Wiederherstellung in der Gesamtstruktur begleitet, kann unbeabsichtigt zu bewährten Sicherheitsmethoden führen. Weitere Informationen finden Sie im Abschnitt "Einrichten von Sicherungs-und Wiederherstellungs Strategien für Domänen Controller" im [Leitfaden mit bewährten Methoden zum Sichern von Active Directory Installationen und alltäglichen Vorgängen: Teil II](/previous-versions/windows/it-pro/windows-2000-server/bb727066(v=technet.10)).
 
 ## <a name="identify-the-current-forest-structure-and-dc-functions"></a>Identifizieren der aktuellen Gesamtstruktur Struktur und der DC-Funktionen
 
@@ -91,13 +91,13 @@ Bereiten Sie eine Tabelle vor, die die Funktionen der einzelnen Domänen Control
 
 |DC-Name|Betriebssystem|FSMO|GC|RODC|Backup|DNS|Server Core|VM|VM-GenID|  
 |-------------|----------------------|----------|--------|----------|------------|---------|-----------------|--------|---------------|  
-|DC_1|Windows Server 2012|Schema Master, Domänen Namen Master|Ja|Nein|Ja|Nein|Nein|Ja|Ja|  
+|DC_1|Windows Server 2012|Schema Master, Domänen Namen Master|Ja|Nein|Ja|Nein|Nein |Ja|Ja|  
 |DC_2|Windows Server 2012|Keine|Ja|Nein|Ja|Ja|Nein|Ja|Ja|  
-|DC_3|Windows Server 2012|Infrastrukturmaster|Nein|Nein|Nein|Ja|Ja|Ja|Ja|  
-|DC_4|Windows Server 2012|PDC-Emulator, RID-Master|Ja|Nein|Nein|Nein|Nein|Ja|Nein|  
-|DC_5|Windows Server 2012|Keine|Nein|Nein|Ja|Ja|Nein|Ja|Ja|  
+|DC_3|Windows Server 2012|Infrastrukturmaster|Nein|Nein|Nein |Ja|Ja|Ja|Ja|  
+|DC_4|Windows Server 2012|PDC-Emulator, RID-Master|Ja|Nein|Nein|Nein|Nein |Ja|Nein|  
+|DC_5|Windows Server 2012|Keine|Nein|Nein |Ja|Ja|Nein|Ja|Ja|  
 |RODC_1|Windows Server 2008 R2|Keine|Ja|Ja|Ja|Ja|Ja|Ja|Nein|  
-|RODC_2|WindowsServer 2008|Keine|Ja|Ja|Nein|Ja|Ja|Ja|Nein|  
+|RODC_2|Windows Server 2008|Keine|Ja|Ja|Nein|Ja|Ja|Ja|Nein|  
 
 Identifizieren Sie für jede Domäne in der Gesamtstruktur einen einzelnen beschreibbaren DC, der über eine vertrauenswürdige Sicherung der Active Directory-Datenbank für diese Domäne verfügt. Gehen Sie vorsichtig vor, wenn Sie eine Sicherung zum Wiederherstellen eines Domänen Controllers auswählen. Wenn der Tag und die Ursache des Fehlers ungefähr bekannt sind, empfiehlt es sich, eine Sicherung zu verwenden, die ein paar Tage vor diesem Datum erstellt wurde.
   

@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 22fc496eddc17f4e6a1a5f02321c921009f9fd95
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 5d51cc178ee5b689071336b0dabd1e8d3565bcd2
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85924810"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86955362"
 ---
 # <a name="certreq"></a>certreq
 
@@ -65,7 +65,7 @@ So übermitteln Sie eine einfache Zertifikat Anforderung:
 certreq –submit certrequest.req certnew.cer certnew.pfx
 ```
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Dies ist der Standard certreq.exe Parameter. Wenn an der Eingabeaufforderung keine Option angegeben ist, wird von certreq.exe versucht, eine Zertifikat Anforderung an eine Zertifizierungsstelle zu übermitteln. Sie müssen eine Zertifikat Anforderungs Datei angeben, wenn Sie die Option **– Submit** verwenden. Wenn dieser Parameter ausgelassen wird, wird ein gemeinsames **Datei Öffnungs** Fenster angezeigt, in dem Sie die entsprechende Zertifikat Anforderungs Datei auswählen können.
 
@@ -79,7 +79,7 @@ Zum Abrufen der Zertifikat-ID 20 und zum Erstellen einer Zertifikatsdatei (. cer
 certreq -retrieve 20 MyCertificate.cer
 ```
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Verwenden Sie certreq-retrieve *RequestId* , um das Zertifikat abzurufen, nachdem es von der Zertifizierungsstelle ausgestellt wurde. Das *RequestId-* PKC kann ein Dezimal-oder hexadezimal mit einem 0x-Präfix sein, und es kann sich um eine Zertifikat Seriennummer ohne 0x-Präfix Sie können damit auch alle Zertifikate abrufen, die jemals von der Zertifizierungsstelle ausgestellt wurden, einschließlich widerrufener oder abgelaufener Zertifikate, ohne Rücksicht darauf, ob die Anforderung des Zertifikats jemals den Status "Ausstehend" hatte.
 
@@ -103,7 +103,7 @@ Dieser Bereich der INF-Datei ist für alle neuen Zertifikat Anforderungs Vorlage
 
 | Schlüssel<sup>1</sup> | Beschreibung | Wert<sup>2</sup> | Beispiel |
 | --- | ---------- | ----- | ------- |
-| Antragsteller | Mehrere apps basieren auf den Betreff-Informationen in einem Zertifikat. Es wird empfohlen, einen Wert für diesen Schlüssel anzugeben. Wenn der Betreff hier nicht festgelegt ist, empfiehlt es sich, einen Antragsteller Namen als Teil der Zertifikat Erweiterung für den alternativen Antragsteller Namen einzuschließen. | Relative Distinguished Name-Zeichen folgen Werte | Subject = CN = computer1. "Subject. com subject = CN = John Smith, CN = Users, DC =% $ so, DC = com" |
+| Subject | Mehrere apps basieren auf den Betreff-Informationen in einem Zertifikat. Es wird empfohlen, einen Wert für diesen Schlüssel anzugeben. Wenn der Betreff hier nicht festgelegt ist, empfiehlt es sich, einen Antragsteller Namen als Teil der Zertifikat Erweiterung für den alternativen Antragsteller Namen einzuschließen. | Relative Distinguished Name-Zeichen folgen Werte | Subject = CN = computer1. "Subject. com subject = CN = John Smith, CN = Users, DC =% $ so, DC = com" |
 | Exportable | Wenn der Wert auf true festgelegt ist, kann der private Schlüssel mit dem Zertifikat exportiert werden. Um ein hohes Maß an Sicherheit sicherzustellen, sollten private Schlüssel nicht exportierbar sein. in einigen Fällen ist es jedoch möglicherweise erforderlich, wenn mehrere Computer oder Benutzer denselben privaten Schlüssel gemeinsam verwenden müssen. | `true | false` | `Exportable = TRUE`. CNG-Schlüssel können zwischen diesem und nur-Text-Text unterscheiden. CAPI1 Keys können nicht. |
 | Exportableverschlüsselt | Gibt an, ob der private Schlüssel als exportierbar festgelegt werden soll. | `true | false` | `ExportableEncrypted = true`<p>**Tipp:** Nicht alle Größen und Algorithmen von öffentlichen Schlüsseln funktionieren mit allen Hash Algorithmen. Der angegebene CSP muss auch den angegebenen Hash Algorithmus unterstützen. Wenn Sie die Liste der unterstützten Hash Algorithmen anzeigen möchten, können Sie den folgenden Befehl ausführen:`certutil -oid 1 | findstr pwszCNGAlgid | findstr /v CryptOIDInfo` |
 | HashAlgorithm | Der für diese Anforderung zu verwendende Hash Algorithmus. | `Sha256, sha384, sha512, sha1, md5, md4, md2` | `HashAlgorithm = sha1`. Um die Liste der unterstützten Hash Algorithmen anzuzeigen, verwenden Sie: certutil-OID 1 | findstr pwszcngalgid | findstr/v cryptoidinfo|
@@ -124,7 +124,7 @@ Dieser Bereich der INF-Datei ist für alle neuen Zertifikat Anforderungs Vorlage
 | Erneuerungs Zertifikat | Wenn Sie ein Zertifikat erneuern müssen, das auf dem System vorhanden ist, auf dem die Zertifikat Anforderung generiert wird, müssen Sie den Zertifikat Hash als Wert für diesen Schlüssel angeben. | Der Zertifikat Hash eines beliebigen Zertifikats, das auf dem Computer verfügbar ist, auf dem die Zertifikat Anforderung erstellt wurde. Wenn Sie den Zertifikat Hash nicht kennen, verwenden Sie das MMC-Snap-in "Zertifikate", und überprüfen Sie das Zertifikat, das erneuert werden soll. Öffnen Sie die Zertifikat Eigenschaften, und sehen Sie sich das- `Thumbprint` Attribut des Zertifikats an. Für die Zertifikat Erneuerung ist entweder ein- `PKCS#7` oder ein- `CMC` Anforderungs Format erforderlich. | `RenewalCert = 4EDF274BD2919C6E9EC6A522F0F3B153E9B1582D` |
 | RequesterName | Fordert die Registrierung für eine andere Benutzer Anforderung an. Die Anforderung muss auch mit einem Registrierungs-Agent-Zertifikat signiert werden, oder die Zertifizierungsstelle lehnt die Anforderung ab. Verwenden `-cert` Sie die Option, um das Registrierungs-Agent-Zertifikat anzugeben. Der Anforderer Name kann für Zertifikat Anforderungen angegeben werden `RequestType` , wenn auf oder festgelegt ist `PKCS#7` `CMC` . Wenn `RequestType` auf festgelegt ist `PKCS#10` , wird dieser Schlüssel ignoriert. Der `Requestername` kann nur als Teil der Anforderung festgelegt werden. Sie können `Requestername` in einer ausstehenden Anforderung nicht bearbeiten. | `Domain\User` | `Requestername = Contoso\BSmith` |
 | RequestType | Bestimmt den Standard, der verwendet wird, um die Zertifikat Anforderung zu generieren und zu senden. | <ul><li>`PKCS10 -- 1`</li><li>`PKCS7 -- 2`</li><li>`CMC -- 3`</li><li>`Cert -- 4`</li><li>`SCEP -- fd00 (64768)`</li></ul>**Tipp:** Mit dieser Option wird ein selbst signiertes oder selbst ausgestelltes Zertifikat angegeben. Es wird keine Anforderung, sondern ein neues Zertifikat generiert, und das Zertifikat wird installiert. Der Standardwert ist selbst signiert. Geben Sie ein Signaturzertifikat an, indem Sie die Option – CERT verwenden, um ein selbst ausgestelltes Zertifikat zu erstellen, das nicht selbst signiert ist. | `RequestType = CMC` |
-| SecurityDescriptor | Enthält die Sicherheitsinformationen, die Sicherungs fähigen Objekten zugeordnet sind. Bei den meisten Sicherungs fähigen Objekten können Sie die Sicherheits Beschreibung eines Objekts im Funktionsaufruf angeben, von dem das Objekt erstellt wird. Zeichen folgen, die auf der [Sicherheits Deskriptor-Definitions Sprache](https://msdn.microsoft.com/library/aa379567(v=vs.85).aspx)basieren.<p>**Tipp:** Dies ist nur für Computer Kontext-nicht-Smartcardschlüssel relevant. | `SecurityDescriptor = D:P(A;;GA;;;SY)(A;;GA;;;BA)` |
+| SecurityDescriptor | Enthält die Sicherheitsinformationen, die Sicherungs fähigen Objekten zugeordnet sind. Bei den meisten Sicherungs fähigen Objekten können Sie die Sicherheits Beschreibung eines Objekts im Funktionsaufruf angeben, von dem das Objekt erstellt wird. Zeichen folgen, die auf der [Sicherheits Deskriptor-Definitions Sprache](/windows/win32/secauthz/security-descriptor-definition-language)basieren.<p>**Tipp:** Dies ist nur für Computer Kontext-nicht-Smartcardschlüssel relevant. | `SecurityDescriptor = D:P(A;;GA;;;SY)(A;;GA;;;BA)` |
 | AlternateSignatureAlgorithm | Gibt einen booleschen Wert an, der angibt, ob der Signatur Algorithmus-Objekt Bezeichner (OID) für eine PKCS # 10-Anforderung oder Zertifikat Signatur diskret oder kombiniert ist, oder ruft diesen ab. | `true | false` | `AlternateSignatureAlgorithm = false`<p>Gibt für eine RSA-Signatur `false` eine an `Pkcs1 v1.5` , während `true` eine `v2.1` Signatur angibt. |
 | Automatisch | Standardmäßig ermöglicht diese Option dem CSP-Zugriff auf den interaktiven Benutzer Desktop und das Anfordern von Informationen, z. b. eine Smartcard-PIN vom Benutzer. Wenn dieser Schlüssel auf true festgelegt ist, darf der CSP nicht mit dem Desktop interagieren und wird daran gehindert, eine Benutzeroberfläche für den Benutzer anzuzeigen. | `true | false` | `Silent = true` |
 | SMIME | Wenn dieser Parameter auf true festgelegt ist, wird der Anforderung eine Erweiterung mit dem Objektbezeichnerwert 1.2.840.113549.1.9.15 hinzugefügt. Die Anzahl der Objekt Bezeichner hängt von der installierten Betriebssystemversion und der CSP-Funktion ab, die auf symmetrische Verschlüsselungsalgorithmen verweisen, die möglicherweise von Secure Multipurpose Internet Mail Extensions (S/MIME)-Anwendungen wie Outlook verwendet werden. | `true | false` | `SMIME = true` |
@@ -248,7 +248,7 @@ Wenn `certreq -policy` Sie ohne zusätzlichen Parameter verwenden, wird ein Dial
 
 #### <a name="examples"></a>Beispiele
 
-Hier finden Sie ein Beispiel für die "Policy. inf"-Datei in der [CAPolicy. inf-Syntax](https://docs.microsoft.com/windows-server/networking/core-network-guide/cncg/server-certs/prepare-the-capolicy-inf-file).
+Hier finden Sie ein Beispiel für die "Policy. inf"-Datei in der [CAPolicy. inf-Syntax](../../networking/core-network-guide/cncg/server-certs/prepare-the-capolicy-inf-file.md).
 
 ### <a name="certreq--sign"></a>Certreq-Sign
 
@@ -260,7 +260,7 @@ certreq -sign myrequest.req myrequest.req
 certreq -submit myrequest_sign.req myrequest_cert.cer
 ```
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Wenn Sie `certreq -sign` ohne zusätzlichen Parameter verwenden, wird ein Dialogfenster geöffnet, in dem Sie die angeforderte Datei (req, CMC, txt, der, CER oder CRT) auswählen können.
 
@@ -311,7 +311,7 @@ Sie können nur gültige Zertifikate erneuern. Abgelaufene Zertifikate können n
 | -CRL | Schließt Zertifikat Sperr Listen (CRLs) in der Ausgabe an die Base64-codierten PKCS-#7 Datei, die durch angegeben wird `certchainfileout` , oder in die Base64-codierte Datei ein, die durch angegeben wird `requestfileout` . |
 | -RPC | Weist Active Directory Zertifikat Dienste (AD CS) an, anstelle von verteiltem com eine RPC-Server Verbindung (Remote Procedure Aufruf) zu verwenden. |
 | -adminforcemachine | Verwenden Sie den Schlüsseldienst oder den Identitätswechsel, um die Anforderung aus dem lokalen System Kontext zu übermitteln. Erfordert, dass der Benutzer, der diese Option aufruft, ein Mitglied der lokalen Administratoren ist. |
-| -renewonbehalfof | Übermitteln Sie eine Verlängerung für den Antragsteller, der im Signaturzertifikat identifiziert wird. Dies legt CR_IN_ROBO fest, wenn die [ICertRequest:: Submit-Methode](https://docs.microsoft.com/windows/win32/api/certcli/nf-certcli-icertrequest-submit) aufgerufen wird. |
+| -renewonbehalfof | Übermitteln Sie eine Verlängerung für den Antragsteller, der im Signaturzertifikat identifiziert wird. Dies legt CR_IN_ROBO fest, wenn die [ICertRequest:: Submit-Methode](/windows/win32/api/certcli/nf-certcli-icertrequest-submit) aufgerufen wird. |
 | -f | Erzwingen, dass vorhandene Dateien überschrieben werden. Dadurch werden auch cachingvorlagen und Richtlinien umgangen. |
 | -q | Unbeaufsichtigten Modus verwenden; alle interaktiven Eingabe Aufforderungen unterdrücken. |
 | -Unicode | Schreibt die Unicode-Ausgabe, wenn die Standardausgabe umgeleitet oder an einen anderen Befehl weitergeleitet wird, was beim Aufrufen von Windows PowerShell-Skripts hilft. |
@@ -335,9 +335,9 @@ Die folgenden Artikel enthalten Beispiele für die Verwendung von Certreq:
 
 - [Vorgehensweise beim Hinzufügen eines alternativen Antragsteller namens zu einem sicheren LDAP-Zertifikat](https://support.microsoft.com/help/931351/how-to-add-a-subject-alternative-name-to-a-secure-ldap-certificate)
 
-- [Test Lab Guide: Deploying an AD CS Two-Tier PKI Hierarchy](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831348(v=ws.11))
+- [Test Lab Guide: Deploying an AD CS Two-Tier PKI Hierarchy](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831348(v=ws.11))
 
-- [Anhang 3: Certreq.exe Syntax](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc736326(v=ws.10))
+- [Anhang 3: Certreq.exe Syntax](/previous-versions/windows/it-pro/windows-server-2003/cc736326(v=ws.10))
 
 - [Manuelles Erstellen eines Webserver-SSL-Zertifikats](https://techcommunity.microsoft.com/t5/core-infrastructure-and-security/how-to-create-a-web-server-ssl-certificate-manually/ba-p/1128529)
 

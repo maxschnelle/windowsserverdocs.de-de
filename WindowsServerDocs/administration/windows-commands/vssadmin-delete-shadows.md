@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 05/18/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: b52701f831502c16487dbbaf0cd61d839c046c68
-ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
+ms.openlocfilehash: 84135624377f589417c7524c40375ed8470d3269
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2020
-ms.locfileid: "83436705"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86954793"
 ---
 # <a name="vssadmin-delete-shadows"></a>Löschen von Schatten durch vssadmin
 
@@ -31,13 +31,13 @@ vssadmin delete shadows /for=<ForVolumeSpec> [/oldest | /all | /shadow=<ShadowID
 
 |Parameter|Beschreibung|
 |---|---|
-|/for = \< forvolumespec>|Gibt an, welche Schattenkopie des Volumes gelöscht wird.|
+|/for =\<ForVolumeSpec>|Gibt an, welche Schattenkopie des Volumes gelöscht wird.|
 |/oldest|Löscht nur die älteste Schatten Kopie.|
 |/all|Löscht alle Schatten Kopien des angegebenen Volumes.|
-|/Shadow = \< shadowid>|Löscht die Schatten Kopie, die von shadowid angegeben wird. Verwenden Sie den Befehl " **vssadmin list shadows** ", um die Schattenkopiekennung zu erhalten. Wenn Sie eine schattenkopienkennung eingeben, verwenden Sie das folgende Format, wobei jedes *X* ein hexadezimales Zeichen darstellt:<br><br>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|/Shadow =\<ShadowID>|Löscht die Schatten Kopie, die von shadowid angegeben wird. Verwenden Sie den Befehl " **vssadmin list shadows** ", um die Schattenkopiekennung zu erhalten. Wenn Sie eine schattenkopienkennung eingeben, verwenden Sie das folgende Format, wobei jedes *X* ein hexadezimales Zeichen darstellt:<br><br>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |/quiet|Gibt an, dass der Befehl keine Meldungen anzeigt, wenn er ausgeführt wird.|
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 Schatten Kopien können nur mit dem vom Client zugänglichen Typ gelöscht werden.
 
@@ -51,6 +51,6 @@ vssadmin delete shadows /for=c: /oldest
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 
-* [Befehlszeilen-Syntax Schlüssel](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc771080(v%3dws.11))
+* [Befehlszeilen-Syntax Schlüssel](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc771080(v%3dws.11))
 * [Vssadmin](vssadmin.md)
 * [Vssadmin list shadows](vssadmin-list-shadows.md)

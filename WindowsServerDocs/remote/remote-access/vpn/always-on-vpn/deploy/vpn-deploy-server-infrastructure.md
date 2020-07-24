@@ -9,12 +9,12 @@ ms.author: v-tea
 author: Teresa-MOTIV
 ms.date: 08/30/2018
 ms.reviewer: deverette
-ms.openlocfilehash: 7c09ae7a792030152780ce4eb0029cea3ca234d2
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 0a9d9c139c721608e9104c4943dda2664432c94d
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80818923"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86955102"
 ---
 # <a name="step-2-configure-the-server-infrastructure"></a>Schritt 2 Konfigurieren der Serverinfrastruktur
 
@@ -43,7 +43,7 @@ Sie registrieren Zertifikate manuell auf VPN-Servern.
 
 5. Führen Sie im Gruppenrichtlinienverwaltungs-Editor die folgenden Schritte aus, um die automatische Registrierung von Computer Zertifikaten zu konfigurieren:
 
-    1. Navigieren Sie im Navigationsbereich zu **Computer Konfiguration** > **Richtlinien** > **Windows-Einstellungen** > **Sicherheitseinstellungen** > **Richtlinien für öffentliche Schlüssel**.
+    1. Navigieren Sie im Navigationsbereich zu **Computer Konfiguration**  >  **Richtlinien**  >  **Windows-Einstellungen**  >  **Sicherheitseinstellungen**  >  **Richtlinien für öffentliche Schlüssel**.
 
     2. Klicken Sie im Detailfenster mit der rechten Maustaste auf **Zertifikat Dienst Client – automatische**Registrierung, und wählen Sie dann **Eigenschaften**aus.
 
@@ -51,23 +51,23 @@ Sie registrieren Zertifikate manuell auf VPN-Servern.
 
     4. Wählen Sie **Abgelaufene Zertifikate erneuern, ausstehende Zertifikate aktualisieren und gesperrte Zertifikate entfernen** und **Zertifikate, die Zertifikatvorlagen verwenden, aktualisieren** aus.
 
-    5. Wählen Sie **OK**.
+    5. Klicken Sie auf **OK**.
 
 6. Führen Sie im Gruppenrichtlinienverwaltungs-Editor die folgenden Schritte aus, um die automatische Registrierung von Benutzer Zertifikaten zu konfigurieren:
 
-    1. Navigieren Sie im Navigationsbereich zu **Benutzerkonfiguration** > **Richtlinien** > **Windows-Einstellungen** > **Sicherheitseinstellungen** > **Richtlinien für öffentliche Schlüssel**.
+    1. Navigieren Sie im Navigationsbereich zu **Benutzerkonfiguration**  >  **Richtlinien**  >  **Windows-Einstellungen**  >  **Sicherheitseinstellungen**  >  **Richtlinien für öffentliche Schlüssel**.
 
-    2. Klicken Sie im Detailbereich mit der rechten Maustaste auf **Zertifikatdienstclient - Automatische Registrierung**, und wählen Sie **Eigenschaften** aus.
+    2. Klicken Sie im Detailfenster mit der rechten Maustaste auf **Zertifikat Dienst Client – automatische** Registrierung, und wählen Sie **Eigenschaften**aus.
 
     3. Wählen Sie im Dialogfeld Zertifikat Dienst Client – Eigenschaften für automatische Registrierung unter **Konfigurations Modell**die **Option aktiviert**aus.
 
     4. Wählen Sie **Abgelaufene Zertifikate erneuern, ausstehende Zertifikate aktualisieren und gesperrte Zertifikate entfernen** und **Zertifikate, die Zertifikatvorlagen verwenden, aktualisieren** aus.
 
-    5. Wählen Sie **OK**.
+    5. Klicken Sie auf **OK**.
 
     6. Schließen Sie den Gruppenrichtlinienverwaltungs-Editor.
 
-7. Schließen Sie Gruppenrichtlinienverwaltung.
+7. Schließen Sie die Gruppenrichtlinienverwaltung.
 
 ### <a name="ca-configuration-for-non-domain-joined-computers"></a>Zertifizierungsstellen Konfiguration für Computer, die keiner Domäne beigetreten sind
 
@@ -109,7 +109,7 @@ Da der RRAS-Server keiner Domäne beigetreten ist, kann die automatische Registr
     certreq -accept VPNGateway.cer
     ```
 
-11. Führen Sie das MMC-Snap-in "Zertifikate" aus, wie [hier](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) beschrieben: Auswählen der Option **Computer Konto** .
+11. Führen Sie das MMC-Snap-in "Zertifikate" aus, wie [hier](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) beschrieben: Auswählen der Option **Computer Konto** .
 
 12. Stellen Sie sicher, dass für den RRAS-Server ein gültiges Zertifikat mit den folgenden Eigenschaften vorhanden ist:
 
@@ -122,7 +122,7 @@ Da der RRAS-Server keiner Domäne beigetreten ist, kann die automatische Registr
 Hier sehen Sie ein Beispielskript für eine Richtlinie für Zertifikat Anforderungen, die verwendet wird, um ein VPN-Gatewayzertifikat mithilfe eines Out-of-Band-Prozesses anzufordern.
 
 >[!TIP]
->Eine Kopie des Skripts vpngateway. inf finden Sie im IP-Kit für VPN-Angebote unter dem Ordner Zertifikat Anforderungs Richtlinien. Aktualisieren Sie nur "Subject" und "\_Continue\_" mit kundenspezifischen Werten.
+>Eine Kopie des Skripts vpngateway. inf finden Sie im IP-Kit für VPN-Angebote unter dem Ordner Zertifikat Anforderungs Richtlinien. Aktualisieren Sie nur "Subject" und " \_ Continue" \_ mit kundenspezifischen Werten.
 
 ```
 [Version] 
@@ -175,7 +175,7 @@ Außerdem fügen Sie eine Gruppe hinzu, die VPN-Server und eine andere Gruppe mi
 
 6. Fügen Sie im Dialogfeld Benutzer auswählen alle Benutzer hinzu, die VPN-Zugriff benötigen, und wählen Sie **OK**aus.
 
-7. Schließen Sie Active Directory-Benutzer und -Computer.
+7. Schließen Sie %%amp;quot;Active Directory-Benutzer und -Computer%%amp;quot;.
 
 ### <a name="configure-the-vpn-servers-and-nps-servers-groups"></a>Konfigurieren der VPN-Server und NPS-Server Gruppen
 
@@ -197,14 +197,14 @@ Außerdem fügen Sie eine Gruppe hinzu, die VPN-Server und eine andere Gruppe mi
 
 9. Wiederholen Sie die vorherigen Schritte für die NPS-Server Gruppe.
 
-10. Schließen Sie Active Directory-Benutzer und -Computer.
+10. Schließen Sie %%amp;quot;Active Directory-Benutzer und -Computer%%amp;quot;.
 
 ## <a name="create-the-user-authentication-template"></a>Erstellen der Benutzer Authentifizierungs Vorlage
 
-In diesem Verfahren konfigurieren Sie eine benutzerdefinierte Client-Server-Authentifizierungs Vorlage. Diese Vorlage ist erforderlich, da Sie die Gesamtsicherheit des Zertifikats verbessern möchten, indem Sie aktualisierte Kompatibilitäts Grade auswählen und den Kryptografieanbieter der Microsoft-Plattform auswählen. Mit dieser letzten Änderung können Sie das TPM auf den Client Computern zum Sichern des Zertifikats verwenden. Eine Übersicht über das TPM finden Sie unter [Übersicht](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview)über die Trusted Platform Module-Technologie.
+In diesem Verfahren konfigurieren Sie eine benutzerdefinierte Client-Server-Authentifizierungs Vorlage. Diese Vorlage ist erforderlich, da Sie die Gesamtsicherheit des Zertifikats verbessern möchten, indem Sie aktualisierte Kompatibilitäts Grade auswählen und den Kryptografieanbieter der Microsoft-Plattform auswählen. Mit dieser letzten Änderung können Sie das TPM auf den Client Computern zum Sichern des Zertifikats verwenden. Eine Übersicht über das TPM finden Sie unter [Übersicht](/windows/device-security/tpm/trusted-platform-module-overview)über die Trusted Platform Module-Technologie.
 
 >[!IMPORTANT] 
->Der Kryptografieanbieter für Microsoft-Plattformen erfordert einen TPM-Chip, falls Sie einen virtuellen Computer ausführen, und Sie erhalten die folgende Fehlermeldung: "Es wurde kein gültiger CSP auf dem lokalen Computer gefunden". Wenn Sie versuchen, das Zertifikat manuell zu registrieren, müssen Sie "Microsoft Software Key Storage" prüfen. Anbieter "und nach" der Microsoft-Plattform-Kryptografieanbieter "auf der Registerkarte" Kryptografie "in den Zertifikat Eigenschaften.
+>Kryptografieanbieter für Microsoft-Plattform erfordert einen TPM-Chip, wenn Sie einen virtuellen Computer ausführen und die folgende Fehlermeldung angezeigt wird: "Es wurde kein gültiger CSP auf dem lokalen Computer gefunden". Wenn Sie versuchen, das Zertifikat manuell zu registrieren, müssen Sie "Microsoft Software Key Storage Provider" (Microsoft-Software Schlüsselspeicher-Anbieter) aktivieren und es in der richtigen Reihenfolge auf der Registerkarte "Kryptografie" in den Zertifikat Eigenschaften aktivieren.
 
 **Dringlichkeit**
 
@@ -277,7 +277,7 @@ In diesem Verfahren können Sie eine neue Server Authentifizierungs Vorlage für
 >[!IMPORTANT]
 >Da VPN-Clients über das öffentliche Internet auf diesen Server zugreifen, unterscheiden sich die Antragsteller Namen und alternativen Namen von dem internen Servernamen. Daher können Sie dieses Zertifikat nicht automatisch auf VPN-Servern registrieren.
 
-**Voraussetzung**
+**Voraussetzungen:**
 
 In die Domäne eingebundenen VPN-Servern
 
@@ -415,7 +415,7 @@ Im Gegensatz zum Benutzerzertifikat müssen Sie das Zertifikat des VPN-Servers m
 
 2. Klicken Sie mit der rechten Maustaste auf **persönlich**, wählen Sie **alle Aufgaben** aus, und wählen Sie dann **Neues Zertifikat anfordern** , um den Zertifikatregistrierungs-Assistenten
 
-3. Wählen Sie auf der Seite Vorbereitung die Option **weiter**aus.
+3. Wählen Sie auf der Seite Vorbereitung die Option **Weiter**.
 
 4. Wählen Sie auf der Seite Zertifikat Registrierungs Richtlinie auswählen die Option **weiter**aus.
 
@@ -433,11 +433,11 @@ Im Gegensatz zum Benutzerzertifikat müssen Sie das Zertifikat des VPN-Servers m
 
     5. Wählen Sie nach Eingabe der einzelnen Namen **Hinzufügen** aus.
 
-    6. Klicken Sie abschließend auf **OK** .
+    6. Wählen Sie nach der Fertigstellung **OK** aus.
 
 7. Wählen Sie **Anmelden**aus.
 
-8. Wählen Sie **Fertig stellen** aus.
+8. Wählen Sie **Fertig stellen**aus.
 
 9. Wählen Sie im Zertifikate-Snap-in unter **persönlich**die Option **Zertifikate**aus.
     

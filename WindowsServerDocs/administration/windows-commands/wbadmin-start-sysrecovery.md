@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2f7e23a82afba85ea8a670c636e0f700cb7def2e
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: a3d7be286e124af9e31c8607827a97f967b907ae
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85930919"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86954502"
 ---
 # <a name="wbadmin-start-sysrecovery"></a>wbadmin start sysrecovery
 
@@ -23,7 +23,7 @@ ms.locfileid: "85930919"
 Führt eine Systemwiederherstellung (Bare-Metal-Recovery) mithilfe der Parameter aus, die Sie angeben.
 
 > [!NOTE]
-> Dieser Unterbefehl kann nur in der Windows-Wiederherstellungs Umgebung ausgeführt werden, und er ist standardmäßig nicht im Verwendungs Text von **Wbadmin**aufgeführt. Weitere Informationen finden Sie unter [Übersicht über die Windows-Wiederherstellungs Umgebung (Windows RE)](https://technet.microsoft.com/library/hh825173.aspx).
+> Dieser Unterbefehl kann nur in der Windows-Wiederherstellungs Umgebung ausgeführt werden, und er ist standardmäßig nicht im Verwendungs Text von **Wbadmin**aufgeführt. Weitere Informationen finden Sie unter [Übersicht über die Windows-Wiederherstellungs Umgebung (Windows RE)](/previous-versions/windows/it-pro/windows-8.1-and-8/hh825173(v=win.10)).
 
 Wenn Sie mit diesem Unterbefehl eine Systemwiederherstellung durchführen möchten, müssen Sie Mitglied der Gruppe " **Sicherungs-Operatoren** " oder der Gruppe " **Administratoren** " sein, oder die entsprechenden Berechtigungen müssen an Sie delegiert worden sein.
 
@@ -65,8 +65,8 @@ Geben Sie Folgendes ein, um mit der Wiederherstellung der Informationen aus der 
 wbadmin start sysrecovery -version:04/30/2013-09:00 -backupTarget:\\servername\share -machine:server01
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)
--   Cmdlet " [Get-wbbaremetalrecovery](https://technet.microsoft.com/library/jj902461.aspx) "
+-   Cmdlet " [Get-wbbaremetalrecovery](/previous-versions/windows/it-pro/windows-8.1-and-8/hh825173(v=win.10)) "

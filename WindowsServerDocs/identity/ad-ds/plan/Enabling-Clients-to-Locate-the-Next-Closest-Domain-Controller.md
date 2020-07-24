@@ -8,12 +8,12 @@ ms.date: 08/08/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 75e31a435e8d8411fbe4db242e6d31fd7676fe4e
-ms.sourcegitcommit: 11421f4005f9f3a3f6c0db95b1836d0f765a9fa3
+ms.openlocfilehash: ce946fb0fe581a66f4a4e29cf8491f00294b5bcb
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81624248"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86953582"
 ---
 # <a name="enabling-clients-to-locate-the-next-closest-domain-controller"></a>Ermöglichen, dass Clients den nächstgelegenen Domänencontroller finden
 
@@ -31,7 +31,7 @@ Standardmäßig ist die Einstellung **nächstgelegene Site testen** nicht aktivi
 - Wenn kein Domänen Controller am selben Standort verfügbar ist, versuchen Sie, einen beliebigen Domänen Controller in der Domäne zu finden.
 
 > [!NOTE]
-> Dabei handelt es sich um denselben Algorithmus, den der DC-Locator in früheren Versionen von Active Directory verwendet hat. Weitere Informationen finden Sie im Artikel über die [Funktionsweise der DNS-Unterstützung für Active Directory](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc759550(v=ws.10)).
+> Dabei handelt es sich um denselben Algorithmus, den der DC-Locator in früheren Versionen von Active Directory verwendet hat. Weitere Informationen finden Sie im Artikel über die [Funktionsweise der DNS-Unterstützung für Active Directory](/previous-versions/windows/it-pro/windows-server-2003/cc759550(v=ws.10)).
 
 Wenn Sie die Einstellung für den nächst **gelegenen Standort testen** aktivieren, verwendet der Domänen Controller-Locator den folgenden Algorithmus, um einen Domänen Controller zu finden:
 
@@ -54,4 +54,4 @@ Wenn die Einstellung nicht aktiviert ist, versucht der Client, einen Domänen Co
 > [!NOTE]
 > Die Einstellung am **nächsten gelegenen Standort testen** funktioniert mit der automatischen Standort Abdeckung. Wenn beispielsweise der nächstgelegene Standort keinen Domänen Controller aufweist, versucht der Domänencontrollerlocator, den Domänen Controller zu finden, der die automatische Standort Abdeckung für diesen Standort ausführt.
 
-Sie können ein Gruppenrichtlinie Objekt (GPO) erstellen und mit dem entsprechenden Objekt für Ihre Organisation verknüpfen **, indem Sie die Standard** Domänen Richtlinie so ändern, dass Sie sich auf alle Clients auswirkt, auf denen Windows Vista oder höher bzw. Windows Server 2008 oder höher in der Domäne ausgeführt wird. Weitere Informationen zum Festlegen der nächst **gelegenen Site** -Einstellung finden Sie unter Aktivieren von [Clients zum Auffinden eines Domänen Controllers am nächstgelegenen Standort](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc772592(v=ws.10)).
+Sie können ein Gruppenrichtlinie Objekt (GPO) erstellen und mit dem entsprechenden Objekt für Ihre Organisation verknüpfen **, indem Sie die Standard** Domänen Richtlinie so ändern, dass Sie sich auf alle Clients auswirkt, auf denen Windows Vista oder höher bzw. Windows Server 2008 oder höher in der Domäne ausgeführt wird. Weitere Informationen zum Festlegen der nächst **gelegenen Site** -Einstellung finden Sie unter Aktivieren von [Clients zum Auffinden eines Domänen Controllers am nächstgelegenen Standort](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc772592(v=ws.10)).

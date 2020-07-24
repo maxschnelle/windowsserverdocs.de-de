@@ -1,6 +1,6 @@
 ---
 ms.assetid: d7a4d2e1-217d-4ffc-93f0-817149bd9e7f
-title: Angriffswege
+title: Wege der Gefährdung
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -8,18 +8,18 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: d65d8c4e568ea1eeeef1c998798626adc9987a2b
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: c8b9465105bce90d17a09de8019c0378b23d720c
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80821303"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86953482"
 ---
-# <a name="avenues-to-compromise"></a>Angriffswege
+# <a name="avenues-to-compromise"></a>Wege der Gefährdung
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-*Gesetz Nummer 7: das sicherste Netzwerk ist eine wohl verwaltete Netzwerk.* - [10 unveränderliche Gesetze der Sicherheitsverwaltung](https://technet.microsoft.com/library/cc722488.aspx)  
+*Gesetz Nummer 7: das sicherste Netzwerk ist eine wohl verwaltete Netzwerk.* - [10 unveränderliche Gesetze der Sicherheitsverwaltung](/previous-versions//cc722488(v=technet.10))  
   
 In Organisationen, in denen schwerwiegende Kompromittierung auftreten, zeigen die Bewertungen in der Regel, dass die Organisation nur begrenzten Einblick in den tatsächlichen Zustand Ihrer IT-Infrastrukturen hat, was sich von ihren "as dokumentierten" Bundesstaaten erheblich unterscheiden kann. Diese Abweichungen führen zu Sicherheitsrisiken, die eine Gefährdung der Umgebung zur Verfügung stellen, oft mit geringem Risiko der Ermittlung, bis der Kompromiss zu dem Punkt kommt, an dem die Angreifer die Umgebung effektiv "besitzen".  
   
@@ -48,7 +48,7 @@ Niemand absichtlich erstellt eine IT-Infrastruktur, die das Unternehmen kompromi
 Unabhängig von der Motivation des Angreifers beginnen die meisten Informations Sicherheitsverletzungen mit der Gefährdung von einem oder zwei Systemen gleichzeitig. Diese anfänglichen Ereignisse oder Einstiegspunkte im Netzwerk nutzen häufig Sicherheitsrisiken, die möglicherweise behoben wurden, aber nicht. Der [2012 Data Verletzungs-Untersuchungsbericht (dbir)](http://www.verizonbusiness.com/resources/reports/rp_data-breach-investigations-report-2012_en_xg.pdf), bei dem es sich um eine jährliche Studie handelt, die vom Verizon-Risiko Team in Zusammenarbeit mit einer Reihe von nationalen Sicherheitsbehörden und anderen Unternehmen erstellt wurde, besagt, dass 96 Prozent der Angriffe "nicht sehr schwierig" waren und dass "97 Prozent der Verstöße durch einfache oder zwischen Steuerelemente vermeidbar waren". Diese Ergebnisse sind möglicherweise eine direkte Folge der folgenden häufig genutzten Sicherheitsrisiken.  
   
 ### <a name="gaps-in-antivirus-and-antimalware-deployments"></a>Lücken bei Antiviren-und antischadsoftwarebereitstellungen  
-*Gesetz Nummer 8: ein veralteter Malware Scanner ist nur geringfügig besser geeignet als überhaupt kein Scanner.* - [zehn unveränderliche Sicherheitsgesetze (Version 2,0)](https://technet.microsoft.com/security/hh278941.aspx)  
+*Gesetz Nummer 8: ein veralteter Malware Scanner ist nur geringfügig besser geeignet als überhaupt kein Scanner.* - [Zehn unveränderliche Sicherheitsgesetze (Version 2,0)](https://www.microsoft.com/en-us/msrc?rtc=1)  
   
 Bei der Analyse der Antiviren-und antischadsoftwarebereitstellungen von Organisationen wird häufig eine Umgebung angezeigt, in der die meisten Arbeitsstationen mit aktiviertem und aktuellem Antivirenprogramm und Antischadsoftware konfiguriert sind. Ausnahmen sind in der Regel Arbeitsstationen, die selten mit der Unternehmensumgebung oder Mitarbeitern von Mitarbeitern verbunden sind, für die Antivirus-und Antischadsoftware schwer bereitgestellt, konfiguriert und aktualisiert werden kann.  
   
@@ -57,7 +57,7 @@ Die Server Population ist jedoch tendenziell in vielen kompromittierten Umgebung
 Es ist wichtig, nicht nur sicherzustellen, dass Ihre Systeme durch aktuellen, umfassenden Schutz vor Schadsoftware geschützt sind, sondern auch zum Überwachen von Systemen zur Deaktivierung oder Entfernung von Antivirensoftware und Antischadsoftware sowie zum automatischen Neustarten des Schutzes, wenn er manuell deaktiviert wird. Obwohl keine Antivirus-und antischadsoftwaresoftware die Verhinderung und Erkennung aller Infektionen gewährleisten kann, kann eine ordnungsgemäß konfigurierte und bereitgestellte Antivirus-und antischadsoftwareimplementierung die Wahrscheinlichkeit einer Infektion verringern  
   
 ### <a name="incomplete-patching"></a>Unvollständiges Patchen  
-*Gesetz Nummer 3: Wenn Sie nicht mit Sicherheitskorrekturen Schritt halten, ist Ihr Netzwerk für lange nicht Ihre eigene Lösung.* - [10 unveränderliche Gesetze der Sicherheitsverwaltung](https://technet.microsoft.com/library/cc722488.aspx)  
+*Gesetz Nummer 3: Wenn Sie nicht mit Sicherheitskorrekturen Schritt halten, ist Ihr Netzwerk für lange nicht Ihre eigene Lösung.* - [10 unveränderliche Gesetze der Sicherheitsverwaltung](/previous-versions//cc722488(v=technet.10))  
   
 Microsoft gibt am zweiten Dienstag jedes Monats Sicherheits Bulletins frei, obwohl in seltenen Fällen Sicherheitsupdates zwischen den monatlichen Sicherheitsupdates veröffentlicht werden (diese werden auch als "Out-of-Band"-Updates bezeichnet), wenn das Sicherheitsrisiko für Kunden Systeme ein dringendes Risiko darstellt. Ob ein kleines Unternehmen seine Windows-Computer für die Verwendung von Windows Update zur Verwaltung von System-und anwendungspatching konfiguriert oder eine große Organisation Verwaltungssoftware wie Microsoft Endpoint Configuration Manager verwendet, um Patches gemäß detaillierten, hierarchischen Plänen bereitzustellen. viele Kunden Patchen Ihre Windows-Infrastrukturen relativ rechtzeitig.  
   
@@ -80,7 +80,7 @@ Auch in Fällen, in denen Unternehmen ihre Domänen Controller auf Windows Serve
 Um Legacy Systeme und Anwendungen auszuschließen, sollten Sie sich zunächst auf die Identifizierung und Katalogisierung konzentrieren und dann bestimmen, ob die Anwendung oder der Host aktualisiert oder ersetzt werden soll. Obwohl es schwierig sein kann, Ersetzungen für hoch spezialisierte Anwendungen zu finden, für die weder Unterstützung noch ein Upgradepfad verfügbar ist, können Sie ein Konzept mit dem Namen "Creative Zerstörung" nutzen, um die Legacy Anwendung durch eine neue Anwendung zu ersetzen, die die erforderliche Funktionalität bereitstellt. Die [Planung einer](../../../ad-ds/plan/security-best-practices/../../../ad-ds/plan/security-best-practices/Planning-for-Compromise.md) Gefährdung wird weiter unten in diesem Dokument ausführlicher in "Planen der Gefährdung" beschrieben.  
   
 ### <a name="misconfiguration"></a>Fehlkonfiguration  
-*Gesetzliche Nummer 4: Es ist nicht sehr gut, Sicherheitskorrekturen auf einem Computer zu installieren, der noch nie gesichert wurde.* - [10 unveränderliche Gesetze der Sicherheitsverwaltung](https://technet.microsoft.com/library/cc722488.aspx)  
+*Gesetzliche Nummer 4: Es ist nicht sehr gut, Sicherheitskorrekturen auf einem Computer zu installieren, der noch nie gesichert wurde.* - [10 unveränderliche Gesetze der Sicherheitsverwaltung](/previous-versions//cc722488(v=technet.10))  
   
 Auch in Umgebungen, in denen Systeme im allgemeinen aktuell gehalten und gepatcht werden, erkennen wir häufig Lücken oder Fehlkonfigurationen im Betriebssystem, auf Computern ausgelaufende Anwendungen und Active Directory. Einige Fehlkonfigurationen machen nur den lokalen Computer zur Gefährdung verfügbar, aber nach dem "Besitzer" eines Computers konzentrieren sich Angreifer in der Regel auf die Weitergabe der Gefährdung über andere Systeme und schließlich auf die Active Directory. Im folgenden finden Sie einige der allgemeinen Bereiche, in denen die Konfiguration von Risiken erkannt wird.  
   
@@ -98,7 +98,7 @@ Wenn wir die Internet Explorer-Konfigurationseinstellungen auf Domänen Controll
 Domänen Controller sollten als kritische Infrastrukturkomponenten behandelt werden, die flexibler geschützt und besser konfiguriert werden als Datei-, Druck-und Anwendungsserver. Domänen Controller sollten keine Software ausführen, die nicht erforderlich ist, damit der Domänen Controller funktioniert, oder den Domänen Controller gegen Angriffe schützt. Domänen Controller dürfen nicht auf das Internet zugreifen können, und die Sicherheitseinstellungen sollten durch Gruppenrichtlinie Objekte (GPOs) konfiguriert und erzwungen werden. Ausführliche Empfehlungen für die sichere Installation, Konfiguration und Verwaltung von Domänen Controllern finden Sie unter [Sichern von Domänen Controllern gegen Angriffe](../../../ad-ds/plan/security-best-practices/Securing-Domain-Controllers-Against-Attack.md).  
   
 #### <a name="within-the-operating-system"></a>Innerhalb des Betriebssystems  
-*Gesetzliche Nummer 2: Wenn ein fehlerhafter Entwickler das Betriebssystem auf Ihrem Computer ändern kann, ist es nicht mehr der Computer.* - [zehn unveränderliche Sicherheitsgesetze (Version 2,0)](https://technet.microsoft.com/security/hh278941.aspx)  
+*Gesetzliche Nummer 2: Wenn ein fehlerhafter Entwickler das Betriebssystem auf Ihrem Computer ändern kann, ist es nicht mehr der Computer.* - [Zehn unveränderliche Sicherheitsgesetze (Version 2,0)](https://www.microsoft.com/en-us/msrc?rtc=1)  
   
 Obwohl einige Organisationen grundlegende Konfigurationen für Server mit unterschiedlichen Typen erstellen und eine eingeschränkte Anpassung des Betriebssystems nach der Installation zulassen, deckt die Analyse kompromittierter Umgebungen oftmals eine große Anzahl von Servern auf, die auf Ad-hoc-Basis bereitgestellt und manuell und unabhängig konfiguriert werden. Konfigurationen zwischen zwei Servern, die dieselbe Funktion ausführen, unterscheiden sich möglicherweise vollständig, wenn keiner der Server sicher konfiguriert ist. Umgekehrt können Server konfigurationsbaselines konsistent erzwungen, aber auch konsistent falsch konfiguriert werden. Das heißt, dass Server so konfiguriert werden, dass auf allen Servern eines bestimmten Typs dasselbe Sicherheitsrisiko entsteht. Die Fehlkonfiguration umfasst Verfahren wie das Deaktivieren von Sicherheitsfunktionen, das Gewähren von übermäßigen rechten und Berechtigungen für Konten (insbesondere Dienst Konten), die Verwendung identischer lokaler Anmelde Informationen über Systeme hinweg und das Zulassen der Installation nicht autorisierter Anwendungen und Dienstprogramme, die eigene Sicherheitslücken erzeugen.  
   
@@ -121,17 +121,17 @@ Es wurde seit längerer Zeit zwischen den Sicherheitsexperten diskutiert, ob bei
   
 Wenn das lokale Administrator Konto dem gleichen Wert Server übergreifend zugewiesen ist und das Kennwort, das dem Konto zugewiesen ist, ebenfalls auf denselben Wert festgelegt ist, können Angreifer die Anmelde Informationen des Kontos auf einem Computer extrahieren, auf dem Administrator-oder systemebenenzugriff abgerufen wurde. Der Angreifer muss das Administrator Konto nicht anfänglich kompromittieren. Sie müssen nur das Konto eines Benutzers kompromittieren, der Mitglied der lokalen Administrator Gruppe ist, oder ein Dienst Konto, das für die Verwendung als LocalSystem oder mit Administrator Rechten konfiguriert ist. Der Angreifer kann dann die Anmelde Informationen für das Administrator Konto extrahieren und diese Anmelde Informationen in Netzwerk Anmeldungen bei anderen Computern im Netzwerk wiedergeben.  
   
-Solange ein anderer Computer über ein lokales Konto mit dem gleichen Benutzernamen und Kennwort (oder Kenn Wort Hash) wie die angezeigten Konto Anmelde Informationen verfügt, ist der Anmeldeversuch erfolgreich, und der Angreifer erhält privilegierten Zugriff auf den Zielcomputer. In den aktuellen Versionen von Windows ist das integrierte Administrator Konto [standardmäßig deaktiviert](https://technet.microsoft.com/library/cc753450.aspx), aber in älteren Betriebssystemen ist das Konto standardmäßig aktiviert.  
+Solange ein anderer Computer über ein lokales Konto mit dem gleichen Benutzernamen und Kennwort (oder Kenn Wort Hash) wie die angezeigten Konto Anmelde Informationen verfügt, ist der Anmeldeversuch erfolgreich, und der Angreifer erhält privilegierten Zugriff auf den Zielcomputer. In den aktuellen Versionen von Windows ist das integrierte Administrator Konto [standardmäßig deaktiviert](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753450(v=ws.11)), aber in älteren Betriebssystemen ist das Konto standardmäßig aktiviert.  
   
 > [!NOTE]  
-> Einige Organisationen haben absichtlich lokale Administrator Konten so konfiguriert, dass Sie in der Annahme aktiviert werden, dass dies ein "failsafe" ist, wenn alle anderen privilegierten Konten von einem System gesperrt sind. Auch wenn das lokale Administrator Konto deaktiviert ist und keine anderen Konten verfügbar sind, die das Konto aktivieren oder sich am System mit Administrator Rechten anmelden können, kann das System im abgesicherten Modus gestartet werden, und das integrierte lokale Administrator Konto kann erneut aktiviert werden, wie in [Microsoft-Support Artikel 814777](https://support.microsoft.com/kb/814777)beschrieben. Wenn das System GPOs weiterhin erfolgreich anwendet, kann ein GPO geändert werden (vorübergehend), um das Administrator Konto erneut zu aktivieren, oder es können eingeschränkte Gruppen konfiguriert werden, um der lokalen Administrator Gruppe ein domänenbasiertes Konto hinzuzufügen. Reparaturen können ausgeführt werden, und das Administrator Konto kann erneut deaktiviert werden. Um eine lateral Kompromittierung, bei der die Anmelde Informationen des integrierten lokalen Administrator Kontos verwendet werden, effektiv zu verhindern, müssen eindeutige Benutzernamen und Kenn Wörter für lokale Administrator Konten konfiguriert werden. Informationen zum Bereitstellen eindeutiger Kenn Wörter für lokale Administrator Konten über ein GPO finden Sie unter [Lösung für die Verwaltung des integrierten Administrator Konto Kennworts über das](https://technet.microsoft.com/mt227395.aspx) Gruppenrichtlinien Objekt auf TechNet.  
+> Einige Organisationen haben absichtlich lokale Administrator Konten so konfiguriert, dass Sie in der Annahme aktiviert werden, dass dies ein "failsafe" ist, wenn alle anderen privilegierten Konten von einem System gesperrt sind. Auch wenn das lokale Administrator Konto deaktiviert ist und keine anderen Konten verfügbar sind, die das Konto aktivieren oder sich am System mit Administrator Rechten anmelden können, kann das System im abgesicherten Modus gestartet werden, und das integrierte lokale Administrator Konto kann erneut aktiviert werden, wie in [Microsoft-Support Artikel 814777](https://support.microsoft.com/kb/814777)beschrieben. Wenn das System GPOs weiterhin erfolgreich anwendet, kann ein GPO geändert werden (vorübergehend), um das Administrator Konto erneut zu aktivieren, oder es können eingeschränkte Gruppen konfiguriert werden, um der lokalen Administrator Gruppe ein domänenbasiertes Konto hinzuzufügen. Reparaturen können ausgeführt werden, und das Administrator Konto kann erneut deaktiviert werden. Um eine lateral Kompromittierung, bei der die Anmelde Informationen des integrierten lokalen Administrator Kontos verwendet werden, effektiv zu verhindern, müssen eindeutige Benutzernamen und Kenn Wörter für lokale Administrator Konten konfiguriert werden. Informationen zum Bereitstellen eindeutiger Kenn Wörter für lokale Administrator Konten über ein GPO finden Sie unter [Lösung für die Verwaltung des integrierten Administrator Konto Kennworts über das](/previous-versions/mt227395(v=msdn.10)) Gruppenrichtlinien Objekt auf TechNet.  
   
 ##### <a name="permitting-installation-of-unauthorized-applications"></a>Zulassen der Installation nicht autorisierter Anwendungen  
-*Recht Nummer eins: Wenn ein fehlerhafter Experte Sie dazu überreden kann, sein Programm auf Ihrem Computer auszuführen, ist es nicht mehr allein der Computer.* - [zehn unveränderliche Sicherheitsgesetze (Version 2,0)](https://technet.microsoft.com/security/hh278941.aspx)  
+*Recht Nummer eins: Wenn ein fehlerhafter Experte Sie dazu überreden kann, sein Programm auf Ihrem Computer auszuführen, ist es nicht mehr allein der Computer.* - [Zehn unveränderliche Sicherheitsgesetze (Version 2,0)](https://www.microsoft.com/en-us/msrc?rtc=1)  
   
 Unabhängig davon, ob eine Organisation konsistente Baseline-Einstellungen auf allen Servern bereitstellt, sollte die Installation von Anwendungen, die nicht Teil der definierten Rolle eines Servers sind, nicht zulässig sein. Durch die Installation von Software, die nicht Teil der von einem Server festgelegten Funktionalität ist, werden die Server versehentlich oder böswilliger Software Software zur Verfügung gestellt, die die Angriffsfläche des Servers erhöht, Anwendungs Sicherheitslücken auslöst oder eine System Instabilität verursacht.  
   
-#### <a name="applications"></a>Anwendungen  
+#### <a name="applications"></a>Applications  
 Wie bereits beschrieben, werden Anwendungen häufig installiert und konfiguriert, um Konten zu verwenden, denen mehr Berechtigungen erteilt werden, als die Anwendung tatsächlich benötigt. In einigen Fällen gibt die Dokumentation der Anwendung an, dass Dienst Konten Mitglieder der lokalen Administrator Gruppe eines Servers sein müssen oder für die Verwendung im Kontext des localsystems konfiguriert werden müssen. Dies liegt häufig daran, dass die Anwendung diese Rechte erfordert, aber da die Bestimmung der Rechte und Berechtigungen, die für die Dienst Konten einer Anwendung erforderlich sind, zusätzliche Zeit und Mühe erfordert. Wenn eine Anwendung nicht mit den minimalen Berechtigungen installiert wird, die für die Funktionsweise der Anwendung und der konfigurierten Funktionen erforderlich sind, ist das System für Angriffe verfügbar, die Anwendungs Privilegien ohne Angriffe gegen das Betriebssystem selbst nutzen.  
   
 ### <a name="lack-of-secure-application-development-practices"></a>Fehlende sichere Anwendungs Entwicklungsverfahren  
@@ -165,5 +165,3 @@ In einigen Organisationen werden die vollständigen Kosten für die Lösung eine
   
 Durch die Implementierung der SDL wird die Sicherheit verbessert, indem die Sicherheitsanforderungen in den Voraussetzungen für die Erfassung und den Entwurf einer Anwendung zu einer Bedrohungsmodellierung für Anwendungen mit hohem Risiko erfordert eine effektive Schulung und Überwachung von Entwicklern. und erfordert klare, konsistente Code Standards und-Methoden. Der Nettoeffekt einer SDL-Anwendung ist eine bedeutende Verbesserung der Anwendungssicherheit, während gleichzeitig die Kosten für die Entwicklung, Bereitstellung, Wartung und Außerbetriebnahme einer Anwendung gesenkt werden. Eine ausführliche Erläuterung des Entwurfs und der Implementierung von SDL geht über den Rahmen dieses Dokuments hinaus. Weitere Informationen finden Sie im [Microsoft-Sicherheits Entwicklungszyklus](https://www.microsoft.com/security/sdl/default.aspx) .  
   
-
-

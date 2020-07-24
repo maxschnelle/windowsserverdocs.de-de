@@ -8,12 +8,12 @@ ms.date: 06/13/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: active-directory-federation-services
-ms.openlocfilehash: 09b789937c9ff1dad90c3533616a4ed800204267
-ms.sourcegitcommit: 046123d4f2d24dc00b35ea99adee6f8d322c76bf
+ms.openlocfilehash: 1bd5d95739bc1c975f5f0c4d7efb8dc6f91e0412
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85416293"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86954402"
 ---
 # <a name="build-a-single-page-web-application-using-oauth-and-adaljs-with-ad-fs-2016-or-later"></a>Erstellen einer Single-Page-Webanwendung mithilfe von OAuth und ADAL.JS mit AD FS 2016 oder höher
 
@@ -38,7 +38,7 @@ Wenn eine Einzelseiten Anwendung verwendet wird, navigiert der Benutzer zu einem
 Wenn die Adal einen Authentifizierungs-und Authentifizierungs-und Authentifizierungsdienst erhält, verwendet Sie die von der Anwendung bereitgestellten Informationen und leitet die Authentifizierung an Ihren AD FS STS weiter.  Die Single-Page-Anwendung, die in AD FS als öffentlicher Client registriert ist, wird automatisch für den impliziten Zuweisungs Fluss konfiguriert. Die Autorisierungs Anforderung führt zu einem ID-Token, das über einen #Fragment an die Anwendung zurückgegeben wird. Weitere Aufrufe der Back-End-WebAPI tragen dieses ID-Token als bearertoken in der Kopfzeile ein, um Zugriff auf die WebAPI zu erhalten.
 
 ## <a name="setting-up-the-development-box"></a>Einrichten der Entwicklungs Box
-In dieser exemplarischen Vorgehensweise wird Visual Studio 2015 verwendet. Das Projekt verwendet die Adal-js-Bibliothek. Weitere Informationen zu Adal finden Sie unter [Active Directory-Authentifizierungsbibliothek .net.](https://msdn.microsoft.com/library/azure/mt417579.aspx)
+In dieser exemplarischen Vorgehensweise wird Visual Studio 2015 verwendet. Das Projekt verwendet die Adal-js-Bibliothek. Weitere Informationen zu Adal finden Sie unter [Active Directory-Authentifizierungsbibliothek .net.](/dotnet/api/microsoft.identitymodel.clients.activedirectory?view=azure-dotnet)
 
 ## <a name="setting-up-the-environment"></a>Einrichten der Umgebung
 In dieser exemplarischen Vorgehensweise verwenden wir eine grundlegende Einrichtung von:
@@ -145,7 +145,7 @@ und hinzufügen:
         }
     );
 
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |--------|--------|
 |Validauer|Hiermit wird der Wert von "Audience" konfiguriert, der im Token gegen überprüft wird.|
 |Validierer|Hiermit wird der Wert "Aussteller" konfiguriert, der im Token überprüft wird.|
@@ -170,7 +170,7 @@ Der Browser (Chrome-Browser verwenden) lädt die Spa, und Ihnen wird der folgend
 
 Klicken Sie auf anmelden.  Die TODO-Liste löst den Authentifizierungs Fluss aus, und Adal js leitet die Authentifizierung an AD FS
 
-![Anmelden](media/Single-Page-Application-with-AD-FS/singleapp4a.PNG)
+![Anmeldename](media/Single-Page-Application-with-AD-FS/singleapp4a.PNG)
 
 In "fddler" können Sie sehen, dass das Token als Teil der URL im #-Fragment zurückgegeben wird.
 

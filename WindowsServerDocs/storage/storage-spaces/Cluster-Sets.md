@@ -9,12 +9,12 @@ ms.author: johnmar
 ms.date: 01/30/2019
 description: Dieser Artikel beschreibt das Szenario mit Cluster Sätzen.
 ms.localizationpriority: medium
-ms.openlocfilehash: 64aeda27d5554e3f348a77b0ae785ddcf05dee00
-ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
+ms.openlocfilehash: 06cf798a5adfeee1279f564df63c431a77affd18
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2020
-ms.locfileid: "83436615"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86955032"
 ---
 # <a name="cluster-sets"></a>Clustergruppen
 
@@ -60,7 +60,7 @@ In einem Cluster Satz ist die Kommunikation zwischen den Mitglieds Clustern lose
 
 In einer Cluster Satz Bereitstellung interagiert der CS-Master mit einer neuen Cluster Ressource auf den Mitglieds Clustern, die als "clusterset-Worker" (CS-Worker) bezeichnet werden. CS-Worker fungiert als einzige Verbindung auf dem Cluster, um die lokalen Cluster Interaktionen zu orchestrieren, die vom CS-Master angefordert werden. Beispiele für derartige Interaktionen sind z. b. die Platzierung virtueller Maschinen und die Ressourcen Inventur für lokale Cluster Ressourcen. Es gibt nur eine CS-Worker-Instanz für jeden Mitglieds Cluster in einem Cluster Satz.
 
-**Fehlerdomäne**
+**Fehler Domäne**
 
 Eine Fehler Domäne ist die Gruppierung von Software-und Hardware Artefakten, die der Administrator beim Auftreten eines Fehlers möglicherweise fehlschlägt. Obwohl ein Administrator einen oder mehrere Cluster als Fehler Domäne bezeichnen könnte, könnte jeder Knoten in einer Fehler Domäne in einer Verfügbarkeits Gruppe teilnehmen. Cluster Sätze werden Überlegungen zur Identifizierung von Fehler Domänen an den Administrator weitergeleitet, der mit den Überlegungen zur Topologie von Rechenzentren gut vertraut ist – z. b. PDU, Netzwerk –, die Mitglied Cluster gemeinsam nutzen.
 
@@ -287,7 +287,7 @@ WARNING: Report file location: C:\Windows\Cluster\Reports\Update-ClusterVirtualM
 
 Diese Warnung kann ignoriert werden, weil die Warnung "Es wurden keine Änderungen in der Speicherkonfiguration der Rolle für virtuelle Computer erkannt" angezeigt wird. Der Grund für die Warnung, weil der tatsächliche physische Speicherort nicht geändert wird. nur die Konfigurations Pfade.
 
-Weitere Informationen zu "Move-vmstorage" finden Sie unter diesem [Link](https://docs.microsoft.com/powershell/module/hyper-v/move-vmstorage?view=win10-ps).
+Weitere Informationen zu "Move-vmstorage" finden Sie unter diesem [Link](/powershell/module/hyper-v/move-vmstorage?view=win10-ps).
 
 Die Live Migration einer virtuellen Maschine zwischen unterschiedlichen Clustergruppen Clustern ist nicht mit der in der Vergangenheit identisch. In Szenarien, in denen es sich nicht um Cluster Sätze handelt, sind folgende Schritte erforderlich:
 

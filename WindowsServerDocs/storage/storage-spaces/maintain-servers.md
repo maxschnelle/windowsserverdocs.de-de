@@ -9,12 +9,12 @@ author: eldenchristensen
 ms.date: 10/08/2018
 ms.assetid: 73dd8f9c-dcdb-4b25-8540-1d8707e9a148
 ms.localizationpriority: medium
-ms.openlocfilehash: a317f358c37f607475890efe773b57ee8efaeb14
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 8dba155f8b8d7312a823dedc72d23268d7d13fbf
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85473477"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86955912"
 ---
 # <a name="taking-a-storage-spaces-direct-server-offline-for-maintenance"></a>Offline schalten eines direkte Speicherplätze Servers zur Wartung
 
@@ -27,7 +27,7 @@ Bei direkte Speicherplätze bedeutet das offline schalten eines Servers (durchf�
 Verwenden Sie die folgenden Verfahren, um einen Server in einem direkte Speicherplätze Cluster ordnungsgemäß anzuhalten, bevor Sie ihn offline schalten.
 
    > [!IMPORTANT]
-   > Verwenden Sie zum Installieren von Updates auf einem direkte Speicherplätze Cluster das Cluster fähige aktualisieren (Cluster-Aware Update, Cau), das die in diesem Thema beschriebenen Verfahren automatisch ausführt, sodass Sie bei der Installation von Updates nicht über das verfügen. Weitere Informationen finden Sie unter [Cluster fähiges aktualisieren (Cau)](https://technet.microsoft.com/library/hh831694.aspx).
+   > Verwenden Sie zum Installieren von Updates auf einem direkte Speicherplätze Cluster das Cluster fähige aktualisieren (Cluster-Aware Update, Cau), das die in diesem Thema beschriebenen Verfahren automatisch ausführt, sodass Sie bei der Installation von Updates nicht über das verfügen. Weitere Informationen finden Sie unter [Cluster fähiges aktualisieren (Cau)](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831694(v=ws.11)).
 
 ## <a name="verifying-its-safe-to-take-the-server-offline"></a>Es ist sicherzustellen, dass der Server sicher offline geschaltet wird.
 
@@ -82,7 +82,7 @@ Alle virtuellen Computer beginnen Live, auf andere Server im Cluster zu migriere
 
 Nachdem der Server die Ableitung abgeschlossen hat, wird er in Failovercluster-Manager und PowerShell als **angeh** alten angezeigt.
 
-![Paused](media/maintain-servers/paused.png)
+![Pause](media/maintain-servers/paused.png)
 
 Sie können ihn jetzt problemlos neu starten oder Herunterfahren, genauso wie normal (z. b. mit den PowerShell-Cmdlets "Restart-Computer" oder "Start-Computer").
 
@@ -186,4 +186,4 @@ Führen Sie die folgenden Schritte aus, um das direkte Speicherplätze System sc
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Übersicht über direkte Speicherplätze](storage-spaces-direct-overview.md)
-- [Cluster fähiges aktualisieren (Cau)](https://technet.microsoft.com/library/hh831694.aspx)
+- [Cluster fähiges aktualisieren (Cau)](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831694(v=ws.11))

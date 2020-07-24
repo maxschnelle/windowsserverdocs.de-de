@@ -10,12 +10,12 @@ author: stevenek
 ms.date: 06/07/2019
 description: Eine Schritt-für-Schritt-Anleitung zum Bereitstellen von Software definiertem Speicher mit direkte Speicherplätze in Windows Server als hyperkonvergierte Infrastruktur oder konvergierte Infrastruktur (auch als disaggiert bezeichnet).
 ms.localizationpriority: medium
-ms.openlocfilehash: 50bcdc175610d6e5c5264f9cb62c7d99d2990ac0
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: c18d3edc57ab04c9f9487bc39b52325fa1eb0ba9
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85472827"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86955112"
 ---
 # <a name="deploy-storage-spaces-direct"></a>Bereitstellen von direkten Speicherplätzen
 
@@ -102,7 +102,7 @@ Um direkte Speicherplätze zu verwalten, müssen Sie die Server einer Domäne hi
 Add-Computer -NewName "Server01" -DomainName "contoso.com" -Credential "CONTOSO\User" -Restart -Force
 ```
 
-Wenn Ihr Speicher Administrator Konto kein Mitglied der Gruppe "Domänen-Admins" ist, fügen Sie das Speicher Administrator Konto der lokalen Gruppe "Administratoren" auf jedem Knoten hinzu, oder fügen Sie die Gruppe, die Sie für Speicher Administratoren verwenden, hinzu. Sie können den folgenden Befehl verwenden (oder eine Windows PowerShell-Funktion schreiben, um weitere Informationen zu erhalten. Weitere Informationen finden Sie unter [Verwenden von PowerShell zum Hinzufügen von Domänen Benutzern zu einer lokalen Gruppe](https://blogs.technet.com/b/heyscriptingguy/archive/2010/08/19/use-powershell-to-add-domain-users-to-a-local-group.aspx) ):
+Wenn Ihr Speicher Administrator Konto kein Mitglied der Gruppe "Domänen-Admins" ist, fügen Sie das Speicher Administrator Konto der lokalen Gruppe "Administratoren" auf jedem Knoten hinzu, oder fügen Sie die Gruppe, die Sie für Speicher Administratoren verwenden, hinzu. Sie können den folgenden Befehl verwenden (oder eine Windows PowerShell-Funktion schreiben, um weitere Informationen zu erhalten. Weitere Informationen finden Sie unter [Verwenden von PowerShell zum Hinzufügen von Domänen Benutzern zu einer lokalen Gruppe](https://devblogs.microsoft.com/scripting/use-powershell-to-add-domain-users-to-a-local-group/) ):
 
 ```
 Net localgroup Administrators <Domain\Account> /add
@@ -119,7 +119,7 @@ Der nächste Schritt besteht darin, Server Rollen auf jedem Server zu installier
 - RSAT-Clustering-PowerShell
 - Hyper-V-PowerShell
 
-Verwenden Sie das [install-Windows Feature-](https://docs.microsoft.com/powershell/module/microsoft.windows.servermanager.migration/install-windowsfeature) Cmdlet, um die Installation über PowerShell durchführen zu können. Sie können Sie auf einem einzelnen Server wie dem folgenden verwenden:
+Verwenden Sie das [install-Windows Feature-](/powershell/module/microsoft.windows.servermanager.migration/install-windowsfeature) Cmdlet, um die Installation über PowerShell durchführen zu können. Sie können Sie auf einem einzelnen Server wie dem folgenden verwenden:
 
 ```PowerShell
 Install-WindowsFeature -Name "Hyper-V", "Failover-Clustering", "Data-Center-Bridging", "RSAT-Clustering-PowerShell", "Hyper-V-PowerShell", "FS-FileServer"
@@ -384,7 +384,7 @@ CD $ScriptFolder
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Nachdem Sie den Cluster Dateiserver bereitgestellt haben, empfiehlt es sich, die Leistung Ihrer Lösung mithilfe synthetischer Workloads zu testen, bevor Sie echte Workloads bereitstellen. Auf diese Weise können Sie überprüfen, ob die Lösung ordnungsgemäß funktioniert, und alle veralteten Probleme beheben, bevor Sie die Komplexität von Workloads hinzufügen. Weitere Informationen finden Sie unter [Testen der Leistung von Speicherplätzen mithilfe synthetischer Workloads](https://technet.microsoft.com/library/dn894707.aspx).
+Nachdem Sie den Cluster Dateiserver bereitgestellt haben, empfiehlt es sich, die Leistung Ihrer Lösung mithilfe synthetischer Workloads zu testen, bevor Sie echte Workloads bereitstellen. Auf diese Weise können Sie überprüfen, ob die Lösung ordnungsgemäß funktioniert, und alle veralteten Probleme beheben, bevor Sie die Komplexität von Workloads hinzufügen. Weitere Informationen finden Sie unter [Testen der Leistung von Speicherplätzen mithilfe synthetischer Workloads](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn894707(v=ws.11)).
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 
@@ -392,5 +392,5 @@ Nachdem Sie den Cluster Dateiserver bereitgestellt haben, empfiehlt es sich, die
 -   [Verstehen des Caches in direkten Speicherplätzen](understand-the-cache.md)
 -   [Planen von Volumes in direkte Speicherplätze](plan-volumes.md)
 -   [Fehlertoleranz bei Speicherplätzen](storage-spaces-fault-tolerance.md)
--   [Hardwareanforderungen für direkte Speicherplätze](Storage-Spaces-Direct-Hardware-Requirements.md)
--   [An RDMA oder nicht an RDMA – Dies ist die Frage](https://blogs.technet.microsoft.com/filecab/2017/03/27/to-rdma-or-not-to-rdma-that-is-the-question/) (TechNet-Blog)
+-   [Direkte Speicherplätze Hardware Anforderungen](Storage-Spaces-Direct-Hardware-Requirements.md)
+-   [An RDMA oder nicht an RDMA – Dies ist die Frage](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB) (TechNet-Blog)

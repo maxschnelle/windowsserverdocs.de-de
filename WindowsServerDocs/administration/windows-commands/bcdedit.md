@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 03/27/2018
-ms.openlocfilehash: 2e49ed45875b79dfc4d8bbbdad8a1221000bf2b5
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 59d6a4eafe2eb3383cfeed9e1cbcb9d3e10fe376
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85923511"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86955812"
 ---
 # <a name="bcdedit"></a>bcdedit
 
@@ -104,10 +104,10 @@ bcdedit /command [<argument1>] [<argument2>] ...
 | /dbgsettings | Gibt die globalen Debuggereinstellungen für das System an oder zeigt diese an. Dieser Befehl ist nicht enablepose. Zum Festlegen einer einzelnen globalen Debuggereinstellung verwenden Sie den Befehl **bcdedit/set** `<dbgsettings> <type> <value>` . |
 | /debug | Aktiviert oder deaktiviert den Kernel Debugger für einen angegebenen Start Eintrag. |
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
-Beispiele für die Verwendung von Bcdedit finden Sie im Referenz Artikel zu [Bcdedit-Optionen](https://docs.microsoft.com/windows-hardware/drivers/devtest/bcd-boot-options-reference) .
+Beispiele für die Verwendung von Bcdedit finden Sie im Referenz Artikel zu [Bcdedit-Optionen](/windows-hardware/drivers/devtest/bcd-boot-options-reference) .
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

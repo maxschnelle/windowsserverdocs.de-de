@@ -8,33 +8,33 @@ author: wmgries
 manager: klaasl
 ms.author: wgries
 ms.date: 05/09/2017
-description: Wie die Datendeduplizierung auf Windows Server installiert ist, bestimmt, ob eine Arbeitsauslastung gut für die Deduplizierung eignet die Deduplizierung auf Volumes ermöglicht.
-ms.openlocfilehash: 36c9894fd8916643340134698f36af3bd50c34d8
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+description: Installieren der Datendeduplizierung unter Windows Server, bestimmen, ob eine Arbeitsauslastung ein guter Kandidat für die Deduplizierung ist, und Aktivieren der Deduplizierung auf Volumes.
+ms.openlocfilehash: 82c55c12e7b5d5f60be7569ee2d7885daa6b6339
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79322422"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86953622"
 ---
 # <a name="install-and-enable-data-deduplication"></a>Installieren und Aktivieren der Datenduplizierung
-> Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+> Gilt für Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 In diesem Thema wird erläutert, wie Sie [Datendeduplizierung](overview.md) installieren, Workloads für die Deduplizierung bestimmen und die Datendeduplizierung auf bestimmten Volumes aktivieren.
 
 > [!Note]  
-> Wenn Sie beabsichtigen, Datendeduplizierung in einem Failovercluster auszuführen, muss jeder Knoten im Cluster die Datendeduplizierung-Serverrolle installiert haben.
+> Wenn Sie beabsichtigen, die Datendeduplizierung in einem Failovercluster auszuführen, muss für jeden Knoten im Cluster die datendeduplizierungsserver-Rolle installiert sein.
 
-## <a id="install-dedup"></a>Installieren der Datendeduplizierung
+## <a name="install-data-deduplication"></a><a id="install-dedup"></a>Installieren der Datendeduplizierung
 > [!Important]  
-> [KB4025334](https://support.microsoft.com/kb/4025334) schließt einen Hotfixrollup für Datendeduplizierung ein, und es wird dringend empfohlen, diesen sowie einen Zuverlässigkeitsfix zu installieren, wenn die Datendeduplizierung unter Windows Server 2016 verwendet wird.
+> [KB4025334](https://support.microsoft.com/kb/4025334) enthält einen Rollup der Fehlerbehebungen für die Datendeduplizierung, einschließlich wichtiger Korrekturen der Zuverlässigkeit. Wir empfehlen dringend, Sie zu installieren, wenn Sie die Datendeduplizierung mit Windows Server 2016 verwenden.
 
-### <a id="install-dedup-via-server-manager"></a>Installieren der Datendeduplizierung mithilfe von Server-Manager
+### <a name="install-data-deduplication-by-using-server-manager"></a><a id="install-dedup-via-server-manager"></a>So installieren Sie die Datendeduplizierung mithilfe des Server-Managers
 1. Wählen Sie im Assistenten zum Hinzufügen von Rollen und Features **Serverrollen** aus, und wählen sie dann **Datendeduplizierung** aus.  
-![installieren Sie die Datendeduplizierung über Server-Manager: Wählen Sie Datendeduplizierung von Server Rollen aus](media/install-dedup-via-server-manager-1.png)
+![Installieren Sie die Datendeduplizierung über Server-Manager: Wählen Sie Datendeduplizierung aus Server Rollen aus.](media/install-dedup-via-server-manager-1.png)
 2. Klicken Sie auf **Weiter** , bis die Schaltfläche **Installieren** aktiviert wird, und klicken Sie dann auf **Installieren**.  
-![die Datendeduplizierung über Server-Manager installieren: Klicken Sie auf Installieren](media/install-dedup-via-server-manager-2.png)
+![Installieren Sie die Datendeduplizierung über Server-Manager: Klicken Sie auf installieren.](media/install-dedup-via-server-manager-2.png)
 
-### <a id="install-dedup-via-powershell"></a>Installieren der Datendeduplizierung mithilfe von PowerShell
+### <a name="install-data-deduplication-by-using-powershell"></a><a id="install-dedup-via-powershell"></a>Installieren der Datendeduplizierung mithilfe von PowerShell
 Um die Datendeduplizierung zu installieren, führen Sie den folgenden PowerShell-Befehl als Administrator aus:  
 `Install-WindowsFeature -Name FS-Data-Deduplication`
 
@@ -55,26 +55,26 @@ So installieren Sie die Datendeduplizierung in einer Nano Server-Installation
     dism /online /enable-feature /featurename:dedup-core /all
     ```
 
-## <a id="enable-dedup"></a>Datendeduplizierung aktivieren
-### <a id="enable-dedup-candidate-workloads"></a>Bestimmen, welche Workloads als Kandidaten für die Datendeduplizierung dienen
+## <a name="enable-data-deduplication"></a><a id="enable-dedup"></a>Datendeduplizierung aktivieren
+### <a name="determine-which-workloads-are-candidates-for-data-deduplication"></a><a id="enable-dedup-candidate-workloads"></a>Bestimmen, welche Workloads für die Deduplizierung in Frage kommen
 Datendeduplizierung kann ein effektives Instrument zum Minimieren der Kosten für die Datennutzung einer Serveranwendung sein, indem der Speicherplatz reduziert wird, der von redundanten Daten belegt wird. Vor der Aktivierung der Deduplizierung ist es wichtig, dass Sie die Merkmale Ihrer Workload verstehen, um sicherzustellen, dass Ihr Speicher Ihnen die maximale Leistung bietet. Zwei Arten von Workloads müssen berücksichtigt werden:
 
 * *Empfohlene Workloads*, die nachweislich sowohl Datasets enthalten, die umfassend von der Datendeduplizierung profitieren, als auch Ressourcennutzungsmuster aufweisen, die mit dem Nachbearbeitungsmodell der Datendeduplizierung kompatibel sind. Es wird empfohlen, dass Sie für die folgenden Workloads stets die [Datendeduplizierung aktivieren](install-enable.md#enable-dedup-lights-on):
     * Allgemeine Dateiserver mit Freigaben(General purpose file servers, GPFS) wie Teamfreigaben, Basisordner von Benutzern, Arbeitsordnern und Freigaben für die Softwareentwicklung
     * VDI-Server (virtuelle Desktopinfrastruktur)
-    * Virtualisierte Sicherungsprogramme wie [Microsoft Data Protection Manager (DPM)](https://technet.microsoft.com/library/hh758173.aspx)
+    * Virtualisierte Sicherungs Anwendungen, wie z. b. [Microsoft Data Protection Manager (DPM)](/previous-versions/system-center/system-center-2012-R2/hh758173(v=sc.12)).
 * Workloads, die ggf. von der Deduplizierung profitieren, aber nicht immer gute Kandidaten für die Deduplizierung sind Die folgenden Workloads sind z.B. gut für die Deduplizierung geeignet, jedoch sollen Sie zunächst die Vorteile der Deduplizierung evaluieren:
     * Allgemeine Hyper-V-Hosts
-    * Computer mit SQL Server
+    * SQL-Server
     * Branchenspezifische Server
 
-### <a id="enable-dedup-evaluating-sometimes-workloads"></a>Evaluieren von Workloads für die Datendeduplizierung
+### <a name="evaluate-workloads-for-data-deduplication"></a><a id="enable-dedup-evaluating-sometimes-workloads"></a>Auswerten von Workloads für die Datendeduplizierung
 > [!Important]  
 > Bei Ausführen einer empfohlenen Workload können Sie diesen Abschnitt überspringen und für Ihre Workload [Aktivieren der Datendeduplizierung](install-enable.md#enable-dedup-lights-on) aufrufen.
 
 Um zu bestimmen, ob sich eine Workload gut für die Deduplizierung eignet, beantworten Sie die folgenden Fragen. Wenn Sie sich bei einer Workload nicht sicher sind, erwägen Sie eine Pilotbereitstellung der Datendeduplizierung für ein Testdataset Ihrer Workload, um das Ergebnis zu prüfen.
 
-1. **Hat das DataSet meiner Arbeitsauslastung eine ausreichende Duplizierung, um von der Aktivierung der Deduplizierung zu profitieren?**  
+1. **Weist das Dataset meiner Workload genügend Duplizierung auf, um vom Aktivieren der Deduplizierung zu profitieren?**  
     Überprüfen Sie vor dem Aktivieren der Datendeduplizierung für eine Workload, wie viele Duplikate das Dataset Ihrer Workload aufweist. Nutzen Sie dazu das Tool für die Auswertung der Einsparungen durch Datendeduplizierung (DDPEval). Nach Installation der Datendeduplizierung finden Sie dieses Tool unter `C:\Windows\System32\DDPEval.exe`. DDPEval kann das Optimierungspotenzial für direkt angeschlossene Volumes (so z.B. lokale Laufwerke oder freigegebene Clustervolumes) sowie zugeordnete und nicht zugeordnete Netzwerkfreigaben einschätzen.  
     &nbsp;   
     Bei Ausführen von „DDPEval.exe“ wird eine Ausgabe ähnlich der folgenden zurückgegeben:  
@@ -103,31 +103,31 @@ Um zu bestimmen, ob sich eine Workload gut für die Deduplizierung eignet, beant
     > [!Note]  
     > Diese Aspekte gelten in erster Linie für Speicherworkloads auf Volumes, die aus herkömmlichen rotierenden Speichermedien (also Festplattenlaufwerken bzw. HDDs) bestehen. Die gesamte Flashspeicherinfrastruktur (Solid State Disk-Laufwerke bzw. SSDs) ist von zufälligen E/A-Mustern weniger betroffen, da bei Flash-Speichermedien die Zugriffszeit auf alle Speicherorte im Datenträger gleich lang ist. Daher sorgt eine Deduplizierung nicht für denselben Umfang von Latenz bei Lesevorgängen in den Datasets einer Workload, die vollständig auf Flashmedien gespeichert sind, wie bei herkömmlichen rotierenden Speichermedien.
 
-3. **Welche Ressourcenanforderungen gelten für meine Arbeitsauslastung auf dem Server?**  
+3. **Wie hoch ist der Ressourcenbedarf meiner Workload auf dem Server?**  
     Da bei der Datendeduplizierung ein Nachbearbeitungsmodell zum Einsatz kommt, sind für die Datendeduplizierung regelmäßig genügend Systemressourcen erforderlich, um die [Optimierung und andere Aufträge](understand.md#job-info) auszuführen. Dies bedeutet, dass Workloads mit Leerlaufzeit, z.B. abends oder am Wochenende, sich besonders für die Deduplizierung eignen, was bei rund um die Uhr ausgeführten Workloads ggf. nicht der Fall ist. Workloads ohne Leerlaufzeiten können sich dennoch gut für eine Deduplizierung eignen, wenn sie keinen hohen Ressourcenbedarf auf dem Server haben.
 
-### <a id="enable-dedup-lights-on"></a>Datendeduplizierung aktivieren
+### <a name="enable-data-deduplication"></a><a id="enable-dedup-lights-on"></a>Datendeduplizierung aktivieren
 Sie müssen vor dem Aktivieren der Datendeduplizierung den [Verwendungstyp](understand.md#usage-type) wählen, der Ihrer Workload am ehesten entspricht. Für die Datendeduplizierung gibt es drei Verwendungstypen.
 
 * [Standard](understand.md#usage-type-default) – speziell für allgemeine Dateiserver optimiert
 * [Hyper-V](understand.md#usage-type-hyperv) – speziell für VDI-Server optimiert
-* [Sicherung](understand.md#usage-type-backup) – speziell für virtualisierte Sicherungsprogramme wie [Microsoft Data Protection Manager (DPM)](https://technet.microsoft.com/library/hh758173.aspx) optimiert
+* [Sicherung](understand.md#usage-type-backup) – speziell für virtualisierte Sicherungsprogramme wie [Microsoft Data Protection Manager (DPM)](/previous-versions/system-center/system-center-2012-R2/hh758173(v=sc.12)) optimiert
 
-#### <a id="enable-dedup-via-server-manager"></a>Aktivieren der Datendeduplizierung mithilfe von Server-Manager
-1. Wählen Sie **Datei- und Speicherdienste** im Server-Manager aus.  
-![klicken Sie auf Datei-und Speicherdienste](media/enable-dedup-via-server-manager-1.PNG)
+#### <a name="enable-data-deduplication-by-using-server-manager"></a><a id="enable-dedup-via-server-manager"></a>Aktivieren der Datendeduplizierung mithilfe von Server-Manager
+1. Wählen Sie in Server-Manager **Datei-und Speicherdienste** aus.  
+![Klicken auf „Datei- und Speicherdienste“](media/enable-dedup-via-server-manager-1.PNG)
 2. Wählen Sie **Volumes** im Menü **Datei- und Speicherdienste** aus.  
-![klicken Sie auf Volumes](media/enable-dedup-via-server-manager-2.png)
+![Klicken auf „Volumes“](media/enable-dedup-via-server-manager-2.png)
 3. Klicken Sie mit der rechten Maustaste auf das gewünschte Volume, und wählen Sie **Datendeduplizierung konfigurieren** aus.  
-![klicken Sie auf Datendeduplizierung konfigurieren](media/enable-dedup-via-server-manager-3.png)
+![Klicken auf „Datendeduplizierung konfigurieren“.](media/enable-dedup-via-server-manager-3.png)
 4. Wählen Sie im Dropdownfeld den gewünschten **Verwendungstyp** aus, und klicken Sie auf **OK**.  
-![wählen Sie den gewünschten Verwendungstyp aus der Dropdown-](media/enable-dedup-via-server-manager-4.png)
+![Auswählen des gewünschten Verwendungstyps im Dropdownfeld](media/enable-dedup-via-server-manager-4.png)
 5. Wenn Sie eine empfohlene Workload ausführen, sind Sie fertig. Sehen Sie sich für andere Workloads die [weiteren Aspekte](#enable-dedup-sometimes-considerations) an.
 
 > [!Note]  
 > Weitere Informationen zum Ausschließen von Dateinamenerweiterungen oder Ordnern und Auswählen des Zeitplans für die Deduplizierung, einschließlich Gründen, finden Sie unter [Konfigurieren der Datendeduplizierung](advanced-settings.md).
 
-#### <a id="enable-dedup-via-powershell"></a>Aktivieren der Datendeduplizierung mithilfe von PowerShell
+#### <a name="enable-data-deduplication-by-using-powershell"></a><a id="enable-dedup-via-powershell"></a>Aktivieren der Datendeduplizierung mit PowerShell
 1. Führen Sie im Kontext eines Administrators den folgenden PowerShell-Befehl aus:  
     ```PowerShell
     Enable-DedupVolume -Volume <Volume-Path> -UsageType <Selected-Usage-Type>
@@ -136,9 +136,9 @@ Sie müssen vor dem Aktivieren der Datendeduplizierung den [Verwendungstyp](unde
 2. Wenn Sie eine empfohlene Workload ausführen, sind Sie fertig. Sehen Sie sich für andere Workloads die [weiteren Aspekte](#enable-dedup-sometimes-considerations) an.
 
 > [!Note]  
-> Die PowerShell-Cmdlets für die Datendeduplizierung, einschließlich [`Enable-DedupVolume`](https://technet.microsoft.com/library/hh848441.aspx), können durch Anhängen des `-CimSession`-Parameters an eine CIM-Sitzung remote ausgeführt werden. Dies ist besonders nützlich für die Remoteausführung der PowerShell-Cmdlets für die Datendeduplizierung für eine Nano Server-Instanz. Zum Erstellen einer neuen CIM-Sitzung führen Sie [`New-CimSession`](https://technet.microsoft.com/library/jj590760.aspx) aus.
+> Die PowerShell-Cmdlets für die Datendeduplizierung, einschließlich [`Enable-DedupVolume`](/previous-versions/system-center/system-center-2012-R2/hh758173(v=sc.12)) , können Remote ausgeführt werden, indem der- `-CimSession` Parameter an eine CIM-Sitzung angehängt wird. Dies ist besonders nützlich für die Remoteausführung der PowerShell-Cmdlets für die Datendeduplizierung für eine Nano Server-Instanz. Zum Erstellen einer neuen CIM-Sitzungs Führung [`New-CimSession`](/previous-versions/system-center/system-center-2012-R2/hh758173(v=sc.12)) .
 
-#### <a id="enable-dedup-sometimes-considerations"></a>Weitere Überlegungen
+#### <a name="other-considerations"></a><a id="enable-dedup-sometimes-considerations"></a>Weitere Überlegungen
 > [!Important]  
 > Wenn Sie eine empfohlene Workload ausführen, können Sie diesen Abschnitt überspringen.
 
@@ -146,20 +146,20 @@ Sie müssen vor dem Aktivieren der Datendeduplizierung den [Verwendungstyp](unde
 * Wenn Ihre Workload einen hohen Ressourcenbedarf auf Ihrem Server hat, [müssen die Datendeduplizierungsaufträge während der erwarteten Leerlaufzeiten für die jeweilige Workload ausgeführt werden](advanced-settings.md#modifying-job-schedules-change-schedule). Dies ist besonders wichtig bei der Ausführung der Deduplizierung auf einem hyperkonvergenten Host, da die Ausführung der Datendeduplizierung während der Geschäftszeiten VMs beeinträchtigen kann.
 * Wenn Ihre Workload keinen hohen Ressourcenbedarf hat oder es wichtiger ist, Optimierungsaufträge auszuführen anstatt Workloadanforderungen zu erfüllen, [können Sie den Arbeitsspeicher, die CPU-Leistung und Priorität der Datendeduplizierungsaufträge anpassen](advanced-settings.md#modifying-job-schedules).
 
-## <a id="faq"></a>Häufig gestellte Fragen (FAQ)
+## <a name="frequently-asked-questions-faq"></a><a id="faq"></a>Häufig gestellte Fragen (FAQ)
 **Ich möchte die Datendeduplizierung für das Dataset für die X-Arbeitsauslastung ausführen. Wird dies unterstützt?**  
 Abgesehen von Workloads, die [ bekanntermaßen nicht mit der Datendeduplizierung zusammenarbeiten](interop.md), unterstützen wir die Datenintegrität der Datendeduplizierung für alle Workloads. Empfohlene Workloads werden auch hinsichtlich Leistung von Microsoft unterstützt. Die Leistung anderer Workloads hängt erheblich davon ab, was diese auf dem Server ausführen. Sie müssen bestimmen, welche Leistungsbeeinträchtigungen die Datendeduplizierung auf Ihre Workload ausübt, und ob dies für diese Workload zulässig ist.
 
-**Welche Anforderungen an die Volumegröße gelten für deduplizierte Volumes?**  
+**Was sind die Anforderungen an die Volumegröße für deduplizierte Volumes?**  
 Unter Windows Server 2012 und Windows Server 2012 R2 musste die Größe von Volumes sorgfältig geplant werden, um sicherzustellen, dass die Datendeduplizierung mit den Änderungsumfang auf dem Datenträger zurechtkam. Dies bedeutete in der Regel, dass die durchschnittliche maximale Größe eines deduplizierten Volumes bei einer Workload mit hohem Änderungsumfang 1-2 TB und die absolute maximale empfohlene Größe 10 TB betrug. Unter Windows Server 2016 gelten diese Einschränkungen nicht mehr. Weitere Informationen finden Sie unter [Neuigkeiten bei der Datendeduplizierung](whats-new.md#large-volume-support).
 
 **Muss ich für empfohlene Workloads den Zeitplan oder andere datendeduplizierungseinstellungen ändern?**  
-Nein, die bereitgestellten [Verwendungstypen](understand.md#usage-type) sind so ausgelegt, dass für empfohlene Workloads sinnvolle Standardwerte vorgegeben sind.
+Nein, die angegebenen [Verwendungs Typen](understand.md#usage-type) wurden erstellt, um angemessene Standardwerte für empfohlene Workloads bereitzustellen.
 
-**Welche Arbeitsspeicher Anforderungen gelten für die Datendeduplizierung?**  
+**Welche Arbeitsspeicheranforderungen gelten für die Datendeduplizierung?**  
 Für den Minimalfall sollten für die Datendeduplizierung 300 MB + 50 MB für jedes TB logischer Daten vorgesehen werden. Wenn Sie beispielsweise ein 10-TB-Volume optimieren, benötigen Sie für die Deduplizierung mindestens 800 MB Arbeitsspeicher (`300 MB + 50 MB * 10 = 300 MB + 500 MB = 800 MB`). Während die Datendeduplizierung ein Volume mit diesem niedrigen Umfang an Arbeitsspeicher optimieren kann, werden Datendeduplizierungsaufträge durch solch einschränkte Ressourcen verlangsamt.
 
 Im optimalen Fall sollte die Datendeduplizierung über 1 GB Arbeitsspeicher pro 1 TB logischer Daten verfügen. Wenn Sie beispielsweise ein 10-TB-Volume optimieren, benötigen Sie im Optimalfall für die Deduplizierung mindestens 10 GB Arbeitsspeicher (`1 GB * 10`). Dieses Verhältnis stellt die maximale Leistung für Datendeduplizierungsaufträge sicher.
 
-**Welche Speicheranforderungen gelten für die Datendeduplizierung?**  
+**Welche Speicherplatzanforderungen gelten für die Datendeduplizierung?**  
 Unter Windows Server 2016 unterstützt die Datendeduplizierung Volumegrößen bis zu 64 TB. Weitere Informationen finden Sie unter [Neuigkeiten bei der Datendeduplizierung](whats-new.md#large-volume-support).

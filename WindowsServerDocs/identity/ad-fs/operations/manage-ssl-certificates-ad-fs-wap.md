@@ -9,12 +9,12 @@ ms.date: 10/02/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: b832756e123bee0223738ee804ac3a4db2371e84
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: a982df8ce7d1f335a1c2242f277b1983573c9ee1
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80855293"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86954203"
 ---
 # <a name="managing-ssl-certificates-in-ad-fs-and-wap-in-windows-server-2016"></a>Verwalten von SSL-Zertifikaten in AD FS und WAP in Windows Server 2016
 
@@ -23,18 +23,18 @@ ms.locfileid: "80855293"
 In diesem Artikel wird beschrieben, wie Sie ein neues SSL-Zertifikat für Ihre AD FS-und WAP-Server bereitstellen.
 
 >[!NOTE]
->Die empfohlene Vorgehensweise, um das SSL-Zertifikat für eine AD FS-Farm zu ersetzen, besteht in der Verwendung von Azure AD Connect.  Weitere Informationen finden Sie [unter Aktualisieren des SSL-Zertifikats für eine Active Directory-Verbunddienste (AD FS)-Farm (AD FS)](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectfed-ssl-update) .
+>Die empfohlene Vorgehensweise, um das SSL-Zertifikat für eine AD FS-Farm zu ersetzen, besteht in der Verwendung von Azure AD Connect.  Weitere Informationen finden Sie [unter Aktualisieren des SSL-Zertifikats für eine Active Directory-Verbunddienste (AD FS)-Farm (AD FS)](/azure/active-directory/connect/active-directory-aadconnectfed-ssl-update) .
 
 ## <a name="obtaining-your-ssl-certificates"></a>Abrufen der SSL-Zertifikate
 Für Produktions AD FS Farmen wird ein öffentlich vertrauenswürdiges SSL-Zertifikat empfohlen. Dies wird in der Regel durch übermitteln einer Zertifikat Signier Anforderung (Certificate Signing Request, CSR) an einen öffentlichen Zertifikat Anbieter eines Drittanbieters erreicht. Es gibt eine Vielzahl von Möglichkeiten, die CSR zu generieren, einschließlich von einem Computer mit Windows 7 oder höher. Der Anbieter sollte über eine Dokumentation verfügen.
 
-- Stellen Sie sicher, dass das Zertifikat die [SSL-Zertifikat Anforderungen für AD FS-und Webanwendung](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/AD-FS-2016-Requirements#BKMK_1)
+- Stellen Sie sicher, dass das Zertifikat die [SSL-Zertifikat Anforderungen für AD FS-und Webanwendung](../overview/ad-fs-requirements.md#BKMK_1)
 
 ### <a name="how-many-certificates-are-needed"></a>Erforderliche Anzahl von Zertifikaten
-Es wird empfohlen, ein gemeinsames SSL-Zertifikat für alle AD FS-und webanwendungsproxy-Server zu verwenden. Ausführliche Informationen finden Sie im Dokument [AD FS und SSL-Zertifikat Anforderungen für den webanwendungsproxy](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/AD-FS-2016-Requirements#BKMK_1)
+Es wird empfohlen, ein gemeinsames SSL-Zertifikat für alle AD FS-und webanwendungsproxy-Server zu verwenden. Ausführliche Informationen finden Sie im Dokument [AD FS und SSL-Zertifikat Anforderungen für den webanwendungsproxy](../overview/ad-fs-requirements.md#BKMK_1)
 
 ### <a name="ssl-certificate-requirements"></a>SSL-Zertifikatanforderungen
-Informationen zu Anforderungen einschließlich Benennung, Stamm der Vertrauensstellung und Erweiterungen finden Sie in den Dokumenten [AD FS und SSL-Zertifikat Anforderungen des webanwendungspro](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/AD-FS-2016-Requirements#BKMK_1)
+Informationen zu Anforderungen einschließlich Benennung, Stamm der Vertrauensstellung und Erweiterungen finden Sie in den Dokumenten [AD FS und SSL-Zertifikat Anforderungen des webanwendungspro](../overview/ad-fs-requirements.md#BKMK_1)
 
 ## <a name="replacing-the-ssl-certificate-for-ad-fs"></a>Ersetzen des SSL-Zertifikats für AD FS
 > [!NOTE]
@@ -46,11 +46,11 @@ Legen Sie zunächst fest, in welchem Zertifikat Bindungs Modus Ihre AD FS Server
 AD FS standardmäßig die Authentifizierung von Geräte Zertifikaten an Port 443 und die Benutzerzertifikat Authentifizierung an Port 49443 (oder einem konfigurierbaren Port, der nicht 443 ist) ausführt.
 Verwenden Sie in diesem Modus das PowerShell-Cmdlet Set-adfssslcertificate, um das SSL-Zertifikat zu verwalten.
 
-Führen Sie die unten beschriebenen Schritte aus.
+Führen Sie diese Schritte aus:
 
 1. Zunächst müssen Sie das neue Zertifikat abrufen. Dies erfolgt in der Regel durch übermitteln einer Zertifikat Signier Anforderung (Certificate Signing Request, CSR) an einen öffentlichen Zertifikat Anbieter eines Drittanbieters. Es gibt eine Vielzahl von Möglichkeiten, die CSR zu generieren, einschließlich von einem Computer mit Windows 7 oder höher. Der Anbieter sollte über eine Dokumentation verfügen.
 
-    * Stellen Sie sicher, dass das Zertifikat die [SSL-Zertifikat Anforderungen für AD FS-und Webanwendung](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/AD-FS-2016-Requirements#BKMK_1)
+    * Stellen Sie sicher, dass das Zertifikat die [SSL-Zertifikat Anforderungen für AD FS-und Webanwendung](../overview/ad-fs-requirements.md#BKMK_1)
 
 1. Nachdem Sie die Antwort von Ihrem Zertifikat Anbieter erhalten haben, importieren Sie Sie auf jedem AD FS-und webanwendungsproxy-Server in den Speicher des lokalen Computers.
 
@@ -77,11 +77,11 @@ dir Cert:\LocalMachine\My\
 Wenn Sie im alternativen Client-TLS-Bindungs Modus konfiguriert ist, werden AD FS die Gerätezertifikat Authentifizierung an Port 443 und die Benutzerzertifikat Authentifizierung an Port 443 auch unter einem anderen Hostnamen durchführen. Der Hostname des Benutzer Zertifikats ist der AD FS Hostname, dem "certauth" vorausgeht, z. b. "certauth.fs.contoso.com".
 Verwenden Sie in diesem Modus das PowerShell-Cmdlet Set-adfsalternatetlsclientbinding, um das SSL-Zertifikat zu verwalten. Dadurch wird nicht nur die Alternative Client-TLS-Bindung verwaltet, sondern auch alle anderen Bindungen, für die AD FS das SSL-Zertifikat festlegt.
 
-Führen Sie die unten beschriebenen Schritte aus.
+Führen Sie diese Schritte aus:
 
 1. Zunächst müssen Sie das neue Zertifikat abrufen. Dies erfolgt in der Regel durch übermitteln einer Zertifikat Signier Anforderung (Certificate Signing Request, CSR) an einen öffentlichen Zertifikat Anbieter eines Drittanbieters. Es gibt eine Vielzahl von Möglichkeiten, die CSR zu generieren, einschließlich von einem Computer mit Windows 7 oder höher. Der Anbieter sollte über eine Dokumentation verfügen.
 
-    * Stellen Sie sicher, dass das Zertifikat die [SSL-Zertifikat Anforderungen für AD FS-und Webanwendung](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/AD-FS-2016-Requirements#BKMK_1)
+    * Stellen Sie sicher, dass das Zertifikat die [SSL-Zertifikat Anforderungen für AD FS-und Webanwendung](../overview/ad-fs-requirements.md#BKMK_1)
 
 1. Nachdem Sie die Antwort von Ihrem Zertifikat Anbieter erhalten haben, importieren Sie Sie auf jedem AD FS-und webanwendungsproxy-Server in den Speicher des lokalen Computers.
 
@@ -124,6 +124,6 @@ Geben Sie die Anmelde Informationen eines Domänen Benutzers ein, der auf dem AD
 Install-WebApplicationProxy -FederationServiceTrustCredential $cred -CertificateThumbprint '<thumbprint of new cert>' -FederationServiceName 'fs.contoso.com'
 ```
 
-## <a name="additional-references"></a>Weitere Verweise  
+## <a name="additional-references"></a>Zusätzliche Verweise  
 * [AD FS: Unterstützung der alternativen Hostnamenbindung für die Zertifikatauthentifizierung](../operations/AD-FS-support-for-alternate-hostname-binding-for-certificate-authentication.md)
 * [Eigenschaften Informationen für die AD FS-und Zertifikat KeySpec](../technical-reference/AD-FS-and-KeySpec-Property.md)

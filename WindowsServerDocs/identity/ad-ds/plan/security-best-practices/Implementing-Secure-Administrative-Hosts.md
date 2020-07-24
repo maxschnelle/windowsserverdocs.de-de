@@ -1,6 +1,6 @@
 ---
 ms.assetid: eafdddc3-40d7-4a75-8f4f-a45294aabfc8
-title: Implementieren von sicheren Verwaltungshosts
+title: Implementieren sicherer Verwaltungshosts
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -8,16 +8,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 4a36f27bc64e6e135451818b27dc2319f18655f4
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: e62f64c998e13ca6b64c3a7c89ad8e504ab26e82
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80821183"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86953572"
 ---
-# <a name="implementing-secure-administrative-hosts"></a>Implementieren von sicheren Verwaltungshosts
+# <a name="implementing-secure-administrative-hosts"></a>Implementieren sicherer Verwaltungshosts
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Sichere administrative Hosts sind Arbeitsstationen oder Server, die speziell für die Erstellung sicherer Plattformen konfiguriert wurden, von denen privilegierte Konten administrative Aufgaben in Active Directory oder auf Domänen Controllern, in die Domäne eingebundenen Systemen und in in die Domäne eingebundenen Systemen ausführen können. In diesem Fall bezieht sich "privilegierte Konten" nicht nur auf Konten, die Mitglieder der am stärksten privilegierten Gruppen in Active Directory sind, sondern auf alle Konten, denen Rechte und Berechtigungen zugewiesen wurden, die das Ausführen administrativer Aufgaben ermöglichen.  
   
@@ -69,7 +69,7 @@ Alle administrativen Hosts, unabhängig davon, ob Server oder Arbeitsstationen, 
 Wenn Sie Jump-Server als Teil ihrer Verwaltungs Host Strategie implementieren, sollten Sie den integrierten Sicherheitskonfigurations-Assistenten verwenden, um Dienst-, Registrierungs-, Überwachungs-und Firewalleinstellungen zu konfigurieren, um die Angriffsfläche des Servers zu verringern. Wenn die Konfigurationseinstellungen des Sicherheitskonfigurations-Assistenten gesammelt und konfiguriert wurden, können die Einstellungen in ein Gruppenrichtlinien Objekt konvertiert werden, das zum Erzwingen einer konsistenten Baselineversion auf allen Jump-Servern verwendet wird. Sie können das Gruppenrichtlinien Objekt weiter bearbeiten, um für Jump-Server spezifische Sicherheitseinstellungen zu implementieren. Außerdem können Sie alle Einstellungen mit zusätzlichen Baseline-Einstellungen kombinieren, die vom Microsoft Security Compliance Manager extrahiert werden.  
   
 ### <a name="microsoft-security-compliance-manager"></a>Microsoft Security Compliance Manager  
-Bei [Microsoft Security Compliance Manager](https://technet.microsoft.com/library/cc677002.aspx) handelt es sich um ein kostenlos verfügbares Tool, mit dem Sicherheits Konfigurationen integriert werden, die von Microsoft basierend auf der Betriebssystemversion und der Rollen Konfiguration empfohlen werden, und die in einem einzigen Tool und einer Benutzeroberfläche zum Erstellen und Konfigurieren von Baseline-Sicherheitseinstellungen für Domänen Controller verwendet werden. Microsoft Security Compliance Manager-Vorlagen können mit den Einstellungen für den Sicherheitskonfigurations-Assistenten kombiniert werden, um umfassende konfigurationsbaselines für Jump-Server zu erstellen, die von GPOs bereitgestellt und erzwungen werden, die in den Organisationseinheiten bereitgestellt wurden, in denen Active Directory sich jumpserver  
+Bei [Microsoft Security Compliance Manager](/previous-versions/tn-archive/cc677002(v=technet.10)) handelt es sich um ein kostenlos verfügbares Tool, mit dem Sicherheits Konfigurationen integriert werden, die von Microsoft basierend auf der Betriebssystemversion und der Rollen Konfiguration empfohlen werden, und die in einem einzigen Tool und einer Benutzeroberfläche zum Erstellen und Konfigurieren von Baseline-Sicherheitseinstellungen für Domänen Controller verwendet werden. Microsoft Security Compliance Manager-Vorlagen können mit den Einstellungen für den Sicherheitskonfigurations-Assistenten kombiniert werden, um umfassende konfigurationsbaselines für Jump-Server zu erstellen, die von GPOs bereitgestellt und erzwungen werden, die in den Organisationseinheiten bereitgestellt wurden, in denen Active Directory sich jumpserver  
   
 > [!NOTE]  
 > Zum Zeitpunkt der Erstellung dieses Artikels enthält Microsoft Security Compliance Manager keine speziellen Einstellungen für Jump-Server oder andere sichere administrative Hosts, aber Security Compliance Manager (SCM) kann weiterhin verwendet werden, um anfängliche Basis Linien für Ihre administrativen Hosts zu erstellen. Zum ordnungsgemäßen Sichern der Hosts sollten Sie jedoch zusätzliche Sicherheitseinstellungen anwenden, die für hochgradig gesicherte Arbeitsstationen und Server geeignet sind.  
@@ -83,7 +83,7 @@ Obwohl die spezifische Konfiguration in Abhängigkeit von der Architektur ihrer 
 Sie sollten interaktive Anmeldungen durch autorisierte Benutzer zulassen und andere Anmelde Typen entfernen oder blockieren, die für den Server Zugriff nicht benötigt werden.  
   
 ### <a name="patch-and-configuration-management"></a>Patch-und Konfigurations Verwaltung  
-Kleinere Organisationen können sich auf Angebote wie z. b. Windows Update oder [Windows Server Update Services](https://technet.microsoft.com/windowsserver/bb332157) (WSUS) zum Verwalten der Bereitstellung von Updates für Windows-Systeme verlassen, während größere Unternehmen ggf. Lösungen für die Patchverwaltung und Configuration Management von Unternehmen wie Microsoft Endpoint Configuration Manager implementieren Unabhängig von den Mechanismen, die Sie zum Bereitstellen von Aktualisierungen Ihrer allgemeinen Server-und Arbeitsstations Population verwenden, sollten Sie separate bereit Stellungen für hochgradig sichere Systeme wie z. b. Domänen Controller, Zertifizierungsstellen und administrative Hosts in Erwägung gezogen. Wenn Sie diese Systeme von der allgemeinen Verwaltungsinfrastruktur trennen, kann die Gefährdung nicht einfach auf die sichersten Systeme in Ihrer Infrastruktur ausgeweitet werden, wenn Ihre Verwaltungssoftware oder Dienst Konten kompromittiert sind.  
+Kleinere Organisationen können sich auf Angebote wie z. b. Windows Update oder [Windows Server Update Services](/windows/deployment/deploy-whats-new) (WSUS) zum Verwalten der Bereitstellung von Updates für Windows-Systeme verlassen, während größere Unternehmen ggf. Lösungen für die Patchverwaltung und Configuration Management von Unternehmen wie Microsoft Endpoint Configuration Manager implementieren Unabhängig von den Mechanismen, die Sie zum Bereitstellen von Aktualisierungen Ihrer allgemeinen Server-und Arbeitsstations Population verwenden, sollten Sie separate bereit Stellungen für hochgradig sichere Systeme wie z. b. Domänen Controller, Zertifizierungsstellen und administrative Hosts in Erwägung gezogen. Wenn Sie diese Systeme von der allgemeinen Verwaltungsinfrastruktur trennen, kann die Gefährdung nicht einfach auf die sichersten Systeme in Ihrer Infrastruktur ausgeweitet werden, wenn Ihre Verwaltungssoftware oder Dienst Konten kompromittiert sind.  
   
 Obwohl Sie keine manuellen Update Prozesse für sichere Systeme implementieren sollten, sollten Sie eine separate Infrastruktur zum Aktualisieren sicherer Systeme konfigurieren. Auch in sehr großen Organisationen kann diese Infrastruktur in der Regel über dedizierte WSUS-Server und GPOs für gesicherte Systeme implementiert werden.  
   
@@ -157,7 +157,7 @@ Sie sollten für die virtuellen Computer eine Smartcard oder eine andere mehrstu
 ### <a name="implementing-secure-administrative-workstations-and-jump-servers"></a>Implementieren sicherer administrativer Arbeitsstationen und Jump-Server  
 Als Alternative zum Sichern administrativer Arbeitsstationen oder in Kombination mit Ihnen können Sie sichere Jump-Server implementieren, und Administratoren können mithilfe von RDP und Smartcards eine Verbindung mit den Sprung Servern herstellen, um administrative Aufgaben auszuführen.  
   
-Jump-Server sollten so konfiguriert werden, dass Sie die Remotedesktop Gateway-Rolle ausführen, damit Sie Einschränkungen für Verbindungen mit dem Jump-Server und Ziel Servern implementieren können, die von ihm verwaltet werden. Wenn möglich, sollten Sie auch die Hyper-V-Rolle installieren und [Persönliche virtuelle Desktops](https://technet.microsoft.com/library/dd759174.aspx) oder andere pro-Benutzer-VMS erstellen, damit Administratoren ihre Aufgaben auf den Sprung Servern verwenden können.  
+Jump-Server sollten so konfiguriert werden, dass Sie die Remotedesktop Gateway-Rolle ausführen, damit Sie Einschränkungen für Verbindungen mit dem Jump-Server und Ziel Servern implementieren können, die von ihm verwaltet werden. Wenn möglich, sollten Sie auch die Hyper-V-Rolle installieren und [Persönliche virtuelle Desktops](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd759174(v=ws.11)) oder andere pro-Benutzer-VMS erstellen, damit Administratoren ihre Aufgaben auf den Sprung Servern verwenden können.  
   
 Indem Sie die benutzerspezifischen virtuellen Maschinen pro Benutzer auf dem Sprung Server bereitstellen, stellen Sie physische Sicherheit für die administrativen Arbeitsstationen bereit, und Administratoren können Ihre virtuellen Maschinen zurücksetzen oder Herunterfahren, wenn Sie nicht verwendet werden. Wenn Sie nicht möchten, dass die Hyper-V-Rolle und die Remotedesktop Gateway-Rolle auf demselben administrativen Host installiert werden, können Sie Sie auf separaten Computern installieren.  
   
@@ -179,5 +179,3 @@ In Fällen, in denen ein Administrator eine Verbindung über RDP mit einem Ziels
   
 -   Das Implementieren von vorgesehenen Sprung Servern und administrativen Arbeitsstationen erfordert eine sorgfältige Planung und Konfiguration, die allen in der Umgebung konfigurierten Sicherheitszonen zugeordnet ist.  
   
-
-

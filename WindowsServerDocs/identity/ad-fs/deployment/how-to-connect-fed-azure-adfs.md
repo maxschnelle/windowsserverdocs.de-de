@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 10/28/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: eaad015d0097d9b65a4aba8a5846c7782b6966d1
-ms.sourcegitcommit: 4af8ab2e5c199ecff0697e5331fa7f61f2556a8f
+ms.openlocfilehash: 5db03a2d275dc4a02295c588bd0789fa757b8503
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86866039"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86956218"
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Bereitstellen von Active Directory-Verbunddiensten in Azure
 AD FS verfügt über Funktionen für den vereinfachten, geschützten Identitätsverbund und die einmalige Webanmeldung (SSO). Der Verbund mit Azure AD oder O365 ermöglicht Benutzern die Authentifizierung mit lokalen Anmeldeinformationen und den Zugriff auf Ressourcen in der Cloud. Daher ist es wichtig, dass eine hoch verfügbare AD FS-Infrastruktur vorhanden ist, um den Zugriff auf lokale Ressourcen und Ressourcen in der Cloud sicherzustellen. Durch die Bereitstellung von AD FS in Azure kann die erforderliche Hochverfügbarkeit mit wenig Aufwand erzielt werden.
@@ -182,8 +182,8 @@ Wählen Sie im Bereich mit den ILB-Einstellungen die Option „Integritätstests
 
 1. Klicken Sie auf „Hinzufügen“.
 2. Details für Test angeben  
-   a. **Name**: Testname  
-   b. **Protokoll**: HTTP  
+   a) **Name**: Testname  
+   b) **Protokoll**: HTTP  
    c. **Port**: 80 (http)  
    d. **Pfad**:/ADFS/Probe   
    e. **Intervall**: 5 (Standardwert) – Dies ist das Intervall, in dem ILB die Computer im Back-End-Pool testet.  
@@ -199,8 +199,8 @@ Um den Datenverkehr effektiv ausgleichen zu können, sollte der ILB mit Lastenau
 1. Wählen Sie im Bereich „Einstellungen“ des ILB die Option „Lastenausgleichsregel“.
 2. Klicken Sie im Bereich „Lastenausgleichsregel“ auf „Hinzufügen“.
 3. Im Bereich "Lasten Ausgleichs Regel hinzufügen"  
-   a. **Name**: Geben Sie einen Namen für die Regel an.  
-   b. **Protokoll**: Wählen Sie TCP aus.  
+   a) **Name**: Geben Sie einen Namen für die Regel an.  
+   b) **Protokoll**: Wählen Sie TCP aus.  
    c. **Port**: 443  
    d. Back-End- **Port**: 443  
    e. Back-End- **Pool**: Wählen Sie den Pool aus, den Sie zuvor für den AD FS Cluster  
@@ -232,7 +232,7 @@ Erstellen Sie für den ILB einen Eintrag unter „%systemroot%\system32\drivers\
 **7.2. Installieren der Webanwendungsproxy-Rolle**
 
 Nachdem Sie sichergestellt haben, dass Webanwendungsproxy-Server die AD FS-Server hinter dem ILB erreichen können, können Sie als Nächstes die Webanwendungsproxy-Server installieren. Webanwendungsproxy-Server brauchen nicht mit der Domäne verknüpft werden. Installieren Sie die Webanwendungsproxy-Rollen auf den beiden Webanwendungsproxy-Servern, indem Sie die Remotezugriffsrolle auswählen. Sie werden vom Server-Manager durch die Schritte der WAP-Installation geführt.
-Weitere Informationen zur Bereitstellen von WAP finden Sie unter [Installieren und Konfigurieren des Webanwendungsproxy-Servers](https://technet.microsoft.com/library/dn383662.aspx).
+Weitere Informationen zur Bereitstellen von WAP finden Sie unter [Installieren und Konfigurieren des Webanwendungsproxy-Servers](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383662(v=ws.11)).
 
 ### <a name="8--deploying-the-internet-facing-public-load-balancer"></a>8. Bereitstellen der (öffentlichen) Load Balancer mit Internet Zugriff
 **8,1. Erstellen einer Load Balancer mit Internet Zugriff (Public)**
@@ -354,9 +354,9 @@ Sie können ein vorhandenes virtuelles Netzwerk verwenden oder beim Bereitstelle
 | AdminUserName |Name des lokalen Administrators der virtuellen Computer |
 | AdminPassword |Kennwort für das lokale Administratorkonto der virtuellen Computer |
 
-## <a name="additional-resources"></a>Zusätzliche Ressourcen
+## <a name="additional-resources"></a>Weitere Ressourcen
 * [Verfügbarkeits Gruppen](https://aka.ms/Azure/Availability) 
-* [Azure Load Balancer](https://aka.ms/Azure/ILB)
+* [Azure-Lastenausgleich](https://aka.ms/Azure/ILB)
 * [Interner Load Balancer](https://aka.ms/Azure/ILB/Internal)
 * [Load Balancer mit Internetzugriff](https://aka.ms/Azure/ILB/Internet)
 * [Speicherkonten](https://aka.ms/Azure/Storage)
@@ -364,6 +364,6 @@ Sie können ein vorhandenes virtuelles Netzwerk verwenden oder beim Bereitstelle
 * [AD FS- und Webanwendungsproxy-Links](https://aka.ms/ADFSLinks) 
 
 ## <a name="next-steps"></a>Nächste Schritte
-* [Integrieren lokaler Identitäten in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity)
+* [Integrieren lokaler Identitäten in Azure Active Directory](/azure/active-directory/hybrid/whatis-hybrid-identity)
 * [Azure AD Connect und Verbund](/azure/active-directory/hybrid/how-to-connect-fed-whatis)
 * [Regions übergreifende Hochverfügbarkeit AD FS Bereitstellung in Azure mit Azure Traffic Manager](active-directory-adfs-in-azure-with-azure-traffic-manager.md)

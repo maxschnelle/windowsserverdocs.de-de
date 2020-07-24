@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 57de6db53433d0da1a4efd8c212a23183edcbcf9
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 6b2d03fb379c879f445a30dd0f3daf762fed23c7
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85927426"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86955432"
 ---
 # <a name="bitsadmin-transfer"></a>bitsadmin transfer
 
@@ -36,10 +36,10 @@ bitsadmin /transfer <name> [<type>] [/priority <job_priority>] [/ACLflags <flags
 | Parameter | Beschreibung |
 | --------- | ----------- |
 | name | Der Name des Auftrags. Dieser Befehl darf keine GUID sein. |
-| Typ | Dies ist optional. Legt den Typ des Auftrags fest, einschließlich:<ul><li>**Downloaden.** Der Standardwert. Wählen Sie diesen Typ für Download Aufträge aus.</li><li>**Uploads.** Wählen Sie diesen Typ für hochgeladene Aufträge aus.</li></ul> |
+| type | Dies ist optional. Legt den Typ des Auftrags fest, einschließlich:<ul><li>**Downloaden.** Der Standardwert. Wählen Sie diesen Typ für Download Aufträge aus.</li><li>**Uploads.** Wählen Sie diesen Typ für hochgeladene Aufträge aus.</li></ul> |
 | priority | Dies ist optional. Legt die Priorität des Auftrags fest, einschließlich:<ul><li>FOREGROUND (Vordergrund)</li><li>HIGH</li><li>NORMAL</li><li>LOW</li></ul> |
 | Aclflags | Dies ist optional. Gibt an, dass Sie den Besitzer und die ACL-Informationen mit der heruntergeladenen Datei verwalten möchten. Geben Sie einen oder mehrere der Werte an, einschließlich:<ul><li>**o** -Besitzer Informationen mit Datei kopieren.</li><li>**g** -Gruppeninformationen in Datei kopieren.</li><li>**d** : Kopieren Sie die DACL-Informationen ("-Zugriffs Steuerungs Liste") mit der Datei.</li><li>**s** -Informationen zur System Zugriffs Steuerungs Liste (SACL) mit Datei kopieren.</li></ul> |
-| /DYNAMIC | Konfiguriert den Auftrag mithilfe von [**BITS_JOB_PROPERTY_DYNAMIC_CONTENT**](https://docs.microsoft.com/windows/win32/api/bits5_0/ne-bits5_0-bits_job_property_id), wodurch die serverseitigen Anforderungen entspannt werden. |
+| /DYNAMIC | Konfiguriert den Auftrag mithilfe von [**BITS_JOB_PROPERTY_DYNAMIC_CONTENT**](/windows/win32/api/bits5_0/ne-bits5_0-bits_job_property_id), wodurch die serverseitigen Anforderungen entspannt werden. |
 | remotefilename | Der Name der Datei, nachdem Sie an den Server übertragen wurde. |
 | localfilename | Der Name der lokalen Datei. |
 
@@ -51,7 +51,7 @@ So starten Sie einen Übertragungs Auftrag mit dem Namen *mydownloadjob*:
 bitsadmin /transfer myDownloadJob http://prodserver/audio.wma c:\downloads\audio.wma
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

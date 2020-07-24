@@ -1,6 +1,6 @@
 ---
 ms.assetid: 0abe0976-4b49-45d6-a7b3-81d28bdb8210
-title: Empfehlungen zu Überwachungsrichtlinien
+title: Audit Policy Recommendations
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -8,25 +8,25 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: c25df61246bf6a7c731e08e11cee54fd87d6ae4c
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 5a5af1691cdfec41cc4f821943b9b849c8822057
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80821343"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86953952"
 ---
-# <a name="audit-policy-recommendations"></a>Empfehlungen zu Überwachungsrichtlinien
+# <a name="audit-policy-recommendations"></a>Audit Policy Recommendations
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows 10, Windows 8.1, Windows 7
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows 10, Windows 8.1, Windows 7
 
 In diesem Abschnitt werden die Standardeinstellungen für die Überwachungsrichtlinie von Windows, die grundlegenden empfohlenen Überwachungs Richtlinien Einstellungen und die aggressiveren Empfehlungen von Microsoft für Arbeitsstationen und Server Produkte behandelt.  
 
-Die hier gezeigten SCM-baselineempfehlungen, zusammen mit den Einstellungen, die wir empfehlen, um eine Gefährdung zu erkennen, dienen nur als Ausgangsbasis Leit Faden für Administratoren. Jede Organisation muss ihre eigenen Entscheidungen hinsichtlich der erkannten Bedrohungen, ihrer akzeptablen Risiko Toleranzen und der zu aktivierenden Überwachungs Richtlinien Kategorien oder Unterkategorien treffen. Weitere Informationen zu Bedrohungen finden Sie im Handbuch zu [Bedrohungen und Gegenmaßnahmen](https://technet.microsoft.com/library/hh125921(v=ws.10).aspx). Administratoren ohne durchdachte Überwachungsrichtlinie werden empfohlen, mit den hier empfohlenen Einstellungen zu beginnen und dann vor der Implementierung von in Ihrer Produktionsumgebung zu ändern und zu testen.  
+Die hier gezeigten SCM-baselineempfehlungen, zusammen mit den Einstellungen, die wir empfehlen, um eine Gefährdung zu erkennen, dienen nur als Ausgangsbasis Leit Faden für Administratoren. Jede Organisation muss ihre eigenen Entscheidungen hinsichtlich der erkannten Bedrohungen, ihrer akzeptablen Risiko Toleranzen und der zu aktivierenden Überwachungs Richtlinien Kategorien oder Unterkategorien treffen. Weitere Informationen zu Bedrohungen finden Sie im Handbuch zu [Bedrohungen und Gegenmaßnahmen](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/hh125921(v=ws.10)). Administratoren ohne durchdachte Überwachungsrichtlinie werden empfohlen, mit den hier empfohlenen Einstellungen zu beginnen und dann vor der Implementierung von in Ihrer Produktionsumgebung zu ändern und zu testen.  
 
 Die Empfehlungen gelten für Computer auf Unternehmens Niveau, die von Microsoft als Computer definiert werden, die überdurchschnittliche Sicherheitsanforderungen verfügen und ein hohes Maß an Betriebs Funktionalität benötigen. Entitäten, die höhere Sicherheitsanforderungen benötigen, sollten aggressivere Überwachungs Richtlinien in Erwägung zieht.  
 
 > [!NOTE]  
-> Microsoft Windows-Standardwerte und-baselineempfehlungen wurden vom [Microsoft Security Compliance Manager-Tool](https://technet.microsoft.com/library/cc677002.aspx)übernommen.  
+> Microsoft Windows-Standardwerte und-baselineempfehlungen wurden vom [Microsoft Security Compliance Manager-Tool](/previous-versions/tn-archive/cc677002(v=technet.10))übernommen.  
 
 Die folgenden grundlegenden Überwachungs Richtlinien Einstellungen werden für normale Sicherheits Computer empfohlen, die nicht bekanntermaßen aktiv und erfolgreich von ermittelten Angreifern oder Schadsoftware betroffen sind.  
 
@@ -41,9 +41,9 @@ Dieser Abschnitt enthält Tabellen, in denen die Empfehlungen für die Überwach
 
 -   WindowsServer 2008  
 
--   Windows 10
+-   Windows 10
 
--   Windows 8.1  
+-   Windows 8.1  
 
 -   Windows 7  
 
@@ -53,11 +53,11 @@ Diese Tabellen enthalten die Windows-Standardeinstellung, die grundlegenden Empf
 
 |||  
 |-|-|  
-|**Angabe**|**Empfehlung**|  
-|JA|In allgemeinen Szenarien aktivieren|  
-|NEIN|**Nicht** in allgemeinen Szenarien aktivieren|  
+|**Notation**|**Empfehlung**|  
+|YES|In allgemeinen Szenarien aktivieren|  
+|Nein|**Nicht** in allgemeinen Szenarien aktivieren|  
 |IF|Aktivieren Sie bei Bedarf für ein bestimmtes Szenario oder, wenn eine Rolle oder ein Feature, für das die Überwachung gewünscht ist, auf dem Computer installiert ist.|  
-|DC|Aktivieren auf Domänen Controllern|  
+|SL|Aktivieren auf Domänen Controllern|  
 |Blitz|Keine Empfehlung|  
 
 **Empfehlungen zu Überwachungs Einstellungen für Windows 10, Windows 8 und Windows 7**  
@@ -78,7 +78,7 @@ Diese Tabellen enthalten die Windows-Standardeinstellung, die grundlegenden Empf
 |Andere Kontoverwaltungsereignisse überwachen||Ja Nein|Ja, ja|  
 |Sicherheitsgruppenverwaltung überwachen||Ja Nein|Ja, ja|  
 |Benutzerkontenverwaltung überwachen|Ja Nein|Ja Nein|Ja, ja|  
-|**Ausführliche Nachverfolgung**||||  
+|**Detaillierte Überwachung**||||  
 |DPAPI-Aktivität überwachen|||Ja, ja|  
 |Prozesserstellung überwachen||Ja Nein|Ja, ja|  
 |Prozessbeendung überwachen||||  
@@ -114,24 +114,24 @@ Diese Tabellen enthalten die Windows-Standardeinstellung, die grundlegenden Empf
 |Wechselmedien überwachen||||  
 |SAM überwachen||||  
 |Staging zentraler Zugriffsrichtlinien überwachen||||  
-|**Richtlinien Änderung**||||  
+|**Richtlinienänderung**||||  
 |Überwachungsrichtlinienänderung überwachen|Ja Nein|Ja, ja|Ja, ja|  
 |Authentifizierungsrichtlinienänderung überwachen|Ja Nein|Ja Nein|Ja, ja|  
 |Autorisierungsrichtlinienänderung überwachen||||  
 |Filterplattform-Richtlinienänderung überwachen||||  
 |MPSSVC-Richtlinienänderung auf Regelebene überwachen|||Ja  |  
 |Andere Richtlinienänderungsereignisse überwachen||||  
-|**Berechtigungs Verwendung**||||  
+|**Berechtigungen**||||  
 |Nicht sensible Verwendung von Rechten überwachen||||  
 |Andere Rechteverwendungsereignisse überwachen||||  
 |Sensible Verwendung von Rechten überwachen||||  
-|**Anlage**||||  
+|**System**||||  
 |IPsec-Treiber überwachen||Ja, ja|Ja, ja|  
 |Andere Systemereignisse überwachen|Ja, ja|||  
 |Sicherheitsstatusänderung überwachen|Ja Nein|Ja, ja|Ja, ja|  
 |Sicherheitssystemerweiterung überwachen||Ja, ja|Ja, ja|  
 |Systemintegrität überwachen|Ja, ja|Ja, ja|Ja, ja|  
-|**Globale Objekt Zugriffs Überwachung**||||  
+|**Globale Objektzugriffsüberwachung**||||  
 |IPsec-Treiber überwachen||||  
 |Andere Systemereignisse überwachen||||  
 |Sicherheitsstatusänderung überwachen||||  
@@ -156,7 +156,7 @@ Diese Tabellen enthalten die Windows-Standardeinstellung, die grundlegenden Empf
 |Andere Kontoverwaltungsereignisse überwachen||Ja, ja|Ja, ja|  
 |Sicherheitsgruppenverwaltung überwachen||Ja, ja|Ja, ja|  
 |Benutzerkontenverwaltung überwachen|Ja Nein|Ja, ja|Ja, ja|  
-|**Ausführliche Nachverfolgung**||||  
+|**Detaillierte Überwachung**||||  
 |DPAPI-Aktivität überwachen|||Ja, ja|  
 |Prozesserstellung überwachen||Ja Nein|Ja, ja|  
 |Prozessbeendung überwachen||||  
@@ -192,24 +192,24 @@ Diese Tabellen enthalten die Windows-Standardeinstellung, die grundlegenden Empf
 |Wechselmedien überwachen||||  
 |SAM überwachen||||  
 |Staging zentraler Zugriffsrichtlinien überwachen||||  
-|**Richtlinien Änderung**||||  
+|**Richtlinienänderung**||||  
 |Überwachungsrichtlinienänderung überwachen|Ja Nein|Ja, ja|Ja, ja|  
 |Authentifizierungsrichtlinienänderung überwachen|Ja Nein|Ja Nein|Ja, ja|  
 |Autorisierungsrichtlinienänderung überwachen||||  
 |Filterplattform-Richtlinienänderung überwachen||||  
 |MPSSVC-Richtlinienänderung auf Regelebene überwachen|||Ja  |  
 |Andere Richtlinienänderungsereignisse überwachen||||  
-|**Berechtigungs Verwendung**||||  
+|**Berechtigungen**||||  
 |Nicht sensible Verwendung von Rechten überwachen||||  
 |Andere Rechteverwendungsereignisse überwachen||||  
 |Sensible Verwendung von Rechten überwachen||||  
-|**Anlage**||||  
+|**System**||||  
 |IPsec-Treiber überwachen||Ja, ja|Ja, ja|  
 |Andere Systemereignisse überwachen|Ja, ja|||  
 |Sicherheitsstatusänderung überwachen|Ja Nein|Ja, ja|Ja, ja|  
 |Sicherheitssystemerweiterung überwachen||Ja, ja|Ja, ja|  
 |Systemintegrität überwachen|Ja, ja|Ja, ja|Ja, ja|  
-|**Globale Objekt Zugriffs Überwachung**||||  
+|**Globale Objektzugriffsüberwachung**||||  
 |IPsec-Treiber überwachen||||  
 |Andere Systemereignisse überwachen||||  
 |Sicherheitsstatusänderung überwachen||||  
@@ -284,15 +284,15 @@ Eine Liste der zu überwachenden empfohlenen Ereignisse, deren kritikitäts Bewe
 ## <a name="additional-information-for-monitoring-active-directory-domain-services"></a>Weitere Informationen zum Überwachen von Active Directory Domain Services  
 Überprüfen Sie die folgenden Links, um weitere Informationen zur Überwachungs AD DS zu finden:  
   
--   Die [globale Objekt Zugriffs Überwachung ist magisch](https://blogs.technet.com/b/askds/archive/2011/03/10/global-object-access-auditing-is-magic.aspx) . Sie enthält Informationen zum Konfigurieren und Verwenden der erweiterten Überwachungs Richtlinien Konfiguration, die zu Windows 7 und Windows Server 2008 R2 hinzugefügt wurde.  
+-   Die [globale Objekt Zugriffs Überwachung ist magisch](/archive/blogs/askds/global-object-access-auditing-is-magic) . Sie enthält Informationen zum Konfigurieren und Verwenden der erweiterten Überwachungs Richtlinien Konfiguration, die zu Windows 7 und Windows Server 2008 R2 hinzugefügt wurde.  
 
--   [Einführung von Überwachungs Änderungen in Windows 2008](https://blogs.technet.com/b/askds/archive/2007/10/19/introducing-auditing-changes-in-windows-2008.aspx) : führt die in Windows 2008 vorgenommenen Überwachungs Änderungen ein.  
+-   [Einführung von Überwachungs Änderungen in Windows 2008](/archive/blogs/askds/introducing-auditing-changes-in-windows-2008) : führt die in Windows 2008 vorgenommenen Überwachungs Änderungen ein.  
 
--   Praktische Überwachungs [Tricks in Vista und 2008](https://blogs.technet.com/b/askds/archive/2007/11/16/cool-auditing-tricks-in-vista-and-2008.aspx) : erläutert interessante neue Features der Überwachung in Windows Vista und Windows Server 2008, die für die Problembehandlung oder das Auftreten von Ereignissen in Ihrer Umgebung verwendet werden können.  
+-   Praktische Überwachungs [Tricks in Vista und 2008](/archive/blogs/askds/cool-auditing-tricks-in-vista-and-2008) : erläutert interessante neue Features der Überwachung in Windows Vista und Windows Server 2008, die für die Problembehandlung oder das Auftreten von Ereignissen in Ihrer Umgebung verwendet werden können.  
 
--   [Zentrale Anlaufstelle für die Überwachung in Windows Server 2008 und Windows Vista](https://blogs.technet.com/b/askds/archive/2008/03/27/one-stop-shop-for-auditing-in-windows-server-2008-and-windows-vista.aspx) : enthält eine Kompilierung von Überwachungs Features und Informationen, die in Windows Server 2008 und Windows Vista enthalten sind.  
+-   [Zentrale Anlaufstelle für die Überwachung in Windows Server 2008 und Windows Vista](/archive/blogs/askds/one-stop-shop-for-auditing-in-windows-server-2008-and-windows-vista) : enthält eine Kompilierung von Überwachungs Features und Informationen, die in Windows Server 2008 und Windows Vista enthalten sind.  
 
--   [Schritt-für-Schritt-Anleitung](https://technet.microsoft.com/library/a9c25483-89e2-4202-881c-ea8e02b4b2a5.aspx) für die AD DS Überwachung: Beschreibt das neue Active Directory Domain Services (AD DS)-Überwachungs Feature in Windows Server 2008. Außerdem werden Verfahren zur Implementierung dieses neuen Features bereitstellt.  
+-   [Schritt-für-Schritt-Anleitung](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731607(v=ws.10)) für die AD DS Überwachung: Beschreibt das neue Active Directory Domain Services (AD DS)-Überwachungs Feature in Windows Server 2008. Außerdem werden Verfahren zur Implementierung dieses neuen Features bereitstellt.  
 
 ## <a name="general-list-of-security-event-id-recommendation-criticalities"></a>Allgemeine Liste der Empfehlungen für die Ereignis-ID der Sicherheits Ereignis-ID  
 Alle Empfehlungen für Ereignis-IDs werden folgendermaßen mit einer kritikitäts Bewertung versehen:  

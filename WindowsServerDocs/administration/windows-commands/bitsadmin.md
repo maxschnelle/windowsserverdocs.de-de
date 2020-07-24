@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e9fd70e4e74dc25c32ff3a74be2fc1c66d697367
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 51a64b059dd9d07dd6bd0ecccb1cd99382bdfaa5
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85926373"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86955372"
 ---
 # <a name="bitsadmin"></a>bitsadmin
 
@@ -26,7 +26,7 @@ Die meisten Schalter benötigen einen `<job>` Parameter, den Sie auf den anzeige
 
 Standardmäßig können Sie auf Informationen zu ihren eigenen Aufträgen zugreifen. Für den Zugriff auf Informationen für die Aufträge eines anderen Benutzers müssen Sie über Administratorrechte verfügen. Wenn der Auftrag mit erhöhten Rechten erstellt wurde, müssen Sie **bizadmin** über ein Fenster mit erhöhten Rechten ausführen. Andernfalls haben Sie schreibgeschützten Zugriff auf den Auftrag.
 
-Viele der Schalter entsprechen den Methoden in den [Bits-Schnittstellen](https://docs.microsoft.com/windows/win32/bits/bits-interfaces). Weitere Informationen, die für die Verwendung eines Schalters relevant sein können, finden Sie in der entsprechenden-Methode.
+Viele der Schalter entsprechen den Methoden in den [Bits-Schnittstellen](/windows/win32/bits/bits-interfaces). Weitere Informationen, die für die Verwendung eines Schalters relevant sein können, finden Sie in der entsprechenden-Methode.
 
 Verwenden Sie die folgenden Schalter, um einen Auftrag zu erstellen, die Eigenschaften eines Auftrags festzulegen und abzurufen und den Status eines Auftrags zu überwachen. Beispiele, die zeigen, wie einige dieser Switches zum Ausführen von Aufgaben verwendet werden, finden Sie unter [bizadmin examples](bitsadmin-examples.md).
 

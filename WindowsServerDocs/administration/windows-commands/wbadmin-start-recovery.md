@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2a8934d9177d81cd05124175e64746ecdb4a1bc1
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 684e768979f54b772bffcb997b6ad44291dde8af
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85930955"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86954572"
 ---
 # <a name="wbadmin-start-recovery"></a>wbadmin start recovery
 
@@ -57,7 +57,7 @@ wbadmin start recovery
 |-norollforward|Nur beim Wiederherstellen von Anwendungen gültig. Ermöglicht die vorherige Wiederherstellung einer Anwendung zu einem bestimmten Zeitpunkt, wenn die neueste Version aus den Sicherungen ausgewählt ist. Bei anderen Versionen der Anwendung, bei denen es sich nicht um die neuesten handelt, wird die vorherige Zeit Punkt Wiederherstellung als Standardeinstellung ausgeführt.|
 |-quiet|Führt den Unterbefehl ohne Aufforderungen an den Benutzer aus.|
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 -   Verwenden Sie zum Anzeigen einer Liste von Elementen, die von einer bestimmten Sicherungs Version für die Wiederherstellung verfügbar sind, **Wbadmin Get Items**. Wenn ein Volume zum Zeitpunkt der Sicherung keinen Einfügepunkt oder Laufwerk Buchstabe enthielt, gibt dieser Unterbefehl einen GUID-basierten Volumenamen zurück, der für die Wiederherstellung des Volumes verwendet werden soll.
 -   Wenn " **-ItemType** " eine **App**ist, können Sie den Wert " **adifm** for **-Item** " verwenden, um eine Installation von einem Medien Vorgang auszuführen, um alle zugehörigen Daten wiederherzustellen, die für die Active Directory Domain Services benötigt werden. **Adifm** erstellt eine Kopie der Active Directory Datenbank-, Registrierungs-und SYSVOL-Status und speichert diese Informationen dann an dem Speicherort, der von **-Wiederherstellungsziel**angegeben wird. Verwenden Sie diesen Parameter nur, wenn " **-herstellytarget** " angegeben wird.
@@ -89,11 +89,11 @@ Geben Sie Folgendes ein, um eine Wiederherstellung der Sicherung ab dem 30. Apri
 wbadmin start recovery -version:04/30/2013-09:00 -backupTarget:\\servername\share -machine:server01
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 -   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)
--   [Start-wbfilerecovery](https://technet.microsoft.com/library/jj902457.aspx) -Cmdlet
--   [Start-wbhypervrecovery](https://technet.microsoft.com/library/jj902463.aspx) -Cmdlet
--   [Start-wbsystemstatus](https://technet.microsoft.com/library/jj902449.aspx) -Cmdlet
--   [Start-wbvolumerecovery](https://technet.microsoft.com/library/jj902470.aspx) -Cmdlet
+-   [Start-wbfilerecovery](/powershell/module/windowserverbackup/?view=winserver2012r2-ps) -Cmdlet
+-   [Start-wbhypervrecovery](/powershell/module/windowserverbackup/?view=winserver2012r2-ps) -Cmdlet
+-   [Start-wbsystemstatus](/powershell/module/windowserverbackup/?view=winserver2012r2-ps) -Cmdlet
+-   [Start-wbvolumerecovery](/powershell/module/windowserverbackup/?view=winserver2012r2-ps) -Cmdlet

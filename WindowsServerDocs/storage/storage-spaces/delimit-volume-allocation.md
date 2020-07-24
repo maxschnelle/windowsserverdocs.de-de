@@ -6,12 +6,12 @@ ms.technology: storage-spaces
 ms.topic: article
 author: cosmosdarwin
 ms.date: 03/29/2018
-ms.openlocfilehash: ce3b32bdb0dfb51237f934f23207167a215a0024
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: ccce763b437b461d33dd72cb3d656b825746e6da
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85475607"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86953843"
 ---
 # <a name="delimit-the-allocation-of-volumes-in-storage-spaces-direct"></a>Begrenzen der Zuordnung von Volumes in direkte Speicherplätze
 > Gilt für: Windows Server 2019
@@ -37,7 +37,7 @@ In Windows Server 2019 wird eine Option eingeführt, mit der die Zuordnung von V
 
 ### <a name="review-regular-allocation"></a>Review: reguläre Zuordnung
 
-Bei der regulären drei-Wege-Spiegelung ist das Volume in viele kleine "Platten" unterteilt, die dreimal kopiert und gleichmäßig auf alle Laufwerke in jedem Server im Cluster verteilt werden. Weitere Informationen finden Sie in [diesem Deep Dive-Blog](https://blogs.technet.microsoft.com/filecab/2016/11/21/deep-dive-pool-in-spaces-direct/).
+Bei der regulären drei-Wege-Spiegelung ist das Volume in viele kleine "Platten" unterteilt, die dreimal kopiert und gleichmäßig auf alle Laufwerke in jedem Server im Cluster verteilt werden. Weitere Informationen finden Sie in [diesem Deep Dive-Blog](https://techcommunity.microsoft.com/t5/storage-at-microsoft/deep-dive-the-storage-pool-in-storage-spaces-direct/ba-p/425959).
 
 ![Diagramm, das anzeigt, dass das Volume in drei Stapel von Platten aufgeteilt und gleichmäßig auf jeden Server verteilt ist.](media/delimit-volume-allocation/regular-allocation.png)
 

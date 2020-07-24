@@ -8,16 +8,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 03/01/2019
-ms.openlocfilehash: 62c5678c1af22b5970d1367aa514033ab7269148
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 1a3cd9e69c696dc00cb597ae1f60747518d8600f
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85928234"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86955722"
 ---
 # <a name="bitsadmin-gethelpertokenflags"></a>bitsadmin gethelpertokenflags
 
-Gibt die nutzungsflags für ein [Hilfsobjekt](https://docs.microsoft.com/windows/win32/bits/helper-tokens-for-bits-transfer-jobs)zurück   , das einem Bits-Übertragungs Auftrag zugeordnet ist.
+Gibt die nutzungsflags für ein [Hilfsobjekt](/windows/win32/bits/helper-tokens-for-bits-transfer-jobs)zurück   , das einem Bits-Übertragungs Auftrag zugeordnet ist.
 
 > [!NOTE]
 > Dieser Befehl wird von Bits 3,0 und früheren Versionen nicht unterstützt.
@@ -34,7 +34,7 @@ bitsadmin /gethelpertokenflags <job>
 | -------------- | -------------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 
-### <a name="remarks"></a>Hinweise
+### <a name="remarks"></a>Bemerkungen
 
 Mögliche Rückgabewerte, einschließlich:
 
@@ -50,7 +50,7 @@ So rufen Sie die nutzungsflags für ein Hilfstoken ab, das einem Bits-Übertragu
 bitsadmin /gethelpertokenflags myDownloadJob
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

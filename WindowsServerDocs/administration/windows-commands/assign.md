@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8bfcb43b2e42ca65d767f0683bf13dc971073c27
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 41c6194b68414be65fcf6b93b662e25ae80e0309
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85923992"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86955502"
 ---
 # <a name="assign"></a>assign
 
@@ -38,7 +38,7 @@ assign [{letter=<d> | mount=<path>}] [noerr]
 | Parameter | Beschreibung |
 | --------- | ----------- |
 | `letter=<d>` | Der Laufwerk Buchstabe, der dem Volume zugewiesen werden soll. |
-| `mount=<path>` | Der Pfad des einstellungspunkts, der dem Volume zugewiesen werden soll. Anweisungen zur Verwendung dieses Befehls finden [Sie unter Zuweisen eines Ordners für einen einstellungspunktpfad zu einem Laufwerk](https://docs.microsoft.com/windows-server/storage/disk-management/assign-a-mount-point-folder-path-to-a-drive). |
+| `mount=<path>` | Der Pfad des einstellungspunkts, der dem Volume zugewiesen werden soll. Anweisungen zur Verwendung dieses Befehls finden [Sie unter Zuweisen eines Ordners für einen einstellungspunktpfad zu einem Laufwerk](../../storage/disk-management/assign-a-mount-point-folder-path-to-a-drive.md). |
 | Noerr | Nur für Skripterstellung. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird. |
 
 ## <a name="examples"></a>Beispiele
@@ -49,7 +49,7 @@ Geben Sie Folgendes ein, um den Buchstaben E dem Volume im Fokus zuzuweisen:
 assign letter=e
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
