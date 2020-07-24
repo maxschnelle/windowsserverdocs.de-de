@@ -8,12 +8,12 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 32728fc9b19fca458b7ac4b86f3b550d9ff29490
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 5b9bda5ffb225cc05df7d45e8b611e0154f9e582
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85474167"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86961532"
 ---
 # <a name="configure-notification-limits"></a>Konfigurieren der Benachrichtigungsgrenze
 
@@ -39,7 +39,7 @@ Für jeden Benachrichtigungstyp wird ein Standard Limit von 60 Minuten festgeleg
 3.  Klicken Sie auf **OK**.
 
 > [!Note]
-> Zum Anpassen von Zeitlimits, die Benachrichtigungen für ein bestimmtes Kontingent oder einen bestimmten Datei Bildschirm zugeordnet sind, können Sie den Dateiserver Ressourcen-Manager Befehlszeilen Tools **Dirquota.exe** und **Filescrn.exe**verwenden oder die [Dateiserver Ressourcen-Manager](https://technet.microsoft.com/itpro/powershell/windows/fileserverresourcemanager/fileserverresourcemanager) -Cmdlets verwenden.
+> Zum Anpassen von Zeitlimits, die Benachrichtigungen für ein bestimmtes Kontingent oder einen bestimmten Datei Bildschirm zugeordnet sind, können Sie den Dateiserver Ressourcen-Manager Befehlszeilen Tools **Dirquota.exe** und **Filescrn.exe**verwenden oder die [Dateiserver Ressourcen-Manager](/powershell/module/fileserverresourcemanager/?view=win10-ps) -Cmdlets verwenden.
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 

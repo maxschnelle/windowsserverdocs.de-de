@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.assetid: 267541be-2ea7-4af6-ab34-8b5a3fedee2d
 ms.technology: identity-adds
-ms.openlocfilehash: 13153358f50302de722109bfe101911e3bac4708
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 84ce874ea85cce7ea562fcd5169902086732b4c4
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80823443"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86960842"
 ---
 # <a name="ad-forest-recovery---recovering-a-single-domain-in-a-multidomain-forest"></a>Wiederherstellung der AD-Gesamtstruktur: Wiederherstellen einer einzelnen Domäne in einer Gesamtstruktur mit mehreren
 
@@ -45,7 +45,7 @@ Die Quelle für das Bereinigung von veralteten Objekten muss in der wiederherges
 
 Das Entfernen veralteter Objekte ist für größere Unternehmen vorteilhaft, die die mit den anderen Optionen verbundene Zeitüberschreitung nicht riskieren können.  
 
-Weitere Informationen finden Sie unter [Verwenden von Repadmin zum Entfernen](https://technet.microsoft.com/library/cc785298.aspx)veralteter Objekte.
+Weitere Informationen finden Sie unter [Verwenden von Repadmin zum Entfernen](/previous-versions/windows/it-pro/windows-server-2003/cc785298(v=ws.10))veralteter Objekte.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

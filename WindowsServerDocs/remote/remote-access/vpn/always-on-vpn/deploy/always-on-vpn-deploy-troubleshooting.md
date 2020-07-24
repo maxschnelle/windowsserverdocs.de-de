@@ -9,12 +9,12 @@ ms.localizationpriority: medium
 ms.date: 06/11/2018
 ms.author: v-tea
 author: Teresa-MOTIV
-ms.openlocfilehash: 209567ccd88f4b20f98caecc2a13cc671ef09072
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: bbb614886099bf2adc1239a699ef8d904e71be7b
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80854023"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86961782"
 ---
 # <a name="troubleshoot-always-on-vpn"></a>Problembehandlung bei Always On VPN 
 
@@ -28,11 +28,11 @@ Sie können Verbindungsprobleme auf verschiedene Arten beheben. Bei Client seiti
 
 ### <a name="error-code-800"></a>Fehlercode: 800
 
-- **Fehlerbeschreibung.** Die Remote Verbindung wurde nicht hergestellt, weil bei den versuchten VPN-Tunneln ein Fehler aufgetreten ist. Der VPN-Server ist möglicherweise nicht erreichbar. Wenn diese Verbindung versucht, einen L2TP/IPSec-Tunnel zu verwenden, sind die für die IPsec-Aushandlung erforderlichen Sicherheitsparameter möglicherweise nicht ordnungsgemäß konfiguriert.
+- **Fehlerbeschreibung.** Die Remoteverbindung wurde aufgrund von VPN-Tunnelfehlern nicht hergestellt. Der VPN-Server ist möglicherweise nicht erreichbar. Wenn diese Verbindung versucht, einen L2TP/IPSec-Tunnel zu verwenden, sind die für die IPsec-Aushandlung erforderlichen Sicherheitsparameter möglicherweise nicht ordnungsgemäß konfiguriert.
 
 - **Mögliche Ursache:** Dieser Fehler tritt auf, wenn der VPN-Tunneltyp **automatisch** ist und der Verbindungsversuch für alle VPN-Tunnel fehlschlägt.
 
-- **Mögliche Lösungen:**
+- **Lösungsvorschläge:**
 
     - Wenn Sie wissen, welcher Tunnel für Ihre Bereitstellung verwendet werden soll, legen Sie den Typ des VPN auf den jeweiligen Tunneltyp auf der VPN-Clientseite fest.
 
@@ -40,7 +40,7 @@ Sie können Verbindungsprobleme auf verschiedene Arten beheben. Bei Client seiti
 
     - Dieser Fehler tritt auch auf, wenn der VPN-Server nicht erreicht werden kann oder die Tunnelverbindung nicht hergestellt werden kann.
 
-- **Stelle sicher:**
+- **Stellen Sie Folgendes sicher:**
 
     - IKE-Ports (UDP-Ports 500 und 4500) sind nicht blockiert.
 
@@ -56,7 +56,7 @@ Sie können Verbindungsprobleme auf verschiedene Arten beheben. Bei Client seiti
 
 ### <a name="error-code-812"></a>Fehlercode: 812
 
-- **Fehlerbeschreibung.** Es kann keine Verbindung mit Always on VPN hergestellt werden. Die Verbindung wurde aufgrund einer Richtlinie, die auf Ihrem RAS/VPN-Server konfiguriert wurde, verhindert. Die Authentifizierungsmethode, die der Server zum Überprüfen Ihres Benutzernamens und Kennworts verwendet hat, stimmt möglicherweise nicht mit der Authentifizierungsmethode, die in Ihrem Verbindungsprofil konfiguriert wurde. Wenden Sie sich an den Administrator des RAS-Servers, und Benachrichtigen Sie ihn über diesen Fehler.
+- **Fehlerbeschreibung.** Es kann keine Verbindung mit Always on VPN hergestellt werden. Die Verbindung wurde aufgrund einer auf dem RAS-/VPN-Server konfigurierten Richtlinie verhindert. Die Authentifizierungsmethode, die der Server zum Überprüfen Ihres Benutzernamens und Kennworts verwendet hat, stimmt möglicherweise nicht mit der Authentifizierungsmethode, die in Ihrem Verbindungsprofil konfiguriert wurde. Wenden Sie sich an den Administrator des RAS-Servers, und Benachrichtigen Sie ihn über diesen Fehler.
 
 - **Mögliche Ursachen:**
 
@@ -114,11 +114,11 @@ Im Allgemeinen wird der VPN-Client Computer mit der Active Directory – basiert
 
 In den Anwendungs Protokollen auf Client Computern wird der größte Teil der Details der VPN-Verbindungs Ereignisse auf höherer Ebene aufgezeichnet.
 
-Suchen Sie nach Ereignissen aus der Quelle RasClient. Alle Fehlermeldungen geben den Fehlercode am Ende der Nachricht zurück. Einige der gängigeren Fehlercodes sind unten aufgeführt, aber eine vollständige Liste ist in den [Routing-und RAS-Fehlercodes](https://msdn.microsoft.com/library/windows/desktop/bb530704.aspx)verfügbar.
+Suchen Sie nach Ereignissen aus der Quelle RasClient. Alle Fehlermeldungen geben den Fehlercode am Ende der Nachricht zurück. Einige der gängigeren Fehlercodes sind unten aufgeführt, aber eine vollständige Liste ist in den [Routing-und RAS-Fehlercodes](/previous-versions//mt728163(v=technet.10))verfügbar.
 
 ## <a name="nps-logs"></a>NPS-Protokolle
 
-NPS erstellt und speichert die NPS-Buchhaltungs Protokolle. Standardmäßig werden diese in% SystemRoot%\\System32\\Logfiles\\ in einer Datei namens in*xxxx*. txt gespeichert, wobei *xxxx* das Datum ist, an dem die Datei erstellt wurde.
+NPS erstellt und speichert die NPS-Buchhaltungs Protokolle. Standardmäßig werden diese in "% SystemRoot% \\ system32 \\ Logfiles" \\ in einer Datei namens in "*xxxx*. txt" gespeichert, wobei *xxxx* das Datum ist, an dem die Datei erstellt wurde.
 
 Standardmäßig sind diese Protokolle im Format für durch Trennzeichen getrennte Werte enthalten, Sie enthalten jedoch keine Überschriften Zeile. Die Überschriften Zeile lautet:
 
@@ -128,25 +128,25 @@ ComputerName,ServiceName,Record-Date,Record-Time,Packet-Type,User-Name,Fully-Qua
 
 Wenn Sie diese Überschriften Zeile als erste Zeile der Protokolldatei einfügen und die Datei dann in Microsoft Excel importieren, werden die Spalten ordnungsgemäß bezeichnet.
 
-Die NPS-Protokolle können bei der Diagnose von Richtlinien bezogenen Problemen hilfreich sein. Weitere Informationen zu NPS-Protokollen finden Sie unter [Interpretieren von NPS-Daten Bank Format-Protokolldateien](https://technet.microsoft.com/library/cc771748.aspx).
+Die NPS-Protokolle können bei der Diagnose von Richtlinien bezogenen Problemen hilfreich sein. Weitere Informationen zu NPS-Protokollen finden Sie unter [Interpretieren von NPS-Daten Bank Format-Protokolldateien](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771748(v=ws.10)).
 
-## <a name="vpn_profileps1-script-issues"></a>VPN_Profile. ps1-Skript Probleme
+## <a name="vpn_profileps1-script-issues"></a>Skriptprobleme bei „VPN_Profile.ps1“
 
-Die häufigsten Probleme beim manuellen Ausführen des VPN_ Profile. ps1-Skripts umfassen Folgendes:
+Die häufigsten Probleme beim manuellen Ausführen des VPN_ Profile.ps1 Skripts sind:
 
 - Verwenden Sie ein Remote Verbindungs Tool?  Stellen Sie sicher, dass Sie RDP oder eine andere Remote Verbindungsmethode nicht verwenden, da Sie mit der Erkennung von Benutzer Anmelde Informationen verwendet wird.
 
-- Ist der Benutzer ein Administrator dieses lokalen Computers?  Stellen Sie sicher, dass beim Ausführen des Skripts VPN_Profile. ps1, dass der Benutzer über Administratorrechte verfügt.
+- Ist der Benutzer ein Administrator dieses lokalen Computers?  Stellen Sie sicher, dass beim Ausführen des VPN_Profile.ps1 Skripts, dass der Benutzer über Administratorrechte verfügt.
 
 - Verfügen Sie über zusätzliche aktivierte PowerShell-Sicherheitsfeatures? Stellen Sie sicher, dass die PowerShell-Ausführungs Richtlinie das Skript nicht blockiert. Vor dem Ausführen des Skripts sollten Sie ggf. den eingeschränkten Modus deaktivieren. Sie können den eingeschränkten Sprachmodus aktivieren, nachdem das Skript erfolgreich abgeschlossen wurde.
 
-## <a name="always-on-vpn-client-connection-issues"></a>VPN-Client Verbindungsprobleme Always on
+## <a name="always-on-vpn-client-connection-issues"></a>Always On-VPN-Client-Verbindungsprobleme
 
 Eine geringfügige Fehlkonfiguration kann dazu führen, dass die Client Verbindung fehlschlägt, und die Ursache ist möglicherweise schwierig zu ermitteln.  Ein Always on-VPN-Client durchläuft mehrere Schritte, bevor eine Verbindung hergestellt wird. Gehen Sie bei der Problembehandlung von Client Verbindungsproblemen wie folgt vor:
 
 1. Ist der Vorlagen Computer extern verbunden? Ein **whatismyip** -Scan sollte eine öffentliche IP-Adresse anzeigen, die nicht zu Ihnen gehört.
 
-2. Können Sie den Remote Zugriff/VPN-Servernamen in eine IP-Adresse auflösen? Öffnen Sie in der **Systemsteuerung** > **Netzwerk** -und **Internet** > **Netzwerkverbindungen**die Eigenschaften für das VPN-Profil. Der Wert auf der Registerkarte **Allgemein** sollte durch DNS öffentlich aufgelöst werden können.
+2. Können Sie den Remote Zugriff/VPN-Servernamen in eine IP-Adresse auflösen? Öffnen Sie in der **Systemsteuerung**  >  **Netzwerk** -und **Internet**  >  **Netzwerkverbindungen**die Eigenschaften für das VPN-Profil. Der Wert auf der Registerkarte **Allgemein** sollte durch DNS öffentlich aufgelöst werden können.
 
 3. Können Sie über ein externes Netzwerk auf den VPN-Server zugreifen? Öffnen Sie das ICMP (Internet Control Message Protocol) für die externe Schnittstelle, und Pingen Sie den Namen vom Remote Client. Nachdem ein Ping erfolgreich war, können Sie die ICMP-Zulassungs Regel entfernen.
 
@@ -160,7 +160,7 @@ Eine geringfügige Fehlkonfiguration kann dazu führen, dass die Client Verbindu
 
 8. Stellen Sie eine Verbindung her und haben eine gültige interne IP-Adresse, haben aber keinen Zugriff auf lokale Ressourcen?  Überprüfen Sie, ob Clients wissen, wie Sie zu diesen Ressourcen gelangen. Sie können den VPN-Server zum Weiterleiten von Anforderungen verwenden.
 
-## <a name="azure-ad-conditional-access-connection-issues"></a>Azure AD Verbindungsprobleme mit bedingtem Zugriff
+## <a name="azure-ad-conditional-access-connection-issues"></a>Verbindungsprobleme bei bedingtem Zugriff unter Azure AD
 
 ### <a name="oops---you-cant-get-to-this-yet"></a>Oops: Sie können dies noch nicht erreichen.
 
@@ -170,14 +170,14 @@ Eine geringfügige Fehlkonfiguration kann dazu führen, dass die Client Verbindu
 
   - Der Benutzer verfügt über ein gültiges Client Authentifizierungszertifikat im persönlichen Zertifikat Speicher, das nicht von Azure AD ausgestellt wurde.
 
-  - Der Abschnitt VPN-Profil \<tlsextensions\> ist entweder nicht vorhanden oder enthält nicht den **\<ekuname\>Aad Conditional Access\</EKUName\>\<ekuoid\>1.3.6.1.4.1.311.87 </EKUOID\>\<ekuname > Aad Conditional Access </EKUName\>\<ekuoid\>1.3.6.1.4.1.311.87 </EKUOID\>** Einträge. Mit den \<ekuname > und \<ekuoid-> Einträgen wird dem VPN-Client mitgeteilt, welches Zertifikat aus dem Zertifikat Speicher des Benutzers abgerufen werden soll, wenn das Zertifikat an den VPN-Server übergeben wird. Ohne diesen Vorgang verwendet der VPN-Client ein gültiges Client Authentifizierungszertifikat, das sich im Zertifikat Speicher des Benutzers befindet, und die Authentifizierung ist erfolgreich. 
+  - Der Abschnitt VPN-Profil \<TLSExtensions\> fehlt oder enthält nicht den ** \<EKUName\> Aad Conditional Access \</EKUName\> \<EKUOID\> 1.3.6.1.4.1.311.87</ekuoid \> \<EKUName> Aad Conditional Access</ekuname \> \<EKUOID\> 1.3.6.1.4.1.311.87</ekuoid \> ** Entries. Mit \<EKUName> den \<EKUOID> Einträgen und wird dem VPN-Client mitgeteilt, welches Zertifikat aus dem Zertifikat Speicher des Benutzers abgerufen werden soll, wenn das Zertifikat an den VPN-Server übergeben wird. Ohne diesen Vorgang verwendet der VPN-Client ein gültiges Client Authentifizierungszertifikat, das sich im Zertifikat Speicher des Benutzers befindet, und die Authentifizierung ist erfolgreich. 
 
   - Der RADIUS-Server (NPS) wurde nicht so konfiguriert, dass nur Client Zertifikate akzeptiert werden, die die ID des **bedingten Aad-Zugriffs** enthalten.
 
 - **Mögliche Lösung.** Gehen Sie folgendermaßen vor, um diese Schleife zu verwenden:
 
   1. Führen Sie in Windows PowerShell das Cmdlet **Get-WMIObject** zum Sichern der VPN-Profil Konfiguration aus. 
-  2. Vergewissern Sie sich, dass die Abschnitte **\<tlsextensions >** , **\<ekuname >** und **\<ekuoid >** vorhanden sind, und zeigen Sie den richtigen Namen und die OID an.
+  2. Überprüfen Sie, ob die **\<TLSExtensions>** **\<EKUName>** Abschnitte, und vorhanden sind, **\<EKUOID>** und zeigen Sie den richtigen Namen und die OID an.
       
       ```powershell
       PS C:\> Get-WmiObject -Class MDM_VPNv2_01 -Namespace root\cimv2\mdm\dmmap
@@ -279,7 +279,7 @@ Eine geringfügige Fehlkonfiguration kann dazu führen, dass die Client Verbindu
      >[!NOTE]
      >Wenn ein Zertifikat vom Aussteller **CN = Microsoft VPN Root CA Gen 1** im persönlichen Speicher des Benutzers vorhanden ist, der Benutzer aber durch Auswählen von **X** zum Schließen der oops-Nachricht Zugriff erhalten hat, erfassen Sie CAPI2-Ereignisprotokolle, um zu überprüfen, ob das Zertifikat, das für die Authentifizierung verwendet wurde, ein gültiges Client Authentifizierungszertifikat war, das von der Microsoft-VPN-Stamm Zertifizierungsstelle
 
-  4. Wenn ein gültiges Client Authentifizierungszertifikat im persönlichen Speicher des Benutzers vorhanden ist, tritt bei der Verbindung ein Fehler auf (wie), nachdem der Benutzer das **X** ausgewählt hat, und wenn die **\<tlsextensions >** , **\<ekuname >** und **\<ekuoid >** Abschnitte vorhanden sind und die richtigen Informationen enthalten.
+  4. Wenn ein gültiges Client Authentifizierungszertifikat im persönlichen Speicher des Benutzers vorhanden ist, tritt bei der Verbindung ein Fehler auf (wie), nachdem der Benutzer das **X** ausgewählt hat und die **\<TLSExtensions>** **\<EKUName>** Abschnitte, und **\<EKUOID>** die richtigen Informationen enthalten.
    
      Es wird eine Fehlermeldung angezeigt, die besagt, dass ein Zertifikat nicht gefunden werden kann, das mit dem Extensible Authenticate-Protokoll verwendet werden kann.
 

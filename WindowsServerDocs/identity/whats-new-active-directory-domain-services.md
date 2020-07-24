@@ -8,26 +8,26 @@ ms.date: 08/07/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: a82f45772e5e35afffc632de2b40c02c75b5e5e4
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: b4a896772c477c0d93e5b987a7cbff9a89e07882
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80856283"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86963462"
 ---
 # <a name="whats-new-in-active-directory-domain-services-for-windows-server-2016"></a>Neues in Active Directory Domain Services für Windows Server 2016
 
 >Gilt für: Windows Server 2016
 
-Die folgenden neuen Features in Active Directory Domain Services (AD DS) verbessern die Fähigkeit von Organisationen, Active Directory Umgebungen zu schützen und Sie bei der Migration zu reinen cloudbereitstellungen und Hybrid Bereitstellungen zu unterstützen, bei denen einige Anwendungen und Dienste in der Cloud gehostet werden und andere lokal gehostet werden. Zu den Verbesserungen gehören:  
+Die folgenden neuen Features in Active Directory Domain Services (AD DS) verbessern die Fähigkeit von Organisationen, Active Directory Umgebungen zu schützen und Sie bei der Migration zu reinen cloudbereitstellungen und Hybrid Bereitstellungen zu unterstützen, bei denen einige Anwendungen und Dienste in der Cloud gehostet werden und andere lokal gehostet werden. Die Verbesserungen umfassen:  
   
-- [Privilegierte Zugriffs Verwaltung](https://docs.microsoft.com/microsoft-identity-manager/pam/privileged-identity-management-for-active-directory-domain-services)  
+- [Privilegierte Zugriffs Verwaltung](/microsoft-identity-manager/pam/privileged-identity-management-for-active-directory-domain-services)  
   
-- [Erweitern von cloudfunktionen auf Windows 10-Geräte über Azure Active Directory Join](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-overview/)
+- [Erweitern von cloudfunktionen auf Windows 10-Geräte über Azure Active Directory Join](/azure/active-directory/devices/overview)
   
-- [Verbinden von in die Domäne eingebundenen Geräten mit Azure AD für Windows 10-Umgebungen](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-devices-group-policy/)
+- [Verbinden von in die Domäne eingebundenen Geräten mit Azure AD für Windows 10-Umgebungen](/azure/active-directory/devices/hybrid-azuread-join-plan)
   
-- [Aktivieren von Microsoft Passport for Work in Ihrer Organisation](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-passport-deployment/)
+- [Aktivieren von Microsoft Passport for Work in Ihrer Organisation](/windows/security/identity-protection/hello-for-business/hello-identity-verification)
   
 - [Veraltete Funktionsebenen für den Datei Replikations Dienst (File Replication Service, FRS) und Windows Server 2003](ad-ds/active-directory-functional-levels.md)  
   
@@ -52,17 +52,17 @@ Die privilegierte Zugriffs Verwaltung (privilegierte Zugriffs Verwaltung, PAM) t
 
 ### <a name="requirements-for-privileged-access-management"></a>Anforderungen für die privilegierte Zugriffs Verwaltung
   
-- Microsoft Identity Manager  
+- Microsoft Identitäts-Manager  
   
 - Active Directory Gesamtstruktur Funktionsebene von Windows Server 2012 R2 oder höher.  
   
-## <a name="azure-ad-join"></a>Azure AD-Beitritt
+## <a name="azure-ad-join"></a>Azure AD Join
 
 Azure Active Directory Join verbessert die Identitäts Funktionen für Unternehmenskunden, Business-und edu-Kunden mit verbesserten Funktionen für firmeneigene und persönliche Geräte.  
   
 Vorteile:  
   
-- **Verfügbarkeit moderner Einstellungen** auf Windows-Geräten, die im Besitz von Corp sind. Bei den Sauerstoff Diensten ist keine persönliche Microsoft-Konto mehr erforderlich: Sie werden nun von den vorhandenen Arbeits Konten der Benutzer entfernt, um die Konformität zu gewährleisten. Die Sauerstoff Dienste können auf PCs verwendet werden, die einer lokalen Windows-Domäne angehören, und PCs und Geräten, die mit Ihrem Azure AD Mandanten ("clouddomäne") verknüpft sind. Dazu zählen die folgenden Einstellungen:  
+- **Verfügbarkeit moderner Einstellungen** auf Windows-Geräten, die im Besitz von Corp sind. Bei den Sauerstoff Diensten ist keine persönliche Microsoft-Konto mehr erforderlich: Sie werden nun von den vorhandenen Arbeits Konten der Benutzer entfernt, um die Konformität zu gewährleisten. Die Sauerstoff Dienste können auf PCs verwendet werden, die einer lokalen Windows-Domäne angehören, und PCs und Geräten, die mit Ihrem Azure AD Mandanten ("clouddomäne") verknüpft sind. Dies umfasst Folgendes:  
 
    - Roaming oder Personalisierung, Barrierefreiheits Einstellungen und Anmelde Informationen  
    - Sichern und Wiederherstellen  
@@ -77,7 +77,7 @@ Vorteile:
 - Mit der **Entwickler** Funktion können Sie Apps erstellen, die sowohl für den Kontext von Unternehmen als auch für den persönlichen Kontext mit einem freigegebenen Programm Stapel  
 - Mithilfe der Option " **Abbild** Erstellung" können Sie die Abbild Erstellung auswählen und Benutzern ermöglichen, unternehmenseigene Geräte direkt während der ersten Durchführung zu konfigurieren.  
   
-Weitere Informationen finden Sie unter [Einführung in die Geräteverwaltung in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/devices/overview).  
+Weitere Informationen finden Sie unter [Einführung in die Geräteverwaltung in Azure Active Directory](/azure/active-directory/devices/overview).  
   
 ## <a name="windows-hello-for-business"></a>Windows Hello for Business
 
@@ -85,16 +85,16 @@ Windows Hello for Business ist ein Schlüssel basiertes Authentifizierungs Konze
   
 Der Benutzer meldet sich beim Gerät mit einem biometrischen oder PIN-Protokoll an, das mit einem Zertifikat oder einem asymmetrischen Schlüsselpaar verknüpft ist. Die Identitäts Anbieter (IDPs) überprüfen den Benutzer, indem Sie den öffentlichen Schlüssel des Benutzers idlocker zuordnen und Anmelde Informationen über ein einmal Kennwort (OTP), ein Telefon oder einen anderen Benachrichtigungs Mechanismus bereitstellen.  
   
-Weitere Informationen finden Sie unter [Windows Hello for Business](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification) .  
+Weitere Informationen finden Sie unter [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-identity-verification) .  
   
 ## <a name="deprecation-of-file-replication-service-frs-and-windows-server-2003-functional-levels"></a>Veraltete Funktionsebenen für den Datei Replikations Dienst (File Replication Service, FRS) und Windows Server 2003
 
 Obwohl der Datei Replikations Dienst (File Replication Service, FRS) und die Funktionsebenen von Windows Server 2003 in früheren Versionen von Windows Server nicht mehr unterstützt wurden, wird das Betriebssystem Windows Server 2003 nicht mehr unterstützt. Daher sollten alle Domänencontroller, die auf Windows Server 2003 ausgeführt werden, aus der Domäne entfernt werden. Die Domänen-und Gesamtstruktur Funktionsebene sollte auf mindestens Windows Server 2008 erhöht werden, um zu verhindern, dass ein Domänen Controller, auf dem eine frühere Version von Windows Server ausgeführt wird, der Umgebung hinzugefügt wird.
 
-Bei Windows Server 2008-Domänenfunktionsebenen (und höher) wird die DFS-Replikation (Distributed File Service) zum Replizieren von SYSVOL-Ordnerinhalten zwischen Domänencontrollern verwendet. Wenn Sie auf der Windows Server 2008-Domänenfunktionsebene (oder höher) eine neue Domäne erstellen, wird die DFS-Replikation automatisch zum Replizieren von SYSVOL verwendet. Wenn Sie die Domäne auf einer niedrigeren Funktionsebene erstellt haben, müssen Sie für SYSVOL anstatt des Dateireplikationsdiensts die DFS-Replikation verwenden. Für Migrations Schritte können Sie entweder die folgenden [Schritte](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019\(v=ws.10\)) ausführen, oder Sie können den [optimierten Satz von Schritten im CAB-Blog der Speicher Team Datei](https://blogs.technet.com/b/filecab/archive/2014/06/25/streamlined-migration-of-frs-to-dfsr-sysvol.aspx)entnehmen.  
+Bei Windows Server 2008-Domänenfunktionsebenen (und höher) wird die DFS-Replikation (Distributed File Service) zum Replizieren von SYSVOL-Ordnerinhalten zwischen Domänencontrollern verwendet. Wenn Sie auf der Windows Server 2008-Domänenfunktionsebene (oder höher) eine neue Domäne erstellen, wird die DFS-Replikation automatisch zum Replizieren von SYSVOL verwendet. Wenn Sie die Domäne auf einer niedrigeren Funktionsebene erstellt haben, müssen Sie für SYSVOL anstatt des Dateireplikationsdiensts die DFS-Replikation verwenden. Für Migrations Schritte können Sie entweder die folgenden [Schritte](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/dd640019\(v=ws.10\)) ausführen, oder Sie können den [optimierten Satz von Schritten im CAB-Blog der Speicher Team Datei](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB)entnehmen.  
   
 Die Domänen-und Gesamtstruktur Funktionsebenen von Windows Server 2003 werden weiterhin unterstützt, aber Organisationen sollten die Funktionsebene auf Windows Server 2008 (oder höher) erhöhen, um die SYSVOL-Replikations Kompatibilität und-Unterstützung in Zukunft sicherzustellen. Außerdem gibt es noch viele weitere Vorteile und Features, die auf den höheren Funktionsebenen höher verfügbar sind. Weitere Informationen finden Sie in den folgenden Ressourcen:  
 
-- [Grundlegendes zu Active Directory Domain Services (AD DS)-Funktionsebenen](ad-ds/active-directory-functional-levels.md)  
-- [Heraufstufen der Domänenfunktionsebene](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753104\(v=ws.11\))  
-- [Heraufstufen der Gesamtstrukturfunktionsebene](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc730985\(v=ws.11\))  
+- [Grundlegendes zu Funktionsebenen von Active Directory-Domänendiensten (AD DS)](ad-ds/active-directory-functional-levels.md)  
+- [Heraufstufen der Domänenfunktionsebene](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc753104\(v=ws.11\))  
+- [Heraufstufen der Gesamtstrukturfunktionsebene](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc730985\(v=ws.11\))  

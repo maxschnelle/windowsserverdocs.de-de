@@ -8,26 +8,26 @@ ms.topic: article
 ms.assetid: 3bba28d4-23e2-449f-8319-7d2190f68d56
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: cf17c7f1349d5b3ee5b3efe0a872dd433ecbfe8d
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 694260d58c8dda136318cd21f553a4b6b2fd31e0
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80819574"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86963642"
 ---
 # <a name="step-2-plan-advanced-directaccess-deployments"></a>Schritt 2 Planen von erweiterten DirectAccess-bereit Stellungen
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 Nach der Planung der DirectAccess-Infrastruktur besteht der nächste Schritt der Bereitstellung des erweiterten DirectAccess auf einem einzelnen Server mit IPv4 und IPv6 darin, die Einstellungen für den Remotezugriffs-Setup-Assistenten vorzunehmen.  
   
 |Aufgabe|Beschreibung|  
 |----|--------|  
-|[2,1 Planen der Client Bereitstellung](#21-plan-for-client-deployment)|Planen Sie die Methode zum Verbinden der Clientcomputer mithilfe von DirectAccess. Entscheiden Sie, welche verwalteten Computer als DirectAccess-Clients konfiguriert werden, und planen Sie die Bereitstellung von NCA (Network Connectivity Assistant) oder DCA (DirectAccess Connectivity Assistant) auf den Clientcomputern.|  
-|[2,2 Planen der DirectAccess-Server Bereitstellung](#22-plan-for-directaccess-server-deployment)|Planen Sie die Bereitstellung des DirectAccess-Servers.|  
-|[2,3 Planen der Infrastruktur Server](#23-plan-infrastructure-servers)|Planen Sie die Infrastrukturserver für Ihre DirectAccess-Bereitstellung, dazu gehört der DirectAccess-Netzwerkadressenserver, die DNS-Server (Domain Name System) und die DirectAccess-Verwaltungsserver.|  
-|[2,4 Planen von Anwendungsservern](#24-plan-application-servers)|Planen Sie die IPv4- und IPv6-Anwendungsserver, und ziehen Sie die optionale Möglichkeit in Betracht, eine obligatorische End-to-End-Authentifizierung zwischen DirectAccess-Clientcomputern und internen Anwendungsservern einzurichten.|  
-|[2,5 Planen von DirectAccess und VPN-Clients von Drittanbietern](#25-plan-directaccess-and-third-party-vpn-clients)|Bei der Bereitstellung von DirectAccess mit VPN-Clients von Drittanbietern kann es erforderlich sein, die folgenden Registrierungswerte festzulegen, um die nahtlose gleichzeitige Verwendung der beiden Remotezugriffslösungen zu aktivieren.|  
+|[2.1 Planen der Clientbereitstellung](#21-plan-for-client-deployment)|Planen Sie die Methode zum Verbinden der Clientcomputer mithilfe von DirectAccess. Entscheiden Sie, welche verwalteten Computer als DirectAccess-Clients konfiguriert werden, und planen Sie die Bereitstellung von NCA (Network Connectivity Assistant) oder DCA (DirectAccess Connectivity Assistant) auf den Clientcomputern.|  
+|[2.2 Planen der DirectAcess-Serverbereitstellung](#22-plan-for-directaccess-server-deployment)|Planen Sie die Bereitstellung des DirectAccess-Servers.|  
+|[2.3 Planen der Infrastrukturserver](#23-plan-infrastructure-servers)|Planen Sie die Infrastrukturserver für Ihre DirectAccess-Bereitstellung, dazu gehört der DirectAccess-Netzwerkadressenserver, die DNS-Server (Domain Name System) und die DirectAccess-Verwaltungsserver.|  
+|[2.4 Planen der Anwendungsserver](#24-plan-application-servers)|Planen Sie die IPv4- und IPv6-Anwendungsserver, und ziehen Sie die optionale Möglichkeit in Betracht, eine obligatorische End-to-End-Authentifizierung zwischen DirectAccess-Clientcomputern und internen Anwendungsservern einzurichten.|  
+|[2.5 Planen von DirectAccess und VPN-Clients von Drittanbietern](#25-plan-directaccess-and-third-party-vpn-clients)|Bei der Bereitstellung von DirectAccess mit VPN-Clients von Drittanbietern kann es erforderlich sein, die folgenden Registrierungswerte festzulegen, um die nahtlose gleichzeitige Verwendung der beiden Remotezugriffslösungen zu aktivieren.|  
   
 ## <a name="21-plan-for-client-deployment"></a>2.1 Planen der Clientbereitstellung  
 Bei der Planung Ihrer Clientbereitstellung müssen drei Entscheidungen getroffen werden:  
@@ -46,7 +46,7 @@ Bei der Planung Ihrer Clientbereitstellung müssen drei Entscheidungen getroffen
   
     Der Netzwerkkonnektivitäts-Assistent wird auf Clientcomputern ausgeführt, er stellt zusätzliche Informationen zur DirectAccess-Verbindung mit Endbenutzern bereit. Im DirectAccess-Client-Setup-Assistenten können Sie Folgendes konfigurieren:  
   
-    -   **Konnektivitätsverifier**  
+    -   **Verbindungsprüfer**  
   
         Ein Standardwebtest wird erstellt, den Clients verwenden, um die Verbindung zum internen Netzwerk zu prüfen. Der Standardname lautet:  
   
@@ -54,15 +54,15 @@ Bei der Planung Ihrer Clientbereitstellung müssen drei Entscheidungen getroffen
   
         Der Name sollte manuell im DNS registriert werden. Mithilfe anderer Webadressen über HTTP oder **ping** können Sie weitere Verbindungsprüfer erstellen. Für jeden Verbindungsprüfer muss ein DNS-Eintrag vorhanden sein.  
   
-    -   **Eine Helpdesk-e-Mail-Adresse**  
+    -   **Eine Helpdesk-E-Mail-Adresse**  
   
         Wenn Endbenutzer Probleme mit der DirectAccess-Verbindung haben, können Sie eine E-Mail mit Diagnoseinformationen an den DirectAccess-Administrator senden, um das Problem zu beheben.  
   
-    -   **Ein DirectAccess-Verbindungs Name**  
+    -   **Ein DirectAccess-Verbindungsname**  
   
         Geben Sie einen DirectAccess-Verbindungsnamen an, damit Endbenutzer die DirectAccess-Verbindung auf ihren Computern leichter identifizieren können.  
   
-    -   **DirectAccess-Clients die Verwendung der lokalen Namensauflösung gestatten**  
+    -   **Erlauben Sie DirectAccess-Clients, die lokale Namensauflösung zu verwenden**  
   
         Clients benötigen eine Methode, um Namen lokal aufzulösen. Wenn Sie zulassen, dass DirectAccess-Clients die lokale Namensauflösung verwenden, können Endbenutzer zum Auflösen von Namen lokale DNS-Server verwenden. Wenn Endbenutzer die Verwendung lokaler DNS-Server zur Namensauflösung auswählen, sendet DirectAccess keine Anforderungen zum Auflösen einzelner Bezeichnungsnamen an den internen Unternehmens-DNS-Server. Stattdessen verwendet er die lokale Namensauflösung, indem er die Multicastnamenauflösung für lokale Verbindungen (Link-Local Multicast Name Resolution, LLMNR) und NetBIOS über TCP/IP-Protokolle verwendet.  
   
@@ -99,7 +99,7 @@ Berücksichtigen Sie folgende Entscheidungen bei der Bereitstellung Ihres Direct
   
     Entscheiden Sie, wie DirectAccess-Clients sich mit dem DirectAccess-Server authentifizieren sollen:  
   
-    -   **Benutzerauthentifizierung**. Sie können für Benutzer die zweistufige oder die Authentifizierung mit Active Directory-Anmeldeinformationen aktivieren. Weitere Informationen zum Authentifizieren mit zweistufiger Authentifizierung finden Sie unter Bereitstellen des [Remote Zugriffs mit OTP-Authentifizierung](https://technet.microsoft.com/library/hh831379.aspx).  
+    -   **Benutzerauthentifizierung**. Sie können für Benutzer die zweistufige oder die Authentifizierung mit Active Directory-Anmeldeinformationen aktivieren. Weitere Informationen zum Authentifizieren mit zweistufiger Authentifizierung finden Sie unter Bereitstellen des [Remote Zugriffs mit OTP-Authentifizierung](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831379(v=ws.11)).  
   
     -   **Computerauthentifizierung**. Sie können die Computerauthentifizierung so konfigurieren, dass sie im Auftrag des Clients Zertifikate oder den DirectAccess-Server als Kerberos-Proxy verwendet. Weitere Informationen finden Sie unter [1,3 Planen der Zertifikat Anforderungen](da-adv-plan-s1-infrastructure.md#13-plan-certificate-requirements).  
   
@@ -134,7 +134,7 @@ Standardmäßig wird bei der Erweiterung der Authentifizierung auf Anwendungsser
 ## <a name="25-plan-directaccess-and-third-party-vpn-clients"></a>2.5 Planen von DirectAccess und VPN-Clients von Drittanbietern  
 Einige VPN-Clients von Drittanbietern erstellen im Ordner Netzwerkverbindungen keine Verbindungen. Dies kann dazu führen, dass DirectAccess keine Intranetkonnektivität erkennt, wenn die VPN-Verbindung hergestellt ist und eine Verbindung zum Intranet besteht. Diese Bedingung tritt auf, wenn VPN-Clients von Drittanbietern ihre Schnittstellen registrieren, indem sie diese als (NDIS) ENDPOINT-Typen (Network Device Interface Specification) definieren. Sie können die gleichzeitige Verwendung dieser VPN-Clienttypen aktivieren, indem Sie den folgenden Registrierungswert auf 1 festlegen.  
   
-**HKEY_LOCAL_MACHINE \system\currentcontrolset\services\nlasvc\parameters\showdomainendpointinterfaces (REG_DWORD)**  
+**HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\NlaSvc\Parameters\ShowDomainEndpointInterfaces (REG_DWORD)**  
   
 Einige VPN-Clients von Drittanbietern verwenden eine Konfiguration mit geteiltem Tunneln, sodass der VPN-Clientcomputer direkt auf das Internet zugreifen kann, ohne den Datenverkehr über die VPN-Verbindung an das Intranet senden zu müssen.  
   
@@ -142,11 +142,9 @@ Bei Konfigurationen mit geteiltem Tunneln wird die Standardgatewayeinstellung f�
   
 Wenn die VPN-Verbindung das Standardgateway als leer oder nur Nullen (0.0.0.0) anzeigt, ist Ihr  VPN-Client entsprechend konfiguriert. Standardmäßig erkennt der DirectAccess-Client geteilte Tunnelkonfigurationen nicht. Um DirectAccess-Clients für eine Erkennung dieser VPN-Clientkonfigurationstypen zu konfigurieren, müssen Sie den folgenden Registrierungswert auf 1 festlegen.  
   
-**HKEY_LOCAL_MACHINE \system\currentcontrolset\services\nlasvc\parameters\internet\ enablenogatewaylocationerkennungs (REG_DWORD)**  
+**HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\NlaSvc\Parameters\Internet\ EnableNoGatewayLocationDetection (REG_DWORD)**  
   
 ## <a name="previous-step"></a>Vorheriger Schritt  
   
--   [Schritt 1: Planen der DirectAccess-Infrastruktur](da-adv-plan-s1-infrastructure.md)  
+-   [Schritt 1: Planen der DirectAccess-Infrastruktur](da-adv-plan-s1-infrastructure.md)  
   
-
-

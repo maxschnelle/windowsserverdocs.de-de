@@ -8,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 8e92ad4b280572fc3b44a0161af9a4ea25653c89
-ms.sourcegitcommit: 11421f4005f9f3a3f6c0db95b1836d0f765a9fa3
+ms.openlocfilehash: 186ad8d63a1d30ce56b1f6a2780893cfb744463d
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81624318"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86962252"
 ---
 # <a name="creating-an-organizational-unit-design"></a>Erstellen eines Organisationseinheitsentwurfs
 
@@ -21,7 +21,7 @@ ms.locfileid: "81624318"
 
 Gesamtstruktur Besitzer sind dafür verantwortlich, Organisationseinheiten-Entwürfe für Ihre Domänen zu erstellen. Das Erstellen eines Organisationseinheiten Entwurfs umfasst das Entwerfen der OE-Struktur, das Zuweisen der OE-Besitzer Rolle und das Erstellen von Konto-und Ressourcen Organisationseinheiten.
 
-Entwerfen Sie zunächst Ihre OE-Struktur, um die Delegierung der Verwaltung zu ermöglichen. Wenn der OE-Entwurf fertig ist, können Sie zusätzliche OU-Strukturen für die Anwendung von Gruppenrichtlinie für die Benutzer und Computer erstellen und die Sichtbarkeit von Objekten einschränken. Weitere Informationen finden Sie unter [Entwerfen einer Gruppenrichtlinie-Infrastruktur](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc786524(v=ws.10)).
+Entwerfen Sie zunächst Ihre OE-Struktur, um die Delegierung der Verwaltung zu ermöglichen. Wenn der OE-Entwurf fertig ist, können Sie zusätzliche OU-Strukturen für die Anwendung von Gruppenrichtlinie für die Benutzer und Computer erstellen und die Sichtbarkeit von Objekten einschränken. Weitere Informationen finden Sie unter [Entwerfen einer Gruppenrichtlinie-Infrastruktur](/previous-versions/windows/it-pro/windows-server-2003/cc786524(v=ws.10)).
 
 ## <a name="ou-owner-role"></a>OU-Besitzer Rolle
 Der Gesamtstruktur Besitzer bezeichnet einen OE-Besitzer für jede Organisationseinheit, die Sie für die Domäne entwerfen. OU-Besitzer sind Daten-Manager, die eine Teilstruktur von Objekten in Active Directory Domain Services Steuern (AD DS). Organisationseinheiten Besitzer können steuern, wie die Verwaltung delegiert wird und wie Richtlinien auf Objekte innerhalb ihrer Organisationseinheit angewendet werden. Sie können auch neue Unterstrukturen erstellen und die Verwaltung von Organisationseinheiten innerhalb dieser Teil Strukturen delegieren.
@@ -40,7 +40,7 @@ Assemblieren Sie ein Team zum Entwerfen der OE-Struktur, mit der Sie die Kontrol
 
 Es ist wichtig, den ou-Entwurf zu dokumentieren. Auflisten der Namen der Organisationseinheiten, die Sie erstellen möchten. Dokumentieren Sie für jede Organisationseinheit den Typ der Organisationseinheit, den OE-Besitzer, die übergeordnete Organisationseinheit (falls zutreffend) und den Ursprung der Organisationseinheit.
 
-Für ein Arbeitsblatt, das Sie bei der Dokumentation Ihres OE-Entwurfs unterstützt, laden Sie Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip aus den [Auftrags Hilfen für Windows Server 2003 Deployment Kit](https://microsoft.com/download/details.aspx?id=9608) herunter, und öffnen Sie "Identifizierungs-OUs für jede Domäne" (DSSLOGI_9. doc).
+Für ein Arbeitsblatt, das Sie bei der Dokumentation Ihres OE-Entwurfs unterstützt, laden Sie Job_Aids_Designing_and_Deploying_Directory_and_Security_Services.zip aus den [Auftrags Hilfen für Windows Server 2003 Deployment Kit](https://microsoft.com/download/details.aspx?id=9608) herunter, und öffnen Sie "Identifizierungs-OUs für jede Domäne" (DSSLOGI_9.doc).
 
 ## <a name="in-this-section"></a>In diesem Abschnitt
 

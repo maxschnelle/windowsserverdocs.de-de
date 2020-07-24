@@ -8,16 +8,16 @@ ms.topic: article
 ms.assetid: b211a9ca-1208-4e1f-a0fe-26a610936c30
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 7f6a6724a2ab7bb6da48a11d31fb04461912e388
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 199d4ce3ebb3c9cbc6ec1b8574133104b8129312
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80859523"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86964622"
 ---
 # <a name="deploy-a-single-directaccess-server-with-advanced-settings"></a>Bereitstellen eines einzelnen DirectAccess-Servers mit erweiterten Einstellungen
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 Dieses Thema bietet eine Einführung in das DirectAccess-Szenario, in dem ein einzelner DirectAccess-Server verwendet wird, und ermöglicht es Ihnen, DirectAccess mit erweiterten Einstellungen bereitzustellen.  
   
@@ -28,7 +28,7 @@ In den folgenden Themen finden Sie Informationen zu Voraussetzungen und anderen 
   
 -   [Erforderliche Komponenten für die Bereitstellung von DirectAccess](../../../remote-access/directaccess/Prerequisites-for-Deploying-DirectAccess.md)  
   
-## <a name="scenario-description"></a><a name="BKMK_OVER"></a>Szenariobeschreibung  
+## <a name="scenario-description"></a><a name="BKMK_OVER"></a>Beschreibung des Szenarios  
 In diesem Szenario wird ein einzelner Computer, auf dem entweder Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 ausgeführt wird, als DirectAccess-Server mit erweiterten Einstellungen konfiguriert.  
   
 > [!NOTE]  
@@ -37,7 +37,7 @@ In diesem Szenario wird ein einzelner Computer, auf dem entweder Windows Server 
 ## <a name="in-this-scenario"></a>Inhalt dieses Szenarios  
 Um einen einzelnen DirectAccess-Server mit erweiterten Einstellungen einzurichten, müssen Sie einige Planungs- und Bereitstellungsschritte durchführen.  
   
-### <a name="prerequisites"></a>Erforderliche Komponenten  
+### <a name="prerequisites"></a>Voraussetzungen  
 Vor dem Beginn können Sie folgende Anforderungen überprüfen:  
   
 -   Windows-Firewall muss in allen Profilen aktiviert sein.  
@@ -69,7 +69,7 @@ Die Bereitstellung besteht aus drei Phasen:
   
 Ausführliche Informationen zu den Bereitstellungsschritten finden Sie unter [Installieren und Konfigurieren des erweiterten DirectAccess](../../../remote-access/directaccess/single-server-advanced/Install-and-Configure-Advanced-DirectAccess.md).  
   
-## <a name="practical-applications"></a><a name="BKMK_APP"></a>Praktische Anwendungen  
+## <a name="practical-applications"></a><a name="BKMK_APP"></a>Praktische Anwendung  
 Die Bereitstellung eines einzelnen DirectAccess-Servers bietet Folgendes:  
   
 -   **Erleichterte Bedienung**. Verwaltete Client Computer, auf denen Windows 10, Windows 8.1, Windows 8 und Windows 7 ausgeführt wird, können als DirectAccess-Client Computer konfiguriert werden. Diese Clients können immer, wenn sie im Internet sind, über DirectAccess auf interne Netzwerkressourcen zugreifen, ohne sich über eine VPN-Verbindung einzuloggen. Clientcomputer, die keines dieser Betriebssysteme verwenden, können per VPN eine Verbindung zum internen Netzwerk herstellen.  
@@ -116,7 +116,7 @@ Für dieses Szenario müssen die folgenden Hardwareanforderungen erfüllt werden
   
     -   Falls ein VPN aktiviert ist, ist ein DHCP-Server erforderlich, um die IP-Adressen automatisch den VPN-Clients zuzuweisen, sofern kein statischen IP-Adresspool genutzt wird.  
   
-## <a name="software-requirements"></a><a name="BKMK_SOFT"></a>Software Anforderungen  
+## <a name="software-requirements"></a><a name="BKMK_SOFT"></a>Softwareanforderungen  
 Für dieses Szenario gelten eine Reihe von Anforderungen:  
   
 -   Serveranforderungen:  
@@ -142,12 +142,10 @@ Für dieses Szenario gelten eine Reihe von Anforderungen:
 ## <a name="see-also"></a><a name="BKMK_LINKS"></a>Siehe auch  
 Die folgende Tabelle enthält Links zu zusätzlichen Ressourcen.  
   
-|Art des Inhalts|Verweise|  
+|Inhaltstyp|Referenzen|  
 |--------|-------|  
 |**Bereitstellung**|[DirectAccess-Bereitstellungs Pfade in Windows Server](../../../remote-access/directaccess/DirectAccess-Deployment-Paths-in-Windows-Server.md)<p>[Bereitstellen eines einzelnen DirectAccess-Servers mit dem Assistenten für die ersten Schritte](../../../remote-access/directaccess/single-server-wizard/Deploy-a-Single-DirectAccess-Server-Using-the-Getting-Started-Wizard.md)|  
-|**Tools und Einstellungen**|[PowerShell-Cmdlets für den Remote Zugriff](https://technet.microsoft.com/library/hh918399.aspx)|  
-|**Communityressourcen**|[Leitfaden zum DirectAccess-Lebensfaden](https://social.technet.microsoft.com/wiki/contents/articles/23210.directaccess-survival-guide.aspx)<p>[DirectAccess-wiki-Einträge](https://go.microsoft.com/fwlink/?LinkId=236871)|  
-|**Verwandte Technologien**|[Funktionsweise von IPv6](https://technet.microsoft.com/library/cc781672(v=WS.10).aspx)|  
+|**Tools und Einstellungen**|[PowerShell-Cmdlets für den Remotezugriff](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831379(v=ws.11))|  
+|**Communityressourcen**|[Orientierungshandbuch für DirectAccess](https://social.technet.microsoft.com/wiki/contents/articles/23210.directaccess-survival-guide.aspx)<p>[DirectAccess Wiki-Einträge](https://go.microsoft.com/fwlink/?LinkId=236871)|  
+|**Verwandte Technologien**|[Funktionsweise von IPv6](/previous-versions/windows/it-pro/windows-server-2003/cc781672(v=ws.10))|  
   
-
-

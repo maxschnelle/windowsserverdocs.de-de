@@ -8,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 2e63d177abd0a6880c1825b821d265c8fa233a22
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: ca7ab368c9e15de15f733070a5bcb06584956500
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80823163"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86961132"
 ---
 # <a name="replication-error-1753-there-are-no-more-endpoints-available-from-the-endpoint-mapper"></a>Replikationsfehler 1753: Die Endpunktzuordnung hat keine weiteren Endpunkte verfügbar
 
@@ -59,7 +59,7 @@ of starting up or shutting down, and is not available.
 Verify machine is not hung during boot.
 ```
 
-REPADMIN. EXE meldet, dass der Replikations Versuch mit Status 1753 fehlgeschlagen ist.
+REPADMIN.EXE meldet, dass der Replikations Versuch mit Status 1753 fehlgeschlagen ist.
 Repadmin-Befehle, die häufig den 1753-Status angeben, enthalten u. a. die folgenden:
 
 * repadmin/REPLSUM
@@ -95,9 +95,9 @@ Der Befehl " **Jetzt replizieren** " in Active Directory Sites und Dienste gibt 
 Wenn Sie von einem Quell Domänen Controller mit der rechten Maustaste auf das Verbindungs Objekt klicken und **Jetzt replizieren** auswählen, tritt ein Fehler mit der Option "Es sind keine weiteren Endpunkte von der Endpunkt Zuordnung verfügbar".
 Die Bildschirm Fehlermeldung wird unten angezeigt:
 
-Dialogfeld Titel Text: Dialog Meldungs Text replizieren: der folgende Fehler ist beim Versuch aufgetreten, den namens Kontext \<% Directory Partitions Name% > vom Domänen Controller \<Quell Domänen Controller > zum Domänen Controller \<Ziel-DC > zu synchronisieren:
+Dialogfeld Titel Text: Dialog Meldungs Text replizieren: der folgende Fehler ist beim Versuch aufgetreten, den namens Kontext \<%directory partition name%> vom Domänen Controller \<Source DC> mit dem Domänen Controller zu synchronisieren \<Destination DC> :
 
-Von der Endpunkt Zuordnung sind keine weiteren Endpunkte verfügbar.
+Es sind keine Endpunkte mehr von der Endpunktzuordnung verfügbar.
 Der Vorgang wird nicht fortgesetzt.
 
 NTDS-KCC-, NTDS-allgemeine oder Microsoft-Windows-ActiveDirectory_DomainService-Ereignisse mit dem Status-2146893022 werden in der Verzeichnisdienst Anmeldung Ereignisanzeige protokolliert.
@@ -149,7 +149,7 @@ Der Fehler 1753 wird nicht durch Folgendes verursacht:
 
 Überprüfen, ob der RPC-Client (Ziel-DC) mit dem gewünschten RPC-Server (Quell Domänen Controller)
 
-Alle DCS in einer allgemeinen Active Directory Gesamtstruktur registrieren einen Domänen Controller-CNAME-Datensatz im _msdcs. \<-Gesamtstruktur-Stamm Domäne > DNS-Zone unabhängig davon, in welcher Domäne Sie sich innerhalb der Gesamtstruktur befinden. Der DC CNAME-Datensatz wird vom objectGUID-Attribut des NTDS-Einstellungs Objekts für jeden Domänen Controller abgeleitet.
+Alle DCS in einer allgemeinen Active Directory Gesamtstruktur registrieren einen Domänen Controller-CNAME-Datensatz im _msdcs. \<forest root domain>DNS-Zone unabhängig davon, in welcher Domäne Sie sich innerhalb der Gesamtstruktur befinden. Der DC CNAME-Datensatz wird vom objectGUID-Attribut des NTDS-Einstellungs Objekts für jeden Domänen Controller abgeleitet.
 
 Beim Ausführen von Replikations basierten Vorgängen fragt ein Ziel-DC DNS nach dem CNAME-Datensatz des Quell-DCS ab. Der CNAME-Datensatz enthält den voll qualifizierten Domänen Namen des Quell Domänen Controllers, der verwendet wird, um die IP-Adresse des Quell Domänen Controllers über DNS-Client Cache Suche, Host/Lmhost-Dateisuche, Host A/AAAA-Datensatz in DNS oder WINS zu ableiten.
 
@@ -201,7 +201,7 @@ Wenn die Tests oben oder eine Netzwerk Ablauf Verfolgung keine Namensabfrage anz
 | Kerberos | 88 | X | X |
 | LDAP-Server | 389 | X | X |
 | Microsoft-DS | 445 | X | X |
-| LDAP-SSL | 636 | X | X |
+| LDAP SSL | 636 | X | X |
 | Globaler Katalogserver | 3268 | X |   |
 | Globaler Katalogserver | 3269 | X |   |
 
@@ -239,7 +239,7 @@ Weitere Möglichkeiten, diesen Fehler zu beheben:
 * Überprüfen Sie, ob der Starttyp und der Dienststatus für den RPC-Dienst und den RPC-Locator für die Betriebssystemversion des RPC-Clients (Ziel-DC) und des RPC-Servers (Quell Domänen Wenn der Dienst derzeit beendet oder nicht mit Standard Startwerten konfiguriert wurde, setzen Sie die Standard Startwerte zurück, starten Sie den geänderten Domänen Controller neu, und wiederholen Sie dann den Vorgang.
    * Stellen Sie außerdem sicher, dass der Dienst Kontext mit den in der folgenden Tabelle aufgeführten Standardeinstellungen übereinstimmt.
 
-      | Service | Standardstatus (Starttyp) in Windows Server 2003 und höher | Standardstatus (Starttyp) in Windows Server 2000 |
+      | Dienst | Standardstatus (Starttyp) in Windows Server 2003 und höher | Standardstatus (Starttyp) in Windows Server 2000 |
       | --- | --- | --- |
       | Remoteprozeduraufruf | Gestartet (automatisch) | Gestartet (automatisch) |
       | Locator für Remote Prozedur Aufrufe | NULL oder beendet (manuell) | Gestartet (automatisch) |
@@ -303,13 +303,13 @@ Zusammenfassung: Dieses Beispiel ist fehlgeschlagen, weil eine ungültige Host-z
 * [KB-Artikel 832017 Dienst Übersicht und Netzwerk Port Anforderungen für das Windows Server-System](https://support.microsoft.com/kb/832017/)
 * [KB-Artikel 224196 einschränken Active Directory Replikations Datenverkehrs und RPC-Client Datenverkehr zu einem bestimmten Port](https://support.microsoft.com/kb/224196/)
 * [KB-Artikel 154596 Konfigurieren der dynamischen RPC-Port Zuweisung zum Arbeiten mit Firewalls](https://support.microsoft.com/kb/154596)
-* [Funktionsweise von RPC](https://msdn.microsoft.com/library/aa373935(VS.85).aspx)
-* [Wie der Server eine Verbindung vorbereitet](https://msdn.microsoft.com/library/aa373938(VS.85).aspx)
-* [Einrichten einer Verbindung durch den Client](https://msdn.microsoft.com/library/aa373937(VS.85).aspx)
-* [Registrieren der-Schnittstelle](https://msdn.microsoft.com/library/aa375357(VS.85).aspx)
-* [Verfügbar machung des Servers im Netzwerk](https://msdn.microsoft.com/library/aa373974(VS.85).aspx)
-* [Registrieren von Endpunkten](https://msdn.microsoft.com/library/aa375255(VS.85).aspx)
-* [Lauschen auf Client Anrufe](https://msdn.microsoft.com/library/aa373966(VS.85).aspx)
-* [Einrichten einer Verbindung durch den Client](https://msdn.microsoft.com/library/aa373937(VS.85).aspx)
+* [Funktionsweise von RPC](/windows/win32/rpc/how-rpc-works)
+* [Wie der Server eine Verbindung vorbereitet](/windows/win32/rpc/how-the-server-prepares-for-a-connection)
+* [Einrichten einer Verbindung durch den Client](/windows/win32/rpc/how-the-client-establishes-a-connection)
+* [Registrieren der-Schnittstelle](/windows/win32/rpc/registering-the-interface)
+* [Verfügbar machung des Servers im Netzwerk](/windows/win32/rpc/making-the-server-available-on-the-network)
+* [Registrieren von Endpunkten](/windows/win32/rpc/registering-endpoints)
+* [Lauschen auf Client Anrufe](/windows/win32/rpc/listening-for-client-calls)
+* [Einrichten einer Verbindung durch den Client](/windows/win32/rpc/how-the-client-establishes-a-connection)
 * [Einschränken Active Directory Replikations Datenverkehrs und Client-RPC-Datenverkehr an einen bestimmten Port](https://support.microsoft.com/kb/224196)
-* [SPN für einen Ziel-DC in AD DS](https://msdn.microsoft.com/library/dd207688(PROT.13).aspx)
+* [SPN für einen Ziel-DC in AD DS](/openspecs/windows_protocols/ms-drsr/41efc56e-0007-4e88-bafe-d7af61efd91f)

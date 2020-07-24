@@ -9,12 +9,12 @@ ms.topic: article
 author: eldenchristensen
 ms.date: 06/24/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 0e34f74226edb56e8db0290fd5dc83f0c6e54221
-ms.sourcegitcommit: c40c29683d25ed75b439451d7fa8eda9d8d9e441
+ms.openlocfilehash: 108e5a65b78370c40ba02da677e953eb2b122288
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85833323"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86964582"
 ---
 # <a name="storage-spaces-direct-hardware-requirements"></a>Hardwareanforderungen für „Direkte Speicherplätze“
 
@@ -33,7 +33,7 @@ Systeme, Komponenten, Geräte und Treiber müssen gemäß dem [Windows Server-Ka
 
 ![Screenshot des Windows Server-Katalogs mit dem SDDC-AQS](media/hardware-requirements/sddc-aqs.png)
 
-Der vollständig konfigurierte Cluster (Server, Netzwerk und Speicher) muss alle [Cluster Validierungstests](https://technet.microsoft.com/library/cc732035(v=ws.10).aspx) gemäß dem Assistenten in Failovercluster-Manager oder mit dem `Test-Cluster` [Cmdlet](https://docs.microsoft.com/powershell/module/failoverclusters/test-cluster?view=win10-ps) in PowerShell bestehen.
+Der vollständig konfigurierte Cluster (Server, Netzwerk und Speicher) muss alle [Cluster Validierungstests](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc732035(v=ws.10)) gemäß dem Assistenten in Failovercluster-Manager oder mit dem `Test-Cluster` [Cmdlet](/powershell/module/failoverclusters/test-cluster?view=win10-ps) in PowerShell bestehen.
 
 Außerdem gelten die folgenden Anforderungen:
 
@@ -47,7 +47,7 @@ Außerdem gelten die folgenden Anforderungen:
 - Intel Nehalem oder höher kompatibler Prozessor; noch
 - Mit AMD epyc oder höher kompatibler Prozessor
 
-## <a name="memory"></a>Memory
+## <a name="memory"></a>Arbeitsspeicher
 
 - Arbeitsspeicher für Windows Server, VMS und andere apps oder Arbeits Auslastungen; ZZ
 - 4 GB RAM pro Terabyte (TB) der Cache Laufwerks Kapazität auf jedem Server, für direkte Speicherplätze-Metadaten
@@ -82,14 +82,14 @@ Direkte Speicherplätze funktioniert mit direkt angeschlossenen SATA-, SAS-, nvm
 
 - SATA-, SAS-, persistente Speicher-und nvme-Laufwerke (M. 2, U. 2 und Add-in-Card) werden unterstützt.
 - 512 n, 512 e und 4K Native Laufwerke werden unterstützt.
-- Solid-State-Laufwerke müssen den [Schutz von Energieverlusten](https://blogs.technet.microsoft.com/filecab/2016/11/18/dont-do-it-consumer-ssd/) bereitstellen.
+- Solid-State-Laufwerke müssen den [Schutz von Energieverlusten](https://techcommunity.microsoft.com/t5/storage-at-microsoft/don-t-do-it-consumer-grade-solid-state-drives-ssd-in-storage/ba-p/425914) bereitstellen.
 - Gleiche Anzahl und Arten von Laufwerken auf jedem Server – siehe [Überlegungen zur Laufwerk Symmetrie](drive-symmetry-considerations.md)
 - Cache Geräte müssen 32 GB oder größer sein.
 - Persistente Speichergeräte werden im Blockspeicher Modus verwendet.
 - Wenn Sie persistente Speichergeräte als Cache Geräte verwenden, müssen Sie nvme-oder SSD-Kapazitäts Geräte verwenden (HDDs können nicht verwendet werden).
 - Der nvme-Treiber ist der von Microsoft bereitgestellte, der in Windows enthalten ist (stornvme.sys).
 - Empfohlen: die Anzahl der Kapazitäts Laufwerke ist ein gesamtes Vielfaches der Anzahl von Cache Laufwerken.
-- Empfohlen: Cache Laufwerke sollten hohe Schreib Ausdauer aufweisen: mindestens 3 Laufwerke pro Tag (dwpd) oder mindestens 4 Terabyte (TBW) pro Tag – Siehe Grundlegendes [zu Laufwerks Schreibvorgängen pro Tag (dwpd), Terabyte (TBW) und die empfohlene Mindestanzahl für direkte Speicherplätze](https://blogs.technet.microsoft.com/filecab/2017/08/11/understanding-dwpd-tbw/)
+- Empfohlen: Cache Laufwerke sollten hohe Schreib Ausdauer aufweisen: mindestens 3 Laufwerke pro Tag (dwpd) oder mindestens 4 Terabyte (TBW) pro Tag – Siehe Grundlegendes [zu Laufwerks Schreibvorgängen pro Tag (dwpd), Terabyte (TBW) und die empfohlene Mindestanzahl für direkte Speicherplätze](https://techcommunity.microsoft.com/t5/storage-at-microsoft/understanding-ssd-endurance-drive-writes-per-day-dwpd-terabytes/ba-p/426024)
 
 So können Laufwerke für direkte Speicherplätze verbunden werden:
 

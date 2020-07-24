@@ -8,16 +8,16 @@ ms.topic: article
 ms.assetid: 570c81d6-c4f4-464c-bee9-0acbd4993584
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: ae01a63a494504120ca248ec56dd9bc9648c1ae4
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 8591cc0b0d9fae75067a8c9937f1e69af572c379
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80858293"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86962212"
 ---
 # <a name="troubleshooting-enabling-multisite"></a>Behandeln von Problemen beim Aktivieren der Funktionen für mehrere Standorte
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 Dieses Thema enthält Informationen zum Beheben von Problemen mit dem Befehl `Enable-DAMultisite`. Um sicherzustellen, dass sich der angezeigte Fehler auf das Aktivieren der Funktionen für mehrere Standorte bezieht, prüfen Sie, ob im Windows-Ereignisprotokoll die Ereignis-ID 10051 aufgeführt wird.  
   
@@ -30,7 +30,7 @@ Bei einer Bereitstellung mit mehreren Standorten können Windows 10-und Windows 
   
 **Lösung**  
   
-DirectAccess erfordert mindestens eine Sicherheitsgruppe für alle Windows 10-und Windows 8-Client Computer. Es wird empfohlen, eine Sicherheitsgruppe für alle Windows 10-und Windows 8-Computer pro Domäne zu verwenden. DirectAccess erfordert auch eine Sicherheitsgruppe für Windows 7-Client Computer für jeden Einstiegspunkt. Jeder Clientcomputer sollte nur in eine Sicherheitsgruppe aufgenommen werden. Daher sollten Sie sicherstellen, dass die Sicherheitsgruppen für Windows 10-und Windows 8-Clients nur Computer enthalten, auf denen Windows 10 oder Windows 8 ausgeführt wird, und dass jeder Windows 7-Client Computer zu einer dedizierten Sicherheitsgruppe für den relevanten Einstiegspunkt gehört. Es sind keine Windows 10-oder Windows 8-Clients zu den Windows 7-Sicherheitsgruppen gehören.  
+DirectAccess erfordert mindestens eine Sicherheitsgruppe für alle Windows 10-und Windows 8-Client Computer. Es wird empfohlen, eine Sicherheitsgruppe für alle Windows 10-und Windows 8-Computer pro Domäne zu verwenden. DirectAccess erfordert auch eine Sicherheitsgruppe für Windows 7-Client Computer für jeden Einstiegspunkt. Jeder Clientcomputer sollte nur in eine Sicherheitsgruppe aufgenommen werden. Daher sollten Sie sicherstellen, dass die Sicherheitsgruppen für Windows 10-und Windows 8-Clients nur Computer enthalten, auf denen Windows 10 oder Windows 8 ausgeführt wird, und dass jeder Windows 7-Client Computer zu einer einzelnen dedizierten Sicherheitsgruppe für den relevanten Einstiegspunkt gehört und dass keine Windows 10-oder Windows 8-Clients zu den Windows 7-Sicherheitsgruppen gehören.  
   
 Konfigurieren Sie die Windows 8-Sicherheitsgruppen auf der Seite **Gruppen auswählen** des Setup-Assistenten für den **DirectAccess-Client** . Konfigurieren Sie Windows 7-Sicherheitsgruppen auf der Seite **Client Unterstützung** des Assistenten zum **Aktivieren der Bereitstellung für mehrere Standorte** oder auf der Seite **Client Unterstützung** des Assistenten zum **Hinzufügen von Einstiegspunkten** .  
   
@@ -47,9 +47,9 @@ So konfigurieren Sie die Computerzertifikatauthentifizierung:
   
 1.  Klicken Sie in der Remotezugriffs-Verwaltungskonsole im Detailbereich in Schritt 2 **RAS-Server** auf **Bearbeiten**.  
   
-2.  Aktivieren Sie im Setup-Assistenten für den RAS-Server auf der Seite **Authentifizierung** das Kontrollkästchen **Computerzertifikate verwenden**, und wählen Sie die Stamm- oder Zwischenzertifizierungsstelle aus, von der Zertifikate in Ihrer Bereitstellung ausgestellt werden.  
+2.  Aktivieren Sie im Setup-Assistenten für den RAS-Server**** auf der Seite **Authentifizierung** das Kontrollkästchen **Computerzertifikate verwenden**, und wählen Sie die Stamm- oder Zwischenzertifizierungsstelle aus, von der Zertifikate in Ihrer Bereitstellung ausgestellt werden.  
   
-Verwenden Sie zum Aktivieren der Computer Zertifikat Authentifizierung mithilfe von Windows PowerShell das Cmdlet "`Set-DAServer`", und geben Sie den Parameter " *ipccrootcertificate* " an.  
+Verwenden Sie zum Aktivieren der Computer Zertifikat Authentifizierung mithilfe von Windows PowerShell das `Set-DAServer` Cmdlet, und geben Sie den Parameter *ipccrootcertificate* an.  
   
 ## <a name="ip-https-certificates"></a>IP-HTTPS-Zertifikate  
 Der **Fehler wurde empfangen**. Der DirectAccess-Server verwendet ein selbst signiertes IP-HTTPS-Zertifikat. Konfigurieren Sie IP-HTTPS für die Verwendung eines signierten Zertifikats von einer bekannten Zertifizierungsstelle.  
@@ -64,11 +64,11 @@ So wählen Sie ein IP-HTTPS-Zertifikat aus:
   
 1.  Klicken Sie in der Remotezugriffs-Verwaltungskonsole im Detailbereich in Schritt 2 **RAS-Server** auf **Bearbeiten**.  
   
-2.  Stellen Sie sicher, dass im Setup-Assistenten für den RAS-Server auf der Seite **Netzwerkadapter** unter **Wählen Sie das Zertifikat aus, mit dem IP-HTTPS-Verbindungen authentifiziert werden:** das Kontrollkästchen **Selbstsigniertes Zertifikat verwenden, das von DirectAccess automatisch erstellt wurde** deaktiviert ist, und klicken Sie auf **Durchsuchen**, um ein von einer vertrauenswürdigen Zertifizierungsstelle ausgestelltes Zertifikat auszuwählen.  
+2.  Stellen Sie sicher, dass im Setup-Assistenten für den RAS-Server **** auf der Seite **Netzwerkadapter** unter **Wählen Sie das Zertifikat aus, mit dem IP-HTTPS-Verbindungen authentifiziert werden:** das Kontrollkästchen **Selbstsigniertes Zertifikat verwenden, das von DirectAccess automatisch erstellt wurde** deaktiviert ist, und klicken Sie auf **Durchsuchen**, um ein von einer vertrauenswürdigen Zertifizierungsstelle ausgestelltes Zertifikat auszuwählen.  
   
 ## <a name="network-location-server"></a>Netzwerkadressenserver  
   
--   **Problem 1**  
+-   **Problem 1:**  
   
     Der **Fehler wurde empfangen**. DirectAccess ist für die Verwendung eines selbst signierten Zertifikats für den Netzwerkadressen Server konfiguriert. Konfigurieren Sie den Netzwerkadressenserver für die Verwendung eines signierten Zertifikats von einer Zertifizierungsstelle.  
   
@@ -82,9 +82,9 @@ So wählen Sie ein IP-HTTPS-Zertifikat aus:
   
     1.  Klicken Sie in der Remotezugriffs-Verwaltungskonsole im Detailbereich in Schritt 3 **Infrastrukturserver** auf **Bearbeiten**.  
   
-    2.  Stellen Sie sicher, dass imAssistenten zum Einrichten des Infrastrukturservers auf der Seite **Netzwerkadressenserver** unter **Der Netzwerkadressenserver wird auf dem RAS-Server bereitgestellt.** das Kontrollkästchen **Selbstsigniertes Zertifikat verwenden** deaktiviert ist, und klicken Sie auf **Durchsuchen**, um ein von einer Unternehmenszertifizierungsstelle ausgestelltes Zertifikat auszuwählen.  
+    2.  Stellen Sie sicher, dass im **** Assistenten zum Einrichten des Infrastrukturservers auf der Seite **Netzwerkadressenserver** unter **Der Netzwerkadressenserver wird auf dem RAS-Server bereitgestellt.** das Kontrollkästchen **Selbstsigniertes Zertifikat verwenden** deaktiviert ist, und klicken Sie auf **Durchsuchen**, um ein von einer Unternehmenszertifizierungsstelle ausgestelltes Zertifikat auszuwählen.  
   
--   **Problem 2**  
+-   **Problem 2:**  
   
     Der **Fehler wurde empfangen**. Zum Bereitstellen eines Clusters mit Netzwerk Lastenausgleich oder einer Bereitstellung mit mehreren Standorten müssen Sie ein Zertifikat für den Netzwerkadressen Server mit einem Antragsteller Namen abrufen, der sich vom internen Namen des RAS-Servers unterscheidet.  
   
@@ -100,7 +100,7 @@ So wählen Sie ein IP-HTTPS-Zertifikat aus:
   
     1.  Klicken Sie in der Remotezugriffs-Verwaltungskonsole im Detailbereich in Schritt 3 **Infrastrukturserver** auf **Bearbeiten**.  
   
-    2.  Klicken Sie imAssistenten zum Einrichten des Infrastrukturservers auf der Seite **Netzwerkadressenserver** unter **Der Netzwerkadressenserver wird auf dem RAS-Server bereitgestellt.** auf **Durchsuchen**, um das zuvor abgerufene Zertifikat auszuwählen. Das Zertifikat muss einen Antragstellernamen enthalten, der sich vom internen Namen des RAS-Servers unterscheidet.  
+    2.  Klicken Sie im **** Assistenten zum Einrichten des Infrastrukturservers auf der Seite **Netzwerkadressenserver** unter **Der Netzwerkadressenserver wird auf dem RAS-Server bereitgestellt.** auf **Durchsuchen**, um das zuvor abgerufene Zertifikat auszuwählen. Das Zertifikat muss einen Antragstellernamen enthalten, der sich vom internen Namen des RAS-Servers unterscheidet.  
   
 ## <a name="windows-7-client-computers"></a>Windows 7-Clientcomputer  
 Die **Warnung wurde empfangen**. Beim Aktivieren von Multisite dürfen die für DirectAccess-Clients konfigurierten Sicherheitsgruppen keine Windows 7-Computer enthalten. Wählen Sie eine Sicherheitsgruppe aus, die die Clients für die einzelnen Einstiegspunkte enthält, damit Clientcomputer mit Windows 7 in einer Bereitstellung mit mehreren Standorten unterstützt werden.  
@@ -111,10 +111,10 @@ In der vorhandenen DirectAccess-Bereitstellung wurde die Windows 7-Client Unters
   
 **Lösung**  
   
-DirectAccess erfordert mindestens eine Sicherheitsgruppe für alle Windows 8-Client Computer und eine Sicherheitsgruppe für Windows 7-Client Computer für jeden Einstiegspunkt. Jeder Clientcomputer sollte nur in eine Sicherheitsgruppe aufgenommen werden. Daher sollten Sie sicherstellen, dass die Sicherheitsgruppe für Windows 8-Clients nur Computer enthält, auf denen Windows 8 ausgeführt wird, und dass jeder Windows 7-Client Computer zu einer einzelnen dedizierten Sicherheitsgruppe für den relevanten Einstiegspunkt gehört und keine Windows 8-Clients gehört zu den Windows 7-Sicherheitsgruppen.  
+DirectAccess erfordert mindestens eine Sicherheitsgruppe für alle Windows 8-Client Computer und eine Sicherheitsgruppe für Windows 7-Client Computer für jeden Einstiegspunkt. Jeder Clientcomputer sollte nur in eine Sicherheitsgruppe aufgenommen werden. Daher sollten Sie sicherstellen, dass die Sicherheitsgruppe für Windows 8-Clients nur Computer enthält, auf denen Windows 8 ausgeführt wird, und dass jeder Windows 7-Client Computer zu einer einzelnen dedizierten Sicherheitsgruppe für den relevanten Einstiegspunkt gehört und dass keine Windows 8-Clients zu den Windows 7-Sicherheitsgruppen gehören.  
   
-## <a name="active-directory-site"></a>Active Directory-Standort  
-Der **Fehler wurde empfangen**. Der Server < server_name > ist keinem Active Directory Standort zugeordnet.  
+## <a name="active-directory-site"></a>Active Directory-Standort  
+Der **Fehler wurde empfangen**. Der Server <server_name> ist keinem Active Directory Standort zugeordnet.  
   
 **Ursache**  
   
@@ -124,8 +124,8 @@ Von DirectAccess konnte der Active Directory-Standort nicht ermittelt werden. I
   
 Überprüfen Sie, ob dies das Problem ist, indem Sie den Befehl `nltest /dsgetsite` auf dem RAS-Server ausführen. Ist dies das Problem, wird vom Befehl ERROR_NO_SITENAME zurückgegeben. Stellen Sie zum Beheben des Problems sicher, dass auf dem Domänencontroller ein Subnetz vorhanden ist, das die interne Server-IP-Adresse enthält und einem Active Directory-Standort zugeordnet ist.  
   
-## <a name="saving-server-gpo-settings"></a><a name="SaveGPOSettings"></a>Server-GPO-Einstellungen werden gespeichert  
-Der **Fehler wurde empfangen**. Fehler beim Speichern der Remote Zugriffs Einstellungen auf dem GPO-< GPO_name >.  
+## <a name="saving-server-gpo-settings"></a><a name="SaveGPOSettings"></a>Speichern der Server-GPO-Einstellungen  
+Der **Fehler wurde empfangen**. Fehler beim Speichern der Remote Zugriffs Einstellungen auf dem GPO-<GPO_name>.  
   
 **Ursache**  
   
@@ -135,7 +135,7 @@ Der **Fehler wurde empfangen**. Fehler beim Speichern der Remote Zugriffs Einste
   
 Stellen Sie sicher, dass Konnektivität zwischen dem RAS-Server und dem Domänencontroller besteht. Besteht Konnektivität, überprüfen Sie auf dem Domänencontroller, ob die Datei %%amp;quot;registry.pol%%amp;quot; durch einen anderen Benutzer gesperrt ist, und beenden Sie ggf. diese Benutzersitzung, um die Datei zu entsperren.  
   
-## <a name="internal-error-occurred"></a><a name="InternalServerError"></a>Interner Fehler.  
+## <a name="internal-error-occurred"></a><a name="InternalServerError"></a>Interner Fehler  
 Der **Fehler wurde empfangen**. Interner Fehler.  
   
 **Ursache**  
@@ -146,7 +146,5 @@ Dieser Fehler wird möglicherweise durch eine unerwartete Konfiguration der Eins
   
 Überprüfen Sie die Konfiguration der Einstiegspunkttabelle in allen Client-Gruppenrichtlinienobjekten, und beheben Sie alle Inkonsistenzen in der Konfiguration für mehrere Standorte zwischen den verschiedenen Instanzen der Client-Gruppenrichtlinienobjekte und der DirectAccess-Konfiguration. Verwenden Sie das `Get-DaEntryPointTableItem`-Cmdlet mit dem Namen des Client-Gruppenrichtlinienobjekts, um die Einstiegspunkttabelle für den Client abzurufen. Verwenden Sie das `Get-NetIPHttpsConfiguration`-Cmdlet, um alle IP-HTTPS-Profile für alle Einstiegspunkte abzurufen.  
   
-Weitere Informationen finden Sie unter [DirectAccess-Client-Cmdlets in Windows PowerShell](https://technet.microsoft.com/library/hh848426).  
+Weitere Informationen finden Sie unter [DirectAccess-Client-Cmdlets in Windows PowerShell](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj591658(v=ws.11)).  
   
-
-

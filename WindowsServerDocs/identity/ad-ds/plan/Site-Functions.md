@@ -8,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 41fe13a5083a855a597a693f8cd707e3e211966a
-ms.sourcegitcommit: 11421f4005f9f3a3f6c0db95b1836d0f765a9fa3
+ms.openlocfilehash: 70dc69812ae6806c58affdd3961c3ec8f9afd0bc
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81623888"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86963542"
 ---
 # <a name="site-functions"></a>Standortfunktionen
 
@@ -31,7 +31,7 @@ Von Domänen Controllern werden Standortinformationen verwendet, um Active Direc
 
 Wenn Sie einen Domänen Controller am selben Standort finden, vermeidet der Client die Kommunikation über WAN-Verbindungen. Wenn keine Domänen Controller am Client Standort gefunden werden, wird ein Domänen Controller mit den geringsten Kosten Verbindungen im Vergleich zu anderen verbundenen Standorten zur Verfügung gestellt (registriert einen standortspezifischen Dienst (SRV)-Ressourcen Daten Satz in DNS) an dem Standort, der nicht über einen Domänen Controller verfügt. Die Domänen Controller, die in DNS veröffentlicht werden, sind die, die von der Standort Topologie am nächstgelegenen Standort definiert werden. Dadurch wird sichergestellt, dass jeder Standort über einen bevorzugten Domänen Controller für die Authentifizierung verfügt.
 
-Weitere Informationen zum Auffinden eines Domänen Controllers finden Sie unter [Active Directory Sammlung](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc780036(v=ws.10)).
+Weitere Informationen zum Auffinden eines Domänen Controllers finden Sie unter [Active Directory Sammlung](/previous-versions/windows/it-pro/windows-server-2003/cc780036(v=ws.10)).
 
 ## <a name="sysvol-replication"></a>SYSVOL-Replikation
 SYSVOL ist eine Sammlung von Ordnern im Dateisystem, die auf jedem Domänen Controller in einer Domäne vorhanden ist. Die SYSVOL-Ordner stellen einen standardmäßigen Active Directory Speicherort für Dateien bereit, die in einer Domäne repliziert werden müssen, einschließlich Gruppenrichtlinie Objekte (GPOs), Skripts zum Starten und Herunterfahren sowie Anmelde-und Abmelde Skripts.  Windows Server 2008 kann den Datei Replikations Dienst (File Replication Service, FRS) oder die verteiltes Dateisystem Replikation (DFSR) verwenden, um Änderungen an den SYSVOL-Ordnern von einem Domänen Controller an andere Domänen Controller zu replizieren FRS und DFSR replizieren diese Änderungen gemäß dem Zeitplan, den Sie während des Entwurfs der Standort Topologie erstellen.
@@ -40,4 +40,4 @@ SYSVOL ist eine Sammlung von Ordnern im Dateisystem, die auf jedem Domänen Cont
 DFSN verwendet Standortinformationen, um einen Client an den Server weiterzuleiten, der die angeforderten Daten innerhalb des Standorts hostet. Wenn DFSN keine Kopie der Daten auf demselben Standort wie der Client findet, verwendet DFSN die Standortinformationen in AD DS, um zu ermitteln, welcher Dateiserver mit den von DFSN freigegebenen Daten dem Client am nächsten ist.
 
 ## <a name="service-location"></a>Dienstidentifizierung
-Wenn Sie Dienste wie Datei-und Druckdienste in AD DS veröffentlichen, können Sie Active Directory Clients den angeforderten Dienst innerhalb desselben oder nächstgelegenen Standorts suchen. Druckdienste verwenden das in AD DS gespeicherte Location-Attribut, um Benutzern die Suche nach Druckern nach Standort zu ermöglichen, ohne den genauen Speicherort zu kennen. Weitere Informationen zum Entwerfen und Bereitstellen von Drucker Servern finden Sie unter Entwerfen und Bereitstellen von [Druckservern](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc785842(v=ws.10)).
+Wenn Sie Dienste wie Datei-und Druckdienste in AD DS veröffentlichen, können Sie Active Directory Clients den angeforderten Dienst innerhalb desselben oder nächstgelegenen Standorts suchen. Druckdienste verwenden das in AD DS gespeicherte Location-Attribut, um Benutzern die Suche nach Druckern nach Standort zu ermöglichen, ohne den genauen Speicherort zu kennen. Weitere Informationen zum Entwerfen und Bereitstellen von Drucker Servern finden Sie unter Entwerfen und Bereitstellen von [Druckservern](/previous-versions/windows/it-pro/windows-server-2003/cc785842(v=ws.10)).

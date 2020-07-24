@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 07/09/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 2589e21c54fa864629f81b5889d0442c6f0de254
-ms.sourcegitcommit: 568b924d32421256f64abfee171304f1daf320d2
+ms.openlocfilehash: f18c880dd673b17f53815a57fa2fcc66558dad71
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85070563"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86961322"
 ---
 # <a name="network-file-system-overview"></a>Network File System (Übersicht)
 
@@ -49,7 +49,7 @@ Es folgen einige Möglichkeiten, NFS zu verwenden:
 
 Neue und geänderte Funktionen in Network File System enthalten Unterstützung für die NFS-Version 4,1 und eine verbesserte Bereitstellung und Verwaltbarkeit. Weitere Informationen zu neuen oder geänderten Funktionen in Windows Server 2012 finden Sie in der folgenden Tabelle:
 
-|Feature/Funktionalität|Neu oder aktualisiert|BESCHREIBUNG|
+|Feature/Funktionalität|Neu oder aktualisiert|Beschreibung|
 |---|---|---|
 |[NFS-Version 4,1](#nfs-version-41)|Neu|Erhöhung der Sicherheit, Leistung und Interoperabilität im Vergleich zu NFS Version 3.|
 |[NFS-Infrastruktur](#nfs-infrastructure)|Aktualisiert|Verbessert Bereitstellung und Verwaltbarkeit und erhöht die Sicherheit.|
@@ -91,7 +91,7 @@ Beachten Sie, dass Server für NFS ein transparentes Failover nur bei manueller 
 
 Das Bereitstellen und Verwalten von NFS hat sich wie folgt verbessert:
 
-- Über 40 neue Windows PowerShell-Cmdlets vereinfachen die Konfiguration und Verwaltung von NFS-Dateifreigaben. Weitere Informationen finden Sie unter [NFS-Cmdlets in Windows PowerShell](https://docs.microsoft.com/powershell/module/nfs/?view=win10-ps).
+- Über 40 neue Windows PowerShell-Cmdlets vereinfachen die Konfiguration und Verwaltung von NFS-Dateifreigaben. Weitere Informationen finden Sie unter [NFS-Cmdlets in Windows PowerShell](/powershell/module/nfs/?view=win10-ps).
 - Die Identitäts Zuordnung wird durch einen lokalen flatfilemapping-Speicher und neue Windows PowerShell-Cmdlets zum Konfigurieren der Identitäts Zuordnung verbessert.
 - Die Server-Manager grafische Benutzeroberfläche ist einfacher zu verwenden.
 - Der neue WMI-Anbieter der Version 2 ist zur einfacheren Verwaltung verfügbar.
@@ -99,7 +99,7 @@ Das Bereitstellen und Verwalten von NFS hat sich wie folgt verbessert:
 
 ## <a name="server-manager-information"></a>Informationen zum Server-Manager
 
-Verwenden Sie den Assistenten zum Hinzufügen von Rollen und Features in Server-Manager oder das neuere [Windows Admin Center](../../manage/windows-admin-center/understand/windows-admin-center.md) , um den Server für NFS-Rollen Dienst (unter der Rolle "Datei" und "iSCSI-Dienste") hinzuzufügen. Allgemeine Informationen zum Installieren von Features finden Sie unter [Installieren oder Deinstallieren von Rollen, Rollendiensten oder Features](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831809(v=ws.11)>). Zu den Server für NFS-Tools gehört das MMC-Snap-in für das Netzwerkdatei System, um den Server für NFS-und Client für NFS-Komponenten zu verwalten. Mithilfe des-Snap-Ins können Sie den-Server für NFS-Komponenten verwalten, die auf dem Computer installiert sind. Server für NFS enthält auch mehrere Windows-Befehlszeilen-Verwaltungs Tools:
+Verwenden Sie den Assistenten zum Hinzufügen von Rollen und Features in Server-Manager oder das neuere [Windows Admin Center](../../manage/windows-admin-center/overview.md) , um den Server für NFS-Rollen Dienst (unter der Rolle "Datei" und "iSCSI-Dienste") hinzuzufügen. Allgemeine Informationen zum Installieren von Features finden Sie unter [Installieren oder Deinstallieren von Rollen, Rollendiensten oder Features](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831809(v=ws.11)>). Zu den Server für NFS-Tools gehört das MMC-Snap-in für das Netzwerkdatei System, um den Server für NFS-und Client für NFS-Komponenten zu verwalten. Mithilfe des-Snap-Ins können Sie den-Server für NFS-Komponenten verwalten, die auf dem Computer installiert sind. Server für NFS enthält auch mehrere Windows-Befehlszeilen-Verwaltungs Tools:
 
 - Beim **einbinden** wird eine Remote-NFS-Freigabe (auch als Export bezeichnet) lokal bereitgestellt und einem lokalen Laufwerk Buchstaben auf dem Windows-Client Computer zugeordnet.
 - **Nbsadmin** verwaltet die Konfigurationseinstellungen des Servers für NFS und Client für NFS-Komponenten.
@@ -108,7 +108,7 @@ Verwenden Sie den Assistenten zum Hinzufügen von Rollen und Features in Server-
 - **Showmount** zeigt eingebundene Dateisysteme an, die vom Server für NFS exportiert wurden.
 - Durch die Bereitstellung werden von NFS eingebundene **Laufwerke entfernt.**
 
-Mit NFS in Windows Server 2012 wird das NFS-Modul für Windows PowerShell mit mehreren neuen Cmdlets speziell für NFS eingeführt. Diese Cmdlets bieten eine einfache Möglichkeit zum Automatisieren von NFS-Verwaltungsaufgaben. Weitere Informationen finden Sie unter [NFS-Cmdlets in Windows PowerShell](https://docs.microsoft.com/powershell/module/nfs/?view=win10-ps).
+Mit NFS in Windows Server 2012 wird das NFS-Modul für Windows PowerShell mit mehreren neuen Cmdlets speziell für NFS eingeführt. Diese Cmdlets bieten eine einfache Möglichkeit zum Automatisieren von NFS-Verwaltungsaufgaben. Weitere Informationen finden Sie unter [NFS-Cmdlets in Windows PowerShell](/powershell/module/nfs/?view=win10-ps).
 
 ## <a name="additional-information"></a>Zusätzliche Informationen
 
@@ -117,5 +117,5 @@ Die folgende Tabelle enthält zusätzliche Ressourcen zum Auswerten von NFS.
 |Inhaltstyp|Referenzen|
 |---|---|
 |Bereitstellung|[Network File System bereitstellen](deploy-nfs.md)|
-|Operations|[NFS-Cmdlets in Windows PowerShell](https://docs.microsoft.com/powershell/module/nfs/?view=win10-ps)|
+|Operationen (Operations)|[NFS-Cmdlets in Windows PowerShell](/powershell/module/nfs/?view=win10-ps)|
 |Verwandte Technologien|[Speicher](../storage.yml)|

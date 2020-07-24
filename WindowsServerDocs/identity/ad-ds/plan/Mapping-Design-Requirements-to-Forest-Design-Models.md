@@ -8,12 +8,12 @@ ms.date: 08/07/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: dbce6b4332b17d725837c6120e6ae36883c80bc1
-ms.sourcegitcommit: 11421f4005f9f3a3f6c0db95b1836d0f765a9fa3
+ms.openlocfilehash: 2a389b00fbf983a24b745431fee98a760f0fc756
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81624148"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86963562"
 ---
 # <a name="mapping-design-requirements-to-forest-design-models"></a>Zuordnung von Entwurfs Anforderungen zu Gesamtstruktur-Entwurfs Modellen
 
@@ -31,9 +31,9 @@ Wenn nicht alle Gruppen in Ihrer Organisation eine einzelne Organisations Gesamt
 |Szenario|Eingeschränkte Konnektivität|Datenisolation|Daten Autonomie|Dienst Isolation|Dienst Autonomie|
 |------------|------------------------|------------------|-----------------|---------------------|--------------------|
 |[Szenario 1: beitreten zu einer vorhandenen Gesamtstruktur für die Daten Autonomie](#BKMK_1)|Nein|Nein |Ja|Nein|Nein |
-|[Szenario 2: Verwenden einer Organisations Gesamtstruktur oder Domäne für die Dienst Autonomie](#BKMK_2)|Nein|Nein|–|Nein|Ja|
-|[Szenario 3: Verwenden einer Organisations-oder Ressourcen Gesamtstruktur für die Dienst Isolation](#BKMK_3)|Nein|Nein|–|Ja|N/V|
-|[Szenario 4: Verwenden einer Gesamtstruktur der Organisation oder eines eingeschränkten Zugriffs für die Daten Isolation](#BKMK_4)|N/V|Ja|NICHT ZUTREFFEND|NICHT ZUTREFFEND|NICHT ZUTREFFEND|
+|[Szenario 2: Verwenden einer Organisations Gesamtstruktur oder Domäne für die Dienst Autonomie](#BKMK_2)|Nein|Nein |–|Nein|Ja|
+|[Szenario 3: Verwenden einer Organisations-oder Ressourcen Gesamtstruktur für die Dienst Isolation](#BKMK_3)|Nein|Nein |–|Ja|N/V|
+|[Szenario 4: Verwenden einer Gesamtstruktur der Organisation oder eines eingeschränkten Zugriffs für die Daten Isolation](#BKMK_4)|–|Ja|N/V|Nicht zutreffend|Nicht zutreffend|
 |[Szenario 5: Verwenden einer Organisations Gesamtstruktur oder Neukonfigurieren der Firewall für eingeschränkte Konnektivität](#BKMK_5)|Ja|Nein|–|Nein|Nein |
 |[Szenario 6: Verwenden einer Organisations Gesamtstruktur oder Domäne und Neukonfigurieren der Firewall für Dienst Autonomie mit eingeschränkter Konnektivität](#BKMK_6)|Ja|Nein|–|Nein|Ja|
 |[Szenario 7: Verwenden einer Ressourcen Gesamtstruktur und Neukonfigurieren der Firewall für die Dienst Isolation mit eingeschränkter Konnektivität](#BKMK_7)|Ja|Nein|–|Ja|N/V|
@@ -99,7 +99,7 @@ Sie können eine Daten Isolation erzielen, indem Sie eine der folgenden Aktionen
 - Andere Gesamtstrukturen können so konfiguriert werden, dass Sie der für die Daten Isolation erstellten Organisations Gesamtstruktur vertrauen, sodass Benutzer in der isolierten Gesamtstruktur auf Ressourcen in anderen Gesamtstrukturen zugreifen können. Benutzer aus der isolierten Gesamtstruktur dürfen sich jedoch nie interaktiv bei Arbeitsstationen in der vertrauenden Gesamtstruktur anmelden. Der Computer in der vertrauenden Gesamtstruktur kann potenziell durch Schadsoftware kompromittiert werden und kann verwendet werden, um die Anmelde Informationen des Benutzers zu erfassen.
 
    > [!NOTE]
-   > Um zu verhindern, dass Server in einer vertrauenden Gesamtstruktur die Identität von Benutzern aus der isolierten Gesamtstruktur annehmen und dann auf Ressourcen in der isolierten Gesamtstruktur zugreifen, kann der Gesamtstruktur Besitzer die delegierte Authentifizierung deaktivieren oder das Feature der eingeschränkten Delegierung verwenden. Weitere Informationen zur delegierten Authentifizierung und zur eingeschränkten [Delegierung](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc739740(v=ws.10))finden Sie unter Delegieren der Authentifizierung.
+   > Um zu verhindern, dass Server in einer vertrauenden Gesamtstruktur die Identität von Benutzern aus der isolierten Gesamtstruktur annehmen und dann auf Ressourcen in der isolierten Gesamtstruktur zugreifen, kann der Gesamtstruktur Besitzer die delegierte Authentifizierung deaktivieren oder das Feature der eingeschränkten Delegierung verwenden. Weitere Informationen zur delegierten Authentifizierung und zur eingeschränkten [Delegierung](/previous-versions/windows/it-pro/windows-server-2003/cc739740(v=ws.10))finden Sie unter Delegieren der Authentifizierung.
 
 - Möglicherweise müssen Sie eine Firewall zwischen der Organisations Gesamtstruktur und den anderen Gesamtstrukturen in der Organisation einrichten, um den Benutzer Zugriff auf Informationen außerhalb Ihrer Gesamtstruktur zu beschränken.
 

@@ -7,12 +7,12 @@ ms.topic: article
 author: cosmosdarwin
 ms.date: 09/07/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 0c8adf5f5586bd9f86ed3c4cd42b6172ff3f91e7
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: ce984d3a88f46b77773c524e5b75135930e1bb03
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85474697"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86961792"
 ---
 # <a name="performance-history-for-storage-spaces-direct"></a>Leistungsverlauf für Direkte Speicherplätze
 
@@ -27,7 +27,7 @@ Der Leistungs Verlauf ist ein neues Feature, das [direkte Speicherplätze](stora
 
 Der Leistungs Verlauf wird standardmäßig mit direkte Speicherplätze in Windows Server 2019 erfasst. Sie müssen nichts installieren, konfigurieren oder starten. Eine Internet Verbindung ist nicht erforderlich, System Center ist nicht erforderlich, und eine externe Datenbank ist nicht erforderlich.
 
-Verwenden Sie [Windows Admin Center](../../manage/windows-admin-center/understand/windows-admin-center.md), um den Leistungs Verlauf Ihres Clusters grafisch anzuzeigen:
+Verwenden Sie [Windows Admin Center](../../manage/windows-admin-center/overview.md), um den Leistungs Verlauf Ihres Clusters grafisch anzuzeigen:
 
 ![Leistungs Verlauf im Windows Admin Center](media/performance-history/perf-history-in-wac.png)
 

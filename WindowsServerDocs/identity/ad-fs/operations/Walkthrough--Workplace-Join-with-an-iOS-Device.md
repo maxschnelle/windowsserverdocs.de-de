@@ -8,12 +8,12 @@ ms.date: 10/18/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 7b1d2a5f5c32d55e482f5f53a04668b34fc9aece
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 8c478e31c3a86203f6c5f249185659caf9881723
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80815993"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86963472"
 ---
 # <a name="walkthrough-workplace-join-with-an-ios-device"></a>Exemplarische Vorgehensweise: Arbeitsplatzbeitritt mit einem iOS-Gerät
 
@@ -36,13 +36,13 @@ In dieser Demo fügen Sie das Gerät dem Arbeitsplatz hinzu.
 
 #### <a name="to-join-an-ios-device-to-a-workplace"></a>So fügen Sie ein iOS-Gerät zu einem Arbeitsplatz hinzu
 
-1. -   **Wenn Azure Active Directory Device Registration Dienst das konfigurierte DRS ist:** Öffnen Sie Apple Safari, und navigieren Sie zu Azure Active Directory Device Registration Service over-the-Air profile Endpoint for IOS Devices, <`https://enterpriseregistration.windows.net/enrollmentserver/otaprofile/<yourdomainname` >, wobei <`yourdomainname`> der Domänen Name ist, den Sie mit Azure Active Directory konfiguriert haben. Wenn Ihr Domänenname z. B. "contoso.com" lautet, ist die URL: `https://enterpriseregistration.windows.net/enrollmentserver/otaprofile/contoso.com`
+1. -   **Wenn Azure Active Directory Device Registration Dienst das konfigurierte DRS ist:** Öffnen Sie Apple Safari, und navigieren Sie zu Azure Active Directory Device Registration Service over-the-Air profile Endpoint for IOS Devices, <`https://enterpriseregistration.windows.net/enrollmentserver/otaprofile/<yourdomainname` > WHERE <`yourdomainname`> ist der Domänen Name, den Sie mit Azure Active Directory konfiguriert haben. Wenn Ihr Domänenname z. B. "contoso.com" lautet, ist die URL: `https://enterpriseregistration.windows.net/enrollmentserver/otaprofile/contoso.com`
 
-   -   **Wenn das lokale DRS das konfigurierte DRS ist**: Öffnen Sie Apple Safari, und navigieren Sie zum over-the-Air-Profil Endpunkt des Geräte Registrierungs Dienstanbieter für IOS-Geräte, `https://adf1s.contoso.com/enrollmentserver/otaprofile`
+   -   **Wenn das lokale DRS das konfigurierte DRS ist**: Öffnen Sie Apple Safari, und navigieren Sie zum over-the-Air-Profil Endpunkt des Geräte Registrierungs Dienstanbieter für IOS-Geräte.`https://adf1s.contoso.com/enrollmentserver/otaprofile`
 
-   Es gibt viele Methoden, diese URL Ihren Benutzern mitzuteilen. Ein empfohlenes Verfahren ist das Veröffentlichen dieser URL in einer benutzerdefinierten Meldung vom Typ "Anwendungszugriff verweigert" in AD FS. Dies wird im folgenden Abschnitt behandelt: [Erstellen einer Anwendungszugriffsrichtlinie und benutzerdefinierten Meldung "Zugriff verweigert"](https://docs.microsoft.com/azure/active-directory/active-directory-device-registration-on-premises-setup#create-an-application-access-policy-and-custom-access-denied-message)
+   Es gibt viele Methoden, diese URL Ihren Benutzern mitzuteilen. Ein empfohlenes Verfahren besteht im Veröffentlichen dieser URL in einer benutzerdefinierten Anwendungsmeldung "Zugriff verweigert" in AD FS. Dies wird im nächsten Abschnitt beschrieben: [Erstellen einer Anwendungs Zugriffs Richtlinie und benutzerdefinierte Meldung "Zugriff verweigert](/azure/active-directory/active-directory-device-registration-on-premises-setup#create-an-application-access-policy-and-custom-access-denied-message) "
 
-2. Melden Sie sich bei der Webseite mit einem Unternehmens Domänen Konto an: <strong>roberth@contoso.com</strong> und Kennwort: <strong>P@ssword</strong>.
+2. Melden Sie sich bei der Webseite mit einem Unternehmens Domänen Konto an: <strong>roberth@contoso.com</strong> und Kennwort: <strong>P@ssword</strong> .
 
 3. Sie werden aufgefordert, ein Profil zu installieren. Klicken Sie auf dem Bildschirm **Profil installieren** auf **Installieren**.
 
@@ -62,7 +62,4 @@ In dieser Demo fügen Sie das Gerät dem Arbeitsplatz hinzu.
 
 - [Arbeitsplatzbeitritt von einem beliebigen Gerät für SSO und die nahtlose zweistufige Authentifizierung bei allen Unternehmensanwendungen](Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md)
 - [Einrichten der Laborumgebung für AD FS unter Windows Server 2012 R2](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md)
-- [Exemplarische Vorgehensweise: Workplace Join mit einem Windows-Gerät](Walkthrough--Workplace-Join-with-a-Windows-Device.md)
-
-
-
+- [Exemplarische Vorgehensweise: Arbeitsplatzbeitritt mit einem Windows-Gerät](Walkthrough--Workplace-Join-with-a-Windows-Device.md)

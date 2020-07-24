@@ -8,12 +8,12 @@ ms.date: 08/08/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 37115e79044c9ddfd55e646fcde868ad6ac7048f
-ms.sourcegitcommit: 11421f4005f9f3a3f6c0db95b1836d0f765a9fa3
+ms.openlocfilehash: 244444cc773e3b69ba09a2050ebaefa11ea9edef
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81624338"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86962282"
 ---
 # <a name="creating-a-site-link-bridge-design"></a>Erstellen eines Entwurfs für Standortverknüpfungsbrücken
 
@@ -26,7 +26,7 @@ Standardmäßig sind alle Standort Verknüpfungen transitiv. Es wird empfohlen, 
 - Ihr IP-Netzwerk wird nicht vollständig weitergeleitet. Wenn Sie **alle Standort Verknüpfungen überbrücken**deaktivieren, werden alle Standort Verknüpfungen als nicht transitiv betrachtet, und Sie können Standort Verknüpfungs Brücken-Objekte erstellen und konfigurieren, um das tatsächliche Routing Verhalten Ihres Netzwerks zu modellieren.
 - Sie müssen den Replikations Fluss der in Active Directory Domain Services vorgenommenen Änderungen (AD DS) steuern. Durch Deaktivieren der **Bridge aller Standort Verknüpfungen** für den IP-Transport der Standort Verknüpfung und Konfigurieren einer Standort Verknüpfungs Brücke wird die Standort Verknüpfungs Brücke zum Äquivalent zu einem separaten Netzwerk. Alle Standort Verknüpfungen innerhalb der Standort Verknüpfungs Brücke können transitiv weitergeleitet werden, Sie werden jedoch nicht außerhalb der Standort Verknüpfungs Brücke weitergeleitet.
 
-Weitere Informationen zur Verwendung des Snap-Ins "Active Directory Standorte und Dienste" zum Deaktivieren der Einstellung " **alle Standort Verknüpfungen überbrücken** " finden Sie im Artikel [Aktivieren oder Deaktivieren von Standort](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc738789(v=ws.10))Verknüpfungs Brücken.
+Weitere Informationen zur Verwendung des Snap-Ins "Active Directory Standorte und Dienste" zum Deaktivieren der Einstellung " **alle Standort Verknüpfungen überbrücken** " finden Sie im Artikel [Aktivieren oder Deaktivieren von Standort](/previous-versions/windows/it-pro/windows-server-2003/cc738789(v=ws.10))Verknüpfungs Brücken.
 
 ## <a name="controlling-ad-ds-replication-flow"></a>Steuern AD DS Replikations Flusses
 

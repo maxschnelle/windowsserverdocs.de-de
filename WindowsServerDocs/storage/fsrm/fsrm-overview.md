@@ -8,12 +8,12 @@ ms.topic: article
 author: jasongerend
 ms.date: 5/14/2018
 description: File Server Ressourcen-Manager (FSRM) ist ein Tool, mit dem Sie Daten auf einem Windows Server-Dateiserver verwalten und klassifizieren können.
-ms.openlocfilehash: af54f08f8acc491553a4d42c1aabe8ea7e26fadd
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 58b410e51dae3ea102bb1a15f5bb60f00ab702fa
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85473937"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86964562"
 ---
 # <a name="file-server-resource-manager-fsrm-overview"></a>Übersicht über Datei Server Ressourcen-Manager (Übersicht)
 
@@ -57,7 +57,7 @@ Die in Dateiserver Ressourcen-Manager enthaltenen Features können mithilfe der 
 
 Ab Windows Server, Version 1803, können Sie verhindern, dass der Datei Server Ressourcen-Manager-Dienstanbieter ein Änderungs Journal (auch als "US-Journal" bezeichnet) auf Volumes erstellt, wenn der Dienst gestartet wird. Dadurch kann ein wenig Speicherplatz auf jedem Volume eingespart werden, die Echt Zeit Datei Klassifizierung wird jedoch deaktiviert.
 
-Informationen zu älteren neuen Features finden Sie unter [What es New in File Server Ressourcen-Manager](https://technet.microsoft.com/library/dn383587.aspx).
+Informationen zu älteren neuen Features finden Sie unter [What es New in File Server Ressourcen-Manager](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383587(v=ws.11)).
 
 Führen Sie die folgenden Schritte aus, um zu verhindern, dass Datei Server Ressourcen-Manager ein Änderungs Journal auf einigen oder allen Volumes erstellt, wenn der Dienst gestartet wird:
 
@@ -106,4 +106,4 @@ Führen Sie die folgenden Schritte aus, um zu verhindern, dass Datei Server Ress
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 
-- [Dynamische Access Control](https://technet.microsoft.com/library/dn408191(v=ws.11).aspx)
+- [Dynamische Access Control](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn408191(v=ws.11))

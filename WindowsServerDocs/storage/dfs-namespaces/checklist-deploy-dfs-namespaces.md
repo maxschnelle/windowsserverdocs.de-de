@@ -8,12 +8,12 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: adae586c67a34912ea34dca5749d8c69856033d0
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 389d02ae7269ef48ef77d066db3064759d9253c1
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85473507"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86961962"
 ---
 # <a name="checklist-deploy-dfs-namespaces"></a>Prüfliste: Bereitstellen von DFS-Namespaces
 
@@ -38,8 +38,6 @@ Führen Sie zum Bereitstellen von DFS-Namespaces die folgenden Aufgaben aus:
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 
--   [Namespaces](https://technet.microsoft.com/library/cc771914(v=ws.11).aspx)
+-   [Namespaces](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771914(v=ws.11))
 -   [Prüfliste: Optimieren eines DFS-Namespaces](checklist-tune-a-dfs-namespace.md)
--   [Replikation](https://technet.microsoft.com/library/cc770278(v=ws.11).aspx)
-
-
+-   [Replikation](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770278(v=ws.11))

@@ -7,12 +7,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: f9939662c22e9500235bae014b7fb9064afd911b
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 6d049175c7d89670f82bb45addc929d57b60b7b0
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80858113"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86960742"
 ---
 # <a name="controlling-access-to-organizational-data-with-active-directory-federation-services"></a>Steuern des Zugriffs auf Organisationsdaten mit Active Directory-Verbunddienste (AD FS)
 
@@ -26,11 +26,11 @@ Seit der Einführung von Active Directory-Verbunddienste (AD FS) sind Autorisier
 
 ## <a name="ad-fs-and-conditional-access-in-a-hybrid-organization"></a>AD FS und bedingter Zugriff in einer Hybrid Organisation  
 
-AD FS bietet die lokale Komponente der Richtlinie für bedingten Zugriff in einem Hybrid Szenario. AD FS basierten Autorisierungs Regeln sollten für Ressourcen verwendet werden, die nicht Azure AD sind, z. b. lokale Anwendungen, die direkt mit AD FS Verbund verwendet werden.  Die cloudkomponente wird durch [Azure AD bedingten Zugriff](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access)bereitgestellt.  Azure AD Connect stellt die Steuerungsebene bereit, die die beiden verbindet.
+AD FS bietet die lokale Komponente der Richtlinie für bedingten Zugriff in einem Hybrid Szenario. AD FS basierten Autorisierungs Regeln sollten für Ressourcen verwendet werden, die nicht Azure AD sind, z. b. lokale Anwendungen, die direkt mit AD FS Verbund verwendet werden.  Die cloudkomponente wird durch [Azure AD bedingten Zugriff](/azure/active-directory/active-directory-conditional-access)bereitgestellt.  Azure AD Connect stellt die Steuerungsebene bereit, die die beiden verbindet.
 
 Wenn Sie z. b. Geräte mit Azure AD für den bedingten Zugriff auf cloudressourcen registrieren, werden die Geräte Registrierungsinformationen von der Funktion zum Zurückschreiben von Azure AD Connect Geräten lokal zur Verfügung gestellt, damit AD FS Richtlinien genutzt und erzwungen werden.  Auf diese Weise haben Sie einen konsistenten Ansatz für die Zugriffs Steuerungs Richtlinien sowohl für lokale als auch für cloudressourcen.  
 
-![bedingter Zugriff](../deployment/media/Plan-Device-based-Conditional-Access-on-Premises/ADFS_ITPRO4.png)  
+![Bedingter Zugriff](../deployment/media/Plan-Device-based-Conditional-Access-on-Premises/ADFS_ITPRO4.png)  
 
 
 ### <a name="the-evolution-of-client-access-policies-for-office-365"></a>Die Weiterentwicklung von Client Zugriffsrichtlinien für Office 365
@@ -48,12 +48,12 @@ Obwohl die oben aufgeführten dokumentierten Richtlinien für AD FS in den dokum
 
 Um diese Einschränkungen zu erfüllen und eine stabilere Methode zum Verwalten des Zugriffs auf Geschäftsdaten in Office 365 oder anderen Azure AD basierten Ressourcen zu verwenden, hat Microsoft Azure AD bedingten Zugriff eingeführt.  Azure AD Richtlinien für den bedingten Zugriff können für eine bestimmte Ressource oder für alle Ressourcen innerhalb von Office 365, SaaS oder benutzerdefinierten Anwendungen in Azure AD konfiguriert werden.  Diese Richtlinien Pivot sich auf Geräte Vertrauensstellung, Standort und andere Faktoren.
 
-Weitere Informationen zum Azure AD bedingten Zugriff finden Sie unter [bedingter Zugriff in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access)
+Weitere Informationen zum Azure AD bedingten Zugriff finden Sie unter [bedingter Zugriff in Azure Active Directory](/azure/active-directory/active-directory-conditional-access)
 
 Eine wichtige Änderung, die diese Szenarios ermöglicht, ist die [moderne Authentifizierung](https://blogs.office.com/2015/11/19/updated-office-365-modern-authentication-public-preview/), eine neue Möglichkeit der Authentifizierung von Benutzern und Geräten, die in Office-Clients, Skype, Outlook und Browsern auf dieselbe Weise funktioniert.
 
 ## <a name="next-steps"></a>Nächste Schritte
 Weitere Informationen zum Steuern des Zugriffs in der Cloud und lokal finden Sie unter:
 
-- [Bedingter Zugriff in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access)
+- [Bedingter Zugriff in Azure Active Directory](/azure/active-directory/active-directory-conditional-access)
 - [Access Control Richtlinien in AD FS 2016](Access-Control-Policies-in-AD-FS.md)

@@ -8,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 4ab00fe1fa3a40511ba60234025202e9303455f0
-ms.sourcegitcommit: 11421f4005f9f3a3f6c0db95b1836d0f765a9fa3
+ms.openlocfilehash: 228d4d1644c3bae60dcf293540ad764fb511922a
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81624428"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86962502"
 ---
 # <a name="ad-ds-deployment-requirements"></a>AD DS-Bereitstellungsanforderungen
 
@@ -28,21 +28,21 @@ Die Stamm Domäne der Gesamtstruktur stellt die Grundlage für Ihre AD DS Gesamt
 
 ![AD DS-Anforderungen](media/AD-DS-Deployment-Requirements/033aad0b-25ff-4793-8825-88a6daa01a55.gif)
 
-Weitere Informationen finden Sie unter Bereitstellen [einer Windows Server 2008](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731174(v=ws.10))-Gesamtstruktur-Stamm Domäne.
+Weitere Informationen finden Sie unter Bereitstellen [einer Windows Server 2008](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc731174(v=ws.10))-Gesamtstruktur-Stamm Domäne.
 
 ## <a name="deploying-windows-server-2008-regional-domains"></a>Bereitstellen von regionalen Windows Server 2008-Domänen
 Nachdem Sie die Bereitstellung der Gesamtstruktur-Stamm Domäne abgeschlossen haben, können Sie alle neuen regionalen Windows Server 2008-Domänen bereitstellen, die durch den Entwurf angegeben werden. Zu diesem Zweck müssen Sie Domänen Controller für jede regionale Domäne bereitstellen. Die folgende Abbildung zeigt den Prozess der Bereitstellung von regionalen Domänen.
 
 ![AD DS-Anforderungen](media/AD-DS-Deployment-Requirements/89a878c8-9a94-4180-ad43-ca75316a6318.gif)
 
-Weitere Informationen finden Sie unter Bereitstellen von [Regional Domänen in Windows Server 2008](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc755118(v=ws.10)).
+Weitere Informationen finden Sie unter Bereitstellen von [Regional Domänen in Windows Server 2008](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc755118(v=ws.10)).
 
 ## <a name="upgrading-active-directory-domains-to-windows-server-2008"></a>Aktualisieren von Active Directory Domänen auf Windows Server 2008
-Ein Upgrade Ihrer Windows 2000-oder Windows Server 2003-Domänen auf Windows Server 2008-Domänen ist eine effiziente und unkomplizierte Möglichkeit, zusätzliche Features und Funktionen von Windows Server 2008 zu nutzen. Sie können Domänen aktualisieren, um die aktuelle Netzwerk-und Domänen Konfiguration beizubehalten und gleichzeitig die Sicherheit, Skalierbarkeit und Verwaltbarkeit Ihrer Netzwerkinfrastruktur zu verbessern. Für ein Upgrade von Windows 2000 oder Windows Server 2003 auf Windows Server 2008 ist eine minimale Netzwerkkonfiguration erforderlich. Das Upgrade wirkt sich auch nur geringfügig auf Benutzer Vorgänge aus. Weitere Informationen finden Sie unter [Aktualisieren von Active Directory Domänen auf Windows Server 2008 und Windows Server 2008 R2 AD DS Domänen](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731188(v=ws.10)).
+Ein Upgrade Ihrer Windows 2000-oder Windows Server 2003-Domänen auf Windows Server 2008-Domänen ist eine effiziente und unkomplizierte Möglichkeit, zusätzliche Features und Funktionen von Windows Server 2008 zu nutzen. Sie können Domänen aktualisieren, um die aktuelle Netzwerk-und Domänen Konfiguration beizubehalten und gleichzeitig die Sicherheit, Skalierbarkeit und Verwaltbarkeit Ihrer Netzwerkinfrastruktur zu verbessern. Für ein Upgrade von Windows 2000 oder Windows Server 2003 auf Windows Server 2008 ist eine minimale Netzwerkkonfiguration erforderlich. Das Upgrade wirkt sich auch nur geringfügig auf Benutzer Vorgänge aus. Weitere Informationen finden Sie unter [Aktualisieren von Active Directory Domänen auf Windows Server 2008 und Windows Server 2008 R2 AD DS Domänen](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc731188(v=ws.10)).
 
 ## <a name="restructuring-ad-ds-domains"></a>Umstrukturierung von AD DS Domänen
 Wenn Sie Domänen zwischen Windows Server 2008-Gesamtstrukturen (Gesamtstruktur übergreifende Umstrukturierung) umstrukturieren, können Sie die Anzahl der Domänen in Ihrer Umgebung verringern und so die administrative Komplexität und den Verwaltungsaufwand reduzieren. Wenn Sie Objekte zwischen Gesamtstrukturen im Rahmen dieses Restrukturierungsprozesses migrieren, sind sowohl die Quell-als auch die Zieldomänen Umgebung gleichzeitig vorhanden. Dies ermöglicht es Ihnen, ggf. während der Migration ein Rollback zur Quell Umgebung auszuführen.
 
 Wenn Sie Windows Server 2008-Domänen innerhalb einer Windows Server 2008-Gesamtstruktur umstrukturieren (Gesamtstruktur Umstrukturierung), können Sie Ihre Domänen Struktur konsolidieren und somit die administrative Komplexität und den Verwaltungsaufwand reduzieren. Wenn Sie Domänen innerhalb einer Gesamtstruktur umstrukturieren, sind die migrierten Konten in der Quell Domäne nicht mehr vorhanden.
 
-Weitere Informationen zur Verwendung des Active Directory Migration Tool (ADMT) Version 3,1 (ADMT v 3.1) zum Umstrukturieren von Domänen finden Sie unter [ADMT Guide: Migrieren und umstrukturieren von Active Directory Domänen](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc974332(v=ws.10)).
+Weitere Informationen zur Verwendung des Active Directory Migration Tool (ADMT) Version 3,1 (ADMT v 3.1) zum Umstrukturieren von Domänen finden Sie unter [ADMT Guide: Migrieren und umstrukturieren von Active Directory Domänen](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc974332(v=ws.10)).

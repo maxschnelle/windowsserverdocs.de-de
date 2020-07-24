@@ -1,6 +1,6 @@
 ---
 ms.assetid: 4d21d27d-5523-4993-ad4f-fbaa43df7576
-title: Erweiterte ADDS-Verwaltung mit dem ActiveDirectory-Verwaltungscenter (Stufe200)
+title: Advanced AD DS Management Using Active Directory Administrative Center (Level 200)
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -8,26 +8,26 @@ ms.date: 08/07/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 197f994bdd5dedced24aa390dc562530c41e951d
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 63764ff94c10376c76eec493c618214a183bf528
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80824913"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86961102"
 ---
-# <a name="advanced-ad-ds-management-using-active-directory-administrative-center-level-200"></a>Erweiterte ADDS-Verwaltung mit dem ActiveDirectory-Verwaltungscenter (Stufe200)
+# <a name="advanced-ad-ds-management-using-active-directory-administrative-center-level-200"></a>Advanced AD DS Management Using Active Directory Administrative Center (Level 200)
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Dieser Artikel behandelt das aktualisierte Active Directory-Verwaltungscenter mit dem neuen Active Directory-Papierkorb, differenzierten Kennwortrichtlinien und der Windows PowerShell-Verlaufsanzeige im Detail, inklusive Architektur, Beispielen für gängige Aufgaben und Informationen zur Problembehandlung. Eine Einführung finden Sie unter [Introduction to Active Directory-Verwaltungscenter Verbesserungen &#40;Level 100&#41;](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md).  
+Dieser Artikel behandelt das aktualisierte Active Directory-Verwaltungscenter mit dem neuen Active Directory-Papierkorb, differenzierten Kennwortrichtlinien und der Windows PowerShell-Verlaufsanzeige im Detail, inklusive Architektur, Beispielen für gängige Aufgaben und Informationen zur Problembehandlung. Eine Einführung finden Sie unter [Einführung in Active Directory-Verwaltungscenter Erweiterungen &#40;Ebene 100&#41;](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md).  
   
-- [Active Directory-Verwaltungscenter-Architektur](../../../ad-ds/get-started/adac/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-.md#BKMK_Arch)  
-- [Aktivieren und Verwalten des Active Directory Papierkorbs mithilfe von Active Directory-Verwaltungscenter](../../../ad-ds/get-started/adac/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-.md#BKMK_EnableRecycleBin)  
-- [Konfigurieren und verwalten differenzierter Kenn Wort Richtlinien mithilfe von Active Directory-Verwaltungscenter](../../../ad-ds/get-started/adac/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-.md#BKMK_FGPP)  
-- [Verwenden der Active Directory-Verwaltungscenter Windows PowerShell-Verlaufs Anzeige](../../../ad-ds/get-started/adac/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-.md#BKMK_HistoryViewer)  
-- [Problembehandlung AD DS Verwaltung](../../../ad-ds/get-started/adac/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-.md#BKMK_Tshoot)  
+- [Active Directory-Verwaltungscenter: Architektur](../../../ad-ds/get-started/adac/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-.md#BKMK_Arch)  
+- [Aktivieren und Verwalten des Active Directory-Papierkorbs im Active Directory-Verwaltungscenter](../../../ad-ds/get-started/adac/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-.md#BKMK_EnableRecycleBin)  
+- [Konfigurieren und Verwalten der differenzierten Kennwortrichtlinien mit dem Active Directory-Verwaltungscenter](../../../ad-ds/get-started/adac/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-.md#BKMK_FGPP)  
+- [Verwenden der PowerShell-Verlaufsanzeige im Active Directory-Verwaltungscenter](../../../ad-ds/get-started/adac/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-.md#BKMK_HistoryViewer)  
+- [Problembehandlung bei der AD DS-Verwaltung](../../../ad-ds/get-started/adac/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-.md#BKMK_Tshoot)  
   
-## <a name="active-directory-administrative-center-architecture"></a><a name="BKMK_Arch"></a>Active Directory-Verwaltungscenter-Architektur  
+## <a name="active-directory-administrative-center-architecture"></a><a name="BKMK_Arch"></a>Active Directory-Verwaltungscenter: Architektur  
   
 ### <a name="active-directory-administrative-center-executables-dlls"></a>Ausführbare Active Directory-Verwaltungscenter ausführbare Dateien, DLLs  
 
@@ -43,7 +43,7 @@ Die zugrunde liegende Windows PowerShell und Operationsebene für die neuen Papi
   
 ![Erweiterte AD DS Verwaltung](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/adds_adrestore.png)  
   
-## <a name="enabling-and-managing-the-active-directory-recycle-bin-using-active-directory-administrative-center"></a><a name="BKMK_EnableRecycleBin"></a>Aktivieren und Verwalten des Active Directory Papierkorbs mithilfe von Active Directory-Verwaltungscenter  
+## <a name="enabling-and-managing-the-active-directory-recycle-bin-using-active-directory-administrative-center"></a><a name="BKMK_EnableRecycleBin"></a>Aktivieren und Verwalten des Active Directory-Papierkorbs im Active Directory-Verwaltungscenter  
   
 ### <a name="capabilities"></a>Funktionen  
   
@@ -52,7 +52,7 @@ Die zugrunde liegende Windows PowerShell und Operationsebene für die neuen Papi
   
 ### <a name="limitations"></a>Einschränkungen  
   
-- Da das Active Directory-Verwaltungscenter nur Domänenpartitionen verwaltet, können keine gelöschten Objekte aus Konfiguration, Domänen-DNS oder Gesamtstruktur-DNS-Partitionen wiederhergestellt werden (Objekte aus der Schemapartition können nicht gelöscht werden). Verwenden Sie [Restore-ADObject](https://technet.microsoft.com/library/ee617262.aspx)zum Wiederherstellen von Objekten aus Nicht-Domänenpartitionen.  
+- Da das Active Directory-Verwaltungscenter nur Domänenpartitionen verwaltet, können keine gelöschten Objekte aus Konfiguration, Domänen-DNS oder Gesamtstruktur-DNS-Partitionen wiederhergestellt werden (Objekte aus der Schemapartition können nicht gelöscht werden). Verwenden Sie [Restore-ADObject](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee617262(v=technet.10))zum Wiederherstellen von Objekten aus Nicht-Domänenpartitionen.  
 
 - Das Active Directory-Verwaltungscenter kann keine Unterstrukturen von Objekten in einer einzigen Aktion wiederherstellen. Wenn Sie z. B. eine OU mit verschachtelten OUs, Benutzern, Gruppen und Computern löschen, werden die untergeordneten Objekte beim Wiederherstellen der Stamm-OU nicht wiederhergestellt.  
   
@@ -81,7 +81,7 @@ Das entsprechende Active Directory Windows PowerShell-Cmdlet ist:
 Enable-ADOptionalFeature  
 ```
 
-Weitere Informationen zum Aktivieren des Active Directory-Papierkorbs mithilfe von Windows PowerShell finden Sie unter [Schrittweise Anleitung zum Active Directory-Papierkorb](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/adac/introduction-to-active-directory-administrative-center-enhancements--level-100-#active-directory-recycle-bin-step-by-step).  
+Weitere Informationen zum Aktivieren des Active Directory-Papierkorbs mithilfe von Windows PowerShell finden Sie unter [Schrittweise Anleitung zum Active Directory-Papierkorb](./introduction-to-active-directory-administrative-center-enhancements--level-100-.md#active-directory-recycle-bin-step-by-step).  
   
 ### <a name="managing-active-directory-recycle-bin-using-active-directory-administrative-center"></a>Verwalten des Active Directory-Papierkorbs im Active Directory-Verwaltungscenter
 
@@ -97,7 +97,7 @@ Der Active Directory-Papierkorb bewahrt alle in der Gesamtstruktur gelöschten O
   
 Der **Deleted Objects**-Container enthält alle wiederherstellbaren Objekte der jeweiligen Domänenpartition. Gelöschte Objekte, die älter als **msDS-deletedObjectLifetime** sind, werden auch als wiederverwendete Objekte bezeichnet. Wiederverwendete Objekte werden im Active Directory-Verwaltungscenter nicht angezeigt und können von dort nicht wiederhergestellt werden.  
   
-Eine detailliertere Beschreibung von Architektur und Verarbeitungsregeln des Papierkorbs finden Sie unter [The AD Recycle Bin: Understanding, Implementing, Best Practices, and Troubleshooting](https://blogs.technet.com/b/askds/archive/2009/08/27/the-ad-recycle-bin-understanding-implementing-best-practices-and-troubleshooting.aspx).  
+Eine detailliertere Beschreibung von Architektur und Verarbeitungsregeln des Papierkorbs finden Sie unter [The AD Recycle Bin: Understanding, Implementing, Best Practices, and Troubleshooting](/archive/blogs/askds/the-ad-recycle-bin-understanding-implementing-best-practices-and-troubleshooting).  
   
 Das Active Directory-Verwaltungscenter beschränkt die Standardanzahl der pro Container zurückgegebenen Objekte auf 20.000. Sie können dieses Limit auf maximal 100.000 anheben, indem Sie im Menü **Verwalten** auf **Verwaltungslistenoptionen** klicken.  
   
@@ -105,7 +105,7 @@ Das Active Directory-Verwaltungscenter beschränkt die Standardanzahl der pro Co
   
 #### <a name="restoration"></a>Wiederherstellung  
   
-##### <a name="filtering"></a>Filtern
+##### <a name="filtering"></a>Filterung
 
 Das Active Directory-Verwaltungscenter bietet umfassende Kriterien und Filteroptionen, mit denen Sie sich vertraut machen sollten, bevor Sie diese bei einer tatsächlichen Wiederherstellung einsetzen. Zahlreiche Domänenobjekte werden mit der Zeit absichtlich gelöscht. Für eine erwartete Lebensdauer von 180 Tagen für gelöschte Objekte können Sie im Problemfall nicht einfach alle Objekte wiederherstellen.  
   
@@ -123,18 +123,18 @@ Die Wiederherstellung unterstützt alle Standardoptionen für Filterkriterien, w
 - Letztes bekanntes übergeordnetes Element  
 - Typ  
 - Beschreibung  
-- Ort  
+- City  
 - Land/Region  
-- Abteilung  
-- Personal-Nr  
+- Department  
+- Mitarbeiter-ID  
 - Vorname  
-- Position  
+- Berufsbezeichnung  
 - Nachname  
 - SAMAccountName  
-- Bundesland/Kanton/Provinz  
+- Bundesland/Kanton  
 - Telefonnummer  
 - UPN  
-- PLZ  
+- Postleitzahl  
 
 Sie können mehrere Kriterien verwenden. Beispielsweise können Sie alle Benutzer Objekte finden, die am 24. September 2012 aus Chicago, Illinois, mit der Auftrags Bezeichnung Manager gelöscht wurden.
   
@@ -142,7 +142,7 @@ Außerdem können Sie Spaltenüberschriften hinzufügen, ändern oder neu sortie
   
 ![Erweiterte AD DS Verwaltung](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/ADDS_ADAC_TR_ColumnHeaders.png)  
   
-Weitere Informationen zur Auflösung mehrdeutiger Namen finden Sie unter [ANR-Attribute](https://msdn.microsoft.com/library/ms675092(VS.85).aspx).  
+Weitere Informationen zur Auflösung mehrdeutiger Namen finden Sie unter [ANR-Attribute](/windows/win32/adschema/attributes-anr).  
   
 ##### <a name="single-object"></a>Einzelne Objekte
 
@@ -183,7 +183,7 @@ Das Attribut **Letztes bekanntes übergeordnetes Element** enthält die hierarch
   
 Nehmen wir ein Szenario an, in dem ein Administrator versehentlich die Sales-OU löscht, die alle untergeordneten OUs und Benutzer enthält.  
   
-Beachten Sie zunächst den Wert des **letzten bekannten übergeordneten** Attributs für alle gelöschten Benutzer und die Art der Lesevorgänge **OU = sales\0adel:* < GUID und gelöschte Objekte Container Distinguished Name > * * *:  
+Beachten Sie zunächst den Wert des **letzten bekannten übergeordneten** Attributs für alle gelöschten Benutzer und die Art der Lesevorgänge **OU = sales\0adel:*<GUID und gelöschte Objekte Container Distinguished Name> * * *:  
   
 ![Erweiterte AD DS Verwaltung](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/ADDS_ADAC_TR_LastKnownParent.gif)  
   
@@ -201,7 +201,7 @@ Filtern Sie nach allen "Sales"-Benutzern. Drücken Sie STRG + A, um alle gelösc
   
 Wenn die OU **Sales** eigene untergeordnete OUs enthält, müssten Sie diese untergeordneten OUs wiederherstellen, bevor Sie deren untergeordnete Elemente wiederherstellen, und so weiter.  
   
-Informationen zum Wiederherstellen aller verschachtelten Objekte durch Angabe eines gelöschten übergeordneten Containers finden Sie im [Anhang B: Wiederherstellen mehrerer gelöschter Active Directory-Objekte (Beispielskript)](https://technet.microsoft.com/library/dd379504(WS.10).aspx).  
+Informationen zum Wiederherstellen aller verschachtelten Objekte durch Angabe eines gelöschten übergeordneten Containers finden Sie im [Anhang B: Wiederherstellen mehrerer gelöschter Active Directory-Objekte (Beispielskript)](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd379504(v=ws.10)).  
   
 Das Active Directory Windows PowerShell-Cmdlet zum Wiederherstellen gelöschter Objekte ist:  
 
@@ -219,13 +219,13 @@ Der Container "Gelöschte Objekte" kann in mittelgroßen und großen Unternehmen
 2. Klicken Sie auf die Chevron-Schaltfläche, um das Menü **+Kriterien hinzufügen** anzuzeigen, wählen Sie **Zuletzt zwischen den angegebenen Datumswerten geändert** aus und fügen Sie diesen Filter hinzu. Der Zeitpunkt der letzten Änderung (im Attribut **Änderungszeitpunkt**) ist eine Annäherung des Löschzeitpunkts. In den meisten Umgebungen sind die beiden Zeitpunkte identisch. Diese Abfrage führt eine serverseitige Suche durch.  
 3. Suchen Sie die wiederherzustellenden gelöschten Objekte mithilfe von Filterung, Sortierung usw. in der Ergebnisliste und stellen Sie die Objekte wieder her.  
   
-## <a name="configuring-and-managing-fine-grained-password-policies-using-active-directory-administrative-center"></a><a name="BKMK_FGPP"></a>Konfigurieren und verwalten differenzierter Kenn Wort Richtlinien mithilfe von Active Directory-Verwaltungscenter  
+## <a name="configuring-and-managing-fine-grained-password-policies-using-active-directory-administrative-center"></a><a name="BKMK_FGPP"></a>Konfigurieren und Verwalten der differenzierten Kennwortrichtlinien mit dem Active Directory-Verwaltungscenter  
   
 ### <a name="configuring-fine-grained-password-policies"></a>Konfigurieren fein abgestimmter Kennwortrichtlinien
 
 Im Active Directory-Verwaltungscenter können Sie Objekte für fein abgestimmte Kennwortrichtlinien (Fine-Grained Password Policy FGPP) erstellen und verwalten. Das FGPP-Feature wurde mit Windows Server 2008 eingeführt, und Windows Server 2012 enthält die erste grafische Verwaltungsoberfläche für dieses Feature. Fein abgestimmte Kennwortrichtlinien werden auf Domänenebene angewendet und überschreiben das von Windows Server 2003 benötigte einzelne Domänenkennwort. Sie können FGPP mit unterschiedlichen Einstellungen erstellen, um Kennwortrichtlinien für einzelne Benutzer oder Gruppen in einer Domäne zu implementieren.  
   
-Weitere Informationen zu fein abgestimmten Kennwortrichtlinien finden Sie unter [Schrittweise Anleitung für die Konfiguration abgestimmter Kennwort- und Kontosperrungsrichtlinien](https://technet.microsoft.com/library/cc770842(WS.10).aspx).  
+Weitere Informationen zu fein abgestimmten Kennwortrichtlinien finden Sie unter [Schrittweise Anleitung für die Konfiguration abgestimmter Kennwort- und Kontosperrungsrichtlinien für AD DS (Windows Server 2008 R2)](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770842(v=ws.10)).  
   
 Klicken Sie im Navigationsbereich auf die Strukturansicht, dann auf Ihre Domäne und auf **System**. Klicken Sie auf **Kennworteinstellungscontainer** und anschließend im Taskbereich auf **Neu** und auf **Kennworteinstellungen**.  
   
@@ -269,13 +269,13 @@ In den **Eigenschaften** von Benutzern und Gruppen werden die **Direkt zugeordne
   
 Die implizite Zuweisung von "f" wird hier nicht angezeigt. Hierzu müssen Sie die Option resultierende Kenn **Wort Einstellungen anzeigen...** verwenden.  
   
-## <a name="using-the-active-directory-administrative-center-windows-powershell-history-viewer"></a><a name="BKMK_HistoryViewer"></a>Verwenden der Active Directory-Verwaltungscenter Windows PowerShell-Verlaufs Anzeige
+## <a name="using-the-active-directory-administrative-center-windows-powershell-history-viewer"></a><a name="BKMK_HistoryViewer"></a>Verwenden der PowerShell-Verlaufsanzeige im Active Directory-Verwaltungscenter
 
 Windows PowerShell ist die Zukunft der Windows-Verwaltung. Die Verwaltung komplexer verteilter Systeme wird durch grafische Tools, die auf Task-Automatisierungs-Frameworks aufbauen, einheitlicher und effizienter gestaltet. Sie müssen Sich mit der Funktionsweise von Windows PowerShell vertraut machen, um deren volles Potenzial auszuschöpfen und maximalen Nutzen aus Ihren IT-Investitionen zu ziehen.  
   
 Das Active Directory-Verwaltungscenter bietet nun eine komplette Verlaufsanzeige für alle ausgeführten Windows PowerShell-Cmdlets inklusive Argumente und Werte. Sie können den Cmdlet-Verlauf an einen anderen Ort kopieren, um ihn dort zu untersuchen, zu verändern und wiederzuverwenden. Sie können Notizen zu Tasks erstellen, um herauszufinden, welche Windows PowerShell-Befehle sich aus Ihren Eingaben im Active Directory-Verwaltungscenter ergeben haben. Außerdem können Sie den Verlauf filtern, um interessante Punkte herauszustellen.  
   
-Die PowerShell-Verlaufsanzeige im Active Directory-Verwaltungscenter hilft Ihnen dabei, aus praktischen Erfahrungen zu lernen.  
+Die PowerShell-Verlaufsanzeige im Active Directory-Verwaltungscenter hilft Ihnen dabei, aus praktischen Erfahrungen zu lernen.  
   
 ![Erweiterte AD DS Verwaltung](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/ADDS_ADAC_TR_HistoryViewer.gif)  
   
@@ -315,7 +315,7 @@ set-aduser
 
 Beim Design des Active Directory-Verwaltungscenters wurde die Code-Nutzung minimiert und auf Modularität geachtet. Anstatt also eine Reihe von Funktionen zum Erstellen neuer Benutzer und eine weitere Reihe zum Ändern von Benutzern zu verwenden, werden die einzelnen Funktionen minimal ausgeführt und anschließend über Cmdlets verkettet. Beachten Sie dies, wenn Sie sich mit Active Directory Windows PowerShell auseinander setzen. Dies dient auch als Lerntechnik und zeigt Ihnen, wie einfach Sie einzelne Aufgaben mit Windows PowerShell ausführen können.  
   
-## <a name="troubleshooting-ad-ds-management"></a><a name="BKMK_Tshoot"></a>Problembehandlung AD DS Verwaltung  
+## <a name="troubleshooting-ad-ds-management"></a><a name="BKMK_Tshoot"></a>Problembehandlung bei der AD DS-Verwaltung  
   
 ### <a name="introduction-to-troubleshooting"></a>Einführung in die Problembehandlung
 
@@ -327,7 +327,7 @@ Aufgrund des geringen Alters und des Mangels an existierenden Kundenumgebungen s
 
 Die Active Directory-Verwaltungscenter enthält jetzt eine integrierte Protokollierung als Teil einer Ablaufverfolgungs-Konfigurationsdatei. Erstellen/ändern Sie die folgende Datei im gleichen Ordner, der auch dsac.exe enthält:  
   
-**Dsac. exe. config**
+**dsac.exe.config**
   
 Erstellen Sie den folgenden Inhalt:  
   
@@ -446,10 +446,10 @@ Mit der Stufe "Verbose" werden außerdem die .NET-Stacks für die einzelnen Funk
 
 Wenn keine Active Directory Webdienste-Instanzen installiert sind, werden die folgenden Fehler angezeigt:  
   
-|Error|Vorgang|
+|Fehler|Vorgang|
 | --- | --- |  
 |"Es kann keine Verbindung zu irgendeiner Domäne hergestellt werden. Aktualisieren Sie, oder wiederholen Sie den Vorgang, wenn eine Verbindung verfügbar ist"|Angezeigt beim Start der Active Directory-Verwaltungscenter-Anwendung|
-|"In der *<NetBIOS domain name>* Domäne, auf der der Active Directory-Webdienst (ADWS) ausgeführt wird, wurde kein verfügbarer Server gefunden."|Angezeigt beim Versuch, einen Domänenknoten in der Active Directory-Verwaltungscenter-Anwendung auszuwählen|
+|"In der *<NetBIOS domain name>* Domäne, auf der der Active Directory-Webdienst (ADWS) ausgeführt wird, wurde kein verfügbarer Server gefunden"|Angezeigt beim Versuch, einen Domänenknoten in der Active Directory-Verwaltungscenter-Anwendung auszuwählen|
   
 Führen Sie zur Problembehandlung die folgenden Schritte aus:  
   

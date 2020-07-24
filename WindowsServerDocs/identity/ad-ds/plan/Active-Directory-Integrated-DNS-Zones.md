@@ -8,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 19bde83e3ab93ced00226403fe0d031ca80ed357
-ms.sourcegitcommit: 11421f4005f9f3a3f6c0db95b1836d0f765a9fa3
+ms.openlocfilehash: be71b719853f82338769d08d608caf8935add672
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81624408"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86962392"
 ---
 # <a name="active-directory-integrated-dns-zones"></a>In Active Directory integrierte DNS-Zonen
 
@@ -31,7 +31,7 @@ Active Directory integrierte DNS in Windows Server 2008 speichert Zonendaten in 
 
 - Domänen weite Anwendungsverzeichnis Partitionen für jede Domäne in der Gesamtstruktur namens DomainDnsZones
 
-Weitere Informationen dazu, wie AD DS DNS-Informationen in Anwendungs Partitionen speichert, finden Sie in der [technischen Referenz zu DNS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc779926(v=ws.10)).
+Weitere Informationen dazu, wie AD DS DNS-Informationen in Anwendungs Partitionen speichert, finden Sie in der [technischen Referenz zu DNS](/previous-versions/windows/it-pro/windows-server-2003/cc779926(v=ws.10)).
 
 > [!NOTE]
-> Es wird empfohlen, DNS zu installieren, wenn Sie die Assistent zum Installieren von Active Directory Domain Services (Dcpromo. exe) ausführen. Wenn Sie dies tun, erstellt der Assistent automatisch die DNS-Zonen Delegierung. Weitere Informationen finden Sie unter Bereitstellen [einer Windows Server 2008](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731174(v=ws.10))-Gesamtstruktur-Stamm Domäne.
+> Es wird empfohlen, DNS zu installieren, wenn Sie die Assistent zum Installieren von Active Directory Domain Services ausführen (Dcpromo.exe). Wenn Sie dies tun, erstellt der Assistent automatisch die DNS-Zonen Delegierung. Weitere Informationen finden Sie unter Bereitstellen [einer Windows Server 2008](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc731174(v=ws.10))-Gesamtstruktur-Stamm Domäne.

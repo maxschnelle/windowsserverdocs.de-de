@@ -1,19 +1,19 @@
 ---
-title: Konfigurieren von Zertifikatregistrierungs-Webdienst für die Zertifikat Schlüssel basierte Erneuerung an einem benutzerdefinierten Port
+title: Konfigurieren des Zertifikatregistrierungs-Webdiensts ür die Zertifikatschlüssel-basierte Erneuerung an einem benutzerdefinierten Port
 author: Deland-Han
 ms.author: delhan
 manager: dcscontentpm
 ms.date: 11/12/2019
 ms.topic: article
 ms.prod: windows-server
-ms.openlocfilehash: a21a34448248658d2ceffcad07d2a4e6e17b9348
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 5b2da1858a7f0a3669accfdb2dda88a23f64edc0
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80856343"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86964252"
 ---
-# <a name="configuring-certificate-enrollment-web-service-for-certificate-key-based-renewal-on-a-custom-port"></a>Konfigurieren von Zertifikatregistrierungs-Webdienst für die Zertifikat Schlüssel basierte Erneuerung an einem benutzerdefinierten Port
+# <a name="configuring-certificate-enrollment-web-service-for-certificate-key-based-renewal-on-a-custom-port"></a>Konfigurieren des Zertifikatregistrierungs-Webdiensts ür die Zertifikatschlüssel-basierte Erneuerung an einem benutzerdefinierten Port
 
 > Autoren: Jitesh Thakur, Meera muhideen, Technical Advisors bei der Windows-Gruppe.
 Ankit Tyagi-Support Techniker mit der Windows-Gruppe
@@ -43,7 +43,7 @@ In diesem Beispiel basieren die Anweisungen auf einer Umgebung, in der die folge
 
 - Wenn die Gültigkeitsdauer des Zertifikats bald erreicht ist, verwendet der Computer die Zertifikat basierte, auf dem Zertifikat basierende Schlüssel basierte Erneuerung zum Erneuern des Zertifikats über denselben Kanal.
 
-![Bereitstellung](media/certificate-enrollment-certificate-key-based-renewal-1.png)
+![deployment](media/certificate-enrollment-certificate-key-based-renewal-1.png)
 
 ## <a name="configuration-instructions"></a>Konfigurationsanweisungen
 
@@ -74,7 +74,7 @@ Als Voraussetzung müssen Sie CEP und CES auf einem Server konfigurieren, indem 
 Sie können eine vorhandene Computer Vorlage duplizieren und die folgenden Einstellungen der Vorlage konfigurieren:
 
 1. Vergewissern Sie sich, dass auf der Registerkarte "Antragsteller Name" der Zertifikat Vorlage die Optionen für die Anforderung und die Verwendung von **Antrags** Teller **Informationen aus vorhandenen Zertifikaten für die automatische Registrierung von Erneuerungs Anforderungen** ausgewählt sind.
-   neue Vorlagen ![](media/certificate-enrollment-certificate-key-based-renewal-2.png) 
+   ![Neue Vorlagen](media/certificate-enrollment-certificate-key-based-renewal-2.png) 
 
 2. Wechseln Sie zur Registerkarte Ausstellungs **Anforderungen** , und aktivieren Sie dann das Kontrollkästchen Zertifizierungsstellen- **Zertifikat-Manager-Genehmigung** .
    ![Ausstellungs Anforderungen](media/certificate-enrollment-certificate-key-based-renewal-3.png) 
@@ -93,18 +93,18 @@ Sie können eine vorhandene Computer Vorlage duplizieren und die folgenden Einst
 
 Verwenden Sie eine der folgenden Methoden, um die CEPCES01-Instanz zu installieren.
 
-**Methode 1**
+**Methode 1:**
 
 In den folgenden Artikeln finden Sie eine Schritt-für-Schritt-Anleitung zum Aktivieren von CEP und CES für die Benutzernamen-und Kenn Wort Authentifizierung:
 
-[Leitfaden Zertifikatregistrierungsrichtlinien-Webdienst](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831625(v=ws.11))
+[Leitfaden Zertifikatregistrierungsrichtlinien-Webdienst](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831625(v=ws.11))
 
-[Leitfaden Zertifikatregistrierungs-Webdienst](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831822(v=ws.11)#configure-a-ca-for-the-certificate-enrollment-web-service)
+[Leitfaden Zertifikatregistrierungs-Webdienst](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831822(v=ws.11)#configure-a-ca-for-the-certificate-enrollment-web-service)
 
 > [!Note]
 > Stellen Sie sicher, dass Sie die Option "Schlüssel basierte Verlängerung aktivieren" nicht auswählen, wenn Sie sowohl die CEP-als auch die CES-Instanz von Benutzernamen-und Kenn Wort Authentifizierung konfigurieren.
 
-**Methode 2**
+**Methode 2:**
 
 Sie können die folgenden PowerShell-Cmdlets verwenden, um die CEP-und CES-Instanzen zu installieren:
 
@@ -121,7 +121,7 @@ Install-AdcsEnrollmentPolicyWebService -AuthenticationType Username -SSLCertThum
 Dieser Befehl installiert die Zertifikatregistrierungsrichtlinien-Webdienst (CEP), indem angegeben wird, dass ein Benutzername und ein Kennwort für die Authentifizierung verwendet werden. 
 
 > [!Note]
-> In diesem Befehl ist \<**sslcertthumbprint**\> der Fingerabdruck des Zertifikats, das zum Binden von IIS verwendet wird.
+> In diesem Befehl \<**SSLCertThumbPrint**\> ist der Fingerabdruck des Zertifikats, das zum Binden von IIS verwendet wird.
 
 ```PowerShell
 Install-AdcsEnrollmentWebService -ApplicationPoolIdentity -CAConfig "CA1.contoso.com\contoso-CA1-CA" -SSLCertThumbprint "sslCertThumbPrint" -AuthenticationType Username
@@ -132,7 +132,7 @@ Mit diesem Befehl werden die Zertifikatregistrierungs-Webdienst (CES) installier
 ##### <a name="step-2-check-the-internet-information-services-iis-manager-console"></a>Schritt 2 Überprüfen der Internetinformationsdienste (IIS)-Manager-Konsole
 
 Nach einer erfolgreichen Installation erwarten Sie, dass die folgende Anzeige in der Internetinformationsdienste (IIS)-Manager-Konsole angezeigt wird.
-![IIS-Manager-](media/certificate-enrollment-certificate-key-based-renewal-4.png) 
+![IIS-Manager](media/certificate-enrollment-certificate-key-based-renewal-4.png) 
 
 Wählen Sie unter **Standard Website**die Option **ADPolicyProvider_CEP_UsernamePassword**aus, und öffnen Sie dann **Anwendungseinstellungen**. Notieren Sie sich die **ID** und den **URI**.
 
@@ -151,7 +151,7 @@ Install-AdcsEnrollmentPolicyWebService -AuthenticationType Certificate -SSLCertT
 Mit diesem Befehl wird die Zertifikatregistrierungsrichtlinien-Webdienst (CEP) installiert, und es wird angegeben, dass ein Zertifikat für die Authentifizierung verwendet wird. 
 
 > [!Note]
-> In diesem Befehl ist \<sslcertthumbprint\> der Fingerabdruck des Zertifikats, das zum Binden von IIS verwendet wird. 
+> In diesem Befehl \<SSLCertThumbPrint\> ist der Fingerabdruck des Zertifikats, das zum Binden von IIS verwendet wird. 
 
 Bei der Schlüssel basierten Erneuerung können Zertifikat Clients ihre Zertifikate erneuern, indem Sie den Schlüssel des vorhandenen Zertifikats für die Authentifizierung verwenden. Im Schlüssel basierten Erneuerungs Modus gibt der Dienst nur Zertifikat Vorlagen zurück, die für die Schlüssel basierte Erneuerung festgelegt sind.
 
@@ -171,7 +171,7 @@ Mit dem " **renewalonly** "-Cmdlet können Sie im Modus "nur erneuern" ausgefüh
 ##### <a name="step-2-check-the-iis-manager-console"></a>Schritt 2 Überprüfen der IIS-Manager-Konsole
 
 Nach einer erfolgreichen Installation erwarten Sie, dass die folgende Anzeige in der IIS-Manager-Konsole angezeigt wird.
-![IIS-Manager-](media/certificate-enrollment-certificate-key-based-renewal-5.png) 
+![IIS-Manager](media/certificate-enrollment-certificate-key-based-renewal-5.png) 
 
 Wählen Sie **KeyBasedRenewal_ADPolicyProvider_CEP_Certificate** unter **Standard Website** aus, und öffnen Sie **Anwendungseinstellungen**. Notieren Sie sich die **ID** und den **URI**. Sie können einen anzeigen **Amen** für die Verwaltung hinzufügen.
 
@@ -201,7 +201,7 @@ Set-ADUser -Identity cepcessvc -Add @{'msDS-AllowedToDelegateTo'=@('HOST/CA1.con
 ```
 
 > [!Note]
-> In diesem Befehl ist \<cepcessvc-\> das Dienst Konto, und < CA1. ">.
+> In diesem Befehl \<cepcessvc\> ist das Dienst Konto, und <CA1.contoso.com >ist die Zertifizierungsstelle.
 
 > [!Important]
 > Wir aktivieren das Flag "renewalonbehalof" für die Zertifizierungsstelle in dieser Konfiguration nicht, da wir die eingeschränkte Delegierung verwenden, um den gleichen Auftrag für uns durchzuführen. Dadurch wird verhindert, dass die Berechtigung für das Dienst Konto zur Sicherheit der Zertifizierungsstelle hinzugefügt wird.
@@ -213,13 +213,13 @@ Set-ADUser -Identity cepcessvc -Add @{'msDS-AllowedToDelegateTo'=@('HOST/CA1.con
 2. Wählen Sie im Aktionsbereich die Option Site Bindung bearbeiten aus. 
 
 3. Ändern Sie die Standard Port Einstellung von 443 in Ihren benutzerdefinierten Port. Der Beispiel Bildschirm zeigt die Port Einstellung 49999.
-   ![änderungsport](media/certificate-enrollment-certificate-key-based-renewal-7.png) 
+   ![Port ändern](media/certificate-enrollment-certificate-key-based-renewal-7.png) 
 
 ##### <a name="step-4-edit-the-ca-enrollment-services-object-on-active-directory"></a>Schritt 4: Bearbeiten des Objekts der Zertifizierungsstellen-Registrierungsdienste auf Active Directory
 
 1. Öffnen Sie auf einem Domänen Controller ADSIEdit. msc.
 
-2. Stellen Sie eine [Verbindung mit der Konfigurations Partition](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/ff730188(v=ws.10))her, und navigieren Sie zu Ihrem Zertifizierungsstellen-Registrierungsdienst Objekt:
+2. Stellen Sie eine [Verbindung mit der Konfigurations Partition](/previous-versions/windows/it-pro/windows-server-2003/ff730188(v=ws.10))her, und navigieren Sie zu Ihrem Zertifizierungsstellen-Registrierungsdienst Objekt:
    
    CN = entca, CN = Registrierungsdienste, CN = Public Key Services, CN = Services, CN = Configuration, DC = ca. DC = com
 
@@ -232,22 +232,22 @@ Set-ADUser -Identity cepcessvc -Add @{'msDS-AllowedToDelegateTo'=@('HOST/CA1.con
    
    ![ADSI-Editor](media/certificate-enrollment-certificate-key-based-renewal-8.png) 
 
-#### <a name="configure-the-client-computer"></a>Konfigurieren des Client Computers
+#### <a name="configure-the-client-computer"></a>Konfigurieren des Clientcomputers
 
-Richten Sie auf dem Client Computer die Registrierungsrichtlinien und die Richtlinie für die automatische Registrierung ein. Gehen Sie hierzu folgendermaßen vor:
+Richten Sie auf dem Client Computer die Registrierungsrichtlinien und die Richtlinie für die automatische Registrierung ein. Gehen Sie hierzu wie folgt vor:
 
-1. Wählen Sie **Start** > **Ausführen**aus, und geben Sie dann **gpeer dit. msc**ein.
+1. Wählen Sie **Start**  >  **Ausführen**aus, und geben Sie dann **gpeer dit. msc**ein.
 
-2. Wechseln Sie zu **Computer Konfiguration** > **Windows-Einstellungen** > **Sicherheitseinstellungen**, und klicken Sie dann auf **Richtlinien für öffentliche Schlüssel**.
+2. Wechseln Sie zu **Computer Konfiguration**  >  **Windows-Einstellungen**  >  **Sicherheitseinstellungen**, und klicken Sie dann auf **Richtlinien für öffentliche Schlüssel**.
 
 3. Aktivieren Sie die **Richtlinie Zertifikat Dienst Client-automatische** Registrierung, um die Einstellungen im folgenden Screenshot zu erfüllen.
    ![Zertifikat Gruppenrichtlinie](media/certificate-enrollment-certificate-key-based-renewal-9.png)
  
 4. Aktivieren Sie **Zertifikat Dienste Client-Zertifikat Registrierungs Richtlinie**.
 
-   a. Klicken Sie auf **Hinzufügen** , um die Registrierungs Richtlinie hinzuzufügen, und geben Sie den CEP-URI mit **UserNamePassword** ein, den wir in ADSI
+   a) Klicken Sie auf **Hinzufügen** , um die Registrierungs Richtlinie hinzuzufügen, und geben Sie den CEP-URI mit **UserNamePassword** ein, den wir in ADSI
    
-   b. Wählen Sie als **Authentifizierungstyp** **Benutzername/Kennwort**aus.
+   b) Wählen Sie als **Authentifizierungstyp** **Benutzername/Kennwort**aus.
    
    c. Legen Sie die Priorität **10**fest, und überprüfen Sie dann den Richtlinien Server.
       ![Registrierungs Richtlinie](media/certificate-enrollment-certificate-key-based-renewal-10.png)
@@ -263,9 +263,9 @@ Richten Sie auf dem Client Computer die Registrierungsrichtlinien und die Richtl
 
 6. Öffnen Sie " **gpeer dit. msc** " erneut. Bearbeiten Sie die **Richtlinie Zertifikat Dienst Client – Zertifikat Registrierungs Richtlinie**, und fügen Sie dann die Registrierungs Richtlinie für die Schlüssel basierte Erneuerung hinzu:
 
-   a. Klicken Sie auf **Hinzufügen**, und geben Sie den CEP-URI mit dem in ADSI bearbeiteten **Zertifikat** ein. 
+   a) Klicken Sie auf **Hinzufügen**, und geben Sie den CEP-URI mit dem in ADSI bearbeiteten **Zertifikat** ein. 
    
-   b. Legen Sie eine Priorität von **1**fest, und überprüfen Sie dann den Richtlinien Server. Sie werden aufgefordert, sich zu authentifizieren und das von uns zuerst registrierte Zertifikat auszuwählen.
+   b) Legen Sie eine Priorität von **1**fest, und überprüfen Sie dann den Richtlinien Server. Sie werden aufgefordert, sich zu authentifizieren und das von uns zuerst registrierte Zertifikat auszuwählen.
 
    ![Registrierungs Richtlinie](media/certificate-enrollment-certificate-key-based-renewal-13.png) 
 
@@ -276,7 +276,7 @@ Richten Sie auf dem Client Computer die Registrierungsrichtlinien und die Richtl
 
 Um sicherzustellen, dass die automatische Verlängerung funktioniert, überprüfen Sie, ob die manuelle Verlängerung funktioniert, indem Sie das Zertifikat mit dem gleichen Schlüssel mithilfe von MMC erneuern. Außerdem sollten Sie aufgefordert werden, ein Zertifikat während der Erneuerung auszuwählen. Sie können das zuvor registrierte Zertifikat auswählen. Die Eingabeaufforderung wird erwartet.
 
-Öffnen Sie den persönlichen Zertifikat Speicher des Computers, und fügen Sie die Ansicht "Archivierte Zertifikate" hinzu. Fügen Sie dazu das Snap-in "Lokales Computer Konto" zu "MMC. exe" hinzu, **Markieren Sie "** Zertifikate" **(lokaler Computer)** , indem Sie darauf klicken, klicken Sie auf der **Registerkarte Aktion** rechts oder oben auf MMC, klicken Sie auf **Optionen anzeigen**, wählen Sie **Archivierte Zertifikate**aus, und klicken Sie dann auf **OK**.
+Öffnen Sie den persönlichen Zertifikat Speicher des Computers, und fügen Sie die Ansicht "Archivierte Zertifikate" hinzu. Fügen Sie dazu das Snap-in "Lokales Computer Konto" zu mmc.exe hinzu, **Markieren Sie** **Zertifikate (lokaler Computer)** , indem Sie darauf klicken, klicken Sie auf der **Registerkarte Aktion** rechts oder oben auf MMC, klicken Sie auf **Optionen anzeigen**, wählen Sie **Archivierte Zertifikate**aus, und klicken Sie dann auf **OK**.
 
 ### <a name="method-1"></a>Methode 1 
 
@@ -286,7 +286,7 @@ Führen Sie den folgenden Befehl aus:
 certreq -machine -q -enroll -cert <thumbprint> renew
 ```
 
-![Befehl](media/certificate-enrollment-certificate-key-based-renewal-14.png)
+![-Befehl.](media/certificate-enrollment-certificate-key-based-renewal-14.png)
 
 ### <a name="method-2"></a>Methode 2
 
@@ -296,31 +296,31 @@ Die Zertifikat Vorlage verfügt beispielsweise über eine Einstellung von 2 Tage
 
 Wenn Sie also die Zeit auf 8:10 Uhr verschieben. am 19. Nachdem das Erneuerungs Fenster in der Vorlage auf 8 Stunden festgelegt wurde, wird das Zertifikat durch Ausführen von certutil-Pulse (zum auslöst der AE-Engine) für Sie registriert.
 
-![Befehl](media/certificate-enrollment-certificate-key-based-renewal-15.png)
+![-Befehl.](media/certificate-enrollment-certificate-key-based-renewal-15.png)
  
 Nachdem der Test abgeschlossen ist, setzen Sie die Zeiteinstellung auf den ursprünglichen Wert zurück, und starten Sie den Client Computer neu.
 
 > [!Note]
 > Der vorherige Screenshot zeigt, dass die automatische Registrierungs-Engine erwartungsgemäß funktioniert, da das Datum der Zertifizierungsstelle weiterhin auf den 18. Wert festgelegt ist. Aus diesem Grund werden weiterhin Zertifikate ausgestellt. In einer realen Situation tritt diese große Menge von Erneuerungen nicht auf.
 
-## <a name="references"></a>Verweise
+## <a name="references"></a>References
 
-[Test Umgebungs Anleitung: demonstrieren der Zertifikat Schlüssel basierten Erneuerung](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj590165(v%3Dws.11))
+[Test Lab Guide: Demonstrating Certificate Key-Based Renewal](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj590165(v%3dws.11))
 
 [Zertifikatregistrierungs-Webdienste](https://techcommunity.microsoft.com/t5/Ask-the-Directory-Services-Team/Certificate-Enrollment-Web-Services/ba-p/397385)
 
-[Install-adcsenrollmentpolicywebservice](https://docs.microsoft.com/powershell/module/adcsdeployment/install-adcsenrollmentpolicywebservice?view=win10-ps)
+[Install-adcsenrollmentpolicywebservice](/powershell/module/adcsdeployment/install-adcsenrollmentpolicywebservice?view=win10-ps)
 
-[Install-adcsenrollmentwebservice](https://docs.microsoft.com/powershell/module/adcsdeployment/install-adcsenrollmentwebservice?view=win10-ps)
+[Install-adcsenrollmentwebservice](/powershell/module/adcsdeployment/install-adcsenrollmentwebservice?view=win10-ps)
 
-Siehe auch
+Weitere Informationen
 
-[Windows Server-Sicherheits Forum](https://aka.ms/adcsforum)
+[Windows Server-Sicherheitsforum](https://aka.ms/adcsforum)
 
-[Häufig gestellte Fragen (FAQ) zur Public Key-Infrastruktur (PKI) für Active Directory Zertifikat Dienste (AD CS)](https://aka.ms/adcsfaq)
+[Häufig gestellte Fragen (FAQs) zur Public Key-Infrastruktur (PKI) der Active Directory-Zertifikatdienste (AD CS)](https://aka.ms/adcsfaq)
 
-[Windows PKI-Dokumentations Referenz und-Bibliothek](https://social.technet.microsoft.com/wiki/contents/articles/987.windows-pki-documentation-reference-and-library.aspx)
+[Windows PKI-Dokumentationsreferenz und -Bibliothek](https://social.technet.microsoft.com/wiki/contents/articles/987.windows-pki-documentation-reference-and-library.aspx)
 
-[Windows PKI-Blog](https://blogs.technet.com/b/pki/)
+[Windows PKI-Blog](/archive/blogs/pki/)
 
 [Konfigurieren der eingeschränkten Kerberos-Delegierung (S4U2Proxy oder Kerberos) für ein benutzerdefiniertes Dienst Konto für Webanmeldungs-Proxy Seiten](https://support.microsoft.com/help/4494313/configuring-web-enrollment-proxy-for-s4u2proxy-constrained-delegation)

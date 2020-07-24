@@ -8,14 +8,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 6af511ac1aff488f192f75b31801c6fed751cedd
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 9b85e6e10f8df3ec4d2c70e9aff687f264e055a8
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80859423"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86962822"
 ---
-# <a name="access-control-policies-in-windows-server-2016-ad-fs"></a>Zugriffsrichtlinien in für Windows Server 2016 AD FS
+# <a name="access-control-policies-in-windows-server-2016-ad-fs"></a>Access Control Richtlinien in Windows Server 2016 AD FS
 
   
 ## <a name="access-control-policy-templates-in-ad-fs"></a>Access Control Richtlinien Vorlagen in AD FS  
@@ -39,7 +39,7 @@ Um höhere Flexibilität bei der Bewältigung ihrer geschäftlichen Anforderunge
   
 Zum Erstellen einer Richtlinien Vorlage muss ein Administrator zuerst festlegen, unter welchen Bedingungen eine Anforderung für die Tokenausstellung und/oder Delegierung autorisiert wird. Bedingungs-und Aktions Optionen sind in der folgenden Tabelle aufgeführt.   Fett formatierte Bedingungen können vom Administrator mit unterschiedlichen oder neuen Werten weiter konfiguriert werden. Der Administrator kann ggf. auch Ausnahmen angeben. Wenn eine Bedingung erfüllt ist, wird eine Zulassungs Aktion nicht ausgelöst, wenn eine Ausnahme angegeben wird und die eingehende Anforderung mit der in der Ausnahme angegebenen Bedingung übereinstimmt.  
   
-|Benutzern gestatten|davon| 
+|Benutzern gestatten|Except| 
 | --- | --- | 
  |Aus **spezifischem** Netzwerk|Aus **spezifischem** Netzwerk<p>Aus **bestimmten** Gruppen<p>Von Geräten mit **bestimmten** Vertrauens Stufen<p>Mit **bestimmten** Ansprüchen in der Anforderung|  
 |Aus **bestimmten** Gruppen|Aus **spezifischem** Netzwerk<p>Aus **bestimmten** Gruppen<p>Von Geräten mit **bestimmten** Vertrauens Stufen<p>Mit **bestimmten** Ansprüchen in der Anforderung|  
@@ -49,12 +49,12 @@ Zum Erstellen einer Richtlinien Vorlage muss ein Administrator zuerst festlegen,
   
 Wenn ein Administrator mehrere Bedingungen auswählt, bestehen diese aus der Beziehung **und** . Aktionen schließen sich gegenseitig aus, und für eine Richtlinien Regel können Sie nur eine Aktion auswählen. Wenn der Administrator mehrere Ausnahmen auswählt, handelt es sich um eine- **oder** -Beziehung. Unten sind einige Beispiele für Richtlinien Regeln aufgeführt:  
   
-|**Richtlinie**|**Richtlinien Regeln**|
+|**Richtlinie**|**Richtlinienregeln**|
 | --- | --- |  
-|Der Extranetzugriff erfordert MFA.<p>Alle Benutzer sind zulässig.|**Regel #1**<p>aus **Extranet**<p>und mit MFA<p>Aufenthal<p>**Regel 2**<p>aus **Intranet**<p>Aufenthal|  
-|Externer Zugriff ist außer nicht-FTE nicht zulässig.<p>Intranetzugriff für FTE auf Arbeitsplatz verknüpften Geräten ist zulässig.|**Regel #1**<p>aus **Extranet**<p>und aus **nicht-FTE-** Gruppe<p>Aufenthal<p>**Regel #2**<p>aus **Intranet**<p>und vom mit dem **Arbeitsplatz verbundenen** Gerät<p>und aus der Gruppe " **FTE** "<p>Aufenthal|  
-|Für den Extranetzugriff ist MFA außer "Service Admin" erforderlich.<p>Alle Benutzer sind berechtigt, auf zuzugreifen.|**Regel #1**<p>aus **Extranet**<p>und mit MFA<p>Aufenthal<p>Mit Ausnahme der **Dienst Administrator Gruppe**<p>**Regel #2**<p>immer<p>Aufenthal|  
-|für den Zugriff auf das Extranet nicht in den Arbeitsplatz eingebundenes Gerät erfordert MFA<p>Zulassen von AD Fabric für Intranet-und Extranetzugriff|**Regel #1**<p>aus **Intranet**<p>und aus der **AD Fabric** -Gruppe<p>Aufenthal<p>**Regel #2**<p>aus **Extranet**<p>und von **nicht mit dem Arbeitsplatz verknüpften** Geräten<p>und aus der **AD Fabric** -Gruppe<p>und mit MFA<p>Aufenthal<p>**Regel #3**<p>aus **Extranet**<p>und vom mit dem **Arbeitsplatz verbundenen** Gerät<p>und aus der **AD Fabric** -Gruppe<p>Aufenthal|  
+|Der Extranetzugriff erfordert MFA.<p>Alle Benutzer sind zulässig.|**Regel #1**<p>aus **Extranet**<p>und mit MFA<p>Zulassen<p>**Regel 2**<p>aus **Intranet**<p>Zulassen|  
+|Externer Zugriff ist außer nicht-FTE nicht zulässig.<p>Intranetzugriff für FTE auf Arbeitsplatz verknüpften Geräten ist zulässig.|**Regel #1**<p>Aus **Extranet**<p>und aus **nicht-FTE-** Gruppe<p>Zulassen<p>**Regel #2**<p>aus **Intranet**<p>und vom mit dem **Arbeitsplatz verbundenen** Gerät<p>und aus der Gruppe " **FTE** "<p>Zulassen|  
+|Für den Extranetzugriff ist MFA außer "Service Admin" erforderlich.<p>Alle Benutzer sind berechtigt, auf zuzugreifen.|**Regel #1**<p>aus **Extranet**<p>und mit MFA<p>Zulassen<p>Mit Ausnahme der **Dienst Administrator Gruppe**<p>**Regel #2**<p>immer<p>Zulassen|  
+|für den Zugriff auf das Extranet nicht in den Arbeitsplatz eingebundenes Gerät erfordert MFA<p>Zulassen von AD Fabric für Intranet-und Extranetzugriff|**Regel #1**<p>aus **Intranet**<p>Und aus der **AD Fabric** -Gruppe<p>Zulassen<p>**Regel #2**<p>aus **Extranet**<p>und von **nicht mit dem Arbeitsplatz verknüpften** Geräten<p>und aus der **AD Fabric** -Gruppe<p>und mit MFA<p>Zulassen<p>**Regel #3**<p>aus **Extranet**<p>und vom mit dem **Arbeitsplatz verbundenen** Gerät<p>und aus der **AD Fabric** -Gruppe<p>Zulassen|  
   
 ## <a name="parameterized-policy-template-vs-non-parameterized-policy-template"></a>Parametrisierte Richtlinien Vorlage im Vergleich zu nicht parametrisierten Richtlinien Vorlagen  
 Zugriffs Steuerungs Richtlinien können  
@@ -180,5 +180,4 @@ Von hier aus können Sie die Zugriffs Steuerungs Richtlinie auswählen und Sie a
 ![Zugriffs Steuerungs Richtlinien](media/Access-Control-Policies-in-AD-FS/ADFSACP15.PNG)  
   
 ## <a name="see-also"></a>Weitere Informationen  
-[AD FS-Vorgänge](../../ad-fs/AD-FS-2016-Operations.md) 
-
+[AD FS-Vorgänge](../ad-fs-operations.md) 

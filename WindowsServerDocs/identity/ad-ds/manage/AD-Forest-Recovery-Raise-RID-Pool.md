@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.assetid: c37bc129-a5e0-4219-9ba7-b4cf3a9fc9a4
 ms.technology: identity-adds
-ms.openlocfilehash: 308dce9be53194eb7db91944964ae5de03345ab6
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: d3f05774881f7ea475fd811aa9c8801c15f9ca81
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80823853"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86962992"
 ---
 # <a name="ad-forest-recovery---raising-the-value-of-available-rid-pools"></a>AD-Gesamtstruktur Wiederherstellung: erhöhen des Werts verfügbarer RID-Pools 
 
@@ -23,10 +23,10 @@ Verwenden Sie das folgende Verfahren, um den Wert der RID-Pools (relative ID) zu
 
 ## <a name="about-active-directory-rid-pools-and-ridavailablepool"></a>Informationen zu Active Directory RID-Pools und ridavailablepool
 
-Jede Domäne verfügt über das Objekt **CN = RID Manager $, CN = System, DC**=<*domain_name*>. Dieses Objekt verfügt über ein Attribut mit dem Namen **ridavailablepool**. Dieser Attribut Wert behält den globalen RID-Raum für eine gesamte Domäne bei. Der Wert ist eine große Ganzzahl mit oberen und unteren teilen. Der obere Teil definiert die Anzahl der Sicherheits Prinzipale, die für jede Domäne zugeordnet werden können (0x3fffffff oder direkt über 1 Milliarde). Der untere Teil ist die Anzahl der RIDs, die in der Domäne zugeordnet wurden. 
+Jede Domäne verfügt über das Objekt **CN = RID Manager $, CN = System, DC** =< *domain_name*>. Dieses Objekt verfügt über ein Attribut mit dem Namen **ridavailablepool**. Dieser Attribut Wert behält den globalen RID-Raum für eine gesamte Domäne bei. Der Wert ist eine große Ganzzahl mit oberen und unteren teilen. Der obere Teil definiert die Anzahl der Sicherheits Prinzipale, die für jede Domäne zugeordnet werden können (0x3fffffff oder direkt über 1 Milliarde). Der untere Teil ist die Anzahl der RIDs, die in der Domäne zugeordnet wurden. 
   
 > [!NOTE]
-> In Windows Server 2016 und 2012 wird die Anzahl der Sicherheits Prinzipale, die zugewiesen werden können, auf einen Wert über 2 Milliarden festgestellt. Weitere Informationen finden Sie unter [Verwalten der RID-Ausstellung](https://technet.microsoft.com/library/jj574229.aspx). 
+> In Windows Server 2016 und 2012 wird die Anzahl der Sicherheits Prinzipale, die zugewiesen werden können, auf einen Wert über 2 Milliarden festgestellt. Weitere Informationen finden Sie unter [Verwalten der RID-Ausstellung](./managing-rid-issuance.md). 
   
 - Beispiel Wert: 4611686014132422708  
 - Niedriger Teil: 2100 (Anfang des nächsten RID-Pools, der zugeordnet werden soll)  
@@ -38,23 +38,23 @@ Wenn Sie den Wert der großen Ganzzahl vergrößern, erhöhen Sie den Wert des u
 
 1. Öffnen Sie Server-Manager, klicken Sie auf **Extras und dann auf** **ADSI-Bearbeitung**.
 2. Klicken Sie mit der rechten Maustaste auf **Verbinden mit** , und verbinden Sie den Standard namens Kontext, und klicken Sie auf **OK**.
-   ![ADSI-Bearbeitungs](media/AD-Forest-Recovery-Raise-RID-Pool/adsi1.png) 
-3. Navigieren Sie zum folgenden Distinguished Name Path: **CN = RID Manager $, CN = System, DC =<domain name>** .
-   ![ADSI-Bearbeitungs](media/AD-Forest-Recovery-Raise-RID-Pool/adsi2.png) 
+   ![ADSI-Editor](media/AD-Forest-Recovery-Raise-RID-Pool/adsi1.png) 
+3. Navigieren Sie zum folgenden Distinguished Name Path: **CN = RID Manager $, CN = System, DC = <domain name> **.
+   ![ADSI-Editor](media/AD-Forest-Recovery-Raise-RID-Pool/adsi2.png) 
 3. Klicken Sie mit der rechten Maustaste, und wählen Sie die Eigenschaften CN = RID Manager $ aus. 
 4. Wählen Sie das Attribut **ridavailablepool**aus, klicken Sie auf **Bearbeiten**, und kopieren Sie dann den großen ganzzahligen Wert in die Zwischenablage.
-   ![ADSI-Bearbeitungs](media/AD-Forest-Recovery-Raise-RID-Pool/adsi3.png)  
+   ![ADSI-Editor](media/AD-Forest-Recovery-Raise-RID-Pool/adsi3.png)  
 5. Starten Sie den Rechner, und wählen Sie im Menü **Ansicht** die Option **wissenschaftlicher Modus**aus. 
 6. Fügen Sie 100.000 zum aktuellen Wert hinzu.
-   ![ADSI-Bearbeitungs](media/AD-Forest-Recovery-Raise-RID-Pool/adsi4.png) 
+   ![ADSI-Editor](media/AD-Forest-Recovery-Raise-RID-Pool/adsi4.png) 
 7. Wenn Sie Strg + c oder den Befehl **Kopieren** im Menü **Bearbeiten** verwenden, kopieren Sie den Wert in die Zwischenablage. 
 8. Fügen Sie im Dialogfeld "Bearbeiten" von ADSIEdit den neuen Wert ein. 
-   ![ADSI-Bearbeitungs](media/AD-Forest-Recovery-Raise-RID-Pool/adsi5.png) 
+   ![ADSI-Editor](media/AD-Forest-Recovery-Raise-RID-Pool/adsi5.png) 
 9. Klicken **OK** Sie im Dialogfeld auf OK **, und über** nehmen Sie das Eigenschaften Blatt, um das **ridavailablepool** -Attribut zu aktualisieren. 
   
 ### <a name="to-raise-the-value-of-available-rid-pools-using-ldp"></a>So erhöhen Sie den Wert der verfügbaren RID-Pools mithilfe von LDP  
   
-1. Geben Sie an der Eingabeaufforderung den folgenden Befehl ein, und drücken Sie dann die EINGABETASTE:  
+1. Geben Sie an der Eingabeaufforderung den folgenden Befehl ein, und drücken Sie die EINGABETASTE:  
    **LDP**  
 2. Klicken Sie auf **Verbindung**, auf **verbinden**, geben Sie den Namen des RID-Managers ein, und klicken Sie dann auf **OK**. 
    ![LDP](media/AD-Forest-Recovery-Raise-RID-Pool/ldp1.png)
@@ -64,8 +64,8 @@ Wenn Sie den Wert der großen Ganzzahl vergrößern, erhöhen Sie den Wert des u
    ![LDP](media/AD-Forest-Recovery-Raise-RID-Pool/ldp3.png)
 5. Klicken Sie auf **Durchsuchen**und dann auf **ändern**. 
 6. Fügen Sie 100.000 zum aktuellen **ridavailablepool** -Wert hinzu, und geben Sie dann die Summe in **Werte**ein. 
-7. Geben Sie in **DN**`cn=RID Manager$,cn=System,dc=` *< Domänen Namen\>* ein. 
-8. Geben Sie unter **Eingabe Attribut bearbeiten `rIDAvailablePool`ein**. 
+7. Geben **Dn**Sie in DN `cn=RID Manager$,cn=System,dc=` *<Domänen \> Namen*ein. 
+8. Geben Sie unter **Eingabe Attribut bearbeiten**den Namen ein `rIDAvailablePool` . 
 9. Wählen Sie als Vorgang **ersetzen** aus, und drücken Sie dann die **Eingabe**Taste.
    ![LDP](media/AD-Forest-Recovery-Raise-RID-Pool/ldp4.png) 
 10. Klicken Sie auf **Ausführen** , um den Vorgang auszuführen. Klicken Sie auf **Schließen**.

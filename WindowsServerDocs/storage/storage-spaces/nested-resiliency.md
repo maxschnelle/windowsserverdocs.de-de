@@ -7,12 +7,12 @@ ms.technology: storagespaces
 ms.topic: article
 author: cosmosdarwin
 ms.date: 03/15/2019
-ms.openlocfilehash: 4faf4ade53074677b34b037c5ba6d551beb8542e
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 6c3e16f0965be5fc7de4bdc7bd751fb1dd193556
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85474907"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86962202"
 ---
 # <a name="nested-resiliency-for-storage-spaces-direct"></a>Direkte Speicherplätze für die
 
@@ -56,7 +56,7 @@ Direkte Speicherplätze in Windows Server 2019 bietet zwei neue resilienzoptione
 
   ![Zwei-Wege-Spiegelung](media/nested-resiliency/nested-two-way-mirror.png)
 
-- **Gespiegelte gespiegelte Spiegelung.** Kombinieren Sie die geduckte bidirektionale Spiegelung von oben mit der gespiegelten Parität. Innerhalb jedes Servers wird die lokale Resilienz für die meisten Daten durch eine einzelne [bitweise Paritäts Arithmetik](storage-spaces-fault-tolerance.md#parity)bereitgestellt, mit Ausnahme neuer neuer Schreibvorgänge, die die bidirektionale Spiegelung verwenden. Anschließend wird die bidirektionale Spiegelung zwischen den Servern durch die bidirektionale Spiegelung gewährleistet. Weitere Informationen zur Funktionsweise der Spiegel beschleunigten Parität finden Sie unter [Spiegel beschleunigter Parität](https://docs.microsoft.com/windows-server/storage/refs/mirror-accelerated-parity).
+- **Gespiegelte gespiegelte Spiegelung.** Kombinieren Sie die geduckte bidirektionale Spiegelung von oben mit der gespiegelten Parität. Innerhalb jedes Servers wird die lokale Resilienz für die meisten Daten durch eine einzelne [bitweise Paritäts Arithmetik](storage-spaces-fault-tolerance.md#parity)bereitgestellt, mit Ausnahme neuer neuer Schreibvorgänge, die die bidirektionale Spiegelung verwenden. Anschließend wird die bidirektionale Spiegelung zwischen den Servern durch die bidirektionale Spiegelung gewährleistet. Weitere Informationen zur Funktionsweise der Spiegel beschleunigten Parität finden Sie unter [Spiegel beschleunigter Parität](../refs/mirror-accelerated-parity.md).
 
   ![Gespiegelte gespiegelte Spiegelung](media/nested-resiliency/nested-mirror-accelerated-parity.png)
 
@@ -127,7 +127,7 @@ New-Volume -StoragePoolFriendlyName S2D* -FriendlyName Volume02 -StorageTierFrie
 
 ### <a name="step-3-continue-in-windows-admin-center"></a>Schritt 3: fortfahren im Windows Admin Center
 
-Volumes, die die Schattens-Resilienz verwenden, werden im [Windows Admin Center](https://docs.microsoft.com/windows-server/manage/windows-admin-center/understand/windows-admin-center) mit eindeutiger Bezeichnung angezeigt, wie im folgenden Screenshot dargestellt. Nachdem Sie erstellt wurden, können Sie Sie mithilfe des Windows Admin Centers wie jedes andere Volume in direkte Speicherplätze verwalten und überwachen.
+Volumes, die die Schattens-Resilienz verwenden, werden im [Windows Admin Center](../../manage/windows-admin-center/overview.md) mit eindeutiger Bezeichnung angezeigt, wie im folgenden Screenshot dargestellt. Nachdem Sie erstellt wurden, können Sie Sie mithilfe des Windows Admin Centers wie jedes andere Volume in direkte Speicherplätze verwalten und überwachen.
 
 ![](media/nested-resiliency/windows-admin-center.png)
 
@@ -171,11 +171,11 @@ Die Mindestanzahl der für direkte Speicherplätze erforderlichen Laufwerke betr
 
 ### <a name="does-nested-resiliency-change-how-drive-replacement-works"></a>Ändert sich die durch die Änderung von Netzwerken ersetzende Stabilität?
 
-Nein
+Nein.
 
 ### <a name="does-nested-resiliency-change-how-server-node-replacement-works"></a>Ändert sich die geänderte Resilienz, wie die Server Knoten Ersetzung funktioniert?
 
-Nein Um einen Server Knoten und seine Laufwerke zu ersetzen, befolgen Sie die folgende Reihenfolge:
+Nein. Um einen Server Knoten und seine Laufwerke zu ersetzen, befolgen Sie die folgende Reihenfolge:
 
 1. Außerbetriebnahme der Laufwerke auf dem ausgehenden Server
 2. Fügen Sie den neuen Server mit seinen Laufwerken dem Cluster hinzu.

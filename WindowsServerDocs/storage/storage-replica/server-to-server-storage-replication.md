@@ -9,16 +9,16 @@ ms.topic: get-started-article
 author: nedpyle
 ms.date: 03/26/2020
 ms.assetid: 61881b52-ee6a-4c8e-85d3-702ab8a2bd8c
-ms.openlocfilehash: 9873378d62ccc7b53dcc6fc629651df2aa1c6708
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: b49c626bd5b8630d375c2984eac96a32b703cd2c
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80308115"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86964102"
 ---
 # <a name="server-to-server-storage-replication-with-storage-replica"></a>Server-zu-Server-Speicher Replikation mit Speicher Replikat
 
-> Gilt für: Windows Server 2019, Windows Server 2016, Windows Server (Semi-Annual Channel)
+> Gilt für: Windows Server 2019, Windows Server 2016, Windows Server (halbjährlicher Kanal)
 
 Mithilfe der Speicherreplikation können Sie zwei Server konfigurieren, um die Daten zu synchronisieren, sodass jeder Server über eine identische Kopie des gleichen Volumes verfügt. Dieses Thema enthält Hintergrundinformationen zu dieser Konfiguration einer Server-zu-Server-Replikation sowie zum Einrichten und Verwalten der Umgebung.
 
@@ -28,16 +28,16 @@ Im folgenden finden Sie ein Übersichts Video zur Verwendung des Speicher Replik
 > [!video https://www.microsoft.com/videoplayer/embed/3aa09fd4-867b-45e9-953e-064008468c4b?autoplay=false]
 
 
-## <a name="prerequisites"></a>Erforderliche Komponenten  
+## <a name="prerequisites"></a>Voraussetzungen  
 
 * Active Directory Domain Services Gesamtstruktur (Windows Server 2016 muss nicht ausgeführt werden).  
 * Zwei Server, auf denen Windows Server 2019 oder Windows Server 2016, Datacenter Edition ausgeführt wird. Wenn Sie Windows Server 2019 ausführen, können Sie stattdessen die Standard Edition verwenden, wenn Sie nur ein einzelnes Volume mit einer Größe von bis zu 2 TB replizieren möchten.  
 * Zwei Speichergruppen, die SAS-JBODs, Fibre Channel-SANs, iSCSI-Ziele oder lokalen SCSI/SATA-Speicher verwenden. Der Speicher sollte eine Kombination aus HDD- und SSD-Medien umfassen. Die einzelnen Speichergruppen werden nur für jeweils einen Server bereitgestellt, ein gemeinsamer Zugriff wird nicht konfiguriert.  
 * Jede Speichergruppe muss das Erstellen von mindestens zwei virtuellen Datenträgern ermöglichen, einen Datenträger für replizierte Daten und einen Datenträger für Protokolle. Der physische Speicher muss auf allen Datenträgern für Daten dieselben Sektorgrößen aufweisen. Der physische Speicher muss auf allen Datenträgern für Protokolle dieselben Sektorgrößen aufweisen.  
 * Mindestens eine Ethernet/TCP-Verbindung auf jedem Server für die synchrone Replikation (vorzugsweise RDMA).   
-* Geeignete Firewall- und Routerregeln, um bidirektionalen ICMP-Datenverkehr, SMB-Datenverkehr (Port445 sowie 5445 für SMB Direct) und WS-MAN-Datenverkehr (Port5985) zwischen allen Knoten zu ermöglichen.  
+* Geeignete Firewall- und Routerregeln, um bidirektionalen ICMP-Datenverkehr, SMB-Datenverkehr (Port 445 sowie 5445 für SMB Direct) und WS-MAN-Datenverkehr (Port 5985) zwischen allen Knoten zu ermöglichen.  
 * Ein Netzwerk zwischen den Servern mit ausreichender Bandbreite für Ihre E/A-Schreibworkload sowie durchschnittlich 5 ms Roundtriplatenz für die synchrone Replikation. Bei der asynchronen Replikation ist keine Latenz Empfehlung vorhanden.<br>
-Wenn Sie zwischen lokalen Servern und virtuellen Azure-Computern replizieren, müssen Sie eine Netzwerkverbindung zwischen den lokalen Servern und den Azure-VMS erstellen. Verwenden Sie hierzu [Express Route](#add-azure-vm-expressroute), eine [Standort-zu-Standort-VPN-Gatewayverbindung](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal), oder installieren Sie VPN-Software auf Ihren virtuellen Azure-Computern, um Sie mit Ihrem lokalen Netzwerk zu verbinden.
+Wenn Sie zwischen lokalen Servern und virtuellen Azure-Computern replizieren, müssen Sie eine Netzwerkverbindung zwischen den lokalen Servern und den Azure-VMS erstellen. Verwenden Sie hierzu [Express Route](#add-azure-vm-expressroute), eine [Standort-zu-Standort-VPN-Gatewayverbindung](/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal), oder installieren Sie VPN-Software auf Ihren virtuellen Azure-Computern, um Sie mit Ihrem lokalen Netzwerk zu verbinden.
 * Der replizierte Speicher darf sich nicht auf dem Laufwerk mit dem Ordner des Windows-Betriebssystems befinden.
 
 > [!IMPORTANT]
@@ -58,7 +58,7 @@ Zum gemeinsamen Verwenden von Speicher Replikat und Windows Admin Center benöti
 > [!NOTE]
 > Zurzeit können Sie Windows Admin Center nicht auf einem Server zum Verwalten des Speicher Replikats verwenden.
 
-## <a name="terms"></a>Benennungen  
+## <a name="terms"></a>Bestimmungen  
 Für diese exemplarische Vorgehensweise wird die folgende Beispielumgebung verwendet:  
 
 -   Zwei Server: **SR-SRV05** und **SR-SRV06**  
@@ -86,7 +86,7 @@ Wenn Sie das Speicher Replikat mithilfe des Windows Admin Centers verwalten, fü
 
 ## <a name="step-2-provision-operating-system-features-roles-storage-and-network"></a><a name="provision-os"></a>Schritt 2: Bereitstellen von Betriebssystem, Features, Rollen, Speicher und Netzwerk
 
-1.  Installieren Sie Windows Server auf beiden Server Knoten mit dem Installationstyp Windows Server **(Desktop Darstellung)** . 
+1.  Installieren Sie Windows Server auf beiden Server Knoten mit dem Installationstyp Windows Server **(Desktop Darstellung)**. 
  
     Informationen zum Verwenden einer Azure-VM, die mit Ihrem Netzwerk über eine expressroute-Verbindung verbunden ist, finden Sie unter [Hinzufügen eines virtuellen Azure-Computers über expressroute](#add-azure-vm-expressroute).
     
@@ -96,7 +96,7 @@ Wenn Sie das Speicher Replikat mithilfe des Windows Admin Centers verwalten, fü
 3.  Fügen Sie Netzwerkinformationen hinzu, verknüpfen Sie die Server mit der Domäne Ihres Windows 10-Verwaltungs-PCs (falls Sie eine solche verwenden), und starten Sie die Server dann neu.  
 
     > [!NOTE]
-    > Melden Sie sich ab jetzt stets als Domänenbenutzer an, der Mitglied der integrierten Administratorengruppe auf allen Servern ist. Denken Sie von nun an immer daran, erhöhte Rechte für Ihre PowerShell- und Eingabeaufforderungen festzulegen, wenn Sie die Features auf einer graphischen Serverinstallation oder auf einem Windows10-Computer ausführen.  
+    > Melden Sie sich anschließend stets als Domänenbenutzer an, der Mitglied der integrierten Administratorengruppe auf allen Servern ist. Denken Sie anschließend immer daran, erhöhte Rechte für Ihre PowerShell- und Eingabeaufforderungen festzulegen, wenn Sie die Features auf einer graphischen Serverinstallation oder auf einem Windows 10-Computer ausführen.  
 
 3.  Verbinden Sie den ersten Satz von JBOD-Speicher Gehäuse, iSCSI-Ziel, FC-SAN oder lokalem Festplattenspeicher mit dem Server an Standort **Redmond**.  
 
@@ -107,18 +107,18 @@ Wenn Sie das Speicher Replikat mithilfe des Windows Admin Centers verwalten, fü
     > [!NOTE]
     > Konfigurieren Sie die Hardware für freigegebenen Speicher und Netzwerk gemäß der Dokumentation des jeweiligen Herstellers.  
 
-6.  Stellen Sie sicher, dass die BIOS/UEFI-Einstellungen für Server eine hohe Leistung ermöglichen (z. B. Deaktivieren des C-Status, Festlegen der QPI-Geschwindigkeit, Aktivieren von NUMA und Festlegen der höchsten Speicherfrequenz). Stellen Sie sicher, dass die Energie Verwaltung in Windows Server auf hohe Leistung festgelegt ist. Führen Sie gegebenenfalls einen Neustart aus.  
+6.  Stellen Sie sicher, dass die BIOS/UEFI-Einstellungen für Server eine hohe Leistung ermöglichen (z.B. Deaktivieren des C-Status, Festlegen der QPI-Geschwindigkeit, Aktivieren von NUMA und Festlegen der höchsten Speicherfrequenz). Stellen Sie sicher, dass die Energie Verwaltung in Windows Server auf hohe Leistung festgelegt ist. Führen Sie gegebenenfalls einen Neustart aus.  
 
 7.  Konfigurieren Sie folgende Rollen:  
 
     -   **Windows Admin Center-Methode**
         1. Navigieren Sie im Windows Admin Center zu Server-Manager, und wählen Sie dann einen der Server aus.
         2. Navigieren Sie zu **Rollen & Features**.
-        3. Wählen Sie **Features** > **Speicher Replikat**aus, und klicken Sie auf **Installieren**.
+        3. Wählen Sie **Features**  >  **Speicher Replikat**, und klicken Sie dann auf **Installieren**.
         4. Wiederholen Sie den Vorgang auf dem anderen Server.
     -   **Server-Manager-Methode**  
 
-        1.  Führen Sie **ServerManager.exe** aus, und erstellen Sie eine Servergruppe, der Sie alle Serverknoten hinzufügen.  
+        1.  Führen Sie **ServerManager.exe** aus, und erstellen Sie eine Server Gruppe, die alle Server Knoten hinzufügt.  
 
         2.  Installieren Sie die Rollen und Features **Dateiserver** und **Speicherreplikat** auf allen Knoten, und starten Sie die Knoten neu.  
 
@@ -132,7 +132,7 @@ Wenn Sie das Speicher Replikat mithilfe des Windows Admin Centers verwalten, fü
         $Servers | ForEach { Install-WindowsFeature -ComputerName $_ -Name Storage-Replica,FS-FileServer -IncludeManagementTools -restart }  
         ```  
 
-        Weitere Informationen zu diesen Schritten finden Sie unter [Installieren oder Deinstallieren von Rollen, Rollendiensten oder Features](../../administration/server-manager/install-or-uninstall-roles-role-services-or-features.md).  
+        Weitere Informationen zu diesen Schritten finden Sie unter [installieren oder Deinstallieren von Rollen, Rollen Diensten oder Features](../../administration/server-manager/install-or-uninstall-roles-role-services-or-features.md) .  
 
 8.  Konfigurieren Sie den Speicher wie folgt:  
 
@@ -143,7 +143,7 @@ Wenn Sie das Speicher Replikat mithilfe des Windows Admin Centers verwalten, fü
     > -   Die beiden Protokollvolumes sollten dieselbe Größe aufweisen.  
     > -   Alle Datenträger für replizierte Daten müssen dieselben Sektorgrößen aufweisen.  
     > -   Alle Datenträger für Protokolle müssen dieselben Sektorgrößen aufweisen.  
-    > -   Die Protokollvolumes sollten Flash-basierten Speicher verwenden (z. B. SSD). Microsoft empfiehlt, dass die Protokollspeicherung schneller als die Datenspeicherung durchgeführt wird. Protokollvolumes dürfen niemals für andere Workloads verwendet werden.
+    > -   Die Protokollvolumes sollten Flash-basierten Speicher verwenden (z. B. SSD). Microsoft empfiehlt, dass der Protokoll Speicher schneller als der Datenspeicher ist. Protokollvolumes dürfen nie für andere Arbeits Auslastungen verwendet werden.
     > -   Die Datenträger für Daten können HDD, SSD oder eine mehrstufige Kombination verwenden. Außerdem kann gespiegelter Speicherplatz oder Paritätsspeicherplatz bzw. RAID 1, RAID 10, RAID 5 oder RAID 50 verwendet werden.  
     > -   Das Protokollvolume muss standardmäßig eine Größe von mindestens 9 GB aufweisen und kann basierend auf Protokollanforderungen möglicherweise größer oder kleiner sein.  
     > -   Die Rolle „Dateiserver“ ist nur für Test-SRTopology erforderlich, um die erforderlichen Firewallports für die Tests zu öffnen.
@@ -152,7 +152,7 @@ Wenn Sie das Speicher Replikat mithilfe des Windows Admin Centers verwalten, fü
 
         1.  Stellen Sie sicher, dass jedem Server nur die Speichergehäuse des jeweiligen Standorts angezeigt werden und die SAS-Verbindungen ordnungsgemäß konfiguriert sind.  
 
-        2.  Stellen Sie den Speicher mithilfe von Speicherplätzen bereit. Führen Sie dazu die unter **Bereitstellen von Speicherplätzen auf einem eigenständigen Server** beschriebenen [Schritte 1-3](../storage-spaces/deploy-standalone-storage-spaces.md) mithilfe von Windows PowerShell oder über den Server-Manager aus.  
+        2.  Stellen Sie den Speicher mithilfe von Speicherplätzen bereit. Führen Sie dazu die unter [Bereitstellen von Speicherplätzen auf einem eigenständigen Server](../storage-spaces/deploy-standalone-storage-spaces.md) beschriebenen **Schritte 1-3** mithilfe von Windows PowerShell oder über den Server-Manager aus.  
 
     - **Für iSCSI-Speicher:**  
 
@@ -160,7 +160,7 @@ Wenn Sie das Speicher Replikat mithilfe des Windows Admin Centers verwalten, fü
 
         2.  Befolgen Sie die Anweisungen in der Dokumentation des jeweiligen Herstellers, um den Speicher bereitzustellen. Bei Verwendung von Windows-basierten iSCSI-Zielen finden Sie unter [iSCSI-Zielblockspeicher: So wird's gemacht](../iscsi/iscsi-target-server.md) weitere Informationen.  
 
-    - **Für den FC-SAN-Speicher:**  
+    - **Für FC-SAN-Speicher:**  
 
         1.  Stellen Sie sicher, dass jedem Cluster nur die Speichergehäuse des jeweiligen Standorts angezeigt werden und die Zonen für die Hosts ordnungsgemäß festgelegt wurden.   
 
@@ -187,7 +187,7 @@ Wenn Sie das Speicher Replikat mithilfe des Windows Admin Centers verwalten, fü
       >
       > `Diskspd.exe -c1g -d600 -W5 -C5 -b8k -t2 -o2 -r -w5 -i100 -j100 d:\test` 
 
-10. Überprüfen Sie den in Abbildung 2 gezeigten Bericht **testsrtopologyreport. html** , um sicherzustellen, dass Sie die Anforderungen für das Speicher Replikat erfüllen.  
+10. Überprüfen Sie den in Abbildung 2 gezeigten **TestSrTopologyReport.html** -Bericht, um sicherzustellen, dass Sie die Speicher Replikat Anforderungen erfüllen.  
 
     ![Bildschirm mit Topologiebericht](media/Server-to-Server-Storage-Replication/SRTestSRTopologyReport.png)
 
@@ -197,7 +197,7 @@ Wenn Sie das Speicher Replikat mithilfe des Windows Admin Centers verwalten, fü
 ### <a name="using-windows-admin-center"></a>Verwenden des Windows Admin Centers
 
 1. Fügen Sie den Quell Server hinzu.
-    1. Wählen Sie die Schaltfläche **Hinzufügen** .
+    1. Wählen Sie die Schaltfläche **Hinzufügen** aus.
     2. Wählen Sie **Server Verbindung hinzufügen**aus.
     3. Geben Sie den Namen des Servers ein, und wählen Sie dann **senden**aus.
 2. Wählen Sie auf der Seite **alle Verbindungen** den Quell Server aus.
@@ -213,7 +213,7 @@ Wenn Sie das Speicher Replikat mithilfe des Windows Admin Centers verwalten, fü
     > [!VIDEO https://www.youtube-nocookie.com/embed/_VqD7HjTewQ] 
 
 5. Geben Sie die Details der Partnerschaft an, und wählen Sie dann **Erstellen** aus (wie in Abbildung 3 dargestellt). <br>
-   ![dem Bildschirm "neue Partnerschaft" mit Details zur Partnerschaft, z. b. eine Protokoll Größe von 8 GB.](media/Storage-Replica-UI/Honolulu_SR_Create_Partnership.png)
+   ![Der Bildschirm "neue Partnerschaft" zeigt Partnerschafts Details an, z. b. eine Protokoll Größe von 8 GB.](media/Storage-Replica-UI/Honolulu_SR_Create_Partnership.png)
 
     **Abbildung 3: Erstellen einer neuen Partnerschaft**
 
@@ -240,7 +240,7 @@ Als nächsten Schritt konfigurieren Sie die Server-zu-Server-Replikation mit Win
    ```
 
     > [!IMPORTANT]
-    > Die standardmäßige Protokollgröße beträgt 8GB. Abhängig von den Ergebnissen des Cmdlets `Test-SRTopology` können Sie -LogSizeInBytes mit einem höheren oder niedrigeren Wert verwenden.  
+    > Die standardmäßige Protokollgröße beträgt 8 GB. Abhängig von den Ergebnissen des Cmdlets `Test-SRTopology` können Sie -LogSizeInBytes mit einem höheren oder niedrigeren Wert verwenden.  
 
 2.  Verwenden Sie `Get-SRGroup` und `Get-SRPartnership` wie folgt, um den Quell- und Zielzustand der Replikation abzurufen:  
 
@@ -279,7 +279,7 @@ Als nächsten Schritt konfigurieren Sie die Server-zu-Server-Replikation mit Win
         ```PowerShell  
         Get-WinEvent -ProviderName Microsoft-Windows-StorageReplica | Where-Object {$_.ID -eq "1215"} | fl  
         ```
-        Ausgabebeispiel:
+        Hier ist eine Beispielausgabe angegeben:
         ```
         TimeCreated  : 4/8/2016 4:12:37 PM  
         ProviderName : Microsoft-Windows-StorageReplica  
@@ -299,7 +299,7 @@ Als nächsten Schritt konfigurieren Sie die Server-zu-Server-Replikation mit Win
         ```  
 
         > [!NOTE]
-        > Das Speicherreplikatfeature hebt die Bereitstellung der Zielvolumes sowie der zugehörigen Laufwerkbuchstaben oder Bereitstellungspunkte auf. Dies soll so sein.  
+        > Das Speicherreplikatfeature hebt die Bereitstellung der Zielvolumes sowie der zugehörigen Laufwerkbuchstaben oder Bereitstellungspunkte auf. Dies ist beabsichtigt.  
 
     3.  Alternativ gibt die Zielservergruppe für das Replikat jederzeit die Anzahl der noch zu kopierenden Bytes an. Dieser Wert kann auch über PowerShell abgefragt werden. Beispiel:  
 
@@ -324,7 +324,7 @@ Als nächsten Schritt konfigurieren Sie die Server-zu-Server-Replikation mit Win
         Get-WinEvent -ProviderName Microsoft-Windows-StorageReplica | FL  
         ```  
 
-## <a name="step-4-manage-replication"></a>Schritt 4: Verwalten der Replikation
+## <a name="step-4-manage-replication"></a>Schritt 4: Verwalten der Replikation
 
 Nachfolgend sind die Schritte zur Verwaltung Ihrer Server-zu-Server-Replikationsinfrastruktur beschrieben. Sie können alle nachfolgenden Schritte direkt auf den Knoten oder über einen Remote Verwaltungs Computer ausführen, der den Windows Server-Remoteserver-Verwaltungstools enthält.  
 
@@ -338,23 +338,23 @@ Nachfolgend sind die Schritte zur Verwaltung Ihrer Server-zu-Server-Replikations
 
     -   \Statistik zur Partitions-E/A des Speicherreplikats(*)\Anzahl von Anforderungen für letzten Schreibvorgang im Protokoll  
 
-    -   \Statistik zur Partitions-E/A des Speicherreplikats(*)\Durchschnittl. Länge der Warteschlange zum Leeren  
+    -   \Speicherreplikatspartitions-e/a-Statistik (*) \Durchschnittl. Länge der Warteschlange  
 
     -   \Statistik zur Partitions-E/A des Speicherreplikats(*)\Aktuelle Länge der Warteschlange zum Leeren  
 
     -   \Statistik zur Partitions-E/A des Speicherreplikats(*)\Anzahl von Anwendungsschreibanforderungen  
 
-    -   \Statistik zur Partitions-E/A des Speicherreplikats(*)\Anzahl Durchschnittl. Anforderungen pro Schreibvorgang im Protokoll  
+    -   \E/a-Statistiken für die Speicher Replikat Partition (*) \Durchschnittl. Anzahl der Anforderungen pro Protokoll Schreibvorgang  
 
-    -   \Statistik zur Partitions-E/A des Speicherreplikats(*)\Durchschnittl. Wartezeit für App-Schreibvorgang  
+    -   \E/a-Statistiken für die Speicher Replikat Partition (*) \avg. app-Schreib Latenz  
 
-    -   \Statistik zur Partitions-E/A des Speicherreplikats(*)\Durchschnittl. Wartezeit für App-Lesevorgang  
+    -   \E/a-Statistiken für die Speicher Replikat Partition (*) \avg. app-Lese Latenz  
 
     -   \Speicherreplikatstatistik(*)\Ziel-RPO  
 
     -   \Speicherreplikatstatistik(*)\Aktuelle RPO  
 
-    -   \Speicherreplikatstatistik(*)\Durchschnittl. Länge der Protokollwarteschlange  
+    -   \Speicherreplikatstatistik (*) \Durchschnittl. Länge der Protokoll Warteschlange  
 
     -   \Speicherreplikatstatistik(*)\Aktuelle Länge der Protokollwarteschlange  
 
@@ -362,11 +362,11 @@ Nachfolgend sind die Schritte zur Verwaltung Ihrer Server-zu-Server-Replikations
 
     -   \Speicherreplikatstatistik(*)\Gesamtanzahl gesendeter Bytes  
 
-    -   \Speicherreplikatstatistik (*) \Durchschnittl. Wartezeit beim Senden über das Netzwerk  
+    -   \Speicherreplikatstatistik (*) \Durchschnittl. Netzwerk-Sende Latenz  
 
     -   \Speicherreplikatstatistik(*)\Replikationszustand  
 
-    -   \Speicherreplikatstatistik (*) \Durchschnittl. Wartezeit bei Nachrichtenroundtrip  
+    -   \Speicherreplikatstatistik (*) \Durchschnittl. Nachrichten Roundtrip-Latenz  
 
     -   \Speicherreplikatstatistik(*)\Verstrichene Zeit bei letzter Wiederherstellung  
 
@@ -384,7 +384,7 @@ Nachfolgend sind die Schritte zur Verwaltung Ihrer Server-zu-Server-Replikations
 
     -   \Speicherreplikatstatistik(*)\Anzahl gesendeter Nachrichten  
 
-    Weitere Informationen zu Leistungsindikatoren in Windows PowerShell finden Sie unter [Get-Counter](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Diagnostics/Get-Counter).  
+    Weitere Informationen zu Leistungsindikatoren in Windows PowerShell finden Sie unter [Get-Counter](/powershell/module/microsoft.powershell.diagnostics/get-counter).  
 
 3.  Zum Ändern der Replikationsrichtung eines Standorts verwenden Sie das Cmdlet `Set-SRPartnership`.  
 
@@ -424,13 +424,13 @@ Nachfolgend finden Sie einen groben Überblick über die erforderlichen Schritte
 
 1. Installieren Sie Windows Server auf zwei Servern, und konfigurieren Sie Ihren Speicher. Sie können entweder zwei vorhandene Server upgraden oder eine Neuinstallation durchführen.  
 2. Stellen Sie sicher, dass die Daten, die repliziert werden sollen, sich auf mindestens einem Datenvolume und nicht Laufwerk C: befinden.   
-   a.  Sie können auch ein Seeding für die Daten auf dem anderen Server durchführen, um den Zeitaufwand zu reduzieren. Dabei werden eine Sicherung oder Dateikopien verwendet. Außerdem ist eine schlanke Speicherzuweisung möglich. Im Gegensatz zu DFS-Replikation ist eine exakte Übereinstimmung mit der metadatenähnlichen Sicherheit nicht erforderlich.  
+   a)  Sie können auch ein Seeding für die Daten auf dem anderen Server durchführen, um den Zeitaufwand zu reduzieren. Dabei werden eine Sicherung oder Dateikopien verwendet. Außerdem ist eine schlanke Speicherzuweisung möglich. Im Gegensatz zu DFS-Replikation ist eine exakte Übereinstimmung mit der metadatenähnlichen Sicherheit nicht erforderlich.  
 3. Teilen Sie die Daten auf dem Quell Server, und machen Sie Sie über einen DFS-Namespace zugänglich. Dies ist wichtig, um sicherzustellen, dass Benutzer weiterhin auf die Daten zugreifen können, wenn der Servername in einen Namen an einem Notfallstandort geändert wird.  
-   a.  Sie können übereinstimmende Freigaben auf dem Zielserver erstellen, die im normalen Betrieb nicht verfügbar sind   
-   b.  Fügen Sie den Zielserver nicht zum DFS-Namespaces-Namespace hinzu. Wenn Sie dies tun, stellen Sie sicher, dass alle zugehörigen Ordner Ziele deaktiviert sind.  
-4. Aktivieren Sie die Speicherreplikatreplikation und die vollständige die erste Synchronisierungsreplikation kann entweder synchron oder asynchron durchgeführt werden.   
-   a.  Um E/A-Datenkonsistenz auf dem Zielserver sicherzustellen, wird jedoch eine synchrone Replikation empfohlen.   
-   b.  Es wird dringend empfohlen, Volumeschattenkopien zu aktivieren und regelmäßig Momentaufnahmen mit VSSADMIN oder einem anderen Tool Ihrer Wahl zu erstellen. Dadurch wird sichergestellt, dass Anwendungen ihre Daten konsistent auf den Datenträgern speichern. Bei einem Notfall können Sie Dateien anhand von Momentaufnahmen auf dem Zielserver wiederherstellen, die möglicherweise teilweise asynchron repliziert wurden. Momentaufnahmen werden gemeinsam mit den Dateien repliziert.  
+   a)  Sie können übereinstimmende Freigaben auf dem Zielserver erstellen, die im normalen Betrieb nicht verfügbar sind   
+   b)  Fügen Sie den Zielserver nicht zum DFS-Namespaces-Namespace hinzu. Wenn Sie dies tun, stellen Sie sicher, dass alle zugehörigen Ordner Ziele deaktiviert sind.  
+4. Aktivieren Sie die Speicher Replikat Replikation, und schließen Sie die Die Replikation kann entweder synchron oder asynchron sein.   
+   a)  Um E/A-Datenkonsistenz auf dem Zielserver sicherzustellen, wird jedoch eine synchrone Replikation empfohlen.   
+   b)  Es wird dringend empfohlen, Volumeschattenkopien zu aktivieren und regelmäßig Momentaufnahmen mit VSSADMIN oder einem anderen Tool Ihrer Wahl zu erstellen. Dadurch wird sichergestellt, dass Anwendungen ihre Daten konsistent auf den Datenträgern speichern. Bei einem Notfall können Sie Dateien anhand von Momentaufnahmen auf dem Zielserver wiederherstellen, die möglicherweise teilweise asynchron repliziert wurden. Momentaufnahmen werden gemeinsam mit den Dateien repliziert.  
 5. Nehmen Sie den normalen Betrieb auf, bis eine Notfallsituation eintritt.  
 6. Ändern Sie den Zielserver in den neuen Quellserver, sodass die replizierten Volumes für die Benutzer angezeigt werden.  
 7. Bei Verwendung der synchronen Replikation ist nur dann eine Datenwiederherstellung erforderlich, wenn der Benutzer eine Anwendung verwendet hat, die beim Ausfall des Quellservers Daten ohne Transaktionsschutz (unabhängig von der Replikation) geschrieben hat. Bei Verwendung der asynchronen Replikation sollte eine VSS-Momentaufnahmenbereitstellung verwendet werden. Sie sollten die Verwendung von VSS jedoch in allen Situationen in Betracht ziehen, um anwendungskonsistente Momentaufnahmen bereitzustellen.  
@@ -442,26 +442,26 @@ Nachfolgend finden Sie einen groben Überblick über die erforderlichen Schritte
 
 ## <a name="adding-an-azure-vm-connected-to-your-network-via-expressroute"></a><a name="add-azure-vm-expressroute"></a>Hinzufügen einer Azure-VM, die mit Ihrem Netzwerk über expressroute verbunden ist
 
-1. [Erstellen Sie eine expressroute-Verbindung in der Azure-Portal](https://docs.microsoft.com/azure/expressroute/expressroute-howto-circuit-portal-resource-manager).<br>Nachdem die expressroute-Genehmigung genehmigt wurde, wird dem Abonnement eine Ressourcengruppe hinzugefügt. Navigieren Sie zu **Ressourcengruppen** , um diese neue Gruppe anzuzeigen. Notieren Sie sich den Namen des virtuellen Netzwerks.
-![Azure-Portal die mit expressroute hinzugefügte Ressourcengruppe anzeigt](media/Server-to-Server-Storage-Replication/express-route-resource-group.png)
+1. [Erstellen Sie eine expressroute-Verbindung in der Azure-Portal](/azure/expressroute/expressroute-howto-circuit-portal-resource-manager).<br>Nachdem die expressroute-Genehmigung genehmigt wurde, wird dem Abonnement eine Ressourcengruppe hinzugefügt. Navigieren Sie zu **Ressourcengruppen** , um diese neue Gruppe anzuzeigen. Notieren Sie sich den Namen des virtuellen Netzwerks.
+![Azure-Portal, der die mit expressroute hinzugefügte Ressourcengruppe anzeigt](media/Server-to-Server-Storage-Replication/express-route-resource-group.png)
     
     **Abbildung 4: die einer expressroute zugeordneten Ressourcen notieren Sie sich den Namen des virtuellen Netzwerks.**
-1. [Erstellen Sie eine neue Ressourcengruppe](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal).
-1. [Fügen Sie eine Netzwerk Sicherheitsgruppe hinzu](https://docs.microsoft.com/azure/virtual-network/virtual-networks-create-nsg-arm-pportal). Wählen Sie beim Erstellen die Abonnement-ID aus, die der von Ihnen erstellten expressroute zugeordnet ist, und wählen Sie die Ressourcengruppe aus, die Sie soeben erstellt haben.
+1. [Erstellen Sie eine neue Ressourcengruppe](/azure/azure-resource-manager/resource-group-portal).
+1. [Fügen Sie eine Netzwerk Sicherheitsgruppe hinzu](/azure/virtual-network/virtual-networks-create-nsg-arm-pportal). Wählen Sie beim Erstellen die Abonnement-ID aus, die der von Ihnen erstellten expressroute zugeordnet ist, und wählen Sie die Ressourcengruppe aus, die Sie soeben erstellt haben.
 <br><br>Fügen Sie alle eingehenden und ausgehenden Sicherheitsregeln, die Sie benötigen, der Netzwerk Sicherheitsgruppe hinzu. Beispielsweise können Sie Remotedesktop Zugriff auf den virtuellen Computer zulassen.
-1. [Erstellen Sie eine Azure-VM](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) mit den folgenden Einstellungen (siehe Abbildung 5):
+1. [Erstellen Sie eine Azure-VM](/azure/virtual-machines/windows/quick-create-portal) mit den folgenden Einstellungen (siehe Abbildung 5):
     - **Öffentliche IP-Adresse**: keine
     - **Virtuelles Netzwerk**: Wählen Sie das virtuelle Netzwerk aus, das Sie in der mit expressroute hinzugefügten Ressourcengruppe notiert haben.
-    - **Netzwerk Sicherheitsgruppe (Firewall)** : Wählen Sie die Netzwerk Sicherheitsgruppe aus, die Sie zuvor erstellt haben.
-    ![Erstellen eines virtuellen Computers mit expressroute-Netzwerkeinstellungen](media/Server-to-Server-Storage-Replication/azure-vm-express-route.png)
-    **Abbildung 5: Erstellen eines virtuellen Computers beim Auswählen von expressroute-Netzwerkeinstellungen**
+    - **Netzwerk Sicherheitsgruppe (Firewall)**: Wählen Sie die Netzwerk Sicherheitsgruppe aus, die Sie zuvor erstellt haben.
+    ![Erstellen eines virtuellen Computers mit expressroute-Netzwerkeinstellungen ](media/Server-to-Server-Storage-Replication/azure-vm-express-route.png)
+     **Abbildung 5: Erstellen eines virtuellen Computers beim Auswählen von expressroute-Netzwerkeinstellungen**
 1. Nachdem der virtuelle Computer erstellt wurde, finden Sie weitere Informationen unter [Schritt 2: Bereitstellen von Betriebssystemen, Features, Rollen, Speicher und Netzwerk](#provision-os).
 
 
 ## <a name="related-topics"></a>Verwandte Themen  
-- [Speicher Replikat](storage-replica-overview.md)  
+- [Übersicht über Speicherreplikate](storage-replica-overview.md)  
 - [Stretch-Cluster Replikation mit frei gegebenem Speicher](stretch-cluster-replication-using-shared-storage.md)  
 - [Cluster-zu-Cluster Speicher Replikation](cluster-to-cluster-storage-replication.md)
 - [Speicher Replikat: bekannte Probleme](storage-replica-known-issues.md)  
-- [Speicher Replikat: häufig gestellte Fragen](storage-replica-frequently-asked-questions.md)
+- [Speicherreplikat: Häufig gestellte Fragen](storage-replica-frequently-asked-questions.md)
 - [Direkte Speicherplätze in Windows Server 2016](../storage-spaces/storage-spaces-direct-overview.md)  

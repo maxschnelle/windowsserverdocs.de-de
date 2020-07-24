@@ -7,12 +7,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 6ae1f34343e8574ce776fcc5761c078b12bc9977
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 110bc74d6b77c63fc6a9554049b5adb940f2641d
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80814823"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86962672"
 ---
 # <a name="client-access-control-policies-in-ad-fs-20"></a>Client Access Control Richtlinien in AD FS 2,0
 Mit den Client Zugriffsrichtlinien in Active Directory-Verbunddienste (AD FS) 2,0 können Sie Benutzern den Zugriff auf Ressourcen einschränken oder gewähren.  In diesem Dokument wird beschrieben, wie Sie Client Zugriffsrichtlinien in AD FS 2,0 aktivieren und die gängigsten Szenarien konfigurieren.
@@ -42,7 +42,7 @@ Erstellen Sie auf der Active Directory Anspruchs Anbieter-Vertrauensstellung ein
 4. Wählen Sie auf der Seite Regel Vorlage auswählen unter Anspruchs Regel Vorlage die Option Pass-Through oder einen eingehenden Anspruch Filtern aus der Liste aus, und klicken Sie dann auf Weiter.
 5. Geben Sie auf der Seite Regel konfigurieren unter Anspruchs Regel Name den anzeigen Amen für diese Regel ein. Geben Sie unter Typ des eingehenden Anspruchs die folgende Anspruchstyp-URL ein, und wählen Sie dann alle Anspruchs Werte durchlaufen aus.</br>
         `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip`</br>
-6. Um die Regel zu überprüfen, wählen Sie Sie in der Liste aus, klicken Sie auf Regel bearbeiten und dann auf Regel Sprache anzeigen. Die Anspruchs Regel Sprache sollte wie folgt aussehen: `c:[Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip"] => issue(claim = c);`
+6. Um die Regel zu überprüfen, wählen Sie Sie in der Liste aus, klicken Sie auf Regel bearbeiten und dann auf Regel Sprache anzeigen. Die Anspruchs Regel Sprache sollte wie folgt aussehen:`c:[Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip"] => issue(claim = c);`
 7. Klicken Sie auf Fertig stellen.
 8. Klicken Sie im Dialogfeld Anspruchs Regeln bearbeiten auf OK, um die Regeln zu speichern.
 9. Wiederholen Sie die Schritte 2 bis 6, um eine zusätzliche Anspruchs Regel für jeden der verbleibenden vier Anspruchs Typen zu erstellen, bis alle fünf Regeln erstellt wurden.
@@ -77,7 +77,7 @@ Dieses Client Zugriffsrichtlinien-Szenario ermöglicht den Zugriff von allen int
 2. Klicken Sie in der Konsolen Struktur unter AD FS 2.0 \ Vertrauens Stellungen auf Vertrauens Stellungen der vertrauenden Seite, klicken Sie mit der rechten Maustaste auf die Microsoft Office 365 Identity Platform-Vertrauensstellung, und klicken Sie dann auf Anspruchs Regeln bearbeiten. 
 3. Wählen Sie im Dialogfeld Anspruchs Regeln bearbeiten die Registerkarte Ausstellungs Autorisierungs Regeln aus, und klicken Sie dann auf Regel hinzufügen, um den Anspruchs Regel-Assistenten zu starten.
 4. Wählen Sie auf der Seite Regel Vorlage auswählen unter Anspruchs Regel Vorlage die Option Ansprüche mithilfe einer benutzerdefinierten Regel senden aus, und klicken Sie dann auf Weiter.
-5. Geben Sie auf der Seite Regel konfigurieren unter Anspruchs Regel Name den anzeigen Amen für diese Regel ein. Geben Sie unter benutzerdefinierte Regel die folgende Syntax der Anspruchs Regel Sprache ein, oder fügen Sie Sie ein: `exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-proxy"]) &&
+5. Geben Sie auf der Seite Regel konfigurieren unter Anspruchs Regel Name den anzeigen Amen für diese Regel ein. Geben oder fügen Sie unter benutzerdefinierte Regel die folgende Syntax der Anspruchs Regel Sprache ein:`exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-proxy"]) &&
     NOT exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip",
     Value=~"customer-provided public ip address regex"])
     => issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = "true");` 
@@ -100,7 +100,7 @@ Im folgenden Beispiel wird der Zugriff auf alle Office 365-Anwendungen einschlie
 2. Klicken Sie in der Konsolen Struktur unter AD FS 2.0 \ Vertrauens Stellungen auf Vertrauens Stellungen der vertrauenden Seite, klicken Sie mit der rechten Maustaste auf die Microsoft Office 365 Identity Platform-Vertrauensstellung, und klicken Sie dann auf Anspruchs Regeln bearbeiten. 
 3. Wählen Sie im Dialogfeld Anspruchs Regeln bearbeiten die Registerkarte Ausstellungs Autorisierungs Regeln aus, und klicken Sie dann auf Regel hinzufügen, um den Anspruchs Regel-Assistenten zu starten.
 4. Wählen Sie auf der Seite Regel Vorlage auswählen unter Anspruchs Regel Vorlage die Option Ansprüche mithilfe einer benutzerdefinierten Regel senden aus, und klicken Sie dann auf Weiter.
-5. Geben Sie auf der Seite Regel konfigurieren unter Anspruchs Regel Name den anzeigen Amen für diese Regel ein. Geben Sie unter benutzerdefinierte Regel die folgende Syntax der Anspruchs Regel Sprache ein, oder fügen Sie Sie ein: `exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-proxy"]) &&
+5. Geben Sie auf der Seite Regel konfigurieren unter Anspruchs Regel Name den anzeigen Amen für diese Regel ein. Geben oder fügen Sie unter benutzerdefinierte Regel die folgende Syntax der Anspruchs Regel Sprache ein:`exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-proxy"]) &&
     NOT exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application",
     Value=="Microsoft.Exchange.Autodiscover"]) &&
     NOT exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application",
@@ -129,7 +129,7 @@ Der Regelsatz basiert auf der standardmäßigen Ausstellungs Autorisierungs Rege
 2. Klicken Sie in der Konsolen Struktur unter AD FS 2.0 \ Vertrauens Stellungen auf Vertrauens Stellungen der vertrauenden Seite, klicken Sie mit der rechten Maustaste auf die Microsoft Office 365 Identity Platform-Vertrauensstellung, und klicken Sie dann auf Anspruchs Regeln bearbeiten. 
 3. Wählen Sie im Dialogfeld Anspruchs Regeln bearbeiten die Registerkarte Ausstellungs Autorisierungs Regeln aus, und klicken Sie dann auf Regel hinzufügen, um den Anspruchs Regel-Assistenten zu starten.
 4. Wählen Sie auf der Seite Regel Vorlage auswählen unter Anspruchs Regel Vorlage die Option Ansprüche mithilfe einer benutzerdefinierten Regel senden aus, und klicken Sie dann auf Weiter.
-5. Geben Sie auf der Seite Regel konfigurieren unter Anspruchs Regel Name den anzeigen Amen für diese Regel ein. Geben Sie unter benutzerdefinierte Regel die folgende Syntax der Anspruchs Regel Sprache ein, oder fügen Sie Sie ein: `exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-proxy"]) &&
+5. Geben Sie auf der Seite Regel konfigurieren unter Anspruchs Regel Name den anzeigen Amen für diese Regel ein. Geben oder fügen Sie unter benutzerdefinierte Regel die folgende Syntax der Anspruchs Regel Sprache ein:`exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-proxy"]) &&
     NOT exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip",
     Value=~"customer-provided public ip address regex"]) &&
     NOT exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value == "/adfs/ls/"])
@@ -149,7 +149,7 @@ Im folgenden Beispiel wird der Zugriff von internen Clients basierend auf der IP
 2. Klicken Sie in der Konsolen Struktur unter AD FS 2.0 \ Vertrauens Stellungen auf Vertrauens Stellungen der vertrauenden Seite, klicken Sie mit der rechten Maustaste auf die Microsoft Office 365 Identity Platform-Vertrauensstellung, und klicken Sie dann auf Anspruchs Regeln bearbeiten. 
 3. Wählen Sie im Dialogfeld Anspruchs Regeln bearbeiten die Registerkarte Ausstellungs Autorisierungs Regeln aus, und klicken Sie dann auf Regel hinzufügen, um den Anspruchs Regel-Assistenten zu starten.
 4. Wählen Sie auf der Seite Regel Vorlage auswählen unter Anspruchs Regel Vorlage die Option Ansprüche mithilfe einer benutzerdefinierten Regel senden aus, und klicken Sie dann auf Weiter.
-5. Geben Sie auf der Seite Regel konfigurieren unter Anspruchs Regel Name den anzeigen Amen für diese Regel ein. Geben Sie unter benutzerdefinierte Regel die folgende Syntax der Anspruchs Regel Sprache ein, oder fügen Sie Sie ein: `exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-proxy"]) &&
+5. Geben Sie auf der Seite Regel konfigurieren unter Anspruchs Regel Name den anzeigen Amen für diese Regel ein. Geben oder fügen Sie unter benutzerdefinierte Regel die folgende Syntax der Anspruchs Regel Sprache ein:`exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-proxy"]) &&
     exists([Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value =~ "Group SID value of allowed AD group"]) &&
     NOT exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip",
     Value=~"customer-provided public ip address regex"])
@@ -162,14 +162,14 @@ Im folgenden Beispiel wird der Zugriff von internen Clients basierend auf der IP
 
 |                                                                                                   Beschreibung                                                                                                   |                                                                     Syntax der Anspruchs Regel Sprache                                                                     |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|              Standard AD FS Regel, um den Zugriff auf alle Benutzer zuzulassen. Diese Regel sollte bereits in der Liste der Autorisierungs Regeln für die Vertrauensstellung der vertrauenden Seite der Microsoft Office 365-Identitäts Plattform vorhanden sein              |                                  = > Problem (Type = "<https://schemas.microsoft.com/authorization/claims/permit>", Value = "true");                                   |
+|              Standard AD FS Regel, um den Zugriff auf alle Benutzer zuzulassen. Diese Regel sollte bereits in der Liste der Autorisierungs Regeln für die Vertrauensstellung der vertrauenden Seite der Microsoft Office 365-Identitäts Plattform vorhanden sein              |                                  => Problem (Type = " <https://schemas.microsoft.com/authorization/claims/permit> ", Value = "true");                                   |
 |                               Das Hinzufügen dieser Klausel zu einer neuen, benutzerdefinierten Regel gibt an, dass die Anforderung vom Verbund Server Proxy stammt (d. h., Sie verfügt über den Header x-ms-Proxy).                                |                                                                                                                                                                    |
-|                                                                                 Es wird empfohlen, dass alle Regeln dies einschließen.                                                                                  |                                    vorhanden ([Type = = "<https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-proxy>"])                                    |
-|                                                         Wird verwendet, um festzulegen, dass die Anforderung von einem Client mit einer IP-Adresse im definierten zulässigen Bereich erfolgt.                                                         | Nicht vorhanden ([Type = = "<https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip>", Value = ~ "vom Kunden bereitgestellte öffentliche IP-Adresse-Regex"]) |
-|                                    Diese Klausel wird verwendet, um anzugeben, dass die Anforderung verweigert werden soll, wenn die Anwendung, auf die zugegriffen wird, nicht Microsoft. Exchange. ActiveSync ist.                                     |       Nicht vorhanden ([Type = = "<https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application>", Value = = "Microsoft. Exchange. ActiveSync"])        |
-|                                                      Mit dieser Regel können Sie feststellen, ob der-Befehl über einen Webbrowser erfolgte und nicht verweigert wird.                                                      |              Nicht vorhanden ([Type = = "<https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path>", Value = = "/ADFS/ls/"])               |
-| Diese Regel gibt an, dass nur die Benutzer in einer bestimmten Active Directory Gruppe (basierend auf dem SID-Wert) verweigert werden sollen. Wenn Sie diese Anweisung nicht hinzufügen, bedeutet dies, dass eine Gruppe von Benutzern unabhängig vom Standort zugelassen wird. |             vorhanden ([Type = = "<https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid>", Value = ~ "{Group sid value of allowed Ad Group}"])              |
-|                                                                Dies ist eine erforderliche Klausel, um eine DENY-Anweisung auszugeben, wenn alle vorangehenden Bedingungen erfüllt sind.                                                                 |                                   = > Problem (Type = "<https://schemas.microsoft.com/authorization/claims/deny>", Value = "true");                                    |
+|                                                                                 Es wird empfohlen, dass alle Regeln dies einschließen.                                                                                  |                                    vorhanden ([Type = = " <https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-proxy> "])                                    |
+|                                                         Wird verwendet, um festzulegen, dass die Anforderung von einem Client mit einer IP-Adresse im definierten zulässigen Bereich erfolgt.                                                         | Nicht vorhanden ([Type = = " <https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip> ", Value = ~ "vom Kunden bereitgestellte öffentliche IP-Adresse-Regex"]) |
+|                                    Diese Klausel wird verwendet, um anzugeben, dass die Anforderung verweigert werden soll, wenn die Anwendung, auf die zugegriffen wird, nicht Microsoft. Exchange. ActiveSync ist.                                     |       Nicht vorhanden ([Type = = " <https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application> ", Value = = "Microsoft. Exchange. ActiveSync"])        |
+|                                                      Mit dieser Regel können Sie feststellen, ob der-Befehl über einen Webbrowser erfolgte und nicht verweigert wird.                                                      |              Nicht vorhanden ([Type = = " <https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path> ", Value = = "/ADFS/ls/"])               |
+| Diese Regel gibt an, dass nur die Benutzer in einer bestimmten Active Directory Gruppe (basierend auf dem SID-Wert) verweigert werden sollen. Wenn Sie diese Anweisung nicht hinzufügen, bedeutet dies, dass eine Gruppe von Benutzern unabhängig vom Standort zugelassen wird. |             vorhanden ([Type = = " <https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid> ", Value = ~ "{Group sid value of allowed Ad Group}"])              |
+|                                                                Dies ist eine erforderliche Klausel, um eine DENY-Anweisung auszugeben, wenn alle vorangehenden Bedingungen erfüllt sind.                                                                 |                                   => Problem (Type = " <https://schemas.microsoft.com/authorization/claims/deny> ", Value = "true");                                    |
 
 ### <a name="building-the-ip-address-range-expression"></a>Der Ausdruck für den IP-Adressbereich wird aufgebaut
 
@@ -201,19 +201,19 @@ Wenn Sie einen Bereich von IP-Adressen zuordnen müssen, ist es erforderlich, ei
 - 192.168.1.1 – 192.168.1.25
 - 10.0.0.1 – 10.0.0.14
 
-Zuerst lautet das grundlegende Muster, das einer einzelnen IP-Adresse entspricht, wie folgt: \b # # #\.###\.###\.# # # \b
+Zuerst lautet das grundlegende Muster, das einer einzelnen IP-Adresse entspricht, wie folgt: \b # # # \. ### \. ### \. # # # \b
 
-Durch die Erweiterung können wir zwei unterschiedliche IP-Adressen wie folgt mit einem or-Ausdruck vergleichen: \b # # #\.###\.###\.# # # \b | \b # # #\.###\.###\.# # # \b
+Dadurch können wir zwei unterschiedliche IP-Adressen wie folgt mit einem or-Ausdruck vergleichen: \b # # # \. ### \. ### \. # # # \b | \b # # # \. ### \. ### \. # # # \b
 
-Ein Beispiel für die Anpassung von nur zwei Adressen (z. b. 192.168.1.1 oder 10.0.0.1) lautet: \b192\.168\.1\.1 \ b | \b10\.0\.0\.1 \ b
+Ein Beispiel für die Anpassung von nur zwei Adressen (z. b. 192.168.1.1 oder 10.0.0.1) lautet: \b192 \. 168 \. 1 \. 1 \ b | \b10 \. 0 \. 0 \. 1 \ b
 
-Auf diese Weise können Sie eine beliebige Anzahl von Adressen eingeben. Wenn ein Adressbereich zulässig sein muss, z. b. 192.168.1.1 – 192.168.1.25, muss der Abgleich Zeichen nach Zeichen durchgeführt werden: \b192\.168\.1\.([1-9] | 1 [0-9] | 2 [0-5]) \b
+Auf diese Weise können Sie eine beliebige Anzahl von Adressen eingeben. Wenn ein Adressbereich zulässig sein muss, z. b. 192.168.1.1 – 192.168.1.25, muss der Abgleich Zeichen nach Zeichen durchgeführt werden: \b192 \. 168 \. 1 \. ([1-9] | 1 [0-9] | 2 [0-5]) \b
 
 >[!Note] 
 >Die IP-Adresse wird als Zeichenfolge und nicht als Zahl behandelt.
 
 
-Die Regel wird wie folgt aufgeschlüsselt: \b192\.168\.1\.
+Die Regel wird wie folgt aufgegliedert: \b192 \. 168 \. 1\.
 
 Dies entspricht einem beliebigen Wert, der mit 192.168.1 beginnt.
 
@@ -227,9 +227,9 @@ Folgendes entspricht den Bereichen, die für den Teil der Adresse nach dem letzt
 >[!Note]
 >Die Klammern müssen ordnungsgemäß positioniert werden, damit Sie nicht mit anderen Teilen von IP-Adressen übereinstimmen.
 
-Wenn der 192-Block übereinstimmt, können wir einen ähnlichen Ausdruck für den 10-Block schreiben: \b10\.0\.0\.([1-9] | 1 [0-4]) \b
+Wenn der 192-Block übereinstimmt, können wir einen ähnlichen Ausdruck für den 10-Block schreiben: \b10 \. 0 \. 0 \. ([1-9] | 1 [0-4]) \b
 
-Und der folgende Ausdruck sollte mit allen Adressen für "192.168.1.1 ~ 25" und "10.0.0.1 ~ 14": \b192\.168\.1\.([1-9] | 1 [0-9] | 2 [0-5]) \b | \b10\.0\.0\.([1-9] | 1 [0-4]) \b verglichen werden.
+Der folgende Ausdruck muss alle Adressen für "192.168.1.1 ~ 25" und "10.0.0.1 ~ 14": \b192 \. 168 \. 1 \. ([1-9] | 1 [0-9] | 2 [0-5]) \b | \b10 \. 0 \. 0 \. ([1-9] | 1 [0-4]) \b entsprechen.
 
 #### <a name="testing-the-expression"></a>Testen des Ausdrucks
 
@@ -261,14 +261,13 @@ Um die Protokollierung von Überwachungs Ereignissen im Sicherheitsprotokoll auf
 
 ### <a name="event-logging"></a>Ereignisprotokollierung
 
-Standardmäßig werden fehlgeschlagene Anforderungen im Anwendungs Ereignisprotokoll unter Anwendungs-und Dienst Protokolle \ AD FS 2,0 \ admin protokolliert. Weitere Informationen zur Ereignisprotokollierung für AD FS finden [Sie unter Einrichten der AD FS 2,0-Ereignisprotokollierung](https://technet.microsoft.com/library/adfs2-troubleshooting-configuring-computers.aspx).
+Standardmäßig werden fehlgeschlagene Anforderungen im Anwendungs Ereignisprotokoll unter Anwendungs-und Dienst Protokolle \ AD FS 2,0 \ admin protokolliert. Weitere Informationen zur Ereignisprotokollierung für AD FS finden [Sie unter Einrichten der AD FS 2,0-Ereignisprotokollierung](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ff641696(v=ws.10)).
 
 ### <a name="configuring-verbose-ad-fs-tracing-logs"></a>Konfigurieren von ausführlichen AD FS Ablauf Verfolgungs Protokollen
 
-AD FS Ablauf Verfolgungs Ereignisse werden im Debugprotokoll AD FS 2,0 protokolliert. Informationen zum Aktivieren der Ablauf Verfolgung finden Sie unter [configure Debug Tracing for AD FS 2,0](https://technet.microsoft.com/library/adfs2-troubleshooting-configuring-computers.aspx).
+AD FS Ablauf Verfolgungs Ereignisse werden im Debugprotokoll AD FS 2,0 protokolliert. Informationen zum Aktivieren der Ablauf Verfolgung finden Sie unter [configure Debug Tracing for AD FS 2,0](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ff641696(v=ws.10)).
 
-Nachdem Sie die Ablauf Verfolgung aktiviert haben, verwenden Sie die folgende Befehlszeilen Syntax, um den ausführlichen Protokolliergrad zu aktivieren: wevtutil. exe SL "AD FS 2,0 Tracing/Debug"/l: 5  
+Nachdem Sie die Ablauf Verfolgung aktiviert haben, verwenden Sie die folgende Befehlszeilen Syntax, um den ausführlichen Protokolliergrad zu aktivieren: wevtutil.exe SL "AD FS 2,0 Tracing/Debug"/l: 5  
 
-## <a name="related"></a>Verknüpft
+## <a name="related"></a>Verwandte Themen
 Weitere Informationen zu den neuen Anspruchs Typen finden Sie unter [AD FS Anspruchs Typen](AD-FS-Claims-Types.md).
-

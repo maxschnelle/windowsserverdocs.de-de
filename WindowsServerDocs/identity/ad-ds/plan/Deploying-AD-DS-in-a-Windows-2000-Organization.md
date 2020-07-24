@@ -8,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 0a7dea03934a085961a8662f77b2c041b3040e17
-ms.sourcegitcommit: 11421f4005f9f3a3f6c0db95b1836d0f765a9fa3
+ms.openlocfilehash: ad9ef670a2b5f0643be4bb94ad6b667a7f9b011d
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81624308"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86964022"
 ---
 # <a name="deploying-ad-ds-in-a-windows-2000-organization"></a>Bereitstellen von AD DS in einer Windows 2000-Organisation
 
@@ -21,7 +21,7 @@ ms.locfileid: "81624308"
 
 Wenn in Ihrer Organisation zurzeit Windows 2000 Active Directory ausgeführt wird, können Sie Windows Server 2008 Active Directory Domain Services (AD DS) bereitstellen, indem Sie entweder ein direktes Upgrade einiger oder aller ihrer Betriebssysteme ihrer Domänen Controller auf Windows Server 2008 durchführen oder Domänen Controller unter Windows Server 2008 in Ihre Umgebung einführen.
 
-Bevor Sie einen Domänen Controller, auf dem Windows Server 2008 ausgeführt wird, zu einer vorhandenen Windows 2000 Active Directory-Domäne hinzufügen können, müssen Sie **adprep**ausführen, ein Befehlszeilen Tool. Adprep erweitert das AD DS Schema, aktualisiert die Standard Sicherheits Beschreibungen ausgewählter Objekte und fügt die von einigen Anwendungen benötigten neuen Verzeichnisobjekte hinzu. Adprep ist auf dem Installations Datenträger für Windows Server 2008 verfügbar (\sources\adprep\adprep.exe). Weitere Informationen finden Sie unter [adprep](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc731728(v=ws.11)).
+Bevor Sie einen Domänen Controller, auf dem Windows Server 2008 ausgeführt wird, zu einer vorhandenen Windows 2000 Active Directory-Domäne hinzufügen können, müssen Sie **adprep**ausführen, ein Befehlszeilen Tool. Adprep erweitert das AD DS Schema, aktualisiert die Standard Sicherheits Beschreibungen ausgewählter Objekte und fügt die von einigen Anwendungen benötigten neuen Verzeichnisobjekte hinzu. Adprep ist auf dem Installations Datenträger für Windows Server 2008 (\sources\adprep\adprep.exe) verfügbar. Weitere Informationen finden Sie unter [adprep](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc731728(v=ws.11)).
 
 > [!NOTE]
 > Wenn Sie ein direktes Upgrade eines vorhandenen Windows 2000 AD DS-Domänen Controllers auf Windows Server 2008 durchführen möchten, müssen Sie zuerst den Server auf Windows Server 2003 aktualisieren und dann ein Upgrade auf Windows Server 2008 durchführen.
@@ -33,6 +33,6 @@ In der folgenden Abbildung werden die Schritte zum Bereitstellen des Windows Ser
 > [!NOTE]
 > Wenn Sie die Domänen-oder Gesamtstruktur Funktionsebene auf Windows Server 2008 festlegen möchten, müssen alle Domänen Controller in Ihrer Umgebung das Betriebssystem Windows Server 2008 ausführen.
 
-Die Konsolidierung von Ressourcen-und Konto Domänen, die direkt aus einer Windows 2000-Umgebung im Rahmen ihrer Windows Server 2008 AD DS-Bereitstellung aktualisiert werden, erfordert möglicherweise eine Gesamtstruktur übergreifende oder Gesamtstruktur übergreifende Domänen Umstrukturierung Durch die Umstrukturierung AD DS Domänen zwischen Gesamtstrukturen können Sie die Komplexität Ihrer Organisation und die damit verbundenen administrativen Kosten reduzieren. Durch die Umstrukturierung AD DS Domänen in einer Gesamtstruktur können Sie den Verwaltungsaufwand für Ihre Organisation verringern, indem Sie den Replikations Datenverkehr verringern, die erforderliche Menge an Benutzer-und Gruppenverwaltung reduzieren und die Verwaltung von Gruppenrichtlinie vereinfachen. Weitere Informationen finden Sie unter [ADMT Guide: Migrieren und umstrukturieren von Active Directory Domänen](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc974332(v=ws.10)).
+Die Konsolidierung von Ressourcen-und Konto Domänen, die direkt aus einer Windows 2000-Umgebung im Rahmen ihrer Windows Server 2008 AD DS-Bereitstellung aktualisiert werden, erfordert möglicherweise eine Gesamtstruktur übergreifende oder Gesamtstruktur übergreifende Domänen Umstrukturierung Durch die Umstrukturierung AD DS Domänen zwischen Gesamtstrukturen können Sie die Komplexität Ihrer Organisation und die damit verbundenen administrativen Kosten reduzieren. Durch die Umstrukturierung AD DS Domänen in einer Gesamtstruktur können Sie den Verwaltungsaufwand für Ihre Organisation verringern, indem Sie den Replikations Datenverkehr verringern, die erforderliche Menge an Benutzer-und Gruppenverwaltung reduzieren und die Verwaltung von Gruppenrichtlinie vereinfachen. Weitere Informationen finden Sie unter [ADMT Guide: Migrieren und umstrukturieren von Active Directory Domänen](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc974332(v=ws.10)).
 
-Eine Liste der detaillierten Aufgaben, die Sie zum Planen und Bereitstellen von AD DS in einer Organisation verwenden können, die derzeit Windows 2000 Active Directory ausgeführt wird, finden Sie unter Prüfliste: Bereitstellen von [AD DS in einer Windows 2000-Organisation](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc732737(v=ws.10)).
+Eine Liste der detaillierten Aufgaben, die Sie zum Planen und Bereitstellen von AD DS in einer Organisation verwenden können, die derzeit Windows 2000 Active Directory ausgeführt wird, finden Sie unter Prüfliste: Bereitstellen von [AD DS in einer Windows 2000-Organisation](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc732737(v=ws.10)).

@@ -7,12 +7,12 @@ ms.topic: article
 author: cosmosdarwin
 ms.date: 02/02/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 8ee2e85723cc2449e8cb9c42ccb7d6b761482e3a
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: e013295364ae2951ffe8a963fb61a85d7863f5b6
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85474867"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86962052"
 ---
 # <a name="performance-history-for-clusters"></a>Leistungs Verlauf für Cluster
 
@@ -24,7 +24,7 @@ Es sind keine Reihen vorhanden, die von der Cluster Ebene stammen. Stattdessen w
 
 ## <a name="usage-in-powershell"></a>Verwendung in PowerShell
 
-Verwenden Sie das Cmdlet " [Get-Cluster](https://docs.microsoft.com/powershell/module/failoverclusters/get-cluster) ":
+Verwenden Sie das Cmdlet " [Get-Cluster](/powershell/module/failoverclusters/get-cluster) ":
 
 ```PowerShell
 Get-Cluster | Get-ClusterPerf

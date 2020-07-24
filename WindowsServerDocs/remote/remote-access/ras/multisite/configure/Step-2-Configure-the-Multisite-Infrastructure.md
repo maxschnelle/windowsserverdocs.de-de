@@ -8,18 +8,18 @@ ms.topic: article
 ms.assetid: faec70ac-88c0-4b0a-85c7-f0fe21e28257
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: b636396ac7102d52ca5700dd2a4a4f81357b1685
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: a0d8d48c4ffd7db8f7d4835e8458d357e8626a86
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80858402"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86962892"
 ---
 # <a name="step-2-configure-the-multisite-infrastructure"></a>Schritt 2 Konfigurieren der Infrastruktur für mehrere Standorte
 
 >Gilt für: Windows Server 2012 R2, Windows Server 2012
 
-Zum Konfigurieren einer Bereitstellung mit mehreren Standorten sind einige Schritte erforderlich, um die Einstellungen für die Netzwerkinfrastruktur zu ändern. dazu gehören: Konfigurieren zusätzlicher Active Directory Standorte und Domänen Controller, Konfigurieren zusätzlicher Sicherheitsgruppen und Konfigurieren von Gruppenrichtlinie Objekte (GPOs), wenn Sie keine automatisch konfigurierten GPOs verwenden.  
+Zum Konfigurieren einer Bereitstellung mit mehreren Standorten sind einige Schritte erforderlich, um die Einstellungen für die Netzwerkinfrastruktur zu ändern. dazu gehören: Konfigurieren zusätzlicher Active Directory Standorte und Domänen Controller, Konfigurieren zusätzlicher Sicherheitsgruppen und Konfigurieren von Gruppenrichtlinie Objekten (GPOs), wenn Sie nicht automatisch konfigurierte Gruppenrichtlinien Objekte verwenden.  
   
 |Aufgabe|Beschreibung|  
 |----|--------|  
@@ -29,14 +29,14 @@ Zum Konfigurieren einer Bereitstellung mit mehreren Standorten sind einige Schri
 |2.4. Konfigurieren der Gruppenrichtlinienobjekte|Konfigurieren Sie zusätzliche Gruppenrichtlinie Objekte nach Bedarf.|  
   
 > [!NOTE]  
-> Dieses Thema enthält Windows PowerShell-Beispiel-Cmdlets, mit deren Hilfe einige beschriebene Verfahren automatisiert werden können. Weitere Informationen finden Sie unter [Verwenden von Cmdlets](https://go.microsoft.com/fwlink/p/?linkid=230693).  
+> Dieses Thema enthält Windows PowerShell-Beispiel-Cmdlets, mit denen Sie einige der beschriebenen Vorgehensweisen automatisieren können. Weitere Informationen finden Sie unter [Verwenden von Cmdlets](https://go.microsoft.com/fwlink/p/?linkid=230693).  
   
-## <a name="21-configure-additional-active-directory-sites"></a><a name="BKMK_ConfigAD"></a>2,1. Zusätzliche Active Directory Standorte konfigurieren  
+## <a name="21-configure-additional-active-directory-sites"></a><a name="BKMK_ConfigAD"></a>2.1. Zusätzliche Active Directory Standorte konfigurieren  
 Alle Einstiegspunkte können sich an einer einzigen Active Directory Site befinden. Daher ist mindestens eine Active Directory Site für die Implementierung von Remote Zugriffs Servern in einer Konfiguration mit mehreren Standorten erforderlich. Verwenden Sie dieses Verfahren, wenn Sie den ersten Active Directory Standort erstellen müssen oder wenn Sie zusätzliche Active Directory Standorte für die Bereitstellung mit mehreren Standorten verwenden möchten. Verwenden Sie das Snap-in Active Directory Sites und Dienste, um neue Standorte im Netzwerk Ihrer Organisation zu erstellen.  
 
 Zum Ausführen dieses Verfahrens ist mindestens die Mitgliedschaft in der Gruppe "Organisations- **Admins** " in der Gesamtstruktur oder in der Gruppe " **Domänen-Admins** " in der Stamm Domäne der Gesamtstruktur oder einer gleichwertigen Gruppe erforderlich. Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden Sie unter [lokale und Domänen Standard Gruppen](https://go.microsoft.com/fwlink/?LinkId=83477).  
 
-Weitere Informationen finden Sie unter [Hinzufügen einer Site zur](https://technet.microsoft.com/library/cc732761.aspx)Gesamtstruktur.  
+Weitere Informationen finden Sie unter [Hinzufügen einer Site zur](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc732761(v=ws.11))Gesamtstruktur.  
 
 ### <a name="to-configure-additional-active-directory-sites"></a>So konfigurieren Sie zusätzliche Active Directory Standorte  
   
@@ -54,11 +54,11 @@ Weitere Informationen finden Sie unter [Hinzufügen einer Site zur](https://tech
   
 7.  Wiederholen Sie die Schritte 5 und 6, bis Sie alle Subnetze erstellt haben, die für die Bereitstellung erforderlich sind.  
   
-8.  Schließen Sie Active Directory Websites und Dienste.  
+8.  Schließen Sie Active Directory-Standorte und -Dienste.  
   
-![der entsprechenden Windows PowerShell-](../../../../media/Step-2-Configure-the-Multisite-Infrastructure/PowerShellLogoSmall.gif)***<em>Befehle in Windows PowerShell</em>***  
+![Äquivalente Windows PowerShell-Befehle in Windows](../../../../media/Step-2-Configure-the-Multisite-Infrastructure/PowerShellLogoSmall.gif)***<em>PowerShell</em>***  
   
-Die folgenden Windows PowerShell-Cmdlets führen dieselbe Funktion wie das vorherige Verfahren aus. Jedes Cmdlet sollte in einer eigenen Zeile eingegeben werden, obwohl sie hier aufgrund von Formateinschränkungen auf mehrere Zeilen umbrochen sein können.  
+Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
 So installieren Sie die Windows-Funktion "Active Directory-Modul für Windows PowerShell":  
   
@@ -88,12 +88,12 @@ New-ADReplicationSubnet -Name "10.2.0.0/24" -Site "Second-Site"
 New-ADReplicationSubnet -Name "2001:db8:2::/64" -Site "Second-Site"  
 ```  
   
-## <a name="22-configure-additional-domain-controllers"></a><a name="BKMK_AddDC"></a>2,2. Zusätzliche Domänen Controller konfigurieren  
+## <a name="22-configure-additional-domain-controllers"></a><a name="BKMK_AddDC"></a>2.2. Zusätzliche Domänen Controller konfigurieren  
 Zum Konfigurieren einer Bereitstellung mit mehreren Standorten in einer einzelnen Domäne empfiehlt es sich, mindestens einen beschreibbaren Domänen Controller für jeden Standort in der Bereitstellung zu haben.  
   
 Um dieses Verfahren auszuführen, müssen Sie mindestens Mitglied der Gruppe "Domänen-Admins" in der Domäne sein, in der der Domänen Controller installiert wird.  
   
-Weitere Informationen finden Sie unter [Installieren eines zusätzlichen Domänen Controllers](https://technet.microsoft.com/library/cc733027.aspx).
+Weitere Informationen finden Sie unter [Installieren eines zusätzlichen Domänen Controllers](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc733027(v=ws.10)).
   
 ### <a name="to-configure-additional-domain-controllers"></a>So konfigurieren Sie zusätzliche Domänen Controller  
   
@@ -124,9 +124,9 @@ Weitere Informationen finden Sie unter [Installieren eines zusätzlichen Domäne
             > [!NOTE]  
             > Wenn Sie die Option zum Installieren des DNS-Servers auswählen, erhalten Sie möglicherweise eine Meldung mit dem Hinweis, dass keine DNS-Delegierung für den DNS-Server erstellt werden konnte und dass Sie manuell eine DNS-Delegierung an den DNS-Server erstellen sollten, um eine zuverlässige Namensauflösung sicherzustellen. Wenn Sie einen zusätzlichen Domänen Controller in der Stamm Domäne der Gesamtstruktur oder in einer Struktur Stamm Domäne installieren, müssen Sie keine DNS-Delegierung erstellen. Klicken Sie in diesem Fall auf **Ja** , und ignorieren Sie die Meldung.  
   
-        -   **Globaler Katalog (GC)** : diese Option ist standardmäßig ausgewählt. Damit werden dem Domänencontroller die schreibgeschützten Verzeichnispartitionen des globalen Katalogs hinzugefügt. Außerdem wird die Suchfunktion für den globalen Katalog aktiviert.  
+        -   **Globaler Katalog (GC)**: diese Option ist standardmäßig ausgewählt. Damit werden dem Domänencontroller die schreibgeschützten Verzeichnispartitionen des globalen Katalogs hinzugefügt. Außerdem wird die Suchfunktion für den globalen Katalog aktiviert.  
   
-        -   Schreib geschützter **Domänen Controller (RODC)** : diese Option ist standardmäßig nicht ausgewählt. Der zusätzliche Domänen Controller ist schreibgeschützt. Das heißt, der Domänen Controller wird zu einem RODC.  
+        -   Schreib geschützter **Domänen Controller (RODC)**: diese Option ist standardmäßig nicht ausgewählt. Der zusätzliche Domänen Controller ist schreibgeschützt. Das heißt, der Domänen Controller wird zu einem RODC.  
   
     2.  Wählen Sie unter **Website Name**einen Standort aus der Liste aus.  
   
@@ -144,8 +144,8 @@ Weitere Informationen finden Sie unter [Installieren eines zusätzlichen Domäne
   
 15. Starten Sie den Computer neu, wenn er nicht automatisch neu gestartet wurde.  
   
-## <a name="23-configure-security-groups"></a><a name="BKMK_ConfigSG"></a>2,3. Konfigurieren von Sicherheitsgruppen  
-Für eine Bereitstellung mit mehreren Standorten ist eine zusätzliche Sicherheitsgruppe für Windows 7-Client Computer für jeden Einstiegspunkt in der Bereitstellung erforderlich, der den Zugriff auf Windows 7-Client Computer ermöglicht. Wenn mehrere Domänen mit Windows 7-Client Computern vorhanden sind, empfiehlt es sich, in jeder Domäne eine Sicherheitsgruppe für denselben Einstiegspunkt zu erstellen. Alternativ kann eine universelle Sicherheitsgruppe verwendet werden, die die Client Computer aus beiden Domänen enthält. Wenn Sie in einer Umgebung mit zwei Domänen z. b. den Zugriff auf Windows 7-Client Computer in den Einstiegspunkten 1 und 3 zulassen möchten, aber nicht auf Einstiegspunkt 2, dann erstellen Sie zwei neue Sicherheitsgruppen, die die Windows 7-Client Computer für jeden Einstiegspunkt in jedem der Gebiete.  
+## <a name="23-configure-security-groups"></a><a name="BKMK_ConfigSG"></a>2.3. Konfigurieren von Sicherheitsgruppen  
+Für eine Bereitstellung mit mehreren Standorten ist eine zusätzliche Sicherheitsgruppe für Windows 7-Client Computer für jeden Einstiegspunkt in der Bereitstellung erforderlich, der den Zugriff auf Windows 7-Client Computer ermöglicht. Wenn mehrere Domänen mit Windows 7-Client Computern vorhanden sind, empfiehlt es sich, in jeder Domäne eine Sicherheitsgruppe für denselben Einstiegspunkt zu erstellen. Alternativ kann eine universelle Sicherheitsgruppe verwendet werden, die die Client Computer aus beiden Domänen enthält. Wenn Sie in einer Umgebung mit zwei Domänen z. b. den Zugriff auf Windows 7-Client Computer in den Einstiegspunkten 1 und 3 zulassen möchten, aber nicht auf Einstiegspunkt 2, dann erstellen Sie zwei neue Sicherheitsgruppen, die die Windows 7-Client Computer für jeden Einstiegspunkt in den einzelnen Domänen enthalten.  
   
 ### <a name="to-configure-additional-security-groups"></a>So konfigurieren Sie zusätzliche Sicherheitsgruppen  
   
@@ -157,17 +157,17 @@ Für eine Bereitstellung mit mehreren Standorten ist eine zusätzliche Sicherhei
   
 4.  Klicken Sie unter **Gruppenbereich**auf **universell**, klicken Sie unter **Gruppentyp**auf **Sicherheit**, und klicken Sie dann auf **OK**.  
   
-5.  Wenn Sie der neuen Sicherheitsgruppe Computer hinzufügen möchten, doppelklicken Sie auf die Sicherheitsgruppe, und klicken Sie im Dialogfeld **Eigenschaften von < Group_Name >** auf die Registerkarte **Mitglieder** .  
+5.  Wenn Sie der neuen Sicherheitsgruppe Computer hinzufügen möchten, doppelklicken Sie auf die Sicherheitsgruppe, und klicken Sie im Dialogfeld **Eigenschaften von<Group_Name>** auf die Registerkarte **Mitglieder** .  
   
-6.  Auf der Registerkarte **Mitglieder** klicken Sie auf **Hinzufügen**.  
+6.  Klicken Sie auf der Registerkarte **Mitglieder** auf **Hinzufügen**.  
   
 7.  Wählen Sie die Windows 7-Computer aus, die dieser Sicherheitsgruppe hinzugefügt werden sollen, und klicken Sie auf **OK**.  
   
 8.  Wiederholen Sie dieses Verfahren, um eine Sicherheitsgruppe für jeden Einstiegspunkt nach Bedarf zu erstellen.  
   
-![der entsprechenden Windows PowerShell-](../../../../media/Step-2-Configure-the-Multisite-Infrastructure/PowerShellLogoSmall.gif)***<em>Befehle in Windows PowerShell</em>***  
+![Äquivalente Windows PowerShell-Befehle in Windows](../../../../media/Step-2-Configure-the-Multisite-Infrastructure/PowerShellLogoSmall.gif)***<em>PowerShell</em>***  
   
-Die folgenden Windows PowerShell-Cmdlets führen dieselbe Funktion wie das vorherige Verfahren aus. Jedes Cmdlet sollte in einer eigenen Zeile eingegeben werden, obwohl sie hier aufgrund von Formateinschränkungen auf mehrere Zeilen umbrochen sein können.  
+Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
 So installieren Sie die Windows-Funktion "Active Directory-Modul für Windows PowerShell":  
   
@@ -190,7 +190,7 @@ New-ADGroup -GroupScope universal -Name Win7_Clients_Entrypoint1
 Add-ADGroupMember -Identity Win7_Clients_Entrypoint1 -Members CLIENT2$  
 ```  
   
-## <a name="24-configure-gpos"></a><a name="ConfigGPOs"></a>2,4. Konfigurieren der Gruppenrichtlinienobjekte  
+## <a name="24-configure-gpos"></a><a name="ConfigGPOs"></a>2.4. Konfigurieren der Gruppenrichtlinienobjekte  
 Für eine Remote Zugriffs Bereitstellung mit mehreren Standorten sind die folgenden Gruppenrichtlinie Objekte erforderlich:  
   
 -   Ein Gruppenrichtlinien Objekt für jeden Einstiegspunkt für den Remote Zugriffs Server.  
@@ -207,7 +207,7 @@ Wenn Sie den Remote Zugriff konfigurieren, erstellt der Assistent automatisch di
 > [!IMPORTANT]  
 > Nachdem Sie die Gruppenrichtlinien Objekte für den Remote Zugriff manuell erstellt haben, müssen Sie dem Domänen Controller am Active Directory Standort, der dem RAS-Server zugeordnet ist, ausreichend Zeit für die Active Directory-und DFS-Replikation gewähren. Wenn der Remote Zugriff die Gruppenrichtlinie Objekte automatisch erstellt hat, ist keine Wartezeit erforderlich.  
   
-Informationen zum Erstellen von Gruppenrichtlinie Objekten finden Sie unter [Erstellen und Bearbeiten eines Gruppenrichtlinie Objekts](https://technet.microsoft.com/library/cc754740.aspx).  
+Informationen zum Erstellen von Gruppenrichtlinie Objekten finden Sie unter [Erstellen und Bearbeiten eines Gruppenrichtlinie Objekts](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754740(v=ws.11)).  
   
 ### <a name="domain-controller-maintenance-and-downtime"></a><a name="DCMaintandDowntime"></a>Wartung und Ausfall von Domänen Controllern  
 Wenn ein Domänen Controller, auf dem der PDC-Emulator ausgeführt wird, oder Domänen Controller, die Server-Gruppenrichtlinien Objekte verwalten, Ausfallzeiten auftreten, ist es nicht möglich, die Konfiguration des Remote Zugriffs zu laden Dies hat keine Auswirkung auf die Client Konnektivität, wenn andere Domänen Controller verfügbar sind.  
@@ -218,7 +218,7 @@ Wenn Sie die Remote Zugriffs Konfiguration laden oder ändern möchten, können 
 > Dieser Vorgang kann nur von einem Domänen Administrator ausgeführt werden. Die Auswirkungen der Änderung des primären Domänen Controllers sind nicht auf den Remote Zugriff beschränkt. Verwenden Sie daher beim Übertragen der PDC-Emulatorrolle Vorsicht.  
   
 > [!NOTE]  
-> Vergewissern Sie sich vor dem Ändern der Domänen Controller Zuordnung, dass alle GPOs in der Remote Zugriffs Bereitstellung auf allen Domänen Controllern in der Domäne repliziert wurden. Wenn das Gruppenrichtlinien Objekt nicht synchronisiert ist, können nach dem Ändern der Domänen Controller Zuordnung die aktuellen Konfigurationsänderungen verloren gehen. Dies kann zu einer beschädigten Konfiguration führen. Informationen zum Überprüfen der Gruppenrichtlinien Objekt-Synchronisierung finden [Sie unter Überprüfen des Gruppenrichtlinie](https://technet.microsoft.com/library/jj134176.aspx)  
+> Vergewissern Sie sich vor dem Ändern der Domänen Controller Zuordnung, dass alle GPOs in der Remote Zugriffs Bereitstellung auf allen Domänen Controllern in der Domäne repliziert wurden. Wenn das Gruppenrichtlinien Objekt nicht synchronisiert ist, können nach dem Ändern der Domänen Controller Zuordnung die aktuellen Konfigurationsänderungen verloren gehen. Dies kann zu einer beschädigten Konfiguration führen. Informationen zum Überprüfen der Gruppenrichtlinien Objekt-Synchronisierung finden [Sie unter Überprüfen des Gruppenrichtlinie](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj134176(v=ws.11))  
   
 #### <a name="to-transfer-the-pdc-emulator-role"></a><a name="TransferPDC"></a>So übertragen Sie die PDC-Emulatorrolle  
   
@@ -237,7 +237,7 @@ Wenn Sie die Remote Zugriffs Konfiguration laden oder ändern möchten, können 
   
 #### <a name="to-change-the-domain-controller-that-manages-server-gpos"></a><a name="ChangeDC"></a>So ändern Sie den Domänen Controller, der Server-GPOs verwaltet  
   
--   Führen Sie das Windows PowerShell-Cmdlet [Set-daentrypointdc](https://docs.microsoft.com/powershell/module/remoteaccess/set-daentrypointdc) auf dem Remote Zugriffs Server aus, und geben Sie den nicht erreichbaren Domänen Controller Namen für den *existingdc* -Parameter an. Mit diesem Befehl wird die Domänen Controller Zuordnung für die Server-Gruppenrichtlinien Objekte der Einstiegspunkte geändert, die derzeit von diesem Domänen Controller verwaltet werden.
+-   Führen Sie das Windows PowerShell-Cmdlet [Set-daentrypointdc](/powershell/module/remoteaccess/set-daentrypointdc) auf dem Remote Zugriffs Server aus, und geben Sie den nicht erreichbaren Domänen Controller Namen für den *existingdc* -Parameter an. Mit diesem Befehl wird die Domänen Controller Zuordnung für die Server-Gruppenrichtlinien Objekte der Einstiegspunkte geändert, die derzeit von diesem Domänen Controller verwaltet werden.
   
     -   Gehen Sie folgendermaßen vor, um den nicht erreichbaren Domänen Controller "DC1.Corp.contoso.com" durch den Domänen Controller "DC2.Corp.contoso.com" zu ersetzen:  
   
@@ -273,7 +273,7 @@ Domänen Controller-Zuordnungs Informationen werden sowohl in der Registrierung 
   
     Die resultierende Konfiguration ist in der folgenden Abbildung dargestellt.  
   
-    ![Windows PowerShell](../../../../media/Step-2-Configure-the-Multisite-Infrastructure/DCAssoc2.png)  
+    ![Windows PowerShell](../../../../media/Step-2-Configure-the-Multisite-Infrastructure/DCAssoc2.png)  
   
 2.  Führen Sie den folgenden Befehl aus, um den nicht verfügbaren Domänen Controller "DC1" durch den Domänen Controller "DC3" zu ersetzen:  
   
@@ -283,7 +283,7 @@ Domänen Controller-Zuordnungs Informationen werden sowohl in der Registrierung 
   
     Mit diesem Befehl wird die Domänen Controller Zuordnung für das Server-Gruppenrichtlinien Objekt "Entry Point 1" in der Registrierung von da1 und in den Server-Gruppenrichtlinien Objekten "Entry Point 1" und "Entry Point 2" aktualisiert. Die resultierende Konfiguration ist in der folgenden Abbildung dargestellt.  
   
-    ![Windows PowerShell](../../../../media/Step-2-Configure-the-Multisite-Infrastructure/DCAssoc3.png)  
+    ![Windows PowerShell](../../../../media/Step-2-Configure-the-Multisite-Infrastructure/DCAssoc3.png)  
   
 3.  Um die Domänen Controller Zuordnung für das Server-Gruppenrichtlinien Objekt "Entry Point 2" im Server-Gruppenrichtlinien Objekt "Einstiegspunkt 1" zu synchronisieren, führen Sie den Befehl aus, um "DC2" durch "DC3" zu ersetzen, und geben Sie den Remote Zugriffs Server an, dessen Server-GPO nicht synchronisiert ist, in diesem Fall "da1" für den *Computername* -Parameter  
   
@@ -293,10 +293,10 @@ Domänen Controller-Zuordnungs Informationen werden sowohl in der Registrierung 
   
     Die endgültige Konfiguration ist in der folgenden Abbildung dargestellt.  
   
-    ![Windows PowerShell](../../../../media/Step-2-Configure-the-Multisite-Infrastructure/DCAssocFinal.png)  
+    ![Windows PowerShell](../../../../media/Step-2-Configure-the-Multisite-Infrastructure/DCAssocFinal.png)  
   
 ### <a name="optimization-of-configuration-distribution"></a><a name="ConfigDistOptimization"></a>Optimierung der Konfigurations Verteilung  
-Wenn Sie Konfigurationsänderungen vornehmen, werden die Änderungen erst angewendet, nachdem die Server-Gruppenrichtlinien Objekte an die RAS-Server weitergegeben wurden. Um die Konfigurations Verteilung zu verkürzen, wählt der Remote Zugriff automatisch einen beschreibbaren Domänen Controller aus, der dem RAS- [Server am nächsten](https://technet.microsoft.com/library/cc978016.aspx) liegt, wenn das zugehörige Server-Gruppenrichtlinien Objekt erstellt wird.  
+Wenn Sie Konfigurationsänderungen vornehmen, werden die Änderungen erst angewendet, nachdem die Server-Gruppenrichtlinien Objekte an die RAS-Server weitergegeben wurden. Um die Konfigurations Verteilung zu verkürzen, wählt der Remote Zugriff automatisch einen beschreibbaren Domänen Controller aus, der dem RAS- [Server am nächsten](/previous-versions/windows/it-pro/windows-2000-server/cc978016(v=technet.10)) liegt, wenn das zugehörige Server-Gruppenrichtlinien Objekt erstellt wird.  
   
 In einigen Szenarien kann es erforderlich sein, den Domänen Controller, von dem ein Server-Gruppenrichtlinien Objekt verwaltet wird, manuell zu ändern, um die Konfigurationszeit für die Verteilung zu optimieren:  
   
@@ -306,10 +306,10 @@ In einigen Szenarien kann es erforderlich sein, den Domänen Controller, von dem
   
 -   Die Domänen Controller Zuordnung für einen Einstiegspunkt wurde manuell aufgrund von Wartungsarbeiten auf einem Domänen Controller geändert, und der Domänen Controller ist nun wieder online.  
   
-Führen Sie in diesen Szenarien das PowerShell-Cmdlet `Set-DAEntryPointDC` auf dem RAS-Server aus, und geben Sie mit dem Parameter *entrypointname*den Namen des Einstiegs Punkts an, den Sie optimieren möchten. Dies sollten Sie nur tun, nachdem die GPO-Daten des Domänen Controllers, der das Server-GPO derzeit speichert, bereits vollständig auf dem gewünschten neuen Domänen Controller repliziert wurden.  
+Führen Sie in diesen Szenarien das PowerShell-Cmdlet `Set-DAEntryPointDC` auf dem RAS-Server aus, und geben Sie den Namen des Einstiegs Punkts an, den Sie optimieren möchten, indem Sie den Parameter *entrypointname*verwenden. Dies sollten Sie nur tun, nachdem die GPO-Daten des Domänen Controllers, der das Server-GPO derzeit speichert, bereits vollständig auf dem gewünschten neuen Domänen Controller repliziert wurden.  
   
 > [!NOTE]  
-> Vergewissern Sie sich vor dem Ändern der Domänen Controller Zuordnung, dass alle GPOs in der Remote Zugriffs Bereitstellung auf allen Domänen Controllern in der Domäne repliziert wurden. Wenn das Gruppenrichtlinien Objekt nicht synchronisiert ist, können nach dem Ändern der Domänen Controller Zuordnung die aktuellen Konfigurationsänderungen verloren gehen. Dies kann zu einer beschädigten Konfiguration führen. Informationen zum Überprüfen der Gruppenrichtlinien Objekt-Synchronisierung finden [Sie unter Überprüfen des Gruppenrichtlinie](https://technet.microsoft.com/library/jj134176.aspx)  
+> Vergewissern Sie sich vor dem Ändern der Domänen Controller Zuordnung, dass alle GPOs in der Remote Zugriffs Bereitstellung auf allen Domänen Controllern in der Domäne repliziert wurden. Wenn das Gruppenrichtlinien Objekt nicht synchronisiert ist, können nach dem Ändern der Domänen Controller Zuordnung die aktuellen Konfigurationsänderungen verloren gehen. Dies kann zu einer beschädigten Konfiguration führen. Informationen zum Überprüfen der Gruppenrichtlinien Objekt-Synchronisierung finden [Sie unter Überprüfen des Gruppenrichtlinie](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj134176(v=ws.11))  
   
 Führen Sie einen der folgenden Schritte aus, um die Konfigurations Verteilung zu optimieren:  
   

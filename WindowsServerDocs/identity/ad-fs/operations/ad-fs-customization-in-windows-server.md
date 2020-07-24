@@ -8,21 +8,21 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 3f46ea97034c382d1846ff95bb0974307943bbc5
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: f4e72b1164e46c0db7ca473f17ba1e7d9c1f2f90
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80860093"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86964443"
 ---
 # <a name="ad-fs-customization-in-windows-server-2016"></a>AD FS Anpassung in Windows Server 2016
 
 
 Als Reaktion auf Feedback von Organisationen, die AD FS verwenden, haben wir zusätzliche Tools hinzugefügt, mit denen die Benutzeranmeldung für einzelne, durch AD FS geschützte Anwendungen angepasst werden kann.  
-Neben dem Angeben von Webanwendungen pro Anwendung (z. b. Beschreibungstext und Verknüpfungen) können Sie jetzt auch ganze Webdesigns pro Anwendung angeben.  Dies schließt Logo, Illustration, Stylesheets oder eine gesamte Datei "OnLoad. js" ein.  
+Neben dem Angeben von Webanwendungen pro Anwendung (z. b. Beschreibungstext und Verknüpfungen) können Sie jetzt auch ganze Webdesigns pro Anwendung angeben.  Dies schließt Logo, Illustration, Stylesheets oder eine gesamte onload.js Datei ein.  
   
 ## <a name="global-settings"></a>Globale Einstellungen    
-Allgemeine globale Einstellungen finden Sie unter [Anpassen der AD FS Anmelde Seiten](https://technet.microsoft.com/library/dn280950.aspx) , die mit AD FS in Windows Server 2012 R2 ausgeliefert wurden.  
+Allgemeine globale Einstellungen finden Sie unter [Anpassen der AD FS Anmelde Seiten](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn280950(v=ws.11)) , die mit AD FS in Windows Server 2012 R2 ausgeliefert wurden.  
   
 ## <a name="pre-requisites"></a>Voraussetzungen  
 Die folgenden Voraussetzungen sind erforderlich, bevor Sie die in diesem Dokument beschriebenen Verfahren ausführen.  
@@ -61,7 +61,7 @@ PS C:\>Set-AdfsRelyingPartyWebTheme
   
 ## <a name="custom-themes-and-advanced-custom-themes"></a>Benutzerdefinierte Designs und Erweiterte benutzerdefinierte Themen  
   
-Informationen zu benutzerdefinierten Designs finden Sie unter [Anpassen der AD FS Anmelde Seiten](https://technet.microsoft.com/library/dn280950.aspx) und [Erweiterte Anpassung von AD FS Anmelde Seiten.](https://technet.microsoft.com/library/dn636121.aspx)  
+Informationen zu benutzerdefinierten Designs finden Sie unter [Anpassen der AD FS Anmelde Seiten](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn280950(v=ws.11)) und [Erweiterte Anpassung von AD FS Anmelde Seiten.](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn636121(v=ws.11))  
   
 ## <a name="assigning-custom-web-themes-per-rp"></a>Zuweisen von benutzerdefinierten Webdesigns pro RP  
   
@@ -71,24 +71,24 @@ Verwenden Sie das folgende Verfahren, um ein benutzerdefiniertes Design pro RP z
 `New-AdfsWebTheme -Name AppSpecificTheme -SourceName default`  
 2. Design für Anpassung exportieren  
 `Export-AdfsWebTheme -Name AppSpecificTheme -DirectoryPath c:\appspecifictheme`  
-3. Anpassen von Designdateien (Bilder, CSS, OnLoad. js) in Ihrem bevorzugten Editor oder Ersetzen der Datei  
+3. Anpassen von Designdateien (Bilder, CSS, onload.js) in Ihrem bevorzugten Editor oder Ersetzen der Datei  
 4. Importieren angepasster Dateien aus dem Dateisystem in AD FS (Ziel des neuen Designs)  
 `Set-AdfsWebTheme -TargetName AppSpecificTheme -AdditionalFileResource @{Uri='/adfs/portal/script/onload.js';Path="c:\appspecifictheme\script\onload.js"}`  
 5. Anwenden des neuen, angepassten Designs auf die spezifische RP (oder RP)  
 `Set-AdfsRelyingPartyWebTheme -TargetRelyingPartyName urn:app1 -SourceWebThemeName AppSpecificTheme`  
   
-## <a name="home-realm-discovery"></a>Startbereichsermittlung  
-Informationen zur Anpassung der Startbereichs Ermittlung finden Sie unter [Anpassen der AD FS Anmelde Seiten](https://technet.microsoft.com/library/dn280950.aspx).  
+## <a name="home-realm-discovery"></a>Startbereichsermittlung (Home Realm Discovery, HDR)  
+Informationen zur Anpassung der Startbereichs Ermittlung finden Sie unter [Anpassen der AD FS Anmelde Seiten](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn280950(v=ws.11)).  
   
 ## <a name="updated-password-page"></a>Aktualisierte Kenn Wort Seite  
-Weitere Informationen zum Anpassen der Seite zum Aktualisieren des Kennworts finden Sie unter [Anpassen der AD FS Anmelde Seiten](https://technet.microsoft.com/library/dn280950.aspx).  
+Weitere Informationen zum Anpassen der Seite zum Aktualisieren des Kennworts finden Sie unter [Anpassen der AD FS Anmelde Seiten](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn280950(v=ws.11)).  
   
 ## <a name="customizing-and-alternate-ids"></a>Anpassen und Alternative IDs  
-Benutzer können sich bei Active Directory-Verbunddienste (AD FS) (AD FS)-aktivierten Anwendungen mit einer beliebigen Form von Benutzer Bezeichnern anmelden, die von Active Directory Domain Services (AD DS) akzeptiert wird. Hierzu gehören Benutzer Prinzipal Namen (User Principal Names, UPNs) (johndoe@contoso.com) oder Domänen qualifizierte SAM-Kontonamen (contoso\johndoe oder contoso. com\johndoe).  Weitere Informationen hierzu finden Sie unter [Konfigurieren einer alternativen Anmelde-ID.](Configuring-Alternate-Login-ID.md)  
+Benutzer können sich bei Active Directory-Verbunddienste (AD FS) (AD FS)-aktivierten Anwendungen mit einer beliebigen Form von Benutzer Bezeichnern anmelden, die von Active Directory Domain Services (AD DS) akzeptiert wird. Hierzu gehören Benutzer Prinzipal Namen (User Principal Names, UPNs) ( johndoe@contoso.com ) oder Domänen qualifizierte SAM-Kontonamen (contoso\johndoe oder contoso. com\johndoe).  Weitere Informationen hierzu finden Sie unter [Konfigurieren einer alternativen Anmelde-ID.](Configuring-Alternate-Login-ID.md)  
   
-Sie können außerdem die AD FS Anmeldeseite anpassen, um Endbenutzern einen Hinweis zur alternativen Anmelde-ID zu senden. Weitere Informationen finden Sie in der Beschreibung der angepassten Anmeldeseite. Weitere Informationen finden Sie unter [Anpassen der AD FS Anmelde Seiten.](https://technet.microsoft.com/library/dn280950.aspx)   
+Sie können außerdem die AD FS Anmeldeseite anpassen, um Endbenutzern einen Hinweis zur alternativen Anmelde-ID zu senden. Weitere Informationen finden Sie in der Beschreibung der angepassten Anmeldeseite. Weitere Informationen finden Sie unter [Anpassen der AD FS Anmelde Seiten.](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn280950(v=ws.11))   
   
-Hierzu können Sie auch die Zeichenfolge "Anmelden mit dem Organisations Konto" über dem Feld "Benutzername" anpassen.  Weitere Informationen hierzu finden Sie unter [Erweiterte Anpassung der AD FS Anmelde Seiten](https://technet.microsoft.com/library/dn636121.aspx).  
+Hierzu können Sie auch die Zeichenfolge "Anmelden mit dem Organisations Konto" über dem Feld "Benutzername" anpassen.  Weitere Informationen hierzu finden Sie unter [Erweiterte Anpassung der AD FS Anmelde Seiten](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn636121(v=ws.11)).  
 
-## <a name="additional-references"></a>Weitere Verweise 
+## <a name="additional-references"></a>Zusätzliche Verweise 
 [AD FS Anpassung der Benutzeranmeldung](AD-FS-user-sign-in-customization.md)  

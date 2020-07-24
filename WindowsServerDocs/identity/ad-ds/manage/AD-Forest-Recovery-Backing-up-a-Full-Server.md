@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.assetid: 398918dc-c8ab-41a6-a377-95681ec0b543
 ms.technology: identity-adds
-ms.openlocfilehash: 1579f8e88ea852ddf3f973b51b1b6ceed7c50a00
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: e95c11007548c0e1db77132b6e872b88569d3b47
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80824274"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86963002"
 ---
 # <a name="ad-forest-recovery---backing-up-a-full-server"></a>AD-Gesamtstruktur Wiederherstellung: Sichern eines vollständigen Servers  
 
@@ -28,7 +28,7 @@ Windows Server-Sicherung wird nicht standardmäßig installiert. In Windows Serv
 >[!NOTE]
 >Beachten Sie, dass die Schritte zwischen Windows Server 2016 und Windows Server 2012 R2 möglicherweise geringfügig abweichen.
 
-Schritte zur Installation in Windows Server 2008 und Windows Server 2008 R2 finden Sie unter [Installieren von Windows Server-Sicherung](https://technet.microsoft.com/library/cc771232.aspx).  
+Schritte zur Installation in Windows Server 2008 und Windows Server 2008 R2 finden Sie unter [Installieren von Windows Server-Sicherung](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771232(v=ws.10)).  
 
 ### <a name="to-install-windows-server-backup"></a>So installieren Sie Windows Server-Sicherung
 
@@ -37,8 +37,8 @@ Schritte zur Installation in Windows Server 2008 und Windows Server 2008 R2 find
 3. Belassen Sie auf dem Bildschirm **Installationstyp** die Standard **rollenbasierte oder featurebasierte Installation** , und klicken Sie auf **weiter**.
 4. Klicken Sie auf dem Bildschirm **Server Auswahl** auf **weiter**.
 5. Klicken Sie auf dem Bildschirm **Server Rollen** auf **weiter**.
-6. Wählen Sie auf dem Bildschirm **Features** die Option **Windows Server-Sicherung** aus, und klicken Sie auf **weiter**
-   ![Sicherung installieren](media/AD-Forest-Recovery-Backing-up-a-Full-Server/fullbackup2.png)
+6. Wählen Sie auf dem Bildschirm **Features** **Windows Server-Sicherung** aus, und klicken Sie auf **weiter** 
+    ![ Installation](media/AD-Forest-Recovery-Backing-up-a-Full-Server/fullbackup2.png)
 7. Klicken Sie auf **Installieren**.
 8. Klicken Sie nach Abschluss der Installation auf **Schließen**.
 
@@ -56,7 +56,7 @@ Schritte zur Installation in Windows Server 2008 und Windows Server 2008 R2 find
 
    ![Installieren der Sicherung](media/AD-Forest-Recovery-Backing-up-a-Full-Server/fullbackup3.png)
 
-6. Klicken Sie auf der Seite **Sicherungs Konfiguration auswählen** auf **vollständiger Server (empfohlen)** , und klicken Sie dann auf **weiter**.
+6. Klicken Sie auf der Seite **Sicherungs Konfiguration auswählen** auf **vollständiger Server (empfohlen)**, und klicken Sie dann auf **weiter**.
 7. Klicken Sie auf der Seite **Zieltyp angeben** auf **lokale Laufwerke** oder frei gegebener **Remote Ordner**, und klicken Sie dann auf **weiter**.
 8. Wählen Sie auf der Seite **Sicherungs Ziel auswählen** den Speicherort der Sicherung aus.  Wenn Sie lokales Laufwerk ausgewählt haben, wählen Sie ein lokales Laufwerk aus, oder wählen Sie Remote Freigabe eine Netzwerkfreigabe aus.
 9. Klicken Sie auf dem Bestätigungsbildschirm auf **Sicherung**.
@@ -70,11 +70,11 @@ Schritte zur Installation in Windows Server 2008 und Windows Server 2008 R2 find
 >Wenn Sie eine Fehlermeldung erhalten, dass kein Sicherungs Speicherort verfügbar ist, müssen Sie entweder eines der ausgewählten Volumes ausschließen oder ein neues Volume oder eine Remote Freigabe hinzufügen.
 >Wenn eine Warnung angezeigt wird, die besagt, dass das ausgewählte Volume auch in der Liste der zu sichernden Elemente enthalten ist, legen Sie fest, ob Sie entfernt werden sollen, und klicken Sie auf **OK**.
 
-## <a name="using-wbadminexe-to-backup-a-windows-server"></a>Verwenden von "Wbadmin. exe" zum Sichern eines Windows-Servers
+## <a name="using-wbadminexe-to-backup-a-windows-server"></a>Verwenden von Wbadmin.exe zum Sichern eines Windows-Servers
 
-Wbadmin. exe ist ein Befehlszeilenprogramm, mit dem Sie das Betriebssystem, die Volumes, Dateien, Ordner und Anwendungen über eine Eingabeaufforderung sichern und wiederherstellen können.
+Wbadmin.exe ist ein Befehlszeilenprogramm, mit dem Sie das Betriebssystem, die Volumes, Dateien, Ordner und Anwendungen über eine Eingabeaufforderung sichern und wiederherstellen können.
 
-### <a name="to-perform-a-full-server-backup-using-wbadminexe"></a>So führen Sie eine vollständige Server Sicherung mithilfe von "Wbadmin. exe" aus
+### <a name="to-perform-a-full-server-backup-using-wbadminexe"></a>So führen Sie eine vollständige Server Sicherung mithilfe von Wbadmin.exe aus
   
 - Öffnen Sie eine Eingabeaufforderung mit erhöhten Rechten, geben Sie den folgenden Befehl ein, und drücken Sie Eingabe  
 

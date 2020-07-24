@@ -8,18 +8,18 @@ ms.topic: article
 ms.assetid: df2023bf-ba64-481e-b222-6f709edaa5c1
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: d246f0e56681f75e4336ed225d1557a0e05c581b
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: dfa0d2df7ee18835542970cb9e185b5c8f4945ae
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80308555"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86961062"
 ---
 # <a name="gre-tunneling-in-windows-server-2016"></a>GRE-Tunneling in Windows Server 2016
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Windows Server 2016 bietet Aktualisierungen der allgemeinen Routing Kapselung \(GRE-\) Tunnel Funktion für das RAS-Gateway.  
+Windows Server 2016 bietet Aktualisierungen \( der GRE-Tunnel Funktion des generischen Routings \) für das RAS-Gateway.  
   
 GRE ist ein einfaches Tunneling-Protokoll, das eine Vielzahl von Protokollen der Vermittlungsschicht in virtuellen Point-to-Point-Links über ein IP-Internetwork kapseln kann. Die Microsoft GRE-Implementierung kann IPv4 und IPv6 Kapseln.  
   
@@ -27,11 +27,11 @@ GRE-Tunnel sind in vielen Szenarien nützlich:
   
 -   Sie sind einfach und RFC 2890 kompatibel, sodass Sie mit verschiedenen Hersteller Geräten interoperabel sind.  
   
--   Sie können Border Gateway Protocol \(BGP-\) für dynamisches Routing verwenden.  
+-   Sie können Border Gateway Protocol \( BGP \) für dynamisches Routing verwenden.  
   
--   Sie können mehr Instanzen fähige GRE-RAS-Gateways für die Verwendung mit Software-Defined Networking \(Sdn konfigurieren\)
+-   Sie können mehr Instanzen fähige GRE-RAS-Gateways für die Verwendung mit dem Software Defined Networking \( Sdn konfigurieren.\)
   
--   Sie können System Center Virtual Machine Manager zum Verwalten von GRE\-basierten RAS-Gateways verwenden.
+-   Sie können System Center Virtual Machine Manager zum Verwalten von GRE- \- basierten RAS-Gateways verwenden.
   
 -   Sie können einen Durchsatz von bis zu 2,0 Gbit/s auf einem virtuellen Computer mit 6 Kernen erzielen, der als GRE-RAS-Gateway konfiguriert ist.
   
@@ -104,11 +104,11 @@ Dieses Szenario kann verwendet werden, um Drittanbieter Geräte (z. b. Hardware-
   
 ## <a name="configuration-and-deployment"></a>Konfiguration und Bereitstellung
 
-Ein GRE-Tunnel wird als zusätzliches Protokoll innerhalb einer S2S-Schnittstelle verfügbar gemacht. Die Implementierung erfolgt auf ähnliche Weise wie ein IPSec-S2S-Tunnel, der im folgenden Netzwerk Blog beschrieben wird: mehr Instanzen fähige [Site-to-Site (S2S)-VPN Gateway mit Windows Server 2012 R2](https://blogs.technet.com/b/networking/archive/2013/09/29/multi-tenant-site-to-site-s2s-vpn-gateway-with-windows-server-2012-r2.aspx)  
+Ein GRE-Tunnel wird als zusätzliches Protokoll innerhalb einer S2S-Schnittstelle verfügbar gemacht. Die Implementierung erfolgt auf ähnliche Weise wie ein IPSec-S2S-Tunnel, der im folgenden Netzwerk Blog beschrieben wird: mehr Instanzen fähige [Site-to-Site (S2S)-VPN Gateway mit Windows Server 2012 R2](https://techcommunity.microsoft.com/t5/networking-blog/bg-p/NetworkingBlog)  
   
 Im folgenden Thema finden Sie ein Beispiel für die Bereitstellung von Gateways, einschließlich GRE-Tunnel Gateways:  
   
-[Bereitstellen einer Software definierten Netzwerkinfrastruktur mithilfe von Skripts](../../../networking/sdn/deploy/Deploy-a-Software-Defined-Network-infrastructure-using-scripts.md)
+[Bereitstellen einer Software-Defined Networking-Infrastruktur mithilfe von Skripts](../../../networking/sdn/deploy/Deploy-a-Software-Defined-Network-infrastructure-using-scripts.md)
   
 ## <a name="more-information"></a>Weitere Informationen
 
@@ -116,11 +116,9 @@ Weitere Informationen zum Bereitstellen von S2S-Gateways finden Sie in den folge
   
 -   [RAS-Gateway](RAS-Gateway.md)  
   
--   [Border Gateway Protocol &#40;BGP&#41;](../bgp/Border-Gateway-Protocol-BGP.md)  
+-   [Border Gateway Protocol &#40;BGP-&#41;](../bgp/Border-Gateway-Protocol-BGP.md)  
   
--   [Neu! Bereitstellungs Handbuch für das mehr Instanzen fähige Windows Server 2012 R2 RAS-Gateway](https://blogs.technet.com/b/wsnetdoc/archive/2014/03/26/new-windows-server-2012-r2-RAS-multitenant-gateway-deployment-guide.aspx)  
+-   [Neu! Bereitstellungs Handbuch für das mehr Instanzen fähige Windows Server 2012 R2 RAS-Gateway](https://techcommunity.microsoft.com/t5/networking-blog/bg-p/NetworkingBlog)  
   
--   [Bereitstellen von Border Gateway Protocol (BGP) mit dem mehr Instanzen fähigen RAS-Gateway](https://blogs.technet.com/b/wsnetdoc/archive/2014/04/03/deploy-border-gateway-protocol-bgp-with-the-RAS-multitenant-gateway.aspx)  
+-   [Bereitstellen von Border Gateway Protocol (BGP) mit dem mehr Instanzen fähigen RAS-Gateway](https://techcommunity.microsoft.com/t5/networking-blog/bg-p/NetworkingBlog)  
   
-
-

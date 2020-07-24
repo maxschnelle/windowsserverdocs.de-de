@@ -8,28 +8,28 @@ author: JasonGerend
 manager: dougkim
 ms.author: jgerend
 ms.date: 09/11/2018
-ms.openlocfilehash: 638343abf782983020a3301898920470ffcd5952
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 34515988c46b680701cc39b3948fcd53645741f4
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403055"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86961352"
 ---
 # <a name="iscsi-target-server-overview"></a>iSCSI-Ziel Server (Übersicht)
 
-Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Dieses Thema enthält eine kurze Übersicht über den iSCSI-Ziel Server, einen Rollen Dienst in Windows Server, mit dem Sie Speicher über das iSCSI-Protokoll verfügbar machen können. Dies ist nützlich, um den Zugriff auf den Speicher auf dem Windows-Server für Clients bereitzustellen, die nicht über das Native Windows-Dateifreigabe Protokoll (SMB) kommunizieren können.
 
 Der iSCSI-Zielserver eignet sich ideal für folgende Aufgaben:
 
-* **Netzwerk-und Datenträger lose Start**   mithilfe von Start fähigen Netzwerkadaptern oder einem Software Lade Programm können Sie Hunderte von Servern ohne Datenträger bereitstellen. Der iSCSI-Zielserver ermöglicht eine schnelle Bereitstellung. Bei internen Tests von Microsoft konnten auf diese Weise 256 Computer innerhalb von 34 Minuten bereitgestellt werden. Mithilfe differenzierender virtueller Festplatten können Sie bis zu 90 % des Speicherplatzes für die Betriebssystemabbilder sparen. Dies ist ideal für große Bereitstellungen identischer Betriebssystemabbilder, z. B. auf virtuellen Computern, auf denen Hyper-V ausgeführt wird, oder in High Performance Computing (HPC)-Clustern.
+* **Netzwerk-und Datenträger loser Start**     Mithilfe von Start fähigen Netzwerkadaptern oder einem Software Lade Programm können Sie Hunderte von Servern ohne Datenträger bereitstellen. Der iSCSI-Zielserver ermöglicht eine schnelle Bereitstellung. Bei internen Tests von Microsoft konnten auf diese Weise 256 Computer innerhalb von 34 Minuten bereitgestellt werden. Mithilfe differenzierender virtueller Festplatten können Sie bis zu 90 % des Speicherplatzes für die Betriebssystemabbilder sparen. Dies ist ideal für große Bereitstellungen identischer Betriebssystemabbilder, z. B. auf virtuellen Computern, auf denen Hyper-V ausgeführt wird, oder in High Performance Computing (HPC)-Clustern.
 
-* **Server Anwendungs Speicher**   einige Anwendungen erfordern Blockspeicher. Der iSCSI-Zielserver kann diesen Anwendungen fortlaufend verfügbaren Blockspeicher zur Verfügung stellen. Da der Speicher remote zugänglich ist, kann Blockspeicher auch für zentrale Standorte oder Filialen konsolidiert werden.
+* **Server Anwendungs Speicher**     Einige Anwendungen erfordern Blockspeicher. Der iSCSI-Zielserver kann diesen Anwendungen fortlaufend verfügbaren Blockspeicher zur Verfügung stellen. Da der Speicher remote zugänglich ist, kann Blockspeicher auch für zentrale Standorte oder Filialen konsolidiert werden.
 
-* **Heterogener Speicher**   iSCSI-Ziel Server unterstützt iSCSI-Initiatoren, die nicht von Microsoft unterstützt werden, sodass das Freigeben von Speicher auf Servern in einer gemischten Softwareumgebung vereinfacht wird.
+* **Heterogener Speicher**     der iSCSI-Ziel Server unterstützt nicht von Microsoft stammende iSCSI-Initiatoren und vereinfacht so das Freigeben von Speicher auf Servern in einer gemischten Softwareumgebung.
 
-* **Entwicklungs-, Test-, Demonstrations-und Lab-Umgebungen**   wenn der iSCSI-Ziel Server aktiviert ist, wird ein Computer mit dem Windows Server-Betriebssystem zu einem über das Netzwerk zugänglichen Block Speichergerät. Dies ist hilfreich, um Anwendungen zu testen, bevor sie in einem SAN (Storage Area Network) bereitgestellt werden.
+* **Entwicklungs-, Test-, Demonstrations-und Lab-Umgebungen**     Wenn der iSCSI-Ziel Server aktiviert ist, wird ein Computer, auf dem das Betriebssystem Windows Server ausgeführt wird, zu einem über das Netzwerk zugänglichen Block Speichergerät. Dies ist hilfreich, um Anwendungen zu testen, bevor sie in einem SAN (Storage Area Network) bereitgestellt werden.
 
 ## <a name="block-storage-requirements"></a>Blockspeicheranforderungen
 
@@ -39,6 +39,5 @@ Wenn Sie Gast-Clustering aktivieren, müssen Sie Blockspeicher bereitstellen. Al
 
 ## <a name="see-also"></a>Weitere Informationen
 
-[iSCSI-Ziel Block Speicher, Vorgehensweise](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh848268(v%3dws.11))  
-[Neues beim iSCSI-Zielserver unter Windows Server](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn305893(v%3dws.11))
-
+[iSCSI-Zielblockspeicher: So wird's gemacht](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh848268(v%3dws.11))  
+[Neues beim iSCSI-Zielserver unter Windows Server](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn305893(v%3dws.11))

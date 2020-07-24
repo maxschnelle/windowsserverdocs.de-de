@@ -8,16 +8,16 @@ ms.topic: article
 ms.assetid: e5ea9d22-a503-4ed4-96b3-0ee2ccf4fd17
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 97705e3d6f5a4300c32ec98cc59e849862381607
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 1d59e97453e4ecc4cd63a85368c6ea9566677029
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80858323"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86963722"
 ---
 # <a name="step-3-plan-the-multisite-deployment"></a>Schritt 3 Planen der Bereitstellung für mehrere Standorte
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 Planen Sie nach dem Planen der Infrastruktur für mehrere Standorte alle zusätzlichen Zertifikat Anforderungen, die Auswahl von Einstiegspunkten durch Client Computer und die in der Bereitstellung zugewiesenen IPv6-Adressen.  
 
@@ -77,7 +77,7 @@ Beachten Sie Folgendes, wenn Sie das für den Netzwerkadressen Server zu verwend
 ### <a name="322dns-for-the-network-location-server"></a>3.2.2 DNS für den Netzwerkadressen Server  
 Wenn Sie den Netzwerkadressen Server auf dem Remote Zugriffs Server hosten, müssen Sie für jeden Einstiegspunkt in der Bereitstellung einen DNS-Eintrag für die Netzwerkadressen Server-Website hinzufügen. Beachten Sie Folgendes:  
   
--   Der Antragsteller Name des ersten Netzwerkadressen Server-Zertifikats in der Bereitstellung für mehrere Standorte wird als Netzwerkadressen Server-URL für alle Einstiegspunkte verwendet. Daher dürfen der Antragsteller Name und die Netzwerkadressen Server-URL nicht mit dem Computernamen des der erste RAS-Server in der Bereitstellung. Dabei muss es sich um einen für den Netzwerkadressen Server dedizierten voll qualifizierten Namen handeln.  
+-   Der Antragsteller Name des ersten Netzwerkadressen Server-Zertifikats in der Bereitstellung für mehrere Standorte wird als Netzwerkadressen Server-URL für alle Einstiegspunkte verwendet. Daher dürfen der Antragsteller Name und die Netzwerkadressen Server-URL nicht mit dem Computernamen des ersten Remote Zugriffs Servers in der Bereitstellung identisch sein. Dabei muss es sich um einen für den Netzwerkadressen Server dedizierten voll qualifizierten Namen handeln.  
   
 -   Der vom Netzwerkadressen Server-Datenverkehr bereitgestellte Dienst wird mithilfe von DNS auf Einstiegspunkte ausgeglichen. Daher sollte ein DNS-Eintrag mit der gleichen URL für jeden Einstiegspunkt vorhanden sein, der mit der internen IP-Adresse des Einstiegs Punkts konfiguriert ist.  
   
@@ -88,7 +88,7 @@ Wenn Sie den Netzwerkadressen Server auf dem Remote Zugriffs Server hosten, müs
 ## <a name="33-plan-the-ipsec-root-certificate-for-all-remote-access-servers"></a><a name="bkmk_3_3_IPsec"></a>3,3 planen Sie das IPSec-Stamm Zertifikat für alle Remote Zugriffs Server.  
 Beachten Sie beim Planen der IPSec-Client Authentifizierung in einer Bereitstellung für mehrere Standorte Folgendes:  
   
-1.  Wenn Sie sich für die Verwendung des integrierten Kerberos-Proxys für die Computer Authentifizierung entschieden haben, wenn Sie den einzelnen RAS-Server einrichten, müssen Sie die Einstellung so ändern, dass die von einer internen Zertifizierungsstelle ausgestellten Computer Zertifikate verwendet werden, da der Kerberos-Proxy für einen multistandort nicht unterstützt wird. Nutzung.  
+1.  Wenn Sie sich für die Verwendung des integrierten Kerberos-Proxys für die Computer Authentifizierung entschieden haben, wenn Sie den einzelnen RAS-Server einrichten, müssen Sie die Einstellung so ändern, dass Computer Zertifikate von einer internen Zertifizierungsstelle verwendet werden, da der Kerberos-Proxy für eine Bereitstellung mit mehreren Standorten nicht unterstützt wird.  
   
 2.  Wenn Sie ein selbst signiertes Zertifikat verwendet haben, müssen Sie die Bereitstellung auf einem einzelnen Server so konfigurieren, dass ein von einer internen Zertifizierungsstelle ausgestelltes Zertifikat verwendet wird.  
   
@@ -103,12 +103,12 @@ In einer Bereitstellung mit mehreren Standorten können Sie zusätzlich einen gl
   
 2.  Der Windows 10-oder Windows 8-Client Computer versucht, den FQDN des Load Balancers des globalen Servers im öffentlichen DNS in eine IP-Adresse aufzulösen. Wenn die aufgelöste IP-Adresse als IP-Adresse für den Lastenausgleich des globalen Servers eines Einstiegs Punkts aufgeführt ist, wählt der Client Computer automatisch diesen Einstiegspunkt aus und stellt eine Verbindung mit der IP-HTTPS-URL (ConnectTo-Adresse) oder der zugehörigen Teredo-Server-IP-Adresse her. Beachten Sie, dass die IP-Adresse des Load Balancers des globalen Servers nicht mit der ConnectTo-Adresse oder der Teredo-Server Adresse des Einstiegs Punkts identisch sein muss, da die Client Computer nie versuchen, eine Verbindung mit der IP-Adresse des globalen Server-Lasten Ausgleichs Moduls herzustellen.  
   
-3.  Wenn sich der Client Computer hinter einem WebProxy befindet (und keine DNS-Auflösung verwenden kann), oder wenn der FQDN des globalen Server Lastenausgleichs-FQDN nicht in eine konfigurierte IP-Adresse für den Lastenausgleich des globalen Servers aufgelöst wird, wird automatisch ein Einstiegspunkt mit einem HTTPS-Test ausgewählt. die IP-HTTPS-URLs aller Einstiegspunkte. Der Client stellt eine Verbindung mit dem Server her, der zuerst antwortet.  
+3.  Wenn sich der Client Computer hinter einem WebProxy befindet (und keine DNS-Auflösung verwenden kann), oder wenn der FQDN des globalen Server Lastenausgleichs-FQDN nicht in eine konfigurierte IP-Adresse für den Lastenausgleich des globalen Servers aufgelöst wird, wird automatisch ein Einstiegspunkt mithilfe eines HTTPS-Tests für die IP-HTTPS-URLs aller Einstiegspunkte ausgewählt. Der Client stellt eine Verbindung mit dem Server her, der zuerst antwortet.  
   
 Eine Liste der Global Server Load Balancing-Geräte, die den Remote Zugriff unterstützen, finden Sie auf der Seite Partner suchen unter [Microsoft Server und cloudplattform](https://www.microsoft.com/server-cloud/).  
   
 ## <a name="35-plan-directaccess-client-entry-point-selection"></a><a name="bkmk_3_5_EP_Selection"></a>3,5 Planen der DirectAccess-Client Einstiegspunkt Auswahl  
-Wenn Sie eine Bereitstellung für mehrere Standorte konfigurieren, werden Windows 10-und Windows 8-Client Computer standardmäßig mit den Informationen konfiguriert, die zum Herstellen einer Verbindung mit allen Einstiegspunkten in der Bereitstellung und zum automatischen Herstellen einer Verbindung mit einem einzelnen Einstiegspunkt basierend auf einer Auswahl erforderlich sind. projiziert. Sie können die Bereitstellung auch so konfigurieren, dass Windows 10-und Windows 8-Client Computer den Einstiegspunkt, mit dem eine Verbindung hergestellt werden soll, manuell auswählen können. Wenn ein Windows 10-oder Windows 8-Client Computer zurzeit mit dem USA Einstiegspunkt verbunden ist und die automatische Auswahl von Einstiegspunkten aktiviert ist, versucht der Client Computer nach einigen Minuten, eine Verbindung herzustellen, wenn der USA Einstiegspunkt nicht erreichbar ist. über den Einstiegspunkt in Europa. Es wird empfohlen, die automatische Auswahl von Einstiegspunkten zu verwenden Wenn Sie jedoch eine manuelle Auswahl von Einstiegspunkten zulassen, können Endbenutzer die Verbindung zu einem anderen Einstiegspunkt basierend auf den aktuellen Netzwerkbedingungen herstellen. Wenn z. b. ein Computer mit dem USA Einstiegspunkt verbunden ist und die Verbindung mit dem internen Netzwerk erheblich langsamer wird als erwartet. In dieser Situation kann der Endbenutzer manuell auswählen, eine Verbindung mit dem Einstiegspunkt in Europa herzustellen, um die Verbindung mit dem internen Netzwerk zu verbessern.  
+Wenn Sie eine Bereitstellung für mehrere Standorte konfigurieren, werden Windows 10-und Windows 8-Client Computer standardmäßig mit den Informationen konfiguriert, die zum Herstellen einer Verbindung mit allen Einstiegspunkten in der Bereitstellung erforderlich sind, und um automatisch eine Verbindung mit einem einzelnen Einstiegspunkt basierend auf einem Auswahl Algorithmus herzustellen. Sie können die Bereitstellung auch so konfigurieren, dass Windows 10-und Windows 8-Client Computer den Einstiegspunkt, mit dem eine Verbindung hergestellt werden soll, manuell auswählen können. Wenn ein Windows 10-oder Windows 8-Client Computer zurzeit mit dem USA Einstiegspunkt verbunden ist und die automatische Auswahl von Einstiegspunkten aktiviert ist USA, versucht der Client Computer nach wenigen Minuten, über den Einstiegspunkt in Europa eine Verbindung herzustellen. Es wird empfohlen, die automatische Auswahl von Einstiegspunkten zu verwenden Wenn Sie jedoch eine manuelle Auswahl von Einstiegspunkten zulassen, können Endbenutzer die Verbindung zu einem anderen Einstiegspunkt basierend auf den aktuellen Netzwerkbedingungen herstellen. Wenn z. b. ein Computer mit dem USA Einstiegspunkt verbunden ist und die Verbindung mit dem internen Netzwerk erheblich langsamer wird als erwartet. In dieser Situation kann der Endbenutzer manuell auswählen, eine Verbindung mit dem Einstiegspunkt in Europa herzustellen, um die Verbindung mit dem internen Netzwerk zu verbessern.  
   
 > [!NOTE]  
 > Nachdem ein Endbenutzer einen Einstiegspunkt manuell ausgewählt hat, wird der Client Computer nicht auf die automatische Auswahl des Einstiegs Punkts zurückgesetzt. Das heißt, wenn der manuell ausgewählte Einstiegspunkt nicht mehr erreichbar ist, muss der Endbenutzer entweder die automatische Auswahl der Einstiegspunkte wiederherstellen oder einen anderen Einstiegspunkt manuell auswählen.  
@@ -158,11 +158,11 @@ Bei einer Bereitstellung mit mehreren Standorten wird das symmetrische Routing m
   
    3. Teredo-Präfix (optional). Dieses Präfix ist nur relevant, wenn der RAS-Server mit zwei aufeinander folgenden öffentlichen IPv4-Adressen auf dem externen Adapter konfiguriert ist. Das Präfix basiert auf der ersten öffentlichen IPv4-Adresse des Adress Paars. Angenommen, die externen Adressen lauten wie folgt:  
   
-      1. www\.xxx. yyy. zzz  
+      1. www \. xxx. yyy. zzz  
   
-      2. www\.xxx. yyy. zzz + 1  
+      2. www \. xxx. yyy. zzz + 1  
   
-      Dann ist das zu konfigurierende Teredo-Präfix 2001:0: WWXX: YYZZ::/64, wobei WWXX: YYZZ die hexadezimale Darstellung der IPv4-Adresse www\.xxx. yyy. zzz ist.  
+      Dann ist das zu konfigurierende Teredo-Präfix 2001:0: WWXX: YYZZ::/64, wobei WWXX: YYZZ die hexadezimale Darstellung der IPv4-Adresse www \. xxx. yyy. zzz ist.  
   
       Beachten Sie, dass Sie das folgende Skript verwenden können, um das Teredo-Präfix zu berechnen:  
   
@@ -181,12 +181,12 @@ Bei einer Bereitstellung mit mehreren Standorten wird das symmetrische Routing m
    4. Alle oben genannten Routen müssen an die IPv6-Adresse des internen Adapters des Remote Zugriffs Servers (oder an die interne virtuelle IP-Adresse (VIP) für einen Einstiegspunkt mit Lastenausgleich weitergeleitet werden.  
   
 > [!NOTE]  
-> Wenn IPv6 im Unternehmensnetzwerk bereitgestellt wird und die RAS-Server-Verwaltung Remote über DirectAccess ausgeführt wird, müssen jedem RAS-Server Routen für die Teredo-und IP-HTTPS-Präfixe aller anderen Einstiegspunkte hinzugefügt werden, damit der Datenverkehr wird an das interne Netzwerk weitergeleitet.  
+> Wenn IPv6 im Unternehmensnetzwerk bereitgestellt wird und die RAS-Server-Verwaltung Remote über DirectAccess ausgeführt wird, müssen jedem RAS-Server Routen für die Teredo-und IP-HTTPS-Präfixe aller anderen Einstiegspunkte hinzugefügt werden, damit der Datenverkehr an das interne Netzwerk weitergeleitet wird.  
   
 ### <a name="active-directory-site-specific-ipv6-prefixes"></a>Active Directory standortspezifische IPv6-Präfixe  
 Wenn ein Client Computer, auf dem Windows 10 oder Windows 8 ausgeführt wird, mit einem Einstiegspunkt verbunden ist, wird der Client Computer sofort dem Active Directory-Standort des Einstiegs Punkts zugeordnet und mit IPv6-Präfixen konfiguriert, die dem Einstiegspunkt zugeordnet sind. Für Client Computer wird die Verbindung mit Ressourcen mithilfe dieser IPv6-Präfixe bevorzugt, da Sie dynamisch in der IPv6-Präfix Richtlinien Tabelle mit höherer Priorität konfiguriert werden, wenn eine Verbindung mit einem Einstiegspunkt hergestellt wird.  
   
-Wenn in Ihrer Organisation eine Active Directory Topologie mit standortspezifischen IPv6-Präfixen verwendet wird (z. b. wird ein interner Ressourcen-voll qualifizierten Namen app.Corp.com sowohl in Nordamerika als auch in Europa mit einer standortspezifischen IP-Adresse an jedem Standort gehostet), wird dies nicht konfiguriert. der Standardwert ist die Remote Zugriffs Konsole, und die standortspezifischen IPv6-Präfixe sind für jeden Einstiegspunkt nicht konfiguriert. Wenn Sie dieses optionale Szenario aktivieren möchten, müssen Sie jeden Einstiegspunkt mit den spezifischen IPv6-Präfixen konfigurieren, die von Client Computern bevorzugt werden, die eine Verbindung mit einem bestimmten Einstiegspunkt herstellen. Gehen Sie hierzu wie folgt vor:  
+Wenn in Ihrer Organisation eine Active Directory Topologie mit standortspezifischen IPv6-Präfixen verwendet wird (z. b. wird ein interner Ressourcen-voll qualifizierten Namen app.Corp.com sowohl in Nordamerika als auch in Europa mit einer standortspezifischen IP-Adresse an jedem Standort gehostet), wird dieser standardmäßig nicht über die Remote Zugriffs Konsole konfiguriert, und für jeden Einstiegspunkt werden keine standortspezifischen IPv6-Präfixe konfiguriert. Wenn Sie dieses optionale Szenario aktivieren möchten, müssen Sie jeden Einstiegspunkt mit den spezifischen IPv6-Präfixen konfigurieren, die von Client Computern bevorzugt werden, die eine Verbindung mit einem bestimmten Einstiegspunkt herstellen. Gehen Sie hierzu wie folgt vor:  
   
 1.  Führen Sie für jedes GPO, das für Windows 10-oder Windows 8-Client Computer verwendet wird, das PowerShell-Cmdlet Set-daentrypointtableitem aus.  
   
@@ -243,7 +243,7 @@ Der Übergang von einem reinen IPv4-zu einem reinen IPv6-Unternehmensnetzwerk ka
     > [!NOTE]  
     > Stellen Sie beim Installieren einer zusätzlichen DirectAccess-Bereitstellung neben einer aktuellen Bereitstellung sicher, dass keine zwei Einstiegspunkte dasselbe Client Präfix verwenden.  
     >   
-    > Wenn Sie DirectAccess mithilfe des Assistenten für erste Schritte oder mit dem-Cmdlet `Install-RemoteAccess`installieren, legt der Remote Zugriff das Client Präfix des ersten Einstiegs Punkts in der Bereitstellung automatisch auf einen Standardwert < IPv6-Subnetz\_Präfix >: 1000::/64 fest. Bei Bedarf müssen Sie das Präfix ändern.  
+    > Wenn Sie DirectAccess mithilfe des Assistenten für erste Schritte oder mit dem-Cmdlet installieren `Install-RemoteAccess` , wird für den Remote Zugriff automatisch das Client Präfix des ersten Einstiegs Punkts in der Bereitstellung auf den Standardwert <IPv6- \_ Subnetzpräfix>:1000::/64 festgelegt. Bei Bedarf müssen Sie das Präfix ändern.  
   
 2.  Entfernen Sie die ausgewählten Client Sicherheitsgruppen aus der ersten Bereitstellung.  
   
@@ -256,7 +256,7 @@ Der Übergang von einem reinen IPv4-zu einem reinen IPv6-Unternehmensnetzwerk ka
   
 Wenn Sie den Übergang abgeschlossen haben, können Sie die erste DirectAccess-Bereitstellung deinstallieren. Beim Deinstallieren von können die folgenden Probleme auftreten:  
   
--   Wenn die Bereitstellung so konfiguriert wurde, dass nur Clients auf mobilen Computern unterstützt werden, wird der WMI-Filter gelöscht. Wenn die Client Sicherheitsgruppen der zweiten Bereitstellung Desktop Computer enthalten, werden Desktop Computer vom DirectAccess-Client-Gruppenrichtlinien Objekt nicht gefiltert und möglicherweise Probleme verursacht. Wenn ein Filter für mobile Computer erforderlich ist, erstellen Sie ihn neu, indem Sie die Anweisungen unter [Erstellen von WMI-Filtern für das GPO](https://technet.microsoft.com/library/cc947846.aspx)befolgen.  
+-   Wenn die Bereitstellung so konfiguriert wurde, dass nur Clients auf mobilen Computern unterstützt werden, wird der WMI-Filter gelöscht. Wenn die Client Sicherheitsgruppen der zweiten Bereitstellung Desktop Computer enthalten, werden Desktop Computer vom DirectAccess-Client-Gruppenrichtlinien Objekt nicht gefiltert und möglicherweise Probleme verursacht. Wenn ein Filter für mobile Computer erforderlich ist, erstellen Sie ihn neu, indem Sie die Anweisungen unter [Erstellen von WMI-Filtern für das GPO](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc947846(v=ws.10))befolgen.  
   
 -   Wenn beide bereit Stellungen ursprünglich in derselben Active Directory Domäne erstellt wurden, wird der DNS-Test Eintrag, der auf "localhost" verweist, gelöscht und kann zu Problemen mit der Client Konnektivität führen. Beispielsweise können Clients eine Verbindung über IP-HTTPS anstelle von Teredo herstellen oder zwischen DirectAccess-Einstiegspunkten für mehrere Standorte wechseln. In diesem Fall müssen Sie dem Unternehmens-DNS den folgenden DNS-Eintrag hinzufügen:  
   
@@ -270,5 +270,3 @@ Wenn Sie den Übergang abgeschlossen haben, können Sie die erste DirectAccess-B
   
   
   
-
-

@@ -8,16 +8,16 @@ ms.topic: article
 ms.assetid: 4b97b2fd-767a-45c1-a64e-5b3edd0c8a47
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 789fd72e2f3fc1693bf4803f33dcc1e7f1b3acc3
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 0f731dccc4c8dae720b3bf0c66cd601ec28be4ad
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80855773"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86961032"
 ---
 # <a name="step-4-plan-for-otp-on-the-remote-access-server"></a>Schritt 4 Planen von OTP auf dem Remote Zugriffs Server
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 Nach der Planung der Server-und Zertifikat Einstellungen für das einmalige Kennwort (One-time password, OTP) müssen Sie den letzten Schritt bei der Planung einer Bereitstellung für den Remote Zugriff auf den RAS-Server planen.  
   
@@ -41,7 +41,5 @@ Wenn die OTP-Authentifizierung aktiviert ist, ist die Option zum Aktivieren der 
   
 ## <a name="see-also"></a><a name="BKMK_Links"></a>Siehe auch  
   
--   [Konfigurieren von DirectAccess mit OTP-Authentifizierung](https://technet.microsoft.com/windows-server-docs/networking/remote-access/ras/otp/deploy-ra-otp)  
+-   [Konfigurieren von DirectAccess mit OTP-Authentifizierung](../deploy-ra-otp.md)  
   
-
-

@@ -8,27 +8,27 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 7d6be5b9194060bb16673e01e0fee8b36b081769
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: a0f52afaddff0b42ba7646ed842c3fa586132c1b
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80816813"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86961092"
 ---
 # <a name="create-a-rule-to-permit-or-deny-users-based-on-an-incoming-claim"></a>Erstellen einer Regel, mit der Benutzer anhand eines eingehenden Anspruchs zugelassen oder abgelehnt werden 
 
 
-In Windows Server 2016 können Sie eine **Access Control Richtlinie** verwenden, um eine Regel zu erstellen, mit der Benutzer basierend auf einem eingehenden Anspruch zugelassen oder verweigert werden.  In Windows Server 2012 R2 können Sie mithilfe der Regel Vorlage " **Benutzer auf Basis eines eingehenden Anspruchs zulassen oder verweigern** " in Active Directory-Verbunddienste (AD FS) \(AD FS\)eine Autorisierungs Regel erstellen, die den Benutzer Zugriff auf die vertrauende Seite basierend auf dem Typ und Wert eines eingehenden Anspruchs gewährt oder verweigert. 
+In Windows Server 2016 können Sie eine **Access Control Richtlinie** verwenden, um eine Regel zu erstellen, mit der Benutzer basierend auf einem eingehenden Anspruch zugelassen oder verweigert werden.  In Windows Server 2012 R2 können Sie mithilfe der Regel Vorlage " **Benutzer auf Basis eines eingehenden Anspruchs zulassen oder verweigern** " in Active Directory-Verbunddienste (AD FS) \( AD FS \) eine Autorisierungs Regel erstellen, die den Benutzer Zugriff auf die vertrauende Seite basierend auf dem Typ und Wert eines eingehenden Anspruchs gewährt oder verweigert. 
 
 So können Sie z. b. eine Regel erstellen, die nur Benutzern mit einem Gruppen Anspruch mit dem Wert "Domänen Administratoren" den Zugriff auf die vertrauende Seite gestattet. Wenn Sie allen Benutzern den Zugriff auf die vertrauende Seite gestatten möchten, verwenden Sie die Regel Vorlage " **alle Access Control zulassen** " oder " **alle Benutzer zulassen** ", abhängig von Ihrer Version von Windows Server. Benutzern, denen der Zugriff auf die vertrauende Seite über den Verbunddienst erlaubt wird, kann der Dienst durch die vertrauende Seite dennoch verweigert werden.  
   
-Mithilfe des folgenden Verfahrens können Sie eine Anspruchs Regel mit dem AD FS-Verwaltungs-Snap\-in erstellen.  
+Mithilfe des folgenden Verfahrens können Sie eine Anspruchs Regel mit dem Snap-in "AD FS-Verwaltung" Erstellen \- .  
   
 Zum Ausführen dieses Verfahrens ist mindestens die Mitgliedschaft in der Gruppe **Administratoren** oder eine gleichwertige Berechtigung auf dem lokalen Computer erforderlich.  Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden Sie unter [lokale und Domänen Standard Gruppen](https://go.microsoft.com/fwlink/?LinkId=83477).  
 
 ## <a name="to-create-a-rule-to-permit-users-based-on-an-incoming-claim-on-windows-server-2016"></a>So erstellen Sie eine Regel zum Zulassen von Benutzern basierend auf einem eingehenden Anspruch auf Windows Server 2016
  
-1.  Klicken Sie in Server-Manager **auf Extras**, und wählen Sie dann **AD FS Verwaltung**aus.  
+1.  Klicken Sie im Server-Manager auf **Tools**, und wählen Sie **AD FS-Verwaltung** aus.  
   
 2.  Klicken Sie in der Konsolen Struktur unter **AD FS**auf **Access Control Richtlinien**. 
 ![Regel erstellen](media/Create-a-Rule-to-Permit-or-Deny-Users-Based-on-an-Incoming-Claim/permitdeny3.PNG)
@@ -58,7 +58,7 @@ Zum Ausführen dieses Verfahrens ist mindestens die Mitgliedschaft in der Gruppe
 
 ## <a name="to-create-a-rule-to-deny-users-based-on-an-incoming-claim-on-windows-server-2016"></a>So erstellen Sie eine Regel zum Verweigern von Benutzern auf der Grundlage eines eingehenden Anspruchs auf Windows Server 2016
  
-1.  Klicken Sie in Server-Manager **auf Extras**, und wählen Sie dann **AD FS Verwaltung**aus.  
+1.  Klicken Sie im Server-Manager auf **Tools**, und wählen Sie **AD FS-Verwaltung** aus.  
   
 2.  Klicken Sie in der Konsolen Struktur unter **AD FS**auf **Access Control Richtlinien**. 
 ![Regel erstellen](media/Create-a-Rule-to-Permit-or-Deny-Users-Based-on-an-Incoming-Claim/permitdeny3.PNG)
@@ -89,20 +89,20 @@ Zum Ausführen dieses Verfahrens ist mindestens die Mitgliedschaft in der Gruppe
   
 ## <a name="to-create-a-rule-to-permit-or-deny-users-based-on-an-incoming-claim-on-windows-server-2012-r2"></a>So erstellen Sie eine Regel zum Zulassen oder Verweigern von Benutzern basierend auf einem eingehenden Anspruch auf Windows Server 2012 R2
   
-1.  Klicken Sie in Server-Manager **auf Extras**, und wählen Sie dann **AD FS Verwaltung**aus.    
+1.  Klicken Sie im Server-Manager auf **Tools**, und wählen Sie **AD FS-Verwaltung** aus.    
   
-2.  Klicken Sie in der Konsolen Struktur unter **AD FS Vertrauens Stellungen\\Vertrauens Stellungen\\Vertrauens Stellungen der vertrauenden Seite**auf eine bestimmte Vertrauensstellung in der Liste, in der Sie diese Regel erstellen möchten.  
+2.  Klicken Sie in der Konsolen Struktur unter **AD FS Vertrauens Stellungen Vertrauens Stellungen der \\ vertrauenden \\ Seite**auf eine bestimmte Vertrauensstellung in der Liste, in der Sie diese Regel erstellen möchten.  
   
-3.  Klicken Sie mit der rechten\-auf die ausgewählte Vertrauensstellung und dann auf **Anspruchs Regeln bearbeiten**.  
+3.  \-Klicken Sie mit der rechten Maustaste auf die ausgewählte Vertrauensstellung und dann auf **Anspruchs Regeln bearbeiten**.  
 ![Regel erstellen](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule6.PNG)   
 
-4.  Klicken Sie im Dialogfeld **Anspruchs Regeln bearbeiten** auf die Registerkarte Ausstellungs **Autorisierungs Regeln** oder die Registerkarte **Delegierungs Autorisierungs Regeln** \(basierend auf der Art der Autorisierungs Regel, die Sie benötigen\), und klicken Sie dann auf **Regel hinzufügen** , um den **Assistenten zum Hinzufügen von Autorisierungs Anspruchs**  
+4.  Klicken Sie im Dialogfeld **Anspruchs Regeln bearbeiten** auf die Registerkarte Ausstellungs **Autorisierungs Regeln** oder auf der Registerkarte **Delegierungs Autorisierungs Regeln** \( basierend auf der gewünschten Autorisierungs Regel \) . Klicken Sie anschließend auf **Regel hinzufügen** , um den **Assistenten zum Hinzufügen von Autorisierungs Anspruchs**Regeln zu starten.  
 ![Regel erstellen](media/Create-a-Rule-to-Permit-All-Users/permitall5.PNG)
 
 5.  Wählen Sie auf der Seite **Regel Vorlage auswählen** unter **Anspruchs Regel Vorlage**die **Option Benutzer basierend auf einem eingehenden Anspruch zulassen oder verweigern** aus der Liste aus, und klicken Sie dann auf **weiter**.  
 ![Regel erstellen](media/Create-a-Rule-to-Permit-or-Deny-Users-Based-on-an-Incoming-Claim/permitdeny1.PNG)
 
-6.  Geben Sie auf der Seite **Regel konfigurieren** unter **Anspruchs Regel Name** den anzeigen Amen für diese Regel ein, geben Sie unter eingehender **Anspruchstyp** einen Anspruchstyp in der Liste ein, wählen Sie unter **eingehender Anspruchs Wert** einen Wert aus, oder klicken Sie auf Durchsuchen \(wenn er verfügbar ist\) und wählen Sie einen Wert aus, und wählen Sie dann je nach den Anforderungen Ihrer Organisation eine der folgenden Optionen aus:  
+6.  Geben Sie auf der Seite **Regel konfigurieren** unter **Anspruchs Regel Name** den anzeigen Amen für diese Regel ein, wählen Sie unter eingehender **Anspruchstyp** einen Anspruchstyp in der Liste aus, geben Sie unter **eingehender Anspruchs Wert** einen Wert ein, oder klicken Sie auf Durchsuchen, \( falls verfügbar, und wählen Sie einen Wert aus, \) und wählen Sie dann je nach den Anforderungen Ihrer Organisation eine der folgenden Optionen aus:  
   
     -   **Benutzern mit diesem eingehenden Anspruch Zugriff gewähren**  
   
@@ -112,12 +112,12 @@ Zum Ausführen dieses Verfahrens ist mindestens die Mitgliedschaft in der Gruppe
   
 8.  Klicken Sie im Dialogfeld **Anspruchs Regeln bearbeiten** auf **OK** , um die Regel zu speichern.  
 
-## <a name="additional-references"></a>Weitere Verweise 
+## <a name="additional-references"></a>Zusätzliche Verweise 
 [Konfigurieren von Anspruchsregeln](Configure-Claim-Rules.md)  
  
-[Prüfliste: Erstellen von Anspruchs Regeln für eine Vertrauensstellung der vertrauenden](https://technet.microsoft.com/library/ee913578.aspx)  
+[Prüfliste: Erstellen von Anspruchsregeln für eine Vertrauensstellung der vertrauenden Seite](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/ee913578(v=ws.11))  
   
-[Wann sollte eine Autorisierungs Anspruchs Regel verwendet werden?](../../ad-fs/technical-reference/When-to-Use-an-Authorization-Claim-Rule.md)  
+[Wann sollte eine Autorisierungsanspruchsregel verwendet werden](../../ad-fs/technical-reference/When-to-Use-an-Authorization-Claim-Rule.md)  
 
 [Rolle von Ansprüchen](../../ad-fs/technical-reference/The-Role-of-Claims.md)  
   

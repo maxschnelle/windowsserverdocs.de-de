@@ -8,18 +8,18 @@ ms.topic: article
 ms.prod: windows-server
 ms.assetid: 5a291f65-794e-4fc3-996e-094c5845a383
 ms.technology: identity-adds
-ms.openlocfilehash: 7d592198187d44927f643b45e7a8bb4c2eec2a69
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 76357eadf8b88edf58197b9e5f09c213fbbb4990
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80823903"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86960882"
 ---
 # <a name="perform-initial-recovery"></a>Anfängliche Wiederherstellung ausführen  
 
 >Gilt für: Windows Server 2016, Windows Server 2012 und 2012 R2, Windows Server 2008 und 2008 R2
 
-Dieser Abschnitt enthält die folgenden Schritte:  
+Dieser Abschnitt umfasst die folgenden Schritte:  
 
 - [Wiederherstellen des ersten beschreibbaren Domänen Controllers in jeder Domäne](#restore-the-first-writeable-domain-controller-in-each-domain)  
 - [Verbinden Sie jeden wiederhergestellten beschreibbaren Domänen Controller erneut mit dem Netzwerk.](#reconnect-each-restored-writeable-domain-controller-to-a-common-network)  
@@ -33,7 +33,7 @@ Nachdem Sie die Stamm Domäne der Gesamtstruktur wieder hergestellt haben, wiede
   
 Stellen Sie für jede wieder herzustellende Domäne nur einen beschreibbaren DC aus der Sicherung wieder her. Dies ist der wichtigste Teil der Wiederherstellung, da der Domänen Controller über eine Datenbank verfügen muss, die nicht von dem verursacht wurde, dass die Gesamtstruktur fehlgeschlagen ist. Es ist wichtig, eine vertrauenswürdige Sicherung zu erstellen, die gründlich getestet wird, bevor Sie in die Produktionsumgebung eingeführt wird. 
   
-Führen Sie dann die folgenden Schritte aus. Verfahren zum Ausführen bestimmter Schritte finden Sie unter [Wiederherstellungsverfahren für die AD-](AD-Forest-Recovery-Procedures.md)Gesamtstruktur. 
+Führen Sie anschließend die folgenden Schritte aus. Verfahren zum Ausführen bestimmter Schritte finden Sie unter [Wiederherstellungsverfahren für die AD-](AD-Forest-Recovery-Procedures.md)Gesamtstruktur. 
   
 1. Wenn Sie beabsichtigen, einen physischen Server wiederherzustellen, stellen Sie sicher, dass das Netzwerkkabel des Zieldomänen Controllers nicht angefügt ist und daher nicht mit dem Produktionsnetzwerk verbunden ist. Für einen virtuellen Computer können Sie den Netzwerkadapter entfernen oder einen Netzwerkadapter verwenden, der mit einem anderen Netzwerk verbunden ist, in dem Sie den Wiederherstellungsprozess testen können, während er vom Produktionsnetzwerk isoliert ist. 
   
@@ -59,7 +59,7 @@ Führen Sie dann die folgenden Schritte aus. Verfahren zum Ausführen bestimmter
 4. Wenn Sie vermuten, dass der Gesamtstruktur weite Fehler in Zusammenhang mit dem Netzwerk Eingriff oder böswilligen Angriffen aufgetreten ist, setzen Sie die Konto Kennwörter für alle Administrator Konten zurück, einschließlich der Mitglieder der Organisations-Admins, Domänen-Admins, Schema-Admins, Server Operatoren, Konto-Operatorgruppen usw. Die zurück Setzung von Administrator Konto Kennwörtern sollte abgeschlossen werden, bevor während der nächsten Phase der Gesamtstruktur Wiederherstellung zusätzliche Domänen Controller installiert werden. 
 5. Nehmen Sie auf dem ersten wiederhergestellten DC in der Stamm Domäne der Gesamtstruktur alle Domänen weiten und Gesamtstruktur weiten Betriebs Master Rollen an. Organisations-Admins und Schema-Admins-Anmelde Informationen sind erforderlich, um Gesamtstruktur weite Betriebs Master Rollen zu übernehmen. 
   
-     Nehmen Sie in jeder untergeordneten Domäne Domänen weite Betriebs Master Rollen an. Obwohl Sie die Betriebs Master Rollen auf dem wiederhergestellten DC nur vorübergehend beibehalten können, gewährleistet die Übernahme dieser Rollen, dass Sie an diesem Punkt des Wiederherstellungsprozesses der Gesamtstruktur diese Hosts hosten. Im Rahmen des Prozesses nach der Wiederherstellung können Sie die Betriebs Master Rollen nach Bedarf weiterverteilen. Weitere Informationen zum Übernehmen von Betriebs Master Rollen finden Sie unter übernehmen [einer Betriebs Master Rolle](AD-forest-recovery-seizing-operations-master-role.md). Empfehlungen zum Platzieren von Betriebs Master Rollen finden Sie unter [Was sind Betriebs Master?](https://technet.microsoft.com/library/cc779716.aspx). 
+     Nehmen Sie in jeder untergeordneten Domäne Domänen weite Betriebs Master Rollen an. Obwohl Sie die Betriebs Master Rollen auf dem wiederhergestellten DC nur vorübergehend beibehalten können, gewährleistet die Übernahme dieser Rollen, dass Sie an diesem Punkt des Wiederherstellungsprozesses der Gesamtstruktur diese Hosts hosten. Im Rahmen des Prozesses nach der Wiederherstellung können Sie die Betriebs Master Rollen nach Bedarf weiterverteilen. Weitere Informationen zum Übernehmen von Betriebs Master Rollen finden Sie unter übernehmen [einer Betriebs Master Rolle](AD-forest-recovery-seizing-operations-master-role.md). Empfehlungen zum Platzieren von Betriebs Master Rollen finden Sie unter [Was sind Betriebs Master?](/previous-versions/windows/it-pro/windows-server-2003/cc779716(v=ws.10)). 
   
 6. Bereinigen Sie die Metadaten aller anderen beschreibbaren DCS in der Stamm Domäne der Gesamtstruktur, die Sie nicht aus der Sicherung wiederherstellen (Alle beschreibbaren DCS in der Domäne außer dem ersten DC). Wenn Sie die-Version von Active Directory Benutzer und Computer oder Active Directory Websites und-Dienste verwenden, die in Windows Server 2008 oder höher oder RSAT für Windows Vista oder höher enthalten sind, wird die Metadatenbereinigung automatisch ausgeführt, wenn Sie ein DC-Objekt löschen. Außerdem werden das Server Objekt und das Computer Objekt für den gelöschten Domänen Controller ebenfalls automatisch gelöscht. Weitere Informationen finden Sie unter [Bereinigen von Metadaten entfernter Beschreib barer DCS](AD-Forest-Recovery-Cleaning-Metadata.md). 
   
@@ -72,9 +72,9 @@ Führen Sie dann die folgenden Schritte aus. Verfahren zum Ausführen bestimmter
     > [!NOTE]
     > Wenn der wiederhergestellte Domänen Controller Windows Server 2008 ausführt, müssen Sie den Hotfix im KB-Artikel [975654](https://support.microsoft.com/kb/975654) installieren oder den Server vorübergehend mit einem isolierten Netzwerk verbinden, um den DNS-Server zu installieren. Der Hotfix ist für andere Versionen von Windows Server nicht erforderlich. 
   
-     Konfigurieren Sie den wiederhergestellten Domänen Controller in der Stamm Domäne der Gesamtstruktur mit seiner eigenen IP-Adresse (oder einer Loopback Adresse wie 127.0.0.1) als bevorzugten DNS-Server. Sie können diese Einstellung in den TCP/IP-Eigenschaften des LAN-Adapters (Local Area Network) konfigurieren. Dies ist der erste DNS-Server in der Gesamtstruktur. Weitere Informationen finden Sie unter [Konfigurieren von TCP/IP für die Verwendung von DNS](https://technet.microsoft.com/library/cc779282\(WS.10\).aspx). 
+     Konfigurieren Sie den wiederhergestellten Domänen Controller in der Stamm Domäne der Gesamtstruktur mit seiner eigenen IP-Adresse (oder einer Loopback Adresse wie 127.0.0.1) als bevorzugten DNS-Server. Sie können diese Einstellung in den TCP/IP-Eigenschaften des LAN-Adapters (Local Area Network) konfigurieren. Dies ist der erste DNS-Server in der Gesamtstruktur. Weitere Informationen finden Sie unter [Konfigurieren von TCP/IP für die Verwendung von DNS](/previous-versions/windows/it-pro/windows-server-2003/cc779716(v=ws.10)). 
   
-     Konfigurieren Sie in jeder untergeordneten Domäne den wiederhergestellten DC mit der IP-Adresse des ersten DNS-Servers in der Stamm Domäne der Gesamtstruktur als bevorzugten DNS-Server. Sie können diese Einstellung in den TCP/IP-Eigenschaften des LAN-Adapters konfigurieren. Weitere Informationen finden Sie unter [Konfigurieren von TCP/IP für die Verwendung von DNS](https://technet.microsoft.com/library/cc779282\(WS.10\).aspx). 
+     Konfigurieren Sie in jeder untergeordneten Domäne den wiederhergestellten DC mit der IP-Adresse des ersten DNS-Servers in der Stamm Domäne der Gesamtstruktur als bevorzugten DNS-Server. Sie können diese Einstellung in den TCP/IP-Eigenschaften des LAN-Adapters konfigurieren. Weitere Informationen finden Sie unter [Konfigurieren von TCP/IP für die Verwendung von DNS](/previous-versions/windows/it-pro/windows-server-2003/cc779716(v=ws.10)). 
   
      Löschen Sie in der DNS-Zone _msdcs und der Domäne NS-Einträge von DCS, die nach der Metadatenbereinigung nicht mehr vorhanden sind. Überprüfen Sie, ob die SRV-Einträge der bereinigten DCS entfernt wurden. Führen Sie Folgendes aus, um die Entfernung von DNS-SRV-Einträgen zu beschleunigen:  
   
@@ -104,7 +104,7 @@ Führen Sie dann die folgenden Schritte aus. Verfahren zum Ausführen bestimmter
   
 12. Wenn die Gesamtstruktur mehrere Domänen aufweist und der wiederhergestellte DC vor dem Auftreten des Fehlers ein globaler Katalogserver war, deaktivieren Sie in den NTDS-Einstellungs Eigenschaften das Kontrollkästchen **globaler Katalog** , um den globalen Katalog vom Domänen Controller zu entfernen. Eine Ausnahme von dieser Regel ist der häufige Fall einer Gesamtstruktur mit nur einer Domäne. In diesem Fall ist es nicht erforderlich, den globalen Katalog zu entfernen. Weitere Informationen finden Sie unter [Entfernen des globalen Katalogs](AD-Forest-Recovery-Remove-GC.md). 
   
-     Wenn Sie einen globalen Katalog aus einer Sicherung wiederherstellen, die aktueller als andere Sicherungen ist, die zum Wiederherstellen von DCS in anderen Domänen verwendet werden, können Sie veraltete Objekte einführen. Sehen Sie sich das folgende Beispiel an. In Domäne A wird DC1 aus einer Sicherung wieder hergestellt, die zum Zeitpunkt t1 erstellt wurde. In Domäne B wird DC2 aus einer globalen Katalog Sicherung wieder hergestellt, die zum Zeitpunkt T2 erstellt wurde. Angenommen, T2 ist aktueller als T1, und einige Objekte wurden zwischen T1 und T2 erstellt. Nach der Wiederherstellung dieser DCS enthält DC2, ein globaler Katalog, neuere Daten für das Teil Replikat von Domäne a, als Domäne a sich selbst enthält. DC2 enthält in diesem Fall veraltete Objekte, da diese Objekte nicht auf DC1 vorhanden sind. 
+     Wenn Sie einen globalen Katalog aus einer Sicherung wiederherstellen, die aktueller als andere Sicherungen ist, die zum Wiederherstellen von DCS in anderen Domänen verwendet werden, können Sie veraltete Objekte einführen. Betrachten Sie das folgende Beispiel. In Domäne A wird DC1 aus einer Sicherung wieder hergestellt, die zum Zeitpunkt t1 erstellt wurde. In Domäne B wird DC2 aus einer globalen Katalog Sicherung wieder hergestellt, die zum Zeitpunkt T2 erstellt wurde. Angenommen, T2 ist aktueller als T1, und einige Objekte wurden zwischen T1 und T2 erstellt. Nach der Wiederherstellung dieser DCS enthält DC2, ein globaler Katalog, neuere Daten für das Teil Replikat von Domäne a, als Domäne a sich selbst enthält. DC2 enthält in diesem Fall veraltete Objekte, da diese Objekte nicht auf DC1 vorhanden sind. 
   
      Das vorhanden sein von veralteten Objekten kann zu Problemen führen. Beispielsweise können e-Mail-Nachrichten nicht an einen Benutzer übermittelt werden, dessen Benutzerobjekt zwischen Domänen verschoben wurde. Nachdem Sie den veralteten DC oder globalen Katalogserver wieder online geschaltet haben, werden beide Instanzen des Benutzer Objekts im globalen Katalog angezeigt. Beide Objekte haben dieselbe e-Mail-Adresse. Daher können e-Mail-Nachrichten nicht zugestellt werden. 
   
@@ -112,7 +112,7 @@ Führen Sie dann die folgenden Schritte aus. Verfahren zum Ausführen bestimmter
   
      Wenn Sie einen Domänen Controller wieder hergestellt haben, der ein globaler Katalog war – entweder versehentlich oder weil es sich dabei um die alleinige vertrauenswürdige Sicherung handelt, die Sie als vertrauenswürdig eingestuft haben – wird empfohlen, das Vorkommen veralteter Objekte zu verhindern, indem Sie den globalen Katalog kurz nach Abschluss des Wiederherstellungs Vorgangs deaktivieren. Das Deaktivieren des globalen katalogitätsflags führt dazu, dass der Computer alle partiellen Replikate (Partitionen) verliert und sich in den regulären DC-Status verlagert. 
   
-13. Konfigurieren Sie den Windows-Zeit Dienst. Konfigurieren Sie den PDC-Emulator in der Stamm Domäne der Gesamtstruktur so, dass er die Zeit von einer externen Zeit Quelle synchronisiert. Weitere Informationen finden Sie unter [Konfigurieren des Windows-Zeit Diensts auf dem PDC-Emulator in der Stamm Domäne der](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731191%28v=ws.10%29)Gesamtstruktur. 
+13. Konfigurieren Sie den Windows-Zeit Dienst. Konfigurieren Sie den PDC-Emulator in der Stamm Domäne der Gesamtstruktur so, dass er die Zeit von einer externen Zeit Quelle synchronisiert. Weitere Informationen finden Sie unter [Konfigurieren des Windows-Zeit Diensts auf dem PDC-Emulator in der Stamm Domäne der](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc731191%28v=ws.10%29)Gesamtstruktur. 
   
 ## <a name="reconnect-each-restored-writeable-domain-controller-to-a-common-network"></a>Verbinden Sie jeden wiederhergestellten beschreibbaren Domänen Controller mit einem gemeinsamen Netzwerk erneut.
 
@@ -125,7 +125,7 @@ Fügen Sie nach der Überprüfung die DCS zum Produktionsnetzwerk hinzu, und fü
 
 - Um die Namensauflösung zu beheben, erstellen Sie DNS-Delegierungs Einträge und konfigurieren DNS-Weiterleitung und Stamm Hinweise nach Bedarf. Führen Sie **repadmin/replsum** zum Überprüfen der Replikation zwischen DCS aus. 
 - Wenn die wiederhergestellten Domänen Controller keine direkten Replikations Partner sind, wird die Replikations Wiederherstellung erheblich beschleunigt, indem temporäre Verbindungs Objekte zwischen Ihnen erstellt werden. 
-- Um die Metadatenbereinigung zu überprüfen, führen Sie **repadmin/viewlist \\** * für eine Liste aller DCS in der Gesamtstruktur aus. Führen Sie **nltest/DCList:** *< Domänen\>* aus, um eine Liste aller DCS in der Domäne zu finden. 
+- Um die Metadatenbereinigung zu überprüfen, führen Sie **repadmin/viewlist \\ *** für eine Liste aller DCS in der Gesamtstruktur aus. Führen Sie **nltest/DCList:** *<\> Domäne* aus, um eine Liste aller DCS in der Domäne zu finden. 
 - Führen Sie dcdiag/v aus, um Fehler für alle DCS in der Gesamtstruktur zu melden. 
 
 ## <a name="add-the-global-catalog-to-a-domain-controller-in-the-forest-root-domain"></a>Hinzufügen des globalen Katalogs zu einem Domänen Controller in der Stamm Domäne der Gesamtstruktur

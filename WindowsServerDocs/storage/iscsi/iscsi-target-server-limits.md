@@ -8,12 +8,12 @@ author: JasonGerend
 manager: dougkim
 ms.author: jgerend
 ms.date: 09/11/2018
-ms.openlocfilehash: 6799e0e3b47d6cc98cbb42407ffbed1a9578675a
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 7a6d23ebd82afc192a9c306420811860d74cf469
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85473437"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86961362"
 ---
 # <a name="iscsi-target-server-scalability-limits"></a>Skalierbarkeits Limits für iSCSI-Ziel Server
 
@@ -35,7 +35,7 @@ Dieses Thema enthält die unterstützten und getesteten Beschränkungen von Micr
 <th><p>Element</p></th>
 <th><p>Unterstützungs Limit</p></th>
 <th><p>Erzwun?</p></th>
-<th><p>Kommentar</p></th>
+<th><p>Comment</p></th>
 </tr>
 </thead>
 <tbody>
@@ -92,7 +92,7 @@ Dieses Thema enthält die unterstützten und getesteten Beschränkungen von Micr
 <th><p>Element</p></th>
 <th><p>Unterstützungs Limit</p></th>
 <th><p>Erzwun?</p></th>
-<th><p>Kommentar</p></th>
+<th><p>Comment</p></th>
 </tr>
 </thead>
 <tbody>
@@ -162,7 +162,7 @@ Dieses Thema enthält die unterstützten und getesteten Beschränkungen von Micr
 <th><p>Element</p></th>
 <th><p>Unterstützungs Limit</p></th>
 <th><p>Erzwun?</p></th>
-<th><p>Kommentar</p></th>
+<th><p>Comment</p></th>
 </tr>
 </thead>
 <tbody>
@@ -243,7 +243,7 @@ Dieses Thema enthält die unterstützten und getesteten Beschränkungen von Micr
 <th><p>Element</p></th>
 <th><p>Unterstützungs Limit</p></th>
 <th><p>Erzwun?</p></th>
-<th><p>Kommentar</p></th>
+<th><p>Comment</p></th>
 </tr>
 </thead>
 <tbody>
@@ -376,7 +376,7 @@ Dieses Thema enthält die unterstützten und getesteten Beschränkungen von Micr
 <tr class="header">
 <th><p>Element</p></th>
 <th><p>Unterstützungs Limit</p></th>
-<th><p>Kommentar</p></th>
+<th><p>Comment</p></th>
 </tr>
 </thead>
 <tbody>
@@ -444,7 +444,7 @@ Der iSCSI-Zielspeicher Anbieter ist ein Rollen Dienst in Windows Server 2016, Wi
 
 Beachten Sie Folgendes: Wenn der iSCSI-Zielserver von einem Server gehostet wird, auf dem Windows Server 2012 R2 oder höher ausgeführt wird, und Sie VSS oder VDS von einem Remote Server aus verwenden möchten, muss auf dem Remote Server ebenfalls dieselbe Version von Windows Server ausgeführt werden, und der Rollen Dienst "iSCSI-Zielspeicher Anbieter" muss installiert sein. Beachten Sie außerdem, dass Sie in allen Versionen von Windows nur eine Version des Rollen Dienstanbieters für den iSCSI-Zielspeicher Anbieter installieren sollten.
 
-Weitere Informationen zum iSCSI-Zielspeicher Anbieter finden Sie unter [iSCSI-Zielspeicher Anbieter (VDS/VSS)](https://blogs.technet.com/b/filecab/archive/2012/10/08/iscsi-target-storage-vds-vss-provider.aspx).
+Weitere Informationen zum iSCSI-Zielspeicher Anbieter finden Sie unter [iSCSI-Zielspeicher Anbieter (VDS/VSS)](/powershell/module/iscsi/?view=win10-ps).
 
 ## <a name="tested-compatibility-with-iscsi-initiators"></a>Getestete Kompatibilität mit iSCSI-Initiatoren
 
@@ -546,4 +546,3 @@ Die folgende Liste enthält zusätzliche Ressourcen zum iSCSI-Zielserver und zu 
 - [iSCSI Target Boot Overview](iscsi-boot-overview.md)
 
 - [Speicher](../storage.yml)
-

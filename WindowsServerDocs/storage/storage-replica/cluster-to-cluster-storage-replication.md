@@ -9,12 +9,12 @@ ms.assetid: 834e8542-a67a-4ba0-9841-8a57727ef876
 author: nedpyle
 ms.date: 04/26/2019
 description: Verwenden des Speicher Replikats zum Replizieren von Volumes in einem Cluster in einen anderen Cluster unter Windows Server.
-ms.openlocfilehash: 21e054d42d0264bb22fbd0e02382ee429958a597
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: d99a7ebf933427e8e065f72261816610e62a433d
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85475667"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86961242"
 ---
 # <a name="cluster-to-cluster-storage-replication"></a>Cluster-zu-Cluster-Speicherreplikation
 
@@ -172,11 +172,11 @@ Im Folgenden erstellen Sie zwei normale Failovercluster. Nach der Konfiguration,
     > Windows Server umfasst nun eine Option für einen Cloud-basierten Zeugen (Azure). Sie können diese Quorumoption anstelle des Dateifreigabezeugen auswählen.
 
     > [!WARNING]
-    > Weitere Informationen zur Quorum Konfiguration finden Sie im Abschnitt " **Zeugen Konfiguration** " unter [Konfigurieren und Verwalten des Quorums](../../failover-clustering/manage-cluster-quorum.md). Weitere Informationen zum Cmdlet `Set-ClusterQuorum` finden Sie unter [Set-ClusterQuorum](https://docs.microsoft.com/powershell/module/failoverclusters/set-clusterquorum).
+    > Weitere Informationen zur Quorum Konfiguration finden Sie im Abschnitt " **Zeugen Konfiguration** " unter [Konfigurieren und Verwalten des Quorums](../../failover-clustering/manage-cluster-quorum.md). Weitere Informationen zum Cmdlet `Set-ClusterQuorum` finden Sie unter [Set-ClusterQuorum](/powershell/module/failoverclusters/set-clusterquorum).
 
 5.  Fügen Sie am Standort **Redmond** den freigegebenen Clustervolumes einen Datenträger hinzu. Zu diesem Zweck klicken Sie im Bereich **Speicher** mit der rechten Maustaste auf den Knoten **Datenträger** und klicken dann auf **Zu freigegebenen Clustervolumes hinzufügen**.
 
-6.  Erstellen Sie die gruppierten Dateiserver mit horizontaler Skalierung in beiden Clustern mithilfe der Anweisungen in [Konfigurieren des Dateiservers mit horizontaler Skalierung](https://technet.microsoft.com/library/hh831718.aspx).
+6.  Erstellen Sie die gruppierten Dateiserver mit horizontaler Skalierung in beiden Clustern mithilfe der Anweisungen in [Konfigurieren des Dateiservers mit horizontaler Skalierung](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831718(v=ws.11)).
 
 ### <a name="windows-powershell-method"></a>Windows PowerShell-Methode
 
@@ -204,9 +204,9 @@ Im Folgenden erstellen Sie zwei normale Failovercluster. Nach der Konfiguration,
     > Windows Server umfasst nun eine Option für einen Cloud-basierten Zeugen (Azure). Sie können diese Quorumoption anstelle des Dateifreigabezeugen auswählen.
 
     > [!WARNING]
-    > Weitere Informationen zur Quorum Konfiguration finden Sie im Abschnitt " **Zeugen Konfiguration** " unter [Konfigurieren und Verwalten des Quorums](../../failover-clustering/manage-cluster-quorum.md). Weitere Informationen zum Cmdlet `Set-ClusterQuorum` finden Sie unter [Set-ClusterQuorum](https://docs.microsoft.com/powershell/module/failoverclusters/set-clusterquorum).
+    > Weitere Informationen zur Quorum Konfiguration finden Sie im Abschnitt " **Zeugen Konfiguration** " unter [Konfigurieren und Verwalten des Quorums](../../failover-clustering/manage-cluster-quorum.md). Weitere Informationen zum Cmdlet `Set-ClusterQuorum` finden Sie unter [Set-ClusterQuorum](/powershell/module/failoverclusters/set-clusterquorum).
 
-4.  Erstellen Sie die gruppierten Dateiserver mit horizontaler Skalierung in beiden Clustern mithilfe der Anweisungen in [Konfigurieren des Dateiservers mit horizontaler Skalierung](https://technet.microsoft.com/library/hh831718.aspx).
+4.  Erstellen Sie die gruppierten Dateiserver mit horizontaler Skalierung in beiden Clustern mithilfe der Anweisungen in [Konfigurieren des Dateiservers mit horizontaler Skalierung](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831718(v=ws.11)).
 
 ## <a name="step-3-set-up-cluster-to-cluster-replication-using-windows-powershell"></a>Schritt 3: Einrichten der Cluster-zu-Cluster-Replikation mithilfe von Windows PowerShell
 Nun richten Sie die Cluster-zu-Cluster-Replikation mithilfe von Windows PowerShell ein. Sie können alle nachfolgenden Schritte direkt auf den Knoten oder über einen Remote Verwaltungs Computer ausführen, der den Windows-Server enthält Remoteserver-Verwaltungstools
@@ -355,7 +355,7 @@ Jetzt können Sie Ihre Cluster-zu-Cluster-Replikation verwalten und betreiben. S
 
     -   \Speicherreplikatstatistik(*)\Anzahl gesendeter Nachrichten
 
-    Weitere Informationen zu Leistungsindikatoren in Windows PowerShell finden Sie unter [Get-Counter](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Diagnostics/Get-Counter).
+    Weitere Informationen zu Leistungsindikatoren in Windows PowerShell finden Sie unter [Get-Counter](/powershell/module/microsoft.powershell.diagnostics/get-counter).
 
 3.  Zum Ändern der Replikationsrichtung eines Standorts verwenden Sie das Cmdlet **Set-SRPartnership**.
 
@@ -384,7 +384,7 @@ Jetzt können Sie Ihre Cluster-zu-Cluster-Replikation verwalten und betreiben. S
     ```
 
     > [!NOTE]
-    > Beim Speicher Replikat werden die Zielvolumes getrennt. Dieser Fehler ist entwurfsbedingt.
+    > Beim Speicher Replikat werden die Zielvolumes getrennt. Dies ist beabsichtigt.
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 

@@ -8,12 +8,12 @@ ms.date: 10/17/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage-file-systems
-ms.openlocfilehash: c74e8744c22e2be174c1f1297e0472e5f32e1fe8
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: cd74468029ff973846ddfd10cce8ba0e26a607e9
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85475407"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86961392"
 ---
 # <a name="block-cloning-on-refs"></a>Block-Clone-Vorgänge auf ReFS
 
@@ -53,12 +53,12 @@ Nach dem Ändern des Schreibvorgangs wird Region B weiterhin von beide Dateien v
 - Die Quell- und Zielregion muss an einer Cluster-Begrenzung beginnen und enden.
 - Die geklonte Region muss kleiner als 4 GB lang sein.
 - Die maximale Anzahl von Datei Regionen, die derselben physischen Region zugeordnet werden können, ist 8175.
-- Die Zielregion darf nicht über das Ende der Datei erweitert werden. Falls die Anwendung das Ziel mit geklonten Daten erweitern möchte, müssen sie zuerst [SetEndOfFile](https://msdn.microsoft.com/library/windows/desktop/aa365531(v=vs.85).aspx) aufrufen.
+- Die Zielregion darf nicht über das Ende der Datei erweitert werden. Falls die Anwendung das Ziel mit geklonten Daten erweitern möchte, müssen sie zuerst [SetEndOfFile](/windows/win32/api/fileapi/nf-fileapi-setendoffile) aufrufen.
 - Wenn sich die Quell- und Zielregionen in derselben Datei befinden, dürfen diese nicht überlappen. (Die Anwendung kann möglicherweise durch Aufteilen des Block-Clone-Vorgangs in mehrere Block-Clone-Vorgänge ausgeführt werden, wenn diese nicht überlappen).
 - Die Quell- und Zieldateien müssen sich auf demselben Volume ReFS befinden.
-- Die Quell- und Zieldateien müssen die gleichen [Integrity Streams](https://msdn.microsoft.com/library/windows/desktop/gg258117(v=vs.85).aspx)-Einstellungen aufweisen.
+- Die Quell- und Zieldateien müssen die gleichen [Integrity Streams](/windows/win32/fileio/file-attribute-constants)-Einstellungen aufweisen.
 - Hat die Quelldatei eine geringe Datendichte, muss die Zieldatei ebenfalls eine geringe Datendichte aufweisen.
-- Der Block-Clone-Vorgang durchbricht die Shared Opportunistic Sperrfunktion (auch bekannt als [Level 2 Opportunistic Locks](https://msdn.microsoft.com/library/windows/desktop/aa365713(v=vs.85).aspx)).
+- Der Block-Clone-Vorgang durchbricht die Shared Opportunistic Sperrfunktion (auch bekannt als [Level 2 Opportunistic Locks](/windows/win32/fileio/types-of-opportunistic-locks)).
 - Das ReFS-Volume muss mit Windows Server 2016 formatiert worden sein und wenn Failoverclustering verwendet wird muss die Clustering-Funktionsebene Windows Server 2016 oder höher zum Zeitpunkt der Formatierung verwendet haben.
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
@@ -66,5 +66,5 @@ Nach dem Ändern des Schreibvorgangs wird Region B weiterhin von beide Dateien v
 -   [ReFS – Übersicht](refs-overview.md)
 -   [ReFS Integrity Streams](integrity-streams.md)
 -   [Übersicht über direkte Speicherplätze](../storage-spaces/storage-spaces-direct-overview.md)
--   [DUPLICATE_EXTENTS_DATA](https://msdn.microsoft.com/library/windows/desktop/mt590821(v=vs.85).aspx)
--   [FSCTL_DUPLICATE_EXTENTS_TO_FILE](https://msdn.microsoft.com/library/windows/desktop/mt590823(v=vs.85).aspx)
+-   [DUPLICATE_EXTENTS_DATA](/windows/win32/api/winioctl/ns-winioctl-duplicate_extents_data)
+-   [FSCTL_DUPLICATE_EXTENTS_TO_FILE](/windows/win32/api/winioctl/ni-winioctl-fsctl_duplicate_extents_to_file)

@@ -8,12 +8,12 @@ ms.date: 08/07/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 5f88458c8e3f50853229f6f8f9c74fa4b8feba40
-ms.sourcegitcommit: 11421f4005f9f3a3f6c0db95b1836d0f765a9fa3
+ms.openlocfilehash: 929530b8ee7dbb7b0486f3eb80a642cc5fdab20e
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81624418"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86962462"
 ---
 # <a name="ad-ds-design-and-planning"></a>AD DS-Entwurf und -Planung
 
@@ -29,7 +29,7 @@ In dieser Anleitung werden die Aufgaben für verschiedene mögliche Ausgangspunk
 
 Obwohl die in diesem Handbuch vorgestellten Strategien für fast alle Server-Betriebssystem Bereitstellungen geeignet sind, wurden Sie speziell für Umgebungen getestet und überprüft, die weniger als 100.000 Benutzer und weniger als 1.000 Standorte enthalten, wobei die Netzwerkverbindungen mindestens 28,8 kbit pro Sekunde (Kbit/s) betragen. Wenn Ihre Umgebung diese Kriterien nicht erfüllt, empfiehlt es sich, ein Beratungsunternehmen zu verwenden, das AD DS in komplexeren Umgebungen bereitstellt.
 
-Weitere Informationen zum Testen des AD DS Bereitstellungs Prozesses finden Sie im Artikel [Testen und Überprüfen des Bereitstellungs Prozesses](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc772722(v=ws.10)).
+Weitere Informationen zum Testen des AD DS Bereitstellungs Prozesses finden Sie im Artikel [Testen und Überprüfen des Bereitstellungs Prozesses](/previous-versions/windows/it-pro/windows-server-2003/cc772722(v=ws.10)).
 
 ## <a name="in-this-guide"></a>Inhalt dieser Anleitung
 

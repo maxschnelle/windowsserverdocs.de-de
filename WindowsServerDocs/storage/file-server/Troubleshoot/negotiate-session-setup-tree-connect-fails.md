@@ -1,19 +1,19 @@
 ---
-title: Aushandeln, Einrichten von Sitzungen und Fehler bei der Baum Verbindung
+title: Fehler beim Aushandeln, beim Einrichten von Sitzungen und bei Strukturverbindungen
 description: Erläutert die Problembehandlung bei den Fehlern beim Aushandeln, beim Einrichten der Sitzung und bei der Baum Verbindung.
 author: Deland-Han
 manager: dcscontentpm
 ms.topic: article
 ms.author: delhan
 ms.date: 12/25/2019
-ms.openlocfilehash: 13124176e530aa7b74d18a38c906bf5297be511e
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 2bad602f934d844074ee96df06bf9234fdbf943f
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80815383"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86961162"
 ---
-# <a name="negotiate-session-setup-and-tree-connect-failures"></a>Aushandeln, Einrichten von Sitzungen und Fehler bei der Baum Verbindung
+# <a name="negotiate-session-setup-and-tree-connect-failures"></a>Fehler beim Aushandeln, beim Einrichten von Sitzungen und bei Strukturverbindungen
 
 In diesem Artikel wird beschrieben, wie Sie Fehler beheben, die während einer SMB-Aushandlung, einer Sitzungs Einrichtung und einer Struktur Verbindungsanforderung auftreten.
 
@@ -27,7 +27,7 @@ Wenn Sie Windows Server 2008 R2 verwenden, gibt es Hotfixes für dieses Problem.
 
 ## <a name="session-setup-fails"></a>Fehler beim Einrichten der Sitzung
 
-Der SMB-Server empfängt eine SMB-Sitzung\_Setup Anforderung von einem SMB-Client, konnte jedoch nicht Antworten.
+Der SMB-Server empfängt eine Anforderung zum Einrichten einer SMB-Sitzung \_ von einem SMB-Client, konnte jedoch nicht Antworten.
 
 Wenn der voll qualifizierte Domänen Name (Fully Qualified Domain Name, FQDN) oder der NetBIOS-Name (Network Basic Input/Output System) des Servers im UNC-Pfad (Universal Naming Convention) angezeigt wird, verwendet Windows Kerberos für die Authentifizierung.
 
@@ -38,7 +38,7 @@ Nach der Aushandlungs Antwort wird versucht, ein Kerberos-Ticket für den CIFS-D
 
 Führen Sie außerdem die folgenden Prüfungen durch:
 
-- Sehen Sie sich das sicherheitsblob in der SMB-Sitzung\_Setup Anforderung an, um sicherzustellen, dass die richtigen Anmelde Informationen gesendet werden.
+- Überprüfen Sie das sicherheitsblob in der Setup Anforderung für die SMB-Sitzung \_ , um sicherzustellen, dass die richtigen Anmelde Informationen gesendet werden.
 
 - Versuchen Sie, die SMB-Servernamen Härtung zu deaktivieren (**smbservernamehardeninglevel = 0**).
 
@@ -50,17 +50,17 @@ Führen Sie außerdem die folgenden Prüfungen durch:
 
 Stellen Sie sicher, dass die Anmelde Informationen für das Benutzerkonto über die Berechtigungen Freigabe und NT File System (NTFS) für den Ordner verfügen.
 
-Die Ursache von häufigen Struktur Verbindungsfehlern finden Sie unter [3.3.5.7 empfangen einer SMB2 Tree\_Connect-Anforderung](https://docs.microsoft.com/openspecs/windows_protocols/ms-smb2/652e0c14-5014-4470-999d-b174d7b2da87). Im folgenden finden Sie die Lösungen für zwei allgemeine Statuscodes.
+Die Ursache von häufigen Struktur Verbindungsfehlern finden Sie unter [3.3.5.7 empfängt an SMB2 Tree \_ Connect Request](/openspecs/windows_protocols/ms-smb2/652e0c14-5014-4470-999d-b174d7b2da87). Im folgenden finden Sie die Lösungen für zwei allgemeine Statuscodes.
 
-\[Status\_ungültigen\_Netzwerk\_Namen\]
+\[Ungültiger \_ \_ Netzwerk \_ Name.\]
 
 Stellen Sie sicher, dass die Freigabe auf dem Server vorhanden ist und dass Sie in der SMB-Client Anforderung korrekt geschrieben ist.
 
-\[Status\_Zugriffs\_verweigert\]
+\[Status \_ Zugriff \_ verweigert\]
 
 Vergewissern Sie sich, dass der von der Freigabe verwendete Datenträger und Ordner vorhanden sind und darauf zugegriffen werden kann.
 
-Wenn Sie SMBv3 oder höher verwenden, überprüfen Sie, ob für den Server und die Freigabe eine Verschlüsselung erforderlich ist, der Client jedoch keine Verschlüsselung unterstützt. Führen Sie hierzu die folgenden Aktionen aus:
+Wenn Sie SMBv3 oder höher verwenden, überprüfen Sie, ob für den Server und die Freigabe eine Verschlüsselung erforderlich ist, der Client jedoch keine Verschlüsselung unterstützt. Führen Sie dazu die folgenden Aktionen aus:
 
 - Überprüfen Sie den Server, indem Sie den folgenden Befehl ausführen.
 
@@ -86,12 +86,12 @@ Beachten Sie die folgenden Richtlinien bei der Problembehandlung:
 
 - Die Verschlüsselung wird von Samba und Geräten von Drittanbietern möglicherweise nicht unterstützt. Weitere Informationen finden Sie möglicherweise in der Produktdokumentation.
 
-## <a name="references"></a>Verweise
+## <a name="references"></a>References
 
 Weitere Informationen finden Sie in den folgenden Artikeln.
 
-[3.3.5.4 empfängt eine SMB2 Aushandlungs Anforderung](https://docs.microsoft.com/openspecs/windows_protocols/ms-smb2/b39f253e-4963-40df-8dff-2f9040ebbeb1)
+[3.3.5.4 empfängt eine SMB2 Aushandlungs Anforderung](/openspecs/windows_protocols/ms-smb2/b39f253e-4963-40df-8dff-2f9040ebbeb1)
 
-[3.3.5.5 empfängt eine SMB2-Sitzung\_Setup Anforderung](https://docs.microsoft.com/openspecs/windows_protocols/ms-smb2/e545352b-9f2b-4c5e-9350-db46e4f6755e)
+[3.3.5.5 empfängt eine SMB2-Sitzungs \_ Setup Anforderung](/openspecs/windows_protocols/ms-smb2/e545352b-9f2b-4c5e-9350-db46e4f6755e)
 
-[3.3.5.7 empfängt eine SMB2 Tree\_Connect-Anforderung](https://docs.microsoft.com/openspecs/windows_protocols/ms-smb2/652e0c14-5014-4470-999d-b174d7b2da87?redirectedfrom=MSDN)
+[3.3.5.7 empfängt eine SMB2 Tree \_ Connect-Anforderung](/openspecs/windows_protocols/ms-smb2/652e0c14-5014-4470-999d-b174d7b2da87)

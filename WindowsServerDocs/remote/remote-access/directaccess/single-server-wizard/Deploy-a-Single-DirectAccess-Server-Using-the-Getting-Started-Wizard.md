@@ -8,16 +8,16 @@ ms.topic: article
 ms.assetid: eb0cf464-0668-40f8-8222-feb6bae6d3d5
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 13b3fdea120a857cc0c8e890bba87c13823c3a38
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 141c8ad17bd1c58d2bbe729aeacc88f498c8c619
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80819563"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86962872"
 ---
 # <a name="deploy-a-single-directaccess-server-using-the-getting-started-wizard"></a>Bereitstellen eines DirectAccess-Servers mit dem Assistenten für erste Schritte
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 Dieses Thema bietet eine Einführung in das DirectAccess-Szenario mit einem einzelnem DirectAccess-Server und ermöglicht Ihnen die Bereitstellung von DirectAccess über ein paar einfache Schritte.  
   
@@ -28,8 +28,8 @@ In den folgenden Themen finden Sie Informationen zu Voraussetzungen und anderen 
   
 -   [Erforderliche Komponenten für die Bereitstellung von DirectAccess](../../../remote-access/directaccess/Prerequisites-for-Deploying-DirectAccess.md)  
   
-## <a name="scenario-description"></a><a name="BKMK_OVER"></a>Szenariobeschreibung  
-In diesem Szenario wird ein einzelner Computer mit Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 in einigen einfachen Assistenten Schritten als DirectAccess-Server mit Standardeinstellungen konfiguriert, ohne dass die Infrastruktur Einstellungen konfiguriert werden müssen. als Zertifizierungsstelle (Certification Authority, ca) oder Active Directory-Sicherheitsgruppen.  
+## <a name="scenario-description"></a><a name="BKMK_OVER"></a>Beschreibung des Szenarios  
+In diesem Szenario wird ein einzelner Computer mit Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 in einigen einfachen Schritten des Assistenten als DirectAccess-Server mit Standardeinstellungen konfiguriert, ohne dass Infrastruktur Einstellungen wie eine Zertifizierungsstelle oder Active Directory Sicherheitsgruppen konfiguriert werden müssen.  
   
 > [!NOTE]  
 > Informationen zum Konfigurieren einer erweiterten Bereitstellung mit benutzerdefinierten Einstellungen finden Sie unter [Deploy a Single DirectAccess Server with Advanced Settings](../../../remote-access/directaccess/single-server-advanced/../../../remote-access/directaccess/single-server-advanced/../../../remote-access/directaccess/single-server-advanced/Deploy-a-Single-DirectAccess-Server-with-Advanced-Settings.md).  
@@ -37,7 +37,7 @@ In diesem Szenario wird ein einzelner Computer mit Windows Server 2016, Windows 
 ## <a name="in-this-scenario"></a>Inhalt dieses Szenarios  
 Zum Einrichten eines einfachen DirectAccess-Servers sind mehrere Planungs-und Bereitstellungs Schritte erforderlich.  
   
-### <a name="prerequisites"></a>Erforderliche Komponenten  
+### <a name="prerequisites"></a>Voraussetzungen  
 Bevor Sie mit der Bereitstellung dieses Szenarios beginnen, sollten Sie die Liste der wichtigen Anforderungen lesen:  
   
 -   Windows-Firewall muss in allen Profilen aktiviert sein.  
@@ -74,15 +74,15 @@ Ausführliche Planungsschritte finden Sie unter [Planen einer erweiterten Direct
 ### <a name="deployment-steps"></a>Bereitstellungsschritte  
 Die Bereitstellung besteht aus drei Phasen:  
   
-1.  Konfigurieren der DirectAccess-Infrastruktur: Diese Phase umfasst das Konfigurieren von Netzwerk und Routing, das Konfigurieren der Firewalleinstellungen (falls erforderlich), das Konfigurieren von Zertifikaten, DNS-Servern, Active Directory-und GPO-Einstellungen und DirectAccess Servers.  
+1.  Konfigurieren der DirectAccess-Infrastruktur: Diese Phase umfasst das Konfigurieren von Netzwerk und Routing, das Konfigurieren der Firewalleinstellungen (falls erforderlich), das Konfigurieren von Zertifikaten, DNS-Servern, Active Directory und GPO-Einstellungen und den DirectAccess-Netzwerkadressen Server.  
   
-2.  Konfigurieren von DirectAccess-Servereinstellungen. Die Phase beinhaltet Schritte zum Konfigurieren von DirectAccess-Clientcomputern, DirectAccess-Server, Infrastrukturservern sowie Verwaltungs- und Anwendungsservern.  
+2.  Konfigurieren der DirectAccess-Servereinstellungen. Die Phase beinhaltet Schritte zum Konfigurieren von DirectAccess-Clientcomputern, DirectAccess-Server, Infrastrukturservern sowie Verwaltungs- und Anwendungsservern.  
   
 3.  Überprüfen der Bereitstellung. Diese Phase umfasst Schritte zum Überprüfen, ob die Bereitstellung nach Bedarf funktioniert.  
   
 Informationen zu den Bereitstellungsschritten finden Sie unter [Install and Configure Basic DirectAccess](../../../remote-access/directaccess/single-server-wizard/Install-and-Configure-Basic-DirectAccess.md).  
   
-## <a name="practical-applications"></a><a name="BKMK_APP"></a>Praktische Anwendungen  
+## <a name="practical-applications"></a><a name="BKMK_APP"></a>Praktische Anwendung  
 Die Bereitstellung eines einzelnen Remotezugriffsservers bietet Folgendes:  
   
 -   Einfache Zugriffsberechtigung. Verwaltete Client Computer, auf denen Windows 10, Windows 8.1, Windows 8 oder Windows 7 ausgeführt wird, können als DirectAccess-Clients konfiguriert werden. Diese Clients können immer, wenn sie im Internet sind, über DirectAccess auf interne Netzwerkressourcen zugreifen, ohne sich über eine VPN-Verbindung einzuloggen. Clientcomputer, die keines dieser Betriebssysteme verwenden, können über herkömmliche VPN-Verbindungen eine Verbindung mit dem internen Netzwerk herstellen.  
@@ -124,12 +124,12 @@ Für dieses Szenario müssen die folgenden Hardwareanforderungen erfüllt werden
   
 -   Es ist ein DNS-Server erforderlich, auf dem Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 SP2 oder Windows Server 2008 R2 ausgeführt wird.  
   
-## <a name="software-requirements"></a><a name="BKMK_SOFT"></a>Software Anforderungen  
+## <a name="software-requirements"></a><a name="BKMK_SOFT"></a>Softwareanforderungen  
 Für dieses Szenario gelten eine Reihe von Anforderungen:  
   
 -   Serveranforderungen:  
   
-    -   Der Remotezugriffsserver muss Domänenmitglied sein. Der Server kann an der Schwelle zum internen Netzwerks oder geschützt durch eine Edgefirewall oder ein anderes Gerät bereitgestellt werden.  
+    -   Der RAS-Server muss Domänenmitglied sein. Der Server kann an der Schwelle zum internen Netzwerks oder geschützt durch eine Edgefirewall oder ein anderes Gerät bereitgestellt werden.  
   
     -   Wird der RAS-Server durch eine Edgefirewall oder ein NAT-Gerät geschützt, muss das Gerät so konfiguriert sein, dass ein- und ausgehender Datenverkehr für den RAS-Server zugelassen wird.  
   
@@ -144,12 +144,10 @@ Für dieses Szenario gelten eine Reihe von Anforderungen:
 ## <a name="see-also"></a><a name="BKMK_LINKS"></a>Siehe auch  
 Die folgende Tabelle enthält Links zu zusätzlichen Ressourcen.  
   
-|Art des Inhalts|Verweise|  
+|Inhaltstyp|Referenzen|  
 |--------|-------|  
-|**Remote Zugriff auf TechNet**|[Remote Zugriff-TechCenter](https://technet.microsoft.com/network/bb545655.aspx)|  
-|**Tools und Einstellungen**|[PowerShell-Cmdlets für den Remote Zugriff](https://technet.microsoft.com/library/hh918399.aspx)|  
-|**Communityressourcen**|[DirectAccess-wiki-Einträge](https://go.microsoft.com/fwlink/?LinkId=236871)|  
-|**Verwandte Technologien**|[Funktionsweise von IPv6](https://technet.microsoft.com/library/cc781672(v=WS.10).aspx)|  
+|**RAS auf TechNet**|[RAS im TechCenter](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn756544(v=ws.11))|  
+|**Tools und Einstellungen**|[PowerShell-Cmdlets für den Remotezugriff](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn756544(v=ws.11))|  
+|**Communityressourcen**|[DirectAccess Wiki-Einträge](https://go.microsoft.com/fwlink/?LinkId=236871)|  
+|**Verwandte Technologien**|[Funktionsweise von IPv6](/previous-versions/windows/it-pro/windows-server-2003/cc781672(v=ws.10))|  
   
-
-

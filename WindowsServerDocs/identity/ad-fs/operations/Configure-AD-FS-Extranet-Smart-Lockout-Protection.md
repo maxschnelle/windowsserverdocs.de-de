@@ -8,12 +8,12 @@ ms.date: 05/20/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 77e3b48874d2b8898b7510ff04ebb133b9358a73
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 5cb6246b00d891bd18f30b75b591dd4aaae021f5
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85935546"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86962652"
 ---
 # <a name="ad-fs-extranet-lockout-and-extranet-smart-lockout"></a>AD FS Extranet Lockout und Extranet Smart Lockout
 
@@ -42,7 +42,7 @@ Alle sekundären Knoten wenden sich bei jeder neuen Anmeldung über Port 80 an d
 
  Wenn der sekundäre Knoten den Master nicht kontaktieren kann, werden Fehlerereignisse in das AD FS Administrator Protokoll geschrieben. Authentifizierungen werden weiterhin verarbeitet, aber AD FS schreiben den aktualisierten Status nur lokal. AD FS wird alle 10 Minuten eine Verbindung mit dem Master hergestellt und wechselt zurück zum Master, sobald der Master verfügbar ist.
 
-### <a name="terminology"></a>Begriff
+### <a name="terminology"></a>Terminologie
 - **Familiarlocation**: während einer Authentifizierungsanforderung prüft ESL alle dargestellten IPS. Diese IPS bestehen aus einer Kombination aus Netzwerk-IP, weiter geleiteter IP-Adresse und der optionalen x-weitergeleiteten IP-Adresse. Wenn die Anforderung erfolgreich ist, werden alle IPS der Konto Aktivitäts Tabelle als "vertraute IPS" hinzugefügt. Wenn für die Anforderung alle IPS in den "vertrauten IPS" vorhanden sind, wird die Anforderung als "vertrauter"-Speicherort behandelt.
 - **Unknownlocation**: Wenn eine Anforderung, die in enthalten ist, mindestens eine IP-Adresse nicht in der vorhandenen "familiarlocation"-Liste enthalten ist, wird die Anforderung als "Unbekannter" Speicherort behandelt. Dies dient zum Verarbeiten von Proxy Szenarien wie der Legacy Authentifizierung von Exchange Online, bei der Exchange Online-Adressen sowohl erfolgreiche als auch fehlgeschlagene Anforderungen verarbeiten.  
 - **BadPwdCount**: ein Wert, der angibt, wie oft ein falsches Kennwort übermittelt und die Authentifizierung nicht erfolgreich war. Für jeden Benutzer werden separate Indikatoren für vertraute Standorte und unbekannte Speicherorte aufbewahrt.
@@ -81,7 +81,7 @@ Die Tabelle accountactivity wird im Modus "nur Protokoll" und im Modus "erzwinge
 1. **Installieren von Updates auf allen Knoten in der Farm**
 
    Stellen Sie zunächst sicher, dass alle Windows Server 2016-AD FS Server ab den Windows-Updates vom Juni 2018 auf dem neuesten Stand sind und dass die AD FS 2016-Farm auf der Ebene der 2016-Farm ausgeführt wird.
-1. **Überprüfen von Berechtigungen**
+1. **Berechtigungen überprüfen**
 
    Extranet Smart Lockout erfordert, dass die Windows-Remote Verwaltung auf allen AD FS Server aktiviert ist.
 3. **Aktualisieren von artefaktdatenbankberechtigungen**
@@ -236,7 +236,7 @@ Dieses Verhalten kann überschrieben werden, indem der-Server-Parameter übergeb
 ## <a name="event-logging--user-activity-information-for-ad-fs-extranet-lockout"></a>Ereignisprotokollierung & Benutzer Aktivitäts Informationen für AD FS extranetsperre
 
 ### <a name="connect-health"></a>Connect Health
-Die empfohlene Vorgehensweise zum Überwachen der Benutzerkonto Aktivität erfolgt über Connect Health. Connect Health generiert eine herunterladbare Berichterstellung für riskante IPS und ungültige Kenn Wort Versuche. Jeder Eintrag im Bericht über riskante IP-Adressen enthält aggregierte Informationen zu fehlgeschlagenen AD FS-Anmeldeaktivitäten, für die der angegebene Schwellenwert überschritten wurde. E-Mail-Benachrichtigungen können mithilfe von anpassbaren e-Mail-Einstellungen auf Benachrichtigungs Administratoren festgelegt werden. Weitere Informationen und Installationsanweisungen finden Sie in der [Connect Health-Dokumentation](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-adfs).
+Die empfohlene Vorgehensweise zum Überwachen der Benutzerkonto Aktivität erfolgt über Connect Health. Connect Health generiert eine herunterladbare Berichterstellung für riskante IPS und ungültige Kenn Wort Versuche. Jeder Eintrag im Bericht über riskante IP-Adressen enthält aggregierte Informationen zu fehlgeschlagenen AD FS-Anmeldeaktivitäten, für die der angegebene Schwellenwert überschritten wurde. E-Mail-Benachrichtigungen können mithilfe von anpassbaren e-Mail-Einstellungen auf Benachrichtigungs Administratoren festgelegt werden. Weitere Informationen und Installationsanweisungen finden Sie in der [Connect Health-Dokumentation](/azure/active-directory/hybrid/how-to-connect-health-adfs).
 
 ### <a name="ad-fs-extranet-smart-lockout-events"></a>AD FS Extranet-Smart Lockout-Ereignisse.
 
@@ -293,6 +293,6 @@ A: bei aktiviertem ESL werden AD FS die Kontoaktivität und die bekannten Speich
 ## <a name="additional-references"></a>Zusätzliche Verweise  
 [Bewährte Methoden zum Sichern von Active Directory-Verbunddienste (AD FS)](../../ad-fs/deployment/best-practices-securing-ad-fs.md)
 
-[Set-ADF sproperties](https://technet.microsoft.com/itpro/powershell/windows/adfs/set-adfsproperties)
+[Set-ADF sproperties](/powershell/module/adfs/set-adfsproperties?view=win10-ps)
 
-[AD FS-Vorgänge](../../ad-fs/AD-FS-2016-Operations.md)
+[AD FS-Vorgänge](../ad-fs-operations.md)

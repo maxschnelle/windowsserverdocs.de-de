@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.assetid: a3a91034-a4da-4ad7-93f8-0cd2ec3e7824
 ms.technology: identity-adds
-ms.openlocfilehash: e7bacf4f238144fca26776a729a5e4d5bf3444ab
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0dfb108067bee1a5f276963116e2a72b99f6aec2
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71389951"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86961122"
 ---
 # <a name="active-directory-domain-services-component-updates"></a>Active Directory Domain Services: Komponentenupdates
 
@@ -23,7 +23,7 @@ ms.locfileid: "71389951"
 In dieser Unterrichtseinheit werden Komponenten mit geringfügigen Aktualisierungen in den Bereichen Verzeichnisdienste und Identitätstechnologie vorgestellt.  
 
 
-| Informationen zum Autor |
+| Zum Autor |
 |------------------|
 |   **Autor:**    |
 |     **Biografie:**     |
@@ -40,7 +40,7 @@ Nach Abschluss dieses Moduls können Sie Folgendes:
 
     -   [SPN- und UPN-Eindeutigkeit](../../../ad-ds/manage/component-updates/SPN-and-UPN-uniqueness.md)  
 
-    -   [Winlogon-Anmeldung beim automatischen Neustart &#40;von ARSO&#41;](../../../ad-ds/manage/component-updates/Winlogon-Automatic-Restart-Sign-On--ARSO-.md)  
+    -   [Automatisches Anmelden bei Winlogon &#40;ARSO&#41;](../../../ad-ds/manage/component-updates/Winlogon-Automatic-Restart-Sign-On--ARSO-.md)  
 
     -   [TPM-Schlüsselnachweis](../../../ad-ds/manage/component-updates/TPM-Key-Attestation.md)  
 
@@ -48,9 +48,9 @@ Nach Abschluss dieses Moduls können Sie Folgendes:
 
     -   [Überwachen von Befehlszeilenprozessen](../../../ad-ds/manage/component-updates/Command-line-process-auditing.md)  
 
-    -   [Schutz und Verwaltung von Anmeldeinformationen](https://technet.microsoft.com/library/dn408190.aspx)  
+    -   [Schutz und Verwaltung von Anmeldeinformationen](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn408190(v=ws.11))  
 
-    -   [Aktualisierungen an Verzeichnisdienstkomponenten](../../../ad-ds/manage/component-updates/Directory-Services-component-updates.md)  
+    -   [Directory Services-Komponentenupdates](../../../ad-ds/manage/component-updates/Directory-Services-component-updates.md)  
 
         -   [Domänen- und Gesamtstrukturfunktionsebenen](../../../ad-ds/manage/component-updates/../../../ad-ds/manage/component-updates/Directory-Services-component-updates.md#BKMK_FL)  
 
@@ -61,6 +61,3 @@ Nach Abschluss dieses Moduls können Sie Folgendes:
         -   [Verbesserungen am Ereignis 1644](../../../ad-ds/manage/component-updates/Directory-Services-component-updates.md#BKMK_1644)  
 
         -   [Durchsatzverbesserung bei der Active Directory-Replikation](../../../ad-ds/manage/component-updates/../../../ad-ds/manage/component-updates/Directory-Services-component-updates.md#BKMK_ADRepl)  
-
-
-

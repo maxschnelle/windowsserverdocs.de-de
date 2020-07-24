@@ -8,22 +8,22 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 800c7fc23c9b126a17e54311fc6df0d3dcf36b4c
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 83d13386368ff1d6447231d465e01bcceae61d47
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80855363"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86963762"
 ---
 # <a name="interoperating-with-ad-fs-1x"></a>Interaktion mit AD FS 1.x
 
-Für Interoperabilität zwischen Active Directory-Verbunddienste (AD FS) \(AD FS\) in Windows Server&reg; 2012 und AD FS 1. *x*. führen Sie je nach den Anforderungen Ihrer Organisation eine oder mehrere der folgenden Aufgaben aus:  
+Für Interoperabilität zwischen Active Directory-Verbunddienste (AD FS) \( AD FS \) in Windows Server &reg; 2012 und AD FS 1.* x*. führen Sie je nach den Anforderungen Ihrer Organisation eine oder mehrere der folgenden Aufgaben aus:  
   
--   Planen Sie die Interoperabilität zwischen AD FS in Windows Server 2012 und früheren Versionen von AD FS, und erfahren Sie mehr über den Anspruchstyp "Name ID". Weitere Informationen finden Sie unter [Planning for Interoperabilität with AD FS 1. x](https://technet.microsoft.com/library/ff678040.aspx).  
+-   Planen Sie die Interoperabilität zwischen AD FS in Windows Server 2012 und früheren Versionen von AD FS, und erfahren Sie mehr über den Anspruchstyp "Name ID". Weitere Informationen finden Sie unter [Planning for Interoperabilität with AD FS 1. x](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/ff678040(v=ws.11)).  
   
 -   Wenn Sie Ansprüche von einem AD FS Verbunddienst in Windows Server 2012 senden, die von einem AD FS 1 genutzt werden können. *x* Verbunddienst finden Sie unter Prüfliste [: Konfigurieren von AD FS für das Senden von Ansprüchen an eine AD FS 1. x Verbunddienst](Checklist--Configuring-AD-FS-to-Send-Claims-to-an-AD-FS-1.x-Federation-Service.md).  
   
--   Wenn Sie Ansprüche von einem AD FS-Verbunddienst in Windows Server 2012 senden, der von einer Anwendung genutzt werden kann, die von einem Webserver gehostet wird, auf dem die AD FS 1 ausgeführt wird. *x* Claims\-aware Web Agent, siehe Prüfliste [: Konfigurieren von AD FS, um Ansprüche an einen Ansprüche unterstützenden AD FS 1. x-Web-Agent zu senden](Checklist--Configuring-AD-FS-to-Send-Claims-to-an-AD-FS-1.x-Claims-Aware-Web-Agent.md).  
+-   Wenn Sie Ansprüche von einem AD FS-Verbunddienst in Windows Server 2012 senden, der von einer Anwendung genutzt werden kann, die von einem Webserver gehostet wird, auf dem die AD FS 1 ausgeführt wird. *x* Ansprüche unter \- stützender Web-Agent, siehe Prüfliste [: Konfigurieren von AD FS zum Senden von Ansprüchen an einen Ansprüche unterstützenden AD FS 1. x-Web-Agent](Checklist--Configuring-AD-FS-to-Send-Claims-to-an-AD-FS-1.x-Claims-Aware-Web-Agent.md).  
   
 -   Wenn Sie Ansprüche von einem AD FS 1 senden. *x* Verbunddienst von einem AD FS Verbunddienst in Windows Server 2012 genutzt werden können, finden Sie unter Prüfliste [: Konfigurieren von AD FS, um Ansprüche von AD FS 1. x zu](Checklist--Configuring-AD-FS--to-Consume-Claims-from-AD-FS-1.x.md)nutzen.  
   
@@ -33,14 +33,13 @@ Obwohl der größte Teil des AD FS 1 ist. *x* Verbunddienst Einstellungen funkti
 |AD FS 1. x Verbunddienst Einstellung|Äquivalente AD FS Verbunddienst in Windows Server 2012-Einstellung  
 |----------------------------------------|---------------------------------------------------------------------------------------------------------- 
 |Konto Partner|Anspruchsanbieter-Vertrauensstellung  
-|Ressourcen Partner|Vertrauensbeziehung der vertrauenden Seite 
-|Anwendung|Vertrauensbeziehung der vertrauenden Seite  
-|Anwendungseigenschaften|Vertrauens Eigenschaften der vertrauenden Seite  
-|Anwendungs-URL|Bezeichner der vertrauenden Seite\-und die URL des passiven Endpunkts für den  
+|Ressourcen Partner|Vertrauensstellung der vertrauenden Seite 
+|Anwendung|Vertrauensstellung der vertrauenden Seite  
+|Application Properties|Vertrauens Eigenschaften der vertrauenden Seite  
+|Anwendungs-URL|Der Bezeichner der vertrauenden Seite und der \- passiven Endpunkt-URL des  
 |Verbunddienst-URI|Bezeichner des Verbunddiensts  
-|Verbunddienst-Endpunkt-URL|Endpunkt-URL für den passiven WS\--Verbund  
+|Verbunddienst-Endpunkt-URL|URL des passiven WS-Verbund \- Endpunkts  
   
 ## <a name="see-also"></a>Weitere Informationen  
 [AD FS und AD FS 1. x-Interoperabilität](https://go.microsoft.com/fwlink/?LinkId=200776)  
   
-

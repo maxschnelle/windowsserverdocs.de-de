@@ -8,16 +8,16 @@ ms.topic: article
 ms.assetid: 4ca50ea8-6987-4081-acd5-5bf9ead62acd
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: be4d7028f1922152b2779e82a7c78d9b3a5b753a
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 3042b6782ad8d9e0a03a43c1e21c8fe41583f967
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80859553"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86963522"
 ---
 # <a name="step-1-plan-directaccess-infrastructure"></a>Schritt 1 Planen der DirectAccess-Infrastruktur
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 Der erste Schritt bei der Planung einer einfachen Remotezugriffsbereitstellung auf einem einzelnen Server ist die Planung der Infrastruktur, welche für die Bereitstellung erforderlich ist. In diesem Thema werden die Schritte zur Planung der Infrastruktur beschrieben:  
   
@@ -38,7 +38,7 @@ Diese Planungsaufgaben müssen nicht in einer bestimmten Reihenfolge durchgefüh
   
 1. Identifizieren Sie die Netzwerkadaptertopologie, die Sie verwenden möchten. der Remotezugriff kann mit folgenden Optionen eingerichtet werden:  
   
-    - Mit zwei Netzwerkadaptern: entweder am Edge mit einem Netzwerkadapter, der mit dem Internet verbunden ist, und der andere mit dem internen Netzwerk oder hinter einem NAT-, Firewall-oder Routergerät, wobei ein Netzwerkadapter mit einem Umkreis Netzwerk und der andere mit dem internen Netzwerk verbunden ist. Netzwerk.  
+    - Mit zwei Netzwerkadaptern: entweder am Edge mit einem Netzwerkadapter, der mit dem Internet verbunden ist, und der andere mit dem internen Netzwerk oder hinter einem NAT-Gerät, einer Firewall oder einem Routergerät, wobei ein Netzwerkadapter mit einem Umkreis Netzwerk und der andere mit dem internen Netzwerk verbunden ist.  
   
     - Hinter einem NAT-Gerät mit einem Netzwerkadapter: der Remote Zugriffs Server wird hinter einem NAT-Gerät installiert, und der einzige Netzwerkadapter wird mit dem internen Netzwerk verbunden.  
   
@@ -46,16 +46,16 @@ Diese Planungsaufgaben müssen nicht in einer bestimmten Reihenfolge durchgefüh
   
     DirectAccess verwendet IPv6 mit IPsec, um eine sichere Verbindung zwischen DirectAcces-Clientcomputern und dem internen Unternehmensnetzwerk herzustellen. Jedoch erfordert DirectAccess nicht unbedingt Konnektivität mit dem IPv6-Internet oder nativen IPv6-Support auf internen Netzwerken. Stattdessen konfiguriert und verwendet es automatisch IPv6-Übergangstechnologien, um IPv6-Datenverkehr durch das IPv4-Internet (durch die Verwendung von 6to4, Teredo oder IP-HTTPS) und durch Ihr nur-IPv4-Intranet (durch die Verwendung von NAT64 oder ISATAP) zu tunneln. Eine Übersicht über diese Übergangstechnologien finden Sie in folgenden Ressourcen:  
   
-    - [IPv6-Übergangs Technologien](https://technet.microsoft.com/library/bb726951.aspx)  
+    - [IPv6-Übergangstechnologien](/previous-versions//bb726951(v=technet.10))  
   
-    - [IP-HTTPS-tunnelingprotokollspezifikation](https://msdn.microsoft.com/library/dd358571.aspx)  
+    - [IP-HTTPS-Tunneling-Protokollspezifikationen](/openspecs/windows_protocols/ms-iphttps/f1bf1125-49c2-4246-9c75-5d4fc9706b56)  
   
 3. Konfigurieren Sie erforderliche Adapter und Adressen entsprechend folgender Tabelle. Bei bereit Stellungen hinter einem NAT-Gerät mit einem einzelnen Netzwerkadapter sollten Sie Ihre IP-Adressen nur mit der Spalte "interner Netzwerkadapter" konfigurieren.  
   
-    |IP address type|Externer Netzwerkadapter|Interner Netzwerkadapter|Routinganforderungen|  
+    |Art der IP-Adresse|Externer Netzwerkadapter|Interner Netzwerkadapter|Routinganforderungen|  
     |-|--------------|--------------------|------------|  
     |IPv4-Intranet und IPv4-Internet|Konfigurieren Sie Folgendes:<br/><br/>-Eine statische öffentliche IPv4-Adresse mit den entsprechenden Subnetzmasken.<br/>-Eine Standard-Gateway-IPv4-Adresse Ihres Internet Firewall-oder lokalen Internetdienstanbieter-Routers (ISP).|Konfigurieren Sie Folgendes:<br/><br/>: Eine IPv4-Intranetadresse mit der entsprechenden Subnetzmaske.<br/>: Ein Verbindungs spezifisches DNS-Suffix des Intranetnamespaces. Zudem sollte der DNS-Server auf der internen Schnittstelle konfiguriert werden.<br/>-Konfigurieren Sie kein Standard Gateway auf Intranetschnittstellen.|Gehen Sie wie folgt vor, um den Remotezugriffsserver so zu konfigurieren, dass er alle Subnetze auf dem internen IPv4-Netzwerk erreicht:<br/><br/>1. Listen Sie die IPv4-Adressbereiche für alle Speicherorte im Intranet auf.<br/>2. verwenden Sie die Befehle **Route Add-p** oder **Netsh Interface IPv4 Add Route** , um die IPv4-Adressbereiche als statische Routen in der IPv4-Routing Tabelle des Remote Zugriffs Servers hinzuzufügen.|  
-    |IPv6-Internet und IPv6-Intranet|Konfigurieren Sie Folgendes:<br/><br/>-Verwenden Sie die automatisch konfigurierte Adress Konfiguration, die von Ihrem ISP bereitgestellt wird.<br/>Verwenden Sie den Befehl **Route Print** , um sicherzustellen, dass in der IPv6-Routing Tabelle eine IPv6-Standardroute vorhanden ist, die auf den ISP-Router zeigt.<br/>: Bestimmen Sie, ob der ISP-und der Intranetrouter in RFC 4191 beschriebene Standard Router-Einstellungen verwenden, und verwenden Sie eine höhere Standardeinstellung als ihre lokalen Intranetrouter. Wenn beide Fälle zutreffen, ist keine weitere Konfiguration für die Standardroute erforderlich. Die höhere Präferenz für den ISP-Router stellt sicher, dass die aktive IPv6-Standardroute des Remotezugriffsservers auf das IPv6-Internet zeigt.<br/><br/>Wenn Sie über eine systemeigene IPv6-Infrastruktur verfügen, kann die Internetschnittstelle außerdem auch die Domänencontroller im Intranet erreichen, da der DirectAccess-Server ein IPv6-Router ist. Fügen Sie in diesem Fall Paketfilter zum Domänencontroller im Umkreisnetzwerk hinzu, die Konnektivität zur IPv6-Adresse der Internetschnittstelle des DirectAccess-Servers verhindern.|Konfigurieren Sie Folgendes:<br/><br/>Wenn Sie keine Standard Einstellungsebenen verwenden, konfigurieren Sie Ihre Intranetschnittstellen mit dem Befehl **Netsh Interface IPv6 Set interfakeindex ignoredefaultroutes = aktiviert** . Dieser Befehl stellt sicher, dass der IPv6-Routingtabelle keine weiteren Standardrouten hinzugefügt werden, die auf Intranetrouter zeigen. Den SchnittstellenIndex Ihrer Intranetschnittstellen können Sie mit dem Befehl netsh interface show interface anzeigen.|Wenn Sie ein IPv6-Intranet haben, führen Sie folgende Schritte aus, um den Remotezugriffsserver so zu konfigurieren, dass er alle IPv6-Speicherorte erreicht:<br/><br/>1. Listen Sie die IPv6-Adressräume für alle Speicherorte im Intranet auf.<br/>2. verwenden Sie den Befehl **Netsh Interface IPv6 Add Route** , um die IPv6-Adressbereiche als statische Routen in der IPv6-Routing Tabelle des Remote Zugriffs Servers hinzuzufügen.|  
+    |IPv6-Internet und IPv6-Intranet|Konfigurieren Sie Folgendes:<br/><br/>-Verwenden Sie die automatisch konfigurierte Adress Konfiguration, die von Ihrem ISP bereitgestellt wird.<br/>Verwenden Sie den Befehl **Route Print** , um sicherzustellen, dass in der IPv6-Routing Tabelle eine IPv6-Standardroute vorhanden ist, die auf den ISP-Router zeigt.<br/>: Bestimmen Sie, ob der ISP-und der Intranetrouter in RFC 4191 beschriebene Standard Router-Einstellungen verwenden, und verwenden Sie eine höhere Standardeinstellung als ihre lokalen Intranetrouter. Wenn beide Fälle zutreffen, ist keine weitere Konfiguration für die Standardroute erforderlich. Die höhere Präferenz für den ISP-Router stellt sicher, dass die aktive IPv6-Standardroute des Remotezugriffsservers auf das IPv6-Internet zeigt.<br/><br/>Wenn Sie über eine systemeigene IPv6-Infrastruktur verfügen, kann die Internetschnittstelle außerdem auch die Domänencontroller im Intranet erreichen, da der DirectAccess-Server ein IPv6-Router ist. Fügen Sie in diesem Fall Paketfilter zum Domänencontroller im Umkreisnetzwerk hinzu, die Konnektivität zur IPv6-Adresse der Internetschnittstelle des DirectAccess-Servers verhindern.|Konfigurieren Sie Folgendes:<br/><br/>Wenn Sie keine Standard Einstellungsebenen verwenden, konfigurieren Sie Ihre Intranetschnittstellen mit dem Befehl **Netsh Interface IPv6 Set interfakeindex ignoredefaultroutes = aktiviert** . Dieser Befehl stellt sicher, dass der IPv6-Routingtabelle keine weiteren Standardrouten hinzugefügt werden, die auf Intranetrouter zeigen. Den Schnittstellenindex Ihrer Intranetschnittstellen können Sie mit dem Befehl "netsh interface show interface" anzeigen.|Wenn Sie ein IPv6-Intranet haben, führen Sie folgende Schritte aus, um den Remotezugriffsserver so zu konfigurieren, dass er alle IPv6-Speicherorte erreicht:<br/><br/>1. Listen Sie die IPv6-Adressräume für alle Speicherorte im Intranet auf.<br/>2. verwenden Sie den Befehl **Netsh Interface IPv6 Add Route** , um die IPv6-Adressbereiche als statische Routen in der IPv6-Routing Tabelle des Remote Zugriffs Servers hinzuzufügen.|  
     |IPv6-Internet und IPv4-Intranet|Der Remotezugriffsserver leitet den Datenverkehr für die Standard-IPv6-Route mit dem Microsoft-IP6-zu-IP4-Adapter an ein IP6-zu-IP4-Relay im IPv4-Internet weiter. Sie können einen Remotezugriffsserver für die IPv4-Adresse des Microsoft-IP6-zu-IP4-Relays im IPv4-Internet (wird verwendet, wenn die systemeigene IPv6 nicht im Unternehmensnetzwerk bereitgestellt wird) mit dem Befehl "netsh interface ipv6 6to4 set relay name=192.88.99.1 state=enabled" konfigurieren.|||  
   
     > [!NOTE]
@@ -139,7 +139,7 @@ Beachten Sie bei der Planung der Netzwerkadressenserver-Website Folgendes:
 
 In einer Remotezugriffbereitstellung ist DNS für Folgendes erforderlich:  
   
-- **DirectAccess-Client Anforderungen**: DNS wird verwendet, um Anforderungen von DirectAccess-Client Computern aufzulösen, die sich nicht im internen Netzwerk befinden. DirectAccess-Clients versuchen, eine Verbindung zum DirectAccess-Netzwerkadressenserver herzustellen, um zu bestimmen, ob sie sich im Internet oder auf dem internen Netzwerk befinden: Bei erfolgreicher Verbindung werden die Clients als im Intranet befindlich identifiziert, DirectAccess wird nicht verwendet, und Clientanforderungen werden mithilfe des DNS-Servers aufgelöst, welcher auf dem Netzwerkadapter des Clientcomputers konfiguriert ist. Wenn keine Verbindung hergestellt werden kann, wird davon ausgegangen, dass sich die Clients im Internet befinden. DirectAccess-Clients verwenden die Richtlinientabelle für die Namensauflösung, um zu ermitteln, welcher DNS-Server beim Auflösen von Namensanforderungen verwendet werden soll. Sie können angeben, dass Clients DirectAccess-DNS64 oder einen anderen internen DNS-Server für die Auflösung von Namen verwenden. Wenn Sie eine Namensauflösung durchführen, wird die NRPT von DirectAccess-Clients verwendet, um festzulegen, wie eine Anfrage behandelt werden soll. Clients fordern einen voll qualifizierten Namen oder einen Namen mit einer einzelnen Bezeichnung an, z. b. <https://internal>. Wenn ein Name mit einer einzelnen Bezeichnung angefordert wird, wird ein DNS-Suffix angehängt, um einen FQDN zu bilden. Wenn die DNS-Abfrage einem Eintrag in der NRPT entspricht, und DNS4 oder ein Intranet-DNS-Server für den Eintrag angegeben wurde, wird die Abfrage für die Namensauflösung mithilfe des angegebenen Servers gesendet. Wenn eine Übereinstimmung vorhanden ist, aber kein DNS-Server angegeben wurde, weist dies auf eine Ausnahmeregel hin, und die normale Namensauflösung wird verwendet.  
+- **DirectAccess-Client Anforderungen**: DNS wird verwendet, um Anforderungen von DirectAccess-Client Computern aufzulösen, die sich nicht im internen Netzwerk befinden. DirectAccess-Clients versuchen, eine Verbindung zum DirectAccess-Netzwerkadressenserver herzustellen, um zu bestimmen, ob sie sich im Internet oder auf dem internen Netzwerk befinden: Bei erfolgreicher Verbindung werden die Clients als im Intranet befindlich identifiziert, DirectAccess wird nicht verwendet, und Clientanforderungen werden mithilfe des DNS-Servers aufgelöst, welcher auf dem Netzwerkadapter des Clientcomputers konfiguriert ist. Wenn keine Verbindung hergestellt werden kann, wird davon ausgegangen, dass sich die Clients im Internet befinden. DirectAccess-Clients verwenden die Richtlinientabelle für die Namensauflösung, um zu ermitteln, welcher DNS-Server beim Auflösen von Namensanforderungen verwendet werden soll. Sie können angeben, dass Clients DirectAccess-DNS64 oder einen anderen internen DNS-Server für die Auflösung von Namen verwenden. Wenn Sie eine Namensauflösung durchführen, wird die NRPT von DirectAccess-Clients verwendet, um festzulegen, wie eine Anfrage behandelt werden soll. Clients fordern einen voll qualifizierten Namen oder einen Namen mit einer einzelnen Bezeichnung an, z <https://internal> . b.. Wenn ein Name mit einer einzelnen Bezeichnung angefordert wird, wird ein DNS-Suffix angehängt, um einen FQDN zu bilden. Wenn die DNS-Abfrage einem Eintrag in der NRPT entspricht, und DNS4 oder ein Intranet-DNS-Server für den Eintrag angegeben wurde, wird die Abfrage für die Namensauflösung mithilfe des angegebenen Servers gesendet. Wenn eine Übereinstimmung vorhanden ist, aber kein DNS-Server angegeben wurde, weist dies auf eine Ausnahmeregel hin, und die normale Namensauflösung wird verwendet.  
   
     Wenn ein neues Suffix zur NRPT in der Remotezugriffs-Verwaltungskonsole hinzugefügt wird, können die Standard-DNS-Server für das Suffix automatisch erkannt werden, wenn Sie auf **Erkennen** klicken. Die automatische Erkennung funktioniert wie folgt:  
   
@@ -153,7 +153,7 @@ In einer Remotezugriffbereitstellung ist DNS für Folgendes erforderlich:
   
         1. Eine DNS-Suffixregel für die Stammdomäne oder den Domänennamen des Remotezugriffsservers und die IPv6-Adressen, die den auf dem Remotezugriffsserver konfigurierten Intranet-DNS-Servern entsprechen. Wenn der Remotezugriffsserver z. B. Mitglied der Domäne corp.contoso.com ist, wird für das DNS-Suffix .corp.contoso.com eine Regel erstellt.  
   
-        2. Eine Ausnahmeregel für den FQDN des Netzwerkadressenservers. Wenn die Netzwerkadressen Server-URL z. b. <https://nls.corp.contoso.com>ist, wird eine Ausnahme Regel für den voll qualifizierten Namen (NLS.Corp.contoso.com) erstellt.  
+        2. Eine Ausnahmeregel für den FQDN des Netzwerkadressenservers. Wenn die Netzwerkadressen Server-URL z. b <https://nls.corp.contoso.com> . lautet, wird eine Ausnahme Regel für den voll qualifizierten Namen nls.Corp.contoso.com erstellt.  
   
         **IP-HTTPS-Server**: der RAS-Server fungiert als IP-HTTPS-Listener und verwendet das Serverzertifikat zur Authentifizierung bei IP-HTTPS-Clients. Der IP-HTTPS-Name muss von den DirectAccess-Clients mit den öffentlichen DNS-Servern aufgelöst werden können.  
   
@@ -192,7 +192,7 @@ Bei der Planung von Active Directory für eine Remotezugriffbereitstellung ist F
   
     Wenn sich der Domänencontroller in einem Umkreisnetzwerk befindet (und deshalb von einem Netzwerkadapter mit Internetzugriff des Remotezugriffsservers aus erreichbar ist), müssen Sie verhindern, dass der Remotezugriffsserver den Domänencontroller erreicht, indem Sie dem Domänencontroller Paketfilter hinzufügen, damit die Konnektivität zur IP-Adresse des Internetadapters unterbunden wird.  
   
-- Der Remotezugriffsserver muss Domänenmitglied sein.  
+- Der RAS-Server muss Domänenmitglied sein.  
   
 - DirectAccess-Clients müssen Domänenmitglieder sein. Clients können folgenden Domänen angehören:  
   
@@ -208,7 +208,7 @@ Bei der Planung von Active Directory für eine Remotezugriffbereitstellung ist F
   
 ### <a name="plan-group-policy-objects"></a>Planen von Gruppenrichtlinienobjekten
 
-Die bei der Konfiguration des Remotezugriffs konfigurierten DirectAccess-Einstellungen werden in gpos (GPO) erfasst. Die drei Gruppenrichtlinienobjekte werden mit DirectAccess-Einstellungen aufgefüllt und wie folgt verteilt:  
+Die bei der Konfiguration des Remotezugriffs konfigurierten DirectAccess-Einstellungen werden in Gruppenrichtlinienobjekten (GPO) erfasst. Die drei Gruppenrichtlinienobjekte werden mit DirectAccess-Einstellungen aufgefüllt und wie folgt verteilt:  
   
 - **DirectAccess-Client**-Gruppenrichtlinien Objekt: dieses Gruppenrichtlinien Objekt enthält Client Einstellungen, einschließlich der IPv6-Übergangstechnologie Einstellungen, NRPT-Einträge und der Verbindungs Sicherheitsregeln für die Windows-Firewall mit erweiterter Sicherheit. Das Gruppenrichtlinienobjekt wird auf die für die Clientcomputer angegebenen Sicherheitsgruppen angewendet.  
   
@@ -276,4 +276,3 @@ Die **Remote Zugriffs Verwaltung** zeigt die folgende Fehlermeldung an: das Grup
 2. Öffnen Sie die **Remote Zugriffs Verwaltung**erneut.  
   
 3. In der angezeigten Fehlermeldung werden Sie darauf hingewiesen, dass das Gruppenrichtlinienobjekt nicht gefunden werden konnte. Klicken Sie auf **Konfigurationseinstellungen entfernen**. Nach Abschluss des Vorgangs wird der Server in einem nicht konfigurierten Zustand wiederhergestellt.  
-

@@ -8,21 +8,21 @@ ms.topic: article
 ms.assetid: b58252ca-4c1d-4664-a3c4-7301e2121517
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 9be7ef4c4d07b522f683a403e46a11e109dbd226
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 0ee3e30699c920a252646de67005675bdaeb849d
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80853643"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86964292"
 ---
 # <a name="troubleshooting-enabling-otp"></a>Problembehandlung bei der Aktivierung von OTP
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 Dieses Thema enthält Informationen zur Problembehandlung bei Problemen im Zusammenhang mit dem Aktivieren der DirectAccess-OTP-Authentifizierung über das PowerShell-Cmdlet " **enable-daotpauthentication** " oder über die Remote Zugriffs-Verwaltungskonsole.
   
 ## <a name="failed-to-enroll-the-otp-signing-certificate"></a>Fehler beim Registrieren des OTP-Signatur Zertifikats.  
-**Fehler** (Server Ereignisprotokoll). Ein OTP-Signaturzertifikat kann nicht mithilfe der Zertifikat Vorlage < OTP_signing_template_name registriert werden >  
+**Fehler** (Server Ereignisprotokoll). Ein OTP-Signaturzertifikat kann nicht mithilfe der Zertifikat Vorlage <OTP_signing_template_name registriert werden>  
   
 **Ursache**  
   
@@ -99,7 +99,5 @@ Mit dem MMC-Snap-in "Zertifikat Vorlagen" in Windows Server 2003 können Sie den
   
 **Lösung**  
   
-Installieren Sie das Zertifikat Vorlagen-Snap-in auf einem Post-Windows Server 2003-Server, und verwenden Sie es zum Konfigurieren der OTP-Anmeldevorlage. Weitere Informationen finden Sie unter [Installieren des Zertifikat Vorlagen-Snap-Ins](https://technet.microsoft.com/library/cc732445.aspx)  
+Installieren Sie das Zertifikat Vorlagen-Snap-in auf einem Post-Windows Server 2003-Server, und verwenden Sie es zum Konfigurieren der OTP-Anmeldevorlage. Weitere Informationen finden Sie unter [Installieren des Zertifikat Vorlagen-Snap-Ins](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc732445(v=ws.11))  
   
-
-

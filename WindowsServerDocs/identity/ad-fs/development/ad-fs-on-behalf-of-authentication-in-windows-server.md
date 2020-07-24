@@ -8,12 +8,12 @@ ms.date: 02/22/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: ed8bb6300360553e0809f4a30cec38bc37777ae9
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: febd79ea6feb0ef3d4e6f6d5659f2eb13e403a4b
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80858843"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86962192"
 ---
 # <a name="build-a-multi-tiered-application-using-on-behalf-of-obo-using-oauth-with-ad-fs-2016-or-later"></a>Erstellen einer Anwendung mit mehreren Stufen mithilfe von "on-Auftrag-of" (OBO) mithilfe von OAuth mit AD FS 2016 oder höher
 
@@ -54,7 +54,7 @@ Webapiobo | Back-End-Web-API, die von "dedoservice" zum Ausführen des erforderl
 
 ## <a name="setting-up-the-development-box"></a>Einrichten der Entwicklungs Box
 
-In dieser exemplarischen Vorgehensweise wird Visual Studio 2015 verwendet. Das Projekt verwendet stark Active Directory-Authentifizierungsbibliothek (Adal). Weitere Informationen zu Adal finden Sie unter [Active Directory-Authentifizierungsbibliothek .net](https://msdn.microsoft.com/library/azure/mt417579.aspx)
+In dieser exemplarischen Vorgehensweise wird Visual Studio 2015 verwendet. Das Projekt verwendet stark Active Directory-Authentifizierungsbibliothek (Adal). Weitere Informationen zu Adal finden Sie unter [Active Directory-Authentifizierungsbibliothek .net](/dotnet/api/microsoft.identitymodel.clients.activedirectory?view=azure-dotnet)
 
 Das Beispiel verwendet auch SQL localdb v 11.0. Installieren Sie die SQL localdb, bevor Sie mit dem Beispiel arbeiten.
 
@@ -74,9 +74,9 @@ Das Einrichten des Domänen Controllers und AD FS würde den Rahmen dieses Artik
 
 Das Beispiel basiert auf dem vorhandenen OBO-Beispiel für Azure, das von Vittorio Bertocci erstellt und [hier](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof)verfügbar ist. Befolgen Sie die Anweisungen, um das Projekt auf dem Entwicklungs Computer zu klonen, und erstellen Sie eine Kopie des Beispiels, um mit der Arbeit mit zu beginnen.
 
-## <a name="clone-or-download-this-repository"></a>Dieses Repository Klonen oder herunterladen
+## <a name="clone-or-download-this-repository"></a>Klonen oder Herunterladen des Repositorys
 
-Über Ihre Shell oder Befehlszeile:
+Verwenden Sie in Ihrer Shell oder Befehlszeile Folgendes:
 
     git clone https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof.git
 
@@ -157,7 +157,7 @@ Klicken Sie auf Weiter, und schließen Sie den Assistenten ab.
 
 #### <a name="modify-the-application-config"></a>Ändern der Anwendungskonfiguration
 
-Wechseln Sie zu Ihrem todolistclient-Projekt in der Projekt Mappe WebAPI-onbehalfof-dotnet. Öffnen Sie die Datei app. config, und nehmen Sie die folgenden Änderungen vor:
+Wechseln Sie zu Ihrem todolistclient-Projekt in der Projekt Mappe WebAPI-onbehalfof-dotnet. Öffnen Sie die Datei App.config, und nehmen Sie die folgenden Änderungen vor:
 
 * Kommentieren Sie den Eintrag "Ida: Tenant Key".
 * Für "Ida: redirecturi" geben Sie den beliebigen URI ein, den Sie beim Konfigurieren der MySampleGroup_ClientApplication in AD FS angegeben haben.
@@ -167,7 +167,7 @@ Wechseln Sie zu Ihrem todolistclient-Projekt in der Projekt Mappe WebAPI-onbehal
 * Geben Sie für "Ida: todolistbaseaddress" die Ressourcen-ID von todolistservicewebapi ein. Diese wird verwendet, wenn die ToDoList-WebAPI aufgerufen wird.
 * Fügen Sie einen Schlüssel "Ida: Authority" hinzu, und geben Sie den Wert als URI für AD FS an.
 
-Ihre **appSettings** in app. config sollten in etwa wie folgt aussehen:
+Die **appSettings** in App.Config sollte in etwa wie folgt aussehen:
 
     <appSettings>
     <!--<add key="ida:Tenant" value="[Enter tenant name, e.g. contoso.onmicrosoft.com]" />-->
@@ -205,14 +205,14 @@ Kommentieren Sie die Zeile aus, die die Mandanten Informationen aus der Anwendun
 
 Um den "im Auftrag von"-Ablauf abzuschließen, müssen Sie eine Back-End-Ressource erstellen, auf die der TodoListService im Auftrag des authentifizierten Benutzers zugreift. Die Auswahl der Back-End-Ressource kann je nach Anforderung variieren. für dieses Beispiel können Sie jedoch eine einfache WebAPI erstellen.
 
-* Klicken Sie im Projektmappen-Explorer mit der rechten Maustaste auf Projekt Mappe "WebAPI-onbehalfof-dotnet", und wählen Sie Add-> Neues Projekt
+* Klicken Sie im Projektmappen-Explorer mit der rechten Maustaste auf Projekt Mappe "WebAPI-onbehalfof-dotnet", und wählen Sie Add-> neues Projekt
 * ASP.NET-Webanwendungs Vorlage auswählen
 
 ![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO4.PNG)
 
 * Klicken Sie bei der nächsten Eingabeaufforderung auf "Authentifizierung ändern".
 * Wählen Sie "Geschäfts-, Schul-und unikonten" aus, und wählen Sie in der rechten Dropdown Liste "lokal" aus.
-* Geben Sie den Pfad "FederationMetadata. xml" für Ihre AD FS-Bereitstellung ein, und geben Sie einen app-URI an (geben Sie einen beliebigen URI für den Moment an, und ändern Sie ihn später), und klicken Sie auf OK, um das Projekt
+* Geben Sie den federationmetadata.xml Pfad für Ihre AD FS Bereitstellung ein, und geben Sie einen app-URI an (geben Sie einen beliebigen URI ein, den Sie später ändern werden), und klicken Sie auf OK, um das Projekt der Projekt Mappe hinzuzufügen.
 
 ![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO9.PNG)
 
@@ -270,17 +270,17 @@ Fahren Sie mit dem Assistenten fort, wie bei der Konfiguration der WebAPI "dedol
 
 #### <a name="modifying-the-application-config"></a>Ändern der Anwendungskonfiguration
 
-* Öffnen Sie die Datei "Web. config".
+* Öffnen Sie die Datei Web.config.
 * Ändern Sie die folgenden Schlüssel.
 
-| Key                      | Wert                                                                                                                                                                                                                   |
+| Schlüssel                      | Wert                                                                                                                                                                                                                   |
 |:-------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Ida: Audience             | Die ID des TodoListService, wie AD FS beim Konfigurieren der WebAPI TodoListService angegeben wird, z. b. https://localhost:44321/                                                                                         |
-| Ida: ClientID             | Die ID des TodoListService, wie AD FS beim Konfigurieren der WebAPI TodoListService angegeben wird, z. b. <https://localhost:44321/> </br>**Es ist sehr wichtig, dass die "Ida: Audience" und "Ida: ClientID" einander entsprechen.** |
-| Ida: clientsecret         | Dies ist der geheime Schlüssel, der beim Konfigurieren des Clients "dedolistservice" in generiert AD FS AD FS                                                                                                                   |
-| Ida: AdfsMetadataEndpoint | Dies ist die URL zu ihren AD FS-Metadaten, z. b. https://fs.anandmsft.com/federationmetadata/2007-06/federationmetadata.xml                                                                                             |
-| Ida: obowebapibase        | Dies ist die Basisadresse, die wir verwenden, um die Back-End-API aufzurufen, z. b. https://localhost:44300                                                                                                                     |
-| Ida: Authority            | Dies ist die URL für Ihren AD FS-Dienst, z. b. https://fs.anandmsft.com/adfs/                                                                                                                                          |
+| Ida: Audience             | Die ID des TodoListService, wie AD FS beim Konfigurieren der WebAPI TodoListService angegeben wird, z. b.https://localhost:44321/                                                                                         |
+| Ida: ClientID             | Die ID des TodoListService, wie AD FS beim Konfigurieren der WebAPI TodoListService angegeben wird, z. b.<https://localhost:44321/> </br>**Es ist sehr wichtig, dass die "Ida: Audience" und "Ida: ClientID" einander entsprechen.** |
+| ida:ClientSecret         | Dies ist der geheime Schlüssel, der beim Konfigurieren des Clients "dedolistservice" in generiert AD FS AD FS                                                                                                                   |
+| Ida: AdfsMetadataEndpoint | Dies ist die URL zu ihren AD FS-Metadaten, z. b.https://fs.anandmsft.com/federationmetadata/2007-06/federationmetadata.xml                                                                                             |
+| Ida: obowebapibase        | Dies ist die Basisadresse, die wir verwenden werden, um die Back-End-API aufzurufen, z. b.https://localhost:44300                                                                                                                     |
+| ida:Authority            | Dies ist die URL für Ihren AD FS-Dienst, z. b.https://fs.anandmsft.com/adfs/                                                                                                                                          |
 
 Alle anderen Ida: XXXXXXX-Schlüssel im Knoten " **appSettings** " können auskommentiert oder gelöscht werden.
 
@@ -297,7 +297,7 @@ Alle anderen Ida: XXXXXXX-Schlüssel im Knoten " **appSettings** " können ausko
                 TokenValidationParameters = new TokenValidationParameters{ SaveSigninToken = true }
             });
 
-mit
+durch
 
         app.UseActiveDirectoryFederationServicesBearerAuthentication(
             new ActiveDirectoryFederationServicesBearerAuthenticationOptions
@@ -334,7 +334,7 @@ Fügen Sie einen Verweis auf System. Web. Extensions hinzu. Ändern Sie die Klas
     private static string graphUserUrl = ConfigurationManager.AppSettings["ida:GraphUserUrl"];
     private const string TenantIdClaimType = "https://schemas.microsoft.com/identity/claims/tenantid";
 
-mit
+durch
 
     //
     // The Client ID is used by the application to uniquely identify itself to Azure AD.
@@ -493,10 +493,10 @@ Bei einem erfolgreichen Vorgang sehen Sie, dass das Element der Liste mit der zu
 ![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO27.PNG)
 
 Sie können auch die detaillierten Ablauf Verfolgungen für "fddler" sehen. Starten Sie "fddler" und aktivieren Sie die HTTPS-Entschlüsselung. Sie können sehen, dass wir zwei Anforderungen an den/ADFS/oautincludes-Endpunkt senden.
-In der ersten Interaktion präsentieren wir den Zugriffs Code für den tokenendpunkt und erhalten ein Zugriffs Token für https://localhost:44321/ ![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO22.PNG)
+In der ersten Interaktion präsentieren wir den Zugriffs Code für den tokenendpunkt und erhalten ein Zugriffs Token für https://localhost:44321/ ![ AD FS OBO.](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO22.PNG)
 
-In der zweiten Interaktion mit dem tokenendpunkt sehen Sie, dass **requested_token_use** als **on_behalf_of** festgelegt ist, und wir verwenden das Zugriffs Token, das für den Webdienst der mittleren Ebene abgerufen wurde, d. h. https://localhost:44321/ als die-Bestätigung, um das Token im-Auftrag zu erhalten.
+In der zweiten Interaktion mit dem tokenendpunkt sehen Sie, dass **requested_token_use** als **on_behalf_of** festgelegt ist, und wir verwenden das Zugriffs Token, das für den Webdienst der mittleren Ebene abgerufen wurde, d. h. https://localhost:44321/ als die Behauptung, das Token "im Auftrag von" zu erhalten.
 ![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO23.PNG)
 
 ## <a name="next-steps"></a>Nächste Schritte
-[AD FS-Entwicklung](../../ad-fs/AD-FS-Development.md)  
+[AD FS-Entwicklung](../../ad-fs/AD-FS-Development.md)  

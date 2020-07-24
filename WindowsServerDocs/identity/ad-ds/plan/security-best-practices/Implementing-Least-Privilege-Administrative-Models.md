@@ -8,18 +8,18 @@ ms.date: 08/09/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: c8655c7bac977bf94add1531d299e2fa17ef530d
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: d6a740f0fdc76698114cace8ded8533cebffc5cb
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80821243"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86964032"
 ---
 # <a name="implementing-least-privilege-administrative-models"></a>Implementieren von Verwaltungsmodellen der geringste Rechte
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Der folgende Auszug aus [dem Sicherheits Planungs Handbuch für Administrator Konten](https://technet.microsoft.com/library/cc162797.aspx)wird zuerst am 1. April 1999 veröffentlicht:
+Der folgende Auszug aus [dem Sicherheits Planungs Handbuch für Administrator Konten](/previous-versions/tn-archive/cc162797(v=technet.10))wird zuerst am 1. April 1999 veröffentlicht:
 
 > "In den meisten sicherheitsbezogenen Schulungskursen und in der Dokumentation wird die Implementierung eines Prinzips der geringsten Rechte erläutert, die Unternehmen jedoch selten befolgt werden. Das Prinzip ist einfach, und die Auswirkung der ordnungsgemäßen Anwendung erhöht die Sicherheit und verringert das Risiko. Das Prinzip besagt, dass sich alle Benutzer mit einem Benutzerkonto anmelden müssen, das über die absoluten minimalen Berechtigungen verfügt, die zum Ausführen der aktuellen Aufgabe erforderlich sind, und nichts anderes. Dies bietet neben anderen Angriffen auch Schutz vor schädlichem Code. Dieses Prinzip gilt für Computer und die Benutzer dieser Computer.   
 > "Ein Grund für dieses Prinzip ist, dass Sie einige interne Untersuchungen durchführen müssen. Beispielsweise müssen Sie die Zugriffsrechte ermitteln, die von einem Computer oder Benutzer tatsächlich benötigt werden, und diese dann implementieren. Für viele Organisationen könnte diese Aufgabe anfänglich wie eine große Menge an Arbeit erscheinen. Es ist jedoch ein wichtiger Schritt, um Ihre Netzwerkumgebung erfolgreich zu schützen.
@@ -108,7 +108,7 @@ Sollte ein Mitglieds Server oder eine Arbeitsstation von der Domäne getrennt we
 
 ### <a name="securing-local-privileged-accounts-and-groups-in-active-directory"></a>Sichern von lokalen privilegierten Konten und Gruppen in Active Directory
 
-*Recht Nummer 6: ein Computer ist nur so sicher, wie der Administrator vertrauenswürdig ist.* - [zehn unveränderliche Sicherheitsgesetze (Version 2,0)](https://technet.microsoft.com/security/hh278941.aspx)  
+*Recht Nummer 6: ein Computer ist nur so sicher, wie der Administrator vertrauenswürdig ist.* - [Zehn unveränderliche Sicherheitsgesetze (Version 2,0)](https://www.microsoft.com/en-us/msrc?rtc=1)  
 
 Die Informationen, die hier bereitgestellt werden, sollen allgemeine Richtlinien zum Sichern der integrierten Konten und Gruppen mit den meisten Berechtigungen in Active Directory bereitstellen. Ausführliche Schritt-für-Schritt-Anweisungen finden Sie auch in [Anhang D: schützen integrierter Administrator Konten in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory.md), Anhang E: Schützen von Organisations- [Admins-Gruppen in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-E--Securing-Enterprise-Admins-Groups-in-Active-Directory.md), [Anhang F: Sichern von Domänen-Admins-Gruppen in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-F--Securing-Domain-Admins-Groups-in-Active-Directory.md)und in [Anhang G: Sichern von Administratoren Gruppen in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-G--Securing-Administrators-Groups-in-Active-Directory.md).  
 
@@ -208,7 +208,7 @@ Für die Gruppe "Domänen-Admins" in jeder Domäne in der Gesamtstruktur:
 
 3. Die Überwachung sollte so konfiguriert werden, dass Warnungen gesendet werden, wenn Änderungen an den Eigenschaften oder der Mitgliedschaft der Gruppe "da" vorgenommen werden. Diese Warnungen sollten zumindest an Benutzer oder Teams gesendet werden, die für die AD DS Administration und Reaktion auf Vorfälle verantwortlich sind. Außerdem sollten Sie Prozesse und Prozeduren zum vorübergehenden Auffüllen der da-Gruppe definieren, einschließlich Benachrichtigungs Prozeduren, wenn die berechtigte Auffüllung der Gruppe durchgeführt wird.  
 
-#### <a name="securing-administrators-groups-in-active-directory"></a>Sichern von Administratoren Gruppen in Active Directory
+#### <a name="securing-administrators-groups-in-active-directory"></a>Schützen von Administratorgruppen in Active Directory
 
 Wie bei den EA-und da-Gruppen sollte die Mitgliedschaft in der Gruppe Administratoren (BA) nur in Build-oder Notfall Wiederherstellungs Szenarios erforderlich sein. Es dürfen keine alltäglichen Benutzerkonten in der Gruppe "Administratoren" vorhanden sein, mit Ausnahme des lokalen Administrator Kontos für die Domäne, sofern Sie wie in [Anhang D: schützen integrierter Administrator Konten in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory.md)beschrieben gesichert wurde.  
 
@@ -224,8 +224,8 @@ Administratoren sind standardmäßig Besitzer der meisten AD DS Objekte in ihren
    - Dadurch wird verhindert, dass Mitglieder der Gruppe "Administratoren" zum Anmelden oder zum Herstellen einer Verbindung mit Mitglieds Servern oder Arbeitsstationen verwendet werden (es sei denn, es werden mehrere Kontrollen zuerst verletzt), wo Ihre Anmelde Informationen zwischengespeichert und somit kompromittiert werden könnten. Ein privilegiertes Konto sollte nie zum Anmelden bei einem System mit weniger Berechtigungen verwendet werden, und durch Erzwingen dieser Steuerelemente wird der Schutz gegen eine Reihe von Angriffen ermöglicht.  
 
 3. Bei der Organisationseinheit "Domänen Controller" in jeder Domäne in der Gesamtstruktur sollten der Gruppe "Administratoren" die folgenden Benutzerrechte gewährt werden (sofern diese nicht bereits über diese Rechte verfügen). Dadurch können die Mitglieder der Gruppe "Administratoren" die für ein Gesamtstruktur weites Notfall Wiederherstellungs Szenario erforderlichen Funktionen ausführen:  
-   - Auf diesen Computer vom Netzwerk aus zugreifen  
-   - Lokal anmelden zulassen  
+   - Auf diesen Computer vom Netzwerk aus zugreifen.  
+   - Lokale Anmeldung zulassen  
    - Anmelden über Remotedesktopdienste zulassen  
 
 4. Die Überwachung sollte so konfiguriert werden, dass Warnungen gesendet werden, wenn Änderungen an den Eigenschaften oder der Gruppe "Administratoren" vorgenommen werden. Diese Warnungen sollten zumindest an Mitglieder des Teams gesendet werden, das für die AD DS Verwaltung verantwortlich ist. Außerdem sollten Warnungen an Mitglieder des Sicherheitsteams gesendet werden, und es sollten Prozeduren zum Ändern der Mitgliedschaft der Gruppe "Administratoren" definiert werden. Insbesondere sollten diese Prozesse eine Prozedur enthalten, mit der das Sicherheitsteam benachrichtigt wird, wenn die Gruppe "Administratoren" geändert wird, sodass Sie beim Senden von Warnungen erwartet werden und kein Alarm ausgelöst wird. Außerdem müssen Prozesse, die das Sicherheitsteam Benachrichtigen, wenn die Verwendung der Gruppe "Administratoren" abgeschlossen ist und die verwendeten Konten aus der Gruppe entfernt wurden, implementiert werden.  
@@ -279,7 +279,7 @@ Wenn Sie jedoch Native RBAC und PIM implementieren, sollten Sie die Erstellung v
 
 ### <a name="implementing-robust-authentication-controls"></a>Implementieren robuster Authentifizierungs Steuerelemente
 
-*Recht Nummer 6: Es gibt wirklich jemanden, der versucht, ihre Kenn Wörter zu erraten.* - [10 unveränderliche Gesetze der Sicherheitsverwaltung](https://technet.microsoft.com/library/cc722488.aspx)  
+*Recht Nummer 6: Es gibt wirklich jemanden, der versucht, ihre Kenn Wörter zu erraten.* - [10 unveränderliche Gesetze der Sicherheitsverwaltung](/previous-versions//cc722488(v=technet.10))  
 
 Pass-the-Hash-und andere Angriffe zum Diebstahl von Anmelde Informationen sind nicht spezifisch für Windows-Betriebssysteme und auch nicht neu. Der erste Pass-the-Hash-Angriff wurde in 1997 erstellt. In der Vergangenheit erforderten diese Angriffe angepasste Tools, waren in Ihrem Erfolg und benötigten Angreifern ein relativ hohes Maß an Fähigkeiten. Die Einführung von frei verfügbaren, leicht zu verwendenden Tools, die Anmelde Informationen nativ extrahieren, führte zu einer exponentiellen Zunahme der Anzahl und des Erfolgs von Angriffen zum Diebstahl von Anmelde Informationen in den letzten Jahren. Angriffe durch Diebstahl von Anmelde Informationen sind jedoch keineswegs die einzigen Mechanismen, mit denen Anmelde Informationen gezielt und kompromittiert werden.  
 
@@ -297,7 +297,7 @@ In Fällen, in denen sich komplexe Kenn Wörter aufgrund von Benutzer Beständig
 
 Ein weiterer Vorteil bei der Implementierung von Smartcards oder anderen Zertifikat basierten Authentifizierungsmechanismen besteht darin, dass Sie die Authentifizierungsmechanismus-Sicherheit nutzen können, um sensible Daten zu schützen, die für VIP-Benutzer zugänglich sind. Die Sicherung des Authentifizierungsmechanismus ist in Domänen verfügbar, in denen die Funktionsebene auf Windows Server 2012 oder Windows Server 2008 R2 festgelegt ist. Wenn die Authentifizierung aktiviert ist, wird eine vom Administrator festgelegte globale Gruppenmitgliedschaft zum Kerberos-Token eines Benutzers hinzugefügt, wenn die Anmelde Informationen des Benutzers bei der Anmeldung mithilfe einer Zertifikat basierten Anmelde Methode authentifiziert werden.  
 
-Dies ermöglicht es Ressourcen Administratoren, den Zugriff auf Ressourcen (z. b. Dateien, Ordner und Drucker) zu steuern, je nachdem, ob sich der Benutzer mithilfe einer Zertifikat basierten Anmelde Methode anmeldet, zusätzlich zu dem verwendeten Zertifikattyp. Wenn sich ein Benutzer z. b. mit einer Smartcard anmeldet, kann der Zugriff des Benutzers auf Ressourcen im Netzwerk anders als der Zugriff angegeben werden, wenn der Benutzer keine Smartcard verwendet (d. h., wenn sich der Benutzer anmeldet, indem er einen Benutzernamen und ein Kennwort eingegeben hat). Weitere Informationen zur Authentifizierung des Authentifizierungsmechanismus finden Sie [in der schrittweisen Anleitung zum Sichern von Authentifizierungsmechanismen für AD DS in Windows Server 2008 R2](https://technet.microsoft.com/library/dd378897.aspx).  
+Dies ermöglicht es Ressourcen Administratoren, den Zugriff auf Ressourcen (z. b. Dateien, Ordner und Drucker) zu steuern, je nachdem, ob sich der Benutzer mithilfe einer Zertifikat basierten Anmelde Methode anmeldet, zusätzlich zu dem verwendeten Zertifikattyp. Wenn sich ein Benutzer z. b. mit einer Smartcard anmeldet, kann der Zugriff des Benutzers auf Ressourcen im Netzwerk anders als der Zugriff angegeben werden, wenn der Benutzer keine Smartcard verwendet (d. h., wenn sich der Benutzer anmeldet, indem er einen Benutzernamen und ein Kennwort eingegeben hat). Weitere Informationen zur Authentifizierung des Authentifizierungsmechanismus finden Sie [in der schrittweisen Anleitung zum Sichern von Authentifizierungsmechanismen für AD DS in Windows Server 2008 R2](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd378897(v=ws.10)).  
 
 #### <a name="configuring-privileged-account-authentication"></a>Konfigurieren der Authentifizierung privilegierter Konten
 

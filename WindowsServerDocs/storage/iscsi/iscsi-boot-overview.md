@@ -8,12 +8,12 @@ author: JasonGerend
 manager: dougkim
 ms.author: jgerend
 ms.date: 09/11/2018
-ms.openlocfilehash: e0d92448774b277cff60d9b494cf388458ea32d3
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 68f5af7f8fc4cd0214b872d96602cabe1aa32628
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85475107"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86961372"
 ---
 # <a name="iscsi-target-boot-overview"></a>iSCSI-Zielstart (Übersicht)
 
@@ -48,6 +48,6 @@ Der iSCSI-Zielserver kann im Server-Manager als Teil der Datei- und iSCSI-Dienst
 > Das Starten von Nano Server über iSCSI (entweder von Windows iSCSI Target Server oder von einer Drittanbieter-Zielimplementierung) wird nicht unterstützt.
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
-* [iSCSI-Zielserver](https://technet.microsoft.com/library/hh848272(v=ws.11).aspx)
-* [iSCSI initiator cmdlets (Cmdlets des iSCSI-Intitiators)](https://technet.microsoft.com/library/hh826099(v=wps.640).aspx)
-* [iSCSI Target Server cmdlets (Cmdlets des iSCSI-Zielservers)](https://technet.microsoft.com/library/jj612803(v=wps.630).aspx)
+* [iSCSI-Zielserver](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh848272(v=ws.11))
+* [iSCSI initiator cmdlets (Cmdlets des iSCSI-Intitiators)](/powershell/module/iscsi/?view=win10-ps)
+* [iSCSI Target Server cmdlets (Cmdlets des iSCSI-Zielservers)](/powershell/module/iscsi/?view=win10-ps)

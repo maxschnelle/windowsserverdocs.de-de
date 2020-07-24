@@ -1,6 +1,6 @@
 ---
 ms.assetid: 3acaa977-ed63-4e38-ac81-229908c47208
-title: Behandlung von LDAP-Servercookies
+title: Behandlung von LDAP-Server-Cookies
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -8,16 +8,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: f90f53763e7a31ffed1fd820061910742e5cf98a
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: aa7d30d17d6e7a44daf2c5a65a4e173f25160456
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80823233"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86960772"
 ---
-# <a name="how-ldap-server-cookies-are-handled"></a>Behandlung von LDAP-Servercookies
+# <a name="how-ldap-server-cookies-are-handled"></a>Behandlung von LDAP-Server-Cookies
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 In LDAP ergeben einige Abfragen einen großen Ergebnissatz. Solche Abfragen stellen Windows Server vor Herausforderungen.  
   
@@ -125,11 +125,9 @@ Die Ereignisse 2898 und 2899 sind der einzige sichere Hinweis darauf, dass der L
   
 Erhalten Sie auf Ihrem DC/LDAP-Server Ereignis 2898, empfiehlt sich eine Erhöhung von MaxResultSetsPerConn auf 25. Mehr als 25 parallel ausgeführte seitenweise Suchen über eine einzige LDAP-Verbindung sind ungewöhnlich. Falls Sie Ereignis 2898 weiterhin erhalten, sollten Sie die LDAP-Clientanwendung überprüfen, in der der Fehler auftritt. In diesem Fall liegt es nahe, dass die Anwendung beim Abrufen weiterer seitenweiser Ergebnisse hängen bleibt, das Cookie daraufhin im Status „Ausstehend“ belässt und eine neue Abfrage startet. Um festzustellen, ob der Anwendung an einem bestimmten Punkt für ihre Zwecke ausreichend Cookies zur Verfügung stehen, können Sie MaxResultSetsPerConn auch auf einen höheren Wert als 25 einstellen. Werden Ihren Domänencontrollern hingegen 2899-Ereignisse zurückgegeben, sähe die Strategie anders aus. Läuft Ihr DC/LDAP-Server in diesem Fall auf einem Computer mit ausreichend Arbeitsspeicher (d. h. es sind mehrere GB Arbeitsspeicher frei), sollten Sie MaxResultsetSize auf dem LDAP-Server auf einen Wert größer oder gleich 250 MB setzen. Dieser Grenzwert ist auch für große Mengen umfangreicher seitenweiser LDAP-Suchen auch in sehr großen Verzeichnissen mehr als ausreichend.  
   
-Wenn Sie bei einem Pool mit dieser Größe nach wie vor 2899-Ereignisse erhalten, ist zu vermuten, dass auf dicht aufeinander folgende Abfragen sehr vieler Clients große Mengen an Objekten in kürzester Folge zurückgegeben werden. Die Daten, die Sie mit dem [Datensammler Satz Active Directory](https://blogs.technet.com/b/askds/archive/2010/06/08/son-of-spa-ad-data-collector-sets-in-win2008-and-beyond.aspx) erfassen können, können Sie dabei unterstützen, sich wiederholende auslagerbare Abfragen zu finden, die Ihre LDAP-Server Diese Abfragen werden alle mit der Anzahl der zurückgegebenen Einträge angezeigt, die mit der Größe der verwendeten Seite übereinstimmen.  
+Wenn Sie bei einem Pool mit dieser Größe nach wie vor 2899-Ereignisse erhalten, ist zu vermuten, dass auf dicht aufeinander folgende Abfragen sehr vieler Clients große Mengen an Objekten in kürzester Folge zurückgegeben werden. Die Daten, die Sie mit dem [Datensammler Satz Active Directory](/archive/blogs/askds/son-of-spa-ad-data-collector-sets-in-win2008-and-beyond) erfassen können, können Sie dabei unterstützen, sich wiederholende auslagerbare Abfragen zu finden, die Ihre LDAP-Server Diese Abfragen werden alle mit der Anzahl der zurückgegebenen Einträge angezeigt, die mit der Größe der verwendeten Seite übereinstimmen.  
   
-Überprüfen Sie nach Möglichkeit den Anwendungs Entwurf, und implementieren Sie einen anderen Ansatz mit niedrigerer Häufigkeit, Datenvolumen und/oder weniger Client Instanzen, die diese Daten Abfragen. Im Fall der Anwendungen, für die Sie über Zugriff auf den Quell Code verfügen, können Sie diese Anleitung zum [Erstellen von effizienten AD-fähigen Anwendungen](https://msdn.microsoft.com/library/ms808539.aspx) dabei unterstützen, die optimale Methode für den Zugriff auf AD-Anwendungen zu verstehen.  
+Überprüfen Sie nach Möglichkeit den Anwendungs Entwurf, und implementieren Sie einen anderen Ansatz mit niedrigerer Häufigkeit, Datenvolumen und/oder weniger Client Instanzen, die diese Daten Abfragen. Im Fall der Anwendungen, für die Sie über Zugriff auf den Quell Code verfügen, können Sie diese Anleitung zum [Erstellen von effizienten AD-fähigen Anwendungen](/previous-versions/ms808539(v=msdn.10)) dabei unterstützen, die optimale Methode für den Zugriff auf AD-Anwendungen zu verstehen.  
   
 Wenn das Abfrage Verhalten nicht geändert werden kann, besteht ein Ansatz darin, auch weitere replizierte Instanzen der benötigten Namenskontexte hinzuzufügen und die Clients neu zu verteilen und schließlich die Last auf den einzelnen LDAP-Servern zu verringern.  
   
-
-

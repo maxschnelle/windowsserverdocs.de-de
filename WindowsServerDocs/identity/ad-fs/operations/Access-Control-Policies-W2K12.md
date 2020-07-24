@@ -8,12 +8,12 @@ ms.date: 06/05/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 7355ff9ed49a5e4ee8bca3a3d266a0ec1ecc0780
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: b85e6b9d3a63796c75ce10c9cd90ed9c5d11c91f
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80814893"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86962742"
 ---
 # <a name="access-control-policies-in-windows-server-2012-r2-and-windows-server-2012-ad-fs"></a>Access Control Richtlinien in Windows Server 2012 R2 und Windows Server 2012 AD FS
 
@@ -86,7 +86,7 @@ Die in diesem Artikel beschriebenen Richtlinien sollten immer mit einer anderen 
 
 7.  Klicken Sie im Dialogfeld **Anspruchs Regeln bearbeiten** auf **OK**, um die neuen Regeln zu speichern. Die resultierende Liste sollte wie folgt aussehen.  
 
-     ![Regeln für die Ausstellungs Authentifizierung](media/Access-Control-Policies-W2K12/clientaccess1.png "ADFS_Client_Access_1")  
+     ![Ausstellungsautorisierungsregeln](media/Access-Control-Policies-W2K12/clientaccess1.png "ADFS_Client_Access_1")  
 
 ###  <a name="scenario-2-block-all-external-access-to-office-365-except-exchange-activesync"></a><a name="scenario2"></a>Szenario 2: Blockieren des gesamten externen Zugriffs auf Office 365 mit Ausnahme von Exchange ActiveSync  
  Im folgenden Beispiel wird der Zugriff auf alle Office 365-Anwendungen einschließlich Exchange Online von internen Clients einschließlich Outlook ermöglicht. Der Zugriff von Clients, die sich außerhalb des Unternehmensnetzwerks befinden, wird durch die Client-IP-Adresse, mit Ausnahme von Exchange ActiveSync-Clients wie Smartphones, blockiert.  
@@ -252,19 +252,19 @@ Die in diesem Artikel beschriebenen Richtlinien sollten immer mit einer anderen 
 
 - 10.0.0.1 – 10.0.0.14  
 
-  Zuerst lautet das grundlegende Muster, das mit einer einzelnen IP-Adresse abgeglichen wird, wie folgt: \b # # #\\. # # #\\. # # #\\. # # # \b  
+  Zuerst lautet das grundlegende Muster, das einer einzelnen IP-Adresse entspricht, wie folgt: \b # # # \\ . # # # \\ . # # # \\ . # # # \b  
 
-  Dadurch können wir zwei unterschiedliche IP-Adressen wie folgt mit einem or-Ausdruck vergleichen: \b # # #\\. # # #\\. # # #\\. # # # \b&#124;\b # # #\\. # # #\\. # # #\\. # # # \b  
+  Dadurch können wir zwei unterschiedliche IP-Adressen wie folgt mit einem or-Ausdruck vergleichen: \b # # # \\ . # # # \\ . # # # \\ . # # # \b&#124; \b # # # \\ . # # # \\ . # # # \\ . # # # \b  
 
-  Ein Beispiel für die Anpassung von nur zwei Adressen (z. b. 192.168.1.1 oder 10.0.0.1) lautet: \b192\\. 168\\1\\. \&#124;b \b10\\0\\. 0\\. 1 \ b  
+  Ein Beispiel für die Anpassung von nur zwei Adressen (z. b. 192.168.1.1 oder 10.0.0.1) lautet: \b192 \\ . 168 1. \\ \\ 1&#124; \b10 \\ 0 \\ . 0 \\ . 1 \ b  
 
-  Auf diese Weise können Sie eine beliebige Anzahl von Adressen eingeben. Wenn ein Adressbereich zulässig sein muss, z. b. 192.168.1.1 – 192.168.1.25, muss der Abgleich Zeichen nach Zeichen durchgeführt werden: \b192\\. 168\\. 1\\. ([1-9]&#124;1 [0-9]&#124;2 [0-5]) \b  
+  Auf diese Weise können Sie eine beliebige Anzahl von Adressen eingeben. Wenn ein Adressbereich zulässig sein muss, z. b. 192.168.1.1 – 192.168.1.25, muss die Übereinstimmung Zeichen nach Zeichen durchgeführt werden: \b192 \\ . 168 \\ . 1 \\ . ( [1-9] &#124;1 [0-9] &#124;2 [0-5]) \b  
 
-  Bitte beachten Sie Folgendes:  
+  Beachten Sie Folgendes:  
 
 - Die IP-Adresse wird als Zeichenfolge und nicht als Zahl behandelt.  
 
-- Die Regel wird wie folgt aufgeschlüsselt: \b192\\. 168\\. 1\\.  
+- Die Regel wird wie folgt aufgegliedert: \b192 \\ . 168 \\ . 1 \\ .  
 
 - Dies entspricht einem beliebigen Wert, der mit 192.168.1 beginnt.  
 
@@ -278,9 +278,9 @@ Die in diesem Artikel beschriebenen Richtlinien sollten immer mit einer anderen 
 
 - Beachten Sie, dass die Klammern ordnungsgemäß positioniert werden müssen, damit Sie nicht mit anderen Teilen von IP-Adressen übereinstimmen.  
 
-- Wenn der 192-Block übereinstimmt, können wir einen ähnlichen Ausdruck für den 10-Block schreiben: \b10\\0\\. 0\\. ([1-9]&#124;1 [0-4]) \b  
+- Wenn der 192-Block übereinstimmt, können wir einen ähnlichen Ausdruck für den 10-Block schreiben: \b10 \\ 0 \\ . 0 \\ . ( [1-9] &#124;1 [0-4]) \b  
 
-- Der folgende Ausdruck muss alle Adressen für "192.168.1.1 ~ 25" und "10.0.0.1 ~ 14": \b192\\. 168\\. 1\\entsprechen. ([1-9]&#124;1 [0-9]&#124;2 [0-5]) \b&#124;\b10\\0\\. 0\\. ([1-9]&#124;1 [0-4]) \b  
+- Der folgende Ausdruck muss alle Adressen für "192.168.1.1 ~ 25" und "10.0.0.1 ~ 14": \b192 \\ . 168 \\ . 1 entsprechen \\ . [1-9] &#124;1 [0-9] &#124;2 [0-5]) \b&#124; \b10 \\ 0 \\ . 0 \\ . ( [1-9] &#124;1 [0-4]) \b  
 
 ### <a name="testing-the-expression"></a>Testen des Ausdrucks  
  Regex-Ausdrücke können recht kompliziert werden, daher wird dringend empfohlen, ein Regex-Überprüfungs Tool zu verwenden. Wenn Sie eine Internetsuche nach "Online-Regex Expression Builder" durchführen, finden Sie mehrere gute Online Dienstprogramme, mit denen Sie Ihre Ausdrücke anhand von Beispiel Daten ausprobieren können.  
@@ -295,7 +295,7 @@ Die in diesem Artikel beschriebenen Richtlinien sollten immer mit einer anderen 
  AD FS in Windows Server 2012 R2 bietet Anforderungs Kontextinformationen mithilfe der folgenden Anspruchs Typen:  
 
 ### <a name="x-ms-forwarded-client-ip"></a>X-MS-weitergeleitete Client-IP  
- Anspruchstyp: `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip`  
+ Anspruchstyp:`https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip`  
 
  Dieser AD FS Anspruch stellt einen "besten Versuch" dar, die IP-Adresse des Benutzers (z. b. den Outlook-Client) zu ermitteln, der die Anforderung sendet. Dieser Anspruch kann mehrere IP-Adressen enthalten, einschließlich der Adresse jedes Proxys, von dem die Anforderung weitergeleitet wurde.  Dieser Anspruch wird mit einem http-Wert aufgefüllt. Der Wert des Anspruchs kann eines der folgenden sein:  
 
@@ -317,7 +317,7 @@ Die in diesem Artikel beschriebenen Richtlinien sollten immer mit einer anderen 
 >  Exchange Online unterstützt zurzeit nur IPv4-Adressen. IPv6-Adressen werden nicht unterstützt.  
 
 ### <a name="x-ms-client-application"></a>X-MS-Client-Anwendung  
- Anspruchstyp: `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application`  
+ Anspruchstyp:`https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application`  
 
  Dieser AD FS Anspruch stellt das vom Endclient verwendete Protokoll dar, das der verwendeten Anwendung lose entspricht.  Dieser Anspruch wird mit einem HTTP-Header aufgefüllt, der derzeit nur von Exchange Online festgelegt wird, der den-Header auffüllt, wenn die Authentifizierungsanforderung an AD FS übergeben wird. Abhängig von der Anwendung ist der Wert dieses Anspruchs einer der folgenden:  
 
@@ -344,7 +344,7 @@ Die in diesem Artikel beschriebenen Richtlinien sollten immer mit einer anderen 
     -   Microsoft. Exchange. IMAP  
 
 ### <a name="x-ms-client-user-agent"></a>X-MS-Client-User-Agent  
- Anspruchstyp: `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-user-agent`  
+ Anspruchstyp:`https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-user-agent`  
 
  Dieser AD FS Anspruch stellt eine Zeichenfolge bereit, die den Gerätetyp darstellt, der vom Client für den Zugriff auf den Dienst verwendet wird. Dies kann verwendet werden, wenn Kunden den Zugriff für bestimmte Geräte (z. b. bestimmte Arten von Smartphones) verhindern möchten.  Beispiel Werte für diesen Anspruch sind die unten aufgeführten Werte (aber nicht beschränkt auf).  
 
@@ -367,23 +367,23 @@ Die in diesem Artikel beschriebenen Richtlinien sollten immer mit einer anderen 
   Es ist auch möglich, dass dieser Wert leer ist.  
 
 ### <a name="x-ms-proxy"></a>X-MS-Proxy  
- Anspruchstyp: `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-proxy`  
+ Anspruchstyp:`https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-proxy`  
 
  Dieser AD FS Anspruch gibt an, dass die Anforderung den webanwendungsproxy übermittelt hat.  Dieser Anspruch wird durch den webanwendungsproxy aufgefüllt, der den-Header auffüllt, wenn die Authentifizierungsanforderung an das Back-End-Verbunddienst übergeben wird. AD FS dann in einen Anspruch konvertiert.  
 
  Der Wert des Anspruchs ist der DNS-Name des webanwendungsproxys, der die Anforderung übermittelt hat.  
 
 ### <a name="insidecorporatenetwork"></a>Insizercorporatenetwork  
- Anspruchstyp: `https://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork`  
+ Anspruchstyp:`https://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork`  
 
  Ähnlich wie bei dem obigen Anspruchstyp "x-ms-Proxy" gibt dieser Anspruchstyp an, ob die Anforderung den webanwendungsproxy übermittelt hat. Anders als bei x-ms-Proxy ist insidecorporatenetwork ein boolescher Wert mit true, der eine Anforderung direkt an den Verbund Dienst innerhalb des Unternehmensnetzwerks anzeigt.  
 
 ### <a name="x-ms-endpoint-absolute-path-active-vs-passive"></a>X-MS-Endpoint-absolute-path (aktiv/passiv)  
- Anspruchstyp: `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path`  
+ Anspruchstyp:`https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path`  
 
  Dieser Anspruchstyp kann zum Bestimmen von Anforderungen verwendet werden, die von "aktiven" (Rich) Clients und "passiven" (Webbrowser basierten) Clients stammen. Dadurch können externe Anforderungen von browserbasierten Anwendungen wie Outlook Webzugriff, SharePoint Online oder dem Office 365-Portal zugelassen werden, während Anforderungen, die von Rich-Clients wie Microsoft Outlook stammen, blockiert werden.  
 
  Der Wert des Anspruchs ist der Name des AD FS Dienstanbieter, der die Anforderung empfangen hat.  
 
 ## <a name="see-also"></a>Weitere Informationen  
- [AD FS-Vorgänge](../../ad-fs/AD-FS-2016-Operations.md)
+ [AD FS-Vorgänge](../ad-fs-operations.md)

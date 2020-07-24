@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.assetid: e7543381-4081-407f-adad-a9de792c6616
 ms.technology: identity-adds
-ms.openlocfilehash: b9ba00939ccb2ee747501733fb9654edb4c8132e
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 4bf3ec5cb9495e3603c3a5a385f0ff7b65e9d8b7
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80824253"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86962943"
 ---
 # <a name="ad-forest-recovery---cleaning-metadata-of-removed-writable-domain-controllers"></a>AD-Gesamtstruktur Wiederherstellung: Bereinigen von Metadaten entfernter Beschreib barer Domänen Controller
 
@@ -31,7 +31,7 @@ Wenn Sie die-Version von Active Directory Benutzer und Computer oder Active Dire
 
 Als Alternative können Sie auch Active Directory Websites und Dienste in RSAT verwenden, um ein DC-Objekt zu löschen. Wenn Sie Active Directory Websites und Dienste verwenden, müssen Sie das zugehörige Server Objekt und das NTDS-Einstellungs Objekt löschen, bevor Sie das DC-Objekt löschen können.  
 
-Weitere Informationen zum Installieren von RSAT finden Sie im Artikel [Remoteserver-Verwaltungstools](https://docs.microsoft.com/windows-server/remote/remote-server-administration-tools).
+Weitere Informationen zum Installieren von RSAT finden Sie im Artikel [Remoteserver-Verwaltungstools](../../../remote/remote-server-administration-tools.md).
   
 Das folgende Verfahren ist für DCS, die entweder Windows Server 2016, 2012, 2008 R2 oder 2008 ausführen, identisch. Der Ziel-DC des Metadatenbereinigungs Vorgangs kann eine beliebige Version von Windows Server ausführen.  
   

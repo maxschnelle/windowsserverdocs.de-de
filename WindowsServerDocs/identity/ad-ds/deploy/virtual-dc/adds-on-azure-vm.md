@@ -8,12 +8,12 @@ ms.date: 04/11/2019
 ms.technology: identity-adds
 ms.topic: article
 ms.prod: windows-server
-ms.openlocfilehash: 536c35077d402370eab7758b8b31cf1916f8ae6f
-ms.sourcegitcommit: 96db7769c3be9d7534bfed942697122ce907a28a
+ms.openlocfilehash: a429ae3fed8694b5d9f05722b9f9d580b6b27ae6
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85448472"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86962982"
 ---
 # <a name="install-a-new-active-directory-forest-using-azure-cli"></a>Installieren einer neuen Active Directory-Gesamtstruktur mit der Azure CLI
 
@@ -22,31 +22,31 @@ AD DS können auf einem virtuellen Azure-Computer (VM) auf die gleiche Weise wie
 ## <a name="components"></a>Komponenten
 
 * Eine Ressourcengruppe, in der alles abgelegt werden soll.
-* Eine [Azure-Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview.md), ein Subnetz, eine Netzwerk Sicherheitsgruppe und eine Regel zum Zulassen von RDP-Zugriff auf virtuelle Computer.
-* Eine [Verfügbarkeits Gruppe](https://docs.microsoft.com/azure/virtual-machines/windows/regions-and-availability#availability-sets) für virtuelle Azure-Computer, in der zwei Active Directory Domain Services (AD DS)-Domänen Controller abgelegt werden.
+* Eine [Azure-Virtual Network](/azure/virtual-network/virtual-networks-overview.md), ein Subnetz, eine Netzwerk Sicherheitsgruppe und eine Regel zum Zulassen von RDP-Zugriff auf virtuelle Computer.
+* Eine [Verfügbarkeits Gruppe](/azure/virtual-machines/windows/regions-and-availability#availability-sets) für virtuelle Azure-Computer, in der zwei Active Directory Domain Services (AD DS)-Domänen Controller abgelegt werden.
 * Zwei virtuelle Azure-Computer zum Ausführen von AD DS und DNS.
 
 ### <a name="items-that-are-not-covered"></a>Nicht abgedeckte Elemente
 
-* [Erstellen einer Site-to-Site-VPN-Verbindung](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) von einem lokalen Standort
-* [Sichern von Netzwerk Datenverkehr in Azure](https://docs.microsoft.com/azure/security/azure-security-network-security-best-practices.md)
-* [Entwerfen der Standort Topologie](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology)
-* [Planen der Platzierung von Betriebs Master Rollen](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/planning-operations-master-role-placement)
-* [Bereitstellen von Azure AD Connect zum Synchronisieren von Identitäten mit Azure AD](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-express)
+* [Erstellen einer Site-to-Site-VPN-Verbindung](/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) von einem lokalen Standort
+* [Sichern von Netzwerk Datenverkehr in Azure](/azure/security/azure-security-network-security-best-practices.md)
+* [Entwerfen der Standort Topologie](../../plan/designing-the-site-topology.md)
+* [Planen der Platzierung von Betriebs Master Rollen](../../plan/planning-operations-master-role-placement.md)
+* [Bereitstellen von Azure AD Connect zum Synchronisieren von Identitäten mit Azure AD](/azure/active-directory/hybrid/how-to-connect-install-express)
 
 ## <a name="build-the-test-environment"></a>Erstellen der Testumgebung
 
-Wir verwenden die [Azure-Portal](https://portal.azure.com) und [Azure CLI](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest) zum Erstellen der Umgebung.
+Wir verwenden die [Azure-Portal](https://portal.azure.com) und [Azure CLI](/cli/azure/overview?view=azure-cli-latest) zum Erstellen der Umgebung.
 
 Die Azure CLI dient zum Erstellen und Verwalten von Azure-Ressourcen über die Befehlszeile oder mit Skripts. In diesem Tutorial wird die Verwendung des Azure CLI zum Bereitstellen virtueller Maschinen mit Windows Server 2019 ausführlich erläutert. Nach Abschluss der Bereitstellung stellen wir eine Verbindung mit den Servern her und installieren AD DS.
 
-Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free) erstellen, bevor Sie beginnen.
+Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto erstellen](https://azure.microsoft.com/free), bevor Sie beginnen.
 
 ### <a name="using-azure-cli"></a>Verwenden der Azure-Befehlszeilenschnittstelle
 
 Das folgende Skript automatisiert den Prozess der Erstellung von zwei virtuellen Windows Server 2019-Computern, um Domänen Controller für eine neue Active Directory Gesamtstruktur in Azure zu erstellen. Ein Administrator kann die unten aufgeführten Variablen entsprechend Ihren Anforderungen ändern und dann als einen Vorgang vervollständigen. Das Skript erstellt die erforderliche Ressourcengruppe, die Netzwerk Sicherheitsgruppe mit einer Datenverkehrs Regel für Remotedesktop, das virtuelle Netzwerk und das Subnetz und die Verfügbarkeits Gruppe. Die virtuellen Computer werden jeweils mit einem Datenträger mit 20 GB erstellt, wobei das Caching für die Installation AD DS deaktiviert ist.
 
-Das folgende Skript kann direkt vom Azure-Portal ausgeführt werden. Wenn Sie die CLI lokal installieren und verwenden möchten, müssen Sie für diesen Schnellstart die Azure CLI-Version 2.0.4 oder höher ausführen. Führen Sie `az --version` aus, um die Version zu ermitteln. Wenn Sie eine Installation oder ein Upgrade ausführen müssen, finden Sie unter [Installieren von Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) Informationen dazu.
+Das folgende Skript kann direkt vom Azure-Portal ausgeführt werden. Wenn Sie die CLI lokal installieren und verwenden möchten, müssen Sie für diesen Schnellstart die Azure CLI-Version 2.0.4 oder höher ausführen. Führen Sie `az --version` aus, um die Version zu ermitteln. Wenn Sie eine Installation oder ein Upgrade ausführen müssen, finden Sie unter [Installieren von Azure CLI 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest) Informationen dazu.
 
 | Variablenname | Zweck |
 | :---: | :--- |
@@ -155,12 +155,11 @@ az vm create \
 
 ## <a name="dns-and-active-directory"></a>DNS und Active Directory
 
-Wenn die als Teil dieses Prozesses erstellten virtuellen Azure-Computer eine Erweiterung einer vorhandenen lokalen Active Directory Infrastruktur sind, müssen die DNS-Einstellungen im virtuellen Netzwerk so geändert werden, dass Ihre lokalen DNS-Server vor der Bereitstellung eingeschlossen werden. Dieser Schritt ist wichtig, damit die neu erstellten Domänen Controller in Azure lokale Ressourcen auflösen und die Replikation zulassen können. Weitere Informationen zu DNS, Azure und zum Konfigurieren von Einstellungen finden Sie im Abschnitt [Namensauflösung, der ihren eigenen DNS-Server verwendet](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server).
+Wenn die als Teil dieses Prozesses erstellten virtuellen Azure-Computer eine Erweiterung einer vorhandenen lokalen Active Directory Infrastruktur sind, müssen die DNS-Einstellungen im virtuellen Netzwerk so geändert werden, dass Ihre lokalen DNS-Server vor der Bereitstellung eingeschlossen werden. Dieser Schritt ist wichtig, damit die neu erstellten Domänen Controller in Azure lokale Ressourcen auflösen und die Replikation zulassen können. Weitere Informationen zu DNS, Azure und zum Konfigurieren von Einstellungen finden Sie im Abschnitt [Namensauflösung, der ihren eigenen DNS-Server verwendet](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server).
 
-Nachdem Sie die neuen Domänen Controller in Azure herauf gestuft haben, müssen Sie auf den primären und sekundären DNS-Server für das virtuelle Netzwerk festgelegt werden, und alle lokalen DNS-Server werden in den tertiären und darüber hinaus herabgestuft. Weitere Informationen zum Ändern von DNS-Servern finden Sie im Artikel [erstellen, ändern oder Löschen eines virtuellen Netzwerks](https://docs.microsoft.com/azure/virtual-network/manage-virtual-network#change-dns-servers).
+Nachdem Sie die neuen Domänen Controller in Azure herauf gestuft haben, müssen Sie auf den primären und sekundären DNS-Server für das virtuelle Netzwerk festgelegt werden, und alle lokalen DNS-Server werden in den tertiären und darüber hinaus herabgestuft. Weitere Informationen zum Ändern von DNS-Servern finden Sie im Artikel [erstellen, ändern oder Löschen eines virtuellen Netzwerks](/azure/virtual-network/manage-virtual-network#change-dns-servers).
 
-Informationen zum Erweitern eines lokalen Netzwerks auf Azure finden Sie im Artikel [Erstellen einer Site-to-Site-VPN-Verbindung](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal
-).
+Informationen zum Erweitern eines lokalen Netzwerks auf Azure finden Sie im Artikel [Erstellen einer Site-to-Site-VPN-Verbindung](/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal).
 
 ## <a name="configure-the-vms-and-install-active-directory-domain-services"></a>Konfigurieren Sie die VMs, und installieren Sie Active Directory Domain Services
 
@@ -194,7 +193,7 @@ Wenn der virtuelle Computer neu gestartet wurde, melden Sie sich mit den zuvor v
    > [!NOTE]
    > Der erste Anmeldevorgang nach der herauf Stufung zu einem Domänen Controller dauert möglicherweise länger als normal und ist in Ordnung. Holen Sie sich einen Tasse Tee, Kaffee, Wasser oder andere Getränke Ihrer Wahl.
 
-[Virtuelle Azure-Netzwerke unterstützen jetzt IPv6](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#do-vnets-support-ipv6) , aber falls Sie Ihre VMs für die Verwendung von IPv4 gegenüber IPv6 festlegen möchten, finden Sie Informationen zum Ausführen dieser Aufgabe im KB-Artikel [Leitfaden zum Konfigurieren von IPv6 in Windows für fortgeschrittene Benutzer](https://support.microsoft.com/help/929852/guidance-for-configuring-ipv6-in-windows-for-advanced-users).
+[Virtuelle Azure-Netzwerke unterstützen jetzt IPv6](/azure/virtual-network/virtual-networks-faq#do-vnets-support-ipv6) , aber falls Sie Ihre VMs für die Verwendung von IPv4 gegenüber IPv6 festlegen möchten, finden Sie Informationen zum Ausführen dieser Aufgabe im KB-Artikel [Leitfaden zum Konfigurieren von IPv6 in Windows für fortgeschrittene Benutzer](https://support.microsoft.com/help/929852/guidance-for-configuring-ipv6-in-windows-for-advanced-users).
 
 ### <a name="configure-the-second-domain-controller"></a>Konfigurieren des zweiten Domänen Controllers
 
@@ -223,11 +222,11 @@ Nachdem der Assistent den Installationsvorgang abgeschlossen hat, wird der virtu
 
 Wenn der virtuelle Computer neu gestartet wurde, melden Sie sich mit den zuvor verwendeten Anmelde Informationen wieder an, aber dieses Mal als Mitglied der contoso.com-Domäne.
 
-[Virtuelle Azure-Netzwerke unterstützen jetzt IPv6](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#do-vnets-support-ipv6) , aber falls Sie Ihre VMs für die Verwendung von IPv4 gegenüber IPv6 festlegen möchten, finden Sie Informationen zum Ausführen dieser Aufgabe im KB-Artikel [Leitfaden zum Konfigurieren von IPv6 in Windows für fortgeschrittene Benutzer](https://support.microsoft.com/help/929852/guidance-for-configuring-ipv6-in-windows-for-advanced-users).
+[Virtuelle Azure-Netzwerke unterstützen jetzt IPv6](/azure/virtual-network/virtual-networks-faq#do-vnets-support-ipv6) , aber falls Sie Ihre VMs für die Verwendung von IPv4 gegenüber IPv6 festlegen möchten, finden Sie Informationen zum Ausführen dieser Aufgabe im KB-Artikel [Leitfaden zum Konfigurieren von IPv6 in Windows für fortgeschrittene Benutzer](https://support.microsoft.com/help/929852/guidance-for-configuring-ipv6-in-windows-for-advanced-users).
 
 ### <a name="configure-dns"></a>Konfigurieren des DNS
 
-Nachdem Sie die neuen Domänen Controller in Azure herauf gestuft haben, müssen Sie auf den primären und sekundären DNS-Server für das virtuelle Netzwerk festgelegt werden, und alle lokalen DNS-Server werden in den tertiären und darüber hinaus herabgestuft. Weitere Informationen zum Ändern von DNS-Servern finden Sie im Artikel [erstellen, ändern oder Löschen eines virtuellen Netzwerks](https://docs.microsoft.com/azure/virtual-network/manage-virtual-network#change-dns-servers).
+Nachdem Sie die neuen Domänen Controller in Azure herauf gestuft haben, müssen Sie auf den primären und sekundären DNS-Server für das virtuelle Netzwerk festgelegt werden, und alle lokalen DNS-Server werden in den tertiären und darüber hinaus herabgestuft. Weitere Informationen zum Ändern von DNS-Servern finden Sie im Artikel [erstellen, ändern oder Löschen eines virtuellen Netzwerks](/azure/virtual-network/manage-virtual-network#change-dns-servers).
 
 ### <a name="wrap-up"></a>Zusammenfassung
 
@@ -252,9 +251,9 @@ az group delete --name ADonAzureVMs
 ## <a name="next-steps"></a>Nächste Schritte
 
 * [Sichere Virtualisierung von Active Directory Domain Services (AD DS)](../../Introduction-to-Active-Directory-Domain-Services-AD-DS-Virtualization-Level-100.md)
-* [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-get-started-express)
-* [Sicherung und Wiederherstellung:](https://docs.microsoft.com/azure/virtual-machines/windows/backup-recovery)
-* [VPN-Konnektivität Zwischenstand Orten](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal)
-* [Überwachung](https://docs.microsoft.com/azure/virtual-machines/windows/monitor)
-* [Sicherheit und Richtlinien](https://docs.microsoft.com/azure/virtual-machines/windows/security-policy)
-* [Wartung und Updates](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates)
+* [Azure AD Connect](/azure/active-directory/connect/active-directory-aadconnect-get-started-express)
+* [Sicherung und Wiederherstellung:](/azure/virtual-machines/windows/backup-recovery)
+* [VPN-Konnektivität Zwischenstand Orten](/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal)
+* [Überwachung](/azure/virtual-machines/windows/monitor)
+* [Sicherheit und Richtlinien](/azure/virtual-machines/windows/security-policy)
+* [Wartung und Updates](/azure/virtual-machines/windows/maintenance-and-updates)

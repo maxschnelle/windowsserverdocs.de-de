@@ -8,12 +8,12 @@ ms.topic: get-started-article
 author: nedpyle
 ms.date: 04/15/2020
 ms.assetid: 12bc8e11-d63c-4aef-8129-f92324b2bf1b
-ms.openlocfilehash: 9978fd3e926ade4680ca6563d9d39b0851d893e9
-ms.sourcegitcommit: 568b924d32421256f64abfee171304f1daf320d2
+ms.openlocfilehash: d9e0a3855c324ca9b5c7de90d78535024a0a7a9d
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85070493"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86964052"
 ---
 # <a name="frequently-asked-questions-about-storage-replica"></a>Häufig gestellte Fragen zu Speicherreplikaten
 
@@ -35,7 +35,7 @@ Wichtige Hinweise:
 
 1. Azure unterstützt keine freigegebenen vhdx-Gastclustering. Daher müssen virtuelle Windows-Failovercluster-Computer iSCSI-Ziele für permanente Datenträger-Reservierungs Clustering oder direkte Speicherplätze für den klassischen freigegebenen Speicher verwenden.
 2. Zum [Erstellen eines direkte Speicherplätze sofs-Clusters mit Speicher Replikat für die Notfall Wiederherstellung in Azure-Regionen](https://aka.ms/azure-storage-replica-cluster)gibt es Azure Resource Manager Vorlagen für direkte Speicherplätze-basiertes Speicher Replikat Cluster.  
-3. Cluster-zu-Cluster-RPC-Kommunikation in Azure (erforderlich für die Cluster-APIs zum Gewähren von Zugriff zwischen Clustern) erfordert das Konfigurieren des Netzwerk Zugriffs für das CNO. Sie müssen den TCP-Port 135 und den dynamischen Bereich oberhalb des TCP-Ports 49152 zulassen. Referenz [zum Erstellen eines Windows Server-Failoverclusters auf Azure IaaS-VM – Teil 2 Netzwerk und Erstellung](https://blogs.technet.microsoft.com/askcore/2015/06/24/building-windows-server-failover-cluster-on-azure-iaas-vm-part-2-network-and-creation/).  
+3. Cluster-zu-Cluster-RPC-Kommunikation in Azure (erforderlich für die Cluster-APIs zum Gewähren von Zugriff zwischen Clustern) erfordert das Konfigurieren des Netzwerk Zugriffs für das CNO. Sie müssen den TCP-Port 135 und den dynamischen Bereich oberhalb des TCP-Ports 49152 zulassen. Referenz [zum Erstellen eines Windows Server-Failoverclusters auf Azure IaaS-VM – Teil 2 Netzwerk und Erstellung](/archive/blogs/askcore/building-windows-server-failover-cluster-on-azure-iaas-vm-part-2-network-and-creation).  
 4. Es ist möglich, Gast Cluster mit zwei Knoten zu verwenden, bei denen jeder Knoten Loopback-iSCSI für einen vom Speicher Replikat replizierten asymmetrischen Cluster verwendet. Dies hat jedoch wahrscheinlich eine sehr schlechte Leistung und sollte nur für sehr begrenzte Workloads oder Tests verwendet werden.  
 
 ## <a name="how-do-i-see-the-progress-of-replication-during-initial-sync"></a><a name="FAQ2"></a>Gewusst wie den Fortschritt der Replikation während der ersten Synchronisierung anzeigen?  

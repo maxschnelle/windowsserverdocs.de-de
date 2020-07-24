@@ -8,18 +8,18 @@ ms.date: 07/13/2016
 ms.topic: article
 ms.prod: windows-server
 ms.technology: web-app-proxy
-ms.openlocfilehash: 660915a9fc704a01b59b4eeb1107ef56599ecac7
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: bdd6aa39f09af6e11afb6d425db287bbf14d8b3e
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80818573"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86961382"
 ---
 # <a name="web-application-proxy-in-windows-server-2016"></a>Webanwendungsproxy in Windows Server 2016
 
 >Gilt für: Windows Server 2016
 
-**Diese Inhalte sind für die lokale Version des webanwendungsproxys relevant. Informationen zum Aktivieren des sicheren Zugriffs auf lokale Anwendungen über die Cloud finden Sie in den [Azure AD Anwendungs Proxy-Inhalt](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-get-started/).**  
+**Diese Inhalte sind für die lokale Version des webanwendungsproxys relevant. Informationen zum Aktivieren des sicheren Zugriffs auf lokale Anwendungen über die Cloud finden Sie in den [Azure AD Anwendungs Proxy-Inhalt](/azure/active-directory/manage-apps/application-proxy).**  
   
 In diesem Abschnitt werden die Neuerungen und Änderungen im webanwendungsproxy für Windows Server 2016 beschrieben. Die hier aufgeführten neuen Features und Änderungen haben bei der Arbeit mit der Vorschau wahrscheinlich die größten Auswirkungen.  
   
@@ -35,7 +35,7 @@ In diesem Abschnitt werden die Neuerungen und Änderungen im webanwendungsproxy 
   
   Zur Unterstützung von Szenarien wie SharePoint 2013 kann die externe URL für die Anwendung nun einen Platzhalter enthalten, mit dem Sie mehrere Anwendungen in einer bestimmten Domäne veröffentlichen können, z. b. https://*. SP-apps. Configuration. com. Dadurch wird die Veröffentlichung von SharePoint-apps vereinfacht.  
   
-- Umleitung von http zu https  
+- HTTP-HTTPS-Umleitung  
   
   Um sicherzustellen, dass Ihre Benutzer auf Ihre App zugreifen können, unterstützt der webanwendungsproxy nun die Umleitung von http zu HTTPS, auch wenn Sie den Typ "https" in der URL vernachlässigen.  
   
@@ -49,7 +49,7 @@ In diesem Abschnitt werden die Neuerungen und Änderungen im webanwendungsproxy 
   
 - Neues Debugprotokoll zur besseren Problembehandlung und zum verbesserten Dienst Protokoll für einen kompletten Überwachungs Pfad und eine verbesserte Fehlerbehandlung  
   
-  Weitere Informationen zur Problembehandlung finden Sie unter Problembehandlung für [Webanwendungs Proxy](https://technet.microsoft.com/library/dn770156.aspx)  
+  Weitere Informationen zur Problembehandlung finden Sie unter Problembehandlung für [Webanwendungs Proxy](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn770156(v=ws.11))  
   
 - Verbesserungen der Administratorkonsole  
   
@@ -57,11 +57,9 @@ In diesem Abschnitt werden die Neuerungen und Änderungen im webanwendungsproxy 
   
 ## <a name="see-also"></a>Weitere Informationen  
   
--   [Neuerungen in Windows Server 2016](https://technet.microsoft.com/library/dn765472.aspx)  
+-   [Neuerungen in Windows Server 2016](../../../get-started/whats-new-in-windows-server-2016.md)  
   
 -   [Veröffentlichen von Anwendungen mit AD FS-Vorauthentifizierung](../web-application-proxy/Publishing-Applications-using-AD-FS-Preauthentication.md)  
   
--   [Problembehandlung: Webanwendungsproxy](https://technet.microsoft.com/library/dn770156.aspx)  
+-   [Problembehandlung: Webanwendungsproxy](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn770156(v=ws.11))  
   
-
-

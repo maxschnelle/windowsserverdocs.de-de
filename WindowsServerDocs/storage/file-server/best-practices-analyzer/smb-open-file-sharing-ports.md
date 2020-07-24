@@ -6,14 +6,14 @@ ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: a7e98129c2fb4f2259364c547b426d46f0a24ef3
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: d9d24f1ce66ca691bfa31479a00b9ecf719abe1e
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80859463"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86961302"
 ---
-# <a name="smb-file-and-printer-sharing-ports-should-be-open"></a>SMB: Datei- und Ports sollte geöffnet sein
+# <a name="smb-file-and-printer-sharing-ports-should-be-open"></a>SMB: Ports für Datei- und Druckerfreigaben sollten offen sein
 
 
 Aktualisiert: 2. Februar 2011
@@ -38,8 +38,8 @@ Gilt für: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 und 
 <td><p>Dateidienste</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>Zunehmen</strong></p></td>
-<td><p>Error</p></td>
+<td><p><strong>Severity</strong></p></td>
+<td><p>Fehler</p></td>
 </tr>
 <tr class="even">
 <td><p><strong>Kategorie</strong></p></td>
@@ -52,11 +52,11 @@ Gilt für: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 und 
 
 > *Die Firewallports, die für die Datei-und Druckerfreigabe erforderlich sind, sind nicht geöffnet (Ports 445 und 139).*
 
-## <a name="impact"></a>Auswirkungen
+## <a name="impact"></a>Auswirkung
 
 > *Computer können nicht auf freigegebene Ordner und andere auf Server Message Block (SMB) basierende Netzwerkdienste auf diesem Server zugreifen.*
 
-## <a name="resolution"></a>Auflösung
+## <a name="resolution"></a>Lösung
 
 > *Aktivieren Sie die Datei-und Druckerfreigabe für die Kommunikation über die Firewall des Computers.*
 
@@ -68,11 +68,10 @@ Zum Ausführen dieser Prozedur müssen Sie Mitglied der Gruppe **Administratoren
 
 2.  Klicken Sie im linken Bereich auf **Erweiterte Einstellungen**, und klicken Sie in der Konsolen Struktur auf **Eingehende Regeln**.
 
-3.  Suchen Sie unter **Eingehende Regeln**die Regel **Datei und die Druckerfreigabe (NB-Session-in)** und **Datei-und Druckerfreigabe (SMB-in)** .
+3.  Suchen Sie unter **Eingehende Regeln**die Regel **Datei und die Druckerfreigabe (NB-Session-in)** und **Datei-und Druckerfreigabe (SMB-in)**.
 
-4.  Klicken Sie für jede Regel mit der rechten Maustaste auf die Regel, und klicken Sie dann auf **Regel aktivieren**.
+4.  Klicken Sie mit der rechten Maustaste auf jede Regel, und klicken Sie dann auf **Regel aktivieren**.
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Verweise
 
-Grundlegendes [zu freigegebenen Ordnern und der Windows-Firewall](https://technet.microsoft.com/library/cc731402.aspx)(https://technet.microsoft.com/library/cc731402.aspx)
-
+Grundlegendes [zu freigegebenen Ordnern und der Windows-Firewall](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731402(v=ws.11))(https://technet.microsoft.com/library/cc731402.aspx)

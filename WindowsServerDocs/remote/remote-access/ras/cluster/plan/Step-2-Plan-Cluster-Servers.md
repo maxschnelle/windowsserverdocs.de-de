@@ -8,16 +8,16 @@ ms.topic: article
 ms.assetid: 673c5bfb-b590-4932-8e54-ca0a466d90cc
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 7ac00278e501115d81d80f55c1ceae33a379cc4a
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 8b940ea3fc7aa031a780eaea029b6b86ba5509a5
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80855243"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86964392"
 ---
 # <a name="step-2-plan-cluster-servers"></a>Schritt 2 Planen von Cluster Servern
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 Planen Sie nach der Bereitstellung eines einzelnen RAS-Servers zusätzliche Server zum Cluster hinzu.  
   
@@ -27,7 +27,7 @@ Planen Sie nach der Bereitstellung eines einzelnen RAS-Servers zusätzliche Serv
 |[2,2 Konfigurieren von Servereinstellungen](#BKMK_Config)|Konfigurieren Sie die Einstellungen für jeden Server, der dem Cluster hinzugefügt wird. Beachten Sie, dass Sie einen Server Cluster mit Lastenausgleich mithilfe von virtuellen Computern konfigurieren können. Damit Routing und Konnektivität ordnungsgemäß funktionieren, müssen Sie die virtuellen Computer so konfigurieren, dass Sie das Spoofing von Mac-Adressen verwenden.|  
   
 ## <a name="21-installing-roles-and-features"></a><a name="BKMK_Install"></a>2,1 Installieren von Rollen und Features  
-Planen Sie die Installation der Remote Zugriffs Rolle für jeden Server, den Sie dem Cluster hinzufügen möchten. Planen Sie zusätzlich die Installation des Netzwerk Lastenausgleichs (Network Load Balancing, NLB), wenn Sie einen Lastenausgleich für den Datenverkehr mithilfe von Windows NLB zum Cluster ausführen möchten. Weitere Informationen finden Sie unter [Netzwerk Lastenausgleich](https://technet.microsoft.com/windows-server-docs/networking/technologies/network-load-balancing).  
+Planen Sie die Installation der Remote Zugriffs Rolle für jeden Server, den Sie dem Cluster hinzufügen möchten. Planen Sie zusätzlich die Installation des Netzwerk Lastenausgleichs (Network Load Balancing, NLB), wenn Sie einen Lastenausgleich für den Datenverkehr mithilfe von Windows NLB zum Cluster ausführen möchten. Weitere Informationen finden Sie unter [Netzwerk Lastenausgleich](../../../../../networking/technologies/network-load-balancing.md).  
   
 ## <a name="22-configure-server-settings"></a><a name="BKMK_Config"></a>2,2 Konfigurieren von Servereinstellungen  
 Planen Sie die IP-Adresse und die Domänen Einstellungen für jeden Server, der dem Cluster hinzugefügt wird. Beachten Sie Folgendes:  
@@ -49,4 +49,3 @@ Wenn Sie einen Lastenausgleich für den Cluster mithilfe von Windows NLB durchge
 4.  Affinität: einzelne Affinität ist definiert.  
   
 5.  Protokolle: beides  
-
