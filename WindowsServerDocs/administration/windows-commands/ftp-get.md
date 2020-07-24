@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: de084813ee837ecea2f0871589218d3262b40bba
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: a998786f5381dd5affc1bae900c0aa3fb33da49a
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85925927"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86957832"
 ---
 # <a name="ftp-get"></a>ftp get
 
@@ -52,7 +52,7 @@ get test.txt
 get test.txt test1.txt
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
@@ -62,4 +62,4 @@ get test.txt test1.txt
 
 - [FTP-Binär Befehl](ftp-binary.md)
 
-- [Zusätzlicher FTP-Leitfaden](https://docs.microsoft.com/previous-versions/orphan-topics/ws.10/cc756013(v=ws.10))
+- [Zusätzlicher FTP-Leitfaden](/previous-versions/orphan-topics/ws.10/cc756013(v=ws.10))

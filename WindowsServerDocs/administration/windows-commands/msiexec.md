@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: aacdc55ac3895efad7dd9499ea1402b538fb8a9b
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: b1224d4dfeefd850dcc29e523972351b8cdd9778
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85934962"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86956872"
 ---
 # <a name="msiexec"></a>msiexec
 
@@ -75,7 +75,7 @@ msiexec.exe /i <path_to_package> [/quiet][/passive][/q{n|b|r|f}]
 | /qr | Gibt eine reduzierte Benutzeroberfläche während des Installationsvorgangs an. |
 | /qf | Gibt eine vollständige Benutzeroberfläche während des Installationsvorgangs an. |
 
-##### <a name="remarks"></a>Hinweise
+##### <a name="remarks"></a>Bemerkungen
 
 - Das modale Feld wird nicht angezeigt, wenn die Installation vom Benutzer abgebrochen wird. Sie können **qb +! verwenden.** oder **qb! +** , um die Schaltfläche " **Abbrechen** " auszublenden.
 
@@ -225,12 +225,12 @@ msiexec.exe /fa {AAD3D77A-7476-469F-ADF4-04424124E91D}
 
 ## <a name="set-public-properties"></a>Öffentliche Eigenschaften festlegen
 
-Sie können öffentliche Eigenschaften mithilfe dieses Befehls festlegen. Informationen zu den verfügbaren Eigenschaften und deren Festlegung finden Sie unter [öffentliche Eigenschaften](https://docs.microsoft.com/windows/win32/msi/public-properties).
+Sie können öffentliche Eigenschaften mithilfe dieses Befehls festlegen. Informationen zu den verfügbaren Eigenschaften und deren Festlegung finden Sie unter [öffentliche Eigenschaften](/windows/win32/msi/public-properties).
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
-- [Msiexec.exe Befehlszeilenoptionen](https://docs.microsoft.com/windows/win32/msi/command-line-options)
+- [Msiexec.exe Befehlszeilenoptionen](/windows/win32/msi/command-line-options)
 
-- [Standard Installationsprogramm-Befehlszeilenoptionen](https://docs.microsoft.com/windows/win32/msi/standard-installer-command-line-options)
+- [Standard Installationsprogramm-Befehlszeilenoptionen](/windows/win32/msi/standard-installer-command-line-options)

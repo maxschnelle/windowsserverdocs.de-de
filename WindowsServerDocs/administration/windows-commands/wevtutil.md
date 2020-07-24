@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f87ab51c0e24f9df421d7540e85d05a534635947
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 0f76f04e54f1b502f3e816e4f547873d2ac6e1b4
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85936644"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86958722"
 ---
 # <a name="wevtutil"></a>wevtutil
 
@@ -45,8 +45,8 @@ wevtutil [{el | enum-logs}] [{gl | get-log} <Logname> [/f:<Format>]]
 |{SL \| set-log} \<Logname> [/e: \<Enabled> ] [/i: \<Isolation> ] [/LFN: \<Logpath> ] [/RT: \<Retention> ] [/ab: \<Auto> ] [/MS: \<MaxSize> ] [/l: \<Level> ] [/k: \<Keywords> ] [/ca: \<Channel> ] [/c: \<Config> ]|Ändert die Konfiguration des angegebenen Protokolls.|
 |{EP \| -Aufzählung-Verleger}|Zeigt die Ereignis Herausgeber auf dem lokalen Computer an.|
 |{GP \| Get-Publisher} \<Publishername> [/ge: \<Metadata> ] [/GM: \<Message> ] [/f: \<Format> ]]|Zeigt die Konfigurationsinformationen für den angegebenen Ereignis Herausgeber an.|
-|{im \| Install-Manifest}\<Manifest>|Installiert Ereignis Herausgeber und-Protokolle aus einem Manifest. Weitere Informationen zu Ereignis Manifesten und zur Verwendung dieses Parameters finden Sie im Windows-Ereignisprotokoll-SDK auf der MSDN-Website (Microsoft Developer Network) ( [https://msdn.microsoft.com](https://msdn.microsoft.com) ).|
-|{um \| Uninstall-Manifest}\<Manifest>|Deinstalliert alle Verleger und Protokolle aus einem Manifest. Weitere Informationen zu Ereignis Manifesten und zur Verwendung dieses Parameters finden Sie im Windows-Ereignisprotokoll-SDK auf der MSDN-Website (Microsoft Developer Network) ( [https://msdn.microsoft.com](https://msdn.microsoft.com) ).|
+|{im \| Install-Manifest}\<Manifest>|Installiert Ereignis Herausgeber und-Protokolle aus einem Manifest. Weitere Informationen zu Ereignis Manifesten und zur Verwendung dieses Parameters finden Sie im Windows-Ereignisprotokoll-SDK auf der MSDN-Website (Microsoft Developer Network) ( [https://msdn.microsoft.com](../../index.yml) ).|
+|{um \| Uninstall-Manifest}\<Manifest>|Deinstalliert alle Verleger und Protokolle aus einem Manifest. Weitere Informationen zu Ereignis Manifesten und zur Verwendung dieses Parameters finden Sie im Windows-Ereignisprotokoll-SDK auf der MSDN-Website (Microsoft Developer Network) ( [https://msdn.microsoft.com](../../index.yml) ).|
 |{QE \| -Abfrage-Ereignisse} \<Path> [/LF: \<Logfile> ] [/sq: \<Structquery> ] [/q: \<Query> ] [/BM: \<Bookmark> ] [/SBM: \<Savebm> ] [/RD: \<Direction> ] [/f: \<Format> ] [/l: \<Locale> ] [/c: \<Count> ] [/e: \<Element> ]|Liest Ereignisse aus einem Ereignisprotokoll, aus einer Protokolldatei oder mithilfe einer strukturierten Abfrage. Standardmäßig geben Sie einen Protokollnamen für an \<Path> . Wenn Sie jedoch die **/LF** -Option verwenden, \<Path> muss ein Pfad zu einer Protokolldatei sein. Wenn Sie den **/SQ** -Parameter verwenden, \<Path> muss ein Pfad zu einer Datei sein, die eine strukturierte Abfrage enthält.|
 |{Gli \| Get-LogInfo} \<Logname> [/LF: \<Logfile> ]|Zeigt Statusinformationen zu einem Ereignisprotokoll oder einer Protokolldatei an. Wenn die **/LF** -Option verwendet wird, \<Logname> ist ein Pfad zu einer Protokolldatei. Zum Abrufen einer Liste von Protokollnamen können Sie **wevtutil El** ausführen.|
 |{EPL \| -Export-Log} \<Path> \<Exportfile> [/LF: \<Logfile> ] [/sq: \<Structquery> ] [/q: \<Query> ] [/OW: \<Overwrite> ]|Exportiert Ereignisse aus einem Ereignisprotokoll, aus einer Protokolldatei oder mithilfe einer strukturierten Abfrage in die angegebene Datei. Standardmäßig geben Sie einen Protokollnamen für an \<Path> . Wenn Sie jedoch die **/LF** -Option verwenden, \<Path> muss ein Pfad zu einer Protokolldatei sein. Wenn Sie die **/SQ** -Option verwenden, \<Path> muss ein Pfad zu einer Datei sein, die eine strukturierte Abfrage enthält. \<Exportfile>ist ein Pfad zu der Datei, in der die exportierten Ereignisse gespeichert werden.|
@@ -66,7 +66,7 @@ wevtutil [{el | enum-logs}] [{gl | get-log} <Logname> [/f:<Format>]]
 |   /MS\<MaxSize>   |                                                                                                                                                                        Legt die maximale Größe des Protokolls in Bytes fest. Die minimale Protokoll Größe beträgt 1048576 Bytes (1024 KB), und Protokolldateien entsprechen immer einem Vielfachen von 64 KB, sodass der von Ihnen eingegebene Wert entsprechend gerundet wird.                                                                                                                                                                         |
 |    /l:\<Level>     |                                                                                                                                                                     Definiert den Filter für die Ebene des Protokolls. \<Level>kann ein beliebiger gültiger Level-Wert sein. Diese Option gilt nur für Protokolle mit einer dedizierten Sitzung. Sie können einen Ebenen-Filter entfernen, indem Sie <Level> auf 0 festlegen.                                                                                                                                                                      |
 |   /k\<Keywords>   |                                                                                                                                                                                         Gibt den Schlüsselwort Filter für das Protokoll an. \<Keywords>kann eine beliebige gültige 64-Bit-Schlüsselwort Maske sein. Diese Option gilt nur für Protokolle mit einer dedizierten Sitzung.                                                                                                                                                                                         |
-|   etwa\<Channel>   |                                                                                                                   Legt die Zugriffsberechtigung für ein Ereignisprotokoll fest. \<Channel>ist eine Sicherheits Beschreibung, die die Security Deskriptor Definition Language (SDDL) verwendet. Weitere Informationen zum SDDL-Format finden Sie auf der MSDN-Website (Microsoft Developer Network) ( [https://msdn.microsoft.com](https://msdn.microsoft.com) ).                                                                                                                    |
+|   etwa\<Channel>   |                                                                                                                   Legt die Zugriffsberechtigung für ein Ereignisprotokoll fest. \<Channel>ist eine Sicherheits Beschreibung, die die Security Deskriptor Definition Language (SDDL) verwendet. Weitere Informationen zum SDDL-Format finden Sie auf der MSDN-Website (Microsoft Developer Network) ( [https://msdn.microsoft.com](../../index.yml) ).                                                                                                                    |
 |    /c\<Config>    |                                                                                                                                  Gibt den Pfad zu einer Konfigurationsdatei an. Diese Option bewirkt, dass die Protokoll Eigenschaften aus der Konfigurationsdatei gelesen werden, die in definiert ist \<Config> . Wenn Sie diese Option verwenden, dürfen Sie keinen Parameter angeben <Logname> . Der Protokoll Name wird aus der Konfigurationsdatei gelesen.                                                                                                                                   |
 |  /ge\<Metadata>   |                                                                                                                                                                                                                 Ruft Metadateninformationen für Ereignisse ab, die von diesem Verleger ausgelöst werden können. \<Metadata>kann "true" oder "false" sein.                                                                                                                                                                                                                 |
 |   /GM\<Message>   |                                                                                                                                                                                                                       Zeigt die tatsächliche Meldung anstelle der numerischen Nachrichten-ID an. \<Message>kann "true" oder "false" sein.                                                                                                                                                                                                                        |
@@ -87,7 +87,7 @@ wevtutil [{el | enum-logs}] [{gl | get-log} <Logname> [/f:<Format>]]
 |     /a\<Auth>     |                                                                                                                                                                                             Definiert den Authentifizierungstyp zum Herstellen einer Verbindung mit einem Remote Computer. \<Auth>kann Default, Aushandlungs, Kerberos oder NTLM sein. Der Standardwert ist "aushandeln".                                                                                                                                                                                              |
 |  unidirektionale\<Unicode>   |                                                                                                                                                                                                             Zeigt die Ausgabe in Unicode an. \<Unicode>kann "true" oder "false" sein. Wenn <Unicode> den Wert true hat, erfolgt die Ausgabe in Unicode.                                                                                                                                                                                                             |
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 -   Verwenden einer Konfigurationsdatei mit dem SL-Parameter
 
@@ -149,6 +149,6 @@ Löschen Sie alle Ereignisse aus dem Anwendungsprotokoll, nachdem Sie Sie im Ver
 wevtutil cl Application /bu:C:\admin\backups\a10306.evtx
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+#### <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: db7d279577b8120137b4397551a480ea2d2a0e8a
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: f7e9679dee2bb8a75da14e1d7ee6c75b80bb1ef1
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85924417"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86957132"
 ---
 # <a name="inactive"></a>inactive
 
@@ -39,10 +39,10 @@ inactive
 inactive
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
 - [Partitions Befehl auswählen](select-partition.md)
 
-- [Erweiterte Problembehandlung für Windows-Startprobleme](https://docs.microsoft.com/windows/client-management/advanced-troubleshooting-boot-problems)
+- [Erweiterte Problembehandlung für Windows-Startprobleme](/windows/client-management/advanced-troubleshooting-boot-problems)

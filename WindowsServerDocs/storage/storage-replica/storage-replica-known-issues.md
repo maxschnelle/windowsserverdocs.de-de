@@ -8,12 +8,12 @@ ms.topic: get-started-article
 author: nedpyle
 ms.date: 06/25/2019
 ms.assetid: ceddb0fa-e800-42b6-b4c6-c06eb1d4bc55
-ms.openlocfilehash: 1ab4c0946c1081019747420448a0217359282bf1
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: b00eb8a4c282cc8bafa9459b319c5c47f2d8c460
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85469725"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86960342"
 ---
 # <a name="known-issues-with-storage-replica"></a>Bekannte Probleme mit Speicherreplikaten
 
@@ -356,7 +356,7 @@ Ausführen von Get-Cluster | FL * auf jedem Knoten.
 Wenn clusterfunctionallevel = 9, ist dies die Windows 2016 clusterfunctionallevel-Version, die zum Implementieren des Speicher Replikats auf diesem Knoten erforderlich ist.
 Wenn "clusterfunctionallevel" nicht 9 ist, muss "clusterfunctionallevel" aktualisiert werden, um das Speicher Replikat auf diesem Knoten zu implementieren.
 
-Um das Problem zu beheben, erhöhen Sie die Funktionsebene des Clusters, indem Sie das PowerShell-Cmdlet ausführen: [Update-clusterfunctionallevel](https://docs.microsoft.com/powershell/module/failoverclusters/update-clusterfunctionallevel)
+Um das Problem zu beheben, erhöhen Sie die Funktionsebene des Clusters, indem Sie das PowerShell-Cmdlet ausführen: [Update-clusterfunctionallevel](/powershell/module/failoverclusters/update-clusterfunctionallevel)
 
 ## <a name="small-unknown-partition-listed-in-diskmgmt-for-each-replicated-volume"></a>In diskmgmt für jedes repliziertes Volume ist eine kleine Unbekannte Partition aufgeführt.
 
@@ -384,7 +384,7 @@ Dieses Problem tritt aufgrund von architektonischen Einschränkungen im Protokol
 
 Wenn Sie direkte Speicherplätze mit HDDs verwenden, ist es nicht möglich, den Cache zu deaktivieren oder zu vermeiden. Um dieses Problem zu umgehen, können Sie, wenn Sie nur SSD und nvme verwenden, nur die Leistungs-und Kapazitäts Ebenen konfigurieren. Wenn Sie diese Konfiguration verwenden und die SR-Protokolle nur mit den Datenvolumes, auf denen Sie sich auf der Kapazitäts Ebene befinden, auf der Leistungs Ebene platzieren, vermeiden Sie das oben beschriebene Problem mit hoher Latenz. Dies kann mit einer Mischung aus schnelleren und langsameren SSDs und ohne nvme erfolgen.
 
-Diese Problem Umgehung ist natürlich nicht ideal, und einige Kunden sind möglicherweise nicht in der Lage, Sie zu nutzen. Das Speicher Replikat Team arbeitet an Optimierungen und einem aktualisierten Protokoll Mechanismus für die Zukunft, um diese künstlichen Engpässe zu verringern. Dieses v 1.1-Protokoll wurde zunächst in Windows Server 2019 verfügbar, und die verbesserte Leistung wird im [Server Storage-Blog](https://blogs.technet.microsoft.com/filecab/2018/12/13/chelsio-rdma-and-storage-replica-perf-on-windows-server-2019-are-💯/)beschrieben.
+Diese Problem Umgehung ist natürlich nicht ideal, und einige Kunden sind möglicherweise nicht in der Lage, Sie zu nutzen. Das Speicher Replikat Team arbeitet an Optimierungen und einem aktualisierten Protokoll Mechanismus für die Zukunft, um diese künstlichen Engpässe zu verringern. Dieses v 1.1-Protokoll wurde zunächst in Windows Server 2019 verfügbar, und die verbesserte Leistung wird im [Server Storage-Blog](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB)beschrieben.
 
 ## <a name="error-could-not-find-file-when-running-test-srtopology-between-two-clusters"></a>Fehler "Datei konnte nicht gefunden werden" beim Ausführen von "Test-srtopology" zwischen zwei Clustern
 

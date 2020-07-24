@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8006bf74c26b26575f7e2aea2e928d5db4985580
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 5fb2ef97ea623174ad159021c2907f72314222f0
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85922859"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86956662"
 ---
 # <a name="pentnt"></a>pentnt
 
@@ -23,8 +23,8 @@ ms.locfileid: "85922859"
 >[!IMPORTANT]
 > Dieser Befehl ist veraltet.
 
-Erkennt einen Fehler bei der Gleit Komma Teilung (falls vorhanden) im Pentium-Chip, deaktiviert Gleit Komma Hardware und aktiviert die Gleit Komma Emulation. Beschreibungen und Verwendungs Informationen finden Sie unter " [pentnt](https://docs.microsoft.com/previous-versions/orphan-topics/ws.10/cc755868(v=ws.10))".
+Erkennt einen Fehler bei der Gleit Komma Teilung (falls vorhanden) im Pentium-Chip, deaktiviert Gleit Komma Hardware und aktiviert die Gleit Komma Emulation. Beschreibungen und Verwendungs Informationen finden Sie unter " [pentnt](/previous-versions/orphan-topics/ws.10/cc755868(v=ws.10))".
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

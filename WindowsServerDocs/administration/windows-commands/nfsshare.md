@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4901e0c9ee0701261dc6abb8cfd69cc02d4dd02e
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 9db04752ad7982f78dc72c02108fe706cdf2fa04
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85932041"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86956762"
 ---
 # <a name="nfsshare"></a>nfsshare
 
@@ -41,16 +41,16 @@ nfsshare {<sharename> | <drive>:<path> | * } /delete
 | /delete | Wenn *ShareName* oder `<drive>:<path>` angegeben wird, löscht dieser Parameter die angegebene Freigabe. Wenn ein Platzhalter (*) angegeben wird, löscht dieser Parameter alle NFS-Freigaben. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Wenn *ShareName* als einziger Parameter angegeben ist, werden mit diesem Befehl die Eigenschaften der von *ShareName*identifizierten NFS-Freigabe aufgelistet.
 
 - Wenn *ShareName* und `<drive>:<path>` verwendet werden, exportiert dieser Befehl den von identifizierten Ordner `<drive>:<path>` als *ShareName*. Wenn Sie die Option **/Delete** verwenden, ist der angegebene Ordner für NFS-Clients nicht mehr verfügbar.
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
 - [Dienste für Network File System-Befehlsreferenz](services-for-network-file-system-command-reference.md)
 
-- [Referenz zu NFS-Cmdlets](https://docs.microsoft.com/powershell/module/nfs)
+- [Referenz zu NFS-Cmdlets](/powershell/module/nfs)

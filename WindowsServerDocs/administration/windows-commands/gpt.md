@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 40d3536f5a6be0bf520095e3ba61f75b7a2addc7
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 2357f9916aba2eaba6a226fc8addbb13bf5f2f37
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85924611"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86957142"
 ---
 # <a name="gpt"></a>gpt
 
@@ -37,9 +37,9 @@ gpt attributes=<n>
 
 | Parameter | Beschreibung |
 | --------- | ----------- |
-| Attribute =`<n>` | Gibt den Wert für das Attribut an, das Sie auf die Partition mit dem Fokus anwenden möchten. Das GPT-Attribut Feld ist ein 64-Bit-Feld, das zwei Unterfelder enthält. Das höhere Feld wird nur im Kontext der Partitions-ID interpretiert, während das untere Feld allen Partitions-IDs gemeinsam ist. Akzeptierte Werte sind:<ul><li>**0x0000000000000001** : gibt an, dass die Partition für die ordnungsgemäße Funktion des Computers erforderlich ist.</li><li>**0x8000000000000000** : gibt an, dass die Partition standardmäßig keinen Laufwerk Buchstaben erhält, wenn der Datenträger auf einen anderen Computer verschoben wird oder wenn der Datenträger zum ersten Mal von einem Computer angezeigt wird.</li><li>**0x4000000000000000** : Blendet das Volume einer Partition aus, sodass es vom Mount Manager nicht erkannt wird.</li><li>**0x2000000000000000** : gibt an, dass die Partition eine Schatten Kopie einer anderen Partition ist.</li><li>**0x1000000000000000** : gibt an, dass die Partition schreibgeschützt ist. Dieses Attribut verhindert, dass das Volume in geschrieben wird.</li></ul><p>Weitere Informationen zu diesen Attributen finden Sie im Abschnitt "Attribute" unter [create_PARTITION_PARAMETERS Struktur](https://docs.microsoft.com/windows/win32/api/vds/ns-vds-create_partition_parameters). |
+| Attribute =`<n>` | Gibt den Wert für das Attribut an, das Sie auf die Partition mit dem Fokus anwenden möchten. Das GPT-Attribut Feld ist ein 64-Bit-Feld, das zwei Unterfelder enthält. Das höhere Feld wird nur im Kontext der Partitions-ID interpretiert, während das untere Feld allen Partitions-IDs gemeinsam ist. Akzeptierte Werte sind:<ul><li>**0x0000000000000001** : gibt an, dass die Partition für die ordnungsgemäße Funktion des Computers erforderlich ist.</li><li>**0x8000000000000000** : gibt an, dass die Partition standardmäßig keinen Laufwerk Buchstaben erhält, wenn der Datenträger auf einen anderen Computer verschoben wird oder wenn der Datenträger zum ersten Mal von einem Computer angezeigt wird.</li><li>**0x4000000000000000** : Blendet das Volume einer Partition aus, sodass es vom Mount Manager nicht erkannt wird.</li><li>**0x2000000000000000** : gibt an, dass die Partition eine Schatten Kopie einer anderen Partition ist.</li><li>**0x1000000000000000** : gibt an, dass die Partition schreibgeschützt ist. Dieses Attribut verhindert, dass das Volume in geschrieben wird.</li></ul><p>Weitere Informationen zu diesen Attributen finden Sie im Abschnitt "Attribute" unter [create_PARTITION_PARAMETERS Struktur](/windows/win32/api/vds/ns-vds-create_partition_parameters). |
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Die EFI-System Partition enthält nur die Binärdateien, die zum Starten des Betriebssystems erforderlich sind. Dies vereinfacht das Platzieren von OEM-Binärdateien oder Binärdateien, die für ein betriebssystemspezifisch sind, auf anderen Partitionen.
 
@@ -51,10 +51,10 @@ Geben Sie Folgendes ein, um zu verhindern, dass der Computer der Partition mit d
 gpt attributes=0x8000000000000000
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
 - [Partitions Befehl auswählen](select-partition.md)
 
-- [create_PARTITION_PARAMETERS Struktur](https://docs.microsoft.com/windows/win32/api/vds/ns-vds-create_partition_parameters)
+- [create_PARTITION_PARAMETERS Struktur](/windows/win32/api/vds/ns-vds-create_partition_parameters)

@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2372476e153a6dc37b7d068201a40ba17c11fa54
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 6abc9e1e760502047c5c740c72b79e302dd19249
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85930822"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86958312"
 ---
 # <a name="dir"></a>dir
 
 Zeigt eine Liste der Dateien und Unterverzeichnisse eines Verzeichnisses an. Bei Verwendung ohne Parameter zeigt dieser Befehl die Volumebezeichnung und Seriennummer des Datenträgers an, gefolgt von einer Liste der Verzeichnisse und Dateien auf dem Datenträger (einschließlich ihrer Namen und Datum und Uhrzeit der letzten Änderung). Für Dateien zeigt dieser Befehl die Namen Erweiterung und die Größe in Bytes an. Mit diesem Befehl werden außerdem die Gesamtzahl der aufgelisteten Dateien und Verzeichnisse, die kumulative Größe und der freie Speicherplatz (in Bytes) angezeigt, der auf dem Datenträger verbleiben.
 
-Der Befehl **dir** kann auch in der Windows-Wiederherstellungskonsole mithilfe verschiedener Parameter ausgeführt werden. Weitere Informationen finden Sie in der [Windows-Wiederherstellungs Umgebung (WinRE)](https://docs.microsoft.com/windows-hardware/manufacture/desktop/windows-recovery-environment--windows-re--technical-reference).
+Der Befehl **dir** kann auch in der Windows-Wiederherstellungskonsole mithilfe verschiedener Parameter ausgeführt werden. Weitere Informationen finden Sie in der [Windows-Wiederherstellungs Umgebung (WinRE)](/windows-hardware/manufacture/desktop/windows-recovery-environment--windows-re--technical-reference).
 
 ## <a name="syntax"></a>Syntax
 
@@ -51,7 +51,7 @@ dir [<drive>:][<path>][<filename>] [...] [/p] [/q] [/w] [/d] [/a[[:]<attributes>
 | /r | Zeigt Alternative Datenströme der Datei an. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Wenn *Sie mehrere Dateinamen Parameter* verwenden möchten, trennen Sie die einzelnen Dateinamen durch ein Leerzeichen, Komma oder Semikolon.
 
@@ -134,6 +134,6 @@ dir c:\*.txt /w/o/s/p
 
 Der Befehl **dir** zeigt im breiten Format eine alphabetisch sortierte Liste der übereinstimmenden Dateinamen in jedem Verzeichnis an und wird jedes Mal angehalten, wenn der Bildschirm ausgefüllt wird, bis Sie eine Taste drücken, um den Vorgang fortzusetzen.
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

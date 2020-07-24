@@ -9,19 +9,19 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6ea742ab8fce296a88c8c9e6a41262c7aef88813
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 3e15db58ab8fa8c3a0114b695cb85eec7684039e
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85928896"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86958472"
 ---
 # <a name="copy"></a>copy
 
 Kopiert eine oder mehrere Dateien von einem Speicherort in einen anderen.
 
 > [!NOTE]
-> Sie können den **Kopier** Befehl auch mit anderen Parametern in der Wiederherstellungskonsole verwenden. Weitere Informationen zur Wiederherstellungskonsole finden Sie in der [Windows-Wiederherstellungs Umgebung (Windows Recovery Environment, Windows RE)](https://docs.microsoft.com/windows-hardware/manufacture/desktop/windows-recovery-environment--windows-re--technical-reference).
+> Sie können den **Kopier** Befehl auch mit anderen Parametern in der Wiederherstellungskonsole verwenden. Weitere Informationen zur Wiederherstellungskonsole finden Sie in der [Windows-Wiederherstellungs Umgebung (Windows Recovery Environment, Windows RE)](/windows-hardware/manufacture/desktop/windows-recovery-environment--windows-re--technical-reference).
 
 ## <a name="syntax"></a>Syntax
 
@@ -45,7 +45,7 @@ copy [/d] [/v] [/n] [/y | /-y] [/z] [/a | /b] <source> [/a | /b] [+<source> [/a 
 | `<destination>` | Erforderlich. Gibt den Speicherort an, an den Sie eine Datei oder einen Satz von Dateien kopieren möchten. Das *Ziel* kann aus einem Laufwerk Buchstaben und einem Doppelpunkt, einem Verzeichnisnamen, einem Dateinamen oder einer Kombination aus diesen bestehen. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Sie können eine ASCII-Textdatei mit einem Dateiendezeichen (STRG + Z) kopieren, um das Ende der Datei anzugeben.
 
@@ -152,7 +152,7 @@ Wenn Sie alle Dateien mit der Erweiterung. txt kombinieren und dann alle Dateien
 copy *.txt + *.ref Combined.doc
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

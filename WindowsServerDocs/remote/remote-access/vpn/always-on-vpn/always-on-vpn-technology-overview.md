@@ -8,12 +8,12 @@ ms.date: 11/05/2018
 ms.author: v-tea
 author: Teresa-MOTIV
 ms.localizationpriority: medium
-ms.openlocfilehash: 570b96d07f414442a00d5f7ec48de80f270f0a76
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: e1291b377c408c23493ce5a7a946a343f5e28ead
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80861313"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86958732"
 ---
 # <a name="always-on-vpn-technology-overview"></a>Übersicht über Always on VPN-Technologie
 
@@ -47,7 +47,7 @@ Weitere Informationen zu den einzelnen Infrastrukturkomponenten, die in der obig
 >[!NOTE]
 >Wenn Sie bereits einige dieser Technologien in Ihrem Netzwerk bereitgestellt haben, können Sie die Anweisungen in diesem Bereitstellungs Leit Faden verwenden, um eine zusätzliche Konfiguration der Technologien für diesen Bereitstellungs Zweck auszuführen.
 
-## <a name="domain-name-system-dns"></a>Domain Name System (DNS)
+## <a name="domain-name-system-dns"></a>Domänennamenserver (DNS)
 
 Sowohl interne als auch externe Domain Name System (DNS-Zonen) sind erforderlich. dabei wird davon ausgegangen, dass die interne Zone eine delegierte Unterdomäne der externen Zone ist (z. b. Corp.contoso.com und contoso.com).
 
@@ -68,23 +68,23 @@ In Windows Server 2016 ist die Remote Zugriffs-Server Rolle so konzipiert, dass 
 
 IKEv2 ist ein VPN-Tunnelingprotokoll, das in Internet Engineering Task Force Request for Comments 7296 beschrieben wird. Der Hauptvorteil von IKEv2 besteht darin, dass Unterbrechungen in der zugrunde liegenden Netzwerkverbindung toleriert werden. Wenn beispielsweise die Verbindung vorübergehend unterbrochen wird oder ein Benutzer einen Client Computer von einem Netzwerk auf einen anderen verschiebt, stellt IKEv2 die VPN-Verbindung automatisch wieder her, wenn die Netzwerkverbindung wieder hergestellt wird – ohne Benutzereingriff.
 
-Mithilfe des RAS-Gateways können Sie VPN-Verbindungen bereitstellen, um Endbenutzern Remote Zugriff auf das Netzwerk und die Ressourcen Ihrer Organisation zu bieten. Wenn Remote Computer mit dem Internet verbunden sind, wird bei der Bereitstellung Always on VPN eine permanente Verbindung zwischen Clients und Ihrem Organisations Netzwerk aufrechterhalten. Mit dem RAS-Gateway können Sie auch eine Site-to-Site-VPN-Verbindung zwischen zwei Servern an unterschiedlichen Standorten erstellen, z. b. zwischen Ihrer primären Niederlassung und einer Zweigstelle, und die Netzwerk Adressübersetzung (Network Address Translation, NAT) verwenden, damit Benutzer im Netzwerk auf extern zugreifen können. Ressourcen, z. b. das Internet. Außerdem unterstützt das RAS-Gateway Border Gateway Protocol (BGP), das dynamische Routing Dienste bereitstellt, wenn Ihre Remote Niederlassungen auch Edge-Gateways aufweisen, die BGP unterstützen.
+Mithilfe des RAS-Gateways können Sie VPN-Verbindungen bereitstellen, um Endbenutzern Remote Zugriff auf das Netzwerk und die Ressourcen Ihrer Organisation zu bieten. Wenn Remote Computer mit dem Internet verbunden sind, wird bei der Bereitstellung Always on VPN eine permanente Verbindung zwischen Clients und Ihrem Organisations Netzwerk aufrechterhalten. Mit dem RAS-Gateway können Sie auch eine Site-to-Site-VPN-Verbindung zwischen zwei Servern an unterschiedlichen Standorten erstellen, z. b. zwischen Ihrer primären Niederlassung und einer Zweigstelle, und die Netzwerk Adressübersetzung (Network Address Translation, NAT) verwenden, damit Benutzer im Netzwerk auf externe Ressourcen wie das Internet zugreifen können. Außerdem unterstützt das RAS-Gateway Border Gateway Protocol (BGP), das dynamische Routing Dienste bereitstellt, wenn Ihre Remote Niederlassungen auch Edge-Gateways aufweisen, die BGP unterstützen.
 
 RAS-Gateways können mithilfe von Windows PowerShell-Befehlen und der Microsoft Management Console (MMC) für den Remote Zugriff verwaltet werden.
 
-## <a name="network-policy-server-nps"></a>Netzwerkrichtlinienserver (Network Policy Server, NPS)
+## <a name="network-policy-server-nps"></a>Netzwerkrichtlinienserver (NPS)
 
 Mit NPS können Sie Organisations weite Netzwerk Zugriffsrichtlinien für die Authentifizierung und Autorisierung von Verbindungsanforderungen erstellen und erzwingen. Wenn Sie NPS als RADIUS-Server (Remote Authentication Dial-in User Service) verwenden, konfigurieren Sie Netzwerk Zugriffs Server, z. b. VPN-Server, als RADIUS-Clients in NPS.
 
 Sie können auch Netzwerkrichtlinien konfigurieren, mit denen NPS Verbindungsanforderungen autorisiert, und Sie können die RADIUS-Kontoführung so konfigurieren, dass NPS Kontoführungsinformationen in Protokolldateien auf der lokalen Festplatte oder in einer Microsoft SQL Server-Datenbank protokolliert.
 
-Weitere Informationen finden Sie unter [Netzwerk Richtlinien Server (Network Policy Server, NPS)](../../../../networking/technologies/nps/nps-top.md).
+Weitere Informationen finden Sie unter [Network Policy Server (NPS)](../../../../networking/technologies/nps/nps-top.md) (Netzwerkrichtlinienserver).
 
-## <a name="active-directory-certificate-services"></a>Active Directory-Zertifikatsdienste
+## <a name="active-directory-certificate-services"></a>Active Directory-Zertifikatdienste
 
 Der Server der Zertifizierungsstelle (Certification Authority, ca) ist eine Zertifizierungsstelle, die Active Directory Zertifikat Dienste ausgeführt wird. Für die VPN-Konfiguration ist eine Active Directory basierte Public Key-Infrastruktur (PKI) erforderlich.
 
-Organisationen können AD CS verwenden, um die Sicherheit zu erhöhen, indem Sie die Identität einer Person, eines Geräts oder Diensts an einen entsprechenden öffentlichen Schlüssel binden. AD CS umfasst auch Features, mit denen Sie die Zertifikat Registrierung und die Sperrung in einer Vielzahl von skalierbaren Umgebungen verwalten können. Weitere Informationen finden Sie unter [Übersicht über Active Directory Zertifikat Dienste](https://technet.microsoft.com/library/hh831740.aspx) und [Entwurfs Leit Fäden für die Public Key-Infrastruktur](https://social.technet.microsoft.com/wiki/contents/articles/2901.public-key-infrastructure-design-guidance.aspx).
+Organisationen können AD CS verwenden, um die Sicherheit zu erhöhen, indem Sie die Identität einer Person, eines Geräts oder Diensts an einen entsprechenden öffentlichen Schlüssel binden. AD CS umfasst auch Features, mit denen Sie die Zertifikat Registrierung und die Sperrung in einer Vielzahl von skalierbaren Umgebungen verwalten können. Weitere Informationen finden Sie unter [Übersicht über Active Directory Zertifikat Dienste](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831740(v=ws.11)) und [Entwurfs Leit Fäden für die Public Key-Infrastruktur](https://social.technet.microsoft.com/wiki/contents/articles/2901.public-key-infrastructure-design-guidance.aspx).
 
 Während der Fertigstellung der Bereitstellung konfigurieren Sie die folgenden Zertifikat Vorlagen für die Zertifizierungsstelle.
 
@@ -108,7 +108,7 @@ Zertifikat Vorlagen können die Verwaltung einer Zertifizierungsstelle (Certific
 
 Zertifikat Vorlagen sind ein wesentlicher Bestandteil einer Unternehmens Zertifizierungsstelle (Certification Authority, ca). Sie sind ein wichtiges Element der Zertifikat Richtlinie für eine-Umgebung, die den Satz von Regeln und Formaten für die Zertifikat Registrierung,-Verwendung und-Verwaltung ist.
 
-Weitere Informationen finden Sie unter [Zertifikat Vorlagen](https://technet.microsoft.com/library/cc730705.aspx).
+Weitere Informationen finden Sie unter [Zertifikat Vorlagen](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc730705(v=ws.11)).
 
 ### <a name="digital-server-certificates"></a>Zertifikate für digitale Server
 
@@ -124,7 +124,7 @@ Wenn Sie Zertifikate für digitale Server für die Authentifizierung zwischen Co
 
 Weitere Informationen finden Sie unterschritt-für- [Schritt-Anleitung für AD CS: Bereitstellung mit zweistufigen PKI-Hierarchie](https://social.technet.microsoft.com/wiki/contents/articles/15037.ad-cs-step-by-step-guide-two-tier-pki-hierarchy-deployment.aspx).
 
-## <a name="active-directory-domain-services-ad-ds"></a>Active Directory-Domänendienste (AD DS)
+## <a name="active-directory-domain-services-ad-ds"></a>Active Directory Domain Services (AD DS)
 
 Mit AD DS wird eine verteilte Datenbank bereitgestellt, in der Informationen zu Netzwerkressourcen und anwendungsspezifische Daten aus AD-fähigen Anwendungen gespeichert und verwaltet werden. Administratoren können AD DS verwenden, um die Elemente eines Netzwerks (z. B. Benutzer, Computer und andere Geräte) in einer hierarchischen Struktur aus Einschlussbeziehungen zu organisieren. Diese hierarchische Struktur umfasst die Active Directory-Gesamtstruktur, Domänen in der Gesamtstruktur sowie die Organisationseinheiten in den einzelnen Domänen. Ein Server, auf dem AD DS ausgeführt wird, wird als Domänencontroller bezeichnet.
 
@@ -182,7 +182,7 @@ In dieser Bereitstellung verwenden Sie den Knoten profileXML VPNv2 CSP, um das V
 
 Einige CSP-Knoten können jedoch nicht direkt über eine Benutzeroberfläche (UI) wie die Intune-Verwaltungskonsole konfiguriert werden. In diesen Fällen müssen Sie die Oma-URI-Einstellungen (Open Mobile Alliance Uniform Resource Identifier) manuell konfigurieren. Sie konfigurieren Oma-URIs mithilfe des Oma-Geräte Verwaltungs Protokolls (OMA-DM), einer universellen Geräte Verwaltungs Spezifikation, die von den meisten modernen Apple-, Android-und Windows-Geräten unterstützt wird. Solange Sie der OMA-DM-Spezifikation entsprechen, sollten alle MDM-Produkte auf die gleiche Weise mit diesen Betriebssystemen interagieren.
 
-Windows 10 bietet viele CSPs, aber bei dieser Bereitstellung liegt der Schwerpunkt auf der Verwendung von VPNv2 CSP zum Konfigurieren des VPN-Clients. Der VPNv2 CSP ermöglicht die Konfiguration der einzelnen VPN-Profileinstellungen in Windows 10 über einen eindeutigen CSP-Knoten. Außerdem ist der VPNv2-CSP ein Knoten namens *profileXML*, der es Ihnen ermöglicht, alle Einstellungen in einem Knoten anstatt einzeln zu konfigurieren. Weitere Informationen zu profileXML finden Sie im Abschnitt "Übersicht über profileXML" weiter unten in dieser Bereitstellung. Ausführliche Informationen zu den einzelnen VPNv2-CSP-Knoten finden Sie unter [VPNv2 CSP](https://msdn.microsoft.com/windows/hardware/commercialize/customize/mdm/vpnv2-csp).
+Windows 10 bietet viele CSPs, aber bei dieser Bereitstellung liegt der Schwerpunkt auf der Verwendung von VPNv2 CSP zum Konfigurieren des VPN-Clients. Der VPNv2 CSP ermöglicht die Konfiguration der einzelnen VPN-Profileinstellungen in Windows 10 über einen eindeutigen CSP-Knoten. Außerdem ist der VPNv2-CSP ein Knoten namens *profileXML*, der es Ihnen ermöglicht, alle Einstellungen in einem Knoten anstatt einzeln zu konfigurieren. Weitere Informationen zu profileXML finden Sie im Abschnitt "Übersicht über profileXML" weiter unten in dieser Bereitstellung. Ausführliche Informationen zu den einzelnen VPNv2-CSP-Knoten finden Sie unter [VPNv2 CSP](/windows/client-management/mdm/vpnv2-csp).
 
 ## <a name="next-steps"></a>Nächste Schritte
 
@@ -190,22 +190,22 @@ Windows 10 bietet viele CSPs, aber bei dieser Bereitstellung liegt der Schwerpun
 
 - [Beginnen der Planung Ihrer Always on-VPN-Bereitstellung](deploy/always-on-vpn-deploy-deployment.md)
 
-## <a name="related-topics"></a>Verwandte Themen
+## <a name="related-topics"></a>Zugehörige Themen
 
 - [Microsoft-Server Softwareunterstützung für Microsoft Azure Virtual Machines](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines): in diesem Artikel wird die Unterstützungs Richtlinie für die Ausführung von Microsoft-Server Software in der Microsoft Azure-Umgebung für virtuelle Maschinen (Infrastructure-as-a-Service) erläutert.
 
 - [Remote Zugriff](../../Remote-Access.md): dieses Thema enthält eine Übersicht über die Remote Zugriffs-Server Rolle in Windows Server 2016.
 
-- [Technische Anleitung für das Windows 10-VPN](https://docs.microsoft.com/windows/access-protection/vpn/vpn-guide): Dieses Handbuch führt Sie durch die Entscheidungen, die Sie für Windows 10-Clients in Ihrer Enterprise-VPN-Lösung treffen und wie Sie die Bereitstellung konfigurieren. Dieses Handbuch verweist auf den VPNv2-Konfigurations Dienstanbieter (CSP) und stellt Konfigurations Anweisungen für die Verwaltung mobiler Geräte (MDM) mithilfe von Microsoft InTune und der VPN-Profil Vorlage für Windows 10 bereit.
+- [Technische Anleitung für das Windows 10-VPN](/windows/access-protection/vpn/vpn-guide): Dieses Handbuch führt Sie durch die Entscheidungen, die Sie für Windows 10-Clients in Ihrer Enterprise-VPN-Lösung treffen und wie Sie die Bereitstellung konfigurieren. Dieses Handbuch verweist auf den VPNv2-Konfigurationsdienstanbieter (CSP) und enthält Konfigurationsanweisungen für die Verwaltung mobiler Geräte (MDM) unter Verwendung von Microsoft Intune und der VPN-Profilvorlage für Windows 10.
 
 - [Handbuch](../../../../networking/core-network-guide/Core-Network-Guide.md)zum Hauptnetzwerk: Dieses Handbuch enthält Anweisungen zum Planen und Bereitstellen der Kernkomponenten, die für ein voll funktionsfähiges Netzwerk und eine neue Active Directory Domäne in einer neuen Gesamtstruktur erforderlich sind.
 
 - [Domain Name System (DNS)](../../../../networking/dns/dns-top.md): dieses Thema enthält eine Übersicht über DNS (Domain Name Systems). In Windows Server 2016 ist DNS eine Server Rolle, die Sie mithilfe von Server-Manager oder Windows PowerShell-Befehlen installieren können. Wenn Sie eine neue Active Directory Gesamtstruktur und Domäne installieren, wird DNS automatisch mit Active Directory als globaler Katalogserver für die Gesamtstruktur und Domäne installiert.
 
-- [Übersicht über Active Directory Zertifikat Dienste](https://technet.microsoft.com/library/hh831740.aspx): Dieses Dokument bietet eine Übersicht über die Active Directory Zertifikat Dienste (AD CS) in Windows Server&reg; 2012. AD CS ist die Serverrolle, die es Ihnen ermöglicht, eine Public Key Infrastructure (PKI) zu erstellen und Verschlüsselung für öffentliche Schlüssel, digitale Zertifikate und Funktionen für digitale Signaturen in Ihrer Organisation bereitzustellen.
+- [Übersicht über Active Directory Zertifikat Dienste](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831740(v=ws.11)): Dieses Dokument bietet eine Übersicht über die Active Directory Zertifikat Dienste (AD CS) in Windows Server &reg; 2012. AD CS ist die Serverrolle, die es Ihnen ermöglicht, eine Public Key Infrastructure (PKI) zu erstellen und Verschlüsselung für öffentliche Schlüssel, digitale Zertifikate und Funktionen für digitale Signaturen in Ihrer Organisation bereitzustellen.
 
 - [Entwurfs Leit Faden für die Public Key-Infrastruktur](https://social.technet.microsoft.com/wiki/contents/articles/2901.public-key-infrastructure-design-guidance.aspx): dieses wiki bietet Anleitungen zum Entwerfen von Public Key-Infrastrukturen (PKIs). Bevor Sie eine PKI-und Zertifizierungsstellen Hierarchie konfigurieren, sollten Sie die Sicherheitsrichtlinie und die CPS-Anweisung (Certificate Practice Statement) Ihrer Organisation kennen.
 
-- [Schritt-für-Schritt-Anleitung für AD CS: Bereitstellung der PKI-Hierarchie mit zwei Ebenen](https://social.technet.microsoft.com/wiki/contents/articles/15037.ad-cs-step-by-step-guide-two-tier-pki-hierarchy-deployment.aspx): Diese Schritt-für-Schritt-Anleitung beschreibt die Schritte, die zum Einrichten einer grundlegenden Konfiguration von Active Directory&reg; Zertifikat Diensten (AD CS) in einer Lab-Umgebung erforderlich sind AD CS in Windows Server&reg; 2008 R2 bietet anpassbare Dienste zum Erstellen und Verwalten von Zertifikaten für öffentliche Schlüssel, die in Software Sicherheitssystemen verwendet werden, die Public Key-Technologien einsetzen.
+- [Schritt-für-Schritt-Anleitung für AD CS: Bereitstellung der PKI-Hierarchie mit zwei Ebenen](https://social.technet.microsoft.com/wiki/contents/articles/15037.ad-cs-step-by-step-guide-two-tier-pki-hierarchy-deployment.aspx): in dieser Schritt-für-Schritt-Anleitung werden die Schritte beschrieben, die zum Einrichten einer grundlegenden Konfiguration von Active Directory &reg; Zertifikat Diensten (AD CS) in einer Lab-Umgebung AD CS in Windows Server &reg; 2008 R2 bietet anpassbare Dienste zum Erstellen und Verwalten von Zertifikaten für öffentliche Schlüssel, die in Software Sicherheitssystemen verwendet werden, die Public Key-Technologien einsetzen.
 
-- [Netzwerk Richtlinien Server (Network Policy Server, NPS)](../../../../networking/technologies/nps/nps-top.md): dieses Thema enthält eine Übersicht über den Netzwerk Richtlinien Server unter Windows Server 2016. Mit einem Netzwerkrichtlinienserver (Network Policy Server, NPS) können Sie organisationsweite Netzwerkzugriffsrichtlinien für die Authentifizierung und Autorisierung von Verbindungsanforderungen erstellen und erzwingen.
+- [Netzwerk Richtlinien Server (Network Policy Server, NPS)](../../../../networking/technologies/nps/nps-top.md): dieses Thema enthält eine Übersicht über den Netzwerk Richtlinien Server unter Windows Server 2016. Mit dem Netzwerk Richtlinien Server (Network Policy Server, NPS) können Sie Organisations weite Netzwerk Zugriffsrichtlinien für die Authentifizierung und Autorisierung von Verbindungsanforderungen erstellen und erzwingen.

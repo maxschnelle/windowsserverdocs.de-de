@@ -10,12 +10,12 @@ author: cosmosdarwin
 description: Entfernen von Servern aus einem direkte Speicherplätze-Cluster in Windows Server.
 ms.date: 2/5/2017
 ms.localizationpriority: medium
-ms.openlocfilehash: 0dd888048edc96d6001492e92ba6d519c751bdaa
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 4fa3fe64cb5d7448a7e71eb344309ecb9990ebcd
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85474567"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86960022"
 ---
 # <a name="removing-servers-in-storage-spaces-direct"></a>Entfernen von Servern in direkte Speicherplätze
 
@@ -27,7 +27,7 @@ In diesem Thema wird beschrieben, wie Sie Server in [direkte Speicherplätze](st
 
 Wenn Sie den Server in Kürze wieder dem Cluster hinzufügen möchten, oder wenn Sie beabsichtigen, seine Laufwerke beizubehalten, indem Sie Sie auf einen anderen Server verschieben, können Sie den Server aus dem Cluster entfernen, *ohne* seine Laufwerke aus dem Speicherpool zu entfernen. Dies ist das Standardverhalten, wenn Sie Failovercluster-Manager verwenden, um den Server zu entfernen.
 
-Verwenden Sie das [Remove-clusternode-](https://technet.microsoft.com/library/hh847251.aspx) Cmdlet in PowerShell:
+Verwenden Sie das [Remove-clusternode-](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831694(v=ws.11)) Cmdlet in PowerShell:
 
 ```PowerShell
 Remove-ClusterNode <Name>

@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 882d3540897214db2f3fa9d04a6f11fc76a76502
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 19aca0285eca202b4e43a15b8e880f3672f0c846
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85935536"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86956712"
 ---
 # <a name="nlbmgr"></a>nlbmgr
 
@@ -40,8 +40,8 @@ nlbmgr [/noping][/hostlist <filename>][/autorefresh <interval>][/help | /?]
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 | /help | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
-- [Referenz zu networkloadbalancingclusters-Cmdlets](https://docs.microsoft.com/powershell/module/networkloadbalancingclusters)
+- [Referenz zu networkloadbalancingclusters-Cmdlets](/powershell/module/networkloadbalancingclusters)

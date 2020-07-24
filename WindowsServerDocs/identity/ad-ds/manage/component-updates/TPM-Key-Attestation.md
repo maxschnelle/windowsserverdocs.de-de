@@ -8,16 +8,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: de5a38ff6f811046d06c52a1ca4598f9650b3cfe
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: ae7106e0c0fc1d9caca58b3a9a435886fc56b6f7
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80823013"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86959942"
 ---
 # <a name="tpm-key-attestation"></a>TPM-Schlüsselnachweis
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 **Autor**: Justin Turner, Senior Support Eskalations Techniker mit der Windows-Gruppe  
   
@@ -28,9 +28,9 @@ ms.locfileid: "80823013"
 Obwohl seit Windows 8 die Unterstützung für TPM-geschützte Schlüssel vorhanden war, gab es keine Mechanismen für Zertifizierungsstellen, die kryptografisch überzeugen, dass der private Schlüssel für die Zertifikat Anforderer tatsächlich durch einen Trusted Platform Module (TPM) geschützt ist. Diese Aktualisierung ermöglicht es einer Zertifizierungsstelle, diesen Nachweis auszuführen und diesen Nachweis im ausgestellten Zertifikat widerzuspiegeln.  
   
 > [!NOTE]  
-> In diesem Artikel wird davon ausgegangen, dass der Reader mit dem Zertifikat Vorlagen Konzept vertraut ist (Weitere Informationen finden Sie unter [Zertifikat Vorlagen](https://technet.microsoft.com/library/cc730705.aspx)). Außerdem wird davon ausgegangen, dass der Reader mit der Konfiguration von Unternehmens Zertifizierungsstellen zum Ausstellen von Zertifikaten auf der Grundlage von Zertifikat Vorlagen vertraut ist (Weitere Informationen finden Sie unter Prüfliste: Konfigurieren von Zertifizierungsstellen [zum Ausstellen und Verwalten von Zertifikaten](https://technet.microsoft.com/library/cc771533.aspx)).  
+> In diesem Artikel wird davon ausgegangen, dass der Reader mit dem Zertifikat Vorlagen Konzept vertraut ist (Weitere Informationen finden Sie unter [Zertifikat Vorlagen](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc730705(v=ws.11))). Außerdem wird davon ausgegangen, dass der Reader mit der Konfiguration von Unternehmens Zertifizierungsstellen zum Ausstellen von Zertifikaten auf der Grundlage von Zertifikat Vorlagen vertraut ist (Weitere Informationen finden Sie unter Prüfliste: Konfigurieren von Zertifizierungsstellen [zum Ausstellen und Verwalten von Zertifikaten](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771533(v=ws.11))).  
   
-### <a name="terminology"></a>Terminologie  
+### <a name="terminology"></a>Begriff  
   
 |Begriff|Definition|  
 |--------|--------------|  
@@ -66,7 +66,7 @@ Im allgemeinen basiert der TPM-Schlüssel Nachweis auf folgenden Säulen:
   
 4.  Die Zertifizierungsstelle gibt ein Zertifikat mit einer speziellen Ausstellungs Richtlinien-OID aus, um anzugeben, dass der Schlüssel nun von einem TPM geschützt wird.  
   
-## <a name="deployment-overview"></a><a name="BKMK_DeploymentOverview"></a>Bereitstellungs Übersicht  
+## <a name="deployment-overview"></a><a name="BKMK_DeploymentOverview"></a>Übersicht über die Bereitstellung  
 Bei dieser Bereitstellung wird davon ausgegangen, dass eine Windows Server 2012 R2-Unternehmens Zertifizierungsstelle eingerichtet ist. Außerdem werden-Clients (Windows 8.1) für die Registrierung für die Unternehmens Zertifizierungsstelle mithilfe von Zertifikat Vorlagen konfiguriert. 
 
 Zum Bereitstellen eines TPM-Schlüssel Attestation sind drei Schritte erforderlich:  
@@ -83,7 +83,7 @@ Zum Bereitstellen eines TPM-Schlüssel Attestation sind drei Schritte erforderli
   
     Beachten Sie, dass es möglich ist, eine Kombination aus TPM-Vertrauensstellungs Modellen auszuwählen. In diesem Fall akzeptiert die Zertifizierungsstelle jede der Nachweismethoden, und die Ausstellungs Richtlinie OIDs reflektiert alle erfolgreichen Nachweismethoden.  
   
-2.  **Konfigurieren Sie die Zertifikat Vorlage:** Die Konfiguration der Zertifikat Vorlage wird im Abschnitt " [Bereitstellungs Details](../../../ad-ds/manage/component-updates/TPM-Key-Attestation.md#BKMK_DeploymentDetails) " in diesem Thema beschrieben. In diesem Artikel wird nicht erläutert, wie diese Zertifikat Vorlage der Unternehmens Zertifizierungsstelle zugewiesen wird oder wie der Registrierungs Zugriff für eine Benutzergruppe gewährt wird. Weitere Informationen finden Sie unter Prüfliste [: Konfigurieren von CAS zum Ausstellen und Verwalten von Zertifikaten](https://technet.microsoft.com/library/cc771533.aspx).  
+2.  **Konfigurieren Sie die Zertifikat Vorlage:** Die Konfiguration der Zertifikat Vorlage wird im Abschnitt " [Bereitstellungs Details](../../../ad-ds/manage/component-updates/TPM-Key-Attestation.md#BKMK_DeploymentDetails) " in diesem Thema beschrieben. In diesem Artikel wird nicht erläutert, wie diese Zertifikat Vorlage der Unternehmens Zertifizierungsstelle zugewiesen wird oder wie der Registrierungs Zugriff für eine Benutzergruppe gewährt wird. Weitere Informationen finden Sie unter Prüfliste [: Konfigurieren von CAS zum Ausstellen und Verwalten von Zertifikaten](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771533(v=ws.11)).  
   
 3.  **Konfigurieren der Zertifizierungsstelle für das TPM-Vertrauensstellungs Modell**  
   
@@ -98,9 +98,9 @@ Zum Bereitstellen eines TPM-Schlüssel Attestation sind drei Schritte erforderli
     > -   Der TPM-Schlüssel Nachweis für Smartcard-kSPS von Drittanbietern wird nicht unterstützt. Der Kryptografieanbieter-KSP von Microsoft Platform muss verwendet werden.  
     > -   Der TPM-Schlüssel Nachweis funktioniert nur für RSA-Schlüssel.  
     > -   Der TPM-Schlüssel Nachweis wird für eine eigenständige Zertifizierungsstelle nicht unterstützt.  
-    > -   Der TPM-Schlüssel Nachweis unterstützt die [nicht persistente Zertifikat Verarbeitung](https://technet.microsoft.com/library/ff934598)nicht.  
+    > -   Der TPM-Schlüssel Nachweis unterstützt die [nicht persistente Zertifikat Verarbeitung](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ff934598(v=ws.10))nicht.  
   
-## <a name="deployment-details"></a><a name="BKMK_DeploymentDetails"></a>Bereitstellungs Details  
+## <a name="deployment-details"></a><a name="BKMK_DeploymentDetails"></a>Bereitstellungsdetails  
   
 ### <a name="configure-a-certificate-template"></a><a name="BKMK_ConfigCertTemplate"></a>Konfigurieren einer Zertifikat Vorlage  
 Führen Sie die folgenden Konfigurationsschritte aus, um die Zertifikat Vorlage für den TPM-Schlüssel Nachweis zu konfigurieren:  
@@ -115,7 +115,7 @@ Führen Sie die folgenden Konfigurationsschritte aus, um die Zertifikat Vorlage 
   
     ![TPM-Schlüsselnachweis](media/TPM-Key-Attestation/GTR_ADDS_CompatibilityTab.gif)  
   
-2.  Registerkarte **Cryptography**  
+2.  Registerkarte **Kryptografie**  
   
     Stellen Sie sicher, dass der **Schlüsselspeicher Anbieter** für die **Anbieter Kategorie** ausgewählt und **RSA** als **Algorithmusname**ausgewählt ist. Stellen Sie sicher, dass **Anforderungen einen der folgenden Anbieter verwenden** ausgewählt ist und die Option **Microsoft Platform Crypto Provider** unter **Providers**ausgewählt ist.  
   
@@ -153,8 +153,8 @@ Führen Sie die folgenden Konfigurationsschritte aus, um die Zertifikat Vorlage 
   
     |OID|Typ des Schlüssel Nachweis|Beschreibung|Zuverlässigkeits Stufe|  
     |-------|------------------------|---------------|-------------------|  
-    |1.3.6.1.4.1.311.21.30|'|"EK verifiziert": für die vom Administrator verwaltete Liste von EK|Hoch|  
-    |1.3.6.1.4.1.311.21.31|Endorsement Certificate|"EK-Zertifikat überprüft": Wenn die EK-Zertifikat Kette überprüft wird|Mittel|  
+    |1.3.6.1.4.1.311.21.30|'|"EK verifiziert": für die vom Administrator verwaltete Liste von EK|High|  
+    |1.3.6.1.4.1.311.21.31|Endorsement Certificate|"EK-Zertifikat überprüft": Wenn die EK-Zertifikat Kette überprüft wird|Medium|  
     |1.3.6.1.4.1.311.21.32|Benutzeranmeldeinformationen|"Bei Verwendung von EK vertrauenswürdig": für Benutzer attetestek|Niedrig|  
   
     Die OIDs werden in das ausgestellte Zertifikat eingefügt, wenn die Option Ausstellungs **Richtlinien einschließen** ausgewählt ist (die Standardkonfiguration).  
@@ -193,16 +193,16 @@ Führen Sie die folgenden Konfigurationsschritte aus, um die Zertifikat Vorlage 
   
         |Vorgang|Befehlssyntax|  
         |-------------|------------------|  
-        |Ordner Speicherorte hinzufügen|certutil. exe-setreg ca\endorsementkeylistdirectories + "<folder>"|  
-        |Ordner Speicherorte entfernen|certutil. exe-setreg ca\endorsementkeylistdirectories-"<folder>"|  
+        |Ordner Speicherorte hinzufügen|certutil.exe-Set ca\endorgenmentkeylistdirectories + " <folder> "|  
+        |Ordner Speicherorte entfernen|certutil.exe-Set ca\endorgenmentkeylistdirectories-" <folder> "|  
   
         Der endorsementkeylistdirectories im certutil-Befehl ist eine Registrierungs Einstellung, wie in der folgenden Tabelle beschrieben.  
   
         |Wertname|Typ|Daten|  
         |--------------|--------|--------|  
-        |Endoranmentkeylistdirectories|REG_MULTI_SZ|< lokalen oder UNC-Pfad zu ekpub-Zulassungs Listen ><p>Beispiel:<p>*\\\blueCA.contoso.com\ekpub*<p>*\\\bluecluster1.contoso.com\ekpub*<p>D:\ekpub|  
+        |Endoranmentkeylistdirectories|REG_MULTI_SZ|<lokalen oder UNC-Pfad zu ekpub-Zulassungs Listen ><p>Beispiel:<p>*\\\blueCA.contoso.com\ekpub*<p>*\\\bluecluster1.contoso.com\ekpub*<p>D:\ekpub|  
   
-        Hklm\system\currentcontrolset\services\cerzvc\configuration\\<CA Sanitized Name>  
+        Hklm\system\currentcontrolset\services\certvc\configuration\\<CA Sanitized Name>  
   
         *Endortskeylistdirectories* enthält eine Liste der UNC-oder lokalen Dateisystem Pfade, von denen jedes auf einen Ordner zeigt, für den die Zertifizierungsstelle über Lesezugriff verfügt. Jeder Ordner kann 0 (null) oder mehr Zulassungs Listeneinträge enthalten. jeder Eintrag ist eine Datei mit einem Namen, der der SHA-2-Hash eines vertrauenswürdigen ekpub ist, ohne Dateierweiterung. 
         Das Erstellen oder Bearbeiten dieser Registrierungsschlüssel Konfiguration erfordert einen Neustart der Zertifizierungsstelle, ebenso wie vorhandene Konfigurationseinstellungen der Zertifizierungsstellen Registrierung. Änderungen an der Konfigurationseinstellung werden jedoch sofort wirksam, und es ist nicht erforderlich, dass die Zertifizierungsstelle neu gestartet wird.  
@@ -220,7 +220,7 @@ Führen Sie die folgenden Konfigurationsschritte aus, um die Zertifikat Vorlage 
 ## <a name="troubleshooting"></a>Problembehandlung  
   
 ### <a name="key-attestation-fields-are-unavailable-on-a-certificate-template"></a>Schlüssel Nachweis Felder sind in einer Zertifikat Vorlage nicht verfügbar.  
-Die Felder für den Schlüssel Nachweis sind nicht verfügbar, wenn die Vorlagen Einstellungen die Anforderungen für den Nachweis nicht erfüllen. Häufige Ursachen:  
+Die Felder für den Schlüssel Nachweis sind nicht verfügbar, wenn die Vorlagen Einstellungen die Anforderungen für den Nachweis nicht erfüllen. Gängige Gründe wären etwa:  
   
 1.  Die Kompatibilitäts Einstellungen sind nicht ordnungsgemäß konfiguriert. Stellen Sie sicher, dass Sie wie folgt konfiguriert werden:  
   
@@ -275,5 +275,5 @@ Verwenden Sie das Windows PowerShell-Cmdlet **Confirm-caendorsementkeyinfo**, um
         ```  
   
 ## <a name="see-also"></a>Weitere Informationen  
-[Übersicht über Trusted Platform Module-Technologie](https://technet.microsoft.com/library/jj131725.aspx)  
+[Trusted Platform Module – Technologieübersicht](/previous-versions/windows/it-pro/windows-8.1-and-8/jj131725(v=ws.11))  
 [Externe Ressource: Trusted Platform Module](http://www.cs.unh.edu/~it666/reading_list/Hardware/tpm_fundamentals.pdf)  

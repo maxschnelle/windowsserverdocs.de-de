@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c952ff78147d3b4c6097aaf9dd87e55ecc7911ad
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 65c1d22bd45734a667bfc46840fe652e3f2f5314
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85928794"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86958432"
 ---
 # <a name="defrag"></a>defrag
 
@@ -55,7 +55,7 @@ defrag <volume> [<parameters>]
 | /x | Führen Sie die Konsolidierung des freien Speicherplatzes auf den angegebenen Volumes aus. |
 | /? | Zeigt diese Hilfe Informationen an. |
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Sie können keine bestimmten Dateisystemvolumes oder-Laufwerke defragmentieren, einschließlich:
 
@@ -131,7 +131,7 @@ Der Defragmentierungsprozess führt die geplante Aufgabe als Wartungs Task aus, 
 
     - Der Computer wurde erneut gestartet (im Leerlauf wieder aufgenommen).
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
@@ -141,4 +141,4 @@ Der Defragmentierungsprozess führt die geplante Aufgabe als Wartungs Task aus, 
 
 - [fsutil dirty](fsutil-dirty.md)
 
-- [PowerShell-Volumen Optimierung](https://docs.microsoft.com/powershell/module/storage/optimize-volume?view=win10-ps)
+- [PowerShell-Volumen Optimierung](/powershell/module/storage/optimize-volume?view=win10-ps)

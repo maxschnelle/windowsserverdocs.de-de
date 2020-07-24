@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ce1f0c009ff9e68c4b8f1f9bc074d91d235d1955
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 83e2ca9e40120c78f11f3d6e1bfaeb1db161b796
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85925079"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86957522"
 ---
 # <a name="ftp-quote"></a>ftp quote
 
@@ -45,10 +45,10 @@ Geben Sie Folgendes ein, um einen Befehl zum **Beenden** an den FTP-Remote Serve
 quote quit
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
 - [FTP-literalbefehl](ftp-literal_1.md)
 
-- [Zusätzlicher FTP-Leitfaden](https://docs.microsoft.com/previous-versions/orphan-topics/ws.10/cc756013(v=ws.10))
+- [Zusätzlicher FTP-Leitfaden](/previous-versions/orphan-topics/ws.10/cc756013(v=ws.10))

@@ -1,6 +1,6 @@
 ---
 title: Windows-Befehle
-description: Verweis
+description: Referenz
 ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: c703d07c-8227-4e86-94a6-8ef390f94cdc
@@ -9,12 +9,12 @@ ms.author: jgerend
 manager: dongill
 ms.date: 06/29/2020
 ms.prod: windows-server
-ms.openlocfilehash: 8984f20bbd5690abf914a932925218f961212e7c
-ms.sourcegitcommit: 457e88e5aa6be13a2bffdb8e434a8efc3698678f
+ms.openlocfilehash: bd2d1f9baa17581cb43ae383c260c938f302a73c
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85548723"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86958982"
 ---
 # <a name="windows-commands"></a>Windows-Befehle
 
@@ -57,7 +57,7 @@ Die in diesem Thema enthaltenen Informationen gelten für:
 - Windows Server (Halbjährlicher Kanal)
 - Windows Server 2016
 - Windows Server 2012 R2
-- Windows Server 2012
+- Windows Server 2012
 - Windows Server 2008 R2
 - WindowsServer 2008
 - Windows 10
@@ -67,14 +67,14 @@ Die in diesem Thema enthaltenen Informationen gelten für:
 
 Die Befehlsshell war die erste Shell, die in Windows integriert wurde, um Routineaufgaben wie die Verwaltung von Benutzerkonten oder nächtliche Sicherungen mit Batch Dateien (BAT-Dateien) zu automatisieren. Mit Windows Script Host können Sie komplexere Skripts in der Befehlsshell ausführen. Weitere Informationen finden Sie unter [cscript](cscript.md) oder [WScript](wscript.md). Sie können Vorgänge effizienter mithilfe von Skripts ausführen, als dies mithilfe der Benutzeroberfläche möglich ist. Skripts akzeptieren alle Befehle, die in der Befehlszeile verfügbar sind.
 
-Windows verfügt über zwei Befehls Shells: die Befehlsshell und [PowerShell](https://docs.microsoft.com/powershell/scripting/powershell-scripting?view=powershell-6). Bei jeder Shell handelt es sich um ein Softwareprogramm, das eine direkte Kommunikation zwischen Ihnen und dem Betriebssystem oder der Anwendung ermöglicht und eine Umgebung zum Automatisieren des IT-betriebsbereit stellt
+Windows verfügt über zwei Befehls Shells: die Befehlsshell und [PowerShell](/powershell/scripting/powershell-scripting?view=powershell-6). Bei jeder Shell handelt es sich um ein Softwareprogramm, das eine direkte Kommunikation zwischen Ihnen und dem Betriebssystem oder der Anwendung ermöglicht und eine Umgebung zum Automatisieren des IT-betriebsbereit stellt
 
 PowerShell wurde entwickelt, um die Funktionen der Befehlsshell zum Ausführen von PowerShell-Befehlen zu erweitern, die als Cmdlets bezeichnet werden. Cmdlets ähneln Windows-Befehlen, bieten jedoch eine erweiterbare Skriptsprache. Sie können Windows-Befehle und PowerShell-Cmdlets in PowerShell ausführen, aber in der Befehlsshell können nur Windows-Befehle und keine PowerShell-Cmdlets ausgeführt werden.
 
 Bei der stabilsten aktuellen Windows-Automatisierung empfiehlt es sich, PowerShell anstelle von Windows-Befehlen oder Windows Script Host für Windows Automation zu verwenden.
 
 > [!NOTE]
->Sie können auch [PowerShell Core](https://docs.microsoft.com/powershell/scripting/whats-new/what-s-new-in-powershell-core-60?view=powershell-6)herunterladen und installieren, die Open Source-Version von PowerShell.
+>Sie können auch [PowerShell Core](/powershell/scripting/whats-new/what-s-new-in-powershell-core-60?view=powershell-6)herunterladen und installieren, die Open Source-Version von PowerShell.
 
 > [!CAUTION]
 > Durch eine fehlerhafte Bearbeitung der Registrierung können schwerwiegende Schäden am System verursacht werden. Bevor Sie die folgenden Änderungen an der Registrierung vornehmen, sollten Sie alle wichtigen Daten auf dem Computer sichern.
@@ -695,7 +695,7 @@ Wenn Sie Informationen zu einem bestimmten Windows-Befehl suchen möchten, klick
 - [rdpsign](rdpsign.md)
 - [recover](recover.md)
 - [recover disk group](recover_1.md)
-- [Ref](refsutil.md)
+- [refsutil](refsutil.md)
 - [reg](reg.md)
   - [reg add](reg-add.md)
   - [reg compare](reg-compare.md)
@@ -736,7 +736,7 @@ Wenn Sie Informationen zu einem bestimmten Windows-Befehl suchen möchten, klick
 - [rundll32 printui](rundll32-printui.md)
 - [rwinsta](rwinsta.md)
 
-### <a name="s"></a>E
+### <a name="s"></a>S
 
 - [san](san.md)
 - [sc config](sc-config.md)

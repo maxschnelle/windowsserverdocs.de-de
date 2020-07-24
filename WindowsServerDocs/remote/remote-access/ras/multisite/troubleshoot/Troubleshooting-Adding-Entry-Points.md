@@ -8,16 +8,16 @@ ms.topic: article
 ms.assetid: dcc1037f-1a65-4497-99e6-0df9aef748a8
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 9e8f67709e6059b879eab92fdd06609df90cb9a2
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 89d4773e18f6e38999a1c1db1c17a089ee183bbc
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80858303"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86960172"
 ---
 # <a name="troubleshooting-adding-entry-points"></a>Beheben von Problemen beim Hinzufügen von Einstiegspunkten
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 Dieses Thema enthält Informationen zum Beheben von Problemen mit dem Befehl `Add-DAEntryPoint`. Um sicherzustellen, dass sich der angezeigte Fehler auf das Hinzufügen eines Einstiegspunkts bezieht, prüfen Sie, ob im Windows-Ereignisprotokoll die Ereignis-ID 10067 aufgeführt wird.  
   
@@ -33,7 +33,7 @@ Wenn Sie einer Bereitstellung für mehrere Standorte einen neuen Einstiegspunkt 
 Führen Sie den Befehl aus, und geben Sie für den Parameter *RemoteAccessServer* den Namen des Servers an, der als Einstiegspunkt hinzugefügt werden soll.  
   
 ## <a name="remote-access-is-not-configured"></a>Nicht konfigurierter Remotezugriff  
-Der **Fehler wurde empfangen**. Der Remote Zugriff ist auf < server_name > nicht konfiguriert. Geben Sie den Namen eines Servers an, der zu einer Bereitstellung für mehrere Standorte gehört.  
+Der **Fehler wurde empfangen**. Der Remote Zugriff ist auf <server_name> nicht konfiguriert. Geben Sie den Namen eines Servers an, der zu einer Bereitstellung für mehrere Standorte gehört.  
   
 **Ursache**  
   
@@ -54,11 +54,11 @@ Die Funktionen für mehrere Standorte sind auf dem Server, der durch den Paramet
   
 **Lösung**  
   
-Verwenden Sie das Cmdlet `Enable-DaMultiSite` zum Aktivieren der Funktionen für mehrere Standorte. Weitere Informationen finden Sie unter Bereitstellen des [Remote Zugriffs für mehrere Standorte](https://technet.microsoft.com/library/hh831664.aspx).  
+Verwenden Sie das Cmdlet `Enable-DaMultiSite` zum Aktivieren der Funktionen für mehrere Standorte. Weitere Informationen finden Sie unter [Bereitstellen des Remotezugriffs für mehrere Standorte](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831664(v=ws.11)).  
   
 ## <a name="ipv6-prefix-issues"></a>Probleme mit IPv6-Präfixen  
   
--   **Problem 1**  
+-   **Problem 1:**  
   
     Der **Fehler wurde empfangen**. IPv6 wird im internen Netzwerk bereitgestellt, aber Sie haben kein IPv6-Client Präfix angegeben.  
   
@@ -72,7 +72,7 @@ Verwenden Sie das Cmdlet `Enable-DaMultiSite` zum Aktivieren der Funktionen für
   
     2.  Führen Sie das Cmdlet `Add-DAEntryPoint` aus, und geben Sie im Parameter *ClientIPv6Prefix* das IP-HTTPS-Präfix an.  
   
--   **Problem 2**  
+-   **Problem 2:**  
   
     Der **Fehler wurde empfangen**. Das IPv6-Präfix des Clients wird bereits von einem anderen Einstiegspunkt verwendet. Geben Sie einen anderen Wert an.  
   
@@ -87,7 +87,7 @@ Verwenden Sie das Cmdlet `Enable-DaMultiSite` zum Aktivieren der Funktionen für
     2.  Führen Sie das Cmdlet `Add-DAEntryPoint` aus, und geben Sie im Parameter *ClientIPv6Prefix* das IP-HTTPS-Präfix an.  
   
 ## <a name="connectto-address"></a>ConnectTo-Adresse  
-Der **Fehler wurde empfangen**. Die Adresse (< connect_to_address >), mit der DirectAccess-Clients auf dem remoteaccess-Server eine Verbindung herstellen, ist identisch mit der Adresse des Netzwerkadressen Servers. Geben Sie einen anderen Wert an.  
+Der **Fehler wurde empfangen**. Die Adresse (<connect_to_address>), mit der DirectAccess-Clients auf dem remoteaccess-Server eine Verbindung herstellen, ist identisch mit der Adresse des Netzwerkadressen Servers. Geben Sie einen anderen Wert an.  
   
 **Ursache**  
   
@@ -98,11 +98,11 @@ Die ConnectTo-Adresse ist identisch mit der Adresse des Netzwerkadressenservers.
 Die ConnectTo-Adresse muss über das Internet aufgelöst werden können, damit Clientcomputer eine Verbindung über IP-HTTPS herstellen können. Die Adresse des Netzwerkadressenservers muss über das Unternehmensnetzwerk aufgelöst werden können, nicht jedoch über das Internet. Stellen Sie sicher, dass die Adresse des Netzwerkadressenservers nicht identisch mit der ConnectTo-Adresse ist. Wählen Sie andere Adressen aus, und versuchen Sie es erneut.  
   
 ## <a name="directaccess-or-vpn-already-installed"></a>DirectAccess oder VPN bereits installiert  
-Der **Fehler wurde empfangen**. Auf dem Server wurde eine VPN-Installation erkannt, < server_name >. Geben Sie einen alternativen Server an, auf dem kein Remotezugriff installiert ist, oder entfernen Sie die VPN-Konfiguration vom Server.  
+Der **Fehler wurde empfangen**. Auf dem Server wurde eine VPN-Installation erkannt, <server_name>. Geben Sie einen alternativen Server an, auf dem kein Remotezugriff installiert ist, oder entfernen Sie die VPN-Konfiguration vom Server.  
   
-Oder  
+oder  
   
-Der Remote Zugriff ist auf dem Server < server_name > bereits installiert. Geben Sie einen alternativen Server an, auf dem DirectAccess nicht ausgeführt wird, oder entfernen Sie die vorhandene DirectAccess-Konfiguration vom Server.  
+Der Remote Zugriff ist auf dem Server <server_name> bereits installiert. Geben Sie einen alternativen Server an, auf dem DirectAccess nicht ausgeführt wird, oder entfernen Sie die vorhandene DirectAccess-Konfiguration vom Server.  
   
 **Ursache**  
   
@@ -115,7 +115,7 @@ Um einem Server eine Bereitstellung für mehrere Standorte hinzuzufügen, müsse
 Führen Sie den Befehl aus, und stellen Sie sicher, dass für den von Ihnen im Parameter *RemoteAccessServer* angegebenen Server DirectAccess und VPN nicht konfiguriert sind.  
   
 ## <a name="ipsec-root-certificate"></a>IPsec-Stammzertifikat  
-Der **Fehler wurde empfangen**. Das konfigurierte IPSec-Stamm Zertifikat kann nicht auf dem Server < server_name > gefunden werden.  
+Der **Fehler wurde empfangen**. Das konfigurierte IPSec-Stamm Zertifikat kann nicht auf dem Server <server_name> gefunden werden.  
   
 **Ursache**  
   
@@ -133,7 +133,7 @@ Ist das Zertifikat ungültig, wählen Sie ein gültiges Zertifikat aus, das auf 
 ## <a name="mixing-ipv6-and-ipv4-entry-points"></a>Vermischen von IPv6- und IPv4-Einstiegspunkten  
 Bei der ersten Installation von DirectAccess wird der interne Netzwerkadapter überprüft. Dies dient der Feststellung, ob im Netzwerk ausschließlich IPv4-Adressen vorhanden sind (reines IPv4-Netzwerk), IPv6- und IPv4-Adressen, oder ausschließlich IPv6-Adressen (reines IPv6-Netzwerk). Diese Informationen werden zur Bestimmung des Bereitstellungstyps verwendet (nur IPv4, IPv6 und IPv4 oder nur IPv6).  
   
--   **Problem 1**  
+-   **Problem 1:**  
   
     Die **Warnung wurde empfangen**. Der hinzugefügte RAS-Server wird mit IPv4-und IPv6-Adressen konfiguriert. Bei dieser Bereitstellung handelt es sich um eine reine IPv4-Bereitstellung, und die IPv6-Adressen werden von Remotezugriff ignoriert.  
   
@@ -145,7 +145,7 @@ Bei der ersten Installation von DirectAccess wird der interne Netzwerkadapter ü
   
     Wenn das gesamte interne Netzwerk mit IPv6- und IPv4-Adressen konfiguriert ist, ist es u. U. ratsam, zu einer IPv6/IPv4-Bereitstellung zu wechseln, um die Vorteile der IPv6-Technologie nutzen zu können. Weitere Informationen finden Sie unter "Übergang von einem reinen IPv4 zu einem IPv6 + IPv4-Unternehmensnetzwerk" in [Schritt 3: Planen der Bereitstellung für mehrere Standorte](assetId:///19d49dbf-1786-47bb-ab97-f0458c53d91d).  
   
--   **Problem 2**  
+-   **Problem 2:**  
   
     Der **Fehler wurde empfangen**. Die internen Netzwerkadapter der Remote Zugriffs Server in dieser Bereitstellung für mehrere Standorte werden mit IPv4-Adressen konfiguriert. Der hinzugefügte Einstiegspunkt muss auch mit einer IPv4-Adresse im internen Netzwerkadapter konfiguriert werden.  
   
@@ -185,9 +185,9 @@ Bei der ersten Installation von DirectAccess wird der interne Netzwerkadapter ü
   
 ## <a name="domain-issues-with-the-servergponame"></a>Domänenbezogene Probleme mit ServerGpoName  
   
--   **Problem 1**  
+-   **Problem 1:**  
   
-    Der **Fehler wurde empfangen**. Die im servergponame-Parameter angegebene Domäne < server_GPO > ist nicht vorhanden. Geben Sie stattdessen die Domänen < domain_name > an.  
+    Der **Fehler wurde empfangen**. Die im servergponame-Parameter angegebene Domäne <server_GPO> ist nicht vorhanden. Geben Sie stattdessen die Domänen <domain_name> an.  
   
     **Ursache**  
   
@@ -197,9 +197,9 @@ Bei der ersten Installation von DirectAccess wird der interne Netzwerkadapter ü
   
     Stellen Sie sicher, dass Sie den Domänennamen richtig eingegeben haben. Ist der Domänenname richtig, versuchen Sie es erneut mit dem vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN).  
   
--   **Problem 2**  
+-   **Problem 2:**  
   
-    Der **Fehler wurde empfangen**. Das Server-GPO muss sich in der RAS-Server Domäne befinden. Geben Sie die Domänen < domain_name > im servergponame-Parameter an.  
+    Der **Fehler wurde empfangen**. Das Server-GPO muss sich in der RAS-Server Domäne befinden. Geben Sie die Domänen <domain_name> im servergponame-Parameter an.  
   
     **Ursache**  
   
@@ -210,7 +210,7 @@ Bei der ersten Installation von DirectAccess wird der interne Netzwerkadapter ü
     Das Server-GPO sollte sich in der gleichen Domäne wie der RAS-Server befinden. Verwenden Sie den Domänennamen des Servers für das Server-GPO, und versuchen Sie es erneut.  
   
 ## <a name="split-brain-dns"></a>Split-Brain-DNS  
-Die **Warnung wurde empfangen**. Der NRPT-Eintrag für das DNS-Suffix < DNS_suffix > enthält den öffentlichen Namen, der von Client Computern zum Herstellen einer Verbindung mit dem RAS-Server verwendet wird. Fügen Sie den Namen < connect_to_address > als Ausnahme in der NRPT hinzu.  
+Die **Warnung wurde empfangen**. Der NRPT-Eintrag für das DNS-Suffix <DNS_suffix> enthält den öffentlichen Namen, der von Client Computern zum Herstellen einer Verbindung mit dem RAS-Server verwendet wird. Fügen Sie den Namen <connect_to_address> als Ausnahme in der NRPT hinzu.  
   
 **Ursache**  
   
@@ -224,19 +224,19 @@ So erstellen Sie eine Ausnahme für eine Adresse in den NRPT-Regeln:
   
 1.  Klicken Sie in der Remotezugriffs-Verwaltungskonsole in Schritt 3 **Infrastrukturserver** auf **Bearbeiten**.  
   
-2.  Doppelklicken Sie im Assistenten zum Einrichten des Infrastrukturservers auf der Seite **DNS** auf die Tabelle, um ein neues Namenssuffix einzugeben.  
+2.  Doppelklicken Sie im Assistenten zum Einrichten des Infrastrukturservers**** auf der Seite **DNS** auf die Tabelle, um ein neues Namenssuffix einzugeben.  
   
 3.  Geben Sie im Dialogfeld **DNS-Serveradressen** unter %%amp;quot;DNS-Suffix%%amp;quot; die ConnectTo-Adresse des Einstiegspunkts ein, und klicken Sie auf **Übernehmen**.  
   
 Wenn Sie Namenssuffixe hinzufügen, ohne eine Serveradresse anzugeben, wird das Suffix als NRPT-Ausnahme behandelt.  
   
 ## <a name="saving-server-gpo-settings"></a>Speichern der Server-GPO-Einstellungen  
-Der **Fehler wurde empfangen**. Fehler beim Speichern der Remote Zugriffs Einstellungen auf dem GPO-< GPO_name >.  
+Der **Fehler wurde empfangen**. Fehler beim Speichern der Remote Zugriffs Einstellungen auf dem GPO-<GPO_name>.  
   
-Informationen zum Beheben dieses Fehlers finden Sie unter Speichern von Server-GPO-Einstellungen unter Problembehandlung beim [Aktivieren von Multisite](https://technet.microsoft.com/library/jj591658.aspx).  
+Informationen zum Beheben dieses Fehlers finden Sie unter Speichern von Server-GPO-Einstellungen unter Problembehandlung beim [Aktivieren von Multisite](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj591658(v=ws.11)).  
   
 ## <a name="gpo-updates-cannot-be-applied"></a>GPO-Aktualisierungen können nicht angewendet werden  
-Die **Warnung wurde empfangen**. GPO-Aktualisierungen können nicht auf < server_name > angewendet werden. Die Änderungen werden erst nach der nächsten Richtlinienaktualisierung wirksam.  
+Die **Warnung wurde empfangen**. GPO-Aktualisierungen können nicht auf <server_name> angewendet werden. Die Änderungen werden erst nach der nächsten Richtlinienaktualisierung wirksam.  
   
 **Ursache**  
   
@@ -246,5 +246,3 @@ Beim Aktualisieren der Richtlinien auf dem angegebenen Computer ist ein Fehler a
   
 Führen Sie auf dem angegebenen Computer `gpupdate /force` aus, um eine Richtlinienaktualisierung zu erzwingen.  
   
-
-

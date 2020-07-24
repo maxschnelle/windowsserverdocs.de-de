@@ -10,18 +10,18 @@ ms.date: 08/20/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 53626c4cfac17cb11402ada9ce3397c487cd0720
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3ad6658c504cc90eedef2c1cb6688c6f12233b3c
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71389854"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86959872"
 ---
 # <a name="winlogon-automatic-restart-sign-on-arso"></a>Automatische Winlogon-Neustart Anmeldung (ARSO)
 
 Während eines Windows Update müssen benutzerspezifische Prozesse ausgeführt werden, damit das Update fertiggestellt wird. Diese Prozesse erfordern, dass der Benutzer bei seinem Gerät angemeldet ist. Bei der ersten Anmeldung nach dem Initiieren eines Updates müssen die Benutzer warten, bis diese benutzerspezifischen Prozesse abgeschlossen sind, bevor Sie mit der Verwendung Ihres Geräts beginnen können.
 
-## <a name="how-does-it-work"></a>Wie funktioniert das?
+## <a name="how-does-it-work"></a>Wie funktioniert dies?
 
 Wenn Windows Update einen automatischen Neustart initiiert, extrahiert ARSO die abgeleiteten Anmelde Informationen des aktuell angemeldeten Benutzers, speichert Sie auf dem Datenträger und konfiguriert die automatische Anmeldung für den Benutzer. Windows Update, das als System mit TCB-Berechtigung ausgeführt wird, wird der RPC-Aufruf zu diesem Zweck initiiert.
 
@@ -31,7 +31,7 @@ Wenn Sie den Benutzer in der Konsole automatisch anmelden und sperren, können W
 
 ARSO behandelt nicht verwaltete und verwaltete Geräte anders. Bei nicht verwalteten Geräten wird die Geräteverschlüsselung verwendet, ist aber nicht erforderlich, damit der Benutzer ARSO erhält. Für verwaltete Geräte sind TPM 2,0, secureboot und BitLocker für die Konfiguration von ARSO erforderlich. IT-Administratoren können diese Anforderung über Gruppenrichtlinie außer Kraft setzen. ARSO für verwaltete Geräte ist zurzeit nur für Geräte verfügbar, die mit Azure Active Directory verknüpft sind.
 
-|   | Windows Update| Herunterfahren-g-t 0  | Vom Benutzer initiierte Neustarts | APIs mit SHUTDOWN_ARSO/EWX_ARSO-Flags |
+|   | Windows-Update| Herunterfahren-g-t 0  | Vom Benutzer initiierte Neustarts | APIs mit SHUTDOWN_ARSO/EWX_ARSO-Flags |
 | --- | :---: | :---: | :---: | :---: |
 | Verwaltete Geräte | :heavy_check_mark:  | :heavy_check_mark: |   | :heavy_check_mark: |
 | Nicht verwaltete Geräte | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -47,12 +47,12 @@ ARSO behandelt nicht verwaltete und verwaltete Geräte anders. Bei nicht verwalt
 
 In Windows 10 ist ARSO für Server-SKUs deaktiviert und für Client-SKUs deaktiviert.
 
-**Speicherort der Gruppenrichtlinie:** Computer Konfigurations > Administrative Vorlagen > Windows-Komponenten > Windows-Anmelde Optionen
+**Speicherort der Gruppenrichtlinie:** Computer Konfigurations > administrative Vorlagen > Windows-Komponenten > Windows-Anmelde Optionen
 
 **InTune-Richtlinie:**
 
-- Plattform Windows 10 und höher
-- Profiltyp: Administrative Vorlagen
+- Plattform: Windows 10 und höher
+- Profiltyp: administrative Vorlagen
 - Pfad: \Windows components\windows Logon Options
 
 **Unterstützt für:** Mindestens Windows 10, Version 1903
@@ -82,18 +82,18 @@ Wenn Sie diese Richtlinien Einstellung deaktivieren, wird die automatische Anmel
 
 **Typ:** DWORD
 
-![Winlogon](media/Winlogon-Automatic-Restart-Sign-On--ARSO-/gtr-adds-signinpolicy.png)
+![winlogon](media/Winlogon-Automatic-Restart-Sign-On--ARSO-/gtr-adds-signinpolicy.png)
 
 ## <a name="policy-2"></a>Richtlinien #2
 
 ### <a name="configure-the-mode-of-automatically-signing-in-and-locking-last-interactive-user-after-a-restart-or-cold-boot"></a>Konfigurieren des Modus für das automatische anmelden und Sperren des letzten interaktiven Benutzers nach einem Neustart oder einem Kaltstart
 
-**Speicherort der Gruppenrichtlinie:** Computer Konfigurations > Administrative Vorlagen > Windows-Komponenten > Windows-Anmelde Optionen
+**Speicherort der Gruppenrichtlinie:** Computer Konfigurations > administrative Vorlagen > Windows-Komponenten > Windows-Anmelde Optionen
 
 **InTune-Richtlinie:**
 
-- Plattform Windows 10 und höher
-- Profiltyp: Administrative Vorlagen
+- Plattform: Windows 10 und höher
+- Profiltyp: administrative Vorlagen
 - Pfad: \Windows components\windows Logon Options
 
 **Unterstützt für:** Mindestens Windows 10, Version 1903
@@ -123,7 +123,7 @@ Wenn Sie diese Einstellung deaktivieren oder nicht konfigurieren, wird die autom
 
 **Typ:** DWORD
 
-![Winlogon](media/Winlogon-Automatic-Restart-Sign-On--ARSO-/arso-policy-setting.png)
+![winlogon](media/Winlogon-Automatic-Restart-Sign-On--ARSO-/arso-policy-setting.png)
 
 ## <a name="troubleshooting"></a>Problembehandlung
 
@@ -170,6 +170,6 @@ Die Anmeldezeiten und die Steuerelement-Steuerelemente können verhindern, dass 
 
 Wenn für ein Gerät Credential Guard aktiviert ist, werden die abgeleiteten geheimen Schlüssel eines Benutzers mit einem Schlüssel verschlüsselt, der für die aktuelle Start Sitzung spezifisch ist. Daher wird ARSO derzeit nicht auf Geräten unterstützt, auf denen Credential Guard aktiviert ist.
 
-## <a name="additional-resources"></a>Zusätzliche Ressourcen
+## <a name="additional-resources"></a>Weitere Ressourcen
 
-Autologon ist ein Feature, das in Windows für mehrere Versionen vorhanden ist. Dabei handelt es sich um ein dokumentiertes Feature von Windows, das auch Tools wie Autologon für Windows [http:/technet. Microsoft. com/Sysinternals/bb963905. aspx](https://technet.microsoft.com/sysinternals/bb963905.aspx)enthält. Dadurch kann sich ein einzelner Benutzer des Geräts automatisch anmelden, ohne Anmelde Informationen einzugeben. Die Anmelde Informationen werden konfiguriert und als verschlüsselter LSA-Schlüssel in der Registrierung gespeichert. Dies könnte für viele untergeordnete Fälle problematisch sein, bei denen eine Kontosperrung zwischen der Zeit des Abrufs und der Reaktivierung auftreten kann, insbesondere, wenn das Wartungsfenster in der Regel während dieser Zeit liegt.
+Autologon ist ein Feature, das in Windows für mehrere Versionen vorhanden ist. Dabei handelt es sich um ein dokumentiertes Feature von Windows, das auch Tools wie Autologon für Windows [http:/technet. Microsoft. com/Sysinternals/bb963905. aspx](/sysinternals/downloads/autologon)enthält. Dadurch kann sich ein einzelner Benutzer des Geräts automatisch anmelden, ohne Anmelde Informationen einzugeben. Die Anmelde Informationen werden konfiguriert und als verschlüsselter LSA-Schlüssel in der Registrierung gespeichert. Dies könnte für viele untergeordnete Fälle problematisch sein, bei denen eine Kontosperrung zwischen der Zeit des Abrufs und der Reaktivierung auftreten kann, insbesondere, wenn das Wartungsfenster in der Regel während dieser Zeit liegt.

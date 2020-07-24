@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b5cf20abc8322f610106d65c76c3431b9332444a
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: e1b5844ee9cbdb11629e488e6506ef85b23b537b
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85936154"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86958942"
 ---
 # <a name="winnt32"></a>winnt32
 
@@ -61,15 +61,14 @@ winnt32 [/checkupgradeonly] [/cmd: <CommandLine>] [/cmdcons] [/copydir:{i386|ia6
 |   \<AnswerFile>   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         Stellt das Setup mit Ihren benutzerdefinierten Spezifikationen bereit                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 |        /?         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 
-## <a name="remarks"></a>Hinweise
-Wenn Sie Windows XP auf Client Computern bereitstellen, können Sie die-Version von winnt32.exe verwenden, die in Windows XP integriert ist. Eine weitere Möglichkeit zum Bereitstellen von Windows XP besteht darin, winnt32.msi zu verwenden, der durch Windows Installer in einem Teil der Technologien von IntelliMirror funktioniert. Weitere Informationen zu Client Bereitstellungen finden Sie im Windows Server 2003 Deployment Kit, das unter [Verwenden der Windows-Bereitstellung und der ressourcenkits](https://technet.microsoft.com/library/cc779317(v=ws.10).aspx)beschrieben wird.
+## <a name="remarks"></a>Bemerkungen
+Wenn Sie Windows XP auf Client Computern bereitstellen, können Sie die-Version von winnt32.exe verwenden, die in Windows XP integriert ist. Eine weitere Möglichkeit zum Bereitstellen von Windows XP besteht darin, winnt32.msi zu verwenden, der durch Windows Installer in einem Teil der Technologien von IntelliMirror funktioniert. Weitere Informationen zu Client Bereitstellungen finden Sie im Windows Server 2003 Deployment Kit, das unter [Verwenden der Windows-Bereitstellung und der ressourcenkits](/previous-versions/windows/it-pro/windows-server-2003/cc779317(v=ws.10))beschrieben wird.
 
 Auf einem Itanium-basierten Computer kann **Winnt32** vom Extensible Firmware Interface (EFI) oder von Windows Server 2003 Enterprise, Windows Server 2003 R2 Enterprise, Windows Server 2003 R2 Datacenter oder Windows Server 2003 Datacenter ausgeführt werden. Außerdem sind auf einem Itanium-Architektur basierten Computer **/cmdcons** und **/Syspart** nicht verfügbar, und es sind keine Optionen für Upgrades verfügbar.
-Weitere Informationen zur Hardware Kompatibilität finden Sie unter [Hardware Kompatibilität](https://technet.microsoft.com/library/cc757927(v=ws.10).aspx).
-Ausführlichere Informationen zur Verwendung von dynamischem Update und zur Installation mehrerer Clients finden Sie im Windows Server 2003 Deployment Kit, das unter [Verwenden der Windows-Bereitstellung und der ressourcenkits](https://technet.microsoft.com/library/cc779317(v=ws.10).aspx)beschrieben wird.
-Informationen zum Ändern von Start Einstellungen finden Sie unter Windows Deployment and Resource Kits for Windows Server 2003. Weitere Informationen finden Sie unter [Verwenden der Windows-Bereitstellung und von ressourcenkits](https://technet.microsoft.com/library/cc779317(v=ws.10).aspx).
+Weitere Informationen zur Hardware Kompatibilität finden Sie unter [Hardware Kompatibilität](/previous-versions/windows/it-pro/windows-server-2003/cc757927(v=ws.10)).
+Ausführlichere Informationen zur Verwendung von dynamischem Update und zur Installation mehrerer Clients finden Sie im Windows Server 2003 Deployment Kit, das unter [Verwenden der Windows-Bereitstellung und der ressourcenkits](/previous-versions/windows/it-pro/windows-server-2003/cc779317(v=ws.10))beschrieben wird.
+Informationen zum Ändern von Start Einstellungen finden Sie unter Windows Deployment and Resource Kits for Windows Server 2003. Weitere Informationen finden Sie unter [Verwenden der Windows-Bereitstellung und von ressourcenkits](/previous-versions/windows/it-pro/windows-server-2003/cc779317(v=ws.10)).
 Die Verwendung der **/Unattend** -Befehlszeilenoption zum Automatisieren des Setups bestätigt, dass Sie den Microsoft-Lizenzvertrag für Windows Server 2003 gelesen und akzeptiert haben. Bevor Sie diese Befehlszeilenoption verwenden, um Windows Server 2003 im Auftrag einer anderen Organisation als ihrer eigenen zu installieren, müssen Sie sicherstellen, dass der Endbenutzer (ob eine Person oder eine einzelne Entität) die Bedingungen des Microsoft-Lizenzvertrags für dieses Produkt empfangen, gelesen und akzeptiert hat.  OEMs dürfen diesen Schlüssel nicht auf Computern angeben, die an Endbenutzer verkauft werden.
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
-

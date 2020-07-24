@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: da114c6b6501e9a8c305cd416d58ca0396745f27
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: eb0e70826175ebabe9d1a2c058104c0e7113e9df
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85922868"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86956692"
 ---
 # <a name="pbadmin"></a>pbadmin
 
@@ -23,8 +23,8 @@ ms.locfileid: "85922868"
 >[!IMPORTANT]
 > Dieser Befehl ist veraltet.
 
-Verwaltet Telefonbücher. Pbadmin wird ohne Parameter verwendet und startet den Telefonbuch Administrator. Beschreibungen und Verwendungs Informationen finden Sie unter [pbadmin](https://docs.microsoft.com/previous-versions/orphan-topics/ws.10/cc755767(v=ws.10)).
+Verwaltet Telefonbücher. Pbadmin wird ohne Parameter verwendet und startet den Telefonbuch Administrator. Beschreibungen und Verwendungs Informationen finden Sie unter [pbadmin](/previous-versions/orphan-topics/ws.10/cc755767(v=ws.10)).
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

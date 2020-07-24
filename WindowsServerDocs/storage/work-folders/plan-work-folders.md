@@ -9,12 +9,12 @@ manager: dongill
 ms.author: jgerend
 ms.date: 4/5/2017
 description: Planen der Bereitstellung von Arbeits Ordnern, einschließlich der Systemanforderungen und der Vorbereitung der Netzwerkumgebung.
-ms.openlocfilehash: 1453ff54c2213445f6f443d34d21747eb875412b
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 603711676aa5f35047b0623694f3a16922a2b240
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85475597"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86960002"
 ---
 # <a name="planning-a-work-folders-deployment"></a>Planen der Bereitstellung von Arbeits Ordnern
 
@@ -60,7 +60,7 @@ Für Arbeitsordner gelten die folgenden Softwareanforderungen für Clientcompute
 
 -   Auf den Computern muss eines der folgenden Betriebssysteme ausgeführt werden:
 
-    -   Windows 10
+    -   Windows 10
 
     -   Windows 8.1
 
@@ -139,9 +139,9 @@ Für Arbeitsordner gelten die folgenden Softwareanforderungen für Clientcompute
 
 Arbeitsordner unterstützen die Verwendung von webanwendungsproxy, Azure AD Anwendungs Proxy oder Reverseproxylösungen von Drittanbietern:
 
--  Der webanwendungsproxy ist eine lokale Reverseproxylösung. Weitere Informationen finden Sie unter [webanwendungsproxy in Windows Server 2016](https://technet.microsoft.com/windows-server-docs/identity/web-application-proxy/web-application-proxy-windows-server).
+-  Der webanwendungsproxy ist eine lokale Reverseproxylösung. Weitere Informationen finden Sie unter [webanwendungsproxy in Windows Server 2016](../../remote/remote-access/web-application-proxy/web-application-proxy-windows-server.md).
 
--  Azure AD Anwendungs Proxy ist eine Cloud-Reverseproxylösung. Weitere Informationen finden Sie unter [Bereitstellen von sicherem Remote Zugriff auf lokale Anwendungen](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started) .
+-  Azure AD Anwendungs Proxy ist eine Cloud-Reverseproxylösung. Weitere Informationen finden Sie unter [Bereitstellen von sicherem Remote Zugriff auf lokale Anwendungen](/azure/active-directory/active-directory-application-proxy-get-started) .
 
 ## <a name="additional-design-considerations"></a>Weitere Überlegungen zum Entwurf
  Nachdem sie sich mit den oben beschriebenen Komponenten vertraut gemacht haben, müssen Kunden beim Entwerfen ihrer Implementierung die Anzahl zu verwendender Synchronisierungsserver und Freigaben bestimmen und entscheiden, ob Failoverclustering genutzt werden soll, um Fehlertoleranz für die Synchronisierungsserver bereitzustellen.
@@ -155,7 +155,7 @@ Arbeitsordner unterstützen die Verwendung von webanwendungsproxy, Azure AD Anwe
 
 - Lastenausgleich – in großen Umgebungen, in denen Benutzerdaten auf mehreren Servern gespeichert werden, kann der Lastenausgleich die Serverleistung und -betriebszeit verbessern.
 
-  Informationen zur Skalierung und Leistung von Arbeitsordnerservern finden Sie unter [Überlegungen zur Leistung von Arbeitsordnerbereitstellungen](https://blogs.technet.com/b/filecab/archive/2013/11/01/performance-considerations-for-large-scale-work-folders-deployments.aspx).
+  Informationen zur Skalierung und Leistung von Arbeitsordnerservern finden Sie unter [Überlegungen zur Leistung von Arbeitsordnerbereitstellungen](../../remote/remote-access/web-application-proxy/web-application-proxy-windows-server.md).
 
 > [!NOTE]
 >  Bei der Verwendung mehrerer Synchronisierungsserver wird empfohlen, die automatische Serverermittlung für Benutzer einzurichten. Dieser Prozess beruht auf der Konfiguration eines Attributs in jedem Benutzerkonto in AD DS. Das Attribut heißt **msDS-SyncServerURL** und wird für Benutzerkonten verfügbar, nachdem ein Windows Server 2012 R2-Domänen Controller zur Domäne hinzugefügt oder die Active Directory Schema Updates angewendet wurden. Das Attribut sollte für alle Benutzer festgelegt werden, um sicherzustellen, dass sie eine Verbindung mit dem korrekten Synchronisierungsserver herstellen. Mithilfe der automatischen Server Ermittlung können Organisationen Arbeitsordner hinter einer "freundlichen" URL wie z. b *https://workfolders.contoso.com* . veröffentlichen, unabhängig von der Anzahl der in Betrieb befindlichen Synchronisierungs Server.
@@ -255,5 +255,5 @@ Die folgenden Fragen zum Entwurf sollen Kunden dabei helfen, die am besten geeig
 
 |Inhaltstyp|Referenzen|
 |------------------|----------------|
-|**Produktbewertung**|-   [Arbeitsordner](work-folders-overview.md)<br />-   [Arbeitsordner für Windows 7](https://blogs.technet.com/b/filecab/archive/2014/04/24/work-folders-for-windows-7.aspx) (Blogbeitrag)|
-|**Bereitstellung**|-   [Entwerfen einer Arbeitsordner Implementierung](plan-work-folders.md)<br />-   [Bereitstellen von Arbeits Ordnern](deploy-work-folders.md)<br />-   [Bereitstellen von Arbeits Ordnern mit AD FS und webanwendungsproxy (WAP)](deploy-work-folders-adfs-overview.md)<br />- [Bereitstellen von Arbeits Ordnern mit Azure AD Anwendungs Proxy](https://blogs.technet.microsoft.com/filecab/2017/05/31/enable-remote-access-to-work-folders-using-azure-active-directory-application-proxy/)<br />-   [Überlegungen zur Leistung von Arbeitsordner Bereitstellungen](https://blogs.technet.com/b/filecab/archive/2013/11/01/performance-considerations-for-large-scale-work-folders-deployments.aspx)<br />-   [Arbeitsordner für Windows 7 (64-Bit-Download)](https://www.microsoft.com/download/details.aspx?id=42558)<br />-   [Arbeitsordner für Windows 7 (32-Bit-Download)](https://www.microsoft.com/download/details.aspx?id=42559)<br />-   [Test Umgebungs Bereitstellung für Arbeitsordner](https://blogs.technet.com/b/filecab/archive/2013/07/10/work-folders-test-lab-deployment.aspx) (Blogbeitrag)|
+|**Produktbewertung**|-   [Arbeitsordner](work-folders-overview.md)<br />-   [Arbeitsordner für Windows 7](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB) (Blogbeitrag)|
+|**Bereitstellung**|-   [Entwerfen einer Arbeitsordner Implementierung](plan-work-folders.md)<br />-   [Bereitstellen von Arbeits Ordnern](deploy-work-folders.md)<br />-   [Bereitstellen von Arbeits Ordnern mit AD FS und webanwendungsproxy (WAP)](deploy-work-folders-adfs-overview.md)<br />- [Bereitstellen von Arbeits Ordnern mit Azure AD Anwendungs Proxy](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB)<br />-   [Überlegungen zur Leistung von Arbeitsordner Bereitstellungen](../../remote/remote-access/web-application-proxy/web-application-proxy-windows-server.md)<br />-   [Arbeitsordner für Windows 7 (64-Bit-Download)](https://www.microsoft.com/download/details.aspx?id=42558)<br />-   [Arbeitsordner für Windows 7 (32-Bit-Download)](https://www.microsoft.com/download/details.aspx?id=42559)<br />-   [Test Umgebungs Bereitstellung für Arbeitsordner](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB) (Blogbeitrag)|
