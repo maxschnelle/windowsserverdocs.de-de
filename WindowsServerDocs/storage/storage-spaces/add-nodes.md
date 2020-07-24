@@ -10,12 +10,12 @@ author: cosmosdarwin
 ms.date: 11/06/2017
 description: Vorgehensweise beim Hinzufügen von Servern oder Laufwerken zu einem direkte Speicherplätze Cluster
 ms.localizationpriority: medium
-ms.openlocfilehash: be79a2d3e0e8c56afc409298518d967c9bc80453
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 773bb3a55de27d049d26fa76659d3a4d8057f0fe
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80859123"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86966392"
 ---
 # <a name="adding-servers-or-drives-to-storage-spaces-direct"></a>Hinzufügen von Servern oder Laufwerken zu „direkten Speicherplätzen“
 
@@ -31,7 +31,7 @@ Das Hinzufügen von Servern wird häufig auch als Skalierung bezeichnet. Es füg
 
 Typische Bereitstellungen lassen sich durch Hinzufügen von Servern ganz einfach horizontal skalieren. Dies erfordert nur zwei Schritte:
 
-1. Führen Sie den [Clusterüberprüfungs-Assistent](https://technet.microsoft.com/library/cc732035(v=ws.10).aspx) mithilfe des Failovercluster-Snap-Ins oder mit dem **Test-Cluster**-Cmdlet in PowerShell aus (als Administrator ausführen). Beziehen Sie den neuen Server *\<NewNode >* , den Sie hinzufügen möchten, darin ein.
+1. Führen Sie den [Clusterüberprüfungs-Assistent](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc732035(v=ws.10)) mithilfe des Failovercluster-Snap-Ins oder mit dem **Test-Cluster**-Cmdlet in PowerShell aus (als Administrator ausführen). Fügen Sie den neuen Server ein *\<NewNode>* , den Sie hinzufügen möchten.
 
    ```PowerShell
    Test-Cluster -Node <Node>, <Node>, <Node>, <NewNode> -Include "Storage Spaces Direct", Inventory, Network, "System Configuration"
@@ -49,7 +49,7 @@ Add-ClusterNode -Name NewNode
 ```
 
    >[!NOTE]
-   > Das automatische Pooling hängt davon ab, dass Sie über nur einen Pool verfügen. Wenn Sie die Standardkonfiguration zum Erstellen von mehreren Pools umgangen haben, müssen Sie neue Laufwerke selbst mit **Add-PhysicalDisk** zum bevorzugten Pool hinzufügen.
+   > Das automatische Pooling hängt davon ab, dass Sie über nur einen Pool verfügen. Wenn Sie die Standardkonfiguration zum Erstellen mehrerer Pools umgangen haben, müssen Sie Ihrem bevorzugten Pool mithilfe von " **Add-PhysicalDisk**" neue Laufwerke hinzufügen.
 
 ### <a name="from-2-to-3-servers-unlocking-three-way-mirroring"></a>2 bis 3-Server: Drei-Wege-Spiegelung entsperren
 
@@ -61,7 +61,7 @@ Volumes mit Zwei-Wege-Spiegelungen können nicht direkt auf Volumes mit Drei-Weg
 
 Als Einstieg in die Erstellung von Volumes mit Drei-Wege-Spiegelung stehen Ihnen mehrere gute Optionen zur Verfügung: Verwenden Sie die von Ihnen gewünschte Option. 
 
-#### <a name="option-1"></a>Option 1
+#### <a name="option-1"></a>Option 1:
 
 Legen Sie für jedes neue Volume bei der Erstellung **PhysicalDiskRedundancy = 2** fest.
 
@@ -69,7 +69,7 @@ Legen Sie für jedes neue Volume bei der Erstellung **PhysicalDiskRedundancy = 2
 New-Volume -FriendlyName <Name> -FileSystem CSVFS_ReFS -StoragePoolFriendlyName S2D* -Size <Size> -PhysicalDiskRedundancy 2
 ```
 
-#### <a name="option-2"></a>Option 2
+#### <a name="option-2"></a>Option 2:
 
 Sie können stattdessen das **PhysicalDiskRedundancyDefault = 2**-Objekt des Pools unter den **ResiliencySetting** mit dem Namen **Spiegelung** festlegen. Neue gespiegelte Volumes verwenden dann automatisch die *Drei-Wege-* Spiegelung, auch wenn dies nicht angegeben wird.
 
@@ -81,7 +81,7 @@ New-Volume -FriendlyName <Name> -FileSystem CSVFS_ReFS -StoragePoolFriendlyName 
 
 #### <a name="option-3"></a>Option 3
 
-Legen Sie **PhysicalDiskRedundancy = 2** für die **StorageTier** -Vorlage namens *Capacity* fest und erstellen Sie dann Volumes durch Verweisen auf die Ebene.
+Legen Sie **PhysicalDiskRedundancy = 2** für die **StorageTier **-Vorlage namens *Capacity* fest und erstellen Sie dann Volumes durch Verweisen auf die Ebene.
 
 ```PowerShell
 Set-StorageTier -FriendlyName Capacity -PhysicalDiskRedundancy 2 
@@ -97,7 +97,7 @@ Bei vier Servern können Sie „duale“ Parität verwenden, oft auch als „Era
 
 Wenn Sie eine kleinere Bereitstellung haben, existieren mehrere gute Optionen zum Erstellen von dualen Paritätsvolumes. Verwenden Sie die von Ihnen gewünschte Option.
 
-#### <a name="option-1"></a>Option 1
+#### <a name="option-1"></a>Option 1:
 
 Geben Sie für jedes neue Volume bei der Erstellung **PhysicalDiskRedundancy = 2** und **ResiliencySettingName = Parität** ein.
 
@@ -105,7 +105,7 @@ Geben Sie für jedes neue Volume bei der Erstellung **PhysicalDiskRedundancy = 2
 New-Volume -FriendlyName <Name> -FileSystem CSVFS_ReFS -StoragePoolFriendlyName S2D* -Size <Size> -PhysicalDiskRedundancy 2 -ResiliencySettingName Parity
 ```
 
-#### <a name="option-2"></a>Option 2
+#### <a name="option-2"></a>Option 2:
 
 Legen Sie das **PhysicalDiskRedundancy = 2**-Objekt des Pools unter **ResiliencySetting** mit dem Namen **Parität** fest. Jedes neue Paritätsvolume wird dann automatisch *duale* Parität verwenden, auch wenn Sie dies nicht angegeben
 
@@ -115,7 +115,7 @@ Get-StoragePool S2D* | Get-ResiliencySetting -Name Parity | Set-ResiliencySettin
 New-Volume -FriendlyName <Name> -FileSystem CSVFS_ReFS -StoragePoolFriendlyName S2D* -Size <Size> -ResiliencySettingName Parity
 ```
 
-Ab vier Servern können Sie auch eine durch Spiegelung beschleunigte Parität verwenden, bei der ein einzelnes Volume zum Teil Spiegelung zum Teil Parität darstellt.
+Mit vier Servern können Sie auch mit der Beschleunigung der Spiegelungs Beschleunigung beginnen, bei der ein einzelnes Volume Teil Spiegelung und Teil Parität ist.
 
 Hierzu müssen Sie Ihre **StorageTier**-Vorlage so aktualisieren, dass sie die beiden Ebenen *Performance* und *Capacity* in der Form enthalten, als ob sie erstellt worden wären, indem auf vier Servern zuerst **Enable-ClusterS2D** ausgeführt worden wäre. Insbesondere müssen beide Ebenen den **MediaType** Ihrer Kapazitätsgeräte (z. B. SSD oder HDD) und **PhysicalDiskRedundancy = 2** aufweisen. Die *Performance*-Ebene sollte **ResiliencySettingName = Mirror**, und die *Capacity*-Ebene sollte **ResiliencySettingName = Parity** sein.
 
@@ -130,7 +130,7 @@ New-StorageTier -StoragePoolFriendlyName S2D* -MediaType HDD -PhysicalDiskRedund
 New-StorageTier -StoragePoolFriendlyName S2D* -MediaType HDD -PhysicalDiskRedundancy 2 -ResiliencySettingName Parity -FriendlyName Capacity
 ```
 
-Das ist alles! Sie können nun mithilfe dieser Ebenenvorlage Volumes mit einer durch Spiegelung beschleunigten Parität erstellen.
+Das ist alles! Sie sind jetzt bereit, um durch das verweisen auf diese ebenenvorlagen Daten mit Spiegelungs Beschleunigung zu erstellen.
 
 #### <a name="example"></a>Beispiel
 
@@ -150,13 +150,13 @@ Weitere Informationen finden Sie unter [Fehlertoleranz und Speichereffizienz](st
 
 Wenn Ihre Bereitstellung Gehäuse- oder Rackfehlertoleranz verwendet, müssen Sie Gehäuse oder Rack neuer Server angeben, bevor Sie sie zum Cluster hinzufügen. Dadurch kann „Direkte Speicherplätze“ bestimmen, wie die Daten am besten verteilt werden sollen, um die Fehlertoleranz zu maximieren.
 
-1. Erstellen Sie eine temporäre Fehlerdomäne für den Knoten, indem Sie eine PowerShell-Sitzung mit erhöhten Rechten öffnen und dann den folgenden Befehl eingeben, wobei *\<NewNode >* der Name des neuen Clusterknotens ist:
+1. Erstellen Sie eine temporäre Fehler Domäne für den Knoten, indem Sie eine PowerShell-Sitzung mit erhöhten Rechten öffnen und dann den folgenden Befehl verwenden, wobei *\<NewNode>* der Name des neuen Cluster Knotens ist:
 
    ```PowerShell
    New-ClusterFaultDomain -Type Node -Name <NewNode> 
    ```
 
-2. Verschieben Sie diese temporäre Fehlerdomäne auf das Gehäuse oder Rack, in dem sich der neue Server physisch befindet, wie durch *\<ParentName >* festgelegt:
+2. Verschieben Sie diese temporäre Fehler Domäne in das Chassis oder Rack, in dem sich der neue Server in der realen Welt befindet, wie in angegeben *\<ParentName>* :
 
    ```PowerShell
    Set-ClusterFaultDomain -Name <NewNode> -Parent <ParentName> 
@@ -181,12 +181,12 @@ Zum zentralen Hochskalieren verbinden Sie die Laufwerke, und stellen Sie sicher,
 Get-PhysicalDisk | Select SerialNumber, CanPool, CannotPoolReason
 ```
 
-Innerhalb kurzer Zeit werden geeignete Laufwerke automatisch von „direkten Speicherplätzen“ beansprucht, dem Speicherpool hinzugefügt, und die Volumes werden automatisch [gleichmäßig auf alle Laufwerke verteilt](https://blogs.technet.microsoft.com/filecab/2016/11/21/deep-dive-pool-in-spaces-direct/). Zu diesem Zeitpunkt sind Sie fertig und bereit zum [Erweitern der Volumes](resize-volumes.md) oder zum  [Erstellen neuer Volumes](create-volumes.md).
+Berechtigte Laufwerke werden innerhalb kurzer Zeit automatisch von direkte Speicherplätze beansprucht, dem Speicherpool hinzugefügt, und die Volumes werden automatisch [gleichmäßig auf alle Laufwerke verteilt](https://techcommunity.microsoft.com/t5/storage-at-microsoft/deep-dive-the-storage-pool-in-storage-spaces-direct/ba-p/425959). An diesem Punkt sind Sie fertig und bereit, [Ihre Volumes zu erweitern](resize-volumes.md) oder [neue zu erstellen](create-volumes.md).
 
 Wenn die Laufwerke nicht angezeigt werden, suchen Sie manuell nach Hardwareänderungen. Dazu können Sie den **Geräte-Manager** im Menü **Aktion** verwenden. Wenn sie alte Daten oder Metadaten enthalten, sollten Sie sie ggf. neu formatieren. Dies kann unter Verwendung der **Datenträgerverwaltung** oder mithilfe des **Reset-PhysicalDisk**- Cmdlets durchgeführt werden.
 
    >[!NOTE]
-   > Das automatische Pooling hängt davon ab, dass Sie über nur einen Pool verfügen. Wenn Sie die Standardkonfiguration zum Erstellen von mehreren Pools umgangen haben, müssen Sie neue Laufwerke selbst mit **Add-PhysicalDisk** zum bevorzugten Pool hinzufügen.
+   > Das automatische Pooling hängt davon ab, dass Sie über nur einen Pool verfügen. Wenn Sie die Standardkonfiguration zum Erstellen mehrerer Pools umgangen haben, müssen Sie Ihrem bevorzugten Pool mithilfe von " **Add-PhysicalDisk**" neue Laufwerke hinzufügen.
 
 ## <a name="optimizing-drive-usage-after-adding-drives-or-servers"></a>Optimieren der Laufwerk Nutzung nach dem Hinzufügen von Laufwerken
 
@@ -200,7 +200,7 @@ Die Optimierung verwendet zwei Aufträge: eine mit dem Namen " *optimieren* " un
 Get-StorageJob
 ```
 
-Sie können einen Speicherpool mithilfe des Cmdlets " [optimieren-storagepool](https://docs.microsoft.com/powershell/module/storage/optimize-storagepool?view=win10-ps) " manuell optimieren. Im Folgenden ein Beispiel:
+Sie können einen Speicherpool mithilfe des Cmdlets " [optimieren-storagepool](/powershell/module/storage/optimize-storagepool?view=win10-ps) " manuell optimieren. Ein Beispiel:
 
 ```powershell
 Get-StoragePool <PoolName> | Optimize-StoragePool

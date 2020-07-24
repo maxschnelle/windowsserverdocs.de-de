@@ -1,5 +1,5 @@
 ---
-title: Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy - Schritt 3, Einrichten von Arbeitsordnern
+title: 'Bereitstellen von Arbeits Ordnern mit AD FS und webanwendungsproxy-Schritt 3: Einrichten von Arbeits Ordnern'
 ms.prod: windows-server
 ms.technology: storage-work-folders
 ms.topic: article
@@ -8,18 +8,18 @@ ms.author: jeffpatt
 author: JeffPatt24
 ms.date: 4/5/2017
 ms.assetid: 5a43b104-4d02-4d73-a385-da1cfb67e341
-ms.openlocfilehash: ef76b87928e696586356c499367051ff0d0e9ab4
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 433d981d558cc49cd860a5c05a8d76996d9cdd30
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71365767"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86965742"
 ---
-# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-3-set-up-work-folders"></a>Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy: Schritt 3, Einrichten von Arbeitsordnern
+# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-3-set-up-work-folders"></a>Bereitstellen von Arbeits Ordnern mit AD FS und webanwendungsproxy: Schritt 3, Einrichten von Arbeits Ordnern
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-In diesem Thema wird der dritte Schritt bei der Bereitstellung von Arbeitsordnern mit Active Directory-Verbunddiensten (AD FS) und Webproxyanwendung beschrieben. Weitere Schritte des Prozesses finden Sie in folgenden Themen:  
+In diesem Thema wird der dritte Schritt beim Bereitstellen von Arbeits Ordnern mit Active Directory-Verbunddienste (AD FS) (AD FS) und dem webanwendungsproxy beschrieben. Die anderen Schritte in diesem Prozess finden Sie in den folgenden Themen:  
   
 -   [Bereitstellen von Arbeits Ordnern mit AD FS und webanwendungsproxy: Übersicht](deploy-work-folders-adfs-overview.md)  
   
@@ -32,167 +32,167 @@ In diesem Thema wird der dritte Schritt bei der Bereitstellung von Arbeitsordner
 -   [Bereitstellen von Arbeits Ordnern mit AD FS und webanwendungsproxy: Schritt 5: Einrichten von Clients](deploy-work-folders-adfs-step5.md)  
   
 > [!NOTE]
->   Die in diesem Abschnitt behandelten Anweisungen gelten für eine Windows Server 2019-oder Windows Server 2016-Umgebung. Wenn Sie Windows Server 2012 R2 verwenden, folgen Sie den [Anweisungen für Windows Server 2012 R2](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx).
+>   Die in diesem Abschnitt behandelten Anweisungen gelten für eine Windows Server 2019-oder Windows Server 2016-Umgebung. Wenn Sie Windows Server 2012 R2 verwenden, befolgen Sie die [Anweisungen unter Windows Server 2012 R2](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn747208(v=ws.11)).
 
-Wenn Sie Arbeitsordner einrichten möchten, gehen Sie folgendermaßen vor.  
+Verwenden Sie zum Einrichten von Arbeits Ordnern die folgenden Prozeduren.  
   
-## <a name="pre-installment-work"></a>Installations\-vorbereitung  
-Um Arbeitsordner zu installieren, müssen Sie über einen Server verfügen, der mit der Domäne verbunden ist und auf dem Windows Server 2016 ausgeführt wird. Der Server muss über eine gültige Netzwerkkonfiguration verfügen.  
+## <a name="pre-installment-work"></a>Arbeit vor der \- Ausgabe  
+Um Arbeitsordner zu installieren, müssen Sie über einen Server verfügen, der der Domäne hinzugefügt wird und Windows Server 2016 ausgeführt wird. Der Server muss über eine gültige Netzwerkkonfiguration verfügen.  
   
-Verknüpfen Sie für das Testbeispiel den Computer, auf dem der Arbeitsordner ist mit der Contoso-Domäne und richten Sie die Netzwerkschnittstelle wie in den folgenden Abschnitten beschrieben ein. 
+Fügen Sie für das Testbeispiel den Computer, auf dem Arbeitsordner ausgeführt werden, der Domäne von "Domäne" hinzu, und richten Sie die Netzwerkschnittstelle wie in den folgenden Abschnitten beschrieben ein. 
 
-### <a name="set-the-server-ip-address"></a>Legen Sie die IP-Adresse des -Servers fest  
-Ändern Sie die IP-Adresse des Servers in eine statische IP-Adresse. Verwenden Sie für das Testbeispiel die IP der Klasse A 192.168.0.170 / subnet mask: 255.255.0.0 / Default Gateway: 192.168.0.1 / Preferred DNS: 192.168.0.150 (die IP-Adresse des Domänencontrollers). 
+### <a name="set-the-server-ip-address"></a>Festlegen der Server-IP-Adresse  
+Ändern Sie die IP-Adresse Ihres Servers in eine statische IP-Adresse. Verwenden Sie für das Testbeispiel IP Class A, d. h. 192.168.0.170/Subnetzmaske: 255.255.0.0/Default Gateway: 192.168.0.1/bevorzugtes DNS: 192.168.0.150 (die IP-Adresse Ihres Domänen Controllers). 
   
-### <a name="create-the-cname-record-for-work-folders"></a>Erstellen Sie den CNAME-Eintrag für Arbeitsordner  
-Um den CNAME-Eintrag für Arbeitsordner zu erstellen, gehen Sie folgendermaßen vor:  
+### <a name="create-the-cname-record-for-work-folders"></a>Erstellen des CNAME-Datensatzes für Arbeitsordner  
+Führen Sie die folgenden Schritte aus, um den CNAME-Datensatz für Arbeitsordner zu erstellen:  
   
-1.  Öffnen Sie auf dem Domänencontroller den **DNS-Manager**.  
+1.  Öffnen Sie auf dem Domänen Controller den **DNS-Manager**.  
   
-2.  Erweitern Sie den Forward-Lookupzonen-Ordner, klicken Sie mit der rechten Maustaste auf die Domäne und wählen Sie **Neuer Alias (CNAME)** aus.  
+2.  Erweitern Sie den Ordner Forward-Lookupzonen, klicken Sie mit der rechten Maustaste auf Ihre Domäne, und klicken Sie dann auf **Neuer Alias (CNAME)**.  
   
-3.  Geben Sie im Dialogfeld **Neuer Ressourcendatensatz** im Fenster **Aliasname** den Alias für Arbeitsordner ein. Im Testbeispiel ist dies **workfolders**.  
+3.  Geben Sie im Fenster **neues Ressourcen Daten Satz** im Feld **Alias Name** den Alias für Arbeitsordner ein. Im Testbeispiel handelt es sich hierbei um **Arbeitsordner**.  
   
-4.  Im Dialogfeld **Vollqualifizierter Domänenname** sollte der Wert **workfolders.contoso.com** sein.  
+4.  Im Feld **voll qualifizierter Domänen Name** sollte der Wert **workfolders.contoso.com**lauten.  
   
-5.  Geben Sie im Dialogfeld **Vollqualifizierter Domänenname für Ziel-Host** den vollqualifizierten Domänennamen für den Arbeitsordner ein. Im Testbeispiel ist dies **2016-WF.contoso.com**.  
+5.  Geben Sie im Feld **voll qualifizierter Domänen Name für Zielhost den voll qualifizierten Domänen Namen** (FQDN) für den Arbeitsordner Server ein. Im Beispiel Test ist dies **2016-WF.contoso.com**.  
   
 6.  Klicken Sie auf **OK**.  
   
-Verwenden Sie den folgenden Befehl, um die entsprechenden Schritte mit Windows PowerShell durchzuführen. Der Befehl muss auf dem Domänencontroller ausgeführt werden.  
+Wenn Sie die entsprechenden Schritte über Windows PowerShell ausführen möchten, verwenden Sie den folgenden Befehl. Der Befehl muss auf dem Domänen Controller ausgeführt werden.  
   
 ```powershell  
 Add-DnsServerResourceRecord  -ZoneName "contoso.com" -Name workfolders -CName  -HostNameAlias 2016-wf.contoso.com   
 ```  
   
-### <a name="install-the-ad-fs-certificate"></a>Installieren Sie das AD FS-Zertifikat  
-Installieren Sie anhand von folgenden Schritte das AD FS-Zertifikat, das im Zertifikatspeicher des lokalen Computers während der Installation von AD FS erstellt wurde:  
+### <a name="install-the-ad-fs-certificate"></a>Installieren des AD FS Zertifikats  
+Installieren Sie das AD FS Zertifikat, das während der AD FS Einrichtung erstellt wurde, in den Zertifikat Speicher des lokalen Computers, indem Sie die folgenden Schritte ausführen:  
   
-1.  Klicken Sie auf **Start** und dann auf **Ausführen**.  
+1.  Klicken Sie im **Startmenü**auf **Ausführen**.  
   
-2.  Geben Sie **MMC** ein.  
+2.  Geben Sie **MMC**ein.  
   
 3.  Klicken Sie im Menü **Datei** auf **Snap-In hinzufügen/entfernen**.  
   
-4.  Wählen Sie in der Liste **Verfügbare Snap-Ins** die Option **Zertifikate** aus, und klicken Sie auf **Hinzufügen**. Der Zertifikate-Snap-In-Assistent wird gestartet.  
+4.  Wählen Sie in der Liste **Verfügbare Snap-Ins** die Option **Zertifikate**aus, und klicken Sie dann auf **Hinzufügen**. Der Zertifikat-Snap-in-Assistent wird gestartet.  
   
-5.  Wählen Sie **Computerkonto** aus, und klicken Sie auf **Weiter**.  
+5.  Wählen Sie **Computerkonto** aus, und klicken Sie dann auf **Weiter**.  
   
-6.  Wählen Sie **Lokaler Computer: (Computer, auf dem diese Konsole ausgeführt wird)** und klicken Sie auf **Finish**.  
+6.  Wählen Sie **lokaler Computer: (der Computer, auf dem diese Konsole ausgeführt wird) aus**, und klicken Sie dann auf **Fertig**stellen.  
   
 7.  Klicken Sie auf **OK**.  
   
-8.  Erweitern Sie den Ordner **Console Root\Certificates\(Local Computer)\Personal\Certificates**.  
+8.  Erweitern Sie die Ordner **Konsole root\zertifikate \( lokaler Computer) \personal\zertifikate**.  
   
-9. Klicken Sie mit der rechten Maustaste auf **Zertifikate** und dann auf **Alle Aufgaben** und **Importieren**.  
+9. Klicken Sie mit der rechten Maustaste auf **Zertifikate**, klicken Sie auf **Alle Tasks**und dann auf **importieren**.  
   
-10. Wechseln Sie zu dem Ordner, der das AD FS-Zertifikat enthält, führen Sie die Schritte im Assistenten zum Importieren der Datei aus und platzieren Sie diese in den Zertifikatspeicher.
+10. Navigieren Sie zu dem Ordner, der das AD FS Zertifikat enthält, und befolgen Sie die Anweisungen im Assistenten, um die Datei zu importieren und im Zertifikat Speicher zu platzieren.
 
-11. Erweitern Sie den Ordner **Console Root\Certificates\(Local Computer)\Trusted Root Certification Authorities\Certificates**.  
+11. Erweitern Sie die Ordner **Konsole root\zertifikate \( lokaler Computer) \trusted Root Certification autorities\zertifikate**.  
   
-12. Klicken Sie mit der rechten Maustaste auf **Zertifikate** und dann auf **Alle Aufgaben** und **Importieren**.  
+12. Klicken Sie mit der rechten Maustaste auf **Zertifikate**, klicken Sie auf **Alle Tasks**und dann auf **importieren**.  
   
-13. Wechseln Sie zu dem Ordner, der das AD FS-Zertifikat enthält, führen Sie die Schritte im Assistenten zum Importieren der Datei aus und platzieren Sie diese in den Vertrauenswürdige Stammzertifizierungsstellen-Speicher.  
+13. Navigieren Sie zu dem Ordner, der das AD FS Zertifikat enthält, und befolgen Sie die Anweisungen im Assistenten, um die Datei zu importieren und im Speicher Vertrauenswürdige Stamm Zertifizierungsstellen zu platzieren.  
   
-### <a name="create-the-work-folders-self-signed-certificate"></a>Erstellen Sie das selbstsignierte Zertifikat für den Arbeitsordner  
-Um das selbstsignierte Zertifikat für den Arbeitsordner zu erstellen, gehen Sie folgendermaßen vor:  
+### <a name="create-the-work-folders-self-signed-certificate"></a>Erstellen des selbst signierten Zertifikats für Arbeitsordner  
+Führen Sie die folgenden Schritte aus, um das selbst signierte Zertifikat für Arbeitsordner zu erstellen:  
   
-1.  Laden Sie die im Blogbeitrag [Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy (WAP)](https://blogs.technet.microsoft.com/filecab/2014/03/03/deploying-work-folders-with-ad-fs-and-web-application-proxy-wap) bereitgestellten Skripts herunter und kopieren Sie anschließend die Datei makecert.ps1 auf den Arbeitsordner-Computer.  
+1.  Laden Sie die Skripts im Blogbeitrag bereitstellen [von Arbeits Ordnern mit AD FS und webanwendungsproxy](https://techcommunity.microsoft.com/t5/storage-at-microsoft/deploying-work-folders-with-ad-fs-and-web-application-proxy-wap/ba-p/425318) herunter, und kopieren Sie die Datei makecert.ps1 auf den Arbeitsordner Computer.  
   
-2.  Öffnen Sie ein Windows PowerShell-Fenster mit Administratorberechtigungen.  
+2.  Öffnen Sie ein Windows PowerShell-Fenster mit Administratorrechten.  
   
-3.  Legen Sie die -Ausführungsrichtlinie auf „unbeschränkt” fest.  
+3.  Legen Sie die Ausführungs Richtlinie auf "uneingeschränkt" fest:  
   
     ```powershell  
     PS C:\temp\scripts> Set-ExecutionPolicy -ExecutionPolicy Unrestricted   
     ```  
   
-4.  Wechseln Sie zum Verzeichnis, in das Sie das Skript kopiert haben.  
+4.  Wechseln Sie in das Verzeichnis, in das Sie das Skript kopiert haben.  
   
-5.  Führen Sie das Skript makecert aus:  
+5.  Führen Sie das MakeCert-Skript aus:  
   
     ```powershell  
     PS C:\temp\scripts> .\makecert.ps1  
     ```  
   
-6.  Wenn Sie aufgefordert werden, das Zertifikat des Antragstellers zu ändern, geben Sie den neuen Wert für den Antragssteller ein. In diesem Beispiel ist der Wert **workfolders.contoso.com**.  
+6.  Wenn Sie aufgefordert werden, das Zertifikat des Antragstellers zu ändern, geben Sie den neuen Wert für das Thema ein. In diesem Beispiel ist der Wert **workfolders.contoso.com**.  
   
-7.  Wenn Sie aufgefordert werden, geben Sie die SAN-Namen ein, drücken Sie Y und geben Sie die einzelnen SAN-Namen ein.  
+7.  Wenn Sie aufgefordert werden, die Namen von alternativen Antragsteller Namen (Subject Alternative Name, San) einzugeben, drücken Sie Y, und geben Sie dann nacheinander die San-Namen ein.  
   
-    Geben Sie in diesem Beispiel **workfolders.contoso.com** ein und drücken Sie die EINGABETASTE. Geben Sie anschließend **2016-WF.contoso.com** ein, und drücken Sie die EINGABETASTE.  
+    Geben Sie für dieses Beispiel **workfolders.contoso.com**ein, und drücken Sie die EINGABETASTE. Geben Sie **2016-WF.contoso.com** ein, und drücken Sie die EINGABETASTE.  
   
-    Wenn Sie alle SAN-Namen eingegeben haben, drücken Sie auf einer leeren Zeile die EINGABETASTE.  
+    Wenn alle San-Namen eingegeben wurden, drücken Sie in einer leeren Zeile die EINGABETASTE.  
   
-8.  Wenn Sie aufgefordert werden, die Zertifikate im Speicher für vertrauenswürdige Stammzertifizierungsstellen zu installieren, drücken Sie Y.  
+8.  Wenn Sie aufgefordert werden, die Zertifikate im Speicher der vertrauenswürdigen Stamm Zertifizierungsstelle zu installieren, drücken Sie Y.  
   
-Das Arbeitsordner-Zertifikat muss ein SAN-Zertifikat mit folgenden Werten sein:  
+Beim Zertifikat für Arbeitsordner muss es sich um ein San-Zertifikat mit den folgenden Werten handeln:  
   
--   **workfolders**.**domain**  
+-   **Arbeitsordner**. **Domäne**  
   
--   **machine name**.**domain**  
+-   **Computername**. **Domäne**  
   
-Im Testbeispiel sind diese Werte wie folgt:  
+Im Testbeispiel lauten die Werte wie folgt:  
   
 -   **workfolders.contoso.com**  
   
 -   **2016-WF.contoso.com**  
   
-## <a name="install-work-folders"></a>Installieren von Arbeitsordnern  
-Gehen Sie folgendermaßen vor, um die Arbeitsordnerrolle zu installieren:  
+## <a name="install-work-folders"></a>Installieren von Arbeits Ordnern  
+Um die Arbeitsordner Rolle zu installieren, führen Sie die folgenden Schritte aus:  
   
-1.  Öffnen Sie **Server Manager**, und klicken Sie dann auf **Rollen und Features hinzufügen** und **Weiter**.  
+1.  Öffnen Sie **Server-Manager**, klicken Sie auf **Rollen und Features hinzufügen**, und klicken Sie auf **weiter**.  
   
-2.  Wählen Sie auf der Seite **Installationsart** die Option **Rollenbasierte oder Featurebasierte Installation** aus, und klicken Sie anschließend auf **Weiter**.  
+2.  Wählen Sie auf der Seite **Installationstyp** die Option **rollenbasierte oder featurebasierte Installation**aus, und klicken Sie auf **weiter**.  
   
-3.  Wählen Sie auf der Seite **Serverauswahl** den aktuellen Server aus und klicken Sie auf **Weiter**.  
+3.  Wählen Sie auf der Seite **Server Auswahl** den aktuellen Server aus, und klicken Sie auf **weiter**.  
   
-4.  Erweitern Sie auf der Seite **Serverrollen** die Knoten **Datei- und Speicherdienste** und **Datei- und iSCSI-Dienste**, und wählen Sie dann **Arbeitsordner** aus.  
+4.  Erweitern Sie auf der Seite **Server Rollen** den Knoten **Datei-und Speicherdienste**, erweitern Sie **Datei-und iSCSI-Dienste**, und wählen Sie dann **Arbeitsordner**aus.  
   
-5.  Klicken Sie auf der Seite **Assistent zum Hinzufügen von Rollen und Features** auf **Features hinzufügen**, und klicken Sie auf **Weiter**.  
+5.  Klicken Sie auf der Seite **Assistent zum Hinzufügen von Rollen und Features** auf **Features hinzufügen**, und klicken Sie auf **weiter**.  
   
-6.  Klicken Sie auf der Seite der **Features** auf **Weiter**.  
+6.  Klicken Sie auf der Seite **Features** auf **weiter**.  
   
 7.  Klicken Sie auf der Seite **Bestätigung** auf **Installieren**.  
   
 ## <a name="configure-work-folders"></a>Konfigurieren von Arbeitsordnern  
-Gehen Sie folgendermaßen vor, um Arbeitsordner zu konfigurieren:  
+Um Arbeitsordner zu konfigurieren, führen Sie die folgenden Schritte aus:  
   
-1.  Öffnen Sie den **Server Manager**.  
+1.  Öffnen Sie **Server-Manager**.  
   
-2.  Wählen Sie **Datei- und Speicherdienste** und anschließend **Arbeitsordner** aus.  
+2.  Wählen Sie **Datei-und Speicherdienste**aus, und wählen Sie dann **Arbeitsordner**aus.  
   
-3.  Auf der Seite **Arbeitsordner** starten Sie den **Assistent für neue Synchronisierungsfreigaben** und klicken Sie auf **Weiter**.  
+3.  Starten Sie auf der Seite **Arbeitsordner** den **Assistenten für neue Synchronisierungs**Freigaben, und klicken Sie auf **weiter**.  
   
-4.  Wählen Sie auf der Seite **Server und Pfad** den Server aus, auf dem die Synchronisierung erstellt werden soll, geben Sie einen lokalen Pfad an, in dem die Arbeitsordner-Daten gespeichert werden, und klicken Sie auf **Weiter**.  
+4.  Wählen Sie auf der Seite **Server und Pfad** den Server aus, auf dem die Synchronisierungs Freigabe erstellt werden soll, geben Sie einen lokalen Pfad ein, in dem die Arbeitsordner Daten gespeichert werden sollen, und klicken Sie auf **weiter**.  
   
     Wenn der Pfad nicht vorhanden ist, werden Sie aufgefordert, ihn zu erstellen. Klicken Sie auf **OK**.  
   
-5.  Wählen Sie auf der Seite **Ordnerstruktur** **Benutzeralias** aus und klicken Sie dann auf **Weiter**.  
+5.  Wählen Sie auf der Seite **Benutzerordner Struktur** die Option **Benutzeralias**aus, und klicken Sie dann auf **weiter**.  
   
-6.  Geben Sie auf der Seite **Name der Synchronisierungsfreigabe** den Namen der Synchronisierungsfreigabe ein. Im Testbeispiel ist dies **WorkFolders**. Klicken Sie auf **Weiter**.  
+6.  Geben Sie auf der Seite **Name der Synchronisierungs Freigabe** den Namen für die Synchronisierungs Freigabe ein. Für das Testbeispiel handelt es sich hierbei um **Arbeitsordner**. Klicken Sie auf **Weiter**.  
   
-7.  Fügen Sie auf der Seite **Synchronisierungszugriff** die Benutzer oder Gruppen hinzu, die auf die neue Synchronisierung Zugriff haben. Gewähren Sie für dieses Testbeispiel allen Domänenbenutzer Zugriff. Klicken Sie auf **Weiter**.  
+7.  Fügen Sie auf der Seite **Synchronisierungs Zugriff** die Benutzer oder Gruppen hinzu, die Zugriff auf die neue Synchronisierungs Freigabe haben werden. Gewähren Sie für das Testbeispiel allen Domänen Benutzern Zugriff. Klicken Sie auf **Weiter**.  
   
-8.  Wählen Sie auf der Seite **PC-Sicherheitsrichtlinien** **Arbeitsordner verschlüsseln** und **Bildschirm automatisch sperren und ein Kennwort anfordern** aus. Klicken Sie auf **Weiter**.  
+8.  Wählen Sie auf der Seite **PC-Sicherheitsrichtlinien** die Option **Arbeitsordner verschlüsseln** und **Seite automatisch sperren aus, und fordern Sie ein Kennwort**an. Klicken Sie auf **Weiter**.  
   
-9. Klicken Sie auf der Seite **Bestätigung** auf **Erstellen**, um den Konfigurationsprozess abzuschließen.  
+9. Klicken Sie auf der **Bestätigungs** Seite auf **Erstellen** , um den Konfigurationsprozess abzuschließen.  
   
-## <a name="work-folders-post-configuration-work"></a>Nach der Konfiguration von Arbeitsordnern auszuführende Aufgaben  
-Führen Sie diese zusätzlichen Schritte aus, um das Einrichten der Arbeitsordner abzuschließen:  
+## <a name="work-folders-post-configuration-work"></a>Arbeitsordner nach der Konfiguration  
+Führen Sie die folgenden zusätzlichen Schritte aus, um die Einrichtung von Arbeits Ordnern abzuschließen:  
   
--   Das Arbeitsordner-Zertifikat an den SSL-Port binden  
+-   Binden des Arbeitsordner Zertifikats an den SSL-Port  
   
--   Arbeitsordner zum Verwenden von AD FS-Authentifizierungen konfigurieren  
+-   Konfigurieren von Arbeits Ordnern für die Verwendung AD FS Authentifizierung  
   
--   Das Arbeitsordner-Zertifikat exportieren (wenn Sie ein selbstsigniertes Zertifikat verwenden)  
+-   Exportieren des Arbeitsordner Zertifikats (bei Verwendung eines selbst signierten Zertifikats)  
   
-### <a name="bind-the-certificate"></a>Das Zertifikat binden  
-Arbeitsordner kommunizieren nur über SSLs und müssen das an den Port gebundene selbstsignierte Zertifikat besitzen, das Sie zuvor erstellt haben (oder das von der Zertifizierungsstelle ausgestellt wurde).  
+### <a name="bind-the-certificate"></a>Binden des Zertifikats  
+Arbeitsordner kommunizieren nur über SSL und benötigen das selbst signierte Zertifikat, das Sie zuvor erstellt haben (oder das von der Zertifizierungsstelle ausgestellt wurde), das an den Port gebunden ist.  
   
-Es gibt zwei Methoden, die Sie verwenden können, um das Zertifikat über Windows PowerShell an den Port zu binden: IIS-Cmdlets und Netsh.  
+Es gibt zwei Methoden, mit denen Sie das Zertifikat über Windows PowerShell an den Port binden können: IIS-Cmdlets und Netsh.  
   
-#### <a name="bind-the-certificate-by-using-netsh"></a>Das Zertifikat mithilfe von Netsh binden  
-Um das Befehlszeilen-Skripthilfsprogramm Netsh in Windows PowerShell zu verwenden, müssen Sie den Befehl auf Netsh umleiten. Das folgende Beispielskript findet das Zertifikat mit dem Betreff **workfolders.contoso.com** und bindet es an den Port 443 mit Netsh:  
+#### <a name="bind-the-certificate-by-using-netsh"></a>Binden des Zertifikats mithilfe von Netsh  
+Um das Befehlszeilen-Skript Hilfsprogramm Netsh in Windows PowerShell zu verwenden, müssen Sie den Befehl an netsh übergeben. Im folgenden Beispielskript wird das Zertifikat mit dem Betreff **workfolders.contoso.com** gefunden und mithilfe von netsh an Port 443 gebunden:  
   
 ```powershell  
 $subject = "workfolders.contoso.com"   
@@ -211,13 +211,13 @@ Exit
 }   
 ```  
   
-#### <a name="bind-the-certificate-by-using-iis-cmdlets"></a>Das Zertifikat mithilfe von IIS-Cmdlets binden  
-Sie können das Zertifikat auch mithilfe von IIS-Management-Cmdlets an den Port binden, die verfügbar sind, wenn Sie IIS-Verwaltungstools und Skripts installiert haben.  
+#### <a name="bind-the-certificate-by-using-iis-cmdlets"></a>Binden des Zertifikats mithilfe von IIS-Cmdlets  
+Sie können das Zertifikat auch mit den IIS-Verwaltungs-Cmdlets an den Port binden, die verfügbar sind, wenn Sie die IIS-Verwaltungs Tools und-Skripts installiert haben.  
   
 > [!NOTE]  
-> Die Installation der IIS-Verwaltungstools aktiviert nicht die Vollversion von IIS auf dem Arbeitsordner-Computer, sondern nur die Management-Cmdlets. Diese Art der Installation hat einige Vorteile. Wenn Sie beispielsweise Cmdlets benötigen, die die Funktionen bereitstellen, die Sie von Netsh erhalten. Wenn das Zertifikat über das Cmdlet New-WebBinding an den Port gebunden wird, ist die Bindung nicht von IIS abhängig. Nachdem Sie die Bindung durchgeführt haben, können Sie das Web-Management-Konsole Feature entfernen und das Zertifikat bleibt trotzdem an den Port gebunden. Sie können die Bindung über Netsh durch die Eingabe **netsh http show sslcert** überprüfen.  
+> Die Installation der IIS-Verwaltungs Tools ermöglicht nicht die vollständige Version von Internetinformationsdienste (IIS) auf dem Arbeitsordner Computer. Es werden nur die-Verwaltungs-Cmdlets aktiviert. Dieses Setup kann einige Vorteile haben. Wenn Sie z. b. nach Cmdlets suchen, um die Funktionalität bereitzustellen, die Sie von Netsh erhalten. Wenn das Zertifikat über das Cmdlet New-webbinding an den Port gebunden ist, ist die Bindung in keiner Weise von IIS abhängig. Nachdem Sie die Bindung erstellt haben, können Sie sogar das Feature "Web-Mgmt-Console" entfernen, und das Zertifikat wird weiterhin an den Port gebunden. Sie können die Bindung über Netsh überprüfen, indem Sie **netsh http Show sslcert**eingeben.  
   
-Im folgenden Beispiel wird das Cmdlet New-WebBinding verwendet, um das Zertifikat mit dem Betreff **workfolders.contoso.com** zu finden und an den Port 443 zu binden:  
+Im folgenden Beispiel wird das Cmdlet New-webbinding verwendet, um das Zertifikat mit dem Betreff **workfolders.contoso.com** zu suchen und an Port 443 zu binden:  
   
 ```powershell  
 $subject = "workfolders.contoso.com"  
@@ -239,43 +239,42 @@ Exit
 }   
 ```  
   
-### <a name="set-up-ad-fs-authentication"></a>Einrichten der AD FS-Authentifizierung  
-Gehen Sie folgendermaßen vor, um Arbeitsordner zum Verwenden von AD FS zur Authentifizierung zu konfigurieren:  
+### <a name="set-up-ad-fs-authentication"></a>Einrichten AD FS Authentifizierung  
+Führen Sie die folgenden Schritte aus, um Arbeitsordner für die Verwendung von AD FS zur Authentifizierung zu konfigurieren:  
   
-1.  Öffnen Sie den **Server Manager**.  
+1.  Öffnen Sie **Server-Manager**.  
   
-2.  Klicken Sie auf **Server** und wählen Sie dann Ihre Arbeitsordner-Server aus der Liste aus.  
+2.  Klicken Sie auf **Server**, und wählen Sie dann Ihren Arbeitsordner Server in der Liste aus.  
   
-3.  Klicken Sie mit der rechten Maustaste auf den Servernamen und klicken Sie anschließend auf **Arbeitsordnereinstellungen**.  
+3.  Klicken Sie mit der rechten Maustaste auf den Servernamen, und klicken Sie auf **Arbeitsordner Einstellungen**.  
   
-4.  Wählen Sie im Dialogfenster **Arbeitsordnereinstellungen** **Active Directory-Verbunddienste** und geben Sie eine Verbunddienst-URL ein. Klicken Sie auf **Übernehmen**.  
+4.  Wählen Sie im Fenster **Einstellungen für Arbeitsordner** die Option **Active Directory-Verbunddienste (AD FS)** aus, und geben Sie die Verbunddienst-URL ein. Klicken Sie auf **Anwenden**.  
   
-    Im Testbeispiel ist die URL **https://blueadfs.contoso.com** .  
+    Im Testbeispiel lautet die URL **https://blueadfs.contoso.com** .  
   
-So führen Sie dieselbe Aufgabe mit Windows PowerShell-Cmdlet aus:  
+Das Cmdlet zum Ausführen derselben Aufgabe über Windows PowerShell lautet wie folgt:  
   
 ```powershell  
 Set-SyncServerSetting -ADFSUrl "https://blueadfs.contoso.com"   
 ```  
   
-Wenn Sie AD FS mit selbstsignierten Zertifikaten einrichten, wird möglicherweise eine Fehlermeldung angezeigt, dass die Verbunddienst-URL nicht korrekt oder nicht erreichbar ist oder keine Vertrauensstellung der vertrauenden Seite eingerichtet ist.  
+Wenn Sie AD FS mit selbst signierten Zertifikaten einrichten, erhalten Sie möglicherweise eine Fehlermeldung, die besagt, dass die Verbunddienst-URL falsch, nicht erreichbar oder eine Vertrauensstellung der vertrauenden Seite nicht eingerichtet wurde.  
   
-Dieser Fehler kann auch auftreten, wenn das AD FS-Zertifikat auf dem Arbeitsordner-Server installiert oder der CNAME-Eintrag für AD FS nicht korrekt festgelegt wurde. Sie müssen diese Probleme beheben, bevor Sie fortfahren können.  
+Dieser Fehler kann auch auftreten, wenn das AD FS Zertifikat nicht auf dem Arbeitsordner Server installiert wurde oder wenn der CNAME für AD FS nicht ordnungsgemäß eingerichtet wurde. Sie müssen diese Probleme beheben, bevor Sie fortfahren.  
   
-### <a name="export-the-work-folders-certificate"></a>Das Zertifikat Arbeitsordner exportieren  
-Das selbstsigniertes Arbeitsordner-Zertifikat muss exportiert werden, damit Sie es später auf den folgenden Computern in der Testumgebung installieren können:  
+### <a name="export-the-work-folders-certificate"></a>Exportieren des Arbeitsordner Zertifikats  
+Das selbst signierte Arbeitsordner Zertifikat muss exportiert werden, damit Sie es später auf den folgenden Computern in der Testumgebung installieren können:  
   
--   Der Server, der für die Webanwendungsproxy verwendet wird  
+-   Der Server, der für den webanwendungsproxy verwendet wird  
   
--   Der mit einer Domäne verknüpfte Windows-Client  
+-   Der in die Domäne eingebundener Windows-Client  
   
--   Der nicht mit einer Domäne verknüpfte Windows-Client  
+-   Der nicht in die Domäne eingebundenen Windows-Client  
   
-Um das Zertifikat zu exportieren, führen Sie die gleichen Schritte aus, die Sie verwendet haben, um das AD FS-Zertifikat zu exportieren [Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy: Schritt 2, Konfigurationsaufgaben nach dem Einrichten von AD FS](deploy-work-folders-adfs-step2.md). Exportieren Sie das AD FS-Zertifikat.  
+Um das Zertifikat zu exportieren, führen Sie die Schritte aus, die Sie zuvor zum Exportieren des AD FS Zertifikats verwendet haben, wie unter Bereitstellen [von Arbeits Ordnern mit AD FS und webanwendungsproxy beschrieben: Schritt 2, AD FS nach der Konfiguration](deploy-work-folders-adfs-step2.md), Exportieren des AD FS Zertifikats.  
   
-Nächster Schritt: [Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy: Schritt 4, Einrichten des Webanwendungsproxy](deploy-work-folders-adfs-step4.md)  
+Nächster Schritt: [Bereitstellen von Arbeits Ordnern mit AD FS und webanwendungsproxy: Schritt 4](deploy-work-folders-adfs-step4.md)  
   
 ## <a name="see-also"></a>Weitere Informationen  
-[Übersicht über Arbeitsordner](Work-Folders-Overview.md)  
+[Übersicht: Arbeitsordner](Work-Folders-Overview.md)  
   
-

@@ -8,16 +8,16 @@ ms.topic: article
 ms.assetid: 19a7a4a6-9a04-42ea-a5d0-ecb28a34dbaa
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 6d8720c71efba6f461aa0789fc2a143d1b1dab3f
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 03cddb638277f04a79cf4f41d6d2df308a1cf50e
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80855583"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86966142"
 ---
 # <a name="step-2-configure-app1"></a>Schritt 2 App1 konfigurieren
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 Führen Sie die folgenden Schritte aus, um App1 für die OTP-Unterstützung vorzubereiten:  
   
@@ -42,7 +42,7 @@ Führen Sie die folgenden Schritte aus, um App1 für die OTP-Unterstützung vorz
   
 6.  Klicken Sie auf die Registerkarte **Sicherheit** und dann auf **Hinzufügen**.  
   
-7.  Klicken Sie im Dialogfeld **Benutzer, Computer, Dienst Konten oder Gruppen auswählen** auf **Objekttypen**. Wählen Sie im Dialogfeld **Objekttypen** die Option **Computer**aus, und klicken Sie dann auf **OK**. Geben Sie im Feld **Geben Sie die zu ausgewäfenden Objektnamen** ein den Namen **Edge1**ein, klicken Sie auf **OK**, und aktivieren Sie in der Spalte **zulassen** die Kontrollkästchen **Lesen**, **registrieren**und **automatisch registrieren** . Klicken Sie in der Spalte **zulassen** auf **Authentifizierte Benutzer**, aktivieren Sie das Kontrollkästchen **Lesen** , und deaktivieren Sie alle anderen Kontrollkästchen. Klicken Sie auf **Domänen Computer**, und deaktivieren Sie in der Spalte **zulassen** die Option **registrieren** . Klicken Sie auf **Domänen-Admins** und Organisations- **Admins** , und klicken Sie in der Spalte **zulassen** für beide auf **voll** Zugriff. Klicken Sie auf **Übernehmen**.  
+7.  Klicken Sie im Dialogfeld **Benutzer, Computer, Dienst Konten oder Gruppen auswählen** auf **Objekttypen**. Wählen Sie im Dialogfeld **Objekttypen** die Option **Computer**aus, und klicken Sie dann auf **OK**. Geben Sie im Feld **Geben Sie die zu ausgewäfenden Objektnamen** ein den Namen **Edge1**ein, klicken Sie auf **OK**, und aktivieren Sie in der Spalte **zulassen** die Kontrollkästchen **Lesen**, **registrieren**und **automatisch registrieren** . Klicken Sie in der Spalte **zulassen** auf **Authentifizierte Benutzer**, aktivieren Sie das Kontrollkästchen **Lesen** , und deaktivieren Sie alle anderen Kontrollkästchen. Klicken Sie auf **Domänen Computer**, und deaktivieren Sie in der Spalte **zulassen** die Option **registrieren** . Klicken Sie auf **Domänen-Admins** und Organisations- **Admins** , und klicken Sie in der Spalte **zulassen** für beide auf **voll** Zugriff. Klicken Sie auf **Anwenden**.  
   
 8.  Klicken Sie auf die Registerkarte Antragsteller **Name** , und klicken Sie dann auf **aus diesen Active Directory Informationen erstellen**. Geben Sie im **Format "Name** des Antragstellers" den Namen DNS- **Namen**ein, vergewissern Sie sich, dass das Feld **DNS-Name** aktiviert ist, **und klicken Sie**auf  
   
@@ -59,11 +59,11 @@ Führen Sie die folgenden Schritte aus, um App1 für die OTP-Unterstützung vorz
 4.  Geben Sie auf der Registerkarte **Allgemein** unter **Vorlagen Anzeige Name den Namen** **daotplogon**ein. Klicken Sie in der Dropdown Liste unter **Gültigkeitsdauer**auf **Stunden**, klicken Sie im Dialogfeld **Zertifikat Vorlagen** auf **OK**, und stellen Sie sicher, dass die Anzahl der Stunden auf 1 festgelegt ist. Geben Sie in **Erneuerungs Zeitraum**den Wert **0**ein.  
   
     > [!IMPORTANT]  
-    > **Windows Server 2003**-Zertifizierungsstelle. In Fällen, in denen sich die Zertifizierungsstelle auf einem Computer befindet, auf dem Windows Server 2003 ausgeführt wird, muss die Zertifikat Vorlage auf einem anderen Computer konfiguriert werden. Dies ist erforderlich, da das Festlegen der **Gültigkeitsdauer** in Stunden nicht möglich ist, wenn Windows-Versionen vor Windows Server 2008 und Windows Vista ausgeführt werden. Wenn auf dem Computer, den Sie zum Konfigurieren der Vorlage verwenden, die Active Directory Zertifikat Dienste-Server Rolle nicht installiert ist, oder wenn es sich um einen Client Computer handelt, müssen Sie möglicherweise das Zertifikat Vorlagen-Snap-in installieren. Weitere Informationen finden Sie unter [Installieren des Zertifikat Vorlagen-Snap-Ins](https://technet.microsoft.com/library/cc732445.aspx).  
+    > **Windows Server 2003**-Zertifizierungsstelle. In Fällen, in denen sich die Zertifizierungsstelle auf einem Computer befindet, auf dem Windows Server 2003 ausgeführt wird, muss die Zertifikat Vorlage auf einem anderen Computer konfiguriert werden. Dies ist erforderlich, da das Festlegen der **Gültigkeitsdauer** in Stunden nicht möglich ist, wenn Windows-Versionen vor Windows Server 2008 und Windows Vista ausgeführt werden. Wenn auf dem Computer, den Sie zum Konfigurieren der Vorlage verwenden, die Active Directory Zertifikat Dienste-Server Rolle nicht installiert ist, oder wenn es sich um einen Client Computer handelt, müssen Sie möglicherweise das Zertifikat Vorlagen-Snap-in installieren. Weitere Informationen finden Sie unter [Installieren des Zertifikat Vorlagen-Snap-Ins](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc732445(v=ws.11)).  
     >   
     > **Windows Server 2008 R2**-Zertifizierungsstelle. Wenn Sie bereits eine Zertifizierungsstelle (Certification Authority, ca) bereitgestellt haben, auf der Windows Server 2008 R2 ausgeführt wird, müssen Sie den **Erneuerungs Zeitraum** für die Zertifikat Vorlage auf 1 oder 2 Stunden festlegen, und der **Gültigkeits Zeitraum** muss länger sein als der **Erneuerungs Zeitraum**, aber nicht mehr als vier Stunden. Wenn Sie für eine Zertifizierungsstelle, auf der Windows Server 2008 R2 ausgeführt wird, eine **Gültigkeitsdauer** von Zertifikat Vorlagen mit einer Zertifizierungsstelle konfigurieren, die auf Windows Server R2 ausgeführt wird, kann der DirectAccess-Installations-Assistent die Zertifikat Vorlage nicht erkennen  
   
-5.  Klicken Sie auf die Registerkarte **Sicherheit** , wählen Sie in der **Spalte Zulassen** die Option **Authentifizierte Benutzer**aus, und aktivieren Sie die Kontrollkästchen **Lesen** und **registrieren** . Klicken Sie auf **OK**. Klicken Sie auf **Domänen-Admins** und Organisations- **Admins**, und klicken Sie in der Spalte **zulassen** für beide auf **voll** Zugriff. Klicken Sie auf **Übernehmen**.  
+5.  Klicken Sie auf die Registerkarte **Sicherheit** , wählen Sie in der **Spalte Zulassen** die Option **Authentifizierte Benutzer**aus, und aktivieren Sie die Kontrollkästchen **Lesen** und **registrieren** . Klicken Sie auf **OK**. Klicken Sie auf **Domänen-Admins** und Organisations- **Admins**, und klicken Sie in der Spalte **zulassen** für beide auf **voll** Zugriff. Klicken Sie auf **Anwenden**.  
   
 6.  Klicken Sie auf die Registerkarte Antragsteller **Name** , und klicken Sie dann auf **aus diesen Active Directory Informationen erstellen**. Wählen Sie im **Format** "Antragsteller Name" die Option **Vollständiger definierter Name**aus, vergewissern Sie sich, dass das Feld **Benutzer Prinzipal Name (UPN)** aktiviert ist, und klicken Sie auf übernehmen **Apply**  
   
@@ -85,11 +85,9 @@ Führen Sie die folgenden Schritte aus, um App1 für die OTP-Unterstützung vorz
   
 15. Starten Sie die Dienste neu.  
   
-16. Schließen Sie die Konsole Zertifizierungsstelle.  
+16. Schließen Sie die Zertifizierungsstellenkonsole.  
   
-17. Öffnen Sie eine Eingabeaufforderung mit erhöhten Rechten. Geben Sie **certutil. exe-setreg DBFlags + DBFLAGS_ENABLEVOLATILEREQUESTS**ein, und drücken Sie die EINGABETASTE.  
+17. Öffnen Sie eine Eingabeaufforderung mit erhöhten Rechten. Geben Sie **CertUtil.exe--abtreg DBFlags + DBFLAGS_ENABLEVOLATILEREQUESTS**ein, und drücken Sie die EINGABETASTE.  
   
 18. Lassen Sie das Eingabe Aufforderungs Fenster für den nächsten Schritt geöffnet.  
   
-
-

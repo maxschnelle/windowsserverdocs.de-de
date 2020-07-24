@@ -8,18 +8,17 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 6b5b0b4780b88d9dc4bdf905c591fc8b1867aac1
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 11f5c5f2fca98512867a7f4cebafee1e4aeb4e2b
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80814863"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86965132"
 ---
 # <a name="azure-active-directory-connect"></a>Azure Active Directory Connect
 
 
-Azure AD Connect integrieren Sie Ihre lokalen Verzeichnisse in Azure Active Directory. Dies ermöglicht es Ihnen, eine gemeinsame Identität für Ihre Benutzer für Office 365-, Azure-und SaaS-Anwendungen bereitzustellen, die in Azure AD integriert sind. .  
+Azure AD Connect integriert Ihre lokalen Verzeichnisse in Azure Active Directory. Dadurch können Sie für Ihre Benutzer eine einzige Identität für in Azure AD integrierte in Office 365-, Azure- und SaaS-Anwendungen bereitstellen. .  
   
-Weitere Informationen finden [Sie unter Integrieren ihrer lokalen Identitäten in Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect/).  
+Weitere Informationen finden [Sie unter Integrieren ihrer lokalen Identitäten in Azure Active Directory](/azure/active-directory/hybrid/whatis-hybrid-identity).  
   
-

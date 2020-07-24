@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.assetid: dda9d148-d72f-4bff-aa2a-f2249fa47e4c
 ms.technology: identity-adfs
-ms.openlocfilehash: 742e0ce781225303c623461439f8d4460fec97c9
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 675deeee19deccb26f5db4f17da7265d843224e3
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80860103"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86966602"
 ---
 # <a name="the-role-of-the-claim-rule-language"></a>Rolle der Anspruchsregelsprache
 Die Anspruchs Regel Sprache Active Directory-Verbunddienste (AD FS) (AD FS) fungiert als administrativer Baustein für das Verhalten eingehender und ausgehender Ansprüche, während die Anspruchs-Engine als Verarbeitungs-Engine für die Logik in der Anspruchs Regel Sprache fungiert, die die benutzerdefinierte Regel definiert. Weitere Informationen zur Verarbeitung aller Regeln durch die Anspruchs-Engine finden Sie [unter der Rolle der Anspruchs](The-Role-of-the-Claims-Engine.md)-Engine.  
@@ -31,14 +31,14 @@ AD FS bietet auch eine Reihe von vordefinierten Anspruchs Ausstellungs-und Anspr
 Ausführlichere Informationen zu Anspruchs Regeln und Anspruchs Regel Vorlagen finden Sie [unter Rolle der Anspruchs Regeln](The-Role-of-Claim-Rules.md).  
 
 ## <a name="understanding-the-components-of-the-claim-rule-language"></a>Grundlegendes zu den Komponenten der Anspruchsregelsprache  
-Die Anspruchs Regel Sprache besteht aus den folgenden Komponenten, getrennt durch den Operator "= >":  
+Die Anspruchs Regel Sprache besteht aus den folgenden Komponenten, getrennt durch den Operator "=>":  
 
 -   Eine Bedingung  
 
 -   Eine Ausstellungsanweisung  
 
 ### <a name="conditions"></a>Bedingungen  
-Die Bedingungen dienen in einer Regel dazu, Eingabeansprüche zu überprüfen und zu bestimmen, ob die Ausstellungsanweisung der Regel ausgeführt werden soll. Eine Bedingung stellt einen logischen Ausdruck dar, dessen Auswertung „true“ ergeben muss, damit der Hauptteil der Regel ausgeführt wird. Wenn dieser Teil fehlt, wird eine logische true angenommen. Das heißt, dass der Regeltext immer ausgeführt wird. Der Abschnitt Bedingungen enthält eine Liste der Bedingungen, die zusammen mit dem logischen Operator ("& &") kombiniert werden. Alle Bedingungen in der Liste müssen „true“ ergeben, damit der Bedingungsteil insgesamt „true“ ergibt. Die Bedingung kann entweder ein Anspruchsselektoroperator oder ein zusammengesetzter Funktionsaufruf sein. Diese beiden Möglichkeiten schließen sich gegenseitig aus – Anspruchsselektoren und zusammengesetzte Funktionen lassen sich nicht im Bedingungsteil derselben Regel verwenden.  
+Die Bedingungen dienen in einer Regel dazu, Eingabeansprüche zu überprüfen und zu bestimmen, ob die Ausstellungsanweisung der Regel ausgeführt werden soll. Eine Bedingung stellt einen logischen Ausdruck dar, dessen Auswertung „true“ ergeben muss, damit der Hauptteil der Regel ausgeführt wird. Wenn dieser Teil fehlt, wird eine logische true angenommen. Das heißt, dass der Regeltext immer ausgeführt wird. Der Abschnitt Bedingungen enthält eine Liste der Bedingungen, die zusammen mit dem logischen Operator ("&&") kombiniert werden. Alle Bedingungen in der Liste müssen „true“ ergeben, damit der Bedingungsteil insgesamt „true“ ergibt. Die Bedingung kann entweder ein Anspruchsselektoroperator oder ein zusammengesetzter Funktionsaufruf sein. Diese beiden Möglichkeiten schließen sich gegenseitig aus – Anspruchsselektoren und zusammengesetzte Funktionen lassen sich nicht im Bedingungsteil derselben Regel verwenden.  
 
 Bedingungen sind in Regeln optional. Beispielsweise besitzt die folgende Regel keine Bedingung:  
 
@@ -63,8 +63,8 @@ Einausdrucks Bedingungen werden in der folgenden Tabelle beschrieben. Sie sind s
 
 |                                                                                                                   Beschreibung der Bedingung                                                                                                                    |                           Syntaxbeispiel der Bedingung                            |
 |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
-|               Diese Regel weist eine Bedingung auf, um einen Eingabe Anspruch mit einem angegebenen Anspruchstyp ("<http://test/name>") zu überprüfen. Wenn ein passender Anspruch in den Eingabeansprüchen vorhanden ist, kopiert die Regel den passenden Anspruch bzw. die Ansprüche in die Menge der Ausgabeansprüche.               |         ``` c: [type == "http://test/name"] => issue(claim = c );```          |
-| Diese Regel weist eine Bedingung auf, um nach einem Eingabe Anspruch mit einem angegebenen Anspruchstyp ("<http://test/name>") und einem Anspruchs Wert ("Terry") zu suchen. Wenn ein passender Anspruch in den Eingabeansprüchen vorhanden ist, kopiert die Regel den passenden Anspruch bzw. die Ansprüche in die Menge der Ausgabeansprüche. | ``` c: [type == "http://test/name", value == "Terry"] => issue(claim = c);``` |
+|               Diese Regel besteht aus einer Bedingung zum Überprüfen eines Eingabe Anspruchs mit einem angegebenen Anspruchstyp (" <http://test/name> "). Wenn ein passender Anspruch in den Eingabeansprüchen vorhanden ist, kopiert die Regel den passenden Anspruch bzw. die Ansprüche in die Menge der Ausgabeansprüche.               |         ``` c: [type == "http://test/name"] => issue(claim = c );```          |
+| Diese Regel weist eine Bedingung auf, um einen Eingabe Anspruch mit einem angegebenen Anspruchstyp (" <http://test/name> ") und einem Anspruchs Wert ("Terry") zu überprüfen. Wenn ein passender Anspruch in den Eingabeansprüchen vorhanden ist, kopiert die Regel den passenden Anspruch bzw. die Ansprüche in die Menge der Ausgabeansprüche. | ``` c: [type == "http://test/name", value == "Terry"] => issue(claim = c);``` |
 
 Komplexere Bedingungen werden im nächsten Abschnitt angezeigt, einschließlich Bedingungen zum Überprüfen auf mehrere Ansprüche, Bedingungen zum Überprüfen des Ausstellers eines Anspruchs und Bedingungen zum Überprüfen von Werten, die mit einem Muster für reguläre Ausdrücke zu vergleichen sind.  
 
@@ -74,19 +74,19 @@ In der folgenden Tabelle finden Sie ein Beispiel für Bedingungen mit mehreren A
 
 |                                                                                                                   Beschreibung der Bedingung                                                                                                                    |                                        Syntaxbeispiel der Bedingung                                        |
 |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
-| Diese Regel besteht aus einer Bedingung zum Überprüfen zweier Eingabe Ansprüche, von denen jede einen angegebenen Anspruchstyp hat ("<http://test/name>" und "<http://test/email>"). Wenn die zwei übereinstimmenden Ansprüche in den Eingabeansprüchen vorhanden sind, kopiert die Regel den Namensanspruch in die Menge der Ausgabeansprüche. | ``` c1: [type  == "http://test/name"] && c2: [type == "http://test/email"] => issue (claim  = c1 );``` |
+| Diese Regel besteht aus einer Bedingung zum Überprüfen zweier Eingabe Ansprüche, von denen jede einen angegebenen Anspruchstyp hat (" <http://test/name> " und " <http://test/email> "). Wenn die zwei übereinstimmenden Ansprüche in den Eingabeansprüchen vorhanden sind, kopiert die Regel den Namensanspruch in die Menge der Ausgabeansprüche. | ``` c1: [type  == "http://test/name"] && c2: [type == "http://test/email"] => issue (claim  = c1 );``` |
 
 #### <a name="regular--condition-examples"></a>Beispiele für reguläre Bedingungen  
 In der folgenden Tabelle finden Sie ein Beispiel für eine reguläre, Ausdrucks basierte Bedingung.  
 
 |Beschreibung der Bedingung|Syntaxbeispiel der Bedingung|  
 |-------------------------|----------------------------|  
-|Diese Regel weist eine Bedingung auf, die einen regulären Ausdruck verwendet, um nach einem e-Mail-Anspruch zu suchen, der auf "@fabrikam.com" endet. Wenn ein übereinstimmender Anspruch in den Eingabeansprüchen gefunden wird, kopiert die Regel den übereinstimmenden Anspruch in den Ausgabeanspruchssatz.|```c: [type  == "http://test/email", value  =~ "^. +@fabrikam.com$" ] => issue (claim  = c );```|  
+|Diese Regel weist eine Bedingung auf, die einen regulären Ausdruck verwendet, um nach einem e-Mail-Anspruch zu suchen, der auf " @fabrikam.com " endet. Wenn ein übereinstimmender Anspruch in den Eingabeansprüchen gefunden wird, kopiert die Regel den übereinstimmenden Anspruch in den Ausgabeanspruchssatz.|```c: [type  == "http://test/email", value  =~ "^. +@fabrikam.com$" ] => issue (claim  = c );```|  
 
 ### <a name="issuance-statements"></a>Ausstellungsanweisungen  
 Benutzerdefinierte Regeln werden basierend auf den Ausstellungs Anweisungen (*Problem* oder *Hinzufügen* ) verarbeitet, die Sie in der Anspruchs Regel programmieren. Abhängig vom gewünschten Ergebnis kann entweder die „issue“-Anweisung (Ausgeben) oder die „add“-Anweisung (Hinzufügen) in die Regel geschrieben werden, um den Eingabeanspruchssatz oder den Ausgabeanspruchssatz zu besetzen. Eine benutzerdefinierte Regel, die explizit die „add“-Anweisung verwendet, fügt Anspruchswerte nur in den Eingabeanspruchssatz ein, während eine benutzerdefinierte Regel, die explizit die „issue“-Anweisung verwendet, Anspruchswerte sowohl in den Eingabeanspruchssatz als auch in den Ausgabeanspruchssatz einfügt. Dies kann nützlich sein, wenn ein Anspruchswert nur von darauffolgenden Regeln in den Anspruchsregelsätzen verwendet werden soll.  
 
-In der folgenden Abbildung wird beispielsweise der eingehende Anspruch durch das Anspruchsausgabemodul dem Eingabeanspruchssatz hinzugefügt. Wenn die erste benutzerdefinierte Anspruchs Regel ausgeführt wird und die Kriterien des Domänen Benutzers erfüllt sind, verarbeitet das Anspruchs Ausstellungs Modul die Logik in der Regel mithilfe der Add-Anweisung, und der Wert des **Editors** wird dem Eingangs Anspruchssatz hinzugefügt. Da der Wert des Editors im Eingangs Anspruchssatz vorhanden ist, kann Regel 2 die Issue-Anweisung in der Logik verarbeiten und den neuen Wert **Hello**generieren, der dem Ausgangs Anspruchssatz und dem Eingangs Anspruchssatz zur Verwendung durch die nächste Regel im Regelsatz hinzugefügt wird. In Regel 3 können jetzt alle Werte, die im Eingangs Anspruchssatz vorhanden sind, als Eingabe für die Verarbeitung der Logik verwendet werden.  
+In der folgenden Abbildung wird beispielsweise der eingehende Anspruch durch die Anspruchsausgabe-Engine dem Eingabeanspruchssatz hinzugefügt. Wenn die erste benutzerdefinierte Anspruchs Regel ausgeführt wird und die Kriterien des Domänen Benutzers erfüllt sind, verarbeitet das Anspruchs Ausstellungs Modul die Logik in der Regel mithilfe der Add-Anweisung, und der Wert des **Editors** wird dem Eingangs Anspruchssatz hinzugefügt. Da der Wert von „Editor“ im Eingabeanspruchssatz vorhanden ist, kann Regel 2 die Ausstellungsanweisung ihrer Logik erfolgreich ausführen und den neuen Wert **Hello** erzeugen, der sowohl dem Ausgabeanspruchssatz als auch dem Eingabeanspruchssatz für die nächste Regel in der Regelmenge hinzugefügt wird. Regel 3 kann nun alle Ansprüche im Eingangsanspruchssatz als Eingabe für die Verarbeitung der Logik verwenden.  
 
 ![Rollen AD FS](media/adfs2_customrule.gif)  
 
@@ -109,7 +109,7 @@ Die „issue“-Anweisung definiert, welche Ansprüche durch die Regel ausgegebe
 
     -   *Neuer Anspruch*: in diesem Format wird ein neuer Anspruch erstellt, wobei die Werte für verschiedene Anspruchs Eigenschaften angegeben werden. „Claim.Type“ muss angegeben werden, alle anderen Anspruchseigenschaften sind optional. Die Reihenfolge der Argumente wird in dieser Form ignoriert.  
 
--   **Attributspeicher**: Bei dieser Form werden Ansprüche mit Werten erstellt, die von einem Attributspeicher abgerufen werden. Es ist möglich, mehrere Anspruchs Typen mit einer einzelnen Ausstellungs Anweisung zu erstellen, was für Attribut Speicher wichtig ist, die während des Attribut Abrufs Netzwerk-oder Datenträger-e/a-Vorgänge (e/a-Vorgänge) durchführen. Daher ist es wünschenswert, die Anzahl der Roundtrips zwischen dem Richtlinienmodul und dem Attributspeicher zu begrenzen. Es ist auch zulässig, für einen Anspruchstyp jeweils mehrere Ansprüche zu erstellen. Wenn der Attributspeicher mehrere Werte für einen Anspruchstyp zurückliefert, erstellt die Ausstellungsanweisung automatisch einen Anspruch für jeden Anspruchswert. Ein Mechanismus des Attributspeichers ersetzt die Platzhalter im Abfrageargument durch die Parameterargumente. Die Platzhalter verwenden dieselbe Syntax wie die .net String. Format ()-Funktion (z. b. {1}, {2}usw.). Die Reihenfolge der Argumente für diese Art der Ausstellung ist wichtig, und es muss die in der folgenden Grammatik vorgeschriebene Reihenfolge sein.  
+-   **Attributspeicher**: Bei dieser Form werden Ansprüche mit Werten erstellt, die von einem Attributspeicher abgerufen werden. Es ist möglich, mehrere Anspruchs Typen mit einer einzelnen Ausstellungs Anweisung zu erstellen, was für Attribut Speicher wichtig ist, die während des Attribut Abrufs Netzwerk-oder Datenträger-e/a-Vorgänge (e/a-Vorgänge) durchführen. Daher ist es wünschenswert, die Anzahl der Roundtrips zwischen der Richtlinien-Engine und dem Attributspeicher zu begrenzen. Es ist auch zulässig, für einen Anspruchstyp jeweils mehrere Ansprüche zu erstellen. Wenn der Attributspeicher mehrere Werte für einen Anspruchstyp zurückliefert, erstellt die Ausstellungsanweisung automatisch einen Anspruch für jeden Anspruchswert. Ein Mechanismus des Attributspeichers ersetzt die Platzhalter im Abfrageargument durch die Parameterargumente. Die Platzhalter verwenden dieselbe Syntax wie die .net String. Format ()-Funktion (z {1} . b {2} ., usw.). Die Reihenfolge der Argumente für diese Art der Ausstellung ist wichtig, und es muss die in der folgenden Grammatik vorgeschriebene Reihenfolge sein.  
 
 Die folgende Tabelle beschreibt einige allgemeine Syntaxkonstruktionen für beide Ausstellungsanweisungen in Anspruchsregeln.  
 
@@ -117,7 +117,7 @@ Die folgende Tabelle beschreibt einige allgemeine Syntaxkonstruktionen für beid
 |---------------------------|----------------------------------|-------------------------------------|  
 |Normal|Die folgende Regel gibt immer den gleichen Anspruch aus, wenn ein Benutzer den angegebenen Anspruchstyp und den Wert enthält:|```c: [type  == "http://test/employee", value  == "true"] => issue (type = "http://test/role", value = "employee");```|  
 |Normal|Die folgende Regel konvertiert einen Anspruchstyp in einen anderen. Beachten Sie, dass der Wert des Anspruchs, der der Bedingung „c“ entspricht, in der Ausstellungsanweisung verwendet wird.|```c: [type  == "http://test/group" ] => issue (type  = "http://test/role", value  = c.Value );```|  
-|Attributspeicher|Die folgende Regel verwendet den Wert eines eingehenden Anspruchs, um den Active Directory Attribut Speicher abzufragen:|```c: [Type  == "http://test/name" ] => issue (store  = "Enterprise AD Attribute Store", types  =  ("http://test/email" ), query  = ";mail;{0}", param  = c.Value )```|  
+|Attributspeicher|Die folgende Regel verwendet den Wert eines eingehenden Anspruchs, um den Active Directory-Attributspeicher abzufragen:|```c: [Type  == "http://test/name" ] => issue (store  = "Enterprise AD Attribute Store", types  =  ("http://test/email" ), query  = ";mail;{0}", param  = c.Value )```|  
 |Attributspeicher|Die folgende Regel verwendet den Wert eines eingehenden Anspruchs, um einen zuvor konfigurierten strukturierte Abfragesprache (SQL)-Attribut Speicher abzufragen:|```c: [type  == "http://test/name"] => issue (store  = "Custom SQL store", types  =  ("http://test/email","http://test/displayname" ), query  = "SELECT mail, displayname FROM users WHERE name ={0}", param  = c.value );```|  
 
 #### <a name="expressions"></a>Ausdrücke  
@@ -143,7 +143,7 @@ Die folgenden Anspruchseigenschaften sind verfügbar:
 
 -   Claim.ValueType  
 
--   Claim. Properties\[Eigenschaften\_Name\] (diese Eigenschaft gibt eine leere Zeichenfolge zurück, wenn die Eigenschaft _name in der Eigenschaften Auflistung des Anspruchs nicht gefunden werden kann. )  
+-   Claim. Properties \[ -Eigenschafts \_ Name \] (diese Eigenschaft gibt eine leere Zeichenfolge zurück, wenn die Eigenschaft _name nicht in der Properties-Auflistung des Anspruchs gefunden werden kann. )  
 
 Die RegexReplace-Funktion kann innerhalb eines Ausdrucks für Aufrufe verwendet werden. Diese Funktion übernimmt einen Eingabeausdruck und vergleicht ihn mit dem angegebenen Muster. Wenn das Muster übereinstimmt, wird die Ausgabe der Übereinstimmung durch den Ersatzwert ersetzt.  
 
@@ -158,7 +158,5 @@ exists([issuer == "MSFT"])
 ## <a name="rule-body"></a>Hauptteil der Regel  
 Der Hauptteil der Regel kann nur eine einzelne Ausgabeanweisung enthalten. Wenn Bedingungen verwendet werden, ohne die Exists-Funktion zu nutzen, wird der Hauptteil der Regel jedes Mal ausgeführt, wenn der Bedingungsteil übereinstimmt.  
 
-## <a name="additional-references"></a>Weitere Verweise  
-[Erstellen einer Regel zum Senden von Ansprüchen mithilfe einer benutzerdefinierten Regel](https://technet.microsoft.com/library/dd807049.aspx)  
-
-
+## <a name="additional-references"></a>Zusätzliche Verweise  
+[Erstellen einer Regel zum Senden von Ansprüchen mithilfe einer benutzerdefinierten Regel](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dd807049(v=ws.11))  

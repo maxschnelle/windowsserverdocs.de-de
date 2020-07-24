@@ -8,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 13d32a4fc11611f030006ad9628d2e84a045e511
-ms.sourcegitcommit: c710fea2c0591febfc1bc9a705d59979be6f699b
+ms.openlocfilehash: 84d28ffec35bdc5dce22d797cb830f8b75068013
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83705567"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86966052"
 ---
 # <a name="active-directory-domain-services-overview"></a>Übersicht über Active Directory Domain Services
 
@@ -24,9 +24,9 @@ Ein Verzeichnis ist eine hierarchische Struktur, in der Informationen zu Objekte
 
 In Active Directory werden Informationen zu Objekten im Netzwerk gespeichert, sodass sie von Administratoren und Benutzern leicht gefunden und verwendet werden können. Für Active Directory wird ein strukturierter Datenspeicher als Basis für eine logische, hierarchische Organisation von Verzeichnisinformationen eingesetzt.
 
-Dieser Datenspeicher, auch als Verzeichnis bezeichnet, enthält Informationen über Active Directory Objekte. Diese Objekte umfassen in der Regel freigegebene Ressourcen, z. b. Server, Volumes, Drucker und Netzwerk Benutzer-und Computer Konten. Weitere Informationen zum Active Directory Datenspeicher finden Sie unter [Verzeichnis Datenspeicher](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc736627(v=ws.10)).
+Dieser Datenspeicher, auch als Verzeichnis bezeichnet, enthält Informationen über Active Directory Objekte. Diese Objekte umfassen in der Regel freigegebene Ressourcen, z. b. Server, Volumes, Drucker und Netzwerk Benutzer-und Computer Konten. Weitere Informationen zum Active Directory Datenspeicher finden Sie unter [Verzeichnis Datenspeicher](/previous-versions/windows/it-pro/windows-server-2003/cc736627(v=ws.10)).
 
-Die Sicherheit wird in Active Directory durch die Anmelde Authentifizierung und die Zugriffs Steuerung für Objekte im Verzeichnis integriert. Bei einer einzelnen Netzwerk Anmeldung können Administratoren Verzeichnis Daten und die Organisation im gesamten Netzwerk verwalten, und autorisierte Netzwerk Benutzer können auf Ressourcen an beliebiger Stelle im Netzwerk zugreifen. Durch die richtlinienbasierte Verwaltung wird selbst die Verwaltung der komplexesten Netzwerke erleichtert. Weitere Informationen zur Active Directory Sicherheit finden Sie unter [Sicherheitsübersicht](../../plan/security-best-practices/best-practices-for-securing-active-directory.md).
+Die Sicherheit wird in Active Directory durch die Anmelde Authentifizierung und die Zugriffs Steuerung für Objekte im Verzeichnis integriert. Mit einer einzigen Netzwerkanmeldung können Administratoren Verzeichnisdaten und die Organisation im gesamten Netzwerk verwalten, und autorisierte Netzwerkbenutzer können überall im Netzwerk auf Ressourcen zugreifen. Durch die richtlinienbasierte Verwaltung wird selbst die Verwaltung der komplexesten Netzwerke erleichtert. Weitere Informationen zur Active Directory Sicherheit finden Sie unter [Sicherheitsübersicht](../../plan/security-best-practices/best-practices-for-securing-active-directory.md).
 
 Active Directory umfasst auch Folgendes:
 * Ein Satz von Regeln, **das Schema**, das die Klassen von Objekten und Attributen definiert, die im Verzeichnis enthalten sind, die Einschränkungen und Begrenzungen für Instanzen dieser Objekte und das Format ihrer Namen. Weitere Informationen zum Schema finden Sie unter Schema.
@@ -43,15 +43,13 @@ Active Directory umfasst auch Folgendes:
 ## <a name="understanding-active-directory"></a>Grundlegendes zu Active Directory
  Dieser Abschnitt enthält Links zu den grundlegenden Active Directory Konzepten:
  
-* [Active Directory Struktur und Speichertechnologien](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc759186(v=ws.10))
-* [Domänen Controller Rollen](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc786438(v=ws.10)) 
-* [Active Directory-Schema](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771796(v=ws.10))
-* [Grundlegendes zu Vertrauensstellungen](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771568(v=ws.10)) 
-* [Active Directory Replikations Technologien](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc776877(v=ws.10)) 
-* [Technologien für die Active Directory Suche und Veröffentlichung](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc775686(v=ws.10)) 
-* [Interoperabilität mit DNS und Gruppenrichtlinie](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd197486(v=ws.10))
-* [Grundlegendes zum Schema](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc759402(v=ws.10)) 
+* [Active Directory Struktur und Speichertechnologien](/previous-versions/windows/it-pro/windows-server-2003/cc759186(v=ws.10))
+* [Domänen Controller Rollen](/previous-versions/windows/it-pro/windows-server-2003/cc786438(v=ws.10)) 
+* [Active Directory-Schema](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc771796(v=ws.10))
+* [Grundlegendes zu Vertrauensstellungen](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc771568(v=ws.10)) 
+* [Active Directory Replikations Technologien](/previous-versions/windows/it-pro/windows-server-2003/cc776877(v=ws.10)) 
+* [Technologien für die Active Directory Suche und Veröffentlichung](/previous-versions/windows/it-pro/windows-server-2003/cc775686(v=ws.10)) 
+* [Interoperabilität mit DNS und Gruppenrichtlinie](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/dd197486(v=ws.10))
+* [Grundlegendes zum Schema](/previous-versions/windows/it-pro/windows-server-2003/cc759402(v=ws.10)) 
 
-Eine ausführliche Liste der Active Directory Konzepte finden Sie unter [Understanding Active Directory](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc781408(v=ws.10)). 
-
-
+Eine ausführliche Liste der Active Directory Konzepte finden Sie unter [Understanding Active Directory](/previous-versions/windows/it-pro/windows-server-2003/cc781408(v=ws.10)). 

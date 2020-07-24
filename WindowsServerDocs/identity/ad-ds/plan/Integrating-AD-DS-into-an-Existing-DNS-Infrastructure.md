@@ -8,16 +8,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: cf069102f409247832204546f3e1c15de7238bd3
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 3aeac10b8c92c151fe57bcb935e685f7f1a2bfa2
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80822273"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86965522"
 ---
 # <a name="integrating-ad-ds-into-an-existing-dns-infrastructure"></a>Integrieren von AD DS in eine vorhandene DNS-Infrastruktur
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Wenn Ihre Organisation bereits über einen vorhandenen Domain Name System (DNS)-Server Dienst verfügt, muss der DNS für Active Directory Domain Services Besitzer (AD DS) mit dem DNS-Besitzer für Ihre Organisation zusammenarbeiten, um AD DS in die vorhandene Infrastruktur zu integrieren. Dies umfasst das Erstellen eines DNS-Servers und einer DNS-Client Konfiguration.  
   
@@ -30,10 +30,10 @@ Wenn Sie AD DS in einen vorhandenen DNS-Namespace integrieren, empfiehlt es sich
   
 -   Konfigurieren Sie die Domänen Controller für jede regionale Domäne, um die DNS-Zonen zu hosten, die Ihren Active Directory Domänen entsprechen.  
   
--   Konfigurieren Sie die Zone mit den Active Directory Gesamtstruktur weiten Serverlocatorpunkt-Datensätzen (d. h. dem _msdcs. *Name* Zone) für die Replikation auf jeden DNS-Server in der Gesamtstruktur mithilfe der Gesamtstruktur weiten DNS-Anwendungsverzeichnis Partition.  
+-   Konfigurieren Sie die Zone mit den Active Directory Gesamtstruktur weiten Serverlocatorpunkt-Datensätzen (d. h. dem _msdcs.* Name* Zone) für die Replikation auf jeden DNS-Server in der Gesamtstruktur mithilfe der Gesamtstruktur weiten DNS-Anwendungsverzeichnis Partition.  
   
     > [!NOTE]  
-    > Wenn der DNS-Server Dienst mit dem Assistent zum Installieren von Active Directory Domain Services installiert wird (Wir empfehlen diese Option), werden alle vorherigen Tasks automatisch ausgeführt. Weitere Informationen finden Sie unter Bereitstellen [einer Windows Server 2008](https://technet.microsoft.com/library/cc731174.aspx)-Gesamtstruktur-Stamm Domäne.  
+    > Wenn der DNS-Server Dienst mit dem Assistent zum Installieren von Active Directory Domain Services installiert wird (Wir empfehlen diese Option), werden alle vorherigen Tasks automatisch ausgeführt. Weitere Informationen finden Sie unter Bereitstellen [einer Windows Server 2008](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731174(v=ws.10))-Gesamtstruktur-Stamm Domäne.  
   
     > [!NOTE]  
     > AD DS verwendet Gesamtstruktur übergreifende Serverlocatorpunkt-Einträge, um Replikations Partnern das Auffinden der anderen und das Auffinden von globalen Katalog Servern zu ermöglichen. In AD DS werden die Gesamtstruktur weiten Serverlocatorpunkt-Einträge in der _msdcs gespeichert. *Name* -Zone. Da die Informationen in der Zone allgemein verfügbar sein müssen, wird diese Zone über die Gesamtstruktur übergreifende DNS-Anwendungsverzeichnis Partition auf allen DNS-Servern in der Gesamtstruktur repliziert.  
@@ -61,5 +61,3 @@ Clients können weiterhin über einen der Namen gefunden werden. Alle vorhandene
   
 Wenn Sie die Kerberos-Authentifizierung beim Herstellen einer Verbindung mit einem Server unter Windows 2000, Windows Server 2003 oder Windows Server 2008 nutzen möchten, müssen Sie sicherstellen, dass der Client eine Verbindung mit dem Server unter Verwendung des primär namens herstellt.  
   
-
-

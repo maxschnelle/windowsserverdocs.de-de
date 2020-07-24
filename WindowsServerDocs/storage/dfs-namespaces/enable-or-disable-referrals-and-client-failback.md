@@ -8,12 +8,12 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 15c02897df0710653a6a3663ce6f8e87bfa416b6
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 3896b411ee8b02a0efde6b46484e043b27ffea77
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85471805"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86966512"
 ---
 # <a name="enable-or-disable-referrals-and-client-failback"></a>Aktivieren oder Deaktivieren von Verweisen und Clientfailbacks
 
@@ -39,15 +39,15 @@ Durch Deaktivieren des Verweises eines Namespace Servers oder des Ordner Ziels k
 
 
 > [!TIP]
-> Um Verweise mithilfe von Windows PowerShell zu aktivieren oder zu deaktivieren, verwenden Sie die Cmdlets " [Set-dfsnroottarget – State](https://technet.microsoft.com/library/jj884266.aspx) " oder " [Set-dfsnserverconfiguration](https://technet.microsoft.com/library/jj884277.aspx) ", die in Windows Server 2012 eingeführt wurden.
+> Um Verweise mithilfe von Windows PowerShell zu aktivieren oder zu deaktivieren, verwenden Sie die Cmdlets " [Set-dfsnroottarget – State](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731089(v=ws.11)) " oder " [Set-dfsnserverconfiguration](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731089(v=ws.11)) ", die in Windows Server 2012 eingeführt wurden.
 
 ## <a name="enable-client-failback"></a>Clientfailback aktivieren
 
-Wenn ein Ziel nicht mehr verfügbar ist, können Sie Clients so konfigurieren, dass ein Failback zu dem Ziel ausgeführt wird, nachdem es wiederhergestellt wurde. Damit das Failback funktioniert, müssen die Client Computer die im folgenden Thema aufgeführten Anforderungen erfüllen: [Überprüfen von Client Anforderungen für DFS-Namespaces](https://technet.microsoft.com/library/cc771913(v=ws.11).aspx).
+Wenn ein Ziel nicht mehr verfügbar ist, können Sie Clients so konfigurieren, dass ein Failback zu dem Ziel ausgeführt wird, nachdem es wiederhergestellt wurde. Damit das Failback funktioniert, müssen die Client Computer die im folgenden Thema aufgeführten Anforderungen erfüllen: [Überprüfen von Client Anforderungen für DFS-Namespaces](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771913(v=ws.11)).
 
 
 > [!NOTE]
-> Verwenden Sie das Cmdlet [Set-dfsnroot](https://technet.microsoft.com/library/jj884281.aspx) , um das Client Failback für einen Namespace Stamm mithilfe von Windows PowerShell zu aktivieren. Verwenden Sie das Cmdlet [Set-dfsnfolder](https://technet.microsoft.com/library/jj884283.aspx) , um das Client Failback für einen DFS-Ordner zu aktivieren.
+> Verwenden Sie das Cmdlet [Set-dfsnroot](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771913(v=ws.11)) , um das Client Failback für einen Namespace Stamm mithilfe von Windows PowerShell zu aktivieren. Verwenden Sie das Cmdlet [Set-dfsnfolder](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771913(v=ws.11)) , um das Client Failback für einen DFS-Ordner zu aktivieren.
 
 
 ## <a name="to-enable-client-failback-for-a-namespace-root"></a>So aktivieren Sie das Clientfailback für einen Namespacestamm
@@ -71,5 +71,5 @@ Ordner mit Zielen erben die Clientfailbackeinstellungen des Namespacestamms. Wen
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 
 -   [Optimieren von DFS-Namespaces](tuning-dfs-namespaces.md)
--   [Überprüfen von Client Anforderungen für DFS-Namespaces](https://technet.microsoft.com/library/cc771913(v=ws.11).aspx)
+-   [Überprüfen von Client Anforderungen für DFS-Namespaces](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771913(v=ws.11))
 -   [Delegieren von Verwaltungsberechtigungen für DFS-Namespaces](delegate-management-permissions-for-dfs-namespaces.md)

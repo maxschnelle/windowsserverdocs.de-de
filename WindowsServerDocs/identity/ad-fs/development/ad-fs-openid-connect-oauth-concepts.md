@@ -1,5 +1,5 @@
 ---
-title: AD FS OpenID Connect/OAuth-Konzepte
+title: 'AD FS OpenID Connect/OAuth: Konzepte'
 description: Erfahren Sie mehr über AD FS modernen Authentifizierungs Konzepten.
 author: billmath
 ms.author: billmath
@@ -8,22 +8,22 @@ ms.date: 08/09/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 26c1635d4218c7d33377b6b8a90bc96ea4ad37b3
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 353546be17f096b692c2429aa65529d302a2df7e
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75948785"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86966852"
 ---
-# <a name="ad-fs-openid-connectoauth-concepts"></a>AD FS OpenID Connect/OAuth-Konzepte
-Gilt für AD FS 2016 und höher
+# <a name="ad-fs-openid-connectoauth-concepts"></a>AD FS OpenID Connect/OAuth: Konzepte
+Gilt für Active Directory-Verbunddienste (AD FS) 2016 und höher
  
 ## <a name="modern-authentication-actors"></a>Moderne Authentifizierungs Akteure 
 
-|Actor| Beschreibung|
+|Akteur| Beschreibung|
 |-----|-----|
 |Endbenutzer|Dies ist der Sicherheits Prinzipal (Benutzer, Anwendungen, Dienste und Gruppen), der auf die Ressource zugreifen muss.|  
-|client|Dies ist Ihre Webanwendung, die durch die Client-ID identifiziert wird. Der Client ist in der Regel die Partei, mit der der Endbenutzer interagiert, und fordert Token vom autorisierungsserver an.
+|Client|Dies ist Ihre Webanwendung, die durch die Client-ID identifiziert wird. Der Client ist in der Regel die Partei, mit der der Endbenutzer interagiert, und fordert Token vom autorisierungsserver an.
 |Autorisierungs Server/Identitäts Anbieter (IDP)| Dies ist der AD FS Server. Er ist verantwortlich für die Überprüfung der Identität von Sicherheits Prinzipale, die im Verzeichnis einer Organisation vorhanden sind. Bei erfolgreicher Authentifizierung dieser Sicherheits Prinzipale werden Sicherheits Token (bearerzugriffstoken, ID-Token, Aktualisierungs Token) ausgegeben.
 |Ressourcen Server/Ressourcenanbieter/vertrauende Seite| Hier befindet sich die Ressource oder die Daten. Es vertraut dem Autorisierungs Server, den Client sicher zu authentifizieren und zu autorisieren, und verwendet bearerzugriffstoken, um sicherzustellen, dass Zugriff auf eine Ressource gewährt werden kann
 
@@ -34,7 +34,7 @@ Das folgende Diagramm stellt die grundlegende Beziehung zwischen den Akteuren da
 ## <a name="application-types"></a>Anwendungstypen 
  
 
-|Anwendungstyp|Beschreibung|Role-Eigenschaft|
+|Anwendungstyp|BESCHREIBUNG|Role|
 |-----|-----|-----|
 |Native Anwendung|Dies wird manchmal als **öffentlicher Client**bezeichnet und soll eine Client-App sein, die auf einem PC oder einem Gerät ausgeführt wird und mit dem der Benutzer interagiert.|Fordert Token vom autorisierungsserver (AD FS) an, um Benutzer Zugriff auf Ressourcen zu erhalten. Sendet HTTP-Anforderungen an geschützte Ressourcen und verwendet dabei die Token als HTTP-Header.| 
 |Server Anwendung (Web-App)|Eine Webanwendung, die auf einem Server ausgeführt wird und im Allgemeinen für Benutzer über einen Browser zugänglich ist. Da es in der Lage ist, seinen eigenen geheimen Client Schlüssel oder Anmelde Informationen beizubehalten, wird es manchmal als **vertraulicher Client**bezeichnet. |Fordert Token vom autorisierungsserver (AD FS) an, um Benutzer Zugriff auf Ressourcen zu erhalten. Vor dem Anfordern von Token muss sich der Client (Web-App) mithilfe seines geheimen Schlüssels authentifizieren. | 
@@ -55,14 +55,14 @@ Die moderne Authentifizierung verwendet die folgenden Tokentypen:
  
 Beim Registrieren einer Ressource in AD FS können Bereiche so konfiguriert werden, dass AD FS bestimmte Aktionen ausführen kann. Zusätzlich zum Konfigurieren des Bereichs muss auch der Bereichs Wert in der Anforderung gesendet werden, um AD FS die Aktion auszuführen. Beispielsweise muss der Administrator während der Ressourcen Registrierung den Bereich als OpenID konfigurieren, und die Anwendung (Client) muss Scope = OpenID in der Authentifizierungsanforderung senden, damit AD FS das ID-Token ausgibt. Details zu den in AD FS verfügbaren Bereichen werden unten bereitgestellt. 
  
-- Aza: bei Verwendung [von OAuth 2,0-Protokoll Erweiterungen für Broker Clients](https://docs.microsoft.com/openspecs/windows_protocols/ms-oapxbc/2f7d8875-0383-4058-956d-2fb216b44706) und wenn der Bereichs Parameter den Bereich "Aza" enthält, gibt der Server ein neues primäres Aktualisierungs Token aus und legt es im refresh_token-Feld der Antwort fest. Außerdem wird das refresh_token_expires_in Feld auf die Lebensdauer des neuen primären Aktualisierungs Tokens festgelegt, wenn eines erzwungen wird. 
-- OpenID: ermöglicht es der Anwendung, die Verwendung des OpenID Connect-Autorisierungs Protokolls anzufordern. 
-- logon_cert: der logon_cert Bereich ermöglicht es einer Anwendung, Anmelde Zertifikate anzufordern, die für die interaktive Anmeldung von authentifizierten Benutzern verwendet werden können. Der AD FS Server lässt den Parameter "access_token" aus der Antwort aus und stellt stattdessen eine Base64-codierte CMS-Zertifikatskette oder eine SMTP-vollständige PKI-Antwort bereit. Weitere Informationen finden Sie [hier](https://docs.microsoft.com/openspecs/windows_protocols/ms-oapx/32ce8878-7d33-4c02-818b-6c9164cc731e).
-- user_impersonation: der user_impersonation Bereich ist erforderlich, um erfolgreich ein Zugriffs Token von AD FS anzufordern. Ausführliche Informationen zur Verwendung dieses Bereichs finden Sie unter [Erstellen einer Anwendung mit mehreren Stufen mithilfe von "on-Auftrag-of" (OBO) mithilfe von OAuth mit AD FS 2016](ad-fs-on-behalf-of-authentication-in-windows-server.md). 
+- Aza: Wenn die [OAuth 2,0-Protokoll Erweiterungen für Broker Clients](/openspecs/windows_protocols/ms-oapxbc/2f7d8875-0383-4058-956d-2fb216b44706)verwendet werden   und der Scope-Parameter den Bereich "Aza" enthält, gibt der Server ein neues primäres Aktualisierungs Token aus und legt es im refresh_token-Feld der Antwort fest. Außerdem wird das refresh_token_expires_in Feld auf die Lebensdauer des neuen primären Aktualisierungs Tokens festgelegt, wenn eine erzwungen wird. 
+- openid – Ermöglicht es der Anwendung, die Verwendung des „OpenID Connect“-Autorisierungsprotokolls anzufordern. 
+- logon_cert – Der Bereich „logon_cert“ ermöglicht einer Anwendung das Anfordern von Anmeldezertifikaten, die für die interaktive Anmeldung authentifizierter Benutzer verwendet werden können. Der AD FS-Server lässt den Parameter „access_token“ in der Antwort aus und stellt stattdessen eine Base64-codierte CMS-Zertifikatskette oder eine CMC-vollständige PKI-Antwort bereit. Weitere Informationen finden Sie [hier](/openspecs/windows_protocols/ms-oapx/32ce8878-7d33-4c02-818b-6c9164cc731e).
+- user_impersonation – Der Bereich „user_impersonation“ ist erforderlich, um ein „on-behalf-of“-Zugriffstoken von AD FS erfolgreich anzufordern. Ausführliche Informationen zur Verwendung dieses Bereichs finden Sie unter [Erstellen einer Anwendung mit mehreren Stufen mithilfe von "on-Auftrag-of" (OBO) mithilfe von OAuth mit AD FS 2016](ad-fs-on-behalf-of-authentication-in-windows-server.md). 
 - allatclaims – mit dem allatclaims-Bereich kann die Anwendung anfordern, dass Ansprüche im Zugriffs Token ebenfalls im ID-Token hinzugefügt werden.   
-- vpn_cert: der vpn_cert Bereich ermöglicht einer Anwendung das Anfordern von VPN-Zertifikaten, die verwendet werden können, um VPN-Verbindungen mithilfe der EAP-TLS-Authentifizierung herzustellen. Dies wird nicht mehr unterstützt. 
-- e-Mail: ermöglicht es der Anwendung, einen e-Mail-Anspruch für den angemeldeten Benutzer anzufordern.  
-- Profil: ermöglicht es der Anwendung, Profil bezogene Ansprüche für den Anmelde Benutzer anzufordern.  
+- vpn_cert – Der Bereich „vpn_cert“ ermöglicht einer Anwendung das Anfordern von VPN-Zertifikaten, die verwendet werden können, um VPN-Verbindungen mithilfe der EAP-TLS-Authentifizierung herzustellen. Dies wird nicht mehr unterstützt. 
+- email – Ermöglicht es der Anwendung, einen E-Mail-Anspruch für den angemeldeten Benutzer anzufordern.  
+- profile – Ermöglicht es der Anwendung, profilbezogene Ansprüche für den angemeldeten Benutzer anzufordern.  
 
 ## <a name="claims"></a>Ansprüche 
  
@@ -81,7 +81,7 @@ Sicherheits Token (Zugriffs-und ID-Token), die von AD FS ausgegeben werden, enth
  
  2. AD FS überprüft die Client-ID in der Authentifizierungsanforderung mit der Client-ID, die bei der Client-und Ressourcen Registrierung in AD FS abgerufen wurde. Wenn Sie den vertraulichen Client verwenden, überprüft AD FS auch den geheimen Client Schlüssel, der in der Authentifizierungsanforderung angegeben ist. AD FS auch den Umleitungs-URI des Clients überprüfen. 
  
- 3. AD FS identifiziert die Ressource, auf die der Client über den in der Authentifizierungsanforderung übergebenen Ressourcen Parameter zugreifen möchte. Wenn Sie die msal-Client Bibliothek verwenden, wird der Ressourcen Parameter nicht gesendet. Stattdessen wird die Ressourcen-URL als Teil des Bereichs Parameters gesendet: *Scope = [resource URL]//[Bereichs Werte, z. b. OpenID]* . 
+ 3. AD FS identifiziert die Ressource, auf die der Client über den in der Authentifizierungsanforderung übergebenen Ressourcen Parameter zugreifen möchte. Wenn Sie die msal-Client Bibliothek verwenden, wird der Ressourcen Parameter nicht gesendet. Stattdessen wird die Ressourcen-URL als Teil des Bereichs Parameters gesendet: *Scope = [resource URL]//[Bereichs Werte, z. b. OpenID]*. 
 
     Wenn die Ressource nicht mit dem Resource-oder Scope-Parameter übergeben wird, verwendet ADFS einen Standard Ressourcen-urn: Microsoft: userinfo, deren Richtlinien (z. b. MFA, Ausstellung oder Autorisierungs Richtlinie) nicht konfiguriert werden können. 
  

@@ -8,18 +8,18 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 5dcbea1ae0bd84ed517644d7c4fde03852bef304
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 72265f5cb2ff0e1f80d4cca6d789cb2951066557
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80821113"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86966552"
 ---
 # <a name="planning-for-compromise"></a>Planen der Gefährdung
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-*Gesetze Nr. 1: niemand glaubt, dass etwas Schlimmes passieren kann, bis es funktioniert.* - [10 unveränderliche Gesetze der Sicherheitsverwaltung](https://technet.microsoft.com/library/cc722488.aspx)  
+*Gesetze Nr. 1: niemand glaubt, dass etwas Schlimmes passieren kann, bis es funktioniert.* - [10 unveränderliche Gesetze der Sicherheitsverwaltung](/previous-versions//cc722488(v=technet.10))  
   
 Notfall Wiederherstellungs Pläne in vielen Unternehmen konzentrieren sich auf die Wiederherstellung nach regionalen Notfällen oder Ausfällen, die zu einem Verlust der Computerdienste führen. Bei der Arbeit mit kompromittierten Kunden wird jedoch häufig feststellen, dass die Wiederherstellung nach einem absichtlichen Kompromiss in Ihren Notfall Wiederherstellungs Plänen fehlt. Dies trifft vor allem dann zu, wenn die Gefährdung zu Diebstahl von geistigem Eigentum oder absichtlicher Zerstörung führt, die logische Grenzen (z. b. die Zerstörung aller Active Directory Domänen oder aller Server) anstelle von physischen Grenzen (z. b. die Zerstörung eines Rechenzentrums) nutzt. Obwohl eine Organisation möglicherweise Pläne für die Reaktion auf Vorfälle hat, die die anfänglichen Aktivitäten definieren, die bei der Ermittlung einer Gefährdung durchführen werden, lassen diese Pläne oft die Schritte zur Wiederherstellung nach einem kompromittierten Kompromiss aus  
   
@@ -34,7 +34,7 @@ Um effektive Schutzmaßnahmen zu gewährleisten und gleichzeitig den Benutzern u
 Empfehlungen für die Wiederherstellung einer Active Directory-Gesamtstruktur finden Sie unter [Windows Server 2012: Planen der Wiederherstellung Active Directory](https://www.microsoft.com/download/details.aspx?id=16506)Gesamtstruktur. Möglicherweise können Sie verhindern, dass Ihre neue Umgebung vollständig kompromittiert wird. selbst wenn dies nicht möglich ist, verfügen Sie über Tools, die Sie wiederherstellen und die Kontrolle über Ihre Umgebung erlangen.  
   
 ## <a name="rethinking-the-approach"></a>Umdenken des Ansatzes  
-*Gesetz Nummer 8: die Schwierigkeit, ein Netzwerk zu verteidigen, ist direkt proportional zu seiner Komplexität.* - [10 unveränderliche Gesetze der Sicherheitsverwaltung](https://technet.microsoft.com/library/cc722488.aspx)  
+*Gesetz Nummer 8: die Schwierigkeit, ein Netzwerk zu verteidigen, ist direkt proportional zu seiner Komplexität.* - [10 unveränderliche Gesetze der Sicherheitsverwaltung](/previous-versions//cc722488(v=technet.10))  
   
 Es ist in der Regel gut zu akzeptieren, dass ein Angreifer, unabhängig vom Betriebssystem, System-, Administrator-, Stamm-oder äquivalenten Zugriff auf einen Computer erhalten hat. Dies gilt unabhängig davon, wie viele Maßnahmen zum "bereinigen" des Systems unternommen werden. Active Directory ist nicht anders. Wenn ein Angreifer in Active Directory privilegierten Zugriff auf einen Domänen Controller oder ein Konto mit weitreichenden Berechtigungen erhalten hat, können Sie das Verzeichnis nie in einem vollständig vertrauenswürdigen Zustand wiederherstellen, es sei denn, Sie haben eine Aufzeichnung aller Änderungen, die der Angreifer durchführt, oder eine bekanntermaßen gute Sicherung.  
   
@@ -107,7 +107,7 @@ Bei einer herkömmlichen Active Directory Migration von einer Gesamtstruktur zu 
   
 Das Verwalten des SID-Verlaufs ist in einigen Umgebungen jedoch bereits problematisch, da das Auffüllen der Zugriffs Token von Benutzern mit aktuellen und historischen SIDs das tokenbloat zur Folge haben kann. Tokenbloat ist ein Problem, bei dem die Anzahl der SIDs, die im Zugriffs Token eines Benutzers gespeichert werden müssen, die im Token verfügbare Menge an Speicherplatz verwendet oder überschreitet.  
   
-Obwohl die Größe von tokengrößen auf einen begrenzten Block erweitert werden kann, besteht die ultimative Lösung für tokenbloat darin, die Anzahl der mit Benutzerkonten verknüpften SIDs zu reduzieren, ob durch das rationalisieren von Gruppenmitgliedschaften, das Eliminieren des SID-Verlaufs oder eine Kombination aus beidem. Weitere Informationen zum tokenbloat finden Sie unter [MaxTokenSize und Kerberos Token Bloat](https://blogs.technet.com/b/shanecothran/archive/2010/07/16/maxtokensize-and-kerberos-token-bloat.aspx).  
+Obwohl die Größe von tokengrößen auf einen begrenzten Block erweitert werden kann, besteht die ultimative Lösung für tokenbloat darin, die Anzahl der mit Benutzerkonten verknüpften SIDs zu reduzieren, ob durch das rationalisieren von Gruppenmitgliedschaften, das Eliminieren des SID-Verlaufs oder eine Kombination aus beidem. Weitere Informationen zum tokenbloat finden Sie unter [MaxTokenSize und Kerberos Token Bloat](/archive/blogs/shanecothran/maxtokensize-and-kerberos-token-bloat).  
   
 Anstatt Benutzer aus einer Legacy Umgebung (insbesondere eine, in der Gruppenmitgliedschaften und SID-Verläufe gefährdet werden können) mithilfe des SID-Verlaufs zu migrieren, sollten Sie die Verwendung von metaverzeichnisanwendungen zum Migrieren von Benutzern in Erwägung ziehen, ohne SID-Verläufe in der neuen Gesamtstruktur Wenn Benutzerkonten in der neuen Gesamtstruktur erstellt werden, können Sie eine metaverzeichnisanwendung verwenden, um die Konten den entsprechenden Konten in der Legacy-Gesamtstruktur zuzuordnen.  
   
@@ -118,7 +118,7 @@ Um den neuen Benutzerkonten den Zugriff auf Ressourcen in der Legacy-Gesamtstruk
 ### <a name="servers-and-workstations"></a>Server und Arbeitsstationen  
 Bei einer herkömmlichen Migration von einer Active Directory-Gesamtstruktur zu einer anderen ist die Migration von Computern im Vergleich zum Migrieren von Benutzern, Gruppen und Anwendungen häufig relativ einfach. Abhängig von der Computer Rolle kann die Migration zu einer neuen Gesamtstruktur so einfach sein wie das Aufheben der Trennung einer alten Domäne und das beitreten zu einer neuen Gesamtstruktur. Das Migrieren von Computer Konten in eine unberührte Gesamtstruktur würde jedoch den Zweck der Erstellung einer neuen Umgebung zunichte machen. Anstatt (potenziell kompromittierte, falsch konfigurierte oder veraltete) Computer Konten in eine neue Gesamtstruktur zu migrieren, sollten Sie Server und Arbeitsstationen in der neuen Umgebung neu installieren. Sie können Daten aus Systemen in der Legacy-Gesamtstruktur zu Systemen in der unberührten Gesamtstruktur migrieren, jedoch nicht zu den Systemen, die die Daten beherbergen.  
   
-### <a name="applications"></a>Anwendungen  
+### <a name="applications"></a>Applications  
 
 Anwendungen können die größte Herausforderung bei der Migration von einer Gesamtstruktur zu einer anderen darstellen, aber im Fall einer "nicht migrationalen" Migration sollten die Anwendungen in der ursprünglichen Gesamtstruktur aktuell, unterstützt und frisch installiert sein. Nach Möglichkeit können Daten von Anwendungs Instanzen in der alten Gesamtstruktur migriert werden. In Situationen, in denen eine Anwendung nicht in der ursprünglichen Gesamtstruktur "neu erstellt" werden kann, sollten Sie Ansätze wie die kreative Zerstörung oder die Isolation von Legacy Anwendungen wie im folgenden Abschnitt beschrieben berücksichtigen.  
   
@@ -143,7 +143,7 @@ In den meisten Organisationen haben Benutzer, die Zugriff auf die vertraulichste
   
 Beispielsweise können Sie eine Richtlinie definieren, in der Führungskräfte und andere VIPs für den Zugriff auf sensible Daten und Systeme sichere Arbeitsstationen benötigen, sodass Sie Ihre anderen Geräte für den Zugriff auf weniger sensible Daten verwenden können. Dies ist ein einfaches Prinzip, das Benutzer merken können, aber Sie können eine Reihe von Back-End-Steuerelementen implementieren, um den Ansatz zu erzwingen.  
 
-Mithilfe der [Assurance-Authentifizierung](https://technet.microsoft.com/library/dd391847(v=WS.10).aspx) können Sie Benutzern nur den Zugriff auf sensible Daten gestatten, wenn Sie sich mit ihren Smartcards bei ihren sicheren Systemen angemeldet haben. Außerdem können Sie mithilfe von IPSec und Einschränkungen für Benutzerrechte die Systeme steuern, von denen aus Sie eine Verbindung mit sensiblen Daten Depots herstellen können. Sie können das [Microsoft-Toolkit zur Datenklassifizierung](https://www.microsoft.com/download/details.aspx?id=27123) verwenden, um eine robuste Datei Klassifizierungs Infrastruktur zu erstellen, und Sie können [dynamische Access Control](https://blogs.technet.com/b/windowsserver/archive/2012/05/22/introduction-to-windows-server-2012-dynamic-access-control.aspx) implementieren, um den Zugriff auf Daten auf der Grundlage von Merkmalen eines Zugriffs Versuchs einzuschränken und Geschäftsregeln in technische Steuerelemente zu übersetzen.  
+Mithilfe der [Assurance-Authentifizierung](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd391847(v=ws.10)) können Sie Benutzern nur den Zugriff auf sensible Daten gestatten, wenn Sie sich mit ihren Smartcards bei ihren sicheren Systemen angemeldet haben. Außerdem können Sie mithilfe von IPSec und Einschränkungen für Benutzerrechte die Systeme steuern, von denen aus Sie eine Verbindung mit sensiblen Daten Depots herstellen können. Sie können das [Microsoft-Toolkit zur Datenklassifizierung](https://www.microsoft.com/download/details.aspx?id=27123) verwenden, um eine robuste Datei Klassifizierungs Infrastruktur zu erstellen, und Sie können [dynamische Access Control](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd391847(v=ws.10)) implementieren, um den Zugriff auf Daten auf der Grundlage von Merkmalen eines Zugriffs Versuchs einzuschränken und Geschäftsregeln in technische Steuerelemente zu übersetzen.  
   
 Aus Sicht des Benutzers ist der Zugriff auf sensible Daten von einem gesicherten System "funktioniert einfach", und es wird versucht, dies über ein ungesichertes System zu tun. Aus Sicht der Überwachung und Verwaltung Ihrer Umgebung helfen Sie jedoch dabei, identifizierbare Muster in der Art und Weise zu erstellen, in der Benutzer auf sensible Daten und Systeme zugreifen. so können Sie anormale Zugriffsversuche leichter erkennen.  
   

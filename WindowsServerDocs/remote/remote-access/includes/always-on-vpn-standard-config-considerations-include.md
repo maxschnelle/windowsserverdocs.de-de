@@ -1,20 +1,20 @@
-## <a name="standard-configuration-considerations"></a>Überlegungen zur Standard-Konfiguration
+## <a name="standard-configuration-considerations"></a>Überlegungen zur Standard Konfiguration
 
-Always On-VPN-verfügt über viele Konfigurationsoptionen. Aber Sie Ihr VPN-Konfiguration auswählen, sind jedoch die folgende Informationen an:
+Always on-VPN verfügt über viele Konfigurationsoptionen. Wenn Sie jedoch Ihre VPN-Konfiguration auswählen, enthalten Sie die folgenden Informationen:
 
--   **Verbindungstyp.** Verbindung Protokollauswahl ist wichtig und letztendlich geht hand in hand mit dem Typ der Authentifizierung, die Sie verwenden möchten. Weitere Informationen über die Tunneling-Protokolle verfügbar sind, finden Sie unter [VPN-Verbindungstypen](https://docs.microsoft.com/windows/security/identity-protection/vpn/vpn-connection-type/).
+-   **Verbindungstyp.** Die Auswahl des Verbindungs Protokolls ist wichtig und wird letztendlich mit dem verwendeten Authentifizierungstyp einhergehen. Ausführliche Informationen zu den verfügbaren tunnelingprotokollen finden Sie unter [VPN-Verbindungstypen](/windows/security/identity-protection/vpn/vpn-connection-type/).
 
--   **Routing.** In diesem Kontext bestimmen Routingregeln an, ob der Benutzer andere Netzwerkrouten während der Verbindung mit dem VPN verwenden können.
+-   **Routing.** In diesem Kontext legen Routing Regeln fest, ob Benutzer während der Verbindung mit dem VPN andere Netzwerk Routen verwenden können.
 
-    -   _Getrenntes Tunneln_ der gleichzeitige Zugriff auf andere Netzwerke wie das Internet ermöglicht.
+    -   Das _getrennte Tunneln_ ermöglicht den gleichzeitigen Zugriff auf andere Netzwerke, z. b. das Internet.
 
-    -   _Erzwingen von Tunneln_ muss der gesamte Datenverkehr an das VPN ausschließlich durchlaufen und lässt keine gleichzeitigen Zugriff auf andere Netzwerke.
+    -   Die _Tunnel Erzwingung_ erfordert, dass der gesamte Datenverkehr ausschließlich über das VPN erfolgt und keinen gleichzeitigen Zugriff auf andere Netzwerke zulässt.
 
--   **Auslösen.** _Auslösen von_ bestimmt, wie und wann eine VPN-Verbindung initiiert wird (z. B. wenn eine app öffnet, wenn das Gerät manuell, durch den Benutzer aktiviert ist). Zum Auslösen von Optionen, finden Sie unter den [VPN-Profil automatisch ausgelöste Optionen](https://docs.microsoft.com/windows/security/identity-protection/vpn/vpn-auto-trigger-profile/).
+-   **Ängste.** Durch _auslösen_ wird festgelegt, wie und wann eine VPN-Verbindung initiiert wird (z. b. Wenn eine APP geöffnet wird, wenn das Gerät eingeschaltet wird, manuell durch den Benutzer). Informationen zu Triggeroptionen finden Sie in den Optionen für das [automatisch ausgelöste VPN-Profil](/windows/security/identity-protection/vpn/vpn-auto-trigger-profile/).
 
--   **Gerät oder die Benutzerauthentifizierung.** Always On-VPN-verwendet Zertifikate für Geräte und vom Gerät initiiert Verbindung über ein Feature namens [Gerät Tunnel](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/vpn-device-tunnel-config). Diese Verbindung kann automatisch initiiert werden und ist persistent, ähnlich wie eine tunnelverbindung des DirectAccess-Infrastruktur.
+-   **Geräte-oder Benutzerauthentifizierung.** Always on-VPN verwendet Gerätezertifikate und eine vom Gerät initiierte Verbindung über eine Funktion mit dem Namen " [Geräte Tunnel](../vpn/vpn-device-tunnel-config.md)". Diese Verbindung kann automatisch initiiert werden und ist beständig, ähnlich wie eine DirectAccess-Infrastruktur Tunnelverbindung.
 
 >[!TIP]
->Beim Migrieren von DirectAccess zu Always On-VPN-sollten Sie die verschiedenen Konfigurationsoptionen, die vergleichbar sind, was Sie haben, und erweitern Sie dann von dort ab.
+>Wenn Sie von DirectAccess zu Always on VPN migrieren möchten, sollten Sie mit den Konfigurationsoptionen beginnen, die mit ihren Funktionen vergleichbar sind, und dann von dort aus erweitern.
 
-Mithilfe von Benutzerzertifikaten, der Always On-VPN-Client verbindet sich automatisch, aber dies erfolgt auf Benutzerebene (nach der Benutzeranmeldung) anstatt auf Geräteebene (vor der Benutzeranmeldung). Die benutzererfahrung ist weiterhin für den Benutzer nahtlos, aber sie unterstützt erweiterte Authentifizierungsmechanismen, z.B. Windows Hello for Business.
+Durch die Verwendung von Benutzer Zertifikaten stellt der Always on VPN-Client automatisch eine Verbindung her, jedoch auf Benutzerebene (nach der Benutzeranmeldung) anstelle der Geräteebene (vor der Benutzeranmeldung). Die Benutzeroberflächen sind für den Benutzer weiterhin nahtlos, unterstützen jedoch erweiterte Authentifizierungsmechanismen wie Windows Hello for Business.

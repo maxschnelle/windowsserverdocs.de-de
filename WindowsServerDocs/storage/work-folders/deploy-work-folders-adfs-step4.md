@@ -1,5 +1,5 @@
 ---
-title: Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy - Schritt 4, Einrichten des Webanwendungsproxy
+title: Arbeitsordner mit AD FS und webanwendungsproxy
 ms.prod: windows-server
 ms.technology: storage-work-folders
 ms.topic: article
@@ -8,18 +8,18 @@ ms.author: jeffpatt
 author: JeffPatt24
 ms.date: 06/24/2017
 ms.assetid: 4a11ede0-b000-4188-8190-790971504e17
-ms.openlocfilehash: f0222226191719fd11e68def8970c0e83529f801
-ms.sourcegitcommit: 8771a9f5b37b685e49e2dd03c107a975bf174683
+ms.openlocfilehash: 78636aa1f245450f6c5f133fb1a11a38de17dc22
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76145906"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86965732"
 ---
-# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-4-set-up-web-application-proxy"></a>Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy: Schritt 4, Einrichten des Webanwendungsproxy
+# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-4-set-up-web-application-proxy"></a>Bereitstellen von Arbeits Ordnern mit AD FS und webanwendungsproxy: Schritt 4, Einrichten des webanwendungsproxys
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-In diesem Thema wird der vierte Schritt bei der Bereitstellung von Arbeitsordnern mit Active Directory-Verbunddiensten (AD FS) und Webanwendungsproxy beschrieben. Weitere Schritte des Prozesses finden Sie in folgenden Themen:  
+In diesem Thema wird der vierte Schritt beim Bereitstellen von Arbeits Ordnern mit Active Directory-Verbunddienste (AD FS) (AD FS) und dem webanwendungsproxy beschrieben. Die anderen Schritte in diesem Prozess finden Sie in den folgenden Themen:  
   
 -   [Bereitstellen von Arbeits Ordnern mit AD FS und webanwendungsproxy: Übersicht](deploy-work-folders-adfs-overview.md)  
   
@@ -32,127 +32,126 @@ In diesem Thema wird der vierte Schritt bei der Bereitstellung von Arbeitsordner
 -   [Bereitstellen von Arbeits Ordnern mit AD FS und webanwendungsproxy: Schritt 5: Einrichten von Clients](deploy-work-folders-adfs-step5.md)  
 
 > [!NOTE]
->   Die in diesem Abschnitt behandelten Anweisungen gelten für eine Windows Server 2019-oder Windows Server 2016-Umgebung. Wenn Sie Windows Server 2012 R2 verwenden, folgen Sie den [Anweisungen für Windows Server 2012 R2](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx).
+>   Die in diesem Abschnitt behandelten Anweisungen gelten für eine Windows Server 2019-oder Windows Server 2016-Umgebung. Wenn Sie Windows Server 2012 R2 verwenden, befolgen Sie die [Anweisungen unter Windows Server 2012 R2](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn747208(v=ws.11)).
 
-Gehen Sie folgendermaßen vor, um Webanwendungsproxy für die Verwendung mit Arbeitsordner einzurichten.  
+Verwenden Sie die folgenden Verfahren, um den webanwendungsproxy für die Verwendung mit Arbeits Ordnern einzurichten.  
   
-## <a name="install-the-ad-fs-and-work-folder-certificates"></a>AD FS- und Arbeitsordner-Zertifikate installieren  
-Installieren Sie die AD FS und Arbeitsordner Zertifikate, die Sie zuvor erstellt haben (in Schritt 1, Einrichten von AD FS und Schritt 3 Arbeitsordner einrichten) im lokalen Zertifikatspeicher auf dem Computer, auf dem die Webanwendungsproxy-Rolle installiert wird.  
+## <a name="install-the-ad-fs-and-work-folder-certificates"></a>Installieren der AD FS-und Arbeitsordner Zertifikate  
+Sie müssen die AD FS-und Arbeitsordner Zertifikate installieren, die Sie zuvor erstellt haben (in Schritt 1, Einrichten von AD FS und Schritt 3, Einrichten von Arbeits Ordnern) in den Zertifikat Speicher des lokalen Computers auf dem Computer, auf dem die webanwendungsproxy-Rolle installiert wird.  
   
-Da Sie selbstsignierte Zertifikate installieren, die nicht auf einen Herausgeber im Zertifikatspeicher für vertrauenswürdige Stammzertifizierungsstellen zurückverfolgt werden können, müssen Sie auch diese Zertifikate in den Speicher kopieren.  
+Da Sie selbst signierte Zertifikate installieren, die nicht an einen Verleger im Zertifikat Speicher für vertrauenswürdige Stamm Zertifizierungsstellen zurückverfolgt werden können, müssen Sie auch die Zertifikate in diesen Speicher kopieren.  
   
-Gehen Sie folgendermaßen vor, um die Zertifikate zu installieren:  
+Um die Zertifikate zu installieren, führen Sie die folgenden Schritte aus:  
   
-1.  Klicken Sie auf **Start**und dann auf **Ausführen**.  
+1.  Klicken Sie im **Startmenü**auf **Ausführen**.  
   
-2.  Geben Sie **MMC** ein.  
+2.  Geben Sie **MMC**ein.  
   
 3.  Klicken Sie im Menü **Datei** auf **Snap-In hinzufügen/entfernen**.  
   
-4.  Wählen Sie in der Liste **Verfügbare Snap-Ins** die Option **Zertifikate** aus, und klicken Sie auf **Hinzufügen**. Der Zertifikate-Snap-In-Assistent wird gestartet.  
+4.  Wählen Sie in der Liste **Verfügbare Snap-Ins** die Option **Zertifikate**aus, und klicken Sie dann auf **Hinzufügen**. Der Zertifikat-Snap-in-Assistent wird gestartet.  
   
-5.  Wählen Sie **Computerkonto** aus, und klicken Sie auf **Weiter**.  
+5.  Wählen Sie **Computerkonto** aus, und klicken Sie dann auf **Weiter**.  
   
-6.  Wählen Sie **Lokaler Computer: (Computer, auf dem diese Konsole ausgeführt wird)** und klicken Sie auf **Finish**.  
+6.  Wählen Sie **lokaler Computer: (der Computer, auf dem diese Konsole ausgeführt wird) aus**, und klicken Sie dann auf **Fertig**stellen.  
   
 7.  Klicken Sie auf **OK**.  
   
-8.  Erweitern Sie den Ordner **Console Root\Certificates\(Local Computer)\Personal\Certificates**.  
+8.  Erweitern Sie die Ordner **Konsole root\zertifikate \( lokaler Computer) \personal\zertifikate**.  
   
-9. Klicken Sie mit der rechten Maustaste auf **Zertifikate** und dann auf **Alle Aufgaben** und **Importieren**.  
+9. Klicken Sie mit der rechten Maustaste auf **Zertifikate**, klicken Sie auf **Alle Tasks**und dann auf **importieren**.  
   
-10. Wechseln Sie zu dem Ordner, der das AD FS-Zertifikat enthält, führen Sie die Schritte im Assistenten zum Importieren der Datei aus und platzieren Sie diese in den Zertifikatspeicher.  
+10. Navigieren Sie zu dem Ordner, der das AD FS Zertifikat enthält, und befolgen Sie die Anweisungen im Assistenten, um die Datei zu importieren und im Zertifikat Speicher zu platzieren.  
   
-11. Wiederholen Sie die Schritte 9 und 10, indem Sie zum Arbeitsordner des Zertifikats navigieren und es importieren.  
+11. Wiederholen Sie die Schritte 9 und 10. wechseln Sie diesmal zum Arbeitsordner Zertifikat, und importieren Sie es.  
   
-12. Erweitern Sie den Ordner **Console Root\Certificates\(Local Computer)\Trusted Root Certification Authorities\Certificates**.  
+12. Erweitern Sie die Ordner **Konsole root\zertifikate \( lokaler Computer) \trusted Root Certification autorities\zertifikate**.  
   
-13. Klicken Sie mit der rechten Maustaste auf **Zertifikate** und dann auf **Alle Aufgaben** und **Importieren**.  
+13. Klicken Sie mit der rechten Maustaste auf **Zertifikate**, klicken Sie auf **Alle Tasks**und dann auf **importieren**.  
   
-14. Wechseln Sie zu dem Ordner, der das AD FS-Zertifikat enthält, führen Sie die Schritte im Assistenten zum Importieren der Datei aus und platzieren Sie diese in den Vertrauenswürdige Stammzertifizierungsstellen-Speicher.  
+14. Navigieren Sie zu dem Ordner, der das AD FS Zertifikat enthält, und befolgen Sie die Anweisungen im Assistenten, um die Datei zu importieren und im Speicher Vertrauenswürdige Stamm Zertifizierungsstellen zu platzieren.  
   
-15. Wiederholen Sie die Schritte 13 und 14, indem Sie zum Arbeitsordner des Zertifikats navigieren und es importieren.  
+15. Wiederholen Sie die Schritte 13 und 14, und navigieren Sie dieses Mal zum Arbeitsordner Zertifikat, und importieren Sie es.  
   
 ## <a name="install-web-application-proxy"></a>Webanwendungsproxy installieren  
-Gehen Sie folgendermaßen vor, um Webanwendungsproxys zu installieren:  
+Führen Sie die folgenden Schritte aus, um den webanwendungsproxy  
   
-1.  Öffnen Sie auf dem Server, auf dem Sie die Webanwendungsproxy installieren möchten den **Server-Manager** und starten Sie den Assistenten zum **Hinzufügen von Rollen und Features**.  
+1.  Öffnen Sie auf dem Server, auf dem Sie den webanwendungsproxy installieren möchten, **Server-Manager** , und starten Sie den Assistenten zum **Hinzufügen von Rollen und Features**  
   
-2.  Klicken Sie auf auf der ersten und zweiten Seite des Assistenten auf **Weiter**.  
+2.  Klicken Sie auf der ersten und zweiten Seite des Assistenten auf **weiter** .  
   
-3.  Wählen Sie auf der Seite **Serverauswahl** den Server aus und klicken Sie auf **Weiter**.  
+3.  Wählen Sie auf der Seite **Server Auswahl** Ihren Server aus, und klicken Sie dann auf **weiter**.  
   
-4.  Wählen Sie auf der Seite **Serverrolle** **Remotezugriff** und klicken Sie dann auf **Weiter**.  
+4.  Wählen Sie auf der Seite **Server Rolle** die Rolle **Remote Zugriff** aus, und klicken Sie dann auf **weiter**.  
   
-5.  Klicken Sie auf der Seite Features und Remotezugriff auf **Weiter**.  
+5.  Klicken Sie auf der Seite Features und Remote Zugriff auf **weiter**.  
   
-6.  Wählen Sie auf der Seite **Rollendienste** **Webanwendungsproxy** aus, klicken Sie auf **Features hinzufügen** und dann auf **Weiter**.
+6.  Wählen Sie auf der Seite **Rollen Dienste** die Option **webanwendungsproxy**aus, klicken Sie auf **Features hinzufügen**und dann auf **weiter**.
 
-7.  Klicken Sie auf der Seite **Confirm installation selections** auf **Install**.  
+7.  Klicken Sie auf der Seite **Installationsauswahl bestätigen** auf **Installieren**.  
   
 ## <a name="configure-web-application-proxy"></a>Konfigurieren des Webanwendungsproxys  
-Gehen Sie folgendermaßen vor, um Webanwendungsproxys zu konfigurieren:  
+Gehen Sie zum Konfigurieren des webanwendungsproxys folgendermaßen vor  
   
-1.  Klicken Sie oben im Server Manager auf die Warnung und dann auf den Link zum Öffnen des Assistenten zum Konfigurieren des Webanwendungsproxys.  
+1.  Klicken Sie oben in Server-Manager auf das Warn Flag, und klicken Sie dann auf den Link, um den Assistenten zum Konfigurieren von webanwendungsproxys zu öffnen  
   
-2.  Klicken Sie auf der Seite "Willkommen" auf **Weiter**.  
+2.  Klicken Sie auf der Willkommensseite auf **weiter**.  
   
-3.  Geben Sie auf der Seite **Verbundserver** den Namen des Verbunddienstes an. In diesem Testbeispiel ist der Wert **blueadfs.contoso.com**.  
+3.  Geben Sie auf der Seite Verbund **Server** den Namen des Verbunddienst ein. Im Beispiel Test ist dies **blueadfs.contoso.com**.  
   
-4.  Geben Sie die Anmeldeinformationen für ein lokales Administratorkonto auf dem Verbundserver ein. Geben Sie nicht die Domänenanmeldeinformation ein (z. B. Contoso\administrator), sondern die lokale Anmeldeinformationen (z. B. "Administrator").  
+4.  Geben Sie die Anmelde Informationen eines lokalen Administrator Kontos auf den Verbund Servern ein. Geben Sie keine Anmelde Informationen für die Domäne ein (z. b. condeso\administrator), sondern lokale Anmelde Informationen (z. b. Administrator).  
   
-5.  Wählen Sie auf der Seite **D FS-Proxyzertifikat** das AD FS-Zertifikat, das Sie zuvor importiert haben aus. In diesem Testbeispiel ist der Wert **blueadfs.contoso.com**. Klicken Sie auf **Weiter**.  
+5.  Wählen Sie auf der Seite **AD FS Proxy Zertifikat** das AD FS Zertifikat aus, das Sie zuvor importiert haben. Im Testfall ist dies **blueadfs.contoso.com**. Klicken Sie auf **Weiter**.  
   
-6.  Auf der Seite „Bestätigung” wird der Windows PowerShell-Befehl angezeigt, der ausgeführt wird, um den Dienst zu konfigurieren. Klicken Sie auf **Konfigurieren**.  
+6.  Auf der Seite Bestätigung wird der Windows PowerShell-Befehl angezeigt, der zum Konfigurieren des-Dienstanbieter ausgeführt wird. Klicken Sie auf **Konfigurieren**.  
   
-## <a name="publish-the-work-folders-web-application"></a>Veröffentlichen Sie die Arbeitsordner-Webanwendung  
-Im nächste Schritt wird gezeigt, wie eine Anwendung veröffentlicht wird, die Arbeitsordner für Clients verfügbar machen. Um die Arbeitsordner-Webanwendung zu veröffentlichen, gehen Sie folgendermaßen vor:  
+## <a name="publish-the-work-folders-web-application"></a>Veröffentlichen der Arbeitsordner-Webanwendung  
+Der nächste Schritt besteht darin, eine Webanwendung zu veröffentlichen, mit der Arbeitsordner für Clients verfügbar gemacht werden. Führen Sie die folgenden Schritte aus, um die Webanwendung für Arbeitsordner zu veröffentlichen:  
   
-1. Öffnen Sie **Server Manager** und klicken Sie auf das Menü **Tools** Menü, klicken Sie auf **Remotezugriffsverwaltung**, um die in der Remotezugriffs-Verwaltungskonsole.  
+1. Öffnen Sie **Server-Manager**, und klicken Sie **im Menü Extras** auf **Remote Zugriffs Verwaltung** , um die Remote Zugriffs-Verwaltungskonsole zu öffnen.  
   
-2. Klicken Sie unter **Konfiguration** auf **Webanwendungsproxy**.  
+2. Klicken Sie unter **Konfiguration**auf **webanwendungsproxy**.  
   
-3. Klicken Sie unter **Aufgaben** auf **Veröffentlichen**. Der Assistenten zum Veröffentlichen neuer Anwendungen wird geöffnet.  
+3. Klicken Sie unter **Aufgaben**auf **veröffentlichen**. Der Assistent zum Veröffentlichen einer neuen Anwendung wird geöffnet.  
   
-4. Klicken Sie auf der Seite "Willkommen" auf **Weiter**.  
+4. Klicken Sie auf der Seite Willkommenauf **Weiter**.  
   
-5. Klicken Sie auf der Seite **Vorauthentifizierung** auf **Active Directory-Verbunddienste (AD FS)** und klicken Sie dann auf **Weiter**.  
+5. Wählen Sie auf der Seite **Vorauthentifizierung** die Option **Active Directory-Verbunddienste (AD FS) (AD FS)** aus, und klicken Sie auf **weiter**.  
   
-6. Wählen Sie auf der Seite **Clients unterstützen** **OAuth2** aus und klicken Sie auf **Weiter**.
+6. Wählen Sie auf der Seite **Support Clients** die Option **OAuth2**aus, und klicken Sie auf **weiter**.
 
-7. Wählen Sie auf der Seite **Vertrauensstellung der vertrauenden Seite** **Arbeitsordner** aus und klicken Sie dann auf **Weiter**. Diese Liste wird von AD FS auf der Webanwendungsproxy veröffentlicht.  
+7. Wählen Sie **auf der Seite vertrauende Seite die** Option **Arbeitsordner**aus, und klicken Sie dann auf **weiter**. Diese Liste wird vom AD FS auf dem webanwendungsproxy veröffentlicht.  
   
-8. Geben Sie auf der Seite **Veröffentlichungseinstellungen** folgende Informationen ein und klicken Sie dann auf **Weiter**:  
+8. Geben Sie auf der Seite **Veröffentlichungs Einstellungen** Folgendes ein, und klicken Sie dann auf **weiter**:  
   
    -   Der Name, den Sie für die Webanwendung verwenden möchten.  
   
    -   Die externe URL für Arbeitsordner  
   
-   -   Der Name des Arbeitsordner-Zertifikats  
+   -   Der Name des Arbeitsordner Zertifikats  
   
    -   Die Back-End-URL für Arbeitsordner  
   
-   Standardmäßig benennt der Assistent die Back-End-URL genauso wie die externe URL.  
+   Standardmäßig wird die Back-End-URL vom Assistenten mit der externen URL identisch.  
   
-   Verwenden Sie für das Testbeispiel diese Werte:  
+   Verwenden Sie für das Testbeispiel folgende Werte:  
   
    Name: **Arbeitsordner**  
   
-   Externe URL: **https://workfolders.contoso.com**  
+   Externe URL:**https://workfolders.contoso.com**  
   
-   Externes Zertifikat: **Das Arbeitsordner-Zertifikat, das Sie bereits installiert haben**  
+   Externes Zertifikat: **das Arbeitsordner Zertifikat, das Sie zuvor installiert** haben  
   
-   URL des Backend-Servers: **https://workfolders.contoso.com**  
+   URL des Backend-Servers:**https://workfolders.contoso.com**  
   
-9. Auf der Seite „Bestätigung” wird der Windows PowerShell-Befehl angezeigt, der ausgeführt wird, um die Anwendung zu veröffentlichen. Klicken Sie auf **Veröffentlichen**.  
+9. Auf der Seite Bestätigung wird der Windows PowerShell-Befehl angezeigt, der zum Veröffentlichen der Anwendung ausgeführt wird. Klicken Sie auf **Veröffentlichen**.  
   
-10. Auf der Seite **Ergebnisse** wird angezeigt, ob die Anwendung erfolgreich veröffentlicht wurde.
+10. Auf der Seite **Ergebnisse** sollten Sie sehen, dass die Anwendung erfolgreich veröffentlicht wurde.
     >[!NOTE]
-    > Wenn Sie über mehrere Arbeitsordner-Server verfügen, müssen Sie eine Arbeitsordner-Webanwendung für die einzelnen Arbeitsordner-Server veröffentlichen (Wiederholen Sie die Schritte 1 bis 10).  
+    > Wenn Sie über mehrere Arbeitsordner Server verfügen, müssen Sie eine Arbeitsordner-Webanwendung für jeden Arbeitsordner Server veröffentlichen (wiederholen Sie die Schritte 1-10).  
   
-Nächster Schritt: [Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy: Schritt 5, Einrichten von Clients](deploy-work-folders-adfs-step5.md)  
+Nächster Schritt: [Bereitstellen von Arbeits Ordnern mit AD FS und webanwendungsproxy: Schritt 5: Einrichten von Clients](deploy-work-folders-adfs-step5.md)  
   
-## <a name="see-also"></a>Siehe auch  
-[Übersicht über Arbeitsordner](Work-Folders-Overview.md)  
+## <a name="see-also"></a>Weitere Informationen  
+[Übersicht: Arbeitsordner](Work-Folders-Overview.md)  
   
-

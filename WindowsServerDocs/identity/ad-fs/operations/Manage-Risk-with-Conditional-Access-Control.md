@@ -8,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 719c8ad0b39ccb4e252243e64385b12f8dbe6a28
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: b72f324d7037df30a9a8b1f0b9a966a633d30950
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80816223"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86966492"
 ---
 # <a name="manage-risk-with-conditional-access-control"></a>Verwalten von Risiken mit der bedingten Zugriffssteuerung
 
@@ -22,20 +22,20 @@ ms.locfileid: "80816223"
 
 -   [Schlüsselkonzepte: bedingte Zugriffs Steuerung in AD FS](../../ad-fs/operations/Manage-Risk-with-Conditional-Access-Control.md#BKMK_1)
 
--   [Verwalten von Risiken mit bedingtem Access Control](../../ad-fs/operations/Manage-Risk-with-Conditional-Access-Control.md#BKMK_2)
+-   [Verwalten von Risiken mit der bedingten Zugriffssteuerung](../../ad-fs/operations/Manage-Risk-with-Conditional-Access-Control.md#BKMK_2)
 
-## <a name="key-concepts---conditional-access-control-in-ad-fs"></a><a name="BKMK_1"></a>Schlüsselkonzepte: bedingte Zugriffs Steuerung in AD FS
+## <a name="key-concepts---conditional-access-control-in-ad-fs"></a><a name="BKMK_1"></a>Wichtige Konzepte – Bedingte Zugriffssteuerung in AD FS
 Die allgemeine Funktion von AD FS besteht darin, ein Zugriffs Token auszugeben, das einen Satz von Ansprüchen enthält. Die Entscheidung bezüglich der Ansprüche, die AD FS akzeptiert und dann Probleme behandelt, unterliegt den Anspruchs Regeln.
 
 Die Zugriffs Steuerung in AD FS wird mit Anspruchs Regeln für Ausstellungs Autorisierung implementiert, mit denen Zulassungs-oder Verweigerungs Ansprüche ausgegeben werden, die bestimmen, ob ein Benutzer oder eine Gruppe von Benutzern auf AD FS gesicherte Ressourcen zugreifen darf. Autorisierungsregeln können nur für Vertrauensstellungen der vertrauenden Seite festgelegt werden.
 
 |Regeloption|Regellogik|
 |---------------|--------------|
-|Alle Benutzer zulassen|Wenn der Typ des eingehenden Anspruchs einem *beliebigen Anspruchstyp* und der Wert einem *beliebigen Wert*entspricht, wird der Ausstellungsanspruch mit Wert auf *Zulassen*festgelegt.|
-|Benutzern mit diesem eingehenden Anspruch Zugriff gewähren|Wenn der Typ des eingehenden Anspruchs einem *angegebenen Anspruchstyp* und der Wert einem *angegebenen Anspruchswert*entspricht, wird der Ausstellungsanspruch mit Wert auf *Zulassen*festgelegt.|
+|Alle Benutzer zulassen|Wenn der Typ des eingehenden Anspruchs einem *beliebigen Anspruchstyp* und der Wert einem *beliebigen Wert* entspricht, wird der Ausstellungsanspruch mit Wert auf *Zulassen* festgelegt.|
+|Benutzern mit diesem eingehenden Anspruch Zugriff gewähren|Wenn der Typ des eingehenden Anspruchs einem *angegebenen Anspruchstyp* und der Wert einem *angegebenen Anspruchswert* entspricht, wird der Ausstellungsanspruch mit Wert auf *Zulassen* festgelegt.|
 |Benutzern mit diesem eingehenden Anspruch Zugriff verweigern|Wenn der Typ des eingehenden Anspruchs einem *angegebenen Anspruchstyp* und der Wert einem *angegebenen Anspruchswert* entspricht, wird der Ausstellungsanspruch mit Wert auf *Verweigern* festgelegt.|
 
-Weitere Informationen zu diesen Regeloptionen und der entsprechenden Logik finden Sie unter [Verwendung einer Autorisierungsanspruchsregel](https://technet.microsoft.com/library/ee913560.aspx).
+Weitere Informationen zu diesen Regeloptionen und der entsprechenden Logik finden Sie unter [Verwendung einer Autorisierungsanspruchsregel](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/ee913560(v=ws.11)).
 
 In AD FS in Windows Server 2012 R2 wurde die Zugriffs Steuerung durch mehrere Faktoren erweitert, einschließlich Benutzer-, Geräte-, Standort-und Authentifizierungsdaten. Dies wird durch eine größere Vielfalt an für die Autorisierungsanspruchsregeln verfügbaren Anspruchstypen ermöglicht.  Anders ausgedrückt: in AD FS in Windows Server 2012 R2 können Sie die bedingte Zugriffs Steuerung basierend auf der Benutzeridentität oder der Gruppenmitgliedschaft, dem Netzwerk Speicherort und dem Gerät (mit dem Arbeitsplatz Beitritt) erzwingen. Weitere Informationen finden Sie unter [Verbinden mit Workplace von einem beliebigen Gerät für SSO und nahtlose zweistufige Authentifizierung bei allen Unternehmensanwendungen](../../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md).
 
@@ -49,22 +49,22 @@ Die bedingte Zugriffs Steuerung in AD FS in Windows Server 2012 R2 bietet die fo
 
 -   Umfassende Unterstützung von Anspruchssprachen und Windows PowerShell für erweiterte Szenarien der bedingten Zugriffssteuerung
 
--   Benutzerdefinierte Meldung "Zugriff verweigert" (pro Anwendung der vertrauenden Seite). Weitere Informationen finden Sie unter [Customizing the AD FS Sign-in Pages](https://technet.microsoft.com/library/dn280950.aspx). Da diese Meldungen angepasst werden können, können Sie erläutern, warum einem Benutzer der Zugriff verweigert wird und außerdem die eigenständige Wartung dort vereinfachen, wo es möglich ist. Fordern Sie beispielsweise Benutzer dazu auf, eine Verbindung zwischen ihren Geräten und dem Arbeitsplatz herzustellen. Weitere Informationen finden Sie unter [Join to Workplace from Any Device for SSO and Seamless Second Factor Authentication Across Company Applications](../../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md).
+-   Benutzerdefinierte Meldung "Zugriff verweigert" (pro Anwendung der vertrauenden Seite). Weitere Informationen finden Sie unter [Anpassen der AD FS-Anmeldeseiten](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn280950(v=ws.11)). Da diese Meldungen angepasst werden können, können Sie erläutern, warum einem Benutzer der Zugriff verweigert wird und außerdem die eigenständige Wartung dort vereinfachen, wo es möglich ist. Fordern Sie beispielsweise Benutzer dazu auf, eine Verbindung zwischen ihren Geräten und dem Arbeitsplatz herzustellen. Weitere Informationen finden Sie unter [Join to Workplace from Any Device for SSO and Seamless Second Factor Authentication Across Company Applications](../../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md).
 
 In der folgenden Tabelle sind alle in AD FS in Windows Server 2012 R2 verfügbaren Anspruchs Typen enthalten, die für die Implementierung der bedingten Zugriffs Steuerung verwendet werden können.
 
 |Anspruchstyp|Beschreibung|
 |--------------|---------------|
-|E-Mail-Adresse|E-Mail-Adresse des Benutzers|
+|E-Mail-Adresse|Die E-Mail-Adresse des Benutzers.|
 |Vorname|Angegebener Name des Benutzers|
 |Name|Eindeutiger Name des Benutzers|
-|UPN|Prinzipalname (UPN) des Benutzers|
+|UPN|Der Benutzerprinzipalname (User Principal Name, UPN) des Benutzers.|
 |Allgemeiner Name|Allgemeiner Name des Benutzers|
 |AD FS 1.x-E-Mail-Adresse|Die E-Mail-Adresse des Benutzers bei der Interaktion mit AD FS 1.1 oder AD FS 1.0|
-|Gruppe|Eine Gruppe, in der der Benutzer Mitglied ist|
-|AD FS 1.x UPN|UPN des Benutzers bei der Interaktion mit AD FS 1.1 oder AD FS 1.0|
-|Rolle|Eine Rolle, über die der Benutzer verfügt.|
-|Nachname|Nachname des Benutzers|
+|Group|Eine Gruppe, in der der Benutzer Mitglied ist|
+|AD FS 1.x UPN|UPN des Benutzers bei der Interaktion mit AD FS 1.1 oder AD FS 1.0|
+|Role|Eine Rolle, über die der Benutzer verfügt.|
+|Surname|Nachname des Benutzers|
 |PPID|Private ID des Benutzers|
 |Namens-ID|SAML-Namensbezeichner des Benutzers|
 |Zeitstempel der Authentifizierung|Wird zum Anzeigen der Uhrzeit und des Datums der Benutzerauthentifizierung verwendet|
@@ -81,12 +81,12 @@ In der folgenden Tabelle sind alle in AD FS in Windows Server 2012 R2 verfügbar
 |Geräteregistrierungsbezeichner|Bezeichner für die Geräteregistrierung|
 |Geräteregistrierungs-Anzeigename|Anzeigename der Geräteregistrierung|
 |Geräte-BS-Typ|BS-Typ des Geräts|
-|Geräte-BS-Version|Betriebssystemversion des Geräts|
+|Device OS Version|Die Betriebssystemversion des Geräts.|
 |Ist verwaltetes Gerät|Gerät wird von einem Verwaltungsdienst verwaltet|
 |Weitergeleitete Client-IP|IP-Adresse des Benutzers|
 |Clientanwendung|Typ der Clientanwendung|
 |Client-Benutzer-Agent|Gerätetyp, mit dem vom Client auf die Anwendung zugegriffen wird|
-|Client-IP|IP-Adresse des Clients|
+|Client-IP|IP-Adresse des Clients.|
 |Endpunktpfad|Absoluter Endpunktpfad, der zum Bestimmen von aktiven bzw. passiven Clients verwendet werden kann|
 |Proxy|DNS-Name des Verbundserverproxys, von dem die Anforderung übergeben wurde|
 |Anwendungsbezeichner|Bezeichner für die vertrauende Seite|
@@ -94,7 +94,7 @@ In der folgenden Tabelle sind alle in AD FS in Windows Server 2012 R2 verfügbar
 |Zertifizierungsstellenschlüssel-ID|Erweiterung der Zertifizierungsstellenschlüssel-ID des Zertifikats, von dem ein ausgestelltes Zertifikat signiert wurde|
 |Basiseinschränkung|Eine der Basiseinschränkungen des Zertifikats|
 |Erweiterte Schlüsselverwendung|Beschreibt eine der erweiterten Schlüsselverwendungen des Zertifikats|
-|Aussteller|Der Name der Zertifizierungsstelle, die das X.509-Zertifikat ausgestellt hat|
+|Issuer (Aussteller)|Der Name der Zertifizierungsstelle, die das X.509-Zertifikat ausgestellt hat.|
 |Ausstellername|Definierter Name des Zertifikatausstellers|
 |Schlüsselverwendung|Eine der Schlüsselverwendungen des Zertifikats|
 |Nicht nach|Datum (lokale Zeit), nach dem ein Zertifikat nicht mehr gültig ist|
@@ -105,23 +105,23 @@ In der folgenden Tabelle sind alle in AD FS in Windows Server 2012 R2 verfügbar
 |Alternativer Antragstellername|Einer der alternativen Namen des Zertifikats|
 |Seriennummer|Seriennummer des Zertifikats|
 |Signaturalgorithmus|Zum Erstellen der Signatur eines Zertifikats verwendeter Algorithmus|
-|Subject (Antragsteller)|Antragsteller des Zertifikats|
+|Subject|Antragsteller des Zertifikats|
 |Schlüsselkennung des Antragstellers|Schlüsselkennung des Antragstellers des Zertifikats|
 |Antragstellername|Definierter Antragstellername aus einem Zertifikat|
 |V2-Vorlagenname|Name der Zertifikatvorlage Version 2, die beim Ausstellen oder Erneuern eines Zertifikats verwendet wird. Dies ist ein Microsoft-spezifischer Wert.|
 |V1-Vorlagenname|Name der Zertifikatvorlage Version 1, die beim Ausstellen oder Erneuern eines Zertifikats verwendet wird. Dies ist ein Microsoft-spezifischer Wert.|
-|Fingerabdruck|Fingerabdruck des Zertifikats.|
+|Fingerabdruck|Fingerabdruck des Zertifikats|
 |X.509-Version|X.509-Formatversion des Zertifikats|
 |Innerhalb des Unternehmensnetzwerks|Wird verwendet, um anzuzeigen, ob eine Anforderung aus dem Unternehmensnetzwerk stammt|
-|Zeitpunkt des Kennwortablaufs|Zeigt den Zeitpunkt an, zu dem das Kennwort abläuft|
+|Kennwortablaufzeit|Zeigt den Zeitpunkt an, zu dem das Kennwort abläuft|
 |Tage bis zum Kennwortablauf|Zeigt die Anzahl der Tage bis zum Ablauf des Kennworts an|
 |Kennwortaktualisierungs-URL|Zeigt die Webadresse des Kennwortaktualisierungsdiensts an|
 |Authentifizierungsmethodenreferenzen|Gibt alle Authentifizierungsmethoden an, die zum Authentifizieren des Benutzers verwendet werden|
 
-## <a name="managing-risk-with-conditional-access-control"></a><a name="BKMK_2"></a>Verwalten von Risiken mit bedingtem Access Control
+## <a name="managing-risk-with-conditional-access-control"></a><a name="BKMK_2"></a>Verwalten von Risiken mit der bedingten Zugriffssteuerung
 Mithilfe der verfügbaren Einstellungen können Risiken durch Implementierung der bedingten Zugriffssteuerung verwaltet werden.
 
-### <a name="common-scenarios"></a>Allgemeine Szenarien
+### <a name="common-scenarios"></a>Häufige Szenarios
 Stellen Sie sich z. b. ein einfaches Szenario für die Implementierung der bedingten Zugriffs Steuerung auf Grundlage der Gruppen Mitgliedschafts Daten eines Benutzers für eine bestimmte Anwendung (Vertrauensstellung der vertrauenden Seite) vor. Anders ausgedrückt: Sie können eine Ausstellungs Autorisierungs Regel auf dem Verbund Server einrichten, um Benutzern, die einer bestimmten Gruppe in Ihrer AD-Domäne angehören, Zugriff auf eine bestimmte Anwendung zu gewähren, die durch AD FS gesichert ist.  Die ausführlichen Schritte (auf der Benutzeroberfläche und mit Windows PowerShell) zum Implementieren dieses Szenarios werden unter [Walkthrough Guide: Manage Risk with Conditional Access Control](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Conditional-Access-Control.md)behandelt. Um die Schritte in dieser exemplarischen Vorgehensweise ausführen zu können, müssen Sie eine Lab-Umgebung einrichten und die Schritte unter [Einrichten der Lab-Umgebung für AD FS in Windows Server 2012 R2](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md)ausführen.
 
 ### <a name="advanced-scenarios"></a>Erweiterte Szenarien
@@ -174,8 +174,5 @@ Weitere Beispiele für die Implementierung der bedingten Zugriffs Steuerung in A
     ```
 
 ## <a name="see-also"></a>Weitere Informationen
-Leitfaden für die exemplarische Vorgehensweise [: Verwalten von Risiken mit bedingten Access Control](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Conditional-Access-Control.md)
-[Einrichten der Lab-Umgebung für AD FS in Windows Server 2012 R2](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md)
-
-
-
+Leitfaden mit exemplarischen Vorgehensweisen [: Verwalten von Risiken mit bedingtem Access Control](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Conditional-Access-Control.md) 
+ [Einrichten der Lab-Umgebung für AD FS in Windows Server 2012 R2](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md)

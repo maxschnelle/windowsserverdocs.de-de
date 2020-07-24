@@ -8,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 661f1b3f227a3e04c1328798a632b10b55df1c20
-ms.sourcegitcommit: 7200143aa787c7ac05ae0e012263b1c9a95b87ed
+ms.openlocfilehash: a7da23b592f495b45e337520179d414900183a1b
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84721748"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86966612"
 ---
 # <a name="the-role-of-claims"></a>Rolle von Ansprüchen
 
@@ -63,9 +63,9 @@ Ein Anspruchstyp stellt den Kontext für den Anspruchswert bereit. Sie wird norm
 |UPN|Der Benutzer Prinzipal Name- \( UPN \) des Benutzers|http: \/ \/schemas.xmlSOAP.org \/ WS \/ 2005 \/ 05- \/ Identitäts \/ Anspruchs- \/ UPN|
 |Allgemeiner Name|Allgemeiner Name des Benutzers|http: \/ \/schemas.xmlSOAP.org \/ Claims \/ CommonName|
 |E-Mail-Adresse für AD FS 1. x \-|E- \- Mail-Adresse des Benutzers bei der Interaktion mit AD FS 1,1 oder ADFS 1,0|http: \/ \/schemas.xmlSOAP.org \/ Claims \/ EmailAddress|
-|Gruppieren|Eine Gruppe, in der der Benutzer Mitglied ist|http: \/ \/schemas.xmlSOAP.org- \/ Anspruchs \/ Gruppe|
+|Group|Eine Gruppe, in der der Benutzer Mitglied ist|http: \/ \/schemas.xmlSOAP.org- \/ Anspruchs \/ Gruppe|
 |AD FS 1.x UPN|UPN des Benutzers bei der Interaktion mit AD FS 1.1 oder AD FS 1.0|http: \/ \/schemas.xmlSOAP.org \/ Anspruchs- \/ UPN|
-|Rolle|Eine Rolle, über die der Benutzer verfügt|http: \/ \/ Schemas.Microsoft.com \/ WS \/ 2008 \/ 06- \/ Identitäts \/ Anspruchs \/ Rolle|
+|Role|Eine Rolle, über die der Benutzer verfügt|http: \/ \/ Schemas.Microsoft.com \/ WS \/ 2008 \/ 06- \/ Identitäts \/ Anspruchs \/ Rolle|
 |Surname|Nachname des Benutzers|http: \/ \/schemas.xmlSOAP.org \/ WS \/ 2005 \/ 05- \/ Identitäts \/ Anspruchs \/ Nachname|
 |PPID|Private ID des Benutzers|http: \/ \/schemas.xmlSOAP.org \/ WS \/ 2005 \/ 05- \/ Identitäts \/ Ansprüche \/ PrivatePersonalIdentifier|
 |Namensbezeichner|SAML-Namensbezeichner des Benutzers|http: \/ \/schemas.xmlSOAP.org \/ WS \/ 2005 \/ 05 \/ Identity \/ Claims \/ NameIdentifier|
@@ -90,7 +90,7 @@ Jede Anspruchsbeschreibung umfasst einen Anspruchstyp-URI, einen Namen, den Ver�
 
 - **Diesen Anspruch in Verbund Metadaten als Anspruchstyp veröffentlichen, der von diesem Verbunddienst gesendet** \( werden kann Als gesendet veröffentlichen \) – gibt die Anspruchs Typen an, die von diesem Verbunddienst angeboten werden. Dies sind die Anspruchstypen, die vom Verbunddienst für andere veröffentlicht werden, da er bereit ist, diese zu senden. Die tatsächlich vom Anspruchsanbieter gesendeten Anspruchstypen sind häufig eine Teilmenge dieser Liste.
 
-Weitere Informationen zum Festlegen des Veröffentlichungs Zustands eines Anspruchs Typs finden [Sie unter Hinzufügen einer Anspruchs Beschreibung](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/add-a-claim-description) im AD FS Bereitstellungs Handbuch.
+Weitere Informationen zum Festlegen des Veröffentlichungs Zustands eines Anspruchs Typs finden [Sie unter Hinzufügen einer Anspruchs Beschreibung](../operations/add-a-claim-description.md) im AD FS Bereitstellungs Handbuch.
 
 ### <a name="when-generating-federation-metadata"></a>Beim Generieren von Verbundmetadaten
 

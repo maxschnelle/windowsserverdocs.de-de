@@ -8,22 +8,22 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 7370dfed68e22ca88030aec913db4eb52eef9ec3
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: cbddc69df3ed28d4bc863e97a8c9737e9ffcd1f8
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80825453"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86965752"
 ---
 # <a name="ad-ds-installation-and-removal-wizard-page-descriptions"></a>Seitenbeschreibungen für den Assistenten zum Installieren und Entfernen von AD DS
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Dieses Thema enthält Beschreibungen zu den Steuerelementen auf den folgenden Assistentenseiten, die die Installation und das Entfernen der AD DS-Serverrolle in Server Manager umfassen.  
   
--   [Bereitstellungs Konfiguration](../../ad-ds/deploy/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions.md#BKMK_DepConfigPage)  
+-   [Bereitstellungskonfiguration](../../ad-ds/deploy/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions.md#BKMK_DepConfigPage)  
   
--   [Domänen Controller Optionen](../../ad-ds/deploy/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions.md#BKMK_DCOptionsPage)  
+-   [Domänencontrolleroptionen](../../ad-ds/deploy/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions.md#BKMK_DCOptionsPage)  
   
 -   [DNS-Optionen](../../ad-ds/deploy/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions.md#BKMK_DNSOptionsPage)  
   
@@ -31,23 +31,23 @@ Dieses Thema enthält Beschreibungen zu den Steuerelementen auf den folgenden As
   
 -   [Zusätzliche Optionen](../../ad-ds/deploy/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions.md#BKMK_AdditionalOptionsPage)  
   
--   [Tramp](../../ad-ds/deploy/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions.md#BKMK_Paths)  
+-   [Pfade](../../ad-ds/deploy/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions.md#BKMK_Paths)  
   
--   [Vorbereitungs Optionen](../../ad-ds/deploy/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions.md#BKMK_AdprepCreds)  
+-   [Vorbereitungsoptionen](../../ad-ds/deploy/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions.md#BKMK_AdprepCreds)  
   
 -   [Überprüfungs Optionen](../../ad-ds/deploy/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions.md#BKMK_ViewInstallOptionsPage)  
   
--   [Voraussetzungs Prüfung](../../ad-ds/deploy/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions.md#BKMK_PrerqCheckPage)  
+-   [Prüfung der erforderlichen Komponenten](../../ad-ds/deploy/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions.md#BKMK_PrerqCheckPage)  
   
--   [Folgen](../../ad-ds/deploy/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions.md#BKMK_Results)  
+-   [Ergebnisse](../../ad-ds/deploy/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions.md#BKMK_Results)  
   
--   [Anmelde Informationen zur Rollen Löschung](../../ad-ds/deploy/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions.md#BKMK_RemovalCredsPage)  
+-   [Anmeldeinformationen zum Entfernen von Rollen](../../ad-ds/deploy/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions.md#BKMK_RemovalCredsPage)  
   
--   [AD DS Entfernungs Optionen und Warnungen](../../ad-ds/deploy/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions.md#BKMK_RemovalOptionsPage)  
+-   [Optionen und Warnungen zum Entfernen von AD DS](../../ad-ds/deploy/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions.md#BKMK_RemovalOptionsPage)  
   
--   [Neues Administrator Kennwort](../../ad-ds/deploy/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions.md#BKMK_NewAdminPwdPage)  
+-   [Neues Administratorkennwort](../../ad-ds/deploy/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions.md#BKMK_NewAdminPwdPage)  
   
--   [Rollen Entfernungs Auswahl bestätigen](../../ad-ds/deploy/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions.md#BKMK_ConfirmRoleRemovalPage)  
+-   [Auswahl zum Entfernen von Rollen bestätigen](../../ad-ds/deploy/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions.md#BKMK_ConfirmRoleRemovalPage)  
   
 ## <a name="deployment-configuration"></a><a name="BKMK_DepConfigPage"></a>Bereitstellungs Konfiguration  
 In Server-Manager beginnt jede Domänencontrollerinstallation auf der Seite **Bereitstellungskonfiguration**. Die restlichen Optionen und erforderlichen Felder auf dieser Seite und den folgenden Seiten variieren in Abhängigkeit von dem von Ihnen ausgewählten Bereitstellungsvorgang. Wenn Sie z. b. eine neue Gesamtstruktur erstellen, wird die Seite **Vorbereitungs Optionen** nicht angezeigt. Dies geschieht jedoch, wenn Sie den ersten Domänen Controller installieren, auf dem Windows Server 2012 in einer vorhandenen Gesamtstruktur oder Domäne ausgeführt wird.  
@@ -58,9 +58,9 @@ Beim Erstellen einer neuen Gesamtstruktur werden die folgenden Optionen angezeig
   
 ![AD DS Installation](media/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions/ADDS_SMI_DeploymentConfiguration_Forest.gif)  
   
--   Beim Erstellen einer neuen Gesamtstruktur müssen Sie einen Namen für die Stammdomäne der Gesamtstruktur angeben. Der Name der Gesamtstruktur-Stamm Domäne kann nicht mit einer einzelnen Bezeichnung (z. b. "contoso.com" anstelle von "" in "") versehen werden. Es müssen zulässige DNS-Domänennamenskonventionen verwendet werden. Sie können einen internationalen Domänennamen (IDN) angeben. Weitere Informationen zu DNS-Domänen Namenskonventionen finden Sie in [KB 909264](https://support.microsoft.com/kb/909264).  
+-   Beim Erstellen einer neuen Gesamtstruktur müssen Sie einen Namen für die Stammdomäne der Gesamtstruktur angeben. Der Name der Gesamtstruktur-Stamm Domäne kann nicht mit einer einzelnen Bezeichnung (z. b. "contoso.com" anstelle von "" in "") versehen werden. Es müssen zulässige DNS-Domänennamenskonventionen verwendet werden. Sie können einen internationalen Domänennamen (IDN) angeben. Weitere Informationen zu DNS-Domänennamenskonventionen finden Sie im [KB-Artikel 909264](https://support.microsoft.com/kb/909264).  
   
--   Erstellen Sie keine neuen Active Directory-Gesamtstrukturen, die denselben Namen haben wie Ihr externer DNS-Name. Wenn Ihre Internet-DNS-URL beispielsweise http:\//contoso.com ist, müssen Sie einen anderen Namen für die interne Gesamtstruktur auswählen, um zukünftige Kompatibilitätsprobleme zu vermeiden. Der Name sollte eindeutig und seine Verwendung für den Webdatenverkehr unwahrscheinlich sein, beispielsweise %%amp;quot;corp.contoso.com%%amp;quot;.  
+-   Erstellen Sie keine neuen Active Directory-Gesamtstrukturen, die denselben Namen haben wie Ihr externer DNS-Name. Wenn Ihre Internet-DNS-URL beispielsweise "http: \/ /contoso.com" lautet, müssen Sie einen anderen Namen für die interne Gesamtstruktur auswählen, um zukünftige Kompatibilitätsprobleme zu vermeiden. Der Name sollte eindeutig und seine Verwendung für den Webdatenverkehr unwahrscheinlich sein, beispielsweise %%amp;quot;corp.contoso.com%%amp;quot;.  
   
 -   Auf dem Server, auf dem Sie eine neue Gesamtstruktur erstellen möchten, müssen Sie Mitglied der Administratorgruppe sein.  
   
@@ -81,7 +81,7 @@ Beim Erstellen einer neuen Domäne werden die folgenden Optionen angezeigt.
   
 -   Der Konfigurations-Assistent für die Active Directory-Domänendienste fordert Sie zur Eingabe der Domänenanmeldeinformationen auf, wenn Ihre aktuellen Anmeldeinformationen nicht zu der Domäne gehören. Klicken Sie auf **Ändern**, um Domänenanmeldeinformationen anzugeben.  
   
-Weitere Informationen zum Erstellen einer Domäne finden Sie unter [install a New Windows Server 2012 Active Directory Kind or Tree Domain &#40;Level 200&#41;](../../ad-ds/deploy/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-.md).  
+Weitere Informationen zum Erstellen einer Domäne finden Sie unter [install a New Windows Server 2012 Active Directory child or Tree Domain &#40;Level 200&#41;](../../ad-ds/deploy/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-.md).  
   
 Beim Hinzufügen eines neuen Domänencontrollers zu einer vorhandenen Domäne werden die folgenden Optionen angezeigt.  
   
@@ -93,7 +93,7 @@ Beim Hinzufügen eines neuen Domänencontrollers zu einer vorhandenen Domäne we
   
     Außerdem sind für die Installation des ersten Domänen Controllers, auf dem Windows Server 2012 in einer Gesamtstruktur ausgeführt wird, Anmelde Informationen erforderlich, die Gruppenmitgliedschaften in den Gruppen Organisations-Admins und Schema-Admins enthalten. Wenn Ihre aktuellen Anmeldeinformationen keine angemessenen Berechtigungen oder Gruppenmitgliedschaften aufweisen, wird später vom Konfigurations-Assistenten für die Active Directory-Domänendienste eine Eingabeaufforderung ausgegeben.  
   
-Weitere Informationen zum Hinzufügen eines Domänen Controllers zu einer vorhandenen Domäne finden Sie unter [Installieren eines Windows Server 2012-Replikat Domänen Controllers &#40;in einer&#41;vorhandenen Domänen Ebene 200](../../ad-ds/deploy/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-.md).  
+Weitere Informationen zum Hinzufügen eines Domänen Controllers zu einer vorhandenen Domäne finden Sie unter [Installieren eines Windows Server 2012-Replikat Domänen Controllers in einer vorhandenen Domäne &#40;Ebene 200&#41;](../../ad-ds/deploy/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-.md).  
   
 ## <a name="domain-controller-options"></a><a name="BKMK_DCOptionsPage"></a>Domänen Controller Optionen  
 Wenn Sie eine neue Gesamtstruktur erstellen, werden auf der Seite %%amp;quot;Domänencontrolleroptionen%%amp;quot; die folgenden Optionen angezeigt:  
@@ -102,14 +102,14 @@ Wenn Sie eine neue Gesamtstruktur erstellen, werden auf der Seite %%amp;quot;Dom
   
 -   Die Gesamtstruktur-und Domänen Funktionsebenen werden standardmäßig auf Windows Server 2012 festgelegt.  
   
-    Auf der Windows Server 2012-Domänen Funktionsebene ist ein neues Feature verfügbar: die Unterstützung für dynamische Access Control und die Kerberos armoring-Richtlinie für administrative Vorlagen für virtuelle KDC-Vorlagen verfügt über zwei Einstellungen (immer Ansprüche bereitstellen und nicht hochgerüstete Authentifizierungsanforderungen fehlschlagen), für die die Domänen Funktionsebene 2012 Windows Weitere Informationen finden Sie unter "Unterstützung für Ansprüche, Verbund Authentifizierung und Kerberos armoring" unter [Neuerungen bei der Kerberos-Authentifizierung](https://technet.microsoft.com/library/hh831747.aspx).    
+    Auf der Windows Server 2012-Domänen Funktionsebene ist ein neues Feature verfügbar: die Unterstützung für dynamische Access Control und die Kerberos armoring-Richtlinie für administrative Vorlagen für virtuelle KDC-Vorlagen verfügt über zwei Einstellungen (immer Ansprüche bereitstellen und nicht hochgerüstete Authentifizierungsanforderungen fehlschlagen), für die die Domänen Funktionsebene 2012 Windows Weitere Informationen finden Sie unter "Unterstützung für Ansprüche, Verbund Authentifizierung und Kerberos armoring" unter [Neuerungen bei der Kerberos-Authentifizierung](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831747(v=ws.11)).    
     Die Windows Server 2012-Gesamtstruktur Funktionsebene bietet keine neuen Features, stellt jedoch sicher, dass alle in der Gesamtstruktur erstellten neuen Domänen automatisch auf der Domänen Funktionsebene von Windows Server 2012 ausgeführt werden. Die Domänen Funktionsebene Windows Server 2012 bietet neben der Unterstützung für dynamische Access Control und Kerberos armoring keine neuen anderen Features, stellt jedoch sicher, dass alle Domänen Controller in der Domäne Windows Server 2012 ausführen. Weitere Informationen zu weiteren Features, die auf verschiedenen Funktionsebenen verfügbar sind, finden Sie unter [Understanding Active Directory Domain Services (AD DS) Functional Levels](../active-directory-functional-levels.md).  
   
     Neben Funktionsebenen bietet ein Domänen Controller, auf dem Windows Server 2012 ausgeführt wird, zusätzliche Features, die auf einem Domänen Controller, auf dem eine frühere Version von Windows Server ausgeführt wird, nicht verfügbar sind. Beispielsweise kann ein Domänen Controller mit Windows Server 2012 zum Klonen virtueller Domänen Controller verwendet werden, während ein Domänen Controller, auf dem eine frühere Version von Windows Server ausgeführt wird, nicht ausgeführt werden kann.  
   
 -   Beim Erstellen einer neuen Gesamtstruktur ist standardmäßig DNS-Server ausgewählt. Bei dem ersten Domänencontroller in der Gesamtstruktur muss es sich um einen globalen Katalogserver handeln. Schreibgeschützte Domänencontroller (Read Only Domain Controller, RODC) sind dabei nicht zulässig.  
   
--   Für die Anmeldung bei einem Domänencontroller, auf dem AD DS nicht ausgeführt wird, ist das Kennwort für den Verzeichnisdienst-Wiederherstellungsmodus (Directory Services Restore Mode, DSRM) erforderlich. Das von Ihnen angegebene Kennwort muss der auf den Server angewendeten Kennwortrichtlinie entsprechen, laut der standardmäßig kein sicheres, sondern lediglich ein nicht leeres Kennwort erforderlich ist. Wählen Sie stets ein sicheres, komplexes Kennwort oder bevorzugterweise eine Passphrase aus. Informationen zum Synchronisieren des DSRM-Kennworts mit dem Kennwort eines Domänen Benutzerkontos finden Sie in [KB 961320](https://support.microsoft.com/kb/961320).  
+-   Für die Anmeldung bei einem Domänencontroller, auf dem AD DS nicht ausgeführt wird, ist das Kennwort für den Verzeichnisdienst-Wiederherstellungsmodus (Directory Services Restore Mode, DSRM) erforderlich. Das von Ihnen angegebene Kennwort muss der auf den Server angewendeten Kennwortrichtlinie entsprechen, laut der standardmäßig kein sicheres, sondern lediglich ein nicht leeres Kennwort erforderlich ist. Wählen Sie stets ein sicheres, komplexes Kennwort oder bevorzugterweise eine Passphrase aus. Informationen zum Synchronisieren des DSRM-Kennworts mit dem Kennwort eines Domänenbenutzerkontos finden Sie im [KB-Artikel 961320](https://support.microsoft.com/kb/961320).  
   
 Weitere Informationen zum Erstellen einer Gesamtstruktur finden Sie unter [install a New Windows Server 2012 Active Directory Forest &#40;Level 200&#41;](../../ad-ds/deploy/../../ad-ds/deploy/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-.md).  
   
@@ -128,7 +128,7 @@ Wenn Sie eine untergeordnete Domäne erstellen, werden auf der Seite %%amp;quot;
     > [!IMPORTANT]  
     > Wenn der Server zu keinem Active Directory-Subnetz gehört und mehrere Standorte vorhanden sind, wird keine Auswahl getroffen, und die Schaltfläche **Weiter** ist erst wieder verfügbar, nachdem Sie in der Liste einen Standort ausgewählt haben.  
   
-Weitere Informationen zum Erstellen einer Domäne finden Sie unter [install a New Windows Server 2012 Active Directory Kind or Tree Domain &#40;Level 200&#41;](../../ad-ds/deploy/../../ad-ds/deploy/../../ad-ds/deploy/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-.md).  
+Weitere Informationen zum Erstellen einer Domäne finden Sie unter [install a New Windows Server 2012 Active Directory child or Tree Domain &#40;Level 200&#41;](../../ad-ds/deploy/../../ad-ds/deploy/../../ad-ds/deploy/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-.md).  
   
 Wenn Sie einer Domäne einen Domänencontroller hinzufügen, werden auf der Seite %%amp;quot;Domänencontrolleroptionen%%amp;quot; die folgenden Optionen angezeigt:  
   
@@ -136,9 +136,9 @@ Wenn Sie einer Domäne einen Domänencontroller hinzufügen, werden auf der Seit
   
 -   Die konfigurierbaren Domänencontrolleroptionen lauten **DNS-Server** und **Globaler Katalog** und **Schreibgeschützter Domänencontroller**.  
   
-    Für eine hohe Verfügbarkeit in verteilten Umgebungen empfiehlt Microsoft, dass alle Domänencontroller DNS und globale Katalogdienste bereitstellen. Dies ist die Ursache dafür, dass der Assistent diese Optionen standardmäßig aktiviert. Weitere Informationen zum Bereitstellen von RODCs finden [Sie im Planungs-und Bereitstellungs Handbuch für schreibgeschützte Domänen Controller](https://technet.microsoft.com/library/cc771744(v=WS.10).aspx).  
+    Für eine hohe Verfügbarkeit in verteilten Umgebungen empfiehlt Microsoft, dass alle Domänencontroller DNS und globale Katalogdienste bereitstellen. Dies ist die Ursache dafür, dass der Assistent diese Optionen standardmäßig aktiviert. Weitere Informationen zum Bereitstellen von RODCs finden Sie im [Planungs- und Bereitstellungshandbuch für schreibgeschützte Domänencontroller](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771744(v=ws.10)).  
   
-Weitere Informationen zum Hinzufügen eines Domänen Controllers zu einer vorhandenen Domäne finden Sie unter [Installieren eines Windows Server 2012-Replikat Domänen Controllers &#40;in einer&#41;vorhandenen Domänen Ebene 200](../../ad-ds/deploy/../../ad-ds/deploy/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-.md).  
+Weitere Informationen zum Hinzufügen eines Domänen Controllers zu einer vorhandenen Domäne finden Sie unter [Installieren eines Windows Server 2012-Replikat Domänen Controllers in einer vorhandenen Domäne &#40;Ebene 200&#41;](../../ad-ds/deploy/../../ad-ds/deploy/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-.md).  
   
 ## <a name="dns-options"></a><a name="BKMK_DNSOptionsPage"></a>DNS-Optionen  
 Wenn Sie DNS-Server installieren, wird die folgende Seite mit **DNS-Optionen** angezeigt:  
@@ -155,32 +155,32 @@ Sie können auch die automatische Erstellung durch den Konfigurations-Assistente
   
 Alternativ können Sie diese DNS-Delegierungseinträge vor dem Installieren von DNS-Server erstellen. Zum Erstellen einer Zonendelegierung öffnen Sie den **DNS-Manager**, klicken Sie mit der rechten Maustaste auf die übergeordnete Domäne, und klicken Sie dann auf **Neue Delegierung**. Folgen Sie den Schritten im Assistenten zum Erstellen neuer Delegierungen, um die Delegierung zu erstellen.  
   
-Der Installationsvorgang versucht, die Delegierung zu erstellen, um sicherzustellen, dass Computer in anderen Domänen DNS-Abfragen für Hosts in der DNS-Unterdomäne auflösen können, einschließlich Domänencontrollern und Mitgliedscomputern. Beachten Sie, dass die Delegierungseinträge nur auf Microsoft DNS-Servern automatisch erstellt werden können. Wenn sich die übergeordnete DNS-Domänenzone auf DNS-Servern von Drittanbietern wie BIND befindet, wird auf der Seite %%amp;quot; Voraussetzungsüberprüfung%%amp;quot; eine Warnung über einen Fehler beim Erstellen der DNS-Delegierungseinträge angezeigt. Weitere Informationen zur Warnung finden Sie unter [bekannte Probleme bei der Installation AD DS](https://technet.microsoft.com/library/cc754463(v=WS.10).aspx).  
+Der Installationsvorgang versucht, die Delegierung zu erstellen, um sicherzustellen, dass Computer in anderen Domänen DNS-Abfragen für Hosts in der DNS-Unterdomäne auflösen können, einschließlich Domänencontrollern und Mitgliedscomputern. Beachten Sie, dass die Delegierungseinträge nur auf Microsoft DNS-Servern automatisch erstellt werden können. Wenn sich die übergeordnete DNS-Domänenzone auf DNS-Servern von Drittanbietern wie BIND befindet, wird auf der Seite %%amp;quot; Voraussetzungsüberprüfung%%amp;quot; eine Warnung über einen Fehler beim Erstellen der DNS-Delegierungseinträge angezeigt. Weitere Informationen zu der Warnung finden Sie unter [Bekannte Probleme beim Installieren von AD DS](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754463(v=ws.10)).  
   
 Delegierungen zwischen der übergeordneten Domäne und der Unterdomäne, die höher gestuft wird, können vor oder nach der Installation erstellt und überprüft werden. Es besteht kein Grund zur Verzögerung der Installation eines neuen Domänencontrollers, da Sie die DNS-Delegierung nicht erstellen oder aktualisieren können.  
   
-Weitere Informationen zur Delegierung finden Sie Untergrund Legendes zur [Zonen Delegierung](https://go.microsoft.com/fwlink/?LinkId=164773) (https://go.microsoft.com/fwlink/?LinkId=164773). Wenn in der momentanen Situation keine Zonendelegierung möglich ist, können Sie ggf. andere Methoden zur Bereitstellung der Namensauflösung von anderen Domänen zu den Hosts in der Domäne in Betracht ziehen. Der DNS-Administrator einer anderen Domäne kann z. B. bedingte Weiterleitung, Stubzonen oder sekundäre Zonen konfigurieren, um Namen in der Domäne aufzulösen. Weitere Informationen finden Sie in den folgenden Themen:  
+Weitere Informationen zur Delegierung finden Sie Untergrund Legendes zur [Zonen Delegierung](https://go.microsoft.com/fwlink/?LinkId=164773) ( https://go.microsoft.com/fwlink/?LinkId=164773) . Wenn in der momentanen Situation keine Zonendelegierung möglich ist, können Sie ggf. andere Methoden zur Bereitstellung der Namensauflösung von anderen Domänen zu den Hosts in der Domäne in Betracht ziehen. Der DNS-Administrator einer anderen Domäne kann z. B. bedingte Weiterleitung, Stubzonen oder sekundäre Zonen konfigurieren, um Namen in der Domäne aufzulösen. Weitere Informationen finden Sie in den folgenden Themen:  
   
 -   Grundlegendes zu [Zonen Typen](https://go.microsoft.com/fwlink/?LinkID=157399) (https://go.microsoft.com/fwlink/?LinkID=157399)  
   
 -   Grundlegendes zu [Stub-Zonen](https://go.microsoft.com/fwlink/?LinkId=164776) (https://go.microsoft.com/fwlink/?LinkId=164776)  
   
--   Grundlegendes zu weiter [Leitungen (https://go.microsoft.com/fwlink/?LinkId=164778)](https://go.microsoft.com/fwlink/?LinkId=164778)  
+-   Grundlegendes zu weiter [Leitungen (](https://go.microsoft.com/fwlink/?LinkId=164778)https://go.microsoft.com/fwlink/?LinkId=164778)  
   
 ## <a name="rodc-options"></a><a name="BKMK_RODCOptionsPage"></a>RODC-Optionen  
 Beim Installieren eines schreibgeschützten Domänencontrollers (Read-Only Domain Controller, RODC) werden die folgenden Optionen angezeigt.  
   
 ![AD DS Installation](media/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions/ADDS_SMI_RODCOptions.gif)  
   
--   Delegierte Administratorkonten erhalten für den RODC lokale Administratorberechtigungen. Diese Benutzer können mit rechten arbeiten, die der Administrator Gruppe des lokalen Computers entsprechen. Sie sind keine Mitglieder der Gruppe %%amp;quot;Domänen-Admins%%amp;quot; oder der in die Domäne integrierten Gruppe %%amp;quot;Administratoren%%amp;quot;. Diese Option ist für die Delegierung der Zweigstellenverwaltung ohne Vergabe von Administratorberechtigungen für die Domäne hilfreich. Das Konfigurieren der Delegierung von Administratoren ist nicht erforderlich. Weitere Informationen finden Sie unter [Administrator Rollen Trennung](https://technet.microsoft.com/library/cc753170(v=WS.10).aspx).  
+-   Delegierte Administratorkonten erhalten für den RODC lokale Administratorberechtigungen. Diese Benutzer können mit rechten arbeiten, die der Administrator Gruppe des lokalen Computers entsprechen. Sie sind keine Mitglieder der Gruppe %%amp;quot;Domänen-Admins%%amp;quot; oder der in die Domäne integrierten Gruppe %%amp;quot;Administratoren%%amp;quot;. Diese Option ist für die Delegierung der Zweigstellenverwaltung ohne Vergabe von Administratorberechtigungen für die Domäne hilfreich. Das Konfigurieren der Delegierung von Administratoren ist nicht erforderlich. Weitere Informationen finden Sie unter [Administratorrollentrennung](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753170(v=ws.10)).  
   
 -   Die Kennwortreplikationsrichtlinie fungiert als Zugriffssteuerungsliste (Access Control List, ACL). Mit ihr wird bestimmt, ob ein Kennwort von einem RODC zwischengespeichert werden darf. Nachdem der RODC eine Anmeldeanforderung für einen authentifizierten Benutzer oder Computer empfangen hat, bezieht er sich auf die Kennwortreplikationsrichtlinie, um zu bestimmen, ob das Kennwort für das Konto zwischengespeichert werden soll. Anschließend können weitere Anmeldungen bei dem jeweiligen Konto effizienter ausgeführt werden.  
   
     In der Kennwortreplikationsrichtlinie (Password Replication Policy, PRP) werden neben den Konten, deren Kennwörter zwischengespeichert werden dürfen, auch die Konten aufgelistet, für die das Zwischenspeichern der zugehörigen Kennwörter explizit verweigert wird. Die Liste der Benutzer- und Computerkonten, die zwischengespeichert werden dürfen, setzt nicht voraus, dass die Kennwörter zu diesen Konten zwingenderweise vom RODC zwischengespeichert wurden. Ein Administrator kann beispielsweise vorab die Konten angeben, die von einem RODC zwischengespeichert werden. Auf diese Art und Weise kann der RODC diese Konten auch dann authentifizieren, wenn der WAN-Link zu dem Nebenstandort offline ist.  
   
-    Benutzer oder Computer, denen der Vorgang nicht gestattet (auch implizit) oder sogar verweigert wird, können ihr Kennwort nicht zwischenspeichern. Wenn diese Benutzer oder Computer keinen Zugriff auf einen beschreibbaren Domänencontroller haben, können sie nicht auf von AD DS bereitgestellte Ressourcen oder Funktionalitäten zugreifen. Weitere Informationen zur PRP finden Sie unter [Kennwortreplikationsrichtlinie](https://technet.microsoft.com/library/cc730883(v=ws.10).aspx). Weitere Informationen zum Verwalten der PRP finden Sie unter [Verwalten der Kennwortreplikationsrichtlinie](https://technet.microsoft.com/library/rodc-guidance-for-administering-the-password-replication-policy(v=ws.10).aspx).  
+    Benutzer oder Computer, denen der Vorgang nicht gestattet (auch implizit) oder sogar verweigert wird, können ihr Kennwort nicht zwischenspeichern. Wenn diese Benutzer oder Computer keinen Zugriff auf einen beschreibbaren Domänencontroller haben, können sie nicht auf von AD DS bereitgestellte Ressourcen oder Funktionalitäten zugreifen. Weitere Informationen zur PRP finden Sie unter [Kennwortreplikationsrichtlinie](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc730883(v=ws.10)). Weitere Informationen zum Verwalten der PRP finden Sie unter [Verwalten der Kennwortreplikationsrichtlinie](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754646(v=ws.10)).  
   
-Weitere Informationen zum Installieren von RODCs finden [Sie unter Installieren eines Windows Server 2012 Active Directory schreibgeschützten Domänen &#40;Controller-&#41; &#40;RODC&#41;-Ebene 200](../../ad-ds/deploy/RODC/Install-a-Windows-Server-2012-Active-Directory-Read-Only-Domain-Controller--RODC---Level-200-.md).  
+Weitere Informationen zum Installieren von RODCs finden [Sie unter Installieren eines Windows Server 2012 Active Directory schreibgeschützten Domänen Controllers &#40;RODC&#41; &#40;Ebene 200&#41;](../../ad-ds/deploy/RODC/Install-a-Windows-Server-2012-Active-Directory-Read-Only-Domain-Controller--RODC---Level-200-.md).  
   
 ## <a name="additional-options"></a><a name="BKMK_AdditionalOptionsPage"></a>Zusätzliche Optionen  
 Die folgende Option wird auf der Seite **Zusätzliche Optionen** angezeigt, wenn Sie eine neue Domäne erstellen:  
@@ -193,11 +193,11 @@ Die folgenden Optionen werden auf der Seite **Zusätzliche Optionen** angezeigt,
   
 -   Sie können entweder einen Domänencontroller als Replikationsquelle angeben oder zulassen, dass der Assistent einen beliebigen Domänencontroller als Replikationsquelle auswählt.  
   
--   Sie können auch festlegen, dass der Domänencontroller mithilfe gesicherter Medien und der Option %%amp;quot;Installieren von Medium%%amp;quot; (Install from Media, IFM) installiert wird. Wenn das Installationsmedium lokal gespeichert ist, können Sie mithilfe der Option **Installieren von Medium** zum Speicherort der Datei navigieren. Die Option zum Durchsuchen ist bei einer Remoteinstallation nicht verfügbar. Wenn Sie sicherstellen möchten, dass es sich bei dem angegebenen Pfad um ein gültiges Medium handelt, können Sie auf **Überprüfen** klicken. Von der IFM-Option verwendete Medien müssen mit Windows Server-Sicherung oder "Ntdsutil. exe" von einem anderen vorhandenen Windows Server 2012-Computer erstellt werden. zum Erstellen von Medien für einen Windows Server 2012-Domänen Controller können Sie kein Windows Server 2008 R2 oder ein früheres Betriebssystem verwenden. Wenn die Medien mit einem Systemschlüssel (SYSKEY) geschützt sind, werden Sie während der Überprüfung von Server-Manager zur Eingabe des Kennworts für das Abbild aufgefordert.  
+-   Sie können auch festlegen, dass der Domänencontroller mithilfe gesicherter Medien und der Option %%amp;quot;Installieren von Medium%%amp;quot; (Install from Media, IFM) installiert wird. Wenn das Installationsmedium lokal gespeichert ist, können Sie mithilfe der Option **Installieren von Medium** zum Speicherort der Datei navigieren. Die Option zum Durchsuchen ist bei einer Remoteinstallation nicht verfügbar. Wenn Sie sicherstellen möchten, dass es sich bei dem angegebenen Pfad um ein gültiges Medium handelt, können Sie auf **Überprüfen** klicken. Medien, die von der IFM-Option verwendet werden, müssen mit Windows Server-Sicherung oder Ntdsutil.exe von einem anderen vorhandenen Windows Server 2012-Computer erstellt werden. zum Erstellen von Medien für einen Windows Server 2012-Domänen Controller können Sie kein Windows Server 2008 R2 oder ein früheres Betriebssystem verwenden. Wenn die Medien mit einem Systemschlüssel (SYSKEY) geschützt sind, werden Sie während der Überprüfung von Server-Manager zur Eingabe des Kennworts für das Abbild aufgefordert.  
   
-Weitere Informationen zum Erstellen einer Domäne finden Sie unter [install a New Windows Server 2012 Active Directory Kind or Tree Domain &#40;Level 200&#41;](../../ad-ds/deploy/../../ad-ds/deploy/../../ad-ds/deploy/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-.md). Weitere Informationen zum Hinzufügen eines Domänen Controllers zu einer vorhandenen Domäne finden Sie unter [Installieren eines Windows Server 2012-Replikat Domänen Controllers &#40;in einer&#41;vorhandenen Domänen Ebene 200](../../ad-ds/deploy/../../ad-ds/deploy/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-.md).  
+Weitere Informationen zum Erstellen einer Domäne finden Sie unter [install a New Windows Server 2012 Active Directory child or Tree Domain &#40;Level 200&#41;](../../ad-ds/deploy/../../ad-ds/deploy/../../ad-ds/deploy/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-.md). Weitere Informationen zum Hinzufügen eines Domänen Controllers zu einer vorhandenen Domäne finden Sie unter [Installieren eines Windows Server 2012-Replikat Domänen Controllers in einer vorhandenen Domäne &#40;Ebene 200&#41;](../../ad-ds/deploy/../../ad-ds/deploy/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-.md).  
   
-## <a name="paths"></a><a name="BKMK_Paths"></a>Tramp  
+## <a name="paths"></a><a name="BKMK_Paths"></a>Pfade  
 Auf der Seite **Pfade** werden die folgenden Optionen angezeigt.  
   
 ![AD DS Installation](media/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions/ADDS_SMI_Paths.gif)  
@@ -206,10 +206,10 @@ Auf der Seite **Pfade** werden die folgenden Optionen angezeigt.
   
 Geben Sie den Speicherort für die AD DS-Datenbank (NTDS.DIT), die Protokolldateien und für SYSVOL an. Bei einer lokalen Installation können Sie zu dem Speicherort navigieren, unter dem Sie die Dateien speichern möchten.  
   
-## <a name="preparation-options"></a><a name="BKMK_AdprepCreds"></a>Vorbereitungs Optionen  
+## <a name="preparation-options"></a><a name="BKMK_AdprepCreds"></a>Vorbereitungsoptionen  
 ![AD DS Installation](media/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions/ADDS_SMI_PreparationOptions.gif)  
   
-Wenn Sie derzeit nicht mit den zum Ausführen von adprep.exe-Befehlen erforderlichen Anmeldeinformationen angemeldet sind und Adprep zum Abschließen der AD DS-Installation erforderlich ist, werden Sie zum Angeben von Anmeldeinformationen aufgefordert, mit denen %%amp;quot;adprep.exe%%amp;quot; ausgeführt werden kann. Zum Hinzufügen des ersten Domänen Controllers, auf dem Windows Server 2012 ausgeführt wird, zu einer vorhandenen Domäne oder Gesamtstruktur muss adprep ausgeführt werden. Insbesondere:  
+Wenn Sie derzeit nicht mit den zum Ausführen von adprep.exe-Befehlen erforderlichen Anmeldeinformationen angemeldet sind und Adprep zum Abschließen der AD DS-Installation erforderlich ist, werden Sie zum Angeben von Anmeldeinformationen aufgefordert, mit denen %%amp;quot;adprep.exe%%amp;quot; ausgeführt werden kann. Zum Hinzufügen des ersten Domänen Controllers, auf dem Windows Server 2012 ausgeführt wird, zu einer vorhandenen Domäne oder Gesamtstruktur muss adprep ausgeführt werden. Dies gilt insbesondere in folgenden Fällen:  
   
 -   Adprep/forestprep muss ausgeführt werden, um den ersten Domänen Controller, auf dem Windows Server 2012 ausgeführt wird, einer vorhandenen Gesamtstruktur hinzuzufügen. Dieser Befehl muss von einem Mitglied der Gruppe %%amp;quot;Organisations-Admins%%amp;quot;, %%amp;quot;Schema-Admins%%amp;quot; und %%amp;quot;Domänen-Admins%%amp;quot; der Domäne ausgeführt werden, die den Schemamaster enthält. Damit dieser Befehl erfolgreich abgeschlossen werden kann, muss zwischen dem Computer, auf dem Sie den Befehl ausführen, und dem Schemamaster für die Gesamtstruktur eine Verbindung bestehen.  
   
@@ -217,21 +217,21 @@ Wenn Sie derzeit nicht mit den zum Ausführen von adprep.exe-Befehlen erforderli
   
 -   Zum Hinzufügen des ersten RODC zu einer vorhandenen Gesamtstruktur ist die Ausführung von adprep/rodcprep erforderlich. Dieser Befehl muss von einem Mitglied der Gruppe %%amp;quot;Organisation-Admins%%amp;quot; ausgeführt werden. Damit dieser Befehl erfolgreich abgeschlossen werden kann, muss zwischen dem Computer, auf dem Sie den Befehl ausführen, und dem Infrastrukturmaster für die einzelnen Anwendungsverzeichnispartitionen in der Gesamtstruktur eine Verbindung bestehen.  
   
-Weitere Informationen zu Adprep. exe finden Sie unter [Integration von Adprep. exe](../../ad-ds/deploy/What-s-New-in-Active-Directory-Domain-Services-Installation-and-Removal.md#BKMK_NewAdprep) und unter [Ausführen von adprep](https://technet.microsoft.com/library/dd464018(WS.10).aspx). exe.  
+Weitere Informationen zu %%amp;quot;Adprep.exe%%amp;quot; finden Sie unter [Integration von %%amp;quot;Adprep.exe%%amp;quot;](../../ad-ds/deploy/What-s-New-in-Active-Directory-Domain-Services-Installation-and-Removal.md#BKMK_NewAdprep) und [Ausführen von %%amp;quot;Adprep.exe%%amp;quot;](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd464018(v=ws.10)).  
   
 ## <a name="review-options"></a><a name="BKMK_ViewInstallOptionsPage"></a>Überprüfungs Optionen  
 ![AD DS Installation](media/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions/ADDS_SMI_ReviewOptions.gif)  
   
 -   Auf der Seite **Optionen prüfen** können Sie vor dem Starten der Installation Ihre Einstellungen validieren und sicherstellen, dass Ihre Anforderungen erfüllt werden. Dies ist jedoch nicht die letzte Möglichkeit, um die Installation mit Server-Manager zu stoppen. Diese Seite ermöglicht Ihnen lediglich das Überprüfen und Bestätigen Ihrer Einstellungen, bevor Sie die Konfiguration fortsetzen.  
   
--   Die Seite **Optionen prüfen** im Server-Manager bietet zudem die optionale Schaltfläche **Skript anzeigen** zum Erstellen einer Unicode-Textdatei, die die aktuelle ADDSDeployment-Konfiguration als einzelnes Windows PowerShell-Skript enthält. Dies ermöglicht Ihnen die Verwendung der grafischen Oberfläche von Server-Manager als Windows PowerShell-Bereitstellungsstudio. Mithilfe des Konfigurations-Assistenten für die Active Directory-Domänendienste können Sie Optionen konfigurieren, die Konfiguration exportieren und den Assistenten abbrechen. Bei diesem Prozess wird ein gültiges und syntaktisch korrektes Muster zur weiteren Änderung oder direkten Verwendung erstellt.  
+-   Die Seite **Optionen prüfen** im Server-Manager bietet zudem die optionale Schaltfläche **Skript anzeigen** zum Erstellen einer Unicode-Textdatei, die die aktuelle ADDSDeployment-Konfiguration als einzelnes Windows PowerShell-Skript enthält. Dies ermöglicht Ihnen die Verwendung der grafischen Oberfläche von Server-Manager als Windows PowerShell-Bereitstellungsstudio. Mithilfe des Konfigurations-Assistenten für die Active Directory-Domänendienste können Sie Optionen konfigurieren, die Konfiguration exportieren und den Assistenten abbrechen. Bei diesem Prozess wird ein gültiges und syntaktisch korrektes Muster zur weiteren Änderung oder direkten Verwendung erstellt.  
   
 ## <a name="prerequisites-check"></a><a name="BKMK_PrerqCheckPage"></a>Voraussetzungs Prüfung  
 ![AD DS Installation](media/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions/ADDS_SMI_PrerequisitesCheck.gif)  
   
 Einige der auf dieser Seite angezeigten Warnungen lauten wie folgt:  
   
--   Domänen Controller, auf denen Windows Server 2008 oder höher ausgeführt wird, verfügen über eine Standardeinstellung für "mit Windows NT 4 kompatible Kryptografiealgorithmen zulassen", die schwächere Kryptografiealgorithmen beim Einrichten sicherer Kanal Sitzungen verhindert. Weitere Informationen zu den möglichen Auswirkungen und einer Problem Umgehung finden Sie im KB-Artikel [942564](https://support.microsoft.com/kb/942564).  
+-   Domänen Controller, auf denen Windows Server 2008 oder höher ausgeführt wird, verfügen über eine Standardeinstellung für "mit Windows NT 4 kompatible Kryptografiealgorithmen zulassen", die schwächere Kryptografiealgorithmen beim Einrichten sicherer Kanal Sitzungen verhindert. Weitere Informationen zu den möglichen Auswirkungen und zu einem Workaround finden Sie im KB-Artikel [942564](https://support.microsoft.com/kb/942564).  
   
 -   Die DNS-Delegierung konnte nicht erstellt oder aktualisiert werden. Weitere Informationen finden Sie unter [DNS-Optionen](../../ad-ds/deploy/../../ad-ds/deploy/../../ad-ds/deploy/../../ad-ds/deploy/../../ad-ds/deploy/../../ad-ds/deploy/../../ad-ds/deploy/../../ad-ds/deploy/../../ad-ds/deploy/../../ad-ds/deploy/../../ad-ds/deploy/../../ad-ds/deploy/../../ad-ds/deploy/../../ad-ds/deploy/../../ad-ds/deploy/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions.md#BKMK_DNSOptionsPage).  
   
@@ -239,7 +239,7 @@ Einige der auf dieser Seite angezeigten Warnungen lauten wie folgt:
   
 Weitere Informationen zu den für die AD DS-Installation spezifischen Voraussetzungsüberprüfungen finden Sie unter [Voraussetzungsüberprüfungen](../../ad-ds/manage/AD-DS-Simplified-Administration.md#BKMK_ADDSInstallPrerequisiteTests).  
   
-## <a name="results"></a><a name="BKMK_Results"></a>Folgen  
+## <a name="results"></a><a name="BKMK_Results"></a>Ergebnisse  
 ![AD DS Installation](media/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions/ADDS_SMI_SMResultsBeta.gif)  
   
 Auf dieser Seite können Sie die Ergebnisse der Installation überprüfen.  
@@ -248,7 +248,7 @@ Zudem können Sie festlegen, dass der Zielserver nach Abschluss des Assistenten 
   
 Wenn der Neustart des Zielservers in diesem Fall nicht gelingt, müssen Sie ihn manuell neu starten. Ein Neustart mithilfe von Tools wie %%amp;quot;shutdown.exe%%amp;quot; oder Windows PowerShell ist nicht möglich. Über die Remotedesktopdienste können Sie sich anmelden und den Zielserver per Remoteverbindung herunterfahren.  
   
-## <a name="role-removal-credentials"></a><a name="BKMK_RemovalCredsPage"></a>Anmelde Informationen zur Rollen Löschung  
+## <a name="role-removal-credentials"></a><a name="BKMK_RemovalCredsPage"></a>Anmeldeinformationen zum Entfernen von Rollen  
 ![AD DS Installation](media/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions/ADDS_RRW_Credentials.gif)  
   
 Auf der Seite **Anmeldeinformationen** werden Herabstufungsoptionen konfiguriert. Geben Sie in der folgenden Liste die zum Ausführen der Herabstufung erforderlichen Anmeldeinformationen an:  
@@ -256,13 +256,13 @@ Auf der Seite **Anmeldeinformationen** werden Herabstufungsoptionen konfiguriert
 -   Für die Herabstufung eines zusätzlichen Domänencontrollers sind Domänenadministrator-Anmeldeinformationen erforderlich. Durch die Auswahl der Option **Entfernen des Domänen Controllers erzwingen** wird der Domänen Controller herabgestuft, ohne die Metadaten des Domänen Controller Objekts aus Active Directory zu entfernen.  
   
     > [!IMPORTANT]  
-    > Wählen Sie diese Option nur dann aus, wenn der Domänencontroller keine andere Domänencontroller kontaktieren kann und zum Beheben dieses Netzwerkproblems *keine angemessene Möglichkeit* besteht. Bei der erzwungenen Herabstufung bleiben in Active Directory der restlichen Domänencontroller in der Gesamtstruktur verwaiste Metadaten zurück. Zudem gehen alle nicht replizierten Änderungen an diesem Domänencontroller, beispielsweise Kennwörter oder neue Benutzerkonten, für immer verloren. Verwaiste Metadaten stellen die Hauptursache in einem erheblichen Prozentsatz der Microsoft Kundendienstfälle für AD DS, Exchange, SQL und andere Software dar. Wenn Sie einen Domänencontroller zwangsweise herabstufen, *müssen* Sie sofort eine manuelle Metadatenbereinigung ausführen. Informationen zu den entsprechenden Schritten finden Sie unter [Bereinigen von Servermetadaten](https://technet.microsoft.com/library/cc816907(WS.10).aspx).  
+    > Wählen Sie diese Option nur dann aus, wenn der Domänencontroller keine andere Domänencontroller kontaktieren kann und zum Beheben dieses Netzwerkproblems *keine angemessene Möglichkeit* besteht. Bei der erzwungenen Herabstufung bleiben in Active Directory der restlichen Domänencontroller in der Gesamtstruktur verwaiste Metadaten zurück. Zudem gehen alle nicht replizierten Änderungen an diesem Domänencontroller, beispielsweise Kennwörter oder neue Benutzerkonten, für immer verloren. Verwaiste Metadaten stellen die Hauptursache in einem erheblichen Prozentsatz der Microsoft Kundendienstfälle für AD DS, Exchange, SQL und andere Software dar. Wenn Sie einen Domänencontroller zwangsweise herabstufen, *müssen* Sie sofort eine manuelle Metadatenbereinigung ausführen. Informationen zu den entsprechenden Schritten finden Sie unter [Bereinigen von Servermetadaten](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc816907(v=ws.10)).  
   
 -   Für das Herabstufen des letzten Domänencontrollers in einer Domäne ist eine Mitgliedschaft in der Gruppe %%amp;quot;Organisations-Admins%%amp;quot; erforderlich, da hierbei die Domäne selbst entfernt wird (wenn es sich um die letzte Domäne in der Gesamtstruktur handelt, wird dabei die Gesamtstruktur entfernt). Wenn der aktuelle Domänencontroller der letzte Domänencontroller in der Domäne ist, werden Sie von Server-Manager darüber informiert. Wählen Sie die Option **Letzter Domänencontroller in der Domäne** aus, um zu bestätigen, dass der Domänencontroller der letzte Domänencontroller in der Domäne ist.  
   
-Weitere Informationen zum Entfernen von AD DS finden Sie unter [Remove Active Directory Domain Services (Stufe 100)](assetId:///99b97af0-aa7e-41ed-8c81-4eee6c03eb4c) und herab [Stufen von Domänen &#40;Controllern&#41;und Domänen Ebene 200](Demoting-Domain-Controllers-and-Domains--Level-200-.md).  
+Weitere Informationen zum Entfernen von AD DS finden Sie unter [Remove Active Directory Domain Services (Stufe 100)](assetId:///99b97af0-aa7e-41ed-8c81-4eee6c03eb4c) und herab [Stufen von Domänen Controllern und Domänen &#40;Ebene 200&#41;](Demoting-Domain-Controllers-and-Domains--Level-200-.md).  
   
-## <a name="ad-ds-removal-options-and-warnings"></a><a name="BKMK_RemovalOptionsPage"></a>AD DS Entfernungs Optionen und Warnungen  
+## <a name="ad-ds-removal-options-and-warnings"></a><a name="BKMK_RemovalOptionsPage"></a>Optionen und Warnungen zum Entfernen von AD DS  
 Hilfe zur Seite %%amp;quot;Optionen prüfen%%amp;quot; finden Sie unter %%amp;quot;Überprüfungsoptionen%%amp;quot;.  
   
 Wenn der Domänencontroller zusätzliche Rollen hostet (z. B. die DNS-Serverrolle oder den globalen Katalogserver) wird die folgende Warnseite angezeigt:  
@@ -271,7 +271,7 @@ Wenn der Domänencontroller zusätzliche Rollen hostet (z. B. die DNS-Serverrol
   
 Bevor Sie zum Fortsetzen des Vorgangs auf **Weiter** klicken können, müssen Sie auf **Entfernung fortsetzen** klicken, um zu bestätigen, dass die zusätzlichen Rollen nicht mehr verfügbar sein werden.  
   
-Wenn Sie das Entfernen eines Domänencontrollers erzwingen, gehen sämtliche Active Directory-Objektänderungen, die nicht auf andere Domänencontroller in der Domäne repliziert wurden, verloren. Falls der Domänencontroller zudem Betriebsmasterrollen, den globalen Katalog oder die DNS-Serverrolle hostet, kann sich dies wie folgt auf wichtige Vorgänge in der Domäne und Gesamtstruktur auswirken. Versuchen Sie vor dem Entfernen eines Domänencontrollers, der eine beliebige Betriebsmasterrolle hostet, die Rolle auf einen anderen Domänencontroller zu übertragen. Wenn die Rolle nicht übertragen werden kann, entfernen Sie zunächst die Active Directory-Domänendienste von diesem Computer, und übernehmen Sie dann die Rolle mithilfe von %%amp;quot;Ntdsutil.exe%%amp;quot;. Verwenden Sie Ntdsutil für den Domänencontroller, für den die Rolle übernommen werden soll. Verwenden Sie möglichst einen aktuellen Replikationspartner, der sich am gleichen Standort wie dieser Domänencontroller befindet. Weitere Informationen zum übertragen und übernehmen von Betriebs Master Rollen finden Sie im [Artikel 255504](https://go.microsoft.com/fwlink/?LinkId=80395) in der Microsoft Knowledge Base. Wenn der Assistent nicht bestimmen kann, ob der Domänencontroller eine Betriebsmasterrolle hostet, führen Sie den Befehl %%amp;quot;netdom.exe%%amp;quot; aus. Somit können Sie feststellen, ob dieser Domänencontroller Betriebsmasterrollen ausführt.  
+Wenn Sie das Entfernen eines Domänencontrollers erzwingen, gehen sämtliche Active Directory-Objektänderungen, die nicht auf andere Domänencontroller in der Domäne repliziert wurden, verloren. Falls der Domänencontroller zudem Betriebsmasterrollen, den globalen Katalog oder die DNS-Serverrolle hostet, kann sich dies wie folgt auf wichtige Vorgänge in der Domäne und Gesamtstruktur auswirken. Versuchen Sie vor dem Entfernen eines Domänencontrollers, der eine beliebige Betriebsmasterrolle hostet, die Rolle auf einen anderen Domänencontroller zu übertragen. Wenn die Rolle nicht übertragen werden kann, entfernen Sie zunächst die Active Directory-Domänendienste von diesem Computer, und übernehmen Sie dann die Rolle mithilfe von %%amp;quot;Ntdsutil.exe%%amp;quot;. Verwenden Sie Ntdsutil für den Domänencontroller, für den die Rolle übernommen werden soll. Verwenden Sie möglichst einen aktuellen Replikationspartner, der sich am gleichen Standort wie dieser Domänencontroller befindet. Weitere Informationen zum Übertragen und Übernehmen von Betriebsmasterrollen finden Sie in der Microsoft Knowledge Base in [Artikel 255504](https://go.microsoft.com/fwlink/?LinkId=80395). Wenn der Assistent nicht bestimmen kann, ob der Domänencontroller eine Betriebsmasterrolle hostet, führen Sie den Befehl %%amp;quot;netdom.exe%%amp;quot; aus. Somit können Sie feststellen, ob dieser Domänencontroller Betriebsmasterrollen ausführt.  
   
 -   Globaler Katalog: möglicherweise haben die Benutzer Probleme mit der Anmeldung bei Domänen in der Gesamtstruktur. Stellen Sie vor dem Entfernen eines globalen Katalogservers sicher, dass sich in der jeweiligen Gesamtstruktur und an dem jeweiligen Standort genügend globale Katalogserver zum Verarbeiten der Benutzeranmeldungen befinden. Weisen Sie bei Bedarf einen weiteren globalen Katalogserver zu, und aktualisieren Sie die Clients und Anwendungen mit den neuen Informationen.  
   
@@ -295,19 +295,17 @@ Wenn es sich bei dem Domänencontroller um einen DNS-Server handelt, der zum Hos
   
 ![AD DS Installation](media/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions/ADDS_RRW_RemovalOptions.gif)  
   
-Weitere Informationen zum Entfernen von AD DS finden Sie unter [Remove Active Directory Domain Services (Stufe 100)](assetId:///99b97af0-aa7e-41ed-8c81-4eee6c03eb4c) und herab [Stufen von Domänen &#40;Controllern&#41;und Domänen Ebene 200](Demoting-Domain-Controllers-and-Domains--Level-200-.md).  
+Weitere Informationen zum Entfernen von AD DS finden Sie unter [Remove Active Directory Domain Services (Stufe 100)](assetId:///99b97af0-aa7e-41ed-8c81-4eee6c03eb4c) und herab [Stufen von Domänen Controllern und Domänen &#40;Ebene 200&#41;](Demoting-Domain-Controllers-and-Domains--Level-200-.md).  
   
-## <a name="new-administrator-password"></a><a name="BKMK_NewAdminPwdPage"></a>Neues Administrator Kennwort  
+## <a name="new-administrator-password"></a><a name="BKMK_NewAdminPwdPage"></a>Neues Administratorkennwort  
 Auf der Seite **Neues Administrator Kennwort** müssen Sie ein Kennwort für das Administrator Konto des integrierten lokalen Computers angeben, nachdem die Herabstufung abgeschlossen und der Computer zu einem Domänen Mitglieds Server oder Arbeitsgruppen Computer wird.  
   
 ![AD DS Installation](media/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions/ADDS_RRW_NewAdminPwd.gif)  
   
-Weitere Informationen zum Entfernen von AD DS finden Sie unter [Remove Active Directory Domain Services (Stufe 100)](assetId:///99b97af0-aa7e-41ed-8c81-4eee6c03eb4c) und herab [Stufen von Domänen &#40;Controllern&#41;und Domänen Ebene 200](Demoting-Domain-Controllers-and-Domains--Level-200-.md).  
+Weitere Informationen zum Entfernen von AD DS finden Sie unter [Remove Active Directory Domain Services (Stufe 100)](assetId:///99b97af0-aa7e-41ed-8c81-4eee6c03eb4c) und herab [Stufen von Domänen Controllern und Domänen &#40;Ebene 200&#41;](Demoting-Domain-Controllers-and-Domains--Level-200-.md).  
   
 ## <a name="review-options"></a><a name="BKMK_ConfirmRoleRemovalPage"></a>Überprüfungs Optionen  
 Auf der Seite **Optionen prüfen** können Sie die Konfigurationseinstellungen für die Herabstufung in ein Windows PowerShell-Skript exportieren, sodass Sie zusätzliche Herabstufungen automatisieren können. Klicken Sie auf **Tiefer stufen**, um AD DS zu entfernen.  
   
 ![AD DS Installation](media/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions/ADDS_RRW_ReviewOptions.gif)  
   
-
-

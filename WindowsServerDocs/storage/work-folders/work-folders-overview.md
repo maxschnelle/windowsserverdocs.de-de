@@ -9,12 +9,12 @@ manager: dougkim
 ms.author: jgerend
 ms.date: 06/15/2020
 description: 'Eine Übersicht über Arbeitsordner: eine Server Rolle in Windows Server, die Benutzern eine konsistente Möglichkeit bietet, auf Arbeitsdateien von PCs und Geräten zuzugreifen.'
-ms.openlocfilehash: 6385249e15312615ea2ca9145fa4c2ff47bd13d9
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: a6c1f8a30e3e83a0e7a6bac622982f4f43c44258
+ms.sourcegitcommit: f305bc5f1c5a44dac62f4288450af19f351f9576
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85475207"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87118603"
 ---
 # <a name="work-folders-overview"></a>Übersicht über Arbeitsordner
 
@@ -56,11 +56,11 @@ Wenn Sie Arbeitsordner auf Windows 10, Windows 7 oder einem Android-oder IOS-Ger
 
  Arbeitsordner beinhalten die folgenden Funktionen.
 
-| Funktionalität | Verfügbarkeit | BESCHREIBUNG |
+| Funktionalität | Verfügbarkeit | Beschreibung |
 | ------------------- | ------------------ | ----------------- |
 | Rollen Dienst "Arbeitsordner" in Server-Manager | Windows Server 2019, Windows Server 2016 oder Windows Server 2012 R2 | Datei-und Speicherdienste bieten eine Möglichkeit, Synchronisierungs Freigaben (Ordner, in denen die Arbeitsdateien des Benutzers gespeichert sind) einzurichten, Arbeitsordner zu überwachen und Synchronisierungs Freigaben und den Benutzer Zugriff zu verwalten |
 | Arbeitsordner-Cmdlets | Windows Server 2019, Windows Server 2016 oder Windows Server 2012 R2 | Ein Windows PowerShell-Modul, das umfassende Cmdlets zum Verwalten von Arbeitsordner Servern enthält |
-| Integration von Arbeits Ordnern in Windows | Windows 10<p> Windows 8.1<p> Windows RT 8.1<p> Windows 7 (Download erforderlich) | Arbeitsordner bieten die folgenden Funktionen auf Windows-Computern:<p> -Ein System Steuerungselement, das Arbeitsordner einrichtet und überwacht.<br />-Datei-Explorer-Integration, die den einfachen Zugriff auf Dateien in Arbeits Ordnern ermöglicht<br />-Ein Synchronisierungs Modul, das Dateien an einen und von einem zentralen Dateiserver überträgt und gleichzeitig die Akku Lebensdauer und die Systemleistung maximiert |
+| Integration von Arbeits Ordnern in Windows | Windows 10<p> Windows 8.1<p> Windows RT 8.1<p> Windows 7 (Download erforderlich) | Arbeitsordner bieten die folgenden Funktionen auf Windows-Computern:<p> -Ein System Steuerungselement, das Arbeitsordner einrichtet und überwacht.<br />-Datei-Explorer-Integration, die den einfachen Zugriff auf Dateien in Arbeits Ordnern ermöglicht<br />-Ein Synchronisierungs Modul, das Dateien an einen und von einem zentralen Dateiserver überträgt und gleichzeitig die Akku Lebensdauer und die Systemleistung maximiert |
 | Arbeitsordner-App für Geräte | Android<p> Apple iPhone und iPad® | Eine APP, die gängigen Geräten den Zugriff auf Dateien in Arbeits Ordnern ermöglicht |
 
 ## <a name="new-and-changed-functionality"></a>Neue und geänderte Funktionalität
@@ -103,7 +103,7 @@ Für Arbeitsordner gelten die folgenden Softwareanforderungen für Clientcompute
 
 -   Auf PCs und Geräten muss eines der folgenden Betriebssysteme ausgeführt werden:
 
-    -   Windows 10
+    -   Windows 10
 
     -   Windows 8.1
 
@@ -146,7 +146,7 @@ In der folgenden Tabelle wird erläutert, wie verschiedene Microsoft Sync-Techno
 | **Unterstützte Clients** | PCs, Ios, Android | PCs in einem Unternehmensnetzwerk oder über DirectAccess, VPNs oder andere Remote Zugriffs Technologien | PCs, Ios, Android, Windows Phone | PCs, Mac-Computer, Windows Phone, Ios, Android |
 
 > [!NOTE]
->  Zusätzlich zu den in der obigen Tabelle aufgeführten Synchronisierungs Technologien bietet Microsoft andere Replikations Technologien, einschließlich DFS-Replikation, die für die Server-zu-Server-Replikation konzipiert ist, und BranchCache, der als WAN-Beschleunigungs Technologie für Zweigstellen konzipiert ist. Weitere Informationen finden Sie unter [DFS-Namespaces und DFS-Replikation](https://technet.microsoft.com/library/jj127250(v=ws.11).aspx) und [Übersicht über BranchCache](https://technet.microsoft.com/library/hh831696(v=ws.11).aspx) .
+>  Zusätzlich zu den in der obigen Tabelle aufgeführten Synchronisierungs Technologien bietet Microsoft andere Replikations Technologien, einschließlich DFS-Replikation, die für die Server-zu-Server-Replikation konzipiert ist, und BranchCache, der als WAN-Beschleunigungs Technologie für Zweigstellen konzipiert ist. Weitere Informationen finden Sie unter [DFS-Namespaces und DFS-Replikation](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj127250(v=ws.11)) und [Übersicht über BranchCache](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831696(v=ws.11)) .
 
 ## <a name="server-manager-information"></a>Informationen zum Server-Manager
 
@@ -162,15 +162,15 @@ Arbeitsordner sind Teil der Datei-und Speicherdienste-Rolle. Sie können Arbeits
 
  Sie können diesen Windows Server-Rollen Dienst auf einem virtuellen Computer in Windows Azure ausführen. Dieses Szenario wurde mit Windows Server 2012 R2, Windows Server 2016 und Windows Server 2019 getestet.
 
-Weitere Informationen zu den ersten Schritten mit virtuellen Windows Azure-Computern finden Sie auf der [Windows Azure-Website](http://www.windowsazure.com/documentation/services/virtual-machines).
+Weitere Informationen zu den ersten Schritten mit virtuellen Windows Azure-Computern finden Sie auf der [Windows Azure-Website](https://www.windowsazure.com/documentation/services/virtual-machines).
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 
 | Inhaltstyp | Referenzen |
 | ------------------ | ---------------- |
-| **Produktbewertung** | -   [Arbeitsordner für Android – veröffentlicht](https://blogs.technet.microsoft.com/filecab/2016/03/16/work-folders-for-android-released) (Blogbeitrag)<br />-   [Arbeitsordner für IOS – iPad-App-Version](https://blogs.technet.com/b/filecab/archive/2015/01/16/work-folders-for-ios-ipad-app-release.aspx) (Blogbeitrag)<br />-   [Einführung in Arbeitsordner unter Windows Server 2012 R2](https://blogs.technet.com/b/filecab/archive/2013/07/09/introducing-work-folders-on-windows-server-2012-r2.aspx) (Blogbeitrag)<br />-   [Einführung in Arbeitsordner](https://channel9.msdn.com/posts/Introduction-to-Work-Folders) (Channel 9-Video)<br />-   [Test Umgebungs Bereitstellung für Arbeitsordner](https://blogs.technet.com/b/filecab/archive/2013/07/10/work-folders-test-lab-deployment.aspx) (Blogbeitrag)<br />-   [Arbeitsordner für Windows 7](https://blogs.technet.com/b/filecab/archive/2014/04/24/work-folders-for-windows-7.aspx) (Blogbeitrag) |
-| **Bereitstellung** | -   [Entwerfen einer Arbeitsordner Implementierung](plan-work-folders.md)<br />-   [Bereitstellen von Arbeits Ordnern](deploy-work-folders.md)<br />-   [Bereitstellen von Arbeits Ordnern mit AD FS und webanwendungsproxy (WAP)](deploy-work-folders-adfs-overview.md)<br />-   [Bereitstellen von Arbeits Ordnern mit Azure AD Anwendungs Proxy](https://blogs.technet.microsoft.com/filecab/2017/05/31/enable-remote-access-to-work-folders-using-azure-active-directory-application-proxy/)<br />- [Migrations Handbuch für Offlinedateien (CSC) zu Arbeits Ordnern](https://blogs.technet.microsoft.com/filecab/2016/08/12/offline-files-csc-to-work-folders-migration-guide/)<br />-   [Überlegungen zur Leistung von Arbeitsordner Bereitstellungen](https://blogs.technet.com/b/filecab/archive/2013/11/01/performance-considerations-for-large-scale-work-folders-deployments.aspx)<br />-   [Arbeitsordner für Windows 7 (64-Bit-Download)](https://www.microsoft.com/download/details.aspx?id=42558)<br />-   [Arbeitsordner für Windows 7 (32-Bit-Download)](https://www.microsoft.com/download/details.aspx?id=42559) |
-| **Vorgänge** | -   [Arbeitsordner iPad-App: FAQ](https://windows.microsoft.com/windows/work-folders-ipad-faq) (für Benutzer)<br />-   [Arbeitsordner-Zertifikat Verwaltung](https://blogs.technet.com/b/filecab/archive/2013/08/09/work-folders-certificate-management.aspx) (Blogbeitrag)<br />-   Über [Wachen von Windows Server 2012 R2-Arbeitsordner Bereitstellungen](https://blogs.technet.com/b/filecab/archive/2013/10/15/monitoring-windows-server-2012-r2-work-folders-deployments.aspx) (Blogbeitrag)<br />-   [Cmdlets für syncshare (Arbeitsordner) in Windows PowerShell](https://docs.microsoft.com/powershell/module/syncshare/?view=win10-ps)<br />-   [Speicher-und Dateidienste PowerShell-Cmdlets kurz Referenzkarte für Windows Server 2012 R2 Preview Edition](https://blogs.technet.com/b/filecab/archive/2013/07/30/storage-and-file-services-powershell-cmdlets-quick-reference-card-for-windows-server-2012-r2-preview-edition.aspx) |
-| **Problembehandlung** | -   [Windows Server 2012 R2 – Auflösen von Port Konflikten mit IIS-Websites und Arbeits Ordnern](https://blogs.technet.com/b/filecab/archive/2013/10/15/windows-server-2012-r2-resolving-port-conflict-with-iis-websites-and-work-folders.aspx) (Blogbeitrag)<br />-   [Häufige Fehler in Arbeits Ordnern](https://social.technet.microsoft.com/wiki/contents/articles/30578.common-errors-in-work-folders.aspx) |
-| **Communityressourcen** | -   [Forum zu Datei Diensten und Speicher](https://social.technet.microsoft.com/Forums/windowsserver/home?forum=winserverfiles)<br />-   [Das Speicher Team im Microsoft-Datei CAB-Blog](https://blogs.technet.com/b/filecab/)<br />-   [Fragen Sie den Verzeichnisdienste-Teamblog](https://blogs.technet.com/b/askds/) |
-| **Verwandte Technologien** | -   [Speicherung in Windows Server 2016](../storage.yml)<br>-   [Datei-und Speicherdienste](https://technet.microsoft.com/library/hh831487(v=ws.11).aspx)<br />-   [Datei Server Ressourcen-Manager](https://technet.microsoft.com/library/hh831701(v=ws.11).aspx)<br />-   [Ordner Umleitung, Offlinedateien und Roamingbenutzerprofile](https://technet.microsoft.com/library/hh848267(v=ws.11).aspx)<br />-   [BranchCache](https://technet.microsoft.com/library/hh831696(v=ws.11).aspx)<br />-   [DFS-Namespaces und-DFS-Replikation](https://technet.microsoft.com/library/jj127250(v=ws.11).aspx) |
+| **Produktbewertung** | -   [Arbeitsordner für Android – veröffentlicht](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB) (Blogbeitrag)<br />-   [Arbeitsordner für IOS – iPad-App-Version](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB) (Blogbeitrag)<br />-   [Einführung in Arbeitsordner unter Windows Server 2012 R2](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB) (Blogbeitrag)<br />-   [Einführung in Arbeitsordner](https://channel9.msdn.com/posts/Introduction-to-Work-Folders) (Channel 9-Video)<br />-   [Test Umgebungs Bereitstellung für Arbeitsordner](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB) (Blogbeitrag)<br />-   [Arbeitsordner für Windows 7](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB) (Blogbeitrag) |
+| **Bereitstellung** | -   [Entwerfen einer Arbeitsordner Implementierung](plan-work-folders.md)<br />-   [Bereitstellen von Arbeits Ordnern](deploy-work-folders.md)<br />-   [Bereitstellen von Arbeits Ordnern mit AD FS und webanwendungsproxy (WAP)](deploy-work-folders-adfs-overview.md)<br />-   [Bereitstellen von Arbeits Ordnern mit Azure AD Anwendungs Proxy](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB)<br />- [Migrations Handbuch für Offlinedateien (CSC) zu Arbeits Ordnern](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB)<br />-   [Überlegungen zur Leistung von Arbeitsordner Bereitstellungen](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB)<br />-   [Arbeitsordner für Windows 7 (64-Bit-Download)](https://www.microsoft.com/download/details.aspx?id=42558)<br />-   [Arbeitsordner für Windows 7 (32-Bit-Download)](https://www.microsoft.com/download/details.aspx?id=42559) |
+| **Vorgänge** | -   [Arbeitsordner iPad-App: FAQ](https://windows.microsoft.com/windows/work-folders-ipad-faq) (für Benutzer)<br />-   [Arbeitsordner-Zertifikat Verwaltung](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB) (Blogbeitrag)<br />-   Über [Wachen von Windows Server 2012 R2-Arbeitsordner Bereitstellungen](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB) (Blogbeitrag)<br />-   [Cmdlets für syncshare (Arbeitsordner) in Windows PowerShell](/powershell/module/syncshare/?view=win10-ps)<br />-   [Speicher-und Dateidienste PowerShell-Cmdlets kurz Referenzkarte für Windows Server 2012 R2 Preview Edition](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB) |
+| **Problembehandlung** | -   [Windows Server 2012 R2 – Auflösen von Port Konflikten mit IIS-Websites und Arbeits Ordnern](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB) (Blogbeitrag)<br />-   [Häufige Fehler in Arbeits Ordnern](https://social.technet.microsoft.com/wiki/contents/articles/30578.common-errors-in-work-folders.aspx) |
+| **Communityressourcen** | -   [Forum zu Datei Diensten und Speicher](https://social.technet.microsoft.com/Forums/windowsserver/home?forum=winserverfiles)<br />-   [Das Speicher Team im Microsoft-Datei CAB-Blog](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB)<br />-   [Fragen Sie den Verzeichnisdienste-Teamblog](/archive/blogs/askds/) |
+| **Verwandte Technologien** | -   [Speicherung in Windows Server 2016](../storage.yml)<br>-   [Datei-und Speicherdienste](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831487(v=ws.11))<br />-   [Datei Server Ressourcen-Manager](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831701(v=ws.11))<br />-   [Ordner Umleitung, Offlinedateien und Roamingbenutzerprofile](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh848267(v=ws.11))<br />-   [BranchCache](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831696(v=ws.11))<br />-   [DFS-Namespaces und-DFS-Replikation](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj127250(v=ws.11)) |

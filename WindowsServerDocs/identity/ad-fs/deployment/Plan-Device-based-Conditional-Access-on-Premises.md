@@ -8,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: d22897111588393efc148e6f24affeb243ee9e88
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: f3850454f9e2e426ce2d00112adf90f0d2530d8f
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80855333"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86964742"
 ---
 # <a name="plan-device-based-conditional-access-on-premises"></a>Planen des gerätebasierten bedingten lokalen Zugriffs
 
@@ -24,33 +24,33 @@ In diesem Dokument werden Richtlinien für den bedingten Zugriff basierend auf G
 
 AD FS bietet die lokale Komponente der Richtlinien für bedingten Zugriff in einem Hybridszenario.  Wenn Sie Geräte mit Azure AD für den bedingten Zugriff auf cloudressourcen registrieren, werden die Geräte Registrierungsinformationen von der Funktion zum Zurückschreiben von Azure AD Connect Geräten lokal zur Verfügung gestellt, damit AD FS Richtlinien genutzt und erzwungen werden können.  Auf diese Weise haben Sie einen konsistenten Ansatz für die Zugriffs Steuerungs Richtlinien sowohl für lokale als auch für cloudressourcen.  
 
-![bedingter Zugriff](media/Plan-Device-based-Conditional-Access-on-Premises/ADFS_ITPRO4.png)  
+![Bedingter Zugriff](media/Plan-Device-based-Conditional-Access-on-Premises/ADFS_ITPRO4.png)  
 
 ### <a name="types-of-registered-devices"></a>Typen registrierter Geräte  
 Es gibt drei Arten registrierter Geräte, die alle in Azure AD als Geräte Objekte dargestellt und auch für den bedingten Zugriff mit AD FS lokal verwendet werden können.  
 
-| |Geschäfts-oder Schul Konto hinzufügen  |Azure AD-Beitritt  |Windows 10-Domänen Beitritt    
+| |Geschäfts-oder Schul Konto hinzufügen  |Azure AD Join  |Windows 10-Domänen Beitritt    
 | --- | --- |--- | --- |
 |Beschreibung    |  Benutzer fügen ihr Geschäfts-, Schul-oder unikonto dem BYOD-Gerät interaktiv hinzu.  **Hinweis:** Das Hinzufügen eines Geschäfts-, Schul-oder unikontos ist der Ersatz für Workplace Join in Windows 8/8.1       | Benutzer fügen ihr Windows 10-Arbeitsgerät in Azure AD ein.|In die Domäne eingebundener Windows 10-Geräte werden automatisch bei Azure AD registriert|           
 |Anmelden von Benutzern beim Gerät     |  Keine Anmeldung bei Windows als Geschäfts-, Schul-oder unikonto.  Melden Sie sich mit einem Microsoft-Konto an.       |   Melden Sie sich bei Windows als (Geschäfts-, Schul-oder unikonto) an, das das Gerät registriert hat      |     Anmelden mit AD-Konto|      
 |Verwalten von Geräten    |      MDM-Richtlinien (mit zusätzlicher InTune-Registrierung)   | MDM-Richtlinien (mit zusätzlicher InTune-Registrierung)        |   Gruppenrichtlinie Configuration Manager |
-|Azure AD vertrauensungstyp|Arbeitsplatz Beitritt|Azure AD verknüpft|Mit Domäne verknüpft  |     
-|Speicherort für die Einstellungen    | Einstellungen > Konten > Ihrem Konto > Hinzufügen eines Geschäfts-, Schul-oder unikontos        | Einstellungen > System > Informationen zum > Join Azure AD       |   Einstellungen > System > über > beitreten zu einer Domäne |       
+|Azure AD vertrauensungstyp|Arbeitsplatz Beitritt|In Azure AD eingebunden|Domäne beigetreten  |     
+|Speicherort für die Einstellungen    | Einstellungen > Konten > Ihrem Konto > hinzufügen eines Geschäfts-, Schul-oder unikontos        | Einstellungen > System > Informationen zum > Join Azure AD       |   Einstellungen > System > über > beitreten zu einer Domäne |       
 |Auch für IOS-und Android-Geräte verfügbar?   |    Ja     |       Nein  |   Nein   |   
 
   
 
 Weitere Informationen zu den verschiedenen Methoden zum Registrieren von Geräten finden Sie unter:  
-* [Verwenden von Windows 10-Geräten an Ihrem Arbeitsplatz](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-windows10-devices/)  
+* [Verwenden von Windows 10-Geräten an Ihrem Arbeitsplatz](/azure/active-directory/devices/overview)  
 * [Einrichten von Windows 10-Geräten für die Arbeit](https://jairocadena.com/2016/01/18/setting-up-windows-10-devices-for-work-domain-join-azure-ad-join-and-add-work-or-school-account/)  
-[Verknüpfen von Windows 10 Mobile mit Azure Active Directory](https://technet.microsoft.com/itpro/windows/manage/join-windows-10-mobile-to-azure-active-directory)  
+[Verknüpfen von Windows 10 Mobile mit Azure Active Directory](/windows/client-management/join-windows-10-mobile-to-azure-active-directory)  
 
 ### <a name="how-windows-10-user-and-device-sign-on-is-different-from-previous-versions"></a>Unterschiede zwischen der Windows 10-Benutzer-und-Geräte Anmeldung und früheren Versionen  
 Für Windows 10 und AD FS 2016 gibt es einige neue Aspekte der Geräteregistrierung und-Authentifizierung, die Sie kennen sollten (insbesondere, wenn Sie in früheren Versionen mit der Geräteregistrierung und dem Arbeitsplatz Beitritt vertraut sind).  
 
 Erstens: in Windows 10 und AD FS in Windows Server 2016 basieren die Geräteregistrierung und-Authentifizierung nicht mehr ausschließlich auf einem X509-Benutzerzertifikat.  Es gibt ein neues und stabileres Protokoll, das eine bessere Sicherheit und eine nahtlose Benutzer Leistung bietet.  Der Hauptunterschied besteht darin, dass für Windows 10-Domänen Beitritt und-Azure AD Join ein X509-Computer Zertifikat und neue Anmelde Informationen als PRT bezeichnet werden.  [Hier](https://jairocadena.com/2016/01/18/how-domain-join-is-different-in-windows-10-with-azure-ad/) finden Sie Informationen [dazu.](https://jairocadena.com/2016/02/01/azure-ad-join-what-happens-behind-the-scenes/)  
 
-Zweitens unterstützen Windows 10 und AD FS 2016 die Benutzerauthentifizierung mithilfe Microsoft Passport for Work, die Sie [hier](https://jairocadena.com/2016/03/09/azure-ad-and-microsoft-passport-for-work-in-windows-10/) und [hier](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-passport-deployment/)lesen können.  
+Zweitens unterstützen Windows 10 und AD FS 2016 die Benutzerauthentifizierung mithilfe Microsoft Passport for Work, die Sie [hier](https://jairocadena.com/2016/03/09/azure-ad-and-microsoft-passport-for-work-in-windows-10/) und [hier](/windows/security/identity-protection/hello-for-business/hello-identity-verification)lesen können.  
 
 AD FS 2016 bietet nahtlose Geräte-und Benutzer-SSO basierend auf den PRT-und Passport-Anmelde Informationen.  Mithilfe der in diesem Dokument beschriebenen Schritte können Sie diese Funktionen aktivieren und sehen, wie Sie funktionieren.  
 
@@ -88,7 +88,7 @@ Kompatible Geräte verfügen über den **iscompliance** -AD FS Anspruch mit dem 
 Eine umfassende Liste mit AD FS 2016-Gerät und bedingten Zugriffs Ansprüchen finden Sie unter [Reference](#reference).  
 
 
-## <a name="reference"></a>Verweis  
+## <a name="reference"></a>Referenz  
 #### <a name="complete-list-of-new-ad-fs-2016-and-device-claims"></a>Umfassende Liste der neuen AD FS 2016-und Geräteansprüche  
 
 * https://schemas.microsoft.com/ws/2014/01/identity/claims/anchorclaimtype  

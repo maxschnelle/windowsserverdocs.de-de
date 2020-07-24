@@ -8,12 +8,12 @@ ms.date: 10/24/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: f4dd1d45646475be3788cd6b615b1743976eedae
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ce9bddbc9b03a9019860e9b831bb928326098b76
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71358412"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86965952"
 ---
 # <a name="using-an-azure-ad-ux-web-theme-in-active-directory-federation-services"></a>Verwenden eines Azure AD UX-Webdesigns in Active Directory-Verbunddienste (AD FS)
 Der Anmeldevorgang von AD FS Formularen spiegelt derzeit nicht die Anmeldung bei Azure/O365 wider.  Um Endbenutzern eine einheitlichere und reibungslose Darstellung zu bieten, haben wir das folgende Cascading Stylesheet-Webdesign veröffentlicht, das auf Ihre AD FS Server angewendet werden kann.  Derzeit sieht die Formular Anmeldung für AD FS unter Windows Server 2016 wie folgt aus:
@@ -32,12 +32,12 @@ Um das neue Webdesign zu aktivieren, verwenden Sie das folgende Verfahren:
 
 ### <a name="to-enable-the-new-azure-ad-ux-web-theme-in-ad-fs"></a>So aktivieren Sie das neue Azure AD UX-Webdesign in AD FS
 1. Starten Sie PowerShell als Administrator.
-2. Erstellen Sie ein neues Webdesign mithilfe von PowerShell: `New-AdfsWebTheme –Name custom –StyleSheet @{path="c:\NewTheme.css"}`
-3. Legen Sie das neue Design mithilfe von PowerShell als aktives Design fest: `Set-AdfsWebConfig -ActiveThemeName custom`
-   ![PowerShell](media/Azure-UX-Web-Theme-in-AD-FS/two.png)
-4. Testen Sie die Anmeldung, indem Sie zu https://<AD FS name.domain>/adfs/ls/idpinitiatedsignon.htm ![anmelden wechseln](media/Azure-UX-Web-Theme-in-AD-FS/three.png)
+2. Erstellen Sie ein neues Webdesign mithilfe von PowerShell:`New-AdfsWebTheme –Name custom –StyleSheet @{path="c:\NewTheme.css"}`
+3. Festlegen des neuen Designs als aktives Design mithilfe von PowerShell: `Set-AdfsWebConfig -ActiveThemeName custom` 
+    ![ PowerShell](media/Azure-UX-Web-Theme-in-AD-FS/two.png)
+4. Testen Sie die Anmeldung, indem Sie zu https:// <AD FS name.domain> /adfs/ls/idpinitiatedsignon.htm ![ Anmelden wechseln.](media/Azure-UX-Web-Theme-in-AD-FS/three.png)
 
-> ! Nebenbei Sie müssen sicherstellen, dass "idpinitiatedsignon aktiviert ist.  Er ist standardmäßig nicht aktiviert.  Um "idpinitiatedsignon zu aktivieren, verwenden Sie den folgenden PowerShell-Befehl: `Set-AdfsProperties –EnableIdpInitiatedSignonPage $True`
+> ! Nebenbei Sie müssen sicherstellen, dass "idpinitiatedsignon aktiviert ist.  Er ist standardmäßig nicht aktiviert.  Verwenden Sie den folgenden PowerShell-Befehl, um "idpinitiatedsignon zu aktivieren:`Set-AdfsProperties –EnableIdpInitiatedSignonPage $True`
 
 ## <a name="image-recommendations"></a>Bild Empfehlungen
 Wenn Sie die zentrierte Benutzeroberfläche aktivieren, können Sie die gleichen Images für Hintergrund und Logo verwenden, die Sie möglicherweise bereits für Azure Active Directory Unternehmens Branding besitzen. Im Allgemeinen gelten die gleichen Empfehlungen für Größe, Verhältnis und Format.
@@ -46,15 +46,15 @@ Wenn Sie die zentrierte Benutzeroberfläche aktivieren, können Sie die gleichen
 
 Beschreibung | Einschränkungen | Empfehlungen
 ------- | ------- | ----------
-Das Logo wird oben im Anmelde Panel angezeigt. | Transparentes JPG oder PNG<br>Maximale Höhe: 36 px<br>Maximale Breite: 245 px | Verwenden Sie das Logo Ihrer Organisation hier.<br>Verwenden Sie ein transparentes Bild. Gehen Sie nicht davon aus, dass der Hintergrund weiß ist.<br>Fügen Sie im Bild keine Auffüll Zeichen um Ihr Logo hinzu, da Ihr Logo unverhältnismäßig klein aussehen wird.
+Das Logo wird oben im Anmelde Panel angezeigt. | Transparente JPG- oder PNG-Datei<br>Max. Höhe: 36 px<br>Max. Breite: 245 px | Verwenden Sie das Logo Ihrer Organisation hier.<br>Verwenden Sie ein transparentes Bild. Gehen Sie nicht davon aus, dass der Hintergrund weiß ist.<br>Fügen Sie keinen Abstand um Ihr Logo herum in der Abbildung ein, da Ihr Logo anderenfalls unverhältnismäßig klein aussehen wird.
 
 ### <a name="background"></a>Hintergrund
 
 Beschreibung | Einschränkungen | Empfehlungen
 ------- | ------- | ----------
-Diese Option wird im Hintergrund der Anmeldeseite angezeigt, ist in der Mitte des sichtbaren Bereichs verankert, und skaliert und mit dem Bildschirm, um das Browserfenster auszufüllen.    <br>Auf schmalen Bildschirmen, wie z. b. Mobiltelefonen, wird dieses Bild nicht angezeigt.<br>Beim Laden der Seite wird auf dieses Bild eine schwarze Maske mit 0,55 Deckkraft angewendet. | JPG oder PNG<br>Bild Dimensionen: 1920 x 1080 px<br>Dateigröße: &lt; 300 KB | <br>Verwenden Sie Bilder, bei denen es keinen starken Fokus hat. Das nicht transparente Anmeldeformular wird über dem Mittelpunkt dieses Bilds angezeigt und kann abhängig von der Größe des Browserfensters einen beliebigen Teil des Bilds abdecken.<br>Halten Sie die Dateigröße gering, um schnelle Ladezeiten sicherzustellen.
+Diese Option wird im Hintergrund der Anmeldeseite angezeigt, ist in der Mitte des sichtbaren Bereichs verankert und wird so skaliert und zugeschnitten, dass das gesamte Browserfenster ausgefüllt ist.    <br>Auf schmalen Bildschirmen, z.B. von Mobiltelefonen, wird dieses Bild nicht angezeigt.<br>Beim Laden der Seite wird eine schwarze Maske mit einer Deckkraft von 0,55 auf dieses Bild angewendet. | JPG oder PNG<br>Bildmaße: 1.920 x 1.080 px<br>Dateigröße: &lt; 300 KB | <br>Verwenden Sie Bilder, in denen die Bildschärfe sich nicht auf einen Bereich konzentriert. Das nicht transparente Anmeldeformular wird über dem Mittelpunkt dieses Bilds angezeigt und kann abhängig von der Größe des Browserfensters einen beliebigen Teil des Bilds einnehmen.<br>Verwenden Sie keine große Datei, um kurze Ladezeiten zu gewährleisten.
 
 ## <a name="next-steps"></a>Nächste Schritte
-- [AD FS Anpassung in Windows Server 2016](AD-FS-Customization-in-Windows-Server-2016.md)
+- [AD FS Anpassung in Windows Server 2016](./ad-fs-customization-in-windows-server.md)
 - [Erweiterte Anpassung](Advanced-Customization-of-AD-FS-Sign-in-Pages.md)
 - [Benutzerdefinierte Webdesigns](Custom-Web-Themes-in-AD-FS.md)

@@ -1,5 +1,5 @@
 ---
-title: Konfigurieren von EAP-TLS, um ignorieren (Certificate Revocation List, CRL) überprüfen
+title: Konfigurieren von EAP-TLS für das Ignorieren der Zertifikatssperrlisten-Überprüfung
 description: Ein EAP-TLS-Client kann keine Verbindung herstellen, es sei denn, der NPS-Server schließt eine Sperr Überprüfung der Zertifikatskette (einschließlich des Stamm Zertifikats) des Clients ab und überprüft, ob Zertifikate widerrufen wurden.
 ms.prod: windows-server
 ms.technology: networking-ras
@@ -9,14 +9,14 @@ ms.author: v-tea
 author: Teresa-MOTIV
 ms.localizationpriority: medium
 ms.reviewer: deverette
-ms.openlocfilehash: db85d71ed1b7d8d5b3c14ac8ea603789422ea2cb
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: e97556ab35471c1745c01b6ebd047cd1451ffb27
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80818883"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86966752"
 ---
-# <a name="step-71-configure-eap-tls-to-ignore-certificate-revocation-list-crl-checking"></a>Schritt 7.1. Konfigurieren von EAP-TLS, um ignorieren (Certificate Revocation List, CRL) überprüfen
+# <a name="step-71-configure-eap-tls-to-ignore-certificate-revocation-list-crl-checking"></a>Schritt 7.1: Konfigurieren von EAP-TLS für das Ignorieren der Zertifikatssperrlisten-Überprüfung
 
 >Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
@@ -37,7 +37,7 @@ Da die Authentifizierungsmethode EAP-TLS ist, wird dieser Registrierungs Wert nu
 
 **Dringlichkeit**
 
-1. Öffnen Sie " **Regedit. exe** " auf dem NPS-Server.
+1. Öffnen Sie **regedit.exe** auf dem NPS-Server.
 
 2. Navigieren Sie zu **HKEY_LOCAL_MACHINE \system\currentcontrolset\services\rasman\ppp\eap\13**.
 
@@ -47,7 +47,7 @@ Da die Authentifizierungsmethode EAP-TLS ist, wird dieser Registrierungs Wert nu
 
 5. Wählen Sie **OK** aus, und starten Sie den Server neu. Das Neustarten der RRAS-und NPS-Dienste genügt nicht.
 
-Weitere Informationen finden Sie unter [Aktivieren oder Deaktivieren der Zertifikat Sperr Überprüfung (CRL) auf Clients](https://technet.microsoft.com/library/bb680540.aspx).
+Weitere Informationen finden Sie unter [Aktivieren oder Deaktivieren der Zertifikat Sperr Überprüfung (CRL) auf Clients](/previous-versions/system-center/configuration-manager-2007/bb680540(v=technet.10)).
 
 
 |Registrierungspfad  |EAP-Erweiterung  |

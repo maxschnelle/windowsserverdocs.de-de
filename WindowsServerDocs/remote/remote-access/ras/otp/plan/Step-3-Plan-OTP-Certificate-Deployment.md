@@ -8,18 +8,18 @@ ms.topic: article
 ms.assetid: eca02eeb-d92d-463e-aae0-1f7038ba26fe
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 03ae91c0360153789658e0c31cb17980fad32bab
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: a65ddec97bcdd911d0cf81bfd54e2ddbb286ed54
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80855763"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86965262"
 ---
 # <a name="step-3-plan-otp-certificate-deployment"></a>Schritt 3 Planen der OTP-Zertifikat Bereitstellung
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Nach der Planung des RADIUS-Servers müssen Sie die Anforderungen der Zertifizierungsstelle (Certification Authority, ca) planen, einschließlich der Zertifizierungsstelle, von der die Zertifikate für einmal Kennwort (OTP), die OTP-Zertifikat Vorlage und das vom Remote Server verwendete Registrierungsstellen Zertifikat ausgestellt werden. Zugriffs Server zum Signieren aller OTP-Zertifikat Anforderungen für den DirectAccess-Client. Diese Zertifikate werden wie folgt verwendet:  
+Nach der Planung des RADIUS-Servers müssen Sie die Anforderungen an die Zertifizierungsstelle (Certification Authority, ca) planen, einschließlich der Zertifizierungsstelle, von der ein einmal Kennwort (OTP) (einmal Kennwort), die OTP-Zertifikat Vorlage und das Registrierungsstellen Zertifikat, das vom RAS-Server verwendet wird, zum Signieren aller OTP-Zertifikat Anforderungen von DirectAccess Diese Zertifikate werden wie folgt verwendet:  
   
 1.  Der DirectAccess-Client fordert ein OTP-Zertifikat an, und der Remote Zugriffs Server empfängt die Anforderung.  
   
@@ -54,7 +54,7 @@ Jeder DirectAccess-Client benötigt ein OTP-Authentifizierungszertifikat, um Zug
 -   Der Gültigkeits Zeitraum muss auf eine Stunde festgelegt werden.  
   
     > [!NOTE]  
-    > In Fällen, in denen der Zertifizierungsstellen Server ein Windows Server 2003-Computer ist, muss die Vorlage auf einem anderen Computer konfiguriert werden. Dies liegt daran, dass das Festlegen der **Gültigkeitsdauer** in Stunden nicht möglich ist, wenn Windows-Versionen vor 2008/Vista ausgeführt werden. Wenn auf dem Computer, den Sie zum Konfigurieren der Vorlage verwenden, die Zertifizierungsdienst Rolle nicht installiert ist, oder es sich um einen Client Computer handelt, müssen Sie möglicherweise das Zertifikat Vorlagen-Snap-in installieren. Weitere Informationen zu diesem Betreff finden Sie [hier](https://technet.microsoft.com/library/cc732445.aspx).  
+    > In Fällen, in denen der Zertifizierungsstellen Server ein Windows Server 2003-Computer ist, muss die Vorlage auf einem anderen Computer konfiguriert werden. Dies liegt daran, dass das Festlegen der **Gültigkeitsdauer** in Stunden nicht möglich ist, wenn Windows-Versionen vor 2008/Vista ausgeführt werden. Wenn auf dem Computer, den Sie zum Konfigurieren der Vorlage verwenden, die Zertifizierungsdienst Rolle nicht installiert ist, oder es sich um einen Client Computer handelt, müssen Sie möglicherweise das Zertifikat Vorlagen-Snap-in installieren. Weitere Informationen zu diesem Betreff finden Sie [hier](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc732445(v=ws.11)).  
   
 -   Der Erneuerungs Zeitraum muss auf 0 festgelegt werden.  
   
@@ -73,5 +73,3 @@ Wenn DirectAccess-Clients ein OTP-Zertifikat anfordern, empfängt der RAS-Server
   
 -   [Schritt 4: Planen von OTP für den Remote Zugriffs Server](Step-4-Plan-for-OTP-on-the-Remote-Access-Server.md)  
   
-
-

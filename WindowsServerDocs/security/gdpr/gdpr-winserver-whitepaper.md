@@ -1,101 +1,101 @@
 ---
 title: Ihre Reise in die Datenschutz-Grundverordnung (DSGVO) für Windows Server 2016
-description: Verwenden in diesen Artikel, um zu verstehen, was GDPR ist und die Produkte von Microsoft, um Ihnen den Einstieg zur Kompatibilität zu erleichtern.
+description: Verwenden Sie diesen Artikel, um zu verstehen, welche dsgvo es sind und welche Produkte Microsoft bereitstellt, um Ihnen den Einstieg in die Konformität zu erleichtern.
 ms.technology: techgroup-security
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: nirb
 author: nirb-ms
-ms.openlocfilehash: 51768dc65128f27dcbf78cbfc776500ac3832615
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 6e105171a9d645eb93ce4739514752698cd45c02
+ms.sourcegitcommit: f305bc5f1c5a44dac62f4288450af19f351f9576
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949836"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87118652"
 ---
 # <a name="beginning-your-general-data-protection-regulation-gdpr-journey-for-windows-server"></a>Starten ihrer Datenschutz-Grundverordnung-Journey (dsgvo) für Windows Server 
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Dieser Artikel enthält Informationen zu den GDPR, einschließlich einer Beschreibung und der Produkte von Microsoft, um Ihnen den Einstieg in die Kompatibilität zu erleichtern.
+In diesem Artikel finden Sie Informationen zur dsgvo, einschließlich der Informationen und der Produkte, die Microsoft bereitstellt, um Sie bei der Konformität zu unterstützen.
 
 ## <a name="introduction"></a>Einführung
-Am 25. Mai 2018 tritt ein europäisches Datenschutzgesetze in Kraft, das ein neues globales Niveau für Datenschutz, Sicherheit und Compliance festlegt.
+Am 25. Mai 2018 tritt ein europäisches Datenschutzgesetz in Kraft, das eine neue globale Messlatte für Datenschutzrechte, Sicherheit und Konformität setzt.
 
-Die allgemeine Data Protection-Richtlinie, oder GDPR, ist im Grunde über Schutz und Aktivierung des Datenschutzrechts von Personen. Die GDPR stellt strikte globale Datenschutzanforderungen über die Verwaltung und den persönlichen Schutz von Daten bei gleichzeitiger Wahrung der Auswahl des Indviduums – unabhängig davon, wo die Daten gesendet, verarbeitet oder gespeichert werden.
+Bei der Datenschutz-Grundverordnung oder dsgvo geht es im Wesentlichen darum, die Datenschutz Rechte einzelner Personen zu schützen und zu aktivieren. Die dsgvo richtet strikte globale Datenschutzanforderungen ein, die festlegen, wie Sie persönliche Daten verwalten und schützen, während Sie die individuelle Auswahl berücksichtigen – unabhängig davon, wo Daten gesendet, verarbeitet oder gespeichert werden.
 
-Microsoft und unsere Kunden bemühen sich aktuell, die Ziele des Datenschutzes der GDPR zu erzielen. Wir von Microsoft sind der Meinung, Datenschutz ist ein grundlegendes Recht, und wir glauben, dass die GDPR ein wichtiger Schritt für den Schutz und die Aktivierung des Datenschutzrechts von Personen ist. Aber wir wissen auch, dass eine GDPR wichtige Änderungen bei Organisationen weltweit erfordert.
+Microsoft und unsere Kunden sind nun auf dem Weg, die Datenschutz Ziele der dsgvo zu erreichen. Microsoft ist der Meinung, dass der Datenschutz ein grundlegendes Recht ist, und wir glauben, dass die dsgvo ein wichtiger Schritt für die Verdeutlichung und Aktivierung einzelner Datenschutz Rechte ist. Wir erkennen aber auch, dass die dsgvo bedeutende Änderungen von Organisationen auf der ganzen Welt erfordern wird.
 
-Wir haben unser Engagement für die GDPR beschrieben und wie wir unsere Kunden unterstützen. Diese finden Sie in dem Blogbeitrag [Mit Microsoft-Cloud GDPR-kompatibel werden](https://blogs.microsoft.com/on-the-issues/2017/02/15/get-gdpr-compliant-with-the-microsoft-cloud/#hv52B68OZTwhUj2c.99) von unseren Chief Privacy Officer [Brendon Lynch](https://blogs.microsoft.com/on-the-issues/author/brendonlynch/) und dem Blogbeitrag [Sichern Sie Ihre Vertrauensstellung mit vertraglichen Verpflichtungen für die allgemeine Data Protection Verordnung](https://blogs.microsoft.com/on-the-issues/2017/04/17/earning-trust-contractual-commitments-general-data-protection-regulation/#6QbqoGWXCLavGM63.99) von [Rich Sauer](https://blogs.microsoft.com/on-the-issues/author/rsauer/) - Microsoft Corporate Vice President & Deputy General Counsel.
+Wir haben unser Engagement für die dsgvo erläutert und erläutert, wie wir unsere Kunden im Rahmen der durch die Microsoft Cloud im Blogbeitrag "dsgvo" kompatiblen Datenschutzbeauftragten " [Brendon lyngvo](https://blogs.microsoft.com/on-the-issues/author/brendonlynch/) " und das einbringen [ihrer Vertrauensstellung mit vertraglichen Verpflichtungen an den Datenschutz-Grundverordnung](https://blogs.microsoft.com/on-the-issues/2017/04/17/earning-trust-contractual-commitments-general-data-protection-regulation/#6QbqoGWXCLavGM63.99)"-Blogbeitrag von [Rich sauer](https://blogs.microsoft.com/on-the-issues/author/rsauer/) -Microsoft Corporate Vice President & Vice Officer" General Counsel " [erhalten](https://blogs.microsoft.com/on-the-issues/2017/02/15/get-gdpr-compliant-with-the-microsoft-cloud/#hv52B68OZTwhUj2c.99) .
 
-Auch wenn Ihrer Reise in die GDPR-Kompatibilität eine große Herausforderung zu sein scheint, wir sind hier, um Sie zu unterstützen. Spezifische Informationen über die GDPR, unsere Verpflichtungen und wie Sie Ihre Reise beginnen finden Sie im [GDPR-Abschnitt im Microsoft Trust Center](https://www.microsoft.com/trustcenter/privacy/gdpr).
+Auch wenn Ihre Reise zur dsgvo-Konformität schwierig erscheinen mag, sind wir hier, um Sie zu unterstützen. Spezifische Informationen über die dsgvo, unsere Verpflichtungen und deren Einstieg finden Sie im Abschnitt zur dsgvo im [Microsoft Trust Center](https://www.microsoft.com/trustcenter/privacy/gdpr).
 
-## <a name="gdpr-and-its-implications"></a>GDPR und seine Folgen
-Der GDPR ist eine komplexe Verordnung, die möglicherweise wesentliche Änderungen in Bezug auf das Sammeln, Verwenden und Verwalten von persönlichen Daten erfordert. Microsoft hilft seit langem seinen Kunden komplexe Bestimmungen zu befolgen, und bei der Vorbereitung auf den GDPR sind wir Ihr Partner auf dem Weg.
+## <a name="gdpr-and-its-implications"></a>Dsgvo und ihre Auswirkungen
+Die dsgvo ist eine komplexe Verordnung, die möglicherweise bedeutende Änderungen an der Erfassung, Verwendung und Verwaltung persönlicher Daten erfordert. Microsoft hat viel Zeit damit, Kunden bei der Erfüllung komplexer Vorschriften zu unterstützen. bei der Vorbereitung auf die dsgvo sind wir auf diesem Weg Ihr Partner.
 
-GDPR erzwingt Regeln für Organisationen, die Waren anbieten und an Personen in der Europäischen Union (EU) verkaufen, oder die Daten für Mitglieder der EU sammeln und analysieren, unabhängig davon, wo sich diese Unternehmen befinden. Im Folgenden finden Sie die Schlüsselelemente der GDPR:
+Die dsgvo erzwingt Regeln für Organisationen, die Personen in der Europäischen Union (EU) waren und Dienstleistungen anbieten oder Daten sammeln und analysieren, die an EU-Bürger gebunden sind, unabhängig davon, wo sich diese Unternehmen befinden. Zu den wichtigsten Elementen der dsgvo zählen die folgenden:
 
-- **Erweiterte persönliche Datenschutz Rechte.** Ein stärkerer Datenschutz für Einwohner der EU, um sicherzustellen, dass sie die Zugriffsberechtigung für den Zugriff auf ihre persönlichen Daten erhalten, Ungenauigkeiten in diesen Daten korrigieren, diese löschen können, bei der Verarbeitung ihrer persönlichen Daten Einspruch erheben und diese verschieben können.
+- **Erweiterte persönliche Datenschutz Rechte.** Der Datenschutz für die Einwohner der EU wurde gestärkt, indem sichergestellt wird, dass Sie über die Berechtigung zum Zugriff auf Ihre personenbezogenen Daten verfügen, um Ungenauigkeiten in diesen Daten zu beheben, diese Daten zu löschen, das Objekt für die Verarbeitung Ihrer persönlichen Daten zu schützen und zu verschieben.
 
-- **Erhöhung der Aufgaben zum Schutz personenbezogener Daten.** Verstärkte Verantwortlichkeit von Organisationen, die personenbezogene Daten verwalten, mehr Klarheit der Verantwortung bei der Einhaltung der Kompatibilität.
+- **Erhöhung der Aufgaben zum Schutz personenbezogener Daten.** Verstärkte Verantwortlichkeit von Organisationen, die personenbezogene Daten verarbeiten, wodurch die Verantwortung für die Gewährleistung der Compliance gesteigert wird.
 
-- **Obligatorische Berichte zu personenbezogenen Datenverletzungen.** Organisationen, die Kontrolle über persönliche Daten haben müssen ihren zuständigen Behörden unverzüglich persönliche Datenverstöße melden, die die Rechte und Grundfreiheiten von Personen gefährden, und wenn möglich innerhalb von 72 Stunden nachdem die Verletzung bekannt wird.
+- **Obligatorische Berichte zu personenbezogenen Datenverletzungen.** Organisationen, die personenbezogene Daten kontrollieren, sind erforderlich, um persönliche Datenverletzungen zu melden, die ein Risiko für die Rechte und Freiheitsrechte von Personen für ihre Aufsichtsbehörden darstellen, ohne unnötige Verzögerung und, wenn möglich 72, nach dem Erkennen der Sicherheitsverletzung.
 
-Wie erwartet hat die GDPR einen erheblichen Einfluss auf Ihr Unternehmen und erfordert eventuell die Datenschutzrichtlinien zu aktualisieren, Datenschutzkontrollen und -verstoßprozeduren zu implementieren und zu stärken, transparente Richtlinien bereitzustellen und in IT und Schulungen weite zu investieren. Mit Microsoft Windows 10 können Sie effektiv und effizient einige der folgenden Anforderungen in den Griff bekommen.
+Wie Sie vielleicht vermuten, kann die dsgvo einen erheblichen Einfluss auf Ihr Unternehmen haben, was möglicherweise dazu führen kann, dass Sie Datenschutzrichtlinien aktualisieren, Datenschutz Kontrollen implementieren und verstärken und Benachrichtigungs Prozeduren für Verstöße bereitstellen, äußerst transparente Richtlinien bereitstellen und weitere Investitionen in IT- Microsoft Windows 10 kann Sie bei der effektiven und effizienten Lösung einiger dieser Anforderungen unterstützen.
 
-## <a name="personal-and-sensitive-data"></a>Persönliche und vertrauliche Daten
-Als Teil Ihres Aufwands zur Einhaltung der GDPR müssen Sie wissen, wie Verordnung persönliche und vertrauliche Daten definiert und wie diese Definitionen auf Daten Ihrer Organisation zutrifft. Basierend auf diesem Verständnis können Sie ermitteln, wo diese Daten erstellt, verarbeitet, verwaltet und gespeichert werden.
+## <a name="personal-and-sensitive-data"></a>Persönliche und sensible Daten
+Als Teil ihres Aufwands für die Einhaltung der dsgvo müssen Sie verstehen, wie die-Verordnung persönliche und sensible Daten definiert und wie diese Definitionen mit den von Ihrer Organisation gespeicherten Daten in Zusammenhang stehen. Basierend auf diesem Verständnis können Sie ermitteln, wo diese Daten erstellt, verarbeitet, verwaltet und gespeichert werden.
 
-Die GDPR betrachtet persönliche Daten als alle Informationen im Zusammenhang mit einer bestimmten oder bestimmbare natürlichen Person. Dies bedeutet eine direkte Identifizierung (z. B. Ihr vollständiger Name) und eine indirekte Identifizierung (z. B. bestimmte Informationen, die Sie als Datenverweis identifiziert). Die GDPR verdeutlich, dass das Konzept der persönlichen Daten Online-IDs (z. B. IP-Adressen, mobile Geräte-IDs) und Positionsdaten umfasst.
+Die dsgvo berücksichtigt persönliche Daten als Informationen, die sich auf eine identifizierte oder identifizierbare natürliche Person beziehen. Dies kann sowohl eine direkte Identifikation (z. b. ihren rechtlichen Namen) als auch eine indirekte Identifizierung enthalten (z. b. bestimmte Informationen, mit denen klar ist, dass es sich um die Daten Verweise handelt). Die dsgvo macht auch klar, dass das Konzept der persönlichen Daten Online-IDs (z. b. IP-Adressen, IDs mobiler Geräte) und Standortdaten umfasst.
 
-Die dsgvo führt bestimmte Definitionen für die Daten der genetische Daten (z. b. die Gene Rate eines Einzelpersonen) und biometrische Daten ein. Genetische Daten und biometrische Daten zusammen mit anderen Unterkategorien persönlicher Daten (persönliche Daten Offenlegung von rassischem oder ethnischem Ursprung, politischen Meinungen, religiösen oder philosophischen Überzeugungen oder Mitgliedschafts Mitgliedschaften: Daten zur Integrität oder Daten zu einem das Geschlecht der Person oder die sexuelle Orientierung) werden als sensible personenbezogene Daten in der dsgvo behandelt. Sensible personenbezogene Daten bieten erweiterten Schutz und erfordern im Allgemeinen die explizite Zustimmung eines einzelnen, wenn diese Daten verarbeitet werden sollen.
+Die dsgvo führt bestimmte Definitionen für die Daten der genetische Daten (z. b. die Gene Rate eines Einzelpersonen) und biometrische Daten ein. Als sensible personenbezogene Daten werden im Rahmen der dsgvo als sensible personenbezogene Daten behandelt, und zwar zusammen mit anderen Unterkategorien personenbezogener Daten (personenbezogene Daten, die sich auf den Grund für das Geschlecht oder die sexuelle Orientierung der Person und der Natur beziehen). Sensible personenbezogene Daten bieten erweiterten Schutz und erfordern im Allgemeinen die explizite Zustimmung eines einzelnen, wenn diese Daten verarbeitet werden sollen.
 
-### <a name="examples-of-info-relating-to-an-identified-or-identifiable-natural-person-data-subject"></a>Beispiele für Informationen über eine bestimmte oder bestimmbare natürliche Person (Datenbetreff)
-Diese Liste enthält Beispiele für verschiedene Arten von Informationen, die über GDPR geregelt werden. Diese Liste ist nicht vollständig.
+### <a name="examples-of-info-relating-to-an-identified-or-identifiable-natural-person-data-subject"></a>Beispiele für Informationen, die sich auf eine identifizierte oder identifizierbare natürliche Person beziehen (Datensubjekt)
+Diese Liste enthält Beispiele für verschiedene Arten von Informationen, die durch die dsgvo reguliert werden. Dies ist keine vollständige Liste.
 
 -   Name
 
--   ID-Nummer (wie Sozialversicherungsnummer)
+-   Identifikationsnummer (z. b. SSN)
 
--   Wohnortdaten (z. B. die Privatadresse)
+-   Standortdaten (z. b. die Privatadresse)
 
--   Online-ID (z. B. die E-Mail-Adresse, der Bildschirmname, die IP-Adresse, Geräte-IDs)
+-   Online Kennung (z. b. e-Mail-Adresse, Bildschirmnamen, IP-Adresse, Geräte-IDs)
 
--   Pseudonyme Daten (z. B. einen Schlüssel zur Personenidentität verwenden)
+-   Pseudonyme Daten (z. b. die Verwendung eines Schlüssels zum Identifizieren einzelner Personen)
 
--   Genetische Daten (z. B. biologische Stichproben einer Person)
+-   Genetische Daten (z. b. biologische Stichproben von einem einzelnen)
 
--   Biometrische Daten (z. B. Fingerabdrücke, Gesichtserkennung)
+-   Biometrische Daten (z. b. Fingerabdrücke, Gesichtserkennung)
 
-## <a name="getting-started-on-the-journey-towards-gdpr-compliance"></a>Erste Schritte auf dem Weg in Richtung GDPR-Kompatibilität
-Da der Schritt zur GDPR-Kompatibilität vieles umfasst, wird dringend empfohlen, mit den Vorbereitungen nicht bis zum Erzwingen der Richtlinien zu warten. Sie sollten Ihre Privatsphäre- und die Daten-Verwaltungsverfahren jetzt überprüfen. Es wird empfohlen, dass Sie Ihre Reise in die GDPR-Kompatibilität durch den Fokus auf vier wichtige Schritte beginnen:
+## <a name="getting-started-on-the-journey-towards-gdpr-compliance"></a>Einführung in die Einhaltung der dsgvo
+Wir empfehlen dringend, dass Sie nicht auf die Vorbereitung warten, bis die Erzwingung beginnt. Sie sollten die Datenschutz-und Daten Verwaltungsverfahren jetzt überprüfen. Es wird empfohlen, dass Sie mit der Einhaltung der dsgvo-Konformität beginnen, indem Sie sich auf vier wichtige Schritte konzentrieren:
 
--   **Stellen.** Identifizieren Sie Ihre persönlichen Daten und wo sie sich befinden. 
+-   **Stellen.** Identifizieren Sie, welche personenbezogenen Daten Sie haben und wo Sie sich befindet. 
 
--   **Stelligen.** Steuern, wie auf persönliche Daten zugegriffen und wie sie verwendet werden.
+-   **Stelligen.** Legen Sie fest, wie personenbezogene Daten genutzt werden und wie darauf zugegriffen wird.
 
--   **Schützen.** Richten Sie Sicherheitsmechanismen ein, um zu verhindern, erkennen und auf Sicherheitsrisiken und Datenschutzverletzungen zu reagieren.  
+-   **Schützen.** Richten Sie Sicherheitsmaßnahmen ein, um Sicherheitsrisiken und Sicherheitsverletzungen bei Daten zu verhindern, zu erkennen und darauf zu reagieren.  
 
--   **Ver.** Reagieren Sie auf Datenanforderungen, melden Sie Datenschutzverletzungen, und behalten Sie die erforderliche Dokumentation.
+-   **Ver.** Reagieren Sie auf Datenanforderungen, melden Sie Datenverletzungen, und behalten Sie die erforderliche Dokumentation bei.
 
-    ![Diagramm zur Funktionsweise der 4 Schritte für GDPR und wie sie zusammen funktionieren](../media/GDPR-Windows-Server-Overview/gdpr-steps-diagram.png)
+    ![Diagramm zur Zusammenarbeit der vier schlüsseldsgvo-Schritte](../media/GDPR-Windows-Server-Overview/gdpr-steps-diagram.png)
 
-Für die einzelnen Schritte haben wir Beispiel-Tools, Ressourcen und Funktionen in verschiedenen Microsoft-Lösungen beschrieben, die verwendet werden können, um die Anforderungen des Schritts einzuhalten. Dieser Artikel ist zwar kein umfassendes Leitfaden, aber wir haben Links für Sie eingefügt, um weitere Informationen zu erhalten. Weitere Informationen finden Sie im Abschnitt zur dsgvo im [Microsoft Trust Center](https://www.microsoft.com/trustcenter/privacy/gdpr).
+In den einzelnen Schritten haben wir Beispiel Tools, Ressourcen und Features in verschiedenen Microsoft-Lösungen erläutert, die Ihnen bei der Bewältigung der Anforderungen dieses Schritts helfen können. Dieser Artikel ist zwar kein umfassendes Leitfaden, aber wir haben Links für Sie eingefügt, um weitere Informationen zu erhalten. Weitere Informationen finden Sie im Abschnitt zur dsgvo im [Microsoft Trust Center](https://www.microsoft.com/trustcenter/privacy/gdpr).
 
 ## <a name="windows-server-security-and-privacy"></a>Sicherheit und Datenschutz für Windows Server
 Die dsgvo erfordert, dass Sie geeignete technische und organisatorische Sicherheitsmaßnahmen implementieren, um persönliche Daten und Verarbeitungssysteme zu schützen. Im Zusammenhang mit der dsgvo verarbeiten Ihre physischen und virtuellen Serverumgebungen möglicherweise persönliche und vertrauliche Daten. Die Verarbeitung kann jeden Vorgang oder jede Gruppe von Vorgängen, z. b. Datenerfassung, Speicherung und Abruf, bedeuten.
 
-Die Möglichkeit, diese Anforderung zu erfüllen und geeignete Maßnahmen für die technische Sicherheit zu implementieren, muss die Bedrohungen widerspiegeln, die Ihnen in der zunehmend feindlichen IT-Umgebung von heute ausgesetzt sind Die heutige Sicherheits Bedrohungslandschaft ist eine der aggressiven und hartnäckigen Bedrohungen. In früheren Jahren konzentrierten sich böswillige Angreifer hauptsächlich auf die Anerkennung in der Community für ihre Angriffe oder die Begeisterung, ein System vorübergehend offline geschaltet zu haben. Seitdem haben sich die Gründe für den Angreifer auf Geld verlagert, einschließlich der Speicherung von Geräten und Daten, bis der Besitzer das geforderte Lösegeld bezahlt hat.
+Die Möglichkeit, diese Anforderung zu erfüllen und geeignete Maßnahmen für die technische Sicherheit zu implementieren, muss die Bedrohungen widerspiegeln, die Ihnen in der zunehmend feindlichen IT-Umgebung von heute ausgesetzt sind Die heutige Sicherheits Bedrohungslandschaft ist eine der aggressiven und hartnäckigen Bedrohungen. In früheren Jahren konzentrierten sich böswillige Angreifer hauptsächlich auf die Anerkennung der Community durch ihre Angriffe oder den Nervenkitzel, wenn ein System vorübergehend offline geschaltet werden konnte. Seitdem haben sich die Gründe für den Angreifer auf Geld verlagert, einschließlich der Speicherung von Geräten und Daten, bis der Besitzer das geforderte Lösegeld bezahlt hat.
 
-Aktuelle Angriffe konzentrieren sich zunehmend auf den Diebstahl geistigen Eigentums im großen Umfang, die zielgerichtete Systemzersetzung, die zu finanziellen Verlusten führen kann, und jetzt sogar Cyber-Terrorismus, durch den die Sicherheit von Personen und Unternehmen sowie nationale Interessen auf der ganzen Welt bedroht sind. Diese Angreifer sind üblicherweise hochqualifizierte Einzelpersonen und Sicherheitsexperten, von denen einige in Nationalstaaten beschäftigt sind, die über große Budgets und scheinbar unbegrenzte menschliche Ressourcen verfügen. Bedrohungen wie diese erfordern einen Ansatz, der dieser Herausforderung gerecht wird.
+Moderne Angriffe konzentrieren sich zunehmend auf den Diebstahl von geistigem Eigentum. gezielte System Beeinträchtigung, die zu einem finanziellen Verlust führen kann und jetzt sogar Cyberterrorismus, der die Sicherheit von Einzelpersonen, Unternehmen und nationalen Interessen auf der ganzen Welt gefährdet. Bei diesen Angreifern handelt es sich in der Regel um stark trainierte Personen und Sicherheitsexperten, von denen einige den Bundesstaat unterliegen, die große Budgets und scheinbar unbegrenzte Personalressourcen haben. Bedrohungen wie diese erfordern eine Herangehensweise, die dieser Herausforderung gerecht werden kann.
 
-Diese Bedrohungen sind nicht nur ein Risiko für Ihre Fähigkeit, die Kontrolle über persönliche oder vertrauliche Daten zu behalten, sondern sie sind ein wesentliches Risiko für Ihr gesamten Unternehmen. Beachten Sie die neuesten Daten von McKinsey, Ponemon Institute, Verizon und Microsoft:
+Diese Bedrohungen sind nicht nur ein Risiko für ihre Fähigkeit, die Kontrolle über persönliche oder vertrauliche Daten zu behalten, die Sie möglicherweise haben, Sie sind aber auch ein materielles Risiko für Ihr gesamtes Unternehmen. Beachten Sie die neuesten Daten von McKinsey, Ponemon Institute, Verizon und Microsoft:
 
-- Die durchschnittliche Kosten für den Typ der Datenverstöße, den die GDPR erwartet, beträgt 3,5 Milliarden USD.
+- Die durchschnittlichen Kosten für die Art der Datenverletzung der dsgvo erwarten, dass Sie einen Bericht mit dem Wert $3.5 Mio. erhalten.
 
-- 63 % dieser Verstößen sind schwache oder gestohlene Kennwörter, mit denen Sie handeln müssen und die die GDPR erwartet.
+- 63% dieser Verstöße betreffen schwache oder gestohlene Kenn Wörter, die von der dsgvo erwartet werden.
 
-- Über 300.000 neue Schadsoftware-Beispiele werden jeden Tag erstellt und verbreitet und machen Ihre Aufgabe des Schutzes von Daten noch schwieriger.
+- Mehr als 300.000 neue schadsoftwarebeispiele werden täglich erstellt und verteilt, sodass Ihre Aufgabe den Datenschutz noch schwieriger macht.
 
 Wie bei den jüngsten Ransomware-Angriffen, die einmal als schwarze Plage des Internets bezeichnet werden, werden Angreifer nach größeren Zielen weitergegeben, die sich möglicherweise mit schwerwiegenden Konsequenzen beschäftigen können. Die dsgvo schließt Maßnahmen ein, die ihre Systeme, einschließlich Desktops und Laptops, zur Verfügung stellen, die tatsächlich persönliche und sensible datenreiche Ziele enthalten.
 
@@ -107,7 +107,7 @@ Zwei wichtige Prinzipien haben eine Anleitung und Fortsetzung bei der Entwicklun
 
 Microsoft hat sich im Hinblick auf diese Prinzipien nicht wie vor kurzem vom CEO von Microsoft, Satya NADELLA, 
 
-> "_Wenn sich die weltweiter ändert und sich die geschäftlichen Anforderungen weiterentwickeln, sind einige Dinge konsistent: die Nachfrage nach Sicherheit und Datenschutz durch einen Kunden._ "
+> "_Wenn sich die weltweiter ändert und sich die geschäftlichen Anforderungen weiterentwickeln, sind einige Dinge konsistent: die Nachfrage nach Sicherheit und Datenschutz durch einen Kunden._"
 
 Bei der Einhaltung der dsgvo ist es wichtig, die Rolle ihrer physischen und virtuellen Server beim Erstellen, zugreifen, verarbeiten, speichern und Verwalten von Daten zu verstehen, die als persönliche und potenziell sensible Daten in der dsgvo qualifiziert sein können. Windows Server bietet Funktionen, mit deren Hilfe Sie die dsgvo-Anforderungen erfüllen können, um geeignete technische und organisatorische Sicherheitsmaßnahmen zum Schutz persönlicher Daten zu implementieren.
 
@@ -121,7 +121,7 @@ Die Sicherheitslage von Windows Server 2016 ist kein Bolt-on. Es ist ein archite
 
 - **Isol.** Isolieren Sie Betriebssystemkomponenten und Daten Geheimnisse, schränken Sie Administratorrechte ein, und Messen Sie die Host Integrität streng.
 
-Mit Windows Server ist die Fähigkeit, die Arten von Angriffen zu schützen, zu erkennen und zu schützen, die zu Datenverletzungen führen können, erheblich verbessert. Angesichts der strengen Anforderungen hinsichtlich der Verletzung der Benachrichtigung innerhalb der GDPR, und um sicherzustellen, dass Ihre Desktop- und Laptop-Systeme auch gegen Risiken gesichert sind, verringern Sie das Risiko kostspieliger Verletzungsanalysen und Benachrichtigungen.
+Mit Windows Server ist die Fähigkeit, die Arten von Angriffen zu schützen, zu erkennen und zu schützen, die zu Datenverletzungen führen können, erheblich verbessert. Aufgrund der strengen Anforderungen in Bezug auf die Verletzung von Benachrichtigungen innerhalb der dsgvo, die sicherstellen, dass Ihre Desktop-und Laptop Systeme gut geschützt sind, verringern Sie die Risiken, die Sie sich gegenseitig darstellen, was zu kostspieliger Analyse und Benachrichtigung
 
 Im folgenden Abschnitt erfahren Sie, wie Windows Server Funktionen bereitstellt, die sich in der Phase "schützen" ihrer dsgvo-Kompatibilitäts Journey ganz direkt befinden. Diese Funktionen fallen in drei Schutz Szenarien:
 
@@ -135,15 +135,15 @@ Diese Funktionen, die unten ausführlicher erläutert werden, mit Verweisen auf 
 
 Eine Schlüssel Bereitstellung innerhalb der dsgvo ist der Schutz von Daten nach Entwurf und standardmäßig, und unterstützt Sie bei der Erfüllung dieser Bereitstellung in Windows 10, wie z. b. der BitLocker-Geräteverschlüsselung. BitLocker verwendet die Trusted Platform Module (TPM)-Technologie, die hardwarebasierte, sicherheitsrelevante Funktionen bereitstellt. Dieser kryptografieprozessorchip umfasst mehrere physische Sicherheitsmechanismen, um ihn zu manipulieren, und Schadsoftware kann die Sicherheitsfunktionen des TPM nicht manipulieren.
 
-Der Chip umfasst mehrere physische Sicherheitsmechanismen, die ihn manipulationssicher machen, und Schadsoftware ist nicht in der Lage, die Sicherheitsfunktionen des TPMs zu manipulieren. Die wichtigsten Vorteile der TPM-Technologie bestehen in ihren Möglichkeiten. Sie können:
+Der Chip umfasst mehrere physische Sicherheitsmechanismen, die ihn manipulationssicher machen, und Schadsoftware ist nicht in der Lage, die TPM-Sicherheitsfunktionen zu manipulieren. Die wichtigsten Vorteile der TPM-Technologie bestehen in ihren Möglichkeiten. Sie können:
 
 -   Kryptografieschlüssel generieren, speichern und deren Einsatz beschränken.
 
 -   Verwenden Sie die TPM-Technologie für die Platt Form Geräte Authentifizierung, indem Sie den eindeutigen TPM-RSA-Schlüssel verwenden, der in sich selbst gebrannt wird.
 
--   Plattformintegrität gewährleisten, indem Sicherheitsmessungen vorgenommen und gespeichert werden.
+-   Gewährleisten der Platt Form Integrität durch die Übernahme und Speicherung von Sicherheitsmessungen.
 
-Zusätzliche erweiterte Schutzmaßnahmen für Ihr Betriebssystem ohne Datenschutzverletzungen umfassen „Windows Trusted Boot”, das die Integrität des Systems gewährleistet, indem es sicherstellt, das die Schadsoftware nicht vor den Verteidigungseinrichtungen des Systems gestartet werden kann.
+Ein zusätzlicher erweiterter Geräteschutz, der für Ihren Betrieb ohne Datenverletzungen relevant ist, beinhaltet den vertrauenswürdigen Windows-Start, um die Integrität des Systems aufrechtzuerhalten, indem sichergestellt wird, dass Schadsoftware nicht vor System Abwehr
 
 ## <a name="windows-server-supporting-your-gdpr-compliance-journey"></a>Windows Server: Unterstützung ihrer dsgvo-Konformitäts Journey
 Wichtige Features in Windows Server können Sie bei der effizienten und effektiven Implementierung der Sicherheits-und Datenschutzmechanismen unterstützen, die für die Einhaltung der dsgvo erforderlich sind. Obwohl die Verwendung dieser Features nicht die Konformität gewährleistet, unterstützen Sie Ihre Bemühungen, dies zu tun.
@@ -152,7 +152,7 @@ Das Server Betriebssystem befindet sich in einer strategischen Schicht in der In
 
 Windows Server 2016 trägt zum Schutz der Identitäts-, Betriebssystem-und Virtualisierungsebene bei, um die häufigen Angriffsvektoren zu blockieren, die für den unerlaubten Zugriff auf Ihre Systeme verwendet werden: gestohlene Anmelde Informationen, Schadsoftware und ein kompromittiertes virtualisierungsfabric. Zusätzlich zu den Sicherheitsrisiken, die in Windows Server 2016 integriert sind, unterstützen die Sicherheitskomponenten, die in Windows Server integriert sind, Compliance-Anforderungen für die wichtigsten behördlichen 
 
-Diese Identitäts-, Betriebssystem-und virtualisierungschutzmaßnahmen ermöglichen es Ihnen, Ihr Rechenzentrum mit Windows Server als virtuellen Computer in einer beliebigen Cloud zu schützen und die Fähigkeit von Angreifern einzuschränken, Anmelde Informationen zu kompromittieren, Schadsoftware zu starten und nicht erkannt zu werden. Netzwerk. Ebenso bietet Windows Server 2016 bei der Bereitstellung als Hyper-V-Host eine Sicherheitsgarantie für Ihre Virtualisierungsumgebungen durch geschützte Virtual Machines und verteilte Firewallfunktionen. Mit Windows Server 2016 wird das Server Betriebssystem zu einem aktiven Teilnehmer in ihrer Datacenter-Sicherheit.
+Diese Identitäts-, Betriebssystem-und virtualisierungsschutzmaßnahmen ermöglichen es Ihnen, Ihr Rechenzentrum, das Windows Server ausführen wird, besser als einen virtuellen Computer in jeder Cloud zu schützen und die Fähigkeit von Angreifern einzuschränken, Anmelde Informationen zu kompromittieren, Schadsoftware zu starten und im Netzwerk unentdeckt bleiben. Ebenso bietet Windows Server 2016 bei der Bereitstellung als Hyper-V-Host eine Sicherheitsgarantie für Ihre Virtualisierungsumgebungen durch geschützte Virtual Machines und verteilte Firewallfunktionen. Mit Windows Server 2016 wird das Server Betriebssystem zu einem aktiven Teilnehmer in ihrer Datacenter-Sicherheit.
 
 ### <a name="protect-your-credentials-and-limit-administrator-privileges"></a>Schützen Sie Ihre Anmelde Informationen, und beschränken Sie Administratorrechte. 
 Die Kontrolle über den Zugriff auf personenbezogene Daten und die Systeme, die diese Daten verarbeiten, ist ein Bereich mit der dsgvo, der bestimmte Anforderungen umfasst, einschließlich des Zugriffs durch Administratoren. Privilegierte Identitäten sind Konten mit erhöhten Rechten, wie z. b. Benutzerkonten, die Mitglieder der Gruppe "Domänen Administratoren", "Organisations Administratoren", "lokale Administratoren" oder "Hauptbenutzer" sind. Diese Identitäten können auch Konten enthalten, denen direkt Berechtigungen erteilt wurden, z. b. das Ausführen von Sicherungen, das Herunterfahren des Systems oder andere Rechte, die im Knoten zuweisen von Benutzerrechten in der Konsole der lokalen Sicherheitsrichtlinie aufgeführt sind.
@@ -160,7 +160,7 @@ Die Kontrolle über den Zugriff auf personenbezogene Daten und die Systeme, die 
 Als allgemeines Zugriffs Steuerungs Prinzip und Inline mit der dsgvo müssen Sie diese privilegierten Identitäten vor Kompromittierung durch potenzielle Angreifer schützen. Zuerst ist es wichtig zu verstehen, wie Identitäten kompromittiert werden. Anschließend können Sie planen, um zu verhindern, dass Angreifer Zugriff auf diese privilegierten Identitäten erhalten.
 
 #### <a name="how-do-privileged-identities-get-compromised"></a>Wie werden privilegierte Identitäten kompromittiert?
-Privilegierte Identitäten können kompromittiert werden, wenn Organisationen nicht über Richtlinien zum Schutz verfügen. Im Folgenden finden Sie entsprechende Beispiele:
+Privilegierte Identitäten können kompromittiert werden, wenn Organisationen nicht über Richtlinien zum Schutz verfügen. Hier finden Sie einige Beispiele:
 
 - **Mehr Berechtigungen als erforderlich sind.** Eines der häufigsten Probleme besteht darin, dass Benutzer über mehr Berechtigungen verfügen, als für die Ausführung ihrer Auftrags Funktion erforderlich sind. Beispielsweise kann ein Benutzer, der DNS verwaltet, ein AD-Administrator sein. In den meisten Fällen wird dies durchgeführt, um zu vermeiden, dass unterschiedliche Verwaltungsebenen konfiguriert werden müssen. Wenn ein solches Konto jedoch kompromittiert wird, hat der Angreifer automatisch erhöhte Rechte.
 
@@ -189,9 +189,9 @@ Außerdem verwenden viele Organisationen die kostenlose [lokale Administrator Ke
 
 Wie im Leitfaden zur [Entschärfung von Windows](https://www.microsoft.com/download/confirmation.aspx?id=54095)-Anmelde Informationen vermerkt, 
 
-> "_die Tools und Techniken, die kriminelle zum Durchführen von Diebstahl von Anmelde Informationen und zum wieder verwenden von Angriffen verwenden, werden durch böswillige Angreifer leichter gefunden. Der Diebstahl von Anmelde Informationen basiert häufig auf Betriebspraktiken oder dem verfügbar machen von Benutzer Anmelde Informationen, sodass effektive entschärfungen einen ganzheitlichen Ansatz erfordern, der Personen, Prozesse und Technologien adressiert. Außerdem beruhen diese Angriffe darauf, dass der Angreifer Anmelde Informationen stiehlt, nachdem ein System zum Erweitern oder beibehalten des Zugriffs kompromittiert wurde, sodass Organisationen rasch Verletzungen durch Implementieren von Strategien aufweisen müssen, die verhindern, dass Angreifer in einem gefährdeten Netzwerk frei und unentdeckt bleiben._ "
+> "_die Tools und Techniken, die kriminelle zum Durchführen von Diebstahl von Anmelde Informationen und zum wieder verwenden von Angriffen verwenden, werden durch böswillige Angreifer leichter gefunden. Der Diebstahl von Anmelde Informationen basiert häufig auf Betriebspraktiken oder dem verfügbar machen von Benutzer Anmelde Informationen, sodass effektive entschärfungen einen ganzheitlichen Ansatz erfordern, der Personen, Prozesse und Technologien adressiert. Außerdem beruhen diese Angriffe darauf, dass der Angreifer Anmelde Informationen stiehlt, nachdem ein System zum Erweitern oder beibehalten des Zugriffs kompromittiert wurde, sodass Organisationen rasch Verletzungen durch Implementieren von Strategien aufweisen müssen, die verhindern, dass Angreifer in einem gefährdeten Netzwerk frei und unentdeckt bleiben._"
 
-Eine wichtige Entwurfs Überlegungen für Windows Server bestand darin, den Diebstahl von Anmelde Informationen zu mindern – insbesondere abgeleitete Anmelde Informationen. Anmelde Informationen Guard bietet eine deutlich verbesserte Sicherheit vor dem Diebstahl und der Wiederverwendung abgeleiteter Anmelde Informationen, indem eine bedeutende Architektur Änderung in Windows implementiert wurde, um hardwarebasierte Isolations Angriffe auszuschließen, anstatt einfach zu versuchen, gegen Sie schützen.
+Eine wichtige Entwurfs Überlegungen für Windows Server bestand darin, den Diebstahl von Anmelde Informationen zu mindern – insbesondere abgeleitete Anmelde Informationen. Anmelde Informationen Guard bietet eine deutlich verbesserte Sicherheit vor dem Diebstahl und der Wiederverwendung abgeleiteter Anmelde Informationen, indem eine bedeutende Architektur Änderung in Windows implementiert wurde, um hardwarebasierte Isolations Angriffe auszuschließen, anstatt einfach zu versuchen, Sie gegen Sie zu schützen.
 
 Bei der Verwendung von Windows Defender Anmelde Informationen Guard, NTLM und Kerberos abgeleitete Anmelde Informationen werden mithilfe der virtualisierungsbasierten Sicherheit geschützt, aber die Verfahren und Tools zum Diebstahl von Anmelde Informationen, die in vielen gezielten Angriffen verwendet werden, werden blockiert. Im Betriebssystem ausgeführte Schadsoftware mit Administratorberechtigungen kann geheime Schlüssel, die durch die virtualisierungsbasierte Sicherheit geschützt sind, nicht extrahieren. Obwohl Windows Defender Credential Guard eine leistungsstarke Entschärfung ist, werden permanente Bedrohungs Angriffe wahrscheinlich zu neuen Angriffstechniken verschoben, und Sie sollten auch Device Guard, wie unten beschrieben, zusammen mit anderen Sicherheitsstrategien und-Architekturen integrieren.
 
@@ -210,7 +210,7 @@ Windows Defender Credential Guard verwendet Folgendes:
 
 - Sicherer Start (erforderlich)
 
-- TPM 2.0, entweder diskret oder firmwarebasiert (aufgrund der Hardwarebindung bevorzugt)
+- TPM 2,0 entweder diskret oder Firmware (bevorzugt-Bereitstellen der Bindung an die Hardware)
 
 Sie können Windows Defender Anmelde Informationen Guard verwenden, um privilegierte Identitäten zu schützen, indem Sie die Anmelde Informationen und die Ableitungen von Anmelde Informationen unter Windows Server 2016 schützen. Weitere Informationen zu den Anforderungen von Windows Defender Credential Guard finden Sie unter [schützen abgeleiteter Domänen Anmelde Informationen mit Windows Defender Credential Guard](https://docs.microsoft.com/windows/access-protection/credential-guard/credential-guard).
 
@@ -253,9 +253,9 @@ Windows Server 2016 umfasst die branchenführenden, aktiven Erkennungsfunktionen
 
 Windows Defender AV ist eine integrierte antischadsoftwarelösung, die die Verwaltung von Sicherheits-und Antischadsoftware für Desktops, tragbare Computer und Server ermöglicht. Windows Defender AV wurde seit der Einführung in Windows 8 erheblich verbessert. Windows Defender Antivirus in Windows Server verwendet einen mehrstufigen Ansatz, um Antischadsoftware zu verbessern:
 
-- **Von der Cloud bereitgestellter Schutz** erkennt und blockiert neue Schadsoftware innerhalb von Sekunden, auch wenn die Schadsoftware bisher noch nie vorgekommen ist.
+- Der durch die Cloud bereitgestellte **Schutz** hilft, neue Schadsoftware innerhalb von Sekunden zu erkennen und zu blockieren, auch wenn die Schadsoftware bisher noch nie erkannt wurde.
 
-- **Umfassender lokaler Kontext** verbessert die Identifizierung von Schadsoftware. Windows Server informiert Windows Defender AV nicht nur über Inhalte wie Dateien und Prozesse, sondern auch über den Speicherort der Inhalte, wo Sie gespeichert wurden und vieles mehr. 
+- Der **umfangreiche lokale Kontext** verbessert die Identifizierung von Schadsoftware. Windows Server informiert Windows Defender AV nicht nur über Inhalte wie Dateien und Prozesse, sondern auch über den Speicherort der Inhalte, wo Sie gespeichert wurden und vieles mehr. 
 
 - **Umfassende globale Sensoren** helfen dabei, Windows Defender AV auf dem neuesten Stand zu halten und selbst die neuesten Schadsoftware zu berücksichtigen. Dies erfolgt auf zwei Arten: durch Sammeln der Daten des umfassenden lokalen Kontexts von Endpunkten und das zentrale Analysieren dieser Daten.
 
@@ -282,7 +282,7 @@ Windows Server 2016 ändert grundlegend, wie Unternehmen die Virtualisierung sic
 #### <a name="shielded-virtual-machines"></a>Abgeschirmte virtuelle Computer
 Die gleichen Dinge, die virtuelle Computer so einfach zu migrieren, zu sichern und zu replizieren, erleichtern das ändern und Kopieren von Daten. Bei einem virtuellen Computer handelt es sich lediglich um eine Datei, sodass er nicht im Netzwerk, im Speicher, in Sicherungen oder an anderen Orten geschützt ist. Ein weiteres Problem ist, dass fabricadministratoren – ob es sich um einen Speicher Administrator oder einen Netzwerkadministrator handelt – Zugriff auf alle virtuellen Computer haben.
 
-Ein kompromittierter Administrator im Fabric kann problemlos zu kompromittierten Daten auf virtuellen Computern führen. Alle Angreifer müssen die kompromittierten Anmelde Informationen verwenden, um beliebige VM-Dateien auf ein USB-Laufwerk zu kopieren und diese aus der Organisation zu kopieren, in der von jedem anderen System aus auf diese VM-Dateien zugegriffen werden kann. Wenn einer dieser gestohlenen VMS ein Active Directory Domänen Controller wäre, könnte der Angreifer den Inhalt problemlos anzeigen und sofort verfügbare Brute-Force-Techniken verwenden, um die Kenn Wörter in der Active Directory Datenbank zu knacken und Ihnen schließlich Zugriff zu gewähren. für alle anderen Elemente in Ihrer Infrastruktur.
+Ein kompromittierter Administrator im Fabric kann problemlos zu kompromittierten Daten auf virtuellen Computern führen. Alle Angreifer müssen die kompromittierten Anmelde Informationen verwenden, um beliebige VM-Dateien auf ein USB-Laufwerk zu kopieren und diese aus der Organisation zu kopieren, in der von jedem anderen System aus auf diese VM-Dateien zugegriffen werden kann. Wenn einer dieser gestohlenen VMS ein Active Directory Domänen Controller wäre, könnte der Angreifer den Inhalt problemlos anzeigen und sofort verfügbare Brute-Force-Techniken verwenden, um die Kenn Wörter in der Active Directory Datenbank zu knacken, sodass Sie den Zugriff auf alle anderen Elemente in Ihrer Infrastruktur gewährt haben.
 
 Windows Server 2016 führt abgeschirmte Virtual Machines (abgeschirmte VMS) ein, um den Schutz vor Szenarien wie dem soeben beschriebenen Szenario zu erleichtern. Abgeschirmte VMS enthalten ein virtuelles TPM-Gerät, mit dem Organisationen die BitLocker-Verschlüsselung auf die virtuellen Computer anwenden und sicherstellen können, dass Sie nur auf vertrauenswürdigen Hosts ausgeführt werden, um Schutz vor gefährdeten Speicher-, Netzwerk-und Host Administratoren zu bieten. Abgeschirmte VMS werden mithilfe von VMS der Generation 2 erstellt, die Unified Extensible Firmware Interface-Firmware (UEFI) unterstützen und über ein virtuelles TPM verfügen.
 
@@ -299,30 +299,30 @@ Windows Server 2016 unterstützt TPM für virtuelle Computer, sodass Sie erweite
 Sie können das virtuelle TPM (vtpm) schützen, indem Sie die lokalen Kryptografieschlüssel verwenden, die auf dem Host gespeichert oder im Host-Überwachungsdienst gespeichert sind. Obwohl der Host-Überwachungsdienst mehr Infrastruktur benötigt, bietet er auch mehr Schutz.
 
 #### <a name="distributed-network-firewall-using-software-defined-networking"></a>Verteilte Netzwerk Firewall mit Software-Defined Networking
-Eine Möglichkeit, den Schutz in virtualisierten Umgebungen zu verbessern, besteht darin, das Netzwerk so zu segmentieren, dass es VMS nur mit den spezifischen Systemen kommunizieren kann, die für die Funktion erforderlich sind Wenn Ihre Anwendung z. b. keine Verbindung mit dem Internet herstellen muss, können Sie Sie partitionieren, sodass diese Systeme als Ziele von externen Angreifern entfernt werden. Das Software-Defined Networking (SDN) in Windows Server 2016 umfasst eine verteilte Netzwerk Firewall, die es Ihnen ermöglicht, die Sicherheitsrichtlinien, mit denen Ihre Anwendungen vor Angriffen innerhalb oder außerhalb eines Netzwerks geschützt werden können, dynamisch zu erstellen. Diese verteilte Netzwerk Firewall fügt Ihrer Sicherheit Ebenen hinzu, indem Sie Ihre Anwendungen im Netzwerk isolieren können. Richtlinien können überall in Ihrer virtuellen Netzwerkinfrastruktur angewendet werden, wobei der VM-zu-VM-Datenverkehr, der VM-zu-Host-Datenverkehr oder der VM-zu-Internet-Datenverkehr bei Bedarf isoliert wird – entweder für einzelne Systeme, die möglicherweise kompromittiert oder Programm gesteuert über mehrere Subnetze. Mit den Software definierten Netzwerkfunktionen von Windows Server 2016 können Sie eingehenden Datenverkehr auch an virtuelle Geräte außerhalb von Microsoft weiterleiten oder spiegeln. Beispielsweise können Sie den gesamten e-Mail-Datenverkehr über ein virtuelles Barracuda-Gerät senden, um zusätzlichen Schutz vor Spam Filtern zu erhalten. Dies ermöglicht es Ihnen, auf einfache Weise zusätzliche Sicherheit sowohl lokal als auch in der Cloud zu ermöglichen.
+Eine Möglichkeit, den Schutz in virtualisierten Umgebungen zu verbessern, besteht darin, das Netzwerk so zu segmentieren, dass es VMS nur mit den spezifischen Systemen kommunizieren kann, die für die Funktion erforderlich sind Wenn Ihre Anwendung z. b. keine Verbindung mit dem Internet herstellen muss, können Sie Sie partitionieren, sodass diese Systeme als Ziele von externen Angreifern entfernt werden. Das Software-Defined Networking (SDN) in Windows Server 2016 umfasst eine verteilte Netzwerk Firewall, die es Ihnen ermöglicht, die Sicherheitsrichtlinien, mit denen Ihre Anwendungen vor Angriffen innerhalb oder außerhalb eines Netzwerks geschützt werden können, dynamisch zu erstellen. Diese verteilte Netzwerk Firewall fügt Ihrer Sicherheit Ebenen hinzu, indem Sie Ihre Anwendungen im Netzwerk isolieren können. Richtlinien können überall in Ihrer virtuellen Netzwerkinfrastruktur angewendet werden, wobei der VM-zu-VM-Datenverkehr, der VM-zu-Host-Datenverkehr oder der VM-zu-Internet-Datenverkehr bei Bedarf isoliert wird – entweder für einzelne Systeme, die möglicherweise in mehreren Subnetzen kompromittiert wurden oder Programm gesteuert sind. Mit den Software definierten Netzwerkfunktionen von Windows Server 2016 können Sie eingehenden Datenverkehr auch an virtuelle Geräte außerhalb von Microsoft weiterleiten oder spiegeln. Beispielsweise können Sie den gesamten e-Mail-Datenverkehr über ein virtuelles Barracuda-Gerät senden, um zusätzlichen Schutz vor Spam Filtern zu erhalten. Dies ermöglicht es Ihnen, auf einfache Weise zusätzliche Sicherheit sowohl lokal als auch in der Cloud zu ermöglichen.
 
 ### <a name="other-gdpr-considerations-for-servers"></a>Weitere dsgvo-Überlegungen zu Servern
-Die dsgvo beinhaltet explizite Anforderungen für Verstöße gegen Benachrichtigungen, bei denen eine persönliche Datenverletzung bedeutet: "_eine Sicherheitsverletzung, die zur versehentlichen oder ungesetzlichen Zerstörung, Verlust, Änderung, nicht autorisierter Offenlegung oder Zugriff auf, übermittelte oder anderweitig verarbeitete personenbezogene Daten führt._ "  Natürlich können Sie nicht fortfahren, um die strengen Anforderungen an die dsgvo-Benachrichtigung innerhalb von 72 Stunden zu erfüllen, wenn Sie die Sicherheitslücke überhaupt nicht erkennen können.
+Die dsgvo beinhaltet explizite Anforderungen für Verstöße gegen Benachrichtigungen, bei denen eine persönliche Datenverletzung bedeutet: "_eine Sicherheitsverletzung, die zur versehentlichen oder ungesetzlichen Zerstörung, Verlust, Änderung, nicht autorisierter Offenlegung oder Zugriff auf, übermittelte oder anderweitig verarbeitete personenbezogene Daten führt._"  Natürlich können Sie nicht fortfahren, um die strengen Anforderungen an die dsgvo-Benachrichtigung innerhalb von 72 Stunden zu erfüllen, wenn Sie die Sicherheitslücke überhaupt nicht erkennen können.
 
-Wie im Windows-Security Center Whitepaper zu beachten, stellen Sie die [nach Verletzung: Umgang mit erweiterten Bedrohungen](http://wincom.blob.core.windows.net/documents/Post_Breach_Dealing_with_Advanced_Threats_Whitepaper.pdf)
+Wie im Windows-Security Center Whitepaper zu beachten, stellen Sie die [nach Verletzung: Umgang mit erweiterten Bedrohungen](https://wincom.blob.core.windows.net/documents/Post_Breach_Dealing_with_Advanced_Threats_Whitepaper.pdf)
 
-> "_Anders als bei der vor-und nach Verletzung geht die nach Verletzung davon aus, dass bereits eine Verletzung aufgetreten ist – fungiert als Flight Recorder und Crime Scene Investigator (CSI). Die nach Verletzung bietet Sicherheitsteams die erforderlichen Informationen und Toolsets, um Angriffe zu identifizieren, zu untersuchen und darauf zu reagieren, die andernfalls nicht erkannt werden und sich unter dem Netz befinden._ "
+> "_Anders als bei der vor-und nach Verletzung geht die nach Verletzung davon aus, dass bereits eine Verletzung aufgetreten ist – fungiert als Flight Recorder und Crime Scene Investigator (CSI). Die nach Verletzung bietet Sicherheitsteams die erforderlichen Informationen und Toolsets, um Angriffe zu identifizieren, zu untersuchen und darauf zu reagieren, die andernfalls nicht erkannt werden und sich unter dem Netz befinden._"
 
 In diesem Abschnitt erfahren Sie, wie Sie mithilfe von Windows Server Ihre dsgvo-Benachrichtigungs Verpflichtungen erfüllen können. Dies beginnt mit dem Verständnis der zugrunde liegenden Bedrohungs Daten, die Microsoft zur Verfügung steht und die für Ihren Vorteil gesammelt und analysiert werden, und wie Sie über Windows Defender Advanced Threat Protection (ATP) für Sie von entscheidender Bedeutung sein können.
 
-#### <a name="insightful-security-diagnostic-data"></a>Aufschlussreiche Sicherheitsdiagnosedaten
-Seit fast zwei Jahrzehnten hat Microsoft Bedrohungen in nützliche Informationen verwandelt, mit denen die Plattform und der Schutz von Kunden unterstützt werden können. Dank der großen Computing-Vorteile von heute durch die Cloud, finden wir neue Verwendungsmöglichkeiten für unsere umfangreiche Analysemodule, die von der Bedrohungserkennung verursacht und zum Schutz unserer Kunden sind.
+#### <a name="insightful-security-diagnostic-data"></a>Aufschlussreiche Sicherheits Diagnosedaten
+Seit fast zwei Jahrzehnten hat Microsoft Bedrohungen in nützliche Informationen verwandelt, mit denen die Plattform und der Schutz von Kunden unterstützt werden können. Mit den immensen computingvorteilen der Cloud bieten wir heute neue Möglichkeiten, unsere umfassenden Analysemodule zu verwenden, die von Bedrohungs Informationen genutzt werden, um unsere Kunden zu schützen.
 
-Durch das Anwenden einer Kombination von automatisierten und manuellen Prozessen, Machine Learning und menschlichen Experten, können wir ein intelligentes Security-Diagramm erstellen, das von sich selbst lernt und sich in Echtzeit weiter entwickelt, um neue Bedrohungen für unsere Produkte zu erkennen und darauf zu reagieren.
+Indem wir eine Kombination aus automatisierten und manuellen Prozessen, Machine Learning und Human Experts anwenden, können wir einen Intelligent Security Graph erstellen, der von sich selbst lernt und sich in Echtzeit entwickelt, sodass wir unsere Sammelzeit verringern, um neue Vorfälle für unsere Produkte zu erkennen und darauf zu reagieren.
 
 ![Microsoft Intelligence-Sicherheits Diagramm](../media/GDPR-Windows-Server-Overview/gdpr-intelligent-security-graph.png)
 
-Der Umfang der Bedrohungs Intelligenz von Microsoft umfasst im wesentlichen Milliarden von Datenpunkten: 35 Milliarden Nachrichten monatlich, 1 Milliarde Kunden in Unternehmens-und consumersegmenten, die auf 200 + Cloud-Dienste und 14 Milliarden Authentifizierungen ausgeführt werden. tä. Alle diese Daten werden in Ihrem Auftrag von Microsoft zusammengeführt, um die intelligent Security Graph zu erstellen, die Ihnen helfen, Ihre Front-Door-Sicherheit auf dynamische Weise zu schützen, weiterhin produktiv zu bleiben und die Anforderungen der dsgvo zu erfüllen.
+Der Umfang der Bedrohungs Intelligenz von Microsoft umfasst im wesentlichen Milliarden von Datenpunkten: 35 Milliarden Nachrichten, die monatlich gescannt werden, 1 Milliarde Kunden in Unternehmens-und consumersegmenten, die auf 200 + Cloud-Dienste und 14 Milliarden Authentifizierungen täglich zugreifen. Alle diese Daten werden in Ihrem Auftrag von Microsoft zusammengeführt, um die intelligent Security Graph zu erstellen, die Ihnen helfen, Ihre Front-Door-Sicherheit auf dynamische Weise zu schützen, weiterhin produktiv zu bleiben und die Anforderungen der dsgvo zu erfüllen.
 
-#### <a name="detecting-attacks-and-forensic-investigation"></a>Erkennen von Angriffen und forensische Untersuchung
-Auch die besten Endpoint-Schutzmaßnahmen können irgendwann überwunden werden, da Cyberangriffe mehr ausgefeilt und zielgerichtet sind. Zwei Funktionen können zur Unterstützung der Erkennung möglicher Sicherheitsverletzungen verwendet werden: Windows Defender Advanced Threat Protection (ATP) und Microsoft Advanced Threat Analytics (ATA).
+#### <a name="detecting-attacks-and-forensic-investigation"></a>Erkennen von Angriffen und forensischen Ermittlungen
+Selbst die beste Endpunkt Abwehr wird möglicherweise verletzt, da Cyberangriffe komplexer und gezielter werden. Zwei Funktionen können zur Unterstützung der Erkennung möglicher Sicherheitsverletzungen verwendet werden: Windows Defender Advanced Threat Protection (ATP) und Microsoft Advanced Threat Analytics (ATA).
 
-Windows Defender Advanced Threat Protection (ATP) hilft Ihnen, fortgeschrittene Angriffe zu erkennen und untersuchen und auf Datenschutzverletzungen im Netzwerk zu reagieren. Die Typen der Datenverletzung, die für die dsgvo durch technische Sicherheitsmaßnahmen geschützt werden müssen, um die fortlaufende Vertraulichkeit, Integrität und Verfügbarkeit von persönlichen Daten und Verarbeitungssystemen sicherzustellen.
+Windows Defender Advanced Threat Protection (ATP) hilft Ihnen dabei, erweiterte Angriffe und Datenverletzungen in ihren Netzwerken zu erkennen, zu untersuchen und darauf zu reagieren. Die Typen der Datenverletzung, die für die dsgvo durch technische Sicherheitsmaßnahmen geschützt werden müssen, um die fortlaufende Vertraulichkeit, Integrität und Verfügbarkeit von persönlichen Daten und Verarbeitungssystemen sicherzustellen.
 
 Zu den wichtigsten Vorteilen von Windows Defender ATP zählen die folgenden:
 
@@ -341,37 +341,37 @@ ATA ist ein lokales Produkt, mit dem Identitäts Gefährdung in einer Organisati
 
 |Angreitertyp |Beschreibung |
 |---------|---------|
-|Böswillige Angriffe |Diese Angriffe werden erkannt, indem Sie nach Angriffen aus einer bekannten Liste von Angriffstypen suchen, einschließlich:<ul><li>Pass-the-Ticket (PtT)</li><li>Pass-the-Hash (PtH)</li><li>Overpass-the-Hash</li><li>Forged PAC (MS14-068)</li><li>Golden Ticket</li><li>Böswillige Replikationen</li><li>Erkundung</li><li>Brute-Force-Angriffe</li><li>Remoteausführung</li></ul>Eine umfassende Liste der gefundenen böswilligen Angriffe und deren Beschreibung finden Sie unter [welche verdächtigen Aktivitäten können von ATA erkannt werden?](https://docs.microsoft.com/advanced-threat-analytics/understand-explore/ata-threats).|
-|Ungewöhnliches Verhalten |Diese Angriffe werden mithilfe der Verhaltensanalyse erkannt und verwenden Machine Learning, um fragwürdige Aktivitäten zu identifizieren, einschließlich:<ul><li>Nicht normale Anmeldungen</li><li>Unbekannte Gefahren</li><li>Kennwortfreigabe</li><li>"Seitwärtsbewegung"</li></ul>|
+|Böswillige Angriffe |Diese Angriffe werden erkannt, indem Sie nach Angriffen aus einer bekannten Liste von Angriffstypen suchen, einschließlich:<ul><li>Pass-the-Ticket (PtT)</li><li>Pass-the-Hash (PtH)</li><li>Overpass-the-Hash</li><li>Forged PAC (MS14-068)</li><li>Golden Ticket</li><li>Böswillige Replikationen</li><li>Reconnaissance</li><li>Brute-Force-Angriffe</li><li>Remoteausführung</li></ul>Eine umfassende Liste der gefundenen böswilligen Angriffe und deren Beschreibung finden Sie unter [welche verdächtigen Aktivitäten können von ATA erkannt werden?](https://docs.microsoft.com/advanced-threat-analytics/understand-explore/ata-threats).|
+|Ungewöhnliches Verhalten |Diese Angriffe werden mithilfe der Verhaltensanalyse erkannt und verwenden Machine Learning, um fragwürdige Aktivitäten zu identifizieren, einschließlich:<ul><li>Nicht normale Anmeldungen</li><li>Unbekannte Gefahren</li><li>Kennwortfreigabe</li><li>Seitwärtsbewegung</li></ul>|
 |Sicherheitsprobleme und-Risiken |Diese Angriffe werden erkannt, wenn Sie die aktuelle Netzwerk-und Systemkonfiguration betrachten, einschließlich:<ul><li>einer fehlerhaften Vertrauensstellung</li><li>schwacher Protokolle</li><li>bekannter Protokollschwachstellen.</li></ul>|
 
 Mithilfe von ATA können Sie Angreifer erkennen, die versuchen, privilegierte Identitäten zu kompromittieren. Weitere Informationen zum Bereitstellen von ATA finden Sie in den Themen Plan, Entwurf und Bereitstellung in der [Advanced Threat Analytics-Dokumentation](https://docs.microsoft.com/advanced-threat-analytics/).
 
 ## <a name="related-content-for-associated-windows-server-2016-solutions"></a>Verwandte Inhalte für zugehörige Windows Server 2016-Lösungen
 
-- **Windows Defender Antivirus:** https://www.youtube.com/watch?v=P1aNEy09NaI und https://docs.microsoft.com/windows/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10
+- **Windows Defender Antivirus:** https://www.youtube.com/watch?v=P1aNEy09NaI immerhttps://docs.microsoft.com/windows/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10
 
-- **Windows Defender Advanced Threat Protection:** https://www.youtube.com/watch?v=qxeGa3pxIwg und https://docs.microsoft.com/windows/threat-protection/windows-defender-atp/configure-server-endpoints-windows-defender-advanced-threat-protection
+- **Windows Defender Advanced Threat Protection:** https://www.youtube.com/watch?v=qxeGa3pxIwg immerhttps://docs.microsoft.com/windows/threat-protection/windows-defender-atp/configure-server-endpoints-windows-defender-advanced-threat-protection
 
-- **Windows Defender Device Guard:** https://www.youtube.com/watch?v=F-pTkesjkhI und https://docs.microsoft.com/windows/device-security/device-guard/device-guard-deployment-guide
+- **Windows Defender Device Guard:** https://www.youtube.com/watch?v=F-pTkesjkhI immerhttps://docs.microsoft.com/windows/device-security/device-guard/device-guard-deployment-guide
 
-- **Windows Defender Credential Guard:** https://www.youtube.com/watch?v=F-pTkesjkhI und https://docs.microsoft.com/windows/access-protection/credential-guard/credential-guard
+- **Windows Defender Credential Guard:** https://www.youtube.com/watch?v=F-pTkesjkhI immerhttps://docs.microsoft.com/windows/access-protection/credential-guard/credential-guard
 
-- **Ablauf Steuerungs Schutz:** https://msdn.microsoft.com/library/windows/desktop/mt637065(v=vs.85).aspx
+- **Ablauf Steuerungs Schutz:**https://msdn.microsoft.com/library/windows/desktop/mt637065(v=vs.85).aspx
 
-- **Sicherheit und Sicherheit:** https://docs.microsoft.com/windows-server/security/security-and-assurance
+- **Sicherheit und Sicherheit:**https://docs.microsoft.com/windows-server/security/security-and-assurance
 
 ## <a name="disclaimer"></a>Haftungsausschluss
-Dieser Artikel enthält einen Kommentar über die GDPR wie Microsoft ihn ab dem Datum der Veröffentlichung interpretiert. Wir haben viel Zeit mit dsgvo verbracht und wissen, dass wir uns Gedanken über seine Absicht und Bedeutung gemacht haben. Die Anwendung der GDPR ist jedoch äußerst tatsachenspezifisch, und die Aspekte und Interpretationen der GDPR sind nicht definitiv beigelegt.
+Dieser Artikel ist ein Kommentar zur dsgvo, der von Microsoft zum Zeitpunkt der Veröffentlichung interpretiert wird. Wir haben viel Zeit mit dsgvo verbracht und wissen, dass wir uns Gedanken über seine Absicht und Bedeutung gemacht haben. Die Anwendung der dsgvo ist jedoch sehr Fakten spezifisch, und nicht alle Aspekte und Interpretationen der dsgvo sind gut gelöst.
 
-Daher dient dieser Artikel nur zu Informationszwecken und sollte nicht zuverlässig als rechtlicher Hinweise angesehen werden oder um zu bestimmen, wie die GDPR für Sie und Ihr Unternehmen angewendet wird. Wir empfehlen Ihnen, die mit einem gesetzlich qualifizierten Experten zusammen zu arbeiten, um die GDPR zu besprechen, wie sie speziell für Ihre Organisation angewendet wird und wie sie am besten funktioniert, um Kompatibilität zu gewährleisten.
+Dies hat zur Folge, dass dieser Artikel nur zu Informationszwecken zur Verfügung gestellt wird und nicht als rechtliche Beratung herangezogen werden soll, oder um zu bestimmen, wie die dsgvo für Sie und Ihre Organisation gelten könnte. Wir empfehlen Ihnen, mit einem gesetzlich qualifizierten Professional zusammenzuarbeiten, um dsgvo zu erörtern, zu erfahren, wie dies speziell für Ihre Organisation gilt und wie am besten die Konformität gewährleistet ist.
 
-MICROSOFT GIBT IN BEZUG AUF DIE INFORMATIONEN IN DIESEM ARTIKEL KEINERLEI GEWÄHRLEISTUNG, WEDER AUSDRÜCKLICH NOCH KONKLUDENT. Dieser Artikel wird auf "as-is"-Basis bereitgestellt. Die in diesem Artikel gegebenen Informationen und Ansichten, darunter URLs und andere Verweise auf Internetseiten, können ohne vorherige Ankündigung geändert werden.
+Microsoft übernimmt keinerlei ausdrückliche, konkludente oder gesetzliche Gewährleistung hinsichtlich der Informationen in diesem Artikel. Dieser Artikel wird so bereitgestellt, wie es ist. Die in diesem Artikel enthaltenen Informationen und Ansichten, einschließlich URLs und anderer Verweise auf Internet Websites, können ohne vorherige Ankündigung geändert werden.
 
-Dieser Artikel stellt Ihnen keinerlei Rechte am geistigen Eigentum eines beliebigen Microsoft-Produkts zur Verfügung.  Dieser Artikel darf nur für interne Zwecke kopiert und verwendet werden.  
+In diesem Artikel erhalten Sie keine rechtlichen Rechte für geistiges Eigentum in Microsoft-Produkten.  Sie dürfen diesen Artikel nur für interne Referenzzwecke kopieren und verwenden.  
 
-Veröffentlicht: September 2017<br>
-Version 1.0<br>
+Veröffentlicht September 2017<br>
+Version 1.0<br>
 © 2017 Microsoft. Alle Rechte vorbehalten.
 
 

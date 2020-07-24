@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: 9ce9aa052290b82b2f085cb4637fcffbdf7b42ce
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: d7f1b5387d82d487e50b217b28367e82617a66ea
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85473117"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86966252"
 ---
 # <a name="storage-migration-service-frequently-asked-questions-faq"></a>Häufig gestellte Fragen (FAQ) zu Storage Migration Service
 
@@ -62,17 +62,17 @@ Der Speicher Migrationsdienst migriert alle Flags, Einstellungen und die Sicherh
     - ZS-Timeout
     - Limit für gleichzeitige Benutzer
     - Fortlaufend verfügbar
-    - BESCHREIBUNG
+    - Beschreibung
     - Daten verschlüsseln
     - Identitäts-Remoting
     - Infrastruktur
     - Name
-    - Pfad
+    - `Path`
     - Bereichsbezogen
     - Bereichsname
     - Sicherheitsbeschreibung
     - Schatten Kopie
-    - Speziell
+    - Sonderfunktionen
     - Temporäre Prozeduren
 
 ## <a name="can-i-consolidate-multiple-servers-into-one-server"></a>Kann ich mehrere Server auf einem Server konsolidieren?
@@ -128,7 +128,7 @@ Der Speicher Migrationsdienst enthält eine Multithread-Lese-und-Kopier-Engine, 
 
 - **Aktivieren Sie die Verarbeitung mit hoher Leistung.** Stellen Sie sicher, dass die BIOS/UEFI-Einstellungen für Server eine hohe Leistung ermöglichen (z.B. Deaktivieren des C-Status, Festlegen der QPI-Geschwindigkeit, Aktivieren von NUMA und Festlegen der höchsten Speicherfrequenz). Stellen Sie sicher, dass die Energie Verwaltung in Windows Server auf hohe Leistung festgelegt ist. Führen Sie gegebenenfalls einen Neustart aus. Vergessen Sie nicht, diese nach Abschluss der Migration an die entsprechenden Zustände zurückzugeben.
 
-- **Optimieren der Hardware** Lesen Sie die [Richtlinien zur Leistungsoptimierung für Windows Server 2016](https://docs.microsoft.com/windows-server/administration/performance-tuning/) zur Optimierung von Orchestrator und Ziel Computern unter Windows Server 2019 und Windows Server 2016. Der Abschnitt zur Optimierung der [Leistung des Netzwerk Subsystems](https://docs.microsoft.com/windows-server/networking/technologies/network-subsystem/net-sub-performance-tuning-nics) enthält besonders wertvolle Informationen.
+- **Optimieren der Hardware** Lesen Sie die [Richtlinien zur Leistungsoptimierung für Windows Server 2016](/windows-server/administration/performance-tuning/) zur Optimierung von Orchestrator und Ziel Computern unter Windows Server 2019 und Windows Server 2016. Der Abschnitt zur Optimierung der [Leistung des Netzwerk Subsystems](../../networking/technologies/network-subsystem/net-sub-performance-tuning-nics.md) enthält besonders wertvolle Informationen.
 
 - **Verwenden Sie schnellere Speicherung.** Obwohl es möglicherweise schwierig ist, die Speichergeschwindigkeit des Quell Computers zu aktualisieren, sollten Sie sicherstellen, dass der Zielspeicher bei der e/a-Leistung mindestens so schnell ist, dass die e/a-Leistung der Quelle erreicht ist, um sicherzustellen, dass bei Übertragungen kein unnötiger Engpass vorliegt. Wenn es sich bei dem Ziel um einen virtuellen Computer handelt, stellen Sie sicher, dass es zumindest für die Migration in der schnellsten Speicher Ebene ihrer Hypervisor-Hosts ausgeführt wird, z. b. auf der Flash-Ebene oder mit direkte Speicherplätze HCI-Clustern, die gespiegelte alle Flash-oder Hybrid Bereiche verwenden. Wenn die SMS-Migration fertiggestellt ist, kann der virtuelle Computer auf eine langsamere Ebene oder einen langsameren Host migriert werden.
 
@@ -164,7 +164,7 @@ Beim Durchführen einer Übertragung wird vom Speicher Migrationsdienst versucht
 
 ## <a name="what-do-the-error-numbers-mean-in-the-transfer-csv"></a>Was bedeuten die Fehlernummern im Übertragungs-CSV?
 
-Die meisten Fehler in der CSV-Übertragungs Datei sind Windows-System Fehler Codes. Informationen zu den einzelnen Fehlern finden Sie in der Dokumentation zu [Win32-Fehlercodes](https://docs.microsoft.com/windows/win32/debug/system-error-codes).
+Die meisten Fehler in der CSV-Übertragungs Datei sind Windows-System Fehler Codes. Informationen zu den einzelnen Fehlern finden Sie in der Dokumentation zu [Win32-Fehlercodes](/windows/win32/debug/system-error-codes).
 
 ## <a name="what-are-my-options-to-give-feedback-file-bugs-or-get-support"></a><a name="give-feedback"></a>Welche Optionen gibt es, um Feedback zu geben, Fehler zu melden oder Support zu erhalten?
 

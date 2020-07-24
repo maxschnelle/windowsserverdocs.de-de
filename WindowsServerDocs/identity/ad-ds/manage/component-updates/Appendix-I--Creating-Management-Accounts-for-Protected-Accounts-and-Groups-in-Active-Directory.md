@@ -8,16 +8,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: c2141e4fad564579fd687b2dfc7e4a12e1634acb
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: fefb0681af818e06ad29d7c9fdf6b690cd993cd2
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80823483"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86965762"
 ---
 # <a name="appendix-i-creating-management-accounts-for-protected-accounts-and-groups-in-active-directory"></a>Anhang I: Erstellen von Verwaltungskonten für geschützte Konten und Gruppen in Active Directory
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Eine der Herausforderungen bei der Implementierung eines Active Directory Modells, das sich nicht auf die permanente Mitgliedschaft in sehr privilegierten Gruppen stützt, besteht darin, dass es einen Mechanismus zum Auffüllen dieser Gruppen geben muss, wenn eine temporäre Mitgliedschaft in den Gruppen erforderlich ist. Einige privilegierte Identitäts Verwaltungslösungen erfordern, dass den Dienst Konten der Software permanente Mitgliedschaft in Gruppen wie z. b. da oder Administratoren in jeder Domäne in der Gesamtstruktur gewährt wird. Es ist jedoch technisch nicht erforderlich, dass Privileged Identity Management (PIM)-Lösungen ihre Dienste in solch hoch privilegierten Kontexten ausführen.  
   
@@ -26,7 +26,7 @@ Dieser Anhang enthält Informationen, die Sie für nativ implementierte oder Dri
 > [!NOTE]  
 > Die in diesem Anhang beschriebenen Verfahren bieten einen Ansatz für die Verwaltung von Gruppen mit hohen Berechtigungen in Active Directory. Sie können diese Prozeduren an Ihre Anforderungen anpassen, zusätzliche Einschränkungen hinzufügen oder einige der hier beschriebenen Einschränkungen weglassen.  
   
-## <a name="creating-management-accounts-for-protected-accounts-and-groups-in-active-directory"></a>Erstellen von Verwaltungs Konten für geschützte Konten und Gruppen in Active Directory
+## <a name="creating-management-accounts-for-protected-accounts-and-groups-in-active-directory"></a>Erstellen von Verwaltungskonten für geschützte Konten und Gruppen in Active Directory
 
 Das Erstellen von Konten, die zum Verwalten der Mitgliedschaft privilegierter Gruppen verwendet werden können, ohne dass den Verwaltungs Konten übermäßige Rechte und Berechtigungen gewährt werden müssen, besteht aus vier allgemeinen Aktivitäten, die in den folgenden schrittweisen Anweisungen beschrieben werden:  
   
@@ -38,7 +38,7 @@ Das Erstellen von Konten, die zum Verwalten der Mitgliedschaft privilegierter Gr
   
 4.  Konfigurieren Sie die Berechtigungen für das AdminSDHolder-Objekt in jeder Domäne, damit die Verwaltungs Konten die Mitgliedschaft der privilegierten Gruppen in der Domäne ändern können.  
   
-Sie sollten alle diese Prozeduren gründlich testen und Sie nach Bedarf für Ihre Umgebung ändern, bevor Sie Sie in einer Produktionsumgebung implementieren. Sie sollten außerdem überprüfen, ob alle Einstellungen erwartungsgemäß funktionieren (einige Test Prozeduren werden in diesem Anhang bereitgestellt), und Sie sollten ein Notfall Wiederherstellungs Szenario testen, in dem die Verwaltungs Konten nicht zur Verwendung zum Auffüllen geschützter Gruppen zu Wiederherstellungs Zwecken verwendet werden können. Weitere Informationen zum Sichern und Wiederherstellen Active Directory finden Sie in der [schrittweisen Anleitung zur AD DS Sicherung und](https://technet.microsoft.com/library/cc771290(v=ws.10).aspx)Wiederherstellung.  
+Sie sollten alle diese Prozeduren gründlich testen und Sie nach Bedarf für Ihre Umgebung ändern, bevor Sie Sie in einer Produktionsumgebung implementieren. Sie sollten außerdem überprüfen, ob alle Einstellungen erwartungsgemäß funktionieren (einige Test Prozeduren werden in diesem Anhang bereitgestellt), und Sie sollten ein Notfall Wiederherstellungs Szenario testen, in dem die Verwaltungs Konten nicht zur Verwendung zum Auffüllen geschützter Gruppen zu Wiederherstellungs Zwecken verwendet werden können. Weitere Informationen zum Sichern und Wiederherstellen Active Directory finden Sie in der [schrittweisen Anleitung zur AD DS Sicherung und](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771290(v=ws.10))Wiederherstellung.  
   
 > [!NOTE]  
 > Durch die Implementierung der in diesem Anhang beschriebenen Schritte erstellen Sie Konten, die in der Lage sind, die Mitgliedschaft aller geschützten Gruppen in den einzelnen Domänen zu verwalten, nicht nur die Active Directory Gruppen mit den höchsten Berechtigungen wie EAS, das und Bas. Weitere Informationen zu geschützten Gruppen in Active Directory finden Sie unter [Anhang C: geschützte Konten und Gruppen in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-C--Protected-Accounts-and-Groups-in-Active-Directory.md).  
@@ -80,13 +80,13 @@ Führen Sie die folgenden Schritte aus, um eine Gruppe zum Aktivieren und Deakti
   
 7.  Entfernen Sie auf der Registerkarte **Sicherheit** Gruppen, denen der Zugriff auf diese Gruppe nicht gestattet werden soll. Wenn Sie z. b. nicht möchten, dass authentifizierte Benutzer den Namen der Gruppe und allgemeine Eigenschaften lesen können, können Sie diesen ACE entfernen. Sie können auch ACEs entfernen, wie z. b. Konten für Konto-und Windows Server-kompatible Zugriffe vor Windows 2000. Sie sollten jedoch einen minimalen Satz von Objekt Berechtigungen überlassen. Behalten Sie die folgenden ACEs bei:  
   
-    -   SELBST  
+    -   SELF  
   
     -   SYSTEM  
   
-    -   Domänen-Admins  
+    -   Domänenadministratoren  
   
-    -   Organisations-Admins  
+    -   Organisationsadministratoren  
   
     -   Administratoren  
   
@@ -132,7 +132,7 @@ Führen Sie die folgenden Schritte aus, um die Verwaltungs Konten zu erstellen:
 
 7. Klicken Sie mit der rechten Maustaste auf das soeben erstellte Benutzerobjekt, und klicken Sie auf **Eigenschaften**.  
 
-8. Klicken Sie auf die Registerkarte **Konto** .  
+8. Klicken Sie auf die Registerkarte **Konto**.  
 
 9. Wählen Sie im Feld **Konto Optionen** das Flag **Konto ist vertraulich und kann nicht delegiert werden** aus, wählen Sie das **Konto unterstützt Kerberos AES 128 Bit Encryption** und/oder das kennflag **dieses Konto unterstützt Kerberos AES 256 encryption** aus, und klicken Sie auf **OK**.  
 
@@ -263,7 +263,7 @@ In diesem Fall erteilen Sie die neu erstellten Verwaltungs Konten, damit Sie das
    ![Erstellen von Verwaltungs Konten](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_138.gif)  
   
    > [!NOTE]  
-   > Weitere Informationen über die Rechte Erweiterung und die Benutzerkontensteuerung (User Account Control, UAC) in Windows finden Sie auf der TechNet-Website unter [UAC-Prozesse und-Interaktionen](https://technet.microsoft.com/library/dd835561(v=WS.10).aspx) .  
+   > Weitere Informationen über die Rechte Erweiterung und die Benutzerkontensteuerung (User Account Control, UAC) in Windows finden Sie auf der TechNet-Website unter [UAC-Prozesse und-Interaktionen](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd835561(v=ws.10)) .  
   
 4. Geben Sie an der Eingabeaufforderung (durch Ihre domänenspezifischen Informationen) **DSACLS [Distinguished Name des AdminSDHolder-Objekts in Ihrer Domäne]/G [Administrator Konto-UPN]: rpwp; Mitglied**ein.  
   
@@ -277,7 +277,7 @@ In diesem Fall erteilen Sie die neu erstellten Verwaltungs Konten, damit Sie das
   
    - /G gibt an, dass ein Grant-ACE konfiguriert wird.  
   
-   - PIM001@tailspintoys.msft ist der Benutzer Prinzipal Name (User Principal Name, UPN) des Sicherheits Prinzipals, dem die ACEs erteilt werden.  
+   - PIM001@tailspintoys.msftder Benutzer Prinzipal Name (User Principal Name, UPN) des Sicherheits Prinzipals, dem die ACEs erteilt werden.  
   
    - Rpwp erteilt Berechtigungen für Lese-und Schreib Eigenschaften  
   

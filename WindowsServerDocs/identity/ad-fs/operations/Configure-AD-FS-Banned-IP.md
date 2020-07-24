@@ -7,12 +7,12 @@ ms.date: 06/28/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 1a1e8a9e668caa0c766f6fe3012d5ae6ecaddb50
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 9e38105bafc92efc4d9e62e4815cdb24c3c25512
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80859923"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86965612"
 ---
 # <a name="ad-fs-and-banned-ip-addresses"></a>AD FS und verbotene IP-Adressen
 
@@ -56,9 +56,9 @@ BannedIpList                   : {1.2.3.4, ::3,1.2.3.4/16}
 
 
 
-## <a name="additional-references"></a>Weitere Verweise  
+## <a name="additional-references"></a>Zusätzliche Verweise  
 [Bewährte Methoden zum Sichern von Active Directory-Verbunddienste (AD FS)](../../ad-fs/deployment/best-practices-securing-ad-fs.md)
 
-[Set-ADF sproperties](https://technet.microsoft.com/itpro/powershell/windows/adfs/set-adfsproperties)
+[Set-ADF sproperties](/powershell/module/adfs/set-adfsproperties?view=win10-ps)
 
-[AD FS-Vorgänge](../../ad-fs/AD-FS-2016-Operations.md)
+[AD FS-Vorgänge](../ad-fs-operations.md)

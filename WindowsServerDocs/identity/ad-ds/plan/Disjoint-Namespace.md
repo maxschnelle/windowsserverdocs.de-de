@@ -8,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: c402e5519bc0e5c37cb6d3818c8def40d98d49e5
-ms.sourcegitcommit: 11421f4005f9f3a3f6c0db95b1836d0f765a9fa3
+ms.openlocfilehash: 6743a5fb902509d24f8f30d42b919e65fa40ccc0
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81624258"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86965692"
 ---
 # <a name="disjoint-namespace"></a>Zusammenhangloser Namespace
 
@@ -77,7 +77,7 @@ Die Verwendung eines Zusammenhang losen Namespace kann folgende Nachteile haben:
 - Um die Namensauflösung zu optimieren, müssen Sie manuelle Schritte zum Ändern und Verwalten von Gruppenrichtlinie durchführen, um Mitglieds Computer mit alternativen primären DNS-Suffixen zu konfigurieren.
 
 > [!NOTE]
-> Der Windows Internet Name Service (WINS) kann verwendet werden, um diesen Nachteil durch Auflösen von Namen mit nur einer Bezeichnung auszugleichen. Weitere Informationen zu WINS finden Sie in der [technischen Referenz zu WINS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc736411(v=ws.10)).
+> Der Windows Internet Name Service (WINS) kann verwendet werden, um diesen Nachteil durch Auflösen von Namen mit nur einer Bezeichnung auszugleichen. Weitere Informationen zu WINS finden Sie in der [technischen Referenz zu WINS](/previous-versions/windows/it-pro/windows-server-2003/cc736411(v=ws.10)).
 
 - Wenn Ihre Umgebung mehrere primäre DNS-Suffixe erfordert, müssen Sie die DNS-Suffixsuchreihenfolge für alle Active Directory Domänen in der Gesamtstruktur entsprechend konfigurieren.
 
@@ -85,7 +85,7 @@ Die Verwendung eines Zusammenhang losen Namespace kann folgende Nachteile haben:
 
 - Sie müssen alle Anwendungen sorgfältig auf Kompatibilitätsprobleme testen.
 
-Weitere Informationen zu den Schritten, die Sie durchführen können, um diese Nachteile zu beheben, finden Sie unter [Erstellen eines separaten Namespace](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc755926(v=ws.10)).
+Weitere Informationen zu den Schritten, die Sie durchführen können, um diese Nachteile zu beheben, finden Sie unter [Erstellen eines separaten Namespace](/previous-versions/windows/it-pro/windows-server-2003/cc755926(v=ws.10)).
 
 ### <a name="planning-a-namespace-transition"></a>Planen eines Namespace Übergangs
 
@@ -93,11 +93,11 @@ Bevor Sie einen Namespace ändern, überprüfen Sie die folgenden Überlegungen,
 
 - Manuell konfigurierte Dienst Prinzipal Namen (SPNs) Stimmen nach einer Namespace Änderung möglicherweise nicht mehr mit DNS-Namen ab. Dies kann zu Authentifizierungs Fehlern führen.
 
-    Weitere Informationen finden Sie unter [Dienst Anmeldungen schlagen aufgrund falsch fest gelegender SPNs fehl](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc772897(v=ws.10)).
+    Weitere Informationen finden Sie unter [Dienst Anmeldungen schlagen aufgrund falsch fest gelegender SPNs fehl](/previous-versions/windows/it-pro/windows-server-2003/cc772897(v=ws.10)).
 
     - Wenn Sie Windows Server 2003-basierte Computer mit eingeschränkter Delegierung verwenden, ist für diese Computer möglicherweise eine zusätzliche Konfiguration erforderlich, um SPNs zu ändern. Weitere Informationen finden Sie im Artikel 936628 in der Microsoft Knowledge Base. [der SPN wird nicht in der Liste der Dienste angezeigt, die an ein Konto delegiert werden können, wenn Sie versuchen, die eingeschränkte Delegierung auf einem Computer zu konfigurieren, auf dem Windows Server 2003](https://support.microsoft.com/help/936628) (404) ausgeführt wird.
 
-    - Wenn Sie Berechtigungen zum Ändern von SPNs für untergeordnete Administratoren delegieren möchten, finden Sie weitere Informationen unter [Delegieren der Autorisierungs Stelle zum Ändern von SPNs](https://technet.microsoft.com/library/cc772895(WS.10).aspx).
+    - Wenn Sie Berechtigungen zum Ändern von SPNs für untergeordnete Administratoren delegieren möchten, finden Sie weitere Informationen unter [Delegieren der Autorisierungs Stelle zum Ändern von SPNs](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770439(v=ws.10)).
 
 - Wenn Sie Lightweight Directory Access Protocol (LDAP) über Secure Sockets Layer (SSL) (LDAPS) mit einer Zertifizierungsstelle in einer Bereitstellung verwenden, die über Domänen Controller verfügt, die in einem Zusammenhang losen Namespace konfiguriert sind, müssen Sie beim Konfigurieren der LDAPS-Zertifikate den entsprechenden Active Directory Domänen Namen und das primäre DNS-Suffix verwenden.
 

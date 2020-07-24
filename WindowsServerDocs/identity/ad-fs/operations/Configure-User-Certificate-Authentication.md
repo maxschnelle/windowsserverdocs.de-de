@@ -8,12 +8,12 @@ ms.date: 01/18/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: c443d596e8e35f7ccf4aa23b622323122a2778e9
-ms.sourcegitcommit: 76a3b5f66e47e08e8235e2d152185b304d03b68b
+ms.openlocfilehash: 6fa77276aa41dc59c3dd5a131b5d8fb8a3dd2e58
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84663183"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86965452"
 ---
 # <a name="configuring-ad-fs-for-user-certificate-authentication"></a>Konfigurieren von AD FS für die Benutzerzertifikat Authentifizierung
 
@@ -36,14 +36,14 @@ Die Benutzerzertifikat Authentifizierung wird hauptsächlich in zwei Anwendungsf
 
 Aktivieren Sie die Authentifizierung von Benutzer Zertifikaten als Intranet-oder Extranet-Authentifizierungsmethode in AD FS mithilfe der AD FS Management Console oder des PowerShell-Cmdlets `Set-AdfsGlobalAuthenticationPolicy` .
 
-Wenn Sie AD FS für die Azure AD Zertifikat Authentifizierung konfigurieren, stellen Sie sicher, dass Sie die [Azure AD Einstellungen](https://docs.microsoft.com/azure/active-directory/active-directory-certificate-based-authentication-get-started#step-2-configure-the-certificate-authorities) und die [AD FS Anspruchs Regeln](https://docs.microsoft.com/azure/active-directory/active-directory-certificate-based-authentication-ios#requirements) konfiguriert haben, die für den Zertifikat Aussteller und die Seriennummer erforderlich sind.
+Wenn Sie AD FS für die Azure AD Zertifikat Authentifizierung konfigurieren, stellen Sie sicher, dass Sie die [Azure AD Einstellungen](/azure/active-directory/active-directory-certificate-based-authentication-get-started#step-2-configure-the-certificate-authorities) und die [AD FS Anspruchs Regeln](/azure/active-directory/active-directory-certificate-based-authentication-ios#requirements) konfiguriert haben, die für den Zertifikat Aussteller und die Seriennummer erforderlich sind.
 
 Außerdem gibt es einige optionale Aspekte.
 - Wenn Sie zusätzlich zu EKU (Anspruchstyp) Ansprüche basierend auf Zertifikat Feldern und Erweiterungen verwenden möchten https://schemas.microsoft.com/2012/12/certificatecontext/extension/eku) , konfigurieren Sie zusätzliche Anspruchs Pass-Through-Regeln für die Active Directory Anspruchs Anbieter-Vertrauensstellung.  Im folgenden finden Sie eine umfassende Liste der verfügbaren Zertifikat Ansprüche.  
 - Wenn Sie den Zugriff basierend auf dem Zertifikattyp einschränken müssen, können Sie die zusätzlichen Eigenschaften des Zertifikats in AD FS Ausstellungs Autorisierungs Regeln für die Anwendung verwenden. Häufige Szenarien sind "nur Zertifikate lassen, die von einem MDM-Anbieter bereitgestellt werden" oder "nur Smartcardzertifikate zulassen".
 >[!IMPORTANT]
 > Kunden, die den Geräte Code Fluss für die Authentifizierung und Durchführung der Geräte Authentifizierung mit einem anderen IDP als Azure AD (z. b. AD FS) verwenden, können keinen gerätebasierten Zugriff erzwingen (z. b. nur verwaltete Geräte mit einem Drittanbieter-MDM-Dienst zulassen), um Azure AD Ressourcen zu verwenden. Um den Zugriff auf Ihre Unternehmensressourcen in Azure AD zu schützen und jegliche Datenlecks zu verhindern, sollten Kunden Azure AD gerätebasierten bedingten Zugriff konfigurieren (d. h., das Gerät muss als "Beschwerde Azure AD" gekennzeichnet werden.
-- Konfigurieren Sie zugelassene Zertifizierungsstellen für Client Zertifikate mithilfe der Anleitung unter "Verwaltung vertrauenswürdiger Aussteller für die Client Authentifizierung" in [diesem Artikel](https://technet.microsoft.com/library/dn786429(v=ws.11).aspx).
+- Konfigurieren Sie zugelassene Zertifizierungsstellen für Client Zertifikate mithilfe der Anleitung unter "Verwaltung vertrauenswürdiger Aussteller für die Client Authentifizierung" in [diesem Artikel](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn786429(v=ws.11)).
 - Sie sollten die Anmelde Seiten ggf. so ändern, dass Sie den Anforderungen der Endbenutzer bei der Zertifikat Authentifizierung entsprechen. Häufige Fälle: (a) ändern Sie die Anmeldung mit Ihrem X509-Zertifikat, um Endbenutzer freundlicher zu werden.
 
 ## <a name="configure-seamless-certificate-authentication-for-chrome-browser-on-windows-desktops"></a>Konfigurieren der nahtlosen Zertifikat Authentifizierung für den Chrome-Browser auf Windows-Desktops
@@ -76,7 +76,7 @@ Zertifikat Sperr Listen (CRL) sind Endpunkte, die in das Benutzerzertifikat codi
 Jeder AD FS-und WAP-Server muss den CRL-Endpunkt erreichen, um zu überprüfen, ob das Zertifikat, das ihm präsentiert wurde, weiterhin gültig ist und nicht widerrufen wurde. Die CRL-Überprüfung kann über HTTPS, http, LDAP oder über OCSP (Online Certificate Status-Protokoll) erfolgen. Wenn AD FS/WAP-Server den Endpunkt nicht erreichen können, tritt bei der Authentifizierung ein Fehler auf. Führen Sie die folgenden Schritte aus, um das Problem zu beheben. 
 1) Informieren Sie sich bei Ihrem PKI-Techniker, welche CRL-Endpunkte zum Widerrufen von Benutzer Zertifikaten von Ihrem PKI-System verwendet werden. 
 2)  Stellen Sie auf jedem AD FS/WAP-Server sicher, dass die CRL-Endpunkte über das verwendete Protokoll (in der Regel HTTPS oder http) erreichbar sind.
-3)  Aktivieren Sie für die erweiterte Überprüfung die [CAPI2-Ereignisprotokollierung](https://blogs.msdn.microsoft.com/benjaminperkins/2013/09/30/enable-capi2-event-logging-to-troubleshoot-pki-and-ssl-certificate-issues/) auf jedem AD FS/WAP-Server
+3)  Aktivieren Sie für die erweiterte Überprüfung die [CAPI2-Ereignisprotokollierung](/archive/blogs/benjaminperkins/enable-capi2-event-logging-to-troubleshoot-pki-and-ssl-certificate-issues) auf jedem AD FS/WAP-Server
 4) Überprüfen Sie die Ereignis-ID 41 (Sperrung überprüfen) in den CAPI2-Betriebs Protokollen.
 5) Überprüfen auf`‘\<Result value="80092013"\>The revocation function was unable to check revocation because the revocation server was offline.\</Result\>'`
 
@@ -138,4 +138,4 @@ Dies sind seltene vorkommen.
 
 ## <a name="related-links"></a>Verwandte Links
 * [Konfigurieren alternativer Hostname-Bindungen für AD FS Zertifikat Authentifizierung](ad-fs-support-for-alternate-hostname-binding-for-certificate-authentication.md)
-* [Konfigurieren von Zertifizierungsstellen in Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-certificate-based-authentication-get-started#step-2-configure-the-certificate-authorities)
+* [Konfigurieren von Zertifizierungsstellen in Azure AD](/azure/active-directory/active-directory-certificate-based-authentication-get-started#step-2-configure-the-certificate-authorities)

@@ -8,16 +8,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 237012b2a25f0c28beb3b0716287b4f6a554b625
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: cbaf6d82df97018da402811b9c512f0abae24964
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80822553"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86965702"
 ---
 # <a name="determining-the-number-of-forests-required"></a>Bestimmen der Anzahl der erforderlichen Gesamtstrukturen
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Um die Anzahl der Gesamtstrukturen zu ermitteln, die Sie bereitstellen müssen, müssen Sie die Isolations-und Autonomie Anforderungen für jede Gruppe in Ihrer Organisation sorgfältig ermitteln und auswerten und diese Anforderungen den entsprechenden Gesamtstruktur-Entwurfs Modellen zuordnen.  
   
@@ -62,13 +62,11 @@ Diese Unterstützungs Beschränkung besteht aus folgenden Gründen:
   
 -   Geklonte Domänen haben eine gemeinsame Sicherheitsidentität; Daher können Vertrauens Stellungen nicht zwischen Ihnen eingerichtet werden, auch wenn eine oder beide Domänen umbenannt wurden.  
   
-## <a name="in-this-section"></a>Inhalt dieses Abschnitts  
+## <a name="in-this-section"></a>In diesem Abschnitt  
   
--   [Gesamtstruktur-Entwurfsmodelle](https://technet.microsoft.com/library/cc770439.aspx)  
+-   [Gesamtstruktur-Entwurfsmodelle](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770439(v=ws.10))  
   
 -   [Zuordnung von Entwurfs Anforderungen zu Gesamtstruktur-Entwurfs Modellen](Forest-Design-Models.md)  
   
 -   [Verwenden des Domänen Gesamtstruktur Modells der Organisation](../../ad-ds/plan/Using-the-Organizational-Domain-Forest-Model.md)  
   
-
-

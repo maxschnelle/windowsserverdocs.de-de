@@ -1,33 +1,32 @@
 ---
 ms.assetid: 9a06cd41-426f-4cb9-89cf-f5be730e0b79
-title: Neues in Active Directory Domain Services
+title: Neues in den Active Directory Domain Services
 ms.prod: windows-server
 ms.technology: active-directory-domain-services
 ms.topic: article
 author: Femila
 ms.author: billmath
 ms.date: 05/31/2017
-ms.openlocfilehash: 5e58bb229aa8fe02fb20f870a0e922d1aa8c34b7
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 179064fdc958537190ddf5ce62475ac5d56fee07
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80825643"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86965672"
 ---
-# <a name="whats-new-in-active-directory-domain-services"></a>Neues in Active Directory Domain Services 
+# <a name="whats-new-in-active-directory-domain-services"></a>Neues in den Active Directory Domain Services 
 
 >Gilt für: Windows Server 2016
 
-Die folgenden neuen Features in Active Directory Domain Services (AD DS) verbessern die Fähigkeit von Organisationen, Active Directory Umgebungen zu schützen und Sie bei der Migration zu reinen cloudbereitstellungen und Hybrid Bereitstellungen zu unterstützen, bei denen einige Anwendungen und Dienste in der Cloud gehostet werden und andere lokal gehostet werden. Zu den Verbesserungen gehören:  
+Die folgenden neuen Features in Active Directory Domain Services (AD DS) verbessern die Fähigkeit von Organisationen, Active Directory Umgebungen zu schützen und Sie bei der Migration zu reinen cloudbereitstellungen und Hybrid Bereitstellungen zu unterstützen, bei denen einige Anwendungen und Dienste in der Cloud gehostet werden und andere lokal gehostet werden. Die Verbesserungen umfassen:  
   
--   [Privilegierte Zugriffs Verwaltung](https://technet.microsoft.com/library/mt150258.aspx   
-)  
+-   [Privilegierte Zugriffs Verwaltung](/microsoft-identity-manager/pam/privileged-identity-management-for-active-directory-domain-services)  
   
-- [Erweitern von cloudfunktionen auf Windows 10-Geräte über Azure Active Directory Join](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-overview/)   
+- [Erweitern von cloudfunktionen auf Windows 10-Geräte über Azure Active Directory Join](/azure/active-directory/devices/overview)   
   
-- [Verbinden von in die Domäne eingebundenen Geräten mit Azure AD für Windows 10-Umgebungen](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-devices-group-policy/)   
+- [Verbinden von in die Domäne eingebundenen Geräten mit Azure AD für Windows 10-Umgebungen](/azure/active-directory/devices/hybrid-azuread-join-plan)   
   
-- [Aktivieren von Microsoft Passport for Work in Ihrer Organisation](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-passport-deployment/)    
+- [Aktivieren von Microsoft Passport for Work in Ihrer Organisation](/windows/security/identity-protection/hello-for-business/hello-identity-verification)    
   
 -  [Veraltete Funktionsebenen für den Datei Replikations Dienst (File Replication Service, FRS) und Windows Server 2003](ad-ds/active-directory-functional-levels.md)  
   
@@ -50,9 +49,9 @@ Die privilegierte Zugriffs Verwaltung (privilegierte Zugriffs Verwaltung, PAM) t
   
 -   Neue Überwachungsfunktionen, mit denen Sie leicht erkennen können, wer den Zugriff angefordert hat, welchen Zugriff gewährt wurde und welche Aktivitäten ausgeführt wurden.  
   
-**Bedingungen**  
+**Anforderungen**  
   
--   Microsoft Identity Manager  
+-   Microsoft Identitäts-Manager  
   
 -   Active Directory Gesamtstruktur Funktionsebene von Windows Server 2012 R2 oder höher.  
   
@@ -61,7 +60,7 @@ Azure Active Directory Join verbessert die Identitäts Funktionen für Unternehm
   
 Vorteile:  
   
--   **Verfügbarkeit moderner Einstellungen** auf Windows-Geräten, die im Besitz von Corp sind. Bei den Sauerstoff Diensten ist keine persönliche Microsoft-Konto mehr erforderlich: Sie werden nun von den vorhandenen Arbeits Konten der Benutzer entfernt, um die Konformität zu gewährleisten. Die Sauerstoff Dienste können auf PCs verwendet werden, die einer lokalen Windows-Domäne angehören, und PCs und Geräten, die mit Ihrem Azure AD Mandanten ("clouddomäne") verknüpft sind. Dazu zählen die folgenden Einstellungen:  
+-   **Verfügbarkeit moderner Einstellungen** auf Windows-Geräten, die im Besitz von Corp sind. Bei den Sauerstoff Diensten ist keine persönliche Microsoft-Konto mehr erforderlich: Sie werden nun von den vorhandenen Arbeits Konten der Benutzer entfernt, um die Konformität zu gewährleisten. Die Sauerstoff Dienste können auf PCs verwendet werden, die einer lokalen Windows-Domäne angehören, und PCs und Geräten, die mit Ihrem Azure AD Mandanten ("clouddomäne") verknüpft sind. Dies umfasst Folgendes:  
   
     -   Roaming oder Personalisierung, Barrierefreiheits Einstellungen und Anmelde Informationen  
   
@@ -85,25 +84,25 @@ Vorteile:
   
 -   Mithilfe der Option " **Abbild** Erstellung" können Sie die Abbild Erstellung auswählen und Benutzern ermöglichen, unternehmenseigene Geräte direkt während der ersten Durchführung zu konfigurieren.  
   
-Weitere Informationen finden Sie unter [Windows 10 für Unternehmen: Verwendungsmöglichkeiten von Geräten für die Arbeit](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-windows10-devices-overview/?rnd=1).  
+Weitere Informationen finden Sie unter [Windows 10 für Unternehmen: Verwendungsmöglichkeiten von Geräten für die Arbeit](/azure/active-directory/devices/overview).  
   
 ## <a name="microsoft-passport"></a><a name="BKMK_IDLocker"></a>Microsoft Passport  
 Microsoft Passport ist ein neuer Schlüssel basierter Authentifizierungs Ansatz für Unternehmen und Kunden, der über die Kenn Wörter hinausgeht. Diese Form der Authentifizierung basiert auf Sicherheitsverletzungen, Diebstahl und Phish-Schutz Anmelde Informationen.  
   
 Der Benutzer meldet sich beim Gerät mit einem biometrischen oder PIN-Protokoll an, das mit einem Zertifikat oder einem asymmetrischen Schlüsselpaar verknüpft ist. Die Identitäts Anbieter (IDPs) überprüfen den Benutzer, indem Sie den öffentlichen Schlüssel des Benutzers idlocker zuordnen und Anmelde Informationen über ein einmal Kennwort (OTP), PhoneFactor oder einen anderen Benachrichtigungs Mechanismus bereitstellen.  
   
-Weitere Informationen finden Sie unter [Authentifizieren von Identitäten ohne Kenn Wörter über Microsoft Passport](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-passport/)  
+Weitere Informationen finden Sie unter [Authentifizieren von Identitäten ohne Kenn Wörter über Microsoft Passport](/windows/security/identity-protection/hello-for-business/hello-identity-verification)  
   
 ## <a name="deprecation-of-file-replication-service-frs-and-windows-server-2003-functional-levels"></a><a name="BKMK_FRSDeprecation"></a>Veraltete Funktionsebenen für den Datei Replikations Dienst (File Replication Service, FRS) und Windows Server 2003  
 Obwohl der Datei Replikations Dienst (File Replication Service, FRS) und die Funktionsebenen von Windows Server 2003 in früheren Versionen von Windows Server nicht mehr unterstützt wurden, wird das Betriebssystem Windows Server 2003 nicht mehr unterstützt. Daher sollten alle Domänencontroller, die auf Windows Server 2003 ausgeführt werden, aus der Domäne entfernt werden. Die Domänen-und Gesamtstruktur Funktionsebene sollte auf mindestens Windows Server 2008 erhöht werden, um zu verhindern, dass ein Domänen Controller, auf dem eine frühere Version von Windows Server ausgeführt wird, der Umgebung hinzugefügt wird.  
   
-Bei Windows Server 2008-Domänenfunktionsebenen (und höher) wird die DFS-Replikation (Distributed File Service) zum Replizieren von SYSVOL-Ordnerinhalten zwischen Domänencontrollern verwendet. Wenn Sie auf der Windows Server 2008-Domänenfunktionsebene (oder höher) eine neue Domäne erstellen, wird die DFS-Replikation automatisch zum Replizieren von SYSVOL verwendet. Wenn Sie die Domäne auf einer niedrigeren Funktionsebene erstellt haben, müssen Sie für SYSVOL anstatt des Dateireplikationsdiensts die DFS-Replikation verwenden. Für die Migrationsschritte können Sie entweder die [Anweisungen auf TechNet](https://technet.microsoft.com/library/dd640019(v=WS.10).aspx) oder die [optimierten Schritte im Storage Team File Cabinet-Blog](https://blogs.technet.com/b/filecab/archive/2014/06/25/streamlined-migration-of-frs-to-dfsr-sysvol.aspx) befolgen.  
+Bei Windows Server 2008-Domänenfunktionsebenen (und höher) wird die DFS-Replikation (Distributed File Service) zum Replizieren von SYSVOL-Ordnerinhalten zwischen Domänencontrollern verwendet. Wenn Sie auf der Windows Server 2008-Domänenfunktionsebene (oder höher) eine neue Domäne erstellen, wird die DFS-Replikation automatisch zum Replizieren von SYSVOL verwendet. Wenn Sie die Domäne auf einer niedrigeren Funktionsebene erstellt haben, müssen Sie für SYSVOL anstatt des Dateireplikationsdiensts die DFS-Replikation verwenden. Für die Migrationsschritte können Sie entweder die [Anweisungen auf TechNet](../storage/dfs-replication/migrate-sysvol-to-dfsr.md) oder die [optimierten Schritte im Storage Team File Cabinet-Blog](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB) befolgen.  
   
 Die Domänen-und Gesamtstruktur Funktionsebenen von Windows Server 2003 werden weiterhin unterstützt, aber Organisationen sollten die Funktionsebene auf Windows Server 2008 (oder höher) erhöhen, um die SYSVOL-Replikations Kompatibilität und-Unterstützung in Zukunft sicherzustellen. Außerdem gibt es noch viele weitere Vorteile und Features, die auf den höheren Funktionsebenen höher verfügbar sind. Weitere Informationen finden Sie in den folgenden Ressourcen:  
   
--   [Grundlegendes zu Active Directory Domain Services (AD DS)-Funktionsebenen](ad-ds/active-directory-functional-levels.md)  
+-   [Grundlegendes zu Funktionsebenen von Active Directory-Domänendiensten (AD DS)](ad-ds/active-directory-functional-levels.md)  
   
--   [Heraufstufen der Domänenfunktionsebene](https://technet.microsoft.com/library/cc753104.aspx)  
+-   [Heraufstufen der Domänenfunktionsebene](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753104(v=ws.11))  
   
--   [Heraufstufen der Gesamtstrukturfunktionsebene](https://technet.microsoft.com/library/cc730985.aspx)  
+-   [Heraufstufen der Gesamtstrukturfunktionsebene](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc730985(v=ws.11))  
   

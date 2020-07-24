@@ -8,16 +8,16 @@ ms.topic: article
 ms.assetid: 4781df0a-158b-4562-b8f5-32b27615a4f8
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 6d0a9248865dca4afb3db9609b284048155f9eef
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 0cf216cb785d01ed08bb3a4490b25d4c4549b1c4
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80857433"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86965592"
 ---
 # <a name="deploy-remote-access-in-an-enterprise"></a>Bereitstellen des Remotezugriffs in einem Unternehmen
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 Dieses Thema enthält eine Einführung in das DirectAccess-Szenario für das Unternehmen.  
   
@@ -27,17 +27,17 @@ Dieses Thema enthält eine Einführung in das DirectAccess-Szenario für das Unt
   
 ## <a name="before-you-begin-deploying-see-the-list-of-unsupported-configurations-known-issues-and-prerequisites"></a>Bevor Sie mit der Bereitstellung beginnen, sollten Sie sich die folgende Liste mit nicht unterstützten Konfigurationen, bekannten Problemen und Voraussetzungen ansehen:  
   
--   [DirectAccess: Nicht unterstützte Konfigurationen](https://technet.microsoft.com/windows-server-docs/networking/remote-access/directaccess/directaccess-unsupported-configurations)  
+-   [DirectAccess: Nicht unterstützte Konfigurationen](../directaccess/directaccess-unsupported-configurations.md)  
   
--   [DirectAccess: Bekannte Probleme](https://technet.microsoft.com/windows-server-docs/networking/remote-access/directaccess/directaccess-known-issues)  
+-   [DirectAccess: Bekannte Probleme](../directaccess/directaccess-known-issues.md)  
   
--   [Voraussetzungen für die Bereitstellung von DirectAccess](https://technet.microsoft.com/windows-server-docs/networking/remote-access/directaccess/prerequisites-for-deploying-directaccess)  
+-   [Voraussetzungen für die Bereitstellung von DirectAccess](../directaccess/prerequisites-for-deploying-directaccess.md)  
   
-## <a name="scenario-description"></a><a name="BKMK_OVER"></a>Szenariobeschreibung  
+## <a name="scenario-description"></a><a name="BKMK_OVER"></a>Beschreibung des Szenarios  
 Der Remotezugriff bietet eine Reihe von Unternehmensfeatures, u. a. das Bereitstellen mehrerer Remotezugriffsserver in einem Cluster, in dem der Lastausgleich mithilfe des Windows-Netzwerklastenausgleichs oder eines externen Lastenausgleichs vorgenommen wird, das Einrichten einer Bereitstellung für mehrere Standorte mit Remotezugriffsservern, die sich an unterschiedlichen geografischen Standorten befinden, und das Bereitstellen von DirectAccess mit zweistufiger Clientauthentifizierung unter Verwendung eines Einmalkennworts (One-Time Passwort, OTP).  
   
 ## <a name="in-this-scenario"></a>Inhalt dieses Szenarios  
-Jedes Unternehmensszenario wird in einem Dokument beschrieben, das Anweisungen zur Planung und zur Bereitstellung einschließt. Weitere Informationen finden Sie unter:  
+Jedes Unternehmensszenario wird in einem Dokument beschrieben, das Anweisungen zur Planung und zur Bereitstellung einschließt. Weitere Informationen finden Sie unter  
   
 -   [Bereitstellen des Remote Zugriffs in einem Cluster](cluster/Deploy-Remote-Access-In-Cluster.md)  
   
@@ -47,7 +47,7 @@ Jedes Unternehmensszenario wird in einem Dokument beschrieben, das Anweisungen z
   
 -   [Bereitstellen von Remote Zugriff in einer Umgebung mit mehreren Gesamtstrukturen](multi-forest/Deploy-Remote-Access-in-a-Multi-Forest-Environment.md)  
   
-## <a name="practical-applications"></a><a name="BKMK_APP"></a>Praktische Anwendungen  
+## <a name="practical-applications"></a><a name="BKMK_APP"></a>Praktische Anwendung  
 Remotezugriffsszenarios in einem Unternehmen bieten Folgendes:  
   
 -   **Erhöhung der Verfügbarkeit**. Das Bereitstellen mehrerer Remote Zugriffs Server in einem Cluster bietet Skalierbarkeit und erhöht die Kapazität für Durchsatz und Anzahl der Benutzer. Die Verwendung des Lastenausgleichs im Cluster sorgt für hohe Verfügbarkeit. Wenn ein Server im Cluster ausfällt, können Remotebenutzer weiterhin über einen anderen Server im Cluster auf das interne Unternehmensnetzwerk zugreifen. Das Failover erfolgt unbemerkt, wenn der Client mithilfe einer virtuellen IP-Adresse (VIP) eine Verbindung mit dem Cluster herstellt.  
@@ -69,5 +69,3 @@ In der folgenden Tabelle sind die für das Unternehmensszenario erforderlichen R
   
 
   
-
-

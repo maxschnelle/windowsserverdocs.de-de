@@ -1,6 +1,6 @@
 ---
 ms.assetid: 01988844-df02-4952-8535-c87aefd8a38a
-title: Bereitstellen der automatischen Dateiklassifizierung (Demonstrationsschritte)
+title: Deploy Automatic File Classification (Demonstration Steps)
 author: billmath
 ms.author: billmath
 manager: femila
@@ -8,16 +8,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: cc89e97aacab3b764df7314beeab701df846048a
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 67229659540b6d9fddcbcfc993205bee34973427
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80861253"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86964712"
 ---
-# <a name="deploy-automatic-file-classification-demonstration-steps"></a>Bereitstellen der automatischen Dateiklassifizierung (Demonstrationsschritte)
+# <a name="deploy-automatic-file-classification-demonstration-steps"></a>Deploy Automatic File Classification (Demonstration Steps)
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 In diesem Thema wird erläutert, wie Ressourceneigenschaften in Active Directory aktiviert, Klassifizierungsregeln auf dem Dateiserver erstellt und anschließend Werte zu den Ressourceneigenschaften für Dateien auf dem Dateiserver zugewiesen werden. In diesem Beispiel werden die folgenden Klassifizierungsregeln erstellt:  
   
@@ -25,23 +25,23 @@ In diesem Thema wird erläutert, wie Ressourceneigenschaften in Active Directory
   
 -   Eine Inhaltsklassifizierungsregel, die eine Reihe von Dateien auf einen regulären Ausdruck hin durchsucht, der mit mindestens zehnmal mit einer Sozialversicherungsnummer in einer Datei übereinstimmt. Wenn das Muster gefunden wird, wird die Datei klassifiziert, dass sie über persönlich identifizierbare Informationen verfügt. Zudem wird die Ressourceneigenschaft „Personally Identifiable Information“ auf „High“ festgelegt.  
   
-**In diesem Dokument**  
+**Inhalt dieses Dokuments**  
   
--   [Schritt 1: Erstellen von Ressourcen Eigenschafts Definitionen](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_Step1)  
+-   [Schritt 1: Erstellen von Ressourceneigenschaftsdefinitionen](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_Step1)  
   
--   [Schritt 2: Erstellen einer Zeichen folgen Inhalts-Klassifizierungs Regel](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_Step2)  
+-   [Schritt 2: Erstellen einer Zeichenfolgeninhalts-Klassifizierungsregel](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_Step2)  
   
--   [Schritt 3: Erstellen einer Klassifizierungs Regel für reguläre Ausdrücke](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_Step3)  
+-   [„Schritt 3: Erstellen einer Klassifizierungsregel für Inhalte mit regulären Ausdrücken](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_Step3)  
   
 -   [Schritt 4: überprüfen, ob die Dateien klassifiziert sind](Deploy-Automatic-File-Classification--Demonstration-Steps-.md#BKMK_Step4)  
   
 > [!NOTE]  
-> Dieses Thema enthält Windows PowerShell-Beispiel-Cmdlets, mit deren Hilfe einige beschriebene Verfahren automatisiert werden können. Weitere Informationen finden Sie unter [Verwenden von Cmdlets](https://go.microsoft.com/fwlink/p/?linkid=230693).  
+> Dieses Thema enthält Windows PowerShell-Beispiel-Cmdlets, mit denen Sie einige der beschriebenen Vorgehensweisen automatisieren können. Weitere Informationen finden Sie unter [Verwenden von Cmdlets](https://go.microsoft.com/fwlink/p/?linkid=230693).  
   
-## <a name="step-1-create-resource-property-definitions"></a><a name="BKMK_Step1"></a>Schritt 1: Erstellen von Ressourcen Eigenschafts Definitionen  
+## <a name="step-1-create-resource-property-definitions"></a><a name="BKMK_Step1"></a>Schritt 1: Erstellen von Ressourceneigenschaftsdefinitionen  
 Die Ressourceneigenschaften „Impact“ und „Personally Identifiable Information“ sind aktiviert, sodass die Dateiklassifizierungsinfrastruktur diese Ressourceneigenschaften verwenden kann, um die Dateien zu kennzeichnen, die in einem freigegeben Netzwerkordner durchsucht werden.  
   
-[Führen Sie diesen Schritt mithilfe von Windows PowerShell aus.](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_PSstep1)  
+[Führen Sie diesen Schritt mit Windows PowerShell aus.](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_PSstep1)  
   
 #### <a name="to-create-resource-property-definitions"></a>So erstellen Sie Ressourceneigenschaftsdefinitionen  
   
@@ -55,19 +55,19 @@ Die Ressourceneigenschaften „Impact“ und „Personally Identifiable Informat
   
 5.  Klicken Sie mit der rechten Maustaste auf **Personenbezogene Informationen**, und klicken Sie dann auf **Aktivieren**.  
   
-![projektmappenanleitung für](media/Deploy-Automatic-File-Classification--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>entsprechende Windows PowerShell-Befehle</em>***  
+![projektmappenhandbücher](media/Deploy-Automatic-File-Classification--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>äquivalente Windows PowerShell-Befehle</em>***  
   
-Die folgenden Windows PowerShell-Cmdlets führen dieselbe Funktion wie das vorherige Verfahren aus. Jedes Cmdlet sollte in einer eigenen Zeile eingegeben werden, obwohl sie hier aufgrund von Formateinschränkungen auf mehrere Zeilen umbrochen sein können.  
+Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
 ```  
 Set-ADResourceProperty '"Enabled:$true '"Identity:'CN=Impact_MS,CN=Resource Properties,CN=Claims Configuration,CN=Services,CN=Configuration,DC=contoso,DC=com'   
 Set-ADResourceProperty '"Enabled:$true '"Identity:'CN=PII_MS,CN=Resource Properties,CN=Claims Configuration,CN=Services,CN=Configuration,DC=contoso,DC=com'  
 ```  
   
-## <a name="step-2-create-a-string-content-classification-rule"></a><a name="BKMK_Step2"></a>Schritt 2: Erstellen einer Zeichen folgen Inhalts-Klassifizierungs Regel  
+## <a name="step-2-create-a-string-content-classification-rule"></a><a name="BKMK_Step2"></a>Schritt 2: Erstellen einer Zeichenfolgeninhalts-Klassifizierungsregel  
 Eine Zeichenfolgeninhalts-Klassifizierungsregeln durchsucht eine Datei auf eine bestimmte Zeichenfolge hin. Wenn die Zeichenfolge gefunden wird, kann der Wert einer Ressourceneigenschaft konfiguriert werden. In diesem Beispiel durchsuchen wir jede Datei in einem freigegebenen Netzwerkordner und suchen nach der Zeichenfolge "". Wenn die Zeichenfolge gefunden wird, wird die zugehörige Datei mit hoher Unternehmensauswirkung klassifiziert.  
   
-[Führen Sie diesen Schritt mithilfe von Windows PowerShell aus.](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_PSstep2)  
+[Führen Sie diesen Schritt mit Windows PowerShell aus.](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_PSstep2)  
   
 #### <a name="to-create-a-string-content-classification-rule"></a>So erstellen Sie eine Zeichenfolgeninhalts-Klassifizierungsregel  
   
@@ -88,7 +88,7 @@ Eine Zeichenfolgeninhalts-Klassifizierungsregeln durchsucht eine Datei auf eine 
 8.  Klicken Sie auf der Registerkarte **Bereich** auf **Hinzufügen**, und wählen Sie die Ordner aus, die in dieser Regel einbezogen werden sollen, wie beispielsweise „D:\Finance Documents“.  
   
     > [!NOTE]  
-    > Sie können auch einen dynamischen Namespace für den Bereich auswählen. Weitere Informationen zu dynamischen Namespaces für Klassifizierungsregeln finden Sie unter [What es New in File Server Ressourcen-Manager in Windows Server 2012 \[umgeleitet\]](assetId:///d53c603e-6217-4b98-8508-e8e492d16083).  
+    > Sie können auch einen dynamischen Namespace für den Bereich auswählen. Weitere Informationen zu dynamischen Namespaces für Klassifizierungsregeln finden Sie unter [What es New in File Server Ressourcen-Manager in Windows Server \[ 2012 \] umgeleitet](assetId:///d53c603e-6217-4b98-8508-e8e492d16083).  
   
 9. Konfigurieren Sie auf der Registerkarte **Klassifizierung** Folgendes:  
   
@@ -102,13 +102,13 @@ Eine Zeichenfolgeninhalts-Klassifizierungsregeln durchsucht eine Datei auf eine 
   
 11. Wählen Sie in der Spalte **Ausdruckstyp** die Option **Zeichenfolge** aus.  
   
-12. Geben Sie in der Spalte **Ausdruck** **Contoso Confidential** ein, und klicken Sie dann auf **OK**.  
+12. Geben Sie in der Spalte **Ausdruck****Contoso Confidential** ein, und klicken Sie dann auf **OK**.  
   
 13. Aktivieren Sie auf der Registerkarte **Evaluierungstyp** das Kontrollkästchen **Vorhandene Eigenschaftenwerte erneut auswerten**, klicken Sie auf **Vorhandenen Wert überschreiben**, und klicken Sie dann auf **OK**.  
   
-![projektmappenanleitung für](media/Deploy-Automatic-File-Classification--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>entsprechende Windows PowerShell-Befehle</em>***  
+![projektmappenhandbücher](media/Deploy-Automatic-File-Classification--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>äquivalente Windows PowerShell-Befehle</em>***  
   
-Die folgenden Windows PowerShell-Cmdlets führen dieselbe Funktion wie das vorherige Verfahren aus. Jedes Cmdlet sollte in einer eigenen Zeile eingegeben werden, obwohl sie hier aufgrund von Formateinschränkungen auf mehrere Zeilen umbrochen sein können.  
+Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
 ```  
 $date = Get-Date  
@@ -117,10 +117,10 @@ Set-FsrmClassification -Continuous -schedule $AutomaticClassificationScheduledTa
 New-FSRMClassificationRule -Name 'Contoso Confidential' -Property "Impact_MS" -PropertyValue "3000" -Namespace @('D:\Finance Documents') -ClassificationMechanism "Content Classifier" -Parameters @("StringEx=Min=1;Expr=Contoso Confidential") -ReevaluateProperty Overwrite  
 ```  
   
-## <a name="step-3-create-a-regular-expression-content-classification-rule"></a><a name="BKMK_Step3"></a>Schritt 3: Erstellen einer Klassifizierungs Regel für reguläre Ausdrücke  
+## <a name="step-3-create-a-regular-expression-content-classification-rule"></a><a name="BKMK_Step3"></a>„Schritt 3: Erstellen einer Klassifizierungsregel für Inhalte mit regulären Ausdrücken  
 Eine Klassifizierungsregel für reguläre Ausdrücke durchsucht eine Datei auf ein Muster, das mit dem regulären Ausdruck übereinstimmt. Wenn eine Zeichenfolge gefunden wird, die mit dem gefundenen regulären Ausdruck übereinstimmt, kann der Wert einer Ressourceneigenschaft konfiguriert werden. In diesem Beispiel durchsuchen wir jede Datei in einem freigegebenen Netzwerkordner und suchen nach einer Zeichenfolge, die dem Muster einer Sozialversicherungsnummer (XXX-XX-XXXX) entspricht. Wenn die Zeichenfolge gefunden wird, wird die zugehörige Datei mit persönlich identifizierbaren Informationen klassifiziert.  
   
-[Führen Sie diesen Schritt mithilfe von Windows PowerShell aus.](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_PSstep3)  
+[Führen Sie diesen Schritt mit Windows PowerShell aus.](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_PSstep3)  
   
 #### <a name="to-create-a-regular-expression-content-classification-rule"></a>So erstellen Sie eine Klassifizierungsregel für Inhalte mit regulären Ausdrücken  
   
@@ -148,21 +148,21 @@ Eine Klassifizierungsregel für reguläre Ausdrücke durchsucht eine Datei auf e
   
 9. Wählen Sie in der Spalte **Ausdruckstyp** die Option **Regulärer Ausdruck** aus.  
   
-10. Geben Sie **Expression** in der Spalte Ausdruck **^ (?! 000) ([0-7] \d{2}| 7 ([0-7] \d | 7 [012])) ([-]?) (?! 00) \d\d\3 (?! 0000) \d{4}$**  
+10. Geben Sie **Expression** in der Spalte Ausdruck **^ (?! 000) ([0-7] \d {2} | 7 ([0-7] \d | 7 [012])) ([-]?) (?! 00) \d\d\3 (?! 0000) \d {4} $**  
   
-11. Geben Sie in die Spalte **Min. Anz. von Vorkommen** **10** ein, und klicken Sie dann auf **OK**.  
+11. Geben Sie in die Spalte **Min. Anz. von Vorkommen****10** ein, und klicken Sie dann auf **OK**.  
   
 12. Aktivieren Sie auf der Registerkarte **Evaluierungstyp** das Kontrollkästchen **Vorhandene Eigenschaftenwerte erneut auswerten**, klicken Sie auf **Vorhandenen Wert überschreiben**, und klicken Sie dann auf **OK**.  
   
-![projektmappenanleitung für](media/Deploy-Automatic-File-Classification--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>entsprechende Windows PowerShell-Befehle</em>***  
+![projektmappenhandbücher](media/Deploy-Automatic-File-Classification--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>äquivalente Windows PowerShell-Befehle</em>***  
   
-Die folgenden Windows PowerShell-Cmdlets führen dieselbe Funktion wie das vorherige Verfahren aus. Jedes Cmdlet sollte in einer eigenen Zeile eingegeben werden, obwohl sie hier aufgrund von Formateinschränkungen auf mehrere Zeilen umbrochen sein können.  
+Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
 ```  
 New-FSRMClassificationRule -Name "PII Rule" -Property "PII_MS" -PropertyValue "5000" -Namespace @('D:\Finance Documents') -ClassificationMechanism "Content Classifier" -Parameters @("RegularExpressionEx=Min=10;Expr=^(?!000)([0-7]\d{2}|7([0-7]\d|7[012]))([ -]?)(?!00)\d\d\3(?!0000)\d{4}$") -ReevaluateProperty Overwrite  
 ```  
   
-## <a name="step-4-verify-that-the-files-are-classified-correctly"></a><a name="BKMK_Step4"></a>Schritt 4: überprüfen, ob die Dateien ordnungsgemäß klassifiziert sind  
+## <a name="step-4-verify-that-the-files-are-classified-correctly"></a><a name="BKMK_Step4"></a>Schritt 4: Sicherstellen, dass die Dateien richtig klassifiziert sind  
 Sie können sicherstellen, dass die Dateien richtig klassifiziert sind, indem Sie die Eigenschaften einer Datei anzeigen, die im in den Klassifizierungsregeln angegebenen Ordner erstellt wurde.  
   
 #### <a name="to-verify-that-the-files-are-classified-correctly"></a>So stellen Sie die richtige Klassifizierung der Dateien sicher  
@@ -185,11 +185,10 @@ Sie können sicherstellen, dass die Dateien richtig klassifiziert sind, indem Si
   
 ## <a name="see-also"></a><a name="BKMK_Links"></a>Siehe auch  
   
--   [Szenario: erhalten von Einblicken in Ihre Daten mithilfe der Klassifizierung](Scenario--Get-Insight-into-Your-Data-by-Using-Classification.md)  
+-   [Szenario: Erhalten von Einblicken in Ihre Daten mittels Klassifizierung](Scenario--Get-Insight-into-Your-Data-by-Using-Classification.md)  
   
--   [Planen der automatischen Datei Klassifizierung](https://docs.microsoft.com/previous-versions/orphan-topics/ws.11/jj574209(v%3dws.11))  
+-   [Planen der automatischen Dateiklassifizierung](/previous-versions/orphan-topics/ws.11/jj574209(v%3dws.11))  
 
   
--   [Dynamisches Access Control: Szenarioübersicht](Dynamic-Access-Control--Scenario-Overview.md)  
+-   [Dynamische Zugriffsteuerung: Szenarioübersicht](Dynamic-Access-Control--Scenario-Overview.md)  
   
-

@@ -8,18 +8,18 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: a22b1a0d776540e8ee2f2c223a1087bd88adaa47
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: dd8c2d4635071a199bdeff6a2bd518d746d82bc3
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80821173"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86966322"
 ---
 # <a name="maintaining-a-more-secure-environment"></a>Beibehalten einer sicheren Umgebung
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-*Recht Nummer 10: die Technologie ist kein Allheilmittel.* - [10 unveränderliche Gesetze der Sicherheitsverwaltung](https://technet.microsoft.com/library/cc722488.aspx)  
+*Recht Nummer 10: die Technologie ist kein Allheilmittel.* - [10 unveränderliche Gesetze der Sicherheitsverwaltung](/previous-versions//cc722488(v=technet.10))  
   
 Wenn Sie eine verwaltbare, sichere Umgebung für Ihre wichtigen Geschäftsressourcen erstellt haben, sollten Sie sich mit dem Schwerpunkt befassen, um sicherzustellen, dass Sie sicher verwaltet werden. Obwohl Sie über spezielle technische Kontrollen verfügen, um die Sicherheit Ihrer AD DS-Installationen zu erhöhen, bietet Technologie allein keine Umgebung, in der Sie nicht in Zusammenarbeit mit dem Unternehmen zusammenarbeitet, um eine sichere, nutzbare Infrastruktur zu erhalten. Die Empfehlungen in diesem Abschnitt sind für die Verwendung als Richtlinien gedacht, mit denen Sie nicht nur eine effektive Sicherheit, sondern auch eine effektive Lebenszyklus Verwaltung entwickeln können.  
   
@@ -59,10 +59,10 @@ Einige Organisationen implementieren Richtlinien für die Datenklassifizierung, 
   
 In Ihrem Daten Klassifizierungs Modell sollten Sie die Klassifizierung für AD DS Daten wie die folgenden einschließen.  
   
-### <a name="systems"></a>Systems  
+### <a name="systems"></a>Systeme  
 Sie sollten nicht nur Daten klassifizieren, sondern auch deren Server Population. Sie sollten für jeden Server wissen, welches Betriebssystem installiert ist, welche allgemeinen Rollen der Server bereitstellt, welche Anwendungen auf dem Server ausgeführt werden, der IT-Besitzer des Datensatzes und den Geschäftsinhaber des Datensatzes (falls zutreffend). Für alle Daten oder Anwendungen, die auf dem Server ausgeführt werden, benötigen Sie eine Klassifizierung, und der Server sollte gemäß den Anforderungen für die unterstützten Workloads und die auf das System und die Daten geltenden Klassifizierungen gesichert werden. Sie können Server auch nach der Klassifizierung ihrer Arbeits Auslastungen gruppieren, sodass Sie schnell die Server identifizieren können, die am ehesten überwacht und am ehesten konfiguriert werden sollen.  
   
-### <a name="applications"></a>Anwendungen  
+### <a name="applications"></a>Applications  
 Sie sollten Anwendungen nach Funktionalität klassifizieren (was Sie tun), Benutzerbasis (die die Anwendungen verwendet) und das Betriebssystem, auf dem Sie ausgeführt werden. Sie sollten Datensätze verwalten, die Versionsinformationen, den Patchstatus und andere relevante Informationen enthalten. Sie sollten Anwendungen auch nach den Typen von Daten klassifizieren, die Sie verarbeiten, wie zuvor beschrieben.  
   
 ### <a name="users"></a>Benutzer  
@@ -74,5 +74,3 @@ Wenn Sie Geschäftsinformationen in Ihre Infrastruktur integrieren, können Sie 
   
 Nehmen wir an, Executive a befindet sich normalerweise in Chicago und verwendet eine gesicherte Arbeitsstation, um von seinem Schreibtisch auf geschäftskritische Daten zuzugreifen, und ein Ereignis wird durch einen fehlgeschlagenen Versuch ausgelöst, auf die Daten von einer nicht geschützten Arbeitsstation in Atlanta zuzugreifen. Wenn Sie überprüfen können, ob der Executive zurzeit in Atlanta ist, können Sie das Ereignis auflösen, indem Sie sich an den Executive oder den Assistenten des Executive wenden, um zu ermitteln, ob es sich bei dem Zugriffsfehler um das Ergebnis der Überprüfung der gesicherten Arbeitsstation zum Zugreifen auf die Daten handelt. Wenn Sie ein Programm erstellen, das die in [Planen](../../../ad-ds/plan/security-best-practices/Planning-for-Compromise.md)der Gefährdung beschriebenen Ansätze verwendet, können Sie damit beginnen, eine Datenbank mit erwartetem Verhalten für die wichtigsten Konten in Ihrer Active Directory-Installation zu erstellen, die Ihnen helfen können, Angriffe schneller zu erkennen und darauf zu reagieren.  
   
-
-

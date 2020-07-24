@@ -8,18 +8,18 @@ ms.date: 06/18/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 24e5290bcb34860a150c8bb015c3b383c00e34b4
-ms.sourcegitcommit: 11421f4005f9f3a3f6c0db95b1836d0f765a9fa3
+ms.openlocfilehash: 1b156701090acc79a63afab26653f42044a23741
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81623788"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86966542"
 ---
 # <a name="securing-domain-controllers-against-attack"></a>Schützen von Domänencontrollern vor Angriffen
 
 > Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-*Gesetz Nummer 3: Wenn ein böswilliger Benutzer uneingeschränkten physischen Zugriff auf Ihren Computer hat, ist es nicht mehr der Computer.* - [Zehn unveränderliche Sicherheitsgesetze (Version 2,0)](https://technet.microsoft.com/security/hh278941.aspx)
+*Gesetz Nummer 3: Wenn ein böswilliger Benutzer uneingeschränkten physischen Zugriff auf Ihren Computer hat, ist es nicht mehr der Computer.* - [Zehn unveränderliche Sicherheitsgesetze (Version 2,0)](https://www.microsoft.com/en-us/msrc?rtc=1)
 
 Domänen Controller stellen den physischen Speicher für die AD DS-Datenbank bereit, zusätzlich zur Bereitstellung der Dienste und Daten, mit denen Unternehmen ihre Server, Arbeitsstationen, Benutzer und Anwendungen effektiv verwalten können. Wenn privilegierter Zugriff auf einen Domänen Controller von einem böswilligen Benutzer abgerufen wird, kann dieser Benutzer die AD DS Datenbank und durch Erweiterung alle Systeme und Konten, die von Active Directory verwaltet werden, ändern, beschädigen oder zerstören.
 
@@ -53,7 +53,7 @@ Wenn möglich, sollten Sie virtuelle Domänen Controller in Zweigniederlassungen
 
 ### <a name="remote-locations-with-limited-space-and-security"></a>Remote Standorte mit eingeschränktem Speicherplatz und Sicherheit
 
-Wenn Ihre Infrastrukturstandorte umfasst, an denen nur ein einziger physischer Server installiert werden kann, sollte ein Server, der virtualisierungsworkloads ausführen kann, am Remote Speicherort installiert werden, und BitLocker-Laufwerkverschlüsselung sollte so konfiguriert werden, dass alle Volumes auf dem Server geschützt werden. Ein virtueller Computer auf dem Server muss einen RODC ausführen, wobei andere Server als separate virtuelle Maschinen auf dem Host ausgeführt werden. Informationen zum Planen der Bereitstellung von RODC finden Sie im [Handbuch zur Planung und Bereitstellung von schreibgeschützten Domänen Controllern](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771744(v=ws.10)). Weitere Informationen zum Bereitstellen und Sichern von virtualisierten Domänen Controllern finden Sie unter [Ausführen von Domänen Controllern in Hyper-V](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd363553(v=ws.10)). Ausführlichere Anleitungen zum Härten von Hyper-v, Delegieren der Verwaltung virtueller Computer und schützen virtueller Computer finden Sie auf der Microsoft-Website im [Hyper-v-Sicherheits Leit Faden](https://www.microsoft.com/download/details.aspx?id=16650) Solution Accelerator.
+Wenn Ihre Infrastrukturstandorte umfasst, an denen nur ein einziger physischer Server installiert werden kann, sollte ein Server, der virtualisierungsworkloads ausführen kann, am Remote Speicherort installiert werden, und BitLocker-Laufwerkverschlüsselung sollte so konfiguriert werden, dass alle Volumes auf dem Server geschützt werden. Ein virtueller Computer auf dem Server muss einen RODC ausführen, wobei andere Server als separate virtuelle Maschinen auf dem Host ausgeführt werden. Informationen zum Planen der Bereitstellung von RODC finden Sie im [Handbuch zur Planung und Bereitstellung von schreibgeschützten Domänen Controllern](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc771744(v=ws.10)). Weitere Informationen zum Bereitstellen und Sichern von virtualisierten Domänen Controllern finden Sie unter [Ausführen von Domänen Controllern in Hyper-V](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/dd363553(v=ws.10)). Ausführlichere Anleitungen zum Härten von Hyper-v, Delegieren der Verwaltung virtueller Computer und schützen virtueller Computer finden Sie auf der Microsoft-Website im [Hyper-v-Sicherheits Leit Faden](https://www.microsoft.com/download/details.aspx?id=16650) Solution Accelerator.
 
 ## <a name="domain-controller-operating-systems"></a>Domänencontroller-Betriebssysteme
 

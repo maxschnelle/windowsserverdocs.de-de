@@ -8,28 +8,27 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 0258a0f9b697b587f6ea5e5b4b2bc201ef23ddf1
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: d3209db2551b50c01fb0893a398b49c6078acd9f
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80815073"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86964952"
 ---
-# <a name="ad-fs-overview"></a>ADFS (Übersicht)
+# <a name="ad-fs-overview"></a>AD FS (Übersicht)
 
 Active Directory Verbunddienst (AD FS) ermöglicht die Verbund Identitäts-und Zugriffs Verwaltung durch sicheres Freigeben von digitaler Identität und Berechtigungs rechten in Sicherheits-und Unternehmensgrenzen. AD FS erweitert die Möglichkeit, Single Sign-on Funktionalität zu verwenden, die in einer einzelnen Sicherheits-oder Unternehmens Grenze für Anwendungen mit Internet Zugriff verfügbar ist, um Kunden, Partnern und Lieferanten eine optimierte Benutzerfreundlichkeit beim Zugriff auf webbasierte Anwendungen einer Organisation zu ermöglichen.
 
-Dieses Dokument enthält eine Liste aller Dokumentations Übersichten für AD FS für Windows Server. Dazu gehören unter anderem:
+Dieses Dokument enthält eine Liste aller Dokumentations Übersichten für AD FS für Windows Server. Dazu gehören:
   
   
 * [Neues in AD FS für Windows Server 2019](../ad-fs/overview/whats-new-active-directory-federation-services-windows-server.md)  
   
 * [AD FS OpenID Connect-/OAuth-Flows und Anwendungsszenarien](../ad-fs/overview/ad-fs-openid-connect-oauth-flows-scenarios.md) 
 
-* [AD FS-Anforderungen](../ad-fs/overview/AD-FS-2016-Requirements.md)
+* [AD FS-Anforderungen](./overview/ad-fs-requirements.md)
 
-* [FAQ zu AD FS](../ad-fs/overview/AD-FS-FAQ.md)
+* [AD FS – FAQ](../ad-fs/overview/AD-FS-FAQ.md)
 
   
   
-

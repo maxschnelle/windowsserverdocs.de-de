@@ -8,40 +8,40 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: fa8645198374d91911f8ec7dc15f04bea4865e38
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 864f6c8a103ce753e328426b4205c5e1c64e0bcb
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80824443"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86966042"
 ---
 # <a name="virtualized-domain-controller-architecture"></a>Architektur virtualisierter Domänencontroller
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Dieser Artikel behandelt die Architektur für das Klonen und die sichere Wiederherstellung virtualisierter Domänencontroller. Sie finden Flussdiagramme zu den Klon- und Wiederherstellungsprozessen sowie eine detaillierte Erklärung der einzelnen Prozessschritte.  
   
--   [Klonen von virtualisierten Domänen Controllern](../../../ad-ds/get-started/virtual-dc/Virtualized-Domain-Controller-Architecture.md#BKMK_CloneArch)  
+-   [Architektur für das Klonen virtualisierter Domänencontroller](../../../ad-ds/get-started/virtual-dc/Virtualized-Domain-Controller-Architecture.md#BKMK_CloneArch)  
   
--   [Architektur der sicheren Wiederherstellung virtualisierter Domänen Controller](../../../ad-ds/get-started/virtual-dc/Virtualized-Domain-Controller-Architecture.md#BKMK_SafeRestoreArch)  
+-   [Architektur zur sicheren Wiederherstellung virtueller Domänencontroller](../../../ad-ds/get-started/virtual-dc/Virtualized-Domain-Controller-Architecture.md#BKMK_SafeRestoreArch)  
   
-## <a name="virtualized-domain-controller-cloning-architecture"></a><a name="BKMK_CloneArch"></a>Klonen von virtualisierten Domänen Controllern  
+## <a name="virtualized-domain-controller-cloning-architecture"></a><a name="BKMK_CloneArch"></a>Architektur für das Klonen virtualisierter Domänencontroller  
   
 ### <a name="overview"></a>Übersicht  
 Das Klonen virtualisierter Domänencontroller benötigt einen von der Hypervisor-Plattform bereitgestellten Bezeichner mit dem Namen **VM-Generations-ID**, mit dem die Erstellung virtueller Computer erkannt wird. AD DS speichert diesen Bezeichner bei der Heraufstufung des Domänencontrollers in der Datenbank (NTDS.DIT). Beim Hochfahren des virtuellen Computers wird der aktuelle Wert der VM-Generations-ID des virtuellen Computers mit dem Wert in der Datenbank verglichen. Unterscheiden sich die beiden Werte, wird die Aufrufkennung zurückgesetzt und der RID-Pool verworfen, um das erneute Verwenden der USN oder mögliche doppelt vergebene Sicherheitsprinzipale zu verhindern. Anschließend sucht der Domänencontroller nach der Datei DCCloneConfig.xml an den in Schritt 3 unter [Details zum Klonprozess](../../../ad-ds/get-started/virtual-dc/../../../ad-ds/get-started/virtual-dc/../../../ad-ds/get-started/virtual-dc/../../../ad-ds/get-started/virtual-dc/Virtualized-Domain-Controller-Architecture.md#BKMK_CloneProcessDetails) beschriebenen Orten. Wenn die Datei DCCloneConfig.xml gefunden wird, geht der DC davon aus, dass er als Klon bereitgestellt wird und initialisiert das Klonen, um sich selbst durch erneute Heraufstufung als zusätzlicher Domänencontroller bereitzustellen. Dabei werden die vom Quellmedium kopierten Inhalte von NTDS.DIT und SYSVOL verwendet.  
   
 In gemischten Umgebungen, in denen nicht alle Hypervisoren die VM-Generations-ID unterstützen, kann es passieren, dass ein Klon-Medium versehentlich auf einem Hypervisor bereitgestellt wird, der die VM-Generations-ID nicht unterstützt. Das Vorhandensein der Datei DCCloneConfig.xml gibt die Absicht an, einen DC klonen zu wollen. Wenn also die Datei DCCloneConfig.xml beim Hochfahren gefunden wird, aber keine VM-Generations-ID vom Host angegeben wurde, wird der Klon-DC in den Verzeichnisdienstwiederherstellungs (DSRM)-Modus gestartet, um Auswirkungen auf die restliche Umgebung zu verhindern. Das Klon-Medium kann anschließend auf einen Hypervisor verschoben werden, der die VM-Generations-ID unterstützt, und das Klonen dort wiederholt werden.  
   
-Wenn das Klon-Medium auf einem Hypervisor bereitgestellt wird, der die VM-Generations-ID unterstützt, und keine DCCloneConfig.xml-Datei vorhanden ist, löst der DC Schutzmaßnahmen gegen USN-Wiederverwendung und doppelte SIDs aus, wenn er eine Änderung der VM-Generations-ID zwischen seiner eigenen DIT und der neuen DIT aus der VM erkennt. Der Klonvorgang wird jedoch nicht gestartet, sodass der sekundäre Domänencontroller weiterhin unter derselben Identität wie der Quell-DC laufen kann. Der sekundäre DC sollte schnellstmöglich aus dem Netzwerk entfernt werden, um Inkonsistenzen in der Umgebung zu vermeiden. Weitere Informationen dazu, wie Sie diesen sekundären Domänencontroller freigeben und gleichzeitig sicherstellen, dass Updates ausgehend repliziert werden, finden Sie im Microsoft KB-Artikel [2742970](https://support.microsoft.com/kb/2742970).  
+Wenn das Klon-Medium auf einem Hypervisor bereitgestellt wird, der die VM-Generations-ID unterstützt, und keine DCCloneConfig.xml-Datei vorhanden ist, löst der DC Schutzmaßnahmen gegen USN-Wiederverwendung und doppelte SIDs aus, wenn er eine Änderung der VM-Generations-ID zwischen seiner eigenen DIT und der neuen DIT aus der VM erkennt. Der Klonvorgang wird jedoch nicht gestartet, sodass der sekundäre Domänencontroller weiterhin unter derselben Identität wie der Quell-DC laufen kann. Der sekundäre DC sollte schnellstmöglich aus dem Netzwerk entfernt werden, um Inkonsistenzen in der Umgebung zu vermeiden. Weitere Informationen dazu, wie Sie diesen sekundären DC freigeben und gleichzeitig sicherstellen, dass Updates ausgehend repliziert werden, finden Sie im Microsoft KB-Artikel [2742970](https://support.microsoft.com/kb/2742970).  
   
-### <a name="cloning-detailed-processing"></a><a name="BKMK_CloneProcessDetails"></a>Ausführliche Verarbeitung Klonen  
+### <a name="cloning-detailed-processing"></a><a name="BKMK_CloneProcessDetails"></a>Details zum Klonprozess  
 Das folgende Diagramm zeigt die Architektur für den ursprünglichen Klonprozess und für Wiederholungen des Klonprozesses. Diese Prozesse werden im Verlauf dieses Artikels genauer beschrieben.  
   
-**Ursprünglicher Klon Vorgang**  
+**Ursprünglicher Klonprozess**  
   
 ![Virtualisierte DC-Architektur](media/Virtualized-Domain-Controller-Architecture/ADDS_VDC_InitialCloningProcess.png)  
   
-**Klon Vorgang wird wiederholt.**  
+**Wiederholung des Klonprozesses**  
   
 ![Virtualisierte DC-Architektur](media/Virtualized-Domain-Controller-Architecture/ADDS_VDC_CloningRetryProcess.png)  
   
@@ -111,7 +111,7 @@ In den folgenden Schritten wird der Prozess genauer beschrieben:
   
 15. Der Gast erzwingt eine NT5DS (Windows NTP)-Zeitsynchronisierung mit einem anderen Domänencontroller (in einer normalen Windows-Zeitdiensthierarchie wird dazu der PDCE verwendet). Der Gast kontaktiert den PDCE. Alle existierenden Kerberos-Tickets werden gelöscht.  
   
-16. Der Gast konfiguriert die DFSR- oder NTFRS-Dienste für die automatische Ausführung. Der Gast löscht alle vorhandenen DFSR-und NTFRS-Datenbankdateien (Standard: c:\windows\ntfrs und c:\System Volume information\dfsr\\ *< database_GUID >* ), um beim nächsten Start des Diensts eine nicht autoritative Synchronisierung von SYSVOL zu erzwingen. Der Gast löscht die Dateiinhalte von SYSVOL nicht, um Synchronisierung mit Startwerten zu versehen, wenn die Synchronisierung später gestartet wird.  
+16. Der Gast konfiguriert die DFSR- oder NTFRS-Dienste für die automatische Ausführung. Der Gast löscht alle vorhandenen DFSR-und NTFRS-Datenbankdateien (Standard: c:\windows\ntfrs und c:\System Volume information\dfsr \\ *<database_GUID>*), um eine nicht autoritative Synchronisierung von SYSVOL beim nächsten Start des Diensts zu erzwingen. Der Gast löscht die Dateiinhalte von SYSVOL nicht, um Synchronisierung mit Startwerten zu versehen, wenn die Synchronisierung später gestartet wird.  
   
 17. Der Gast wird umbenannt. Der DS-Rollenserverdienst auf dem Gast beginnt mit der AD DS-Konfiguration (Heraufstufung) und verwendet dabei die NTDS.DIT-Datenbankdatei als Quelle, anstelle der in c:\windows\system32 enthaltenen Datenbankvorlage, wie bei einer normalen Heraufstufung.  
   
@@ -141,10 +141,10 @@ In den folgenden Schritten wird der Prozess genauer beschrieben:
   
 26. Der Gast wird neu gestartet. Er ist nun ein normaler Domänencontroller mit Ankündigungen.  
   
-## <a name="virtualized-domain-controller-safe-restore-architecture"></a><a name="BKMK_SafeRestoreArch"></a>Architektur der sicheren Wiederherstellung virtualisierter Domänen Controller  
+## <a name="virtualized-domain-controller-safe-restore-architecture"></a><a name="BKMK_SafeRestoreArch"></a>Architektur zur sicheren Wiederherstellung virtueller Domänencontroller  
   
 ### <a name="overview"></a>Übersicht  
-AD DS benötigt einen von der Hypervisor-Plattform bereitgestellten Bezeichner mit dem Namen **VM-Generations-ID** , um die Wiederherstellung einer Momentaufnahme eines virtuellen Computers zu erkennen. AD DS speichert diesen Bezeichner bei der Heraufstufung des Domänencontrollers in der Datenbank (NTDS.DIT). Wenn ein Administrator den virtuellen Computer aus einem früheren Momentaufnahme wiederherstellt, wird der aktuelle Wert der VM-Generations-ID des virtuellen Computers mit einem Wert in der Datenbank verglichen. Unterscheiden sich die beiden Werte, wird die Aufrufkennung zurückgesetzt und der RID-Pool verworfen, um das erneute Verwenden der USN oder mögliche doppelt vergebene Sicherheitsprinzipale zu verhindern. Die sichere Wiederherstellung kann in zwei Szenarien erfolgen:  
+AD DS benötigt einen von der Hypervisor-Plattform bereitgestellten Bezeichner mit dem Namen **VM-Generations-ID**, um die Wiederherstellung einer Momentaufnahme eines virtuellen Computers zu erkennen. AD DS speichert diesen Bezeichner bei der Heraufstufung des Domänencontrollers in der Datenbank (NTDS.DIT). Wenn ein Administrator den virtuellen Computer aus einem früheren Momentaufnahme wiederherstellt, wird der aktuelle Wert der VM-Generations-ID des virtuellen Computers mit einem Wert in der Datenbank verglichen. Unterscheiden sich die beiden Werte, wird die Aufrufkennung zurückgesetzt und der RID-Pool verworfen, um das erneute Verwenden der USN oder mögliche doppelt vergebene Sicherheitsprinzipale zu verhindern. Die sichere Wiederherstellung kann in zwei Szenarien erfolgen:  
   
 -   Beim Start eines virtuellen Domänencontrollers, nachdem eine Momentaufnahme im heruntergefahrenen Zustand wiederhergestellt wurde  
   
@@ -179,7 +179,7 @@ Das folgende Diagramm zeigt, wie die Virtualisierungs-Sicherheitsmaßnahmen Abwe
 > [!NOTE]  
 > Die vorige Illustration wurde vereinfacht, um die Konzepte zu erläutern.  
   
-1.  Zum Zeitpunkt T1 erstellt der Hypervisor-Administrator eine Momentaufnahme des virtuellen DC1. DC1 hat zu diesem Zeitpunkt einen USN-Wert (**highestCommittedUsn** in der Praxis) von 100, einen InvocationId (im vorigen Diagramm als ID dargestellt)-Wert von A (in der Praxis wäre dies die GUID). Beim savedVMGID-Wert handelt es sich um die VM-Generations-ID in der DIT-Datei des DC (für das Computerobjekt des DC in einem Attribut mit dem Namen **msDS-GenerationId**gespeichert). VMGID ist der aktuelle Wert der VM-Generations-ID aus dem Treiber des virtuellen Computers. Dieser Wert wird vom Hypervisor bereitgestellt.  
+1.  Zum Zeitpunkt T1 erstellt der Hypervisor-Administrator eine Momentaufnahme des virtuellen DC1. DC1 hat zu diesem Zeitpunkt einen USN-Wert (**highestCommittedUsn** in der Praxis) von 100, einen InvocationId (im vorigen Diagramm als ID dargestellt)-Wert von A (in der Praxis wäre dies die GUID). Beim savedVMGID-Wert handelt es sich um die VM-Generations-ID in der DIT-Datei des DC (für das Computerobjekt des DC in einem Attribut mit dem Namen **msDS-GenerationId** gespeichert). VMGID ist der aktuelle Wert der VM-Generations-ID aus dem Treiber des virtuellen Computers. Dieser Wert wird vom Hypervisor bereitgestellt.  
   
 2.  Zu einem späteren Zeitpunkt T2 werden 100 Benutzer zu diesem DC hinzugefügt (betrachten Sie Benutzer als ein Beispiel für Änderungen, die zwischen T1 und T1 auf diesem DC durchgeführt wurden. Diese Änderungen können in der Praxis eine Mischung aus Benutzererstellungen, Gruppenerstellungen, Kennwortänderungen, Attributänderungen usw. sein). In diesem Beispiel verbraucht jede Änderung eine eindeutige USN (obwohl eine Benutzererstellung in der Praxis mehr als eine USN verbrauchen kann). Vor der Übernahme dieser Änderungen prüft DC1, ob der Wert der VM-Generations-ID in dessen Datenbank (savedVMGID) mit dem aktuellen, aus dem Treiber verfügbaren Wert (VMGID), übereinstimmt. Die beiden Werte sind gleich, da noch kein Rollback erfolgt ist. Daher werden die Änderungen übernommen, und USN auf 200 gesetzt, um anzugeben, dass die nächste Änderung USN 201 verwenden kann. InvocationId, savedVMGID und VMGID ändern sich nicht. Diese Änderungen werden beim nächsten Replikationszyklus auf DC2 repliziert. DC2 aktualisiert den hohen Grenzwert (und **Updatess Vector**), der hier einfach als DC1 (A) @USN = 200 dargestellt wird. DC2 kennt also alle Änderungen aus DC1 im Kontext der Aufrufkennungen A bis USN 200.  
   
@@ -191,10 +191,8 @@ Nachdem der Gast die Virtualisierungs-Sicherheitsmaßnahmen implementiert hat, r
   
 -   Falls FRS verwendet wird, beendet der Gast den NTFRS-Dienst und setzt den D2 BURFLAGS-Registrierungswert. Anschließend wird der NTFRS-Dienst gestartet, repliziert nicht autoritativ in eingehender Richtung und verwendet dabei existierende und unveränderte SYSVOL-Daten, soweit möglich.  
   
--   Bei Verwendung von DFSR beendet der Gast den DFSR-Dienst und löscht die DFSR-Datenbankdateien (Standard Speicherort:%SystemRoot%\System Volume information\dfsr\\ *<database GUID>* ). Anschließend wird der DSFR-Dienst gestartet, repliziert nicht autoritativ in eingehender Richtung und verwendet dabei existierende und unveränderte SYSVOL-Daten, soweit möglich.  
+-   Bei Verwendung von DFSR beendet der Gast den DFSR-Dienst und löscht die DFSR-Datenbankdateien (Standard Speicherort:%SystemRoot%\System Volume information\dfsr \\ *<database GUID>* ). Anschließend wird der DSFR-Dienst gestartet, repliziert nicht autoritativ in eingehender Richtung und verwendet dabei existierende und unveränderte SYSVOL-Daten, soweit möglich.  
   
 > [!NOTE]  
-> -   Falls der Hypervisor keine VM-Generations-ID zum Vergleich bereitstellt, unterstützt dieser die Virtualisierungs-Schutzmaßnahmen nicht und der Gast funktioniert wie ein virtualisierter Domänencontroller unter Windows Server 2008 oder einer früheren Version. Der Gast implementiert den USN Rollback-Quarantäneschutz, falls versucht wird, mit USNs zu replizieren, die unterhalb der zuletzt vom Partner-DC gesehenen USN liegen. Weitere Informationen zum USN-Rollback-Quarantäneschutz finden Sie unter [USN und USN-Rollback](https://technet.microsoft.com/library/virtual_active_directory_domain_controller_virtualization_hyperv(WS.10).aspx).  
+> -   Falls der Hypervisor keine VM-Generations-ID zum Vergleich bereitstellt, unterstützt dieser die Virtualisierungs-Schutzmaßnahmen nicht und der Gast funktioniert wie ein virtualisierter Domänencontroller unter Windows Server 2008 oder einer früheren Version. Der Gast implementiert den USN Rollback-Quarantäneschutz, falls versucht wird, mit USNs zu replizieren, die unterhalb der zuletzt vom Partner-DC gesehenen USN liegen. Weitere Informationen zum USN-Rollback-Quarantäneschutz finden Sie unter [USN und USN-Rollback](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd363553(v=ws.10)).  
   
-
-

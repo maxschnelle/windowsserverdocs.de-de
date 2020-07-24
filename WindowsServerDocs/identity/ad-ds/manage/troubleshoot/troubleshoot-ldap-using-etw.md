@@ -1,5 +1,5 @@
 ---
-title: Verwenden von etw zur Problembehandlung bei LDAP-Verbindungen
+title: Verwenden von ETW zur Problembehandlung bei LDAP-Verbindungen
 description: Informationen zum Aktivieren und Verwenden von etw für die Ablauf Verfolgung von LDAP-Verbindungen zwischen AD DS Domänen Controllern.
 author: Teresa-Motiv
 manager: dcscontentpm
@@ -9,16 +9,16 @@ audience: Admin
 ms.author: v-tea
 ms.topic: article
 ms.date: 11/22/2019
-ms.openlocfilehash: f7b7df714dbd02b15555fa20c70c1e995e121a48
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 516304498206523a1ce618da6aa21640e38c9654
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80822933"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86965652"
 ---
-# <a name="using-etw-to-troubleshoot-ldap-connections"></a>Verwenden von etw zur Problembehandlung bei LDAP-Verbindungen
+# <a name="using-etw-to-troubleshoot-ldap-connections"></a>Verwenden von ETW zur Problembehandlung bei LDAP-Verbindungen
 
-Die [Ereignis Ablauf Verfolgung für Windows (Event Tracing for Windows, etw)](https://docs.microsoft.com/windows/win32/etw/event-tracing-portal) kann ein nützliches Problem Behandlungs Tool für Active Directory Domain Services (AD DS) sein. Sie können etw verwenden, um die[LDAP](https://docs.microsoft.com/previous-versions/windows/desktop/ldap/lightweight-directory-access-protocol-ldap-api)-Kommunikation (Lightweight Directory Access Protocol) zwischen Windows-Clients und LDAP-Servern, einschließlich AD DS Domänen Controllern, zu verfolgen.
+Die [Ereignis Ablauf Verfolgung für Windows (Event Tracing for Windows, etw)](/windows/win32/etw/event-tracing-portal) kann ein nützliches Problem Behandlungs Tool für Active Directory Domain Services (AD DS) sein. Sie können etw verwenden, um die[LDAP](/previous-versions/windows/desktop/ldap/lightweight-directory-access-protocol-ldap-api)-Kommunikation (Lightweight Directory Access Protocol) zwischen Windows-Clients und LDAP-Servern, einschließlich AD DS Domänen Controllern, zu verfolgen.
 
 ## <a name="how-to-turn-on-etw-and-start-a-trace"></a>Aktivieren von etw und Starten einer Ablauf Verfolgung
 
@@ -26,9 +26,9 @@ Die [Ereignis Ablauf Verfolgung für Windows (Event Tracing for Windows, etw)](h
 
 1. Öffnen Sie den Registrierungs-Editor, und erstellen Sie den folgenden Registrierungs Unterschlüssel:
 
-   **HKEY\_lokalen\_Computer\\System\\CurrentControlSet\\Services\\LDAP\\Ablauf Verfolgung\\* ProcessName***
+   **HKEY \_ local \_ Machine \\ System \\ CurrentControlSet \\ Services \\ LDAP \\ Tracing \\ * ProcessName***
 
-   In diesem Unterschlüssel ist *ProcessName* der vollständige Name des Prozesses, den Sie verfolgen möchten, einschließlich seiner Erweiterung (z. b. "svchost. exe").
+   In diesem Unterschlüssel ist *ProcessName* der vollständige Name des Prozesses, den Sie verfolgen möchten, einschließlich der Erweiterung (z. b. "Svchost.exe").
 
 1. (**Optional**) Erstellen Sie unter diesem Unterschlüssel einen neuen Eintrag mit dem Namen **PID**. Wenn Sie diesen Eintrag verwenden möchten, weisen Sie eine Prozess-ID als DWORD-Wert zu.  
 
@@ -44,11 +44,11 @@ Die [Ereignis Ablauf Verfolgung für Windows (Event Tracing for Windows, etw)](h
 
    Die Platzhalter in diesem Befehl stellen die folgenden Werte dar.
 
-  - \<*Sessionname*> ist ein beliebiger Bezeichner, der zum bezeichnen der Ablauf Verfolgungs Sitzung verwendet wird.  
+  - \<*SessionName*>ist ein beliebiger Bezeichner, der zum bezeichnen der Ablauf Verfolgungs Sitzung verwendet wird.  
   > [!NOTE]  
   > Wenn Sie die Ablauf Verfolgungs Sitzung beenden, müssen Sie später auf diesen Sitzungs Namen verweisen.
-  - \<*filename*> die die Protokolldatei angibt, in die Ereignisse geschrieben werden.
-  - \<*TraceFlags*> muss mindestens einer der Werte sein, die in der Ablaufverfolgungsflags- [Tabelle](#values-for-trace-flags)aufgeführt sind.
+  - \<*FileName*>Gibt die Protokolldatei an, in die Ereignisse geschrieben werden.
+  - \<*TraceFlags*>muss mindestens einer der Werte sein, die in der Ablaufverfolgungsflags- [Tabelle](#values-for-trace-flags)aufgeführt sind.
 
 ## <a name="how-to-end-a-tracing-session-and-turn-off-event-tracing"></a>Beenden einer Ablauf Verfolgungs Sitzung und Deaktivieren der Ereignis Ablauf Verfolgung
 
@@ -60,18 +60,18 @@ Die [Ereignis Ablauf Verfolgung für Windows (Event Tracing for Windows, etw)](h
    tracelog.exe -stop <SessionName>
    ```
 
-   In diesem Befehl ist \<*Sessionname*> derselbe Name, den Sie im Befehl " **tracelog. exe-Start** " verwendet haben.
+   In diesem Befehl \<*SessionName*> ist derselbe Name, den Sie im **tracelog.exe-Start-** Befehl verwendet haben.
 
 **So deaktivieren Sie etw**
 
-- Löschen Sie im Registrierungs-Editor den **HKEY\_lokalen\_Computers\\System\\CurrentControlSet\\Services\\LDAP\\Tracing\\* ProcessName*** Unterschlüssel.
+- Löschen Sie im Registrierungs-Editor den Unterschlüssel **HKEY \_ local \_ Machine \\ System \\ CurrentControlSet \\ Services \\ LDAP \\ Tracing \\ * ProcessName***.
 
 ## <a name="values-for-trace-flags"></a>Werte für Ablaufverfolgungsflags
 
-Um ein Flag zu verwenden, ersetzen Sie den-Flag-Wert für den <*TraceFlags*> Platzhalter in den Argumenten des Befehls " **tracelog. exe-Start** ".
+Um ein Flag zu verwenden, ersetzen Sie den-Flag-Wert für den <*TraceFlags*> Platzhalter in den Argumenten des **tracelog.exe-Start-** Befehls.
 
 > [!NOTE]  
-> Sie können mehrere Flags angeben, indem Sie die Summe der entsprechenden Flagwerte verwenden. Um beispielsweise die Debug- **\_Search** (0x00000001) und **Debug\_Cache** (0x00000010)-Flags anzugeben, ist der entsprechende \<*TraceFlags*-> Wert **0x00000011**.
+> Sie können mehrere Flags angeben, indem Sie die Summe der entsprechenden Flagwerte verwenden. Um z. b. die Flags für die **Debug- \_ Suche** (0x00000001) und den **Debug- \_ Cache** (0x00000010) anzugeben, ist der entsprechende \<*TraceFlags*> Wert **0x00000011**.
 
 |Flagname |Flagwert |Flag-Beschreibung |
 | --- | --- | --- |
@@ -108,11 +108,11 @@ Um ein Flag zu verwenden, ersetzen Sie den-Flag-Wert für den <*TraceFlags*> Pla
 
 ## <a name="example"></a>Beispiel
 
-Stellen Sie sich eine Anwendung App1. exe vor, mit der Kenn Wörter für Benutzerkonten festgelegt werden. Angenommen, App1. exe erzeugt einen unerwarteten Fehler. Führen Sie die folgenden Schritte aus, um mithilfe von etw das Problem zu diagnostizieren:
+Angenommen, eine Anwendung, App1.exe, mit der Kenn Wörter für Benutzerkonten festgelegt werden. Angenommen, App1.exe erzeugt einen unerwarteten Fehler. Führen Sie die folgenden Schritte aus, um mithilfe von etw das Problem zu diagnostizieren:
 
 1. Erstellen Sie im Registrierungs-Editor den folgenden Registrierungs Eintrag:
 
-   **HKEY\_lokalen\_Computer\\System\\CurrentControlSet\\Services\\LDAP\\Ablauf Verfolgung\\App1. exe**
+   **HKEY \_ local \_ Machine \\ System \\ CurrentControlSet \\ Services \\ LDAP-Ablauf \\ Verfolgungs \\App1.exe**
 
 1. Öffnen Sie ein Eingabe Aufforderungs Fenster, und führen Sie den folgenden Befehl aus, um eine Ablauf Verfolgungs Sitzung zu starten:
 
@@ -120,9 +120,9 @@ Stellen Sie sich eine Anwendung App1. exe vor, mit der Kenn Wörter für Benutze
    tracelog.exe -start ldaptrace -guid \#099614a5-5dd7-4788-8bc9-e29f43db28fc -f .\ldap.etl -flag 0x80000
    ```
 
-   Nachdem dieser Befehl gestartet wurde, stellt **Debug\_BIND** sicher, dass etw Ablauf Verfolgungs Meldungen in schreibt.\\LDAP. ETL.
+   Nachdem dieser Befehl gestartet wurde, stellt die **Debug- \_ Bindung** sicher, dass etw Ablauf Verfolgungs Meldungen in schreibt. \\ LDAP. ETL.
 
-1. Starten Sie App1. exe, und reproduzieren Sie den unerwarteten Fehler.
+1. Starten Sie App1.exe, und reproduzieren Sie den unerwarteten Fehler.
 
 1. Um die Ablauf Verfolgungs Sitzung zu verhindern, führen Sie den folgenden Befehl an der Eingabeaufforderung aus:
 
@@ -130,7 +130,7 @@ Stellen Sie sich eine Anwendung App1. exe vor, mit der Kenn Wörter für Benutze
     tracelog.exe -stop ldaptrace
    ```
 
-1. Um zu verhindern, dass andere Benutzer die Anwendung nachverfolgen, löschen Sie den **HKEY\_lokalen\_Computer**\\**System**\\**CurrentControlSet**\\**Services**\\**LDAP**\\**Tracing**\\**App1. exe** -Registrierungs Eintrag.
+1. Um zu verhindern, dass andere Benutzer die Anwendung nachverfolgen, löschen Sie den Registrierungs Eintrag **HKEY \_ local \_ Machine** \\ **System** \\ **CurrentControlSet** \\ **Services** \\ **LDAP** \\ **Tracing** \\ **App1.exe** .
 
 1. Um die Informationen im Ablauf Verfolgungs Protokoll zu überprüfen, führen Sie den folgenden Befehl an der Eingabeaufforderung aus:
 
@@ -139,4 +139,4 @@ Stellen Sie sich eine Anwendung App1. exe vor, mit der Kenn Wörter für Benutze
     ```
 
    > [!NOTE]  
-   > In diesem Befehl ist **tracerpt. exe** ein Tool für die Ablauf [Verfolgung von Kunden](https://go.microsoft.com/fwlink/p/?linkid=83876) .
+   > In diesem Befehl ist **tracerpt.exe** ein Consumer-Tool für die Ablauf [Verfolgung](https://go.microsoft.com/fwlink/p/?linkid=83876) .

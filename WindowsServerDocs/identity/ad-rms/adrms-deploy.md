@@ -1,19 +1,19 @@
 ---
 ms.assetid: e6fa9069-ec9c-4615-b266-957194b49e11
-title: Aktualisieren von AD RMS auf Windows Server 2016
+title: Aktualisieren von AD RMS auf Windows Server 2016
 author: msmbaldwin
 ms.author: esaggese
 ms.date: 05/30/2019
 ms.prod: windows-server
 ms.topic: article
-ms.openlocfilehash: 88af85f8e670b9c23b503e0f79af2ce8f10d045e
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: cb27477f71dbded1f1171fde613f55f6267fc2cb
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80854853"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86965472"
 ---
-# <a name="upgrading-ad-rms-to-windows-server-2016"></a>Aktualisieren von AD RMS auf Windows Server 2016
+# <a name="upgrading-ad-rms-to-windows-server-2016"></a>Aktualisieren von AD RMS auf Windows Server 2016
 
 ## <a name="introduction"></a>Einführung
 
@@ -22,7 +22,7 @@ Active Directory Rights Management Services (AD RMS) ist ein Microsoft-Dienst, d
 Dieses Dokument enthält Anleitungen zum Migrieren von Windows Server 2012 R2 mit SQL Server 2012 zu Windows Server 2016 und SQL Server 2016. Der gleiche Prozess kann für die Migration von älteren, aber unterstützten Versionen von AD RMS verwendet werden.
 Beachten Sie, dass sich Active Directory Rights Management Services nicht mehr in der aktiven Entwicklung befindet, und für die neuesten Funktionen sollten Kunden in Erwägung gezogen werden, zu [Azure Information Protection](https://azure.microsoft.com/services/information-protection/)zu migrieren, der einen weitaus umfassenderen Satz an Features bietet, bei denen die Geräte-und Anwendungsunterstützung vollständiger ist 
 
-Informationen zum Migrieren zu Azure Information Protection von AD RMS, ohne den Inhalt erneut schützen zu müssen, finden Sie in [der Dokumentation zur Azure Information Protection Migration](https://docs.microsoft.com/azure/information-protection/migrate-from-ad-rms-to-azure-rms).
+Informationen zum Migrieren zu Azure Information Protection von AD RMS, ohne den Inhalt erneut schützen zu müssen, finden Sie in [der Dokumentation zur Azure Information Protection Migration](/azure/information-protection/migrate-from-ad-rms-to-azure-rms).
 
 ## <a name="about-the-environment-used-in-this-guide"></a>Informationen zur in diesem Handbuch verwendeten Umgebung
 
@@ -51,7 +51,7 @@ Der CNAME wird verwendet, um sicherzustellen, dass das Windows Server 2016-Setup
 
 1.  Melden Sie sich mit den Anmelde Informationen des Domänen Administrators beim Windows Server 2012 R2-Domänen Controller an.
 
-2.  Öffnen Sie Server-Manager.
+2.  Öffnen Sie den Server-Manager.
 
 3.  Klicken **Sie auf Extras und dann** auf **DNS** , um den DNS-Manager zu öffnen
 
@@ -61,7 +61,7 @@ Der CNAME wird verwendet, um sicherzustellen, dass das Windows Server 2016-Setup
 
 6.  Geben Sie für den Aliasnamen einen logischen Namen ein, um ihn von anderen zu unterscheiden (z. Sqladrms oder sqladfs)
 
-7.  Nachdem Sie den Namen eingegeben haben, geben Sie den voll qualifizierten Namen des Zielhosts an, der als neuer SQL Server 2016-Server verwendet wird. fern. SQL2016.contoso.com)
+7.  Nachdem Sie den Namen eingegeben haben, geben Sie den voll qualifizierten Namen des Zielhosts an, der als neuer SQL Server 2016-Server verwendet wird. (Beispiel: SQL2016.contoso.com)
 
 8.  Nachdem Sie alle Informationen eingegeben haben, klicken Sie auf **OK**.
 
@@ -107,7 +107,7 @@ In den folgenden Schritten wird erläutert, wie die verschiedenen Dienst Konten 
 
 5.  Erweitern Sie **Sicherheit** , und klicken Sie dann mit der rechten Maustaste auf **Anmeldungen** , und wählen Sie im angezeigten Kontextmenü die Option **neue Anmeldung** aus.
 
-6.  Sobald das Fenster angezeigt wird, geben Sie im Feld **Anmelde Name den Namen** des Domänen Administrator Kontos ein (Beispiel: Con\\conadsoadmin)
+6.  Sobald das Fenster angezeigt wird, geben Sie im Feld **Anmelde Name den Namen** des Domänen Administrator Kontos ein (Beispiel: CONSO \\ conadsoadmin)
 
 7.  Wählen Sie im linken Navigationsbereich **Server Rollen**aus.
 
@@ -179,11 +179,11 @@ Wenn Sie einen AD FS-Server bereitstellen, der die aktuelle Umgebungs Ebene übe
 
 2.  Öffnen Sie eine Administrator-PowerShell-Sitzung.
 
-3.  Geben Sie den folgenden Befehl ein: **\$-ID = Get-Credential** .
+3.  Geben Sie den folgenden Befehl ein: " ** \$ Kred = Get-Credential** ".
 
 4.  Ein Fenster wird angezeigt, in dem Sie zur Eingabe von Anmelde Informationen aufgefordert werden.
 
-5.  Geben Sie dann den folgenden Befehl ein: " **aufrufen-adfsfarmverhalorlevelraise-Credential \$** ".
+5.  Geben Sie dann den folgenden Befehl ein: " **aufrufen-adfsfarmverhalorlevelraise-Credential \$ ** ".
 
 6.  Es wird eine Eingabeaufforderung mit der Frage angezeigt. möchten **Sie den Vorgang fortsetzen?** Geben Sie dann **ein ein** , um die Aufforderung zu akzeptieren.
 
@@ -199,9 +199,9 @@ Mit der Erweiterung für mobile Geräte können von Endbenutzer Geräten empfang
 
 2.  Geben Sie den folgenden Befehl ein, und drücken **Sie die Eingabe**Taste: **Import-Module ADRMSADMIN** .
 
-3.  Geben Sie den folgenden Befehl ein, und drücken **Sie die Eingabe**Taste: **New-PSDrive-Name adrmscluster-psprovider ADRMSADMIN-root https://localhost**
+3.  Geben Sie den folgenden Befehl ein, und drücken **Sie die Eingabe**Taste: **New-PSDrive-Name adrmscluster-psprovider ADRMSADMIN-root https://localhost **
 
-4.  Geben Sie den folgenden Befehl ein, und drücken **Sie die Eingabe**Taste: **Set-ItemProperty-Path adrmscluester:\\-Name isloggingenabled-Value \$true**
+4.  Geben Sie den folgenden Befehl ein, und drücken **Sie die Eingabe**Taste: **Set-ItemProperty-Path adrmscluester: \\ -Name isloggingenabled-Value \$ true**
 
 Wenn Sie die MDE-Protokollierung für die Problembehandlung verwenden, empfiehlt es sich, diese nach der Behebung des Problems zu deaktivieren.
 
@@ -211,11 +211,11 @@ Wenn Sie die MDE-Protokollierung für die Problembehandlung verwenden, empfiehlt
 
 2.  Geben Sie den folgenden Befehl ein, und drücken **Sie die Eingabe**Taste: **Import-Module ADRMSADMIN** .
 
-3.  Geben Sie den folgenden Befehl ein, und drücken **Sie die Eingabe**Taste: **New-PSDrive-Name adrmscluster-psprovider ADRMSADMIN-root https://localhost**
+3.  Geben Sie den folgenden Befehl ein, und drücken **Sie die Eingabe**Taste: **New-PSDrive-Name adrmscluster-psprovider ADRMSADMIN-root https://localhost **
 
-4.  Geben Sie den folgenden Befehl ein, und drücken **Sie die Eingabe**Taste: **Set-ItemProperty-Path adrmscluester:\\-Name isloggingenabled-Value \$false**
+4.  Geben Sie den folgenden Befehl ein, und drücken **Sie die Eingabe**Taste: **Set-ItemProperty-Path adrmscluester: \\ -Name isloggingenabled-Value \$ false**
 
-### <a name="upgrading-ad-rms-to-windows-server-2016"></a>Aktualisieren von AD RMS auf Windows Server 2016
+### <a name="upgrading-ad-rms-to-windows-server-2016"></a>Aktualisieren von AD RMS auf Windows Server 2016
 
 Die folgenden Abschnitte enthalten Anleitungen zum Hinzufügen eines Windows Server 2016-basierten AD RMS Servers zum aktuellen Windows Server 2012 R2-Cluster. Der Server wird dem Cluster hinzugefügt, und die Informationen werden darauf repliziert, sodass der vorherige AD RMS Server als veraltet markiert werden kann, um Ressourcen freizugeben.
 
@@ -277,11 +277,11 @@ Sie können zusätzliche webanwendungsproxy-Server zur Unterstützung der AD RMS
 
 4.  Wählen Sie im Bildschirm Server Rollen auswählen die Option **webanwendungsproxy**aus, klicken Sie auf **Features hinzufügen**und dann auf **weiter**.
 
-5.  Klicken Sie auf dem Bildschirm Installations Auswahl bestätigen auf **Installieren**.
+5.  Klicken Sie auf dem Bildschirm Installationsauswahl bestätigen auf **Installieren**.
 
 6.  Klicken Sie nach Abschluss der Installation auf **Schließen**.
 
-7.  Nun ist es an der Zeit, den Server zu konfigurieren. Öffnen Sie hierzu die Remote Zugriffs-Verwaltungskonsole auf dem webanwendungsproxy-Server. Öffnen Sie das **Startmenü** , geben Sie **ramgmtui. exe**ein, und wählen Sie dann die Anwendung aus.
+7.  Nun ist es an der Zeit, den Server zu konfigurieren. Öffnen Sie hierzu die Remote Zugriffs-Verwaltungskonsole auf dem webanwendungsproxy-Server. Öffnen Sie das **Startmenü** , geben Sie **RAMgmtUI.exe**ein, und wählen Sie dann die Anwendung aus.
 
 8.  Klicken Sie im Navigationsbereich auf **Webanwendungsproxy**.
 
@@ -409,11 +409,11 @@ Sie können zusätzliche WAP-Server zum Einrichten der Hochverfügbarkeit bereit
 
 4.  Wählen Sie im Bildschirm Server Rollen auswählen die Option **webanwendungsproxy**aus, klicken Sie auf **Features hinzufügen**und dann auf **weiter**.
 
-5.  Klicken Sie auf dem Bildschirm Installations Auswahl bestätigen auf **Installieren**.
+5.  Klicken Sie auf dem Bildschirm Installationsauswahl bestätigen auf **Installieren**.
 
 6.  Klicken Sie nach Abschluss der Installation auf **Schließen**.
 
-7.  Nun ist es an der Zeit, den Server zu konfigurieren. Öffnen Sie hierzu die Remote Zugriffs-Verwaltungskonsole auf dem webanwendungsproxy-Server. Öffnen Sie das **Startmenü** , geben Sie **ramgmtui. exe**ein, und wählen Sie dann die Anwendung aus.
+7.  Nun ist es an der Zeit, den Server zu konfigurieren. Öffnen Sie hierzu die Remote Zugriffs-Verwaltungskonsole auf dem webanwendungsproxy-Server. Öffnen Sie das **Startmenü** , geben Sie **RAMgmtUI.exe**ein, und wählen Sie dann die Anwendung aus.
 
 8.  Klicken Sie im Navigationsbereich auf **Webanwendungsproxy**.
 
@@ -469,9 +469,9 @@ Sie können zusätzliche SQL Server-Server bereitstellen, um Always on Hochverf�
 
 17. Wählen Sie **Durchsuchen** aus, und suchen Sie im Dialogfeld Dateifreigabe Pfad den Pfad der Dateifreigabe, die Sie verwenden möchten. Klicken Sie auf **Weiter**.
 
-18. Klicken Sie auf der Seite Bestätigung auf **weiter**.
+18. Klicken Sie auf der Bestätigungsseite auf **Weiter**.
 
-19. Klicken Sie auf der Seite Zusammenfassung auf **Fertig**stellen.
+19. Klicken Sie auf der Zusammenfassungsseite auf **Fertig stellen**.
 
 20. Öffnen Sie nun das **Startmenü** , und suchen Sie nach **SQL Server-Konfigurations-Manager**.
 
@@ -479,13 +479,13 @@ Sie können zusätzliche SQL Server-Server bereitstellen, um Always on Hochverf�
 
 22. Wählen Sie im Dialogfeld Eigenschaften die Registerkarte **hohe Verfügbarkeit (AlwaysOn** ) aus. Aktivieren Sie das Kontrollkästchen **AlwaysOn-Verfügbarkeitsgruppen aktivieren** . Klicken Sie auf **OK**. **Hinweis: führen Sie dies auf beiden SQL Server 2016-Servern aus.**
 
-23. Starten Sie dann den SQL Server-Dienst neu.
+23. Starten Sie anschließend den SQL Server-Dienst neu.
 
 24. Öffnen Sie nun das **Startmenü** , und suchen Sie nach **SQL Server Management Studio** **und klicken Sie**im linken Navigationsbereich mit der rechten Maustaste auf **Verfügbarkeits Gruppen** , und klicken Sie dann auf Assistent für **neue Verfügbarkeits** Gruppen.
 
 25. Wählen Sie auf der Seite **Namen der Verfügbarkeits Gruppe angeben** einen Gruppennamen aus (z. b. SQLAvailabilityGroup2016). Klicken Sie dann auf **Weiter**.
 
-26. Geben Sie im Abschnitt **Datenbanken auswählen** die Datenbanken an. Klicken Sie dann auf Weiter. **Hinweis: Einige Datenbanken müssen möglicherweise erneut gesichert oder in den vollständigen Wiederherstellungs Modus versetzt werden**.
+26. Geben Sie im Abschnitt **Datenbanken auswählen** die Datenbanken an. Klicken Sie anschließend auf Weiter. **Hinweis: Einige Datenbanken müssen möglicherweise erneut gesichert oder in den vollständigen Wiederherstellungs Modus versetzt werden**.
 
 27. Klicken Sie auf der Seite **Replikate angeben** auf die Schaltfläche **Replikat hinzufügen** , und wählen Sie die andere 2016-SQL Server
 

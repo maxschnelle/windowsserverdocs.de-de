@@ -8,12 +8,12 @@ ms.date: 03/25/2020
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: e012706eeb9d483f19eff6f4ba2e1f57e0c0852d
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: cd8c41e67baf0ffa0399e62ad2a697e4efa1433f
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85475327"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86965182"
 ---
 # <a name="use-storage-migration-service-to-migrate-a-server"></a>Verwenden von Storage Migration Service zum Migrieren eines Servers
 
@@ -23,7 +23,7 @@ In diesem Thema wird erläutert, wie Sie einen Server, einschließlich seiner Da
 
 Bevor Sie beginnen, installieren Sie den Speicher Migrationsdienst, und stellen Sie sicher, dass die erforderlichen Firewallports geöffnet sind.
 
-1. Überprüfen Sie die Anforderungen an den [Speicher Migrationsdienst](overview.md#requirements) , und installieren Sie das [Windows Admin Center](../../manage/windows-admin-center/understand/windows-admin-center.md) auf Ihrem PC oder eine Management Server, sofern noch nicht geschehen. Wenn Sie in die Domäne eingebundenen Quell Computern migrieren, müssen Sie den Speicher Migrationsdienst auf einem Server installieren und ausführen, der der gleichen Domäne oder Gesamtstruktur wie die Quellcomputer beigetreten ist.
+1. Überprüfen Sie die Anforderungen an den [Speicher Migrationsdienst](overview.md#requirements) , und installieren Sie das [Windows Admin Center](../../manage/windows-admin-center/overview.md) auf Ihrem PC oder eine Management Server, sofern noch nicht geschehen. Wenn Sie in die Domäne eingebundenen Quell Computern migrieren, müssen Sie den Speicher Migrationsdienst auf einem Server installieren und ausführen, der der gleichen Domäne oder Gesamtstruktur wie die Quellcomputer beigetreten ist.
 2. Stellen Sie im Windows Admin Center eine Verbindung zum Orchestrator-Server her, auf dem Windows Server 2019 ausgeführt wird. <br>Dies ist der Server, auf dem Sie den Speicher Migrationsdienst installieren und zum Verwalten der Migration verwenden. Wenn Sie nur einen Server migrieren, können Sie den Zielserver verwenden, sofern er Windows Server 2019 ausgeführt wird. Es wird empfohlen, einen separaten Orchestrierungs Server für multiservermigrationen zu verwenden.
 3. Wechseln Sie zu **Server-Manager** (in Windows Admin Center) > **Storage Migration Service** , und wählen Sie **Installieren** aus, um den Speicher Migrationsdienst und die erforderlichen Komponenten zu installieren (siehe Abbildung 1).
     ![Screenshot der Seite "Storage Migration Service" mit der Installations Schaltfläche ](media/migrate/install.png) **Abbildung 1: Installieren von Storage Migration Service**
@@ -95,7 +95,7 @@ An diesem Punkt haben Sie drei Möglichkeiten:
 - Beachten Sie, dass **die Migration komplett** ist, ohne die Identitäten der Quell Server zu übernehmen.
 - Wird **erneut übertragen**, wobei nur Dateien kopiert werden, die seit der letzten Übertragung aktualisiert wurden.
 
-Wenn Sie die Dateien mit Azure synchronisieren möchten, können Sie die Zielserver nach dem Übertragen von Dateien mit Azure-Dateisynchronisierung oder nach dem übertragen auf die Zielserver einrichten (Weitere Informationen finden Sie unter [Planning for a Azure-Dateisynchronisierung Deployment](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning)).
+Wenn Sie die Dateien mit Azure synchronisieren möchten, können Sie die Zielserver nach dem Übertragen von Dateien mit Azure-Dateisynchronisierung oder nach dem übertragen auf die Zielserver einrichten (Weitere Informationen finden Sie unter [Planning for a Azure-Dateisynchronisierung Deployment](/azure/storage/files/storage-sync-files-planning)).
 
 ## <a name="step-3-cut-over-to-the-new-servers"></a>Schritt 3: Ausschneiden zu den neuen Servern
 
@@ -118,4 +118,4 @@ In diesem Schritt können Sie die Quell Server auf die Zielserver übertragen un
 
 - [Übersicht über den Speicher Migrationsdienst](overview.md)
 - [Häufig gestellte Fragen (FAQ) zu Storage Migration Services](faq.md)
-- [Planung für die Bereitstellung einer Azure-Dateisynchronisierung](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning)
+- [Planung für die Bereitstellung einer Azure-Dateisynchronisierung](/azure/storage/files/storage-sync-files-planning)

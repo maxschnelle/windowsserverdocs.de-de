@@ -8,21 +8,21 @@ ms.topic: article
 ms.assetid: 82505b18-dd77-4dd1-aa27-b2962b8241ca
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: fe4ba97eea441cfbb630577605f626c19e39976c
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: c81fef97bc33158a6a52c5046ef680041fabc2f3
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80858243"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86965562"
 ---
 # <a name="configure-remote-access-with-otp-authentication"></a>Planen des Remotezugriffs mit OTP-Authentifizierung
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
  Windows Server 2016 und Windows Server 2012 kombinieren DirectAccess-und RRAS-VPN (Routing and Remote Access Service, Routing-und RAS-Dienst) zu einer einzigen Remote Zugriffs Rolle. Diese Übersicht bietet eine Einführung in die Konfigurationsschritte, die erforderlich sind, um eine einzelne Bereitstellung von Windows Server 2016 oder Windows Server 2012 Remote Access für mehrere Standorte bereitzustellen.  
 
 
-- [Schritt 1: Implementieren einer Einzel Server-Remote Zugriffs Bereitstellung](../../multisite/configure/Step-1-Implement-a-Single-Server-Remote-Access-Deployment.md). Installieren und konfigurieren Sie einen einzelnen Remote Zugriffs Server. Anweisungen finden Sie unter Bereitstellen [eines einzelnen DirectAccess-Servers mit erweiterten Einstellungen](https://technet.microsoft.com/windows-server-docs/networking/remote-access/directaccess/single-server-advanced/deploy-a-single-directaccess-server-with-advanced-settings).
+- [Schritt 1: Implementieren einer Einzel Server-Remote Zugriffs Bereitstellung](../../multisite/configure/Step-1-Implement-a-Single-Server-Remote-Access-Deployment.md). Installieren und konfigurieren Sie einen einzelnen Remote Zugriffs Server. Anweisungen finden Sie unter Bereitstellen [eines einzelnen DirectAccess-Servers mit erweiterten Einstellungen](../../../directaccess/single-server-advanced/deploy-a-single-directaccess-server-with-advanced-settings.md).
 
 - [Schritt 2: Konfigurieren Sie den RADIUS-Server](Step-2-Configure-the-RADIUS-Server.md).
 
@@ -30,5 +30,3 @@ ms.locfileid: "80858243"
 
 - [Schritt 4: Überprüfen von DirectAccess mit OTP](Step-4-Verify-DirectAccess-with-OTP.md)
   
-
-

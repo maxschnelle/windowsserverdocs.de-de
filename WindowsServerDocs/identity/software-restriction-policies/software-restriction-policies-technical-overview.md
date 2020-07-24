@@ -1,5 +1,5 @@
 ---
-title: Richtlinien zur Softwareeinschränkung (Software Restriction Policies, SRP) – Technische Übersicht
+title: Richtlinien zur Softwareeinschränkung (Software Restriction Policies, SRP) –  Technische Übersicht
 description: Windows Server-Sicherheit
 ms.prod: windows-server
 ms.technology: security-software-restriction-policies
@@ -9,25 +9,25 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 38625a8d416345a6a7ed40c021b55aa10d1fd92f
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 9a9a44cd4ab1f4c8ee1c4dadf5cc09de2208b46a
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80855273"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86966162"
 ---
-# <a name="software-restriction-policies-technical-overview"></a>Richtlinien zur Softwareeinschränkung (Software Restriction Policies, SRP) – Technische Übersicht
+# <a name="software-restriction-policies-technical-overview"></a>Richtlinien zur Softwareeinschränkung (Software Restriction Policies, SRP) –  Technische Übersicht
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-In diesem Thema werden Richtlinien für Software Einschränkung beschrieben, wann und wie die Funktion verwendet wird, welche Änderungen in früheren Releases implementiert wurden, und es werden Links zu zusätzlichen Ressourcen bereitgestellt, die Ihnen beim Erstellen und Bereitstellen von Richtlinien für Software Einschränkung ab Windows helfen. Server 2008 und Windows Vista.
+In diesem Thema werden Richtlinien für Software Einschränkung beschrieben, wann und wie die Funktion verwendet wird, welche Änderungen in früheren Releases implementiert wurden, und es werden Links zu zusätzlichen Ressourcen bereitgestellt, mit denen Sie Richtlinien für Software Einschränkungen ab Windows Server 2008 und Windows Vista erstellen und bereitstellen können.
 
 ## <a name="introduction"></a>Einführung
-Software Einschränkungs Richtlinien bieten Administratoren einen Gruppenrichtlinie gesteuerten Mechanismus zum Identifizieren von Software und Steuern der Möglichkeit, auf dem lokalen Computer auszuführen. Diese Richtlinien können verwendet werden, um Computer, auf denen Microsoft Windows-Betriebssysteme ausgeführt werden (ab Windows Server 2003 und Windows XP Professional), vor bekannten Konflikten zu schützen und die Computer vor Sicherheitsbedrohungen wie bösartigen Viren zu schützen. und Trojaner. Sie können Richtlinien für Softwareeinschränkung auch verwenden, um eine stark eingeschränkte Konfiguration für Computer zu erstellen, mit der Sie ausschließlich die Ausführung explizit ausgewiesene Anwendungen zulassen. Richtlinien für Softwareeinschränkung sind mit Microsoft Active Directory und Gruppenrichtlinien verknüpft. Sie können Richtlinien für Softwareeinschränkung auch auf eigenständigen Computern erstellen.
+Software Einschränkungs Richtlinien bieten Administratoren einen Gruppenrichtlinie gesteuerten Mechanismus zum Identifizieren von Software und Steuern der Möglichkeit, auf dem lokalen Computer auszuführen. Diese Richtlinien können verwendet werden, um Computer, auf denen Microsoft Windows-Betriebssysteme ausgeführt werden (ab Windows Server 2003 und Windows XP Professional), vor bekannten Konflikten zu schützen und die Computer vor Sicherheitsbedrohungen wie böswilligen Viren und Trojanischen Programmen zu schützen. Sie können Richtlinien für Softwareeinschränkung auch verwenden, um eine stark eingeschränkte Konfiguration für Computer zu erstellen, mit der Sie ausschließlich die Ausführung explizit ausgewiesene Anwendungen zulassen. Richtlinien für Softwareeinschränkung sind mit Microsoft Active Directory und Gruppenrichtlinien verknüpft. Sie können Richtlinien für Softwareeinschränkung auch auf eigenständigen Computern erstellen.
 
 Richtlinien für Softwareeinschränkung sind Vertrauensrichtlinien. Hierbei handelt es sich um von einem Administrator festgelegte Vorschriften, um die Ausführung von Skripts und anderem Code zu beschränken, der als nicht als absolut vertrauenswürdig erachtet wird. Die Erweiterung für Software Einschränkungs Richtlinien für den Editor für lokale Gruppenrichtlinien bietet eine einzelne Benutzeroberfläche, über die die Einstellungen zum Einschränken der Anwendungs Verwendung auf dem lokalen Computer oder in einer Domäne verwaltet werden können.
 
-## <a name="procedures"></a>Verfahren
+## <a name="procedures"></a>Vorgehensweisen
 
 -   [Verwalten der Richtlinien für Softwareeinschränkung](administer-software-restriction-policies.md)
 
@@ -82,9 +82,9 @@ Software Einschränkungs Richtlinien können nur auf Computern konfiguriert werd
 
 In der folgenden Tabelle werden die Features und Funktionen von AppLocker und den Richtlinien für Softwareeinschränkung verglichen.
 
-|Anwendungssteuerungsfunktion|Softwareeinschränkungsrichtlinien|AppLocker|
+|Anwendungssteuerungsfunktion|SRP|AppLocker|
 |----------------|----|-------|
-|Gültigkeitsbereich|Richtlinien für Softwareeinschränkung können auf allen Windows-Betriebssystemen ab Windows XP und Windows Server 2003 angewendet werden.|AppLocker-Richtlinien gelten nur für Windows Server 2008 R2, Windows Server 2012, Windows 7 und Windows 8.|
+|`Scope`|Richtlinien für Softwareeinschränkung können auf allen Windows-Betriebssystemen ab Windows XP und Windows Server 2003 angewendet werden.|AppLocker-Richtlinien gelten nur für Windows Server 2008 R2, Windows Server 2012, Windows 7 und Windows 8.|
 |Richtlinienerstellung|SRP-Richtlinien werden mithilfe von Gruppenrichtlinien verwaltet, und nur der Administrator des GPO kann die SRP-Richtlinie aktualisieren. Der Administrator auf dem lokalen Computer kann die im lokalen GPO definierten SRP-Richtlinien ändern.|AppLocker-Richtlinien werden mithilfe von Gruppenrichtlinien verwaltet, und nur der Administrator des GPO kann die Richtlinie aktualisieren. Der Administrator auf dem lokalen Computer kann die im lokalen GPO definierten AppLocker-Richtlinien ändern.<p>Mit AppLocker können Fehlermeldungen so angepasst werden, dass Benutzer auf eine Webseite für Hilfe verwiesen werden.|
 |Richtlinienwartung|SRP-Richtlinien müssen mithilfe des Snap-Ins „Lokale Sicherheitsrichtlinie“ (bei lokal erstellten Richtlinien) oder der Gruppenrichtlinien-Verwaltungskonsole (GPMC) aktualisiert werden.|AppLocker-Richtlinien können mithilfe des Snap-Ins „Lokale Sicherheitsrichtlinie“ (bei lokal erstellten Richtlinien), der GPMC oder den Windows PowerShell-Cmdlets für AppLocker aktualisiert werden.|
 |Richtlinienanwendung|SRP-Richtlinien werden über eine Gruppenrichtlinie verteilt.|AppLocker-Richtlinien werden über eine Gruppenrichtlinie verteilt.|
@@ -96,7 +96,7 @@ In der folgenden Tabelle werden die Features und Funktionen von AppLocker und de
 |Unterstützung für verschiedene Sicherheitsstufen|Mit SRP können Administratoren die Berechtigungen angeben, mit denen eine app ausgeführt werden kann. Daher kann ein Administrator eine Regel so konfigurieren, dass Editor immer mit eingeschränkten Berechtigungen und nie mit Administratorrechten ausgeführt wird.<p>Unter Windows Vista und früheren Versionen hat SRP mehrere Sicherheitsstufen unterstützt. Unter Windows 7 wurde diese Liste auf zwei Ebenen beschränkt: unzulässig und uneingeschränkt (der grundlegende Benutzer wird in unzulässig übersetzt).|AppLocker unterstützt keine Sicherheitsstufen.|
 |Verwalten von App-Paketen und Installer für App-Pakete|Nicht möglich|APPX ist ein gültiger Dateityp, den AppLocker verwalten kann.|
 |Ausrichten einer Regel auf einen Benutzer bzw. eine Benutzergruppe|SRP-Regeln gelten für alle Benutzer auf einem bestimmten Computer.|AppLocker-Regeln können auf einen bestimmten Benutzer bzw. eine Benutzergruppe ausgerichtet werden.|
-|Unterstützung für Regelausnahmen|SRP unterstützt keine Regelausnahmen.|AppLocker-Regeln können Ausnahmen aufweisen, die es Administratoren ermöglichen, Regeln wie "alles von Windows zulassen außer regedit. exe" zu erstellen.|
+|Unterstützung für Regelausnahmen|SRP unterstützt keine Regelausnahmen.|AppLocker-Regeln können Ausnahmen aufweisen, die es Administratoren ermöglichen, Regeln wie "alles von Windows zulassen außer Regedit.exe" zu erstellen.|
 |Unterstützung für Überwachungsmodus|SRP unterstützt den Überwachungsmodus nicht. Die einzige Möglichkeit zum Testen von SRP-Richtlinien ist das Einrichten einer Testumgebung und das Durchführen einiger Experimente.|AppLocker unterstützt den Überwachungsmodus. Dies ermöglicht Administratoren das Testen der Auswirkung der Richtlinie in der echten Produktionsumgebung ohne die Benutzerfreundlichkeit zu beeinträchtigen. Sobald Sie mit den Ergebnissen zufrieden sind, können Sie mit dem Erzwingen der Richtlinie beginnen.|
 |Unterstützung für den Export und Import von Richtlinien|SRP unterstützt keinen Import/Export von Richtlinien.|AppLocker unterstützt das Importieren und Exportieren von Richtlinien. Dies ermöglicht Ihnen das Erstellen einer AppLocker-Richtlinie auf einem Beispielcomputer, das Testen der Richtlinie sowie das anschließende Exportieren und erneute Importieren in das gewünschte GPO.|
 |Regelerzwingung|Intern erfolgt die Erzwingung von SRP-Regeln im weniger sicheren Benutzermodus.|Intern werden AppLocker-Regeln für exe-Dateien und DLLs im Kernel Modus erzwungen, der sicherer ist als das erzwingen im Benutzermodus.|
@@ -115,7 +115,7 @@ Auf hoher Ebene bestehen Richtlinien für Software Einschränkung aus den folgen
 
 -   Eine Reihe von Betriebssystem-APIs und-Anwendungen, die die Richtlinien für Software Einschränkungs Richtlinien aufzurufen, um die Richtlinien zur Software Einschränkung zur Laufzeit zu erzwingen.
 
--   Active Directory und Gruppenrichtlinie. Software Einschränkungs Richtlinien hängen von der Gruppenrichtlinie-Infrastruktur ab, um die Richtlinien für Software Einschränkung vom Active Directory an die entsprechenden Clients weiterzuleiten, und zum einschränken und Filtern der Anwendung dieser Richtlinien auf die geeignete Zielcomputer.
+-   Active Directory und Gruppenrichtlinie. Software Einschränkungs Richtlinien sind von der Gruppenrichtlinie Infrastruktur abhängig, um die Richtlinien für Software Einschränkung vom Active Directory an die entsprechenden Clients weiterzuleiten und um die Anwendung dieser Richtlinien auf die entsprechenden Zielcomputer zu beschränken.
 
 -   Authenticode-und winverify-Vertrauensstellungs-APIs, die zum Verarbeiten signierter ausführbarer Dateien verwendet werden
 
@@ -123,7 +123,7 @@ Auf hoher Ebene bestehen Richtlinien für Software Einschränkung aus den folgen
 
 -   Richtlinien Ergebnissatz (RSoP), der bei der Diagnose der effektiven Richtlinie helfen kann, die auf einen Client angewendet wird.
 
-Weitere Informationen zur SRP-Architektur und zur Verwaltung von Regeln, Prozessen und Interaktionen durch SRP finden Sie unter [Funktionsweise von Software Einschränkungs Richtlinien](https://technet.microsoft.com/library/cc786941(v=WS.10).aspx) in der technischen Bibliothek für Windows Server 2003.
+Weitere Informationen zur SRP-Architektur und zur Verwaltung von Regeln, Prozessen und Interaktionen durch SRP finden Sie unter [Funktionsweise von Software Einschränkungs Richtlinien](/previous-versions/windows/it-pro/windows-server-2003/cc786941(v=ws.10)) in der technischen Bibliothek für Windows Server 2003.
 
 ## <a name="best-practices"></a><a name="BKMK_Best_Practices"></a>Bewährte Methoden
 
@@ -171,13 +171,11 @@ Weitere Informationen zur SRP-Architektur und zur Verwaltung von Regeln, Prozess
 
 ## <a name="additional-resources"></a>Weitere Ressourcen
 
-|Art des Inhalts|Verweise|
+|Inhaltstyp|Referenzen|
 |--------|-------|
-|**Planung**|[Technische Referenz für Software Einschränkungs Richtlinien](https://technet.microsoft.com/library/cc728085(v=WS.10).aspx)|
-|**Betrieb**|[Verwalten der Richtlinien für Softwareeinschränkung](administer-software-restriction-policies.md)|
-|**Problembehandlung**|[Problembehandlung bei Richtlinien für Software Einschränkung (2003)](https://technet.microsoft.com/library/cc737011(v=WS.10).aspx)|
-|**Sicherheit**|[Bedrohungen und Gegenmaßnahmen für Richtlinien für Software Einschränkung (2008)](https://technet.microsoft.com/library/dd349795(v=WS.10).aspx)<p>[Bedrohungen und Gegenmaßnahmen für Richtlinien für Software Einschränkung (2008 R2)](https://technet.microsoft.com/library/hh125926(v=WS.10).aspx)|
-|**Tools und Einstellungen**|[Tools und Einstellungen für Richtlinien für Software Einschränkung (2003)](https://technet.microsoft.com/library/cc782454(v=WS.10).aspx)|
-|**Communityressourcen**|[Sperren von Anwendungen mit Richtlinien für Software Einschränkung](https://technet.microsoft.com/magazine/2008.06.srp.aspx?pr=blog)|
-
-
+|**Planung**|[Technische Referenz für Software Einschränkungs Richtlinien](/previous-versions/windows/it-pro/windows-server-2003/cc728085(v=ws.10))|
+|**Vorgänge**|[Verwalten der Richtlinien für Softwareeinschränkung](administer-software-restriction-policies.md)|
+|**Problembehandlung**|[Problembehandlung bei Richtlinien für Software Einschränkung (2003)](/previous-versions/windows/it-pro/windows-server-2003/cc737011(v=ws.10))|
+|**Sicherheit**|[Bedrohungen und Gegenmaßnahmen für Richtlinien für Software Einschränkung (2008)](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd349795(v=ws.10))<p>[Bedrohungen und Gegenmaßnahmen für Richtlinien für Software Einschränkung (2008 R2)](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/hh125926(v=ws.10))|
+|**Tools und Einstellungen**|[Tools und Einstellungen für Richtlinien für Software Einschränkung (2003)](/previous-versions/windows/it-pro/windows-server-2003/cc782454(v=ws.10))|
+|**Communityressourcen**|[Sperren von Anwendungen mit Richtlinien für Softwareeinschränkung](/previous-versions/technet-magazine/cc510322(v=msdn.10)?pr=blog)|

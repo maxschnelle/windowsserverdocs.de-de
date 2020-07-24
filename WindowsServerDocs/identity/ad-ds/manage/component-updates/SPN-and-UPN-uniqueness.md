@@ -8,16 +8,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: f182f79b5bb97e45f1cfd34ad59cf52322f09063
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: bca2934b5b691f69fc70cd9d5230a2865b24ac94
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80823063"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86966422"
 ---
 # <a name="spn-and-upn-uniqueness"></a>SPN- und UPN-Eindeutigkeit
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 **Autor**: Justin Turner, Senior Support Eskalations Techniker mit der Windows-Gruppe  
   
@@ -32,28 +32,28 @@ Doppelte Dienst Prinzipal Namen (SPN) treten häufig auf und führen zu Authenti
   
 Doppelte UPN-Werte unterbrechen die Synchronisierung zwischen lokalem AD und Office 365.  
   
-\* Setspn. exe wird häufig verwendet, um neue Dienst Prinzipal Namen zu erstellen, und funktionell wurde in die Version integriert, die mit Windows Server 2008 veröffentlicht wurde und eine Überprüfung auf Duplikate hinzufügt.  
+* Setspn.exe wird häufig zum Erstellen neuer SPNs verwendet, und funktional wurde in die mit Windows Server 2008 veröffentlichte Version integriert, mit der eine Überprüfung auf Duplikate hinzugefügt wird.  
   
-**Table-Tabelle \\\* Arabisch 1: UPN-und SPN-Eindeutigkeit**  
+**Tabelle \\ \* : Tabelle Arabisch 1: UPN-und SPN-Eindeutigkeit**  
   
-|Feature|Anmerkungen|  
+|Funktion|Comment|  
 |-----------|-----------|  
 |UPN-Eindeutigkeit|Doppelte UPNs unterbrechen die Synchronisierung von lokalen AD-Konten mit Windows Azure AD-basierten Diensten wie z. b. Office 365.|  
 |SPN-Eindeutigkeit|Kerberos erfordert SPNs für die gegenseitige Authentifizierung.  Doppelte SPNs führen zu Authentifizierungs Fehlern.|  
   
-Weitere Informationen zu den Eindeutigkeits Anforderungen für UPNs und SPNs finden Sie unter Unique- [Einschränkungen](https://msdn.microsoft.com/library/dn392337.aspx).  
+Weitere Informationen zu den Eindeutigkeits Anforderungen für UPNs und SPNs finden Sie unter Unique- [Einschränkungen](/openspecs/windows_protocols/ms-adts/3c154285-454c-4353-9a99-fb586e806944).  
   
 ## <a name="symptoms"></a>Symptome  
 Fehlercodes 8467 oder 8468 oder Ihre hexadezimalen, symbolischen oder Zeichen folgen Entsprechungen werden in verschiedenen Bildschirm Dialoge und in der Ereignis-ID 2974 im Verzeichnisdienst-Ereignisprotokoll protokolliert. Der Versuch, einen doppelten UPN oder SPN zu erstellen, wird nur unter den folgenden Umständen blockiert:  
   
 -   Der Schreibvorgang wird von einem Windows Server 2012 R2-DC verarbeitet.  
   
-**Table-Tabelle \\\* Arabisch 2: Fehlercodes für die UPN-und SPN-Eindeutigkeit**  
+**Tabelle, Tabelle \\ \* Arabisch 2: Fehlercodes der UPN-und SPN-Eindeutigkeit**  
   
-|mierte|Hex|Trächtigsten|String|  
+|Decimal|Hex|Trächtigsten|String|  
 |-----------|-------|------------|----------|  
 |8467|21c7|ERROR_DS_SPN_VALUE_NOT_UNIQUE_IN_FOREST|Der Vorgang ist fehlgeschlagen, weil der für Addition/Änderung angegebene SPN-Wert nicht eindeutig Gesamtstruktur weit ist.|  
-|8648|21c8|ERROR_DS_UPN_VALUE_NOT_UNIQUE_IN_FOREST|Der Vorgang ist fehlgeschlagen, weil der für Addition/Änderung angegebene UPN-Wert nicht eindeutig Gesamtstruktur weit ist.|  
+|8648|21c8|ERROR_DS_UPN_VALUE_NOT_UNIQUE_IN_FOREST|Der Vorgang ist fehlgeschlagen, weil der für die Hinzufügung/Änderung angegebene Wert für den Benutzerprinzipalnamen (User Principal Name, UPN) in der Gesamtstruktur nicht eindeutig ist.|  
   
 ## <a name="new-user-creation-fails-if-upn-is-not-unique"></a>Fehler beim Erstellen eines neuen Benutzers, wenn der UPN nicht eindeutig ist.  
   
@@ -68,23 +68,23 @@ Der angegebene Benutzer Anmelde Name ist bereits im Unternehmen vorhanden. Geben
   
 ![SPN- und UPN-Eindeutigkeit](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig02_DupUPNMod.gif)  
   
-### <a name="active-directory-administrative-center-dsacexe"></a>Active Directory-Verwaltungscenter (Dsac. exe)  
+### <a name="active-directory-administrative-center-dsacexe"></a>Active Directory-Verwaltungscenter (DSAC.exe)  
 Der Versuch, einen neuen Benutzer in Active Directory-Verwaltungscenter mit einem bereits vorhandenen UPN zu erstellen, führt zu folgendem Fehler.  
   
 ![SPN- und UPN-Eindeutigkeit](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig03_DupUPNADAC.gif)  
   
-**Abbildung * Abbildung \\\* Arabisch 1-Fehler, der im AD-Verwaltungs Center angezeigt wird, wenn die Erstellung eines neuen Benutzers aufgrund eines doppelten UPN fehlschlägt**  
+**Abbildung * Abbildung \\ \* Arabisch 1 Fehler wird im AD-Verwaltungs Center angezeigt, wenn die Erstellung eines neuen Benutzers aufgrund eines doppelten UPN fehlschlägt**  
   
 ### <a name="event-2974-source-activedirectory_domainservice"></a>Ereignis 2974 Quelle: ActiveDirectory_DomainService  
 ![SPN- und UPN-Eindeutigkeit](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig04_Event2974.gif)  
   
-**Abbildung * Abbildung \\\* Arabisch 2 Ereignis-ID 2974 mit Fehler 8648**  
+**Abbildung * Abbildung \\ \* Arabisch 2 Ereignis-ID 2974 mit Fehler 8648**  
   
 Das Ereignis 2974 listet den Wert auf, der blockiert wurde, und eine Liste mit einem oder mehreren Objekten (bis zu 10), die diesen Wert bereits enthalten.  In der folgenden Abbildung sehen Sie, dass der UPN-Attribut Wert **<em>dhunt@blue.contoso.com</em>** bereits in vier anderen Objekten vorhanden ist.  Da es sich hierbei um ein neues Feature in Windows Server 2012 R2 handelt, treten die versehentliche Erstellung doppelter UPN und SPNs in einer gemischten Umgebung weiterhin auf, wenn der Schreib Versuch von DCS der untergeordneten Ebene verarbeitet wird.  
   
 ![SPN- und UPN-Eindeutigkeit](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig05_Event2974ShowAllDups.gif)  
   
-**Abbildung SEQ Abbildung \\\* Arabisch 3-Ereignis 2974 mit allen Objekten, die den doppelten UPN enthalten**  
+**Abbildung SEQ Abbildung \\ \* Arabisch 3 Ereignis 2974 mit allen Objekten, die den doppelten UPN enthalten**  
   
 > [!TIP]  
 > Ereignis-ID 2974s regelmäßig überprüfen für:  
@@ -95,7 +95,7 @@ Das Ereignis 2974 listet den Wert auf, der blockiert wurde, und eine Liste mit e
 8648 = "der Vorgang ist fehlgeschlagen, weil der für Addition/Änderung angegebene UPN-Wert nicht eindeutig Gesamtstruktur weit ist."  
   
 ### <a name="setspn"></a>Setspn  
-In "Setspn. exe" war seit der Verwendung der Option **"-S"** eine doppelte SPN-Erkennung in die Version von Windows Server 2008 integriert.  Sie können den doppelten SPN-Erkennungsdienst mit der Option **"-A"** umgehen.  Die Erstellung eines doppelten SPN wird blockiert, wenn ein Windows Server 2012 R2-DC mithilfe von Setspn mit der Option-a als Ziel verwendet wird.  Die angezeigte Fehlermeldung ist identisch mit der Option, die bei Verwendung der Option "-S" angezeigt wird: "doppelter SPN gefunden, Vorgang wird abgebrochen!"  
+In Setspn.exe wurde seit der Verwendung der Option **"-S"** in der Windows Server 2008-Version eine doppelte SPN-Erkennung integriert.  Sie können den doppelten SPN-Erkennungsdienst mit der Option **"-A"** umgehen.  Die Erstellung eines doppelten SPN wird blockiert, wenn ein Windows Server 2012 R2-DC mithilfe von Setspn mit der Option-a als Ziel verwendet wird.  Die angezeigte Fehlermeldung ist identisch mit der Option, die bei Verwendung der Option "-S" angezeigt wird: "doppelter SPN gefunden, Vorgang wird abgebrochen!"  
   
 ### <a name="adsiedit"></a>ADSIEdit  
   
@@ -107,9 +107,9 @@ The operation failed because UPN value provided for addition/modification is not
   
 ![SPN- und UPN-Eindeutigkeit](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig06_ADSI21c8.gif)  
   
-**Abbildung * Abbildung \\\* Arabisch 4-Fehlermeldung, die in ADSIEdit angezeigt wird, wenn das Hinzufügen eines doppelten UPN blockiert ist.**  
+**Abbildung * Abbildung \\ \* Arabisch 4 Fehlermeldung wird in ADSIEdit angezeigt, wenn das Hinzufügen eines doppelten UPN blockiert wird**  
   
-### <a name="windows-powershell"></a>Windows PowerShell  
+### <a name="windows-powershell"></a>Windows PowerShell  
 Windows Server 2012 R2:  
   
 ![SPN- und UPN-Eindeutigkeit](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig07_SetADUser2012.gif)  
@@ -118,15 +118,15 @@ PS, der von Server 2012 aus als Ziel eines Windows Server 2012 R2-DC ausgeführt
   
 ![SPN- und UPN-Eindeutigkeit](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig08_SetADUser2012R2.gif)  
   
-Dsac. exe unter Windows Server 2012, das auf einen Windows Server 2012 R2-DC abzielt:  
+DSAC.exe, die unter Windows Server 2012 ausgeführt werden und auf einen Windows Server 2012 R2-DC abzielen:  
   
 ![SPN- und UPN-Eindeutigkeit](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig09_UserCreateError.gif)  
   
-**Abbildung * Abbildung \\\* Arabisch 5 Dsac-Benutzer Erstellungs Fehler auf nicht-Windows Server 2012 R2 bei Windows Server 2012 R2 DC**  
+**Abbildung * Abbildung \\ \* Arabisch 5 Dsac-Benutzer Erstellungs Fehler auf nicht-Windows Server 2012 R2 bei Windows Server 2012 R2 DC**  
   
 ![SPN- und UPN-Eindeutigkeit](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig10_UserModError.gif)  
   
-**Abbildung * Abbildung \\\* Arabisch 6 Dsac-Benutzer Änderungs Fehler auf nicht-Windows Server 2012 R2 bei Windows Server 2012 R2 DC**  
+**Abbildung * Abbildung \\ \* Arabisch 6 Dsac-Benutzer Änderungs Fehler auf nicht-Windows Server 2012 R2 bei Windows Server 2012 R2 DC**  
   
 ### <a name="restore-of-an-object-that-would-result-in-a-duplicate-upn-fails"></a>Beim Wiederherstellen eines Objekts, das zu einem doppelten UPN führt, tritt ein Fehler auf:  
 ![SPN- und UPN-Eindeutigkeit](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig11_RestoreDupUPN.gif)  
@@ -143,7 +143,7 @@ Der UPN des Objekts muss eindeutig sein, damit es wieder hergestellt werden kann
   
 3.  Entfernen Sie die doppelten UPN (s).  
   
-### <a name="identify-the-conflicting-upn-on-the-deleted-objectusing-repadminexe"></a>Identifizieren Sie den in Konflikt stehenden UPN auf dem gelöschten objectusing Repadmin. exe.  
+### <a name="identify-the-conflicting-upn-on-the-deleted-objectusing-repadminexe"></a>Identifizieren Sie den in Konflikt stehenden UPN für das gelöschte objectusing repadmin.exe  
   
 ```  
 Repadmin /showattr DCName "DN of deleted objects container" /subtree /filter:"(msDS-LastKnownRDN=<NAME>)" /deleted /atts:userprincipalname  
@@ -158,7 +158,7 @@ s,DC=blue,DC=contoso,DC=com
     1> userPrincipalName: dhunt@blue.contoso.com  
 ```  
   
-### <a name="to-identify-all-objects-with-the-same-upnusing-repadminexe"></a>So identifizieren Sie alle Objekte mit demselben UPN: Verwenden von "Repadmin. exe"  
+### <a name="to-identify-all-objects-with-the-same-upnusing-repadminexe"></a>So identifizieren Sie alle Objekte mit demselben UPN: Verwenden von Repadmin.exe  
   
 ```  
 repadmin /showattr WinBlueDC1 "DC=blue,DC=contoso,DC=com" /subtree /filter:"(userPrincipalName=dhunt@blue.contoso.com)" /deleted /atts:DN  
@@ -173,7 +173,7 @@ DN: CN=Dianne Hunt2\0ADEL:dd3ab8a4-3005-4f2f-814f-d6fc54a1a1c0,CN=Deleted Object
 ```  
   
 > [!TIP]  
-> Der zuvor nicht dokumentierte **/deleted** -Parameter in "Repadmin. exe" wird zum einschließen gelöschter Objekte im Resultset verwendet.  
+> Der zuvor nicht dokumentierte **/deleted** -Parameter in repadmin.exe wird zum einschließen gelöschter Objekte im Resultset verwendet.  
   
 ### <a name="using-global-search"></a>Verwenden der globalen Suche  
   
@@ -209,7 +209,7 @@ So legen Sie das userPrincipalName-Attribut mithilfe von Windows PowerShell auf 
 ### <a name="duplicate-spn"></a>Doppelter SPN  
 ![SPN- und UPN-Eindeutigkeit](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig16_DupSPN.gif)  
   
-**Abbildung * Abbildung \\\* Arabisch 8-Fehlermeldung, die in ADSIEdit angezeigt wird, wenn das Hinzufügen eines doppelten SPNs blockiert wird.**  
+**Abbildung * Abbildung \\ \* Arabisch 8 Fehlermeldung wird in ADSIEdit angezeigt, wenn das Hinzufügen eines doppelten SPNs blockiert wird**  
   
 Im Verzeichnisdienst-Ereignisprotokoll ist eine **ActiveDirectory_DomainService** Ereignis-ID **2974**. protokolliert.  
   
@@ -223,7 +223,7 @@ servicePrincipalName Value=<SPN>
   
 ![SPN- und UPN-Eindeutigkeit](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig17_DupSPN2974.gif)  
   
-**Abbildung * Abbildung \\\* Arabisch 9-Fehler protokolliert, wenn die Erstellung eines doppelten SPN blockiert ist.**  
+**Abbildung * Abbildung \\ \* Arabisch 9 Fehler protokolliert, wenn die Erstellung eines doppelten SPN blockiert ist**  
   
 ### <a name="workflow"></a>Workflow  
   
@@ -341,7 +341,7 @@ Experimentieren Sie mit der Eindeutigkeit von SPN und UPN.  Befolgen Sie diese A
   
     1.  Auffüllen eines vorhandenen Benutzerkontos mit einem bereits verwendeten UPN  
   
-        1.  Verwenden von PowerShell, ADSIEdit oder Active Directory-Verwaltungscenter (Dsac. exe)  
+        1.  Verwenden von PowerShell, ADSIEdit oder Active Directory-Verwaltungscenter (DSAC.exe)  
   
     2.  Auffüllen eines vorhandenen Kontos mit einem bereits verwendeten SPN  
   
@@ -351,11 +351,11 @@ Experimentieren Sie mit der Eindeutigkeit von SPN und UPN.  Befolgen Sie diese A
   
 **Optional**  
   
-1.  Überprüfen Sie mit dem Classroom-Dozenten, dass es in Ordnung ist, den *[AD-Papier](https://technet.microsoft.com/library/jj574144.aspx#BKMK_EnableRecycleBin)* Korb in Active Directory-Verwaltungscenter zu aktivieren.  Wenn dies der Fall ist, fahren Sie mit dem nächsten Schritt fort.  
+1.  Überprüfen Sie mit dem Classroom-Dozenten, dass es in Ordnung ist, den *[AD-Papier](../../get-started/adac/advanced-ad-ds-management-using-active-directory-administrative-center--level-200-.md#BKMK_EnableRecycleBin)* Korb in Active Directory-Verwaltungscenter zu aktivieren.  Wenn dies der Fall ist, fahren Sie mit dem nächsten Schritt fort.  
   
 2.  Auffüllen des UPN für ein Benutzerkonto  
   
-3.  Konto löschen  
+3.  Löschen des Kontos  
   
 4.  Ein anderes Konto mit dem gleichen UPN wie das gelöschte Konto auffüllen  
   
@@ -363,5 +363,3 @@ Experimentieren Sie mit der Eindeutigkeit von SPN und UPN.  Befolgen Sie diese A
   
 6.  Stellen Sie sich vor, dass Ihnen soeben der Fehler angezeigt wird, den Sie im vorherigen Schritt gesehen haben.  (und haben keinen Verlauf der soeben ausgeführten Schritte) Ihr Ziel ist es, die Wiederherstellung des Kontos abzuschließen.  Weitere Informationen finden Sie in der Arbeitsmappe.  
   
-
-

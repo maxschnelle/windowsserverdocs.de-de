@@ -1,6 +1,6 @@
 ---
 ms.assetid: 8a3cf2ae-2511-4eea-afd5-a43179a78613
-title: Aktualisierungen an Verzeichnisdienstkomponenten
+title: Directory Services-Komponentenupdates
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -8,16 +8,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: cde839feda47d55415b2b6cc1026a7a3e6515a44
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 54a2ef82d5eccabaf8be0971ca0324498e75bb78
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80823093"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86966412"
 ---
-# <a name="directory-services-component-updates"></a>Aktualisierungen an Verzeichnisdienstkomponenten
+# <a name="directory-services-component-updates"></a>Directory Services-Komponentenupdates
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 **Autor**: Justin Turner, Senior Support Eskalations Techniker mit der Windows-Gruppe  
   
@@ -138,13 +138,13 @@ Diese LDF-Dateien enthalten Schema Änderungen für den **Geräte Registrierungs
   
 1.  Sch60  
   
-**Authentifizierungs Richtlinien und Silos**  
+**Authentifizierungsrichtlinien und Silos**  
   
 1.  Sch68  
   
 2.  Sch69  
   
-## <a name="deprecation-of-ntfrs"></a><a name="BKMK_NTFRS"></a>Veraltung von NTFRS  
+## <a name="deprecation-of-ntfrs"></a><a name="BKMK_NTFRS"></a>Abschreibung von NTFRS  
   
 ### <a name="overview"></a>Übersicht  
 FRS ist in Windows Server 2012 R2 veraltet.  Die Veraltung von FRS erfolgt durch Erzwingen einer minimalen Domänen Funktionsebene (Windows Server 2008).  Diese Erzwingung ist nur vorhanden, wenn die neue Domäne mithilfe von Server-Manager oder Windows PowerShell erstellt wird.  
@@ -269,7 +269,7 @@ Log Record Bytes Generated: 0
   
 ### <a name="to-enable-the-stats-control-in-ldp"></a><a name="BKMK_EnableStats"></a>So aktivieren Sie das stats-Steuerelement in LDP  
   
-1.  Öffnen Sie "Ldp. exe", und verbinden und binden Sie einen Domänen Controller.  
+1.  Öffnen Sie LDP.exe, und verbinden und binden Sie einen Domänen Controller.  
   
 2.  Klicken Sie im Menü **Optionen** auf Steuer **Elemente**.  
   
@@ -288,7 +288,7 @@ Log Record Bytes Generated: 0
 ### <a name="try-this-use-ldp-to-return-query-statistics"></a>Versuchen Sie Folgendes: Verwenden von LDP zum Zurückgeben von Abfrage Statistiken  
 Führen Sie Folgendes auf einem Domänen Controller oder einem in eine Domäne eingebundenen Client oder Server aus, auf dem die AD DS Tools installiert sind.  Wiederholen Sie die folgenden Punkte für Ihren Windows Server 2012-DC und Ihren Windows Server 2012 R2-DC.  
   
-1.  Weitere Informationen finden Sie im Artikel ["erstellen effizienterer Microsoft AD-fähiger Anwendungen"](https://msdn.microsoft.com/library/ms808539.aspx) .  
+1.  Weitere Informationen finden Sie im Artikel ["erstellen effizienterer Microsoft AD-fähiger Anwendungen"](/previous-versions/ms808539(v=msdn.10)) .  
   
 2.  Aktivieren Sie die Such Statistik mithilfe von LDP (siehe so [Aktivieren Sie das stats-Steuerelement in LDP](../../../ad-ds/manage/component-updates/../../../ad-ds/manage/component-updates/../../../ad-ds/manage/component-updates/../../../ad-ds/manage/component-updates/../../../ad-ds/manage/component-updates/../../../ad-ds/manage/component-updates/Directory-Services-component-updates.md#BKMK_EnableStats)).  
   
@@ -298,16 +298,16 @@ Führen Sie Folgendes auf einem Domänen Controller oder einem in eine Domäne e
   
 5.  Es wurde versucht, eine Suche zu erstellen, die eine lange Zeit in Anspruch nimmt (möglicherweise möchten Sie die **Zeit Limit** -Option erhöhen, sodass die Suche kein Timeout ist).  
   
-### <a name="additional-resources"></a>Zusätzliche Ressourcen  
-[Was sind Active Directory suchen?](https://technet.microsoft.com/library/cc783845(v=ws.10).aspx)  
+### <a name="additional-resources"></a>Weitere Ressourcen  
+[Was sind Active Directory suchen?](/previous-versions/windows/it-pro/windows-server-2003/cc783845(v=ws.10))  
   
-[Funktionsweise von Active Directory suchen](https://technet.microsoft.com/library/cc755809(v=WS.10).aspx)  
+[Funktionsweise von Active Directory suchen](/previous-versions/windows/it-pro/windows-server-2003/cc755809(v=ws.10))  
   
-[Erstellen effizienterer Microsoft Active Directory-fähiger Anwendungen](https://msdn.microsoft.com/library/ms808539.aspx)  
+[Erstellen effizienterer Microsoft Active Directory-fähiger Anwendungen](/previous-versions/ms808539(v=msdn.10))  
   
 [951581](https://support.microsoft.com/kb/951581) LDAP-Abfragen werden langsamer als erwartet im AD-oder LDS/ADAM-Verzeichnisdienst ausgeführt, und die Ereignis-ID 1644 kann protokolliert werden.  
   
-## <a name="1644-event-improvements"></a><a name="BKMK_1644"></a>1644 Ereignis Verbesserungen  
+## <a name="1644-event-improvements"></a><a name="BKMK_1644"></a>Verbesserungen am Ereignis 1644  
   
 ### <a name="overview"></a>Übersicht  
 Dieses Update fügt der Ereignis-ID 1644 zusätzliche Ergebnisse der LDAP-Suchergebnisse hinzu, um die Problembehandlung zu unterstützen.  Außerdem gibt es einen neuen Registrierungs Wert, der verwendet werden kann, um die Protokollierung für einen zeitbasierten Schwellenwert zu aktivieren.  Diese Verbesserungen wurden in Windows Server 2012 und Windows Server 2008 R2 SP1 über KB [2800945](https://support.microsoft.com/kb/2800945) verfügbar gemacht und werden für Windows Server 2008 SP2 zur Verfügung gestellt.  
@@ -325,7 +325,7 @@ Das Ereignis enthält Folgendes:
   
 -   Startknoten  
   
--   Filter  
+-   Filtern  
   
 -   Suchbereich  
   
@@ -367,11 +367,11 @@ Windows Registry Editor Version 5.00
 ```  
   
 #### <a name="comparison-of-the-old-and-new-event-id-1644"></a>Vergleich der alten und neuen Ereignis-ID 1644  
-Jährigen  
+OLD  
   
 ![Verzeichnisdienst Updates](media/Directory-Services-component-updates/GTR_ADDS_Event1644_2012.gif)  
   
-NEU  
+NEW  
   
 ![Verzeichnisdienst Updates](media/Directory-Services-component-updates/GTR_ADDS_Event1644_2012R2.gif)  
   
@@ -401,8 +401,6 @@ Diese Updates erhöhen den maximalen Durchsatz auf ca. 600 MBit/s, indem die RPC
 > [!NOTE]  
 > Es gibt keine konfigurierbaren Einstellungen, um dieses Verhalten zu ändern.  
   
-### <a name="additional-resources"></a>Zusätzliche Ressourcen  
-[Funktionsweise des Active Directory Replikations Modells](https://technet.microsoft.com/library/cc772726(v=WS.10).aspx)  
+### <a name="additional-resources"></a>Weitere Ressourcen  
+[Funktionsweise des Active Directory Replikations Modells](/previous-versions/windows/it-pro/windows-server-2003/cc772726(v=ws.10))  
   
-
-

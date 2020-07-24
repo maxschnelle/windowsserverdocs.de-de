@@ -1,6 +1,6 @@
 ---
 ms.assetid: 66fa945e-598d-4f18-b603-97a39ce0d836
-title: Installieren eines schreibgeschützten Active Directory-Domänencontrollers (RODC) in Windows Server 2012 (Stufe 200)
+title: Installieren eines schreibgeschützten Domänencontrollers (RODC) in Windows Server 2012 (Stufe 200)
 description: In diesem Thema erfahren Sie, wie Sie ein gestaffeltes RODC-Konto erstellen und anschließend bei der RODC-Installation einen Server an dieses Konto anfügen können. Außerdem wird die Installation eines RODC ohne gestaffelte Installation beschrieben.
 author: MicrosoftGuyJFlo
 ms.author: joflore
@@ -9,16 +9,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: dd3cc1c112560e77d0ab166ffb10a677b62f32e8
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 5077d2f9cf2c6d2e602d0e9446fe6b1ef765d0bf
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80825483"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86965842"
 ---
-# <a name="install-a-windows-server-2012-active-directory-read-only-domain-controller-rodc-level-200"></a>Installieren eines schreibgeschützten Active Directory-Domänencontrollers (RODC) in Windows Server 2012 (Stufe 200)
+# <a name="install-a-windows-server-2012-active-directory-read-only-domain-controller-rodc-level-200"></a>Installieren eines schreibgeschützten Domänencontrollers (RODC) in Windows Server 2012 (Stufe 200)
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 In diesem Thema erfahren Sie, wie Sie ein gestaffeltes RODC-Konto erstellen und anschließend bei der RODC-Installation einen Server an dieses Konto anfügen können. Außerdem wird die Installation eines RODC ohne gestaffelte Installation beschrieben.  
   
@@ -33,12 +33,12 @@ Das folgende Diagramm zeigt den Stagingprozess für den schreibgeschützten Dom�
   
 ![RODC installieren](media/Install-a-Windows-Server-2012-Active-Directory-Read-Only-Domain-Controller--RODC---Level-200-/adds_stagedcreation.png)  
   
-## <a name="stage-rodc-windows-powershell"></a><a name=BKMK_StagePS></a>Staging RODC Windows PowerShell  
+## <a name="stage-rodc-windows-powershell"></a><a name=BKMK_StagePS></a>Staffelung RODC Windows PowerShell  
   
 |||  
 |-|-|  
-|**Addsdeployment-Cmdlet**|Argumente (erforderliche Argumente sind **fett** markiert. Argumente in *Kursivschrift* können mithilfe von Windows PowerShell oder dem AD DS-Konfigurations-Assistenten angegeben werden.)|  
-|Add-addsreadonlydomaincontrolleraccount|-SkipPreChecks<p>***-Domaincontrolleraccountname***<p>***-Domain Name***<p>***-Sitename***<p>*-Allowpasswordreplicationaccountname*<p>***-Credential***<p>*-DelegatedAdministratorAccountName*<p>*-Denypasswordreplicationaccountname*<p>*-Noglobalcatalog*<p>*-InstallDNS*<p>-ReplicationSourceDC|  
+|**ADDSDeployment-Cmdlet**|Argumente (erforderliche Argumente sind **fett** markiert. Argumente in *Kursivschrift* können mithilfe von Windows PowerShell oder dem AD DS-Konfigurations-Assistenten angegeben werden.)|  
+|Add-addsreadonlydomaincontrolleraccount|-SkipPreChecks<p>***-DomainControllerAccountName***<p>***-Domain Name***<p>***-Sitename***<p>*-AllowPasswordReplicationAccountName*<p>***-Credential***<p>*-DelegatedAdministratorAccountName*<p>*-DenyPasswordReplicationAccountName*<p>*-Noglobalcatalog*<p>*-InstallDNS*<p>-ReplicationSourceDC|  
   
 > [!NOTE]  
 > Das Argument **-credential** ist nur erforderlich, wenn Sie nicht bereits als Mitglied der Gruppe Domänen-Admins angemeldet sind.  
@@ -48,12 +48,12 @@ Das folgende Diagramm zeigt den Konfigurationsprozess für die Active Directory-
   
 ![RODC installieren](media/Install-a-Windows-Server-2012-Active-Directory-Read-Only-Domain-Controller--RODC---Level-200-/adds_stageddeploy_beta1.png)  
   
-## <a name="attach-rodc-windows-powershell"></a><a name=BKMK_AttachPS></a>Anfügen von RODC Windows PowerShell  
+## <a name="attach-rodc-windows-powershell"></a><a name=BKMK_AttachPS></a>Anfügen RODC Windows PowerShell  
   
 |||  
 |-|-|  
-|**Addsdeployment-Cmdlet**|Argumente (erforderliche Argumente sind **fett** markiert. Argumente in *Kursivschrift* können mithilfe von Windows PowerShell oder dem AD DS-Konfigurations-Assistenten angegeben werden.)|  
-|Install-AddsDomaincontroller|-SkipPreChecks<p>***-Domain Name***<p>*-SafeModeAdministratorPassword*<p>*-ApplicationPartitionsToReplicate*<p>*-"-Kreatednsdelegation"*<p>***-Credential***<p>-CriticalReplicationOnly<p>*-DatabasePath*<p>*-Dnsdelegationcredential*<p>*-Installationmediapath*<p>*-LogPath*<p>-Norebootoncompletion<p>*-ReplicationSourceDC*<p>*-System Key*<p>*-Sysvolpath*<p>***-UseExistingAccount***|  
+|**ADDSDeployment-Cmdlet**|Argumente (erforderliche Argumente sind **fett** markiert. Argumente in *Kursivschrift* können mithilfe von Windows PowerShell oder dem AD DS-Konfigurations-Assistenten angegeben werden.)|  
+|Install-AddsDomaincontroller|-SkipPreChecks<p>***-Domain Name***<p>*-SafeModeAdministratorPassword*<p>*-ApplicationPartitionsToReplicate*<p>*-"-Kreatednsdelegation"*<p>***-Credential***<p>-CriticalReplicationOnly<p>*-DatabasePath*<p>*-DNSDelegationCredential*<p>*-Installationmediapath*<p>*-LogPath*<p>-Norebootoncompletion<p>*-ReplicationSourceDC*<p>*-System Key*<p>*-Sysvolpath*<p>***-UseExistingAccount***|  
   
 > [!NOTE]  
 > Das Argument **-credential** ist nur erforderlich, wenn Sie nicht bereits als Mitglied der Gruppe Domänen-Admins angemeldet sind.  
@@ -63,7 +63,7 @@ Das folgende Diagramm zeigt den Konfigurationsprozess für die Active Directory-
   
 Sie führen die Staffelung eines schreibgeschützten Domänencontrollers aus, indem Sie das Active Directory-Verwaltungscenter (**Dsac.exe**) öffnen. Klicken Sie im Navigationsbereich auf den Namen der Domäne. Doppelklicken Sie in der Liste Verwaltung auf **Domänencontroller**. Klicken Sie im Taskbereich auf **Konto für schreibgeschützten Domänencontroller vorab erstellen**.  
   
-Weitere Informationen zum Active Directory-Verwaltungscenter finden [Sie unter Advanced AD DS Management Using Active Directory-Verwaltungscenter &#40;Level 200&#41; ](../../../ad-ds/get-started/adac/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-.md) und Review [Active Directory-Verwaltungscenter: Getting Started](https://technet.microsoft.com/library/dd560651(WS.10).aspx).  
+Weitere Informationen zum Active Directory-Verwaltungscenter finden [Sie unter Advanced AD DS Management Using Active Directory-Verwaltungscenter &#40;Level 200&#41;](../../../ad-ds/get-started/adac/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-.md) und Review [Active Directory-Verwaltungscenter: Getting Started](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd560651(v=ws.10)).  
   
 Falls Sie keine Erfahrung mit der Erstellung schreibgeschützter Domänencontroller haben, werden Sie feststellen, dass der Installations-Assistent dieselbe grafische Oberfläche wie das ältere Snap-In "Active Directory-Benutzer und -Computer" unter Windows Server 2008 hat und denselben Code verwendet, inklusive Export und Konfiguration der Datei für unbeaufsichtigte Installation über das veraltete dcpromo.  
   
@@ -81,7 +81,7 @@ Add-addsreadonlydomaincontrolleraccount
   
 Der Dialog **Willkommen** enthält eine Option mit dem Namen **Installation im erweiterten Modus verwenden**. Wählen Sie diese Option aus und klicken Sie auf **Weiter**, um Optionen für die Kennwortreplikationsrichtlinien anzuzeigen. Löschen Sie diese Option, um die Standardwerte für die Kennwortreplikationsrichtlinie zu verwenden (dies wird später in diesem Abschnitt genauer besprochen).  
   
-### <a name="network-credentials"></a>Netzwerkanmeldeinformationen  
+### <a name="network-credentials"></a>Netzwerk-Anmeldeinformationen  
 ![RODC installieren](media/Install-a-Windows-Server-2012-Active-Directory-Read-Only-Domain-Controller--RODC---Level-200-/ADDS_SMI_TR_Stage1Creds.png)  
   
 Unter Domänenname im Dialog **Sicherheitsinformationen für das Netzwerk** wird die Standard-Zieldomäne für das Active Directory-Verwaltungscenter angezeigt. Standardmäßig werden Ihre aktuellen Anmeldeinformationen verwendet. Falls diese nicht Teil der Gruppe Domänen-Admins ist, klicken Sie auf **Alternative Anmeldeinformationen** und auf **Auswählen**, um einen Benutzernamen und ein Kennwort einzugeben, die Teil der Gruppe Domänen-Admins sind.  
@@ -207,12 +207,12 @@ Bei der RODC-Staffelungsoperation wird das RODC-Computerkonto in Active Director
 > [!IMPORTANT]  
 > Das Active Directory-Verwaltungscenter wird zum Anfügen eines Servers an ein schreibgeschütztes Domänencontrollerkonto nicht mehr benötigt. Verwenden Sie den Server-Manager und den Konfigurations-Assistenten für Active Directory-Domänendienste oder das ADDSDeployment Windows PowerShell-Modul-Cmdlet **Install-AddsDomainController**, um einen neuen RODC an ein gestaffeltes Konto anzufügen. Dies funktioniert ähnlich wie das Hinzufügen eines neuen beschreibbaren Domänencontrollers zu einer existierenden Domäne, mit dem Unterschied, dass das gestaffelte RODC-Computerkonto Konfigurationsoptionen enthält, die Sie bei dessen Staffelung festgelegt haben.  
   
-## <a name="attaching"></a>Anfügen?  
+## <a name="attaching"></a>anfügen?  
   
 ### <a name="deployment-configuration"></a>Bereitstellungskonfiguration  
 ![RODC installieren](media/Install-a-Windows-Server-2012-Active-Directory-Read-Only-Domain-Controller--RODC---Level-200-/ADDS_SMI_TR_RODCDeployConfig.png)  
   
-In Server-Manager beginnt jede Heraufstufung eines Domänencontrollers auf der Seite **Bereitstellungskonfiguration** . Die restlichen Optionen und erforderlichen Felder auf dieser Seite und den folgenden Seiten variieren in Abhängigkeit von dem von Ihnen ausgewählten Bereitstellungsvorgang.  
+In Server-Manager beginnt jede Heraufstufung eines Domänencontrollers auf der Seite **Bereitstellungskonfiguration**. Die restlichen Optionen und erforderlichen Felder auf dieser Seite und den folgenden Seiten variieren in Abhängigkeit von dem von Ihnen ausgewählten Bereitstellungsvorgang.  
   
 Um einen schreibgeschützten Domänencontroller zu einer existierenden Domäne hinzuzufügen, wählen Sie **Domänencontroller vorhandener Domäne hinzufügen** aus und klicken auf die Schaltfläche **Auswählen**, um **die Domäneninformationen für diese Domäne anzugeben**. Server-Manager fordert Sie automatisch zur Eingabe gültiger Anmeldeinformationen auf. Klicken Sie alternativ auf **Ändern**.  
   
@@ -236,7 +236,7 @@ Die Seite **Domänencontrolleroptionen** enthält die Domänencontrolleroptionen
   
 Beim Anfügen eines Servers an ein RODC-Computerkonto können Sie keine Domänencontrolleroptionen konfigurieren. Die Domänencontrolleroptionen werden bei der Erstellung des RODC-Computerkontos konfiguriert.  
   
-Das angegebene **Kennwort für den Verzeichnisdienste-Wiederherstellungsmodus** muss die Kennwortrichtlinie für den Server erfüllen. Wählen Sie stets ein sicheres, komplexes Kennwort oder bevorzugterweise eine Passphrase aus.  
+Das angegebene **Kennwort für den Verzeichnisdienst-Wiederherstellungsmodus** muss die Kennwortrichtlinie für den Server erfüllen. Wählen Sie stets ein sicheres, komplexes Kennwort oder bevorzugterweise eine Passphrase aus.  
   
 Die entsprechenden ADDSDeployment Windows PowerShell-Argument für die **Domänencontrolleroptionen** sind:  
   
@@ -252,7 +252,7 @@ Die **Install-ADDSDomainController**-Argumente verwenden dieselben Standardwerte
   
 Das Argument **SafeModeAdministratorPassword** funktioniert etwas anders:  
   
--   Wenn dieses Argument *nicht angegeben* wird, fordert das Cmdlet Sie auf, ein maskiertes Kennwort einzugeben und zu bestätigen. Dies ist die bevorzugte Verwendung bei einer interaktiven Cmdlet-Ausführung.  
+-   wenn als Argument *nicht angegeben*, fordert das Cmdlet Sie auf, ein maskiertes Kennwort einzugeben und zu bestätigen. Dies ist die bevorzugte Verwendung bei einer interaktiven Cmdlet-Ausführung.  
   
     Um einen neuen RODC in corp.contoso.com zu erstellen und zur Eingabe und Bestätigung eines maskierten Kennworts aufgefordert zu werden:  
   
@@ -300,7 +300,7 @@ Auf der Seite **Zusätzliche Optionen** können entweder einen Domänencontrolle
 Sie können auch festlegen, dass der Domänencontroller mithilfe gesicherter Medien und der Option %%amp;quot;Installieren von Medium%%amp;quot; (Install from Media, IFM) installiert wird. Wenn Sie das Kontrollkästchen **Installieren von Medium** markieren, wird eine Option zum Durchsuchen angezeigt, und Sie müssen auf **Überprüfen** klicken, um sicherzustellen, dass sich am angegebenen Pfad ein gültiges Medium befindet.
 
 Richtlinien für die IFM-Quelle:
-*    Von der IFM-Option verwendete Medien werden mit Windows Server-Sicherung oder Ntdsutil. exe von einem anderen vorhandenen Windows Server-Domänen Controller mit der gleichen Betriebssystemversion erstellt. Beispielsweise können Sie ein Windows Server 2008 R2-oder ein früheres Betriebssystem nicht verwenden, um Medien für einen Windows Server 2012-Domänen Controller zu erstellen.
+*    Von der IFM-Option verwendete Medien werden mit Windows Server-Sicherung erstellt oder von einem anderen vorhandenen Windows Server-Domänen Controller mit der gleichen Betriebssystemversion Ntdsutil.exe. Beispielsweise können Sie ein Windows Server 2008 R2-oder ein früheres Betriebssystem nicht verwenden, um Medien für einen Windows Server 2012-Domänen Controller zu erstellen.
 *    Die IFM-Quelldaten sollten von einem beschreibbaren Domänen Controller sein. Eine Quelle von RODC funktioniert zwar technisch gesehen, um einen neuen RODC zu erstellen, aber es gibt falsch positive Replikations Warnungen, die der IFM-quellrodc nicht repliziert.
 
 Weitere Informationen zu Änderungen in IFM finden Sie unter [Ntdsutil.exe installieren aus Medienänderungen](../../../ad-ds/deploy/Simplified-Administration-Appendix.md#BKMK_IFM). Wenn die Medien mit einem Systemschlüssel (SYSKEY) geschützt sind, werden Sie während der Überprüfung von Server-Manager zur Eingabe des Kennworts für das Abbild aufgefordert. 
@@ -318,7 +318,7 @@ Die ADDSDeployment Windows PowerShell-Argumente für **Zusätzliche Optionen** s
 ### <a name="paths"></a>Pfade  
 ![RODC installieren](media/Install-a-Windows-Server-2012-Active-Directory-Read-Only-Domain-Controller--RODC---Level-200-/ADDS_SMI_TR_Stage2Paths.png)  
   
-Auf der Seite **Pfade** können Sie die standardmäßigen Ordnerpfade der AD DS-Datenbank, der Datenbankprotokolle und der SYSVOL-Freigabe überschreiben. Die Standardspeicherorte befinden sich grundsätzlich in Unterverzeichnissen von %systemroot%. Die **Pfade** -Argumente für das Cmdlet „ADDSDeployment“ sind:  
+Auf der Seite **Pfade** können Sie die standardmäßigen Ordnerpfade der AD DS-Datenbank, der Datenbankprotokolle und der SYSVOL-Freigabe überschreiben. Die Standardspeicherorte befinden sich grundsätzlich in Unterverzeichnissen von %systemroot%. Die ADDSDeployment Windows PowerShell-Argumente für **Pfade** sind:  
   
 ```  
 -databasepath <string>  
@@ -329,7 +329,7 @@ Auf der Seite **Pfade** können Sie die standardmäßigen Ordnerpfade der AD DS-
 ### <a name="review-options-and-view-script"></a>Optionen prüfen und Skript anzeigen  
 ![RODC installieren](media/Install-a-Windows-Server-2012-Active-Directory-Read-Only-Domain-Controller--RODC---Level-200-/ADDS_SMI_TR_Stage2ReviewOptions.png)  
   
-Auf der Seite **Optionen prüfen** können Sie vor dem Starten der Installation Ihre Einstellungen validieren und sicherstellen, dass Ihre Anforderungen erfüllt werden. Dies ist jedoch nicht die letzte Möglichkeit, um die Installation mit Server-Manager zu stoppen. Diese Seite ermöglicht Ihnen lediglich das Überprüfen und Bestätigen Ihrer Einstellungen, bevor Sie die Konfiguration fortsetzen. Die Seite **Optionen prüfen** im Server-Manager bietet zudem die optionale Schaltfläche **Skript anzeigen** zum Erstellen einer Unicode-Textdatei, die die aktuelle ADDSDeployment-Konfiguration als einzelnes Windows PowerShell-Skript enthält. Dies ermöglicht Ihnen die Verwendung der grafischen Oberfläche von Server-Manager als Windows PowerShell-Bereitstellungsstudio. Mithilfe des Konfigurations-Assistenten für die Active Directory-Domänendienste können Sie Optionen konfigurieren, die Konfiguration exportieren und den Assistenten abbrechen. Bei diesem Prozess wird ein gültiges und syntaktisch korrektes Muster zur weiteren Änderung oder direkten Verwendung erstellt. Beispiel:  
+Auf der Seite **Optionen prüfen** können Sie vor dem Starten der Installation Ihre Einstellungen validieren und sicherstellen, dass Ihre Anforderungen erfüllt werden. Dies ist jedoch nicht die letzte Möglichkeit, um die Installation mit Server-Manager zu stoppen. Diese Seite ermöglicht Ihnen lediglich das Überprüfen und Bestätigen Ihrer Einstellungen, bevor Sie die Konfiguration fortsetzen. Die Seite **Optionen prüfen** im Server-Manager bietet zudem die optionale Schaltfläche **Skript anzeigen** zum Erstellen einer Unicode-Textdatei, die die aktuelle ADDSDeployment-Konfiguration als einzelnes Windows PowerShell-Skript enthält. Dies ermöglicht Ihnen die Verwendung der grafischen Oberfläche von Server-Manager als Windows PowerShell-Bereitstellungsstudio. Mithilfe des Konfigurations-Assistenten für die Active Directory-Domänendienste können Sie Optionen konfigurieren, die Konfiguration exportieren und den Assistenten abbrechen. Bei diesem Prozess wird ein gültiges und syntaktisch korrektes Muster zur weiteren Änderung oder direkten Verwendung erstellt. Beispiel:  
   
 ```  
 #  
@@ -353,11 +353,11 @@ Install-ADDSDomainController `
 > [!NOTE]  
 > Server-Manager füllt bei der Heraufstufung normalerweise alle Argumente mit Werten aus und verlässt sich nicht auf Standardwerte (da sich diese in zukünftigen Windows-Versionen oder Service Packs ändern können). Die einzige Ausnahme hierbei ist das Argument **-safemodeadministratorpassword**. Lassen Sie dieses Argument bei der interaktiven Ausführung des Cmdlets aus, um eine Bestätigungsaufforderung zu erzwingen  
   
-Verwenden Sie das optionale **Whatif** -Argument für das **Install-ADDSDomainController** -Cmdlet, um die Konfigurationsinformationen zu überprüfen. Auf diese Weise können Sie die impliziten und expliziten Argumentwerte für ein Cmdlet anzeigen.  
+Verwenden Sie das optionale **Whatif**-Argument für das **Install-ADDSDomainController**-Cmdlet, um die Konfigurationsinformationen zu überprüfen. Auf diese Weise können Sie die impliziten und expliziten Argumentwerte für ein Cmdlet anzeigen.  
   
 ![RODC installieren](media/Install-a-Windows-Server-2012-Active-Directory-Read-Only-Domain-Controller--RODC---Level-200-/ADDS_SMI_TR_Stage2WhatIf.png)  
   
-### <a name="prerequisites-check"></a>Überprüfung der Voraussetzungen  
+### <a name="prerequisites-check"></a>Voraussetzungsüberprüfung  
 ![RODC installieren](media/Install-a-Windows-Server-2012-Active-Directory-Read-Only-Domain-Controller--RODC---Level-200-/ADDS_SMI_TR_Stage2PrereqCheck.png)  
   
 Die **Voraussetzungsüberprüfung** ist ein neues Feature in der AD DS-Domänenkonfiguration. Diese neue Phase prüft, ob die Serverkonfiguration zur Unterstützung einer neuen AD DS-Gesamtstruktur geeignet ist.  
@@ -366,7 +366,7 @@ Bei der Installation einer neuen Gesamtstruktur-Stammdomäne ruft der Konfigurat
   
 Bei der **Voraussetzungsüberprüfung** werden außerdem relevante Informationen wie z. B. Sicherheitsänderungen angezeigt, die ältere Betriebssysteme betreffen. Weitere Informationen zur Voraussetzungsüberprüfung finden Sie unter [Voraussetzungsüberprüfung](../../../ad-ds/manage/AD-DS-Simplified-Administration.md#BKMK_PrereuisiteChecking).  
   
-Bei Verwendung des Server-Managers können Sie die **Voraussetzungsüberprüfung** nicht überspringen. Sie können diese jedoch mit dem folgenden Argument überspringen, wenn Sie das Cmdlet „ADDSDeployment“ verwenden:  
+Bei Verwendung des Server-Managers können Sie die **Voraussetzungsüberprüfung** nicht überspringen. Sie können diese jedoch mit dem folgenden Argument überspringen, wenn Sie das Cmdlet "ADDSDeployment" verwenden:  
   
 ```  
 -skipprechecks  
@@ -402,7 +402,7 @@ Das **Install-addsdomaincontroller**-Cmdlet hat nur zwei Phasen (Voraussetzungs�
   
 ![RODC installieren](media/Install-a-Windows-Server-2012-Active-Directory-Read-Only-Domain-Controller--RODC---Level-200-/ADDS_PSStage2Complete.png)  
   
-Mit dem **-force** -Argument oder dem **-confirm:$false** -Argument können Sie den Neustart in allen Windows PowerShell-Cmdlets vom Typ „ADDSDeployment“ automatisch akzeptieren. Verwenden Sie das **-norebootoncompletion**-Argument, um den automatischen Neustart am Ende der Heraufstufung zu verhindern.  
+Mit dem **-force**-Argument oder dem **-confirm:$false**-Argument können Sie den Neustart in allen Windows PowerShell-Cmdlets vom Typ "ADDSDeployment" automatisch akzeptieren. Verwenden Sie das **-norebootoncompletion**-Argument, um den automatischen Neustart am Ende der Heraufstufung zu verhindern.  
   
 > [!WARNING]  
 > Es wird davon abgeraten, den Neustart zu verhindern. Der Domänencontroller muss neu gestartet werden, um korrekt zu funktionieren.  
@@ -421,8 +421,8 @@ Das folgende Diagramm zeigt den Konfigurationsprozess für Active Directory-Dom�
   
 |||  
 |-|-|  
-|**Addsdeployment-Cmdlet**|Argumente (erforderliche Argumente sind **fett** markiert. Argumente in *Kursivschrift* können mithilfe von Windows PowerShell oder dem AD DS-Konfigurations-Assistenten angegeben werden.)|  
-|Install-AddsDomainController|-SkipPreChecks<p>***-Domain Name***<p>*-SafeModeAdministratorPassword*<p>***-Sitename***<p>*-ApplicationPartitionsToReplicate*<p>*-"-Kreatednsdelegation"*<p>***-Credential***<p>*-Criticalreplicationonly*<p>*-DatabasePath*<p>*-Dnsdelegationcredential*<p>-DNSOnNetwork<p>*-Installationmediapath*<p>*-InstallDNS*<p>*-LogPath*<p>-MoveInfrastructureOperationMasterRoleIfNecessary<p>*-Noglobalcatalog*<p>-Norebootoncompletion<p>*-ReplicationSourceDC*<p>-SkipAutoConfigureDNS<p>*-System Key*<p>*-Sysvolpath*<p>*-Allowpasswordreplicationaccountname*<p>*-DelegatedAdministratorAccountName*<p>*-Denypasswordreplicationaccountname*<p>***-"-Leseronlyreplica"***|  
+|**ADDSDeployment-Cmdlet**|Argumente (erforderliche Argumente sind **fett** markiert. Argumente in *Kursivschrift* können mithilfe von Windows PowerShell oder dem AD DS-Konfigurations-Assistenten angegeben werden.)|  
+|Install-AddsDomainController|-SkipPreChecks<p>***-Domain Name***<p>*-SafeModeAdministratorPassword*<p>***-Sitename***<p>*-ApplicationPartitionsToReplicate*<p>*-"-Kreatednsdelegation"*<p>***-Credential***<p>*-Criticalreplicationonly*<p>*-DatabasePath*<p>*-DNSDelegationCredential*<p>-DNSOnNetwork<p>*-Installationmediapath*<p>*-InstallDNS*<p>*-LogPath*<p>-MoveInfrastructureOperationMasterRoleIfNecessary<p>*-Noglobalcatalog*<p>-Norebootoncompletion<p>*-ReplicationSourceDC*<p>-SkipAutoConfigureDNS<p>*-System Key*<p>*-Sysvolpath*<p>*-AllowPasswordReplicationAccountName*<p>*-DelegatedAdministratorAccountName*<p>*-DenyPasswordReplicationAccountName*<p>***-"-Leseronlyreplica"***|  
   
 > [!NOTE]  
 > Das Argument **-credential** ist nur erforderlich, wenn Sie nicht bereits als Mitglied der Gruppe Domänen-Admins angemeldet sind.  
@@ -432,7 +432,7 @@ Das folgende Diagramm zeigt den Konfigurationsprozess für Active Directory-Dom�
 ### <a name="deployment-configuration"></a>Bereitstellungskonfiguration  
 ![RODC installieren](media/Install-a-Windows-Server-2012-Active-Directory-Read-Only-Domain-Controller--RODC---Level-200-/ADDS_SMI_TR_RODCDeployConfig.png)  
   
-In Server-Manager beginnt jede Heraufstufung eines Domänencontrollers auf der Seite **Bereitstellungskonfiguration** . Die restlichen Optionen und erforderlichen Felder auf dieser Seite und den folgenden Seiten variieren in Abhängigkeit von dem von Ihnen ausgewählten Bereitstellungsvorgang.  
+In Server-Manager beginnt jede Heraufstufung eines Domänencontrollers auf der Seite **Bereitstellungskonfiguration**. Die restlichen Optionen und erforderlichen Felder auf dieser Seite und den folgenden Seiten variieren in Abhängigkeit von dem von Ihnen ausgewählten Bereitstellungsvorgang.  
   
 Um einen ungestaffelten schreibgeschützten Domänencontroller zu einer existierenden Windows Server 2012-Domäne hinzuzufügen, wählen Sie **Domänencontroller vorhandener Domäne hinzufügen** aus und klicken auf die Schaltfläche **Auswählen**, um **die Domäneninformationen für diese Domäne anzugeben**. Server-Manager fordert Sie automatisch zur Eingabe gültiger Anmeldeinformationen auf. Klicken Sie alternativ auf **Ändern**.  
   
@@ -454,9 +454,9 @@ Die Seite **Domänencontrolleroptionen** enthält die Domänencontrollerfunktion
 Auf der Seite **Domänencontrolleroptionen** können Sie unter **Standortname** den entsprechenden logischen Standortnamen für Active Directory in der Gesamtstrukturkonfiguration auswählen. Standardmäßig ist der Standortname mit dem korrektesten Subnetz ausgewählt. Wenn nur ein Standort vorhanden ist, wird dieser automatisch ausgewählt.  
   
 > [!IMPORTANT]  
-> Wenn der Server nicht zu einem Active Directory-Subnetz gehört und mehrere Active Directory-Standorte vorhanden sind, wird keine Auswahl getroffen, und die Schaltfläche **Weiter** ist erst wieder verfügbar, nachdem Sie in der Liste einen Standort ausgewählt haben.  
+> Wenn der Server zu keinem Active Directory-Subnetz gehört und mehrere Active Directory-Standorte vorhanden sind, wird keine Auswahl getroffen, und die Schaltfläche **Weiter** ist erst wieder verfügbar, nachdem Sie in der Liste einen Standort ausgewählt haben.  
   
-Das angegebene **Kennwort für den Verzeichnisdienste-Wiederherstellungsmodus** muss die Kennwortrichtlinie für den Server erfüllen. Verwenden Sie stets ein starkes, komplexes Kennwort oder bevorzugt eine Passphrase. Die ADDSDeployment Windows PowerShell-Argumente für **Domänencontrolleroptionen** sind:  
+Das angegebene **Kennwort für den Verzeichnisdienst-Wiederherstellungsmodus** muss die Kennwortrichtlinie für den Server erfüllen. Verwenden Sie stets ein starkes, komplexes Kennwort oder bevorzugt eine Passphrase. Die ADDSDeployment Windows PowerShell-Argumente für **Domänencontrolleroptionen** sind:  
   
 ```  
 -UseExistingAccount <{$true | $false}>  
@@ -470,7 +470,7 @@ Die **Install-ADDSDomainController**-Argumente verwenden dieselben Standardwerte
   
 Das Argument **SafeModeAdministratorPassword** funktioniert etwas anders:  
   
--   Wenn dieses Argument *nicht angegeben* wird, fordert das Cmdlet Sie auf, ein maskiertes Kennwort einzugeben und zu bestätigen. Dies ist die bevorzugte Verwendung bei einer interaktiven Cmdlet-Ausführung.  
+-   wenn als Argument *nicht angegeben*, fordert das Cmdlet Sie auf, ein maskiertes Kennwort einzugeben und zu bestätigen. Dies ist die bevorzugte Verwendung bei einer interaktiven Cmdlet-Ausführung.  
   
     Um einen neuen RODC in corp.contoso.com zu erstellen und zur Eingabe und Bestätigung eines maskierten Kennworts aufgefordert zu werden:  
   
@@ -558,7 +558,7 @@ Auf der Seite **Zusätzliche Optionen** können entweder einen Domänencontrolle
 Sie können auch festlegen, dass der Domänencontroller mithilfe gesicherter Medien und der Option %%amp;quot;Installieren von Medium%%amp;quot; (Install from Media, IFM) installiert wird. Wenn Sie das Kontrollkästchen **Installieren von Medium** markieren, wird eine Option zum Durchsuchen angezeigt, und Sie müssen auf **Überprüfen** klicken, um sicherzustellen, dass sich am angegebenen Pfad ein gültiges Medium befindet.
 
 Richtlinien für die IFM-Quelle:
-*    Von der IFM-Option verwendete Medien werden mit Windows Server-Sicherung oder Ntdsutil. exe von einem anderen vorhandenen Windows Server-Domänen Controller mit der gleichen Betriebssystemversion erstellt. Beispielsweise können Sie ein Windows Server 2008 R2-oder ein früheres Betriebssystem nicht verwenden, um Medien für einen Windows Server 2012-Domänen Controller zu erstellen.
+*    Von der IFM-Option verwendete Medien werden mit Windows Server-Sicherung erstellt oder von einem anderen vorhandenen Windows Server-Domänen Controller mit der gleichen Betriebssystemversion Ntdsutil.exe. Beispielsweise können Sie ein Windows Server 2008 R2-oder ein früheres Betriebssystem nicht verwenden, um Medien für einen Windows Server 2012-Domänen Controller zu erstellen.
 *    Die IFM-Quelldaten sollten von einem beschreibbaren Domänen Controller sein. Eine Quelle von RODC funktioniert zwar technisch gesehen, um einen neuen RODC zu erstellen, aber es gibt falsch positive Replikations Warnungen, die der IFM-quellrodc nicht repliziert.
 
 Weitere Informationen zu Änderungen in IFM finden Sie unter [Ntdsutil.exe installieren aus Medienänderungen](../../../ad-ds/deploy/Simplified-Administration-Appendix.md#BKMK_IFM). Wenn die Medien mit einem Systemschlüssel (SYSKEY) geschützt sind, werden Sie während der Überprüfung von Server-Manager zur Eingabe des Kennworts für das Abbild aufgefordert.
@@ -576,7 +576,7 @@ Die Argumente für zusätzliche Optionen für das Cmdlet ADDSDeployment sind:
 ### <a name="paths"></a>Pfade  
 ![RODC installieren](media/Install-a-Windows-Server-2012-Active-Directory-Read-Only-Domain-Controller--RODC---Level-200-/ADDS_SMI_TR_RODCPaths.png)  
   
-Auf der Seite **Pfade** können Sie die standardmäßigen Ordnerpfade der AD DS-Datenbank, der Datenbankprotokolle und der SYSVOL-Freigabe überschreiben. Die Standardspeicherorte befinden sich grundsätzlich in Unterverzeichnissen von %systemroot%. Die **Pfade** -Argumente für das Cmdlet „ADDSDeployment“ sind:  
+Auf der Seite **Pfade** können Sie die standardmäßigen Ordnerpfade der AD DS-Datenbank, der Datenbankprotokolle und der SYSVOL-Freigabe überschreiben. Die Standardspeicherorte befinden sich grundsätzlich in Unterverzeichnissen von %systemroot%. Die ADDSDeployment Windows PowerShell-Argumente für **Pfade** sind:  
   
 ```  
 -databasepath <string>  
@@ -589,11 +589,11 @@ Auf der Seite **Pfade** können Sie die standardmäßigen Ordnerpfade der AD DS-
   
 Die Seite **Vorbereitungsoptionen** weist Sie darauf hin, dass die AD DS-Konfiguration eine Erweiterung des Schemas (forestprep) und eine Aktualisierung der Domäne umfasst (domainprep). Diese Seite wird nur angezeigt, wenn die Gesamtstruktur oder Domäne nicht durch eine vorherige Windows Server 2012 Domänencontroller-Installation oder eine manuelle Ausführung von Adprep.exe vorbereitet wurde. Der Konfigurations-Assistent für Active Directory-Domänendienste unterdrückt diese Seite beispielsweise, wenn Sie einen neuen Replikatdomänencontroller zu einer existierenden Windows Server 2012-Gesamtstruktur-Stammdomäne hinzufügen.  
   
-Erweiterung des Schemas und Aktualisierung der Domäne erfolgen noch nicht, wenn Sie auf **Weiter**klicken. Diese Schritte werden erst während der Installationsphase ausgeführt. Diese Seite weist Sie lediglich auf die Schritte hin, die später bei der Installation ausgeführt werden.  
+Erweiterung des Schemas und Aktualisierung der Domäne erfolgen noch nicht, wenn Sie auf **Weiter** klicken. Diese Schritte werden erst während der Installationsphase ausgeführt. Diese Seite weist Sie lediglich auf die Schritte hin, die später bei der Installation ausgeführt werden.  
   
-Die Seite prüft außerdem, ob die aktuellen Anmeldeinformationen Mitglieder der Gruppen Schema-Admins und Organisations-Admins sind. Sie müssen Mitglied dieser beiden Gruppen sein, um ein Schema zu erweitern oder eine Domäne vorzubereiten. Klicken Sie auf **Ändern** , um die entsprechenden Benutzeranmeldeinformationen einzugeben, falls Sie einen Hinweis erhalten, dass die aktuellen Daten keine ausreichenden Berechtigungen haben.  
+Die Seite prüft außerdem, ob die aktuellen Anmeldeinformationen Mitglieder der Gruppen Schema-Admins und Organisations-Admins sind. Sie müssen Mitglied dieser beiden Gruppen sein, um ein Schema zu erweitern oder eine Domäne vorzubereiten. Klicken Sie auf **Ändern**, um die entsprechenden Benutzeranmeldeinformationen einzugeben, falls Sie einen Hinweis erhalten, dass die aktuellen Daten keine ausreichenden Berechtigungen haben.  
   
-Das Argument für zusätzliche Optionen für das Cmdlet ADDSDeployment ist:  
+Das Argument für das Cmdlet "ADDSDeployment" für "Zusätzliche Optionen" ist:  
   
 ```  
 -adprepcredential <pscredential>  
@@ -609,7 +609,7 @@ Das Argument für zusätzliche Optionen für das Cmdlet ADDSDeployment ist:
   
 Auf der Seite **Optionen prüfen** können Sie vor dem Starten der Installation Ihre Einstellungen validieren und sicherstellen, dass Ihre Anforderungen erfüllt werden. Dies ist jedoch nicht die letzte Möglichkeit, um die Installation mit Server-Manager zu stoppen. Diese Seite ermöglicht Ihnen lediglich das Überprüfen und Bestätigen Ihrer Einstellungen, bevor Sie die Konfiguration fortsetzen.  
   
-Die Seite **Optionen prüfen** im Server-Manager bietet zudem die optionale Schaltfläche **Skript anzeigen** zum Erstellen einer Unicode-Textdatei, die die aktuelle ADDSDeployment-Konfiguration als einzelnes Windows PowerShell-Skript enthält. Dies ermöglicht Ihnen die Verwendung der grafischen Oberfläche von Server-Manager als Windows PowerShell-Bereitstellungsstudio. Mithilfe des Konfigurations-Assistenten für die Active Directory-Domänendienste können Sie Optionen konfigurieren, die Konfiguration exportieren und den Assistenten abbrechen. Bei diesem Prozess wird ein gültiges und syntaktisch korrektes Muster zur weiteren Änderung oder direkten Verwendung erstellt. Beispiel:  
+Die Seite **Optionen prüfen** im Server-Manager bietet zudem die optionale Schaltfläche **Skript anzeigen** zum Erstellen einer Unicode-Textdatei, die die aktuelle ADDSDeployment-Konfiguration als einzelnes Windows PowerShell-Skript enthält. Dies ermöglicht Ihnen die Verwendung der grafischen Oberfläche von Server-Manager als Windows PowerShell-Bereitstellungsstudio. Mithilfe des Konfigurations-Assistenten für die Active Directory-Domänendienste können Sie Optionen konfigurieren, die Konfiguration exportieren und den Assistenten abbrechen. Bei diesem Prozess wird ein gültiges und syntaktisch korrektes Muster zur weiteren Änderung oder direkten Verwendung erstellt. Beispiel:  
   
 ```  
 #  
@@ -641,7 +641,7 @@ Verwenden Sie das optionale Whatif-Argument für das Cmdlet Install-ADDSDomainCo
   
 ![RODC installieren](media/Install-a-Windows-Server-2012-Active-Directory-Read-Only-Domain-Controller--RODC---Level-200-/ADDS_SMI_TR_RODCWhatIf.png)  
   
-### <a name="prerequisites-check"></a>Überprüfung der Voraussetzungen  
+### <a name="prerequisites-check"></a>Voraussetzungsüberprüfung  
 ![RODC installieren](media/Install-a-Windows-Server-2012-Active-Directory-Read-Only-Domain-Controller--RODC---Level-200-/ADDS_SMI_TR_RODCPrereqCheck.png)  
   
 Die **Voraussetzungsüberprüfung** ist ein neues Feature in der AD DS-Domänenkonfiguration. Diese neue Phase prüft, ob die Serverkonfiguration zur Unterstützung einer neuen AD DS-Gesamtstruktur geeignet ist.  
@@ -650,7 +650,7 @@ Bei der Installation einer neuen Gesamtstruktur-Stammdomäne ruft der Konfigurat
   
 Bei der **Voraussetzungsüberprüfung** werden außerdem relevante Informationen wie z. B. Sicherheitsänderungen angezeigt, die ältere Betriebssysteme betreffen.  
   
-Bei Verwendung des Server-Managers können Sie die **Voraussetzungsüberprüfung** nicht überspringen. Sie können diese jedoch mit dem folgenden Argument überspringen, wenn Sie das Cmdlet „ADDSDeployment“ verwenden:  
+Bei Verwendung des Server-Managers können Sie die **Voraussetzungsüberprüfung** nicht überspringen. Sie können diese jedoch mit dem folgenden Argument überspringen, wenn Sie das Cmdlet "ADDSDeployment" verwenden:  
   
 ```  
 -skipprechecks  
@@ -683,7 +683,7 @@ Das **Install-addsdomaincontroller**-Cmdlet hat nur zwei Phasen (Voraussetzungs�
   
 ![RODC installieren](media/Install-a-Windows-Server-2012-Active-Directory-Read-Only-Domain-Controller--RODC---Level-200-/ADDS_PSInstallRODCProgress.png)  
   
-Mit dem **-force** -Argument oder dem **-confirm:$false** -Argument können Sie den Neustart in allen Windows PowerShell-Cmdlets vom Typ „ADDSDeployment“ automatisch akzeptieren. Verwenden Sie das **-norebootoncompletion**-Argument, um den automatischen Neustart am Ende der Heraufstufung zu verhindern.  
+Mit dem **-force**-Argument oder dem **-confirm:$false**-Argument können Sie den Neustart in allen Windows PowerShell-Cmdlets vom Typ "ADDSDeployment" automatisch akzeptieren. Verwenden Sie das **-norebootoncompletion**-Argument, um den automatischen Neustart am Ende der Heraufstufung zu verhindern.  
   
 > [!WARNING]  
 > Es wird davon abgeraten, den Neustart zu verhindern. Der Domänencontroller muss neu gestartet werden, um korrekt zu funktionieren. Wenn Sie sich vom Domänencontroller abmelden, können Sie sich erst nach dessen Neustart wieder interaktiv anmelden.  
@@ -693,4 +693,3 @@ Mit dem **-force** -Argument oder dem **-confirm:$false** -Argument können Sie 
   
 Auf der Seite **Ergebnisse** werden Erfolg bzw. Misserfolg der Heraufstufung sowie alle wichtigen Administrationsinformationen angezeigt. Der Domänencontroller wird automatisch nach 10 Sekunden neu gestartet.  
   
-

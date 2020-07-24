@@ -8,20 +8,20 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: b5dfb18917defa50df07ae747916b71539681312
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: f8944fce04526a34df6909ed1631483573060836
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80825513"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86965852"
 ---
 # <a name="install-a-new-windows-server-2012-active-directory-forest-level-200"></a>Installieren einer neuen Active Directory-Gesamtstrukturdomäne in Windows Server 2012 (Stufe 200)
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Dieser Artikel bietet eine Einführung in das neue Domänencontroller-Heraufstufungsfeature für Windows Server 2012 Active Directory-Domänendienste. AD DS ersetzt in Windows Server 2012 das Dcpromo-Tool durch ein Bereitstellungssystem mithilfe von Server-Manager und Windows PowerShell.  
   
--   [Vereinfachte Verwaltung Active Directory Domain Services](../../ad-ds/deploy/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-.md#BKMK_SimplifiedAdmin)  
+-   [Vereinfachte Administration von Active Directory-Domänendiensten](../../ad-ds/deploy/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-.md#BKMK_SimplifiedAdmin)  
   
 -   [Technische Übersicht](../../ad-ds/deploy/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-.md#BKMK_TechOverview)  
   
@@ -29,7 +29,7 @@ Dieser Artikel bietet eine Einführung in das neue Domänencontroller-Heraufstuf
   
 -   [Bereitstellen einer Gesamtstruktur mit Windows PowerShell](../../ad-ds/deploy/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-.md#BKMK_PSForest)  
   
-## <a name="active-directory-domain-services-simplified-administration"></a><a name="BKMK_SimplifiedAdmin"></a>Vereinfachte Verwaltung Active Directory Domain Services  
+## <a name="active-directory-domain-services-simplified-administration"></a><a name="BKMK_SimplifiedAdmin"></a>Vereinfachte Administration von Active Directory-Domänendiensten  
 Mit Windows Server 2012 wurde die nächste Generation der vereinfachten Administration von Active Directory-Domänendiensten eingeführt. Dies ist die radikalste Umgestaltung von Domänen seit Windows 2000 Server. Die vereinfachte AD DS-Administration ist eine Umsetzung der Erfahrungen zwölf Jahren Active Directory und bietet Architekten und Administratoren ein flexibleres, intuitiveres und leichter zu unterstützendes Administrationserlebnis. Hierzu mussten wir neue Versionen existierender Technologien erstellen und die Funktionen einiger Komponenten aus Windows Server 2008 R2 erweitern.  
   
 ### <a name="what-is-ad-ds-simplified-administration"></a>Was ist die vereinfachte AD DS-Administration?  
@@ -37,7 +37,7 @@ Die vereinfachte AD DS-Administration ist ein neuartiger Weg der Domänen-Bereit
   
 -   Die AD DS-Rollenbereitstellung ist nun Teil der neuen Server-Manager-Architektur und erlaubt die Remote-Installation.  
   
--   Als AD DS-Bereitstellungs- und Konfigurationsmodul dient nun Windows PowerShell, selbst bei Verwendung einer grafischen Benutzeroberfläche.  
+-   Als AD DS-Bereitstellungs- und Konfigurations-Engine dient nun Windows PowerShell, selbst bei Verwendung einer grafischen Benutzeroberfläche.  
   
 -   Zur Heraufstufung gehört nun eine Voraussetzungsprüfung, bei der die Bereitschaft von Gesamtstruktur und Domäne für den neuen Domänencontroller geprüft und somit Fehler bei der Heraufstufung vermieden werden.  
   
@@ -46,7 +46,7 @@ Die vereinfachte AD DS-Administration ist ein neuartiger Weg der Domänen-Bereit
 ### <a name="purpose-and-benefits"></a>Zweck und Vorteile  
 Manche dieser Änderungen erscheinen auf den ersten Blick komplexer anstatt einfacher. Durch die Neugestaltung des AD DS-Bereitstellungsprozesses entstand jedoch die Möglichkeit, zahlreiche Schritte und bewährte Methoden in wenige und einfache Schritte zusammenzufassen. Z. B. umfasst die grafische Konfiguration eines neuen Replikat-Domänencontrollers nun nur noch acht Dialogfelder anstatt wie bisher zwölf. Zum Erstellen einer neuen Active Directory-Gesamtstruktur genügt ein *einziger* Windows PowerShell-Befehl mit nur *einem* Argument: dem Namen der Domäne.  
   
-Warum die starke Gewichtung von Windows PowerShell in Windows Server 2012? Die verteilte Datenverarbeitung entwickelt sich ständig weiter, und Windows PowerShell bietet ein einziges Modul für Konfiguration und Wartung in Form von grafischen Oberflächen und Befehlszeilenschnittstellen. IT-Fachleute erhalten die Möglichkeit, Skripts mit vollem Funktionsumfang für beliebige Komponenten mit demselben erstklassigen Komfort zu erstellen, den Entwickler in Form von APIs erhalten. Mit der universellen Verfügbarkeit von cloudbasiertem Computing bietet Windows PowerShell auch endlich die Möglichkeit, Server remote zu administrieren. Computer ohne grafische Oberfläche haben dabei dieselben Verwaltungsoptionen wie solche mit Monitor und Maus.  
+Warum die starke Gewichtung von Windows PowerShell in Windows Server 2012? Die verteilte Datenverarbeitung entwickelt sich ständig weiter, und Windows PowerShell bietet eine einzige Engine für Konfiguration und Wartung in Form von grafischen Oberflächen und Befehlszeilenschnittstellen. IT-Fachleute erhalten die Möglichkeit, Skripts mit vollem Funktionsumfang für beliebige Komponenten mit demselben erstklassigen Komfort zu erstellen, den Entwickler in Form von APIs erhalten. Mit der universellen Verfügbarkeit von cloudbasiertem Computing bietet Windows PowerShell auch endlich die Möglichkeit, Server remote zu administrieren. Computer ohne grafische Oberfläche haben dabei dieselben Verwaltungsoptionen wie solche mit Monitor und Maus.  
   
 Erfahrene AD DS-Administratoren werden feststellen, dass ihre bisherigen Kenntnisse von größtem Wert sind. Angehenden Administratoren bietet sich eine wesentlich flachere Lernkurve.  
   
@@ -55,11 +55,11 @@ Erfahrene AD DS-Administratoren werden feststellen, dass ihre bisherigen Kenntni
 ### <a name="what-you-should-know-before-you-begin"></a>Wichtige Informationen vorab  
 Dieser Artikel geht davon aus, dass Sie mit den vorherigen Versionen der Active Directory-Domänendienste vertraut sind und enthält keine Grundsatzinformationen zu deren Zweck und Funktionen. Weitere Informationen zu AD DS finden Sie in den folgenden TechNet-Portalseiten:  
   
--   [Active Directory Domain Services für Windows Server 2008 R2](https://technet.microsoft.com/library/dd378801(WS.10).aspx)  
+-   [Active Directory-Domänendienste für Windows Server 2008 R2](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd378801(v=ws.10))  
   
--   [Active Directory Domain Services für Windows Server 2008](https://technet.microsoft.com/library/dd378891(WS.10).aspx)  
+-   [Active Directory-Domänendienste für Windows Server 2008](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd378891(v=ws.10))  
   
--   [Technische Referenz zu Windows Server](https://technet.microsoft.com/library/cc739127(WS.10).aspx)  
+-   [Windows Server Technical Reference (in englischer Sprache)](/previous-versions/windows/it-pro/windows-server-2003/cc739127(v=ws.10))  
   
 ### <a name="functional-descriptions"></a>Funktionsbeschreibungen  
   
@@ -90,16 +90,16 @@ Diese neuen Features sind nicht abwärtskompatibel mit Windows Server 2008 R2 od
 > [!IMPORTANT]
 > Dcpromo.exe enthält nun keinen grafischen Assistenten und installiert keine Binärdateien für Rollen oder Feature. Beim Ausführen von Dcpromo.exe aus der Explorer-Shell wird Folgendes zurückgegeben:  
 > 
-> "Die Assistent zum Installieren von Active Directory Domain Services wird in Server-Manager verschoben. Weitere Informationen finden Sie unter <https://go.microsoft.com/fwlink/?LinkId=220921>. "  
+> "Die Assistent zum Installieren von Active Directory Domain Services wird in Server-Manager verschoben. Weitere Informationen finden Sie unter <https://go.microsoft.com/fwlink/?LinkId=220921> .  
 > 
 > Bei der Ausführung von Dcpromo.exe /unattend werden die Binärdateien wie in älteren Betriebssystemen weiterhin installiert, allerdings wird eine Warnung ausgegeben:  
 > 
-> "Der unbeaufsichtigte Vorgang" Dcpromo "wird durch das addsdeployment-Modul für Windows PowerShell ersetzt. Weitere Informationen finden Sie unter <https://go.microsoft.com/fwlink/?LinkId=220924>. "  
+> "Der unbeaufsichtigte Vorgang" Dcpromo "wird durch das addsdeployment-Modul für Windows PowerShell ersetzt. Weitere Informationen finden Sie unter <https://go.microsoft.com/fwlink/?LinkId=220924> .  
 > 
 > dcpromo.exe ist in Windows Server 2012 veraltet und wird in zukünftigen Windows-Versionen nicht enthalten sein und in diesem Betriebssystem auch nicht mehr erweitert werden. Administratoren sollten dessen Verwendung einstellen und stattdessen die unterstützten Windows PowerShell-Module verwenden, wenn sie Domänencontroller per Befehlszeile erstellen möchten.  
   
 #### <a name="prerequisite-checking"></a>Voraussetzungsprüfung  
-Zur Domänencontroller-Konfiguration gehört auch eine Voraussetzungsprüfungsphase, die Gesamtstruktur und Domäne vor der Heraufstufung des Domänencontrollers prüft. Geprüft werden unter anderem die Verfügbarkeit der FSMO-Rolle, Benutzerrechte, erweiterte Schemakompatibilität und sonstige Anforderungen. Dieses neue Design verhindert Probleme, bei denen die Heraufstufung des Domänencontrollers beginnt und dann mit einem schwerwiegenden Konfigurationsfehler abgebrochen wird. Dies senkt die Gefahr verwaister Domänencontroller-Metadaten in der Gesamtstruktur und verhindert, dass Server fälschlicherweise davon ausgehen, sie seien Domänencontroller.  
+Zur Domänencontroller-Konfiguration gehört auch eine Voraussetzungsprüfungs-Phase, die Gesamtstruktur und Domäne vor der Heraufstufung des Domänencontrollers prüft. Geprüft werden unter anderem die Verfügbarkeit der FSMO-Rolle, Benutzerrechte, erweiterte Schemakompatibilität und sonstige Anforderungen. Dieses neue Design verhindert Probleme, bei denen die Heraufstufung des Domänencontrollers beginnt und dann mit einem schwerwiegenden Konfigurationsfehler abgebrochen wird. Dies senkt die Gefahr verwaister Domänencontroller-Metadaten in der Gesamtstruktur und verhindert, dass Server fälschlicherweise davon ausgehen, sie seien Domänencontroller.  
   
 ## <a name="deploying-a-forest-with-server-manager"></a><a name="BKMK_SMForest"></a>Bereitstellen einer Gesamtstruktur mit Server-Manager  
 Dieser Abschnitt beschreibt die Installation des ersten Domänencontrollers in einer Gesamtstruktur-Stammdomäne mithilfe des Server-Managers auf einem Windows Server 2012-Computer mit grafischer Oberfläche.  
@@ -178,7 +178,7 @@ Server-Manager zeigt außerdem in einem Informationsdialog an, welche Administra
   
 Zusätzliche **Features** können an dieser Stelle nach Belieben hinzugefügt werden.  
   
-#### <a name="active-directory-domain-services"></a>Active Directory-Domänendienste  
+#### <a name="active-directory-domain-services"></a>Active Directory Domain Services  
 ![Neue Gesamtstruktur installieren](media/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-/ADDS_SMI_TR_ADDSIntro.png)  
   
 Das Dialogfeld **Active Directory-Domänendienste** enthält eingeschränkte Informationen zu Anforderungen und bewährten Methoden. Sie fungiert hauptsächlich als Bestätigung, dass Sie die AD DS Rolle gewählt haben. "Wenn dieser Bildschirm nicht angezeigt wird, haben Sie AD DS nicht ausgewählt.  
@@ -197,11 +197,11 @@ Das Dialogfeld **Ergebnisse** zeigt den aktuellen Installationsfortschritt und I
   
 Sie sollten die Installationsergebnisse dennoch stets überprüfen. Wenn Sie das Dialogfeld **Ergebnisse** vor dem Ende der Installation schließen, können Sie die Ergebnisse mit dem Server-Manager-Benachrichtigungskennzeichen prüfen. Server-Manager zeigt außerdem eine Warnmeldung für alle Server an, auf denen die AD DS-Rolle installiert wurde, die aber noch nicht als Domänencontroller konfiguriert wurden.  
   
-**Aufgaben Benachrichtigungen**  
+**Aufgabenbenachrichtigungen**  
   
 ![Neue Gesamtstruktur installieren](media/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-/ADDS_SMI_TR_TaskNotofications.png)  
   
-**AD DS Details**  
+**AD DS-Details**  
   
 ![Neue Gesamtstruktur installieren](media/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-/ADDS_SMI_TR_ADDSDetails.png)  
   
@@ -234,14 +234,14 @@ Das folgende Diagramm zeigt den Konfigurationsprozess für Active Directory-Dom�
 #### <a name="deployment-configuration"></a>Bereitstellungskonfiguration  
 ![Neue Gesamtstruktur installieren](media/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-/ADDS_SMI_TR_AddNewForest.png)  
   
-In Server-Manager beginnt jede Heraufstufung eines Domänencontrollers auf der Seite **Bereitstellungskonfiguration** . Die restlichen Optionen und erforderlichen Felder auf dieser Seite und den folgenden Seiten variieren in Abhängigkeit von dem von Ihnen ausgewählten Bereitstellungsvorgang.  
+In Server-Manager beginnt jede Heraufstufung eines Domänencontrollers auf der Seite **Bereitstellungskonfiguration**. Die restlichen Optionen und erforderlichen Felder auf dieser Seite und den folgenden Seiten variieren in Abhängigkeit von dem von Ihnen ausgewählten Bereitstellungsvorgang.  
   
 Klicken Sie auf **Neue Gesamtstruktur hinzufügen**, um eine neue Active Directory-Gesamtstruktur zu erstellen. Sie müssen einen gültigen Namen für die Stammdomäne angeben. der Name darf nicht aus einer einzelnen Bezeichnung bestehen (z. B. *contoso.com* oder ein ähnlicher Name, und nicht nur *contoso*) und muss die DNS-Anforderungen für Domänennamen erfüllen.  
   
 Weitere Informationen zu gültigen Domänennamen finden Sie im KB-Artikel [Naming conventions in Active Directory for computers, domains, sites, and OUs](https://support.microsoft.com/kb/909264).  
   
 > [!WARNING]  
-> Erstellen Sie keine neuen Active Directory-Gesamtstrukturen, die denselben Namen haben wie ein externer DNS-Name. Wenn Ihre Internet-DNS-URL beispielsweise http://contoso.comist, müssen Sie für Ihre interne Gesamtstruktur einen anderen Namen auswählen, um zukünftige Kompatibilitätsprobleme zu vermeiden. Der Name sollte eindeutig und seine Verwendung für den Webdatenverkehr unwahrscheinlich sein. Zum Beispiel: corp.contoso.com.  
+> Erstellen Sie keine neuen Active Directory-Gesamtstrukturen, die denselben Namen haben wie ein externer DNS-Name. Wenn Ihre Internet-DNS-URL beispielsweise lautet http://contoso.com , müssen Sie einen anderen Namen für die interne Gesamtstruktur auswählen, um zukünftige Kompatibilitätsprobleme zu vermeiden. Der Name sollte eindeutig und seine Verwendung für den Webdatenverkehr unwahrscheinlich sein. Zum Beispiel: corp.contoso.com.  
   
 Neue Gesamtstrukturen benötigen keine neuen Anmeldeinformationen für das Domänen-Administratorkonto. Der Domänencontroller-Heraufstufungsprozess verwendet die Anmeldeinformationen des integrierten Administratorkontos des ersten Domänencontrollers, der zur Erstellung der Gesamtstruktur-Stammdomäne verwendet wurde. Das integrierte Administratorkonto kann (standardmäßig) nicht deaktiviert oder ausgesperrt werden. Dieses Konto kann der einzige Einstiegspunkt in eine Gesamtstruktur sein, wenn die anderen Administratorkonten der Domäne unbrauchbar sind. Sie müssen unbedingt das Kennwort kennen, bevor Sie eine neue Gesamtstruktur bereitstellen.  
   
@@ -252,7 +252,7 @@ Neue Gesamtstrukturen benötigen keine neuen Anmeldeinformationen für das Domä
   
 In den **Domänencontrolleroptionen** können Sie **Gesamtstrukturfunktionsebene** und **Domänenfunktionsebene** für die neue Gesamtstruktur-Stammdomäne konfigurieren. Standardmäßig sind diese Einstellungen Windows Server 2012 in einer neuen Gesamtstruktur-Stamm Domäne. Die Gesamtstruktur Funktionsebene von Windows Server 2012 bietet keine neuen Funktionen auf der Windows Server 2008 R2-Gesamtstruktur Funktionsebene. Die Domänen Funktionsebene Windows Server 2012 ist nur erforderlich, um die neuen Kerberos-Einstellungen "immer Ansprüche bereitstellen" und "nicht hochgerüstete Authentifizierungsanforderungen fehlschlagen" zu implementieren. Ein primärer Verwendungs Aufwand für Funktionsebenen in Windows Server 2012 besteht darin, die Teilnahme an der Domäne auf Domänen Controller einzuschränken, die die Mindestanforderungen für Betriebssysteme erfüllen. Anders ausgedrückt: Sie können die Domänen Funktionsebene Windows Server 2012 angeben, dass nur Domänen Controller, auf denen Windows Server 2012 ausgeführt wird, die Domäne hosten können.  Windows Server 2012 implementiert ein neues domänencontrollerflag namens **DS_WIN8_REQUIRED** in der **DsGetDcName** -Funktion von Netlogon, das exklusiv Domänen Controller unter Windows Server 2012 verwendet. Auf diese Weise können Sie homogenere oder heterogenere Gesamtstrukturen hinsichtlich der erlaubten Betriebssysteme auf den Domänencontrollern nutzen.  
   
-Weitere Informationen zur Domänencontrollersuche finden Sie unter [Directory Service Functions](https://msdn.microsoft.com/library/ms675900(VS.85).aspx).  
+Weitere Informationen zur Domänencontrollersuche finden Sie unter [Directory Service Functions](/windows/win32/ad/directory-service-functions).  
   
 Die einzige konfigurierbare Domänencontroller-Funktion ist die DNS-Server-Option. Für eine hohe Verfügbarkeit in verteilten Umgebungen empfiehlt Microsoft, dass alle Domänencontroller DNS-Dienste bereitstellen. Aus diesem Grund aktiviert der Assistent diese Optionen beim Installieren eines Domänencontrollers in allen Modi und Domänen standardmäßig. Optionen für den globalen Katalog und schreibgeschützte Domänencontroller sind bei der Erstellung einer neuen Gesamtstruktur-Stammdomäne nicht verfügbar. Der erste Domänencontroller muss ein GC sein und darf kein schreibgeschützter Domänencontroller (RODC) sein.  
   
@@ -265,7 +265,7 @@ Auf der Seite **DNS-Optionen** können Sie DNS-Delegierung konfigurieren und alt
   
 Sie können DNS-Optionen oder -Delegierung bei der Installation einer neuen Active Directory-Gesamtstruktur-Stammdomäne im Konfigurations-Assistenten für Active Directory-Domänendienste nicht konfigurieren, wenn Sie **DNS-Server** auf der Seite **Domänencontrolleroptionen** ausgewählt haben. Die Optione **DNS-Delegierung erstellen** ist verfügbar, wenn Sie eine neue Stamm-DNS-Zone für eine Gesamtstruktur in einer existierenden DNS-Server-Infrastruktur erstellen. Mit dieser Option können Sie alternative DNS-Administratoranmeldeinformationen eingeben, die Berechtigungen zur Änderung der DNS-Zone haben.  
   
-Weitere Informationen dazu, ob Sie eine DNS-Delegierung erstellen müssen, finden Sie unter [Understanding Zone Delegation](https://technet.microsoft.com/library/cc771640.aspx).  
+Weitere Informationen dazu, ob Sie die DNS-Delegierung aktualisieren müssen, finden Sie unter [Grundlegendes zur Zonendelegierung](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771640(v=ws.11)).  
   
 #### <a name="additional-options"></a>Zusätzliche Optionen  
 ![Neue Gesamtstruktur installieren](media/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-/ADDS_SMI_TR_ForestAdditionalOptions.png)  
@@ -286,7 +286,7 @@ Auf der Seite **Pfade** können Sie die standardmäßigen Ordnerpfade der AD DS-
   
 Auf der Seite **Optionen prüfen** können Sie vor dem Starten der Installation Ihre Einstellungen überprüfen und sicherstellen, dass Ihre Anforderungen erfüllt werden. Dies ist jedoch nicht die letzte Möglichkeit, um die Installation mit Server-Manager zu stoppen. Dies ist lediglich eine Option zum Bestätigen Ihrer Einstellungen, bevor Sie die Konfiguration fortsetze  
   
-Die Seite **Optionen prüfen** im Server-Manager bietet zudem die optionale Schaltfläche **Skript anzeigen** zum Erstellen einer Unicode-Textdatei, die die aktuelle ADDSDeployment-Konfiguration als einzelnes Windows PowerShell-Skript enthält. Dies ermöglicht Ihnen die Verwendung der grafischen Oberfläche von Server-Manager als Windows PowerShell-Bereitstellungsstudio. Mithilfe des Konfigurations-Assistenten für die Active Directory-Domänendienste können Sie Optionen konfigurieren, die Konfiguration exportieren und den Assistenten abbrechen. Bei diesem Prozess wird ein gültiges und syntaktisch korrektes Muster zur weiteren Änderung oder direkten Verwendung erstellt. Beispiel:  
+Die Seite **Optionen prüfen** im Server-Manager bietet zudem die optionale Schaltfläche **Skript anzeigen** zum Erstellen einer Unicode-Textdatei, die die aktuelle ADDSDeployment-Konfiguration als einzelnes Windows PowerShell-Skript enthält. Dies ermöglicht Ihnen die Verwendung der grafischen Oberfläche von Server-Manager als Windows PowerShell-Bereitstellungsstudio. Mithilfe des Konfigurations-Assistenten für die Active Directory-Domänendienste können Sie Optionen konfigurieren, die Konfiguration exportieren und den Assistenten abbrechen. Bei diesem Prozess wird ein gültiges und syntaktisch korrektes Muster zur weiteren Änderung oder direkten Verwendung erstellt. Beispiel:  
   
 ```powershell 
 #  
@@ -312,7 +312,7 @@ Install-ADDSForest `
 > [!NOTE]  
 > Server-Manager füllt bei der Heraufstufung normalerweise alle Argumente mit Werten aus und verlässt sich nicht auf Standardwerte (da sich diese in zukünftigen Windows-Versionen oder Service Packs ändern können). Die einzige Ausnahme hierbei ist das **-safemodeadministratorpassword**-Argument (das im Skript bewusst ausgelassen wird). Lassen Sie dieses Argument bei der interaktiven Ausführung des Cmdlets aus, um eine Bestätigungsaufforderung zu erzwingen.  
   
-#### <a name="prerequisites-check"></a>Überprüfung der Voraussetzungen  
+#### <a name="prerequisites-check"></a>Voraussetzungsüberprüfung  
 ![Neue Gesamtstruktur installieren](media/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-/ADDS_SMI_TR_ForestPrereqCheck.png)  
   
 Die **Voraussetzungsüberprüfung** ist ein neues Feature in der AD DS-Domänenkonfiguration. Diese neue Phase prüft, ob die Serverkonfiguration zur Unterstützung einer neuen AD DS-Gesamtstruktur geeignet ist.  
@@ -353,7 +353,7 @@ Die folgende Abbildung zeigt den Prozess der AD DS-Rolleninstallation, von der A
 |||  
 |-|-|  
 |ServerManager-Cmdlet|Argumente (erforderliche Argumente sind **fett** markiert. Argumente in *Kursivschrift* können mithilfe von Windows PowerShell oder dem AD DS-Konfigurations-Assistenten angegeben werden.)|  
-|Install-WindowsFeature/Add-WindowsFeature|***-Name***<p>*-Neu starten*<p>*-Includeallsubfeature*<p>*-Includemanagementtools*<p>-Source<p>*-Computername*<p>-Credential<p>-LogPath<p>*-VHD*<p>*-Configurationfilepath*|  
+|Install-WindowsFeature/Add-WindowsFeature|***-Name***<p>*-Neu starten*<p>*-Includeallsubfeature*<p>*-IncludeManagementTools*<p>-Source<p>*-Computername*<p>-Credential<p>-LogPath<p>*-VHD*<p>*-ConfigurationFilePath*|  
   
 > [!NOTE]  
 > Das Argument **-IncludeManagementTools** ist zwar nicht zwingend erforderlich, sollte jedoch beim Installieren der AD DS-Rollenbinärdateien unbedingt angegeben werden  
@@ -392,7 +392,7 @@ Um alle Features und Rollen mit deren Installationsstatus anzuzeigen, rufen Sie 
 Get-WindowsFeature  
 ```  
   
-Da **Get-WindowsFeature** keinen Filtermechanismus hat, müssen Sie **Where-Object** mit einer Pipeline verwenden, um bestimmte Features zu finden. Pipelines sind Kanäle zur Datenübergabe zwischen mehreren Cmdlets, und das Where-Object-Cmdlet dient als Filter. Die integrierte **$_** -Variable stellt das aktuelle Objekt mit allen eventuell enthaltenen Eigenschaften dar, das durch die Pipeline geleitet wird.  
+Da **Get-WindowsFeature** keinen Filtermechanismus hat, müssen Sie **Where-Object** mit einer Pipeline verwenden, um bestimmte Features zu finden. Pipelines sind Kanäle zur Datenübergabe zwischen mehreren Cmdlets, und das Where-Object-Cmdlet dient als Filter. Die integrierte **$_**-Variable stellt das aktuelle Objekt mit allen eventuell enthaltenen Eigenschaften dar, das durch die Pipeline geleitet wird.  
   
 ```powershell  
 Get-WindowsFeature | where-object <options>  
@@ -408,7 +408,7 @@ Weitere Beispiele:
   
 ![Neue Gesamtstruktur installieren](media/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-/ADDS_PSGetWindowsFeature.png)  
   
-Weitere Informationen zu Windows PowerShell-Vorgängen mit Pipelines und Where-Object finden Sie unter [Piping and the Pipeline in Windows PowerShell](https://technet.microsoft.com/library/ee176927.aspx).  
+Weitere Informationen zu Windows PowerShell-Vorgängen mit Pipelines und Where-Object finden Sie unter [Piping and the Pipeline in Windows PowerShell](/previous-versions/windows/it-pro/windows-powershell-1.0/ee176927(v=technet.10)).  
   
 Windows PowerShell 3.0 hat die für diese Pipeline-Operation benötigten Befehlszeilenargumente deutlich vereinfacht. In Windows PowerShell 2.0 hätten Sie den folgenden Befehl verwendet:  
   
@@ -433,7 +433,7 @@ Beachten Sie, dass das **Select-Object**-Cmdlet mit dem **-expandproperty**-Argu
 > [!NOTE]  
 > Das Argument **Select-Object -expandproperty** führt zu einer leichten Verlangsamung der Gesamtleistung der Installation.  
   
-### <a name="create-an-ad-ds-forest-root-domain-with-windows-powershell"></a><a name="BKMK_PS"></a>Erstellen einer AD DS-Gesamtstruktur-Stamm Domäne mit Windows PowerShell  
+### <a name="create-an-ad-ds-forest-root-domain-with-windows-powershell"></a><a name="BKMK_PS"></a>Erstellen einer AD DS Gesamtstruktur-Stammdomäne mit Windows PowerShell  
 Verwenden Sie das folgende Cmdlet, um eine neue Active Directory-Gesamtstruktur mithilfe des ADDSDeployment-Moduls zu installieren:  
   
 ```powershell  
@@ -445,7 +445,7 @@ Das **Install-AddsForest**-Cmdlet besteht nur aus zwei Phasen (Voraussetzungsüb
 |||  
 |-|-|  
 |ADDSDeployment-Cmdlet|Argumente (erforderliche Argumente sind **fett** markiert. Argumente in *Kursivschrift* können mithilfe von Windows PowerShell oder dem AD DS-Konfigurations-Assistenten angegeben werden.)|  
-|install-addsforest|-Confirm<p>*-"-Kreatednsdelegation"*<p>*-DatabasePath*<p>*-DomainMode*<p>***-Domain Name***<p>***-DomainNetbiosName***<p>*-Dnsdelegationcredential*<p>*-ForestMode*<p>-Force<p>*-InstallDNS*<p>*-LogPath*<p>-NoDnsOnNetwork<p>-NoRebootOnCompletion<p>*-SafeModeAdministratorPassword*<p>-SkipAutoConfigureDNS<p>-SkipPreChecks<p>*-Sysvolpath*<p>*-WhatIf*|  
+|install-addsforest|-Confirm<p>*-"-Kreatednsdelegation"*<p>*-DatabasePath*<p>*-DomainMode*<p>***-Domain Name***<p>***-DomainNetbiosName***<p>*-DNSDelegationCredential*<p>*-ForestMode*<p>-Force<p>*-InstallDNS*<p>*-LogPath*<p>-NoDnsOnNetwork<p>-NoRebootOnCompletion<p>*-SafeModeAdministratorPassword*<p>-SkipAutoConfigureDNS<p>-SkipPreChecks<p>*-Sysvolpath*<p>*-WhatIf*|  
   
 > [!NOTE]  
 > Das Argument **-DomainNetBIOSName** ist erforderlich, wenn Sie den automatisch generierten 15-stelligen Namen, der auf dem DNS-Domänennamenspräfix basiert, ändern möchten oder wenn der Name mehr als 15 Zeichen umfasst.  
@@ -471,7 +471,7 @@ Die **Install-ADDSForest**-Argumente verwenden dieselben Standardwerte wie Serve
   
 Das Argument **SafeModeAdministratorPassword** funktioniert etwas anders:  
   
--   Wenn dieses Argument *nicht angegeben* wird, fordert das Cmdlet Sie auf, ein maskiertes Kennwort einzugeben und zu bestätigen. Dies ist die bevorzugte Verwendung bei einer interaktiven Cmdlet-Ausführung.  
+-   wenn als Argument *nicht angegeben*, fordert das Cmdlet Sie auf, ein maskiertes Kennwort einzugeben und zu bestätigen. Dies ist die bevorzugte Verwendung bei einer interaktiven Cmdlet-Ausführung.  
   
     Um z. B. eine neue Gesamtstruktur namens corp.contoso.com zu erstellen und zur Eingabe und Bestätigung eines maskierten Kennworts aufgefordert zu werden:  
   
@@ -541,13 +541,13 @@ Die entsprechenden Server-Manager-**Pfade** für die ADDSDeployment-Cmdlet-Argum
   
 ```  
   
-Verwenden Sie das optionale **Whatif** -Argument für das Cmdlet **Install-ADDSForest** , um die Konfigurationsinformationen zu überprüfen. Auf diese Weise können Sie die expliziten und impliziten Werte der Argumente eines Cmdlets anzeigen.  
+Verwenden Sie das optionale **Whatif**-Argument für das Cmdlet **Install-ADDSForest**, um die Konfigurationsinformationen zu überprüfen. Auf diese Weise können Sie die expliziten und impliziten Werte der Argumente eines Cmdlets anzeigen.  
   
 Beispiel:  
   
 ![Neue Gesamtstruktur installieren](media/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-/ADDS_PSPaths.png)  
   
-Bei Verwendung des Server-Managers können Sie die **Voraussetzungsüberprüfung** nicht überspringen. Sie können diese jedoch mit dem folgenden Argument überspringen, wenn Sie das Cmdlet „ADDSDeployment“ verwenden:  
+Bei Verwendung des Server-Managers können Sie die **Voraussetzungsüberprüfung** nicht überspringen. Sie können diese jedoch mit dem folgenden Argument überspringen, wenn Sie das Cmdlet "ADDSDeployment" verwenden:  
   
 ```powershell  
 -skipprechecks  
@@ -562,18 +562,17 @@ Ebenso wie beim Server-Manager werden Sie von **Install-ADDSForest** darauf hing
   
 ![Neue Gesamtstruktur installieren](media/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-/ADDS_PSInstallProgress.png)  
   
-Mit dem **-force** -Argument oder dem **-confirm:$false** -Argument können Sie den Neustart in allen Windows PowerShell-Cmdlets vom Typ „ADDSDeployment“ automatisch akzeptieren. Verwenden Sie das **-norebootoncompletion**-Argument, um den automatischen Neustart am Ende der Heraufstufung zu verhindern.  
+Mit dem **-force**-Argument oder dem **-confirm:$false**-Argument können Sie den Neustart in allen Windows PowerShell-Cmdlets vom Typ "ADDSDeployment" automatisch akzeptieren. Verwenden Sie das **-norebootoncompletion**-Argument, um den automatischen Neustart am Ende der Heraufstufung zu verhindern.  
   
 > [!WARNING]  
 > Es wird davon abgeraten, den Neustart zu verhindern. Der Domänencontroller muss neu gestartet werden, um korrekt zu funktionieren.  
   
 ## <a name="see-also"></a>Weitere Informationen  
-[Active Directory Domain Services (Technet-Portal)](https://technet.microsoft.com/library/cc770946(WS.10).aspx)  
-[Active Directory Domain Services für Windows Server 2008 R2](https://technet.microsoft.com/library/dd378801(WS.10).aspx)  
-[Active Directory Domain Services für Windows Server 2008](https://technet.microsoft.com/library/dd378891(WS.10).aspx)  
-[Technische Referenz zu Windows Server (Windows Server 2003)](https://technet.microsoft.com/library/cc739127(WS.10).aspx)  
-[Active Directory-Verwaltungscenter: "Getting Started" (Windows Server 2008 R2)](https://technet.microsoft.com/library/dd560651(WS.10).aspx)  
-[Active Directory Verwaltung mit Windows PowerShell (Windows Server 2008 R2)](https://technet.microsoft.com/library/dd378937(WS.10).aspx)  
-[Fragen Sie das Verzeichnis Services-Team (offizieller Microsoft-Blog für kommerziellen technischen Support)](https://blogs.technet.com/b/askds)  
+[Active Directory Domain Services (TechNet-Portal) (Active Directory-Domänendienste, in englischer Sprache)](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770946(v=ws.10))  
+[Active Directory-Domänendienste für Windows Server 2008 R2](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd378801(v=ws.10))  
+[Active Directory-Domänendienste für Windows Server 2008](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd378891(v=ws.10))  
+[Windows Server Technical Reference (Windows Server 2003) (Technische Referenz zu Windows Server, in englischer Sprache)](/previous-versions/windows/it-pro/windows-server-2003/cc739127(v=ws.10))  
+[Active Directory-Verwaltungscenter: Erste Schritte (Windows Server 2008 R2)](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd560651(v=ws.10))  
+[Active Directory Administration with Windows PowerShell (Windows Server 2008 R2) (Active Directory-Verwaltung mit Windows PowerShell, in englischer Sprache)](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd378937(v=ws.10))  
+[Ask the Directory Services Team (Official Microsoft Commercial Technical Support Blog) (Fragen an das Team für Verzeichnisdienste, in englischer Sprache)](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd378937(v=ws.10))  
   
-

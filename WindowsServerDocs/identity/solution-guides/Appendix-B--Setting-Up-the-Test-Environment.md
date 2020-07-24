@@ -8,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 5f529e6b0176b7ad416a728163b4ae9671040bf8
-ms.sourcegitcommit: d1fc59d53055952f8e55aacebeb29547eef0bca7
+ms.openlocfilehash: 30667f68b25bda9ae86212be34466762d825ec0b
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "80861283"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86966172"
 ---
 # <a name="appendix-b-setting-up-the-test-environment"></a>Anhang B: Einrichten der Testumgebung
 
@@ -22,7 +22,7 @@ ms.locfileid: "80861283"
 In diesem Thema werden die Schritte zum Erstellen eines praktischen Labors zum Testen der dynamischen Zugriffssteuerung beschrieben. Die Anweisungen müssen schrittweise befolgt werden, da viele Komponenten über Abhängigkeiten verfügen.  
 
 ## <a name="prerequisites"></a>Voraussetzungen  
-**Hardware-und Softwareanforderungen**  
+**Hardware- und Softwareanforderungen**  
 
 Anforderungen für die Einrichtung des Testlabors:  
 
@@ -165,14 +165,14 @@ Erstellen Sie die folgenden Benutzer mithilfe des Active Directory-Verwaltungsce
 
    |       Benutzer       |  Username  |     E-Mail-Adresse      | Department |      Group       | Land/Region |
    |------------------|------------|------------------------|------------|------------------|----------------|
-   | Myriam Delesalle | MDelesalle | MDelesalle@contoso.com |  Finanzen   |                  |       US       |
-   |    Miles Reid    |   MReid    |   MReid@contoso.com    |  Finanzen   |   FinanceAdmin   |       US       |
-   |   Esther Valle   |   EValle   |   EValle@contoso.com   | Operationen (Operations) | FinanceException |       US       |
-   |   Maira Wenzel   |  MWenzel   |  MWenzel@contoso.com   |     HR     |                  |       US       |
-   |     Jeff Low     |    JLow    |    JLow@contoso.com    |     HR     |                  |       US       |
+   | Myriam Delesalle | MDelesalle | MDelesalle@contoso.com |  Finance   |                  |       USA       |
+   |    Miles Reid    |   MReid    |   MReid@contoso.com    |  Finance   |   FinanceAdmin   |       USA       |
+   |   Esther Valle   |   EValle   |   EValle@contoso.com   | Operationen (Operations) | FinanceException |       USA       |
+   |   Maira Wenzel   |  MWenzel   |  MWenzel@contoso.com   |     HR     |                  |       USA       |
+   |     Jeff Low     |    JLow    |    JLow@contoso.com    |     HR     |                  |       USA       |
    |    RMS-Server    |    rms     |    rms@contoso.com     |            |                  |                |
 
-   Weitere Informationen über das Erstellen von Sicherheitsgruppen finden Sie unter [Create a New Group](https://technet.microsoft.com/library/dd861305.aspx) auf der Windows Server-Website.  
+   Weitere Informationen über das Erstellen von Sicherheitsgruppen finden Sie unter [Create a New Group](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd861305(v=ws.11)) auf der Windows Server-Website.  
 
 ##### <a name="to-create-a-group-policy-object"></a>So erstellen Sie ein Gruppenrichtlinienobjekt  
 
@@ -381,7 +381,7 @@ Fügen Sie die Active Directory-Rechteverwaltungsdienste (AD RMS) und alle erfor
 >     -   NLTEST /SC_RESET:contoso.com  
 > 2.  Replizieren Sie auf dem Domänencontroller (DC1) Active Directory.  
 >   
->     Weitere Informationen zu den Schritten für das Erzwingen der Replikation von Active Directory finden Sie unter [Active Directory Replication](https://technet.microsoft.com/library/cc794809(WS.10).aspx).  
+>     Weitere Informationen zu den Schritten für das Erzwingen der Replikation von Active Directory finden Sie unter [Active Directory Replication](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc794809(v=ws.10)).  
 
 Anstelle den Assistenten zum Hinzufügen von Rollen und Features im Server-Manager zu verwenden, können Sie alternativ die Windows PowerShell zum Installieren und Konfigurieren der AD RMS-Serverrolle analog zur Darstellung im folgenden Vorgang verwenden.  
 
@@ -562,7 +562,7 @@ Konfigurieren Sie Microsoft Exchange Server auf diesem Computer. Weitere Informa
 -   Verbinden Sie den virtuellen Computer mit „ID_AD_Network“.  
 
 > [!IMPORTANT]  
-> Das Verknüpfen von virtuellen Computern mit einer Domäne und das gesamtstrukturübergreifende Bereitstellen von Anspruchstypen erfordert, dass die virtuellen Computer die vollqualifizierten Domänennamen der relevanten Domänen auflösen können. Sie müssen die DNS-Einstellungen auf den virtuellen Computern möglicherweise manuell konfigurieren, um dies umzusetzen. Weitere Informationen finden Sie unter [Configuring a virtual network](https://technet.microsoft.com/library/cc732470%28v=ws.10%29.aspx).  
+> Das Verknüpfen von virtuellen Computern mit einer Domäne und das gesamtstrukturübergreifende Bereitstellen von Anspruchstypen erfordert, dass die virtuellen Computer die vollqualifizierten Domänennamen der relevanten Domänen auflösen können. Sie müssen die DNS-Einstellungen auf den virtuellen Computern möglicherweise manuell konfigurieren, um dies umzusetzen. Weitere Informationen finden Sie unter [Configuring a virtual network](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc732470(v=ws.10)).  
 >   
 > Sämtliche virtuelle Computerimages (Server und Clients) müssen erneut konfiguriert werden, um eine statische IP-Version 4-Adresse (IPv4) und DNS-Clienteinstellungen (Domain Name System) zu verwenden. Weitere Informationen finden Sie unter [Configure a DNS Client for Static IP Address](https://go.microsoft.com/fwlink/?LinkId=150952).  
 
@@ -835,6 +835,3 @@ Erstellen Sie ein neues NTFS-Volume auf „FILE1“, und erstellen Sie den folge
 7. Klicken Sie auf die Registerkarte **Sicherheit** , klicken Sie auf **erweitert**und dann auf die Registerkarte **zentrale Richtlinie** . Die **adatumemployeeaccessrule** sollte aufgeführt sein. Sie können das Element erweitern, um alle von Ihnen beim Erstellen der Regel in Active Directory festgelegten Berechtigungen anzuzeigen.  
 
 8. Klicken Sie auf **OK**, um zum Windows-Explorer zurückzukehren.  
-
-
-

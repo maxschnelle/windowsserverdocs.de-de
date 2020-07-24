@@ -8,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: efb240fabc4272a4dbef4cb7e86d7058cedb9584
-ms.sourcegitcommit: 11421f4005f9f3a3f6c0db95b1836d0f765a9fa3
+ms.openlocfilehash: 9fb864bcf74fb0fee921288165b1e042a34f027e
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81624168"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86965532"
 ---
 # <a name="identifying-the-deployment-project-participants"></a>Bestimmen der Teilnehmer am Bereitstellungsprojekt
 
@@ -201,7 +201,7 @@ Die Zuständigkeiten des Entwurfs Teams umfassen Folgendes:
 
 - Arbeiten mit dem Bereitstellungs Team zum Testen des Entwurfs in einer Lab-Umgebung, um sicherzustellen, dass er wie geplant funktioniert, und Ändern des Entwurfs nach Bedarf, um alle auftretenden Probleme zu beheben
 
-- Erstellen eines Standorts der Standort Topologie, der die Replikations Anforderungen der Gesamtstruktur erfüllt und gleichzeitig die Überlastung der verfügbaren Bandbreite verhindert Weitere Informationen zum Entwerfen der Standort Topologie finden Sie unter [Entwerfen der Standort Topologie für Windows Server 2008 AD DS](https://technet.microsoft.com/library/cc772013.aspx).
+- Erstellen eines Standorts der Standort Topologie, der die Replikations Anforderungen der Gesamtstruktur erfüllt und gleichzeitig die Überlastung der verfügbaren Bandbreite verhindert Weitere Informationen zum Entwerfen der Standort Topologie finden Sie unter [Entwerfen der Standort Topologie für Windows Server 2008 AD DS](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc772013(v=ws.10)).
 
 - Arbeiten mit dem Bereitstellungs Team, um sicherzustellen, dass der Entwurf ordnungsgemäß implementiert ist
 
@@ -251,4 +251,4 @@ Das Active Directory Bereitstellungs Team umfasst die folgenden Mitglieder:
 Das Bereitstellungs Team arbeitet während der Bereitstellungs Phase mit dem Dienst und den Daten Administratoren zusammen, um sicherzustellen, dass die Mitglieder des Betriebsteams mit dem neuen Design vertraut sind. Dadurch wird sichergestellt, dass der Besitz beim Abschluss des Bereitstellungs Vorgangs reibungslos verläuft. Nach Abschluss des Bereitstellungs Prozesses wird die Verantwortung für die Beibehaltung der neuen Active Directory Umgebung an das Betriebsteam weitergeleitet.
 
 ### <a name="documenting-the-design-and-deployment-teams"></a>Dokumentieren der Entwurfs-und Bereitstellungs Teams
-Dokumentieren Sie die Namen und Kontaktinformationen für die Personen, die am Entwurf und der Bereitstellung von AD DS teilnehmen werden. Bestimmen Sie, wer für die einzelnen Rollen in den Entwurfs-und Bereitstellungs Teams verantwortlich sein wird. Diese Liste enthält zunächst die potenziellen Gesamtstruktur Besitzern, den Projektmanager und den Projektarchitekten. Wenn Sie die Anzahl der Gesamtstrukturen ermitteln, die Sie bereitstellen werden, müssen Sie möglicherweise neue Entwurfs Teams für weitere Gesamtstrukturen erstellen. Beachten Sie, dass Sie die Dokumentation aktualisieren müssen, wenn sich die Team Mitgliedschaften ändern und während des Entwurfsprozesses die verschiedenen Active Directory Besitzer identifiziert werden. Für ein Arbeitsblatt, das Sie bei der Dokumentation der Entwurfs-und Bereitstellungs Teams für jede Gesamtstruktur unterstützt, laden Sie Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip aus den [Auftrags Hilfen für das Windows Server 2003 Deployment Kit](https://microsoft.com/download/details.aspx?id=9608) herunter, und öffnen Sie "Design and Deployment Team Information" (DSSLOGI_1. doc).
+Dokumentieren Sie die Namen und Kontaktinformationen für die Personen, die am Entwurf und der Bereitstellung von AD DS teilnehmen werden. Bestimmen Sie, wer für die einzelnen Rollen in den Entwurfs-und Bereitstellungs Teams verantwortlich sein wird. Diese Liste enthält zunächst die potenziellen Gesamtstruktur Besitzern, den Projektmanager und den Projektarchitekten. Wenn Sie die Anzahl der Gesamtstrukturen ermitteln, die Sie bereitstellen werden, müssen Sie möglicherweise neue Entwurfs Teams für weitere Gesamtstrukturen erstellen. Beachten Sie, dass Sie die Dokumentation aktualisieren müssen, wenn sich die Team Mitgliedschaften ändern und während des Entwurfsprozesses die verschiedenen Active Directory Besitzer identifiziert werden. Für ein Arbeitsblatt, das Sie bei der Dokumentation der Entwurfs-und Bereitstellungs Teams für jede Gesamtstruktur unterstützt, laden Sie Job_Aids_Designing_and_Deploying_Directory_and_Security_Services.zip aus den [Auftrags Hilfen für das Windows Server 2003 Deployment Kit](https://microsoft.com/download/details.aspx?id=9608) herunter, und öffnen Sie "Design and Deployment Team Information" (DSSLOGI_1.doc).

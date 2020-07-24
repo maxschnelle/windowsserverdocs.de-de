@@ -8,12 +8,12 @@ ms.date: 02/22/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: c36de1c3565be7f0f0e6c6203a21345f3d227e96
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 2162937498a5c16ce33b67ba5e478d2a6bb1a687
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80857323"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86964982"
 ---
 # <a name="identity-delegation-scenario-with-ad-fs"></a>Identitäts Delegierungs Szenario mit AD FS
 
@@ -26,7 +26,7 @@ Mit dem Kerberos-Delegierungs Modell auf der Windows-Plattform haben die Back-En
 
 Das folgende Diagramm veranschaulicht ein typisches Identitäts Delegierungs Szenario, bei dem ein Fabrikam-Mitarbeiter auf Ressourcen zugreift, die in einer contoso.com-Anwendung verfügbar gemacht werden
 
-![Identität](media/ad-fs-identity-delegation/id1.png)
+![Identity](media/ad-fs-identity-delegation/id1.png)
 
 Die fiktiven Benutzer, die an diesem Szenario teilnehmen, sind:
 
@@ -57,7 +57,7 @@ Wie im vorherigen Diagramm gezeigt, ist der Ablauf in diesem Szenario:
 Es stehen drei Optionen für den fabrikam.com-Administrator offen:
 
 
-1. Erwerben und installieren Sie ein STS-Produkt, z. b. Active Directory&reg; Verbund Dienste (AD FS).
+1. Erwerben und installieren Sie ein STS-Produkt, z. b. Active Directory Verbund &reg; Dienste (AD FS).
 2. Abonnieren Sie ein Cloud STS-Produkt, z. b. LiveID STS.
 3. Erstellen Sie einen benutzerdefinierten STS mithilfe von WIF.
 
@@ -99,9 +99,9 @@ if ( claimsPrincipal != null )
     bootstrapToken = claimsIdentity.BootstrapToken;
 }
 ```
-WIF stellt eine Methode, " [kreatechannelactingas](https://msdn.microsoft.com/library/ee733863.aspx)", bereit, die einen Kanal des angegebenen Typs erstellt, der tokenausstellungsanforderungen mit dem angegebenen Sicherheits Token als ACTAS-Element erweitert. Sie können das Bootstrap-Token an diese Methode übergeben und dann die erforderliche Dienst Methode auf dem zurückgegebenen Kanal aufzurufen. In diesem Beispielszenario hat die Identität von Frank die [Actor](https://msdn.microsoft.com/library/microsoft.identitymodel.claims.iclaimsidentity.actor.aspx) -Eigenschaft auf web1's Identity festgelegt.
+WIF stellt eine Methode, " [kreatechannelactingas](/previous-versions/windows-identity-foundation/ee733863(v=msdn.10))", bereit, die einen Kanal des angegebenen Typs erstellt, der tokenausstellungsanforderungen mit dem angegebenen Sicherheits Token als ACTAS-Element erweitert. Sie können das Bootstrap-Token an diese Methode übergeben und dann die erforderliche Dienst Methode auf dem zurückgegebenen Kanal aufzurufen. In diesem Beispielszenario hat die Identität von Frank die [Actor](/previous-versions/windows-identity-foundation/ee766706(v=msdn.10)) -Eigenschaft auf web1's Identity festgelegt.
 
-Der folgende Code Ausschnitt zeigt, wie Sie den Webdienst mit " [tinatechannelactingas](https://msdn.microsoft.com/library/ee733863.aspx) " aufrufen und dann eine der Dienst Methoden "computeresponse" auf dem zurückgegebenen Kanal aufrufen:
+Der folgende Code Ausschnitt zeigt, wie Sie den Webdienst mit " [tinatechannelactingas](/previous-versions/windows-identity-foundation/ee733863(v=msdn.10)) " aufrufen und dann eine der Dienst Methoden "computeresponse" auf dem zurückgegebenen Kanal aufrufen:
 
 ```
 // Get the channel factory to the backend service from the application state
@@ -183,4 +183,4 @@ using ( ServiceHost host = new ServiceHost( typeof( Service2 ), new Uri( "http:/
 ```
 
 ## <a name="next-steps"></a>Nächste Schritte
-[AD FS-Entwicklung](../../ad-fs/AD-FS-Development.md)  
+[AD FS-Entwicklung](../../ad-fs/AD-FS-Development.md)  

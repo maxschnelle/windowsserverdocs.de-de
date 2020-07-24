@@ -8,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: cdedcbd5b9491b57ee31170b781dc821853d058f
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 3442ada27e8e01b72561850f724d7e28d740f43b
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80815133"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86964962"
 ---
 # <a name="ad-fs-operations"></a>AD FS-Vorgänge
 
@@ -22,7 +22,7 @@ ms.locfileid: "80815133"
 Dieses Dokument enthält eine Liste aller Dokumentations Vorgänge für AD FS. 
 
 ## <a name="service-configuration"></a>Dienstkonfiguration
-- [Aktualisieren von SSL-Zertifikaten in AD FS und WAP 2016](../ad-fs/operations/Manage-SSL-Certificates-AD-FS-WAP-2016.md)
+- [Aktualisieren von SSL-Zertifikaten in AD FS und WAP 2016](./operations/manage-ssl-certificates-ad-fs-wap.md)
 - [AD FS: Tool für die schnelle Wiederherstellung](../ad-fs/operations/AD-FS-Rapid-Restore-Tool.md)
 - [Konfigurieren alternativer Hostname-Bindungen für die Zertifikat Authentifizierung in AD FS](../ad-fs/operations/AD-FS-support-for-alternate-hostname-binding-for-certificate-authentication.md)
 - [Hinzufügen eines Attribut Speicher](../ad-fs/operations/Add-an-Attribute-Store.md)
@@ -35,7 +35,7 @@ Dieses Dokument enthält eine Liste aller Dokumentations Vorgänge für AD FS.
 ## <a name="authentication-configuration"></a>Authentifizierungskonfiguration
 ### <a name="strong-authentication-mfa--password-less"></a>Hohe Authentifizierung (MFA) & Kenn Wort Loses Kennwort
 - [Externe Authentifizierungs Anbieter in AD FS als primär konfigurieren (2019 oder höher)](../ad-fs/operations/Additional-Authentication-Methods-AD-FS.md)
-- [Konfigurieren von AD FS (2016 oder höher) und Azure MFA](../ad-fs/operations/Configure-AD-FS-2016-and-Azure-MFA.md)
+- [Konfigurieren von AD FS (2016 oder höher) und Azure MFA](./operations/configure-ad-fs-and-azure-mfa.md)
 - [Konfigurieren zusätzlicher Authentifizierungsmethoden für AD FS](../ad-fs/operations/Configure-Additional-Authentication-Methods-for-AD-FS.md)
 
 ### <a name="lockout-protection"></a>Sperrungs Schutz
@@ -54,7 +54,7 @@ Dieses Dokument enthält eine Liste aller Dokumentations Vorgänge für AD FS.
 - [Konfigurieren alternativer Hostname-Bindungen für die Zertifikat Authentifizierung in AD FS](../ad-fs/operations/AD-FS-support-for-alternate-hostname-binding-for-certificate-authentication.md)
 
 
-### <a name="device"></a>Gerät
+### <a name="device"></a>Sicherungsmedium
 - [Geräteauthentifizierungsteuerung in AD FS](../ad-fs/operations/device-authentication-controls-in-AD-FS.md) 
 
 
@@ -62,7 +62,7 @@ Dieses Dokument enthält eine Liste aller Dokumentations Vorgänge für AD FS.
 - [Konfigurieren von Access Control-Richtlinien in AD FS](../ad-fs/operations/Access-Control-Policies-in-AD-FS.md)
 - [Konfigurieren des gerätebasierten bedingten lokalen Zugriffs](../ad-fs/operations/Configure-Device-based-Conditional-Access-on-Premises.md)
 
-## <a name="rpt--cpt-configuration"></a>RPT & CPT-Konfiguration
+## <a name="rpt--cpt-configuration"></a>Rpt & CPT-Konfiguration
 - [Konfigurieren von AD FS zum Authentifizieren von Benutzern, die in LDAP-Verzeichnissen gespeichert sind](../ad-fs/operations/Configure-AD-FS-to-authenticate-users-stored-in-LDAP-directories.md)
 - [Konfigurieren von Anspruchsregeln](../ad-fs/operations/Configure-Claim-Rules.md) 
 - [Erstellen einer Anspruchsanbieter-Vertrauensstellung](../ad-fs/operations/Create-a-Claims-Provider-Trust.md) 
@@ -71,22 +71,20 @@ Dieses Dokument enthält eine Liste aller Dokumentations Vorgänge für AD FS.
 - [Konfigurieren von AD FS für die Verwendung mit einem aggregierten Verbund Anbieter (z. b. "InCommon")](../ad-fs/operations/Improved-interoperability-with-SAML-2.0.md)
 
 ## <a name="sign-in-experience-configuration"></a>Konfiguration der Anmelde Darstellung
-- [Konfigurieren von AD FS Einstellungen für einmaliges Anmelden (SSO) 2016](../ad-fs/operations/AD-FS-2016-Single-Sign-On-Settings.md)
+- [Konfigurieren von AD FS Einstellungen für einmaliges Anmelden (SSO) 2016](./operations/ad-fs-single-sign-on-settings.md)
 - [Konfigurieren AD FS paginierter Anmeldung](../ad-fs/operations/AD-FS-paginated-sign-in.md)
 - [Konfigurieren AD FS Anpassung der Benutzeranmeldung](../ad-fs/operations/AD-FS-user-sign-in-customization.md)
 - [Konfigurieren von AD FS zum Senden von Ansprüchen beim Kennwortablauf](../ad-fs/operations/Configure-AD-FS-to-Send-Password-Expiry-Claims.md)
 - [Konfigurieren der formularbasierten Intranetauthentifizierung für Geräte ohne WIA-Unterstützung](../ad-fs/operations/Configure-intranet-forms-based-authentication-for-devices-that-do-not-support-WIA.md)
 
-## <a name="other"></a>Sonstige
+## <a name="other"></a>Andere
 - [Arbeitsplatzbeitritt von einem beliebigen Gerät für SSO und die nahtlose zweistufige Authentifizierung bei allen Unternehmensanwendungen](../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md)
 - [Verwalten von Risiken mit zusätzlicher mehrstufiger Authentifizierung für sensible Anwendungen](../ad-fs/operations/Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md)
 - [Verwalten von Risiken mit der bedingten Zugriffssteuerung](../ad-fs/operations/Manage-Risk-with-Conditional-Access-Control.md)
 - [Einrichten einer AD FS-Laborumgebung](../ad-fs/operations/Set-up-an-AD-FS-lab-environment.md)
 - [Leitfaden für die exemplarische Vorgehensweise: Verwalten von Risiken mit zusätzlichen Multi-Factor Authentication für sensible Anwendungen](../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md)
-- [Leitfaden mit exemplarischen Vorgehensweisen: Verwalten von Risiken mit bedingtem Access Control](../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Conditional-Access-Control.md)
-- [Exemplarische Vorgehensweise: Workplace Join mit einem Windows-Gerät](../ad-fs/operations/Walkthrough--Workplace-Join-with-a-Windows-Device.md)
-- [Exemplarische Vorgehensweise: Workplace Join mit einem IOS-Gerät](../ad-fs/operations/Walkthrough--Workplace-Join-with-an-iOS-Device.md)
+- [Handbuch mit exemplarischer Vorgehensweise: Verwalten von Risiken mit der bedingten Zugriffssteuerung](../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Conditional-Access-Control.md)
+- [Exemplarische Vorgehensweise: Arbeitsplatzbeitritt mit einem Windows-Gerät](../ad-fs/operations/Walkthrough--Workplace-Join-with-a-Windows-Device.md)
+- [Exemplarische Vorgehensweise: Arbeitsplatzbeitritt mit einem iOS-Gerät](../ad-fs/operations/Walkthrough--Workplace-Join-with-an-iOS-Device.md)
 
   
-
-

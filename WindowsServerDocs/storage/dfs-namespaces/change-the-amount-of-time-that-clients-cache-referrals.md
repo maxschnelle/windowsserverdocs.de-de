@@ -8,12 +8,12 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: d421a14c2a6021d45cd16f30c526ff1670ae62e3
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: ddbb799cc46da040bfc2f62445cc2b41945d09f1
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85475197"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86966292"
 ---
 # <a name="change-the-amount-of-time-that-clients-cache-referrals"></a>Ändern der Zeitspanne, für die Clients Cache Verweise ausführen
 
@@ -30,7 +30,7 @@ Ein Verweis ist eine sortierte Zielliste, die ein Client-PC von einem Domänenco
 3.  Geben Sie auf der Registerkarte **Verweise** im Textfeld **Cachedauer (in Sekunden)** den Zeitraum (in Sekunden) ein, für den Namespacestammverweise von Clients zwischengespeichert werden sollen. Die Standardeinstellung beträgt 300 Sekunden (fünf Minuten).
 
 > [!TIP]
-> Verwenden Sie das Cmdlet [Set-dfsnroot timetolivesec](https://technet.microsoft.com/library/jj884281.aspx) , um die Zeitspanne zu ändern, in der Clients Namespace-Stamm Verweise mithilfe von Windows PowerShell Zwischenspeichern. Diese Cmdlets wurden in Windows Server 2012 eingeführt.
+> Verwenden Sie das Cmdlet [Set-dfsnroot timetolivesec](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753448(v=ws.11)) , um die Zeitspanne zu ändern, in der Clients Namespace-Stamm Verweise mithilfe von Windows PowerShell Zwischenspeichern. Diese Cmdlets wurden in Windows Server 2012 eingeführt.
 
 ## <a name="to-change-the-amount-of-time-that-clients-cache-folder-referrals"></a>So ändern Sie den Zeitraum für die Zwischenspeicherung von Ordnerverweisen auf Clients
 
@@ -44,5 +44,3 @@ Ein Verweis ist eine sortierte Zielliste, die ein Client-PC von einem Domänenco
 
 -   [Optimieren von DFS-Namespaces](tuning-dfs-namespaces.md)
 -   [Delegieren von Verwaltungsberechtigungen für DFS-Namespaces](delegate-management-permissions-for-dfs-namespaces.md)
-
-

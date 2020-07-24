@@ -8,12 +8,12 @@ ms.technology: storage
 ms.topic: article
 author: jasongerend
 ms.date: 05/29/2019
-ms.openlocfilehash: cae164de90738996a6c4663dfcbde794b6c2a18e
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 447c8fe33a0454179d8c9aacc9c324ac7bcf1f49
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85473777"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86965822"
 ---
 # <a name="whats-new-in-storage-in-windows-server"></a>Neuerungen beim Speicher in Windows Server
 
@@ -49,7 +49,7 @@ Diese Funktion ist auch für Server verfügbar, die Windows Server 2019 ausführ
 
 ### <a name="windows-admin-center-enhancements"></a>Verbesserungen am Windows Admin Center
 
-Eine neue Version von Windows Admin Center wurde veröffentlicht, die Windows Server um neue Funktionen bereichert. Informationen zu den neuesten Features finden Sie unter [Windows Admin Center](../manage/windows-admin-center/understand/windows-admin-center.md).
+Eine neue Version von Windows Admin Center wurde veröffentlicht, die Windows Server um neue Funktionen bereichert. Informationen zu den neuesten Features finden Sie unter [Windows Admin Center](../manage/windows-admin-center/overview.md).
 
 ## <a name="whats-new-in-storage-in-windows-server-2019-and-windows-server-version-1809"></a>Neuerungen beim Speicher in Windows Server 2019 und Windows Server, Version 1809
 
@@ -83,7 +83,7 @@ Es gibt eine Reihe von Verbesserungen bei der direkte Speicherplätze in Windows
 
 - **Zwei-Servercluster mit einem USB-Speicherstick als Zeuge**
 
-    Verwenden Sie ein kostengünstiges USB-Speicherstick, das in Ihren Router eingebunden ist, um als Zeuge in zwei-Server-Clustern zu fungieren. Wenn ein Server ausfällt und anschließend wieder hochgefahren wird, weiß der USB-Laufwerk Cluster, welcher Server über die aktuellsten Daten verfügt. Weitere Informationen finden Sie im [Blog zu Storage bei Microsoft](https://blogs.technet.microsoft.com/filecab/2018/06/27/windows-server-summit-recap/).
+    Verwenden Sie ein kostengünstiges USB-Speicherstick, das in Ihren Router eingebunden ist, um als Zeuge in zwei-Server-Clustern zu fungieren. Wenn ein Server ausfällt und anschließend wieder hochgefahren wird, weiß der USB-Laufwerk Cluster, welcher Server über die aktuellsten Daten verfügt. Weitere Informationen finden Sie im [Blog zu Storage bei Microsoft](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB).
 
 - **Windows Admin Center**
 
@@ -95,7 +95,7 @@ Es gibt eine Reihe von Verbesserungen bei der direkte Speicherplätze in Windows
 
 - **Skalieren bis zu 4 PB pro Cluster**
 
-    Erreichen Sie mehrstufige Skalierbarkeit – hervorragend für die Verwendung von Medien-, Sicherungs-und Archivierungs Fällen. In Windows Server 2019 unterstützt direkte Speicherplätze bis zu 4 Peer Tabellen (PB) = 4.000 Terabyte an Rohkapazität pro Speicherpool. Relevante Kapazitäts Richtlinien werden ebenfalls angehoben: Sie können z. b. doppelt so viele Volumes erstellen (64 anstelle von 32), die jeweils doppelt so groß wie zuvor sind (64 TB anstelle von 32 TB). Gruppieren Sie mehrere Cluster in einem [Cluster Satz](storage-spaces/cluster-sets.md) für eine noch größere Skalierung innerhalb eines Speicher Namespace. Weitere Informationen finden Sie im [Blog zu Storage bei Microsoft](https://blogs.technet.microsoft.com/filecab/2018/06/27/windows-server-summit-recap/).
+    Erreichen Sie mehrstufige Skalierbarkeit – hervorragend für die Verwendung von Medien-, Sicherungs-und Archivierungs Fällen. In Windows Server 2019 unterstützt direkte Speicherplätze bis zu 4 Peer Tabellen (PB) = 4.000 Terabyte an Rohkapazität pro Speicherpool. Relevante Kapazitäts Richtlinien werden ebenfalls angehoben: Sie können z. b. doppelt so viele Volumes erstellen (64 anstelle von 32), die jeweils doppelt so groß wie zuvor sind (64 TB anstelle von 32 TB). Gruppieren Sie mehrere Cluster in einem [Cluster Satz](storage-spaces/cluster-sets.md) für eine noch größere Skalierung innerhalb eines Speicher Namespace. Weitere Informationen finden Sie im [Blog zu Storage bei Microsoft](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB).
 
 - **Durch Spiegelung beschleunigte Parität mit doppelter Geschwindigkeit**
 
@@ -166,7 +166,7 @@ Windows Server, Version 1803, bietet die Möglichkeit, zu verhindern, dass der D
 
 Windows Server, Version 1709, ist die erste Version von Windows Server im halbjährlichen Kanal. Der halbjährliche Kanal ist ein Software Assurance-Vorteil, der in der Produktion 18 Monate lang vollständig unterstützt wird, mit einer neuen Version alle sechs Monate.
 
-Weitere Informationen finden Sie unter [Übersicht über den halbjährlichen Kanal in Windows Server](../get-started/semi-annual-channel-overview.md).
+Weitere Informationen finden Sie unter [Übersicht über den halbjährlichen Kanal in Windows Server](../get-started-19/servicing-channels-19.md).
 
 ### <a name="storage-replica"></a>Speicherreplikat
 
@@ -248,12 +248,12 @@ Dies ist eine neue Funktion in Windows Server 2016. Das Verwalten von Mindestres
 Weitere Informationen finden Sie unter [Storage Quality of Service](storage-qos/storage-qos-overview.md)
 
 ### <a name="data-deduplication"></a><a name="dedup"></a>Datendeduplizierung
-| Funktionalität | Neu oder aktualisiert | BESCHREIBUNG |
+| Funktionalität | Neu oder aktualisiert | Beschreibung |
 |---------------|----------------|-------------|
 | [Unterstützung für große Volumes](data-deduplication/whats-new.md#large-volume-support) | Aktualisiert | Vor Windows Server 2016 musste die Größe der Volumes speziell für die erwartete Änderung konfiguriert werden, wobei Volumes mit über 10 TB keine geeigneten Kandidaten für die Deduplizierung waren. In Windows Server 2016 unterstützt die Datendeduplizierung Volumegrößen **von bis zu 64 TB**. |
 | [Unterstützung für große Dateien](data-deduplication/whats-new.md#large-file-support) | Aktualisiert | Vor Windows Server 2016 waren Dateien mit einer Größe von knapp 1 TB keine geeigneten Kandidaten für die Deduplizierung. In Windows Server 2016 werden Dateien **mit einer Kapazität von bis zu 1 TB** vollständig unterstützt. |
 | [Unterstützung für Nano Server](data-deduplication/whats-new.md#nano-server-support) | Neu | Die Datendeduplizierung ist in der neuen Nano Server-Bereitstellungsoption für Windows Server 2016 verfügbar und wird von dieser Option vollständig unterstützt. |
-| [Vereinfachte Unterstützung von Sicherungen](data-deduplication/whats-new.md#simple-backup-support) | Neu | In Windows Server 2012 R2 mussten eine Reihe manueller Konfigurationsschritte ausgeführt werden, um virtualisierte Sicherungsanwendungen wie Microsoft [Data Protection Manager](https://technet.microsoft.com/library/hh758173.aspx) zu unterstützten. In Windows Server 2016 wurde ein neuer Standardverwendungstyp „Sicherung“ hinzugefügt, um eine nahtlose Bereitstellung der Datendeduplizierung für virtualisierte Sicherungsanwendungen zu ermöglichen. |
+| [Vereinfachte Unterstützung von Sicherungen](data-deduplication/whats-new.md#simple-backup-support) | Neu | In Windows Server 2012 R2 mussten eine Reihe manueller Konfigurationsschritte ausgeführt werden, um virtualisierte Sicherungsanwendungen wie Microsoft [Data Protection Manager](/previous-versions/system-center/system-center-2012-R2/hh758173(v=sc.12)) zu unterstützten. In Windows Server 2016 wurde ein neuer Standardverwendungstyp „Sicherung“ hinzugefügt, um eine nahtlose Bereitstellung der Datendeduplizierung für virtualisierte Sicherungsanwendungen zu ermöglichen. |
 | [Unterstützung für parallele Upgrades des Clusterbetriebssystems](data-deduplication/whats-new.md#cluster-upgrade-support) | Neu | Die Datendeduplizierung bietet vollständige Unterstützung für das neue Feature für [parallele Upgrades des Clusterbetriebssystems](..//failover-clustering/cluster-operating-system-rolling-upgrade.md) von Windows Server 2016. |
 
 ### <a name="smb-hardening-improvements-for-sysvol-and-netlogon-connections"></a><a name="smb-hardening-improvements"></a>Verbesserungen beim Härten von SMB für SYSVOL- und NETLOGON-Verbindungen
@@ -268,7 +268,7 @@ Wenn die SMB-Signierung und die gegenseitige Authentifizierung nicht verfügbar 
 > [!NOTE]
 > Die Registrierungswerte für diese Einstellungen sind standardmäßig nicht verfügbar, die Härtungsregeln gelten jedoch trotzdem, bis sie von Gruppenrichtlinien oder anderen Registrierungswerten außer Kraft gesetzt werden.
 
-Weitere Informationen zu diesen Verbesserungen (auch als UNC-Härtung bezeichnet) finden Sie im Microsoft Knowledge Base-Artikel [3000483](https://support.microsoft.com/kb/3000483) und unter [MS15-011 & MS15-014: Hardening Group Policy](https://blogs.technet.microsoft.com/srd/2015/02/10/ms15-011-ms15-014-hardening-group-policy) (MS15-011 & MS15-014: Härten von Gruppenrichtlinien).
+Weitere Informationen zu diesen Verbesserungen (auch als UNC-Härtung bezeichnet) finden Sie im Microsoft Knowledge Base-Artikel [3000483](https://support.microsoft.com/kb/3000483) und unter [MS15-011 & MS15-014: Hardening Group Policy](https://msrc-blog.microsoft.com/2015/02/10/ms15-011-ms15-014-hardening-group-policy) (MS15-011 & MS15-014: Härten von Gruppenrichtlinien).
 
 ### <a name="work-folders"></a>Arbeitsordner
 Verbesserte Änderungs Benachrichtigung, wenn auf dem Arbeitsordner Server Windows Server 2016 und der Arbeitsordner Client Windows 10 ausgeführt wird.
@@ -297,4 +297,4 @@ ReFS sorgt für folgende Verbesserungen:
 Diese Funktionen sind neu in Windows Server 2016.
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
-* [Neuerungen in Windows Server 2016](../get-started/what-s-new-in-windows-server-2016.md)
+* [Neuerungen in Windows Server 2016](../get-started/whats-new-in-windows-server-2016.md)

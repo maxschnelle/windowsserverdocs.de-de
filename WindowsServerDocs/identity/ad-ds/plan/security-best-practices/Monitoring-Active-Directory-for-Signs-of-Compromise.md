@@ -8,18 +8,18 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 1d00ab702ab6b4ff4307f96f9e266a1cb3420197
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 2924b04e0853549f86934f0145f2cb46f07a4939
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80821143"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86966582"
 ---
 # <a name="monitoring-active-directory-for-signs-of-compromise"></a>Überwachen von Active Directory auf Anzeichen für einen Kompromiss
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-*Gesetzes Nummer fünf: die ewige Wachsamkeit ist der Preis der Sicherheit.* - [10 unveränderliche Gesetze der Sicherheitsverwaltung](https://technet.microsoft.com/library/cc722488.aspx)  
+*Gesetzes Nummer fünf: die ewige Wachsamkeit ist der Preis der Sicherheit.* - [10 unveränderliche Gesetze der Sicherheitsverwaltung](/previous-versions//cc722488(v=technet.10))  
   
 Ein Solid-Ereignisprotokoll-Überwachungssystem ist ein wichtiger Bestandteil jedes sicheren Active Directory Entwurfs. Viele Computer Sicherheits Kompromisse könnten frühzeitig erkannt werden, wenn die Opfer die entsprechende Überwachung und Warnungen für das Ereignisprotokoll erlassen haben. Diese Schlussfolgerung wird von unabhängigen Berichten lange unterstützt. Beispielsweise gibt der [2009 Verizon-Daten Verletzungs Bericht](http://www.verizonbusiness.com/resources/security/reports/2009_databreach_rp.pdf) Folgendes an:  
   
@@ -31,27 +31,27 @@ Diese fehlende Überwachung von aktiven Ereignisprotokollen bleibt in den Sicher
 
 Im folgenden finden Sie Links zum Microsoft Official Enterprise Support-Blog. Der Inhalt dieser Blogs bietet Ratschläge, Anleitungen und Empfehlungen zur Überwachung, die Sie bei der Verbesserung der Sicherheit Ihrer Active Directory Infrastruktur unterstützen und eine wertvolle Ressource beim Entwerfen einer Überwachungsrichtlinie sind.  
   
-* Die [globale Objekt Zugriffs Überwachung ist magisch](https://blogs.technet.com/b/askds/archive/2011/03/10/global-object-access-auditing-is-magic.aspx) : Beschreibt einen Steuerungsmechanismus mit der Bezeichnung erweiterte Überwachungs Richtlinien Konfiguration, der Windows 7 und Windows Server 2008 R2 hinzugefügt wurde, mit der Sie festlegen können, welche Typen von Daten Sie problemlos überwachen möchten, und die Skripts und Auditpol. exe nicht jonglieren.  
-* [Einführung von Überwachungs Änderungen in Windows 2008](https://blogs.technet.com/b/askds/archive/2007/10/19/introducing-auditing-changes-in-windows-2008.aspx) : führt die in Windows Server 2008 vorgenommenen Überwachungs Änderungen ein.  
-* Praktische Überwachungs [Tricks in Vista und 2008](https://blogs.technet.com/b/askds/archive/2007/11/16/cool-auditing-tricks-in-vista-and-2008.aspx) : erläutert interessante Überwachungs Features von Windows Vista und Windows Server 2008, die für die Problembehandlung oder das Auftreten von Ereignissen in Ihrer Umgebung verwendet werden können.  
-* [Zentrale Anlaufstelle für die Überwachung in Windows Server 2008 und Windows Vista](https://blogs.technet.com/b/askds/archive/2008/03/27/one-stop-shop-for-auditing-in-windows-server-2008-and-windows-vista.aspx) : enthält eine Kompilierung von Überwachungs Features und Informationen, die in Windows Server 2008 und Windows Vista enthalten sind.  
+* Die [globale Objekt Zugriffs Überwachung ist magisch](/archive/blogs/askds/global-object-access-auditing-is-magic) : Beschreibt einen Steuerungsmechanismus namens erweiterte Überwachungs Richtlinien Konfiguration, der Windows 7 und Windows Server 2008 R2 hinzugefügt wurde, mit der Sie festlegen können, welche Typen von Daten Sie problemlos überwachen möchten, und die Skripts und auditpol.exe nicht jonglieren.  
+* [Einführung von Überwachungs Änderungen in Windows 2008](/archive/blogs/askds/introducing-auditing-changes-in-windows-2008) : führt die in Windows Server 2008 vorgenommenen Überwachungs Änderungen ein.  
+* Praktische Überwachungs [Tricks in Vista und 2008](/archive/blogs/askds/cool-auditing-tricks-in-vista-and-2008) : erläutert interessante Überwachungs Features von Windows Vista und Windows Server 2008, die für die Problembehandlung oder das Auftreten von Ereignissen in Ihrer Umgebung verwendet werden können.  
+* [Zentrale Anlaufstelle für die Überwachung in Windows Server 2008 und Windows Vista](/archive/blogs/askds/one-stop-shop-for-auditing-in-windows-server-2008-and-windows-vista) : enthält eine Kompilierung von Überwachungs Features und Informationen, die in Windows Server 2008 und Windows Vista enthalten sind.  
   
 Die folgenden Links enthalten Informationen zu Verbesserungen der Windows-Überwachung in Windows 8 und Windows Server 2012 sowie Informationen zur AD DS Überwachung in Windows Server 2008.  
   
-* [Neues bei der Sicherheits](https://technet.microsoft.com/library/hh849638.aspx) Überwachung: bietet eine Übersicht über die neuen Sicherheits Überprüfungs Features in Windows 8 und Windows Server 2012.  
-* [Schritt-für-Schritt-Anleitung](https://technet.microsoft.com/library/a9c25483-89e2-4202-881c-ea8e02b4b2a5.aspx) für die AD DS Überwachung: Beschreibt das neue Active Directory Domain Services (AD DS)-Überwachungs Feature in Windows Server 2008. Außerdem werden Verfahren zur Implementierung dieses neuen Features bereitstellt.  
+* [Neues bei der Sicherheits](/previous-versions/orphan-topics/ws.11/hh849638(v=ws.11)) Überwachung: bietet eine Übersicht über die neuen Sicherheits Überprüfungs Features in Windows 8 und Windows Server 2012.  
+* [Schritt-für-Schritt-Anleitung](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731607(v=ws.10)) für die AD DS Überwachung: Beschreibt das neue Active Directory Domain Services (AD DS)-Überwachungs Feature in Windows Server 2008. Außerdem werden Verfahren zur Implementierung dieses neuen Features bereitstellt.  
   
 ### <a name="windows-audit-categories"></a>Windows-Überwachungs Kategorien
 
 Vor Windows Vista und Windows Server 2008 verfügte Windows nur über neun Kategorien von Ereignisprotokoll-Überwachungs Richtlinien:  
   
 * Konto Anmelde Ereignisse  
-* Kontenverwaltung  
+* Kontoverwaltung  
 * Verzeichnisdienst Zugriff  
 * Anmelde Ereignisse  
 * Objektzugriff  
 * Richtlinienänderung  
-* Verwendung von Berechtigungen  
+* Berechtigungen  
 * Prozess Nachverfolgung  
 * System Ereignisse  
   
@@ -108,12 +108,12 @@ Geben Sie Folgendes ein, um eine Liste der derzeit konfigurierten Überwachungs 
   
 `auditpol /get /category:*`
   
-Der folgende Screenshot zeigt ein Beispiel für "Auditpol. exe", das die aktuelle Überwachungsrichtlinie auflistet.  
+Der folgende Screenshot zeigt ein Beispiel für das auditpol.exe Auflisten der aktuellen Überwachungsrichtlinie.  
   
 ![Überwachen von AD](media/Monitoring-Active-Directory-for-Signs-of-Compromise/SAD_5.gif)  
   
 > [!NOTE]  
-> Der Status aller aktivierten Überwachungs Richtlinien wird von Gruppenrichtlinie nicht immer korrekt gemeldet, während Auditpol. exe dies tut. Weitere Informationen finden Sie [unter erhalten der effektiven Überwachungsrichtlinie in Windows 7 und 2008 R2](https://blogs.technet.com/b/askds/archive/2011/03/11/getting-the-effective-audit-policy-in-windows-7-and-2008-r2.aspx) .  
+> Gruppenrichtlinie gibt nicht immer genau den Status aller aktivierten Überwachungs Richtlinien aus, wohingegen auditpol.exe. Weitere Informationen finden Sie [unter erhalten der effektiven Überwachungsrichtlinie in Windows 7 und 2008 R2](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731607(v=ws.10)) .  
   
 Jede Hauptkategorie verfügt über mehrere Unterkategorien. Im folgenden finden Sie eine Liste der Kategorien, ihrer Unterkategorien und eine Beschreibung ihrer Funktionen.  
   
@@ -122,7 +122,7 @@ Unterkategorien der Überwachungsrichtlinie aktivieren die folgenden Ereignispro
   
 #### <a name="account-logon"></a>Kontoanmeldung  
   
-##### <a name="credential-validation"></a>Validieren der Anmeldeinformationen  
+##### <a name="credential-validation"></a>Überprüfung der Anmeldeinformationen  
 Diese Unterkategorie meldet die Ergebnisse von Validierungstests bei Anmelde Informationen, die für eine Benutzerkonto-Anmelde Anforderung gesendet wurden. Diese Ereignisse treten auf dem Computer auf, der für die Anmeldeinformationen autoritativ ist. Bei Domänen Konten ist der Domänen Controller autorisierend, während für lokale Konten der lokale Computer autorisierend ist.  
   
 In Domänen Umgebungen werden die meisten Konto Anmelde Ereignisse im Sicherheitsprotokoll der Domänen Controller protokolliert, die für die Domänen Konten autorisierend sind. Diese Ereignisse können jedoch auf anderen Computern in der Organisation auftreten, wenn lokale Konten verwendet werden, um sich anzumelden.  
@@ -147,7 +147,7 @@ In Domänen Umgebungen werden die meisten Konto Anmelde Ereignisse im Sicherheit
 * Gewähren des Zugriffs zu einem drahtlosen Netzwerk für ein Benutzer- oder Computerkonto  
 * Gewähren des Zugriffs zu einem kabelgebundenen 802.1x-Netzwerk für ein Benutzer- oder Computerkonto  
   
-#### <a name="account-management"></a>Kontenverwaltung  
+#### <a name="account-management"></a>Kontoverwaltung  
   
 ##### <a name="user-account-management"></a>Benutzerkontenverwaltung  
 Diese Unterkategorie meldet jedes Ereignis der Benutzerkonten Verwaltung, z. b. Wenn ein Benutzerkonto erstellt, geändert oder gelöscht wird. ein Benutzerkonto wurde umbenannt, deaktiviert oder aktiviert. oder es wird ein Kennwort festgelegt oder geändert. Wenn diese Überwachungs Richtlinien Einstellung aktiviert ist, können Administratoren Ereignisse nachverfolgen, um eine böswillige, versehentliche und autorisierte Erstellung von Benutzerkonten zu erkennen.  
@@ -189,7 +189,7 @@ Diese Unterkategorie meldet, wenn auf ein AD DS Objekt zugegriffen wird. Nur Obj
 ##### <a name="directory-service-changes"></a>Verzeichnisdienst Änderungen  
 Diese Unterkategorie meldet Änderungen an Objekten in AD DS. Die gemeldeten Änderungs Typen sind Create-, Modify-, Move-und Wiederherstellen-Vorgänge, die für ein-Objekt ausgeführt werden. Die Verzeichnisdienst-Änderungs Überwachung gibt ggf. die alten und neuen Werte der geänderten Eigenschaften der Objekte an, die geändert wurden. Nur Objekte mit SACLs bewirken, dass Überwachungs Ereignisse generiert werden, und zwar nur, wenn auf Sie in einer Weise darauf zugegriffen wird, dass Sie mit ihren SACL-Einträgen übereinstimmt. Einige Objekte und Eigenschaften lösen aufgrund der Einstellungen der Objektklasse im Schema keine Überwachungsereignisse aus. Diese Unterkategorie gilt nur für Domänen Controller.  
   
-##### <a name="directory-service-replication"></a>Verzeichnisdienst-Replikation  
+##### <a name="directory-service-replication"></a>Verzeichnisdienstreplikation  
 Diese Unterkategorie meldet, wenn die Replikation zwischen zwei Domänen Controllern beginnt und endet.  
   
 ##### <a name="detailed-directory-service-replication"></a>Ausführliche Verzeichnisdienst Replikation  
@@ -212,7 +212,7 @@ Diese Unterkategorie meldet die Ergebnisse von AuthIP während der Aushandlungen
 ##### <a name="other-logonlogoff-events"></a>Andere Anmelde-/Abmelde Ereignisse  
 Diese Unterkategorie meldet andere Anmelde-und Abmelde bezogene Ereignisse, z. b. Remotedesktopdienste Sitzung die Verbindung trennt und die Verbindung wiederherstellt, mithilfe von runas Prozesse unter einem anderen Konto ausführen und eine Arbeitsstation sperren und entsperren.  
   
-##### <a name="logoff"></a>Abmelden  
+##### <a name="logoff"></a>Abmelden (Logoff)  
 Diese Unterkategorie meldet, wenn sich ein Benutzer beim System anmeldet. Diese Ereignisse erfolgen auf dem Computer, auf den zugegriffen wird. Bei interaktiven Anmeldungen tritt die Generierung dieser Ereignisse auf dem Computer auf, der bei angemeldet ist. Wenn für den Zugriff auf eine Freigabe eine Netzwerk Anmeldung erfolgt, werden diese Ereignisse auf dem Computer generiert, der die Ressource hostet, auf die zugegriffen wird. Wenn diese Einstellung auf **keine**Überwachung konfiguriert ist, ist es schwierig oder unmöglich, zu ermitteln, auf welchen Benutzer zugegriffen wurde oder ob er auf Organisations Computer zugegriffen hat.  
   
 ##### <a name="account-lockout"></a>Kontosperrung  
@@ -236,7 +236,7 @@ Diese Unterkategorie meldet Änderungen in der Authentifizierungs Richtlinie.
 Diese Unterkategorie meldet Änderungen an der Autorisierungs Richtlinie einschließlich der Änderungen an Berechtigungen (DACL).  
   
 ##### <a name="mpssvc-rule-level-policy-change"></a>Richtlinien Änderung auf mpssvc-Regel Ebene  
-Diese Unterkategorie meldet Änderungen in Richtlinien Regeln, die vom Microsoft Protection Service (mpssvc. exe) verwendet werden. Dieser Dienst wird von der Windows-Firewall verwendet.  
+Diese Unterkategorie meldet Änderungen in Richtlinien Regeln, die vom Microsoft Protection Service (MPSSVC.exe) verwendet werden. Dieser Dienst wird von der Windows-Firewall verwendet.  
   
 ##### <a name="filtering-platform-policy-change"></a>Filtern von Platt Form Richtlinien Änderungen  
 Diese Unterkategorie meldet das Hinzufügen und Entfernen von Objekten aus WFP, einschließlich Start filtern. Diese Ereignisse können sehr hoch sein.  
@@ -244,7 +244,7 @@ Diese Unterkategorie meldet das Hinzufügen und Entfernen von Objekten aus WFP, 
 ##### <a name="other-policy-change-events"></a>Andere Richtlinien Änderungs Ereignisse  
 In dieser Unterkategorie werden andere Arten von Sicherheitsrichtlinien Änderungen gemeldet, z. b. die Konfiguration der Trusted Platform Module (TPM) oder Kryptografieanbieter.  
   
-#### <a name="privilege-use"></a>Verwendung von Berechtigungen  
+#### <a name="privilege-use"></a>Berechtigungen  
   
 ##### <a name="sensitive-privilege-use"></a>Verwendung vertraulicher Berechtigungen  
 In dieser Unterkategorie wird berichtet, wenn ein Benutzerkonto oder ein Dienst vertrauliche Berechtigungen verwendet. Eine vertrauliche Berechtigung umfasst die folgenden Benutzerrechte: agieren als Teil des Betriebssystems, Sichern von Dateien und Verzeichnissen, Erstellen eines Tokenobjekts, Debuggen von Programmen, Aktivieren von Computer-und Benutzerkonten für die Delegierung, Generieren von Sicherheits Überwachungen, annehmen der Identität eines Clients nach der Authentifizierung, laden und Entladen von Gerätetreibern, Verwalten der Überwachung und des Sicherheitsprotokolls , Wiederherstellen von Dateien und Verzeichnissen und übernehmen des Besitzes von Dateien oder anderen Objekten. Durch das Überwachen dieser Unterkategorie wird eine große Anzahl von Ereignissen erzeugt.  
@@ -310,13 +310,13 @@ Diese Unterkategorie meldet die Aktivitäten des IPSec-Treibers (Internet Protoc
 ##### <a name="other-system-events"></a>Andere System Ereignisse  
 Diese Unterkategorie meldet andere Systemereignisse.  
   
-Weitere Informationen zu den Beschreibungen der Unterkategorien finden Sie im [Microsoft Security Compliance Manager-Tool](https://technet.microsoft.com/library/cc677002.aspx).  
+Weitere Informationen zu den Beschreibungen der Unterkategorien finden Sie im [Microsoft Security Compliance Manager-Tool](/previous-versions/tn-archive/cc677002(v=technet.10)).  
   
 Jede Organisation sollte die zuvor behandelten Kategorien und Unterkategorien überprüfen und diejenigen aktivieren, die für Ihre Umgebung am besten geeignet sind. Änderungen an der Überwachungsrichtlinie sollten vor der Bereitstellung in einer Produktionsumgebung immer getestet werden.  
   
 ## <a name="configuring-windows-audit-policy"></a>Konfigurieren der Windows-Überwachungsrichtlinie
 
-Die Windows-Überwachungsrichtlinie kann mithilfe von Gruppenrichtlinien, Auditpol. exe, APIs oder Registrierungs Änderungen festgelegt werden. Die empfohlenen Methoden zum Konfigurieren der Überwachungsrichtlinie für die meisten Unternehmen sind Gruppenrichtlinie oder Auditpol. exe. Zum Festlegen der Überwachungsrichtlinie eines Systems sind Konto Berechtigungen auf Administratorebene oder die entsprechenden Delegierten Berechtigungen erforderlich.  
+Die Windows-Überwachungsrichtlinie kann mithilfe von Gruppenrichtlinien, auditpol.exe, APIs oder Registrierungs Änderungen festgelegt werden. Die empfohlenen Methoden zum Konfigurieren der Überwachungsrichtlinie für die meisten Unternehmen sind Gruppenrichtlinie oder auditpol.exe. Zum Festlegen der Überwachungsrichtlinie eines Systems sind Konto Berechtigungen auf Administratorebene oder die entsprechenden Delegierten Berechtigungen erforderlich.  
   
 > [!NOTE]  
 > Die Berechtigung zum Verwalten von Überwachungs **-und Sicherheitsprotokollen** muss Sicherheits Prinzipale erteilt werden (Administratoren verfügen standardmäßig über diese Berechtigung), um die Änderung der Optionen für die Objekt Zugriffs Überwachung einzelner Ressourcen wie Dateien, Active Directory Objekten und Registrierungsschlüssel zuzulassen.  
@@ -331,15 +331,15 @@ Erweiterte Überwachungs Richtlinien können mithilfe von Active Directory oder 
   
 ![Überwachen von AD](media/Monitoring-Active-Directory-for-Signs-of-Compromise/SAD_7.gif)  
   
-### <a name="setting-windows-audit-policy-using-auditpolexe"></a>Festlegen der Windows-Überwachungsrichtlinie mithilfe von "Auditpol. exe"
+### <a name="setting-windows-audit-policy-using-auditpolexe"></a>Festlegen der Windows-Überwachungsrichtlinie mithilfe von Auditpol.exe
 
-"Auditpol. exe" (zum Festlegen der Windows-Überwachungsrichtlinie) wurde in Windows Server 2008 und Windows Vista eingeführt. Anfänglich konnte nur "Auditpol. exe" zum Festlegen der erweiterten Überwachungsrichtlinie verwendet werden, aber Gruppenrichtlinie kann in Windows Server 2012, Windows Server 2008 R2 oder Windows Server 2008, Windows 8 und Windows 7 verwendet werden.  
+Auditpol.exe (für das Festlegen der Windows-Überwachungsrichtlinie) wurde in Windows Server 2008 und Windows Vista eingeführt. Anfänglich konnten nur auditpol.exe verwendet werden, um die erweiterte Überwachungsrichtlinie festzulegen, aber Gruppenrichtlinie kann in Windows Server 2012, Windows Server 2008 R2 oder Windows Server 2008, Windows 8 und Windows 7 verwendet werden.  
   
-Auditpol. exe ist ein Befehlszeilen-Hilfsprogramm. Die Syntax lautet wie folgt:  
+Auditpol.exe ist ein Befehlszeilen-Hilfsprogramm. Die Syntax lautet wie folgt:  
   
 `auditpol /set /<Category|Subcategory>:<audit category> /<success|failure:> /<enable|disable>`
   
-Beispiele für die Auditpol. exe-Syntax:  
+Beispiele für die Auditpol.exe Syntax:  
   
 `auditpol /set /subcategory:"user account management" /success:enable /failure:enable`
   
@@ -348,34 +348,34 @@ Beispiele für die Auditpol. exe-Syntax:
 `auditpol /set /subcategory:"IPSEC Main Mode" /failure:enable`
   
 > [!NOTE]  
-> "Auditpol. exe" legt die erweiterte Überwachungsrichtlinie lokal fest. Wenn die lokale Richtlinie mit Active Directory oder lokalen Gruppenrichtlinie in Konflikt steht, werden Gruppenrichtlinie Einstellungen in der Regel über die Einstellungen "Auditpol. exe" Wenn mehrere Gruppen-oder lokale Richtlinien Konflikte bestehen, wird nur eine Richtlinie Vorrang (d. h. ersetzen). Überwachungs Richtlinien werden nicht zusammengeführt.  
+> Auditpol.exe legt die erweiterte Überwachungsrichtlinie lokal fest. Wenn die lokale Richtlinie mit Active Directory oder lokalen Gruppenrichtlinie in Konflikt steht, werden Gruppenrichtlinie Einstellungen in der Regel über auditpol.exe Einstellungen übernommen. Wenn mehrere Gruppen-oder lokale Richtlinien Konflikte bestehen, wird nur eine Richtlinie Vorrang (d. h. ersetzen). Überwachungs Richtlinien werden nicht zusammengeführt.  
   
 #### <a name="scripting-auditpol"></a>Skripterstellung für Auditpol
 
-Microsoft stellt ein [Beispielskript](https://support.microsoft.com/kb/921469) für Administratoren bereit, die erweiterte Überwachungs Richtlinien mithilfe eines Skripts festlegen möchten, anstatt jeden Auditpol. exe-Befehl manuell einzugeben.  
+Microsoft stellt ein [Beispielskript](https://support.microsoft.com/kb/921469) für Administratoren bereit, die erweiterte Überwachungs Richtlinien mithilfe eines Skripts festlegen möchten, anstatt jeden auditpol.exe Befehl manuell einzugeben.  
   
-**Hinweis** Der Status aller aktivierten Überwachungs Richtlinien wird von Gruppenrichtlinie nicht immer korrekt gemeldet, während Auditpol. exe dies tut. Weitere Informationen finden Sie [unter erhalten der effektiven Überwachungsrichtlinie in Windows 7 und Windows 2008 R2](https://blogs.technet.com/b/askds/archive/2011/03/11/getting-the-effective-audit-policy-in-windows-7-and-2008-r2.aspx) .  
+**Hinweis** Gruppenrichtlinie gibt nicht immer genau den Status aller aktivierten Überwachungs Richtlinien aus, wohingegen auditpol.exe. Weitere Informationen finden Sie [unter erhalten der effektiven Überwachungsrichtlinie in Windows 7 und Windows 2008 R2](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731607(v=ws.10)) .  
   
 #### <a name="other-auditpol-commands"></a>Andere Auditpol-Befehle
 
-"Auditpol. exe" kann verwendet werden, um eine lokale Überwachungsrichtlinie zu speichern und wiederherzustellen sowie andere Überwachungs bezogene Befehle anzuzeigen. Hier sind die anderen **Auditpol** -Befehle aufgeführt.  
+Auditpol.exe können zum Speichern und Wiederherstellen einer lokalen Überwachungsrichtlinie sowie zum Anzeigen anderer Überwachungs bezogener Befehle verwendet werden. Hier sind die anderen **Auditpol** -Befehle aufgeführt.  
   
-`auditpol /clear`: Verwenden von zum Löschen und Zurücksetzen von lokalen Überwachungs Richtlinien  
+`auditpol /clear`-Dient zum Löschen und Zurücksetzen von lokalen Überwachungs Richtlinien  
   
-`auditpol /backup /file:<filename>`-wird verwendet, um eine aktuelle lokale Überwachungsrichtlinie in einer Binärdatei zu sichern.  
+`auditpol /backup /file:<filename>`-Wird verwendet, um eine aktuelle lokale Überwachungsrichtlinie in einer Binärdatei zu sichern.  
   
-`auditpol /restore /file:<filename>`: zum Importieren einer zuvor gespeicherten Überwachungs Richtlinien Datei in eine lokale Überwachungsrichtlinie verwendet.  
+`auditpol /restore /file:<filename>`-Wird verwendet, um eine zuvor gespeicherte Überwachungs Richtlinien Datei in eine lokale Überwachungsrichtlinie zu importieren.  
   
-`auditpol /<get/set> /option:<CrashOnAuditFail> /<enable/disable>`: Wenn diese Überwachungs Richtlinien Einstellung aktiviert ist, bewirkt dies, dass das System sofort beendet wird (mit "Pause: C0000244 {Audit failed}"-Meldung), wenn eine Sicherheitsüberprüfung aus irgendeinem Grund nicht protokolliert werden kann. In der Regel kann ein Ereignis nicht protokolliert werden, wenn das Sicherheits Überwachungs Protokoll voll ist, und die für das Sicherheitsprotokoll angegebene Beibehaltungs Methode **nicht Ereignisse überschreiben** oder **Ereignisse nach Tagen überschreiben**. Sie wird in der Regel nur von Umgebungen aktiviert, die höhere Sicherheit bei der Protokollierung des Sicherheitsprotokolls erfordern. Wenn diese Option aktiviert ist, müssen Administratoren die Größe des Sicherheitsprotokolls genau beobachten und Protokolle nach Bedarf rotieren. Er kann auch mit Gruppenrichtlinie festgelegt werden, indem die Sicherheitsoption Überwachung **: Herunterfahren des Systems sofort geändert wird, wenn Sicherheits Überwachungen nicht protokolliert** werden können (Standardeinstellung = deaktiviert).  
+`auditpol /<get/set> /option:<CrashOnAuditFail> /<enable/disable>`Wenn diese Überwachungs Richtlinien Einstellung aktiviert ist, bewirkt dies, dass das System sofort beendet wird (mit der Meldung "Pause: C0000244 {Audit failed}"), wenn eine Sicherheitsüberprüfung aus irgendeinem Grund nicht protokolliert werden kann. In der Regel kann ein Ereignis nicht protokolliert werden, wenn das Sicherheits Überwachungs Protokoll voll ist, und die für das Sicherheitsprotokoll angegebene Beibehaltungs Methode **nicht Ereignisse überschreiben** oder **Ereignisse nach Tagen überschreiben**. Sie wird in der Regel nur von Umgebungen aktiviert, die höhere Sicherheit bei der Protokollierung des Sicherheitsprotokolls erfordern. Wenn diese Option aktiviert ist, müssen Administratoren die Größe des Sicherheitsprotokolls genau beobachten und Protokolle nach Bedarf rotieren. Er kann auch mit Gruppenrichtlinie festgelegt werden, indem die Sicherheitsoption Überwachung **: Herunterfahren des Systems sofort geändert wird, wenn Sicherheits Überwachungen nicht protokolliert** werden können (Standardeinstellung = deaktiviert).  
   
-`auditpol /<get/set> /option:<AuditBaseObjects> /<enable/disable>`: diese Überwachungs Richtlinien Einstellung bestimmt, ob der Zugriff auf globale Systemobjekte überprüft werden soll. Wenn diese Richtlinie aktiviert ist, bewirkt dies, dass Systemobjekte, z. b. Mutexes, Ereignisse, Semaphore und DOS-Geräte, mit einer Standard-System Zugriffs Steuerungs Liste (SACL) erstellt werden. Die meisten Administratoren sollten globale Systemobjekte so überwachen, dass Sie zu "unschädlich" werden, und Sie werden nur aktiviert, wenn böswillige Hacker vermutet werden. Nur benannte Objekte erhalten eine SACL. Wenn die Überwachungsrichtlinie für Überwachungs Objektzugriff (oder die Unterkategorie "Kernel Objektüberwachung") ebenfalls aktiviert ist, wird der Zugriff auf diese Systemobjekte überprüft. Wenn Sie diese Sicherheitseinstellung konfigurieren, werden die Änderungen erst wirksam, wenn Sie Windows neu starten. Diese Richtlinie kann auch mit Gruppenrichtlinie festgelegt werden, indem Sie die Sicherheitsoption Überwachen des Zugriffs globaler Systemobjekte (Standardeinstellung = deaktiviert) ändern.  
+`auditpol /<get/set> /option:<AuditBaseObjects> /<enable/disable>`-Diese Überwachungs Richtlinien Einstellung bestimmt, ob der Zugriff auf globale Systemobjekte überprüft werden soll. Wenn diese Richtlinie aktiviert ist, bewirkt dies, dass Systemobjekte, z. b. Mutexes, Ereignisse, Semaphore und DOS-Geräte, mit einer Standard-System Zugriffs Steuerungs Liste (SACL) erstellt werden. Die meisten Administratoren sollten globale Systemobjekte so überwachen, dass Sie zu "unschädlich" werden, und Sie werden nur aktiviert, wenn böswillige Hacker vermutet werden. Nur benannte Objekte erhalten eine SACL. Wenn die Überwachungsrichtlinie für Überwachungs Objektzugriff (oder die Unterkategorie "Kernel Objektüberwachung") ebenfalls aktiviert ist, wird der Zugriff auf diese Systemobjekte überprüft. Wenn Sie diese Sicherheitseinstellung konfigurieren, werden die Änderungen erst wirksam, wenn Sie Windows neu starten. Diese Richtlinie kann auch mit Gruppenrichtlinie festgelegt werden, indem Sie die Sicherheitsoption Überwachen des Zugriffs globaler Systemobjekte (Standardeinstellung = deaktiviert) ändern.  
   
-`auditpol /<get/set> /option:<AuditBaseDirectories> /<enable/disable>`: diese Überwachungs Richtlinien Einstellung gibt an, dass benannte Kernel Objekte (z. b. Mutexen und Semaphore) bei der Erstellung mit SACLs versehen werden sollen. Auditbasedirectories wirkt sich auf Containerobjekte aus, während auditbaseobjects sich auf Objekte auswirkt, die keine anderen Objekte enthalten können.  
+`auditpol /<get/set> /option:<AuditBaseDirectories> /<enable/disable>`-Diese Überwachungs Richtlinien Einstellung gibt an, dass benannte Kernel Objekte (z. b. Mutexen und Semaphore) bei der Erstellung mit SACLs versehen werden sollen. Auditbasedirectories wirkt sich auf Containerobjekte aus, während auditbaseobjects sich auf Objekte auswirkt, die keine anderen Objekte enthalten können.  
   
-`auditpol /<get/set> /option:<FullPrivilegeAuditing> /<enable/disable>`: diese Überwachungs Richtlinien Einstellung gibt an, ob der Client ein Ereignis generiert, wenn mindestens eine dieser Berechtigungen einem Benutzer Sicherheits Token zugewiesen ist: Zuordnungen von "zukenprivilege", "auditprivilege", "backupprivilege", "comatetokenprivilege", "Debug Privilege", "enabledelegationprivilege", "Identität", "loaddriverprivilege", "restoreprivilege", "securityprivilege", "systemumgebprivilege", "takebesitzshipprivilege" Wenn diese Option nicht aktiviert ist (Standardeinstellung = deaktiviert), werden die Berechtigungen backupprivilege und restoreprivilege nicht aufgezeichnet. Wenn Sie diese Option aktivieren, kann das Sicherheitsprotokoll während eines Sicherungs Vorgangs äußerst laut (manchmal Hunderte von Ereignissen pro Sekunde) werden. Diese Richtlinie kann auch mit Gruppenrichtlinie festgelegt werden, indem Sie die Sicherheitsoption Überwachung: überwachen **der Verwendung von Sicherungs-und Wiederherstellungs Berechtigungen**ändern.  
+`auditpol /<get/set> /option:<FullPrivilegeAuditing> /<enable/disable>`-Diese Überwachungs Richtlinien Einstellung gibt an, ob der Client ein Ereignis generiert, wenn mindestens eine dieser Berechtigungen einem Benutzer Sicherheits Token zugewiesen ist: Zuordnungen von "zukenprivilege", "auditprivilege", "backupprivilege", "comatetokenprivilege", "Debug Privilege", "enabledelegationprivilege", "Identität", "loaddriverprivilege", "restoreprivilege", "securityprivilege", "systemumgebprivilege", "takebesitzshipprivilege" Wenn diese Option nicht aktiviert ist (Standardeinstellung = deaktiviert), werden die Berechtigungen backupprivilege und restoreprivilege nicht aufgezeichnet. Wenn Sie diese Option aktivieren, kann das Sicherheitsprotokoll während eines Sicherungs Vorgangs äußerst laut (manchmal Hunderte von Ereignissen pro Sekunde) werden. Diese Richtlinie kann auch mit Gruppenrichtlinie festgelegt werden, indem Sie die Sicherheitsoption Überwachung: überwachen **der Verwendung von Sicherungs-und Wiederherstellungs Berechtigungen**ändern.  
   
 > [!NOTE]  
-> Einige der hier bereitgestellten Informationen stammen aus dem Microsoft [Audit-Optionstyp](https://msdn.microsoft.com/library/dd973862(prot.20).aspx) und dem Microsoft SCM-Tool.  
+> Einige der hier bereitgestellten Informationen stammen aus dem Microsoft [Audit-Optionstyp](/openspecs/windows_protocols/ms-gpac/262a2bed-93d4-4c04-abec-cf06e9ec72fd) und dem Microsoft SCM-Tool.  
   
 ## <a name="enforcing-traditional-auditing-or-advanced-auditing"></a>Erzwingen der herkömmlichen Überwachung oder der erweiterten Überwachung
 
@@ -385,14 +385,14 @@ Um zu verhindern, dass die Legacy-Richtlinien der herkömmlichen Kategorie über
   
 Es wird empfohlen, die Unterkategorien anstelle der neun Hauptkategorien zu aktivieren und zu konfigurieren. Hierfür ist es erforderlich, dass eine Gruppenrichtlinie Einstellung aktiviert ist (damit Unterkategorien die Überwachungs Kategorien außer Kraft setzen), und die Unterkategorien, die Überwachungs Richtlinien unterstützen, konfiguriert werden.  
   
-Überwachungs Unterkategorien können mithilfe verschiedener Methoden konfiguriert werden, einschließlich Gruppenrichtlinie und des Befehlszeilen Programms "Auditpol. exe".  
+Überwachungs Unterkategorien können mithilfe verschiedener Methoden konfiguriert werden, einschließlich Gruppenrichtlinie und des Befehlszeilen Programms auditpol.exe.  
   
 ## <a name="next-steps"></a>Nächste Schritte
   
 * [Erweiterte Sicherheitsüberprüfung in Windows 7 und Windows Server 2008 R2](https://social.technet.microsoft.com/wiki/contents/articles/advanced-security-auditing-in-windows-7-and-windows-server-2008-r2.aspx)  
   
-* [Überwachung und Konformität in Windows Server 2008](https://technet.microsoft.com/magazine/2008.03.auditing.aspx)  
+* [Überwachung und Konformität in Windows Server 2008](/previous-versions/technet-magazine/cc194392(v=msdn.10))  
   
 * [Verwenden von Gruppenrichtlinie zum Konfigurieren detaillierter Sicherheits Überwachungs Einstellungen für Windows Vista-basierte und Windows Server 2008-basierte Computer in einer Windows Server 2008-Domäne, in einer Windows Server 2003-Domäne oder in einer Windows 2000-Domäne](https://support.microsoft.com/kb/921469)  
   
-* [Schritt-für-Schritt-Anleitung für die erweiterte Sicherheits Überwachungsrichtlinie](https://technet.microsoft.com/library/dd408940(WS.10).aspx)  
+* [Schritt-für-Schritt-Anleitung für die erweiterte Sicherheits Überwachungsrichtlinie](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd408940(v=ws.10))  
