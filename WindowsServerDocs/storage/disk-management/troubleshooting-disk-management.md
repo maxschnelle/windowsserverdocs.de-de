@@ -8,12 +8,12 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 7eeb462d31391a228ec0e89afb09673ef14b51cf
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 359b4bed3090463bfb92431e06e325d981568248
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "79323442"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86961022"
 ---
 # <a name="troubleshooting-disk-management"></a>Datenträgerverwaltung: Problembehandlung
 
@@ -119,7 +119,7 @@ Wenn der Datenträgerstatus **Offline** lautet und sich der Name des Datenträge
 **Ein Datenträger, der offline ist und immer noch „Datenträger \#“ (also nicht „Fehlt“) heißt, kann möglicherweise mit einer der folgenden Methoden wieder online geschaltet werden:**
 
 1. Halte in der Datenträgerverwaltung den Datenträger gedrückt (oder klicke mit der rechten Maustaste darauf), und klicke anschließend auf **Datenträger reaktivieren**, um den Datenträger wieder online zu schalten. Falls der Datenträgerstatus weiterhin **Offline** lautet, überprüfe die Kabel und den Datenträgercontroller, und vergewissere dich, dass der physische Datenträger fehlerfrei ist. Behebe alle Probleme, und versuche dann erneut, den Datenträger zu reaktivieren. Ist die Reaktivierung des Datenträgers erfolgreich, sollten alle Volumes auf dem Datenträger automatisch wieder den Status **Fehlerfrei** haben.
-2. Überprüfe die Ereignisprotokolle in der Ereignisanzeige auf datenträgerbezogene Fehler wie etwa „No good config copies“ (Keine geeigneten Konfigurationskopien vorhanden). Sollte das Ereignisprotokoll diesen Fehler enthalten, wende dich an den [Microsoft-Produktsupport](https://msdn.microsoft.com/library/aa263468(v=vs.60).aspx).
+2. Überprüfe die Ereignisprotokolle in der Ereignisanzeige auf datenträgerbezogene Fehler wie etwa „No good config copies“ (Keine geeigneten Konfigurationskopien vorhanden). Sollte das Ereignisprotokoll diesen Fehler enthalten, wende dich an den [Microsoft-Produktsupport](/previous-versions/visualstudio/visual-basic-6/aa263468(v=vs.60)).
 
 3. Teste den Datenträger an einem anderen Computer. Lässt sich der Datenträger an einem anderen Computer **online** schalten, ist das Problem mit hoher Wahrscheinlichkeit auf die Konfiguration des Computers zurückzuführen, auf dem sich der Datenträger nicht **online** schalten lässt.
 

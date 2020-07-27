@@ -10,18 +10,18 @@ ms.date: 11/06/2018
 ms.topic: article
 ms.assetid: a8c6d5fa-399b-4823-8f10-affec1bbfe65
 ms.localizationpriority: medium
-ms.openlocfilehash: 068599b63a000566db86f29a93bfa91a4b4cd72e
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 0e6700cd02d040caaee0588106b27185e5427ee5
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80858163"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86959522"
 ---
 # <a name="remote-desktop-services---planning-poster"></a>Planungsposter für Remotedesktopdienste
 
 ## <a name="windows-virtual-desktop"></a>Virtueller Windows-Desktop
 
-Sie haben vielleicht schon von einer neuen „modernen Infrastruktur“ für Remotedesktop gehört. Vielleicht haben Sie bereits gehört, wie wir den Ausdruck „RDmi“ verwendet haben. Der Ausdruck, den Sie kennen müssen, lautet „Windows Virtual Desktop“ (Virtueller Windows-Desktop). Weitere Informationen finden Sie unter [Dokumentation zu Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/).
+Sie haben vielleicht schon von einer neuen „modernen Infrastruktur“ für Remotedesktop gehört. Vielleicht haben Sie bereits gehört, wie wir den Ausdruck „RDmi“ verwendet haben. Der Ausdruck, den Sie kennen müssen, lautet „Windows Virtual Desktop“ (Virtueller Windows-Desktop). Weitere Informationen finden Sie unter [Dokumentation zu Windows Virtual Desktop](/azure/virtual-desktop/).
 
 Das Team für die Remotedesktopdienste hat ein Poster entworfen, das Sie bei der Planung, Erstellung und Ausführung einer Windows Virtual Desktop-Umgebung unterstützen kann.
 

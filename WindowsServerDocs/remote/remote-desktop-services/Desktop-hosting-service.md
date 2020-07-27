@@ -8,12 +8,12 @@ ms.date: 07/06/2018
 ms.topic: article
 author: heidilohr
 manager: lizross
-ms.openlocfilehash: 2ee11e40d5fb69141ad5dd5342f8574b22232bbd
-ms.sourcegitcommit: 568b924d32421256f64abfee171304f1daf320d2
+ms.openlocfilehash: 57e9e25881d948ec705dc51d8e61377e0beb78a8
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85070480"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86960392"
 ---
 # <a name="desktop-hosting-service"></a>Desktophosting-Dienst
 
@@ -41,9 +41,9 @@ AD DS kann auf unterschiedliche Weise bereitgestellt werden:
 
 Weitere Informationen findest du in den folgenden Artikeln:
 
-* [Dokumentation zu Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/)
-* [Handbuch zur Referenzarchitektur für das Desktophosting für Windows Server 2012 R2](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal)
-* [Erstellen einer Site-to-Site-Verbindung im Azure-Portal](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal)
+* [Dokumentation zu Azure AD Domain Services](/azure/active-directory-domain-services/)
+* [Handbuch zur Referenzarchitektur für das Desktophosting für Windows Server 2012 R2](/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal)
+* [Erstellen einer Site-to-Site-Verbindung im Azure-Portal](/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal)
 
 ## <a name="sql-database"></a>SQL-Datenbank
 
@@ -56,8 +56,8 @@ Eine SQL-Datenbank kann auf unterschiedliche Weise bereitgestellt werden:
 
 Weitere Informationen zum Einrichten einer hoch verfügbaren SQL-Datenbankinfrastruktur findest du in den folgenden Artikeln:
 
-* [Worum handelt es sich beim Azure SQL-Datenbank-Dienst?](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview)
-* [Referenz für die Erstellung und Konfiguration von Always On-Verfügbarkeitsgruppen](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/creation-and-configuration-of-availability-groups-sql-server?view=sql-server-2017)
+* [Worum handelt es sich beim Azure SQL-Datenbank-Dienst?](/azure/sql-database/sql-database-technical-overview)
+* [Referenz für die Erstellung und Konfiguration von Always On-Verfügbarkeitsgruppen](/sql/database-engine/availability-groups/windows/creation-and-configuration-of-availability-groups-sql-server?view=sql-server-2017)
 * [Hinzufügen des Remotedesktop-Verbindungsbrokerservers zur Bereitstellung und Konfigurieren von hoher Verfügbarkeit](rds-connection-broker-cluster.md)
 
 ## <a name="file-server"></a>Dateiserver
@@ -71,7 +71,7 @@ Bei kleinen Mandanten können der Dateiserver und die [RD-Lizenzierungsrolle](rd
 Weitere Informationen findest du in den folgenden Artikeln:
 
 * [Speicher](../../storage/storage.yml)
-* [Anfügen eines verwalteten Datenträgers an einen virtuellen Windows-Computer im Azure-Portal](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fclassic%2Ftoc.json)
+* [Anfügen eines verwalteten Datenträgers an einen virtuellen Windows-Computer im Azure-Portal](/azure/virtual-machines/windows/attach-managed-disk-portal?toc=/azure/virtual-machines/windows/classic/toc.json)
 
 ### <a name="user-profile-disks"></a>Benutzerprofil-Datenträger
 

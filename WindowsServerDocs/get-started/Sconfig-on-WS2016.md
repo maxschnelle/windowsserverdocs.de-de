@@ -10,12 +10,12 @@ author: jaimeo
 ms.author: jaimeo
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: e6c218b08cc39edd9b3d93ae78b0b5c7aa293858
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: db1a4fe48460a957369c2ca3ced24e0ccb54fef7
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80826673"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86959122"
 ---
 # <a name="configure-a-server-core-installation-of-windows-server-2016-or-windows-server-version-1709-with-sconfigcmd"></a>Konfigurieren einer Server Core-Installation von Windows Server 2016 oder Windows Server, Version 1709, mit „Sconfig.cmd“
 
@@ -58,7 +58,7 @@ Verwenden Sie zum Hinzufügen weiterer Benutzer zur Gruppe der lokalen Administr
 Sie können die IP-Adresse so konfigurieren, dass sie automatisch von einem DHCP-Server zugewiesen wird, oder Sie weisen manuell eine statische Adresse zu. Mit dieser Option können Sie auch DNS-Server-Einstellungen für den Server konfigurieren.
 
 > [!NOTE]
-> Diese und viele weitere Optionen sind jetzt über die Windows PowerShell-Cmdlets für Netzwerke verfügbar. Weitere Informationen finden Sie im Thema zu den [Netzwerkadapter-Cmdlets](https://docs.microsoft.com/powershell/module/netadapter/?view=win10-ps) in der Bibliothek zu Windows Server.
+> Diese und viele weitere Optionen sind jetzt über die Windows PowerShell-Cmdlets für Netzwerke verfügbar. Weitere Informationen finden Sie im Thema zu den [Netzwerkadapter-Cmdlets](/powershell/module/netadapter/?view=win10-ps) in der Bibliothek zu Windows Server.
 
 ## <a name="windows-update-settings"></a>Windows Update-Server
 

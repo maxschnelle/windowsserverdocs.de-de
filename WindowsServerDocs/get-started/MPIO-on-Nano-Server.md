@@ -10,12 +10,12 @@ ms.assetid: fbef4d91-e18c-4f1b-952f-a9a7ad46cd74
 author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
-ms.openlocfilehash: fb38976ca6b2297562e74d9ea29510308ad23ff6
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 97a255935b052b0fc2b67863bdb1066ed4e654dc
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80826833"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86963702"
 ---
 # <a name="mpio-on-nano-server"></a>MPIO unter Nano Server
 
@@ -24,7 +24,7 @@ ms.locfileid: "80826833"
 > [!IMPORTANT]
 > Ab Windows Server, Version 1709, steht Nano Server nur als [Basis-Betriebssystemimage für Container](/virtualization/windowscontainers/quick-start/using-insider-container-images#install-base-container-image) zur Verfügung. Sieh dir [Änderungen an Nano Server](nano-in-semi-annual-channel.md) an und erfahre, was dies bedeutet. 
 
-In diesem Thema wird die Verwendung von MPIO in Nano Server-Installationen von Windows Server 2016 eingeführt. Allgemeine Informationen zu MPIO in Windows Server finden Sie unter [Multipfad-E/A (Übersicht)](https://technet.microsoft.com/library/cc725907.aspx).  
+In diesem Thema wird die Verwendung von MPIO in Nano Server-Installationen von Windows Server 2016 eingeführt. Allgemeine Informationen zu MPIO in Windows Server finden Sie unter [Multipfad-E/A (Übersicht)](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc725907(v=ws.11)).  
 
 ## <a name="using-mpio-on-nano-server"></a>Verwenden von MPIO auf Nano Server  
 Sie können MPIO auf Nano Server verwenden, jedoch mit diesen Unterschieden:  
@@ -371,5 +371,3 @@ if ($changed -eq 'true')
 }  
 ```  
   
-
-

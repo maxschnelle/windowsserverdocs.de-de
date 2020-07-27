@@ -6,12 +6,12 @@ ms.technology: server-general
 author: Teresa-Motiv
 ms.author: v-tea
 ms.localizationpriority: medium
-ms.openlocfilehash: f6e600b41e4a485084bd0622c2be0753d0b11c0c
-ms.sourcegitcommit: 6d7a394edefba684f7b6983c65026679c1b7a485
+ms.openlocfilehash: 0ab2a0eb7c9d29f8d42bd004aad27f9084e38641
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84776712"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86962482"
 ---
 # <a name="guidelines-for-troubleshooting-dns-related-activation-issues"></a>Richtlinien für die Problembehandlung von Aktivierungsproblemen im Zusammenhang mit DNS
 
@@ -64,7 +64,7 @@ Um den Product Key in einen MAK zu ändern, führen Sie die folgenden Schritte a
 
 Die KMS-Aktivierung erfordert das Konfigurieren eines KMS-Hosts für die Clients, für die die Aktivierung erfolgen soll. Wenn in Ihrer Umgebung keine KMS-Hosts konfiguriert sind, installieren und aktivieren Sie einen KMS-Host, indem Sie einen geeigneten KMS-Hostschlüssel verwenden. Nachdem Sie einen Netzwerkcomputer zum Hosten der KMS-Software konfiguriert haben, veröffentlichen Sie die DNS-Einstellungen (Domain Name System).
 
-Weitere Informationen zum Konfigurieren von KMS-Hosts finden Sie unter [Aktivieren mit dem Schlüsselverwaltungsdienst](https://docs.microsoft.com/windows/deployment/volume-activation/activate-using-key-management-service-vamt) und [Installieren und Konfigurieren des VAMT](https://docs.microsoft.com/windows/deployment/volume-activation/install-configure-vamt).
+Weitere Informationen zum Konfigurieren von KMS-Hosts finden Sie unter [Aktivieren mit dem Schlüsselverwaltungsdienst](/windows/deployment/volume-activation/activate-using-key-management-service-vamt) und [Installieren und Konfigurieren des VAMT](/windows/deployment/volume-activation/install-configure-vamt).
 
 [Zurück zur Liste der Verfahren](#list)
 
@@ -78,7 +78,7 @@ Weitere Informationen zum Konfigurieren von KMS-Hosts finden Sie unter [Aktivier
    ping <DNS_Server_IP_address>
    ```
    > [!NOTE]
-   > Wenn in der Ausgabe dieses Befehls nicht der Ausdruck „Antwort von“ enthalten ist, gibt es ein Netzwerkproblem oder ein DNS-Problem, das Sie beheben müssen, bevor Sie die anderen Verfahren in diesem Artikel verwenden können. Weitere Informationen zum Beheben von TCP/IP-Problemen, wenn der DNS-Server nicht gepingt werden kann, finden Sie unter [Erweiterte Problembehandlung für TCP/IP](https://docs.microsoft.com/windows/client-management/troubleshoot-tcpip).
+   > Wenn in der Ausgabe dieses Befehls nicht der Ausdruck „Antwort von“ enthalten ist, gibt es ein Netzwerkproblem oder ein DNS-Problem, das Sie beheben müssen, bevor Sie die anderen Verfahren in diesem Artikel verwenden können. Weitere Informationen zum Beheben von TCP/IP-Problemen, wenn der DNS-Server nicht gepingt werden kann, finden Sie unter [Erweiterte Problembehandlung für TCP/IP](/windows/client-management/troubleshoot-tcpip).
 
 [Zurück zur Liste der Verfahren](#list)
 
@@ -159,7 +159,7 @@ Mit den folgenden Befehlen können Sie feststellen, ob es sich um ein Problem be
       1. Überprüfen Sie die IP-Adresse, den Hostnamen, den Port und die Domäne des KMS-Hosts.
       1. Wenn diese **_vlmcs**-Einträge vorhanden sind und die erwarteten KMS-Hostnamen enthalten, fahren Sie mit [Manuelles Zuweisen eines KMS-Hosts zu einem KMS-Client](#manually-assign-a-kms-host-to-a-kms-client) fort.
       > [!NOTE]
-      > Wenn mit dem Befehl [**nslookup**](https://docs.microsoft.com/windows-server/administration/windows-commands/nslookup) der KMS-Host gefunden wird, bedeutet dies nicht, dass der DNS-Client den KMS-Host finden kann. Wenn mit dem Befehl **nslookup** der KMS-Host gefunden wird, die Aktivierung mit dem KMS-Host jedoch immer noch nicht möglich ist, überprüfen Sie die anderen DNS-Einstellungen, z. B. das primäre DNS-Suffix und die DNS-Suffixsuchliste.
+      > Wenn mit dem Befehl [**nslookup**](../administration/windows-commands/nslookup.md) der KMS-Host gefunden wird, bedeutet dies nicht, dass der DNS-Client den KMS-Host finden kann. Wenn mit dem Befehl **nslookup** der KMS-Host gefunden wird, die Aktivierung mit dem KMS-Host jedoch immer noch nicht möglich ist, überprüfen Sie die anderen DNS-Einstellungen, z. B. das primäre DNS-Suffix und die DNS-Suffixsuchliste.
 1. Vergewissern Sie sich, dass die Suchliste des primären DNS-Suffix das DNS-Domänensuffix enthält, das dem KMS-Host zugeordnet ist. Wenn diese Information in der Suchliste nicht enthalten ist, fahren Sie mit [Konfigurieren des KMS-Hosts für die Veröffentlichung in mehreren DNS-Domänen](#configure-the-kms-host-to-publish-in-multiple-dns-domains) fort.
 
 [Zurück zur Liste der Verfahren](#list)

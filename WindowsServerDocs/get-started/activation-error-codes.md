@@ -11,12 +11,12 @@ ms.custom:
 - CI ID 116803
 - CSSTroubleshoot
 manager: dcscontentpm
-ms.openlocfilehash: fe07636908dffc6bb59c544d512b132e7640bf51
-ms.sourcegitcommit: 75b4cf49dd918ff98258dcae6e6e8d7825c9adec
+ms.openlocfilehash: 6a38dad3362b2fa6c95c48cf613577941ffcc82c
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84269221"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86963576"
 ---
 # <a name="resolve-windows-activation-error-codes"></a>Auflösen von Windows-Aktivierungsfehlercodes
 
@@ -25,7 +25,7 @@ ms.locfileid: "84269221"
 
 Dieser Artikel bietet Informationen zur Fehlerbehandlung bei Fehlermeldungen, die Sie möglicherweise erhalten, wenn Sie Mehrfachaktivierungsschlüssel (Multiple Activation Key, MAK) oder den Schlüsselverwaltungsdienst (Key Management Service, KMS) für eine Volumenaktivierung auf einem oder mehreren Windows-basierten Computern zu verwenden versuchen. Suchen Sie in der folgenden Tabelle nach dem Fehlercode, und klicken Sie dann auf den Link, um weitere Informationen zu diesem Fehlercode und der entsprechenden Lösung anzuzeigen.
 
-Weitere Informationen zur Volumenaktivierung finden Sie unter [Planen für die Volumenaktivierung](https://docs.microsoft.com/windows/deployment/volume-activation/plan-for-volume-activation-client).
+Weitere Informationen zur Volumenaktivierung finden Sie unter [Planen für die Volumenaktivierung](/windows/deployment/volume-activation/plan-for-volume-activation-client).
 
 Weitere Informationen zur Volumenaktivierung für neuere und aktuelle Versionen von Windows finden Sie unter [Volumenaktivierung für Windows 10](https://docs.microsoft.com/windows/deployment/volume-activation/volume-activation-windows-10).
 

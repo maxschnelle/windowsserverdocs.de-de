@@ -8,12 +8,12 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 9757f5f5f68eea0fc1d468a8d8e6fd341e2ecc6a
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 82b12edd9cb680eee567e5dc014615e3d042cd18
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85475437"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86966092"
 ---
 # <a name="mount-a-drive-in-a-folder"></a>Bereitstellen eines Laufwerks in einem Ordner
 
@@ -66,4 +66,4 @@ So entfernen Sie den Bereitstellungspunkt, damit der Zugriff auf das Laufwerk ü
 -   Du kannst ein bereitgestelltes Laufwerk auch mit dem Befehl [mountvol](https://go.microsoft.com/fwlink/?linkid=64111) erstellen.
 
 ## <a name="additional-references"></a>Weitere Verweise
--   [Command-line syntax notation](https://technet.microsoft.com/library/cc742449(v=ws.11).aspx) (Notation der Befehlszeilensyntax)
+-   [Command-line syntax notation](/previous-versions/orphan-topics/ws.11/cc742449(v=ws.11)) (Notation der Befehlszeilensyntax)

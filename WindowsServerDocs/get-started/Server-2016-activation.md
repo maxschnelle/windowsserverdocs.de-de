@@ -10,16 +10,16 @@ author: jaimeo
 ms.author: jaimeo
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: fd9ea63785e8de313d2177113a466fa67c17410b
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: d95d02dc9aa4adb2f64e88d2307efd0143225bba
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80826643"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86959042"
 ---
 # <a name="windows-server-2016-activation"></a>Windows Server 2016-Aktivierung
 
-Die folgenden Informationen erläutern die anfänglichen Planungsüberlegungen, die du zur Aktivierung der Schlüsselverwaltungsdienste (Key Management Services, KMS) für Windows Server 2016 überprüfen musst. Informationen zur KMS-Aktivierung im Zusammenhang mit älteren als den hier aufgeführten Betriebssystemen findest du unter [Schritt 1: Überprüfen und Auswählen von Aktivierungsmethoden](https://technet.microsoft.com/library/jj134256(WS.11).aspx).
+Die folgenden Informationen erläutern die anfänglichen Planungsüberlegungen, die du zur Aktivierung der Schlüsselverwaltungsdienste (Key Management Services, KMS) für Windows Server 2016 überprüfen musst. Informationen zur KMS-Aktivierung im Zusammenhang mit älteren als den hier aufgeführten Betriebssystemen findest du unter [Schritt 1: Überprüfen und Auswählen von Aktivierungsmethoden](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj134256(v=ws.11)).
 
 KMS verwendet ein Client-Server-Modell zum Aktivieren von Clients. KMS-Clients werden zur Aktivierung mit einem KMS-Server, dem KMS-Host, verbunden. Der KMS-Host muss sich in Ihrem lokalen Netzwerk befinden.
 

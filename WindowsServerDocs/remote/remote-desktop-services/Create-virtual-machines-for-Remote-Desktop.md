@@ -9,12 +9,12 @@ ms.topic: article
 ms.assetid: b0f62d6f-0915-44ca-afef-be44a922e20e
 author: lizap
 manager: dongill
-ms.openlocfilehash: fa17c472e3311e4e34ac7b2176d0045886463274
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 9eba68e3dfce817208763ed11c4a7af68bb60be3
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80818463"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86966522"
 ---
 # <a name="create-virtual-machines-for-remote-desktop"></a>Erstellen virtueller Computer für Remotedesktop
 
@@ -24,9 +24,9 @@ Führe die folgenden Schritte aus, um in der Mandantenumgebung die virtuellen Co
   
 In dieser einfachen exemplarischen Bereitstellung wird die erforderliche Mindestanzahl von drei virtuellen Computern erstellt. Der erste virtuelle Computer hostet die Rollendienste „Remotedesktop-Verbindungsbroker“ und „Remotedesktop-Lizenzserver“ sowie eine Dateifreigabe für die Bereitstellung. Der zweite virtuelle Computer hostet die Rollendienste „Remotedesktop-Gateway“ und „Web Access für Remotedesktop“.  Der dritte virtuelle Computer hostet den Rollendienst „Remotedesktop-Sitzungshost“. Bei sehr kleinen Bereitstellungen kannst du zur Verringerung der VM-Kosten den AAD-App-Proxy verwenden, um alle öffentlichen Endpunkte aus der Bereitstellung zu entfernen, sowie alle Rollendienste auf einem einzelnen virtuellen Computer zusammenfassen. Bei größeren Bereitstellungen kannst du die verschiedenen Rollendienste auf einzelnen virtuellen Computern installieren, um eine bessere Skalierung zu ermöglichen.  
   
-In diesem Abschnitt werden die Schritte beschrieben, die ausgeführt werden müssen, um virtuelle Computer für die einzelnen Rollen auf der Grundlage von Windows Server-Images aus dem [Microsoft Azure Marketplace](https://azure.microsoft.com/marketplace/) bereitzustellen. Wenn du virtuelle Computer auf der Grundlage eines benutzerdefinierten Images erstellen möchtest, musst du PowerShell verwenden. Weitere Informationen hierzu findest du unter [Schnellstart: Erstellen eines virtuellen Windows-Computers in Azure mit PowerShell](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-ps-create/). Kehre anschließend wieder hierher zurück, um Azure-Datenträger für die Dateifreigabe anzufügen und eine externe URL für deine Bereitstellung einzugeben.  
+In diesem Abschnitt werden die Schritte beschrieben, die ausgeführt werden müssen, um virtuelle Computer für die einzelnen Rollen auf der Grundlage von Windows Server-Images aus dem [Microsoft Azure Marketplace](https://azure.microsoft.com/marketplace/) bereitzustellen. Wenn du virtuelle Computer auf der Grundlage eines benutzerdefinierten Images erstellen möchtest, musst du PowerShell verwenden. Weitere Informationen hierzu findest du unter [Schnellstart: Erstellen eines virtuellen Windows-Computers in Azure mit PowerShell](/azure/virtual-machines/windows/quick-create-powershell). Kehre anschließend wieder hierher zurück, um Azure-Datenträger für die Dateifreigabe anzufügen und eine externe URL für deine Bereitstellung einzugeben.  
   
-1. [Erstelle virtuelle Windows-Computer](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-hero-tutorial/), um den RD-Verbindungsbroker, den RD-Lizenzserver und den Dateiserver zu hosten.  
+1. [Erstelle virtuelle Windows-Computer](/azure/virtual-machines/windows/quick-create-portal), um den RD-Verbindungsbroker, den RD-Lizenzserver und den Dateiserver zu hosten.  
   
    In unserem Beispiel haben wir folgende Benennungskonventionen verwendet:  
    - RD-Verbindungsbroker, Lizenzserver und Dateiserver:   
@@ -79,4 +79,3 @@ In diesem Abschnitt werden die Schritte beschrieben, die ausgeführt werden müs
 5. Gib eine externe URL/einen DNS-Namen für deine Bereitstellung ein, um extern darauf zugreifen zu können:  
    1.  Klicke im Azure-Portal auf **Durchsuchen > Ressourcengruppen**, klicke auf die Ressourcengruppe für die Bereitstellung, und klicke anschließend auf die öffentliche IP-Adresse, die du für Web Access für RD und RD-Gateway erstellt hast.  
    2.  Klicke auf **Konfiguration**, gib eine DNS-Namensbezeichnung ein (beispielsweise „contoso“), und klicke anschließend auf **Speichern**. Diese DNS-Namensbezeichnung („contoso.westus.cloudapp.azure.com“) ist der DNS-Name, der für die Verbindungsherstellung mit deinem Server für Web Access für RD und RD-Gateway verwendet wird.  
-

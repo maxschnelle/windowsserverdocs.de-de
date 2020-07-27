@@ -10,12 +10,12 @@ author: jaimeo
 ms.author: jaimeo
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: cd4666f9ac0677ce8893041ae4e937cca41e8164
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: fe2d47622d776b722f0d2d91d027e5f3fd0163c5
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80826493"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86964222"
 ---
 # <a name="system-requirements"></a>Systemanforderungen
 
@@ -49,7 +49,7 @@ Die Prozessorleistung ist nicht nur von der Taktfrequenz des Prozessors abhängi
 - Unterstützt CMPXCHG16b, LAHF/SAHF und PrefetchW  
 - Unterstützt SLAT (Second-Level Address Translation) (EPT oder NPT)  
 
-[Coreinfo](https://technet.microsoft.com/sysinternals/cc835722.aspx) ist ein Tool, mit dem du überprüfen kannst, über welche dieser Funktionen die CPU verfügt.
+[Coreinfo](/sysinternals/downloads/coreinfo) ist ein Tool, mit dem du überprüfen kannst, über welche dieser Funktionen die CPU verfügt.
 
 ## <a name="ram"></a>RAM  
 Nachfolgend sind die geschätzten RAM-Anforderungen für dieses Produkt aufgeführt:  
@@ -121,7 +121,7 @@ Die folgenden Elemente sind nicht unbedingt erforderlich, werden jedoch für bes
 Detaillierte Schritte zum Installieren von Windows Server 2016 als Nano Server-Version finden Sie unter [Installieren von Nano Server](Getting-Started-with-Nano-Server.md).
 
 ## <a name="additional-resources"></a>Weitere Ressourcen
-- [Windows-Prozessoranforderungen](https://docs.microsoft.com/windows-hardware/design/minimum/windows-processor-requirements)
-- [Vergleich der Standard- und Datacenter-Editionen von Windows Server 2016](https://docs.microsoft.com/windows-server/get-started/2016-edition-comparison)
+- [Windows-Prozessoranforderungen](/windows-hardware/design/minimum/windows-processor-requirements)
+- [Vergleich der Standard- und Datacenter-Editionen von Windows Server 2016](./2016-edition-comparison.md)
 - [Windows 10-Systemanforderungen](https://www.microsoft.com/windows/windows-10-specifications#system-specifications)
 - [Herunterladen des Windows Server 2016 Lizenzierungsdatenblatts](https://download.microsoft.com/download/7/2/9/7290EA05-DC56-4BED-9400-138C5701F174/WS2016LicensingDatasheet.pdf)

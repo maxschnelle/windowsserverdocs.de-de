@@ -9,12 +9,12 @@ ms.topic: article
 author: lizap
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: a424a28be835fa2a941187b110907fff76e6f220
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 7e08e4aa0cd1298502c59a1a8275293910345d6a
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "81650059"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86966192"
 ---
 # <a name="use-performance-counters-to-diagnose-app-performance-problems-on-remote-desktop-session-hosts"></a>Verwenden von Leistungsindikatoren für die Diagnose von Leistungsproblemen von Anwendungen auf Remotedesktop-Sitzungshosts
 
@@ -33,7 +33,7 @@ Die folgende Abbildung zeigt eine ungefähre Darstellung des Flusses von Benutze
 
 ![Remotedesktop: Fluss von Benutzereingaben vom Remotedesktopclient des Benutzers zur Anwendung](./media/rds-user-input.png)
 
-Der User Input Delay-Indikator misst das maximale Delta (innerhalb eines Zeitintervalls) zwischen der Einstellung der Eingabe in die Warteschlange und ihrer Übernahme durch die Anwendung in einer [herkömmlichen Nachrichtenschleife](https://docs.microsoft.com/windows/win32/winmsg/about-messages-and-message-queues#message-loop), wie im folgenden Diagramm dargestellt:
+Der User Input Delay-Indikator misst das maximale Delta (innerhalb eines Zeitintervalls) zwischen der Einstellung der Eingabe in die Warteschlange und ihrer Übernahme durch die Anwendung in einer [herkömmlichen Nachrichtenschleife](/windows/win32/winmsg/about-messages-and-message-queues#message-loop), wie im folgenden Diagramm dargestellt:
 
 ![Remotedesktop: Fluss im User Input Delay-Leistungsindikator](./media/rds-user-input-delay.png)
 
@@ -68,7 +68,7 @@ Anschließend sollten Sie das Dialogfeld „Leistungsindikatoren hinzufügen“ 
 
 Wenn Sie **User Input Delay per Process** auswählen, sehen Sie die **Instances of the selected object** (Instanzen des ausgewählten Objekts, also anderes ausgedrückt: die Prozesse) im ```SessionID:ProcessID <Process Image>```-Format.
 
-Wenn beispielsweise die Rechner-App in einer [Sitzung mit ID 1](https://docs.microsoft.com/previous-versions/iis/6.0-sdk/ms524326(v=vs.90)) ausgeführt wird, sehen Sie ```1:4232 <Calculator.exe>```.
+Wenn beispielsweise die Rechner-App in einer [Sitzung mit ID 1](/previous-versions/iis/6.0-sdk/ms524326(v=vs.90)) ausgeführt wird, sehen Sie ```1:4232 <Calculator.exe>```.
 
 > [!NOTE]
 > Es werden nicht alle Prozesse dargestellt. Sie sehen keine Prozesse, die als SYSTEM ausgeführt werden.
@@ -135,7 +135,7 @@ So sieht es aus, wenn Sie beide Schlüssel aktivieren:
 
 ## <a name="using-the-new-counters-with-non-microsoft-tools"></a>Verwenden der neuen Indikatoren mit nicht von Microsoft stammenden Tools
 
-Überwachungstools können diesen Indikator [unter Verwendung von Leistungsindikatoren](https://docs.microsoft.com/windows/win32/perfctrs/using-performance-counters) nutzen.
+Überwachungstools können diesen Indikator [unter Verwendung von Leistungsindikatoren](/windows/win32/perfctrs/using-performance-counters) nutzen.
 
 ## <a name="download-windows-server-insider-software"></a>Herunterladen von Windows Server Insider-Software
 

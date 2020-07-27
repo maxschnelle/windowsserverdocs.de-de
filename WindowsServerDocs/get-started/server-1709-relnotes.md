@@ -10,12 +10,12 @@ author: jaimeo
 ms.author: jaimeo
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: fea4b259986d1ca6e2f992168f7b0c2e1a177916
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 64756756449b811d2f7fbb109ac93837567413d4
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80826103"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86955642"
 ---
 # <a name="release-notes-important-issues-in-windows-server-version-1709"></a>Versionshinweise: Wichtige Probleme in Windows Server, Version 1709
 
@@ -31,10 +31,10 @@ Dieses Dokument wird ständig aktualisiert. Wenn kritische Probleme ermittelt we
 
 Das Einführen von Servern mit Windows Server, Version 1709, auf einer Windows Server 2016-Bereitstellung mit direkten Speicherplätzen wird auch nicht unterstützt.
 
-Das Windows Server-Releasemodell bietet eine neue Option zur Angleichung an ähnliche Release- und Servicemodelle für [Windows 10](https://docs.microsoft.com/windows/deployment/update/waas-overview) und [Office 365 ProPlus](https://support.office.com/article/Overview-of-the-upcoming-changes-to-Office-365-ProPlus-update-management-78b33779-9356-4cdf-9d2c-08350ef05cca?ui=en-US&rs=en-US&ad=US). Die Releases des halbjährigen Kanals bieten neuen Funktionen für Kunden, die einen schnellen Rhythmus des Verschiebens benötigen, und bietet zwei neue Releases pro im Jahr: im Frühling und im Herbst.
+Das Windows Server-Releasemodell bietet eine neue Option zur Angleichung an ähnliche Release- und Servicemodelle für [Windows 10](/windows/deployment/update/waas-overview) und [Office 365 ProPlus](https://support.office.com/article/Overview-of-the-upcoming-changes-to-Office-365-ProPlus-update-management-78b33779-9356-4cdf-9d2c-08350ef05cca?ui=en-US&rs=en-US&ad=US). Die Releases des halbjährigen Kanals bieten neuen Funktionen für Kunden, die einen schnellen Rhythmus des Verschiebens benötigen, und bietet zwei neue Releases pro im Jahr: im Frühling und im Herbst.
 
 Der halbjährliche Kanal von Windows Server konzentriert sich auf Container- und Anwendungsszenarien, die von schnelleren Innovationen profitieren. Weitere Informationen finden Sie in diesem [Blog](https://cloudblogs.microsoft.com/windowsserver/2018/03/29/windows-server-semi-annual-channel-update). Kunden, die für nach Infrastrukturrollen wie „Direkte Speicherplätze“ suchen, sollten die Releases des Long-Term Servicing Channel verwenden, z.B. Windows Server 2016 (jetzt verfügbar) und [Windows Server-2019](https://cloudblogs.microsoft.com/windowsserver/2018/03/20/introducing-windows-server-2019-now-available-in-preview) (später in diesem Jahr verfügbar). Wir setzen uns für die Entwicklung der besten Plattform für hyperkonvergente Infrastruktur ein und entwickeln ständig neue Features und verbessern vorhandene basierend auf Ihrem Feedback. 
 
 „Direkte Speicherplätze“ wurde in Windows Server 2016 eingeführt und ist die Grundlage für unsere hyperkonvergente Plattform. Wir haben uns über die positive Übernahme der hyperkonvergenten Microsoft-Plattform sehr gefreut, und wir engagieren uns für unsere Kunden.
 
-Wir haben Ihr Feedback berücksichtigt und arbeiten an der Bereitstellung der [nächsten Gruppe von Innovationen](https://blogs.technet.microsoft.com/windowsserver/2017/09/07/sneak-peek-2-windows-server-version-1709-hyper-converged-infrastructure/) für unsere hyperkonvergente Plattform. Diese Features stehen noch heute in den [Windows-Insider](https://insider.windows.com/for-business/)-Builds zur Verfügung, und wir würden uns freuen, wenn Sie diese ausprobieren und uns Ihr Feedback mitteilen. Kunden, die nach einer überprüften hyperkonvergenten Lösung suchen, empfehlen wir das Programm [Windows Server Software Defined](https://microsoft.com/wssd).
+Wir haben Ihr Feedback berücksichtigt und arbeiten an der Bereitstellung der [nächsten Gruppe von Innovationen](https://cloudblogs.microsoft.com/windowsserver/2017/09/07/sneak-peek-2-windows-server-version-1709-hyper-converged-infrastructure/) für unsere hyperkonvergente Plattform. Diese Features stehen noch heute in den [Windows-Insider](https://insider.windows.com/for-business/)-Builds zur Verfügung, und wir würden uns freuen, wenn Sie diese ausprobieren und uns Ihr Feedback mitteilen. Kunden, die nach einer überprüften hyperkonvergenten Lösung suchen, empfehlen wir das Programm [Windows Server Software Defined](https://microsoft.com/wssd).

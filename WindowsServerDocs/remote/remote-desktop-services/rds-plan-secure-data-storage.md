@@ -9,12 +9,12 @@ author: lizap
 ms.author: elizapo
 ms.date: 11/21/2016
 manager: dongill
-ms.openlocfilehash: 934aab380f9e58f4fe9567921623279a1893af4b
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: e233497f298989fd31428095e5a146c8c9f5c08e
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80860293"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86953862"
 ---
 # <a name="remote-desktop-services---secure-data-storage-with-upds"></a>Remotedesktopdienste: Schützen von Datenspeicher mit Benutzerprofil-Datenträgern
 
@@ -26,6 +26,6 @@ Ein wichtiger Aspekt beim Verwalten einer RDS-Bereitstellung besteht darin, Benu
 
 Aus Sicht des Benutzers bietet der Benutzerprofil-Datenträger eine vertraute Umgebung: Er speichert seine Dokumente im Ordner „Dokumente“ (auf dem vermeintlich lokalen Laufwerk), ändert seine App-Einstellungen wie gewohnt und nimmt Anpassungen an seiner Windows-Umgebung vor. Alle diese Daten, einschließlich der Registrierungsstruktur, werden auf dem Benutzerprofil-Datenträger gespeichert und endgültig in einer zentralen Netzwerkfreigabe gespeichert. Benutzerprofil-Datenträger sind nur für den Benutzer verfügbar, wenn er aktiv mit einem Desktop oder mit RemoteApp verbunden ist. Roaming ist für Benutzerprofil-Datenträger nur innerhalb einer Sammlung möglich, da das gesamte Verzeichnis `C:\Users\<username\>` des Benutzers (einschließlich „AppData\Local“) auf dem Benutzerprofil-Datenträger gespeichert ist.
 
-Du kannst [PowerShell-Cmdlets](https://technet.microsoft.com/library/jj215443.aspx) verwenden, um den Pfad zur zentralen Freigabe, die Größe der einzelnen Benutzerprofil-Datenträger sowie die Ordner festzulegen, die in das auf dem Benutzerprofil-Datenträger gespeicherte Profil aufgenommen bzw. davon ausgeschlossen werden sollen. Alternativ kannst du Benutzerprofil-Datenträger über den Server-Manager aktivieren. Navigiere dazu zu **Remotedesktopdienste** > **Sammlungen** > **Desktopsammlung** > **Desktop Collection Properties (Desktopsammlungseigenschaften)**  > **Benutzerprofil-Datenträger**. Beachte, dass Benutzerprofil-Datenträger für alle Benutzer einer gesamten Sammlung und nicht nur für bestimmte Benutzer in dieser Sammlung aktiviert bzw. deaktiviert werden. Benutzerprofil-Datenträger müssen in einer zentralen Dateifreigabe gespeichert werden, für die die Server in der Sammlung über Vollzugriff verfügen. 
+Du kannst [PowerShell-Cmdlets](/archive/blogs/mniehaus/windows-10-1607-keeping-apps-from-coming-back-when-deploying-the-feature-update) verwenden, um den Pfad zur zentralen Freigabe, die Größe der einzelnen Benutzerprofil-Datenträger sowie die Ordner festzulegen, die in das auf dem Benutzerprofil-Datenträger gespeicherte Profil aufgenommen bzw. davon ausgeschlossen werden sollen. Alternativ kannst du Benutzerprofil-Datenträger über den Server-Manager aktivieren. Navigiere dazu zu **Remotedesktopdienste** > **Sammlungen** > **Desktopsammlung** > **Desktop Collection Properties (Desktopsammlungseigenschaften)**  > **Benutzerprofil-Datenträger**. Beachte, dass Benutzerprofil-Datenträger für alle Benutzer einer gesamten Sammlung und nicht nur für bestimmte Benutzer in dieser Sammlung aktiviert bzw. deaktiviert werden. Benutzerprofil-Datenträger müssen in einer zentralen Dateifreigabe gespeichert werden, für die die Server in der Sammlung über Vollzugriff verfügen. 
 
 Du kannst Hochverfügbarkeit für deine Benutzerprofil-Datenträger erzielen, indem du sie mit [direkten Speicherplätzen](rds-storage-spaces-direct-deployment.md) in Azure speicherst. 

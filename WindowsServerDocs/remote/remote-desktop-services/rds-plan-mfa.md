@@ -9,12 +9,12 @@ author: lizap
 ms.author: elizapo
 ms.date: 09/07/2016
 manager: dongill
-ms.openlocfilehash: c46ad24c62510b4a100a89b5c10a8f52c1a66151
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 179feca4870e62f81ed71fabb7b8fd1cb418d391
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80857353"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86962182"
 ---
 # <a name="remote-desktop-services---multi-factor-authentication"></a>Remotedesktopdienste – Mehrstufige Authentifizierung
 
@@ -27,4 +27,4 @@ Für Ihre Endbenutzer, die eine Verbindung mit ihren Desktops und Anwendungen he
 - Beim Herstellen einer Verbindung mit dem RD-Gateway für den sicheren Remotezugriff wird eine SMS oder eine MFA-Abfrage für eine mobile App empfangen
 - Ordnungsgemäße Authentifizierung und Verbindung mit der erforderlichen Ressource
 
-Weitere Informationen zum Konfigurationsprozess finden Sie unter [Integrieren Sie Ihre Remotedesktopgateway-Infrastruktur mit der Netzwerkrichtlinienserver-Erweiterung (Network Policy Server, NPS) und Azure AD](https://docs.microsoft.com/azure/multi-factor-authentication/nps-extension-remote-desktop-gateway).
+Weitere Informationen zum Konfigurationsprozess finden Sie unter [Integrieren Sie Ihre Remotedesktopgateway-Infrastruktur mit der Netzwerkrichtlinienserver-Erweiterung (Network Policy Server, NPS) und Azure AD](/azure/multi-factor-authentication/nps-extension-remote-desktop-gateway).

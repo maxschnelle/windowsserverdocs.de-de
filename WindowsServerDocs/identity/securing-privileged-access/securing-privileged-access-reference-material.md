@@ -9,12 +9,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: mas
-ms.openlocfilehash: 00335fb2ca7a54031430c6c606fb6ffa23a8f7a2
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 08a315dc362d7de872f47ca702c4401eb327245a
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80855133"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86966182"
 ---
 # <a name="active-directory-administrative-tier-model"></a>Active Directory-Verwaltungsebenenmodell
 
@@ -133,7 +133,7 @@ Beispiel: Active Directory kann einen standardmäßigen Benutzerdesktop steuern,
 
 Die Kontrollbeziehung kann über verschiedene Methoden definiert werden, u. a. über Zugriffssteuerungslisten für Objekte wie Dateisysteme, über die Mitgliedschaft in der lokalen Administratorengruppe eines Computers oder über Agents, die auf einem als System ausgeführten Computer installiert werden (mit der Möglichkeit, beliebigen Code und beliebige Skripts auszuführen).
 
-Ein häufig übersehenes Beispiel ist die Offenlegung von Informationen bei der Anmeldung. In diesem Fall entsteht eine Kontrollbeziehung, indem die Administratoranmeldeinformationen eines Systems für ein anderes System offengelegt werden. Aus diesem Grund sind Angriffe zum Diebstahl von Anmeldeinformationen (z. B. Pass-the-Hash) so gefährlich. Wenn ein Administrator sich mit Anmeldeinformationen der Ebene 0 bei einem standardmäßigen Benutzerdesktop anmeldet, werden diese Anmeldeinformationen für den Desktop offengelegt und können damit von AD kontrolliert und gesteuert werden. Die Berechtigungen können also auf AD ausgeweitet werden. Weitere Informationen zu diesen Angriffen finden Sie auf [dieser Seite](https://technet.microsoft.com/security/dn785092).
+Ein häufig übersehenes Beispiel ist die Offenlegung von Informationen bei der Anmeldung. In diesem Fall entsteht eine Kontrollbeziehung, indem die Administratoranmeldeinformationen eines Systems für ein anderes System offengelegt werden. Aus diesem Grund sind Angriffe zum Diebstahl von Anmeldeinformationen (z. B. Pass-the-Hash) so gefährlich. Wenn ein Administrator sich mit Anmeldeinformationen der Ebene 0 bei einem standardmäßigen Benutzerdesktop anmeldet, werden diese Anmeldeinformationen für den Desktop offengelegt und können damit von AD kontrolliert und gesteuert werden. Die Berechtigungen können also auf AD ausgeweitet werden. Weitere Informationen zu diesen Angriffen finden Sie auf [dieser Seite](/previous-versions/dn785092(v=msdn.10)).
 
 Aufgrund der großen Anzahl von Assets, die von Identitätssystemen wie Active Directory abhängen, sollten Sie die Anzahl von Systemen minimieren, von denen Ihre Active Directory-Bereitstellung und Ihre Domänencontroller abhängen.
 
@@ -464,7 +464,7 @@ Wenngleich bei diesem Ansatz eine Gesamtstruktur zu einer Active Directory-Umgeb
 > [!NOTE]
 > Dieser Ansatz eignet sich gut für die Verwaltung von Active Directory, viele Anwendungen können jedoch nicht über Konten aus einer externen Gesamtstruktur verwaltet werden, die eine Standardvertrauensstellung verwendet.
 
-Diese Abbildung zeigt eine ESAE-Gesamtstruktur, die zur Verwaltung von Assets der Ebene 0 verwendet wird, sowie eine PRIV-Gesamtstruktur, die für die Verwendung mit der Privileged Access Management-Funktion von Microsoft Identity Manager konfiguriert ist. Weitere Informationen zur Bereitstellung einer Instanz von MIM PAM finden Sie im Artikel [Privileged Identity Management für Active Directory Domain Services (AD DS)](https://technet.microsoft.com/library/mt150258.aspx).
+Diese Abbildung zeigt eine ESAE-Gesamtstruktur, die zur Verwaltung von Assets der Ebene 0 verwendet wird, sowie eine PRIV-Gesamtstruktur, die für die Verwendung mit der Privileged Access Management-Funktion von Microsoft Identity Manager konfiguriert ist. Weitere Informationen zur Bereitstellung einer Instanz von MIM PAM finden Sie im Artikel [Privileged Identity Management für Active Directory Domain Services (AD DS)](/microsoft-identity-manager/pam/privileged-identity-management-for-active-directory-domain-services).
 
 ![Diese Abbildung zeigt eine ESAE-Gesamtstruktur, die zur Verwaltung von Assets der Ebene 0 verwendet wird, sowie eine PRIV-Gesamtstruktur, die für die Verwendung mit der Privileged Access Management-Funktion von Microsoft Identity Manager konfiguriert ist](../media/securing-privileged-access-reference-material/PAW_RM_Fig14.JPG)
 
@@ -509,12 +509,12 @@ Beim Entwurf einer administrativen Gesamtstruktur sollte Folgendes berücksichti
    - Verschlüsselung ganzer Volumes zur Verringerung des Risikos durch den Verlust physischer Computer, z. B. administrativer Laptops, die an Remotestandorten eingesetzt werden.
 
       > [!NOTE]
-      > Weitere Informationen finden Sie unter [BitLocker](https://technet.microsoft.com/library/dn641993.aspx).
+      > Weitere Informationen finden Sie unter [BitLocker](/previous-versions/windows/it-pro/windows-8.1-and-8/dn641993(v=ws.11)).
 
    - USB-Einschränkungen zum Schutz vor physischen Infektionsvektoren.
 
       > [!NOTE]
-      > Weitere Informationen finden Sie unter [Control Read or Write Access to Removable Devices or Media](https://technet.microsoft.com/library/cc730808(v=ws.10).aspx) (Kontrollieren des Lese- oder Schreibzugriffs auf Wechselmedien).
+      > Weitere Informationen finden Sie unter [Control Read or Write Access to Removable Devices or Media](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc730808(v=ws.10)) (Kontrollieren des Lese- oder Schreibzugriffs auf Wechselmedien).
 
    - Netzwerkisolation zum Schutz vor Netzwerkangriffen und unbeabsichtigten Administratoraktionen. Hostfirewalls sollten alle eingehenden Verbindungen, mit Ausnahme der ausdrücklich erforderlichen, und sämtliche ausgehenden Internetzugriffe sperren.
 
@@ -608,7 +608,7 @@ Die Symbole in dieser Tabelle sind wie folgt definiert:
 - (-) zeigt an, dass die Anmeldeinformationen nicht offengelegt werden.
 - (v) zeigt an, dass die Anmeldeinformationen offengelegt werden.
 
-Bei Verwaltungsanwendungen, die nicht in dieser Tabelle aufgeführt sind, können Sie den Anmeldetyp anhand des entsprechenden Felds in den überwachten Anmeldeereignissen ermitteln. Weitere Informationen finden Sie unter [Anmeldeereignisse überwachen](https://technet.microsoft.com/library/cc787567(v=ws.10).aspx).
+Bei Verwaltungsanwendungen, die nicht in dieser Tabelle aufgeführt sind, können Sie den Anmeldetyp anhand des entsprechenden Felds in den überwachten Anmeldeereignissen ermitteln. Weitere Informationen finden Sie unter [Anmeldeereignisse überwachen](/previous-versions/windows/it-pro/windows-server-2003/cc787567(v=ws.10)).
 
 Auf Windows-basierten Computern werden alle Authentifizierungen als einer von mehreren Anmeldetypen verarbeitet (unabhängig davon, welches Authentifizierungsprotokoll oder welcher Authenticator verwendet wird). Diese Tabelle enthält die gängigsten Anmeldetypen sowie die zugehörigen Attribute im Hinblick auf den Diebstahl von Anmeldeinformationen:
 
@@ -631,4 +631,4 @@ Spaltendefinitionen:
 - Unter **Beispiele** sind gängige Szenarien aufgeführt, in denen der Anmeldetyp verwendet wird.
 
 > [!NOTE]
-> Weitere Informationen zu Anmeldetypen finden Sie unter [SECURITY_LOGON_TYPE enumeration](https://technet.microsoft.com/library/aa380129(VS.85).aspx) (SECURITY_LOGON_TYPE-Enumeration).
+> Weitere Informationen zu Anmeldetypen finden Sie unter [SECURITY_LOGON_TYPE enumeration](/windows/win32/api/ntsecapi/ne-ntsecapi-security_logon_type) (SECURITY_LOGON_TYPE-Enumeration).

@@ -9,12 +9,12 @@ ms.topic: article
 ms.assetid: 176ae424-96e9-4c78-88f5-da418e76c3d7
 author: lizap
 manager: dongill
-ms.openlocfilehash: ce8c6e2089c3130d078513287b661a42e5754690
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: c0a2676cc5e7043cd1f96d6c1d393d7b0e443fe8
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80857603"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86961212"
 ---
 # <a name="build-and-deploy-your-remote-desktop-services-deployment"></a>Erstellen und Bereitstellen deiner Remotedesktopdienste-Bereitstellung
 
@@ -27,7 +27,7 @@ Eine ausführliche Erläuterung der verschiedenen Komponenten, aus denen sich de
 Deine vorhandene Remotedesktopbereitstellung basiert auf einer älteren Version von Windows Server? Sieh dir die Optionen für die Migration zu Windows Server 2016 an, und nutze neue und bessere Funktionen für Leistung und Skalierung:
 
 - [Migrate your RDS deployment to Windows Server 2016](migrate-rds-role-services.md) (Migrieren deiner RDS-Bereitstellung zu Windows Server 2016)
-- [Upgrade your RDS deployment to Windows Server 2016](upgrade-to-rds-2016.md) (Aktualisieren deiner RDS-Bereitstellung auf Windows Server 2016)
+- [Upgrade your RDS deployment to Windows Server 2016](./upgrade-to-rds.md) (Aktualisieren deiner RDS-Bereitstellung auf Windows Server 2016)
 
 Du möchtest eine neue Remotedesktopbereitstellung erstellen? Du kannst Remotedesktop anhand der folgenden Informationen unter Windows Server 2016 bereitstellen:
 

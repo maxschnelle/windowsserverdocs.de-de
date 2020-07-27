@@ -9,12 +9,12 @@ author: haley-rowland
 ms.author: harowl
 ms.date: 07/17/2018
 manager: scottman
-ms.openlocfilehash: 2386a231edf80fa611daf71c171bc0de3a7b497e
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 14e63969d64a25ca0c7fb9b3efd5e966b64fa376
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80855543"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86961202"
 ---
 # <a name="deploy-a-two-node-storage-spaces-direct-scale-out-file-server-for-upd-storage-in-azure"></a>Bereitstellen eines Scale-Out-Dateiservers mit direkten Speicherplätzen und zwei Knoten für die Speicherung von Benutzerprofil-Datenträgern
 
@@ -47,7 +47,7 @@ Mithilfe der folgenden Schritte kannst du einen Domänencontroller (im Beispiel 
 
 1. Erstelle ein [Microsoft Azure-Abonnement](https://azure.microsoft.com).
 2. Melde dich beim [Azure-Portal](https://ms.portal.azure.com) an.
-3. Erstelle ein [Azure-Speicherkonto](https://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account) in Azure Resource Manager. Erstelle das Konto in einer neuen Ressourcengruppe und verwende die folgenden Konfigurationen:
+3. Erstelle ein [Azure-Speicherkonto](/azure/storage/common/storage-account-create#create-a-storage-account) in Azure Resource Manager. Erstelle das Konto in einer neuen Ressourcengruppe und verwende die folgenden Konfigurationen:
    - Bereitstellungsmodell: Resource Manager
    - Art des Speicherkontos: Allgemeine Zwecke
    - Leistungstarif: Premium
@@ -56,7 +56,7 @@ Mithilfe der folgenden Schritte kannst du einen Domänencontroller (im Beispiel 
    - Stelle die Gesamtstruktur mithilfe einer Azure-Schnellstartvorlage bereit:
       - [Create an Azure VM with a new AD Forest](https://azure.microsoft.com/documentation/templates/active-directory-new-domain/) (Erstellen einer Azure-VM mit einer neuen AD-Gesamtstruktur)
       - [Create an new AD Domain with 2 Domain Controllers](https://azure.microsoft.com/documentation/templates/active-directory-new-domain-ha-2-dc/) (Erstellen einer neuen AD-Domäne mit zwei Domänencontrollern) – für Hochverfügbarkeit
-   - [Stelle die Gesamtstruktur](https://azure.microsoft.com/documentation/articles/active-directory-new-forest-virtual-machine/) mit folgenden Konfigurationen manuell bereit:
+   - [Stelle die Gesamtstruktur](../../identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100.md) mit folgenden Konfigurationen manuell bereit:
       - Erstelle das virtuelle Netzwerk in der gleichen Ressourcengruppe wie das Speicherkonto.
       - Empfohlene Größe: DS2 (erhöhe die Größe, wenn der Domänencontroller mehr Domänenobjekte hostet)
       - Verwende ein automatisch generiertes VNET.
@@ -76,12 +76,12 @@ Mithilfe der folgenden Schritte kannst du einen Domänencontroller (im Beispiel 
    2. Erstelle den zweiten Knoten. Wiederhole die obigen Schritte, aber mit folgenden Änderungen:
       - Name: my-fsn2
       - Hochverfügbarkeit: Wähle die oben erstellte Verfügbarkeitsgruppe aus.  
-7. [Füge Datenträger](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-attach-disk-portal/) gemäß Benutzeranforderungen an die Clusterknoten-VMs an (wie in der obigen Tabelle zu sehen). Nachdem die Datenträger erstellt und an die VMs angefügt wurden, lege die **Hostzwischenspeicherung** auf **Keine** fest.
+7. [Füge Datenträger](/azure/virtual-machines/windows/attach-managed-disk-portal) gemäß Benutzeranforderungen an die Clusterknoten-VMs an (wie in der obigen Tabelle zu sehen). Nachdem die Datenträger erstellt und an die VMs angefügt wurden, lege die **Hostzwischenspeicherung** auf **Keine** fest.
 8. Lege die IP-Adressen für alle VMs auf **statisch** fest. 
    1. Wähle eine VM in der Ressourcengruppe aus, und klicke auf **Netzwerkschnittstellen** (unter **Einstellungen**). Wähle die aufgeführte Netzwerkschnittstelle aus, und klicke auf **IP-Konfigurationen**. Wähle die aufgeführte IP-Konfiguration aus, klicke auf **statisch**, und klicke dann auf **Speichern**.
    2. Notiere die private IP-Adresse (10.x.x.x) des Domänencontrollers (in unserem Beispiel „my-dc“).
 9. Lege die primäre DNS-Serveradresse für die Netzwerkadapter der Clusterknoten-VMs auf den Server „my-dc“ fest. Wähle die VM aus, und klicke dann auf **Netzwerkschnittstellen > DNS-Server > Benutzerdefiniertes DNS**. Gib die oben notierte IP-Adresse ein, und klicke dann auf **Speichern**.
-10. Erstelle ein [Azure-Speicherkonto als Cloudzeugen](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness). (Wenn du die verknüpften Anweisungen verwendest, hör bei „Configuring Cloud Witness with Failover Cluster Manager GUI“ [Konfigurieren des Cloudzeugen mit der GUI des Failovercluster-Managers] auf – wir führen diesen Schritt später aus.)
+10. Erstelle ein [Azure-Speicherkonto als Cloudzeugen](../../failover-clustering/deploy-cloud-witness.md). (Wenn du die verknüpften Anweisungen verwendest, hör bei „Configuring Cloud Witness with Failover Cluster Manager GUI“ [Konfigurieren des Cloudzeugen mit der GUI des Failovercluster-Managers] auf – wir führen diesen Schritt später aus.)
 11. Richte den Dateiserver mit direkten Speicherplätzen ein. Stelle eine Verbindung mit einer Knoten-VM her, und führe die folgenden Windows PowerShell-Cmdlets aus.
     1. Installiere die Features „Failoverclustering“ und „Dateiserver“ auf den beiden Dateiserver-Clusterknoten-VMs:
 

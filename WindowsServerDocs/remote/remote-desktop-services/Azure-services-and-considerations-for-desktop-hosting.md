@@ -9,12 +9,12 @@ ms.topic: article
 ms.assetid: 0f402ae3-5391-4c7d-afea-2c5c9044de46
 author: heidilohr
 manager: lizross
-ms.openlocfilehash: f73f28500c136ec8bdd32084cc5949f5e9804699
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 434d4910e8718747c07fc7378eb37d9ff4e85710
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80818523"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86966702"
 ---
 # <a name="azure-services-and-considerations-for-desktop-hosting"></a>Azure-Dienste und Überlegungen zum Desktophosting
 
@@ -32,7 +32,7 @@ Weitere Informationen findest du auf der [Microsoft Azure-Website](https://www.
 
 Die Komponenten des Mandanten werden auf virtuellen Computern ausgeführt, die über ein isoliertes Netzwerk miteinander kommunizieren. Im Rahmen der Bereitstellung kannst du über Azure Load Balancer extern auf diese virtuellen Computer zugreifen – entweder unter Verwendung von Remotedesktopprotokoll-Endpunkten oder unter Verwendung eines Remote-PowerShell-Endpunkts. Nach Abschluss der Bereitstellung werden diese Endpunkte in der Regel gelöscht, um weniger Angriffsfläche zu bieten. Die einzigen Endpunkte sind die HTTPS- und UDP-Endpunkte, die für den virtuellen Computer erstellt wurden, auf dem die RD-Webkomponente und die RD-Gatewaykomponente ausgeführt werden. Dadurch können Clients im Internet eine Verbindung mit Sitzungen herstellen, die im Desktophostingdienst des Mandanten ausgeführt werden. Wenn ein Benutzer eine Anwendung öffnet, die eine Verbindung mit dem Internet herstellt (etwa ein Webbrowser), durchlaufen diese Verbindungen Azure Load Balancer.  
   
-Weitere Informationen findest du unter [Was versteht man unter Azure Load Balancer?](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-load-balance/).
+Weitere Informationen findest du unter [Was versteht man unter Azure Load Balancer?](/azure/load-balancer/load-balancer-overview).
   
 ## <a name="security-considerations"></a>Überlegungen zur Sicherheit
 
@@ -45,9 +45,9 @@ Dieser Leitfaden zur Referenzarchitektur für das Azure-Desktophosting dient daz
   
 Weitere Informationen findest du in den folgenden Artikeln:
 
-- [Security and Protection](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831778(v=ws.11)) (Sicherheit und Schutz)  
-- [Security Best Practices for IIS 8](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj635855(v=ws.11)) (Bewährte Sicherheitsmethoden für IIS 8)  
-- [Secure Windows Server 2012 R2 and Windows Server 2012](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831360(v=ws.11)) (Schützen von Windows Server 2012 R2 und Windows Server 2012)  
+- [Security and Protection](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831778(v=ws.11)) (Sicherheit und Schutz)  
+- [Security Best Practices for IIS 8](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj635855(v=ws.11)) (Bewährte Sicherheitsmethoden für IIS 8)  
+- [Secure Windows Server 2012 R2 and Windows Server 2012](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831360(v=ws.11)) (Schützen von Windows Server 2012 R2 und Windows Server 2012)  
   
 ## <a name="design-considerations"></a>Entwurfsüberlegungen
 
@@ -61,13 +61,13 @@ Bei der Entwicklung eines mehrinstanzenfähigen Desktophostingdiensts müssen di
   
 Weitere Informationen findest du in den folgenden Artikeln:
 
-- [Größen für Clouddienste](https://docs.microsoft.com/azure/cloud-services/cloud-services-sizes-specs)  
+- [Größen für Clouddienste](/azure/cloud-services/cloud-services-sizes-specs)  
 - [Virtuelle Linux-Computer – Preise](https://azure.microsoft.com/pricing/details/virtual-machines/)  
-- [Hyper-V overview](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831531(v=ws.11)) (Übersicht über Hyper-V)  
-- [Skalierbarkeits- und Leistungsziele für Speicherkonten in Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets)  
+- [Hyper-V overview](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831531(v=ws.11)) (Übersicht über Hyper-V)  
+- [Skalierbarkeits- und Leistungsziele für Speicherkonten in Azure Storage](/azure/storage/common/storage-scalability-targets)  
 
 ## <a name="azure-active-directory-application-proxy"></a>Azure Active Directory-Anwendungsproxy
 
 Der Azure AD-Anwendungsproxy (Active Directory) ist ein Dienst, der in kostenpflichtigen SKUs von Azure AD bereitgestellt wird. Mit diesem Dienst können Benutzer über den Azure-eigenen Reverseproxydienst eine Verbindung mit internen Anwendungen herstellen. Dadurch können die RD-Web- und RD-Gatewayendpunkte innerhalb des virtuellen Netzwerks verborgen werden. Das hat den Vorteil, dass sie nicht mit einer öffentlichen IP-Adresse für das Internet verfügbar gemacht werden müssen. Hoster können mithilfe des Azure AD-Anwendungsproxys die Anzahl virtueller Computer in der Mandantenumgebung verringern, ohne die Bereitstellung einzuschränken. Darüber hinaus bietet der Azure AD-Anwendungsproxy viele der Vorteile von Azure AD wie etwa bedingten Zugriff und mehrstufige Authentifizierung.
 
-Weitere Informationen findest du unter [Tutorial: Hinzufügen einer lokalen Anwendung für den Remotezugriff über den Anwendungsproxy in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-enable).
+Weitere Informationen findest du unter [Tutorial: Hinzufügen einer lokalen Anwendung für den Remotezugriff über den Anwendungsproxy in Azure Active Directory](/azure/active-directory/manage-apps/application-proxy-enable).

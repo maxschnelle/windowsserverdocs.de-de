@@ -12,12 +12,12 @@ appliesto:
 - Windows Server 2012 R2
 - Windows 10
 - Windows 8.1
-ms.openlocfilehash: c0d8019812144cc3e4bd33cfaf2ca2c0c1b7eefa
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 0de9d7496266afba4b76e5b837dc68e4f9745518
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85473177"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86962732"
 ---
 # <a name="slmgrvbs-options-for-obtaining-volume-activation-information"></a>Slmgr.vbs-Optionen zum Abrufen von Informationen zur Volumenaktivierung
 
@@ -35,7 +35,7 @@ slmgr.vbs [<ComputerName> [<User> <Password>]] [<Options>]
 
 ## <a name="using-slmgr-on-remote-computers"></a>Verwenden von „Slmgr“ auf Remotecomputern
 
-Verwenden Sie zum Verwalten von Remoteclients das Tool für die Volumenaktivierungsverwaltung (Volume Activation Management Tool, VAMT) Version 1.2 oder höher, oder erstellen Sie benutzerdefinierte WMI-Skripts, die die Unterschiede zwischen den Plattformen berücksichtigen. Weitere Informationen zu WMI-Eigenschaften und -Methoden für die Volumenaktivierung finden Sie unter [WMI-Eigenschaften und -Methoden für die Volumenaktivierung](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn502536(v=ws.11)).
+Verwenden Sie zum Verwalten von Remoteclients das Tool für die Volumenaktivierungsverwaltung (Volume Activation Management Tool, VAMT) Version 1.2 oder höher, oder erstellen Sie benutzerdefinierte WMI-Skripts, die die Unterschiede zwischen den Plattformen berücksichtigen. Weitere Informationen zu WMI-Eigenschaften und -Methoden für die Volumenaktivierung finden Sie unter [WMI-Eigenschaften und -Methoden für die Volumenaktivierung](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn502536(v=ws.11)).
 
 > [!IMPORTANT]
 > Aufgrund von WMI-Änderungen in Windows 7 und Windows Server 2008 R2 kann das Skript „Slmgr.vbs“ nicht plattformübergreifend eingesetzt werden. Die Verwendung von „Slmgr.vbs“ zum Verwalten eines Windows 7- oder Windows Server 2008 R2-Systems vom Windows Vista&reg;-Betriebssystem aus wird nicht unterstützt. Der Versuch, ein älteres System aus Windows 7 oder Windows Server 2008 R2 zu verwalten, führt zu einem spezifischen Fehler wegen nicht übereinstimmender Versionen. Wird beispielsweise **cscript slmgr.vbs \<vista\_machine\_name\> /dlv** ausgeführt, wird die folgende Meldung ausgegeben:
@@ -69,7 +69,7 @@ Verwenden Sie zum Verwalten von Remoteclients das Tool für die Volumenaktivieru
 |\/cpky |Einige Wartungsoptionen setzen voraus, dass der Product Key bei Vorgängen der Windows-Willkommensseite (OOBE) in der Registrierung vorhanden ist. Mit der Option **/cpky** wird der Product Key aus der Registrierung entfernt, damit dieser nicht durch schädlichen Code gestohlen werden kann.<br />Bei Installationen von Verkaufsversionen, bei denen Schlüssel bereitgestellt werden, stellt das Ausführen dieser Option eine bewährte Methode dar. Diese Option ist für MAK- und KMS-Hostschlüssel nicht erforderlich, da dies das Standardverhalten für diese Schlüssel ist. Diese Option wird lediglich für andere Schlüsseltypen benötigt, bei denen der Schlüssel nicht standardmäßig aus der Registrierung gelöscht wird.<br />Dieser Vorgang kann nur in einem Eingabeaufforderungsfenster mit erhöhten Rechten ausgeführt werden. |
 |\/ilc&nbsp;&lt;Lizenzdatei&gt; |Mit dieser Option wird die Lizenzdatei installiert, die mit dem obligatorischen Parameter angegeben wird. Diese Lizenzen können als Problembehebungsmaßnahme, zur Unterstützung tokenbasierter Aktivierung, oder als Teil der manuellen Installation einer bereits integrierten Anwendung installiert werden.<br />Lizenzen werden im Verlauf dieses Prozesses nicht überprüft: Lizenzüberprüfung gehört nicht zum Leistungsumfang von Slmgr.vbs. Stattdessen wird diese Überprüfung zur Laufzeit vom Softwareschutzdienst durchgeführt.<br />Dieser Vorgang muss in einem Eingabeaufforderungsfenster mit erhöhten Rechten ausgeführt werden, oder der Registrierungswert **Standardbenutzervorgänge** muss so festgelegt sein, dass auch Benutzer ohne die entsprechenden Berechtigungen auf den Softwareschutzdienst zugreifen können. |
 |\/rilc |Mit dieser Option werden alle unter %SystemRoot%\system32\oem und %SystemRoot%\System32\spp\tokens gespeicherten Lizenzen erneut installiert. Hierbei handelt es sich um „als funktionierend bekannte“ Kopien, die bei der Installation gespeichert wurden.<br />Alle übereinstimmenden Lizenzen im vertrauenswürdigen Speicher werden ersetzt. Alle weiteren Lizenzen &mdash; z.B. Veröffentlichungslizenzen von vertrauenswürdigen Stellen (Trusted Authority Issuance Licenses, TA ILs), Lizenzen für Anwendungen &mdash; bleiben hiervon unberührt.<br />Dieser Vorgang muss in einem Eingabeaufforderungsfenster mit erhöhten Rechten ausgeführt werden, oder der Registrierungswert **Standardbenutzervorgänge** muss so festgelegt sein, dass auch Benutzer ohne die entsprechenden Berechtigungen auf den Softwareschutzdienst zugreifen können. |
-|\/rearm |Mit dieser Option werden die Aktivierungszähler zurückgesetzt. Der Prozess **/rearm** wird auch von **sysprep /generalize** aufgerufen.<br />Dieser Vorgang bewirkt nichts, wenn der Registrierungseingrag **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SoftwareProtectionPlatform\SkipRearm** auf **1** festgelegt wurde. Weitere Informationen zu diesem Registrierungseintrag finden Sie unter [Registrierungseinstellungen für die Volumenaktivierung](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn502532(v=ws.11)).<br />Dieser Vorgang muss in einem Eingabeaufforderungsfenster mit erhöhten Rechten ausgeführt werden, oder der Registrierungswert **Standardbenutzervorgänge** muss so festgelegt sein, dass auch Benutzer ohne die entsprechenden Berechtigungen auf den Softwareschutzdienst zugreifen können. |
+|\/rearm |Mit dieser Option werden die Aktivierungszähler zurückgesetzt. Der Prozess **/rearm** wird auch von **sysprep /generalize** aufgerufen.<br />Dieser Vorgang bewirkt nichts, wenn der Registrierungseingrag **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SoftwareProtectionPlatform\SkipRearm** auf **1** festgelegt wurde. Weitere Informationen zu diesem Registrierungseintrag finden Sie unter [Registrierungseinstellungen für die Volumenaktivierung](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn502532(v=ws.11)).<br />Dieser Vorgang muss in einem Eingabeaufforderungsfenster mit erhöhten Rechten ausgeführt werden, oder der Registrierungswert **Standardbenutzervorgänge** muss so festgelegt sein, dass auch Benutzer ohne die entsprechenden Berechtigungen auf den Softwareschutzdienst zugreifen können. |
 |\/rearm-app &lt;Anwendungs-&nbsp;ID&gt; |Setzt den Lizenzierungsstatus der angegebenen App zurück. |
 |\/rearm-sku &lt;Anwendungs&nbsp;ID&gt; |Setzt den Lizenzierungsstatus der angegebenen SKU zurück. |
 |\/upk&nbsp;\[&lt;Anwendungs-&nbsp;ID&gt;] |Mit dieser Option wird der Product Key der aktuellen Windows-Edition deinstalliert. Nach dem Neustart weist das System den Status „Nicht lizenziert“ auf, bis ein neuer Product Key installiert wurde.<br />Optional können Sie mit dem \<**Activation ID**\>-Parameter ein anderes installiertes Produkt angeben.<br />Dieser Vorgang kann nur in einem Eingabeaufforderungsfenster mit erhöhten Rechten ausgeführt werden. |
@@ -123,6 +123,5 @@ Verwenden Sie zum Verwalten von Remoteclients das Tool für die Volumenaktivieru
 
 ## <a name="additional-references"></a>Weitere Verweise
 
-- [Technische Referenz zur Volumenaktivierung](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn502529%28v%3dws.11%29)
-- [Volumenaktivierung: Übersicht](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831612%28v%3dws.11%29)
-
+- [Technische Referenz zur Volumenaktivierung](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn502529%28v%3dws.11%29)
+- [Volumenaktivierung: Übersicht](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831612%28v%3dws.11%29)

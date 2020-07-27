@@ -10,12 +10,12 @@ ms.assetid: 9f109c91-7c2e-4065-856c-ce9e2e9ce558
 author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
-ms.openlocfilehash: 938c881a92b15c0cab760ed1a81050fb3363c328
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: e3d710a8c701b52bda62c5cd0616a44f37fe2e7b
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85472967"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86962032"
 ---
 # <a name="deploy-nano-server"></a>Bereitstellen von Nano Server
 
@@ -72,18 +72,18 @@ Die nachstehende Tabelle zeigt die Rollen und Features, die in dieser Version vo
 | Windows Defender, einschließlich einer Standardsignaturdatei | -Defender |
 | Reverse-Weiterleitungen für die Anwendungskompatibilität, z.B. allgemeine Anwendungsframeworks wie Ruby, Node.js usw. | Jetzt standardmäßig enthalten |
 | DNS-Serverrolle | -Package Microsoft-NanoServer-DNS-Package |
-| PowerShell Desired State Configuration (DSC) | -Package Microsoft-NanoServer-DSC-Package<p>**Hinweis:** Ausführliche Informationen finden Sie unter [Using DSC on Nano Server (Verwenden von DSC unter Nano Server)](https://msdn.microsoft.com/powershell/dsc/nanoDsc). |
+| PowerShell Desired State Configuration (DSC) | -Package Microsoft-NanoServer-DSC-Package<p>**Hinweis:** Ausführliche Informationen finden Sie unter [Using DSC on Nano Server (Verwenden von DSC unter Nano Server)](/archive/blogs/askcore/kms-host-client-count-not-increasing-due-to-duplicate-cmids). |
 | Internetinformationsdienste (IIS). | -Package Microsoft-NanoServer-IIS-Package<p>**Hinweis:** Weitere Informationen zum Arbeiten mit IIS findest du unter [IIS auf Nano Server](IIS-on-Nano-Server.md). |
 | Hostunterstützung für Windows-Container | -Containers |
-| System Center Virtual Machine Manager-Agent | -Package Microsoft-NanoServer-SCVMM-Package<p>-Package Microsoft-NanoServer-SCVMM-Compute-Package<p>**Hinweis:** Verwende das SCVMM Compute-Paket nur, wenn du Hyper-V überwachst. Für zusammengeführte Bereitstellungen in VMM solltest du auch den Speicherparameter angeben. Weitere Informationen findest du in der [VMM-Dokumentation](https://technet.microsoft.com/system-center-docs/vmm/manage/manage-compute-add-nano-hyper-v). |
+| System Center Virtual Machine Manager-Agent | -Package Microsoft-NanoServer-SCVMM-Package<p>-Package Microsoft-NanoServer-SCVMM-Compute-Package<p>**Hinweis:** Verwende das SCVMM Compute-Paket nur, wenn du Hyper-V überwachst. Für zusammengeführte Bereitstellungen in VMM solltest du auch den Speicherparameter angeben. Weitere Informationen findest du in der [VMM-Dokumentation](/system-center/vmm/hyper-v-nano?view=sc-vmm-2016&viewFallbackFrom=sc-vmm-2019). |
 | System Center Operations Manager-Agent | Wird separat installiert. Weitere Informationen findest du in der System Center Operations Manager-Dokumentation unter https://technet.microsoft.com/system-center-docs/om/manage/install-agent-on-nano-server. |
 | Data Center Bridging (einschließlich DCBQoS) | -Package Microsoft-NanoServer-DCB-Package |
 | Bereitstellen auf einem virtuellen Computer | -Package Microsoft-NanoServer-Guest-Package |
 | Bereitstellen auf einem physischen Computer | -Package Microsoft-NanoServer-Host-Package |
 | BitLocker, Trusted Platform Module (TPM), Volumeverschlüsselung, Plattform-ID, Kryptografieanbieter und andere Funktionen, die mit einem sicheren Start verbunden sind | -Package Microsoft-NanoServer-SecureStartup-Package |
 | Unterstützung von Hyper-V für abgeschirmte VMs | -Package Microsoft-NanoServer-ShieldedVM-Package<p>**Hinweis:** Dieses Paket ist nur für die Datacenter-Edition von Nano Server verfügbar. |
-| SNMP-Agent (Simple Network Management-Protokoll) | -Package Microsoft-NanoServer-SNMP-Agent-Package.cab<p>**Hinweis:** Nicht auf Windows Server 2016-Installationsmedien enthalten. Nur online verfügbar. Details findest du unter [Online-Installieren von Rollen und Features](https://technet.microsoft.com/windows-server-docs/get-started/deploy-nano-server#a-namebkmkonlineainstalling-roles-and-features-online). |
-| IPHelper-Dienst, der mithilfe von IPv6-Übertragungstechnologien (6to4, ISATAP, Port Proxy und Teredo) und IP-HTTPS Tunnelkonnektivität bereitstellt. | -Package Microsoft-NanoServer-IPHelper-Service-Package.cab<p>**Hinweis:** Nicht auf Windows Server 2016-Installationsmedien enthalten. Nur online verfügbar. Details findest du unter [Online-Installieren von Rollen und Features](https://technet.microsoft.com/windows-server-docs/get-started/deploy-nano-server#a-namebkmkonlineainstalling-roles-and-features-online). ||
+| SNMP-Agent (Simple Network Management-Protokoll) | -Package Microsoft-NanoServer-SNMP-Agent-Package.cab<p>**Hinweis:** Nicht auf Windows Server 2016-Installationsmedien enthalten. Nur online verfügbar. Details findest du unter [Online-Installieren von Rollen und Features](#BKMK_online). |
+| IPHelper-Dienst, der mithilfe von IPv6-Übertragungstechnologien (6to4, ISATAP, Port Proxy und Teredo) und IP-HTTPS Tunnelkonnektivität bereitstellt. | -Package Microsoft-NanoServer-IPHelper-Service-Package.cab<p>**Hinweis:** Nicht auf Windows Server 2016-Installationsmedien enthalten. Nur online verfügbar. Details findest du unter [Online-Installieren von Rollen und Features](#BKMK_online). ||
 
 > [!NOTE]
 > Wenn Sie Pakete mit diesen Optionen installieren, wird auch ein zugehöriges Language Pack installiert, das auf dem ausgewählten Gebietsschema des Servermediums basiert. Sie finden die verfügbaren Language Packs und deren Gebietsschemakürzel auf den Installationsmedien in Unterordnern, die nach dem Gebietsschema des Images benannt sind.
@@ -216,7 +216,7 @@ Bearbeiten Sie eine Datei auf der Nano Server-Remoteinstanz, indem Sie eine Remo
 ## <a name="installing-roles-and-features-online"></a><a name=BKMK_online></a>Online-Installieren von Rollen und Features
 
 > [!NOTE]
-> Wenn Sie ein optionales Nano Server-Paket von Medien oder aus dem Onlinerepository installieren, sind keine aktuellen Sicherheitsfixes enthalten. Um einen Versionskonflikt zwischen den optionalen Paketen und dem Basisbetriebssystem zu vermeiden, solltest du nach dem Installieren optionaler Pakete und **vor** dem erneuten Starten des Servers das [aktuellste kumulative Update](https://technet.microsoft.com/windows-server-docs/get-started/update-nano-server) installieren.
+> Wenn Sie ein optionales Nano Server-Paket von Medien oder aus dem Onlinerepository installieren, sind keine aktuellen Sicherheitsfixes enthalten. Um einen Versionskonflikt zwischen den optionalen Paketen und dem Basisbetriebssystem zu vermeiden, solltest du nach dem Installieren optionaler Pakete und **vor** dem erneuten Starten des Servers das [aktuellste kumulative Update](./update-nano-server.md) installieren.
 
 ### <a name="installing-roles-and-features-from-a-package-repository"></a>Installieren von Rollen und Features aus einem Paketrepository
 
@@ -228,7 +228,7 @@ Import-PackageProvider NanoServerPackage
 ```
 
 >[!NOTE]
->Wenn bei der Ausführung von Install-PackageProvider Fehler auftreten, überprüfe, ob du das [neueste kumulative Update](https://technet.microsoft.com/windows-server-docs/get-started/update-nano-server) ([KB3206632](https://support.microsoft.com/kb/3206632) oder höher) installiert hast, oder verwende Save-Module wie folgt:
+>Wenn bei der Ausführung von Install-PackageProvider Fehler auftreten, überprüfe, ob du das [neueste kumulative Update](./update-nano-server.md) ([KB3206632](https://support.microsoft.com/kb/3206632) oder höher) installiert hast, oder verwende Save-Module wie folgt:
 
 ```powershell
 Save-Module -Path $Env:ProgramFiles\WindowsPowerShell\Modules\ -Name NanoServerPackage -MinimumVersion 1.0.1.0
@@ -493,23 +493,23 @@ Das Erstellen und Installieren eines WSA-Pakets auf Nano Server umfasst Schritte
 Der Herausgeber des Pakets sollte wie folgt vorgehen:
 
 1. Installiere [Windows 10 SDK](https://developer.microsoft.com/windows/downloads/windows-10-sdk) einschließlich der erforderlichen Tools zum Erstellen eines WSA-Pakets: MakeAppx, MakeCert, Pvk2Pfx, SignTool.
-2. Deklariere ein Manifest: Beachte das [WSA-Manifesterweiterungsschema](https://msdn.microsoft.com/library/windows/apps/mt670653.aspx), um die Manifestdatei „AppxManifest.xml“ zu erstellen.
+2. Deklariere ein Manifest: Beachte das [WSA-Manifesterweiterungsschema](/uwp/schemas/appxpackage/uapmanifestschema/element-serverpreview-extension-manual), um die Manifestdatei „AppxManifest.xml“ zu erstellen.
 3. Verwenden Sie das Tool **MakeAppx**, um ein WSA-Paket zu erstellen.
 4. Verwenden Sie die Tools **MakeCert** und **Pvk2Pfx** zum Erstellen des Zertifikats, und verwenden Sie dann **Signtool** zum Signieren des Pakets.
 
 Anschließend sollte der Paket-Consumer die folgenden Schritte durchführen:
 
-1. Führen Sie das PowerShell-Cmdlet [*Import-Certificate*](https://technet.microsoft.com/library/hh848630) aus, um das Zertifikat des Herausgebers aus Schritt 4 oben in Nano Server zu importieren. Verwenden Sie dabei für certStoreLocation den Wert „Cert:\LocalMachine\TrustedPeople“. Beispiel: `Import-Certificate -FilePath .\xyz.cer -CertStoreLocation Cert:\LocalMachine\TrustedPeople`
-2. Installieren Sie die App auf Nano Server, indem Sie das PowerShell-Cmdlet [**Add-AppxPackage**](https://technet.microsoft.com/library/mt575516(v=wps.620).aspx) ausführen, um ein WSA-Paket auf Nano Server zu installieren. Beispiel: `Add-AppxPackage wsaSample.appx`
+1. Führen Sie das PowerShell-Cmdlet [*Import-Certificate*](/uwp/schemas/appxpackage/uapmanifestschema/element-serverpreview-extension-manual) aus, um das Zertifikat des Herausgebers aus Schritt 4 oben in Nano Server zu importieren. Verwenden Sie dabei für certStoreLocation den Wert „Cert:\LocalMachine\TrustedPeople“. Beispiel: `Import-Certificate -FilePath .\xyz.cer -CertStoreLocation Cert:\LocalMachine\TrustedPeople`
+2. Installieren Sie die App auf Nano Server, indem Sie das PowerShell-Cmdlet [**Add-AppxPackage**](/uwp/schemas/appxpackage/uapmanifestschema/element-serverpreview-extension-manual) ausführen, um ein WSA-Paket auf Nano Server zu installieren. Beispiel: `Add-AppxPackage wsaSample.appx`
 
 #### <a name="additional-resources-for-creating-apps"></a>Weitere Ressourcen für das Erstellen von Apps
 
 WSA ist die Servererweiterung der Windows-App-Pakettechnologie (wenngleich sie nicht im Microsoft Store gehostet wird). Wenn Sie Apps mit WSA veröffentlichen möchten, werden die folgenden Themen Ihnen helfen, um sich mit der App-Paketpipeline vertraut zu machen:
 
-- [Vorgehensweise: Erstellen eines allgemeinen Paketmanifests](https://msdn.microsoft.com/library/windows/desktop/br211475.aspx)
-- [App-Objekt-Manager (MakeAppx.exe)](https://msdn.microsoft.com/library/windows/desktop/hh446767(v=vs.85).aspx)
-- [So erstellst du ein App-Paketsignaturzertifikat](https://msdn.microsoft.com/library/windows/desktop/jj835832(v=vs.85).aspx)
-- [SignTool](https://msdn.microsoft.com/library/windows/desktop/aa387764(v=vs.85).aspx)
+- [Vorgehensweise: Erstellen eines allgemeinen Paketmanifests](/uwp/schemas/appxpackage/how-to-create-a-basic-package-manifest)
+- [App-Objekt-Manager (MakeAppx.exe)](/windows/win32/appxpkg/make-appx-package--makeappx-exe-)
+- [So erstellst du ein App-Paketsignaturzertifikat](/windows/win32/appxpkg/how-to-create-a-package-signing-certificate)
+- [SignTool](/windows/win32/seccrypto/signtool)
 
 ### <a name="installing-drivers-on-nano-server"></a>Installieren von Treibern auf Nano Server
 
@@ -517,15 +517,15 @@ Sie können mithilfe von INF-Treiberpaketen nicht von Microsoft stammende Treibe
 
 Sowohl PnP- als auch Dateisystemfilter-Treiberpakete müssen die Anforderungen für universelle Gerätetreiber erfüllen und den Installationsprozess sowie allgemeine Treiberpaketrichtlinien wie beispielsweise das Signieren einhalten. Hier finden Sie zugehörige Dokumente:
 
-- [Signieren von Treibern](https://msdn.microsoft.com/windows/hardware/drivers/install/driver-signing)
-- [Verwenden einer universellen INF-Datei](https://msdn.microsoft.com/windows/hardware/drivers/install/using-a-configurable-inf-file)
+- [Signieren von Treibern](/windows-hardware/drivers/install/driver-signing)
+- [Verwenden einer universellen INF-Datei](/windows-hardware/drivers/install/using-a-universal-inf-file)
 
 #### <a name="installing-driver-packages-offline"></a>Offline-Installieren von Treiberpaketen
 
-Unterstützte Treiberpakete können offline mithilfe der Cmdlets [DISM.exe](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/dism-driver-servicing-command-line-options-s14) bzw. [DISM PowerShell](https://technet.microsoft.com/library/dn376497.aspx) auf Nano Server installiert werden.
+Unterstützte Treiberpakete können offline mithilfe der Cmdlets [DISM.exe](/windows-hardware/manufacture/desktop/dism-driver-servicing-command-line-options-s14) bzw. [DISM PowerShell](/powershell/module/dism/add-windowsdriver?view=win10-ps) auf Nano Server installiert werden.
 
 #### <a name="installing-driver-packages-online"></a>Online-Installieren von Treiberpaketen
-PnP-Treiberpakete können mithilfe von [PnpUtil](https://msdn.microsoft.com/library/windows/hardware/ff550419(v=vs.85).aspx) online auf Nano Server installiert werden. Die Online-Treiberinstallation für Nicht-PnP-Treiberpakete wird derzeit nicht auf Nano Server unterstützt.
+PnP-Treiberpakete können mithilfe von [PnpUtil](/windows-hardware/drivers/devtest/pnputil) online auf Nano Server installiert werden. Die Online-Treiberinstallation für Nicht-PnP-Treiberpakete wird derzeit nicht auf Nano Server unterstützt.
 
 ## <a name="joining-nano-server-to-a-domain"></a><a name=BKMK_JoinDomain></a>Hinzufügen von Nano Server zu einer Domäne
 
@@ -679,7 +679,7 @@ Du entfernst mit `Remove-ClusterNode -Name <comma-separated cluster node list>  
 
 Du erstellst einen horizontal skalierbaren Dateiserver mit `Add-ClusterScaleoutFileServerRole -name <sofsname> -cluster <clustername>`.
 
-Weitere Cmdlets für das Failoverclustering finden Sie unter [Microsoft.FailoverClusters.PowerShell](https://technet.microsoft.com/library/ee461009.aspx).
+Weitere Cmdlets für das Failoverclustering finden Sie unter [Microsoft.FailoverClusters.PowerShell](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee461009(v=technet.10)).
 
 ### <a name="using-dns-server-on-nano-server"></a><a name=BKMK_DNS></a>Verwenden des DNS-Servers auf Nano Server
 

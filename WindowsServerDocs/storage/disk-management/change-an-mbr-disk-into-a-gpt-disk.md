@@ -8,12 +8,12 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 6bd97802fbef342520e92a857a1a53acf3e8d7a3
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 3aedb8ed1edb8476642b86ec66d306187d4badf0
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "71385937"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86966062"
 ---
 # <a name="convert-an-mbr-disk-into-a-gpt-disk"></a>Konvertieren eines MBR-Datenträgers in einen GPT-Datenträger
 
@@ -39,7 +39,7 @@ Du kannst einen MBR-Datenträger in einen GPT-Datenträger ändern, sofern der D
 
 ## <a name="converting-using-a-command-line"></a>Konvertieren mithilfe einer Befehlszeile
 
-Führe die folgenden Schritte aus, um einen leeren MBR-Datenträger in einen GPT-Datenträger zu konvertieren. Du kannst auch das Tool MBR2GPT.EXE verwenden, die Verwendung ist jedoch etwas kompliziert. Weitere Einzelheiten findest du unter [Konvertieren von MBR-Partitionen zu GPT](https://docs.microsoft.com/windows/deployment/mbr-to-gpt).
+Führe die folgenden Schritte aus, um einen leeren MBR-Datenträger in einen GPT-Datenträger zu konvertieren. Du kannst auch das Tool MBR2GPT.EXE verwenden, die Verwendung ist jedoch etwas kompliziert. Weitere Einzelheiten findest du unter [Konvertieren von MBR-Partitionen zu GPT](/windows/deployment/mbr-to-gpt).
 
 1.  Sichere oder verschiebe die Daten auf dem MBR-Basisdatenträger, den du in einen GPT-Datenträger konvertieren möchtest.
 
@@ -67,4 +67,4 @@ Führe die folgenden Schritte aus, um einen leeren MBR-Datenträger in einen GPT
 
 ## <a name="see-also"></a>Weitere Informationen
 
--   [Command-line syntax notation](https://technet.microsoft.com/library/cc742449(v=ws.11).aspx) (Notation der Befehlszeilensyntax)
+-   [Command-line syntax notation](/previous-versions/orphan-topics/ws.11/cc742449(v=ws.11)) (Notation der Befehlszeilensyntax)

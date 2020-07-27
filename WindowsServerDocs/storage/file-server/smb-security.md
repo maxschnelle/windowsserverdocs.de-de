@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 07/09/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 658875f132712d34a2c59967ebd316e8c5edca7c
-ms.sourcegitcommit: 568b924d32421256f64abfee171304f1daf320d2
+ms.openlocfilehash: 9052e9e6a1327b67fd75b07ab2ee6fc56b1190ac
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85070552"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86962134"
 ---
 # <a name="smb-security-enhancements"></a>SMB-Sicherheitsfunktionen
 
@@ -76,7 +76,7 @@ Set-SmbServerConfiguration –RejectUnencryptedAccess $false
 Mit der im nächsten Abschnitt beschriebenen sicheren Dialektaushandlungsfunktion wird verhindert, dass ein Man-in-the-Middle-Angriff eine Verbindung von SMB 3.0 auf SMB 2.0 herabstuft (dann würde unverschlüsselter Zugriff verwendet). Es wird jedoch kein Downgrade auf SMB 1.0 verhindert, was ebenfalls zu unverschlüsseltem Zugriff führen würde. Um sicherzustellen, dass SMB 3.0-Clients immer SMB-Verschlüsselung für den Zugriff auf verschlüsselte Freigaben verwenden, müssen Sie den SMB 1.0-Server deaktivieren. (Anweisungen dazu finden Sie im Abschnitt [Deaktivieren von SMB 1.0](#disabling-smb-10).) Wenn für die Einstellung **–RejectUnencryptedAccess** die Standardeinstellung **$true** beibehalten wird, dürfen nur verschlüsselungsfähige SMB 3.0-Clients auf die Dateifreigaben zugreifen (SMB 1.0-Clients werden ebenfalls abgelehnt).
 
 >[!NOTE]
->* SMB-Verschlüsselung verwendet den AES-CCM-Algorithmus (Advanced Encryption Standard), um die Daten zu verschlüsseln und zu entschlüsseln. AES-CCM bietet auch eine Überprüfung der Datenintegrität (Signierung) für verschlüsselte Dateifreigaben, unabhängig von den SMB-Signierungseinstellungen. Wenn Sie SMB-Signaturen ohne Verschlüsselung aktivieren möchten, können Sie diese weiterhin verwenden. Weitere Informationen finden Sie unter [Grundlagen von SMB-Signaturen](https://blogs.technet.microsoft.com/josebda/2010/12/01/the-basics-of-smb-signing-covering-both-smb1-and-smb2/).
+>* SMB-Verschlüsselung verwendet den AES-CCM-Algorithmus (Advanced Encryption Standard), um die Daten zu verschlüsseln und zu entschlüsseln. AES-CCM bietet auch eine Überprüfung der Datenintegrität (Signierung) für verschlüsselte Dateifreigaben, unabhängig von den SMB-Signierungseinstellungen. Wenn Sie SMB-Signaturen ohne Verschlüsselung aktivieren möchten, können Sie diese weiterhin verwenden. Weitere Informationen finden Sie unter [Grundlagen von SMB-Signaturen](/archive/blogs/josebda/the-basics-of-smb-signing-covering-both-smb1-and-smb2).
 >* Wenn Sie versuchen, auf die Dateifreigabe oder den Server zuzugreifen, treten möglicherweise Probleme auf, wenn in Ihrer Organisation WAN-Beschleuniger (Wide Area Network) verwendet werden.
 >* Mit einer Standardkonfiguration (bei der kein unverschlüsselter Zugriff auf verschlüsselte Dateifreigaben zulässig ist), wird Ereignis-ID 1003 im Ereignisprotokoll „Microsoft-Windows-SmbServer/Operational“ protokolliert, und der Client empfängt eine Fehlermeldung des Typs **Zugriff verweigert**, wenn Clients, die SMB 3.0 nicht unterstützen, versuchen, auf eine verschlüsselte Dateifreigabe zuzugreifen.
 >* SMB-Verschlüsselung und das verschlüsselnde Dateisystem (EFS) im NTFS-Dateisystem stehen nicht miteinander in Beziehung, und SMB-Verschlüsselung erfordert nicht die Verwendung von EFS oder hängt davon ab.
@@ -90,7 +90,7 @@ Mit der im nächsten Abschnitt beschriebenen sicheren Dialektaushandlungsfunktio
 
 ## <a name="new-signing-algorithm"></a>Neuer Signaturalgorithmus
 
-SMB 3.0 verwendet einen neueren Verschlüsselungsalgorithmus zum Signieren: AES-CMAC (Advanced Encryption Standard, Cipher-based Message Authentication Code). SMB 2.0 hat den älteren HMAC-SHA256-Verschlüsselungsalgorithmus verwendet. AES-CMAC und AES-CCM können die Datenverschlüsselung mit den meisten modernen CPUs mit AES-Anweisungsunterstützung erheblich beschleunigen. Weitere Informationen finden Sie unter [Grundlagen von SMB-Signaturen](https://blogs.technet.microsoft.com/josebda/2010/12/01/the-basics-of-smb-signing-covering-both-smb1-and-smb2/).
+SMB 3.0 verwendet einen neueren Verschlüsselungsalgorithmus zum Signieren: AES-CMAC (Advanced Encryption Standard, Cipher-based Message Authentication Code). SMB 2.0 hat den älteren HMAC-SHA256-Verschlüsselungsalgorithmus verwendet. AES-CMAC und AES-CCM können die Datenverschlüsselung mit den meisten modernen CPUs mit AES-Anweisungsunterstützung erheblich beschleunigen. Weitere Informationen finden Sie unter [Grundlagen von SMB-Signaturen](/archive/blogs/josebda/the-basics-of-smb-signing-covering-both-smb1-and-smb2).
 
 ## <a name="disabling-smb-10"></a>Deaktivieren von SMB 1.0
 

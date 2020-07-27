@@ -9,12 +9,12 @@ ms.topic: article
 ms.assetid: 2a44dc9f-c221-4bf7-89c3-fb4c86a90f8c
 author: jaimeo
 manager: dougkim
-ms.openlocfilehash: 2ab78ccbc4e49bd95a74fe1e17d5ea14891eb1b8
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 4d666abea6ab79ee29bd5bf93255426289c8deee
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80857273"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86963362"
 ---
 # <a name="recommended-settings-for-vdi-desktops"></a>Empfohlene Einstellungen für VDI-Desktops
 
@@ -31,7 +31,7 @@ Diese Anweisungen und empfohlenen Einstellungen sind für Windows 10 1607 (Versi
 > [!NOTE]
 > Bei allen Einstellungen, die in diesem Thema nicht ausdrücklich erwähnt werden, können die Standardwerte beibehalten (oder Werte entsprechend Ihren Anforderungen und Richtlinien festgelegt) werden. Dies hat keine spürbare Auswirkung auf die VDI-Funktionalität.
 
-Wenn Sie ein Image als Basis für die VDI-Bereitstellung erstellen, verwenden Sie dafür unbedingt den **Current Branch**. Weitere Informationen zu Current Branch finden Sie unter [Windows 10-Versionsinformationen](https://technet.microsoft.com/windows/release-info.aspx).
+Wenn Sie ein Image als Basis für die VDI-Bereitstellung erstellen, verwenden Sie dafür unbedingt den **Current Branch**. Weitere Informationen zu Current Branch finden Sie unter [Windows 10-Versionsinformationen](/archive/blogs/mniehaus/windows-10-1607-keeping-apps-from-coming-back-when-deploying-the-feature-update).
 
 ## <a name="creating-the-windows-10-image"></a>Erstellen des Windows 10-Images
 Der erste Schritt besteht darin, ein Referenzimage von Windows 10 1607 (Version 10.0.1393) auf einem physischen oder virtuellen Computer zu installieren. Die Installation auf einem virtuellen Computer ist einfach und ermöglicht es Ihnen, Versionen der VHD-Datei (Virtual Hard-Disk, virtuelle Festplatte) für den Fall zu speichern, dass Sie Ihre Version auf eine frühere zurücksetzen möchten.

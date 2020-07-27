@@ -9,12 +9,12 @@ ms.topic: article
 ms.assetid: 8f164f5d-a498-4f91-a12f-3e01d554f810
 author: lizap
 manager: dongill
-ms.openlocfilehash: 914e6f4507e0fd997a31866b10e3c48e0cd4cbd7
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 4ecd290a910ddbb1aba85b26764fb86e30731172
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80857263"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86963352"
 ---
 # <a name="supported-windows-10-security-configurations-for-remote-desktop-services-vdi"></a>Unterstützte Windows 10-Sicherheitskonfigurationen für Remotedesktopdienste-VDI
 
@@ -29,9 +29,9 @@ Die folgende Tabelle zeigt, welche dieser neuen Features in einer VDI-Bereitstel
 
 |  VDI-Sammlungstyp               |  Verwaltet – gepoolt |  Verwaltet – persönlich |  Nicht verwaltet – gepoolt                                     |  Nicht verwaltet – persönlich                                    |
 |-------------------------------------|------------------|--------------------|--------------------------------------------------------|--------------------------------------------------------|
-| [Credential Guard](https://technet.microsoft.com/itpro/windows/keep-secure/credential-guard)                    | Ja              | Ja                | Ja                                                    | Ja                                                    |
-| [Device Guard](https://technet.microsoft.com/itpro/windows/keep-secure/device-guard-deployment-guide)                        | Ja              | Ja                | Ja                                                    | Ja                                                    |
-| [Remote Credential Guard](https://technet.microsoft.com/itpro/windows/keep-secure/remote-credential-guard)             | Nein               | Nein                 | Nein                                                     | Nein                                                     |
+| [Credential Guard](/windows/security/identity-protection/credential-guard/credential-guard)                    | Ja              | Ja                | Ja                                                    | Ja                                                    |
+| [Device Guard](/windows/security/threat-protection/windows-defender-application-control/windows-defender-application-control-deployment-guide)                        | Ja              | Ja                | Ja                                                    | Ja                                                    |
+| [Remote Credential Guard](/windows/security/identity-protection/remote-credential-guard)             | Nein               | Nein                 | Nein                                                     | Nein                                                     |
 | [Abgeschirmte VMs und VMs mit Verschlüsselungsunterstützung](../../security/guarded-fabric-shielded-vm/guarded-fabric-and-shielded-vms.md) | Nein               | Nein                 | VMs mit Verschlüsselungsunterstützung mit zusätzlicher Konfiguration | VMs mit Verschlüsselungsunterstützung mit zusätzlicher Konfiguration |
 
 ## <a name="remote-credential-guard"></a>Remote Credential Guard:
@@ -47,4 +47,3 @@ Remote Credential Guard wird nur für direkte Verbindungen mit den Zielcomputern
 Um VMs mit Verschlüsselungsunterstützung zu nutzen:
 - Verwenden Sie eine nicht verwaltete Sammlung und eine Bereitstellungstechnologie außerhalb des Prozesses zur Sammlungserstellung in den Remotedesktopdiensten, um die virtuellen Computer bereitzustellen. 
 - Benutzerprofil-Datenträger werden nicht unterstützt, da sie differenzielle Datenträger benötigen 
-

@@ -8,12 +8,12 @@ author: lizap
 ms.author: elizapo
 ms.date: 11/08/2016
 manager: dongill
-ms.openlocfilehash: e98bbda5460311dd379eab6f5a5bde0ec3845d5c
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: c34d0bd2654d36e447053348392b4b9a6957e60f
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80860283"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86960192"
 ---
 # <a name="add-high-availability-to-the-rd-web-and-gateway-web-front"></a>Hinzufügen von Hochverfügbarkeit zu RD-Web und RD-Gateway (Webfront)
 
@@ -96,7 +96,7 @@ Wenn Sie die Azure-Infrastruktur verwenden, können Sie einen externen Azure Loa
     4.  Wähle unter **Öffentliche IP-Adresse** die Option **Öffentliche IP-Adresse auswählen** aus, und wähle dann eine vorhandene öffentliche IP-Adresse aus, oder erstelle eine neue.
     5.  Wählen Sie das entsprechende **Abonnement**, eine **Ressourcengruppe** und einen **Speicherort** aus.
     6.  Klicken Sie auf **Erstellen**.  
-2. Erstellen Sie einen [Test](https://azure.microsoft.com/documentation/articles/load-balancer-custom-probe-overview/), um zu überwachen, welche Server aktiv sind:  
+2. Erstellen Sie einen [Test](/azure/load-balancer/load-balancer-custom-probe-overview), um zu überwachen, welche Server aktiv sind:  
     1.  Wähle im Azure-Portal die Option **Durchsuchen** > **Lastensaugleiche** aus, und wähle dann den Lastenausgleich aus, den du im vorherigen Schritt erstellt hast.
     2.  Wähle **Alle Einstellungen** > **Tests** > **Hinzufügen** aus.  
     3.  Geben Sie einen Namen, z. B. **HTTPS**, für den Test ein. Wählen Sie **TCP** als **Protokoll** aus, und geben Sie **443** für den **Port** ein. Klicken Sie anschließend auf **OK**.   

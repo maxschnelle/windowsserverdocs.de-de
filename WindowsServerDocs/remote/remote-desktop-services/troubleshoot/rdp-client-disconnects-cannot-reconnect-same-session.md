@@ -8,12 +8,12 @@ manager: dcscontentpm
 ms.author: delhan
 ms.date: 07/24/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 0d116c99b7c8b1daffc4ec58bd93414781eea321
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 5cb688474482a3d97ebe07ff0ce0122d65efdd31
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80857203"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86963192"
 ---
 # <a name="remote-desktop-client-disconnects-and-cant-reconnect-to-the-same-session"></a>Remotedesktopclient wird getrennt und kann keine Verbindung mit der gleichen Sitzung wiederherstellen
 
@@ -35,10 +35,10 @@ Dieses Problem kann auch behoben werden, indem Sie Ihre Authentifizierungs- und 
 
 > [!NOTE]  
 >  - Wenn für Verbindungen zwischen Clients und RD-Sitzungshostservern die höchste Verschlüsselungsstufe erforderlich ist, verwenden Sie FIPS-konforme Verschlüsselung.
->  - Alle Einstellungen zur Verschlüsselungsstufe, die Sie in Gruppenrichtlinien konfigurieren, setzen die Einstellungen außer Kraft, die Sie mithilfe des Konfigurationstools für Remotedesktopdienste konfiguriert haben. Und wenn Sie die Richtlinie [Systemkryptografie: FIPS-konforme Algorithmen für Verschlüsselung, Hashing und Signatur verwenden](https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/system-cryptography-use-fips-compliant-algorithms-for-encryption-hashing-and-signing) aktivieren, setzt diese Einstellung die Richtlinie **Verschlüsselungsstufe der Clientverbindung festlegen** außer Kraft. Die Richtlinie für Systemkryptografie befindet sich im Ordner **Computerkonfiguration\\Windows-Einstellungen\\Sicherheitseinstellungen\\Lokale Richtlinien\\Sicherheitsoptionen**.
+>  - Alle Einstellungen zur Verschlüsselungsstufe, die Sie in Gruppenrichtlinien konfigurieren, setzen die Einstellungen außer Kraft, die Sie mithilfe des Konfigurationstools für Remotedesktopdienste konfiguriert haben. Und wenn Sie die Richtlinie [Systemkryptografie: FIPS-konforme Algorithmen für Verschlüsselung, Hashing und Signatur verwenden](/windows/security/threat-protection/security-policy-settings/system-cryptography-use-fips-compliant-algorithms-for-encryption-hashing-and-signing) aktivieren, setzt diese Einstellung die Richtlinie **Verschlüsselungsstufe der Clientverbindung festlegen** außer Kraft. Die Richtlinie für Systemkryptografie befindet sich im Ordner **Computerkonfiguration\\Windows-Einstellungen\\Sicherheitseinstellungen\\Lokale Richtlinien\\Sicherheitsoptionen**.
 >  - Wenn Sie die Verschlüsselungsstufe ändern, wird die neue Verschlüsselungsstufe wirksam, sobald sich das nächste Mal ein Benutzer anmeldet. Wenn Sie mehrere Verschlüsselungsstufen auf einem Server unterstützen müssen, installieren Sie mehrere Netzwerkadapter, und konfigurieren Sie jeden Adapter separat.
 >  - Um zu überprüfen, ob ein Zertifikat über einen entsprechenden privaten Schlüssel verfügt, klicken Sie in „Remotedesktopdienste-Konfiguration“ mit der rechten Maustaste auf die Verbindung, für die Sie das Zertifikat anzeigen möchten, wählen Sie **Allgemein** und dann **Bearbeiten**. Wählen Sie anschließend **Zertifikat anzeigen** aus. Auf der Registerkarte **Allgemein** sollte die Aussage „Sie verfügen über einen privaten Schlüssel, der diesem Zertifikat entspricht“ angezeigt werden, sofern ein Schlüssel vorhanden ist. Sie können diese Informationen auch über das Zertifikat-Snap-In abrufen.
->  - FIPS-konforme Verschlüsselung (die Richtlinie **Systemkryptografie: FIPS-konforme Algorithmen für Verschlüsslung, Hashing und Signatur verwenden** oder die Einstellung **FIPS-konform** in der Remotedesktop-Serverkonfiguration) verschlüsselt und entschlüsselt die zwischen Server und Client ausgetauschten Daten mit Verschlüsselungsalgorithmen nach dem FIPS 140-1-Standard (Federal Information Processing Standard ) mithilfe von Microsoft-Kryptografiemodulen. Weitere Informationen finden Sie unter [FIPS 140-Überprüfung](https://docs.microsoft.com/windows/security/threat-protection/fips-140-validation).
+>  - FIPS-konforme Verschlüsselung (die Richtlinie **Systemkryptografie: FIPS-konforme Algorithmen für Verschlüsslung, Hashing und Signatur verwenden** oder die Einstellung **FIPS-konform** in der Remotedesktop-Serverkonfiguration) verschlüsselt und entschlüsselt die zwischen Server und Client ausgetauschten Daten mit Verschlüsselungsalgorithmen nach dem FIPS 140-1-Standard (Federal Information Processing Standard ) mithilfe von Microsoft-Kryptografiemodulen. Weitere Informationen finden Sie unter [FIPS 140-Überprüfung](/windows/security/threat-protection/fips-140-validation).
 >  - Bei der Einstellung **Hoch** werden zwischen Server und Client gesendete Daten mithilfe von starker 128-Bit-Verschlüsselung verschlüsselt.
 >  - Bei der Einstellung **Clientkompatibel** werden die zwischen dem Client und dem Server ausgetauschten Daten mit der vom Client unterstützten maximalen Schlüsselstärke verschlüsselt.
 >  - Die Einstellung **Niedrig** verschlüsselt vom Client an den Server gesendete Daten mit 56-Bit-Verschlüsselung.

@@ -8,19 +8,19 @@ author: Teresa-Motiv
 ms.author: v-tea
 manager: dcscontentpm
 ms.localizationpriority: medium
-ms.openlocfilehash: b4e31cfa892019e4f3bbcd3b67dbb42751cc58dd
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: d56b2d002b0403971dc50fab639f77bddf1f8809
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "71963036"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86959882"
 ---
 # <a name="example-troubleshooting-active-directory-based-activation-adba-clients-that-do-not-activate"></a>Beispiel: Problembehandlung bei ADBA-Clients (Active Directory Based Activation), die sich nicht aktivieren lassen
 
 > [!NOTE]
 > Dieser Artikel wurde ursprünglich als TechNet-Blog am 26. März 2018 veröffentlicht.
 
-Hallo an alle! Mein Name ist Mike Kammer, und ich bin jetzt seit etwas über zwei Jahren Plattform-PFE bei Microsoft. Ich leistete kürzlich Support für einen Kunden bei der Bereitstellung von Windows Server 2016 in seiner Umgebung. Wir nutzen die Gelegenheit, um zugleich die Aktivierungsmethode von einem KMS-Server auf [Aktivierung über Active Directory](https://docs.microsoft.com/previous-versions/windows/hh852637(v=win.10)) umzustellen.
+Hallo an alle! Mein Name ist Mike Kammer, und ich bin jetzt seit etwas über zwei Jahren Plattform-PFE bei Microsoft. Ich leistete kürzlich Support für einen Kunden bei der Bereitstellung von Windows Server 2016 in seiner Umgebung. Wir nutzen die Gelegenheit, um zugleich die Aktivierungsmethode von einem KMS-Server auf [Aktivierung über Active Directory](/previous-versions/windows/hh852637(v=win.10)) umzustellen.
 
 Als ordnungsgemäßes Verfahren zum Vornahmen aller Änderungen begannen wir unsere Migration in der Testumgebung des Kunden. Wir begannen unsere Bereitstellung, indem wir die Anweisungen in dem hervorragenden Blogbeitrag von Charity Shelbourne befolgten, [Active Directory-Based Activation vs. Key Management Services](https://techcommunity.microsoft.com/t5/Core-Infrastructure-and-Security/Active-Directory-Based-Activation-vs-Key-Management-Services/ba-p/256016) (Aktivierung über Active Directory im Vergleich mit Schlüsselverwaltungsdiensten). Sämtliche Domänencontroller in unserer Testumgebung führten Windows Server 2012 R2 aus, daher brauchten wir keine Vorbereitung der Gesamtstruktur durchzuführen. Wir installierten die Rolle auf einem Windows Server 2012 R2-Domänencontroller und wählten Aktivierung über Active Directory als Volumenaktivierungsmethode aus. Wir installierten unseren KMS-Schlüssel und gaben ihm den Namen „KMS AD Activation ( ** LAB)“. Wir folgten dem Blogbeitrag weitgehend Schritt für Schritt.
 
@@ -70,7 +70,7 @@ Beim Nachschlagen dieses Codes fand ich einen Artikel, der besagte, dass die Syn
 
 Also ist klar, dass DNS in Ordnung ist. Active Directory ist ordnungsgemäß als KMS-Aktivierungsquelle konfiguriert. Mein physischer Server wurde ordnungsgemäß aktiviert. Konnte dies ein Problem sein, das nur virtuelle Computer betrifft? Als interessanten Aspekt am Rande teilte mit mein Kunde mit, dass jemand in einer anderen Abteilung sich entschieden hatte, ebenfalls virtuelle Windows Server 2016-Computer aufzubauen, gleich mehr als ein Dutzend. Also ging ich davon aus, mich um ein weiteres Dutzend Server kümmern zu müssen, die sich nicht aktivieren ließen. Weit gefehlt. Diese Server wurden problemlos aktiviert.
 
-Mich verschlug es also wieder zurück zu meinem **slmgr**-Befehl, um herauszufinden, wie sich diese Monster aktivieren ließen. Diesmal verwendete ich den Schalter **/ipk**, der die Installation eines Product Keys ermöglicht. Ich begab mich zu [dieser Website](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj612867(v=ws.11)), um die passenden Schlüssel für meine Standardversion von Windows Server 2016 abzurufen. Bei einigen meiner Server handelt es sich um die Datacenter-Edition, aber diesen muss ich zuerst reparieren.
+Mich verschlug es also wieder zurück zu meinem **slmgr**-Befehl, um herauszufinden, wie sich diese Monster aktivieren ließen. Diesmal verwendete ich den Schalter **/ipk**, der die Installation eines Product Keys ermöglicht. Ich begab mich zu [dieser Website](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj612867(v=ws.11)), um die passenden Schlüssel für meine Standardversion von Windows Server 2016 abzurufen. Bei einigen meiner Server handelt es sich um die Datacenter-Edition, aber diesen muss ich zuerst reparieren.
 
 ![Abbildung der Liste der KMS-Clientsetupschlüssel](./media/032618_1700_Troubleshoo9.png)
 

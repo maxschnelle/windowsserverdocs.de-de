@@ -8,12 +8,12 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: c2cb88d5b30be28a8ab7709e3a3908ce82ae8408
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 68e51cff5b70ed0b11488e44cebba057e7432d99
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "75352360"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86965272"
 ---
 # <a name="initialize-new-disks"></a>Initialisieren neuer Datenträger
 
@@ -26,7 +26,7 @@ Wenn du einen ganz neuen Datenträger zu deinem PC hinzufügst und er nicht im D
 
 ## <a name="to-initialize-new-disks"></a>So initialisierst du neue Datenträger
 
-Hier wird erläutert, wie du einen neuen Datenträger mit der Datenträgerverwaltung initialisierst. Wenn du PowerShell bevorzugst, verwende stattdessen das Cmdlet [initialize-disk](https://docs.microsoft.com/powershell/module/storage/initialize-disk).
+Hier wird erläutert, wie du einen neuen Datenträger mit der Datenträgerverwaltung initialisierst. Wenn du PowerShell bevorzugst, verwende stattdessen das Cmdlet [initialize-disk](/powershell/module/storage/initialize-disk).
 
 1. Öffne die Datenträgerverwaltung mit Administratorberechtigungen.
  

@@ -9,12 +9,12 @@ author: haley-rowland
 ms.author: elizapo
 ms.date: 06/14/2017
 manager: dongill
-ms.openlocfilehash: 5c0f5d6937a79f36df264597400fe71af3f3779b
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 18ed49472a00790a1c713016c4da9a056066a88a
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80855593"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86953712"
 ---
 # <a name="create-a-geo-redundant-multi-data-center-rds-deployment-for-disaster-recovery"></a>Erstellen einer georedundanten RDS-Bereitstellung mit mehreren Rechenzentren für die Notfallwiederherstellung
 
@@ -52,7 +52,7 @@ Erstelle die folgenden Ressourcen in Azure, um eine georedundante RDS-Bereitstel
 2. Eine hoch verfügbare Active Directory-Bereitstellung in RG A. Du kannst die Vorlage [Create an new AD Domain with 2 Domain Controllers](https://azure.microsoft.com/resources/templates/active-directory-new-domain-ha-2-dc/) (Neue AD-Domäne mit zwei Domänencontrollern erstellen) verwenden, um die Bereitstellung zu erstellen.
 3. Eine hoch verfügbare RDS-Bereitstellung in RG A. Verwende die Vorlage [RDS farm deployment using existing active directory](https://azure.microsoft.com/resources/templates/rds-deployment-existing-ad/) (Bereitstellung einer RDS-Farm über eine vorhandene Active Directory-Instanz), um die grundlegende RDS-Bereitstellung zu erstellen. Befolge dann die Anweisungen in [Remote Desktop Services – hohe Verfügbarkeit](rds-plan-high-availability.md), um die anderen RDS-Komponenten im Hinblick auf Hochverfügbarkeit zu konfigurieren.
 4. Ein VNET in RG B: Stelle sicher, dass du einen Adressraum verwendest, der sich nicht mit der Bereitstellung in RG A überschneidet.
-5. Eine [VNET-to-VNET-Verbindung](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps) zwischen den beiden Ressourcengruppen.
+5. Eine [VNET-to-VNET-Verbindung](/azure/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps) zwischen den beiden Ressourcengruppen.
 6. Zwei virtuelle AD-Computer in einer Verfügbarkeitsgruppe in RG B: Stelle sicher, dass die VM-Namen sich von den AD-VMs in RG A unterscheiden. Stelle zwei Windows Server 2016-VMs in einer einzelnen Verfügbarkeitsgruppe bereit, installiere die Active Directory Domain Services-Rolle, und stufe die VMs dann zum Domänencontroller in der in Schritt 1 erstellten Domäne hoch.
 7. Eine zweite hoch verfügbare RDS-Bereitstellung in RG B. 
    1. Verwende erneut die Vorlage [RDS farm deployment using existing active directory](https://azure.microsoft.com/resources/templates/rds-deployment-existing-ad/) (Bereitstellung einer RDS-Farm über eine vorhandene Active Directory-Instanz), nimm aber diesmal die folgenden Änderungen vor. (Um die Vorlage anzupassen, wähle sie im Katalog aus, und klicke auf **In Azure bereitstellen** und dann auf **Vorlage bearbeiten**.)
@@ -81,7 +81,7 @@ Möchtest du mehr über das Verwalten der Replikation erfahren? Dann lies den Ar
 
 Führe zum Aktivieren von UPDs in beiden Bereitstellungen folgende Schritte aus:
 
-1. Führe das Cmdlet [Set-RDSessionCollectionConfiguration](https://docs.microsoft.com/powershell/module/remotedesktop/set-rdsessioncollectionconfiguration) aus, um die Benutzerprofil-Datenträger für die primäre (aktive) Bereitstellung zu aktivieren. Gib einen Pfad zu der Dateifreigabe auf dem Quellvolume an (das du in Bereitstellungsschritt 7 erstellt hast).
+1. Führe das Cmdlet [Set-RDSessionCollectionConfiguration](/powershell/module/remotedesktop/set-rdsessioncollectionconfiguration) aus, um die Benutzerprofil-Datenträger für die primäre (aktive) Bereitstellung zu aktivieren. Gib einen Pfad zu der Dateifreigabe auf dem Quellvolume an (das du in Bereitstellungsschritt 7 erstellt hast).
 2. Kehre die Richtung des Speicherreplikats um, sodass das Zielvolume zum Quellvolume wird (dadurch wird das Volume eingebunden, und die sekundäre Bereitstellung kann darauf zugreifen). Zu diesem Zweck kannst du das Cmdlet **Set-SRPartnership** ausführen. Beispiel:
 
    ```powershell
@@ -160,4 +160,4 @@ Zwar kannst du bei einer lokalen Bereitstellung nicht die in diesem Artikel erw�
 
 Du kannst Azure Traffic Manager mit lokalen Endpunkten verwenden, aber dafür ist ein Azure-Abonnement erforderlich. Alternativ dazu kannst du für das Domain Name System, das für Endbenutzer bereitgestellt wird, auch einen CNAME-Eintrag zur Verfügung stellen, der Benutzer einfach an die primäre Bereitstellung weiterleitet. Ändere bei einem Failover den DNS-CNAME-Eintrag so, dass die Weiterleitung an die sekundäre Bereitstellung erfolgt. Auf diese Weise benötigen Endbenutzer nur eine einzige URL – genau wie bei Azure Traffic Manager –, die sie an die geeignete Bereitstellung weiterleitet. 
 
-Wenn du ein Modell mit Weiterleitung zwischen lokaler Umgebung und Azure-Standort erstellen möchtest, ziehe die Verwendung von [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) in Betracht.
+Wenn du ein Modell mit Weiterleitung zwischen lokaler Umgebung und Azure-Standort erstellen möchtest, ziehe die Verwendung von [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) in Betracht.

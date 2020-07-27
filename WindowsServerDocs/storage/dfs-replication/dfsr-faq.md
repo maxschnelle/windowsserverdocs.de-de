@@ -6,12 +6,12 @@ ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: 1e11f6c596d7e5eb0bdf379adcf47d21e74e9f6b
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 4c4d5310fa6cf47945483c9ee7a3f89afd313da9
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80815623"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86966132"
 ---
 # <a name="dfs-replication-frequently-asked-questions-faq"></a>DFS-Replikation: Häufig gestellte Fragen
 
@@ -22,15 +22,15 @@ Gilt für: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Win
 
 Diese FAQ beantworten häufig gestellte Fragen zur DFS-Replikation (Distributed File System, verteiltes Dateisystem) für Windows Server (die auch als DFS-R oder DFSR bezeichnet wird).
 
-Informationen zu DFS-Namespaces finden Sie unter [DFS-Namespaces: Häufig gestellte Fragen](https://technet.microsoft.com/library/ee404780).
+Informationen zu DFS-Namespaces finden Sie unter [DFS-Namespaces: Häufig gestellte Fragen](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee404780(v=ws.10)).
 
 Informationen zu den Neuerungen bei der DFS-Replikation findest du in den folgenden Themen:
 
-  - [Übersicht über DFS-Namespaces und DFS-Replikation](https://technet.microsoft.com/library/jj127250) (in Windows Server 2012)  
+  - [Übersicht über DFS-Namespaces und DFS-Replikation](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj127250(v=ws.11)) (in Windows Server 2012)  
       
-  - Thema [Neues im verteilten Dateisystem](https://technet.microsoft.com/library/ee307957) unter [Änderungen an der Funktionalität zwischen Windows Server 2008 und Windows Server 2008 R2](https://technet.microsoft.com/library/dd391932)  
+  - Thema [Neues im verteilten Dateisystem](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee307957(v=ws.10)) unter [Änderungen an der Funktionalität zwischen Windows Server 2008 und Windows Server 2008 R2](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd391932(v=ws.10))  
       
-  - Thema [Verteiltes Dateisystem](https://technet.microsoft.com/library/cc753479) unter [Änderungen an der Funktionalität zwischen Windows Server 2003 SP1 und Windows Server 2008](https://technet.microsoft.com/library/cc753208)  
+  - Thema [Verteiltes Dateisystem](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753479(v=ws.10)) unter [Änderungen an der Funktionalität zwischen Windows Server 2003 SP1 und Windows Server 2008](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753208(v=ws.10))  
       
 
 Eine Liste der zuletzt vorgenommenen Änderungen an diesem Thema finden Sie im Abschnitt [Änderungsverlauf](#change-history) dieses Themas.
@@ -47,7 +47,7 @@ Nein Die DFS-Replikation kommuniziert nicht mit dem Dateireplikationsdienst (Fil
 
 Ja. Auf Servern mit Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 oder Windows Server 2008 kann die DFS-Replikation FRS bei der SYSVOL-Replikation ersetzen. Server, auf denen Windows Server 2003 R2 ausgeführt wird, bieten keine Unterstützung für die Verwendung der DFS-Replikation zum Replizieren des SYSVOL-Ordners.
 
-Weitere Informationen zum Replizieren von SYSVOL mithilfe der DFS-Replikation findest du in der [Anleitung für die Migration der SYSVOL-Replikation: FRS-zu-DFS-Replikation](https://technet.microsoft.com/library/dd640019).
+Weitere Informationen zum Replizieren von SYSVOL mithilfe der DFS-Replikation findest du in der [Anleitung für die Migration der SYSVOL-Replikation: FRS-zu-DFS-Replikation](./migrate-sysvol-to-dfsr.md).
 
 ### <a name="can-i-upgrade-from-frs-to-dfs-replication-without-losing-configuration-settings"></a>Kann ich ein Upgrade von FRS auf die DFS-Replikation durchführen, ohne dass die Konfigurationseinstellungen verloren gehen?
 
@@ -55,7 +55,7 @@ Ja. In den folgenden Dokumenten wird erläutert, wie die Replikation von FRS zur
 
   - Informationen zum Migrieren der Replikation von Ordnern außer dem SYSVOL-Ordner findest du im [DFS-Betriebshandbuch: Migration von der FRS- zur DFS-Replikation](https://go.microsoft.com/fwlink/?linkid=192776) und [FRS2DFSR – Hilfsprogramm für die FRS-zu-DFSR-Migration](https://go.microsoft.com/fwlink/?linkid=195437) (https://go.microsoft.com/fwlink/?LinkID=195437).  
       
-  - Informationen zum Migrieren der Replikation des SYSVOL-Ordners zur DFS-Replikation findest du in der [Anleitung für die Migration der SYSVOL-Replikation: FRS-zu-DFS-Replikation](https://technet.microsoft.com/library/dd640019).  
+  - Informationen zum Migrieren der Replikation des SYSVOL-Ordners zur DFS-Replikation findest du in der [Anleitung für die Migration der SYSVOL-Replikation: FRS-zu-DFS-Replikation](./migrate-sysvol-to-dfsr.md).  
       
 
 ### <a name="can-i-use-dfs-replication-in-a-mixed-windowsunix-environment"></a>Kann ich die DFS-Replikation in einer gemischten Windows-/UNIX-Umgebung verwenden?
@@ -74,7 +74,7 @@ Ja. Die DFS-Replikation wird auf Volumes des Volumeschattenkopie-Diensts (Volume
 
 Nein. Die Windows-Sicherung (Ntbackup.exe) kann auf einem Computer mit Windows Server 2003 oder früher nicht verwendet werden, um den Inhalt eines replizierten Ordners auf einem Computer mit Windows Server 2012, Windows Server 2008 R2 oder Windows Server 2008 zu sichern.
 
-Verwende zum Sichern von Dateien, die in einem replizierten Ordner gespeichert sind, die Windows Server-Sicherung oder Microsoft&reg; System Center Data Protection Manager. Informationen zu Sicherungs- und Wiederherstellungsfunktionen in Windows Server 2008 R2 und Windows Server 2008 findest du unter [Sicherung und Wiederherstellung](https://technet.microsoft.com/library/Cc754097). Weitere Informationen findest du unter [System Center Data Protection Manager](https://go.microsoft.com/fwlink/?linkid=182261) (https://go.microsoft.com/fwlink/?LinkId=182261).
+Verwende zum Sichern von Dateien, die in einem replizierten Ordner gespeichert sind, die Windows Server-Sicherung oder Microsoft&reg; System Center Data Protection Manager. Informationen zu Sicherungs- und Wiederherstellungsfunktionen in Windows Server 2008 R2 und Windows Server 2008 findest du unter [Sicherung und Wiederherstellung](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754097(v=ws.10)). Weitere Informationen findest du unter [System Center Data Protection Manager](https://go.microsoft.com/fwlink/?linkid=182261) (https://go.microsoft.com/fwlink/?LinkId=182261).
 
 ### <a name="do-file-system-policies-impact-dfs-replication"></a>Wirken sich Dateisystemrichtlinien auf die DFS-Replikation aus?
 
@@ -201,7 +201,7 @@ Weitere Informationen findest du im Thema zu „Sicherheitsanforderungen und Del
 
 ### <a name="how-can-i-upgrade-or-replace-a-dfs-replication-member"></a>Wie kann ich ein DFS-Replikationsmitglied aktualisieren oder ersetzen?
 
-Informationen zum Aktualisieren oder Ersetzen eines DFS-Replikationsmitglieds findest du im folgenden Beitrag des Blogs „Ask the Directory Services Team“: [Austauschen der Hardware oder des Betriebssystems bei DFSR-Mitgliedern](https://blogs.technet.com/b/askds/archive/2010/09/10/series-wrap-up-and-downloads-replacing-dfsr-member-hardware-or-os.aspx).
+Informationen zum Aktualisieren oder Ersetzen eines DFS-Replikationsmitglieds findest du im folgenden Beitrag des Blogs „Ask the Directory Services Team“: [Austauschen der Hardware oder des Betriebssystems bei DFSR-Mitgliedern](/archive/blogs/askds/series-wrap-up-and-downloads-replacing-dfsr-member-hardware-or-os).
 
 ### <a name="is-dfs-replication-suitable-for-replicating-roaming-profiles"></a>Ist die DFS-Replikation für die Replikation von Roamingprofilen geeignet?
 
@@ -280,7 +280,7 @@ Ja. Weitere Informationen findest du unter dem [DFS Replication Management Pack 
 
 Ja. Die DFS-Replikation unterstützt die Remoteverwaltung über die DFS-Verwaltungskonsole und den Befehl **Replikationsgruppe hinzufügen**. Beispielsweise kannst du auf Server A eine Verbindung mit einer Replikationsgruppe herstellen, die in der Gesamtstruktur mit den Servern A und B als Mitgliedern definiert ist.
 
-Die DFS-Verwaltung ist in Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008 und Windows Server 2003 R2 enthalten. Um die DFS-Replikation in anderen Windows-Versionen zu verwalten, verwende Remotedesktop oder die [Remoteserver-Verwaltungstools für Windows 7](https://technet.microsoft.com/library/Ee449475).
+Die DFS-Verwaltung ist in Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008 und Windows Server 2003 R2 enthalten. Um die DFS-Replikation in anderen Windows-Versionen zu verwalten, verwende Remotedesktop oder die [Remoteserver-Verwaltungstools für Windows 7](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee449475(v=ws.10)).
 
 
 > [!IMPORTANT]
@@ -304,7 +304,7 @@ Ja. Es gibt eine Reihe von Möglichkeiten, die Replikation zu überwachen:
       
   - Die DFS-Verwaltung verfügt über einen integrierten Diagnosebericht, der Aufschluss über das Replikations-Rückstandsprotokoll, die Replikationseffizienz und die Anzahl der Dateien und Ordner in einer bestimmten Replikationsgruppe gibt.  
       
-  - Das DFSR Windows PowerShell-Modul in Windows Server 2012 R2 umfasst Cmdlets zum Starten von Propagierungstests und zum Schreiben von Propagierungs- und Integritätsberichten. Weitere Informationen findest du im Thema zu [DFSR (Distributed File System Replication)-Cmdlets in Windows PowerShell](https://technet.microsoft.com/library/dn296601.aspx).  
+  - Das DFSR Windows PowerShell-Modul in Windows Server 2012 R2 umfasst Cmdlets zum Starten von Propagierungstests und zum Schreiben von Propagierungs- und Integritätsberichten. Weitere Informationen findest du im Thema zu [DFSR (Distributed File System Replication)-Cmdlets in Windows PowerShell](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee449475(v=ws.10)).  
       
   - „Dfsrdiag.exe“ ist ein Befehlszeilentool, mit dem die Anzahl der noch nicht verarbeiteten Dateien generiert oder ein Propagierungstest ausgelöst werden kann. In beiden Fällen wird der Status der Replikation angegeben. An der Propagierung ist erkennbar, ob Dateien auf alle Knoten repliziert werden. Im Rückstandsprotokoll ist angegeben, wie viele Dateien noch repliziert werden müssen, bis zwei Computer synchron sind. Die Anzahl im Rückstandsprotokoll entspricht der Anzahl von Aktualisierungen, die von einem Mitglied einer Replikationsgruppe noch nicht verarbeitet wurden. Auf Computern mit Windows Server 2012 R2, Windows Server 2012 oder Windows Server 2008 R2 können mithilfe von „Dfsrdiag.exe“ auch die Aktualisierungen angezeigt werden, die von der DFS-Replikation momentan repliziert werden.  
       
@@ -331,7 +331,7 @@ Nein Bei der DFS-Replikation wird die vom Administrator definierte Topologie ver
 
 ### <a name="how-can-i-improve-replication-performance"></a>Wie kann ich die Replikationsleistung verbessern?
 
-Informationen über die verschiedenen Methoden zum Optimieren der Replikationsleistung findest du im Thema zum [Optimieren der Replikationsleistung in DFSR](https://blogs.technet.com/b/askds/archive/2010/03/31/tuning-replication-performance-in-dfsr-especially-on-win2008-r2.aspx) im Blog [Ask the Directory Services Team](https://blogs.technet.com/b/askds/).
+Informationen über die verschiedenen Methoden zum Optimieren der Replikationsleistung findest du im Thema zum [Optimieren der Replikationsleistung in DFSR](/archive/blogs/askds/tuning-replication-performance-in-dfsr-especially-on-win2008-r2) im Blog [Ask the Directory Services Team](/archive/blogs/askds/).
 
 ### <a name="how-does-dfs-replication-avoid-saturating-a-connection"></a>Wie lässt sich vermeiden, dass eine Verbindung durch die DFS-Replikation vollständig ausgelastet wird?
 
@@ -339,7 +339,7 @@ Bei der DFS-Replikation legst du die maximale Bandbreite fest, die für eine Ver
 
 Trotzdem ist die Bandbreiteneinschränkung nicht zu 100 % genau, sodass die Verbindung von der DFS-Replikation kurzzeitig ausgelastet werden kann. Dies liegt daran, dass die Bandbreiteneinschränkung bei der DFS-Replikation durch die Einschränkung der RPC-Aufrufe erfolgt. Da dieser Prozess von verschiedenen Puffern auf tieferen Ebenen des Netzwerkstapels, einschließlich RPC, abhängig ist, wird der Replikationsdatenverkehr tendenziell in Bursts übertragen, wodurch die Netzwerkverbindungen zeitweise vollständig ausgelastet werden können.
 
-Die DFS-Replikation in Windows Server 2008 umfasst mehrere Leistungsverbesserungen, die im Thema [Verteiltes Dateisystem](https://technet.microsoft.com/library/Cc753479) unter [Änderungen an der Funktionalität zwischen Windows Server 2003 SP1 und Windows Server 2008](https://technet.microsoft.com/library/cc753208) erläutert werden.
+Die DFS-Replikation in Windows Server 2008 umfasst mehrere Leistungsverbesserungen, die im Thema [Verteiltes Dateisystem](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753479(v=ws.10)) unter [Änderungen an der Funktionalität zwischen Windows Server 2003 SP1 und Windows Server 2008](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753208(v=ws.10)) erläutert werden.
 
 ### <a name="how-does-dfs-replication-performance-compare-with-frs"></a>Welche Leistung bietet die DFS-Replikation im Vergleich mit FRS?
 
@@ -533,9 +533,9 @@ Bei der ersten Replikation müssen keine Inhalte repliziert werden, wenn sich Da
 
 Um ein Replikationsgruppenmitglied vorab bereitzustellen, müssen die Dateien in den entsprechenden Ordner auf den Zielservern kopiert, die Replikationsgruppe erstellt und dann ein primäres Mitglied ausgewählt werden. Wähle das Mitglied mit den aktuellsten Dateien aus, die repliziert werden sollen, da der Inhalt des primären Mitglieds als „autoritativ“ betrachtet wird. Das bedeutet, dass andere Versionen der Dateien auf anderen Mitgliedern der Replikationsgruppe während der ersten Replikation immer durch die Dateien des primären Mitglieds überschrieben werden.
 
-Informationen dazu, wie du ein Vorab-Seeding für die DFSR-Datenbank ausführst und diese klonst, findest du unter [DFS Replication Initial Sync in Windows Server 2012 R2: Attack of the Clones](https://blogs.technet.com/b/filecab/archive/2013/08/21/dfs-replication-initial-sync-in-windows-server-2012-r2-attack-of-the-clones.aspx) (Erste Synchronisierung bei der DFS-Replikation in Windows Server 2012 R2: Angriff der Klone).
+Informationen dazu, wie du ein Vorab-Seeding für die DFSR-Datenbank ausführst und diese klonst, findest du unter [DFS Replication Initial Sync in Windows Server 2012 R2: Attack of the Clones](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB) (Erste Synchronisierung bei der DFS-Replikation in Windows Server 2012 R2: Angriff der Klone).
 
-Weitere Informationen zur ersten Replikation findest du unter [Erstellen einer Replikationsgruppe](https://technet.microsoft.com/library/cc725893).
+Weitere Informationen zur ersten Replikation findest du unter [Erstellen einer Replikationsgruppe](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc725893(v=ws.11)).
 
 ### <a name="does-dfs-replication-overcome-common-file-replication-service-issues"></a>Lassen sich mit der DFS-Replikation allgemeine Probleme des Dateireplikationsdiensts beheben?
 
@@ -562,7 +562,7 @@ Wenn eine Datei von einer Anwendung geöffnet und gesperrt wird (um zu verhinder
       
   - Microsoft bietet keine Unterstützung für das Erstellen fester NTFS-Links zu oder von Dateien in einem replizierten Ordner. Dies kann zu Replikationsproblemen bei den betroffenen Dateien führen. Fest verknüpfte Dateien werden von der DFS-Replikation ignoriert und nicht repliziert. Verknüpfungspunkte werden auch nicht repliziert, und bei der DFS-Replikation wird für jeden gefundenen Verknüpfungspunkt das Ereignis 4406 protokolliert.  
       
-  - Die einzigen von der DFS-Replikation replizierten Analysepunkte sind diejenigen, die die Kennung IO\_REPARSE\_TAG\_SYMLINK verwenden. Die DFS-Replikation gewährleistet jedoch nicht, dass das Ziel eines Symlinks ebenfalls repliziert wird. Weitere Informationen findest du im Blog [Ask the Directory Services Team](https://blogs.technet.com/b/askds/archive/2011/09/30/friday-mail-sack-super-slo-mo-edition.aspx).  
+  - Die einzigen von der DFS-Replikation replizierten Analysepunkte sind diejenigen, die die Kennung IO\_REPARSE\_TAG\_SYMLINK verwenden. Die DFS-Replikation gewährleistet jedoch nicht, dass das Ziel eines Symlinks ebenfalls repliziert wird. Weitere Informationen findest du im Blog [Ask the Directory Services Team](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc725893(v=ws.11)).  
       
   - Dateien mit der Analysenkennung IO\_REPARSE\_TAG\_DEDUP, IO\_REPARSE\_TAG\_SIS oder IO\_REPARSE\_TAG\_HSM werden als normale Dateien repliziert. Die Analysenkennung und die Analysedatenpuffer werden nicht auf andere Server repliziert, da der Analysepunkt nur auf dem lokalen System funktioniert. Im eigentlichen Sinne können mit der DFS-Replikation Ordner auf Volumes repliziert werden, die die Datendeduplizierung in Windows Server 2012 oder die Einzelinstanz-Speicherung (Single Instance Storage, SIS) verwenden. Allerdings werden Informationen zur Datendeduplizierung von jedem Server, auf dem der Rollendienst aktiviert ist, separat verwaltet.  
       
@@ -610,7 +610,7 @@ Standardmäßig werden maximal 16 (vier in Windows Server 2003 R2) gleichzeit
 
 ### <a name="how-do-i-force-replication-or-polling"></a>Wie kann ich die Replikation oder den Abruf erzwingen?
 
-Mithilfe der DFS-Verwaltung lässt sich die Replikation sofort erzwingen, wie unter [Bearbeiten von Replikationszeitplänen](https://technet.microsoft.com/library/Cc732278) beschrieben. Du kannst die Replikation auch mit dem `Sync-DfsReplicationGroup`-Cmdlet erzwingen, das in dem mit Windows Server 2012 R2 eingeführten DFSR PowerShell-Modul enthalten ist, oder mit dem Befehl **Dfsrdiag SyncNow**. Das Abrufen kann mit dem `Update-DfsrConfigurationFromAD`-Cmdlet oder dem Befehl **Dfsrdiag PollAD** erzwungen werden.
+Mithilfe der DFS-Verwaltung lässt sich die Replikation sofort erzwingen, wie unter [Bearbeiten von Replikationszeitplänen](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc732278(v=ws.11)) beschrieben. Du kannst die Replikation auch mit dem `Sync-DfsReplicationGroup`-Cmdlet erzwingen, das in dem mit Windows Server 2012 R2 eingeführten DFSR PowerShell-Modul enthalten ist, oder mit dem Befehl **Dfsrdiag SyncNow**. Das Abrufen kann mit dem `Update-DfsrConfigurationFromAD`-Cmdlet oder dem Befehl **Dfsrdiag PollAD** erzwungen werden.
 
 ### <a name="is-it-possible-to-configure-a-quiet-time-between-replications-for-files-that-change-frequently"></a>Ist es möglich, für häufig geänderte Dateien eine Ruhezeit zwischen Replikationen zu konfigurieren?
 
@@ -639,7 +639,7 @@ Während der ersten Replikation haben Dateien des primären Mitglieds bei der Ko
 
 Wenn bei der ersten Replikation ein Fehler auftritt oder der DFS-Replikationsdienst während der Replikation neu gestartet wird, erkennt das primäre Mitglied die Definition des primären Mitglieds in der lokalen DFS-Replikationsdatenbank und wiederholt die erste Replikation. Wenn die Verbindung des primären Mitglieds mit der DFS-Replikationsdatenbank getrennt wird, nachdem die Definition des primären Mitglieds in Active Directory Domain Services gelöscht wurde, aber bevor alle Mitglieder der Replikationsgruppe die erste Replikation abgeschlossen haben, tritt bei allen Mitgliedern der Replikationsgruppe ein Fehler bei der Ordnerreplikation auf, da kein Server als primäres Mitglied definiert ist. In diesem Fall muss der Befehl **Dfsradmin membership /set /isprimary:true** auf dem Server des primären Mitglieds verwendet werden, um die Definition des primären Mitglieds manuell wiederherzustellen.
 
-Weitere Informationen zur ersten Replikation findest du unter [Erstellen einer Replikationsgruppe](https://technet.microsoft.com/library/cc725893).
+Weitere Informationen zur ersten Replikation findest du unter [Erstellen einer Replikationsgruppe](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc725893(v=ws.11)).
 
 
 > [!WARNING]
@@ -787,4 +787,3 @@ Wenn ein Teil der Datei bereits übertragen wird, wird die Übertragung von der 
 </tr>
 </tbody>
 </table>
-

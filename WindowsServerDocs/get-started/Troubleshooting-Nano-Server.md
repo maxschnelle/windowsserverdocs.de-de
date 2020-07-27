@@ -10,12 +10,12 @@ ms.assetid: e427c66f-9571-4b8c-b65d-e7370d91544d
 author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
-ms.openlocfilehash: f134680792eda33343bb6743708b37cf4f9e5faa
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: ce71c2d11343be62d47f8957fa9414915fcc7847
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80826453"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86964412"
 ---
 # <a name="troubleshooting-nano-server"></a>Problembehandlung bei Nano Server
 
@@ -45,7 +45,7 @@ Mit der Wiederherstellungskonsole können Sie Netzwerkadapter, TCP/IP-Einstellun
 > Die Wiederherstellungskonsole unterstützt nur grundlegende Tastaturfunktionen. Tastaturbeleuchtung, Nummernblöcke und Tastaturlayoutwechsel wie z.B. FESTSTELLTASTE und Num-Lock-Taste werden nicht unterstützt. Es werden nur englische Tastaturen und Zeichensätze unterstützt.
 
 ## <a name="accessing-nano-server-over-a-serial-port-with-emergency-management-services"></a>Zugreifen auf Nano Server über einen seriellen Anschluss mit Notverwaltungsdiensten  
-Mit den Notverwaltungsdiensten (Management Services, EMS) können Sie die grundlegende Problembehandlung durchführen, den Netzwerkstatus abrufen und Konsolensitzungen öffnen (einschließend CMD/PowerShell), indem Sie einen Terminalemulator auf einem seriellen Port verwenden. Durch diese Option ist es nicht mehr notwendig, dass eine Tastatur und ein Monitor die Fehlerbehebung für einen Server ausführen müssen. Weitere Informationen zu EMS finden Sie unter [Emergency Management Services Technical Reference (Technische Referenz zu den Notverwaltungsdiensten)](https://technet.microsoft.com/library/cc784411(v=ws.10).aspx).
+Mit den Notverwaltungsdiensten (Management Services, EMS) können Sie die grundlegende Problembehandlung durchführen, den Netzwerkstatus abrufen und Konsolensitzungen öffnen (einschließend CMD/PowerShell), indem Sie einen Terminalemulator auf einem seriellen Port verwenden. Durch diese Option ist es nicht mehr notwendig, dass eine Tastatur und ein Monitor die Fehlerbehebung für einen Server ausführen müssen. Weitere Informationen zu EMS finden Sie unter [Emergency Management Services Technical Reference (Technische Referenz zu den Notverwaltungsdiensten)](/previous-versions/windows/it-pro/windows-server-2003/cc784411(v=ws.10)).
 
 Führen Sie folgendes Cmdlet aus, um die Notverwaltungsdienste (Emergency Management Services, EMS) auf einem Nano Server-Image zu aktivieren, sodass sie für den späteren Gebrauch bereit sind:  
   
@@ -54,7 +54,7 @@ Führen Sie folgendes Cmdlet aus, um die Notverwaltungsdienste (Emergency Manage
 Dieses Beispiel-Cmdlet aktiviert EMS auf dem seriellen Port 3 mit einer Baudrate von 9.600 Bits/s. Wenn Sie diese Parameter nicht einschließen, sind die Standardeinstellungen Port 1 und 115.200 Bits/s. Um dieses Cmdlet für VHDX-Medien zu verwenden, stellen Sie sicher, dass Sie das Hyper-V-Feature und die zugehörigen Windows PowerShell-Module eingeschlossen haben.
 
 ## <a name="kernel-debugging"></a>Kerneldebugging  
-Sie können das Nano Server-Image konfigurieren, um Kerneldebugging mit einer Vielzahl von Methoden zu unterstützen. Um Kerneldebugging mit einem VHDX-Image zu verwenden, stellen Sie sicher, dass Sie das Hyper-V-Feature und die zugehörigen Windows PowerShell-Module eingeschlossen haben. Weitere Informationen über allgemeines remotes Kernelbugging finden Sie unter [Setting Up Kernel-Mode Debugging over a Network Cable Manually (Manuelles Einrichten von Kernel-Modus-Debugging über ein Netzwerkkabel)](https://msdn.microsoft.com/library/windows/hardware/hh439346%28v=vs.85%29.aspx) und [Remote Debugging Using WinDbg (Remotes Debugging mithilfe von WinDbg)](https://msdn.microsoft.com/library/windows/hardware/hh451173%28v=vs.85%29.aspx).  
+Sie können das Nano Server-Image konfigurieren, um Kerneldebugging mit einer Vielzahl von Methoden zu unterstützen. Um Kerneldebugging mit einem VHDX-Image zu verwenden, stellen Sie sicher, dass Sie das Hyper-V-Feature und die zugehörigen Windows PowerShell-Module eingeschlossen haben. Weitere Informationen über allgemeines remotes Kernelbugging finden Sie unter [Setting Up Kernel-Mode Debugging over a Network Cable Manually (Manuelles Einrichten von Kernel-Modus-Debugging über ein Netzwerkkabel)](/windows-hardware/drivers/debugger/setting-up-a-network-debugging-connection) und [Remote Debugging Using WinDbg (Remotes Debugging mithilfe von WinDbg)](/windows-hardware/drivers/debugger/setting-up-a-network-debugging-connection).  
   
 ### <a name="debugging-using-a-serial-port"></a>Debuggen mit einem seriellen Port  
 Verwenden Sie dieses Cmdlet, um das zu debuggende Image mithilfe eines seriellen Port zu aktivieren:  

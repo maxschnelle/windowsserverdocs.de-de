@@ -8,12 +8,12 @@ author: jasongerend
 ms.author: jgerend
 ms.localizationpriority: high
 ms.date: 05/21/2019
-ms.openlocfilehash: 2bf56e69d1a28007c35c320d1d5cc73c2ba9fa53
-ms.sourcegitcommit: 643a9916efb95ad0bb5cc0a9b115ac29af4cb076
+ms.openlocfilehash: 1823816d2218c09c84e5eb61bf8af6bd3411a0d7
+ms.sourcegitcommit: 78b59522234825c43b00c271a04c35f3fd9d65e3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85586692"
+ms.lasthandoff: 07/22/2020
+ms.locfileid: "86946594"
 ---
 # <a name="windows-server-servicing-channels-ltsc-and-sac"></a>Windows Server-Wartungskanäle: LTSC und SAC
 
@@ -91,7 +91,7 @@ Releases im halbjährlichen Kanal sollten als Neuinstallation installiert werden
 - Visual Studio-Abonnements: Visual Studio-Abonnenten können Releases im halbjährlichen Kanal erhalten, indem sie sie von der [Downloadseite für Visual Studio-Abonnenten](https://my.visualstudio.com/downloads?pid=2347) herunterladen. Wenn Sie noch kein Abonnent sind, navigieren Sie zu [Visual Studio-Abonnements](https://www.visualstudio.com/subscriptions/), um sich zu registrieren, und besuchen Sie dann die [Downloadseite für Visual Studio-Abonnenten](https://my.visualstudio.com/downloads?pid=2347), wie oben beschrieben. Releases, die über Visual Studio-Abonnements bezogen werden, sind nur zu Entwicklungs- und Testzwecken bestimmt.
 
 - Vorschauversionen können Sie über das Windows-Insider-Programm erhalten: Aufgrund der Möglichkeit zum Aufspüren potenzieller Probleme vor der Veröffentlichung hilft das frühzeitige Testen von Builds von Windows Server sowohl Microsoft als auch dessen Kunden. Dies gibt Kunden auch eine einzigartige Gelegenheit, direkt auf die im Produkt enthaltenen Funktionen Einfluss zu nehmen.
-Microsoft ist auf Feedback während des Entwicklungsprozesses angewiesen, damit Anpassungen so schnell wie möglich gemacht werden können. Frühzeitiges Testen und Feedback sind für das Modell schneller Releases unabdingbar. Informationen zur Teilnahme am Windows-Insider-Programm finden Sie unter [Windows-Insider-Programm für Serverdokumente](https://docs.microsoft.com/windows-insider/at-work/).
+Microsoft ist auf Feedback während des Entwicklungsprozesses angewiesen, damit Anpassungen so schnell wie möglich gemacht werden können. Frühzeitiges Testen und Feedback sind für das Modell schneller Releases unabdingbar. Informationen zur Teilnahme am Windows-Insider-Programm finden Sie unter [Windows-Insider-Programm für Serverdokumente](/windows-insider/at-work/).
 
 ## <a name="activating-semi-annual-channel-releases"></a>Aktivieren von Releases im halbjährlichen Kanal
 
@@ -115,7 +115,7 @@ Nano Server ist als Containerbetriebssystem im halbjährlichen Kanal verfügbar.
 Im Allgemeinen werden Releases im Long-Term Servicing Channel, wie etwa Windows Server 2019, zum gleichen Zeitpunkt wie die neue Version des halbjährlichen Kanals veröffentlicht, beispielsweise Windows Server, Version 1809. Dadurch kann die Bestimmung, ob ein Server ein Release des halbjährlichen Kanals ausführt, etwas schwieriger werden. Statt auf die Buildnummer müssen Sie auf den Produktnamen achten: Für Releases im halbjährlichen Kanal werden die Produktnamen „Windows Server Standard“ oder „Windows Server Datacenter“ ohne Versionsnummer verwendet, während Releases im Long-Term Servicing Channel die Versionsnummer enthalten, z. B. „Windows Server 2019 Datacenter“.
 
 > [!Note]
-> Die folgende Anleitung ist nur dazu vorgesehen, die Bestimmung von LTSC und SAC zur allgemeinen Bestandsaufnahme zu erleichtern.  Sie ist nicht zur Bestimmung der Anwendungskompatibilität oder zur Darstellung einer bestimmten API-Oberfläche vorgesehen.  App-Entwickler sollten andere Anleitungen verwenden, um die Kompatibilität zu gewährleisten, da Komponenten, APIs und Funktionen über die Lebensdauer eines Systems hinzugefügt werden bzw. noch fehlen können. [Betriebssystemversion](https://docs.microsoft.com/windows/desktop/SysInfo/operating-system-version) ist ein besserer Ausgangspunkt für Anwendungsentwickler.
+> Die folgende Anleitung ist nur dazu vorgesehen, die Bestimmung von LTSC und SAC zur allgemeinen Bestandsaufnahme zu erleichtern.  Sie ist nicht zur Bestimmung der Anwendungskompatibilität oder zur Darstellung einer bestimmten API-Oberfläche vorgesehen.  App-Entwickler sollten andere Anleitungen verwenden, um die Kompatibilität zu gewährleisten, da Komponenten, APIs und Funktionen über die Lebensdauer eines Systems hinzugefügt werden bzw. noch fehlen können. [Betriebssystemversion](/windows/desktop/sysinfo/operating-system-version) ist ein besserer Ausgangspunkt für Anwendungsentwickler.
 
 Öffnen Sie PowerShell, und verwenden Sie das Cmdlet „Get-ItemProperty“ oder das Cmdlet „Get-ComputerInfo“, um diese Eigenschaften in der Registrierung zu überprüfen.  Zusammen mit der Buildnummer macht diese Angabe LTSC oder SAC durch das Vorhandensein oder Fehlen des Markenjahres (2019) kenntlich.  LTSC enthält sie, SAC nicht.  Zusammen mit „ReleaseId“ oder „WindowsVersion“ wird auch der Zeitpunkt des Releases zurückgegeben, d.h. 1809, und die Information, ob es sich bei der Installation um Server Core oder Server mit Desktop-Benutzeroberfläche handelt.
 
@@ -165,7 +165,7 @@ OsVersion                     : 10.0.17763
 OsHardwareAbstractionLayer    : 10.0.17763.107
 ````
 
-Um abzufragen, ob das neue [Server Core App Compatibility FOD](https://docs.microsoft.com/windows-server/get-started-19/install-fod-19) auf einem Server vorhanden ist, verwenden Sie das Cmdlet [Get-WindowsCapability](https://docs.microsoft.com/powershell/module/dism/get-windowscapability?view=win10-ps) und suchen nach:
+Um abzufragen, ob das neue [Server Core App Compatibility FOD](./install-fod-19.md) auf einem Server vorhanden ist, verwenden Sie das Cmdlet [Get-WindowsCapability](/powershell/module/dism/get-windowscapability?view=win10-ps) und suchen nach:
 ````
 Name    :     ServerCore.AppCompatibility~~~~0.0.1.0
 State   :     Installed
@@ -177,8 +177,8 @@ State   :     Installed
 
 [Supportlebenszyklus für Windows Server](https://support.microsoft.com/lifecycle)
 
-[Ermitteln, ob Server Core ausgeführt wird](https://msdn.microsoft.com/library/hh846315%28v=vs.85%29.aspx?f=255&MSPPError=-2147217396)
+[Ermitteln, ob Server Core ausgeführt wird](/previous-versions/windows/desktop/legacy/hh846315(v=vs.85)?f=255&MSPPError=-2147217396)
 
-[GetProductInfo-Funktion](https://docs.microsoft.com/windows/desktop/api/sysinfoapi/nf-sysinfoapi-getproductinfo)
+[GetProductInfo-Funktion](/windows/desktop/api/sysinfoapi/nf-sysinfoapi-getproductinfo)
 
-[Cmdlets zur Protokollierung des Softwarebestands](https://docs.microsoft.com/powershell/module/softwareinventorylogging/?view=winserver2012R2-ps)
+[Cmdlets zur Protokollierung des Softwarebestands](/powershell/module/softwareinventorylogging/?view=winserver2012R2-ps)

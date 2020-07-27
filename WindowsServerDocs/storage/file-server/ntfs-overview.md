@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 06/17/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 450e5a4e800a8631adacb9826db63e747ecce4e1
-ms.sourcegitcommit: 568b924d32421256f64abfee171304f1daf320d2
+ms.openlocfilehash: a390521cbd4d5dd676662d3dc41062792f1fa945
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85070527"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86965142"
 ---
 # <a name="ntfs-overview"></a>Übersicht über NTFS
 
@@ -21,7 +21,7 @@ ms.locfileid: "85070527"
 
 NTFS ist das primäre Dateisystem für die aktuellsten Versionen von Windows und Windows Server und bietet alle Funktionen, einschließlich Sicherheitsdeskriptoren, Verschlüsselung, Datenträgerkontingente sowie umfangreiche Metadaten und kann mit freigegebenen Clustervolumes (Cluster Shared Volumes, CSV) verwendet werden, um ständig verfügbare Volumes bereitzustellen, auf die gleichzeitig von mehreren Knoten eines Failoverclusters aus zugegriffen werden kann.
 
-Weitere Informationen zu neuen und geänderten Funktionen in NTFS unter Windows Server 2012 R2 finden Sie unter [Neuerungen in NTFS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn466520(v%3dws.11)). Weitere Informationen zum Feature finden Sie im Abschnitt [Zusätzliche Informationen](#additional-information) in diesem Thema. Weitere Informationen zum neueren robusten Dateisystem (Resilient File System, ReFS) finden Sie unter [Übersicht über das Robuste Dateisystem (Resilient File System, ReFS)](../refs/refs-overview.md).
+Weitere Informationen zu neuen und geänderten Funktionen in NTFS unter Windows Server 2012 R2 finden Sie unter [Neuerungen in NTFS](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn466520(v%3dws.11)). Weitere Informationen zum Feature finden Sie im Abschnitt [Zusätzliche Informationen](#additional-information) in diesem Thema. Weitere Informationen zum neueren robusten Dateisystem (Resilient File System, ReFS) finden Sie unter [Übersicht über das Robuste Dateisystem (Resilient File System, ReFS)](../refs/refs-overview.md).
 
 ## <a name="practical-applications"></a>Praktische Anwendung
 
@@ -29,13 +29,13 @@ Weitere Informationen zu neuen und geänderten Funktionen in NTFS unter Windows 
 
 NTFS verwendet Protokolldatei und Prüfpunktinformationen, um die Konsistenz des Dateisystems wiederherzustellen, wenn der Computer nach einem Systemausfall neu gestartet wird. Nach einem schwerwiegenden Sektorfehler nimmt NTFS eine dynamische Neuzuordnung des Clusters vor, der den fehlerhaften Sektor enthält, ordnet einen neuen Cluster für die Daten zu, markiert den ursprünglichen Cluster als „fehlerhaft“ und verwendet den alten Cluster nicht mehr. Beispielsweise kann NTFS nach einem Serverabsturz Daten wiederherstellen, indem die zugehörigen Protokolldateien wiedergegeben werden.
 
-NTFS überwacht und korrigiert kontinuierlich Probleme durch vorübergehende Beschädigungen im Hintergrund, ohne das Volume offline zu schalten (dieses Feature wird als [NTFS-Selbstkorrektur](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771388(v=ws.10)) bezeichnet, und wurde in Windows Server 2008 eingeführt). Bei größeren Beschädigungen wird das Laufwerk in Windows Server 2012 und höher durch das Hilfsprogramm Chkdsk überprüft und analysiert, während das Volume online ist. Dadurch beschränkt sich die Offlinedauer auf die Zeit, die zum Wiederherstellen der Datenkonsistenz auf dem Volume erforderlich ist. Wenn NTFS mit freigegebenen Clustervolumes verwendet wird, entsteht keine Downtime. Weitere Informationen finden Sie unter [NTFS-Integrität und Chkdsk](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831536(v%3dws.11)).
+NTFS überwacht und korrigiert kontinuierlich Probleme durch vorübergehende Beschädigungen im Hintergrund, ohne das Volume offline zu schalten (dieses Feature wird als [NTFS-Selbstkorrektur](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc771388(v=ws.10)) bezeichnet, und wurde in Windows Server 2008 eingeführt). Bei größeren Beschädigungen wird das Laufwerk in Windows Server 2012 und höher durch das Hilfsprogramm Chkdsk überprüft und analysiert, während das Volume online ist. Dadurch beschränkt sich die Offlinedauer auf die Zeit, die zum Wiederherstellen der Datenkonsistenz auf dem Volume erforderlich ist. Wenn NTFS mit freigegebenen Clustervolumes verwendet wird, entsteht keine Downtime. Weitere Informationen finden Sie unter [NTFS-Integrität und Chkdsk](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831536(v%3dws.11)).
 
 ### <a name="increased-security"></a>Erhöhte Sicherheit
 
 - **Sicherheit basierend auf Zugriffssteuerungslisten (ACL) für Dateien und Ordner** – NTFS ermöglicht Ihnen, Berechtigungen für eine Datei oder einen Ordner festzulegen, die Gruppen und Benutzer anzugeben, deren Zugriff Sie einschränken oder zulassen möchten, und den Zugriffstyp auszuwählen.
 
-- **Unterstützung für BitLocker-Laufwerkverschlüsselung** – BitLocker-Laufwerkverschlüsselung bietet zusätzliche Sicherheit für wichtige Systeminformationen und andere Daten, die auf NTFS-Volumes gespeichert sind. Ab Windows Server 2012 R2 und Windows 8.1 unterstützt BitLocker die Geräteverschlüsselung auf x86- und x64-basierten Computern mit einem TPM (Trusted Platform Module), das den verbundenen Standbymodus unterstützt (zuvor nur auf Windows RT-Geräten verfügbar). Geräteverschlüsselung unterstützt Sie beim Schutz von Daten auf Windows-Computern und hilft dabei, böswillige Benutzer vom Zugriff auf Systemdateien abzuhalten, die sie zum Ausspähen von Kennwörtern benötigen, oder vom Zugriff auf Laufwerke durch Ausbauen physischer Geräte aus Ihrem PC und Installieren in einen anderen PC. Weitere Informationen finden Sie unter [Neuerungen in BitLocker](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn306081(v%3dws.11)).
+- **Unterstützung für BitLocker-Laufwerkverschlüsselung** – BitLocker-Laufwerkverschlüsselung bietet zusätzliche Sicherheit für wichtige Systeminformationen und andere Daten, die auf NTFS-Volumes gespeichert sind. Ab Windows Server 2012 R2 und Windows 8.1 unterstützt BitLocker die Geräteverschlüsselung auf x86- und x64-basierten Computern mit einem TPM (Trusted Platform Module), das den verbundenen Standbymodus unterstützt (zuvor nur auf Windows RT-Geräten verfügbar). Geräteverschlüsselung unterstützt Sie beim Schutz von Daten auf Windows-Computern und hilft dabei, böswillige Benutzer vom Zugriff auf Systemdateien abzuhalten, die sie zum Ausspähen von Kennwörtern benötigen, oder vom Zugriff auf Laufwerke durch Ausbauen physischer Geräte aus Ihrem PC und Installieren in einen anderen PC. Weitere Informationen finden Sie unter [Neuerungen in BitLocker](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn306081(v%3dws.11)).
 
 - **Unterstützung für große Volumes** – NTFS unterstützt Volumes mit einer Größe von bis zu 256 Terabyte. Die unterstützten Volumegrößen sind von der Clustergröße und der Anzahl der Cluster abhängig. Mit (2<sup>32</sup> – 1) Clustern (maximale Anzahl von Clustern, die von NTFS unterstützt werden) werden die folgenden Volumes und Dateigrößen unterstützt.
 
@@ -78,7 +78,7 @@ NTFS unterstützt lange Dateinamen und Pfade mit erweiterter Länge mit den folg
 - **Unterstützung für lange Dateinamen mit Abwärtskompatibilität** – NTFS erlaubt lange Dateinamen, wobei ein 8.3-Alias auf dem Datenträger (in Unicode) gespeichert wird, um die Kompatibilität mit Dateisystemen zu gewährleisten, bei denen Dateinamen und Erweiterungen auf das Format eine 8.3 beschränkt sind. Falls erforderlich (aus Leistungsgründen), können Sie 8.3-Aliase auf einzelnen NTFS-Volumes unter Windows Server 2008 R2, Windows 8 und neueren Versionen des Windows-Betriebssystems selektiv deaktivieren.
   Unter Windows Server 2008 R2 und höheren Systemen sind Kurznamen standardmäßig deaktiviert, wenn ein Volume mit dem Betriebssystem formatiert wird. Aus Gründen der Anwendungskompatibilität sind auf dem Systemvolume Kurznamen weiterhin aktiviert.
 
-- **Unterstützung für Pfade mit erweiterter Länge** – Viele Windows-API-Funktionen verfügen über Unicode-Versionen, die einen Pfad mit erweiterter Länge von ungefähr 32.767 Zeichen zulassen, was über den durch die MAX\_PATH-Einstellung definierten Pfadgrenzwert von 260 Zeichen hinaus geht. Ausführliche Informationen zu den Anforderungen an das Format von Dateinamen und Pfad sowie Anleitungen zum Implementieren von Pfaden mit erweiterter Länge finden Sie unter [Benennen von Dateien, Pfaden und Namespaces](https://msdn.microsoft.com/library/windows/desktop/aa365247).
+- **Unterstützung für Pfade mit erweiterter Länge** – Viele Windows-API-Funktionen verfügen über Unicode-Versionen, die einen Pfad mit erweiterter Länge von ungefähr 32.767 Zeichen zulassen, was über den durch die MAX\_PATH-Einstellung definierten Pfadgrenzwert von 260 Zeichen hinaus geht. Ausführliche Informationen zu den Anforderungen an das Format von Dateinamen und Pfad sowie Anleitungen zum Implementieren von Pfaden mit erweiterter Länge finden Sie unter [Benennen von Dateien, Pfaden und Namespaces](/windows/win32/fileio/naming-a-file).
 
 - **Clusterspeicher** – Bei Verwendung in Failoverclustern unterstützt NTFS kontinuierlich verfügbare Volumes, auf die von mehreren Clusterknoten gleichzeitig zugegriffen werden kann, wenn sie in Verbindung mit freigegebenen Clustervolumes (Cluster Shared Volumes, CSV) verwendet werden. Weitere Informationen finden Sie unter [Verwenden von freigegebenen Clustervolumes in einem Failovercluster](../../failover-clustering/failover-cluster-csvs.md).
 
@@ -95,9 +95,9 @@ Wenn der Speicherplatz auf einem Volume eingeschränkt ist, bietet NTFS die folg
 
 - [Empfehlungen für die Clustergröße für ReFS und NTFS](https://techcommunity.microsoft.com/t5/Storage-at-Microsoft/Cluster-size-recommendations-for-ReFS-and-NTFS/ba-p/425960)
 - [Übersicht über das Robuste Dateisystem (Resilient File System, ReFS)](../refs/refs-overview.md)
-- [Neuerungen in NTFS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn466520(v%3dws.11)) (Windows Server 2012 R2)
-- [Neuerungen in NTFS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ff383236(v=ws.10)) (Windows Server 2008 R2, Windows 7)
-- [NTFS-Integrität und Chkdsk](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831536(v%3dws.11))
-- [NTFS-Selbstkorrektur](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771388(v=ws.10)) (eingeführt in Windows Server 2008)
-- [Transaktionales NTFS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc730726(v%3dws.10)) (eingeführt in Windows Server 2008)
+- [Neuerungen in NTFS](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn466520(v%3dws.11)) (Windows Server 2012 R2)
+- [Neuerungen in NTFS](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/ff383236(v=ws.10)) (Windows Server 2008 R2, Windows 7)
+- [NTFS-Integrität und Chkdsk](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831536(v%3dws.11))
+- [NTFS-Selbstkorrektur](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc771388(v=ws.10)) (eingeführt in Windows Server 2008)
+- [Transaktionales NTFS](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc730726(v%3dws.10)) (eingeführt in Windows Server 2008)
 - [Speicher](../storage.yml)

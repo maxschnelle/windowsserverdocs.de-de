@@ -9,12 +9,12 @@ ms.topic: article
 ms.assetid: 7f73bb0a-ce98-48a4-9d9f-cf7438936ca1
 author: lizap
 manager: dongill
-ms.openlocfilehash: 441b0b24fd4b4dc18d3afd65283bbf7ff2417048
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 2635302c79f5bfb8ca446f78d543e19656644102
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80818436"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86966712"
 ---
 # <a name="remote-desktop-services-architecture"></a>Architektur der Remotedesktopdienste
 
@@ -45,13 +45,13 @@ Die Standardarchitekturen für die RDS-Bereitstellung sind zwar für die meisten
 
 ### <a name="rds-deployment-with-azure-ad-domain-services"></a>RDS-Bereitstellung mit Azure AD Domain Services
 
-Die beiden Standardarchitekturdiagramme von weiter oben basieren auf einer traditionellen AD-Bereitstellung (Active Directory) auf einem virtuellen Windows Server-Computer. Wenn du allerdings über keine traditionelle AD-Bereitstellung und nur über einen einzelnen Azure AD-Mandanten (über Dienste wie Office 365) verfügst, RDS aber trotzdem nutzen möchtest, kannst du mithilfe von [Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) in deiner Azure-IaaS-Umgebung eine vollständig verwaltete Domäne erstellen, die die gleichen Benutzer verwendet, die auch in deinem Azure AD-Client vorhanden sind. Dadurch entfällt die Komplexität durch die manuelle Synchronisierung von Benutzern und die Verwaltung weiterer virtueller Computer. Azure AD Domain Services können sowohl in einer einfachen als auch in einer hoch verfügbaren Bereitstellung verwendet werden.
+Die beiden Standardarchitekturdiagramme von weiter oben basieren auf einer traditionellen AD-Bereitstellung (Active Directory) auf einem virtuellen Windows Server-Computer. Wenn du allerdings über keine traditionelle AD-Bereitstellung und nur über einen einzelnen Azure AD-Mandanten (über Dienste wie Office 365) verfügst, RDS aber trotzdem nutzen möchtest, kannst du mithilfe von [Azure AD Domain Services](/azure/active-directory-domain-services/active-directory-ds-overview) in deiner Azure-IaaS-Umgebung eine vollständig verwaltete Domäne erstellen, die die gleichen Benutzer verwendet, die auch in deinem Azure AD-Client vorhanden sind. Dadurch entfällt die Komplexität durch die manuelle Synchronisierung von Benutzern und die Verwaltung weiterer virtueller Computer. Azure AD Domain Services können sowohl in einer einfachen als auch in einer hoch verfügbaren Bereitstellung verwendet werden.
 
 ![Bereitstellung mit Azure AD und RDS](./media/aadds-rds.png)
 
 ### <a name="rds-deployment-with-azure-ad-application-proxy"></a>RDS-Bereitstellung mit Azure AD-Anwendungsproxy
 
-In den beiden Standardarchitekturdiagrammen von weiter oben werden RD-Webserver/Gatewayserver als internetseitiger Einstiegspunkt für das RDS-System verwendet. Bei manchen Umgebungen möchten Administratoren allerdings ihre eigenen Server lieber aus der Umgebung entfernen und stattdessen Technologien mit zusätzlicher Sicherheit durch Reverseproxytechnologien verwenden. Die PaaS-Rolle [Azure AD-Anwendungsproxy](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started) ist für ein solches Szenario wie geschaffen.
+In den beiden Standardarchitekturdiagrammen von weiter oben werden RD-Webserver/Gatewayserver als internetseitiger Einstiegspunkt für das RDS-System verwendet. Bei manchen Umgebungen möchten Administratoren allerdings ihre eigenen Server lieber aus der Umgebung entfernen und stattdessen Technologien mit zusätzlicher Sicherheit durch Reverseproxytechnologien verwenden. Die PaaS-Rolle [Azure AD-Anwendungsproxy](/azure/active-directory/active-directory-application-proxy-get-started) ist für ein solches Szenario wie geschaffen.
 
 Informationen zu unterstützten Szenarien sowie zur Einrichtung findest du unter [Veröffentlichen des Remotedesktops per Azure AD-Anwendungsproxy](/azure/active-directory/application-proxy-publish-remote-desktop).
 

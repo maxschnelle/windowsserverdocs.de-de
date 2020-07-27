@@ -9,12 +9,12 @@ author: lizap
 ms.author: elizapo
 ms.date: 09/07/2016
 manager: dongill
-ms.openlocfilehash: 86c5f59fcd403e838a316174840b93608d7f06ec
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 36996d7f69c33198587dbe5297650c16ffeb1da2
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80858143"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86959322"
 ---
 # <a name="remote-desktop-services---high-availability"></a>Remotedesktopdienste – Hochverfügbarkeit
 
@@ -23,10 +23,10 @@ ms.locfileid: "80858143"
 Fehler und Drosselung sind in umfangreichen Systemen unvermeidlich. Es ist einfach, Remotedesktop-Infrastrukturrollen einzurichten, um Hochverfügbarkeit zu unterstützen und es Endbenutzern zu ermöglichen, jederzeit problemlos eine Verbindung herzustellen.
 
 In den Remotedesktopdiensten (Remote Desktop Services, RDS) repräsentieren die folgenden Elemente die Remotedesktop-Infrastrukturrollen. In den einzelnen Artikeln findest du Anleitungen dazu, wie du Hochverfügbarkeit herstellst:
-- [Remotedesktop-Verbindungsbroker](Deploy-a-Remote-Desktop-Connection-Broker-cluster.md)
-- [Remotedesktopgateway](Deploy-a-RD-Web-Access-and-Gateway-farm.md)
+- [Remotedesktop-Verbindungsbroker](./rds-connection-broker-cluster.md)
+- [Remotedesktopgateway](./rds-rdweb-gateway-ha.md)
 - Remotedesktoplizenzierung
-- [Remotedesktop-Webzugriff](Deploy-a-RD-Web-Access-and-Gateway-farm.md)
+- [Remotedesktop-Webzugriff](./rds-rdweb-gateway-ha.md)
 
 Hochverfügbarkeit wird durch Duplizierung jedes dieser Rollendienste auf sekundären Computern erzielt. In Azure kannst du für eine garantierte Betriebszeit sorgen, indem du die Gruppe mit den beiden virtuellen Computern (die die gleiche Rolle hosten) in einer Verfügbarkeitsgruppe platzierst.
 

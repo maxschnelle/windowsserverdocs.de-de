@@ -8,12 +8,12 @@ author: jasongerend
 ms.author: jgerend
 ms.date: 05/21/2019
 ms.localizationpriority: high
-ms.openlocfilehash: ba1d6156ad3ba20e5f166a3c0eb9a36aa1ffe516
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: e94bb064b94c657d5e931363e2dc0a1c54ecf5e1
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80825953"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86956072"
 ---
 # <a name="whats-new-in-windows-server-version-1809"></a>Neuerungen in Windows Server, Version 1809
 
@@ -23,7 +23,7 @@ Weitere Informationen zu den neuesten Features in Windows finden Sie unter [Neue
 
 ## <a name="container-networking-with-kubernetes"></a>Containernetzwerk mit Kubernetes
 
-[Containernetzwerk mit Kubernetes](https://docs.microsoft.com/windows-server/networking/sdn/technologies/containers/container-networking-overview) in Windows Server 2019 verbessert die Benutzerfreundlichkeit von Kubernetes unter Windows erheblich, indem die Widerstandsfähigkeit der Plattformnetzwerke verbessert und Containernetzwerk-Plugins unterstützt werden. Darüber hinaus können Kunden Arbeitslasten unter Kubernetes-Netzwerksicherheit bereitstellen, um Linux- und Windows-Dienste mithilfe von eingebetteten Tools zu schützen.
+[Containernetzwerk mit Kubernetes](../networking/sdn/technologies/containers/container-networking-overview.md) in Windows Server 2019 verbessert die Benutzerfreundlichkeit von Kubernetes unter Windows erheblich, indem die Widerstandsfähigkeit der Plattformnetzwerke verbessert und Containernetzwerk-Plugins unterstützt werden. Darüber hinaus können Kunden Arbeitslasten unter Kubernetes-Netzwerksicherheit bereitstellen, um Linux- und Windows-Dienste mithilfe von eingebetteten Tools zu schützen.
 
 ## <a name="group-managed-service-accounts-for-containers"></a>Gruppenverwaltete Dienstkonten für Container
 
@@ -40,13 +40,12 @@ Zusätzlich zu neuen Features in Windows Server, Version 1809, gelten die folgen
 * HTTP/2
 * Kubernetes-Unterstützung
 * Linux-Container unter Windows
-* [Low Extra Delay Background Transport (LEDBAT)](https://blogs.technet.microsoft.com/networking/2018/07/25/ledbat/)
+* [Low Extra Delay Background Transport (LEDBAT)](https://techcommunity.microsoft.com/t5/networking-blog/bg-p/NetworkingBlog)
 * Verbesserungen der Netzwerkleistung für virtuelle Workloads
-* [App-Kompatibilität von Server Core-Feature on Demand (FOD)](https://docs.microsoft.com/windows-server/get-started-19/install-fod-19)
+* [App-Kompatibilität von Server Core-Feature on Demand (FOD)](../get-started-19/install-fod-19.md)
 * [Speichermigrationsdienst (Storage Migration Service, SMS)](../storage/whats-new-in-storage.md#storage-spaces-direct)
 * Speicherreplikat
 * Systemdaten 
 * Windows Defender Advanced Threat Protection (ATP)
 * Windows Defender ATP Exploit Guard
-* [Windows-Zeitdienst](https://docs.microsoft.com/windows-server/networking/windows-time-service/insider-preview)
-
+* [Windows-Zeitdienst](../networking/windows-time-service/insider-preview.md)

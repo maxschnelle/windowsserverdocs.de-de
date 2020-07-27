@@ -10,12 +10,12 @@ author: jasongerend
 ms.author: jgerend
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: 140f67a9dab5cf1f10cdb0c5c51a031a0dfb9dd3
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 4d282e2aa543070fcea0f4931419de0be5745c7d
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "79323642"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86959632"
 ---
 # <a name="windows-server-installation-and-upgrade"></a>Windows Server-Installation und -Upgrade
 
@@ -30,7 +30,7 @@ Ist es Zeit für eine neuere Version von Windows Server? Je nachdem, was du mome
 
 ## <a name="installation"></a>Installation
 
-Wenn du zu einer neueren Version von Windows Server wechseln und deine Hardware beibehalten möchtest, kannst du natürlich immer eine **Neuinstallation** durchführen. Hierbei installierst du das neuere Betriebssystem auf der gleichen Hardware direkt über das alte Betriebssystem und löschst somit das vorherige Betriebssystem. Das ist die einfachste Möglichkeit. Allerdings musst du zuerst deine Daten sichern und die erneute Installation deiner Anwendungen planen. Es gibt ein paar Dinge zu beachten – beispielsweise die Systemanforderungen. Sieh dir daher die Details zu [Windows Server 2016](https://go.microsoft.com/fwlink/?LinkID=825558), [Windows Server 2012 R2](https://technet.microsoft.com/library/dn303418) und [Windows Server 2012](https://technet.microsoft.com/library/jj134246.aspx) an.
+Wenn du zu einer neueren Version von Windows Server wechseln und deine Hardware beibehalten möchtest, kannst du natürlich immer eine **Neuinstallation** durchführen. Hierbei installierst du das neuere Betriebssystem auf der gleichen Hardware direkt über das alte Betriebssystem und löschst somit das vorherige Betriebssystem. Das ist die einfachste Möglichkeit. Allerdings musst du zuerst deine Daten sichern und die erneute Installation deiner Anwendungen planen. Es gibt ein paar Dinge zu beachten – beispielsweise die Systemanforderungen. Sieh dir daher die Details zu [Windows Server 2016](https://go.microsoft.com/fwlink/?LinkID=825558), [Windows Server 2012 R2](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303418(v=ws.11)) und [Windows Server 2012](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj134246(v=ws.11)) an.
 
 Beim Umstieg von einer Vorabversion (z. B. Windows Server 2016 Technical Preview) auf die veröffentlichte Version (Windows Server 2016) ist immer eine Neuinstallation erforderlich.
 
@@ -39,7 +39,7 @@ Beim Umstieg von einer Vorabversion (z. B. Windows Server 2016 Technical Previ
 In der Windows Server-Migrationsdokumentation erfährst du, wie du nacheinander einzelne Rollen oder Features von einem Quellcomputer unter Windows Server zu einem anderen Zielcomputer unter Windows Server (gleiche oder neuere Version) migrierst. Zu diesem Zweck wird die Migration wie folgt definiert: Verschieben einer Rolle oder eines Features und der zugehörigen Daten auf einen anderen Computer, anstatt das Feature auf dem gleichen Computer upzugraden. Das ist die empfohlene Vorgehensweise, um deine vorhandene Workload und die zugehörigen Daten zu einer neueren Version von Windows Server zu migrieren. Eine Einführung findest du unter [Serverrollenupgrade und Migrationsmatrix für Windows Server 2016](https://go.microsoft.com/fwlink/?LinkId=828595).
 
 ## <a name="cluster-os-rolling-upgrade"></a>Paralleles Upgrade für Clusterbetriebssysteme
-Das parallele Upgrade für Clusterbetriebssysteme ist ein neues Feature in Windows Server 2016 und ermöglicht es einem Administrator, das Betriebssystem des Clusterknotens ohne Unterbrechung von Hyper-V-Workloads oder Workloads des Dateiservers mit horizontaler Skalierung von Windows Server 2016 R2 auf Windows Server 2012 upzugraden. Mit diesem Feature können Sie Ausfallzeiten vermeiden, die die Vereinbarungen zum Servicelevel (Service Level Agreements) beeinträchtigen könnten. Dieses neue Feature wird unter [Cluster operating system rolling upgrade (Paralleles Upgrade für Clusterbetriebssysteme)](https://technet.microsoft.com/windows-server-docs/failover-clustering/cluster-operating-system-rolling-upgrade) näher beschrieben.
+Das parallele Upgrade für Clusterbetriebssysteme ist ein neues Feature in Windows Server 2016 und ermöglicht es einem Administrator, das Betriebssystem des Clusterknotens ohne Unterbrechung von Hyper-V-Workloads oder Workloads des Dateiservers mit horizontaler Skalierung von Windows Server 2016 R2 auf Windows Server 2012 upzugraden. Mit diesem Feature können Sie Ausfallzeiten vermeiden, die die Vereinbarungen zum Servicelevel (Service Level Agreements) beeinträchtigen könnten. Dieses neue Feature wird unter [Cluster operating system rolling upgrade (Paralleles Upgrade für Clusterbetriebssysteme)](../failover-clustering/cluster-operating-system-rolling-upgrade.md) näher beschrieben.
 
 ## <a name="license-conversion"></a>Lizenzkonvertierung
 Bei manchen Betriebssystemreleases kannst du eine bestimmte Edition des Releases in nur einem Schritt mit einem einfachen Befehl und dem entsprechenden Lizenzschlüssel in eine andere Edition des gleichen Releases konvertieren. Dies wird als **Lizenzkonvertierung** bezeichnet. Wenn auf deinem Server beispielsweise Windows Server 2016 Standard ausgeführt wird, kannst du die Lizenz in Windows Server 2016 Datacenter konvertieren. Bei manchen Releases von Windows Server kannst du mit dem gleichen Befehl und dem passenden Schlüssel auch frei zwischen OEM-, Volumenlizenz- und Verkaufsversionen wechseln.
@@ -92,7 +92,7 @@ Sie können die Evaluierungsversion von Windows Server 2016 Standard in Windows 
 Du kannst die Evaluierungsversion von Windows Server 2016 Datacenter in Windows Server 2016 Datacenter (Verkaufsversion) konvertieren.
  
 ## <a name="upgrading-to-windows-server-2012-r2"></a>Upgraden auf Windows Server 2012 R2
-Ausführliche Informationen, einschließlich wichtiger Hinweise und Einschränkungen für Upgrades, sowie Informationen zur Lizenzkonvertierung zwischen Editionen von Windows Server 2012 R2 und zur Konvertierung von Evaluierungseditionen in Verkaufsversionen findest du unter [Upgrade Options for Windows Server 2012 R2](https://technet.microsoft.com/library/dn303416.aspx) (Upgradeoptionen für Windows Server 2012 R2).
+Ausführliche Informationen, einschließlich wichtiger Hinweise und Einschränkungen für Upgrades, sowie Informationen zur Lizenzkonvertierung zwischen Editionen von Windows Server 2012 R2 und zur Konvertierung von Evaluierungseditionen in Verkaufsversionen findest du unter [Upgrade Options for Windows Server 2012 R2](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303416(v=ws.11)) (Upgradeoptionen für Windows Server 2012 R2).
 
 Kurzübersicht in Tabellenform über unterstützte Upgradepfade von älteren Windows Server-Verkaufseditionen zu Windows Server 2012 R2-Verkaufseditionen:
 
@@ -114,7 +114,7 @@ Du kannst Windows Server 2012 Essentials (Verkaufsversion) in Windows Server 2
 Du kannst die Evaluierungsversion von Windows Server 2012 Standard in Windows Server 2012 Standard (Verkaufsversion) oder Datacenter (Verkaufsversion) konvertieren.
 
 ## <a name="upgrading-to-windows-server-2012"></a>Upgraden auf Windows Server 2012
-Ausführliche Informationen, einschließlich wichtiger Hinweise und Einschränkungen für Upgrades, sowie Informationen zur Konvertierung von Evaluierungseditionen in Verkaufsversionen findest du unter [Evaluation Versions and Upgrade Options for Windows Server 2012](https://technet.microsoft.com/library/jj574204.aspx) (Evaluierungsversionen und Upgradeoptionen für Windows Server 2012).
+Ausführliche Informationen, einschließlich wichtiger Hinweise und Einschränkungen für Upgrades, sowie Informationen zur Konvertierung von Evaluierungseditionen in Verkaufsversionen findest du unter [Evaluation Versions and Upgrade Options for Windows Server 2012](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj574204(v=ws.11)) (Evaluierungsversionen und Upgradeoptionen für Windows Server 2012).
  
 Kurzübersicht in Tabellenform über unterstützte Upgradepfade von älteren Windows Server-Verkaufseditionen zu Windows Server 2012-Verkaufseditionen:
 
@@ -148,5 +148,4 @@ Berücksichtige bei der Upgradeplanung die folgenden Richtlinien für den Zwisch
 
   - Du kannst nicht von einer Server Core-Installation von Windows Server 2008 zu Windows Server 2012 R2 mit grafischer Serverbenutzeroberfläche (in Windows Server als „Server mit vollständigem Desktop“ bezeichnet) migrieren. Du kannst deine Server Core-Installation nach dem Upgrade auf einen Server mit vollständigem Desktop umstellen, das funktioniert allerdings nur bei Windows Server 2012 R2. Ab Windows Server 2016 wird die Umstellung von Server Core auf vollständigen Desktop *nicht* mehr unterstützt. Daher muss diese Umstellung vor dem Upgraden auf Windows Server 2016 durchgeführt werden.
   
-Weitere Informationen (einschließlich rollenspezifische Upgradedetails) findest du unter [Evaluation Versions and Upgrade Options for Windows Server 2012](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj574204\(v=ws.11\)) (Evaluierungsversionen und Upgradeoptionen für Windows Server 2012).
-
+Weitere Informationen (einschließlich rollenspezifische Upgradedetails) findest du unter [Evaluation Versions and Upgrade Options for Windows Server 2012](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj574204\(v=ws.11\)) (Evaluierungsversionen und Upgradeoptionen für Windows Server 2012).

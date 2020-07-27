@@ -10,12 +10,12 @@ ms.assetid: 2c2fa45b-6f3b-4663-b421-2da6ecc463bf
 author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
-ms.openlocfilehash: 68de1697c8655075041cd9e598ccd2bbc2e6237b
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 4002126ee6d9919c0a7fbfb3c068587c9acbecef
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80826983"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86953682"
 ---
 # <a name="install-nano-server"></a>Installieren von Nano Server
 
@@ -45,18 +45,18 @@ Da Nano Server als schlankes Betriebssystem für die Ausführung von nativen Clo
 - Nano Server ist monitorlos, d. h. Nano Server verfügt über keine grafische Benutzeroberfläche, und es gibt keine Möglichkeit zur lokalen Anmeldung.
 - Nur 64-Bit-Anwendungen, -Tools und -Agents werden unterstützt.
 - Sie können Nano Server nicht als Active Directory-Domänencontroller verwenden.
-- Gruppenrichtlinien werden nicht unterstützt. Sie können jedoch [DSC](https://msdn.microsoft.com/powershell/dsc/nanoDsc) (Desired State Configuration) verwenden, um Einstellungen bedarfsgerecht anzuwenden.
+- Gruppenrichtlinien werden nicht unterstützt. Sie können jedoch [DSC](/previous-versions//dn387184(v=vs.85)) (Desired State Configuration) verwenden, um Einstellungen bedarfsgerecht anzuwenden.
 - Nano Server kann nicht für die Verwendung eines Proxyservers für den Internetzugriff konfiguriert werden.
 - NIC-Teamvorgänge (insbesondere Lastenausgleich und Failover oder LBFO) werden nicht unterstützt. Stattdessen wird Switch Embedded Teaming (SET) unterstützt.
 - Microsoft Endpoint Configuration Manager und System Center Data Protection Manager werden nicht unterstützt.
 - Best Practices Analyzer (BPA)-Cmdlets und BPA-Integration mit dem Server-Manager werden nicht unterstützt.
 - Nano-Server unterstützen keine virtuellen Hostbusadapter (HBA).
-- Nano Server muss nicht mit einem Product Key aktiviert werden. Wenn Nano Server als Hyper-V-Host fungiert, wird keine [automatische Aktivierung virtueller Computer](https://technet.microsoft.com/library/dn303421%28v=ws.11%29.aspx) (AVMA) unterstützt. Virtuelle Computer, die auf einem Nano Server-Host ausgeführt werden, können mithilfe des [Schlüsselverwaltungsdienstes](https://technet.microsoft.com/library/jj612867(v=ws.11).aspx) (Key Management Service, KMS) mit einem generischen Volumenlizenzschlüssel oder mit der [Aktivierung über Active Directory](https://technet.microsoft.com/library/dn502534(v=ws.11).aspx) aktiviert werden.
+- Nano Server muss nicht mit einem Product Key aktiviert werden. Wenn Nano Server als Hyper-V-Host fungiert, wird keine [automatische Aktivierung virtueller Computer](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11)) (AVMA) unterstützt. Virtuelle Computer, die auf einem Nano Server-Host ausgeführt werden, können mithilfe des [Schlüsselverwaltungsdienstes](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj612867(v=ws.11)) (Key Management Service, KMS) mit einem generischen Volumenlizenzschlüssel oder mit der [Aktivierung über Active Directory](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn502534(v=ws.11)) aktiviert werden.
 - Die mit Nano Server bereitgestellte Version von Windows PowerShell weist wichtige Unterschiede auf. Details finden Sie unter [Unterschiede in PowerShell unter Nano Server](PowerShell-on-Nano-Server.md).
 - Nano Server wird nur im aktuellen CBB-Modell (Current Branch for Business) unterstützt. Es gibt zurzeit keine LTSB-Version (Long-Term Servicing Branch) für Nano Server. Weitere Informationen finden Sie in den folgenden Unterabschnitten.
 
 ### <a name="current-branch-for-business"></a>Current Branch for Business
-Nano Server wird mit einem aktiveren Modell namens Current Branch for Business (CBB) gewartet, um Kunden, die cloudgestützt ein hohes Aktionstempo vorlegen, unter Verwendung schneller Entwicklungszyklen zu unterstützen. In diesem Modell sind Featureupdateversionen von Nano Server zwei- bis dreimal pro Jahr zu erwarten. Für dieses Modell muss [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default.aspx) für Nano Server in der Produktionsumgebung bereitgestellt und betrieben werden. Um Support zu erhalten, müssen Administratoren stets mindestens die vorvorletzte CBB-Version verwenden. Vorhandene Bereitstellungen werden jedoch nicht automatisch mit diesen Versionen aktualisiert. Administratoren führen die manuelle Installation einer neuen CBB-Version bei Gelegenheit aus. Weitere Informationen finden Sie unter [Windows Server 2016 new Current Branch for Business servicing option](https://blogs.technet.microsoft.com/windowsserver/2016/07/12/windows-server-2016-new-current-branch-for-business-servicing-option/) (Neue Wartungsoption Current Branch for Business in Windows Server 2016).
+Nano Server wird mit einem aktiveren Modell namens Current Branch for Business (CBB) gewartet, um Kunden, die cloudgestützt ein hohes Aktionstempo vorlegen, unter Verwendung schneller Entwicklungszyklen zu unterstützen. In diesem Modell sind Featureupdateversionen von Nano Server zwei- bis dreimal pro Jahr zu erwarten. Für dieses Modell muss [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default.aspx) für Nano Server in der Produktionsumgebung bereitgestellt und betrieben werden. Um Support zu erhalten, müssen Administratoren stets mindestens die vorvorletzte CBB-Version verwenden. Vorhandene Bereitstellungen werden jedoch nicht automatisch mit diesen Versionen aktualisiert. Administratoren führen die manuelle Installation einer neuen CBB-Version bei Gelegenheit aus. Weitere Informationen finden Sie unter [Windows Server 2016 new Current Branch for Business servicing option](https://cloudblogs.microsoft.com/windowsserver/2016/07/12/windows-server-2016-new-current-branch-for-business-servicing-option/) (Neue Wartungsoption Current Branch for Business in Windows Server 2016).
 
 Die Server Core- und „Server mit Desktopdarstellung“-Installationsoptionen werden weiterhin über das [LTSB-Modell (Long-Term Servicing Branch)](https://support.microsoft.com/lifecycle#gp%2Fgp_msl_policy) gewartet, das 5 Jahre Mainstream-Support und 5 Jahre erweiterten Support umfasst.
 

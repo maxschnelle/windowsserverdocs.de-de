@@ -8,12 +8,12 @@ ms.assetid: d54a1f5e-af68-497e-99be-97775769a7a7
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dansimp
-ms.openlocfilehash: 69b31c8ef0ce093604ee9fd8fe382d75f7f88595
-ms.sourcegitcommit: aeefdf7814a4672b2dcd7537204205bb7ee5f9a0
+ms.openlocfilehash: 75ebb12962e213887f1827992aff3fdf3c1df305
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84514910"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86963132"
 ---
 # <a name="remote-server-administration-tools"></a>Remoteserver-Verwaltungstools
 
@@ -46,7 +46,7 @@ Remoteserver-Verwaltungstools für Windows 10 können unter x86- und x64-basier
 > [!IMPORTANT]
 > Es ist nicht ratsam, Remoteserver-Verwaltungstools für Windows 10 auf einem Computer zu installieren, auf dem Verwaltungsprogramme für Windows 8.1, Windows 8, Windows Server 2008 R2, Windows Server 2008, Windows Server 2003 oder Windows 2000 Server ausgeführt werden. Entfernen Sie alle älteren Versionen von Verwaltungsprogrammen oder Remoteserver-Verwaltungstools – einschließlich ältere Vorabversionen und Versionen der Tools für unterschiedliche Sprachen oder Gebietsschemas – vom Computer, bevor Sie die Remoteserver-Verwaltungstools für Windows 10 installieren.
 
-Um diese Version von Server-Manager für den Zugriff auf und die Verwaltung von Remoteservern mit Windows Server 2012 R2 , Windows Server 2012 oder Windows Server 2008 R2 zu verwenden, müssen Sie mehrere Updates installieren, um die älteren Windows Server-Betriebssysteme mit Hilfe von Server-Manager verwaltbar zu machen. Ausführliche Informationen dazu, wie Sie Windows Server 2012 R2, Windows Server 2012 und Windows Server 2008 R2 für die Verwaltung mit dem Server-Manager in den Remoteserver-Verwaltungstools für Windows 10 vorbereiten können, finden Sie unter [Verwalten von mehreren Remoteservern mit dem Server-Manager](https://technet.microsoft.com/library/hh831456.aspx).
+Um diese Version von Server-Manager für den Zugriff auf und die Verwaltung von Remoteservern mit Windows Server 2012 R2 , Windows Server 2012 oder Windows Server 2008 R2 zu verwenden, müssen Sie mehrere Updates installieren, um die älteren Windows Server-Betriebssysteme mit Hilfe von Server-Manager verwaltbar zu machen. Ausführliche Informationen dazu, wie Sie Windows Server 2012 R2, Windows Server 2012 und Windows Server 2008 R2 für die Verwaltung mit dem Server-Manager in den Remoteserver-Verwaltungstools für Windows 10 vorbereiten können, finden Sie unter [Verwalten von mehreren Remoteservern mit dem Server-Manager](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831456(v=ws.11)).
         
 Die Windows PowerShell- und Server-Manager-Remoteverwaltung muss auf Remoteservern aktiviert werden, um diese mithilfe von Tools verwalten zu können, die Teil der Remoteserver-Verwaltungstools für Windows 10 sind. Remoteverwaltung ist auf Servern mit Windows Server 2016, Windows Server 2012 R2 und Windows Server 2012 standardmäßig aktiviert. Weitere Informationen zum Aktivieren der deaktivierten Remoteverwaltung finden Sie unter [Verwalten von mehreren Remoteservern mit dem Server-Manager](https://go.microsoft.com/fwlink/p/?LinkId=241358).
         
@@ -56,7 +56,7 @@ Die Windows PowerShell- und Server-Manager-Remoteverwaltung muss auf Remoteserve
 
 Ab dem Windows 10-Update vom Oktober 2018 ist RSAT als Sammlung von **Features bei Bedarf** in Windows 10 selbst enthalten. Anstatt ein RSAT-Paket herunterzuladen, können Sie jetzt einfach zu **Optionale Features verwalten** unter **Einstellungen** navigieren und auf **Feature hinzufügen** klicken, um die Liste der verfügbaren RSAT-Tools anzuzeigen. Wählen Sie die gewünschten RSAT-Tools aus, und installieren Sie sie. Um den Installationsfortschritt anzuzeigen, klicken Sie auf die Schaltfläche **Zurück**, um den Status auf der Seite **Optionale Features verwalten** anzuzeigen.
         
-Weitere Informationen finden Sie in der [Liste der RSAT-Tools, die über **Features bei Bedarf** verfügbar ist](https://docs.microsoft.com/windows-hardware/manufacture/desktop/features-on-demand-non-language-fod#remote-server-administration-tools-rsat). Zusätzlich zur Installation über die grafische App für **Einstellungen** können Sie auch bestimmte RSAT-Tools über die Befehlszeile oder über Automatisierung mithilfe von [**DISM/Add-Capability**](https://docs.microsoft.com/windows-hardware/manufacture/desktop/features-on-demand-v2--capabilities#using-dism-add-capability-to-add-or-remove-fods) installieren.
+Weitere Informationen finden Sie in der [Liste der RSAT-Tools, die über **Features bei Bedarf** verfügbar ist](/windows-hardware/manufacture/desktop/features-on-demand-non-language-fod#remote-server-administration-tools-rsat). Zusätzlich zur Installation über die grafische App für **Einstellungen** können Sie auch bestimmte RSAT-Tools über die Befehlszeile oder über Automatisierung mithilfe von [**DISM/Add-Capability**](/windows-hardware/manufacture/desktop/features-on-demand-v2--capabilities#using-dism-add-capability-to-add-or-remove-fods) installieren.
 
 Ein Vorteil von Features bei Bedarf besteht darin, dass die installierten Features über Windows 10-Versionsupgrades hinweg bestehen bleiben.        
         
@@ -64,7 +64,7 @@ Ein Vorteil von Features bei Bedarf besteht darin, dass die installierten Featur
 
 Öffnen Sie unter Windows 10 die App **Einstellungen**, navigieren Sie zu **Optionale Features verwalten**, wählen Sie die gewünschten RSAT-Tools aus, die Sie entfernen möchten, und deinstallieren Sie sie dann. Beachten Sie, dass Abhängigkeiten in einigen Fällen manuell deinstalliert werden müssen. Insbesondere wenn das RSAT-Tool A vom RSAT-Tool B benötigt wird, tritt bei der Deinstallation von RSAT-Tool A ein Fehler auf, wenn RSAT-Tool B noch installiert ist. Deinstallieren Sie in diesem Fall zuerst das RSAT-Tool B, und deinstallieren Sie dann das RSAT-Tool A. Beachten Sie auch, dass das Deinstallieren eines RSAT-Tools in einigen Fällen möglicherweise zu gelingen scheint, auch wenn das Tool noch installiert ist. In diesem Fall wird das Tool durch das Neustarten des PCs entfernt.
 
-Weitere Informationen finden Sie in der [Liste der RSAT-Tools und seiner Abhängigkeiten](https://docs.microsoft.com/windows-hardware/manufacture/desktop/features-on-demand-non-language-fod#remote-server-administration-tools-rsat). Zusätzlich zur Deinstallation über die grafische App für Einstellungen können Sie auch bestimmte RSAT-Tools über die Befehlszeile oder über Automatisierung mithilfe von [**DISM/Remove-Capability**](https://docs.microsoft.com/windows-hardware/manufacture/desktop/features-on-demand-v2--capabilities#using-dism-add-capability-to-add-or-remove-fods) deinstallieren.
+Weitere Informationen finden Sie in der [Liste der RSAT-Tools und seiner Abhängigkeiten](/windows-hardware/manufacture/desktop/features-on-demand-non-language-fod#remote-server-administration-tools-rsat). Zusätzlich zur Deinstallation über die grafische App für Einstellungen können Sie auch bestimmte RSAT-Tools über die Befehlszeile oder über Automatisierung mithilfe von [**DISM/Remove-Capability**](/windows-hardware/manufacture/desktop/features-on-demand-v2--capabilities#using-dism-add-capability-to-add-or-remove-fods) deinstallieren.
 
 ### <a name="when-to-use-which-rsat-version"></a>Wann sollte welche RSAT-Version verwendet werden?
 
@@ -155,7 +155,7 @@ Obwohl sie im Menü **Extras** der Server-Manager-Konsole nicht aufgeführt sind
 
 > **Auswirkungen**: RSAT-FoDs unter Windows 10, Version 1809 (Update vom Oktober 2018) in WSUS-/Configuration Manager-Umgebungen
 > 
-> **Lösung**: Zum Installieren von FoDs auf einem in die Domäne eingebundenen PC, der Updates über WSUS oder Configuration Manager erhält, müssen Sie eine Gruppenrichtlinieneinstellungen ändern, um das Herunterladen von FoDs direkt von Windows Update oder aus einer lokalen Freigabe zu aktivieren. Weitere Informationen und Anweisungen zum Ändern dieser Einstellung finden Sie unter [Vorgehensweise: Verfügbarmachen von Features on Demand und Language Packs bei Verwendung von WSUS/SCCM](https://docs.microsoft.com/windows/deployment/update/fod-and-lang-packs).
+> **Lösung**: Zum Installieren von FoDs auf einem in die Domäne eingebundenen PC, der Updates über WSUS oder Configuration Manager erhält, müssen Sie eine Gruppenrichtlinieneinstellungen ändern, um das Herunterladen von FoDs direkt von Windows Update oder aus einer lokalen Freigabe zu aktivieren. Weitere Informationen und Anweisungen zum Ändern dieser Einstellung finden Sie unter [Vorgehensweise: Verfügbarmachen von Features on Demand und Language Packs bei Verwendung von WSUS/SCCM](/windows/deployment/update/fod-and-lang-packs).
 
 ---
 

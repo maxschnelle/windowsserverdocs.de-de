@@ -9,12 +9,12 @@ author: jasongerend
 ms.author: jgerend
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: a74f3c6ec629df7d1cc40199091e84989606a50e
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 98632ee7147c3041b0f13d0a0e90bf8115268d36
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80826683"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86959472"
 ---
 # <a name="features-removed-or-planned-for-replacement-starting-with-windows-server-version-1709"></a>Entfernte oder für den Austausch geplante Features ab Windows Server (Version 1709)
 
@@ -55,14 +55,13 @@ Außerdem solltest du von IIS 6.0 oder älteren Versionen zur neuesten Version 
 
 
 ### <a name="iis-digest-authentication"></a>IIS-Digestauthentifizierung
-Diese Authentifizierungsmethode wird voraussichtlich ersetzt. Beginne stattdessen mit der Verwendung anderer Authentifizierungsmethoden wie etwa der Clientzertifikatszuordnung (siehe [Configuring One-to-One Client Certificate Mappings](https://docs.microsoft.com/iis/manage/configuring-security/configuring-one-to-one-client-certificate-mappings) (Konfigurieren der 1:1-Clientzertifikatzuordnung) oder der Windows-Authentifizierung (siehe [Application Settings (appsettings.json)](https://docs.microsoft.com/iis-administration/configuration/appsettings.json) (Anwendungseinstellungen (appsettings.json)).
+Diese Authentifizierungsmethode wird voraussichtlich ersetzt. Beginne stattdessen mit der Verwendung anderer Authentifizierungsmethoden wie etwa der Clientzertifikatszuordnung (siehe [Configuring One-to-One Client Certificate Mappings](/iis/manage/configuring-security/configuring-one-to-one-client-certificate-mappings) (Konfigurieren der 1:1-Clientzertifikatzuordnung) oder der Windows-Authentifizierung (siehe [Application Settings (appsettings.json)](/iis-administration/configuration/appsettings.json) (Anwendungseinstellungen (appsettings.json)).
 
 ### <a name="internet-storage-name-service-isns"></a>iSNS (Internet Storage Name Service)
-iSNS wird möglicherweise ersetzt. Das SMB-Feature (Server Message Block) bietet im Wesentlichen die gleichen Funktionen sowie zusätzliche Features. Hintergrundinformationen zu diesem Feature findest du in der [Übersicht über Server Message Block](https://technet.microsoft.com/library/hh831795(v=ws.11).aspx).
+iSNS wird möglicherweise ersetzt. Das SMB-Feature (Server Message Block) bietet im Wesentlichen die gleichen Funktionen sowie zusätzliche Features. Hintergrundinformationen zu diesem Feature findest du in der [Übersicht über Server Message Block](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831795(v=ws.11)).
 
 ### <a name="rsaaes-encryption-for-iis"></a>RSA/AES-Verschlüsselung für IIS 
-Diese Verschlüsselungsmethode wird möglicherweise ersetzt, da die bessere CNG-Methode (Cryptography API: Next Generation) bereits verfügbar ist. Weitere Informationen zur CNG-Verschlüsselung findest du in der [Übersicht über CNG](https://msdn.microsoft.com/library/windows/desktop/aa375276(v=vs.85).aspx).
+Diese Verschlüsselungsmethode wird möglicherweise ersetzt, da die bessere CNG-Methode (Cryptography API: Next Generation) bereits verfügbar ist. Weitere Informationen zur CNG-Verschlüsselung findest du in der [Übersicht über CNG](/windows/win32/seccng/about-cng).
 
 ### <a name="windows-powershell-20"></a>Windows PowerShell 2.0
-Für diese frühe Version von Windows PowerShell stehen bereits mehrere neuere Versionen zur Verfügung. Migriere zu Windows PowerShell 5.0 oder einer höheren Version, um die besten Features und die beste Leistung zu erhalten. Weitere Informationen findest du in der [PowerShell-Dokumentation](https://docs.microsoft.com/powershell/index?view=powershell-5.1).
-
+Für diese frühe Version von Windows PowerShell stehen bereits mehrere neuere Versionen zur Verfügung. Migriere zu Windows PowerShell 5.0 oder einer höheren Version, um die besten Features und die beste Leistung zu erhalten. Weitere Informationen findest du in der [PowerShell-Dokumentation](/powershell/index?view=powershell-5.1).

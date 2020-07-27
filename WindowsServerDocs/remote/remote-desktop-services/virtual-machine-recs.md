@@ -8,12 +8,12 @@ ms.date: 12/02/2019
 ms.topic: article
 author: Heidilohr
 manager: lizross
-ms.openlocfilehash: beacd246639b5586c071a24bdd7b09c6aceeadab
-ms.sourcegitcommit: 32f810c5429804c384d788c680afac427976e351
+ms.openlocfilehash: 644799ba9c6ebde4943b678199c678da376e05ae
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83203388"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86963142"
 ---
 # <a name="virtual-machine-sizing-guidelines"></a>Richtlinien zur Größenfestlegung virtueller Computer
 
@@ -40,9 +40,9 @@ Informationen zu den VM-Anforderungen zum Ausführen des Betriebssystems finden 
 
 Es wird empfohlen, für Produktionsworkloads, die eine Vereinbarung zum Servicelevel (SLA) erfordern, SSD Premium Speicher für deinen Betriebssystemdatenträger zu verwenden. Weitere Informationen findest du in der [SLA für virtuelle Computer](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/).
 
-GPUs sind eine gute Wahl für Benutzer, die regelmäßig grafikintensive Programme zum Rendern von Videos, für 3D-Entwürfe und für Simulationen verwenden. Weitere Informationen zur Grafikbeschleunigung findest du unter [Auswählen der Grafikrenderingtechnologie](rds-graphics-virtualization.md). Azure bietet mehrere Bereitstellungsoptionen für Grafikbeschleunigung sowie mehrere verfügbare GPU-VM-Größen. Weitere Informationen dazu findest du unter [Für GPU optimierte VM-Größen](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu).
+GPUs sind eine gute Wahl für Benutzer, die regelmäßig grafikintensive Programme zum Rendern von Videos, für 3D-Entwürfe und für Simulationen verwenden. Weitere Informationen zur Grafikbeschleunigung findest du unter [Auswählen der Grafikrenderingtechnologie](rds-graphics-virtualization.md). Azure bietet mehrere Bereitstellungsoptionen für Grafikbeschleunigung sowie mehrere verfügbare GPU-VM-Größen. Weitere Informationen dazu findest du unter [Für GPU optimierte VM-Größen](/azure/virtual-machines/windows/sizes-gpu).
 
-[Burstfähige VMs der B-Serie](https://docs.microsoft.com/azure/virtual-machines/windows/b-series-burstable) sind eine gute Wahl für Benutzer, die nicht immer maximale CPU-Leistung benötigen. Weitere Informationen zu VM-Typen und -Größen findest du unter [Größen für virtuelle Windows-Computer in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) und in den Preisinformationen auf [unserer Seite zu den Serien virtueller Computer](https://azure.microsoft.com/pricing/details/virtual-machines/series/).
+[Burstfähige VMs der B-Serie](/azure/virtual-machines/windows/b-series-burstable) sind eine gute Wahl für Benutzer, die nicht immer maximale CPU-Leistung benötigen. Weitere Informationen zu VM-Typen und -Größen findest du unter [Größen für virtuelle Windows-Computer in Azure](/azure/virtual-machines/windows/sizes) und in den Preisinformationen auf [unserer Seite zu den Serien virtueller Computer](https://azure.microsoft.com/pricing/details/virtual-machines/series/).
 
 ## <a name="test-your-workload"></a>Testen deiner Workload
 

@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 06/06/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: fbdef69f62a76fcc8d01aa0319b2b0859fc4f7cd
-ms.sourcegitcommit: 6973690a8705b24d09eb98f1713743d5e6079161
+ms.openlocfilehash: 55421cb1f01d654c4c424e8534f4c678ac38e6f5
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84211909"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86959332"
 ---
 # <a name="deploy-folder-redirection-with-offline-files"></a>Bereitstellen von Ordnerumleitung mit Offlinedateien
 
@@ -198,6 +198,6 @@ In der folgenden Tabelle sind die wichtigsten Änderungen zu diesem Thema zusamm
 * [Ordnerumleitung, Offlinedateien und Roamingbenutzerprofile](folder-redirection-rup-overview.md)
 * [Bereitstellen von primären Computern für die Ordnerumleitung und Roamingbenutzerprofile](deploy-primary-computers.md)
 * [Erweiterte Funktionen für Offlinedateien aktivieren](enable-always-offline.md)
-* [Anweisung des Microsoft-Supports zu replizierten Benutzerprofildaten](https://docs.microsoft.com/archive/blogs/askds/microsofts-support-statement-around-replicated-user-profile-data)
+* [Anweisung des Microsoft-Supports zu replizierten Benutzerprofildaten](/archive/blogs/askds/microsofts-support-statement-around-replicated-user-profile-data)
 * [Querladen von Apps mit DISM](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-8.1-and-8/hh852635(v=win.10)>)
-* [Problembehandlung beim Packen, Bereitstellen und Abfragen von Windows Runtime-basierten Apps](https://docs.microsoft.com/windows/win32/appxpkg/troubleshooting)
+* [Problembehandlung beim Packen, Bereitstellen und Abfragen von Windows Runtime-basierten Apps](/windows/win32/appxpkg/troubleshooting)

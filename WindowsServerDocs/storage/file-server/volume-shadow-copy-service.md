@@ -6,12 +6,12 @@ ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: d90030fe183e5cfcb94866e87793c0419b636433
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 9948fab77ab4869c27fd63e623315bd1b3e9ff47
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85475447"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86966692"
 ---
 # <a name="volume-shadow-copy-service"></a>Volumeschattenkopie-Dienst
 
@@ -247,7 +247,7 @@ Das Windows-Betriebssystem enthält eine Reihe von VSS-Writern, die für das Auf
 
 Weitere Informationen zu diesen Writern erhältst du auf der folgenden Webseite der Microsoft-Dokumentation:
 
-- [In-Box-VSS-Writer](https://docs.microsoft.com/windows/win32/vss/in-box-vss-writers) (https://docs.microsoft.com/windows/win32/vss/in-box-vss-writers)
+- [In-Box-VSS-Writer](/windows/win32/vss/in-box-vss-writers) (https://docs.microsoft.com/windows/win32/vss/in-box-vss-writers)
 
 
 ## <a name="how-shadow-copies-are-used"></a>Verwendung von Schattenkopien
@@ -375,7 +375,7 @@ Zum Ausschließen bestimmter Dateien aus Schattenkopien wird der folgende Regist
 > <UL>
 > <LI>Es können keine Dateien aus einer Schattenkopie gelöscht werden, die unter Windows Server mit dem Feature „Vorherige Versionen“ erstellt wurden.<BR><BR>
 > <LI>Es können keine Dateien aus Schattenkopien für freigegebene Ordner gelöscht werden.<BR><BR>
-> <LI>Dateien aus Schattenkopien, die mit dem Hilfsprogramm <a href="https://docs.microsoft.com/windows-server/administration/windows-commands/diskshadow" data-raw-source="[Diskshadow](https://docs.microsoft.com/windows-server/administration/windows-commands/diskshadow)">Diskshadow</a> erstellt wurden, können gelöscht werden, aber Dateien aus Schattenkopien, die mit dem Hilfsprogramm <a href="https://docs.microsoft.com/windows-server/administration/windows-commands/vssadmin" data-raw-source="[Vssadmin](https://docs.microsoft.com/windows-server/administration/windows-commands/vssadmin)">Vssadmin</a> erstellt wurden, können nicht gelöscht werden.<BR><BR>
+> <LI>Dateien aus Schattenkopien, die mit dem Hilfsprogramm <a href="https://docs.microsoft.com/windows-server/administration/windows-commands/diskshadow" data-raw-source="[Diskshadow](../../administration/windows-commands/diskshadow.md)">Diskshadow</a> erstellt wurden, können gelöscht werden, aber Dateien aus Schattenkopien, die mit dem Hilfsprogramm <a href="https://docs.microsoft.com/windows-server/administration/windows-commands/vssadmin" data-raw-source="[Vssadmin](../../administration/windows-commands/vssadmin.md)">Vssadmin</a> erstellt wurden, können nicht gelöscht werden.<BR><BR>
 > <LI>Dateien werden auf Grundlage der besten Leistung aus einer Schattenkopie gelöscht. Das bedeutet, dass Sie nicht unbedingt gelöscht werden.<BR><BR></LI></UL>
 
 
@@ -622,4 +622,4 @@ In der folgenden Tabelle sind die Mindestanforderungen für die unterstützten C
 
 ## <a name="additional-references"></a>Weitere Verweise
 
-[Volumeschattenkopie-Dienst im Windows Developer Center](https://docs.microsoft.com/windows/desktop/vss/volume-shadow-copy-service-overview)
+[Volumeschattenkopie-Dienst im Windows Developer Center](/windows/desktop/vss/volume-shadow-copy-service-overview)

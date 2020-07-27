@@ -10,12 +10,12 @@ author: jaimeo
 ms.author: jaimeo
 ms.date: 09/06/2017
 ms.localizationpriority: medium
-ms.openlocfilehash: 3965e453483b3515e4957ecfaba39cf9a0b8104f
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: b792b6734da2fe643862529c0de41e8763117c83
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80827073"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86961982"
 ---
 # <a name="developing-powershell-cmdlets-for-nano-server"></a>Entwickeln von PowerShell-Cmdlets für Nano Server
 
@@ -123,7 +123,7 @@ Wenn Sie nicht sicher sind, welche Implementierung Sie für vorhandene Cmdlets v
 * %windir%\system32\WindowsPowerShell\v1.0\Modules   
 * %ProgramFiles%\WindowsPowerShell\Modules   
 * %UserProfile%\Documents\WindowsPowerShell\Modules   
-* \<Speicherort deiner Produktinstallation>   
+* \<your product installation location>   
     
   Überprüfen Sie diese Speicherorte auf die folgenden Details:  
   * CIM-Cmdlets haben .cdxml-Dateierweiterungen.  
@@ -136,7 +136,7 @@ Im Allgemeinen sollten diese Cmdlets in Nano Server funktionieren, ohne dass ein
 ### <a name="building-c-for-nano-server"></a>Erstellen von C++-Code für Nano Server  
 Damit C++-DLLs unter Nano Server funktionieren, kompilieren Sie diese für Nano Server, anstatt für eine spezifische Edition.  
   
-Erforderliche Komponenten und eine exemplarische Vorgehensweise zum Entwickeln von C++ unter Nano Server finden Sie im Blogbeitrag [Developing Native Apps on Nano Server (Entwickeln von nativen Apps unter Nano Server)](https://blogs.technet.com/b/nanoserver/archive/2016/04/27/developing-native-apps-on-nano-server.aspx).  
+Erforderliche Komponenten und eine exemplarische Vorgehensweise zum Entwickeln von C++ unter Nano Server finden Sie im Blogbeitrag [Developing Native Apps on Nano Server (Entwickeln von nativen Apps unter Nano Server)](/archive/blogs/nanoserver/developing-native-apps-on-nano-server).  
   
   
 ## <a name="porting-net-cmdlets"></a>Portieren von .NET-Cmdlets  
@@ -176,7 +176,7 @@ Sie können im API-Katalog nach .NET Core suchen oder CoreCLR-Referenzassemblys 
 ### <a name="pinvoke"></a>PInvoke  
 In CoreCLR, das von Nano Server verwendet wird, wurden einige grundlegende DLLs wie z.B. „kernel32.dll“ und „advapi32.dll“ in zahlreiche API-Sätze aufgeteilt. Sie müssen daher sicherstellen, dass Ihre PInvokes auf die richtige API verweisen. Jede Inkompatibilität äußert sich in einem Laufzeitfehler.  
   
-Eine Liste der unter Nano Server unterstützten nativen APIs finden Sie unter [Nano Server APIs (Nano Server-APIs)](https://msdn.microsoft.com/library/mt588480(v=vs.85).aspx).  
+Eine Liste der unter Nano Server unterstützten nativen APIs finden Sie unter [Nano Server APIs (Nano Server-APIs)](/previous-versions/windows/desktop/legacy/mt588480(v=vs.85)).  
   
 ### <a name="building-c-for-nano-server"></a>Erstellen von C# für Nano Server  
   
@@ -240,7 +240,7 @@ Stellen Sie eine Verbindung mit dem Remotecomputer her, indem Sie `Enter-PSsessi
   
 ### <a name="migrating-from-wmi-net-to-mi-net"></a>Migrieren von WMI .NET zu MI .NET  
   
-[WMI .NET](https://msdn.microsoft.com/library/mt481551(v=vs.110).aspx) wird nicht unterstützt. Daher müssen alle Cmdlets, die die alte API verwenden, zur unterstützten WMI-API migrieren: [MI. .NET](https://msdn.microsoft.com/library/dn387184(v=vs.85).aspx). Sie können direkt über C# oder die Cmdlets im CimCmdlets-Modul auf MI . NET zugreifen.   
+[WMI .NET](/dotnet/api/?view=netframework-4.7.1) wird nicht unterstützt. Daher müssen alle Cmdlets, die die alte API verwenden, zur unterstützten WMI-API migrieren: [MI. .NET](/previous-versions//dn387184(v=vs.85)). Sie können direkt über C# oder die Cmdlets im CimCmdlets-Modul auf MI . NET zugreifen.   
   
 ### <a name="cimcmdlets-module"></a>CimCmdlets-Module  
   
@@ -251,5 +251,3 @@ Die WMIv1-Cmdlets (z.B. Get-WmiObject) werden unter Nano Server nicht unterstüt
 WMI .NET umschließt die WMIv1-Schnittstelle, während MI .NET die WMIv2-Schnittstelle (CIM-Schnittstelle) umschließt. Die zur Verfügung gestellten Klassen können abweichen, die zugrundeliegenden Vorgänge sind jedoch sehr ähnlich. Sie listen Instanzen von Objekten auf oder rufen diese ab und rufen Vorgänge für diese auf, um Aufgaben zu erfüllen.   
   
   
-
-

@@ -8,12 +8,12 @@ ms.date: 08/01/2016
 ms.topic: article
 author: lizap
 manager: dongill
-ms.openlocfilehash: 8fdebcad1370e06c19752944e85363c714f1fbcd
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 29d7417ff82be77efeb02d16093c88c53777d1fa
+ms.sourcegitcommit: f305bc5f1c5a44dac62f4288450af19f351f9576
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80854693"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87118641"
 ---
 # <a name="understanding-the-desktop-hosting-environment"></a>Grundlegendes zur Desktophostingumgebung
 
@@ -46,20 +46,20 @@ Bei Remote Desktop Services muss der Mandant über eine Active Directory-Instanz
     
 Weitere Informationen:  
 [Dokumentation zu Azure AD Domain Services](https://azure.microsoft.com/documentation/services/active-directory-ds/)  
-[Sichere Virtualisierung von Active Directory Domain Services (AD DS)](https://azure.microsoft.com/documentation/articles/active-directory-new-forest-virtual-machine/)  
-[Erstellen einer Site-to-Site-Verbindung im Azure-Portal](https://azure.microsoft.com/documentation/articles/vpn-gateway-howto-site-to-site-resource-manager-portal/)  
+[Sichere Virtualisierung von Active Directory Domain Services (AD DS)](../../identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100.md)  
+[Erstellen einer Site-to-Site-Verbindung im Azure-Portal](/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal)  
   
 ## <a name="azure-sql-database"></a>Azure SQL-Datenbank  
 Azure SQL-Datenbank ermöglicht Hostern, ihre RDS-Bereitstellung zu erweitern, ohne einen vollständigen SQL Server Always-On-Cluster bereitstellen und warten zu müssen. Bereitstellungsinformationen wie etwa die Zuordnung der Verbindungen aktueller Benutzer zu Endhostservern werden vom Remotedesktop-Verbindungsbroker in einer Azure SQL-Datenbank-Instanz gespeichert. Wie andere Azure-Dienste verfolgt Azure SQL-Datenbank ein Verbrauchsmodell, das sich ideal für jede Bereitstellungen jeder Größe eignet.   
   
 Weitere Informationen:  
-[Worum handelt es sich beim Azure SQL-Datenbank-Dienst?](https://azure.microsoft.com/documentation/articles/sql-database-technical-overview/)  
+[Worum handelt es sich beim Azure SQL-Datenbank-Dienst?](/azure/azure-sql/database/sql-database-paas-overview)  
   
 ## <a name="azure-active-directory-application-proxy"></a>Azure Active Directory-Anwendungsproxy  
 Der Azure AD-Anwendungsproxy ist ein Dienst, der in kostenpflichtigen SKUs von Azure Active Directory bereitgestellt wird. Mit diesem Dienst können Benutzer über den Azure-eigenen Reverseproxydienst eine Verbindung mit internen Anwendungen herstellen. Dadurch können die RD-Web- und RD-Gatewayendpunkte innerhalb des virtuellen Netzwerks verborgen werden. Das hat den Vorteil, dass sie nicht mit einer öffentlichen IP-Adresse für das Internet verfügbar gemacht werden müssen. So können Hoster außerdem die Anzahl virtueller Computer in der Mandantenumgebung verringern, ohne die Bereitstellung einzuschränken.
   
 Weitere Informationen:  
-[Tutorial: Hinzufügen einer lokalen Anwendung für den Remotezugriff über den Anwendungsproxy in Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-enable/)  
+[Tutorial: Hinzufügen einer lokalen Anwendung für den Remotezugriff über den Anwendungsproxy in Azure Active Directory](/azure/active-directory/manage-apps/application-proxy-add-on-premises-application)  
     
 ## <a name="file-server"></a>Dateiserver  
 Der Dateiserver verwendet das SMB 3.0-Protokoll (Server Message Block), um freigegebene Ordner bereitzustellen. Diese freigegebenen Ordner dienen zum Erstellen und Speichern von Benutzerprofil-Datenträgerdateien (VHDX-Dateien) für die Datensicherung und um Benutzern zu ermöglichen, Daten im Rahmen des virtuellen Netzwerks des Mandanten an andere Benutzer weiterzugeben.
@@ -69,11 +69,9 @@ Die VM, die den Dateiserver bereitstellt, muss über einen angefügten Azure-Dat
 Für kleine Mandanten können die Kosten reduziert werden, indem der Dateiserver mit der VM kombiniert wird, auf der die Rollen RD-Verbindungsbroker und RD-Lizenzierung auf einer einzigen VM in der Umgebung des Mandanten ausgeführt werden.  
   
 Weitere Informationen  
-[Datei- und Speicherdienste: Übersicht](https://technet.microsoft.com/library/hh831487.aspx)  
-[Anfügen eines verwalteten Datenträgers an einen virtuellen Windows-Computer im Azure-Portal](http://www.windowsazure.com/manage/windows/how-to-guides/attach-a-disk/)  
+[Datei- und Speicherdienste: Übersicht](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831487(v=ws.11))  
+[Anfügen eines verwalteten Datenträgers an einen virtuellen Windows-Computer im Azure-Portal](https://www.windowsazure.com/manage/windows/how-to-guides/attach-a-disk/)  
   
 ### <a name="user-profile-disks"></a>Benutzerprofil-Datenträger  
 Benutzerprofil-Datenträger ermöglichen Benutzern, persönliche Einstellungen und Dateien zu speichern, wenn sie bei einer Sitzung auf einem RD-Sitzungshostserver in einer Sammlung angemeldet sind, und später auf die gleichen Einstellungen und Dateien zugreifen können, wenn sie sich bei einem anderen RD-Sitzungshostserver der Sammlung anmelden. Bei der ersten Anmeldung des Benutzers wird auf dem Dateiserver des Mandanten ein Benutzerprofil-Datenträger erstellt. Dieser wird auf dem RD-Sitzungshostserver eingebunden, mit dem der Benutzer verbunden ist. Bei jeder weiteren Anmeldung wird der Benutzerprofil-Datenträger auf dem entsprechenden RD-Sitzungshostserver eingebunden, und bei jeder Abmeldung wird die Einbindung wieder aufgehoben. Auf den Inhalt des Benutzerprofil-Datenträgers kann nur dieser Benutzer zugreifen.  
   
-
-

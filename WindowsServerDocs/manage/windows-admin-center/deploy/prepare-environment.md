@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.date: 06/07/2019
 ms.localizationpriority: medium
 ms.prod: windows-server
-ms.openlocfilehash: 7b42db8c0be5e1a447ad0a3b794b07672c164514
-ms.sourcegitcommit: 7116460855701eed4e09d615693efa4fffc40006
+ms.openlocfilehash: a37c7e8765ba6f83fc1ebe20aaba3dfb8bc29a3d
+ms.sourcegitcommit: b35fbd2a67d7a3395b50b2a3acd0817ba4e36b26
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/15/2020
-ms.locfileid: "83433144"
+ms.lasthandoff: 07/22/2020
+ms.locfileid: "86891345"
 ---
 # <a name="prepare-your-environment-for-windows-admin-center"></a>Vorbereiten der Umgebung für Windows Admin Center
 
@@ -63,7 +63,7 @@ So aktivierst du die Dateiserverrolle für die grundlegende Dateifreigabe und Re
 1. Klicke in **Rollen und Funktionen** auf das Menü **Extras**.
 2. Suche in **Rollen und Funktionen** nach **Datei- und Speicherdienste** und aktiviere **Datei- und iSCSI-Dienste** sowie **Dateiserver**:
 
-![Screenshot „Rollen und Funktionen“ mit ausgewählter Rolle „Datei- und iSCSI-Dienste“](../media/prepare-environment/c6c30b812d96afcc1edcdb6f52f0e13c.png)
+![Screenshot „Rollen und Funktionen“ mit ausgewählter Rolle „Datei- und iSCSI-Dienste“](../media/prepare-environment/prepare-your-environment-image-1.png)
 
 ### <a name="step-3-enable-hyper-v-module-for-powershell"></a>**Schritt 3:** Aktivieren des Hyper-V-Moduls für PowerShell
 
@@ -72,7 +72,7 @@ So aktivierst du das Hyper-V-Modul für PowerShell-Features
 1. Klicke in **Rollen und Funktionen** auf das Menü **Extras**.
 2. Suche in **Rollen und Funktionen** nach **Remoteserver-Verwaltungstools** und aktiviere **Rollenverwaltungstools** und **Hyper-V-Modul für PowerShell**:
 
-![Screenshot „Rollen und Funktionen“ mit aktivierten Hyper-V-Rollen](../media/prepare-environment/7ab0999602b7083733525bd0c1ba2747.png)
+![Screenshot „Rollen und Funktionen“ mit aktivierten Hyper-V-Rollen](../media/prepare-environment/prepare-your-environment-image-2.png)
 
 Microsoft Hyper-V Server 2016 ist jetzt für die Verwaltung mit Windows Admin Center bereit.
 
@@ -111,7 +111,7 @@ So aktivierst du die Dateiserverrolle für die grundlegende Dateifreigabe und Re
 1. Klicke in **Rollen und Funktionen** auf das Menü **Extras**.
 2. Suche in **Rollen und Funktionen** nach **Datei- und Speicherdienste** und aktiviere **Datei- und iSCSI-Dienste** sowie **Dateiserver**:
 
-![Screenshot „Rollen und Funktionen“ mit ausgewählter Rolle „Datei- und iSCSI-Dienste“](../media/prepare-environment/c6c30b812d96afcc1edcdb6f52f0e13c.png)
+![Screenshot „Rollen und Funktionen“ mit ausgewählter Rolle „Datei- und iSCSI-Dienste“](../media/prepare-environment/prepare-your-environment-image-1.png)
 
 ### <a name="step-4-enable-hyper-v-module-for-powershell"></a>Schritt 4: Aktivieren des Hyper-V-Moduls für PowerShell
 
@@ -120,7 +120,7 @@ So aktivierst du das Hyper-V-Modul für PowerShell-Features
 1. Klicke in **Rollen und Funktionen** auf das Menü **Extras**.
 2. Suche in **Rollen und Funktionen** nach **Remoteserver-Verwaltungstools** und aktiviere **Rollenverwaltungstools** und **Hyper-V-Modul für PowerShell**:
 
-![Screenshot „Rollen und Funktionen“ mit aktivierten Hyper-V-Remoteserver-Verwaltungstools](../media/prepare-environment/7ab0999602b7083733525bd0c1ba2747.png)
+![Screenshot „Rollen und Funktionen“ mit aktivierten Hyper-V-Remoteserver-Verwaltungstools](../media/prepare-environment/prepare-your-environment-image-2.png)
 
 Microsoft Hyper-V Server 2012 R2 ist jetzt für die Verwaltung mit Windows Admin Center bereit.
 

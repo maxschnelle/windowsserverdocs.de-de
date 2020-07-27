@@ -9,12 +9,12 @@ ms.topic: article
 ms.assetid: 9b1fa833-4325-48a8-bf34-46265f40c001
 author: christianmontoya
 manager: scottman
-ms.openlocfilehash: 88806c7302474b111b700376c75b9b09f4da9236
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 2e4628e9ec7b5d75b88bb07282e2183a2f16fff2
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80853003"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86959152"
 ---
 # <a name="migrate-your-remote-desktop-services-deployment-to-windows-server-2016"></a>Migrieren von Remotedesktopdienste-Bereitstellungen zu Windows Server 2016
 
@@ -22,7 +22,7 @@ Wenn du die Remotedesktopdienste (Remote Desktop Services, RDS) zurzeit in Windo
 
 Die Migration einer Bereitstellung der Remotedesktopdienste wird von Quellservern unter Windows Server 2016 zu Zielservern unter Windows Server 2016 unterstützt. Anders gesagt: Es gibt keine direkte Migration der Remotedesktopdienste von Windows Server 2012 R2 zu Windows Server 2016. Stattdessen führst du für die meisten RDS-Komponenten zunächst ein Upgrade auf Windows Server 2016 aus und migrierst dann die Daten und Lizenzen. Die einzigen Komponenten, die direkt migriert werden können, sind RD-Web, RD-Gateway und der Lizenzierungsserver.
 
-Weitere Informationen zum Upgradeprozess und den Anforderungen findest du unter [Aktualisieren der Remotedesktopdienste-Bereitstellungen auf Windows Server 2016](upgrade-to-rds-2016.md).
+Weitere Informationen zum Upgradeprozess und den Anforderungen findest du unter [Aktualisieren der Remotedesktopdienste-Bereitstellungen auf Windows Server 2016](./upgrade-to-rds.md).
 
 Mit den folgenden Schritten kannst du deine Remotedesktopdienste-Bereitstellung migrieren:
 
@@ -45,11 +45,11 @@ Mit den folgenden Schritten kannst du deine Remotedesktopdienste-Bereitstellung 
 Dies ist der erste und wichtigste Schritte bei der Migration deines Remotedesktop-Verbindungsbrokers auf Zielservern unter Windows Server 2016.
 
 > [!IMPORTANT]
-> Die Quellserver des Remotedesktop-Verbindungsbrokers (RD-Verbindungsbroker) müssen für hohe Verfügbarkeit konfiguriert sein, damit die Migration unterstützt wird. Weitere Informationen findest du unter [Bereitstellen eines Remotedesktop-Verbindungsbrokerclusters](Deploy-a-Remote-Desktop-Connection-Broker-cluster.md).
+> Die Quellserver des Remotedesktop-Verbindungsbrokers (RD-Verbindungsbroker) müssen für hohe Verfügbarkeit konfiguriert sein, damit die Migration unterstützt wird. Weitere Informationen findest du unter [Bereitstellen eines Remotedesktop-Verbindungsbrokerclusters](./rds-connection-broker-cluster.md).
 
 1. Sind mehrere RD-Verbindungsbrokerserver mit hoher Verfügbarkeit eingerichtet, entfernen Sie alle RD-Verbindungsbrokerserver mit Ausnahme des derzeit aktiven Servers.
 
-2. Führe für die übrigen Remotedesktop-Verbindungsbrokerserver in der Bereitstellung ein [Upgrade](upgrade-to-rds-2016.md) auf Windows Server 2016 durch.
+2. Führe für die übrigen Remotedesktop-Verbindungsbrokerserver in der Bereitstellung ein [Upgrade](./upgrade-to-rds.md) auf Windows Server 2016 durch.
 
 3. Füge Windows Server 2016-RD-Verbindungsbrokerserver in der Hochverfügbarkeitsbereitstellung hinzu.
 
@@ -63,7 +63,7 @@ Führe zum Migrieren einer Sitzungssammlung in Windows Server 2012 R2 zu einer S
 > [!IMPORTANT]
 > Migriere die Sitzungssammlungen erst nach erfolgreicher Ausführung des vorigen Schritts [Migrieren von Remotedesktop-Verbindungsbrokerservern](#migrate-rdconnection-broker-servers).
 
-1. [Führe ein Upgrade der Sitzungssammlung](Upgrade-to-RDSH-2016.md) von Windows Server 2012 R2 auf Windows Server 2016 aus.
+1. [Führe ein Upgrade der Sitzungssammlung](./upgrade-to-rdsh.md) von Windows Server 2012 R2 auf Windows Server 2016 aus.
 
 2. Füge den neuen RD-Sitzungshostserver unter Windows Server 2016 zur Sitzungssammlung hinzu.
 
@@ -81,7 +81,7 @@ Führe zum Migrieren einer Sammlung virtueller Desktops von einem Quellserver un
 > [!IMPORTANT]
 > Migriere die Sammlungen virtueller Desktops erst nach erfolgreicher Ausführung des vorigen Schritts [Migrieren von Remotedesktop-Verbindungsbrokerservern](#migrate-rdconnection-broker-servers).
 
-1. [Führe ein Upgrade der Sammlung virtueller Desktops](Upgrade-to-RDVH-2016.md) von Windows Server 2012 R2 auf Windows Server 2016 aus.
+1. [Führe ein Upgrade der Sammlung virtueller Desktops](./upgrade-to-rdvh.md) von Windows Server 2012 R2 auf Windows Server 2016 aus.
 
 2. Füge die neuen Windows Server 2016-RD-Virtualisierungshostserver zur Sammlung virtueller Desktops hinzu.
 

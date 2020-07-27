@@ -10,12 +10,12 @@ author: jasongerend
 ms.author: jgerend
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: 5e13886395040619a7509c3cf896112288c48115
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: d2a1627a0a941f12da4731291a032e4b2e1ad887
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "74945206"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86962022"
 ---
 # <a name="features-removed-or-deprecated-in--windows-server-2016"></a>In Windows Server 2016 entfernte oder veraltete Features
 
@@ -31,7 +31,7 @@ Es folgt eine Liste der Features und Funktionen in Windows Server 2016, die für
 Die folgenden Features und Funktionen wurden aus dieser Version von Windows Server 2016 entfernt. Anwendungen, Code oder Nutzungsarten, die von diesen Features abhängen, funktionieren in dieser Version nur, wenn Sie eine alternative Methode verwenden.  
 
 > [!NOTE]  
-> Bei einem Wechsel zu Windows Server 2016 von einer Serverversion vor Windows Server 2012 R2 oder Windows Server 2012 sollten Sie außerdem die Informationen unter [In Windows Server 2012 R2 entfernte oder veraltete Features](https://technet.microsoft.com/library/dn303411.aspx) und [In Windows Server 2012 entfernte oder veraltete Features](https://technet.microsoft.com/library/hh831568.aspx) lesen.  
+> Bei einem Wechsel zu Windows Server 2016 von einer Serverversion vor Windows Server 2012 R2 oder Windows Server 2012 sollten Sie außerdem die Informationen unter [In Windows Server 2012 R2 entfernte oder veraltete Features](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303411(v=ws.11)) und [In Windows Server 2012 entfernte oder veraltete Features](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831568(v=ws.11)) lesen.  
 
 ### <a name="share-and-storage-management"></a>Freigabe- und Speicherverwaltung
 
@@ -49,7 +49,7 @@ Die Datei „Journal.dll“ wurde aus Windows Server 2016 entfernt. Es gibt kein
 
 ### <a name="security-configuration-wizard"></a>Sicherheitskonfigurations-Assistent
 
-Der Sicherheitskonfigurations-Assistent wurde entfernt. Stattdessen werden Features standardmäßig gesichert. Wenn Sie bestimmte Sicherheitseinstellungen steuern müssen, können Sie Gruppenrichtlinien oder [Microsoft Security Compliance Manager](https://technet.microsoft.com/solutionaccelerators/cc835245.aspx) verwenden.  
+Der Sicherheitskonfigurations-Assistent wurde entfernt. Stattdessen werden Features standardmäßig gesichert. Wenn Sie bestimmte Sicherheitseinstellungen steuern müssen, können Sie Gruppenrichtlinien oder [Microsoft Security Compliance Manager](/previous-versions/tn-archive/cc936627(v=technet.10)) verwenden.  
 
 ### <a name="sqm"></a>SQM
 
@@ -79,7 +79,7 @@ Die folgenden Features und Funktionen sind ab dieser Version veraltet. Zu einem 
 
 -   **Scregedit.exe** ist veraltet. Wenn Sie Skripts haben, die von „Scregedit.exe“ abhängen, passen Sie sie mithilfe von „Reg.exe“ oder Windows PowerShell-Methoden an.  
 
--   **Sconfig.exe** ist veraltet. Verwenden Sie stattdessen [SCONFIG. cmd-](https://docs.microsoft.com/windows-server/get-started/sconfig-on-ws2016). 
+-   **Sconfig.exe** ist veraltet. Verwenden Sie stattdessen [SCONFIG. cmd-](./sconfig-on-ws2016.md). 
 
 ### <a name="netcfg-custom-apis"></a>Benutzerdefinierte APIs für NetCfg
 

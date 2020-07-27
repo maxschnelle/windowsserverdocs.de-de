@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 09/10/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: c2614c0180b32a0215454f2d725d6a962986ef1f
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 0219c669a52d961cc98d6b0ee16bcbcfbbb78417
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "71394402"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86961572"
 ---
 # <a name="disable-offline-files-on-individual-redirected-folders"></a>Deaktivieren von Offlinedateien in einzelnen umgeleiteten Ordnern
 
@@ -22,7 +22,7 @@ ms.locfileid: "71394402"
 In diesem Thema wird beschrieben, wie die Zwischenspeicherung von Offlinedateien für einzelne Ordner deaktiviert wird, die mithilfe von Ordnerumleitung an Netzwerkfreigaben umgeleitet werden. Dies bietet die Möglichkeit, anzugeben, welche Ordner lokal zwischengespeichert werden sollen, wodurch die Cachegröße der Offlinedateien und die für die Synchronisierung von Offlinedateien benötigte Zeit verringert werden.
 
 >[!NOTE]
->Dieses Thema enthält Windows PowerShell-Beispiel-Cmdlets, mit denen Sie einige der beschriebenen Vorgehensweisen automatisieren können. Weitere Informationen finden Sie unter [Grundlagen von Windows PowerShell](https://docs.microsoft.com/powershell/scripting/getting-started/fundamental/windows-powershell-basics?view=powershell-6).
+>Dieses Thema enthält Windows PowerShell-Beispiel-Cmdlets, mit denen Sie einige der beschriebenen Vorgehensweisen automatisieren können. Weitere Informationen finden Sie unter [Grundlagen von Windows PowerShell](/powershell/scripting/getting-started/fundamental/windows-powershell-basics?view=powershell-6).
 
 ## <a name="prerequisites"></a>Voraussetzungen
 

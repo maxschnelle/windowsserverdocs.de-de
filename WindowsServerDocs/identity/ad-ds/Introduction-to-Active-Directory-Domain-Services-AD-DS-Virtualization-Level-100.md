@@ -9,12 +9,12 @@ manager: mtillman
 ms.date: 03/22/2019
 ms.technology: identity-adds
 ms.assetid: 7a3114c8-bda8-49bb-83a8-4e04340ab221
-ms.openlocfilehash: 25a5c2222f50b37bff2bcfe41184d6d9fa35995c
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: b9009e4688665e972531b1d38a5ecc92fa990556
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "77465504"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86955622"
 ---
 # <a name="safely-virtualizing-active-directory-domain-services-ad-ds"></a>Sichere Virtualisierung von Active Directory Domain Services (AD DS)
 
@@ -32,7 +32,7 @@ Die folgende Abbildung veranschaulicht z. B. die Abfolge von Ereignissen in Wind
 
 ![Die Ereignisabfolge bei Erkennung eines USN-Rollbacks](../media/Introduction-to-Active-Directory-Domain-Services--AD-DS--Virtualization--Level-100-/ADDS_Exampleofhowreplicationcanbecomeinconsistent.png)
 
-Mithilfe einer VM (virtueller Computer) können Hypervisoradministratoren ganz einfach ein Rollback für die USNs eines Domänencontrollers (die logische Uhr) durchführen, indem sie beispielsweise eine Momentaufnahme außerhalb des Wirkungsbereichs des Domänencontrollers anwenden. Weitere Informationen zur USN und zum USN-Rollback, einschließlich weiterer Abbildungen zur Veranschaulichung unerkannter Instanzen eines USN-Rollbacks, finden Sie unter [USN and USN Rollback](https://technet.microsoft.com/library/virtual_active_directory_domain_controller_virtualization_hyperv(WS.10).aspx#usn_and_usn_rollback).
+Mithilfe einer VM (virtueller Computer) können Hypervisoradministratoren ganz einfach ein Rollback für die USNs eines Domänencontrollers (die logische Uhr) durchführen, indem sie beispielsweise eine Momentaufnahme außerhalb des Wirkungsbereichs des Domänencontrollers anwenden. Weitere Informationen zur USN und zum USN-Rollback, einschließlich weiterer Abbildungen zur Veranschaulichung unerkannter Instanzen eines USN-Rollbacks, finden Sie unter [USN and USN Rollback](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd363553(v=ws.10)#usn_and_usn_rollback).
 
 Ab Windows Server 2012 können virtuelle AD DS-Domänencontroller, die auf Hypervisorplattformen gehostet werden, die den Bezeichner „VM-Generations-ID“ zur Verfügung stellen, erforderliche Sicherheitsmaßnahmen erkennen und anwenden, um die AD DS-Umgebung zu schützen, wenn für die VM ein Rollback mittels Anwendung einer VM-Momentaufnahme durchgeführt wird. Der VM-Generations-ID-Entwurf verwendet einen unabhängigen Mechanismus des Hypervisoranbieters, um diesen Bezeichner im Adressbereich des virtuellen Gastcomputers bereitzustellen, damit die sichere Virtualisierung ständig von jedem Hypervisor verfügbar ist, der VM-Generations-ID unterstützt. Dieser Bezeichner kann von Diensten und Anwendungen verwendet werden, die innerhalb des virtuellen Computers ausgeführt werden, um zu ermitteln, ob für einen virtuellen Computer ein Rollback durchgeführt wurde.
 
@@ -127,7 +127,7 @@ Es gibt zwei Ansätze für die Wiederherstellung nach einem USN-Rollback:
 
 Werten Sie aus, ob gültige Systemstatussicherungen für diesen Domänencontroller vorhanden sind. Wenn eine gültige Systemstatussicherung erstellt wurde, bevor die fehlerhafte Wiederherstellung des Domänencontrollers ausgeführt wurde, für den ein Rollback durchgeführt wurde, und die Sicherung aktuelle Änderungen enthält, die auf dem Domänencontroller durchgeführt wurden, stellen Sie den Systemstatus aus der aktuellsten Sicherung wieder her.
 
-Sie können die Momentaufnahme auch als Sicherungsquelle verwenden. Alternativ können Sie die Datenbank so einrichten, dass sie sich selbst eine neue Aufrufs-ID erteilt, indem Sie die Vorgehensweise aus dem Abschnitt [Wiederherstellen eines virtuellen Domänencontrollers, wenn keine entsprechende Sicherung der Systemstatusdaten verfügbar ist](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd363553%28v%3dws.10%29#restoring-a-virtual-domain-controller-when-an-appropriate-system-state-data-backup-is-not-available) durchführen.
+Sie können die Momentaufnahme auch als Sicherungsquelle verwenden. Alternativ können Sie die Datenbank so einrichten, dass sie sich selbst eine neue Aufrufs-ID erteilt, indem Sie die Vorgehensweise aus dem Abschnitt [Wiederherstellen eines virtuellen Domänencontrollers, wenn keine entsprechende Sicherung der Systemstatusdaten verfügbar ist](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/dd363553%28v%3dws.10%29#restoring-a-virtual-domain-controller-when-an-appropriate-system-state-data-backup-is-not-available) durchführen.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

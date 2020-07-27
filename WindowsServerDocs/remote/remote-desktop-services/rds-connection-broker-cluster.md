@@ -8,12 +8,12 @@ ms.date: 04/10/2017
 ms.topic: article
 author: lizap
 manager: dongill
-ms.openlocfilehash: dc6a9fa0d6834f63c9935518e4b2c26320a04082
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 6e7e70b8adfcba78e50757be671d38f4d62c99db
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80852963"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86958702"
 ---
 # <a name="add-the-rd-connection-broker-server-to-the-deployment-and-configure-high-availability"></a>Hinzufügen des Remotedesktop-Verbindungsbrokerservers zur Bereitstellung und Konfigurieren von hoher Verfügbarkeit
 
@@ -25,7 +25,7 @@ Sie können einen Remotedesktop-Verbindungsbrokercluster bereitstellen, um die V
 
 Richten Sie einen Server ein, der als zweiter RD-Verbindungsbroker fungiert. Dies kann entweder ein physischer Server oder ein virtueller Computer sein.
 
-Richten Sie eine Datenbank für den Verbindungsbroker ein. Sie können die [Azure SQL-Datenbank](https://azure.microsoft.com/documentation/articles/sql-database-get-started/#create-a-new-aure-sql-database)-Instanz oder SQL Server in Ihrer lokalen Umgebung verwenden. Im Folgenden wird über die Verwendung von Azure SQL gesprochen, aber die Schritte gelten weiterhin für SQL Server. Sie müssen die Verbindungszeichenfolge für die Datenbank finden und sicherstellen, dass Sie über den richtigen ODBC-Treiber verfügen.
+Richten Sie eine Datenbank für den Verbindungsbroker ein. Sie können die [Azure SQL-Datenbank](/azure/azure-sql/database/single-database-create-quickstart#create-a-new-aure-sql-database)-Instanz oder SQL Server in Ihrer lokalen Umgebung verwenden. Im Folgenden wird über die Verwendung von Azure SQL gesprochen, aber die Schritte gelten weiterhin für SQL Server. Sie müssen die Verbindungszeichenfolge für die Datenbank finden und sicherstellen, dass Sie über den richtigen ODBC-Treiber verfügen.
 
 ## <a name="step-1-configure-the-database-for-the-connection-broker"></a>Schritt 1: Konfigurieren der Datenbank für den Verbindungsbroker
 
@@ -70,7 +70,7 @@ Wenn Sie die Azure-Infrastruktur verwenden, können Sie einen [Azure Load Balanc
       4. Wählen Sie **Statisch** für die **IP-Adressvergabe** aus, und geben Sie eine **Private IP-Adresse** ein, die derzeit nicht verwendet wird (z. B. 10.0.0.32).   
       5. Wählen Sie das entsprechende **Abonnement**, die **Ressourcengruppe** mit allen Ihren Ressourcen und den entsprechenden **Speicherort** aus.   
       6. Wählen Sie **Erstellen** aus.   
-2. Erstellen Sie einen [Test](https://azure.microsoft.com/documentation/articles/load-balancer-custom-probe-overview/), um zu überwachen, welche Server aktiv sind:   
+2. Erstellen Sie einen [Test](/azure/load-balancer/load-balancer-custom-probe-overview), um zu überwachen, welche Server aktiv sind:   
       1. Klicken Sie im Azure-Portal auf **Durchsuchen > Lastenausgleichsmodule**, und klicken Sie dann auf den Lastenausgleich, den Sie soeben erstellt haben (z. B. CBLB). Klicken Sie auf **Einstellungen**.   
       2. Klicken Sie auf **Tests > Hinzufügen**.   
       3. Geben Sie einen Namen für den Test ein (z. B. **RDP**), wählen Sie **TCP** als **Protokoll** aus, geben Sie **3389** für den **Port** ein, und klicken Sie dann auf **OK**.   
@@ -83,7 +83,7 @@ Wenn Sie die Azure-Infrastruktur verwenden, können Sie einen [Azure Load Balanc
       1. Klicken Sie unter **Einstellungen** auf **Lastenausgleichsregeln**, und klicken Sie dann auf **Hinzufügen**.   
       2. Geben Sie einen Namen ein (z. B. RDP), wählen Sie **TCP** als **Protokoll** aus, geben Sie **3389** für den **Port** und **Back-End-Port** ein, und klicken Sie dann auf **OK**.   
 5. Fügen Sie einen DNS-Eintrag für den Lastenausgleich hinzu:   
-      1. Stellen Sie eine Verbindung mit dem virtuellen Computer des RDMS-Servers her (z. B. Contoso-CB1). Informationen zu den Schritten zum Herstellen der Verbindung mit dem virtuellen Computer finden Sie unter [Vorbereiten des virtuellen Computers des RD-Verbindungsbrokers](Prepare-the-RD-Connection-Broker-VM-for-Remote-Desktop.md).   
+      1. Stellen Sie eine Verbindung mit dem virtuellen Computer des RDMS-Servers her (z. B. Contoso-CB1). Informationen zu den Schritten zum Herstellen der Verbindung mit dem virtuellen Computer finden Sie unter [Vorbereiten des virtuellen Computers des RD-Verbindungsbrokers](./rds-prepare-vms.md).   
       2. Klicken Sie im Server-Manager auf **Extras > DNS**.   
       3. Erweitern Sie im linken Bereich **DNS**, klicken Sie auf den DNS-Computer, klicken Sie auf **Forward-Lookupzonen**, und klicken Sie dann auf Ihren Domänennamen (z. B. Contoso.com). (Es kann einige Sekunden dauern, bis die Abfrage an den DNS-Server für die Informationen bearbeitet wurde.)  
       4. Klicken Sie auf **Aktion > Neuer Host (A oder AAAA)** .   
@@ -124,4 +124,3 @@ Wenn z. B. die IP-Adressen für die beiden virtuellen Computer des RD-Verbindung
    3. Navigieren Sie durch den Assistenten, bis Sie zur Serverauswahl gelangen, und wählen Sie dann den neu erstellten RD-Verbindungsbrokerserver (z. B. Contoso-CB2) aus.
    4. Schließen Sie den Assistenten ab, und übernehmen Sie die Standardwerte.
 4. Konfigurieren Sie vertrauenswürdige Zertifikate auf Servern und Clients des RD-Verbindungsbrokers.
-

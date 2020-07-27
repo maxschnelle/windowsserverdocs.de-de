@@ -10,12 +10,12 @@ ms.prod: windows-server
 ms.custom: it-pro
 ms.reviewer: maheshu
 ms.technology: identity-adds
-ms.openlocfilehash: 5f7a8f08ff10102fbc04b6f8272320bd3b77785d
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: b6a9a5c08e24f5c7bb7ac50ac1c72386ef8a6d0f
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80825493"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86963052"
 ---
 # <a name="forest-and-domain-functional-levels"></a>Gesamtstruktur- und Domänenfunktionsebenen
 
@@ -27,7 +27,7 @@ Legen Sie bei der Bereitstellung von AD DS die Domänen- und Gesamtstrukturfunkt
 
 Mit dem Ende der Lebensdauer von Windows 2003 müssen Windows 2003-Domänencontrollern (DCs) auf Windows Server 2008, 2008 R2, 2012, 2012 R2, 2016 oder 2019 aktualisiert werden. Daher sollten alle Domänencontroller, die auf Windows Server 2003 ausgeführt werden, aus der Domäne entfernt werden.
 
-Bei Windows Server 2008-Domänenfunktionsebenen (und höher) wird die DFS-Replikation (Distributed File Service) zum Replizieren von SYSVOL-Ordnerinhalten zwischen Domänencontrollern verwendet. Wenn Sie auf der Windows Server 2008-Domänenfunktionsebene (oder höher) eine neue Domäne erstellen, wird die DFS-Replikation automatisch zum Replizieren von SYSVOL verwendet. Wenn Sie die Domäne auf einer niedrigeren Funktionsebene erstellt haben, müssen Sie für SYSVOL anstatt des Dateireplikationsdiensts die DFS-Replikation verwenden. Für die Migrationsschritte können Sie entweder die [Anweisungen auf TechNet](https://technet.microsoft.com/library/dd640019(v=WS.10).aspx) oder die [optimierten Schritte im Storage Team File Cabinet-Blog](https://blogs.technet.com/b/filecab/archive/2014/06/25/streamlined-migration-of-frs-to-dfsr-sysvol.aspx) befolgen.
+Bei Windows Server 2008-Domänenfunktionsebenen (und höher) wird die DFS-Replikation (Distributed File Service) zum Replizieren von SYSVOL-Ordnerinhalten zwischen Domänencontrollern verwendet. Wenn Sie auf der Windows Server 2008-Domänenfunktionsebene (oder höher) eine neue Domäne erstellen, wird die DFS-Replikation automatisch zum Replizieren von SYSVOL verwendet. Wenn Sie die Domäne auf einer niedrigeren Funktionsebene erstellt haben, müssen Sie für SYSVOL anstatt des Dateireplikationsdiensts die DFS-Replikation verwenden. Für die Migrationsschritte können Sie entweder die [Anweisungen auf TechNet](../../storage/dfs-replication/migrate-sysvol-to-dfsr.md) oder die [optimierten Schritte im Storage Team File Cabinet-Blog](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB) befolgen.
 
 ## <a name="windows-server-2019"></a>Windows Server 2019
 
@@ -45,7 +45,7 @@ Unterstützte Betriebssysteme des Domänencontrollers:
 ### <a name="windows-server-2016-forest-functional-level-features"></a>Features für die Windows Server 2016-Gesamtstrukturfunktionsebene
 
 * Alle auf der Windows Server 2012 R2-Gesamtstrukturebene verfügbaren Features sowie die folgenden Features sind verfügbar:
-   * [PAM (Privileged Access Management) mithilfe von MIM (Microsoft Identity Manager)](https://docs.microsoft.com/windows-server/identity/whats-new-active-directory-domain-services#a-namebkmkpamaprivileged-access-management)
+   * [PAM (Privileged Access Management) mithilfe von MIM (Microsoft Identity Manager)](../whats-new-active-directory-domain-services.md#privileged-access-management)
 
 ### <a name="windows-server-2016-domain-functional-level-features"></a>Features für die Windows Server 2016-Domänenfunktionsebene
 
@@ -54,7 +54,7 @@ Unterstützte Betriebssysteme des Domänencontrollers:
    * Domänencontroller können das Zulassen von Netzwerk-NTLM unterstützen, wenn ein Benutzer auf bestimmte, in die Domäne eingebundene Geräte beschränkt ist.
    * Kerberos-Clients, die sich erfolgreich bei der PKInit Freshness-Erweiterung authentifizieren, erhalten die aktuelle SID der öffentlichen Schlüsselidentität.
 
-    Weitere Informationen finden Sie unter [Neuerungen bei der Kerberos-Authentifizierung](https://docs.microsoft.com/windows-server/security/kerberos/whats-new-in-kerberos-authentication) und [Neuerungen beim Schutz von Anmeldeinformationen](https://docs.microsoft.com/windows-server/security/credentials-protection-and-management/whats-new-in-credential-protection).
+    Weitere Informationen finden Sie unter [Neuerungen bei der Kerberos-Authentifizierung](../../security/kerberos/whats-new-in-kerberos-authentication.md) und [Neuerungen beim Schutz von Anmeldeinformationen](../../security/credentials-protection-and-management/whats-new-in-credential-protection.md).
 
 ## <a name="windows-server-2012r2"></a>Windows Server 2012 R2
 
@@ -97,7 +97,7 @@ Unterstützte Betriebssysteme des Domänencontrollers:
 ### <a name="windows-server-2012-domain-functional-level-features"></a>Features für die Windows Server 2012-Domänenfunktionsebene
 
 * Alle Active Directory-Standardfeatures, alle Features der Windows Server 2008 R2-Domänenfunktionsebene und die folgenden Features sind verfügbar:
-   * Für die Kerberos-Domänencontrollerrichtlinie bezüglich administrativer Vorlagen für die KDC-Unterstützung für Ansprüche, Verbundauthentifizierung und den Kerberos-Schutz sind zwei Einstellungen verfügbar („Immer Ansprüche liefern“ und „Ungeschützte Authentifizierungsanfragen ablehnen“), für die die Windows Server 2012-Domänenfunktionsebene erforderlich ist. Weitere Informationen finden Sie unter [Neuerungen bei der Kerberos-Authentifizierung](https://technet.microsoft.com/library/hh831747.aspx).
+   * Für die Kerberos-Domänencontrollerrichtlinie bezüglich administrativer Vorlagen für die KDC-Unterstützung für Ansprüche, Verbundauthentifizierung und den Kerberos-Schutz sind zwei Einstellungen verfügbar („Immer Ansprüche liefern“ und „Ungeschützte Authentifizierungsanfragen ablehnen“), für die die Windows Server 2012-Domänenfunktionsebene erforderlich ist. Weitere Informationen finden Sie unter [Neuerungen bei der Kerberos-Authentifizierung](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831747(v=ws.11)).
 
 ## <a name="windows-server-2008r2"></a>Windows Server 2008 R2
 
@@ -146,7 +146,7 @@ Unterstützte Betriebssysteme des Domänencontrollers:
 
   * Es sind im Windows Server 2008-Modus ausgeführte domänenbasierte DFS-Namespaces einschließlich der Unterstützung für die zugriffsbasierte Aufzählung und bessere Skalierbarkeit verfügbar. Domänenbasierte Namespaces im Windows Server 2008-Modus erfordern außerdem die Gesamtstruktur, um die Windows Server 2003-Gesamtstrukturfunktionsebene nutzen zu können. Weitere Informationen finden Sie unter [Auswählen eines Namespacetyps](https://go.microsoft.com/fwlink/?LinkId=180400).
   * Advanced Encryption Standard-Unterstützung (AES 128 und AES 256) für das Kerberos-Protokoll: Damit TGTs mithilfe von AES ausgestellt werden können, muss die Domänenfunktionsebene Windows Server 2008 oder höher sein und das Domänenkennwort geändert werden. 
-    * Weitere Informationen finden Sie unter [Kerberos-Erweiterungen](https://technet.microsoft.com/library/cc749438(ws.10).aspx).
+    * Weitere Informationen finden Sie unter [Kerberos-Erweiterungen](/previous-versions/windows/it-pro/windows-vista/cc749438(v=ws.10)).
 
       > [!NOTE]
       >Auf einem Domänencontroller können nach der Änderung der Domänenfunktionsebene auf Windows Server 2008 oder höher Authentifizierungsfehler auftreten, wenn der Domänencontroller zwar schon die DFL-Änderung, noch nicht aber das „krbtgt“-Kennwort geändert hat. In diesem Fall löst ein Neustart des KDC-Diensts auf dem Domänencontroller eine Aktualisierung des neuen „krbtgt“-Kennworts im Arbeitsspeicher und zugehörige Authentifizierungsfehler aus.
@@ -226,5 +226,5 @@ Unterstützte Betriebssysteme des Domänencontrollers:
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* [Heraufstufen der Domänenfunktionsebene](https://technet.microsoft.com/library/cc753104.aspx)  
-* [Heraufstufen der Gesamtstrukturfunktionsebene](https://technet.microsoft.com/library/cc730985.aspx)
+* [Heraufstufen der Domänenfunktionsebene](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753104(v=ws.11))  
+* [Heraufstufen der Gesamtstrukturfunktionsebene](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc730985(v=ws.11))

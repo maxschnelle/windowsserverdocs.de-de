@@ -10,12 +10,12 @@ author: jasongerend
 ms.author: jgerend
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: 01b06c2869469ee65e23df2b1f5ca35fb266d234
-ms.sourcegitcommit: 457e88e5aa6be13a2bffdb8e434a8efc3698678f
+ms.openlocfilehash: a0a6cefcfb69050721a8b82b5f0f770fa518a551
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85548733"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86961762"
 ---
 # <a name="whats-new-in-windows-server-2016"></a>Neuerungen in Windows Server 2016
 
@@ -33,7 +33,7 @@ Physische und virtuelle Computer profitieren durch Verbesserungen beim Win32-Zei
 ### <a name="hyper-v"></a>Hyper-V  
 -   [Neues in Hyper-V auf Windows Server 2016](../virtualization/hyper-v/What-s-new-in-Hyper-V-on-Windows.md): In diesem Thema werden die neuen und überarbeiteten Funktionen der Hyper-V-Rolle in Windows Server 2016, Hyper-V für Clients mit Windows 10 und Microsoft Hyper-V Server 2016 beschrieben.  
 
--   [Windows-Container](https://msdn.microsoft.com/virtualization/windowscontainers/containers_welcome):  Die Windows Server 2016-Containerunterstützung ermöglicht eine höhere Leistung, eine vereinfachte Netzwerkverwaltung sowie Unterstützung für Windows-Container unter Windows 10. Zusätzliche Informationen zu Containern finden Sie im Blog [Containers: Docker, Windows and Trends](https://azure.microsoft.com/blog/2015/08/17/containers-docker-windows-and-trends/) (Container: Docker, Windows und Trends).  
+-   [Windows-Container](/virtualization/windowscontainers/):  Die Windows Server 2016-Containerunterstützung ermöglicht eine höhere Leistung, eine vereinfachte Netzwerkverwaltung sowie Unterstützung für Windows-Container unter Windows 10. Zusätzliche Informationen zu Containern finden Sie im Blog [Containers: Docker, Windows and Trends](https://azure.microsoft.com/blog/2015/08/17/containers-docker-windows-and-trends/) (Container: Docker, Windows und Trends).  
 
 ### <a name="nano-server"></a>Nano Server  
 Neuerungen in [Nano Server](getting-started-with-nano-server.md). Nano Server verfügt nun über ein aktualisiertes Modul zum Erstellen von Nano Server-Images. Außerdem ist die Funktionalität für physische Hosts und Gast-VMs stärker getrennt, und Kunden profitieren von der Unterstützung für unterschiedliche Windows Server-Editionen.   
@@ -77,7 +77,7 @@ Im Fokus der aktuellen Version des Webanwendungsproxys stehen neue Features, die
 ##  <a name="administration"></a>[Verwaltung](../administration/manage-windows-server.yml)  
 Im Bereich Verwaltung und Automatisierung liegt der Schwerpunkt auf Tool- und Referenzinformationen für IT-Profis, die Windows Server 2016 (einschließlich Windows PowerShell) ausführen und verwalten möchten.
 
-Windows PowerShell 5.1 enthält wichtige neue Features – einschließlich Unterstützung für die Entwicklung mit Klassen und neue Sicherheitsfunktionen –, die den Funktionsumfang erweitern, die Benutzerfreundlichkeit verbessern und die Steuerung und Verwaltung von Windows-basierten Umgebungen erleichtern und erweitern. Weitere Informationen finden Sie unter [Neue Szenarien und Features in WMF 5.1](https://docs.microsoft.com/powershell/wmf/5.1/scenarios-features).
+Windows PowerShell 5.1 enthält wichtige neue Features – einschließlich Unterstützung für die Entwicklung mit Klassen und neue Sicherheitsfunktionen –, die den Funktionsumfang erweitern, die Benutzerfreundlichkeit verbessern und die Steuerung und Verwaltung von Windows-basierten Umgebungen erleichtern und erweitern. Weitere Informationen finden Sie unter [Neue Szenarien und Features in WMF 5.1](/powershell/wmf/5.1/scenarios-features).
 
 Die neuen Features für Windows Server 2016 umfassen Folgendes: PowerShell.exe kann lokal unter Nano Server ausgeführt werden (nicht mehr nur remote), neue Cmdlets für lokale Benutzer und Gruppen ersetzen die GUI, neue PowerShell-Debuggingunterstützung sowie neue Unterstützung in Nano Server für Sicherheitsprotokollierung und -aufzeichnung sowie JEA.
 
@@ -86,7 +86,7 @@ Dies sind einige weitere neue Verwaltungsfeatures:
 ### <a name="powershell-desired-state-configuration-dsc-in-windows-management-framework-wmf-5"></a>PowerShell Desired State Configuration (DSC) im Windows Management Framework (WMF) 5
 Windows Management Framework 5 enthält Updates für Windows PowerShell Desired State Configuration (DSC), die Windows-Remoteverwaltung (Windows Remote Management, WinRM) und die Windows-Verwaltungsinstrumentation (Windows Management Instrumentation, WMI).
 
-Weitere Informationen zum Testen der DSC-Features von Windows Management Framework 5 finden Sie in der Blogbeitragsreihe, die unter [Validate features of PowerShell DSC](https://blogs.msdn.microsoft.com/powershell/2015/07/06/validate-features-of-powershell-dsc/) (Überprüfen der PowerShell DSC-Features) besprochen wird. Die Downloaddateien finden Sie unter [Windows Management Framework 5.1](https://docs.microsoft.com/powershell/scripting/wmf/setup/install-configure).
+Weitere Informationen zum Testen der DSC-Features von Windows Management Framework 5 finden Sie in der Blogbeitragsreihe, die unter [Validate features of PowerShell DSC](https://devblogs.microsoft.com/powershell/validate-features-of-powershell-dsc/) (Überprüfen der PowerShell DSC-Features) besprochen wird. Die Downloaddateien finden Sie unter [Windows Management Framework 5.1](/powershell/scripting/wmf/setup/install-configure).
 
 ### <a name="packagemanagement-unified-package-management-for-software-discovery-installation-and-inventory"></a>Einheitliche Paketverwaltung mit PackageManagement für die Softwareerkennung, Installation und Inventur
 Windows Server 2016 und Windows 10 enthalten ein neues PackageManagement-Feature (ehemals OneGet), das IT-Experten oder DevOps ermöglicht, die Erkennung, Installation und Inventarisierung von Software (Software Discovery, Installation, Inventory – SDII) lokal oder remote zu automatisieren, unabhängig von der Installationstechnologie und davon, wo sich die Software befindet. 
@@ -96,7 +96,7 @@ Weitere Informationen finden Sie unter [https://github.com/OneGet/oneget/wiki](h
 ### <a name="powershell-enhancements-to-assist-digital-forensics-and-help-reduce-security-breaches"></a>PowerShell-Erweiterungen zur Unterstützung der digitalen Forensik und Verringerung von Sicherheitslücken
 Um das Team zu unterstützen, das für die Untersuchung kompromittierter Systeme zuständig ist – manchmal als „Blue Team“ bezeichnet –, haben wir zusätzliche PowerShell-Protokollierungen und andere digitale, forensische Features hinzugefügt. Wir haben außerdem die Features zur Reduzierung von Sicherheitsrisiken in Skripts, z.B. PowerShell (eingeschränkt) und sichere CodeGeneration-APIs, hinzugefügt.
 
-Weitere Informationen finden Sie im Artikel zum [PowerShell ♥ Blue Team](https://blogs.msdn.microsoft.com/powershell/2015/06/09/powershell-the-blue-team/).
+Weitere Informationen finden Sie im Artikel zum [PowerShell ♥ Blue Team](https://devblogs.microsoft.com/powershell/powershell-the-blue-team/).
 
 ## <a name="networking"></a>[Netzwerk](../networking/index.yml)  
 Dieser Bereich befasst sich mit Netzwerkprodukten und -features, die IT-Spezialisten beim Entwerfen, Bereitstellen und Warten von Windows Server 2016 verwenden können.  
@@ -116,20 +116,20 @@ Dieser Bereich umfasst Sicherheitslösungen und -features für Ihr Rechenzentrum
 Just Enough Administration in Windows Server 2016 ist eine Sicherheitstechnologie, die eine delegierte Verwaltung für sämtliche Bereiche bietet, die sich mit Windows PowerShell verwalten lassen. Die Funktionen umfassen die Unterstützung für die Ausführung unter einer Netzwerkidentität, für das Herstellen einer Verbindung über PowerShell Direct, das sichere Kopieren von Dateien von/zu JEA-Endpunkten sowie das Konfigurieren der PowerShell-Konsole für den standardmäßigen Start in einem JEA-Kontext. Weitere Einzelheiten finden Sie auf den Webseiten zu [JEA auf GitHub](https://aka.ms/JEA).
 
 ### <a name="credential-guard"></a>Credential Guard
-Credential Guard nutzt auf Virtualisierung basierende Sicherheitsverfahren, um geheime Daten zu isolieren, damit nur durch privilegierte Systemsoftware auf diese Daten zugegriffen werden kann. Siehe [Schützen abgeleiteter Domänenanmeldeinformationen mit Credential Guard](https://technet.microsoft.com/itpro/windows/keep-secure/credential-guard).
+Credential Guard nutzt auf Virtualisierung basierende Sicherheitsverfahren, um geheime Daten zu isolieren, damit nur durch privilegierte Systemsoftware auf diese Daten zugegriffen werden kann. Siehe [Schützen abgeleiteter Domänenanmeldeinformationen mit Credential Guard](/windows/security/identity-protection/credential-guard/credential-guard).
 
 ###  <a name="remote-credential-guard"></a>Remote Credential Guard
-Credential Guard umfasst die Unterstützung für RDP-Sitzungen, damit die Anmeldeinformationen des Benutzers auf der Clientseite bleiben und nicht auf der Serverseite offengelegt werden. Außerdem wird Einmaliges Anmelden für Remotedesktop bereitgestellt. Weitere Informationen finden Sie unter [Schützen abgeleiteter Domänenanmeldeinformationen mit Windows Defender Credential Guard](https://docs.microsoft.com/windows/access-protection/credential-guard/credential-guard).   
+Credential Guard umfasst die Unterstützung für RDP-Sitzungen, damit die Anmeldeinformationen des Benutzers auf der Clientseite bleiben und nicht auf der Serverseite offengelegt werden. Außerdem wird Einmaliges Anmelden für Remotedesktop bereitgestellt. Weitere Informationen finden Sie unter [Schützen abgeleiteter Domänenanmeldeinformationen mit Windows Defender Credential Guard](/windows/access-protection/credential-guard/credential-guard).   
 
 ### <a name="device-guard-code-integrity"></a>Device Guard (Codeintegrität)
-Device Guard bietet Codeintegrität im Kernelmodus (Kernel Mode Code Integrity, KMCI) und Codeintegrität im Benutzermodus (User Mode Code Integrity, UMCI), indem Richtlinien erstellt werden, die angeben, welcher Code auf dem Server ausgeführt werden kann. Siehe [Einführung in Windows Defender Device Guard: virtualisierungsbasierte Sicherheit und Richtlinien zur Codeintegrität](https://docs.microsoft.com/windows/device-security/device-guard/introduction-to-device-guard-virtualization-based-security-and-code-integrity-policies).
+Device Guard bietet Codeintegrität im Kernelmodus (Kernel Mode Code Integrity, KMCI) und Codeintegrität im Benutzermodus (User Mode Code Integrity, UMCI), indem Richtlinien erstellt werden, die angeben, welcher Code auf dem Server ausgeführt werden kann. Siehe [Einführung in Windows Defender Device Guard: virtualisierungsbasierte Sicherheit und Richtlinien zur Codeintegrität](/windows/device-security/device-guard/introduction-to-device-guard-virtualization-based-security-and-code-integrity-policies).
 
 
 ### <a name="windows-defender"></a>Windows Defender  
 [Übersicht über Windows Defender für Windows Server 2016](../security/windows-defender/windows-defender-overview-windows-server.md). Windows Server Antimalware wird in Windows Server 2016 standardmäßig installiert und aktiviert, die Benutzeroberfläche von Windows Server Antimalware wird jedoch nicht installiert. Windows Server Antimalware aktualisiert jedoch die Antischadsoftware-Definitionen und schützt Ihren Computer so auch ohne die Benutzeroberfläche. Wenn Sie die Benutzeroberfläche von Windows Server Antimalware benötigen, können Sie sie nach der Installation des Betriebssystems mit dem Assistenten zum Hinzufügen von Rollen und Features installieren.
 
 ### <a name="control-flow-guard"></a>Ablaufsteuerungsschutz
-Beim Ablaufsteuerungsschutz (Control Flow Guard, CFG) handelt es sich um eine Plattformsicherheitsfunktion, die erstellt wurde, um auf Speicherbeschädigungs-Sicherheitsrisiken zu reagieren. Weitere Informationen finden Sie unter [Control Flow Guard (Ablaufsteuerungsschutz)](https://msdn.microsoft.com/library/windows/desktop/mt637065(v=vs.85).aspx).
+Beim Ablaufsteuerungsschutz (Control Flow Guard, CFG) handelt es sich um eine Plattformsicherheitsfunktion, die erstellt wurde, um auf Speicherbeschädigungs-Sicherheitsrisiken zu reagieren. Weitere Informationen finden Sie unter [Control Flow Guard (Ablaufsteuerungsschutz)](/windows/win32/secbp/control-flow-guard).
 
 
 ## <a name="storage"></a>[Speicher](../storage/storage.yml)
@@ -191,9 +191,9 @@ Weitere Informationen finden Sie unter [IIS](https://iis.net/learn).
 ### <a name="distributed-transaction-coordinator-msdtc"></a>Distributed Transaction Coordinator (MSDTC)
 In Microsoft Windows 10 und Windows Server 2016 werden drei neue Features hinzugefügt:
 
-- Eine neue Benutzeroberfläche für den erneuten Beitritt zum Ressourcen-Manager (Resource Manager Rejoin) kann von einem Ressourcenmanager zum Ermitteln des Ergebnisses einer unsicheren Transaktion nach dem Neustart einer Datenbank aufgrund eines Fehlers verwendet werden. Details finden Sie unter [IResourceManagerRejoinable::Rejoin](https://msdn.microsoft.com/library/mt203799(v=vs.85).aspx).
+- Eine neue Benutzeroberfläche für den erneuten Beitritt zum Ressourcen-Manager (Resource Manager Rejoin) kann von einem Ressourcenmanager zum Ermitteln des Ergebnisses einer unsicheren Transaktion nach dem Neustart einer Datenbank aufgrund eines Fehlers verwendet werden. Details finden Sie unter [IResourceManagerRejoinable::Rejoin](/previous-versions/windows/desktop/mt203799(v=vs.85)).
 
-- Der Grenzwert des DSN-Namens wurde von 256 Bytes auf 3072 Bytes heraufgesetzt. Details finden Sie unter [IDtcToXaHelperFactory::Create](https://msdn.microsoft.com/library/ms686861(v=vs.85).aspx), [IDtcToXaHelperSinglePipe::XARMCreate](https://msdn.microsoft.com/library/ms679248(v=vs.85).aspx) oder [IDtcToXaMapper::RequestNewResourceManager](https://msdn.microsoft.com/library/ms680310(v=vs.85).aspx).
+- Der Grenzwert des DSN-Namens wurde von 256 Bytes auf 3072 Bytes heraufgesetzt. Details finden Sie unter [IDtcToXaHelperFactory::Create](/previous-versions/windows/desktop/ms686861(v=vs.85)), [IDtcToXaHelperSinglePipe::XARMCreate](/previous-versions/windows/desktop/ms679248(v=vs.85)) oder [IDtcToXaMapper::RequestNewResourceManager](/previous-versions/windows/desktop/ms680310(v=vs.85)).
 
 - Die verbesserte Ablaufverfolgung ermöglicht Ihnen das Festlegen eines Registrierungsschlüssels, um den Pfad einer Imagedatei in den Namen der Ablaufverfolgungs-Protokolldatei aufzunehmen, sodass Sie sehen können, welche Ablaufverfolgungs-Protokolldatei überprüft werden muss. Ausführliche Informationen zum Konfigurieren der Ablaufverfolgung für MSDTC finden Sie unter [Aktivieren der Diagnoseablaufverfolgung für MS DTC auf einem Windows-basierten Computer](https://support.microsoft.com/kb/926099).
 

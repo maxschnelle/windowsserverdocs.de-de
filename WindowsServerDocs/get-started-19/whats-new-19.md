@@ -8,12 +8,12 @@ author: jasongerend
 ms.author: jgerend
 ms.localizationpriority: high
 ms.date: 06/04/2019
-ms.openlocfilehash: 47269fbfac6aea3fe46513ad67d2cfa2f0c9b78e
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: fd094347679d147a04faefdf3741a06addda2026
+ms.sourcegitcommit: 78b59522234825c43b00c271a04c35f3fd9d65e3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80639920"
+ms.lasthandoff: 07/22/2020
+ms.locfileid: "86946578"
 ---
 # <a name="whats-new-in-windows-server-2019"></a>Neuerungen in Windows Server 2019
 
@@ -31,7 +31,7 @@ Windows Admin Center ist eine lokal bereitgestellte, browserbasierte App zum Ver
 
 Sie können Windows Admin Center unter Windows Server 2019 sowie Windows 10 und früheren Versionen von Windows und Windows Server installieren und damit Server und Cluster verwalten, die unter Windows Server 2008 R2 und höher ausgeführt werden.
 
-Weitere Informationen finden Sie unter [Windows Admin Center](../manage/windows-admin-center/understand/windows-admin-center.md).
+Weitere Informationen finden Sie unter [Windows Admin Center](../manage/windows-admin-center/overview.md).
 
 ### <a name="desktop-experience"></a>Desktopdarstellung
 
@@ -45,7 +45,7 @@ Systemdaten ist ein neues Feature von Windows Server 2019, mit der lokale Predic
 
 ### <a name="server-core-app-compatibility-feature-on-demand"></a>Optionales Feature (FOD, Feature on Demand) „Server Core-App-Kompatibilität”
 
-Das [optionale Feature (FOD) "Server Core-App-Kompatibilität"](https://docs.microsoft.com/windows-server/get-started-19/install-fod-19) verbessert die App-Kompatibilität für die Windows Server Core-Installationsoption erheblich durch Hinzufügen einer Teilmenge von Binärdateien und Komponenten von Windows Server mit Desktop Experience, ohne dass die Windows Server Desktop Experience-Grafikumgebung selbst hinzugefügt wird.  Dies erfolgt, um die Funktionalität und Kompatibilität von Server Core zu erhöhen und es gleichzeitig möglichst schlank zu halten.  
+Das [optionale Feature (FOD) "Server Core-App-Kompatibilität"](./install-fod-19.md) verbessert die App-Kompatibilität für die Windows Server Core-Installationsoption erheblich durch Hinzufügen einer Teilmenge von Binärdateien und Komponenten von Windows Server mit Desktop Experience, ohne dass die Windows Server Desktop Experience-Grafikumgebung selbst hinzugefügt wird.  Dies erfolgt, um die Funktionalität und Kompatibilität von Server Core zu erhöhen und es gleichzeitig möglichst schlank zu halten.  
 
 Dieses optionale FOD ist in einer separaten ISO verfügbar und kann nur Windows Server Core-Installationen und -Images mithilfe von DISM hinzugefügt werden. 
 
@@ -55,43 +55,43 @@ Dieses optionale FOD ist in einer separaten ISO verfügbar und kann nur Windows 
 
 Die umfassenden Plattformsensoren und Reaktionsaktionen von ATP decken Angriffe auf Speicher- und Kernel-Ebene auf und reagieren darauf, indem sie bösartige Dateien unterdrücken und schädliche Prozesse beenden.
 
--   Weitere Informationen zu Windows Defender ATP finden Sie in der [Übersicht über die Windows Defender ATP-Funktionen](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/overview).
+-   Weitere Informationen zu Windows Defender ATP finden Sie in der [Übersicht über die Windows Defender ATP-Funktionen](/windows/security/threat-protection/windows-defender-atp/overview).
 
--   Weitere Informationen zum Onboarding von Servern finden Sie unter [Integrieren von Servern im Windows Defender ATP-Dienst](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/configure-server-endpoints-windows-defender-advanced-threat-protection).
+-   Weitere Informationen zum Onboarding von Servern finden Sie unter [Integrieren von Servern im Windows Defender ATP-Dienst](/windows/security/threat-protection/windows-defender-atp/configure-server-endpoints-windows-defender-advanced-threat-protection).
 
 **Windows Defender ATP Exploit Guard** ist eine neue Reihe von Host-Intrusion-Prevention-Funktionen. Die vier Komponenten von Windows Defender Exploit Guard wurden entwickelt, um das Gerät gegen eine Vielzahl von Angriffsvektoren zu schützen und Verhaltensweisen zu blockieren, die häufig bei Angriffen durch Schadsoftware eingesetzt werden. Gleichzeitig können Sie Sicherheitsrisiken und Produktivitätsanforderungen ausbalancieren.
 
--   [Attack Surface Reduction (ASR)](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-exploit-guard/attack-surface-reduction-exploit-guard?ocid=cx-blog-mmpc) umfasst eine Reihe von Steuerelementen, mit denen Unternehmen verhindern können, dass Schadsoftware auf die Computer gelangt, indem sie verdächtige schädliche Dateien (z.B. Office-Dateien), Skripts, seitliche Bewegungen, Ransomware-Verhalten und E-Mail-basierte Bedrohungen blockieren.
+-   [Attack Surface Reduction (ASR)](/windows/security/threat-protection/windows-defender-exploit-guard/attack-surface-reduction-exploit-guard?ocid=cx-blog-mmpc) umfasst eine Reihe von Steuerelementen, mit denen Unternehmen verhindern können, dass Schadsoftware auf die Computer gelangt, indem sie verdächtige schädliche Dateien (z.B. Office-Dateien), Skripts, seitliche Bewegungen, Ransomware-Verhalten und E-Mail-basierte Bedrohungen blockieren.
 
--   [Netzwerkschutz](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/network-protection) schützt den Endpunkt vor webbasierten Bedrohungen, indem er jeden ausgehenden Prozess auf dem Gerät an nicht vertrauenswürdige Hosts/IP-Adressen über Windows Defender SmartScreen blockiert.
+-   [Netzwerkschutz](/windows/security/threat-protection/microsoft-defender-atp/network-protection) schützt den Endpunkt vor webbasierten Bedrohungen, indem er jeden ausgehenden Prozess auf dem Gerät an nicht vertrauenswürdige Hosts/IP-Adressen über Windows Defender SmartScreen blockiert.
 
 -   [Kontrollierter Ordnerzugriff](https://cloudblogs.microsoft.com/microsoftsecure/2017/10/23/stopping-ransomware-where-it-counts-protecting-your-data-with-controlled-folder-access/?ocid=cx-blog-mmpc?source=mmpc) schützt sensible Daten vor Ransomware, indem er verhindert, dass nicht vertrauenswürdige Prozesse auf Ihre geschützten Ordner zugreifen.
 
--   [Exploit-Schutz](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-exploit-guard/exploit-protection-exploit-guard) ist eine Reihe von Maßnahmen zur Minderung von Schwachstellen (ersetzt EMET), die einfach konfiguriert werden können, um Ihr System und Ihre Anwendungen zu schützen.
+-   [Exploit-Schutz](/windows/security/threat-protection/windows-defender-exploit-guard/exploit-protection-exploit-guard) ist eine Reihe von Maßnahmen zur Minderung von Schwachstellen (ersetzt EMET), die einfach konfiguriert werden können, um Ihr System und Ihre Anwendungen zu schützen.
 
-[Windows Defender-Anwendungssteuerung](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/windows-defender-application-control) (auch bekannt als „Codeintegritätsrichtlinie – CI-Richtlinie“) wurde in Windows Server 2016 veröffentlicht.
+[Windows Defender-Anwendungssteuerung](/windows/security/threat-protection/windows-defender-application-control/windows-defender-application-control) (auch bekannt als „Codeintegritätsrichtlinie – CI-Richtlinie“) wurde in Windows Server 2016 veröffentlicht.
 Das Feedback von Kunden hat gezeigt, dass dies ein großartiges Konzept ist, das aber nur unter Schwierigkeiten bereitgestellt werden kann.
 Um dies zu beheben, haben wir standardmäßige CI-Richtlinien erstellt, die alle Windows-internen Dateien und Microsoft-Anwendungen wie SQL Server zulassen, aber bekannte ausführbare Dateien blockieren, die CI umgehen können. 
 
 ### <a name="security-with-software-defined-networking-sdn"></a>Sicherheit mit Software-Defined Networking (SDN)
 
-[Sicherheit mit SDN](https://docs.microsoft.com/windows-server/networking/sdn/security/sdn-security-top) bietet zahlreiche Features, um das Kundenvertrauen bei der Ausführung von Workloads – entweder lokal oder als Dienstanbieter in der Cloud – zu erhöhen. 
+[Sicherheit mit SDN](../networking/sdn/security/sdn-security-top.md) bietet zahlreiche Features, um das Kundenvertrauen bei der Ausführung von Workloads – entweder lokal oder als Dienstanbieter in der Cloud – zu erhöhen. 
 
 Diese Sicherheitsverbesserungen sind in die umfassende SDN-Plattform integriert, die in Windows Server 2016 eingeführt wurde.
 
-Eine vollständige Liste der Neuerungen in SDN finden Sie unter [Neuerungen in SDN für Windows Server 2019](https://docs.microsoft.com/windows-server/networking/sdn/sdn-whats-new).
+Eine vollständige Liste der Neuerungen in SDN finden Sie unter [Neuerungen in SDN für Windows Server 2019](../networking/sdn/sdn-whats-new.md).
 
 ### <a name="shielded-virtual-machines-improvements"></a>Verbesserungen für abgeschirmte virtuelle Computer
 
 - **Verbesserungen für Filialen**
 
-    Sie können nun abgeschirmte virtuelle Computer auf Computern mit intermittierender Konnektivität zum Host-Überwachungsdienst (Host Guardian Service, HGS) ausführen, indem Sie die neuen [Fallback-HGS](https://docs.microsoft.com/windows-server/security/guarded-fabric-shielded-vm/guarded-fabric-manage-branch-office#fallback-configuration)- und [Offline-Modus](https://docs.microsoft.com/windows-server/security/guarded-fabric-shielded-vm/guarded-fabric-manage-branch-office#offline-mode)-Features nutzen. Fallback HGS ermöglicht es Ihnen, einen zweiten Satz von URLs für Hyper-V zu konfigurieren, um zu prüfen, ob Ihr primärer HGS-Server erreicht werden kann.
+    Sie können nun abgeschirmte virtuelle Computer auf Computern mit intermittierender Konnektivität zum Host-Überwachungsdienst (Host Guardian Service, HGS) ausführen, indem Sie die neuen [Fallback-HGS](../security/guarded-fabric-shielded-vm/guarded-fabric-manage-branch-office.md#fallback-configuration)- und [Offline-Modus](../security/guarded-fabric-shielded-vm/guarded-fabric-manage-branch-office.md#offline-mode)-Features nutzen. Fallback HGS ermöglicht es Ihnen, einen zweiten Satz von URLs für Hyper-V zu konfigurieren, um zu prüfen, ob Ihr primärer HGS-Server erreicht werden kann.
 
     Im Offline-Modus können Sie Ihre abgeschirmten VMs auch dann starten, wenn HGS nicht erreichbar ist, sofern die VM einmal erfolgreich gestartet wurde und sich die Sicherheitskonfiguration des Hosts nicht geändert hat.
 
 - **Verbesserungen bei der Problembehandlung**
 
-    Darüber hinaus haben wir die Problembehandlung bei Ihren [abgeschirmten virtuellen Computern](https://docs.microsoft.com/windows-server/security/guarded-fabric-shielded-vm/guarded-fabric-troubleshoot-shielded-vms) vereinfacht, indem wir den erweiterten VMConnect-Sitzungsmodus und PowerShell Direct unterstützen. Diese Tools sind besonders nützlich, wenn Sie die Netzwerkverbindung zu Ihrer VM verloren haben und ihre Konfiguration aktualisieren müssen, um den Zugriff wiederherzustellen. 
+    Darüber hinaus haben wir die Problembehandlung bei Ihren [abgeschirmten virtuellen Computern](../security/guarded-fabric-shielded-vm/guarded-fabric-troubleshoot-shielded-vms.md) vereinfacht, indem wir den erweiterten VMConnect-Sitzungsmodus und PowerShell Direct unterstützen. Diese Tools sind besonders nützlich, wenn Sie die Netzwerkverbindung zu Ihrer VM verloren haben und ihre Konfiguration aktualisieren müssen, um den Zugriff wiederherzustellen. 
 
     Diese Features müssen nicht konfiguriert werden, und sie werden automatisch zur Verfügung gestellt, wenn eine abgeschirmte VM auf einem Hyper-V-Host mit Windows Server, Version 1803 oder höher, ausgeführt wird.
 
@@ -117,7 +117,7 @@ Der Speichermigrationsdienst ist eine neue Technologie, mit der Server einfacher
 
 ### <a name="storage-spaces-direct"></a>Speicherplätze DAS
 
-Hier ist eine Liste der Neuerungen in „Direkte Speicherplätze“. Weitergehende Informationen finden Sie unter [Neuerungen in „Direkte Speicherplätze“](../storage/whats-new-in-storage.md#storage-spaces-direct). Lesen Sie auch [Azure Stack HCI](https://docs.microsoft.com/azure-stack/operator/azure-stack-hci-overview). Dort finden Sie Informationen zum Abrufen von überprüften Systemen für „Direkte Speicherplätze“.
+Hier ist eine Liste der Neuerungen in „Direkte Speicherplätze“. Weitergehende Informationen finden Sie unter [Neuerungen in „Direkte Speicherplätze“](../storage/whats-new-in-storage.md#storage-spaces-direct). Lesen Sie auch [Azure Stack HCI](/azure-stack/operator/azure-stack-hci-overview). Dort finden Sie Informationen zum Abrufen von überprüften Systemen für „Direkte Speicherplätze“.
 
 - **Datendeduplizierung und -komprimierung für ReFS-Volumes**
 - **Systemeigene Unterstützung für den dauerhaften Speicher**
@@ -163,7 +163,7 @@ Es ist nun möglich, Windows- und Linux-basierte Container auf demselben Contain
 
 Windows Server 2019 setzt die Verbesserungen in Bezug auf Computing, Netzwerk und Speicher fort, die in den Versionen des halbjährlichen Kanals zur Unterstützung von Kubernetes unter Windows erforderlich sind. Weitere Details sind in den kommenden Kubernetes-Versionen verfügbar.
 
-- [Containernetzwerke](https://docs.microsoft.com/windows-server/networking/sdn/technologies/containers/container-networking-overview) in Windows Server 2019 verbessert die Benutzerfreundlichkeit von Kubernetes unter Windows erheblich, indem die Widerstandsfähigkeit der Plattformnetzwerke verbessert und Container-Netzwerk-Plugins unterstützt werden.
+- [Containernetzwerke](../networking/sdn/technologies/containers/container-networking-overview.md) in Windows Server 2019 verbessert die Benutzerfreundlichkeit von Kubernetes unter Windows erheblich, indem die Widerstandsfähigkeit der Plattformnetzwerke verbessert und Container-Netzwerk-Plugins unterstützt werden.
 
 - Bereitgestellte Workloads auf Kubernetes können die Netzwerksicherheit zum Schutz von Linux- und Windows-Diensten mit integrierten Tools nutzen.
 
@@ -183,15 +183,15 @@ Windows Server 2019 setzt die Verbesserungen in Bezug auf Computing, Netzwerk un
 
 - **Verwaltungsoberfläche mit Windows Admin Center\( (Vorschau)\)**
 
-    Wir haben es einfacher denn je gemacht zu sehen, welche Container auf Ihrem Computer ausgeführt werden, und einzelne Container mit einer neuen Erweiterung für Windows Admin Center zu verwalten. Suchen Sie im [öffentlichen Windows Admin Center-Feed](https://docs.microsoft.com/windows-server/manage/windows-admin-center/configure/using-extensions) nach der Erweiterung „Container”.
+    Wir haben es einfacher denn je gemacht zu sehen, welche Container auf Ihrem Computer ausgeführt werden, und einzelne Container mit einer neuen Erweiterung für Windows Admin Center zu verwalten. Suchen Sie im [öffentlichen Windows Admin Center-Feed](../manage/windows-admin-center/configure/using-extensions.md) nach der Erweiterung „Container”.
 
 ### <a name="encrypted-networks"></a>Verschlüsselte Netzwerke
 
-[Verschlüsselte Netzwerke](https://docs.microsoft.com/windows-server/networking/sdn/sdn-whats-new) – Die virtuelle Netzwerkverschlüsselung ermöglicht die Verschlüsselung des virtuellen Netzwerkdatenverkehrs zwischen virtuellen Computern, die miteinander in Teilnetzen kommunizieren, die als **Verschlüsselung aktiviert** markiert sind. Sie nutzt auch Datagram Transport Layer Security (DTLS) im virtuellen Subnetz, um Pakete zu verschlüsseln. DTLS schützt vor Abhörversuchen, Manipulation und Fälschung durch jeden, der Zugriff auf das physische Netzwerk hat.
+[Verschlüsselte Netzwerke](../networking/sdn/sdn-whats-new.md) – Die virtuelle Netzwerkverschlüsselung ermöglicht die Verschlüsselung des virtuellen Netzwerkdatenverkehrs zwischen virtuellen Computern, die miteinander in Teilnetzen kommunizieren, die als **Verschlüsselung aktiviert** markiert sind. Sie nutzt auch Datagram Transport Layer Security (DTLS) im virtuellen Subnetz, um Pakete zu verschlüsseln. DTLS schützt vor Abhörversuchen, Manipulation und Fälschung durch jeden, der Zugriff auf das physische Netzwerk hat.
 
 ### <a name="network-performance-improvements-for-virtual-workloads"></a>Verbesserungen der Netzwerkleistung für virtuelle Workloads
 
-[Verbesserungen der Netzwerkleistung für virtuelle Workloads](https://docs.microsoft.com/windows-server/networking/technologies/hpn/hpn-insider-preview) maximieren den Netzwerkdurchsatz für virtuelle Computer, ohne dass Sie Ihren Host ständig optimieren oder übermäßig bereitstellen müssen. Dies reduziert die Betriebs- und Wartungskosten und erhöht gleichzeitig die verfügbare Dichte Ihrer Hosts. Diese neuen Features sind:
+[Verbesserungen der Netzwerkleistung für virtuelle Workloads](../networking/technologies/hpn/hpn-insider-preview.md) maximieren den Netzwerkdurchsatz für virtuelle Computer, ohne dass Sie Ihren Host ständig optimieren oder übermäßig bereitstellen müssen. Dies reduziert die Betriebs- und Wartungskosten und erhöht gleichzeitig die verfügbare Dichte Ihrer Hosts. Diese neuen Features sind:
 
 * Empfangen von Segmentkoaleszenzen im vSwitch
 
@@ -204,12 +204,12 @@ Diese Technologie ist für die Bereitstellung großer, kritischer Updates in ein
 
 ### <a name="windows-time-service"></a>Windows-Zeitdienst
 
-Der [Windows-Zeitdienst](https://docs.microsoft.com/windows-server/networking/windows-time-service/insider-preview) enthält echte UTC-kompatible Schaltsekundenunterstützung, ein neues Zeitprotokoll namens „Precision Time Protocol“ und End-to-End-Rückverfolgbarkeit.
+Der [Windows-Zeitdienst](../networking/windows-time-service/insider-preview.md) enthält echte UTC-kompatible Schaltsekundenunterstützung, ein neues Zeitprotokoll namens „Precision Time Protocol“ und End-to-End-Rückverfolgbarkeit.
 
 
 ### <a name="high-performance-sdn-gateways"></a>Hochleistungs-SDN-Gateways
 
-[Hochleistungs-SDN-Gateways](https://docs.microsoft.com/windows-server/networking/sdn/gateway-performance) in Windows Server 2019 verbessert die Leistung für IPsec- und GRE-Verbindungen erheblich und bietet einen extrem hohen Durchsatz bei deutlich geringerer CPU-Auslastung.
+[Hochleistungs-SDN-Gateways](../networking/sdn/gateway-performance.md) in Windows Server 2019 verbessert die Leistung für IPsec- und GRE-Verbindungen erheblich und bietet einen extrem hohen Durchsatz bei deutlich geringerer CPU-Auslastung.
 <br/>
 
 ### <a name="new-deployment-ui-and-windows-admin-center-extension-for-sdn"></a>Neue Bereitstellungsbenutzeroberfläche und Windows Admin Center-Erweiterung für SDN
@@ -219,4 +219,3 @@ Mit Windows Server 2019 ist es nun einfach, eine neue Bereitstellungsbenutzerobe
 ### <a name="persistent-memory-support-for-hyper-v-vms"></a>Unterstützung von persistentem Speicher für Hyper-V-VMs
 
 Um den hohen Durchsatz und die niedrige Latenz von persistentem Speicher (auch „Speicherklassenspeicher“ genannt) in virtuellen Computern zu nutzen, kann er nun direkt in VMs projiziert werden. Dies kann dazu beitragen, die Latenzzeit für Datenbanktransaktionen drastisch zu reduzieren oder die Wiederherstellungszeiten für In-Memory-Datenbanken mit niedriger Latenz bei einem Ausfall zu reduzieren.
-

@@ -9,12 +9,12 @@ ms.author: mikeblodge
 ms.date: 07/11/2018
 ms.topic: get-started-article
 ms.localizationpriority: high
-ms.openlocfilehash: de9233e31c5530abd207a1bbba0e1e16a07d1561
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: f8f8cc63740c6823a01e0c86b387d57b54a06419
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80826123"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86960292"
 ---
 # <a name="upload-a-windows-server-20082008-r2-specialized-image-to-azure"></a>Hochladen eines spezialisierten Windows Server 2008/2008 R2-Images auf Azure 
 
@@ -85,12 +85,12 @@ In diesem Abschnitt stellen Sie die Image-VHD auf Azure bereit.
 > [!IMPORTANT]
 > Verwenden Sie auf Azure keine vordefinierten Benutzer-Images.
 
-1.    Erstellen Sie eine neue [Ressourcengruppe](https://docs.microsoft.com/rest/api/resources/resourcegroups/createorupdate). 
-2.    Erstellen Sie innerhalb der Ressourcengruppe ein neues [Speicherblob](https://docs.microsoft.com/rest/api/storageservices/put-blob).
-3.    Erstellen Sie innerhalb des Speicherblobs einen [Container](https://docs.microsoft.com/rest/api/storageservices/create-container).
+1.    Erstellen Sie eine neue [Ressourcengruppe](/rest/api/resources/resourcegroups/createorupdate). 
+2.    Erstellen Sie innerhalb der Ressourcengruppe ein neues [Speicherblob](/rest/api/storageservices/put-blob).
+3.    Erstellen Sie innerhalb des Speicherblobs einen [Container](/rest/api/storageservices/create-container).
 4.    Kopieren Sie die URL des Blobspeichers aus den Eigenschaften.
 5.    Verwenden Sie das oben bereitgestellte Skript, um Ihr Image in das neue Speicherblob hochzuladen.
-6.    Erstellen Sie einen [Datenträger](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image) für Ihre virtuelle Festplatte.   
+6.    Erstellen Sie einen [Datenträger](/azure/virtual-machines/windows/prepare-for-upload-vhd-image) für Ihre virtuelle Festplatte.   
      ein.    Wechseln Sie zu „Datenträger“, und klicken Sie auf **Hinzufügen**.  
      b.    Geben Sie einen Namen für den Datenträger ein. Wählen Sie das Abonnement aus, das Sie verwenden möchten, legen Sie die Region fest, und wählen Sie den Kontotyp aus.   
      c. Wählen Sie für den Quelltyp „Speicher“ aus. Navigieren Sie anhand des Skripts zum Speicherort der Blob-VHD.  
@@ -105,7 +105,3 @@ In diesem Abschnitt stellen Sie die Image-VHD auf Azure bereit.
  
         PORT:3389 Protokoll: TCP-Aktion: Priorität zulassen: 1000 Name: 'RDP-Rule'.   
      e.    Klicken Sie auf **Erstellen**.
-
-
-
-

@@ -8,18 +8,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 ms.localizationpriority: medium
 ms.date: 06/03/2019
-ms.openlocfilehash: 07479bc5bd2fdf661db8a30e3a9f20c7cce0513e
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: a2e4b17a0f8f38812366dc2913e6c2ee25d4d137
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80825993"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86961152"
 ---
 # <a name="whats-new-in-windows-server-version-1709"></a>Neuerungen in Windows Server, Version 1709
 
 >Gilt für: Windows Server (Halbjährlicher Kanal)
 
-<img src=../media/landing-icons/new.png style='float:left; padding:.5em;' alt=Icon showing a newspaper>&nbsp;Weitere Informationen zu den neuesten Features in Windows finden Sie unter [Neuerungen in Windows Server](whats-new-in-windows-server.md). In diesem Abschnitt wird beschrieben, was in Windows Server, Version 1709, neu ist und was sich geändert hat. Die hier aufgeführten Neuerungen und Änderungen haben bei der Arbeit in dieser Version vermutlich die größte Auswirkung. Weitere Informationen finden Sie unter [Windows Server, Version 1709](https://blogs.technet.microsoft.com/windowsserver/2017/08/24/sneak-peek-1-windows-server-version-1709/).
+<img src=../media/landing-icons/new.png style='float:left; padding:.5em;' alt=Icon showing a newspaper>&nbsp;Weitere Informationen zu den neuesten Features in Windows finden Sie unter [Neuerungen in Windows Server](whats-new-in-windows-server.md). In diesem Abschnitt wird beschrieben, was in Windows Server, Version 1709, neu ist und was sich geändert hat. Die hier aufgeführten Neuerungen und Änderungen haben bei der Arbeit in dieser Version vermutlich die größte Auswirkung. Weitere Informationen finden Sie unter [Windows Server, Version 1709](https://cloudblogs.microsoft.com/windowsserver/2017/08/24/sneak-peek-1-windows-server-version-1709/).
 
 > [!IMPORTANT]
 > Der Support von Windows Server, Version 1709, ist seit dem 9. April 2019 beendet.
@@ -40,7 +40,7 @@ Veröffentlichungskanäle werden in der folgenden Tabelle zusammengefasst.
 | Verfügbarkeit  | Software Assurance oder Azure (in der Cloud gehostet)  | Alle Kanäle |
 | Benennungskonvention  | Windows Server, Version JJMM  | Windows Server JJJJ |
 
-Weitere Informationen finden Sie unter [Vergleich der Wartungskanäle](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview).
+Weitere Informationen finden Sie unter [Vergleich der Wartungskanäle](../get-started-19/servicing-channels-19.md).
 
 ## <a name="application-containers-and-micro-services"></a>Anwendungscontainer und Microservices
 
@@ -49,18 +49,18 @@ Weitere Informationen finden Sie unter [Vergleich der Wartungskanäle](https://d
     - In Windows Server (halbjährlicher Kanal) wird Nano Server als ein Containerbasis-Betriebssystemimage von 390 MB auf 80 MB verkleinert.
 - Linux-Container mit Hyper-V-Isolation 
 
-Weitere Informationen finden Sie unter [Änderungen bei Nano Server im nächsten Release von Windows Server](https://docs.microsoft.com/windows-server/get-started/nano-in-semi-annual-channel) und [Windows Server, Version 1709, für Entwickler](https://blogs.technet.microsoft.com/windowsserver/2017/09/13/sneak-peek-3-windows-server-version-1709-for-developers/).
+Weitere Informationen finden Sie unter [Änderungen bei Nano Server im nächsten Release von Windows Server](./nano-in-semi-annual-channel.md) und [Windows Server, Version 1709, für Entwickler](https://cloudblogs.microsoft.com/windowsserver/2017/09/13/sneak-peek-3-windows-server-version-1709-for-developers/).
 
 ## <a name="modern-management"></a>Moderne Verwaltung
 
-Das [Projekt Honolulu](https://docs.microsoft.com/windows-server/manage/honolulu/honolulu) bietet eine vereinfachte, integrierte und sichere Umgebung, die IT-Administratoren bei der Verwaltung von Problembehandlungs-, Konfigurations- und Wartungsszenarien hilft.  Projekt Honolulu enthält die nächste Generation an Tools und bietet eine vereinfachte, integrierte, sichere und erweiterbare Benutzeroberfläche.
+Das [Projekt Honolulu](../manage/windows-admin-center/overview.md) bietet eine vereinfachte, integrierte und sichere Umgebung, die IT-Administratoren bei der Verwaltung von Problembehandlungs-, Konfigurations- und Wartungsszenarien hilft.  Projekt Honolulu enthält die nächste Generation an Tools und bietet eine vereinfachte, integrierte, sichere und erweiterbare Benutzeroberfläche.
 Projekt Honolulu enthält eine intuitive neue Verwaltungsoberfläche für die Verwaltung von PCs, Windows Server-Instanzen, Failoverclustern sowie hyperkonvergenter Infrastruktur auf Basis von direkten Speicherplätzen (Storage Spaces Direct), was die Betriebskosten reduziert.
 
 ## <a name="compute"></a>Computer:
 
 **Nano-Container und Server Core-Container**: Zuallererst geht es in diesem Release darum, Anwendungsinnovationen voranzutreiben. Nano Server oder Nano als Host ist veraltet und wird durch Nano-Container (ein Nano, der als Containerimage ausgeführt wird) ersetzt. 
 
-Weitere Informationen zu Containern finden Sie unter [Übersicht über Containernetzwerke](https://docs.microsoft.com/windows-server/networking/sdn/technologies/containers/container-networking-overview).
+Weitere Informationen zu Containern finden Sie unter [Übersicht über Containernetzwerke](../networking/sdn/technologies/containers/container-networking-overview.md).
 
 **Server Core als Container**- (und Infrastruktur)-Host bietet eine größere Flexibilität, Dichte und Leistung für vorhandene Anwendungen mit einem Modernisierungsprozess und neuen Apps, die bereits mit dem Cloudmodell entwickelt wurden.
 
@@ -70,9 +70,9 @@ Weitere Informationen zu Containern finden Sie unter [Übersicht über Container
 
 **Virtualized Persistent Memory (vPMEM)** wird durch das Erstellen einer VHD-Datei (.vhdpmem) auf einem direkten Zugriffsvolume auf einem Host ermöglicht, wodurch ein vPMEM Controller auf einen VM und das erstelle Gerät (.vhdpmem) auf einen VM hinzugefügt wird. Das Verwenden von vhdpmem-Dateien auf Volumes mit direktem Zugriff auf einem Host zur Sicherung von vPMEM ermöglicht Zuordnungsflexibilität und nutzt ein vertrautes Verwaltungsmodell zum Hinzufügen von Datenträgern zum virtuellen Computer.
 
-**Containerspeicher – permanente Datenvolumes auf freigegebenen Clustervolumes (CSV)** . In Windows Server, Version 1709 und Windows Server 2016 mit den neuesten Updates haben wir Unterstützung für Container hinzugefügt, damit Sie auf permanente Datenvolumes auf freigegebenen Clustervolumes zugreifen können, einschließlich freigegebener Clustervolumes für direkte Speicherplätze. Dadurch erhalten die Anwendungscontainer permanenten Zugriff auf das Volume, unabhängig davon, welchen Clusterknoten die Containerinstanz ausführt. Weitere Informationen finden Sie unter [Container Storage Support with Cluster Shared Volumes (CSV), Storage Spaces Direct (S2D), SMB Global Mapping](https://blogs.msdn.microsoft.com/clustering/2017/08/10/container-storage-support-with-cluster-shared-volumes-csv-storage-spaces-direct-s2d-smb-global-mapping/).
+**Containerspeicher – permanente Datenvolumes auf freigegebenen Clustervolumes (CSV)** . In Windows Server, Version 1709 und Windows Server 2016 mit den neuesten Updates haben wir Unterstützung für Container hinzugefügt, damit Sie auf permanente Datenvolumes auf freigegebenen Clustervolumes zugreifen können, einschließlich freigegebener Clustervolumes für direkte Speicherplätze. Dadurch erhalten die Anwendungscontainer permanenten Zugriff auf das Volume, unabhängig davon, welchen Clusterknoten die Containerinstanz ausführt. Weitere Informationen finden Sie unter [Container Storage Support with Cluster Shared Volumes (CSV), Storage Spaces Direct (S2D), SMB Global Mapping](https://techcommunity.microsoft.com/t5/failover-clustering/bg-p/FailoverClustering).
 
-**Containerspeicher – permanente Datenvolumes mit SMB Global Mapping**. In Windows Server, Version 1709, wurde die Unterstützung für das Zuordnen einer SMB-Dateifreigabe auf einen Laufwerkbuchstaben in einem Container hinzugefügt. Dies wird als „SMB Global Mapping” bezeichnet. Dieses zugeordnete Laufwerk ist dann für alle Benutzer auf dem lokalen Server zugänglich, sodass das die Dateifreigabe der Container-E/A auf dem Datenvolume auf dem bereitgestellten Laufwerk die zugrunde liegende Dateifreigabe durchlaufen kann. Weitere Informationen finden Sie unter [Container Storage Support with Cluster Shared Volumes (CSV), Storage Spaces Direct (S2D), SMB Global Mapping](https://blogs.msdn.microsoft.com/clustering/2017/08/10/container-storage-support-with-cluster-shared-volumes-csv-storage-spaces-direct-s2d-smb-global-mapping/).
+**Containerspeicher – permanente Datenvolumes mit SMB Global Mapping**. In Windows Server, Version 1709, wurde die Unterstützung für das Zuordnen einer SMB-Dateifreigabe auf einen Laufwerkbuchstaben in einem Container hinzugefügt. Dies wird als „SMB Global Mapping” bezeichnet. Dieses zugeordnete Laufwerk ist dann für alle Benutzer auf dem lokalen Server zugänglich, sodass das die Dateifreigabe der Container-E/A auf dem Datenvolume auf dem bereitgestellten Laufwerk die zugrunde liegende Dateifreigabe durchlaufen kann. Weitere Informationen finden Sie unter [Container Storage Support with Cluster Shared Volumes (CSV), Storage Spaces Direct (S2D), SMB Global Mapping](https://techcommunity.microsoft.com/t5/failover-clustering/bg-p/FailoverClustering).
 
 **Format der Konfigurationsdatei für virtuelle Computer (aktualisiert)** . Für virtuelle Computer mit der Konfigurationsversion 8.2 und höher wurde eine weitere Datei (.vmgs) hinzugefügt. VMGS steht für „VM Guest State” und ist eine neue interne Datei, die den Gerätezustand enthält, der zuvor Teil der VM-Laufzeitstatusdatei war.
 
@@ -84,7 +84,7 @@ Weitere Informationen zu Containern finden Sie unter [Übersicht über Container
 
 **Linux als eine abgeschirmte VM** wird jetzt unterstützt.
 
-Weitere Informationen finden Sie unter [Übersicht über geschütztes Fabric und abgeschirmte VMs](https://docs.microsoft.com/windows-server/virtualization/guarded-fabric-shielded-vm/guarded-fabric-and-shielded-vms).
+Weitere Informationen finden Sie unter [Übersicht über geschütztes Fabric und abgeschirmte VMs](../security/guarded-fabric-shielded-vm/guarded-fabric-and-shielded-vms.md).
 
 **SMBLoris-Sicherheitsrisiko** Ein als “SMBLoris” bezeichnetes Problem, das zu „Denial-of-Service” führen kann, wurde gelöst.
 
@@ -105,20 +105,20 @@ Weitere Informationen finden Sie unter [Übersicht über geschütztes Fabric und
 
 ## <a name="remote-desktop-services-rds"></a>Remotedesktopdienste (RDS)
 
-**RDS ist in Azure AD integriert**, sodass Kunden die Richtlinien für den bedingten Zugriff, die Multi-Factor Authentication, die integrierte Authentifizierung mit anderen SaaS-Apps durch Azure AD und vieles mehr nutzen können. Weitere Informationen finden Sie unter [Integrieren von Azure AD Domain Services mit der RDS-Bereitstellung](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-azure-adds).
+**RDS ist in Azure AD integriert**, sodass Kunden die Richtlinien für den bedingten Zugriff, die Multi-Factor Authentication, die integrierte Authentifizierung mit anderen SaaS-Apps durch Azure AD und vieles mehr nutzen können. Weitere Informationen finden Sie unter [Integrieren von Azure AD Domain Services mit der RDS-Bereitstellung](../remote/remote-desktop-services/rds-azure-adds.md).
 
 >[!TIP]
->Einen kurzen Einblick in andere interessante Neuigkeiten bei RDS finden Sie unter [Remote Desktop Services: Updates & bevorstehende Neuerungen](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/20/first-look-at-updates-coming-to-remote-desktop-services/) (Remotedesktopdienste: Updates und bevorstehende Innovationen)
+>Einen kurzen Einblick in andere interessante Neuigkeiten bei RDS finden Sie unter [Remote Desktop Services: Updates & bevorstehende Neuerungen](https://techcommunity.microsoft.com/t5/microsoft-security-and/first-look-at-updates-coming-to-remote-desktop-services/ba-p/250320) (Remotedesktopdienste: Updates und bevorstehende Innovationen)
 
 ## <a name="networking"></a>Netzwerk
 
-**Routing-Mesh von Docker** wird unterstützt. Der Eingangs-Routing-Mesh ist Teil des [Schwarmmodus](https://docs.docker.com/engine/swarm/), der integrierten Docker-Orchestrierungslösung für Container. Weitere Informationen finden Sie unter [Docker's routing mesh available with Windows Server version 1709](https://blogs.technet.microsoft.com/virtualization/2017/09/26/dockers-ingress-routing-mesh-available-with-windows-server-version-1709/) (Routing-Mesh von Docker, mit verfügbar mit Windows Server, Version 1709).
+**Routing-Mesh von Docker** wird unterstützt. Der Eingangs-Routing-Mesh ist Teil des [Schwarmmodus](https://docs.docker.com/engine/swarm/), der integrierten Docker-Orchestrierungslösung für Container. Weitere Informationen finden Sie unter [Docker's routing mesh available with Windows Server version 1709](https://techcommunity.microsoft.com/t5/virtualization/bg-p/Virtualization) (Routing-Mesh von Docker, mit verfügbar mit Windows Server, Version 1709).
 
 **Neue Features für Docker** sind verfügbar. Weitere Informationen finden Sie unter [Exciting new things for Docker with Windows Server 1709](https://blog.docker.com/2017/09/docker-windows-server-1709/) (Aufregende neue Funktionen für Docker mit Windows Server 1709).
 
 **Windows-Netzwerke auf Augenhöhe mit Linux für Kubernetes**: Windows ist jetzt im Hinblick auf den Netzwerkbetrieb auf Augenhöhe mit Linux. Kunden können Kubernetes-Cluster mit vermischten Betriebssystemen in jeder Umgebung, einschließlich Azure, lokalen Umgebungen und Drittanbieter-Cloudstapeln, mit den gleichen Netzwerkgrundtypen und -topologien, die unter Linux unterstützt werden, ohne Problemumgehungen oder Switcherweiterungen bereitstellen.
 
-**Core-Netzwerkstapel**: Es wurden mehrere Features des Core-Netzwerkstapels verbessert. Weitere Informationen zu diesen Features finden Sie unter [Core Network Stack Features in the Creators Update for Windows 10](https://blogs.technet.microsoft.com/networking/2017/07/13/core-network-stack-features-in-the-creators-update-for-windows-10/) (Features des Core-Netzwerkstapels im Creators Update für Windows 10).
+**Core-Netzwerkstapel**: Es wurden mehrere Features des Core-Netzwerkstapels verbessert. Weitere Informationen zu diesen Features finden Sie unter [Core Network Stack Features in the Creators Update for Windows 10](https://techcommunity.microsoft.com/t5/networking-blog/bg-p/NetworkingBlog) (Features des Core-Netzwerkstapels im Creators Update für Windows 10).
 - **TCP Fast Open (TFO)** : Es wurde Unterstützung für TFO hinzugefügt, um den TCP-3-Wege-Handshake-Prozess zu optimieren. TFO richtet bei der ersten Verbindung mit einem standardmäßigen 3-Wege-Handshake ein sicheres TFO-Cookie ein.  Nachfolgende Verbindungen mit dem gleichen Server verwenden das TFO-Cookie anstelle eines 3-Wege-Handshakes zum Herstellen einer Verbindung mit Null-Roundtripzeit.
 - **CUBIC**: Die experimentelle native Windows-Implementierung von CUBIC, ein TCP-Überlastungssteuerungs-Algorithmus ist verfügbar. Die folgenden Befehle aktivieren oder deaktivieren CUBIC.
 
@@ -145,7 +145,7 @@ Weitere Informationen finden Sie unter [Übersicht über geschütztes Fabric und
 
   - **ISATAP und 6to4**: Als Schritt in Richtung der zukünftigen Einstellung dieser Technologien sind sie im Creators Update standardmäßig deaktiviert.
 - **Dead Gateway Detection (DGD)** : Der DGD-Algorithmus verschiebt automatisch die Verbindungen über auf ein anderes Gateway, wenn das aktuelle Gateway nicht erreichbar ist. In diesem Release wurde der Algorithmus verbessert, um die Netzwerkumgebung in regelmäßigen Abständen erneut zu überprüfen.
-- [Test-NetConnection](https://technet.microsoft.com/itpro/powershell/windows/nettcpip/test-netconnection) ist ein integriertes Cmdlet in Windows PowerShell, das eine Vielzahl von Netzwerkdiagnosen ausführt.  In dieser Version wurde das Cmdlet verbessert, um detaillierte Informationen zur Auswahl der Route und der Quelladresse bereitzustellen.
+- [Test-NetConnection](/powershell/module/nettcpip/test-netconnection?view=win10-ps) ist ein integriertes Cmdlet in Windows PowerShell, das eine Vielzahl von Netzwerkdiagnosen ausführt.  In dieser Version wurde das Cmdlet verbessert, um detaillierte Informationen zur Auswahl der Route und der Quelladresse bereitzustellen.
 
 **Software-Defined Networking**
 
@@ -156,4 +156,3 @@ Weitere Informationen finden Sie unter [Übersicht über geschütztes Fabric und
 - **Infrastrukturtunnel vor der Anmeldung**. Standardmäßig erstellt Windows 10 VPN nicht automatisch Infrastrukturtunnel, wenn Benutzer nicht am Computer oder Gerät angemeldet sind. Sie können Windows 10 VPN so konfigurieren, dass vor der Anmeldung automatisch Infrastrukturtunnel mithilfe der Gerätetunnelfunktion (prelogon) im VPN-Profil erstellt werden.
 - **Verwaltung von Remotecomputern und -geräten**.  Sie können Windows 10 VPN-Clients verwalten, indem Sie das Gerätetunnelfeature (prelogon) im VPN-Profil konfigurieren. Darüber hinaus müssen Sie die VPN-Verbindung so konfigurieren, dass die der VPN-Schnittstelle mit internen DNS-Diensten zugewiesenen IP-Adressen dynamisch registriert werden.
 - **Gateways vor der Anmeldung angeben**. Sie können Gateways vor der Anmeldung mithilfe des Gerätetunnelfeatures (prelogon) im VPN-Profil angeben, kombiniert mit Datenverkehrsfiltern, um zu steuern, welche Verwaltungssysteme im Unternehmensnetzwerk über den Gerätetunnel zugänglich sind.
-

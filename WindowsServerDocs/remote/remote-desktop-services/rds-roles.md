@@ -8,12 +8,12 @@ ms.date: 07/06/2018
 ms.topic: article
 author: heidilohr
 manager: lizross
-ms.openlocfilehash: 44b98b485b69720a1459f052b68d15617954bffe
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 42116323dce36b071b2af20ff46330a8d39c13ed
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "75949827"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86963062"
 ---
 # <a name="remote-desktop-services-roles"></a>Remotedesktopdienste: Rollen
 
@@ -38,7 +38,7 @@ Außerdem kannst du zur weiteren Desktopanpassung eine virtuelle Festplatte mit 
 Weitere Informationen findest du in den folgenden Artikeln:
 
 * [Remotedesktopdienste: Schützen von Datenspeicher mit Benutzerprofil-Datenträgern](rds-plan-secure-data-storage.md)
-* [Hochladen einer generalisierten VHD und Verwendung dieser zum Erstellen neuer VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json)
+* [Hochladen einer generalisierten VHD und Verwendung dieser zum Erstellen neuer VMs in Azure](/azure/virtual-machines/windows/upload-generalized-managed?toc=/azure/virtual-machines/windows/toc.json)
 * [Update RDSH collection](https://azure.microsoft.com/resources/templates/rds-update-rdsh-collection/) (Aktualisieren der RDSH-Sammlung) (ARM-Vorlage)
 
 ## <a name="remote-desktop-connection-broker"></a>Remotedesktop-Verbindungsbroker

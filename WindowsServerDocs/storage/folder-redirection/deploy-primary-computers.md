@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 06/06/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: be2b41cf32e2020422c32415e2d8f4273eb09859
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 935d3ccf7de777a71d7c75179629b448dbb73a08
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "71394438"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86966282"
 ---
 # <a name="deploy-primary-computers-for-folder-redirection-and-roaming-user-profiles"></a>Bereitstellen von primären Computern für Ordnerumleitung und Roamingbenutzerprofile
 
@@ -118,4 +118,4 @@ So testen Sie die Funktionalität des primären Computers:
 - [Bereitstellen von Ordnerumleitung mit Offlinedateien](deploy-folder-redirection.md)
 - [Bereitstellen von Roamingbenutzerprofilen](deploy-roaming-user-profiles.md)
 - [Ordnerumleitung, Offlinedateien und Roamingbenutzerprofile – Übersicht](folder-redirection-rup-overview.md)
-- [Digging a little deeper into Windows 8 Primary Computer (Tiefere Einblicke in primäre Windows 8-Computer)](https://blogs.technet.com/b/askds/archive/2012/10/23/digging-a-little-deeper-into-windows-8-primary-computer.aspx)
+- [Digging a little deeper into Windows 8 Primary Computer (Tiefere Einblicke in primäre Windows 8-Computer)](/archive/blogs/askds/digging-a-little-deeper-into-windows-8-primary-computer)
