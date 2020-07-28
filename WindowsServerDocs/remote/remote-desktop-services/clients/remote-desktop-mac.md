@@ -10,12 +10,12 @@ manager: dongill
 ms.author: elizapo
 ms.date: 07/16/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 7be6b7542ca77c80a638df6404aefe77d8d7d19c
-ms.sourcegitcommit: b363d8ceed863c8fd5a464bc8afdc4ef1af9a6f8
+ms.openlocfilehash: 57072fe5a92bcc59a1ccd46b1c0db7a6828a165d
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86445704"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87181956"
 ---
 # <a name="get-started-with-the-macos-client"></a>Erste Schritte mit dem macOS-Client
 
@@ -40,7 +40,7 @@ Führen Sie die folgenden Schritte für den Einstieg in Remotedesktop auf Ihrem 
 
 Wir testen neue Features auf unserem Vorschaukanal auf AppCenter. Möchten Sie das ausprobieren? Wechsele zu [Microsoft-Remotedesktop für Mac](https://aka.ms/rdmacbeta), und wähle **Herunterladen** aus. Du musst kein Konto erstellen oder dich bei AppCenter anmelden, um den Beta-Client herunterladen zu können.
 
-Wenn Sie bereits über den Client verfügen, können Sie nach Updates suchen, um sicherzustellen, dass Sie die neueste Version verwenden. Wähle im Betaclient oben **Microsoft-Remotedesktop Beta** und dann **Nach Updates suchen** aus. 
+Wenn Sie bereits über den Client verfügen, können Sie nach Updates suchen, um sicherzustellen, dass Sie die neueste Version verwenden. Wähle im Betaclient oben **Microsoft-Remotedesktop Beta** und dann **Nach Updates suchen** aus.
 
 ## <a name="add-a-workspace"></a>Hinzufügen eines Arbeitsbereichs
 
@@ -102,7 +102,7 @@ Mit einem Remotedesktopgateway (RD-Gateway) können Sie eine Verbindung mit eine
 
 Gehen Sie wie folgt vor, um ein neues Gateway in den Einstellungen einzurichten:
 
-1. Wähle im Connection Center **Einstellungen > Gateways** aus. 
+1. Wähle im Connection Center **Einstellungen > Gateways** aus.
 2. Wähle im unteren Bereich der Tabelle die Schaltfläche **+** aus. Gib die folgenden Informationen ein:
    - **Servername**: Der Name des Computers, den Sie als Gateway verwenden möchten. Dies kann der Name eines Windows-Computers, ein Internetdomänenname oder eine IP-Adresse sein. Sie können dem Servernamen auch Portinformationen hinzufügen (z. B.: **RDGateway:443** oder **10.0.0.1:443**).
    - **Benutzername**: Der Benutzername und das Kennwort für das Remotedesktopgateway, mit dem Sie eine Verbindung herstellen. Sie können auch **Anmeldeinformationen für die Verbindung verwenden** auswählen, damit derselbe Benutzername und dasselbe Kennwort wie für die Remotedesktopverbindung verwendet werden.
@@ -164,4 +164,4 @@ In Windows Server 2012 R2 wurde die Unterstützung für eine neue Authentifizier
 Weitere Informationen zu diesem Feature finden Sie unter [https://aka.ms/paa-sample](https://aka.ms/paa-sample).
 
 > [!TIP]
-> Fragen und Kommentare sind immer willkommen. Verwenden Sie jedoch NICHT die Kommentarfunktion am Ende dieses Artikels, um Hilfe bei der Problembehandlung anzufordern. Verwenden Sie stattdessen das [Remotedesktopclient-Forum](https://social.technet.microsoft.com/forums/windowsserver/en-us/home?forum=winrdc), und erstellen Sie einen neuen Thread. Haben Sie einen Vorschlag für ein Feature? Teilen Sie uns dies im [UserVoice-Forum für den Client](https://remotedesktop.uservoice.com/forums/272085-remote-desktop-for-android) mit.
+> Fragen und Kommentare sind immer willkommen. Verwenden Sie jedoch NICHT die Kommentarfunktion am Ende dieses Artikels, um Hilfe bei der Problembehandlung anzufordern. Verwenden Sie stattdessen das [Remotedesktopclient-Forum](https://docs.microsoft.com/answers/topics/windows-remote-desktop-client.html), und erstellen Sie einen neuen Thread. Haben Sie einen Vorschlag für ein Feature? Teilen Sie uns dies im [UserVoice-Forum für den Client](https://remotedesktop.uservoice.com/forums/272085-remote-desktop-for-android) mit.

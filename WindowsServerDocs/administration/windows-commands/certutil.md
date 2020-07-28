@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 159a3d2eb54d6a3040c4a22864a1c90e16bf2247
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 12ef5e7fa5ff305b1670c2f88645f57500c4fb5b
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86955332"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87178586"
 ---
 # <a name="certutil"></a>certutil
 
@@ -791,7 +791,7 @@ Hierbei gilt:
 [-f] [-user] [-enterprise] [-service] [-grouppolicy] [-silent] [-split] [-dc DCName]
 ```
 
-#### <a name="options"></a>Optionen
+#### <a name="options"></a>Tastatur
 
 - Die `-user` Option greift auf einen Benutzerspeicher anstelle eines Computerspeicher zu.
 
@@ -928,7 +928,7 @@ Hierbei gilt:
 [-f] [-user] [-enterprise] [-service] [-grouppolicy] [-dc DCName]
 ```
 
-#### <a name="options"></a>Optionen
+#### <a name="options"></a>Tastatur
 
 - Die `-user` Option greift auf einen Benutzerspeicher anstelle eines Computerspeicher zu.
 
@@ -968,7 +968,7 @@ Hierbei gilt:
 [-f] [-user] [-enterprise] [-service] [-grouppolicy] [-dc DCName]
 ```
 
-#### <a name="options"></a>Optionen
+#### <a name="options"></a>Tastatur
 
 - Die `-user` Option greift auf einen Benutzerspeicher anstelle eines Computerspeicher zu.
 
@@ -1103,7 +1103,7 @@ Hierbei gilt:
 - Die `-f` Option kann verwendet werden, um Validierungs Fehler für den angegebenen **Sitename** zu überschreiben oder alle Zertifizierungsstellen-sitenames zu löschen.
 
 > [!NOTE]
-> Weitere Informationen zum Konfigurieren von Zertifizierungsstellen für die Active Directory Domain Services (AD DS) Standortinformationen finden Sie unter [AD DS Site Awareness for AD CS and PKI Clients](https://social.technet.microsoft.com/wiki/contents/articles/14106.ad-ds-site-awareness-for-ad-cs-and-pki-clients.aspx).
+> Weitere Informationen zum Konfigurieren von Zertifizierungsstellen für die Active Directory Domain Services (AD DS) Standortinformationen finden Sie unter [AD DS Site Awareness for AD CS and PKI Clients](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831740(v=ws.11)).
 
 ### <a name="-enrollmentserverurl"></a>-enrollmentserverURL
 
@@ -1960,11 +1960,11 @@ Hierbei gilt:
 
 - **-?-v** zeigt eine vollständige Liste der Parameter und Optionen an.
 
-## <a name="options"></a>Optionen
+## <a name="options"></a>Tastatur
 
 Dieser Abschnitt definiert alle Optionen, die Sie basierend auf dem Befehl angeben können. Jeder Parameter enthält Informationen darüber, welche Optionen für die Verwendung gültig sind.
 
-| Optionen | Beschreibung |
+| Tastatur | BESCHREIBUNG |
 | ------- | ----------- |
 | -nullsign | Verwenden Sie den Hash der Daten als Signatur. |
 | -f | Erzwingen von überschreiben. |
@@ -2003,12 +2003,8 @@ Dieser Abschnitt definiert alle Optionen, die Sie basierend auf dem Befehl angeb
 
 Weitere Beispiele zur Verwendung dieses Befehls finden Sie unter.
 
-- [Certutil-Beispiele für die Verwaltung von Active Directory Zertifikat Diensten (AD CS) über die Befehlszeile](https://social.technet.microsoft.com/wiki/contents/articles/3063.certutil-examples-for-managing-active-directory-certificate-services-ad-cs-from-the-command-line.aspx)
+- [Active Directory-Zertifikatdienste (AD CS)](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831740(v=ws.11))
 
 - [Certutil-Aufgaben für die Verwaltung von Zertifikaten](/previous-versions/orphan-topics/ws.10/cc772898(v=ws.10))
-
-- [Binärer Anforderungs Export mithilfe der exemplarischen Vorgehensweise für das certutil.exe-Befehlszeilen Tool](https://social.technet.microsoft.com/wiki/contents/articles/7573.active-directory-certificate-services-pki-key-archival-and-management.aspx)
-
-- [Zertifikat Erneuerung der Stamm Zertifizierungsstelle](https://social.technet.microsoft.com/wiki/contents/articles/2016.root-ca-certificate-renewal.aspx)
 
 - [certutil-Befehl](certutil.md)

@@ -1,5 +1,5 @@
 ---
-title: DNS-Client seitiges Zwischenspeichern auf DNS-Clients deaktivieren
+title: Deaktivieren des clientseitigen DNS-Cachings auf DNS-Clients
 description: In diesem Artikel wird beschrieben, wie Sie das Client seitige DNS-Zwischenspeichern auf DNS-Clients deaktivieren.
 manager: dcscontentpm
 ms.technology: networking-dns
@@ -7,14 +7,14 @@ ms.topic: article
 ms.author: delhan
 ms.date: 8/8/2019
 author: Deland-Han
-ms.openlocfilehash: 09af41a544cacb0fd0977847b7bc2e6b0d8a59f7
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 74e7f3936418bd2f04234d07b2f600197e94b357
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80860073"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87182346"
 ---
-# <a name="disable-dns-client-side-caching-on-dns-clients"></a>DNS-Client seitiges Zwischenspeichern auf DNS-Clients deaktivieren
+# <a name="disable-dns-client-side-caching-on-dns-clients"></a>Deaktivieren des clientseitigen DNS-Cachings auf DNS-Clients
 
 Windows enthält einen Client seitigen DNS-Cache. Das Client seitige DNS-Cache-Feature generiert möglicherweise einen falschen Eindruck, dass der DNS-Lastenausgleich "Roundrobin" nicht vom DNS-Server zum Windows-Client Computer stattfindet. Wenn Sie den Ping-Befehl verwenden, um nach demselben A-Datensatz-Domänen Namen zu suchen, verwendet der Client möglicherweise dieselbe IP-Adresse.  
 
@@ -51,7 +51,7 @@ Mit diesem Befehl wird der Inhalt des DNS-resolvercaches angezeigt, einschließl
 ## <a name="using-the-registry-to-control-the-caching-time"></a>Steuern der zwischen Speicherungs Zeit mithilfe der Registrierung
 
 > [!IMPORTANT]  
-> Folgen Sie den Schritten in diesem Abschnitt sorgfältig. Wenn Ihnen beim Bearbeiten der Registrierung ein Fehler unterläuft, kann dies zu schwerwiegenden Problemen führen. Bevor Sie sie ändern, [sichern Sie die Registrierung zwecks Wiederherstellung](https://support.microsoft.com/help/322756) für den Fall, dass Probleme auftreten.
+> Folgen Sie den Schritten in diesem Abschnitt sorgfältig. Wird die Registrierung falsch angepasst, können schwerwiegende Probleme auftreten. Bevor Sie sie ändern, [sichern Sie die Registrierung zwecks Wiederherstellung](https://support.microsoft.com/help/322756) für den Fall, dass Probleme auftreten.
 
 Die Zeitspanne, für die eine positive oder negative Antwort zwischengespeichert wird, hängt von den Werten der Einträge im folgenden Registrierungsschlüssel ab:
 
@@ -66,12 +66,12 @@ Die Gültigkeitsdauer für positive Antworten ist der kleinere der folgenden Wer
 >[!Note]
 >- Die Standard Gültigkeitsdauer für positive Antworten beträgt 86.400 Sekunden (1 Tag).
 >- Die Gültigkeitsdauer für negative Antworten ist die Anzahl der Sekunden, die in der Registrierungs Einstellung maxnegativecachettl angegeben ist.
->- Die Standard Gültigkeitsdauer für negative Antworten beträgt 900 Sekunden (15 Minuten).
+>- Die Standard Gültigkeitsdauer für negative Antworten beträgt 5 Sekunden. vor Windows 10 war Version 1703 der Standardwert 900 Sekunden (15 Minuten).
 Wenn Sie nicht möchten, dass negative Antworten zwischengespeichert werden, legen Sie die maxnegativecachettl-Registrierungs Einstellung auf "0" fest.
 
 So legen Sie die zwischen Speicherungs Zeit auf einem Client Computer fest:
 
-1. Starten Sie den Registrierungs-Editor (regedit. exe).
+1. Starten Sie den Registrierungs-Editor (Regedit.exe).
 
 2. Suchen Sie den folgenden Schlüssel in der Registrierung, und klicken Sie darauf:
 
@@ -83,16 +83,16 @@ So legen Sie die zwischen Speicherungs Zeit auf einem Client Computer fest:
 
      Datentyp: REG_DWORD
 
-     Wertdaten: Standardwert 86400 Sekunden. 
-     
-     Wenn Sie den maximalen TTL-Wert im DNS-Cache des Clients auf 1 Sekunde verringern, gibt dies die Darstellung an, dass der Client seitige DNS-Cache deaktiviert wurde.    
+     Wertdaten: Standardwert 86400 Sekunden.
+
+     Wenn Sie den maximalen TTL-Wert im DNS-Cache des Clients auf 1 Sekunde verringern, gibt dies die Darstellung an, dass der Client seitige DNS-Cache deaktiviert wurde.
 
    - Wertname: maxnegativecachettl
 
      Datentyp: REG_DWORD
 
-     Wertdaten: Standardwert 900 Sekunden. 
-     
+     Wertdaten: Standardwert 5 Sekunden.
+
      Legen Sie den Wert auf 0 fest, wenn keine negativen Antworten zwischengespeichert werden sollen.
 
 4. Geben Sie den Wert ein, den Sie verwenden möchten, und klicken Sie dann auf OK.

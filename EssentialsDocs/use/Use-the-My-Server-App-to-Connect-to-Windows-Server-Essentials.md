@@ -2,17 +2,16 @@
 title: Verwenden der My Server-App für die Verbindung mit Windows Server Essentials
 description: Beschreibt die Verwendung von Windows Server Essentials
 ms.date: 10/03/2016
-ms.prod: windows-server
 ms.topic: article
 ms.assetid: 4e40b57f-6917-43ef-92e0-030baa9d2b99
 author: nnamuhcs
 ms.author: daveba
-ms.openlocfilehash: da125fec78a609aff0d7572cbe448115f03fe501
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 6b1e6d46013d98970e694176426be2ac1f57195d
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85469885"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87179356"
 ---
 # <a name="use-the-my-server-app-to-connect-to-windows-server-essentials"></a>Verwenden der My Server-App für die Verbindung mit Windows Server Essentials
 
@@ -87,7 +86,7 @@ Mit den My Server-Apps für Windows Server Essentials können Sie eine Verbindun
 
     6.  Wählen Sie **Lokaler Computer** als Installationsspeicherort aus, und klicken Sie dann auf **Weiter**.
 
-    7.  Wählen Sie auf der Seite **Zertifikatspeicher** des Assistenten die Option **Alle Zertifikate in folgendem Speicher speichern** aus, und verwenden Sie **Durchsuchen**, um den Speicher **Vertrauenswürdige Stammzertifizierungsstellen** auszuwählen. Klicken Sie auf **Fertig stellen**.
+    7.  Wählen Sie auf der Seite **Zertifikatspeicher** des Assistenten die Option **Alle Zertifikate in folgendem Speicher speichern** aus, und verwenden Sie **Durchsuchen**, um den Speicher **Vertrauenswürdige Stammzertifizierungsstellen** auszuwählen. Klicken Sie anschließend auf **Finish** (Fertig stellen).
 
 ##  <a name="use-my-server"></a><a name="BKMK_UseServer"></a>Eigenen Server verwenden
  Als ersten Schritt zur Verwendung der My Server- oder My Server 2012 R2-App öffnen Sie die App, und verschaffen Sie sich einen kurzen Überblick über die Funktionen.
@@ -176,7 +175,7 @@ Mit den My Server-Apps für Windows Server Essentials können Sie eine Verbindun
 =======
     >  After the installation of the certificate is complete, you can sign in to the My Server app for Windows 8 or Windows 8.1 by using your server name and your network credentials.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 
 -   [Übersicht über die Dienst Integration für Windows Server Essentials-Teil 1](https://blogs.technet.com/b/sbs/archive/2013/11/06/services-integration-overview-for-windows-server-2012-r2-essentials-part-1.aspx)
 

@@ -3,12 +3,12 @@ title: Konfigurieren von Kerberos für die IP-Adresse
 description: Kerberos-Unterstützung für IP-basierte SPNs
 author: daveba
 ms.author: daveba
-ms.openlocfilehash: 1061364528100fe005e80f64c6315f9fca69ad98
-ms.sourcegitcommit: 2082335e1260826fcbc3dccc208870d2d9be9306
+ms.openlocfilehash: 16feb7045508a854657834fcbb4ab850f9b8ac3b
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69980298"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87181916"
 ---
 # <a name="kerberos-clients-allow-ipv4-and-ipv6-address-hostnames-in-service-principal-names-spns"></a>Kerberos-Clients lassen IPv4-und IPv6-Adress Hostnamen in Dienst Prinzipal Namen (SPNs) zu.
 
@@ -28,14 +28,14 @@ Erstellen Sie einen tryipspn-Eintrag, um die Unterstützung für IP-Adress Hostn
 
 ## <a name="configuring-a-service-principal-name-as-ip-address"></a>Konfigurieren eines Dienst Prinzipal namens als IP-Adresse
 
-Ein Dienst Prinzipal Name ist ein eindeutiger Bezeichner, der während der Kerberos-Authentifizierung zum Identifizieren eines Dienstanbieter verwendet wird. Ein SPN besteht aus einem Dienst, einem Hostnamen und optional einem Port in Form von `service/hostname[:port]` , wie `host/fs.contoso.com`z. b. Windows registriert mehrere SPNs bei einem Computer Objekt, wenn ein Computer mit Active Directory verknüpft ist.
+Ein Dienst Prinzipal Name ist ein eindeutiger Bezeichner, der während der Kerberos-Authentifizierung zum Identifizieren eines Dienstanbieter verwendet wird. Ein SPN besteht aus einem Dienst, einem Hostnamen und optional einem Port in Form von, wie `service/hostname[:port]` z `host/fs.contoso.com` . b.. Windows registriert mehrere SPNs bei einem Computer Objekt, wenn ein Computer mit Active Directory verknüpft ist.
 
 IP-Adressen werden normalerweise nicht anstelle von Hostnamen verwendet, da IP-Adressen häufig temporär sind. Dies kann zu Konflikten und Authentifizierungs Fehlern führen, wenn Adressleases ablaufen und erneuert werden. Daher ist die Registrierung eines auf IP-Adressen basierenden SPN ein manueller Prozess und sollte nur verwendet werden, wenn es unmöglich ist, zu einem DNS-basierten Hostnamen zu wechseln.
 
-Die empfohlene Vorgehensweise ist die Verwendung des Tools [Setspn. exe](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc731241(v=ws.11)) . Beachten Sie, dass ein SPN nur für ein einzelnes Konto in Active Directory registriert werden kann, daher wird empfohlen, dass IP-Adressen bei Verwendung von DHCP statische Leases aufweisen.
+Die empfohlene Vorgehensweise ist die Verwendung des [Setspn.exe](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc731241(v=ws.11)) Tools. Beachten Sie, dass ein SPN nur für ein einzelnes Konto in Active Directory registriert werden kann, daher wird empfohlen, dass IP-Adressen bei Verwendung von DHCP statische Leases aufweisen.
 
 ```
-Setspn -s <service>/ip.address> <domain-user-account>  
+Setspn -s <service>/ip.address> <domain-user-account>
 ```
 
 Beispiel:

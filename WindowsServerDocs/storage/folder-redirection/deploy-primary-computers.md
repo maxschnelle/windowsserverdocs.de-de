@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 06/06/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 935d3ccf7de777a71d7c75179629b448dbb73a08
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 7af3d5c64216f60cca41aa9fb0c3d2c38c74e6c4
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86966282"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87182246"
 ---
 # <a name="deploy-primary-computers-for-folder-redirection-and-roaming-user-profiles"></a>Bereitstellen von primären Computern für Ordnerumleitung und Roamingbenutzerprofile
 
@@ -30,7 +30,7 @@ In diesem Thema wird beschrieben, wie die Unterstützung primärer Computer akti
 
 Für die Unterstützung primärer Computer gelten die folgenden Anforderungen:
 
-- Das AD DS-Schema (Active Directory Domain Services) muss so aktualisiert werden, dass es Schemaerweiterungen für Windows Server 2012 enthält (beim Installieren eines Windows Server 2012-Domänencontrollers wird das Schema automatisch aktualisiert). Weitere Informationen zum Aktualisieren des AD DS-Schemas finden Sie in den Themen zu [Adprep.exe-Integration](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh472161(v=ws.11)#adprepexe-integration>) und [Ausführen von „Adprep.exe“](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd464018(v=ws.10)>).
+- Das AD DS-Schema (Active Directory Domain Services) muss so aktualisiert werden, dass es Schemaerweiterungen für Windows Server 2012 enthält (beim Installieren eines Windows Server 2012-Domänencontrollers wird das Schema automatisch aktualisiert). Weitere Informationen zum Aktualisieren des AD DS-Schemas finden Sie in den Themen zu [Adprep.exe-Integration](</previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh472161(v=ws.11)#adprepexe-integration>) und [Ausführen von „Adprep.exe“](</previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd464018(v=ws.10)>).
 - Clientcomputer müssen Windows 10, Windows 8.1, Windows 8, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 ausführen.
 
 > [!TIP]

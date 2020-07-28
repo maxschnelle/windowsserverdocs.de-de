@@ -2,18 +2,17 @@
 title: Problembehandlung beim Verbinden von Computern mit dem Server in Windows Server Essentials
 description: Beschreibt die Verwendung von Windows Server Essentials
 ms.date: 10/03/2016
-ms.prod: windows-server
 ms.topic: article
 ms.assetid: e45b3d89-c057-4c70-a627-86fb06dd22aa
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 7b679ae9d3a3d5f4526edced78d720ca83d3e008
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: c05888f52f3fe60d0dde22a70ceb5a3eee94e0ef
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85470044"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87180236"
 ---
 # <a name="troubleshoot-connecting-computers-to-the-server-in-windows-server-essentials"></a>Problembehandlung beim Verbinden von Computern mit dem Server in Windows Server Essentials
 
@@ -22,7 +21,7 @@ ms.locfileid: "85470044"
  Dieses Thema enthält Anleitungen zur Problembehandlung bei Problemen, die auftreten können, wenn Sie einen Computer mit dem Server verbinden, auf dem Windows Server Essentials oder Windows Server Essentials ausgeführt wird.
 
 > [!NOTE]
->  Die aktuellsten Informationen zur Problembehandlung aus der Windows Server Essentials-und der Windows Server Essentials-Community finden Sie im [Windows Server Essentials-Forum](https://social.technet.microsoft.com/Forums/windowsserver/home?forum=winserveressentials). Das Windows Server Essentials-Forum eignet sich optimal, um nach Hilfe zu suchen oder um Fragen zu stellen.
+>  Die aktuellsten Informationen zur Problembehandlung aus der Windows Server Essentials-und der Windows Server Essentials-Community finden Sie im [Windows Server Essentials-Forum](https://docs.microsoft.com/answers/topics/windows-server-essentials.html). Das Windows Server Essentials-Forum eignet sich optimal, um nach Hilfe zu suchen oder um Fragen zu stellen.
 
  Dieses Thema bietet Lösungen für die folgenden Probleme:
 
@@ -101,7 +100,7 @@ ms.locfileid: "85470044"
 
 5.  Klicken Sie mit der rechten Maustaste auf einen Serverordner, und klicken Sie anschließend auf **Eigenschaften**.
 
-6.  Klicken Sie auf die Registerkarte **Sicherheit**.
+6.  Klicken Sie auf die Registerkarte **Sicherheit** .
 
 7.  Wenn **Vollzugriff** für das Konto SYSTEM nicht zulässig ist, klicken Sie auf **Bearbeiten** und dann auf **SYSTEM**. Aktivieren Sie unter **Berechtigungen für System** neben **Vollzugriff** das Kontrollkästchen **Zulassen**.
 
@@ -281,6 +280,6 @@ ms.locfileid: "85470044"
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 
--   [Verwalten von Windows Server Essentials](../manage/Manage-Windows-Server-Essentials.md)
+- [Verwalten von Windows Server Essentials](../manage/Manage-Windows-Server-Essentials.md)
 
--   [Windows 2012 Server Essentials ConnectComputer Troubleshooting (TechNet-Wiki)](https://social.technet.microsoft.com/wiki/contents/articles/14370.windows-2012-server-essentials-connectcomputer-troubleshooting.aspx)
+- [Windows 2012 Server Essentials ConnectComputer Problembehandlung](https://docs.microsoft.com/windows-server-essentials/support/troubleshoot-connecting-computers-to-the-server-in-windows-server-essentials)

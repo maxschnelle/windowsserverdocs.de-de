@@ -8,12 +8,12 @@ author: johnmarlin-msft
 ms.author: johnmar
 ms.date: 03/07/2019
 description: In diesem Artikel werden Failovercluster-Affinität und antiaffinitäts Stufen beschrieben
-ms.openlocfilehash: b0c2209680f3c34ac8376d5662620595aff92c0b
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 5a46279a2c8780466617e453ec5263c36a6e0128
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82720612"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87178596"
 ---
 # <a name="cluster-affinity"></a>Clusteraffinität
 
@@ -23,7 +23,7 @@ Ein Failovercluster kann zahlreiche Rollen enthalten, die zwischen Knoten wechse
 
 ## <a name="what-is-affinity-and-antiaffinity"></a>Was ist Affinität und antiaffinität?
 
-Die Affinität ist eine Regel, die Sie einrichten, die eine Beziehung zwischen zwei oder mehr Rollen (i, e, Virtual Machines, Ressourcengruppen usw.) herstellt, um sie zusammenzuhalten.  Die antiaffinität ist identisch, wird jedoch verwendet, um zu versuchen, die angegebenen Rollen voneinander getrennt zu halten. Failovercluster verwenden die antiaffinität für Ihre Rollen.  Genauer gesagt, ist der [AntiAffinityClassNames](https://docs.microsoft.com/previous-versions/windows/desktop/mscs/groups-antiaffinityclassnames) -Parameter für die Rollen definiert, sodass Sie nicht auf demselben Knoten ausgeführt werden.  
+Die Affinität ist eine Regel, die Sie einrichten, die eine Beziehung zwischen zwei oder mehr Rollen (i, e, Virtual Machines, Ressourcengruppen usw.) herstellt, um sie zusammenzuhalten.  Die antiaffinität ist identisch, wird jedoch verwendet, um zu versuchen, die angegebenen Rollen voneinander getrennt zu halten. Failovercluster verwenden die antiaffinität für Ihre Rollen.  Genauer gesagt, ist der [AntiAffinityClassNames](/previous-versions/windows/desktop/mscs/groups-antiaffinityclassnames) -Parameter für die Rollen definiert, sodass Sie nicht auf demselben Knoten ausgeführt werden.
 
 ## <a name="antiaffinityclassnames"></a>AntiAffinityClassnames
 
@@ -48,7 +48,7 @@ Da "AntiAffinityClassNames" nicht als Standard definiert ist, können diese Roll
     PS> Get-ClusterGroup "Group2" | fl AntiAffinityClassNames
     AntiAffinityClassNames : {DC}
 
-Nachdem Sie festgelegt wurden, versucht das Failoverclustering, Sie zu trennen.  
+Nachdem Sie festgelegt wurden, versucht das Failoverclustering, Sie zu trennen.
 
 Der antiaffinityclassname-Parameter ist ein "Soft"-Block.  Das heißt, es wird versucht, Sie zu trennen, aber wenn dies nicht möglich ist, können Sie es dennoch auf demselben Knoten ausführen.  Beispielsweise werden die Gruppen auf einem Failovercluster mit zwei Knoten ausgeführt.  Wenn ein Knoten für die Wartung Herunterfahren muss, bedeutet dies, dass beide Gruppen auf demselben Knoten ausgeführt werden.  In diesem Fall wäre es in Ordnung, dies zu tun.  Dies ist möglicherweise nicht die ideale, aber beide virtial Computer werden weiterhin in akzeptablen Leistungsbereichen ausgeführt.
 
@@ -84,7 +84,7 @@ In einer PowerShell-Auflistung der Gruppen würden Sie Folgendes sehen:
 ## <a name="additional-comments"></a>Zusätzliche Kommentare
 
 - Stellen Sie sicher, dass Sie die richtige antiaffinitäts Einstellung abhängig von den Anforderungen verwenden.
-- Beachten Sie, dass in einem Szenario mit zwei Knoten und clusterenforcedantiaffinität, wenn ein Knoten instand ist, beide Gruppen nicht ausgeführt werden.  
+- Beachten Sie, dass in einem Szenario mit zwei Knoten und clusterenforcedantiaffinität, wenn ein Knoten instand ist, beide Gruppen nicht ausgeführt werden.
 
 - Die Verwendung bevorzugter Besitzer für Gruppen kann mit der antiaffinität in einem Cluster mit drei oder mehr Knoten kombiniert werden.
 - Die Einstellungen für "AntiAffinityClassNames" und "clusterenforcedantiaffinität" werden erst nach der Wiederverwendung der Ressourcen ausgeführt. Das heißt, Sie können diese festlegen, aber wenn beide Gruppen auf dem gleichen Knoten online sind, wenn Sie festgelegt sind, bleiben beide weiterhin online.

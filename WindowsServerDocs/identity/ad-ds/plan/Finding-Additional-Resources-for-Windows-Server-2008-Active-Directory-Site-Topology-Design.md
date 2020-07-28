@@ -7,12 +7,12 @@ manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
-ms.openlocfilehash: 5b45970b3402ecfd7976af9b30f22cfd8782cef9
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 5682eb98854441b35719fc0c2048f07db76cbead
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86953472"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87181836"
 ---
 # <a name="finding-additional-resources-for-windows-server-2008-active-directory-site-topology-design"></a>Suchen zusätzlicher Ressourcen für den Entwurf der Windows Server 2008 Active Directory-Standorttopologie
 
@@ -36,7 +36,7 @@ Die folgende Dokumentation zu Active Directory Domain Services (AD DS) finden Si
 
 - Weitere Informationen zum Bereitstellen der Stamm Domäne der Gesamtstruktur finden Sie unter Bereitstellen [einer Windows Server 2008](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc731174(v=ws.10))-Gesamtstruktur-Stamm Domäne.
 
-- Weitere Informationen zum Sichern von Domänen Controllern finden Sie unter [Active Directory: Entwurfs Überlegungen und bewährte Methoden](https://social.technet.microsoft.com/wiki/contents/articles/52587.active-directory-design-considerations-and-best-practices.aspx).
+- Weitere Informationen zum Sichern von Domänen Controllern finden Sie unter [AD DS Entwurf und Planung](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/ad-ds-design-and-planning).
 
 - Weitere Informationen zum Bereitstellen von regionalen Domänen finden Sie unter Bereitstellen von [regionalen Windows Server 2008-Domänen](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc755118(v=ws.10)).
 

@@ -9,12 +9,12 @@ author: haley-rowland
 ms.author: harowl
 ms.date: 07/17/2018
 manager: scottman
-ms.openlocfilehash: 14e63969d64a25ca0c7fb9b3efd5e966b64fa376
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 683571ff965a5a62b11d52335aff4dec81e70d07
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86961202"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87182186"
 ---
 # <a name="deploy-a-two-node-storage-spaces-direct-scale-out-file-server-for-upd-storage-in-azure"></a>Bereitstellen eines Scale-Out-Dateiservers mit direkten Speicherplätzen und zwei Knoten für die Speicherung von Benutzerprofil-Datenträgern
 
@@ -22,8 +22,8 @@ ms.locfileid: "86961202"
 
 Die Remotedesktopdienste (Remote Desktop Services, RDS) benötigen einen in die Domäne eingebundenen Dateiserver für Benutzerprofil-Datenträger (User Profile Disks, UPDs). Um einen hochverfügbaren, in die Domäne eingebundenen Scale-Out-Dateiserver (Scale-Out File Server, SOFS) in Azure bereitzustellen, verwende direkte Speicherplätze mit Windows Server 2016. Wenn du mit UPDs oder den Remotedesktopdiensten noch nicht vertraut bist, lies den Artikel [Willkommen bei den Remotedesktopdiensten](welcome-to-rds.md).
 
-> [!NOTE] 
-> Microsoft hat eine [Azure-Vorlage für die Bereitstellung eines Scale-Out-Dateiservers mit direkten Speicherplätzen](https://azure.microsoft.com/documentation/templates/301-storage-spaces-direct/) veröffentlicht. Du kannst deine Bereitstellung mithilfe dieser Vorlage oder anhand der Schritte im vorliegenden Artikel erstellen. 
+> [!NOTE]
+> Microsoft hat eine [Azure-Vorlage für die Bereitstellung eines Scale-Out-Dateiservers mit direkten Speicherplätzen](https://azure.microsoft.com/documentation/templates/301-storage-spaces-direct/) veröffentlicht. Du kannst deine Bereitstellung mithilfe dieser Vorlage oder anhand der Schritte im vorliegenden Artikel erstellen.
 
 Wir empfehlen die Bereitstellung des Scale-Out-Dateiservers mit VMs der DS-Serie und Storage Premium-Datenträgern, wobei auf jeder VM die gleiche Anzahl von Datenträgern gleicher Größe vorhanden sein sollte. Du benötigst mindestens zwei Speicherkonten. 
 
@@ -41,7 +41,7 @@ Die vorliegenden Anweisungen gelten für eine Bereitstellung mit zwei Knoten. Di
 | 500   | 2500       | DS2 | 3       | P30       | 1024           | 2 × (DS2 + 3 P30)  |
 | 1000  | 5000       | DS3 | 5       | P30       | 1024           | 2 × (DS3 + 5 P30)  |
 | 2500  | 12500      | DS4 | 13      | P30       | 1024           | 2 × (DS4 + 13 P30) |
-| 5000  | 25000      | DS5 | 25      | P30       | 1024           | 2 × (DS5 + 25 P30) | 
+| 5000  | 25000      | DS5 | 25      | P30       | 1024           | 2 × (DS5 + 25 P30) |
 
 Mithilfe der folgenden Schritte kannst du einen Domänencontroller (im Beispiel „my-dc“) und zwei Knoten-VMs („my-fsn1“ und „my-fsn2“) erstellen und die VMs als Scale-Out-Dateiserver mit direkten Speicherplätzen und zwei Knoten konfigurieren.
 
@@ -52,7 +52,7 @@ Mithilfe der folgenden Schritte kannst du einen Domänencontroller (im Beispiel 
    - Art des Speicherkontos: Allgemeine Zwecke
    - Leistungstarif: Premium
    - Replikationsoption: LRS
-4. Richte eine Active Directory-Gesamtstruktur ein, entweder mithilfe einer Schnellstartvorlage oder manuell. 
+4. Richte eine Active Directory-Gesamtstruktur ein, entweder mithilfe einer Schnellstartvorlage oder manuell.
    - Stelle die Gesamtstruktur mithilfe einer Azure-Schnellstartvorlage bereit:
       - [Create an Azure VM with a new AD Forest](https://azure.microsoft.com/documentation/templates/active-directory-new-domain/) (Erstellen einer Azure-VM mit einer neuen AD-Gesamtstruktur)
       - [Create an new AD Domain with 2 Domain Controllers](https://azure.microsoft.com/documentation/templates/active-directory-new-domain-ha-2-dc/) (Erstellen einer neuen AD-Domäne mit zwei Domänencontrollern) – für Hochverfügbarkeit
@@ -63,21 +63,21 @@ Mithilfe der folgenden Schritte kannst du einen Domänencontroller (im Beispiel 
       - Installiere AD DS gemäß den entsprechenden Anleitungen.
 5. Richte die Dateiserver-Clusterknoten ein. Hierfür kannst du die Azure-Vorlage [Windows Server 2016 Storage Spaces Direct (S2D) SOFS cluster](https://azure.microsoft.com/resources/templates/301-storage-spaces-direct/) verwenden oder die Schritte 6–11 ausführen, um die Knoten manuell bereitzustellen.
 6. So richtest du die Dateiserver-Clusterknoten manuell ein:
-   1. Erstelle den ersten Knoten: 
+   1. Erstelle den ersten Knoten:
       1. Erstelle einen neuen virtuellen Computer mit dem Windows Server 2016-Image. (Klicke auf **Neu > Virtuelle Computer > Windows Server 2016**. Wähle **Resource Manager** aus, und klicke auf **Erstellen**.)
       2. Lege die grundlegende Konfiguration wie folgt fest:
          - Name: my-fsn1
          - VM-Datenträgertyp: SSD
-         - Verwende die in Schritt 3 erstellte Ressourcengruppe. 
+         - Verwende die in Schritt 3 erstellte Ressourcengruppe.
       3. Größe: DS1, DS2, DS3, DS4 oder DS5, je nach Benutzeranforderungen (siehe die Tabelle am Anfang dieser Anleitung). Stelle sicher, dass die Unterstützung für Premium-Datenträger ausgewählt ist.
-      4. Einstellungen: 
+      4. Einstellungen:
          - Speicherkonto: Wähle das Speicherkonto aus, das du in Schritt 3 erstellt hast.
          - Hochverfügbarkeit: Erstelle eine neue Verfügbarkeitsgruppe. (Klicke auf **Hochverfügbarkeit > Neu erstellen**, und gib einen Namen ein [z.B. „s2d-cluster“]. Verwende die Standardwerte für **Updatedomänen** und **Fehlerdomänen**.)
    2. Erstelle den zweiten Knoten. Wiederhole die obigen Schritte, aber mit folgenden Änderungen:
       - Name: my-fsn2
-      - Hochverfügbarkeit: Wähle die oben erstellte Verfügbarkeitsgruppe aus.  
+      - Hochverfügbarkeit: Wähle die oben erstellte Verfügbarkeitsgruppe aus.
 7. [Füge Datenträger](/azure/virtual-machines/windows/attach-managed-disk-portal) gemäß Benutzeranforderungen an die Clusterknoten-VMs an (wie in der obigen Tabelle zu sehen). Nachdem die Datenträger erstellt und an die VMs angefügt wurden, lege die **Hostzwischenspeicherung** auf **Keine** fest.
-8. Lege die IP-Adressen für alle VMs auf **statisch** fest. 
+8. Lege die IP-Adressen für alle VMs auf **statisch** fest.
    1. Wähle eine VM in der Ressourcengruppe aus, und klicke auf **Netzwerkschnittstellen** (unter **Einstellungen**). Wähle die aufgeführte Netzwerkschnittstelle aus, und klicke auf **IP-Konfigurationen**. Wähle die aufgeführte IP-Konfiguration aus, klicke auf **statisch**, und klicke dann auf **Speichern**.
    2. Notiere die private IP-Adresse (10.x.x.x) des Domänencontrollers (in unserem Beispiel „my-dc“).
 9. Lege die primäre DNS-Serveradresse für die Netzwerkadapter der Clusterknoten-VMs auf den Server „my-dc“ fest. Wähle die VM aus, und klicke dann auf **Netzwerkschnittstellen > DNS-Server > Benutzerdefiniertes DNS**. Gib die oben notierte IP-Adresse ein, und klicke dann auf **Speichern**.
@@ -87,37 +87,37 @@ Mithilfe der folgenden Schritte kannst du einen Domänencontroller (im Beispiel 
 
        ```powershell
        $nodes = ("my-fsn1", "my-fsn2")
-       icm $nodes {Install-WindowsFeature Failover-Clustering -IncludeAllSubFeature -IncludeManagementTools} 
-       icm $nodes {Install-WindowsFeature FS-FileServer} 
+       icm $nodes {Install-WindowsFeature Failover-Clustering -IncludeAllSubFeature -IncludeManagementTools}
+       icm $nodes {Install-WindowsFeature FS-FileServer}
        ```
     2. Überprüfe die Clusterknoten-VMs, und erstelle einen SOFS-Cluster mit zwei Knoten:
 
        ```powershell
        Test-Cluster -node $nodes
        New-Cluster -Name MY-CL1 -Node $nodes –NoStorage –StaticAddress [new address within your addr space]
-       ``` 
+       ```
     3. Konfiguriere den Cloudzeugen. Verwende den Speicherkontonamen und Zugriffsschlüssel des Cloudzeugen.
 
        ```powershell
-       Set-ClusterQuorum –CloudWitness –AccountName <StorageAccountName> -AccessKey <StorageAccountAccessKey> 
+       Set-ClusterQuorum –CloudWitness –AccountName <StorageAccountName> -AccessKey <StorageAccountAccessKey>
        ```
     4. Aktiviere direkte Speicherplätze.
 
        ```powershell
-       Enable-ClusterS2D 
+       Enable-ClusterS2D
        ```
-      
+
     5. Erstelle ein virtuelles Datenträgervolume.
 
        ```powershell
-       New-Volume -StoragePoolFriendlyName S2D* -FriendlyName VDisk01 -FileSystem CSVFS_REFS -Size 120GB 
+       New-Volume -StoragePoolFriendlyName S2D* -FriendlyName VDisk01 -FileSystem CSVFS_REFS -Size 120GB
        ```
        Um Informationen zum freigegebenen Clustervolume im SOFS-Cluster anzuzeigen, führe das folgende Cmdlet aus:
 
        ```powershell
        Get-ClusterSharedVolume
        ```
-   
+
     6. Erstelle den Scale-Out-Dateiserver:
 
        ```powershell
@@ -131,4 +131,5 @@ Mithilfe der folgenden Schritte kannst du einen Domänencontroller (im Beispiel 
        New-SmbShare -Name UpdStorage -Path C:\ClusterStorage\VDisk01\Data
        ```
 
-Du verfügst jetzt über eine Freigabe unter `\\my-sofs1\UpdStorage`, die du zur UPD-Speicherung verwenden kannst, wenn du [UPD](https://social.technet.microsoft.com/wiki/contents/articles/15304.installing-and-configuring-user-profile-disks-upd-in-windows-server-2012.aspx) für deine Benutzer aktivierst. 
+Du verfügst jetzt über eine Freigabe unter `\\my-sofs1\UpdStorage`, die du zur UPD-Speicherung verwenden kannst, wenn du [UPD](https://techcommunity.microsoft.com/t5/ask-the-performance-team/migrating-user-profile-disks-in-remote-desktop-services/ba-p/375630) für deine Benutzer aktivierst.
+

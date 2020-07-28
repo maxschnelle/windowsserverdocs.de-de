@@ -2,18 +2,17 @@
 title: Behandeln von Problemen mit der Remotewebzugriff-Verbindung in Windows Server Essentials
 description: Beschreibt die Verwendung von Windows Server Essentials
 ms.date: 10/03/2016
-ms.prod: windows-server
 ms.topic: article
 ms.assetid: d3642575-b3ee-4488-b654-5bf9d3b8c935
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 02563f56cad211d5aa842d7607fa9f6005f18026
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: ebb256876114c9c3260311fa09eb30f3067905b8
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85470165"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87180316"
 ---
 # <a name="troubleshoot-remote-web-access-connectivity-in-windows-server-essentials"></a>Behandeln von Problemen mit der Remotewebzugriff-Verbindung in Windows Server Essentials
 
@@ -67,8 +66,8 @@ ms.locfileid: "85470165"
 
   |IP-Adresse|Protokoll (TCP/UDP)|Zeitplan|Eingehender Filter|
   |----------------|---------------------------|--------------|--------------------|
-  |192.168.0.100|TCP 80|Always|Alle zulassen|
-  |192.168.0.100|TCP 443|Always|Alle zulassen|
+  |192.168.0.100|TCP 80|Always|Allow All (Alle zulassen)|
+  |192.168.0.100|TCP 443|Always|Allow All (Alle zulassen)|
 
    Nachdem Sie den Router manuell konfiguriert haben, führen Sie den Assistenten zum Aktivieren von Remote Webzugriff aus, um sicherzustellen, dass Sie auf **der Seite mit den ersten** Schritten die Option **routereinrichtung überspringen** auswählen
 
@@ -77,7 +76,7 @@ ms.locfileid: "85470165"
 > [!TIP]
 >  Stellen Sie sicher, dass auf dem Router die neueste BIOS-Firmware installiert ist. Sie können die BIOS-Firmware für den Router auf der Webseite für die Konfiguration des Routers regelmäßig aktualisieren. Weitere Informationen finden Sie in der Dokumentation zu Ihrem Router. Führen Sie nach der Aktualisierung des Routers den Assistenten zum Einrichten von Zugriff überall aus.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 
 -   [Verwenden des Remotewebzugriffs](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md)
 

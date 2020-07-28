@@ -8,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 405d0b6e814212df858cadb615f3251fd2168632
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: db6e8c600276f62fd260c18d680dd2b5112d4bc3
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86965032"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87182046"
 ---
 # <a name="ad-fs-technical-reference"></a>Technische Referenz zu AD FS
 
@@ -26,7 +26,8 @@ ms.locfileid: "86965032"
 -   [Schutz der Privatsphäre und AD FS](../ad-fs/technical-reference/GDPR-and-AD-FS-Compliance.md)
 
 > [!TIP]
-> Weitere Entwurfsinhalte zu AD FS 2.0 finden Sie im Microsoft TechNet-Wiki auf der [Seite zu AD FS 2.0-Inhalten](https://social.technet.microsoft.com/wiki/contents/articles/2735.ad-fs-2-0-content-map.aspx). Diese Seite wird von Mitgliedern der AD FS 2.0-Community verwaltet und regelmäßig vom AD FS-Produktteam überprüft.
+> Weitere AD FS Entwurfs Inhalt für 2,0 finden Sie auf der Seite [AD FS 2,0-Inhalts](https://support.microsoft.com/help/974408/availability-and-description-of-active-directory-federation-services-2) Zuordnung.
 
 ## <a name="see-also"></a>Weitere Informationen
+
 [Active Directory-Verbunddienste: Übersicht](./ad-fs-overview.md)

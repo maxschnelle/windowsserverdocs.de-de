@@ -2,24 +2,23 @@
 title: Unterstützung für größere Bereitstellungen
 description: Beschreibt die Verwendung von Windows Server Essentials
 ms.date: 10/03/2016
-ms.prod: windows-server
 ms.topic: article
 ms.assetid: 07d0c4c6-3e92-4969-82b8-105e46ab8d97
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: c54defee45e8950d878ba70f627c1e645a2c8586
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: d98ab8b203bc73da4129d63b5a2b7518742a3667
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80817823"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87181646"
 ---
 # <a name="support-for-larger-deployments"></a>Unterstützung für größere Bereitstellungen
 
 >Gilt für: Windows Server 2016 Essentials
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > Die in diesem Thema beschriebenen Funktionen funktionieren nur unter Windows Server 2016 mit aktivierter Essentials-Benutzerrolle und nicht mit der Windows Server 2016 Essentials-SKU.
 
 
@@ -42,7 +41,7 @@ Windows Server 2012 R2 Essentials unterstützt nur eine Domäne pro Server, was 
 
 Sie können jetzt einen designierten Domänen Controller auswählen, der die Abrufzeiten für Active Directory Domänen Objekte verbessern und die Synchronisierung der Konto Änderung auf anderen Domänen Controllern in der Domäne koordiniert.
 
-Der standardmäßig festgelegte Domänen Controller ist derselbe Server, auf dem die Server Rolle "Windows Server Essentials-Server" ausgeführt wird. Wenn dieser Server ein Mitglieds Server ist, d. h. er ist kein Domänen Controller, wird der standardmäßig festgelegte Domänen Controller automatisch basierend auf dem Testen bestimmt, welcher Domänen Controller in der Domäne über die niedrigste Netzwerk Latenz für den Server verfügt, auf dem das ausgeführt wird. Windows Server-Erfahrungs Server Rolle. Wenn Sie manuell ändern möchten, welcher Server der vorgesehene Domänen Controller ist, können Sie dies unter **Einstellungen** im **Windows Server Essentials-Dashboard** tun, wie unten gezeigt.
+Der standardmäßig festgelegte Domänen Controller ist derselbe Server, auf dem die Server Rolle "Windows Server Essentials-Server" ausgeführt wird. Wenn dieser Server ein Mitglieds Server ist, d. h. er ist kein Domänen Controller, wird der standardmäßig festgelegte Domänen Controller automatisch basierend auf dem Testen bestimmt, welcher Domänen Controller in der Domäne über die niedrigste Netzwerk Latenz für den Server verfügt, auf dem die Server Rolle "Windows Server" ausgeführt wird. Wenn Sie manuell ändern möchten, welcher Server der vorgesehene Domänen Controller ist, können Sie dies unter **Einstellungen** im **Windows Server Essentials-Dashboard** tun, wie unten gezeigt.
 
 ![Ein Screenshot, der die Einstellungen-Systemsteuerung im Vordergrund und das Windows Server Essentials-Dashboard im Hintergrund anzeigt. Die Seite für den designierten Domänen Controller der Einstellungs Systemsteuerung ist derzeit ausgewählt.](media/larger-deployments-1.PNG)
 
@@ -57,9 +56,9 @@ Windows Server 2016 Essentials unterstützt 500-Benutzer und 500-Geräte. Dies e
 
 Ein Screenshot, der die Verwendung der Suchfunktion des Windows Server Essentials-Dashboards für die Suche nach der Zeichenfolge "d5c" anzeigt. Die Ergebnisse dieser Suche enthalten zwei Dateien und Ordner und zwei Benutzer.
 
-> [!NOTE]  
+> [!NOTE]
 > Obwohl die unterstützte Benutzer-und Geräte Beschränkung für die Windows Server Essentials-Server Rolle gestiegen ist, bleibt das unterstützte Limit für die Client Sicherungskopie bei 75.
 
-<a name="see-also"></a>Siehe auch
+<a name="see-also"></a>Weitere Informationen
 --------
 [Erste Schritte in Windows Server Essentials](get-started.md)

@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 05/24/2018
-ms.openlocfilehash: 0208e23b94b5e7c5012bc99eabf71aa0c7ad944c
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: de4fe62b179286f058a9c4508e9f907eeb9ae806
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82037139"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87178576"
 ---
 # <a name="plan-your-wsus-deployment"></a>Planen der WSUS-Bereitstellung
 
@@ -48,8 +48,8 @@ Die Anforderungen an Hardware und Datenbanksoftware richten sich nach der Anzahl
 
     -   **Netzwerkadapter:** min. 100 MBit/s (1 GB empfohlen)
 
-> [!NOTE] 
-> Diese Richtlinien gehen davon aus, dass WSUS-Clients bei einem Rullup von 30.000 Clients alle acht Stunden mit dem Server synchronisiert werden. Wenn sie öfter synchronisieren, erhöht sich die Serverlast entsprechend.  
+> [!NOTE]
+> Diese Richtlinien gehen davon aus, dass WSUS-Clients bei einem Rullup von 30.000 Clients alle acht Stunden mit dem Server synchronisiert werden. Wenn sie öfter synchronisieren, erhöht sich die Serverlast entsprechend.
 
 -   Softwareanforderungen:
 
@@ -103,7 +103,7 @@ Beachten Sie, dass das Konfigurieren von Clientcomputern (einschließlich Server
    > [!NOTE]
    > Das Konfigurieren einer Installationsquelle für „Features bei Bedarf“ umfasst nicht WSUS. Informationen zum Konfigurieren von Features finden Sie unter [Configure Features on Demand in Windows Server](https://technet.microsoft.com/library/jj127275.aspx).
 
-3. Auf Unternehmensgeräten, auf denen Windows 10, Version 1709 oder Version 1803 ausgeführt wird, können „Features bei Bedarf“ nicht direkt über WSUS installiert werden. Um „Features bei Bedarf“ zu installieren, erstellen Sie [eine Featuredatei (oder einen Seite-an-Seite-Speicher)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj127275%28v=ws.11%29#create-a-feature-file-or-side-by-side-store), oder beziehen Sie das „Features bei Bedarf“-Paket aus einer der folgenden Quellen:
+3. Auf Unternehmensgeräten, auf denen Windows 10, Version 1709 oder Version 1803 ausgeführt wird, können „Features bei Bedarf“ nicht direkt über WSUS installiert werden. Um „Features bei Bedarf“ zu installieren, erstellen Sie [eine Featuredatei (oder einen Seite-an-Seite-Speicher)](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj127275%28v=ws.11%29#create-a-feature-file-or-side-by-side-store), oder beziehen Sie das „Features bei Bedarf“-Paket aus einer der folgenden Quellen:
    - [Volume Licensing Service Center](https://www.microsoft.com/licensing/servicecenter) (VLSC): VL-Zugriff erforderlich
    - OEM-Portal: OEM-Zugriff erforderlich
    - MSDN-Download: MSDN-Abonnement erforderlich
@@ -166,7 +166,7 @@ Sie können komplexe Hierarchien von WSUS-Servern erstellen. Da es möglich ist,
 
 -   Sie können WSUS für eine große Organisation skalieren, in der mehr Clientcomputer vorhanden sind als ein WSUS-Server effektiv verwalten kann.
 
-> [!NOTE] 
+> [!NOTE]
 > Es wird empfohlen, die WSUS-Serverhierarchie auf maximal drei Ebenen zu beschränken, da der Zeitaufwand für die Verteilung von Updates an die verbundenen Server durch jede Ebene zunimmt. Obwohl es keine theoretische Grenze für eine Hierarchie gibt, wurden von Microsoft nur Implementierungen mit einer Hierarchie mit einer Tiefe von fünf Ebenen getestet.
 >
 > Außerdem müssen Downstreamserver die gleiche oder eine frühere Version von WSUS wie die Synchronisationsquelle des Upstreamservers aufweisen.

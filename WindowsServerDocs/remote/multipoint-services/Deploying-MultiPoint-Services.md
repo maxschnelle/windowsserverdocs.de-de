@@ -9,14 +9,15 @@ ms.assetid: 594bc09e-5d2d-4984-a9de-79d40b1308d6
 author: evaseydl
 ms.author: evas
 manager: scottman
-ms.openlocfilehash: 94a7a199bf19179217fff00453ac5542e133bba0
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 0e24fadf1914c43bf6270e1d84c5a5535518d9bd
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85473647"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87182036"
 ---
 # <a name="deploying-multipoint-services"></a>Bereitstellen von MultiPoint Services
+
 In diesem Leitfaden wird beschrieben, wie Sie einen Server bereitstellen, auf dem Multipoint Services ausgeführt wird, und Sie können Multipoint-Stationen einrichten, das System installieren und konfigurieren, Benutzerkonten einrichten und einige grundlegende Verwaltungsaufgaben ausführen, wie z. b. das Aktivieren des Datenträger Schutzes und das Einrichten von Sicherungen, bevor Sie das System verwenden
 
 > [!NOTE]
@@ -42,5 +43,3 @@ Die Bereitstellungs Informationen sind wie folgt organisiert. Sie müssen mindes
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [MultiPoint Services](MultiPoint-Services.md)
--   [MultiPoint Services-Forum](https://social.technet.microsoft.com/Forums/windowsserver/home?forum=windowsmultipointserver&filter=alltypes&sort=lastpostdesc)
-

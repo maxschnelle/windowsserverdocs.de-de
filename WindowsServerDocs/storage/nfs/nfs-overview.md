@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 07/09/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: f18c880dd673b17f53815a57fa2fcc66558dad71
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: aff9fbdfa6dc97cb644e207efdae9c44533c320b
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86961322"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87181746"
 ---
 # <a name="network-file-system-overview"></a>Network File System (Übersicht)
 
@@ -29,11 +29,11 @@ NFS in Windows Server umfasst Server für NFS und Client für NFS. Ein Computer,
 
 ## <a name="windows-and-windows-server-versions"></a>Windows-und Windows Server-Versionen
 
-Windows unterstützt je nach Betriebssystemversion und-Familie mehrere Versionen des NFS-Clients und-Servers. 
+Windows unterstützt je nach Betriebssystemversion und-Familie mehrere Versionen des NFS-Clients und-Servers.
 
 | Betriebssysteme | NFS-Server Versionen |NFS-Client Versionen|
 | ----------------- | ------------------- | ----------------- |
-| Windows 7, Windows 8.1, Windows 10 | – | NFSv2, NFSv3 |
+| Windows 7, Windows 8.1, Windows 10 | N/V | NFSv2, NFSv3 |
 | Windows Server 2008, Windows Server 2008 R2 | NFSv2, NFSv3 | NFSv2, NFSv3 |
 | Windows Server 2012, Windows Server 2012 R2, Windows Server 2016, Windows Server 2019 | NFSv2, NFSv3, nfsv 4.1  | NFSv2, NFSv3 |
 
@@ -49,7 +49,7 @@ Es folgen einige Möglichkeiten, NFS zu verwenden:
 
 Neue und geänderte Funktionen in Network File System enthalten Unterstützung für die NFS-Version 4,1 und eine verbesserte Bereitstellung und Verwaltbarkeit. Weitere Informationen zu neuen oder geänderten Funktionen in Windows Server 2012 finden Sie in der folgenden Tabelle:
 
-|Feature/Funktionalität|Neu oder aktualisiert|Beschreibung|
+|Feature/Funktionalität|Neu oder aktualisiert|BESCHREIBUNG|
 |---|---|---|
 |[NFS-Version 4,1](#nfs-version-41)|Neu|Erhöhung der Sicherheit, Leistung und Interoperabilität im Vergleich zu NFS Version 3.|
 |[NFS-Infrastruktur](#nfs-infrastructure)|Aktualisiert|Verbessert Bereitstellung und Verwaltbarkeit und erhöht die Sicherheit.|
@@ -99,7 +99,7 @@ Das Bereitstellen und Verwalten von NFS hat sich wie folgt verbessert:
 
 ## <a name="server-manager-information"></a>Informationen zum Server-Manager
 
-Verwenden Sie den Assistenten zum Hinzufügen von Rollen und Features in Server-Manager oder das neuere [Windows Admin Center](../../manage/windows-admin-center/overview.md) , um den Server für NFS-Rollen Dienst (unter der Rolle "Datei" und "iSCSI-Dienste") hinzuzufügen. Allgemeine Informationen zum Installieren von Features finden Sie unter [Installieren oder Deinstallieren von Rollen, Rollendiensten oder Features](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831809(v=ws.11)>). Zu den Server für NFS-Tools gehört das MMC-Snap-in für das Netzwerkdatei System, um den Server für NFS-und Client für NFS-Komponenten zu verwalten. Mithilfe des-Snap-Ins können Sie den-Server für NFS-Komponenten verwalten, die auf dem Computer installiert sind. Server für NFS enthält auch mehrere Windows-Befehlszeilen-Verwaltungs Tools:
+Verwenden Sie den Assistenten zum Hinzufügen von Rollen und Features in Server-Manager oder das neuere [Windows Admin Center](../../manage/windows-admin-center/overview.md) , um den Server für NFS-Rollen Dienst (unter der Rolle "Datei" und "iSCSI-Dienste") hinzuzufügen. Allgemeine Informationen zum Installieren von Features finden Sie unter [Installieren oder Deinstallieren von Rollen, Rollendiensten oder Features](</previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831809(v=ws.11)>). Zu den Server für NFS-Tools gehört das MMC-Snap-in für das Netzwerkdatei System, um den Server für NFS-und Client für NFS-Komponenten zu verwalten. Mithilfe des-Snap-Ins können Sie den-Server für NFS-Komponenten verwalten, die auf dem Computer installiert sind. Server für NFS enthält auch mehrere Windows-Befehlszeilen-Verwaltungs Tools:
 
 - Beim **einbinden** wird eine Remote-NFS-Freigabe (auch als Export bezeichnet) lokal bereitgestellt und einem lokalen Laufwerk Buchstaben auf dem Windows-Client Computer zugeordnet.
 - **Nbsadmin** verwaltet die Konfigurationseinstellungen des Servers für NFS und Client für NFS-Komponenten.

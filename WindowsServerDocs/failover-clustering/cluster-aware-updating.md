@@ -9,12 +9,12 @@ ms.author: jgerend
 ms.technology: storage-failover-clustering
 ms.date: 08/06/2018
 ms.assetid: 3c2993b4-aa81-452b-a5c3-3724ad95d892
-ms.openlocfilehash: bd3c15d08b0d4b6f174fd9c790f0dacb2457472e
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: fbe523043b905e80559dfb9df799426761709b4e
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85473287"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87177916"
 ---
 # <a name="cluster-aware-updating-overview"></a>Übersicht über die clusterfähige Aktualisierung.
 
@@ -117,7 +117,7 @@ Ausführliche Informationen zu den Anforderungen und bewährten Methoden für di
 
 1.  Starten Sie den Server-Manager.
 
-2.  Führen Sie eines der folgenden Verfahren aus:
+2.  Führen Sie einen der folgenden Schritte aus:
 
     -   Klicken Sie **im Menü Extras** auf **Cluster fähiges \- Aktualisieren**.
 
@@ -136,6 +136,6 @@ Die folgenden Links enthalten weitere Informationen zur Verwendung des Cluster f
 
 -   [\-Cmdlets für Cluster fähiges aktualisieren in Windows PowerShell](https://docs.microsoft.com/powershell/module/clusterawareupdating/?view=win10-ps&viewFallbackFrom=winserverr2-ps)
 
--   [\-Referenz zu Plug- \- ins für Cluster fähiges aktualisieren](https://docs.microsoft.com/previous-versions/windows/desktop/mscs/cluster-aware-update-plug-in-interfaces-and-classes)
+-   [\-Referenz zu Plug- \- ins für Cluster fähiges aktualisieren](/previous-versions/windows/desktop/mscs/cluster-aware-update-plug-in-interfaces-and-classes)
 
 

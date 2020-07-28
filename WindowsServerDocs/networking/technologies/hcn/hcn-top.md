@@ -5,12 +5,12 @@ ms.author: jmesser
 author: jmesser81
 ms.prod: windows-server
 ms.date: 11/05/2018
-ms.openlocfilehash: 4afde574802bd63db8ea8ca8db9f5daf1a53dc93
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 6e4d665ba431331fbf1f41a0ac4774e58693a5e2
+ms.sourcegitcommit: 717222e9efceb5964872dbf97034cad60f3c48df
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80859843"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87295042"
 ---
 # <a name="host-compute-network-hcn-service-api-for-vms-and-containers"></a>Host Compute Network (HCN)-Dienst-API für VMS und Container
 
@@ -59,8 +59,6 @@ Als Teil der Dokumentation der HCN-APIs planen wir, das Schema unserer JSON-Doku
 ### <a name="example"></a>Beispiel 
 
 Im folgenden finden Sie ein Beispiel für diesen Workflow für das-Objekt, das einen SCSI-Controller im Konfigurations Dokument einer VM darstellt. 
-
-Im Windows-Quellcode definieren wir Schemas mithilfe von Mars-Dateien: onecore/VM/DV/net/HNS/Schema/Mars/Schema/HCN. Schema. Network. Mars
 
 ```
 enum IpamType
@@ -224,9 +222,9 @@ Aus dieser internen Definition generieren wir die OpenAPI-Spezifikationen für d
 } 
 ```
 
-Sie können Tools wie [Swagger](https://swagger.io/)verwenden, um sprachspezifische Darstellungen der von einem Client verwendeten Schema Programmiersprache zu generieren. Swagger unterstützt eine Vielzahl von Sprachen C#, wie z. b., go, JavaScript und python.
+Sie können Tools wie [Swagger](https://swagger.io/)verwenden, um sprachspezifische Darstellungen der von einem Client verwendeten Schema Programmiersprache zu generieren. Swagger unterstützt eine Vielzahl von Sprachen, wie z. b. c#, go, JavaScript und python.
 
-- [Beispiel für generierten C# Code](example-c-sharp.md) für das IPAM-& Subnetzobjekt der obersten Ebene.
+- [Beispiel für generierten c#-Code](example-c-sharp.md) für das IPAM-& Subnetzobjekt der obersten Ebene.
 
 - [Beispiel für generierten go-Code](example-go.md) für das IPAM-& Subnetzobjekt der obersten Ebene. Go wird von Docker und Kubernetes verwendet, bei denen es sich um zwei der Consumer der hostcompute Network Service-APIs handelt. Go verfügt über integrierte Unterstützung für das Mars Hallen von Go-Typen in und aus JSON-Dokumenten.
 

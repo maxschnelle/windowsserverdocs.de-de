@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 7a19230e0fc1fb96700785fd83e70d501d59b76a
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: bd4aa60c977b09958aebc0087c981efd02f36fed
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80861693"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87182296"
 ---
 # <a name="windows-authentication-technical-overview"></a>Windows-Authentifizierung: Technische Übersicht
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 Dieses Thema für IT-Experten enthält Links zu Themen für die technische Übersicht über die Windows-Authentifizierung. Die Windows-Authentifizierung ist der Prozess, mit dem die Authentizität eines Benutzers oder dienstanzversuchs nachgewiesen werden kann, der auf Windows
 
@@ -54,14 +54,14 @@ Klicken Sie zum digitalen Speichern oder Drucken von Seiten aus dieser Bibliothe
 
     Beschreibt die Verwendung und Auswirkung von Gruppenrichtlinien in den Authentifizierungsprozess.
 
-## <a name="what-is-not-covered"></a>Nicht abgedeckte Elemente
+## <a name="what-is-not-covered"></a>Was nicht behandelt wird
 Diese Themensammlung behandelt keine Prozeduren für das Entwerfen, implementieren oder Überwachen von Authentifizierungs Technologien innerhalb einer Windows-Umgebung.
 
 -   Entwurfs Informationen zu Windows-Autorisierungs Strategien finden Sie unter [Entwerfen einer Ressourcen Autorisierungs Strategie](https://technet.microsoft.com/library/cc783368.aspx).
 
 -   Entwurfs Informationen zu Windows-Authentifizierungs Strategien finden Sie unter [Entwerfen einer Authentifizierungs Strategie](https://technet.microsoft.com/library/cc758124.aspx).
 
--   Entwurfs Informationen zu den Implementierungs Strategien für die Public Key-Infrastruktur von Windows finden Sie unter [Entwerfen einer Public Key-Infrastruktur](https://technet.microsoft.com/library/cc773138.aspx).
+-   Entwurfs Informationen zu den Implementierungs Strategien für die Public Key-Infrastruktur von Windows finden Sie unter [Entwerfen einer Public Key-Infrastruktur](/previous-versions/windows/it-pro/windows-server-2003/cc773138(v=ws.10)).
 
 -   Informationen zum Konfigurieren und Überwachen der Sicherheit, einschließlich der Authentifizierung, in Ihrer Windows-Umgebung finden Sie unter:
 
@@ -71,7 +71,7 @@ Diese Themensammlung behandelt keine Prozeduren für das Entwerfen, implementier
 
     -   [Windows Server 2003-Sicherheitsbaseline](https://technet.microsoft.com/library/cc163140.aspx) und das [Handbuch zu Bedrohungen und Gegenmaßnahmen](https://technet.microsoft.com/library/dd162275.aspx)
 
-    -   [Windows Server 2008-Sicherheitshandbuch](https://www.microsoft.com/download/details.aspx?id=17606)
+    -   [Windows Server 2008-Sicherheitsleitfaden](https://www.microsoft.com/download/details.aspx?id=17606)
 
     -   [Windows Server 2008 R2-Sicherheitsbaseline](https://technet.microsoft.com/library/gg236605.aspx)
 

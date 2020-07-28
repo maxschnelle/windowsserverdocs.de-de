@@ -9,18 +9,18 @@ ms.assetid: 158b7a62-2c52-448b-9467-c00d5018f65b
 ms.author: v-tea
 author: Teresa-MOTIV
 ms.localizationpriority: medium
-ms.openlocfilehash: 095e40528d27be4509e3235a0ab4c03e59759f99
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 636c0c56c52f501a54679a569213bcd4e4646b72
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86966762"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87181986"
 ---
 # <a name="configure-vpn-device-tunnels-in-windows-10"></a>Konfigurieren von VPN-Geräte Tunneln in Windows 10
 
 >Gilt für: Windows 10, Version 1709
 
-Always on-VPN bietet Ihnen die Möglichkeit, ein dediziertes VPN-Profil für das Gerät oder den Computer zu erstellen. Always On-VPN-Verbindungen umfassen zwei Typen von Tunneln: 
+Always on-VPN bietet Ihnen die Möglichkeit, ein dediziertes VPN-Profil für das Gerät oder den Computer zu erstellen. Always On-VPN-Verbindungen umfassen zwei Typen von Tunneln:
 
 - Der _Geräte Tunnel_ stellt eine Verbindung mit angegebenen VPN-Servern her, bevor sich Benutzer am Gerät anmelden. Ein Gerätetunnel wird für Verbindungsszenarios vor der Anmeldung und zur Geräteverwaltung verwendet.
 
@@ -34,7 +34,7 @@ Der Geräte Tunnel kann nur auf in die Domäne eingebundenen Geräten konfigurie
 
 
 ## <a name="device-tunnel-requirements-and-features"></a>Anforderungen und Features für den Geräte Tunnel
-Sie müssen die Computer Zertifikat Authentifizierung für VPN-Verbindungen aktivieren und eine Stamm Zertifizierungsstelle für die Authentifizierung eingehender VPN-Verbindungen definieren. 
+Sie müssen die Computer Zertifikat Authentifizierung für VPN-Verbindungen aktivieren und eine Stamm Zertifizierungsstelle für die Authentifizierung eingehender VPN-Verbindungen definieren.
 
 ```PowerShell
 $VPNRootCertAuthority = "Common Name of trusted root certification authority"
@@ -46,7 +46,7 @@ Set-VpnAuthProtocol -UserAuthProtocolAccepted Certificate, EAP -RootCertificateN
 
 ## <a name="vpn-device-tunnel-configuration"></a>Konfiguration des VPN-Geräte Tunnels
 
-Die Beispiel-XML-Datei unten bietet eine gute Anleitung für Szenarien, in denen nur vom Client initiierte Pull-Vorgänge über den Geräte Tunnel erforderlich sind.  Datenverkehrs Filter werden genutzt, um den Geräte Tunnel nur auf den Verwaltungs Datenverkehr zu beschränken.  Diese Konfiguration eignet sich gut für Windows Update, typische Gruppenrichtlinie (GP) und Microsoft Endpoint Configuration Manager Update Szenarios sowie VPN-Konnektivität für die erste Anmeldung ohne zwischengespeicherte Anmelde Informationen oder Szenarios zur Kenn Wort Zurücksetzung. 
+Die Beispiel-XML-Datei unten bietet eine gute Anleitung für Szenarien, in denen nur vom Client initiierte Pull-Vorgänge über den Geräte Tunnel erforderlich sind.  Datenverkehrs Filter werden genutzt, um den Geräte Tunnel nur auf den Verwaltungs Datenverkehr zu beschränken.  Diese Konfiguration eignet sich gut für Windows Update, typische Gruppenrichtlinie (GP) und Microsoft Endpoint Configuration Manager Update Szenarios sowie VPN-Konnektivität für die erste Anmeldung ohne zwischengespeicherte Anmelde Informationen oder Szenarios zur Kenn Wort Zurücksetzung.
 
 Für Server initiierte pushfälle, wie Windows-Remoteverwaltung (WinRM), Remote-gpupdate und Remote Configuration Manager Update Szenarios – Sie müssen eingehenden Datenverkehr für den Geräte Tunnel zulassen, sodass keine Datenverkehrs Filter verwendet werden können.  Wenn Sie im Geräte Tunnel Profildaten Verkehrs Filter aktivieren, wird der eingehende Datenverkehr vom Geräte Tunnel verweigert.  Diese Einschränkung wird in zukünftigen Versionen entfernt.
 
@@ -56,40 +56,40 @@ Für Server initiierte pushfälle, wie Windows-Remoteverwaltung (WinRM), Remote-
 Im folgenden finden Sie ein Beispiel für die VPN-Profilerstellung.
 
 ``` xml
-<VPNProfile>  
-  <NativeProfile>  
-<Servers>vpn.contoso.com</Servers>  
-<NativeProtocolType>IKEv2</NativeProtocolType>  
-<Authentication>  
-  <MachineMethod>Certificate</MachineMethod>  
-</Authentication>  
-<RoutingPolicyType>SplitTunnel</RoutingPolicyType>  
+<VPNProfile>
+  <NativeProfile>
+<Servers>vpn.contoso.com</Servers>
+<NativeProtocolType>IKEv2</NativeProtocolType>
+<Authentication>
+  <MachineMethod>Certificate</MachineMethod>
+</Authentication>
+<RoutingPolicyType>SplitTunnel</RoutingPolicyType>
  <!-- disable the addition of a class based route for the assigned IP address on the VPN interface -->
-<DisableClassBasedDefaultRoute>true</DisableClassBasedDefaultRoute>  
-  </NativeProfile> 
-  <!-- use host routes(/32) to prevent routing conflicts -->  
-  <Route>  
-<Address>10.10.0.2</Address>  
-<PrefixSize>32</PrefixSize>  
-  </Route>  
-  <Route>  
-<Address>10.10.0.3</Address>  
-<PrefixSize>32</PrefixSize>  
-  </Route>  
-<!-- traffic filters for the routes specified above so that only this traffic can go over the device tunnel --> 
-  <TrafficFilter>  
-<RemoteAddressRanges>10.10.0.2, 10.10.0.3</RemoteAddressRanges>  
+<DisableClassBasedDefaultRoute>true</DisableClassBasedDefaultRoute>
+  </NativeProfile>
+  <!-- use host routes(/32) to prevent routing conflicts -->
+  <Route>
+<Address>10.10.0.2</Address>
+<PrefixSize>32</PrefixSize>
+  </Route>
+  <Route>
+<Address>10.10.0.3</Address>
+<PrefixSize>32</PrefixSize>
+  </Route>
+<!-- traffic filters for the routes specified above so that only this traffic can go over the device tunnel -->
+  <TrafficFilter>
+<RemoteAddressRanges>10.10.0.2, 10.10.0.3</RemoteAddressRanges>
   </TrafficFilter>
-<!-- need to specify always on = true --> 
-  <AlwaysOn>true</AlwaysOn> 
-<!-- new node to specify that this is a device tunnel -->  
+<!-- need to specify always on = true -->
+  <AlwaysOn>true</AlwaysOn>
+<!-- new node to specify that this is a device tunnel -->
  <DeviceTunnel>true</DeviceTunnel>
 <!--new node to register client IP address in DNS to enable manage out -->
 <RegisterDNS>true</RegisterDNS>
 </VPNProfile>
 ```
 
-Abhängig von den Anforderungen der einzelnen Bereitstellungs Szenarios ist ein weiteres VPN-Feature, das mit dem Geräte Tunnel konfiguriert werden kann, die [Erkennung vertrauenswürdiger Netzwerke](https://social.technet.microsoft.com/wiki/contents/articles/38546.new-features-for-vpn-in-windows-10-and-windows-server-2016.aspx#Trusted_Network_Detection).
+Abhängig von den Anforderungen der einzelnen Bereitstellungs Szenarios ist ein weiteres VPN-Feature, das mit dem Geräte Tunnel konfiguriert werden kann, die [Erkennung vertrauenswürdiger Netzwerke](https://docs.microsoft.com/answers/topics/windows-server-infrastructure.html).
 
 ```
  <!-- inside/outside detection -->

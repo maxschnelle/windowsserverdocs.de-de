@@ -9,12 +9,12 @@ ms.assetid: 06b35897-2192-48b7-8c2d-125c520b0786
 author: lizap
 ms.author: elizapo
 ms.date: 01/08/2019
-ms.openlocfilehash: 514f43447f808aabfe2a20ea01b2d8fd65d628ea
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: ddcb4f080183b6a1c8ae0ed0d705597c1a0dd4a5
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85474367"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87181796"
 ---
 # <a name="supported-windows-guest-operating-systems-for-hyper-v-on-windows-server"></a>Unterstützte Windows-Gast Betriebssysteme für Hyper-V unter Windows Server
 
@@ -28,16 +28,16 @@ Für einige Betriebssysteme ist Integration Services integriert. Andere erforder
 
 Im folgenden finden Sie die Versionen von Windows Server, die als Gast Betriebssysteme für Hyper-V in Windows Server 2016 und Windows Server 2019 unterstützt werden.
 
-|Gastbetriebssystem (Server)|Maximale Anzahl virtueller Prozessoren|Integration Services|Hinweise|
+|Gastbetriebssystem (Server)|Maximale Anzahl virtueller Prozessoren|Integration Services|Notizen|
 |-------------------------------------|----------------------------------------|------------------------|---------|
 |Windows Server, Version 1909 |240 für Generation 2;<br>64 für Generation 1|Integriert|Für die Unterstützung von mehr als 240 virtuellen Prozessoren sind Windows Server-, Version 1903-und spätere Gast Betriebssysteme erforderlich.|
 |Windows Server, Version 1903 |240 für Generation 2;<br>64 für Generation 1|Integriert||
 |Windows Server, Version 1809 |240 für Generation 2;<br>64 für Generation 1|Integriert||
 |Windows Server 2019 |240 für Generation 2;<br>64 für Generation 1|Integriert||
-|Windows Server Version 1803 |240 für Generation 2;<br>64 für Generation 1|Integriert||
+|Windows Server, Version 1803 |240 für Generation 2;<br>64 für Generation 1|Integriert||
 |Windows Server 2016 |240 für Generation 2;<br>64 für Generation 1|Integriert||
-|Windows Server 2012 R2 |64|Integriert||
-|Windows Server 2012 |64|Integriert||
+|Windows Server 2012 R2 |64|Integriert||
+|Windows Server 2012 |64|Integriert||
 |Windows Server 2008 R2 mit Service Pack 1 (SP 1)|64|Installieren Sie alle wichtigen Windows-Updates nach dem Einrichten des Gast Betriebssystems.|Datacenter, Enterprise, Standard und Web Edition.|
 |Windows Server 2008 mit Service Pack 2 (SP2)|8|Installieren Sie alle wichtigen Windows-Updates nach dem Einrichten des Gast Betriebssystems.|Datacenter, Enterprise, Standard und Web Edition (32-Bit und 64-Bit).|
 
@@ -45,9 +45,9 @@ Im folgenden finden Sie die Versionen von Windows Server, die als Gast Betriebss
 
 Im folgenden finden Sie die Versionen des Windows-Clients, die als Gast Betriebssysteme für Hyper-V in Windows Server 2016 und Windows Server 2019 unterstützt werden.
 
-|Gastbetriebssystem (Client)|Maximale Anzahl virtueller Prozessoren|Integration Services|Hinweise|
+|Gastbetriebssystem (Client)|Maximale Anzahl virtueller Prozessoren|Integration Services|Notizen|
 |-------------------------------------|----------------------------------------|------------------------|---------|
-|Windows 10|32|Integriert||
+|Windows 10|32|Integriert||
 |Windows 8.1|32|Integriert||
 |Windows 7 mit Service Pack 1 (SP 1)|4|Aktualisieren Sie die Integrationsdienste, nachdem Sie das Gast Betriebssystem eingerichtet haben.|Ultimate, Enterprise und Professional Edition (32-Bit und 64-Bit).|
 
@@ -57,10 +57,10 @@ Die folgende Tabelle enthält Links zu Informationen zu Gastbetriebssystemen, di
 
 |Hostbetriebssystem|Thema|
 |-------------------------|---------|
-|Windows 10|[Unterstützte Gast Betriebssysteme für Hyper-V-Client in Windows 10](https://docs.microsoft.com/virtualization/hyper-v-on-windows/about/supported-guest-os)|
-|Windows Server 2012 R2 und Windows 8.1|-   [Unterstützte Windows-Gast Betriebssysteme für Hyper-V in Windows Server 2012 R2 und Windows 8.1](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn792027(v=ws.11))<br />-   [Linux-und FreeBSD-Virtual Machines unter Hyper-V](Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows.md)|
-|Windows Server 2012 und Windows 8|[Unterstützte Windows-Gastbetriebssysteme für Hyper-V in Windows Server 2012 und Windows 8](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn792028(v=ws.11))|
-|Windows Server 2008 und Windows Server 2008 R2|[Grundlegendes zu virtuellen Computern und Gastbetriebssystemen](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc794868(v=ws.10))|
+|Windows 10|[Unterstützte Gast Betriebssysteme für Hyper-V-Client in Windows 10](https://docs.microsoft.com/virtualization/hyper-v-on-windows/about/supported-guest-os)|
+|Windows Server 2012 R2 und Windows 8.1|-   [Unterstützte Windows-Gast Betriebssysteme für Hyper-V in Windows Server 2012 R2 und Windows 8.1](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn792027(v=ws.11))<br />-   [Linux-und FreeBSD-Virtual Machines unter Hyper-V](Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows.md)|
+|Windows Server 2012 und Windows 8|[Unterstützte Windows-Gastbetriebssysteme für Hyper-V in Windows Server 2012 und Windows 8](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn792028(v=ws.11))|
+|Windows Server 2008 und Windows Server 2008 R2|[Grundlegendes zu virtuellen Computern und Gastbetriebssystemen](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc794868(v=ws.10))|
 
 ## <a name="how-microsoft-provides-support-for-guest-operating-systems"></a>So bietet Microsoft Unterstützung für Gast Betriebssysteme
 

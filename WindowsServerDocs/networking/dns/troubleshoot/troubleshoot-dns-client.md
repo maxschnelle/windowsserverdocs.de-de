@@ -1,5 +1,5 @@
 ---
-title: DNS-Clients
+title: Problembehandlung bei DNS-Clients
 description: In diesem Artikel wird beschrieben, wie Sie ein DNS-Problem auf Clientseite beheben.
 manager: dcscontentpm
 ms.technology: networking-dns
@@ -7,14 +7,14 @@ ms.topic: article
 ms.author: delhan
 ms.date: 8/8/2019
 author: Deland-Han
-ms.openlocfilehash: ffc772bafa0027d516194b2741e7680065c0db4b
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 2a9b44807ae6bc9f4c446d4af2150caf09955899
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80860063"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87182336"
 ---
-# <a name="troubleshooting-dns-clients"></a>DNS-Clients
+# <a name="troubleshooting-dns-clients"></a>Problembehandlung bei DNS-Clients
 
 In diesem Artikel wird erläutert, wie Sie Probleme von DNS-Clients beheben.
 
@@ -36,7 +36,7 @@ In diesem Artikel wird erläutert, wie Sie Probleme von DNS-Clients beheben.
 
 Wenn der Client keine gültige TCP/IP-Konfiguration hat, verwenden Sie eine der folgenden Methoden:
 
-* Verwenden Sie für dynamisch konfigurierte Clients den `ipconfig /renew` Befehl, um den Client manuell zu zwingen, seine IP-Adress Konfiguration mit dem DHCP-Server zu erneuern.
+* Verwenden Sie für dynamisch konfigurierte Clients den `ipconfig /renew` Befehl, um die IP-Adress Konfiguration des Clients manuell mit dem DHCP-Server zu erneuern.
 
 * Ändern Sie für statisch konfigurierte Clients die TCP/IP-Client Eigenschaften so, dass gültige Konfigurationseinstellungen verwendet werden, oder schließen Sie die DNS-Konfiguration für das Netzwerk ab.
 
@@ -56,26 +56,26 @@ Wenn kein konfigurierter DNS-Server auf das direkte Pingen seiner IP-Adresse ant
 
 ### <a name="dns-query-tests"></a>DNS-Abfrage Tests
 
-Wenn der DNS-Client einen Ping-Befehl an den DNS-Server Computer senden kann, verwenden Sie die folgenden `nslookup` Befehle, um zu testen, ob der Server auf DNS-Clients reagieren kann. Da nslookup nicht den DNS-Cache des Clients verwendet, wird bei der Namensauflösung der konfigurierte DNS-Server des Clients verwendet.
+Wenn der DNS-Client einen Ping an den DNS-Server Computer durchführen kann, verwenden Sie die folgenden `nslookup` Befehle, um zu testen, ob der Server auf DNS-Clients reagieren kann. Da nslookup nicht den DNS-Cache des Clients verwendet, wird bei der Namensauflösung der konfigurierte DNS-Server des Clients verwendet.
 
 #### <a name="test-a-client"></a>Testen eines Clients
 
 ```cmd
 nslookup <client>
 ```
-  
+
 Wenn der Client Computer z. b. den Namen **CLIENT1**hat, führen Sie den folgenden Befehl aus:
-  
+
 ```cmd
 nslookup client1
 ```
-  
+
 Wenn keine erfolgreiche Antwort zurückgegeben wird, versuchen Sie, den folgenden Befehl auszuführen:
-  
+
 ```cmd
 nslookup <fqdn of client>
 ```
-  
+
 Wenn der voll qualifizierte Name für den voll qualifizierten Namen " **CLIENT1.Corp.contoso.com**" lautet, führen Sie den folgenden Befehl aus:
 
 ```cmd
@@ -85,7 +85,7 @@ nslookup client1.corp.contoso.com.
 > [!NOTE]
 > Sie müssen den nachfolgenden Zeitraum angeben, wenn Sie diesen Test ausführen.
 
-Wenn Windows den voll qualifizierten Namen gefunden hat, den Kurznamen jedoch nicht finden kann, überprüfen Sie die DNS-Suffixkonfiguration auf der Registerkarte DNS der erweiterten TCP/IP-Einstellungen der NIC. Weitere Informationen finden Sie unter [Konfigurieren der DNS-Auflösung](https://docs.microsoft.com/previous-versions/tn-archive/dd163570(v=technet.10)#configuring-dns-resolution).
+Wenn Windows den voll qualifizierten Namen gefunden hat, den Kurznamen jedoch nicht finden kann, überprüfen Sie die DNS-Suffixkonfiguration auf der Registerkarte DNS der erweiterten TCP/IP-Einstellungen der NIC. Weitere Informationen finden Sie unter [Konfigurieren der DNS-Auflösung](/previous-versions/tn-archive/dd163570(v=technet.10)#configuring-dns-resolution).
 
 #### <a name="test-the-dns-server"></a>Testen des DNS-Servers
 
@@ -118,14 +118,14 @@ nslookup app1.corp.contoso.com
 nslookup <external name>
 ```
 
-Beispiel: 
+Beispiel:
 ```cmd
 nslookup bing.com
 ```
 
-Wenn alle vier dieser Tests erfolgreich waren, führen Sie `ipconfig /displaydns` aus, und überprüfen Sie die Ausgabe auf den Namen, der fehlgeschlagen ist. Wenn der Name "Name ist nicht vorhanden" angezeigt wird, wurde eine negative Antwort von einem DNS-Server zurückgegeben und auf dem Client zwischengespeichert. 
+Wenn alle vier Tests erfolgreich waren, führen `ipconfig /displaydns` Sie aus, und überprüfen Sie die Ausgabe auf den Namen, der fehlgeschlagen ist. Wenn der Name "Name ist nicht vorhanden" angezeigt wird, wurde eine negative Antwort von einem DNS-Server zurückgegeben und auf dem Client zwischengespeichert.
 
-Um das Problem zu beheben, löschen Sie den Cache, indem Sie `ipconfig /flushdns`ausführen.
+Um das Problem zu beheben, löschen Sie den Cache, indem Sie Ausführen `ipconfig /flushdns` .
 
 ## <a name="next-step"></a>Nächster Schritt
 

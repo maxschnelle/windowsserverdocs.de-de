@@ -9,12 +9,12 @@ ms.author: jgerend
 ms.technology: storage-failover-clustering
 ms.date: 08/06/2018
 description: Anforderungen für die Verwendung des Cluster fähigen Updates zum Installieren von Updates auf Clustern, auf denen Windows Server ausgeführt wird.
-ms.openlocfilehash: 066aca3adb2ceec19663653a7bc2f0f8cd42da16
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: a3f00d6f0118b536745be0afdac8b4a7084a6721
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85473307"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87178357"
 ---
 # <a name="cluster-aware-updating-requirements-and-best-practices"></a>Anforderungen und Best Practices für clusterfähiges Aktualisieren
 
@@ -71,10 +71,10 @@ Diese Anforderungen treten zusätzlich zu den Installationsanforderungen für [I
 
 |Anforderung|Standardstatus|Selbst \- Aktualisierungs Modus|Remote \- Aktualisierungs Modus|
 |---------------|---|-----------------------|-------------------------|
-|[Aktivieren einer Firewallregel zum Zulassen automatischer Neustarts](#BKMK_FW)|Disabled|Auf allen Clusterknoten erforderlich, wenn eine Firewall verwendet wird|Auf allen Clusterknoten erforderlich, wenn eine Firewall verwendet wird|
-|[Aktivieren der Windows-Verwaltungsinstrumentation](#BKMK_WMI)|Aktiviert|Auf allen Clusterknoten erforderlich|Auf allen Clusterknoten erforderlich|
-|[Aktivieren von Windows PowerShell 3.0 oder 4.0 und Windows PowerShell-Remoting](#BKMK_PS)|Aktiviert|Auf allen Clusterknoten erforderlich|Auf allen Clusterknoten muss Folgendes ausgeführt werden:<p>-Das [Save-caudebugtrace](https://docs.microsoft.com/powershell/module/clusterawareupdating/Save-CauDebugTrace?view=win10-ps) -Cmdlet<br />-PowerShell- \- Skripts vor und nach \- dem Update während einer Update Lauf Zeit Aktualisierung<br />-Tests der Update Bereitschaft des Clusters mithilfe des Cluster fähigen Aktualisierungs Fensters oder des Windows PowerShell-Cmdlets " [Test \- causetup](https://docs.microsoft.com/powershell/module/clusterawareupdating/Test-CauSetup?view=win10-ps) "|
-|[Installieren von .NET Framework 4,6 oder 4,5](#BKMK_NET)|Aktiviert|Auf allen Clusterknoten erforderlich|Auf allen Clusterknoten muss Folgendes ausgeführt werden:<p>-Das [Save-caudebugtrace](https://docs.microsoft.com/powershell/module/clusterawareupdating/Save-CauDebugTrace?view=win10-ps) -Cmdlet<br />-PowerShell- \- Skripts vor und nach \- dem Update während einer Update Lauf Zeit Aktualisierung<br />-Tests der Update Bereitschaft des Clusters mithilfe des Cluster fähigen Aktualisierungs Fensters oder des Windows PowerShell-Cmdlets " [Test \- causetup](https://docs.microsoft.com/powershell/module/clusterawareupdating/Test-CauSetup?view=win10-ps) "|
+|[Aktivieren einer Firewallregel zum Zulassen automatischer Neustarts](#BKMK_FW)|Deaktiviert|Auf allen Clusterknoten erforderlich, wenn eine Firewall verwendet wird|Auf allen Clusterknoten erforderlich, wenn eine Firewall verwendet wird|
+|[Aktivieren der Windows-Verwaltungsinstrumentation](#BKMK_WMI)|Enabled|Auf allen Clusterknoten erforderlich|Auf allen Clusterknoten erforderlich|
+|[Aktivieren von Windows PowerShell 3.0 oder 4.0 und Windows PowerShell-Remoting](#BKMK_PS)|Enabled|Auf allen Clusterknoten erforderlich|Auf allen Clusterknoten muss Folgendes ausgeführt werden:<p>-Das [Save-caudebugtrace](https://docs.microsoft.com/powershell/module/clusterawareupdating/Save-CauDebugTrace?view=win10-ps) -Cmdlet<br />-PowerShell- \- Skripts vor und nach \- dem Update während einer Update Lauf Zeit Aktualisierung<br />-Tests der Update Bereitschaft des Clusters mithilfe des Cluster fähigen Aktualisierungs Fensters oder des Windows PowerShell-Cmdlets " [Test \- causetup](https://docs.microsoft.com/powershell/module/clusterawareupdating/Test-CauSetup?view=win10-ps) "|
+|[Installieren von .NET Framework 4,6 oder 4,5](#BKMK_NET)|Enabled|Auf allen Clusterknoten erforderlich|Auf allen Clusterknoten muss Folgendes ausgeführt werden:<p>-Das [Save-caudebugtrace](https://docs.microsoft.com/powershell/module/clusterawareupdating/Save-CauDebugTrace?view=win10-ps) -Cmdlet<br />-PowerShell- \- Skripts vor und nach \- dem Update während einer Update Lauf Zeit Aktualisierung<br />-Tests der Update Bereitschaft des Clusters mithilfe des Cluster fähigen Aktualisierungs Fensters oder des Windows PowerShell-Cmdlets " [Test \- causetup](https://docs.microsoft.com/powershell/module/clusterawareupdating/Test-CauSetup?view=win10-ps) "|
 
 ### <a name="enable-a-firewall-rule-to-allow-automatic-restarts"></a><a name="BKMK_FW"></a>Aktivieren einer Firewallregel zum Zulassen automatischer Neustarts
 Um automatische Neustarts nach dem Anwenden von Updates zuzulassen \( , wenn für die Installation eines Updates ein Neustart erforderlich ist \) , \- muss auf jedem Knoten, der folgenden Datenverkehr zulässt, eine Firewallregel aktiviert werden, wenn die Windows-Firewall oder eine nicht-Microsoft-Firewall auf den Cluster Knoten verwendet wird:
@@ -200,7 +200,7 @@ netsh winhttp set proxy MyProxy.CONTOSO.com:443 "<local>"
 
 -   Sie sollten die entsprechenden Berechtigungen für \- Skripts vor und nach \- dem Update festlegen, die in freigegebenen Netzwerk Ordnern gespeichert werden, um mögliche Manipulationen an diesen Dateien durch nicht autorisierte Benutzer zu verhindern.
 
--   Zum Konfigurieren von Cau im selbst \- Aktualisierungs Modus muss ein virtuelles Computer Objekt \( VCO \) für die Cluster Rolle für Cluster fähiges aktualisieren in Active Directory erstellt werden. Dieses Objekt kann durch das clusterfähige Aktualisieren automatisch zu dem Zeitpunkt erstellt werden, zu dem die Clusterrolle für clusterfähiges Aktualisieren hinzugefügt wird, wenn der Failovercluster über die entsprechenden Berechtigungen verfügt. Aufgrund der Sicherheitsrichtlinien in einigen Organisationen ist es möglicherweise erforderlich, das Objekt in Active Directory vorab bereitzustellen. Das entsprechende Verfahren hierfür finden Sie unter [Schritte für die Vorabbereitstellung eines Kontos für eine Clusterrolle](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731002\(v=ws.10\)#steps-for-prestaging-the-cluster-name-account).
+-   Zum Konfigurieren von Cau im selbst \- Aktualisierungs Modus muss ein virtuelles Computer Objekt \( VCO \) für die Cluster Rolle für Cluster fähiges aktualisieren in Active Directory erstellt werden. Dieses Objekt kann durch das clusterfähige Aktualisieren automatisch zu dem Zeitpunkt erstellt werden, zu dem die Clusterrolle für clusterfähiges Aktualisieren hinzugefügt wird, wenn der Failovercluster über die entsprechenden Berechtigungen verfügt. Aufgrund der Sicherheitsrichtlinien in einigen Organisationen ist es möglicherweise erforderlich, das Objekt in Active Directory vorab bereitzustellen. Das entsprechende Verfahren hierfür finden Sie unter [Schritte für die Vorabbereitstellung eines Kontos für eine Clusterrolle](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731002\(v=ws.10\)#steps-for-prestaging-the-cluster-name-account).
 
 -   Sie können Profile für die Updateausführung erstellen, um Updateausführungseinstellungen für verschiedene Failovercluster mit ähnlichen Aktualisierungsanforderungen in der IT-Organisation zu speichern und wiederzuverwenden. In Abhängigkeit vom Aktualisierungsmodus können Sie die Updateausführungsprofile zusätzlich auf einer Dateifreigabe speichern und verwalten, auf die alle Remotecomputer für den Updatekoordinator oder die Failovercluster zugreifen können. Weitere Informationen finden Sie unter [Erweiterte Optionen und Update Lauf Profile für Cau](cluster-aware-updating-options.md).
 

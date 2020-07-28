@@ -9,12 +9,12 @@ author: justinha
 ms.author: justinha
 manager: brianlic
 ms.date: 05/16/2018
-ms.openlocfilehash: fac7e780fc584f0ce4dde8bb87ce37035840a40a
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: b70a8fefc05723b78dbf5e652bf35f7b8b5cff4d
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85474877"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87182316"
 ---
 # <a name="overview-of-tls---ssl-schannel-ssp"></a>Übersicht über TLS-SSL (Schannel SSP)
 
@@ -104,7 +104,7 @@ Informationen dazu, welche Daten einschließlich des anwendungsdefinierten Speic
 
 Es gibt drei Vertrauensstellungsmodi für die Clientauthentifizierung durch den Schannel-Anbieter. Der Vertrauensstellungs Modus steuert, wie die Überprüfung der Zertifikat Kette des Clients durchgeführt wird, und ist eine systemweite Einstellung, die von der REG_DWORD "clientauthtrustmode" unter HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannelgesteuert wird.
 
-|Wert|Vertrauensstellungsmodus|Beschreibung|
+|Wert|Vertrauensstellungsmodus|BESCHREIBUNG|
 |-----|-------|--------|
 |0|Maschinenvertrauensstellung (Standard)|Erfordert, dass das Clientzertifikat von einem Zertifikat in der Liste der vertrauenswürdigen Aussteller ausgestellt wurde.|
 |1|Exklusive Stammvertrauensstellung|Erfordert, dass das Clientzertifikat in der Zertifikatkette auf ein Stammzertifikat zurückgeht, das in dem durch den Aufrufer festgelegten Speicher für vertrauenswürdige Aussteller enthalten ist. Das Zertifikat muss auch von einem Herausgeber in der Liste der vertrauenswürdigen Aussteller ausgestellt worden sein.|
@@ -148,6 +148,4 @@ Anwendungen, die DTLS über UDP nutzen, können das SSPI-Modell in Windows Serve
 Im Schannel SSP für Windows Server 2012 und Windows 8 gibt es keine veralteten Features oder Funktionen.
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
--   [Sicherheitsmodell für die private Cloud – Wrapperfunktion](https://social.technet.microsoft.com/wiki/contents/articles/6756.private-cloud-security-model-wrapper-functionality.aspx)
-
-
+-   [Sicherheitsmodell für die private Cloud – Wrapperfunktion](https://docs.microsoft.com/archive/blogs/cloudsolutions/cloud-services-foundation-reference-architecture-overview)

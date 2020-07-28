@@ -8,22 +8,22 @@ ms.author: jgerend
 ms.technology: storage-spaces
 ms.date: 07/09/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 8383d93983f6620f15099573e527ad89d250727d
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: b5f1ccab7e4c0ca2bbd478509a76a4a37559c345
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86960102"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87181866"
 ---
 # <a name="deploy-storage-spaces-on-a-stand-alone-server"></a>Bereitstellen von Speicherplätzen auf einem eigenständigen Server
 
 >Gilt für: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-In diesem Thema wird beschrieben, wie Sie Speicherplätze auf einem eigenständigen Server bereitstellen. Weitere Informationen zum Erstellen eines Cluster Speicherplatzes finden Sie unter Bereitstellen [eines Speicherplätze-Clusters unter Windows Server 2012 R2](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/mt270997(v%3dws.11)>).
+In diesem Thema wird beschrieben, wie Sie Speicherplätze auf einem eigenständigen Server bereitstellen. Weitere Informationen zum Erstellen eines Cluster Speicherplatzes finden Sie unter Bereitstellen [eines Speicherplätze-Clusters unter Windows Server 2012 R2](</previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/mt270997(v%3dws.11)>).
 
 Um einen Speicherplatz zu erstellen, müssen Sie zuerst einen oder mehrere Speicherpools erstellen. Ein Speicherpool ist eine Gruppe physischer Datenträger. Speicherpools ermöglichen eine Speicheraggregation, eine flexible Kapazitätserweiterung und eine delegierte Verwaltung.
 
-Aus einem Speicherpool können Sie einzelne oder mehrere virtuelle Datenträger erstellen. Diese virtuellen Datenträger werden auch als *Speicherplätze* bezeichnet. Ein Speicherplatz wird vom Windows-Betriebssystem als ein normaler Datenträger angesehen, von dem Sie formatierte Volumes erstellen können. Wenn Sie einen virtuellen Datenträger über die Benutzeroberfläche "Datei- und Speicherdienste" erstellen, können Sie den Resilienztyp (einfach, Spiegeln oder Parität), den Bereitstellungstyp (schlank oder fest) und die Größe konfigurieren. Über Windows PowerShell können Sie zusätzliche Parameter, wie die Anzahl der Spalten, den Überlappungswert und die im Pool zu verwendenden physischen Datenträger festlegen. Informationen zu diesen zusätzlichen Parametern finden Sie unter [New-VirtualDisk](/powershell/module/storage/new-virtualdisk?view=win10-ps) und [What are columns and how does Storage Spaces decide how many to use?](https://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx%23what_are_columns_and_how_does_storage_spaces_decide_how_many_to_use) unter „Storage Spaces – Häufig gestellte Fragen“.
+Aus einem Speicherpool können Sie einzelne oder mehrere virtuelle Datenträger erstellen. Diese virtuellen Datenträger werden auch als *Speicherplätze* bezeichnet. Ein Speicherplatz wird vom Windows-Betriebssystem als ein normaler Datenträger angesehen, von dem Sie formatierte Volumes erstellen können. Wenn Sie einen virtuellen Datenträger über die Benutzeroberfläche "Datei- und Speicherdienste" erstellen, können Sie den Resilienztyp (einfach, Spiegeln oder Parität), den Bereitstellungstyp (schlank oder fest) und die Größe konfigurieren. Über Windows PowerShell können Sie zusätzliche Parameter, wie die Anzahl der Spalten, den Überlappungswert und die im Pool zu verwendenden physischen Datenträger festlegen. Weitere Informationen zu diesen zusätzlichen Parametern finden Sie unter [New-virtualdisk](/powershell/module/storage/new-virtualdisk?view=win10-ps) und im [Windows Server Storage-Forum](https://docs.microsoft.com/answers/topics/windows-server-storage.html).
 
 >[!NOTE]
 >Ein Speicherplatz kann nicht zum Hosten des Windows-Betriebssystems verwendet werden.
@@ -44,7 +44,7 @@ In der folgenden Abbildung ist der Speicherplatz-Workflow dargestellt.
 Wenn Sie Speicherplätze auf einem eigenständigen Windows Server 2012-basierten Server verwenden möchten, stellen Sie sicher, dass die physischen Datenträger, die Sie verwenden möchten, die folgenden Voraussetzungen erfüllen.
 
 > [!IMPORTANT]
-> Weitere Informationen zum Bereitstellen von Speicherplätzen auf einem Failovercluster finden Sie unter Bereitstellen [eines Speicherplätze-Clusters unter Windows Server 2012 R2](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/mt270997(v%3dws.11)>). Für eine failoverclusterbereitstellung gelten andere Voraussetzungen, z. b. unterstützte Daten trägerbus Typen, unterstützte resilienztypen und die erforderliche Mindestanzahl von Datenträgern
+> Weitere Informationen zum Bereitstellen von Speicherplätzen auf einem Failovercluster finden Sie unter Bereitstellen [eines Speicherplätze-Clusters unter Windows Server 2012 R2](</previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/mt270997(v%3dws.11)>). Für eine failoverclusterbereitstellung gelten andere Voraussetzungen, z. b. unterstützte Daten trägerbus Typen, unterstützte resilienztypen und die erforderliche Mindestanzahl von Datenträgern
 
 |Bereich|Anforderung|Notizen|
 |---|---|---|
@@ -68,9 +68,9 @@ Zuerst müssen Sie die verfügbaren physischen Datenträger in einzelne oder meh
 1. Wählen Sie im Navigationsbereich Server-Manager die Option **Datei-und Speicherdienste**aus.
 
 2. Wählen Sie im Navigationsbereich die Seite **Speicher Pools** aus.
-    
+
     Verfügbare Datenträger werden standardmäßig in einem *ursprünglichen* Pool eingefügt. Wenn unter **SPEICHERPOOLS** kein ursprünglicher Pool aufgeführt ist, bedeutet das, dass der Speicher die Anforderungen für Speicherplätze nicht erfüllt. Stellen Sie sicher, dass die Datenträger die Anforderungen erfüllen, die im Abschnitt "Voraussetzungen" erläutert sind.
-    
+
     >[!TIP]
     >Wenn Sie den ursprünglichen Speicherpool (**Primordial**) auswählen, werden die verfügbaren physischen Datenträger unter **PHYSISCHE DATENTRÄGER** aufgelistet.
 
@@ -81,15 +81,15 @@ Zuerst müssen Sie die verfügbaren physischen Datenträger in einzelne oder meh
 5. Geben Sie auf der Seite **Speicherpool Name und Subsystem angeben** einen Namen und optional eine Beschreibung für den Speicherpool ein, wählen Sie die Gruppe verfügbarer physischer Datenträger aus, die Sie verwenden möchten, und klicken Sie dann auf **weiter**.
 
 6. Führen Sie auf der Seite physische Datenträger **für den Speicherpool auswählen** die folgenden Schritte aus, und klicken Sie dann auf **weiter**:
-    
+
     1. Aktivieren Sie das Kontrollkästchen neben jedem physischen Datenträger, den Sie in den Speicherpool einfügen möchten.
-    
+
     2. Wenn Sie einen oder mehrere Datenträger als Hotspares festlegen möchten, klicken Sie unter **Zuordnung**auf den Dropdown Pfeil, und wählen Sie dann **Hot Spare**aus.
 
 7. Überprüfen Sie auf der Seite **Auswahl bestätigen** , ob die Einstellungen richtig sind, und wählen Sie dann **Erstellen**aus.
 
 8. Überprüfen Sie auf der Seite **Ergebnisse anzeigen** , ob alle Aufgaben abgeschlossen sind, und wählen Sie dann **Schließen**aus.
-    
+
     >[!NOTE]
     >Sie haben auch die Möglichkeit, direkt mit dem nächsten Schritt fortzufahren, wenn Sie das Kontrollkästchen **Virtuellen Datenträger erstellen, wenn dieser Assistent geschlossen wird** aktivieren.
 
@@ -139,48 +139,48 @@ Als Nächstes erstellen Sie einzelne oder mehrere virtuelle Datenträger aus dem
 5. Geben Sie auf der Seite **Geben Sie den Namen des virtuellen** Datenträgers an einen Namen und optional eine Beschreibung ein, und klicken Sie auf **weiter**.
 
 6. Wählen Sie auf der Seite **Wählen Sie das Speicher Layout** aus das gewünschte Layout aus, und klicken Sie dann auf **weiter**.
-    
+
     >[!NOTE]
     >Wenn Sie ein Layout auswählen, bei dem nicht genügend physische Datenträger vorhanden sind, erhalten Sie eine Fehlermeldung, wenn Sie auf **weiter**klicken. Informationen dazu, welches Layout und welche Datenträger Anforderungen zu verwenden sind, finden Sie unter [Voraussetzungen](#prerequisites).
 
 7. Wenn Sie **Spiegelung** als Speicher Layout ausgewählt haben und im Pool mindestens fünf Datenträger vorhanden sind, wird die Seite **resilienzeinstellungen konfigurieren** angezeigt. Wählen Sie eine der folgenden Optionen aus:
-    
+
       - **Zwei-Wege-Spiegelung**
       - **Drei-Wege-Spiegelung**
 
 8. Wählen Sie auf der Seite **Bereitstellungstyp angeben** eine der folgenden Optionen aus, und klicken Sie dann auf **weiter**.
-    
+
    - **Dünn**
-        
+
      Bei einer schlanken Bereitstellung wird Speicher nur auf Bedarf zugeordnet. Dadurch wird die Nutzung des verfügbaren Speichers optimiert. Da auf diese Weise aber eine übermäßige Zuteilung des Speichers möglich ist, müssen Sie sorgfältig überwachen, wie viel Speicherplatz verfügbar ist.
-    
-   - **Festen**
-        
+
+   - **Fest**
+
      Bei einer festen Bereitstellung wird die Speicherkapazität sofort beim Erstellen eines virtuellen Datenträgers zugeteilt. Daher entspricht der Speicherplatz, der bei einer festen Bereitstellung aus dem Speicherpool verwendet wird, der Größe des virtuellen Datenträgers.
-    
+
      >[!TIP]
      >Mit Speicherplätzen können Sie im selben Speicherpool virtuelle Datenträger sowohl mit schlanker als auch fester Bereitstellung erstellen. Sie können beispielsweise sowohl einen virtuellen Datenträger mit schlanker Bereitstellung als Host für eine Datenbank als auch einen virtuellen Datenträger mit fester Bereitstellung als Host für die zugehörigen Protokolldateien verwenden.
 
 9. Auf der Seite **Geben Sie die Größe des virtuellen Datenträgers an** gehen Sie folgendermaßen vor:
-    
+
     Wenn Sie im vorherigen Schritt eine schlanke Bereitstellung ausgewählt haben, geben Sie im Feld **Größe des virtuellen** Datenträgers eine Größe für den virtuellen Datenträger ein, wählen Sie die Einheiten (**MB**, **GB**oder **TB**) aus, und klicken Sie dann auf **weiter**.
-    
+
     Wenn Sie im vorherigen Schritt eine Fixed-Bereitstellung ausgewählt haben, wählen Sie eine der folgenden Aktionen aus:
-    
+
       - **Größe angeben**
-        
+
         Um eine Größe anzugeben, geben Sie im Feld **Größe des virtuellen** Datenträgers einen Wert ein, und wählen Sie dann die Einheiten (**MB**, **GB**oder **TB**) aus.
-        
+
         Wenn Sie keine einfache Speicheranordnung verwenden, nutzt der virtuelle Datenträger mehr freien Speicher als die von Ihnen angegebene Größe. Um einen potenziellen Fehler zu vermeiden, wenn die Größe des Volumes den freien Speicher des Speicherpools überschreitet, können Sie das Kontrollkästchen **Datenträger mit maximal möglicher Größe erstellen (bis zur angegebenen Größe)** aktivieren.
-    
+
       - **Maximale Größe**
-        
+
         Wählen Sie diese Option, um einen virtuellen Datenträger zu erstellen, der die maximale Kapazität des Speicherpools nutzt.
 
 10. Überprüfen Sie auf der Seite **Auswahl bestätigen** , ob die Einstellungen richtig sind, und wählen Sie dann **Erstellen**aus.
 
 11. Überprüfen Sie auf der Seite **Ergebnisse anzeigen** , ob alle Aufgaben abgeschlossen sind, und wählen Sie dann **Schließen**aus.
-    
+
     >[!TIP]
     >Das Kontrollkästchen **Volume erstellen, wenn dieser Assistent geschlossen wird** ist standardmäßig aktiviert. Daraufhin wird direkt zum nächsten Schritt weitergeleitet.
 
@@ -220,15 +220,15 @@ New-VirtualDisk -StoragePoolFriendlyName StoragePool1 -FriendlyName VirtualDisk1
 Als Nächstes erstellen Sie ein Volume aus dem virtuellen Datenträger. Sie können einen optionalen Laufwerk Buchstaben oder-Ordner zuweisen und dann das Volume mit einem Dateisystem formatieren.
 
 1. Wenn der Assistent für neue Volumes nicht bereits geöffnet ist, klicken Sie in Server-Manager auf der Seite **Speicher Pools** unter **virtuelle**Datenträger mit der rechten Maustaste auf den gewünschten virtuellen Datenträger, und wählen Sie dann **Neues Volume**aus.
-    
+
     Der Assistent für neue Volumes wird geöffnet.
 
 2. Wählen Sie **auf der Seite** Vorbereitung die Option **weiter**aus.
 
 3. Führen Sie auf der Seite **Server und** Datenträger auswählen die folgenden Schritte aus, und klicken Sie dann auf **weiter**.
-    
+
     1. Wählen Sie im Bereich **Server** den Server aus, auf dem Sie das Volume bereitstellen möchten.
-    
+
     2. Wählen Sie **im Bereich Datenträger den virtuellen** Datenträger aus, auf dem Sie das Volume erstellen möchten.
 
 4. Geben Sie auf der Seite **Geben Sie die Größe des** Volumes an eine Volumegröße ein, geben Sie die Einheiten (**MB**, **GB**oder **TB**) an, und klicken Sie dann auf **weiter**.
@@ -236,15 +236,15 @@ Als Nächstes erstellen Sie ein Volume aus dem virtuellen Datenträger. Sie kön
 5. Konfigurieren Sie auf der Seite **einem Laufwerk Buchstaben oder Ordner zuweisen** die gewünschte Option, und klicken Sie dann auf **weiter**.
 
 6. Führen Sie auf der Seite **Datei Systemeinstellungen auswählen** die folgenden Schritte aus, und klicken Sie dann auf **weiter**.
-    
+
     1. Wählen Sie in der Liste **Dateisystem** entweder **NTFS** oder **Refs**aus.
-    
+
     2. In der Liste **Größe der Zuordnungseinheiten** behalten Sie entweder die Einstellung **Standard** bei, oder legen Sie eine Größe für die Zuordnungseinheiten fest.
-        
+
         >[!NOTE]
         >Weitere Informationen zur Größe der Zuordnungseinheiten finden Sie unter [Default cluster size for NTFS, FAT, and exFAT](https://support.microsoft.com/help/140365/default-cluster-size-for-ntfs-fat-and-exfat).
 
-    
+
     3. Sie können auch im Feld **Volumebezeichnung** einen Namen für das Volume eingeben, z. B. **HR Data**.
 
 7. Überprüfen Sie auf der Seite **Auswahl bestätigen** , ob die Einstellungen richtig sind, und wählen Sie dann **Erstellen**aus.
@@ -268,4 +268,4 @@ Get-VirtualDisk –FriendlyName VirtualDisk1 | Get-Disk | Initialize-Disk –Pas
 - [Speicherplätze](overview.md)
 - [Speicher-Cmdlets in Windows PowerShell](/powershell/module/storage/index?view=win10-ps)
 - [„Bereitstellen von Clusterspeicherplätzen“](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj822937(v%3dws.11))
-- [Speicherplätze – Häufig gestellte Fragen (FAQ)](https://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx)
+- [Windows Server-Speicher Forum](https://docs.microsoft.com/answers/topics/windows-server-storage.html)

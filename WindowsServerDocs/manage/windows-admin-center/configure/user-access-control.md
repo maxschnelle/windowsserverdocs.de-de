@@ -8,12 +8,12 @@ ms.author: harowl
 ms.date: 06/07/2019
 ms.localizationpriority: medium
 ms.prod: windows-server
-ms.openlocfilehash: 39af45506ff7023cebe437992e90f6d4ec051333
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 0de38560301d4d793214846036850a05a5d5a326
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "79323592"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87182206"
 ---
 # <a name="configure-user-access-control-and-permissions"></a>Konfigurieren der Benutzerzugriffssteuerung und von Berechtigungen
 
@@ -68,7 +68,7 @@ Standardmäßig verfügen alle Mitglieder des Azure AD-Mandanten über Benutzerz
 
 Wenn du bestimmten Azure AD-Benutzern oder -Gruppen Gatewaybenutzer- oder Gatewayadministratorzugriff auf den Windows Admin Center-Dienst erteilen möchtest, gehe wie folgt vor:
 
-1.  Wechsel zu deiner Windows Admin Center Azure AD-Anwendung im Azure-Portal, indem du den in den Zugriffseinstellungen bereitgestellten Link verwendest. Beachte, dass dieser Link nur verfügbar ist, wenn Azure Active Directory-Authentifizierung aktiviert ist. 
+1.  Wechsel zu deiner Windows Admin Center Azure AD-Anwendung im Azure-Portal, indem du den in den Zugriffseinstellungen bereitgestellten Link verwendest. Beachte, dass dieser Link nur verfügbar ist, wenn Azure Active Directory-Authentifizierung aktiviert ist.
     -   Du kannst deine Anwendung auch im Azure-Portal finden, indem du zu **Azure Active Directory** > **Unternehmensanwendungen** > **Alle Anwendungen** wechselst und **WindowsAdminCenter** suchst (die Azure AD-App heißt „WindowsAdminCenter“<gateway name>). Wenn du keine Suchergebnisse erhältst, vergewissere dich, dass **Anzeigen** auf **Alle Anwendungen** festgelegt ist, dass **Anwendungsstatus** auf **Beliebig** festgelegt ist, klicke dann auf „Anwenden“, und versuche, deine Suche auszuführen. Nachdem du die Anwendung gefunden hast, wechsle zu **Benutzer und Gruppen**.
 2.  Lege auf der Registerkarte „Eigenschaften“ **Benutzerzuweisung erforderlich** auf „Ja“ fest.
     Nachdem du dies getan hast, können nur Mitglieder, die auf der Registerkarte **Benutzer und Gruppen** aufgelistet sind, auf das Windows Admin Center-Gateway zugreifen.
@@ -86,22 +86,22 @@ Benutzer und Administratoren können auf der Registerkarte **Konto** in den Wind
 
 Wenn du bestimmten Azure AD-Benutzern oder -Gruppen Gatewaybenutzer- oder Gatewayadministratorzugriff auf den Windows Admin Center-Dienst erteilen möchtest, gehe wie folgt vor:
 
-1.  Wechsle im Azure-Portal zu deiner Azure AD-Anwendung SME. 
+1.  Wechsle im Azure-Portal zu deiner Azure AD-Anwendung SME.
     -   Wenn du auf **Zugriffssteuerung ändern** klickst und dann in den Zugriffseinstellungen des Windows Admin Centers **Azure Active Directory** auswählst, kannst du den in der Benutzeroberfläche bereitgestellten Link verwenden, um auf deine Azure AD-Anwendung im Azure-Portal zuzugreifen. Dieser Link ist auch in den Zugriffseinstellungen verfügbar, nachdem du auf „Speichern“ geklickt und Azure AD als Identitätsanbieter für die Zugriffssteuerung ausgewählt hast.
     -   Du kannst deine Anwendung auch im Azure-Portal finden, indem du zu **Azure Active Directory** > **Unternehmensanwendungen** > **Alle Anwendungen** wechselst und **SME** suchst (die Azure AD-App heißt „SME“<gateway>). Wenn du keine Suchergebnisse erhältst, vergewissere dich, dass **Anzeigen** auf **Alle Anwendungen** festgelegt ist, dass **Anwendungsstatus** auf **Beliebig** festgelegt ist, klicke dann auf „Anwenden“, und versuche, deine Suche auszuführen. Nachdem du die Anwendung gefunden hast, wechsle zu **Benutzer und Gruppen**.
 2.  Lege auf der Registerkarte „Eigenschaften“ **Benutzerzuweisung erforderlich** auf „Ja“ fest.
     Nachdem du dies getan hast, können nur Mitglieder, die auf der Registerkarte **Benutzer und Gruppen** aufgelistet sind, auf das Windows Admin Center-Gateway zugreifen.
 3.  Wähle auf der Registerkarte „Benutzer und Gruppen“ **Benutzer hinzufügen** aus. Du musst für jede/n hinzugefügte/n Benutzer/Gruppe eine Gatewaybenutzer- oder Gatewayadministratorrolle zuweisen.
 
-Sobald du die Azure AD-Zugriffssteuerung im Bereich **Zugriffssteuerung ändern** gespeichert hast, wird der Gatewaydienst neu gestartet, und du musst deinen Browser aktualisieren. Du kannst den Benutzerzugriff für die Windows Admin Center Azure AD-Anwendung jederzeit im Azure-Portal aktualisieren. 
+Sobald du die Azure AD-Zugriffssteuerung im Bereich **Zugriffssteuerung ändern** gespeichert hast, wird der Gatewaydienst neu gestartet, und du musst deinen Browser aktualisieren. Du kannst den Benutzerzugriff für die Windows Admin Center Azure AD-Anwendung jederzeit im Azure-Portal aktualisieren.
 
-Benutzer werden aufgefordert, sich mit ihrer Azure Active Directory-Identität anzumelden, wenn sie versuchen, auf die Gateway-URL des Windows Admin Centers zuzugreifen. Denke daran, dass Benutzer ebenfalls Mitglied der lokalen Benutzergruppe auf dem Gatewayserver sein müssen, um auf das Windows Admin Center zugreifen zu können. 
+Benutzer werden aufgefordert, sich mit ihrer Azure Active Directory-Identität anzumelden, wenn sie versuchen, auf die Gateway-URL des Windows Admin Centers zuzugreifen. Denke daran, dass Benutzer ebenfalls Mitglied der lokalen Benutzergruppe auf dem Gatewayserver sein müssen, um auf das Windows Admin Center zugreifen zu können.
 
 Auf der Registerkarte **Azure** in den allgemeinen Windows Admin Center-Einstellungen können Benutzer und Administratoren sowohl ihr aktuell angemeldetes Konto anzeigen als auch sich bei diesem Azure AD-Konto abmelden.
 
 ### <a name="conditional-access-and-multi-factor-authentication"></a>Bedingter Zugriff und mehrstufige Authentifizierung
 
-Einer der Vorteile der Verwendung von Azure AD als zusätzliche Sicherheitsschicht zum Steuern des Zugriffs auf das Windows Admin Center-Gateway besteht darin, dass du die leistungsstarken Sicherheitsfeatures von Azure AD nutzen kannst wie bedingten Zugriff und mehrstufige Authentifizierung. 
+Einer der Vorteile der Verwendung von Azure AD als zusätzliche Sicherheitsschicht zum Steuern des Zugriffs auf das Windows Admin Center-Gateway besteht darin, dass du die leistungsstarken Sicherheitsfeatures von Azure AD nutzen kannst wie bedingten Zugriff und mehrstufige Authentifizierung.
 
 [Weitere Informationen zum Konfigurieren des bedingten Zugriffs mit Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal-get-started).
 
@@ -109,7 +109,7 @@ Einer der Vorteile der Verwendung von Azure AD als zusätzliche Sicherheitsschic
 
 **Einmaliges Anmelden bei Bereitstellung als Dienst unter Windows Server**
 
-Wenn du Windows Admin Center unter Windows 10 installierst, ist es bereit für die Verwendung der einmaligen Anmeldung. Wenn du Windows Admin Center unter Windows Server verwenden möchtest, musst du jedoch eine Form der Kerberos-Delegierung in deiner Umgebung einrichten, bevor du einmaliges Anmelden verwenden kannst. Die Delegierung konfiguriert den Gatewaycomputer als vertrauenswürdig für die Delegierung an den Zielknoten. 
+Wenn du Windows Admin Center unter Windows 10 installierst, ist es bereit für die Verwendung der einmaligen Anmeldung. Wenn du Windows Admin Center unter Windows Server verwenden möchtest, musst du jedoch eine Form der Kerberos-Delegierung in deiner Umgebung einrichten, bevor du einmaliges Anmelden verwenden kannst. Die Delegierung konfiguriert den Gatewaycomputer als vertrauenswürdig für die Delegierung an den Zielknoten.
 
 Um [ressourcenbasierte eingeschränkte Delegierung](https://docs.microsoft.com/windows-server/security/kerberos/kerberos-constrained-delegation-overview) in deiner Umgebung zu konfigurieren, verwendest du folgendes PowerShell-Beispiel. Dieses Beispiel zeigt, wie du einen Windows-Server [node01.contoso.com] so konfigurierst, dass die Delegierung von deinem Windows Admin Center-Gateway [wac.contoso.com] in der Domäne „contoso.com“ akzeptiert wird.
 
@@ -159,7 +159,7 @@ Nach dem Anwenden der Konfiguration kannst du den Rollen Benutzer zuweisen:
 3.  Klicke im Bereich *Details* am unteren Rand auf **Benutzer hinzufügen**, und gib den Namen eines Benutzers oder einer Sicherheitsgruppe ein, der/die schreibgeschützten Zugriff über das Windows Admin Center auf den Server erhalten soll. Die Benutzer und Gruppen können von dem lokalen Computer oder aus deiner Active Directory-Domäne stammen.
 4.  Wiederhole die Schritte 2 bis 3 für die Gruppen **Windows Admin Center Hyper-V-Administratoren** und **Windows Admin Center-Administratoren**.
 
-Du kannst diese Gruppen auch konsistent in deiner ganzen Domäne auffüllen, indem du ein Gruppenrichtlinienobjekt mit der [Richtlinieneinstellung für eingeschränkte Gruppen](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc756802%28v=ws.10%29) konfigurierst.
+Du kannst diese Gruppen auch konsistent in deiner ganzen Domäne auffüllen, indem du ein Gruppenrichtlinienobjekt mit der [Richtlinieneinstellung für eingeschränkte Gruppen](/previous-versions/windows/it-pro/windows-server-2003/cc756802%28v=ws.10%29) konfigurierst.
 
 ### <a name="apply-role-based-access-control-to-multiple-machines"></a>Anwenden der rollenbasierten Zugriffssteuerung auf mehrere Computer
 

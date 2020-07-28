@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5d51cc178ee5b689071336b0dabd1e8d3565bcd2
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 4610db6755f5177306dfcf4feec005eab6efabfd
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86955362"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87178676"
 ---
 # <a name="certreq"></a>certreq
 
@@ -42,7 +42,7 @@ certreq –enroll –cert certId [options] renew [reusekeys]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | -------- | ----------- |
 | -übermitteln | Sendet eine Anforderung an eine Zertifizierungsstelle. |
 | -Abrufen`<requestid>` | Ruft eine Antwort auf eine vorherige Anforderung von einer Zertifizierungsstelle ab. |
@@ -101,7 +101,7 @@ Im folgenden finden Sie einige der möglichen Abschnitte, die der INF-Datei hinz
 
 Dieser Bereich der INF-Datei ist für alle neuen Zertifikat Anforderungs Vorlagen obligatorisch und muss mindestens einen Parameter mit einem Wert enthalten.
 
-| Schlüssel<sup>1</sup> | Beschreibung | Wert<sup>2</sup> | Beispiel |
+| Schlüssel<sup>1</sup> | BESCHREIBUNG | Wert<sup>2</sup> | Beispiel |
 | --- | ---------- | ----- | ------- |
 | Subject | Mehrere apps basieren auf den Betreff-Informationen in einem Zertifikat. Es wird empfohlen, einen Wert für diesen Schlüssel anzugeben. Wenn der Betreff hier nicht festgelegt ist, empfiehlt es sich, einen Antragsteller Namen als Teil der Zertifikat Erweiterung für den alternativen Antragsteller Namen einzuschließen. | Relative Distinguished Name-Zeichen folgen Werte | Subject = CN = computer1. "Subject. com subject = CN = John Smith, CN = Users, DC =% $ so, DC = com" |
 | Exportable | Wenn der Wert auf true festgelegt ist, kann der private Schlüssel mit dem Zertifikat exportiert werden. Um ein hohes Maß an Sicherheit sicherzustellen, sollten private Schlüssel nicht exportierbar sein. in einigen Fällen ist es jedoch möglicherweise erforderlich, wenn mehrere Computer oder Benutzer denselben privaten Schlüssel gemeinsam verwenden müssen. | `true | false` | `Exportable = TRUE`. CNG-Schlüssel können zwischen diesem und nur-Text-Text unterscheiden. CAPI1 Keys können nicht. |
@@ -132,7 +132,7 @@ Dieser Bereich der INF-Datei ist für alle neuen Zertifikat Anforderungs Vorlage
 | Keyprotection | Gibt einen Wert an, der angibt, wie ein privater Schlüssel vor der Verwendung geschützt wird. | <ul><li>`XCN_NCRYPT_UI_NO_PROTCTION_FLAG -- 0`</li><li>`XCN_NCRYPT_UI_PROTECT_KEY_FLAG -- 1`</li><li>`XCN_NCRYPT_UI_FORCE_HIGH_PROTECTION_FLAG -- 2`</li></ul> | `KeyProtection = NCRYPT_UI_FORCE_HIGH_PROTECTION_FLAG` |
 | Suppressdefaults | Gibt einen booleschen Wert an, der angibt, ob die Standard Erweiterungen und Attribute in der Anforderung enthalten sind. Die Standardwerte werden durch ihre Objekt-IDs (OIDs) dargestellt. | `true | false` | `SuppressDefaults = true` |
 | FriendlyName | Ein Anzeige Name für das neue Zertifikat. | Text | `FriendlyName = Server1` |
-| ValidityPeriodUnits | Gibt eine Anzahl von Einheiten an, die mit ValidityPeriod verwendet werden sollen. Hinweis: Dies wird nur bei der Verwendung von verwendet `request type=cert` . | Numeric | `ValidityPeriodUnits = 3` |
+| ValidityPeriodUnits | Gibt eine Anzahl von Einheiten an, die mit ValidityPeriod verwendet werden sollen. Hinweis: Dies wird nur bei der Verwendung von verwendet `request type=cert` . | Numerisch | `ValidityPeriodUnits = 3` |
 | ValidityPeriod | ValidityPeriod muss ein US-Englisch-Plural-Zeitraum sein. Hinweis: Dies wird nur verwendet, wenn der Request Type = CERT lautet. | `Years |  Months | Weeks | Days | Hours | Minutes | Seconds` | `ValidityPeriod = Years` |
 
 <sup>1</sup> -Parameter auf der linken Seite des Gleichheitszeichens (=)
@@ -294,7 +294,7 @@ Sie können nur gültige Zertifikate erneuern. Abgelaufene Zertifikate können n
 
 ## <a name="options"></a>Optionen
 
-| Optionen | Beschreibung |
+| Tastatur | BESCHREIBUNG |
 | ------- | ----------- |
 | -beliebig | `Force ICertRequest::Submit`um den Codierungstyp zu bestimmen.|
 | -atungb`<attributestring>` | Gibt die **Name** - **Wert** -Zeichen folgen Paare an, getrennt durch einen Doppelpunkt.<p>Getrennte **Name** - **Wert** -Zeichen folgen Paare mit `\n` (z. b. Name1: value1\nName2: Value2). |
@@ -319,7 +319,7 @@ Sie können nur gültige Zertifikate erneuern. Abgelaufene Zertifikate können n
 
 ## <a name="formats"></a>Formate
 
-| Formate | Beschreibung |
+| Formate | BESCHREIBUNG |
 | ------- | ----------- |
 | RequestFileIn | Base64-codierter oder binärer Eingabe Dateiname: PKCS #10 Zertifikat Anforderung, CMS-Zertifikat Anforderung, PKCS #7 Zertifikat Erneuerungs Anforderung, X. 509-Zertifikat für eine Kreuz Zertifizierung oder eine Zertifikat Anforderung im KeyGen-Tagformat. |
 | RequestFileOut | Name der Base64-codierten Ausgabedatei. |
@@ -341,10 +341,8 @@ Die folgenden Artikel enthalten Beispiele für die Verwendung von Certreq:
 
 - [Manuelles Erstellen eines Webserver-SSL-Zertifikats](https://techcommunity.microsoft.com/t5/core-infrastructure-and-security/how-to-create-a-web-server-ssl-certificate-manually/ba-p/1128529)
 
-- [Anfordern eines AMT-Bereitstellungs Zertifikats mithilfe einer Windows Server 2008-Zertifizierungsstelle](https://social.technet.microsoft.com/wiki/contents/articles/548.request-an-amt-provisioning-certificate-using-a-windows-server-2008-ca.aspx)
+- [Zertifikat Registrierung für System Center Operations Manager-Agent](https://docs.microsoft.com/system-center/scom/plan-planning-agent-deployment?view=sc-om-2019)
 
-- [Zertifikat Registrierung für System Center Operations Manager-Agent](https://social.technet.microsoft.com/wiki/contents/articles/2017.certificate-enrollment-for-system-center-operations-manager-agent.aspx)
-
-- [Schritt-für-Schritt-Anleitung für AD CS: Bereitstellung der PKI-Hierarchie](https://social.technet.microsoft.com/wiki/contents/articles/15037.ad-cs-step-by-step-guide-two-tier-pki-hierarchy-deployment.aspx)
+- [Active Directory-Zertifikatdienste: Übersicht](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831740(v=ws.11))
 
 - [Aktivieren von LDAP über SSL mit einer Zertifizierungsstelle von Drittanbietern](https://support.microsoft.com/help/321051/how-to-enable-ldap-over-ssl-with-a-third-party-certification-authority)

@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 06/06/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 55421cb1f01d654c4c424e8534f4c678ac38e6f5
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 21af2aae837b7a570638c2eb3f3c96cb8997fa84
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86959332"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87182066"
 ---
 # <a name="deploy-folder-redirection-with-offline-files"></a>Bereitstellen von Ordnerumleitung mit Offlinedateien
 
@@ -128,7 +128,7 @@ Bearbeiten Sie nach dem Erstellen eines Gruppenrichtlinienobjekts für Einstellu
 
 > [!NOTE]
 > „Offlinedateien“ ist für umgeleitete Ordner auf Windows-Clientcomputern standardmäßig aktiviert und auf Computern, auf denen Windows Server ausgeführt wird, deaktiviert, sofern dies nicht vom Benutzer geändert wurde. Wenn Sie Gruppenrichtlinie verwenden möchten, um zu steuern, ob „Offlinedateien“ aktiviert ist, verwenden Sie die Richtlinieneinstellung **Die Funktion „Offlinedateien“ zulassen bzw. nicht zulassen**.
-> Informationen über einige der weiteren Gruppenrichtlinieneinstellungen für Offlinedateien finden Sie unter [Aktivieren von erweiterten Funktionen für Offlinedateien](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn270369(v%3dws.11)>) und [Konfigurieren von Gruppenrichtlinien für Offlinedateien](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc759721(v%3dws.10)>).
+> Informationen über einige der weiteren Gruppenrichtlinieneinstellungen für Offlinedateien finden Sie unter [Aktivieren von erweiterten Funktionen für Offlinedateien](</previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn270369(v%3dws.11)>) und [Konfigurieren von Gruppenrichtlinien für Offlinedateien](</previous-versions/windows/it-pro/windows-server-2003/cc759721(v%3dws.10)>).
 
 So konfigurieren Sie die Ordnerumleitung in Gruppenrichtlinien:
 
@@ -199,5 +199,5 @@ In der folgenden Tabelle sind die wichtigsten Änderungen zu diesem Thema zusamm
 * [Bereitstellen von primären Computern für die Ordnerumleitung und Roamingbenutzerprofile](deploy-primary-computers.md)
 * [Erweiterte Funktionen für Offlinedateien aktivieren](enable-always-offline.md)
 * [Anweisung des Microsoft-Supports zu replizierten Benutzerprofildaten](/archive/blogs/askds/microsofts-support-statement-around-replicated-user-profile-data)
-* [Querladen von Apps mit DISM](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-8.1-and-8/hh852635(v=win.10)>)
+* [Querladen von Apps mit DISM](</previous-versions/windows/it-pro/windows-8.1-and-8/hh852635(v=win.10)>)
 * [Problembehandlung beim Packen, Bereitstellen und Abfragen von Windows Runtime-basierten Apps](/windows/win32/appxpkg/troubleshooting)

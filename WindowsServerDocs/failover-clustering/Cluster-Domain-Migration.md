@@ -9,12 +9,12 @@ author: johnmarlin-msft
 ms.author: johnmar
 ms.date: 01/18/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: ba556b5a00f3932e2049135b177a7ad8bbceec9c
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 6062dd987a136bc2be67c09efbe399bb8fae24f6
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80828293"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87178526"
 ---
 # <a name="failover-cluster-domain-migration"></a>Migration der failoverclusterdomäne
 
@@ -39,9 +39,9 @@ Microsoft bietet keine Unterstützung für Administratoren, die versuchen, Resso
 
 ## <a name="windows-server-2016-and-earlier"></a>Windows Server 2016 und früher
 
-In Windows Server 2016 und früher hatte die Clusterdienst nicht die Möglichkeit, von einer Domäne in eine andere zu wechseln.  Dies war auf die zunehmende Abhängigkeit von Active Directory Domain Services und den erstellten virtuellen Namen zurückzuführen.   
+In Windows Server 2016 und früher hatte die Clusterdienst nicht die Möglichkeit, von einer Domäne in eine andere zu wechseln.  Dies war auf die zunehmende Abhängigkeit von Active Directory Domain Services und den erstellten virtuellen Namen zurückzuführen.
 
-## <a name="options"></a>Optionen
+## <a name="options"></a>Tastatur
 
 Um eine solche Verschiebung durchzuführen, gibt es zwei Optionen.
 
@@ -62,14 +62,14 @@ Die zweite Option ist weniger destruktiv, erfordert jedoch zusätzliche Hardware
 Wie die Animation zeigt, ist diese Option nicht destruktiv, erfordert jedoch entweder eine andere Hardware oder einen Knoten aus dem vorhandenen Cluster, als entfernt wurde.
 
 1. Erstellen Sie eine neue Domäne, während der alte Cluster weiterhin verfügbar ist.
-2. Verwenden Sie den [Clustermigrations-Assistenten](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754481(v=ws.10)) , um alle Ressourcen in den neuen Cluster zu migrieren. Erinnerung: Dadurch werden keine Daten kopiert, daher muss Sie separat durchgeführt werden.
+2. Verwenden Sie den [Clustermigrations-Assistenten](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754481(v=ws.10)) , um alle Ressourcen in den neuen Cluster zu migrieren. Erinnerung: Dadurch werden keine Daten kopiert, daher muss Sie separat durchgeführt werden.
 3. Entfernen oder zerstören Sie den alten Cluster.
 
 Bei beiden Optionen muss auf dem neuen Cluster alle [Cluster fähigen Anwendungen](https://technet.microsoft.com/aa369082(v=vs.90)) installiert sein, die Treiber sind auf dem neuesten Stand und möglicherweise Tests, um sicherzustellen, dass alles ordnungsgemäß ausgeführt wird.  Dies ist ein zeitaufwändiger Prozess, wenn Daten ebenfalls verschoben werden müssen.
 
 ## <a name="windows-server-2019"></a>Windows Server 2019
 
-In Windows Server 2019 wurden Migrations Funktionen für Cluster übergreifende Domänen eingeführt.  Nun können die oben aufgeführten Szenarien problemlos durchgeführt werden, und die Notwendigkeit der Neuerstellung ist nicht mehr erforderlich.  
+In Windows Server 2019 wurden Migrations Funktionen für Cluster übergreifende Domänen eingeführt.  Nun können die oben aufgeführten Szenarien problemlos durchgeführt werden, und die Notwendigkeit der Neuerstellung ist nicht mehr erforderlich.
 
 Das Verschieben eines Clusters aus einer Domäne ist ein geradliniger Prozess. Hierfür gibt es zwei neue PowerShell-Cmdlets.
 

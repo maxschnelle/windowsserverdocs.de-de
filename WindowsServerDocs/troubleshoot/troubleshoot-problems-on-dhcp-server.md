@@ -9,12 +9,12 @@ ms.date: 5/26/2020
 ms.topic: article
 author: Deland-Han
 ms.author: delhan
-ms.openlocfilehash: ad70b03fcb6d703a0b99435ee8715319d09af941
-ms.sourcegitcommit: ef089864980a1d4793a35cbf4cbdd02ce1962054
+ms.openlocfilehash: 5ec2ef358cfaf7841b093843848f2ea5ee42433e
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84150198"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87181896"
 ---
 # <a name="troubleshoot-problems-on-the-dhcp-server"></a>Beheben von Problemen auf dem DHCP-Server
 
@@ -46,38 +46,37 @@ In diesem Artikel wird erläutert, wie Sie Probleme beheben, die auf dem DHCP-Se
 
 ## <a name="event-logs"></a>Ereignisprotokolle
 
-Überprüfen Sie die Ereignisprotokolle für den System-und DHCP-Server Dienst (**Anwendungs-und Dienst Protokolle** \> **Microsoft** \> **Windows** - \> **DHCP-Server**) auf gemeldete Probleme, die mit dem beobachteten Problem zusammenhängen.  
-Abhängig von der Art des Problems wird ein Ereignis in einem der folgenden Ereignis Kanäle protokolliert:  
-[Betriebs Ereignisse des DHCP-Servers](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn800668\(v=ws.11\))  
-[Verwaltungs Ereignisse für DHCP-Server](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn800668\(v=ws.11\))  
-[DHCP-Server System Ereignisse](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn800668\(v=ws.11\))  
-[DHCP-Server-Filter Benachrichtigungs Ereignisse](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn800668\(v=ws.11\))  
-[DHCP-Server Überwachungs Ereignisse](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn800668\(v=ws.11\))
+Überprüfen Sie die Ereignisprotokolle für den System-und DHCP-Server Dienst (**Anwendungs-und Dienst Protokolle** \> **Microsoft** \> **Windows** - \> **DHCP-Server**) auf gemeldete Probleme, die mit dem beobachteten Problem zusammenhängen.
+Abhängig von der Art des Problems wird ein Ereignis in einem der folgenden Ereignis Kanäle protokolliert: DHCP- [Server-Betriebs Ereignisse](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn800668\(v=ws.11\)) 
+ [DHCP-Server administrative Ereignisse](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn800668\(v=ws.11\))DHCP- 
+ [Server System Ereignisse](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn800668\(v=ws.11\))DHCP- 
+ [Server Filter Benachrichtigungs Ereignisse](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn800668\(v=ws.11\)) 
+ [DHCP Server Audit Events](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn800668\(v=ws.11\)) DHCP-Server Überwachungs Ereignisse
 
 ## <a name="data-collection"></a>Datensammlung
 
 ### <a name="dhcp-server-log"></a>DHCP-Server Protokoll
 
-Die Debugprotokolle des DHCP-Server Dienstanbieter enthalten weitere Informationen zur IP-Adress Lease-Zuweisung und den dynamischen DNS-Updates, die vom DHCP-Server ausgeführt werden. Diese Protokolle befinden sich standardmäßig unter% windir% \\ system32 \\ DHCP.  
-Weitere Informationen finden Sie unter [Analysieren von DHCP-Server Protokolldateien](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd183591\(v=ws.10\)).
+Die Debugprotokolle des DHCP-Server Dienstanbieter enthalten weitere Informationen zur IP-Adress Lease-Zuweisung und den dynamischen DNS-Updates, die vom DHCP-Server ausgeführt werden. Diese Protokolle befinden sich standardmäßig unter% windir% \\ system32 \\ DHCP.
+Weitere Informationen finden Sie unter [Analysieren von DHCP-Server Protokolldateien](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd183591\(v=ws.10\)).
 
 ### <a name="network-trace"></a>Netzwerkablaufverfolgung
 
 Eine korrelierende Netzwerk Ablauf Verfolgung kann darauf hindeuten, was der DHCP-Server zum Zeitpunkt der Ereignisprotokollierung ausgeführt hat. Gehen Sie folgendermaßen vor, um eine solche Ablauf Verfolgung zu erstellen:
 
-1.  Wechseln Sie zu [GitHub](https://github.com/CSS-Windows/WindowsDiag/tree/master/ALL/TSS), und laden Sie die Datei [TSS \_ Tools. zip](https://github.com/CSS-Windows/WindowsDiag/blob/master/ALL/TSS/tss_tools.zip) herunter.
+1.  Wechseln Sie zu [GitHub](https://github.com/CSS-Windows/WindowsDiag/tree/master/ALL/TSS), und laden Sie die [TSS- \_tools.zip](https://github.com/CSS-Windows/WindowsDiag/blob/master/ALL/TSS/tss_tools.zip) Datei herunter.
 
-2.  Kopieren Sie die Datei "TSS \_ Tools. zip", und erweitern Sie Sie auf einen Speicherort auf dem lokalen Datenträger, z. b. in den Ordner "C: \\ Tools".
+2.  Kopieren Sie die TSS \_ -tools.zip Datei, und erweitern Sie Sie auf einen Speicherort auf dem lokalen Datenträger, z. b. in den Ordner "C: \\ Tools".
 
-3.  Führen Sie den folgenden Befehl in C: \\ Tools in einem Eingabe Aufforderungs Fenster mit erhöhten Rechten aus:  
+3.  Führen Sie den folgenden Befehl in C: \\ Tools in einem Eingabe Aufforderungs Fenster mit erhöhten Rechten aus:
     ```console
     TSS Ron Trace <Stop:Evt:>20321:<Other:>DhcpAdminEvents NoSDP NoPSR NoProcmon NoGPresult
     ```
-      
-    >[!Note]
-    >Ersetzen Sie in diesem Befehl \<*Stop:Evt:*\> und \<*Other:*\> durch die Ereignis-ID und den Ereignis Kanal, auf den Sie sich in ihrer Ablauf Verfolgungs Sitzung konzentrieren werden.  
-    >Die "TSS. cmd"- \_ \_ Infodatei Help. docx-Dateien, die in der Datei "TSS Tools. zip" enthalten sind, enthalten \_ Weitere Informationen zu allen verfügbaren Einstellungen.
 
-4.  Nachdem das Ereignis ausgelöst wurde, erstellt das Tool einen Ordner mit dem Namen "C: \\ MS \_ Data". Dieser Ordner enthält einige nützliche Ausgabedateien, die allgemeine Informationen zur Netzwerk-und Domänen Konfiguration des Computers bereitstellen.  
+    >[!Note]
+    >Ersetzen Sie in diesem Befehl \<*Stop:Evt:*\> und \<*Other:*\> durch die Ereignis-ID und den Ereignis Kanal, auf den Sie sich in ihrer Ablauf Verfolgungs Sitzung konzentrieren werden.
+    >Die TSS. cmd- \_ \_ InfodateiHelp.docx Dateien, die in der TSS-tools.zip Datei enthalten sind, enthalten \_ Weitere Informationen zu allen verfügbaren Einstellungen.
+
+4.  Nachdem das Ereignis ausgelöst wurde, erstellt das Tool einen Ordner mit dem Namen "C: \\ MS \_ Data". Dieser Ordner enthält einige nützliche Ausgabedateien, die allgemeine Informationen zur Netzwerk-und Domänen Konfiguration des Computers bereitstellen.
     Die interessanteste Datei in diesem Ordner ist "% Computername% \_ Date \_ time \_ packetcapture \_ Internetclient \_ dbg. ETL".
     Wenn Sie die [Netzwerkmonitor](https://www.microsoft.com/download/4865) Anwendung verwenden, können Sie die Datei laden und den Anzeige Filter für das DHCP-oder DNS-Protokoll festlegen, um zu ermitteln, was im Hintergrund geschieht.

@@ -10,12 +10,12 @@ manager: dongill
 ms.author: elizapo
 ms.date: 06/01/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 49c1d5a378d6e0be224e02fdd80346ee172ca45b
-ms.sourcegitcommit: 75b4cf49dd918ff98258dcae6e6e8d7825c9adec
+ms.openlocfilehash: 6ed87f2d03ef725c3efdfc2453b53201017e66e0
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84269243"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87181946"
 ---
 # <a name="get-started-with-the-windows-store-client"></a>Erste Schritte mit dem Windows Store-Client
 
@@ -95,14 +95,14 @@ Gehe wie folgt vor, um ein neues Gateway einzurichten:
 
 1. Tippe im Connection Center auf **Einstellungen**.
 2. Tippe neben dem Gateway auf **+** , um ein neues Gateway hinzuzufügen.
-      
+
       >[!NOTE]
       >Sie können ein Gateway auch beim Hinzufügen einer neuen Verbindung hinzufügen.
 
 3. Geben Sie die folgenden Informationen ein:
    - **Servername**: Der Name des Computers, den Sie als Gateway verwenden möchten. Der Servername kann der Name eines Windows-Computers, ein Internetdomänenname oder eine IP-Adresse sein. Sie können dem Servernamen auch Portinformationen hinzufügen (z. B.: **RDGateway:443** oder **10.0.0.1:443**).
    - **Benutzerkonto**: Wählen Sie ein Benutzerkonto für das Remotedesktopgateway aus (bzw. fügen Sie es hinzu), mit dem Sie eine Verbindung herstellen. Sie können auch die Option **Desktopbenutzerkonto verwenden** auswählen, damit die gleichen Anmeldeinformationen wie für die Remotedesktopverbindung verwendet werden.
-4. Tippen Sie auf **Speichern**.  
+4. Tippen Sie auf **Speichern**.
 
 ## <a name="global-app-settings"></a>Globale App-Einstellungen
 
@@ -203,4 +203,4 @@ Für die Interaktion mit der Sitzung sind zwei Mausmodi verfügbar.
 | Mauszeiger | Zoom                 | Zwei Finger zusammenführen, um die Ansicht zu vergrößern, oder auseinander bewegen, um sie zu verkleinern |
 
 > [!TIP]
-> Fragen und Kommentare sind immer willkommen. Wenn Sie Supportanfragen oder Produktfeedback jedoch im Kommentarbereich dieses Artikels posten, können wir nicht auf Ihr Feedback reagieren. Wenn Sie Hilfe benötigen oder Probleme mit Ihrem Client beheben möchten, empfehlen wir Ihnen dringend, das [Remotedesktopclient-Forum](https://social.technet.microsoft.com/forums/windowsserver/home?forum=winrdc) zu besuchen und einen neuen Thread zu starten. Wenn Sie eine Featureempfehlung geben möchten, können Sie uns dies im [Feedback-Hub](feedback-hub://?tabid=2&contextid=605) mitteilen.
+> Fragen und Kommentare sind immer willkommen. Wenn Sie Supportanfragen oder Produktfeedback jedoch im Kommentarbereich dieses Artikels posten, können wir nicht auf Ihr Feedback reagieren. Wenn Sie Hilfe benötigen oder Probleme mit Ihrem Client beheben möchten, empfehlen wir Ihnen dringend, das [Remotedesktopclient-Forum](https://docs.microsoft.com/answers/topics/windows-remote-desktop-client.html) zu besuchen und einen neuen Thread zu starten. Wenn Sie eine Featureempfehlung geben möchten, können Sie uns dies im [Feedback-Hub](feedback-hub://?tabid=2&contextid=605) mitteilen.

@@ -8,12 +8,12 @@ author: JasonGerend
 manager: brianlic
 ms.date: 06/07/2019
 ms.author: jgerend
-ms.openlocfilehash: 514dd9be3f7f634cf021a8a154f4b64c9018743e
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: a1508db6878a48c5fad2a0909123beb836e1d1f0
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86961632"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87182236"
 ---
 # <a name="deploying-roaming-user-profiles"></a>Bereitstellen von Roamingbenutzerprofilen
 
@@ -78,7 +78,7 @@ Verwenden Sie folgendes Verfahren, um diese Änderungen vorzunehmen.
     - Windows 8.1 oder Windows Server 2012 R2: Installieren Sie das in Artikel [2887595](https://support.microsoft.com/kb/2887595) in der Microsoft Knowledge Base beschriebene Softwareupdate (nach Veröffentlichung).
     - Windows 8 oder Windows Server 2012: Installieren das im Artikel [2887239](https://support.microsoft.com/kb/2887239) in der Microsoft Knowledge Base beschriebene Softwareupdate.
 
-2. Auf allen Computern, auf denen Windows 8.1, Windows 8, Windows Server 2012 R2 oder Windows Server 2012 ausgeführt wird und Sie Roamingbenutzerprofile verwenden, müssen Sie den Registrierungs-Editor oder Gruppenrichtlinien verwenden, um den folgenden Registrierungsschlüsselwert DWORD zu erstellen und ihn auf `1` festzulegen. Weitere Informationen zum Erstellen von Registrierungsschlüsseln mithilfe der Gruppenrichtlinie finden Sie unter [Konfigurieren eines Registrierungselements](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753092(v=ws.11)>).
+2. Auf allen Computern, auf denen Windows 8.1, Windows 8, Windows Server 2012 R2 oder Windows Server 2012 ausgeführt wird und Sie Roamingbenutzerprofile verwenden, müssen Sie den Registrierungs-Editor oder Gruppenrichtlinien verwenden, um den folgenden Registrierungsschlüsselwert DWORD zu erstellen und ihn auf `1` festzulegen. Weitere Informationen zum Erstellen von Registrierungsschlüsseln mithilfe der Gruppenrichtlinie finden Sie unter [Konfigurieren eines Registrierungselements](</previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753092(v=ws.11)>).
 
     ```
     HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\ProfSvc\Parameters\UseProfilePathExtensionVersion
@@ -131,9 +131,9 @@ So erstellen Sie eine Dateifreigabe unter Windows Server:
 7. Wählen Sie auf der Seite **Berechtigungen** die Option **Berechtigungen anpassen** aus. Das Dialogfeld "Erweiterte Sicherheitseinstellungen" wird angezeigt.
 8. Wählen Sie **Vererbung deaktivieren** aus, und wählen Sie dann **Vererbte Berechtigungen in explizite Berechtigungen im Objekt konvertieren** aus.
 9. Legen Sie die Berechtigungen wie unter [Erforderliche Berechtigungen für die Dateifreigabe, die Roamingbenutzerprofile hostet](#required-permissions-for-the-file-share-hosting-roaming-user-profiles) beschrieben und im folgenden Screenshot gezeigt fest. Entfernen Sie dabei die Berechtigungen für nicht aufgeführte Gruppen und Konten, und fügen Sie spezielle Berechtigungen für Roamingbenutzerprofile und Computergruppen, die Sie in Schritt 1 erstellt haben, hinzu.
-    
+
     ![Fenster „Erweiterte Sicherheitseinstellungen“, in dem die in Tabelle 1 beschriebenen Berechtigungen angezeigt werden](media/advanced-security-user-profiles.jpg)
-    
+
     **Abbildung 1** Festlegen der Berechtigungen für die Roamingbenutzerprofilfreigabe
 10. Wenn Sie das Profil **SMB-Freigabe – Erweitert** auswählen, müssen Sie auf der Seite **Verwaltungseigenschaften** unter **Benutzerdateien** den Wert "Ordnerverwendung" auswählen.
 11. Wenn Sie das Profil **SMB-Freigabe – Erweitert** auswählen, können Sie auf der Seite **Kontingent** optional ein Kontingent auswählen, das für die Benutzer der Freigabe gelten soll.
@@ -164,7 +164,7 @@ So erstellen Sie ein Gruppenrichtlinienobjekt für Roamingbenutzerprofile:
 7. Wählen Sie im Abschnitt **Sicherheitsfilterung** die Option **Hinzufügen** aus.
 8. Geben Sie im Dialogfeld **Benutzer, Computer oder Gruppe auswählen** den Namen der Sicherheitsgruppe ein, die Sie in Schritt 1 erstellt haben (z. B. **Roamingbenutzerprofil-Benutzer und -Computer**), und klicken Sie dann auf **OK**.
 9. Wählen Sie die Registerkarte **Delegierung** aus, klicken Sie auf **Hinzufügen**, geben Sie **Authentifizierte Benutzer** ein, wählen Sie **OK** aus, und wählen Sie dann **OK** erneut aus, um die Standardleseberechtigungen zu akzeptieren.
-    
+
     Dieser Schritt ist aufgrund von Sicherheitsänderungen erforderlich, die in [MS16-072](https://support.microsoft.com/help/3163622/ms16-072-security-update-for-group-policy-june-14%2c-2016) vorgenommen wurden.
 
 >[!IMPORTANT]
@@ -182,16 +182,16 @@ So richten Sie Roamingbenutzerprofile für Benutzerkonten ein:
 1. Navigieren Sie im Active Directory-Verwaltungscenter in der entsprechenden Domäne zum Container **Benutzer** (oder Organisationseinheit).
 2. Wählen Sie alle Benutzer aus, denen Sie ein Roamingbenutzerprofil zuweisen möchten, klicken Sie mit der rechten Maustaste auf die Benutzer, und wählen Sie dann **Eigenschaften** aus.
 3. Aktivieren Sie im Abschnitt **Profil** das Kontrollkästchen **Profilpfad:** und geben Sie dann den Pfad der Dateifreigabe ein, in dem Sie das Roamingbenutzerprofil des Benutzers speichern möchten, gefolgt von `%username%` (wird automatisch bei der erstmaligen Anmeldung des Benutzers durch den Benutzernamen ersetzt). Beispiel:
-    
+
     `\\fs1.corp.contoso.com\User Profiles$\%username%`
-    
+
     Um ein verbindliches Roamingbenutzerprofil anzugeben, müssen Sie den Pfad der Datei „NTuser.man“ angeben, den Sie zuvor erstellt haben, z. B. `fs1.corp.contoso.comUser Profiles$default`. Weitere Informationen finden Sie unter [Erstellen verbindlicher Benutzerprofile](/windows/client-management/mandatory-user-profile).
 4. Wählen Sie **OK** aus.
 
 > [!NOTE]
 > Standardmäßig ist beim Verwenden von Roamingbenutzerprofilen die Bereitstellung aller Windows® Laufzeit-basierten (Windows Store) Apps zulässig. Bei der Verwendung eines speziellen Profils werden Apps jedoch nicht standardmäßig bereitgestellt. Bei speziellen Profilen handelt es sich um Benutzerprofile, in denen Änderungen verworfen werden, nachdem sich der Benutzer abgemeldet hat:
 > <br><br>Um bei der App-Bereitstellung für spezielle Profile Einschränkungen zu entfernen, müssen Sie die Richtlinieneinstellung **Allow deployment operations in special profiles** aktivieren (befindet sich unter Computerkonfiguration\Richtlinien\Administrative Vorlagen\Windows-Komponenten\App-Paketbereitstellung). In diesem Szenario bereitgestellte Apps speichern jedoch einige Daten auf dem Computer, die sich ansammeln könnten, z. B. wenn sich Hunderte Benutzer auf einem einzelnen Computer befinden. Suchen oder entwickeln Sie zum Bereinigen von Apps ein Tool, das die [CleanupPackageForUserAsync](/uwp/api/Windows.Management.Deployment.PackageManager?view=winrt-19041#windows_management_deployment_packagemanager_cleanuppackageforuserasync_system_string_system_string_)-API verwendet, um App-Pakete für Benutzer zu bereinigen, die kein Profil mehr auf dem Computer haben.
-> <br><br>Zusätzliche Hintergrundinformationen zu Windows Store-Apps finden Sie unter [Verwalten des Clientzugriffs auf den Windows Store](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-8.1-and-8/hh832040(v=ws.11)>).
+> <br><br>Zusätzliche Hintergrundinformationen zu Windows Store-Apps finden Sie unter [Verwalten des Clientzugriffs auf den Windows Store](</previous-versions/windows/it-pro/windows-8.1-and-8/hh832040(v=ws.11)>).
 
 ## <a name="step-6-optionally-set-up-roaming-user-profiles-on-computers"></a>Schritt 6: Richten Sie optional Roamingbenutzerprofile auf den Computern ein
 
@@ -229,7 +229,7 @@ Gehen Sie folgendermaßen vor, um ein Startlayout anzugeben:
 2. Erstellen Sie eine vollständige oder partielle XML-Datei mit de Startmenülayout. Weitere Informationen finden Sie unter [Anpassen und Exportieren des Startlayouts](/windows/configuration/customize-and-export-start-layout).
     * Wenn Sie ein *vollständiges* Startlayout angeben, kann ein Benutzer keinen Teil des Startmenüs anpassen. Wenn Sie ein *partielles* Startlayout angeben, können Benutzer alle Elemente mit Ausnahme der gesperrten Gruppen von Kacheln anpassen, die Sie angeben. Bei einem partiellen Startlayout erfolgt jedoch kein Roaming von Benutzeranpassungen zu anderen PCs.
 3. Verwenden Sie die Gruppenrichtlinie, um das angepasste Startlayout auf das Gruppenrichtlinienobjekt anzuwenden, das Sie für Roamingbenutzerprofile erstellt haben. Weitere Informationen dazu finden Sie unter [Verwenden von Gruppenrichtlinien zum Anwenden eines angepassten Startlayouts in einer Domäne](/windows/configuration/customize-windows-10-start-screens-by-using-group-policy#bkmk-domaingpodeployment).
-4. Verwenden Sie die Gruppenrichtlinie, um den folgenden Registrierungswert auf Ihren Windows 10-PCs festzulegen. Weitere Informationen dazu finden Sie unter [Konfigurieren eines Registrierungselements](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753092(v=ws.11)>).
+4. Verwenden Sie die Gruppenrichtlinie, um den folgenden Registrierungswert auf Ihren Windows 10-PCs festzulegen. Weitere Informationen dazu finden Sie unter [Konfigurieren eines Registrierungselements](</previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753092(v=ws.11)>).
 
 | **Aktion**   | **Update**                  |
 | ------------ | ------------                |
@@ -243,7 +243,7 @@ Gehen Sie folgendermaßen vor, um ein Startlayout anzugeben:
 5. (Optional) Aktivieren Sie Optimierungen bei erstmaliger Anmeldung, um die Anmeldung für Benutzer zu beschleunigen. Weitere Informationen dazu finden Sie unter [Anwenden von Richtlinien zum Verbessern der Anmeldezeit](/windows/client-management/mandatory-user-profile#apply-policies-to-improve-sign-in-time).
 6. (Optional) Verringern Sie die Anmeldezeiten weiter, indem Sie unnötige Apps aus dem Windows 10-Basisimage entfernen, das Sie zum Bereitstellen von Client-PCs verwenden. Windows Server 2019 und Windows Server 2016 verfügen über keine vorab bereitgestellten Apps, sodass Sie diesen Schritt für Serverimages überspringen können.
     - Verwenden Sie zum Entfernen von Apps das Cmdlet [Remove-AppxProvisionedPackage](/powershell/module/dism/remove-appxprovisionedpackage?view=win10-ps) in Windows PowerShell, um die folgenden Anwendungen zu deinstallieren. Wenn Ihre PCs bereits bereitgestellt sind, können Sie mithilfe von [Remove-AppxPackage](/powershell/module/appx/remove-appxpackage?view=win10-ps) ein Skript für das Entfernen dieser Apps erstellen.
-    
+
       - Microsoft.windowscommunicationsapps\_8wekyb3d8bbwe
       - Microsoft.BingWeather\_8wekyb3d8bbwe
       - Microsoft.DesktopAppInstaller\_8wekyb3d8bbwe
@@ -279,7 +279,7 @@ So testen Sie Roamingbenutzerprofile:
 
 1. Melden Sie sich mit einem Benutzerkonto an einem primären Computer an (bei aktivierter Unterstützung primärer Computer), für das Roamingbenutzerprofile aktiviert sind. Wenn Sie Roamingbenutzerprofile auf bestimmten Computern aktiviert haben, melden Sie sich an einem dieser Computer an.
 2. Wenn sich der Benutzer zuletzt an dem Computer angemeldet hat, öffnen Sie eine Eingabeaufforderung mit erhöhten Rechten und geben Sie folgenden Befehl ein, um sicherzustellen, dass die aktuellsten Gruppenrichtlinieneinstellungen auf dem Clientcomputer angewendet werden.
-    
+
     ```PowerShell
     GpUpdate /Force
     ```
@@ -321,19 +321,19 @@ In der folgenden Tabelle sind die Speicherorte von Roamingbenutzerprofilen in ve
 Im Folgenden finden Sie einige Möglichkeiten, um zu verhindern, dass die Startmenülayouts nach einem In-Place-Upgrade zurückgesetzt werden:
 
 - Wenn nur ein Benutzer das Gerät verwendet und der IT-Administrator eine Strategie für die Bereitstellung verwalteter Betriebssysteme verwendet (z. B. Configuration Manager), kann er folgendermaßen vorgehen:
-    
-  1. Exportieren des Startmenülayouts mit „Export-StartLayout“ vor dem Upgrade 
-  2. Importieren des Startmenülayouts mit Import-StartLayout nach der Willkommenseite, aber bevor sich der Benutzer anmeldet  
- 
-     > [!NOTE] 
+
+  1. Exportieren des Startmenülayouts mit „Export-StartLayout“ vor dem Upgrade
+  2. Importieren des Startmenülayouts mit Import-StartLayout nach der Willkommenseite, aber bevor sich der Benutzer anmeldet
+
+     > [!NOTE]
      > Durch das Importieren eines StartLayout wird das Standardbenutzerprofil geändert. Alle Benutzerprofile, die nach dem Import erstellt werden, erhalten das importierte StartLayout.
- 
+
 - IT-Administratoren können das Startlayout wahlweise mit der Gruppenrichtlinie verwalten. Die Verwendung von Gruppenrichtlinien bietet eine zentralisierte Verwaltungslösung zur Anwendung eines standardisierten Startlayouts für Benutzer. Es gibt 2 Modi für die Verwendung der Gruppenrichtlinie für die Startverwaltung. Vollständige Sperrung und partielle Sperrung. Das vollständige Sperrszenario verhindert, dass der Benutzer Änderungen am Startlayout vornehmen kann. Das teilweise Sperrszenario ermöglicht es Benutzern, Änderungen an einem bestimmten Bereich des Startmenüs vorzunehmen. Weitere Informationen dazu finden Sie unter [Anpassen und Exportieren des Startlayouts](/windows/configuration/customize-and-export-start-layout).
-        
+
    > [!NOTE]
    > Vom Benutzer vorgenommene Änderungen im teilweisen Sperrszenario gehen während des Upgrades weiterhin verloren.
 
-- Warten Sie auf die Zurücksetzung des Startlayouts, und erlauben Sie Endbenutzern die Neukonfiguration des Startmenüs. Eine Benachrichtigungs-E-Mail oder andere Benachrichtigung kann an Endbenutzer gesendet werden, um sie zu informieren, dass ihre Startlayouts nach dem Betriebssystemupgrade zurückgesetzt werden, um die Auswirkungen möglichst gering zu halten. 
+- Warten Sie auf die Zurücksetzung des Startlayouts, und erlauben Sie Endbenutzern die Neukonfiguration des Startmenüs. Eine Benachrichtigungs-E-Mail oder andere Benachrichtigung kann an Endbenutzer gesendet werden, um sie zu informieren, dass ihre Startlayouts nach dem Betriebssystemupgrade zurückgesetzt werden, um die Auswirkungen möglichst gering zu halten.
 
 ## <a name="change-history"></a>Änderungsverlauf
 
@@ -358,7 +358,7 @@ In der folgenden Tabelle sind die wichtigsten Änderungen zu diesem Thema zusamm
 
 - [Bereitstellen der Ordnerumleitung, von Offlinedateien und Roamingbenutzerprofilen](deploy-folder-redirection.md)
 - [Bereitstellen von primären Computern für die Ordnerumleitung und Roamingbenutzerprofile](deploy-primary-computers.md)
-- [Implementieren der Benutzerstatusverwaltung](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc784645(v=ws.10)>)
+- [Implementieren der Benutzerstatusverwaltung](</previous-versions/windows/it-pro/windows-server-2003/cc784645(v=ws.10)>)
 - [Anweisung des Microsoft-Supports zu replizierten Benutzerprofildaten](/archive/blogs/askds/microsofts-support-statement-around-replicated-user-profile-data)
-- [Querladen von Apps mit DISM](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-8.1-and-8/hh852635(v=win.10)>)
+- [Querladen von Apps mit DISM](</previous-versions/windows/it-pro/windows-8.1-and-8/hh852635(v=win.10)>)
 - [Problembehandlung beim Packen, Bereitstellen und Abfragen von Windows Runtime-basierten Apps](/windows/win32/appxpkg/troubleshooting)

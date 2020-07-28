@@ -9,12 +9,12 @@ ms.author: jgerend
 ms.technology: storage-failover-clustering
 ms.date: 06/06/2019
 ms.localizationpriority: high
-ms.openlocfilehash: 5b0193f18fe94f391f1bbbc41280c16e4a1bcd0c
-ms.sourcegitcommit: 32f810c5429804c384d788c680afac427976e351
+ms.openlocfilehash: 657cf161086047ca87ca7dbd2adcd2b8e6bde892
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83203508"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87177886"
 ---
 # <a name="failover-clustering-in-windows-server"></a>Failoverclustering in Windows Server
 
@@ -40,7 +40,7 @@ Für Failoverclustering gibt es viele praktische Anwendungsfälle, einschließli
 | [Clustergruppen](../storage/storage-spaces/cluster-sets.md)                  |                             |[Bereitstellen eines Dateifreigabezeugen](file-share-witness.md) |
 | [Clusteraffinität](cluster-affinity.md)                                     |                            | [Paralleles Upgrade für Clusterbetriebssystem](cluster-operating-system-rolling-upgrade.md) |
 |                                                                             |                            | [Upgrade eines Failoverclusters auf derselben Hardware](upgrade-option-same-hardware.md) |
-|                                                                            |                             | [Bereitstellen eines von Active Directory getrennten Clusters](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn265970\(v%3dws.11\))
+|                                                                            |                             | [Bereitstellen eines von Active Directory getrennten Clusters](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn265970\(v%3dws.11\))
 
 |**Verwalten**  |  **Tools und Einstellungen**  |  **Communityressourcen**       |
 | ------------- |  -------------- | --------------------- |

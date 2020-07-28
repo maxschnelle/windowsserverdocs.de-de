@@ -2,18 +2,17 @@
 title: Verwenden von freigegebenen Ordnern in Windows Server Essentials
 description: Beschreibt die Verwendung von Windows Server Essentials
 ms.date: 10/03/2016
-ms.prod: windows-server
 ms.topic: article
 ms.assetid: cb7f3d7d-4225-409a-9f6b-34a106e8dd24
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 24b2990631e95d1c0da0eafacb989090969faebb
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: c7f042a47dd6f350b79ec17f69ffb87ab7b99259
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85470075"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87179456"
 ---
 # <a name="use-shared-folders-in-windows-server-essentials"></a>Verwenden von freigegebenen Ordnern in Windows Server Essentials
 
@@ -90,7 +89,7 @@ ms.locfileid: "85470075"
 ##  <a name="using-my-server-app-for-windows-8"></a><a name="BKMK_App"></a>Verwenden der My Server-App für Windows 8
  Mithilfe der My Server-App für Windows 8 können Sie auf freigegebene Ordner über Windows 8 zugreifen. Sie können diese App aus dem [Windows 8-App-Store](https://windows.microsoft.com/windows-8/apps)herunterladen.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 
 -   [Verwalten von Serverordnern](../manage/Manage-Server-Folders-in-Windows-Server-Essentials.md)
 

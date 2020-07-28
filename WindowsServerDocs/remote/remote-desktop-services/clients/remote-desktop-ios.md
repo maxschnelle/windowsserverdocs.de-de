@@ -10,12 +10,12 @@ manager: lizross
 ms.author: helohr
 ms.date: 07/16/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: e421795fd3be9e11ddff4cf6b557ebb211e51c53
-ms.sourcegitcommit: b363d8ceed863c8fd5a464bc8afdc4ef1af9a6f8
+ms.openlocfilehash: 8f51a60e66a3e1452ed66c94c409c5e4e5cb191f
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86445714"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87181966"
 ---
 # <a name="get-started-with-the-ios-client"></a>Erste Schritte mit dem iOS-Client
 
@@ -174,7 +174,7 @@ Der Client verwendet Standardtouchgesten. Sie können auch Touchgesten verwenden
 
 ## <a name="supported-input-devices"></a>Unterstützte Eingabegeräte
 
-Der Client verfügt über [Bluetooth-Mausunterstützung](https://support.apple.com/HT210546) für iOS 13 und iPadOS als Barrierefreiheitsfeature. Für eine tiefere Integration der Maus können Sie Swiftpoint GT- oder ProPoint-Mäuse verwenden. Der Client unterstützt außerdem externe Tastaturen, die mit iOS und iPadOS kompatibel sind. 
+Der Client verfügt über [Bluetooth-Mausunterstützung](https://support.apple.com/HT210546) für iOS 13 und iPadOS als Barrierefreiheitsfeature. Für eine tiefere Integration der Maus können Sie Swiftpoint GT- oder ProPoint-Mäuse verwenden. Der Client unterstützt außerdem externe Tastaturen, die mit iOS und iPadOS kompatibel sind.
 
 Weitere Informationen zur Geräteunterstützung findest du unter [Neuerungen beim iOS-Client](ios-whatsnew.md) und im [iOS App Store](https://aka.ms/rdios).
 
@@ -192,4 +192,4 @@ Wenn für Ihr iOS-Gerät Bluetooth aktiviert ist, wird die Bluetooth-Tastatur vo
 Obwohl bestimmte Tastenkombinationen in einer Remotesitzung möglicherweise nicht wie erwartet funktionieren, funktionieren viele der üblichen Windows-Tastenkombinationen, z. B. STRG+C, STRG+V und ALT+TAB.
 
 > [!TIP]
-> Fragen und Kommentare sind immer willkommen. Wenn Sie Supportanfragen oder Produktfeedback jedoch im Kommentarbereich dieses Artikels posten, können wir nicht auf Ihr Feedback reagieren. Wenn Sie Hilfe benötigen oder Probleme mit Ihrem Client beheben möchten, empfehlen wir Ihnen dringend, das [Remotedesktopclient-Forum](https://social.technet.microsoft.com/forums/windowsserver/home?forum=winrdc) zu besuchen und einen neuen Thread zu starten. Wenn Sie eine Featureempfehlung geben möchten, können Sie uns dies im [UserVoice-Forum für den Client](https://remotedesktop.uservoice.com/forums/272085-remote-desktop-for-android) mitteilen.
+> Fragen und Kommentare sind immer willkommen. Wenn Sie Supportanfragen oder Produktfeedback jedoch im Kommentarbereich dieses Artikels posten, können wir nicht auf Ihr Feedback reagieren. Wenn Sie Hilfe benötigen oder Probleme mit Ihrem Client beheben möchten, empfehlen wir Ihnen dringend, das [Remotedesktopclient-Forum](https://docs.microsoft.com/answers/topics/windows-remote-desktop-client.html) zu besuchen und einen neuen Thread zu starten. Wenn Sie eine Featureempfehlung geben möchten, können Sie uns dies im [UserVoice-Forum für den Client](https://remotedesktop.uservoice.com/forums/272085-remote-desktop-for-android) mitteilen.

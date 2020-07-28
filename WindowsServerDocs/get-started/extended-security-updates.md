@@ -9,12 +9,12 @@ ms.author: iainfou
 ms.topic: get-started-article
 ms.localizationpriority: high
 ms.date: 02/21/2020
-ms.openlocfilehash: 6c9d732b6ec3d8ceb65c691ab143f09dd8f10f23
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 19a65f2a254fe14f7cddfbda2a84e9d00f47da56
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "77552542"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87181846"
 ---
 # <a name="how-to-use-windows-server-2008-and-2008-r2-extended-security-updates-esu"></a>Verwenden der erweiterten Sicherheitsupdates (ESU) für Windows Server 2008 und 2008 R2
 
@@ -87,7 +87,7 @@ Um Ihre VM für erweiterte Sicherheitsupdates zu registrieren und einen Schlüss
 5. Wenn eine Seite angezeigt wird, die besagt „Registrieren Sie sich, um einen Mehrfachaktivierungsschlüssel zu erhalten“, bedeutet dies, dass Sie Zugriff auf die private Vorschau anfordern müssen, bevor Sie die erweiterten Sicherheitsupdates verwenden können. Wenn diese Seite nicht angezeigt wird, fahren Sie mit Schritt 6 fort.
 
    Um Zugriff anzufordern, wählen Sie **An der privaten Vorschau teilnehmen** aus. Ein E-Mail-Benachrichtigungsfenster wird geöffnet. Diese E-Mail stellt Ihre Zugriffsanforderung an das Produktteam dar.
-  
+
     Geben Sie in Ihrer Anforderung die folgenden Informationen ein.
 
     * Kundenname
@@ -101,7 +101,7 @@ Um Ihre VM für erweiterte Sicherheitsupdates zu registrieren und einen Schlüss
 
     Wenn das Team Ihre Anforderung nicht genehmigt, wird der folgende Fehler angezeigt:
 
-    [Der Ressourcentyp konnte nicht im Namespace "Microsoft.WindowsESU" gefunden werden](https://social.msdn.microsoft.com/Forums/office/94b16a89-3149-43da-865d-abf7dba7b977/the-resource-type-could-not-be-found-in-the-namespace-microsoftwindowsesu-for-api-version)
+    [Der Ressourcentyp konnte nicht im Namespace "Microsoft.WindowsESU" gefunden werden](https://docs.microsoft.com/windows-server/get-started/extended-security-updates)
 
 6. Wähle unter **Azure-Details** dein Azure-Abonnement, eine Ressourcengruppe und einen Speicherort für deinen Schlüssel aus.
 

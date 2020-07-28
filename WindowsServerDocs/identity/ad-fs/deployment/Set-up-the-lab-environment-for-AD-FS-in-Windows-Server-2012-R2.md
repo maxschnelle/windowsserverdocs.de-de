@@ -8,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 09adec98f4db1e5354d00cf6ebfd9e9ef17f8575
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: b9ba6ca7900f33880fda6d77398ffa819cf1038c
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86963662"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87177796"
 ---
 # <a name="set-up-the-lab-environment-for-ad-fs-in-windows-server-2012-r2"></a>Einrichten der Testumgebung für AD FS unter Windows Server 2012 R2
 
@@ -87,7 +87,7 @@ Sie müssen ein Secure Socket Layer (SSL)-Serverzertifikat auf dem ADFS1-Server 
 
 -   Alternativer Antragstellername (DNS): enterpriseregistration.contoso.com
 
-Weitere Informationen zum Einrichten von SSL-Zertifikaten finden Sie unter [Configure SSL/TLS on a Web site in the domain with an Enterprise CA](https://social.technet.microsoft.com/wiki/contents/articles/12485.configure-ssltls-on-a-web-site-in-the-domain-with-an-enterprise-ca.aspx).
+Weitere Informationen zum Einrichten von SSL-Zertifikaten finden Sie unter [Configure SSL/TLS on a Web site in the domain with an Enterprise CA](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831822(v=ws.11)).
 
 [Active Directory-Verbunddienste – Videoreihe mit exemplarischer Vorgehensweise: Aktualisieren von Zertifikaten](https://channel9.msdn.com/Search?term=Active%20Directory%20Federation%20Services#pubDate=year&ch9Search).
 
@@ -173,7 +173,7 @@ Der nächste Schritt ist die Konfiguration des Geräteregistrierungsdiensts auf 
 ### <a name="add-host-a-and-alias-cname-resource-records-to-dns"></a>Hinzufügen von Host- (A) und Aliasressourcendatensätzen (CNAME) zu DNS
 Auf DC1 müssen Sie sicherstellen, dass die folgenden DNS-Datensätze für den Geräteregistrierungsdienst erstellt werden.
 
-|Eingabe|Typ|Adresse|
+|Eingabe|type|Adresse|
 |---------|--------|-----------|
 |adfs1|Host (A)|IP-Adresse des AD FS Servers|
 |enterpriseregistration|Alias (CNAME)|adfs1.contoso.com|

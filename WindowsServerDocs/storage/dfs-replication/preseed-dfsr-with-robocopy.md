@@ -8,18 +8,18 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 05/18/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 746aa953b2226152a1f103fd0b5a974f543ce993
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 54c95a86514e006735bbfe784f3df46eb95e1f94
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86966112"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87182256"
 ---
 # <a name="use-robocopy-to-pre-seed-files-for-dfs-replication"></a>Verwenden von Robocopy, um ein Vorab-Dateiseeding für die DFS-Replikation auszuführen
 
 >Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
 
-In diesem Thema wird erläutert, wie das Befehlszeilentool **Robocopy.exe** verwendet wird, um beim Einrichten der DFS-Replikation (auch als DFSR oder DFS-R bezeichnet) in Windows Server ein Vorab-Dateiseeding ausführen. Indem du vor dem Einrichten der DFS-Replikation (Distributed File System, verteiltes Dateisystem), dem Hinzufügen eines neuen Replikationspartners oder dem Austauschen eines Servers ein Vorab-Dateiseeding ausführst, kannst du die Erstsynchronisierung beschleunigen und das Klonen der DFS-Replikationsdatenbank in Windows Server 2012 R2 ermöglichen. Robocopy ist eine von mehreren Methoden für das Vorab-Seeding. Eine Übersicht findest du unter [Schritt 1: Ausführen eines Vorab-Dateiseedings für die DFS-Replikation](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn495046(v%3dws.11)>).
+In diesem Thema wird erläutert, wie das Befehlszeilentool **Robocopy.exe** verwendet wird, um beim Einrichten der DFS-Replikation (auch als DFSR oder DFS-R bezeichnet) in Windows Server ein Vorab-Dateiseeding ausführen. Indem du vor dem Einrichten der DFS-Replikation (Distributed File System, verteiltes Dateisystem), dem Hinzufügen eines neuen Replikationspartners oder dem Austauschen eines Servers ein Vorab-Dateiseeding ausführst, kannst du die Erstsynchronisierung beschleunigen und das Klonen der DFS-Replikationsdatenbank in Windows Server 2012 R2 ermöglichen. Robocopy ist eine von mehreren Methoden für das Vorab-Seeding. Eine Übersicht findest du unter [Schritt 1: Ausführen eines Vorab-Dateiseedings für die DFS-Replikation](</previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn495046(v%3dws.11)>).
 
 Das Befehlszeilen-Hilfsprogramm Robocopy (Robust File Copy) ist in Windows Server enthalten. Das Hilfsprogramm bietet umfassende Optionen, beispielsweise das sichere Kopieren, Unterstützung der Sicherungs-API, Wiederholungsfunktionen und Protokollierung. Spätere Versionen umfassen Unterstützung für Multithreading und ungepufferte E/A.
 
@@ -41,9 +41,9 @@ Da das Vorab-Seeding und die DFS-Replikation in keinem direkten Zusammenhang ste
 - Installiere die neueste Version von Robocopy auf dem Server, der zum Kopieren der Dateien verwendet wird – entweder auf dem Quellserver oder dem Zielserver. Es muss die neueste Version für die Betriebssystemversion installiert werden. Anweisungen findest du unter [Schritt 2: Stabilisieren von Dateien, die repliziert werden](#step-2-stabilize-files-that-will-be-replicated). Robocopy kann auf dem Quell- oder Zielserver ausgeführt werden, es sei denn, das Vorab-Dateiseeding erfolgt auf einem Server mit Windows Server 2003 R2. Der Zielserver, der in der Regel über die neuere Betriebssystemversion verfügt, bietet Zugriff auf die aktuelle Version von Robocopy.
 
 - Auf dem Ziellaufwerk muss ausreichend Speicherplatz verfügbar sein. Es darf kein Ordner in dem Pfad erstellt werden, in den kopiert werden soll: Der Stammordner muss von Robocopy erstellt werden.
-    
+
     >[!NOTE]
-    >Bei der Entscheidung, wie viel Speicherplatz für die Dateien zugewiesen werden soll, für die ein Vorab-Seeding ausgeführt wurde, sollten der zukünftig erwartete Datenzuwachs und die Speicheranforderungen für die DFS-Replikation in Erwägung gezogen werden. Unterstützung bei der Planung findest du unter dem Thema zum [Bearbeiten der Kontingentgröße des Stagingordners und des Ordners „ConflictandDeleted“](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc754229(v=ws.11)) unter [Verwalten der DFS-Replikation](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754771(v=ws.11)>).
+    >Bei der Entscheidung, wie viel Speicherplatz für die Dateien zugewiesen werden soll, für die ein Vorab-Seeding ausgeführt wurde, sollten der zukünftig erwartete Datenzuwachs und die Speicheranforderungen für die DFS-Replikation in Erwägung gezogen werden. Unterstützung bei der Planung findest du unter dem Thema zum [Bearbeiten der Kontingentgröße des Stagingordners und des Ordners „ConflictandDeleted“](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc754229(v=ws.11)) unter [Verwalten der DFS-Replikation](</previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754771(v=ws.11)>).
 
 - Installiere auf dem Quellserver optional den Prozessmonitor oder den Prozess-Explorer, mit dem du nach Anwendungen suchen kannst, durch die Dateien gesperrt werden. Informationen zum Download findest du unter [Prozessmonitor](/sysinternals/downloads/procmon) und [Prozess-Explorer](/sysinternals/downloads/process-explorer).
 
@@ -60,9 +60,9 @@ Mit den folgenden Schritten kannst du alternativ den aktuellen Hotfix für ein B
 1. Öffne in einem Webbrowser [https://support.microsoft.com](https://support.microsoft.com/).
 
 2. Gib in **Support durchsuchen** die folgende Zeichenfolge ein, ersetze `<operating system version>` durch das entsprechende Betriebssystem, und drücke dann die EINGABETASTE:
-    
+
     ```robocopy.exe kbqfe "<operating system version>"```
-    
+
     Gib beispielsweise **robocopy.exe kbqfe „Windows Server 2008 R2“** ein.
 
 3. Suche und lade den Hotfix mit der höchsten ID (d. h. die aktuelle Version) herunter.
@@ -92,13 +92,13 @@ Nachdem du die Anzahl der Sperren für die zu replizierenden Dateien verringert 
 2. Öffnen Sie eine Eingabeaufforderung mit erhöhten Rechten.
 
 3. Führe den folgenden Befehl aus, um ein Vorab-Dateiseeding vom Quell- auf den Zielserver auszuführen. Ersetze dabei die Werte in Klammern durch die Pfade für deinen eigenen Quell- und Zielserver und die Protokolldatei:
-    
+
     ```PowerShell
     robocopy "<source replicated folder path>" "<destination replicated folder path>" /e /b /copyall /r:6 /w:5 /MT:64 /xd DfsrPrivate /tee /log:<log file path> /v
     ```
-    
+
     Mit diesem Befehl und den folgenden Parametern wird der gesamte Inhalt des Quellordners in den Zielordner kopiert:
-    
+
     |Parameter|Beschreibung|
     |---|---|
     |"\<source replicated folder path\>"|Gibt den Quellordner an, für den ein Vorab-Seeding auf den Zielserver ausgeführt wird.|
@@ -113,13 +113,13 @@ Nachdem du die Anzahl der Sperren für die zu replizierenden Dateien verringert 
     |/tee|Schreibt die Statusausgabe in das Konsolenfenster sowie in die Protokolldatei.|
     |/log \<log file path>|Gibt die zu schreibende Protokolldatei an. Überschreibt den vorhandenen Inhalt der Datei. (Verwende `/log+ <log file path>`, um Einträge an die vorhandene Protokolldatei anzufügen.)|
     |/v|Erzeugt eine ausführliche Ausgabe, die übersprungene Dateien einschließt.|
-    
+
     Beispiel: Mit dem folgenden Befehl werden Dateien vom replizierten Quellordner „E:\\RF01“ auf das Datenlaufwerk „D“ auf dem Zielserver repliziert:
-    
+
     ```PowerShell
     robocopy.exe "\\srv01\e$\rf01" "d:\rf01" /e /b /copyall /r:6 /w:5 /MT:64 /xd DfsrPrivate /tee /log:c:\temp\pre-seedsrv02.log
     ```
-    
+
     >[!NOTE]
     >Es wird empfohlen, die oben beschriebenen Parameter zu verwenden, wenn mit Robocopy ein Vorab-Dateiseeding für die DFS-Replikation ausgeführt wird. Allerdings können einige Parameterwerte geändert oder weitere Parameter hinzugefügt werden. Beispielsweise könnten Tests ergeben, dass genügend Kapazität vorhanden ist, um für den Parameter */MT* (Anzahl der Threads) einen höheren Wert festzulegen. Wenn in erster Linie größere Dateien repliziert werden, könnte die Kopierleistung verbessert werden, indem die Option **/j** für ungepufferte E/A hinzugefügt wird. Weitere Informationen zu Robocopy-Parametern findest du in der Befehlszeilenreferenz zu [Robocopy](../../administration/windows-commands/robocopy.md).
 
@@ -132,4 +132,4 @@ Nachdem du die Anzahl der Sperren für die zu replizierenden Dateien verringert 
 
 ## <a name="next-step"></a>Nächster Schritt
 
-Nachdem die erste Kopie abgeschlossen ist und möglichst viele Probleme aufgrund übersprungener Dateien mithilfe von Robocopy behoben wurden, verwendest du das **Get-DfsrFileHash**-Cmdlet in Windows PowerShell oder den Befehl **Dfsrdiag**, um die Dateien, für die ein Vorab-Seeding ausgeführt wurde, zu überprüfen. Dazu vergleichst du Dateihashes auf dem Quellserver und dem Zielserver. Ausführliche Anweisungen findest du unter [Schritt 2: Überprüfen von Dateien, für die ein Vorab-Seeding ausgeführt wurde, für die DFS-Replikation](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn495042(v%3dws.11)>).
+Nachdem die erste Kopie abgeschlossen ist und möglichst viele Probleme aufgrund übersprungener Dateien mithilfe von Robocopy behoben wurden, verwendest du das **Get-DfsrFileHash**-Cmdlet in Windows PowerShell oder den Befehl **Dfsrdiag**, um die Dateien, für die ein Vorab-Seeding ausgeführt wurde, zu überprüfen. Dazu vergleichst du Dateihashes auf dem Quellserver und dem Zielserver. Ausführliche Anweisungen findest du unter [Schritt 2: Überprüfen von Dateien, für die ein Vorab-Seeding ausgeführt wurde, für die DFS-Replikation](</previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn495042(v%3dws.11)>).

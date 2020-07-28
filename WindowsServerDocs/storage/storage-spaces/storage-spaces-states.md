@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: storage-spaces
 manager: brianlic
-ms.openlocfilehash: 95ccfec436ba4143ea7ec70120878a29289d14f7
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: d7bbef54d0ec554c6a3cf184dcb0414f7456547c
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86966792"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87182156"
 ---
 # <a name="troubleshoot-storage-spaces-and-storage-spaces-direct-health-and-operational-states"></a>Problembehandlung bei Speicherplätzen und direkte Speicherplätze Integritäts-und Betriebszuständen
 
@@ -67,13 +67,13 @@ Wenn sich der Speicherpool im **Warnungs** Integritäts Status befindet, bedeute
 
 Wenn der Integritäts Status eines Speicher **Unknown** Pools unbekannt **oder Fehler** Haft ist, bedeutet dies, dass der Speicherpool schreibgeschützt ist und nicht geändert werden kann, bis der Pool wieder in den Zustand " **Warnung** " oder " **OK** " zurückversetzt wird.
 
-|Betriebszustand    |Schreib geschützter Grund |Beschreibung|
+|Betriebszustand    |Schreib geschützter Grund |BESCHREIBUNG|
 |---------            |---------       |--------   |
 |Schreibgeschützt|Unvollständig|Dies kann vorkommen, wenn der Speicherpool sein [Quorum](understand-quorum.md)verliert, was bedeutet, dass die meisten Laufwerke im Pool ausgefallen sind oder aus irgendeinem Grund offline sind. Wenn ein Pool sein Quorum verliert, wird die Pool Konfiguration von Speicherplätzen automatisch auf schreibgeschützt festgelegt, bis genügend Laufwerke wieder verfügbar sind.<br><br>**Aktion:** <br>1. Verbinden Sie fehlende Laufwerke wieder, und schalten Sie alle Server bei Verwendung von direkte Speicherplätze online. <br>2. setzen Sie den Pool auf Lese-/Schreibzugriff zurück, indem Sie eine PowerShell-Sitzung mit Administrator Berechtigungen öffnen und dann Folgendes eingeben:<br><br> <code>Get-StoragePool <PoolName> -IsPrimordial $False \| Set-StoragePool -IsReadOnly $false</code>|
 ||Richtlinie|Ein Administrator hat den Speicherpool als schreibgeschützt festgelegt.<br><br>**Aktion:** Um einen Cluster Speicherpool in Failovercluster-Manager auf Lese-/Schreibzugriff festzulegen, wechseln Sie zu **Pools**, klicken Sie mit der rechten Maustaste auf den Pool, und wählen Sie dann **Online**schalten aus.<br><br>Öffnen Sie für andere Server und PCs eine PowerShell-Sitzung mit Administrator Berechtigungen, und geben Sie dann Folgendes ein:<br><br><code>Get-StoragePool <PoolName> \| Set-StoragePool -IsReadOnly $false</code><br><br> |
 ||Wird gestartet|Speicherplätze werden gestartet, oder es wird darauf gewartet, dass Laufwerke im Pool verbunden werden. Dies sollte ein temporärer Zustand sein. Nachdem der Pool vollständig gestartet wurde, sollte er in einen anderen Betriebsstatus übergehen.<br><br>**Aktion:** Wenn der Pool im *anfangs* Zustand bleibt, stellen Sie sicher, dass alle Laufwerke im Pool ordnungsgemäß verbunden sind.|
 
-Weitere Informationen finden [Sie unter Ändern eines Speicherpools, der eine schreibgeschützte Konfiguration aufweist](https://social.technet.microsoft.com/wiki/contents/articles/14861.modifying-a-storage-pool-that-has-a-read-only-configuration.aspx).
+Siehe auch das [Windows Server-Speicher Forum](https://docs.microsoft.com/answers/topics/windows-server-storage.html).
 
 ## <a name="virtual-disk-states"></a>Virtuelle Datenträger Zustände
 
@@ -125,7 +125,7 @@ Wenn sich ein virtueller Datenträger in **einem Fehler** haften Integritäts St
 
 Der virtuelle Datenträger kann sich auch im Integritäts Status des Zustands (wie im System Steuerungselement "Speicherplätze" gezeigt) oder in einem **unbekannten** Integritäts Status (wie in PowerShell gezeigt) befinden, wenn ein Administrator den virtuellen **Daten** Träger offline geschaltet hat oder der virtuelle Datenträger getrennt wurde.
 
-|Betriebszustand    |Getrennter Grund |Beschreibung|
+|Betriebszustand    |Getrennter Grund |BESCHREIBUNG|
 |---------            |---------       |--------   |
 |Getrennt             |Nach Richtlinie            |Ein Administrator hat den virtuellen Datenträger offline geschaltet oder den virtuellen Datenträger so festgelegt, dass er eine manuelle Anlage erfordert. in diesem Fall müssen Sie den virtuellen Datenträger bei jedem Neustart von Windows manuell anfügen.<br><br>**Aktion**: Schalten Sie den virtuellen Datenträger wieder online. Wenn sich der virtuelle Datenträger in einem Cluster Speicherpool befindet, wählen Sie in Failovercluster-Manager virtuelle Datenträger für **Speicher**Pools auswählen den virtuellen Datenträger aus, der  >  **Pools**  >  **Virtual Disks**den **Offline** Status anzeigt, und klicken Sie dann auf **Online**schalten. <br><br>Um einen virtuellen Datenträger wieder online zu schalten, wenn er sich nicht in einem Cluster befinden, öffnen Sie eine PowerShell-Sitzung als Administrator, und versuchen Sie es dann mit dem folgenden Befehl:<br><br> <code>Get-VirtualDisk \| Where-Object -Filter { $_.OperationalStatus -eq "Detached" } \| Connect-VirtualDisk</code><br><br>Um alle nicht gruppierten virtuellen Datenträger nach dem Neustart von Windows automatisch anzufügen, öffnen Sie eine PowerShell-Sitzung als Administrator, und verwenden Sie dann den folgenden Befehl:<br><br> <code>Get-VirtualDisk \| Set-VirtualDisk -ismanualattach $false</code>|
 |            |Mehrheits Datenträger |Zu viele von dieser virtuellen Festplatte verwendete Laufwerke konnten nicht ausgeführt werden, fehlen oder haben veraltete Daten.   <br><br>**Aktion:** <br> 1. Verbinden Sie fehlende Laufwerke erneut, und schalten Sie, wenn Sie direkte Speicherplätze verwenden, alle Server Online, die offline sind. <br> 2. wenn alle Laufwerke und Server online sind, ersetzen Sie alle fehlgeschlagenen Laufwerke. Weitere Informationen finden Sie unter [Integritätsdienst](../../failover-clustering/health-service-overview.md) . <br>Direkte Speicherplätze automatisch eine Reparatur startet, wenn dies nach dem erneuten Verbinden oder Austauschen eines Laufwerks erforderlich ist.<br>3. Wenn Sie direkte Speicherplätze nicht verwenden, reparieren Sie die virtuelle Festplatte als nächstes mithilfe des Cmdlets [Repair-virtualdisk](/powershell/module/storage/repair-virtualdisk?view=win10-ps) .  <br><br>Wenn mehr Datenträger fehlschlagen, als Sie Kopien Ihrer Daten haben und der virtuelle Datenträger nicht zwischen Fehlern repariert wurde, gehen alle Daten auf dem virtuellen Datenträger dauerhaft verloren. Löschen Sie in diesem unglücklichen Fall den virtuellen Datenträger, erstellen Sie einen neuen virtuellen Datenträger, und stellen Sie dann eine Wiederherstellung von einer Sicherung durch.|

@@ -10,12 +10,12 @@ author: jasongerend
 ms.author: jgerend
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: 538ea2d6e0f038a98b64a197bd49ed5719fe15ac
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 99a684cc90d47e1e80dc84ef9c3705a2ed79728b
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86959572"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87182026"
 ---
 # <a name="migrating-roles-and-features-in-windows-server"></a>Migrieren von Rollen und Features in Windows Server
 
@@ -27,7 +27,7 @@ Die Migrationshandbücher unterstützen Migrationen von angegebenen Rollen und F
 
 ## <a name="before-you-begin"></a>Vorbereitung
 
-Vergewissere dich vor Beginn der Migration von Rollen und Features, dass Quell- und Zielserver über die neuesten Service Packs verfügen, die für das jeweilige Betriebssystem verfügbar sind. 
+Vergewissere dich vor Beginn der Migration von Rollen und Features, dass Quell- und Zielserver über die neuesten Service Packs verfügen, die für das jeweilige Betriebssystem verfügbar sind.
 
 > [!NOTE]
 > Bei jeder Migration und jedem Upgrade auf eine Version von Windows Server solltest du dich mit der [Microsoft Lifecycle-Richtlinie für den Support](https://support.microsoft.com/lifecycle) und dem Zeitrahmen für die jeweilige Version vertraut machen und entsprechend planen. Du kannst [nach den Lebenszyklusinformationen für die jeweils gewünschte Windows Server-Version suchen](https://support.microsoft.com/lifecycle).
@@ -63,7 +63,7 @@ Führe die Schritte in diesen Handbüchern aus, um Rollen und Features von Serve
 - [Migrate Cluster Roles to Windows Server 2012 R2](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn530779(v=ws.11)) (Migrieren von Clusterrollen zu Windows Server 2012 R2)
 - [Migrate DHCP Server to Windows Server 2012 R2](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn495425(v=ws.11)) (Migrieren eines DHCP-Servers zu Windows Server 2012 R2)
 
-Es ist jetzt auch ein E-Book mit den Windows Server 2012 R2- und Windows Server 2012-Migrationshandbüchern verfügbar. Weitere Informationen findest du im [Katalog mit den E-Books für Technologie von Microsoft](https://social.technet.microsoft.com/wiki/contents/articles/11608.e-book-gallery-for-microsoft-technologies.aspx#MigrateRoles). Hier kannst du auch das E-Book herunterladen.
+Es ist jetzt auch ein E-Book mit den Windows Server 2012 R2- und Windows Server 2012-Migrationshandbüchern verfügbar. Weitere Informationen findest du im [Katalog mit den E-Books für Technologie von Microsoft](https://download.microsoft.com/download/8/D/3/8D33661A-7E21-4FEE-9AAA-C17C3004B5AA/Windows-Migration-and-Upgrade-Guide.pdf). Hier kannst du auch das E-Book herunterladen.
 
 ## <a name="windows-server-2012"></a>Windows Server 2012
 
@@ -80,7 +80,7 @@ Führe die Schritte in diesen Handbüchern aus, um Rollen und Features von Serve
 - [Migrate Windows Server Update Services to Windows Server 2012](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh852339(v=ws.11)) (Migrieren von Windows Server Update Services zu Windows Server 2012)
 - [Upgrade Active Directory Domain Controllers to Windows Server 2012](../identity/ad-ds/deploy/upgrade-domain-controllers-to-windows-server-2012-r2-and-windows-server-2012.md) (Upgraden von Active Directory-Domänencontrollern auf Windows Server 2012)
 - [Migrating Clustered Services and Applications to Windows Server 2012](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn486790(v=ws.11)) (Migrieren von Clusterdiensten und -anwendungen zu Windows Server 2012)
- 
+
 
 Weitere Ressourcen zur Migration findest du unter [Migrate Roles and Features to Windows Server 2012](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj134039(v=ws.11)) (Migrieren von Rollen und Features zu Windows Server 2012).
 
@@ -104,5 +104,5 @@ Führe die Schritte in diesen Handbüchern aus, um Rollen und Features von Serve
 - [RRAS Migration Guide](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee822825(v=ws.10)) (RRAS-Migrationshandbuch)
 - [Windows Server Migration Common Tasks and Information](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ff400258(v=ws.10)) (Windows Server-Migration: allgemeine Aufgaben und Informationen)
 - [Windows Server Update Services 3.0 SP2 Migration Guide](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee822826(v=ws.10)) (Migrationshandbuch für Windows Server Update Services 3.0 SP2)
- 
+
 Weitere Ressourcen zur Migration findest du unter [Migrate Server Roles to Windows Server 2008 R2](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd365353(v=ws.10)) (Migrieren von Serverrollen zu Windows Server 2008 R2).

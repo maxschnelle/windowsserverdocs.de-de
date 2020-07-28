@@ -7,14 +7,14 @@ author: rpsqrd
 ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 20e0d5e73713c0d6280e95d51ec8de8fde612350
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 331fc5a4e825dc4e7faf6f0a65605d7aaebf8314
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80856583"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87181696"
 ---
-# <a name="install-hgs-in-an-existing-bastion-forest"></a>Installieren von HGS in einer vorhandenen geschützten Gesamtstruktur 
+# <a name="install-hgs-in-an-existing-bastion-forest"></a>Installieren von HGS in einer vorhandenen geschützten Gesamtstruktur
 
 >Gilt für: Windows Server 2019, Windows Server (halbjährlicher Kanal), Windows Server 2016
 
@@ -27,7 +27,7 @@ In einer vorhandenen geschützten Gesamtstruktur müssen HGS der Stamm Domäne h
 
 Führen Sie alle Befehle in diesem Thema in einer PowerShell-Sitzung mit erhöhten Rechten aus.
 
-[!INCLUDE [Install the HGS server role](../../../includes/guarded-fabric-install-hgs-server-role.md)] 
+[!INCLUDE [Install the HGS server role](../../../includes/guarded-fabric-install-hgs-server-role.md)]
 
 Wenn Ihr Rechenzentrum über eine sichere geschützte Gesamtstruktur verfügt, der Sie HGS-Knoten beitreten möchten, führen Sie die folgenden Schritte aus.
 Sie können diese Schritte auch verwenden, um zwei oder mehr unabhängige HGS-Cluster zu konfigurieren, die mit derselben Domäne verknüpft sind.
@@ -41,7 +41,7 @@ Verwenden Sie Server-Manager oder [Add-Computer](https://go.microsoft.com/fwlink
 Erstellen Sie ein Gruppen verwaltetes Dienst Konto und zwei Sicherheitsgruppen.
 Sie können die Cluster Objekte auch vorab bereitstellen, wenn das Konto, mit dem Sie HGS initialisieren, nicht über die Berechtigung zum Erstellen von Computer Objekten in der Domäne verfügt.
 
-## <a name="group-managed-service-account"></a>Gruppen verwaltetes Dienst Konto
+## <a name="group-managed-service-account"></a>Gruppenverwaltetes Dienstkonto
 
 Das Gruppen verwaltete Dienst Konto (Group Managed Service Account, GMSA) ist die Identität, die von HGS zum Abrufen und Verwenden der Zertifikate verwendet wird. Verwenden Sie [New-ADServiceAccount](https://technet.microsoft.com/itpro/powershell/windows/addsadministration/new-adserviceaccount) , um ein GMSA zu erstellen.
 Wenn dies das erste GMSA in der Domäne ist, müssen Sie einen Schlüssel Verteilungsdienst-Stamm Schlüssel hinzufügen.
@@ -70,7 +70,7 @@ New-ADServiceAccount -Name 'HGSgMSA' -DnsHostName 'HGSgMSA.yourdomain.com' -Prin
 ```
 
 Das GMSA benötigt das Recht, Ereignisse im Sicherheitsprotokoll auf jedem HGS-Server zu generieren.
-Wenn Sie Gruppenrichtlinie verwenden, um die Zuweisung von Benutzerrechten zu konfigurieren, stellen Sie sicher, dass dem GMSA-Konto die [Berechtigung Audit-Ereignisse generieren](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn221956%28v=ws.11%29) auf Ihren HGS-Servern erteilt wird.
+Wenn Sie Gruppenrichtlinie verwenden, um die Zuweisung von Benutzerrechten zu konfigurieren, stellen Sie sicher, dass dem GMSA-Konto die [Berechtigung Audit-Ereignisse generieren](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn221956%28v=ws.11%29) auf Ihren HGS-Servern erteilt wird.
 
 > [!NOTE]
 > Gruppen verwaltete Dienst Konten sind ab dem Windows Server 2012-Active Directory Schema verfügbar.
@@ -90,7 +90,7 @@ New-ADGroup -Name 'HgsJeaReviewers' -GroupScope DomainLocal
 New-ADGroup -Name 'HgsJeaAdmins' -GroupScope DomainLocal
 ```
 
-## <a name="cluster-objects"></a>Cluster Objekte
+## <a name="cluster-objects"></a>Clusterobjekte
 
 Wenn das Konto, das Sie zum Einrichten von HGS verwenden, nicht über die Berechtigung zum Erstellen neuer Computer Objekte in der Domäne verfügt, müssen Sie die Cluster Objekte vorab bereitstellen.
 Diese Schritte werden unter vorab Bereitstellen von [Cluster Computer Objekten in Active Directory Domain Services](https://technet.microsoft.com/library/dn466519(v=ws.11).aspx)erläutert.
@@ -100,7 +100,7 @@ Das CNO stellt den Namen des Clusters dar und wird hauptsächlich intern vom Fai
 VCO stellt den HGS-Dienst dar, der sich auf dem Cluster befindet, und ist der Name, der beim DNS-Server registriert ist.
 
 > [!IMPORTANT]
-> Der Benutzer, der `Initialize-HgsServer` ausführen wird, muss die **vollständige Kontrolle** über die CNO-und VCO-Objekte in Active Directory haben.
+> Der Benutzer, der ausführen wird, `Initialize-HgsServer` muss die **vollständige Kontrolle** über die CNO-und VCO-Objekte in Active Directory haben.
 
 Wenn Sie CNO und VCO schnell vorab bereitstellen möchten, müssen Sie über einen Active Directory Administrator die folgenden PowerShell-Befehle ausführen:
 
@@ -142,7 +142,7 @@ Wenn Sie HGS in einer stark gesperrten Umgebung bereitstellen, können bestimmte
 
 **Richtlinien Name:** Netzwerksicherheit: Konfigurieren der für Kerberos zulässigen Verschlüsselungstypen
 
-**Aktion**: Wenn diese Richtlinie konfiguriert ist, müssen Sie das GMSA-Konto mit " [Set-ADServiceAccount](https://docs.microsoft.com/powershell/module/addsadministration/set-adserviceaccount?view=win10-ps) " aktualisieren, sodass nur die unterstützten Verschlüsselungstypen in dieser Richtlinie verwendet werden. Wenn Ihre Richtlinie beispielsweise nur AES128\_HMAC\_SHA1 und AES256\_HMAC\_SHA1 zulässt, sollten Sie `Set-ADServiceAccount -Identity HGSgMSA -KerberosEncryptionType AES128,AES256`ausführen.
+**Aktion**: Wenn diese Richtlinie konfiguriert ist, müssen Sie das GMSA-Konto mit " [Set-ADServiceAccount](https://docs.microsoft.com/powershell/module/addsadministration/set-adserviceaccount?view=win10-ps) " aktualisieren, sodass nur die unterstützten Verschlüsselungstypen in dieser Richtlinie verwendet werden. Wenn Ihre Richtlinie beispielsweise nur AES128 \_ HMAC \_ SHA1 und AES256 \_ HMAC \_ SHA1 zulässt, sollten Sie Ausführen `Set-ADServiceAccount -Identity HGSgMSA -KerberosEncryptionType AES128,AES256` .
 
 
 

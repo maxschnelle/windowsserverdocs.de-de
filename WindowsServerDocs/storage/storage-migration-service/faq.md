@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: d7f1b5387d82d487e50b217b28367e82617a66ea
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: efe16dd9bdc971b97bc401cf10e14439c46069de
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86966252"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87181736"
 ---
 # <a name="storage-migration-service-frequently-asked-questions-faq"></a>Häufig gestellte Fragen (FAQ) zu Storage Migration Service
 
@@ -62,7 +62,7 @@ Der Speicher Migrationsdienst migriert alle Flags, Einstellungen und die Sicherh
     - ZS-Timeout
     - Limit für gleichzeitige Benutzer
     - Fortlaufend verfügbar
-    - Beschreibung
+    - BESCHREIBUNG
     - Daten verschlüsseln
     - Identitäts-Remoting
     - Infrastruktur
@@ -182,7 +182,7 @@ So melden Sie Fehler:
 So erhalten Sie Support:
 
  - Veröffentlichen einer Frage in der [Windows Server Tech Community](https://techcommunity.microsoft.com/t5/Windows-Server/ct-p/Windows-Server)
- - Beitrag im [TechNet-Forum zu Windows Server 2019](https://social.technet.microsoft.com/Forums/en-US/home?forum=ws2019&filter=alltypes&sort=lastpostdesc)
+ - Beitrag im [Windows Server 2019-Forum](https://docs.microsoft.com/answers/topics/windows-server-2019.html)
  - Öffnen Sie eine Supportanfrage über [Microsoft-Support](https://support.microsoft.com)
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen

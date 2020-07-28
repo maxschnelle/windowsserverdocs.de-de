@@ -2,18 +2,17 @@
 title: Herstellen einer Verbindung in Windows Server Essentials
 description: Beschreibt die Verwendung von Windows Server Essentials
 ms.date: 05/07/2016
-ms.prod: windows-server
 ms.topic: article
 ms.assetid: 149a5d34-43b7-4b9e-99e7-9f2294ab9ddb
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 3e8c50b94b441f75a5b80d3a46f42a87450496a1
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: c1dafb9fb89109a16f2f28662464494691a2f2f0
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85470064"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87179946"
 ---
 # <a name="get-connected-in-windows-server-essentials"></a>Herstellen einer Verbindung in Windows Server Essentials
 
@@ -172,7 +171,7 @@ ms.locfileid: "85470064"
 
   **Windows 8-Betriebssysteme**
 
-- Windows 8
+- Windows 8
 
 - Windows 8 Pro
 
@@ -188,7 +187,7 @@ ms.locfileid: "85470064"
 
   **Windows 10-Betriebssysteme**
 
-- Windows 10
+- Windows 10
 
 - Windows 10 Pro
 
@@ -228,7 +227,7 @@ ms.locfileid: "85470064"
 
   **Windows 8-Betriebssysteme**
 
-- Windows 8
+- Windows 8
 
 - Windows 8 Pro
 
@@ -236,7 +235,7 @@ ms.locfileid: "85470064"
 
   **Windows 10-Betriebssysteme**
 
-- Windows 10
+- Windows 10
 
 - Windows 10 Pro
 
@@ -395,7 +394,7 @@ ms.locfileid: "85470064"
     > [!NOTE]
     >  Wenn sich Ihr Computer an einem Remote Standort außerhalb des Windows Server Essentials-Netzwerks befindet, geben Sie zum Ausführen des Assistenten zum Verbinden eines Computers mit dem Server in der Adressleiste des Webbrowsers **http://<Domain Name \> /Connect** ein, wobei <Domäne \> der Domänen Name Ihrer Organisation ist. Ihre Domänennamensinformationen können Sie von Ihrem Netzwerkadministrator abrufen.
 
-4.  Die Seite **Computer mit dem Server verbinden** wird angezeigt. Führen Sie eines der folgenden Verfahren aus:
+4.  Die Seite **Computer mit dem Server verbinden** wird angezeigt. Führen Sie einen der folgenden Schritte aus:
 
     -   Wenn auf dem Computer das Windows-Betriebssystem ausgeführt wird, klicken Sie auf **Software für Windows herunterladen**.
 

@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 01/10/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 9e9aecc439235d9396d764420711109552d89f32
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 055538bc52e11b7fb24f15db51af52e5cf8376d1
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86965162"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87182086"
 ---
 # <a name="overview-of-file-sharing-using-the-smb-3-protocol-in-windows-server"></a>Übersicht über die Dateifreigabe mithilfe des SMB 3-Protokolls in Windows Server
 
@@ -47,7 +47,7 @@ In den folgenden Abschnitten werden die Funktionen beschrieben, die in SMB 3 un
 
 | Feature/Funktionalität  | Neu oder aktualisiert  | Zusammenfassung  |
 | --------- | --------- | --------- |
-| Gastzugriff auf Dateifreigaben ist deaktiviert. | „Neu“, | Der SMB-Client lässt die folgenden Aktionen nicht mehr zu: Gastkontozugriff auf einen Remoteserver, Fallback auf das Gastkonto, nachdem ungültige Anmeldeinformationen bereitgestellt wurden. Weitere Informationen finden Sie unter [Gastzugriff in SMB2 in Windows standardmäßig deaktiviert](https://support.microsoft.com/help/4046019/guest-access-in-smb2-disabled-by-default-in-windows-10-and-windows-ser). | 
+| Gastzugriff auf Dateifreigaben ist deaktiviert. | „Neu“, | Der SMB-Client lässt die folgenden Aktionen nicht mehr zu: Gastkontozugriff auf einen Remoteserver, Fallback auf das Gastkonto, nachdem ungültige Anmeldeinformationen bereitgestellt wurden. Weitere Informationen finden Sie unter [Gastzugriff in SMB2 in Windows standardmäßig deaktiviert](https://support.microsoft.com/help/4046019/guest-access-in-smb2-disabled-by-default-in-windows-10-and-windows-ser). |
 | Globale SMB-Zuordnung | „Neu“, | Ordnet eine SMB-Remotefreigabe einem Laufwerkbuchstaben zu, der für alle Benutzer auf dem lokalen Host (einschließlich Container) zugänglich ist. Dies ist erforderlich, damit Container-E/A auf dem Datenvolume den Remotebereitstellungspunkt durchlaufen kann. Denken Sie daran, dass alle Benutzer auf dem Containerhost auf die Remotefreigabe zugreifen können, wenn globale Zuordnung in SMB für Container verwendet wird. Jede auf dem Containerhost ausgeführte Anwendung besitzt außerdem Zugriff auf die zugeordnete Remotefreigabe. Weitere Informationen finden Sie unter [Container Storage Support with Cluster Shared Volumes (CSV), Storage Spaces Direct, SMB Global Mapping](https://techcommunity.microsoft.com/t5/failover-clustering/container-storage-support-with-cluster-shared-volumes-csv/ba-p/372140). |
 | SMB-Dialektsteuerung | „Neu“, | Sie können jetzt Registrierungswerte festlegen, um die minimale SMB-Version (Dialekt) und die maximale verwendete SMB-Version zu steuern. Weitere Informationen finden Sie unter [Steuern von SMB-Dialekten](https://techcommunity.microsoft.com/t5/storage-at-microsoft/controlling-smb-dialects/ba-p/860024). |
 
@@ -74,7 +74,7 @@ Weitere Einzelheiten finden Sie im Blogbeitrag [Neuerungen in SMB 3.1.1 in Wind
 | SMB Direct     |   Aktualisiert      | Verbessert die Leistung für kleine E/A-Arbeitsauslastungen, indem die Effizienz beim Hosten von Arbeitsauslastungen mit kleinen E/As (z. B. eine Datenbank für die Onlinetransaktionsverarbeitung (Online Transaction Processing, OLTP) auf einem virtuellen Computer) gesteigert wird. Diese Verbesserungen sind bei der Verwendung von Netzwerkschnittstellen mit höherer Geschwindigkeit wie Ethernet mit 40 GBit/s und InfiniBand mit 56 GBit/s offensichtlich.  |
 | SMB-Bandbreiteneinschränkungen | „Neu“, | Sie können nun [Set-SmbBandwidthLimit](/powershell/module/smbshare/set-smbbandwidthlimit) verwenden, um Bandbreiteneinschränkungen in drei Kategorien festzulegen: VirtualMachine (Hyper-V über SMB-Datenverkehr), LiveMigration (Hyper-V-LiveMigration-Datenverkehr über SMB) oder Standard (alle anderen Typen von SMB-Datenverkehr).
 
-Weitere Informationen zu neuen und geänderten SMB-Funktionen in Windows Server 2012 R2 finden Sie unter [Neuerungen in SMB in Windows Server](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831474(v%3dws.11)>).
+Weitere Informationen zu neuen und geänderten SMB-Funktionen in Windows Server 2012 R2 finden Sie unter [Neuerungen in SMB in Windows Server](</previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831474(v%3dws.11)>).
 
 ## <a name="features-added-in-smb-30-with-windows-server-2012-and-windows-8"></a>In SMB 3.0 mit Windows Server 2012 und Windows 8 hinzugefügte Funktionen
 
@@ -122,7 +122,7 @@ Die folgende Liste enthält weitere im Web verfügbare Ressourcen zu SMB und ver
 * [Speicher](../storage.yml)
 * [Dateiserver mit horizontaler Skalierung für Anwendungsdaten](../../failover-clustering/sofs-overview.md)
 * [Optimieren der Leistung von Dateiservern mit SMB Direct](smb-direct.md)
-* [Bereitstellen von Hyper-V über SMB](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj134187(v%3dws.11)>)
-* [Bereitstellen von SMB Multichannel](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn610980(v%3dws.11)>)
-* [Bereitstellen schneller und effizienter Dateiserver für Serveranwendungen](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831723(v%3dws.11)>)
-* [SMB: Leitfaden zur Problembehandlung](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn659439(v%3dws.11)>)
+* [Bereitstellen von Hyper-V über SMB](</previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj134187(v%3dws.11)>)
+* [Bereitstellen von SMB Multichannel](</previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn610980(v%3dws.11)>)
+* [Bereitstellen schneller und effizienter Dateiserver für Serveranwendungen](</previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831723(v%3dws.11)>)
+* [SMB: Leitfaden zur Problembehandlung](</previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn659439(v%3dws.11)>)

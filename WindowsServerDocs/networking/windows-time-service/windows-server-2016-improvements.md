@@ -8,12 +8,12 @@ ms.date: 10/17/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: networking
-ms.openlocfilehash: 2723868251f90429fb0ad5e966c9222a6a22ab0c
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 92fd335e90aa07a9eb9b76510633b21348732b01
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "77520704"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87260231"
 ---
 # <a name="windows-server-2016-improvements"></a>Windows Server 2016-Verbesserungen
 
@@ -94,13 +94,13 @@ Es ist auch wichtig zu beachten, dass, wenn deine DCs mit einer beträchtlichen 
 
 ## <a name="time-accuracy-measurements"></a>Messungen der Zeitgenauigkeit
 ### <a name="methodology"></a>Methodik
-Zum Messen der Zeitgenauigkeit für Windows Server 2016 haben wir eine Vielzahl von Tools, Methoden und Umgebungen verwendet. Du kannst diese Methoden verwenden, um deine Umgebung zu messen und zu optimieren und zu bestimmen, ob die Genauigkeitsergebnisse deinen Anforderungen entsprechen. 
+Zum Messen der Zeitgenauigkeit für Windows Server 2016 haben wir eine Vielzahl von Tools, Methoden und Umgebungen verwendet. Du kannst diese Methoden verwenden, um deine Umgebung zu messen und zu optimieren und zu bestimmen, ob die Genauigkeitsergebnisse deinen Anforderungen entsprechen.
 
 Die Quelluhr unserer Domäne bestand aus zwei hochpräzisen NTP-Servern mit GPS-Hardware. Wir haben ferner einen separaten Referenztestcomputer für Messungen verwendet, der ebenfalls über hochpräzise GPS-Hardware von einem anderen Hersteller verfügte. Für einige der Tests benötigst du eine exakte und zuverlässige Uhrenquelle, die zusätzlich zur Uhrenquelle deiner Domäne als Referenz verwendet werden kann.
 
 Wir haben vier verschiedene Methoden verwendet, um die Genauigkeit mit beiden physischen und virtuellen Computern zu messen. Mehrere Methoden boten unabhängige Möglichkeiten zur Validierung der Ergebnisse.
 
-1. Messen der lokalen Uhr, die von w32tm gesteuert wird, gegen unseren Referenztestcomputer, der über separate GPS-Hardware verfügt. 
+1. Messen der lokalen Uhr, die von w32tm gesteuert wird, gegen unseren Referenztestcomputer, der über separate GPS-Hardware verfügt.
 2. Messen von NTP-Pings vom NTP-Server an Clients mittels „stripchart“ von W32tm.
 3. Messen von NTP-Pings vom Client an den NTP-Server mittels „stripchart“ von W32tm.
 4. Messen von Hyper-V-Ergebnissen vom Host an den Gast mithilfe des Zeitstempelindikators (Time Stamp Counter, TSC). Dieser Leistungsindikator wird von beiden Partitionen und der Systemzeit in beiden Partitionen gemeinsam genutzt. Wir haben die Differenz zwischen der Hostzeit und der Clientzeit auf dem virtuellen Computer berechnet. Dann haben wir die TSC-Uhr verwendet, um die Hostzeit über den Gast zu interpolieren, da die Messungen nicht gleichzeitig stattfinden. Außerdem haben wir die TSC-Uhr verwendet, um Verzögerungen und Wartezeiten in der API auszuklammern.
@@ -119,7 +119,7 @@ Zum Vergleich haben wir sowohl eine Windows Server 2012R2- als auch eine Window
 ![Windows-Zeitdienst](../media/Windows-Time-Service/Windows-2016-Accurate-Time/topology2.png)
 
 ### <a name="graphical-results-overview"></a>Grafische Übersicht der Ergebnisse
-Die beiden folgenden Diagramme stellen die Zeitgenauigkeit für zwei bestimmte Mitglieder in einer Domäne auf der Grundlage der oben dargestellten Topologie dar. Jedes Diagramm zeigt eine Überlagerung der Ergebnisse von Windows Server 2012R2 und von 2016, wodurch sich die Verbesserungen visuell veranschaulichen lassen. Die Genauigkeit wurde auf dem Gastcomputer im Vergleich zum Host gemessen. Die grafischen Daten repräsentieren eine Teilmenge des gesamten Testumfangs, den wir durchgeführt haben, und zeigen die Best-Case- und Worst-Case-Szenarien. 
+Die beiden folgenden Diagramme stellen die Zeitgenauigkeit für zwei bestimmte Mitglieder in einer Domäne auf der Grundlage der oben dargestellten Topologie dar. Jedes Diagramm zeigt eine Überlagerung der Ergebnisse von Windows Server 2012R2 und von 2016, wodurch sich die Verbesserungen visuell veranschaulichen lassen. Die Genauigkeit wurde auf dem Gastcomputer im Vergleich zum Host gemessen. Die grafischen Daten repräsentieren eine Teilmenge des gesamten Testumfangs, den wir durchgeführt haben, und zeigen die Best-Case- und Worst-Case-Szenarien.
 
 ![Windows-Zeitdienst](../media/Windows-Time-Service/Windows-2016-Accurate-Time/topology3.png)
 
@@ -211,10 +211,10 @@ Als Nächstes startest du den Windows-Zeitdienst erneut.
  net stop w32time && net start w32time
 
 Gib zum Schluss an, dass dieser Computer eine zuverlässige Zeitquelle besitzt.
-  
+
  w32tm /config /reliable:yes /update
 
-Um zu überprüfen, ob die Änderungen ordnungsgemäß durchgeführt wurden, kannst du die folgenden Befehle ausführen, die die unten gezeigten Ergebnisse liefern sollten. 
+Um zu überprüfen, ob die Änderungen ordnungsgemäß durchgeführt wurden, kannst du die folgenden Befehle ausführen, die die unten gezeigten Ergebnisse liefern sollten.
 
  w32tm /query /configuration
 
@@ -252,13 +252,14 @@ Verwende als Nächstes den zuvor genannten Quelleneintrag sowie den „/StripCha
  w32tm /stripchart /computer:MySourceEntry /packetinfo /samples:1
 
 Ebenfalls nützlich, listet der folgende Befehl alle Domänencontroller auf, die in der angegebenen Domäne gefunden werden können, und gibt ein Ergebnis aus, mit dem du jeden Partner bestimmen kannst. Dieser Befehl umfasst Computer, die manuell konfiguriert wurden.
- 
+
  w32tm /monitor /domain:my_domain
 
 Mithilfe der Liste kannst du die Ergebnisse durch die Domäne verfolgen und die Hierarchie sowie die Zeitdifferenz bei jedem Schritt verstehen. Indem du den Punkt auffindest, an dem die Zeitdifferenz signifikant schlechter wird, kannst du die Ursache für die fehlerhafte Zeit festmachen. Von dort aus kannst du versuchen, zu verstehen, warum diese Zeit falsch ist, indem du die w32tm-Protokollierung aktivierst.
 
 #### <a name="using-group-policy"></a>Verwenden von Gruppenrichtlinien
-Du kannst Gruppenrichtlinien verwenden, um eine strengere Genauigkeit zu erreichen, indem du beispielsweise Clients zur Verwendung bestimmter NTP-Server zuweist oder kontrollierst, wie Vorgängerversions-Betriebssysteme bei der Virtualisierung konfiguriert werden. Im Folgenden findest du eine Liste möglicher Szenarien und relevanter Gruppenrichtlinieneinstellungen:
+Du kannst Gruppenrichtlinien verwenden, um eine strengere Genauigkeit zu erreichen, indem du beispielsweise Clients zur Verwendung bestimmter NTP-Server zuweist oder kontrollierst, wie Vorgängerversions-Betriebssysteme bei der Virtualisierung konfiguriert werden.
+Im Folgenden findest du eine Liste möglicher Szenarien und relevanter Gruppenrichtlinieneinstellungen:
 
 **Virtualisierte Domänen**: Zum Steuern virtualisierter Domänencontroller in Windows 2012R2, damit sie ihre Zeit mit ihrer Domäne synchronisieren, anstatt mit dem Hyper-V-Host. Du kannst diesen Registrierungseintrag deaktivieren.  Für den PDC solltest du den Eintrag nicht deaktivieren, da der Hyper-V-Host die stabilste Zeitquelle bereitstellt. Der Registrierungseintrag erfordert, dass du den w32time-Dienst neu startest, nachdem er geändert wurde.
 
@@ -277,7 +278,7 @@ EventLogFlags| 3 – Sämtliche spezifische Zeitprotokollierung|
 > [!NOTE]
 > Die NtpServer- und EventLogFlags-Einstellungen befinden sich unter „System\Windows Time Service\Time Providers“ unter Verwendung der Einstellungen zum Konfigurieren des Windows-NTP-Clients. Die anderen 3 befinden sich unter „System\Windows Time Service“ unter Verwendung der Einstellungen für „Globale Konfiguration“.
 
-**Remote-Genauigkeitsabhängige Lasten Remote**: Für Systeme in verzweigten Domänen wie „Einzelhandel“ oder „Kreditunternehmen“ verwendet Windows die aktuellen Standortinformationen und den Domänencontrollerlocator, um einen lokalen DC zu finden, sofern keine manuelle NTP-Zeitquelle konfiguriert ist. Diese Umgebung erfordert eine Genauigkeit von 1 Sekunde, was die Konvergenz zur richtigen Zeit beschleunigt. Diese Option gestattet dem w32time-Dienst, die Uhr zurückzustellen. Wenn dies akzeptabel ist und deine Anforderungen erfüllt, kannst du die folgende Richtlinie erstellen.  Stelle wie bei jeder Umgebung sicher, dass du das Netzwerk testet und eine Baseline entwickelst. 
+**Remote-Genauigkeitsabhängige Lasten Remote**: Für Systeme in verzweigten Domänen wie „Einzelhandel“ oder „Kreditunternehmen“ verwendet Windows die aktuellen Standortinformationen und den Domänencontrollerlocator, um einen lokalen DC zu finden, sofern keine manuelle NTP-Zeitquelle konfiguriert ist. Diese Umgebung erfordert eine Genauigkeit von 1 Sekunde, was die Konvergenz zur richtigen Zeit beschleunigt. Diese Option gestattet dem w32time-Dienst, die Uhr zurückzustellen. Wenn dies akzeptabel ist und deine Anforderungen erfüllt, kannst du die folgende Richtlinie erstellen.  Stelle wie bei jeder Umgebung sicher, dass du das Netzwerk testet und eine Baseline entwickelst.
 
 Gruppenrichtlinieneinstellung| Neuer Wert|
 ----- | ----- |
@@ -322,14 +323,15 @@ Zur Einhaltung von Bestimmungen für die Zeitablaufverfolgung kannst du w32tm-Pr
 Um das volle Bild zu erhalten, benötigst du auch Ereignisprotokollinformationen. Durch das Erfassen des Systemereignisprotokolls und Filtern nach „Time-Server“, „Microsoft-Windows-Kernel-Boot“, „Microsoft-Windows-Kernel-General“ kannst du eventuell ermitteln, ob andere Einflüsse vorliegen, die die Zeit geändert haben, z. B. Drittanbieter. Diese Protokolle sind möglicherweise erforderlich, um externe Störungen auszuschließen. Eine Gruppenrichtlinie kann Einfluss darauf haben, welche Ereignisprotokolle in das Protokoll geschrieben werden. Weitere Informationen findest du oben im Abschnitt unter „Verwenden von Gruppenrichtlinien“.
 
 ### <a name="w32time-debug-logging"></a><a name="W32Logging"></a>W32time-Protokollierung
-Um w32tm zu Überwachungszwecken zu aktivieren, aktiviert der folgende Befehl die Protokollierung, die die regelmäßigen Aktualisierungen der Uhr sowie die Quellenuhr anzeigt. Starte den Dienst neu, um die neue Protokollierung zu aktivieren. 
+Um w32tm zu Überwachungszwecken zu aktivieren, aktiviert der folgende Befehl die Protokollierung, die die regelmäßigen Aktualisierungen der Uhr sowie die Quellenuhr anzeigt. Starte den Dienst neu, um die neue Protokollierung zu aktivieren.
 
 Weitere Informationen findest du unter [Aktivieren der Debugprotokollierung im Windows-Zeitdienst](https://support.microsoft.com/kb/816043).
 
  w32tm /debug /enable /file:C:\Windows\Temp\w32time-test.log /size:10000000 /entries:0-73,103,107,110
 
 ### <a name="performance-monitor"></a>Systemmonitor
-Der Windows-Zeitdienst von Windows Server 2016 stellt Leistungsindikatoren zur Verfügung, die zum Erfassen der Protokollierung für die Überwachung verwendet werden können. Sie können lokal oder remote protokolliert werden. Du kannst die Leistungsindikatoren „Computerzeitdifferenz“ und „Roundtripverzögerung“ aufzeichnen. Wie bei jedem Leistungsindikator kannst du diese remote überwachen und Benachrichtigungen mithilfe von System Center Operations Manager erstellen. So kannst du beispielsweise eine Warnung verwenden, um dich alarmieren zu lassen, wenn die Zeitdifferenz von der gewünschten Genauigkeit abweicht. Das [System Center-Management Pack](https://social.technet.microsoft.com/wiki/contents/articles/15251.system-center-management-pack-authoring-guide.aspx) enthält weitere Informationen.
+Der Windows-Zeitdienst von Windows Server 2016 stellt Leistungsindikatoren zur Verfügung, die zum Erfassen der Protokollierung für die Überwachung verwendet werden können. Sie können lokal oder remote protokolliert werden. Du kannst die Leistungsindikatoren „Computerzeitdifferenz“ und „Roundtripverzögerung“ aufzeichnen.
+Wie bei jedem Leistungsindikator kannst du diese remote überwachen und Benachrichtigungen mithilfe von System Center Operations Manager erstellen. So kannst du beispielsweise eine Warnung verwenden, um dich alarmieren zu lassen, wenn die Zeitdifferenz von der gewünschten Genauigkeit abweicht. Das [System Center-Management Pack](https://www.microsoft.com/download/details.aspx?id=44231) enthält weitere Informationen.
 
 ### <a name="windows-traceability-example"></a>Beispiel für die Windows-Nachverfolgbarkeit
 In w32tm-Protokolldateien solltest du zwei Informationen überprüfen. Die erste ist ein Hinweis darauf, dass die Protokolldatei zurzeit „Uhr festlegen“ aufweist. Dadurch wird nachgewiesen, dass deine Uhr zum strittigen Zeitpunkt vom Windows-Zeitdienst festgelegt wurde.
@@ -337,7 +339,7 @@ In w32tm-Protokolldateien solltest du zwei Informationen überprüfen. Die erste
  151802 20:18:32.9821765s - ClockDispln Discipline: *SKEW*TIME* - PhCRR:223 CR:156250 UI:100 phcT:65 KPhO:14307 151802 20:18:33.9898460s - ClockDispln Discipline: *SKEW*TIME* - PhCRR:1 CR:156250 UI:100 phcT:64 KPhO:41 151802 20:18:44.1090410s - ClockDispln Discipline: *SKEW*TIME* - PhCRR:1 CR:156250 UI:100 phcT:65 KPhO:38
 
 Die Hauptsache ist, dass du Meldungen mit dem Präfix „ClockDispln Discipline“ siehst, was beweist, dass w32time mit deiner Systemuhr interagiert.
- 
+
 Als Nächstes musst du die letzte Meldung im Protokoll vor dem strittigen Zeitpunkt finden, die den Quellcomputer meldet, der zurzeit als Referenzuhr verwendet wird. Dabei kann es sich um eine IP-Adresse, einen Computernamen oder den VMIC-Anbieter handeln, was anzeigt, dass die Synchronisierung mit dem Host für Hyper-V stattfindet. Im folgenden Beispiel wird die IPv4-Adresse „10.197.216.105“ bereitgestellt.
 
  151802 20:18:54.6531515s - Response from peer 10.197.216.105,0x8 (ntp.m|0x8|0.0.0.0:123->10.197.216.105:123), ofs: +00.0012218s
@@ -345,13 +347,13 @@ Als Nächstes musst du die letzte Meldung im Protokoll vor dem strittigen Zeitpu
 Nachdem du nun das erste System in der Referenzzeitkette überprüft hast, musst du die Protokolldatei auf die Referenzzeitquelle untersuchen und dieselben Schritte wiederholen. Dies setzt sich so lange fort, bis du zu einer physischen Uhr wie GPS oder einer bekannten Zeitquelle wie NIST gelangst. Wenn es sich bei der Referenzuhr um GPS-Hardware handelt, sind möglicherweise auch Protokolle des Herstellers erforderlich.
 
 ## <a name="network-considerations"></a>Überlegungen zum Netzwerk
-Die NTP-Protokollalgorithmen sind von der Symmetrie deines Netzwerks abhängig. Wenn du die Anzahl der Netzwerkhops erhöhst, steigt die Wahrscheinlichkeit für eine Asymmetrie. Daher ist es schwierig, vorherzusagen, welche Arten von Genauigkeiten in deinen spezifischen Umgebungen angezeigt werden. 
+Die NTP-Protokollalgorithmen sind von der Symmetrie deines Netzwerks abhängig. Wenn du die Anzahl der Netzwerkhops erhöhst, steigt die Wahrscheinlichkeit für eine Asymmetrie. Daher ist es schwierig, vorherzusagen, welche Arten von Genauigkeiten in deinen spezifischen Umgebungen angezeigt werden.
 
 Die Leistungsüberwachung und die neuen Windows-Zeitleistungsindikatoren in Windows Server 2016 können verwendet werden, um die Genauigkeit deiner Umgebungen zu bewerten und Baselines zu erstellen. Zusätzlich kannst du eine Problembehandlung durchführen, um die aktuelle Differenz aller Computer in deinem Netzwerk zu ermitteln.
 
-Es gibt zwei allgemeine Standards für genaue Zeit über das Netzwerk. PTP ([Precision Time Protocol – IEEE 1588](https://www.nist.gov/el/intelligent-systems-division-73500/introduction-ieee-1588)) enthält strengere Anforderungen an die Netzwerkinfrastruktur, kann aber häufig eine höhere Genauigkeit als Mikrosekunden bereitstellen. NTP ([Network Time Protocol – RFC 1305](https://tools.ietf.org/html/rfc1305)) funktioniert in einer größeren Vielzahl von Netzwerken und Umgebungen, was die Verwaltung erleichtert. 
+Es gibt zwei allgemeine Standards für genaue Zeit über das Netzwerk. PTP ([Precision Time Protocol – IEEE 1588](https://www.nist.gov/el/intelligent-systems-division-73500/introduction-ieee-1588)) enthält strengere Anforderungen an die Netzwerkinfrastruktur, kann aber häufig eine höhere Genauigkeit als Mikrosekunden bereitstellen. NTP ([Network Time Protocol – RFC 1305](https://tools.ietf.org/html/rfc1305)) funktioniert in einer größeren Vielzahl von Netzwerken und Umgebungen, was die Verwaltung erleichtert.
 
-Windows unterstützt für Computer, die keiner Domäne beigetreten sind, standardmäßig Simple NTP (RFC2030). Für Computer, die einer Domäne beigetreten sind, verwenden wir ein sicheres NTP namens [MS-SNTP](https://msdn.microsoft.com/library/cc246877.aspx), das von der Domäne aushandelte geheime Schlüssel nutzt, die einen Verwaltungsvorteil gegenüber dem in RFC1305 und RFC5905 beschriebenen authentifizierten NTP bieten.  
+Windows unterstützt für Computer, die keiner Domäne beigetreten sind, standardmäßig Simple NTP (RFC2030). Für Computer, die einer Domäne beigetreten sind, verwenden wir ein sicheres NTP namens [MS-SNTP](https://msdn.microsoft.com/library/cc246877.aspx), das von der Domäne aushandelte geheime Schlüssel nutzt, die einen Verwaltungsvorteil gegenüber dem in RFC1305 und RFC5905 beschriebenen authentifizierten NTP bieten.
 
 Sowohl einer Domäne beigetretene als auch nicht beigetretene Protokolle erfordern UDP-Port 123. Weitere Informationen zu den bewährten Methoden für NTP findest du im [Network Time Protocol Best Current Practices IETF Draft](https://tools.ietf.org/html/draft-ietf-ntp-bcp-00).
 
@@ -361,7 +363,7 @@ Windows nimmt nur dann eine schrittweise Anpassung der Uhr vor, wenn bestimmte G
 Dies ist ein weiterer Grund, warum du in deiner Umgebung Tests durchführen und Baselines einrichten musst. Wenn sich der Leistungsindikator „Berechnete Zeitdifferenz“ nicht bei der Genauigkeit stabilisiert, die du anstrebst, solltest due überprüfen, ob deine Firmware auf dem neuesten Stand ist. Als weiteren Test kannst du feststellen, ob sich dasselbe Problem auf duplizierter Hardware reproduzieren lässt.
 
 ### <a name="troubleshooting-time-accuracy-and-ntp"></a>Problembehandlung von Zeitgenauigkeit und NTP
-Du kannst den oben stehenden Abschnitt „Ermitteln der Hierarchie“ verwenden, um die Quelle der ungenauen Zeit herauszufinden. Wenn du dir die Zeitdifferenz ansiehst, finde den Punkt in der Hierarchie, an dem die Zeit am meisten von ihrer NTP-Quelle abweicht. Nachdem du die Hierarchie verstanden hast, solltest du zu verstehen versuchen, warum diese spezielle Zeitquelle keine genaue Zeit erhält. 
+Du kannst den oben stehenden Abschnitt „Ermitteln der Hierarchie“ verwenden, um die Quelle der ungenauen Zeit herauszufinden. Wenn du dir die Zeitdifferenz ansiehst, finde den Punkt in der Hierarchie, an dem die Zeit am meisten von ihrer NTP-Quelle abweicht. Nachdem du die Hierarchie verstanden hast, solltest du zu verstehen versuchen, warum diese spezielle Zeitquelle keine genaue Zeit erhält.
 
 Wenn du dich auf das System mit der abweichenden Zeit konzentrierst, kannst du mithilfe dieser unten stehenden Tools weitere Informationen sammeln, um das Problem zu bestimmen und eine Lösung zu finden. Die unten stehende „UpstreamClockSource“-Referenz ist die mittels „w32tm /config /status“ ermittelte Uhr.
 
@@ -378,7 +380,7 @@ Wenn du dich auf das System mit der abweichenden Zeit konzentrierst, kannst du m
 Problem| Symptome| Lösung|
 ----- | ----- | ----- |
 | Die lokale TSC-Uhr ist nicht stabil.| Verwenden von Perfmon – Physischer Computer – Synchronisierungsuhr, stabile Uhr, doch dies tritt weiterhin alle 1 bis 2 Minuten von mehreren 100 µs auf. | Aktualisiere die Firmware, oder überprüfe, ob dasselbe Problem mit anderer Hardware vielleicht nicht auftritt.|
-| Netzwerklatenz| „w32tm /stripchart“ zeigt eine RoundTripDelay von mehr als 10 ms an. Schwankungen bei der Verzögerung führen zu Störungen in einer Größenordnung von der Hälfte der Roundtripzeit, beispielsweise eine Verzögerung, die nur in eine Richtung wirksam ist.<br><br>UpstreamClockSource ist mehrere Hops, wie von PING angegeben. TTL sollte nahe bei 128 liegen.<br><br>Verwende Tracert, um die Wartezeit bei jedem Hop zu ermitteln.  | Suche eine näher liegende Uhrenquelle für die Zeit. Eine Lösung besteht darin, eine Quellenuhr im selben Segment zu installieren oder die geografisch näher liegende Quellenuhr manuell zu referenzieren. Füge in einem Domänenszenario einen Computer mit der GTimeServ-Rolle hinzu. | 
+| Netzwerklatenz| „w32tm /stripchart“ zeigt eine RoundTripDelay von mehr als 10 ms an. Schwankungen bei der Verzögerung führen zu Störungen in einer Größenordnung von der Hälfte der Roundtripzeit, beispielsweise eine Verzögerung, die nur in eine Richtung wirksam ist.<br><br>UpstreamClockSource ist mehrere Hops, wie von PING angegeben. TTL sollte nahe bei 128 liegen.<br><br>Verwende Tracert, um die Wartezeit bei jedem Hop zu ermitteln.  | Suche eine näher liegende Uhrenquelle für die Zeit. Eine Lösung besteht darin, eine Quellenuhr im selben Segment zu installieren oder die geografisch näher liegende Quellenuhr manuell zu referenzieren. Füge in einem Domänenszenario einen Computer mit der GTimeServ-Rolle hinzu. |
 Die NTP-Quelle kann nicht zuverlässig erreicht werden.| „W32tm /stripchart“ gibt zeitweise „Timeout bei Anforderung“ zurück. |NTP-Quelle reagiert nicht.|
 NTP-Quelle reagiert nicht.| Überprüfe die Perfmon-Leistungsindikatoren „Anzahl von Zeitquellen des NTP-Clients“, „Eingehende NTP-Serveranforderungen“, „Ausgehende NTP-Serverantworten“, und bestimme deine Verwendung im Vergleich zu deinen Baselines.| Bestimme mithilfe von Serverleistungsindikatoren, ob sich die Last in Bezug auf deine Baselines geändert hat.<br><br>Liegen Netzwerküberlastungsprobleme vor?|
 Der Domänencontroller verwendet nicht die genaueste Uhr.| Änderungen in der Topologie oder kürzlich hinzugefügte Masterzeituhr.| w32tm /resync /rediscover|
@@ -392,13 +394,13 @@ Es ist ferner nützlich, Baselines für Windows Server 2016 im Vergleich zu 201
 Sammle unter Verwendung aller w32time-Leistungsindikatoren mindestens eine Woche lang Daten. Dadurch wird sichergestellt, dass du über eine ausreichend große Referenz verfügst, um die verschiedensten Dinge im Netzwerk im zeitlichen Verlauf berücksichtigen zu können, sowie über genügend Daten einer Ausführung, die die Gewissheit bieten, dass deine Zeitgenauigkeit stabil ist.
 
 ### <a name="ntp-server-redundancy"></a>NTP-Serverredundanz
-Bei einer manuellen NTP-Serverkonfiguration, die für Computer verwendet wird, die keiner Domäne beigetreten sind, oder für den PDC, ist die Verwendung mehrerer Server eine gute Redundanzmaßnahme hinsichtlich der Verfügbarkeit. Dies kann auch eine bessere Genauigkeit bieten, wenn man davon ausgeht, dass alle Quellen genau und stabil sind. Wenn die Topologie jedoch nicht gut entworfen wurde, oder die Zeitquellen nicht stabil sind, könnte die resultierende Genauigkeit möglicherweise schlechter sein, weshalb Vorsicht geboten ist. Der Grenzwert für unterstützte Zeitserver, die w32Time manuell referenzieren kann, ist 10. 
+Bei einer manuellen NTP-Serverkonfiguration, die für Computer verwendet wird, die keiner Domäne beigetreten sind, oder für den PDC, ist die Verwendung mehrerer Server eine gute Redundanzmaßnahme hinsichtlich der Verfügbarkeit. Dies kann auch eine bessere Genauigkeit bieten, wenn man davon ausgeht, dass alle Quellen genau und stabil sind. Wenn die Topologie jedoch nicht gut entworfen wurde, oder die Zeitquellen nicht stabil sind, könnte die resultierende Genauigkeit möglicherweise schlechter sein, weshalb Vorsicht geboten ist. Der Grenzwert für unterstützte Zeitserver, die w32Time manuell referenzieren kann, ist 10.
 
 ## <a name="leap-seconds"></a>Schaltsekunden
 Die Erdumdrehungsdauer schwankt im zeitlichen Verlauf, was von klimatischen und geologischen Ereignissen verursacht wird. In der Regel liegt diese Schwankung bei ungefähr einer Sekunde alle paar Jahre. Immer, wenn die Abweichung gegenüber der Atomuhrzeit zu groß wird, wird eine Korrektur von einer Sekunde (nach oben oder unten) eingefügt, die als Schaltsekunde bezeichnet wird. Dies erfolgt so, dass der Unterschied niemals 0,9 Sekunden überschreitet. Diese Korrektur wird sechs Monate vor der tatsächlichen Korrektur angekündigt. Vor Windows Server 2016 hat der Microsoft-Zeitdienst Schaltsekunden nicht berücksichtigt, sondern hat sich darauf verlassen, dass der externe Zeitdienst dies berücksichtigt. Mit der zunehmenden Zeitgenauigkeit von Windows Server 2016 arbeitet Microsoft an einer geeigneteren Lösung für das Problem der Schaltsekunde.
 
 ## <a name="secure-time-seeding"></a>Sicheres Zeitseeding
-W32Time in Server 2016 enthält die Funktion für sicheres Zeitseeding. Diese Funktion bestimmt die ungefähre aktuelle Zeit von ausgehenden SSL-Verbindungen. Dieser Zeitwert wird verwendet, um die lokale Systemuhr zu überwachen und grobe Fehler zu korrigieren. Weitere Informationen zu dieser Funktion findest du in [diesem Blogbeitrag](https://blogs.msdn.microsoft.com/w32time/2016/09/28/secure-time-seeding-improving-time-keeping-in-windows/). Bei Bereitstellungen mit zuverlässigen Zeitquellen und gut überwachten Computern, was eine Überwachung auf Zeitdifferenzen beinhaltet, kannst du dich entscheiden, nicht die Funktion für sicheres Zeitseeding nicht zu verwenden und dich stattdessen auf deine vorhandene Infrastruktur verlassen. 
+W32Time in Server 2016 enthält die Funktion für sicheres Zeitseeding. Diese Funktion bestimmt die ungefähre aktuelle Zeit von ausgehenden SSL-Verbindungen. Dieser Zeitwert wird verwendet, um die lokale Systemuhr zu überwachen und grobe Fehler zu korrigieren. Weitere Informationen zu dieser Funktion findest du in [diesem Blogbeitrag](https://blogs.msdn.microsoft.com/w32time/2016/09/28/secure-time-seeding-improving-time-keeping-in-windows/). Bei Bereitstellungen mit zuverlässigen Zeitquellen und gut überwachten Computern, was eine Überwachung auf Zeitdifferenzen beinhaltet, kannst du dich entscheiden, nicht die Funktion für sicheres Zeitseeding nicht zu verwenden und dich stattdessen auf deine vorhandene Infrastruktur verlassen.
 
 Du kannst die Funktion mit folgenden Schritten deaktivieren:
 

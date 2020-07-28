@@ -1,6 +1,6 @@
 ---
-title: Empfangen von Segmentkoaleszenz (RSC) im vSwitch
-description: Receive Segment Sammel (RSC) im Vswitch ist eine Funktion in Windows Server 2019 und dem Windows 10-Update vom Oktober 2018, mit der die CPU-Auslastung des Hosts reduziert und der Durchsatz für virtuelle Arbeits Auslastungen erhöht wird, indem mehrere TCP-Segmente in weniger, aber größere vergeben. Die Verarbeitung von weniger großen Segmenten (zusammen Fügung) ist effizienter als die Verarbeitung zahlreicher, kleiner Segmente.
+title: Empfangssegmentzusammenfügung im vSwitch
+description: Receive Segment Sammel (RSC) im Vswitch ist eine Funktion in Windows Server 2019 und dem Windows 10-Update vom Oktober 2018, mit der die CPU-Auslastung des Hosts reduziert und der Durchsatz für virtuelle Arbeits Auslastungen erhöht wird, indem mehrere TCP-Segmente in weniger, aber größere Segmente zusammengestellt werden. Die Verarbeitung von weniger großen Segmenten (zusammen Fügung) ist effizienter als die Verarbeitung zahlreicher, kleiner Segmente.
 manager: dougkim
 ms.prod: windows-server
 ms.technology: networking
@@ -8,19 +8,19 @@ ms.topic: article
 ms.author: dacuo
 author: dcuomo
 ms.date: 09/07/2018
-ms.openlocfilehash: 0ffb417728bbdb73d8fb462ff7783b17b511bcd3
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: e7db6656bd9331e5cc6c2deaee143b3602ef1239
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80814773"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87181816"
 ---
 # <a name="rsc-in-the-vswitch"></a>RSC im Vswitch
 >Gilt für: Windows Server 2019
 
-Receive Segment Sammel (RSC) im Vswitch ist eine Funktion in Windows Server 2019 und dem Windows 10-Update vom Oktober 2018, mit der die CPU-Auslastung des Hosts reduziert und der Durchsatz für virtuelle Arbeits Auslastungen erhöht wird, indem mehrere TCP-Segmente in weniger, aber größere vergeben. Die Verarbeitung von weniger großen Segmenten (zusammen Fügung) ist effizienter als die Verarbeitung zahlreicher, kleiner Segmente.
+Receive Segment Sammel (RSC) im Vswitch ist eine Funktion in Windows Server 2019 und dem Windows 10-Update vom Oktober 2018, mit der die CPU-Auslastung des Hosts reduziert und der Durchsatz für virtuelle Arbeits Auslastungen erhöht wird, indem mehrere TCP-Segmente in weniger, aber größere Segmente zusammengestellt werden. Die Verarbeitung von weniger großen Segmenten (zusammen Fügung) ist effizienter als die Verarbeitung zahlreicher, kleiner Segmente.
 
-Windows Server 2012 und höher enthielt eine nur-Hardware-Auslagerung-Version (implementiert im physischen Netzwerkadapter) der Technologie, die auch als Empfangs Segment Zusammenfassung bezeichnet wird. Diese offloaded-Version von RSC ist in neueren Windows-Versionen weiterhin verfügbar. Es ist jedoch nicht mit virtuellen Workloads kompatibel und wurde deaktiviert, sobald ein physischer Netzwerkadapter an einen Vswitch angefügt wurde. Weitere Informationen zur reinen Hardware Version von RSC finden Sie unter [Receive Segment Coalescing (RSC)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh997024(v=ws.11)).
+Windows Server 2012 und höher enthielt eine nur-Hardware-Auslagerung-Version (implementiert im physischen Netzwerkadapter) der Technologie, die auch als Empfangs Segment Zusammenfassung bezeichnet wird. Diese offloaded-Version von RSC ist in neueren Windows-Versionen weiterhin verfügbar. Es ist jedoch nicht mit virtuellen Workloads kompatibel und wurde deaktiviert, sobald ein physischer Netzwerkadapter an einen Vswitch angefügt wurde. Weitere Informationen zur reinen Hardware Version von RSC finden Sie unter [Receive Segment Coalescing (RSC)](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh997024(v=ws.11)).
 
 ## <a name="scenarios-that-benefit-from-rsc-in-the-vswitch"></a>Szenarien, die von RSC im Vswitch profitieren
 
@@ -30,11 +30,11 @@ Beispiel:
 
 -   Virtuelle Netzwerkkarten für Hosts einschließlich:
 
-    -   Software-Defined Networking
+    -   Softwaredefiniertes Netzwerk
 
     -   Hyper-V-Host
 
-    -   Direkte Speicherplätze
+    -   Speicherplätze direkt
 
 -   Virtuelle Hyper-V-Gast-NICs
 
