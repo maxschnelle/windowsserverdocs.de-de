@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 05/18/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 8ff800fc2a0885cec39ca104607d7207f0bd8ce0
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 746aa953b2226152a1f103fd0b5a974f543ce993
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80815603"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86966112"
 ---
 # <a name="use-robocopy-to-pre-seed-files-for-dfs-replication"></a>Verwenden von Robocopy, um ein Vorab-Dateiseeding für die DFS-Replikation auszuführen
 
@@ -43,9 +43,9 @@ Da das Vorab-Seeding und die DFS-Replikation in keinem direkten Zusammenhang ste
 - Auf dem Ziellaufwerk muss ausreichend Speicherplatz verfügbar sein. Es darf kein Ordner in dem Pfad erstellt werden, in den kopiert werden soll: Der Stammordner muss von Robocopy erstellt werden.
     
     >[!NOTE]
-    >Bei der Entscheidung, wie viel Speicherplatz für die Dateien zugewiesen werden soll, für die ein Vorab-Seeding ausgeführt wurde, sollten der zukünftig erwartete Datenzuwachs und die Speicheranforderungen für die DFS-Replikation in Erwägung gezogen werden. Unterstützung bei der Planung findest du unter dem Thema zum [Bearbeiten der Kontingentgröße des Stagingordners und des Ordners „ConflictandDeleted“](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754229(v=ws.11)) unter [Verwalten der DFS-Replikation](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754771(v=ws.11)>).
+    >Bei der Entscheidung, wie viel Speicherplatz für die Dateien zugewiesen werden soll, für die ein Vorab-Seeding ausgeführt wurde, sollten der zukünftig erwartete Datenzuwachs und die Speicheranforderungen für die DFS-Replikation in Erwägung gezogen werden. Unterstützung bei der Planung findest du unter dem Thema zum [Bearbeiten der Kontingentgröße des Stagingordners und des Ordners „ConflictandDeleted“](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc754229(v=ws.11)) unter [Verwalten der DFS-Replikation](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754771(v=ws.11)>).
 
-- Installiere auf dem Quellserver optional den Prozessmonitor oder den Prozess-Explorer, mit dem du nach Anwendungen suchen kannst, durch die Dateien gesperrt werden. Informationen zum Download findest du unter [Prozessmonitor](https://docs.microsoft.com/sysinternals/downloads/procmon) und [Prozess-Explorer](https://docs.microsoft.com/sysinternals/downloads/process-explorer).
+- Installiere auf dem Quellserver optional den Prozessmonitor oder den Prozess-Explorer, mit dem du nach Anwendungen suchen kannst, durch die Dateien gesperrt werden. Informationen zum Download findest du unter [Prozessmonitor](/sysinternals/downloads/procmon) und [Prozess-Explorer](/sysinternals/downloads/process-explorer).
 
 ## <a name="step-1-download-and-install-the-latest-version-of-robocopy"></a>Schritt 1: Herunterladen und Installieren der aktuellen Robocopy-Version
 
@@ -76,7 +76,7 @@ Nachdem du die aktuelle Version von Robocopy auf dem Server installiert hast, so
 |Ursprung der Sperre|Erläuterung|Abhilfemaßnahmen|
 |---|---|---|
 |Benutzer öffnen Dateien im Remotemodus auf Freigaben.|Mitarbeiter stellen eine Verbindung mit einem Standarddateiserver her und bearbeiten Dokumente, Multimediainhalte oder andere Dateien. Werden zeitweise auch als herkömmlicher Basisordner oder als freigegebene Datenworkloads bezeichnet.|Robocopy-Vorgänge sollten nur außerhalb der Spitzen- und Geschäftszeiten ausgeführt werden. Dadurch wird die Anzahl der Dateien minimiert, die von Robocopy während des Vorab-Seedings übersprungen werden müssen.<br><br>Mit den Windows PowerShell-Cmdlets **Grant-SmbShareAccess** und **Close-SmbSession** kannst du für die zu replizierenden Dateifreigaben vorübergehend den schreibgeschützten Zugriff festlegen. Wenn du Berechtigungen für eine allgemeine Gruppe wie „Jeder“ oder „Authentifizierte Benutzer“ auf Lesezugriff festlegst, ist es weniger wahrscheinlich, dass Standardbenutzer Dateien mit exklusiven Sperren öffnen (wenn der Schreibschutz beim Öffnen der Dateien von ihren Anwendungen erkannt wird).<br><br>Du könntest auf dem jeweiligen Server auch eine temporäre Firewallregel für eingehende Daten an SMB-Port 445 festlegen, um den Zugriff auf die Dateien zu blockieren, oder das **Block-SmbShareAccess**-Cmdlet verwenden. Allerdings haben beide Methoden starke Auswirkungen auf die Benutzerfreundlichkeit.|
-|Dateien werden von Anwendungen lokal geöffnet.|Dateien werden manchmal von Anwendungsworkloads gesperrt, die auf einem Dateiserver ausgeführt werden.|Die Anwendungen, durch die Dateien gesperrt werden, sollten vorübergehend deaktiviert oder deinstalliert werden. Um zu ermitteln, durch welche Anwendungen Dateien gesperrt werden, kannst du den Prozessmonitor oder Prozess-Explorer verwenden. Der Prozessmonitor kann von der Seite [Process Monitor](https://docs.microsoft.com/sysinternals/downloads/procmon) oder der Prozess-Explorer von der Seite [Process Explorer](https://docs.microsoft.com/sysinternals/downloads/process-explorer) heruntergeladen werden.|
+|Dateien werden von Anwendungen lokal geöffnet.|Dateien werden manchmal von Anwendungsworkloads gesperrt, die auf einem Dateiserver ausgeführt werden.|Die Anwendungen, durch die Dateien gesperrt werden, sollten vorübergehend deaktiviert oder deinstalliert werden. Um zu ermitteln, durch welche Anwendungen Dateien gesperrt werden, kannst du den Prozessmonitor oder Prozess-Explorer verwenden. Der Prozessmonitor kann von der Seite [Process Monitor](/sysinternals/downloads/procmon) oder der Prozess-Explorer von der Seite [Process Explorer](/sysinternals/downloads/process-explorer) heruntergeladen werden.|
 
 ## <a name="step-3-copy-the-replicated-files-to-the-destination-server"></a>Schritt 3: Kopieren der replizierten Dateien auf den Zielserver
 
@@ -101,8 +101,8 @@ Nachdem du die Anzahl der Sperren für die zu replizierenden Dateien verringert 
     
     |Parameter|Beschreibung|
     |---|---|
-    |„\<Pfad des replizierten Quellordners\>“|Gibt den Quellordner an, für den ein Vorab-Seeding auf den Zielserver ausgeführt wird.|
-    |„\<Pfad des replizierten Zielordners\>“|Gibt den Pfad zu dem Ordner an, in dem die Dateien nach dem Vorab-Seeding gespeichert werden.<br><br>Der Zielordner darf noch nicht auf dem Zielserver vorhanden sein. Um übereinstimmende Dateihashes zu erhalten, muss der Stammordner von Robocopy erstellt werden, wenn das Vorab-Dateiseeding ausgeführt wird.|
+    |"\<source replicated folder path\>"|Gibt den Quellordner an, für den ein Vorab-Seeding auf den Zielserver ausgeführt wird.|
+    |"\<destination replicated folder path\>"|Gibt den Pfad zu dem Ordner an, in dem die Dateien nach dem Vorab-Seeding gespeichert werden.<br><br>Der Zielordner darf noch nicht auf dem Zielserver vorhanden sein. Um übereinstimmende Dateihashes zu erhalten, muss der Stammordner von Robocopy erstellt werden, wenn das Vorab-Dateiseeding ausgeführt wird.|
     |/e|Kopiert Unterverzeichnisse und die enthaltenen Dateien sowie leere Unterverzeichnisse.|
     |/b|Kopiert Dateien im Sicherungsmodus.|
     |/copyall|Kopiert alle Dateiinformationen, einschließlich Daten, Attribute, Zeitstempel, NTFS-Zugriffssteuerungsliste sowie Informationen zum Besitzer und zur Überwachung.|
@@ -111,7 +111,7 @@ Nachdem du die Anzahl der Sperren für die zu replizierenden Dateien verringert 
     |MT:64|Kopiert 64 Dateien gleichzeitig.|
     |/xd DfsrPrivate|Schließt den Ordner „DfsrPrivate“ aus.|
     |/tee|Schreibt die Statusausgabe in das Konsolenfenster sowie in die Protokolldatei.|
-    |/log \<Protokolldateipfad>|Gibt die zu schreibende Protokolldatei an. Überschreibt den vorhandenen Inhalt der Datei. (Verwende `/log+ <log file path>`, um Einträge an die vorhandene Protokolldatei anzufügen.)|
+    |/log \<log file path>|Gibt die zu schreibende Protokolldatei an. Überschreibt den vorhandenen Inhalt der Datei. (Verwende `/log+ <log file path>`, um Einträge an die vorhandene Protokolldatei anzufügen.)|
     |/v|Erzeugt eine ausführliche Ausgabe, die übersprungene Dateien einschließt.|
     
     Beispiel: Mit dem folgenden Befehl werden Dateien vom replizierten Quellordner „E:\\RF01“ auf das Datenlaufwerk „D“ auf dem Zielserver repliziert:
@@ -121,7 +121,7 @@ Nachdem du die Anzahl der Sperren für die zu replizierenden Dateien verringert 
     ```
     
     >[!NOTE]
-    >Es wird empfohlen, die oben beschriebenen Parameter zu verwenden, wenn mit Robocopy ein Vorab-Dateiseeding für die DFS-Replikation ausgeführt wird. Allerdings können einige Parameterwerte geändert oder weitere Parameter hinzugefügt werden. Beispielsweise könnten Tests ergeben, dass genügend Kapazität vorhanden ist, um für den Parameter */MT* (Anzahl der Threads) einen höheren Wert festzulegen. Wenn in erster Linie größere Dateien repliziert werden, könnte die Kopierleistung verbessert werden, indem die Option **/j** für ungepufferte E/A hinzugefügt wird. Weitere Informationen zu Robocopy-Parametern findest du in der Befehlszeilenreferenz zu [Robocopy](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy).
+    >Es wird empfohlen, die oben beschriebenen Parameter zu verwenden, wenn mit Robocopy ein Vorab-Dateiseeding für die DFS-Replikation ausgeführt wird. Allerdings können einige Parameterwerte geändert oder weitere Parameter hinzugefügt werden. Beispielsweise könnten Tests ergeben, dass genügend Kapazität vorhanden ist, um für den Parameter */MT* (Anzahl der Threads) einen höheren Wert festzulegen. Wenn in erster Linie größere Dateien repliziert werden, könnte die Kopierleistung verbessert werden, indem die Option **/j** für ungepufferte E/A hinzugefügt wird. Weitere Informationen zu Robocopy-Parametern findest du in der Befehlszeilenreferenz zu [Robocopy](../../administration/windows-commands/robocopy.md).
 
     >[!WARNING]
     >Um potenzielle Datenverluste zu vermeiden, wenn Robocopy zum Vorab-Dateiseeding für die DFS-Replikation verwendet wird, sollten an den empfohlenen Parametern keine der folgenden Änderungen vorgenommen werden:

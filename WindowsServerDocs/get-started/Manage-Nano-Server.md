@@ -10,12 +10,12 @@ ms.assetid: 599d6438-a506-4d57-a0ea-1eb7ec19f46e
 author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
-ms.openlocfilehash: 0b41113f302dad1c9917001bf137da28ef431d38
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: f07c6ffd96aabd4bac5a7e34c7bb612df33274f6
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80826783"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86961112"
 ---
 # <a name="manage-nano-server"></a>Verwalten von Nano Server
 
@@ -99,7 +99,7 @@ Sie können die Befehle jetzt auf dem Nano Server remote ausführen. Beispiel:
 winrs -r:<IP address of Nano Server> -u:Administrator -p:<Nano Server administrator password> ipconfig
 ```
   
-Weitere Informationen zur Windows-Remoteverwaltung finden Sie unter [Übersicht über die Windows-Remoteverwaltung (Windows Remote Management, WinRM)](https://technet.microsoft.com/library/dn265971.aspx).  
+Weitere Informationen zur Windows-Remoteverwaltung finden Sie unter [Übersicht über die Windows-Remoteverwaltung (Windows Remote Management, WinRM)](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn265971(v=ws.11)).  
    
    
   
@@ -113,7 +113,7 @@ Add-NetEventPacketCaptureProvider -SessionName
 Start-NetEventSession [-Name]  
 Stop-NetEventSession [-Name]  
 ```  
-Diese Cmdlets finden Sie unter [Network Event Packet Capture Cmdlets in Windows PowerShell (Windows PowerShell-Cmdlets zum Erfassen von Netzwerkereignispaketen)](https://technet.microsoft.com/library/dn268520(v=wps.630).aspx) detailliert dokumentiert.  
+Diese Cmdlets finden Sie unter [Network Event Packet Capture Cmdlets in Windows PowerShell (Windows PowerShell-Cmdlets zum Erfassen von Netzwerkereignispaketen)](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn265971(v=ws.11)) detailliert dokumentiert.  
 
 ## <a name="installing-servicing-packages"></a>Installieren von Wartungspaketen  
 Wenn Sie ein Wartungspaket installieren möchten, verwenden Sie den Parameter „-ServicingPackagePath“ (Sie können ein Array von Pfaden an CAB-Dateien übergeben):  
@@ -133,8 +133,8 @@ Volume Serial Number is B05B-CC3D
    
       Directory of C:\KB3157663_expanded  
    
-      04/19/2016  01:17 PM    \<DIR>          .  
-      04/19/2016  01:17 PM    \<DIR&gt;          .  
+      19.04.2016  13:17    \<DIR>          .  
+      19.04.2016  13:17    \<DIR>          ..  
         04/17/2016  12:31 AM               517 Windows10.0-KB3157663-x64-pkgProperties.txt  
 04/17/2016  12:30 AM        93,886,347 Windows10.0-KB3157663-x64.cab  
 04/17/2016  12:31 AM               454 Windows10.0-KB3157663-x64.xml  
@@ -212,7 +212,7 @@ Get-WindowsPackage -Online
 ---  
 Die oben aufgeführten Befehle fragen den Windows Update und Microsoft Update-Dienst online ab, um Updates zu suchen und herunterzuladen. Wenn Sie WSUS verwenden, können Sie die Registrierungsschlüssel auf dem Nano Server so anpassen, dass stattdessen Ihr WSUS-Server verwendet wird.  
   
-Informationen hierzu finden Sie in der Tabelle „Windows Update Agent Environment Options Registry Keys“ (Registrierungsschlüssel der Optionen der Windows Update-Agent-Umgebung) unter [Konfigurieren von automatischen Updates in einer nicht auf Active Directory basierenden Umgebung](https://technet.microsoft.com/library/cc708449(v=ws.10).aspx).  
+Informationen hierzu finden Sie in der Tabelle „Windows Update Agent Environment Options Registry Keys“ (Registrierungsschlüssel der Optionen der Windows Update-Agent-Umgebung) unter [Konfigurieren von automatischen Updates in einer nicht auf Active Directory basierenden Umgebung](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc708449(v=ws.10)).  
   
 Sie sollten mindestens die Registrierungsschlüssel **WUServer** und **WUStatusServer** festlegen, allerdings könnten je nach Ihrer WSUS-Implementierung andere Werte erforderlich sein. Sie können diese Einstellungen immer überprüfen, indem Sie einen anderen Windows Server in der gleichen Umgebung untersuchen.  
 
@@ -227,7 +227,7 @@ Derzeit besteht der Weg, die Updateinstallation zu automatisieren, darin, die ob
 [comment]: # (von Venkat Yalla.)
 Nano Server unterstützt die [Ereignisablaufverfolgung für Windows](https://aka.ms/u2pa0i) (Event Tracing for Windows, ETW) vollständig, allerdings sind derzeit einige bekannte Tools zur Verwaltung von Protokollierung und Leistungsindikatoren nicht für Nano Server verfügbar. Nano Server verfügt jedoch über Tools und Cmdlets für die üblichen Leistungsanalyse-Szenarios.
 
-Der allgemeine Workflow bleibt der gleiche, wie bei jeder Windows Server-Installation. Die Ablaufverfolgung mit geringem Mehraufwand wird auf dem Zielcomputer (Nano Server) ausgeführt, und die sich ergebenden Ablaufverfolgungsdateien und/oder Protokolle werden offline auf einem separaten Computer mithilfe von Tools wie [Windows Performance Analyzer](https://msdn.microsoft.com/library/windows/hardware/hh448170.aspx), der [Nachrichtenanalyse](https://www.microsoft.com/download/details.aspx?id=44226) usw. nachbearbeitet.
+Der allgemeine Workflow bleibt der gleiche, wie bei jeder Windows Server-Installation. Die Ablaufverfolgung mit geringem Mehraufwand wird auf dem Zielcomputer (Nano Server) ausgeführt, und die sich ergebenden Ablaufverfolgungsdateien und/oder Protokolle werden offline auf einem separaten Computer mithilfe von Tools wie [Windows Performance Analyzer](/previous-versions/windows/it-pro/windows-8.1-and-8/hh448170(v=win.10)), der [Nachrichtenanalyse](https://www.microsoft.com/download/details.aspx?id=44226) usw. nachbearbeitet.
 
 > [!NOTE]
 > Ein Auffrischung zur Übertragung von Dateien mithilfe von PowerShell-Remoting finden Sie unter [How to copy files to and from Nano Server (So kopieren Sie Dateien aus und in Nano Server)](https://aka.ms/nri9c8).
@@ -235,7 +235,7 @@ Der allgemeine Workflow bleibt der gleiche, wie bei jeder Windows Server-Install
 In den folgenden Abschnitten werden die am häufigsten verwendeten Aktivitäten zur Sammlung von Leistungsdaten sowie ein unterstützter Weg dargestellt, dies unter Nano Server auszuführen.
 
 ### <a name="query-available-event-providers"></a>Abfragen von verfügbaren Ereignisanbietern
-[Windows Performance Recorder](https://msdn.microsoft.com/library/hh448229.aspx) ist ein Tool, mit dem Sie verfügbare Ereignisanbieter wie folgt abfragen können:
+[Windows Performance Recorder](/previous-versions/windows/it-pro/windows-8.1-and-8/hh448229(v=win.10)) ist ein Tool, mit dem Sie verfügbare Ereignisanbieter wie folgt abfragen können:
 ```
 wpr.exe -providers
 ```
@@ -252,7 +252,7 @@ PS C:\> wpr.exe -providers | select-string Storage
 ```
 
 ### <a name="record-traces-from-a-single-etw-provider"></a>Aufzeichnen von Ablaufverfolgungen von einem einzigen ETW-Anbieter
-Hierzu können Sie neue [Cmdlets für die Verwaltung der Ereignisablaufverfolgung (in englischer Sprache)](https://technet.microsoft.com/library/dn919247.aspx) verwenden. Dies ist ein Beispielworkflow:
+Hierzu können Sie neue [Cmdlets für die Verwaltung der Ereignisablaufverfolgung (in englischer Sprache)](/previous-versions/windows/it-pro/windows-8.1-and-8/hh448229(v=win.10)) verwenden. Dies ist ein Beispielworkflow:
 
 Erstellen Sie eine Ablaufverfolgung, starten Sie sie, und geben Sie dabei einen Dateinamen zum Speichern der Ereignisse an.
 ```
@@ -284,7 +284,7 @@ Mode                LastWriteTime         Length Name
 > In diesem Beispiel wird ein einziger Ablaufverfolgungsanbieter zu der Sitzung hinzugefügt. Sie können allerdings auch das Cmdlet ```Add-EtwTraceProvider``` mehrmals für eine Ablaufverfolgungssitzung mit verschiedenen Anbieter-GUIDs verwenden, um die Ablaufverfolgung aus mehreren Quellen zu aktivieren. Eine weitere Alternative ist die Verwendung von ```wpr.exe```-Profilen wie nachfolgend beschriebenen.
 
 ### <a name="record-traces-from-multiple-etw-providers"></a>Aufzeichnen von Ablaufverfolgungen von mehreren ETW-Anbietern
-Die Option ```-profiles``` von [Windows Performance Recorder](https://msdn.microsoft.com/library/hh448229.aspx) ermöglicht die Ablaufverfolgung von mehreren Anbietern zur gleichen Zeit. Es steht eine Reihe integrierter Profile wie CPU, Netzwerk und DiskIO zur Auswahl:
+Die Option ```-profiles``` von [Windows Performance Recorder](/previous-versions/windows/it-pro/windows-8.1-and-8/hh448229(v=win.10)) ermöglicht die Ablaufverfolgung von mehreren Anbietern zur gleichen Zeit. Es steht eine Reihe integrierter Profile wie CPU, Netzwerk und DiskIO zur Auswahl:
 ```
 PS C:\Users\Administrator\Documents> wpr.exe -profiles 
 
@@ -321,7 +321,7 @@ Copyright (c) 2015 Microsoft Corporation. All rights reserved.
         WdfTraceLoggingProvider     WDF Driver Activity
 ```
 
-Eine ausführliche Anleitung zum Erstellen benutzerdefinierter Profile finden Sie in der [WPR.exe-Dokumentation](https://msdn.microsoft.com/library/windows/hardware/hh448223.aspx).
+Eine ausführliche Anleitung zum Erstellen benutzerdefinierter Profile finden Sie in der [WPR.exe-Dokumentation](/previous-versions/windows/it-pro/windows-8.1-and-8/hh448223(v=win.10)).
 
 ### <a name="record-etw-traces-during-operating-system-boot-time"></a>Aufzeichnen von ETW-Ablaufverfolgungen beim Neustart des Betriebssystems
 Verwenden Sie das Cmdlet ```New-AutologgerConfig``` zum Sammeln von Ereignissen während des Systemstarts. Die Verwendung ähnelt der des Cmdlets ```New-EtwTraceSession```, allerdings werden die zu der AutoLogger-Konfiguration hinzugefügten Anbieter erst beim nächsten Neustart aktiviert. Der gesamte Workflow sieht folgendermaßen aus:
@@ -376,13 +376,13 @@ Exiting, please wait...
 The command completed successfully.
 ```
 
-Mithilfe weiterer Befehlszeilenoptionen können Sie die für Sie wichtigen Leistungsindikatornamen in einer Konfigurationsdatei angeben und so die Ausgabe u.a. in eine Protokolldatei umleiten. Weitere Informationen finden Sie in der [typeperf.exe-Dokumentation](https://technet.microsoft.com/library/bb490960.aspx).
+Mithilfe weiterer Befehlszeilenoptionen können Sie die für Sie wichtigen Leistungsindikatornamen in einer Konfigurationsdatei angeben und so die Ausgabe u.a. in eine Protokolldatei umleiten. Weitere Informationen finden Sie in der [typeperf.exe-Dokumentation](/previous-versions/windows/it-pro/windows-xp/bb490960(v=technet.10)).
 
 Sie können auch die grafische Oberfläche von „Perfmon.exe“ remote mit Nano Server-Zielen verwenden. Wenn Sie der Ansicht Leistungsindikatoren hinzufügen, müssen Sie als Computername den Nano Server anstatt des *<Local computer>* angeben.
 
 ### <a name="interact-with-the-windows-event-log"></a>Interagieren mit dem Windows-Ereignisprotokoll
 
-Nano Server unterstützt das Cmdlet ```Get-WinEvent```, das Filter- und Abfragefunktionen für das Windows-Ereignisprotokoll bereitstellt, sowohl lokal als auch auf einem Remotecomputer. Ausführlichere Informationen zu den Optionen und Beispiele finden Sie unter der [Dokumentationsseite von Get-WinEvent (in englischer Sprache)](https://technet.microsoft.com/library/hh849682.aspx). In diesem einfachen Beispiel wird der *Fehler* abgerufen, der im *Systemprotokoll* während der vergangenen zwei Tage notiert wurden.
+Nano Server unterstützt das Cmdlet ```Get-WinEvent```, das Filter- und Abfragefunktionen für das Windows-Ereignisprotokoll bereitstellt, sowohl lokal als auch auf einem Remotecomputer. Ausführlichere Informationen zu den Optionen und Beispiele finden Sie unter der [Dokumentationsseite von Get-WinEvent (in englischer Sprache)](/powershell/module/microsoft.powershell.diagnostics/get-winevent?view=powershell-5.1). In diesem einfachen Beispiel wird der *Fehler* abgerufen, der im *Systemprotokoll* während der vergangenen zwei Tage notiert wurden.
 ```
 PS C:\> $StartTime = (Get-Date) - (New-TimeSpan -Day 2)
 PS C:\> Get-WinEvent -FilterHashTable @{LogName='System'; Level=2; StartTime=$StartTime} | select TimeCreated, Message
@@ -397,7 +397,7 @@ TimeCreated           Message
 Nano Server unterstützt außerdem ```wevtutil.exe```, womit Sie Informationen über Ereignisprotokolle und Herausgeber abrufen können. Weitere Informationen finden Sie unter [Wevtutil.exe-Dokumentation](https://aka.ms/qvod7p). 
 
 ### <a name="graphical-interface-tools"></a>Tools für die grafische Oberfläche
-[Web-basierte Server-Verwaltungstools](https://blogs.technet.microsoft.com/servermanagement/2016/08/17/deploy-setup-server-management-tools/) können zur Remoteverwaltung der Nano Server-Ziele verwendet werden und stellen ein Nano Server-Ereignisprotokoll mithilfe eines Webbrowsers bereit. Schließlich kann auch das MMC-Snap-In „Ereignisanzeige“ (eventvwr.msc) dazu verwendet werden, Protokolle anzuzeigen. Öffnen Sie es einfach auf einem Computer mit einem Desktop, und verweisen Sie es an einen Nano Remoteserver.
+[Web-basierte Server-Verwaltungstools](https://techcommunity.microsoft.com/t5/windows-admin-center-blog/bg-p/Windows-Admin-Center-Blog) können zur Remoteverwaltung der Nano Server-Ziele verwendet werden und stellen ein Nano Server-Ereignisprotokoll mithilfe eines Webbrowsers bereit. Schließlich kann auch das MMC-Snap-In „Ereignisanzeige“ (eventvwr.msc) dazu verwendet werden, Protokolle anzuzeigen. Öffnen Sie es einfach auf einem Computer mit einem Desktop, und verweisen Sie es an einen Nano Remoteserver.
 
 
 
@@ -406,4 +406,4 @@ Nano Server unterstützt außerdem ```wevtutil.exe```, womit Sie Informationen �
   
 Sie können Nano Server als Zielknoten mit Windows PowerShell Desired State Configuration (DSC) verwalten. Derzeit können Sie Knoten unter Nano Server mit DSC nur im Pushmodus verwenden. Allerdings funktionieren nicht alle DSC-Features mit Nano Server.  
   
-Ausführliche Informationen finden Sie unter [Using DSC on Nano Server (Verwenden von DSC unter Nano Server)](https://msdn.microsoft.com/powershell/dsc/nanoDsc).  
+Ausführliche Informationen finden Sie unter [Using DSC on Nano Server (Verwenden von DSC unter Nano Server)](https://techcommunity.microsoft.com/t5/windows-admin-center-blog/bg-p/Windows-Admin-Center-Blog).  

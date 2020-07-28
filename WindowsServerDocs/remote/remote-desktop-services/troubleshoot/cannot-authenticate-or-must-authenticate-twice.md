@@ -8,12 +8,12 @@ manager: dcscontentpm
 ms.author: delhan
 ms.date: 07/24/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 8fd7cfda8814347f8bab9dc7b3f7632e3b992ecb
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 65bf81d80d5cfd5566d66005728cd3677f131085
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80857233"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86963222"
 ---
 # <a name="user-cant-authenticate-or-must-authenticate-twice"></a>Der Benutzer kann sich nicht authentifizieren oder muss sich zweimal authentifizieren
 
@@ -59,7 +59,7 @@ Ab Windows Server 2016 fragt RCM die Benutzerobjekte in AD DS nicht mehr ab. Wen
 
 Um das RCM-Legacyverhalten auf einem RD-Sitzungshostserver zu aktivieren, konfigurieren Sie die folgenden Registrierungseinträge, und starten Sie dann den **Remotedesktopdienste**-Dienst erneut:  
   - **HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows NT\\Terminal Services**
-  - **HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Terminal Server\\WinStations\\\<Winstation-Name\>\\**  
+  - **HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Terminal Server\\WinStations\\\<Winstation name\>\\**  
       - Name: **fQueryUserConfigFromDC**
       - Typ: **Reg\_DWORD**
       - Wert: **1** (Dezimal)
@@ -168,4 +168,4 @@ Dieses Problem tritt in Hochverfügbarkeits-Bereitstellungen mit zwei oder mehr 
 
 Dieses Problem tritt auf, weil Remote Credential Guard Kerberos für die Authentifizierung verwendet und NTLM einschränkt. Allerdings können die RD-Verbindungsbroker in einer Hochverfügbarkeitskonfiguration mit Lastenausgleich keine Kerberos-Vorgänge unterstützen.
 
-Wenn Sie eine Hochverfügbarkeitskonfiguration mit RD-Verbindungsbrokern mit Lastenausgleich verwenden müssen, können Sie dieses Problem umgehen, indem Sie Remote Credential Guard deaktivieren. Weitere Informationen über das Verwalten von Windows Defender Remote Credential Guard finden Sie unter [Schützen von Remote Desktop-Anmeldeinformationen mit Windows Defender Remote Credential Guard](https://docs.microsoft.com/windows/security/identity-protection/remote-credential-guard#enable-windows-defender-remote-credential-guard).
+Wenn Sie eine Hochverfügbarkeitskonfiguration mit RD-Verbindungsbrokern mit Lastenausgleich verwenden müssen, können Sie dieses Problem umgehen, indem Sie Remote Credential Guard deaktivieren. Weitere Informationen über das Verwalten von Windows Defender Remote Credential Guard finden Sie unter [Schützen von Remote Desktop-Anmeldeinformationen mit Windows Defender Remote Credential Guard](/windows/security/identity-protection/remote-credential-guard#enable-windows-defender-remote-credential-guard).

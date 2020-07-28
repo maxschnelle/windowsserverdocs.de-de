@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.localizationpriority: medium
 ms.date: 12/02/2019
 ms.prod: windows-server
-ms.openlocfilehash: 185902d332e2036eace5b0b332eabd2803b5eb00
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 4125a3f427bd19ae7461aaaef058a558722d1987
+ms.sourcegitcommit: b35fbd2a67d7a3395b50b2a3acd0817ba4e36b26
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "81650116"
+ms.lasthandoff: 07/22/2020
+ms.locfileid: "86891375"
 ---
 # <a name="windows-admin-center-frequently-asked-questions"></a>Häufig gestellte Fragen zu Windows Admin Center
 
@@ -86,7 +86,7 @@ Ja! Das [Showscript-Feature](../use/get-started.md#view-powershell-scripts-used-
 
 ## <a name="are-there-any-plans-for-windows-admin-center-to-manage-windows-server-2008-r2-or-earlier"></a>Gibt es Pläne, Windows Admin Center zum Verwalten von Windows Server 2008 R2 oder früherer Versionen nutzbar zu machen?
 
-Windows Admin Center unterstützt jetzt die Verwaltung von Windows Server 2008 R2 mit **eingeschränkter** Funktionalität. Windows Admin Center nutzt die Funktionen von PowerShell und Plattformtechnologien, die in Windows Server 2008 R2 und früheren Versionen nicht vorhanden sind, daher ist eine vollständige Unterstützung nicht realisierbar. Windows Server 2008/2008 R2 erreichen das Supportende im Januar 2020, daher empfiehlt Microsoft Kunden, [auf Azure umzusteigen oder ein Upgrade auf die aktuellste Version von Windows Server vorzunehmen](https://www.microsoft.com/cloud-platform/windows-server-2008).
+Windows Admin Center unterstützt **keine Funktionen mehr** für die Verwaltung von Windows Server 2008 R2. Windows Admin Center nutzt die Funktionen von PowerShell und Plattformtechnologien, die in Windows Server 2008 R2 und früheren Versionen nicht vorhanden sind, daher ist eine vollständige Unterstützung nicht realisierbar. Falls noch nicht geschehen, sollten Sie [auf Azure umsteigen oder ein Upgrade auf die neueste Version von Windows Server durchführen](https://www.microsoft.com/cloud-platform/windows-server-2008).
 
 ## <a name="are-there-any-plans-for-windows-admin-center-to-manage-linux-connections"></a>Bestehen Pläne, Windows Admin Center für die Verwaltung von Linux-Verbindungen einzusetzen?
 
@@ -104,9 +104,7 @@ Der Datenverkehr vom Browser zum Windows Admin Center-Gateway verwendet HTTPS. D
 
 Ja, in einigen Fällen erfordert Windows Admin Center CredSSP. Dies ist erforderlich, um Ihre Anmeldeinformationen an Computer jenseits des spezifischen Servers zu übergeben, der Ihr Verwaltungsziel darstellt. Angenommen, Sie verwalten virtuelle Computer auf **server B**, möchten aber die VHDX-Dateien für diese virtuellen Computer auf einer Dateifreigabe speichern, die von **server C** gehostet wird, dann muss Windows Admin Center CredSSP für die Authentifizierung bei **server C** verwenden, um auf die Dateifreigabe zuzugreifen.
 
-Windows Admin Center übernimmt die Konfiguration von CredSSP automatisch, nachdem es Ihre Zustimmung eingeholt hat. Bevor es CredSSP konfiguriert, überprüft Windows Admin Center, ob das System über die aktuellen CredSSP-[Updates](https://support.microsoft.com/help/4093492/credssp-updates-for-cve-2018-0886-march-13-2018) verfügt. Während CredSSP aktiviert ist, werden ein Badge in der Serverübersicht und eine Option zur Deaktivierung angezeigt.
-
-![CredSSP auf dem Server (Übersicht)](../media/CredSSP-overview.png)
+Windows Admin Center übernimmt die Konfiguration von CredSSP automatisch, nachdem es Ihre Zustimmung eingeholt hat. Bevor es CredSSP konfiguriert, überprüft Windows Admin Center, ob das System über die aktuellen CredSSP-[Updates](https://support.microsoft.com/help/4093492/credssp-updates-for-cve-2018-0886-march-13-2018) verfügt. 
 
 CredSSP wird zurzeit in den folgenden Bereichen verwendet:
 

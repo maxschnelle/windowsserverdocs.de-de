@@ -9,12 +9,12 @@ ms.date: 03/06/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: a2f4c9ac05e72083fab3e3a926dbdd2876214a7b
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 8f1af40f54536ca380db7fe810506c937bb2d478
+ms.sourcegitcommit: f305bc5f1c5a44dac62f4288450af19f351f9576
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "77517535"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87118605"
 ---
 # <a name="ad-fs-requirements"></a>AD FS-Anforderungen
 
@@ -52,8 +52,8 @@ SSL-Zertifikate auf Verbundservern müssen die folgenden Anforderungen erfüllen
 - Zertifikat ist öffentlich vertrauenswürdig (für Bereitstellungen in der Produktionsumgebung)
 - Das Zertifikat enthält den EKU-Wert (Enhanced Key Usage) für die Serverauthentifizierung
 - Das Zertifikat enthält den Namen des Verbunddiensts, z. B. „fs.contoso.com“ im Betreff oder im alternativen Antragstellername (SAN)
-- Für die Benutzerzertifikatauthentifizierung an Port 443 enthält das Zertifikat „certauth.\<Verbunddienstname\>“, z. B. „certauth.fs.contoso.com“, im SAN
-- Für die Geräteregistrierung oder für die moderne Authentifizierung an lokalen Ressourcen unter Verwendung von Vor-Windows 10-Clients muss das SAN für jedes in deiner Organisation verwendete UPN-Suffix „enterpriseregistration.\<UPN-Suffix\>“ enthalten.
+- Für die Benutzerzertifikatauthentifizierung an Port 443 enthält das Zertifikat „certauth.\<federation service name\>“, z. B. „certauth.fs.contoso.com“, im SAN
+- Für die Geräteregistrierung oder für die moderne Authentifizierung an lokalen Ressourcen unter Verwendung von Vor-Windows 10-Clients muss das SAN „enterpriseregistration.\<upn suffix\>“ für jedes in Ihrer Organisation verwendete UPN-Suffix enthalten.
 
 SSL-Zertifikate auf dem Webanwendungsproxy müssen die folgenden Anforderungen erfüllen
 - Wenn der Proxy für AD FS-Anforderungen eingesetzt wird, die die integrierte Windows-Authentifizierung verwenden, muss das Proxy-SSL-Zertifikat mit dem SSL-Zertifikat des Verbundservers identisch sein (verwende denselben Schlüssel).
@@ -92,7 +92,7 @@ Dieses Zertifikat wird von Anspruchsanbietern verwendet, die an AD FS ausgegeben
 
 ## <a name="hardware-requirements"></a><a name="BKMK_2"></a>Hardwareanforderungen  
 Die Hardwareanforderungen für AD FS und den Webanwendungsproxy (physisch oder virtuell) werden auf die CPU abgegrenzt, daher solltest du die Größe deiner Farm auf die Verarbeitungskapazität ausrichten.  
-- Verwende das Tabellenblatt [Kapazitätsplanung für AD FS 2016](http://adfsdocs.blob.core.windows.net/adfs/ADFSCapacity2016.xlsx), um die Anzahl der benötigten AD FS- und Webanwendungsproxy-Server zu bestimmen.
+- Verwende das Tabellenblatt [Kapazitätsplanung für AD FS 2016](https://adfsdocs.blob.core.windows.net/adfs/ADFSCapacity2016.xlsx), um die Anzahl der benötigten AD FS- und Webanwendungsproxy-Server zu bestimmen.
 
 Die Anforderungen an Arbeitsspeicher und Datenträger für AD FS sind relativ statisch. Weitere Informationen sind in der nachfolgenden Tabelle enthalten:
 
@@ -110,7 +110,7 @@ Wenn du SQL Server für die AD FS-Konfigurationsdatenbank verwendest, dimensioni
   
 -   Für den Extranetzugriff muss der Webanwendungsproxy-Rollendienst \- als Teil der Remotezugriffs-Serverrolle bereitgestellt werden. 
 
--   Proxys von Drittanbietern müssen das [MS-ADFSPIP-Protokoll](https://msdn.microsoft.com/library/dn392811.aspx) unterstützen, um als AD FS-Proxy unterstützt zu werden.  Eine Liste von Drittanbietern findest du unter [Häufig gestellte Fragen (FAQ)](AD-FS-FAQ.md).
+-   Proxys von Drittanbietern müssen das [MS-ADFSPIP-Protokoll](/openspecs/windows_protocols/ms-adfspip/76deccb1-1429-4c80-8349-d38e61da5cbb) unterstützen, um als AD FS-Proxy unterstützt zu werden.  Eine Liste von Drittanbietern findest du unter [Häufig gestellte Fragen (FAQ)](AD-FS-FAQ.md).
 
 -   AD FS 2016 erfordert Webanwendungsproxy-Server unter Windows Server 2016.  Ein Proxy der Vorgängerversion kann nicht für eine AD FS 2016-Farm konfiguriert werden, die auf der Farmverhaltensebene 2016 ausgeführt wird.
   
@@ -208,7 +208,7 @@ Sowohl die Firewall zwischen dem Webanwendungsproxy und der Verbundserverfarm al
   
 Wenn die Clientbenutzerzertifikat-Authentifizierung \(clientTLS-Authentifizierung mit X509-Benutzerzertifikaten\) erforderlich ist und der certauth-Endpunkt an Port 443 nicht aktiviert ist, erfordert AD FS 2016 außerdem, dass der TCP-Port 49443 der Firewall zwischen den Clients und dem Webanwendungsproxy für eingehende Daten aktiviert ist. Dies ist bei der Firewall zwischen dem Webanwendungsproxy und den Verbundservern nicht erforderlich. 
 
-Weitere Informationen zu den Anforderungen an Hybridports findest du unter [Ports und Protokolle für Hybrididentität](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-ports). 
+Weitere Informationen zu den Anforderungen an Hybridports findest du unter [Ports und Protokolle für Hybrididentität](/azure/active-directory/connect/active-directory-aadconnect-ports). 
 
 Weitere Informationen findest du unter [Bewährte Methoden für die Sicherung von Active Directory-Verbunddiensten](../deployment/Best-Practices-Securing-AD-FS.md).
   
@@ -222,9 +222,9 @@ Weitere Informationen findest du unter [Bewährte Methoden für die Sicherung vo
   
 -   Für die integrierte Windows-Authentifizierung musst du einen DNS-A-Eintrag \(nicht CNAME\) für den Verbunddienstnamen verwenden.  
 
--   Für die Benutzerzertifikatauthentifizierung an Port 443 muss „certauth.\<Verbunddienstname\>“ im DNS konfiguriert werden, um in den Verbundserver oder Webanwendungsproxy aufzulösen.
+-   Für die Benutzerzertifikatauthentifizierung an Port 443 muss „certauth.\<federation service name\>“ im DNS konfiguriert werden, um in den Verbundserver oder Webanwendungsproxy aufzulösen.
 
--   Für die Geräteregistrierung oder für die moderne Authentifizierung an lokalen Ressourcen unter Verwendung von Vor-Windows 10-Clients muss „enterpriseregistration.\<UPN-Suffix\>“ für jedes in der Organisation verwendete UPN-Suffix so konfiguriert werden, dass es in den Verbundserver oder Webanwendungsproxy aufgelöst wird.
+-   Für die Geräteregistrierung oder für die moderne Authentifizierung an lokalen Ressourcen unter Verwendung von Vor-Windows 10-Clients muss „enterpriseregistration.\<upn suffix\>“ für jedes in der Organisation verwendete UPN-Suffix so konfiguriert werden, dass es in den Verbundserver oder Webanwendungsproxy aufgelöst wird.
 
 **Anforderungen an den Lastenausgleich**
 - Der Lastenausgleich darf SSL NICHT beenden. AD FS unterstützt mehrere Anwendungsfälle mit Zertifikatsauthentifizierung, die beim Beenden von SSL zu Fehlern führt. Die Beendigung von SSL beim Lastenausgleich wird für keinen Anwendungsfall unterstützt. 
@@ -241,4 +241,3 @@ Weitere Informationen findest du unter [Bewährte Methoden für die Sicherung vo
 Der Administrator, der die Installation und die Erstkonfiguration von AD FS durchführt, muss über lokale Administratorrechte auf dem AD FS-Server verfügen.  Wenn der lokale Administrator nicht über die Berechtigung zum Erstellen von Objekten in Active Directory verfügt, muss er zunächst von einem Domänenadministrator die erforderlichen AD-Objekte erstellen lassen und dann die AD FS-Farm mit dem Parameter „AdminConfiguration“ konfigurieren.  
   
   
-

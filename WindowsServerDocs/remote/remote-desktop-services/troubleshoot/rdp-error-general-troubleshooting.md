@@ -8,12 +8,12 @@ manager: dcscontentpm
 ms.author: delhan
 ms.date: 07/24/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 03c3c8daa8dc4bea0e03ed285a98401f91cdf1cb
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 7d94b6a2211cd9fbaefb8318ebdcc4eb52ba9ba1
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80857213"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86963302"
 ---
 # <a name="general-remote-desktop-connection-troubleshooting"></a>Allgemeine Problembehandlung bei Remotedesktopverbindungen
 
@@ -23,7 +23,7 @@ Führen Sie diese Schritte aus, wenn ein Remotedesktopclient keine Verbindung mi
 
 ### <a name="check-the-status-of-the-rdp-protocol-on-a-local-computer"></a>Überprüfen des Status des RDP-Protokolls auf einem lokalen Computer
 
-Informationen zum Überprüfen und Ändern des Status des RDP-Protokolls auf einem lokalen Computer finden Sie unter [So aktivieren Sie Remotedesktop](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-allow-access#how-to-enable-remote-desktop).
+Informationen zum Überprüfen und Ändern des Status des RDP-Protokolls auf einem lokalen Computer finden Sie unter [So aktivieren Sie Remotedesktop](../clients/remote-desktop-allow-access.md#how-to-enable-remote-desktop).
 
 > [!NOTE]  
 > Wenn die Remotedesktopoptionen nicht verfügbar sind, lesen Sie [Überprüfen, ob ein Gruppenrichtlinienobjekt RDP blockiert](#check-whether-a-group-policy-object-gpo-is-blocking-rdp-on-a-local-computer).
@@ -70,11 +70,11 @@ Der Befehl zum Überprüfen der Konfiguration von Gruppenrichtlinien auf einem R
 gpresult /S <computer name> /H c:\gpresult-<computer name>.html
 ```
 
-Die Datei, die durch diesen Befehl erzeugt wird (**gpresult-\<computername\>.html**) verwendet das gleiche Informationsformat wie in der Version für lokale Computer (**gpresult.html**).
+Die Datei, die durch diesen Befehl erzeugt wird (**gpresult-\<computer name\>.html**) verwendet das gleiche Informationsformat wie in der Version für lokale Computer (**gpresult.html**).
 
 ### <a name="modifying-a-blocking-gpo"></a>Ändern ein blockierenden Gruppenrichtlinienobjekts
 
-Sie können diese Einstellungen im Gruppenrichtlinienobjekt-Editor (GPE) und der Gruppenrichtlinien-Verwaltungskonsole (GPM) ändern. Weitere Informationen zum Verwenden der Gruppenrichtlinie finden Sie unter [Advanced Group Policy Management](https://docs.microsoft.com/microsoft-desktop-optimization-pack/agpm/) (Erweiterte Gruppenrichtlinienverwaltung).
+Sie können diese Einstellungen im Gruppenrichtlinienobjekt-Editor (GPE) und der Gruppenrichtlinien-Verwaltungskonsole (GPM) ändern. Weitere Informationen zum Verwenden der Gruppenrichtlinie finden Sie unter [Advanced Group Policy Management](/microsoft-desktop-optimization-pack/agpm/) (Erweiterte Gruppenrichtlinienverwaltung).
 
 Verwenden Sie eins der folgenden Verfahren, um die blockierende Richtlinie zu ändern:
 
@@ -189,7 +189,7 @@ Um den RDP-Port zu überprüfen oder zu ändern, verwenden Sie den Registrierung
 
 Verwenden Sie für dieses Verfahren eine PowerShell-Instanz, die über Administratorberechtigungen verfügt. Für einen lokalen Computer können Sie auch eine Eingabeaufforderung mit Administratorberechtigungen verwenden. In diesem Verfahren verwenden wir jedoch PowerShell, da die gleichen Cmdlets lokal und remote funktionieren.
 
-1. Öffnen Sie ein PowerShell-Fenster. Um eine Verbindung mit einem Remotecomputer herzustellen, geben Sie **Enter-PSSession -ComputerName \<Computername\>** ein.
+1. Öffnen Sie ein PowerShell-Fenster. Um eine Verbindung mit einem Remotecomputer herzustellen, geben Sie **Enter-PSSession -ComputerName \<computer name\>** ein.
 2. Geben Sie den folgenden Befehl aus:  
    
      ```powershell  
@@ -225,7 +225,7 @@ Verwenden Sie das **psping**-Tool, um zu testen, ob Sie den betroffenen Computer
    ```
    
 3. Überprüfen Sie die Ausgabe des **psping**-Befehls auf Ergebnisse wie das folgende:  
-      - **Herstellen einer Verbindung mit \<Computer-IP-Adresse\>** : Der Remotecomputer ist erreichbar.
+      - **Verbinden mit \<computer IP\>** : Der Remotecomputer ist erreichbar.
       - **(0 % Verlust)** : Alle Verbindungsversuche waren erfolgreich.
       - **Der Remotecomputer hat die Netzwerkverbindung abgelehnt**: Der Remotecomputer ist nicht erreichbar.
       - **(100 % Verlust)** : Bei allen Verbindungsversuchen ist ein Fehler aufgetreten.

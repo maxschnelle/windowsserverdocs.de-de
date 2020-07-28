@@ -9,12 +9,12 @@ ms.author: jgerend
 ms.localizationpriority: medium
 ms.date: 11/12/2019
 ms.topic: get-started-article
-ms.openlocfilehash: 1bbb8f06ab66ced50024f4ff17b73229d50ec5c6
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 1eeaa76af345d3f05effe2afe35c40d594adfc3a
+ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80391708"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86959622"
 ---
 # <a name="kms-client-setup-keys"></a>KMS-Clientsetupschlüssel
 
@@ -25,9 +25,9 @@ Computer, auf denen Volumenlizenzeditionen von Windows Server, Windows 10, Windo
 > [!NOTE]
 > In den folgenden Tabellen steht „LTSC“ für „Long-Term Servicing Channel“, während „LTSB“ für „Long-Term Servicing Branch“ steht. 
 
-**Um die hier aufgeführten Setupschlüssel (GVLKs) zu verwenden**, musst du zuerst einen KMS-Host in deiner Umgebung ausführen. Wenn Sie noch keinen KMS-Host konfiguriert haben, befolgen Sie die Anweisungen unter [Deploy KMS Activation](https://technet.microsoft.com/library/dn502531(v=ws.11).aspx) , um einen einzurichten.
+**Um die hier aufgeführten Setupschlüssel (GVLKs) zu verwenden**, musst du zuerst einen KMS-Host in deiner Umgebung ausführen. Wenn Sie noch keinen KMS-Host konfiguriert haben, befolgen Sie die Anweisungen unter [Deploy KMS Activation](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn502531(v=ws.11)) , um einen einzurichten.
 
-Wenn Sie für einen Computer die Umstellung von einem KMS-Host, einer MAK-Version oder einer Einzelhandelsversion von Windows auf einen KMS-Client durchführen, müssen Sie den entsprechenden Setupschlüssel (GVLK) installieren. Verwenden Sie dazu die folgenden Tabellen. Öffne zum Installieren eines Clientsetupschlüssels auf dem Client eine Eingabeaufforderung mit administrativen Rechten, gib **slmgr /ipk \<Setupschlüssel\>** ein, und drücke die **EINGABETASTE**.
+Wenn Sie für einen Computer die Umstellung von einem KMS-Host, einer MAK-Version oder einer Einzelhandelsversion von Windows auf einen KMS-Client durchführen, müssen Sie den entsprechenden Setupschlüssel (GVLK) installieren. Verwenden Sie dazu die folgenden Tabellen. Öffnen Sie zum Installieren eines Clientsetupschlüssels auf dem Client eine Eingabeaufforderung mit administrativen Rechten, geben Sie **slmgr /ipk \<setup key\>** ein, und drücken Sie die **EINGABETASTE**.
 
 | Wenn Sie Folgendes erreichen möchten,…    | …verwenden Sie diese Ressourcen   |
 |--------------------|------------------------|
@@ -209,6 +209,4 @@ Informationen zu unterstützten Versionen und Dienstendedaten findest du im [Inf
 
 Siehe auch
 
-[Planen für die Volumenaktivierung](https://technet.microsoft.com/library/jj134042(v=ws.11).aspx)
-
-
+[Planen für die Volumenaktivierung](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj134042(v=ws.11))
