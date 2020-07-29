@@ -2,18 +2,17 @@
 title: Wiederherstellen oder Reparieren des Servers mit Windows Server Essentials
 description: Beschreibt die Verwendung von Windows Server Essentials
 ms.date: 10/03/2016
-ms.prod: windows-server
 ms.topic: article
 ms.assetid: 27bf6f24-30c4-4935-9b24-069eb43e22f4
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: cfb78f6b451783bec4cc6f20f36a65f0731162e2
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: def936272531c42623dfefb5940339c545ac8cf0
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85470355"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87180816"
 ---
 # <a name="restore-or-repair-your-server-running-windows-server-essentials"></a>Wiederherstellen oder Reparieren des Servers mit Windows Server Essentials
 
