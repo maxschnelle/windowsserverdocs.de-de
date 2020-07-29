@@ -9,12 +9,12 @@ ms.topic: article
 author: heidilohr
 manager: lizross
 ms.date: 02/19/2020
-ms.openlocfilehash: 4598c0f60fac98cd14a6f7d920b9c6f31704bd06
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 7568db50f09273b398955c314491b903f627d1a9
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86963372"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87182096"
 ---
 # <a name="optimizing-windows-10-version-1909-for-a-virtual-desktop-infrastructure-vdi-role"></a>Optimieren von Windows 10, Version 1909, für eine VDI-Rolle (Virtual Desktop Infrastructure)
 
@@ -39,7 +39,7 @@ Es gibt einige Sicherheitseinstellungen, die nicht auf VDI-Umgebungen anwendbar 
 
 In Bezug auf Updates verwendet Windows 10 einen monatlichen Updatealgorithmus, sodass Clients nicht versuchen müssen, Updates auszuführen. In den meisten Fällen steuern VDI-Administratoren den Aktualisierungsprozess durch einen Prozess des Herunterfahrens von VMs auf der Basis eines „Master“- oder „Gold“image. Sie entsiegeln dieses Image, das schreibgeschützt ist, patchen das Image, versiegeln es dann erneut und nutzen es wieder in die Produktion. Daher ist es nicht erforderlich, dass VDI-VMs Windows Update überprüfen. In bestimmten Fällen (z. B. bei dauerhaften VDI-VMs), finden normale Patchprozeduren nicht statt. Windows Update oder Microsoft Intune können ebenfalls verwendet werden. System Center Configuration Manager kann zum Verarbeiten von Updates und anderen Paketübermittlngen verwendet werden. Es liegt an jeder Organisation, den optimalen Ansatz zum Aktualisieren von VDI zu ermitteln.
 
-> [!TIP]  
+> [!TIP]
 > Ein Skript, das die in diesem Thema beschriebenen Optimierungen implementiert, sowie eine GPO-Exportdatei, die du mit **LGPO.exe** importieren kannst, sind unter [TheVDIGuys](https://github.com/TheVDIGuys) auf GitHub verfügbar.
 
 Dieses Skript wurde für Ihre Umgebung und Ihre Anforderungen konzipiert. Der Hauptcode ist PowerShell, und die Arbeit erfolgt mithilfe von Eingabedateien (Nur-Text) und den Exportdateien des Tools des lokalen Gruppenrichtlinienobjekts (LGPO). Diese Dateien enthalten Liste mit den zu entfernenden Apps und den Diensten, die deaktiviert werden sollen. Wenn du nicht möchtest, dass eine bestimmte App entfernt oder ein bestimmter Dienst deaktiviert wird, bearbeitest du die entsprechende Textdatei und entfernst das Element. Schließlich gibt es lokale Richtlinieneinstellungen, die in Ihr Gerät importiert werden können. Es ist besser, einige Einstellungen innerhalb des Basisimages zu verwenden, anstatt die Einstellungen durch die Gruppenrichtlinie anzuwenden, da einige der Einstellungen beim nächsten Neustart wirksam werden oder wenn eine Komponente zum ersten Mal verwendet wird.
@@ -166,9 +166,9 @@ Führe den folgenden Befehl aus, um bereitgestellte UWP-Apps von einem laufenden
     Get-AppxProvisionedPackage -Online
 
     DisplayName  : Microsoft.3DBuilder
-    Version      : 13.0.10349.0  
+    Version      : 13.0.10349.0
     Architecture : neutral
-    ResourceId   : \~ 
+    ResourceId   : \~
     PackageName  : Microsoft.3DBuilder_13.0.10349.0_neutral_\~_8wekyb3d8bbwe
     Regions      :
     ...
@@ -195,7 +195,7 @@ Jede UWP-App sollte in jeder spezifischen Umgebung auf ihre Anwendbarkeit geprü
 
 ### <a name="manage-windows-optional-features-using-powershell"></a>Verwalten optionaler Windows-Features mit PowerShell
 
-Du kannst optionale Windows-Features mit PowerShell verwalten. Weitere Informationen findest du unter [Windows 10: Verwalten optionaler Features mit PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/39386.windows-10-managing-optional-features-with-powershell.aspx). Liste die aktuell installierten Windows-Features mit folgendem PowerShell-Befehl auf:
+Du kannst optionale Windows-Features mit PowerShell verwalten. Weitere Informationen finden Sie im [Windows Server PowerShell-Forum](https://docs.microsoft.com/answers/topics/windows-server-powershell.html). Liste die aktuell installierten Windows-Features mit folgendem PowerShell-Befehl auf:
 
 ```powershell
 Get-WindowsOptionalFeature -Online
@@ -764,7 +764,7 @@ Hier erhältst du Vorschläge für verschiedene Datenträgerbereinigungsaufgaben
 1. Führe nach dem Anwenden aller Updates den Datenträgerbereinigungs-Assistenten (mit erhöhten Rechten) aus. Beziehe die Kategorien „Übermittlungsoptimierung“ und „Windows Update-Bereinigung“ mit ein. Dieser Prozess kann mithilfe der Befehlszeile `Cleanmgr.exe` mit der Option `/SAGESET:11` automatisiert werden. Die Option `/SAGESET` legt Registrierungswerte fest, die später zur Automatisierung der Datenträgerbereinigung verwendet werden können, wobei jede verfügbare Option im Datenträgerbereinigungs-Assistenten verwendet wird.
 
     1. Die Ausführung von `Cleanmgr.exe /SAGESET:11` auf einer Test-VM von einer sauberen Installation aus zeigt, dass standardmäßig nur zwei automatische Optionen für die Datenträgerbereinigung aktiviert sind:
-    
+
         - Heruntergeladene Programmdateien
 
         - Temporäre Internetdateien
@@ -776,7 +776,7 @@ Hier erhältst du Vorschläge für verschiedene Datenträgerbereinigungsaufgaben
 2. Bereinige deinen Volumeschattenkopie-Speicher, sofern er verwendet wird.
 
     - Öffne eine Eingabeaufforderung mit erhöhten Rechten, und führe den Befehl `vssadmin list shadows` und dann den Befehl `vssadmin list shadowstorage` aus.
-    
+
         Wenn die Ausgabe dieser Befehle **Es wurden keine Ergebnisse für die Abfrage gefunden** lautet, wird kein VSS-Speicher verwendet.
 
 3. Bereinige temporäre Dateien und Protokolle. Führe den Befehl `Del C:\*.tmp /s` über eine Eingabeaufforderung mit erhöhten Rechten, den Befehl `Del C:\Windows\Temp\.` und dann den Befehl `Del %temp%\.` aus.
@@ -790,7 +790,7 @@ Das Entfernen von OneDrive umfasst das Entfernen des Pakets und das Deinstallier
 ```azurecli
 
 Taskkill.exe /F /IM "OneDrive.exe"
-Taskkill.exe /F /IM "Explorer.exe"` 
+Taskkill.exe /F /IM "Explorer.exe"`
     if (Test-Path "C:\\Windows\\System32\\OneDriveSetup.exe")`
      { Start-Process "C:\\Windows\\System32\\OneDriveSetup.exe"`
          -ArgumentList "/uninstall"`

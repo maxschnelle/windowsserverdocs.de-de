@@ -7,68 +7,68 @@ ms.date: 02/24/2020
 ms.topic: article
 ms.prod: windows-server
 ms.technology: networking
-ms.openlocfilehash: 76ec8a817f0c500380c9bef6fc1ee7eb8dddc105
-ms.sourcegitcommit: 319796ec327530c9656ac103b89bd48cc8d373f6
+ms.openlocfilehash: b73b6bf2150b8c97b858f41d7a4864a5d6fd5546
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83790562"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87182116"
 ---
 # <a name="windows-time-service-tools-and-settings"></a>Windows-Zeitdienst: Tools und Einstellungen
 
 > Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows 10 oder höher
 
-In diesem Thema erfährst du mehr über Tools und Einstellungen für den Windows-Zeitdienst (W32Time).  
+In diesem Thema erfährst du mehr über Tools und Einstellungen für den Windows-Zeitdienst (W32Time).
 
-Wenn du die Zeit nur für einen einer Domäne beigetretenen Clientcomputer synchronisieren möchtest, findest du weitere Informationen unter [Konfigurieren eines Clientcomputers für die automatische Domänenzeitsynchronisierung](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc816884%28v%3dws.10%29). Weitere Themen zum Konfigurieren des Windows-Zeitdiensts findest du unter [Wo finde ich Konfigurationsinformationen zum Windows-Zeitdienst?](windows-time-service-top.md).  
+Wenn du die Zeit nur für einen einer Domäne beigetretenen Clientcomputer synchronisieren möchtest, findest du weitere Informationen unter [Konfigurieren eines Clientcomputers für die automatische Domänenzeitsynchronisierung](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc816884%28v%3dws.10%29). Weitere Themen zum Konfigurieren des Windows-Zeitdiensts findest du unter [Wo finde ich Konfigurationsinformationen zum Windows-Zeitdienst?](windows-time-service-top.md).
 
-> [!CAUTION]  
-> Du solltest nicht den Befehl **Net time** verwenden, um die Zeit zu konfigurieren oder zu stellen, wenn der Windows-Zeitdienst ausgeführt wird.  
+> [!CAUTION]
+> Du solltest nicht den Befehl **Net time** verwenden, um die Zeit zu konfigurieren oder zu stellen, wenn der Windows-Zeitdienst ausgeführt wird.
 >
-> Auf älteren Computern, auf denen Windows XP oder niedriger ausgeführt wird, zeigt der Befehl **Net time /querysntp** auch den Namen eines NTP-Servers (Network Time Protocol) an, mit dem ein Computer synchronisiert werden soll, doch dieser NTP-Server wird nur verwendet, wenn der Zeitclient des Computers als NTP oder AllSync konfiguriert ist. Dieser Befehl ist seitdem veraltet.  
+> Auf älteren Computern, auf denen Windows XP oder niedriger ausgeführt wird, zeigt der Befehl **Net time /querysntp** auch den Namen eines NTP-Servers (Network Time Protocol) an, mit dem ein Computer synchronisiert werden soll, doch dieser NTP-Server wird nur verwendet, wenn der Zeitclient des Computers als NTP oder AllSync konfiguriert ist. Dieser Befehl ist seitdem veraltet.
 
-Die meisten Domänenmitgliedscomputer verfügen über einen Zeitclient vom Typ NT5DS, was bedeutet, dass sie die Zeit aus der Domänenhierarchie synchronisieren. Die einzige typische Ausnahme hierbei ist der Domänencontroller, der als Betriebsmaster der Stammdomäne der Gesamtstruktur des PDC-Emulators (Primärer Domänencontroller) fungiert. Der PDC-Emulator ist in der Regel so konfiguriert, dass er die Zeit mit einer externen Zeitquelle synchronisiert. Zum Anzeigen der Zeitclientkonfiguration eines Computers (beginnend mit Windows Server 2008 und Windows Vista) führst du den Befehl **W32tm /query /configuration** in einer Eingabeaufforderung mit erhöhten Rechten aus, und liest die Zeile **Typ** in der Befehlsausgabe. Weitere Informationen findest du unter [Funktionsweise des Windows-Zeitdiensts](How-the-Windows-Time-Service-Works.md). Du kannst zusätzlich den Befehl **reg query HKLM\SYSTEM\CurrentControlSet\Services\W32Time\Parameters** ausführen und den Wert von **NtpServer-** in der Befehlsausgabe lesen.  
+Die meisten Domänenmitgliedscomputer verfügen über einen Zeitclient vom Typ NT5DS, was bedeutet, dass sie die Zeit aus der Domänenhierarchie synchronisieren. Die einzige typische Ausnahme hierbei ist der Domänencontroller, der als Betriebsmaster der Stammdomäne der Gesamtstruktur des PDC-Emulators (Primärer Domänencontroller) fungiert. Der PDC-Emulator ist in der Regel so konfiguriert, dass er die Zeit mit einer externen Zeitquelle synchronisiert. Zum Anzeigen der Zeitclientkonfiguration eines Computers (beginnend mit Windows Server 2008 und Windows Vista) führst du den Befehl **W32tm /query /configuration** in einer Eingabeaufforderung mit erhöhten Rechten aus, und liest die Zeile **Typ** in der Befehlsausgabe. Weitere Informationen findest du unter [Funktionsweise des Windows-Zeitdiensts](How-the-Windows-Time-Service-Works.md). Du kannst zusätzlich den Befehl **reg query HKLM\SYSTEM\CurrentControlSet\Services\W32Time\Parameters** ausführen und den Wert von **NtpServer-** in der Befehlsausgabe lesen.
 
-> [!IMPORTANT]  
-> Vor Windows Server 2016 war der W32Time-Dienst nicht so konzipiert, dass er die Anforderungen zeitabhängiger Anwendungen erfüllte. Updates für Windows Server 2016 ermöglichen es jetzt jedoch, eine Lösung für eine Genauigkeit von einer Millisekunde in deiner Domäne zu implementieren. Weitere Informationen findest du unter [Windows 2016: Genaue Zeit](accurate-time.md) und [Supportgrenze zum Konfigurieren des Windows-Zeitdiensts für Umgebungen mit hoher Genauigkeit](support-boundary.md).  
+> [!IMPORTANT]
+> Vor Windows Server 2016 war der W32Time-Dienst nicht so konzipiert, dass er die Anforderungen zeitabhängiger Anwendungen erfüllte. Updates für Windows Server 2016 ermöglichen es jetzt jedoch, eine Lösung für eine Genauigkeit von einer Millisekunde in deiner Domäne zu implementieren. Weitere Informationen findest du unter [Windows 2016: Genaue Zeit](accurate-time.md) und [Supportgrenze zum Konfigurieren des Windows-Zeitdiensts für Umgebungen mit hoher Genauigkeit](support-boundary.md).
 
-## <a name="windows-time-service-tools"></a>Windows-Zeitdiensttools  
+## <a name="windows-time-service-tools"></a>Windows-Zeitdiensttools
 
-Das folgenden Tool ist dem Windows-Zeitdienst zugeordnet.  
+Das folgenden Tool ist dem Windows-Zeitdienst zugeordnet.
 
-### <a name="w32tmexe-windows-time"></a>W32tm.exe: Windows-Zeitdienst  
+### <a name="w32tmexe-windows-time"></a>W32tm.exe: Windows-Zeitdienst
 
-**Kategorie**  
+**Kategorie**
 
-Dieses Tool ist Teil der Standardinstallation von Windows (Windows XP und höhere Versionen) und Windows Server (Windows Server 2003 und höhere Versionen).  
+Dieses Tool ist Teil der Standardinstallation von Windows (Windows XP und höhere Versionen) und Windows Server (Windows Server 2003 und höhere Versionen).
 
-**Versionskompatibilität**  
+**Versionskompatibilität**
 
-Dieses Tool funktioniert mit der Standardinstallation von Windows (Windows XP und höhere Versionen) und Windows Server (Windows Server 2003 und höhere Versionen).  
+Dieses Tool funktioniert mit der Standardinstallation von Windows (Windows XP und höhere Versionen) und Windows Server (Windows Server 2003 und höhere Versionen).
 
-Mit „W32tm.exe“ kannst du Einstellungen des Windows-Zeitdiensts konfigurieren und Zeitdienstprobleme diagnostizieren. „W32tm.exe“ ist das bevorzugte Befehlszeilentool zum Konfigurieren und Überwachen von sowie zum Behandeln von Problemen mit dem Windows-Zeitdienst.  
+Mit „W32tm.exe“ kannst du Einstellungen des Windows-Zeitdiensts konfigurieren und Zeitdienstprobleme diagnostizieren. „W32tm.exe“ ist das bevorzugte Befehlszeilentool zum Konfigurieren und Überwachen von sowie zum Behandeln von Problemen mit dem Windows-Zeitdienst.
 
-In den folgenden Tabellen werden die Parameter beschrieben, die mit „W32tm.exe“ verwendet werden können.  
+In den folgenden Tabellen werden die Parameter beschrieben, die mit „W32tm.exe“ verwendet werden können.
 
-**Primäre Parameter von „W32tm.exe“**  
+**Primäre Parameter von „W32tm.exe“**
 
 |Parameter |Beschreibung |
 | --- | --- |
 |**w32tm /?** |Zeigt die W32tm-Befehlszeilenhilfe an. |
 |**w32tm /register** |Registriert den Zeitdienst zur Ausführung als Dienst und fügt der Registrierung die Informationen seiner Standardkonfiguration hinzu. |
 |**w32tm /unregister** |Hebt die Registrierung des Zeitdiensts auf und entfernt alle seine Konfigurationsinformationen aus der Registrierung. |
-|**w32tm /monitor [/domain:\<*Domänenname*>] [/computers:\<*Name*>[,\<*Name*>[,\<*Name*>...]]] [/threads:\<*Anzahl*>]** |Überwacht den Windows-Zeitdienst.<p>**/domain**: Gibt die zu überwachende Domäne an. Wenn kein Domänenname angegeben oder weder die Option **/domain** noch **/computers** angegeben wird, wird die Standarddomäne verwendet. Diese Option kann mehrfach verwendet werden.<p>**/computers**: Überwacht die angegebene Liste von Computern. Computernamen werden ohne Leerzeichen durch Kommas getrennt. Wenn ein Name ein **\*** -Präfix besitzt, wird er als PDC behandelt. Diese Option kann mehrfach verwendet werden.<p>**/threads**: Gibt die Anzahl der gleichzeitig zu analysierenden Computer an. Der Standardwert ist „3“. Der zulässige Bereich ist 1–50. |
+|**w32tm /monitor [/domain:\<*domain name*>] [/computers:\<*name*>[,\<*name*>[,\<*name*>...]]] [/threads:\<*num*>]** |Überwacht den Windows-Zeitdienst.<p>**/domain**: Gibt die zu überwachende Domäne an. Wenn kein Domänenname angegeben oder weder die Option **/domain** noch **/computers** angegeben wird, wird die Standarddomäne verwendet. Diese Option kann mehrfach verwendet werden.<p>**/computers**: Überwacht die angegebene Liste von Computern. Computernamen werden ohne Leerzeichen durch Kommas getrennt. Wenn ein Name ein **\*** -Präfix besitzt, wird er als PDC behandelt. Diese Option kann mehrfach verwendet werden.<p>**/threads**: Gibt die Anzahl der gleichzeitig zu analysierenden Computer an. Der Standardwert ist „3“. Der zulässige Bereich ist 1–50. |
 |**w32tm /ntte \<NT *time epoch*>** |Konvertiert eine Windows NT-Systemzeit (gemessen in 10<sup>-7</sup>-Sekunden-Intervallen ab 0h 1-Jan 1601) in ein lesbares Format. |
 |**w32tm /ntpte \<NTP *time epoch*>** |Konvertiert eine NTP-Zeit (gemessen in 2<sup>-32</sup>-Sekunden-Intervallen ab 0h 1-Jan 1900) in ein lesbares Format. |
-|**w32tm /resync [/computer:\<*Computer*>] [/nowait] [/rediscover] [/soft]** |Weist einen Computer an, seine Uhr so bald wie möglich neu zu synchronisieren, wobei alle gesammelten Fehlerstatistiken ausgegeben werden.<p>**/computer:\<*Computer*>** : Gibt den Computer an, der neu synchronisiert werden soll. Wenn der Parameter nicht angegeben ist, wird der lokale Computer neu synchronisiert.<p>**/nowait**: Nicht auf das Auftreten der Neusynchronisierung warten; sofort zurückgeben. Andernfalls auf Abschluss der Neusynchronisierung warten, bevor zurückgegeben wird.<p>**/rediscover**: Die Netzwerkkonfiguration erneut erkennen sowie Netzwerkquellen neu ermitteln, dann neu synchronisieren.<p>**/soft**: Neusynchronisierung mithilfe vorhandener Fehlerstatistiken. Nicht hilfreich; nur aus Kompatibilitätsgründen bereitgestellt. |
-|**w32tm /stripchart /computer:\<*Ziel*> [/period:\<*Aktualisierung*>] [/dataonly] [/samples:\<*Anzahl*>] [/rdtsc]** |Zeigt ein Stripchart der Differenz zwischen diesem und einem anderen Computer an.<p>**/computer:\<*Ziel*>** : Der Computer gegenüber dem die Differenz gemessen werden soll.<p>**/period:\<*Aktualisierung*>** : Die Zeit zwischen Abtastungen, in Sekunden. Der Standardwert ist zwei Sekunden.<p>**/dataonly**: Zeigt nur die Daten an, ohne Grafiken.<p>**/samples:\<*Anzahl*>** : Erfasst \<*Anzahl*> Stichproben und hört dann auf. Wenn nicht angegeben, werden Stichproben erfasst, bis **STRG+C** gedrückt wird.<br/><br/>**/rdtsc**: Für jede Stichprobe gibt diese Option durch Kommas getrennte Werte zusammen mit den Headern **RdtscStart**, **RdtscEnd**, **FileTime**, **RoundtripDelay** und **NtpOffset** anstelle der Textgrafik aus.<br/><ul><li>**RdtscStart**: [Der RDTSC-Wert (Zähler für gelesene Zeitstempel)](https://en.wikipedia.org/wiki/Time_Stamp_Counter), der unmittelbar vor dem Generieren der NTP-Anforderung erfasst wurde.</li><li>**RdtscEnd**: Der RDTSC-Wert (Zähler für gelesene Zeitstempel), der unmittelbar nach dem Empfang und der Verarbeitung der NTP-Anforderung erfasst wurde.</li><li>**FileTime**: Der lokale FILETIME-Wert, der in der NTP-Anforderung verwendet wird.</li><li>**RoundtripDelay**: Die verstrichene Zeit in Sekunden zwischen dem Generieren der NTP-Anforderung und der Verarbeitung der empfangenen NTP-Antwort, berechnet gemäß den NTP-Roundtripberechnungen.</li><li>**NTPOffset**: Die Zeitdifferenz in Sekunden zwischen dem lokalen Computer und dem NTP-Server, berechnet gemäß den NTP-Differenzberechnungen.</li></ul> |
-|**w32tm /config [/computer:\<*Ziel*>] [/update] [/manualpeerlist:\<*Peers*>] [/syncfromflags:\<*Quelle*>] [/LocalClockDispersion:\<*Sekunden*>] [/reliable:(YES\|NO)] [/largephaseoffset:\<*Millisekunden*>]** |**/computer:\<*Ziel*>** : Passt die Konfiguration von \<*Ziel*> an. Wenn nicht angegeben, ist der Standardwert der lokale Computer.<p>**/update**: Benachrichtigt den Zeitdienst, dass sich die Konfiguration geändert hat, wodurch die Änderungen wirksam werden.<p>**/manualpeerlist:\<*Peers*>** : Legt die manuelle Peerliste auf \<*Peers*> fest, wobei es sich um eine durch Leerzeichen getrennte Liste von DNS- und/oder IP-Adressen handelt. Wenn du mehrere Peers angibst, muss diese Option in Anführungszeichen stehen.<p>**/syncfromflags:\<*Quelle*>** : Legt fest, mit welchen Quellen der NTP-Client synchronisiert werden soll. \<*Quelle*> sollte eine durch Kommas getrennte Liste dieser Schlüsselwörter sein (ohne Berücksichtigung von Groß-/Kleinschreibung):<ul><li>**MANUAL**: Schließt Peers aus der manuellen Peerliste ein.</li><li>**DOMHIER**: Synchronisierung mit einem Domänencontroller (DC) in der Domänenhierarchie.</li></ul>**/LocalClockDispersion:\<*Sekunden*>** : Konfiguriert die Genauigkeit der internen Uhr, die W32Time verwendet, wenn keine Zeit aus den konfigurierten Quellen abgerufen werden kann.<p>**/reliable:(YES\|NO)** : Festlegen, ob dieser Computer eine zuverlässige Zeitquelle ist. Diese Einstellung ist nur auf Domänencontrollern sinnvoll.<ul><li>**YES**: Dieser Computer ist ein zuverlässiger Zeitdienst.</li><li>**NO**: Dieser Computer ist kein zuverlässiger Zeitdienst.</li></ul>**/largephaseoffset:\<*Millisekunden*>** : Legt den Zeitunterschied zwischen lokaler und Netzwerkzeit fest, den W32Time als Spitze interpretiert. |
+|**w32tm /resync [/computer:\<*computer*>] [/nowait] [/rediscover] [/soft]** |Weist einen Computer an, seine Uhr so bald wie möglich neu zu synchronisieren, wobei alle gesammelten Fehlerstatistiken ausgegeben werden.<p>**/computer:\<*computer*>** : Gibt den Computer an, der neu synchronisiert werden soll. Wenn der Parameter nicht angegeben ist, wird der lokale Computer neu synchronisiert.<p>**/nowait**: Nicht auf das Auftreten der Neusynchronisierung warten; sofort zurückgeben. Andernfalls auf Abschluss der Neusynchronisierung warten, bevor zurückgegeben wird.<p>**/rediscover**: Die Netzwerkkonfiguration erneut erkennen sowie Netzwerkquellen neu ermitteln, dann neu synchronisieren.<p>**/soft**: Neusynchronisierung mithilfe vorhandener Fehlerstatistiken. Nicht hilfreich; nur aus Kompatibilitätsgründen bereitgestellt. |
+|**w32tm /stripchart /computer:\<*target*> [/period:\<*refresh*>] [/dataonly] [/samples:\<*count*>] [/rdtsc]** |Zeigt ein Stripchart der Differenz zwischen diesem und einem anderen Computer an.<p>**/computer:\<*target*>** : Der Computer gegenüber dem die Differenz gemessen werden soll.<p>**/period:\<*refresh*>** : Die Zeit zwischen Abtastungen, in Sekunden. Der Standardwert ist zwei Sekunden.<p>**/dataonly**: Zeigt nur die Daten an, ohne Grafiken.<p>**/samples:\<*count*>** : Erfasst \<*count*> Stichproben und hört dann auf. Wenn nicht angegeben, werden Stichproben erfasst, bis **STRG+C** gedrückt wird.<br/><br/>**/rdtsc**: Für jede Stichprobe gibt diese Option durch Kommas getrennte Werte zusammen mit den Headern **RdtscStart**, **RdtscEnd**, **FileTime**, **RoundtripDelay** und **NtpOffset** anstelle der Textgrafik aus.<br/><ul><li>**RdtscStart**: [Der RDTSC-Wert (Zähler für gelesene Zeitstempel)](https://en.wikipedia.org/wiki/Time_Stamp_Counter), der unmittelbar vor dem Generieren der NTP-Anforderung erfasst wurde.</li><li>**RdtscEnd**: Der RDTSC-Wert (Zähler für gelesene Zeitstempel), der unmittelbar nach dem Empfang und der Verarbeitung der NTP-Anforderung erfasst wurde.</li><li>**FileTime**: Der lokale FILETIME-Wert, der in der NTP-Anforderung verwendet wird.</li><li>**RoundtripDelay**: Die verstrichene Zeit in Sekunden zwischen dem Generieren der NTP-Anforderung und der Verarbeitung der empfangenen NTP-Antwort, berechnet gemäß den NTP-Roundtripberechnungen.</li><li>**NTPOffset**: Die Zeitdifferenz in Sekunden zwischen dem lokalen Computer und dem NTP-Server, berechnet gemäß den NTP-Differenzberechnungen.</li></ul> |
+|**w32tm /config [/computer:\<*target*>] [/update] [/manualpeerlist:\<*peers*>] [/syncfromflags:\<*source*>] [/LocalClockDispersion:\<*seconds*>] [/reliable:(YES\|NO)] [/largephaseoffset:\<*milliseconds*>]** |**/computer:\<*target*>** : Passt die Konfiguration von \<*target*> an. Wenn nicht angegeben, ist der Standardwert der lokale Computer.<p>**/update**: Benachrichtigt den Zeitdienst, dass sich die Konfiguration geändert hat, wodurch die Änderungen wirksam werden.<p>**/manualpeerlist:\<*peers*>** : Legt die manuelle Peerliste auf \<*peers*> fest, wobei es sich um eine durch Leerzeichen getrennte Liste von DNS- und/oder IP-Adressen handelt. Wenn du mehrere Peers angibst, muss diese Option in Anführungszeichen stehen.<p>**/syncfromflags:\<*source*>** : Legt fest, mit welchen Quellen der NTP-Client synchronisiert werden soll. \<*source*> sollte eine durch Kommas getrennte Liste dieser Schlüsselwörter sein (ohne Berücksichtigung von Groß-/Kleinschreibung):<ul><li>**MANUAL**: Schließt Peers aus der manuellen Peerliste ein.</li><li>**DOMHIER**: Synchronisierung mit einem Domänencontroller (DC) in der Domänenhierarchie.</li></ul>**/LocalClockDispersion:\<*seconds*>** : Konfiguriert die Genauigkeit der internen Uhr, die W32Time verwendet, wenn keine Zeit aus den konfigurierten Quellen abgerufen werden kann.<p>**/reliable:(YES\|NO)** : Festlegen, ob dieser Computer eine zuverlässige Zeitquelle ist. Diese Einstellung ist nur auf Domänencontrollern sinnvoll.<ul><li>**YES**: Dieser Computer ist ein zuverlässiger Zeitdienst.</li><li>**NO**: Dieser Computer ist kein zuverlässiger Zeitdienst.</li></ul>**/largephaseoffset:\<*milliseconds*>** : Legt den Zeitunterschied zwischen lokaler und Netzwerkzeit fest, den W32Time als Spitze interpretiert. |
 |**w32tm /tz** |Zeigt die aktuellen Zeitzoneneinstellungen an. |
-|**w32tm /dumpreg [/subkey:\<*Schlüssel*>] [/computer:\<*Ziel*>]** |Zeigt die einem angegebenen Registrierungsschlüssel zugeordneten Werte an.<p>Der Standardschlüssel ist **HKLM\System\CurrentControlSet\Services\W32Time** (der Stammschlüssel für den Zeitdienst).<p>**/subkey:\<*Schlüssel*>** : Zeigt die Werte an, die dem Unterschlüssel <key> des Standardschlüssels zugeordnet sind.<p>**/computer:\<*Ziel*>** : Fragt Registrierungseinstellungen für den Computer \<*Ziel*> ab. |
-|**w32tm /query [/computer:\<*Ziel*>] {/source \| /configuration \| /peers \| /status} [/verbose]** |Zeigt die Informationen zum Windows-Zeitdienst eines Computers an. Dieser Parameter wurde zunächst im Windows-Zeitclient von Windows Vista und Windows Server 2008 zur Verfügung gestellt.<p>**/computer:\<*Ziel*>** : Fragt die Informationen von \<*Ziel*> ab. Wenn nicht angegeben, ist der Standardwert der lokale Computer.<p>**/source**: Zeigt die Zeitquelle an.<p>**/configuration**: Zeigt die Konfiguration der Laufzeit an sowie woher die Einstellung stammt. Zeigt im ausführlichen Modus („verbose“) auch die nicht definierte oder nicht verwendete Einstellung an.<p>**/peers**: Zeigt eine Liste von Peers und deren Status an.<p>**/status**: Zeigt den Status des Windows-Zeitdiensts an.<p>**/verbose**: Legt den ausführlichen Modus fest, um weitere Informationen anzuzeigen. |
-|**w32tm /debug {/disable \| {/enable /file:\<*Name*> /size:/<*Bytes*> /entries:\<*Wert*> [/truncate]}}** |Aktivieren oder Deaktivieren des privaten Protokolls des Windows-Zeitdiensts auf dem lokalen Computer. Dieser Parameter wurde zunächst im Windows-Zeitclient von Windows Vista und Windows Server 2008 zur Verfügung gestellt.<p>**/disable**: Deaktiviert das private Protokoll.<p>**/enable**: Aktiviert das private Protokoll.<ul><li>**file:\<*Name*>** : Gibt den absoluten Dateinamen an.</li><li>**size:\<*Bytes*>** : Gibt die maximale Größe für die Umlaufprotokollierung an.</li><li>**entries:\<*Wert*>** : Enthält eine Liste von Kennzeichen, durch Nummern angegeben und durch Kommas getrennt, die die Typen von Informationen angeben, die protokolliert werden sollen. Gültige Nummern sind 0 bis 300. Ein Bereich von Nummern ist, zusätzlich zu einzelnen Nummern, gültig, z. B. 0–100,103,106. Der Wert 0–300 dient zum Protokollieren aller Informationen.</li></ul>**/truncate**: Die Datei abschneiden, falls vorhanden. |
+|**w32tm /dumpreg [/subkey:\<*key*>] [/computer:\<*target*>]** |Zeigt die einem angegebenen Registrierungsschlüssel zugeordneten Werte an.<p>Der Standardschlüssel ist **HKLM\System\CurrentControlSet\Services\W32Time** (der Stammschlüssel für den Zeitdienst).<p>**/subkey:\<*key*>** : Zeigt die Werte an, die dem Unterschlüssel <key> des Standardschlüssels zugeordnet sind.<p>**/computer:\<*target*>** : Fragt Registrierungseinstellungen für den Computer \<*target*> ab |
+|**w32tm /query [/computer:\<*target*>] {/source \| /configuration \| /peers \| /status} [/verbose]** |Zeigt die Informationen zum Windows-Zeitdienst eines Computers an. Dieser Parameter wurde zunächst im Windows-Zeitclient von Windows Vista und Windows Server 2008 zur Verfügung gestellt.<p>**/computer:\<*target*>** : Fragt die Informationen von \<*target*> ab. Wenn nicht angegeben, ist der Standardwert der lokale Computer.<p>**/source**: Zeigt die Zeitquelle an.<p>**/configuration**: Zeigt die Konfiguration der Laufzeit an sowie woher die Einstellung stammt. Zeigt im ausführlichen Modus („verbose“) auch die nicht definierte oder nicht verwendete Einstellung an.<p>**/peers**: Zeigt eine Liste von Peers und deren Status an.<p>**/status**: Zeigt den Status des Windows-Zeitdiensts an.<p>**/verbose**: Legt den ausführlichen Modus fest, um weitere Informationen anzuzeigen. |
+|**w32tm /debug {/disable \| {/enable /file:\<*name*> /size:/<*bytes*> /entries:\<*value*> [/truncate]}}** |Aktivieren oder Deaktivieren des privaten Protokolls des Windows-Zeitdiensts auf dem lokalen Computer. Dieser Parameter wurde zunächst im Windows-Zeitclient von Windows Vista und Windows Server 2008 zur Verfügung gestellt.<p>**/disable**: Deaktiviert das private Protokoll.<p>**/enable**: Aktiviert das private Protokoll.<ul><li>**file:\<*name*>** : Gibt den absoluten Dateinamen an.</li><li>**size:\<*bytes*>** : Gibt die maximale Größe für die Umlaufprotokollierung an.</li><li>**entries:\<*value*>** : Enthält eine Liste von Kennzeichen, durch Nummern angegeben und durch Kommas getrennt, die die Typen von Informationen angeben, die protokolliert werden sollen. Gültige Nummern sind 0 bis 300. Ein Bereich von Nummern ist, zusätzlich zu einzelnen Nummern, gültig, z. B. 0–100,103,106. Der Wert 0–300 dient zum Protokollieren aller Informationen.</li></ul>**/truncate**: Die Datei abschneiden, falls vorhanden. |
 
-Weitere Informationen zu **W32tm.exe** findest du in der [Windows-Hilfe](https://support.microsoft.com/hub/4338813/windows-help?os=windows-10).  
+Weitere Informationen zu **W32tm.exe** findest du in der [Windows-Hilfe](https://support.microsoft.com/hub/4338813/windows-help?os=windows-10).
 
 **Beispiele**
 
@@ -88,9 +88,9 @@ W32tm /query /computer:contosoW1 /configuration
 
 Die Ausgabe dieses Befehls ist eine Liste von Konfigurationsparametern, die für den Windows-Zeitclient eingestellt werden.
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > [Die Zeitsynchronisierungsalgorithmen in Windows Server 2016 wurden verbessert](https://aka.ms/WS2016Time), um sie an die RFC-Spezifikationen anzupassen. Wenn du also festlegen möchtest, dass der lokale Windows-Zeitclient auf mehrere Peers verweist, wird dringend empfohlen, drei oder mehr unterschiedliche Zeitserver vorzubereiten.
->  
+>
 > Wenn du nur über zwei Zeitserver verfügst, solltest du das Flag **UseAsFallbackOnly** (0x2) angeben, um einem der beiden Server eine niedrigere Priorität einzuräumen. Wenn du beispielsweise „ntpserver.contoso.com“ über „clock.adatum.com“ priorisieren möchtest, führe den folgenden Befehl aus.
 > ```cmd
 > w32tm /config /manualpeerlist:"ntpserver.contoso.com,0x8 clock.adatum.com,0xa" /syncfromflags:manual /update
@@ -99,14 +99,14 @@ Die Ausgabe dieses Befehls ist eine Liste von Konfigurationsparametern, die für
 
 ## <a name="using-group-policy-to-configure-the-windows-time-service"></a>Verwenden von Gruppenrichtlinien zur Konfiguration des Windows-Zeitdiensts
 
-Der Windows-Zeitdienst speichert eine Reihe von Konfigurationseigenschaften als Registrierungseinträge. Du kannst Gruppenrichtlinienobjekte verwenden, um die meisten dieser Informationen zu konfigurieren. Du kannst z. B. GPOs verwenden, um einen Computer als NTPServer oder NTPClient zu konfigurieren, den Zeitsynchronisationsmechanismus zu konfigurieren oder einen Computer als zuverlässige Zeitquelle zu konfigurieren.  
+Der Windows-Zeitdienst speichert eine Reihe von Konfigurationseigenschaften als Registrierungseinträge. Du kannst Gruppenrichtlinienobjekte verwenden, um die meisten dieser Informationen zu konfigurieren. Du kannst z. B. GPOs verwenden, um einen Computer als NTPServer oder NTPClient zu konfigurieren, den Zeitsynchronisationsmechanismus zu konfigurieren oder einen Computer als zuverlässige Zeitquelle zu konfigurieren.
 
-> [!NOTE]  
-> Gruppenrichtlinieneinstellungen für den Windows-Zeitdienst können unter Windows Server 2003-, Windows Server 2003 R2-, Windows Server 2008- und Windows Server 2008 R2-Domänencontrollern konfiguriert und nur auf Computer unter Windows Server 2003, Windows Server 2003 R2, Windows Server 2008 und Windows Server 2008 R2 angewendet werden.  
+> [!NOTE]
+> Gruppenrichtlinieneinstellungen für den Windows-Zeitdienst können unter Windows Server 2003-, Windows Server 2003 R2-, Windows Server 2008- und Windows Server 2008 R2-Domänencontrollern konfiguriert und nur auf Computer unter Windows Server 2003, Windows Server 2003 R2, Windows Server 2008 und Windows Server 2008 R2 angewendet werden.
 
 Windows speichert die Richtlinieninformationen des Windows-Zeitdiensts in der administrativen Vorlagendatei „W32Time.admx“ unter **Computer Configuration\Administrative Templates\System\Windows Time Service**. Es speichert die Konfigurationsinformationen, die die Richtlinien in der Registrierung definieren, und verwendet diese Registrierungseinträge, um die Registrierungseinträge für den Windows-Zeitdienst zu konfigurieren. Infolgedessen überschreiben die durch die Gruppenrichtlinie definierten Werte alle bereits vorhandenen Werte im Abschnitt des Windows-Zeitdiensts der Registrierung.
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > Einige der voreingestellten GPO-Einstellungen unterscheiden sich von den entsprechenden standardmäßigen Registrierungseinträgen. Wenn du beabsichtigst, ein Gruppenrichtlinienobjekt zum Konfigurieren von Windows-Zeiteinstellungen zu verwenden, stelle sicher, dass du [Voreingestellten Werte für den Gruppenrichtlinieneinstellungen des Windows-Zeitdiensts unterscheiden sich von den entsprechenden Registrierungseinträgen für den Windows-Zeitdienst in Windows Server 2003](https://go.microsoft.com/fwlink/?LinkId=186066) liest. Dieses Problem liegt vor bei: Windows Server 2008 R2, Windows Server 2008, Windows Server 2003 R2 und Windows Server 2003.
 
 Nimm z. B. an, du bearbeitest Richtlinieneinstellungen in der Richtlinie **Windows-NTP-Client konfigurieren**.
@@ -125,7 +125,7 @@ Dann verwendet Windows die Richtlinieneinstellungen, um die zugehörigen Registr
 
 In der folgenden Tabelle sind die Richtlinien aufgeführt, die du für den Windows-Zeitdienst konfigurieren kannst, sowie die Registrierungsunterschlüssel, die von diesen Richtlinien betroffen sind.
 
-> [!NOTE]  
+> [!NOTE]
 > Wenn du eine Gruppenrichtlinieneinstellung entfernst, entfernt Windows den entsprechenden Eintrag aus dem Richtlinienbereich der Registrierung.
 
 |Richtlinie<sup>1</sup> |Registrierungsspeicherorte<sup>2,</sup> <sup>3</sup> |
@@ -135,15 +135,15 @@ In der folgenden Tabelle sind die Richtlinien aufgeführt, die du für den Windo
 |Time Providers\Enable Windows NTP Client |W32Time\TimeProviders\NtpClient |
 |Time Providers\Enable Windows NTP Server |W32Time\TimeProviders\NtpServer |
 
-> <sup>1</sup> Kategoriepfad: **Computer Configuration\Administrative Templates\System\Windows Time Service**  
-> <sup>2</sup> Unterschlüssel: **HKLM\SOFTWARE\Policies\Microsoft**  
+> <sup>1</sup> Kategoriepfad: **Computer Configuration\Administrative Templates\System\Windows Time Service**
+> <sup>2</sup> Unterschlüssel: **HKLM\SOFTWARE\Policies\Microsoft**
 > <sup>3</sup> Unterschlüssel: **HKLM\SYSTEM\CurrentControlSet\Services**
 
 ## <a name="enabling-w32time-logging"></a>Aktivieren der W32Time-Protokollierung
 
 Die folgenden drei Registrierungseinträge sind nicht Teil der W32Time-Standardkonfiguration, können der Registrierung aber hinzugefügt werden, um erweiterte Protokollierungsfunktionen zu erhalten. Die im Systemereignisprotokoll protokollierten Informationen können angepasst werden, indem der Wert für die **EventLogFlags**-Einstellung im Gruppenrichtlinienobjekt-Editor geändert wird. Standardmäßig protokolliert der Zeitdienst jedes Mal ein Ereignis, wenn er zu einer neuen Zeitquelle wechselt.
 
-Füge die folgenden Registrierungseinträge hinzu, um die W32Time-Protokollierung zu aktivieren:  
+Füge die folgenden Registrierungseinträge hinzu, um die W32Time-Protokollierung zu aktivieren:
 
 |Registrierungseintrag |Versionen |Beschreibung |
 | --- | --- | --- |
@@ -153,28 +153,28 @@ Füge die folgenden Registrierungseinträge hinzu, um die W32Time-Protokollierun
 
 ## <a name="configuring-how-windows-time-service-resets-the-computer-clock"></a>Konfigurieren, wie der Windows-Zeitdienst die Computeruhr zurücksetzt
 
-Damit W32Time die Computeruhr graduell stellt, muss die Differenz kleiner als der Wert von **MaxAllowedPhaseOffset** sein und gleichzeitig die folgende Gleichung erfüllen:  
+Damit W32Time die Computeruhr graduell stellt, muss die Differenz kleiner als der Wert von **MaxAllowedPhaseOffset** sein und gleichzeitig die folgende Gleichung erfüllen:
 
 - Windows Server 2016 und höhere Versionen:
 
-  > |**CurrentTimeOffset**| &divide; (16 &times; **PhaseCorrectRate** &times; **pollIntervalInSeconds**) &le; **SystemClockRate** &divide; 2  
+  > |**CurrentTimeOffset**| &divide; (16 &times; **PhaseCorrectRate** &times; **pollIntervalInSeconds**) &le; **SystemClockRate** &divide; 2
 
 - Windows Server 2012 R2 und frühere Versionen:
 
-  > |**CurrentTimeOffset**| &divide; (**PhaseCorrectRate** &times; **UpdateInterval**) &le; **SystemClockRate** &divide; 2  
+  > |**CurrentTimeOffset**| &divide; (**PhaseCorrectRate** &times; **UpdateInterval**) &le; **SystemClockRate** &divide; 2
 
-Der **CurrentTimeOffset**-Wert wird in Zeiteinheiten gemessen, wobei 1 ms = 10.000 Zeiteinheiten in einem Windows-System ist.  
+Der **CurrentTimeOffset**-Wert wird in Zeiteinheiten gemessen, wobei 1 ms = 10.000 Zeiteinheiten in einem Windows-System ist.
 
-**SystemClockRate** und **PhaseCorrectRate** werden ebenfalls in Zeiteinheiten gemessen. Um den **SystemClockRate**-Wert zu erhalten, kannst du folgenden Befehl verwenden und ihn von Sekunden in Zeiteinheiten konvertieren, indem du die Formel *Sekunden* &times; 1.000 &times; 10.000 verwendest:  
+**SystemClockRate** und **PhaseCorrectRate** werden ebenfalls in Zeiteinheiten gemessen. Um den **SystemClockRate**-Wert zu erhalten, kannst du folgenden Befehl verwenden und ihn von Sekunden in Zeiteinheiten konvertieren, indem du die Formel *Sekunden* &times; 1.000 &times; 10.000 verwendest:
 
 ```cmd
-W32tm /query /status /verbose  
-ClockRate: 0.0156000s  
-```  
+W32tm /query /status /verbose
+ClockRate: 0.0156000s
+```
 
-**SystemClockRate** ist die Taktfrequenz der Systemuhr. Bei Verwendung von 156,000 Sekunden als Beispiel wäre der Wert von **SystemClockRate** = 0,0156000 &times; 1.000 &times; 10.000 = 156.000 Zeiteinheiten.  
+**SystemClockRate** ist die Taktfrequenz der Systemuhr. Bei Verwendung von 156,000 Sekunden als Beispiel wäre der Wert von **SystemClockRate** = 0,0156000 &times; 1.000 &times; 10.000 = 156.000 Zeiteinheiten.
 
-**MaxAllowedPhaseOffset** wird ebenfalls in Sekunden gemessen. Um den Wert in Zeiteinheiten umzuwandeln, multipliziere **MaxAllowedPhaseOffset** &times; 1.000 &times; 10.000.  
+**MaxAllowedPhaseOffset** wird ebenfalls in Sekunden gemessen. Um den Wert in Zeiteinheiten umzuwandeln, multipliziere **MaxAllowedPhaseOffset** &times; 1.000 &times; 10.000.
 
 In den folgenden Beispielen wird gezeigt, wie diese Berechnungen angewendet werden, wenn du Windows Server 2012 R2 oder eine niedrigere Version verwendest.
 
@@ -182,63 +182,63 @@ In den folgenden Beispielen wird gezeigt, wie diese Berechnungen angewendet werd
 
 Deine Zeit ist 11:05 Uhr und die Zeitstichprobe, die du von einem Peer erhalten hast, und die du für richtig hältst, ist 11:09 Uhr.
 
-> **PhaseCorrectRate** = 1  
->  
-> **UpdateInterval** = 30.000 Zeiteinheiten  
->  
-> **SystemClockRate** = 156.000 Zeiteinheiten  
->  
-> **MaxAllowedPhaseOffset** = 10 Minuten = 600 Sekunden = 600 &times; 1.000 &times; 10.000 = 6.000.000.000 Zeiteinheiten  
->  
-> |**CurrentTimeOffset**| = 4 Minuten = 4 &times; 60 &times; 1.000 &times; 10.000 = 2.400.000.000 Zeiteinheiten  
->  
-> Ist **CurrentTimeOffset** &le; **MaxAllowedPhaseOffset**?  
->  
-> 2\.400.000.000 &le; 6.000.000.000: TRUE  
+> **PhaseCorrectRate** = 1
+>
+> **UpdateInterval** = 30.000 Zeiteinheiten
+>
+> **SystemClockRate** = 156.000 Zeiteinheiten
+>
+> **MaxAllowedPhaseOffset** = 10 Minuten = 600 Sekunden = 600 &times; 1.000 &times; 10.000 = 6.000.000.000 Zeiteinheiten
+>
+> |**CurrentTimeOffset**| = 4 Minuten = 4 &times; 60 &times; 1.000 &times; 10.000 = 2.400.000.000 Zeiteinheiten
+>
+> Ist **CurrentTimeOffset** &le; **MaxAllowedPhaseOffset**?
+>
+> 2\.400.000.000 &le; 6.000.000.000: TRUE
 
 UND erfüllt sie die obige Gleichung?
 
-> (|**CurrentTimeOffset**| &divide; (**PhaseCorrectRate** &times; **UpdateInterval**) &le; **SystemClockRate** &divide; 2)  
+> (|**CurrentTimeOffset**| &divide; (**PhaseCorrectRate** &times; **UpdateInterval**) &le; **SystemClockRate** &divide; 2)
 
-Ist 2.400.000.000 / (30.000 &times; 1) &le; 156.000 &divide; 2  
+Ist 2.400.000.000 / (30.000 &times; 1) &le; 156.000 &divide; 2
 
-80.000 &le; 78.000: FALSE  
+80.000 &le; 78.000: FALSE
 
-Deshalb würde W32tm die Uhr sofort zurückstellen.  
+Deshalb würde W32tm die Uhr sofort zurückstellen.
 
-> [!NOTE]  
-> Wenn du in diesem Fall die Uhr wieder langsam zurückstellen möchtest, müsstest du auch die Werte von **PhaseCorrectRate** oder **UpdateInterval** in der Registrierung anpassen, um sicherzustellen, dass das Ergebnis der Gleichung **TRUE** ist.  
+> [!NOTE]
+> Wenn du in diesem Fall die Uhr wieder langsam zurückstellen möchtest, müsstest du auch die Werte von **PhaseCorrectRate** oder **UpdateInterval** in der Registrierung anpassen, um sicherzustellen, dass das Ergebnis der Gleichung **TRUE** ist.
 
 **Beispiel 2: Die Zeit weicht um drei Minuten ab**
 
-> **PhaseCorrectRate** = 1  
-> 
-> **UpdateInterval** = 30.000 Zeiteinheiten  
-> 
-> SystemClockRate = 156.000 Zeiteinheiten  
-> 
-> **MaxAllowedPhaseOffset** = 10 Minuten = 600 Sekunden = 600 &times; 1.000 &times; 10.000 = 6.000.000.000 Zeiteinheiten  
-> 
-> |**CurrentTimeOffset**| = 3 Minuten = 3 &times; 60 &times; 1.000 &times; 10.000 = 1.800.000.000 Zeiteinheiten  
-> 
-> Ist |**CurrentTimeOffset**| &le; **MaxAllowedPhaseOffset**?  
-> 
-> 1\.800.000.000 &le; 6.000.000.000: TRUE  
+> **PhaseCorrectRate** = 1
+>
+> **UpdateInterval** = 30.000 Zeiteinheiten
+>
+> SystemClockRate = 156.000 Zeiteinheiten
+>
+> **MaxAllowedPhaseOffset** = 10 Minuten = 600 Sekunden = 600 &times; 1.000 &times; 10.000 = 6.000.000.000 Zeiteinheiten
+>
+> |**CurrentTimeOffset**| = 3 Minuten = 3 &times; 60 &times; 1.000 &times; 10.000 = 1.800.000.000 Zeiteinheiten
+>
+> Ist |**CurrentTimeOffset**| &le; **MaxAllowedPhaseOffset**?
+>
+> 1\.800.000.000 &le; 6.000.000.000: TRUE
 
 UND erfüllt sie die obige Gleichung?
 
-> (|**CurrentTimeOffset**| &divide; (**PhaseCorrectRate** &times; **UpdateInterval**) &le; **SystemClockRate** &divide; 2)  
-> 
-> Ist 3 Minuten &times; (1.800.000.000) &divide; (30.000 &times; 1) &le; 156.000 &divide; 2  
-> 
-> Ist 60.000 &le; 78.000: TRUE  
+> (|**CurrentTimeOffset**| &divide; (**PhaseCorrectRate** &times; **UpdateInterval**) &le; **SystemClockRate** &divide; 2)
+>
+> Ist 3 Minuten &times; (1.800.000.000) &divide; (30.000 &times; 1) &le; 156.000 &divide; 2
+>
+> Ist 60.000 &le; 78.000: TRUE
 
-In diesem Fall wird die Uhr langsam zurückgestellt.  
+In diesem Fall wird die Uhr langsam zurückgestellt.
 
 ## <a name="reference-windows-time-service-registry-entries"></a>Referenz: Registrierungseinträge des Windows-Zeitdiensts
 
-> [!WARNING]  
-> Die Informationen zu diesen Registrierungseinträgen dienen als Referenz, die du bei einer Problembehandlung oder der Überprüfung, ob die erforderlichen Einstellungen angewendet sind, verwenden kannst. Viele der Werte im Abschnitt „W32Time“ der Registrierung werden intern von W32Time verwendet, um Informationen zu speichern. Ändere diese Werte nicht manuell. Änderungen an der Registrierung werden weder vom Registrierungs-Editor noch von Windows überprüft, bevor sie angewendet werden. Wenn die Registrierung ungültige Werte enthält, kann es unter Windows zu nicht behebbaren Fehlern kommen.  
+> [!WARNING]
+> Die Informationen zu diesen Registrierungseinträgen dienen als Referenz, die du bei einer Problembehandlung oder der Überprüfung, ob die erforderlichen Einstellungen angewendet sind, verwenden kannst. Viele der Werte im Abschnitt „W32Time“ der Registrierung werden intern von W32Time verwendet, um Informationen zu speichern. Ändere diese Werte nicht manuell. Änderungen an der Registrierung werden weder vom Registrierungs-Editor noch von Windows überprüft, bevor sie angewendet werden. Wenn die Registrierung ungültige Werte enthält, kann es unter Windows zu nicht behebbaren Fehlern kommen.
 
 Der Windows-Zeitdienst speichert Informationen unter den folgenden Registrierungsunterschlüsseln:
 
@@ -251,13 +251,13 @@ Zusätzlich kannst du zu Zwecken der Problembehandlung [Einträge hinzufügen, u
 
 In den folgenden Tabellen bezieht sich „Alle Versionen“ auf Windows-Versionen, zu denen Windows 7, Windows 8, Windows 10, Windows Server 2008 und Windows Server 2008 R2, Windows Server 2012 und Windows Server 2012 R2, Windows Server 2016 und Windows Server 2019 gehören. Einige Einträge sind nur in höheren Windows-Versionen verfügbar.
 
-> [!NOTE]  
-> Einige der Parameter in der Registrierung werden in Zeiteinheiten und andere in Sekunden gemessen. Verwende die folgenden Konvertierungsfaktoren, um die Zeit von Zeiteinheiten in Sekunden umzuwandeln:  
-> - 1 Minute = 60 Sek.  
-> - 1 Sek. = 1.000 ms  
-> - 1 ms = 10.000 Zeiteinheiten bei einem Windows-System, wie unter [DateTime.Ticks-Eigenschaft](https://docs.microsoft.com/dotnet/api/system.datetime.ticks) beschrieben.  
->  
-> Beispielsweise werden 5 Minuten zu 5 &times; 60 &times; 1000 &times; 10000 = 3.000.000.000 Zeiteinheiten.  
+> [!NOTE]
+> Einige der Parameter in der Registrierung werden in Zeiteinheiten und andere in Sekunden gemessen. Verwende die folgenden Konvertierungsfaktoren, um die Zeit von Zeiteinheiten in Sekunden umzuwandeln:
+> - 1 Minute = 60 Sek.
+> - 1 Sek. = 1.000 ms
+> - 1 ms = 10.000 Zeiteinheiten bei einem Windows-System, wie unter [DateTime.Ticks-Eigenschaft](https://docs.microsoft.com/dotnet/api/system.datetime.ticks) beschrieben.
+>
+> Beispielsweise werden 5 Minuten zu 5 &times; 60 &times; 1000 &times; 10000 = 3.000.000.000 Zeiteinheiten.
 
 ### <a name="hklmsystemcurrentcontrolsetservicesw32timeconfig-subkey-entries"></a><a id="config"></a>„HKLM\SYSTEM\CurrentControlSet\Services\W32Time\Config“ – Unterschlüsseleinträge
 
@@ -328,53 +328,53 @@ In den folgenden Tabellen bezieht sich „Alle Versionen“ auf Windows-Versione
 |**Aktiviert** |Alle Versionen |Gibt an, ob der NtpServer-Anbieter im aktuellen Zeitdienst aktiviert ist. <ul><li>**1** – Ja</li><li>**0** – Nein</li></ul>Der Standardwert für Domänenmitglieder ist **1**. Der Standardwert für eigenständige Clients und Server ist **1**. |
 |**InputProvider** |Alle Versionen |Gibt an, ob der NtpClient als „InputProvider“ aktiviert werden soll, der Zeitinformationen vom NtpServer abruft. Der NtpServer ist ein Zeitserver, der auf Zeitanforderungen von Clients im Netzwerk reagiert, indem er Zeitstichproben zurückgibt, die für die Synchronisierung der lokalen Uhr nützlich sind. <ul><li>**1** – Ja</li><li>**0** – Nein = 0 </li></ul>Der Standardwert für Domänenmitglieder und eigenständige Clients ist: 1 |
 
-## <a name="reference-pre-set-values-for-the-windows-time-service-gpo-settings"></a>Referenz: Voreingestellte Werte für die GPO-Einstellungen des Windows-Zeitdiensts  
+## <a name="reference-pre-set-values-for-the-windows-time-service-gpo-settings"></a>Referenz: Voreingestellte Werte für die GPO-Einstellungen des Windows-Zeitdiensts
 
-In der folgenden Tabelle sind die globalen Gruppenrichtlinieneinstellungen aufgelistet, die dem Windows-Zeitdienst zugeordnet sind, sowie die vorab festgelegten Werte, die jeder einzelnen Einstellung zugeordnet sind. Weitere Informationen zu den einzelnen Einstellungen findest du in den entsprechenden Registrierungseinträgen unter [Referenz: Registrierungseinträge des Windows-Zeitdiensts](#reference-windows-time-service-registry-entries) weiter oben in diesem Artikel. Die folgenden Einstellungen befinden sich in einem einzelnen Gruppenrichtlinienobjekt namens **Globale Konfigurationseinstellungen**.  
+In der folgenden Tabelle sind die globalen Gruppenrichtlinieneinstellungen aufgelistet, die dem Windows-Zeitdienst zugeordnet sind, sowie die vorab festgelegten Werte, die jeder einzelnen Einstellung zugeordnet sind. Weitere Informationen zu den einzelnen Einstellungen findest du in den entsprechenden Registrierungseinträgen unter [Referenz: Registrierungseinträge des Windows-Zeitdiensts](#reference-windows-time-service-registry-entries) weiter oben in diesem Artikel. Die folgenden Einstellungen befinden sich in einem einzelnen Gruppenrichtlinienobjekt namens **Globale Konfigurationseinstellungen**.
 
 ### <a name="pre-set-values-for-global-group-policy-settings"></a>Voreingestellte Werte für Einstellungen für „Globale Gruppenrichtlinien“
 
-|Gruppenrichtlinieneinstellung|Voreingestellter Wert|  
+|Gruppenrichtlinieneinstellung|Voreingestellter Wert|
 | --- | --- |
-|**AnnounceFlags**|**10**|  
-|**EventLogFlags**|**2**|  
-|**FrequencyCorrectRate**|**4**|  
-|**HoldPeriod**|**5**|  
-|**LargePhaseOffset**|**1.280.000**|  
-|**LocalClockDispersion**|**10**|  
-|**MaxAllowedPhaseOffset**|**300**|  
-|**MaxNegPhaseCorrection**|**54.000** (15 Stunden)|  
-|**MaxPollInterval**|**15**|  
-|**MaxPosPhaseCorrection**|**54.000** (15 Stunden)|  
-|**MinPollInterval**|**10**|  
-|**PhaseCorrectRate**|**7**|  
-|**PollAdjustFactor**|**5**|  
-|**SpikeWatchPeriod**|**90**|  
-|**UpdateInterval**|**100**|  
+|**AnnounceFlags**|**10**|
+|**EventLogFlags**|**2**|
+|**FrequencyCorrectRate**|**4**|
+|**HoldPeriod**|**5**|
+|**LargePhaseOffset**|**1.280.000**|
+|**LocalClockDispersion**|**10**|
+|**MaxAllowedPhaseOffset**|**300**|
+|**MaxNegPhaseCorrection**|**54.000** (15 Stunden)|
+|**MaxPollInterval**|**15**|
+|**MaxPosPhaseCorrection**|**54.000** (15 Stunden)|
+|**MinPollInterval**|**10**|
+|**PhaseCorrectRate**|**7**|
+|**PollAdjustFactor**|**5**|
+|**SpikeWatchPeriod**|**90**|
+|**UpdateInterval**|**100**|
 
 ### <a name="pre-set-values-for-configure-windows-ntp-client-settings"></a>Voreingestellte Werte für die Einstellungen für „Windows-NTP-Client konfigurieren“
 
-In der folgenden Tabelle sind die verfügbaren Einstellungen für das Gruppenrichtlinienobjekt **Windows-NTP-Client konfigurieren** sowie die vorab festgelegten Werte, die dem Windows-Zeitdienst zugeordnet sind, aufgelistet. Weitere Informationen zu den einzelnen Einstellungen findest du in den entsprechenden Registrierungseinträgen unter [Referenz: Registrierungseinträge des Windows-Zeitdiensts](#reference-windows-time-service-registry-entries) weiter oben in diesem Artikel.  
+In der folgenden Tabelle sind die verfügbaren Einstellungen für das Gruppenrichtlinienobjekt **Windows-NTP-Client konfigurieren** sowie die vorab festgelegten Werte, die dem Windows-Zeitdienst zugeordnet sind, aufgelistet. Weitere Informationen zu den einzelnen Einstellungen findest du in den entsprechenden Registrierungseinträgen unter [Referenz: Registrierungseinträge des Windows-Zeitdiensts](#reference-windows-time-service-registry-entries) weiter oben in diesem Artikel.
 
-|Gruppenrichtlinieneinstellung|Voreingestellter Wert|  
-|------------------------|-----------------|  
-|**NtpServer**|time.windows.com, **0x1**|  
-|**Type**|Standardoptionen:<ul><li>**NTP.** Zur Verwendung auf Computern, die keiner Domäne beigetreten sind.</li><li>**NT5DS.** Zur Verwendung auf Computern, die einer Domäne beigetreten sind.</li></ul>|  
-|**CrossSiteSyncFlags**|**2**|  
-|**ResolvePeerBackoffMinutes**|**15**|  
-|**ResolvePeerBackoffMaxTimes**|**7**|  
-|**SpecialPollInterval**|**3.600**|  
-|**EventLogFlags**|**0**|  
+|Gruppenrichtlinieneinstellung|Voreingestellter Wert|
+|------------------------|-----------------|
+|**NtpServer**|time.windows.com, **0x1**|
+|**Type**|Standardoptionen:<ul><li>**NTP.** Zur Verwendung auf Computern, die keiner Domäne beigetreten sind.</li><li>**NT5DS.** Zur Verwendung auf Computern, die einer Domäne beigetreten sind.</li></ul>|
+|**CrossSiteSyncFlags**|**2**|
+|**ResolvePeerBackoffMinutes**|**15**|
+|**ResolvePeerBackoffMaxTimes**|**7**|
+|**SpecialPollInterval**|**3.600**|
+|**EventLogFlags**|**0**|
 
 ## <a name="reference-network-ports-that-the-windows-time-service-uses"></a>Referenz: Vom Windows-Zeitdienst verwendete Netzwerkports
 
-Die Windows-Zeit hält die NTP-Spezifikation ein, die die Verwendung des UDP-Ports 123 für die gesamte Zeitsynchronisierungskommunikation erfordert. Dieser Port ist für die Windows-Zeit reserviert und bleibt jederzeit reserviert. Immer wenn der Computer seine Uhr synchronisiert oder einem anderen Computer die Zeit bereitstellt, erfolgt diese Kommunikation über den UDP-Port 123.  
+Die Windows-Zeit hält die NTP-Spezifikation ein, die die Verwendung des UDP-Ports 123 für die gesamte Zeitsynchronisierungskommunikation erfordert. Dieser Port ist für die Windows-Zeit reserviert und bleibt jederzeit reserviert. Immer wenn der Computer seine Uhr synchronisiert oder einem anderen Computer die Zeit bereitstellt, erfolgt diese Kommunikation über den UDP-Port 123.
 
-> [!NOTE]  
-> Wenn du über einen Computer mit mehreren Netzwerkadaptern verfügst (auch als *mehrfach vernetzter* Computer bezeichnet), kannst du den Windows-Zeitdienst nicht selektiv, basierend auf dem Netzwerkadapter aktivieren.  
+> [!NOTE]
+> Wenn du über einen Computer mit mehreren Netzwerkadaptern verfügst (auch als *mehrfach vernetzter* Computer bezeichnet), kannst du den Windows-Zeitdienst nicht selektiv, basierend auf dem Netzwerkadapter aktivieren.
 
-## <a name="related-information"></a>Verwandte Informationen  
+## <a name="related-information"></a>Verwandte Informationen
 
-Die folgenden Ressourcen enthalten weitere Informationen, die für diesen Abschnitt relevant sind.  
+Die folgenden Ressourcen enthalten weitere Informationen, die für diesen Abschnitt relevant sind.
 
-- RFC *1305* in der IETF RFC-Datenbank  
+- RFC *1305* in der IETF RFC-Datenbank

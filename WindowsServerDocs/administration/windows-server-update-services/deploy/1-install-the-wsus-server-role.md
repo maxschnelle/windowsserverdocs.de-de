@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 664e0233d10cbbc526635f1868ea1977c59fea63
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: a923b2da4583c32010e7e3104315957f3f05acaf
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80828903"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87178566"
 ---
 # <a name="step-1-install-the-wsus-server-role"></a>Schritt 1: Installieren der WSUS-Serverrolle
 
@@ -23,7 +23,7 @@ ms.locfileid: "80828903"
 Der nächste Schritt zur Bereitstellung des WSUS-Servers ist die Installation der WSUS-Serverrolle. Anhand des folgenden Verfahrens wird die Installation der WSUS-Serverrolle mithilfe von Server-Manager beschrieben.
 
 > [!IMPORTANT]
-> In diesem Installationsverfahren wird nur die Installation von WSUS mit der internen Windows-Datenbank (WID) behandelt. Die Verfahren zum Installieren von WSUS mithilfe von Microsoft SQL Server sind in [diesem Artikel](https://social.technet.microsoft.com/wiki/contents/articles/10020.installing-wsus-server-role-on-windows-server-2012-with-microsoft-sql-database.aspx)dokumentiert.
+> In diesem Installationsverfahren wird nur die Installation von WSUS mit der internen Windows-Datenbank (WID) behandelt. Die Verfahren zum Installieren von WSUS mithilfe von Microsoft SQL Server sind [im WSUS-Forum](https://docs.microsoft.com/answers/topics/windows-server-update-services.html) dokumentiert.
 
 ### <a name="to-install-the-wsus-server-role"></a>So installieren Sie die WSUS-Serverrolle
 

@@ -8,12 +8,12 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 359b4bed3090463bfb92431e06e325d981568248
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 56ffd044f8526626581455fb18b530fd71a2381e
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86961022"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87182266"
 ---
 # <a name="troubleshooting-disk-management"></a>Datenträgerverwaltung: Problembehandlung
 
@@ -35,7 +35,7 @@ Bevor wir uns mit den kniffligen Dingen beschäftigen, gelangst du folgendermaß
 
 ![In der Datenträgerverwaltung wird ein unbekannter Datenträger angezeigt, der initialisiert werden muss.](media/uninitialized-disk.PNG)
 
-**Ursache:** Wenn einer deiner Datenträger im Datei-Explorer nicht angezeigt wird und in der Datenträgerverwaltung als *Nicht initialisiert* angegeben ist, besitzt er möglicherweise keine gültige Datenträgersignatur. Das bedeutet im Wesentlichen, dass der Datenträger noch nie initialisiert und formatiert wurde oder dass die Formatierung des Laufwerks beschädigt ist. 
+**Ursache:** Wenn einer deiner Datenträger im Datei-Explorer nicht angezeigt wird und in der Datenträgerverwaltung als *Nicht initialisiert* angegeben ist, besitzt er möglicherweise keine gültige Datenträgersignatur. Das bedeutet im Wesentlichen, dass der Datenträger noch nie initialisiert und formatiert wurde oder dass die Formatierung des Laufwerks beschädigt ist.
 
 Es ist auch denkbar, dass für den Datenträger ein Hardware- oder Anschlussproblem vorliegt. Darauf gehen wir weiter unten in diesem Artikel ein.
 
@@ -55,7 +55,7 @@ Dass ein Datenträger oder eine Speicherkarte fehlt oder sich nicht initialisier
 
     > [!NOTE]
     > Ignoriere alle Partitionen, die als **EFI-Systempartition** oder **Wiederherstellungspartition** aufgelistet sind. Diese Partitionen enthalten viele wirklich wichtige Dateien, die dein PC benötigt, um ordnungsgemäß zu funktionieren. Du solltest sie einfach in Ruhe ihre Arbeit erledigen lassen, damit sie deinen PC starten und dir helfen, Probleme zu beheben.
-3. Falls du über einen externen Datenträger verfügst, der nicht angezeigt wird, stecke ihn aus und wieder ein, und wähle anschließend **Aktion** > **Datenträger neu einlesen** aus. 
+3. Falls du über einen externen Datenträger verfügst, der nicht angezeigt wird, stecke ihn aus und wieder ein, und wähle anschließend **Aktion** > **Datenträger neu einlesen** aus.
 4. Fahre deinen PC herunter, schalte deine externe Festplatte aus (sofern es sich um ein Exemplar mit Netzkabel handelt), und schalte PC und Festplatte wieder ein.
     Wähle zum Ausschalten eines PCs unter Windows 10 die Schaltfläche „Start“, die Schaltfläche „Ein/Aus“ und anschließend **Herunterfahren** aus.
 5. Schließe den Datenträger an einen anderen USB-Anschluss an, der sich direkt an deinem PC befindet (nicht an einem Hub).
@@ -69,14 +69,14 @@ Dass ein Datenträger oder eine Speicherkarte fehlt oder sich nicht initialisier
 
     ![Geräte-Manager mit unbekanntem USB-Gerät](media/device-manager.PNG)
 8. Schließe den Datenträger an einen anderen PC an.
-    
-    Sollte der Datenträger an einem anderen PC nicht funktionieren, liegt wahrscheinlich ein Problem mit dem Datenträger vor (nicht mit deinem PC). Auch das ist aber natürlich nicht gerade erfreulich. Unter [Forum FAQ: External USB drive error „You must initialize the disk before Logical Disk Manager can access it“](https://social.technet.microsoft.com/Forums/windows/en-US/2b069948-82e9-49ef-bbb7-e44ec7bfebdb/forum-faq-external-usb-drive-error-you-must-initialize-the-disk-before-logical-disk-manager-can?forum=w7itprohardware) (Forum-FAQ: Fehler im Zusammenhang mit einem externen Datenträger: „Sie müssen den Datenträger initialisieren, damit die Verwaltung logischer Datenträger darauf zugreifen kann.“) findest du noch ein paar weitere Schritte, die du versuchen kannst. Möglicherweise ist es nun aber an der Zeit, die Website der [Microsoft-Community](https://answers.microsoft.com/en-us/windows/forum/windows_10-files?sort=lastreplydate&dir=desc&tab=All&status=all&mod=&modAge=&advFil=&postedAfter=&postedBefore=&threadType=all&isFilterExpanded=true&tm=1514405359639) zu durchsuchen und dort um Hilfe zu bitten oder sich an den Hersteller deines Datenträgers oder den [Microsoft-Support](https://support.microsoft.com/contactus/) zu wenden.
+
+    Sollte der Datenträger an einem anderen PC nicht funktionieren, liegt wahrscheinlich ein Problem mit dem Datenträger vor (nicht mit deinem PC). Auch das ist aber natürlich nicht gerade erfreulich. Suchen und fragen Sie auf der Website der [Microsoft-Community](https://answers.microsoft.com/) nach Hilfe, oder wenden Sie sich an Ihren Festplattenhersteller bzw. den [Microsoft-Support](https://support.microsoft.com/contactus/).
 
     Für den Fall, dass es dir nicht gelingt, das Laufwerk in Betrieb zu nehmen, gibt es Apps, die versuchen können, Daten eines fehlerhaften Datenträgers wiederherzustellen, und falls die Daten wirklich wichtig sind, kannst du auch die Dienste eines kostenpflichtigen Datenwiederherstellers in Anspruch nehmen. Solltest du eine für dich geeignete Lösung finden, hinterlasse doch weiter unten einen entsprechenden Kommentar.
 
 > [!IMPORTANT]
 > Datenträgerfehler sind keine Seltenheit. Wichtige Dateien sollten daher regelmäßig gesichert werden. Wenn einer deiner Datenträger manchmal nicht angezeigt wird oder Fehler verursacht, solltest du am besten gleich deine Sicherungsmethoden überprüfen. Es macht nichts, wenn du bei deiner Datensicherung etwas hintendran bist. Damit bist du nicht allein. Die beste Sicherungslösung ist eine, die du auch verwendest. Wir empfehlen daher, eine passende Lösung zu suchen und diese konsequent zu verwenden.
-> 
+>
 > [!TIP]
 > Wie du in Windows integrierte Apps verwendest, um Dateien auf einem externen Laufwerk (etwa auf einem USB-Laufwerk) zu sichern, erfährst du unter [Sichern und Wiederherstellen in Windows 10](https://support.microsoft.com/help/17143/windows-10-back-up-your-files). Du kannst Dateien auch auf Microsoft OneDrive speichern. Bei dieser Variante werden Dateien von deinem PC mit der Cloud synchronisiert. Bei einem Ausfall deiner Festplatte stehen die auf OneDrive gespeicherten Dateien weiterhin auf „OneDrive.com“ zur Verfügung. Weitere Informationen findest du unter [OneDrive auf dem PC](https://support.microsoft.com/help/17184/windows-10-onedrive).
 
@@ -94,7 +94,7 @@ Der Status **Unlesbar** wird für Datenträger ggf. auch beim Hochfahren angezei
 
 In bestimmten Fällen kann für einen Datenträger, der bereits mit dem System verbunden war, der Status **Fremd** angezeigt werden. Konfigurationsdaten für dynamische Datenträger werden auf allen dynamischen Datenträgern gespeichert. Die Informationen darüber, welche Datenträger dem System angehören, gehen daher verloren, wenn alle dynamischen Datenträger ausfallen.
 
-**Lösung:**  Füge den Datenträger der Systemkonfiguration deines Computers hinzu, um auf die Daten des Datenträgers zugreifen zu können. Importiere dazu den fremden Datenträger, indem du ihn gedrückt hältst (oder mit der rechten Maustaste darauf klickst), und anschließend auf **Fremde Datenträger importieren** klickst. Durch Importieren des fremden Datenträgers werden alle darauf vorhandenen Volumes sichtbar. 
+**Lösung:**  Füge den Datenträger der Systemkonfiguration deines Computers hinzu, um auf die Daten des Datenträgers zugreifen zu können. Importiere dazu den fremden Datenträger, indem du ihn gedrückt hältst (oder mit der rechten Maustaste darauf klickst), und anschließend auf **Fremde Datenträger importieren** klickst. Durch Importieren des fremden Datenträgers werden alle darauf vorhandenen Volumes sichtbar.
 
 ## <a name="a-dynamic-disks-status-is-online-errors"></a>Der Status eines dynamischen Datenträgers lautet „Online (Fehler)“.
 
@@ -110,8 +110,8 @@ Wenn der Datenträgerstatus **Offline** lautet und sich der Name des Datenträge
 
 **Lösung:** So schaltest du einen Datenträger mit dem Status „Offline“ oder „Fehlt“ wieder online:
 
-1. Behebe alle Datenträger-, Controller- oder Kabelprobleme. 
-2. Vergewissere dich, dass der physische Datenträger eingeschaltet, eingesteckt und mit dem Computer verbunden ist. 
+1. Behebe alle Datenträger-, Controller- oder Kabelprobleme.
+2. Vergewissere dich, dass der physische Datenträger eingeschaltet, eingesteckt und mit dem Computer verbunden ist.
 3. Führe anschließend den Befehl **Datenträger reaktivieren** aus, um den Datenträger wieder online zu schalten.
 4. Probiere die unter [Ein Datenträger hat den Status „Nicht initialisiert“, oder der Datenträger fehlt.](#disks-that-are-missing-or-not-initialized-plus-general-troubleshooting-steps) beschriebenen Problembehandlungsschritte aus.
 5. Wenn der Datenträger weiterhin den Status **Offline** hat, der Datenträgername weiterhin **Fehlt** lautet und du zu dem Schluss kommst, dass das Problem des Datenträgers nicht behebbar ist, kannst du den Datenträger aus dem System entfernen, indem du ihn gedrückt hältst (oder mit der rechten Maustaste darauf klickst), und anschließend auf **Datenträger entfernen** klickst. Um den Datenträger entfernen zu können, musst du allerdings erst alle Volumes (oder Spiegelungen) auf dem Datenträger löschen. Du kannst gespiegelte Volumes auf dem Datenträger retten, indem du die Spiegelung entfernst (anstelle des gesamten Volumes). Beim Löschen eines Volumes werden alle Daten des Volumes gelöscht. Daher solltest du einen Datenträger nur entfernen, wenn du absolut sicher bist, dass der Datenträger endgültig beschädigt und nicht mehr verwendbar ist.
@@ -123,7 +123,7 @@ Wenn der Datenträgerstatus **Offline** lautet und sich der Name des Datenträge
 
 3. Teste den Datenträger an einem anderen Computer. Lässt sich der Datenträger an einem anderen Computer **online** schalten, ist das Problem mit hoher Wahrscheinlichkeit auf die Konfiguration des Computers zurückzuführen, auf dem sich der Datenträger nicht **online** schalten lässt.
 
-4. Teste den Datenträger an einem anderen Computer mit dynamischen Datenträgern. Importiere den Datenträger auf diesem Computer, und verschiebe ihn anschließend wieder auf den Computer, auf dem er sich nicht **online** schalten ließ. 
+4. Teste den Datenträger an einem anderen Computer mit dynamischen Datenträgern. Importiere den Datenträger auf diesem Computer, und verschiebe ihn anschließend wieder auf den Computer, auf dem er sich nicht **online** schalten ließ.
 
 ## <a name="a-basic-or-dynamic-volumes-status-is-failed"></a>Der Status einer Basisvolumes oder eines dynamischen Volumes lautet „Fehlerhaft“.
 
@@ -169,7 +169,7 @@ Solltest du das Volume mit mehreren Datenträgern nicht mehr benötigen, kannst 
 Wenn der Status des Volumes **Fehlerfrei (Risiko)** lautet, hat ein zugrunde liegender Datenträger in der Regel den Status **Online (Fehler)** .
 
 **Lösung:**  
-1. Stelle für den zugrunde liegenden Datenträger den Status **Online** wieder her. Wenn der Datenträger wieder den Status **Online** hat, sollte das Volume wieder den Status **Fehlerfrei** haben. Sollte der Status **Fehlerfrei (Risiko)** bestehen bleiben, ist der Datenträger möglicherweise fehlerhaft. 
+1. Stelle für den zugrunde liegenden Datenträger den Status **Online** wieder her. Wenn der Datenträger wieder den Status **Online** hat, sollte das Volume wieder den Status **Fehlerfrei** haben. Sollte der Status **Fehlerfrei (Risiko)** bestehen bleiben, ist der Datenträger möglicherweise fehlerhaft.
 
 2. Sichere die Daten, und ersetze den Datenträger baldmöglichst.
 
