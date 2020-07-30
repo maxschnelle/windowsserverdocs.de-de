@@ -2,18 +2,17 @@
 title: Vor der Installation von Windows Server Essentials
 description: Beschreibt die Verwendung von Windows Server Essentials
 ms.date: 10/03/2016
-ms.prod: windows-server
 ms.topic: article
 ms.assetid: 8d0893bd-e2b7-4494-9537-02b1cbbcd57a
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: a1a927533497cdd451b9f3a045463889390012b7
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: d3dde053a47dbc45a05486ed89b0484c297a132e
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85471045"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87181496"
 ---
 # <a name="before-you-install-windows-server-essentials"></a>Vor der Installation von Windows Server Essentials
 

@@ -2,18 +2,17 @@
 title: Neues in Windows Server 2016 Essentials
 description: Beschreibt die Verwendung von Windows Server Essentials
 ms.date: 10/03/2016
-ms.prod: windows-server
 ms.topic: article
 ms.assetid: affff774-5fa6-4944-887a-9bfde05f6a3f
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 420d3b043959b8b1201aad7a5b3210fd9bd6a0da
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 504e81abb6822fca59eb15afe895c2345cc34f5d
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80817753"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87181616"
 ---
 # <a name="whats-new-in-windows-server-2016-essentials"></a>Neues in Windows Server 2016 Essentials
 
@@ -23,10 +22,10 @@ Im folgenden finden Sie neue und erweiterte Features in Windows Server 2016 Esse
 
 ## <a name="integration-with-azure-site-recovery-services"></a>[Integration in Azure Site Recovery Services](azure-site-recovery-services-integration.md)
 
-** --&reg;** , wenn ein virtueller Computer, der geschützt ist, fehlschlägt oder der Host Server, auf dem der geschützte virtuelle Computer ausgeführt wird, fehlschlägt, behält das Failover mit Azure Site Recovery Diensten die Geschäftskontinuität bei, bis der lokale virtuelle Computer oder der lokale Host Server repariert und verfügbar ist. 
+Funktionsweise **What it does**  -- &reg; Wenn bei einem geschützten virtuellen Computer ein Fehler auftritt oder der Host Server, auf dem der geschützte virtuelle Computer ausgeführt wird, fehlschlägt, behält das Failover mit Azure Site Recovery Services die Geschäftskontinuität bei, bis der lokale virtuelle Computer oder der lokale Host Server repariert und verfügbar ist. 
 
-**Funktionsweise** : Azure Site Recovery Dienste, die in Microsoft Azure angeboten werden, ermöglichen die Echt Zeit Replikation ihrer virtuellen Computer in einem Sicherungs Tresor in Azure. Wenn Ihr Server oder Standort aufgrund eines Hardwarefehlers oder eines anderen Fehlers ausfällt, können Sie ein Failover mit Azure Site Recovery-Diensten ausführen, sodass das in Ihrem Sicherungs Tresor gespeicherte VM-Image als laufender virtueller Computer in Azure bereitgestellt wird. In Kombination mit einem virtuellen Azure-Netzwerk stellen Client-PCs, die zuvor mit dem lokalen Server verbunden waren, eine transparente Verbindung mit dem Server her, der in Azure ausgeführt wird.     
-                                                                                                                                                                                                                                                                                                               
+**Funktionsweise** : Azure Site Recovery Dienste, die in Microsoft Azure angeboten werden, ermöglichen die Echt Zeit Replikation ihrer virtuellen Computer in einem Sicherungs Tresor in Azure. Wenn Ihr Server oder Standort aufgrund eines Hardwarefehlers oder eines anderen Fehlers ausfällt, können Sie ein Failover mit Azure Site Recovery-Diensten ausführen, sodass das in Ihrem Sicherungs Tresor gespeicherte VM-Image als laufender virtueller Computer in Azure bereitgestellt wird. In Kombination mit einem virtuellen Azure-Netzwerk stellen Client-PCs, die zuvor mit dem lokalen Server verbunden waren, eine transparente Verbindung mit dem Server her, der in Azure ausgeführt wird.
+
 
 ## <a name="integration-with-azure-virtual-network"></a>[Integration in Azure Virtual Network](azure-virtual-network-integration.md)
 
@@ -36,16 +35,16 @@ Funktions **Weise: Wenn**Organisationen ihre Cloud Computing machen, verschieben
 
 
 
-## <a name="support-for-larger-deployments"></a>[Unterstützung für größere bereit Stellungen](support-for-larger-deployments.md) 
+## <a name="support-for-larger-deployments"></a>[Unterstützung für größere bereit Stellungen](support-for-larger-deployments.md)
 
-Einige größere kleine Unternehmen benötigen mehr Funktionalität und Kapazität für eine effektive Implementierung von Windows Server Essentials. Windows Server 2016 Essentials bietet eine bessere Verwaltbarkeit von Domänen, Benutzern und Geräten durch Hinzufügen von Unterstützung für größere bereit Stellungen mit:                                                                                                                                                                                                 
+Einige größere kleine Unternehmen benötigen mehr Funktionalität und Kapazität für eine effektive Implementierung von Windows Server Essentials. Windows Server 2016 Essentials bietet eine bessere Verwaltbarkeit von Domänen, Benutzern und Geräten durch Hinzufügen von Unterstützung für größere bereit Stellungen mit:
 
  - mehrere Domänen
- - mehrere Domänen Controller                                                                                                                                                                                                                                        
- - Möglichkeit zum Angeben eines bestimmten Domänen Controllers                                                                                                                                                                                                                   
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+ - mehrere Domänen Controller
+ - Möglichkeit zum Angeben eines bestimmten Domänen Controllers
+
 
 <a name="see-also"></a>Siehe auch
 --------
 
-[Beginnen Sie mit der Verwendung von Windows Server Essentials](get-started.md) &copy;&reg;
+Einstieg [in Windows Server Essentials](get-started.md)&copy;&reg;
