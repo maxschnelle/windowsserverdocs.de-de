@@ -2,18 +2,17 @@
 title: Verwalten des Remotewebzugriffs in Windows Server Essentials
 description: Beschreibt die Verwendung von Windows Server Essentials
 ms.date: 10/03/2016
-ms.prod: windows-server
 ms.topic: article
 ms.assetid: f3ea40fa-b6ba-4d66-b754-221ca6271387
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 2144f66e9c5a5e9384e49a0f5d77796dec9d7429
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 56bfd8d9860ad571265980e859a09914fb4f1b9c
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85470625"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87180936"
 ---
 # <a name="manage-remote-web-access-in-windows-server-essentials"></a>Verwalten des Remotewebzugriffs in Windows Server Essentials
 
@@ -136,7 +135,7 @@ ms.locfileid: "85470625"
 7.  Klicken Sie auf **Übernehmen**, und klicken Sie anschließend auf **OK**.
 
 ##  <a name="set-up-your-router"></a><a name="BKMK_2"></a>Einrichten des Routers
- Beim Konfigurieren des Servers für den Remotewebzugriff versucht der Assistent zum Einrichten von "Zugriff überall" den Router einzurichten. Wenn Sie die Router oder Einstellungen des Routers ändern, muss der Assistent zum Einrichten des Routers erneut ausgeführt werden. Weitere Informationen finden Sie unter den folgenden Themen:
+ Beim Konfigurieren des Servers für den Remotewebzugriff versucht der Assistent zum Einrichten von "Zugriff überall" den Router einzurichten. Wenn Sie die Router oder Einstellungen des Routers ändern, muss der Assistent zum Einrichten des Routers erneut ausgeführt werden. Weitere Informationen finden Sie in den folgenden Themen:
 
 -   [Einrichten des Routers](Manage-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_SetUpRouter)
 
@@ -150,9 +149,9 @@ ms.locfileid: "85470625"
  In diesem Schritt versucht Windows Server Essentials, den Router anhand von UPnP-Befehlen automatisch zu konfigurieren. Dazu muss der Router UPnP-Standards unterstützen, und die UPnP-Einstellung muss auf dem Router aktiviert sein.
 
 > [!NOTE]
->  Die Netzwerkverbindung sollte die unterstützte Netzwerkanforderung für Windows Server Essentials erfüllen. Im Netzwerk sollte nur ein Router vorhanden sein.
+> Die Netzwerkverbindung sollte die unterstützte Netzwerkanforderung für Windows Server Essentials erfüllen. Im Netzwerk sollte nur ein Router vorhanden sein.
 
- Wenn der Router nicht mit dem Assistenten zum Einrichten des Domänennamens eingerichtet wurde, müssen Sie Port 443 manuell weiterleiten. Informationen zum Einrichten der Portweiterleitung auf dem Router finden Sie unter [Router Setup](https://social.technet.microsoft.com/wiki/contents/articles/windows-small-business-server-2011-essentials-router-setup.aspx).
+ Wenn der Router nicht mit dem Assistenten zum Einrichten des Domänennamens eingerichtet wurde, müssen Sie Port 443 manuell weiterleiten. Informationen zum Einrichten der Port Weiterleitung auf dem Router finden Sie im [Small Business Server-Forum](https://docs.microsoft.com/answers/topics/windows-small-business-server.html).
 
 ###  <a name="replace-a-router"></a><a name="BKMK_ReplaceRouter"></a>Ersetzen eines Routers
  Ersetzen Sie den Router gemäß den Anweisungen des Herstellers, und führen Sie dann den Assistenten zum Einrichten des Routers aus, um den neuen Router zu konfigurieren.
@@ -198,7 +197,7 @@ ms.locfileid: "85470625"
 4.  Klicken Sie zweimal auf **OK**, um die Änderungen zu übernehmen und das Dialogfeld zu schließen.
 
 ##  <a name="set-up-your-domain-name"></a><a name="BKMK_3"></a>Einrichten des Domänen Namens
- Nach dem Aktivieren des Remotewebzugriffs können Sie einen Domänennamen für den Server mit Windows Server Essentials einrichten. Dieser Schritt ist erforderlich, wenn Sie den Remotewebzugriff auf einem Remotecomputer verwenden möchten. Weitere Informationen finden Sie unter den folgenden Themen:
+ Nach dem Aktivieren des Remotewebzugriffs können Sie einen Domänennamen für den Server mit Windows Server Essentials einrichten. Dieser Schritt ist erforderlich, wenn Sie den Remotewebzugriff auf einem Remotecomputer verwenden möchten. Weitere Informationen finden Sie in den folgenden Themen:
 
 -   [Übersicht über Domänennamen](Manage-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_DNOverview)
 
@@ -244,7 +243,7 @@ ms.locfileid: "85470625"
 >  Windows Live erlaubt die Verwendung von Sonderzeichen in Ihrem Microsoft-Konto-Kennwort, die der Server nicht unterstützt. Stellen Sie bei Verwendung einer personalisierten Microsoft-Domäne sicher, dass das Kennwort für Ihr Microsoft-Konto nur Zeichen enthält, die der Server unterstützt. Der Server unterstützt die Verwendung der Zeichen $, /, ' und % nicht.
 
 ###  <a name="use-a-new-or-existing-domain-name"></a><a name="BKMK_UseNewName"></a>Neuen oder vorhandenen Domänen Namen verwenden
- Um den Namen Ihrer Domäne auf einem Server unter Windows Server Essentials automatisch einzurichten, müssen Sie einen Domain Name Service-Anbieter verwenden, die im Assistenten zum Einrichten von Domänennamen aufgeführt ist. Sie können einen neuen Domänennamen auswählen oder einen vorhandenen Domänennamen verwenden. Führen Sie eines der folgenden Verfahren aus:
+ Um den Namen Ihrer Domäne auf einem Server unter Windows Server Essentials automatisch einzurichten, müssen Sie einen Domain Name Service-Anbieter verwenden, die im Assistenten zum Einrichten von Domänennamen aufgeführt ist. Sie können einen neuen Domänennamen auswählen oder einen vorhandenen Domänennamen verwenden. Führen Sie einen der folgenden Schritte aus:
 
 -   Wenn Sie von einem der im Assistenten aufgeführten Domain Name Service-Anbieter einen neuen Domänennamen erhalten möchten, klicken Sie auf **Ich möchte einen neuen Domänennamen einrichten**.
 
@@ -380,7 +379,7 @@ ms.locfileid: "85470625"
 5. Der Name des Domain Name Service-Anbieter wird in den Suchergebnissen unter **Registrierungsstelle** aufgeführt.
 
 ##  <a name="customize-remote-web-access"></a><a name="BKMK_4"></a>Remote Webzugriff anpassen
- Sie können die Remotewebzugriffssite mit einem persönlichen Logo oder Hintergrundbild anpassen. Sie können auch Links auf der Startseite hinzufügen, sodass diese Informationen allen Benutzern zur Verfügung stehen. Weitere Informationen finden Sie unter den folgenden Themen:
+ Sie können die Remotewebzugriffssite mit einem persönlichen Logo oder Hintergrundbild anpassen. Sie können auch Links auf der Startseite hinzufügen, sodass diese Informationen allen Benutzern zur Verfügung stehen. Weitere Informationen finden Sie in den folgenden Themen:
 
 -   [Anpassen des Remotewebzugriffs](Manage-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_CustomizeRWA)
 

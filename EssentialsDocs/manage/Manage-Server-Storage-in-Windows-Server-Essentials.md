@@ -2,18 +2,17 @@
 title: Verwalten von Serverspeicher in Windows Server Essentials
 description: Beschreibt die Verwendung von Windows Server Essentials
 ms.date: 10/03/2016
-ms.prod: windows-server
 ms.topic: article
 ms.assetid: 1836682e-c7bb-4dd5-a2b5-6ff032693574
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: cb6503c05f0dfc621758acb6da26cc90e658836d
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 861404db4d6b5e0d4cfd4db95056f583f9068a0b
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85470555"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87180906"
 ---
 # <a name="manage-server-storage-in-windows-server-essentials"></a>Verwalten von Serverspeicher in Windows Server Essentials
 
@@ -194,7 +193,7 @@ ms.locfileid: "85470555"
 > [!NOTE]
 >  Wenn Sie Speicherplätze auf einem Server konfigurieren, auf dem Windows Server Essentials ausgeführt wird, können Sie mit der Option **Daten bereinigen** keine Werkseinstellungen zurücksetzen. Um dieses Problem zu umgehen, entfernen Sie zunächst die Speicherplätze, und führen Sie dann eine Wiederherstellung der Herstellerstandards mit der Option **Daten bereinigen** aus.
 
- Weitere Informationen zu Speicherplätzen finden Sie unter [Häufig gestellte Fragen zu Speicherplätzen](https://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx).
+ Weitere Informationen zu Speicherplätzen finden Sie unter [Häufig gestellte Fragen zu Speicherplätzen](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-faq).
 
 ##  <a name="create-a-storage-space"></a><a name="BKMK_6"></a>Erstellen eines Speicherplatzes
  Wenn Sie mit Speicherplätzen auf einem Server arbeiten möchten, müssen die folgenden Mindestanforderungen erfüllt sein:

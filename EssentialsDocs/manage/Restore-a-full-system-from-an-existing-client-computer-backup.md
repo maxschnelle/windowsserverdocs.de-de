@@ -2,18 +2,17 @@
 title: Wiederherstellen eines vollständigen Systems aus einer vorhandenen Clientcomputersicherung
 description: Beschreibt die Verwendung von Windows Server Essentials
 ms.date: 10/03/2016
-ms.prod: windows-server
 ms.topic: article
 ms.assetid: 47e498a6-1b71-47de-88f6-8c13c221d108
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 9228092f91f4fe309d4841680cf3a78bd35f5b00
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 885a10ee9b5a684c385de9baa0ebcdfac61f2c0e
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85470365"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87180826"
 ---
 # <a name="restore-a-full-system-from-an-existing-client-computer-backup"></a>Wiederherstellen eines vollständigen Systems aus einer vorhandenen Clientcomputersicherung
 
@@ -145,7 +144,7 @@ ms.locfileid: "85470365"
 
 #### <a name="to-use-the-full-system-restore-wizard"></a>So verwenden Sie den Assistenten für die vollständige Systemwiederherstellung
 
-1. Führen Sie eines der folgenden Verfahren aus:
+1. Führen Sie einen der folgenden Schritte aus:
 
    -   Windows Server Essentials: Schalten Sie den Client Computer ein, den Sie wiederherstellen möchten, legen Sie das Wiederherstellungs Medium ein, und schalten Sie den Computer dann aus.
 

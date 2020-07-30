@@ -2,18 +2,17 @@
 title: Verwalten von BranchCache in Windows Server Essentials
 description: Beschreibt die Verwendung von Windows Server Essentials
 ms.date: 10/03/2016
-ms.prod: windows-server
 ms.topic: article
 ms.assetid: f6e05aec-d07c-4e0b-94ab-f20279e9ffd1
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: e09df21aa82260fc30df772853d4e7d8543d2204
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 9ef958a34caaffbdcc0b57e8cf63d677e6ab5623
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85470795"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87181026"
 ---
 # <a name="manage-branchcache-in-windows-server-essentials"></a>Verwalten von BranchCache in Windows Server Essentials
 
@@ -42,7 +41,7 @@ Mithilfe von BranchCache können Sie die Internet Nutzung optimieren, die Leistu
 > [!NOTE]
 >  In größeren Zweigstellen mit mehr als einem Subnetz oder einer großen Anzahl von Mitarbeitern, die Netzwerkanwendungen nutzen, kann es vorteilhaft sein, BranchCache im *Modus "Gehosteter Cache"* zu implementieren. Im Modus "Gehosteter Cache" werden Cache-Inhalte auf einem oder mehreren gehosteten Cacheservern in der Zweigstelle gespeichert.
 
-## <a name="requirements"></a>Anforderungen
+## <a name="requirements"></a>Requirements (Anforderungen)
  Um BranchCache in Windows Server Essentials verwenden zu können, müssen die Server-und Client Computer die folgenden Anforderungen erfüllen:
 
 -   Auf dem Server muss das Betriebssystem Windows Server Essentials oder das Betriebssystem Windows Server 2012 R2 Standard oder Windows Server 2012 R2 Datacenter mit der Windows Server Essentials-Rolle ausgeführt werden.

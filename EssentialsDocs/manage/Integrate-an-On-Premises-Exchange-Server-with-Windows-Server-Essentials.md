@@ -2,18 +2,17 @@
 title: Integration eines lokalen Exchange-Servers mit Windows Server Essentials
 description: Beschreibt die Verwendung von Windows Server Essentials
 ms.date: 10/03/2016
-ms.prod: windows-server
 ms.topic: article
 ms.assetid: b56a21e2-c9e3-4ba9-97d9-719ea6a0854b
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 13de76ba7e9452e6498479b060712d06c0571c1a
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 343bfc1325a065f4c4903732eceba59c769f838f
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85470885"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87181066"
 ---
 # <a name="integrate-an-on-premises-exchange-server-with-windows-server-essentials"></a>Integration eines lokalen Exchange-Servers mit Windows Server Essentials
 
@@ -244,7 +243,7 @@ New-SendConnector -Name "WSE Internet SendConnector" -Usage "Internet" -AddressS
 >
 >  Passen Sie die Skriptparameter gemäß Ihrer Netzwerkumgebung an.
 
-## <a name="post-installation-tasks"></a>Installationsnachbereitung
+## <a name="post-installation-tasks"></a>Aufgaben nach der Installation
  In diesem Abschnitt werden Schritte der Serverkonfiguration beschrieben, die Sie nach der Installation möglicherweise durchführen müssen. Er enthält spezielle Informationen zur Einrichtung eines lokalen Servers, auf dem Exchange Server in einem Windows Server Essentials-Netzwerk ausgeführt wird.
 
 ### <a name="add-the-public-email-domain-and-configure-the-email-address-policies"></a>Hinzufügen der öffentlichen E-Mail-Domäne und Konfigurieren der E-Mail-Adressrichtlinien
@@ -336,7 +335,7 @@ New-SendConnector -Name "WSE Internet SendConnector" -Usage "Internet" -AddressS
    > [!NOTE]
    >  Während der ARR-Installation müssen Sie das URL-Rewrite-Module auswählen.
    >
-   >  Möglicherweise wird am Ende der ARR-Installation der Fehler angezeigt, dass %%amp;quot;KB 2589179 für ARR 2.5 nicht installiert werden konnte%%amp;quot;. Sie können diesen Fehler ignorieren.
+   >  Möglicherweise wird am Ende der ARR-Installation der Fehler angezeigt, dass %%amp;quot;KB 2589179 für ARR 2.5 nicht installiert werden konnte%%amp;quot;. Sie können diesen Fehler gefahrlos ignorieren.
 
 4. Starten Sie den Dienst **Remotedesktopgateway** nach Abschluss der ARR-Installation neu, wenn er nicht ausgeführt wird.
 

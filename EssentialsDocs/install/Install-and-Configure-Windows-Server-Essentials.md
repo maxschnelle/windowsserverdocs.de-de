@@ -2,18 +2,17 @@
 title: Installieren und Konfigurieren von Windows Server Essentials
 description: Beschreibt die Verwendung von Windows Server Essentials
 ms.date: 06/17/2013
-ms.prod: windows-server
 ms.topic: article
 ms.assetid: e95cf219-46a4-4041-bd81-0c4c2a0622cf
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 504ce971691d85c6d3727bacd6419f548673c88a
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: ce8f1dda49144a817f405d04f17046f701230446
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85470895"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87181176"
 ---
 # <a name="install-and-configure-windows-server-essentials"></a>Installieren und Konfigurieren von Windows Server Essentials
 
@@ -153,10 +152,10 @@ ms.locfileid: "85470895"
 
  In der folgenden Tabelle sind die Elemente definiert, die in der Liste der Setupaufgaben angezeigt werden können.
 
-|Aufgabe|Beschreibung
+|Aufgabe|BESCHREIBUNG
 |----------|-----------------|
 |Updates für weitere Microsoft-Produkte abrufen|Klicken Sie auf diese Aufgabe, um auf einen Link zuzugreifen, über den ein Tool ausgeführt wird, mit dem Sie angeben können, ob Sie Microsoft Update zum automatischen Abrufen von Updates für Windows Server Essentials und andere Microsoft-Produkte wie Office verwenden möchten.
-|Benutzerkonten hinzufügen|Klicken Sie auf diese Aufgabe, um eine kurze Beschreibung zum Hinzufügen von Benutzerkonten anzuzeigen. Es wird ein Link zum Ausführen des **Assistenten zum Hinzufügen eines Benutzerkontos** bereitgestellt. Weitere Informationen finden Sie unter [Hinzufügen eines Benutzerkontos](../manage/Manage-User-Accounts-in-Windows-Server-Essentials.md#BKMK_Manage1).
+|Hinzufügen von Benutzerkonten|Klicken Sie auf diese Aufgabe, um eine kurze Beschreibung zum Hinzufügen von Benutzerkonten anzuzeigen. Es wird ein Link zum Ausführen des **Assistenten zum Hinzufügen eines Benutzerkontos** bereitgestellt. Weitere Informationen finden Sie unter [Hinzufügen eines Benutzerkontos](../manage/Manage-User-Accounts-in-Windows-Server-Essentials.md#BKMK_Manage1).
 |Serverordner hinzufügen|Klicken Sie auf diese Aufgabe, um eine kurze Beschreibung zum Hinzufügen von Serverordnern anzuzeigen. Es wird ein Link zum Ausführen des **Assistenten zum Hinzufügen eines Ordners** bereitgestellt. Zudem wird ein Link zu einem Onlinehilfethema zur Verwendung von Serverordnern bereitgestellt. Weitere Informationen finden Sie unter [Hinzufügen oder Verschieben eines Serverordners](../manage/Manage-Server-Folders-in-Windows-Server-Essentials.md#BKMK_5).
 |Serversicherung einrichten|Klicken Sie auf diese Aufgabe, um eine kurze Beschreibung zum Schützen Ihrer Dateien mithilfe der Serversicherung anzuzeigen. Es wird ein Link zum Ausführen des **Assistenten zum Einrichten der Serversicherung** bereitgestellt. Weitere Informationen finden Sie unter [Einrichten oder Anpassen der Serversicherung](../manage/Manage-Server-Backup-in-Windows-Server-Essentials.md#BKMK_1).
 |Zugriff überall|Klicken Sie auf diese Aufgabe, um eine kurze Beschreibung der Funktion "Zugriff überall" in Windows Server Essentials anzuzeigen. Es wird ein Link zur Seite **Einstellungen für Zugriff überall** bereitgestellt. Weitere Informationen finden Sie unter [Verwalten von "Zugriff überall](../manage/Manage-Anywhere-Access-in-Windows-Server-Essentials.md)".

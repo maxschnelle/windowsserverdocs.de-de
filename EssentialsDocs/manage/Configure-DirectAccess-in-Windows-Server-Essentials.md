@@ -2,18 +2,17 @@
 title: Konfigurieren von DirectAccess in Windows Server Essentials
 description: Beschreibt die Verwendung von Windows Server Essentials
 ms.date: 10/03/2016
-ms.prod: windows-server
 ms.topic: article
 ms.assetid: c959b6fc-c67e-46cd-a9cb-cee71a42fa4c
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: a9ebd7af7f748a1e2af4a47ca5b590137cd33b3d
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: a1f568d34fd0fbd94d09046b59a93d21feb60890
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85470905"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87181076"
 ---
 # <a name="configure-directaccess-in-windows-server-essentials"></a>Konfigurieren von DirectAccess in Windows Server Essentials
 
@@ -121,7 +120,7 @@ Dieses Thema enthält Schritt-für-Schritt-Anleitungen zum Konfigurieren von Dir
 
 9. Geben Sie gegebenenfalls im Feld **Alternativer DNS-Server** die IP-Adresse des alternativen DNS-Servers ein.
 
-10. Klicken Sie auf **OK** und dann auf **Schließen**.
+10. Klicken Sie auf **OK**und dann auf **Schließen**.
 
 > [!IMPORTANT]
 >  Konfigurieren Sie unbedingt den Router für die Weiterleitung der Ports 80 und 443 an die neue statische IP-Adresse des Servers.

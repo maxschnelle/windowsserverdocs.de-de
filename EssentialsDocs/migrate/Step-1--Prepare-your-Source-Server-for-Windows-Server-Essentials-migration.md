@@ -2,18 +2,17 @@
 title: 'Schritt 1: Vorbereiten des Quellservers für die Migration zu Windows Server Essentials'
 description: Beschreibt die Verwendung von Windows Server Essentials
 ms.date: 10/03/2016
-ms.prod: windows-server
 ms.topic: article
 ms.assetid: 244c8a06-04c6-4863-8b52-974786455373
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: f5696c473a8fcb04a60b9a4b6c51ac206a6ef0de
-ms.sourcegitcommit: 2f072c0c02e3e0deae331ca64b375d63b89d0522
+ms.openlocfilehash: 6666a0f68863913c0c0a5a1b1e903eaebf5470a4
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83404585"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87180486"
 ---
 # <a name="step-1-prepare-your-source-server-for-windows-server-essentials-migration"></a>Schritt 1: Vorbereiten des Quellservers für die Migration zu Windows Server Essentials
 
@@ -70,7 +69,7 @@ In diesem Thema wird erläutert, wie Sie den Quellserver sichern, die Systeminte
 
 5.  Deaktivieren Sie das Kontrollkästchen **Diese Richtlinieneinstellungen definieren**.
 
-6.  Löschen Sie \\ \localhost\sysvol \\<Domain Name \> \scripz\ SBS_LOGIN_SCRIPT. bat.
+6.  Löschen Sie \\ \localhost\sysvol \\<Domain Name \>\scripts\SBS_LOGIN_SCRIPT.bat.
 
 ###  <a name="evaluate-the-health-of-the-source-server"></a><a name="BKMK_EvaluateHealth"></a>Auswerten der Integrität des Quell Servers
  Es ist wichtig, dass Sie die Integrität des Quellservers auswerten, bevor Sie mit der Migration beginnen. Verwenden Sie die folgenden Verfahren, um sicherzustellen, dass die Updates aktuell sind, um einen Systemintegritätsbericht zu generieren und das Windows Server Solutions Best Practice Analyzer (BPA) auszuführen.
@@ -129,7 +128,7 @@ In diesem Thema wird erläutert, wie Sie den Quellserver sichern, die Systeminte
 
    Nachdem das BPA-Tool Informationen zur Serverkonfiguration gesammelt hat, überprüft es, ob die Informationen korrekt sind, und legt dann den Administratoren eine Liste der Informationen und Probleme nach Schweregrad sortiert vor. Die Liste beschreibt jedes Problem und bietet eine Empfehlung oder eine mögliche Lösung. Folgende drei Berichtstypen sind verfügbar:
 
-|Berichtstyp|Beschreibung
+|Berichtstyp|BESCHREIBUNG
 |-----------------|-----------------
 |Listenberichte|Zeigt Berichte in einer eindimensionalen Liste an.
 |Strukturberichte|Zeigt Berichte in einer hierarchischen Liste an.

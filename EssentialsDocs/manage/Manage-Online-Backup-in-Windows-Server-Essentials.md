@@ -2,18 +2,17 @@
 title: Verwalten der Onlinesicherung in Windows Server Essentials
 description: Beschreibt die Verwendung von Windows Server Essentials
 ms.date: 10/03/2016
-ms.prod: windows-server
 ms.topic: article
 ms.assetid: 95a9f593-fad7-4335-bd4d-c7bb8c033efb
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 5c9f6dc91d5bc46d3be6e20e105530a9dca2b548
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: b3a9ceca5de9971f77175052a604d3e22de07036
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85470651"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87180946"
 ---
 # <a name="manage-online-backup-in-windows-server-essentials"></a>Verwalten der Onlinesicherung in Windows Server Essentials
 
@@ -334,7 +333,7 @@ ms.locfileid: "85470651"
 
 1. Öffnen Sie das Dashboard.
 
-2. Führen Sie eines der folgenden Verfahren aus:
+2. Führen Sie einen der folgenden Schritte aus:
 
      Windows Server Essentials: Klicken Sie im Navigationsbereich auf das Symbol Warnungen \( möglicherweise auf kritisch, Warnung oder Information \) . Daraufhin wird die Meldungsanzeige geöffnet.
 
@@ -438,7 +437,7 @@ ms.locfileid: "85470651"
 ###  <a name="protect-folders-for-online-backup-in-windows-server-essentials"></a><a name="BKMK_18"></a>Schützen von Ordnern für die Online Sicherung in Windows Server Essentials
  Der Unterabschnitt **Geschützte Ordner** im Abschnitt „Onlinesicherung“ des Dashboards enthält eine Liste aller freigegebenen Ordner auf dem Server. Die folgende Tabelle beschreibt die Informationen, die in der Liste enthalten sind.
 
-|Column|Beschreibung|
+|Column|BESCHREIBUNG|
 |------------|-----------------|
 |**Ordner Name:**|Der Name des Ordners, der in die Onlinesicherung eingeschlossen wurde.<br /><br /> Führen Sie zum Hinzufügen oder Ausschließen eines Ordners die Aufgabe **Onlinesicherung konfigurieren** aus.|
 |**Ordner Pfad:**|Der Speicherort des Ordners.|
@@ -447,7 +446,7 @@ ms.locfileid: "85470651"
 ###  <a name="online-backup-history-in-windows-server-essentials"></a><a name="BKMK_19"></a>Verlauf der Online Sicherung in Windows Server Essentials
  Der Unterabschnitt **Sicherungsverlauf** des Abschnitts „Onlinesicherung“ im Dashboard enthält eine Liste der zuletzt erstellten Onlinesicherungen. Erfolgreiche Sicherungen können zum Wiederherstellen von Dateien und Ordnern verwendet werden. Die folgende Tabelle beschreibt die Informationen, die in der Liste enthalten sind.
 
-|Column|Beschreibung|
+|Column|BESCHREIBUNG|
 |------------|-----------------|
 |**Betriebs**|Es gibt zwei Arten von Vorgängen - **Sichern** und **Wiederherstellen**.|
 |**Zeit**|Dies ist die für den letzten Status protokollierte Uhrzeit.|

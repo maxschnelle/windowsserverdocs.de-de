@@ -2,96 +2,92 @@
 title: Ersetzen der Endpunkt-URLs des O365-Integrationsmoduls (Abonnement/Testabonnement) zur Unterstützung des Microsoft Online Services-Wiederverkäufervertrags
 description: Beschreibt die Verwendung von Windows Server Essentials
 ms.date: 10/03/2016
-ms.prod: windows-server
 ms.topic: article
 ms.assetid: 9860a6b9-baea-4bf0-9a9f-6f1a288f996e
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 10f7e58aad26f85455388654c65b73fd72f9ae13
-ms.sourcegitcommit: fdc3ce1992f4dd6ea1771479d525126abbbcfa72
+ms.openlocfilehash: 12f4013f84c9fbfe8fc9529ea90b62f5fc5416d5
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85256650"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87181126"
 ---
 # <a name="replace-o365-integration-module-buy-try-endpoint-url-in-support-of-microsoft-online-service-reseller-agreement"></a>Ersetzen der Endpunkt-URLs des O365-Integrationsmoduls (Abonnement/Testabonnement) zur Unterstützung des Microsoft Online Services-Wiederverkäufervertrags
 
 >Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-##  <a name="BKMK_O365"></a>   
- Wenn Sie ein Microsoft Online Service Reseller Agreement-Partner (mosra) sind, müssen Sie die Endpunkt-URLs ersetzen, die vom Windows Server Essentials Office 365-Integrationsmodul verwendet werden, um sicherzustellen, dass Kunden-Registrierungs Transaktionen über Ihr Portal verarbeitet werden.  
-  
- Vom Integrationsmodul werden die folgenden vier Endpunkt-URLs verwendet:  
-  
-1.  Endpunkt für ein Office 365 Enterprise-Abonnement.  
-  
-    -   HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Server\MSO\  
-  
-    -   Typ = REG-SZ  
-  
-    -   Schlüsselname = MOSRASTDBUY  
-  
-    -   Wert = *xxxxx*, wobei xxxxx die Abonnement-URL Ihres Unternehmens ist. Beispiel: Wert =http://syndicatepartner.office365.com/enterprisebuy.html  
-  
-2.  Endpunkt für ein Office 365 Enterprise-Testabonnement.  
-  
-    -   HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Server\MSO\  
-  
-    -   Typ = REG-SZ  
-  
-    -   Schlüsselname = MOSRASTDTRY  
-  
-    -   Wert = *xxxxx*, wobei xxxxx die Abonnement-URL Ihres Unternehmens ist. Beispiel: Wert =http://syndicatepartner.office365.com/enterprisetry.html  
-  
-3.  Ein Office 365 Small Business Premium-Abonnement Kauf Endpunkt.  
-  
-    -   HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Server\MSO\  
-  
-    -   Typ = REG-SZ  
-  
-    -   Schlüsselname = MOSRALITEBUY  
-  
-    -   Wert = *xxxxx*, wobei xxxxx die Abonnement-URL Ihres Unternehmens ist. Beispiel: Wert =http://syndicatepartner.office365.com/smallbizbuy.html  
-  
-4.  Einen Test Endpunkt für Office 365 Small Business Premium-Abonnements.  
-  
-    -   HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Server\MSO\  
-  
-    -   Typ = REG-SZ  
-  
-    -   Schlüsselname = MOSRALITETRY  
-  
-    -   Wert = *xxxxx*, wobei xxxxx die Abonnement-URL Ihres Unternehmens ist. Beispiel: Wert =http://syndicatepartner.office365.com/smallbiztry.html  
-  
-#### <a name="to-add-an-endpoint-url-key-to-the-registry"></a>So fügen Sie der Registrierung einen Schlüssel für die Endpunkt-URL hinzu  
-  
-1.  Klicken Sie auf dem Referenzcomputer auf **Start**, geben Sie **regedit** ein, und drücken Sie dann die EINGABETASTE.  
-  
-2.  Erweitern Sie im linken Fensterbereich nacheinander **HKEY_LOCAL_MACHINE**, **SOFTWARE**, **Microsoft**, **Windows Server** und **MSO**.  
-  
-3.  Wenn **MSO** nicht vorhanden ist, klicken Sie mit der rechten Maustaste auf **Windows Server**, zeigen Sie auf **Neu**, klicken Sie auf „Schlüssel“, und geben Sie dann **MSO** als Namen des Schlüssels ein.  
-  
-4.  Klicken Sie mit der rechten Maustaste auf "MSO", und klicken Sie dann auf **Zeichenfolgenwert**. Geben Sie einen der folgenden Zeichenfolgennamen für Endpunkte als Namen der Zeichenfolge ein:  
-  
-    -   MOSRASTDBUY  
-  
-    -   MOSRASTDTRY  
-  
-    -   MOSRALITEBUY  
-  
-    -   MOSRALITETRY  
-  
-5.  Klicken Sie im rechten Fensterbereich mit der rechten Maustaste auf die neue Zeichenfolge, und klicken Sie anschließend auf **Ändern**.  
-  
-6.  Geben Sie im Feld **Wert** die neue Endpunkt-URL ein, und klicken Sie anschließend auf **OK**.  
-  
-7.  Wiederholen Sie die Schritte 4 bis 6 für jeden in Schritt 4 aufgeführten Zeichenfolgennamen.  
-  
-## <a name="see-also"></a>Weitere Informationen  
+##  <a name="BKMK_O365"></a>
+ Wenn Sie ein Microsoft Online Service Reseller Agreement-Partner (mosra) sind, müssen Sie die Endpunkt-URLs ersetzen, die vom Windows Server Essentials Office 365-Integrationsmodul verwendet werden, um sicherzustellen, dass Kunden-Registrierungs Transaktionen über Ihr Portal verarbeitet werden.
 
- [Erstellen und Anpassen des Bilds](Creating-and-Customizing-the-Image.md)   
- [Weitere Anpassungen](Additional-Customizations.md)   
- [Vorbereiten des Images für die Bereitstellung](Preparing-the-Image-for-Deployment.md)   
- [Testen der Benutzerfreundlichkeit](Testing-the-Customer-Experience.md)
- 
+ Vom Integrationsmodul werden die folgenden vier Endpunkt-URLs verwendet:
+
+1.  Endpunkt für ein Office 365 Enterprise-Abonnement.
+
+    -   HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Server\MSO\
+
+    -   Typ = REG-SZ
+
+    -   Schlüsselname = MOSRASTDBUY
+
+    -   Wert = *xxxxx*, wobei xxxxx die Abonnement-URL Ihres Unternehmens ist. Beispiel: Wert =http://syndicatepartner.office365.com/enterprisebuy.html
+
+2.  Endpunkt für ein Office 365 Enterprise-Testabonnement.
+
+    -   HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Server\MSO\
+
+    -   Typ = REG-SZ
+
+    -   Schlüsselname = MOSRASTDTRY
+
+    -   Wert = *xxxxx*, wobei xxxxx die Abonnement-URL Ihres Unternehmens ist. Beispiel: Wert =http://syndicatepartner.office365.com/enterprisetry.html
+
+3.  Ein Office 365 Small Business Premium-Abonnement Kauf Endpunkt.
+
+    -   HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Server\MSO\
+
+    -   Typ = REG-SZ
+
+    -   Schlüsselname = MOSRALITEBUY
+
+    -   Wert = *xxxxx*, wobei xxxxx die Abonnement-URL Ihres Unternehmens ist. Beispiel: Wert =http://syndicatepartner.office365.com/smallbizbuy.html
+
+4.  Einen Test Endpunkt für Office 365 Small Business Premium-Abonnements.
+
+    -   HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Server\MSO\
+
+    -   Typ = REG-SZ
+
+    -   Schlüsselname = MOSRALITETRY
+
+    -   Wert = *xxxxx*, wobei xxxxx die Abonnement-URL Ihres Unternehmens ist. Beispiel: Wert =http://syndicatepartner.office365.com/smallbiztry.html
+
+#### <a name="to-add-an-endpoint-url-key-to-the-registry"></a>So fügen Sie der Registrierung einen Schlüssel für die Endpunkt-URL hinzu
+
+1.  Klicken Sie auf dem Referenzcomputer auf **Start**, geben Sie **regedit** ein, und drücken Sie dann die EINGABETASTE.
+
+2.  Erweitern Sie im linken Fensterbereich nacheinander **HKEY_LOCAL_MACHINE**, **SOFTWARE**, **Microsoft**, **Windows Server** und **MSO**.
+
+3.  Wenn **MSO** nicht vorhanden ist, klicken Sie mit der rechten Maustaste auf **Windows Server**, zeigen Sie auf **Neu**, klicken Sie auf „Schlüssel“, und geben Sie dann **MSO** als Namen des Schlüssels ein.
+
+4.  Klicken Sie mit der rechten Maustaste auf "MSO", und klicken Sie dann auf **Zeichenfolgenwert**. Geben Sie einen der folgenden Zeichenfolgennamen für Endpunkte als Namen der Zeichenfolge ein:
+
+    -   MOSRASTDBUY
+
+    -   MOSRASTDTRY
+
+    -   MOSRALITEBUY
+
+    -   MOSRALITETRY
+
+5.  Klicken Sie im rechten Fensterbereich mit der rechten Maustaste auf die neue Zeichenfolge, und klicken Sie anschließend auf **Ändern**.
+
+6.  Geben Sie im Feld **Wert** die neue Endpunkt-URL ein, und klicken Sie anschließend auf **OK**.
+
+7.  Wiederholen Sie die Schritte 4 bis 6 für jeden in Schritt 4 aufgeführten Zeichenfolgennamen.
+
+## <a name="see-also"></a>Weitere Informationen
+
+ [Erstellen und Anpassen des Images](Creating-and-Customizing-the-Image.md) [weitere Anpassungen](Additional-Customizations.md) [Vorbereiten des Abbilds für die Bereitstellung](Preparing-the-Image-for-Deployment.md) [Testen der Kundenfreundlichkeit](Testing-the-Customer-Experience.md)
+

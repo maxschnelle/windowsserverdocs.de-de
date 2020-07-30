@@ -2,18 +2,17 @@
 title: Übersicht über das Dashboard in Windows Server Essentials
 description: Beschreibt die Verwendung von Windows Server Essentials
 ms.date: 10/03/2016
-ms.prod: windows-server
 ms.topic: article
 ms.assetid: f70a79de-9c56-4496-89b5-20a1bff2293e
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: ca60df1066e0a40c4304d7af36133eda58bbd55f
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 0b9ec7bf24bd79b324a811446308129dd3c97b2b
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85470455"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87180846"
 ---
 # <a name="overview-of-the-dashboard-in-windows-server-essentials"></a>Übersicht über das Dashboard in Windows Server Essentials
 
@@ -60,7 +59,7 @@ ms.locfileid: "85470455"
 
 
 
-|Element|Dashboard-Feature|Beschreibung|
+|Element|Dashboard-Feature|BESCHREIBUNG|
 |----------|-----------------------|-----------------|
 |1|Navigationsleiste|Klicken Sie auf einen Abschnitt auf der Navigationsleiste, um Zugriff auf die Informationen und Aufgaben zu erhalten, die diesem Abschnitt zugeordnet sind. Jedes Mal, wenn Sie das Dashboard öffnen, wird die **Start**seite standardmäßig angezeigt.|
 |2|Unterabschnittsregisterkarten|Die Unterabschnittsregisterkarten ermöglichen den Zugriff auf eine zweite Ebene von Windows Server Essentials-Verwaltungsaufgaben.|
@@ -74,7 +73,7 @@ ms.locfileid: "85470455"
 ##  <a name="features-of-the-dashboard-home-page"></a><a name="BKMK_Home"></a>Features der Startseite des Dashboards
  Wenn Sie das Dashboard öffnen, wird standardmäßig die **Start**seite angezeigt, auf der die Kategorie **SETUP** geöffnet ist. Die **Start**seite des Windows Server Essentials-Dashboards ermöglicht den schnellen Zugriff auf die Aufgaben und Informationen, die Sie beim Anpassen des Servers und beim Konfigurieren wichtiger Features unterstützen. Die Startseite besteht aus vier Funktionsbereichen, auf denen Informationen und Konfigurationsaufgaben für die Optionen verfügbar sind, die Sie auswählen. In der folgenden Tabelle werden die-Funktionen beschrieben.
 
-|Element|Funktion|Beschreibung|
+|Element|Funktion|BESCHREIBUNG|
 |----------|-------------|-----------------|
 |1|Navigationsleiste|Klicken Sie auf einen Abschnitt auf der Navigationsleiste, um Zugriff auf die Informationen und Aufgaben zu erhalten, die diesem Abschnitt zugeordnet sind. Jedes Mal, wenn Sie das Dashboard öffnen, wird die Seite **Start** standardmäßig angezeigt.|
 |2|Kategorienbereich|In diesem Bereich werden Feature-Bereiche angezeigt, die den schnellen Zugriff auf die Informations- und Konfigurationstools ermöglichen, die Sie beim Anpassen und Konfigurieren des Servers unterstützen. Klicken Sie auf eine Kategorie, um die Aufgaben und Ressourcen anzuzeigen, die dieser Kategorie zugeordnet sind.|
@@ -88,7 +87,7 @@ ms.locfileid: "85470455"
 
 |`Section`|BESCHREIBUNG|
 |-------------|-----------------|
-|Startseite|Die **Start**seite wird standardmäßig bei jedem Öffnen des Dashboards angezeigt. Sie enthält Aufgaben und Informationen in den folgenden Kategorien:<br /><br /> **Setup** ist für die Aufgaben in dieser Kategorie zum erstmaligen Konfigurieren des Servers vorgesehen. Weitere Informationen zu diesen Aufgaben finden Sie unter [Installieren und Konfigurieren von Windows Server Essentials](../install/Install-and-Configure-Windows-Server-Essentials.md).<br /><br /> **E-Mail** : Wählen Sie eine Option in dieser Kategorie, um einen e-Mail-Dienst mit dem Server zu integrieren.<br /><br /> **Hinweis:** Diese Kategorie ist nur in Windows Server Essentials verfügbar.<br /><br /> **Dienste** : Wählen Sie eine Aufgabe in dieser Kategorie, um Microsoft Onlinedienste in den Server zu integrieren.<br /><br /> **Hinweis:** Diese Kategorie ist nur in Windows Server Essentials und Windows Server 2012 R2 Standard mit aktivierter Windows Server Essentials-Rolle verfügbar.<br /><br /> **Add-ins** : Klicken Sie auf diese Kategorie, um wertvolle Add-Ins für Ihr Unternehmen zu installieren.<br /><br /> Der **kurze Status** zeigt den Server Status auf hoher Ebene an. Klicken Sie auf den Status, um Informations- und Konfigurationsoptionen für dieses Feature anzuzeigen. Wenn Sie die Aufgaben in der Kategorie SETUP abgeschlossen haben, wird diese Kategorie oben im Bereich Kategorie angezeigt.<br /><br /> **Hilfe** : Verwenden Sie das Suchfeld, um nach Hilfe im Web zu suchen. Klicken Sie auf einen Link, um die Website für die ausgewählten Support-Option zu besuchen.|
+|-Startseite|Die **Start**seite wird standardmäßig bei jedem Öffnen des Dashboards angezeigt. Sie enthält Aufgaben und Informationen in den folgenden Kategorien:<br /><br /> **Setup** ist für die Aufgaben in dieser Kategorie zum erstmaligen Konfigurieren des Servers vorgesehen. Weitere Informationen zu diesen Aufgaben finden Sie unter [Installieren und Konfigurieren von Windows Server Essentials](../install/Install-and-Configure-Windows-Server-Essentials.md).<br /><br /> **E-Mail** : Wählen Sie eine Option in dieser Kategorie, um einen e-Mail-Dienst mit dem Server zu integrieren.<br /><br /> **Hinweis:** Diese Kategorie ist nur in Windows Server Essentials verfügbar.<br /><br /> **Dienste** : Wählen Sie eine Aufgabe in dieser Kategorie, um Microsoft Onlinedienste in den Server zu integrieren.<br /><br /> **Hinweis:** Diese Kategorie ist nur in Windows Server Essentials und Windows Server 2012 R2 Standard mit aktivierter Windows Server Essentials-Rolle verfügbar.<br /><br /> **Add-ins** : Klicken Sie auf diese Kategorie, um wertvolle Add-Ins für Ihr Unternehmen zu installieren.<br /><br /> Der **kurze Status** zeigt den Server Status auf hoher Ebene an. Klicken Sie auf den Status, um Informations- und Konfigurationsoptionen für dieses Feature anzuzeigen. Wenn Sie die Aufgaben in der Kategorie SETUP abgeschlossen haben, wird diese Kategorie oben im Bereich Kategorie angezeigt.<br /><br /> **Hilfe** : Verwenden Sie das Suchfeld, um nach Hilfe im Web zu suchen. Klicken Sie auf einen Link, um die Website für die ausgewählten Support-Option zu besuchen.|
 |Benutzer|Damit Benutzer auf Ressourcen, die Windows Server Essentials bereitstellt, zugreifen können, müssen Sie mithilfe des Windows Server Essentials-Dashboards Benutzerkonten erstellen. Nachdem Sie Benutzerkonten erstellen haben, können Sie die Konten mithilfe der Aufgaben verwalten, die auf der Seite **Benutzer** des Dashboards verfügbar sind. Aufgaben, die Sie auf dieser Seite ausführen können:<br /><br /> -Anzeigen einer Liste von Benutzerkonten<br /><br /> -Benutzerkonto Eigenschaften anzeigen und verwalten.<br /><br /> -Aktivieren oder Deaktivieren von Benutzerkonten<br /><br /> -Benutzerkonten hinzufügen oder entfernen.<br /><br /> -Weisen Sie den Microsoft Onlinedienste-Konten lokale Netzwerk Konten zu, wenn Ihr Server in Office 365 integriert ist.<br /><br /> -Kenn Wörter für Benutzerkonten ändern und die Kenn Wort Richtlinie verwalten.<br /><br /> Weitere Informationen zum Verwalten von Benutzerkonten finden Sie unter [Verwalten von Benutzerkonten](Manage-User-Accounts-in-Windows-Server-Essentials.md).|
 |Benutzergruppen|**Hinweis:** Diese Funktion ist nur in Windows Server Essentials und Windows Server 2012 R2 Standard mit aktivierter Windows Server Essentials-Rolle verfügbar.<br /><br /> Aufgaben, die Sie auf dieser Seite ausführen können:<br /><br /> -Anzeigen einer Liste von Benutzergruppen.<br /><br /> -Benutzergruppen anzeigen und verwalten.<br /><br /> -Benutzergruppen hinzufügen oder entfernen.|
 |Verteilergruppen|**Hinweis:** Diese Funktion ist nur in Windows Server Essentials und Windows Server 2012 R2 Standard mit aktivierter Windows Server Essentials-Rolle verfügbar. Diese Registerkarte wird nur angezeigt, wenn Windows Server Essentials in Office 365 integriert ist.<br /><br /> Aufgaben, die Sie auf dieser Seite ausführen können:<br /><br /> -Anzeigen einer Liste von Verteiler Gruppen.<br /><br /> -Hinzufügen oder Entfernen von Verteiler Gruppen|

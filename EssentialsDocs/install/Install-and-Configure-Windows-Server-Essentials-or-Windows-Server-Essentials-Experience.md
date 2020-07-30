@@ -2,18 +2,17 @@
 title: Installieren und Konfigurieren von Windows Server Essentials oder Windows Server Essentials Experience
 description: Beschreibt die Verwendung von Windows Server Essentials
 ms.date: 10/03/2016
-ms.prod: windows-server
 ms.topic: article
 ms.assetid: 48ea6cd4-3955-4aaf-9236-2515a6c3e730
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 338fe421b4ba30afc1b2cd3ee983668b282f3a15
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 804a3ed902606e52f25977601e4edc2e2fc5e04f
+ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85470955"
+ms.lasthandoff: 07/27/2020
+ms.locfileid: "87181186"
 ---
 # <a name="install-and-configure-windows-server-essentials-or-windows-server-essentials-experience"></a>Installieren und Konfigurieren von Windows Server Essentials oder Windows Server Essentials Experience
 
@@ -52,7 +51,7 @@ Beachten Sie vor der Installation von Windows Server Essentials oder der Essenti
 |Virtuelle Umgebung|Sie können Windows Server Essentials als virtuellen Computer bereitstellen.|[Virtualisieren Ihrer Umgebung](Install-and-Configure-Windows-Server-Essentials-or-Windows-Server-Essentials-Experience.md#BKMK_VirtualWSE)|
 |Automatisierte Bereitstellung|Sie können die Bereitstellung von Windows Server Essentials mithilfe der Windows PowerShell automatisieren.|[Installieren und Konfigurieren von Windows Server Essentials mithilfe der Windows PowerShell](Install-and-Configure-Windows-Server-Essentials-or-Windows-Server-Essentials-Experience.md#BKMK_PowerShell)|
 
-## <a name="before-you-begin"></a>Vorbereitung
+## <a name="before-you-begin"></a>Voraussetzungen
  Lesen Sie vor dem Installieren die folgende Dokumentation:
 
 -   [Windows Server Essentials – Produktübersicht](https://www.microsoft.com/server-cloud/windows-server-essentials/windows-server-2012-r2-essentials.aspx)
