@@ -1,6 +1,6 @@
 ---
 title: rem
-description: Referenz Artikel für * * * *-
+description: Referenz Artikel für den REM-Befehl, der Kommentare in einem Skript, in einem Batch oder in einer config.sys Datei aufzeichnet.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,43 +9,42 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5161a3ba0904396f29b7c567e3a16da5f95e5271
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: fe0bfce3f9f72d0a32ef5b3bb540e5a297df24a1
+ms.sourcegitcommit: 145cf75f89f4e7460e737861b7407b5cee7c6645
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85933498"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87409701"
 ---
 # <a name="rem"></a>rem
 
-
-
-Zeichnet Kommentare (Hinweise) in einer Batchdatei oder CONFIG.SYS auf. Wenn kein Kommentar angegeben wird, fügt **REM** den vertikalen Abstand hinzu.
-
-
+Zeichnet Kommentare in einem Skript, in einem Batch oder in einer config.sys Datei auf. Wenn kein Kommentar angegeben wird, fügt **REM** den vertikalen Abstand hinzu.
 
 ## <a name="syntax"></a>Syntax
 
 ```
-rem [<Comment>]
+rem [<comment>]
 ```
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
-|---------|-----------|
-|\<Comment>|Gibt eine Zeichenfolge an, die als Kommentar eingeschlossen werden soll.|
-|/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
+| Parameter | BESCHREIBUNG |
+|--|--|
+| `<comment>` | Gibt eine Zeichenfolge an, die als Kommentar eingeschlossen werden soll. |
+| /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-## <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
--   Der **REM** -Befehl zeigt keine Kommentare auf dem Bildschirm an. Sie müssen den Befehl **Echo on** in der Batch-oder CONFIG.SYS Datei verwenden, um Kommentare auf dem Bildschirm anzuzeigen.
--   Ein Umleitungs Zeichen ( **<** oder **>** ) oder eine Pipe () kann nicht **|** in einem Batchdatei Kommentar verwendet werden.
--   Obwohl Sie **REM** ohne einen Kommentar zum Hinzufügen von vertikaler Abstände zu einer Batchdatei verwenden können, können Sie auch leere Zeilen verwenden. Leere Zeilen werden ignoriert, wenn ein Batch-Programm verarbeitet wird.
+- Der **REM** -Befehl zeigt keine Kommentare auf dem Bildschirm an. Wenn Sie Kommentare auf dem Bildschirm anzeigen möchten, müssen Sie den Befehl **Echo on** in Ihre Datei einschließen.
 
-## <a name="examples"></a>Beispiele
+- Ein Umleitungs Zeichen ( `<` oder `>` ) oder eine Pipe () kann nicht `|` in einem Batchdatei Kommentar verwendet werden.
 
-So zeigen Sie eine Batchdatei an, in der Hinweise für Kommentare und für den vertikalen Abstand verwendet werden:
+- Obwohl Sie **REM** ohne einen Kommentar zum Hinzufügen von vertikaler Abstände zu einer Batchdatei verwenden können, können Sie auch leere Zeilen verwenden. Leere Zeilen werden ignoriert, wenn ein Batch-Programm verarbeitet wird.
+
+### <a name="examples"></a>Beispiele
+
+Geben Sie Folgendes ein, um den vertikalen Abstand durch Batchdatei Kommentare hinzuzufügen:
+
 ```
 @echo off
 rem  This batch program formats and checks new disks.
@@ -55,12 +54,31 @@ rem echo Insert new disk in Drive B.
 pause
 format b: /v chkdsk b:
 ```
-Fügen Sie CONFIG.SYS die folgenden Zeilen hinzu, um einen erläuternden Kommentar vor dem **Eingabe** Aufforderungs Befehl in der CONFIG.SYS-Datei einzufügen:
+
+Geben Sie Folgendes ein, um einen erklärenden Kommentar vor dem **Eingabe** Aufforderungs Befehl in einer config.sys Datei einzufügen:
+
 ```
 rem Set prompt to indicate current directory
 prompt $p$g
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+Geben Sie Folgendes ein, um einen Kommentar zum Funktionsumfang eines Skripts bereitzustellen:
+
+```
+rem The commands in this script set up 3 drives.
+rem The first drive is a primary partition and is
+rem assigned the letter D. The second and third drives
+rem are logical partitions, and are assigned letters
+rem E and F.
+create partition primary size=2048
+assign d:
+create partition extended
+create partition logical size=2048
+assign e:
+create partition logical
+assign f:
+```
+
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

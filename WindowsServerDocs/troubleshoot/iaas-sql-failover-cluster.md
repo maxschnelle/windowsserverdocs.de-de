@@ -1,17 +1,17 @@
 ---
-title: Anpassen des Netzwerk Schwellenwerts für das Failover
+title: Anpassen des Baselinenetzwerk-Schwellenwerts für das Failover
 description: In diesem Artikel werden Lösungen zum Anpassen des Schwellenwerts von failoverclusternetzwerken vorgestellt.
 ms.prod: windows-server
 ms.technology: server-general
 ms.date: 05/28/2020
 author: Deland-Han
 ms.author: delhan
-ms.openlocfilehash: c0e2f0309049f0271a223c2a23012eb2efa8d843
-ms.sourcegitcommit: ef089864980a1d4793a35cbf4cbdd02ce1962054
+ms.openlocfilehash: 86a7023f6480e68f917cb8cdd9d0c69c417d3145
+ms.sourcegitcommit: 145cf75f89f4e7460e737861b7407b5cee7c6645
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84150168"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87409791"
 ---
 # <a name="iaas-with-sql-alwayson---tuning-failover-cluster-network-thresholds"></a>IaaS mit SQL Always On: Optimieren der Failovercluster-Netzwerkschwellenwerte
 
@@ -21,7 +21,7 @@ In diesem Artikel werden Lösungen zum Anpassen des Schwellenwerts von failoverc
 
 Wenn Sie Windows-Failoverclusterknoten in IaaS mit SQL Server AlwaysOn ausführen, wird empfohlen, die Cluster Einstellung in einen stärker gelockerten Überwachungs Status zu ändern. Standardmäßig sind die Cluster Einstellungen restriktiv und können zu nicht benötigten Ausfällen führen. Die Standardeinstellungen sind für hochoptimierte lokale Netzwerke konzipiert und berücksichtigen nicht die Möglichkeit der durch eine mehr Instanzen fähigen Umgebung, wie z. b. Windows Azure (IaaS), verursachten Latenz.
 
-Das Windows Server-Failoverclustering überwacht ständig die Netzwerkverbindungen und die Integrität der Knoten in einem Windows-Cluster.  Wenn ein Knoten über das Netzwerk nicht erreichbar ist, wird eine Wiederherstellungsaktion ausgeführt, um die Anwendungen und Dienste auf einem anderen Knoten im Cluster wieder online zu schalten. Die Latenz bei der Kommunikation zwischen Cluster Knoten kann zu folgendem Fehler führen:  
+Das Windows Server-Failoverclustering überwacht ständig die Netzwerkverbindungen und die Integrität der Knoten in einem Windows-Cluster.  Wenn ein Knoten über das Netzwerk nicht erreichbar ist, wird eine Wiederherstellungsaktion ausgeführt, um die Anwendungen und Dienste auf einem anderen Knoten im Cluster wieder online zu schalten. Die Latenz bei der Kommunikation zwischen Cluster Knoten kann zu folgendem Fehler führen:
 
 > Fehler 1135 (System Ereignisprotokoll)
 
@@ -77,7 +77,7 @@ Zum Konfigurieren der konnektivitätsintegrität des Clusters werden zwei Einste
 
 Standardmäßig legt Windows Server 2016 **samesubnetthreshold** auf 10 und **samesubnetdelay** auf 1000 ms fest. Wenn beispielsweise die Verbindungsüberwachung 10 Sekunden lang ausfällt, wird der failoverschwellen Wert erreicht, was dazu führt, dass der Knoten aus der Cluster Mitgliedschaft entfernt wurde. Dies führt dazu, dass die Ressourcen auf einen anderen verfügbaren Knoten im Cluster verschoben werden. Cluster Fehler werden gemeldet, einschließlich des Cluster Fehlers 1135 (oben).
 
-## <a name="resolution"></a>Lösung
+## <a name="resolution"></a>Auflösung
 
 Lockern Sie in einer IaaS-Umgebung die Konfigurationseinstellungen des Cluster Netzwerks.
 
@@ -91,17 +91,16 @@ C:\Windows\system32> get-cluster | fl *subnet*
 
 Standard-, minimal-, höchst-und empfohlene Werte für jedes Support Betriebssystem
 
-|   |Betriebssystem|Min|Max|Standard|Empfohlen|
-|---|---|---|---|---|---|
-|CrossSubnetThreshold|2008 R2|3|20|5|20|
-|Crosssubnet-Schwellenwert|2012|3|120|5|20|
-|Crosssubnet-Schwellenwert|2012 R2|3|120|5|20|
-|Crosssubnet-Schwellenwert|2016|3|120|20|20|
-|Samesubnet-Schwellenwert|2008 R2|3|10|5|10|
-|Samesubnet-Schwellenwert|2012|3|120|5|10
-|Samesubnet-Schwellenwert|2012 R2|3|120|5|10|
-|SameSubnetThreshold|2016|3|120|10|10|
-|||||||
+| BESCHREIBUNG | OS | Min | Max | Standard | Empfohlen |
+|--|--|--|--|--|--|
+| CrossSubnetThreshold | 2008 R2 | 3 | 20 | 5 | 20 |
+| Crosssubnet-Schwellenwert | 2012 | 3 | 120 | 5 | 20 |
+| Crosssubnet-Schwellenwert | 2012 R2 | 3 | 120 | 5 | 20 |
+| Crosssubnet-Schwellenwert | 2016 | 3 | 120 | 20 | 20 |
+| Samesubnet-Schwellenwert | 2008 R2 | 3 | 10 | 5 | 10 |
+| Samesubnet-Schwellenwert | 2012 | 3 | 120 | 5 | 10 |
+| Samesubnet-Schwellenwert | 2012 R2 | 3 | 120 | 5 | 10 |
+| SameSubnetThreshold | 2016 | 3 | 120 | 10 | 10 |
 
 Die Werte für Schwellenwert entsprechen den aktuellen Empfehlungen in Bezug auf den Umfang der Bereitstellung, wie im folgenden Artikel beschrieben:
 
@@ -141,4 +140,4 @@ Der **Schwellenwert** definiert die Anzahl der Takte, die übersehen werden, bev
 
 Weitere Informationen zum Optimieren der Netzwerk Konfigurationseinstellungen für Windows-Cluster finden Sie unter [Optimieren der Netzwerk Schwellenwerte für Failovercluster](https://techcommunity.microsoft.com/t5/failover-clustering/tuning-failover-cluster-network-thresholds/ba-p/371834).
 
-Informationen zur Verwendung von "Cluster. exe" zum Optimieren der Netzwerk Konfigurationseinstellungen für Windows-Cluster finden Sie unter [Konfigurieren von Cluster Netzwerken für einen Failovercluster](/previous-versions/office/exchange-server-2007/bb690953(v=exchg.80)?redirectedfrom=MSDN).
+Informationen zum Verwenden von cluster.exe zum Optimieren der Netzwerk Konfigurationseinstellungen für Windows-Cluster finden Sie unter [Konfigurieren von Cluster Netzwerken für einen Failovercluster](/previous-versions/office/exchange-server-2007/bb690953(v=exchg.80)?redirectedfrom=MSDN).

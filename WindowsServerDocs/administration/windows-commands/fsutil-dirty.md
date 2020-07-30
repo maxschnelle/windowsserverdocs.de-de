@@ -9,12 +9,12 @@ ms.technology: storage
 ms.assetid: 385a2a7c-d6bd-4f11-9c18-fca0413f9e97
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: c61ab5405fb5b469b6f4513459e4096524f4b7fe
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: cb133dc9f9f19a948eb88d24935fac27f2a5e4a3
+ms.sourcegitcommit: 145cf75f89f4e7460e737861b7407b5cee7c6645
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85929262"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87409731"
 ---
 # <a name="fsutil-dirty"></a>fsutil dirty
 
@@ -30,13 +30,13 @@ fsutil dirty {query | set} <volumepath>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | Abfrage | Fragt das geänderte Bit des angegebenen Volumes ab. |
 | set | Legt das geänderte Bit des angegebenen Volumes fest. |
 | `<volumepath>` | Gibt den Namen des Laufwerks gefolgt von einem Doppelpunkt oder einer GUID im folgenden Format an: `volume{GUID}` . |
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Das geänderte Bit eines Volumes gibt an, dass sich das Dateisystem möglicherweise in einem inkonsistenten Zustand befindet. Das Dirty-Bit kann aus folgenden Gründen festgelegt werden:
 
@@ -56,13 +56,9 @@ Geben Sie Folgendes ein, um das geänderte Bit auf Laufwerk C abzufragen:
 fsutil dirty query c:
 ```
 
-    If the volume is dirty, the following output displays:
+- Wenn das Volume geändert wird, wird die folgende Ausgabe angezeigt:`Volume C: is dirty`
 
-    `Volume C: is dirty`
-
-    If the volume isn't dirty, the following output displays:
-
-    `Volume C: is not dirty`
+- Wenn das Volume nicht geändert wird, wird die folgende Ausgabe angezeigt:`Volume C: is not dirty`
 
 Geben Sie Folgendes ein, um das Dirty Bit auf Laufwerk C festzulegen:
 
@@ -70,7 +66,7 @@ Geben Sie Folgendes ein, um das Dirty Bit auf Laufwerk C festzulegen:
 fsutil dirty set C:
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

@@ -7,12 +7,12 @@ ms.assetid: 5cc73aff-d2c0-4cf9-a23d-ef928ae5ddc9
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: de384437a1d135aa60cf8d65a8031faa22983bb0
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: cbc6fec843a55d99ba709953b56e01a55f317a62
+ms.sourcegitcommit: 145cf75f89f4e7460e737861b7407b5cee7c6645
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87180266"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87409520"
 ---
 # <a name="troubleshoot-computer-backup-and-restore-errors-in-windows-server-essentials"></a>Problembehebung bei Computersicherungs- und Wiederherstellungsfehlern in Windows Server Essentials
 
@@ -117,13 +117,13 @@ Wenn eine Sicherung nicht erfolgreich war, war kein Teil der Sicherung erfolgrei
 
     - Löschen Sie Inhalte vom Volume, um mehr Speicherplatz verfügbar zu machen.
 
-            > [!NOTE]
-            > If you need to free up space on the system reserved volume, you can move the System Recovery Image to a different volume. For instructions, see [Deploy a System Recovery Image](/previous-versions/windows/it-pro/windows-7/dd744280(v=ws.10)).
+        > [!NOTE]
+        > Wenn Sie auf dem für das System reservierten Volume Speicherplatz freigeben müssen, können Sie das Systemwiederherstellungsabbild auf ein anderes Volume verschieben. Anweisungen finden Sie unter [Bereitstellen eines Abbilds für die Systemwiederherstellung](/previous-versions/windows/it-pro/windows-7/dd744280(v=ws.10)).
 
     - Schließen Sie das Volume aus der Clientsicherung aus. Führen Sie diesen Schritt nur durch, wenn es wichtig ist, eine Sicherungskopie der Daten auf dem Volume zu behalten.
 
-            > [!WARNING]
-            > If you exclude the system reserved volume from a client backup, the client system will not be backed up, and you will not be able to perform a full system restore on the computer.
+        > [!WARNING]
+        > Wenn Sie das für das System reservierte Volume aus einer Clientsicherung ausschließen, wird das Clientsystem nicht gesichert, und Sie sind nicht in der Lage, eine vollständige Systemwiederherstellung auf dem Computer auszuführen.
 
 5. Überprüfen Sie andere Warnungen auf dem Server, die u. U. darauf hindeuten, dass nicht genügend freier Speicherplatz auf dem Server für den erfolgreichen Abschluss der Sicherung vorhanden ist. Folgen Sie den Anweisungen in der Warnung, um das Problem zu beheben.
 

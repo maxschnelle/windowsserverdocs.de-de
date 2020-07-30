@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: v-tea; kenbrunf
 author: teresa-motiv
 ms.date: 7/3/2019
-ms.openlocfilehash: bc8486369d076573d249b9d5cfb0ba669619461e
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: c0ff1c12a94abed86f6fa3cecd54894016dd3ad1
+ms.sourcegitcommit: 145cf75f89f4e7460e737861b7407b5cee7c6645
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87179226"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87409490"
 ---
 # <a name="capacity-planning-for-active-directory-domain-services"></a>Kapazitätsplanung für Active Directory Domain Services
 
@@ -100,22 +100,22 @@ Im Allgemeinen:
 #### <a name="new-environment"></a>Neue Umgebung
 
 | Komponente | Experten |
-|-|-|
-|Speicher/Datenbankgröße|40 KB bis 60 KB für jeden Benutzer|
-|RAM|Datenbankgröße<br />Empfehlungen des Basis Betriebssystems<br />Drittanbieteranwendungen|
-|Netzwerk|1 GB|
-|CPU|1000 gleichzeitige Benutzer für jeden Kern|
+|--|--|
+| Speicher/Datenbankgröße | 40 KB bis 60 KB für jeden Benutzer |
+| RAM | Datenbankgröße<br />Empfehlungen des Basis Betriebssystems<br />Drittanbieteranwendungen |
+| Netzwerk | 1 GB |
+| CPU | 1000 gleichzeitige Benutzer für jeden Kern |
 
 #### <a name="high-level-evaluation-criteria"></a>Allgemeine Evaluierungs Kriterien
 
 | Komponente | Auswertungskriterien | Überlegungen zur Planung |
-|-|-|-|
-|Speicher/Datenbankgröße|Der Abschnitt "So aktivieren Sie die Protokollierung von Speicherplatz, der durch Defragmentierung freigegeben wird" in [Speicher Limits](/previous-versions/windows/it-pro/windows-2000-server/cc961769(v=technet.10))| |
-|Speicherung/Datenbankleistung|<ul><li>"Logischer Datenträger ( *\<NTDS Database Drive\>* ) \ Mittlere Sek./Lesevorgänge", "logischer Datenträger ( *\<NTDS Database Drive\>* ) \ Mittlere Sek./Schreibvorgänge", "logischer Datenträger ( *\<NTDS Database Drive\>* ) \ Mittlere Sek./Übertragung"</li><li>"LogicalDisk ( *\<NTDS Database Drive\>* ) \ Lesevorgänge/Sek.", "LogicalDisk ( *\<NTDS Database Drive\>* ) \ Schreibvorgänge/s", "LogicalDisk ( *\<NTDS Database Drive\>* ) \ Transfers/Sek."</li></ul>|<ul><li>Für den Speicher sind zwei Aspekte zu berücksichtigen.<ul><li>Verfügbarer Speicherplatz, der für die meisten AD-Umgebungen von der Größe der aktuellen Spindel basierten und SSD-basierten Speicherung abhängig ist.</li> <li>E/a-Vorgänge (e/a-Vorgänge) verfügbar – in vielen Umgebungen wird dies oft übersehen. Es ist jedoch wichtig, nur Umgebungen auszuwerten, in denen nicht genügend RAM vorhanden ist, um die gesamte NTDS-Datenbank in den Arbeitsspeicher zu laden.</li></ul><li>Der Speicher kann ein komplexes Thema sein und sollte Hardwarehersteller-Fachkenntnisse für eine ordnungsgemäße Größenanpassung umfassen. Besonders bei komplexeren Szenarien, wie z. b. San-, NAS-und iSCSI-Szenarios. Im Allgemeinen werden Kosten pro GB Speicher jedoch häufig direkt gegen die Kosten pro e/a-Vorgänge unterstellt:<ul><li>RAID 5 hat niedrigere Kosten pro Gigabyte als RAID 1, RAID 1 hat jedoch niedrigere Kosten pro e/a.</li><li>Bei Spindel basierten Festplatten fallen niedrigere Kosten pro Gigabyte an, SSDs haben jedoch niedrigere Kosten pro e/a.</li></ul><li>Nach einem Neustart des Computers oder des Active Directory Domain Services Dienstanbieter ist der ESE-Cache (Extensible Storage Engine) leer, und die Leistung wird Datenträger gebunden, während der Cache erwärmt wird.</li><li>In den meisten Umgebungen ist AD intensive e/a-Vorgänge in zufälligen Mustern auf Datenträgern, was den Vorteil von zwischen Speicherungs-und Lese Optimierungsstrategien neiert.  Außerdem bietet AD einen viel größeren Cache im Speicher als die meisten Speichersystem Caches.</li></ul>
-|RAM|<ul><li>Datenbankgröße</li><li>Empfehlungen des Basis Betriebssystems</li><li>Drittanbieteranwendungen</li></ul>|<ul><li>Storage ist die langsamste Komponente eines Computers. Umso mehr, was sich im RAM befinden kann, desto weniger müssen Sie auf den Datenträger wechseln.</li><li>Stellen Sie sicher, dass genügend RAM zum Speichern des Betriebssystems, der Agents (Antivirus, Sicherung, Überwachung), NTDS-Datenbank und Wachstum im Laufe der Zeit zugeordnet ist.</li><li>Für Umgebungen, in denen das Maximieren der RAM-Größe nicht kostengünstig ist (z. b. bei Satellitenstandorten) oder nicht möglich ist (DIT ist zu groß), verweisen Sie auf den Abschnitt Speicher, um sicherzustellen, dass die Größe des Speichers korrekt ist</li></ul>|
-|Netzwerk|<ul><li>"Netzwerkschnittstelle ( \* ) \Empfangene Bytes/Sek."</li><li>"Netzwerkschnittstelle ( \* ) \Gesendete Bytes/Sek."|<ul><li>Im Allgemeinen überschreitet der Datenverkehr, der von einem DC gesendet wird, den an einen DC gesendeten Datenverkehr</li><li>Wenn eine Umgeschaltete Ethernet-Verbindung Vollduplex ist, muss der eingehende und ausgehende Netzwerk Datenverkehr unabhängig voneinander dimensioniert werden.</li><li>Das Konsolidieren der Anzahl von DCS erhöht den Umfang der Bandbreite, der zum Senden von Antworten an Client Anforderungen für die einzelnen Domänen Controller verwendet wird. Sie ist jedoch für den gesamten Standort nahezu gleich.</li><li>Wenn Sie satellitenspeicherort-DCS entfernen, vergessen Sie nicht, die Bandbreite für den Satelliten Controller zu den Hub-DCS hinzuzufügen und zu ermitteln, wie viel WAN-Datenverkehr vorhanden sein wird.</li></ul>|
-|CPU|<ul><li>"Logischer Datenträger *\<NTDS Database Drive\>* \ Mittlere Sek./Lesevorgänge"</li><li>"Process (LSASS) \\ % Processor Time"</li></ul>|<ul><li>Nachdem Sie den Speicher als Engpass eliminiert haben, müssen Sie die benötigte computestrommenge beheben.</li><li>Die Anzahl der Prozessorkerne, die für alle Server innerhalb eines bestimmten Bereichs (z. b. einer Website) beansprucht werden, kann zwar nicht perfekt linear sein, aber die Anzahl der Prozessoren, die zur Unterstützung der gesamten Client Last erforderlich sind, kann verwendet werden. Fügen Sie die erforderliche Mindestanzahl hinzu, um die aktuelle Dienst Ebene für alle Systeme innerhalb des Bereichs beizubehalten.</li><li>Änderungen an der Prozessorgeschwindigkeit, einschließlich der Energie verwaltungsbezogenen Änderungen, wirken sich auf die von der aktuellen Umgebung abgeleiteten Zahlen aus. Im Allgemeinen ist es nicht möglich, genau zu bewerten, wie von einem 2,5 GHz-Prozessor zu einem 3-GHz-Prozessor die Anzahl der benötigten CPUs verringert wird.</li></ul>|
-|Anmeldedienst|<ul><li>"Netlogon ( \* ) \semaphore Ruft ab"</li><li>"Netlogon ( \* ) \semaphore Timeouts"</li><li>"Netlogon ( \* ) \average Semaphore Hold Time"</li></ul>|<ul><li>Der sichere Kanal für die Netzwerk Anmeldung/MaxConcurrentApi wirkt sich nur auf Umgebungen mit NTLM-Authentifizierungen und/oder PAC-Überprüfung aus. Die PAC-Überprüfung ist in Betriebssystemversionen vor Windows Server 2008 standardmäßig aktiviert. Dies ist eine Client Einstellung, sodass die DCS beeinträchtigt werden, bis diese auf allen Client Systemen ausgeschaltet ist.</li><li>Umgebungen mit erheblicher vertrauenswürdiger Authentifizierung, die Gesamtstruktur übergreifende Vertrauens Stellungen einschließt, haben ein höheres Risiko, wenn Sie nicht ordnungsgemäß skaliert werden.</li><li>Server Konsolidierungen erhöhen die Parallelität der vertrauenswürdigen Authentifizierung.</li><li>Die Übertragungen müssen berücksichtigt werden, wie z. b. Cluster-Failover, da Benutzer die Massen Authentifizierung für den neuen Cluster Knoten durchführen.</li><li>Einzelne Client Systeme (z. b. ein Cluster) müssen möglicherweise ebenfalls optimiert werden.</li></ul>|
+|--|--|--|
+| Speicher/Datenbankgröße | Der Abschnitt "So aktivieren Sie die Protokollierung von Speicherplatz, der durch Defragmentierung freigegeben wird" in [Speicher Limits](/previous-versions/windows/it-pro/windows-2000-server/cc961769(v=technet.10)) |  |
+| Speicherung/Datenbankleistung | <ul><li>"Logischer Datenträger ( *\<NTDS Database Drive\>* ) \ Mittlere Sek./Lesevorgänge", "logischer Datenträger ( *\<NTDS Database Drive\>* ) \ Mittlere Sek./Schreibvorgänge", "logischer Datenträger ( *\<NTDS Database Drive\>* ) \ Mittlere Sek./Übertragung"</li><li>"LogicalDisk ( *\<NTDS Database Drive\>* ) \ Lesevorgänge/Sek.", "LogicalDisk ( *\<NTDS Database Drive\>* ) \ Schreibvorgänge/s", "LogicalDisk ( *\<NTDS Database Drive\>* ) \ Transfers/Sek."</li></ul> | <ul><li>Für den Speicher sind zwei Aspekte zu berücksichtigen.<ul><li>Verfügbarer Speicherplatz, der für die meisten AD-Umgebungen von der Größe der aktuellen Spindel basierten und SSD-basierten Speicherung abhängig ist.</li> <li>E/a-Vorgänge (e/a-Vorgänge) verfügbar – in vielen Umgebungen wird dies oft übersehen. Es ist jedoch wichtig, nur Umgebungen auszuwerten, in denen nicht genügend RAM vorhanden ist, um die gesamte NTDS-Datenbank in den Arbeitsspeicher zu laden.</li></ul><li>Der Speicher kann ein komplexes Thema sein und sollte Hardwarehersteller-Fachkenntnisse für eine ordnungsgemäße Größenanpassung umfassen. Besonders bei komplexeren Szenarien, wie z. b. San-, NAS-und iSCSI-Szenarios. Im Allgemeinen werden Kosten pro GB Speicher jedoch häufig direkt gegen die Kosten pro e/a-Vorgänge unterstellt:<ul><li>RAID 5 hat niedrigere Kosten pro Gigabyte als RAID 1, RAID 1 hat jedoch niedrigere Kosten pro e/a.</li><li>Bei Spindel basierten Festplatten fallen niedrigere Kosten pro Gigabyte an, SSDs haben jedoch niedrigere Kosten pro e/a.</li></ul><li>Nach einem Neustart des Computers oder des Active Directory Domain Services Dienstanbieter ist der ESE-Cache (Extensible Storage Engine) leer, und die Leistung wird Datenträger gebunden, während der Cache erwärmt wird.</li><li>In den meisten Umgebungen ist AD intensive e/a-Vorgänge in zufälligen Mustern auf Datenträgern, was den Vorteil von zwischen Speicherungs-und Lese Optimierungsstrategien neiert.  Außerdem bietet AD einen viel größeren Cache im Speicher als die meisten Speichersystem Caches.</li></ul> |
+| RAM | <ul><li>Datenbankgröße</li><li>Empfehlungen des Basis Betriebssystems</li><li>Drittanbieteranwendungen</li></ul> | <ul><li>Storage ist die langsamste Komponente eines Computers. Umso mehr, was sich im RAM befinden kann, desto weniger müssen Sie auf den Datenträger wechseln.</li><li>Stellen Sie sicher, dass genügend RAM zum Speichern des Betriebssystems, der Agents (Antivirus, Sicherung, Überwachung), NTDS-Datenbank und Wachstum im Laufe der Zeit zugeordnet ist.</li><li>Für Umgebungen, in denen das Maximieren der RAM-Größe nicht kostengünstig ist (z. b. bei Satellitenstandorten) oder nicht möglich ist (DIT ist zu groß), verweisen Sie auf den Abschnitt Speicher, um sicherzustellen, dass die Größe des Speichers korrekt ist</li></ul> |
+| Netzwerk | <ul><li>"Netzwerkschnittstelle ( \* ) \Empfangene Bytes/Sek."</li><li>"Netzwerkschnittstelle ( \* ) \Gesendete Bytes/Sek." | <ul><li>Im Allgemeinen überschreitet der Datenverkehr, der von einem DC gesendet wird, den an einen DC gesendeten Datenverkehr</li><li>Wenn eine Umgeschaltete Ethernet-Verbindung Vollduplex ist, muss der eingehende und ausgehende Netzwerk Datenverkehr unabhängig voneinander dimensioniert werden.</li><li>Das Konsolidieren der Anzahl von DCS erhöht den Umfang der Bandbreite, der zum Senden von Antworten an Client Anforderungen für die einzelnen Domänen Controller verwendet wird. Sie ist jedoch für den gesamten Standort nahezu gleich.</li><li>Wenn Sie satellitenspeicherort-DCS entfernen, vergessen Sie nicht, die Bandbreite für den Satelliten Controller zu den Hub-DCS hinzuzufügen und zu ermitteln, wie viel WAN-Datenverkehr vorhanden sein wird.</li></ul> |
+| CPU | <ul><li>"Logischer Datenträger *\<NTDS Database Drive\>* \ Mittlere Sek./Lesevorgänge"</li><li>"Process (LSASS) \\ % Processor Time"</li></ul> | <ul><li>Nachdem Sie den Speicher als Engpass eliminiert haben, müssen Sie die benötigte computestrommenge beheben.</li><li>Die Anzahl der Prozessorkerne, die für alle Server innerhalb eines bestimmten Bereichs (z. b. einer Website) beansprucht werden, kann zwar nicht perfekt linear sein, aber die Anzahl der Prozessoren, die zur Unterstützung der gesamten Client Last erforderlich sind, kann verwendet werden. Fügen Sie die erforderliche Mindestanzahl hinzu, um die aktuelle Dienst Ebene für alle Systeme innerhalb des Bereichs beizubehalten.</li><li>Änderungen an der Prozessorgeschwindigkeit, einschließlich der Energie verwaltungsbezogenen Änderungen, wirken sich auf die von der aktuellen Umgebung abgeleiteten Zahlen aus. Im Allgemeinen ist es nicht möglich, genau zu bewerten, wie von einem 2,5 GHz-Prozessor zu einem 3-GHz-Prozessor die Anzahl der benötigten CPUs verringert wird.</li></ul> |
+| Anmeldedienst | <ul><li>"Netlogon (*) \semaphore" ruft " </li> <li> " Netlogon (*) \semaphore Timeouts "ab.</li><li>"Netlogon (*) \average Semaphore Hold Time"</li></ul> | <ul><li>Der sichere Kanal für die Netzwerk Anmeldung/MaxConcurrentApi wirkt sich nur auf Umgebungen mit NTLM-Authentifizierungen und/oder PAC-Überprüfung aus. Die PAC-Überprüfung ist in Betriebssystemversionen vor Windows Server 2008 standardmäßig aktiviert. Dies ist eine Client Einstellung, sodass die DCS beeinträchtigt werden, bis diese auf allen Client Systemen ausgeschaltet ist.</li><li>Umgebungen mit erheblicher vertrauenswürdiger Authentifizierung, die Gesamtstruktur übergreifende Vertrauens Stellungen einschließt, haben ein höheres Risiko, wenn Sie nicht ordnungsgemäß skaliert werden.</li><li>Server Konsolidierungen erhöhen die Parallelität der vertrauenswürdigen Authentifizierung.</li><li>Die Übertragungen müssen berücksichtigt werden, wie z. b. Cluster-Failover, da Benutzer die Massen Authentifizierung für den neuen Cluster Knoten durchführen.</li><li>Einzelne Client Systeme (z. b. ein Cluster) müssen möglicherweise ebenfalls optimiert werden.</li></ul> |
 
 ## <a name="planning"></a>Planen
 
@@ -155,15 +155,15 @@ Vermeiden Sie den über-Commit-Speicher auf dem Host. Das grundlegende Ziel bei 
 
 ### <a name="calculation-summary-example"></a>Beispiel für Berechnungs Zusammenfassung
 
-|Komponente|Geschätzter Speicher (Beispiel)|
-|-|-|
-|Empfohlenen RAM für das Basis Betriebssystem (Windows Server 2008)|2 GB|
-|Interne LSASS-Aufgaben|200 MB|
-|Überwachungs-Agent|100 MB|
-|Antivirus|100 MB|
-|Datenbank (globaler Katalog)|8,5 GB |
-|Die Sicherung wird für die Sicherung ausgeführt, Administratoren können sich ohne Auswirkung anmelden.|1 GB|
-|Gesamt|12 GB|
+| Komponente | Geschätzter Speicher (Beispiel) |
+|--|--|
+| Empfohlenen RAM für das Basis Betriebssystem (Windows Server 2008) | 2 GB |
+| Interne LSASS-Aufgaben | 200 MB |
+| Überwachungs-Agent | 100 MB |
+| Antivirus | 100 MB |
+| Datenbank (globaler Katalog) | 8,5 GB |
+| Die Sicherung wird für die Sicherung ausgeführt, Administratoren können sich ohne Auswirkung anmelden. | 1 GB |
+| Gesamt | 12 GB |
 
 **Empfohlen: 16 GB**
 
@@ -224,14 +224,14 @@ Es ist einfach, Empfehlungen für einen physischen Server zu erstellen: 1 GB fü
 
 ### <a name="calculation-summary-example"></a>Beispiel für Berechnungs Zusammenfassung
 
-|System|Spitzen Bandbreite|
-|-|-|
-DC 1|6,5 MB/s|
-DC 2|6,25 MB/s|
-|DC 3|6,25 MB/s|
-|DC 4|5,75 MB/s|
-|DC 5|4,75 MB/s|
-|Gesamt|28,5 MB/s|
+| System | Spitzen Bandbreite |
+|--|--|
+| DC 1 | 6,5 MB/s |
+| DC 2 | 6,25 MB/s |
+| DC 3 | 6,25 MB/s |
+| DC 4 | 5,75 MB/s |
+| DC 5 | 4,75 MB/s |
+| Gesamt | 28,5 MB/s |
 
 **Empfohlen: 72 MB/s** (28,5 MB/s dividiert durch 40%)
 
@@ -272,7 +272,7 @@ Beim Überprüfen vorhandener Umgebungen mit mehreren Domänen kann es Abweichun
 Die Datenbankgröße kann je nach Betriebssystemversion variieren. DCS, die frühere Betriebssysteme ausführen, wie z. b. Windows Server 2003, haben eine geringere Datenbankgröße als ein Domänen Controller, auf dem ein späteres Betriebssystem ausgeführt wird, wie z. b. Windows Server 2008 R2, insbesondere dann, wenn Features wie Active Directory Papierkorb oder
 
 > [!NOTE]
-  >
+>
 >- Beachten Sie bei neuen Umgebungen, dass die Schätzungen in den Wachstumsschätzungen für Active Directory Benutzer und Organisationseinheiten darauf hindeuten, dass 100.000 Benutzer (in derselben Domäne) etwa 450 MB Speicherplatz beanspruchen. Beachten Sie, dass die aufgefüllten Attribute eine enorme Auswirkung auf den Gesamtbetrag haben können. Attribute werden für viele Objekte von Drittanbietern und Microsoft-Produkten, einschließlich Microsoft Exchange Server und lync, aufgefüllt. Eine Auswertung, die auf dem Portfolio der Produkte in der Umgebung basiert, wird bevorzugt, aber die Übung, bei der die Mathematik und das Testen auf genaue Schätzungen für alle außer den größten Umgebungen ausführlich erläutert werden, ist viel Zeit und Aufwand nicht besonders wichtig.
 >- Stellen Sie sicher, dass 110% der Größe von NTDS. dit als freier Speicherplatz zur Verfügung stehen, um offline defragmentieren zu können, und planen Sie das Wachstum über eine drei bis fünf Jahre lange Hardware Lebensdauer. In Anbetracht der kostengünstigen Speicherung ist die Schätzung des Speichers um 300% die Größe der DIT als Speicher Belegung sicher, um das Wachstum zu unterstützen, und die potenzielle Notwendigkeit von Offline-Debug-Anforderungen.
 
@@ -282,11 +282,11 @@ Verwenden Sie in einem Szenario, in dem mehrere VHD-Dateien (Virtual Hard Disk, 
 
 #### <a name="calculation-summary-example"></a>Beispiel für Berechnungs Zusammenfassung
 
-|Aus Evaluierungsphase gesammelte Daten| |
-|-|-|
-|Größe von NTDS. dit|35 GB|
-|Modifizierer, der die Offline-decofragmentierung zulässt|2.1|
-|Gesamter Speicherplatz|73,5 GB|
+| Aus Evaluierungsphase gesammelte Daten | Size |
+|--|--|
+| Größe von NTDS. dit | 35 GB |
+| Modifizierer, der die Offline-decofragmentierung zulässt | 2,1 GB |
+| Gesamter Speicherplatz | 73,5 GB |
 
 > [!NOTE]
 > Dieser Speicherplatz ist zusätzlich zu dem Speicherplatz erforderlich, der für SYSVOL, Betriebssystem, Auslagerungs Datei, temporäre Dateien, lokale zwischengespeicherte Daten (z. b. Installer-Dateien) und Anwendungen benötigt wird.
@@ -332,8 +332,7 @@ Diese sollten in Intervallen von 15/30/60 Minuten getestet werden, um die Anford
 >     > Es gibt Empfehlungen, die angeben, dass die Speicherleistung bei 15ms bis 20 ms (abhängig von der Quelle) beeinträchtigt wird.  Der Unterschied zwischen den obigen Werten und den anderen Leitfäden besteht darin, dass die oben genannten Werte der normale Betriebsbereich sind.  Die anderen Empfehlungen sind Anleitungen zur Problembehandlung, um zu ermitteln, wann die Client Darstellung erheblich beeinträchtigt wird und bemerkbar wird.  Im Referenz Anhang C erhalten Sie eine genauere Erläuterung.
 > - LogicalDisk ( *\<NTDS\>* ) \ Lesevorgänge/Sek. ist die Menge an e/a-Vorgängen, die ausgeführt wird.
 >   - Wenn LogicalDisk ( *\<NTDS\>* ) \ Mittlere Sek./Lesevorgänge innerhalb des optimalen Bereichs für den Back-End-Speicher liegen, kann LogicalDisk ( *\<NTDS\>* ) \ Lesevorgänge/Sek. direkt zum Speichern der Größe verwendet werden.
->   - Wenn LogicalDisk ( *\<NTDS\>* ) \ Mittlere Sek./Lesevorgänge nicht innerhalb des optimalen Bereichs für den Back-End-Speicher liegen, wird der zusätzliche e/a entsprechend der folgenden Formel benötigt:
->     > (LogicalDisk ( *\<NTDS\>* ) \Mittlere Sek./Lesevorgänge) &divide; (Datenträger Zugriff auf physische Datenträger) &times; (LogicalDisk ( *\<NTDS\>* ) \Mittlere Sek./Lesevorgänge)
+>   - Wenn LogicalDisk ( *\<NTDS\>* ) \ Mittlere Sek./Lesevorgänge nicht innerhalb des optimalen Bereichs für den Back-End-Speicher liegen, wird zusätzliche e/a-Vorgänge gemäß der folgenden Formel benötigt: (LogicalDisk () \Durchschnittl *\<NTDS\>* Sek./Lesevorgang) &divide; (Datenträger Zugriffszeit für physische Medien) &times; (LogicalDisk ( *\<NTDS\>* ) \Durchschnittl Sek./Lesevorgang)
 
 Überlegungen:
 
@@ -356,17 +355,17 @@ Ermitteln der Menge an e/a-Vorgängen, die für ein fehlerfreies System unter no
 - So bestimmen Sie die Menge an e/a-Vorgängen, die für den Speicher erforderlich sind
   >*Benötigtes IOPS* = (logischer Datenträger ( *\<NTDS Database Drive\>* ) \Mittlere Sek./Lesevorgänge &divide; *\<Target Avg Disk sec/Read\>* ) &times; LogicalDisk ( *\<NTDS Database Drive\>* ) \ Lesevorgänge/Sek.
 
-|Leistungsindikator|Wert|
-|-|-|
-|Tatsächlicher LogicalDisk ( *\<NTDS Database Drive\>* ) \Durchschnittl. Sek./Übertragung|.02 Sekunden (20 Millisekunden)|
-|Ziel LogicalDisk ( *\<NTDS Database Drive\>* ) \Durchschnittl. Sek./Übertragung|.01 Sekunden|
-|Multiplikator für Änderung in verfügbarem e/a|0,02 &divide; 0,01 = 2|
+| Leistungsindikator | Wert |
+|--|--|
+| Tatsächlicher LogicalDisk ( *\<NTDS Database Drive\>* ) \Durchschnittl. Sek./Übertragung | .02 Sekunden (20 Millisekunden) |
+| Ziel LogicalDisk ( *\<NTDS Database Drive\>* ) \Durchschnittl. Sek./Übertragung | .01 Sekunden |
+| Multiplikator für Änderung in verfügbarem e/a | 0,02 &divide; 0,01 = 2 |
 
-|Wertname|Wert|
-|-|-|
-|LogicalDisk ( *\<NTDS Database Drive\>* ) \ Übertragungen/Sek.|400|
-|Multiplikator für Änderung in verfügbarem e/a|2|
-|Erforderliche IOPS-Gesamtzeit|800|
+| Wertname | Wert |
+|--|--|
+| LogicalDisk ( *\<NTDS Database Drive\>* ) \ Übertragungen/Sek. | 400 |
+| Multiplikator für Änderung in verfügbarem e/a | 2 |
+| Erforderliche IOPS-Gesamtzeit | 800 |
 
 So bestimmen Sie die Rate, mit der der Cache erwärmt werden soll:
 
@@ -377,16 +376,16 @@ So bestimmen Sie die Rate, mit der der Cache erwärmt werden soll:
 
 Beachten Sie, dass die berechnete Rate nicht exakt ist, weil zuvor geladene Seiten entfernt werden, wenn ESE nicht für eine festgelegte Cache Größe konfiguriert ist, und AD DS standardmäßig die Variable Cache Größe verwendet.
 
-|Zu sammelnde Datenpunkte|Werte
-|-|-|
-|Maximal zulässige Zeit zum Aufwärmen|10 Minuten (600 Sekunden)
-|Datenbankgröße|2 GB|
+| Zu sammelnde Datenpunkte | Werte |
+|--|--|
+| Maximal zulässige Zeit zum Aufwärmen | 10 Minuten (600 Sekunden) |
+| Datenbankgröße | 2 GB |
 
-|Berechnungsschritt|Formel|Ergebnis|
-|-|-|-|
-|Berechnen der Größe der Datenbank auf Seiten|(2 GB &times; 1024 &times; 1024) = *Größe der Datenbank in KB*|2.097.152 KB|
-|Berechnen der Anzahl von Seiten in der Datenbank|2.097.152 KB &divide; 8 KB = *Anzahl von Seiten*|262.144 Seiten|
-|Berechnen von IOPS, die zum vollständigen Aufwärmen des Caches erforderlich sind|262.144 Seiten &divide; 600 Sekunden = *IOPS erforderlich*|437 IOPS|
+| Berechnungsschritt | Formel | Ergebnis |
+|--|--|--|
+| Berechnen der Größe der Datenbank auf Seiten | (2 GB &times; 1024 &times; 1024) = *Größe der Datenbank in KB* | 2.097.152 KB |
+| Berechnen der Anzahl von Seiten in der Datenbank | 2.097.152 KB &divide; 8 KB = *Anzahl von Seiten* | 262.144 Seiten |
+| Berechnen von IOPS, die zum vollständigen Aufwärmen des Caches erforderlich sind | 262.144 Seiten &divide; 600 Sekunden = *IOPS erforderlich* | 437 IOPS |
 
 ## <a name="processing"></a>Verarbeitung
 
@@ -475,11 +474,11 @@ Es gibt zwei Häufige Gründe, um LDAP-Gewichtungen zu optimieren:
 
 #### <a name="example-1---pdc"></a>Beispiel 1: PDC
 
-| |Verwendung mit Standardwerten|Neues LdapSrvWeight|Geschätzte neue Auslastung|
-|-|-|-|-|
-|DC 1 (PDC-Emulator)|53%|57|40%|
-|DC 2|33 %|100|40%|
-|DC 3|33 %|100|40%|
+| System | Verwendung mit Standardwerten | Neues LdapSrvWeight | Geschätzte neue Auslastung |
+|--|--|--|--|
+| DC 1 (PDC-Emulator)| 53% | 57 | 40% |
+| DC 2| 33 % | 100 | 40% |
+| DC 3| 33 % | 100 | 40% |
 
 Wenn die PDC-Emulatorrolle übertragen oder übernommen wird (insbesondere an einen anderen Domänen Controller am Standort), wird der neue PDC-Emulator dadurch drastisch vergrößert.
 
@@ -487,19 +486,19 @@ Mit dem Beispiel aus dem [Profil "Ziel Standort Verhalten](#target-site-behavior
 
 #### <a name="example-2---differing-cpu-counts"></a>Beispiel 2: abweichende CPU-Anzahl
 
-| |Prozessor-Informations \\  % &nbsp; Prozessor-Hilfsprogramm (_Total)<br />Verwendung mit Standardwerten|Neues LdapSrvWeight|Geschätzte neue Auslastung|
-|-|-|-|-|
-|4-CPU-DC 1|40|100|30 %|
-|4-CPU-DC 2|40|100|30 %|
-|8-CPU-DC 3|20|200|30 %|
+| System | Prozessor-Informations \\  % &nbsp; Prozessor-Hilfsprogramm (_Total)<br />Verwendung mit Standardwerten | Neues LdapSrvWeight | Geschätzte neue Auslastung |
+|--|--|--|--|
+| 4-CPU-DC 1 | 40 | 100 | 30 % |
+| 4-CPU-DC 2 | 40 | 100 | 30 % |
+| 8-CPU-DC 3 | 20 | 200 | 30 % |
 
 Seien Sie jedoch mit diesen Szenarien sehr vorsichtig. Wie oben zu sehen ist, sieht die Mathematik wirklich schön und sehr gut aus. Aber in diesem Artikel ist die Planung eines "*N* + 1"-Szenarios von größter Wichtigkeit. Die Auswirkung eines Domänen Controllers, der offline geschaltet wird, muss für jedes Szenario berechnet werden. In dem unmittelbar vorhergehenden Szenario, in dem die Lastverteilung gerade erfolgt, um eine Auslastung von 60% während eines "*N*"-Szenarios zu gewährleisten, während der Lastenausgleich gleichmäßig auf alle Server verteilt ist, ist die Verteilung in Ordnung, da die Verhältnisse konsistent bleiben. Wenn Sie sich das Optimierungs Szenario für den PDC-Emulator ansehen und im allgemeinen jedes Szenario, in dem die Benutzer-oder Anwendungs Last nicht ausgeglichen ist, ist der Effekt sehr unterschiedlich:
 
-| |Optimierte Auslastung|Neues LdapSrvWeight|Geschätzte neue Auslastung|
-|-|-|-|-|
-|DC 1 (PDC-Emulator)|40%|85|47 %|
-|DC 2|40%|100|53%|
-|DC 3|40%|100|53%|
+| System | Optimierte Auslastung | Neues LdapSrvWeight | Geschätzte neue Auslastung |
+|--|--|--|--|
+| DC 1 (PDC-Emulator) | 40% | 85 | 47 % |
+| DC 2 | 40% | 100 | 53% |
+| DC 3 | 40% | 100 | 53% |
 
 ### <a name="virtualization-considerations-for-processing"></a>Überlegungen zur Virtualisierung für die Verarbeitung
 
@@ -511,16 +510,16 @@ Während der Analyse und Berechnung der CPU-Mengen, die für die Unterstützung 
 
 ### <a name="calculation-summary-example"></a>Beispiel für Berechnungs Zusammenfassung
 
-|System|CPU-Spitzen Auslastung|
-|-|-|-|
-|DC 1|120 %|
-|DC 2|147%|
-|DC 3|218%|
-|Gesamte verwendete CPU|485%|
+| System | CPU-Spitzen Auslastung |
+|--|--|--|
+| DC 1 | 120 % |
+| DC 2 | 147% |
+| DC 3 | 218% |
+| Gesamte verwendete CPU | 485% |
 
-|Anzahl der Zielsysteme|Gesamtbandbreite (von oben)|
-|-|-|
-|Erforderliche CPUs bei 40%-Ziel|4,85 &divide; . 4 = 12,25|
+| Anzahl der Zielsysteme | Gesamtbandbreite (von oben) |
+|--|--|
+| Erforderliche CPUs bei 40%-Ziel | 4,85 &divide; . 4 = 12,25 |
 
 Wenn Sie sich aufgrund der Wichtigkeit dieses Punkts wiederholen, *denken Sie daran, das Wachstum zu planen*. In der Annahme, dass in den nächsten drei Jahren 50% zugenommen werden, benötigt diese Umgebung 18,375 CPUs (12,25 &times; 1,5) an der dreijährigen Markierung. Ein alternativer Plan wäre, nach dem ersten Jahr zu prüfen und bei Bedarf zusätzliche Kapazität hinzuzufügen.
 
@@ -559,15 +558,15 @@ Keine, dies ist eine Optimierungs Einstellung für das Betriebssystem.
 
 ### <a name="calculation-summary-example"></a>Beispiel für Berechnungs Zusammenfassung
 
-|Datentyp|Wert|
-|-|-|
-|Semaphore (minimal)|6.161|
-|Semaphore erhält (Maximum)|6.762|
-|Semaphore-Timeouts|0|
-|Durchschnittliche Semaphore-Haltezeit|0,012|
-|Sammlungs Dauer (Sekunden)|1:11 Minuten (71 Sekunden)|
-|Formel (aus KB 2688798)|((6762 &ndash; 6161) + 0) &times; 0,012/|
-|Minimalwert für " **MaxConcurrentApi** "|((6762 &ndash; 6161) + 0) &times; 0,012 &divide; 71 =. 101|
+| Datentyp | Wert |
+|--|--|
+| Semaphore (minimal) | 6.161 |
+| Semaphore erhält (Maximum) | 6.762 |
+| Semaphore-Timeouts | 0 |
+| Durchschnittliche Semaphore-Haltezeit | 0,012 |
+| Sammlungs Dauer (Sekunden) | 1:11 Minuten (71 Sekunden) |
+| Formel (aus KB 2688798) | ((6762 &ndash; 6161) + 0) &times; 0,012/ |
+| Minimalwert für " **MaxConcurrentApi** " | ((6762 &ndash; 6161) + 0) &times; 0,012 &divide; 71 =. 101 |
 
 Für dieses System sind die Standardwerte zulässig.
 
@@ -575,14 +574,14 @@ Für dieses System sind die Standardwerte zulässig.
 
 In diesem Artikel wurde erläutert, dass die Planung und Skalierung zu Verwendungs Zielen geführt hat. Im folgenden finden Sie ein Übersichts Diagramm der empfohlenen Schwellenwerte, die überwacht werden müssen, um sicherzustellen, dass die Systeme innerhalb von ausreichenden Kapazitäts Schwellenwerten betrieben werden. Beachten Sie, dass es sich hierbei nicht um Leistungs Schwellenwerte, sondern um Schwellenwerte zur Kapazitätsplanung handelt. Ein Server, der über diese Schwellenwerte hinausgeht, funktioniert, ist jedoch Zeit, zu überprüfen, ob alle Anwendungen gut funktionieren. Wenn die genannten Anwendungen gut funktionieren, ist es an der Zeit, mit der Bewertung von Hardware Upgrades oder anderen Konfigurationsänderungen zu beginnen.
 
-|Category|Leistungsindikator|Intervall/Stichprobenentnahme|Ziel|Warnung|
-|-|-|-|-|-|
-|Prozessor|Prozessor Informationen (_Total) \\ % Prozessor Dienstprogramm|60 Min.|40%|60 %|
-|RAM (Windows Server 2008 R2 oder früher)|Speicher \ verfügbare MB|< 100 MB|N/V|< 100 MB|
-|RAM (Windows Server 2012)|Memory\langterm durchschnittliche standbycache-Lebensdauer (n)|30 Min.|Muss getestet werden|Muss getestet werden|
-|Netzwerk|Netzwerkschnittstelle ( \* ) \Gesendete Bytes/Sek.<p>Netzwerkschnittstelle ( \* ) \Empfangene Bytes/Sek.|30 Min.|40%|60 %|
-|Storage|LogicalDisk ( *\<NTDS Database Drive\>* ) \ Mittlere Sek./Lesevorgänge<p>LogicalDisk ( *\<NTDS Database Drive\>* ) \ Mittlere Sek./Schreibvorgänge|60 Min.|10 ms|15 ms|
-|AD-Dienste|Netlogon ( \* ) \Durchschnittliche Semaphore-Haltezeit|60 Min.|0|1 Sekunde|
+| Category | Leistungsindikator | Intervall/Stichprobenentnahme | Ziel | Warnung |
+|--|--|--|--|--|
+| Prozessor | Prozessor Informationen (_Total) \\ % Prozessor Dienstprogramm | 60 Min. | 40% | 60 % |
+| RAM (Windows Server 2008 R2 oder früher) | Speicher \ verfügbare MB | < 100 MB | – | < 100 MB |
+| RAM (Windows Server 2012) | Memory\langterm durchschnittliche standbycache-Lebensdauer (n) | 30 Min. | Muss getestet werden | Muss getestet werden |
+| Netzwerk | Netzwerkschnittstelle ( \* ) \Gesendete Bytes/Sek.<p>Netzwerkschnittstelle ( \* ) \Empfangene Bytes/Sek. | 30 Min. | 40% | 60 % |
+| Storage | LogicalDisk ( *\<NTDS Database Drive\>* ) \ Mittlere Sek./Lesevorgänge<p>LogicalDisk ( *\<NTDS Database Drive\>* ) \ Mittlere Sek./Schreibvorgänge | 60 Min. | 10 ms | 15 ms |
+| AD-Dienste | Netlogon ( \* ) \Durchschnittliche Semaphore-Haltezeit | 60 Min. | 0 | 1 Sekunde |
 
 ## <a name="appendix-a-cpu-sizing-criteria"></a>Anhang A: CPU-Größen Kriterien
 
@@ -753,27 +752,27 @@ Nachdem Sie die Komponenten identifiziert haben, können Sie berechnen, wie viel
 
   Bisher war die Übertragungsrate der Festplatte irrelevant. Unabhängig davon, ob es sich bei der Festplatte um eine ultrabreite von 20 MB/s oder um einen Ultra3-Wert von 160 MB/s handelt, ist der tatsächliche IOPS-Wert, der von der 10.000-rpm-HD verarbeitet werden kann, ~ 100 Random oder ~ 300 sequenzielle Wenn sich Blockgrößen auf der Grundlage der Anwendung ändern, die auf das Laufwerk schreibt, ist die Menge der Daten, die pro e/a-Vorgänge abgerufen werden, unterschiedlich. Wenn die Blockgröße z. b. 8 KB beträgt, werden 100-e/a-Vorgänge auf der Festplatte eingelesen oder auf die Festplatte geschrieben, d. h. 800 KB. Wenn die Blockgröße jedoch 32 KB beträgt, werden 100 e/a-Vorgänge mit 3.200 KB (3,2 MB) auf der Festplatte gelesen/geschrieben. Solange die SCSI-Übertragungsrate die gesamte übertragene Datenmenge überschreitet, wird ein "schnelleres" Übertragungsraten-Laufwerk nicht mehr angezeigt. Einen Vergleich finden Sie in den folgenden Tabellen.
 
-  | |7200 rpm 9ms Suche, 4ms-Zugriff|10.000 rpm 7 ms Suche, 3 MS-Zugriff|15.000 rpm 4ms suchen, 2 MS Zugriff
-  |-|-|-|-|
-  |Zufällige E/A|80|100|150|
-  |Sequenzielle e/a|250|300|500|
+  | BESCHREIBUNG | 7200 rpm 9ms Suche, 4ms-Zugriff | 10.000 rpm 7 ms Suche, 3 MS-Zugriff | 15.000 rpm 4ms suchen, 2 MS Zugriff |
+  |--|--|--|--|
+  | Zufällige E/A | 80 | 100 | 150 |
+  | Sequenzielle e/a | 250 | 300 | 500 |
 
-  |10.000-rpm-Laufwerk|Blockgröße 8 KB (Active Directory Jet)|
-  |-|-|
-  |Zufällige E/A|800 KB/s|
-  |Sequenzielle e/a|2400 KB/s|
+  | 10.000-rpm-Laufwerk | Blockgröße 8 KB (Active Directory Jet) |
+  |--|--|
+  | Zufällige E/A | 800 KB/s |
+  | Sequenzielle e/a | 2400 KB/s |
 
 - **SCSI-Rückwand (Bus) –** Wenn Sie verstehen, wie die "SCSI-Rückwand (Bus)" oder in diesem Szenario das Menüband-Kabel den Durchsatz des Speicher Subsystems beeinträchtigt, hängt von den Kenntnissen der Blockgröße ab. Im Grunde ist die Frage, wie viele e/a-Vorgänge der Bus verarbeiten kann, wenn sich die e/a-Vorgänge in 8-KB-Blöcken befinden? In diesem Szenario beträgt der SCSI-Bus 20 MB/s oder 20480 KB/s. 20480 KB/s dividiert durch 8-KB-Blöcke ergeben maximal etwa 2500 IOPS, die vom SCSI-Bus unterstützt werden.
 
   > [!NOTE]
   > Die Abbildungen in der folgenden Tabelle stellen ein Beispiel dar. Die meisten angeschlossenen Speichergeräte verwenden derzeit PCI Express, das einen deutlich höheren Durchsatz bereitstellt.
 
-  |E/a-Unterstützung durch SCSI-Bus pro Blockgröße|Blockgröße 2 KB|Blockgröße 8 KB (AD Jet) (SQL Server 7.0/SQL Server 2000)
-  |-|-|-|
-  |20 MB/s|10.000|2\.500|
-  |40 MB/s|20.000|5\.000|
-  |128 MB/s|65.536|16.384|
-  |320 MB/s|160.000|40.000|
+  | E/a-Unterstützung durch SCSI-Bus pro Blockgröße | Blockgröße 2 KB | Blockgröße 8 KB (AD Jet) (SQL Server 7.0/SQL Server 2000) |
+  |--|--|--|
+  | 20 MB/s | 10.000 | 2\.500 |
+  | 40 MB/s | 20.000 | 5\.000 |
+  | 128 MB/s | 65.536 | 16.384 |
+  | 320 MB/s | 160.000 | 40.000 |
 
   Wie von diesem Diagramm bestimmt werden kann, ist im Szenario, unabhängig von der Art der Verwendung, der Bus nie ein Engpass, da der maximale spinspinwert 100-e/a-Vorgänge unter einem der oben genannten Schwellenwerte liegt.
 
@@ -795,17 +794,17 @@ Nach der Analyse der Komponenten dieses Speicher Subsystems ist die Spindel der 
 
 Nachdem Sie nun eine einfache Konfiguration analysiert haben, zeigt die folgende Tabelle, wo der Engpass auftritt, wenn Komponenten im Speichersubsystem geändert oder hinzugefügt werden.
 
-|Notizen|Engpass-Analyse|Datenträger|Bus|Adapter|PCI-Bus|
-|-|-|-|-|-|-|
-|Dies ist die Konfiguration des Domänen Controllers nach dem Hinzufügen eines zweiten Datenträgers. Die Datenträger Konfiguration stellt den Engpass bei 800 KB/s dar.|1 Datenträger hinzufügen (Gesamt = 2)<p>E/a ist zufällig<p>Blockgröße 4 KB<p>10.000 rpm HD|200 I/OS Gesamt<br />800 KB/s insgesamt.| | | |
-|Nach dem Hinzufügen von 7 Datenträgern stellt die Datenträger Konfiguration weiterhin den Engpass bei 3200 KB/s dar.|**7 Datenträger hinzufügen (Gesamt = 8)**  <p>E/a ist zufällig<p>Blockgröße 4 KB<p>10.000 rpm HD|800 I/OS gesamt.<br />3200 KB/s insgesamt| | | |
-|Nachdem die e/a-Vorgänge in eine sequenzielle Änderung geändert wurden, wird der Netzwerkadapter zum Engpass, weil er auf 1000 IOPS beschränkt ist.|7 Datenträger hinzufügen (Gesamt = 8)<p>**E/a ist sequenziell**<p>Blockgröße 4 KB<p>10.000 rpm HD| | |2400 e/a-Sek. können auf den Datenträger gelesen/geschrieben werden, Controller beschränkt auf 1000 IOPS| |
-|Nachdem Sie den Netzwerkadapter durch einen SCSI-Adapter ersetzt haben, der 10.000 IOPS unterstützt, kehrt der Engpass zur Datenträger Konfiguration zurück.|7 Datenträger hinzufügen (Gesamt = 8)<p>E/a ist zufällig<p>Blockgröße 4 KB<p>10.000 rpm HD<p>**SCSI-Adapter aktualisieren (unterstützt jetzt 10.000-e/a)**|800 I/OS gesamt.<br />3.200 KB/s insgesamt| | | |
-|Nachdem die Blockgröße auf 32 KB erhöht wurde, wird der Bus zum Engpass, da er nur 20 MB/s unterstützt.|7 Datenträger hinzufügen (Gesamt = 8)<p>E/a ist zufällig<p>**Blockgröße 32 KB**<p>10.000 rpm HD| |800 I/OS gesamt. 25.600 KB/s (25 MB/s) können auf den Datenträger gelesen/geschrieben werden.<p>Der Bus unterstützt nur 20 MB/s.| | |
-|Nachdem Sie den Bus aktualisiert und weitere Datenträger hinzugefügt haben, bleibt der Datenträger als Engpass.|**13 Datenträger hinzufügen (Gesamt = 14)**<p>Hinzufügen eines zweiten SCSI-Adapters mit 14 Datenträgern<p>E/a ist zufällig<p>Blockgröße 4 KB<p>10.000 rpm HD<p>**Upgrade auf 320 MB/s SCSI-Bus**|2800 I/OS<p>11.200 KB/s (10,9 MB/s)| | | |
-|Nach dem Ändern des e/a-Vorgängen in den sequenziellen Datenträger bleibt der Datenträger|13 Datenträger hinzufügen (Gesamt = 14)<p>Hinzufügen eines zweiten SCSI-Adapters mit 14 Datenträgern<p>**E/a ist sequenziell**<p>Blockgröße 4 KB<p>10.000 rpm HD<p>Upgrade auf 320 MB/s SCSI-Bus|8.400 I/OS<p>33.600 kb\s<p>(32,8 mb\s)| | | |
-|Nachdem Sie schnellere Festplatten hinzugefügt haben, bleibt der Datenträger als Engpass fest.|13 Datenträger hinzufügen (Gesamt = 14)<p>Hinzufügen eines zweiten SCSI-Adapters mit 14 Datenträgern<p>E/a ist sequenziell<p>Blockgröße 4 KB<p>**15.000 rpm HD**<p>Upgrade auf 320 MB/s SCSI-Bus|14.000 I/OS<p>56.000 KB/s<p>(54,7 MB/s)| | | |
-|Nachdem die Blockgröße auf 32 KB erhöht wurde, wird der PCI-Bus zu einem Engpass.|13 Datenträger hinzufügen (Gesamt = 14)<p>Hinzufügen eines zweiten SCSI-Adapters mit 14 Datenträgern<p>E/a ist sequenziell<p>**Blockgröße 32 KB**<p>15.000 rpm HD<p>Upgrade auf 320 MB/s SCSI-Bus| | | |14.000 I/OS<p>448.000 KB/s<p>(437 MB/s) ist das Lese-/schreiblimit für die Spindel.<p>Der PCI-Bus unterstützt ein theoretisches Maximum von 133 MB/s (75% effizient).|
+| Notizen | Engpass-Analyse | Datenträger | Bus | Adapter | PCI-Bus |
+|--|--|--|--|--|--|
+| Dies ist die Konfiguration des Domänen Controllers nach dem Hinzufügen eines zweiten Datenträgers. Die Datenträger Konfiguration stellt den Engpass bei 800 KB/s dar. | 1 Datenträger hinzufügen (Gesamt = 2)<p>E/a ist zufällig<p>Blockgröße 4 KB<p>10.000 rpm HD | 200 I/OS Gesamt<br />800 KB/s insgesamt. |  |  |  |
+| Nach dem Hinzufügen von 7 Datenträgern stellt die Datenträger Konfiguration weiterhin den Engpass bei 3200 KB/s dar. | **7 Datenträger hinzufügen (Gesamt = 8)**  <p>E/a ist zufällig<p>Blockgröße 4 KB<p>10.000 rpm HD | 800 I/OS gesamt.<br />3200 KB/s insgesamt |  |  |  |
+| Nachdem die e/a-Vorgänge in eine sequenzielle Änderung geändert wurden, wird der Netzwerkadapter zum Engpass, weil er auf 1000 IOPS beschränkt ist. | 7 Datenträger hinzufügen (Gesamt = 8)<p>**E/a ist sequenziell**<p>Blockgröße 4 KB<p>10.000 rpm HD |  |  | 2400 e/a-Sek. können auf den Datenträger gelesen/geschrieben werden, Controller beschränkt auf 1000 IOPS |  |
+| Nachdem Sie den Netzwerkadapter durch einen SCSI-Adapter ersetzt haben, der 10.000 IOPS unterstützt, kehrt der Engpass zur Datenträger Konfiguration zurück. | 7 Datenträger hinzufügen (Gesamt = 8)<p>E/a ist zufällig<p>Blockgröße 4 KB<p>10.000 rpm HD<p>**SCSI-Adapter aktualisieren (unterstützt jetzt 10.000-e/a)** | 800 I/OS gesamt.<br />3.200 KB/s insgesamt |  |  |  |
+| Nachdem die Blockgröße auf 32 KB erhöht wurde, wird der Bus zum Engpass, da er nur 20 MB/s unterstützt. | 7 Datenträger hinzufügen (Gesamt = 8)<p>E/a ist zufällig<p>**Blockgröße 32 KB**<p>10.000 rpm HD |  | 800 I/OS gesamt. 25.600 KB/s (25 MB/s) können auf den Datenträger gelesen/geschrieben werden.<p>Der Bus unterstützt nur 20 MB/s. |  |  |
+| Nachdem Sie den Bus aktualisiert und weitere Datenträger hinzugefügt haben, bleibt der Datenträger als Engpass. | **13 Datenträger hinzufügen (Gesamt = 14)**<p>Hinzufügen eines zweiten SCSI-Adapters mit 14 Datenträgern<p>E/a ist zufällig<p>Blockgröße 4 KB<p>10.000 rpm HD<p>**Upgrade auf 320 MB/s SCSI-Bus** | 2800 I/OS<p>11.200 KB/s (10,9 MB/s) |  |  |  |
+| Nach dem Ändern des e/a-Vorgängen in den sequenziellen Datenträger bleibt der Datenträger | 13 Datenträger hinzufügen (Gesamt = 14)<p>Hinzufügen eines zweiten SCSI-Adapters mit 14 Datenträgern<p>**E/a ist sequenziell**<p>Blockgröße 4 KB<p>10.000 rpm HD<p>Upgrade auf 320 MB/s SCSI-Bus | 8.400 I/OS<p>33.600 kb\s<p>(32,8 mb\s) |  |  |  |
+| Nachdem Sie schnellere Festplatten hinzugefügt haben, bleibt der Datenträger als Engpass fest. | 13 Datenträger hinzufügen (Gesamt = 14)<p>Hinzufügen eines zweiten SCSI-Adapters mit 14 Datenträgern<p>E/a ist sequenziell<p>Blockgröße 4 KB<p>**15.000 rpm HD**<p>Upgrade auf 320 MB/s SCSI-Bus | 14.000 I/OS<p>56.000 KB/s<p>(54,7 MB/s) |  |  |  |
+| Nachdem die Blockgröße auf 32 KB erhöht wurde, wird der PCI-Bus zu einem Engpass. | 13 Datenträger hinzufügen (Gesamt = 14)<p>Hinzufügen eines zweiten SCSI-Adapters mit 14 Datenträgern<p>E/a ist sequenziell<p>**Blockgröße 32 KB**<p>15.000 rpm HD<p>Upgrade auf 320 MB/s SCSI-Bus |  |  |  | 14.000 I/OS<p>448.000 KB/s<p>(437 MB/s) ist das Lese-/schreiblimit für die Spindel.<p>Der PCI-Bus unterstützt ein theoretisches Maximum von 133 MB/s (75% effizient). |
 
 ### <a name="introducing-raid"></a>Einführung in RAID
 

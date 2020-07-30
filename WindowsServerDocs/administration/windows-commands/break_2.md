@@ -1,5 +1,5 @@
 ---
-title: break
+title: Break (Schattenkopievolume)
 description: Referenz Artikel für den Break-Befehl, bei dem ein Schattenkopievolume von VSS getrennt und als reguläres Volume zugänglich gemacht wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7f3974f183215a42920f7406a62ab335eb101f56
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 6eb97ff1c539d8c372b4ae0837c41479c5a0f214
+ms.sourcegitcommit: 145cf75f89f4e7460e737861b7407b5cee7c6645
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85924893"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87409751"
 ---
-# <a name="break"></a>break
+# <a name="break-shadow-copy-volume"></a>Break (Schattenkopievolume)
 
 Trennt ein Schattenkopievolume von VSS und ermöglicht es als reguläres Volume. Auf das Volume kann dann mithilfe eines Laufwerk Buchstabens (sofern zugewiesen) oder eines Volumenamens zugegriffen werden. Bei Verwendung ohne Parameter zeigt **break** die Hilfe an der Eingabeaufforderung an.
 
@@ -33,7 +33,7 @@ break [writable] <setid>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | beschreibbaren | Aktiviert den Lese-/Schreibzugriff auf dem Volume. |
 | \<setid> | Gibt die ID des schattenkopiessets an. Der Alias der Schattenkopiekennung, der durch den Befehl " **Metadaten laden** " als Umgebungsvariable gespeichert wird, kann *im Parameter "* Parameter" verwendet werden. |
@@ -46,6 +46,6 @@ So erstellen Sie eine Schatten Kopie mithilfe des Alias namens Alias1 zugänglic
 break writable %Alias1%
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

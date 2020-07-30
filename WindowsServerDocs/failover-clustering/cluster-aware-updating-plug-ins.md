@@ -9,12 +9,12 @@ ms.author: jgerend
 author: JasonGerend
 ms.date: 04/28/2017
 ms.technology: storage-failover-clustering
-ms.openlocfilehash: 21585ab376830f37ca6432849dd8e9b3773af9ab
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: ac09163eb40045289a68287aa3eace20ff714d09
+ms.sourcegitcommit: 145cf75f89f4e7460e737861b7407b5cee7c6645
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85473297"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87409580"
 ---
 # <a name="how-cluster-aware-updating-plug-ins-work"></a>Funktionsweise von Plug-Ins für Cluster fähiges aktualisieren
 
@@ -84,7 +84,7 @@ Die Plug- \- ins, die von Cau \( **Microsoft. windowsupdateplugin** und **Micros
 |Cmdlet|BESCHREIBUNG|
 |----------|---------------|
 |[Get-CauPlugin](https://docs.microsoft.com/powershell/module/clusterawareupdating/get-cauplugin)|Ruft Informationen zu einem oder mehreren Software Update-Plug- \- ins ab, die auf dem lokalen Computer registriert sind.|
-|[Register-CauPlugin]((https://docs.microsoft.com/powershell/module/clusterawareupdating/register-cauplugin))|Registriert ein Plug-in für Cau-Software Updates \- auf dem lokalen Computer.|
+|[Register-CauPlugin](https://docs.microsoft.com/powershell/module/clusterawareupdating/register-cauplugin)|Registriert ein Plug-in für Cau-Software Updates \- auf dem lokalen Computer.|
 |[Unregister-CauPlugin](https://docs.microsoft.com/powershell/module/clusterawareupdating/unregister-cauplugin)|Entfernt ein Software Update-Plug- \- in aus der Liste der Plug- \- ins, die von Cau verwendet werden können. **Hinweis:** Die Registrierung der Plug- \- ins, die mit Cau \( **Microsoft. windowsupdateplugin** und **Microsoft. hotfixplugin** installiert werden, \) kann nicht aufgehoben werden.|
 
 ## <a name="using-the-microsoftwindowsupdateplugin"></a><a name="BKMK_WUP"></a>Verwenden von "Microsoft. windowsupdateplugin"
@@ -97,7 +97,7 @@ Das Standard-Plug- \- in für Cau, **Microsoft. windowsupdateplugin**, führt di
 > [!NOTE]
 > Wenn Sie andere Updates als die wichtigen Software Updates anwenden möchten, die standardmäßig ausgewählt werden, \( z \) . b. Treiber Updates, können Sie einen optionalen Plug- \- in-Parameter konfigurieren. Weitere Informationen finden Sie unter [Konfigurieren der Abfragezeichenfolge für den Windows Update-Agent](#BKMK_QUERY).
 
-### <a name="requirements"></a>Anforderungen
+### <a name="requirements"></a>Requirements (Anforderungen)
 
 - Der Failovercluster und der Remote Update Coordinator-Computer \( \) müssen die Anforderungen für Cau und die Konfiguration erfüllen, die für die Remote Verwaltung in den [Anforderungen und bewährten Methoden für Cau](cluster-aware-updating-requirements.md)erforderlich ist.
 - Lesen Sie die [Empfehlungen für die Anwendung von Microsoft-Updates](cluster-aware-updating-requirements.md#BKMK_BP_WUA), und nehmen Sie dann alle erforderlichen Änderungen an der Microsoft-Updatekonfiguration für die Failoverclusterknoten vor.
@@ -124,7 +124,7 @@ Sie können ein Plug- \- in-Argument für das Standard-Plug- \- in, **Microsoft.
 
 Wenn Sie ein **QueryString** -Argument angeben, wird es anstelle des standardmäßigen **QueryString** -Arguments verwendet, das für das Plug-in konfiguriert ist \- .
 
-#### <a name="example-1"></a>Beispiel 1
+#### <a name="example-1"></a>Beispiel 1
 
 So konfigurieren Sie ein **QueryString** -Argument, das ein bestimmtes Update installiert, gemäß ID *f6ce46c1 \- 971c \- 43f9 \- a2aa \- 783df125f003*:
 
@@ -149,7 +149,7 @@ Mit dem Plug \- -in " **Microsoft. hotfixplugin** " können Microsoft Limited Di
 > [!NOTE]
 > In Knowledge Base-Artikeln können Hotfixes manchmal von Microsoft heruntergeladen werden, Sie werden jedoch auch nach Bedarf für Kunden bereitgestellt \- .
 
-### <a name="requirements"></a>Anforderungen
+### <a name="requirements"></a>Requirements (Anforderungen)
 
 - Der Failovercluster und der Remote Update Coordinator-Computer \( \) müssen die Anforderungen für Cau und die Konfiguration erfüllen, die für die Remote Verwaltung in den [Anforderungen und bewährten Methoden für Cau](cluster-aware-updating-requirements.md)erforderlich ist.
 - Lesen Sie hierzu [Empfehlungen zur Verwendung von Microsoft.HotfixPlugin](cluster-aware-updating-requirements.md#BKMK_BP_HF).
@@ -334,7 +334,7 @@ Das Konto, das in Cau zum Überprüfen der Sicherheitseinstellungen beim Ausfüh
 
 -   **Selbst \- Aktualisierungs Modus** der Name des virtuellen Computer Objekts, das in Active Directory für die Cluster Rolle für Cluster fähiges aktualisieren konfiguriert ist. Dies ist entweder der Name eines vorab bereitgestellten virtuellen Computerobjekts in Active Directory für die Clusterrolle für clusterfähiges Aktualisieren oder der Name, der von der Clusterrolle für clusterfähiges Aktualisieren generiert wird. Wenn Sie den Namen abrufen möchten, wenn er von Cau generiert wurde, führen Sie das PowerShell-Cmdlet **get \- cauclusterrole** Cau aus. In der Ausgabe ist **ResourceGroupName** der Name des generierten virtuellen Computerobjektkontos.
 
-#### <a name="step-2-configure-this-user-account-in-the-necessary-groups-on-an-smb-file-server"></a>Schritt 2: Konfigurieren dieses Benutzerkontos in den erforderlichen Gruppen auf einem SMB-Dateiserver
+#### <a name="step-2-configure-this-user-account-in-the-necessary-groups-on-an-smb-file-server"></a>Schritt 2: Konfigurieren dieses Benutzerkontos in den erforderlichen Gruppen auf einem SMB-Dateiserver
 
 > [!IMPORTANT]
 > Sie müssen das für die Updateausführungen verwendete Konto als lokales Administratorkonto auf dem SMB-Server hinzufügen. Wenn dies aufgrund der Sicherheitsrichtlinien in Ihrer Organisation nicht zulässig ist, konfigurieren Sie dieses Konto auf dem SMB-Server mit den erforderlichen Berechtigungen, indem Sie das folgende Verfahren durchführen.
@@ -359,7 +359,7 @@ Das Konto, das in Cau zum Überprüfen der Sicherheitseinstellungen beim Ausfüh
 
 7.  Erteilen Sie dem für Updateausführungen verwendeten Konto die Berechtigungen **Methoden ausführen** und **Remoteaktivierung**.
 
-#### <a name="step-3-configure-permissions-to-access-the-hotfix-root-folder"></a>Schritt 3: Konfigurieren der Berechtigungen für den Zugriff auf den Hotfixstammordner
+#### <a name="step-3-configure-permissions-to-access-the-hotfix-root-folder"></a>Schritt 3: Konfigurieren der Berechtigungen für den Zugriff auf den Hotfixstammordner
 
 Wenn Sie versuchen, Updates anzuwenden, prüft das Hotfix-Plug- \- in standardmäßig die Konfiguration der NTFS-Dateisystem Berechtigungen für den Zugriff auf den hotfixstamm Ordner. Wenn die Ordner Zugriffsberechtigungen nicht ordnungsgemäß konfiguriert sind, kann eine Update Ausführung mit dem Hotfix-Plug- \- in fehlschlagen.
 

@@ -9,12 +9,12 @@ author: msjimwu
 ms.author: coreyp
 manager: dongill
 ms.date: 3/15/2018
-ms.openlocfilehash: fe1f2b11921950ea725cb996ce58e75033aaae4a
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 9cee8a279be2030d4b911a0a7f456c2b855ca15e
+ms.sourcegitcommit: 145cf75f89f4e7460e737861b7407b5cee7c6645
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85470205"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87409090"
 ---
 # <a name="deploy-windows-server-hybrid-cloud-print"></a>Bereitstellen von Windows Server Hybrid Cloud Print
 
@@ -346,7 +346,8 @@ Um die authentifizierte Kommunikation mit den HCP-Diensten zu ermöglichen, müs
     - Cloudprintresourceid = der Anwendungs-ID-URI der Unternehmens-Cloud-Druck-app. Sie finden diesen unter Azure Active Directory > App-Registrierungen > wählen Sie die > Übersicht der unternehmenscloud-Druck-App aus. **Der Wert muss mit dem nachfolgenden/identisch sein**.
     - Discoverymaxprinterlimit = \<a positive integer\> .
 
-> Hinweis: Wenn Sie Microsoft InTune-Dienst verwenden, finden Sie diese Einstellungen unter der Kategorie clouddrucker.
+> [!NOTE]
+> Wenn Sie Microsoft InTune-Dienst verwenden, finden Sie diese Einstellungen unter der Kategorie clouddrucker.
 
 |InTune-Anzeige Name                     |Richtlinie                         |
 |----------------------------------------|-------------------------------|
@@ -357,21 +358,22 @@ Um die authentifizierte Kommunikation mit den HCP-Diensten zu ermöglichen, müs
 |Maximal abzufragende Drucker (nur Mobilgeräte)  |Discoverymaxprinterlimit       |
 |Ressourcen-URI für Drucker Ermittlungsdienst  |Mopriadiscoveryresourceid      |
 
-> Hinweis: Wenn die clouddruckrichtliniengruppe nicht verfügbar ist, der MDM-Anbieter jedoch Oma-URI-Einstellungen unterstützt, können Sie dieselben Richtlinien festlegen.  Weitere Informationen finden Sie in [diesem](https://docs.microsoft.com/windows/client-management/mdm/policy-csp-enterprisecloudprint#enterprisecloudprint-cloudprintoauthauthority) Artikel.
+> [!NOTE]
+> Wenn die clouddruckrichtliniengruppe nicht verfügbar ist, der MDM-Anbieter jedoch Oma-URI-Einstellungen unterstützt, können Sie dieselben Richtlinien festlegen.  Weitere Informationen finden Sie in [diesem](https://docs.microsoft.com/windows/client-management/mdm/policy-csp-enterprisecloudprint#enterprisecloudprint-cloudprintoauthauthority) Artikel.
 
-    - Werte für OMA-URI
-        - Cloudprintoauthauthority =./Vendor/MSFT/Policy/config/EnterpriseCloudPrint/CloudPrintOAuthAuthority
-            - Wert =https://login.microsoftonline.com/<Azure AD Directory ID>
-        - Cloudprindienst authclientid =./Vendor/MSFT/Policy/config/EnterpriseCloudPrint/CloudPrintOAuthClientId
-            - Wert = <Azure AD Anwendungs-ID der nativen App>
-        - Cloudprinterdiscoveryendpoint =./Vendor/MSFT/Policy/config/EnterpriseCloudPrint/CloudPrinterDiscoveryEndPoint
-            - Value = externe URL der "mopria Discovery Service"-app (muss genau identisch sein, aber ohne das nachfolgende/)
-        - Mopriadiscoveryresourceid =./Vendor/MSFT/Policy/config/EnterpriseCloudPrint/MopriaDiscoveryResourceId
-            - Value = der Anwendungs-ID-URI der mopria Discovery Service-APP
-        - Cloudprintresourceid =./Vendor/MSFT/Policy/config/EnterpriseCloudPrint/CloudPrintResourceId
-            - Wert = Anwendungs-ID-URI der Unternehmens-Cloud-Druck-App
-        - Discoverymaxprinterlimit =./Vendor/MSFT/Policy/config/EnterpriseCloudPrint/DiscoveryMaxPrinterLimit
-            - Value = eine positive ganze Zahl
+- Werte für OMA-URI
+  - Cloudprintoauthauthority =./Vendor/MSFT/Policy/config/EnterpriseCloudPrint/CloudPrintOAuthAuthority
+    - Wert =`https://login.microsoftonline.com/<Azure AD Directory ID>`
+  - Cloudprindienst authclientid =./Vendor/MSFT/Policy/config/EnterpriseCloudPrint/CloudPrintOAuthClientId
+    - Wert =`<Azure AD Native App's Application ID>`
+  - Cloudprinterdiscoveryendpoint =./Vendor/MSFT/Policy/config/EnterpriseCloudPrint/CloudPrinterDiscoveryEndPoint
+    - Value = externe URL der "mopria Discovery Service"-app (muss genau gleich sein, aber ohne nachfolgende `/` )
+  - Mopriadiscoveryresourceid =./Vendor/MSFT/Policy/config/EnterpriseCloudPrint/MopriaDiscoveryResourceId
+    - Value = der Anwendungs-ID-URI der mopria Discovery Service-APP
+  - Cloudprintresourceid =./Vendor/MSFT/Policy/config/EnterpriseCloudPrint/CloudPrintResourceId
+    - Wert = Anwendungs-ID-URI der Unternehmens-Cloud-Druck-App
+  - Discoverymaxprinterlimit =./Vendor/MSFT/Policy/config/EnterpriseCloudPrint/DiscoveryMaxPrinterLimit
+    - Value = eine positive ganze Zahl
 
 ### <a name="step-7---publish-the-shared-printer"></a>Schritt 7: Veröffentlichen des freigegebenen Druckers
 
@@ -381,7 +383,7 @@ Um die authentifizierte Kommunikation mit den HCP-Diensten zu ermöglichen, müs
 4. Speichern Sie die Änderungen, und schließen Sie das Fenster Druckereigenschaften.
 5. Vorbereiten eines Windows 10 Fall Creator-Updates oder eines späteren Computers. Verknüpfen Sie den Computer mit Azure AD, und melden Sie sich als Benutzer an, der mit der lokalen Active Directory synchronisiert ist und über die entsprechende Berechtigung für die Datei "mopriadevicedb. DB" verfügt.
 6. Öffnen Sie auf dem Windows 10-Computer eine Windows PowerShell-Eingabeaufforderung mit erhöhten Rechten.
-    - Führen Sie die folgenden Befehle aus:
+    - Führen Sie die folgenden Befehle aus.
         - `find-module -Name PublishCloudPrinter`So überprüfen Sie, ob der Computer die PowerShell-Katalog (psgallery) erreichen kann
         - `install-module -Name PublishCloudPrinter`
 

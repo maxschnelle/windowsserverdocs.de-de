@@ -1,15 +1,17 @@
 ---
-title: Problembehandlung bei einem Cluster Problem mit der Ereignis-ID 1135
+title: Problembehandlung bei einem Clusterproblem mit Ereignis-ID 1135
 description: Hier wird beschrieben, wie Sie das Start Problem des Cluster Dienstanbieter mit der Ereignis-ID 1135 beheben.
 ms.date: 05/28/2020
-ms.openlocfilehash: d59f8b89e89ea7ff42aecd79670465aee8d63524
-ms.sourcegitcommit: 5fac756c2c9920757e33ef0a68528cda0c85dd04
+author: Deland-Han
+ms.author: delhan
+ms.openlocfilehash: 2836fc9385d57ff076828ab5cf6a1e341a7d88a8
+ms.sourcegitcommit: 145cf75f89f4e7460e737861b7407b5cee7c6645
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84306529"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87409831"
 ---
-# <a name="troubleshooting-cluster-issue-with-event-id-1135"></a>Problembehandlung bei einem Cluster Problem mit der Ereignis-ID 1135
+# <a name="troubleshooting-cluster-issue-with-event-id-1135"></a>Problembehandlung bei einem Clusterproblem mit Ereignis-ID 1135
 
 Dieser Artikel unterstützt Sie bei der Diagnose und Behebung der Ereignis-ID 1135, die während des Starts der Clusterdienst in der Failoverclustering-Umgebung protokolliert werden kann.
 
@@ -38,11 +40,11 @@ Führen Sie den folgenden Befehl gemäß Ihrem Windows-Betriebssystem aus, um zu
 
 #### <a name="for-windows-server-2008-r2-cluster"></a>Für Windows Server 2008 R2-Cluster
 
-Ausführen von cmd-Eingabeaufforderung mit erhöhten Rechten: **Cluster. exe-Knoten/stat**  
+Ausführen von cmd-Eingabeaufforderung mit erhöhten Rechten: **cluster.exe Knoten/stat**
 
 #### <a name="for-windows-server-2012-and-windows-server-2012-r2-cluster"></a>Für Windows Server 2012 \ und Windows Server 2012 R2-Cluster
 
-Ausführen des PS-Befehls: **Cluster Knoten/Status**  
+Ausführen des PS-Befehls: **Cluster Knoten/Status**
 
 Wird der Cluster Dienst fortlaufend ausgeführt und ist auf allen Knoten verfügbar?
 
@@ -134,12 +136,12 @@ Konfigurieren Sie die Echt Zeit Scan Komponente in der Antivirussoftware, um die
 
 - Momentaufnahme Verzeichnisse
 
-- MMS. exe
+- mms.exe
 
     > [!NOTE]
     > Diese Datei muss möglicherweise als Prozess Ausschluss innerhalb der Antivirussoftware konfiguriert werden.)
 
-- VMWP. exe
+- Vmwp.exe
 
     > [!NOTE]
     > Diese Datei muss möglicherweise als Prozess Ausschluss innerhalb der Antivirussoftware konfiguriert werden.
@@ -150,7 +152,7 @@ Wenn Sie Livemigration in Verbindung mit freigegebenen Clustervolumes verwenden,
 
 Der Clusterdienst steuert Server Cluster Vorgänge und verwaltet die Cluster Datenbank. Bei einem Cluster handelt es sich um eine Sammlung von unabhängigen Computern, die als einzelner Computer fungieren. Vorgesetzten, Programmierern und Benutzern wird der Cluster als einzelnes System angezeigt. Die Software verteilt Daten zwischen den Knoten des Clusters. Wenn ein Knoten ausfällt, stellen andere Knoten die Dienste und Daten bereit, die zuvor vom fehlenden Knoten bereitgestellt wurden. Wenn ein Knoten hinzugefügt oder repariert wird, werden von der Cluster Software einige Daten zu diesem Knoten migriert.
 
-System Dienst Name: **ClusSvc**  
+System Dienst Name: **ClusSvc**
 
 |Application|Protocol|Ports|
 |---|---|---|
@@ -200,13 +202,13 @@ Auf der Registerkarte Adapter und Bindungen werden die Verbindungen in der Reihe
 
 Führen Sie die folgenden Schritte aus, um die Bindungs Reihenfolge der Netzwerkadapter zu ändern:
 
-1. Klicken Sie im **Startmenü**auf **Ausführen**, geben Sie ncpa. cpl ein, und klicken Sie dann auf **OK**. Sie können die verfügbaren Verbindungen im **LAN-und Hochgeschwindigkeits-Internet** Abschnitt des Fensters **Netzwerkverbindungen** sehen.
+1. Klicken Sie im **Startmenü**auf **Ausführen**, geben Sie ncpa.cpl ein, und klicken Sie dann auf **OK**. Sie können die verfügbaren Verbindungen im **LAN-und Hochgeschwindigkeits-Internet** Abschnitt des Fensters **Netzwerkverbindungen** sehen.
 
 2. Klicken Sie im Menü **erweitert** auf **Erweiterte Einstellungen**, und klicken Sie dann auf die Registerkarte **Adapter und Bindungen** .
 
 3. Wählen Sie im Bereich **Verbindungen** die Verbindung aus, die Sie in der Liste nach oben verschieben möchten. Verwenden Sie die Pfeil Schaltflächen, um die Verbindung zu verschieben. Als allgemeine Regel gilt: die Karte, die mit dem Netzwerk kommuniziert (Domänen Konnektivität, Routing an andere Netzwerke usw.), sollte die erste gebundene Karte (oben auf der Liste) sein.
 
-Cluster Knoten sind mehrfach vernetzte Systeme. Netzwerk Priorität wirkt sich auf den DNS-Client für ausgehende Netzwerk Konnektivität aus. Netzwerkadapter, die für die Client Kommunikation verwendet werden, sollten sich in der Bindungs Reihenfolge am Anfang befinden. Nicht weitergeleitete Netzwerke können mit niedrigerer Priorität platziert werden. In Windows Server 2012 und Windows Server2012 R2 der Cluster Netzwerktreiber (NetFT). Der sys-Adapter wird automatisch am unteren Rand der Liste der Bindungs Reihenfolge platziert.
+Cluster Knoten sind mehrfach vernetzte Systeme. Netzwerk Priorität wirkt sich auf den DNS-Client für ausgehende Netzwerk Konnektivität aus. Netzwerkadapter, die für die Client Kommunikation verwendet werden, sollten sich in der Bindungs Reihenfolge am Anfang befinden. Nicht weitergeleitete Netzwerke können mit niedrigerer Priorität platziert werden. In Windows Server 2012 und Windows Server2012 R2 wird der Cluster Netzwerktreiber (NETFT.SYS) automatisch unten in der Liste der Bindungs Reihenfolge platziert.
 
 #### <a name="check-the-validate-network-communication"></a>Überprüfen Sie die Netzwerkkommunikation überprüfen
 
@@ -246,7 +248,7 @@ Wenden Sie sich an den ISP, um WAN-Verbindungsprobleme
 
 ##### <a name="cluster-installed-in-the-vmware-virtualization-platform"></a>Cluster auf der VMware-Virtualisierungsplattform installiert
 
-Überprüfen Sie die VMware-Adapter Probleme im Falle einer VMware-Umgebung. 
+Überprüfen Sie die VMware-Adapter Probleme im Falle einer VMware-Umgebung.
 
 Dieses Problem tritt möglicherweise auf, wenn die Pakete bei hohem Datenverkehrs aufkommen gelöscht werden. Stellen Sie sicher, dass keine Datenverkehrs Filterung stattfindet (z. b. mit einem e-Mail-Filter). Nachdem Sie diese Möglichkeit beseitigt haben, erhöhen Sie die Anzahl von Puffern im Gast Betriebssystem schrittweise, und überprüfen Sie, ob
 
@@ -254,8 +256,8 @@ Führen Sie die folgenden Schritte aus, um Burst Datenverkehr zu verringern:
 
 1. Öffnen Sie das Testfeld mit der Windows-Taste + R.
 2. Geben Sie devmgmt. msc ein, und drücken **Sie Eingabe**Taste.
-3. Erweitern von **Netzwerkadaptern**  
-4. Klicken Sie mit der rechten Maustaste auf **vmxnet3, und klicken Sie**  
+3. Erweitern von **Netzwerkadaptern**
+4. Klicken Sie mit der rechten Maustaste auf **vmxnet3, und klicken Sie**
 5. Klicken Sie auf die Registerkarte **Erweitert**.
 6. Klicken Sie auf **kleine RX-Puffer** , und erhöhen Sie den Wert. Der Standardwert ist 512, und der Höchstwert beträgt 8192.
 7. Klicken Sie auf **RX-Ring #1** Größe, und erhöhen Sie den Wert. Der Standardwert ist 1024, und der Höchstwert beträgt 4096.

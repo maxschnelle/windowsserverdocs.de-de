@@ -7,29 +7,26 @@ ms.assetid: 51076946-ea9b-4ac7-9a6e-d6023816b97d
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 8d1235e523bf055d1d3ec6aa78780aa8e4f2f44e
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 7de65cdbed7fc1995f6729a49e9398ce948a63c6
+ms.sourcegitcommit: 145cf75f89f4e7460e737861b7407b5cee7c6645
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85470395"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87409530"
 ---
 # <a name="remote-desktop-options"></a>Remotedesktop-Optionen
-
 
 ## <a name="connection-speed"></a>Verbindungsgeschwindigkeit
  Die Geschwindigkeit der Verbindung zu einem Netzwerkcomputer mithilfe des Remotewebzugriffs bestimmt die Desktopoptionen, die Ihnen auf dem Hostcomputer zur Verfügung stehen. Anhand der folgenden Tabelle wird ersichtlich, welche Desktopoptionen für die jeweilige Geschwindigkeit verfügbar sind, mit der Sie sich über den Remotewebzugriff am Remotecomputer verbinden.
 
-||||||
-|-|-|-|-|-|
-||Langsames Modem (28,8 KBit/s)|Schnelles Modem (56 KBit/s) (Standard)|Breitband (128 KBit/s–1,5 MBit/s)|LAN (1,5 MBit/s oder höher)|
-|Desktophintergrund|Nein|Nein|Nein |Ja|
-|Schriftartglättung|Nein|Nein|Nein |Ja|
-|Desktopgestaltung|Nein|Nein |Ja|Ja|
-|Anzeigen von Inhalten beim Ziehen|Nein|Nein |Ja|Ja|
-|Menü- und Fensteranimation|Nein|Nein |Ja|Ja|
-|Designs|Nein |Ja|Ja|Ja|
-|Bitmapzwischenspeicherung|Ja|Ja|Ja|Ja|
+| Desktop Option | Langsames Modem (28,8 KBit/s) | Schnelles Modem (56 KBit/s) (Standard) | Breitband (128 KBit/s–1,5 MBit/s) | LAN (1,5 MBit/s oder höher) |
+|--|--|--|--|--|
+| Schriftartglättung | Nein | Nein | Nein  | Ja |
+| Desktopgestaltung | Nein | Nein  | Ja | Ja |
+| Anzeigen von Inhalten beim Ziehen | Nein | Nein  | Ja | Ja |
+| Menü- und Fensteranimation | Nein | Nein  | Ja | Ja |
+| Designs | Nein  | Ja | Ja | Ja |
+| Bitmapzwischenspeicherung | Ja | Ja | Ja | Ja |
 
 ## <a name="screen-size"></a>Bildschirmgröße
  Diese Option bestimmt die Fenstergröße, wie sie auf dem lokalen Computer geöffnet wird, wenn Sie sich über die Remotezugriffs-Website mit einem Remotecomputer verbinden. Die Fenstergröße wird in Pixeln ausgedrückt.

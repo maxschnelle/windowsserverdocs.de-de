@@ -1,21 +1,20 @@
 ---
 title: Verwenden der automatischen TCP/IP-Adressierung ohne DHCP-Server
 description: Einführung in die Verwendung der automatischen TCP/IP-Adressierung ohne DHCP-Server.
-ms.date: 5/26/2020
 ms.prod: windows-server
-ms.service: na
 manager: dcscontentpm
 ms.technology: server-general
-ms.topic: article
+ms.date: 5/26/2020
+ms.topic: troubleshoot
 author: Deland-Han
 ms.author: delhan
 ms.reviewer: robsmi
-ms.openlocfilehash: 8fbde77381141b76959f70e824eac22ee2121fa3
-ms.sourcegitcommit: ef089864980a1d4793a35cbf4cbdd02ce1962054
+ms.openlocfilehash: fcd85c29975709053009ec4a2684df88b4bafd69
+ms.sourcegitcommit: 145cf75f89f4e7460e737861b7407b5cee7c6645
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84150188"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87409801"
 ---
 # <a name="how-to-use-automatic-tcpip-addressing-without-a-dhcp-server"></a>Verwenden der automatischen TCP/IP-Adressierung ohne DHCP-Server
 
@@ -23,7 +22,7 @@ In diesem Artikel wird beschrieben, wie Sie die automatische TCP/IP-Adressierung
 
 ## <a name="more-information"></a>Weitere Informationen
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > Folgen Sie den Schritten in diesem Abschnitt sorgfältig. Wird die Registrierung falsch angepasst, können schwerwiegende Probleme auftreten. Bevor Sie sie ändern, [sichern Sie die Registrierung zwecks Wiederherstellung](https://support.microsoft.com/help/322756) für den Fall, dass Probleme auftreten.
 
 Ein Windows-basierter Computer, der für die Verwendung von DHCP konfiguriert ist, kann sich automatisch eine IP-Adresse zuweisen, wenn kein DHCP-Server verfügbar ist. Dies kann beispielsweise in einem Netzwerk ohne DHCP-Server oder in einem Netzwerk vorkommen, wenn ein DHCP-Server vorübergehend zur Wartung ausfällt.
@@ -38,8 +37,7 @@ Möglicherweise möchten Sie die Datei in einem der folgenden Fälle deaktiviere
 
 - Ihr Netzwerk ist ohne NAT-oder Proxy Server mit dem Internet verbunden.
 
-Wenn Sie keine DHCP-bezogenen Meldungen deaktiviert haben, erhalten Sie mithilfe von DHCP-Nachrichten eine Benachrichtigung, wenn Sie zwischen DHCP-Adressierung und automatischer privater IP-Adressierung wechseln Wenn das DHCP-Messaging versehentlich deaktiviert wird, können Sie die DHCP-Nachrichten wieder aktivieren, indem Sie den Wert des Werts "PopupFlag" im folgenden Registrierungsschlüssel von 00 auf 01 ändern:  
-`HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\VxD\DHCP` 
+Wenn Sie keine DHCP-bezogenen Meldungen deaktiviert haben, erhalten Sie mithilfe von DHCP-Nachrichten eine Benachrichtigung, wenn Sie zwischen DHCP-Adressierung und automatischer privater IP-Adressierung wechseln Wenn das DHCP-Messaging versehentlich deaktiviert wird, können Sie die DHCP-Nachrichten wieder aktivieren, indem Sie den Wert des Werts "PopupFlag" im folgenden Registrierungsschlüssel von 00 auf 01 ändern:`HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\VxD\DHCP`
 
 Beachten Sie, dass Sie den Computer neu starten müssen, damit die Änderung wirksam wird. Sie können auch bestimmen, ob der Computer APIPA verwendet, indem Sie das Winipcfg-Tool in Windows Millennium Edition, Windows 98 oder Windows 98 Second Edition verwenden:
 
@@ -51,8 +49,7 @@ Sie können die automatische private IP-Adressierung deaktivieren, indem Sie ein
 
 Sie können die TCP/IP-Informationen manuell konfigurieren, wodurch DHCP vollständig deaktiviert wird. Sie können die automatische private IP-Adressierung (aber nicht DHCP) deaktivieren, indem Sie die Registrierung bearbeiten. Fügen Sie hierzu den DWORD-Registrierungs Eintrag "ipautoconfigurationaktivierte DWORD" mit dem Wert "0x0" zum folgenden Registrierungsschlüssel für Windows Millennium Edition, Windows98 oder Windows 98 Second Edition hinzu:`HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\VxD\DHCP`
 
-Für Windows 2000, Windows XP und Windows Server 2003 kann APIPA deaktiviert werden, indem der DWORD-Registrierungs Eintrag "ipautoconfigurationaktivierter DWORD" mit dem Wert "0x0" dem folgenden Registrierungsschlüssel hinzugefügt wird:  
-`HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Tcpip\Parameters\Interfaces\<Adapter GUID>`  
+Für Windows 2000, Windows XP und Windows Server 2003 kann APIPA deaktiviert werden, indem der DWORD-Registrierungs Eintrag "ipautoconfigurationaktivierter DWORD" mit dem Wert "0x0" dem folgenden Registrierungsschlüssel hinzugefügt wird:`HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Tcpip\Parameters\Interfaces\<Adapter GUID>`
 > [!NOTE]
 > Der **GUID** -Unterschlüssel für den Adapter ist eine Globally Unique Identifier (GUID) für den LAN-Adapter des Computers.
 

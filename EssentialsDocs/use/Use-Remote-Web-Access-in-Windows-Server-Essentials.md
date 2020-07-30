@@ -7,12 +7,12 @@ ms.assetid: 47ea21a0-5e05-4b4b-8fa4-338c82601276
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 276e39cc3e17ce74f7fee43c512cc726ff631a5a
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: 341a7dd217045150e1f637d23378e49a86bb5fbf
+ms.sourcegitcommit: 145cf75f89f4e7460e737861b7407b5cee7c6645
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87179566"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87409480"
 ---
 # <a name="use-remote-web-access-in-windows-server-essentials"></a>Verwalten des Remotewebzugriffs in Windows Server 2012 Essentials
 
@@ -23,7 +23,6 @@ ms.locfileid: "87179566"
   Remotewebzugriff bietet die Möglichkeit, auch unterwegs mit dem Windows Server Essentials-Netzwerk in Verbindung zu bleiben. Wenn Sie sich bei Remote Webzugriff anmelden, können Sie eine Verbindung mit den Computern in Ihrem Windows Server Essentials-Netzwerk herstellen, das Dashboard zum Verwalten Ihres Windows Server Essentials-Netzwerks öffnen und auf alle freigegebenen Ordner und Mediendateien auf dem Server zugreifen.
 
  Dieses Thema enthält die folgenden Abschnitte:
-
 
 -   [Verbinden mit dem Remotewebzugriff](Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_Connect)
 
@@ -128,7 +127,7 @@ ms.locfileid: "87179566"
 
 #### <a name="upload-files"></a>Hochladen von Dateien
 
-###### <a name="to-upload-files"></a>So laden Sie Dateien hoch
+##### <a name="to-upload-files"></a>So laden Sie Dateien hoch
 
 1. Klicken Sie im Remotewebzugriff auf die Registerkarte für die freigegebenen**** Ordner, und klicken Sie dann auf die Verknüpfung eines freigegebenen Ordners. Eine Liste der Dateien und Ordner in diesem freigegebenen Ordner wird angezeigt.
 
@@ -149,7 +148,7 @@ ms.locfileid: "87179566"
 > [!NOTE]
 >  Das Hochladen mehrerer Dateien wird in Webbrowsern, die mit HTML5 kompatibel sind, nativ unterstützt. Dieses Tool ist nur erforderlich, wenn der Webbrowser HTML5 nicht unterstützt.
 
-###### <a name="to-upload-files-using-the-easy-file-upload-tool"></a>So laden Sie Dateien mithilfe des Tools „Einfacher Dateiupload“ hoch
+##### <a name="to-upload-files-using-the-easy-file-upload-tool"></a>So laden Sie Dateien mithilfe des Tools „Einfacher Dateiupload“ hoch
 
 1.  Klicken Sie im Remotewebzugriff auf die Registerkarte für die freigegebenen**** Ordner, und klicken Sie dann auf die Verknüpfung eines freigegebenen Ordners. Eine Liste der Dateien und Ordner in diesem freigegebenen Ordner wird angezeigt.
 
@@ -167,7 +166,7 @@ ms.locfileid: "87179566"
 
 #### <a name="download-files-or-folders"></a>Herunterladen von Dateien oder Ordnern
 
-###### <a name="to-download-a-single-file"></a>So laden Sie eine einzelne Datei herunter
+##### <a name="to-download-a-single-file"></a>So laden Sie eine einzelne Datei herunter
 
 1. Klicken Sie im Remotewebzugriff auf die Registerkarte für die freigegebenen**** Ordner, und klicken Sie dann auf die Verknüpfung eines freigegebenen Ordners. Eine Liste der Dateien und Ordner in diesem freigegebenen Ordner wird angezeigt.
 
@@ -203,7 +202,7 @@ ms.locfileid: "87179566"
 
   Vor dem Beginn des tatsächlichen Herunterladens wird die EXE- oder ZIP-Datei erstellt. Abhängig von der Anzahl der Dateien und der Gesamtgröße der Downloaddateien kann dies einige Minuten dauern. Nachdem die Downloaddatei erstellt wurde, erfolgt das Herunterladen der Datei im Hintergrund. Dadurch können Sie weiterarbeiten, während der Downloadvorgang ausgeführt wird.
 
-###### <a name="to-download-multiple-files-or-folders"></a>So laden Sie mehrere Dateien oder Ordner herunter
+##### <a name="to-download-multiple-files-or-folders"></a>So laden Sie mehrere Dateien oder Ordner herunter
 
 1.  Klicken Sie im Remotewebzugriff auf die Registerkarte für die freigegebenen**** Ordner, und klicken Sie dann auf die Verknüpfung eines freigegebenen Ordners. Eine Liste der Dateien und Ordner in diesem freigegebenen Ordner wird angezeigt.
 
@@ -224,13 +223,13 @@ ms.locfileid: "87179566"
 
  Wenn Sie auswählen, mehrere Dateien oder Ordner herunterzuladen, erhalten Sie eine selbstextrahierende komprimierte ausführbare Datei (EXE) oder eine komprimierte Datei (ZIP).
 
-###### <a name="to-retrieve-a-file-from-the-compressed-exe-file"></a>So rufen Sie eine Datei aus der komprimierten Datei (EXE) ab
+##### <a name="to-retrieve-a-file-from-the-compressed-exe-file"></a>So rufen Sie eine Datei aus der komprimierten Datei (EXE) ab
 
 1.  Doppelklicken Sie auf Ihrem Computer auf die komprimierte Datei, um sie zu öffnen.
 
 2.  Befolgen Sie die Anweisungen, um die Dateien in einem Ordner auf Ihrem Computer zu extrahieren.
 
-###### <a name="to-retrieve-a-file-from-the-compressed-zip-file"></a>So rufen Sie eine Datei aus der komprimierten Datei (ZIP) ab
+##### <a name="to-retrieve-a-file-from-the-compressed-zip-file"></a>So rufen Sie eine Datei aus der komprimierten Datei (ZIP) ab
 
 1.  Doppelklicken Sie auf Ihrem Computer auf die komprimierte Datei, um sie zu öffnen.
 
@@ -243,9 +242,9 @@ ms.locfileid: "87179566"
  Sie können den Remotewebzugriff verwenden, um neue Ordner in einem vorhandenen freigegebenen Ordner zu erstellen, um Dateien und Ordner umzubenennen und um Dateien und Ordner auf Ihrem Server zu löschen.
 
 > [!NOTE]
-Wenn Sie neue freigegebene Ordner auf einem Server hinzufügen möchten, auf dem Windows Server Essentials ausgeführt wird, müssen Sie das Dashboard verwenden. <<<<<<<  Klicken Sie zum Herstellen einer Verbindung zur Serverkonsole über den Remotewebzugriff auf die Registerkarte **Computer**, klicken Sie auf den Servernamen, klicken Sie auf **Verbinden**, und befolgen Sie dann die Anweisungen für das Anmelden beim Server. Informationen über das Erstellen freigegebener Ordner finden Sie im Thema zum [Hinzufügen oder Verschieben eines Serverordners](../manage/Manage-Server-Folders-in-Windows-Server-Essentials.md#BKMK_5).
+> Zum Hinzufügen neuer freigegebener Ordner auf einem Server unter Windows Server Essentials müssen Sie das Dashboard verwenden. Klicken Sie zum Herstellen einer Verbindung zur Serverkonsole über den Remotewebzugriff auf die Registerkarte **Computer**, klicken Sie auf den Servernamen, klicken Sie auf **Verbinden**, und befolgen Sie dann die Anweisungen für das Anmelden beim Server. Informationen über das Erstellen freigegebener Ordner finden Sie im Thema zum [Hinzufügen oder Verschieben eines Serverordners](../manage/Manage-Server-Folders-in-Windows-Server-Essentials.md#BKMK_5).
 
-##### <a name="to-create-a-new-folder"></a>So erstellen Sie einen neuen Ordner
+#### <a name="to-create-a-new-folder"></a>So erstellen Sie einen neuen Ordner
 
 1.  Klicken Sie im Remotewebzugriff auf die Registerkarte für die freigegebenen**** Ordner, und klicken Sie dann auf die Verknüpfung eines freigegebenen Ordners. Eine Liste der Dateien und Ordner in diesem freigegebenen Ordner wird angezeigt.
 
@@ -261,7 +260,7 @@ Wenn Sie neue freigegebene Ordner auf einem Server hinzufügen möchten, auf dem
 
 3.  Geben Sie einen neuen Namen in das Textfeld ein, und klicken Sie dann auf **OK**.
 
-##### <a name="to-move-files-or-folders"></a>So verschieben Sie Dateien oder Ordner
+#### <a name="to-move-files-or-folders"></a>So verschieben Sie Dateien oder Ordner
 
 1.  Klicken Sie im Remotewebzugriff auf die Registerkarte für die freigegebenen**** Ordner, und klicken Sie dann auf die Verknüpfung eines freigegebenen Ordners. Eine Liste der Dateien und Ordner in diesem freigegebenen Ordner wird angezeigt.
 
@@ -355,108 +354,3 @@ Wenn Sie neue freigegebene Ordner auf einem Server hinzufügen möchten, auf dem
 
 -   [Verwenden von Windows Server Essentials](../use/Use-Windows-Server-Essentials.md)
 
-=======
->  Zum Hinzufügen neuer freigegebener Ordner auf einem Server unter Windows Server Essentials müssen Sie das Dashboard verwenden. Klicken Sie zum Herstellen einer Verbindung zur Serverkonsole über den Remotewebzugriff auf die Registerkarte **Computer**, klicken Sie auf den Servernamen, klicken Sie auf **Verbinden**, und befolgen Sie dann die Anweisungen für das Anmelden beim Server. Informationen über das Erstellen freigegebener Ordner finden Sie im Thema zum [Hinzufügen oder Verschieben eines Serverordners](../manage/Manage-Server-Folders-in-Windows-Server-Essentials.md#BKMK_5).
-
-##### <a name="to-create-a-new-folder"></a>So erstellen Sie einen neuen Ordner
-
-1.  Klicken Sie im Remotewebzugriff auf die Registerkarte für die freigegebenen**** Ordner, und klicken Sie dann auf die Verknüpfung eines freigegebenen Ordners. Eine Liste der Dateien und Ordner in diesem freigegebenen Ordner wird angezeigt.
-
-2.  Klicken Sie auf der Aufgabenleiste auf **Neuer Ordner**.
-
-3.  Geben Sie einen Namen für den Ordner ein, und klicken Sie dann auf **OK**.
-
-##### <a name="to-rename-a-file-or-folder"></a>So benennen Sie eine Datei oder einen Ordner um
-
-1.  Klicken Sie im Remotewebzugriff auf die Registerkarte für die freigegebenen**** Ordner, und klicken Sie dann auf die Verknüpfung eines freigegebenen Ordners. Eine Liste der Dateien und Ordner in diesem freigegebenen Ordner wird angezeigt.
-
-2.  Klicken Sie mit der rechten Maustaste auf die Datei oder den Ordner, die bzw. den Sie umbenennen möchten, und klicken Sie dann auf **Umbenennen**.
-
-3.  Geben Sie einen neuen Namen in das Textfeld ein, und klicken Sie dann auf **OK**.
-
-##### <a name="to-move-files-or-folders"></a>So verschieben Sie Dateien oder Ordner
-
-1.  Klicken Sie im Remotewebzugriff auf die Registerkarte für die freigegebenen**** Ordner, und klicken Sie dann auf die Verknüpfung eines freigegebenen Ordners. Eine Liste der Dateien und Ordner in diesem freigegebenen Ordner wird angezeigt.
-
-2.  Aktivieren Sie das Kontrollkästchen neben den Dateien oder Ordnern, die Sie verschieben möchten, klicken Sie mit der rechten Maustaste auf eine bzw. einen der ausgewählten Dateien bzw. Ordner, und klicken Sie dann auf **Ausschneiden**.
-
-3.  Klicken Sie mit der rechten Maustaste auf den Ordner, in den die Dateien oder Ordner verschoben werden sollen, und klicken Sie dann auf **Einfügen**.
-
-##### <a name="to-delete-a-file-or-folder"></a>So löschen Sie eine Datei oder einen Ordner
-
-1.  Klicken Sie im Remotewebzugriff auf die Registerkarte für die freigegebenen**** Ordner, und klicken Sie dann auf die Verknüpfung eines freigegebenen Ordners. Eine Liste der Dateien und Ordner in diesem freigegebenen Ordner wird angezeigt.
-
-2.  Aktivieren Sie das Kontrollkästchen neben den Dateien oder Ordnern, die Sie löschen möchten, klicken Sie mit der rechten Maustaste auf eine bzw. einen der ausgewählten Dateien bzw. Ordner, und klicken Sie dann auf **Löschen**.
-
-3.  Klicken Sie auf **Ja**, um zu bestätigen, dass Sie die ausgewählten Dateien und Ordner löschen möchten.
-
-##### <a name="to-copy-files-or-folders"></a>So kopieren Sie Dateien oder Ordner
-
-1.  Klicken Sie im Remotewebzugriff auf die Registerkarte für die freigegebenen**** Ordner, und klicken Sie dann auf die Verknüpfung eines freigegebenen Ordners. Eine Liste der Dateien und Ordner in diesem freigegebenen Ordner wird angezeigt.
-
-2.  Aktivieren Sie das Kontrollkästchen neben den Dateien oder Ordnern, die Sie kopieren möchten, klicken Sie mit der rechten Maustaste auf eine bzw. einen der ausgewählten Dateien bzw. Ordner, und klicken Sie dann auf **Kopieren**.
-
-3.  Klicken Sie mit der rechten Maustaste auf den Ordner, in den die Dateien oder Ordner kopiert werden sollen, und klicken Sie dann auf **Einfügen**.
-
-##  <a name="connect-from-a-mobile-device"></a><a name="BKMK_ConnectMobile"></a>Herstellen einer Verbindung von einem mobilen Gerät aus
-
-
--   [Verwenden des Remotewebzugriffs über ein Mobilgerät](Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_8)
-
--   [Unterstützte Webbrowser für Mobilgeräte](Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_9)
-
-
-###  <a name="use-remote-web-access-from-a-mobile-device"></a><a name="BKMK_8"></a>Remote Webzugriff von einem mobilen Gerät aus verwenden
- Sie können sich auf Ihrem Smartphone beim Remotewebzugriff anmelden, um die Dateien und Ordner in den freigegebenen Ordnern auf dem Server anzuzeigen.
-
-> [!NOTE]
->  Sie können auch die My Server-App für Windows Server Essential aus dem [Windows Phone Marketplace](http://www.windowsphone.com/apps/6c2f98d5-6fcf-4e1d-b8b1-cde62ea1a94a) herunterladen und verwenden, um auf Ihre freigegebenen Ordner und Mediendateien zuzugreifen, die auf dem Server gespeichert sind.
-
-##### <a name="to-log-on-to-remote-web-access-from-a-mobile-device"></a>So melden Sie sich beim Remotewebzugriff über einen Mobilgerät an
-
-1.  Öffnen Sie einen Webbrowser, und geben Sie **https://** _<yourDomainName \> _**/Remote** in der Adressleiste ein.  Stellen Sie sicher, dass Sie die s in HTTPS einschließen.
-
-2.  Geben Sie auf der Seite Remote Webzugriff Anmeldung Ihren Benutzernamen und Ihr Kennwort in die Textfelder ein, und klicken Sie dann auf den Pfeil. Sie werden in der mobilen Version des Remotewebzugriffs angemeldet.
-
-##### <a name="to-switch-to-the-desktop-version-of-remote-web-access"></a>So wechseln Sie zur Desktopcomputerversion des Remotewebzugriffs
-
-1.  Öffnen Sie einen Webbrowser, und geben Sie **https://** _<yourDomainName \> _**/Remote** in der Adressleiste ein.  Stellen Sie sicher, dass Sie die s in HTTPS einschließen.
-
-2.  Geben Sie auf der Seite Remote Webzugriff Anmeldung Ihren Benutzernamen und Ihr Kennwort in die Textfelder ein, klicken Sie auf **Desktop Version anzeigen**, und klicken Sie dann auf den Pfeil. Sie werden in der Desktopversion des Remotewebzugriffs angemeldet.
-
-##### <a name="to-return-to-the-mobile-version-of-remote-web-access"></a>So kehren Sie zur mobilen Version des Remotewebzugriffs zurück
-
-1. Melden Sie sich ab.
-
-2. Öffnen Sie einen Webbrowser, und geben Sie **https://** _<yourDomainName \> _**/Remote/m** in der Adressleiste ein. Stellen Sie sicher, dass Sie die s in HTTPS einschließen.
-
-3. Die Mobile Version von Remote Webzugriff wird angezeigt. Geben Sie auf der Seite Remote Webzugriff Anmeldung Ihren Benutzernamen und Ihr Kennwort in die Textfelder ein, und klicken Sie dann auf den Pfeil. Sie sind bei der mobilen Version von Remote Webzugriff angemeldet.
-
-   Sie können nach Dateien und Ordnern in den freigegebenen Ordnern auf dem Server suchen.
-
-###  <a name="supported-web-browsers-for-mobile-devices"></a><a name="BKMK_9"></a>Unterstützte Webbrowser für mobile Geräte
- Unterstützte Webbrowser für Mobilgeräte umfassen:
-
--   Internet Explorer Mobile 6.0 oder höher
-
--   Safari
-
--   BlackBerry
-
--   Symbian 6.0 oder höher
-
--   Android
-
--   Google Chrome
-
--   Firefox
-
-## <a name="see-also"></a>Weitere Informationen
-
--   [Verwalten der Remotewebzugriffs](../manage/Manage-Remote-Web-Access-in-Windows-Server-Essentials.md)
-
--   [Remote arbeiten](Work-Remotely-in-Windows-Server-Essentials.md)
-
--   [Verwenden von Windows Server Essentials](Use-Windows-Server-Essentials.md)
-
->>>>>>> 97724df67237ac603cf9eb996732230bdb7c0b88

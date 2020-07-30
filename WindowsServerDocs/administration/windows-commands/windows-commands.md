@@ -1,6 +1,6 @@
 ---
 title: Windows-Befehle
-description: Referenz
+description: Verweis
 ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: c703d07c-8227-4e86-94a6-8ef390f94cdc
@@ -9,12 +9,12 @@ ms.author: jgerend
 manager: dongill
 ms.date: 06/29/2020
 ms.prod: windows-server
-ms.openlocfilehash: bd2d1f9baa17581cb43ae383c260c938f302a73c
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 33b19ba9c6f7d8f12d72876a04dbf8bdfda7ff30
+ms.sourcegitcommit: 145cf75f89f4e7460e737861b7407b5cee7c6645
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86958982"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87409931"
 ---
 # <a name="windows-commands"></a>Windows-Befehle
 
@@ -56,7 +56,7 @@ Die in diesem Thema enthaltenen Informationen gelten für:
 - Windows Server 2019
 - Windows Server (Halbjährlicher Kanal)
 - Windows Server 2016
-- Windows Server 2012 R2
+- Windows Server 2012 R2
 - Windows Server 2012
 - Windows Server 2008 R2
 - WindowsServer 2008
@@ -711,8 +711,7 @@ Wenn Sie Informationen zu einem bestimmten Windows-Befehl suchen möchten, klick
 - [regini](regini.md)
 - [regsvr32](regsvr32.md)
 - [relog](relog.md)
-- [rem batch file](rem.md)
-- [rem script](rem_1.md)
+- [rem](rem.md)
 - [remove](remove.md)
 - [ren](ren.md)
 - [rename](rename.md)
@@ -736,7 +735,7 @@ Wenn Sie Informationen zu einem bestimmten Windows-Befehl suchen möchten, klick
 - [rundll32 printui](rundll32-printui.md)
 - [rwinsta](rwinsta.md)
 
-### <a name="s"></a>S
+### <a name="s"></a>E
 
 - [san](san.md)
 - [sc config](sc-config.md)

@@ -8,12 +8,12 @@ author: johnmarlin-msft
 ms.author: johnmar
 ms.date: 03/07/2019
 description: In diesem Artikel werden Failovercluster-Affinität und antiaffinitäts Stufen beschrieben
-ms.openlocfilehash: 5a46279a2c8780466617e453ec5263c36a6e0128
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: 5fdc40e31b61a74965bf60ac907a198c7ef92521
+ms.sourcegitcommit: 145cf75f89f4e7460e737861b7407b5cee7c6645
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87178596"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87409590"
 ---
 # <a name="cluster-affinity"></a>Clusteraffinität
 
@@ -29,28 +29,37 @@ Die Affinität ist eine Regel, die Sie einrichten, die eine Beziehung zwischen z
 
 Wenn Sie sich die Eigenschaften einer Gruppe ansehen, gibt es den Parameter AntiAffinityClassNames, der Standardwert ist leer.  In den folgenden Beispielen sollten group1 und group2 von der Ausführung auf dem gleichen Knoten getrennt werden.  Zum Anzeigen der-Eigenschaft lauten der PowerShell-Befehl und das-Ergebnis wie folgt:
 
-    PS> Get-ClusterGroup Group1 | fl AntiAffinityClassNames
+```powershell
+Get-ClusterGroup Group1 | fl AntiAffinityClassNames
     AntiAffinityClassNames : {}
 
-    PS> Get-ClusterGroup Group2 | fl AntiAffinityClassNames
+Get-ClusterGroup Group2 | fl AntiAffinityClassNames
     AntiAffinityClassNames : {}
+```
 
 Da "AntiAffinityClassNames" nicht als Standard definiert ist, können diese Rollen gleichzeitig ausgeführt werden.  Das Ziel besteht darin, diese getrennt zu halten.  Der Wert für "AntiAffinityClassNames" kann der gewünschte Wert sein. Sie müssen lediglich identisch sein.  Das heißt, group1 und group2 sind Domänen Controller, die auf virtuellen Computern ausgeführt werden und am besten auf verschiedenen Knoten ausgeführt werden.  Da es sich hierbei um Domänen Controller handelt, verwende ich DC als Klassenname.  Um den Wert festzulegen, lauten der PowerShell-Befehl und die folgenden Ergebnisse:
 
-    PS> $AntiAffinity = New-Object System.Collections.Specialized.StringCollection
-    PS> $AntiAffinity.Add("DC")
-    PS> (Get-ClusterGroup -Name "Group1").AntiAffinityClassNames = $AntiAffinity
-    PS> (Get-ClusterGroup -Name "Group2").AntiAffinityClassNames = $AntiAffinity
+```powershell
+$AntiAffinity = New-Object System.Collections.Specialized.StringCollection
+$AntiAffinity.Add("DC")
+(Get-ClusterGroup -Name "Group1").AntiAffinityClassNames = $AntiAffinity
+(Get-ClusterGroup -Name "Group2").AntiAffinityClassNames = $AntiAffinity
 
-    PS> Get-ClusterGroup "Group1" | fl AntiAffinityClassNames
+$AntiAffinity = New-Object System.Collections.Specialized.StringCollection
+$AntiAffinity.Add("DC")
+(Get-ClusterGroup -Name "Group1").AntiAffinityClassNames = $AntiAffinity
+(Get-ClusterGroup -Name "Group2").AntiAffinityClassNames = $AntiAffinity
+
+Get-ClusterGroup "Group1" | fl AntiAffinityClassNames
     AntiAffinityClassNames : {DC}
 
-    PS> Get-ClusterGroup "Group2" | fl AntiAffinityClassNames
+Get-ClusterGroup "Group2" | fl AntiAffinityClassNames
     AntiAffinityClassNames : {DC}
+```
 
 Nachdem Sie festgelegt wurden, versucht das Failoverclustering, Sie zu trennen.
 
-Der antiaffinityclassname-Parameter ist ein "Soft"-Block.  Das heißt, es wird versucht, Sie zu trennen, aber wenn dies nicht möglich ist, können Sie es dennoch auf demselben Knoten ausführen.  Beispielsweise werden die Gruppen auf einem Failovercluster mit zwei Knoten ausgeführt.  Wenn ein Knoten für die Wartung Herunterfahren muss, bedeutet dies, dass beide Gruppen auf demselben Knoten ausgeführt werden.  In diesem Fall wäre es in Ordnung, dies zu tun.  Dies ist möglicherweise nicht die ideale, aber beide virtial Computer werden weiterhin in akzeptablen Leistungsbereichen ausgeführt.
+Der antiaffinityclassname-Parameter ist ein "Soft"-Block.  Das heißt, es wird versucht, Sie zu trennen, aber wenn dies nicht möglich ist, können Sie es dennoch auf demselben Knoten ausführen.  Beispielsweise werden die Gruppen auf einem Failovercluster mit zwei Knoten ausgeführt.  Wenn ein Knoten für die Wartung Herunterfahren muss, bedeutet dies, dass beide Gruppen auf demselben Knoten ausgeführt werden.  In diesem Fall wäre es in Ordnung, dies zu tun.  Dies ist möglicherweise nicht die ideale, aber beide virtuellen Computer werden weiterhin in akzeptablen Leistungsbereichen ausgeführt.
 
 ## <a name="i-need-more"></a>Ich benötige weitere
 
@@ -60,13 +69,17 @@ In diesen Fällen ist eine zusätzliche Cluster Eigenschaft von clusterenforceda
 
 Zum Anzeigen der Eigenschaft und des Werts lautet der PowerShell-Befehl (und das Ergebnis) wie folgt:
 
-    PS> Get-Cluster | fl ClusterEnforcedAntiAffinity
+```powershell
+Get-Cluster | fl ClusterEnforcedAntiAffinity
     ClusterEnforcedAntiAffinity : 0
+```
 
 Der Wert "0" bedeutet, dass er deaktiviert ist und nicht erzwungen werden soll.  Der Wert "1" aktiviert dies und ist der feste Block.  Zum Aktivieren dieser festen Blockierung lautet der Befehl (und das Ergebnis) wie folgt:
 
-    PS> (Get-Cluster).ClusterEnforcedAntiAffinity = 1
+```powershell
+(Get-Cluster).ClusterEnforcedAntiAffinity = 1
     ClusterEnforcedAntiAffinity : 1
+```
 
 Wenn beide festgelegt sind, wird verhindert, dass die Gruppe online geschaltet wird.  Wenn Sie sich auf demselben Knoten befinden, werden Sie in Failovercluster-Manager angezeigt.
 
@@ -74,12 +87,14 @@ Wenn beide festgelegt sind, wird verhindert, dass die Gruppe online geschaltet w
 
 In einer PowerShell-Auflistung der Gruppen würden Sie Folgendes sehen:
 
-    PS> Get-ClusterGroup
+```powershell
+Get-ClusterGroup
 
-    Name       State
-    ----       -----
-    Group1     Offline(Anti-Affinity Conflict)
-    Group2     Online
+Name       State
+----       -----
+Group1     Offline(Anti-Affinity Conflict)
+Group2     Online
+```
 
 ## <a name="additional-comments"></a>Zusätzliche Kommentare
 

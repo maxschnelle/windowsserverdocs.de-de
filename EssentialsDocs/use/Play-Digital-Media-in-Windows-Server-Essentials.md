@@ -7,12 +7,12 @@ ms.assetid: 5f570492-ee21-471b-92c1-3fd9bfb84f55
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: bd14631917a9f0211e39bd44c9d01e11ad2a177f
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: c8f490f09f9623aa82b42f2103f2fd3e95537d7d
+ms.sourcegitcommit: 145cf75f89f4e7460e737861b7407b5cee7c6645
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87179886"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87409510"
 ---
 # <a name="play-digital-media-in-windows-server-essentials"></a>Wiedergeben von digitalen Medien in Windows Server Essentials
 
@@ -65,11 +65,9 @@ Digitale Medien sind Audio-, Video- und Fotoinhalte, die digital komprimiert wur
 
  Sie können auf dem Server gespeicherte digitale Mediendateien auf folgende Weisen suchen und wiedergeben:
 
-
 -   [Suchen und Wiedergeben von Mediendateien in Windows Server Essentials auf einem Computer oder Digital Media-Player im Netzwerk](Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_2.1)
 
 -   [Senden von Mediendateien in Windows Server Essentials an Windows Media Player, Xbox 360 oder an einen vernetzten Digital Media-Player im Netzwerk](Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_SendToDevice)
-
 
 
 ###  <a name="search-for-and-play-media-files-on-windows-server-essentials-from-a-computer-or-digital-media-player-on-the-network"></a><a name="BKMK_2.1"></a>Suchen und Wiedergeben von Mediendateien in Windows Server Essentials auf einem Computer oder Digital Media-Player im Netzwerk
@@ -87,7 +85,6 @@ Digitale Medien sind Audio-, Video- und Fotoinhalte, die digital komprimiert wur
 -   [Suchen und Wiedergeben von Mediendateien mit der Funktion für freigegebene Ordner im Launchpad](Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_SharedFolders)
 
 -   [Suchen und Wiedergeben freigegebener Medien mithilfe von Remotewebzugriff](Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_RWA2)
-
 
 
 ####  <a name="search-for-and-play-media-files-from-a-computer-that-is-running-windows-media-center"></a><a name="BKMK_WMC"></a>Suchen und Wiedergeben von Mediendateien auf einem Computer, auf dem Windows Media Center ausgeführt wird
@@ -260,19 +257,8 @@ Digitale Medien sind Audio-, Video- und Fotoinhalte, die digital komprimiert wur
 
 -   [Verwalten von digitalen Medien](../manage/Manage-Digital-Media-in-Windows-Server-Essentials.md)
 
-
 -   [Verbindung herstellen](Get-Connected-in-Windows-Server-Essentials.md)
 
 -   [Verwenden von freigegebenen Ordnern](Use-Shared-Folders-in-Windows-Server-Essentials.md)
 
 -   [Remote arbeiten](Work-Remotely-in-Windows-Server-Essentials.md)
-
-<<<<<<< HEAD
--   [Verbindung herstellen](../use/Get-Connected-in-Windows-Server-Essentials.md)
-
--   [Verwenden von freigegebenen Ordnern](../use/Use-Shared-Folders-in-Windows-Server-Essentials.md)
-
--   [Remote arbeiten](../use/Work-Remotely-in-Windows-Server-Essentials.md)
-
-=======
->>>>>>> 97724df67237ac603cf9eb996732230bdb7c0b88

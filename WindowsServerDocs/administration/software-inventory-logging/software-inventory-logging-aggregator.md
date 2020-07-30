@@ -9,18 +9,19 @@ author: brentfor
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e58898359c15a19f139d074bca4ef7bd1aaf9062
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 350187c0ad7490a0698e4a3b99ef710b632f6c6c
+ms.sourcegitcommit: 145cf75f89f4e7460e737861b7407b5cee7c6645
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851433"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87408839"
 ---
 # <a name="software-inventory-logging-aggregator"></a>Aggregator der Protokollierung des Softwarebestands
 
->Gilt für: Windows Server 2012 R2
+> Gilt für: Windows Server 2012 R2
 
 ## <a name="what-is-software-inventory-logging-aggregator"></a>Was ist der Aggregator der Protokollierung des Software Bestands?
+
 Der Aggregator der Protokollierung des Softwarebestands (SILA) empfängt, aggregiert und erzeugt grundlegende Berichte über die Anzahl und Typen installierter Microsoft Enterprise Software auf Windows-Servern in einem Rechenzentrum.
 
 SILA ist Software, die Sie unter Windows Server installieren, aber sie ist nicht in der Windows Server-Installation enthalten. Um die Software zu installieren, laden Sie sie zunächst kostenlos aus dem Windows Download Center herunter: [Aggregator der Protokollierung des Softwarebestands 1.0 für Windows Server](https://www.microsoft.com/download/details.aspx?id=49046)
@@ -31,6 +32,7 @@ Das Framework der Protokollierung des Softwarebestands soll die Betriebskosten d
 > Bei Verwendung dieser Software werden keine Daten an Microsoft gesendet.
 
 ### <a name="data-sil-collects-over-time"></a>Von SIL im zeitlichen Verlauf erfasste Daten
+
 Nachdem er ordnungsgemäß bereitgestellt wurde, können die folgenden Daten im SIL-Aggregator angezeigt werden:
 
 -   Eindeutige Windows Server-Installationen in Ihrem Rechenzentrum
@@ -51,11 +53,11 @@ Nachdem er ordnungsgemäß bereitgestellt wurde, können die folgenden Daten im 
 
 -   Wert der oberen Grenze für die und Identität der gleichzeitig ausgeführten virtuellen Windows Server-Computer (wenn auf einem Host einen Hypervisor ausgeführt wird) auf jedem Host im zeitlichen Verlauf
 
--   Obere Grenze und Hostname des gleichzeitig laufenden verwalteten \(System Center-Agents\) Windows Server-VMS auf den einzelnen Hosts im Laufe der Zeit
+-   Anzahl der oberen Wasserzeichen und Hostname des gleichzeitig verwalteten \( System Center-Agents, die \) auf jedem Host Windows Server-VMS darstellen, im Zeitverlauf
 
--   Name der System Center-Agents, die auf virtuellen Computern installiert sind, die in verwalteten High\-Wasserzeichen
+-   Name der System Center-Agents, die auf virtuellen Computern installiert sind, die in der verwalteten oberen \- Grenze
 
--   Anzahl und Speicherort der SQL Server Installationen im Zeitverlauf \(nur SKUs und Editionen, die eine Lizenz erfordern\)
+-   Anzahl und Speicherort der SQL Server Installationen im Lauf der Zeit \( nur SKUs und Editionen, die eine Lizenz erfordern\)
 
 -   Listen der in „Software“ installierten Programme
 
@@ -96,14 +98,14 @@ Protokollierung des Softwarebestands (SIL) ist in Windows Server-Versionen vorha
 ### <a name="security-and-account-types"></a>Sicherheit und Kontotypen
 **Zertifikat Anforderung**
 
-SIL und SIL-Aggregator verwenden für authentifizierte Kommunikation SSL-Zertifikate. Die gängige Implementierung hiervon besteht in der Installation des SIL-Aggregators mit einem Zertifikat (übereinstimmender Server- und Zertifikatname), um den Webdienst zu hosten, der Inventardaten empfängt. Anschließend verwenden die Windows-Server, die mithilfe der SIL-Funktion inventarisiert werden sollen, ein anderes Clientzertifikat, um Daten per Push an den SIL-Aggregator zu übertragen. Ein PowerShell-Cmdlet ("Set-silaggregator", weitere Details unten) muss verwendet werden, um Zertifikat Fingerabdrücke der Liste der genehmigten Zertifikate des SIL-Aggregators hinzuzufügen, von denen der Aggregator zugeordnete Daten akzeptiert. Der SIL-Aggregator fährt mit der Verarbeitung und dem Einfügen in die Datenbank fort, nachdem die jeweilige Nutzlast von Daten mit einem Zertifikat authentifiziert wurde. Ausführlichere Informationen zur Funktionsweise finden Sie im Abschnitt **Details zu SIL-Aggregator-Cmdlets** .
+SIL und SIL-Aggregator verwenden für authentifizierte Kommunikation SSL-Zertifikate. Die gängige Implementierung hiervon besteht in der Installation des SIL-Aggregators mit einem Zertifikat (übereinstimmender Server- und Zertifikatname), um den Webdienst zu hosten, der Inventardaten empfängt. Anschließend verwenden die Windows-Server, die mithilfe der SIL-Funktion inventarisiert werden sollen, ein anderes Clientzertifikat, um Daten per Push an den SIL-Aggregator zu übertragen. Ein PowerShell-Cmdlet ("Set-silaggregator", weitere Details unten) muss verwendet werden, um Zertifikat Fingerabdrücke der Liste der genehmigten Zertifikate des SIL-Aggregators hinzuzufügen, von denen der Aggregator zugeordnete Daten akzeptiert. Der SIL-Aggregator fährt mit der Verarbeitung und dem Einfügen in die Datenbank fort, nachdem die jeweilige Nutzlast von Daten mit einem Zertifikat authentifiziert wurde. Ausführlichere Informationen zur Funktionsweise finden Sie im Abschnitt **Details zu SIL-Aggregator-Cmdlets**.
 
 ### <a name="polling-account-setup"></a>Einrichten des Abrufkontos
 Wenn Sie dem SIL-Aggregator Anmeldeinformationen hinzufügen, um Abrufvorgänge zu ermöglichen, sollten Sie einen Ansatz mit einem möglichst gering berechtigten Konto verfolgen. Als bewährte Sicherheitsmaßnahme sollten Sie außerdem nicht die gleichen Anmelde Informationen für alle oder viele Hosts in einem Rechenzentrum oder einer anderen IT-Bereitstellung verwenden.
 
 Führen Sie auf einem Windows Server-Host, den Sie für den Abruf durch den SIL-Aggregator einrichten möchten, und um die Verwendung eines Benutzers aus der Administratorengruppe zu vermeiden, diese Schritte aus, um einem Benutzerkonto nur die notwendigen Mindestzugriffsberechtigungen zu erteilen:
 
-##### <a name="to-setup-a-polling-account"></a>So richten Sie ein Abrufkonto ein
+#### <a name="to-setup-a-polling-account"></a>So richten Sie ein Abrufkonto ein
 
 1.  Erstellen Sie auf dem Windows Server-Hyper-V-Host, von dem Ihr SIL-Aggregator abrufen soll, ein lokales Benutzerkonto, indem Sie die **Computerverwaltung** in Windows verwenden (achten Sie darauf, dass das Kontrollkästchen deaktiviert ist, das eine Kennwortänderung bei der ersten Anmeldung erzwingt).
 
@@ -111,11 +113,11 @@ Führen Sie auf einem Windows Server-Host, den Sie für den Abruf durch den SIL-
 
 3.  Fügen Sie diesen Benutzer der Gruppe **Hyper-V-Administratoren** hinzu.
 
-4.  Öffnen Sie **WMIMgmt.msc** mithilfe von **Start**->**Ausführen**.
+4.  Öffnen Sie **Wmimgmt. msc** mit **Start** -> **Run**.
 
-5.  Klicken Sie im Abschnitt **Aktionen** auf **Weitere Aktionen** , und wählen Sie **Eigenschaften**aus.
+5.  Klicken Sie im Abschnitt **Aktionen** auf **Weitere Aktionen**, und wählen Sie **Eigenschaften** aus.
 
-6.  Klicken Sie auf **Security**.
+6.  Klicken Sie auf **Sicherheit**.
 
 7.  Wählen Sie in der Strukturansicht **Namespace** den Eintrag **cimv2 namespace** aus.
 
@@ -158,15 +160,15 @@ Es gibt einige Dinge, die Sie vor der Installation des SIL-Aggregators auf einem
 
 -   Sie sind bei **dem Server mit einem Konto angemeldet, das auf dem SQL Server über sysadmin-Berechtigungen verfügt**, wenn Windows-Authentifizierung gewünscht ist.
 
-    OR
+    oder
 
     Wenn SQL-Authentifizierung gewünscht ist, **haben Sie das Kennwort für ein Konto mit SQL-Administratorrechten**.
 
-##### <a name="to-install-software-inventory-logging-aggregator"></a>So installieren Sie den Aggregator der Protokollierung des Softwarebestands
+#### <a name="to-install-software-inventory-logging-aggregator"></a>So installieren Sie den Aggregator der Protokollierung des Softwarebestands
 
-1.  Doppelklicken Sie auf **Setup.exe** , um die Installation zu starten.
+1.  Doppelklicken Sie auf **Setup.exe**, um die Installation zu starten.
 
-2.  Klicken Sie im Begrüßungsfenster auf **Weiter** .
+2.  Klicken Sie im Begrüßungsfenster auf **Weiter**.
 
 3.  Wenn Sie den Endbenutzer-Lizenzvertrag akzeptieren, aktivieren Sie das Kontrollkästchen, mit dem die Vereinbarung akzeptiert wird, und klicken Sie dann auf **Weiter**.
 
@@ -184,7 +186,7 @@ Es gibt einige Dinge, die Sie vor der Installation des SIL-Aggregators auf einem
 
     -   Vergessen Sie nicht, den Server neu zu starten, nachdem Sie das Computer Konto der GMSA-fähigen Sicherheitsgruppe in Active Directory hinzugefügt haben.
 
-7.  Geben Sie in **SQL Server auswählen**den SQL-Server ein, auf dem Ihre SQL-Instanz installiert ist, oder **localhost**, wenn sie auf dem lokalen Server installiert ist.
+7.  Geben Sie in **SQL Server auswählen** den SQL-Server ein, auf dem Ihre SQL-Instanz installiert ist, oder **localhost**, wenn sie auf dem lokalen Server installiert ist.
 
     Es wird nur ein SIL-Aggregator pro SQL Server-Instanz unterstützt.
 
@@ -198,17 +200,17 @@ Es gibt einige Dinge, die Sie vor der Installation des SIL-Aggregators auf einem
 
 ### <a name="uninstalling-sil-aggregator"></a>Deinstallieren des SIL-Aggregators
 
-##### <a name="to-uninstall-software-inventory-logging-aggregator"></a>So deinstallieren Sie den Aggregator der Protokollierung des Softwarebestands
+#### <a name="to-uninstall-software-inventory-logging-aggregator"></a>So deinstallieren Sie den Aggregator der Protokollierung des Softwarebestands
 
 1.  Öffnen Sie die **PowerShell** als Administrator, und geben Sie `Stop-SilAggregator`ein. Wenn die Eingabeaufforderung wieder angezeigt wird, wurde der SIL-Aggregator beendet.
 
-    Standardmäßig verarbeitet der SIL-Aggregator Dateien nach 20 Minuten bzw. nachdem 100 Dateien empfangen wurden.  In großen Umgebungen wird dieses Szenario nie eintreten, aber in kleineren Umgebungen können noch zu verarbeitende Dateien zurückbleiben, bevor der Aggregator beendet werden kann. Verwenden Sie den Parameter `–Force` , wenn diese Dateien und Daten nicht aufbewahrt werden müssen.
+    Standardmäßig verarbeitet der SIL-Aggregator Dateien nach 20 Minuten bzw. nachdem 100 Dateien empfangen wurden.  In großen Umgebungen wird dieses Szenario nie eintreten, aber in kleineren Umgebungen können noch zu verarbeitende Dateien zurückbleiben, bevor der Aggregator beendet werden kann. Verwenden Sie den Parameter `–Force`, wenn diese Dateien und Daten nicht aufbewahrt werden müssen.
 
 2.  Wechseln Sie zur **Systemsteuerung**, klicken Sie auf **Programme und Funktionen**, klicken Sie auf **Programme deinstallieren**, klicken Sie auf **Aggregator der Protokollierung des Softwarebestands**, und klicken Sie dann auf **Deinstallieren**.
 
     Der Aggregator der Protokollierung des Softwarebestands öffnet ein Fenster, in dem Sie aufgefordert werden, zwischen dem Löschen aller Daten in der Datenbank und dem Behalten aller Daten in der Datenbank auszuwählen. Die Standardauswahl ist die Beibehaltung (falls eine Neuinstallation gewünscht ist, können Sie an die vorhandene Datenbank anfügen, um an der Stelle fortzufahren, wo der Aggregator aufgehört hatte).
 
-3.  Wählen Sie entweder **Behalten** oder **Löschen**aus, und klicken Sie dann auf **Weiter**.
+3.  Wählen Sie entweder **Behalten** oder **Löschen** aus, und klicken Sie dann auf **Weiter**.
 
 4.  Sobald der Statusbalken vollständig ist, klicken Sie auf **Fertig stellen**.
 
@@ -222,7 +224,7 @@ Die folgenden Befehle können als Administrator in der Windows PowerShell-Konsol
 |`Start-SilAggregator`|Startet alle Dienste und Aufgaben des Aggregators der Protokollierung des Softwarebestands. Dies ist erforderlich, damit der Aggregator Daten über HTTPS von Servern mit gestarteter SIL-Protokollierung empfangen kann.|
 |`Stop-SilAggregator`|Beendet alle Dienste und Aufgaben des Aggregators der Protokollierung des Softwarebestands. Wenn sich Aufgaben oder Dienste in der Ausführung befinden, kann es zu einer Verzögerung beim Abschluss dieses Befehls kommen.|
 |`Set-SilAggregator`|Ermöglicht dem Administrator die Vornahme von Konfigurationsänderungen am Aggregator der Protokollierung des Softwarebestands.|
-|`Add-SilVmHost`|Wird verwendet, um bestimmte Hostnamen oder ein Array von Hostnamen hinzuzufügen, die in regelmäßigen Abständen abgerufen werden \(der Standardwert ist ein Stunden Intervall\).|
+|`Add-SilVmHost`|Wird verwendet, um bestimmte Hostnamen oder ein Array von Hostnamen hinzuzufügen, die im regelmäßigen Intervall standardmäßig abgerufen werden sollen \( \) .|
 |`Remove-SilVmHost`|Wird verwendet, um bestimmte Hostnamen oder ein Array von Hostnamen zu entfernen, die bzw. das in regelmäßigen Abständen abgerufen werden soll.|
 |`Get-SilVMHost`|Wird verwendet, um die Liste der physischen Hosts abzurufen, für die der Aggregator der Protokollierung des Softwarebestands zum Abrufen der laufenden Daten der virtuellen Computerzustände konfiguriert ist.|
 |`Get-SILAggregatorData`|Wird verwendet, um Daten aus der Datenbank in die PowerShell-Konsole abzurufen.|
@@ -233,11 +235,11 @@ Nachdem Sie den Aggregator der Protokollierung des Softwarebestands auf Ihrem Se
 
 -   Auf Ihrem SIL-Aggregator:
 
-    -   Führen Sie `Start-SilAggregator` aus.
+    -   Ausführen von `Start-SilAggregator`
 
         Dies ist erforderlich, damit der Aggregator Daten aktiv empfängt, die von Ihren Servern, die Sie für die Inventarisierung eingerichtet haben (oder einrichten werden), über HTTPS an ihn weitergeleitet werden. Beachten Sie, dass selbst wenn Sie auf Ihren Servern aktiviert haben, dass sie zuerst an diesen Aggregator weiterleiten, dies in Ordnung ist, da sie ihre Datennutzlasten für bis zu 30 Tage lokal zwischenspeichern. Sobald der Aggregator, seine "targetUri", ausgeführt wird, werden alle zwischengespeicherten Daten gleichzeitig an den Aggregator weitergeleitet, und alle Daten werden verarbeitet.
 
-    -   Führen Sie `Add-SilVMHost` aus.
+    -   Ausführen von `Add-SilVMHost`
 
         Beispiel: `add-silvmhost –vmhostname contoso1 –hostcredential get-credential`
 
@@ -247,13 +249,13 @@ Nachdem Sie den Aggregator der Protokollierung des Softwarebestands auf Ihrem Se
 
         -   Dieses Cmdlet erkennt automatisch aus einer vordefinierten Liste mit Optionen (siehe Abschnitt **Details zu SIL-Aggregator-Cmdlets**), welcher HostType und HyperVisorType für den Host korrekt ist, den Sie hinzufügen. Wenn es diese nicht erkennen kann, oder wenn die angegebenen Anmeldeinformationen falsch sind, wird eine Eingabeaufforderung angezeigt. Wenn Sie mit der Eingabe von **J** akzeptieren, wird der Host hinzugefügt und als **Unbekannt** aufgeführt, wird aber nicht abgerufen.
 
-    -   Führen Sie `Set-SilAggregator –AddCertificateThumbprint` "Fingerabdruck Ihres Client Zertifikats" aus.
+    -   Führen `Set-SilAggregator –AddCertificateThumbprint` Sie "Fingerabdruck Ihres Client Zertifikats" aus.
 
-        Dies ist erforderlich, damit Daten über HTTPS von Windows-Servern mit aktivierter SIL-Protokollierung empfangen werden können. Der Fingerabdruck wird der Liste der Fingerabdrücke hinzugefügt, von denen der Aggregator SIL-Daten akzeptiert. Der SIL-Aggregator ist darauf ausgelegt, gültige Enterprise-Clientauthentifizierungszertifikate zu akzeptieren. Das verwendete Zertifikat muss auf dem Server, auf dem die Daten weitergeleitet werden, im Speicher **\\LocalMachine\MY (lokaler Computer > persönlich**) installiert werden.
+        Dies ist erforderlich, damit Daten über HTTPS von Windows-Servern mit aktivierter SIL-Protokollierung empfangen werden können. Der Fingerabdruck wird der Liste der Fingerabdrücke hinzugefügt, von denen der Aggregator SIL-Daten akzeptiert. Der SIL-Aggregator ist darauf ausgelegt, gültige Enterprise-Clientauthentifizierungszertifikate zu akzeptieren. Das verwendete Zertifikat muss im Speicher ** \\ LocalMachine\MY (lokaler Computer-> persönlich**) auf dem Server installiert sein, der die Daten weiterleitet.
 
 -   Öffnen Sie auf Ihren zu inventarisierenden Windows-Servern die PowerShell als Administrator, und führen Sie diese Befehle aus:
 
-    -   Führen Sie `Set-SilLogging –TargetUri "https://contososilaggregator" –CertificateThumbprint "your client certificate's thumbprint"` aus.
+    -   Ausführen von `Set-SilLogging –TargetUri "https://contososilaggregator" –CertificateThumbprint "your client certificate's thumbprint"`
 
         -   Dies teilt SIL in Windows Server mit, wohin die Inventardaten zu senden sind und welches Zertifikat für die Authentifizierung verwendet werden soll.
 
@@ -265,24 +267,24 @@ Nachdem Sie den Aggregator der Protokollierung des Softwarebestands auf Ihrem Se
             > [!IMPORTANT]
             > Wenn diese Werte nicht richtig sind oder das Zertifikat nicht im richtigen Speicher installiert (oder ungültig) ist, schlagen Weiterleitungen an das Ziel fehl, wenn die SIL-Protokollierung gestartet wird. Daten werden für bis zu 30 Tage lang lokal zwischengespeichert.
 
-    -   Führen Sie `Start-SilLogging` aus.
+    -   Ausführen von `Start-SilLogging`
 
         Dies startet die SIL-Protokollierung. Jede Stunde, in zufälligen Intervallen innerhalb dieser Stunde, leitet SIL seine Inventardaten an den mithilfe des Parameters `–targeturi` angegebenen Aggregator weiter. Die erste Weiterleitung umfasst einen vollständigen Satz von Daten. Jede nachfolgende weiterleiten ist eher ein "Takt", bei dem nur Daten identifiziert werden, die sich nicht geändert haben. Gibt es eine Änderung an dem Dataset, wird ein weiterer vollständiger Satz von Daten weitergeleitet.
 
-    -   Führen Sie `Publish-SilData` aus.
+    -   Ausführen von `Publish-SilData`
 
         -   Bei der ersten Aktivierung von SIL für die Protokollierung ist dieser Schritt optional.
 
         -   Hierbei handelt es sich um eine manuelle, einmalige Weiterleitung eines vollständigen Satzes von Daten.
 
-        -   Wenn die SIL Protokollierung schon seit einiger Zeit gestartet ist und ein neuer SIL-Aggregator mithilfe von `Set-SilLogging`festgelegt wird, ist es erforderlich, dieses Cmdlet einmalig auszuführen, um einen vollständigen Satz von Daten an den neuen Aggregator zu senden.
+        -   Wenn die SIL Protokollierung schon seit einiger Zeit gestartet ist und ein neuer SIL-Aggregator mithilfe von `Set-SilLogging` festgelegt wird, ist es erforderlich, dieses Cmdlet einmalig auszuführen, um einen vollständigen Satz von Daten an den neuen Aggregator zu senden.
 
 Nachdem Sie diese Schritte ausgeführt haben, um physische Hosts hinzuzufügen, auf denen virtuelle Windows Server-Computer ausgeführt werden UND nachdem Sie die Protokollierung des Softwarebestands (bzw. SIL-Protokollierung) in diesen Windows-Servern aktiviert haben, können Sie jederzeit `Publish-SilReport –OpenReport` auf dem SIL-Aggregator ausführen (erfordert Excel 2013). Beachten Sie jedoch, dass der SQL Server Analysis Services-Cube einmal täglich eine Verarbeitung durchführt, sodass Daten nicht am selben Tag in Berichten verfügbar sind.
 
 ## <a name="architectural-overview"></a>Übersicht über die Architektur
 SIL arbeitet sowohl im Push- als auch im Pull-Modus und besteht aus zwei Komponenten, die parallel arbeiten: die Funktion „Protokollierung des Softwarebestands (SIL)“ in Windows Server und die herunterladbare MSI-Datei des Aggregators der Protokollierung des Softwarebestands. Die zu inventarisierenden Server senden mithilfe von SIL Inventardaten über HTTPS an den SIL-Aggregator (Push; jede Stunde zu zufälligen Zeitpunkten innerhalb jeder Stunde). Der Aggregator wiederum ruft oder fragt die physischen Hypervisor-Hosts ab (Pull), um stündlich Hardwareinventardaten abzurufen. Beide Funktionen, sowohl Push als auch Pull, müssen ordnungsgemäß konfiguriert sein, um die vollständige Funktionalität von SIL zu ermöglichen. Sie können in beliebiger Reihenfolge konfiguriert werden. Allerdings erfolgt die Cubeverarbeitung auf dem Aggregator einmal täglich, sodass vom Aggregator per Push oder Pull erfasste Daten erst am folgenden Tag in Berichten angezeigt werden.
 
-![](../media/software-inventory-logging/SILA_Architecture.png)
+![Aggregator-Diagramm der Protokollierung des Software Bestands](../media/software-inventory-logging/SILA_Architecture.png)
 
 > [!IMPORTANT]
 > Bei Verwendung dieser Software werden keine Daten an Microsoft gesendet.
@@ -290,7 +292,7 @@ SIL arbeitet sowohl im Push- als auch im Pull-Modus und besteht aus zwei Kompone
 ## <a name="enable-sil-on-multiple-servers"></a>Aktivieren von SIL auf mehrerer Servern
 Es gibt mehrere Möglichkeiten, um SIL in einer verteilten Serverinfrastruktur, beispielsweise in einer privaten Cloud aus virtuellen Computern, zu aktivieren.  Im Folgenden finden Sie ein Beispiel für eine Möglichkeit zum Einrichten von Windows Server-Images, damit diese automatisch Inventardaten an einen SIL-Aggregator senden, wenn sie im Netzwerk zum ersten Mal gestartet werden.
 
-Führen Sie auf jeder ausgeführten virtuellen Maschine bzw. physischem Computer/Gerät mit installiertem Windows Server(siehe Abschnitt **Voraussetzungen** ) folgende Cmdlets in der PowerShell-Konsole als Administrator aus:
+Führen Sie auf jeder ausgeführten virtuellen Maschine bzw. physischem Computer/Gerät mit installiertem Windows Server(siehe Abschnitt **Voraussetzungen**) folgende Cmdlets in der PowerShell-Konsole als Administrator aus:
 
 Sie benötigen ein gültiges SSL-Clientzertifikat im PFX-Format, um diese Schritte auszuführen.  Der Fingerabdruck dieses Zertifikats muss mithilfe des Cmdlets `Set-SILAggregator –AddCertificateThumbprint` Ihrem SIL-Aggregator hinzugefügt werden. Dieses Clientzertifikat muss nicht mit dem Namen Ihres SIL-Aggregators übereinstimmen.
 
@@ -306,19 +308,19 @@ Sie benötigen ein gültiges SSL-Clientzertifikat im PFX-Format, um diese Schrit
 
 -   `$firstAvailableDriveLetter = $availableDriveLetters[0]`
 
--   `New-PSDrive -Name $firstAvailableDriveLetter -PSProvider filesystem -root` **<\\server\path für die Freigabe, die Ihre PFX-Zertifikat Datei > enthält** `-credential $mycreds`
+-   `New-PSDrive -Name $firstAvailableDriveLetter -PSProvider filesystem -root`** < \\ server\pfad zur Freigabe, die Ihre PFX-Zertifikat Datei enthält>**`-credential $mycreds`
 
--   `Copy-Item ${firstAvailableDriveLetter}:\` **< certificename. pfx-Datei im Verzeichnis des neuen Laufwerks > c:\<Speicherort Ihrer Wahl >**
+-   `Copy-Item ${firstAvailableDriveLetter}:\`**<certificename. pfx-Datei im Verzeichnis des neuen Laufwerks> c:\<location of your choice>**
 
 -   `Remove-PSDrive –Name $firstAvailableDriveLetter`
 
 -   `$mypwd = ConvertTo-SecureString -String "`**<password for the certificate pfx file>**`" -Force –AsPlainText`
 
--   `Import-PfxCertificate -FilePath c:\` **< Speicherort\\certifiupename. pfx->** `cert:\localMachine\my -Password $mypwd`
+-   `Import-PfxCertificate -FilePath c:\`**<Location \\ certifiupename. pfx>**`cert:\localMachine\my -Password $mypwd`
 
--   `Set-sillogging –targeturi "https://` **<machinename of your SIL Aggregator>** `–certificatethumbprint`
+-   `Set-sillogging –targeturi "https://`**<machinename of your SIL Aggregator>** `–certificatethumbprint`
 
-> [!NOTE] 
+> [!NOTE]
 > Verwenden Sie den Zertifikat Fingerabdruck aus der PFX-Client Datei, und fügen Sie dem SIL-Aggregator mithilfe des Cmdlets **Set-silaggregator "-addcertifikatethrebprint"** hinzu.
 
 -   `Start-sillogging`
@@ -328,7 +330,7 @@ Wann immer ein SIL-Aggregator nicht erreicht werden kann, werden SIL-Inventardat
 Fügen Sie der oben angeführten Liste `Publish-SilData` hinzu, wenn SIL-Daten nach erfolgreichen Pushvorgängen an den alten Aggregator an einen neuen SIL-Aggregator per Push übertragen werden (hierdurch wird ein vollständiger Ergänzungssatz von SIL-Daten gesendet, die der neue Aggregator für diesen Computer benötigt).
 
 ## <a name="software-inventory-logging-aggregator-reports"></a>Berichte des Aggregators der Protokollierung des Softwarebestands
-![](../media/software-inventory-logging/SILA_Report.png)
+![Abbildung des Aggregator-Berichts des Aggregators der Software Inventur](../media/software-inventory-logging/SILA_Report.png)
 
 ### <a name="cube-processing"></a>Cubeverarbeitung
 Auf einem Aggregator der Protokollierung des Softwarebestands wird der SQL Server Analysis Services-Cube einmal täglich um 3:00:00 Uhr lokale Systemzeit verarbeitet. Berichte enthalten alle bis zu diesem Zeitpunkt erfassten Daten, aber keine Daten, die nach diesem Zeitraum am selben Tag liegen.
@@ -378,9 +380,9 @@ Berichtsdaten, die u. a. vom Wechsel zu einem neuen Monat betroffen sind:
 ### <a name="column-descriptions"></a>Spaltenbeschreibungen
 Im Folgenden finden Sie Beschreibungen der einzelnen Spalten auf der Registerkarte **Windows Server-Detail** des Excel-basierten Berichts, der vom SIL-Aggregator erstellt wird. Weitere Datenregisterkarten sind entweder mit diesen Spalten identisch oder eine Teilmenge davon. Die einzige Ausnahme wäre die "Installations Anzahl" auf den SQL Server Registerkarten (siehe obere **Grenze** ).
 
-|Spaltenüberschrift|Beschreibung|
+|Spaltenüberschrift|BESCHREIBUNG|
 |-----------------|---------------|
-|Calendar Month (Kalendermonat)|Daten in Berichten werden nach Monat gruppiert, der jüngste zuerst. Daten innerhalb des Monats werden in keiner bestimmten Reihenfolge aufgeführt.|
+|Kalendermonat|Daten in Berichten werden nach Monat gruppiert, der jüngste zuerst. Daten innerhalb des Monats werden in keiner bestimmten Reihenfolge aufgeführt.|
 |Hostname|Netzwerkname oder FQDN des physischen Hosts, der vom SIL-Aggregator erfolgreich abgerufen wird.<p>Verwenden Sie das Cmdlet „Get-SilVMHost“, um Hosts zu suchen, die hinzugefügt wurden, aber nicht oder nicht mehr erfolgreich abgerufen werden. Der letzte erfolgreiche Abruf wird angezeigt.|
 |Hosttyp|Betriebssystemhersteller auf dem physischen Host.|
 |Hypervisor Type (Hypervisor-Typ)|Hypervisor-Hersteller auf dem physischen Host.|
@@ -403,7 +405,7 @@ Im Folgenden finden Sie Detailinformationen zu den Cmdlets des SIL-Aggregators. 
 
 -   Mit diesem Cmdlet, das unverändert verwendet wird, wird ein Bericht zur Protokollierung des Software Bestands erstellt und im Verzeichnis "Dokumente" des angemeldeten Benutzers abgelegt (auf dem Computer, auf dem das Cmdlet ausgeführt wird, ist Excel 2013 erforderlich).
 
--   Bei Verwendung mit dem `–OpenReport` -Parameter erstellt es den Bericht und öffnet ihn zur Anzeige in Excel.
+-   Bei Verwendung mit dem `–OpenReport`-Parameter erstellt es den Bericht und öffnet ihn zur Anzeige in Excel.
 
 -   Beachten Sie bei der Installation des SIL-Aggregators, dass es eine Option gibt, um nur das Berichtmodul zu installieren. Es ist möglich, das Berichtmodul auf einem Windows-Clientbetriebssystem wie Windows 8.1 oder Windows 10 zu installieren. Dies ermöglicht einem Thin Client, z. B. einem Laptop oder Tablet, das Herstellen einer Verbindung mit einem SIL-Aggregator-Datenbankserver, um SIL-Berichte direkt zu veröffentlichen.
 
@@ -414,11 +416,11 @@ Im Folgenden finden Sie Detailinformationen zu den Cmdlets des SIL-Aggregators. 
     -   Vor dem ersten Herstellen einer Verbindung müssen Sie in den meisten Fällen einen Port in der Firewall auf dem SIL-Aggregator-Datenbankserver öffnen, um Verbindungen zuzulassen. IT-Experten können dies im Voraus einrichten, um Ihren Finanz-Controllern oder anderen Inventar-Managern den Zugriff zu gewähren, damit sie eigene Berichte erstellen können. Die hierfür notwendigen Schritte finden Sie unter dem unten stehenden Link. Ein typischer Standardport für SQL Server Analysis Services ist 2383.
 
 ### <a name="add-silvmhost"></a>Add-SilVMHost
-Die folgenden Hosttypen und Hypervisor-Versionen werden unterstützt, wenn das `Add-SilVMHost` -Cmdlet verwendet wird. Beachten Sie, dass es nicht erforderlich ist, diese anzugeben. Das `Add-SilVMHost` -Cmdlet erkennt eine unterstützte Kombination automatisch. Wenn es eine solche nicht erkennen kann, oder wenn die angegebenen Anmeldeinformationen falsch sind, wird eine Eingabeaufforderung angezeigt. Wenn der Benutzer mit einem "Y"-Eintrag akzeptiert, wird der Host hinzugefügt, aber nicht abgerufen. Er wird als "unbekannt" hinzugefügt.
+Die folgenden Hosttypen und Hypervisor-Versionen werden unterstützt, wenn das `Add-SilVMHost` -Cmdlet verwendet wird. Beachten Sie, dass es nicht erforderlich ist, diese anzugeben. Das `Add-SilVMHost`-Cmdlet erkennt eine unterstützte Kombination automatisch. Wenn es eine solche nicht erkennen kann, oder wenn die angegebenen Anmeldeinformationen falsch sind, wird eine Eingabeaufforderung angezeigt. Wenn der Benutzer mit einem "Y"-Eintrag akzeptiert, wird der Host hinzugefügt, aber nicht abgerufen. Er wird als "unbekannt" hinzugefügt.
 
 |Hypervisor-Version|SIL-Aggregator         HostType-Wert|SIL-Aggregator HypervisorType-Wert|
 |----------------------|-----------------------------------------|---------------------------------------|
-|Windows Server 2012 R2|Windows|Hyper-v|
+|Windows Server 2012 R2|Windows|HyperV|
 |VMware 5.5|VMware|Esxi|
 |Xen 4.x|Ubuntu, OpenSuse oder CentOS|Xen|
 |XenServer 6.2|Citrix|XenServer|
@@ -460,7 +462,7 @@ Copyright (c) 2010, RENCI</pre>
     `UserProfile       : Local`
 
 ### <a name="set-silaggregator"></a>Set-SilAggregator
-Mit dem `Set-SilAggregator` -Cmdlet können Sie Folgendes:
+Mit dem `Set-SilAggregator`-Cmdlet können Sie Folgendes:
 
 -   Ändern des stündlichen Intervalls, in dem der Abruf erfolgt.
 
@@ -476,7 +478,7 @@ Mit dem `Set-SilAggregator` -Cmdlet können Sie Folgendes:
 
 -   Beachten Sie, dass die Parameter `–StartTime` und `–Endtime` Berichtdaten aus dem ersten des Monats des Startdatums und dem letzten des Monats des Enddatums anzeigen.
 
-![](../media/software-inventory-logging/SILA_Get-SILAggregator.png)
+![Bild des abgeschlossenen Cmdlets "Get-aggregatordata"](../media/software-inventory-logging/SILA_Get-SILAggregator.png)
 
 ### <a name="get-silvmhost"></a>Get-SilVMHost
 
@@ -490,7 +492,7 @@ Mit dem `Set-SilAggregator` -Cmdlet können Sie Folgendes:
 
 ### <a name="remove-silvmhost"></a>Remove-SilVMHost
 
--   Dieses Cmdlet entfernt jeden Host aus der Liste der abzufragenden Hosts. Wenn ein Host entfernt wird, ist es möglich, dass ein virtueller Computer auf dem Host den Host der Liste erneut hinzufügt, wobei der Host aber nicht mit den richtigen Anmeldeinformationen abgerufen wird, die mithilfe des `Add-SilVMHost` -Cmdlets angegeben werden.
+-   Dieses Cmdlet entfernt jeden Host aus der Liste der abzufragenden Hosts. Wenn ein Host entfernt wird, ist es möglich, dass ein virtueller Computer auf dem Host den Host der Liste erneut hinzufügt, wobei der Host aber nicht mit den richtigen Anmeldeinformationen abgerufen wird, die mithilfe des `Add-SilVMHost`-Cmdlets angegeben werden.
 
 -   Wenn ein Host entfernt wird, wird er nicht mehr abgefragt, aber nicht aus Berichten entfernt. Da das Abrufen eingestellt wird, ist der Host in Berichten der folgenden Monate nicht mehr vorhanden.
 
@@ -502,7 +504,7 @@ Mit dem `Set-SilAggregator` -Cmdlet können Sie Folgendes:
 
     -   Stellen Sie sicher, dass der **targetUri** den Wert **https://** im Eintrag enthält.
 
-    -   Stellen Sie sicher, dass alle erforderlichen Updates für Windows Server installiert sind (siehe „Voraussetzungen für SIL“).  Eine schnelle Möglichkeit zum Überprüfen besteht darin, diese mithilfe des folgenden Cmdlets zu suchen: `Get-SilWindowsUpdate *3060*, *3000*`
+    -   Stellen Sie sicher, dass alle erforderlichen Updates für Windows Server installiert sind (siehe „Voraussetzungen für SIL“).  Eine schnelle Möglichkeit zum Überprüfen besteht darin, diese mithilfe des folgenden Cmdlets zu suchen:`Get-SilWindowsUpdate *3060*, *3000*`
 
     -   Stellen Sie sicher, dass das zur Authentifizierung bei dem Aggregator verwendete Zertifikat im richtigen Speicher auf dem lokalen Server installiert ist, der mithilfe von „SilLogging“ inventarisiert werden soll (siehe im Abschnitt „Erste Schritte“).
 
@@ -512,7 +514,7 @@ Mit dem `Set-SilAggregator` -Cmdlet können Sie Folgendes:
 
     -   Wenn alle oben genannten Punkte überprüft wurden, können Sie überprüfen, ob das zur Installation des SIL-Aggregators verwendete Zertifikat fehlerfrei ist und mit dem Namen des SIL-Aggregatorservers selbst übereinstimmt (dieser Schritt ist nicht erforderlich, wenn andere Computer erfolgreich an denselben SIL-Aggregator weiterleiten).
 
-    -   Sie können den folgenden Speicherort auf zwischengespeicherte SIL-Dateien auf dem Server überprüfen, der den Forward/Push-Vorgang versucht, \Windows\System32\\Logfiles\\SIL. Wenn `SilLogging` gestartet wurde und schon länger als eine Stunde ausgeführt wird, oder wenn `Publish-SilData` vor Kurzem ausgeführt wurde und keine Dateien in diesem Verzeichnis vorhanden sind, dann war die Protokollierung auf dem Aggregator erfolgreich.
+    -   Sie können den folgenden Speicherort auf zwischengespeicherte SIL-Dateien auf dem Server überprüfen, der den Forward/Push-Vorgang versucht, \Windows\System32 \\ Logfiles \\ SIL. Wenn `SilLogging` gestartet wurde und schon länger als eine Stunde ausgeführt wird, oder wenn `Publish-SilData` vor Kurzem ausgeführt wurde und keine Dateien in diesem Verzeichnis vorhanden sind, dann war die Protokollierung auf dem Aggregator erfolgreich.
 
 -   Vergewissern Sie sich, dass der angemeldete Benutzer über Zugriff auf die SQL-Datenbank und die Analysis Services verfügt.
 
@@ -530,11 +532,11 @@ Mit dem `Set-SilAggregator` -Cmdlet können Sie Folgendes:
 
     -   Vergessen Sie nicht, den Server neu zu starten, nachdem Sie ihn mit der GMSA-fähigen Computergruppe in Active Directory hinzufügen.
 
-    -   Verwenden Sie bei der Installation bei der Eingabe von Domäne \ Benutzer nicht die voll qualifizierte Domäne. Verwenden Sie z. b. **meineDomäne \ gmsaaccount**. Geben Sie **mydomain nicht<i> </i> ein. com\gmsaaccount**.
+    -   Verwenden Sie bei der Installation bei der Eingabe von Domäne \ Benutzer nicht die voll qualifizierte Domäne. Verwenden Sie z. b. **meineDomäne \ gmsaaccount**. Geben Sie **mydomain nicht ein. <i></i> com\gmsaaccount**.
 
 -   Bei Verwendung von Windows Management Framework in Ihrer Umgebung:
 
-    -   Stellen Sie sicher, dass auf den Servern, auf denen Sila installiert ist, WMF 5,1 nicht installiert ist.  Es ist möglich, einen Fehler im Ereignisprotokoll bezüglich der DLL **"mpunits. dll"** zu finden.  Dadurch wird der ordnungsgemäße Betrieb verhindert.  Sila erfordert nur WMF 4,0.
+    -   Stellen Sie sicher, dass auf den Servern, auf denen Sila installiert ist, WMF 5,1 nicht installiert ist.  Es ist möglich, im Ereignisprotokoll einen Fehler im Zusammenhang mit der DLL **"mpunits.dll"** zu finden.  Dadurch wird der ordnungsgemäße Betrieb verhindert.  Sila erfordert nur WMF 4,0.
 
 ## <a name="managing-sil-over-time"></a>Verwalten von SIL im zeitlichen Verlauf
 
@@ -545,7 +547,7 @@ Nach dem Ausführen dieses Vorgangs ist es notwendig, die Anmeldeinformationen m
 
 -   IP-Adresse
 
--   Vollqualifizierter Domänenname (FQDN)
+-   Vollqualifizierter Domänennamen (FQDN)
 
 -   NetBIOS-Name
 
@@ -555,7 +557,7 @@ Wenn Sie die Inventarisierung von Servern in Ihrer Umgebung mit einem anderen SI
 ### <a name="changing-or-updating-certificates"></a>Ändern oder Aktualisieren von Zertifikaten
 **WICHTIGE SCHRITTE ZUR VERMEIDUNG VON DATENVERLUSTEN:** Wenn es erforderlich ist, das Zertifikat zu ändern, das Server zum Weiterleiten von Daten an einen SIL-Aggregator verwenden, der Zielaggregator bleibt aber derselbe, gehen Sie folgendermaßen vor, um während des Übergangs zu dem Aggregator potenzielle Datenverluste zu vermeiden:
 
--   Verwenden Sie auf dem SIL-Aggregator das Cmdlet `Set-SilAggregator –AddCertificateThumbprint` , um dem SIL-Aggregator die neuen Fingerabdrücke hinzuzufügen.
+-   Verwenden Sie auf dem SIL-Aggregator das Cmdlet `Set-SilAggregator –AddCertificateThumbprint`, um dem SIL-Aggregator die neuen Fingerabdrücke hinzuzufügen.
 
 -   Installieren Sie auf ALLEN Servern, die Daten weiterleiten, das neue, zu verwendende Zertifikat mit Ihrer bevorzugten Methode in **\LOCALMACHINE\MY**.
 
@@ -563,13 +565,13 @@ Wenn Sie die Inventarisierung von Servern in Ihrer Umgebung mit einem anderen SI
 
 -   **KRITISCH: Erst nachdem alle Server, die Daten weiterleiten, aktualisiert wurden, entfernen Sie den alten Fingerabdruck** von dem SIL-Aggregator mithilfe des Cmdlets `Set-SilAggregator –RemoveCertificateThumbprint`. Wenn ein Server, der Daten weiterleitet, die Weiterleitung unter Verwendung eines alten Zertifikats fortsetzt, das vom SIL-Aggregator entfernt wurde, **gehen Daten verloren** und werden nicht in die Datenbank auf dem Aggregator eingefügt. Dies wirkt sich nur auf Szenarien aus, in denen ein Server zuvor Daten erfolgreich an einen SIL-Aggregator weitergeleitet hat und das Zertifikat dann aus der Liste der Fingerabdrücke des SIL-Aggregators entfernt wird, um Daten von zu akzeptieren.
 
-## <a name="release-notes"></a>Anmerkungen zu dieser Version
+## <a name="release-notes"></a>Versionsinformationen
 
 -   Es gibt das bekannte Problem, dass der SIL-Aggregator bei Vorhandensein von Installationen der SQL Server Standard Edition keine Verarbeitungen durchführt oder Berichte erstellt.  Dieser Fehler lässt sich mit folgenden Schritten beheben:
 
     1.  Öffnen Sie SQL Server Management Studio auf Ihrem SIL-Aggregator.
 
-    2.  Stellen Sie eine Verbindung mit dem Datenbankmodul her.
+    2.  Stellen Sie eine Verbindung mit der Datenbank-Engine her.
 
     3.  Erweitern Sie in der Auswahlstruktur die Datenbank „SoftwareInventoryLogging“ und dann „Tabellen“.
 
@@ -585,14 +587,14 @@ Wenn Sie die Inventarisierung von Servern in Ihrer Umgebung mit einem anderen SI
 
 -   Gesamtwerte in den Zeilen (auf der Registerkarte **Dashboard** ) und Spalten (auf der Registerkarte **Zusammenfassung und Detail** ) mit der Bezeichnung "**gleichzeitig ausgeführt**..." für Windows Server und System Center Stimmen zwischen den beiden Standorten nicht genau überein. Auf der Registerkarte **Dashboard** ist es erforderlich, den Wert "**Windows Server-Geräte (ohne bekannte VMS**)" dem Wert "**gleichzeitig ausgeführt**..." hinzuzufügen. Wert, der dieser Zahl auf den Registerkarten **Zusammenfassung und Detail** entspricht.
 
--   Siehe **WICHTIGE SCHRITTE ZUR VERMEIDUNG VON DATENVERLUSTEN** , wenn Sie Zertifikate unter dem Abschnitt **Verwalten von SIL im zeitlichen Verlauf** dieser Dokumentation ändern oder aktualisieren.
+-   Siehe **WICHTIGE SCHRITTE ZUR VERMEIDUNG VON DATENVERLUSTEN**, wenn Sie Zertifikate unter dem Abschnitt **Verwalten von SIL im zeitlichen Verlauf** dieser Dokumentation ändern oder aktualisieren.
 
 -   Es ist zwar möglich, Windows Server 2008 R2- und Windows Server 2012-Hosts der Liste der abzurufenden Hosts hinzuzufügen, doch diese Version (1.0) von SIL-Aggregator unterstützt nur den Abruf von Windows Server 2012 R2-Hosts für Windows-/Hyper-V-basierte Hosts, damit alle Features und Funktionen erfolgreich ausgeführt werden.  Insbesondere ist bekannt, dass virtuelle Computer und Hosts beim Abrufen von Windows Server 2008 R2-Hosts in den Berichten des SIL-Aggregators möglicherweise nicht zugeordnet werden können.
 
 ## <a name="see-also"></a>Weitere Informationen
-[Aggregator der Protokollierung des Software Bestands 1,0 für Windows Server](https://www.microsoft.com/download/details.aspx?id=49046)<br>
+[Aggregator der Protokollierung des Softwarebestands 1.0 für Windows Server](https://www.microsoft.com/download/details.aspx?id=49046)<br>
 [PowerShell-Cmdlets des SIL-Aggregators](https://technet.microsoft.com/library/mt548455.aspx)<br>
-[SIL-PowerShell-Cmdlets](https://technet.microsoft.com/library/dn283390.aspx)<br>
+[SIL PowerShell-Cmdlets](https://technet.microsoft.com/library/dn283390.aspx)<br>
 [Eine Übersicht über SIL](https://technet.microsoft.com/library/dn268301.aspx)<br>
 [Verwalten von SIL](https://technet.microsoft.com/library/dn383584.aspx)
 

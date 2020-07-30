@@ -1,5 +1,5 @@
 ---
-title: Aktivieren
+title: Verwenden des Befehls "enable"
 description: Referenz Artikel zu enable, mit dem alle Dienste für die Windows-Bereitstellungs Dienste aktiviert werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
@@ -9,21 +9,21 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8808849e58c8f2a359b9f8d25c1ece2bb82d2dfe
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 8c6edee30de94261ff528b308635b3bae7760d3d
+ms.sourcegitcommit: 145cf75f89f4e7460e737861b7407b5cee7c6645
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85936834"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87409781"
 ---
-# <a name="enable"></a>Aktivieren
+# <a name="using-the-enable-command"></a>Verwenden des Befehls "enable"
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Aktiviert alle Dienste für die Windows-Bereitstellungs Dienste.
 
 ## <a name="subcommands"></a>Unterbefehle
-|Subommand|Beschreibung|
+|Subommand|BESCHREIBUNG|
 |-------|--------|
 |[Verwenden des Befehls "Enable-Server"](using-the-enable-server-command.md)|Aktiviert alle Dienste auf einem angegebenen Windows-Bereitstellungsdiensteserver (Bereitstellungs Server).|
 |[Verwenden des Befehls Enable-Transportserver](using-the-enable-transportserver-command.md)|Aktiviert alle Dienste auf einem angegebenen Transport Server.|

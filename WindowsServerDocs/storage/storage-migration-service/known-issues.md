@@ -4,16 +4,16 @@ description: Bekannte Probleme und Problembehandlung für den Speicher Migration
 author: nedpyle
 ms.author: nedpyle
 manager: tiaascs
-ms.date: 06/02/2020
+ms.date: 07/29/2020
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: d7c76413fbc64ce200ca4c442a30e6f804927f68
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: 9050d3316ed86538a278dbdc9f2bd51e3dfca377
+ms.sourcegitcommit: 145cf75f89f4e7460e737861b7407b5cee7c6645
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87182056"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87409881"
 ---
 # <a name="storage-migration-service-known-issues"></a>Bekannte Probleme bei Storage Migration Service
 
@@ -549,10 +549,43 @@ Das weitere untersuchen der Protokolle zeigt, dass sich das Migrations Konto und
     [d:\os\src\base\dms\service\StorageMigrationService.IInventory.cs::CreateJob::133]
     ```
     
-    GetOsVersion(fileserver75.**corp**.contoso.com)    [d:\os\src\base\dms\proxy\common\proxycommon\CimSessionHelper.cs::GetOsVersion::66]
-06/25/2020-10:20:45.368 [Info] Computer ' fileserver75.Corp.contoso.com ': Betriebssystemversion 
+    GetOsVersion(fileserver75.**corp**.contoso.com)    [d:\os\src\base\dms\proxy\common\proxycommon\CimSessionHelper.cs::GetOsVersion::66] 06/25/2020-10:20:45.368 [Info] Computer 'fileserver75.corp.contoso.com': OS version 
 
 Dieses Problem wird durch einen Code Fehler im Speicher Migrationsdienst verursacht. Um dieses Problem zu umgehen, verwenden Sie die Anmelde Informationen für die Migration aus derselben Domäne, zu der der Quell-und Zielcomputer gehören. Wenn der Quell-und Zielcomputer z. b. zur Domäne "Corp.contoso.com" in der Gesamtstruktur "contoso.com" gehören, verwenden Sie "corp\myaccount", um die Migration auszuführen, nicht die Anmelde Informationen "contoso\myaccount".
+
+## <a name="inventory-fails-with-element-not-found"></a>Inventur schlägt fehl, weil das Element nicht gefunden wurde. 
+
+Neben dem folgenden Szenario:
+
+Sie verfügen über einen Quell Server mit einem DNS-Hostnamen und Active Directory Namen mit mehr als 15 Unicode-Zeichen, z. b. "iamaverylongcomputernamefromned". In Windows konnte der Legacy-NetBIOS-Name nicht so festgelegt werden, dass er so lange festgelegt wird, und warnte, als der Server benannt wurde, dass der NetBIOS-Name auf 15 Unicode-breit Zeichen gekürzt wird (Beispiel: "iamaverylongcom"). Wenn Sie versuchen, diesen Computer zu inventarisieren, erhalten Sie im Windows Admin Center und im Ereignisprotokoll Folgendes: 
+
+```DOS
+    "Element not found"
+    
+    ========================
+
+    Log Name:      Microsoft-Windows-StorageMigrationService/Admin
+    Source:        Microsoft-Windows-StorageMigrationService
+    Date:          4/10/2020 10:49:19 AM
+    Event ID:      2509
+    Task Category: None
+    Level:         Error
+    Keywords:      
+    User:          NETWORK SERVICE
+    Computer:      WIN-6PJAG3DHPLF.corp.contoso.com
+    Description:
+    Couldn't inventory a computer.
+
+    Job: longnametest
+    Computer: iamaverylongcomputernamefromned.corp.contoso.com
+    State: Failed
+    Error: 1168
+    Error Message: 
+
+    Guidance: Check the detailed error and make sure the inventory requirements are met. The inventory couldn't determine any aspects of the specified source computer. This could be because of missing permissions or privileges on the source or a blocked firewall port.
+```
+
+Dieses Problem wird durch einen Code Fehler im Speicher Migrationsdienst verursacht. Die einzige Problem Umgehung besteht darin, den Computer so umzubenennen, dass er den gleichen Namen wie der NetBIOS-Name hat, und dann mit [netdom computername/Add](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc835082(v=ws.11)) einen alternativen Computernamen hinzuzufügen, der den längeren Namen enthält, der vor dem Start des Inventars verwendet wurde. Storage Migration Service unterstützt die Migration alternativer Computernamen.   
 
 ## <a name="see-also"></a>Weitere Informationen
 

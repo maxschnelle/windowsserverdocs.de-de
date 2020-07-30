@@ -5,33 +5,33 @@ author: laknight5
 ms.author: laknight
 ms.date: 6/29/2020
 ms.prod: windows-server
-ms.technology: storage-file-systems
+ms.technology: windows-commands
 ms.topic: article
-ms.openlocfilehash: c84aaed5b34c535221247dcdd6ab0a5462fd4aad
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 3afc96970bb0350a3c1168c520cc20ad4f2254af
+ms.sourcegitcommit: 145cf75f89f4e7460e737861b7407b5cee7c6645
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85931102"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87409721"
 ---
 # <a name="refsutil"></a>Ref
 
->Gilt für: Windows Server 2019, Windows 10
+> Gilt für: Windows Server 2019, Windows 10
 
-Refsutil ist ein Tool, das in Windows und Windows Server enthalten ist und versucht, stark beschädigte Refs-Volumes zu diagnostizieren, verbleibende Dateien zu identifizieren und diese Dateien auf ein anderes Volume zu kopieren. Dies erfolgt in Windows 10 im `%SystemRoot%\Windows\System32` Ordner oder unter Windows Server im `%SystemRoot%\\System32` Ordner.
+Refsutil ist ein Tool, das in Windows und Windows Server enthalten ist und versucht, stark beschädigte Refs-Volumes zu diagnostizieren, verbleibende Dateien zu identifizieren und diese Dateien auf ein anderes Volume zu kopieren. Dies erfolgt in Windows 10 im `%SystemRoot%\Windows\System32` Ordner oder unter Windows Server im `%SystemRoot%\System32` Ordner.
 
 Refs-Rettung ist die primäre Funktion von ref und eignet sich für die Wiederherstellung von Daten von Volumes, die in der Datenträgerverwaltung als Rohdaten angezeigt werden. Refs-Rettung besteht aus zwei Phasen: Scan Phase und Kopier Phase. Im automatischen Modus werden die Scan Phase und die Kopier Phase nacheinander ausgeführt. Im manuellen Modus kann jede Phase separat ausgeführt werden. Der Fortschritt und die Protokolle werden in einem Arbeitsverzeichnis gespeichert, sodass Phasen separat ausgeführt werden können und die Überprüfungs Phase angehalten und fortgesetzt werden kann. Sie sollten das Tool refsutil nicht verwenden, es sei denn, das Volume ist RAW. Wenn Sie schreibgeschützt sind, können Sie weiterhin auf die Daten zugreifen.
 
 ## <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 |--|--|
 | `<source volume>` | Gibt das zu verarbeitende Refs-Volume an. Der Laufwerk Buchstabe muss als "L:" formatiert sein, oder Sie müssen einen Pfad zum volumeeinstellungspunkt angeben. |
 | `<working directory>` | Gibt den Speicherort an, an dem temporäre Informationen und Protokolle gespeichert werden. Er darf sich **nicht** im befinden `<source volume>` . |
 | `<target directory>` | Gibt den Speicherort an, in den identifizierte Dateien kopiert werden. Er darf sich **nicht** im befinden `<source volume>` . |
 | \- Min. | Stellt alle möglichen Dateien einschließlich gelöschter Dateien wieder her.<p>**Warnung:** Dieser Parameter bewirkt nicht nur, dass die Ausführung des Prozesses länger dauert, sondern auch zu unerwarteten Ergebnissen führen kann. |
 | \-Ramelow | Gibt an, dass der ausführliche Modus verwendet werden soll. |
-| \-Stuben | Erzwingt, dass das Volume bei Bedarf zuerst entfernt wird. Alle geöffneten Handles für das Volume sind dann ungültig. Beispiel: `refsutil salvage -QA R: N:\\WORKING N:\\DATA -x`. |
+| \-Stuben | Erzwingt, dass das Volume bei Bedarf zuerst entfernt wird. Alle geöffneten Handles für das Volume sind dann ungültig. Beispiel: `refsutil salvage -QA R: N:\WORKING N:\DATA -x`. |
 
 ## <a name="usage-and-available-options"></a>Verwendungs-und verfügbare Optionen
 
@@ -99,6 +99,6 @@ Fortgeschrittene Benutzer können Dateien mithilfe einer interaktiven Konsole re
 refsutil salvage -IC <source volume> <working directory> <options>
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

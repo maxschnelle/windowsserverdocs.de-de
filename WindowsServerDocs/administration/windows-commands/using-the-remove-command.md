@@ -1,5 +1,5 @@
 ---
-title: remove
+title: Verwenden des Remove-Befehls
 description: Referenz Artikel zu entfernen, mit dem verschiedene Treiber bezogene Informationen entfernt werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
@@ -9,19 +9,19 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 42d429099c135c1376cc831bf59f3d1aaa27dcef
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: dc839eee2a5c1bcc21902b214632152b50175294
+ms.sourcegitcommit: 145cf75f89f4e7460e737861b7407b5cee7c6645
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85932368"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87409861"
 ---
-# <a name="remove"></a>remove
+# <a name="using-the-remove-command"></a>Verwenden des Remove-Befehls
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 ## <a name="subcommands"></a>Unterbefehle
-|Subommand|Beschreibung|
+|Subommand|BESCHREIBUNG|
 |-------|--------|
 |[Verwenden des Remove-Image-Befehls](using-the-remove-image-command.md)|entfernt ein Start-oder Installations Abbild vom Server.|
 |[Verwenden des Remove-ImageGroup-Befehls](using-the-remove-imagegroup-command.md)|entfernt eine Abbild Gruppe vom Server.|
