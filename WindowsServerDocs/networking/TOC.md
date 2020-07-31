@@ -229,7 +229,7 @@
 #### [Funktionsweise von QoS-Richtlinien](technologies/qos/qos-policy-works.md)
 #### [QoS-Richtlinie: Architektur](technologies/qos/qos-policy-architecture.md)
 #### [QoS-Richtlinie: Szenarien](technologies/qos/qos-policy-scenarios.md)
-###[Verwalten von QoS-Richtlinien](technologies/qos/qos-policy-manage.md)
+### [Verwalten von QoS-Richtlinien](technologies/qos/qos-policy-manage.md)
 #### [QoS-Richtlinie: Ereignisse und Fehler](technologies/qos/qos-policy-errors.md)
 ### [QoS-Richtlinie: Häufig gestellte Fragen](technologies/qos/qos-policy-faq.md)
 

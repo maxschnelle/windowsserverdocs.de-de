@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e8b1cae87818d3f77474e4193b03836bf1c84990
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 7e6dba42610923e8b0cd9d7ea25a0e1ea6df507a
+ms.sourcegitcommit: 67d9c51e396c8f937f8704a25e66fea8c5fae81a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85931651"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87441529"
 ---
 # <a name="lodctr"></a>lodctr
 
@@ -30,7 +30,7 @@ lodctr <filename> [/s:<filename>] [/r:<filename>] [/t:<servicename>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `<filename>` | Gibt den Namen der Initialisierungsdatei an, in der die Namen Einstellungen und der erklärende Text des Leistungs Zählers registriert werden. |
 | /s`<filename>` | Gibt den Namen der Datei an, in der die Registrierungs Einstellungen des Leistungs Zählers und der erklärende Text gespeichert werden. |
@@ -45,12 +45,12 @@ lodctr <filename> [/s:<filename>] [/r:<filename>] [/t:<servicename>]
 
 ### <a name="examples"></a>Beispiele
 
-Geben Sie Folgendes ein, um die aktuellen Registrierungs Einstellungen und den erläuternden Text in der Datei Leistung *backup1.txt*zu speichern:
+Geben Sie Folgendes ein, um die aktuellen Leistungs Registrierungs Einstellungen und den erläuternden Text in der Datei *"Perf backup1.txt"* zu speichern:
 
 ```
-lodctr /s:perf backup1.txt
+lodctr /s:"perf backup1.txt"
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
