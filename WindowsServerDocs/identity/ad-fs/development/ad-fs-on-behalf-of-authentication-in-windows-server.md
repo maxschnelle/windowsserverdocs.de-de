@@ -8,25 +8,25 @@ ms.date: 02/22/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: febd79ea6feb0ef3d4e6f6d5659f2eb13e403a4b
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: d13cd27efc2387911f8c66bf083509e60e7e5b31
+ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86962192"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87519879"
 ---
 # <a name="build-a-multi-tiered-application-using-on-behalf-of-obo-using-oauth-with-ad-fs-2016-or-later"></a>Erstellen einer Anwendung mit mehreren Stufen mithilfe von "on-Auftrag-of" (OBO) mithilfe von OAuth mit AD FS 2016 oder höher
 
-
 Diese exemplarische Vorgehensweise enthält Anweisungen zum Implementieren einer "in-Auftrag-von"-Authentifizierung (OBO) mithilfe von AD FS in Windows Server 2016 TP5 oder höher. Weitere Informationen zur OBO-Authentifizierung finden Sie unter [AD FS OpenID Connect/OAuth-Flows und Anwendungs Szenarios](../../ad-fs/overview/ad-fs-openid-connect-oauth-flows-scenarios.md) .
 
->Warnung: das Beispiel, das Sie hier erstellen können, dient nur zu Schulungszwecken. Diese Anweisungen gelten für die einfachste, kleinste Implementierung, die die erforderlichen Elemente des Modells verfügbar machen kann. Das Beispiel enthält möglicherweise nicht alle Aspekte der Fehlerbehandlung und weitere Funktionen, die sich nur auf die erfolgreiche OBO-Authentifizierung beziehen.
+> [!WARNING]
+> Das Beispiel, das Sie hier erstellen können, dient nur zu Schulungszwecken. Diese Anweisungen gelten für die einfachste, kleinste Implementierung, die die erforderlichen Elemente des Modells verfügbar machen kann. Das Beispiel enthält möglicherweise nicht alle Aspekte der Fehlerbehandlung und weitere Funktionen, die sich nur auf die erfolgreiche OBO-Authentifizierung beziehen.
 
 ## <a name="overview"></a>Übersicht
 
 In diesem Beispiel erstellen wir einen Authentifizierungs Fluss, bei dem ein Client auf einen Webdienst der mittleren Ebene zugreift, und der Webdienst wird dann im Namen des authentifizierten Clients ausgeführt, um ein Zugriffs Token zu erhalten.
 
-![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO28.png)
+![AD FS "im Auftrag von"-Diagramm](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO28.png)
 
 Im folgenden finden Sie den Authentifizierungs Ablauf, den das Beispiel erreicht.
 1. Client authentifiziert sich bei AD FS Autorisierungs Endpunkt und fordert einen Autorisierungs Code an
@@ -42,15 +42,11 @@ Im folgenden finden Sie den Authentifizierungs Ablauf, den das Beispiel erreicht
 
 Das Beispiel besteht aus drei Modulen.
 
-
-Modul | Beschreibung
+Modul | BESCHREIBUNG
 -------|------------
 -Client | Native Client, mit dem der Benutzer interagiert
 ToDoService | Web-API der mittleren Ebene, die als Client für die Back-End-WebAPI fungiert
 Webapiobo | Back-End-Web-API, die von "dedoservice" zum Ausführen des erforderlichen Vorgangs verwendet wird, wenn der Benutzer ein ""
-
-
-
 
 ## <a name="setting-up-the-development-box"></a>Einrichten der Entwicklungs Box
 
@@ -78,7 +74,9 @@ Das Beispiel basiert auf dem vorhandenen OBO-Beispiel für Azure, das von Vittor
 
 Verwenden Sie in Ihrer Shell oder Befehlszeile Folgendes:
 
-    git clone https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof.git
+```
+git clone https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof.git
+```
 
 ## <a name="modifying-the-sample"></a>Ändern des Beispiels
 
@@ -123,12 +121,14 @@ Klicken Sie auf Weiter, um die Seite Zusammenfassung anzuzeigen. Durchlaufen Sie
 
 Um die Authentifizierung im Auftrag der-Authentifizierung zu aktivieren, müssen Sie sicherstellen, dass AD FS ein Zugriffs Token mit dem Bereich user_impersonation an den Client zurückgibt. Ändern Sie die Anspruchs Ausstellung für todolistservicewebapi so, dass Sie die folgenden drei benutzerdefinierten Regeln enthält:
 
-    @RuleName = "All claims"
-    c:[]
-    => issue(claim = c);
+```
+@RuleName = "All claims"
+c:[]
+=> issue(claim = c);
 
-    @RuleName = "Issue user_impersonation scope"
-    => issue(Type = "http://schemas.microsoft.com/identity/claims/scope", Value = "user_impersonation");
+@RuleName = "Issue user_impersonation scope"
+=> issue(Type = "http://schemas.microsoft.com/identity/claims/scope", Value = "user_impersonation");
+```
 
 ![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO10.PNG)
 
@@ -147,7 +147,6 @@ Wenn Sie auf Weiter klicken, wird die Seite angezeigt, auf der Sie die Details d
 ![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO20.PNG)
 
 Wenn Sie auf Weiter klicken, wird die Seite angezeigt, auf der Sie die Anmelde Informationen für die Anwendung konfigurieren können. Klicken Sie auf "freigegebenen geheimen Schlüssel generieren". Ihnen wird ein geheimer Schlüssel angezeigt, der automatisch generiert wird. Kopieren Sie den geheimen Schlüssel an einem Speicherort, da dies erforderlich ist, während wir den "dedolistservice" in Visual Studio konfigurieren.
-
 
 ![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO17.PNG)
 
@@ -169,7 +168,8 @@ Wechseln Sie zu Ihrem todolistclient-Projekt in der Projekt Mappe WebAPI-onbehal
 
 Die **appSettings** in App.Config sollte in etwa wie folgt aussehen:
 
-    <appSettings>
+```
+<appSettings>
     <!--<add key="ida:Tenant" value="[Enter tenant name, e.g. contoso.onmicrosoft.com]" />-->
     <add key="ida:ClientId" value="c7f7b85c-497c-4589-877f-b17a0bd13398" />
     <add key="ida:RedirectUri" value="https://arbitraryuri.com/" />
@@ -177,7 +177,8 @@ Die **appSettings** in App.Config sollte in etwa wie folgt aussehen:
     <!--<add key="ida:AADInstance" value="https://login.microsoftonline.com/{0}" />-->
     <add key="ida:TodoListBaseAddress" value="https://localhost:44321" />
     <add key="ida:Authority" value="https://fs.anandmsft.com/adfs/"/>
-    </appSettings>
+</appSettings>
+```
 
 #### <a name="modifying-the-code"></a>Ändern des Codes
 
@@ -185,21 +186,29 @@ Die **appSettings** in App.Config sollte in etwa wie folgt aussehen:
 
 Kommentieren Sie die Zeile aus, die die Mandanten Informationen aus der Anwendungskonfiguration liest.
 
-    //private static string aadInstance = ConfigurationManager.AppSettings["ida:AADInstance"];
-    //private static string tenant = ConfigurationManager.AppSettings["ida:Tenant"];
+```
+//private static string aadInstance = ConfigurationManager.AppSettings["ida:AADInstance"];
+//private static string tenant = ConfigurationManager.AppSettings["ida:Tenant"];
+```
 
 Ändern Sie den Wert der Zeichen folgen Autorität in.
 
-    private static string authority = ConfigurationManager.AppSettings["ida:Authority"];
+```
+private static string authority = ConfigurationManager.AppSettings["ida:Authority"];
+```
 
 Ändern Sie den Code, um die korrekten Werte von "dedolistresourceid" und "dedolistbaseaddress" zu lesen
 
-    private static string todoListResourceId = ConfigurationManager.AppSettings["ida:TodoListResourceId"];
-    private static string todoListBaseAddress = ConfigurationManager.AppSettings["ida:TodoListBaseAddress"];
+```
+private static string todoListResourceId = ConfigurationManager.AppSettings["ida:TodoListResourceId"];
+private static string todoListBaseAddress = ConfigurationManager.AppSettings["ida:TodoListBaseAddress"];
+```
 
 Ändern Sie in der Funktion MainWindow () die authcontext-Initialisierung wie folgt:
 
-    authContext = new AuthenticationContext(authority, false);
+```
+authContext = new AuthenticationContext(authority, false);
+```
 
 ### <a name="adding-the-backend-resource"></a>Hinzufügen der Backend-Ressource
 
@@ -227,25 +236,25 @@ Um den "im Auftrag von"-Ablauf abzuschließen, müssen Sie eine Back-End-Ressour
 
 * Fügen Sie den folgenden Code in den Controller ein:
 
-```cs
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Net;
-    using System.Net.Http;
-    using System.Web.Http;
-    namespace WebAPIOBO.Controllers
-    {
-        [Authorize]
-        public class WebAPIOBOController : ApiController
+    ```cs
+        using System;
+        using System.Collections.Generic;
+        using System.Linq;
+        using System.Net;
+        using System.Net.Http;
+        using System.Web.Http;
+        namespace WebAPIOBO.Controllers
         {
-            public IHttpActionResult Get()
+            [Authorize]
+            public class WebAPIOBOController : ApiController
             {
-                return Ok($"WebAPI via OBO (user: {User.Identity.Name}");
+                public IHttpActionResult Get()
+                {
+                    return Ok($"WebAPI via OBO (user: {User.Identity.Name}");
+                }
             }
         }
-    }
-```
+    ```
 
 Mit diesem Code wird einfach die Zeichenfolge zurückgegeben, wenn jemand eine GET-Anforderung für die WebAPI webapiobo einfügt.
 
@@ -265,7 +274,6 @@ Fahren Sie mit dem Assistenten fort, wie bei der Konfiguration der WebAPI "dedol
 
 ![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO5.PNG)
 
-
 ### <a name="modifying-the-todolistservice-code"></a>Ändern des "dedolistservice"-Codes
 
 #### <a name="modifying-the-application-config"></a>Ändern der Anwendungskonfiguration
@@ -273,14 +281,14 @@ Fahren Sie mit dem Assistenten fort, wie bei der Konfiguration der WebAPI "dedol
 * Öffnen Sie die Datei Web.config.
 * Ändern Sie die folgenden Schlüssel.
 
-| Schlüssel                      | Wert                                                                                                                                                                                                                   |
-|:-------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Ida: Audience             | Die ID des TodoListService, wie AD FS beim Konfigurieren der WebAPI TodoListService angegeben wird, z. b.https://localhost:44321/                                                                                         |
-| Ida: ClientID             | Die ID des TodoListService, wie AD FS beim Konfigurieren der WebAPI TodoListService angegeben wird, z. b.<https://localhost:44321/> </br>**Es ist sehr wichtig, dass die "Ida: Audience" und "Ida: ClientID" einander entsprechen.** |
-| ida:ClientSecret         | Dies ist der geheime Schlüssel, der beim Konfigurieren des Clients "dedolistservice" in generiert AD FS AD FS                                                                                                                   |
-| Ida: AdfsMetadataEndpoint | Dies ist die URL zu ihren AD FS-Metadaten, z. b.https://fs.anandmsft.com/federationmetadata/2007-06/federationmetadata.xml                                                                                             |
-| Ida: obowebapibase        | Dies ist die Basisadresse, die wir verwenden werden, um die Back-End-API aufzurufen, z. b.https://localhost:44300                                                                                                                     |
-| ida:Authority            | Dies ist die URL für Ihren AD FS-Dienst, z. b.https://fs.anandmsft.com/adfs/                                                                                                                                          |
+| Schlüssel | Wert |
+|:-|:-|
+| Ida: Audience | Die ID des TodoListService, wie AD FS beim Konfigurieren der WebAPI TodoListService angegeben wird, z. b.https://localhost:44321/ |
+| Ida: ClientID | Die ID des TodoListService, wie AD FS beim Konfigurieren der WebAPI TodoListService angegeben wird, z. b.<https://localhost:44321/> </br>**Es ist sehr wichtig, dass die "Ida: Audience" und "Ida: ClientID" einander entsprechen.** |
+| ida:ClientSecret | Dies ist der geheime Schlüssel, der beim Konfigurieren des Clients "dedolistservice" in generiert AD FS AD FS |
+| Ida: AdfsMetadataEndpoint | Dies ist die URL zu ihren AD FS-Metadaten, z. b.https://fs.anandmsft.com/federationmetadata/2007-06/federationmetadata.xml |
+| Ida: obowebapibase | Dies ist die Basisadresse, die wir verwenden werden, um die Back-End-API aufzurufen, z. b.https://localhost:44300 |
+| ida:Authority | Dies ist die URL für Ihren AD FS-Dienst, z. b.https://fs.anandmsft.com/adfs/ |
 
 Alle anderen Ida: XXXXXXX-Schlüssel im Knoten " **appSettings** " können auskommentiert oder gelöscht werden.
 
@@ -289,63 +297,71 @@ Alle anderen Ida: XXXXXXX-Schlüssel im Knoten " **appSettings** " können ausko
 * Öffnen Sie die Datei Startup.auth.cs.
 * Entfernen Sie den folgenden Code:
 
-        app.UseWindowsAzureActiveDirectoryBearerAuthentication(
-            new WindowsAzureActiveDirectoryBearerAuthenticationOptions
-            {
-                Audience = ConfigurationManager.AppSettings["ida:Audience"],
-                Tenant = ConfigurationManager.AppSettings["ida:Tenant"],
-                TokenValidationParameters = new TokenValidationParameters{ SaveSigninToken = true }
-            });
+    ```
+    app.UseWindowsAzureActiveDirectoryBearerAuthentication(
+    new WindowsAzureActiveDirectoryBearerAuthenticationOptions
+    {
+        Audience = ConfigurationManager.AppSettings["ida:Audience"],
+        Tenant = ConfigurationManager.AppSettings["ida:Tenant"],
+        TokenValidationParameters = new TokenValidationParameters{ SaveSigninToken = true }
+    });
+    ```
 
-durch
+    durch
 
-        app.UseActiveDirectoryFederationServicesBearerAuthentication(
-            new ActiveDirectoryFederationServicesBearerAuthenticationOptions
-            {
-                MetadataEndpoint = ConfigurationManager.AppSettings["ida:AdfsMetadataEndpoint"],
-                TokenValidationParameters = new TokenValidationParameters()
-                {
-                    SaveSigninToken = true,
-                    ValidAudience = ConfigurationManager.AppSettings["ida:Audience"]
-                }
-            });
+    ```
+    app.UseActiveDirectoryFederationServicesBearerAuthentication(
+    new ActiveDirectoryFederationServicesBearerAuthenticationOptions
+    {
+        MetadataEndpoint = ConfigurationManager.AppSettings["ida:AdfsMetadataEndpoint"],
+        TokenValidationParameters = new TokenValidationParameters()
+    {
+        SaveSigninToken = true,
+        ValidAudience = ConfigurationManager.AppSettings["ida:Audience"]
+    }
+    });
+    ```
 
 #### <a name="modifying-the-todolistcontroller"></a>Ändern von "" "-listcontroller"
 
 Fügen Sie einen Verweis auf System. Web. Extensions hinzu. Ändern Sie die Klassenmember, indem Sie den folgenden Code ersetzen.
 
-    //
-    // The Client ID is used by the application to uniquely identify itself to Azure AD.
-    // The App Key is a credential used by the application to authenticate to Azure AD.
-    // The Tenant is the name of the Azure AD tenant in which this application is registered.
-    // The AAD Instance is the instance of Azure, for example public Azure or Azure China.
-    // The Authority is the sign-in URL of the tenant.
-    //
-    private static string aadInstance = ConfigurationManager.AppSettings["ida:AADInstance"];
-    private static string tenant = ConfigurationManager.AppSettings["ida:Tenant"];
-    private static string clientId = ConfigurationManager.AppSettings["ida:ClientId"];
-    private static string appKey = ConfigurationManager.AppSettings["ida:AppKey"];
+```
+//
+// The Client ID is used by the application to uniquely identify itself to Azure AD.
+// The App Key is a credential used by the application to authenticate to Azure AD.
+// The Tenant is the name of the Azure AD tenant in which this application is registered.
+// The AAD Instance is the instance of Azure, for example public Azure or Azure China.
+// The Authority is the sign-in URL of the tenant.
+//
+private static string aadInstance = ConfigurationManager.AppSettings["ida:AADInstance"];
+private static string tenant = ConfigurationManager.AppSettings["ida:Tenant"];
+private static string clientId = ConfigurationManager.AppSettings["ida:ClientId"];
+private static string appKey = ConfigurationManager.AppSettings["ida:AppKey"];
 
-    //
-    // To authenticate to the Graph API, the app needs to know the Grah API's App ID URI.
-    // To contact the Me endpoint on the Graph API we need the URL as well.
-    //
-    private static string graphResourceId = ConfigurationManager.AppSettings["ida:GraphResourceId"];
-    private static string graphUserUrl = ConfigurationManager.AppSettings["ida:GraphUserUrl"];
-    private const string TenantIdClaimType = "https://schemas.microsoft.com/identity/claims/tenantid";
+//
+// To authenticate to the Graph API, the app needs to know the Grah API's App ID URI.
+// To contact the Me endpoint on the Graph API we need the URL as well.
+//
+private static string graphResourceId = ConfigurationManager.AppSettings["ida:GraphResourceId"];
+private static string graphUserUrl = ConfigurationManager.AppSettings["ida:GraphUserUrl"];
+private const string TenantIdClaimType = "https://schemas.microsoft.com/identity/claims/tenantid";
+```
 
 durch
 
-    //
-    // The Client ID is used by the application to uniquely identify itself to Azure AD.
-    // The client secret is the credentials for the WebServer Client
+```
+//
+// The Client ID is used by the application to uniquely identify itself to Azure AD.
+// The client secret is the credentials for the WebServer Client
 
-    private static string clientId = ConfigurationManager.AppSettings["ida:ClientId"];
-    private static string clientSecret = ConfigurationManager.AppSettings["ida:ClientSecret"];
-    private static string authority = ConfigurationManager.AppSettings["ida:Authority"];
+private static string clientId = ConfigurationManager.AppSettings["ida:ClientId"];
+private static string clientSecret = ConfigurationManager.AppSettings["ida:ClientSecret"];
+private static string authority = ConfigurationManager.AppSettings["ida:Authority"];
 
-    // Base address of the WebAPI
-    private static string OBOWebAPIBase = ConfigurationManager.AppSettings["ida:OBOWebAPIBase"];
+// Base address of the WebAPI
+private static string OBOWebAPIBase = ConfigurationManager.AppSettings["ida:OBOWebAPIBase"];
+```
 
 **Ändern des für den Namen verwendeten Anspruchs**
 
@@ -355,22 +371,23 @@ Von AD FS wir den nmae-Anspruch ausgeben, aber wir geben keinen NameIdentifier-A
 
 Kopieren Sie den unten stehenden Code, und fügen Sie ihn in ToDoListController.cs ein, und ersetzen Sie den Code für Post und callgraphapionbehalfofuser.
 
-    // POST api/todolist
-    public async Task Post(TodoItem todo)
-    {
-      if (!ClaimsPrincipal.Current.FindFirst("https://schemas.microsoft.com/identity/claims/scope").Value.Contains("user_impersonation"))
+```
+// POST api/todolist
+public async Task Post(TodoItem todo)
+{
+    if (!ClaimsPrincipal.Current.FindFirst("https://schemas.microsoft.com/identity/claims/scope").Value.Contains("user_impersonation"))
         {
-            throw new HttpResponseException(new HttpResponseMessage { StatusCode = HttpStatusCode.Unauthorized, ReasonPhrase = "The Scope claim does not contain 'user_impersonation' or scope claim not found" });
+        throw new HttpResponseException(new HttpResponseMessage { StatusCode = HttpStatusCode.Unauthorized, ReasonPhrase = "The Scope claim does not contain 'user_impersonation' or scope claim not found" });
         }
 
-      //
-      // Call the WebAPIOBO On Behalf Of the user who called the To Do list web API.
-      //
+//
+// Call the WebAPIOBO On Behalf Of the user who called the To Do list web API.
+//
 
-      string augmentedTitle = null;
-      string custommessage = await CallGraphAPIOnBehalfOfUser();
+    string augmentedTitle = null;
+    string custommessage = await CallGraphAPIOnBehalfOfUser();
 
-      if (custommessage != null)
+    if (custommessage != null)
         {
             augmentedTitle = String.Format("{0}, Message: {1}", todo.Title, custommessage);
         }
@@ -394,13 +411,13 @@ Kopieren Sie den unten stehenden Code, und fügen Sie ihn in ToDoListController.
         HttpClient httpClient = new HttpClient();
         string custommessage = "";
 
-        //
-        // Use ADAL to get a token On Behalf Of the current user.  To do this we will need:
-        // The Resource ID of the service we want to call.
-        // The current user's access token, from the current request's authorization header.
-        // The credentials of this application.
-        // The username (UPN or email) of the user calling the API
-        //
+//
+// Use ADAL to get a token On Behalf Of the current user.  To do this we will need:
+// The Resource ID of the service we want to call.
+// The current user's access token, from the current request's authorization header.
+// The credentials of this application.
+// The username (UPN or email) of the user calling the API
+//
 
         ClientCredential clientCred = new ClientCredential(clientId, clientSecret);
         var bootstrapContext = ClaimsPrincipal.Current.Identities.First().BootstrapContext as System.IdentityModel.Tokens.BootstrapContext;
@@ -465,9 +482,9 @@ Kopieren Sie den unten stehenden Code, und fügen Sie ihn in ToDoListController.
         // An unexpected error occurred calling the Graph API.  Return a null profile.
         return (null);
     }
+```
 
 ## <a name="running-the-solution"></a>Ausführen der Lösung
-
 
 Visual Studio ist standardmäßig so konfiguriert, dass ein Projekt ausgeführt wird, wenn Sie das Debuggen zum Ausführen erreichen.
 
@@ -499,4 +516,4 @@ In der zweiten Interaktion mit dem tokenendpunkt sehen Sie, dass **requested_tok
 ![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO23.PNG)
 
 ## <a name="next-steps"></a>Nächste Schritte
-[AD FS-Entwicklung](../../ad-fs/AD-FS-Development.md)  
+[AD FS-Entwicklung](../../ad-fs/AD-FS-Development.md)

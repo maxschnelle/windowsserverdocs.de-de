@@ -8,12 +8,12 @@ ms.date: 06/13/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: active-directory-federation-services
-ms.openlocfilehash: 1bd5d95739bc1c975f5f0c4d7efb8dc6f91e0412
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 934ef170f6cbd5a2bd4031d336907d6b925cff06
+ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86954402"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87519899"
 ---
 # <a name="build-a-single-page-web-application-using-oauth-and-adaljs-with-ad-fs-2016-or-later"></a>Erstellen einer Single-Page-Webanwendung mithilfe von OAuth und ADAL.JS mit AD FS 2016 oder höher
 
@@ -25,11 +25,10 @@ In diesem Szenario verwendet das JavaScript-Front-End bei der Benutzeranmeldung 
 >Das Beispiel, das Sie hier erstellen können, dient nur zu Schulungszwecken. Diese Anweisungen gelten für die einfachste, kleinste Implementierung, die die erforderlichen Elemente des Modells verfügbar machen kann. Das Beispiel enthält möglicherweise nicht alle Aspekte der Fehlerbehandlung und andere Funktionen zum verknüpfen.
 
 >[!NOTE]
->Diese exemplarische Vorgehensweise gilt **nur** für AD FS Server 2016 und höher. 
+>Diese exemplarische Vorgehensweise gilt **nur** für AD FS Server 2016 und höher.
 
 ## <a name="overview"></a>Übersicht
 In diesem Beispiel erstellen wir einen Authentifizierungs Fluss, bei dem ein Single-Page-Anwendungs Client für AD FS authentifiziert wird, um den Zugriff auf die WebAPI-Ressourcen auf dem Back-End zu sichern. Unten ist der allgemeine Authentifizierungs Ablauf angegeben.
-
 
 ![AD FS Autorisierung](media/Single-Page-Application-with-AD-FS/authenticationflow.PNG)
 
@@ -54,14 +53,14 @@ Das Einrichten des Domänen Controllers und AD FS würde den Rahmen dieses Artik
 - [AD DS-Bereitstellung](../../ad-ds/deploy/AD-DS-Deployment.md)
 - [AD FS-Bereitstellung](../AD-FS-Deployment.md)
 
-
-
 ## <a name="clone-or-download-this-repository"></a>Klonen oder Herunterladen des Repositorys
 Wir verwenden die Beispielanwendung, die für die Integration von Azure AD in eine einseitige angularjs-App erstellt wurde, und ändern Sie, um die Back-End-Ressource mithilfe AD FS zu sichern.
 
 Verwenden Sie in Ihrer Shell oder Befehlszeile Folgendes:
 
-    git clone https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp.git
+```
+git clone https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp.git
+```
 
 ## <a name="about-the-code"></a>Informationen über den Code
 Die Schlüsseldateien, die die Authentifizierungs Logik enthalten, lauten wie folgt:
@@ -100,6 +99,7 @@ Konfigurieren von Adal js
 
 Öffnen Sie die Datei **app.js** , und ändern Sie die Definition des **adalProvider.init** in:
 
+```
     adalProvider.init(
         {
             instance: 'https://fs.contoso.com/', // your STS URL
@@ -109,6 +109,7 @@ Konfigurieren von Adal js
         },
         $httpProvider
     );
+```
 
 |Konfiguration|BESCHREIBUNG|
 |--------|--------|
@@ -119,9 +120,10 @@ Konfigurieren von Adal js
 ## <a name="configure-webapi-to-use-ad-fs"></a>Konfigurieren von WebAPI für die Verwendung von AD FS
 Öffnen Sie die Datei **Startup.auth.cs** im Beispiel, und fügen Sie am Anfang Folgendes hinzu:
 
+```
     using System.IdentityModel.Tokens;
 
-aufgeh
+remove:
 
     app.UseWindowsAzureActiveDirectoryBearerAuthentication(
         new WindowsAzureActiveDirectoryBearerAuthenticationOptions
@@ -131,7 +133,7 @@ aufgeh
         }
     );
 
-und hinzufügen:
+and add:
 
     app.UseActiveDirectoryFederationServicesBearerAuthentication(
         new ActiveDirectoryFederationServicesBearerAuthenticationOptions
@@ -144,8 +146,9 @@ und hinzufügen:
             }
         }
     );
+```
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |--------|--------|
 |Validauer|Hiermit wird der Wert von "Audience" konfiguriert, der im Token gegen überprüft wird.|
 |Validierer|Hiermit wird der Wert "Aussteller" konfiguriert, der im Token überprüft wird.|
@@ -153,6 +156,7 @@ und hinzufügen:
 
 ## <a name="add-application-configuration-for-ad-fs"></a>Anwendungskonfiguration für AD FS hinzufügen
 Ändern Sie die AppSettings wie folgt:
+
 ```xml
 <appSettings>
     <add key="ida:Audience" value="https://localhost:44326/" />
@@ -170,7 +174,7 @@ Der Browser (Chrome-Browser verwenden) lädt die Spa, und Ihnen wird der folgend
 
 Klicken Sie auf anmelden.  Die TODO-Liste löst den Authentifizierungs Fluss aus, und Adal js leitet die Authentifizierung an AD FS
 
-![Anmeldename](media/Single-Page-Application-with-AD-FS/singleapp4a.PNG)
+![Anmelden](media/Single-Page-Application-with-AD-FS/singleapp4a.PNG)
 
 In "fddler" können Sie sehen, dass das Token als Teil der URL im #-Fragment zurückgegeben wird.
 
@@ -181,4 +185,4 @@ Nun können Sie die Back-End-API zum Hinzufügen von TODO-Listenelementen für d
 ![Fiddler](media/Single-Page-Application-with-AD-FS/singleapp6.PNG)
 
 ## <a name="next-steps"></a>Nächste Schritte
-[AD FS-Entwicklung](../../ad-fs/AD-FS-Development.md)  
+[AD FS-Entwicklung](../../ad-fs/AD-FS-Development.md)

@@ -6,12 +6,12 @@ ms.author: joflore
 ms.date: 04/19/2018
 ms.topic: article
 ms.prod: windows-server
-ms.openlocfilehash: 2a4d743f05d9a8cd70197b7a70589ce7eac84273
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 99d470af623be7ccc7ad2a5fe0d63576a406ff57
+ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86966242"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87519047"
 ---
 # <a name="virtualizing-domain-controllers-using-hyper-v"></a>Virtualisieren von Domänen Controllern mithilfe von Hyper-V
 
@@ -30,20 +30,20 @@ Themen dieses Abschnitts sind die Hardwareanforderungen für Hyper-V-Server, die
 Zum Installieren und Verwenden der Hyper-V-Rolle benötigen Sie Folgendes:
 
    - **Ein x64-Prozessor**
-      - Hyper-V ist in x64-basierten Versionen von Windows Server 2008 oder höher verfügbar.  
-   - **Hardwareunterstützte Virtualisierung**
-      - Dieses Feature ist für Prozessoren mit Virtualisierungsoption (Intel Virtualization Technology (Intel VT) oder AMD Virtualization (AMD-V)) verfügbar.  
+      - Hyper-V ist in x64-basierten Versionen von Windows Server 2008 oder höher verfügbar.
+   - **Hardware gestützte Virtualisierung**
+      - Dieses Feature ist für Prozessoren mit Virtualisierungsoption (Intel Virtualization Technology (Intel VT) oder AMD Virtualization (AMD-V)) verfügbar.
    - **Hardware-Datenausführungsschutz (DEP)**
-      - Die Hardware-DEP muss verfügbar und aktiviert sein. Das heißt, Sie müssen Intel XD-Bit (Execute Disable Bit) oder AMD NX-Bit (No Execute Bit) aktivieren.  
+      - Die Hardware-DEP muss verfügbar und aktiviert sein. Das heißt, Sie müssen Intel XD-Bit (Execute Disable Bit) oder AMD NX-Bit (No Execute Bit) aktivieren.
 
 ## <a name="avoid-creating-single-points-of-failure"></a>Vermeidung einzelner Fehlerquellen
 
 Bei der Planung für die Bereitstellung virtualisierter Domänencontroller sollten Sie darauf achten, einzelne Fehlerquellen (d. h. Komponenten, deren Ausfall den Ausfall des gesamten Systems verursachen würde) möglichst zu vermeiden. Zu diesem Zweck empfiehlt es sich, Systemredundanz vorzusehen. Erwägen Sie beispielsweise die folgenden Empfehlungen (unter Berücksichtigung der potenziell höheren Verwaltungskosten):
 
-1. Führen Sie mindestens zwei virtualisierte Domänencontroller pro Domäne auf anderen Virtualisierungshosts aus. Dadurch wird das Risiko verringert, bei Ausfall eines Virtualisierungshosts alle Domänencontroller zu verlieren.  
-2. Verwenden Sie zur Ausführung der Domänencontroller unterschiedliche Hardware (z. B. unterschiedliche CPUs, Hauptplatinen oder Netzwerkadapter), wie auch für andere Technologien empfohlen. Dadurch minimieren Sie Auswirkungen von Fehlfunktionen, die auf bestimmte Elemente (z. B. Anbieterkonfigurationen, Treiber, Hardwaremodelle oder Hardwaretypen) beschränkt sind.  
-3. Domänencontroller sollten möglichst auf Hardware ausgeführt werden, die sich in unterschiedlichen geografischen Regionen befindet. Dies verringert die Auswirkungen von Notfällen oder Fehlern an einem bestimmten Standort, an dem Domänencontroller gehostet werden.  
-4. Versehen Sie all Ihre Domänen mit physischen Domänencontrollern. Dies verringert die Auswirkungen einer Fehlfunktion einer Virtualisierungsplattform (von der auch die von der Plattform abhängigen Hostsysteme betroffen wären).  
+1. Führen Sie mindestens zwei virtualisierte Domänencontroller pro Domäne auf anderen Virtualisierungshosts aus. Dadurch wird das Risiko verringert, bei Ausfall eines Virtualisierungshosts alle Domänencontroller zu verlieren.
+2. Verwenden Sie zur Ausführung der Domänencontroller unterschiedliche Hardware (z. B. unterschiedliche CPUs, Hauptplatinen oder Netzwerkadapter), wie auch für andere Technologien empfohlen. Dadurch minimieren Sie Auswirkungen von Fehlfunktionen, die auf bestimmte Elemente (z. B. Anbieterkonfigurationen, Treiber, Hardwaremodelle oder Hardwaretypen) beschränkt sind.
+3. Domänencontroller sollten möglichst auf Hardware ausgeführt werden, die sich in unterschiedlichen geografischen Regionen befindet. Dies verringert die Auswirkungen von Notfällen oder Fehlern an einem bestimmten Standort, an dem Domänencontroller gehostet werden.
+4. Versehen Sie all Ihre Domänen mit physischen Domänencontrollern. Dies verringert die Auswirkungen einer Fehlfunktion einer Virtualisierungsplattform (von der auch die von der Plattform abhängigen Hostsysteme betroffen wären).
 
 ## <a name="security-considerations"></a>Sicherheitshinweise
 
@@ -51,8 +51,8 @@ Der Hostcomputer, auf dem die virtuellen Domänencontroller ausgeführt werden, 
 
 Berücksichtigen Sie bei der Planung der Virtualisierung von Domänencontrollern unbedingt die folgenden Sicherheitsaspekte:
 
-   - Der lokale Administrator eines Computers, auf dem virtuelle, beschreibbare Domänencontroller gehostet werden, sollte bezüglich der Anmeldeinformationen als gleichwertig betrachtet werden mit dem Standarddomänenadministrator aller Domänen und Gesamtstrukturen, denen die betreffenden Domänencontroller angehören.  
-   - Zur Vermeidung von Sicherheits- und Leistungsproblemen wird als Konfiguration empfohlen, auf einem Host eine Server Core-Installation von Windows Server 2008 oder höher mit Hyper-V als einziger Anwendung auszuführen. Je weniger Anwendungen und Dienste auf dem Server installiert sind, desto höher ist die Leistung und desto geringer ist das Risiko von Angriffen auf den Computer oder das Netzwerk über installierte Anwendungen oder Dienste. Diese Art der Konfiguration bietet eine sogenannte reduzierte Angriffsfläche. Für Zweigstellen oder andere Standorte, die nicht ausreichend geschützt werden können, wird ein schreibgeschützter Domänencontroller (Read-Only Domain Controller, RODC) empfohlen. Falls ein separates Verwaltungsnetzwerk vorhanden ist, sollte der Host nur mit dem Verwaltungsnetzwerk verbunden werden.  
+   - Der lokale Administrator eines Computers, auf dem virtuelle, beschreibbare Domänencontroller gehostet werden, sollte bezüglich der Anmeldeinformationen als gleichwertig betrachtet werden mit dem Standarddomänenadministrator aller Domänen und Gesamtstrukturen, denen die betreffenden Domänencontroller angehören.
+   - Zur Vermeidung von Sicherheits- und Leistungsproblemen wird als Konfiguration empfohlen, auf einem Host eine Server Core-Installation von Windows Server 2008 oder höher mit Hyper-V als einziger Anwendung auszuführen. Je weniger Anwendungen und Dienste auf dem Server installiert sind, desto höher ist die Leistung und desto geringer ist das Risiko von Angriffen auf den Computer oder das Netzwerk über installierte Anwendungen oder Dienste. Diese Art der Konfiguration bietet eine sogenannte reduzierte Angriffsfläche. Für Zweigstellen oder andere Standorte, die nicht ausreichend geschützt werden können, wird ein schreibgeschützter Domänencontroller (Read-Only Domain Controller, RODC) empfohlen. Falls ein separates Verwaltungsnetzwerk vorhanden ist, sollte der Host nur mit dem Verwaltungsnetzwerk verbunden werden.
    - Sie können BitLocker mit ihren Domänen Controllern verwenden, da Sie Windows Server 2016 verwenden können, um dem Gast Schlüsselmaterial auch das Entsperren des System Volumes zu ermöglichen.
    - [Geschützte Fabric-und abgeschirmte VMS](/it-server/WindowsServerDocs/virtualization/guarded-fabric-shielded-vm/guarded-fabric-and-shielded-vms.md) können zusätzliche Kontrollen zum Schutz ihrer Domänen Controller bereitstellen.
 
@@ -69,11 +69,11 @@ Die Verwendung virtueller Computer ermöglicht viele verschiedene Konfiguratione
 |Host|Arbeitsgruppen- oder Mitgliedscomputer|Arbeitsgruppen- oder Mitgliedscomputer|
 |Gast|Domänencontroller|Arbeitsgruppen- oder Mitgliedscomputer|
 
-![](media/virtualized-domain-controller-architecture/Dd363553.f44706fd-317e-4f0b-9578-4243f4db225f(WS.10).gif)
+![Sicherheitsgrenzen (Diagramm)](media/virtualized-domain-controller-architecture/Dd363553.f44706fd-317e-4f0b-9578-4243f4db225f(WS.10).gif)
 
-   - Der Administrator des Hostcomputers hat hinsichtlich der beschreibbaren Domänencontrollergäste die gleichen Zugriffsrechte wie ein Domänenadministrator und muss als solcher behandelt werden. Bei RODC-Gästen hat der Administrator des Hostcomputers hinsichtlich des Gast-RODCs die gleichen Zugriffsrechte wie ein lokaler Administrator.   
-   - Ein Domänencontroller auf einem virtuellen Computer hat Administratorrechte hinsichtlich des Hosts, wenn dieser derselben Domäne angehört. Ein böswilliger Benutzer, der sich zunächst Zugriff auf den virtuellen Computer 1 verschafft, kann alle virtuellen Computer gefährden. Dieses Phänomen wird als Angriffsvektor bezeichnet. Wenn Domänencontroller für mehrere Domänen oder Gesamtstrukturen vorhanden sind, sollten diese Domänen zentral verwaltet werden, wobei der Administrator einer Domäne für alle Domänen als vertrauenswürdig gelten muss.  
-   - Die Angriffsmöglichkeit vom virtuellen Computer 1 aus besteht, selbst wenn dieser als RODC installiert wird. Ein RODC-Administrator verfügt zwar nicht explizit über Domänenadministratorrechte, doch der RODC kann zum Senden von Richtlinien an den Hostcomputer verwendet werden. Diese Richtlinien können Startskripts enthalten. Bei erfolgreicher Ausführung des Vorgangs sind der Hostcomputer - und dadurch auch die anderen virtuellen Computer auf dem Hostcomputer - gefährdet.  
+   - Der Administrator des Hostcomputers hat hinsichtlich der beschreibbaren Domänencontrollergäste die gleichen Zugriffsrechte wie ein Domänenadministrator und muss als solcher behandelt werden. Bei RODC-Gästen hat der Administrator des Hostcomputers hinsichtlich des Gast-RODCs die gleichen Zugriffsrechte wie ein lokaler Administrator.
+   - Ein Domänencontroller auf einem virtuellen Computer hat Administratorrechte hinsichtlich des Hosts, wenn dieser derselben Domäne angehört. Ein böswilliger Benutzer, der sich zunächst Zugriff auf den virtuellen Computer 1 verschafft, kann alle virtuellen Computer gefährden. Dieses Phänomen wird als Angriffsvektor bezeichnet. Wenn Domänencontroller für mehrere Domänen oder Gesamtstrukturen vorhanden sind, sollten diese Domänen zentral verwaltet werden, wobei der Administrator einer Domäne für alle Domänen als vertrauenswürdig gelten muss.
+   - Die Angriffsmöglichkeit vom virtuellen Computer 1 aus besteht, selbst wenn dieser als RODC installiert wird. Ein RODC-Administrator verfügt zwar nicht explizit über Domänenadministratorrechte, doch der RODC kann zum Senden von Richtlinien an den Hostcomputer verwendet werden. Diese Richtlinien können Startskripts enthalten. Bei erfolgreicher Ausführung des Vorgangs sind der Hostcomputer - und dadurch auch die anderen virtuellen Computer auf dem Hostcomputer - gefährdet.
 
 ## <a name="security-of-vhd-files"></a>Sicherheit von VHD-Dateien
 
@@ -81,7 +81,7 @@ Eine VHD-Datei eines virtuellen Domänencontrollers entspricht der physischen Fe
 
 ## <a name="rodcs"></a>RODCs
 
-Ein Vorteil von RODCs ist, dass sie an Standorten verwendet werden können, an denen die physische Sicherheit nicht garantiert werden kann (z. B. an Zweigstellen). Sie können Windows BitLocker-Laufwerkverschlüsselung verwenden, um VHD-Dateien selbst (nicht die Dateisysteme darin) vor der Beeinträchtigung der physischen Festplatte auf dem Host zu schützen. 
+Ein Vorteil von RODCs ist, dass sie an Standorten verwendet werden können, an denen die physische Sicherheit nicht garantiert werden kann (z. B. an Zweigstellen). Sie können Windows BitLocker-Laufwerkverschlüsselung verwenden, um VHD-Dateien selbst (nicht die Dateisysteme darin) vor der Beeinträchtigung der physischen Festplatte auf dem Host zu schützen.
 
 ## <a name="performance"></a>Leistung
 
@@ -188,8 +188,8 @@ Mehrere gängige Praktiken im Zusammenhang mit virtuellen Computern sollten bei 
 
 Virtualisierungsplattformen, wie z. B. Hyper-V, bieten eine Reihe von Features, die das Verwalten, Warten, Sichern und Migrieren von Computern vereinfachen. Bei der Bereitstellung virtualisierter Domänencontroller empfiehlt es sich jedoch, die folgenden gängigen Praktiken (und zugehörigen Features) zu vermeiden:
 
-- Stellen Sie die Datenbankdateien eines virtuellen Domänen Controllers (Active Directory Datenbank (NTDS) nicht bereit, um die Dauerhaftigkeit von Active Directory Schreibvorgängen zu gewährleisten. DIT), Protokolle und SYSVOL) auf virtuellen IDE-Datenträgern. Erstellen Sie stattdessen eine zweite VHD, die an einen virtuellen SCSI-Controller angeschlossen ist, und stellen Sie sicher, dass die Datenbank, Protokolle und SYSVOL während der Installation des Domänen Controllers auf dem SCSI-Datenträger des virtuellen Computers platziert werden.  
-- Implementieren Sie keine differenzierenden virtuellen Festplatten auf einem virtuellen Computer, den Sie als Domänencontroller konfigurieren. Dies macht die Wiederherstellung einer früheren Version zu einfach, und die Leistung wird reduziert. Weitere Informationen zu VHD-Typen finden Sie unter [Assistent für neue virtuelle Festplatten](https://go.microsoft.com/fwlink/?linkid=137279).  
+- Stellen Sie die Datenbankdateien eines virtuellen Domänen Controllers (Active Directory Datenbank (NTDS) nicht bereit, um die Dauerhaftigkeit von Active Directory Schreibvorgängen zu gewährleisten. DIT), Protokolle und SYSVOL) auf virtuellen IDE-Datenträgern. Erstellen Sie stattdessen eine zweite VHD, die an einen virtuellen SCSI-Controller angeschlossen ist, und stellen Sie sicher, dass die Datenbank, Protokolle und SYSVOL während der Installation des Domänen Controllers auf dem SCSI-Datenträger des virtuellen Computers platziert werden.
+- Implementieren Sie keine differenzierenden virtuellen Festplatten auf einem virtuellen Computer, den Sie als Domänencontroller konfigurieren. Dies macht die Wiederherstellung einer früheren Version zu einfach, und die Leistung wird reduziert. Weitere Informationen zu VHD-Typen finden Sie unter [Assistent für neue virtuelle Festplatten](https://go.microsoft.com/fwlink/?linkid=137279).
 - Stellen Sie keine neuen Active Directory Domänen und Gesamtstrukturen in einer Kopie eines Windows Server-Betriebssystems bereit, das nicht zum ersten Mal mithilfe des System Vorbereitungs Tools (syspree) vorbereitet wurde. Weitere Informationen zur Ausführung von sy-p finden Sie unter [System Vorbereitung (System Vorbereitung)](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview) .
 
    > [!WARNING]
@@ -215,10 +215,9 @@ Dies hilft auch dabei, Probleme mit Hardware-oder Platt Form bezogenen Problemen
 > [!WARNING]
 > Stellen Sie sicher, dass jeweils immer nur eine einzige Instanz (physisch oder virtuell) eines bestimmten Domänencontrollers in einem bestimmten Netzwerk vorhanden ist, um Probleme bei der Active Directory-Replikation zu vermeiden.
 > Sie können die Wahrscheinlichkeit verringern, dass der alte Klon ein Problem darstellt:
-> 
+>
 > - Wenn der neue virtuelle Domänen Controller ausgeführt wird, ändern Sie das Computer Konto Kennwort zweimal mit: netdom resetpwd/Server: <Domänen Controller>...
 > - Exportieren und importieren Sie den neuen virtuellen Gast, um zu erzwingen, dass er zu einer neuen Generations-ID und somit zu einer Datenbank-Aufruf-ID wird.
-> 
 
 ## <a name="using-p2v-migration-to-create-test-environments"></a>Erstellen von Testumgebungen mithilfe der P2V-Migration
 
@@ -247,33 +246,33 @@ Verwenden Sie die folgenden Empfehlungen zum Speichern von Betriebssystem-, Acti
   > Wenn Sie BitLocker für den Gast des virtuellen Domänen Controllers verwenden möchten, müssen Sie sicherstellen, dass die zusätzlichen Volumes für die automatische Entsperrung konfiguriert sind.
   > Weitere Informationen zum Konfigurieren der automatischen Entsperrung finden Sie unter [enable-bitlockerautounlock](/powershell/module/bitlocker/enable-bitlockerautounlock) .
 
-- **Hostspeicherung von VHD-Dateien**: Die Empfehlungen für die Hostspeicherung beziehen sich auf die Speicherung von VHD-Dateien. Zur Optimierung der Leistung sollten Sie VHD-Dateien nicht auf einem Datenträger speichern, der häufig von anderen Diensten oder Anwendungen verwendet wird, wie z. B. auf dem Systemdatenträger, auf dem das Windows-Hostbetriebssystem installiert ist. Speichern Sie jede der VHD-Dateien auf einer vom Hostbetriebssystem und anderen VHD-Dateien getrennten Partition. Die ideale Konfiguration ist die Speicherung jeder VHD-Datei auf einem separaten physischen Laufwerk.  
+- **Hostspeicherung von VHD-Dateien**: Die Empfehlungen für die Hostspeicherung beziehen sich auf die Speicherung von VHD-Dateien. Zur Optimierung der Leistung sollten Sie VHD-Dateien nicht auf einem Datenträger speichern, der häufig von anderen Diensten oder Anwendungen verwendet wird, wie z. B. auf dem Systemdatenträger, auf dem das Windows-Hostbetriebssystem installiert ist. Speichern Sie jede der VHD-Dateien auf einer vom Hostbetriebssystem und anderen VHD-Dateien getrennten Partition. Die ideale Konfiguration ist die Speicherung jeder VHD-Datei auf einem separaten physischen Laufwerk.
 
-  Das System des physischen Host Datenträgers muss auch **mindestens eines** der folgenden Kriterien erfüllen, um die Anforderungen an die Integrität der virtualisierten Arbeits Auslastungs Daten zu erfüllen:  
+  Das System des physischen Host Datenträgers muss auch **mindestens eines** der folgenden Kriterien erfüllen, um die Anforderungen an die Integrität der virtualisierten Arbeits Auslastungs Daten zu erfüllen:
 
-   - Das System verwendet Server-Klassen Datenträger (SCSI, Fibre Channel).  
-   - Das System stellt sicher, dass die Datenträger mit einem Akku gestützten Caching-Hostbus Adapter (HBA) verbunden sind.  
-   - Das System verwendet einen Speichercontroller (z. b. ein RAID-System) als Speichergerät.  
-   - Das System stellt sicher, dass die Stromversorgung des Datenträgers durch eine unterbrechungsfreie Stromversorgung (USV) geschützt ist.  
-   - Das System stellt sicher, dass das Write-Caching-Feature des Datenträgers deaktiviert ist.  
+   - Das System verwendet Server-Klassen Datenträger (SCSI, Fibre Channel).
+   - Das System stellt sicher, dass die Datenträger mit einem Akku gestützten Caching-Hostbus Adapter (HBA) verbunden sind.
+   - Das System verwendet einen Speichercontroller (z. b. ein RAID-System) als Speichergerät.
+   - Das System stellt sicher, dass die Stromversorgung des Datenträgers durch eine unterbrechungsfreie Stromversorgung (USV) geschützt ist.
+   - Das System stellt sicher, dass das Write-Caching-Feature des Datenträgers deaktiviert ist.
 
-- **Feste virtuelle Festplatten oder Pass-Through-Datenträger**: Es gibt viele Methoden zum Konfigurieren der Speicherung für virtuelle Computer. Wenn VHD-Dateien verwendet werden, sind virtuelle Festplatten mit fester Größe effizienter als dynamische virtuelle Festplatten, da der Arbeitsspeicher für virtuelle Festplatten mit fester Größe beim Erstellen zugeordnet wird. Eine noch höhere Leistung ermöglichen Pass-Through-Datenträger, die von virtuellen Computern für den Zugriff auf physische Speichermedien verwendet werden können. Pass-Through-Datenträger sind im Prinzip physische Datenträger oder logische Gerätenummern (Logical Unit Numbers, LUNs), die einem virtuellen Computer zugeordnet sind. Das Snapshotfeature wird von Pass-Through-Datenträgern nicht unterstützt. Dies macht Pass-Through-Datenträger zur bevorzugten Festplattenkonfiguration, da bei Domänencontrollern von der Verwendung von Snapshots abgeraten wird.  
+- **Feste virtuelle Festplatten oder Pass-Through-Datenträger**: Es gibt viele Methoden zum Konfigurieren der Speicherung für virtuelle Computer. Wenn VHD-Dateien verwendet werden, sind virtuelle Festplatten mit fester Größe effizienter als dynamische virtuelle Festplatten, da der Arbeitsspeicher für virtuelle Festplatten mit fester Größe beim Erstellen zugeordnet wird. Eine noch höhere Leistung ermöglichen Pass-Through-Datenträger, die von virtuellen Computern für den Zugriff auf physische Speichermedien verwendet werden können. Pass-Through-Datenträger sind im Prinzip physische Datenträger oder logische Gerätenummern (Logical Unit Numbers, LUNs), die einem virtuellen Computer zugeordnet sind. Das Snapshotfeature wird von Pass-Through-Datenträgern nicht unterstützt. Dies macht Pass-Through-Datenträger zur bevorzugten Festplattenkonfiguration, da bei Domänencontrollern von der Verwendung von Snapshots abgeraten wird.
 
 Verwenden Sie virtuelle SCSI-Controller, um die Gefahr der Beschädigung von Active Directory Daten zu verringern:
 
    - Verwenden Sie auf Hyper-V-Servern, auf denen virtuelle Domänencontroller gehostet werden, nicht ATA/IDE-Laufwerke, sondern physische SCSI-Laufwerke. Falls Sie keine SCSI-Laufwerke verwenden können, stellen Sie sicher, dass der Schreibcache für die ATA/IDE-Laufwerke, auf denen virtuelle Domänencontroller gehostet werden, deaktiviert ist. Weitere Informationen finden Sie unter [Ereignis-ID 1539 – Datenbankintegrität](https://go.microsoft.com/fwlink/?linkid=162419).
-   - Um die Dauerhaftigkeit von Active Directory Schreibvorgängen zu gewährleisten, müssen die Active Directory Datenbank, Protokolle und SYSVOL auf einem virtuellen SCSI-Datenträger abgelegt werden. Virtuelle SCSI-Datenträger unterstützen den erzwungenen Unit Access (Fua). Fua stellt sicher, dass das Betriebssystem Daten direkt aus dem Medium schreibt und liest, wobei alle zwischen Speicherungs Mechanismen umgangen werden.  
+   - Um die Dauerhaftigkeit von Active Directory Schreibvorgängen zu gewährleisten, müssen die Active Directory Datenbank, Protokolle und SYSVOL auf einem virtuellen SCSI-Datenträger abgelegt werden. Virtuelle SCSI-Datenträger unterstützen den erzwungenen Unit Access (Fua). Fua stellt sicher, dass das Betriebssystem Daten direkt aus dem Medium schreibt und liest, wobei alle zwischen Speicherungs Mechanismen umgangen werden.
 
 ## <a name="operational-considerations-for-virtualized-domain-controllers"></a>Überlegungen zur Verwendung virtualisierter Domänencontroller
 
 Die Verwendungsmöglichkeiten von Domänencontrollern, die auf virtuellen Computern ausgeführt werden, sind - im Vergleich zu Domänencontrollern, die auf physischen Computern ausgeführt werden - eingeschränkt. Folgende Features der Virtualisierungssoftware und folgende Praktiken sollten bei virtualisierten Domänencontrollern nicht verwendet werden:
 
-   - Vermeiden Sie es, den gespeicherten Zustand eines virtualisierten Domänencontrollers für einen längeren Zeitraum als die Tombstone-Lebensdauer der Gesamtstruktur anzuhalten, zu beenden oder zu speichern und dann ausgehend vom angehaltenen oder gespeicherten Zustand weiterzuarbeiten. Dadurch können Probleme bei der Replikation verursacht werden. Informationen zum Bestimmen der Tombstone-Lebensdauer für die Gesamtstruktur finden Sie unter [bestimmen der Tombstone-Lebensdauer für die](https://go.microsoft.com/fwlink/?linkid=137177)Gesamtstruktur.  
+   - Vermeiden Sie es, den gespeicherten Zustand eines virtualisierten Domänencontrollers für einen längeren Zeitraum als die Tombstone-Lebensdauer der Gesamtstruktur anzuhalten, zu beenden oder zu speichern und dann ausgehend vom angehaltenen oder gespeicherten Zustand weiterzuarbeiten. Dadurch können Probleme bei der Replikation verursacht werden. Informationen zum Bestimmen der Tombstone-Lebensdauer für die Gesamtstruktur finden Sie unter [bestimmen der Tombstone-Lebensdauer für die](https://go.microsoft.com/fwlink/?linkid=137177)Gesamtstruktur.
    - Kopieren oder klonen Sie keine virtuellen Festplatten. Auch wenn die Sicherheitsvorkehrungen für die Gast-VM gelten, können einzelne VHDs weiterhin kopiert werden und bewirken ein Rollback für die USN.
    - Erstellen oder verwenden Sie keine Snapshots eines virtuellen Domänencontrollers. Es wird von Windows Server 2012 und höher technisch unterstützt. es ist kein Ersatz für eine gute Sicherungsstrategie. Es gibt einige Gründe für das nehmen von DC-Momentaufnahmen oder das Wiederherstellen der Momentaufnahmen
-   - Verwenden Sie keine differenzierende virtuelle Festplatte auf einem virtuellen Computer, der als Domänencontroller konfiguriert ist. Dies macht die Wiederherstellung einer früheren Version zu einfach, und die Leistung wird reduziert.  
-   - Verwenden Sie das Exportfeature nicht auf einem virtuellen Computer, auf dem ein Domänencontroller ausgeführt wird.  
-   - Verwenden Sie zum Wiederherstellen eines Domänencontrollers oder Ausführen eines Rollbacks für den Inhalt einer Active Directory-Datenbank ausschließlich unterstützte Sicherungsvorgänge Weitere Informationen finden Sie unter [Überlegungen zur Sicherung und Wiederherstellung für virtualisierte Domänen Controller](#backup-and-restore-practices-to-avoid).  
+   - Verwenden Sie keine differenzierende virtuelle Festplatte auf einem virtuellen Computer, der als Domänencontroller konfiguriert ist. Dies macht die Wiederherstellung einer früheren Version zu einfach, und die Leistung wird reduziert.
+   - Verwenden Sie das Exportfeature nicht auf einem virtuellen Computer, auf dem ein Domänencontroller ausgeführt wird.
+   - Verwenden Sie zum Wiederherstellen eines Domänencontrollers oder Ausführen eines Rollbacks für den Inhalt einer Active Directory-Datenbank ausschließlich unterstützte Sicherungsvorgänge Weitere Informationen finden Sie unter [Überlegungen zur Sicherung und Wiederherstellung für virtualisierte Domänen Controller](#backup-and-restore-practices-to-avoid).
 
 Durch diese Empfehlungen soll ein Rollback der Aktualisierungssequenznummern vermieden werden. Weitere Informationen über das Rollback für die Wiederverwendung finden Sie unter "US-v" und "Rollback".
 
@@ -285,7 +284,7 @@ Im Zusammenhang mit der Virtualisierungstechnologie erhalten bestimmte Anforderu
 
 Ein einziges Verfahren wird zum Sichern und Wiederherstellen eines virtualisierten Domänencontrollers unterstützt:
 
-1. Führen Sie die Windows Server-Sicherung im Gastbetriebssystem aus.  
+1. Führen Sie die Windows Server-Sicherung im Gastbetriebssystem aus.
 
 Mit Windows Server 2012 und neueren Hyper-V-Hosts und-Gästen können Sie unterstützte Sicherungen von Domänen Controllern mithilfe von Momentaufnahmen, Export und Import von Gast-VMS und Hyper-v-Replikation erstellen. Alle diese eignen sich jedoch nicht gut für die Erstellung eines ordnungsgemäßen Sicherungs Verlaufs, mit Ausnahme des Gast-VM-Exports.
 
@@ -303,8 +302,8 @@ Dies funktioniert zwar mit Windows Server 2012 und höher, es gibt jedoch eine I
 
 Wie bereits erwähnt, gelten für virtualisierte Domänencontroller im Vergleich zu physischen Domänencontrollern gewisse Einschränkungen. Folgende Features der Virtualisierungssoftware und folgende Praktiken sollten beim Sichern und Wiederherstellen eines virtualisierten Domänencontrollers nicht verwendet werden:
 
-   - Kopieren oder klonen Sie keine VHD-Dateien von Domänencontrollern als Ersatz für regelmäßige Sicherungen. Kopierte oder geklonte VHD-Dateien können veralten. Wenn die virtuelle Festplatte im normalen Modus gestartet wird, wird ein Rollback für die virtuelle Festplatte angezeigt. Führen Sie stattdessen ordnungsgemäße Sicherungsvorgänge aus, die von den Active Directory-Domänendiensten (Active Directory Domain Services, AD DS) unterstützt werden (beispielsweise mit der Windows Server-Sicherung).  
-   - Verwenden Sie zur Sicherung und Wiederherstellung virtualisierter Domänencontroller nicht das Snapshotfeature. Bei der Replikation treten Probleme auf, wenn Sie den virtuellen Computer mit Windows Server 2008 R2 und älter auf einen früheren Status zurücksetzen. Weitere Informationen finden Sie unter " [US-v" und "Wiederverwendungs-Rollback](#usn-and-usn-rollback)". Bei RODCs verursacht die Wiederherstellung anhand eines Snapshots zwar keine Replikationsprobleme, doch auch in diesem Fall wird davon abgeraten.  
+   - Kopieren oder klonen Sie keine VHD-Dateien von Domänencontrollern als Ersatz für regelmäßige Sicherungen. Kopierte oder geklonte VHD-Dateien können veralten. Wenn die virtuelle Festplatte im normalen Modus gestartet wird, wird ein Rollback für die virtuelle Festplatte angezeigt. Führen Sie stattdessen ordnungsgemäße Sicherungsvorgänge aus, die von den Active Directory-Domänendiensten (Active Directory Domain Services, AD DS) unterstützt werden (beispielsweise mit der Windows Server-Sicherung).
+   - Verwenden Sie zur Sicherung und Wiederherstellung virtualisierter Domänencontroller nicht das Snapshotfeature. Bei der Replikation treten Probleme auf, wenn Sie den virtuellen Computer mit Windows Server 2008 R2 und älter auf einen früheren Status zurücksetzen. Weitere Informationen finden Sie unter " [US-v" und "Wiederverwendungs-Rollback](#usn-and-usn-rollback)". Bei RODCs verursacht die Wiederherstellung anhand eines Snapshots zwar keine Replikationsprobleme, doch auch in diesem Fall wird davon abgeraten.
 
 ## <a name="restoring-a-virtual-domain-controller"></a>Wiederherstellen eines virtuellen Domänencontrollers
 
@@ -312,23 +311,23 @@ Damit Sie einen fehlerhaften Domänencontroller wiederherstellen können, müsse
 
 Wenn bei einem virtuellen Computer eines Domänencontrollers ein Fehler aufgetreten ist und kein Rollback der Aktualisierungssequenznummern vorliegt, bestehen zwei Möglichkeiten zum Wiederherstellen des virtuellen Computers:
 
-   - Falls eine gültige Sicherung der Systemstatusdaten vorhanden ist, die vor dem Auftreten des Fehlers erstellt wurde, können Sie den Systemstatus mithilfe des Sicherungsprogramms wiederherstellen, mit dem Sie die Sicherung erstellt haben. Die Sicherung der Systemstatusdaten muss mit einem Active Directory-kompatiblen Sicherungsprogramm innerhalb der Tombstone-Lebensdauer erstellt worden sein, also standardmäßig vor maximal 180 Tagen. Es empfiehlt sich, die Domänencontroller spätestens bei Erreichen der Hälfte der Tombstone-Lebensdauer zu sichern. Anweisungen dazu, wie Sie die jeweilige Tombstone-Lebensdauer für Ihre Gesamtstruktur ermitteln, finden Sie unter [bestimmen der Tombstone-Lebensdauer für die](https://go.microsoft.com/fwlink/?linkid=137177)Gesamtstruktur.  
+   - Falls eine gültige Sicherung der Systemstatusdaten vorhanden ist, die vor dem Auftreten des Fehlers erstellt wurde, können Sie den Systemstatus mithilfe des Sicherungsprogramms wiederherstellen, mit dem Sie die Sicherung erstellt haben. Die Sicherung der Systemstatusdaten muss mit einem Active Directory-kompatiblen Sicherungsprogramm innerhalb der Tombstone-Lebensdauer erstellt worden sein, also standardmäßig vor maximal 180 Tagen. Es empfiehlt sich, die Domänencontroller spätestens bei Erreichen der Hälfte der Tombstone-Lebensdauer zu sichern. Anweisungen dazu, wie Sie die jeweilige Tombstone-Lebensdauer für Ihre Gesamtstruktur ermitteln, finden Sie unter [bestimmen der Tombstone-Lebensdauer für die](https://go.microsoft.com/fwlink/?linkid=137177)Gesamtstruktur.
    - Wenn zwar eine Arbeitskopie der VHD-Datei, aber keine Systemstatussicherung verfügbar ist, können Sie den vorhandenen virtuellen Computer entfernen. Stellen Sie den vorhandenen virtuellen Computer mithilfe einer vorherigen Kopie der VHD-Datei wieder her. Starten Sie den Computer jedoch unbedingt im Verzeichnisdienst-Wiederherstellungsmodus (Directory Services Restore Mode, DSRM), und konfigurieren Sie die Registrierung ordnungsgemäß, wie im folgenden Abschnitt beschrieben. Anschließend starten Sie den Domänencontroller im normalen Modus neu.
 
 Bestimmen Sie anhand des folgenden Schemas die optimale Methode zum Wiederherstellen Ihres virtualisierten Domänencontrollers:
 
-![](media/virtualized-domain-controller-architecture/Dd363553.85c97481-7b95-4705-92a7-006e48bc29d0(WS.10).gif)
+![Diagramm zur Wiederherstellung des virtualisierten Domänen Controllers](media/virtualized-domain-controller-architecture/Dd363553.85c97481-7b95-4705-92a7-006e48bc29d0(WS.10).gif)
 
 Bei RODCs sind der Wiederherstellungsvorgang und die zu treffenden Entscheidungen einfacher:
 
-![](media/virtualized-domain-controller-architecture/Dd363553.4c5c5eda-df95-4c6b-84e0-d84661434e5d(WS.10).gif)
+![Diagramm zum Wiederherstellen eines schreibgeschützten Domänen Controllers](media/virtualized-domain-controller-architecture/Dd363553.4c5c5eda-df95-4c6b-84e0-d84661434e5d(WS.10).gif)
 
 ## <a name="restoring-the-system-state-backup-of-a-virtual-domain-controller"></a>Wiederherstellen der Systemstatussicherung eines virtuellen Domänencontrollers
 
 Wenn eine gültige Systemstatussicherung für den virtuellen Computer eines Domänencontrollers vorhanden ist, können Sie die Sicherung problemlos wiederherstellen. Führen Sie dazu das Wiederherstellungsverfahren des Sicherungstools aus, mit dem Sie die VHD-Datei gesichert haben.
 
 > [!IMPORTANT]
-> Sie müssen den Domänencontroller im Verzeichnisdienst-Wiederherstellungsmodus starten, um ihn ordnungsgemäß wiederherstellen zu können. Der Domänencontroller darf nicht im normalen Modus gestartet werden. Wenn Sie während des Systemstarts nicht die Möglichkeit haben, DSRM einzugeben, deaktivieren Sie den virtuellen Computer des Domänen Controllers, bevor er vollständig im normalen Modus gestartet werden kann. Der Domänencontroller muss unbedingt im Verzeichnisdienst-Wiederherstellungsmodus gestartet werden, da bei einem Start im normalen Modus die Aktualisierungssequenznummern erhöht würden (auch dann, wenn der Domänencontroller vom Netzwerk getrennt ist). Weitere Informationen über das Rollback für die Wiederverwendung finden Sie unter "US-v" und "Rollback". 
+> Sie müssen den Domänencontroller im Verzeichnisdienst-Wiederherstellungsmodus starten, um ihn ordnungsgemäß wiederherstellen zu können. Der Domänencontroller darf nicht im normalen Modus gestartet werden. Wenn Sie während des Systemstarts nicht die Möglichkeit haben, DSRM einzugeben, deaktivieren Sie den virtuellen Computer des Domänen Controllers, bevor er vollständig im normalen Modus gestartet werden kann. Der Domänencontroller muss unbedingt im Verzeichnisdienst-Wiederherstellungsmodus gestartet werden, da bei einem Start im normalen Modus die Aktualisierungssequenznummern erhöht würden (auch dann, wenn der Domänencontroller vom Netzwerk getrennt ist). Weitere Informationen über das Rollback für die Wiederverwendung finden Sie unter "US-v" und "Rollback".
 
 ## <a name="to-restore-the-system-state-backup-of-a-virtual-domain-controller"></a>So stellen Sie die Systemstatussicherung eines virtuellen Domänencontrollers wieder her
 
@@ -363,8 +362,8 @@ Wenn vor dem Auftreten des Fehlers beim virtuellen Computer keine Systemstatussi
 10. Es sollte mindestens ein Eintrag mit der Ereignis-ID 1109 angezeigt werden. Falls dieser Eintrag nicht angezeigt wird, führen Sie den nächsten Schritt aus. Doppelklicken Sie andernfalls auf den Eintrag. Die Aktualisierung des invocationID-Werts sollte mit dem folgenden (oder einem ähnlichen) Text bestätigt werden:
 
     ```
-    Active Directory has been restored from backup media, or has been configured to host an application partition. 
-    The invocationID attribute for this directory server has been changed. 
+    Active Directory has been restored from backup media, or has been configured to host an application partition.
+    The invocationID attribute for this directory server has been changed.
     The highest update sequence number at the time the backup was created is <time>
 
     InvocationID attribute (old value):<Previous InvocationID value>
@@ -390,8 +389,8 @@ Für jede auf einem Zieldomänencontroller gespeicherte Verzeichnispartition wer
 
 Die USNs sind in zwei Tabellen mit Replikationsmetadaten enthalten. Sie werden vom Quell- und Zieldomänencontroller verwendet, um die vom Zieldomänencontroller benötigten Änderungen zu bestimmen.
 
-1. **Aktualitätsvektor**: Eine vom Zieldomänencontroller verwaltete Tabelle zum Nachverfolgen der Quellupdates, die von den verschiedenen Quelldomänencontrollern eingehen. Wenn ein Zieldomänencontroller Änderungen für eine Verzeichnispartition anfordert, stellt er dem Quelldomänencontroller seinen Aktualitätsvektor bereit. Der Quelldomänencontroller filtert dann mithilfe dieses Werts die dem Zieldomänencontroller zu sendenden Updates. Der Quell Domänen Controller sendet seinen Aktualitäts Vektor beim Abschluss eines erfolgreichen Replikations Prozesses an das Ziel, um sicherzustellen, dass der Zieldomänen Controller weiß, dass er mit den Ursprungs Updates aller Domänen Controller synchronisiert wurde und sich die Updates auf derselben Ebene wie die Quelle befinden.  
-2. **Obere Kontingentgrenze**: Ein vom Zieldomänencontroller verwalteter Wert zum Nachverfolgen der letzten Änderungen, die von einem bestimmten Quelldomänencontroller für eine bestimmte Partition eingegangen sind. Die obere Kontingentgrenze verhindert, dass dem Zieldomänencontroller vom Quelldomänencontroller wiederholt dieselben Änderungen gesendet werden.  
+1. **Aktualitätsvektor**: Eine vom Zieldomänencontroller verwaltete Tabelle zum Nachverfolgen der Quellupdates, die von den verschiedenen Quelldomänencontrollern eingehen. Wenn ein Zieldomänencontroller Änderungen für eine Verzeichnispartition anfordert, stellt er dem Quelldomänencontroller seinen Aktualitätsvektor bereit. Der Quelldomänencontroller filtert dann mithilfe dieses Werts die dem Zieldomänencontroller zu sendenden Updates. Der Quell Domänen Controller sendet seinen Aktualitäts Vektor beim Abschluss eines erfolgreichen Replikations Prozesses an das Ziel, um sicherzustellen, dass der Zieldomänen Controller weiß, dass er mit den Ursprungs Updates aller Domänen Controller synchronisiert wurde und sich die Updates auf derselben Ebene wie die Quelle befinden.
+2. **Obere Kontingentgrenze**: Ein vom Zieldomänencontroller verwalteter Wert zum Nachverfolgen der letzten Änderungen, die von einem bestimmten Quelldomänencontroller für eine bestimmte Partition eingegangen sind. Die obere Kontingentgrenze verhindert, dass dem Zieldomänencontroller vom Quelldomänencontroller wiederholt dieselben Änderungen gesendet werden.
 
 ## <a name="directory-database-identity"></a>Verzeichnisdatenbankidentität
 
@@ -413,18 +412,18 @@ Wenn die Active Directory-Domänendienste auf einem Domänencontroller ordnungsg
 
 Angenommen, VDC1 und DC2 sind zwei Domänencontroller in derselben Domäne. Die folgende Abbildung zeigt, wie VDC1 von DC2 wahrgenommen wird, wenn der Wert der invocationID bei einer ordnungsgemäßen Wiederherstellung zurückgesetzt wird.
 
-![](media/virtualized-domain-controller-architecture/Dd363553.ca71fc12-b484-47fb-991c-5a0b7f516366(WS.10).gif)
+![Diagramm, wenn der invocationID-Wert ordnungsgemäß zurückgesetzt wird](media/virtualized-domain-controller-architecture/Dd363553.ca71fc12-b484-47fb-991c-5a0b7f516366(WS.10).gif)
 
 ## <a name="usn-rollback"></a>USN-Rollback
 
-Ein USN-Rollback erfolgt, wenn die regulären Updates der USNs umgangen werden und ein Domänencontroller eine USN zu verwenden versucht, die niedriger als das letzte Update ist. In den meisten Fällen wird ein Rollback für die Wiederverwendung in der Gesamtstruktur erkannt, und die Replikation wird beendet. 
+Ein USN-Rollback erfolgt, wenn die regulären Updates der USNs umgangen werden und ein Domänencontroller eine USN zu verwenden versucht, die niedriger als das letzte Update ist. In den meisten Fällen wird ein Rollback für die Wiederverwendung in der Gesamtstruktur erkannt, und die Replikation wird beendet.
 
 Ein USN-Rollback kann viele Ursachen haben: beispielsweise die Verwendung alter VHD-Dateien oder die Ausführung einer P2V-Konvertierung, ohne sicherzustellen, dass der physische Computer nach der Konvertierung dauerhaft offline bleibt. Mit den folgenden Maßnahmen können Sie die Ausführung von USN-Rollbacks verhindern:
 
    - Verwenden Sie keine Momentaufnahme eines virtuellen Domänen Controller Computers, wenn Windows Server 2012 oder höher nicht ausgeführt wird.
-   - Kopieren Sie die VHD-Datei des Domänencontrollers nicht.  
-   - Wenn Windows Server 2012 oder höher nicht ausgeführt wird, exportieren Sie nicht den virtuellen Computer, auf dem ein Domänen Controller ausgeführt wird.  
-   - Verwenden Sie zum Wiederherstellen eines Domänencontrollers oder zum Ausführen eines Rollbacks für die Inhalte einer Active Directory-Datenbank ausschließlich eine unterstützte Sicherungslösung, wie z. B. die Windows Server-Sicherung.  
+   - Kopieren Sie die VHD-Datei des Domänencontrollers nicht.
+   - Wenn Windows Server 2012 oder höher nicht ausgeführt wird, exportieren Sie nicht den virtuellen Computer, auf dem ein Domänen Controller ausgeführt wird.
+   - Verwenden Sie zum Wiederherstellen eines Domänencontrollers oder zum Ausführen eines Rollbacks für die Inhalte einer Active Directory-Datenbank ausschließlich eine unterstützte Sicherungslösung, wie z. B. die Windows Server-Sicherung.
 
 In manchen Fällen bleibt ein USN-Rollback unerkannt. Es kann jedoch auch weitere Replikationsfehler zur Folge haben. Bei solchen Fehlern muss zunächst das Ausmaß des Problems festgestellt werden, um es dann zeitnah zu beheben. Informationen dazu, wie Sie veraltete Objekte entfernen, die als Ergebnis eines Rollbacks für die Benutzer-ID auftreten können, finden Sie unter [Veraltete Active Directory Objekte generieren der Ereignis-ID 1988 in Windows Server 2003](https://go.microsoft.com/fwlink/?linkid=137185) in der Microsoft Knowledge Base.
 
@@ -434,13 +433,13 @@ USN-Rollbacks ohne Zurücksetzung der **invocationID** (verursacht durch unzulä
 
 Wenn unter Windows Server 2008 und Windows Server 2003 SP1 ein Zieldomänencontroller Änderungen über eine bereits verwendete USN anfordert, wird die Antwort des Quellreplikationspartners vom Zieldomänencontroller dahin gehend gedeutet, dass die Replikationsmetadaten veraltet sind. Dies bedeutet, dass für die Active Directory-Datenbank auf dem Quelldomänencontroller ein Rollback auf einen vorherigen Status ausgeführt wurde. Beispielsweise kann für die VHD-Datei eines virtuellen Computers ein Rollback auf eine vorherige Version ausgeführt worden sein. In diesem Fall werden vom Zieldomänencontroller die folgenden Quarantänemaßnahmen auf dem Domänencontroller gestartet, bei dem eine unzulässige Wiederherstellung festgestellt wurde:
 
-   - Der Netzwerkanmeldedienst wird von den Active Directory-Domänendiensten angehalten, wodurch Benutzer- und Computerkonten am Ändern von Kontokennwörtern gehindert werden. Diese Maßnahme verhindert den Verlust solcher Änderungen im Anschluss an eine unzulässige Wiederherstellung.  
-   - Die ein- und ausgehende Active Directory-Replikation wird von den Active Directory-Domänendiensten deaktiviert.  
-   - Zur Meldung dieses Zustands wird von den Active Directory-Domänendiensten die Ereignis-ID 2095 im Verzeichnisdienst-Ereignisprotokoll generiert.  
+   - Der Netzwerkanmeldedienst wird von den Active Directory-Domänendiensten angehalten, wodurch Benutzer- und Computerkonten am Ändern von Kontokennwörtern gehindert werden. Diese Maßnahme verhindert den Verlust solcher Änderungen im Anschluss an eine unzulässige Wiederherstellung.
+   - Die ein- und ausgehende Active Directory-Replikation wird von den Active Directory-Domänendiensten deaktiviert.
+   - Zur Meldung dieses Zustands wird von den Active Directory-Domänendiensten die Ereignis-ID 2095 im Verzeichnisdienst-Ereignisprotokoll generiert.
 
 Die folgende Abbildung veranschaulicht die Abfolge von Ereignissen, wenn ein USN-Rollback auf VDC2, dem auf einem virtuellen Computer ausgeführten Zieldomänencontroller, erkannt wird. In dieser Abbildung erfolgt die Erkennung des Anwendungs Rollbacks auf VDC2, wenn ein Replikations Partner erkennt, dass VDC2 einen Aktualitäts-UPN-Wert gesendet hat, der zuvor vom Zieldomänen Controller erkannt wurde. Dies deutet darauf hin, dass dies-Datenbank in der Zeit nicht ordnungsgemäß ein Rollback ausgeführt hat.
 
-![](media/virtualized-domain-controller-architecture/Dd363553.373b0504-43fc-40d0-9908-13fdeb7b3f14(WS.10).gif)
+![Diagramm, das anzeigt, was geschieht, wenn ein Rollback für die Wiederverwendung](media/virtualized-domain-controller-architecture/Dd363553.373b0504-43fc-40d0-9908-13fdeb7b3f14(WS.10).gif)
 
 Wenn im Verzeichnisdienst-Ereignisprotokoll die Ereignis-ID 2095 gemeldet wird, führen Sie sofort das folgende Verfahren aus:
 
@@ -458,14 +457,14 @@ Wenn im Verzeichnisdienst-Ereignisprotokoll die Ereignis-ID 2095 gemeldet wird,
 
 Ein USN-Rollback wird in den folgenden beiden Fällen möglicherweise nicht erkannt:
 
-1. Die VHD-Datei ist unterschiedlichen virtuellen Computern zugeordnet, die an verschiedenen Standorten gleichzeitig ausgeführt werden.  
-2. Die USN auf dem wiederhergestellten Domänencontroller ist höher als die letzte USN, die vom anderen Domänencontroller empfangen wurde.  
+1. Die VHD-Datei ist unterschiedlichen virtuellen Computern zugeordnet, die an verschiedenen Standorten gleichzeitig ausgeführt werden.
+2. Die USN auf dem wiederhergestellten Domänencontroller ist höher als die letzte USN, die vom anderen Domänencontroller empfangen wurde.
 
 Im ersten Fall können infolge einer Replikation mit anderen Domänencontrollern Änderungen auf einem der virtuellen Computer auftreten, die nicht an den anderen virtuellen Computer repliziert werden. Solche Abweichungen in der Gesamtstruktur sind schwer zu erkennen. Das Resultat sind unvorhersehbare Verzeichnisantworten. Die beschriebene Situation kann nach einer P2V-Migration eintreten, wenn sowohl der physische als auch der virtuelle Computer im selben Netzwerk ausgeführt werden. Möglich ist diese Situation auch, wenn mehrere virtuelle Domänencontroller vom selben physischen Domänencontroller erstellt und dann im selben Netzwerk ausgeführt werden.
 
 Im zweiten Fall gilt ein USN-Bereich für zwei unterschiedliche Änderungen. Dieses Problem kann sich über längere Zeit fortsetzen, ohne erkannt zu werden. Wenn jedoch ein während dieses Zeitraums erstelltes Objekt geändert wird, wird ein veraltetes Objekt erkannt und als Ereignis-ID 1988 in der Ereignisanzeige gemeldet. Die folgende Abbildung veranschaulicht, wie ein USN-Rollback in einer solchen Situation möglicherweise nicht erkannt wird.
 
-![](media/virtualized-domain-controller-architecture/Dd363553.63565fe0-d970-4b4e-b5f3-9c76bc77e2d4(WS.10).gif)
+![Diagramm, wie ein Rollback für die Wiederverwendung möglicherweise nicht erkannt wird](media/virtualized-domain-controller-architecture/Dd363553.63565fe0-d970-4b4e-b5f3-9c76bc77e2d4(WS.10).gif)
 
 ## <a name="read-only-domain-controllers"></a>Schreibgeschützte Domänencontroller
 

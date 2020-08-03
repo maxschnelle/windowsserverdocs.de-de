@@ -8,12 +8,12 @@ ms.author: jol
 ms.date: 03/01/2019
 ms.localizationpriority: medium
 ms.prod: windows-server
-ms.openlocfilehash: 71e45622292f7393b19978ec3235492c5065a8a1
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 8344fcb01a5d527dfce46118121fbf7623636549
+ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85474027"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87519669"
 ---
 # <a name="manage-hyper-converged-infrastructure-with-windows-admin-center"></a>Verwalten der hyperkonvergierten Infrastruktur mit dem Windows Admin Center
 
@@ -165,7 +165,7 @@ Nein
 
 ### <a name="does-it-require-an-internet-connection"></a>Ist eine Internet Verbindung erforderlich?
 
-Nein
+Nein.
 
 Obwohl das Windows Admin Center eine leistungsstarke und bequeme Integration in die Microsoft Azure Cloud bietet, ist die zentrale Verwaltungs-und Überwachungsumgebung für hyperkonvergierte Infrastrukturen vollständig lokal. Sie kann ohne Internet Verbindung installiert und verwendet werden.
 
@@ -217,7 +217,7 @@ Wenn Sie gerade erst beginnen, finden Sie hier einige kurze Tutorials, die Ihnen
     </tr>
 </table>
 
-### <a name="create-a-new-virtual-machine"></a>Erstellen eines neuen virtuellen Computers
+### <a name="create-a-new-virtual-machine"></a>Erstellen einer neuen VM
 
 1. Klicken Sie im Navigationsbereich auf der linken Seite auf das **Virtual Machines** Tool.
 2. Wählen Sie am oberen Rand des Virtual Machines Tools die Registerkarte **Inventur** aus, und klicken Sie dann auf **neu** , um einen neuen virtuellen Computer zu erstellen.
@@ -245,13 +245,13 @@ Wenn Sie gerade erst beginnen, finden Sie hier einige kurze Tutorials, die Ihnen
 ### <a name="replace-a-failed-drive"></a>Ersetzen eines fehlgeschlagenen Laufwerks
 
 1. Wenn ein Laufwerk ausfällt, wird im **oberen linken Bereich** des **Dashboards**eine Warnung angezeigt.
-2. Sie können auch im Navigationsbereich auf der linken Seite **Laufwerke** auswählen oder auf den Link **Laufwerke anzeigen #b0** auf der Kachel in der unteren rechten Ecke klicken, um die Laufwerke zu durchsuchen und deren Status für sich selbst anzuzeigen. Auf der Registerkarte **Inventar** unterstützt das Raster das Sortieren, gruppieren und Durchsuchen von Schlüsselwörtern.
+2. Alternativ können Sie im Navigationsbereich auf der linken Seite die Option **Laufwerke** auswählen oder auf der Kachel in der rechten unteren Ecke auf den Link **VIEW DRIVES >** (LAUFWERKE ANZEIGEN >) klicken, um die Laufwerke zu durchsuchen und sich über deren Status zu informieren. Auf der Registerkarte **Inventar** unterstützt das Raster das Sortieren, gruppieren und Durchsuchen von Schlüsselwörtern.
 3. Klicken Sie im **Dashboard**auf die Warnung, um Details wie den physischen Speicherort des Laufwerks anzuzeigen.
-4. Um weitere Informationen zu erhalten, klicken Sie auf die Verknüpfung **zu Laufwerk** wechseln zur Seite **Laufwerk** Detail.
-5. Wenn Sie von Ihrer Hardware unterstützt wird, können Sie auf **Licht einschalten/deaktivieren** klicken, um das Indikator Licht des Laufwerks zu steuern.
-6. Mit direkte Speicherplätze werden fehlerhafte Laufwerke automatisch zurückgezogen und evakuiert. Wenn dies der Fall ist, wird der Laufwerks Status abgekoppelt, und die zugehörige Speicher Kapazitäts Leiste ist leer.
-7. Entfernen Sie das fehlerhafte Laufwerk, und fügen Sie dessen Ersetzung ein.
-8. In **Laufwerke > Inventur**wird das neue Laufwerk angezeigt. In der Zeit wird die Warnung gelöscht, die Volumes werden wieder in den Status OK repariert, und der Speicher wird auf das neue Laufwerk zurückgesetzt – es ist keine Benutzeraktion erforderlich.
+4. Weitere Informationen erhalten Sie, indem Sie auf die Verknüpfung **Go to drive** (Zum Laufwerk) klicken, um zur Detailseite **Laufwerk** zu gelangen.
+5. Sofern dies von Ihrer Hardware unterstützt wird, können Sie auf **Turn light on/off** (Licht ein-/ausschalten) klicken, um die Kontrollleuchte des Laufwerks zu steuern.
+6. Fehlerhafte Laufwerke werden von „Direkte Speicherplätze“ automatisch außer Betrieb genommen und entfernt. In diesem Fall hat das Laufwerk den Status „Zurückgezogen“, und die Leiste für die Speicherkapazität ist leer.
+7. Entfernen Sie das fehlerhafte Laufwerk, und installieren Sie ein Ersatzlaufwerk.
+8. Das neue Laufwerk wird unter **Laufwerke > Bestand** angezeigt. Im Laufe der Zeit wird die Warnung entfernt, die Volumes werden repariert und kehren zum Status „OK“ zurück, und der Speicher wird mit dem neuen Laufwerk ausgeglichen – alles ganz ohne Benutzeraktion.
 
 ### <a name="manage-virtual-networks-sdn-enabled-hci-clusters-using-windows-admin-center-preview"></a>Verwalten virtueller Netzwerke (SDN-aktivierte HCI-Cluster mithilfe der Windows Admin Center-Vorschau)
 
@@ -278,7 +278,7 @@ Sie können das virtuelle Netzwerk auch konfigurieren, wenn Sie einen virtuellen
 
 ![Überwachen der Sdn-Infrastruktur](../media/manage-hyper-converged/sdn-monitoring.png)
 
-## <a name="feedback"></a>Feedback
+## <a name="give-us-feedback"></a>Geben Sie uns Feedback
 
 Ihr Feedback ist alles! Der wichtigste Vorteil von häufigen Updates besteht darin, zu erfahren, was funktioniert und was verbessert werden muss. Im folgenden finden Sie einige Möglichkeiten, uns zu informieren, was Sie denken:
 

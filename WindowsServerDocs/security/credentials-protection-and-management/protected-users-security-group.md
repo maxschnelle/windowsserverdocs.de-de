@@ -1,5 +1,5 @@
 ---
-title: Sicherheitsgruppe „Geschützte Benutzer“
+title: Sicherheitsgruppe "Geschützte Benutzer"
 description: Windows Server-Sicherheit
 ms.prod: windows-server
 ms.technology: security-credential-protection
@@ -9,25 +9,25 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: c6883513fdc02f4f4d1b874995780639279cc178
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: cd849486e441c8315daa95db351bcd214b929759
+ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80857053"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87518006"
 ---
-# <a name="protected-users-security-group"></a>Sicherheitsgruppe „Geschützte Benutzer“
+# <a name="protected-users-security-group"></a>Sicherheitsgruppe "Geschützte Benutzer"
 
-> Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 Dieses Thema für IT-Experten beschreibt die Active Directory-Sicherheitsgruppe „Geschützte Benutzer“ und erklärt deren Funktionsweise. Diese Gruppe wurde in Windows Server 2012 R2-Domänen Controllern eingeführt.
 
-## <a name="overview"></a><a name="BKMK_ProtectedUsers"></a>Übersicht über
+## <a name="overview"></a><a name="BKMK_ProtectedUsers"></a>Übersicht
 
 Diese Sicherheitsgruppe ist als Teil einer Strategie zum Verwalten der Gefährdung von Anmelde Informationen innerhalb des Unternehmens konzipiert. Für Mitglieder dieser Gruppe gilt automatisch nicht konfigurierbarer Schutz für deren Konten. Eine Mitgliedschaft in der Gruppe der geschützten Benutzer bedeutet standardmäßig eine restriktive und proaktive Sicherheit. Die einzige Methode zum Ändern dieses Schutzes für ein Konto ist die Entfernung dieses Kontos aus der Sicherheitsgruppe.
 
 > [!WARNING]
-> Konten für Dienste und Computer sollten nie Mitglied der Gruppe "geschützte Benutzer" sein. Diese Gruppe bietet trotzdem unvollständigen Schutz, da das Kennwort oder Zertifikat immer auf dem Host verfügbar ist. Bei der Authentifizierung tritt ein Fehler auf, \"der Benutzername oder das Kennwort für alle Dienste oder Computer, die der Gruppe der geschützten Benutzer hinzugefügt wurden, nicht korrekt\".
+> Konten für Dienste und Computer sollten nie Mitglied der Gruppe "geschützte Benutzer" sein. Diese Gruppe bietet trotzdem unvollständigen Schutz, da das Kennwort oder Zertifikat immer auf dem Host verfügbar ist. Bei der Authentifizierung tritt ein Fehler \" auf, wenn der Benutzername oder das Kennwort \" für alle Dienste oder Computer, die der Gruppe der geschützten Benutzer hinzugefügt wurden, nicht korrekt ist.
 
 Diese Domänen bezogene globale Gruppe löst nicht konfigurierbaren Schutz auf Geräten und Host Computern aus, auf denen Windows Server 2012 R2 ausgeführt wird, und Windows 8.1 oder höher für Benutzer in Domänen mit einem primären Domänen Controller, auf dem Windows Server 2012 R2 ausgeführt wird. Dadurch wird der Standard Speicherbedarf von Anmelde Informationen erheblich reduziert, wenn Benutzer sich mit diesen Schutzvorrichtungen bei Computern anmelden.
 
@@ -47,10 +47,10 @@ Folgende Anforderungen müssen erfüllt sein, damit Mitglieder der Gruppe der ge
 
 ### <a name="adding-protected-user-global-security-group-to-down-level-domains"></a>Hinzufügen geschützter Benutzer globaler Sicherheitsgruppen zu untergeordneten Domänen
 
-Domänen Controller, auf denen ein älteres Betriebssystem als Windows Server 2012 R2 ausgeführt wird, können das Hinzufügen von Mitgliedern zur neuen Sicherheitsgruppe für geschützte Benutzer unterstützen. Dies ermöglicht es den Benutzern, vor dem Upgrade der Domäne vom Geräteschutz zu profitieren. 
+Domänen Controller, auf denen ein älteres Betriebssystem als Windows Server 2012 R2 ausgeführt wird, können das Hinzufügen von Mitgliedern zur neuen Sicherheitsgruppe für geschützte Benutzer unterstützen. Dies ermöglicht es den Benutzern, vor dem Upgrade der Domäne vom Geräteschutz zu profitieren.
 
 > [!Note]
-> Domänen Controller werden von den Domänen Controllern nicht unterstützt. 
+> Domänen Controller werden von den Domänen Controllern nicht unterstützt.
 
 Die Gruppe "geschützte Benutzer" kann erstellt werden, indem [die Rolle "primärer Domänen Controller (PDC)](https://technet.microsoft.com/library/cc816944(v=ws.10).aspx) " auf einen Domänen Controller mit Windows Server 2012 R2 übertragen wird. Nachdem das Gruppenobjekt auf andere Domänencontroller repliziert wurde, kann die PDC-Emulatorrolle auf einem Domänencontroller gehostet werden, der unter einer älteren Windows Server-Version läuft.
 
@@ -61,9 +61,9 @@ Die folgende Tabelle zeigt die Eigenschaften der Gruppe der geschützten Benutze
 |Attribut|Wert|
 |-------|-----|
 |Gut bekannte SID/RID|S-1-5-21-<domain>-525|
-|Typ|Globale Domäne|
+|type|Globale Domäne|
 |Standardcontainer|CN=Benutzer, DC=<domain>, DC=|
-|Standardmitglieder|Keine|
+|Standardelemente|Keine|
 |Standardmitglied von|Keine|
 |Geschützt durch ADMINSDHOLDER?|Nein|
 |Speichern, um aus Standardcontainer zu entfernen?|Ja|
@@ -108,12 +108,12 @@ Konten, die Mitglieder der Gruppe der geschützten Benutzer sind, die sich bei e
 
 Nicht konfigurierbare Einstellungen zum Ablauf von TGTs werden für jedes Konto in der Gruppe der geschützten Benutzer eingerichtet. Normalerweise legt der Domänencontroller die Lebensdauer und Erneuerung der TGTs basierend auf den Domänenrichtlinien fest, **Max. Gültigkeitsdauer des Benutzertickets** und **Max. Zeitraum, in dem ein Benutzerticket erneuert werden kann**. Für die Gruppe der geschützten Benutzer ist 600 Minuten für diese Domänenrichtlinien eingestellt.
 
-Weitere Informationen finden Sie unter [Konfigurieren geschützter Konten](how-to-configure-protected-accounts.md).
+Weitere Informationen finden Sie unter [Konfigurieren geschützter Konten](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/how-to-configure-protected-accounts).
 
 ## <a name="troubleshooting"></a>Problembehandlung
 Es gibt zwei betriebliche Administrativprotokolle für die Fehlerbehebung von Ereignissen hinsichtlich geschützter Benutzer. Diese neuen Protokolle befinden sich in Ereignisanzeige und sind standardmäßig deaktiviert und befinden sich unter **Anwendungs-und dienstprotokolle\microsoft\windows\authentication**.
 
-|Ereignis-ID und Protokoll|Beschreibung|
+|Ereignis-ID und Protokoll|BESCHREIBUNG|
 |----------|--------|
 |104<p>**ProtectedUser-Client**|Grund: Das Sicherheitspaket auf dem Client enthält keine Anmeldeinformationen.<p>Der Fehler wird im Clientcomputer protokolliert, wenn das Konto Mitglied der Sicherheitsgruppe der geschützten Benutzer ist. Das Ereignis zeigt an, dass das Sicherheitspaket die Anmeldeinformationen, die für die Serverauthentifizierung erforderlich sind, nicht zwischenspeichert.<p>Zeigt den Paketnamen, Benutzernamen, Domänennamen und den Servernamen an.|
 |304<p>**ProtectedUser-Client**|Grund: das Sicherheitspaket speichert nicht die Anmelde Informationen des geschützten Benutzers.<p>Im Client wird ein Informations Ereignis protokolliert, um anzugeben, dass das Sicherheitspaket die Anmelde Informationen des Benutzers nicht zwischenspeichert. Es wird erwartet, dass Digest (WDigest), Delegierung von Anmeldeinformationen (CredSSP) und NTLM keine Anmeldeinformationen für geschützte Benutzer haben können. Anwendungen können weiterhin erfolgreich nach Anmeldeinformationen fragen.<p>Zeigt den Paketnamen, Benutzernamen und Domänennamen an.|
@@ -122,10 +122,10 @@ Es gibt zwei betriebliche Administrativprotokolle für die Fehlerbehebung von Er
 |303<p>**ProtectedUserSuccesses-DomainController**|Grund: Ein Kerberos-Ticket-Granting-Ticket (TGT) wurde erfolgreich für ein Mitglied der Gruppe der geschützten Benutzer ausgegeben.|
 
 
-## <a name="additional-resources"></a>Weitere Ressourcen
+## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
 - [Schutz und Verwaltung von Anmeldeinformationen](credentials-protection-and-management.md)
 
 - [Authentifizierungsrichtlinien und Authentifizierungsrichtliniensilos](authentication-policies-and-authentication-policy-silos.md)
 
-- [Konfigurieren geschützter Konten](how-to-configure-protected-accounts.md)
+- [Konfigurieren geschützter Konten](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/how-to-configure-protected-accounts)

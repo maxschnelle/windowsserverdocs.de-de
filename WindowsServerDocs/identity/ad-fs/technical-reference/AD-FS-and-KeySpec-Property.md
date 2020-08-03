@@ -8,15 +8,15 @@ ms.prod: windows-server
 ms.assetid: a5307da5-02ff-4c31-80f0-47cb17a87272
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: e3ddc427d84a79d831c61cad8087dbfa1d3fb564
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 36555336b158fdf7cfaa400f66b9deecbff49c1b
+ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80860243"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87519689"
 ---
 # <a name="ad-fs-and-certificate-keyspec-property-information"></a>Eigenschaften Informationen für die AD FS-und Zertifikat KeySpec
-Key Specification ("KeySpec") ist eine Eigenschaft, die einem Zertifikat und einem Schlüssel zugeordnet ist. Hiermit wird angegeben, ob ein mit einem Zertifikat verknüpften privaten Schlüssel zum Signieren, verschlüsseln oder beides verwendet werden kann.   
+Key Specification ("KeySpec") ist eine Eigenschaft, die einem Zertifikat und einem Schlüssel zugeordnet ist. Hiermit wird angegeben, ob ein mit einem Zertifikat verknüpften privaten Schlüssel zum Signieren, verschlüsseln oder beides verwendet werden kann.
 
 Ein falscher KeySpec-Wert kann zu AD FS-und webanwendungsproxy-Fehlern führen. Beispiele:
 
@@ -26,31 +26,33 @@ Ein falscher KeySpec-Wert kann zu AD FS-und webanwendungsproxy-Fehlern führen. 
 
 Im Ereignisprotokoll wird möglicherweise Folgendes angezeigt:
 
-    Log Name:      AD FS Tracing/Debug
-    Source:        AD FS Tracing
-    Date:          2/12/2015 9:03:08 AM
-    Event ID:      67
-    Task Category: None
-    Level:         Error
-    Keywords:      ADFSProtocol
-    User:          S-1-5-21-3723329422-3858836549-556620232-1580884
-    Computer:      ADFS1.contoso.com
-    Description:
-    Ignore corrupted SSO cookie.
+```
+Log Name:   AD FS Tracing/Debug
+Source: AD FS Tracing
+Date:   2/12/2015 9:03:08 AM
+Event ID:   67
+Task Category: None
+Level:  Error
+Keywords:   ADFSProtocol
+User:   S-1-5-21-3723329422-3858836549-556620232-1580884
+Computer:   ADFS1.contoso.com
+Description:
+Ignore corrupted SSO cookie.
+```
 
 ## <a name="what-causes-the-problem"></a>Ursache des Problems
 Die KeySpec-Eigenschaft gibt an, wie ein Schlüssel, der von Microsoft CryptoAPI (CAPI) generiert oder abgerufen wurde, von einem Microsoft Legacy-Kryptografiespeicheranbieter (CSP) verwendet werden kann.
 
 Der KeySpec-Wert **1**oder **AT_KEYEXCHANGE**kann zum Signieren und Verschlüsseln verwendet werden.  Der Wert **2**oder **AT_SIGNATURE**wird nur für die Signierung verwendet.
 
-Bei der gängigsten KeySpec-Fehlkonfiguration wird der Wert 2 für ein anderes Zertifikat als das Tokensignaturzertifikat verwendet.  
+Bei der gängigsten KeySpec-Fehlkonfiguration wird der Wert 2 für ein anderes Zertifikat als das Tokensignaturzertifikat verwendet.
 
 Für Zertifikate, deren Schlüssel mit CNG-Anbietern (Cryptography Next Generation) generiert wurden, gibt es kein Konzept der Schlüssel Spezifikation, und der KeySpec-Wert ist immer 0 (null).
 
-Weitere Informationen finden Sie unter Überprüfen auf einen gültigen KeySpec-Wert weiter unten. 
+Weitere Informationen finden Sie unter Überprüfen auf einen gültigen KeySpec-Wert weiter unten.
 
 ### <a name="example"></a>Beispiel
-Ein Beispiel für einen Legacy-CSP ist der Microsoft Enhanced Cryptographic Provider. 
+Ein Beispiel für einen Legacy-CSP ist der Microsoft Enhanced Cryptographic Provider.
 
 Das Microsoft RSA CSP-Schlüssel-BLOB-Format enthält einen Algorithmusbezeichner (entweder **CALG_RSA_KEYX** oder **CALG_RSA_SIGN**), um Anforderungen für <strong>AT_KEYEXCHANGE * *-oder * *-AT_SIGNATURE</strong> Schlüssel zu bedienen.
 
@@ -71,7 +73,7 @@ Im folgenden sind die Bedeutungen der verschiedenen KeySpec-Werte aufgeführt:
 |2|Für ein Legacy-CAPI-Zertifikat (nicht CNG) kann der Schlüssel nur für die Signierung verwendet werden.|nicht empfohlen|
 
 ## <a name="how-to-check-the-keyspec-value-for-your-certificates--keys"></a>Überprüfen des KeySpec-Werts für Ihre Zertifikate/Schlüssel
-Um einen Zertifikat Wert anzuzeigen, können Sie das **certutil** -Befehlszeilen Tool verwenden.  
+Um einen Zertifikat Wert anzuzeigen, können Sie das **certutil** -Befehlszeilen Tool verwenden.
 
 Im folgenden finden Sie ein Beispiel: **certutil – v – Store My**.  Dadurch werden die Zertifikat Informationen auf dem Bildschirm angezeigt.
 
@@ -95,7 +97,7 @@ Wählen Sie unter CERT_KEY_PROV_INFO_PROP_ID zwei Dinge aus:
    CNG-Anbieter (ProviderType = 0):
 
    |AD FS Zertifikat Zweck|Gültige KeySpec-Werte|
-   | --- | --- |   
+   | --- | --- |
    |SSL|0|
 
 ## <a name="how-to-change-the-keyspec-for-your-certificate-to-a-supported-value"></a>Ändern der KeySpec für Ihr Zertifikat in einen unterstützten Wert
@@ -107,7 +109,7 @@ Das Ändern des KeySpec-Werts erfordert nicht, dass das Zertifikat erneut generi
 3. Führen Sie die folgenden Schritte für jeden AD FS und jeden WAP-Server aus.
     1. Löschen des Zertifikats (vom AD FS/WAP-Server)
     2. Öffnen Sie eine PowerShell-Eingabeaufforderung mit erhöhten Rechten, und importieren Sie die PFX-Datei auf jedem AD FS-und WAP-Server, indem Sie die folgende Cmdlet-Syntax verwenden. Geben Sie dabei den AT_KEYEXCHANGE Wert an (der für alle AD FS Zertifikat Zwecke
-        1. C:\>certutil – importpfx CertFile. pfx AT_KEYEXCHANGE
+        1. C: \> certutil – importpfx CertFile. pfx AT_KEYEXCHANGE
         2. PFX-Kennwort eingeben
     3. Gehen Sie nach Abschluss der obigen Schritte folgendermaßen vor:
         1. Überprüfen der Berechtigungen für den privaten Schlüssel

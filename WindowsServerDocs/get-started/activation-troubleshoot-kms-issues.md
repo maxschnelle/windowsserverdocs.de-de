@@ -1,19 +1,19 @@
 ---
 title: 'KMS-Aktivierung: bekannte Probleme'
 description: Beschreibt häufige Probleme, die während des KMS-Aktivierungsvorgangs auftreten können, und bietet Lösungen und Anleitungen.
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 10/3/2019
 ms.technology: server-general
 author: Teresa-Motiv
 ms.author: v-tea
 manager: dcscontentpm
 ms.localizationpriority: medium
-ms.openlocfilehash: 3446ad0954510d8c96e9a2d361f24c90d325b782
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 14cdf24bc7a88acbfa226954e10274ee47a64b2a
+ms.sourcegitcommit: 145cf75f89f4e7460e737861b7407b5cee7c6645
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80826253"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87409981"
 ---
 # <a name="kms-activation-known-issues"></a>KMS-Aktivierung: bekannte Probleme
 
@@ -34,7 +34,7 @@ Wenn du System Center Operations Manager verwendest, speichert die System Center
 
 ## <a name="the-kms-client-computer-does-not-activate"></a>Der KMS-Clientcomputer wird nicht aktiviert.
 
-Überprüfe, ob der KMS-Aktivierungsschwellenwert erreicht wird. Führe auf dem KMS-Hostcomputer „Slmgr.vbs“ aus, und verwende die Befehlszeilenoption **/dli**, um die aktuelle Anzahl des Hosts zu ermitteln. Windows 7-Clientcomputer können erst aktiviert werden, wenn der KMS-Host eine Anzahl von 25 besitzt. Für die Aktivierung von Windows Server 2008 R2-KMS-Clients ist eine KMS-Anzahl von 5 erforderlich. Weitere Informationen zur KMS-Anforderungen findest du im [Bereitstellungshandbuch zur Volumenaktivierung](https://go.microsoft.com/fwlink/?linkid=155926). 
+Überprüfe, ob der KMS-Aktivierungsschwellenwert erreicht wird. Führe auf dem KMS-Hostcomputer „Slmgr.vbs“ aus, und verwende die Befehlszeilenoption **/dli**, um die aktuelle Anzahl des Hosts zu ermitteln. Windows 7-Clientcomputer können erst aktiviert werden, wenn der KMS-Host eine Anzahl von 25 besitzt. Für die Aktivierung von Windows Server 2008 R2-KMS-Clients ist eine KMS-Anzahl von 5 erforderlich. Weitere Informationen zur KMS-Anforderungen findest du im [Bereitstellungshandbuch zur Volumenaktivierung](https://go.microsoft.com/fwlink/?linkid=155926).
 
 Suche auf dem KMS-Clientcomputer im Anwendungsereignisprotokoll nach der Ereignis-ID 12289. Überprüfe dieses Ereignis auf die folgenden Informationen:
 

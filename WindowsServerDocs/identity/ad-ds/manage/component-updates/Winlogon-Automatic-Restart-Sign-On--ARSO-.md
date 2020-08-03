@@ -10,18 +10,18 @@ ms.date: 08/20/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 3ad6658c504cc90eedef2c1cb6688c6f12233b3c
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 68232d0b8ab6f4b7330b746657fc63e30a3c2e74
+ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86959872"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87518828"
 ---
 # <a name="winlogon-automatic-restart-sign-on-arso"></a>Automatische Winlogon-Neustart Anmeldung (ARSO)
 
 Während eines Windows Update müssen benutzerspezifische Prozesse ausgeführt werden, damit das Update fertiggestellt wird. Diese Prozesse erfordern, dass der Benutzer bei seinem Gerät angemeldet ist. Bei der ersten Anmeldung nach dem Initiieren eines Updates müssen die Benutzer warten, bis diese benutzerspezifischen Prozesse abgeschlossen sind, bevor Sie mit der Verwendung Ihres Geräts beginnen können.
 
-## <a name="how-does-it-work"></a>Wie funktioniert dies?
+## <a name="how-does-it-work"></a>Wie funktioniert sie?
 
 Wenn Windows Update einen automatischen Neustart initiiert, extrahiert ARSO die abgeleiteten Anmelde Informationen des aktuell angemeldeten Benutzers, speichert Sie auf dem Datenträger und konfiguriert die automatische Anmeldung für den Benutzer. Windows Update, das als System mit TCB-Berechtigung ausgeführt wird, wird der RPC-Aufruf zu diesem Zweck initiiert.
 
@@ -31,10 +31,9 @@ Wenn Sie den Benutzer in der Konsole automatisch anmelden und sperren, können W
 
 ARSO behandelt nicht verwaltete und verwaltete Geräte anders. Bei nicht verwalteten Geräten wird die Geräteverschlüsselung verwendet, ist aber nicht erforderlich, damit der Benutzer ARSO erhält. Für verwaltete Geräte sind TPM 2,0, secureboot und BitLocker für die Konfiguration von ARSO erforderlich. IT-Administratoren können diese Anforderung über Gruppenrichtlinie außer Kraft setzen. ARSO für verwaltete Geräte ist zurzeit nur für Geräte verfügbar, die mit Azure Active Directory verknüpft sind.
 
-|   | Windows-Update| Herunterfahren-g-t 0  | Vom Benutzer initiierte Neustarts | APIs mit SHUTDOWN_ARSO/EWX_ARSO-Flags |
-| --- | :---: | :---: | :---: | :---: |
-| Verwaltete Geräte | :heavy_check_mark:  | :heavy_check_mark: |   | :heavy_check_mark: |
-| Nicht verwaltete Geräte | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Windows-Update | Herunterfahren-g-t 0 | Vom Benutzer initiierte Neustarts | APIs mit SHUTDOWN_ARSO/EWX_ARSO-Flags |
+|--|--|--|--|
+| Verwaltete Geräte: Ja<p>Nicht verwaltete Geräte: Ja | Verwaltete Geräte: Ja<p>Nicht verwaltete Geräte: Ja | Verwaltete Geräte-Nein<p>Nicht verwaltete Geräte: Ja | Verwaltete Geräte: Ja<p>Nicht verwaltete Geräte: Ja |
 
 > [!NOTE]
 > Nach einem Windows Update induzierten Neustart wird der letzte interaktive Benutzer automatisch angemeldet, und die Sitzung wird gesperrt. Dies bietet die Möglichkeit, dass die Sperrbildschirm-apps eines Benutzers trotz des Windows Update Neustarts weiterhin ausgeführt werden.
@@ -159,17 +158,17 @@ Die Anmeldezeiten und die Steuerelement-Steuerelemente können verhindern, dass 
 
 ### <a name="credentials-stored"></a>Gespeicherte Anmelde Informationen
 
-|   | Kenn Wort Hash | Anmelde Informations Schlüssel | Ticket für Ticket Gewährung | Primäres Aktualisierungs Token |
-| --- | :---: | :---: | :---: | :---: |
-| Lokales Konto | :heavy_check_mark: | :heavy_check_mark: |   |   |
-| MSA-Konto | :heavy_check_mark: | :heavy_check_mark: |   |   |
-| Azure AD beige hörenden Konto | :heavy_check_mark: | :heavy_check_mark: | : heavy_check_mark: (bei Hybrid) | :heavy_check_mark: |
-| Domänen gebundenes Konto | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | : heavy_check_mark: (bei Hybrid) |
+| Kenn Wort Hash | Anmelde Informations Schlüssel | Ticket für Ticket Gewährung | Primäres Aktualisierungs Token |
+|--|--|--|--|
+| Lokales Konto: Ja | Lokales Konto: Ja | Lokales Konto-Nein | Lokales Konto-Nein |
+| MSA-Konto: Ja | MSA-Konto: Ja | MSA-Konto-Nein | MSA-Konto-Nein |
+| Azure AD beige hörenden Konto: Ja | Azure AD beige hörenden Konto: Ja | Azure AD beige hörenden Konto-ja (bei Hybrid) | Azure AD beige hörenden Konto: Ja |
+| Domänen gebundenes Konto: Ja | Domänen gebundenes Konto: Ja | Domänen gebundenes Konto: Ja | In die Domäne eingebundenes Konto-ja (bei Hybrid) |
 
 ### <a name="credential-guard-interaction"></a>Credential Guard-Interaktion
 
 Wenn für ein Gerät Credential Guard aktiviert ist, werden die abgeleiteten geheimen Schlüssel eines Benutzers mit einem Schlüssel verschlüsselt, der für die aktuelle Start Sitzung spezifisch ist. Daher wird ARSO derzeit nicht auf Geräten unterstützt, auf denen Credential Guard aktiviert ist.
 
-## <a name="additional-resources"></a>Weitere Ressourcen
+## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
 Autologon ist ein Feature, das in Windows für mehrere Versionen vorhanden ist. Dabei handelt es sich um ein dokumentiertes Feature von Windows, das auch Tools wie Autologon für Windows [http:/technet. Microsoft. com/Sysinternals/bb963905. aspx](/sysinternals/downloads/autologon)enthält. Dadurch kann sich ein einzelner Benutzer des Geräts automatisch anmelden, ohne Anmelde Informationen einzugeben. Die Anmelde Informationen werden konfiguriert und als verschlüsselter LSA-Schlüssel in der Registrierung gespeichert. Dies könnte für viele untergeordnete Fälle problematisch sein, bei denen eine Kontosperrung zwischen der Zeit des Abrufs und der Reaktivierung auftreten kann, insbesondere, wenn das Wartungsfenster in der Regel während dieser Zeit liegt.

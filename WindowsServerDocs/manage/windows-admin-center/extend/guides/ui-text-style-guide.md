@@ -1,5 +1,5 @@
 ---
-title: Windows Admin Center Text- und Designformatanleitung
+title: Windows Admin Center UI-Text und Entwurfs Stil Handbuch
 description: Windows Admin Center UI-Text und Design Style Guide SDK
 ms.technology: manage
 ms.topic: article
@@ -8,54 +8,53 @@ ms.author: jgerend
 ms.date: 01/17/2020
 ms.localizationpriority: medium
 ms.prod: windows-server
-ms.openlocfilehash: ba3cdb8dbd81ee85b0679905444f35174b8138e0
-ms.sourcegitcommit: 840d1d8851f68936db3934c80796fb8722d3c64a
+ms.openlocfilehash: d8215f3589e021ec5df6a3a150d09a2388a2f35d
+ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519462"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87518548"
 ---
-# <a name="windows-admin-center-ui-text-and-design-style-guide"></a>Windows Admin Center Text- und Designformatanleitung
+# <a name="windows-admin-center-ui-text-and-design-style-guide"></a>Windows Admin Center UI-Text und Entwurfs Stil Handbuch
 
 >Gilt für: Windows Admin Center
 
-In diesem Thema wird der allgemeine Ansatz zum Schreiben von Text in Benutzeroberflächen (UI) für Windows Admin Center als auch einige bestimmte Konventionen und Ansätze behandelt.
+In diesem Thema wird der allgemeine Ansatz zum Schreiben von Text der Benutzeroberfläche (UI) für das Windows Admin Center sowie einige spezifische Konventionen und Ansätze beschrieben.
 
-Windows Admin Center und andere Erweiterungen sollten [Microsofts VoIP-Prinzipien](https://docs.microsoft.com/style-guide/brand-voice-above-all-simple-human) folgen, damit die Erfahrung benutzerfreundlich ist. Diese Entwurfsrichtlinien basieren auf folgenden Sprachprinzipien genau wie der [Microsoft Writing Style Guide](https://docs.microsoft.com/style-guide/welcome/), stellen Sie daher sicher, dass Sie beide Ressourcen für Informationen über die [Eingabehilfen](https://docs.microsoft.com/style-guide/accessibility/accessibility-guidelines-requirements), [Akronyme](https://docs.microsoft.com/style-guide/acronyms)und [Wortwahl](https://docs.microsoft.com/style-guide/word-choice/)haben, wie beispielsweise [Bitte](https://docs.microsoft.com/style-guide/a-z-word-list-term-collections/p/please) und [Entschuldigung](https://docs.microsoft.com/style-guide/a-z-word-list-term-collections/s/sorry).
+Das Windows Admin Center und alle Erweiterungen sollten den [sprach Prinzipien von Microsoft](https://docs.microsoft.com/style-guide/brand-voice-above-all-simple-human) folgen, damit die Benutzerfreundlichkeit einfach zu verwenden und benutzerfreundlich ist. Dieser Stil Leitfaden baut auf diesen sprach Prinzipien und dem Microsoft- [Leitfaden für Schreib](https://docs.microsoft.com/style-guide/welcome/)Vorgänge auf. Achten Sie daher darauf, dass Sie sich diese beiden Ressourcen ansehen, um Informationen zu den Themen wie [Barrierefreiheit](https://docs.microsoft.com/style-guide/accessibility/accessibility-guidelines-requirements), [Akronyme](https://docs.microsoft.com/style-guide/acronyms)und [Word](https://docs.microsoft.com/style-guide/word-choice/) -Auswahl [sorry](https://docs.microsoft.com/style-guide/a-z-word-list-term-collections/s/sorry)zu [erhalten](https://docs.microsoft.com/style-guide/a-z-word-list-term-collections/p/please).
 
 ## <a name="buttons"></a>Schaltflächen
 
-- Schaltflächen sollten möglicherweise ein Wort enthalten, besonders dann, wenn Sie das Tool lokalisieren möchten. Zwei oder drei ist in Ordnung, aber versuchen Sie, länger zu vermeiden. Wenn Sie über vier Wörter oder länger verfügen, wäre es besser, ein Link Steuerelement zu verwenden.
-- Schaltflächenetikette sollten präzise, bestimmt und selbsterklärend sein. Anstelle der generischen Schaltfläche "Übermitteln", verwenden Sie ein Verb für die Aktion des Benutzers, wie "Erstellen", "Löschen", "Hinzufügen", "Formatieren" usw.
-- Wenn eine Schaltfläche auf eine Frage folgt, sollte dessen Beschriftung der Frage deutlich entsprechen (in der Regel "Ja" oder "Nein").
+- Schaltflächen sollten immer ein Wort sein, insbesondere, wenn Sie planen, das Tool zu lokalisieren. Zwei oder drei ist in Ordnung, aber versuchen Sie, länger zu vermeiden. Wenn Sie über vier Wörter oder länger verfügen, wäre es besser, ein Link Steuerelement zu verwenden.
+- Schaltflächen Bezeichnungen sollten präzise, spezifisch und selbsterklärend sein. Verwenden Sie anstelle einer generischen Schaltfläche "Senden" ein Verb, das der Benutzeraktion entspricht, z. b. "erstellen", "Löschen", "hinzufügen", "Format" usw.
+- Wenn eine Schaltfläche einer Frage folgt, sollte ihre Bezeichnung eindeutig der Frage entsprechen (in der Regel "yes" oder "No").
 
 ## <a name="capitalization"></a>Großschreibung
 
-Wir folgen der Microsoft-Formatvorlage für die [Großschreibung](https://docs.microsoft.com/style-guide/capitalization) - der Verwendung der Satz-Groß-/Kleinschreibung für ziemlich alles.
+Wir folgen dem [Microsoft-Stil](https://docs.microsoft.com/style-guide/capitalization) für die Groß-/Kleinschreibung. verwenden Sie die Groß-/Kleinschreibung im Satz.
 
-| UI-Element              |Großschreibung|Anmerkungen|
+| Benutzeroberflächenelement              |Großschreibung|Kommentare|
 |-------------------------|--------------|--------|
-|Badges (beispielsweise PREVIEW) |Großbuchstaben      ||
-|Alle anderen          |Satzstil|Es gibt jedoch einige Ausnahmen, bei denen Objekteigenschaften von WMI oder PowerShell in Betracht ziehen, die außerhalb unserer Steuerelement sind.|
+|Abzeichen (z. b. Vorschau) |Alle Obergrenzen      ||
+|Alle anderen          |Satz Stil|Es gibt jedoch einige Ausnahmen, bei denen wir Objekteigenschaften aus WMI oder PowerShell außerhalb unserer Kontrolle ablegen.|
 
 ## <a name="colons"></a>Doppelpunkte
 
-Verwenden Sie Doppelpunkte zum Einführen von Listen. Zum Beispiel:
+Verwenden Sie Doppelpunkte zum Einführen von Listen. Beispiel:
 
-    Choose one of the following:
-    Cats
-    Dogs
-    Quokkas
+Wählen Sie eine der folgenden Optionen aus:
+
+Katzen Hunde quokkas
 
 Verwenden Sie keinen Doppelpunkt in der Benutzeroberfläche, wenn sich eine Bezeichnung in einer anderen Zeile als die Bezeichnung befindet oder wenn zwischen der Bezeichnung und der Bezeichnung eindeutig unterschieden wird.
 
 Verwenden Sie Doppelpunkte in Benutzeroberflächen Text, wenn sich eine Bezeichnung in derselben Zeile wie der Text befindet, den Sie bezeichnet, und dass die beiden Elemente nicht gleichzeitig ausgeführt werden müssen.
 
-## <a name="confirmation-messages"></a>Bestätigungsnachrichten
+## <a name="confirmation-messages"></a>Bestätigungsmeldungen
 
-Bestätigungs Dialogfelder sind hilfreich, wenn die Fortsetzung unerwartete Ergebnisse aufweisen kann, z. b. Datenverlust. Sie sollten scanable, nützliche Informationen mit einem klaren Ergebnis enthalten, insbesondere bei Ereignissen, die nicht rückgängig gemacht werden können. 
+Bestätigungs Dialogfelder sind hilfreich, wenn die Fortsetzung unerwartete Ergebnisse aufweisen kann, z. b. Datenverlust. Sie sollten scanable, nützliche Informationen mit einem klaren Ergebnis enthalten, insbesondere bei Ereignissen, die nicht rückgängig gemacht werden können.
 
-- Stellen Sie sicher, dass eine Bestätigung erforderlich ist. Wenn keine neuen Informationen zur Verfügung stehen (z. b. "sind Sie sicher?"), ist möglicherweise keine Bestätigungsmeldung erforderlich.  
+- Stellen Sie sicher, dass eine Bestätigung erforderlich ist. Wenn keine neuen Informationen zur Verfügung stehen (z. b. "sind Sie sicher?"), ist möglicherweise keine Bestätigungsmeldung erforderlich.
 - Vergewissern Sie sich, dass der Kunde die Aktion fortsetzen möchte.
 - Stellen Sie sicher, dass die Haupt Anweisung (Überschrift) und der erklärende Text (Body) nicht redundant sind.
 - Definieren Sie in der Überschrift die möglichen Ergebnisse als Frage oder eine-Anweisung darüber, was als nächstes geschieht. Beispiel: "Löschen Sie alle Daten auf diesem Laufwerk? oder "Sie sind im Begriff, alle Ihre Daten zu löschen".
@@ -65,63 +64,63 @@ Bestätigungs Dialogfelder sind hilfreich, wenn die Fortsetzung unerwartete Erge
 
 ## <a name="first-run-experiences"></a>Oberfläche für den ersten Testlauf
 
-Das ersten Mal, wenn ein Benutzer eine Seite besucht, haben Sie die Möglichkeit, ihn bei der Benutzung des Tools zu unterstützen. Dies kann folgendes sein:
+Wenn ein Benutzer zum ersten Mal eine Seite besucht, haben Sie die Möglichkeit, den Einstieg in das Tool zu erleichtern. Dies könnte wie folgt lauten:
 
-- Eine Textzeichenfolge in einer leeren Seite mit kurzen Anweisungen zum Start - wählen Sie zum Beispiel""Hinzufügen", um eine App hinzuzufügen."
-- Eine Verknüpfung mit dem Steuerelement, das dem Benutzer beim Start hilft – beispielsweise "Fügen Sie eine App hinzu, um zu beginnen".
-- Eine kurze Animation oder ein Video, die den Benutzern die Konfiguration erklärt
+- Eine Text Zeichenfolge auf einer leeren Seite mit kurzen Anweisungen für den Einstieg, z. b. "SELECT ' Add ' zum Hinzufügen einer App".
+- Ein Link zu dem Steuerelement, mit dem der Benutzer gestartet wird, z. b. "Hinzufügen einer APP zu den ersten Schritten".
+- Eine kleine und kurze Animation oder ein Video, in dem der Benutzer die ersten Schritte anzeigt
 
-Hier sind einige Tipps aus unserem Styleguide für Windows:
+Im folgenden finden Sie einige Tipps aus unserem Windows Style Guide:
 
-### <a name="1-be-helpful"></a>1. Seien Sie hilfreich
+### <a name="1-be-helpful"></a>1. seien Sie hilfreich
 
-- Vermeiden Sie Marketingstil und -Sprache.
+- Vermeiden Sie Marketing Stil und-Sprache.
 - Wenn Sie eine Demo durchführen oder etwas vorschlagen, stellen Sie sicher, dass das Endergebnis eindeutig ist. die Vorgehensweise, mit der der Kunde etwas zu tun hat, ist nicht effektiv, wenn Sie nicht wissen, warum dies der Fall ist.
 - Stellen Sie keine Tipps vor, wenn der Kunde Sie nicht benötigt.
 
-### <a name="2-show-dont-tell"></a>2. Zeigen Sie Dinge, anstatt sie zu erklären
+### <a name="2-show-dont-tell"></a>2. anzeigen, nicht teilen
 
-Halten Sie Ihren Text so einfach wie möglich (kleine Animationen oder Videos).
+Halten Sie Ihren Text so einfach wie möglich (denken Sie an kleine Animationen oder Videos).
 
-### <a name="3-dont-overwhelm"></a>3. Bleiben Sie übersichtlich
+### <a name="3-dont-overwhelm"></a>3. nicht überfordern
 
-- Beschränken Sie Popups und Tipps auf 4 pro Sitzung – einschließlich Systembenachrichtigungen und Shell-Benachrichtigungen.
-- Stellen Sie sicher, dass die Popups zeitlich hilfreich sind.
+- Beschränken Sie Popups und Tipps auf eine Kombination aus 4 pro Nutzungs Sitzung – einschließlich System Benachrichtigungen und Shell-Benachrichtigungen.
+- Stellen Sie sicher, dass die zeitliche Steuerung von Popups hilfreich ist.
 - Verhindern Sie, dass der Kunde etwas tut.
-- Stellen Sie sicher, dass Popups auf einfache Weise geschlossen werden.
+- Stellen Sie sicher, dass Popups problemlos verworfen werden.
 
-### <a name="4-keep-it-contextual"></a>4. Bleiben Sie Kontextbezogen
+### <a name="4-keep-it-contextual"></a>4. bleiben Sie kontextbezogen.
 
-- Lernphasen sind am effektivsten, wenn sie zur richtigen Zeit angezeigt werden.
-- Wenn Sie Lernprogramme oder Bildschirmpräsentationen erstellen, machen Sie die Infos konkret.
-- Kein Marketing "Geplapper" – Schwerpunkt auf bestimmte Tipps und Tricks.
+- Lehr Momente sind am effektivsten, wenn Sie zum richtigen Zeitpunkt präsentiert werden.
+- Wenn Sie Tutorials oder Diashows erstellen, behalten Sie die Informationen konkret bei.
+- Kein Marketing "Fluff" – Schwerpunkt auf bestimmten Tipps und Tricks.
 - Bieten Sie Kunden die Möglichkeit, später zum Tutorial zurückzukehren, falls dies relevant ist (Personen, die die Informationen zum ersten Mal nicht aufbewahren, aber die Setup Anweisungen sind möglicherweise nur einmal relevant).
-- Leerstatusanzeigen sind ein natürlicher Platz zum Lernen und/oder Spass – bleiben Sie einfach und informativ.
+- "Empty-State Messaging" ist eine natürliche Stelle zum Erlernen und/oder begeistern – es ist einfach und informativ.
 
-### <a name="5-minimize-painful-setup"></a>5. Minimieren Sie mühsame Setups
+### <a name="5-minimize-painful-setup"></a>5. minimieren von schmerzhafter Einrichtung
 
-Wenn der Kunde zum Ausführen des vollständigen Umgebung mehr Aktionen benötigt (Anmeldung an einem Onlinedienst usw.), machen Sie es so einfach wie möglich.
+Wenn Sie möchten, dass der Kunde eine weitere Aktion ausführt, um den vollständigen Wert (Anmelden bei einem Onlinedienst usw.) auszuführen, machen Sie ihn so unkompliziert wie möglich.
 
-- Nachrichten sollten kurz und direkt sein.
-- Vermeiden sie das sofortige Senden. Wenn möglich, bieten Sie eine Möglichkeit für die Verbindung vom Standort aus.
-- Wenn möglich, bieten Sie die Option, die Aktion später durchzuführen, und erinnern Sie den Benutzer später daran.
-- Wenn Sie die Aktion wechseln, geben Sie eine Möglichkeit, schnell und einfach wieder zurückzukehren.
+- Messaging sollte kurz und direkt sein.
+- Vermeiden Sie es, Sie zu senden. Stellen Sie nach Möglichkeit eine Möglichkeit zum Herstellen einer Verbindung her, wo Sie sich befinden.
+- Wenn dies möglich ist, lassen Sie die Option später zu, und erinnern Sie diese später daran, dies zu tun.
+- Wenn Sie diese nicht mehr benötigen, können Sie schnell und einfach zurück wechseln.
 
 ## <a name="help-links"></a>Hilfe Links
 
-Hier sind einige Tipps aus unserem Styleguide für Windows:
+Im folgenden finden Sie einige Tipps aus unserem Windows Style Guide:
 
 ### <a name="when-should-we-provide-a-help-link"></a>Wann sollte ein Hilfelink bereitgestellt werden?
 
 Fast nie. Geben Sie nur dann einen Hilfelink an, wenn:
 
-- Es gibt eine offensichtliche und wichtige Frage, die Kunden wahrscheinlich haben, während Sie sich in der Benutzeroberfläche befinden. die Antwort darauf hilft Ihnen, bei der UI-Aufgabe erfolgreich zu sein. 
-- In der Benutzeroberfläche ist nicht genügend Speicherplatz vorhanden, um die erforderliche Menge an Informationen bereitzustellen, damit Benutzer bei der UI-Aufgabe erfolgreich sein können. 
+- Es gibt eine offensichtliche und wichtige Frage, die Kunden wahrscheinlich haben, während Sie sich in der Benutzeroberfläche befinden. die Antwort darauf hilft Ihnen, bei der UI-Aufgabe erfolgreich zu sein.
+- In der Benutzeroberfläche ist nicht genügend Speicherplatz vorhanden, um die erforderliche Menge an Informationen bereitzustellen, damit Benutzer bei der UI-Aufgabe erfolgreich sein können.
 
-### <a name="where-should-help-links-appear"></a>Wo sollen Hilfe Links angezeigt werden? 
+### <a name="where-should-help-links-appear"></a>Wo sollen Hilfe Links angezeigt werden?
 
-- Text Verknüpfungen sollten in der Nähe des Elements der Benutzeroberfläche angezeigt werden, auf die die Hilfe so weitergeleitet wird. 
-- Wenn Sie einen Textlink angeben müssen, der für einen gesamten Bildschirm der Benutzeroberfläche gilt, platzieren Sie ihn unten links auf dem Bildschirm. 
+- Text Verknüpfungen sollten in der Nähe des Elements der Benutzeroberfläche angezeigt werden, auf die die Hilfe so weitergeleitet wird.
+- Wenn Sie einen Textlink angeben müssen, der für einen gesamten Bildschirm der Benutzeroberfläche gilt, platzieren Sie ihn unten links auf dem Bildschirm.
 - Wenn Sie über eine Hilfe Schaltfläche (?) einen Link bereitstellen, sollte die QuickInfo "Help" lauten.
 
 ### <a name="what-url-should-we-use"></a>Welche URL sollte verwendet werden?
@@ -130,26 +129,26 @@ Verknüpfen Sie niemals direkt mit einer Webadresse – verwenden Sie stattdesse
 
 Microsoft-Entwickler sollten einen fwlink verwenden, außer wenn es sich um einen Hilfelink handelt, den Benutzer möglicherweise manuell eingeben müssen. in diesem Fall verwenden Sie einen aka.MS-Link (sofern das Ziel der URL eine Website ist, die das Browser Gebiets Schema automatisch erkennt, z. b. docs.Microsoft.com).
 
-### <a name="text-guidelines"></a>Text Richtlinien 
+### <a name="text-guidelines"></a>Text Richtlinien
 
 - Verwenden Sie vollständige Sätze.
-- Fügen Sie keine endpunktierungen mit Ausnahme von Fragezeichen ein. 
-- Sie müssen nicht denselben Text wie den Aufgaben Titel verwenden. Verwenden Sie Text, der im Kontext der Benutzeroberfläche sinnvoll ist, aber stellen Sie sicher, dass zwischen den beiden eine logische Verbindung besteht. Zum Beispiel: 
-- Hilfelink: welche Risiken besteht darin, Ausnahmen zuzulassen? 
+- Fügen Sie keine endpunktierungen mit Ausnahme von Fragezeichen ein.
+- Sie müssen nicht denselben Text wie den Aufgaben Titel verwenden. Verwenden Sie Text, der im Kontext der Benutzeroberfläche sinnvoll ist, aber stellen Sie sicher, dass zwischen den beiden eine logische Verbindung besteht. Beispiel:
+- Hilfelink: welche Risiken besteht darin, Ausnahmen zuzulassen?
 - Hilfe Thementitel: "zulassen, dass ein Programm über die Windows-Firewall kommuniziert"
-- Gehen Sie so spezifisch wie möglich zum Inhalt des Hilfe Themas. 
+- Gehen Sie so spezifisch wie möglich zum Inhalt des Hilfe Themas.
     - Unser Stil
         - Wie unterstützt die Windows-Firewall den Schutz meines Computers?
         - Warum Highlights ein Bild verbessern können
     - Nicht unser Stil
         - Weitere Informationen zur Windows-Firewall
         - Weitere Informationen zur Farbverwaltung
-        - Mehr erfahren
-- Verwenden Sie den gesamten Satz für den Linktext, nicht nur die Schlüsselwörter. 
-    - Unser Stil 
+        - Erfahren Sie mehr
+- Verwenden Sie den gesamten Satz für den Linktext, nicht nur die Schlüsselwörter.
+    - Unser Stil
         - [Welche Risiken besteht darin, Ausnahmen zuzulassen?]()
     - Nicht unser Stil
-        - Welche [Risiken besteht darin, Ausnahmen zuzulassen]()? 
+        - Welche [Risiken besteht darin, Ausnahmen zuzulassen]()?
 
 ## <a name="error-messages"></a>Fehlermeldungen
 
@@ -169,7 +168,7 @@ Verwenden Sie eine Nachricht pro Fehlerfall.
 - Vermeiden Sie die Verwendung von "Es gab ein Problem" in Überschriften, es sei denn, Sie haben keine andere Wahl. Spezifischere Informationen zum Problem.
 - Vermeiden Sie die Verwendung von Variablen (wie Datei-, Ordner-und APP-Namen) in Überschriften. Fügen Sie Sie in den Text ein.
 
-#### <a name="body"></a>Textkörper
+#### <a name="body"></a>Text
 
 - Wenn die Überschrift ausreichend das Problem oder die Lösung erläutert, benötigen Sie keinen Textkörper.
 - Wiederholen Sie den Titel in der Nachricht nicht mit einem etwas anderen Wortlaut.
@@ -199,12 +198,12 @@ Der Status NULL tritt auf, wenn Kundendaten oder-Inhalte nicht in einer APP oder
 
 ### <a name="guidelines"></a>Richtlinien
 
-- Verwenden Sie nach Möglichkeit NULL-Status Situationen als Gelegenheit, Personen darüber zu informieren, wie Sie das Feature verwenden können (z. b. Hinzufügen von Musik, wo Sie Bilder finden usw.).  
-  - Wenn Sie in der Benutzeroberfläche über einen Titel verfügen, erklären Sie die Aktion, die Sie zum "korrigieren" des NULL-Zustands ausführen müssen (z. b. "Add some Music"). 
-  - Sie haben Spaß mit dem Text. Dieser Platz kann eine Gelegenheit sein, Freude zu schaffen, da er wahrscheinlich nicht mehrmals angezeigt wird. 
-  - Vermeiden Sie "Es ist einsam hier." Dies ist traurig und wurde über ausgelastet. 
-  - Vermeiden Sie Fragen wie "Ihr Drucker wurde nicht verbunden?" Sie können einmal verwenden, doch dieses Format wird tendenziell überlastet, und Fragen werden dem Kunden zusätzliche Belastung und Belastung ausgesetzt. Dies kann auch als absteigend angezeigt werden. 
-  - Die Vielfalt im Text des NULL-Zustands ist eine gute Sache. 
+- Verwenden Sie nach Möglichkeit NULL-Status Situationen als Gelegenheit, Personen darüber zu informieren, wie Sie das Feature verwenden können (z. b. Hinzufügen von Musik, wo Sie Bilder finden usw.).
+  - Wenn Sie in der Benutzeroberfläche über einen Titel verfügen, erklären Sie die Aktion, die Sie zum "korrigieren" des NULL-Zustands ausführen müssen (z. b. "Add some Music").
+  - Sie haben Spaß mit dem Text. Dieser Platz kann eine Gelegenheit sein, Freude zu schaffen, da er wahrscheinlich nicht mehrmals angezeigt wird.
+  - Vermeiden Sie "Es ist einsam hier." Dies ist traurig und wurde über ausgelastet.
+  - Vermeiden Sie Fragen wie "Ihr Drucker wurde nicht verbunden?" Sie können einmal verwenden, doch dieses Format wird tendenziell überlastet, und Fragen werden dem Kunden zusätzliche Belastung und Belastung ausgesetzt. Dies kann auch als absteigend angezeigt werden.
+  - Die Vielfalt im Text des NULL-Zustands ist eine gute Sache.
 
 ### <a name="examples"></a>Beispiele
 
@@ -215,29 +214,29 @@ Der Status NULL tritt auf, wenn Kundendaten oder-Inhalte nicht in einer APP oder
 - "Wenn Sie die Ergebnisse entsperren, Spiele Ausschnitte aufzeichnen und Freunde hinzufügen, sehen Sie alles hier."
 - "Ihre bevorzugten Freunde werden hier angezeigt, sodass Sie sehen können, wann Sie online sind und was Sie sind."
 
-## <a name="punctuation"></a>Zeichensetzung
+## <a name="punctuation"></a>Interpunktion
 
-- Keine Interpunktion am Ende (Punkte, Fragezeichen) für Überschriften oder unvollständigen Sätze. Eine Ausnahme ist in ein Bestätigungsdialogfeld, in dem die Überschrift die Frage ist
-- Verwenden Sie Microsoft-Styleguideanleitungen für [Punkte](https://docs.microsoft.com/style-guide/punctuation/periods) und [Fragezeichen](https://docs.microsoft.com/style-guide/punctuation/question-marks).
+- Keine endende Interpunktions Zeichen (Zeiträume, Fragezeichen) für Überschriften oder unvollständige Sätze. Eine Ausnahme wird in einem Bestätigungs Dialogfeld angezeigt, in dem die Frage angezeigt wird.
+- Verwenden Sie die Anleitung des Microsoft-Styleguides zu [Zeiträumen](https://docs.microsoft.com/style-guide/punctuation/periods) und [Fragezeichen](https://docs.microsoft.com/style-guide/punctuation/question-marks).
 
-## <a name="status-messages"></a>Statusnachrichten
+## <a name="status-messages"></a>Statusmeldungen
 
-Statusnachrichten bestehen aus Popup (Toast)-Nachrichten und Benachrichtigungen.
+Status Meldungen bestehen aus Popup-und Benachrichtigungs Meldungen.
 
-|String-Typ         | Anmerkungen                               |
+|Zeichen Folgentyp         | Notizen                               |
 |------------        |-------------------------------------|
-|Popup               |Zeichensetzung am Satzende - idealerweise mit einer Objektvariable, damit Benutzer verstehen, welches Objekt die Nachricht betrifft, für den Fall, dass sie sich vom Objekt entfernt haben|
+|Toast               |Satz Fall mit endeinterpunktions Zeichen (idealerweise mit einer Objektvariablen), damit Benutzer erkennen können, auf welches Objekt die Nachricht angewendet wird, wenn Sie vom Objekt entfernt wurden.|
 |Benachrichtigungs Überschrift (Titel) |Satz Fall ohne endende Interpunktions Zeichen (eine Überschrift), idealerweise mit einer Objektvariablen|
-|Benachrichtigungsdetails|Vollständige Sätze, idealerweise mit Links zur Benutzeroberfläche, die das Objekt anzeigt|
+|Benachrichtigungsdetails|Vollständige Sätze, idealerweise mit einem Link zur Benutzeroberfläche, auf der das Objekt angezeigt wird|
 
-Es folgen einige detaillierten Empfehlungen für die Benachrichtigung aus:
+Im folgenden finden Sie einige ausführliche Empfehlungen für Benachrichtigungs Meldungen:
 
-|String-Typ         | Anmerkungen                               |
+|Zeichen Folgentyp         | Notizen                               |
 |------------        |-------------------------------------|
-|Started             |Sollte ausgelassen werden, wenn möglich - sie können in der Regel die Nachricht in Bearbeitung überspringen und so die Anzahl der Ablenkungen minimieren.|
-|In Bearbeitung         |Beginnen Sie mit dem Verb der Aktion, die Sie durchführen und enden Sie mit Ellipsen, um einen laufenden Vorgang anzugeben. Beispiel:<br> *Das Volume "Kundendaten" wird erstellt...* <br><br>Wenn mehrere Variablen vorhanden sind, verwenden Sie dieses Muster: <br>*Der folgende virtuelle Computer wird gelöscht: {0}; Host: {1}* |
-|Möglich             |Beginnen Sie mit "Erfolgreich" und enden Sie mit dem Vorgang der Software. Beispiel:<br> *Das Volume "Customer Data" wurde erfolgreich erstellt.*|
-|Nicht möglich             |Beginnen Sie mit "Konnte nicht" und enden Sie damit, was die Software nicht konnte. Beispiel:<br> *Das Volume "Customer Data" konnte nicht erstellt werden.*|
+|Gestartet             |Nach Möglichkeit weglassen: Normalerweise können Sie einfach mit der in Bearbeitung befindlichen Nachricht fortfahren, um die Anzahl der Ablenkungen zu minimieren.|
+|In Bearbeitung         |Beginnen Sie mit dem Verb der Aktion, die Sie ausführen, und beenden Sie mit Auslassungs Zeichen, um einen laufenden Vorgang anzuzeigen. Ein Beispiel:<br> *Das Volume "Kundendaten" wird erstellt...* <br><br>Wenn mehrere Variablen vorhanden sind, verwenden Sie dieses Muster: <br>*Der folgende virtuelle Computer wird gelöscht: {0} ; Host{1}* |
+|Erfolg             |Beginnen Sie mit "erfolgreich", und beenden Sie das, was die Software soeben getan hat. Ein Beispiel:<br> *Das Volume "Customer Data" wurde erfolgreich erstellt.*|
+|Fehler             |Beginnen Sie mit "was nicht", und beenden Sie den Funktionsumfang der Software. Ein Beispiel:<br> *Das Volume "Customer Data" konnte nicht erstellt werden.*|
 
 ## <a name="tooltips"></a>QuickInfos
 
@@ -247,7 +246,7 @@ Quick Infos sollten sehr sparsam oder gar nicht verwendet werden. Dies kann eine
 
 |    Kontext                                 |    Schreiben der Quick Infos    |
 |    -----------------------                 |    -------------------------    |
-|Wenn ein Steuerelement oder ein Benutzeroberflächen Element nicht beschriftet ist...|Verwenden Sie einen einfachen, beschreibenden Substantiv Ausdruck. Zum Beispiel:<br> Stift hervorheben |
+|Wenn ein Steuerelement oder ein Benutzeroberflächen Element nicht beschriftet ist...|Verwenden Sie einen einfachen, beschreibenden Substantiv Ausdruck. Beispiel:<br> Stift hervorheben |
 |Wenn ein Benutzeroberflächen Element gekennzeichnet ist, aber sein Zweck eine Erläuterung erfordert...|<ul><li>Beschreiben Sie kurz, was Sie mit diesem UI-Element tun können. </li><li>Verwenden Sie das imperative Verb-Formular. Beispiel: "Text in dieser Datei suchen" (nicht "sucht nach Text in dieser Datei").</li><li>Schließen Sie keine Endpunkte ein, es sei denn, es gibt mehrere vollständige Sätze.</li> </ul>|
 |Wenn eine Text Bezeichnung abgeschnitten wird oder in einigen Sprachen abgeschnitten wird...|<ul><li>Geben Sie die nicht gekürzte Bezeichnung in der QuickInfo an.</li><li>Optional: Geben Sie in einer anderen Zeile eine Beschreibungs Beschreibung an, aber nur bei Bedarf.</li><li>Geben Sie keine QuickInfo an, wenn die nicht abgeschnittene Informationen an anderer Stelle auf der Seite oder im Flow bereitgestellt werden.</li></ul>|
 |Wenn eine Tastenkombination verfügbar ist...|<ul><li>Optional: Geben Sie die Tastenkombination in Klammern nach der Bezeichnung oder dem beschreibenden Ausdruck an, z. b. "Drucken (STRG + P)" oder "Text in dieser Datei suchen (STRG + F)".</li><li>Es ist in Ordnung, eine hilfreiche Tastenkombination zu einer QuickInfo-QuickInfo hinzuzufügen. vermeiden Sie jedoch, eine QuickInfo hinzuzufügen, um eine Tastenkombination anzuzeigen. </li></ul>|

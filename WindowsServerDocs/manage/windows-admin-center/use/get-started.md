@@ -8,20 +8,20 @@ ms.author: niwashbu
 ms.localizationpriority: medium
 ms.prod: windows-server
 ms.date: 02/15/2019
-ms.openlocfilehash: fc8e6ffa39320cfc73bf3f5bd0a5bc765ded24b4
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 5c0094c9cecfb50304b0317ab11c60f0332ef3a7
+ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79322872"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87518568"
 ---
 # <a name="get-started-with-windows-admin-center"></a>Einstieg in das Windows Admin Center
 
->Gilt für: Windows Admin Center, Windows Admin Center Vorschau
+>Gilt für: Windows Admin Center, Windows Admin Center-Vorschau
 
 > [!Tip]
 > Neu bei Windows Admin Center?
-> [Erfahren Sie mehr über Windows Admin Center](../overview.md) oder [jetzt herunterladen](https://aka.ms/windowsadmincenter).
+> [Erfahren Sie mehr über Windows Admin Center](../overview.md), oder [laden Sie es jetzt herunter](https://aka.ms/windowsadmincenter).
 
 ## <a name="windows-admin-center-installed-on-windows-10"></a>Windows Admin Center auf Windows 10 installiert
 
@@ -33,18 +33,18 @@ ms.locfileid: "79322872"
 Wenn Sie das Windows Admin Center zum ersten Mal unter Windows 10 öffnen, stellen Sie sicher, dass Sie das *Windows Admin Center-Client* Zertifikat auswählen (andernfalls erhalten Sie einen HTTP 403-Fehler, der besagt, dass Sie nicht zu dieser Seite gelangen können).
 
 Wenn Sie in Microsoft Edge aufgefordert werden, dieses Dialogfeld zu erhalten:
- 
+
 1. Klicken Sie auf **Weitere Optionen**
 
-    ![](../media/launch-cert-1.png)
+    ![Wählen Sie ein Zertifikat Feld aus, und wählen Sie weitere Optionen](../media/launch-cert-1.png)
 
 2. Wählen Sie das Zertifikat mit der Bezeichnung **Windows Admin Center Client** aus, **und klicken Sie**
 
-    ![](../media/launch-cert-2.png)
+    ![Wählen Sie ein Zertifikat Feld mit verfügbaren Zertifikaten aus.](../media/launch-cert-2.png)
 
 3. Stellen Sie sicher, dass **immer Zugriff zulassen** ausgewählt ist, **und klicken Sie**
 
-    ![](../media/launch-cert-3.png)
+    ! Anmelde Informationen erforderlich (Dialogfeld)] (.. /Media/launch-cert-3.png)
 
 ## <a name="connecting-to-managed-nodes-and-clusters"></a>Herstellen einer Verbindung mit verwalteten Knoten und Clustern
 
@@ -52,17 +52,17 @@ Nachdem Sie die Installation des Windows Admin Centers abgeschlossen haben, kön
 
  **Fügen Sie einen einzelnen Server oder einen Cluster als verwalteten Knoten hinzu.**
 
-1. Klicken Sie unter **alle Verbindungen**auf **+ Hinzufügen** .
+1. Klicken Sie unter **Alle Verbindungen** auf **+ Hinzufügen**.
 
-   ![](../media/launch/addserver0.png)
+   ![Windows Admin Center-Seite "alle Verbindungen"](../media/launch/addserver0.png)
 
 2. Wählen Sie das Hinzufügen eines Servers, Clusters, Windows-PCs oder einer Azure-VM aus:
-    
-   ![](../media/launch/ChooseConnectionType.png)
+
+   ![Windows Admin Center-Seite "Ressourcen hinzufügen"](../media/launch/ChooseConnectionType.png)
 
 3. Geben Sie den Namen des zu verwaltenden Servers oder Clusters ein, und klicken Sie auf **senden**. Der Server oder Cluster wird auf der Übersichtsseite zur Verbindungsliste hinzugefügt.
 
-   ![](../media/launch/addserver2.png)
+   ![Seite "Windows Admin Center-Server"](../media/launch/addserver2.png)
 
    **--Oder--**
 
@@ -70,7 +70,7 @@ Nachdem Sie die Installation des Windows Admin Centers abgeschlossen haben, kön
 
  1. Wählen Sie auf der Seite **Server Verbindung hinzufügen** die Registerkarte **Server importieren** aus.
 
-    ![](../media/launch/import-servers.png)
+    ![Windows Admin Center-Registerkarte "Server importieren"](../media/launch/import-servers.png)
 
  2. Klicken Sie auf **Durchsuchen** , und wählen Sie eine Textdatei aus, die ein Komma oder eine neue durch Trennzeichen getrennte Liste von FQDNs für die Server enthält, die Sie hinzufügen möchten.
 
@@ -83,7 +83,7 @@ Nachdem Sie die Installation des Windows Admin Centers abgeschlossen haben, kön
 
  1. Wählen Sie auf der Seite **Server Verbindung hinzufügen** die Registerkarte **Active Directory suchen** aus.
 
-    ![](../media/launch/search-ad.png)
+    ![Windows Admin Center-Such Active Directory Registerkarte](../media/launch/search-ad.png)
 
  2. Geben Sie Suchkriterien ein, und klicken Sie auf **Suchen**. Platzhalter (*) werden unterstützt.
 
@@ -95,7 +95,7 @@ Das Windows Admin Center unterstützt mehrere Mechanismen zum Authentifizieren m
 
 **Einmaliges Anmelden**
 
-Sie können Ihre aktuellen Windows-Anmelde Informationen verwenden, um sich mit dem verwalteten Knoten zu authentifizieren. Dies ist die Standardeinstellung, und das Windows Admin Center versucht, sich anzumelden, wenn Sie einen Server hinzufügen. 
+Sie können Ihre aktuellen Windows-Anmelde Informationen verwenden, um sich mit dem verwalteten Knoten zu authentifizieren. Dies ist die Standardeinstellung, und das Windows Admin Center versucht, sich anzumelden, wenn Sie einen Server hinzufügen.
 
 **Einmaliges Anmelden bei Bereitstellung als Dienst unter Windows Server**
 
@@ -107,11 +107,11 @@ Wenn Sie Windows Admin Center auf Windows Server installiert haben, ist für Sin
 
 Wählen Sie unter **alle Verbindungen**einen Server aus der Liste aus, und wählen Sie **verwalten als** aus, um die Anmelde Informationen anzugeben, die Sie für die Authentifizierung beim verwalteten Knoten verwenden werden:
 
-![](../media/launch-use-6.png)
+![Alle Verbindungen, verwalten als-Option](../media/launch-use-6.png)
 
 Wenn Windows Admin Center im Dienst Modus unter Windows Server ausgeführt wird, aber keine Kerberos-Delegierung konfiguriert ist, müssen Sie Ihre Windows-Anmelde Informationen erneut eingeben:
 
-![](../media/launch-use-7.png)
+![Seite "Ihre Anmelde Informationen angeben"](../media/launch-use-7.png)
 
 Sie können die Anmelde Informationen auf alle Verbindungen anwenden, wodurch Sie für die jeweilige Browsersitzung zwischengespeichert werden. Wenn Sie Ihren Browser neu laden, müssen Sie Ihre **Manage als** Anmelde Informationen erneut eingeben.
 
@@ -128,7 +128,7 @@ Sie können Tags verwenden, um verwandte Server in der Verbindungsliste zu ident
 * Wählen Sie in der Liste "alle Verbindungen" einen Server oder mehrere Server aus.
 * Klicken Sie unter **alle Verbindungen**auf **Tags bearbeiten** .
 
-![](../media/launch/tags-5.png)
+![Windows Admin Center-Option "Tags bearbeiten"](../media/launch/tags-5.png)
 
 Im Bereich " **Verbindungs Tags bearbeiten** " können Sie Tags Ihrer ausgewählten Verbindung (en) ändern, hinzufügen oder entfernen:
 
@@ -140,16 +140,19 @@ Im Bereich " **Verbindungs Tags bearbeiten** " können Sie Tags Ihrer ausgewähl
 
 * Wenn ein Tag auf eine Teilmenge der ausgewählten Verbindungen angewendet wird, wird das Kontrollkästchen in einem Zwischenzustand angezeigt. Sie können auf das Kontrollkästchen klicken, um es zu überprüfen und das Tag auf alle ausgewählten Verbindungen anzuwenden. Sie können auch auf das Kontrollkästchen klicken, um es zu deaktivieren und das Tag aus allen ausgewählten Verbindungen zu entfernen
 
-![](../media/launch/tags-6.png)
+![Windows Admin Center-Seite "Verbindungs Tags bearbeiten"](../media/launch/tags-6.png)
 
 ### <a name="filter-connections-by-tag"></a>Verbindungen nach Tag filtern
 
 Nachdem Tags zu einer oder mehreren Serververbindungen hinzugefügt wurden, können Sie die Tags in der Verbindungsliste anzeigen und die Verbindungsliste nach Tags filtern.
 
 * Um nach einem Tag zu filtern, wählen Sie das Filter Symbol neben dem Suchfeld aus.
-![](../media/launch/tags-7.png)
-* Sie können "or", "and" oder "Not" auswählen, um das Filter Verhalten der ausgewählten Tags zu ändern.
-![](../media/launch/tags-8.png)
+
+   ![Windows Admin Center: Filtern mithilfe des Suchfelds](../media/launch/tags-7.png)
+
+   * Sie können "or", "and" oder "Not" auswählen, um das Filter Verhalten der ausgewählten Tags zu ändern.
+
+   ![Windows Admin Center-Seite "Verbindungen filtern"](../media/launch/tags-8.png)
 
 ## <a name="use-powershell-to-import-or-export-your-connections-with-tags"></a>Verwenden von PowerShell zum Importieren oder Exportieren deiner Verbindungen (mit Tags)
 
@@ -159,4 +162,4 @@ Nachdem Tags zu einer oder mehreren Serververbindungen hinzugefügt wurden, kön
 
 Nachdem Sie eine Verbindung mit einem Server, einem Cluster oder einem PC hergestellt haben, können Sie sich die PowerShell-Skripts ansehen, die die im Windows Admin Center verfügbaren UI-Aktionen unterliegen. Klicken Sie in einem Tool in der oberen Anwendungsleiste auf das PowerShell-Symbol. Wählen Sie in der Dropdown Liste den gewünschten Befehl aus, um zum entsprechenden PowerShell-Skript zu navigieren.
 
-![](../media/launch/showscript.png)
+![Anzeigen von PowerShell-Skripts für die Übersichtsseite](../media/launch/showscript.png)

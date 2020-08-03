@@ -1,5 +1,5 @@
 ---
-title: Schritt 3 Überprüfen der Bereitstellung
+title: Schritt 3 Überprüfen der Remote Zugriffs Bereitstellung (VPN)
 description: Dieses Thema ist Teil des Handbuchs Hinzufügen von DirectAccess zu einer vorhandenen Remote Zugriffs Bereitstellung (VPN) für Windows Server 2016.
 manager: brianlic
 ms.prod: windows-server
@@ -8,30 +8,30 @@ ms.topic: article
 ms.assetid: 43ac612e-2e77-418c-8171-ebb2086b7cb6
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: b187d017a3cf2865a92d95a8ae93bec11ff457f0
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 9eb64024eb7ad9b80a1ba8c949939b33426ad6da
+ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80859533"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87518156"
 ---
-# <a name="step-3-verify-the-deployment"></a>Schritt 3 Überprüfen der Bereitstellung
+# <a name="step-3-verify-the-remote-access-vpn-deployment"></a>Schritt 3 Überprüfen der Remote Zugriffs Bereitstellung (VPN)
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-In diesem Thema wird beschrieben, wie Sie überprüfen, ob Sie die DirectAccess-Bereitstellung ordnungsgemäß konfiguriert haben  
-  
-### <a name="to-verify-access-to-internal-resources-through-directaccess"></a>So überprüfen Sie den Zugriff auf interne Ressourcen über DirectAccess  
-  
-1.  Stellen Sie eine Verbindung von einem DirectAccess-Clientcomputer mit dem Unternehmensnetzwerk her, und rufen Sie die Gruppenrichtlinie ab.  
-  
-2.  Klicken Sie im Infobereich auf das Symbol **Netzwerkverbindungen** , um auf die DirectAccess-Medienverwaltung zuzugreifen.  
-  
-3.  Klicken Sie auf die **DirectAccess-Verbindung**. Als Status wird **Lokal verbundenen**angezeigt.  
-  
-4.  Verbinden Sie den Clientcomputer mit dem externen Netzwerk, und versuchen Sie, auf interne Ressourcen zuzugreifen.  
-  
-    Sie sollten auf alle Unternehmensressourcen zugreifen können.  
-  
+In diesem Thema wird beschrieben, wie Sie überprüfen, ob Sie die DirectAccess-Bereitstellung ordnungsgemäß konfiguriert haben
+
+### <a name="to-verify-access-to-internal-resources-through-directaccess"></a>So überprüfen Sie den Zugriff auf interne Ressourcen über DirectAccess
+
+1.  Einen DirectAccess-Client-Computer mit dem Unternehmensnetzwerk herstellen und die Gruppenrichtlinie zu erhalten.
+
+2.  Klicken Sie auf die**Netzwerkverbindungen**-Symbol im Infobereich angezeigt, DA Medien-Manager zugreifen.
+
+3.  Klicken Sie auf die**DirectAccess-Verbindung**und Sie sehen, dass der Status**lokal verbundenen**.
+
+4.  Verbinden Sie des Clientcomputers mit dem externen Netzwerk ein, und versuchen Sie den Zugriff auf interne Ressourcen.
+
+    Sie sollten auf alle Unternehmensressourcen zugreifen können.
+
 
 

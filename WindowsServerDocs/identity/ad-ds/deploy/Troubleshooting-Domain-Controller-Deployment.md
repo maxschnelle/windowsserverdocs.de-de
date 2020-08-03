@@ -8,12 +8,12 @@ ms.date: 03/20/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: ee22c55a3c786be4df8f06b2e3c5d33ea620b1e0
-ms.sourcegitcommit: 145cf75f89f4e7460e737861b7407b5cee7c6645
+ms.openlocfilehash: e3f215abaccbd1f95ee46eca93a573aa1db9e065
+ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87409951"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87519408"
 ---
 # <a name="troubleshooting-domain-controller-deployment"></a>Problembehandlung der Domänencontrollerbereitstellung
 
@@ -29,13 +29,13 @@ Dieser Artikel behandelt detaillierte Methoden für die Problembehandlung bei Ko
 
 Die integrierten Protokolle sind das wichtigste Hilfsmittel für die Fehlerbehebung bei Herauf- und Herabstufung von Domänencontrollern. All diese Protokolle sind standardmäßig aktiviert und für maximale Ausführlichkeit konfiguriert.
 
-| Phase | Log |  |
-|--|--|--|
-| Server-Manager- bzw. ADDSDeployment-Windows PowerShell-Operationen | -%systemroot%\debug\dcpromoui.log<p>-%systemroot%\debug\dcpromoui *. log |  |
-| Installation/Heraufstufung des Domänencontrollers | -%systemroot%\debug\dcpromo.log<p>-%systemroot%\debug\dcpromo *. log<p>-Ereignisviewer\windows-Protokolle\System<p>-Ereignisviewer\windows-Protokolle\Anwendung<p>-Ereignisviewer\anwendungs-und dienstprotokolle\verzeichnisdienst<p>-Ereignisviewer\anwendungs-und dienstprotokolle\datei Replikations Dienst<p>-Ereignisviewer\anwendungs-und dienstprotokolle\dfs-Replikation |  |
-| Upgrade von Gesamtstruktur oder Domäne | -%systemroot%\debug\adprep \\ <datetime> \adprep.log<p>-%systemroot%\debug\adprep \\ <datetime> \csv.log<p>-%systemroot%\debug\adprep \\ <datetime> \dspecup.log<p>-%systemroot%\debug\adprep \\ <datetime> \ldif.log * |  |
-| Server-Manager ADDSDeployment Windows PowerShell Bereitstellungs-Engine | -Ereignisviewer\anwendungs-und dienstprotokolle\microsoft\windows\directoriyservices-deployment\operational |  |
-| Windows-Wartung | -%systemroot%\Logs\CBS\\*<p>-% systemroot% \servicing\sessions\sessions.xml<p>-%systemroot%\winsxs\poqexec.log<p>-% systemroot% \winsxs\pending.xml |  |
+| Phase | Log |
+|--|--|
+| Server-Manager- bzw. ADDSDeployment-Windows PowerShell-Operationen | -%systemroot%\debug\dcpromoui.log<p>-%systemroot%\debug\dcpromoui *. log |
+| Installation/Heraufstufung des Domänencontrollers | -%systemroot%\debug\dcpromo.log<p>-%systemroot%\debug\dcpromo *. log<p>-Ereignisviewer\windows-Protokolle\System<p>-Ereignisviewer\windows-Protokolle\Anwendung<p>-Ereignisviewer\anwendungs-und dienstprotokolle\verzeichnisdienst<p>-Ereignisviewer\anwendungs-und dienstprotokolle\datei Replikations Dienst<p>-Ereignisviewer\anwendungs-und dienstprotokolle\dfs-Replikation |
+| Upgrade von Gesamtstruktur oder Domäne | -%systemroot%\debug\adprep \\ <datetime> \adprep.log<p>-%systemroot%\debug\adprep \\ <datetime> \csv.log<p>-%systemroot%\debug\adprep \\ <datetime> \dspecup.log<p>-%systemroot%\debug\adprep \\ <datetime> \ldif.log * |
+| Server-Manager ADDSDeployment Windows PowerShell Bereitstellungs-Engine | -Ereignisviewer\anwendungs-und dienstprotokolle\microsoft\windows\directoriyservices-deployment\operational |
+| Windows-Wartung | -%systemroot%\Logs\CBS\\*<p>-% systemroot% \servicing\sessions\sessions.xml<p>-%systemroot%\winsxs\poqexec.log<p>-% systemroot% \winsxs\pending.xml |
 
 ### <a name="tools-and-commands-for-troubleshooting-domain-controller-configuration"></a>Tools und Befehle für die Problembehandlung bei der Konfiguration von Domänencontrollern
 
@@ -217,10 +217,10 @@ Bei Herauf- und Herabstufung werden die folgenden Ergebnis-Fehlercodes zurückge
 
 Im Folgenden sind bekannte Probleme aufgeführt, die während des Windows Server 2012-Bereitstellungsprozesses auftreten können. All diese Probleme sind entwurfsbedingt und verfügen entweder über eine gültige Problemumgehung oder eine geeignetere Technik, um sie von vornherein zu vermeiden. Viele dieser Verhaltensweisen sind identisch unter Windows Server 2008 R2 und älteren Betriebssystemen, haben jedoch durch die neue Version der AD DS-Bereitstellung neue Bedeutung erlangt.
 
-| Problem | Nach der Herabstufung eines Domänencontrollers bleibt DNS ohne Zonen zurück |  |
-|--|--|--|
-| Symptome | Server antwortet weiterhin auf DNS-Anfragen, hat jedoch keine Zoneninformationen |  |
-| Lösung und Hinweise | Entfernen Sie beim Löschen der AD DS-Rolle ebenfalls die DNS-Serverrolle oder markieren Sie den DNS-Serverdienst als deaktiviert. Der DNS-Client darf dabei nicht auf sich selbst als Server zeigen. Falls Sie Windows PowerShell verwenden, führen Sie nach der Herabstufung des Servers den folgenden Befehl aus:<p>Code-Uninstall-Windows Feature DNS<p>oder<p>Codesatz-Dienst-DNS-StartType deaktiviert<br />Dienst-DNS-Dienst |  |
+| Problem | Nach der Herabstufung eines Domänencontrollers bleibt DNS ohne Zonen zurück |
+|--|--|
+| Symptome | Server antwortet weiterhin auf DNS-Anfragen, hat jedoch keine Zoneninformationen |
+| Lösung und Hinweise | Entfernen Sie beim Löschen der AD DS-Rolle ebenfalls die DNS-Serverrolle oder markieren Sie den DNS-Serverdienst als deaktiviert. Der DNS-Client darf dabei nicht auf sich selbst als Server zeigen. Falls Sie Windows PowerShell verwenden, führen Sie nach der Herabstufung des Servers den folgenden Befehl aus:<p>Code-Uninstall-Windows Feature DNS<p>oder<p>Codesatz-Dienst-DNS-StartType deaktiviert<br />Dienst-DNS-Dienst |
 
 | Problem | Beim Heraufstufen eines Windows Server 2012 in eine existierende einteilige Domäne wird updatetopleveldomain=1 bzw. allowsinglelabeldnsdomain=1 nicht konfiguriert |
 |--|--|

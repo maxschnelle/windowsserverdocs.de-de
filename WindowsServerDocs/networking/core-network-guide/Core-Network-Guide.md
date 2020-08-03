@@ -1,5 +1,5 @@
 ---
-title: Kernkomponenten
+title: Komponenten des Kernnetzwerks
 description: Dieses Handbuch enthält Anweisungen zum Planen und Bereitstellen der Kernkomponenten, die für ein voll funktionsfähiges Netzwerk und eine neue Active Directory Domäne in einer neuen Gesamtstruktur mit Windows Server 2016 erforderlich sind.
 manager: brianlic
 ms.prod: windows-server
@@ -8,16 +8,16 @@ ms.topic: article
 ms.assetid: b3cd60f7-d380-4712-9a78-0a8f551e1121
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: b58fe9eaa66abd91de27713398759529ae6147ae
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 0e44de005bd7b110e89b514071667c62a81d386b
+ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80861763"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87518538"
 ---
-# <a name="core-network-components"></a>Kernkomponenten
+# <a name="core-network-components"></a>Komponenten des Kernnetzwerks
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 Dieses Handbuch enthält Anweisungen zum Planen und Bereitstellen der Kernkomponenten, die für ein voll funktionsfähiges Netzwerk und eine neue Active Directory Domäne in einer neuen Gesamtstruktur erforderlich sind.
 
@@ -28,17 +28,17 @@ Dieses Handbuch enthält die folgenden Abschnitte:
 
 - [Informationen zur Anleitung](#BKMK_about)
 
-- [Übersicht über das Kern Netzwerk](#BKMK_overview)
+- [Hauptnetzwerk – Übersicht](#BKMK_overview)
 
-- [Zentrale Netzwerkplanung](#BKMK_planning)
+- [Hauptnetzwerk – Planung](#BKMK_planning)
 
-- [Kern Netzwerk Bereitstellung](#BKMK_deployment)
+- [Hauptnetzwerk – Bereitstellung](#BKMK_deployment)
 
 - [Weitere technische Ressourcen](#BKMK_resources)
 
-- [Fügt A durch E ein.](#BKMK_appendix)
+- [Anhänge A bis E](#BKMK_appendix)
 
-## <a name="about-this-guide"></a><a name="BKMK_about"></a>Informationen zu diesem Leitfaden
+## <a name="about-this-guide"></a><a name="BKMK_about"></a>Über diesen Leitfaden
 Dieses Handbuch ist für Netzwerk- und Systemadministratoren konzipiert, die ein neues Netzwerk installieren, oder die ein domänenbasiertes Netzwerk erstellen möchten, das ein aus Arbeitsgruppen bestehendes Netzwerk ersetzen soll. Das in diesem Handbuch erläuterte Bereitstellungsszenario ist vor allem hilfreich, wenn Sie bereits absehen können, dass Ihrem Netzwerk zukünftig weitere Dienste und Features hinzugefügt werden müssen.
 
 Es wird empfohlen, Entwurfs- und Bereitstellungsanleitungen für jede der in diesem Bereitstellungsszenario verwendete Technologie zu lesen, um Hilfestellungen bei der Entscheidung zu erhalten, ob dieses Handbuch die benötigten Dienste und Konfigurationen erläutert.
@@ -47,43 +47,43 @@ Ein Hauptnetzwerk ist eine Sammlung von Netzwerkhardware, Geräten und Software,
 
 Ein Windows Server-Hauptnetzwerk bietet Ihnen zahlreiche Vorteile, wie zum Beispiel:
 
--   Kern-Protokolle für Netzwerkkonnektivität zwischen Computern und anderen TCP/IP-kompatiblen Geräten. TCP/IP ist eine Suite von Standardprotokollen für die Verbindung von Computern und die Erstellung von Netzwerken. TCP/IP ist eine Netzwerkprotokoll Software, die mit Microsoft Windows-Betriebssystemen bereitgestellt wird, die die TCP/IP-Protokoll Suite implementieren und unterstützen.
+- Kern-Protokolle für Netzwerkkonnektivität zwischen Computern und anderen TCP/IP-kompatiblen Geräten. TCP/IP ist eine Suite von Standardprotokollen für die Verbindung von Computern und die Erstellung von Netzwerken. TCP/IP ist eine Netzwerkprotokoll Software, die mit Microsoft Windows-Betriebssystemen bereitgestellt wird, die die TCP/IP-Protokoll Suite implementieren und unterstützen.
 
--   Automatische Zuweisung von IP-Adressen mithilfe von DHCP (Dynamic Host Configuration Protocol) zu Computern und anderen Geräten, die als DHCP-Clients konfiguriert wurden. Die manuelle Konfiguration von IP-Adressen auf allen Computern in Ihrem Netzwerk ist zeitaufwändig und weniger flexibel als die dynamische Bereitstellung von IP-Adresskonfigurationen für Computer und andere Geräte durch einen DHCP-Server.
+- Automatische Zuweisung von IP-Adressen mithilfe von DHCP (Dynamic Host Configuration Protocol) zu Computern und anderen Geräten, die als DHCP-Clients konfiguriert wurden. Die manuelle Konfiguration von IP-Adressen auf allen Computern in Ihrem Netzwerk ist zeitaufwändig und weniger flexibel als die dynamische Bereitstellung von IP-Adresskonfigurationen für Computer und andere Geräte durch einen DHCP-Server.
 
--   DNS-Namensauflösungsdienst (Domain Name System). Mit DNS können Benutzer, Computer, Anwendungen und Dienste die IP-Adressen von Computern und Geräten im Netzwerk mithilfe des vollqualifizierten Domänennamens (Fully Qualified Domain Name, FQDN) des Computers oder Geräts finden.
+- DNS-Namensauflösungsdienst (Domain Name System). Mit DNS können Benutzer, Computer, Anwendungen und Dienste die IP-Adressen von Computern und Geräten im Netzwerk mithilfe des vollqualifizierten Domänennamens (Fully Qualified Domain Name, FQDN) des Computers oder Geräts finden.
 
--   Eine Gesamtstruktur, bei der es sich um eine oder mehrere Active Directory-Domänen handelt, die gemeinsame Klassen- und Attributdefinitionen (Schema), Site- und Replikationsinformationen (Konfiguration) und gesamtstrukturweite Suchfunktionen (globaler Katalog) verwenden.
+- Eine Gesamtstruktur, bei der es sich um eine oder mehrere Active Directory-Domänen handelt, die gemeinsame Klassen- und Attributdefinitionen (Schema), Site- und Replikationsinformationen (Konfiguration) und gesamtstrukturweite Suchfunktionen (globaler Katalog) verwenden.
 
--   Eine Gesamtstruktur-Stammdomäne, bei der es sich um die erste der in der neuen Gesamtstruktur erstellten Domäne handelt. Die Gruppen Organisations-Admins und Schema-Admins, bei denen es sich um gesamtstrukturweite Administratorgruppen handelt, befinden sich in der Stammdomäne der Gesamtstruktur. Darüber hinaus ist eine Stammdomäne der Gesamtstruktur wie andere Domänen eine Gruppe von Computer-, Benutzer- und Gruppenobjekten, die vom Administrator in Active Directory-Domänendiensten (Active Directory Domain Services, AD DS) definiert werden. Diese Objekte verwenden mit anderen Domänen eine gemeinsame Verzeichnisdatenbank und gemeinsame Sicherheitsrichtlinien. Sie können auch Sicherheitsbeziehungen mit anderen Domänen gemeinsam verwenden, wenn Sie beim Wachsen Ihres Unternehmens Domänen hinzufügen. Der Verzeichnisdienst speichert auch Verzeichnisdaten und gestattet autorisierten Computern, Anwendungen und Benutzern auf die Daten zuzugreifen.
+- Eine Gesamtstruktur-Stammdomäne, bei der es sich um die erste der in der neuen Gesamtstruktur erstellten Domäne handelt. Die Gruppen Organisations-Admins und Schema-Admins, bei denen es sich um gesamtstrukturweite Administratorgruppen handelt, befinden sich in der Stammdomäne der Gesamtstruktur. Darüber hinaus ist eine Stammdomäne der Gesamtstruktur wie andere Domänen eine Gruppe von Computer-, Benutzer- und Gruppenobjekten, die vom Administrator in Active Directory-Domänendiensten (Active Directory Domain Services, AD DS) definiert werden. Diese Objekte verwenden mit anderen Domänen eine gemeinsame Verzeichnisdatenbank und gemeinsame Sicherheitsrichtlinien. Sie können auch Sicherheitsbeziehungen mit anderen Domänen gemeinsam verwenden, wenn Sie beim Wachsen Ihres Unternehmens Domänen hinzufügen. Der Verzeichnisdienst speichert auch Verzeichnisdaten und gestattet autorisierten Computern, Anwendungen und Benutzern auf die Daten zuzugreifen.
 
--   Eine Datenbank für Benutzer- und Computerkonten. Der Verzeichnisdienst stellt eine zentralisierte Benutzerkontendatenbank bereit. Diese ermöglicht die Erstellung von Benutzer- und Computerkonten für Personen und Computer, die berechtigt sind, eine Verbindung mit Ihrem Netzwerk herzustellen und auf die Netzwerkressourcen (beispielsweise Anwendungen, Datenbanken, freigegebene Dateien und Ordner sowie Drucker) zuzugreifen.
+- Eine Datenbank für Benutzer- und Computerkonten. Der Verzeichnisdienst stellt eine zentralisierte Benutzerkontendatenbank bereit. Diese ermöglicht die Erstellung von Benutzer- und Computerkonten für Personen und Computer, die berechtigt sind, eine Verbindung mit Ihrem Netzwerk herzustellen und auf die Netzwerkressourcen (beispielsweise Anwendungen, Datenbanken, freigegebene Dateien und Ordner sowie Drucker) zuzugreifen.
 
 Ein Hauptnetzwerk ermöglicht außerdem eine Größenanpassung Ihres Netzwerks, wenn Ihr Unternehmen wächst und sich die IT-Anforderungen ändern. Mit einem Kern Netzwerk können Sie beispielsweise Domänen, IP-Subnetze, RAS-Dienste, drahtlose Dienste und andere Features und Server Rollen hinzufügen, die von Windows Server 2016 bereitgestellt werden.
 
 ### <a name="network-hardware-requirements"></a>Anforderungen an die Netzwerkhardware
 Damit Sie erfolgreich ein Hauptnetzwerk bereitstellen können, müssen Sie unter anderem folgende Netzwerkhardware bereitstellen:
 
--   Kabelgestütztes Ethernet-, Fast Ethernet- oder Gigabyte Ethernet
+- Kabelgestütztes Ethernet-, Fast Ethernet- oder Gigabyte Ethernet
 
--   Einen Hub, einen Schicht 2- oder Schicht 3-Switch oder ein anderes Gerät, das Netzwerkdatenverkehr zwischen Computern und Geräten weiterleitet.
+- Einen Hub, einen Schicht 2- oder Schicht 3-Switch oder ein anderes Gerät, das Netzwerkdatenverkehr zwischen Computern und Geräten weiterleitet.
 
--   Computer die den Mindesthardwareanforderungen für die jeweiligen Client- und Serverbetriebssysteme entsprechen.
+- Computer die den Mindesthardwareanforderungen für die jeweiligen Client- und Serverbetriebssysteme entsprechen.
 
 ## <a name="what-this-guide-does-not-provide"></a>Nicht in diesem Handbuch enthaltene Informationen
 Dieses Handbuch enthält keine Anleitungen für folgende Bereitstellungen:
 
--   Netzwerkhardware wie Kabel, Router, Switches und Hubs
+- Netzwerkhardware wie Kabel, Router, Switches und Hubs
 
--   Zusätzliche Netzwerkressourcen wie Drucker und Dateiserver
+- Zusätzliche Netzwerkressourcen wie Drucker und Dateiserver
 
--   Internetkonnektivität
+- Internetkonnektivität
 
--   Remotezugriff
+- Remotezugriff
 
--   Drahtloser Zugriff
+- Drahtloser Zugriff
 
--   Bereitstellung von Clientcomputern
+- Bereitstellung von Clientcomputern
 
 > [!NOTE]
 > Computer mit Windows-Client Betriebssystemen werden standardmäßig für den Empfang von IP-Adressleases vom DHCP-Server konfiguriert. Daher ist keine weitere DHCP- oder IPv4-Konfiguration (Internetprotokoll, Version 4) für Clientcomputer erforderlich.
@@ -91,14 +91,14 @@ Dieses Handbuch enthält keine Anleitungen für folgende Bereitstellungen:
 ## <a name="technology-overviews"></a>Technologieübersicht
 Die folgenden Abschnitte bieten eine kurze Übersicht über die erforderlichen Technologien, die für die Erstellung eines Hauptnetzwerks bereitgestellt werden.
 
-### <a name="active-directory-domain-services"></a>Active Directory-Domänendienste
-Ein Verzeichnis ist eine hierarchische Struktur zum Speichern von Informationen zu Objekten im Netzwerk, wie Benutzer und Computer. Ein Verzeichnisdienst, wie z. b. AD DS, stellt die Methoden zum Speichern von Verzeichnis Daten und zum Bereitstellen dieser Daten für Netzwerk Benutzer und Administratoren bereit. AD DS speichert beispielsweise Informationen über Benutzerkonten, einschließlich Namen, e-Mail-Adressen, Kenn Wörter und Telefonnummern, und ermöglicht anderen autorisierten Benutzern im gleichen Netzwerk den Zugriff auf diese Informationen.
+### <a name="active-directory-domain-services"></a>Active Directory Domain Services
+Ein Verzeichnis ist eine hierarchische Struktur zum Speichern von Informationen zu Objekten im Netzwerk, wie Benutzer und Computer. Ein Verzeichnisdienst wie AD DS stellt die Methoden für die Speicherung von Verzeichnisdaten und die Verfügbarmachung dieses Daten für Netzwerkbenutzer und Administratoren bereit. AD DS speichert beispielsweise Informationen über Benutzerkonten wie Namen, E-Mail-Adressen, Kennwörter und Telefonnummern usw. und ermöglicht anderen autorisierten Benutzern im gleichen Netzwerk, auf diese Informationen zuzugreifen.
 
 ### <a name="dns"></a>DNS
 DNS ist ein Namensauflösungsprotokoll für TCP/IP-Netzwerke, z. B. für das Internet oder ein Unternehmensnetzwerk. Ein DNS-Server dient als Host für Informationen, die es Clientcomputern und Diensten ermöglichen, leicht erkennbare, alphanumerische DNS-Namen in die IP-Adressen aufzulösen, die von den Computern zur Kommunikation untereinander verwendet werden.
 
 ### <a name="dhcp"></a>DHCP
-DHCP ist ein IP-Standard für die Vereinfachung der Verwaltung der Host-IP-Konfiguration. Der DHCP-Standard berücksichtigt die Verwendung von DHCP-Servern als eine Methode zum Verwalten der dynamischen Zuweisung von IP-Adressen und anderer zugehöriger Konfigurationsdetails für DHCP-fähige Clients im Netzwerk.
+DHCP ist ein IP-Standard für die Vereinfachung der Verwaltung der Host-IP-Konfiguration. Der DHCP-Standard ermöglicht DHCP-Servern die Verwaltung der dynamischen Zuweisung von IP-Adressen und sonstiger zugehöriger Konfigurationsdetails für DHCP-fähige Clients im Netzwerk.
 
 DHCP ermöglicht die Verwendung eines DHCP-Servers für die dynamische Zuweisung einer IP-Adresse zu einem Computer oder einem anderen Gerät wie etwa zu einem Drucker im lokalen Netzwerk. Jeder Computer in einem TCP/IP-Netzwerk muss über eine eindeutige IP-Adresse verfügen. Zudem muss die zugehörige Subnetzmaske sowohl den Hostcomputer als auch das Subnetz angeben, an das der Computer angeschlossen ist. Durch die Verwendung von DHCP können Sie sicherstellen, dass alle als DHCP-Clients konfigurierten Computer eine für die Netzwerkadresse und das Subnetz geeignete IP-Adresse erhalten. Und durch die Verwendung von DHCP-Optionen wie Standardgateway und DNS-Server können Sie DHCP-Clients automatisch die Informationen bereitstellen, die diese benötigen, um in Ihrem Netzwerk ordnungsgemäß zu funktionieren.
 
@@ -107,53 +107,53 @@ In TCP/IP-basierten Netzwerken verringert DHCP die Komplexität und den Umfang v
 ### <a name="tcpip"></a>TCP/IP
 TCP/IP in Windows Server 2016 lautet wie folgt:
 
--   Eine Netzwerksoftware auf der Grundlage von Netzwerkprotokollen, die dem Industriestandard entsprechen.
+- Eine Netzwerksoftware auf der Grundlage von Netzwerkprotokollen, die dem Industriestandard entsprechen.
 
--   Ein routingfähiges Unternehmensnetzwerkprotokoll, das die Verbindung Ihres Windows-Computers sowohl mit LAN- als auch mit WAN-Umgebungen unterstützt.
+- Ein routingfähiges Unternehmensnetzwerkprotokoll, das die Verbindung Ihres Windows-Computers sowohl mit LAN- als auch mit WAN-Umgebungen unterstützt.
 
--   Kerntechnologien und Hilfsprogramme für die Verbindung Ihres Windows-Computers mit anderen Systemen zum Austausch von Daten.
+- Kerntechnologien und Hilfsprogramme für die Verbindung Ihres Windows-Computers mit anderen Systemen zum Austausch von Daten.
 
--   Eine Grundlage für den Zugriff auf globale Internetdienste wie WWW- und FTP-Server.
+- Eine Grundlage für den Zugriff auf globale Internetdienste wie WWW- und FTP-Server.
 
--   Ein zuverlässiges, skalierbares und plattformübergreifendes Client-/Server-Framework
+- Ein zuverlässiges, skalierbares und plattformübergreifendes Client-/Server-Framework
 
 TCP/IP stellt grundlegende TCP/IP-Hilfsprogramme bereit, mit deren Hilfe Windows-Computer Verbindungen mit anderen Microsoft- und Nicht-Microsoft-Systemen herstellen und Informationen austauschen können, beispielsweise:
 
--    Windows Server 2016
+-  Windows Server 2016
 
--   Windows 10
+- Windows 10
 
--    Windows Server 2012 R2
+-  Windows Server 2012 R2
 
--   Windows 8.1
+- Windows 8.1
 
--    Windows Server 2012
+-  Windows Server 2012
 
--   Windows 8
+- Windows 8
 
--    Windows Server 2008 R2
+-  Windows Server 2008 R2
 
--    Windows 7
+-  Windows 7
 
--    WindowsServer 2008
+-  WindowsServer 2008
 
--   Windows Vista
+- Windows Vista
 
--   Internethosts
+- Internethosts
 
--   Apple Macintosh-Systeme
+- Apple Macintosh-Systeme
 
--   IBM-Mainframes
+- IBM-Mainframes
 
--   UNIX-und Linux-Systeme
+- UNIX-und Linux-Systeme
 
--   Open VMS-Systeme
+- Open VMS-Systeme
 
--   Netzwerk bereite Drucker
+- Netzwerk bereite Drucker
 
--   Tablets und Mobiltelefone mit kabelgebundener Ethernet-oder drahtlos 802,11-Technologie
+- Tablets und Mobiltelefone mit kabelgebundener Ethernet-oder drahtlos 802,11-Technologie
 
-## <a name="core-network-overview"></a><a name="BKMK_overview"></a>Übersicht über das Kern Netzwerk
+## <a name="core-network-overview"></a><a name="BKMK_overview"></a>Hauptnetzwerk – Übersicht
 Die folgende Illustration veranschaulicht die Topologie des Windows Server-Hauptnetzwerks.
 
 ![Windows Server Core-Netzwerktopologie](../media/Core-Network-Guide/cng16_overview.jpg)
@@ -171,7 +171,7 @@ Dieses Bereitstellungshandbuch enthält Anleitungen für die Bereitstellung eine
 Die Server in dieser Bereitstellung sind mit statischen IPv4-Adressen konfiguriert. Clientcomputer werden standardmäßig für den Empfang von IP-Adressleases vom DHCP-Server konfiguriert.
 
 ##### <a name="active-directory-domain-services-global-catalog-and-dns-server-dc1"></a>Globaler Katalog der Active Directory-Domänendienste und DNS-Server DC1
-Sowohl Active Directory Domain Services (AD DS) als auch Domain Name System (DNS) werden auf diesem Server mit dem Namen DC1 installiert, der für alle Computer und Geräte im Netzwerk Verzeichnis-und Namensauflösungsdienste bereitstellt.
+Sowohl AD DS als auch DNS werden auf diesem Server (mit dem Namen DC1) installiert und stellen für alle Computer und Geräte im Netzwerk Verzeichnis- und Namensauflösungsdienste bereit.
 
 ##### <a name="dhcp-server-dhcp1"></a>DHCP-Server DHCP1
 Der DHCP-Server (mit dem Namen DHCP1) wird mit einem Bereich konfiguriert, der IP-Adressleases für Computer im lokalen Subnetz bereitstellt. Der DHCP-Server kann auch mit zusätzlichen Bereichen konfiguriert werden, um IP-Adressleases für Computer in anderen Subnetzen bereitzustellen, wenn die DHCP-Weiterleitung auf Routern konfiguriert ist.
@@ -179,18 +179,18 @@ Der DHCP-Server (mit dem Namen DHCP1) wird mit einem Bereich konfiguriert, der I
 ##### <a name="client-computers"></a>Clientcomputer
 Computer mit Windows-Client Betriebssystemen werden standardmäßig als DHCP-Clients konfiguriert, die IP-Adressen und DHCP-Optionen automatisch vom DHCP-Server abrufen.
 
-## <a name="core-network-planning"></a><a name="BKMK_planning"></a>Zentrale Netzwerkplanung
+## <a name="core-network-planning"></a><a name="BKMK_planning"></a>Hauptnetzwerk – Planung
 Bevor Sie ein Hauptnetzwerk bereitstellen, müssen Sie die folgenden Aufgaben ausführen:
 
--   [Planen von Subnetzen](#bkmk_NetFndtn_Pln_Subnt)
+- [Planen von Subnetzen](#bkmk_NetFndtn_Pln_Subnt)
 
--   [Planen der grundlegenden Konfiguration aller Server](#bkmk_NetFndtn_Pln_AllSrvrs)
+- [Planen der Basiskonfiguration aller Server](#bkmk_NetFndtn_Pln_AllSrvrs)
 
--   [Planen der Bereitstellung von DC1](#bkmk_NetFndtn_Pln_AD-DNS-01)
+- [Planen der Bereitstellung von DC1](#bkmk_NetFndtn_Pln_AD-DNS-01)
 
--   [Planen des Domänen Zugriffs](#bkmk_NetFndtn_Pln_DomAccess)
+- [Planen des Domänenzugriffs](#bkmk_NetFndtn_Pln_DomAccess)
 
--   [Planen der Bereitstellung von DHCP1](#bkmk_NetFndtn_Pln_DHCP-01)
+- [Planen der Bereitstellung von DHCP1](#bkmk_NetFndtn_Pln_DHCP-01)
 
 Die folgenden Abschnitte enthalten weitere Details zu jedem dieser Themen.
 
@@ -207,11 +207,11 @@ Damit Sie die Server in Ihrem Netzwerk mit statischen IP-Adressen konfigurieren 
 
 Die folgenden erkannten privaten IP-Adressbereiche werden von Internetkommentaranforderungen (Request for Comments, RFC) 1918 festgelegt:
 
--   10.0.0.0-10.255.255.255
+- 10.0.0.0-10.255.255.255
 
--   172.16.0.0-172.31.255.255
+- 172.16.0.0-172.31.255.255
 
--   192.168.0.0-192.168.255.255
+- 192.168.0.0-192.168.255.255
 
 Wenn Sie die in RFC 1918 festgelegten privaten IP-Adressbereiche verwenden, können Sie keine direkte Verbindung mit dem Internet unter Verwendung einer privaten IP-Adresse herstellen, da Anforderungen an diese Adressen oder von diesen Adressen automatisch von den Routern der Internetdienstanbieter zurückgewiesen werden. Um zu einem späteren Zeitpunkt eine Internetverbindung zu Ihrem Hauptnetzwerk herzustellen, müssen Sie einen Vertrag mit einem Internetdienstanbieter abschließen, um eine öffentliche IP-Adresse zu erhalten.
 
@@ -220,17 +220,17 @@ Wenn Sie die in RFC 1918 festgelegten privaten IP-Adressbereiche verwenden, kö
 
 Weitere Informationen finden Sie unter [Planen der Bereitstellung von DHCP1](#bkmk_NetFndtn_Pln_DHCP-01).
 
-### <a name="planning-basic-configuration-of-all-servers"></a><a name="bkmk_NetFndtn_Pln_AllSrvrs"></a>Planen der grundlegenden Konfiguration aller Server
+### <a name="planning-basic-configuration-of-all-servers"></a><a name="bkmk_NetFndtn_Pln_AllSrvrs"></a>Planen der Basiskonfiguration aller Server
 Für jeden Server im Hauptnetzwerk müssen Sie den Computer umbenennen und eine statische IPv4-Adresse sowie andere TCP/IP-Eigenschaften für den Computer zuweisen und konfigurieren.
 
 #### <a name="planning-naming-conventions-for-computers-and-devices"></a>Planen von Namenskonventionen für Computer und Geräte
-Aus Konsistenzgründen sollten Sie in Ihrem Netzwerk konsistente Namen für Server, Drucker und sonstige Geräte verwenden. Computernamen können verwendet werden, damit Benutzer und Administratoren den Zweck und den Standort eines Servers, Druckers oder sonstigen Geräts einfacher feststellen können. Wenn Sie z. b. über drei DNS-Server verfügen, eine in San Francisco, eine in Los Angeles und eine in Chicago, können Sie die Benennungs Konvention- *Server Funktion*-*Location*-*Number*verwenden:
+Aus Konsistenzgründen sollten Sie in Ihrem Netzwerk konsistente Namen für Server, Drucker und sonstige Geräte verwenden. Computernamen können verwendet werden, damit Benutzer und Administratoren den Zweck und den Standort eines Servers, Druckers oder sonstigen Geräts einfacher feststellen können. Wenn Sie z. b. über drei DNS-Server verfügen, eine in San Francisco, eine in Los Angeles und eine in Chicago, verwenden Sie möglicherweise *server function*die - *Speicherort* - *Nummer*der Benennungs Konvention für die Server Funktion:
 
--   DNS-DEN-01. Dieser Name steht für den DNS-Server in Denver, Colorado. Wenn in Denver weitere DNS-Server hinzukommen, kann der numerische Wert des Namens erhöht werden, beispielsweise DNS-DEN-02 und DNS-DEN-03.
+- DNS-DEN-01. Dieser Name steht für den DNS-Server in Denver, Colorado. Wenn in Denver weitere DNS-Server hinzukommen, kann der numerische Wert des Namens erhöht werden, beispielsweise DNS-DEN-02 und DNS-DEN-03.
 
--   DNS-SPAS-01. Dieser Name steht für den DNS-Server in South Pasadena, Kalifornien.
+- DNS-SPAS-01. Dieser Name steht für den DNS-Server in South Pasadena, Kalifornien.
 
--   DNS-ORL-01. Dieser Name steht für den DNS-Server in Orlando, Florida.
+- DNS-ORL-01. Dieser Name steht für den DNS-Server in Orlando, Florida.
 
 Die in diesem Handbuch verwendete Benennungskonvention für Server ist sehr einfach: Der Name setzt sich aus der primären Serverfunktion und einer Nummer zusammen. Der Domänencontroller heißt beispielsweise DC1 und der DHCP-Server DHCP1.
 
@@ -252,64 +252,64 @@ Die folgende Tabelle enthält Beispielwerte für die Konfiguration einer statisc
 > Wenn Sie mehrere DNS-Server bereitstellen möchten, können Sie auch die IP-Adresse des alternativen DNS-Servers planen.
 
 ### <a name="planning-the-deployment-of-dc1"></a><a name="bkmk_NetFndtn_Pln_AD-DNS-01"></a>Planen der Bereitstellung von DC1
-Im folgenden finden Sie die wichtigsten Planungsschritte vor der Installation von Active Directory Domain Services (AD DS) und DNS auf DC1.
+Im Anschluss finden Sie die wichtigsten Planungsschritte vor der Installation von AD DS und DNS auf DC1.
 
 #### <a name="planning-the-name-of-the-forest-root-domain"></a>Planen des Namens der Stammdomäne der Gesamtstruktur
-Der erste Schritt im AD DS Entwurfsprozess besteht darin, die Anzahl der Gesamtstrukturen zu ermitteln, die in Ihrer Organisation erforderlich sind. Eine Gesamtstruktur ist der AD DS Container der obersten Ebene und besteht aus einer oder mehreren Domänen, die über ein gemeinsames Schema und einen globalen Katalog verfügen. Ein Unternehmen kann mehrere Gesamtstrukturen besitzen. Für die meisten Unternehmen ist eine einzelne Gesamtstruktur jedoch vorzuziehen und am einfachsten zu verwalten.
+Im erste Schritt des AD DS-Entwurfsprozesses legen Sie fest, wie viele Gesamtstrukturen in Ihrem Unternehmen benötigt werden. Eine Gesamtstruktur ist der AD DS-Container der obersten Ebene. Dieser besteht aus einer oder mehreren Domänen, die ein gemeinsames Schema und einen globalen Katalog verwenden. Ein Unternehmen kann mehrere Gesamtstrukturen besitzen. Für die meisten Unternehmen ist eine einzelne Gesamtstruktur jedoch vorzuziehen und am einfachsten zu verwalten.
 
 Wenn Sie in ihrem Unternehmen den ersten Domänencontroller erstellen, erstellen Sie die erste Domäne (auch als Stammdomäne der Gesamtstruktur bezeichnet) und die erste Gesamtstruktur. Bevor Sie jedoch diesen Schritt mithilfe dieser Anleitungen ausführen, müssen Sie den geeignetsten Domänennamen für Ihr Unternehmen ermitteln. In den meisten Fällen wird der Name des Unternehmens als Domänenname verwendet, und meistens ist dieser Domänenname registriert. Wenn Sie externe internetbasierte Webserver bereitstellen möchten, um Ihren Kunden oder Partnern Informationen und Dienste bereitzustellen, wählen Sie einen Domänennamen aus, der nicht bereits verwendet wird, und registrieren Sie den Domänennamen, sodass Ihr Unternehmen diesen Namen besitzt.
 
 #### <a name="planning-the-forest-functional-level"></a>Planen der Gesamtstrukturfunktionsebene
-Beim Installieren von AD DS müssen Sie die Gesamtstruktur Funktionsebene auswählen, die Sie verwenden möchten. Die Domänen-und Gesamtstruktur Funktionalität, die in Windows Server 2003 Active Directory eingeführt wurde, bietet eine Möglichkeit zum Aktivieren von Domänen-oder Gesamtstruktur weiten Active Directory Features in Ihrer Netzwerkumgebung. Je nach Netzwerkumgebung sind verschiedene Ebenen der Domänen- und Gesamtstrukturfunktionalität verfügbar.
+Während der Installation von AD DS müssen Sie die zu verwendende Gesamtstrukturfunktionsebene auswählen. Die in Windows Server 2003 Active Directory eingeführte Domänen- und Gesamtstrukturfunktionalität ermöglicht die Aktivierung von domänen- und gesamtstrukturweiten Active Directory-Features in Ihrer Netzwerkumgebung. Je nach Netzwerkumgebung sind verschiedene Ebenen der Domänen- und Gesamtstrukturfunktionalität verfügbar.
 
 Mit der Gesamtstrukturfunktionalität werden Features für alle Domänen in der Gesamtstruktur aktiviert. Die folgenden Gesamtstrukturfunktionsebenen sind verfügbar:
 
--    Windows Server 2008. Diese Gesamtstruktur Funktionsebene unterstützt nur Domänen Controller, auf denen Windows Server 2008 und höhere Versionen des Windows Server-Betriebssystems ausgeführt werden.
+-  Windows Server 2008. Diese Gesamtstruktur Funktionsebene unterstützt nur Domänen Controller, auf denen Windows Server 2008 und höhere Versionen des Windows Server-Betriebssystems ausgeführt werden.
 
--    Windows Server 2008 R2. Diese Gesamtstruktur Funktionsebene unterstützt Windows Server 2008 R2-Domänen Controller und Domänen Controller, auf denen spätere Versionen des Windows Server-Betriebssystems ausgeführt werden.
+-  Windows Server 2008 R2. Diese Gesamtstruktur Funktionsebene unterstützt Windows Server 2008 R2-Domänen Controller und Domänen Controller, auf denen spätere Versionen des Windows Server-Betriebssystems ausgeführt werden.
 
--    Windows Server 2012. Diese Gesamtstruktur Funktionsebene unterstützt Windows Server 2012-Domänen Controller und Domänen Controller, auf denen spätere Versionen des Windows Server-Betriebssystems ausgeführt werden.
+-  Windows Server 2012. Diese Gesamtstruktur Funktionsebene unterstützt Windows Server 2012-Domänen Controller und Domänen Controller, auf denen spätere Versionen des Windows Server-Betriebssystems ausgeführt werden.
 
--    Windows Server 2012 R2. Diese Gesamtstruktur Funktionsebene unterstützt Windows Server 2012 R2-Domänen Controller und Domänen Controller, auf denen spätere Versionen des Windows Server-Betriebssystems ausgeführt werden.
+-  Windows Server 2012 R2. Diese Gesamtstruktur Funktionsebene unterstützt Windows Server 2012 R2-Domänen Controller und Domänen Controller, auf denen spätere Versionen des Windows Server-Betriebssystems ausgeführt werden.
 
--    Windows Server 2016. Diese Gesamtstruktur Funktionsebene unterstützt nur Windows Server 2016-Domänen Controller und Domänen Controller, auf denen spätere Versionen des Windows Server-Betriebssystems ausgeführt werden.
+-  Windows Server 2016. Diese Gesamtstruktur Funktionsebene unterstützt nur Windows Server 2016-Domänen Controller und Domänen Controller, auf denen spätere Versionen des Windows Server-Betriebssystems ausgeführt werden.
 
 Wenn Sie eine neue Domäne in einer neuen Gesamtstruktur bereitstellen und auf allen Ihren Domänen Controllern Windows Server 2016 ausgeführt wird, empfiehlt es sich, während der AD DS Installation AD DS mit der Gesamtstruktur Funktionsebene Windows Server 2016 zu konfigurieren.
 
 > [!IMPORTANT]
 > Nachdem Sie die Gesamtstrukturfunktionsebene heraufgestuft haben, können Domänencontroller unter früheren Betriebssystemen nicht mehr in der Gesamtstruktur verwendet werden. Wenn Sie z. b. die Gesamtstruktur Funktionsebene auf Windows Server 2016 erhöhen, können Domänen Controller unter Windows Server 2012 R2 oder Windows Server 2008 nicht der Gesamtstruktur hinzugefügt werden.
 
-Beispiel Konfigurationselemente für AD DS werden in der folgenden Tabelle bereitgestellt.
+Die folgende Tabelle enthält Beispielkonfigurationselemente für AD DS.
 
 |Konfigurationselemente:|Beispielwerte:|
 |------------------------|-------------------|
 |Vollständiger DNS-Name|Beispiele:<p>-Corp.contoso.com<br />-example.com|
 |Gesamtstrukturfunktionsebene|-Windows Server 2008 <br />-Windows Server 2008 R2 <br />-Windows Server 2012 <br />-Windows Server 2012 R2 <br />-Windows Server 2016|
-|Speicherort des AD DS-Datenbankordners|E:\konfigurations\\<p>Oder übernehmen Sie den Standardspeicherort.|
-|Speicherort des AD DS-Protokolldateiordners|E:\konfigurations\\<p>Oder übernehmen Sie den Standardspeicherort.|
-|Speicherort des AD DS-SYSVOL-Ordners|E:\konfigurations\\<p>Oder übernehmen Sie den Standardspeicherort.|
-|Administratorkennwort für den Verzeichnisdienst-Wiederherstellungsmodus|**J\*p2leO4 $ F**|
-|Name der Antwortdatei (optional)|**AD-DS_AnswerFile**|
+|Speicherort des AD DS-Datenbankordners|E:\konfiguration\\<p>Oder übernehmen Sie den Standardspeicherort.|
+|Speicherort des AD DS-Protokolldateiordners|E:\konfiguration\\<p>Oder übernehmen Sie den Standardspeicherort.|
+|Speicherort des AD DS-SYSVOL-Ordners|E:\konfiguration\\<p>Oder übernehmen Sie den Standardspeicherort.|
+|Administratorkennwort für den Verzeichnisdienst-Wiederherstellungsmodus|**J \* p2leO4 $ F**|
+|Name der Antwortdatei (optional)|**AD DS_Antwortdatei**|
 
 #### <a name="planning-dns-zones"></a>Planen von DNS-Zonen
 Bei primären Active Directory-integrierten DNS-Servern wird bei der Installation der DNS-Serverrolle standardmäßig eine Forward-Lookupzone erstellt. Eine Forward-Lookupzone ermöglicht es Computern und Geräten, die IP-Adresse anderer Computer oder Geräte auf der Grundlage ihres DNS-Namens abzufragen. Zusätzlich zu einer Forward-Lookupzone sollten Sie eine DNS-Reverse-Lookupzone erstellen. Mithilfe einer DNS-Reverse-Lookupabfrage kann ein Computer oder ein Gerät den Namen eines anderen Computers oder Geräts anhand seiner IP-Adresse ermitteln. Die Bereitstellung einer Reverse-Lookupzone verbessert üblicherweise die DNS-Leistung und führt zu wesentlich erfolgreicheren DNS-Abfragen.
 
 Wenn Sie eine Reverse-Lookupzone erstellen, wird die Domäne %%amp;quot;in-addr.arpa%%amp;quot; im DNS konfiguriert. Diese ist in den DNS-Standards definiert und im Internet-DNS-Namespace reserviert, um auf praktische und zuverlässige Weise Rückwärtsabfragen zu ermöglichen. Zur Erstellung eines Reverse-Namespace werden untergeordnete Domänen innerhalb der Domäne in-addr.arpa gebildet, für die eine umgekehrte Sortierung der Zahlen für IP-Adressen in punktierter Dezimalschreibweise verwendet wird.
 
-Die Domäne in-addr. arpa gilt für alle TCP/IP-Netzwerke, die auf der IPv4-Adressierung (Internet Protocol Version 4) basieren. Der Assistent zum Erstellen neuer Zonen setzt automatisch voraus, dass Sie diese Domäne verwenden, wenn Sie eine neue Reverse-Lookupzone erstellen.
+Die Domäne in-addr.arpa gilt für alle TCP/IP-Netzwerke, die auf der IPv4-Adressierung (Internet Protocol Version 4) basieren. Der Assistent zum Erstellen neuer Zonen setzt automatisch voraus, dass Sie diese Domäne verwenden, wenn Sie eine neue Reverse-Lookupzone erstellen.
 
 Während der Ausführung des Assistenten zum Erstellen neuer Zonen werden die folgenden Auswahlen empfohlen:
 
 |Konfigurationselemente|Beispielwerte|
 |-----------------------|------------------|
 |Zonentyp|**Primäre Zone** und **Zone in Active Directory speichern** sind ausgewählt.|
-|Active Directory-Zonenreplikationsbereich|**An alle DNS-Server in dieser Domäne**|
-|Assistentenseite für den Namen der ersten Reverse-Lookupzone|**IPv4-Reverse-Lookupzone**|
+|Active Directory-Zonenreplikationsbereich|**Auf allen DNS-Servern in dieser Domäne**|
+|Assistentenseite für den Namen der ersten Reverse-Lookupzone|**IPv4 Reverse-Lookupzone**|
 |Assistentenseite für den Namen der zweiten Reverse-Lookupzone|Netzwerk-ID = 10.0.0.|
 |Dynamische Updates|**Nur sichere dynamische Updates zulassen**|
 
-### <a name="planning-domain-access"></a><a name="bkmk_NetFndtn_Pln_DomAccess"></a>Planen des Domänen Zugriffs
-Wenn Sie sich bei der Domäne anmelden möchten, muss es sich bei dem Computer um einen Domänen Mitglieds Computer handeln, und das Benutzerkonto muss vor dem Anmeldeversuch in AD DS erstellt werden.
+### <a name="planning-domain-access"></a><a name="bkmk_NetFndtn_Pln_DomAccess"></a>Planen des Domänenzugriffs
+Damit sich der Computer bei der Domäne anmelden kann, muss er Mitglied der Domäne sein, und das Benutzerkonto muss vor der Anmeldung in AD DS erstellt worden sein.
 
 > [!NOTE]
 > Einzelcomputer unter Windows verfügen über eine Datenbank mit Konten für lokale Benutzer und Gruppen, die als SAM-Benutzerkontendatenbank (Security Accounts Manager, Sicherheitskontenverwaltung) bezeichnet wird. Wenn Sie auf dem lokalen Computer ein Benutzerkonto in der SAM-Datenbank erstellen, können Sie sich beim lokalen Computer, nicht jedoch bei einer Domäne anmelden. Domänenbenutzerkonten werden mit der Microsoft Management Console (MMC) unter Active Directory-Benutzer und Computer auf einem Domänencontroller, nicht mit lokalen Benutzern und Gruppen auf dem lokalen Computer erstellt.
@@ -318,11 +318,11 @@ Nach der ersten erfolgreichen Anmeldung mit den Domänenanmeldeinformationen ble
 
 Führen Sie die folgenden Schritte aus, bevor Sie sich bei der Domäne anmelden:
 
--   Erstellen Sie in Active Directory-Benutzer und -Computer Benutzerkonten. Jeder Benutzer muss in Active Directory-Benutzer und -Computer ein AD DS-Benutzerkonto besitzen. Weitere Informationen finden Sie unter [Erstellen eines Benutzerkontos in %%amp;quot;Active Directory-Benutzer und -Computer%%amp;quot;](#BKMK_createUA).
+- Erstellen Sie in Active Directory-Benutzer und -Computer Benutzerkonten. Jeder Benutzer muss in Active Directory-Benutzer und -Computer ein AD DS-Benutzerkonto besitzen. Weitere Informationen finden Sie unter [Erstellen eines Benutzerkontos in %%amp;quot;Active Directory-Benutzer und -Computer%%amp;quot;](#BKMK_createUA).
 
--   Stellen Sie sicher, dass die richtige IP-Adresskonfiguration verwendet wird. Damit der Computer einer Domäne hinzugefügt werden kann, muss er über eine IP-Adresse verfügen. In dieser Anleitung werden Server mit statischen IP-Adressen konfiguriert, und Clientcomputer empfangen IP-Adressleases vom DHCP-Server. Daher muss der DHCP-Server bereitgestellt werden, bevor der Domäne Clients hinzugefügt werden. Weitere Informationen finden Sie unter [Bereitstellen von DHCP1](#BKMK_deployDHCP01).
+- Stellen Sie sicher, dass die richtige IP-Adresskonfiguration verwendet wird. Damit der Computer einer Domäne hinzugefügt werden kann, muss er über eine IP-Adresse verfügen. In dieser Anleitung werden Server mit statischen IP-Adressen konfiguriert, und Clientcomputer empfangen IP-Adressleases vom DHCP-Server. Daher muss der DHCP-Server bereitgestellt werden, bevor der Domäne Clients hinzugefügt werden. Weitere Informationen finden Sie unter [Bereitstellen von DHCP1](#BKMK_deployDHCP01).
 
--   Fügen Sie den Computer der Domäne hinzu. Alle Computer, die Netzwerkressourcen bereitstellen oder auf diese zugreifen, müssen der Domäne hinzugefügt werden. Weitere Informationen finden Sie unter [Hinzufügen von Servercomputern zur Domäne und Anmelden](#BKMK_joinlogserver) und [Hinzufügen von Clientcomputern zur Domäne und Anmelden](#BKMK_joinlogclients).
+- Fügen Sie den Computer der Domäne hinzu. Alle Computer, die Netzwerkressourcen bereitstellen oder auf diese zugreifen, müssen der Domäne hinzugefügt werden. Weitere Informationen finden Sie unter [Hinzufügen von Servercomputern zur Domäne und Anmelden](#BKMK_joinlogserver) und [Hinzufügen von Clientcomputern zur Domäne und Anmelden](#BKMK_joinlogclients).
 
 ### <a name="planning-the-deployment-of-dhcp1"></a><a name="bkmk_NetFndtn_Pln_DHCP-01"></a>Planen der Bereitstellung von DHCP1
 Im Anschluss finden Sie die wichtigsten Planungsschritte vor der Installation der Serverrolle DHCP auf DHCP1.
@@ -330,30 +330,30 @@ Im Anschluss finden Sie die wichtigsten Planungsschritte vor der Installation de
 #### <a name="planning-dhcp-servers-and-dhcp-forwarding"></a>Planen von DHCP-Servern und DHCP-Weiterleitung
 Da DHCP-Meldungen Broadcastmeldungen sind, werden diese von Routern nicht zwischen Subnetzen weitergeleitet. Wenn Sie mehrere Subnetze besitzen und für jedes Subnetz DHCP-Dienste bereitstellen möchten, müssen Sie folgendermaßen vorgehen:
 
--   Installieren Sie einen DHCP-Server in jedem Subnetz.
+- Installieren Sie einen DHCP-Server in jedem Subnetz.
 
--   Konfigurieren Sie Router, um DHCP-Broadcastmeldungen zwischen Subnetzen weiterzuleiten, und konfigurieren Sie mehrere Bereiche auf dem DHCP-Server, einen Bereich pro Subnetz.
+- Konfigurieren Sie Router, um DHCP-Broadcastmeldungen zwischen Subnetzen weiterzuleiten, und konfigurieren Sie mehrere Bereiche auf dem DHCP-Server, einen Bereich pro Subnetz.
 
 In den meisten Fällen ist die Konfiguration von Routern für die Weiterleitung von DHCP-Broadcastmeldungen kosteneffektiver als die Bereitstellung eines DHCP-Servers in jedem physischen Segment des Netzwerks.
 
 #### <a name="planning-ip-address-ranges"></a>Planen von IP-Adressbereichen
 Jedes Subnetz muss seinen eigenen eindeutigen IP-Adressbereich besitzen. Diese Bereiche werden auf einem DHCP-Server durch Bereiche dargestellt.
 
-Ein Bereich ist eine administrative Gruppierung von IP-Adressen für Computer auf einem Subnetz, die den DHCP-Dienst nutzen. Der Administrator erstellt zunächst einen Bereich für jedes physische Subnetz, und dann verwendet er den Bereich, um die von den Clients genutzten Parameter zu definieren.
+Ein Bereich ist eine administrative Gruppierung von IP-Adressen für Computer in einem Subnetz, die den DHCP-Dienst verwenden. Der Administrator erstellt zunächst einen Bereich für jedes physische Subnetz und verwendet diesen dann, um die von den Clients verwendeten Parameter zu definieren.
 
-Ein Bereich verfügt über die folgenden Eigenschaften:
+Ein Bereich weist folgende Eigenschaften auf:
 
--   Ein IP-Adressbereich, aus dem Adressen für Leaseangebote für DHCP-Dienste ein- oder ausgeschlossen werden.
+- Einen IP-Adressbereich, von dem Adressen ein- oder ausgeschlossen werden, die für DHCP-Dienst-Leaseangebote verwendet werden.
 
--   Eine Subnetzmaske, die das Subnetzpräfix für eine angegebene IP-Adresse bestimmt.
+- Eine Subnetzmaske, die das Subnetzpräfix für eine angegebene IP-Adresse bestimmt.
 
--   Ein Bereichsname wird bei Erstellung zugewiesen.
+- Ein bei seiner Erstellung zugewiesener Bereichsname.
 
--   Leasedauerwerte, die DHCP-Clients zugewiesen werden, die dynamisch zugewiesene IP-Adressen empfangen.
+- Leasedauerwerte, die DHCP-Clients zugewiesen werden, die dynamisch zugeordnete IP-Adressen empfangen.
 
--   Beliebige DHCP-Bereichsoptionen, die für die Zuordnung zu DHCP-Clients konfiguriert wurden, z. B. IP-Adresse des DNS-Servers und IP-Adresse des Routers/Standardgateways.
+- Beliebige DHCP-Bereichsoptionen, die für die Zuordnung zu DHCP-Clients konfiguriert wurden, z. B. IP-Adresse des DNS-Servers und IP-Adresse des Routers/Standardgateways.
 
--   Reservierungen werden optional verwendet, um sicherzustellen, dass ein DHCP-Client immer die gleiche IP-Adresse empfängt.
+- Reservierungen werden optional verwendet, um sicherzustellen, dass ein DHCP-Client immer die gleiche IP-Adresse empfängt.
 
 Listen Sie vor der Bereitstellung Ihrer Server die Subnetze und den IP-Adressbereich auf, den Sie für jedes Subnetz verwenden möchten.
 
@@ -366,15 +366,15 @@ Beispielsweise ist die Subnetzmaske, die normalerweise mit der IP-Adresse 131.10
 11111111 11111111 00000000 00000000
 ```
 
-Diese Subnetzmasken-Nummer ist 16 1-Bit gefolgt von 16 Null Bits und gibt an, dass die Bereiche Netzwerk-ID und Host-ID dieser IP-Adresse eine Länge von 16 Bit haben. Normalerweise wird diese Subnetzmaske in punktierter Dezimalschreibweise als 255.255.0.0. angezeigt.
+Diese Subnetzmasken-Zahl besteht aus 16 Bits aus Einsen, gefolgt von 16 Bits aus Nullen, die angeben, dass die Netzwerk-ID- und Host-ID-Abschnitte dieser IP-Adresse jeweils 16 Bit lang sind. Normalerweise wird diese Subnetzmaske in punktierter Dezimalschreibweise als 255.255.0.0. angezeigt.
 
 In der folgenden Tabelle werden Subnetzmasken für die Internetadressklassen angezeigt.
 
 |Adressklasse|Bits für die Subnetzmaske|Subnetzmaske|
 |-----------------|------------------------|---------------|
 |Klasse A|11111111 00000000 00000000 00000000|255.0.0.0|
-|Klasse B|11111111 11111111 00000000 00000000|255.255.0,0|
-|Klasse C|11111111 11111111 11111111 00000000|255.255.255.0|
+|Klasse B|11111111 11111111 00000000 00000000|255.255.0.0|
+|Klasse C|11111111 11111111 11111111 00000000|255.255.255.0|
 
 Wenn Sie einen Bereich in DHCP erstellen und den IP-Adressbereich für den Bereich eingeben, stellt DHCP diese Standard-Subnetzmaskenwerte bereit. In der Regel sind Standard-Subnetzmaskenwerte für die meisten Netzwerke ohne spezielle Anforderungen sowie für Netzwerke, bei denen jedes IP-Netzwerksegment einem physischen Netzwerk entspricht, akzeptabel.
 
@@ -391,7 +391,7 @@ Um dieses Problem zu beheben, können Sie einen Ausschlussbereich für den DHCP-
 
 Sie können IP-Adressen von der Verteilung durch den DHCP-Server ausschließen, indem Sie einen Ausschlussbereich für jeden Bereich erstellen. Sie sollten Ausschlüsse für alle Geräte erstellen, die mit einer statischen IP-Adresse konfiguriert sind. Die ausgeschlossenen Adressen sollten alle IP-Adressen enthalten, die Sie manuell anderen Servern, Nicht-DHCP-Clients, Arbeitsstationen ohne Datenträger oder Routing- und Remotezugriff- und PPP-Clients zugewiesen haben.
 
-Es wird empfohlen, den Ausschlussbereich mit zusätzlichen Adressen zu konfigurieren, um für späteres Wachsen des Netzwerks vorbereitet zu sein. In der folgenden Tabelle finden Sie einen Beispiel Ausschluss Bereich für einen Bereich mit dem IP-Adressbereich 10.0.0.1-10.0.0.254 und einer Subnetzmaske von 255.255.255.0.
+Es wird empfohlen, den Ausschlussbereich mit zusätzlichen Adressen zu konfigurieren, um für späteres Wachsen des Netzwerks vorbereitet zu sein. Die folgende Tabelle enthält ein Beispiel für einen Ausschlussbereich für den IP-Adressbereich 10.0.0.1 bis 10.0.0.254 und für die Subnetzmaske 255.255.255.0.
 
 |Konfigurationselemente|Beispielwerte|
 |-----------------------|------------------|
@@ -405,7 +405,7 @@ Wenn der IP-Adressbereich eines Subnetzes beispielsweise 192.168.0.1 bis 192.168
 
 In diesem Beispiel werden zehn der ausgeschlossenen IP-Adressen verwendet, um Server und andere Geräte mit statischen IP-Adressen zu konfigurieren, und fünf weitere IP-Adressen bleiben für die Konfiguration neuer Geräte verfügbar, die zukünftig hinzugefügt werden können. Mit diesem Ausschlussbereich verfügt der DHCP-Server noch über einen Adresspool von 192.168.0.16 bis 192.168.0.254.
 
-Weitere Beispiel Konfigurationselemente für AD DS und DNS finden Sie in der folgenden Tabelle.
+Die folgende Tabelle enthält weitere Beispielkonfigurationselemente für AD DS und DNS.
 
 |Konfigurationselemente|Beispielwerte|
 |-----------------------|------------------|
@@ -415,31 +415,31 @@ Weitere Beispiel Konfigurationselemente für AD DS und DNS finden Sie in der fol
 |Werte für das Dialogfeld %%amp;quot;Bereich hinzufügen%%amp;quot;<p>1. Bereichs Name<br />2. Start-IP-Adresse<br />3. IP-Endadresse<br />4. Subnetzmaske<br />5. Standard Gateway (optional)<br />6. Leasedauer|1. primäres Subnetz<br />2.10.0.0.1<br />3.10.0.0.254<br />4.255.255.255.0<br />5.10.0.0.1<br />6.8 Tage|
 |Betriebsmodus des IPv6-DHCP-Servers|Nicht aktiviert|
 
-## <a name="core-network-deployment"></a><a name="BKMK_deployment"></a>Kern Netzwerk Bereitstellung
+## <a name="core-network-deployment"></a><a name="BKMK_deployment"></a>Hauptnetzwerk – Bereitstellung
 Führen Sie die folgenden grundlegenden Schritte aus, um ein Hauptnetzwerk bereitzustellen:
 
 1.  [Konfigurieren aller Server](#BKMK_configuringAll)
 
 2.  [Bereitstellen von DC1](#BKMK_deployADDNS01)
 
-3.  [Hinzufügen von Server Computern zur Domäne und anmelden](#BKMK_joinlogserver)
+3.  [Hinzufügen von Servercomputern zur Domäne und Anmelden](#BKMK_joinlogserver)
 
 4.  [Bereitstellen von DHCP1](#BKMK_deployDHCP01)
 
-5.  [Hinzufügen von Client Computern zur Domäne und anmelden](#BKMK_joinlogclients)
+5.  [Hinzufügen von Clientcomputern zur Domäne und Anmelden](#BKMK_joinlogclients)
 
-6.  [Bereitstellen optionaler Features für die Netzwerk Zugriffs Authentifizierung und Webdienste](#BKMK_optionalfeatures)
+6.  [Bereitstellen von optionalen Features für die Netzwerkzugriffsauthentifizierung und Webdienste](#BKMK_optionalfeatures)
 
 > [!NOTE]
-> -   Entsprechende Befehle von Windows PowerShell werden für die meisten Verfahren in diesem Handbuch bereitgestellt. Ersetzen Sie vor dem Ausführen dieser Cmdlets in Windows PowerShell die Beispielwerte durch Werte, die Ihre Netzwerkbereitstellung geeignet sind. Zudem müssen Sie jedes Cmdlet in Windows PowerShell in einer eigenen Zeile eingeben. In diesem Handbuch möglicherweise einzelne Cmdlets in mehreren Zeilen angezeigt, was auf Formatierungsbeschränkungen und die Anzeige des Dokuments durch den Browser oder eine andere Anwendung zurückzuführen ist.
-> -   Die Verfahren in diesem Handbuch beinhalten keine Anleitungen für die Fälle, in denen das Dialogfeld **Benutzerkontensteuerung** geöffnet wird, um die Zustimmung zum Fortfahren abzufragen. Klicken Sie auf **Weiter**, wenn das Dialogfeld während der Ausführung der Verfahren in dieser Anleitung geöffnet wird und als Folge der ausgeführten Aktionen geöffnet wurde.
+> - Entsprechende Befehle von Windows PowerShell werden für die meisten Verfahren in diesem Handbuch bereitgestellt. Ersetzen Sie vor dem Ausführen dieser Cmdlets in Windows PowerShell die Beispielwerte durch Werte, die Ihre Netzwerkbereitstellung geeignet sind. Zudem müssen Sie jedes Cmdlet in Windows PowerShell in einer eigenen Zeile eingeben. In diesem Handbuch möglicherweise einzelne Cmdlets in mehreren Zeilen angezeigt, was auf Formatierungsbeschränkungen und die Anzeige des Dokuments durch den Browser oder eine andere Anwendung zurückzuführen ist.
+> - Die Verfahren in diesem Handbuch beinhalten keine Anleitungen für die Fälle, in denen das Dialogfeld **Benutzerkontensteuerung** geöffnet wird, um die Zustimmung zum Fortfahren abzufragen. Klicken Sie auf **Weiter**, wenn das Dialogfeld während der Ausführung der Verfahren in dieser Anleitung geöffnet wird und als Folge der ausgeführten Aktionen geöffnet wurde.
 
 ### <a name="configuring-all-servers"></a><a name="BKMK_configuringAll"></a>Konfigurieren aller Server
 Bevor Sie andere Technologien wie Active Directory-Domänendienste oder DHCP installieren, müssen Sie die folgenden Elemente konfigurieren.
 
--   [Umbenennen des Computers](#BKMK_rename)
+- [Umbenennen des Computers](#BKMK_rename)
 
--   [Konfigurieren einer statischen IP-Adresse](#BKMK_ip)
+- [Konfigurieren einer statischen IP-Adresse](#BKMK_ip)
 
 Sie können die folgenden Abschnitte verwenden, um diese Schritte auf jedem Server auszuführen.
 
@@ -463,7 +463,7 @@ Mithilfe des in diesem Abschnitt beschriebenen Verfahrens können Sie den Namen 
 
 3.  Geben Sie im Dialogfeld **Ändern des Computernamens bzw. der Domäne** unter **Computername** einen neuen Namen für den Computer ein. Wenn Sie dem Computer beispielsweise den Namen DC1 geben möchten, geben Sie **DC1** ein.
 
-4.  Klicken Sie zweimal auf **OK** , und klicken Sie dann auf **Schließen**. Wenn Sie den Computer sofort neu starten möchten, um die Namensänderung abzuschließen, klicken Sie auf **Jetzt neu starten**. Andernfalls klicken Sie auf **Später neu starten**.
+4.  Klicken Sie zweimal auf **OK**, und klicken Sie dann auf **Schließen**. Wenn Sie den Computer sofort neu starten möchten, um die Namensänderung abzuschließen, klicken Sie auf **Jetzt neu starten**. Andernfalls klicken Sie auf **Später neu starten**.
 
 > [!NOTE]
 > Informationen zum Umbenennen von Computern, auf denen andere Microsoft-Betriebssysteme ausgeführt werden, finden Sie unter [Anhang A: Umbenennen von Computern](#BKMK_A).
@@ -501,31 +501,31 @@ Mithilfe der Verfahren in diesem Thema können Sie die IPv4-Eigenschaften (Inter
 
 9. Geben Sie gegebenenfalls im Feld **Alternativer DNS-Server** die IP-Adresse des alternativen DNS-Servers ein. Wenn Sie den lokalen Computer als alternativen DNS-Server verwenden möchten, geben Sie die IP-Adresse des lokalen Computers ein.
 
-10. Klicken Sie auf **OK** und dann auf **Schließen**.
+10. Klicken Sie auf **OK**und dann auf **Schließen**.
 
 > [!NOTE]
 > Informationen zum Konfigurieren einer statischen IP-Adresse auf Computern, auf denen andere Microsoft-Betriebssysteme ausgeführt werden, finden Sie in [Anhang B: Konfigurieren statischer IP-Adressen](#BKMK_B).
 
 #### <a name="deploying-dc1"></a><a name="BKMK_deployADDNS01"></a>Bereitstellen von DC1
-Zum Bereitstellen von DC1, bei dem es sich um den Computer mit Active Directory Domain Services (AD DS) und DNS handelt, müssen Sie diese Schritte in der folgenden Reihenfolge ausführen:
+Führen Sie die folgenden Schritte in der angegebenen Reihenfolge aus, um DC1 bereitzustellen. Dabei handelt es sich um den Computer, auf dem Active Directory-Domänendienste (Active Directory Domain Services, AD DS) und DNS ausgeführt werden.
 
--   Führen Sie die Schritte im Abschnitt [Konfigurieren aller Server](#BKMK_configuringAll) aus.
+- Führen Sie die Schritte im Abschnitt [Konfigurieren aller Server](#BKMK_configuringAll) aus.
 
--   [Installieren von AD DS und DNS für eine neue Gesamtstruktur](#BKMK_installAD-DNS)
+- [Installieren von AD DS und DNS für eine neue Gesamtstruktur](#BKMK_installAD-DNS)
 
--   [Erstellen eines Benutzerkontos in Active Directory Benutzern und Computern](#BKMK_createUA)
+- [Erstellen eines Benutzerkontos in %%amp;quot;Active Directory-Benutzer und -Computer%%amp;quot;](#BKMK_createUA)
 
--   [Gruppenmitgliedschaft zuweisen](#BKMK_assigngroup)
+- [Zuweisen einer Gruppenmitgliedschaft](#BKMK_assigngroup)
 
--   [Konfigurieren einer DNS-Reverse-Lookupzone](#BKMK_reverse)
+- [Konfigurieren einer DNS-Reverse-Lookupzone](#BKMK_reverse)
 
 **Administratorrechte**
 
 Wenn Sie ein kleines Netzwerk installieren und der einzige Administrator für dieses Netzwerk sind, sollten Sie für sich selbst ein Benutzerkonto erstellen und dieses Benutzerkonto sowohl der Gruppe Organisations-Admins als auch Domänen-Admins als Mitglied hinzufügen. Auf diese Weise ist es einfacher, als Administrator für alle Netzwerkressourcen zu fungieren. Es wird außerdem empfohlen, sich mit diesem Konto nur zur Ausführung von Verwaltungsaufgaben anzumelden und zur Ausführung von nicht im Zusammenhang mit IT stehenden Aufgaben ein separates Benutzerkonto zu erstellen.
 
-Wenn Sie über eine größere Organisation mit mehreren Administratoren verfügen, lesen Sie AD DS Dokumentation, um die beste Gruppenmitgliedschaft für die Mitarbeiter der Organisation zu ermitteln.
+Wenn Sie ein größeres Netzwerk mit mehreren Administratoren verwalten, finden Sie weitere Informationen zur Ermittlung der besten Gruppenmitgliedschaft für Mitarbeiter des Unternehmens in der AD DS-Dokumentation.
 
-**Unterschiede zwischen Domänen Benutzerkonten und Benutzerkonten auf dem lokalen Computer**
+**Unterschiede zwischen Domänenbenutzerkonten und Benutzerkonten auf dem lokalen Computer**
 
 Einer der Vorteile einer domänenbasierten Infrastruktur ist der, dass Sie nicht auf jedem Computer in der Domäne Benutzerkonten erstellen müssen. Dies gilt sowohl für Clientcomputer als auch für Server.
 
@@ -535,9 +535,9 @@ Alle Mitglieder der Gruppe %%amp;quot;Domänenbenutzer%%amp;quot; können sich n
 
 Sie können Benutzerkonten so konfigurieren, dass Sie die Tage und Uhrzeiten angeben können, zu denen sich der Benutzer bei einem Computer anmelden darf. Sie können auch festlegen, welche Computer jeder Benutzer verwenden darf. Um diese Einstellungen zu konfigurieren, öffnen Sie Active Directory-Benutzer und -Computer, und doppelklicken Sie auf das zu konfigurierende Konto. Klicken Sie in den **Eigenschaften** des Benutzerkontos auf die Registerkarte **Konto**, und klicken Sie dann auf **Anmeldezeiten** oder auf **Anmelden an**.
 
-#### <a name="install-ad-ds-and-dns-for-a-new-forest"></a><a name="BKMK_installAD-DNS"></a>Installieren von AD DS und DNS für eine neue Gesamtstruktur
+#### <a name="install-ad-ds-and-dns-for-a-new-forest"></a><a name="BKMK_installAD-DNS"></a>Installieren von AD DS und DNS für eine neue Gesamtstruktur
 
-Sie können eines der folgenden Verfahren verwenden, um Active Directory Domain Services (AD DS) und DNS zu installieren und eine neue Domäne in einer neuen Gesamtstruktur zu erstellen. 
+Sie können eines der folgenden Verfahren verwenden, um Active Directory Domain Services (AD DS) und DNS zu installieren und eine neue Domäne in einer neuen Gesamtstruktur zu erstellen.
 
 Das erste Verfahren enthält Anweisungen zum Ausführen dieser Aktionen mithilfe von Windows PowerShell, während das zweite Verfahren zeigt, wie Sie AD DS und DNS mithilfe von Server-Manager installieren.
 
@@ -555,21 +555,21 @@ Sie können die folgenden Befehle verwenden, um AD DS und DNS zu installieren un
 
 Sie müssen mindestens Mitglied der Gruppe **Administratoren** sein, damit Sie dieses Verfahren ausführen können.
 
-- Führen Sie Windows PowerShell als Administrator aus, geben Sie den folgenden Befehl ein, und drücken Sie dann die EINGABETASTE:  
+- Führen Sie Windows PowerShell als Administrator aus, geben Sie den folgenden Befehl ein, und drücken Sie dann die EINGABETASTE:
 
-`Install-WindowsFeature AD-Domain-Services -IncludeManagementTools`
+```powershell
+Install-WindowsFeature AD-Domain-Services -IncludeManagementTools`
+```
 
 Nachdem die Installation erfolgreich abgeschlossen wurde, wird die folgende Meldung in Windows PowerShell angezeigt.
 
-
-    Success Restart Needed  Exit Code   Feature Result
-    ------- --------------  ---------   --------------
-    True    No              Success     {Active Directory Domain Services, Group P...
-
+| Erfolg | Neustart erforderlich | Exitcode |  Funktionsergebnis |
+|--|--|--|--|
+| Richtig | Nein | Erfolg | {Active Directory Domain Services, Gruppe P... |
 
 - Geben Sie in Windows PowerShell den folgenden Befehl ein, und ersetzen Sie dabei den Text **Corp.contoso.com** durch Ihren Domänen Namen, und drücken Sie dann die EINGABETASTE:
 
-````
+````powershell
 Install-ADDSForest -DomainName "corp.contoso.com"
 ````
 
@@ -583,12 +583,11 @@ Install-ADDSForest -DomainName "corp.contoso.com"
 
 - Wenn die folgende Eingabeaufforderung angezeigt wird, geben Sie den Buchstaben **Y** ein und drücken dann die EINGABETASTE.
 
-
-~~~
-The target server will be configured as a domain controller and restarted when this operation is complete.
-Do you want to continue with this operation?
-[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"):
-~~~
+    ```
+    The target server will be configured as a domain controller and restarted when this operation is complete.
+    Do you want to continue with this operation?
+    [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"):
+    ```
 
 - Wenn Sie möchten, können Sie die Warnmeldungen lesen, die während der normalen, erfolgreichen Installation von AD DS und DNS angezeigt werden. Diese Nachrichten sind normal und keine Anzeichen für Installationsfehler.
 
@@ -596,7 +595,7 @@ Do you want to continue with this operation?
 
 - Nachdem der Server neu gestartet wurde, können Sie die erfolgreiche Installation von Active Directory Domain Services und DNS überprüfen. Öffnen Sie Windows PowerShell, geben Sie den folgenden Befehl ein, und drücken Sie die EINGABETASTE.
 
-````
+````powershell
 Get-WindowsFeature
 ````
 
@@ -633,9 +632,9 @@ Die Ergebnisse dieses Befehls werden in Windows PowerShell angezeigt und sollten
 
 12. Führen Sie in **Pfade** unter **Geben Sie den Speicherort der AD DS-Datenbank, der Protokolldateien und den Ort von SYSVOL an** einen der folgenden Schritte aus:
 
-    -   Übernehmen Sie die Standardwerte.
+    - Übernehmen Sie die Standardwerte.
 
-    -   Geben Sie Speicherorte für **Datenbankordner**, **Ordner für Protokolldateien** und **Ordner %%amp;quot;SYSVOL%%amp;quot;** ein.
+    - Geben Sie Speicherorte für **Datenbankordner**, **Ordner für Protokolldateien** und **Ordner %%amp;quot;SYSVOL%%amp;quot;** ein.
 
 13. Klicken Sie auf **Weiter**.
 
@@ -647,7 +646,7 @@ Die Ergebnisse dieses Befehls werden in Windows PowerShell angezeigt und sollten
 
 ![AD DS und DNS in Server-Manager](../media/Core-Network-Guide/server-roles-installed-sm.jpg)
 
-##### <a name="create-a-user-account-in-active-directory-users-and-computers"></a><a name="BKMK_createUA"></a>Erstellen eines Benutzerkontos in Active Directory Benutzern und Computern
+##### <a name="create-a-user-account-in-active-directory-users-and-computers"></a><a name="BKMK_createUA"></a>Erstellen eines Benutzerkontos in %%amp;quot;Active Directory-Benutzer und -Computer%%amp;quot;
 Mithilfe dieses Verfahrens können Sie unter Active Directory-Benutzer und -Computer in der Microsoft Management Console (MMC) ein neues Domänenbenutzerkonto erstellen.
 
 Sie müssen mindestens Mitglied der Gruppe **Domänen-Admins** oder einer entsprechenden Gruppe sein, um dieses Verfahren ausführen zu können.
@@ -671,7 +670,7 @@ Sie müssen mindestens Mitglied der Gruppe **Domänen-Admins** oder einer entspr
 
     **Was?**
 
-    -   Active Directory Benutzer und Computer/*Domänen Knoten*/*Ordners*
+    - Active Directory Benutzer und Computer/*Domänen Knoten* / *Ordner*
 
 3.  Zeigen Sie auf **Neu**, und klicken Sie dann auf **Benutzer**. Das Dialogfeld **Neues Objekt-Benutzer** wird geöffnet.
 
@@ -689,7 +688,7 @@ Sie müssen mindestens Mitglied der Gruppe **Domänen-Admins** oder einer entspr
 
 10. Klicken Sie auf **Weiter**, überprüfen Sie die Einstellungen des neuen Benutzerkontos, und klicken Sie auf **Fertig stellen**.
 
-##### <a name="assign-group-membership"></a><a name="BKMK_assigngroup"></a>Gruppenmitgliedschaft zuweisen
+##### <a name="assign-group-membership"></a><a name="BKMK_assigngroup"></a>Zuweisen einer Gruppenmitgliedschaft
 Mithilfe dieses Verfahrens können Sie einen Benutzer, einen Computer oder eine Gruppe zu einer Gruppe unter Active Directory-Benutzer und -Computer in der Microsoft Management Console (MMC) hinzufügen.
 
 Für dieses Verfahren müssen Sie mindestens Mitglied der Gruppe **Domänen-Admins** oder einer gleichwertigen Gruppe sein.
@@ -700,9 +699,9 @@ Für dieses Verfahren müssen Sie mindestens Mitglied der Gruppe **Domänen-Admi
 
 2.  Doppelklicken Sie im Detailbereich auf den Ordner mit der Gruppe, der ein Mitglied hinzugefügt werden soll.
 
-    Wo befindet sich dieses Element?
+    Wo?
 
-    -   **Active Directory von Benutzern und Computern**/*Domänen Knoten*/*Ordner, der die Gruppe enthält*
+    - **Active Directory von Benutzern und Computern** / *Domänen Knoten* / *Ordner, der die Gruppe enthält*
 
 3.  Klicken Sie im Detailbereich mit der rechten Maustaste auf das Objekt, das Sie einer Gruppe hinzufügen möchten, z. B. einen Benutzer oder einen Computer, und klicken Sie dann auf **Eigenschaften**. Das Dialogfeld **Eigenschaften** des-Objekts wird geöffnet. Klicken Sie auf die Registerkarte **Mitglied von**.
 
@@ -718,8 +717,8 @@ Mithilfe dieses Verfahrens können Sie eine Reverse-Lookupzone im Domain Name Sy
 Sie müssen mindestens Mitglied der Gruppe **Domänen-Admins** sein, damit Sie dieses Verfahren ausführen können.
 
 > [!NOTE]
-> -   Für mittelgroße und große Organisationen empfiehlt es sich, die Gruppe DnsAdmins in Active Directory Benutzer und Computern zu konfigurieren und zu verwenden. Weitere Informationen finden Sie unter [Weitere technische Ressourcen](#BKMK_resources).
-> -   Um dieses Verfahren mithilfe von Windows PowerShell durchzuführen, öffnen Sie PowerShell, und geben Sie das folgende Cmdlet in eine eigene Zeile ein, und drücken Sie dann die Eingabetaste. Anstelle der DNS-Reverse-Lookupzone und der Zonendateinamen in diesem Beispiel müssen Sie die Werte angeben, die Sie verwenden möchten. Kehren Sie die Netzwerk-ID für den Namen der Reverse-Lookupzone um. Wenn die Netzwerk-ID z. b. 192.168.0 lautet, erstellen Sie den Reverse-lookupzonennamen **0.168.192.in-addr. arpa**.
+> - Für mittelgroße und große Organisationen empfiehlt es sich, die Gruppe DnsAdmins in Active Directory Benutzer und Computern zu konfigurieren und zu verwenden. Weitere Informationen finden Sie unter [Weitere technische Ressourcen](#BKMK_resources).
+> - Um dieses Verfahren mithilfe von Windows PowerShell durchzuführen, öffnen Sie PowerShell, und geben Sie das folgende Cmdlet in eine eigene Zeile ein, und drücken Sie dann die Eingabetaste. Anstelle der DNS-Reverse-Lookupzone und der Zonendateinamen in diesem Beispiel müssen Sie die Werte angeben, die Sie verwenden möchten. Kehren Sie die Netzwerk-ID für den Namen der Reverse-Lookupzone um. Wenn die Netzwerk-ID z. b. 192.168.0 lautet, erstellen Sie den Reverse-lookupzonennamen **0.168.192.in-addr. arpa**.
 >
 > `Add-DnsServerPrimaryZone 0.0.10.in-addr.arpa -ZoneFile 0.0.10.in-addr.arpa.dns`
 
@@ -743,18 +742,18 @@ Sie müssen mindestens Mitglied der Gruppe **Domänen-Admins** sein, damit Sie d
 
 9. Führen Sie auf der zweiten Seite **Name der Reverse-Lookupzone** einen der folgenden Schritte aus:
 
-    -   Geben Sie im Feld **Netzwerk-ID** die Netzwerk-ID Ihres IP-Adressbereichs ein. Wenn der IP-Adressbereich beispielsweise die Adressen von 10.0.0.1 bis 10.0.0.254 enthält, geben Sie **10.0.0** ein.
+    - Geben Sie im Feld **Netzwerk-ID** die Netzwerk-ID Ihres IP-Adressbereichs ein. Wenn der IP-Adressbereich beispielsweise die Adressen von 10.0.0.1 bis 10.0.0.254 enthält, geben Sie **10.0.0** ein.
 
-    -   In **Name der Reverse-Lookupzone** wird der Name Ihrer IPv4 Reverse-Lookupzone automatisch hinzugefügt. Klicken Sie auf **Weiter**.
+    - In **Name der Reverse-Lookupzone** wird der Name Ihrer IPv4 Reverse-Lookupzone automatisch hinzugefügt. Klicken Sie auf **Weiter**.
 
 10. Wählen Sie unter **Dynamisches Update** den Typ der dynamischen Updates aus, die Sie zulassen möchten. Klicken Sie auf **Weiter**.
 
 11. Überprüfen Sie auf der Seite **Fertigstellen des Assistenten** Ihre Auswahl, und klicken Sie auf **Fertig stellen**.
 
-#### <a name="joining-server-computers-to-the-domain-and-logging-on"></a><a name="BKMK_joinlogserver"></a>Hinzufügen von Server Computern zur Domäne und anmelden
-Nachdem Sie Active Directory Domain Services (AD DS) installiert und ein oder mehrere Benutzerkonten erstellt haben, die über Berechtigungen zum Hinzufügen eines Computers zur Domäne verfügen, können Sie der Domäne Kern Netzwerkserver hinzufügen und sich bei den Servern anmelden, um zusätzliche Technologien, wie z. b. DHCP (Dynamic Host Configuration Protocol).
+#### <a name="joining-server-computers-to-the-domain-and-logging-on"></a><a name="BKMK_joinlogserver"></a>Hinzufügen von Servercomputern zur Domäne und Anmelden
+Nachdem Sie Active Directory-Domänendienste (Active Directory Domain Services, AD DS) installiert und ein oder mehrere Benutzerkonten erstellt haben, die über Berechtigungen zum Hinzufügen eines Computers zur Domäne verfügen, können Sie der Domäne Hauptnetzwerkserver hinzufügen und sich bei den Servern anmelden, um weitere Technologien wie DHCP (Dynamic Host Configuration Protocol) zu installieren.
 
-Führen Sie auf allen Servern, die Sie bereitstellen, mit Ausnahme des Servers, auf dem AD DS ausgeführt wird, die folgenden Schritte aus:
+Führen Sie auf allen bereitgestellten Servern, mit Ausnahme der Server, auf denen AD DS ausgeführt wird, folgende Schritte aus:
 
 1.  Führen Sie die unter [Konfigurieren aller Server](#BKMK_configuringAll) erläuterten Verfahren aus.
 
@@ -806,15 +805,15 @@ Führen Sie auf allen Servern, die Sie bereitstellen, mit Ausnahme des Servers, 
 #### <a name="deploying-dhcp1"></a><a name="BKMK_deployDHCP01"></a>Bereitstellen von DHCP1
 Bevor Sie diese Komponente des Hauptnetzwerks bereitstellen können, müssen Sie folgende Schritte ausführen:
 
--   Führen Sie die Schritte im Abschnitt [Konfigurieren aller Server](#BKMK_configuringAll) aus.
+- Führen Sie die Schritte im Abschnitt [Konfigurieren aller Server](#BKMK_configuringAll) aus.
 
--   Führen Sie die Schritte im Abschnitt [Hinzufügen von Servercomputern zur Domäne und Anmelden](#BKMK_joinlogserver) aus.
+- Führen Sie die Schritte im Abschnitt [Hinzufügen von Servercomputern zur Domäne und Anmelden](#BKMK_joinlogserver) aus.
 
 Führen Sie die folgenden Schritte in der angegebenen Reihenfolge aus, um DHCP1 bereitzustellen. Dabei handelt es sich um den Computer, auf dem die Serverrolle DHCP ausgeführt wird.
 
--   [Installieren des Dynamic Host Configuration-Protokolls (DHCP)](#BKMK_installDHCP)
+- [Installieren von Dynamic Host Configuration-Protokoll (DHCP)](#BKMK_installDHCP)
 
--   [Erstellen und Aktivieren eines neuen DHCP-Bereichs](#BKMK_newscopeDHCP)
+- [Erstellen und Aktivieren eines neuen DHCP-Bereichs](#BKMK_newscopeDHCP)
 
 > [!NOTE]
 > Um diese Verfahren mithilfe von Windows PowerShell durchzuführen, öffnen Sie PowerShell, und geben Sie die folgenden Cmdlets jeweils in eigene Zeilen ein, und drücken Sie dann die Eingabetaste. Anstelle von Bereichsname, Anfangs- und Endbereich der IP-Adressen, Subnetzmaske und anderen Werten in diesem Beispiel müssen Sie die Werte eingeben, die Sie verwenden möchten.
@@ -837,7 +836,7 @@ Führen Sie die folgenden Schritte in der angegebenen Reihenfolge aus, um DHCP1 
 >
 > `Add-DhcpServerInDC -DnsName DHCP1.corp.contoso.com`
 
-##### <a name="install-dynamic-host-configuration-protocol-dhcp"></a><a name="BKMK_installDHCP"></a>Installieren des Dynamic Host Configuration-Protokolls (DHCP)
+##### <a name="install-dynamic-host-configuration-protocol-dhcp"></a><a name="BKMK_installDHCP"></a>Installieren von Dynamic Host Configuration-Protokoll (DHCP)
 Mithilfe dieses Verfahrens können Sie die Rolle DHCP-Server unter Verwendung des Assistenten zum Hinzufügen von Rollen und Features installieren und konfigurieren.
 
 Sie müssen mindestens Mitglied der Gruppe **Domänen-Admins** oder einer entsprechenden Gruppe sein, um dieses Verfahren ausführen zu können.
@@ -906,9 +905,9 @@ Sie müssen mindestens Mitglied der Gruppe **DHCP-Administratoren** oder einer e
 
 12. Führen Sie unter **Router (Standardgateway)** eine der folgenden Aktionen aus:
 
-    -   Wenn sich in Ihrem Netzwerk keine Router befinden, klicken Sie auf **Weiter**.
+    - Wenn sich in Ihrem Netzwerk keine Router befinden, klicken Sie auf **Weiter**.
 
-    -   Geben Sie im Feld **IP-Adresse** die IP-Adresse des Routers oder Standardgateways ein. Geben Sie beispielsweise **10.0.0.1** ein. Klicken Sie auf **Hinzufügen** und dann auf **Weiter**.
+    - Geben Sie im Feld **IP-Adresse** die IP-Adresse des Routers oder Standardgateways ein. Geben Sie beispielsweise **10.0.0.1** ein. Klicken Sie auf **Hinzufügen** und dann auf **Weiter**.
 
 13. Gehen Sie unter **Domänenname und DNS-Server** folgendermaßen vor:
 
@@ -927,7 +926,7 @@ Sie müssen mindestens Mitglied der Gruppe **DHCP-Administratoren** oder einer e
 > [!IMPORTANT]
 > Wenn Sie neue Bereiche für weitere Subnetze erstellen möchten, wiederholen Sie dieses Verfahren. Verwenden Sie für jedes Subnetz, das Sie bereitstellen möchten, einen anderen IP-Adressbereich, und stellen Sie sicher, dass die Weiterleitung von DHCP-Meldungen auf allen Routern aktiviert ist, die in andere Subnetze führen.
 
-### <a name="joining-client-computers-to-the-domain-and-logging-on"></a><a name="BKMK_joinlogclients"></a>Hinzufügen von Client Computern zur Domäne und anmelden
+### <a name="joining-client-computers-to-the-domain-and-logging-on"></a><a name="BKMK_joinlogclients"></a>Hinzufügen von Clientcomputern zur Domäne und Anmelden
 
 > [!NOTE]
 > Um dieses Verfahren mithilfe von Windows PowerShell durchzuführen, öffnen Sie PowerShell, geben Sie das folgende Cmdlet ein, und drücken Sie dann die Eingabetaste. Anstelle des Domänennamens müssen Sie den Namen eingeben, den Sie verwenden möchten.
@@ -942,7 +941,7 @@ Sie müssen mindestens Mitglied der Gruppe **DHCP-Administratoren** oder einer e
 
 1.  Melden Sie sich bei dem Computer mit dem lokalen Administratorkonto an.
 
-2.  Geben Sie in **Web und Windows durchsuchen** **System**ein. Klicken Sie in den Suchergebnissen auf **System (Systemsteuerung)** . Das Dialogfeld **System** wird geöffnet.
+2.  Geben Sie in **Web und Windows durchsuchen** **System**ein. Klicken Sie in den Suchergebnissen auf **System (Systemsteuerung)**. Das Dialogfeld **System** wird geöffnet.
 
 3.  Klicken Sie unter **System**auf **Erweiterte System Einstellungen**. Das Dialogfeld **Systemeigenschaften** wird geöffnet. Klicken Sie auf die Registerkarte **Computer Name** .
 
@@ -990,7 +989,7 @@ Sie müssen mindestens Mitglied der Gruppe **DHCP-Administratoren** oder einer e
 
 5.  Geben Sie im Feld **Kennwort** das Domänenkennwort ein, und klicken Sie auf den Pfeil, oder drücken Sie die EINGABETASTE.
 
-### <a name="deploying-optional-features-for-network-access-authentication-and-web-services"></a><a name="BKMK_optionalfeatures"></a>Bereitstellen optionaler Features für die Netzwerk Zugriffs Authentifizierung und Webdienste
+### <a name="deploying-optional-features-for-network-access-authentication-and-web-services"></a><a name="BKMK_optionalfeatures"></a>Bereitstellen von optionalen Features für die Netzwerkzugriffsauthentifizierung und Webdienste
 Wenn Sie Netzwerk Zugriffs Server wie drahtlos Zugriffspunkte oder VPN-Server bereitstellen möchten, sollten Sie nach der Installation des Kern Netzwerks sowohl einen NPS als auch einen Webserver bereitstellen. Bei Bereitstellung von Netzwerkzugriff wird empfohlen, sichere, zertifikatbasierte Authentifizierungsmethoden zu verwenden. Mithilfe von NPS können Sie Netzwerkzugriffsrichtlinien verwalten und sichere Authentifizierungsmethoden bereitstellen. Sie können einen Webserver verwenden, um die Zertifikatsperrliste der Zertifizierungsstelle zu veröffentlichen, die Zertifikate für die sichere Authentifizierung bereitstellt.
 
 > [!NOTE]
@@ -1002,9 +1001,9 @@ In der folgenden Abbildung wird die Windows Server Core-Netzwerktopologie mit hi
 
 Die folgenden Abschnitte enthalten Informationen zum Hinzufügen von NPS- und Webserver zum Netzwerk.
 
--   [Bereitstellen von NPS1](#BKMK_deployNPS1)
+- [Bereitstellen von NPS1](#BKMK_deployNPS1)
 
--   [Bereitstellen von WEB1](#BKMK_IIS)
+- [Bereitstellen von WEB1](#BKMK_IIS)
 
 #### <a name="deploying-nps1"></a><a name="BKMK_deployNPS1"></a>Bereitstellen von NPS1
 Der Netzwerkrichtlinienserver (Network Policy Server, NPS) wird als vorbereitende Maßnahme zur Bereitstellung anderer Netzwerktechnologien installiert, beispielsweise VPN-Server (Virtual Private Network), Drahtloszugriffspunkte und 802.1X-Authentifizierungsswitches.
@@ -1013,24 +1012,24 @@ Mit dem Netzwerk Richtlinien Server (Network Policy Server, NPS) können Sie Net
 
 NPS ist eine optionale Komponente eines Hauptnetzwerks, Sie sollten NPS jedoch installieren, wenn eine der folgenden Voraussetzungen zutrifft:
 
--   Sie planen die Erweiterung Ihres Netzwerks auf RAS-Server, die mit dem RADIUS-Protokoll kompatibel sind, z. b. einen Computer mit Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 oder Windows Server 2008 und Routing-und RAS-Dienst, Terminal Dienste-Gateway oder Remotedesktop Gateway.
+- Sie planen die Erweiterung Ihres Netzwerks auf RAS-Server, die mit dem RADIUS-Protokoll kompatibel sind, wie z. b. einen Computer unter Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 oder Windows Server 2008, den Routing-und RAS-Dienst, das Terminal Dienste-Gateway oder Remotedesktop Gateway.
 
 
--   Sie planen die Bereitstellung der 802.1 x-Authentifizierung für Kabel-oder drahtlos Zugriff.
+- Sie planen die Bereitstellung der 802.1 x-Authentifizierung für Kabel-oder drahtlos Zugriff.
 
 Bevor Sie diesen Rollen Dienst bereitstellen, müssen Sie die folgenden Schritte auf dem Computer ausführen, den Sie als NPS konfigurieren.
 
--   Führen Sie die Schritte im Abschnitt [Konfigurieren aller Server](#BKMK_configuringAll) aus.
+- Führen Sie die Schritte im Abschnitt [Konfigurieren aller Server](#BKMK_configuringAll) aus.
 
--   Führen Sie die Schritte im Abschnitt [Hinzufügen von Servercomputern zur Domäne und Anmelden](#BKMK_joinlogserver) aus.
+- Führen Sie die Schritte im Abschnitt [Hinzufügen von Servercomputern zur Domäne und Anmelden](#BKMK_joinlogserver) aus.
 
 Während der Bereitstellung von NPS1, bei dem es sich um den Computer handelt, auf dem der Rollendienst %%amp;quot;Netzwerkrichtlinienserver%%amp;quot; (Network Policy Server, NPS) der Serverrolle %%amp;quot;Netzwerkrichtlinien- und Zugriffsdienste%%amp;quot; ausgeführt wird, müssen Sie folgende Schritte ausführen:
 
--   [Planen der Bereitstellung von NPS1](#bkmk_NetFndtn_Pln_NPS-01)
+- [Planen der Bereitstellung von NPS1](#bkmk_NetFndtn_Pln_NPS-01)
 
--   [Netzwerk Richtlinien Server (NPS) installieren](#BKMK_installNPS)
+- [Installieren von Netzwerkrichtlinienserver (Network Policy Server, NPS)](#BKMK_installNPS)
 
--   [Registrieren des NPS in der Standard Domäne](#BKMK_registerNPS)
+- [Registrieren des NPS in der Standard Domäne](#BKMK_registerNPS)
 
 > [!NOTE]
 > Dieses Handbuch enthält Anweisungen zum Bereitstellen von NPS auf einem eigenständigen Server oder virtuellen Computer mit dem Namen NPS1.  Ein weiteres empfohlenes Bereitstellungs Modell ist die Installation von NPS auf einem Domänen Controller. Wenn Sie NPS bevorzugen, anstatt auf einem eigenständigen Server auf einem Domänen Controller zu installieren, installieren Sie NPS auf DC1.
@@ -1042,15 +1041,15 @@ Wenn Sie NPS als RADIUS-Server (Remote Authentication Dial-In User Service) verw
 
 Im Anschluss finden Sie die wichtigsten Planungsschritte vor der Installation von NPS.
 
-- Planen der Benutzerkontendatenbank. Wenn Sie den Server, auf dem NPS ausgeführt wird, einer Active Directory Domäne hinzufügen, führt NPS standardmäßig die Authentifizierung und Autorisierung mithilfe der AD DS Benutzerkonten Datenbank aus. In einigen Fällen, beispielsweise in großen Netzwerken, die NPS als RADIUS-Proxy für die Weiterleitung von Verbindungsanforderungen an andere RADIUS-Server weiterleiten, können Sie NPS auch auf Computern installieren, die keine Domänenmitglieder sind.
+- Planen der Benutzerkontendatenbank. Wenn Sie den Server, auf dem NPS ausgeführt wird, einer Active Directory-Domäne hinzufügen, führt NPS standardmäßig die Authentifizierung und Autorisierung mithilfe von AD DS-Benutzerkontendatenbanken aus. In einigen Fällen, beispielsweise in großen Netzwerken, die NPS als RADIUS-Proxy für die Weiterleitung von Verbindungsanforderungen an andere RADIUS-Server weiterleiten, können Sie NPS auch auf Computern installieren, die keine Domänenmitglieder sind.
 
 - Planen der RADIUS-Kontoführung. NPS ermöglicht die Protokollierung von Ressourcenerfassungsdaten in einer SQL Server-Datenbank oder in einer Textdatei auf dem lokalen Computer. Wenn Sie SQL Server-Protokollierung verwenden möchten, planen Sie die Installation und Konfiguration Ihres Servers, auf dem SQL Server ausgeführt wird.
 
-##### <a name="install-network-policy-server-nps"></a><a name="BKMK_installNPS"></a>Netzwerk Richtlinien Server (NPS) installieren
+##### <a name="install-network-policy-server-nps"></a><a name="BKMK_installNPS"></a>Installieren von Netzwerkrichtlinienserver (Network Policy Server, NPS)
 Mithilfe dieses Verfahrens können Sie den Netzwerk Richtlinien Server (Network Policy Server, NPS) mithilfe des Assistenten zum Hinzufügen von Rollen und Features installieren. NPS ist ein Rollendienst der Serverrolle Netzwerkrichtlinien- und Zugriffsdienste.
 
 > [!NOTE]
-> Standardmäßig überwacht NPS RADIUS-Datenverkehr auf den Ports 1812, 1813, 1645 und 1646 für alle installierten Netzwerkadapter. Wenn die Windows-Firewall mit erweiterter Sicherheit bei der Installation von NPS aktiviert ist, werden während des Installationsvorgangs automatisch Firewallausnahmen für diese Ports für die Internet Protokollversion 6 \(IPv6-\) und IPv4-Verkehr erstellt. Wenn Ihre Netzwerk Zugriffs Server für das Senden von RADIUS-Datenverkehr über andere Ports als diese Standardeinstellungen konfiguriert sind, entfernen Sie die Ausnahmen, die bei der NPS-Installation unter Windows-Firewall mit erweiterter Sicherheit erstellt wurden, und erstellen Sie Ausnahmen für die Ports, die Sie für RADIUS-Datenverkehr.
+> Standardmäßig überwacht NPS RADIUS-Datenverkehr auf den Ports 1812, 1813, 1645 und 1646 für alle installierten Netzwerkadapter. Wenn die Windows-Firewall mit erweiterter Sicherheit bei der Installation von NPS aktiviert ist, werden während des Installationsvorgangs automatisch Firewallausnahmen für diese Ports erstellt, sowohl für \( IPv6 \) -als auch für IPv4-Datenverkehr der Internet Protokollversion 6. Wenn Ihre Netzwerk Zugriffs Server für das Senden von RADIUS-Datenverkehr über andere Ports als diese Standardeinstellungen konfiguriert sind, entfernen Sie die Ausnahmen, die bei der NPS-Installation in der Windows-Firewall mit erweiterter Sicherheit erstellt wurden, und erstellen Sie Ausnahmen für die Ports, die Sie für den RADIUS
 
 **Administrator Anmelde Informationen**
 
@@ -1074,7 +1073,7 @@ Zur Ausführung dieses Verfahrens müssen Sie ein Mitglied der Gruppe **Domänen
 
 4.  Stellen Sie sicher, dass unter **Zielserver auswählen** die Option **Einen Server aus dem Serverpool auswählen** aktiviert ist. Wählen Sie unter **Serverpool** den lokalen Computer aus. Klicken Sie auf **Weiter**.
 
-5.  Wählen Sie unter **Server Rollen auswählen**unter **Rollen**die Option **Netzwerk Richtlinien-und Zugriffs Dienste**aus. Es wird ein Dialogfeld geöffnet, in dem Sie gefragt werden, ob für Netzwerk Richtlinien-und Zugriffs Dienste erforderliche Features hinzugefügt werden sollen. Klicken Sie auf **Features hinzufügen** und dann auf **Weiter**.
+5.  Wählen Sie unter **Server Rollen auswählen**unter **Rollen**die Option **Netzwerk Richtlinien-und Zugriffs Dienste**aus. Es wird ein Dialogfeld geöffnet, in dem Sie gefragt werden, ob für Netzwerk Richtlinien-und Zugriffs Dienste erforderliche Features hinzugefügt werden sollen. Klicken Sie auf **Features hinzufügen**und dann auf **Weiter**.
 
 6.  Klicken Sie unter **Features auswählen** auf **Weiter**, überprüfen Sie unter **Netzwerkrichtlinien- und Zugriffsdienste** die angegebenen Informationen, und klicken Sie dann auf **Weiter**.
 
@@ -1087,7 +1086,7 @@ Mit diesem Verfahren können Sie einen NPS in der Domäne registrieren, in der d
 
 NPSS muss in Active Directory registriert werden, damit Sie über die Berechtigung zum Lesen der Einwähleigenschaften von Benutzerkonten während des Autorisierungs Vorgangs verfügen. Beim Registrieren eines NPS wird der Server der Gruppe " **RAS-und IAS-Server** " in Active Directory hinzugefügt.
 
-**Administrator Anmelde Informationen**
+**Administratoranmeldeinformationen**
 
 Zur Ausführung dieses Verfahrens müssen Sie ein Mitglied der Gruppe **Domänen-Admins** sein.
 
@@ -1100,7 +1099,7 @@ Zur Ausführung dieses Verfahrens müssen Sie ein Mitglied der Gruppe **Domänen
 
 1.  Klicken Sie auf NPS1 unter Server-Manager auf %%amp;quot;Extras%%amp;quot; und dann auf **Netzwerkrichtlinienserver**. Das MMC-Snap-In %%amp;quot;Netzwerkrichtlinienserver%%amp;quot; wird geöffnet.
 
-2.  Klicken Sie mit der rechten Maustaste auf **NPS (Lokal)** , und klicken Sie dann auf **Server in Active Directory registrieren**. Das Dialogfeld **Netzwerkrichtlinienserver** wird geöffnet.
+2.  Klicken Sie mit der rechten Maustaste auf **NPS (Lokal)**, und klicken Sie dann auf **Server in Active Directory registrieren**. Das Dialogfeld **Netzwerkrichtlinienserver** wird geöffnet.
 
 3.  Klicken Sie im Dialogfeld **Netzwerkrichtlinienserver** auf **OK**, und klicken Sie erneut auf **OK**.
 
@@ -1112,25 +1111,25 @@ Die Rolle "Webserver (IIS)" in Windows Server 2016 bietet eine sichere, einfach 
 
 Mit der Server Rolle "Webserver (IIS)" können Sie nicht nur eine CRL für den Zugriff durch Domänen Mitglieds Computer veröffentlichen, sondern auch mehrere Websites, Webanwendungen und FTP-Sites einrichten und verwalten. IIS bietet außerdem die folgenden Vorteile:
 
--   Maximale Websicherheit durch einen reduzierten Serverspeicherbedarf und automatischer Anwendungsisolation
+- Maximale Websicherheit durch einen reduzierten Serverspeicherbedarf und automatischer Anwendungsisolation
 
--   Einfaches Bereitstellen und Ausführen von ASP.NET, klassischem ASP und PHP-Webanwendungen auf demselben Server
+- Einfaches Bereitstellen und Ausführen von ASP.NET, klassischem ASP und PHP-Webanwendungen auf demselben Server
 
--   Anwendungsisolation durch standardmäßiges Zuteilen einer eindeutigen Identität und Sandbox-Konfiguration zu Arbeitsprozessen zur weiteren Reduzierung von Sicherheitsrisiken
+- Anwendungsisolation durch standardmäßiges Zuteilen einer eindeutigen Identität und Sandbox-Konfiguration zu Arbeitsprozessen zur weiteren Reduzierung von Sicherheitsrisiken
 
--   Einfaches Hinzufügen, Entfernen und sogar Ersetzen von integrierten IIS-Komponenten durch benutzerdefinierte, an Kundenanforderungen angepasste Module
+- Einfaches Hinzufügen, Entfernen und sogar Ersetzen von integrierten IIS-Komponenten durch benutzerdefinierte, an Kundenanforderungen angepasste Module
 
--   Beschleunigte Websites durch integriertes dynamisches Zwischenspeichern und erweiterte Komprimierung
+- Beschleunigte Websites durch integriertes dynamisches Zwischenspeichern und erweiterte Komprimierung
 
 Zum Bereitstellen von WEB1 (des Computers, auf dem die Serverrolle %%amp;quot;Webserver (IIS)%%amp;quot; ausgeführt wird) müssen folgende Schritte ausgeführt werden:
 
--   Führen Sie die Schritte im Abschnitt [Konfigurieren aller Server](#BKMK_configuringAll) aus.
+- Führen Sie die Schritte im Abschnitt [Konfigurieren aller Server](#BKMK_configuringAll) aus.
 
--   Führen Sie die Schritte im Abschnitt [Hinzufügen von Servercomputern zur Domäne und Anmelden](#BKMK_joinlogserver) aus.
+- Führen Sie die Schritte im Abschnitt [Hinzufügen von Servercomputern zur Domäne und Anmelden](#BKMK_joinlogserver) aus.
 
--   [Installieren der Server Rolle "Webserver (IIS)"](#BKMK_install_IIS)
+- [Webserver (IIS)-Serverrolle installieren](#BKMK_install_IIS)
 
-##### <a name="install-the-web-server-iis-server-role"></a><a name="BKMK_install_IIS"></a>Installieren der Server Rolle "Webserver (IIS)"
+##### <a name="install-the-web-server-iis-server-role"></a><a name="BKMK_install_IIS"></a>Webserver (IIS)-Serverrolle installieren
 Sie müssen Mitglied der Gruppe **Administratoren** sein, um diesen Vorgang auszuführen.
 
 > [!NOTE]
@@ -1149,7 +1148,7 @@ Sie müssen Mitglied der Gruppe **Administratoren** sein, um diesen Vorgang ausz
 
 4.  Vergewissern Sie sich auf der Seite **Zielserver auswählen** , dass der lokale Computer ausgewählt ist, und klicken Sie dann auf **weiter**.
 
-5.  Scrollen Sie auf der Seite **Server Rollen auswählen** zu, und wählen Sie **Webserver (IIS)** aus. Das Dialogfeld **Features hinzufügen, die für den Webserver (IIS) erforderlich sind, wird** geöffnet. Klicken Sie auf **Features hinzufügen** und dann auf **Weiter**.
+5.  Scrollen Sie auf der Seite **Server Rollen auswählen** zu, und wählen Sie **Webserver (IIS)** aus. Das Dialogfeld **Features hinzufügen, die für den Webserver (IIS) erforderlich sind, wird** geöffnet. Klicken Sie auf **Features hinzufügen**und dann auf **Weiter**.
 
 6.  Klicken Sie auf **Weiter**, bis Sie alle Standardeinstellungen für Webserver akzeptiert haben, und klicken Sie dann auf **Installieren**.
 
@@ -1160,46 +1159,46 @@ Weitere Informationen zu den Technologien in diesem Handbuch finden Sie in den f
 
  Ressourcen für die technische Bibliothek von Windows Server 2016, Windows Server 2012 R2 und Windows Server 2012
 
--   [Neues in Active Directory Domain Services (AD DS) unter Windows Server 2016](https://technet.microsoft.com/library/mt163897.aspx)
+- [Neues in Active Directory Domain Services (AD DS) unter Windows Server 2016](https://technet.microsoft.com/library/mt163897.aspx)
 
--   [Active Directory Domain Services Übersicht](https://technet.microsoft.com/library/hh831484.aspx) unter https://technet.microsoft.com/library/hh831484.aspx.
+- [Active Directory Domain Services Übersicht](https://technet.microsoft.com/library/hh831484.aspx) unter https://technet.microsoft.com/library/hh831484.aspx .
 
--   [Übersicht über Domain Name System (DNS)](https://technet.microsoft.com/library/hh831667.aspx) unter https://technet.microsoft.com/library/hh831667.aspx.
+- [Domain Name System (DNS) Übersicht](https://technet.microsoft.com/library/hh831667.aspx) unter https://technet.microsoft.com/library/hh831667.aspx .
 
--   [Implementieren der Rolle "DNS-Administratoren"](https://technet.microsoft.com/library/cc756152(WS.10).aspx)
+- [Implementieren der Rolle "DNS-Administratoren"](https://technet.microsoft.com/library/cc756152(WS.10).aspx)
 
--   [Übersicht über das Dynamic Host Configuration-Protokoll (DHCP)](https://technet.microsoft.com/library/hh831825.aspx) unter https://technet.microsoft.com/library/hh831825.aspx.
+- [Übersicht über das Dynamic Host Configuration-Protokoll (DHCP)](https://technet.microsoft.com/library/hh831825.aspx) unter https://technet.microsoft.com/library/hh831825.aspx .
 
--   [Übersicht über Netzwerk Richtlinien-und Zugriffs Dienste](https://technet.microsoft.com/library/hh831683.aspx) unter https://technet.microsoft.com/library/hh831683.aspx.
+- [Übersicht über Netzwerk Richtlinien-und Zugriffs Dienste](https://technet.microsoft.com/library/hh831683.aspx) unter https://technet.microsoft.com/library/hh831683.aspx .
 
--   [Übersicht über Webserver (IIS)](https://technet.microsoft.com/library/hh831725.aspx) unter https://technet.microsoft.com/library/hh831725.aspx.
+- [Webserver (IIS): Übersicht](https://technet.microsoft.com/library/hh831725.aspx) unter https://technet.microsoft.com/library/hh831725.aspx .
 
-## <a name="appendices-a-through-e"></a><a name="BKMK_appendix"></a>Fügt A durch E ein.
+## <a name="appendices-a-through-e"></a><a name="BKMK_appendix"></a>Anhänge A bis E
 Die folgenden Abschnitte enthalten zusätzliche Konfigurationsinformationen für Computer, auf denen andere Betriebssysteme als Windows Server 2016, Windows 10, Windows Server 2012 und Windows 8 ausgeführt werden. Außerdem wird ein Arbeitsblatt für die netzwerkvorbereitung bereitgestellt, um Sie bei der Bereitstellung zu unterstützen.
 
-1.  [Anhang A: Umbenennen von Computern](#BKMK_A)
+1.  [Anhang A - Umbenennen von Computern](#BKMK_A)
 
-2.  [Anhang B: Konfigurieren statischer IP-Adressen](#BKMK_B)
+2.  [Anhang B - Konfigurieren von statischen IP-Adressen](#BKMK_B)
 
 3.  [Anhang C: Hinzufügen von Computern zur Domäne](#BKMK_C)
 
 4.  [Anhang D: Anmelden bei der Domäne](#BKMK_D)
 
-5.  [Anhang E-zentrales Netzwerk Planungs Vorbereitungs Blatt](#BKMK_E)
+5.  [Anhang E - Vorbereitungsblatt für die Planung eines Hauptnetzwerks](#BKMK_E)
 
-## <a name="appendix-a---renaming-computers"></a><a name="BKMK_A"></a>Anhang A: Umbenennen von Computern
+## <a name="appendix-a---renaming-computers"></a><a name="BKMK_A"></a>Anhang A - Umbenennen von Computern
 Mithilfe der Verfahren in diesem Abschnitt können Sie Computern, auf denen Windows Server 2008 R2, Windows 7, Windows Server 2008 und Windows Vista ausgeführt wird, einen anderen Computernamen bereitstellen.
 
--   [Windows Server 2008 R2 und Windows 7](#bkmk_NetFndtn_Pln_rename_R2)
+- [Windows 2008 R2 und Windows Server 7](#bkmk_NetFndtn_Pln_rename_R2)
 
--   [Windows Server 2008 und Windows Vista](#bkmk_NetFndtn_Pln_Renam08)
+- [Windows Server 2008 und Windows Vista](#bkmk_NetFndtn_Pln_Renam08)
 
-### <a name="windows-server-2008-r2-and-windows-7"></a><a name="bkmk_NetFndtn_Pln_rename_R2"></a>Windows Server 2008 R2 und Windows 7
+### <a name="windows-server-2008-r2-and-windows-7"></a><a name="bkmk_NetFndtn_Pln_rename_R2"></a>Windows 2008 R2 und Windows Server 7
 Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entsprechenden Gruppe sein, um diese Verfahren ausführen zu können.
 
 ##### <a name="to-rename-computers-running-windows-server-2008-r2-and-windows-7"></a>So benennen Sie Computer unter Windows Server 2008 R2 und Windows 7 um
 
-1.  Klicken Sie auf **Start**und mit der rechten Maustaste auf **Computer**und klicken Sie dann auf **Eigenschaften**. Das Dialogfeld **System** wird geöffnet.
+1.  Klicken Sie auf **Start** und mit der rechten Maustaste auf **Computer** und klicken Sie dann auf **Eigenschaften**. Das Dialogfeld **System** wird geöffnet.
 
 2.  Klicken Sie unter **Einstellungen für Computernamen, Domäne und Arbeitsgruppe** auf **Einstellungen ändern**. Das Dialogfeld **Systemeigenschaften** wird geöffnet.
 
@@ -1212,12 +1211,12 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entspr
 
 5.  Klicken Sie zweimal auf **OK** und dann auf **Schließen**. Klicken Sie dann auf **Jetzt neu starten**, um den Computer neu zu starten.
 
-### <a name="windows-server-2008-and-windows-vista"></a><a name="bkmk_NetFndtn_Pln_Renam08"></a>Windows Server 2008 und Windows Vista
+### <a name="windows-server-2008-and-windows-vista"></a><a name="bkmk_NetFndtn_Pln_Renam08"></a>Windows Server 2008 und Windows Vista
 Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entsprechenden Gruppe sein, um diese Verfahren ausführen zu können.
 
-##### <a name="to-rename-computers-running-windows-server-2008-and-windows-vista"></a>So benennen Sie Computer unter Windows Server 2008 und Windows Vista um
+##### <a name="to-rename-computers-running-windows-server-2008-and-windows-vista"></a>So benennen Sie Computer unter Windows Server 2008 und Windows Vista um
 
-1.  Klicken Sie auf **Start**und mit der rechten Maustaste auf **Computer**und klicken Sie dann auf **Eigenschaften**. Das Dialogfeld **System** wird geöffnet.
+1.  Klicken Sie auf **Start** und mit der rechten Maustaste auf **Computer** und klicken Sie dann auf **Eigenschaften**. Das Dialogfeld **System** wird geöffnet.
 
 2.  Klicken Sie unter **Einstellungen für Computernamen, Domäne und Arbeitsgruppe** auf **Einstellungen ändern**. Das Dialogfeld **Systemeigenschaften** wird geöffnet.
 
@@ -1230,12 +1229,12 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entspr
 
 5.  Klicken Sie zweimal auf **OK** und dann auf **Schließen**. Klicken Sie dann auf **Jetzt neu starten**, um den Computer neu zu starten.
 
-## <a name="appendix-b---configuring-static-ip-addresses"></a><a name="BKMK_B"></a>Anhang B: Konfigurieren statischer IP-Adressen
+## <a name="appendix-b---configuring-static-ip-addresses"></a><a name="BKMK_B"></a>Anhang B - Konfigurieren von statischen IP-Adressen
 In diesem Thema werden Verfahren zur Konfiguration von statischen IP-Adressen auf Computern unter den folgenden Betriebssystemen erläutert:
 
--   [Windows Server 2008 R2](#bkmk_R2Cng_WS08R2IP)
+- [Windows Server 2008 R2](#bkmk_R2Cng_WS08R2IP)
 
--   [Windows Server 2008](#bkmk_NetFndtn_Pln_CfgStatic08)
+- [Windows Server 2008](#bkmk_NetFndtn_Pln_CfgStatic08)
 
 ### <a name="windows-server-2008-r2"></a><a name="bkmk_R2Cng_WS08R2IP"></a>Windows Server 2008 R2
 Die Mitgliedschaft in **Administratoren** oder einer entsprechenden Gruppe ist die Mindestanforderung für die Durchführung dieses Verfahrens.
@@ -1244,7 +1243,7 @@ Die Mitgliedschaft in **Administratoren** oder einer entsprechenden Gruppe ist d
 
 1.  Klicken Sie auf **Start** und dann auf **Systemsteuerung**.
 
-2.  Klicken Sie in der Systemsteuerung auf**Netzwerk und Internet**. **Netzwerk und Internet** wird geöffnet.
+2.  Klicken Sie in der Systemsteuerung auf ******Netzwerk und Internet**. **Netzwerk und Internet** wird geöffnet.
 
     Klicken Sie in **Netzwerk und Internet** auf **Netzwerk- und Freigabecenter**. **Netzwerk- und Freigabecenter** wird geöffnet.
 
@@ -1252,7 +1251,7 @@ Die Mitgliedschaft in **Administratoren** oder einer entsprechenden Gruppe ist d
 
 4.  Klicken Sie in **Netzwerkverbindungen** mit der rechten Maustaste auf die zu konfigurierende Netzwerkverbindung, und klicken Sie dann auf **Eigenschaften**.
 
-5.  Wählen Sie unter **Eigenschaften von LAN-Verbindung** in **Diese Verbindung verwendet folgende Elemente** **Internetprotokoll Version 4 (TCP/IPv4)** aus, und klicken Sie dann auf **Eigenschaften**. Das Dialogfeld **Eigenschaften von Internetprotokoll Version 4 (TCP/IPv4)** wird geöffnet.
+5.  Wählen Sie unter **Eigenschaften von LAN-Verbindung** in **Diese Verbindung verwendet folgende Elemente****Internetprotokoll Version 4 (TCP/IPv4)** aus, und klicken Sie dann auf **Eigenschaften**. Das Dialogfeld **Eigenschaften von Internetprotokoll Version 4 (TCP/IPv4)** wird geöffnet.
 
 6.  Klicken Sie in **Eigenschaften von Internetprotokoll Version 4 (TCP/IPv4)** auf der Registerkarte **Allgemein** auf **Folgende IP-Adresse verwenden**. Geben Sie in **IP-Adresse** die IP-Adresse ein, die Sie verwenden möchten.
 
@@ -1264,7 +1263,7 @@ Die Mitgliedschaft in **Administratoren** oder einer entsprechenden Gruppe ist d
 
 10. Geben Sie gegebenenfalls im Feld **Alternativer DNS-Server** die IP-Adresse des alternativen DNS-Servers ein. Wenn Sie den lokalen Computer als alternativen DNS-Server verwenden möchten, geben Sie die IP-Adresse des lokalen Computers ein.
 
-11. Klicken Sie auf **OK** und dann auf **Schließen**.
+11. Klicken Sie auf **OK**und dann auf **Schließen**.
 
 ### <a name="windows-server-2008"></a><a name="bkmk_NetFndtn_Pln_CfgStatic08"></a>Windows Server 2008
 Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entsprechenden Gruppe sein, um diese Verfahren ausführen zu können.
@@ -1273,13 +1272,13 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entspr
 
 1.  Klicken Sie auf **Start** und dann auf **Systemsteuerung**.
 
-2.  Stellen Sie sicher, dass in der Systemsteuerungdie **Klassische Ansicht** ausgewählt ist, und doppelklicken Sie auf **Netzwerk- und Freigabecenter**.
+2.  Stellen Sie sicher, dass in der Systemsteuerung **** die **Klassische Ansicht** ausgewählt ist, und doppelklicken Sie auf **Netzwerk- und Freigabecenter**.
 
 3.  Klicken Sie im **Netzwerk- und Freigabecenter** unter **Aufgaben** auf **Netzwerkverbindungen verwalten**.
 
 4.  Klicken Sie in **Netzwerkverbindungen** mit der rechten Maustaste auf die zu konfigurierende Netzwerkverbindung, und klicken Sie dann auf **Eigenschaften**.
 
-5.  Wählen Sie unter **Eigenschaften von LAN-Verbindung** in **Diese Verbindung verwendet folgende Elemente** **Internetprotokoll Version 4 (TCP/IPv4)** aus, und klicken Sie dann auf **Eigenschaften**. Das Dialogfeld **Eigenschaften von Internetprotokoll Version 4 (TCP/IPv4)** wird geöffnet.
+5.  Wählen Sie unter **Eigenschaften von LAN-Verbindung** in **Diese Verbindung verwendet folgende Elemente****Internetprotokoll Version 4 (TCP/IPv4)** aus, und klicken Sie dann auf **Eigenschaften**. Das Dialogfeld **Eigenschaften von Internetprotokoll Version 4 (TCP/IPv4)** wird geöffnet.
 
 6.  Klicken Sie in **Eigenschaften von Internetprotokoll Version 4 (TCP/IPv4)** auf der Registerkarte **Allgemein** auf **Folgende IP-Adresse verwenden**. Geben Sie in **IP-Adresse** die IP-Adresse ein, die Sie verwenden möchten.
 
@@ -1291,26 +1290,26 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entspr
 
 10. Geben Sie gegebenenfalls im Feld **Alternativer DNS-Server** die IP-Adresse des alternativen DNS-Servers ein. Wenn Sie den lokalen Computer als alternativen DNS-Server verwenden möchten, geben Sie die IP-Adresse des lokalen Computers ein.
 
-11. Klicken Sie auf **OK** und dann auf **Schließen**.
+11. Klicken Sie auf **OK**und dann auf **Schließen**.
 
 ## <a name="appendix-c---joining-computers-to-the-domain"></a><a name="BKMK_C"></a>Anhang C: Hinzufügen von Computern zur Domäne
 Mit diesen Verfahren können Sie Computern, auf denen Windows Server 2008 R2, Windows 7, Windows Server 2008 und Windows Vista ausgeführt wird, der Domäne beitreten.
 
--   [Windows Server 2008 R2 und Windows 7](#BKMK_c1)
+- [Windows 2008 R2 und Windows Server 7](#BKMK_c1)
 
--   [Windows Server 2008 und Windows Vista](#BKMK_c2)
+- [Windows Server 2008 und Windows Vista](#BKMK_c2)
 
 > [!IMPORTANT]
 > Um einen Computer zu einer Domäne hinzufügen zu können, müssen Sie bei dem Computer mit dem lokalen Konto Administrator angemeldet sein. Wenn Sie mit einem Benutzerkonto angemeldet sind, das nicht über administrative Anmeldeinformationen für den lokalen Computer verfügt, müssen Sie die Anmeldeinformationen für das lokale Konto Administrator angeben, wenn Sie den Computer zu der Domäne hinzufügen. Außerdem müssen Sie über ein Benutzerkonto in der Domäne verfügen, der Sie den Computer hinzufügen möchten. Während der Hinzufügung des Computers zu der Domäne werden Sie zur Angabe der Anmeldeinformationen für Ihr Domänenkonto aufgefordert (Benutzername und Kennwort).
 
-### <a name="windows-server-2008-r2-and-windows-7"></a><a name="BKMK_c1"></a>Windows Server 2008 R2 und Windows 7
+### <a name="windows-server-2008-r2-and-windows-7"></a><a name="BKMK_c1"></a>Windows 2008 R2 und Windows Server 7
 Sie müssen mindestens Mitglied der Gruppe **Domänen-Benutzer** oder einer entsprechenden Gruppe sein, um dieses Verfahren ausführen zu können.
 
-##### <a name="to-join-computers-running-windows-server-2008-r2-and-windows-7-to-the-domain"></a>So fügen Sie Computer, auf denen Windows Server 2008 R2 und Windows 7 ausgeführt wird, der Domäne hinzu
+##### <a name="to-join-computers-running-windows-server-2008-r2-and-windows-7-to-the-domain"></a>So fügen Sie der Domäne Computer unter Windows Server 2008 R2 und Windows 7 hinzu
 
 1.  Melden Sie sich bei dem Computer mit dem lokalen Administratorkonto an.
 
-2.  Klicken Sie auf **Start**und mit der rechten Maustaste auf **Computer**und klicken Sie dann auf **Eigenschaften**. Das Dialogfeld **System** wird geöffnet.
+2.  Klicken Sie auf **Start** und mit der rechten Maustaste auf **Computer** und klicken Sie dann auf **Eigenschaften**. Das Dialogfeld **System** wird geöffnet.
 
 3.  Klicken Sie unter **Einstellungen für Computernamen, Domäne und Arbeitsgruppe** auf **Einstellungen ändern**. Das Dialogfeld **Systemeigenschaften** wird geöffnet.
 
@@ -1329,14 +1328,14 @@ Sie müssen mindestens Mitglied der Gruppe **Domänen-Benutzer** oder einer ents
 
 9. Klicken Sie im Dialogfeld **Systemeigenschaften** auf der Registerkarte **Computername** auf **Schließen**. Das Dialogfeld **Microsoft Windows** wird geöffnet und zeigt erneut die Meldung an, dass der Computer neu gestartet werden muss, damit die Änderungen wirksam werden. Klicken Sie auf **Jetzt neu starten**.
 
-### <a name="windows-server-2008-and-windows-vista"></a><a name="BKMK_c2"></a>Windows Server 2008 und Windows Vista
+### <a name="windows-server-2008-and-windows-vista"></a><a name="BKMK_c2"></a>Windows Server 2008 und Windows Vista
 Sie müssen mindestens Mitglied der Gruppe **Domänen-Benutzer** oder einer entsprechenden Gruppe sein, um dieses Verfahren ausführen zu können.
 
-##### <a name="to-join-computers-running-windows-server-2008-and-windows-vista-to-the-domain"></a>So fügen Sie Computer, auf denen Windows Server 2008 und Windows Vista ausgeführt wird, der Domäne hinzu
+##### <a name="to-join-computers-running-windows-server-2008-and-windows-vista-to-the-domain"></a>So fügen Sie der Domäne Computer unter Windows Server 2008 und Windows Vista hinzu
 
 1.  Melden Sie sich bei dem Computer mit dem lokalen Administratorkonto an.
 
-2.  Klicken Sie auf **Start**und mit der rechten Maustaste auf **Computer**und klicken Sie dann auf **Eigenschaften**. Das Dialogfeld **System** wird geöffnet.
+2.  Klicken Sie auf **Start** und mit der rechten Maustaste auf **Computer** und klicken Sie dann auf **Eigenschaften**. Das Dialogfeld **System** wird geöffnet.
 
 3.  Klicken Sie unter **Einstellungen für Computernamen, Domäne und Arbeitsgruppe** auf **Einstellungen ändern**. Das Dialogfeld **Systemeigenschaften** wird geöffnet.
 
@@ -1355,14 +1354,14 @@ Sie müssen mindestens Mitglied der Gruppe **Domänen-Benutzer** oder einer ents
 ## <a name="appendix-d---log-on-to-the-domain"></a><a name="BKMK_D"></a>Anhang D: Anmelden bei der Domäne
 Mithilfe dieser Verfahren können Sie sich bei der Domäne mithilfe von Computern anmelden, auf denen Windows Server 2008 R2, Windows 7, Windows Server 2008 und Windows Vista ausgeführt wird.
 
--   [Windows Server 2008 R2 und Windows 7](#BKMK_d1)
+- [Windows 2008 R2 und Windows Server 7](#BKMK_d1)
 
--   [Windows Server 2008 und Windows Vista](#BKMK_d2)
+- [Windows Server 2008 und Windows Vista](#BKMK_d2)
 
-### <a name="windows-server-2008-r2-and-windows-7"></a><a name="BKMK_d1"></a>Windows Server 2008 R2 und Windows 7
+### <a name="windows-server-2008-r2-and-windows-7"></a><a name="BKMK_d1"></a>Windows 2008 R2 und Windows Server 7
 Sie müssen mindestens Mitglied der Gruppe **Domänen-Benutzer** oder einer entsprechenden Gruppe sein, um dieses Verfahren ausführen zu können.
 
-##### <a name="log-on-to-the-domain-using-computers-running-windows-server-2008-r2-and-windows-7"></a>Anmelden bei der Domäne mithilfe von Computern, auf denen Windows Server 2008 R2 und Windows 7 ausgeführt wird
+##### <a name="log-on-to-the-domain-using-computers-running-windows-server-2008-r2-and-windows-7"></a>Anmelden bei der Domäne mit einem Computer unter Windows Server 2008 R2 und Windows 7
 
 1.  Melden Sie den Computer ab, oder starten Sie ihn neu.
 
@@ -1374,10 +1373,10 @@ Sie müssen mindestens Mitglied der Gruppe **Domänen-Benutzer** oder einer ents
 
 5.  Geben Sie im Feld **Kennwort** das Domänenkennwort ein, und klicken Sie auf den Pfeil, oder drücken Sie die EINGABETASTE.
 
-### <a name="windows-server-2008-and-windows-vista"></a><a name="BKMK_d2"></a>Windows Server 2008 und Windows Vista
+### <a name="windows-server-2008-and-windows-vista"></a><a name="BKMK_d2"></a>Windows Server 2008 und Windows Vista
 Sie müssen mindestens Mitglied der Gruppe **Domänen-Benutzer** oder einer entsprechenden Gruppe sein, um dieses Verfahren ausführen zu können.
 
-##### <a name="log-on-to-the-domain-using-computers-running-windows-server-2008-and-windows-vista"></a>Anmelden bei der Domäne mithilfe von Computern, auf denen Windows Server 2008 und Windows Vista ausgeführt wird
+##### <a name="log-on-to-the-domain-using-computers-running-windows-server-2008-and-windows-vista"></a>Anmelden bei der Domäne mit einem Computer unter Windows Server 2008 und Windows Vista
 
 1.  Melden Sie den Computer ab, oder starten Sie ihn neu.
 
@@ -1389,32 +1388,32 @@ Sie müssen mindestens Mitglied der Gruppe **Domänen-Benutzer** oder einer ents
 
 5.  Geben Sie im Feld **Kennwort** das Domänenkennwort ein, und klicken Sie auf den Pfeil, oder drücken Sie die EINGABETASTE.
 
-## <a name="appendix-e---core-network-planning-preparation-sheet"></a><a name="BKMK_E"></a>Anhang E-zentrales Netzwerk Planungs Vorbereitungs Blatt
+## <a name="appendix-e---core-network-planning-preparation-sheet"></a><a name="BKMK_E"></a>Anhang E - Vorbereitungsblatt für die Planung eines Hauptnetzwerks
 Sie können dieses Vorbereitungsblatt für die Netzwerkplanung verwenden, um die für die Installation eines Hauptnetzwerks erforderlichen Informationen zu erfassen. Dieses Thema enthält Tabellen, die die einzelnen Konfigurationselemente für jeden Server enthalten, für den Sie während des Installations- oder Konfigurationsprozess Informationen oder bestimmte Werte angeben müssen. Für jedes Konfigurationselement werden Beispielwerte angegeben.
 
 Für die Planung und Nachverfolgung enthält jede Tabelle Leerzellen, in die Sie die für Ihre Bereitstellung verwendeten Werte eingeben können. Wenn Sie in diesen Tabellen sicherheitsspezifische Werte erfassen, sollten Sie die Daten an einem sicheren Ort aufbewahren.
 
 Über die folgenden Links wechseln Sie zu den Abschnitten in diesem Thema, in denen Konfigurationselemente und Beispielwerte für die in dieser Anleitung erläuterten Bereitstellungsverfahren bereitgestellt werden.
 
-1.  [Installieren von Active Directory Domain Services und DNS](#BKMK_FndtnPrep_InstallAD)
+1.  [Installieren von Active Directory-Domänendiensten (Active Directory Domain Services, AD DS) und DNS](#BKMK_FndtnPrep_InstallAD)
 
-    -   [Konfigurieren einer DNS-Reverse-Lookupzone](#BKMK_FndtnPrep_DNSRevrsLook)
+    - [Konfigurieren einer DNS-Reverse-Lookupzone](#BKMK_FndtnPrep_DNSRevrsLook)
 
 2.  [Installieren von DHCP](#BKMK_FndtnPrep_InstallDHCP)
 
-    -   [Erstellen eines Ausschluss Bereichs in DHCP](#BKMK_FndtnPrep_DHCP_Exclusn)
+    - [Erstellen eines Ausschlussbereichs in DHCP](#BKMK_FndtnPrep_DHCP_Exclusn)
 
-    -   [Erstellen eines neuen DHCP-Bereichs](#bkmk_NetFndtn_Pln_DHCP_NewScope)
+    - [Erstellen eines neuen DHCP-Bereichs](#bkmk_NetFndtn_Pln_DHCP_NewScope)
 
-3.  [Installieren des Netzwerk Richtlinien Servers (optional)](#BKMK_FndtnPrep_InstallNPS)
+3.  [Installieren von Netzwerkrichtlinienserver (optional)](#BKMK_FndtnPrep_InstallNPS)
 
-### <a name="installing-active-directory-domain-services-and-dns"></a><a name="BKMK_FndtnPrep_InstallAD"></a>Installieren von Active Directory Domain Services und DNS
-In den Tabellen in diesem Abschnitt sind die Konfigurationselemente für die Vorinstallation und die Installation von Active Directory Domain Services (AD DS) und DNS aufgeführt.
+### <a name="installing-active-directory-domain-services-and-dns"></a><a name="BKMK_FndtnPrep_InstallAD"></a>Installieren von Active Directory-Domänendiensten (Active Directory Domain Services, AD DS) und DNS
+Die Tabellen in diesem Abschnitt enthalten Konfigurationselemente für die Installationsvorbereitung und die Installation von AD DS und DNS.
 
-##### <a name="pre-installation-configuration-items-for-ad-ds-and-dns"></a>Konfigurationselemente für AD DS und DNS vor der Installation
+##### <a name="pre-installation-configuration-items-for-ad-ds-and-dns"></a>Konfigurationselemente für die Vorbereitung der Installation von AD DS und DNS
 Die folgenden Tabellen enthalten Konfigurationselemente für die Vorbereitung der Installation, wie in [Konfigurieren aller Server](#BKMK_configuringAll) erläutert:
 
--   [Konfigurieren einer statischen IP-Adresse](#BKMK_ip)
+- [Konfigurieren einer statischen IP-Adresse](#BKMK_ip)
 
 |Konfigurationselemente|Beispielwerte|Werte|
 |-----------------------|------------------|----------|
@@ -1424,31 +1423,31 @@ Die folgenden Tabellen enthalten Konfigurationselemente für die Vorbereitung de
 |Bevorzugter DNS-Server|127.0.0.1||
 |Alternativer DNS-Server|10.0.0.15||
 
--   [Umbenennen des Computers](#BKMK_rename)
+- [Umbenennen des Computers](#BKMK_rename)
 
 |Konfigurationselement|Beispielwert|Wert|
 |----------------------|-----------------|---------|
 |Computername|DC1||
 
-##### <a name="ad-ds-and-dns-installation-configuration-items"></a>Konfigurationselemente für AD DS und DNS-Installation
+##### <a name="ad-ds-and-dns-installation-configuration-items"></a>Konfigurationselemente für die Installation von AD DS und DNS
 Konfigurationselemente für das Bereitstellungsverfahren für das Windows Server-Hauptnetzwerk[Installieren von AD DS und DNS für eine neue Gesamtstruktur](#BKMK_installAD-DNS):
 
 |Konfigurationselemente|Beispielwerte|Werte|
 |-----------------------|------------------|----------|
 |Vollständiger DNS-Name|corp.contoso.com||
 |Gesamtstrukturfunktionsebene|Windows Server 2003||
-|Speicherort des AD DS-Datenbankordners|E:\konfigurations\\<p>Oder übernehmen Sie den Standardspeicherort.||
-|Speicherort des AD DS-Protokolldateiordners|E:\konfigurations\\<p>Oder übernehmen Sie den Standardspeicherort.||
-|Speicherort des AD DS-SYSVOL-Ordners|E:\konfigurations\\<p>Oder übernehmen Sie den Standardspeicherort.||
+|Speicherort des AD DS-Datenbankordners|E:\konfiguration\\<p>Oder übernehmen Sie den Standardspeicherort.||
+|Speicherort des AD DS-Protokolldateiordners|E:\konfiguration\\<p>Oder übernehmen Sie den Standardspeicherort.||
+|Speicherort des AD DS-SYSVOL-Ordners|E:\konfiguration\\<p>Oder übernehmen Sie den Standardspeicherort.||
 |Administratorkennwort für den Verzeichnisdienst-Wiederherstellungsmodus|J*p2leO4$F||
-|Name der Antwortdatei (optional)|AD-DS_AnswerFile||
+|Name der Antwortdatei (optional)|AD DS_Antwortdatei||
 
 #### <a name="configuring-a-dns-reverse-lookup-zone"></a><a name="BKMK_FndtnPrep_DNSRevrsLook"></a>Konfigurieren einer DNS-Reverse-Lookupzone
 
 |Konfigurationselemente|Beispielwerte|Werte|
 |-----------------------|------------------|----------|
 |Zonentyp:|-Primäre Zone<br />-Sekundäre Zone<br />-Stub-Zone||
-|Zonentyp<p>**Speichern Sie die Zone in Active Directory**|-Ausgewählt<br />-Nicht ausgewählt||
+|Zonentyp<p>**Zone in Active Directory speichern**|-Ausgewählt<br />-Nicht ausgewählt||
 |Active Directory-Zonenreplikationsbereich|-Auf alle DNS-Server in dieser Gesamtstruktur<br />-Auf alle DNS-Server in dieser Domäne<br />-Auf alle Domänen Controller in dieser Domäne<br />-Zu allen Domänen Controllern, die im Gültigkeitsbereich dieser Verzeichnis Partition angegeben sind||
 |Name der Reverse-Lookupzone<p>(IP-Typ)|-IPv4-Reverse-Lookupzone<br />-IPv6-Reverse-Lookupzone||
 |Name der Reverse-Lookupzone<p>(Netzwerk-ID)|10.0.0||
@@ -1459,7 +1458,7 @@ Die Tabellen in diesem Abschnitt enthalten Konfigurationselemente für die Insta
 ##### <a name="pre-installation-configuration-items-for-dhcp"></a>Konfigurationselemente für die Vorbereitung der Installation von DHCP
 Die folgenden Tabellen enthalten Konfigurationselemente für die Vorbereitung der Installation, wie in [Konfigurieren aller Server](#BKMK_configuringAll) erläutert:
 
--   [Konfigurieren einer statischen IP-Adresse](#BKMK_ip)
+- [Konfigurieren einer statischen IP-Adresse](#BKMK_ip)
 
 |Konfigurationselemente|Beispielwerte|Werte|
 |-----------------------|------------------|----------|
@@ -1469,7 +1468,7 @@ Die folgenden Tabellen enthalten Konfigurationselemente für die Vorbereitung de
 |Bevorzugter DNS-Server|10.0.0.2||
 |Alternativer DNS-Server|10.0.0.15||
 
--   [Umbenennen des Computers](#BKMK_rename)
+- [Umbenennen des Computers](#BKMK_rename)
 
 |Konfigurationselement|Beispielwert|Wert|
 |----------------------|-----------------|---------|
@@ -1492,7 +1491,7 @@ Konfigurationselemente für das Bereitstellungsverfahren für das Windows Serve
 |Leasedauer|8 Tage||
 |Betriebsmodus des IPv6-DHCP-Servers|Nicht aktiviert||
 
-#### <a name="creating-an-exclusion-range-in-dhcp"></a><a name="BKMK_FndtnPrep_DHCP_Exclusn"></a>Erstellen eines Ausschluss Bereichs in DHCP
+#### <a name="creating-an-exclusion-range-in-dhcp"></a><a name="BKMK_FndtnPrep_DHCP_Exclusn"></a>Erstellen eines Ausschlussbereichs in DHCP
 Konfigurationselemente zum Erstellen eines Ausschlussbereichs beim Erstellen eines Bereichs in DHCP.
 
 |Konfigurationselemente|Beispielwerte|Werte|
@@ -1515,18 +1514,18 @@ Konfigurationselemente für das Bereitstellungsverfahren für das Windows Serve
 |Subnetzmaske|255.255.255.0||
 |Start-IP-Adresse (Ausschlussbereich)|10.0.1.1||
 |End-IP-Adresse des Ausschlussbereichs|10.0.1.15||
-|Leasedauer<p>Tage<p>Stunden<p>Minuten|-8<br />-   0<br />-   0||
+|Leasedauer<p>Tage<p>Stunden<p>Minuten|-8<br />-0<br />-0||
 |Router (Standardgateway)<p>IP-Adresse|10.0.1.1||
 |Übergeordnete DNS-Domäne|corp.contoso.com||
 |DNS-Server<p>IP-Adresse|10.0.0.2||
 
-### <a name="installing-network-policy-server-optional"></a><a name="BKMK_FndtnPrep_InstallNPS"></a>Installieren des Netzwerk Richtlinien Servers (optional)
+### <a name="installing-network-policy-server-optional"></a><a name="BKMK_FndtnPrep_InstallNPS"></a>Installieren von Netzwerkrichtlinienserver (optional)
 Die Tabellen in diesem Abschnitt enthalten Konfigurationselemente für die Installationsvorbereitung und die Installation von NPS.
 
 ##### <a name="pre-installation-configuration-items"></a>Konfigurationselemene für die Installationsvorbereitung
 Die folgende Tabelle enthält Konfigurationselemente für die Vorbereitung der Installation, wie in [Konfigurieren aller Server](#BKMK_configuringAll) erläutert:
 
--   [Konfigurieren einer statischen IP-Adresse](#BKMK_ip)
+- [Konfigurieren einer statischen IP-Adresse](#BKMK_ip)
 
 |Konfigurationselemente|Beispielwerte|Werte|
 |-----------------------|------------------|----------|
@@ -1536,7 +1535,7 @@ Die folgende Tabelle enthält Konfigurationselemente für die Vorbereitung der I
 |Bevorzugter DNS-Server|10.0.0.2||
 |Alternativer DNS-Server|10.0.0.15||
 
--   [Umbenennen des Computers](#BKMK_rename)
+- [Umbenennen des Computers](#BKMK_rename)
 
 |Konfigurationselement|Beispielwert|Wert|
 |----------------------|-----------------|---------|
@@ -1545,5 +1544,5 @@ Die folgende Tabelle enthält Konfigurationselemente für die Vorbereitung der I
 ##### <a name="network-policy-server-installation-configuration-items"></a>Konfigurationselemente für die Installation des Netzwerkrichtlinienservers
 Konfigurationselemente für die NPS-Bereitstellungs Prozeduren des Windows Server Core-Netzwerks [installieren den Netzwerk Richtlinien Server (NPS)](#BKMK_installNPS) und [registrieren den NPS in der Standard Domäne](#BKMK_registerNPS).
 
--   Für die Installation und Registrierung von NPS sind keine weiteren Konfigurationselemente erforderlich.
+- Für die Installation und Registrierung von NPS sind keine weiteren Konfigurationselemente erforderlich.
 

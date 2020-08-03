@@ -9,45 +9,18 @@ ms.author: jgerend
 manager: dongill
 ms.date: 06/29/2020
 ms.prod: windows-server
-ms.openlocfilehash: 33b19ba9c6f7d8f12d72876a04dbf8bdfda7ff30
-ms.sourcegitcommit: 145cf75f89f4e7460e737861b7407b5cee7c6645
+ms.openlocfilehash: 3f1af3e2f352c8bbea1540c2d1964ad8536170fe
+ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87409931"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87519579"
 ---
 # <a name="windows-commands"></a>Windows-Befehle
 
 Für alle unterstützten Versionen von Windows (Server und Client) ist eine Reihe von Win32-Konsolen Befehlen integriert.
 
 In diesem Dokumentations Satz werden die Windows-Befehle beschrieben, die Sie zum Automatisieren von Aufgaben mithilfe von Skripts oder Skript Erstellungs Tools verwenden können.
-
-Wenn Sie Informationen zu einem bestimmten Befehl suchen möchten, klicken Sie im folgenden a-Z-Menü auf den Buchstaben, mit dem der Befehl beginnt, und klicken Sie dann auf den Befehlsnamen.
-
-[A](#a)  |
- [B](#b)  |
- [C](#c)  |
- [D](#d)  |
- [E](#e)  |
- [F](#f)  |
- [G](#g)  |
- [H](#h)  |
- [I](#i)  |
- [J](#j)  |
- [K](#k)  |
- [L](#l)  |
- [M](#m)  |
- [N](#n)  |
- [O](#o)  |
- [P](#p)  |
- [F](#q)  |
- [R](#r)  |
- [S](#s)  |
- [T](#t)  |
- [U](#u)  |
- [V](#v)  |
- [W](#w)  |
- [X](#x) | J | Z
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -88,32 +61,9 @@ Bei der stabilsten aktuellen Windows-Automatisierung empfiehlt es sich, PowerShe
 
 ## <a name="command-line-reference-a-z"></a>Befehlszeilen Referenz A-Z
 
-Wenn Sie Informationen zu einem bestimmten Windows-Befehl suchen möchten, klicken Sie im folgenden a-Z-Menü auf den Buchstaben, mit dem der Befehl beginnt, und klicken Sie dann auf den Befehlsnamen.
+Wenn Sie Informationen zu einem bestimmten Befehl suchen möchten, klicken Sie im folgenden a-Z-Menü auf den Buchstaben, mit dem der Befehl beginnt, und klicken Sie dann auf den Befehlsnamen.
 
-[A](#a)  |
- [B](#b)  |
- [C](#c)  |
- [D](#d)  |
- [E](#e)  |
- [F](#f)  |
- [G](#g)  |
- [H](#h)  |
- [I](#i)  |
- [J](#j)  |
- [K](#k)  |
- [L](#l)  |
- [M](#m)  |
- [N](#n)  |
- [O](#o)  |
- [P](#p)  |
- [F](#q)  |
- [R](#r)  |
- [S](#s)  |
- [T](#t)  |
- [U](#u)  |
- [V](#v)  |
- [W](#w)  |
- [X](#x) | J | Z
+[A](#a)  |  [B](#b)  |  [C](#c)  |  [D](#d)  |  [E](#e)  |  [F](#f)  |  [G](#g)  |  [H](#h)  |  [I](#i)  |  [J](#j)  |  [K](#k)  |  [L](#l)  |  [M](#m)  |  [N](#n)  |  [O](#o)  |  [P](#p)  |  [F](#q)  |  [R](#r)  |  [S](#s)  |  [T](#t)  |  [U](#u)  |  [V](#v)  |  [W](#w)  |  [X](#x) | J | Z
 
 ### <a name="a"></a>Ein
 

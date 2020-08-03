@@ -1,6 +1,6 @@
 ---
 ms.assetid: 70c99703-ff0d-4278-9629-b8493b43c833
-title: Konfigurieren geschützter Benutzerkonten
+title: Leitfaden zum Konfigurieren geschützter Konten
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -8,14 +8,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 555d309ca5de27b241eff00a0fed6dd253a34208
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: e16e08517285bc80c6913d96781fdbb84c3bce14
+ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86961262"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87518987"
 ---
-# <a name="how-to-configure-protected-accounts"></a>Konfigurieren geschützter Benutzerkonten
+# <a name="guidance-about-how-to-configure-protected-accounts"></a>Leitfaden zum Konfigurieren geschützter Konten
 
 >Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -171,7 +171,7 @@ Sie können Dienstticket-Anfragen über den Ticket-Granting Service (TGS) einsch
 
 ### <a name="requirements-for-using-authentication-policies"></a><a name="BKMK_ReqForAuthnPolicies"></a>Anforderungen für die Verwendung von Authentifizierungsrichtlinien
 
-|Richtlinie|Anforderungen|
+|Policy|Requirements (Anforderungen)|
 |----------|----------------|
 |Benutzerdefinierte TGT-Lebensdauer| Konto Domänen auf Domänen Funktionsebene auf Windows Server 2012 R2|
 |Benutzeranmeldung beschränken|-Windows Server 2012 R2 Domänen Funktionsebene Konto Domänen mit dynamischer Access Control Unterstützung<br />-Windows 8-, Windows 8.1-, Windows Server 2012-oder Windows Server 2012 R2-Geräte mit dynamischer Access Control Unterstützung|

@@ -8,29 +8,31 @@ ms.date: 03/08/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: d12429b22265495cb8168ce3e5993a5cf3e74a0c
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: b61f7321dc75613a3450998284536673bd790f2b
+ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80859973"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87519819"
 ---
 # <a name="changing-the-company-logo-on-the-ad-fs-sign-in-page"></a>Ändern des Unternehmens Logos auf der AD FS-Anmeldeseite
 
-#### <a name="change-company-logo"></a>Ändern des Unternehmenslogos  
-Verwenden Sie das folgende PowerShell-Windows PowerShell-Cmdlet und die folgende Syntax, um das Logo des Unternehmens zu ändern, das auf der Seite Sign\-in angezeigt wird.  
+## <a name="change-company-logo"></a>Ändern des Unternehmenslogos
+
+Um das Logo des Unternehmens zu ändern, das auf der Anmelde \- Seite angezeigt wird, verwenden Sie das folgende PowerShell-Windows PowerShell-Cmdlet und die folgende Syntax.
 
 ![Logo ändern](media/AD-FS-user-sign-in-customization/ADFS_Blue_Custom2.png)
-  
-> [!IMPORTANT]  
-> Wir empfehlen für das Logo die Maße 260x35 bei 96 dpi mit einer Dateigröße von höchstens 10 KB.  
-  
-    
-    Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.png"}  
 
-  
-> [!NOTE]  
-> Der `TargetName` -Parameter ist erforderlich. Das Standarddesign, das mit AD FS freigegeben wird, hat den Namen *default*.  
+> [!IMPORTANT]
+> Wir empfehlen für das Logo die Maße 260x35 bei 96 dpi mit einer Dateigröße von höchstens 10 KB.
 
-## <a name="additional-references"></a>Weitere Verweise 
-[AD FS Anpassung der Benutzeranmeldung](AD-FS-user-sign-in-customization.md)  
+```powershell
+Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.png"}
+```
+
+> [!NOTE]
+> Der `TargetName`-Parameter ist erforderlich. Das Standarddesign, das mit AD FS freigegeben wird, hat den Namen *default*.
+
+## <a name="additional-references"></a>Zusätzliche Verweise
+
+[AD FS Anpassung der Benutzeranmeldung](AD-FS-user-sign-in-customization.md)

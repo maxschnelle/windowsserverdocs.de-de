@@ -1,6 +1,6 @@
 ---
-title: Entwickeln einer Tool-Erweiterung
-description: Entwickeln einer Tool Erweiterung Windows Admin Center SDK (Project Honolulu)
+title: Installieren der Erweiterungs Nutzlast auf einem verwalteten Knoten
+description: Anweisungen zum Installieren der Erweiterungs Nutzlast auf einem verwalteten Knoten
 ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
@@ -8,31 +8,32 @@ ms.author: niwashbu
 ms.date: 09/18/2018
 ms.localizationpriority: medium
 ms.prod: windows-server
-ms.openlocfilehash: 3a93a1105862ffbf4fcbd1d23b15d9bcaa6010dc
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 463280ba1d0a3fac84a12c0483946b01c0fefb75
+ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75950502"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87518558"
 ---
 # <a name="install-extension-payload-on-a-managed-node"></a>Installieren der Erweiterungs Nutzlast auf einem verwalteten Knoten
 
->Gilt für: Windows Admin Center, Windows Admin Center Vorschau
+>Gilt für: Windows Admin Center, Windows Admin Center-Vorschau
 
-## <a name="setup"></a>Setup
+## <a name="setup"></a>Einrichten
+
 > [!NOTE]
 > Um dieser Anleitung zu folgen, benötigen Sie Build 1.2.1904.02001 oder höher. Um die Buildnummer zu überprüfen, öffnen Sie das Windows Admin Center, und klicken Sie oben rechts auf das Fragezeichen.
 
 Wenn Sie dies noch nicht getan haben, erstellen Sie eine [Tool Erweiterung](../develop-tool.md) für Windows Admin Center. Nachdem Sie dies abgeschlossen haben, notieren Sie sich die Werte, die beim Erstellen einer Erweiterung verwendet wurden:
 
-| Value | Erläuterung | Beispiel |
+| Wert | Erklärung | Beispiel |
 | ----- | ----------- | ------- |
 | ```{!Company Name}``` | Name Ihres Unternehmens (mit Leerzeichen) | ```Contoso``` |
 | ```{!Tool Name}``` | Ihr Toolname (mit Leerzeichen) | ```InstallOnNode``` |
 
-Erstellen Sie in Ihrem Tool Erweiterungs Ordner einen ```Node``` Ordner (```{!Tool Name}\Node```). Alle Elemente, die in diesem Ordner platziert werden, werden bei Verwendung dieser API auf den verwalteten Knoten kopiert. Fügen Sie alle Dateien hinzu, die für Ihren Anwendungsfall erforderlich sind. 
+Erstellen Sie in Ihrem Tool Erweiterungs Ordner einen ```Node``` Ordner ( ```{!Tool Name}\Node``` ). Alle Elemente, die in diesem Ordner platziert werden, werden bei Verwendung dieser API auf den verwalteten Knoten kopiert. Fügen Sie alle Dateien hinzu, die für Ihren Anwendungsfall erforderlich sind.
 
-Erstellen Sie außerdem ein ```{!Tool Name}\Node\installNode.ps1``` Skript. Dieses Skript wird auf dem verwalteten Knoten ausgeführt, sobald alle Dateien aus dem Ordner ```{!Tool Name}\Node``` in den verwalteten Knoten kopiert wurden. Fügen Sie zusätzliche Logik für Ihren Anwendungsfall hinzu. Beispiel ```{!Tool Name}\Node\installNode.ps1``` Datei:
+Erstellen Sie auch ein ```{!Tool Name}\Node\installNode.ps1``` Skript. Dieses Skript wird auf dem verwalteten Knoten ausgeführt, sobald alle Dateien aus dem ```{!Tool Name}\Node``` Ordner in den verwalteten Knoten kopiert wurden. Fügen Sie zusätzliche Logik für Ihren Anwendungsfall hinzu. Beispiel ```{!Tool Name}\Node\installNode.ps1``` Datei:
 
 ``` ps1
 # Add logic for installing payload on managed node
@@ -40,12 +41,12 @@ echo 'Success'
 ```
 
 > [!NOTE]
-> ```{!Tool Name}\Node\installNode.ps1``` hat einen bestimmten Namen, nach dem die API sucht. Wenn Sie den Namen dieser Datei ändern, tritt ein Fehler auf.
+> ```{!Tool Name}\Node\installNode.ps1```hat einen bestimmten Namen, nach dem die API sucht. Wenn Sie den Namen dieser Datei ändern, tritt ein Fehler auf.
 
 
 ## <a name="integration-with-ui"></a>Integration in die Benutzeroberfläche
 
-Aktualisieren Sie ```\src\app\default.component.ts``` auf Folgendes:
+Aktualisieren ```\src\app\default.component.ts``` Sie Folgendes:
 
 ``` ts
 import { Component } from '@angular/core';
@@ -105,13 +106,13 @@ this.post('contoso.install-on-node', '1.0.0',
       );
 ```
 
-Aktualisieren Sie außerdem ```\src\app\default.component.html``` auf:
+Aktualisieren ```\src\app\default.component.html``` Sie auch auf:
 ``` html
 <button (click)="installOnNode()">Click to install</button>
 <sme-loading-wheel *ngIf="loading" size="large"></sme-loading-wheel>
 <p *ngIf="response">{{response}}</p>
 ```
-Und schließlich ```\src\app\default.module.ts```:
+Und schließlich ```\src\app\default.module.ts``` :
 ``` ts
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
@@ -136,10 +137,10 @@ export class DefaultModule { }
 
 Der letzte Schritt ist das Entwickeln eines nuget-Pakets mit den Dateien, die wir hinzugefügt haben, und die anschließende Installation des Pakets im Windows Admin Center.
 
-Wenn Sie noch kein Erweiterungspaket erstellt haben, befolgen Sie das Handbuch zum [Veröffentlichen von Erweiterungen](../publish-extensions.md) . 
+Wenn Sie noch kein Erweiterungspaket erstellt haben, befolgen Sie das Handbuch zum [Veröffentlichen von Erweiterungen](../publish-extensions.md) .
 > [!IMPORTANT]
-> In der nuspec-Datei für diese Erweiterung ist es wichtig, dass der ```<id>``` Wert mit dem Namen in der ```manifest.json``` Ihres Projekts übereinstimmt und der ```<version>``` mit dem ```\src\app\default.component.ts```übereinstimmt. Fügen Sie außerdem einen Eintrag unter ```<files>```hinzu: 
-> 
+> In der nuspec-Datei für diese Erweiterung ist es wichtig, dass der ```<id>``` Wert mit dem Namen in Ihrem Projekt übereinstimmt ```manifest.json``` und der dem ```<version>``` hinzugefügten entspricht ```\src\app\default.component.ts``` . Fügen Sie außerdem einen Eintrag unter hinzu ```<files>``` :
+>
 > ```<file src="Node\**\*.*" target="Node" />```.
 
 ``` xml
@@ -155,7 +156,7 @@ Wenn Sie noch kein Erweiterungspaket erstellt haben, befolgen Sie das Handbuch z
     <licenseUrl>http://YourLicenseLink</licenseUrl>
     <iconUrl>http://YourLogoLink</iconUrl>
     <description>Install on node extension by Contoso</description>
-    <copyright>(c) Contoso. All rights reserved.</copyright> 
+    <copyright>(c) Contoso. All rights reserved.</copyright>
   </metadata>
     <files>
     <file src="bundle\**\*.*" target="ux" />
@@ -165,4 +166,4 @@ Wenn Sie noch kein Erweiterungspaket erstellt haben, befolgen Sie das Handbuch z
 </package>
 ```
 
-Fügen Sie nach dem Erstellen dieses Pakets einen Pfad zu diesem Feed hinzu. Wechseln Sie im Windows Admin Center zu Einstellungen > Erweiterungen > Feeds, und fügen Sie den Pfad zum Speicherort dieses Pakets hinzu. Wenn die Erweiterung installiert ist, sollten Sie auf die Schaltfläche ```install``` klicken können, und die API wird aufgerufen.  
+Fügen Sie nach dem Erstellen dieses Pakets einen Pfad zu diesem Feed hinzu. Wechseln Sie im Windows Admin Center zu Einstellungen > Erweiterungen > Feeds, und fügen Sie den Pfad zum Speicherort dieses Pakets hinzu. Wenn die Erweiterung installiert ist, sollten Sie auf die Schaltfläche klicken können, ```install``` und die API wird aufgerufen.

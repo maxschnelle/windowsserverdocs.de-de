@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: d5268a5d95dd99bade89015863ea3eadf1b7913a
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 9cbf10e9ebce5bbe0865f28001d0c505b42c9742
+ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85475507"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87517995"
 ---
 # <a name="group-policy-settings-used-in-windows-authentication"></a>In der Windows-Authentifizierung verwendete Gruppenrichtlinien
 
@@ -25,7 +25,7 @@ In diesem Referenz Thema für IT-Experten werden die Verwendung und Auswirkung v
 Sie können die Authentifizierung in Windows-Betriebssystemen verwalten, indem Sie Benutzer-, Computer-und Dienst Konten zu Gruppen hinzufügen und anschließend Authentifizierungs Richtlinien für diese Gruppen anwenden. Diese Richtlinien werden als lokale Sicherheitsrichtlinien und als administrative Vorlagen definiert, auch als Gruppenrichtlinie Einstellungen bezeichnet. Beide Sätze können mit Gruppenrichtlinie in ihrer gesamten Organisation konfiguriert und verteilt werden.
 
 > [!NOTE]
-> Mithilfe der in Windows Server 2012 R2 eingeführten Features können Sie Authentifizierungs Richtlinien für gezielte Dienste oder Anwendungen, die häufig als Authentifizierungs Silos bezeichnet werden, mithilfe geschützter Konten konfigurieren. Informationen dazu, wie Sie dies in Active Directory tun, finden Sie unter [Konfigurieren geschützter Konten](how-to-configure-protected-accounts.md).
+> Mithilfe der in Windows Server 2012 R2 eingeführten Features können Sie Authentifizierungs Richtlinien für gezielte Dienste oder Anwendungen, die häufig als Authentifizierungs Silos bezeichnet werden, mithilfe geschützter Konten konfigurieren. Informationen dazu, wie Sie dies in Active Directory tun, finden Sie unter [Konfigurieren geschützter Konten](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/how-to-configure-protected-accounts).
 
 Beispielsweise können Sie die folgenden Richtlinien auf Grundlage ihrer Funktion in der Organisation auf Gruppen anwenden:
 
@@ -39,9 +39,9 @@ Beispielsweise können Sie die folgenden Richtlinien auf Grundlage ihrer Funktio
 
 In der folgenden Tabelle sind die für die-Authentifizierung relevanten Richtlinien Gruppen aufgeführt. es enthält Links zu Dokumentationen, mit denen Sie diese Richtlinien konfigurieren können.
 
-|Richtlinien Gruppe|Standort|Beschreibung|
+|Richtlinien Gruppe|Standort|BESCHREIBUNG|
 |--------|------|--------|
-|**Kenn Wort Richtlinie**|Lokaler Computer policy\computerkonfiguration\windows-einstellungen\sicherheitseinstellungen\konto Richtlinien|Kenn Wort Richtlinien beeinflussen die Merkmale und das Verhalten von Kenn Wörtern. Kenn Wort Richtlinien werden für Domänen Konten oder lokale Benutzerkonten verwendet. Sie bestimmen Einstellungen für Kenn Wörter, z. b. Erzwingung und Lebensdauer.<p>Informationen zu bestimmten Einstellungen finden Sie unter Kenn [Wort Richtlinie](https://technet.microsoft.com/itpro/windows/keep-secure/password-policy).|
+|**Kennwortrichtlinie**|Lokaler Computer policy\computerkonfiguration\windows-einstellungen\sicherheitseinstellungen\konto Richtlinien|Kenn Wort Richtlinien beeinflussen die Merkmale und das Verhalten von Kenn Wörtern. Kenn Wort Richtlinien werden für Domänen Konten oder lokale Benutzerkonten verwendet. Sie bestimmen Einstellungen für Kenn Wörter, z. b. Erzwingung und Lebensdauer.<p>Informationen zu bestimmten Einstellungen finden Sie unter Kenn [Wort Richtlinie](https://technet.microsoft.com/itpro/windows/keep-secure/password-policy).|
 |**Konto Sperr Richtlinie**|Lokaler Computer policy\computerkonfiguration\windows-einstellungen\sicherheitseinstellungen\konto Richtlinien|Optionen für die Konto Sperrungs Richtlinie deaktivieren Sie Konten nach einer festgelegten Anzahl fehlerhafter Anmeldeversuche. Mithilfe dieser Optionen können Sie Versuche zum Unterbrechen von Kenn Wörtern erkennen und blockieren.<p>Informationen zu den Optionen für die Konto Sperrungs Richtlinie finden Sie unter [Konto Sperr Richtlinie](https://technet.microsoft.com/itpro/windows/keep-secure/account-lockout-policy).|
 |**Kerberos-Richtlinie**|Lokaler Computer policy\computerkonfiguration\windows-einstellungen\sicherheitseinstellungen\konto Richtlinien|Die Kerberos-bezogenen Einstellungen umfassen die Ticket Lebensdauer und Erzwingungs Regeln. Die Kerberos-Richtlinie gilt nicht für lokale Konto Datenbanken, da das Kerberos-Authentifizierungsprotokoll nicht verwendet wird, um lokale Konten zu authentifizieren. Aus diesem Grund können die Kerberos-Richtlinien Einstellungen nur mithilfe des standardmäßigen Domänen Gruppenrichtlinie Objekts (GPO) konfiguriert werden, wo es sich auf Domänen Anmeldungen auswirkt.<p>Informationen zu Kerberos-Richtlinien Optionen für den Domänen Controller finden Sie unter [Kerberos-Richtlinie](https://technet.microsoft.com/itpro/windows/keep-secure/kerberos-policy).|
 |**Überwachungsrichtlinie**|Lokaler Computer policy\computerkonfiguration\windows-Einstellungen\Sicherheitseinstellungen\Lokale Richtlinien \ Überwachungsrichtlinie|Mithilfe der Überwachungsrichtlinie können Sie den Zugriff auf Objekte, wie z. b. Dateien und Ordner, Steuern und verstehen sowie Benutzer-und Gruppenkonten sowie Benutzeranmeldungen und-Abrechnungen verwalten. Mit Überwachungs Richtlinien können die Kategorien von Ereignissen angegeben werden, die Sie überwachen möchten, die Größe und das Verhalten des Sicherheitsprotokolls festlegen und bestimmen, welche Objekte der Zugriff überwacht werden sollen und welche Art von Zugriff Sie überwachen möchten.<p>|

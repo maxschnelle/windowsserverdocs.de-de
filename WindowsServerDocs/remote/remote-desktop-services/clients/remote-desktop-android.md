@@ -10,12 +10,12 @@ manager: lizross
 ms.author: helohr
 ms.date: 07/16/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: b76ded74b311265a22e32d836cb7a5dd5fe03f0d
-ms.sourcegitcommit: b363d8ceed863c8fd5a464bc8afdc4ef1af9a6f8
+ms.openlocfilehash: 215d69f40c09a11048c3e4c5a5c7cd610da3b9c4
+ms.sourcegitcommit: 25d3b2083405d3e1395355dcc34a032105e9c36d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86445724"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87389637"
 ---
 # <a name="get-started-with-the-android-client"></a>Erste Schritte mit dem Android-Client
 
@@ -35,7 +35,7 @@ Verwenden Sie die folgenden Informationen für die ersten Schritte. Lesen Sie un
 
 So richtest du den Remotedesktopclient auf deinem Android-Gerät ein:
 
-1. Lade den Microsoft-Remotedesktopclient aus [Google Play](https://play.google.com/store/apps/details?id=com.microsoft.rdc.android) herunter.
+1. Lade den Microsoft-Remotedesktopclient aus [Google Play](https://play.google.com/store/apps/details?id=com.microsoft.rdc.androidx) herunter.
 2. Starte den **Remotedesktopclient** aus deiner Liste der Apps.
 3. Füge eine [Remotedesktopverbindung](#add-a-remote-desktop-connection) oder [Remoteressource](#add-remote-resources) hinzu. Du verwendest eine Verbindung, um direkt eine Verbindung mit einem Windows-PC und mit Remoteressourcen herzustellen, um auf Apps und Desktops zuzugreifen, die ein Administrator für dich veröffentlicht hat.
 
@@ -128,12 +128,12 @@ Um die Anzeigeeinstellungen zu ändern, tippe auf **Einstellungen**, und tippe d
 Du kannst die folgenden Anzeigeeinstellungen festlegen:
 
 - **Ausrichtung** legt die bevorzugte Ausrichtung (Querformat oder Hochformat) für die Sitzung fest.
-  
+
   >[!NOTE]
   > Wenn du eine Verbindung mit einem PC unter Windows 8 oder früher herstellst, wird die Sitzung nicht ordnungsgemäß skaliert, wenn die Ausrichtung des Geräts geändert wurde. Damit der Client ordnungsgemäß skaliert wird, trenne die Verbindung mit dem PC, und stelle dann die Verbindung in der gewünschten Ausrichtung wieder her. Du kannst die richtige Skalierung auch sicherstellen, indem du stattdessen einen PC mit Windows 10 verwendest.
 
 - **Auflösung** legt die Remoteauflösung fest, die global für Desktopverbindungen verwendet werden soll. Wenn du bereits eine benutzerdefinierte Auflösung für eine einzelne Verbindung festgelegt hast, wird dies durch diese Einstellung nicht geändert.
-  
+
   >[!NOTE]
   >Wenn du die Anzeigeeinstellungen änderst, gelten die Änderungen nur für die neuen Verbindungen ab dem Zeitpunkt der Einstellungsänderung. Um deine Änderungen auf die Sitzung anzuwenden, mit der du zurzeit verbunden bist, aktualisiere deine Sitzung durch Trennen und erneutes Verbinden.
 

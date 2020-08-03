@@ -8,53 +8,53 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 69255eeaecd3e5198054242c1ab6dd1d0a58ce33
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: bdc39d3ceabce093940d325be93a9e2c50e670c8
+ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80816423"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87519759"
 ---
-# <a name="custom-web-themes-in-ad-fs"></a>Benutzerdefinierte Webdesigns in AD FS 
+# <a name="custom-web-themes-in-ad-fs"></a>Benutzerdefinierte Webdesigns in AD FS
 
-Das Design, das\-von\-dem\-Feld ausgeliefert wird, wird als Standard bezeichnet. Sie können das Standarddesign exportieren und verwenden, um schnell anzufangen. Sie können das Aussehen und Verhalten anpassen, unter anderem das Layout, indem Sie die CSS-Datei ändern, das neue Design importieren und anwenden und dann das angepasste Aussehen und Verhalten verwenden. Wenn Sie die CSS-Datei verwenden, können Sie zudem einfacher mit Ihren Webdesignern zusammenarbeiten.  
-  
-Mit dem folgenden Cmdlet erstellen Sie ein benutzerdefiniertes Webdesign, das das Standardwebdesign dupliziert.  
-  
-  
-`New-AdfsWebTheme –Name custom –SourceName default ` 
+Das Design, das standardmäßig versendet wird, \- \- \- wird als Standard bezeichnet. Sie können das Standarddesign exportieren und verwenden, um schnell anzufangen. Sie können das Aussehen und Verhalten anpassen, unter anderem das Layout, indem Sie die CSS-Datei ändern, das neue Design importieren und anwenden und dann das angepasste Aussehen und Verhalten verwenden. Wenn Sie die CSS-Datei verwenden, können Sie zudem einfacher mit Ihren Webdesignern zusammenarbeiten.
 
-  
-Sie können die CSS-Datei ändern und das neue Webdesign durch Verwendung der neuen CSS-Datei konfigurieren. Verwenden Sie zum Exportieren eines Webdesigns das folgende Cmdlet.  
-  
+Mit dem folgenden Cmdlet erstellen Sie ein benutzerdefiniertes Webdesign, das das Standardwebdesign dupliziert.
 
-    Export-AdfsWebTheme –Name default –DirectoryPath c:\theme  
+```powershell
+New-AdfsWebTheme –Name custom –SourceName default
+```
 
-  
-Verwenden Sie zum Anwenden der CSS-Datei auf das neue Design das folgende Cmdlet.  
-  
+Sie können die CSS-Datei ändern und das neue Webdesign durch Verwendung der neuen CSS-Datei konfigurieren. Verwenden Sie zum Exportieren eines Webdesigns das folgende Cmdlet.
 
-    Set-AdfsWebTheme –TargetName custom –StyleSheet @{path="c:\NewTheme.css"}  
-  
-  
-Mit dem folgenden Cmdlet erstellen Sie ein benutzerdefiniertes Webdesign über ein neues Stylesheet.  
-  
-  
-`New-AdfsWebTheme –Name custom –StyleSheet @{path="c:\NewTheme.css"} –RTLStyleSheetPath c:\NewRtlTheme.css ` 
-  
-  
-  
-Verwenden Sie das folgende Cmdlet, um das benutzerdefinierte Webdesign auf AD FS anzuwenden.  
-  
+```powershell
+Export-AdfsWebTheme –Name default –DirectoryPath c:\theme
+```
 
-`Set-AdfsWebConfig -ActiveThemeName custom`  
+Verwenden Sie zum Anwenden der CSS-Datei auf das neue Design das folgende Cmdlet.
 
-  
-Verwenden Sie das folgende Cmdlet, um AD FS JavaScript hinzuzufügen.  
-  
- 
-    Set-AdfsWebTheme -TargetName custom -AdditionalFileResource @{Uri=' /adfs/portal/script/onload.js';path="D:\inetpub\adfsassets\script\onload.js"}  
+```powershell
+Set-AdfsWebTheme –TargetName custom –StyleSheet @{path="c:\NewTheme.css"}
+```
 
+Mit dem folgenden Cmdlet erstellen Sie ein benutzerdefiniertes Webdesign über ein neues Stylesheet.
 
-## <a name="additional-references"></a>Weitere Verweise 
-[AD FS Anpassung der Benutzeranmeldung](AD-FS-user-sign-in-customization.md)  
+```powershell
+New-AdfsWebTheme –Name custom –StyleSheet @{path="c:\NewTheme.css"} –RTLStyleSheetPath c:\NewRtlTheme.css
+```
+
+Verwenden Sie das folgende Cmdlet, um das benutzerdefinierte Webdesign auf AD FS anzuwenden.
+
+```powershell
+Set-AdfsWebConfig -ActiveThemeName custom
+```
+
+Verwenden Sie das folgende Cmdlet, um AD FS JavaScript hinzuzufügen.
+
+```powershell
+Set-AdfsWebTheme -TargetName custom -AdditionalFileResource @{Uri=' /adfs/portal/script/onload.js';path="D:\inetpub\adfsassets\script\onload.js"}
+```
+
+## <a name="additional-references"></a>Zusätzliche Verweise
+
+[AD FS Anpassung der Benutzeranmeldung](AD-FS-user-sign-in-customization.md)

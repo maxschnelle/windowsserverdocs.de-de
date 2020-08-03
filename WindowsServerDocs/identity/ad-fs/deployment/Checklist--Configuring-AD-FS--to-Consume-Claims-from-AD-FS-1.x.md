@@ -8,28 +8,27 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: b78dbdcd06bfd3801c17491156cfb0aaf81a2a9d
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: cba16383b83fa8a53b28e4e1f70ffcebe63098d7
+ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86960362"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87520109"
 ---
 # <a name="checklist-configuring-ad-fs--to-consume-claims-from-ad-fs-1x"></a>Prüfliste: Konfigurieren von AD FS für die Nutzung von Ansprüchen von AD FS 1. x
 
-  
-## <a name="checklist-configuring-ad-fs-to-consume-claims-from-adfs1x"></a>Prüfliste: Konfigurieren von AD FS für die Nutzung von Ansprüchen von AD FS 1. x  
-Diese Prüfliste enthält die Aufgaben, die zum Konfigurieren Ihrer Active Directory-Verbunddienste (AD FS) \( AD FS \) Verbunddienst in Windows Server 2012 erforderlich sind, um Ansprüche zu nutzen, die von einem AD FS 1 gesendet werden.* x* -Verbunddienst.  
-  
-> [!NOTE]  
-> Führen Sie die Aufgaben in dieser Prüfliste in der angegebenen Reihenfolge aus. Wenn Sie über einen Referenzlink zu einer Prozedur gelangen, kehren Sie zu diesem Thema zurück, nachdem Sie die Schritte in der betreffenden Prozedur ausgeführt haben, sodass Sie die Ausführung der verbleibenden Aufgaben in dieser Prüfliste fortsetzen können.  
-  
-![Verwenden von Ansprüchen aus AD FS Prüfliste](media/2b05dce3-938f-4168-9b8f-1f4398cbdb9b.gif)**: Konfigurieren von AD FS für die Nutzung von Ansprüchen von AD FS 1. x**  
-  
-||Aufgabe|Referenz|  
-|-|--------|-------------|  
-|![beanspruchen von Ansprüchen aus AD FS](media/icon_checkboxo.gif)|Planen Sie die Interoperabilität zwischen AD FS in Windows Server 2012 und früheren Versionen von AD FS, und erfahren Sie mehr über den Anspruchstyp "Name ID".|![beanspruchen von Ansprüchen aus AD FS](media/faa393df-4856-4431-9eda-4f4e5be72a90.gif)[Planen der Interoperabilität mit AD FS 1. x](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/ff678040(v=ws.11))|  
-|![beanspruchen von Ansprüchen aus AD FS](media/icon_checkboxo.gif)|Bevor Sie mit einer früheren Version von AD FS zusammenarbeiten können, müssen Sie zunächst eine Anspruchs Anbieter-Vertrauensstellung in der AD FS Verbunddienst erstellen. **Hinweis:** Es ist nicht möglich, eine Vertrauensstellung mit einem AD FS 1 zu erstellen. *x* Verbunddienst mithilfe von Verbund Metadaten.<p>Wenn Sie die Vertrauensstellung mithilfe des Verfahrens im Link auf der rechten Seite einrichten, müssen Sie im Assistenten zum Hinzufügen von Anspruchs Anbieter-Vertrauens Stellungen die folgenden Schritte ausführen, um diese Vertrauensstellung für die Zusammenarbeit mit einem AD FS 1 einzurichten. *x* -Verbunddienst:<p>1. Wählen Sie auf der Seite **Datenquelle auswählen** die Option **Daten über die Vertrauensstellung der vertrauenden Seite manuell eingeben**aus.<br />2. Wählen Sie auf der Seite **Profil auswählen** die Option **AD FS 1,0-und 1,1-Profil**aus.<br />3. Geben Sie auf der Seite **URL konfigurieren** unter URL des ** \- passiven WS**-Verbunds die **Verbunddienst Endpunkt-URL** ein, wie in der AD FS 1 definiert.* x* Verbunddienst des Partners.<br />4. Geben Sie auf der Seite Bezeichner **Konfigurieren** unter **Anspruchs Anbieter-Vertrauensstellungs**-ID den **Verbunddienst URI** gemäß der Definition in AD FS 1 ein. *x* Verbunddienst des Partners.|![Verwenden von Ansprüchen aus AD FS](media/faa393df-4856-4431-9eda-4f4e5be72a90.gif)[Manuelles Erstellen einer Anspruchs Anbieter-Vertrauens](../../ad-fs/operations/Create-a-Claims-Provider-Trust.md) Stellung|  
-|![beanspruchen von Ansprüchen aus AD FS](media/icon_checkboxo.gif)|Auf der Anspruchs Anbieter-Vertrauensstellung, die Sie zuvor erstellt haben, müssen Sie eine Anspruchs Regel erstellen, die Ansprüche verwendet, die vom AD FS 1. x-Verbunddienst eingehenden werden, und Sie in einen namens-ID-Anspruchstyp weiterleiten, Filtern oder transformieren.<p>Wenn der Name-ID-Anspruchstyp durchlaufen, gefiltert oder transformiert wurde, kann er als Eingabe für eine andere Regel oder Regel verwendet werden, damit er von der AD FS Verbunddienst in Windows Server 2012 verstanden und genutzt werden kann.|![Verwenden von Ansprüchen aus AD FS](media/faa393df-4856-4431-9eda-4f4e5be72a90.gif)[Erstellen einer Regel zum Senden eines AD FS 1. x-kompatiblen Anspruchs](../../ad-fs/operations/Create-a-Rule-to-Send-an-AD-FS-1x-Compatible-Claim.md)|  
-|![beanspruchen von Ansprüchen aus AD FS](media/icon_checkboxo.gif)|Wenden Sie sich an den Administrator des AD FS 1. *x* Verbunddienst und haben den Administrator des AD FS 1. *x* Verbunddienst Einrichten einer neuen Ressourcen Partner Vertrauensstellung. Stellen Sie diesem Administrator außerdem den Verbunddienst-URI \( in den Verbunddienst Eigenschaften \) , die Verbunddienst Endpunkt-URL und eine exportierte \- Tokensignaturzertifikats-Datei \( mit dem öffentlichen Schlüssel bereit \) . Der Administrator benötigt diese Elemente, um die Vertrauensstellung einzurichten.|N\/V|  
-  
+
+## <a name="checklist-configuring-ad-fs-to-consume-claims-from-adfs1x"></a>Prüfliste: Konfigurieren von AD FS für die Nutzung von Ansprüchen von AD FS 1. x
+Diese Prüfliste enthält die Aufgaben, die zum Konfigurieren Ihrer Active Directory-Verbunddienste (AD FS) \( AD FS \) Verbunddienst in Windows Server 2012 erforderlich sind, um Ansprüche zu nutzen, die von einem AD FS 1 gesendet werden.* x* -Verbunddienst.
+
+> [!NOTE]
+> Führen Sie die Aufgaben in dieser Prüfliste in der angegebenen Reihenfolge aus. Wenn Sie über einen Referenzlink zu einer Prozedur gelangen, kehren Sie zu diesem Thema zurück, nachdem Sie die Schritte in der betreffenden Prozedur ausgeführt haben, sodass Sie die Ausführung der verbleibenden Aufgaben in dieser Prüfliste fortsetzen können.
+
+![Verwenden von Ansprüchen aus AD FS Prüfliste](media/2b05dce3-938f-4168-9b8f-1f4398cbdb9b.gif)**: Konfigurieren von AD FS für die Nutzung von Ansprüchen von AD FS 1. x**
+
+|Aufgabe|Verweis|
+|--------|-------------|
+|Planen Sie die Interoperabilität zwischen AD FS in Windows Server 2012 und früheren Versionen von AD FS, und erfahren Sie mehr über den Anspruchstyp "Name ID".|![beanspruchen von Ansprüchen aus AD FS](media/faa393df-4856-4431-9eda-4f4e5be72a90.gif)[Planen der Interoperabilität mit AD FS 1. x](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/ff678040(v=ws.11))|
+| Bevor Sie mit einer früheren Version von AD FS zusammenarbeiten können, müssen Sie zunächst eine Anspruchs Anbieter-Vertrauensstellung in der AD FS Verbunddienst erstellen. **Hinweis:** Es ist nicht möglich, eine Vertrauensstellung mit einem AD FS 1 zu erstellen. *x* Verbunddienst mithilfe von Verbund Metadaten.<p>Wenn Sie die Vertrauensstellung mithilfe des Verfahrens im Link auf der rechten Seite einrichten, müssen Sie im Assistenten zum Hinzufügen von Anspruchs Anbieter-Vertrauens Stellungen die folgenden Schritte ausführen, um diese Vertrauensstellung für die Zusammenarbeit mit einem AD FS 1 einzurichten. *x* -Verbunddienst:<p>1. Wählen Sie auf der Seite **Datenquelle auswählen** die Option **Daten über die Vertrauensstellung der vertrauenden Seite manuell eingeben**aus.<br />2. Wählen Sie auf der Seite **Profil auswählen** die Option **AD FS 1,0-und 1,1-Profil**aus.<br />3. Geben Sie auf der Seite **URL konfigurieren** unter URL des ** \- passiven WS**-Verbunds die **Verbunddienst Endpunkt-URL** ein, wie in der AD FS 1 definiert.* x* Verbunddienst des Partners.<br />4. Geben Sie auf der Seite Bezeichner **Konfigurieren** unter **Anspruchs Anbieter-Vertrauensstellungs**-ID den **Verbunddienst URI** gemäß der Definition in AD FS 1 ein. *x* Verbunddienst des Partners.|![Verwenden von Ansprüchen aus AD FS](media/faa393df-4856-4431-9eda-4f4e5be72a90.gif)[Manuelles Erstellen einer Anspruchs Anbieter-Vertrauens](../../ad-fs/operations/Create-a-Claims-Provider-Trust.md) Stellung|
+| Auf der Anspruchs Anbieter-Vertrauensstellung, die Sie zuvor erstellt haben, müssen Sie eine Anspruchs Regel erstellen, die Ansprüche verwendet, die vom AD FS 1. x-Verbunddienst eingehenden werden, und Sie in einen namens-ID-Anspruchstyp weiterleiten, Filtern oder transformieren.<p>Wenn der Name-ID-Anspruchstyp durchlaufen, gefiltert oder transformiert wurde, kann er als Eingabe für eine andere Regel oder Regel verwendet werden, damit er von der AD FS Verbunddienst in Windows Server 2012 verstanden und genutzt werden kann.|![Verwenden von Ansprüchen aus AD FS](media/faa393df-4856-4431-9eda-4f4e5be72a90.gif)[Erstellen einer Regel zum Senden eines AD FS 1. x-kompatiblen Anspruchs](../../ad-fs/operations/Create-a-Rule-to-Send-an-AD-FS-1x-Compatible-Claim.md)|
+| Wenden Sie sich an den Administrator des AD FS 1. *x* Verbunddienst und haben den Administrator des AD FS 1. *x* Verbunddienst Einrichten einer neuen Ressourcen Partner Vertrauensstellung. Stellen Sie diesem Administrator außerdem den Verbunddienst-URI \( in den Verbunddienst Eigenschaften \) , die Verbunddienst Endpunkt-URL und eine exportierte \- Tokensignaturzertifikats-Datei \( mit dem öffentlichen Schlüssel bereit \) . Der Administrator benötigt diese Elemente, um die Vertrauensstellung einzurichten.|N\/V|

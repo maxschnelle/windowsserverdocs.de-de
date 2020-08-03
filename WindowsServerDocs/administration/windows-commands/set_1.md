@@ -9,18 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 002ac4624d9ed501fab7816a83c2a0c5fc6a2bce
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 34c8abf01e7dbde7a8f175ac8691e5731a04be45
+ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85922825"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87519659"
 ---
 # <a name="set"></a>set
 
 Zeigt cmd.exe Umgebungsvariablen an, legt Sie fest oder entfernt Sie. Bei Verwendung ohne Parameter zeigt **Set** die aktuellen Umgebungsvariablen Einstellungen an.
-
-
 
 ## <a name="syntax"></a>Syntax
 
@@ -32,17 +30,17 @@ set /a <Variable>=<Expression>
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
 |\<Variable>|Gibt die Umgebungsvariable an, die festgelegt oder geändert werden soll.|
 |\<String>|Gibt die Zeichenfolge an, die der angegebenen Umgebungsvariablen zugeordnet werden soll.|
 |/p|Legt den Wert der *Variablen* auf eine Zeile der Eingabe fest, die vom Benutzer eingegeben wurde.|
-|\<PromptString>|Dies ist optional. Gibt eine Meldung an, mit der der Benutzer zur Eingabe aufgefordert wird. Dieser Parameter wird mit der Befehlszeilenoption **/p** verwendet.|
+|\<PromptString>|Optional. Gibt eine Meldung an, mit der der Benutzer zur Eingabe aufgefordert wird. Dieser Parameter wird mit der Befehlszeilenoption **/p** verwendet.|
 |/a|Legt die *Zeichenfolge* auf einen numerischen Ausdruck fest, der ausgewertet wird.|
 |\<Expression>|Gibt einen numerischen Ausdruck an. Informationen zu gültigen Operatoren, die in *Ausdrücken*verwendet werden können, finden Sie unter Hinweise.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 - Verwenden von **Set** mit aktivierten Befehls Erweiterungen
 
@@ -68,7 +66,7 @@ set /a <Variable>=<Expression>
   |        Betreiber         | Ausgeführte Operation  |
   |-------------------------|----------------------|
   |           ( )           |       Gruppierung       |
-  |          ! ~ -          |        Unäroperatoren         |
+  |          ! ~ -          |        Unär         |
   |         \* / %          |      Arithmetik      |
   |           + -           |      Arithmetik      |
   |          << >>          |    Logische Verschiebung     |
@@ -145,6 +143,6 @@ set p
 > [!NOTE]
 > Dieser Befehl erfordert Befehls Erweiterungen, die standardmäßig aktiviert sind.
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

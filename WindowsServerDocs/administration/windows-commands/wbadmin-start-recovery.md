@@ -9,18 +9,21 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 684e768979f54b772bffcb997b6ad44291dde8af
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: f7eb408ae8b57279d2620e8971a6e5833e3a044d
+ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86954572"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87519599"
 ---
 # <a name="wbadmin-start-recovery"></a>wbadmin start recovery
 
 Führt einen Wiederherstellungs Vorgang basierend auf den Parametern aus, die Sie angeben.
 
 Um mit diesem Unterbefehl eine Wiederherstellung durchzuführen, müssen Sie Mitglied der Gruppe " **Sicherungs-Operatoren** " oder der Gruppe " **Administratoren** " sein, oder die entsprechenden Berechtigungen müssen an Sie delegiert worden sein. Außerdem müssen Sie **Wbadmin** über eine Eingabeaufforderung mit erhöhten Rechten ausführen. (Klicken Sie zum Öffnen einer Eingabeaufforderung mit erhöhten Rechten auf **Start**, klicken Sie mit der rechten Maustaste auf **Eingabeaufforderung**, und klicken Sie dann auf **als Administrator ausführen**.)
+
+> [!NOTE]
+> Vor der Verwendung von **Wbadmin** zum Ausführen eines Install From Media-Vorgangs sollten Sie die Verwendung des Befehls " **Ntdsutil** " in Erwägung ziehen, da **Ntdsutil** nur die minimale Menge an benötigten Daten kopiert und eine sicherere Datentransport Methode verwendet.
 
 ## <a name="syntax"></a>Syntax
 
@@ -42,28 +45,25 @@ wbadmin start recovery
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
-|---------|-----------|
-|-version|Gibt den Versions Bezeichner der wiederherzustellenden Sicherung im Format mm/dd/yyyy-HH: mm an. Wenn Sie den Versions Bezeichner nicht kennen, geben Sie **Wbadmin Get Versions**ein.|
-|-Elemente|Gibt eine durch Trennzeichen getrennte Liste von Volumes, Anwendungen, Dateien oder Ordnern an, die wieder hergestellt werden sollen.</br>Wenn **-ItemType** ein **Volume**ist, können Sie nur ein einzelnes Volume angeben – indem Sie den volumedatenträger, den volumeeinstellungspunkt oder den GUID-basierten Volumenamen angeben.</br>-Wenn **-ItemType** eine **App**ist, können Sie nur eine einzige Anwendung angeben. Damit die Anwendung wieder hergestellt werden kann, muss Sie bei Windows Server-Sicherung registriert sein. Sie können auch den Wert **adifm** verwenden, um eine Installation von Active Directory wiederherzustellen. Weitere Informationen finden Sie in den Hinweisen unter.</br>Wenn **-ItemType** auf **File**festgelegt ist, können Sie Dateien oder Ordner angeben, aber Sie sollten Teil desselben Volumes sein, und Sie sollten sich im selben übergeordneten Ordner befinden.|
-|-ItemType|Gibt den Typ der wiederherzustellenden Elemente an. Muss ein **Volume**, eine **App**oder eine **Datei**sein.|
-|-backupTarget|Gibt den Speicherort an, der die Sicherung enthält, die Sie wiederherstellen möchten. Dieser Parameter ist hilfreich, wenn sich der Standort von dem Speicherort unterscheidet, in dem die Sicherungen dieses Computers normalerweise gespeichert werden.|
-|-Computer|Gibt den Namen des Computers an, für den Sie die Sicherung wiederherstellen möchten. Dieser Parameter ist hilfreich, wenn mehrere Computer am gleichen Speicherort gesichert wurden. Sie sollte verwendet werden, wenn der **-backupTarget-** Parameter angegeben wird.|
-|-wiederherstellungziel|Gibt den Speicherort für die Wiederherstellung an. Dieser Parameter ist hilfreich, wenn sich dieser Speicherort von dem Speicherort unterscheidet, der zuvor gesichert wurde. Sie kann auch für die Wiederherstellung von Volumes, Dateien oder Anwendungen verwendet werden. Wenn Sie ein Volume wiederherstellen, können Sie den volumelaufwerks Buchstaben des alternativen Volumes angeben. Wenn Sie eine Datei oder Anwendung wiederherstellen, können Sie einen alternativen Wiederherstellungs Speicherort angeben.|
-|-rekursiv|Nur beim Wiederherstellen von Dateien gültig. Stellt die Dateien in den Ordnern und alle Dateien wieder her, die den angegebenen Ordnern untergeordnet sind. Standardmäßig werden nur Dateien, die sich direkt in den angegebenen Ordnern befinden, wieder hergestellt.|
-|-Überschreiben|Nur beim Wiederherstellen von Dateien gültig. Gibt die Aktion an, die ausgeführt werden soll, wenn eine wieder herzustellende Datei bereits am gleichen Speicherort vorhanden ist.</br>-   **Skip** bewirkt, dass Windows Server-Sicherung die vorhandene Datei auslassen und die Wiederherstellung der nächsten Datei fortsetzen.</br>-   Mit " **kreatecopy** " wird Windows Server-Sicherung eine Kopie der vorhandenen Datei erstellen, sodass die vorhandene Datei nicht geändert wird.</br>-   Über **Schreiben** bewirkt, dass Windows Server-Sicherung die vorhandene Datei mit der Datei aus der Sicherung überschreibt.|
-|-notrestoreacl|Nur beim Wiederherstellen von Dateien gültig. Gibt an, dass die Sicherheits-Zugriffs Steuerungs Listen (ACLs) der Dateien, die aus der Sicherung wieder hergestellt werden, nicht wieder hergestellt werden. Standardmäßig werden die Sicherheits-ACLs wieder hergestellt (der Standardwert ist **true)**. Wenn dieser Parameter verwendet wird, werden die ACLs für die wiederhergestellten Dateien von dem Speicherort geerbt, an dem die Dateien wieder hergestellt werden.|
-|-skipbadclustercheck|Nur beim Wiederherstellen von Volumes gültig. Überspringt die Überprüfung der wiederherzustellenden Datenträger auf fehlerhafte Cluster Informationen. Wenn Sie auf einem anderen Server oder einer anderen Hardware wiederherstellen, wird empfohlen, diesen Parameter nicht zu verwenden. Sie können den Befehl **chkdsk/b** auf diesen Datenträgern jederzeit manuell ausführen, um Sie auf fehlerhafte Cluster zu überprüfen, und dann die Dateisystem Informationen entsprechend aktualisieren.</br>Wichtig: bis Sie **chkdsk** wie beschrieben ausführen, sind die in Ihrem wiederhergestellten System gemeldeten fehlerhaften Cluster möglicherweise nicht korrekt.|
-|-norollforward|Nur beim Wiederherstellen von Anwendungen gültig. Ermöglicht die vorherige Wiederherstellung einer Anwendung zu einem bestimmten Zeitpunkt, wenn die neueste Version aus den Sicherungen ausgewählt ist. Bei anderen Versionen der Anwendung, bei denen es sich nicht um die neuesten handelt, wird die vorherige Zeit Punkt Wiederherstellung als Standardeinstellung ausgeführt.|
-|-quiet|Führt den Unterbefehl ohne Aufforderungen an den Benutzer aus.|
+| Parameter | BESCHREIBUNG |
+|--|--|
+| -version | Gibt den Versions Bezeichner der wiederherzustellenden Sicherung im Format mm/dd/yyyy-HH: mm an. Wenn Sie den Versions Bezeichner nicht kennen, geben Sie **Wbadmin Get Versions**ein. |
+| -Elemente | Gibt eine durch Trennzeichen getrennte Liste von Volumes, Anwendungen, Dateien oder Ordnern an, die wieder hergestellt werden sollen.</br>Wenn **-ItemType** ein **Volume**ist, können Sie nur ein einzelnes Volume angeben – indem Sie den volumedatenträger, den volumeeinstellungspunkt oder den GUID-basierten Volumenamen angeben.</br>-Wenn **-ItemType** eine **App**ist, können Sie nur eine einzige Anwendung angeben. Damit die Anwendung wieder hergestellt werden kann, muss Sie bei Windows Server-Sicherung registriert sein. Sie können auch den Wert **adifm** verwenden, um eine Installation von Active Directory wiederherzustellen. Weitere Informationen finden Sie in den Hinweisen unter.</br>Wenn **-ItemType** auf **File**festgelegt ist, können Sie Dateien oder Ordner angeben, aber Sie sollten Teil desselben Volumes sein, und Sie sollten sich im selben übergeordneten Ordner befinden. |
+| -ItemType | Gibt den Typ der wiederherzustellenden Elemente an. Muss ein **Volume**, eine **App**oder eine **Datei**sein. |
+| -backupTarget | Gibt den Speicherort an, der die Sicherung enthält, die Sie wiederherstellen möchten. Dieser Parameter ist hilfreich, wenn sich der Standort von dem Speicherort unterscheidet, in dem die Sicherungen dieses Computers normalerweise gespeichert werden. |
+| -Computer | Gibt den Namen des Computers an, für den Sie die Sicherung wiederherstellen möchten. Dieser Parameter ist hilfreich, wenn mehrere Computer am gleichen Speicherort gesichert wurden. Sie sollte verwendet werden, wenn der **-backupTarget-** Parameter angegeben wird. |
+| -wiederherstellungziel | Gibt den Speicherort für die Wiederherstellung an. Dieser Parameter ist hilfreich, wenn sich dieser Speicherort von dem Speicherort unterscheidet, der zuvor gesichert wurde. Sie kann auch für die Wiederherstellung von Volumes, Dateien oder Anwendungen verwendet werden. Wenn Sie ein Volume wiederherstellen, können Sie den volumelaufwerks Buchstaben des alternativen Volumes angeben. Wenn Sie eine Datei oder Anwendung wiederherstellen, können Sie einen alternativen Wiederherstellungs Speicherort angeben. |
+| -rekursiv | Nur beim Wiederherstellen von Dateien gültig. Stellt die Dateien in den Ordnern und alle Dateien wieder her, die den angegebenen Ordnern untergeordnet sind. Standardmäßig werden nur Dateien, die sich direkt in den angegebenen Ordnern befinden, wieder hergestellt. |
+| -Überschreiben | Nur beim Wiederherstellen von Dateien gültig. Gibt die Aktion an, die ausgeführt werden soll, wenn eine wieder herzustellende Datei bereits am gleichen Speicherort vorhanden ist.</br>-   **Skip** bewirkt, dass Windows Server-Sicherung die vorhandene Datei auslassen und die Wiederherstellung der nächsten Datei fortsetzen.</br>-   Mit " **kreatecopy** " wird Windows Server-Sicherung eine Kopie der vorhandenen Datei erstellen, sodass die vorhandene Datei nicht geändert wird.</br>-   Über **Schreiben** bewirkt, dass Windows Server-Sicherung die vorhandene Datei mit der Datei aus der Sicherung überschreibt. |
+| -notrestoreacl | Nur beim Wiederherstellen von Dateien gültig. Gibt an, dass die Sicherheits-Zugriffs Steuerungs Listen (ACLs) der Dateien, die aus der Sicherung wieder hergestellt werden, nicht wieder hergestellt werden. Standardmäßig werden die Sicherheits-ACLs wieder hergestellt (der Standardwert ist **true)**. Wenn dieser Parameter verwendet wird, werden die ACLs für die wiederhergestellten Dateien von dem Speicherort geerbt, an dem die Dateien wieder hergestellt werden. |
+| -skipbadclustercheck | Nur beim Wiederherstellen von Volumes gültig. Überspringt die Überprüfung der wiederherzustellenden Datenträger auf fehlerhafte Cluster Informationen. Wenn Sie auf einem anderen Server oder einer anderen Hardware wiederherstellen, wird empfohlen, diesen Parameter nicht zu verwenden. Sie können den Befehl **chkdsk/b** auf diesen Datenträgern jederzeit manuell ausführen, um Sie auf fehlerhafte Cluster zu überprüfen, und dann die Dateisystem Informationen entsprechend aktualisieren.</br>Wichtig: bis Sie **chkdsk** wie beschrieben ausführen, sind die in Ihrem wiederhergestellten System gemeldeten fehlerhaften Cluster möglicherweise nicht korrekt. |
+| -norollforward | Nur beim Wiederherstellen von Anwendungen gültig. Ermöglicht die vorherige Wiederherstellung einer Anwendung zu einem bestimmten Zeitpunkt, wenn die neueste Version aus den Sicherungen ausgewählt ist. Bei anderen Versionen der Anwendung, bei denen es sich nicht um die neuesten handelt, wird die vorherige Zeit Punkt Wiederherstellung als Standardeinstellung ausgeführt. |
+| -quiet | Führt den Unterbefehl ohne Aufforderungen an den Benutzer aus. |
 
 ## <a name="remarks"></a>Bemerkungen
 
 -   Verwenden Sie zum Anzeigen einer Liste von Elementen, die von einer bestimmten Sicherungs Version für die Wiederherstellung verfügbar sind, **Wbadmin Get Items**. Wenn ein Volume zum Zeitpunkt der Sicherung keinen Einfügepunkt oder Laufwerk Buchstabe enthielt, gibt dieser Unterbefehl einen GUID-basierten Volumenamen zurück, der für die Wiederherstellung des Volumes verwendet werden soll.
 -   Wenn " **-ItemType** " eine **App**ist, können Sie den Wert " **adifm** for **-Item** " verwenden, um eine Installation von einem Medien Vorgang auszuführen, um alle zugehörigen Daten wiederherzustellen, die für die Active Directory Domain Services benötigt werden. **Adifm** erstellt eine Kopie der Active Directory Datenbank-, Registrierungs-und SYSVOL-Status und speichert diese Informationen dann an dem Speicherort, der von **-Wiederherstellungsziel**angegeben wird. Verwenden Sie diesen Parameter nur, wenn " **-herstellytarget** " angegeben wird.
-
->     [!NOTE]
->     Before using **wbadmin** to perform an install from media operation, you should consider using the **ntdsutil** command because **ntdsutil** only copies the minimum amount of data needed, and it uses a more secure data transport method.
 
 ## <a name="examples"></a>Beispiele
 
@@ -91,9 +91,9 @@ wbadmin start recovery -version:04/30/2013-09:00 -backupTarget:\\servername\shar
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 
--   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
--   [Wbadmin](wbadmin.md)
--   [Start-wbfilerecovery](/powershell/module/windowserverbackup/?view=winserver2012r2-ps) -Cmdlet
--   [Start-wbhypervrecovery](/powershell/module/windowserverbackup/?view=winserver2012r2-ps) -Cmdlet
--   [Start-wbsystemstatus](/powershell/module/windowserverbackup/?view=winserver2012r2-ps) -Cmdlet
--   [Start-wbvolumerecovery](/powershell/module/windowserverbackup/?view=winserver2012r2-ps) -Cmdlet
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Wbadmin](wbadmin.md)
+- [Start-wbfilerecovery](/powershell/module/windowserverbackup/?view=winserver2012r2-ps) -Cmdlet
+- [Start-wbhypervrecovery](/powershell/module/windowserverbackup/?view=winserver2012r2-ps) -Cmdlet
+- [Start-wbsystemstatus](/powershell/module/windowserverbackup/?view=winserver2012r2-ps) -Cmdlet
+- [Start-wbvolumerecovery](/powershell/module/windowserverbackup/?view=winserver2012r2-ps) -Cmdlet

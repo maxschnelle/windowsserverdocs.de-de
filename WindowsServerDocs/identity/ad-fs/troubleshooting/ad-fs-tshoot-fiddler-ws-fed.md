@@ -8,87 +8,99 @@ ms.date: 01/18/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: d263f48aadff7c77cba44a2328d472ebbe5dfbbf
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a85d486dc30a36d575927ba243d46a403c3a5185
+ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407212"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87520169"
 ---
 # <a name="ad-fs-troubleshooting---fiddler---ws-federation"></a>AD FS Problembehandlung: "fddler-WS-Federation"
-![](media/ad-fs-tshoot-fiddler-ws-fed/fiddler9.png)
+
+![AD FS-und Windows Server-Verbund Diagramm](media/ad-fs-tshoot-fiddler-ws-fed/fiddler9.png)
 
 ## <a name="step-1-and-2"></a>Schritt 1 und 2
-Dies ist der Anfang der Ablauf Verfolgung.  In diesem Frame wird Folgendes angezeigt: ![](media/ad-fs-tshoot-fiddler-ws-fed/fiddler1.png)
 
-Anforderung
+Dies ist der Anfang der Ablauf Verfolgung.  In diesem Frame wird Folgendes angezeigt:
 
-- HTTP Get to the vertrauende Seite (http://sql1.contoso.com/SampApp)
+![Start der Ablauf Verfolgung von "fddler"](media/ad-fs-tshoot-fiddler-ws-fed/fiddler1.png)
 
-Auf
+Anforderung:
 
-- Die Antwort ist ein HTTP 302 (Redirect).  Die Transport Daten im Antwortheader zeigen an, wohin umgeleitet werden soll (https://sts.contoso.com/adfs/ls)
+- HTTP Get an unsere vertrauende Seite (http://sql1.contoso.com/SampApp)
+
+Antwort:
+
+- Die Antwort ist ein HTTP 302 (Redirect).  Die Transport Daten im Antwortheader zeigen an, wohin die Umleitung zu (https://sts.contoso.com/adfs/ls)
 - Die Umleitungs-URL enthält WA = wsignin 1,0, das mitteilt, dass unsere RP-Anwendung eine WS-Verbund-Anmeldungs Anforderung für uns erstellt und diese an den/ADFS/ls/-Endpunkt des AD FS gesendet hat.  Dies wird als Umleitungs Bindung bezeichnet.
-![](media/ad-fs-tshoot-fiddler-ws-fed/fiddler2.png)
+
+![Transportieren von Daten im Antwortheader](media/ad-fs-tshoot-fiddler-ws-fed/fiddler2.png)
 
 ## <a name="step-3-and-4"></a>Schritt 3 und 4
 
-![](media/ad-fs-tshoot-fiddler-ws-fed/fiddler3.png)
+![Fortsetzungs-laufverfolgungsdatei](media/ad-fs-tshoot-fiddler-ws-fed/fiddler3.png)
 
-Anforderung
+Anforderung:
 
 - HTTP Get to Your AD FS Server (STS..............
 
-Auf
+Antwort:
 
 - Die Antwort ist eine Eingabeaufforderung für Anmelde Informationen.  Dies gibt an, dass die Formular Authentifizierung verwendet wird.
 - Wenn Sie auf die WebView der Antwort klicken, wird die Eingabeaufforderung für die Anmelde Informationen angezeigt.
-![](media/ad-fs-tshoot-fiddler-ws-fed/fiddler6.png)
+
+![Fortsetzung der Ablauf Verfolgung von "ddler"](media/ad-fs-tshoot-fiddler-ws-fed/fiddler6.png)
 
 ## <a name="step-5-and-6"></a>Schritt 5 und 6
 
-![](media/ad-fs-tshoot-fiddler-ws-fed/fiddler4.png)
+![Registerkarte "WebView" der Eingabeaufforderung zur Eingabeaufforderung für Anmelde Informationen](media/ad-fs-tshoot-fiddler-ws-fed/fiddler4.png)
 
-Anforderung
+Anforderung:
 
-- HTTP Post mit unserem Benutzernamen und Kennwort.  
+- HTTP Post mit unserem Benutzernamen und Kennwort.
 - Wir stellen unsere Anmelde Informationen vor.  Wenn Sie sich die Rohdaten in der Anforderung ansehen, werden die Anmelde Informationen angezeigt.
 
-Auf
+Antwort:
 
 - Die Antwort wird gefunden, und das verschlüsselte msiauth-Cookie wird erstellt und zurückgegeben.  Hiermit wird die SAML-Assertion überprüft, die von unserem Client erzeugt wird.  Dies wird auch als "Authentifizierungs Cookie" bezeichnet und ist nur vorhanden, wenn AD FS der IDP ist.
 
-
 ## <a name="step-7-and-8"></a>Schritt 7 und 8
-![](media/ad-fs-tshoot-fiddler-ws-fed/fiddler5.png)
 
-Anforderung
+![Fortsetzung der Ablauf Verfolgung von "ddler"](media/ad-fs-tshoot-fiddler-ws-fed/fiddler5.png)
+
+Anforderung:
 
 - Nun, da wir authentifiziert wurden, führen wir eine weitere HTTP GET-Anforderung für den AD FS Server durch und stellen unser Authentifizierungs Token dar.
 
-Auf
+Antwort:
 
 - Die Antwort ist ein HTTP-OK. Dies bedeutet, dass AD FS den Benutzer basierend auf den bereitgestellten Anmelde Informationen authentifiziert hat.
 - Außerdem legen wir 3 Cookies auf den Client zurück.
     - Msisauthenticated enthält einen Base64-codierten Zeitstempelwert für den Zeitpunkt, zu dem der Client authentifiziert wurde.
     - Msisloopdetectioncookie wird vom AD FS Endlosschleifen Erkennungsmechanismus verwendet, um Clients zu beenden, die in einer endlos Umleitungs Schleife zum Verbund Server beendet wurden. Die Cookie-Daten sind ein Zeitstempel, der Base64-codiert ist.
     - Msissignout wird verwendet, um den IDP und alle für die SSO-Sitzung besuchten RPS nachzuverfolgen. Dieses Cookie wird verwendet, wenn eine WS-Verbund-Abmeldung aufgerufen wird. Der Inhalt dieses Cookies kann mit einem Base64-Decoder angezeigt werden.
-    
+
 ## <a name="step-9-and-10"></a>Schritt 9 und 10
-![](media/ad-fs-tshoot-fiddler-ws-fed/fiddler7.png)-Anforderung:
 
-- HTTP POST
+![Fortsetzung der Ablauf Verfolgung von "ddler"](media/ad-fs-tshoot-fiddler-ws-fed/fiddler7.png)
 
-Auf
+Anforderung:
+
+- HTTP Post
+
+Antwort:
 
 - Die Antwort ist "found".
 
 ## <a name="step-11-and-12"></a>Schritt 11 und 12
-![](media/ad-fs-tshoot-fiddler-ws-fed/fiddler8.png)-Anforderung:
 
-- HTTP GET
+![Abschließen der Ablauf Verfolgung von "fddler"](media/ad-fs-tshoot-fiddler-ws-fed/fiddler8.png)
 
-Auf
+Anforderung:
+
+- HTTP-GET
+
+Antwort:
 
 - Die Antwort ist "OK".
 

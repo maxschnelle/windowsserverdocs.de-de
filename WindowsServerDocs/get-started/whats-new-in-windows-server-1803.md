@@ -8,16 +8,16 @@ author: greg-lindsay
 ms.author: greg-lindsay
 ms.localizationpriority: high
 ms.date: 05/07/2018
-ms.openlocfilehash: 73d0d62aac3771c4150a133950085170f7f51cb5
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 32410c9b2645d96ee1190afdda6a2ce75f09feef
+ms.sourcegitcommit: 145cf75f89f4e7460e737861b7407b5cee7c6645
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86961142"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87409560"
 ---
 # <a name="whats-new-in-windows-server-version-1803"></a>Neuerungen in Windows Server, Version 1803
 
->Gilt für: Windows Server (Halbjährlicher Kanal)
+> Gilt für: Windows Server (Halbjährlicher Kanal)
 
 <img src=../media/landing-icons/new.png style='float:left; padding:.5em;' alt=Icon showing a newspaper>&nbsp;Weitere Informationen zu den neuesten Features in Windows finden Sie unter [Neuerungen in Windows Server](whats-new-in-windows-server.md). In diesem Abschnitt wird beschrieben, was in Windows Server, Version 1803, neu ist und was sich geändert hat. Die hier aufgeführten Neuerungen und Änderungen haben bei der Arbeit in dieser Version vermutlich die größte Auswirkung. Informationen finden Sie unter [Update für Windows Server (Halbjährlicher Kanal)](https://cloudblogs.microsoft.com/windowsserver/2018/03/29/windows-server-semi-annual-channel-update/).
 
@@ -39,14 +39,14 @@ Basierend auf Feedback und Telemetrie, haben diese Kanäle demonstriert, dass si
 
 Die spezifischen Szenarien für den halbjährlichen Kanal und Long-Term Servicing Channel lauten wie folgt:
 
-|   | Long Term Servicing Channel |  Halbjährlicher Kanal |
-| ------------- | ------------- | ------------ |
-| Empfohlene Szenarien     | Dateiserver für allgemeine Zwecke, Erst- und Drittanbieter-Arbeitslasten, herkömmliche Apps, Infrastrukturrollen, softwaredefiniertes Rechenzentrum und hyperkonvergente Infrastruktur  | Anwendungen in Containern, Container-Hosts und Anwendungsszenarien, die von schneller Innovation profitieren |
-| Neue Versionen  | Alle 2–3 Jahre  | Alle 6 Monate |
-| Support  | 5 Jahre Mainstreamsupport und 5 Jahre erweiterten Support  | 18 Monate |
-| Editionen  | Alle verfügbaren Editionen von Windows Server  | Standard Edition und Datacenter Edition |
-| Für wen nutzbar  | Alle Kunden über alle Kanäle | Nur Software Assurance- und Cloud-Kunden |
-| Installationsoptions  | Server Core und Server mit Desktopdarstellung  | Server Core für Containerhost, Containerimage und Nano Server-Containerimage |
+| Beschreibung | Long Term Servicing Channel | Halbjährlicher Kanal |
+|--|--|--|
+| Empfohlene Szenarien | Dateiserver für allgemeine Zwecke, Erst- und Drittanbieter-Arbeitslasten, herkömmliche Apps, Infrastrukturrollen, softwaredefiniertes Rechenzentrum und hyperkonvergente Infrastruktur | Anwendungen in Containern, Container-Hosts und Anwendungsszenarien, die von schneller Innovation profitieren |
+| Neue Versionen | Alle 2–3 Jahre | Alle 6 Monate |
+| Support | 5 Jahre Mainstreamsupport und 5 Jahre erweiterten Support | 18 Monate |
+| Editionen | Alle verfügbaren Editionen von Windows Server | Standard Edition und Datacenter Edition |
+| Für wen nutzbar | Alle Kunden über alle Kanäle | Nur Software Assurance- und Cloud-Kunden |
+| Installationsoptions | Server Core und Server mit Desktopdarstellung | Server Core für Containerhost, Containerimage und Nano Server-Containerimage |
 
 ## <a name="application-platform-and-containers"></a>Anwendungsplattform und Container
 

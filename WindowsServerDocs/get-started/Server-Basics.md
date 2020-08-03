@@ -1,5 +1,5 @@
 ---
-title: Erste Schritte
+title: Erste Schritte mit Windows Server 2016
 description: 'Grundlagen für Server 2016: Systemanforderungen, Versionshinweise, Upgradeoptionen'
 ms.prod: windows-server
 manager: dongill
@@ -9,12 +9,12 @@ ms.topic: article
 author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
-ms.openlocfilehash: bc38c21435ba3340f5ffb1aab9d274ec9da1620c
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 6387b5daf2346a0ad88509dbefd68ba8b8bbb69a
+ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86964062"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87519567"
 ---
 # <a name="get-started-with-windows-server-2016"></a>Erste Schritte mit Windows Server 2016
 
@@ -23,7 +23,7 @@ ms.locfileid: "86964062"
 > [!TIP]
 > Suchen Sie nach Informationen zu älteren Versionen von Windows Server? Sehen Sie sich unsere [Windows Server-Bibliotheken](/previous-versions/windows/) auf „docs.microsoft.com“ an. Sie können auch nach bestimmten Informationen [auf dieser Website suchen](/search/index?dataSource=previousVersions&search=Windows Server).
 
-![Kästchensymbol mit Häkchen](../media/landing-icons/getstarted.png) Diese Sammlung enthält detaillierte Informationen, damit du ermitteln kannst, ob du bereit bist, zu Windows Server 2016 zu wechseln. Sobald Sie die Systemanforderungen, die Optionen für Upgrades und andere Informationen über den Wechsel zu Windows Server 2016 überprüft haben, sind Sie bereit, zum Haupthub von [Windows Server 2016](Windows-Server-2016.md) zurückzukehren und mit den Schritten zur Installation der am Beste auf Sie zugeschnittenen Edition und Installationsoption zu beginnen. 
+![Kästchensymbol mit Häkchen](../media/landing-icons/getstarted.png) Diese Sammlung enthält detaillierte Informationen, damit du ermitteln kannst, ob du bereit bist, zu Windows Server 2016 zu wechseln. Sobald Sie die Systemanforderungen, die Optionen für Upgrades und andere Informationen über den Wechsel zu Windows Server 2016 überprüft haben, sind Sie bereit, zum Haupthub von [Windows Server 2016](Windows-Server-2016.md) zurückzukehren und mit den Schritten zur Installation der am Beste auf Sie zugeschnittenen Edition und Installationsoption zu beginnen.
 
 > [!Note]
 > Weitere Informationen zum Download von Windows Server 2016 finden Sie unter [Windows Server Evaluierungsversionen](https://www.microsoft.com/evalcenter/evaluate-windows-server-2016).

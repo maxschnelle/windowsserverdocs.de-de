@@ -8,29 +8,28 @@ ms.topic: article
 ms.assetid: d011eaad-f72a-4a83-8099-8589c4ee8994
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: dba00395b32980d3139cf88e25571c8001cac24e
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 7a855087647b86486eaf5358e0e713d6fab6dd02
+ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80316241"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87517875"
 ---
 # <a name="realm-names"></a>Bereichsnamen
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
-
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 In diesem Thema finden Sie eine Übersicht über die Verwendung von Bereichs Namen in der Verbindungs Anforderungs Verarbeitung für Netzwerk Richtlinien Server.
 
 Das RADIUS-Attribut für den Benutzernamen ist eine Zeichenfolge, die in der Regel einen Benutzerkonto Speicherort und einen Benutzerkonto Namen enthält. Der Speicherort des Benutzerkontos wird auch als Bereichs-oder Bereichs Name bezeichnet und ist mit dem Konzept der Domäne, einschließlich DNS-Domänen, Active Directory® Domänen und Windows NT 4,0-Domänen, gleichbedeutend. Wenn sich beispielsweise ein Benutzerkonto in der Benutzerkonten Datenbank für eine Domäne mit dem Namen example.com befindet, ist example.com der Bereichs Name.
 
-Wenn das RADIUS-Attribut für den Benutzernamen beispielsweise den Benutzernamen user1@example.comenthält, ist user1 der Name des Benutzerkontos, und example.com ist der Bereichs Name. Bereichs Namen können als Präfix oder als Suffix im Benutzernamen angezeigt werden:
+Wenn das RADIUS-Attribut für den Benutzernamen z. b. den Benutzernamen enthält user1@example.com , ist user1 der Name des Benutzerkontos, und example.com ist der Bereichs Name. Bereichs Namen können als Präfix oder als Suffix im Benutzernamen angezeigt werden:
 
-- " **Example\user1**". In diesem Beispiel ist das **Beispiel** für den Bereichs Namen ein Präfix. Außerdem handelt es sich um den Namen einer Active Directory&reg; Domänen Diensten \(AD DS\) Domäne.
+- " **Example\user1**". In diesem Beispiel ist das **Beispiel** für den Bereichs Namen ein Präfix. Außerdem handelt es sich um den Namen einer Active Directory &reg; Domänen Dienste \( AD DS \) Domäne.
 
 - <strong>user1@example.com</strong>. In diesem Beispiel ist der Bereichs Name **example.com** ein Suffix. Dabei handelt es sich entweder um einen DNS-Domänen Namen oder den Namen einer AD DS Domäne.
 
-Sie können in Verbindungs Anforderungs Richtlinien konfigurierte Bereichs Namen beim Entwerfen und Bereitstellen der RADIUS-Infrastruktur verwenden, um sicherzustellen, dass Verbindungsanforderungen von RADIUS-Clients, auch Netzwerk Zugriffs Server genannt, an RADIUS-Server weitergeleitet werden, die authentifizieren und autorisieren Sie die Verbindungsanforderung.
+Sie können in Verbindungs Anforderungs Richtlinien konfigurierte Bereichs Namen beim Entwerfen und Bereitstellen der RADIUS-Infrastruktur verwenden, um sicherzustellen, dass Verbindungsanforderungen von RADIUS-Clients, auch Netzwerk Zugriffs Server genannt, an RADIUS-Server weitergeleitet werden, die die Verbindungsanforderung authentifizieren und autorisieren können.
 
 Wenn NPS als RADIUS-Server mit der standardmäßigen Verbindungs Anforderungs Richtlinie konfiguriert ist, verarbeitet NPS Verbindungsanforderungen für die Domäne, in der das NPS Mitglied ist, sowie für vertrauenswürdige Domänen.
 
@@ -58,11 +57,11 @@ Bevor die RADIUS-Nachricht entweder lokal verarbeitet wird (wenn NPS als RADIUS-
 
 Sie können Regeln für die Attribut Bearbeitung für das User-Name-Attribut konfigurieren, um Folgendes zu ändern:
 
-- Entfernen Sie den Bereichs Namen aus dem Benutzernamen \(auch als Bereichs Entfernungs\)bezeichnet. Beispielsweise wird der Benutzername user1@example.com in user1 geändert.
+- Entfernen Sie den Bereichs Namen aus dem Benutzernamen, der \( auch als Bereichs Entfernungs Bereich bezeichnet wird \) . Beispielsweise wird der Benutzername user1@example.com in user1 geändert.
 
-- Ändern Sie den Bereichs Namen, aber nicht die Syntax. Beispielsweise wird der Benutzername user1@example.com in user1@wcoast.example.comgeändert.
+- Ändern Sie den Bereichs Namen, aber nicht die Syntax. Beispielsweise wird der Benutzername user1@example.com in geändert user1@wcoast.example.com .
 
-- Ändern Sie die Syntax des Bereichs namens. Beispielsweise wird der Benutzername "example\user1" in "user1@example.com" geändert.
+- Ändern Sie die Syntax des Bereichs namens. Beispielsweise wird der Benutzername example\user1 in geändert user1@example.com .
 
 Nachdem das Attribut "Benutzer Name" gemäß den von Ihnen konfigurierten Attribut Bearbeitungs Regeln geändert wurde, werden zusätzliche Einstellungen der ersten übereinstimmenden Verbindungs Anforderungs Richtlinie verwendet, um zu bestimmen, ob:
 
@@ -74,11 +73,11 @@ Nachdem das Attribut "Benutzer Name" gemäß den von Ihnen konfigurierten Attrib
 
 Wenn der Benutzername keinen Domänen Namen enthält, stellt NPS einen bereit. Standardmäßig ist der von NPS bereitgestellte Domänen Name die Domäne, deren Mitglied der NPS ist. Sie können den NPS-bereitgestellten Domänen Namen mithilfe der folgenden Registrierungs Einstellung angeben:
 
-    
-    HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\RasMan\PPP\ControlProtocols\BuiltIn\DefaultDomain
-    
+```
+HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\RasMan\PPP\ControlProtocols\BuiltIn\DefaultDomain
+```
 
->[!CAUTION]
->Ein fehlerhaftes Bearbeiten der Registrierung kann eine schwerwiegende Beschädigung des Systems zur Folge haben. Bevor Sie Änderungen an der Registrierung vornehmen, sollten Sie alle wichtigen Computerdaten sichern.
+> [!CAUTION]
+> Ein fehlerhaftes Bearbeiten der Registrierung kann eine schwerwiegende Beschädigung des Systems zur Folge haben. Bevor Sie Änderungen an der Registrierung vornehmen, sollten Sie alle wichtigen Computerdaten sichern.
 
 Einige Netzwerk Zugriffs Server, die nicht von Microsoft unterliegen, löschen oder ändern den Domänen Namen, wie er vom Benutzer angegeben wurde. Das Ergebnis ist, dass die Netzwerk Zugriffs Anforderung für die Standard Domäne authentifiziert wird, die möglicherweise nicht die Domäne für das Benutzerkonto ist. Um dieses Problem zu beheben, konfigurieren Sie die RADIUS-Server so, dass der Benutzername in das richtige Format mit dem genauen Domänen Namen geändert wird.

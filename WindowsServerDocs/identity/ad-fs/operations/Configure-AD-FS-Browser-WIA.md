@@ -8,12 +8,12 @@ ms.date: 03/20/2020
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 1bcd4268444f49489d3e7a04c55d10cddaf92e00
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: fff48467519e5bfb8121bf887a773bc75defbb4c
+ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86966532"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87519799"
 ---
 # <a name="configure-browsers-to-use-windows-integrated-authentication-wia-with-ad-fs"></a>Konfigurieren von Browsern für die Verwendung der integrierten Windows-Authentifizierung (WIA) mit AD FS
 
@@ -21,21 +21,22 @@ Standardmäßig ist die integrierte Windows-Authentifizierung (WIA) in Active Di
 
 AD FS 2016 verfügt jetzt über eine verbesserte Standardeinstellung, die es dem Edge-Browser ermöglicht, WIA zu tun, während er nicht gleichzeitig Windows Phone abfängt:
 
-    =~Windows\s*NT.*Edge
+```
+=~Windows\s*NT.*Edge
+```
 
 Das obige bedeutet, dass Sie keine einzelnen Benutzer-Agent-Zeichen folgen mehr konfigurieren müssen, um gängige Edge-Szenarien zu unterstützen, auch wenn Sie sehr häufig aktualisiert werden.
 
 Konfigurieren Sie für andere Browser die AD FS-Eigenschaft **wiasupporteduseragents** , um die erforderlichen Werte basierend auf den verwendeten Browsern hinzuzufügen.  Sie können die nachfolgenden Prozeduren verwenden.
 
-
-
 ### <a name="view-wiasupporteduseragent-settings"></a>Einstellungen für wiasupporteduseragent anzeigen
+
 **Wiasupporteduseragents** definiert die Benutzer-Agents, die WIA unterstützen. AD FS analysiert die Zeichenfolge des Benutzer-Agents, wenn Anmeldungen in einem Browser-oder Browser Steuerelement durchgeführt werden.
 
 Sie können die aktuellen Einstellungen mithilfe des folgenden PowerShell-Beispiels anzeigen:
 
 ```powershell
-    Get-AdfsProperties | select -ExpandProperty WiaSupportedUserAgents
+Get-AdfsProperties | select -ExpandProperty WiaSupportedUserAgents
 ```
 
 ![WIA-Unterstützung](../operations/media/Configure-AD-FS-Browser-WIA/wiasupport.png)
@@ -46,18 +47,16 @@ Standardmäßig enthält eine neue AD FS Installation eine Reihe von Benutzer-Ag
 Wenn Sie auf Windows Server 2012 R2 oder früher AD FS haben:
 
 ```powershell
-   Set-AdfsProperties -WIASupportedUserAgents @("MSIE 6.0", "MSIE 7.0; Windows NT", "MSIE 8.0", "MSIE 9.0", "MSIE 10.0; Windows NT 6", "Windows NT 6.3; Trident/7.0", "Windows NT 6.3; Win64; x64; Trident/7.0", "Windows NT 6.3; WOW64; Trident/7.0", "Windows NT 6.2; Trident/7.0", "Windows NT 6.2; Win64; x64; Trident/7.0", "Windows NT 6.2; WOW64; Trident/7.0", "Windows NT 6.1; Trident/7.0", "Windows NT 6.1; Win64; x64; Trident/7.0", "Windows NT 6.1; WOW64; Trident/7.0", "MSIPC", "Windows Rights Management Client", "Edg/79.0.309.43")
+Set-AdfsProperties -WIASupportedUserAgents @("MSIE 6.0", "MSIE 7.0; Windows NT", "MSIE 8.0", "MSIE 9.0", "MSIE 10.0; Windows NT 6", "Windows NT 6.3; Trident/7.0", "Windows NT 6.3; Win64; x64; Trident/7.0", "Windows NT 6.3; WOW64; Trident/7.0", "Windows NT 6.2; Trident/7.0", "Windows NT 6.2; Win64; x64; Trident/7.0", "Windows NT 6.2; WOW64; Trident/7.0", "Windows NT 6.1; Trident/7.0", "Windows NT 6.1; Win64; x64; Trident/7.0", "Windows NT 6.1; WOW64; Trident/7.0", "MSIPC", "Windows Rights Management Client", "Edg/79.0.309.43")
 ```
 
 Wenn Sie über AD FS unter Windows Server 2016 oder höher verfügen:
 
 ```powershell
-   Set-AdfsProperties -WIASupportedUserAgents @("MSIE 6.0", "MSIE 7.0; Windows NT", "MSIE 8.0", "MSIE 9.0", "MSIE 10.0; Windows NT 6", "Windows NT 6.3; Trident/7.0", "Windows NT 6.3; Win64; x64; Trident/7.0", "Windows NT 6.3; WOW64; Trident/7.0", "Windows NT 6.2; Trident/7.0", "Windows NT 6.2; Win64; x64; Trident/7.0", "Windows NT 6.2; WOW64; Trident/7.0", "Windows NT 6.1; Trident/7.0", "Windows NT 6.1; Win64; x64; Trident/7.0", "Windows NT 6.1; WOW64; Trident/7.0", "MSIPC", "Windows Rights Management Client", "Edg/*")
+Set-AdfsProperties -WIASupportedUserAgents @("MSIE 6.0", "MSIE 7.0; Windows NT", "MSIE 8.0", "MSIE 9.0", "MSIE 10.0; Windows NT 6", "Windows NT 6.3; Trident/7.0", "Windows NT 6.3; Win64; x64; Trident/7.0", "Windows NT 6.3; WOW64; Trident/7.0", "Windows NT 6.2; Trident/7.0", "Windows NT 6.2; Win64; x64; Trident/7.0", "Windows NT 6.2; WOW64; Trident/7.0", "Windows NT 6.1; Trident/7.0", "Windows NT 6.1; Win64; x64; Trident/7.0", "Windows NT 6.1; WOW64; Trident/7.0", "MSIPC", "Windows Rights Management Client", "Edg/*")
 ```
 
 Mit dem obigen Befehl wird sichergestellt, dass AD FS nur die folgenden Anwendungsfälle für WIA abdeckt:
-
-
 
 |Benutzer-Agents|Anwendungsfälle|
 |-----|-----|
@@ -70,10 +69,9 @@ Mit dem obigen Befehl wird sichergestellt, dass AD FS nur die folgenden Anwendun
 |Windows NT 6,2; Einzug/7.0</br></br>Windows NT 6,2; Win64 x64 Einzug/7.0</br></br>Windows NT 6,2; WOW64 Einzug/7.0|Windows 8 Desktop-Betriebssystem, unterschiedliche Plattformen|
 |Windows NT 6,1; Einzug/7.0</br></br>Windows NT 6,1; Win64 x64 Einzug/7.0</br></br>Windows NT 6,1; WOW64 Einzug/7.0|Windows 7 Desktop-Betriebssystem, unterschiedliche Plattformen|
 |EDG/79.0.309.43 | Microsoft Edge (Chrom) für Windows Server 2012 R2 oder früher |
-|EDG/*| Microsoft Edge (Chrom) für Windows Server 2016 oder höher|  
+|EDG/*| Microsoft Edge (Chrom) für Windows Server 2016 oder höher|
 |MSIPC| Microsoft Information Protection and Control-Client|
 |Windows Rights Management-Client|Windows Rights Management-Client|
-
 
 ### <a name="additional-links"></a>Weitere Links
 

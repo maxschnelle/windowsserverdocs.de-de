@@ -1,5 +1,5 @@
 ---
-title: Fortschritt
+title: Verwenden des Fortschritts Befehls
 description: Referenz Artikel zum Fortschritt, in dem der Fortschritt angezeigt wird, während ein Befehl ausgeführt wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9e9650a980d74f15bc0ec5c88d8df2dc93a3d8b0
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: b9284c7330adfbad0115b5b7f6bbab034b42fda4
+ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85934597"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87519629"
 ---
-# <a name="progress"></a>Fortschritt
+# <a name="using-the-progress-command"></a>Verwenden des Fortschritts Befehls
 
 Zeigt den Fortschritt an, während ein Befehl ausgeführt wird. Sie können **/Progress** mit allen anderen WDSUTIL-Befehlen verwenden, die Sie ausführen. Beachten Sie, dass Sie **/verbose** und **/Progress** direkt nach " **WDSUTIL**" angeben müssen.
 

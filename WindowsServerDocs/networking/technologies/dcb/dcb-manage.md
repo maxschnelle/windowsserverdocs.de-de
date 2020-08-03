@@ -8,12 +8,12 @@ ms.assetid: 1575cc7c-62a7-4add-8f78-e5d93effe93f
 manager: brianlic
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: cdfcf65f762015ceeaa20b99543ffb772e60d1a6
-ms.sourcegitcommit: 29f7a4811b4d36d60b8b7c55ce57d4ee7d52e263
+ms.openlocfilehash: 3df00e013d61ad3004f2a2c001c0c40ae9cad109
+ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83716865"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87520189"
 ---
 # <a name="manage-data-center-bridging-dcb"></a>Verwalten von Data Center Bridging (DCB)
 
@@ -26,9 +26,9 @@ Dieses Thema enthält Anweisungen zur Verwendung von Windows PowerShell-Befehlen
 Informationen zu den Voraussetzungen für die Verwendung von und zur Installation von DCB finden Sie unter [Installieren von Data Center Bridging (DCB) in Windows Server 2016 oder Windows 10](dcb-install.md).
 
 
-## <a name="dcb-configurations"></a>DCB-Konfigurationen 
+## <a name="dcb-configurations"></a>DCB-Konfigurationen
 
-Vor Windows Server 2016 wurden alle DCB-Konfigurationen universell auf alle Netzwerkadapter angewendet, von denen DCB unterstützt wurde. 
+Vor Windows Server 2016 wurden alle DCB-Konfigurationen universell auf alle Netzwerkadapter angewendet, von denen DCB unterstützt wurde.
 
 In Windows Server 2016 können Sie DCB-Konfigurationen entweder auf den globalen Richtlinien Speicher oder auf einzelne Richtlinien Speicher \( s anwenden \) . Wenn einzelne Richtlinien angewendet werden, überschreiben Sie alle globalen Richtlinien Einstellungen.
 
@@ -54,24 +54,24 @@ Führen Sie den folgenden Befehl aus, um Betriebs Systemkonfigurationen der Date
 >[!NOTE]
 >DCB Windows PowerShell-Befehlsnamen enthalten "QoS" anstelle von "DCB" in der namens Zeichenfolge. Dies liegt daran, dass QoS und DCB in Windows Server 2016 integriert sind, um eine nahtlose QoS-Verwaltung zu ermöglichen.
 
-    
+```powershell
     Set-NetQosDcbxSetting -Willing $FALSE
-    
+
     Confirm
     Are you sure you want to perform this action?
     Set-NetQosDcbxSetting -Willing $false
     [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"):
-    
+```
 
 Verwenden Sie den folgenden Befehl, um den Status der Einstellung des bereit zustellenden Bits anzuzeigen:
 
-    
+```powershell
     Get-NetQosDcbxSetting
-    
+
     Willing PolicySetIfIndex IfAlias
     ------- ---------------- -------
-    False   Global  
-    
+    False   Global
+```
 
 ## <a name="dcb-configuration-on-network-adapters"></a>DCB-Konfiguration auf Netzwerkadaptern
 
@@ -82,16 +82,14 @@ DCB-Konfigurationen umfassen die folgenden Schritte.
 1.  Konfigurieren Sie DCB-Einstellungen auf Systemebene, einschließlich:
 
     a. Verwaltung von Datenverkehrs Klassen
-    
+
     b. Einstellungen für die Prioritäts Fluss Steuerung (PFC)
-    
+
     c. Zuweisung von Anwendungs Priorität
-    
+
     d. Dcbx-Einstellungen
 
 2. Konfigurieren Sie DCB auf dem Netzwerkadapter.
-
-
 
 ##  <a name="dcb-traffic-class-management"></a>DCB-Traffic Class-Verwaltung
 
@@ -101,13 +99,13 @@ Im folgenden finden Sie Beispiel Befehle für Windows PowerShell für die Verwal
 
 Sie können den Befehl **New-netqostrafficclass** verwenden, um eine Datenverkehrs Klasse zu erstellen.
 
-    
+```powershell
     New-NetQosTrafficClass -Name SMB -Priority 4 -BandwidthPercentage 30 -Algorithm ETS
-    
+
     Name Algorithm Bandwidth(%) Priority PolicySetIfIndex IfAlias
     ---- --------- ------------ -------- ---------------- -------
     SMB  ETS   30   4Global
-      
+```
 
 Standardmäßig werden alle 802.1 p-Werte einer Standard-Datenverkehrs Klasse zugeordnet, die 100% der Bandbreite der physischen Verbindung aufweist. Der **New-netqostrafficclass-** Befehl erstellt eine neue Datenverkehrs Klasse, der jedes Paket zugeordnet ist, das mit dem 802.1 p-Prioritätswert 4 markiert ist. Der Übertragungs Auswahl Algorithmus \( TSA \) ist ETS und hat 30% der Bandbreite.
 
@@ -119,36 +117,41 @@ Die Summe der Bandbreiten Reservierungen für alle erstellten Datenverkehrs Klas
 
 Sie können den Befehl **Get-netqostrafficclass** verwenden, um Datenverkehrs Klassen anzuzeigen.
 
+```powershell
     Get-NetQosTrafficClass
-    
+
     NameAlgorithm Bandwidth(%) Priority PolicySetIfIndex IfAlias
     ------------- ------------ -------- ---------------- -------
     [Default]   ETS   70   0-3,5-7  Global
-    SMB ETS   30   4Global  
-    
+    SMB ETS   30   4Global
+```
+
 ### <a name="modify-a-traffic-class"></a>Ändern einer Datenverkehrs Klasse
 
-Sie können den Befehl **Set-netqostrafficclass** verwenden, um eine Datenverkehrs Klasse zu erstellen. 
+Sie können den Befehl **Set-netqostrafficclass** verwenden, um eine Datenverkehrs Klasse zu erstellen.
 
+```powershell
     Set-NetQosTrafficClass -Name SMB -BandwidthPercentage 50
+```
 
 Sie können dann den Befehl **Get-netqostrafficclass** verwenden, um Einstellungen anzuzeigen.
 
+```powershell
     Get-NetQosTrafficClass
-    
+
     NameAlgorithm Bandwidth(%) Priority PolicySetIfIndex IfAlias
     ------------- ------------ -------- ---------------- -------
     [Default]   ETS   50   0-3,5-7  Global
-    SMB ETS   50   4Global   
-    
+    SMB ETS   50   4Global
+```
 
 Nachdem Sie eine Datenverkehrs Klasse erstellt haben, können Sie Ihre Einstellungen unabhängig voneinander ändern. Folgende Einstellungen können Sie ändern:
 
-1. Bandbreiten Zuordnung \( -bandwidthprozentsatz\)
+1. Bandbreiten Zuordnung (-bandwidthprozentsatz)
 
-2. TSA ( \- Algorithmus\)
+2. TSA (-Algorithmus)
 
-3. Prioritäts Zuordnung \( -Priorität\)
+3. Prioritäts Zuordnung (-Priority)
 
 ### <a name="remove-a-traffic-class"></a>Entfernen einer Datenverkehrs Klasse
 
@@ -157,27 +160,27 @@ Sie können den Befehl **Remove-netqostrafficclass** verwenden, um eine Datenver
 >[!IMPORTANT]
 >Die Standard-Datenverkehrs Klasse kann nicht entfernt werden.
 
-
+```powershell
     Remove-NetQosTrafficClass -Name SMB
 
-Sie können dann den Befehl **Get-netqostrafficclass** verwenden, um Einstellungen anzuzeigen.
-    
+You can then use the **Get-NetQosTrafficClass** command to view settings.
+
     Get-NetQosTrafficClass
-    
+
     NameAlgorithm Bandwidth(%) Priority PolicySetIfIndex IfAlias
     ------------- ------------ -------- ---------------- -------
     [Default]   ETS   100  0-7  Global
-    
+```
 
 Nachdem Sie eine Datenverkehrs Klasse entfernt haben, wird der 802.1 p-Wert, der dieser Datenverkehrs Klasse zugeordnet ist, der Standard-Traffic-Klasse zugeordnet. Jede Bandbreite, die für eine Datenverkehrs Klasse reserviert war, wird beim Entfernen der Traffic-Klasse an die standardmäßige Zuordnung von Datenverkehrs Klassen zurückgegeben.
 
 ## <a name="per-network-interface-policies"></a>Netzwerkschnittstellen Richtlinien
 
-Alle oben aufgeführten Beispiele legen globale Richtlinien fest. Im folgenden finden Sie Beispiele dafür, wie Sie pro-NIC-Richtlinien festlegen und erhalten können. 
+Alle oben aufgeführten Beispiele legen globale Richtlinien fest. Im folgenden finden Sie Beispiele dafür, wie Sie pro-NIC-Richtlinien festlegen und erhalten können.
 
 Das Feld "policyset" ändert sich von Global in adapterspecific. Wenn adapterspecific-Richtlinien angezeigt werden, werden der Schnittstellen Index \( ifindex \) und der Schnittstellen Name \( ifalias \) ebenfalls angezeigt.
 
-```
+```powershell
 PS C:\> Get-NetQosTrafficClass
 
 Name        Algorithm Bandwidth(%) Priority         PolicySet        IfIndex IfAlias
@@ -222,7 +225,6 @@ Name        Algorithm Bandwidth(%) Priority         PolicySet        IfIndex IfA
 [Default]   ETS       70           0-3,5-7          AdapterSpecific  4       M1
 SMBforM1    ETS       30           4                AdapterSpecific  4       M1
 
-
 ```
 
 ## <a name="priority-flow-control-settings"></a>Einstellungen für die Prioritäts Fluss Steuerung:
@@ -231,7 +233,7 @@ Im folgenden finden Sie Befehlsbeispiele für Einstellungen der Prioritäts Flus
 
 ### <a name="enable-and-display-priority-flow-control-for-global-and-interface-specific-use-cases"></a>Aktivieren und Anzeigen der Prioritäts Fluss Steuerung für globale und Schnittstellen spezifische Anwendungsfälle
 
-```
+```powershell
 PS C:\> Enable-NetQosFlowControl -Priority 4
 PS C:\> Enable-NetQosFlowControl -Priority 3 -InterfaceAlias M1
 PS C:\> Get-NetQosFlowControl
@@ -258,14 +260,12 @@ Priority   Enabled    PolicySet        IfIndex IfAlias
 4          False      AdapterSpecific  4       M1
 5          False      AdapterSpecific  4       M1
 6          False      AdapterSpecific  4       M1
-7          False      AdapterSpecific  4       M1  
-
+7          False      AdapterSpecific  4       M1
 ```
-
 
 ### <a name="disable-priority-flow-control-global-and-interface-specific"></a>Deaktivieren der Prioritäts Fluss Steuerung (Global und Interface Specific)
 
-```
+```powershell
 PS C:\> Disable-NetQosFlowControl -Priority 4
 PS C:\> Disable-NetQosFlowControl -Priority 3 -InterfaceAlias m1
 PS C:\> Get-NetQosFlowControl
@@ -281,7 +281,6 @@ Priority   Enabled    PolicySet        IfIndex IfAlias
 6          False      Global
 7          False      Global
 
-
 PS C:\> Get-NetQosFlowControl -InterfaceAlias M1
 
 Priority   Enabled    PolicySet        IfIndex IfAlias
@@ -293,8 +292,7 @@ Priority   Enabled    PolicySet        IfIndex IfAlias
 4          False      AdapterSpecific  4       M1
 5          False      AdapterSpecific  4       M1
 6          False      AdapterSpecific  4       M1
-7          False      AdapterSpecific  4       M1  
-
+7          False      AdapterSpecific  4       M1
 ```
 
 ##  <a name="application-priority-assignment"></a>Zuweisung von Anwendungs Priorität
@@ -303,7 +301,7 @@ Im folgenden finden Sie Beispiele für die Prioritäts Zuweisung.
 
 ### <a name="create-qos-policy"></a>Erstellen einer QoS-Richtlinie
 
-```
+```powershell
 PS C:\> New-NetQosPolicy -Name "SMB Policy" -SMB -PriorityValue8021Action 4
 
 Name           : SMB Policy
@@ -312,7 +310,6 @@ NetworkProfile : All
 Precedence     : 127
 Template       : SMB
 PriorityValue  : 4
-
 ```
 
 Mit dem vorherigen Befehl wird eine neue Richtlinie für SMB erstellt. – SMB ist ein Posteingangs Filter, der TCP-Port 445 (reserviert für SMB) entspricht. Wenn ein Paket an den TCP-Port 445 gesendet wird, wird es vom Betriebssystem mit dem 802.1 p-Wert 4 gekennzeichnet, bevor das Paket an einen Netzwerk-Mini Port-Treiber übermittelt wird.
@@ -325,7 +322,7 @@ Zusätzlich zu den Standardfiltern können Sie den Datenverkehr nach dem ausfüh
 
 **Name der ausführbaren Datei**
 
-```
+```powershell
 PS C:\> New-NetQosPolicy -Name background -AppPathNameMatchCondition "C:\Program files (x86)\backup.exe" -PriorityValue8021Action 1
 
 Name           : background
@@ -335,13 +332,11 @@ Precedence     : 127
 AppPathName    : C:\Program files (x86)\backup.exe
 JobObject      :
 PriorityValue  : 1
-
 ```
-
 
 **Nach IP-Adressport oder-Protokoll**
 
-```
+```powershell
 PS C:\> New-NetQosPolicy -Name "Network Management" -IPDstPrefixMatchCondition 10.240.1.0/24 -IPProtocolMatchCondition both -NetworkProfile all -PriorityValue8021Action 7
 
 Name           : Network Management
@@ -352,12 +347,11 @@ JobObject      :
 IPProtocol     : Both
 IPDstPrefix    : 10.240.1.0/24
 PriorityValue  : 7
-
 ```
 
 ### <a name="display-qos-policy"></a>Anzeigen der QoS-Richtlinie
 
-```
+```powershell
 PS C:\> Get-NetQosPolicy
 
 Name           : background
@@ -384,15 +378,13 @@ Precedence     : 127
 Template       : SMB
 JobObject      :
 PriorityValue  : 4
-
 ```
 
 ### <a name="modify-qos-policy"></a>Ändern der QoS-Richtlinie
 
 Die QoS-Richtlinien können wie unten dargestellt geändert werden.
 
-
-```
+```powershell
 PS C:\> Set-NetQosPolicy -Name "Network Management" -IPSrcPrefixMatchCondition 10.235.2.0/24 -IPProtocolMatchCondition both -PriorityValue8021Action 7
 PS C:\> Get-NetQosPolicy
 
@@ -405,33 +397,30 @@ IPProtocol     : Both
 IPSrcPrefix    : 10.235.2.0/24
 IPDstPrefix    : 10.240.1.0/24
 PriorityValue  : 7
-
-
 ```
 
 ### <a name="remove-qos-policy"></a>QoS-Richtlinie entfernen
 
-```
+```powershell
 PS C:\> Remove-NetQosPolicy -Name "Network Management"
 
 Confirm
 Are you sure you want to perform this action?
 Remove-NetQosPolicy -Name "Network Management" -Store GPO:localhost
-[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"): y  
-
+[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"): y
 ```
 
 ## <a name="dcb-configuration-on-network-adapters"></a>DCB-Konfiguration auf Netzwerkadaptern
 
-Die DCB-Konfiguration auf Netzwerkadaptern ist unabhängig von der DCB-Konfiguration auf der oben beschriebenen Systemebene. 
+Die DCB-Konfiguration auf Netzwerkadaptern ist unabhängig von der DCB-Konfiguration auf der oben beschriebenen Systemebene.
 
-Unabhängig davon, ob DCB in Windows Server 2016 installiert ist, können Sie immer die folgenden Befehle ausführen. 
+Unabhängig davon, ob DCB in Windows Server 2016 installiert ist, können Sie immer die folgenden Befehle ausführen.
 
 Wenn Sie DCB von einem Switch aus konfigurieren und dcbx für die Weitergabe der Konfigurationen an Netzwerkadapter einsetzen, können Sie nach der Aktivierung von DCB auf den Netzwerkadaptern prüfen, welche Konfigurationen auf den Netzwerkadaptern empfangen und erzwungen werden.
 
 ###  <a name="enable-and-display-dcb-settings-on--network-adapters"></a><a name="bkmk_enabledcb"></a>Aktivieren und Anzeigen von DCB-Einstellungen auf Netzwerkadaptern
 
-```
+```powershell
 PS C:\> Enable-NetAdapterQos M1
 PS C:\> Get-NetAdapterQos
 
@@ -452,13 +441,11 @@ OperationalFlowControl     : All Priorities Disabled
 OperationalClassifications : Protocol  Port/Type Priority
                              --------  --------- --------
                              Default             1
-
-
 ```
 
 ### <a name="disable-dcb-on-network-adapters"></a>Deaktivieren von DCB auf Netzwerkadaptern
 
-```
+```powershell
 PS C:\> Disable-NetAdapterQos M1
 PS C:\> Get-NetAdapterQos M1
 
@@ -468,9 +455,9 @@ Capabilities :                       Hardware     Current
                                      --------     -------
                MacSecBypass        : NotSupported NotSupported
                DcbxSupport         : None         None
-               NumTCs(Max/ETS/PFC) : 8/8/8        0/0/0  
-
+               NumTCs(Max/ETS/PFC) : 8/8/8        0/0/0
 ```
+
 ## <a name="windows-powershell-commands-for-dcb"></a><a name="bkmk_wps"></a>Windows PowerShell-Befehle für DCB
 
 Es gibt DCB-Windows PowerShell-Befehle für Windows Server 2016 und Windows Server 2012 R2. Sie können alle Befehle für Windows Server 2012 R2 in Windows Server 2016 verwenden.

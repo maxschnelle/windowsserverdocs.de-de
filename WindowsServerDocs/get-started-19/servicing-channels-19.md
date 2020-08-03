@@ -8,12 +8,12 @@ author: jasongerend
 ms.author: jgerend
 ms.localizationpriority: high
 ms.date: 05/21/2019
-ms.openlocfilehash: 1823816d2218c09c84e5eb61bf8af6bd3411a0d7
-ms.sourcegitcommit: 78b59522234825c43b00c271a04c35f3fd9d65e3
+ms.openlocfilehash: 71f35b7c0dd3e2dc96c0b58ac4438a3c12472832
+ms.sourcegitcommit: 145cf75f89f4e7460e737861b7407b5cee7c6645
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/22/2020
-ms.locfileid: "86946594"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87410001"
 ---
 # <a name="windows-server-servicing-channels-ltsc-and-sac"></a>Windows Server-Wartungskanäle: LTSC und SAC
 
@@ -27,7 +27,7 @@ Sie können Server im Long-Term Servicing Channel (LTSC) belassen, sie in den ha
 
 Sie sind mit diesem Releasemodell bereits vertraut (es wurde früher „Long-Term Servicing *Branch*“ genannt), in dem alle 2 bis 3 Jahre eine neue Hauptversion von Windows Server veröffentlicht wird. Benutzer haben Anspruch auf 5 Jahre Mainstreamsupport und 5 Jahre erweiterten Support. Dieser Kanal eignet sich für Systeme, die eine längere Wartungsoption und funktionale Stabilität erfordern. Bereitstellungen von Windows Server 2019 und frühere Versionen von Windows Server sind von den Releases im neuen Semi-Annual Channel nicht betroffen. Der Long-Term Servicing Channel erhält weiterhin sicherheitsrelevante und nicht sicherheitsrelevante Updates, jedoch keine neuen Features und Funktionen.
 
-> [!Note]
+> [!NOTE]
 > **Das aktuelle LTSC-Produkt ist Windows Server 2019**. Wenn Sie diesen Kanal beibehalten möchten, sollten Sie Windows Server 2019 installieren (oder weiterhin nutzen), der im Server Core-Installationsmodus oder als Server mit der Desktopdarstellungs-Installationsoption installiert werden kann.
 
 ## <a name="semi-annual-channel"></a>Halbjährlicher Kanal
@@ -38,7 +38,7 @@ Die meisten der im halbjährlichen Kanal eingeführten Features werden in der n�
 
 Der halbjährliche Kanal steht Kunden mit Volumenlizenz mit [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default.aspx) zur Verfügung sowie über den Azure Marketplace oder andere Cloud/Hosting-Dienstanbieter und Treueprogramme wie z.B. Visual Studio-Abonnements.
 
-> [!Note]  
+> [!NOTE]
 > **Die aktuelle Version des Semi-Annual Channel ist Windows Server, Version 1909**. Wenn Sie Server in diesen Kanal übertragen möchten, sollten Sie die Version 1909 von Windows Server installieren, die im Server Core-Modus oder als Nanoserver in einem Container installiert werden kann. Direkte Upgrades von einer Release aus dem Long-Term Servicing Channel werden nicht unterstützt, da sie sich in **verschiedenen Releasekanälen** befinden. Releases im halbjährlichen Kanal stellen keine Updates dar – bei ihnen handelt es sich um das nächste Release von Windows Server im halbjährlichen Kanal.
 
 In diesem neuen Modell werden Windows Server-Versionen je nach Jahr und Monat der Veröffentlichung gekennzeichnet: z.B. wird eine Version aus dem 9. Monat im Jahr 2017 (September) als **Version 1709** bezeichnet. Im halbjährlichen Kanal werden zweimal pro Jahr neue Versionen von Windows Server bereitgestellt. Der Supportlebenszyklus für jede Version beträgt 18 Monate.
@@ -48,19 +48,18 @@ In diesem neuen Modell werden Windows Server-Versionen je nach Jahr und Monat de
 Diese wichtigen Unterschiede sind zu berücksichtigen:
 
 - Müssen Sie die neuen Technologien für DevOps, Container und Microservices steigern? Wenn ja, sollten Sie dem **Halbjährlichen Kanal beitreten**, indem Sie **Windows Server, Version 1909** installieren. Wie in diesem Thema beschrieben, erhalten Sie zweimal pro Jahr neue Versionen mit 18 Monaten Mainstream-Support für Produktionsumgebungen pro Release. Sie erhalten diese über Volumenlizenzierung, Azure oder Visual Studio-Abonnementdienste. Derzeit erfordern Versionen im halbjährlichen Kanal Volumenlizenzierung und Software Assurance, wenn Sie beabsichtigen, das Produkt in Produktionsumgebungen einzusetzen.
-- Benötigen Sie Stabilität und Vorhersagbarkeit? Müssen Sie virtuelle Computer und herkömmliche Workloads auf physischen Servern ausführen? Wenn ja, sollten Sie **diese Server im Long-Term Servicing Channel belassen**. Die aktuelle LTSC-Version ist **Windows Server 2019**. Wie in diesem Thema beschrieben, haben Sie alle 2 bis 3 Jahre Zugriff auf neue Versionen, mit 5 Jahren Mainstream-Support, auf die 5 Jahre erweiterter Support pro Version folgen. LTSC-Versionen stehen über alle Releasemechanismen zur Verfügung. Versionen im LTSC sind für alle Benutzer verfügbar, unabhängig vom verwendeten Lizenzierungsmodell. 
+- Benötigen Sie Stabilität und Vorhersagbarkeit? Müssen Sie virtuelle Computer und herkömmliche Workloads auf physischen Servern ausführen? Wenn ja, sollten Sie **diese Server im Long-Term Servicing Channel belassen**. Die aktuelle LTSC-Version ist **Windows Server 2019**. Wie in diesem Thema beschrieben, haben Sie alle 2 bis 3 Jahre Zugriff auf neue Versionen, mit 5 Jahren Mainstream-Support, auf die 5 Jahre erweiterter Support pro Version folgen. LTSC-Versionen stehen über alle Releasemechanismen zur Verfügung. Versionen im LTSC sind für alle Benutzer verfügbar, unabhängig vom verwendeten Lizenzierungsmodell.
 
 In der folgenden Tabelle sind die wichtigsten Unterschiede zwischen den Kanälen zusammengefasst:
 
-
-|                       |                                                              Long-Term Servicing Channel (Windows Server 2019)                                                               |                                   Halbjährlicher Kanal (Windows Server)                                   |
-|-----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
+| Beschreibung | Long-Term Servicing Channel (Windows Server 2019) | Halbjährlicher Kanal (Windows Server) |
+| -----------------------|--|--|
 | Empfohlene Szenarien | Dateiserver für allgemeine Zwecke, von Microsoft und nicht von Microsoft stammende Workloads, herkömmliche Apps, Infrastruktur-Rollen, softwaredefinierte Rechenzentren und hyperkonvergente Infrastruktur | Anwendungen in Containern, Container-Hosts und Anwendungsszenarien, die von schneller Innovation profitieren |
-|     Neue Versionen      |                                                                               Alle 2–3 Jahre                                                                                |                                              Alle 6 Monate                                              |
-|        Support        |                                                       5 Jahre grundlegender Support und 5 Jahre erweiterter Support                                                        |                                                18 Monate                                                 |
-|       Editionen        |                                                                    Alle verfügbaren Editionen von Windows Server                                                                     |                                     Standard Edition und Datacenter Edition                                     |
-|      Für wen nutzbar      |                                                                      Alle Kunden über alle Kanäle                                                                      |                               Nur Software Assurance- und Cloud-Kunden                                |
-| Installationsoptions  |                                                                Server Core und Server mit Desktopdarstellung                                                                |                 Server Core für Container-Hosts und Images und Nano Server-Containerimage                 |
+| Neue Versionen | Alle 2–3 Jahre | Alle 6 Monate |
+| Support | 5 Jahre grundlegender Support und 5 Jahre erweiterter Support | 18 Monate |
+| Editionen | Alle verfügbaren Editionen von Windows Server | Standard Edition und Datacenter Edition |
+| Für wen nutzbar | Alle Kunden über alle Kanäle | Nur Software Assurance- und Cloud-Kunden |
+| Installationsoptions | Server Core und Server mit Desktopdarstellung | Server Core für Container-Hosts und Images und Nano Server-Containerimage |
 
 ## <a name="device-compatibility"></a>Gerätekompatibilität
 

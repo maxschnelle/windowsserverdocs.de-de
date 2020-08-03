@@ -8,22 +8,21 @@ author: coreyp-at-msft
 ms.author: coreyp
 ms.localizationpriority: medium
 ms.date: 06/03/2019
-ms.openlocfilehash: a2e4b17a0f8f38812366dc2913e6c2ee25d4d137
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: c814098aeb73ca186e0a0db668f477f9cc1f5cf9
+ms.sourcegitcommit: 145cf75f89f4e7460e737861b7407b5cee7c6645
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86961152"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87409570"
 ---
 # <a name="whats-new-in-windows-server-version-1709"></a>Neuerungen in Windows Server, Version 1709
 
->Gilt für: Windows Server (Halbjährlicher Kanal)
+> Gilt für: Windows Server (Halbjährlicher Kanal)
 
 <img src=../media/landing-icons/new.png style='float:left; padding:.5em;' alt=Icon showing a newspaper>&nbsp;Weitere Informationen zu den neuesten Features in Windows finden Sie unter [Neuerungen in Windows Server](whats-new-in-windows-server.md). In diesem Abschnitt wird beschrieben, was in Windows Server, Version 1709, neu ist und was sich geändert hat. Die hier aufgeführten Neuerungen und Änderungen haben bei der Arbeit in dieser Version vermutlich die größte Auswirkung. Weitere Informationen finden Sie unter [Windows Server, Version 1709](https://cloudblogs.microsoft.com/windowsserver/2017/08/24/sneak-peek-1-windows-server-version-1709/).
 
 > [!IMPORTANT]
 > Der Support von Windows Server, Version 1709, ist seit dem 9. April 2019 beendet.
-
 
 ## <a name="new-cadence-of-releases"></a>Neuer Versionsrhythmus
 
@@ -33,21 +32,21 @@ Ab diesem Release haben Sie zwei Optionen für den Empfang von Funktionsupdates 
 
 Veröffentlichungskanäle werden in der folgenden Tabelle zusammengefasst.
 
-|   | Halbjährlicher Kanal | Long Term Servicing Channel |
-| ------------- | ------------- | ------------ |
-| Versionsrhythmus  | Zweimal pro Jahr (Frühling und Herbst)  | Alle 2-3 Jahre |
-| Supportzeitplan  | 18 Monate Mainstream-Production Support  | 5 Jahre Mainstreamsupport + 5 Jahre erweiterter Support |
-| Verfügbarkeit  | Software Assurance oder Azure (in der Cloud gehostet)  | Alle Kanäle |
-| Benennungskonvention  | Windows Server, Version JJMM  | Windows Server JJJJ |
+| Beschreibung | Halbjährlicher Kanal | Long Term Servicing Channel |
+| ------------- |--| -- |
+| Versionsrhythmus | Zweimal pro Jahr (Frühling und Herbst) | Alle 2-3 Jahre |
+| Supportzeitplan | 18 Monate Mainstream-Production Support | 5 Jahre Mainstreamsupport + 5 Jahre erweiterter Support |
+| Verfügbarkeit | Software Assurance oder Azure (in der Cloud gehostet) | Alle Kanäle |
+| Benennungskonvention | Windows Server, Version JJMM | Windows Server JJJJ |
 
 Weitere Informationen finden Sie unter [Vergleich der Wartungskanäle](../get-started-19/servicing-channels-19.md).
 
 ## <a name="application-containers-and-micro-services"></a>Anwendungscontainer und Microservices
 
-- Das Server Core-Containerimage wurde für Lift & Shift-Szenarien weiter optimiert, in denen Sie vorhandene Codebasen oder Anwendungen in Containern mit nur minimalen Änderungen migrieren können. Es ist zudem 60 % kleiner. 
+- Das Server Core-Containerimage wurde für Lift & Shift-Szenarien weiter optimiert, in denen Sie vorhandene Codebasen oder Anwendungen in Containern mit nur minimalen Änderungen migrieren können. Es ist zudem 60 % kleiner.
 - Das Nano Server-Containerimage ist fast 80 % kleiner.
     - In Windows Server (halbjährlicher Kanal) wird Nano Server als ein Containerbasis-Betriebssystemimage von 390 MB auf 80 MB verkleinert.
-- Linux-Container mit Hyper-V-Isolation 
+- Linux-Container mit Hyper-V-Isolation
 
 Weitere Informationen finden Sie unter [Änderungen bei Nano Server im nächsten Release von Windows Server](./nano-in-semi-annual-channel.md) und [Windows Server, Version 1709, für Entwickler](https://cloudblogs.microsoft.com/windowsserver/2017/09/13/sneak-peek-3-windows-server-version-1709-for-developers/).
 
@@ -58,7 +57,7 @@ Projekt Honolulu enthält eine intuitive neue Verwaltungsoberfläche für die Ve
 
 ## <a name="compute"></a>Computer:
 
-**Nano-Container und Server Core-Container**: Zuallererst geht es in diesem Release darum, Anwendungsinnovationen voranzutreiben. Nano Server oder Nano als Host ist veraltet und wird durch Nano-Container (ein Nano, der als Containerimage ausgeführt wird) ersetzt. 
+**Nano-Container und Server Core-Container**: Zuallererst geht es in diesem Release darum, Anwendungsinnovationen voranzutreiben. Nano Server oder Nano als Host ist veraltet und wird durch Nano-Container (ein Nano, der als Containerimage ausgeführt wird) ersetzt.
 
 Weitere Informationen zu Containern finden Sie unter [Übersicht über Containernetzwerke](../networking/sdn/technologies/containers/container-networking-overview.md).
 
@@ -91,15 +90,15 @@ Weitere Informationen finden Sie unter [Übersicht über geschütztes Fabric und
 ## <a name="storage"></a>Speicher
 
 **Speicherreplikat**: Der Schutz für die von Storage Replica in Windows Server 2016 hinzugefügte Notfallwiederherstellung ist jetzt erweitert und umfasst:
-- **Testen des Failovers**: Die Option zum Bereitstellen des Zielspeichers ist jetzt mit der Funktion zum Testen des Failovers möglich. Sie können eine Momentaufnahme des replizierten Speichers auf Zielknoten vorübergehend zu Test- und Sicherungszwecken bereitstellen.  Weitere Informationen finden Sie unter [Häufig gestellte Fragen zu Speicherreplikaten](https://aka.ms/srfaq). 
+- **Testen des Failovers**: Die Option zum Bereitstellen des Zielspeichers ist jetzt mit der Funktion zum Testen des Failovers möglich. Sie können eine Momentaufnahme des replizierten Speichers auf Zielknoten vorübergehend zu Test- und Sicherungszwecken bereitstellen.  Weitere Informationen finden Sie unter [Häufig gestellte Fragen zu Speicherreplikaten](https://aka.ms/srfaq).
 - **Unterstützung für das Projekt Honolulu**: Die Unterstützung für die grafische Verwaltung der Server-zu-Server-Replikation ist jetzt im Projekt Honolulu verfügbar. Dadurch wird die Anforderung, PowerShell zum Verwalten einer allgemeinen Arbeitslast zum Notfallschutz, entfernt.
 
-**SMB**: 
-- **SMB1 und das Entfernen der Gastauthentifizierung**: In Windows Server, Version 1709, wird der SMB1-Client und -Server nicht mehr standardmäßig installiert. Darüber hinaus ist die Möglichkeit deaktiviert, sich als Gast in SMB2 und höher standardmäßig zu authentifizieren. Weitere Informationen finden Sie unter [SMBv1 wird für Windows 10, Version 1709, und Windows Server, Version 1709, standardmäßig nicht installiert](https://support.microsoft.com/help/4034314/smbv1-is-not-installed-by-default-in-windows-10-rs3-and-windows-server). 
+**SMB**:
+- **SMB1 und das Entfernen der Gastauthentifizierung**: In Windows Server, Version 1709, wird der SMB1-Client und -Server nicht mehr standardmäßig installiert. Darüber hinaus ist die Möglichkeit deaktiviert, sich als Gast in SMB2 und höher standardmäßig zu authentifizieren. Weitere Informationen finden Sie unter [SMBv1 wird für Windows 10, Version 1709, und Windows Server, Version 1709, standardmäßig nicht installiert](https://support.microsoft.com/help/4034314/smbv1-is-not-installed-by-default-in-windows-10-rs3-and-windows-server).
 
 - **SMB2/SMB3-Sicherheit und Kompatibilität**: Es wurden zusätzliche Optionen für die Sicherheits- und Anwendungskompatibilität hinzugefügt, einschließlich der Möglichkeit, Oplocks SMB2+ für Legacy-Anwendungen zu deaktivieren, sowie die Signierung oder Verschlüsselung, die auf Basis jeder einzelnen Verbindung von einem Client erforderlich ist. Weitere Informationen finden Sie in der Hilfe zum SMBShare PowerShell-Modul.
 
-**Datendeduplizierung**: 
+**Datendeduplizierung**:
 - **Datendeduplizierung unterstützt jetzt ReFS**: Sie müssen nicht mehr zwischen den Vorteilen eines modernen Dateisystems mit ReFS und der Datendeduplizierung wählen: Sie können jetzt die Datendeduplizierung aktivieren, überall wo ReFS aktiviert werden kann. Erhöhen Sie die Speichereffizienz von schätzungsweise mehr als 95 % mit ReFS.
 - **DataPort-API für den optimierten Eingang/Ausgang von deduplizierten Volumes**: Entwickler können jetzt die Kenntnisse der Datendeduplizierung zum effizienten Speichern von Daten, zum Verschieben von Daten zwischen Volumes, Servern und Clustern effizient nutzen.
 
@@ -150,7 +149,7 @@ Weitere Informationen finden Sie unter [Übersicht über geschütztes Fabric und
 **Software-Defined Networking**
 
 - **Virtuelle Netzwerkverschlüsselung** ist ein neues Feature, das die Möglichkeit bietet, den virtuellen Netzwerkdatenverkehr zwischen virtuellen Computern zu verschlüsseln, die innerhalb der Subnetze miteinander kommunizieren und als „Verschlüsselung aktiviert“ gekennzeichnet sind. Dieses Feature nutzt Datagram Transport Layer Security (DTLS) im virtuellen Subnetz, um die Pakete zu verschlüsseln.  DTLS bietet Schutz vor Abhörversuchen, Manipulation und Fälschung durch jeden, der Zugriff auf das physische Netzwerk hat.
- 
+
 **Windows 10 VPN**
 
 - **Infrastrukturtunnel vor der Anmeldung**. Standardmäßig erstellt Windows 10 VPN nicht automatisch Infrastrukturtunnel, wenn Benutzer nicht am Computer oder Gerät angemeldet sind. Sie können Windows 10 VPN so konfigurieren, dass vor der Anmeldung automatisch Infrastrukturtunnel mithilfe der Gerätetunnelfunktion (prelogon) im VPN-Profil erstellt werden.

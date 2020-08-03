@@ -8,18 +8,18 @@ ms.topic: article
 ms.prod: windows-server
 ms.assetid: 398918dc-c8ab-41a6-a377-95681ec0b543
 ms.technology: identity-adds
-ms.openlocfilehash: e95c11007548c0e1db77132b6e872b88569d3b47
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 3792a1e9b5c8978fdc8db5201ff4d439dbfb98d6
+ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86963002"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87519017"
 ---
-# <a name="ad-forest-recovery---backing-up-a-full-server"></a>AD-Gesamtstruktur Wiederherstellung: Sichern eines vollständigen Servers  
+# <a name="ad-forest-recovery---backing-up-a-full-server"></a>AD-Gesamtstruktur Wiederherstellung: Sichern eines vollständigen Servers
 
 >Gilt für: Windows Server 2016, Windows Server 2012 und 2012 R2, Windows Server 2008 und 2008 R2
 
-Eine vollständige Server Sicherung wird empfohlen, um eine Wiederherstellung der Gesamtstruktur vorzubereiten, da Sie auf einer anderen Hardware oder einer anderen Betriebssystem Instanz wieder hergestellt werden kann.  Mithilfe Windows Server-Sicherung können Sie eine vollständige Sicherung des Servers ausführen. 
+Eine vollständige Server Sicherung wird empfohlen, um eine Wiederherstellung der Gesamtstruktur vorzubereiten, da Sie auf einer anderen Hardware oder einer anderen Betriebssystem Instanz wieder hergestellt werden kann.  Mithilfe Windows Server-Sicherung können Sie eine vollständige Sicherung des Servers ausführen.
 
 ## <a name="windows-server-backup"></a>Windows Server-Sicherung
 
@@ -28,7 +28,7 @@ Windows Server-Sicherung wird nicht standardmäßig installiert. In Windows Serv
 >[!NOTE]
 >Beachten Sie, dass die Schritte zwischen Windows Server 2016 und Windows Server 2012 R2 möglicherweise geringfügig abweichen.
 
-Schritte zur Installation in Windows Server 2008 und Windows Server 2008 R2 finden Sie unter [Installieren von Windows Server-Sicherung](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771232(v=ws.10)).  
+Schritte zur Installation in Windows Server 2008 und Windows Server 2008 R2 finden Sie unter [Installieren von Windows Server-Sicherung](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771232(v=ws.10)).
 
 ### <a name="to-install-windows-server-backup"></a>So installieren Sie Windows Server-Sicherung
 
@@ -47,7 +47,7 @@ Schritte zur Installation in Windows Server 2008 und Windows Server 2008 R2 find
 1. Öffnen Sie **Server-Manager**, **Klicken Sie**auf Extras, und klicken Sie dann auf **Windows Server-Sicherung**.
    - Klicken Sie unter Windows Server 2008 R2 und Windows Server 2008 auf **Start**, zeigen Sie auf **Verwaltung**, und klicken Sie dann auf **Windows Server-Sicherung**.
 
-   ![Installieren der Sicherung](media/AD-Forest-Recovery-Backing-up-a-Full-Server/fullbackup1.png) 
+   ![Installieren der Sicherung](media/AD-Forest-Recovery-Backing-up-a-Full-Server/fullbackup1.png)
 
 2. Wenn Sie dazu aufgefordert werden, geben Sie im Dialogfeld **Benutzerkontensteuerung** die Anmelde Informationen für den Sicherungs Operator an, und klicken Sie dann auf **OK**.
 3. Klicken Sie auf **lokale Sicherung**.
@@ -75,8 +75,8 @@ Schritte zur Installation in Windows Server 2008 und Windows Server 2008 R2 find
 Wbadmin.exe ist ein Befehlszeilenprogramm, mit dem Sie das Betriebssystem, die Volumes, Dateien, Ordner und Anwendungen über eine Eingabeaufforderung sichern und wiederherstellen können.
 
 ### <a name="to-perform-a-full-server-backup-using-wbadminexe"></a>So führen Sie eine vollständige Server Sicherung mithilfe von Wbadmin.exe aus
-  
-- Öffnen Sie eine Eingabeaufforderung mit erhöhten Rechten, geben Sie den folgenden Befehl ein, und drücken Sie Eingabe  
+
+- Öffnen Sie eine Eingabeaufforderung mit erhöhten Rechten, geben Sie den folgenden Befehl ein, und drücken Sie Eingabe
 
    ```
    wbadmin start backup -backuptarget:<Drive_letter_to store_backup>: -include:<Drive_letter_to_include>:
