@@ -7,14 +7,14 @@ ms.topic: article
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 07/14/2020
+ms.date: 07/28/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: e9449da93e52471d1f21c2b7079a8fed0415a03a
-ms.sourcegitcommit: e6becfd2266fd434b7994455c7782de36af4ff80
+ms.openlocfilehash: 41e4923d64ebacf606f01350a873f6dbce564b4c
+ms.sourcegitcommit: 42cd33c95645321d09d006ff2e7666d6370dfbc3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/14/2020
-ms.locfileid: "86377004"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87330816"
 ---
 # <a name="whats-new-in-the-windows-desktop-client"></a>Neuigkeiten im Windows-Desktopclient
 
@@ -26,19 +26,20 @@ Der Client kann für verschiedene [Benutzergruppen](windowsdesktop-admin.md#conf
 
 |Benutzergruppe |Version  |
 |-----------|---------|
-|Öffentlich     |1.2.1104 |
-|Insider    |1.2.1185 |
+|Öffentlich     |1.2.1186 |
+|Insider    |1.2.1186 |
 
-## <a name="updates-for-version-121185"></a>Updates für Version 1.2.1185
+## <a name="updates-for-version-121186"></a>Updates für Version 1.2.1186
 
-*Veröffentlicht am: 14.07.2020*
+*Veröffentlicht am: 28.7.2020*
 
-Download: [Windows 64-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4B1Hr), [Windows 32-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4B1Hs), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4B1Hq)
+Download: [Windows 64-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4C7Qy), [Windows 32-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4Ciex), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4C7Qx)
 
 - Sie können jetzt Arbeitsbereiche mit mehreren Benutzerkonten abonniert, indem Sie die Überlaufmenüoption ( **...** ) auf der Befehlsleiste oben im Client verwenden. Um Arbeitsbereiche zu unterscheiden, enthalten die Arbeitsbereichstitel jetzt den Benutzernamen, ebenso wie alle Titel von App-Verknüpfungen.
 - Zusätzliche Informationen zu Abonnementfehlermeldungen wurden hinzugefügt, um die Problembehandlung zu verbessern.
 - Der reduzierte/erweiterte Status von Arbeitsbereichen wird jetzt während einer Aktualisierung beibehalten.
 - Dem Dialogfeld **Verbindungsinformationen** wurde eine Schaltfläche **Diagnose senden und schließen** hinzugefügt.
+- Es wurde ein Problem mit der Tastenkombination STRG+UMSCHALT in Remotesitzungen behoben.
 
 ## <a name="updates-for-version-121104"></a>Updates für Version 1.2.1104
 

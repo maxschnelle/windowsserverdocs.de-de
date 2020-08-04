@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.localizationpriority: medium
 ms.prod: windows-server
 ms.date: 06/07/2019
-ms.openlocfilehash: 92d8a47c4ac214faeac83ba8ff5a1a746bc8bdb3
-ms.sourcegitcommit: b35fbd2a67d7a3395b50b2a3acd0817ba4e36b26
+ms.openlocfilehash: da2970a8777ddcc95e2e8af0d979341965cb70ad
+ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/22/2020
-ms.locfileid: "86891385"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87518528"
 ---
 # <a name="what-is-windows-admin-center"></a>Was ist Windows Admin Center?
 
@@ -23,7 +23,7 @@ Windows Admin Center ist ein neues lokal bereitgestelltes, browserbasiertes Verw
 
 Windows Admin Center ist die moderne Weiterentwicklung von integrierten Verwaltungstools wie Server-Manager und MMC. Windows Admin Center ist kein Ersatz für System Center, sondern dient als Ergänzung.
 
-![](../media/wac-complements.png)
+![Diagramm der Zusammenarbeit von Windows Admin Center mit anderen Lösungen](../media/wac-complements.png)
 
 ## <a name="how-does-windows-admin-center-work"></a>Funktionsweise von Windows Admin Center
 
@@ -31,7 +31,7 @@ Windows Admin Center wird in einem Webbrowser ausgeführt und dient zur Verwaltu
 
 Wenn das Windows Admin Center-Gateway im DNS veröffentlicht und ihm Zugriff durch entsprechende Unternehmensfirewalls gewährt wurde, kannst du damit unabhängig vom Standort über Microsoft Edge oder Google Chrome eine Verbindung mit deinen Servern herstellen und diese verwalten.
 
-![](../media/architecture.png)
+![Diagram der Windows Admin Center-Architektur](../media/architecture.png)
 
 ## <a name="learn-how-windows-admin-center-improves-your-management-environment"></a>Hier erfährst du, wie Windows Admin Center deine Verwaltungsumgebung verbessert.
 
@@ -61,7 +61,7 @@ Windows Admin Center kann in zahlreiche [Azure-Dienste integriert werden](../pla
 
 ### <a name="deploy-hyper-converged-and-failover-clusters"></a>**Bereitstellen von hyperkonvergenten und Failoverclustern**
 
-Das Windows Admin Center ermöglicht [nahtlose Bereitstellung von hyperkonvergenten und Failoverclustern](../use/deploy-hyperconverged-infrastructure.md) über einen benutzerfreundlichen Assistenten. 
+Das Windows Admin Center ermöglicht [nahtlose Bereitstellung von hyperkonvergenten und Failoverclustern](../use/deploy-hyperconverged-infrastructure.md) über einen benutzerfreundlichen Assistenten.
 
 ### <a name="manage-hyper-converged-clusters"></a>**Verwaltung hyperkonvergenter Cluster**
 

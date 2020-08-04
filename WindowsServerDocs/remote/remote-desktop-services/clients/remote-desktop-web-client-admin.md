@@ -8,19 +8,19 @@ ms.date: 09/19/2019
 ms.topic: article
 author: Heidilohr
 ms.localizationpriority: medium
-ms.openlocfilehash: a8521eae302ade84904e3ba09c001eac21fffd6a
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 12ea9226a1656c6b3c800517818e5e950d142c64
+ms.sourcegitcommit: e86ea69254e2f63eaab10010ae3a43622156ab23
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "77125151"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87470693"
 ---
 # <a name="set-up-the-remote-desktop-web-client-for-your-users"></a>Einrichten des Remotedesktop-Webclients für Ihre Benutzer
 
 Mit dem Remotedesktop-Webclient können Benutzer über einen kompatiblen Webbrowser auf die Remotedesktopinfrastruktur Ihrer Organisation zugreifen. Die Benutzer können unabhängig von ihrem jeweiligen Standort mit Remote-Apps oder Remotedesktops so interagieren wie mit einem lokalen PC. Nachdem Sie Ihren Remotedesktop-Webclient eingerichtet haben, benötigen Ihre Benutzer für den Einstieg nur die URL, über die sie auf den Client zugreifen können, ihre Anmeldeinformationen und einen unterstützten Webbrowser.
 
 >[!IMPORTANT]
->Der Webclient bietet derzeit keine Unterstützung für den Azure-Anwendungsproxy und gar keine Unterstützung für den Webanwendungsproxy. Weitere Informationen finden Sie unter [Verwenden von Remotedesktopdiensten mit Anwendungsproxydiensten](../rds-supported-config.md#using-remote-desktop-services-with-application-proxy-services).
+>Der Webclient bietet Unterstützung für den Azure AD-Anwendungsproxy aber keine Unterstützung für den Webanwendungsproxy. Weitere Informationen finden Sie unter [Verwenden von Remotedesktopdiensten mit Anwendungsproxydiensten](../rds-supported-config.md#using-remote-desktop-services-with-application-proxy-services).
 
 ## <a name="what-youll-need-to-set-up-the-web-client"></a>Voraussetzungen für das Einrichten des Webclients
 
@@ -42,7 +42,7 @@ Die Benutzer können eine bessere Leistung verzeichnen, wenn die Verbindung mit 
 >1. Öffnen Sie eine PowerShell-Eingabeaufforderung mit erhöhten Rechten.
 >2. Führen Sie **Uninstall-Module RDWebClientManagement** aus, um das neue Modul zu deinstallieren.
 >3. Schließen Sie die PowerShell-Eingabeaufforderung mit erhöhten Rechten, und öffnen Sie sie erneut.
->4. Führen Sie **Install-Module RDWebClientManagement -RequiredVersion \<alte Version> aus, um das alte Modul zu installieren.**
+>4. Führen Sie **Install-Module RDWebClientManagement -RequiredVersion \<old version> aus, um das alte Modul zu installieren.**
 >5. Führen Sie **Uninstall-RDWebClient** aus, um den alten Webclient zu deinstallieren.
 >6. Führen Sie **Uninstall-Module RDWebClientManagement** aus, um das alte Modul zu deinstallieren.
 >7. Schließen Sie die PowerShell-Eingabeaufforderung mit erhöhten Rechten, und öffnen Sie sie erneut.

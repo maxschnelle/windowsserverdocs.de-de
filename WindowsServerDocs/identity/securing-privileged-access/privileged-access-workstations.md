@@ -9,12 +9,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: mas
-ms.openlocfilehash: 9bf484ab53790c453b0849b1bf8ca91553f82898
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: b51255a0ac0120847e3eb05a373535bc1b7f5d44
+ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86953722"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87520159"
 ---
 # <a name="privileged-access-workstations"></a>Arbeitsstationen mit privilegiertem Zugriff
 
@@ -29,7 +29,7 @@ Einfach gesagt ist eine Arbeitsstation mit privilegiertem Zugriff (Privileged Ac
 > [!NOTE]
 > Die PAW-Architektur erfordert keine 1:1-Zuordnung von Konten zu Arbeitsstation, obwohl dies eine häufige Konfiguration ist. Mit einer PAW wird eine vertrauenswürdige Arbeitsstationsumgebung erstellt, die von einem oder mehreren Konten verwendet werden kann.
 
-Zur Erzielung der größtmöglichen Sicherheit sollte auf Arbeitsstationen mit privilegiertem Zugriff immer das aktuellste und sicherste verfügbare Betriebssystem ausgeführt werden: Microsoft empfiehlt dringend die Verwendung von Windows 10 Enterprise. Dieses Betriebssystem verfügt über mehrere zusätzliche Sicherheitsfeatures, die in anderen Editionen nicht enthalten sind (z. B. [Credential Guard](/windows/security/identity-protection/credential-guard/credential-guard) und [Device Guard](/windows/security/threat-protection/device-guard/introduction-to-device-guard-virtualization-based-security-and-windows-defender-application-control)).
+Zur Erzielung der größtmöglichen Sicherheit sollte auf Arbeitsstationen mit privilegiertem Zugriff immer das aktuellste und sicherste verfügbare Betriebssystem ausgeführt werden: Microsoft empfiehlt dringend die Verwendung von Windows 10 Enterprise. Dieses Betriebssystem verfügt über mehrere zusätzliche Sicherheitsfeatures, die in anderen Editionen nicht enthalten sind (z. B. [Credential Guard](/windows/security/identity-protection/credential-guard/credential-guard) und [Device Guard](/windows/security/threat-protection/device-guard/introduction-to-device-guard-virtualization-based-security-and-windows-defender-application-control).
 
 > [!NOTE]
 > Organisationen, in denen Windows 10 nicht zur Verfügung steht, können Windows 10 Pro verwenden. Diese Edition enthält viele der wichtigen grundlegenden Technologien für PAWs, wie z.B. vertrauenswürdiger Start, BitLocker und Remotedesktop.  Kunden im Bildungswesen können Windows 10 Education verwenden.  Windows 10 Home sollte für eine PAW nicht verwendet werden.
@@ -511,8 +511,10 @@ In diesem Abschnitt erstellst du das neue GPO „PAW Configuration – User“, 
 In diesem Abschnitt konfigurieren Sie Gruppenrichtlinien, um zu verhindern, dass Administratorkonten mit hohen Berechtigungen sich bei Hosts auf niedrigerer Ebene anmelden können.
 
 1. Erstellen Sie das neue Gruppenrichtlinienobjekt **Anmelden bei Arbeitsstation einschränken**. Diese Einstellung verhindert, dass sich Administratorkonten der Ebenen 0 und 1 bei Standardarbeitsstationen anmelden können.  Dieses GPO sollte mit der Organisationseinheit „Workstations“ der obersten Ebene verknüpft sein und über die folgenden Einstellungen verfügen:
+
    * Wähle unter „Computerkonfiguration\Richtlinien\Windows-Einstellungen\Sicherheitseinstellungen\Lokale Richtlinien\Zuweisen von Benutzerrechten\Anmelden als Batchauftrag verweigern“ die Option **Diese Richtlinieneinstellungen definieren**, und füge die Gruppen auf Ebene 0 und Ebene 1 hinzu:
-     ```
+
+      ```
      Enterprise Admins
      Domain Admins
      Schema Admins
@@ -530,48 +532,50 @@ In diesem Abschnitt konfigurieren Sie Gruppenrichtlinien, um zu verhindern, dass
      > [!NOTE]
      > Informationen zu integrierten Gruppen auf Ebene 0 findest du unter „Äquivalenz zur Ebene 0“.
 
-         Other Delegated Groups
+      Andere delegierte Gruppen
 
      > [!NOTE]
      > Informationen zu erstellten benutzerdefinierten Gruppen mit effektivem Zugriff auf Ebene 0 findest du unter „Äquivalenz zur Ebene 0“.
 
-         Tier 1 Admins
+      Administratoren auf Ebene 1
 
      > [!NOTE]
      > Diese Gruppe wurde zuvor in Phase 1 erstellt.
 
    * Wähle unter „Computerkonfiguration\Richtlinien\Windows-Einstellungen\Sicherheitseinstellungen\Lokale Richtlinien\Zuweisen von Benutzerrechten\Anmelden als Dienst verweigern“ die Option **Diese Richtlinieneinstellungen definieren** aus, und füge die Gruppen auf Ebene 0 und Ebene 1 hinzu:
-     ```
-     Enterprise Admins
-     Domain Admins
-     Schema Admins
-     BUILTIN\Administrators
-     Account Operators
-     Backup Operators
-     Print Operators
-     Server Operators
-     Domain Controllers
-     Read-Only Domain Controllers
-     Group Policy Creators Owners
-     Cryptographic Operators
-     ```
+      ```
+      Enterprise Admins
+      Domain Admins
+      Schema Admins
+      BUILTIN\Administrators
+      Account Operators
+      Backup Operators
+      Print Operators
+      Server Operators
+      Domain Controllers
+      Read-Only Domain Controllers
+      Group Policy Creators Owners
+      Cryptographic Operators
+      ```
 
      > [!NOTE]
      > Hinweis: Informationen zu integrierten Gruppen auf Ebene 0 findest du unter „Äquivalenz zur Ebene 0“.
 
-         Other Delegated Groups
+      Andere delegierte Gruppen
 
      > [!NOTE]
      > Hinweis: Informationen zu erstellten benutzerdefinierten Gruppen mit effektivem Zugriff auf Ebene 0 findest du unter „Äquivalenz zur Ebene 0“.
 
-         Tier 1 Admins
+      Administratoren auf Ebene 1
 
      > [!NOTE]
      > Hinweis: Diese Gruppe wurde zuvor in Phase 1 erstellt.
 
 2. Erstelle das neue Gruppenrichtlinienobjekt **Anmelden bei Server einschränken**. Diese Einstellung verhindert, dass sich Administratorkonten der Ebene 0 bei Servern der Ebene 1 anmelden können.  Dieses GPO sollte mit der Organisationseinheit „Tier 1 Servers“ der obersten Ebene verknüpft sein und über die folgenden Einstellungen verfügen:
+
    * Wähle unter „Computerkonfiguration\Richtlinien\Windows-Einstellungen\Sicherheitseinstellungen\Lokale Richtlinien\Zuweisen von Benutzerrechten\Anmelden als Batchauftrag verweigern“ die Option **Diese Richtlinieneinstellungen definieren**, und füge die Gruppen auf Ebene 0 hinzu:
-     ```
+
+      ```
      Enterprise Admins
      Domain Admins
      Schema Admins
@@ -589,13 +593,14 @@ In diesem Abschnitt konfigurieren Sie Gruppenrichtlinien, um zu verhindern, dass
      > [!NOTE]
      > Informationen zu integrierten Gruppen auf Ebene 0 findest du unter „Äquivalenz zur Ebene 0“.
 
-         Other Delegated Groups
+      Andere delegierte Gruppen
 
      > [!NOTE]
      > Informationen zu erstellten benutzerdefinierten Gruppen mit effektivem Zugriff auf Ebene 0 findest du unter „Äquivalenz zur Ebene 0“.
 
    * Wähle unter „Computerkonfiguration\Richtlinien\Windows-Einstellungen\Sicherheitseinstellungen\Lokale Richtlinien\Zuweisen von Benutzerrechten\Anmelden als Dienst verweigern“ die Option **Diese Richtlinieneinstellungen definieren**, und füge die Gruppen auf Ebene 0 hinzu:
-     ```
+
+      ```
      Enterprise Admins
      Domain Admins
      Schema Admins
@@ -608,17 +613,18 @@ In diesem Abschnitt konfigurieren Sie Gruppenrichtlinien, um zu verhindern, dass
      Read-Only Domain Controllers
      Group Policy Creators Owners
      Cryptographic Operators
-     ```
+      ```
 
      > [!NOTE]
      > Informationen zu integrierten Gruppen auf Ebene 0 findest du unter „Äquivalenz zur Ebene 0“.
 
-         Other Delegated Groups
+      Andere delegierte Gruppen
 
      > [!NOTE]
      > Informationen zu erstellten benutzerdefinierten Gruppen mit effektivem Zugriff auf Ebene 0 findest du unter „Äquivalenz zur Ebene 0“.
 
    * Wähle unter „Computerkonfiguration\Richtlinien\Windows-Einstellungen\Sicherheitseinstellungen\Lokale Richtlinien\Zuweisen von Benutzerrechten\Lokal anmelden verweigern“ die Option **Diese Richtlinieneinstellungen definieren**, und füge die Gruppen auf Ebene 0 hinzu:
+
      ```
      Enterprise Admins
      Domain Admins
@@ -637,7 +643,7 @@ In diesem Abschnitt konfigurieren Sie Gruppenrichtlinien, um zu verhindern, dass
      > [!NOTE]
      > Hinweis: Informationen zu integrierten Gruppen auf Ebene 0 findest du unter „Äquivalenz zur Ebene 0“.
 
-         Other Delegated Groups
+      Andere delegierte Gruppen
 
      > [!NOTE]
      > Hinweis: Informationen zu erstellten benutzerdefinierten Gruppen mit effektivem Zugriff auf Ebene 0 findest du unter „Äquivalenz zur Ebene 0“.
@@ -777,7 +783,7 @@ Aktiviere diese Funktion auf deinen vorhandenen Servern und Arbeitsstationen, un
       2. Laden Sie die PAW-Datei *proxy.pac* aus der [TechNet-Galerie](https://aka.ms/pawmedia) herunter, und veröffentlichen Sie sie auf einer internen Website.
 
          > [!NOTE]
-         > Sie müssen die Datei *proxy.pac* nach dem Herunterladen aktualisieren, um sicherzustellen, dass sie aktuell und vollständig ist.  
+         > Sie müssen die Datei *proxy.pac* nach dem Herunterladen aktualisieren, um sicherzustellen, dass sie aktuell und vollständig ist.
          > Microsoft veröffentlicht alle aktuellen Office 365- und Azure-URLs im [Supportcenter](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2?ui=en-US&rs=en-US&ad=US) für Office. Bei dieser Anleitung wird davon ausgegangen, dass Sie Internet Explorer (oder Microsoft Edge) für die Verwaltung von Office 365, Azure und anderen Clouddiensten verwenden. Microsoft empfiehlt, ähnliche Einschränkungen für Drittanbieterbrowser zu konfigurieren, die Sie für die Verwaltung benötigen. Webbrowser sollten auf PAWs nur zur Verwaltung von Clouddiensten verwendet werden, niemals zum allgemeinen Webbrowsen.
          >
          > Möglicherweise müssen Sie der Liste weitere gültige Internetziele für andere IaaS-Anbieter hinzufügen. Fügen Sie jedoch keine Produktivitäts-, Unterhaltungs-, Nachrichten- oder Suchwebsites zu dieser Liste hinzu.
@@ -818,36 +824,36 @@ Aktiviere diese Funktion auf deinen vorhandenen Servern und Arbeitsstationen, un
 
          **Richtlinien:**
 
-         |||
-         |-|-|
-         |CM Windows 10 – Domänensicherheit|N/V – zum jetzigen Zeitpunkt nicht verknüpfen|
-         |SCM Windows 10 TH2 – Computer|Admin\Tier 0\Devices|
-         ||Admin\Tier 1\Devices|
-         ||Admin\Tier 2\Devices|
-         |SCM Windows 10 TH2 – BitLocker|Admin\Tier 0\Devices|
-         ||Admin\Tier 1\Devices|
-         ||Admin\Tier 2\Devices|
-         |SCM Windows 10 – Credential Guard|Admin\Tier 0\Devices|
-         ||Admin\Tier 1\Devices|
-         ||Admin\Tier 2\Devices|
-         |SCM Internet Explorer – Computer|Admin\Tier 0\Devices|
-         ||Admin\Tier 1\Devices|
-         ||Admin\Tier 2\Devices|
-         |PAW-Konfiguration – Computer|Admin\Tier 0\Devices (vorhanden)|
-         ||Admin\Tier 1\Devices (neue Verknüpfung)|
-         ||Admin\Tier 2\Devices (neue Verknüpfung)|
-         |RestrictedAdmin erforderlich – Computer|Admin\Tier 0\Devices|
-         ||Admin\Tier 1\Devices|
-         ||Admin\Tier 2\Devices|
-         |SCM Windows 10 – User|Admin\Tier 0\Devices|
-         ||Admin\Tier 1\Devices|
-         ||Admin\Tier 2\Devices|
-         |SCM Internet Explorer – Benutzer|Admin\Tier 0\Devices|
-         ||Admin\Tier 1\Devices|
-         ||Admin\Tier 2\Devices|
-         |PAW-Konfiguration – Benutzer|Admin\Tier 0\Devices (vorhanden)|
-         ||Admin\Tier 1\Devices (neue Verknüpfung)|
-         ||Admin\Tier 2\Devices (neue Verknüpfung)|
+         | Richtlinienname | Link |
+         |--|--|
+         | CM Windows 10 – Domänensicherheit | N/V – zum jetzigen Zeitpunkt nicht verknüpfen |
+         | SCM Windows 10 TH2 – Computer | Admin\Tier 0\Devices |
+         |  | Admin\Tier 1\Devices |
+         |  | Admin\Tier 2\Devices |
+         | SCM Windows 10 TH2 – BitLocker | Admin\Tier 0\Devices |
+         |  | Admin\Tier 1\Devices |
+         |  | Admin\Tier 2\Devices |
+         | SCM Windows 10 – Credential Guard | Admin\Tier 0\Devices |
+         |  | Admin\Tier 1\Devices |
+         |  | Admin\Tier 2\Devices |
+         | SCM Internet Explorer – Computer | Admin\Tier 0\Devices |
+         |  | Admin\Tier 1\Devices |
+         |  | Admin\Tier 2\Devices |
+         | PAW-Konfiguration – Computer | Admin\Tier 0\Devices (vorhanden) |
+         |  | Admin\Tier 1\Devices (neue Verknüpfung) |
+         |  | Admin\Tier 2\Devices (neue Verknüpfung) |
+         | RestrictedAdmin erforderlich – Computer | Admin\Tier 0\Devices |
+         |  | Admin\Tier 1\Devices |
+         |  | Admin\Tier 2\Devices |
+         | SCM Windows 10 – User | Admin\Tier 0\Devices |
+         |  | Admin\Tier 1\Devices |
+         |  | Admin\Tier 2\Devices |
+         | SCM Internet Explorer – Benutzer | Admin\Tier 0\Devices |
+         |  | Admin\Tier 1\Devices |
+         |  | Admin\Tier 2\Devices |
+         | PAW-Konfiguration – Benutzer | Admin\Tier 0\Devices (vorhanden) |
+         |  | Admin\Tier 1\Devices (neue Verknüpfung) |
+         |  | Admin\Tier 2\Devices (neue Verknüpfung) |
 
          > [!NOTE]
          > Das Gruppenrichtlinienobjekt „CM Windows 10 – Domänensicherheit“ kann unabhängig von der PAW mit der Domäne verknüpft werden, wirkt sich jedoch auf die gesamte Domäne aus.
@@ -1096,4 +1102,4 @@ Nachdem der Vorlagendatenträger und die geschützte Datendatei bereit sind, kan
 
 [Schrittweise Anleitung zur Authentifizierungssicherung für AD DS unter Windows Server 2008 R2](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd378897(v=ws.10))
 
-[Trusted Platform Module](C:/sd/docs/p_ent_keep_secure/p_ent_keep_secure/trusted_platform_module_technology_overview.xml)
+[Trusted Platform Module – Technologieübersicht](/windows/device-security/tpm/trusted-platform-module-overview)
