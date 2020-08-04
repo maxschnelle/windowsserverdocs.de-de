@@ -9,12 +9,12 @@ ms.author: jgerend
 manager: dongill
 ms.date: 06/29/2020
 ms.prod: windows-server
-ms.openlocfilehash: 3f1af3e2f352c8bbea1540c2d1964ad8536170fe
-ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
+ms.openlocfilehash: a4de7f64601ec4c869c2ae0e6b5ec7a0d22aee2c
+ms.sourcegitcommit: 3d56b626dc2d163d2c7847c01e872bfbfcde0e12
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/03/2020
-ms.locfileid: "87519579"
+ms.locfileid: "87538532"
 ---
 # <a name="windows-commands"></a>Windows-Befehle
 
@@ -40,7 +40,7 @@ Die in diesem Thema enthaltenen Informationen gelten für:
 
 Die Befehlsshell war die erste Shell, die in Windows integriert wurde, um Routineaufgaben wie die Verwaltung von Benutzerkonten oder nächtliche Sicherungen mit Batch Dateien (BAT-Dateien) zu automatisieren. Mit Windows Script Host können Sie komplexere Skripts in der Befehlsshell ausführen. Weitere Informationen finden Sie unter [cscript](cscript.md) oder [WScript](wscript.md). Sie können Vorgänge effizienter mithilfe von Skripts ausführen, als dies mithilfe der Benutzeroberfläche möglich ist. Skripts akzeptieren alle Befehle, die in der Befehlszeile verfügbar sind.
 
-Windows verfügt über zwei Befehls Shells: die Befehlsshell und [PowerShell](/powershell/scripting/powershell-scripting?view=powershell-6). Bei jeder Shell handelt es sich um ein Softwareprogramm, das eine direkte Kommunikation zwischen Ihnen und dem Betriebssystem oder der Anwendung ermöglicht und eine Umgebung zum Automatisieren des IT-betriebsbereit stellt
+Windows verfügt über zwei Befehls Shells: die Befehlsshell und [PowerShell](/powershell/scripting/overview). Bei jeder Shell handelt es sich um ein Softwareprogramm, das eine direkte Kommunikation zwischen Ihnen und dem Betriebssystem oder der Anwendung ermöglicht und eine Umgebung zum Automatisieren des IT-betriebsbereit stellt
 
 PowerShell wurde entwickelt, um die Funktionen der Befehlsshell zum Ausführen von PowerShell-Befehlen zu erweitern, die als Cmdlets bezeichnet werden. Cmdlets ähneln Windows-Befehlen, bieten jedoch eine erweiterbare Skriptsprache. Sie können Windows-Befehle und PowerShell-Cmdlets in PowerShell ausführen, aber in der Befehlsshell können nur Windows-Befehle und keine PowerShell-Cmdlets ausgeführt werden.
 

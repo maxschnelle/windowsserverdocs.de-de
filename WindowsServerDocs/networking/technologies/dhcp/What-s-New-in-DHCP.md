@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.assetid: c6f36998-5b64-45d1-b1f0-0f0d6604dbe3
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 301541b42398ab517940af987e7ed6f3a7a54b0d
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 204f6079b2d8a8c833afb8a32b4d0ac97ac0912f
+ms.sourcegitcommit: 3d56b626dc2d163d2c7847c01e872bfbfcde0e12
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85475547"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87538512"
 ---
 # <a name="whats-new-in-dhcp"></a>Neues in DHCP
 
@@ -24,6 +24,12 @@ In diesem Thema werden die DHCP-Funktionen (Dynamic Host Configuration Protocol)
 DHCP ist ein IETF (Internet Engineering Task Force)-Standard, der den Verwaltungsaufwand und die Komplexität beim Konfigurieren von Hosts in einem TCP/IP- \- basierten Netzwerk, wie z. b. einem privaten Intranet, reduziert. Der DHCP-Serverdienst führt den Konfigurationsprozess für TCP/IP auf DHCP-Clients automatisch durch.
 
 In den folgenden Abschnitten finden Sie Informationen zu neuen Features und Funktionsänderungen für DHCP.
+
+## <a name="new-dhcp-client-side-features-in-the-windows-10-may-2020-update"></a>Neue DHCP-Client seitige Features im Windows 10-Update von Mai 2020 
+
+Der DHCP-Client in Windows 10 wurde mit dem 10. Mai 2020-Update aktualisiert (auch als Windows 10, Version 2004). Wenn Sie einen Windows-Client ausführen und eine Verbindung mit dem Internet über ein getaktetes Android-Telefon herstellen, sollte die Verbindung als "gemessen" gekennzeichnet werden. Zuvor waren die Verbindungen als nicht gemessen gekennzeichnet. Beachten Sie, dass nicht alle Android-Mobiltelefone als getaktet erkannt werden, und einige andere Netzwerke können auch als getaktet angezeigt werden.
+
+Außerdem wurde der Name des herkömmlichen Client Herstellers für einige Windows-basierte Geräte aktualisiert. Dieser Wert ist einfach MSFT 5,0. Einige Geräte werden nun als MSFT 5,0 Xbox angezeigt.
 
 ## <a name="dhcp-subnet-selection-options"></a>Optionen für das DHCP-subnetzauswahl
 
@@ -48,10 +54,10 @@ Die NAP-Unterstützung wurde mit Windows Server 2008 in die DHCP-Server Rolle ei
 
 |Betriebssystem|NAP-Unterstützung|
 |--------------------|---------------|
-| Windows Server 2008 |Unterstützt|
+| WindowsServer 2008 |Unterstützt|
 | Windows Server 2008 R2 |Unterstützt|
 | Windows Server 2012 |Unterstützt|
-| Windows Server 2012 R2 |Unterstützt|
+| Windows Server 2012 R2 |Unterstützt|
 | Windows Server 2016|Nicht unterstützt|
 
 In einer NAP-Bereitstellung kann ein DHCP-Server mit einem Betriebssystem, das NAP unterstützt, als NAP-Erzwingungs Punkt für die NAP-Erzwingungs Methode fungieren. Weitere Informationen zu DHCP in NAP finden Sie unter Prüfliste [: Implementieren eines DHCP](https://technet.microsoft.com/library/dd314186.aspx)-Erzwingungs Entwurfs.
@@ -60,7 +66,7 @@ In Windows Server 2016 erzwingen DHCP-Server keine NAP-Richtlinien, und DHCP-Ber
 
 Wenn Server, auf denen Windows Server 2016 ausgeführt wird, RADIUS-Proxys sind, die Authentifizierungsanforderungen an einen Netzwerk Richtlinien Server weiterleiten, \( \) der NAP unterstützt, werden diese NAP-Clients von NPS als nicht NAP \- -fähig ausgewertet, und die NAP-Verarbeitung schlägt fehl.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Dynamic Host Configuration-Protokoll (DHCP)](Dynamic-Host-Configuration-Protocol--DHCP-.md)
 
