@@ -8,12 +8,12 @@ ms.date: 05/08/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: networking
-ms.openlocfilehash: 25472e4ba4837bd68c9b6914e22c2219c91d3ac0
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 71f15f9da1f477ec8632fd2eb900e650f83ef3de
+ms.sourcegitcommit: 145cf75f89f4e7460e737861b7407b5cee7c6645
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80861653"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87409600"
 ---
 # <a name="configuring-systems-for-high-accuracy"></a>Konfigurieren von Systemen für hohe Genauigkeit
 >Gilt für: Windows Server 2016 und Windows 10, Version 1607 oder höher
@@ -23,7 +23,7 @@ Die Zeitsynchronisierung in Windows 10 und Windows Server 2016 wurde erheblich
 Anhand der folgenden Anleitungen kannst du deine Systeme so konfigurieren, dass eine hohe Genauigkeit erzielt wird.  In diesem Artikel werden die folgenden Anforderungen behandelt:
 
 - Unterstützte Betriebssysteme
-- Systemkonfiguration 
+- Systemkonfiguration
 
 > [!WARNING]
 > **Genauigkeitsziele früherer Betriebssysteme**<br>
@@ -61,8 +61,7 @@ In der unten gezeigten Abbildung werden die virtuellen Computer, die hohe Genaui
 
 ![Zeittopologie – 1607](../media/Windows-Time-Service/Configuring-Systems-for-High-Accuracy/Topology2016.png)
 
-
->[!TIP] 
+>[!TIP]
 >**Ermitteln der Windows-Version**<br>
 > Du kannst den Befehl `winver` an einer Eingabeaufforderung ausführen, um zu überprüfen, ob die Betriebssystemversion 1607 (oder höher) und der BS-Build 14393 (oder höher) ist, wie unten dargestellt:
 >
@@ -93,78 +92,70 @@ Beispiel: Stell dir eine Zeitsynchronisierungshierarchie mit einer hochpräzisen
 Diese Messung kann mithilfe des im Lieferumfang enthaltenen Tools „w32tm.exe“ vorgenommen werden.  Aufgabe:
 
 1. Führe die Berechnung vom Ziel zum Zeitserver B durch.
-    
+
     `w32tm /stripchart /computer:TimeServerB /rdtsc /samples:450 > c:\temp\Target_TsB.csv`
 
 2. Führe die Berechnung vom Zeitserver B zum Zeitserver A (darauf verwiesen) durch.
-    
+
     `w32tm /stripchart /computer:TimeServerA /rdtsc /samples:450 > c:\temp\Target_TsA.csv`
 
 3. Führe die Berechnung vom Zeitserver A zur Quelle durch.
- 
+
 4. Addiere als Nächstes die im vorherigen Schritt gemessene, durchschnittliche RoundTripDelay hinzu und teile durch 2, um die kumulative Netzwerkverzögerung zwischen Ziel und Quelle zu erhalten.
 
-#### <a name="registry-settings"></a>Registrierungseinstellungen
+## <a name="registry-settings"></a>Registrierungseinstellungen
 
-# <a name="minpollinterval"></a>[MinPollInterval](#tab/MinPollInterval)
+### <a name="minpollinterval"></a>MinPollInterval
+
 Konfiguriert das kleinste Intervall in log2 Sekunden, das für den Systemabruf zulässig ist.
 
-|  |  | 
-|---------|---------|
-|Ort des Schlüssels     | HKLM:\SYSTEM\CurrentControlSet\Services\W32Time\Config        |
-|Einstellung    | 6        |
-|Resultate | Das minimale Abrufintervall ist jetzt 64 Sekunden. |
+| BESCHREIBUNG | Wert |
+|--|--|
+| Ort des Schlüssels | HKLM:\SYSTEM\CurrentControlSet\Services\W32Time\Config |
+| Einstellung | 6 |
+| Resultate | Das minimale Abrufintervall ist jetzt 64 Sekunden. |
 
-Mit dem folgenden Befehl wird Windows-Zeit signalisiert, die aktualisierten Einstellungen zu übernehmen:
+Mit dem folgenden Befehl wird Windows-Zeit signalisiert, die aktualisierten Einstellungen zu übernehmen: `w32tm /config /update`
 
-`w32tm /config /update`
+### <a name="maxpollinterval"></a>MaxPollInterval
 
-
-# <a name="maxpollinterval"></a>[MaxPollInterval](#tab/MaxPollInterval)
 Konfiguriert das größte Intervall in log2 Sekunden, das für den Systemabruf zulässig ist.
 
-|  |  |  
-|---------|---------|
-|Ort des Schlüssels     | HKLM:\SYSTEM\CurrentControlSet\Services\W32Time\Config        |
-|Einstellung    | 6        |
-|Resultate | Das maximale Abrufintervall ist jetzt 64 Sekunden.  |
+| BESCHREIBUNG | Wert |
+|--|--|
+| Ort des Schlüssels | HKLM:\SYSTEM\CurrentControlSet\Services\W32Time\Config |
+| Einstellung | 6 |
+| Resultate | Das maximale Abrufintervall ist jetzt 64 Sekunden. |
 
-Mit dem folgenden Befehl wird Windows-Zeit signalisiert, die aktualisierten Einstellungen zu übernehmen:
+Mit dem folgenden Befehl wird Windows-Zeit signalisiert, die aktualisierten Einstellungen zu übernehmen: `w32tm /config /update`
 
-`w32tm /config /update`
+### <a name="updateinterval"></a>UpdateInterval
 
-# <a name="updateinterval"></a>[UpdateInterval](#tab/UpdateInterval)
 Die Anzahl der Zeiteinheiten zwischen Phasenkorrekturanpassungen.
 
-|  |  |  
-|---------|---------|
-|Ort des Schlüssels     | HKLM:\SYSTEM\CurrentControlSet\Services\W32Time\Config       |
-|Einstellung    | 100        |
-|Resultate | Die Anzahl der Zeiteinheiten zwischen Phasenkorrekturanpassungen ist jetzt 100 Einheiten. |
+| BESCHREIBUNG | Wert |
+|--|--|
+| Ort des Schlüssels | HKLM:\SYSTEM\CurrentControlSet\Services\W32Time\Config |
+| Einstellung | 100 |
+| Resultate | Die Anzahl der Zeiteinheiten zwischen Phasenkorrekturanpassungen ist jetzt 100 Einheiten. |
 
-Mit dem folgenden Befehl wird Windows-Zeit signalisiert, die aktualisierten Einstellungen zu übernehmen:
+Mit dem folgenden Befehl wird Windows-Zeit signalisiert, die aktualisierten Einstellungen zu übernehmen: `w32tm /config /update`
 
-`w32tm /config /update`
+### <a name="specialpollinterval"></a>SpecialPollInterval
 
-# <a name="specialpollinterval"></a>[SpecialPollInterval](#tab/SpecialPollInterval)
 Konfiguriert das Abrufintervall in Sekunden, wenn das Kennzeichen „SpecialInterval 0x1“ aktiviert ist.
 
-|  |  |  
-|---------|---------|
-|Ort des Schlüssels     | HKLM:\SYSTEM\CurrentControlSet\Services\W32Time\TimeProviders\NtpClient        |
-|Einstellung    | 64        |
-|Resultate | Das Abrufintervall ist jetzt 64 Sekunden. |
+| BESCHREIBUNG | Wert |
+|--|--|
+| Ort des Schlüssels | HKLM:\SYSTEM\CurrentControlSet\Services\W32Time\TimeProviders\NtpClient |
+| Einstellung | 64 |
+| Resultate | Das Abrufintervall ist jetzt 64 Sekunden. |
 
-Mit dem folgenden Befehl wird Windows-Zeit neu gestartet, um die aktualisierten Einstellungen zu übernehmen:
+Mit dem folgenden Befehl wird Windows-Zeit neu gestartet, um die aktualisierten Einstellungen zu übernehmen: `net stop w32time && net start w32time`
 
-`net stop w32time && net start w32time`
+### <a name="frequencycorrectrate"></a>FrequencyCorrectRate
 
-# <a name="frequencycorrectrate"></a>[FrequencyCorrectRate](#tab/FrequencyCorrectRate)
-
-|  |  |  
-|---------|---------|
-|Ort des Schlüssels     | HKLM:\SYSTEM\CurrentControlSet\Services\W32Time\Config      |
-|Einstellung    | 2        |
-
-
----
+| BESCHREIBUNG | Wert |
+|--|--|
+| Ort des Schlüssels | HKLM:\SYSTEM\CurrentControlSet\Services\W32Time\Config |
+| Einstellung | 2 |
