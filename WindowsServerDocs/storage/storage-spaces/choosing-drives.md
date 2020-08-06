@@ -1,6 +1,6 @@
 ---
 ms.assetid: 1368bc83-9121-477a-af09-4ae73ac16789
-title: Auswählen von Laufwerken für direkte Speicherplätze
+title: Auswählen von Laufwerken für „Direkte Speicherplätze“
 ms.prod: windows-server
 ms.author: cosdar
 manager: eldenc
@@ -9,14 +9,14 @@ ms.topic: article
 author: cosmosdarwin
 ms.date: 07/01/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: bdd5264394c94748b7720842cf8ff7e01e1375e7
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: aae554c87b8a4ac6005ad359bc474026f5f1ed9e
+ms.sourcegitcommit: acfdb7b2ad283d74f526972b47c371de903d2a3d
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86965422"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87769408"
 ---
-# <a name="choosing-drives-for-storage-spaces-direct"></a>Auswählen von Laufwerken für direkte Speicherplätze
+# <a name="choosing-drives-for-storage-spaces-direct"></a>Auswählen von Laufwerken für „Direkte Speicherplätze“
 
 >Gilt für: Windows Server 2019, Windows Server 2016
 
@@ -29,7 +29,7 @@ Für „Direkte Speicherplätze“ können derzeit vier Arten von Laufwerken ver
 <table>
     <tr style="border: 0;">
         <td style="padding: 10px; border: 0; width:70px">
-            <img src="media/understand-the-cache/pmem-100px.png">
+            <img src="media/understand-the-cache/pmem-100px.png" alt="Image of PMem (persistent memory)">
         </td>
         <td style="padding: 10px; border: 0;" valign="middle">
             <b>PMem</b> bezieht sich auf persistenten Speicher. Dabei handelt es sich um eine neue Art von Hochleistungsspeicher mit geringen Wartezeiten.
@@ -37,7 +37,7 @@ Für „Direkte Speicherplätze“ können derzeit vier Arten von Laufwerken ver
     </tr>
     <tr style="border: 0;">
         <td style="padding: 10px; border: 0; width:70px">
-            <img src="media/understand-the-cache/NVMe-100px.png">
+            <img src="media/understand-the-cache/NVMe-100px.png" alt="Image of NVMe (Non-Volatile Memory Express)">
         </td>
         <td style="padding: 10px; border: 0;" valign="middle">
             <b>NVMe</b>-Laufwerke (Non-Volatile Memory Express) sind Solid State Drives, die direkt auf dem PCIe-Bus angeordnet sind. Häufig verwendete Formfaktoren sind 2,5" U.2, PCIe Add-In-Card (AIC) und M.2. Nvme bietet einen höheren IOPS-und e/a-Durchsatz mit geringerer Latenz als alle anderen von uns unterstützten Laufwerke mit Ausnahme des permanenten Speichers.
@@ -45,7 +45,7 @@ Für „Direkte Speicherplätze“ können derzeit vier Arten von Laufwerken ver
     </tr>
     <tr style="border: 0;">
         <td style="padding: 10px; border: 0; width:70px" >
-            <img src="media/understand-the-cache/SSD-100px.png">
+            <img src="media/understand-the-cache/SSD-100px.png" alt="Image of SSD drive">
         </td>
         <td style="padding: 10px; border: 0;" valign="middle">
             <b>SSD</b> bezieht sich auf Solid State Drives, die eine Verbindung über herkömmliches SATA oder SAS herstellen.
@@ -53,7 +53,7 @@ Für „Direkte Speicherplätze“ können derzeit vier Arten von Laufwerken ver
     </tr>
     <tr style="border: 0;">
         <td style="padding: 10px; border: 0; width:70px">
-            <img src="media/understand-the-cache/HDD-100px.png">
+            <img src="media/understand-the-cache/HDD-100px.png" alt="Image of HDD">
         </td>
         <td style="padding: 10px; border: 0;" valign="middle">
             <b>HDD</b> bezieht sich auf rotierende, Magnet Festplattenlaufwerke, die eine große Speicherkapazität bieten.
@@ -124,9 +124,9 @@ Der Cache sollte die Größe des Arbeits Satzes Ihrer Anwendungen und Arbeits Au
 
 Wir empfehlen Ihnen, die Gesamtspeicherkapazität pro Server auf ca. 400 TB (Terabyte) zu begrenzen. Je mehr Speicherkapazität pro Server vorhanden ist, desto mehr Zeit wird nach einem Ausfall oder Neustart für die erneute Synchronisierung der Daten benötigt, z. B. beim Anwenden von Softwareupdates. Die aktuelle maximale Größe pro Speicherpool beträgt 4 Petabytebereich (PB) (4.000 TB) für Windows Server 2019 oder 1 Petabytebereich für Windows Server 2016.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
-- [Übersicht über direkte Speicherplätze](storage-spaces-direct-overview.md)
+- [Direkte Speicherplätze – Übersicht](storage-spaces-direct-overview.md)
 - [Verstehen des Caches in direkten Speicherplätzen](understand-the-cache.md)
 - [Hardwareanforderungen für „Direkte Speicherplätze“](storage-spaces-direct-hardware-requirements.md)
 - [Planen von Volumes in direkte Speicherplätze](plan-volumes.md)

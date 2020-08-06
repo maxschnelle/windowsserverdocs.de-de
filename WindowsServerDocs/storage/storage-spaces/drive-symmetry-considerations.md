@@ -7,12 +7,12 @@ ms.topic: article
 author: cosmosdarwin
 ms.date: 10/08/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 5e7a4469a3f72737801a5110e322533df9764e20
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 2028d7b4ccb42d5da1426634541681f842c18972
+ms.sourcegitcommit: acfdb7b2ad283d74f526972b47c371de903d2a3d
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85473587"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87768728"
 ---
 # <a name="drive-symmetry-considerations-for-storage-spaces-direct"></a>Überlegungen zur Laufwerk Symmetrie für direkte Speicherplätze
 
@@ -26,7 +26,7 @@ In diesem Thema werden die Einschränkungen erläutert und Beispiele für unters
 
 ## <a name="constraints"></a>Einschränkungen
 
-### <a name="type"></a>Typ
+### <a name="type"></a>type
 
 Alle Server sollten über die gleichen [Laufwerke](choosing-drives.md#drive-types)verfügen.
 
@@ -173,14 +173,14 @@ Dies wird nicht unterstützt. Sie müssen mindestens zwei Cache Laufwerke (nvme 
 
 Zur Wiederholung sollte jeder Server im Cluster die gleichen Laufwerke und die gleiche Anzahl der einzelnen Typen aufweisen. Die Kombination von Laufwerk Modellen und Laufwerk Größen nach Bedarf wird mit den oben beschriebenen Überlegungen unterstützt.
 
-| Constraint                               |               |
-|------------------------------------------|---------------|
-| Die gleichen Laufwerkstypen auf jedem Server     | **Erforderlich**  |
-| Die gleiche Anzahl der einzelnen Typen auf jedem Server | **Erforderlich**  |
-| Die gleichen Laufwerks Modelle in jedem Server        | Empfohlen   |
-| Die gleichen Laufwerk Größen auf jedem Server         | Empfohlen   |
+| Constraint | State |
+|--|--|
+| Die gleichen Laufwerkstypen auf jedem Server | **Erforderlich** |
+| Die gleiche Anzahl der einzelnen Typen auf jedem Server | **Erforderlich** |
+| Die gleichen Laufwerks Modelle in jedem Server | Empfohlen |
+| Die gleichen Laufwerk Größen auf jedem Server | Empfohlen |
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
-- [Direkte Speicherplätze Hardwareanforderungen](storage-spaces-direct-hardware-requirements.md)
-- [Übersicht über direkte Speicherplätze](storage-spaces-direct-overview.md)
+- [Hardwareanforderungen für „Direkte Speicherplätze“](storage-spaces-direct-hardware-requirements.md)
+- [Direkte Speicherplätze – Übersicht](storage-spaces-direct-overview.md)

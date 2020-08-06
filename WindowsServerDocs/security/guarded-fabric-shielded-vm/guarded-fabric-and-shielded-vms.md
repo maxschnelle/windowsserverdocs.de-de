@@ -7,12 +7,12 @@ author: rpsqrd
 ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: aa1e690c55cbbb4ff32657cfe24bd28f1067bfec
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: e331732bd958e3e403727709994cf9e2d4aef8f1
+ms.sourcegitcommit: acfdb7b2ad283d74f526972b47c371de903d2a3d
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85475377"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87769308"
 ---
 # <a name="guarded-fabric-and-shielded-vms-overview"></a>Übersicht über geschütztes Fabric und abgeschirmte VMs
 
@@ -36,7 +36,7 @@ Wenn ein Mandant abgeschirmte VMs erstellt, die auf einem geschützten Fabric au
 
 ## <a name="video-introduction-to-shielded-virtual-machines"></a>Video: Einführung in abgeschirmte virtuelle Maschinen
 
-<iframe src="https://channel9.msdn.com/Shows/Mechanics/Introduction-to-Shielded-Virtual-Machines-in-Windows-Server-2016/player" width="650" height="440" allowFullScreen frameBorder="0"></iframe>
+> [!VIDEO https://channel9.msdn.com/Shows/Mechanics/Introduction-to-Shielded-Virtual-Machines-in-Windows-Server-2016]
 
 ## <a name="attestation-modes-in-the-guarded-fabric-solution"></a>Nachweismodi in der „Geschütztes Fabric“-Lösung
 
@@ -47,9 +47,9 @@ Die HGS unterstützen verschiedene Nachweis Modi für ein geschütztes Fabric:
 
 Der TPM-vertrauenswürdige Nachweis wird empfohlen, da er stärkere Garantien bietet, wie in der folgenden Tabelle beschrieben, setzt aber voraus, dass Ihre Hyper-V-Hosts über TPM 2.0 verfügen. Wenn Sie derzeit nicht über TPM 2,0 oder ein TPM verfügen, können Sie den Host Schlüssel Nachweis verwenden. Wenn Sie sich für den Wechsel zum TPM-vertrauenswürdigen Nachweis entscheiden, wenn Sie neue Hardware erwerben, können Sie den Nachweismodus auf dem Host-Überwachungsdienst mit minimaler oder ohne Unterbrechung Ihres Fabrics wechseln.
 
-| **Nachweismodus, den Sie für Hosts auswählen**                                            | **Hostgarantien** |
-|-------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|**TPM-vertrauenswürdiger Nachweis:** bietet den stärksten Schutz, erfordert jedoch auch weitere Konfigurationsschritte. Host Hardware und Firmware müssen TPM 2,0 und UEFI 2.3.1 mit aktiviertem sicheren Start einschließen. | Geschützte Hosts werden basierend auf der TPM-Identität, der gemessenen Startsequenz und den Code Integritäts Richtlinien genehmigt, um sicherzustellen, dass Sie nur genehmigten Code ausführen.|
+| **Nachweismodus, den Sie für Hosts auswählen** | **Hostgarantien** |
+|--|--|
+| **TPM-vertrauenswürdiger Nachweis:** bietet den stärksten Schutz, erfordert jedoch auch weitere Konfigurationsschritte. Host Hardware und Firmware müssen TPM 2,0 und UEFI 2.3.1 mit aktiviertem sicheren Start einschließen. | Geschützte Hosts werden basierend auf der TPM-Identität, der gemessenen Startsequenz und den Code Integritäts Richtlinien genehmigt, um sicherzustellen, dass Sie nur genehmigten Code ausführen. |
 | **Host Schlüssel Nachweis:** Dient zur Unterstützung vorhandener Host Hardware, bei der TPM 2,0 nicht verfügbar ist. Erfordert weniger Konfigurationsschritte und ist kompatibel mit gängiger Serverhardware. | Geschützte Hosts werden basierend auf dem Besitz des Schlüssels genehmigt. |
 
 Ein anderer Modus mit dem Namen **Admin-Trusted Nachweis** ist ab Windows Server 2019 veraltet. Dieser Modus basiert auf der überwachten Host Mitgliedschaft in einer festgelegten Active Directory Domain Services (AD DS)-Sicherheitsgruppe. Der Host Schlüssel Nachweis bietet eine ähnliche Host Identifizierung und ist leichter einzurichten.
@@ -89,9 +89,9 @@ Die folgende Abbildung zeigt die geschützte Datendatei und zugehörige Konfigur
 
 Geschützte Fabrics können VMs in einer von drei möglichen Arten ausführen:
 
-1.    Eine normale VM, die gegenüber früheren Versionen von Hyper-V weder mehr noch weniger Schutz bietet
-2.    Eine durch Verschlüsselung unterstützte VM, deren Schutzmaßnahmen durch einen Fabricadministrator konfiguriert werden können
-3.    Eine abgeschirmte VM, bei der alle Schutzmaßnahmen aktiviert sind und nicht durch einen Fabricadministrator deaktiviert werden können
+1. Eine normale VM, die gegenüber früheren Versionen von Hyper-V weder mehr noch weniger Schutz bietet
+2. Eine durch Verschlüsselung unterstützte VM, deren Schutzmaßnahmen durch einen Fabricadministrator konfiguriert werden können
+3. Eine abgeschirmte VM, bei der alle Schutzmaßnahmen aktiviert sind und nicht durch einen Fabricadministrator deaktiviert werden können
 
 Durch Verschlüsselung unterstützte VMs sollen dort eingesetzt werden, wo die Fabricadministratoren voll vertrauenswürdig sind.  Beispielsweise könnte ein Unternehmen ein geschütztes Fabric bereitstellen, um sicherzustellen, dass VM-Datenträger zur Einhaltung von Vorschriften im Ruhezustand verschlüsselt werden. Fabricadministratoren können weiterhin komfortable Verwaltungsfunktionen wie VM-Konsolenverbindungen, PowerShell Direct und andere Tools zur täglichen Verwaltung und Problembehandlung verwenden.
 
@@ -119,50 +119,35 @@ Sowohl abgeschirmte als auch durch Verschlüsselung unterstützte VMs unterstüt
 
 ![Geschützte Datendatei](../media/Guarded-Fabric-Shielded-VM/shielded-vms-how-a-shielded-vm-is-powered-on.png)
 
-1. VM01 ist eingeschaltet.
+1. **VM01 ist eingeschaltet.** Bevor ein geschützter Host einen abgeschirmten virtuellen Computer einschalten kann, muss zuerst positiv nachgewiesen werden, dass er fehlerfrei ist. Um ihre Integrität nachzuweisen, muss sie dem Schlüsselschutzdienst (Key Protection Service, KPS) ein Integritätszertifikat vorlegen. Das Integritätszertifikat wird über den Nachweisprozess abgerufen.
 
-    Bevor ein geschützter Host einen abgeschirmten virtuellen Computer einschalten kann, muss zuerst positiv nachgewiesen werden, dass er fehlerfrei ist. Um ihre Integrität nachzuweisen, muss sie dem Schlüsselschutzdienst (Key Protection Service, KPS) ein Integritätszertifikat vorlegen. Das Integritätszertifikat wird über den Nachweisprozess abgerufen.
+2. **Der Host fordert einen Nachweis an.** Der geschützte Host fordert einen Nachweis an. Der Nachweismodus wird durch den Host-Überwachungsdienst vorgegeben:
 
-2. Der Host fordert einen Nachweis an.
+    - **TPM-vertrauenswürdiger**Nachweis: der Hyper-V-Host sendet Informationen, die Folgendes beinhalten:
+      - TPM-identifizierende Informationen (seinen Endorsement Key)
+      - Informationen zu Prozessen, die während der letzten Startsequenz (TCG-Protokoll) gestartet wurden
+      - Informationen zur Richtlinie für die Code Integrität (CI), die auf dem Host angewendet wurde.
 
-    Der geschützte Host fordert einen Nachweis an. Der Nachweismodus wird durch den Host-Überwachungsdienst vorgegeben:
+        Nachweis geschieht beim Starten des Hosts und danach alle 8 Stunden. Wenn ein Host aus irgendeinem Grund kein Nachweis Zertifikat besitzt, wenn ein virtueller Computer versucht, zu starten, wird auch der Nachweis ausgelöst.
 
-    **TPM-vertrauenswürdiger**Nachweis: der Hyper-V-Host sendet Informationen, die Folgendes beinhalten:
+    - **Host Schlüssel**Nachweis: der Hyper-V-Host sendet die öffentliche Hälfte des Schlüssel Paars. HGS überprüft, dass der Host Schlüssel registriert ist.
 
-       - TPM-identifizierende Informationen (seinen Endorsement Key)
-       - Informationen zu Prozessen, die während der letzten Startsequenz (TCG-Protokoll) gestartet wurden
-       - Informationen zur Richtlinie für die Code Integrität (CI), die auf dem Host angewendet wurde.
+    - **Admin-vertrauenswürdiger Nachweis**: Hyper-V-Host sendet ein Kerberos-Ticket, das die Sicherheitsgruppen identifiziert, zu denen der Host gehört. Der Host-Überwachungsdienst überprüft, ob der Host zu einer Sicherheitsgruppe gehört, die zuvor vom vertrauenswürdigen HGS-Administrator konfiguriert wurde.
 
-       Attestation happens when the host starts and every 8 hours thereafter. If for some reason a host doesn't have an attestation certificate when a VM tries to start, this also triggers attestation.
+3. **Nachweis erfolgreich (oder mit Fehler).** Der Nachweis Modus bestimmt, welche Überprüfungen erforderlich sind, um erfolgreich zu bestätigen, dass der Host fehlerfrei ist. Mit dem TPM-vertrauenswürdigen Nachweis werden die TPM-Identität des Hosts, Start Messungen und die Code Integritätsrichtlinie überprüft. Beim Nachweis des Host Schlüssels wird nur die Registrierung des Host Schlüssels überprüft.
 
-    **Host Schlüssel**Nachweis: der Hyper-V-Host sendet die öffentliche Hälfte des Schlüssel Paars. HGS überprüft, dass der Host Schlüssel registriert ist.
+4. **Nachweiszertifikat wird an den Host gesendet.** Wenn der Nachweis erfolgreich war, wird ein Integritäts Zertifikat an den Host gesendet, und der Host wird als "geschützt" (autorisiert zum Ausführen von abgeschirmten VMS) betrachtet. Der Host verwendet das Integritätszertifikat, um den Schlüsselschutzdienst zur sicheren Freigabe der Schlüssel zu autorisieren, die zur Arbeit mit abgeschirmten virtuellen Computern benötigt werden.
 
-    **Admin-vertrauenswürdiger Nachweis**: Hyper-V-Host sendet ein Kerberos-Ticket, das die Sicherheitsgruppen identifiziert, zu denen der Host gehört. Der Host-Überwachungsdienst überprüft, ob der Host zu einer Sicherheitsgruppe gehört, die zuvor vom vertrauenswürdigen HGS-Administrator konfiguriert wurde.
+5. **Der Host fordert einen VM-Schlüssel an.** Geschützte Hosts besitzen keine Schlüssel zum Einschalten einer abgeschirmten VM (in diesem Fall VM01). Um die erforderlichen Schlüssel zu erhalten, muss der geschützte Host den folgenden KPS bieten:
 
-3. Nachweis erfolgreich (oder mit Fehler).
+   - Das aktuelle Integritätszertifikat
+   - Einen verschlüsselten geheimen Schlüssel (Schlüsselschutzvorrichtung oder KP), der die erforderlichen Schlüssel zum Einschalten von VM01 enthält. Der geheime Schlüssel wird mit anderen Schlüsseln verschlüsselt, die nur KPS bekannt sind.
 
-    Der Nachweis Modus bestimmt, welche Überprüfungen erforderlich sind, um erfolgreich zu bestätigen, dass der Host fehlerfrei ist. Mit dem TPM-vertrauenswürdigen Nachweis werden die TPM-Identität des Hosts, Start Messungen und die Code Integritätsrichtlinie überprüft. Beim Nachweis des Host Schlüssels wird nur die Registrierung des Host Schlüssels überprüft.
+6. **Freigabe des Schlüssels.** KPS untersucht das Integritätszertifikat, um seine Gültigkeit zu überprüfen. Das Zertifikat darf nicht abgelaufen sein, und KPS muss dem Nachweisdienst vertrauen, der es ausgestellt hat.
 
-4. Nachweiszertifikat wird an den Host gesendet.
+7. **Der Schlüssel wird an den Host zurückgegeben.** Wenn das Integritätszertifikat gültig ist, versucht KPS, den geheimen Schlüssel zu entschlüsseln und die zum Einschalten der VM erforderlichen Schlüssel sicher zurückzugeben. Beachten Sie, dass die Schlüssel in den VSB des geschützten Hosts verschlüsselt werden.
 
-    Wenn der Nachweis erfolgreich war, wird ein Integritäts Zertifikat an den Host gesendet, und der Host wird als "geschützt" (autorisiert zum Ausführen von abgeschirmten VMS) betrachtet. Der Host verwendet das Integritätszertifikat, um den Schlüsselschutzdienst zur sicheren Freigabe der Schlüssel zu autorisieren, die zur Arbeit mit abgeschirmten virtuellen Computern benötigt werden.
-
-5. Der Host fordert einen VM-Schlüssel an.
-
-    Geschützte Hosts besitzen keine Schlüssel zum Einschalten einer abgeschirmten VM (in diesem Fall VM01). Um die erforderlichen Schlüssel zu erhalten, muss der geschützte Host den folgenden KPS bieten:
-
-    - Das aktuelle Integritätszertifikat
-    - Einen verschlüsselten geheimen Schlüssel (Schlüsselschutzvorrichtung oder KP), der die erforderlichen Schlüssel zum Einschalten von VM01 enthält. Der geheime Schlüssel wird mit anderen Schlüsseln verschlüsselt, die nur KPS bekannt sind.
-
-6. Freigabe des Schlüssels.
-
-    KPS untersucht das Integritätszertifikat, um seine Gültigkeit zu überprüfen. Das Zertifikat darf nicht abgelaufen sein, und KPS muss dem Nachweisdienst vertrauen, der es ausgestellt hat.
-
-7. Der Schlüssel wird an den Host zurückgegeben.
-
-    Wenn das Integritätszertifikat gültig ist, versucht KPS, den geheimen Schlüssel zu entschlüsseln und die zum Einschalten der VM erforderlichen Schlüssel sicher zurückzugeben. Beachten Sie, dass die Schlüssel in den VSB des geschützten Hosts verschlüsselt werden.
-
-8. Host schaltet auf VM01 ein.
+8. **Host schaltet auf VM01 ein.**
 
 ## <a name="guarded-fabric-and-shielded-vm-glossary"></a>Glossar zu geschütztem Fabric und abgeschirmten VMs
 
@@ -178,7 +163,7 @@ Sowohl abgeschirmte als auch durch Verschlüsselung unterstützte VMs unterstüt
 | Virtualisierungsbasierte Sicherheit (VBS) | Eine Hyper-V-basierte Verarbeitungs-und Speicherumgebung, die vor Administratoren geschützt ist. Virtueller sicherer Modus gibt dem System die Möglichkeit zum Speichern von Betriebssystemschlüsseln, die für den Betriebssystemadministrator unsichtbar sind.|
 | virtuelles TPM | Eine virtualisierte Version eines Trusted Platform Module (TPM). Ab Hyper-V in Windows Server 2016 können Sie ein virtuelles TPM 2,0-Gerät bereitstellen, damit virtuelle Computer verschlüsselt werden können, so wie ein physisches TPM die Verschlüsselung eines physischen Computers ermöglicht.|
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Geschütztes Fabric und abgeschirmte VMs](guarded-fabric-and-shielded-vms-top-node.md)
 - Blog: [Daten Center-und Private Cloud-Sicherheitsblog](https://blogs.technet.microsoft.com/datacentersecurity/)

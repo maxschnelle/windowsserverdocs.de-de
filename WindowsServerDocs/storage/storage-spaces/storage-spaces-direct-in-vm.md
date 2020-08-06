@@ -9,12 +9,12 @@ ms.topic: article
 author: eldenchristensen
 ms.date: 07/15/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 50aba2d8edfe74bf6ca51d7c390f2cfc4ead0048
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: b930df382adfc9641175eb4ee3ce531d7eaf8bbc
+ms.sourcegitcommit: acfdb7b2ad283d74f526972b47c371de903d2a3d
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86961222"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87769059"
 ---
 # <a name="using-storage-spaces-direct-in-guest-virtual-machine-clusters"></a>Verwenden von direkte Speicherplätze in Clustern virtueller Gastcomputer
 
@@ -24,7 +24,7 @@ Sie können direkte Speicherplätze (manchmal auch als S2D bezeichnet) auf einem
 
 Informationen zur Verwendung von freigegebenen Azure-Datenträgern für virtuelle Gastcomputer finden Sie unter [Azure Shared Disks](/azure/virtual-machines/windows/disks-shared).
 
-![](media/storage-spaces-direct-in-vm/storage-spaces-direct-in-vm.png)
+![Direkte Speicherplätze (S2D) (Diagramm)](media/storage-spaces-direct-in-vm/storage-spaces-direct-in-vm.png)
 
 ## <a name="deploying-in-azure-iaas-vm-guest-clusters"></a>Bereitstellen in Azure IaaS-VM-Gast Clustern
 
@@ -85,7 +85,7 @@ Beim Bereitstellen von direkte Speicherplätze in einer virtualisierten Umgebung
 
     Die virtuellen Datenträger, die über den virtuellen Computer verfügbar gemacht werden, müssen dieselbe Größe und dieselben Merkmale aufweisen. Das Hinzufügen von mehr Kapazität zum Speicherpool kann erreicht werden, indem jeder virtuellen Maschine weitere virtuelle Datenträger hinzugefügt und dem Pool hinzugefügt werden. Es wird dringend empfohlen, virtuelle Datenträger mit derselben Größe und denselben Merkmalen wie die aktuellen virtuellen Datenträger zu verwenden.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Weitere Azure-IaaS-VM-Vorlagen zum Bereitstellen von direkte Speicherplätze, Videos und Schritt-für-Schritt-Anleitungen](https://techcommunity.microsoft.com/t5/Failover-Clustering/Deploying-IaaS-VM-Guest-Clusters-in-Microsoft-Azure/ba-p/372126).
 

@@ -5,22 +5,24 @@ author: allenma
 ms.date: 12/15/2017
 ms.topic: article
 ms.prod: windows-server
-ms.openlocfilehash: de621b3bfdc9792e61e6d21d9f3774da76c55df6
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 1e35595a0b5a0ab12187aae2cf714fc4d53901ee
+ms.sourcegitcommit: acfdb7b2ad283d74f526972b47c371de903d2a3d
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80860783"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87769628"
 ---
 # <a name="hyper-v-host-cpu-resource-management"></a>Verwaltung von CPU-Ressourcen für Hyper-V-Hosts
 
-Die in Windows Server 2016 oder höher eingeführten CPU-Ressourcen Steuerungen für Hyper-v-Hosts ermöglichen Hyper-v-Administratoren, die CPU-Ressourcen des Host Servers zwischen dem Stammverzeichnis, der Verwaltungs Partition und den Gast-VMS besser zu verwalten und zuzuordnen. Mithilfe dieser Steuerelemente können Administratoren eine Teilmenge der Prozessoren eines Host Systems für die Stamm Partition festlegen. Dies kann die von einem Hyper-V-Host ausgeführte Arbeit von den Arbeits Auslastungen, die auf virtuellen Gast Computern ausgeführt werden, trennen, indem Sie Sie in separaten Teilmengen der System Prozessoren ausführen.
+Die in Windows Server 2016 oder höher eingeführten CPU-Ressourcen Steuerungen für Hyper-v-Hosts ermöglichen Hyper-v-Administratoren, die CPU-Ressourcen des Host Servers zwischen dem Stammverzeichnis, der Verwaltungs Partition und den Gast-VMS besser zu verwalten und zuzuordnen.
+Mithilfe dieser Steuerelemente können Administratoren eine Teilmenge der Prozessoren eines Host Systems für die Stamm Partition festlegen.
+Dies kann die von einem Hyper-V-Host ausgeführte Arbeit von den Arbeits Auslastungen, die auf virtuellen Gast Computern ausgeführt werden, trennen, indem Sie Sie in separaten Teilmengen der System Prozessoren ausführen.
 
 Ausführliche Informationen zu Hardware für Hyper-v-Hosts finden Sie unter [System Anforderungen für Windows 10 Hyper-v](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements).
 
 ## <a name="background"></a>Hintergrund
 
-Vor dem Festlegen von Steuerelementen für die CPU-Ressourcen von Hyper-v-Hosts ist es hilfreich, die Grundlagen der Hyper-v-Architektur zu überprüfen.  
+Vor dem Festlegen von Steuerelementen für die CPU-Ressourcen von Hyper-v-Hosts ist es hilfreich, die Grundlagen der Hyper-v-Architektur zu überprüfen.
 Eine allgemeine Zusammenfassung finden Sie im Abschnitt " [Hyper-V-Architektur](https://docs.microsoft.com/windows-server/administration/performance-tuning/role/hyper-v-server/architecture) ".
 Dies sind wichtige Konzepte für diesen Artikel:
 
@@ -28,7 +30,7 @@ Dies sind wichtige Konzepte für diesen Artikel:
 
 * Die Stamm Partition ist selbst eine virtuelle Computer Partition, obwohl Sie über eindeutige Eigenschaften und weitaus größere Berechtigungen als virtuelle Gastcomputer verfügt.  Die Stamm Partition stellt die Verwaltungsdienste zur Verfügung, die alle virtuellen Gastcomputer steuern, Unterstützung für virtuelle Geräte für Gäste bereitstellen und alle Geräte-e/a für virtuelle Gast Maschinen verwalten.  Microsoft empfiehlt dringend, keine anwendungsworkloads in einer Host Partition auszuführen.
 
-* Jeder virtuelle Prozessor (VP) der Stamm Partition ist 1:1 einem zugrunde liegenden logischen Prozessor (LP) zugeordnet.  Ein Host-VP wird immer auf der gleichen zugrunde liegenden LP ausgeführt – es gibt keine Migration der VPS der Stamm Partition.  
+* Jeder virtuelle Prozessor (VP) der Stamm Partition ist 1:1 einem zugrunde liegenden logischen Prozessor (LP) zugeordnet.  Ein Host-VP wird immer auf der gleichen zugrunde liegenden LP ausgeführt – es gibt keine Migration der VPS der Stamm Partition.
 
 * Standardmäßig können die LPs, auf denen Host-VPS ausgeführt wird, auch Gast-VPS ausführen.
 
@@ -50,7 +52,7 @@ Die minroot-Konfiguration wird über Hypervisor-BCD-Einträge gesteuert. So akti
 ```
      bcdedit /set hypervisorrootproc n
 ```
-Dabei steht n für die Anzahl der Stamm-VPS. 
+Dabei steht n für die Anzahl der Stamm-VPS.
 
 Das System muss neu gestartet werden, und die neue Anzahl der Stamm Prozessoren bleibt für die Lebensdauer des Betriebssystem Starts erhalten.  Die minroot-Konfiguration kann zur Laufzeit nicht dynamisch geändert werden.
 
@@ -62,7 +64,6 @@ Beachten Sie, dass Sie bei mehreren NUMA-Knoten sicherstellen müssen, dass die 
 
 Sie können die minroot-Konfiguration des Hosts mit dem Task-Manager überprüfen, wie unten gezeigt.
 
-![](./media/minroot-taskman.png)
+![Im Task-Manager angezeigte minroot-Konfiguration des Hosts](./media/minroot-taskman.png)
 
 Wenn minroot aktiv ist, zeigt der Task-Manager zusätzlich zur Gesamtanzahl der logischen Prozessoren im System die Anzahl der logischen Prozessoren an, die dem Host derzeit zugewiesen sind.
- 

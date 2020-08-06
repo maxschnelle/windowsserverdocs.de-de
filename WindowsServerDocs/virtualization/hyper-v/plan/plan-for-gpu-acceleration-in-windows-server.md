@@ -8,12 +8,12 @@ ms.author: rickman
 manager: stevelee
 ms.topic: article
 ms.date: 07/14/2020
-ms.openlocfilehash: c8e0e8798da9cb4a2b3ca317d9632450ade82504
-ms.sourcegitcommit: f81aa22739d818382d314561dece59a9341dfb6f
+ms.openlocfilehash: 0177ce6346741998a0a9f97817e3811561bb02fb
+ms.sourcegitcommit: acfdb7b2ad283d74f526972b47c371de903d2a3d
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/15/2020
-ms.locfileid: "86390097"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87768820"
 ---
 # <a name="plan-for-gpu-acceleration-in-windows-server"></a>Planen der GPU-Beschleunigung in Windows Server
 
@@ -49,12 +49,12 @@ Eine DDA-Bereitstellung kann nur eine begrenzte Anzahl von virtuellen Computern 
 Weitere Informationen finden Sie in den folgenden Themen:
 
 - [Planen der Bereitstellung einer diskreten Geräte Zuweisung](plan-for-deploying-devices-using-discrete-device-assignment.md)
-- [Bereitstellen von Grafik Geräten mithilfe der diskreten Geräte Zuweisung](../deploy/Deploying-graphics-devices-using-dda.md)
+- [Bereitstellen von Grafikgeräten mit Discrete Device Assignment](../deploy/Deploying-graphics-devices-using-dda.md)
 
 ## <a name="remotefx-vgpu"></a>RemoteFX vGPU
 
 > [!NOTE]
-> Aus Sicherheitsgründen ist remotefx vgpu standardmäßig für alle Versionen von Windows ab dem 2020-Sicherheits Update vom 14. Juli deaktiviert. Weitere Informationen finden Sie in [KB 4570006](https://support.microsoft.com/help/4570006).
+> Aufgrund von Sicherheitsbedenken ist RemoteFX vGPU auf allen Windows-Versionen ab dem Sicherheitsupdate vom 14. Juli 2020 standardmäßig deaktiviert. Weitere Informationen dazu finden Sie in [KB 4570006](https://support.microsoft.com/help/4570006).
 
 Remotefx vgpu ist eine Grafik-Virtualisierungstechnologie, die die gemeinsame Nutzung einer einzelnen physischen GPU zwischen mehreren virtuellen Computern ermöglicht. In einer remotefx-vgpu-Bereitstellung werden virtualisierte Arbeits Auslastungen auf dem remotefx 3D-Adapter von Microsoft ausgeführt, mit dem GPU-Verarbeitungsanforderungen zwischen dem Host und den Gästen koordiniert werden. Remotefx vgpu eignet sich am besten für Wissensarbeiter und hochleistungsfähige Workloads, bei denen keine dedizierten GPU-Ressourcen erforderlich sind. Remotefx vgpu kann nur GPU-Beschleunigung für Windows-VMS bereitstellen.
 
@@ -67,17 +67,17 @@ Weitere Informationen finden Sie in den folgenden Themen:
 
 Beachten Sie bei der Planung der Bereitstellung die folgenden Funktionen, und unterstützen Sie die Unterschiede zwischen den Technologien für die
 
-|                       | RemoteFX vGPU                                                                       | Diskrete Gerätezuweisung                                                          |
-|-----------------------|-------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------|
-| GPU-Ressourcenmodell    | Dediziert oder freigegeben                                                                 | Nur dediziert                                                                      |
-| VM-Dichte            | Hoch (mindestens ein GPUs zu vielen VMS)                                                 | Niedrig (mindestens ein GPUs zu einer VM)                                                    |
-| Anwendungskompatibilität     | DX 11.1, OpenGL 4.4, OpenCL 1.1                                                     | Alle GPU-Funktionen werden vom Hersteller bereitgestellt (DX 12, OpenGL, CUDA)                       |
-| AVC444                | Standardmäßig aktiviert                                                                  | Verfügbar über Gruppenrichtlinie                                                      |
-| GPU VRAM              | Bis zu 1 GB dediziertes VRAM                                                           | Bis zur Menge des von der GPU unterstützen VRAMs                                                     |
-| Bildfrequenz            | Bis zu 30 Bilder pro Sekunde                                                                         | Bis zu 60 Bilder pro Sekunde                                                                         |
-| GPU-Treiber im Gastbetriebssystem   | Anzeigetreiber für RemoteFX 3D-Adapter (Microsoft)                                      | GPU-Anbieter Treiber (nVidia, AMD, Intel)                                              |
-| Host Betriebssystem       | Windows Server 2016                                                                 | Windows Server 2016; Windows Server 2019                                            |
-| Unterstützung des Gastbetriebssystems      | Windows Server 2012 R2; Windows Server 2016; Windows 7 SP1; Windows 8.1; Windows 10 | Windows Server 2012 R2; Windows Server 2016; Windows Server 2019; Windows 10; Linux |
-| Hypervisor            | Microsoft Hyper-V                                                                   | Microsoft Hyper-V                                                                   |
-| GPU-Hardware          | Enterprise-GPUs (z. B. Nvidia Quadro/GRID oder AMD FirePro)                         | Enterprise-GPUs (z. B. Nvidia Quadro/GRID oder AMD FirePro)                         |
-| Serverhardware       | Keine speziellen Anforderungen                                                             | Moderner Server, stellt IOMMU dem Betriebssystem zur Verfügung (meist SR-IOV-kompatible Hardware)              |
+| Description | RemoteFX vGPU | Diskrete Gerätezuweisung |
+|--|--|--|
+| GPU-Ressourcenmodell | Dediziert oder freigegeben | Nur dediziert |
+| VM-Dichte | Hoch (mindestens ein GPUs zu vielen VMS) | Niedrig (mindestens ein GPUs zu einer VM) |
+| Anwendungskompatibilität | DX 11.1, OpenGL 4.4, OpenCL 1.1 | Alle GPU-Funktionen werden vom Hersteller bereitgestellt (DX 12, OpenGL, CUDA) |
+| AVC444 | Standardmäßig aktiviert | Verfügbar über Gruppenrichtlinie |
+| GPU VRAM | Bis zu 1 GB dediziertes VRAM | Bis zur Menge des von der GPU unterstützen VRAMs |
+| Bildfrequenz | Bis zu 30 Bilder pro Sekunde | Bis zu 60 Bilder pro Sekunde |
+| GPU-Treiber im Gastbetriebssystem | Anzeigetreiber für RemoteFX 3D-Adapter (Microsoft) | GPU-Anbieter Treiber (nVidia, AMD, Intel) |
+| Host Betriebssystem | Windows Server 2016 | Windows Server 2016; Windows Server 2019 |
+| Unterstützung des Gastbetriebssystems | Windows Server 2012 R2; Windows Server 2016; Windows 7 SP1; Windows 8.1; Windows 10 | Windows Server 2012 R2; Windows Server 2016; Windows Server 2019; Windows 10; Linux |
+| Hypervisor | Microsoft Hyper-V | Microsoft Hyper-V |
+| GPU-Hardware | Enterprise-GPUs (z. B. Nvidia Quadro/GRID oder AMD FirePro) | Enterprise-GPUs (z. B. Nvidia Quadro/GRID oder AMD FirePro) |
+| Serverhardware | Keine speziellen Anforderungen | Moderner Server, stellt IOMMU dem Betriebssystem zur Verfügung (meist SR-IOV-kompatible Hardware) |

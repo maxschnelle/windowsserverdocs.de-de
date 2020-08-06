@@ -1,19 +1,19 @@
 ---
-title: Behandeln von Problemen mit einem Failovercluster mithilfe von Windows-Fehlerberichterstattung
+title: Problembehandlung bei einem Failovercluster mit Windows-Fehlerberichterstattung
 description: Problembehandlung bei einem Failovercluster mithilfe von wer-Berichten mit spezifischen Details zum Erfassen von Berichten und diagnostizieren allgemeiner Probleme.
 ms.prod: windows-server
 ms.technology: storage-failover-clustering
-ms.author: vpetter
-author: dcuomo
+ms.author: johnmar
+author: JohnMarlin-MSFT
 ms.date: 03/27/2018
-ms.openlocfilehash: e8db88dc4fe3ad9176299c5b423a7aac6093f254
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: f888b7f49c2bf97eb42070a6028b137aeb730406
+ms.sourcegitcommit: acfdb7b2ad283d74f526972b47c371de903d2a3d
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80827353"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87768537"
 ---
-# <a name="troubleshooting-a-failover-cluster-using-windows-error-reporting"></a>Behandeln von Problemen mit einem Failovercluster mithilfe von Windows-Fehlerberichterstattung 
+# <a name="troubleshooting-a-failover-cluster-using-windows-error-reporting"></a>Problembehandlung bei einem Failovercluster mit Windows-Fehlerberichterstattung
 
 > Gilt für: Windows Server 2019, Windows Server 2016, Windows Server
 
@@ -36,7 +36,7 @@ Um diese Probleme zu vermeiden, können Sie Ereignis Kanäle beim Starten des Cl
 PS C:\Windows\system32> (get-cluster).EnabledEventLogs
 ```
 
-Dies ist ein Beispiel für die Ausgabe:
+Beispiel für die Ausgabe:
 ```
 Microsoft-Windows-Hyper-V-VmSwitch-Diagnostic,4,0xFFFFFFFD
 Microsoft-Windows-SMBDirect/Debug,4
@@ -106,7 +106,7 @@ Im Ordner **wer** enthält der Ordner **reportsqueue** Berichte, die darauf wart
 PS C:\Windows\system32> dir c:\ProgramData\Microsoft\Windows\WER\ReportQueue
 ```
 
-Dies ist ein Beispiel für die Ausgabe:
+Beispiel für die Ausgabe:
 ```
 Volume in drive C is INSTALLTO
 Volume Serial Number is 4031-E397
@@ -143,7 +143,7 @@ Im Ordner **wer** enthält der Ordner **reportsarchive** Berichte, die bereits i
 PS C:\Windows\system32> dir C:\ProgramData\Microsoft\Windows\WER\ReportArchive
 ```
 
-Dies ist ein Beispiel für die Ausgabe:
+Beispiel für die Ausgabe:
 ```
 Volume in drive C is INSTALLTO
 Volume Serial Number is 4031-E397
@@ -171,7 +171,7 @@ Navigieren Sie zum Bericht "Wer-Bericht", um dieses Problem zu diagnostizieren:
 PS C:\Windows\system32> dir C:\ProgramData\Microsoft\Windows\WER\ReportArchive\Critical_PhysicalDisk_b46b8883d892cfa8a26263afca228b17df8133d_00000000_cab_08abc39c
 ```
 
-Dies ist ein Beispiel für die Ausgabe:
+Beispiel für die Ausgabe:
 ```
 Volume in drive C is INSTALLTO
 Volume Serial Number is 4031-E397
@@ -228,7 +228,7 @@ Volume Serial Number is 4031-E397
 Beginnen Sie als nächstes mit der Selektierung aus der Datei " **Report. Wer** " – Dadurch wird angezeigt, was nicht.
 
 ```
-EventType=Failover_clustering_resource_error 
+EventType=Failover_clustering_resource_error
 <skip>
 Sig[0].Name=ResourceType
 Sig[0].Value=Physical Disk
@@ -258,7 +258,7 @@ Da die Ressource nicht online geschaltet werden konnte, wurden keine Abbilder er
 PS C:\Windows\system32> (Get-ClusterResourceType -Name "Physical Disk").DumpLogQuery
 ```
 
-Dies ist ein Beispiel für die Ausgabe:
+Beispiel für die Ausgabe:
 ```
 <QueryList><Query Id="0"><Select Path="Microsoft-Windows-Kernel-PnP/Configuration">*[System[TimeCreated[timediff(@SystemTime) &lt;= 600000]]]</Select></Query></QueryList>
 <QueryList><Query Id="0"><Select Path="Microsoft-Windows-ReFS/Operational">*[System[TimeCreated[timediff(@SystemTime) &lt;= 600000]]]</Select></Query></QueryList>
@@ -299,20 +299,20 @@ Sie können auch nach Anbietern gruppieren, um die folgende Ansicht anzuzeigen:
 
 ![Protokolle gruppiert nach Anbietern](media/troubleshooting-using-WER-reports/logs-grouped-by-providers.png)
 
-Um zu ermitteln, warum der Datenträger fehlgeschlagen ist, navigieren Sie zu den Ereignissen unter **Failoverclustering/Diagnose** und **Failoverclustering/diagnosticverbose**. Führen Sie dann die folgende Abfrage aus: **EventLog. EVENTDATA ["logstring"] enthält "Cluster Disk 10"** .  Dadurch erhalten Sie die folgende Ausgabe:
+Um zu ermitteln, warum der Datenträger fehlgeschlagen ist, navigieren Sie zu den Ereignissen unter **Failoverclustering/Diagnose** und **Failoverclustering/diagnosticverbose**. Führen Sie dann die folgende Abfrage aus: **EventLog. EVENTDATA ["logstring"] enthält "Cluster Disk 10"**.  Dadurch erhalten Sie die folgende Ausgabe:
 
 ![Ausgabe der ausgelaufenden Protokoll Abfrage](media/troubleshooting-using-WER-reports/output-of-running-log-query.png)
 
 
 ### <a name="physical-disk-timed-out"></a>Timeout des physischen Datenträgers
 
-Navigieren Sie zum Bericht, um dieses Problem zu diagnostizieren. Der Ordner enthält Protokolldateien und Dumpdateien für **RHS**, **ClusSvc. exe**und den Prozess, der den Dienst "**smphost**" hostet, wie unten dargestellt:
+Navigieren Sie zum Bericht, um dieses Problem zu diagnostizieren. Der Ordner enthält Protokolldateien und Dumpdateien für **RHS**, **clussvc.exe**und den Prozess, der den Dienst "**smphost**" hostet, wie unten dargestellt:
 
 ```powershell
 PS C:\Windows\system32> dir C:\ProgramData\Microsoft\Windows\WER\ReportArchive\Critical_PhysicalDisk_64acaf7e4590828ae8a3ac3c8b31da9a789586d4_00000000_cab_1d94712e
 ```
 
-Dies ist ein Beispiel für die Ausgabe:
+Beispiel für die Ausgabe:
 ```
 Volume in drive C is INSTALLTO
 Volume Serial Number is 4031-E397
@@ -395,7 +395,7 @@ DynamicSig[29].Name=HangThreadId
 DynamicSig[29].Value=10008
 ```
 
-Die Liste der Dienste und Prozesse, die in einem Dump gesammelt werden, wird durch die folgende Eigenschaft gesteuert: **PS c:\Windows\System32 > (Get-clusterresourcetype-Name "physischer Datenträger"). Dumpservicessmphost**
+Die Liste der Dienste und Prozesse, die in einem Dump gesammelt werden, wird durch die folgende Eigenschaft gesteuert: **PS c:\Windows\System32> (Get-clusterresourcetype-Name "physischer Datenträger"). Dumpservicessmphost**
 
 Um zu ermitteln, warum der Absturz aufgetreten ist, öffnen Sie die trag Dateien. Führen Sie dann die folgende Abfrage aus: **EventLog. EVENTDATA ["logstring"] enthält "Cluster** Datenträger 10", damit Sie die folgende Ausgabe erhalten:
 
@@ -406,9 +406,9 @@ Wir können dies mit dem Thread aus der Datei " **Memory. hdmp** " überprüfen:
 ```
 # 21  Id: 1d98.2718 Suspend: 0 Teb: 0000000b`f1f7b000 Unfrozen
 # Child-SP          RetAddr           Call Site
-00 0000000b`f3c7ec38 00007ff8`455d25ca ntdll!ZwDelayExecution+0x14 
-01 0000000b`f3c7ec40 00007ff8`2ef19710 KERNELBASE!SleepEx+0x9a 
-02 0000000b`f3c7ece0 00007ff8`3bdf7fbf clusres!ResHardDiskOnlineOrTurnOffMMThread+0x2b0 
-03 0000000b`f3c7f960 00007ff8`391eed34 resutils!ClusWorkerStart+0x5f 
+00 0000000b`f3c7ec38 00007ff8`455d25ca ntdll!ZwDelayExecution+0x14
+01 0000000b`f3c7ec40 00007ff8`2ef19710 KERNELBASE!SleepEx+0x9a
+02 0000000b`f3c7ece0 00007ff8`3bdf7fbf clusres!ResHardDiskOnlineOrTurnOffMMThread+0x2b0
+03 0000000b`f3c7f960 00007ff8`391eed34 resutils!ClusWorkerStart+0x5f
 04 0000000b`f3c7f9d0 00000000`00000000 vfbasics+0xed34
 ```

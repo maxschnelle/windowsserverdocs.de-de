@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: efe16dd9bdc971b97bc401cf10e14439c46069de
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: d5c0644c36d4476eb49797de2f828c4da0f53965
+ms.sourcegitcommit: acfdb7b2ad283d74f526972b47c371de903d2a3d
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87181736"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87769158"
 ---
 # <a name="storage-migration-service-frequently-asked-questions-faq"></a>Häufig gestellte Fragen (FAQ) zu Storage Migration Service
 
@@ -52,28 +52,28 @@ Der Speicher Migrationsdienst migriert zurzeit keine Domänen Controller in Wind
 
 Der Speicher Migrationsdienst migriert alle Flags, Einstellungen und die Sicherheit von SMB-Freigaben. Die Liste der Flags, die von Storage Migration Service migriert werden, umfasst Folgendes:
 
-    - Freigabe Status
-    - Verfügbarkeitsart
-    - Freigabetyp
-    - Ordner *enumerationsmodus (auch als Zugriffs basierte Enumeration oder Abe bezeichnet)*
-    - Cache Modus
-    - Leasing Modus
-    - SMB-Instanz
-    - ZS-Timeout
-    - Limit für gleichzeitige Benutzer
-    - Fortlaufend verfügbar
-    - BESCHREIBUNG
-    - Daten verschlüsseln
-    - Identitäts-Remoting
-    - Infrastruktur
-    - Name
-    - `Path`
-    - Bereichsbezogen
-    - Bereichsname
-    - Sicherheitsbeschreibung
-    - Schatten Kopie
-    - Sonderfunktionen
-    - Temporäre Prozeduren
+- Freigabe Status
+- Verfügbarkeitsart
+- Freigabetyp
+- Ordner *enumerationsmodus (auch als Zugriffs basierte Enumeration oder Abe bezeichnet)*
+- Cache Modus
+- Leasing Modus
+- SMB-Instanz
+- ZS-Timeout
+- Limit für gleichzeitige Benutzer
+- Fortlaufend verfügbar
+- BESCHREIBUNG
+- Daten verschlüsseln
+- Identitäts-Remoting
+- Infrastruktur
+- Name
+- Pfad
+- Bereichsbezogen
+- Bereichsname
+- Sicherheitsbeschreibung
+- Schatten Kopie
+- Sonderfunktionen
+- Temporäre Prozeduren
 
 ## <a name="can-i-consolidate-multiple-servers-into-one-server"></a>Kann ich mehrere Server auf einem Server konsolidieren?
 
@@ -185,6 +185,6 @@ So erhalten Sie Support:
  - Beitrag im [Windows Server 2019-Forum](https://docs.microsoft.com/answers/topics/windows-server-2019.html)
  - Öffnen Sie eine Supportanfrage über [Microsoft-Support](https://support.microsoft.com)
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Übersicht über den Speicher Migrationsdienst](overview.md)

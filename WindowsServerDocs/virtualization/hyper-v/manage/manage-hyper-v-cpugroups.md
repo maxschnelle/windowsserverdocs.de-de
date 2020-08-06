@@ -7,12 +7,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.service: windows-10-hyperv
 ms.assetid: cc7bb88e-ae75-4a54-9fb4-fc7c14964d67
-ms.openlocfilehash: ebb5f9a0ca9c50a5e5357e3dd2c755095da98d11
-ms.sourcegitcommit: 32f810c5429804c384d788c680afac427976e351
+ms.openlocfilehash: bcae278caf088bc544fb6686450eacdfdf88237b
+ms.sourcegitcommit: acfdb7b2ad283d74f526972b47c371de903d2a3d
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83203540"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87769598"
 ---
 # <a name="virtual-machine-resource-controls"></a>Ressourcen Steuerelemente für virtuelle Maschinen
 
@@ -33,7 +33,7 @@ CPU-Gruppen werden über den Hyper-V-hostcomputedienst oder HCS verwaltet. Im Bl
 >[!NOTE]
 >Nur die HCS können zum Erstellen und Verwalten von CPU-Gruppen verwendet werden. die WMI-und PowerShell-Verwaltungs Schnittstellen von Hyper-V-Manager unterstützen keine CPU-Gruppen.
 
-Microsoft stellt ein Befehlszeilen-Hilfsprogramm cpugroups. exe im [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=865968) zur Verfügung, das die HCS-Schnittstelle zum Verwalten von CPU-Gruppen verwendet.  Dieses Hilfsprogramm kann auch die CPU-Topologie eines Hosts anzeigen.
+Microsoft stellt ein Befehlszeilen-Hilfsprogramm (cpugroups.exe) im [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=865968) zur Verfügung, das die HCS-Schnittstelle zum Verwalten von CPU-Gruppen verwendet.  Dieses Hilfsprogramm kann auch die CPU-Topologie eines Hosts anzeigen.
 
 ## <a name="how-cpu-groups-work"></a>Funktionsweise von CPU-Gruppen
 
@@ -41,15 +41,15 @@ Die Zuordnung von hostcomputeressourcen über CPU-Gruppen hinweg wird durch den 
 
 Das Limit für die CPU-Gruppe wird als G = *n* x *C*berechnet, wobei Folgendes gilt:
 
-    *G* is the amount of host LP we'd like to assign to the group
-    *n* is the total number of logical processors (LPs) in the group
-    *C* is the maximum CPU allocation — that is, the class of service desired for the group, expressed as a percentage of the system's total compute capacity
+- *G* ist die Menge der Host-LP, die der Gruppe zugewiesen werden soll.
+- *n* ist die Gesamtanzahl der logischen Prozessoren (LPs) in der Gruppe.
+- *C* ist die maximale CPU-Belegung – d. h. die für die Gruppe gewünschte Dienstklasse, ausgedrückt als Prozentsatz der gesamten computekapazität des Systems.
 
 Nehmen Sie beispielsweise eine CPU-Gruppe, die mit 4 logischen Prozessoren (LPs) konfiguriert ist, und eine Obergrenze von 50%.
 
-    G = n * C
-    G = 4 * 50%
-    G = 2 LP's worth of CPU time for the entire group
+- G = n * C
+- G = 4 * 50%
+- G = 2 LP-Wert CPU-Zeit für die gesamte Gruppe
 
 In diesem Beispiel wird der CPU-Zeit von 2 LP die CPU-Zeit von 2 LP zugewiesen.
 
@@ -70,9 +70,9 @@ Der Einfachheit halber gehen wir davon aus, dass jeder virtuelle Computer über 
 
 Zum Erstellen der Ebene "B" legt der Host-adminstartor die Gruppen Abdeckung auf 50% fest:
 
-    G = n * C
-    G = 8 * 50%
-    G = 4 LP's worth of CPU time for the entire group
+- G = n * C
+- G = 8 * 50%
+- G = 4 LP CPU-Zeit für die gesamte Gruppe
 
 Der Host Administrator fügt einen einzelnen virtuellen Computer der Ebene "B" hinzu.
 An diesem Punkt kann der VM "B" der Ebene "B" höchstens 50% der CPU des Hosts oder das Äquivalent von 4 LPs in unserem Beispiel System verwenden.

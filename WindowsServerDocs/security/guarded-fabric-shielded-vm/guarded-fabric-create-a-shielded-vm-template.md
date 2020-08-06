@@ -8,12 +8,12 @@ author: rpsqrd
 ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 01/29/2019
-ms.openlocfilehash: 82725e654fb4c7296b092019db111f9d3debad6d
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: d33714c9939593b4c877e76f77d390139771e3ff
+ms.sourcegitcommit: acfdb7b2ad283d74f526972b47c371de903d2a3d
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85475387"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87769388"
 ---
 # <a name="create-a-windows-shielded-vm-template-disk"></a>Erstellen eines Datenträgers für eine geschützte Windows-VM-Vorlage
 
@@ -57,7 +57,9 @@ Führen Sie die folgenden Schritte auf einem Computer aus, auf dem Windows Serve
 
 2. Um den Server lokal zu verwalten, installieren Sie das Feature der **abgeschirmten VM-Tools** von **Remoteserver-Verwaltungstools** auf dem Server.
 
-        Install-WindowsFeature RSAT-Shielded-VM-Tools -Restart
+    ```
+    Install-WindowsFeature RSAT-Shielded-VM-Tools -Restart
+    ```
 
     Sie können den Server auch über einen Client Computer verwalten, auf dem Sie die [Windows 10-Remoteserver-Verwaltungstools](https://www.microsoft.com/download/details.aspx?id=45520)installiert haben.
 
@@ -65,7 +67,9 @@ Führen Sie die folgenden Schritte auf einem Computer aus, auf dem Windows Serve
 
     Wenn Sie eine Testumgebung einrichten und nur ein selbst signiertes Zertifikat verwenden möchten, um den Vorlagen Datenträger vorzubereiten, führen Sie einen Befehl aus, der dem folgenden ähnelt:
 
-        New-SelfSignedCertificate -DnsName publisher.fabrikam.com
+    ```
+    New-SelfSignedCertificate -DnsName publisher.fabrikam.com
+    ```
 
 4. Starten Sie den Vorlagen Datenträger- **Assistenten** im Ordner " **Verwaltung** " im Startmenü, oder geben Sie **TemplateDiskWizard.exe** in eine Eingabeaufforderung ein.
 
@@ -99,7 +103,7 @@ Wenn Sie VMM verwenden, müssen Sie nach dem Erstellen eines Vorlagen Datenträg
 
 3. Als Nächstes stellen Sie VMM Informationen zum Betriebssystem bereit, das auf dem Vorlagen Datenträger installiert ist:
 
-    ein. Suchen Sie den neu importierten Vorlagen Datenträger auf dem Bibliothek Server im Arbeitsbereich **Bibliothek** .
+    a. Suchen Sie den neu importierten Vorlagen Datenträger auf dem Bibliothek Server im Arbeitsbereich **Bibliothek** .
 
     b. Klicken Sie mit der rechten Maustaste auf den Datenträger und dann auf **Eigenschaften**.
 
@@ -167,7 +171,7 @@ Save-VolumeSignatureCatalog -TemplateDiskPath 'C:\temp\MyLinuxTemplate.vhdx' -Vo
 > [!div class="nextstepaction"]
 > [Erstellen einer Schutz Datendatei](guarded-fabric-tenant-creates-shielding-data.md)
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Geschützte Hosts und abgeschirmte VMs: Konfigurationsschritte für Hosting-Anbieter](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
 - [Geschütztes Fabric und abgeschirmte VMs](guarded-fabric-and-shielded-vms-top-node.md)

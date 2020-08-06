@@ -1,5 +1,5 @@
 ---
-title: Planungs Handbuch für geschütztes Fabric und abgeschirmte VMs für Hoster
+title: Planungs Handbuch für geschütztes Fabric und abgeschirmte VMs für Mandanten
 ms.prod: windows-server
 ms.topic: article
 ms.assetid: 392af37f-a02d-4d40-a25d-384211cbbfdd
@@ -7,12 +7,12 @@ manager: dongill
 author: nirb-ms
 ms.author: nirb
 ms.technology: security-guarded-fabric
-ms.openlocfilehash: 829d6a3efef082e35c6a4f98e0ba9e4b70c27a93
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 5d50721ddf51bc956d8afd256ff047c94c5d5a5e
+ms.sourcegitcommit: acfdb7b2ad283d74f526972b47c371de903d2a3d
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80856473"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87769448"
 ---
 # <a name="guarded-fabric-and-shielded-vm-planning-guide-for-tenants"></a>Planungs Handbuch für geschütztes Fabric und abgeschirmte VMs für Mandanten
 
@@ -24,22 +24,22 @@ Bei der Verwendung von abgeschirmten VMS sind drei Bereiche zu beachten:
 
 - Die Sicherheitsstufe für die VMs
 - Die kryptografischen Schlüssel, mit denen Sie geschützt werden.
-- Schutz Daten – vertrauliche Informationen, die zum Erstellen von abgeschirmten VMS verwendet werden 
+- Schutz Daten – vertrauliche Informationen, die zum Erstellen von abgeschirmten VMS verwendet werden
 
 ## <a name="security-level-for-the-vms"></a>Sicherheitsstufe für die VMs
 
 Beim Bereitstellen von abgeschirmten VMS muss eine von zwei Sicherheitsstufen ausgewählt werden:
 
-- Abgesch 
+- Geschützt
 - Verschlüsselung unterstützt
 
-Sowohl abgeschirmte als auch durch Verschlüsselung unterstützte VMS sind einem virtuellen TPM angefügt, und diejenigen, die Windows ausführen, werden durch BitLocker geschützt. Der Hauptunterschied besteht darin, dass abgeschirmte VMS den Zugriff durch Fabric-Administratoren blockieren, während von Verschlüsselungs gestützten VMS Fabric-Administratoren die gleiche Zugriffsebene wie bei einer regulären VM gestattet wird. Weitere Informationen zu diesen Unterschieden finden Sie unter [Übersicht über geschützte Fabric und abgeschirmte VMS](guarded-fabric-and-shielded-vms.md). 
+Sowohl abgeschirmte als auch durch Verschlüsselung unterstützte VMS sind einem virtuellen TPM angefügt, und diejenigen, die Windows ausführen, werden durch BitLocker geschützt. Der Hauptunterschied besteht darin, dass abgeschirmte VMS den Zugriff durch Fabric-Administratoren blockieren, während von Verschlüsselungs gestützten VMS Fabric-Administratoren die gleiche Zugriffsebene wie bei einer regulären VM gestattet wird. Weitere Informationen zu diesen Unterschieden finden Sie unter [Übersicht über geschützte Fabric und abgeschirmte VMS](guarded-fabric-and-shielded-vms.md).
 
 Wählen Sie **abgeschirmte VMS** aus, wenn Sie den virtuellen Computer vor einem kompromittierten Fabric schützen möchten (einschließlich kompromittierter Administratoren). Sie sollten in Umgebungen verwendet werden, in denen Fabric-Administratoren und das Fabric selbst nicht vertrauenswürdig sind. Wählen Sie **Verschlüsselung unterstützte VMS** aus, wenn Sie eine Kompatibilitäts Leiste erreichen möchten, die ggf. Verschlüsselung ruhender Daten und Verschlüsselung des virtuellen Computers (z. b. während der Live Migration) erfordert.
 
 Durch Verschlüsselung unterstützte VMS sind ideal in Umgebungen, in denen Fabric-Administratoren voll vertrauenswürdig sind, die Verschlüsselung jedoch weiterhin erforderlich ist.
 
-Sie können eine Mischung aus regulären VMS, abgeschirmten VMS und von der Verschlüsselung unterstützten VMs in einem geschützten Fabric und sogar auf demselben Hyper-V-Host ausführen. 
+Sie können eine Mischung aus regulären VMS, abgeschirmten VMS und von der Verschlüsselung unterstützten VMs in einem geschützten Fabric und sogar auf demselben Hyper-V-Host ausführen.
 
 Ob ein virtueller Computer abgeschirmt oder die Verschlüsselung unterstützt wird, hängt von den geschützten Daten ab, die beim Erstellen des virtuellen Computers ausgewählt werden. VM-Besitzer konfigurieren die Sicherheitsstufe beim Erstellen der geschützten Daten (siehe Abschnitt "Schutz [Daten](#shielding-data) ").
 Beachten Sie, dass diese Option nicht geändert werden kann, wenn die VM im virtualisierungsfabric verbleibt.
@@ -49,7 +49,7 @@ Beachten Sie, dass diese Option nicht geändert werden kann, wenn die VM im virt
 Abgeschirmte VMS sind vor virtualisierungsfabric-Angriffsvektoren mithilfe verschlüsselter Datenträger und verschiedener anderer verschlüsselter Elemente geschützt, die nur entschlüsselt werden können:
 
 - Einen Besitzer Schlüssel – Dies ist ein kryptografischer Schlüssel, der vom VM-Besitzer verwaltet wird und in der Regel für die letzte Wiederherstellung oder Problembehandlung verwendet wird. VM-Besitzer sind verantwortlich für die Verwaltung von Besitzer Schlüsseln an einem sicheren Ort.
-- Mindestens ein Wächter (Host-Überwachungs Schlüssel) – jeder Wächter stellt ein virtualisierungsfabric dar, in dem ein Besitzer abgeschirmte VMs für die Durchführung autorisiert. Unternehmen verfügen häufig über ein primäres und Notfall Wiederherstellungs Fabric (Disaster Recovery, Dr) und autorisieren Ihre abgeschirmten VMs in der Regel auf beiden Computern. In einigen Fällen kann das sekundäre Fabric (Dr) von einem Public Cloud-Anbieter gehostet werden. Die privaten Schlüssel für ein beliebiges geschütztes Fabric werden nur im virtualisierungsfabric verwaltet, während ihre öffentlichen Schlüssel heruntergeladen werden können und in Ihrem Wächter enthalten sind. 
+- Mindestens ein Wächter (Host-Überwachungs Schlüssel) – jeder Wächter stellt ein virtualisierungsfabric dar, in dem ein Besitzer abgeschirmte VMs für die Durchführung autorisiert. Unternehmen verfügen häufig über ein primäres und Notfall Wiederherstellungs Fabric (Disaster Recovery, Dr) und autorisieren Ihre abgeschirmten VMs in der Regel auf beiden Computern. In einigen Fällen kann das sekundäre Fabric (Dr) von einem Public Cloud-Anbieter gehostet werden. Die privaten Schlüssel für ein beliebiges geschütztes Fabric werden nur im virtualisierungsfabric verwaltet, während ihre öffentlichen Schlüssel heruntergeladen werden können und in Ihrem Wächter enthalten sind.
 
 **Gewusst wie einen Besitzer Schlüssel erstellen?** Ein Besitzer Schlüssel wird durch zwei Zertifikate repräsentiert. Ein Zertifikat für die Verschlüsselung und ein Zertifikat für die Signierung. Sie können diese beiden Zertifikate mithilfe ihrer eigenen PKI-Infrastruktur erstellen oder SSL-Zertifikate von einer öffentlichen Zertifizierungsstelle (ca) abrufen. Zu Testzwecken können Sie auch ein selbst signiertes Zertifikat auf allen Computern erstellen, die mit Windows 10 oder Windows Server 2016 beginnen.
 
@@ -67,8 +67,8 @@ Abgeschirmte VMS tragen zum Schutz vor Angriffen von einem kompromittierten virt
 
 1. Sicherheitsstufe – abgeschirmt oder Verschlüsselung unterstützt
 2. Besitzer und Liste der vertrauenswürdigen hostwächter, auf denen die VM ausgeführt werden kann
-3. Initialisierungs Daten für virtuelle Computer ("Unattend. xml", RDP-Zertifikat)
-4. Liste der vertrauenswürdigen signierten Vorlagen Datenträger zum Erstellen der VM in der Virtualisierungsumgebung 
+3. Initialisierungs Daten für virtuelle Computer (unattend.xml, RDP-Zertifikat)
+4. Liste der vertrauenswürdigen signierten Vorlagen Datenträger zum Erstellen der VM in der Virtualisierungsumgebung
 
 Wenn Sie einen geschützten oder Verschlüsselungs gestützten virtuellen Computer erstellen oder einen vorhandenen virtuellen Computer umrechnen, werden Sie aufgefordert, die geschützten Daten auszuwählen, anstatt zur Angabe der sensiblen Informationen aufgefordert zu werden.
 
@@ -89,6 +89,6 @@ Das Erstellen neuer virtueller Computer aus einer Vorlage ist üblich. Da sich d
 Wenn Sie signierte Vorlagen Datenträger verwenden, um geschützte VMS zu erstellen, sind zwei Optionen verfügbar:
 
 1. Verwenden Sie einen vorhandenen signierten Vorlagen Datenträger, der vom Virtualisierungsanbieter bereitgestellt wird. In diesem Fall verwaltet der Virtualisierungsanbieter signierte Vorlagen Datenträger.
-2. Hochladen eines signierten Vorlagen Datenträgers in das virtualisierungsfabric. Der Besitzer der VM ist für die Verwaltung signierter Vorlagen Datenträger verantwortlich 
+2. Hochladen eines signierten Vorlagen Datenträgers in das virtualisierungsfabric. Der Besitzer der VM ist für die Verwaltung signierter Vorlagen Datenträger verantwortlich
 
 

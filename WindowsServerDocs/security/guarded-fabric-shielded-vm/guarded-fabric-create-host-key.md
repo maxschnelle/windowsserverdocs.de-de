@@ -8,30 +8,29 @@ author: rpsqrd
 ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 24714e7af844116629fa4c0eebf5050f9c150c50
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 3c234ab3d4925f4b03e252307aa905845fbb6d0d
+ms.sourcegitcommit: acfdb7b2ad283d74f526972b47c371de903d2a3d
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85475537"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87769098"
 ---
 # <a name="create-a-host-key-and-add-it-to-hgs"></a>Erstellen eines Host Schlüssels und Hinzufügen des Schlüssels zu HGS
 
 >Gilt für: Windows Server 2019
 
-
 In diesem Thema wird beschrieben, wie Hyper-V-Hosts mithilfe des Host Schlüssel Nachweis (Schlüssel Modus) auf geschützte Hosts vorbereitet werden. Erstellen Sie ein Host Schlüsselpaar (oder verwenden Sie ein vorhandenes Zertifikat), und fügen Sie die öffentliche Hälfte des Schlüssels zu HGS hinzu.
 
 ## <a name="create-a-host-key"></a>Erstellen eines Host Schlüssels
 
-1.    Installieren Sie Windows Server 2019 auf dem Hyper-V-Host Computer.
-2.    Installieren Sie die Hyper-v-und Host-Überwachungsfunktionen von Hyper-v:
+1. Installieren Sie Windows Server 2019 auf dem Hyper-V-Host Computer.
+2. Installieren Sie die Hyper-v-und Host-Überwachungsfunktionen von Hyper-v:
 
     ```powershell
     Install-WindowsFeature Hyper-V, HostGuardian -IncludeManagementTools -Restart
     ```
 
-3.    Generieren Sie automatisch einen Host Schlüssel, oder wählen Sie ein vorhandenes Zertifikat aus. Wenn Sie ein benutzerdefiniertes Zertifikat verwenden, sollte es mindestens einen 2048-Bit-RSA-Schlüssel, eine Clientauthentifizierungs-EKU und die Verwendung von digitalen Signatur Schlüsseln aufweisen.
+3. Generieren Sie automatisch einen Host Schlüssel, oder wählen Sie ein vorhandenes Zertifikat aus. Wenn Sie ein benutzerdefiniertes Zertifikat verwenden, sollte es mindestens einen 2048-Bit-RSA-Schlüssel, eine Clientauthentifizierungs-EKU und die Verwendung von digitalen Signatur Schlüsseln aufweisen.
 
     ```powershell
     Set-HgsClientHostKey
@@ -45,13 +44,13 @@ In diesem Thema wird beschrieben, wie Hyper-V-Hosts mithilfe des Host Schlüssel
     Set-HgsClientHostKey -Thumbprint $tpmBoundCert.Thumbprint
     ```
 
-4.    Holen Sie sich die öffentliche Hälfte des Schlüssels, der für den HGS-Server bereitgestellt werden soll. Sie können das folgende Cmdlet verwenden oder, wenn Sie das Zertifikat an einem anderen Speicherort gespeichert haben, eine CER-Datei mit der öffentlichen Hälfte des Schlüssels bereitstellen. Beachten Sie, dass wir nur den öffentlichen Schlüssel auf HGS speichern und validieren. Wir behalten keine Zertifikat Informationen bei und überprüfen weder die Zertifikatskette noch das Ablaufdatum.
+4. Holen Sie sich die öffentliche Hälfte des Schlüssels, der für den HGS-Server bereitgestellt werden soll. Sie können das folgende Cmdlet verwenden oder, wenn Sie das Zertifikat an einem anderen Speicherort gespeichert haben, eine CER-Datei mit der öffentlichen Hälfte des Schlüssels bereitstellen. Beachten Sie, dass wir nur den öffentlichen Schlüssel auf HGS speichern und validieren. Wir behalten keine Zertifikat Informationen bei und überprüfen weder die Zertifikatskette noch das Ablaufdatum.
 
     ```powershell
     Get-HgsClientHostKey -Path "C:\temp\$env:hostname-HostKey.cer"
     ```
 
-5.    Kopieren Sie die CER-Datei auf Ihren HGS-Server.
+5. Kopieren Sie die CER-Datei auf Ihren HGS-Server.
 
 ## <a name="add-the-host-key-to-the-attestation-service"></a>Hinzufügen des Host Schlüssels zum Nachweis Dienst
 
@@ -63,9 +62,8 @@ Add-HgsAttestationHostKey -Name MyHost01 -Path "C:\temp\MyHost01-HostKey.cer"
 
 ## <a name="next-step"></a>Nächster Schritt
 
-> [!div class="nextstepaction"]
-> [Bestätigen, dass Hosts erfolgreich einen Nachweis führen können](guarded-fabric-confirm-hosts-can-attest-successfully.md)
+- [Bestätigen, dass Hosts erfolgreich einen Nachweis führen können](guarded-fabric-confirm-hosts-can-attest-successfully.md)
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Bereitstellen des Host-Überwachungsdiensts für überwachte Hosts und abgeschirmte VMs](guarded-fabric-deploying-hgs-overview.md)

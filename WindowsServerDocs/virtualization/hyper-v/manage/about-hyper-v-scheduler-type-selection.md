@@ -9,12 +9,12 @@ ms.prod: windows-server-hyper-v
 ms.technology: virtualization
 ms.localizationpriority: low
 ms.assetid: 5fe163d4-2595-43b0-ba2f-7fad6e4ae069
-ms.openlocfilehash: 1e77535548cccd1c821163dabbad381f35d2948a
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 128f9d734311f8eaf0f06204e114171fa8b0f750
+ms.sourcegitcommit: acfdb7b2ad283d74f526972b47c371de903d2a3d
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70872057"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87768428"
 ---
 # <a name="about-hyper-v-hypervisor-scheduler-type-selection"></a>Informationen zu Hyper-V Hypervisor Scheduler Type Selection
 
@@ -25,10 +25,10 @@ Gilt für:
 * Windows Server, Version 1803
 * Windows Server 2019
 
-In diesem Dokument werden wichtige Änderungen an der standardmäßigen und empfohlenen Verwendung von Hypervisor-Scheduler-Typen für Hyper-V beschrieben. Diese Änderungen wirken sich auf die Systemsicherheit und Virtualisierungsleistung aus. Administratoren von Virtualisierungshosts sollten die in diesem Dokument beschriebenen Änderungen und Implikationen überprüfen und verstehen und die Auswirkungen, den empfohlenen Bereitstellungs Leit Faden und Risikofaktoren sorgfältig auswerten, um die Bereitstellung und Verwaltung zu verstehen. Hyper-V-Hosts in der Oberfläche der schnell veränderlichen Sicherheit.
+In diesem Dokument werden wichtige Änderungen an der standardmäßigen und empfohlenen Verwendung von Hypervisor-Scheduler-Typen für Hyper-V beschrieben. Diese Änderungen wirken sich auf die Systemsicherheit und Virtualisierungsleistung aus. Administratoren von Virtualisierungshosts sollten die in diesem Dokument beschriebenen Änderungen und Implikationen überprüfen und verstehen und die Auswirkungen, den empfohlenen Bereitstellungs Leit Faden und Risikofaktoren sorgfältig auswerten, um die Bereitstellung und Verwaltung von Hyper-V-Hosts im Hinblick auf die schnell veränderliche Sicherheitslandschaft besser zu verstehen.
 
 >[!IMPORTANT]
->Die derzeit in mehreren Prozessorarchitekturen aussehbaren Sicherheitsrisiken für die neben Kanal Sicherheit können von einem böswilligen Gast-VM durch das Planungs Verhalten des herkömmlichen Hypervisor Classic Scheduler-Typs ausgenutzt werden, wenn auf Hosts mit gleichzeitiger Ausführung ausgeführt wird. Multithreading (SMT) aktiviert.  Wenn Sie erfolgreich ausgenutzt werden, könnte eine schädliche Arbeitsauslastung Daten außerhalb ihrer Partitions Grenze beobachten. Diese Angriffs Klasse kann verringert werden, indem Sie den Hyper-V-Hypervisor so konfigurieren, dass der Hypervisor Core Scheduler-Typ verwendet und Gast-VMS neu konfiguriert werden. Mit dem Kern Planer schränkt der Hypervisor die VPS eines Gast-VMS auf den gleichen physischen Prozessorkern ein. Dadurch wird die Fähigkeit des virtuellen Computers, auf die Grenzen des physischen Kerns zuzugreifen, auf dem es ausgeführt wird, stark isoliert.  Dies ist eine äußerst effektive Entschärfung gegen diese Seitenkanalangriffe, wodurch verhindert wird, dass der virtuelle Computer Artefakte von anderen Partitionen beobachtet, egal ob es sich um den Stamm oder eine andere Gast Partition handelt.  Daher ändert Microsoft die standardmäßigen und empfohlenen Konfigurationseinstellungen für Virtualisierungshosts und Gast-VMS.
+>Die derzeit in mehreren Prozessorarchitekturen aussehbaren Sicherheitsrisiken für das sidelochannel können von einer bösartigen Gast-VM durch das Planungs Verhalten des herkömmlichen Hypervisor-planertyps "Hypervisor" ausgenutzt werden, wenn die Ausführung auf Hosts mit aktiviertem Multithreading (SMT) aktiviert ist.  Wenn Sie erfolgreich ausgenutzt werden, könnte eine schädliche Arbeitsauslastung Daten außerhalb ihrer Partitions Grenze beobachten. Diese Angriffs Klasse kann verringert werden, indem Sie den Hyper-V-Hypervisor so konfigurieren, dass der Hypervisor Core Scheduler-Typ verwendet und Gast-VMS neu konfiguriert werden. Mit dem Kern Planer schränkt der Hypervisor die VPS eines Gast-VMS auf den gleichen physischen Prozessorkern ein. Dadurch wird die Fähigkeit des virtuellen Computers, auf die Grenzen des physischen Kerns zuzugreifen, auf dem es ausgeführt wird, stark isoliert.  Dies ist eine äußerst effektive Entschärfung gegen diese Seitenkanalangriffe, wodurch verhindert wird, dass der virtuelle Computer Artefakte von anderen Partitionen beobachtet, egal ob es sich um den Stamm oder eine andere Gast Partition handelt.  Daher ändert Microsoft die standardmäßigen und empfohlenen Konfigurationseinstellungen für Virtualisierungshosts und Gast-VMS.
 
 ## <a name="background"></a>Hintergrund
 
@@ -43,7 +43,7 @@ Der Schwerpunkt dieses Artikels liegt auf der Verwendung des neuen Hypervisor-ke
 
 ### <a name="the-classic-scheduler"></a>Der klassische Scheduler
 
-Der klassische Scheduler bezieht sich auf die Methode "Fair-Share", "Roundrobin" für die Planung von Arbeitsaufgaben an virtuellen Prozessoren (VPS) im gesamten System, einschließlich Stamm-VPS und VPS, die zu Gast-VMS gehören. Der klassische Scheduler ist der standardmäßige Scheduler-Typ, der für alle Versionen von Hyper-V verwendet wird (bis Windows Server 2019, wie in diesem Dokument beschrieben).  Die Leistungsmerkmale des klassischen Zeit Planungs Moduls sind gut zu verstehen, und der klassische Scheduler wird demonstriert, dass er das Abonnement von Workloads unterstützt, d. h. über Abonnement des VP: LP-Verhältnis des Hosts um einen angemessenen Rand (abhängig vom Typen von Workloads, die virtualisiert werden, Gesamtressourcen Nutzung usw.).
+Der klassische Scheduler bezieht sich auf die Methode "Fair-Share", "Roundrobin" für die Planung von Arbeitsaufgaben an virtuellen Prozessoren (VPS) im gesamten System, einschließlich Stamm-VPS und VPS, die zu Gast-VMS gehören. Der klassische Scheduler ist der standardmäßige Scheduler-Typ, der für alle Versionen von Hyper-V verwendet wird (bis Windows Server 2019, wie in diesem Dokument beschrieben).  Die Leistungsmerkmale des klassischen Zeit Planungs Moduls sind gut verständlich, und das klassische Zeit Planungs Modul wird demonstriert, dass das Abonnement von Workloads unterstützt wird. das heißt, dass das über-Abonnement des VP: LP-Verhältnis des Hosts um einen angemessenen Rand (abhängig von den Typen der virtualisierten Workloads, Gesamtressourcen Auslastung usw.) unterstützt wird.
 
 Bei der Ausführung auf einem Virtualisierungshost mit aktiviertem SMT plant der klassische Scheduler Gast-VPS von einem beliebigen virtuellen Computer in jedem SMT-Thread, der zu einem Kern gehört. Daher können unterschiedliche VMS gleichzeitig auf demselben Kern ausgeführt werden (eine VM, die auf einem Thread eines Kerns ausgeführt wird, während eine andere VM auf dem anderen Thread ausgeführt wird).
 
@@ -78,7 +78,7 @@ Diese Auswirkungen auf die Leistung können minimiert werden, indem die Bereitst
 Zum Bereitstellen von Hyper-V-Hosts mit dem maximalen Sicherheitsstatus ist die Verwendung des Typs "Hypervisor Core Scheduler" erforderlich. Um sicherzustellen, dass unsere Kunden standardmäßig sicher sind, ändert Microsoft die folgenden Standardeinstellungen und empfohlenen Einstellungen.
 
 >[!NOTE]
->Obwohl die interne Unterstützung der Scheduler-Typen in der ersten Version von Windows Server 2016, Windows Server 1709 und Windows Server 1803 enthalten war, sind Updates erforderlich, um auf die Konfigurations Steuerung zuzugreifen, die die Auswahl des Typ des Hypervisor-Planers.  Ausführliche Informationen zu diesen Updates finden Sie unter [verstehen und Verwenden von Hyper-V-Hypervisor-planertypen](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types) .
+>Obwohl die interne Unterstützung der Scheduler-Typen in der ersten Version von Windows Server 2016, Windows Server 1709 und Windows Server 1803 enthalten war, sind Updates erforderlich, um auf die Konfigurations Steuerung zuzugreifen, mit der der Hypervisor-Planertyp ausgewählt werden kann.  Ausführliche Informationen zu diesen Updates finden Sie unter [verstehen und Verwenden von Hyper-V-Hypervisor-planertypen](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types) .
 
 ### <a name="virtualization-host-changes"></a>Änderungen am Virtualisierungshost
 
@@ -107,9 +107,9 @@ Zum Bereitstellen von Hyper-V-Hosts mit dem maximalen Sicherheitsstatus ist die 
 
 Die SMT-Konfiguration des Gast-virtuellen Computers wird pro VM-Basis festgelegt. Der Host Administrator kann die SMT-Konfiguration eines virtuellen Computers überprüfen und konfigurieren, um eine der folgenden Optionen auszuwählen:
 
-    1. Konfigurieren von virtuellen Computern für die ausführen als SMT-fähig, wobei optional die Host-SMT-Topologie automatisch geerbt wird
+1. Konfigurieren von virtuellen Computern für die ausführen als SMT-fähig, wobei optional die Host-SMT-Topologie automatisch geerbt wird
 
-    2. Konfigurieren von virtuellen Computern, die als nicht-SMT ausgeführt werden
+2. Konfigurieren von virtuellen Computern, die als nicht-SMT ausgeführt werden
 
 Die SMT-Konfiguration für einen virtuellen Computer wird in den Übersichts Bereichen der Hyper-V-Manager-Konsole angezeigt.  Die Konfiguration der SMT-Einstellungen eines virtuellen Computers kann mithilfe der VM-Einstellungen oder PowerShell erfolgen.
 
@@ -121,13 +121,13 @@ Um die SMT-Einstellungen für einen virtuellen Gastcomputer zu konfigurieren, ö
 Set-VMProcessor -VMName <VMName> -HwThreadCountPerCore <0, 1, 2>
 ```
 
-Erläuterungen:
+Hierbei gilt:
 
-    0 = Inherit SMT topology from the host (this setting of HwThreadCountPerCore=0 is not supported on Windows Server 2016)
+- 0 = die SMT-Topologie wird vom Host geerbt (diese Einstellung von hwthreadzähltpercore = 0 wird unter Windows Server 2016 nicht unterstützt)
 
-    1 = Non-SMT
+- 1 = nicht-SMT
 
-    Values > 1 = the desired number of SMT threads per core. May not exceed the number of physical SMT threads per core.
+- Werte > 1 = die gewünschte Anzahl von SMT-Threads pro Kern. Die Anzahl der physischen SMT-Threads pro Kern darf nicht überschritten werden.
 
 Um die SMT-Einstellungen für einen virtuellen Gastcomputer zu lesen, öffnen Sie ein PowerShell-Fenster mit ausreichenden Berechtigungen, und geben Sie Folgendes ein:
 
@@ -139,7 +139,7 @@ Beachten Sie, dass Gast-VMS, die mit hwthreadzähltpercore = 0 konfiguriert werd
 
 ### <a name="guest-vms-may-observe-changes-to-cpu-topology-across-vm-mobility-scenarios"></a>Gast-VMs können Änderungen an der CPU-Topologie über VM-Mobilitäts Szenarien hinweg beobachten
 
-Das Betriebssystem und die Anwendungen auf einem virtuellen Computer können vor und nach dem Lebenszyklus von virtuellen Computern (z. b. Live Migration oder Speicher-und Wiederherstellungs Vorgänge) Änderungen an den Einstellungen für Host und VM Während eines Vorgangs, bei dem der Zustand des virtuellen Computers gespeichert und wieder hergestellt wird, werden sowohl die hwthreadzählpercore-Einstellung der VM als auch der erkannte Wert (d. h. die berechnete Kombination aus der Einstellung des virtuellen Computers und der Konfiguration des Quell Hosts) migriert. Der virtuelle Computer wird mit diesen Einstellungen auf dem Zielhost weiter ausgeführt. Zu dem Zeitpunkt, an dem der virtuelle Computer heruntergefahren und neu gestartet wird, wird möglicherweise der von der VM beobachtete erkannte Wert geändert. Dies sollte nicht ausreichen, da Betriebssystem-und anwendungsebenensoftware im Rahmen ihrer normalen Start-und Initialisierungs Code Flüsse nach CPU-Topologieinformationen suchen soll. Da diese Start Zeit-Initialisierungs Sequenzen bei Live Migrationen oder Speicher-/Wiederherstellungs Vorgängen übersprungen werden, können virtuelle Computer, die diese Zustandsübergänge durchlaufen, den ursprünglich berechneten erkannten Wert beobachten, bis Sie heruntergefahren und neu gestartet werden.  
+Das Betriebssystem und die Anwendungen auf einem virtuellen Computer können vor und nach dem Lebenszyklus von virtuellen Computern (z. b. Live Migration oder Speicher-und Wiederherstellungs Vorgänge) Änderungen an den Einstellungen für Host und VM Während eines Vorgangs, bei dem der Zustand des virtuellen Computers gespeichert und wieder hergestellt wird, werden sowohl die hwthreadzählpercore-Einstellung der VM als auch der erkannte Wert (d. h. die berechnete Kombination aus der Einstellung des virtuellen Computers und der Konfiguration des Quell Hosts) migriert. Der virtuelle Computer wird mit diesen Einstellungen auf dem Zielhost weiter ausgeführt. Zu dem Zeitpunkt, an dem der virtuelle Computer heruntergefahren und neu gestartet wird, wird möglicherweise der von der VM beobachtete erkannte Wert geändert. Dies sollte nicht ausreichen, da Betriebssystem-und anwendungsebenensoftware im Rahmen ihrer normalen Start-und Initialisierungs Code Flüsse nach CPU-Topologieinformationen suchen soll. Da diese Start Zeit-Initialisierungs Sequenzen bei Live Migrationen oder Speicher-/Wiederherstellungs Vorgängen übersprungen werden, können virtuelle Computer, die diese Zustandsübergänge durchlaufen, den ursprünglich berechneten erkannten Wert beobachten, bis Sie heruntergefahren und neu gestartet werden.
 
 ### <a name="alerts-regarding-non-optimal-vm-configurations"></a>Warnungen bezüglich nicht optimaler VM-Konfigurationen
 
@@ -159,7 +159,7 @@ Get-WinEvent -FilterHashTable @{ProviderName="Microsoft-Windows-Hyper-V-Worker";
 
 ### <a name="impacts-of-guest-smt-configuaration-on-the-use-of-hypervisor-enlightenments-for-guest-operating-systems"></a>Auswirkungen der Gast-SMT-Konfiguration auf die Verwendung von Hypervisor-Erleuchtungen für Gast Betriebssysteme
 
-Der Microsoft-Hypervisor bietet mehrere-oder-Hinweise, die vom Betriebssystem, das auf einer Gast-VM ausgeführt wird, möglicherweise abgefragt und verwendet werden, um Optimierungen zu initiieren, z. b. solche, die die Leistung verbessern oder die Behandlung verschiedener Bedingungen bei der Ausführung virtualisierten. Eine vor kurzem eingeführte Erleuchtung bezieht sich auf die Behandlung von virtuellen Prozessorzeit Plänen und die Verwendung von Betriebs systementschärfungen für Seitenkanalangriffe, die SMT ausnutzen.
+Der Microsoft-Hypervisor bietet mehrere-oder-Hinweise, die vom Betriebssystem, das auf einer Gast-VM ausgeführt wird, möglicherweise abgefragt und verwendet werden, um Optimierungen zu initiieren, z. b. solche, die die Leistung verbessern oder die Behandlung verschiedener Bedingungen bei der Ausführung von virtualisierten Eine vor kurzem eingeführte Erleuchtung bezieht sich auf die Behandlung von virtuellen Prozessorzeit Plänen und die Verwendung von Betriebs systementschärfungen für Seitenkanalangriffe, die SMT ausnutzen.
 
 >[!NOTE]
 >Microsoft empfiehlt, dass Host Administratoren SMT für Gast-VMS aktivieren, um die workloadleistung zu optimieren.
@@ -170,13 +170,13 @@ Die Details dieser Gast Aufklärung werden unten bereitgestellt, aber der Hauptg
 
 Ab Windows Server 2016 definiert der Hypervisor eine neue Erleuchtung, um die Verarbeitung der VP-Planung und-Platzierung für das Gast Betriebssystem zu beschreiben. Diese Aufklärung wird in der [Funktionsspezifikation der obersten Ebene von Hypervisor v 5.0 c](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/tlfs)definiert.
 
-Synthetisches CPUID-Blatt "Hypervisor" CPUID. 0x40000004. EAX: 18 [nononarchitekturalcoreshareing = 1] gibt an, dass ein virtueller Prozessor nie einen physischen Kern mit einem anderen virtuellen Prozessor gemeinsam nutzt, mit Ausnahme von virtuellen Prozessoren, die als gleich geordnetes SMT-Element gemeldet werden. Threads. Beispielsweise wird ein Gast-VP nie in einem SMT-Thread parallel zu einem Stamm-VP ausgeführt, der gleichzeitig auf einem gleich geordneten SMT-Thread desselben Prozessorkerns ausgeführt wird. Diese Bedingung ist nur bei der virtualisierten Ausführung möglich und stellt ein nicht architektonisches SMT-Verhalten dar, das auch schwerwiegende Auswirkungen auf die Sicherheit hat. Das Gast Betriebssystem kann nononarchitekturalcoreshareing = 1 verwenden, um zu verhindern, dass Optimierungen sicher aktiviert werden können. Dies kann dazu beitragen, den Leistungs Aufwand bei der Festlegung von stibp zu vermeiden.
+Synthetisches CPUID-Blatt "Hypervisor" CPUID. 0x40000004. EAX: 18 [nononarchitekturalcoreshareing = 1] gibt an, dass ein virtueller Prozessor nie einen physischen Kern mit einem anderen virtuellen Prozessor gemeinsam nutzt, mit Ausnahme von virtuellen Prozessoren, die als gleich geordnete SMT-Threads gemeldet werden. Beispielsweise wird ein Gast-VP nie in einem SMT-Thread parallel zu einem Stamm-VP ausgeführt, der gleichzeitig auf einem gleich geordneten SMT-Thread desselben Prozessorkerns ausgeführt wird. Diese Bedingung ist nur bei der virtualisierten Ausführung möglich und stellt ein nicht architektonisches SMT-Verhalten dar, das auch schwerwiegende Auswirkungen auf die Sicherheit hat. Das Gast Betriebssystem kann nononarchitekturalcoreshareing = 1 verwenden, um zu verhindern, dass Optimierungen sicher aktiviert werden können. Dies kann dazu beitragen, den Leistungs Aufwand bei der Festlegung von stibp zu vermeiden.
 
 In bestimmten Konfigurationen weist der Hypervisor nicht darauf hin, dass nononarchitekturalcoreshareing = 1 ist. Wenn ein Host beispielsweise SMT aktiviert hat und für die Verwendung des klassischen Hypervisor-Schedulers konfiguriert ist, wird nononarchitekturalcoreshareing auf 0 festgelegt. Dadurch wird möglicherweise verhindert, dass aktivierte Gäste bestimmte Optimierungen aktivieren. Daher empfiehlt Microsoft, dass Host Administratoren, die SMT verwenden, den Hypervisor-Kern Planer verwenden und sicherstellen, dass virtuelle Computer so konfiguriert sind, dass die SMT-Konfiguration vom Host geerbt wird, um eine optimale workloadleistung sicherzustellen.
 
 ## <a name="summary"></a>Zusammenfassung
 
-Die Sicherheits Bedrohungslandschaft wird weiterentwickelt. Um sicherzustellen, dass unsere Kunden standardmäßig sicher sind, ändert Microsoft die Standardkonfiguration für den Hypervisor und die virtuellen Computer ab Windows Server 2019 Hyper-V und bietet aktualisierte Anleitungen und Empfehlungen für Kunden, die Windows ausführen. Server 2016 Hyper-V. Administratoren von Virtualisierungshosts sollten:
+Die Sicherheits Bedrohungslandschaft wird weiterentwickelt. Um sicherzustellen, dass unsere Kunden standardmäßig sicher sind, ändert Microsoft die Standardkonfiguration für den Hypervisor und die virtuellen Computer ab Windows Server 2019 Hyper-v und bietet aktualisierte Anleitungen und Empfehlungen für Kunden, die Windows Server 2016 Hyper-v ausführen. Administratoren von Virtualisierungshosts sollten:
 
 * Lesen und verstehen Sie die Anweisungen in diesem Dokument.
 
