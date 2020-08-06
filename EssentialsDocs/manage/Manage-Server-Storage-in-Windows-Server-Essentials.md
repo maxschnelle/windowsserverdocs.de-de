@@ -55,7 +55,7 @@ ms.locfileid: "87837729"
 
 ### <a name="available-hard-drive-management-tasks"></a>Verfügbare Aufgaben zur Festplattenverwaltung
 
-|Aufgabenname|BESCHREIBUNG|
+|Aufgabenname|Beschreibung|
 |---------------|-----------------|
 |**Festplatteneigenschaften anzeigen**|Öffnet die _harddrivename_-**Eigenschaften** Seite. Diese Aufgabe wird angezeigt, wenn die Festplatte ausgewählt ist. Die Registerkarte **Allgemein** der Seite "Eigenschaften von *Festplattenname*" enthält die folgenden zusätzlichen Aufgaben:<br /><br /> -   **Laufwerks Bereinigung**: ermöglicht das Bereinigen nicht verwendeter Dateien auf der Festplatte (diese Aufgabe ist nur in Windows Server Essentials verfügbar).<br />-   **Überprüfen und reparieren**: überprüft die Festplatte auf Dateisystem Fehler und versucht, erkannte Fehler automatisch zu reparieren.<br /><br /> Mithilfe der Registerkarte **Schatten Kopien** der**Eigenschaften** Seite _harddrivename_können Sie Schatten Kopien aktivieren. Diese Registerkarte zeigt auch den Zeitpunkt an, für den die nächste Ausführung von Schattenkopien geplant ist.|
 |**Speicherplatz verwalten**|**Hinweis:** Für Windows Server Essentials wird diese Aufgabe nur angezeigt, wenn ein Speicherplatz vorhanden ist.<br /><br /> Öffnet die Systemsteuerung für **Speicherplätze**, von der aus Sie Speicherpools und Speicherplätze erstellen und verwalten können.|

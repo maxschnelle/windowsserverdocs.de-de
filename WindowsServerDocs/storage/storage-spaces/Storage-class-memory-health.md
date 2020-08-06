@@ -72,7 +72,7 @@ Diese Bedingung liegt vor, wenn beim Überprüfen der Integrität eines Speicher
 
 Die folgende Tabelle enthält Informationen zu dieser Bedingung.
 
-| Überschrift | Description |
+| Überschrift | Beschreibung |
 | --- | --- |
 | Wahrscheinliche Bedingung | Der NVDIMM-N-Warnungsschwellenwert wurde überschritten. |
 | Grundursache | NVDIMM-N-Geräte überwachen eine Reihe von Schwellenwerten, z. B. für Temperatur, NVM-Lebensdauer und/oder Lebensdauer der Energiequelle. Wenn einer dieser Schwellenwerte überschritten wird, wird das Betriebssystem benachrichtigt. |
@@ -92,7 +92,7 @@ Diese Bedingung liegt vor, wenn beim Überprüfen der Integrität eines Speicher
 
 Die folgende Tabelle enthält Informationen zu dieser Bedingung.
 
-| Überschrift | Description |
+| Überschrift | Beschreibung |
 | --- | --- |
 | Wahrscheinliche Bedingung | Unterbrechung der Energiequelle für Persistenz/Sicherungen |
 |Grundursache|Um Persistenz sicherzustellen, hängen NVDIMM-N-Geräte von einer Energiequelle für Sicherungen ab – üblicherweise ein Akku oder Superkondensator. Wenn diese Energiequelle nicht verfügbar ist oder das Gerät aus einem anderen Grund keine Sicherung durchführen kann (Controller-/Flash-Fehler), besteht das Risiko von Datenverlust. Windows verhindert daher, dass weitere Schreibvorgänge auf den betroffenen Geräten durchgeführt werden. Lesevorgänge sind weiterhin möglich, um Daten zu verschieben.|
@@ -112,7 +112,7 @@ Diese Bedingung tritt ein, wenn ein Speicherklassenspeichergerät mit einer Kapa
 
 Die folgende Tabelle enthält Informationen zu dieser Bedingung.
 
-|Überschrift|Description|
+|Überschrift|Beschreibung|
 |---|---|
 |Wahrscheinliche Bedingung|Das BIOS hat NVDIMM-N nicht für das Betriebssystem offengelegt.|
 |Grundursache|NVDIMM-N-Geräte sind DRAM-basiert. Wenn auf eine beschädigte DRAM-Adresse verwiesen wird, initiieren die meisten CPUs eine Computerprüfung und starten den Server neu. Einige Serverplattformen heben dann die Zuordnung des NVDIMM-Geräts auf und verhindern damit, dass das Betriebssystem darauf zugreifen kann. Außerdem wird durch diesen Vorgang möglicherweise erneut eine Computerprüfung ausgelöst. Diese Situation kann auch eintreten, wenn das BIOS ermittelt, dass das NVDIMM-N-Gerät ausgefallen ist und ersetzt werden muss.|
@@ -132,7 +132,7 @@ Diese Bedingung liegt vor, wenn beim Überprüfen der Integrität eines Speicher
 
 Die folgende Tabelle enthält Informationen zu dieser Bedingung.
 
-|Überschrift|Description|
+|Überschrift|Beschreibung|
 |---|---|
 |Wahrscheinliche Bedingung|Sicherungs-/Wiederherstellungsfehler|
 |Grundursache|Ein Fehler beim Sicherungs- oder Wiederherstellungsvorgang hat wahrscheinlich den Verlust aller Daten zur Folge, die sich auf dem NVDIMM-N-Gerät befinden. Beim Laden des Betriebssystems wird das Gerät als neues NVDIMM-N-Gerät ohne Partition oder Dateisystem, also als Rohdatenträger angezeigt.|

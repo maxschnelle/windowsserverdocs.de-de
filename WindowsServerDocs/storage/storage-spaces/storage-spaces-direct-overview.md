@@ -53,7 +53,7 @@ Informationen zu anderen Anwendungen von Speicherplätzen, wie freigegebene SAS-
 
 ## <a name="key-benefits"></a>Hauptvorteile
 
-| Image | BESCHREIBUNG |
+| Image | Beschreibung |
 |--|--|
 | ![Einfachheit](media/storage-spaces-direct-in-windows-server-2016/simplicity-icon.png) | **Theit.** Wechseln Sie in weniger als 15 Minuten von branchenüblichen Servern unter Windows Server 2016 zu Ihrem ersten „Direkte Speicherplätze“-Cluster. Für System Center-Benutzer erfolgt die Bereitstellung über ein einziges Kontrollkästchen. |
 | ![Nicht über rivalisierte Leistung](media/storage-spaces-direct-in-windows-server-2016/performance-icon.png) | **Unübertroffene Leistung.** Ganz gleich, ob All-Flash- oder Hybridspeicher, mit „Direkte Speicherplätze“ erreichen Sie mühelos über [150.000 gemischte zufällige 4K-Random-IOPS (E/A-Vorgänge pro Sekunde) pro Server](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB) mit konsistenter, geringer Latenz dank der in den Hypervisor eingebetteten Architektur, dem integrierten Lese-/Schreibcache und der Unterstützung für innovative, direkt auf dem PCIe-Bus montierte NVMe-Laufwerke. |

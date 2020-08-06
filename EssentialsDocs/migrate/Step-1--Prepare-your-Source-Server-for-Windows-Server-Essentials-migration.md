@@ -7,12 +7,12 @@ ms.assetid: 244c8a06-04c6-4863-8b52-974786455373
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 6666a0f68863913c0c0a5a1b1e903eaebf5470a4
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: c2007160c294074287437bedb7e94b318432a9b4
+ms.sourcegitcommit: 04637054de2bfbac66b9c78bad7bf3e7bae5ffb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87180486"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87838349"
 ---
 # <a name="step-1-prepare-your-source-server-for-windows-server-essentials-migration"></a>Schritt 1: Vorbereiten des Quellservers für die Migration zu Windows Server Essentials
 
@@ -44,12 +44,12 @@ In diesem Thema wird erläutert, wie Sie den Quellserver sichern, die Systeminte
 
    |Produkt|Resource|
    |---|---|
-   |Windows Small Business Server 2003|[Sichern und Wiederherstellen von Windows Small Business Server 2003](https://msdn.microsoft.com/library/cc875809.aspx)
+   |Windows Small Business Server 2003|[Sichern und Wiederherstellen von Windows Small Business Server 2003](/previous-versions/tn-archive/cc875809(v=technet.10))
    |Windows Small Business Server 2008|[Sichern und Wiederherstellen von Daten in Windows Small Business Server 2008](https://technet.microsoft.com/library/cc527505\(WS.10\).aspx)
    |Windows Server 2008 Foundation|[Sicherung und Wiederherstellung](https://technet.microsoft.com/library/cc754097\(WS.10\).aspx)
-   |Windows Small Business Server 2011 Essentials|[Weitere Informationen zum Einrichten der Serversicherung](https://technet.microsoft.com/library/server-backup-support-1.aspx)
-   |Windows Small Business Server 2011 Standard|[Verwalten der Serversicherung](https://technet.microsoft.com/library/cc527488.aspx)
-   |Windows Server Essentials|[Verwalten der Sicherung und Wiederherstellung in Windows Server Essentials](https://technet.microsoft.com/library/jj713536.aspx)
+   |Windows Small Business Server 2011 Essentials|[Weitere Informationen zum Einrichten der Serversicherung](/previous-versions/windows/it-pro/windows-server-essentials-sbs/ff402413(v=ws.11))
+   |Windows Small Business Server 2011 Standard|[Verwalten der Serversicherung](/previous-versions/windows/it-pro/windows-server-essentials-sbs/cc527488(v=ws.11))
+   |Windows Server Essentials|[Verwalten der Sicherung und Wiederherstellung in Windows Server Essentials](/previous-versions/windows/it-pro/windows-server-essentials-sbs/cc514417(v=msdn.10))
 
 ###  <a name="install-the-most-recent-service-packs"></a><a name="BKMK_InstallTheMostRecentServicePacksToPrepareForMigration"></a>Installieren der aktuellsten Service Packs
  Sie müssen vor der Migration die neuesten Updates und Service Packs auf dem Quellserver installieren.
@@ -128,7 +128,7 @@ In diesem Thema wird erläutert, wie Sie den Quellserver sichern, die Systeminte
 
    Nachdem das BPA-Tool Informationen zur Serverkonfiguration gesammelt hat, überprüft es, ob die Informationen korrekt sind, und legt dann den Administratoren eine Liste der Informationen und Probleme nach Schweregrad sortiert vor. Die Liste beschreibt jedes Problem und bietet eine Empfehlung oder eine mögliche Lösung. Folgende drei Berichtstypen sind verfügbar:
 
-|Berichtstyp|BESCHREIBUNG
+|Berichtstyp|Beschreibung
 |-----------------|-----------------
 |Listenberichte|Zeigt Berichte in einer eindimensionalen Liste an.
 |Strukturberichte|Zeigt Berichte in einer hierarchischen Liste an.
@@ -172,17 +172,17 @@ Wenn Sie die Beschreibung und Lösungen für ein Problem anzeigen möchten, klic
  Wenn Sie sich für Microsoft Office 365 als E-Mail-Lösung für Ihre Domäne entschieden haben, folgen Sie den Anweisungen unter [Migrieren aller Postfächer zur Cloud mit einer Exchange-Übernahmemigration](https://help.outlook.com/140/ms.exch.ecp.emailmigrationwizardexchangelearnmore.aspx) , um die E-Mail-Migration zu Office 365 zu starten. Es wird empfohlen, die e-Mail-Migration abzuschließen, bevor Sie Windows Server Essentials installieren.
 
 > [!NOTE]
->  Der Schritt zum Entfernen des lokalen Exchange-Servers auf dem Quell Server ist obligatorisch, wenn Sie Windows Server Essentials in Office 365 integrieren möchten. Informationen zum Migrieren der öffentlichen Ordner von Exchange Server zu Office 365 finden Sie im Blogbeitrag [Microsoft Exchange 2013 Public Folders Migration Scripts for Office 365](https://blogs.technet.com/b/fmustafa/archive/2013/04/11/microsoft-exchange-2013-public-folders-migration-scripts-for-office-365.aspx).
+>  Der Schritt zum Entfernen des lokalen Exchange-Servers auf dem Quell Server ist obligatorisch, wenn Sie Windows Server Essentials in Office 365 integrieren möchten. Informationen zum Migrieren der öffentlichen Ordner von Exchange Server zu Office 365 finden Sie im Blogbeitrag [Microsoft Exchange 2013 Public Folders Migration Scripts for Office 365](/archive/blogs/fmustafa/microsoft-exchange-2013-public-folders-migration-scripts-for-office-365).
 >
 >  Nachdem Sie die Installation durchgeführt haben, sollten Sie das Office 365-Integrations Feature in Windows Server Essentials aktivieren, indem Sie den Task " **in Microsoft Office 365 integrieren** " ausführen.
 
 > [!IMPORTANT]
->  Um eine Verbindung des Office 365-Migrationstools mit Exchange Server auf dem Quellserver zu ermöglichen, müssen Sie auf dem Quellserver RPC über HTTP aktivieren. Informationen zum Aktivieren von RPC über HTTP finden Sie unter [Erstmaliges Bereitstellen von RPC über HTTP in Small Business Server 2003 (Standard oder Premium)](https://technet.microsoft.com/library/bb123622%28EXCHG.65%29.aspx). Wenn das Office 365-Migrationstool nach dem Aktivieren von RPC über HTTP nicht ordnungsgemäß ausgeführt werden kann, zeigen Sie die Einstellung **ValidPorts** in der Registrierung unter HKEY_LOCAL_MACHINE\Software\Microsoft\Rpc\RpcProxy an, und stellen sicher, dass der vollqualifizierte Domänenname (Fully Qualified Domain Name, FQDN) für den Quellserver dort aufgeführt ist. Wenn der FQDN nicht aufgeführt ist, fügen Sie ihn anhand des folgenden Beispiels manuell hinzu:
+>  Um eine Verbindung des Office 365-Migrationstools mit Exchange Server auf dem Quellserver zu ermöglichen, müssen Sie auf dem Quellserver RPC über HTTP aktivieren. Informationen zum Aktivieren von RPC über HTTP finden Sie unter [Erstmaliges Bereitstellen von RPC über HTTP in Small Business Server 2003 (Standard oder Premium)](/previous-versions/tn-archive/bb123622(v=exchg.65)). Wenn das Office 365-Migrationstool nach dem Aktivieren von RPC über HTTP nicht ordnungsgemäß ausgeführt werden kann, zeigen Sie die Einstellung **ValidPorts** in der Registrierung unter HKEY_LOCAL_MACHINE\Software\Microsoft\Rpc\RpcProxy an, und stellen sicher, dass der vollqualifizierte Domänenname (Fully Qualified Domain Name, FQDN) für den Quellserver dort aufgeführt ist. Wenn der FQDN nicht aufgeführt ist, fügen Sie ihn anhand des folgenden Beispiels manuell hinzu:
 >
 >  remote. *contoso*.com:6001-6002;remote. *contoso*.com:6004 (ersetzen Sie *contoso* durch den Namen Ihrer Domäne).
 
 #### <a name="migrate-email-to-another-on-premises-exchange-server"></a>Migrieren von E-Mail zu einem anderen lokalen Exchange-Server
- Informationen zum Migrieren von e-Mails zu einem anderen lokalen Exchange-Server finden Sie unter [integrieren eines lokalen Exchange-Servers in Windows Server Essentials](https://technet.microsoft.com/library/jj200172.aspx). Es wird empfohlen, dass Sie den neuen lokalen Exchange-Server nach der Installation von Windows Server Essentials einrichten und dann die e-Mail-Migration abschließen, bevor Sie den Quell Server herabstufen.
+ Informationen zum Migrieren von e-Mails zu einem anderen lokalen Exchange-Server finden Sie unter [integrieren eines lokalen Exchange-Servers in Windows Server Essentials](/previous-versions/windows/it-pro/windows-server-essentials-sbs/jj200172(v=ws.11)). Es wird empfohlen, dass Sie den neuen lokalen Exchange-Server nach der Installation von Windows Server Essentials einrichten und dann die e-Mail-Migration abschließen, bevor Sie den Quell Server herabstufen.
 
 > [!NOTE]
 >  Der Windows Small Business Server-POP3-Connector ist nicht in Exchange Server enthalten. Nach der Migration von Daten zu einem anderen Exchange-Server kann POP3-Connector-Funktion nicht mehr genutzt werden.
@@ -194,4 +194,3 @@ Wenn Sie die Beschreibung und Lösungen für ein Problem anzeigen möchten, klic
  Sie haben ihren Quell Server für die Migration zu Windows Server Essentials vorbereitet.  Gehen Sie jetzt zu [Schritt 2: Installieren von Windows Server Essentials als neuer Replikat Domänen Controller](Step-2--Install-Windows-Server-Essentials-as-a-new-replica-domain-controller.md).
 
 Alle Schritte finden Sie unter [Migrieren zu Windows Server Essentials](Migrate-from-Previous-Versions-to-Windows-Server-Essentials-or-Windows-Server-Essentials-Experience.md).
-

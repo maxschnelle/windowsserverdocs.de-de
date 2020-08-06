@@ -642,6 +642,6 @@ Guidance: Check the detailed error and make sure the inventory requirements are 
 
 Dieses Problem wird durch einen Code Fehler im Speicher Migrationsdienst verursacht. Die einzige Problem Umgehung besteht darin, den Computer so umzubenennen, dass er den gleichen Namen wie der NetBIOS-Name hat, und dann mit [netdom computername/Add](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc835082(v=ws.11)) einen alternativen Computernamen hinzuzufügen, der den längeren Namen enthält, der vor dem Start des Inventars verwendet wurde. Storage Migration Service unterstützt die Migration alternativer Computernamen.
 
-## <a name="see-also"></a>Weitere Informationen
+## <a name="see-also"></a>Siehe auch
 
 - [Übersicht über den Speicher Migrationsdienst](overview.md)

@@ -7,12 +7,12 @@ ms.assetid: ac12e9a9-ba7a-480a-9249-6e216c70941b
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: b1d684b594d7ad0361c2859db4cf30bbb4239a30
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: d09b5a6425c2921bf2ad3cae57aecad9e4f35098
+ms.sourcegitcommit: 04637054de2bfbac66b9c78bad7bf3e7bae5ffb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87180346"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87838329"
 ---
 # <a name="support-windows-server-essentials"></a>Unterstützung von Windows Server Essentials
 
@@ -80,13 +80,13 @@ Dieser Abschnitt enthält Informationen, mit deren Hilfe Sie häufige Probleme b
 
 ## <a name="ask-a-question-in-the-forums"></a>Stellen Sie eine Frage in den Foren
 
-- [Windows Server Essentials – Allgemeines](https://docs.microsoft.com/answers/topics/windows-server-essentials.html)
+- [Windows Server Essentials – Allgemeines](/answers/topics/windows-server-essentials.html)
 
-- [Windows SBS 2011 Essentials](https://docs.microsoft.com/answers/topics/windows-small-business-server.html)
+- [Windows SBS 2011 Essentials](/answers/topics/windows-small-business-server.html)
 
-- [Small Business Server](https://docs.microsoft.com/answers/topics/windows-small-business-server.html)
+- [Small Business Server](/answers/topics/windows-small-business-server.html)
 
-- [Windows Server-Foren](https://docs.microsoft.com/answers/topics/windows-server.html)
+- [Windows Server-Foren](/answers/topics/windows-server.html)
 
 ## <a name="get-additional-help"></a>Zusätzliche Hilfe abrufen
 
@@ -110,7 +110,7 @@ Dieser Abschnitt enthält Informationen, mit deren Hilfe Sie häufige Probleme b
 
 - [Support für Kleinunternehmen](https://smallbusiness.support.microsoft.com/contact)
 
-- [Windows Server Essentials- und Small Business Server-Blog](https://blogs.technet.com/b/sbs/)
+- [Windows Server Essentials- und Small Business Server-Blog](/archive/blogs/sbs/)
 
 ## <a name="end-to-end-solution-guides"></a>Anleitungen für durchgängige Lösungen
 
@@ -120,7 +120,7 @@ Dieser Abschnitt enthält Informationen, mit deren Hilfe Sie häufige Probleme b
 
 - Informationen zur sicheren Zusammenarbeit mit Partnern und Lieferanten finden Sie unter [Bessere Zusammenarbeit in kleinen und mittleren Unternehmen](/previous-versions/windows/it-pro/solutions-guidance/dn747893(v=ws.11)).
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Installieren von Windows Server Essentials](../install/Install-Windows-Server-Essentials.md)
 

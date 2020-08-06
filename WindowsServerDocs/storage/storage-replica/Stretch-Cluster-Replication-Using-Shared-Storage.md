@@ -645,13 +645,13 @@ Nun verwalten und betreiben Sie den Stretched Cluster. Sie können alle unten au
 
         1.  Fügen Sie die Objekte der **Speicherreplikatstatistik** mit allen ihren Leistungsindikatoren für das Datenvolume hinzu.
 
-        2.  Untersuchen Sie die Ergebnisse.
+        2.  Überprüfen Sie die Ergebnisse.
 
     2.  Vorgehensweise auf dem Quellknoten:
 
         1.  Fügen Sie die Objekte der **Speicherreplikatstatistik** und der **Statistik zur Partitions-E/A des Speicherreplikats** mit allen ihren Leistungsindikatoren für das Datenvolume hinzu (die letztgenannte Statistik ist nur mit den Daten für den aktuellen Quellserver verfügbar).
 
-        2.  Untersuchen Sie die Ergebnisse.
+        2.  Überprüfen Sie die Ergebnisse.
 
 3.  Wenn Sie die Replikationsquelle und das Replikationsziel innerhalb des Stretched Clusters ändern möchten, gehen Sie wie folgt vor:
 

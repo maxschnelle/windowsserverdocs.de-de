@@ -46,7 +46,7 @@ Die Ausgabe von [Get-hgsclientconfiguration](https://technet.microsoft.com/libra
 
 In der folgenden Tabelle werden die Werte erläutert, die ggf. im Feld **attestationstatus** und mögliche nächste Schritte angezeigt werden können.
 
-Attestationstatus         | Erläuterung
+Attestationstatus         | Erklärung
 --------------------------|------------
 Abgelaufen                   | Der Host wurde zuvor erfolgreich beglaubigt, das ausgestellte Integritätszertifikat ist jedoch abgelaufen. Stellen Sie sicher, dass die Systemzeit von Host und HGS synchron sind.
 Insecurehostconfiguration | Der Host hat den Nachweis nicht bestanden, weil er nicht den Nachweis Richtlinien entsprach, die auf HGS konfiguriert sind. Weitere Informationen finden Sie in der Tabelle attestationsubstatus.

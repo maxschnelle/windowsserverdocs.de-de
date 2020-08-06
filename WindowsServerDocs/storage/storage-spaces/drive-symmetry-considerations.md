@@ -26,7 +26,7 @@ In diesem Thema werden die Einschränkungen erläutert und Beispiele für unters
 
 ## <a name="constraints"></a>Einschränkungen
 
-### <a name="type"></a>type
+### <a name="type"></a>Typ
 
 Alle Server sollten über die gleichen [Laufwerke](choosing-drives.md#drive-types)verfügen.
 

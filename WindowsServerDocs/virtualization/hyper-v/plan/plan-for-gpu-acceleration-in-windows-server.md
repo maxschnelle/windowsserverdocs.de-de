@@ -67,7 +67,7 @@ Weitere Informationen finden Sie in den folgenden Themen:
 
 Beachten Sie bei der Planung der Bereitstellung die folgenden Funktionen, und unterstützen Sie die Unterschiede zwischen den Technologien für die
 
-| Description | RemoteFX vGPU | Diskrete Gerätezuweisung |
+| Beschreibung | RemoteFX vGPU | Diskrete Gerätezuweisung |
 |--|--|--|
 | GPU-Ressourcenmodell | Dediziert oder freigegeben | Nur dediziert |
 | VM-Dichte | Hoch (mindestens ein GPUs zu vielen VMS) | Niedrig (mindestens ein GPUs zu einer VM) |

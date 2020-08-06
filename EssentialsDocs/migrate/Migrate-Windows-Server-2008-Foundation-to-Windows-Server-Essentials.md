@@ -7,12 +7,12 @@ ms.assetid: f22fc0a4-cb82-4e60-afe6-2d03145745e7
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 1da24c4200cfbfeb5256cad51e72b0836d6af3c7
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: 74b79e3306ee34708b079b09f445a00ddfc15fdb
+ms.sourcegitcommit: 04637054de2bfbac66b9c78bad7bf3e7bae5ffb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87180726"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87838378"
 ---
 # <a name="migrate-windows-server-2008-foundation-to-windows-server-essentials"></a>Migration von Windows Server 2008 Foundation zu Windows Server Essentials
 
@@ -23,7 +23,7 @@ In diesem Leitfaden wird beschrieben, wie Sie eine vorhandene Windows Server 200
 > [!NOTE]
 >  Um Probleme während der Migration zu vermeiden, empfiehlt das Windows Server Essentials-Produktentwicklungsteam dringend, dieses Dokument zu lesen, bevor Sie mit der Migration beginnen.
 
-## <a name="additional-resources"></a>Zusätzliche Ressourcen
+## <a name="additional-resources"></a>Weitere Ressourcen
  Links zu weiteren Informationen, Tools und Communityressourcen, die Ihnen beim Migrationsprozess behilflich sein können, finden Sie unter [Windows Small Business Server Migration](https://go.microsoft.com/fwlink/?LinkId=217520).
 
 ## <a name="terms-and-definitions"></a>Begriffe und Definitionen
@@ -41,7 +41,7 @@ In diesem Leitfaden wird beschrieben, wie Sie eine vorhandene Windows Server 200
 
 3.  [Fügen Sie Computer dem neuen Windows Server Essentials-Netzwerk hinzu](Join-computers-to-the-new-Windows-Server-Essentials-network.md).  In diesem Abschnitt wird das Hinzufügen von Client Computern zum neuen Windows Server Essentials-Netzwerk und das Aktualisieren Gruppenrichtlinie Einstellungen behandelt.
 
-4.  [Verschieben Sie Windows Server 2008 Foundation-Einstellungen und Daten auf den Ziel Server](Move-Windows-Server-2008-Foundation-settings-and-data-to-the-Destination-Server-for-Windows-Server-Essentials-migration.md).  Dieser Abschnitt enthält Informationen zum Migrieren von Daten und Einstellungen vom Quellserver.
+4.  [Verschieben Sie Windows Server 2008 Foundation-Einstellungen und Daten auf den Ziel Server](./move-windows-server-2008-foundation-to-the-destination-server-for-migration.md).  Dieser Abschnitt enthält Informationen zum Migrieren von Daten und Einstellungen vom Quellserver.
 
 5.  Tiefer stufen [und Entfernen des Quell Servers aus dem neuen Windows Server Essentials-Netzwerk](Demote-and-remove-the-Source-Server-from-the-new-Windows-Server-Essentials-network.md).  Vor dem Entfernen des Quellservers müssen Sie eine Gruppenrichtlinienaktualisierung erzwingen und den Quellserver tiefer stufen.
 

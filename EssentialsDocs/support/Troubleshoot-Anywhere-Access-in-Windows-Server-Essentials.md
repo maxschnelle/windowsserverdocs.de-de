@@ -7,12 +7,12 @@ ms.assetid: 68f2b05c-09eb-4cba-8db4-a91353b513c6
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 3e79a4e7845298b013d99ff804c665e44cac4fbb
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: 241e2225c9e1dfdea3189e938a04c4af4c033c3f
+ms.sourcegitcommit: 04637054de2bfbac66b9c78bad7bf3e7bae5ffb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87180336"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87838319"
 ---
 # <a name="troubleshoot-anywhere-access-in-windows-server-essentials"></a>Problembehandlung von "Zugriff überall" in Windows Server Essentials
 
@@ -23,7 +23,7 @@ Dieses Thema enthält allgemeine Anweisungen für die Verwendung des Assistenten
 Der Assistent zum Reparieren von "Zugriff überall" versucht, Probleme mit Router, Domänenname oder Firewall zu identifizieren und zu beheben, die Benutzer im Netzwerk daran hindern, per Remotezugriff auf Serverressourcen zuzugreifen.
 
 > [!NOTE]
-> Die aktuellsten Informationen zur Problembehandlung aus der Windows Server Essentials-Community finden Sie im [Windows Server Essentials-Forum](https://docs.microsoft.com/answers/topics/windows-server-essentials.html). Das Windows Server Essentials-Forum eignet sich optimal, um nach Hilfe zu suchen oder um Fragen zu stellen.
+> Die aktuellsten Informationen zur Problembehandlung aus der Windows Server Essentials-Community finden Sie im [Windows Server Essentials-Forum](/answers/topics/windows-server-essentials.html). Das Windows Server Essentials-Forum eignet sich optimal, um nach Hilfe zu suchen oder um Fragen zu stellen.
 
 ## <a name="to-repair-anywhere-access"></a>So reparieren Sie "Zugriff überall"
 
@@ -50,4 +50,4 @@ Der Assistent zum Reparieren von "Zugriff überall" versucht, Probleme mit Route
 
 - [Behandeln von Problemen mit der Firewall](Troubleshoot-your-firewall-in-Windows-Server-Essentials.md)
 
-- Im [Windows Server Essentials-Forum](https://docs.microsoft.com/answers/topics/windows-server-essentials.html) finden Sie die neuesten Probleme, die von der Windows Server Essentials-Community gemeldet wurden.
+- Im [Windows Server Essentials-Forum](/answers/topics/windows-server-essentials.html) finden Sie die neuesten Probleme, die von der Windows Server Essentials-Community gemeldet wurden.

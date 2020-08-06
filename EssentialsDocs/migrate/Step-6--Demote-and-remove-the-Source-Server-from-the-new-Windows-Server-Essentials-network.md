@@ -7,12 +7,12 @@ ms.assetid: 86244c66-2c5e-488d-adb8-112e1ca3e2e1
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: e78b3d50193cfd20df331d945fc549d3e3b35dbe
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: 955da6c37bd57711529de02277d10f4627851715
+ms.sourcegitcommit: 04637054de2bfbac66b9c78bad7bf3e7bae5ffb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87180416"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87838339"
 ---
 # <a name="step-6-demote-and-remove-the-source-server-from-the-new-windows-server-essentials-network"></a>Schritt 6: Tieferstufen und Entfernen des Quellservers aus dem neuen Windows Server Essentials-Netzwerk
 
@@ -79,7 +79,7 @@ Nachdem Sie die Installation von Windows Server Essentials abgeschlossen und die
 
 4. Dafür müssen Sie sich möglicherweise ab-und wieder anmelden, um den Vorgang abzuschließen. Klicken Sie zur Bestätigung auf **Ja**.
 
-   Wenn Sie von Windows Server Essentials oder den vorherigen Versionen migrieren, finden Sie unter [Entfernen von Active Directory Domain Services](https://technet.microsoft.com/library/hh472163.aspx)Informationen zum Herabstufen des Servers. Nachdem Sie den Quellserver als Mitglied einer Arbeitsgruppe hinzufügen und ihn vom Netzwerk trennen, müssen Sie es aus dem AD DS auf dem Zielserver entfernen.
+   Wenn Sie von Windows Server Essentials oder den vorherigen Versionen migrieren, finden Sie unter [Entfernen von Active Directory Domain Services](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh472163(v=ws.11))Informationen zum Herabstufen des Servers. Nachdem Sie den Quellserver als Mitglied einer Arbeitsgruppe hinzufügen und ihn vom Netzwerk trennen, müssen Sie es aus dem AD DS auf dem Zielserver entfernen.
 
    Wenn Sie von Windows Server Essentials migrieren, verwenden Sie Server-Manager, um die Active Directory Domain Services-Rolle zu entfernen, und verwenden Sie dabei das folgende Verfahren zum Herabstufen des Domänen Controllers auf dem Quell Server:
 
@@ -106,4 +106,3 @@ Nachdem Sie die Installation von Windows Server Essentials abgeschlossen und die
 
 
 Alle Schritte finden Sie unter [Migrieren zu Windows Server Essentials](Migrate-from-Previous-Versions-to-Windows-Server-Essentials-or-Windows-Server-Essentials-Experience.md).
-

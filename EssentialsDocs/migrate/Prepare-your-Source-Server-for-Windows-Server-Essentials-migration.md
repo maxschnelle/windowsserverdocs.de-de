@@ -7,12 +7,12 @@ ms.assetid: f5861ae9-77cb-4d37-b4c5-8f0757213385
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 1097520110f876a8c29e05547d4407a13f1c5057
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: bc672a3f2d9b74ff4ed283e826312f6661ba63f6
+ms.sourcegitcommit: 04637054de2bfbac66b9c78bad7bf3e7bae5ffb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87180516"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87838399"
 ---
 # <a name="prepare-your-source-server-for-windows-server-essentials-migration1"></a>Vorbereiten des Quell Servers für Windows Server Essentials Migration1
 
@@ -39,7 +39,7 @@ Führen Sie vorab folgende Schritte aus, um sicherzustellen, dass eine erfolgrei
 
 ##### <a name="to-back-up-the-source-server"></a>So sichern Sie den Zielserver
 
-1.  Führen Sie eine vollständige Sicherung des Quellservers durch. Weitere Informationen zum Sichern von Windows Small Business Server 2011 Essentials finden Sie unter [Learn more about setting up server backup](https://technet.microsoft.com/library/server-backup-support-1.aspx).
+1.  Führen Sie eine vollständige Sicherung des Quellservers durch. Weitere Informationen zum Sichern von Windows Small Business Server 2011 Essentials finden Sie unter [Learn more about setting up server backup](/previous-versions/windows/it-pro/windows-server-essentials-sbs/ff402413(v=ws.11)).
 
 2.  Überprüfen Sie, ob die Sicherung erfolgreich ausgeführt wurde. Zum Prüfen der Integrität der Sicherung wählen Sie beliebige Dateien der Sicherung aus und stellen diese an einem anderen Speicherort wieder her. Überprüfen Sie dann, ob die wiederhergestellten Dateien mit den Originaldateien identisch sind.
 
@@ -89,7 +89,7 @@ Führen Sie vorab folgende Schritte aus, um sicherzustellen, dass eine erfolgrei
 
    Nach dem Sammeln von Informationen zur Server-Konfiguration überprüft der Windows Server Solutions BPA, ob die Informationen korrekt sind und wird dann Administratoren eine Liste von Informationen und Problemen nach Schweregrad sortiert anzeigen. Die Liste beschreibt jedes Problem und bietet eine Empfehlung oder eine mögliche Lösung. Folgende drei Berichtstypen sind verfügbar:
 
-|Berichttyp|BESCHREIBUNG|
+|Berichttyp|Beschreibung|
 |-----------------|-----------------|
 |Listenberichte|Zeigt Berichte in einer eindimensionalen Liste an.|
 |Strukturberichte|Zeigt Berichte in einer hierarchischen Liste an.|
@@ -192,4 +192,3 @@ Führen Sie vorab folgende Schritte aus, um sicherzustellen, dass eine erfolgrei
 
 > [!NOTE]
 >  Wenn Sie das Windows Small Business Server 2011 Essentials SDK verwendet haben, um ein angepasstes Systemintegritäts-oder Warnungs-Add-in zu entwickeln, und Sie das Add-in weiterhin mit Windows Server Essentials verwenden möchten, müssen Sie auch das Add-in aktualisieren und auf dem Ziel Server bereitstellen.
-

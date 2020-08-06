@@ -62,7 +62,7 @@ Der Speicher Migrationsdienst migriert alle Flags, Einstellungen und die Sicherh
 - ZS-Timeout
 - Limit für gleichzeitige Benutzer
 - Fortlaufend verfügbar
-- BESCHREIBUNG
+- Beschreibung
 - Daten verschlüsseln
 - Identitäts-Remoting
 - Infrastruktur
