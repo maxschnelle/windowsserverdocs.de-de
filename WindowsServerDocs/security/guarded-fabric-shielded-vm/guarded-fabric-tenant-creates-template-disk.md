@@ -8,12 +8,12 @@ author: rpsqrd
 ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: d5cdaf915de94e73374459c41b090f197b8f56ef
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 7e76cb5b41e7800ce8b2725003dcb5ea90e84116
+ms.sourcegitcommit: acfdb7b2ad283d74f526972b47c371de903d2a3d
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85475077"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87769648"
 ---
 # <a name="shielded-vms-for-tenants---creating-a-template-disk-optional"></a>Abgeschirmte VMs für Mandanten: Erstellen eines Vorlagen Datenträgers (optional)
 
@@ -64,13 +64,17 @@ Führen Sie die folgenden Schritte auf einem Computer aus, auf dem Windows Serve
 
 2. Installieren Sie das Feature der **abgeschirmten VM-Tools** aus **Remoteserver-Verwaltungstools** auf dem Computer.
 
-        Install-WindowsFeature RSAT-Shielded-VM-Tools -Restart
+    ```
+    Install-WindowsFeature RSAT-Shielded-VM-Tools -Restart
+    ```
 
 3. Abrufen oder Erstellen eines Zertifikats zum Signieren der vhdx-Datei, die als Vorlagen Datenträger für neue abgeschirmte VMS verwendet wird. Details zu diesem Zertifikat werden in eine geschützte Datendatei eingebunden, die den Datenträger als vertrauenswürdigen Datenträger autorisiert. Daher ist es wichtig, dass Sie dieses Zertifikat von einer Zertifizierungsstelle abrufen, der Sie und Ihrem hostingdienstanbieter Vertrauen. In Unternehmens Szenarios, in denen Sie sowohl der Host als auch der Mandant sind, sollten Sie das Zertifikat aus Ihrer PKI ausgeben.
 
     Wenn Sie eine Testumgebung einrichten und nur ein selbst signiertes Zertifikat verwenden möchten, um den Vorlagen Datenträger zu signieren, führen Sie einen Befehl aus, der dem folgenden auf dem Computer ähnelt:
 
-        New-SelfSignedCertificate -DnsName publisher.fabrikam.com
+    ```
+    New-SelfSignedCertificate -DnsName publisher.fabrikam.com
+    ```
 
 4. Starten Sie den Vorlagen Datenträger- **Assistenten** im Ordner " **Verwaltung** " im Startmenü, oder geben Sie **TemplateDiskWizard.exe** in eine Eingabeaufforderung ein.
 
@@ -91,7 +95,7 @@ Führen Sie die folgenden Schritte auf einem Computer aus, auf dem Windows Serve
 
 Geben Sie dem hostingdienstanbieter die Vorlage für abgeschirmte Datenträger sowie eine geschützte Datendatei an, die Sie erstellen, wie unter [Erstellen von Schutz Daten zum Definieren einer abgeschirmten VM](guarded-fabric-tenant-creates-shielding-data.md)beschrieben.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Bereitstellen von abgeschirmten VMs](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
 - [Geschütztes Fabric und abgeschirmte VMs](guarded-fabric-and-shielded-vms-top-node.md)

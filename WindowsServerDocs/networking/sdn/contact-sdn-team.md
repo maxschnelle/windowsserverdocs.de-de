@@ -8,24 +8,24 @@ ms.topic: article
 ms.assetid: f9945c55-c2d0-448f-86dd-8c734e1b2987
 ms.author: anpaul
 author: AnirbanPaul
-ms.openlocfilehash: ed8041750f2b57526a173d7cacb5f221ce1f9722
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 45baf6966fc0bc703dcf354e557b9d4eeab8e9d9
+ms.sourcegitcommit: 0ccc7b2caa1781f0c67e1a3cc52c0b0f6a175ad4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80860743"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87819581"
 ---
 # <a name="contact-the-datacenter-and-cloud-networking-team"></a>Kontaktieren des Datencenter- und Cloud Networking-Teams
 
 > Gilt für: Windows Server 2016
 
-Software- **defined Networking \(Sdn\)** und **Container Netzwerk** Lösungen von Microsoft werden vom Rechenzentrum und cloudnetzwerkteam erstellt. Verwenden Sie diese Seite, um sich mit dem Team in Verbindung zu setzen, um Fragen zu stellen, Feedback bereitzustellen, Fehler zu melden oder Funktionsanforderungen zu stellen.
+Die **Software Defined Networking- \( Sdn \) ** und **Container** Lösungen von Microsoft werden vom Rechenzentrum und cloudnetzwerkteam erstellt. Verwenden Sie diese Seite, um sich mit dem Team in Verbindung zu setzen, um Fragen zu stellen, Feedback bereitzustellen, Fehler zu melden oder Funktionsanforderungen zu stellen.
 
 Es gibt zahlreiche Möglichkeiten zum Kontaktieren von Microsoft-Teams, und während wir unser Bestes Sdn-Team nutzen, um alle von unserer Community verwendeten Wege zu verfolgen, finden Sie hier eine Liste der Foren, die tendenziell die aktivsten sind. *Dabei handelt es sich um wichtige Ressourcen für unsere Benutzer. Daher handelt es sich hierbei um die Möglichkeiten, die wir am nächsten sehen.*
 
 ## <a name="twitter"></a>[Twitter](https://twitter.com/Microsoft_SDN)
 
-Vor kurzem haben wir unsere Anwesenheit auf Twitter als [@Microsoft_SDN](https://twitter.com/Microsoft_SDN)gestartet. Sie können unser Twitter-Handle verwenden, um Fragen zu stellen, Feedback zu geben oder Feature-/Dokument-Anforderungen zu stellen.
+Vor kurzem haben wir unsere Anwesenheit auf Twitter als gestartet [@Microsoft_SDN](https://twitter.com/Microsoft_SDN) . Sie können unser Twitter-Handle verwenden, um Fragen zu stellen, Feedback zu geben oder Feature-/Dokument-Anforderungen zu stellen.
 > Zusätzlich zu einem Ort, an dem Sie Fragen/Feedback/Anfragen beantworten können, empfiehlt es sich, Twitter an der Stelle zu erhalten, an der Sie Ihren "Feed" auf allen Sdn-und Windows-Container-Netzwerken beziehen können. Twitter ist der erste Ort, an dem wir **Neuigkeiten veröffentlichen**, **neue Features** ankündigen und die Community auf alle unsere **neuesten Blogs und Ressourcen**verweisen.
 
 ## <a name="github-microsoftsdn-repo"></a>GitHub (Repository für[Microsoft/Sdn](https://github.com/Microsoft/SDN/issues))
@@ -33,10 +33,10 @@ Wechseln Sie [hier](https://github.com/Microsoft/SDN/issues) , um über unser Gi
 
 > GitHub ist der beste Ort, um uns über Themen zu kontaktieren, die detaillierter sind als die Arten von Dingen, die Sie problemlos in einen Tweet einfügen können. *Benötigen Sie Hilfe bei der Sdn-Bereitstellung? Sie sind nicht sicher, wie unsere Features für die individuellen Anforderungen Ihrer Organisation geeignet sind? Werden Sie durch einen potenziellen Fehler gehalten?* Alle guten Gründe, um uns durch das Einreichen eines GitHub-Problems zu kontaktieren.
 
-## <a name="microsoft-docs"></a>[Microsoft-Dokumentation](https://docs.microsoft.com/)
+## <a name="microsoft-docs"></a>[Microsoft Docs](https://docs.microsoft.com/)
 Unsere [Container-Netzwerk Dokumentation](https://docs.microsoft.com/virtualization/windowscontainers/manage-containers/container-networking) finden Sie auf [Microsoft-Dokumentation (docs.Microsoft.com)](https://docs.microsoft.com/), die über eine **integrierte Kommentarfunktion**verfügt. Zum verlassen oder zum Antworten auf einen Kommentar zu Microsoft-Dokumentation melden Sie sich einfach an, Scrollen Sie nach unten zum unteren Rand der Microsoft-Dokumentation Seite, auf die Sie verweisen möchten, und stellen Sie dann Ihren Kommentar dort ein.
 
-> [Microsoft-Dokumentation](https://docs.microsoft.com/) ist die neue einheitliche Dokumentations Website von Microsoft. Während die meiste [Sdn-Dokumentation](https://technet.microsoft.com/windows-server-docs/networking/sdn/software-defined-networking) unseres Teams auf TechNet verbleibt, ist unsere [Container-Netzwerk Dokumentation](https://docs.microsoft.com/virtualization/windowscontainers/manage-containers/container-networking) nun auf Microsoft-Dokumentation.
+> [Microsoft-Dokumentation](https://docs.microsoft.com/) ist die neue einheitliche Dokumentations Website von Microsoft. Während die meiste [Sdn-Dokumentation](https://technet.microsoft.com/windows-server-docs/networking/sdn/software-defined-networking) unseres Teams auf TechNet verbleibt, ist unsere [Container-Netzwerk Dokumentation](https://docs.microsoft.com/virtualization/windowscontainers) nun auf Microsoft-Dokumentation.
 > 
 > *Wenn Sie in einem Thema Microsoft-Dokumentation, das eine Frage auslöst oder Sie mehr benötigen, können Sie einfach einen Kommentar auf dieser Seite hinterlassen, damit Sie Ihr Feedback an das Microsoft-Team weitergeben können, das Ihnen helfen kann.*
 
@@ -46,4 +46,4 @@ Sie können auf dieser Seite auch beliebige Möglichkeiten verwenden, um Feedbac
 - [GitHub (virtualisierungsrepository)](https://github.com/Microsoft/Virtualization-Documentation) : am besten für die Suche nach *Hilfe zur Problem* Behandlung und *Fehlerberichterstattung*
 
 ### <a name="not-seeing-the-forum-for-you"></a>Sie sehen das Forum nicht für Sie? 
-Wir empfehlen, wann immer möglich, unsere öffentlichen Foren zu verwenden, damit die breitere Community von dem Zugriff auf die Fragen und Kommentare profitieren kann, die auf dem besten Weg sind. Es gibt jedoch auch Situationen, in denen die e-Mail-Nachricht einfach die bevorzugte Methode ist, sich mit uns in Verbindung zu setzen. Wenn Sie sich in einer dieser Situationen befinden, senden Sie uns eine e-Mail an sdn_feedback@microsoft.com, und wir freuen uns, von Ihnen zu hören.
+Wir empfehlen, wann immer möglich, unsere öffentlichen Foren zu verwenden, damit die breitere Community von dem Zugriff auf die Fragen und Kommentare profitieren kann, die auf dem besten Weg sind. Es gibt jedoch auch Situationen, in denen die e-Mail-Nachricht einfach die bevorzugte Methode ist, sich mit uns in Verbindung zu setzen. Wenn Sie sich in einer dieser Situationen befinden, senden Sie uns eine e-Mail an, sdn_feedback@microsoft.com und wir freuen uns, Sie von Ihnen zu hören.
