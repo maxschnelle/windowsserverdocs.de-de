@@ -7,19 +7,19 @@ ms.assetid: 2fdbc016-d464-43cb-bd75-8a63e61588a2
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 6ebacd42df17d1d1aa840bc77dfdbb23a1ab48e7
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: 4057e0d6805c7633bf07960d06d97b2eab15f28a
+ms.sourcegitcommit: 04637054de2bfbac66b9c78bad7bf3e7bae5ffb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87181486"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87838089"
 ---
 # <a name="build-multi-language-client-restore-media"></a>Erstellen des mehrsprachigen Mediums zur Clientwiederherstellung
 
 >Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
 > [!NOTE]
->  Sie müssen zuerst ein mehrsprachiges Windows-Abbild erstellen, wie unter Exemplarische Vorgehensweise: Erstellen von [Windows-Images](https://technet.microsoft.com/library/jj126995) in mehreren Sprachen beschrieben, bevor Sie "install. wim" das Windows Server Essentials sprach Pack hinzufügen
+>  Sie müssen zuerst ein mehrsprachiges Windows-Abbild erstellen, wie unter Exemplarische Vorgehensweise: Erstellen von [Windows-Images](/previous-versions/windows/it-pro/windows-8.1-and-8/jj126995(v=win.10)) in mehreren Sprachen beschrieben, bevor Sie "install. wim" das Windows Server Essentials sprach Pack hinzufügen
 
  Beim Erstellen der mehrsprachigen Serverinstallations-DVD werden für "Install.wim" für Server die Sprachpakete installiert. Als Bestandteil des Sprachpakets werden die lokalisierten Ressourcen für den Wiederherstellungs-Assistenten installiert.
 
@@ -87,4 +87,3 @@ ms.locfileid: "87181486"
 ## <a name="see-also"></a>Weitere Informationen
 
  [Erstellen und Anpassen des Images](Creating-and-Customizing-the-Image.md) [weitere Anpassungen](Additional-Customizations.md) [Vorbereiten des Abbilds für die Bereitstellung](Preparing-the-Image-for-Deployment.md) [Testen der Kundenfreundlichkeit](Testing-the-Customer-Experience.md)
-

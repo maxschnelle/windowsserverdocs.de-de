@@ -7,12 +7,12 @@ ms.technology: storagespaces
 ms.topic: article
 author: cosmosdarwin
 ms.date: 03/15/2019
-ms.openlocfilehash: 6c3e16f0965be5fc7de4bdc7bd751fb1dd193556
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 311edb38f4cdf1dac153d843811442d5eafbce05
+ms.sourcegitcommit: acfdb7b2ad283d74f526972b47c371de903d2a3d
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86962202"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87769748"
 ---
 # <a name="nested-resiliency-for-storage-spaces-direct"></a>Direkte Speicherplätze für die
 
@@ -58,9 +58,9 @@ Direkte Speicherplätze in Windows Server 2019 bietet zwei neue resilienzoptione
 
 - **Gespiegelte gespiegelte Spiegelung.** Kombinieren Sie die geduckte bidirektionale Spiegelung von oben mit der gespiegelten Parität. Innerhalb jedes Servers wird die lokale Resilienz für die meisten Daten durch eine einzelne [bitweise Paritäts Arithmetik](storage-spaces-fault-tolerance.md#parity)bereitgestellt, mit Ausnahme neuer neuer Schreibvorgänge, die die bidirektionale Spiegelung verwenden. Anschließend wird die bidirektionale Spiegelung zwischen den Servern durch die bidirektionale Spiegelung gewährleistet. Weitere Informationen zur Funktionsweise der Spiegel beschleunigten Parität finden Sie unter [Spiegel beschleunigter Parität](../refs/mirror-accelerated-parity.md).
 
-  ![Gespiegelte gespiegelte Spiegelung](media/nested-resiliency/nested-mirror-accelerated-parity.png)
+  ![Geschachtelte Parität mit Beschleunigung per Spiegelung](media/nested-resiliency/nested-mirror-accelerated-parity.png)
 
-### <a name="capacity-efficiency"></a>Kapazitäts Effizienz
+### <a name="capacity-efficiency"></a>Kapazitätseffizienz
 
 Kapazitäts Effizienz ist das Verhältnis zwischen nutzbarem Speicherplatz und [volumenbedarf](plan-volumes.md#choosing-the-size-of-volumes). Es beschreibt den Kapazitäts Aufwand, der auf Resilienz zurückzuführen ist, und hängt von der gewählten resilienzoption ab. Ein einfaches Beispiel: das Speichern von Daten ohne Resilienz beträgt eine Kapazitäts Effizienz von 100% (1 TB an Daten belegt 1 TB physischer Speicherkapazität), während die bidirektionale Spiegelung 50% effizient ist (1 TB an Daten nimmt 2 TB an physischer Speicherkapazität).
 
@@ -117,7 +117,7 @@ Wenn Sie die zweistufige Spiegelung verwenden möchten, verweisen Sie auf die `N
 New-Volume -StoragePoolFriendlyName S2D* -FriendlyName Volume01 -StorageTierFriendlyNames NestedMirror -StorageTierSizes 500GB
 ```
 
-#### <a name="nested-mirror-accelerated-parity"></a>Gespiegelte gespiegelte Spiegelung
+#### <a name="nested-mirror-accelerated-parity"></a>Geschachtelte Parität mit Beschleunigung per Spiegelung
 
 Verweisen Sie auf die- `NestedMirror` und- `NestedParity` ebenenvorlagen, und legen Sie zwei Größen fest, eine für jeden Teil des Volumes (Spiegelung zuerst, Parität (Sekunde) Führen Sie beispielsweise Folgendes aus, um ein Volume mit einer Größe von 20% mit einer zwei-Wege-Spiegelung und einer 80%-Parität zu 1 500 erstellen:
 
@@ -129,7 +129,7 @@ New-Volume -StoragePoolFriendlyName S2D* -FriendlyName Volume02 -StorageTierFrie
 
 Volumes, die die Schattens-Resilienz verwenden, werden im [Windows Admin Center](../../manage/windows-admin-center/overview.md) mit eindeutiger Bezeichnung angezeigt, wie im folgenden Screenshot dargestellt. Nachdem Sie erstellt wurden, können Sie Sie mithilfe des Windows Admin Centers wie jedes andere Volume in direkte Speicherplätze verwalten und überwachen.
 
-![](media/nested-resiliency/windows-admin-center.png)
+![Volumeverwaltung im Windows Admin Center](media/nested-resiliency/windows-admin-center.png)
 
 ### <a name="optional-extend-to-cache-drives"></a>Optional: erweitern auf Cache Laufwerke
 
@@ -184,9 +184,9 @@ Nein. Um einen Server Knoten und seine Laufwerke zu ersetzen, befolgen Sie die f
 
 Weitere Informationen finden Sie im Thema [Entfernen von Servern](remove-servers.md) .
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
-- [Übersicht über direkte Speicherplätze](storage-spaces-direct-overview.md)
+- [Direkte Speicherplätze – Übersicht](storage-spaces-direct-overview.md)
 - [Grundlegendes zur Fehlertoleranz in direkte Speicherplätze](storage-spaces-fault-tolerance.md)
 - [Planen von Volumes in direkte Speicherplätze](plan-volumes.md)
 - [Erstellen von Volumes in direkte Speicherplätze](create-volumes.md)

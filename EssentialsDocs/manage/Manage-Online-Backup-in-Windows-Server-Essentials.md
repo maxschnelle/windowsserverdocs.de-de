@@ -7,12 +7,12 @@ ms.assetid: 95a9f593-fad7-4335-bd4d-c7bb8c033efb
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: b3a9ceca5de9971f77175052a604d3e22de07036
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: e5c8a274a8e012ffd24ce6c6c819fa240c9f1095
+ms.sourcegitcommit: 04637054de2bfbac66b9c78bad7bf3e7bae5ffb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87180946"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837889"
 ---
 # <a name="manage-online-backup-in-windows-server-essentials"></a>Verwalten der Onlinesicherung in Windows Server Essentials
 
@@ -84,7 +84,7 @@ ms.locfileid: "87180946"
    >  Sie können auch Ihr eigenes öffentliches Zertifikat verwenden. Um zu erfahren, welches Zertifikat erforderlich ist, klicken Sie auf der Seite **Schnellstart** auf den Link **Zertifikat erwerben**.
 
    > [!NOTE]
-   >   Azure erfordert ein x. 509 v2-Zertifikat mit einem öffentlichen Schlüssel. Weitere Informationen finden Sie unter [Verwalten von Onlinekonten](https://msdn.microsoft.com/library/azure/dn169036.aspx).
+   >   Azure erfordert ein x. 509 v2-Zertifikat mit einem öffentlichen Schlüssel. Weitere Informationen finden Sie unter [Verwalten von Onlinekonten](/previous-versions/azure/dn169036(v=azure.100)).
 
 7. Nachdem Sie das Zertifikat ausgewählt haben, klicken Sie auf **OK** (Häkchen).
 
@@ -437,7 +437,7 @@ ms.locfileid: "87180946"
 ###  <a name="protect-folders-for-online-backup-in-windows-server-essentials"></a><a name="BKMK_18"></a>Schützen von Ordnern für die Online Sicherung in Windows Server Essentials
  Der Unterabschnitt **Geschützte Ordner** im Abschnitt „Onlinesicherung“ des Dashboards enthält eine Liste aller freigegebenen Ordner auf dem Server. Die folgende Tabelle beschreibt die Informationen, die in der Liste enthalten sind.
 
-|Column|BESCHREIBUNG|
+|Column|Beschreibung|
 |------------|-----------------|
 |**Ordner Name:**|Der Name des Ordners, der in die Onlinesicherung eingeschlossen wurde.<br /><br /> Führen Sie zum Hinzufügen oder Ausschließen eines Ordners die Aufgabe **Onlinesicherung konfigurieren** aus.|
 |**Ordner Pfad:**|Der Speicherort des Ordners.|
@@ -446,13 +446,13 @@ ms.locfileid: "87180946"
 ###  <a name="online-backup-history-in-windows-server-essentials"></a><a name="BKMK_19"></a>Verlauf der Online Sicherung in Windows Server Essentials
  Der Unterabschnitt **Sicherungsverlauf** des Abschnitts „Onlinesicherung“ im Dashboard enthält eine Liste der zuletzt erstellten Onlinesicherungen. Erfolgreiche Sicherungen können zum Wiederherstellen von Dateien und Ordnern verwendet werden. Die folgende Tabelle beschreibt die Informationen, die in der Liste enthalten sind.
 
-|Column|BESCHREIBUNG|
+|Column|Beschreibung|
 |------------|-----------------|
 |**Betriebs**|Es gibt zwei Arten von Vorgängen - **Sichern** und **Wiederherstellen**.|
 |**Zeit**|Dies ist die für den letzten Status protokollierte Uhrzeit.|
 |**Status:**|Es gibt fünf Arten von Status: **Erfolg**, **wird**ausgeführt, **abgebrochen**, **Warnung**und nicht **erfolgreich**.|
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Verwalten der Sicherung und Wiederherstellung](Manage-Backup-and-Restore-in-Windows-Server-Essentials.md)
 

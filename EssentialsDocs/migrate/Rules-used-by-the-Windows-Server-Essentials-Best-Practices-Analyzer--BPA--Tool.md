@@ -7,12 +7,12 @@ ms.assetid: 37e1dae7-586c-4dd7-bf83-7e14a9567c8f
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: b84372394204353d0410da63d74f785c0e8fd07e
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: eea437a5867a602a84483a41fe129d64425bcb88
+ms.sourcegitcommit: 04637054de2bfbac66b9c78bad7bf3e7bae5ffb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87180506"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87838439"
 ---
 # <a name="rules-used-by-the-windows-server-essentials-best-practices-analyzer-bpa-tool"></a>Von Windows Server Essentials Best Practices Analyzer (BPA) verwendete Regeln
 
@@ -525,7 +525,7 @@ In diesem Artikel werden die Regeln beschrieben, die vom Windows Server Essentia
 
  **Auswirkung:**  Wenn der Administrator eine Warnung erstellt und die Warnung so konfiguriert, dass Sie ausgeführt wird, wenn der Administrator nicht angemeldet ist, schlägt die Warnung mit dem Fehlercode 2147943785 fehl.
 
- **Lösung:**  Informationen dazu, wie Sie der integrierten Gruppe "Administratoren" die Berechtigung zum Anmelden als Batch Auftrag erteilen, finden Sie [unter erteilen](https://technet.microsoft.com/library/jj635076) der Berechtigung zum Anmelden als Batch Auftrag für die integrierte Administrator Gruppe https://technet.microsoft.com/library/jj635076) .
+ **Lösung:**  Informationen dazu, wie Sie der integrierten Gruppe "Administratoren" die Berechtigung zum Anmelden als Batch Auftrag erteilen, finden Sie [unter erteilen](/previous-versions/orphan-topics/ws.11/jj635076(v=ws.11)) der Berechtigung zum Anmelden als Batch Auftrag für die integrierte Administrator Gruppe https://technet.microsoft.com/library/jj635076) .
 
 ### <a name="the-windows-firewall-is-turned-off"></a>Die Windows-Firewall ist deaktiviert
  **Problem:**  Die Windows-Firewall ist ausgeschaltet. Der Standardwert ist "Ein".

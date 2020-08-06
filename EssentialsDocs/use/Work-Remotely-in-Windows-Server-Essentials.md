@@ -7,12 +7,12 @@ ms.assetid: 8b183f8f-1279-4fdf-a495-c7c801563cb0
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 873f37d154d36593279584035486212efe9da5c2
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: e2771abd6f59b81cd56a91bd2aeb7717c9093882
+ms.sourcegitcommit: 04637054de2bfbac66b9c78bad7bf3e7bae5ffb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87179316"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87838179"
 ---
 # <a name="work-remotely-in-windows-server-essentials"></a>Remote-Arbeit in Windows Server Essentials
 
@@ -74,14 +74,14 @@ ms.locfileid: "87179316"
 
 - [Installieren von My Server 2012 R2 für Windows Phone](http://www.windowsphone.com/store/app/my-server-2012-r2/44f596b5-0477-4096-b96e-ddd6ef64ad6b)
 
-  Weitere Informationen zur My Server-Phone-App finden Sie im Blogbeitrag [My Server Phone App for Windows Server Essentials](https://blogs.technet.com/b/sbs/archive/2012/09/18/my-server-phone-app-for-windows-server-2012-essentials.aspx). Informationen zur Windows Phone-App "My Server 2012 R2" finden Sie im Blogbeitrag [My Server 2012 R2 Windows and Windows Phone apps](https://blogs.technet.com/b/sbs/archive/2013/11/19/my-server-2012-r2-windows-and-windows-phone-apps.aspx).
+  Weitere Informationen zur My Server-Phone-App finden Sie im Blogbeitrag [My Server Phone App for Windows Server Essentials](/archive/blogs/sbs/my-server-phone-app-for-windows-server-2012-essentials). Informationen zur Windows Phone-App "My Server 2012 R2" finden Sie im Blogbeitrag [My Server 2012 R2 Windows and Windows Phone apps](/archive/blogs/sbs/my-server-2012-r2-windows-and-windows-phone-apps).
 
 ##  <a name="use-microsoft-office-365-with-windows-server-essentials"></a><a name="BKMK_O365"></a>Verwenden von Microsoft Office 365 mit Windows Server Essentials
 
  Office 365 ist ein bedienfreundliches webfähiges Toolset, mit dem Sie von nahezu überall und von praktisch jedem Gerät aus auf E-Mails, wichtige Dokumente, Kontakte und Kalender zugreifen können. Weitere Informationen finden [Sie unter Schnellstarthandbuch to using Microsoft Office 365](Quick-Start-Guide-to-Using-Microsoft-Office-365-with-Windows-Server-Essentials.md).
 
 
-## <a name="see-also"></a>Weitere Informationen
+## <a name="see-also"></a>Siehe auch
 
 -   [Verwalten von %%amp;quot;Zugriff überall%%amp;quot;](../manage/Manage-Anywhere-Access-in-Windows-Server-Essentials.md)
 
@@ -90,4 +90,3 @@ ms.locfileid: "87179316"
 -   [Verwenden von freigegebenen Ordnern](Use-Shared-Folders-in-Windows-Server-Essentials.md)
 
 -   [Wiedergeben von digitalen Medien](Play-Digital-Media-in-Windows-Server-Essentials.md)
-

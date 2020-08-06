@@ -6,12 +6,12 @@ ms.topic: article
 ms.assetid: 3f8485e4-e10f-4f38-8a5e-d5227abd0d84
 author: nnamuhcs
 ms.author: daveba
-ms.openlocfilehash: 249ff5f77d525792d5bf53719fcf1ee93bc955a4
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: 8bae98123ee5c8365304243e9f2487218bb5230f
+ms.sourcegitcommit: 04637054de2bfbac66b9c78bad7bf3e7bae5ffb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87180966"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837809"
 ---
 # <a name="manage-office-365-in-windows-server-essentials"></a>Verwalten von Office 365 in Windows Server Essentials
 
@@ -146,7 +146,7 @@ Wenn Sie Ihren Windows Server Essentials-Server in Microsoft Office 365 integrie
 
 1. **Erwerben eines Domänennamens** Das bedeutet, registrieren Sie ihn über eine Domänenregistrierungsstelle oder einen DNS-Hostinganbieter.
 
-   -   Wählen Sie einen Domänen Namen aus, der mit Office 365 funktioniert. Sie können einen Domänen Namen auf zweiter Ebene verwenden, z. b. buycontoso.com?, aber keinen Domänen Namen auf der dritten Ebene, z. b. Marketing.contoso.com. Weitere Informationen zum Auswählen einer Domäne für die Verwendung in Office 365 finden Sie unter [Domänen](https://technet.microsoft.com/library/office-365-domains.aspx).
+   -   Wählen Sie einen Domänen Namen aus, der mit Office 365 funktioniert. Sie können einen Domänen Namen auf zweiter Ebene verwenden, z. b. buycontoso.com?, aber keinen Domänen Namen auf der dritten Ebene, z. b. Marketing.contoso.com. Weitere Informationen zum Auswählen einer Domäne für die Verwendung in Office 365 finden Sie unter [Domänen](/office365/servicedescriptions/office-365-platform-service-description/domains).
 
    -   Erwerben Sie es von einer Domänen Registrierungsstelle, die die von Office 365 benötigten DNS-Einträge (Domain Nameserver) zulässt. Informationen dazu, welche Domänenregistrierungsstellen die erforderlichen DNS-Einträge ermöglichen, finden Sie unter [Erwerben eines Domänennamens](https://office.microsoft.com/office365-suite-help/how-to-buy-a-domain-name-HA102819883.aspx?CTT=5&origin=HA102818660). Wenn Sie Ihre Domäne bereits bei einer anderen Registrierungsstelle registriert haben, machen Sie sich keine Sorgen. Sie können die Domäne in eine andere Registrierungsstelle übertragen, wenn Sie die Domäne mit Office 365 verknüpfen.
 
@@ -282,11 +282,11 @@ Wenn Sie Ihren Windows Server Essentials-Server in Microsoft Office 365 integrie
 
 2.  Wenn der Fehler erneut auftritt, starten Sie den Server neu, und versuchen Sie es erneut.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
--   [Übersicht über die Dienst Integration für Windows Server Essentials-Teil 1](https://blogs.technet.com/b/sbs/archive/2013/11/04/services-integration-overview-for-windows-server-2012-r2-essentials-part-1.aspx)
+-   [Übersicht über die Dienst Integration für Windows Server Essentials-Teil 1](/archive/blogs/sbs/services-integration-overview-for-windows-server-2012-r2-essentials-part-1)
 
--   [Übersicht über die Dienst Integration für Windows Server Essentials-Teil 2](https://blogs.technet.com/b/sbs/archive/2013/11/06/services-integration-overview-for-windows-server-2012-r2-essentials-part-2.aspx)
+-   [Übersicht über die Dienst Integration für Windows Server Essentials-Teil 2](/archive/blogs/sbs/services-integration-overview-for-windows-server-2012-r2-essentials-part-2)
 
 -   [Erste Schritte für die Verwendung von Microsoft Office 365](../use/Quick-Start-Guide-to-Using-Microsoft-Office-365-with-Windows-Server-Essentials.md)
 

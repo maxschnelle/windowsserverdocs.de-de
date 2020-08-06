@@ -7,12 +7,12 @@ ms.assetid: d9f18b29-8e03-439e-bdf0-1dac5e4f70c5
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: d48c314e5dd1655d23e7423c473163befb3655b9
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: e55c717b1eeb5b8f75ebfb7b48abd656dd4ddaa3
+ms.sourcegitcommit: 04637054de2bfbac66b9c78bad7bf3e7bae5ffb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87180786"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87838427"
 ---
 # <a name="demote-and-remove-the-source-server-from-the-new-windows-server-essentials-network1"></a>Tiefer stufen und Entfernen des Quell Servers aus dem neuen Windows Server Essentials network1
 
@@ -53,7 +53,7 @@ Nachdem Sie die Installation von Windows Server Essentials abgeschlossen haben u
 
    > [!NOTE]
    >
-   >  Exchange-Server überprüft, um sicherzustellen, dass keine Postfächer oder Öffentlichen Ordner auf dem Server vorhanden sind. Wenn irgendwelche Daten verbleiben, wird eine Fehlermeldung angezeigt, wenn Sie auf **Entfernen** klicken. Um dieses Problem zu vermeiden, stellen Sie sicher, dass Sie alle Verfahren im Thema [Verschieben von SBS 2003-Einstellungen und Daten auf den Ziel Server](Move-Windows-SBS-2003-settings-and-data-to-the-Destination-Server-for-Windows-Server-Essentials-migration.md)abgeschlossen haben.
+   >  Exchange-Server überprüft, um sicherzustellen, dass keine Postfächer oder Öffentlichen Ordner auf dem Server vorhanden sind. Wenn irgendwelche Daten verbleiben, wird eine Fehlermeldung angezeigt, wenn Sie auf **Entfernen** klicken. Um dieses Problem zu vermeiden, stellen Sie sicher, dass Sie alle Verfahren im Thema [Verschieben von SBS 2003-Einstellungen und Daten auf den Ziel Server](./move-windows-sbs-2003-to-the-destination-server-for-migration.md)abgeschlossen haben.
 
 
 6. Klicken Sie auf **Weiter**.

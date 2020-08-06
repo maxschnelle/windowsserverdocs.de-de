@@ -7,12 +7,12 @@ ms.assetid: 1836682e-c7bb-4dd5-a2b5-6ff032693574
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 861404db4d6b5e0d4cfd4db95056f583f9068a0b
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: 0ee5669fc9ae6e1ee4e38065792d3da7611900a4
+ms.sourcegitcommit: 04637054de2bfbac66b9c78bad7bf3e7bae5ffb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87180906"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837729"
 ---
 # <a name="manage-server-storage-in-windows-server-essentials"></a>Verwalten von Serverspeicher in Windows Server Essentials
 
@@ -193,7 +193,7 @@ ms.locfileid: "87180906"
 > [!NOTE]
 >  Wenn Sie Speicherplätze auf einem Server konfigurieren, auf dem Windows Server Essentials ausgeführt wird, können Sie mit der Option **Daten bereinigen** keine Werkseinstellungen zurücksetzen. Um dieses Problem zu umgehen, entfernen Sie zunächst die Speicherplätze, und führen Sie dann eine Wiederherstellung der Herstellerstandards mit der Option **Daten bereinigen** aus.
 
- Weitere Informationen zu Speicherplätzen finden Sie unter [Häufig gestellte Fragen zu Speicherplätzen](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-faq).
+ Weitere Informationen zu Speicherplätzen finden Sie unter [Häufig gestellte Fragen zu Speicherplätzen](/windows-server/storage/storage-spaces/storage-spaces-direct-faq).
 
 ##  <a name="create-a-storage-space"></a><a name="BKMK_6"></a>Erstellen eines Speicherplatzes
  Wenn Sie mit Speicherplätzen auf einem Server arbeiten möchten, müssen die folgenden Mindestanforderungen erfüllt sein:
@@ -231,7 +231,7 @@ ms.locfileid: "87180906"
 
    Informationen zum Erhöhen der Speicherpoolkapazität finden Sie unter [Use the new hard drive to increase storage pool capacity](Manage-Server-Storage-in-Windows-Server-Essentials.md#BKMK_4c).
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Verwalten von Serverordnern](Manage-Server-Folders-in-Windows-Server-Essentials.md)
 

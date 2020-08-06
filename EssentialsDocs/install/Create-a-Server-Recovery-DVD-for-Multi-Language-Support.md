@@ -6,12 +6,12 @@ ms.topic: article
 ms.assetid: c7da0f6c-9732-4784-9c28-7dad72c4071d
 author: daveba
 ms.author: daveba
-ms.openlocfilehash: e00bf2db8216489787ba3a476a79d7567d4d0d78
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: 3c415155734515af004e25a07c4e61afabaa3359
+ms.sourcegitcommit: 04637054de2bfbac66b9c78bad7bf3e7bae5ffb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87181416"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87838009"
 ---
 # <a name="create-a-server-recovery-dvd-for-multi-language-support"></a>Erstellen einer Serverwiederherstellungs-DVD für die Unterstützung mehrerer Sprachen
 
@@ -20,7 +20,7 @@ ms.locfileid: "87181416"
 ##  <a name="create-a-server-setup-and-server-recovery-dvd-for-multiple-language-support-on-locally-administered-servers"></a><a name="BKMK_MLHeadedRecovery"></a>Erstellen einer Server Setup-und serverwiederherstellungs-DVD für die Unterstützung mehrerer Sprachen auf lokal verwalteten Servern
 
 > [!NOTE]
->  Sie müssen zuerst ein mehrsprachiges Windows-Abbild erstellen, wie unter Exemplarische Vorgehensweise: Erstellen von [Windows-Images](https://technet.microsoft.com/library/jj126995) in mehreren Sprachen beschrieben, bevor Sie "install. wim" das Windows Server Essentials sprach Pack hinzufügen
+>  Sie müssen zuerst ein mehrsprachiges Windows-Abbild erstellen, wie unter Exemplarische Vorgehensweise: Erstellen von [Windows-Images](/previous-versions/windows/it-pro/windows-8.1-and-8/jj126995(v=win.10)) in mehreren Sprachen beschrieben, bevor Sie "install. wim" das Windows Server Essentials sprach Pack hinzufügen
 
  Es gibt zwei Konfigurationsphasen: die Konfiguration von Windows Preinstallation Environment (Windows PE) und die Erstkonfiguration. Standardmäßig wird bei der Erstkonfiguration die Sprachauswahlseite nicht angezeigt.
 
@@ -63,7 +63,7 @@ ms.locfileid: "87181416"
  In diesem Schritt fügen Sie "install. wim" Windows Server 2012-und Windows Server Essentials Language Packs hinzu.
 
 > [!NOTE]
->  Vergewissern Sie sich, dass Sie Sprachpakete für Windows Server 2012 installieren. Dadurch wird das richtige Branding sichergestellt. Die Sprachpakete für die mehrsprachige Benutzeroberfläche von Windows Server 2012 sind auf [Microsoft.com](https://www.microsoft.com/OEM/en/installation/downloads/Pages/technical-downloads.aspx)verfügbar. Befolgen Sie die Anweisungen unter Exemplarische Vorgehensweise [: Erstellen von Windows-Images](https://technet.microsoft.com/library/jj126995.aspx) in mehreren Sprachen zum Erstellen eines mehrsprachigen Windows-Abbilds, bevor Sie "install. wim" das Windows Server Essentials-Sprachpaket hinzufügen.
+>  Vergewissern Sie sich, dass Sie Sprachpakete für Windows Server 2012 installieren. Dadurch wird das richtige Branding sichergestellt. Die Sprachpakete für die mehrsprachige Benutzeroberfläche von Windows Server 2012 sind auf [Microsoft.com](https://www.microsoft.com/OEM/en/installation/downloads/Pages/technical-downloads.aspx)verfügbar. Befolgen Sie die Anweisungen unter Exemplarische Vorgehensweise [: Erstellen von Windows-Images](/previous-versions/windows/it-pro/windows-8.1-and-8/jj126995(v=win.10)) in mehreren Sprachen zum Erstellen eines mehrsprachigen Windows-Abbilds, bevor Sie "install. wim" das Windows Server Essentials-Sprachpaket hinzufügen.
 >
 >  Windows Server Essentials Language Packs sind auf dem Sprachpaket Medium unter \language Packs \\<cultureName verfügbar \> .
 
@@ -104,4 +104,3 @@ ms.locfileid: "87181416"
 ## <a name="see-also"></a>Weitere Informationen
 
  [Erstellen und Anpassen des Images](Creating-and-Customizing-the-Image.md) [weitere Anpassungen](Additional-Customizations.md) [Vorbereiten des Abbilds für die Bereitstellung](Preparing-the-Image-for-Deployment.md) [Testen der Kundenfreundlichkeit](Testing-the-Customer-Experience.md)
-

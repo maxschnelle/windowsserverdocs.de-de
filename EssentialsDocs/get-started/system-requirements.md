@@ -7,12 +7,12 @@ ms.assetid: 0951a67d-492f-41ad-9ae5-8e4cd25e3041
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 295022c45a82d18781df27604d47d58af14b4b2d
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: b82435dc9d0018d3ac3fa5c6855b18bcddbd2797
+ms.sourcegitcommit: 04637054de2bfbac66b9c78bad7bf3e7bae5ffb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87181636"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87838099"
 ---
 # <a name="system-requirements-for-windows-server-essentials"></a>Systemanforderungen für Windows Server Essentials
 
@@ -33,7 +33,7 @@ ms.locfileid: "87181636"
 
 ## <a name="table-2-additional-hardware-and-software-requirements-for-windows-server-essentials"></a>Tabelle 2: Zusätzliche Hardware-und Softwareanforderungen für Windows Server Essentials
 
-|Komponente|BESCHREIBUNG|
+|Komponente|Beschreibung|
 |---------------|-----------------|
 |Netzwerkadapter|Gigabit-Ethernet-Adapter (10/100/1000baseT PHY/MAC)|
 |Internet|Für einige Funktionen ist möglicherweise ein Internetzugang (ggf. kostenpflichtig) oder ein Microsoft-Konto erforderlich.|
@@ -45,15 +45,13 @@ ms.locfileid: "87181636"
 
  Weitere Informationen zu den Hardwareanforderungen finden Sie im [Windows Server-Katalog](https://www.windowsservercatalog.com/).
 
- Die gesamte Server Hardware sollte die Anforderungen erfüllen, die für das Windows Server 2012 R2-Logo Programm für Systeme festgelegt wurden. Weitere Informationen finden Sie unter [Windows Logo-Programm](https://msdn.microsoft.com/windows/hardware/gg487403.aspx).
+ Die gesamte Server Hardware sollte die Anforderungen erfüllen, die für das Windows Server 2012 R2-Logo Programm für Systeme festgelegt wurden. Weitere Informationen finden Sie unter [Windows Logo-Programm](/previous-versions/windows/hardware/hck/dn641155(v=vs.85)).
 
 > [!IMPORTANT]
 > Dynamische Datenträger werden in Windows Server Essentials nicht unterstützt.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Installieren von Windows Server Essentials](../install/Install-Windows-Server-Essentials.md)
 
 -   [Systemanforderungen für Windows Server Essentials](system-requirements.md)
-
-

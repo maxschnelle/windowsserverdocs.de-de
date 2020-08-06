@@ -7,12 +7,12 @@ ms.technology: networking-da
 ms.topic: article
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 6bb92a1a6f569cb5b43fa3cf3861220b8b570fb9
-ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
+ms.openlocfilehash: 4a7d784c38db692110559d9e2ce1f1f7c760313a
+ms.sourcegitcommit: acfdb7b2ad283d74f526972b47c371de903d2a3d
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87518115"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87769738"
 ---
 # <a name="step-1-plan-the-basic-directaccess-infrastructure"></a>Schritt 1 Planen der grundlegenden DirectAccess-Infrastruktur
 Der erste Schritt bei einer einfachen DirectAccess-Bereitstellung auf einem einzelnen Server ist die Planung der Infrastruktur, die für die Bereitstellung erforderlich ist. In diesem Thema werden die Schritte zur Planung der Infrastruktur beschrieben:
@@ -48,7 +48,7 @@ Diese Planungsaufgaben müssen nicht in einer bestimmten Reihenfolge durchgefüh
 
 3.  Konfigurieren Sie erforderliche Adapter und Adressen entsprechend folgender Tabelle. Bei bereit Stellungen hinter einem NAT-Gerät mit einem einzelnen Netzwerkadapter sollten Sie Ihre IP-Adressen nur mit der Spalte **interner Netzwerkadapter** konfigurieren.
 
-    ||Externer Netzwerkadapter|Interner Netzwerkadapter<sup>1</sup>|Routinganforderungen|
+    |BESCHREIBUNG|Externer Netzwerkadapter|Interner Netzwerkadapter<sup>1</sup>|Routinganforderungen|
     |-|--------------|--------------------|------------|
     |IPv4-Intranet und IPv4-Internet|Konfigurieren Sie Folgendes:<p>-Eine statische öffentliche IPv4-Adresse mit der entsprechenden Subnetzmaske.<br />-Eine Standard-Gateway-IPv4-Adresse Ihres Internet Firewall-oder lokalen Internetdienstanbieter-Routers (ISP).|Konfigurieren Sie Folgendes:<p>: Eine IPv4-Intranetadresse mit der entsprechenden Subnetzmaske.<br />: Ein Verbindungs spezifisches DNS-Suffix des Intranetnamespaces. Zudem sollte ein DNS-Server auf der internen Schnittstelle konfiguriert werden.<br />-Konfigurieren Sie kein Standard Gateway auf Intranetschnittstellen.|Gehen Sie wie folgt vor, um den DirectAccess-Server so zu konfigurieren, dass er alle Subnetze auf dem internen IPv4-Netzwerk erreicht:<p>1. Listen Sie die IPv4-Adressbereiche für alle Speicherorte im Intranet auf.<br />2. verwenden Sie die Befehle **Route Add-p** oder **Netsh Interface IPv4 Add Route** , um die IPv4-Adressbereiche als statische Routen in der IPv4-Routing Tabelle des DirectAccess-Servers hinzuzufügen.|
     |IPv6-Internet und IPv6-Intranet|Konfigurieren Sie Folgendes:<p>-Verwenden Sie die automatisch konfigurierte Adress Konfiguration, die von Ihrem ISP bereitgestellt wird.<br />Verwenden Sie den Befehl **Route Print** , um sicherzustellen, dass in der IPv6-Routing Tabelle eine IPv6-Standardroute vorhanden ist, die auf den ISP-Router zeigt.<br />: Bestimmen Sie, ob der ISP-und der Intranetrouter in RFC 4191 beschriebene Standard Router-Einstellungen verwenden, und verwenden Sie eine höhere Standardeinstellung als ihre lokalen Intranetrouter. Wenn beide Fälle zutreffen, ist keine weitere Konfiguration für die Standardroute erforderlich. Die höhere Präferenz für den ISP-Router stellt sicher, dass die aktive IPv6-Standardroute des DirectAccess-Servers auf das IPv6-Internet zeigt.<p>Wenn Sie über eine systemeigene IPv6-Infrastruktur verfügen, kann die Internetschnittstelle außerdem auch die Domänencontroller im Intranet erreichen, da der DirectAccess-Server ein IPv6-Router ist. Fügen Sie in diesem Fall Paketfilter zum Domänencontroller im Perimeternetzwerk hinzu, die Konnektivität zur IPv6-Adresse der Internetschnittstelle des DirectAccess-Servers verhindern.|Konfigurieren Sie Folgendes:<p>Wenn Sie keine Standard Einstellungsebenen verwenden, konfigurieren Sie Ihre Intranetschnittstellen mit dem Befehl **Netsh Interface IPv6 Set interfakeindex ignoredefaultroutes = aktiviert** . Dieser Befehl stellt sicher, dass der IPv6-Routingtabelle keine weiteren Standardrouten hinzugefügt werden, die auf Intranetrouter zeigen. Den Schnittstellenindex Ihrer Intranetschnittstellen können Sie mit dem Befehl "netsh interface show interface" anzeigen.|Wenn Sie ein IPv6-Intranet haben, führen Sie folgende Schritte aus, um den DirectAccess-Server so zu konfigurieren, dass er alle IPv6-Speicherorte erreicht:<p>1. Listen Sie die IPv6-Adressräume für alle Speicherorte im Intranet auf.<br />2. verwenden Sie den Befehl **Netsh Interface IPv6 Add Route** , um die IPv6-Adressbereiche als statische Routen in der IPv6-Routing Tabelle des DirectAccess-Servers hinzuzufügen.|

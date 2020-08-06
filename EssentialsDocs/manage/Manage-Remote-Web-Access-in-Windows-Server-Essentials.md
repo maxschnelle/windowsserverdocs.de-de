@@ -7,12 +7,12 @@ ms.assetid: f3ea40fa-b6ba-4d66-b754-221ca6271387
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 56bfd8d9860ad571265980e859a09914fb4f1b9c
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: 094e5914fee1c5d2a1b6f3c68621fa81b96f21c0
+ms.sourcegitcommit: 04637054de2bfbac66b9c78bad7bf3e7bae5ffb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87180936"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837779"
 ---
 # <a name="manage-remote-web-access-in-windows-server-essentials"></a>Verwalten des Remotewebzugriffs in Windows Server Essentials
 
@@ -135,7 +135,7 @@ ms.locfileid: "87180936"
 7.  Klicken Sie auf **Übernehmen**, und klicken Sie anschließend auf **OK**.
 
 ##  <a name="set-up-your-router"></a><a name="BKMK_2"></a>Einrichten des Routers
- Beim Konfigurieren des Servers für den Remotewebzugriff versucht der Assistent zum Einrichten von "Zugriff überall" den Router einzurichten. Wenn Sie die Router oder Einstellungen des Routers ändern, muss der Assistent zum Einrichten des Routers erneut ausgeführt werden. Weitere Informationen finden Sie in den folgenden Themen:
+ Beim Konfigurieren des Servers für den Remotewebzugriff versucht der Assistent zum Einrichten von "Zugriff überall" den Router einzurichten. Wenn Sie die Router oder Einstellungen des Routers ändern, muss der Assistent zum Einrichten des Routers erneut ausgeführt werden. Weitere Informationen finden Sie unter den folgenden Themen:
 
 -   [Einrichten des Routers](Manage-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_SetUpRouter)
 
@@ -151,7 +151,7 @@ ms.locfileid: "87180936"
 > [!NOTE]
 > Die Netzwerkverbindung sollte die unterstützte Netzwerkanforderung für Windows Server Essentials erfüllen. Im Netzwerk sollte nur ein Router vorhanden sein.
 
- Wenn der Router nicht mit dem Assistenten zum Einrichten des Domänennamens eingerichtet wurde, müssen Sie Port 443 manuell weiterleiten. Informationen zum Einrichten der Port Weiterleitung auf dem Router finden Sie im [Small Business Server-Forum](https://docs.microsoft.com/answers/topics/windows-small-business-server.html).
+ Wenn der Router nicht mit dem Assistenten zum Einrichten des Domänennamens eingerichtet wurde, müssen Sie Port 443 manuell weiterleiten. Informationen zum Einrichten der Port Weiterleitung auf dem Router finden Sie im [Small Business Server-Forum](/answers/topics/windows-small-business-server.html).
 
 ###  <a name="replace-a-router"></a><a name="BKMK_ReplaceRouter"></a>Ersetzen eines Routers
  Ersetzen Sie den Router gemäß den Anweisungen des Herstellers, und führen Sie dann den Assistenten zum Einrichten des Routers aus, um den neuen Router zu konfigurieren.
@@ -197,7 +197,7 @@ ms.locfileid: "87180936"
 4.  Klicken Sie zweimal auf **OK**, um die Änderungen zu übernehmen und das Dialogfeld zu schließen.
 
 ##  <a name="set-up-your-domain-name"></a><a name="BKMK_3"></a>Einrichten des Domänen Namens
- Nach dem Aktivieren des Remotewebzugriffs können Sie einen Domänennamen für den Server mit Windows Server Essentials einrichten. Dieser Schritt ist erforderlich, wenn Sie den Remotewebzugriff auf einem Remotecomputer verwenden möchten. Weitere Informationen finden Sie in den folgenden Themen:
+ Nach dem Aktivieren des Remotewebzugriffs können Sie einen Domänennamen für den Server mit Windows Server Essentials einrichten. Dieser Schritt ist erforderlich, wenn Sie den Remotewebzugriff auf einem Remotecomputer verwenden möchten. Weitere Informationen finden Sie unter den folgenden Themen:
 
 -   [Übersicht über Domänennamen](Manage-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_DNOverview)
 
@@ -306,7 +306,7 @@ ms.locfileid: "87180936"
 
  **Beispiele für allgemeine Domänen der obersten Ebene**
 
-|Domänenerweiterung|BESCHREIBUNG|
+|Domänenerweiterung|Beschreibung|
 |----------------------|-----------------|
 |.com|Wird in der Regel von kommerziellen Organisationen verwendet, steht aber zur Verwendung frei.|
 |.net|Speziell für Unternehmen, die Netzwerkinfrastrukturdienste anbieten.|
@@ -318,7 +318,7 @@ ms.locfileid: "87180936"
 
  **Beispiele für Domänen der obersten Ebene auf Ländercodeebene**
 
-|Domänenerweiterung|BESCHREIBUNG|
+|Domänenerweiterung|Beschreibung|
 |----------------------|-----------------|
 |.ca|Für die Verwendung durch Websites in Kanada|
 |.cn|Für die Verwendung durch Websites in China|
@@ -379,7 +379,7 @@ ms.locfileid: "87180936"
 5. Der Name des Domain Name Service-Anbieter wird in den Suchergebnissen unter **Registrierungsstelle** aufgeführt.
 
 ##  <a name="customize-remote-web-access"></a><a name="BKMK_4"></a>Remote Webzugriff anpassen
- Sie können die Remotewebzugriffssite mit einem persönlichen Logo oder Hintergrundbild anpassen. Sie können auch Links auf der Startseite hinzufügen, sodass diese Informationen allen Benutzern zur Verfügung stehen. Weitere Informationen finden Sie in den folgenden Themen:
+ Sie können die Remotewebzugriffssite mit einem persönlichen Logo oder Hintergrundbild anpassen. Sie können auch Links auf der Startseite hinzufügen, sodass diese Informationen allen Benutzern zur Verfügung stehen. Weitere Informationen finden Sie unter den folgenden Themen:
 
 -   [Anpassen des Remotewebzugriffs](Manage-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_CustomizeRWA)
 
@@ -453,7 +453,7 @@ ms.locfileid: "87180936"
 
 -   [Problembehandlung von "Zugriff überall"](../support/Troubleshoot-Anywhere-Access-in-Windows-Server-Essentials.md)
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Remotedesktop-Optionen](Remote-desktop-options.md)
 

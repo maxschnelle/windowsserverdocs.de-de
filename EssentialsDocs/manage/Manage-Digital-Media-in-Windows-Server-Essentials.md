@@ -7,12 +7,12 @@ ms.assetid: 9378bffa-487c-43ca-9ec3-7e7864d2dd9a
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: e4f3cf42cdf9343be106660b74041c059fdc7073
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: c59fd121fdf628fc0943214b699599f2f20625b3
+ms.sourcegitcommit: 04637054de2bfbac66b9c78bad7bf3e7bae5ffb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87180996"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837829"
 ---
 # <a name="manage-digital-media-in-windows-server-essentials"></a>Verwalten von digitalen Medien in Windows Server Essentials
 
@@ -130,7 +130,7 @@ In den folgenden Themen werden die Medienstreaming-Funktionen des Servers und da
  Der Server Administrator kann freigegebenen Ordnern in der Medienbibliothek digitale Medien hinzufügen, indem er direkt auf den Server zugreift oder sich über den Remote Webzugriff-Standort bei dem Dashboard anmeldet. Andere Benutzer können dem Server Mediendateien mithilfe der Verbindung frei **gegebene Ordner** auf dem Launchpad, mithilfe der Remote Webzugriff-Website oder mithilfe der My Server-App für Windows Phone hinzufügen. Weitere Informationen zum Wiedergeben von Medien finden Sie unter Wiedergeben von [digitalen Medien](../use/Play-Digital-Media-in-Windows-Server-Essentials.md).
 
 > [!NOTE]
->  Sie können Mediendateien auch mit der My Server-App für Windows Phone auf den Server hochladen. Sie können die My Server-Apps aus dem [Windows Phone Store](https://www.windowsphone.com/store/app/my-server/6c2f98d5-6fcf-4e1d-b8b1-cde62ea1a94a)herunterladen. Weitere Informationen zur My Server-App für Windows Phone finden Sie im Blogbeitrag [My Server Phone App for Windows Server Essentials](https://blogs.technet.com/b/sbs/archive/2012/09/18/my-server-phone-app-for-windows-server-2012-essentials.aspx).
+>  Sie können Mediendateien auch mit der My Server-App für Windows Phone auf den Server hochladen. Sie können die My Server-Apps aus dem [Windows Phone Store](https://www.windowsphone.com/store/app/my-server/6c2f98d5-6fcf-4e1d-b8b1-cde62ea1a94a)herunterladen. Weitere Informationen zur My Server-App für Windows Phone finden Sie im Blogbeitrag [My Server Phone App for Windows Server Essentials](/archive/blogs/sbs/my-server-phone-app-for-windows-server-2012-essentials).
 
 #### <a name="to-add-digital-media-files-to-shared-folders-on-the-server"></a>So fügen Sie digitale Mediendateien freigegebenen Ordnern auf dem Server hinzu
 
@@ -243,7 +243,7 @@ In den folgenden Themen werden die Medienstreaming-Funktionen des Servers und da
 
  Zusätzliche Informationen zu unterstützten Dateiformaten finden Sie unter [Von Windows Media Player unterstützte Dateitypen](https://go.microsoft.com/fwlink/p/?LinkID=196118) und für Silverlight unter [Unterstützte Medienformate, Protokolle und Protokollfelder](https://go.microsoft.com/fwlink/p/?LinkId=203339) .
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Wiedergeben von digitalen Medien](../use/Play-Digital-Media-in-Windows-Server-Essentials.md)
 

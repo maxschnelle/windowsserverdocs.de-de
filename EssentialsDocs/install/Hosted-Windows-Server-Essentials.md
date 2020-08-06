@@ -7,12 +7,12 @@ ms.assetid: fda5628c-ad23-49de-8d94-430a4f253802
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 55d4059361189a0117bfd197c030fb860a1b10bd
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: 73ac5bb39280277a50af84f489e3a9c5ccb0db05
+ms.sourcegitcommit: 04637054de2bfbac66b9c78bad7bf3e7bae5ffb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87181226"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837999"
 ---
 # <a name="hosted-windows-server-essentials"></a>Gehostete Windows Server Essentials-Lösung
 
@@ -25,7 +25,7 @@ Dieses Dokument enthält spezifische Informationen für Hoster, die Windows Serv
 
  **Server Betriebssystem:** Windows Server 2012-Produkttechnologien sind der Kern von Windows Server Essentials. Weitere Informationen finden Sie auf der Website zu [Windows Server 2012](https://www.microsoft.com/server-cloud/products/windows-server-2012-r2/default.aspx#fbid=ZH0GD_CRAWh).
 
- **Datenschutz:** Windows Server Essentials nutzt mehrere neue Features, die in Windows Server 2012 verfügbar sind, um erheblich verbesserte Funktionen zum Schutz von Daten bereitzustellen. Mithilfe des [neuen Features "Speicherplätze"](https://technet.microsoft.com/library/hh831739.aspx) können Sie die physische Speicherkapazität verschiedenartiger Festplatten aggregieren, Festplatten dynamisch hinzufügen und Datenvolumes mit bestimmten Ausfallsicherheitsstufen erstellen. Windows Server Essentials kann vollständige System Sicherungen und Bare-Metal-Wiederherstellungen des Servers selbst sowie der mit dem Netzwerk verbundenen Client Computer durchführen? mit Unterstützung für Volumes, die größer als 2 TB sind. Eine neue Funktion in Windows Server 2012, nämlich [Microsoft Azure Online Backup](https://technet.microsoft.com/library/hh831419.aspx) , kann verwendet werden, um Dateien und Ordner in einem cloudbasierten Speicherdienst zu schützen, der von Microsoft verwaltet wird. Windows Server Essentials verwaltet und konfiguriert außerdem das Feature "Datei Versionsverlauf" von Windows 8.1 Clients zentral, sodass Benutzer versehentlich gelöschte oder überschrieben Dateien ohne Unterstützung durch den Administrator wiederherstellen können.
+ **Datenschutz:** Windows Server Essentials nutzt mehrere neue Features, die in Windows Server 2012 verfügbar sind, um erheblich verbesserte Funktionen zum Schutz von Daten bereitzustellen. Mithilfe des [neuen Features "Speicherplätze"](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831739(v=ws.11)) können Sie die physische Speicherkapazität verschiedenartiger Festplatten aggregieren, Festplatten dynamisch hinzufügen und Datenvolumes mit bestimmten Ausfallsicherheitsstufen erstellen. Windows Server Essentials kann vollständige System Sicherungen und Bare-Metal-Wiederherstellungen des Servers selbst sowie der mit dem Netzwerk verbundenen Client Computer durchführen? mit Unterstützung für Volumes, die größer als 2 TB sind. Eine neue Funktion in Windows Server 2012, nämlich [Microsoft Azure Online Backup](/previous-versions/azure/hh831419(v=azure.100)) , kann verwendet werden, um Dateien und Ordner in einem cloudbasierten Speicherdienst zu schützen, der von Microsoft verwaltet wird. Windows Server Essentials verwaltet und konfiguriert außerdem das Feature "Datei Versionsverlauf" von Windows 8.1 Clients zentral, sodass Benutzer versehentlich gelöschte oder überschrieben Dateien ohne Unterstützung durch den Administrator wiederherstellen können.
 
  **Zugriff überall:** Remotewebzugriff bietet optimale, für die Toucheingabe geeignete Browserfunktionen, um von nahezu allen Orten mit Internetverbindung und über fast alle Geräte auf Anwendungen und Daten zuzugreifen. Windows Server Essentials bietet außerdem eine aktualisierte Windows Phone-APP und eine neue APP für Windows 8.1 Client Computer, sodass Benutzer intuitiv eine Verbindung mit Dateien und Ordnern auf dem Server herstellen, diese durchsuchen und auf diese zugreifen können. Dateien werden automatisch für den Offlinezugriff zwischengespeichert und synchronisiert, sobald eine Verbindung mit dem Server verfügbar wird. Windows Server Essentials schaltet die Einrichtung von virtuellen privaten Netzwerken (VPN) in einen einfach zu einem Assistenten gesteuerten Prozess mit wenigen Klicks um und vereinfacht die Verwaltung von VPN-Zugriff für Benutzer. Clientcomputer können eine VPN-Verbindung nutzen, um remote auf die Windows SBS-Umgebung zuzugreifen, sodass der Weg ins Büro nicht mehr erforderlich ist.
 
@@ -33,10 +33,10 @@ Dieses Dokument enthält spezifische Informationen für Hoster, die Windows Serv
 
  System **Überwachung:** Windows Server Essentials überwacht seinen eigenen Integritäts Status und den Status von Client Computern, auf denen Windows 8.1, Windows 7 und Mac OS X Version 10,5 und höher ausgeführt wird. Der Integritätsstatus benachrichtigt Sie u. a. bei Problemen im Zusammenhang mit Computersicherungen, dem Serverspeicher und wenig Speicherplatz.
 
- **Erweiterbarkeit:** Windows Server Essentials baut auf dem Erweiterbarkeits Modell von Windows SSB 2011 Essentials auf, das es anderen Softwareanbietern ermöglicht, dem Kernprodukt Funktionen und Features hinzuzufügen und einen neuen Satz von Webdienst-APIs hinzuzufügen. Das Feature sichert auch Kompatibilität mit dem vorhandenen [Software Development Kit](https://msdn.microsoft.com/library/gg513958.aspx) (SDK) und [Add-Ins](https://pinpoint.microsoft.com/applications/search?fpt=300105&q=small+business+server+essentials) , die für Windows SBS 2011 Essentials erstellt wurden.
+ **Erweiterbarkeit:** Windows Server Essentials baut auf dem Erweiterbarkeits Modell von Windows SSB 2011 Essentials auf, das es anderen Softwareanbietern ermöglicht, dem Kernprodukt Funktionen und Features hinzuzufügen und einen neuen Satz von Webdienst-APIs hinzuzufügen. Das Feature sichert auch Kompatibilität mit dem vorhandenen [Software Development Kit](/previous-versions/windows/server-essentials/gg513958(v=msdn.10)) (SDK) und [Add-Ins](https://pinpoint.microsoft.com/applications/search?fpt=300105&q=small+business+server+essentials) , die für Windows SBS 2011 Essentials erstellt wurden.
 
 ## <a name="how-can-i-customize-an-image"></a>Wie wird ein Abbild angepasst?
- Weitere Informationen finden Sie unter [Windows Server Essentials](https://go.microsoft.com/fwlink/p/?LinkID=249124), einem standardmäßigen Windows Server-System Vorbereitungsprozess mit zusätzlichen Windows Server Essentials-Anpassungs Schritten. Befolgen Sie zum Beenden der Anpassung die Anweisungen unter [Erstellen eines einfachen angepassten Abbilds](https://technet.microsoft.com/library/jj200117) und [Anpassen des Abbilds](https://technet.microsoft.com/library/jj200161). Befolgen Sie dann die Anweisungen unter [Vorbereiten des Abbilds für die Bereitstellung](https://technet.microsoft.com/library/jj200142) , um das endgültige Abbild aufzuzeichnen.
+ Weitere Informationen finden Sie unter [Windows Server Essentials](https://go.microsoft.com/fwlink/p/?LinkID=249124), einem standardmäßigen Windows Server-System Vorbereitungsprozess mit zusätzlichen Windows Server Essentials-Anpassungs Schritten. Befolgen Sie zum Beenden der Anpassung die Anweisungen unter [Erstellen eines einfachen angepassten Abbilds](/previous-versions/windows/it-pro/windows-server-essentials-sbs/jj200117(v=ws.11)) und [Anpassen des Abbilds](/previous-versions/windows/it-pro/windows-server-essentials-sbs/cc514417(v=msdn.10)). Befolgen Sie dann die Anweisungen unter [Vorbereiten des Abbilds für die Bereitstellung](/previous-versions/windows/it-pro/windows-server-essentials-sbs/jj200142(v=ws.11)) , um das endgültige Abbild aufzuzeichnen.
 
  Beachten Sie folgende Punkte:
 
@@ -83,7 +83,7 @@ Dieses Dokument enthält spezifische Informationen für Hoster, die Windows Serv
 
    1.  Geben Sie die Datei "unattend.xml" wie zuvor an, wenn die Bereitstellung von WinPE-Setup aus startet.
 
-   2.  Informationen zum Generieren des cfg.ini finden Sie im Abschnitt Windows Server Essentials ADK mit dem Titel [Erstellen der Cfg.ini Datei](https://technet.microsoft.com/library/jj200150).
+   2.  Informationen zum Generieren des cfg.ini finden Sie im Abschnitt Windows Server Essentials ADK mit dem Titel [Erstellen der Cfg.ini Datei](/previous-versions/windows/it-pro/windows-server-essentials-sbs/jj200150(v=ws.11)).
 
    3.  Geben Sie diese Informationen in [InitialConfiguration] an.
 
@@ -319,7 +319,7 @@ $Add-WssFolder -Name "MyTestFolder" -Path "C:\ServerFolders\MyTestFolder"
 > [!NOTE]
 >  Die Clientsicherung kann sich auf die Leistung auswirken, da die Daten über VPN vom Client an den Server übertragen werden müssen.
 
- Die **vollständige Client Sicherung** ist standardmäßig für alle Client Geräte aktiviert, die mit dem Windows Server Essentials-Netzwerk verbunden sind. Bei der vollständigen Clientsicherung wird der komplette Client (System und Daten) inkrementell gesichert und die Datendeduplizierung unterstützt. Die Sicherungsdaten befinden sich auf dem Server, auf dem Windows Server Essentials ausgeführt wird. Ein Client, auf dem ein Fehler aufgetreten ist, kann seine Daten auf einen früheren Sicherungspunkt wiederherstellen. Sie können diese Funktion deaktivieren, indem Sie die Schritte im Abschnitt Erstellen der Cfg.ini Datei im [ADK-Dokument](https://technet.microsoft.com/library/jj200150)ausführen.
+ Die **vollständige Client Sicherung** ist standardmäßig für alle Client Geräte aktiviert, die mit dem Windows Server Essentials-Netzwerk verbunden sind. Bei der vollständigen Clientsicherung wird der komplette Client (System und Daten) inkrementell gesichert und die Datendeduplizierung unterstützt. Die Sicherungsdaten befinden sich auf dem Server, auf dem Windows Server Essentials ausgeführt wird. Ein Client, auf dem ein Fehler aufgetreten ist, kann seine Daten auf einen früheren Sicherungspunkt wiederherstellen. Sie können diese Funktion deaktivieren, indem Sie die Schritte im Abschnitt Erstellen der Cfg.ini Datei im [ADK-Dokument](/previous-versions/windows/it-pro/windows-server-essentials-sbs/jj200150(v=ws.11))ausführen.
 
  Beachten Sie vor einer vollständigen Clientsicherung Folgendes:
 
@@ -333,10 +333,10 @@ $Add-WssFolder -Name "MyTestFolder" -Path "C:\ServerFolders\MyTestFolder"
 
 - Bare-Metal-Recovery des Clients: Da Windows Preinstall Environment keine VPN-Verbindungen unterstützt, wird die Bare-Metal-Recovery des Clients nicht unterstützt.
 
-  Der **Datei Versionsverlauf** ist eine Windows 8.1 Funktion zum Sichern von Profildaten (Bibliotheken, Desktop, Kontakte, Favoriten) auf einer Netzwerkfreigabe. In Windows Server Essentials wird die zentrale Verwaltung der Datei Versions Verlaufs Einstellung für alle Windows 8.1 Clients ermöglicht, die mit Windows Server Essentials verknüpft sind. Die Sicherungsdaten werden auf dem Server gespeichert, auf dem Windows Server Essentials ausgeführt wird. Sie können diese Funktion deaktivieren, indem Sie die Schritte im Abschnitt Erstellen der Cfg.ini Datei im [ADK-Dokument](https://technet.microsoft.com/library/jj200150)ausführen.
+  Der **Datei Versionsverlauf** ist eine Windows 8.1 Funktion zum Sichern von Profildaten (Bibliotheken, Desktop, Kontakte, Favoriten) auf einer Netzwerkfreigabe. In Windows Server Essentials wird die zentrale Verwaltung der Datei Versions Verlaufs Einstellung für alle Windows 8.1 Clients ermöglicht, die mit Windows Server Essentials verknüpft sind. Die Sicherungsdaten werden auf dem Server gespeichert, auf dem Windows Server Essentials ausgeführt wird. Sie können diese Funktion deaktivieren, indem Sie die Schritte im Abschnitt Erstellen der Cfg.ini Datei im [ADK-Dokument](/previous-versions/windows/it-pro/windows-server-essentials-sbs/jj200150(v=ws.11))ausführen.
 
 ### <a name="storage-management"></a>Speicherverwaltung
- Mithilfe des [neuen Features "Speicherplätze"](https://technet.microsoft.com/library/hh831739.aspx) können Sie die physische Speicherkapazität verschiedenartiger Festplatten aggregieren, Festplatten dynamisch hinzufügen und Datenvolumes mit bestimmten Ausfallsicherheitsstufen erstellen. Sie können auch einen iSCSI-Datenträger an Windows Server Essentials anfügen, um den Speicher zu erweitern.
+ Mithilfe des [neuen Features "Speicherplätze"](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831739(v=ws.11)) können Sie die physische Speicherkapazität verschiedenartiger Festplatten aggregieren, Festplatten dynamisch hinzufügen und Datenvolumes mit bestimmten Ausfallsicherheitsstufen erstellen. Sie können auch einen iSCSI-Datenträger an Windows Server Essentials anfügen, um den Speicher zu erweitern.
 
 ## <a name="what-are-the-main-scenarios-i-should-test"></a>Welche Szenarien sollten hauptsächlich getestet werden?
  Aus der Perspektive des Hostens sollten Sie am besten folgende Szenarien testen:

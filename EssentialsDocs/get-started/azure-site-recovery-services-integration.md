@@ -7,18 +7,18 @@ ms.assetid: 262701a6-8a97-4c4e-bfbf-9f8007c308d6
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: e17d60b4931f4858f915bd177f05e85eb1fc5f6a
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: 7c30d99bd1a0019130f7e39f70b289effd6935c4
+ms.sourcegitcommit: 04637054de2bfbac66b9c78bad7bf3e7bae5ffb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87181686"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87838249"
 ---
 # <a name="azure-site-recovery-services-integration"></a>Azure Site Recovery Services-Integration
 
 >Gilt für: Windows Server 2016 Essentials
 
-[Azure Site Recovery Services](https://docs.microsoft.com/azure/site-recovery/) ist ein Dienst, der durch Microsoft Azure die Echt Zeit Replikation ihrer virtuellen Computer (VM) in einem Sicherungs Tresor in Azure ermöglicht. Wenn Ihr Server oder Standort aufgrund eines Hardwarefehlers oder eines anderen Fehlers ausfällt, können Sie ein Failover zu Azure ausführen, wobei das in Ihrem Sicherungs Tresor gespeicherte VM-Image als laufender virtueller Computer in Azure bereitgestellt wird. In Kombination mit einem virtuellen Azure-Netzwerk stellen Client-PCs, die zuvor mit dem lokalen Server verbunden waren, eine transparente Verbindung mit dem Server her, der in Azure ausgeführt wird.
+[Azure Site Recovery Services](/azure/site-recovery/) ist ein Dienst, der durch Microsoft Azure die Echt Zeit Replikation ihrer virtuellen Computer (VM) in einem Sicherungs Tresor in Azure ermöglicht. Wenn Ihr Server oder Standort aufgrund eines Hardwarefehlers oder eines anderen Fehlers ausfällt, können Sie ein Failover zu Azure ausführen, wobei das in Ihrem Sicherungs Tresor gespeicherte VM-Image als laufender virtueller Computer in Azure bereitgestellt wird. In Kombination mit einem virtuellen Azure-Netzwerk stellen Client-PCs, die zuvor mit dem lokalen Server verbunden waren, eine transparente Verbindung mit dem Server her, der in Azure ausgeführt wird.
 
 Die Integration von Azure Site Recovery Services in Windows Server Essentials beginnt auf die gleiche Weise wie das Konfigurieren von [virtuellen Azure-Netzwerken](azure-virtual-network-integration.md). Klicken Sie im Dashboard auf der **Microsoft Cloud Dienste-Integrations** Seite auf in **Azure Site Recovery Dienste integrieren** rechts neben dem Dashboard:
 
@@ -62,6 +62,6 @@ In den drei oben genannten Fällen zeigt das Windows Server Essentials-Dashboard
 
 ![Ein Screenshot, der die Azure-Wiederherstellungs Seite des Windows Server Essentials-Dashboards anzeigt. Die Replikation in Azure wurde für einen Host mit dem Namen Essentials aktiviert, und ein virtueller Computer namens Essentials-Test wird in Azure ausgeführt und zeigt an, dass für den Host ein Failover zu Azure ausgeführt wurde.](media/azure-site-recovery-8.PNG)
 
-<a name="see-also"></a>Weitere Informationen
+<a name="see-also"></a>Siehe auch
 --------
 [Erste Schritte in Windows Server Essentials](get-started.md)

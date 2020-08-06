@@ -7,12 +7,12 @@ ms.assetid: f1e6b377-4a24-4d28-9b25-05910914826b
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: ab964839dbdf8b2907d68c42c80e9d8f93d5bc75
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: 3d1428fa258f661636d599dd8dcf41acaaf59082
+ms.sourcegitcommit: 04637054de2bfbac66b9c78bad7bf3e7bae5ffb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87180256"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87838279"
 ---
 # <a name="troubleshoot-computer-monitoring-in-windows-server-essentials"></a>Problembehandlung für das Überwachen der Computer in Windows Server Essentials
 
@@ -21,7 +21,7 @@ ms.locfileid: "87180256"
 Dieses Thema enthält Informationen zur Problembehandlung bei Problemen, die beim Überwachen des Integritäts Status von Computern in der Meldungs Anzeige und per e-Mail in Windows Server Essentials auftreten.
 
 > [!NOTE]
-> Die aktuellsten Informationen zur Problembehandlung aus der Windows Server Essentials-Community finden Sie im [Windows Server Essentials-Forum](https://docs.microsoft.com/answers/topics/windows-server-essentials.html). Das Windows Server Essentials-Forum eignet sich optimal, um nach Hilfe zu suchen oder um Fragen zu stellen.
+> Die aktuellsten Informationen zur Problembehandlung aus der Windows Server Essentials-Community finden Sie im [Windows Server Essentials-Forum](/answers/topics/windows-server-essentials.html). Das Windows Server Essentials-Forum eignet sich optimal, um nach Hilfe zu suchen oder um Fragen zu stellen.
 
 ## <a name="troubleshooting-email-notifications-for-alerts"></a>Problembehandlung für E-Mail-Benachrichtigungen für Warnungen
 

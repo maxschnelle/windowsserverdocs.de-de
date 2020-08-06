@@ -7,12 +7,12 @@ ms.assetid: 5cc73aff-d2c0-4cf9-a23d-ef928ae5ddc9
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: cbc6fec843a55d99ba709953b56e01a55f317a62
-ms.sourcegitcommit: 145cf75f89f4e7460e737861b7407b5cee7c6645
+ms.openlocfilehash: 933dab3e0471ef4b9d8e4f603a1c177ecc6fc70c
+ms.sourcegitcommit: 04637054de2bfbac66b9c78bad7bf3e7bae5ffb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87409520"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87838289"
 ---
 # <a name="troubleshoot-computer-backup-and-restore-errors-in-windows-server-essentials"></a>Problembehebung bei Computersicherungs- und Wiederherstellungsfehlern in Windows Server Essentials
 
@@ -21,7 +21,7 @@ ms.locfileid: "87409520"
 Verwenden Sie diese Verfahren für die Problembehandlung von Computersicherungen in Windows Server Essentials, einschließlich Sicherungskonfigurationsproblemen, unvollständige oder nicht erfolgreiche Sicherungen, Sicherungsstatuswarnungen und Probleme mit Datei-, Ordner- oder vollständigen Systemwiederherstellungen.
 
 > [!NOTE]
-> Die neuesten Informationen zur Problembehandlung aus der Windows Server Essentials-Community finden Sie im [Windows Server Essentials-Forum](https://docs.microsoft.com/answers/topics/windows-server-essentials.html).
+> Die neuesten Informationen zur Problembehandlung aus der Windows Server Essentials-Community finden Sie im [Windows Server Essentials-Forum](/answers/topics/windows-server-essentials.html).
 
 ## <a name="troubleshoot-backup-configuration-issues-for-a-connected-computer"></a>Behandeln von Sicherungskonfigurationsproblemen für einen verbundenen Computer
 
@@ -240,6 +240,6 @@ Wenn Sie den Namen eines Computers ändern und später eine Sicherung wiederhers
 
 4. Verbinden Sie den Computer erneut mit dem Server. Weitere Informationen finden Sie unter [Verbinden von Computern mit dem Server](../use/Get-Connected-in-Windows-Server-Essentials.md#BKMK_9).
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Unterstützung von Windows Server Essentials](Support-Windows-Server-Essentials.md)

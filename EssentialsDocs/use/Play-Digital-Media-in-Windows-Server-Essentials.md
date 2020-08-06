@@ -7,12 +7,12 @@ ms.assetid: 5f570492-ee21-471b-92c1-3fd9bfb84f55
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: c8f490f09f9623aa82b42f2103f2fd3e95537d7d
-ms.sourcegitcommit: 145cf75f89f4e7460e737861b7407b5cee7c6645
+ms.openlocfilehash: 1ce7359929cb1658cc84418231fb7d65efce8692
+ms.sourcegitcommit: 04637054de2bfbac66b9c78bad7bf3e7bae5ffb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87409510"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87838219"
 ---
 # <a name="play-digital-media-in-windows-server-essentials"></a>Wiedergeben von digitalen Medien in Windows Server Essentials
 
@@ -182,7 +182,7 @@ Digitale Medien sind Audio-, Video- und Fotoinhalte, die digital komprimiert wur
 
 
 > [!NOTE]
->  Sie können Mediendateien auch mit der My Server-App für Windows Phone auf den Server hochladen. Sie können die My Server-Apps aus dem [Windows Phone Store](http://www.windowsphone.com/store/app/my-server/6c2f98d5-6fcf-4e1d-b8b1-cde62ea1a94a)herunterladen. Weitere Informationen zur My Server-App für Windows Phone finden Sie im Blogbeitrag [My Server Phone App for Windows Server Essentials](https://blogs.technet.com/b/sbs/archive/2012/09/18/my-server-phone-app-for-windows-server-2012-essentials.aspx).
+>  Sie können Mediendateien auch mit der My Server-App für Windows Phone auf den Server hochladen. Sie können die My Server-Apps aus dem [Windows Phone Store](http://www.windowsphone.com/store/app/my-server/6c2f98d5-6fcf-4e1d-b8b1-cde62ea1a94a)herunterladen. Weitere Informationen zur My Server-App für Windows Phone finden Sie im Blogbeitrag [My Server Phone App for Windows Server Essentials](/archive/blogs/sbs/my-server-phone-app-for-windows-server-2012-essentials).
 
 #### <a name="to-add-digital-media-files-to-shared-folders-on-the-server"></a>So fügen Sie digitale Mediendateien freigegebenen Ordnern auf dem Server hinzu
 
@@ -222,7 +222,7 @@ Digitale Medien sind Audio-, Video- und Fotoinhalte, die digital komprimiert wur
   Vor Beginn des eigentlichen Downloads wird die EXE- oder ZIP-Datei erstellt. Abhängig von der Anzahl der Dateien und der Gesamtgröße der Downloaddateien kann dies einige Minuten dauern. Nachdem die Downloaddatei erstellt wurde, erfolgt das Herunterladen der Datei im Hintergrund. Dadurch können Sie weiterarbeiten, während der Downloadvorgang ausgeführt wird.
 
 ##  <a name="easy-file-upload-tool"></a><a name="BKMK_6"></a>Einfaches Tool zum Hochladen von Dateien
- Das Tool "einfacher Datei Upload" optimiert das Hochladen von Dateien auf Ihren Windows Server Essentials-Server. Sie können dem Tool "einfacher Datei Upload" beliebig viele Dateien hinzufügen und Sie dann in einem einzigen Batch in die freigegebenen Ordner auf dem Windows Server Essentials-Server hochladen. Weitere Informationen finden Sie im Blogbeitrag [Grundlegendes zur Dateifreigabe mit Remotewebzugriff](https://blogs.technet.com/b/sbs/archive/2012/04/19/understanding-remote-web-access-file-sharing.aspx).
+ Das Tool "einfacher Datei Upload" optimiert das Hochladen von Dateien auf Ihren Windows Server Essentials-Server. Sie können dem Tool "einfacher Datei Upload" beliebig viele Dateien hinzufügen und Sie dann in einem einzigen Batch in die freigegebenen Ordner auf dem Windows Server Essentials-Server hochladen. Weitere Informationen finden Sie im Blogbeitrag [Grundlegendes zur Dateifreigabe mit Remotewebzugriff](/archive/blogs/sbs/understanding-remote-web-access-file-sharing).
 
 ##  <a name="view-and-browse-shared-digital-media"></a><a name="BKMK_7"></a>Anzeigen und Durchsuchen von freigegebenen digitalen Medien
  Sie können Ressourcen entweder über das Dashboard, das Launchpad, die Website für Remotewebzugriff oder die My Server-App für Windows Phone anzeigen oder durchsuchen.
@@ -253,7 +253,7 @@ Digitale Medien sind Audio-, Video- und Fotoinhalte, die digital komprimiert wur
 
 3.  Doppelklicken Sie auf einen Ordner, um dessen Inhalt anzuzeigen.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Verwalten von digitalen Medien](../manage/Manage-Digital-Media-in-Windows-Server-Essentials.md)
 

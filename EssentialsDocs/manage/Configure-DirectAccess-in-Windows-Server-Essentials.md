@@ -7,12 +7,12 @@ ms.assetid: c959b6fc-c67e-46cd-a9cb-cee71a42fa4c
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: a1f568d34fd0fbd94d09046b59a93d21feb60890
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: e24d6ce2e123deb741bcd39dc77f9a893a27df89
+ms.sourcegitcommit: 04637054de2bfbac66b9c78bad7bf3e7bae5ffb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87181076"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837909"
 ---
 # <a name="configure-directaccess-in-windows-server-essentials"></a>Konfigurieren von DirectAccess in Windows Server Essentials
 
@@ -23,7 +23,7 @@ Dieses Thema enthält Schritt-für-Schritt-Anleitungen zum Konfigurieren von Dir
  Wenn die Domäne in Windows Server Essentials mehr als einen Windows Server Essentials-Server enthält, muss DirectAccess auf dem Domänen Controller konfiguriert werden.
 
 > [!NOTE]
->  Dieses Thema enthält Anweisungen zum Konfigurieren von DirectAccess, wenn der Windows Server Essentials-Server der Domänen Controller ist. Wenn der Windows Server Essentials-Server ein Domänen Mitglied ist, befolgen Sie stattdessen die Anweisungen zum Konfigurieren von DirectAccess auf einem Domänen Mitglied in [Hinzufügen von DirectAccess zu einer vorhandenen Remote Zugriffs Bereitstellung (VPN)](https://technet.microsoft.com/library/jj574220.aspx) .
+>  Dieses Thema enthält Anweisungen zum Konfigurieren von DirectAccess, wenn der Windows Server Essentials-Server der Domänen Controller ist. Wenn der Windows Server Essentials-Server ein Domänen Mitglied ist, befolgen Sie stattdessen die Anweisungen zum Konfigurieren von DirectAccess auf einem Domänen Mitglied in [Hinzufügen von DirectAccess zu einer vorhandenen Remote Zugriffs Bereitstellung (VPN)](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj574220(v=ws.11)) .
 
 ## <a name="process-overview"></a>Übersicht über den Prozess
  Führen Sie die folgenden Schritte aus, um DirectAccess in Windows Server Essentials zu konfigurieren.
@@ -207,7 +207,7 @@ Dieses Thema enthält Schritt-für-Schritt-Anleitungen zum Konfigurieren von Dir
 1. Klicken Sie auf dem Server-Manager-Dashboard auf **Tools**, und klicken Sie dann auf **Active Directory-Benutzer und -Computer**.
 
    > [!NOTE]
-   >  Wenn **Active Directory-Benutzer und -Computer** nicht im Menü **Tools** angezeigt wird, müssen Sie das Feature installieren. Um Active Directory-Benutzer und -Gruppen zu installieren, führen Sie das folgende Windows PowerShell-Cmdlet als Administrator aus: `Install-WindowsFeature RSAT-ADDS-Tools`. Weitere Informationen finden Sie unter [Installieren oder Entfernen der Remoteserver-Verwaltungstools](https://technet.microsoft.com/library/cc730825.aspx).
+   >  Wenn **Active Directory-Benutzer und -Computer** nicht im Menü **Tools** angezeigt wird, müssen Sie das Feature installieren. Um Active Directory-Benutzer und -Gruppen zu installieren, führen Sie das folgende Windows PowerShell-Cmdlet als Administrator aus: `Install-WindowsFeature RSAT-ADDS-Tools`. Weitere Informationen finden Sie unter [Installieren oder Entfernen der Remoteserver-Verwaltungstools](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc730825(v=ws.11)).
 
 2. Erweitern Sie in der Konsolenstruktur den Server, klicken Sie mit der rechten Maustaste auf **Benutzer**, klicken Sie auf **Neu**, und klicken Sie dann auf **Gruppe**.
 
@@ -502,7 +502,7 @@ Set-NetNatTransitionConfiguration -IPv4AddressPortPool @("192.168.1.100, 10000-4
 Restart-Service winnat
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Verwalten von %%amp;quot;Zugriff überall%%amp;quot;](Manage-Anywhere-Access-in-Windows-Server-Essentials.md)
 

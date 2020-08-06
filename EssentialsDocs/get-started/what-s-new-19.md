@@ -6,12 +6,12 @@ ms.assetid: affff774-5fa6-4944-887a-9bfde05f6a3f
 author: coreyp-at-msft
 ms.author: coreyp
 manager: jasgroce
-ms.openlocfilehash: 97b5d3df88f10aa55a345e5640a896a8cc25ff76
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: d7e655ba001f72bb6c2a5e68db8032520232bf8d
+ms.sourcegitcommit: 04637054de2bfbac66b9c78bad7bf3e7bae5ffb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87181626"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87838119"
 ---
 # <a name="whats-new-in-windows-server-2019-essentials"></a>Neues in Windows Server 2019 Essentials
 
@@ -34,7 +34,7 @@ Entwickeln Sie Ihr Unternehmen weiter mit [Microsoft 365 Business](https://www.m
 
 ## <a name="aad-connect-can-now-be-installed-on-windows-server-2019-essentials"></a>Aad Connect kann jetzt unter Windows Server 2019 Essentials installiert werden.
 
-Windows Server 2019 Essentials bietet neue Unterstützung für Azure Active Directory über [Aad Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-prerequisites).
+Windows Server 2019 Essentials bietet neue Unterstützung für Azure Active Directory über [Aad Connect](/azure/active-directory/connect/active-directory-aadconnect-prerequisites).
 
 ## <a name="ltsc-support-for-windows-server-2016-essentials"></a>LTSC-Unterstützung für Windows Server 2016 Essentials
 

@@ -8,12 +8,12 @@ ms.topic: get-started-article
 author: nedpyle
 ms.date: 04/15/2020
 ms.assetid: 12bc8e11-d63c-4aef-8129-f92324b2bf1b
-ms.openlocfilehash: 170d023f0548ca9f01ce9575b18563d4a55d2c78
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: 04477ac9d7aa7905a4d5fc4dd58c7891c91f5baf
+ms.sourcegitcommit: acfdb7b2ad283d74f526972b47c371de903d2a3d
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87182376"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87769698"
 ---
 # <a name="frequently-asked-questions-about-storage-replica"></a>Häufig gestellte Fragen zu Speicherreplikaten
 
@@ -22,6 +22,7 @@ ms.locfileid: "87182376"
 In diesem Thema erhalten Sie Antworten auf häufig gestellte Fragen (FAQs) zu Speicherreplikaten.
 
 ## <a name="is-storage-replica-supported-on-azure"></a><a name="FAQ1"></a>Wird das Speicher Replikat in Azure unterstützt?
+
 Ja. Sie können die folgenden Szenarien mit Azure verwenden:
 
 1. Server-zu-Server-Replikation in Azure (synchron oder asynchron zwischen IaaS-VMs in einer oder zwei Rechenzentrums Fehler Domänen oder asynchron zwischen zwei separaten Regionen)
@@ -77,7 +78,9 @@ Update-SmbMultichannelConnection
 
 So konfigurieren Sie Netzwerkeinschränkungen auf einem Stretched Cluster:
 
-    Set-SRNetworkConstraint -SourceComputerName sr-cluster01 -SourceRGName group1 -SourceNWInterface "Cluster Network 1","Cluster Network 2" -DestinationComputerName sr-cluster02 -DestinationRGName group2 -DestinationNWInterface "Cluster Network 1","Cluster Network 2"
+```
+Set-SRNetworkConstraint -SourceComputerName sr-cluster01 -SourceRGName group1 -SourceNWInterface "Cluster Network 1","Cluster Network 2" -DestinationComputerName sr-cluster02 -DestinationRGName group2 -DestinationNWInterface "Cluster Network 1","Cluster Network 2"
+```
 
 ## <a name="can-i-configure-one-to-many-replication-or-transitive-a-to-b-to-c-replication"></a><a name="FAQ4"></a>Kann ich die 1: n-Replikation oder transitiv Replikation (A zu B zu C) konfigurieren?
 Nein, das Speicher Replikat unterstützt nur eine Replikation eines Servers, Clusters oder eines Stretch-Cluster Knotens. In einem späteren Release kann sich dies ändern. Sie können natürlich eine Replikation zwischen verschiedenen Servern eines bestimmten Volume-Paars in beide Richtungen konfigurieren. Beispielsweise kann Server 1 sein D-Volume an Server 2, und sein E-Volume von Server 3 replizieren.
@@ -127,6 +130,7 @@ Geben Sie `New-SRPartnership -ReplicationMode` und das Argument **Asynchronous**
 Um ein automatisches Failover zu verhindern, können Sie `Get-ClusterNode -Name "NodeName").NodeWeight=0` mithilfe von PowerShell konfigurieren. Dadurch wird die Abstimmung auf den einzelnen Knoten am Notfallwiederherstellungsstandort entfernt. Anschließend können Sie `Start-ClusterNode -PreventQuorum` auf Knoten am primären Standort und `Start-ClusterNode -ForceQuorum` auf Knoten am Notfallstandort verwenden, um ein Failover zu erzwingen. Es ist keine grafische Option verfügbar, um ein automatisches Failover zu verhindern, und das Verhindern des automatischen Failovers wird nicht empfohlen.
 
 ## <a name="how-do-i-disable-virtual-machine-resiliency"></a><a name="FAQ11"></a>Wie deaktiviere ich VM-Resilienz?
+
 Führen Sie aus, um zu verhindern, dass die neue resilienzfunktion der virtuellen Hyper-V-Computer ausgeführt wird und daher virtuelle Computer angehalten werden, anstatt Sie an den Notfall Wiederherstellungs Standort zu übergeben.`(Get-Cluster).ResiliencyDefaultPeriod=0`
 
 ## <a name="how-can-i-reduce-time-for-initial-synchronization"></a><a name="FAQ12"></a>Wie kann ich die Zeit für die anfängliche Synchronisierung verkürzen?
@@ -143,53 +147,74 @@ Sie können auch Datenvolumes mit Seeding verwenden, um die Bandbreitennutzung z
 
 Sie können das `Grant-SRDelegation` Cmdlet verwenden. Mit diesem Cmdlet können Sie bestimmte Benutzer in Server-zu-Server-, Cluster-zu-Cluster- und Stretched Cluster-Replikationsszenarien festlegen, die über die Berechtigungen zum Erstellen, Ändern oder Entfernen der Replikation verfügen, ohne Mitglied der lokalen Administratorengruppe zu sein. Beispiel:
 
-    Grant-SRDelegation -UserName contso\tonywang
+```
+Grant-SRDelegation -UserName contso\tonywang
+```
 
 Das Cmdlet weist Sie darauf hin, dass der Benutzer sich beim zu verwaltenden Server ab- und erneut anmelden muss, damit die Änderungen wirksam werden. Diese Konfiguration kann mithilfe von `Get-SRDelegation` und `Revoke-SRDelegation` weiter gesteuert werden.
 
 ## <a name="what-are-my-backup-and-restore-options-for-replicated-volumes"></a><a name="FAQ13"></a>Welche Sicherungs-und Wiederherstellungsoptionen sind für replizierte Volumes verfügbar?
+
 Das Speicherreplikatfeature unterstützt das Sichern und Wiederherstellen des Quellvolumes. Es bietet außerdem Unterstützung für das Erstellen und Wiederherstellen von Momentaufnahmen des Quellvolumes. Das Zielvolume kann nicht gesichert oder wiederhergestellt werden, während es durch das Speicherreplikatfeature geschützt ist. Es ist weder bereitgestellt, noch kann darauf zugegriffen werden. Bei Verlust des Quellvolumes in einem Notfallszenario können Sie mithilfe von `Set-SRPartnership` das vorherige Zielvolume als lesbare und beschreibbare Quelle festlegen, um dieses Volume sichern und wiederherstellen zu können. Sie können die Replikation auch mit `Remove-SRPartnership` und `Remove-SRGroup` entfernen, um das Volume als lesbares und beschreibbares Volume erneut bereitzustellen.
+
 Für eine regelmäßige Erstellung von anwendungskonsistenten Momentaufnahmen können Sie VSSADMIN.EXE auf dem Quellserver ausführen, um Momentaufnahmen der replizierten Datenvolumes zu erstellen. Beispiel für die Replikation des Volumes F: mit dem Speicherreplikatfeature:
 
-    vssadmin create shadow /for=F:
+```
+vssadmin create shadow /for=F:
+```
+
 Anschließend können Sie eine beliebige Momentaufnahme wiederherstellen, nachdem Sie die Replikationsrichtung geändert oder die Replikation entfernt haben bzw. wenn Sie weiterhin dasselbe Quellvolume verwenden. Beispiel, wenn Sie weiterhin F: verwenden:
 
-    vssadmin list shadows
-     vssadmin revert shadow /shadow={shadown copy ID GUID listed previously}
+```
+vssadmin list shadows
+vssadmin revert shadow /shadow={shadown copy ID GUID listed previously}
+```
+
 Mithilfe eines geplanten Tasks können Sie auch die regelmäßige Ausführung dieses Tools planen. Weitere Informationen zur Verwendung von VSS finden Sie unter [Vssadmin](../../administration/windows-commands/vssadmin.md). Das Sichern der Protokollvolumes ist nicht notwendig oder sinnvoll. Der Versuch, diesen Vorgang auszuführen, wird von VSS ignoriert.
+
 Das Speicherreplikatfeature unterstützt die Verwendung von Windows Server-Sicherung, Microsoft Azure Backup, Microsoft DPM oder anderen Momentaufnahme-, VSS-, VM- oder dateibasierten Technologien, sofern diese auf Volume-Ebene eingesetzt werden. Das Speicherreplikatfeature bietet keine Unterstützung für blockbasierte Sicherungen und Wiederherstellungen.
 
 ## <a name="can-i-configure-replication-to-restrict-bandwidth-usage"></a><a name="FAQ14"></a>Kann ich die Replikation konfigurieren, um die Bandbreitennutzung einzuschränken?
+
 Ja, über die SMB-Bandbreiteneinschränkung. Diese globale Einstellung gilt für den gesamten Speicherreplikatdatenverkehr und wirkt sich daher auf sämtliche Replikationsvorgänge von diesem Server aus. Dies ist üblicherweise nur bei der Einrichtung der ersten Speicherreplikatsynchronisierung erforderlich, bei der sämtliche Volumedaten übertragen werden müssen. Wenn eine solche Einschränkung nach der ersten Synchronisierung erforderlich ist, ist Ihre Netzwerkbandbreite zu gering für Ihre E/A-Workload. Reduzieren Sie E/A, oder erhöhen Sie die Bandbreite.
 
 Diese Einstellung sollte nur bei der asynchronen Replikation verwendet werden. Hinweis: Die erste Synchronisierung erfolgt selbst dann immer asynchron, wenn Sie eine synchrone Replikation festgelegt haben.
 Sie können auch die QoS-Netzwerkrichtlinien verwenden, um den Speicherreplikatdatenverkehr einzuschränken. Bei Verwendung der Speicherreplikatreplikation mit durchgeführtem Seeding mit großer Übereinstimmung wird die Bandbreitennutzung bei der ersten Synchronisierung ebenfalls erheblich reduziert.
 
-
 So legen Sie die Bandbreiteneinschränkung fest:
 
-    Set-SmbBandwidthLimit  -Category StorageReplication -BytesPerSecond x
+```
+Set-SmbBandwidthLimit  -Category StorageReplication -BytesPerSecond x
+```
 
 So zeigen Sie die Bandbreiteneinschränkung an:
 
-    Get-SmbBandwidthLimit -Category StorageReplication
+```
+Get-SmbBandwidthLimit -Category StorageReplication
+```
 
 So entfernen Sie die Bandbreiteneinschränkung:
 
-    Remove-SmbBandwidthLimit -Category StorageReplication
+```
+Remove-SmbBandwidthLimit -Category StorageReplication
+```
 
 ## <a name="what-network-ports-does-storage-replica-require"></a><a name="FAQ15"></a>Welche Netzwerkports werden von Speicher Replikaten benötigt?
+
 Das Speicher Replikat ist für die Replikation und Verwaltung von SMB und WSMAN abhängig. Dies bedeutet, dass die folgenden Ports erforderlich sind:
 
- 445 (SMB-Replication Transport Protocol, Cluster RPC Management Protocol) 5445 (IWarp SMB-nur bei Verwendung von IWarp RDMA-Netzwerk erforderlich) 5985 (wsmanhttp-Management-Protokoll für WMI/CIM/PowerShell)
+- 445 (SMB-Replikations Transportprotokoll, Cluster-RPC-Verwaltungs Protokoll)
+- 5445 (IWarp SMB-nur erforderlich, wenn IWarp RDMA-Netzwerk verwendet wird)
+- 5985 (wsmanhttp-Management-Protokoll für WMI/CIM/PowerShell)
 
-Hinweis: für das Cmdlet "Test-srtopology" ist ICMPv4/ICMPv6 erforderlich, aber nicht für die Replikation oder Verwaltung.
+> ! Nebenbei Für das Cmdlet "Test-srtopology" ist ICMPv4/ICMPv6 erforderlich, aber nicht für die Replikation oder Verwaltung.
 
 ## <a name="what-are-the-log-volume-best-practices"></a><a name="FAQ15.5"></a>Was sind die bewährten Methoden für das Protokoll Volume?
+
 Die optimale Größe des Protokolls variiert in Abhängigkeit von der Umgebung und der Arbeitsauslastung. es hängt davon ab, wie viel Schreib-e/a die Arbeitsauslastung ausführt.
 
-1.  Ein größeres oder kleineres Protokoll führt Sie nicht schneller oder langsamer aus
-2.  Ein größeres oder kleineres Protokoll hat keine Auswirkungen auf ein 10-GB-Datenvolumen im Vergleich zu einem Datenvolumen von 10 TB, z.b.
+1. Ein größeres oder kleineres Protokoll führt Sie nicht schneller oder langsamer aus
+2. Ein größeres oder kleineres Protokoll hat keine Auswirkungen auf ein 10-GB-Datenvolumen im Vergleich zu einem Datenvolumen von 10 TB, z.b.
 
 Bei einem größeren Protokoll werden Schreibvorgänge für IOS einfach erfasst und beibehalten, bevor Sie verpackt werden. Dies ermöglicht eine Dienst Unterbrechung zwischen dem Quell-und Zielcomputer – z. b. einem Netzwerkausfall oder dem offline geschalteten Zielcomputer. Wenn das Protokoll 10 Stunden Schreibvorgänge enthalten kann und das Netzwerk zwei Stunden ausfällt, kann die Quelle, wenn das Netzwerk zurückgibt, einfach das Delta der nicht Synchronisierungs Änderungen wieder zum Ziel wiedergeben, und Sie werden sehr schnell geschützt. Wenn das Protokoll 10 Stunden umfasst und der Ausfall 2 Tage beträgt, muss die Quelle nun aus einem anderen Protokoll wiedergegeben werden, das als Bitmap – bezeichnet wird und wahrscheinlich langsamer ist, um synchron zu werden. Sobald die Synchronisierung durchführt, wird das Protokoll zurückgegeben.
 
@@ -202,6 +227,7 @@ Sie können die Empfehlungen für die Protokoll Größe durch Ausführen des Too
 Nur der Datenträger aus dem Quell Cluster muss gesichert werden. Die Protokoll Datenträger für Speicher Replikate sollten nicht gesichert werden, da eine Sicherung mit Speicher Replikat Vorgängen in Konflikt steht
 
 ## <a name="why-would-you-choose-a-stretch-cluster-versus-cluster-to-cluster-versus-server-to-server-topology"></a><a name="FAQ16"></a>Warum sollten Sie einen Stretch-Cluster und eine Cluster-zu-Server-Topologie oder eine Server-zu-Server-Topologie auswählen?
+
 Das Speicher Replikat ist in drei Haupt Konfigurationen verfügbar: Stretch Cluster, Cluster-zu-Cluster und Server-zu-Server. Es gibt unterschiedliche Vorteile.
 
 Die Stretch-Cluster Topologie eignet sich ideal für Workloads, für die ein automatisches Failover mit Orchestrierung erforderlich ist, z. b. Hyper-V-Private Cloud Cluster und SQL Server FCI. Es verfügt außerdem über eine integrierte grafische Oberfläche, die Failovercluster-Manager verwendet. Dabei wird die Architektur des klassischen asymmetrischen Cluster Speichers von Speicherplätzen, San, iSCSI und RAID über eine persistente Reservierung verwendet. Dies kann mit nur zwei Knoten ausgeführt werden.
@@ -227,9 +253,11 @@ Leider wird das Erstellen einer *neuen* Partnerschaft zwischen Windows Server 20
 Um jedoch die verbesserte Replikations Leistung von Windows Server 2019 zu erzielen, müssen alle Mitglieder der Partnerschaft Windows Server 2019 ausführen, und Sie müssen vorhandene Partnerschaften und zugehörige Replikations Gruppen löschen und anschließend mit Seeding Daten neu erstellen (entweder bei der Erstellung der Partnerschaft im Windows Admin Center oder mit dem Cmdlet New-srpartnership).
 
 ## <a name="how-do-i-report-an-issue-with-storage-replica-or-this-guide"></a><a name="FAQ17"></a>Gewusst wie melden Sie ein Problem mit dem Speicher Replikat oder diesem Handbuch?
+
 Technische Unterstützung beim Speicher Replikat finden Sie in den [Microsoft-Foren](https://docs.microsoft.com/answers/index.html). Sie können in srfeed@microsoft.com dieser Dokumentation auch eine e-Mail mit Fragen zu Speicher Replikaten oder Problemen senden. Die [Allgemeine Windows Server-Feedback-Website](https://windowsserver.uservoice.com/forums/295047-general-feedback) wird für Entwurfs Änderungsanforderungen bevorzugt, da Sie Ihren Kollegen die Möglichkeit bietet, Support und Feedback für Ihre Ideen bereitzustellen.
 
 ## <a name="can-storage-replica-be-configured-to-replicate-in-both-directions"></a><a name="FAQ18"></a>Kann das Speicher Replikat für die Replikation in beide Richtungen konfiguriert werden?
+
 Speicher Replikat ist eine unidirektionale Replikations Technologie.  Die Replikation erfolgt pro Volume nur von der Quelle zum Ziel.  Diese Richtung kann jederzeit rückgängig gemacht werden, ist jedoch immer noch in eine Richtung.  Dies bedeutet jedoch nicht, dass eine Gruppe von Volumes (Quelle und Ziel) nicht in einer Richtung repliziert werden kann und dass eine andere Gruppe von Laufwerken (Quelle und Ziel) in umgekehrter Richtung repliziert wird.  Beispielsweise möchten Sie, dass die Server-zu-Server-Replikation konfiguriert ist.  Server1 und Server2 verfügen jeweils über die Laufwerk Buchstaben L:, M:, N: und O: und Sie möchten Laufwerk M: von Server1 in Server2, aber Laufwerk O: Replizieren von server2 auf Server1 replizieren.  Dies ist möglich, solange die Protokoll Laufwerke für jede Gruppe getrennt werden. Das heißt,
 
 - Server1 Source Laufwerk m: mit Quell Protokoll Laufwerk l: Replikation auf Server2 Ziellaufwerk m: mit Ziel Protokoll Laufwerk l:

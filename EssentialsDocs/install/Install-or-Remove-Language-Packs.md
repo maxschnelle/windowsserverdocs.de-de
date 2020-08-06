@@ -7,19 +7,19 @@ ms.assetid: 98f13f63-4480-40ba-a7ef-d1d9b7582e5f
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: fa167ec12122883fc0ccea914260407d13f0b992
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: 9999b78b1b0a4b1823162158b95d175f9c159091
+ms.sourcegitcommit: 04637054de2bfbac66b9c78bad7bf3e7bae5ffb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87181166"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837929"
 ---
 # <a name="install-or-remove-language-packs"></a>Installieren oder Entfernen von Sprachpaketen
 
 >Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
 > [!NOTE]
->  Sie müssen zuerst ein mehrsprachiges Windows-Abbild erstellen, wie in den [Sprachpaketen und der Bereitstellung](https://technet.microsoft.com/library/hh824829) beschrieben, bevor Sie das Windows Server Essentials-Sprachpaket hinzufügen.
+>  Sie müssen zuerst ein mehrsprachiges Windows-Abbild erstellen, wie in den [Sprachpaketen und der Bereitstellung](/previous-versions/windows/it-pro/windows-8.1-and-8/hh824829(v=win.10)) beschrieben, bevor Sie das Windows Server Essentials-Sprachpaket hinzufügen.
 
  Sprachpakete sind nur für das Erstellen mehrsprachiger Abbilder verfügbar. Die Informationen in diesem Abschnitt beziehen sich speziell auf das Installieren oder Entfernen von Sprachpaketen in Windows Server Essentials.
 
@@ -52,4 +52,3 @@ ms.locfileid: "87181166"
 ## <a name="see-also"></a>Weitere Informationen
 
  [Erstellen und Anpassen des Images](Creating-and-Customizing-the-Image.md) [weitere Anpassungen](Additional-Customizations.md) [Vorbereiten des Abbilds für die Bereitstellung](Preparing-the-Image-for-Deployment.md) [Testen der Kundenfreundlichkeit](Testing-the-Customer-Experience.md)
-

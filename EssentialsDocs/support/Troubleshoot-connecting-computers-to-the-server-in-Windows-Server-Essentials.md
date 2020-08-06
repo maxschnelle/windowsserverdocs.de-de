@@ -7,12 +7,12 @@ ms.assetid: e45b3d89-c057-4c70-a627-86fb06dd22aa
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: c05888f52f3fe60d0dde22a70ceb5a3eee94e0ef
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: e832957a5d44851131cb622e4c3bf9d99d4e4a7f
+ms.sourcegitcommit: 04637054de2bfbac66b9c78bad7bf3e7bae5ffb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87180236"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87838269"
 ---
 # <a name="troubleshoot-connecting-computers-to-the-server-in-windows-server-essentials"></a>Problembehandlung beim Verbinden von Computern mit dem Server in Windows Server Essentials
 
@@ -21,7 +21,7 @@ ms.locfileid: "87180236"
  Dieses Thema enthält Anleitungen zur Problembehandlung bei Problemen, die auftreten können, wenn Sie einen Computer mit dem Server verbinden, auf dem Windows Server Essentials oder Windows Server Essentials ausgeführt wird.
 
 > [!NOTE]
->  Die aktuellsten Informationen zur Problembehandlung aus der Windows Server Essentials-und der Windows Server Essentials-Community finden Sie im [Windows Server Essentials-Forum](https://docs.microsoft.com/answers/topics/windows-server-essentials.html). Das Windows Server Essentials-Forum eignet sich optimal, um nach Hilfe zu suchen oder um Fragen zu stellen.
+>  Die aktuellsten Informationen zur Problembehandlung aus der Windows Server Essentials-und der Windows Server Essentials-Community finden Sie im [Windows Server Essentials-Forum](/answers/topics/windows-server-essentials.html). Das Windows Server Essentials-Forum eignet sich optimal, um nach Hilfe zu suchen oder um Fragen zu stellen.
 
  Dieses Thema bietet Lösungen für die folgenden Probleme:
 
@@ -278,8 +278,8 @@ ms.locfileid: "87180236"
 
  Wenn den Client bereits mit der Connectorsoftware aktualisiert haben, verwenden Sie **Software** oder **Programme und Funktionen**, um die Connectorsoftware zu deinstallieren. Installieren Sie anschließend die Connectorsoftware erneut.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Verwalten von Windows Server Essentials](../manage/Manage-Windows-Server-Essentials.md)
 
-- [Windows 2012 Server Essentials ConnectComputer Problembehandlung](https://docs.microsoft.com/windows-server-essentials/support/troubleshoot-connecting-computers-to-the-server-in-windows-server-essentials)
+- [Windows 2012 Server Essentials ConnectComputer Problembehandlung]()

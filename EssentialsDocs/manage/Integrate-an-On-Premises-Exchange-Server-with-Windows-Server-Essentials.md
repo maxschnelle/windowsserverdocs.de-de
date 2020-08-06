@@ -7,12 +7,12 @@ ms.assetid: b56a21e2-c9e3-4ba9-97d9-719ea6a0854b
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 343bfc1325a065f4c4903732eceba59c769f838f
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: cef547570c58c405ac563a1c2215feda120350f4
+ms.sourcegitcommit: 04637054de2bfbac66b9c78bad7bf3e7bae5ffb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87181066"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837879"
 ---
 # <a name="integrate-an-on-premises-exchange-server-with-windows-server-essentials"></a>Integration eines lokalen Exchange-Servers mit Windows Server Essentials
 
@@ -51,7 +51,7 @@ Diese Anleitung enthält Informationen und grundlegende Anweisungen zur Einricht
  Wenn der Internetdomänenname Ihres Unternehmens z. B. %%amp;quot;contoso.com%%amp;quot; lautet und Sie den vollqualifizierten Domänennamen (FQDN) *mail.contoso.com* zum Verweisen auf den lokalen Server mit Exchange Server verwenden möchten, sollten Sie sich wegen der Erstellung der in der folgenden Tabelle aufgeführten DNS-Ressourceneinträge an Ihren Domänennamenanbieter wenden.
 
 
-| Name des Ressourceneintrags |     Eintragstyp     |                                                                         Einstellung des Eintrags                                                                          |                                                                                                                                                                                                                                                              BESCHREIBUNG                                                                                                                                                                                                                                                              |
+| Name des Ressourceneintrags |     Eintragstyp     |                                                                         Einstellung des Eintrags                                                                          |                                                                                                                                                                                                                                                              Beschreibung                                                                                                                                                                                                                                                              |
 |----------------------|---------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |         mail         |      Host (A)       |                                                        Address=*Vom Anbieter (ISP) zugewiesene öffentliche IP-Adresse*                                                         |                                                                                                                                                                                                   An %%amp;quot;mail.contoso.com%%amp;quot; adressierte E-Mails werden von Exchange Server empfangen.<br /><br /> Sie können auch einen anderen Namen wählen.                                                                                                                                                                                                    |
 |          MX          | Mail-Exchanger (MX) |                                            Hostname=@<br /><br /> Address=mail.contoso.com<br /><br /> Preference=0                                             |                                                                                                                                                                                                      Ermöglicht das Senden von e-Mail-Nachrichten für email@contoso.com Ihren lokalen Server, auf dem Exchange Server ausgeführt wird.                                                                                                                                                                                                       |
@@ -270,9 +270,9 @@ New-SendConnector -Name "WSE Internet SendConnector" -Usage "Internet" -AddressS
 
  Sie müssen einen SMTP-Sendeconnector und einen SMTP-Empfangsconnector für die ausgehende und eingehende Übertragung von E-Mail-Nachrichten konfigurieren.
 
- Führen Sie zum Erstellen eines SMTP-Sendeconnectors die Schritte im Exchange Server-Artikel [Erstellen eines SMTP-Sendeconnectors](https://technet.microsoft.com/library/aa997285.aspx)aus.
+ Führen Sie zum Erstellen eines SMTP-Sendeconnectors die Schritte im Exchange Server-Artikel [Erstellen eines SMTP-Sendeconnectors](/previous-versions/office/exchange-server-2010/aa997285(v=exchg.141))aus.
 
- Führen Sie zum Erstellen eines SMTP-Empfangsconnectors die Schritte im Exchange Server-Artikel [Erstellen eines SMTP-Empfangsconnectors](https://technet.microsoft.com/library/bb125159.aspx)aus.
+ Führen Sie zum Erstellen eines SMTP-Empfangsconnectors die Schritte im Exchange Server-Artikel [Erstellen eines SMTP-Empfangsconnectors](/previous-versions/office/exchange-server-2010/bb125159(v=exchg.141))aus.
 
  Sie können auch auf das Skript weiter oben in diesem Dokument zurückgreifen, um die Sende- und Empfangsconnectors mithilfe von Exchange PowerShell-Cmdlets zu erstellen.
 
@@ -347,7 +347,7 @@ New-SendConnector -Name "WSE Internet SendConnector" -Usage "Internet" -AddressS
 6. Kopieren Sie die SSL-Zertifikatdatei für Exchange Server auf den Server, auf dem Windows Server Essentials ausgeführt wird. Die Zertifikatdatei muss den privaten Schlüssel enthalten und im PFX-Dateiformat vorliegen.
 
    > [!NOTE]
-   >  Führen Sie bei Verwendung eines selbst ausgegebenen Zertifikats die Anweisungen zum Exportieren des Zertifikats im Exchange Server-Artikel [Exportieren eines Exchange-Zertifikats](https://technet.microsoft.com/library/dd351274.aspx) aus.
+   >  Führen Sie bei Verwendung eines selbst ausgegebenen Zertifikats die Anweisungen zum Exportieren des Zertifikats im Exchange Server-Artikel [Exportieren eines Exchange-Zertifikats](/previous-versions/office/exchange-server-2010/dd351274(v=exchg.141)) aus.
 
 7. Führen Sie je nach Version von Windows Server Essentials, die Sie ausführen, die folgenden Schritte aus:
 
@@ -419,7 +419,7 @@ New-SendConnector -Name "WSE Internet SendConnector" -Usage "Internet" -AddressS
 > [!NOTE]
 >  Gehen Sie wie folgt vor, wenn Sie ActiveSync verwenden, die E-Mail-Nachrichten für einige Postfachkonten jedoch nicht synchronisieren können: Ermitteln Sie, ob die Konten Mitglieder einer oder mehrerer geschützter Gruppen sind, z. B. der Gruppe %%amp;quot;Domänen-Admins%%amp;quot;. Weitere Informationen, die für die Behebung dieses Problems hilfreich sind, finden Sie unter [Exchange ActiveSync hat den Fehler HTTP 500 zurückgegeben](https://technet.microsoft.com/library/dd439375\(EXCHG.80\).aspx).
 
-## <a name="related-topics"></a>Zugehörige Themen
+## <a name="related-topics"></a>Verwandte Themen
  Weitere Informationen zur Integration eines lokalen Exchange-Servers finden Sie in den folgenden Abschnitten.
 
 ### <a name="what-happens-if-i-disable-exchange-integration"></a>Was geschieht, wenn ich die Exchange-Integration deaktiviere?
@@ -441,7 +441,7 @@ New-SendConnector -Name "WSE Internet SendConnector" -Usage "Internet" -AddressS
 
  Beim Ausführen der Aufgabe **Einrichten der Exchange Server-Integration** auf dem Dashboard fügt der Assistent eine Seite zum Assistenten zum Hinzufügen von Benutzerkonten hinzu. Damit können Sie wählen, ob Sie Postfachkontingente erzwingen möchten, und die Kontingentgröße angeben. Standardmäßig ist die Option **Postfachkontingente erzwingen** aktiviert, und Benutzerpostfächern werden 2 GB an Speicherplatz zugewiesen. Exchange-Administratoren können die Mailbox-Kontingenteinstellungen anpassen, um sie auf die Anforderungen ihres Unternehmens abzustimmen.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Systemanforderungen für Windows Server Essentials](../get-started/system-requirements.md)
 

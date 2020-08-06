@@ -7,12 +7,12 @@ ms.assetid: a455c6b4-b29f-4f76-8c6b-1578b6537717
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 63f5a72cf070b1520815f8f8f59d9c6ecf386aa5
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: 7dd1aa46786a3768127ba7934c8a8767d40e6654
+ms.sourcegitcommit: 04637054de2bfbac66b9c78bad7bf3e7bae5ffb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87181256"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87838019"
 ---
 # <a name="deploy-windows-server-essentials-experience-as-a-hosted-server"></a>Bereitstellen von Windows Server Essentials Experience als einen gehosteten Server
 
@@ -140,7 +140,7 @@ Install-WssVpnServer -IPv4AddressRange ('192.168.0.160','192.168.0.240') -ApplyT
 >  Wenn Sie keine VPN-Verbindung bereitstellen können, bevor der Kunde den Server übernimmt, stellen Sie sicher, dass der Serverport 3389 über das Internet erreichbar ist, sodass der Kunde das Remotedesktopprotokoll verwenden kann, um eine Verbindung mit dem Server herzustellen und um es zu konfigurieren.
 
 ##  <a name="customize-the-image-of-windows-server-essentials-experience-role"></a><a name="BKMK_CustomizeImage"></a>Anpassen des Images der Rolle "Windows Server Essentials-Rolle"
- Sie können das Image vor dem Konfigurieren der Rolle "Windows Server Essentials-Umgebung" anpassen. Weitere Informationen zum standardmäßigen Windows Server Sysprep-Prozess finden Sie im [Windows Assessment and Deployment Kit](https://msdn.microsoft.com/library/hh825420.aspx). Nachdem Sie das Image mithilfe von Sysprep vorbereitet haben, können Sie es verwenden oder es für eine neue Bereitstellung erneut in "Install.wim" versiegeln.
+ Sie können das Image vor dem Konfigurieren der Rolle "Windows Server Essentials-Umgebung" anpassen. Weitere Informationen zum standardmäßigen Windows Server Sysprep-Prozess finden Sie im [Windows Assessment and Deployment Kit](/previous-versions/windows/hh825420(v=win.10)). Nachdem Sie das Image mithilfe von Sysprep vorbereitet haben, können Sie es verwenden oder es für eine neue Bereitstellung erneut in "Install.wim" versiegeln.
 
  Wenn Sie Virtual Machine Manager verwenden, können Sie eine Vorlage mithilfe der ausgeführten Instanz erstellen. Bei diesem Vorgang wird die Instanz mithilfe von Sysprep vorbereitet und der Computer heruntergefahren. Nachdem Sie die Vorlage in Ihrer Bibliothek gespeichert haben, können Sie sie je nach spezifischen Anforderungen verwenden.
 
@@ -160,14 +160,14 @@ Install-WssVpnServer -IPv4AddressRange ('192.168.0.160','192.168.0.240') -ApplyT
 
 - **Zugriff überall** Die Router- und VPN-Konfiguration wird standardmäßig übersprungen, wenn Sie den Assistenten zum Einrichten von "Zugriff überall" ausführen.
 
-  Wenn Sie das Verhalten der einzelnen aufgeführten Funktionen steuern möchten, können Sie den entsprechenden Registrierungsschlüssel für jede festlegen. Informationen dazu, wie Sie den Registrierungsschlüssel festlegen, finden Sie unter [Anpassen und Bereitstellen von Windows Server Essentials unter Windows Server 2012 R2](https://technet.microsoft.com/library/dn293241.aspx).
+  Wenn Sie das Verhalten der einzelnen aufgeführten Funktionen steuern möchten, können Sie den entsprechenden Registrierungsschlüssel für jede festlegen. Informationen dazu, wie Sie den Registrierungsschlüssel festlegen, finden Sie unter [Anpassen und Bereitstellen von Windows Server Essentials unter Windows Server 2012 R2](/previous-versions/windows/it-pro/windows-8.1-and-8/dn293241(v=win.10)).
 
 ##  <a name="automate-the-deployment-of-windows-server-essentials-experience"></a><a name="BKMK_AutomateDeployment"></a>Automatisieren der Bereitstellung von Windows Server Essentials
  Zum Automatisieren der Bereitstellung müssen Sie zuerst das Betriebssystem bereitstellen und dann die Rolle "Windows Server Essentials-Benutzer" installieren.
 
--   Befolgen Sie die Anweisungen im [Windows Assessment and Deployment Kit](https://msdn.microsoft.com/library/hh825420.aspx), um Windows Server 2012 R2 Standard oder Windows Server 2012 R2 Datacenter automatisch bereitzustellen.
+-   Befolgen Sie die Anweisungen im [Windows Assessment and Deployment Kit](/previous-versions/windows/hh825420(v=win.10)), um Windows Server 2012 R2 Standard oder Windows Server 2012 R2 Datacenter automatisch bereitzustellen.
 
--   Informationen zum Installieren der Rolle "Windows Server Essentials-Benutzer" mithilfe von Windows PowerShell finden Sie unter [Installieren und Konfigurieren von Windows Server Essentials](https://technet.microsoft.com/library/dn281793.aspx).
+-   Informationen zum Installieren der Rolle "Windows Server Essentials-Benutzer" mithilfe von Windows PowerShell finden Sie unter [Installieren und Konfigurieren von Windows Server Essentials](/previous-versions/windows/it-pro/windows-server-essentials-sbs/dn281793(v=ws.11)).
 
 > [!NOTE]
 >  Stellen Sie sicher, dass die Zeitzoneneinstellungen des virtuellen Host Computers und der Windows Server Essentials-Umgebung identisch sind. Andernfalls können verschiedene Fehler auftreten. Hierzu gehören: die Erstkonfiguration des Servers ist möglicherweise bei Zertifikat bezogenen Tasks nicht erfolgreich, das Zertifikat funktioniert möglicherweise einige Stunden nach der Installation der Windows Server Essentials-Rolle, und die Geräteinformationen werden nicht ordnungsgemäß aktualisiert.
@@ -192,7 +192,7 @@ New-ItemProperty "HKLM:\Software\Microsoft\Windows Server\Setup"Ã‚Â  -Name 
 > - Der Quell Server und der Zielserver können auf die internen DNS-Namen des internen Servers zugreifen.
 >   -   Alle erforderlichen Ports sind geöffnet.
 
- Nach der Migration können Sie Ihre Lizenzen aktualisieren, um die Sperren und Beschränkungen zu entfernen. Weitere Informationen finden Sie unter [Umstellung von Windows Server Essentials auf Windows Server 2012 Standard](https://technet.microsoft.com/library/jj247582.aspx).
+ Nach der Migration können Sie Ihre Lizenzen aktualisieren, um die Sperren und Beschränkungen zu entfernen. Weitere Informationen finden Sie unter [Umstellung von Windows Server Essentials auf Windows Server 2012 Standard](/previous-versions/windows/it-pro/windows-server-essentials-sbs/jj247582(v=ws.11)).
 
 ##  <a name="perform-common-tasks-by-using-windows-powershell"></a><a name="BKMK_PowerShell"></a>Ausführen allgemeiner Aufgaben mithilfe von Windows PowerShell
  In diesem Abschnitt werden einige allgemeinen Aufgaben erläutert, die Sie mithilfe von Windows PowerShell ausführen können.
@@ -231,7 +231,7 @@ New-ItemProperty "HKLM:\Software\Microsoft\Windows Server\Setup"Ã‚Â  -Name 
  Mit diesem Befehl wird ein Server Ordner mit dem Namen "mytestfolder" am angegebenen Speicherort hinzugefügt.
 
 ##  <a name="email-integration-with-windows-server-essentials"></a><a name="BKMK_EmailIntegration"></a>E-Mail-Integration in Windows Server Essentials
- Sie können Windows Server Essentials-Funktionen mit Office 365 oder gehostetem Exchange Server integrieren. Damit Ihre Kunden auch Ihren gehosteten E-Mail-Dienst verwenden können, müssen Sie ein Add-In entwickeln, um die Windows Server Essentials-Umgebung in Ihre gehostete E-Mail-Lösung zu integrieren. Weitere Informationen finden Sie im [Windows Server Essentials SDK](https://msdn.microsoft.com/library/gg513877.aspx).
+ Sie können Windows Server Essentials-Funktionen mit Office 365 oder gehostetem Exchange Server integrieren. Damit Ihre Kunden auch Ihren gehosteten E-Mail-Dienst verwenden können, müssen Sie ein Add-In entwickeln, um die Windows Server Essentials-Umgebung in Ihre gehostete E-Mail-Lösung zu integrieren. Weitere Informationen finden Sie im [Windows Server Essentials SDK](/previous-versions/windows/server-essentials/gg513877(v=msdn.10)).
 
 ##  <a name="monitor-and-manage-by-using-native-tools"></a><a name="BKMK_Monitoring"></a>Überwachen und verwalten mithilfe von systemeigenen Tools
  In diesem Abschnitt werden die systemeigenen Tools erläutert, die in Windows Server 2012 R2 zum Überwachen und Verwalten des-Servers zur Verfügung stehen.
@@ -254,7 +254,7 @@ New-ItemProperty "HKLM:\Software\Microsoft\Windows Server\Setup"Ã‚Â  -Name 
 -   **Lokale Sicherung** Mithilfe der lokalen Sicherung können Sie regelmäßig eine inkrementelle Sicherung auf Blockebene auf einem separaten Datenträger ausführen. Als Hostinganbieter könnten Sie eine virtuelle Festplatte mit dem virtuellen Computer mit Windows Server Essentials verbinden und dann die Serversicherung auf dieser virtuellen Festplatte konfigurieren. Die virtuelle Festplatte sollte sich auf einem anderen physischen Datenträger als der virtuelle Computer mit Windows Server Essentials befinden.
 
     > [!NOTE]
-    >  Wenn Sie andere Sicherungslösungen für die virtuellen Computer verwenden und Sie verhindern möchten, dass die Benutzer die systemeigene Serversicherungsfunktion von Windows Server Essentials sehen, können Sie sie deaktivieren und die zugehörige Benutzeroberfläche im Dashboard entfernen. Weitere Informationen finden Sie im Abschnitt [Anpassen der Serversicherung](https://technet.microsoft.com/library/dn293413.aspx) unter [Anpassen und Bereitstellen von Windows Server Essentials unter Windows Server 2012 R2](https://technet.microsoft.com/library/dn293241.aspx).
+    >  Wenn Sie andere Sicherungslösungen für die virtuellen Computer verwenden und Sie verhindern möchten, dass die Benutzer die systemeigene Serversicherungsfunktion von Windows Server Essentials sehen, können Sie sie deaktivieren und die zugehörige Benutzeroberfläche im Dashboard entfernen. Weitere Informationen finden Sie im Abschnitt [Anpassen der Serversicherung](/previous-versions/windows/it-pro/windows-8.1-and-8/dn293413(v=win.10)) unter [Anpassen und Bereitstellen von Windows Server Essentials unter Windows Server 2012 R2](/previous-versions/windows/it-pro/windows-8.1-and-8/dn293241(v=win.10)).
 
 -   **Externe Sicherung** Mithilfe dieser Sicherung können Sie die Serverdaten in regelmäßigen Abständen in einem Cloud-basierten Dienst sichern. Sie können das Microsoft Azure Backup-Integrationsmodul für Windows Server Essentials herunterladen und installieren, um den von Microsoft bereitgestellten Azure Backup zu nutzen.
 
@@ -285,13 +285,13 @@ New-ItemProperty "HKLM:\Software\Microsoft\Windows Server\Setup"Ã‚Â  -Name 
 
     -   So ändern Sie den Prüfpunkt-Schwellenwert Ändern Sie auf dem Client **HKLM\Software\Microsoft\Windows Server\Backup\CheckPointThreshold** vom Standardwert in 40 GB.
 
--   **Bare-Metal-Recovery des Clients** Da die Windows-Vorinstallationsumgebung keine VPN-Verbindungen unterstützt, wird die Bare-Metal-Recovery des Clients nicht unterstützt. Sie sollten die Aufgabe des Clientwiederherstellungsdiensts ausblenden, indem Sie die Schritte unter [Anpassen und Bereitstellen von Windows Server Essentials in Windows Server 2012 R2](https://technet.microsoft.com/library/dn293241.aspx)ausführen.
+-   **Bare-Metal-Recovery des Clients** Da die Windows-Vorinstallationsumgebung keine VPN-Verbindungen unterstützt, wird die Bare-Metal-Recovery des Clients nicht unterstützt. Sie sollten die Aufgabe des Clientwiederherstellungsdiensts ausblenden, indem Sie die Schritte unter [Anpassen und Bereitstellen von Windows Server Essentials in Windows Server 2012 R2](/previous-versions/windows/it-pro/windows-8.1-and-8/dn293241(v=win.10))ausführen.
 
 ##### <a name="file-history"></a>Dateiversionsverlauf
- Der Dateiversionsverlauf ist eine Windows 8.1- und Windows 8-Funktion zum Sichern von Profildaten (Bibliotheken, Desktop, Kontakte, Favoriten) auf einer Netzwerkfreigabe. Sie können die Dateiversionsverlauf-Einstellung für alle Computer mit Windows 8.1 oder Windows 8 zentral verwalten, die mit einem Windows Server Essentials-Netzwerk verbunden sind. Die Sicherungsdaten werden auf dem Server gespeichert, auf dem Windows Server Essentials ausgeführt wird. Sie sollten den Task "Client Wiederherstellungs Dienst" ausblenden, indem Sie die Schritte unter Anpassen und Bereitstellen von [Windows Server Essentials in Windows Server 2012 R2](https://technet.microsoft.com/library/dn293241.aspx) ausführen.
+ Der Dateiversionsverlauf ist eine Windows 8.1- und Windows 8-Funktion zum Sichern von Profildaten (Bibliotheken, Desktop, Kontakte, Favoriten) auf einer Netzwerkfreigabe. Sie können die Dateiversionsverlauf-Einstellung für alle Computer mit Windows 8.1 oder Windows 8 zentral verwalten, die mit einem Windows Server Essentials-Netzwerk verbunden sind. Die Sicherungsdaten werden auf dem Server gespeichert, auf dem Windows Server Essentials ausgeführt wird. Sie sollten den Task "Client Wiederherstellungs Dienst" ausblenden, indem Sie die Schritte unter Anpassen und Bereitstellen von [Windows Server Essentials in Windows Server 2012 R2](/previous-versions/windows/it-pro/windows-8.1-and-8/dn293241(v=win.10)) ausführen.
 
 ### <a name="storage-management"></a>Speicherverwaltung
- Mithilfe von Speicherplätzen können Sie die physische Speicherkapazität verschiedenartiger Festplatten aggregieren, Festplatten dynamisch hinzufügen und Datenvolumes mit bestimmten Ausfallsicherheitsstufen erstellen. Dies ist auf dem Host oder auf dem virtuellen Computer möglich. Wenn Sie diese Funktion auf einem virtuellen Computer mit Windows Server Essentials ausblenden möchten, folgen Sie den Anweisungen unter [Anpassen und Bereitstellen von Windows Server Essentials in Windows Server 2012 R2](https://technet.microsoft.com/library/dn293241.aspx).
+ Mithilfe von Speicherplätzen können Sie die physische Speicherkapazität verschiedenartiger Festplatten aggregieren, Festplatten dynamisch hinzufügen und Datenvolumes mit bestimmten Ausfallsicherheitsstufen erstellen. Dies ist auf dem Host oder auf dem virtuellen Computer möglich. Wenn Sie diese Funktion auf einem virtuellen Computer mit Windows Server Essentials ausblenden möchten, folgen Sie den Anweisungen unter [Anpassen und Bereitstellen von Windows Server Essentials in Windows Server 2012 R2](/previous-versions/windows/it-pro/windows-8.1-and-8/dn293241(v=win.10)).
 
 ##  <a name="test-scenarios"></a><a name="BKMK_Scenarios"></a>Test Szenarien
  Aus Hostperspektive sollten Sie am besten folgende Szenarien testen:
@@ -369,11 +369,11 @@ New-ItemProperty "HKLM:\Software\Microsoft\Windows Server\Setup"Ã‚Â  -Name 
 ##  <a name="support-information"></a><a name="BKMK_Support"></a>Support Informationen
  Sie können das Windows Server Essentials Software Development Kit (SDK) und das Windows Server Essentials Assessment and Deployment Kit (ADK) herunterladen:
 
--   [Windows Server Essentials Software Development Kit](https://msdn.microsoft.com/library/gg513877.aspx) SDK
+-   [Windows Server Essentials Software Development Kit](/previous-versions/windows/server-essentials/gg513877(v=msdn.10)) SDK
 
--   [Anpassen und Bereitstellen von Windows Server Essentials in Windows Server 2012 R2](https://technet.microsoft.com/library/dn293241.aspx)
+-   [Anpassen und Bereitstellen von Windows Server Essentials in Windows Server 2012 R2](/previous-versions/windows/it-pro/windows-8.1-and-8/dn293241(v=win.10))
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Neues in Windows Server Essentials](../get-started/what-s-new.md)
 
