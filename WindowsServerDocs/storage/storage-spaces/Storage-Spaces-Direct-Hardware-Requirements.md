@@ -7,22 +7,22 @@ manager: eldenc
 ms.technology: storage-spaces
 ms.topic: article
 author: eldenchristensen
-ms.date: 06/24/2020
+ms.date: 07/24/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 108e5a65b78370c40ba02da677e953eb2b122288
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 45ef438d58c9d36275f2e7a32ce93a383bd21a70
+ms.sourcegitcommit: de8fea497201d8f3d995e733dfec1d13a16cb8fa
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86964582"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87864275"
 ---
 # <a name="storage-spaces-direct-hardware-requirements"></a>Hardwareanforderungen für „Direkte Speicherplätze“
 
 > Gilt für: Windows Server 2019, Windows Server 2016
 
-In diesem Thema werden die Mindesthardwareanforderungen für direkte Speicherplätze beschrieben.
+In diesem Thema werden die Mindesthardwareanforderungen für direkte Speicherplätze unter Windows Server beschrieben. Informationen zu den Hardwareanforderungen Azure Stack HCI, dem Betriebssystem, das für hyperkonvergierte bereit Stellungen mit einer Verbindung mit der Cloud entwickelt wurde, finden Sie unter vor der Bereitstellung von [Azure Stack HCI: Ermitteln der Hardwareanforderungen](/azure-stack/hci/deploy/before-you-start#determine-hardware-requirements).
 
-In der Produktionsumgebung empfiehlt Microsoft, eine überprüfte Hardware-/Softwarelösung unserer Partner zu erwerben, die Bereitstellungs Tools und-Verfahren umfasst. Diese Lösungen wurden mit unserer Referenzarchitektur entworfen, zusammengestellt und überprüft, um Kompatibilität und Zuverlässigkeit sicherzustellen, sodass Sie schnell loslegen können. Informationen zu Windows Server 2019-Lösungen finden Sie auf der [Azure Stack HCI Solutions-Website](https://azure.microsoft.com/overview/azure-stack/hci). Informationen zu Windows Server 2016-Lösungen finden Sie unter [Windows Server-Software definiert](https://microsoft.com/wssd).
+In der Produktionsumgebung empfiehlt Microsoft, eine überprüfte Hardware-/Softwarelösung unserer Partner zu erwerben, die Bereitstellungs Tools und-Verfahren umfasst. Diese Lösungen wurden anhand unserer Referenzarchitektur entworfen, zusammengestellt und validiert und garantieren Kompatibilität und Zuverlässigkeit, sodass Sie sofort loslegen können. Informationen zu Windows Server 2019-Lösungen finden Sie auf der [Azure Stack HCI Solutions-Website](https://azure.microsoft.com/overview/azure-stack/hci). Informationen zu Windows Server 2016-Lösungen finden Sie unter [Windows Server-Software definiert](https://microsoft.com/wssd).
 
    > [!TIP]
    > Möchten Sie direkte Speicherplätze auswerten, aber keine Hardware? Verwenden Sie Hyper-V oder Azure Virtual Machines, wie in [Verwenden von direkte Speicherplätze in virtuellen Gastcomputer Clustern](storage-spaces-direct-in-vm.md)beschrieben.
@@ -47,7 +47,7 @@ Außerdem gelten die folgenden Anforderungen:
 - Intel Nehalem oder höher kompatibler Prozessor; noch
 - Mit AMD epyc oder höher kompatibler Prozessor
 
-## <a name="memory"></a>Arbeitsspeicher
+## <a name="memory"></a>Memory
 
 - Arbeitsspeicher für Windows Server, VMS und andere apps oder Arbeits Auslastungen; ZZ
 - 4 GB RAM pro Terabyte (TB) der Cache Laufwerks Kapazität auf jedem Server, für direkte Speicherplätze-Metadaten
@@ -97,11 +97,11 @@ So können Laufwerke für direkte Speicherplätze verbunden werden:
 - Direkt angeschlossene nvme-Laufwerke
 - SAS-Hostbus Adapter (HBA) mit SAS-Laufwerken
 - SAS-Hostbus Adapter (HBA) mit SATA-Laufwerken
-- **nicht unterstützt:** RAID-Controller-Karten oder SAN-Speicher (Fibre Channel, iSCSI, FCoE). HBA-Karten (Hostbus Adapter) müssen den einfachen Pass-Through-Modus implementieren.
+- **nicht unterstützt:** RAID-Controller-Karten oder SAN-Speicher (Fibre Channel, iSCSI, FCoE). Hostbusadapterkarten müssen einen einfachen Pass-Through-Modus implementieren.
 
 ![Diagramm der unterstützten Laufwerk-Verbindungen](media/hardware-requirements/drive-interconnect-support-1.png)
 
-Laufwerke können für den Server oder ein externes Gehäuse, das mit nur einem Server verbunden ist, intern sein. SCSI-Gehäuse Dienste (SES) sind für die slotzuordnung und-Identifikation erforderlich. Jedes externe Gehäuse muss einen eindeutigen Bezeichner (eindeutige ID) enthalten.
+Laufwerke können intern im Server installiert sein oder sich in einem externen Gehäuse befinden, das nur mit einem Server verbunden ist. SES (SCSI Enclosure Services) ist für die Zuordnung und Identifikation von Slots erforderlich. Jedes externe Gehäuse muss einen eindeutigen Bezeichner (eindeutige ID) besitzen.
 
 - Interne Laufwerke für den Server
 - Laufwerke in einem externen Gehäuse ("JBOD"), die mit einem Server verbunden sind

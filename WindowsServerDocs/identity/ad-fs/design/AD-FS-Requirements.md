@@ -1,6 +1,6 @@
 ---
 ms.assetid: 8ce6e7c4-cf8e-4b55-980c-048fea28d50f
-title: Verbundserverfarm mit SQL Server
+title: AD FS Anforderungen für Windows Server
 author: billmath
 ms.author: billmath
 manager: femila
@@ -8,14 +8,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 434d630ea3e521abdcffac6b8ce6479659b68ebc
-ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
+ms.openlocfilehash: 4f36b1808ff58b29cbd7be852617689bff8bb146
+ms.sourcegitcommit: de8fea497201d8f3d995e733dfec1d13a16cb8fa
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87519949"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87863783"
 ---
-# <a name="ad-fs-requirements"></a>AD FS-Anforderungen
+# <a name="ad-fs-requirements-for-windows-server"></a>AD FS Anforderungen für Windows Server
 
 Im folgenden sind die verschiedenen Anforderungen aufgeführt, die Sie bei der Bereitstellung von AD FS einhalten müssen:
 
@@ -144,10 +144,10 @@ Nachfolgend sind die Anforderungen und Einschränkungen aufgeführt, die basiere
 
 In der folgenden Tabelle finden Sie eine Zusammenfassung zur Verwendung einer wid-Farm.  Verwenden Sie es, um Ihre Implementierung zu planen.
 
-| 1-100 RP-Vertrauens Stellungen | Mehr als 100 RP-Vertrauens Stellungen |
+| 1–100 Vertrauensstellungen der vertrauenden Seite (RP) | Mehr als 100 Vertrauensstellungen der vertrauenden Seite (RP) |
 |--|--|
-| **1-30 AD FS Knoten:** Unterstützt wid | **1-30 AD FS Knoten:** Nicht unterstützt mit wid-SQL erforderlich |
-| **Mehr als 30 AD FS Knoten:** Nicht unterstützt mit wid-SQL erforderlich | **Mehr als 30 AD FS Knoten:** Nicht unterstützt mit wid-SQL erforderlich |
+| **1–30 AD FS-Knoten:** Von WID unterstützt | **1–30 AD FS-Knoten:** Bei Verwendung von WID nicht unterstützt – SQL erforderlich |
+| **Mehr als 30 AD FS-Knoten:** Bei Verwendung von WID nicht unterstützt – SQL erforderlich | **Mehr als 30 AD FS-Knoten:** Bei Verwendung von WID nicht unterstützt – SQL erforderlich |
 
 **SQL Server**
 
@@ -166,7 +166,7 @@ Wenn die AD FS-Authentifizierung über einen Browser oder ein Browsersteuereleme
 
 Mehrere Schlüssel Browser und-Plattformen wurden für das Rendering und die Funktionalität überprüft, die unten aufgeführten Details aufgeführt sind. Browser und Geräte, die nicht in dieser Tabelle behandelt werden, werden weiterhin unterstützt, wenn Sie die oben aufgeführten Anforderungen erfüllen:
 
-| **Browser** | **Formen** |
+| **Browser** | **Plattformen** |
 |--|--|
 | IE 10,0 | Windows 7, Windows 8.1, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 |
 | IE 11,0 | Windows7, Windows 8.1, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 |

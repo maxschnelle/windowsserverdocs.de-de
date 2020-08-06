@@ -8,14 +8,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: bb8ad6a7325e56d9cc548b23fb0876c76ba9c113
-ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
+ms.openlocfilehash: a906876c25fea62e20abfebf2268af977e6b3ad3
+ms.sourcegitcommit: de8fea497201d8f3d995e733dfec1d13a16cb8fa
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87519929"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87864041"
 ---
-# <a name="federation-server-farm-using-wid-and-proxies"></a>Verbundserverfarm mit WID und Proxies
+# <a name="legacy-ad-fs-federation-server-farm-using-wid-and-proxies"></a>Legacy AD FS-Verbund Server Farm mit wid und Proxys
 
 Diese Bereitstellungs Topologie für Active Directory-Verbunddienste (AD FS) (AD FS) ist mit der Verbund Serverfarm mit der internen Windows-Daten Bank Topologie (WID) identisch, fügt jedoch dem Umkreis Netzwerk Proxy Computer zur Unterstützung externer Benutzer hinzu. Diese Proxys leiten Client Authentifizierungsanforderungen, die von außerhalb Ihres Unternehmensnetzwerks stammen, an die Verbund Serverfarm um. In früheren Versionen von AD FS wurden diese Proxys als Verbund Server Proxys bezeichnet.
 
@@ -48,10 +48,10 @@ In diesem Abschnitt werden verschiedene Überlegungen zu den beabsichtigten Ziel
 
 - Die gleichen Einschränkungen wie für die Verbund [Server Farm werden mithilfe der wid](Federation-Server-Farm-Using-WID.md) -Topologie aufgelistet.
 
-    | 1-100 RP-Vertrauens Stellungen | Mehr als 100 RP-Vertrauens Stellungen |
+    | 1–100 Vertrauensstellungen der vertrauenden Seite (RP) | Mehr als 100 Vertrauensstellungen der vertrauenden Seite (RP) |
     |--|--|
-    | **1-30 AD FS Knoten:** Unterstützt wid | **1-30 AD FS Knoten:** Nicht unterstützt mit wid-SQL erforderlich |
-    | **Mehr als 30 AD FS Knoten:** Nicht unterstützt mit wid-SQL erforderlich | **Mehr als 30 AD FS Knoten:** Nicht unterstützt mit wid-SQL erforderlich |
+    | **1–30 AD FS-Knoten:** Von WID unterstützt | **1–30 AD FS-Knoten:** Bei Verwendung von WID nicht unterstützt – SQL erforderlich |
+    | **Mehr als 30 AD FS-Knoten:** Bei Verwendung von WID nicht unterstützt – SQL erforderlich | **Mehr als 30 AD FS-Knoten:** Bei Verwendung von WID nicht unterstützt – SQL erforderlich |
 
 ## <a name="server-placement-and-network-layout-recommendations"></a>Empfehlungen zur Server Platzierung und zum Netzwerk Layout
 Um diese Topologie zusätzlich zum Hinzufügen von zwei webanwendungsproxys bereitzustellen, müssen Sie sicherstellen, dass Ihr Umkreis Netzwerk auch Zugriff auf einen DNS-Server (Domain Name System) und einen zweiten NLB-Host (Network Load Balancing, Netzwerk Lastenausgleich) bereitstellen kann. Der zweite NLB-Host muss mit einem NLB-Cluster konfiguriert werden, der eine IP-Adresse für den Internet Zugriff verwendet und die gleiche DNS-Namen Einstellung für den Cluster verwenden muss wie der vorherige NLB-Cluster, den Sie im Unternehmensnetzwerk konfiguriert haben (FS.fabrikam.com). Die webanwendungsproxys sollten auch mit Internet zugänglichen IP-Adressen konfiguriert werden.

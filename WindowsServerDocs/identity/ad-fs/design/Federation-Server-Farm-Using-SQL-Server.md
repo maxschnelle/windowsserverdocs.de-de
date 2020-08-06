@@ -8,14 +8,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: f3dedd53d75120a6a3e8087c345cd7dfa04ca35d
-ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
+ms.openlocfilehash: 4527b6787531b3a349534092e3597a91dbebf78f
+ms.sourcegitcommit: de8fea497201d8f3d995e733dfec1d13a16cb8fa
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87519939"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87864134"
 ---
-# <a name="federation-server-farm-using-sql-server"></a>Verbundserverfarm mit SQL Server
+# <a name="legacy-ad-fs-federation-server-farm-using-sql-server"></a>Legacy AD FS-Verbund Server Farm mit SQL Server
 
 Diese Topologie für Active Directory-Verbunddienste (AD FS) \( AD FS unter \) scheidet sich von der Verbund Serverfarm mithilfe der internen Windows-Datenbank- \( wid- \) Bereitstellungs Topologie darin, dass die Daten nicht auf jeden Verbund Server in der Farm repliziert werden. Stattdessen können alle Verbund Server in der Farm Daten in eine gemeinsame Datenbank lesen und schreiben, die auf einem Server mit Microsoft SQL Server gespeichert ist, der sich im Unternehmensnetzwerk befindet.
 
@@ -85,10 +85,10 @@ In diesem Abschnitt werden die einzelnen Optionen, die von Ihnen auftretenden Pr
 
 In der folgenden Tabelle finden Sie eine Zusammenfassung zur Verwendung einer wid-Farm:
 
-| 1-100 RP-Vertrauens Stellungen | Mehr als 100 RP-Vertrauens Stellungen |
+| 1–100 Vertrauensstellungen der vertrauenden Seite (RP) | Mehr als 100 Vertrauensstellungen der vertrauenden Seite (RP) |
 |--|--|
-| **1-30 AD FS Knoten:** Unterstützt wid | **1-30 AD FS Knoten:** Nicht unterstützt mit wid-SQL erforderlich |
-| **Mehr als 30 AD FS Knoten:** Nicht unterstützt mit wid-SQL erforderlich | **Mehr als 30 AD FS Knoten:** Nicht unterstützt mit wid-SQL erforderlich |
+| **1–30 AD FS-Knoten:** Von WID unterstützt | **1–30 AD FS-Knoten:** Bei Verwendung von WID nicht unterstützt – SQL erforderlich |
+| **Mehr als 30 AD FS-Knoten:** Bei Verwendung von WID nicht unterstützt – SQL erforderlich | **Mehr als 30 AD FS-Knoten:** Bei Verwendung von WID nicht unterstützt – SQL erforderlich |
 
 ### <a name="alwayson-availability-groups"></a>AlwaysOn-Verfügbarkeitsgruppen
 **Übersicht**

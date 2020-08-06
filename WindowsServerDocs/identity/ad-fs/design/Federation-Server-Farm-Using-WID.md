@@ -8,14 +8,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: f542dfb228e5c32c2ff6c9d0b5e853c5aa66cf83
-ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
+ms.openlocfilehash: 4cfdfbda3a1c7df19ded887cc748e7f69f2fad08
+ms.sourcegitcommit: de8fea497201d8f3d995e733dfec1d13a16cb8fa
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87519919"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87864062"
 ---
-# <a name="federation-server-farm-using-wid"></a>Verbundserverfarm mit WID
+# <a name="legacy-ad-fs-federation-server-farm-using-wid"></a>Legacy AD FS-Verbund Server Farm mit wid
 
 Die Standard Topologie für Active Directory-Verbunddienste (AD FS) \( AD FS \) ist eine Verbund Serverfarm, die die interne Windows-Datenbank verwendet \( \) . In dieser Topologie verwendet AD FS wid als Speicher für die AD FS Konfigurations Datenbank für alle Verbund Server, die mit dieser Farm verknüpft sind. Die Verbunddienstdaten in der Konfigurationsdatenbank werden von der Farm auf alle Server der Farm repliziert und dort verwaltet. AD FS in Windows Server 2012 R2 ermöglicht es Organisationen mit 100 oder weniger Vertrauens Stellungen der vertrauenden Seite, Verbund Server Farmen mithilfe von wid mit bis zu 30 Servern zu konfigurieren.
 
@@ -56,10 +56,10 @@ In diesem Abschnitt werden verschiedene Überlegungen zu den beabsichtigten Ziel
 
 In der folgenden Tabelle finden Sie eine Zusammenfassung zur Verwendung einer wid-Farm. Verwenden Sie es, um Ihre Implementierung zu planen.
 
-| 1-100 RP-Vertrauens Stellungen | Mehr als 100 RP-Vertrauens Stellungen |
+| 1–100 Vertrauensstellungen der vertrauenden Seite (RP) | Mehr als 100 Vertrauensstellungen der vertrauenden Seite (RP) |
 |--|--|
-| **1-30 AD FS Knoten:** Unterstützt wid | **1-30 AD FS Knoten:** Nicht unterstützt mit wid-SQL erforderlich |
-| **Mehr als 30 AD FS Knoten:** Nicht unterstützt mit wid-SQL erforderlich | **Mehr als 30 AD FS Knoten:** Nicht unterstützt mit wid-SQL erforderlich |
+| **1–30 AD FS-Knoten:** Von WID unterstützt | **1–30 AD FS-Knoten:** Bei Verwendung von WID nicht unterstützt – SQL erforderlich |
+| **Mehr als 30 AD FS-Knoten:** Bei Verwendung von WID nicht unterstützt – SQL erforderlich | **Mehr als 30 AD FS-Knoten:** Bei Verwendung von WID nicht unterstützt – SQL erforderlich |
 
 
 ## <a name="server-placement-and-network-layout-recommendations"></a>Empfehlungen zur Server Platzierung und zum Netzwerk Layout

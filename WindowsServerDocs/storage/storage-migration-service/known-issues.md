@@ -8,12 +8,12 @@ ms.date: 07/29/2020
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: c51394b96abbe451b57ab1388cf2d21126959a78
-ms.sourcegitcommit: acfdb7b2ad283d74f526972b47c371de903d2a3d
+ms.openlocfilehash: ddfcf45fa897fbed4a2475332b9706fc8d9fb634
+ms.sourcegitcommit: de8fea497201d8f3d995e733dfec1d13a16cb8fa
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87769708"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87864199"
 ---
 # <a name="storage-migration-service-known-issues"></a>Bekannte Probleme bei Storage Migration Service
 
@@ -30,7 +30,7 @@ Der Speicher Migrationsdienst enthält Ereignisprotokolle für den Orchestrator-
 - Anwendungs-und Dienst Protokolle \ Microsoft \ Windows \ storagemigrationservice
 - Anwendungs-und Dienst Protokolle \ Microsoft \ Windows \ storagemigrationservice-Proxy
 
-Wenn Sie diese Protokolle für die Offline Anzeige oder zum Senden an Microsoft-Support erfassen müssen, ist auf GitHub ein Open-Source-PowerShell-Skript verfügbar:
+Wenn Sie diese Protokolle für die Offline Anzeige oder das Senden an Microsoft-Support erfassen müssen, ist auf GitHub ein Open-Source-PowerShell-Skript verfügbar:
 
  [Hilfsprogramm für den Speicher Migrationsdienst](https://aka.ms/smslogs)
 
@@ -118,9 +118,9 @@ Warning: The destination proxy wasn't found.
 
 Wenn Sie den Speicher Migrationsdienst-Proxy Dienst auf dem Windows Server 2019-Zielcomputer nicht installiert haben, oder wenn der Zielcomputer Windows Server 2016 oder Windows Server 2012 R2 ist, ist dieses Verhalten Entwurfs bedingt. Es wird empfohlen, zu einem Windows Server 2019-Computer zu migrieren, auf dem der Proxy installiert ist
 
-## <a name="certain-files-do-not-inventory-or-transfer-error-5-access-is-denied"></a>Bestimmte Dateien werden nicht inventarisiert oder übertragen, Fehler 5: "Zugriff verweigert"
+## <a name="certain-files-dont-inventory-or-transfer-error-5-access-is-denied"></a>Bestimmte Dateien werden nicht inventarisiert oder übertragen, Fehler 5: "Zugriff verweigert"
 
-Bei der Inventarisierung oder Übertragung von Dateien von einer Quell-auf einen Zielcomputer können Dateien, von denen ein Benutzer die Administrator Gruppenberechtigungen entfernt hat, nicht migriert werden. Überprüfen des Speicher Migrations Dienstanbieter: Proxy Debug zeigt Folgendes an:
+Bei der Inventarisierung oder Übertragung von Dateien von einer Quell-auf einen Zielcomputer können Dateien, von denen ein Benutzerberechtigungen für die Administratoren Gruppe entfernt hat, nicht migriert werden. Überprüfen des Speicher Migrations Dienstanbieter: Proxy Debug zeigt Folgendes an:
 
 ```
 Log Name: Microsoft-Windows-StorageMigrationService-Proxy/Debug
@@ -152,39 +152,39 @@ Um dieses Problem zu beheben, installieren Sie [Windows Update 2. April 2019 –
 
 Wenn Sie den Speicher Migrationsdienst zum Übertragen von Dateien an ein neues Ziel verwenden, können Sie DFS-Replikation für die Replikation dieser Daten mit einem vorhandenen Server durch die vorab bereitgestellte Replikation oder das Klonen von DFS-Replikation-Datenbank verwenden, dass alle Dateien einen Hash Konflikt haben und erneut repliziert werden. Die Datenströme, Sicherheitsdaten Ströme, Größen und Attribute werden nach der Verwendung von Storage Migration Service für die Übertragung von vollständig abgeglichen. Wenn Sie die Dateien mit icacls oder dem DFS-Replikation-Daten Bank Klon-Debugprotokoll untersuchen, werden
 
+### <a name="source-file"></a>Quelldatei
 ```
-Source file:
-
   icacls d:\test\Source:
 
-  icacls d:\test\thatcher.png /save out.txt /t
-  thatcher.png
+  icacls d:\test\thatcher.png /save out.txt /t thatcher.png
   D:AI(A;;FA;;;BA)(A;;0x1200a9;;;DD)(A;;0x1301bf;;;DU)(A;ID;FA;;;BA)(A;ID;FA;;;SY)(A;ID;0x1200a9;;;BU)
-
-Destination file:
-
-  icacls d:\test\thatcher.png /save out.txt /t
-  thatcher.png
-  D:AI(A;;FA;;;BA)(A;;0x1301bf;;;DU)(A;;0x1200a9;;;DD)(A;ID;FA;;;BA)(A;ID;FA;;;SY)(A;ID;0x1200a9;;;BU)**S:PAINO_ACCESS_CONTROL**
-
-DFSR Debug Log:
-
-    20190308 10:18:53.116 3948 DBCL  4045 [WARN] DBClone::IDTableImportUpdate Mismatch record was found.
-
-    Local ACL hash:1BCDFE03-A18BCE01-D1AE9859-23A0A5F6
-    LastWriteTime:20190308 18:09:44.876
-    FileSizeLow:1131654
-    FileSizeHigh:0
-    Attributes:32
-
-    Clone ACL hash:**DDC4FCE4-DDF329C4-977CED6D-F4D72A5B**
-    LastWriteTime:20190308 18:09:44.876
-    FileSizeLow:1131654
-    FileSizeHigh:0
-    Attributes:32
 ```
 
-Dieses Problem wurde durch das [KB4512534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534) -Update behoben.
+### <a name="destination-file"></a>Zieldatei
+
+```
+  icacls d:\test\thatcher.png /save out.txt /t thatcher.png
+  D:AI(A;;FA;;;BA)(A;;0x1301bf;;;DU)(A;;0x1200a9;;;DD)(A;ID;FA;;;BA)(A;ID;FA;;;SY)(A;ID;0x1200a9;;;BU)**S:PAINO_ACCESS_CONTROL**
+```
+### <a name="dfsr-debug-log"></a>DFSR-Debugprotokoll
+
+```
+   20190308 10:18:53.116 3948 DBCL  4045 [WARN] DBClone::IDTableImportUpdate Mismatch record was found.
+
+   Local ACL hash:1BCDFE03-A18BCE01-D1AE9859-23A0A5F6
+   LastWriteTime:20190308 18:09:44.876
+   FileSizeLow:1131654
+   FileSizeHigh:0
+   Attributes:32
+
+   Clone ACL hash:**DDC4FCE4-DDF329C4-977CED6D-F4D72A5B**
+   LastWriteTime:20190308 18:09:44.876
+   FileSizeLow:1131654
+   FileSizeHigh:0
+   Attributes:32
+```
+
+Dieses Problem wird durch das [KB4512534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534) -Update behoben.
 
 ## <a name="error-couldnt-transfer-storage-on-any-of-the-endpoints-when-transferring-from-windows-server-2008-r2"></a>Fehler "der Speicher konnte bei der Übertragung von Windows Server 2008 R2 nicht an einen der Endpunkte übertragen werden.
 
@@ -195,11 +195,11 @@ Couldn't transfer storage on any of the endpoints.
 0x9044
 ```
 
-Dieser Fehler wird erwartet, wenn Ihr Windows Server 2008 R2-Computer nicht vollständig mit allen kritischen und wichtigen Updates von Windows Update gepatcht ist. Unabhängig vom Speicher Migrationsdienst empfehlen wir immer, einen Windows Server 2008 R2-Computer zu Sicherheitszwecken zu patchen, da dieses Betriebssystem nicht die Sicherheitsverbesserungen von neueren Versionen von Windows Server enthält.
+Dieser Fehler wird erwartet, wenn Ihr Windows Server 2008 R2-Computer nicht vollständig mit allen kritischen und wichtigen Updates von Windows Update gepatcht ist. Es ist besonders wichtig, einen Windows Server 2008 R2-Computer aus Sicherheitsgründen aktualisieren zu lassen, da dieses Betriebssystem nicht die Sicherheitsverbesserungen von neueren Versionen von Windows Server enthält.
 
 ## <a name="error-couldnt-transfer-storage-on-any-of-the-endpoints-and-check-if-the-source-device-is-online---we-couldnt-access-it"></a>Fehler "der Speicher konnte nicht an einen der Endpunkte übertragen werden", und "Überprüfen Sie, ob das Quellgerät Online ist-wir konnten nicht darauf zugreifen."
 
-Beim Versuch, Daten von einem Quellcomputer zu übertragen, werden einige oder alle Freigaben nicht übertragen, zusammenfassende Fehler:
+Beim Versuch, Daten von einem Quellcomputer zu übertragen, werden einige oder alle Freigaben mit dem folgenden Fehler nicht übertragen:
 
 ```
 Couldn't transfer storage on any of the endpoints.
@@ -316,7 +316,7 @@ Als Alternative Problem Umgehung:
 2. Führen Sie den folgenden PowerShell-Befehl für den Speicher Migrationsdienst auf dem Orchestrator-Computer aus:
 
    ```PowerShell
-   Register-SMSProxy -ComputerName *destination server* -Force
+   Register-SMSProxy -ComputerName <destination server> -Force
    ```
 ## <a name="error-dll-was-not-found-when-running-inventory-from-a-cluster-node"></a>Fehler "dll wurde nicht gefunden" beim Ausführen des Inventars von einem Cluster Knoten
 
@@ -345,7 +345,7 @@ Durch das Deinstallieren von kumulativen Windows Server-Updates kann der Speiche
 
 1. Öffnen Sie eine Eingabeaufforderung mit erhöhten Rechten, bei der Sie ein Mitglied der Administratoren auf dem Orchestrator-Server für den Speicher Migrationsdienst sind, und führen Sie Folgendes aus:
 
-     ```
+     ```DOS
      TAKEOWN /d y /a /r /f c:\ProgramData\Microsoft\StorageMigrationService
 
      MD c:\ProgramData\Microsoft\StorageMigrationService\backup
@@ -426,16 +426,14 @@ Für dieses Problem gibt es zwei Lösungen:
 
 Nachdem Sie eine Übertragung abgeschlossen und dann eine nachfolgende erneute Übertragung derselben Daten ausgeführt haben, wird die Übertragungszeit möglicherweise nicht wesentlich verbessert, auch wenn sich in der Zwischenzeit nur wenige Daten auf dem Quell Server geändert haben.
 
-Dies ist das erwartete Verhalten beim Übertragen einer sehr großen Anzahl von Dateien und von untergeordneten Ordnern. Die Größe der Daten ist nicht relevant. Wir haben zunächst Verbesserungen an diesem Verhalten in [KB4512534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534) vorgenommen und optimieren weiterhin die Übertragungsleistung. Um die Leistung weiter zu optimieren, lesen Sie [Optimieren von Inventur-und Übertragungsleistung](./faq.md#optimizing-inventory-and-transfer-performance).
+Dies ist das erwartete Verhalten beim Übertragen einer sehr großen Anzahl von Dateien und von untergeordneten Ordnern. Die Größe der Daten ist nicht relevant. Wir haben zunächst Verbesserungen an diesem Verhalten in [KB4512534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534) vorgenommen und optimieren weiterhin die Übertragungsleistung. Um die Leistung weiter zu optimieren, lesen Sie [Optimieren von Inventur-und Übertragungsleistung](https://docs.microsoft.com/windows-server/storage/storage-migration-service/faq#optimizing-inventory-and-transfer-performance).
 
 ## <a name="data-does-not-transfer-user-renamed-when-migrating-to-or-from-a-domain-controller"></a>Die Daten werden nicht übertragen, der Benutzer wurde bei der Migration zu oder von einem Domänen Controller umbenannt.
 
 Nach dem Starten der Übertragung von oder zu einem Domänen Controller:
 
  1. Es werden keine Daten migriert, und auf dem Ziel werden keine Freigaben erstellt.
-
  2. Im Windows Admin Center wird ein rotes Fehler Symbol ohne Fehlermeldung angezeigt.
-
  3. Mindestens ein AD-Benutzer und eine lokale Domänen Gruppe haben den Namen und/oder das Anmelde Attribut vor Windows 2000 geändert.
 
  4. Das Ereignis 3509 wird im Orchestrator für den Speicher Migrationsdienst angezeigt:
@@ -536,7 +534,7 @@ Stack trace:
 
 Zu diesem Zeitpunkt versucht der Speicher Migrationsdienst-Orchestrator, die Quellcomputer Konfiguration zu ermitteln, um die Konfiguration des Quell Computers zu bestimmen, wird jedoch vom Quell Server abgelehnt, was besagt, dass der Registrierungs Pfad nicht vorhanden ist. Mögliche Ursachen:
 
- - Der Remote Registrierungsdienst wird auf dem Quellcomputer nicht ausgeführt.
+ - Der Remote Registrierungsdienst wird nicht auf dem Quellcomputer ausgeführt.
  - die Firewall lässt keine Remote Registrierungs Verbindungen mit dem Quell Server vom Orchestrator zu.
  - Das Quell Migrations Konto verfügt nicht über Remote Registrierungs Berechtigungen zum Herstellen einer Verbindung mit dem Quellcomputer.
  - Das Quell Migrations Konto verfügt nicht über Leseberechtigungen in der Registrierung des Quell Computers unter "HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Windows NT\CurrentVersion" oder unter "HKEY_LOCAL_MACHINE \system\currentcontrolset\services\lanmanserver".
@@ -568,7 +566,7 @@ Guidance: Confirm that the Netlogon service on the computer is reachable through
 
 Dieses Problem wird durch Gruppenrichtlinie verursacht, bei der der folgende Registrierungs Wert auf dem Quellcomputer festgelegt wird: "HKEY_LOCAL_MACHINE \software\microsoft\windows\currentversion\policies\system\localaccountdekenfilterpolicy = 0"
 
-Diese Einstellung ist nicht Bestandteil von Standard Gruppenrichtlinie, es handelt sich um ein Add-on, das mit dem [Microsoft Security Compliance Toolkit](https://www.microsoft.com/download/details.aspx?id=55319)konfiguriert wurde:
+Diese Einstellung ist nicht Bestandteil von Standard Gruppenrichtlinie, sondern ein Add-on, das mit dem [Microsoft Security Compliance Toolkit](https://www.microsoft.com/download/details.aspx?id=55319)konfiguriert wurde:
 
 - Windows Server 2012 R2: "Computerkonfiguration\Administrative vorlagen\scm: Pass-the-Hash-entschärf\uac-Einschränkungen auf lokale Konten bei Netzwerk Anmeldungen anwenden"
 
@@ -586,8 +584,7 @@ Um dieses Problem zu umgehen, verwenden Sie eine der folgenden Optionen:
 
 ## <a name="inventory-or-transfer-fail-when-using-credentials-from-a-different-domain"></a>Inventar oder Übertragung schlägt fehl, wenn Anmelde Informationen aus einer anderen Domäne verwendet werden
 
-Wenn Sie versuchen, eine Inventur oder Übertragung mit dem Speicher Migrationsdienst auszuführen und einen Windows-Server zu verwenden, während Sie die Anmelde Informationen für die Migration von einer anderen Domäne als dem Zielserver verwenden, erhalten Sie mindestens einen der folgenden Fehler:
-
+Wenn Sie versuchen, eine Inventur oder Übertragung mit dem Speicher Migrationsdienst auszuführen und einen Windows-Server zu verwenden, während Sie die Migrations Anmelde Informationen von einer anderen Domäne als dem Zielserver verwenden, erhalten Sie die folgenden Fehler:
 ```
 Exception from HRESULT:0x80131505
 
@@ -642,6 +639,6 @@ Guidance: Check the detailed error and make sure the inventory requirements are 
 
 Dieses Problem wird durch einen Code Fehler im Speicher Migrationsdienst verursacht. Die einzige Problem Umgehung besteht darin, den Computer so umzubenennen, dass er den gleichen Namen wie der NetBIOS-Name hat, und dann mit [netdom computername/Add](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc835082(v=ws.11)) einen alternativen Computernamen hinzuzufügen, der den längeren Namen enthält, der vor dem Start des Inventars verwendet wurde. Storage Migration Service unterstützt die Migration alternativer Computernamen.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 
 - [Übersicht über den Speicher Migrationsdienst](overview.md)

@@ -7,24 +7,24 @@ ms.technology: storage-spaces
 ms.topic: get-started-article
 ms.assetid: 20fee213-8ba5-4cd3-87a6-e77359e82bc0
 author: stevenek
-ms.date: 06/07/2019
-description: Eine Schritt-für-Schritt-Anleitung zum Bereitstellen von Software definiertem Speicher mit direkte Speicherplätze in Windows Server als hyperkonvergierte Infrastruktur oder konvergierte Infrastruktur (auch als disaggiert bezeichnet).
+ms.date: 07/24/2020
+description: Schritt-für-Schritt-Anleitung zum Bereitstellen von Software definiertem Speicher mit direkte Speicherplätze in Windows Server als hyperkonvergierte Infrastruktur oder konvergierte Infrastruktur (auch als disaggiert bezeichnet).
 ms.localizationpriority: medium
-ms.openlocfilehash: c18d3edc57ab04c9f9487bc39b52325fa1eb0ba9
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: ba9287cebe1cf35c151335e59476f63ae3e01a56
+ms.sourcegitcommit: de8fea497201d8f3d995e733dfec1d13a16cb8fa
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86955112"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87863937"
 ---
 # <a name="deploy-storage-spaces-direct"></a>Bereitstellen von direkten Speicherplätzen
 
 > Gilt für: Windows Server 2019, Windows Server 2016
 
-Dieses Thema enthält Schritt-für-Schritt-Anweisungen zum Bereitstellen von [direkte Speicherplätze](storage-spaces-direct-overview.md).
+Dieses Thema enthält Schritt-für-Schritt-Anleitungen zum Bereitstellen von [direkte Speicherplätze](storage-spaces-direct-overview.md) unter Windows Server. Informationen zum Bereitstellen von direkte Speicherplätze als Teil Azure Stack HCI finden Sie unter [Was ist der Bereitstellungs Prozess für Azure Stack HCI?](/azure-stack/hci/deploy/deployment-overview)
 
 > [!Tip]
-> Sie möchten eine hyperkonvergierte Infrastruktur erwerben? Microsoft empfiehlt, eine überprüfte Hardware-/Softwarelösung unserer Partner zu erwerben, die Bereitstellungs Tools und-Verfahren umfasst. Diese Lösungen wurden mit unserer Referenzarchitektur entworfen, zusammengestellt und überprüft, um Kompatibilität und Zuverlässigkeit sicherzustellen, sodass Sie schnell loslegen können. Informationen zu Windows Server 2019-Lösungen finden Sie auf der [Azure Stack HCI Solutions-Website](https://azure.microsoft.com/overview/azure-stack/hci). Informationen zu Windows Server 2016-Lösungen finden Sie unter [Windows Server-Software definiert](https://microsoft.com/wssd).
+> Möchten Sie eine hyperkonvergierte Infrastruktur erwerben? Microsoft empfiehlt, eine validierte Hardware/Software Azure Stack HCI-Lösung von unseren Partnern zu erwerben. Diese Lösungen wurden anhand unserer Referenzarchitektur entworfen, zusammengestellt und validiert und garantieren Kompatibilität und Zuverlässigkeit, sodass Sie sofort loslegen können. Informationen zum Nutzen eines Katalogs von Hardware-/Softwarelösungen, die mit Azure Stack HCI funktionieren, finden Sie im [Azure Stack HCI-Katalog](https://azure.microsoft.com/products/azure-stack/hci/catalog/).
 
 > [!Tip]
 > Sie können virtuelle Hyper-V-Computer (einschließlich in Microsoft Azure) verwenden, um [direkte Speicherplätze ohne Hardware auszuwerten](storage-spaces-direct-in-vm.md). Sie können auch die praktischen [Windows Server-schnell-Lab-Bereitstellungs Skripts](https://aka.ms/wslab)überprüfen, die wir zu Schulungszwecken verwenden.
@@ -37,13 +37,13 @@ Sammeln Sie die folgenden Informationen:
 
 - **Bereitstellungs Option.** Direkte Speicherplätze unterstützt [zwei Bereitstellungs Optionen: hyperkonvergiert und konvergiert](storage-spaces-direct-overview.md#deployment-options), auch als disaggregierte bezeichnet. Machen Sie sich mit den Vorteilen der einzelnen Maßnahmen vertraut, um zu entscheiden, welches für Sie geeignet ist. Die unten aufgeführten Schritte 1-3 gelten für beide Bereitstellungs Optionen. Schritt 4 ist nur für die konvergierte Bereitstellung erforderlich.
 
-- **Server Namen.** Machen Sie sich mit den Benennungs Richtlinien Ihrer Organisation für Computer, Dateien, Pfade und andere Ressourcen vertraut. Sie müssen mehrere Server bereitstellen, die jeweils über eindeutige Namen verfügen.
+- **Server Namen.** Machen Sie sich mit den Benennungs Richtlinien Ihrer Organisation für Computer, Dateien, Pfade und andere Ressourcen vertraut. Sie werden mehrere Server bereitstellen müssen, von denen jeder einen eindeutigen Namen erhalten muss.
 
-- **Domänen Name.** Machen Sie sich mit den Richtlinien Ihrer Organisation für Domänen Namen und Domänen Beitritt vertraut.  Sie werden die Server zu Ihrer Domäne hinzufügen, und Sie müssen den Domänen Namen angeben.
+- **Domänen Name.** Machen Sie sich mit den Richtlinien Ihrer Organisation für Domänen Namen und Domänen Beitritt vertraut.  Sie werden die Server in Ihre Domäne einbinden und müssen den Domänennamen angeben.
 
-- **RDMA-Netzwerk.** Es gibt zwei Arten von RDMA-Protokollen: IWarp und ROCE. Beachten Sie, welche der Netzwerkadapter verwendet und ob ROCE auch die Version (v1 oder v2) beachten soll. Beachten Sie für ROCE auch das Modell Ihres Top-of-Rack-Schalters.
+- **RDMA-Netzwerk.** Es gibt zwei Arten von RDMA-Protokollen: IWarp und ROCE. Informieren Sie sich darüber, welches Protokoll Ihre Netzwerkadapter verwenden. Wenn es sich um RoCE handelt, beachten Sie auch die Version (v1 oder v2). Im Fall von RoCE müssen Sie auch das Modell Ihres Top-of-Rack-Switchs beachten.
 
-- **VLAN-ID.** Beachten Sie die VLAN-ID, die für Verwaltungs Betriebssystem-Netzwerkadapter auf den Servern verwendet werden soll, sofern vorhanden. Diese sollten Sie von Ihrem Netzwerkadministrator erhalten.
+- **VLAN-ID.** Beachten Sie die VLAN-ID, die für Verwaltungs Betriebssystem-Netzwerkadapter auf den Servern verwendet werden soll, sofern vorhanden. Diese Informationen sollten Sie von Ihrem Netzwerkadministrator erhalten.
 
 ## <a name="step-1-deploy-windows-server"></a>Schritt 1: Bereitstellen von Windows Server
 
@@ -86,9 +86,9 @@ Geben Sie die PS-Sitzung ein, und verwenden Sie entweder den Servernamen oder di
 >
 > Hinweis: die Liste vertrauenswürdiger Hosts unterstützt Platzhalter, wie z `Server*` . b..
 >
-> Geben Sie ein, um die Liste der vertrauenswürdigen Hosts anzuzeigen `Get-Item WSMAN:\Localhost\Client\TrustedHosts` .
+> Geben Sie `Get-Item WSMAN:\Localhost\Client\TrustedHosts` ein, um die Liste vertrauenswürdiger Server anzuzeigen.
 >
-> Geben Sie ein, um die Liste zu leeren `Clear-Item WSMAN:\Localhost\Client\TrustedHost` .
+> Um die Liste zu leeren, geben Sie `Clear-Item WSMAN:\Localhost\Client\TrustedHost` ein.
 
 ### <a name="step-13-join-the-domain-and-add-domain-accounts"></a>Schritt 1,3: beitreten zur Domäne und Hinzufügen von Domänen Konten
 
@@ -110,7 +110,7 @@ Net localgroup Administrators <Domain\Account> /add
 
 ### <a name="step-14-install-roles-and-features"></a>Schritt 1,4: Installieren von Rollen und Features
 
-Der nächste Schritt besteht darin, Server Rollen auf jedem Server zu installieren. Hierfür können Sie das [Windows Admin Center](../../manage/windows-admin-center/use/manage-servers.md), [Server-Manager](../../administration/server-manager/install-or-uninstall-roles-role-services-or-features.md)) oder PowerShell verwenden. Folgende Rollen müssen installiert werden:
+Der nächste Schritt besteht darin, Server Rollen auf jedem Server zu installieren. Hierfür können Sie das [Windows Admin Center](../../manage/windows-admin-center/use/manage-servers.md), [Server-Manager](../../administration/server-manager/install-or-uninstall-roles-role-services-or-features.md)) oder PowerShell verwenden. Diese Rollen müssen installiert werden:
 
 - Failoverclustering
 - Hyper-V
@@ -244,7 +244,7 @@ Verwenden Sie nach dem Erstellen des Clusters das `Enable-ClusterStorageSpacesDi
 
 -   **Konfigurieren der Caches von „Direkte Speicherplätze“** Falls mehr als ein Medientyp bzw. Laufwerkstyp für die Verwendung von „Direkte Speicherplätze“ verfügbar ist, werden die schnellsten Typen als Cachegeräte aktiviert (in den meisten Fällen wird von diesen gelesen und auf diese geschrieben)
 
--   Tarife **:** Erstellt zwei Ebenen als Standard Ebenen. Eine mit der Bezeichnung „Kapazität“, die andere mit der Bezeichnung „Leistung“. Das Cmdlet analysiert die Geräte und konfiguriert jede Ebene mit der Kombination aus Gerätetypen und Ausfallsicherheit (Resilienz).
+-   Tarife **:** Erstellt zwei Ebenen als Standard Ebenen. Eine trägt den Namen „Capacity“ (Kapazität), die andere den Namen „Performance“ (Leistung). Das Cmdlet analysiert die Geräte und konfiguriert jede Ebene mit der Mischung aus Gerätetypen und Resilienz.
 
 Starten Sie aus dem Verwaltungssystem heraus den folgenden Befehl in einem PowerShell-Befehlsfenster, das mit Administratorrechten geöffnet wurde. Der Clustername ist der Name des Clusters, den Sie in den vorherigen Schritten erstellt haben. Wenn dieser Befehl lokal auf einem der Knoten ausgeführt wird, ist der Parameter -CimSession nicht erforderlich.
 
@@ -258,7 +258,7 @@ Wenn dieser Befehl abgeschlossen ist, was einige Minuten in Anspruch nehmen kann
 
 ### <a name="step-36-create-volumes"></a>Schritt 3.6: Erstellen von Volumes
 
-Es wird empfohlen, das `New-Volume` Cmdlet zu verwenden, da es die schnellste und einfachste Möglichkeit bietet. Dieses Cmdlet erstellt automatisch den virtuellen Datenträger, partitioniert und formatiert ihn, erstellt das Volume mit einem übereinstimmenden Namen und fügt es zu freigegebenen Clustervolumes hinzu – alles in einem einfachen Schritt.
+Es wird empfohlen, das `New-Volume` Cmdlet zu verwenden, da es die schnellste und einfachste Möglichkeit bietet. Mit diesem Cmdlet wird mit nur einem einfachen Schritt Folgendes durchgeführt: Der virtuelle Datenträger wird automatisch erstellt und anschließend partitioniert und formatiert, und das Volume wird mit dem entsprechenden Namen erstellt und den freigegebenen Clustervolumes hinzugefügt.
 
 Weitere Informationen finden Sie unter [Erstellen von Volumes in direkte Speicherplätze](create-volumes.md).
 
@@ -386,7 +386,7 @@ CD $ScriptFolder
 
 Nachdem Sie den Cluster Dateiserver bereitgestellt haben, empfiehlt es sich, die Leistung Ihrer Lösung mithilfe synthetischer Workloads zu testen, bevor Sie echte Workloads bereitstellen. Auf diese Weise können Sie überprüfen, ob die Lösung ordnungsgemäß funktioniert, und alle veralteten Probleme beheben, bevor Sie die Komplexität von Workloads hinzufügen. Weitere Informationen finden Sie unter [Testen der Leistung von Speicherplätzen mithilfe synthetischer Workloads](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn894707(v=ws.11)).
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Direkte Speicherplätze in Windows Server 2016](storage-spaces-direct-overview.md)
 -   [Verstehen des Caches in direkten Speicherplätzen](understand-the-cache.md)

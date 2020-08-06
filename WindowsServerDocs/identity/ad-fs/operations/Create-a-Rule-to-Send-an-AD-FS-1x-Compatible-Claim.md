@@ -1,6 +1,6 @@
 ---
 ms.assetid: 0039fbbb-b981-4526-a550-f3456ff27635
-title: Erstellen einer Regel zum Transformieren eines eingehenden Anspruchs
+title: Erstellen einer Regel zum Senden eines AD FS 1. x-kompatiblen Anspruchs
 author: billmath
 ms.author: billmath
 manager: femila
@@ -8,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: b74d31ed6dd8775181465c42b6a9c8745f668615
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 7b85cfdd93787785b058f5dc83a779b4cd1f6a33
+ms.sourcegitcommit: de8fea497201d8f3d995e733dfec1d13a16cb8fa
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86966662"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87864263"
 ---
 # <a name="create-a-rule-to-send-an-ad-fs-1x-compatible-claim"></a>Erstellen einer Regel zum Senden eines AD FS 1. x-kompatiblen Anspruchs
 
@@ -321,7 +321,7 @@ Verwenden Sie je nach den Anforderungen Ihrer Organisation eines der folgenden V
 
 11. Klicken Sie auf **Fertig**stellen und dann auf **OK** , um die Regel zu speichern.  
 
-## <a name="additional-references"></a>Zusätzliche Verweise 
+## <a name="additional-references"></a>Weitere Verweise 
 [Konfigurieren von Anspruchsregeln](Configure-Claim-Rules.md)  
  
 [Prüfliste: Erstellen von Anspruchsregeln für eine Vertrauensstellung der vertrauenden Seite](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/ee913578(v=ws.11))  

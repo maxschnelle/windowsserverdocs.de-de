@@ -1,6 +1,6 @@
 ---
 ms.assetid: 8c3536b7-d091-4ee6-ad04-24713f070862
-title: Bereitstellen von AD FS in der Kontopartnerorganisation
+title: Bereitstellen von Legacy AD FS in der Konto Partner Organisation
 author: billmath
 ms.author: billmath
 manager: femila
@@ -8,16 +8,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 7a1d92a932638388ef50322078084c648c9dfdb9
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 46b22a2b76896844c08f937304575a250582ccc9
+ms.sourcegitcommit: de8fea497201d8f3d995e733dfec1d13a16cb8fa
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80853193"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87863696"
 ---
-# <a name="deploying-ad-fs-in-the-account-partner-organization"></a>Bereitstellen von AD FS in der Kontopartnerorganisation
+# <a name="deploying-legacy-ad-fs-in-the-account-partner-organization"></a>Bereitstellen von Legacy AD FS in der Konto Partner Organisation
 
-Ein Konto Partner in Active Directory-Verbunddienste (AD FS) \(AD FS\) stellt die Organisation in der Verbund Vertrauensstellung dar, die Benutzerkonten physisch in einem unterstützten Attribut Speicher speichert. Weitere Informationen zu den unterstützten Attribut speichern finden Sie unter [der Rolle von Attribut speichern](../../ad-fs/technical-reference/The-Role-of-Attribute-Stores.md).  
+Ein Konto Partner in Active Directory-Verbunddienste (AD FS) \( AD FS \) stellt die Organisation in der Verbund Vertrauensstellung dar, die Benutzerkonten physisch in einem unterstützten Attribut Speicher speichert. Weitere Informationen zu den unterstützten Attribut speichern finden Sie unter [der Rolle von Attribut speichern](../../ad-fs/technical-reference/The-Role-of-Attribute-Stores.md).  
   
 Der Verbund Server in der Konto Partnerorganisation authentifiziert lokale Benutzer und erstellt Sicherheits Token, die vom Ressourcen Partner verwendet werden, um Autorisierungs Entscheidungen zu treffen. Vertrauende Seiten wie Websites und Webdienste können sich dann problemlos beim Verbund Server registrieren und ausgestellte Token für die Authentifizierung und Zugriffs Steuerung nutzen.  
   
@@ -25,7 +25,7 @@ In Szenarien, in denen Sie Ihren Benutzern Zugriff auf mehrere Verbund Anwendung
   
 Weitere Informationen zum Einrichten und Konfigurieren von Kontopartnerorganisationen finden Sie unter [Checklist: Configuring the Account Partner Organization](../../ad-fs/deployment/Checklist--Configuring-the-Account-Partner-Organization.md).  
   
-## <a name="in-this-section"></a>Inhalt dieses Abschnitts  
+## <a name="in-this-section"></a>In diesem Abschnitt  
   
 -   [Überprüfen der Rolle des Verbundservers beim Kontopartner](Review-the-Role-of-the-Federation-Server-in-the-Account-Partner.md)  
   

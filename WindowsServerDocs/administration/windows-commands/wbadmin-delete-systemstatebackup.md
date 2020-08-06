@@ -9,15 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a17ed3595f0e1dd369e762150c8f45fe6f983822
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: ea6c2b2f367820db3f3611806d3aaecd9eca87e4
+ms.sourcegitcommit: de8fea497201d8f3d995e733dfec1d13a16cb8fa
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85933714"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87863762"
 ---
 # <a name="wbadmin-delete-systemstatebackup"></a>wbadmin delete systemstatebackup
-
 
 
 Löscht die von Ihnen angegebenen Systemstatus Sicherungen. Wenn das angegebene Volume andere Sicherungen als Systemstatus Sicherungen des lokalen Servers enthält, werden diese Sicherungen nicht gelöscht.
@@ -26,7 +25,6 @@ Löscht die von Ihnen angegebenen Systemstatus Sicherungen. Wenn das angegebene 
 > Windows Server-Sicherung dient nicht zum Sichern oder Wiederherstellen von registrierungsbenutzer Strukturen (HKEY_CURRENT_USER) im Rahmen der Sicherung oder Wiederherstellung des Systemstatus.
 
 Zum Löschen einer Systemstatus Sicherung mit diesem Unterbefehl müssen Sie ein Mitglied der Gruppe " **Sicherungs-Operatoren** " oder der Gruppe " **Administratoren** " sein, oder die entsprechenden Berechtigungen müssen an Sie delegiert worden sein. Außerdem müssen Sie **Wbadmin** über eine Eingabeaufforderung mit erhöhten Rechten ausführen. (Klicken Sie zum Öffnen einer Eingabeaufforderung mit erhöhten Rechten mit der rechten Maustaste auf **Eingabeaufforderung**, und klicken Sie dann auf **als Administrator ausführen**.)
-
 
 
 ## <a name="syntax"></a>Syntax
@@ -44,7 +42,7 @@ wbadmin delete systemstatebackup
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
 |-keepversions|Gibt die Anzahl der aktuellen Sicherungen des Systemstatus an, die aufbewahrt werden sollen. Der Wert muss eine positive ganze Zahl sein. Mit dem Parameterwert **-keepversions: 0** werden alle Systemstatus Sicherungen gelöscht.|
 |-version|Gibt den Versions Bezeichner der Sicherung im Format mm/dd/yyyy-HH: mm an. Wenn Sie den Versions Bezeichner nicht kennen, geben Sie **Wbadmin Get Versions**ein.</br>Versionen, die ausschließlich Systemstatus Sicherungen sind, können mit diesem Befehl gelöscht werden. Verwenden Sie **Wbadmin Get Items** , um den Versionstyp anzuzeigen.|
@@ -63,12 +61,12 @@ Geben Sie Folgendes ein, um alle Systemstatus Sicherungen außer den drei neuest
 ```
 wbadmin delete systemstatebackup -keepVersions:3
 ```
-Geben Sie Folgendes ein, um die älteste auf Laufwerk f gespeicherte Systemstatus Sicherung zu löschen:
+Geben Sie Folgendes ein, um die älteste auf Laufwerk f: gespeicherte Systemstatus Sicherung zu löschen:
 ```
-wbadmin delete systemstatebackup -backupTarget:f -deleteOldest
+wbadmin delete systemstatebackup -backupTarget:f:\ -deleteOldest
 ```
 
 ## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
--   [Wbadmin](wbadmin.md)
+- [Wbadmin](wbadmin.md)

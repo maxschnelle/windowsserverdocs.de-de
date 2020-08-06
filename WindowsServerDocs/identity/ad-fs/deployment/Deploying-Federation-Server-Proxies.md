@@ -1,6 +1,6 @@
 ---
 ms.assetid: 1b21b0a9-1fe6-4fd1-8a25-92e578d774ed
-title: Bereitstellen von Verbundserverproxys
+title: Bereitstellen von Verbund Server Proxys in AD FS
 author: billmath
 manager: femila
 ms.date: 05/31/2017
@@ -8,14 +8,14 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 418fd3bc1c53a4f8f3bdb4b945df29b70806272a
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 5f9ab6729b5cc5d0b4981f24cdc5a3ef48ee967e
+ms.sourcegitcommit: de8fea497201d8f3d995e733dfec1d13a16cb8fa
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86965962"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87864188"
 ---
-# <a name="deploying-federation-server-proxies"></a>Bereitstellen von Verbundserverproxys
+# <a name="deploying-legacy-ad-fs-federation-server-proxies"></a>Bereitstellen von Legacy AD FS Verbund Server Proxys
 
 Zum Bereitstellen von Verbund Server \( Proxys in Active Directory-Verbunddienste (AD FS) AD FS führen Sie \) alle Aufgaben in Prüfliste [: Einrichten eines Verbund Server Proxys](Checklist--Setting-Up-a-Federation-Server-Proxy.md)aus.  
   

@@ -1,6 +1,6 @@
 ---
 ms.assetid: 777aab65-c9c7-4dc9-a807-9ab73fac87b8
-title: Konfigurieren von AD FS extranetsperrschutz
+title: Konfigurieren des intelligenten AD FS-Extranetsperrschutzes
 author: billmath
 ms.author: billmath
 manager: mtilman
@@ -8,12 +8,12 @@ ms.date: 05/20/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 5cb6246b00d891bd18f30b75b591dd4aaae021f5
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 2363e7cd696275de47c70c3ef3a2316d43b487db
+ms.sourcegitcommit: de8fea497201d8f3d995e733dfec1d13a16cb8fa
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86962652"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87863991"
 ---
 # <a name="ad-fs-extranet-lockout-and-extranet-smart-lockout"></a>AD FS Extranet Lockout und Extranet Smart Lockout
 
@@ -251,7 +251,7 @@ AD FS schreibt extranetsperrungsereignisse in das Sicherheits Überwachungs Prot
 Im Modus "nur Protokoll" können Sie das Sicherheits Überwachungs Protokoll auf Sperr Ereignisse überprüfen. Für gefundene Ereignisse können Sie den Benutzer Zustand mithilfe des Cmdlets Get-adfsaccountactivity überprüfen, um festzustellen, ob die Sperre von vertrauten oder unbekannten IP-Adressen aufgetreten ist, und die Liste der vertrauten IP-Adressen für diesen Benutzer zu überprüfen.
 
 
-|Ereignis-ID|Beschreibung|
+|Ereignis-ID|BESCHREIBUNG|
 |-----|-----|
 |1203|Dieses Ereignis wird für jeden ungültigen Kennwort-Versuch geschrieben. Sobald BadPwdCount den in extranetlockoutthreshold angegebenen Wert erreicht, wird das Konto für die in extranetobservationwindow angegebene Dauer in ADFS gesperrt.</br>Aktivitäts-ID: %1</br>XML: %2|
 |1201|Dieses Ereignis wird jedes Mal geschrieben, wenn ein Benutzer gesperrt wird. </br>Aktivitäts-ID: %1</br>XML: %2|
@@ -290,7 +290,7 @@ Extranet Smart Lockout überprüft Netzwerk-IP-Adressen, weitergeleitete IPS, de
 A: bei aktiviertem ESL werden AD FS die Kontoaktivität und die bekannten Speicherorte für Benutzer in der adfsartifactstore-Datenbank nachverfolgt. Die Größe dieser Datenbank wird relativ zur Anzahl der nachverfolgten Benutzer und bekannten Standorte skaliert. Beim Planen der Aktivierung von ESL können Sie die Größenzunahme für die ADFSArtifactStore-Datenbank auf eine Rate von bis zu 1 GB pro 100.000 Benutzer schätzen. Wenn die AD FS-Farm die interne Windows-Datenbank (WID) verwendet, lautet der Standard Speicherort für die Datenbankdateien c:\windows\wid\data\. Um das Auffüllen dieses Laufwerks zu verhindern, stellen Sie sicher, dass mindestens 5 GB freier Speicherplatz verfügbar sind, bevor Sie ESL aktivieren. Planen Sie zusätzlich zum Datenträgerspeicher, dass der gesamte Prozessspeicher nach der Aktivierung von ESL um bis zu weitere 1 GB RAM für Benutzerauffüllungen von maximal 500.000 größer wird.
 
 
-## <a name="additional-references"></a>Zusätzliche Verweise  
+## <a name="additional-references"></a>Weitere Verweise  
 [Bewährte Methoden zum Sichern von Active Directory-Verbunddienste (AD FS)](../../ad-fs/deployment/best-practices-securing-ad-fs.md)
 
 [Set-ADF sproperties](/powershell/module/adfs/set-adfsproperties?view=win10-ps)

@@ -6,24 +6,24 @@ manager: dongill
 ms.technology: storage-spaces
 ms.topic: article
 author: cosmosdarwin
-ms.date: 06/26/2019
+ms.date: 07/24/2020
 ms.assetid: 8bd0d09a-0421-40a4-b752-40ecb5350ffd
-description: Eine Übersicht über direkte Speicherplätze, ein Feature von Windows Server, mit dem Sie Server mit internem Speicher in einer Software definierten Speicherlösung Clustern können.
+description: Eine Übersicht über direkte Speicherplätze, ein Feature von Windows Server und Azure Stack HCI, mit dem Sie Server mit internem Speicher in einer Software definierten Speicherlösung Clustern können.
 ms.localizationpriority: medium
-ms.openlocfilehash: 4fb8700935306cbd007ab4afc61cf3eb54227130
-ms.sourcegitcommit: acfdb7b2ad283d74f526972b47c371de903d2a3d
+ms.openlocfilehash: 3fd86a8465d2fef59ccce73fc473790682f0d180
+ms.sourcegitcommit: de8fea497201d8f3d995e733dfec1d13a16cb8fa
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87768945"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87864321"
 ---
 # <a name="storage-spaces-direct-overview"></a>Direkte Speicherplätze – Übersicht
 
->Gilt für: Windows Server 2019, Windows Server 2016
+>Gilt für: Azure Stack HCI, Windows Server 2019, Windows Server 2016
 
 „Direkte Speicherplätze“ verwendet branchenübliche Server mit lokal angeschlossenen Laufwerken, um hoch verfügbare, hoch skalierbare softwaredefinierte Speicher zu einem Bruchteil der Kosten von herkömmlichen SAN- oder NAS-Arrays zu erstellen. Die konvergierte oder hyperkonvergierte Architektur vereinfacht die Beschaffung und Bereitstellung, während Features wie Caching, Speicherebenen und Lösch Programmierung zusammen mit den neuesten Hardware Innovationen wie RDMA-Netzwerk-und nvme-Laufwerke eine nicht über rivalisierte Effizienz und Leistung bieten.
 
-Direkte Speicherplätze ist in den Builds Windows Server 2019 Datacenter, Windows Server 2016 Datacenter und [Windows Server Insider Preview](https://insider.windows.com/for-business-getting-started-server/)enthalten.
+Direkte Speicherplätze ist in [Azure Stack HCI](/azure-stack/hci/)-, Windows Server 2019 Datacenter-, Windows Server 2016 Datacenter-und [Windows Server Insider Preview-Builds](https://insider.windows.com/for-business-getting-started-server/)enthalten.
 
 Informationen zu anderen Anwendungen von Speicherplätzen, wie freigegebene SAS-Cluster und eigenständige Server, finden Sie unter [Übersicht über Speicherplätze](overview.md). Informationen zur Verwendung von Speicherplätzen auf einem Windows 10-PC finden Sie unter [Speicherplätze in Windows 10](https://support.microsoft.com/help/12438/windows-10-storage-spaces).
 
@@ -53,7 +53,7 @@ Informationen zu anderen Anwendungen von Speicherplätzen, wie freigegebene SAS-
 
 ## <a name="key-benefits"></a>Hauptvorteile
 
-| Image | Beschreibung |
+| Image | BESCHREIBUNG |
 |--|--|
 | ![Einfachheit](media/storage-spaces-direct-in-windows-server-2016/simplicity-icon.png) | **Theit.** Wechseln Sie in weniger als 15 Minuten von branchenüblichen Servern unter Windows Server 2016 zu Ihrem ersten „Direkte Speicherplätze“-Cluster. Für System Center-Benutzer erfolgt die Bereitstellung über ein einziges Kontrollkästchen. |
 | ![Nicht über rivalisierte Leistung](media/storage-spaces-direct-in-windows-server-2016/performance-icon.png) | **Unübertroffene Leistung.** Ganz gleich, ob All-Flash- oder Hybridspeicher, mit „Direkte Speicherplätze“ erreichen Sie mühelos über [150.000 gemischte zufällige 4K-Random-IOPS (E/A-Vorgänge pro Sekunde) pro Server](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB) mit konsistenter, geringer Latenz dank der in den Hypervisor eingebetteten Architektur, dem integrierten Lese-/Schreibcache und der Unterstützung für innovative, direkt auf dem PCIe-Bus montierte NVMe-Laufwerke. |
