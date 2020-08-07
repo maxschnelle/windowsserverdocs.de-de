@@ -1,20 +1,18 @@
 ---
 ms.assetid: c91c7196-ee0d-4856-8cfb-4c38494ccf1f
 title: Übersicht über Arbeitsordner
-ms.prod: windows-server
-ms.technology: storage-work-folders
 ms.topic: article
 author: JasonGerend
 manager: dougkim
 ms.author: jgerend
 ms.date: 06/15/2020
 description: 'Eine Übersicht über Arbeitsordner: eine Server Rolle in Windows Server, die Benutzern eine konsistente Möglichkeit bietet, auf Arbeitsdateien von PCs und Geräten zuzugreifen.'
-ms.openlocfilehash: 4759584773698dded934d435e601da4e05ff9ee6
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: 5641ea38a75e79420a5e697c14c0e4e3422aa913
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87181906"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87970067"
 ---
 # <a name="work-folders-overview"></a>Übersicht über Arbeitsordner
 
@@ -109,7 +107,7 @@ Für Arbeitsordner gelten die folgenden Softwareanforderungen für Clientcompute
 
     -   Windows RT 8.1
 
-    -   Windows 7
+    -   Windows 7
 
     -   Android 4,4 KitKat und höher
 

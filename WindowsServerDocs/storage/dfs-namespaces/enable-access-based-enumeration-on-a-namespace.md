@@ -2,18 +2,16 @@
 title: Aktivieren Sie zugriffsbasierte Aufzählungen für einen Namespace
 description: In diesem Artikel wird beschrieben, wie Sie die Zugriffs basierte Enumeration für einen Namespace aktivieren.
 ms.date: 6/5/2017
-ms.prod: windows-server
-ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 04b023a931f8d66205a07f05bb8d3e955f8b83ca
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 507af0f3cdd76ab7af59092f8f099225c113edaa
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86964072"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87936124"
 ---
 # <a name="enable-access-based-enumeration-on-a-namespace"></a>Aktivieren der Zugriffs basierten Enumeration für einen Namespace
 
@@ -101,7 +99,7 @@ Sie können steuern, welche Benutzer und Gruppen einzelne DFS-Ordner anzeigen k�
 |[Dfsutil-Eigenschaft SD Reset](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd759150(v=ws.11)) |Entfernt alle Berechtigungen aus dem Ordner.|
 |[Dfsutil-Eigenschaft, SD-Widerruf](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd759150(v=ws.11))| Entfernt einen Gruppen-oder Benutzer-ACE aus dem Ordner. |
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Erstellen eines DFS-Namespaces](create-a-dfs-namespace.md)
 -   [Delegieren von Verwaltungsberechtigungen für DFS-Namespaces](delegate-management-permissions-for-dfs-namespaces.md)

@@ -2,18 +2,16 @@
 title: 'GRE-Tunneling für RAS-Gateway: Durchsatz und Leistung'
 description: Dieses Thema, das für IT-Experten gedacht ist, bietet Durchsatz-Leistungsinformationen zu den RAS-Tunneln (Generic Routing Kapselung) des RAS-Gateways.
 manager: brianlic
-ms.prod: windows-server
-ms.technology: networking-ras
 ms.topic: article
 ms.assetid: c051b2ec-de0f-49d1-82b9-5742b259cd7c
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: b20f26673cc5f56632717f9889bfd03b81173661
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 3cf4b74a6aa6d8f64b917842cc0806cd463716e8
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86961872"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87953666"
 ---
 # <a name="ras-gateway-gre-tunnel-throughput-and-performance"></a>GRE-Tunneling für RAS-Gateway: Durchsatz und Leistung
 
@@ -33,7 +31,7 @@ Der Modus mit nur einem Mandanten ermöglicht Organisationen beliebiger Größe 
 
 GRE ist ein Lightweight-Tunnelingprotokoll, das eine Vielzahl von Protokollen der Netzwerkschicht innerhalb eines virtuellen Punkts \- zum \- verweisen auf Verknüpfungen über ein Internet Protokoll-Netzwerk Kapseln kann. Die Microsoft GRE-Implementierung kapselt sowohl IPv4 als auch IPv6.
 
-Weitere Informationen finden Sie im Abschnitt **Bereitstellungs Szenarien für RAS-Gateways** im Thema [RAS-Gateway](./ras-gateway.md#bkmk_deploy). 
+Weitere Informationen finden Sie im Abschnitt **Bereitstellungs Szenarien für RAS-Gateways** im Thema [RAS-Gateway](./ras-gateway.md#bkmk_deploy).
 
 In diesem Testszenario, das in der folgenden Abbildung dargestellt wird, wird der gemessene Daten Verkehrsfluss vom Unternehmens Intranet 2 in das Unternehmens Intranet 1 verlagert. Virtuelle Computer für die Arbeitsauslastung von Mandanten senden Netzwerk Datenverkehr von Intranet 2 an Intranet 1 mithilfe des RAS-Gateways.
 
@@ -47,14 +45,14 @@ In der Testumgebung werden RAS-Gateway-VMS auf Hyper- \- V-Hosts in einem Failov
 
 ### <a name="hyper-v-host-configuration"></a>Hyper- \- V-Host Konfiguration
 
-Zwei Hyper- \- V-Hosts werden so konfiguriert, dass das Testszenario auf folgende Weise unterstützt wird. 
+Zwei Hyper- \- V-Hosts werden so konfiguriert, dass das Testszenario auf folgende Weise unterstützt wird.
 
 - Zwei zwei duale, vernetzte \- physische Computer werden mit Windows Server konfiguriert, Version 1709
 - Die beiden physischen Netzwerkadapter auf jedem der beiden Server sind mit unterschiedlichen Subnetzwerken verbunden, die beide Subnetze eines Unternehmensintranets darstellen. Sowohl Netzwerke als auch unterstützende Hardware verfügen über eine Kapazität von 10 Gbit/s.
 - Hyperthreading auf den physischen Servern ist deaktiviert. Dies ermöglicht den maximalen Durchsatz von den physischen NICs.
 - Die Hyper \- -v-Server Rolle wird auf beiden Servern installiert und mit zwei externen \- virtuellen Hyper-V-Switches konfiguriert, eine für jeden physischen Netzwerkadapter.
 - Da beide Server mit demselben Intranet verbunden sind, können die Server miteinander kommunizieren.
-- Die Hyper- \- V-Hosts werden in einem Failovercluster über das Intranet-Netzwerk konfiguriert. 
+- Die Hyper- \- V-Hosts werden in einem Failovercluster über das Intranet-Netzwerk konfiguriert.
 
 >[!NOTE]
 >Weitere Informationen finden Sie unter [virtueller Hyper-V-Switch](../../../virtualization/hyper-v-virtual-switch/hyper-v-virtual-switch.md).

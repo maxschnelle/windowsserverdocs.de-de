@@ -1,28 +1,26 @@
 ---
 title: Bereitstellen eines Dateifreigabe Zeugen in Windows Server 2019
 description: Mithilfe von Dateifreigabe Zeugen können Sie eine Dateifreigabe verwenden, die im Cluster Quorum Stimmen soll. In diesem Thema werden Dateifreigabe Zeugen und die neuen Funktionen beschrieben, einschließlich der Verwendung eines USB-Laufwerks, das mit einem Router als Datei frei gaben Zeuge verbunden ist.
-ms.prod: windows-server
 manager: eldenc
-ms.technology: failover-clustering
 ms.topic: article
 author: johnmarlin-msft
 ms.author: johnmar
 ms.date: 01/24/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 63e016b8e00482529e69aaa12727f854afd51e41
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: ea9dd3f79576048a57c85e879daf86567d325046
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80827673"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87945833"
 ---
-# <a name="deploy-a-file-share-witness"></a>Bereitstellen eines Dateifreigabe Zeugen
+# <a name="deploy-a-file-share-witness"></a>Bereitstellen eines Dateifreigabezeugen
 
 > Gilt für: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Ein Dateifreigabe Zeuge ist eine SMB-Freigabe, die der Failovercluster als Stimme im Cluster Quorum verwendet. Dieses Thema bietet einen Überblick über die Technologie und die neuen Funktionen in Windows Server 2019, einschließlich der Verwendung eines USB-Laufwerks, das mit einem Router als Datei frei gaben Zeuge verbunden ist.
 
-Dateifreigabe Zeugen sind in folgenden Situationen nützlich:  
+Dateifreigabe Zeugen sind in folgenden Situationen nützlich:
 
 - Ein cloudzeuge kann nicht verwendet werden, da nicht alle Server im Cluster über eine zuverlässige Internet Verbindung verfügen.
 - Ein Datenträger Zeuge kann nicht verwendet werden, da keine freigegebenen Laufwerke für einen Datenträger Zeugen verwendet werden. Dabei kann es sich um einen direkte Speicherplätze Cluster, SQL Server Always on Verfügbarkeits Gruppen (AG), eine Exchange-Daten Bank Verfügbarkeits Gruppe (DAG) usw. handeln.  Keiner dieser Cluster Typen verwendet freigegebene Datenträger.

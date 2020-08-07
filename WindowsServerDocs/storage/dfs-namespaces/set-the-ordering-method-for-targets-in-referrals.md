@@ -2,18 +2,16 @@
 title: Festlegen der Sortiermethode für Ziele in Verweisen
 description: In diesem Artikel wird beschrieben, wie die Bestellmethode für Ziele in verweisen festgelegt wird.
 ms.date: 6/5/2017
-ms.prod: windows-server
-ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: a993d53611382dcd0007bfecae95da6221cf6016
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: e448a12659ca7aa9fbc4230dce51df4fbcd7bcf0
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86966802"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87936103"
 ---
 # <a name="set-the-ordering-method-for-targets-in-referrals"></a>Festlegen der Sortiermethode für Ziele in Verweisen
 
@@ -89,7 +87,7 @@ Bei dieser Methode enthält der Verweis nur die Ziele, die sich an demselben Sta
 > [!NOTE]
 > Ziele, bei denen die Ziel Priorität auf "zuerst bei allen Zielen" oder "letzte für alle Ziele" festgelegt ist, werden weiterhin im Verweis aufgeführt, auch wenn die Bestellmethode auf das **Ausschließen von Zielen außerhalb des Client Standorts**festgelegt ist.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Optimieren von DFS-Namespaces](tuning-dfs-namespaces.md)
 -   [Delegieren von Verwaltungsberechtigungen für DFS-Namespaces](delegate-management-permissions-for-dfs-namespaces.md)

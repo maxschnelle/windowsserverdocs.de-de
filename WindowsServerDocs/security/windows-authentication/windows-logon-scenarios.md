@@ -1,24 +1,22 @@
 ---
 title: Windows-Anmeldeszenarios
 description: Windows Server-Sicherheit
-ms.prod: windows-server
-ms.technology: security-windows-auth
 ms.topic: article
 ms.assetid: 66b7c568-67b7-4ac9-a479-a5a3b8a66142
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 9a953b22b39a20557103fa84a5d6d5e42e753444
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 3e3876680031cdb31f2fa3e6ce200efdf6fb5185
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80861703"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87936450"
 ---
 # <a name="windows-logon-scenarios"></a>Windows-Anmeldeszenarios
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 In diesem Referenz Thema für IT-Experten werden gängige Windows-Anmelde-und-Anmelde Szenarien zusammengefasst.
 
@@ -36,7 +34,7 @@ In diesem Thema werden folgende Szenarien beschrieben:
 
 -   [Netzwerk Anmeldung](#BKMK_NetworkLogon)
 
--   [Smartcardanmeldung](#BKMK_SmartCardLogon)
+-   [Anmeldung mit Smartcards](#BKMK_SmartCardLogon)
 
 -   [Biometrische Anmeldung](#BKMK_BioLogon)
 
@@ -47,7 +45,7 @@ Das folgende Diagramm zeigt die interaktiven Anmelde Elemente und den Anmeldevor
 
 ![Diagramm mit den interaktiven Anmelde Elementen und dem Anmeldevorgang](../media/windows-logon-scenarios/AuthN_LSA_Architecture_Client.gif)
 
-**Architektur der Windows-Client Authentifizierung**
+**Windows-Client – Authentifizierungsarchitektur**
 
 ### <a name="local-and-domain-logon"></a><a name="BKMK_LocaDomainLogon"></a>Lokale und Domänen Anmeldung
 Die Anmelde Informationen, die der Benutzer für eine Domänen Anmeldung anzeigt, enthalten alle Elemente, die für eine lokale Anmeldung erforderlich sind, z. b. Konto Name, Kennwort oder Zertifikat und Active Directory Domänen Informationen. Der Prozess bestätigt die Identifizierung des Benutzers für die Sicherheitsdatenbank auf dem lokalen Computer des Benutzers oder einer Active Directory Domäne. Dieser obligatorische Anmeldevorgang kann nicht für Benutzer in einer Domäne ausgeschaltet werden.
@@ -92,7 +90,7 @@ Um diese Art der Authentifizierung bereitzustellen, umfasst das Sicherheitssyste
 
 Informationen zu den Elementen und Prozessen finden Sie im obigen interaktiven Anmelde Diagramm.
 
-## <a name="smart-card-logon"></a><a name="BKMK_SmartCardLogon"></a>Smartcardanmeldung
+## <a name="smart-card-logon"></a><a name="BKMK_SmartCardLogon"></a>Anmeldung mit Smartcards
 Smartcards können verwendet werden, um sich ausschließlich bei Domänen Konten anzumelden, nicht bei lokalen Konten. Die Smartcard-Authentifizierung erfordert die Verwendung des Kerberos-Authentifizierungs Protokolls. In Windows 2000 Server eingeführt wurde, wird in Windows-basierten Betriebssystemen eine Erweiterung des öffentlichen Schlüssels für die anfängliche Authentifizierungsanforderung des Kerberos-Protokolls implementiert. Im Gegensatz zur Kryptografie mit dem gemeinsamen geheimen Schlüssel ist die Kryptografie mit öffentlichem Schlüssel asymmetrisch, d. h., es sind zwei verschiedene Schlüssel erforderlich: eine zum Verschlüsseln, eine andere zum Entschlüsseln. Die Schlüssel, die zum Ausführen beider Vorgänge erforderlich sind, bilden gemeinsame private/öffentliche Schlüsselpaare.
 
 Um eine typische Anmelde Sitzung zu initiieren, muss ein Benutzer seine Identität nachweisen, indem er Informationen bereitstellt, die nur dem Benutzer und der zugrunde liegenden Kerberos-Protokoll Infrastruktur bekannt sind. Die geheimen Informationen sind ein kryptografischer, gemeinsam verwendeter Schlüssel, der aus dem Kennwort des Benutzers abgeleitet wurde. Ein gemeinsamer geheimer Schlüssel ist symmetrisch. Dies bedeutet, dass derselbe Schlüssel sowohl für die Verschlüsselung als auch für die Entschlüsselung verwendet wird.
@@ -101,7 +99,7 @@ Das folgende Diagramm zeigt die für die Smartcardanmeldung erforderlichen Eleme
 
 ![Diagramm mit den Elementen und Prozessen, die für die Smartcard-Anmeldung erforderlich sind](../media/windows-logon-scenarios/SmartCardCredArchitecture.gif)
 
-**Smartcard-Anmelde Informationsanbieter-Architektur**
+**Smartcard-Anmeldeanbieterarchitektur**
 
 Wenn eine Smartcard anstelle eines Kennworts verwendet wird, wird ein privates/öffentliches Schlüsselpaar, das auf der Smartcard des Benutzers gespeichert ist, durch den gemeinsamen geheimen Schlüssel ersetzt, der aus dem Kennwort des Benutzers abgeleitet ist. Der private Schlüssel wird nur auf der Smartcard gespeichert. Der öffentliche Schlüssel kann allen Benutzern zur Verfügung gestellt werden, für die der Besitzer vertrauliche Informationen austauschen möchte.
 
@@ -113,6 +111,6 @@ Ein Gerät wird zum Erfassen und Erstellen eines digitalen Merkmals eines Artefa
 ## <a name="additional-resources"></a>Weitere Ressourcen
 Informationen zur Verwaltung von Anmelde Informationen, die während der Anmeldung übermittelt werden, finden Sie unter [Verwaltung von Anmelde Informationen in der Windows-Authentifizierung](https://technet.microsoft.com/library/dn169014.aspx).
 
-[Technische Übersicht über die Windows-Anmeldung und-Authentifizierung](https://technet.microsoft.com/library/dn169029.aspx)
+[Technische Übersicht zur Windows-Anmeldung und -Authentifizierung.](https://technet.microsoft.com/library/dn169029.aspx)
 
 

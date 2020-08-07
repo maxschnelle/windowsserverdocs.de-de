@@ -1,18 +1,16 @@
 ---
 title: Integritätsdienst Aktionen
-ms.prod: windows-server
 manager: eldenc
 ms.author: cosdar
-ms.technology: storage-health-service
 ms.topic: article
 author: cosmosdarwin
 ms.date: 08/14/2017
-ms.openlocfilehash: 541b5cbbc18d3ea8619f34d9bcc8aeb34fd0066b
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 16e8a27dc38b8908ffb7ccac94f3bcc15a5c956f
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85473127"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87945793"
 ---
 # <a name="health-service-actions"></a>Integritätsdienst Aktionen
 
@@ -24,7 +22,7 @@ Der Integritätsdienst ist ein neues Feature in Windows Server 2016, das die tä
 
 Im nächsten Abschnitt werden Workflows beschrieben, die vom Integritätsdienst automatisiert werden. Um sicherzustellen, dass eine Aktivität tatsächlich autonom erfolgt, oder um ihren Fortschritt oder ihr Ergebnis nachzuverfolgen, generiert der Integritätsdienst „Aktionen“. Im Gegensatz zu Protokollen verschwinden Aktionen, kurz nachdem sie erfolgt sind, und dienen hauptsächlich zum Gewinnen von Einblicken in laufende Aktivitäten, die sich auf die Leistung oder Kapazität auswirken können (z. B. Wiederherstellen der Ausfallsicherheit oder Neuverteilen von Daten).
 
-### <a name="usage"></a>Zweck
+### <a name="usage"></a>Verwendung
 
 Mit einem neuen PowerShell-Cmdlet werden alle Aktionen angezeigt:
 
@@ -44,7 +42,7 @@ In Windows Server 2016 kann das Cmdlet **Get-storagehealthaction** die folgenden
 
 -   Neuverteilen von Speicherpools
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Der Integritätsdienst in Windows Server 2016](health-service-overview.md)
 - [Entwicklerdokumentation, Beispielcode und API-Referenz auf MSDN](https://msdn.microsoft.com/windowshealthservice)

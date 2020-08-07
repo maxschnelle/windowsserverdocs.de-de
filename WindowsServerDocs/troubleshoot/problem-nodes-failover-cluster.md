@@ -1,17 +1,15 @@
 ---
-title: Ein Problem beim Löschen eines Knotens.
+title: Problem beim Löschen eines Knotens
 description: Dieser Artikel beschreibt die Probleme, die beim Entfernen von Knoten aus der aktiven failoverclustermitgliedschaft aufgetreten sind.
-ms.prod: windows-server
-ms.technology: server-general
 ms.date: 05/28/2020
 author: Deland-Han
 ms.author: delhan
-ms.openlocfilehash: 08f5e7ef2ddd0f11abee7d0f21b56c3d5a601d3d
-ms.sourcegitcommit: 5fac756c2c9920757e33ef0a68528cda0c85dd04
+ms.openlocfilehash: e69b110db8f631b74c89e046f724367b4d60dbad
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84306519"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87970037"
 ---
 # <a name="having-a-problem-with-nodes-being-removed-from-active-failover-cluster-membership"></a>Probleme mit Knoten, die aus der Mitgliedschaft des aktiven Failoverclusters entfernt wurden
 
@@ -66,7 +64,7 @@ Weitere Informationen zur Handhabung bestimmter Routen mit drei oder mehr Knoten
 
 Dies sind die häufigsten Gründe, aus denen diese Ereignisse protokolliert werden, aber es kann auch andere Gründe geben. Der Punkt dieses Blogs war, Ihnen einen Einblick in den Prozess zu vermitteln und außerdem Ideen dazu zu vermitteln, was Sie suchen sollten. Von einigen werden die folgenden Werte auf die maximalen Werte angehoben, um zu versuchen, dieses Problem zu verhindern.
 
-|Parameter|Standard|Range|
+|Parameter|Standard|Bereich|
 |---|---|---|
 |**SameSubnetDelay**|1000 Millisekunden|250-2000 Millisekunden|
 |**CrossSubnetDelay**|1000 Millisekunden|250-4000 Millisekunden|

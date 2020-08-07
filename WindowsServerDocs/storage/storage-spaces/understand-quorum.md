@@ -1,41 +1,39 @@
 ---
 title: Grundlegendes zum Cluster- und Poolquorum
 description: Grundlegendes zum Cluster-und Pool Quorum mit speziellen Beispielen, um die Feinheiten zu überschreiten.
-ms.prod: windows-server
 ms.author: adagashe
 manager: eldenc
-ms.technology: storage-spaces
 ms.topic: article
 author: adagashe
 ms.date: 01/18/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: f13affc3ef15c3a39f4fd3839506897f7807d93a
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: ffd1afdc76ddefbf53ff8f78d15666f343654022
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80820993"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87970137"
 ---
 # <a name="understanding-cluster-and-pool-quorum"></a>Grundlegendes zum Cluster- und Poolquorum
 
 >Gilt für: Windows Server 2019, Windows Server 2016
 
-[Windows Server-Failoverclustering](../../failover-clustering/failover-clustering-overview.md) bietet hohe Verfügbarkeit für Arbeits Auslastungen. Diese Ressourcen werden als hoch verfügbar angesehen, wenn die Knoten, die Ressourcen hosten, hoch verfügbar sind. der Cluster erfordert jedoch in der Regel mehr als die Hälfte der Knoten, die ausgeführt werden müssen. Dies wird als vorhanden sein eines *Quorums*bezeichnet.
+[Windows Server-Failoverclustering](../../failover-clustering/failover-clustering-overview.md) bietet Hochverfügbarkeit für Workloads. Diese Ressourcen gelten als hochverfügbar, wenn die Knoten, die Ressourcen hosten, online sind. In der Regel erfordert der Cluster jedoch, dass mehr als die Hälfte der Knoten ausgeführt wird. Dies wird als *Quorum* bezeichnet.
 
-Das Quorum ist so konzipiert, dass *Split-Brain-* Szenarien vermieden werden, die auftreten können, wenn eine Partition im Netzwerk vorhanden ist und Teilmengen von Knoten nicht miteinander kommunizieren können. Dies kann dazu führen, dass beide Teilmengen der Knoten den Besitzer der Arbeitsauslastung haben und auf den gleichen Datenträger schreiben, was zu zahlreichen Problemen führen kann. Dies wird jedoch durch das Quorum Konzept des Failoverclustering verhindert, das zwingt, dass nur eine dieser Knotengruppen weiter ausgeführt wird, sodass nur eine dieser Gruppen online bleibt.
+Das Quorum soll *Split-Brain*-Szenarien verhindern, die auftreten können, wenn eine Partition im Netzwerk vorhanden ist und Teilmengen bzw. Gruppen von Knoten nicht miteinander kommunizieren können. In diesem Fall versuchen möglicherweise beide Teilmengen von Knoten, den Besitz der Workload zu übernehmen und auf denselben Datenträger zu schreiben, was zu zahlreichen Problemen führen kann. Das Quorumkonzept des Failoverclusterings verhindert dies, indem es erzwingt, dass nur eine dieser Knotengruppen weiter ausgeführt wird und so nur eine der Gruppen online bleibt.
 
-Das Quorum bestimmt die Anzahl von Fehlern, die der Cluster unterstützen kann, während er weiterhin online bleibt. Das Quorum ist so konzipiert, dass es das Szenario behandelt, wenn ein Problem mit der Kommunikation zwischen Teilmengen von Cluster Knoten vorliegt, sodass mehrere Server nicht versuchen, gleichzeitig eine Ressourcengruppe zu hosten und gleichzeitig auf denselben Datenträger zu schreiben. Durch dieses Konzept des Quorums erzwingt der Cluster, dass der Cluster Dienst in einer der Teilmengen von Knoten angehalten wird, um sicherzustellen, dass nur ein echter Besitzer einer bestimmten Ressourcengruppe vorhanden ist. Wenn die wieder beendeten Knoten erneut mit der Haupt Knotengruppe kommunizieren können, treten Sie automatisch dem Cluster bei und starten Ihren Cluster Dienst.
+Das Quorum bestimmt, wie viele Ausfälle der Cluster überstehen und dabei online bleiben kann. Das Quorum ist für das Szenario gedacht, in dem ein Problem mit der Kommunikation zwischen Teilmengen von Clusterknoten vorliegt. Es verhindert, dass mehrere Server gleichzeitig versuchen, eine Ressourcengruppe zu hosten und auf denselben Datenträger zu schreiben. Aufgrund dieses Quorumkonzepts erzwingt der Cluster die Beendigung des Clusterdiensts in einer der Teilmengen von Knoten, um sicherzustellen, dass eine einzelne Ressourcengruppe nur einen „echten“ Besitzer hat. Wenn die beendeten Knoten wieder mit der Hauptknotengruppe kommunizieren können, treten sie dem Cluster automatisch erneut bei und starten ihren Clusterdienst.
 
 In Windows Server 2019 und Windows Server 2016 gibt es zwei Komponenten des Systems, die über eigene Quorum Mechanismen verfügen:
 
-- **Cluster Quorum**: Dies wird auf Cluster Ebene betrieben (d. h., Sie können Knoten verlieren, und der Cluster bleibt in Betrieb).
-- **Pool Quorum**: Dies funktioniert auf Poolebene, wenn direkte Speicherplätze aktiviert ist (d. h., Sie können Knoten und Laufwerke verlieren und den Pool in Betrieb behalten). Speicherpools wurden so entworfen, dass Sie in gruppierten und nicht gruppierten Szenarien verwendet werden, weshalb Sie über einen anderen Quorum Mechanismus verfügen.
+- **Clusterquorum**: Dieses Quorum wird auf der Clusterebene angewendet (d. h. der Cluster bleibt auch bei einem Ausfall von Knoten verfügbar).
+- **Poolquorum**: Dieses Quorum wird auf der Poolebene angewendet, wenn „Direkte Speicherplätze“ aktiviert ist (d. h. der Pool bleibt auch bei einem Ausfall von Knoten und Laufwerken verfügbar). Speicherpools sind zur Verwendung in Szenarien mit und ohne Cluster konzipiert und haben daher einen anderen Quorummechanismus.
 
-## <a name="cluster-quorum-overview"></a>Übersicht über Cluster Quorum
+## <a name="cluster-quorum-overview"></a>Übersicht über das Clusterquorum
 
-Die folgende Tabelle enthält eine Übersicht über die Cluster Quorum Ergebnisse pro Szenario:
+In der folgenden Tabelle finden Sie eine Übersicht über die Ergebnisse des Clusterquorums für verschiedene Szenarien:
 
-| Server Knoten | Kann einen Server Knoten Fehler überstehen. | Kann einen Server Knoten Fehler überstehen, ein weiterer | Kann zwei gleichzeitige Server Knoten Ausfälle überstehen |
+| Serverknoten | Übersteht einen Serverknotenausfall | Übersteht zwei nacheinander auftretende Serverknotenausfälle | Übersteht zwei gleichzeitige Serverknotenausfälle |
 |--------------|-------------------------------------|---------------------------------------------------|----------------------------------------------------|
 | 2            | 50/50                               | Nein                                                | Nein                                                 |
 | 2 + Zeuge  | Ja                                 | Nein                                                | Nein                                                 |
@@ -43,135 +41,135 @@ Die folgende Tabelle enthält eine Übersicht über die Cluster Quorum Ergebniss
 | 3 + Zeuge  | Ja                                 | Ja                                               | Nein                                                 |
 | 4            | Ja                                 | Ja                                               | 50/50                                              |
 | 4 + Zeuge  | Ja                                 | Ja                                               | Ja                                                |
-| 5 und höher  | Ja                                 | Ja                                               | Ja                                                |
+| 5 und mehr  | Ja                                 | Ja                                               | Ja                                                |
 
-### <a name="cluster-quorum-recommendations"></a>Cluster Quorum Empfehlungen
+### <a name="cluster-quorum-recommendations"></a>Empfehlungen für das Clusterquorum
 
-- Wenn Sie über zwei Knoten verfügen, ist ein Zeuge **erforderlich**.
-- Wenn Sie über drei oder vier Knoten verfügen, wird Zeuge **dringend empfohlen**.
-- Wenn Sie über Internet Zugang verfügen, verwenden Sie einen  **[cloudzeugen](../../failover-clustering/deploy-cloud-witness.md) .**
-- Wenn Sie sich in einer IT-Umgebung mit anderen Computern und Dateifreigaben befinden, verwenden Sie einen Dateifreigabe Zeugen.
+- Wenn Sie zwei Knoten haben, ist ein Zeuge **erforderlich**.
+- Wenn Sie drei oder vier Knoten haben, wird ein Zeuge **ausdrücklich empfohlen**.
+- Verwenden Sie einen **[Cloudzeugen](../../failover-clustering/deploy-cloud-witness.md)** , wenn Sie über Internetzugriff verfügen.
+- Verwenden Sie im Fall einer IT-Umgebung mit anderen Computern und Dateifreigaben einen Dateifreigabezeugen.
 
-## <a name="how-cluster-quorum-works"></a>Funktionsweise des Cluster Quorums
+## <a name="how-cluster-quorum-works"></a>Funktionsweise des Clusterquorums
 
-Wenn Knoten ausfallen oder eine Teilmenge der Knoten den Kontakt mit einer anderen Teilmenge verliert, müssen die übergeordneten Knoten sicherstellen, dass Sie den *Großteil* des Clusters darstellen, der Online bleibt. Wenn Sie dies nicht überprüfen können, werden Sie offline geschaltet.
+Wenn Knoten ausfallen oder bei einer Teilmenge von Knoten die Verbindung mit einer anderen Teilmenge unterbrochen wird, müssen die verbleibenden Knoten nachweisen, dass sie die *Mehrheit* des Clusters darstellen, damit sie online bleiben. Können sie dies nicht, werden sie offline geschaltet.
 
-Das Konzept der *Mehrheit* funktioniert jedoch nur ordnungsgemäß, wenn die Gesamtzahl der Knoten im Cluster ungerade ist (z. b. drei Knoten in einem Cluster mit fünf Knoten). Was ist also mit Clustern mit einer geraden Anzahl von Knoten (z. a. einem Cluster mit vier Knoten)?
+Das Konzept der *Mehrheit* funktioniert jedoch nur, wenn die Gesamtanzahl von Knoten im Cluster ungerade ist (z. B. drei Knoten in einem Cluster mit fünf Knoten). Was geschieht also bei Clustern mit einer geraden Anzahl von Knoten (z. B. vier Knoten)?
 
-Es gibt zwei Möglichkeiten, wie der Cluster die *Gesamtzahl der Stimmen* ungerade machen kann:
+Es gibt zwei Möglichkeiten, wie der Cluster für eine ungerade *Gesamtanzahl von Stimmen* sorgen kann:
 
-1. Zuerst können *Sie einen* *Zeugen* mit einer zusätzlichen Stimme hinzufügen. Hierfür ist ein Benutzer Setup erforderlich.
-2.    Oder Sie können einen Schritt *nach unten* durchlaufen, indem Sie die Stimme eines nicht glücklichen Knotens NULLS (erfolgt bei Bedarf automatisch).
+1. Die Anzahl von Stimmen kann durch Hinzufügen eines *Zeugen* mit einer zusätzlichen Stimme *erhöht* werden. Hierfür muss der Benutzer einige Einrichtungsschritte durchführen.
+2.    Die Anzahl von Stimmen kann durch Löschen der Stimme eines Knotens *verringert* werden (dies erfolgt bei Bedarf automatisch).
 
-Wenn die Überprüfung erfolgreich ist, ob die Knoten die *Mehrheit*sind, wird die Definition der *Mehrheit* so aktualisiert, dass Sie nur zu den übergeordneten Knoten gehört. Dadurch kann der Cluster einen Knoten verlieren, dann einen anderen Knoten usw. Dieses Konzept der *Gesamtzahl der Stimmen* , die sich nach aufeinander folgenden Fehlern anpasst, wird als ***dynamisches Quorum***bezeichnet.  
+Wenn die verbleibenden Knoten erfolgreich nachweisen können, dass sie die *Mehrheit* bilden, wird die Definition des Begriffs *Mehrheit* aktualisiert und auf die restlichen Knoten begrenzt. So kann ein Knoten des Clusters ausfallen, dann ein weiterer, noch ein weiterer usw. Diese Anpassung der *Gesamtanzahl von Stimmen* nach aufeinander folgenden Ausfällen wird als ***dynamisches Quorum*** bezeichnet.
 
 ### <a name="dynamic-witness"></a>Dynamischer Zeuge
 
-Der dynamische Zeuge schaltet die Stimme des Zeugen um, um sicherzustellen, dass die *Gesamtzahl der Stimmen* ungerade ist. Wenn eine ungerade Anzahl von Stimmen vorliegt, hat der Zeuge keine Stimme. Wenn eine gerade Anzahl von Stimmen vorliegt, hat der Zeuge eine Stimme. Der dynamische Zeuge verringert das Risiko, dass der Cluster aufgrund eines Zeugen Fehlers ausfällt. Der Cluster entscheidet, ob die Zeugen Abstimmung basierend auf der Anzahl der Abstimmungs Knoten, die im Cluster verfügbar sind, verwendet werden soll.
+Der dynamische Zeuge schaltet die Stimme des Zeugen ein oder aus, um sicherzustellen, dass die *Gesamtanzahl von Stimmen* ungerade ist. Bei einer ungeraden Anzahl von Stimmen hat der Zeuge keine Stimme. Ist die Anzahl von Stimmen gerade, hat der Zeuge eine Stimme. Das Risiko, dass der Cluster aufgrund eines Ausfalls des Zeugen ausfällt, wird durch den dynamischen Zeugen erheblich verringert. Der Cluster entscheidet je nach Anzahl von Abstimmungsknoten, die im Cluster verfügbar sind, ob die Stimme des Zeugen verwendet wird.
 
-Dynamisches Quorum funktioniert mit dynamischem Zeuge wie unten beschrieben.
+Wie das dynamische Quorum mit dem dynamischen Zeugen funktioniert, wird im Folgenden beschrieben.
 
-### <a name="dynamic-quorum-behavior"></a>Dynamisches Quorum Verhalten
+### <a name="dynamic-quorum-behavior"></a>Verhalten des dynamischen Quorums
 
-- Wenn Sie über eine **gerade** Anzahl von Knoten und keinen Zeugen verfügen, *erhält ein Knoten seine Stimme als nullt*. Beispielsweise erhalten nur drei der vier Knoten Stimmen, sodass die *Gesamtzahl der Stimmen* drei beträgt und zwei übergeordnete Knoten mit Stimmen als Mehrheit angesehen werden.
-- Wenn Sie über eine **ungerade** Anzahl von Knoten und keinen Zeugen verfügen, *erhalten alle Stimmen*.
-- Wenn Sie über eine **gerade** Anzahl von Knoten Plus Witness verfügen, *Stimmen der Zeuge*ab, sodass die Summe ungerade ist.
-- Wenn Sie über eine **ungerade** Anzahl von Knoten Plus Witness verfügen, *stimmt der Zeuge nicht*.
+- Wenn Sie eine **gerade** Anzahl von Knoten und keinen Zeugen haben, wird die *Stimme eines Knotens gelöscht*. Beispielsweise erhalten nur drei der vier Knoten eine Stimme, sodass die *Gesamtzahl von Stimmen* drei ist und zwei verbleibende Knoten mit Stimme als Mehrheit gelten.
+- Wenn Sie eine **ungerade** Anzahl von Knoten und keinen Zeugen haben, *erhalten alle Knoten eine Stimme*.
+- Wenn Sie eine **gerade** Anzahl von Knoten und einen Zeugen haben, *stimmt der Zeuge ab*, sodass die Gesamtanzahl ungerade ist.
+- Wenn Sie eine **ungerade** Anzahl von Knoten und einen Zeugen haben, *stimmt der Zeuge nicht ab*.
 
-Mithilfe des dynamischen Quorums kann einem Knoten eine Stimme dynamisch zugewiesen werden, um zu vermeiden, dass die Mehrheit der Stimmen verloren geht und der Cluster mit einem Knoten ausgeführt werden kann (auch als letzter als letzter bekannt). Nehmen wir als Beispiel einen Cluster mit vier Knoten. Angenommen, das Quorum erfordert 3 Stimmen. 
+Mithilfe des dynamischen Quorums kann einem Knoten dynamisch eine Stimme zugewiesen werden, damit die Stimmenmehrheit nicht verloren geht und der Cluster mit einem Knoten (dem so genannten „Last Man Standing“) ausgeführt werden kann. Nehmen wir als Beispiel einen Cluster mit vier Knoten. Angenommen, das Quorum erfordert drei Stimmen.
 
-In diesem Fall wäre der Cluster ausgefallen, wenn Sie zwei Knoten verloren haben.
+In diesem Fall wäre der Cluster beim Ausfall von zwei Knoten nicht mehr verfügbar.
 
-![Das Diagramm zeigt vier Cluster Knoten, von denen jeder eine Stimme erhält.](media/understand-quorum/dynamic-quorum-base.png)
+![Diagramm mit vier Clusterknoten, von denen jeder eine Stimme erhält](media/understand-quorum/dynamic-quorum-base.png)
 
-Das dynamische Quorum verhindert jedoch, dass dies geschieht. Die *Gesamtanzahl der Stimmen* , die für das Quorum erforderlich sind, wird jetzt basierend auf der Anzahl der verfügbaren Knoten bestimmt. Mit dynamischem Quorum bleibt der Cluster auch dann in der Hand, wenn Sie drei Knoten verlieren.
+Das dynamische Quorum verhindert jedoch, dass dies geschieht. Die *Gesamtanzahl von Stimmen*, die für das Quorum erforderlich ist, wird jetzt basierend auf der Anzahl verfügbarer Knoten bestimmt. Bei einem dynamischen Quorum bleibt der Cluster daher auch dann verfügbar, wenn drei Knoten ausfallen.
 
-![Diagramm, das vier Cluster Knoten anzeigt, bei denen Knoten nacheinander fehlschlagen, und die Anzahl erforderlicher Stimmen, die nach jedem Fehler angepasst werden.](media/understand-quorum/dynamic-quorum-step-through.png)
+![Diagramm mit vier Clusterknoten, die nacheinander ausfallen, und der nach jedem Ausfall angepassten Anzahl erforderlicher Stimmen](media/understand-quorum/dynamic-quorum-step-through.png)
 
-Das obige Szenario gilt für einen allgemeinen Cluster, für den direkte Speicherplätze nicht aktiviert ist. Wenn direkte Speicherplätze aktiviert ist, kann der Cluster jedoch nur zwei Knoten Ausfälle unterstützen. Dies wird im [Abschnitt Pool Quorum](#pool-quorum-overview)ausführlicher erläutert.
+Das obige Szenario gilt für einen allgemeinen Cluster, für den „Direkte Speicherplätze“ nicht aktiviert ist. Wenn „Direkte Speicherplätze“ aktiviert ist, toleriert der Cluster nur zwei Knotenausfälle. Weitere Informationen dazu finden Sie im Abschnitt zum [Poolquorum](#pool-quorum-overview).
 
 ### <a name="examples"></a>Beispiele
 
-#### <a name="two-nodes-without-a-witness"></a>Zwei Knoten ohne Zeugen. 
-Die Stimme eines Knotens wird auf NULL gesetzt, sodass die *Mehrheit* der Stimme von insgesamt **1 Stimme**bestimmt wird. Wenn der Knoten ohne Abstimmung unerwartet ausfällt, verfügt der Survivor über 1/1, und der Cluster wird noch nicht angezeigt. Wenn der Abstimmungs Knoten unerwartet ausfällt, verfügt der Survivor über 0/1, und der Cluster wird herunterfährt. Wenn der Abstimmungs Knoten ordnungsgemäß heruntergefahren wird, wird die Stimme an den anderen Knoten übertragen, und der Cluster wird nicht mehr angezeigt. ***Aus diesem Grund ist es wichtig, einen Zeugen zu konfigurieren.***
+#### <a name="two-nodes-without-a-witness"></a>Zwei Knoten ohne einen Zeugen
+Die Stimme eines Knotens wird gelöscht, sodass die *Stimmenmehrheit* anhand einer Gesamtanzahl von **einer Stimme** bestimmt wird. Wenn der Knoten, der nicht abstimmt, unerwartet ausfällt, hat der verbleibende Knoten die 1/1-Mehrheit, und der Cluster bleibt online. Wenn der Knoten, der abstimmt, unerwartet ausfällt, hat der verbleibende Knoten die 0/1-Mehrheit, und der Cluster ist nicht mehr verfügbar. Wenn der Knoten, der abstimmt, korrekt heruntergefahren wird, wird die Stimme an den anderen Knoten übertragen, und der Cluster bleibt online. ***Aus diesem Grund ist es wichtig, einen Zeugen zu konfigurieren.***
 
-![Quorum, das im Fall von zwei Knoten ohne Zeugen erläutert wird](media/understand-quorum/2-node-no-witness.png)
+![Funktionsweise des Quorums im Fall von zwei Knoten ohne einen Zeugen](media/understand-quorum/2-node-no-witness.png)
 
-- Kann einen Server Fehler überstehen: **50-prozentige Chance**.
-- Kann einen Server Fehler überstehen, dann ein weiterer: **Nein**.
-- Kann zwei Server Fehler gleichzeitig überstehen: **Nein**. 
+- Übersteht einen Serverausfall: **Chance von 50 Prozent**.
+- Übersteht zwei nacheinander auftretende Serverausfälle: **Nein**.
+- Übersteht zwei gleichzeitige Serverausfälle: **Nein**.
 
-#### <a name="two-nodes-with-a-witness"></a>Zwei Knoten mit einem Zeugen. 
-Beide Knoten Stimmen zusammen mit den Zeugen Stimmen, sodass die *Mehrzahl* aus insgesamt **3 Stimmen**ergibt. Wenn ein Knoten ausfällt, verfügt der Survivor über 2/3, und der Cluster wird noch nicht angezeigt.
+#### <a name="two-nodes-with-a-witness"></a>Zwei Knoten mit einem Zeugen
+Beide Knoten und der Zeuge stimmen ab, sodass die *Mehrheit* anhand einer Gesamtanzahl von **drei Stimmen** bestimmt wird. Wenn ein Knoten ausfällt, hat der verbleibende Knoten die 2/3-Mehrheit, und der Cluster bleibt online.
 
-![Quorum, das im Fall von zwei Knoten mit einem Zeugen erläutert wird](media/understand-quorum/2-node-witness.png)
+![Funktionsweise des Quorums im Fall von zwei Knoten mit einem Zeugen](media/understand-quorum/2-node-witness.png)
 
-- Kann einen Server Fehler überstehen: **Ja**.
-- Kann einen Server Fehler überstehen, dann ein weiterer: **Nein**.
-- Kann zwei Server Fehler gleichzeitig überstehen: **Nein**. 
+- Übersteht einen Serverausfall: **Ja**.
+- Übersteht zwei nacheinander auftretende Serverausfälle: **Nein**.
+- Übersteht zwei gleichzeitige Serverausfälle: **Nein**.
 
-#### <a name="three-nodes-without-a-witness"></a>Drei Knoten ohne Zeugen.
-Alle Knoten Stimmen ab, sodass die *Mehrheit* von insgesamt **3 Stimmen**bestimmt wird. Wenn ein Knoten ausfällt, sind die Überlebenden 2/3, und der Cluster wird nicht mehr vorhanden sein. Der Cluster wird zu zwei Knoten ohne Zeugen – zu diesem Zeitpunkt befinden Sie sich in Szenario 1.
+#### <a name="three-nodes-without-a-witness"></a>Drei Knoten ohne einen Zeugen
+Alle Knoten stimmen ab, sodass die *Mehrheit* anhand einer Gesamtanzahl von **drei Stimmen** bestimmt wird. Wenn ein Knoten ausfällt, haben die verbleibenden Knoten die 2/3-Mehrheit, und der Cluster bleibt online. Der Cluster besteht dann aus zwei Knoten ohne einen Zeugen. Somit gilt das obige Szenario 1.
 
-![Das Quorum wird im Fall von drei Knoten ohne Zeugen erläutert.](media/understand-quorum/3-node-no-witness.png)
+![Funktionsweise des Quorums im Fall von drei Knoten ohne einen Zeugen](media/understand-quorum/3-node-no-witness.png)
 
-- Kann einen Server Fehler überstehen: **Ja**.
-- Kann einen Server Fehler überstehen, dann ein weiterer Wert: **50 Prozent**.
-- Kann zwei Server Fehler gleichzeitig überstehen: **Nein**. 
+- Übersteht einen Serverausfall: **Ja**.
+- Übersteht zwei nacheinander auftretende Serverausfälle: **Chance von 50 Prozent**.
+- Übersteht zwei gleichzeitige Serverausfälle: **Nein**.
 
-#### <a name="three-nodes-with-a-witness"></a>Drei Knoten mit einem Zeugen.
-Alle Knoten Stimmen ab, sodass der Zeuge nicht anfänglich stimmt. Die *Mehrheit* wird aus insgesamt **3 Stimmen**ermittelt. Nach einem Fehler verfügt der Cluster über zwei Knoten mit einem Zeugen – der wieder zu Szenario 2 gehört. Nun stimmen die beiden Knoten und der Zeuge ab.
+#### <a name="three-nodes-with-a-witness"></a>Drei Knoten mit einem Zeugen
+Alle Knoten stimmen ab, sodass der Zeuge zunächst nicht abstimmt. Die *Mehrheit* wird anhand einer Gesamtanzahl von **drei Stimmen** bestimmt. Nach einem Ausfall verfügt der Cluster über zwei Knoten mit einem Zeugen. Somit gilt wieder Szenario 2. Jetzt stimmen daher beide Knoten und der Zeuge ab.
 
-![Quorum, das im Fall von drei Knoten mit einem Zeugen erläutert wird](media/understand-quorum/3-node-witness.png)
+![Funktionsweise des Quorums im Fall von drei Knoten mit einem Zeugen](media/understand-quorum/3-node-witness.png)
 
-- Kann einen Server Fehler überstehen: **Ja**.
-- Kann einen Server Fehler überstehen, dann einen weiteren: **Ja**.
-- Kann zwei Server Fehler gleichzeitig überstehen: **Nein**. 
+- Übersteht einen Serverausfall: **Ja**.
+- Übersteht zwei nacheinander auftretende Serverausfälle: **Ja**.
+- Übersteht zwei gleichzeitige Serverausfälle: **Nein**.
 
-#### <a name="four-nodes-without-a-witness"></a>Vier Knoten ohne Zeugen
-Die Stimme eines Knotens wird als nulloverwert festgelegt, sodass die *Mehrheit* aus insgesamt **3 Stimmen**ergibt. Nach einem Fehler wird der Cluster zu drei Knoten, und Sie sind in Szenario 3.
+#### <a name="four-nodes-without-a-witness"></a>Vier Knoten ohne einen Zeugen
+Die Stimme eines Knotens wird gelöscht, sodass die *Mehrheit* anhand einer Gesamtanzahl von **drei Stimmen** bestimmt wird. Nach einem Ausfall verfügt der Cluster über drei Knoten, und es gilt Szenario 3.
 
-![Das Quorum wird im Fall von vier Knoten ohne Zeugen erläutert.](media/understand-quorum/4-node-no-witness.png)
+![Funktionsweise des Quorums im Fall von vier Knoten ohne einen Zeugen](media/understand-quorum/4-node-no-witness.png)
 
-- Kann einen Server Fehler überstehen: **Ja**.
-- Kann einen Server Fehler überstehen, dann einen weiteren: **Ja**.
-- Kann zwei Serverausfälle gleichzeitig überstehen: **50 Prozent der Chance**. 
+- Übersteht einen Serverausfall: **Ja**.
+- Übersteht zwei nacheinander auftretende Serverausfälle: **Ja**.
+- Übersteht zwei gleichzeitige Serverausfälle: **Chance von 50 Prozent**.
 
-#### <a name="four-nodes-with-a-witness"></a>Vier Knoten mit einem Zeugen.
-Alle Knoten Stimmen und der Zeuge Stimmen ab, sodass die *Mehrheit* von insgesamt **5 Stimmen**bestimmt wird. Nach einem Fehler sind Sie in Szenario 4. Nach zwei gleichzeitigen Fehlern überspringen Sie das Szenario 2.
+#### <a name="four-nodes-with-a-witness"></a>Vier Knoten mit einem Zeugen
+Alle Knoten und der Zeuge stimmen ab, sodass die *Mehrheit* anhand einer Gesamtanzahl von **fünf Stimmen** bestimmt wird. Nach einem Ausfall gilt Szenario 4. Nach zwei gleichzeitigen Ausfällen gilt wieder Szenario 2.
 
-![Quorum, das im Fall von vier Knoten mit einem Zeugen erläutert wird](media/understand-quorum/4-node-witness.png)
+![Funktionsweise des Quorums im Fall von vier Knoten mit einem Zeugen](media/understand-quorum/4-node-witness.png)
 
-- Kann einen Server Fehler überstehen: **Ja**.
-- Kann einen Server Fehler überstehen, dann einen weiteren: **Ja**.
-- Kann zwei Server Fehler gleichzeitig überstehen: **Ja**. 
+- Übersteht einen Serverausfall: **Ja**.
+- Übersteht zwei nacheinander auftretende Serverausfälle: **Ja**.
+- Übersteht zwei gleichzeitige Serverausfälle: **Ja**.
 
-#### <a name="five-nodes-and-beyond"></a>Fünf Knoten und darüber hinaus.
-Alle Knoten Stimmen oder nur eine Stimme ab, je nachdem, was das Gesamtergebnis ist. Direkte Speicherplätze können nicht mehr als zwei Knoten gleich sehen. an diesem Punkt ist daher kein Zeuge erforderlich oder nützlich.
+#### <a name="five-nodes-and-beyond"></a>Fünf und mehr Knoten
+Alle Knoten oder alle bis auf einen Knoten stimmen ab, je nachdem, wodurch eine ungerade Gesamtanzahl erreicht wird. „Direkte Speicherplätze“ unterstützt in jedem Fall maximal zwei ausgefallene Knoten. Daher ist ein Zeuge an dieser Stelle weder erforderlich noch nützlich.
 
-![Das Quorum wird im Fall von fünf Knoten und darüber hinaus erläutert.](media/understand-quorum/5-nodes.png)
+![Funktionsweise des Quorums im Fall von fünf und mehr Knoten](media/understand-quorum/5-nodes.png)
 
-- Kann einen Server Fehler überstehen: **Ja**.
-- Kann einen Server Fehler überstehen, dann einen weiteren: **Ja**.
-- Kann zwei Server Fehler gleichzeitig überstehen: **Ja**. 
+- Übersteht einen Serverausfall: **Ja**.
+- Übersteht zwei nacheinander auftretende Serverausfälle: **Ja**.
+- Übersteht zwei gleichzeitige Serverausfälle: **Ja**.
 
-Nachdem wir nun wissen, wie das Quorum funktioniert, betrachten wir die Typen von Quorum Zeugen.
+Nachdem Sie nun wissen, wie das Quorum funktioniert, befassen wir uns jetzt mit den Typen von Quorumzeugen.
 
-### <a name="quorum-witness-types"></a>Quorum Zeugen Typen
+### <a name="quorum-witness-types"></a>Typen von Quorumzeugen
 
-Failoverclustering unterstützt drei Arten von Quorum Zeugen:
+Failoverclustering unterstützt drei Typen von Quorumzeugen:
 
-- **[Cloud Witness](../../failover-clustering/deploy-cloud-witness.md)** : BLOB Storage in Azure, auf den alle Knoten des Clusters zugreifen. Sie verwaltet Clustering-Informationen in einer Datei "Witness. log", speichert jedoch keine Kopie der Cluster Datenbank.
-- **Datei** frei gaben Zeuge – eine SMB-Dateifreigabe, die auf einem Dateiserver konfiguriert ist, auf dem Windows Server ausgeführt wird. Sie verwaltet Clustering-Informationen in einer Datei "Witness. log", speichert jedoch keine Kopie der Cluster Datenbank.
-- Datenträger **Zeuge** : ein kleiner gruppierter Datenträger, der sich in der verfügbaren Speicher Gruppe des Clusters befindet. Dieser Datenträger ist hoch verfügbar und kann ein Failover zwischen Knoten durch finden. Sie enthält eine Kopie der Cluster Datenbank.  ***Ein Datenträger Zeuge wird von direkte Speicherplätze nicht unterstützt***.
+- **[Cloudzeuge](../../failover-clustering/deploy-cloud-witness.md)** : BLOB-Speicher in Azure, auf den alle Knoten des Clusters zugreifen können. Dieser Zeuge verwaltet Clusteringinformationen in einer Datei „witness.log“, speichert aber keine Kopie der Clusterdatenbank.
+- **SMB-Dateifreigabe**: Eine SMB-Dateifreigabe, die auf einem Dateiserver mit Windows Server konfiguriert ist. Dieser Zeuge verwaltet Clusteringinformationen in einer Datei „witness.log“, speichert aber keine Kopie der Clusterdatenbank.
+- **Datenträgerzeuge**: Ein kleiner Clusterdatenträger in der Gruppe „Verfügbarer Clusterspeicher“. Dieser Datenträger ist hochverfügbar und unterstützt ein Failover zwischen Knoten. Er enthält eine Kopie der Clusterdatenbank.  ***Ein Datenträgerzeuge wird von „Direkte Speicherplätze“ nicht unterstützt.***
 
-## <a name="pool-quorum-overview"></a>Übersicht über das Pool Quorum
+## <a name="pool-quorum-overview"></a>Übersicht über das Poolquorum
 
-Wir haben soeben über das Cluster Quorum gesprochen, das auf Cluster Ebene funktioniert. Sehen wir uns nun das Pool Quorum an, das auf Poolebene funktioniert (d. h. Sie können Knoten und Laufwerke verlieren und den Pool in Betrieb nehmen). Speicherpools wurden so entworfen, dass Sie in gruppierten und nicht gruppierten Szenarien verwendet werden, weshalb Sie über einen anderen Quorum Mechanismus verfügen.
+Bisher ging es um das Clusterquorum auf der Clusterebene. Als Nächstes befassen wir uns mit dem Poolquorum, das auf der Poolebene angewendet wird (d. h. der Pool bleibt auch bei einem Ausfall von Knoten und Laufwerken verfügbar). Speicherpools sind zur Verwendung in Szenarien mit und ohne Cluster konzipiert und haben daher einen anderen Quorummechanismus.
 
-Die folgende Tabelle enthält eine Übersicht über die Ergebnisse des Pool Quorums pro Szenario:
+In der folgenden Tabelle finden Sie eine Übersicht über die Ergebnisse des Poolquorums für verschiedene Szenarien:
 
-| Server Knoten | Kann einen Server Knoten Fehler überstehen. | Kann einen Server Knoten Fehler überstehen, ein weiterer | Kann zwei gleichzeitige Server Knoten Ausfälle überstehen |
+| Serverknoten | Übersteht einen Serverknotenausfall | Übersteht zwei nacheinander auftretende Serverknotenausfälle | Übersteht zwei gleichzeitige Serverknotenausfälle |
 |--------------|-------------------------------------|---------------------------------------------------|----------------------------------------------------|
 | 2            | Nein                                  | Nein                                                | Nein                                                 |
 | 2 + Zeuge  | Ja                                 | Nein                                                | Nein                                                 |
@@ -179,52 +177,52 @@ Die folgende Tabelle enthält eine Übersicht über die Ergebnisse des Pool Quor
 | 3 + Zeuge  | Ja                                 | Nein                                                | Nein                                                 |
 | 4            | Ja                                 | Nein                                                | Nein                                                 |
 | 4 + Zeuge  | Ja                                 | Ja                                               | Ja                                                |
-| 5 und höher  | Ja                                 | Ja                                               | Ja                                                |
+| 5 und mehr  | Ja                                 | Ja                                               | Ja                                                |
 
-## <a name="how-pool-quorum-works"></a>Funktionsweise des Pool Quorums
+## <a name="how-pool-quorum-works"></a>Funktionsweise des Poolquorums
 
-Wenn Laufwerke fehlschlagen oder eine Teilmenge der Laufwerke den Kontakt mit einer anderen Teilmenge verliert, müssen die überprüfenden Laufwerke sicherstellen, dass Sie den *Großteil* des Pools als online bleiben. Wenn Sie dies nicht überprüfen können, werden Sie offline geschaltet. Der Pool ist die Entität, die offline geschaltet wird oder online bleibt, je nachdem, ob Sie über genügend Datenträger für das Quorum verfügt (50% + 1). Der Besitzer der Pool Ressource (aktiver Cluster Knoten) kann + 1 sein.
+Wenn Laufwerke ausfallen oder bei einer Teilmenge von Laufwerken die Verbindung mit einer anderen Teilmenge unterbrochen wird, müssen die verbleibenden Laufwerke nachweisen, dass sie die *Mehrheit* des Pools darstellen, damit sie online bleiben. Können sie dies nicht, werden sie offline geschaltet. Der Pool ist die Entität, die je nachdem, ob ausreichend Datenträger für das Quorum verfügbar sind, offline geschaltet wird oder online bleibt (50 % + 1). Der Besitzer der Poolressource (der aktive Clusterknoten) kann das „+ 1“ sein.
 
-Das Pool Quorum funktioniert jedoch auf folgende Weise anders als das Cluster Quorum:
+Das Poolquorum funktioniert jedoch anders als das Clusterquorum:
 
-- der Pool verwendet einen Knoten im Cluster als Zeuge, um die Hälfte der Laufwerke zu überstehen (dieser Knoten ist der Besitzer der Pool Ressource).
-- der Pool weist kein dynamisches Quorum auf.
-- der Pool implementiert nicht seine eigene Version zum Entfernen einer Stimme.
+- Der Pool verwendet einen Knoten im Cluster als Zeugen und Tiebreaker, um einen Ausfall der Hälfte der Laufwerke zu überstehen (der Knoten, der der Besitzer der Poolressource ist).
+- Der Pool verfügt NICHT über ein dynamisches Quorum.
+- Der Pool implementiert KEINE eigene Variante der Entfernung einer Stimme.
 
 ### <a name="examples"></a>Beispiele
 
-#### <a name="four-nodes-with-a-symmetrical-layout"></a>Vier Knoten mit einem symmetrischen Layout. 
-Jedes der 16 Laufwerke verfügt über eine Stimme, und Knoten zwei hat ebenfalls eine Stimme (da es sich um den Pool Ressourcen Besitzer handelt). Die *Mehrheit* wird von insgesamt **16 Stimmen**bestimmt. Wenn die Knoten drei und vier ausfallen, verfügt die verbleibende Teilmenge über 8 Laufwerke und den Pool Ressourcen Besitzer (9/16 Stimmen). Der Pool wird also nicht mehr angezeigt.
+#### <a name="four-nodes-with-a-symmetrical-layout"></a>Vier Knoten mit symmetrischem Layout
+Jedes der 16 Laufwerke verfügt über eine Stimme, und Knoten 2 hat ebenfalls eine Stimme (da er der Besitzer der Poolressource ist). Die *Mehrheit* wird anhand einer Gesamtanzahl von **16 Stimmen** bestimmt. Wenn die Knoten 3 und 4 ausfallen, besteht die verbleibende Teilmenge aus acht Laufwerken und dem Besitzer der Poolressource, was 9/16 Stimmen entspricht. Der Pool ist daher weiterhin verfügbar.
 
-![Pool Quorum 1](media/understand-quorum/pool-1.png)
+![Poolquorum 1](media/understand-quorum/pool-1.png)
 
-- Kann einen Server Fehler überstehen: **Ja**.
-- Kann einen Server Fehler überstehen, dann einen weiteren: **Ja**.
-- Kann zwei Server Fehler gleichzeitig überstehen: **Ja**. 
+- Übersteht einen Serverausfall: **Ja**.
+- Übersteht zwei nacheinander auftretende Serverausfälle: **Ja**.
+- Übersteht zwei gleichzeitige Serverausfälle: **Ja**.
 
-#### <a name="four-nodes-with-a-symmetrical-layout-and-drive-failure"></a>Vier Knoten mit einem symmetrischen Layout und Laufwerk Fehler. 
-Alle 16 Laufwerke haben eine Stimme, und Knoten 2 verfügt auch über eine Stimme (da es sich um den Besitzer der Pool Ressource handelt). Die *Mehrheit* wird von insgesamt **16 Stimmen**bestimmt. Zuerst wird Laufwerk 7 heruntergefahren. Wenn die Knoten drei und vier ausfallen, verfügt die verbleibende Teilmenge über 7 Laufwerke und den Pool Ressourcen Besitzer (8/16 Stimmen). Der Pool hat also keine Mehrheit und ist nicht mehr vorhanden.
+#### <a name="four-nodes-with-a-symmetrical-layout-and-drive-failure"></a>Vier Knoten mit symmetrischem Layout und Laufwerkausfall
+Jedes der 16 Laufwerke verfügt über eine Stimme, und Knoten 2 hat ebenfalls eine Stimme (da er der Besitzer der Poolressource ist). Die *Mehrheit* wird anhand einer Gesamtanzahl von **16 Stimmen** bestimmt. Zuerst fällt Laufwerk 7 aus. Wenn die Knoten 3 und 4 ausfallen, besteht die verbleibende Teilmenge aus sieben Laufwerken und dem Besitzer der Poolressource, was 8/16 Stimmen entspricht. Der Pool hat somit keine Mehrheit und ist nicht mehr verfügbar.
 
-![Pool Quorum 2](media/understand-quorum/pool-2.png)
+![Poolquorum 2](media/understand-quorum/pool-2.png)
 
-- Kann einen Server Fehler überstehen: **Ja**.
-- Kann einen Server Fehler überstehen, dann ein weiterer: **Nein**.
-- Kann zwei Server Fehler gleichzeitig überstehen: **Nein**. 
+- Übersteht einen Serverausfall: **Ja**.
+- Übersteht zwei nacheinander auftretende Serverausfälle: **Nein**.
+- Übersteht zwei gleichzeitige Serverausfälle: **Nein**.
 
-#### <a name="four-nodes-with-a-non-symmetrical-layout"></a>Vier Knoten mit einem nicht symmetrischen Layout. 
-Jedes der 24 Laufwerke verfügt über eine Stimme, und Knoten zwei hat ebenfalls eine Stimme (da es sich um den Pool Ressourcen Besitzer handelt). Die *Mehrheit* wird von insgesamt **24 Stimmen**bestimmt. Wenn die Knoten drei und vier ausfallen, verfügt die verbleibende Teilmenge über 8 Laufwerke und den Pool Ressourcen Besitzer (9/24 Stimmen). Der Pool hat also keine Mehrheit und ist nicht mehr vorhanden.
+#### <a name="four-nodes-with-a-non-symmetrical-layout"></a>Vier Knoten mit nicht symmetrischem Layout
+Jedes der 24 Laufwerke verfügt über eine Stimme, und Knoten 2 hat ebenfalls eine Stimme (da er der Besitzer der Poolressource ist). Die *Mehrheit* wird anhand einer Gesamtanzahl von **24 Stimmen** bestimmt. Wenn die Knoten 3 und 4 ausfallen, besteht die verbleibende Teilmenge aus acht Laufwerken und dem Besitzer der Poolressource, was 9/24 Stimmen entspricht. Der Pool hat somit keine Mehrheit und ist nicht mehr verfügbar.
 
-![Pool Quorum 3](media/understand-quorum/pool-3.png)
+![Poolquorum 3](media/understand-quorum/pool-3.png)
 
-- Kann einen Server Fehler überstehen: **Ja**.
-- Kann einen Server Fehler überstehen, ein anderes: * * hängt von * * ab (kann nicht überleben, wenn beide Knoten drei und vier ausfallen, aber alle anderen Szenarien überstehen können.
-- Kann zwei Server Fehler gleichzeitig überstehen: * * hängt von * * ab (kann nicht überleben, wenn beide Knoten drei und vier ausfallen, aber alle anderen Szenarien überstehen können.
+- Übersteht einen Serverausfall: **Ja**.
+- Übersteht zwei nacheinander auftretende Serverausfälle: **Variiert je nach Fall** (übersteht einen Ausfall von Knoten 3 und 4 nicht, bleibt aber in allen anderen Szenarien verfügbar).
+- Übersteht zwei gleichzeitige Serverausfälle: **Variiert je nach Fall** (übersteht einen Ausfall von Knoten 3 und 4 nicht, bleibt aber in allen anderen Szenarien verfügbar).
 
-### <a name="pool-quorum-recommendations"></a>Empfehlungen für Pool Quorum
+### <a name="pool-quorum-recommendations"></a>Empfehlungen für das Poolquorum
 
-- Stellen Sie sicher, dass jeder Knoten im Cluster symmetrisch ist (jeder Knoten verfügt über die gleiche Anzahl von Laufwerken).
-- Aktivieren Sie drei-Wege-Spiegelung oder duale Parität, damit Sie Knoten Ausfälle tolerieren und die virtuellen Datenträger online halten können. Weitere Informationen finden Sie auf unserer Seite mit den [Volumen Anleitungen](plan-volumes.md) .
-- Wenn mehr als zwei Knoten heruntergefahren sind oder zwei Knoten und ein Datenträger auf einem anderen Knoten ausfällt, haben die Volumes möglicherweise keinen Zugriff auf alle drei Kopien Ihrer Daten und werden deshalb offline geschaltet und sind nicht verfügbar. Es wird empfohlen, die Server wieder zu nutzen oder die Datenträger schnell zu ersetzen, um die höchste Resilienz für alle Daten auf dem Volume sicherzustellen.
+- Stellen Sie sicher, dass alle Knoten im Cluster symmetrisch sind (über die gleiche Anzahl von Laufwerken verfügen).
+- Aktivieren Sie die Drei-Wege-Spiegelung oder duale Parität, damit Sie Knotenausfälle tolerieren können und die virtuellen Datenträger online bleiben. Weitere Informationen finden Sie auf unserer Seite mit den [Volumen Anleitungen](plan-volumes.md) .
+- Wenn mehr als zwei Knoten oder zwei Knoten und ein Datenträger auf einem anderen Knoten ausfallen, haben die Volumes möglicherweise keinen Zugriff auf alle drei Kopien der Daten, sodass sie offline geschaltet werden und nicht verfügbar sind. Es wird empfohlen, die Server schnell wieder online zu schalten oder die Datenträger umgehend zu ersetzen, um die bestmögliche Resilienz für alle Daten im Volume sicherzustellen.
 
 ## <a name="more-information"></a>Weitere Informationen
 

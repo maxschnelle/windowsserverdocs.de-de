@@ -7,14 +7,12 @@ ms.author: billmath
 manager: samueld
 ms.date: 10/02/2017
 ms.topic: article
-ms.prod: windows-server
-ms.technology: identity-adfs
-ms.openlocfilehash: a982df8ce7d1f335a1c2242f277b1983573c9ee1
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: cc48e3efc783665921519272443e86620dcd4d4a
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86954203"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87962474"
 ---
 # <a name="managing-ssl-certificates-in-ad-fs-and-wap-in-windows-server-2016"></a>Verwalten von SSL-Zertifikaten in AD FS und WAP in Windows Server 2016
 
@@ -46,7 +44,7 @@ Legen Sie zunächst fest, in welchem Zertifikat Bindungs Modus Ihre AD FS Server
 AD FS standardmäßig die Authentifizierung von Geräte Zertifikaten an Port 443 und die Benutzerzertifikat Authentifizierung an Port 49443 (oder einem konfigurierbaren Port, der nicht 443 ist) ausführt.
 Verwenden Sie in diesem Modus das PowerShell-Cmdlet Set-adfssslcertificate, um das SSL-Zertifikat zu verwalten.
 
-Führen Sie diese Schritte aus:
+Führen Sie dafür die folgenden Schritte aus:
 
 1. Zunächst müssen Sie das neue Zertifikat abrufen. Dies erfolgt in der Regel durch übermitteln einer Zertifikat Signier Anforderung (Certificate Signing Request, CSR) an einen öffentlichen Zertifikat Anbieter eines Drittanbieters. Es gibt eine Vielzahl von Möglichkeiten, die CSR zu generieren, einschließlich von einem Computer mit Windows 7 oder höher. Der Anbieter sollte über eine Dokumentation verfügen.
 
@@ -77,7 +75,7 @@ dir Cert:\LocalMachine\My\
 Wenn Sie im alternativen Client-TLS-Bindungs Modus konfiguriert ist, werden AD FS die Gerätezertifikat Authentifizierung an Port 443 und die Benutzerzertifikat Authentifizierung an Port 443 auch unter einem anderen Hostnamen durchführen. Der Hostname des Benutzer Zertifikats ist der AD FS Hostname, dem "certauth" vorausgeht, z. b. "certauth.fs.contoso.com".
 Verwenden Sie in diesem Modus das PowerShell-Cmdlet Set-adfsalternatetlsclientbinding, um das SSL-Zertifikat zu verwalten. Dadurch wird nicht nur die Alternative Client-TLS-Bindung verwaltet, sondern auch alle anderen Bindungen, für die AD FS das SSL-Zertifikat festlegt.
 
-Führen Sie diese Schritte aus:
+Führen Sie dafür die folgenden Schritte aus:
 
 1. Zunächst müssen Sie das neue Zertifikat abrufen. Dies erfolgt in der Regel durch übermitteln einer Zertifikat Signier Anforderung (Certificate Signing Request, CSR) an einen öffentlichen Zertifikat Anbieter eines Drittanbieters. Es gibt eine Vielzahl von Möglichkeiten, die CSR zu generieren, einschließlich von einem Computer mit Windows 7 oder höher. Der Anbieter sollte über eine Dokumentation verfügen.
 
@@ -124,6 +122,6 @@ Geben Sie die Anmelde Informationen eines Domänen Benutzers ein, der auf dem AD
 Install-WebApplicationProxy -FederationServiceTrustCredential $cred -CertificateThumbprint '<thumbprint of new cert>' -FederationServiceName 'fs.contoso.com'
 ```
 
-## <a name="additional-references"></a>Zusätzliche Verweise  
+## <a name="additional-references"></a>Weitere Verweise
 * [AD FS: Unterstützung der alternativen Hostnamenbindung für die Zertifikatauthentifizierung](../operations/AD-FS-support-for-alternate-hostname-binding-for-certificate-authentication.md)
 * [Eigenschaften Informationen für die AD FS-und Zertifikat KeySpec](../technical-reference/AD-FS-and-KeySpec-Property.md)

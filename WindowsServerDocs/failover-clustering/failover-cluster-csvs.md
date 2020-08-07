@@ -1,20 +1,18 @@
 ---
 title: Verwenden von freigegebenen Clustervolumes in einem Failovercluster
 description: Verwenden von freigegebenen Clustervolumes in einem Failovercluster
-ms.prod: windows-server
 ms.topic: article
 author: JasonGerend
 ms.author: jgerend
 manager: lizross
-ms.technology: storage-failover-clustering
 ms.date: 06/07/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 697fd832a6af66d9cbea2537c44183aaf1b8839d
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: 0dbfaea12444de607cc28a33be334f86ee273d78
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87177876"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87945863"
 ---
 # <a name="use-cluster-shared-volumes-in-a-failover-cluster"></a>Verwenden von freigegebenen Clustervolumes in einem Failovercluster
 
@@ -203,7 +201,7 @@ In Windows Server 2012 ist der CSV-Cache standardmäßig deaktiviert. In Windows
 
 In der folgenden Tabelle werden die beiden Konfigurationseinstellungen beschrieben, die den CSV-Cache steuern.
 
-| Windows Server 2012 R2 und höher |  Windows Server 2012                 | BESCHREIBUNG |
+| Windows Server 2012 R2 und höher |  Windows Server 2012                 | BESCHREIBUNG |
 | -------------------------------- | ------------------------------------ | ----------- |
 | BlockCacheSize                   | SharedVolumeBlockCacheSizeInMB       | Dies ist eine allgemeine Clustereigenschaft, mit der Sie festlegen können, wie viel Systemspeicher (in Megabytes) für den CSV-Cache auf den einzelnen Knoten im Cluster reserviert wird. Wenn Sie z. B. den Wert „512“ festlegen, werden 512 MB des Systemspeichers auf jedem Knoten reserviert. (In vielen Clustern ist 512 MB ein empfohlener Wert.) Die Standardeinstellung ist 0 (deaktiviert). |
 | EnableBlockCache                 | CsvEnableBlockCache                  | Dies ist eine private Eigenschaft der physischen Datenträgerressource des Clusters. Mit dieser Eigenschaft können Sie den CSV-Cache auf einem einzelnen Datenträger aktivieren, der zum CSV hinzugefügt wird. In Windows Server 2012 ist die Standardeinstellung 0 (deaktiviert). Legen Sie den Wert 1 fest, um den CSV-Cache auf einem Datenträger zu aktivieren. In Windows Server 2012 R2 ist diese Einstellung standardmäßig aktiviert. |

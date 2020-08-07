@@ -1,22 +1,20 @@
 ---
-title: SDN Firewall Überwachung
+title: SDN-Firewallüberwachung
 description: Die firewallüberwachung ist eine neue Funktion für die Sdn-Firewall in Windows Server 2019. Wenn Sie die Sdn-Firewall aktivieren, werden alle Flows aufgezeichnet, die von Sdn-Firewallregeln (ACLs) mit aktivierter Protokollierung verarbeitet werden.
 manager: grcusanz
-ms.prod: windows-server
-ms.technology: networking-sdn
 ms.topic: article
 ms.assetid: c4e2f6c7-0364-4bf8-bb66-9af59c0bbd74
 ms.author: anpaul
 author: AnirbanPaul
 ms.date: 08/22/2018
-ms.openlocfilehash: d834c78d393fdbaeaa65900f16f4d1e32f2e5131
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: e37fc548db0a1043b2b78d95f97e8b4ef01214c8
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80854383"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87962054"
 ---
-# <a name="sdn-firewall-auditing"></a>SDN Firewall Überwachung
+# <a name="sdn-firewall-auditing"></a>SDN-Firewallüberwachung
 
 >Gilt für: Windows Server 2019
 
@@ -26,7 +24,7 @@ In Kürze werden einige Beispiele für die Verarbeitung dieser Dateien mithilfe 
 
 _**Probieren Sie es aus, und geben Sie uns Feedback!**_
 
-Hier ist ein Beispielskript zum Aktivieren der firewallüberwachung auf den Hyper-V-Hosts. Aktualisieren Sie die Variablen am Anfang, und führen Sie Sie auf einem Windows Server 2019-Computer mit installierter RSAT-networkcontroller-Funktion aus:
+Hier ist ein Beispielskript zum Aktivieren der firewallüberwachung auf den Hyper-V-Hosts.Aktualisieren Sie die Variablen am Anfang, und führen Sie Sie auf einem Windows Server 2019-Computer mit installierter RSAT-networkcontroller-Funktion aus:
 
 ```PowerShell
 $logpath = "C:\test\log1"
@@ -54,7 +52,7 @@ foreach ($s in $servers) {
 }
 ```
 
-Nach der Aktivierung wird eine neue Datei im angegebenen Verzeichnis auf jedem Host ca. einmal pro Stunde angezeigt.  Sie sollten diese Dateien regelmäßig verarbeiten und aus den Hosts entfernen.  Die aktuelle Datei hat eine Länge von 0 (null) und ist gesperrt, bis Sie an der nächsten Stunden Markierung geleert wurde:
+Nach der Aktivierung wird eine neue Datei im angegebenen Verzeichnis auf jedem Host ca. einmal pro Stunde angezeigt.Sie sollten diese Dateien regelmäßig verarbeiten und aus den Hosts entfernen.Die aktuelle Datei hat eine Länge von 0 (null) und ist gesperrt, bis Sie an der nächsten Stunden Markierung geleert wurde:
 
 ```syntax
 PS C:\test\log1> dir
@@ -73,7 +71,7 @@ Mode                LastWriteTime         Length Name
 Diese Dateien enthalten eine Sequenz von Fluss Ereignissen, z. b.:
 
 ```syntax
-{ 
+{
     "records": [
         {
             "properties":{

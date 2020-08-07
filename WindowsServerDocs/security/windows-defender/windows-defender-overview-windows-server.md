@@ -1,20 +1,18 @@
 ---
 title: Übersicht über Windows Defender für Windows Server
 description: Windows Server-Sicherheit
-ms.prod: windows-server
-ms.technology: security-windows-defender
 ms.topic: article
 ms.assetid: 751efb33-a08e-4e90-9208-6f2bc319e029
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 0eb88a0ad80de1060971b6de5e0c5ba313ce0fad
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: d1b3ec35ddba593267e91b9343e5f96d4bcbee6f
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80855063"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87936389"
 ---
 # <a name="windows-defender-antivirus-for-windows-server"></a>Windows Defender Antivirus für Windows Server
 
@@ -25,10 +23,10 @@ Windows Server 2016 enthält jetzt Windows Defender Antivirus. Windows Defender 
 Weitere Informationen finden Sie in der Dokumentationsbibliothek zu [Windows Defender Antivirus in Windows 10](https://docs.microsoft.com/windows/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10) .
 
 
-Obwohl die Funktionalität, Konfiguration und Verwaltung von Windows Defender AV auf Windows 10 oder Windows Server 2016 größtenteils identisch ist, gibt es einige wichtige Unterschiede:
+Obwohl die Funktionen, die Konfiguration und die Verwaltung für Windows Defender AV bei Windows 10 oder Windows Server 2016 größtenteils identisch sind, gibt es einige wichtige Unterschiede:
 
-- In Windows Server 2016 werden basierend auf Ihrer definierten Serverrolle [automatische Ausschlüsse](https://docs.microsoft.com/windows/threat-protection/windows-defender-antivirus/configure-server-exclusions-windows-defender-antivirus) angewendet.
-- In Windows Server 2016 deaktiviert Windows Defender AV sich nicht selbst, wenn Sie ein anderes Antivirenprodukt ausführen.
+- In Windows Server 2016 werden [Automatische Ausschlüsse](https://docs.microsoft.com/windows/threat-protection/windows-defender-antivirus/configure-server-exclusions-windows-defender-antivirus) auf der Grundlage der definierten Server Rolle angewendet.
+- In Windows Server 2016 wird Windows Defender AV sich nicht selbst deaktivieren, wenn Sie ein anderes Antivirenprodukt ausführen.
 
 Das Thema [Windows Defender Antivirus unter Windows Server 2016](https://docs.microsoft.com/windows/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016) enthält Informationen zu den Informationen zu Windows Server 2016, einschließlich der folgenden:
 
@@ -36,8 +34,8 @@ Das Thema [Windows Defender Antivirus unter Windows Server 2016](https://docs.mi
 
 -   [Überprüfen, ob Windows Defender AV ausgeführt wird]( https://docs.microsoft.com/windows/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016#BKMK_DefRun)
 
--   [Antischadsoftwaredefinitionen aktualisieren]( https://docs.microsoft.com/windows/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016#BKMK_UpdateDef)
+-   [Aktualisieren von Antischadsoftwaredefinitionen]( https://docs.microsoft.com/windows/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016#BKMK_UpdateDef)
 
--   [Absenden von Beispielen]( https://docs.microsoft.com/windows/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016#BKMK_DefSamples)
+-   [Übermitteln von Beispielen]( https://docs.microsoft.com/windows/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016#BKMK_DefSamples)
 
 -   [Automatische Ausschlüsse konfigurieren]( https://docs.microsoft.com/windows/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016#BKMK_DefExclusions)

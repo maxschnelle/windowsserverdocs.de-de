@@ -1,20 +1,18 @@
 ---
 title: Allgemeine Richtlinien zur Problembehandlung bei DHCP
 description: Diese Artilce führt Allgemeine Anleitungen für die Problembehandlung von DHCP ein.
-ms.prod: windows-server
 ms.service: na
 manager: dcscontentpm
-ms.technology: server-general
 ms.date: 5/26/2020
 ms.topic: article
 author: Deland-Han
 ms.author: delhan
-ms.openlocfilehash: c0460791fef2451722af09e8bbe08b51a605f01b
-ms.sourcegitcommit: ef089864980a1d4793a35cbf4cbdd02ce1962054
+ms.openlocfilehash: 92b76748153f19419733c32c08a24d48e53d5647
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84150158"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87970047"
 ---
 # <a name="general-guidance-to-troubleshoot-dhcp"></a>Allgemeine Richtlinien zur Problembehandlung bei DHCP
 
@@ -26,7 +24,7 @@ ms.locfileid: "84150158"
 
   - Gibt es Fehlermeldungen?
 
-  - War der DHCP-Server zuvor funktionsfähig oder hat er nie funktioniert?  
+  - War der DHCP-Server zuvor funktionsfähig oder hat er nie funktioniert?
     Wenn zuvor gearbeitet wurde, hat sich vor dem Start des Problems etwas geändert. Wurde beispielsweise ein Update installiert? Wurde eine Änderung an der Infrastruktur vorgenommen?
 
   - Ist das Problem persistent oder zeitweilig? Wenn es sich um einen zeitweiligen Zeitpunkt handelt

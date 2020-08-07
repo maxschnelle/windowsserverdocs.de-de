@@ -1,28 +1,26 @@
 ---
-title: Netzwerkcontroller-Sicherheit
+title: Netzwerk Controller Sicherheit
 description: In diesem Thema erfahren Sie, wie Sie die Sicherheit für die gesamte Kommunikation zwischen Netzwerk Controller und anderer Software und Geräte konfigurieren.
 manager: grcusanz
-ms.prod: windows-server
-ms.technology: networking-sdn
 ms.topic: article
 ms.assetid: bc625de9-ee31-40a4-9ad2-7448bfbfb6e6
 ms.author: anpaul
 author: AnirbanPaul
 ms.date: 08/30/2018
-ms.openlocfilehash: 64bcf94c2e439d7999e96de939962a3a14d1246d
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 42bed85fed8da210d3a7583caf0170064fd2aff5
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80854363"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87962074"
 ---
-# <a name="secure-the-network-controller"></a>Sichern des Netzwerk-Controllers
+# <a name="secure-the-network-controller"></a>Schützen des Netzwerkcontrollers
 
-In diesem Thema erfahren Sie, wie Sie die Sicherheit für die gesamte Kommunikation zwischen [Netzwerk Controller](../technologies/network-controller/network-controller.md) und anderer Software und Geräte konfigurieren. 
+In diesem Thema erfahren Sie, wie Sie die Sicherheit für die gesamte Kommunikation zwischen [Netzwerk Controller](../technologies/network-controller/network-controller.md) und anderer Software und Geräte konfigurieren.
 
-Die Kommunikations Pfade, die Sie sichern können, umfassen die Northbound-Kommunikation auf der Verwaltungsebene, die Cluster Kommunikation zwischen virtuellen Netzwerken des Netzwerk Controllers \(virtuellen Computern\) in einem Cluster und die Kommunikation mit der Datenebene auf der Datenebene.
+Die Kommunikations Pfade, die Sie sichern können, umfassen die Northbound-Kommunikation auf der Verwaltungsebene, die Cluster Kommunikation zwischen virtuellen Computern virtueller Computer \( \) in einem Cluster und eine Southbound-Kommunikation auf der Datenebene.
 
-1. **Northbound-Kommunikation**. Der Netzwerk Controller kommuniziert auf der Verwaltungsebene mit Sdn-\-fähigen Verwaltungssoftware wie Windows PowerShell und System Center Virtual Machine Manager \(SCVMM-\). Diese Verwaltungs Tools bieten Ihnen die Möglichkeit, Netzwerk Richtlinien zu definieren und einen Ziel Status für das Netzwerk zu erstellen, mit dem Sie die tatsächliche Netzwerkkonfiguration vergleichen können, um die tatsächliche Konfiguration mit dem Ziel Status in Parität zu bringen.
+1. **Northbound-Kommunikation**. Der Netzwerk Controller kommuniziert auf der Verwaltungsebene mit Sdn \- -fähiger Verwaltungssoftware wie Windows PowerShell und System Center Virtual Machine Manager \( SCVMM \) . Diese Verwaltungs Tools bieten Ihnen die Möglichkeit, Netzwerk Richtlinien zu definieren und einen Ziel Status für das Netzwerk zu erstellen, mit dem Sie die tatsächliche Netzwerkkonfiguration vergleichen können, um die tatsächliche Konfiguration mit dem Ziel Status in Parität zu bringen.
 
 2. **Netzwerk Controller-Cluster Kommunikation**. Wenn Sie drei oder mehr VMS als Netzwerk Controller-Cluster Knoten konfigurieren, kommunizieren diese Knoten miteinander. Diese Kommunikation kann sich auf die Synchronisierung und Replikation von Daten über Knoten hinweg oder eine bestimmte Kommunikation zwischen den Netzwerk Controller Diensten beziehen.
 
@@ -44,16 +42,16 @@ Der Netzwerk Controller unterstützt die folgenden drei Authentifizierungs Modi 
 
 1. **Kerberos**. Verwenden Sie die Kerberos-Authentifizierung, wenn Sie sowohl den Verwaltungs Client als auch alle Cluster Knoten des Netzwerk Controllers einer Active Directory Domäne beitreten. Die Active Directory Domäne muss über Domänen Konten verfügen, die zur Authentifizierung verwendet werden.
 
-2. **X509**. Verwenden Sie X509 für die Zertifikat\-basierte Authentifizierung für Verwaltungs Clients, die nicht mit einer Active Directory Domäne verknüpft sind. Sie müssen Zertifikate für alle Cluster Knoten und Verwaltungs Clients von Netzwerk Controller registrieren. Außerdem müssen alle Knoten und Verwaltungs Clients die Zertifikate der anderen Knoten als vertrauenswürdig einstufen.
+2. **X509**. Verwenden Sie X509 für die Zertifikat \- basierte Authentifizierung für Verwaltungs Clients, die nicht mit einer Active Directory Domäne verknüpft sind. Sie müssen Zertifikate für alle Cluster Knoten und Verwaltungs Clients von Netzwerk Controller registrieren. Außerdem müssen alle Knoten und Verwaltungs Clients die Zertifikate der anderen Knoten als vertrauenswürdig einstufen.
 
-3. **Keine**. Verwenden Sie keine zu Testzwecken in einer Testumgebung und daher nicht für die Verwendung in einer Produktionsumgebung. Wenn Sie diesen Modus auswählen, wird keine Authentifizierung zwischen Knoten und Verwaltungs Clients durchgeführt.
+3. **None** (Keine). Verwenden Sie keine zu Testzwecken in einer Testumgebung und daher nicht für die Verwendung in einer Produktionsumgebung. Wenn Sie diesen Modus auswählen, wird keine Authentifizierung zwischen Knoten und Verwaltungs Clients durchgeführt.
 
-Sie können den Authentifizierungsmodus für die Northbound-Kommunikation konfigurieren, indem Sie den Windows PowerShell **[-Befehl install-networkcontroller](https://docs.microsoft.com/powershell/module/networkcontroller/install-networkcontroller)** mit dem _clientauthentication_ -Parameter verwenden. 
+Sie können den Authentifizierungsmodus für die Northbound-Kommunikation konfigurieren, indem Sie den Windows PowerShell **[-Befehl install-networkcontroller](https://docs.microsoft.com/powershell/module/networkcontroller/install-networkcontroller)** mit dem _clientauthentication_ -Parameter verwenden.
 
 
-### <a name="authorization"></a>Autorisierung
+### <a name="authorization"></a>Authorization
 
-Wenn Sie die Autorisierung für die Kommunikation zwischen Netzwerk Controller und Verbindung konfigurieren, können Sie Netzwerk Controller-Cluster Knoten und-Verwaltungs Clients überprüfen, ob das Gerät, mit dem Sie kommunizieren, vertrauenswürdig ist und über die Berechtigung zur Teilnahme an der ssy.
+Wenn Sie die Autorisierung für die Kommunikation zwischen Netzwerk Controller und Verbindung konfigurieren, können Sie Netzwerk Controller-Cluster Knoten und-Verwaltungs Clients überprüfen, ob das Gerät, mit dem Sie kommunizieren, vertrauenswürdig ist und über die Berechtigung zur Teilnahme an der Kommunikation verfügt.
 
 Verwenden Sie die folgenden Autorisierungs Methoden für jeden Authentifizierungsmodus, der vom Netzwerk Controller unterstützt wird.
 
@@ -61,18 +59,18 @@ Verwenden Sie die folgenden Autorisierungs Methoden für jeden Authentifizierung
 
 2.  **X509**. Wenn Sie die X509-Authentifizierungsmethode verwenden, akzeptiert der Netzwerk Controller nur Anforderungen von Verwaltungs Clients, deren Zertifikat Fingerabdrücke dem Netzwerk Controller bekannt sind. Sie können diese Fingerabdrücke mithilfe des Parameters _clientcertifigatethrebprint_ des Windows PowerShell **[-Befehls Install-networkcontroller](https://docs.microsoft.com/powershell/module/networkcontroller/install-networkcontroller)** konfigurieren. Sie können jederzeit mit dem Befehl **[Set-networkcontroller](https://docs.microsoft.com/powershell/module/networkcontroller/Set-NetworkController)** weitere Client Fingerabdrücke hinzufügen.
 
-3.  **Keine**. Wenn Sie diesen Modus auswählen, wird keine Authentifizierung zwischen Knoten und Verwaltungs Clients durchgeführt. Verwenden Sie keine zu Testzwecken in einer Testumgebung und daher nicht für die Verwendung in einer Produktionsumgebung. 
+3.  **None** (Keine). Wenn Sie diesen Modus auswählen, wird keine Authentifizierung zwischen Knoten und Verwaltungs Clients durchgeführt. Verwenden Sie keine zu Testzwecken in einer Testumgebung und daher nicht für die Verwendung in einer Produktionsumgebung.
 
 
 ### <a name="encryption"></a>Verschlüsselung
 
-Die Northbound-Kommunikation verwendet Secure Sockets Layer \(SSL-\), um zwischen Verwaltungs Clients und Netzwerk Controller Knoten einen verschlüsselten Kanal zu erstellen. Die SSL-Verschlüsselung für die Northbound-Kommunikation umfasst die folgenden Anforderungen:
+Die Northbound-Kommunikation verwendet Secure Sockets Layer \( SSL \) zum Erstellen eines verschlüsselten Kanals zwischen Verwaltungs Clients und Netzwerk Controller Knoten. Die SSL-Verschlüsselung für die Northbound-Kommunikation umfasst die folgenden Anforderungen:
 
-- Alle Netzwerk Controller Knoten müssen über ein identisches Zertifikat verfügen, das die Server Authentifizierung und Client Authentifizierung unter Erweiterte Schlüssel Verwendung \(EKU-\) Erweiterungen umfasst. 
+- Alle Netzwerk Controller Knoten müssen über ein identisches Zertifikat verfügen, das die Server Authentifizierung und Client Authentifizierung in EKU-Erweiterungen für erweiterte Schlüssel Verwendung umfasst \( \) .
 
 - Der von Verwaltungs Clients für die Kommunikation mit dem Netzwerk Controller verwendete URI muss der Antragsteller Name des Zertifikats sein. Der Antragsteller Name des Zertifikats muss entweder den voll qualifizierten Domänen Namen (FQDN) oder die IP-Adresse des Netzwerk Controller-Rest-Endpunkts enthalten.
 
-- Wenn sich Netzwerk Controller Knoten in unterschiedlichen Subnetzen befinden, muss der Antragsteller Name seiner Zertifikate mit dem Wert identisch sein, der für den _restname_ -Parameter im Windows PowerShell-Befehl **install-networkcontroller** verwendet wird. 
+- Wenn sich Netzwerk Controller Knoten in unterschiedlichen Subnetzen befinden, muss der Antragsteller Name seiner Zertifikate mit dem Wert identisch sein, der für den _restname_ -Parameter im Windows PowerShell-Befehl **install-networkcontroller** verwendet wird.
 
 - Alle Verwaltungs Clients müssen dem SSL-Zertifikat vertrauen.
 
@@ -88,9 +86,9 @@ Nachdem das Zertifikat registriert wurde, können Sie den Netzwerk Controller so
 
 ## <a name="network-controller-cluster-communication"></a>Netzwerk Controller-Cluster Kommunikation
 
-Der Netzwerk Controller unterstützt die Authentifizierung, Autorisierung und Verschlüsselung für die Kommunikation zwischen Netzwerk Controller Knoten. Die Kommunikation erfolgt über [Windows Communication Foundation](https://docs.microsoft.com/dotnet/framework/wcf/whats-wcf) \(WCF\) und TCP.
+Der Netzwerk Controller unterstützt die Authentifizierung, Autorisierung und Verschlüsselung für die Kommunikation zwischen Netzwerk Controller Knoten. Die Kommunikation erfolgt über [Windows Communication Foundation](https://docs.microsoft.com/dotnet/framework/wcf/whats-wcf) \( WCF \) und TCP.
 
-Sie können diesen Modus mit dem Parameter " **clusterauthentication** " des Windows PowerShell-Befehls " **install-networkcontrollercluster** " konfigurieren. 
+Sie können diesen Modus mit dem Parameter " **clusterauthentication** " des Windows PowerShell-Befehls " **install-networkcontrollercluster** " konfigurieren.
 
 Weitere Informationen finden Sie unter [install-networkcontrollercluster](https://docs.microsoft.com/powershell/module/networkcontroller/install-networkcontrollercluster).
 
@@ -105,11 +103,11 @@ Der Netzwerk Controller unterstützt die folgenden drei Authentifizierungs Modi 
 
 1. **Kerberos**. Sie können die Kerberos-Authentifizierung verwenden, wenn alle Netzwerk Controller-Cluster Knoten mit einer Active Directory Domäne verknüpft sind, mit Domänen Konten, die für die Authentifizierung verwendet werden.
 
-2. **X509**. X509 ist Zertifikat\-basierte Authentifizierung. Sie können die X509-Authentifizierung verwenden, wenn Netzwerk Controller-Cluster Knoten nicht mit einer Active Directory Domäne verknüpft sind. Zur Verwendung von X509 müssen Sie Zertifikate für alle Cluster Knoten des Netzwerk Controllers registrieren, und alle Knoten müssen den Zertifikaten vertrauen. Außerdem muss der Antragsteller Name des Zertifikats, das für jeden Knoten registriert ist, mit dem DNS-Namen des Knotens identisch sein.
+2. **X509**. X509 ist eine Zertifikat \- basierte Authentifizierung. Sie können die X509-Authentifizierung verwenden, wenn Netzwerk Controller-Cluster Knoten nicht mit einer Active Directory Domäne verknüpft sind. Zur Verwendung von X509 müssen Sie Zertifikate für alle Cluster Knoten des Netzwerk Controllers registrieren, und alle Knoten müssen den Zertifikaten vertrauen. Außerdem muss der Antragsteller Name des Zertifikats, das für jeden Knoten registriert ist, mit dem DNS-Namen des Knotens identisch sein.
 
-3. **Keine**. Wenn Sie diesen Modus auswählen, wird keine Authentifizierung zwischen den Netzwerk Controller Knoten durchgeführt. Dieser Modus wird nur zu Testzwecken bereitgestellt und wird nicht für die Verwendung in einer Produktionsumgebung empfohlen.
+3. **None** (Keine). Wenn Sie diesen Modus auswählen, wird keine Authentifizierung zwischen den Netzwerk Controller Knoten durchgeführt. Dieser Modus wird nur zu Testzwecken bereitgestellt und wird nicht für die Verwendung in einer Produktionsumgebung empfohlen.
 
-### <a name="authorization"></a>Autorisierung
+### <a name="authorization"></a>Authorization
 
 Wenn Sie die Autorisierung für die Netzwerk Controller-Cluster Kommunikation konfigurieren, können Sie die Netzwerk Controller-Cluster Knoten überprüfen, ob die Knoten, mit denen Sie kommunizieren, vertrauenswürdig sind und über die Berechtigung zur Teilnahme an der Kommunikation verfügen.
 
@@ -119,13 +117,13 @@ Für jeden Authentifizierungsmodus, der vom Netzwerk Controller unterstützt wir
 
 2. **X509**. Netzwerk Controller Knoten akzeptieren Kommunikationsanforderungen nur von anderen Netzwerk Controller-Computer Konten. Sie können diese Konten konfigurieren, wenn Sie den Netzwerk Controller mit dem **Name** -Parameter des Windows PowerShell-Befehls [New-networkcontrollernodeobject](https://docs.microsoft.com/powershell/module/networkcontroller/new-networkcontrollernodeobject) bereitstellen.
 
-3. **Keine**. Wenn Sie diesen Modus auswählen, wird keine Autorisierung zwischen den Netzwerk Controller Knoten durchgeführt. Dieser Modus wird nur zu Testzwecken bereitgestellt und wird nicht für die Verwendung in einer Produktionsumgebung empfohlen.
+3. **None** (Keine). Wenn Sie diesen Modus auswählen, wird keine Autorisierung zwischen den Netzwerk Controller Knoten durchgeführt. Dieser Modus wird nur zu Testzwecken bereitgestellt und wird nicht für die Verwendung in einer Produktionsumgebung empfohlen.
 
 ### <a name="encryption"></a>Verschlüsselung
 
-Die Kommunikation zwischen den Netzwerk Controller Knoten wird mithilfe der WCF-Transport Schicht Verschlüsselung verschlüsselt. Diese Art der Verschlüsselung wird verwendet, wenn die Authentifizierungs-und Autorisierungs Methoden entweder Kerberos-oder X509-Zertifikate sind. Weitere Informationen finden Sie in den folgenden Themen.
+Die Kommunikation zwischen den Netzwerk Controller Knoten wird mithilfe der WCF-Transport Schicht Verschlüsselung verschlüsselt. Diese Art der Verschlüsselung wird verwendet, wenn die Authentifizierungs-und Autorisierungs Methoden entweder Kerberos-oder X509-Zertifikate sind. Weitere Informationen finden Sie in den nachfolgenden Themen.
 
-- [Vorgehensweise: Sichern eines Dienstanbieter mit Windows-Anmelde Informationen](https://docs.microsoft.com/dotnet/framework/wcf/how-to-secure-a-service-with-windows-credentials)
+- [Vorgehensweise: Sichern eines Diensts mit Windows-Anmeldeinformationen](https://docs.microsoft.com/dotnet/framework/wcf/how-to-secure-a-service-with-windows-credentials)
 - Vorgehens [Weise: Sichern eines Dienstanbieter mit X. 509-Zertifikaten](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-secure-a-service-with-an-x-509-certificate).
 
 ## <a name="southbound-communication"></a>Southbound-Kommunikation
@@ -134,7 +132,7 @@ Der Netzwerk Controller interagiert mit verschiedenen Gerätetypen für die Sout
 
 In der folgenden Tabelle finden Sie Informationen zur Interaktion von Netzwerk Controllern mit unterschiedlichen Southbound-Geräten.
 
-| Southbound-Gerät/-Dienst | Protokoll              | Verwendete Authentifizierung    |
+| Southbound-Gerät/-Dienst | Protocol              | Verwendete Authentifizierung    |
 |---------------------------|-----------------------|------------------------|
 | Softwarelastenausgleich    | WCF (MUX), TCP (Host) | Zertifikate           |
 | Firewall                  | Ovsdb                 | Zertifikate           |
@@ -148,13 +146,13 @@ Der Kommunikationsmechanismus wird für jedes dieser Protokolle im folgenden Abs
 
 Bei der Southbound-Kommunikation werden die folgenden Protokolle und Authentifizierungsmethoden verwendet.
 
-1. **WCF/TCP/ovsdb**. Für diese Protokolle erfolgt die Authentifizierung mithilfe von X509-Zertifikaten. Sowohl der Netzwerk Controller als auch der Peer Software Lastenausgleich \(SLB\) Multiplexer \(MUX\)/Host Computer stellen ihre Zertifikate für die gegenseitige Authentifizierung zur Verfügung. Jedem Zertifikat muss vom Remotepeer vertraut werden.
+1. **WCF/TCP/ovsdb**. Für diese Protokolle erfolgt die Authentifizierung mithilfe von X509-Zertifikaten. Sowohl der Netzwerk Controller als auch der Peer Software Lastenausgleich \( SLB \) Multiplexer \( MUX \) /Host Machines stellen ihre Zertifikate einander für die gegenseitige Authentifizierung zur Verfügung. Jedem Zertifikat muss vom Remotepeer vertraut werden.
 
     Bei der Southbound-Authentifizierung können Sie das gleiche SSL-Zertifikat verwenden, das für die Verschlüsselung der Kommunikation mit den Northbound-Clients konfiguriert ist. Außerdem müssen Sie ein Zertifikat auf den SLB MUX-und Host Geräten konfigurieren. Der Antragsteller Name des Zertifikats muss mit dem DNS-Namen des Geräts identisch sein.
 
-2. **WinRM**. Für dieses Protokoll wird die Authentifizierung mithilfe von Kerberos-\(für in die Domäne eingebundenen Computern\) und mithilfe von Zertifikaten \(für Computer, die nicht der Domäne beigetreten sind\).
+2. **WinRM**. Für dieses Protokoll erfolgt die Authentifizierung mithilfe von Kerberos für in die Domäne eingebundenen Computern \( \) und durch die Verwendung von Zertifikaten für Computer, die \( nicht der Domäne beigetreten sind \) .
 
-### <a name="authorization"></a>Autorisierung
+### <a name="authorization"></a>Authorization
 
 Bei der Southbound-Kommunikation werden die folgenden Protokolle und Autorisierungs Methoden verwendet.
 
@@ -170,4 +168,4 @@ Für die Southbound-Kommunikation werden die folgenden Verschlüsselungsmethoden
 
 1. **WCF/TCP/ovsdb**. Für diese Protokolle wird die Verschlüsselung mithilfe des Zertifikats ausgeführt, das auf dem Client oder auf dem Server registriert ist.
 
-2. **WinRM**. Der WinRM-Datenverkehr wird standardmäßig mithilfe der Kerberos-Security Support Provider \(SSP-\)verschlüsselt. Sie können zusätzliche Verschlüsselung auf dem WinRM-Server in Form von SSL konfigurieren.
+2. **WinRM**. Der WinRM-Datenverkehr wird standardmäßig mithilfe von Kerberos Security Support Provider \( SSP verschlüsselt \) . Sie können zusätzliche Verschlüsselung auf dem WinRM-Server in Form von SSL konfigurieren.

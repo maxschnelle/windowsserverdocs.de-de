@@ -2,18 +2,16 @@
 title: Komponenten des Kernnetzwerks
 description: Dieses Handbuch enthält Anweisungen zum Planen und Bereitstellen der Kernkomponenten, die für ein voll funktionsfähiges Netzwerk und eine neue Active Directory Domäne in einer neuen Gesamtstruktur mit Windows Server 2016 erforderlich sind.
 manager: brianlic
-ms.prod: windows-server
-ms.technology: networking
 ms.topic: article
 ms.assetid: b3cd60f7-d380-4712-9a78-0a8f551e1121
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 0e44de005bd7b110e89b514071667c62a81d386b
-ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
+ms.openlocfilehash: 2c41fde041183ff7e039bd2fed877aad8ff0f234
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87518538"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87962324"
 ---
 # <a name="core-network-components"></a>Komponenten des Kernnetzwerks
 
@@ -121,7 +119,7 @@ TCP/IP stellt grundlegende TCP/IP-Hilfsprogramme bereit, mit deren Hilfe Windows
 
 -  Windows Server 2016
 
-- Windows 10
+- Windows 10
 
 -  Windows Server 2012 R2
 
@@ -565,7 +563,7 @@ Nachdem die Installation erfolgreich abgeschlossen wurde, wird die folgende Meld
 
 | Erfolg | Neustart erforderlich | Exitcode |  Funktionsergebnis |
 |--|--|--|--|
-| Richtig | Nein | Erfolg | {Active Directory Domain Services, Gruppe P... |
+| True | Nein | Erfolg | {Active Directory Domain Services, Gruppe P... |
 
 - Geben Sie in Windows PowerShell den folgenden Befehl ein, und ersetzen Sie dabei den Text **Corp.contoso.com** durch Ihren Domänen Namen, und drücken Sie dann die EINGABETASTE:
 

@@ -6,14 +6,12 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server
-ms.technology: identity-adds
-ms.openlocfilehash: 84d28ffec35bdc5dce22d797cb830f8b75068013
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 14c82049171c25d24836ec3cbed35dfe592885f6
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86966052"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87969937"
 ---
 # <a name="active-directory-domain-services-overview"></a>Übersicht über Active Directory Domain Services
 
@@ -42,14 +40,14 @@ Active Directory umfasst auch Folgendes:
 
 ## <a name="understanding-active-directory"></a>Grundlegendes zu Active Directory
  Dieser Abschnitt enthält Links zu den grundlegenden Active Directory Konzepten:
- 
-* [Active Directory Struktur und Speichertechnologien](/previous-versions/windows/it-pro/windows-server-2003/cc759186(v=ws.10))
-* [Domänen Controller Rollen](/previous-versions/windows/it-pro/windows-server-2003/cc786438(v=ws.10)) 
-* [Active Directory-Schema](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc771796(v=ws.10))
-* [Grundlegendes zu Vertrauensstellungen](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc771568(v=ws.10)) 
-* [Active Directory Replikations Technologien](/previous-versions/windows/it-pro/windows-server-2003/cc776877(v=ws.10)) 
-* [Technologien für die Active Directory Suche und Veröffentlichung](/previous-versions/windows/it-pro/windows-server-2003/cc775686(v=ws.10)) 
-* [Interoperabilität mit DNS und Gruppenrichtlinie](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/dd197486(v=ws.10))
-* [Grundlegendes zum Schema](/previous-versions/windows/it-pro/windows-server-2003/cc759402(v=ws.10)) 
 
-Eine ausführliche Liste der Active Directory Konzepte finden Sie unter [Understanding Active Directory](/previous-versions/windows/it-pro/windows-server-2003/cc781408(v=ws.10)). 
+* [Active Directory Struktur und Speichertechnologien](/previous-versions/windows/it-pro/windows-server-2003/cc759186(v=ws.10))
+* [Domänen Controller Rollen](/previous-versions/windows/it-pro/windows-server-2003/cc786438(v=ws.10))
+* [Active Directory-Schema](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc771796(v=ws.10))
+* [Grundlegendes zu Vertrauensstellungen](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc771568(v=ws.10))
+* [Active Directory Replikations Technologien](/previous-versions/windows/it-pro/windows-server-2003/cc776877(v=ws.10))
+* [Technologien für die Active Directory Suche und Veröffentlichung](/previous-versions/windows/it-pro/windows-server-2003/cc775686(v=ws.10))
+* [Interoperabilität mit DNS und Gruppenrichtlinie](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/dd197486(v=ws.10))
+* [Grundlegendes zum Schema](/previous-versions/windows/it-pro/windows-server-2003/cc759402(v=ws.10))
+
+Eine ausführliche Liste der Active Directory Konzepte finden Sie unter [Understanding Active Directory](/previous-versions/windows/it-pro/windows-server-2003/cc781408(v=ws.10)).

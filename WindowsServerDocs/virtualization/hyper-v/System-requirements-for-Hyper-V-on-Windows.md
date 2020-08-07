@@ -1,24 +1,22 @@
 ---
 title: System Anforderungen für Hyper-V unter Windows Server
 description: Listet die Hardware-und Firmwareanforderungen für Hyper-V in Windows Server auf.
-ms.prod: windows-server
 manager: dongill
-ms.technology: compute-hyper-v
 ms.topic: article
 ms.assetid: bc4a4971-f727-40cd-91f5-2ee6d24b54cb
 author: kbdazure
 ms.author: kathydav
 ms.date: 9/30/2016
-ms.openlocfilehash: 9bb50448f1ee819b3b886536424ee1556775b78d
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 56d9f862d4bd31ac8fba08837e59c94b865f7b1a
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80857983"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87970027"
 ---
 # <a name="system-requirements-for-hyper-v-on-windows-server"></a>System Anforderungen für Hyper-V unter Windows Server
 
->Gilt für: Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019, Microsoft Hyper-V Server 2019
+>Gilt für: Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019, Microsoft Hyper-V Server 2019
 
 Für Hyper-v gelten bestimmte Hardwareanforderungen, und einige Hyper-v-Features haben zusätzliche Anforderungen. Verwenden Sie die Details in diesem Artikel, um zu entscheiden, welche Anforderungen Ihr System erfüllen muss, damit Sie Hyper-V wie geplant verwenden können. Überprüfen Sie anschließend den [Windows Server-Katalog](https://www.windowsservercatalog.com/). Beachten Sie, dass die Anforderungen für Hyper-V die allgemeinen Mindestanforderungen für Windows Server 2016 überschreiten, da eine Virtualisierungsumgebung mehr computeressourcen erfordert.
 
@@ -38,9 +36,9 @@ Unabhängig von den Hyper-V-Features, die Sie verwenden möchten, benötigen Sie
 
 - Virtualisierungsunterstützung im BIOS oder UEFI aktiviert:
 
-  - Hardwareunterstützte Virtualisierung. Dies ist in Prozessoren verfügbar, die eine Virtualisierungsoption enthalten, insbesondere Prozessoren mit Intel-Virtualisierungstechnologie (Intel VT) oder AMD Virtualization (AMD-V)-Technologie.
+  - Hardwaregestützte Virtualisierung. Dies ist in Prozessoren verfügbar, die eine Virtualisierungsoption enthalten, insbesondere Prozessoren mit Intel-Virtualisierungstechnologie (Intel VT) oder AMD Virtualization (AMD-V)-Technologie.
 
-  - Von der Hardware erzwungene Datenausführungsverhinderung (DEP) muss verfügbar und aktiviert sein. Bei Intel-Systemen ist dies der XD-Bit-Wert (deaktivierte Bit ausführen). Bei AMD-Systemen ist dies das NX-Bit (No Execute Bit).
+  - Die auf der Hardware erzwungene Datenausführungsverhinderung (Data Execution Protection, DEP) muss verfügbar und aktiviert sein. Bei Intel-Systemen ist dies das XD-Bit (Execute Disable-Bit). Bei AMD-Systemen ist dies das NX-Bit (No Execute-Bit).
 
 ## <a name="how-to-check-for-hyper-v-requirements"></a>Überprüfen der Hyper-V-Anforderungen
 
@@ -89,6 +87,6 @@ Die **Host** Anforderungen lauten:
 
 Anforderungen an **virtuelle Computer** :
 
-- Zweite Generation
+- Generation 2
 - Windows Server 2012 oder höher als Gast Betriebssystem
 

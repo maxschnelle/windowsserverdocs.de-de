@@ -2,18 +2,16 @@
 title: Optimieren der Namespaceabfrage
 description: In diesem Artikel wird beschrieben, wie Sie den Namespace Abruf optimieren, um einen konsistenten domänenbasierten Namespace auf den Namespace Servern beizubehalten.
 ms.date: 6/5/2017
-ms.prod: windows-server
-ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 4ffcf974bd809d1692e16d632153c213081041c4
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: cc14dd4f8d6cd833642b87caa32353d4f8940b05
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86961232"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87936135"
 ---
 # <a name="optimize-namespace-polling"></a>Optimieren der Namespaceabfrage
 
@@ -37,7 +35,7 @@ Verwenden Sie das folgende Verfahren, um die Art der Namespace Abruf Optimierung
 > [!NOTE]
 > Verwenden Sie das Cmdlet [Set-dfsnroot enablerootscalability](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771913(v=ws.11)) , das in Windows Server 2012 eingeführt wurde, um den Namespace-Abruf Modus mithilfe von Windows PowerShell festzulegen.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Optimieren von DFS-Namespaces](tuning-dfs-namespaces.md)
 -   [Delegieren von Verwaltungsberechtigungen für DFS-Namespaces](delegate-management-permissions-for-dfs-namespaces.md)

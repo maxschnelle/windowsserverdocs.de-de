@@ -1,26 +1,24 @@
 ---
-title: Gateway-Bandbreite-Zuordnung
+title: Zuordnung der Gatewaybandbreite
 manager: grcusanz
-ms.prod: windows-server
-ms.technology: networking-hv-switch
 ms.topic: get-started-article
 ms.author: anpaul
 author: AnirbanPaul
 ms.date: 08/22/2018
-ms.openlocfilehash: a5e4e6b280c30eedc230da99cbf798e5560a0ca5
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 48a24586c356650ee0e625770dcdd55ce505951c
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80855713"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87962284"
 ---
-# <a name="gateway-bandwidth-allocation"></a>Gateway-Bandbreite-Zuordnung
+# <a name="gateway-bandwidth-allocation"></a>Zuordnung der Gatewaybandbreite
 
 >Gilt für: Windows Server
 
 In Windows Server 2016 waren die einzelnen Tunnel Bandbreite für IPSec, GRE und L3 ein Verhältnis zur Gesamtkapazität des Gateways. Aus diesem Grund würden Kunden die gatewaykapazität basierend auf der TCP-Standard Bandbreite bereitstellen, die dies von der Gateway-VM erwartet.
 
-Außerdem war die maximale IPSec-Tunnel Bandbreite auf dem Gateway auf (3/20)\*gatewaykapazität beschränkt, die vom Kunden bereitgestellt wurde. Wenn Sie also beispielsweise die gatewaykapazität auf 100 Mbit/s festlegen, beträgt die IPSec-Tunnel Kapazität 150 Mbit/s. Die entsprechenden Verhältnisse für GRE-und L3-Tunnel sind 1/5 bzw. 1/2.
+Außerdem war die maximale IPSec-Tunnel Bandbreite auf dem Gateway auf (3/20) \* vom Kunden bereitgestellte gatewaykapazität beschränkt. Wenn Sie also beispielsweise die gatewaykapazität auf 100 Mbit/s festlegen, beträgt die IPSec-Tunnel Kapazität 150 Mbit/s. Die entsprechenden Verhältnisse für GRE-und L3-Tunnel sind 1/5 bzw. 1/2.
 
 Obwohl dies für den Großteil der bereit Stellungen funktionierte, war das Modell mit festem Verhältnis für Umgebungen mit hohem Durchsatz nicht geeignet. Auch wenn die Datenübertragungsraten hoch waren (z. b. höher als 40 Gbit/s), ist der maximale Durchsatz von Sdn-gatewaytunneln aufgrund interner Faktoren begrenzt.
 
@@ -60,11 +58,11 @@ Verbleibende verfügbare Kapazität auf dem Gateway = Gesamtkapazität des Gatew
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;25 – 5 * 2 = 15 Gbit/s
 
-Verbleibender IPSec-Durchsatz, den Sie auf dem Gateway zuordnen können 
+Verbleibender IPSec-Durchsatz, den Sie auf dem Gateway zuordnen können
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5-2 = 3 Gbit/s
 
-Verbleibender GRE-Durchsatz, den Sie dem Gateway zuweisen können = verbleibende Kapazität des Gateways/GRE-Durchsatz Verhältnisses 
+Verbleibender GRE-Durchsatz, den Sie dem Gateway zuweisen können = verbleibende Kapazität des Gateways/GRE-Durchsatz Verhältnisses
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;15 * 3/5 = 9 Gbit/s
 
@@ -74,7 +72,7 @@ Wenn die gatewaykapazität geringer ist als die gesamte verfügbare Tunnel Kapaz
 
 ## <a name="windows-server-2016-behavior"></a>Windows Server 2016-Verhalten
 
-Der Algorithmus für die Kapazitäts Berechnung des Gateways für Windows Server 2016 bleibt unverändert. In Windows Server 2016 war die maximale IPSec-Tunnel Bandbreite auf (3/20)\*Gateway-Kapazität auf einem Gateway beschränkt. Die entsprechenden Verhältnisse für GRE-und L3-Tunnel waren 1/5 bzw. 1/2.
+Der Algorithmus für die Kapazitäts Berechnung des Gateways für Windows Server 2016 bleibt unverändert. In Windows Server 2016 war die maximale IPSec-Tunnel Bandbreite auf die gatewaykapazität (3/20) \* auf einem Gateway beschränkt. Die entsprechenden Verhältnisse für GRE-und L3-Tunnel waren 1/5 bzw. 1/2.
 
 Wenn Sie ein Upgrade von Windows Server 2016 auf Windows Server 2019 durchführen:
 

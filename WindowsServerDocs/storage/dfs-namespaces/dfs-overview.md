@@ -1,19 +1,17 @@
 ---
 title: Übersicht über DFS-Namespaces
-ms.prod: windows-server
 ms.author: jgerend
 manager: daveba
-ms.technology: storage
 ms.topic: article
 author: jasongerend
 ms.date: 06/07/2019
 description: In diesem Thema werden DFS-Namespaces beschrieben, bei denen es sich um einen Rollen Dienst in Windows Server handelt, der es Ihnen ermöglicht, freigegebene Ordner auf verschiedenen Servern in einem oder mehreren logisch strukturierten Namespaces zu gruppieren.
-ms.openlocfilehash: 71c7f4e90a6a224586c90890a456fdf6f061ddf2
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: 54f26a605c15ab683dbe51f768e82bce2c00a290
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87182276"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87936190"
 ---
 # <a name="dfs-namespaces-overview"></a>Übersicht über DFS-Namespaces
 
@@ -44,8 +42,8 @@ Server, auf denen die folgenden Betriebssysteme ausgeführt werden, können mehr
 
 - Windows Server 2019
 - Windows Server 2016
-- Windows Server 2012 R2
-- Windows Server 2012
+- Windows Server 2012 R2
+- Windows Server 2012
 - Windows Server 2008 R2 Datacenter und Enterprise Edition
 - Windows Server (Halbjährlicher Kanal)
 
@@ -116,7 +114,7 @@ Die Verwendung von DFS-Namespaces auf einer virtuellen Maschine in Microsoft Azu
 
 Informationen zu den ersten Schritten mit virtuellen Azure-Computern finden Sie in der [Dokumentation zu Azure Virtual Machines](/azure/virtual-machines/).
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 Weitere verwandte Informationen finden Sie in den folgenden Ressourcen:
 

@@ -1,20 +1,18 @@
 ---
 title: Grundlagen von DHCP (Dynamic Host Configuration-Protokoll)
 description: ''
-ms.prod: windows-server
 manager: dcscontentpm
-ms.technology: server-general
 ms.date: 5/26/2020
 ms.topic: troubleshoot
 author: Deland-Han
 ms.author: delhan
 ms.reviewer: ''
-ms.openlocfilehash: 5a3247fad961f4b2d1cf6e354c29706708c8e330
-ms.sourcegitcommit: 145cf75f89f4e7460e737861b7407b5cee7c6645
+ms.openlocfilehash: 445663569fca7182e5343dd6f7ac677fd7f87f3b
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87409811"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87970057"
 ---
 # <a name="dhcp-dynamic-host-configuration-protocol-basics"></a>Grundlagen von DHCP (Dynamic Host Configuration-Protokoll)
 
@@ -449,6 +447,6 @@ Den DHCP-Informationen, die vom Client von einem DHCP-Server abgerufen werden, w
 
 Verwenden Sie das Hilfsprogramm ipconfig, um IP-Informationen zu einem Windows-oder Windows for Workgroups-Client anzuzeigen. Wenn der Client Windows 95 ist, verwenden Sie winipcfg.
 
-## <a name="references"></a>Referenzen
+## <a name="references"></a>References
 
 Weitere Informationen zu DHCP finden Sie unter RFC1541 und RFC2131. RFCs können über das Internet an zahlreichen Standorten abgerufen werden, z. b.: [http://www.rfc-editor.org/](http://www.rfc-editor.org/) und[http://www.tech-nic.qc.ca/](http://www.tech-nic.qc.ca/)

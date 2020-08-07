@@ -1,19 +1,17 @@
 ---
 ms.assetid: f15c02d7-1cbd-4eba-a571-0ea34ab93ef4
 title: Ausführen der Datendeduplizierung
-ms.technology: storage-deduplication
-ms.prod: windows-server
 ms.topic: article
 author: wmgries
 manager: klaasl
 ms.author: wgries
 ms.date: 09/15/2016
-ms.openlocfilehash: f75a20a8b69a863209f6e782bd34e48d8c12fe91
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: f382d229458f27795c09e0377e0f0b23ef7b395b
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86962162"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87936231"
 ---
 # <a name="running-data-deduplication"></a>Ausführen der Datendeduplizierung
 
@@ -42,7 +40,7 @@ Da die Datendeduplizierung ein Nachbearbeitungsmodell verwendet, ist es wichtig,
 * Achten Sie für den [Speicherbereinigungsauftrag](understand.md#job-info-gc) auf `LastGarbageCollectionResult` (0 = erfolgreich), `LastGarbageCollectionResultMessage` und `LastGarbageCollectionTime` (sollte aktuell sein).
 * Achten Sie für den [Integritätsbereinigungsauftrag](understand.md#job-info-scrubbing) auf `LastScrubbingResult` (0 = erfolgreich), `LastScrubbingResultMessage` und `LastScrubbingTime` (sollte aktuell sein).
 
-> [!Note]  
+> [!Note]
 > Weitere Informationen zu Auftragserfolgen und -fehlern finden Sie in der Windows-Ereignisanzeige unter `\Applications and Services Logs\Windows\Deduplication\Operational`.
 
 ### <a name="optimization-rates"></a><a id="monitoring-dedup-optimization-rates"></a>Optimierungsraten
@@ -61,9 +59,9 @@ Führen Sie zum Deaktivieren der Datendeduplizierung den [Deoptimierungsauftrag]
 Start-DedupJob -Type Unoptimization -Volume <Desired-Volume>
 ```
 
-> [!Important]  
+> [!Important]
 > Beim Deoptimierungsauftrag tritt ein Fehler auf, wenn das Volume nicht über genügend Speicherplatz zum Speichern der nicht optimierten Daten verfügt.
 
 ## <a name="frequently-asked-questions"></a><a id="faq"></a>Häufig gestellte Fragen
-**Gibt es ein System Center Operations Manager Management Pack zum Überwachen der Datendeduplizierung?**  
+**Gibt es ein System Center Operations Manager Management Pack zum Überwachen der Datendeduplizierung?**
 Ja. Die Datendeduplizierung kann über das System Center Management Pack für Dateiserver überwacht werden. Weitere Informationen finden Sie im [Handbuch für das System Center-Verwaltungspaket für File Server 2012 R2](https://download.microsoft.com/download/6/F/7/6F7A33B9-9383-48ED-9252-23C2C8AD1BDA/MPGuide_FileServer2012R2.doc).

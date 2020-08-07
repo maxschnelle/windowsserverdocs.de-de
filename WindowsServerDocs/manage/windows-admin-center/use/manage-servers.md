@@ -1,23 +1,21 @@
 ---
 title: Verwalten von Servern mit dem Windows Admin Center
 description: Verwalten von Servern mit dem Windows Admin Center (Project Honolulu)
-ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
 ms.author: niwashbu
 ms.date: 11/21/2019
 ms.localizationpriority: medium
-ms.prod: windows-server
-ms.openlocfilehash: cbcb5c2357a60d6d12551a7d08055cacecd515b7
-ms.sourcegitcommit: 20d07170c7f3094c2fb4455f54b13ec4b102f2d7
+ms.openlocfilehash: 69f8f20aa9e1b222ff112f91df8d6b3d7767fc84
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81269237"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87962384"
 ---
 # <a name="manage-servers-with-windows-admin-center"></a>Verwalten von Servern mit dem Windows Admin Center
 
->Gilt für: Windows Admin Center, Windows Admin Center Vorschau
+>Gilt für: Windows Admin Center, Windows Admin Center-Vorschau
 
 > [!Tip]
 > Neu bei Windows Admin Center?
@@ -47,19 +45,19 @@ Der Server wird auf der Übersichtsseite zur Verbindungsliste hinzugefügt. Klic
 
 Die folgenden Tools sind für Serververbindungen verfügbar:
 
-| Tool | Beschreibung |
+| Tool | BESCHREIBUNG |
 | ---- | ----------- |
 | [Übersicht](#overview) | Anzeigen von Server Details und Steuern des Serverstatus |
 | [Active Directory](#active-directory-preview) | Verwalten von Active Directory |
-| [Mindestsicherung](#backup) | Azure Backup anzeigen und konfigurieren |  
+| [Backup](#backup) | Azure Backup anzeigen und konfigurieren |
 | [Zertifikate](#certificates) | Anzeigen und Ändern von Zertifikaten |
 | [Container](#containers) | Container anzeigen |
 | [Geräte](#devices) | Anzeigen und Ändern von Geräten |
-| [Konfiguriert](#dhcp) | Anzeigen und Verwalten der DHCP-Serverkonfiguration |
+| [DHCP](#dhcp) | Anzeigen und Verwalten der DHCP-Serverkonfiguration |
 | [DNS](#dns) | Anzeigen und Verwalten der DNS-Serverkonfiguration |
-| [Fall](#events) | Ereignisse anzeigen |
-| [Dateien](#files) | Dateien und Ordner durchsuchen |
-| [Brand](#firewall) | Anzeigen und Ändern von Firewallregeln |
+| [Ereignisse](#events) | Anzeigen von Ereignissen |
+| [Dateien](#files) | Durchsuchen von Dateien und Ordnern |
+| [Firewall](#firewall) | Anzeigen und Ändern von Firewallregeln |
 | [Installierte apps](#installed-apps) | Anzeigen und Entfernen installierter apps |
 | [Lokale Benutzer und Gruppen](#local-users-and-groups) | Anzeigen und ändern lokaler Benutzer und Gruppen |
 | [Netzwerk](#network) | Anzeigen und Ändern von Netzwerkgeräten |
@@ -67,14 +65,14 @@ Die folgenden Tools sind für Serververbindungen verfügbar:
 | [System Monitor](https://aka.ms/perfmon-blog) | Anzeigen von Leistungsindikatoren und Berichten |
 | [PowerShell](#powershell) | Interagieren mit dem Server über PowerShell |
 | [Prozesse](#processes) | Anzeigen und Ändern von laufenden Prozessen |
-| [Registrierungs](#registry) | Anzeigen und Ändern von Registrierungs Einträgen |
+| [Registrierung](#registry) | Anzeigen und Ändern von Registrierungs Einträgen |
 | [Remotedesktop](#remote-desktop) | Interagieren mit dem Server über Remotedesktop |
 | [Rollen und Features](#roles-and-features) | Anzeigen und Ändern von Rollen und Features |
 | [Geplante Aufgaben](#scheduled-tasks) | Anzeigen und Ändern geplanter Aufgaben |
 | [Dienste](#services) | Anzeigen und Ändern von Diensten |
 | [Einstellungen](#settings) | Anzeigen und Ändern von Diensten |
-| [Speicher](#storage) | Anzeigen und Ändern von Speichergeräten |
-| [Speicher Migrationsdienst](#storage-migration-service) | Migrieren von Servern und Dateifreigaben zu Azure oder Windows Server 2019 |
+| [Storage](#storage) | Anzeigen und Ändern von Speichergeräten |
+| [Speichermigrationsdienst](#storage-migration-service) | Migrieren von Servern und Dateifreigaben zu Azure oder Windows Server 2019 |
 | [Speicherreplikat](#storage-replica) | Verwenden von Speicher Replikaten zum Verwalten der Server-zu-Server-Speicher Replikation |
 | [Systemdaten](#system-insights) | Mit System Insights erhalten Sie einen besseren Einblick in die Funktionsweise des Servers. |
 | [Updates](#updates) | Installierte anzeigen und nach neuen Updates suchen |
@@ -93,7 +91,7 @@ Die folgenden Funktionen werden in Server-Manager Übersicht unterstützt:
 - Anzeigen der CPU-Aktivität
 - Arbeitsspeicher Aktivität anzeigen
 - Netzwerkaktivität anzeigen
-- Server neu starten
+- Neustarten des Servers
 - Server herunterfahren
 - Datenträger auf dem Server aktivieren
 - Computer-ID auf Server bearbeiten
@@ -110,14 +108,14 @@ Die folgenden Funktionen werden in Server-Manager Übersicht unterstützt:
 Die folgenden Active Directory Verwaltung sind verfügbar:
 
 - Benutzer erstellen
-- Gruppe erstellen
+- Erstellen einer Gruppe
 - Suchen nach Benutzern, Computern und Gruppen
 - Detailbereich für Benutzer, Computer und Gruppen, wenn diese im Raster ausgewählt sind
 - Globale Raster Aktionen Benutzer, Computer und Gruppen (deaktivieren/aktivieren, entfernen)
 - Benutzerkennwort zurücksetzen
 - Benutzer Objekte: Konfigurieren der grundlegenden Eigenschaften & Gruppenmitgliedschaften
 - Computer Objekte: Konfigurieren der Delegierung für einen einzelnen Computer
-- Gruppieren von Objekten: Mitgliedschaft verwalten (1 Benutzer gleichzeitig hinzufügen/entfernen)  
+- Gruppieren von Objekten: Mitgliedschaft verwalten (1 Benutzer gleichzeitig hinzufügen/entfernen)
 
 [**Anzeigen von Feedback und vorgeschlagenen Features für Active Directory**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BActive%20Directory%5D).
 
@@ -137,7 +135,7 @@ Die folgenden Funktionen werden bei der Sicherung unterstützt:
 - Starten oder Abbrechen eines Sicherungsauftrags
 - Verlauf und Status des Sicherungsauftrags anzeigen
 - Anzeigen von Wiederherstellungs Punkten und Wiederherstellen von Daten
-- Sicherungsdaten löschen
+- Löschen von Sicherungsdaten
 
 ## <a name="certificates"></a>Zertifikate
 
@@ -150,7 +148,7 @@ Die folgenden Funktionen werden in Zertifikaten unterstützt:
 - Durchsuchen und Durchsuchen vorhandener Zertifikate
 - Anzeigen von Zertifikat Details
 - Exportieren von Zertifikaten
-- Zertifikate erneuern
+- Erneuern von Zertifikaten
 - Neue Zertifikate anfordern
 - Löschen von Zertifikaten
 
@@ -171,7 +169,7 @@ Mithilfe von **Geräten** können Sie verbundene Geräte auf einem Computer oder
 Die folgenden Funktionen werden von Geräten unterstützt:
 
 - Suchen und suchen von Geräten
-- Anzeigen von Geräte Details
+- Anzeigen von Gerätedetails
 - Deaktivieren eines Geräts
 - Aktualisieren eines Treibers auf einem Gerät
 
@@ -227,12 +225,12 @@ Mithilfe von **Dateien** können Sie Dateien und Ordner auf einem Computer oder 
 
 Die folgenden Funktionen werden in Dateien unterstützt:
 
-- Dateien und Ordner durchsuchen
+- Durchsuchen von Dateien und Ordnern
 - Nach einer Datei oder einem Ordner suchen
-- Neuen Ordner erstellen
+- Erstellen eines neuen Ordners
 - Löschen einer Datei oder eines Ordners
 - Herunterladen einer Datei oder eines Ordners
-- Hochladen einer Datei oder eines Ordners
+- Hochladen von Dateien oder Ordnern
 - Umbenennen einer Datei oder eines Ordners
 - Extrahieren einer ZIP-Datei
 - Kopieren und Verschieben von Dateien und Ordnern
@@ -340,7 +338,7 @@ Die folgenden Funktionen werden in der Registrierung unterstützt:
 
 - Durchsuchen von Registrierungs Schlüsseln und-Werten
 - Registrierungs Werte hinzufügen oder ändern
-- Löschen von Registrierungs Werten
+- Löschen von Registrierungswerten
 
 [**Anzeigen von Feedback und vorgeschlagenen Features für die Registrierung**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BRegistry%5D).
 
@@ -406,7 +404,7 @@ Die folgenden Funktionen werden in-Diensten unterstützt:
 
 [**Anzeigen von Feedback und vorgeschlagenen Features für Dienste**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BServices%5D).
 
-## <a name="settings"></a>Einstellungen
+## <a name="settings"></a>Einstellung
 
 **Einstellungen** ist ein zentraler Ort zum Verwalten von Einstellungen auf einem Computer oder Server.
 
@@ -419,7 +417,7 @@ Die folgenden Funktionen werden in-Diensten unterstützt:
 - Anzeigen und Ändern der rollenbasierten Zugriffs Steuerungseinstellungen
 - Anzeigen und Ändern von Hyper-V-Host Einstellungen (falls zutreffend)
 
-## <a name="storage"></a>Speicher
+## <a name="storage"></a>Storage
 
 Mithilfe von **Speicher** können Sie Speichergeräte auf einem Computer oder Server verwalten.
 
@@ -436,9 +434,9 @@ Die folgenden Funktionen werden im Speicher unterstützt:
 - Formatieren eines Volumes
 - Ändern der Größe eines Volumes
 - Volumeeigenschaften bearbeiten
-- Löschen eines Volumes
+- Löschen von Volumes
 - Installieren der Kontingent Verwaltung
-- Verwalten von Dateiservern Ressourcen-Manager Kontingente [Storage-> Create/Update-Kontingent](https://docs.microsoft.com/windows-server/storage/fsrm/quota-management)
+- Verwalten von Dateiservern Ressourcen-Manager Kontingente [Storage->Create/Update-Kontingent](https://docs.microsoft.com/windows-server/storage/fsrm/quota-management)
 
 [**Feedback und vorgeschlagene Features für den Speicher anzeigen**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BStorage%5D)
 
@@ -453,7 +451,7 @@ Die folgenden Funktionen werden im Speicher unterstützt:
 ## <a name="storage-replica"></a>Speicherreplikat
 
 Verwenden Sie **Speicher** Replikate zum Verwalten der Server-zu-Server-Speicher Replikation.
-[Weitere Informationen zum Speicher Replikat](https://docs.microsoft.com/windows-server/storage/storage-replica/storage-replica-ui)
+ [Weitere Informationen zum Speicherreplikat](https://docs.microsoft.com/windows-server/storage/storage-replica/storage-replica-ui)
 
 ## <a name="system-insights"></a>Systemdaten
 
@@ -463,7 +461,7 @@ Verwenden Sie **Speicher** Replikate zum Verwalten der Server-zu-Server-Speicher
 >[!NOTE]
 >System Insights erfordert Windows Server 2019.
 
-## <a name="updates"></a>Updates
+## <a name="updates"></a>Aktualisierungen
 
 Mit **Updates** können Sie Microsoft-und/oder Windows-Updates auf einem Computer oder Server verwalten.
 
@@ -473,13 +471,13 @@ Die folgenden Funktionen werden bei Updates unterstützt:
 
 - Anzeigen der verfügbaren Windows-oder Microsoft-Updates
 - Anzeigen einer Liste mit Update Verlauf
-- Updates installieren
+- Installieren von Updates
 - Online nach Updates suchen Microsoft Update
 - Verwalten der Integration von [Azure Updateverwaltung](https://docs.microsoft.com/azure/automation/automation-update-management)
 
 [**Feedback und vorgeschlagene Features für Updates anzeigen**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BUpdates%5D)
 
-## <a name="virtual-machines"></a>Virtuelle Computer
+## <a name="virtual-machines"></a>Virtual Machines
 
 Siehe [Verwalten von Virtual Machines mit dem Windows Admin Center](manage-virtual-machines.md)
 

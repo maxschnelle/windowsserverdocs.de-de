@@ -5,15 +5,13 @@ author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 08/09/2018
 ms.topic: article
-ms.prod: windows-server
 ms.assetid: c49b40b2-598d-49aa-85b4-766bce960e0d
-ms.technology: identity-adds
-ms.openlocfilehash: 6dcd1185ba4d4c847cfe212f78ccc9661fd2aead
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 827a983e49d9e20aafe2e7361f87e9f00ec117b0
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80823783"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87969867"
 ---
 # <a name="active-directory-forest-recovery-prerequisites"></a>Erforderliche Wiederherstellungs Voraussetzungen für Active Directory
 
@@ -25,23 +23,23 @@ Im folgenden Dokument werden die Voraussetzungen erläutert, mit denen Sie vertr
 
 1. Sie haben mit einem Microsoft-Support Professional gearbeitet und:
    - Die Ursache für den Gesamtstruktur weiten Ausfall wurde ermittelt. In dieser Anleitung wird nicht der Fehler ausgelöst, oder es werden Prozeduren empfohlen, um den Fehler zu verhindern.
-   - Alle möglichen Abhilfemaßnahmen wurden ausgewertet.  
+   - Alle möglichen Abhilfemaßnahmen wurden ausgewertet.
    - In Abstimmung mit Microsoft-Support wurde eine vollständige Wiederherstellung der gesamten Gesamtstruktur in den Zustand vor dem Auftreten des Fehlers empfohlen. In vielen Fällen sollte die Wiederherstellung der Gesamtstruktur die letzte Option sein.
 
 1. Sie haben die bewährten Microsoft-Empfehlungen für die Verwendung von Active Directory – Integrated Domain Name System (DNS) befolgt. Insbesondere sollte für jede Active Directory Domäne eine Active Directory integrierte DNS-Zone vorhanden sein.
    - Wenn dies nicht der Fall ist, können Sie weiterhin die grundlegenden Prinzipien dieses Handbuchs zum Durchführen der Wiederherstellung in der Gesamtstruktur verwenden. Sie müssen jedoch bestimmte Maßnahmen für die DNS-Wiederherstellung basierend auf Ihrer eigenen Umgebung ausführen. Weitere Informationen zum Verwenden von Active Directory – Integrated DNS finden Sie unter [Erstellen eines DNS-Infrastruktur Entwurfs](../../ad-ds/plan/Creating-a-DNS-Infrastructure-Design.md).
 
-1. Obwohl dieses Handbuch als allgemeine Richtlinie für die Wiederherstellung in der Gesamtstruktur gedacht ist, werden nicht alle möglichen Szenarien behandelt. Ab Windows Server 2008 gibt es beispielsweise eine Server Core-Version, die eine Vollversion von Windows Server ist, aber ohne eine vollständige GUI. Obwohl es durchaus möglich ist, eine Gesamtstruktur wiederherzustellen, die aus nur DCS besteht, auf denen Server Core ausgeführt wird, enthält dieses Handbuch keine detaillierten Anweisungen. Basierend auf den hier beschriebenen Anleitungen können Sie jedoch die erforderlichen Befehlszeilen Aktionen selbst entwerfen.  
+1. Obwohl dieses Handbuch als allgemeine Richtlinie für die Wiederherstellung in der Gesamtstruktur gedacht ist, werden nicht alle möglichen Szenarien behandelt. Ab Windows Server 2008 gibt es beispielsweise eine Server Core-Version, die eine Vollversion von Windows Server ist, aber ohne eine vollständige GUI. Obwohl es durchaus möglich ist, eine Gesamtstruktur wiederherzustellen, die aus nur DCS besteht, auf denen Server Core ausgeführt wird, enthält dieses Handbuch keine detaillierten Anweisungen. Basierend auf den hier beschriebenen Anleitungen können Sie jedoch die erforderlichen Befehlszeilen Aktionen selbst entwerfen.
 
 > [!NOTE]
-> Obwohl die Ziele dieses Leitfadens in der Wiederherstellung der Gesamtstruktur und der Wartung oder Wiederherstellung vollständiger DNS-Funktionen sind, kann die Wiederherstellung zu einer DNS-Konfiguration führen, die vor dem Auftreten des Fehlers von der Konfiguration geändert Nachdem die Gesamtstruktur wieder hergestellt wurde, können Sie die ursprüngliche DNS-Konfiguration wiederherstellen. In den Empfehlungen in diesem Handbuch wird nicht beschrieben, wie DNS-Server für die Namensauflösung anderer Teile des Unternehmens Namespace konfiguriert werden, in denen DNS-Zonen vorhanden sind, die nicht in AD DS gespeichert sind.  
+> Obwohl die Ziele dieses Leitfadens in der Wiederherstellung der Gesamtstruktur und der Wartung oder Wiederherstellung vollständiger DNS-Funktionen sind, kann die Wiederherstellung zu einer DNS-Konfiguration führen, die vor dem Auftreten des Fehlers von der Konfiguration geändert Nachdem die Gesamtstruktur wieder hergestellt wurde, können Sie die ursprüngliche DNS-Konfiguration wiederherstellen. In den Empfehlungen in diesem Handbuch wird nicht beschrieben, wie DNS-Server für die Namensauflösung anderer Teile des Unternehmens Namespace konfiguriert werden, in denen DNS-Zonen vorhanden sind, die nicht in AD DS gespeichert sind.
 
 ## <a name="concepts-for-using-this-guide"></a>Konzepte für die Verwendung dieses Handbuchs
 
-Bevor Sie mit der Planung der Wiederherstellung einer Active Directory Gesamtstruktur beginnen, sollten Sie mit folgenden Informationen vertraut sein:  
-  
-- Grundlegende Active Directory Konzepte  
-- Die Wichtigkeit von Betriebs Master Rollen (auch als Flexible Single Master Operations oder FSMO bezeichnet). Diese Rollen umfassen Folgendes:  
+Bevor Sie mit der Planung der Wiederherstellung einer Active Directory Gesamtstruktur beginnen, sollten Sie mit folgenden Informationen vertraut sein:
+
+- Grundlegende Active Directory Konzepte
+- Die Wichtigkeit von Betriebs Master Rollen (auch als Flexible Single Master Operations oder FSMO bezeichnet). Zu diesen Rollen gehören:
   - Schema Master
   - Domänen Namen Master
   - Relative ID (RID)-Master
