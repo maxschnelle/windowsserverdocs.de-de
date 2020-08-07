@@ -1,20 +1,18 @@
 ---
 title: diskcopy
 description: Referenz Artikel für den Befehl diskcopy, der den Inhalt der Diskette im Quelllaufwerk in eine formatierte oder unformatierte Diskette auf dem Ziellaufwerk kopiert.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 5fd21efa-52cc-4e70-a7fe-35125a435106
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 05/07/2018
-ms.openlocfilehash: 7b29e81dc1befff8cd90b460b1117207146fa191
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: b385d7fb371b0e33bcf16b240b051ce038a525a7
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85929344"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87890948"
 ---
 # <a name="diskcopy"></a>diskcopy
 
@@ -28,13 +26,13 @@ diskcopy [<drive1>: [<drive2>:]] [/v]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `<drive1>` | Gibt das Laufwerk an, das den Quell Datenträger enthält. |
 | /v | Überprüft, ob die Informationen ordnungsgemäß kopiert werden. Diese Option verlangsamt den Kopiervorgang. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - **Diskcopy** funktioniert nur mit Wechsel Datenträgern, z. b. Disketten Datenträgern, die denselben Typ aufweisen müssen. **Diskcopy** kann nicht mit einer Festplatte verwendet werden. Wenn Sie ein Festplattenlaufwerk für *drive1* oder *drive2*angeben, wird von **diskcopy** die folgende Fehlermeldung angezeigt:
 

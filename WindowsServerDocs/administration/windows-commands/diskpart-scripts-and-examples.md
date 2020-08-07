@@ -1,20 +1,18 @@
 ---
 title: DiskPart-Skripts und-Beispiele
 description: Referenz Artikel zu DiskPart-Skripts und Beispielen für die Automatisierung von Datenträger bezogenen Aufgaben, z. b. das Erstellen von Volumes oder das Umstellen von Datenträgern in dynamische Datenträger.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 319c0795-11df-47c8-b203-eadb0577ee0d
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ace5b081d9dd362bb1455f9992568f197c815fdf
-ms.sourcegitcommit: 145cf75f89f4e7460e737861b7407b5cee7c6645
+ms.openlocfilehash: 1ff62c18c567af3ab064683663f5112090250307
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87409741"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87890938"
 ---
 # <a name="diskpart-scripts-and-examples"></a>DiskPart-Skripts und-Beispiele
 
@@ -53,7 +51,7 @@ diskpart /s scriptname.txt > logfile.txt
 
 - Wenn Diskpart gestartet wird, werden die Diskpart-Version und der Computername an der Eingabeaufforderung angezeigt. Wenn Diskpart beim Versuch, eine Skript gesteuerte Aufgabe auszuführen, einen Fehler feststellt, beendet DiskPart standardmäßig die Verarbeitung des Skripts und zeigt einen Fehlercode an (es sei denn, Sie haben den **Noerr** -Parameter angegeben). DiskPart gibt jedoch immer Fehler zurück, wenn Syntax Fehler auftreten, unabhängig davon, ob Sie den **Noerr** -Parameter verwendet haben. Mit dem **Noerr** -Parameter können Sie nützliche Aufgaben ausführen, z. b. die Verwendung eines einzelnen Skripts, um alle Partitionen auf allen Datenträgern unabhängig von der Gesamtzahl der Datenträger zu löschen.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

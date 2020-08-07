@@ -1,23 +1,21 @@
 ---
 title: Leistungsoptimierung für Windows Server-Container
 description: Empfehlungen zur Leistungsoptimierung für Windows Server-Container unter Windows Server 16
-ms.prod: windows-server
-ms.technology: performance-tuning-guide
 ms.topic: landing-page
 ms.author: davso; ericam; yashi
 author: akino
 ms.date: 10/16/2017
-ms.openlocfilehash: a4508e28e54562748422b198f703e23326d15720
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 53201ee17829ec82eb8d661b5f76689e00d22df8
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80851633"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87895981"
 ---
 # <a name="performance-tuning-windows-server-containers"></a>Leistungsoptimierung für Windows Server-Container
 
 ## <a name="introduction"></a>Einführung
-Windows Server 2016 ist die erste Version von Windows, bei der die Containertechnologie bereits in das Betriebssystem integriert ist. In Windows Server 2016 sind zwei Arten von Containern verfügbar: Windows Server-Container und Hyper-V-Container. Jeder Containertyp unterstützt entweder die Server Core- oder Nano Server-SKU von Windows Server 2016. 
+Windows Server 2016 ist die erste Version von Windows, bei der die Containertechnologie bereits in das Betriebssystem integriert ist. In Windows Server 2016 sind zwei Arten von Containern verfügbar: Windows Server-Container und Hyper-V-Container. Jeder Containertyp unterstützt entweder die Server Core- oder Nano Server-SKU von Windows Server 2016.
 
 Diese Konfigurationen sind mit unterschiedlichen Auswirkungen auf die Leistung verbunden. Unten finden Sie eine Beschreibung, damit Sie entscheiden können, welche Konfiguration für Ihre Szenarien geeignet ist. Außerdem werden die Details der Auswirkungen auf die Leistung sowie die Nachteile der Optionen beschrieben.
 
@@ -33,7 +31,7 @@ Die zusätzliche Isolation durch Hyper-V-Container wird größtenteils durch ein
 
 ### <a name="nano-server-and-server-core"></a>Nano Server und Server Core
 
-Windows Server-Container und Hyper-V-Container verfügen über Unterstützung für Server Core und für eine neue Installationsoption, die unter Windows Server 2016 verfügbar ist: [Nano Server](https://technet.microsoft.com/windows-server-docs/compute/nano-server/getting-started-with-nano-server). 
+Windows Server-Container und Hyper-V-Container verfügen über Unterstützung für Server Core und für eine neue Installationsoption, die unter Windows Server 2016 verfügbar ist: [Nano Server](https://technet.microsoft.com/windows-server-docs/compute/nano-server/getting-started-with-nano-server).
 
 Nano Server ist ein remote verwaltetes Serverbetriebssystem, das für private Clouds und Rechenzentren optimiert ist. Das Betriebssystem ähnelt Windows Server im Modus Server Core, ist aber deutlich kleiner, hat keine Möglichkeit zur lokalen Anmeldung, und unterstützt ausschließlich 64-Bit-Anwendungen, Tools und Agents. Es beansprucht erheblich weniger Speicherplatz und startet schneller.
 
@@ -71,7 +69,7 @@ Windows Server-Container und Hyper-V-Container verfügen über unterschiedliche 
 
 Jeder Container erhält eine IP-Adresse aus einem internen, privaten IP-Präfix (z. B. 172.16.0.0/12). Portweiterleitung/-zuordnung vom Containerhost zu Containerendpunkten wird unterstützt. Docker erstellt standardmäßig ein NAT-Netzwerk, wenn dockerd zum ersten Mal ausgeführt wird.
 
-Von diesen drei Modi ist die NAT-Konfiguration der teuerste Netzwerk-E/A-Pfad, für den aber der geringste Konfigurationsaufwand anfällt. 
+Von diesen drei Modi ist die NAT-Konfiguration der teuerste Netzwerk-E/A-Pfad, für den aber der geringste Konfigurationsaufwand anfällt.
 
 Windows Server-Container verwenden eine Host-vNIC für die Verbindung mit dem virtuellen Switch. Hyper-V-Container verwenden eine synthetische VM-NIC (nicht für die Utility-VM verfügbar gemacht) für die Verbindung mit dem virtuellen Switch. Wenn Container mit dem externen Netzwerk kommunizieren, werden die Pakete per WinNAT mit angewendeten Adressübersetzungen weitergeleitet, wodurch es zu Mehraufwand kommt.
 

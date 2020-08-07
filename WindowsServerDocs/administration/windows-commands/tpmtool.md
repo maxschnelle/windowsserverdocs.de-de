@@ -1,26 +1,24 @@
 ---
 title: tpmtool
 description: Referenz Artikel für das tpmtool, das Informationen zum Trusted Platform Module abruft.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 author: ashleytqy
 ms.author: ashleytqy
 manager: ronaldai
 ms.date: 05/07/2019
-ms.openlocfilehash: 843361a9b3844ecb29e2f9ac723d22e3fc14730f
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: f34e577a87acd79f343f06bb81486d50339cdb54
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86955022"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87897133"
 ---
 # <a name="tpmtool"></a>tpmtool
 
 Dieses Hilfsprogramm kann verwendet werden, um Informationen zum [Trusted Platform Module (TPM)](/windows/security/information-protection/tpm/trusted-platform-module-overview)zu erhalten.
 
 >[!IMPORTANT]
->Einige Informationen beziehen sich auf die Vorabversion, an der bis zur kommerziellen Veröffentlichung unter Umständen noch grundsätzliche Änderungen vorgenommen werden. Microsoft übernimmt bezüglich der hier bereitgestellten Informationen keine Gewährleistungen, weder ausdrücklich noch konkludent.
+>Einige Informationen beziehen sich auf die Vorabversion, an der bis zur kommerziellen Veröffentlichung unter Umständen noch grundsätzliche Änderungen vorgenommen werden. Microsoft übernimmt hinsichtlich der hier bereitgestellten Informationen keine Gewährleistungen, seien sie ausdrücklich oder konkludent.
 
 Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#tpmtool_examples).
 

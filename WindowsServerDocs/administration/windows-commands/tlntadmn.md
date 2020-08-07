@@ -1,20 +1,18 @@
 ---
 title: tlntadmn
 description: Referenz Artikel zu tlntadmn, bei dem ein lokaler Computer oder ein Remote Computer verwaltet wird, auf dem der Telnet-Server Dienst ausgeführt wird.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 78b61e8d-b953-44bb-8d57-f3b42da9e7a8
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 995b2332f98906a1a5b9cb53f504a87fb831c3e0
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 4dee63c0233bab5341dae724ccd9779c3917054c
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86958802"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87897141"
 ---
 # <a name="tlntadmn"></a>tlntadmn
 
@@ -64,6 +62,6 @@ Aktive Telnet-Sitzungen anzeigen.
 tlntadmn -s
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 -   [Telnet-Betriebshandbuch](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753164(v=ws.10))
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

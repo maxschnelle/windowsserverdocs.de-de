@@ -1,20 +1,18 @@
 ---
 title: Erweitern
 description: Referenz Artikel für den Expand-Befehl, mit dem eine oder mehrere komprimierte Dateien erweitert werden.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 66de0488-a0c4-40c2-9b03-e40c107ba343
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 918d629ea0d3d87ea42184580c1be84740d4f79d
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: e1359c6db46095bd472a20e946b8748a64eb4d14
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86958232"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87890420"
 ---
 # <a name="expand"></a>Erweitern
 
@@ -46,6 +44,6 @@ expand <source>.cab /f:<files> <destination>
 | /f`<files>` | Gibt die Dateien in einer CAB-Datei an, die Sie erweitern möchten. Sie können Platzhalter (**&#42;** oder **?**) verwenden. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

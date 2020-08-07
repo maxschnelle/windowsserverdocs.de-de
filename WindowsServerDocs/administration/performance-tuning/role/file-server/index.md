@@ -1,20 +1,18 @@
 ---
 title: Leistungsoptimierung für Dateiserver
 description: Leistungsoptimierung für Dateiserver mit Windows Server
-ms.prod: windows-server
-ms.technology: performance-tuning-guide
 ms.topic: article
 author: phstee
 ms.author: nedpyle; danlo; dkruse; v-tea
 ms.date: 12/12/2019
 manager: dcscontentpm
 audience: Admin
-ms.openlocfilehash: 1236b961f77fe46f19b70a2c48d32f05585bd29c
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 951d59a1a0e1d58a064eb71bd073259c15fd46d4
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80851843"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87896179"
 ---
 # <a name="performance-tuning-for-file-servers"></a>Leistungsoptimierung für Dateiserver
 
@@ -95,24 +93,24 @@ Die folgenden REG\_DWORD-Registrierungseinstellungen können sich auf die Leistu
 
     Die Standardeinstellung beträgt 10 Sekunden. Dies ist der Timeout für den Verzeichniscache.
 
-    > [!NOTE]  
+    > [!NOTE]
     > Mit diesem Parameter wird die Zwischenspeicherung von Verzeichnismetadaten gesteuert, wenn keine Verzeichnisleases vorhanden sind.
-     
-     > [!NOTE]  
+
+     > [!NOTE]
      > Ein bekanntes Problem in Windows 10, Version 1803, wirkt sich auf die Fähigkeit von Windows 10 aus, große Verzeichnisse zwischenzuspeichern. Nachdem Sie einen Computer auf Windows 10, Version 1803, aktualisiert haben, greifen Sie auf eine Netzwerkfreigabe zu, die Tausende von Dateien und Ordnern enthält, und öffnen ein Dokument, das sich auf dieser Freigabe befindet. Bei beiden Vorgängen treten erhebliche Verzögerungen auf.
-     >  
+     >
      > Um dieses Problem zu beheben, installieren Sie Windows 10, Version 1809 oder eine höhere Version.
-     >  
+     >
      > Um dieses Problem zu umgehen, legen Sie **DirectoryCacheLifetime** auf **0** fest.
-     >  
-     > Dieses Problem tritt in den folgenden Editionen von Windows 10 auf:  
+     >
+     > Dieses Problem tritt in den folgenden Editionen von Windows 10 auf:
      > - Windows 10 Enterprise, Version 1803
      > - Windows 10 Pro for Workstations, Version 1803
      > - Windows 10 Pro Education, Version 1803
      > - Windows 10 Professional, Version 1803
      > - Windows 10 Education, Version 1803
      > - Windows 10 Home, Version 1803
-   
+
 -   **DirectoryCacheEntrySizeMax**
 
     ```
@@ -171,8 +169,8 @@ Die folgenden REG\_DWORD-Registrierungseinstellungen können sich auf die Leistu
 
     Gilt für Windows 10, Windows 8.1, Windows 8, Windows 7, Windows Vista, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 und Windows Server 2008.
 
-    Die Standardeinstellung ist 0 (SMB-Signatur deaktiviert). Wenn Sie diesen Wert in 1 ändern, werden SMB-Signaturen für die gesamte SMB-Kommunikation aktiviert. Die SMB-Kommunikation mit Computern, für die SMB-Signaturen deaktiviert sind, wird so verhindert. Bei Verwendung von SMB-Signaturen können sich die CPU-Kosten und Netzwerkroundtrips erhöhen, aber Man-in-the-Middle-Angriffe werden blockiert. Wenn SMB-Signaturen nicht erforderlich sind, sollten Sie sicherstellen, dass dieser Registrierungswert auf allen Clients und Servern 0 ist. 
-    
+    Die Standardeinstellung ist 0 (SMB-Signatur deaktiviert). Wenn Sie diesen Wert in 1 ändern, werden SMB-Signaturen für die gesamte SMB-Kommunikation aktiviert. Die SMB-Kommunikation mit Computern, für die SMB-Signaturen deaktiviert sind, wird so verhindert. Bei Verwendung von SMB-Signaturen können sich die CPU-Kosten und Netzwerkroundtrips erhöhen, aber Man-in-the-Middle-Angriffe werden blockiert. Wenn SMB-Signaturen nicht erforderlich sind, sollten Sie sicherstellen, dass dieser Registrierungswert auf allen Clients und Servern 0 ist.
+
     Weitere Informationen finden Sie unter [The Basics of SMB Signing](https://blogs.technet.microsoft.com/josebda/2010/12/01/the-basics-of-smb-signing-covering-both-smb1-and-smb2/) (Grundlagen von SMB-Signaturen).
 
 -   **FileInfoCacheEntriesMax**
@@ -229,15 +227,15 @@ Die folgenden REG\_DWORD-Registrierungseinstellungen können sich auf die Leistu
 
 Mit den allgemeinen Optimierungsparametern für Clientcomputer kann ein Computer für den Zugriff auf Remotedateifreigaben optimiert werden Dies gilt vor allem für einige Netzwerke mit hoher Latenz (z. B. Filialen, rechenzentrumsübergreifende Kommunikation, Telearbeit und mobiles Breitband). Die Einstellungen sind nicht für alle Computer optimal bzw. geeignet. Sie sollten die Auswirkungen der einzelnen Einstellungen vor dem Anwenden überprüfen.
 
-| Parameter                   | Value | Standardwert |
+| Parameter                   | Wert | Standardwert |
 |-----------------------------|-------|---------|
 | DisableBandwidthThrottling  | 1     | 0       |
-| FileInfoCacheEntriesMax     | 32.768 | 64      |
-| DirectoryCacheEntriesMax    | 4\.096  | 16      |
-| FileNotFoundCacheEntriesMax | 32.768 | 128     |
-| MaxCmds                     | 32.768 | 15      |
+| FileInfoCacheEntriesMax     | 32768 | 64      |
+| DirectoryCacheEntriesMax    | 4096  | 16      |
+| FileNotFoundCacheEntriesMax | 32768 | 128     |
+| MaxCmds                     | 32768 | 15      |
 
- 
+
 
 Ab Windows 8 können Sie viele dieser SMB-Einstellungen konfigurieren, indem Sie die Windows PowerShell-Cmdlets **Set-SmbClientConfiguration** und **Set-SmbServerConfiguration** verwenden. Nur für die Registrierung geltende Einstellungen können auch mit Windows PowerShell konfiguriert werden.
 

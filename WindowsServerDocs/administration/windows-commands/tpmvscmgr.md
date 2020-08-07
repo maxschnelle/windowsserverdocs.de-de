@@ -1,20 +1,18 @@
 ---
 title: tpmvscmgr
 description: Referenz Artikel für tpmvscmgr, ein Befehlszeilen Tool, mit dem Benutzer mit Administrator Anmelde Informationen virtuelle TPM-Smartcards auf einem Computer erstellen und löschen können.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 8b2c8ff4-5c5d-446d-99e7-4daa1b36a163
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8741c947220ce2a3f6852c7374bf0817323bb632
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: d124fb0bee576b2058a7ecae02afaf9521baab30
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85935588"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87897125"
 ---
 # <a name="tpmvscmgr"></a>tpmvscmgr
 
@@ -33,7 +31,7 @@ Tpmvscmgr destroy [/instance <instance ID>] [/?]
 
 Mit dem Create-Befehl werden neue virtuelle Smartcards auf dem System des Benutzers festgelegt. Wenn ein Löschvorgang erforderlich ist, wird die Instanz-ID der neu erstellten Karte für den späteren Verweis zurückgegeben. Die Instanz-ID hat das Format **root\smartcardreader\000n** , wobei **n** bei 0 beginnt und bei jeder Erstellung einer neuen virtuellen Smartcard um 1 zunimmt.
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
 |/Name|Erforderlich. Gibt den Namen der neuen virtuellen Smartcard an.|
 |/AdminKey|Gibt den gewünschten Administrator Schlüssel an, der zum Zurücksetzen der PIN der Karte verwendet werden kann, wenn der Benutzer die PIN vergisst.</br>**Standard** Gibt den Standardwert von 010203040506070801020304050607080102030405060708 an.</br>**Eingabeaufforderung** Fordert den Benutzer auf, einen Wert für den Administrator Schlüssel einzugeben.</br>**Zufällig** Führt zu einer zufälligen Einstellung für den Administrator Schlüssel für eine Karte, die nicht an den Benutzer zurückgegeben wird. Dadurch wird eine Karte erstellt, die ggf. nicht mithilfe von Smartcard-Verwaltungs Tools verwaltet werden kann. Beim Generieren mit Random muss der Administrator Schlüssel als 48-hexadezimal Zeichen eingegeben werden.|
@@ -50,12 +48,12 @@ Mit dem Befehl zerstören wird eine virtuelle Smartcard auf sichere Weise auf de
 > [!WARNING]
 > Wenn eine virtuelle Smartcard gelöscht wird, kann Sie nicht wieder hergestellt werden.
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
 |/instance|Gibt die Instanz-ID der virtuellen Smartcard an, die entfernt werden soll. Die InstanceId wurde bei der Erstellung der Karte als Ausgabe Tpmvscmgr.exe generiert. Der/instance-Parameter ist ein erforderliches Feld für den Befehl zerstören.|
 |/?|Zeigt die Hilfe für diesen Befehl an.|
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 Sie müssen mindestens Mitglied der Gruppe " **Administratoren** " (oder einer entsprechenden Gruppe) auf dem Zielcomputer sein, um alle Parameter dieses Befehls ausführen zu können.
 

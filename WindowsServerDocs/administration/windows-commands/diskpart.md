@@ -1,17 +1,15 @@
 ---
 title: diskpart
 description: Referenz Artikel für den DiskPart-Befehls Interpreter, der Sie bei der Verwaltung der Laufwerke Ihres Computers unterstützt.
-ms.prod: windows-server
-ms.technology: storage
 author: jasongerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: 1df6abc3ab3ef99139ca50701bd45feab1e28f42
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 627f9254606b1ed70b198f6dd0096ccbff424c45
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86958272"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87890930"
 ---
 # <a name="diskpart"></a>diskpart
 
@@ -58,7 +56,7 @@ diskpart <parameter>
 
 Sie können die folgenden Befehle über den DiskPart-Befehls Interpreter ausführen:
 
-| Befehl | BESCHREIBUNG |
+| Get-Help | BESCHREIBUNG |
 | ------- | ----------- |
 | [active](active.md) | Markiert die Partition des Datenträgers mit dem Fokus als aktiv. |
 | [add](add.md) | Spiegelt das einfache Volume mit dem Fokus auf den angegebenen Datenträger. |
@@ -99,7 +97,7 @@ Sie können die folgenden Befehle über den DiskPart-Befehls Interpreter ausfüh
 | [shrink](shrink.md) | Verringert die Größe des ausgewählten Volumes um den angegebenen Betrag. |
 | [uniqueid](uniqueid.md) | Zeigt den GPT-Bezeichner (GUID-Partitionstabelle) oder die Master Boot Record (MBR)-Signatur für den Datenträger mit Fokus an oder legt ihn fest. |
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

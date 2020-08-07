@@ -1,18 +1,16 @@
 ---
 title: Überlegungen zur Leistung von Serverhardware
 description: Überlegungen zur Leistung von Serverhardware für Windows Server 2016
-ms.prod: windows-server
-ms.technology: performance-tuning-guide
 ms.topic: landing-page
 ms.author: phstee
 author: phstee
 ms.date: 01/08/2018
-ms.openlocfilehash: 9c012711dff3746587b4a04b31d9c23ebb7de4cd
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: bac2aa367cc9a8d736fd83f7aeed3e467aeddb54
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "71370551"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87896747"
 ---
 # <a name="server-hardware-performance-considerations"></a>Überlegungen zur Leistung von Serverhardware
 
@@ -40,8 +38,8 @@ Verwenden Sie große L2- oder L3-Prozessorcaches. Bei neueren Architekturen wie 
 
 ## <a name="memory-ram-and-paging-storage-recommendations"></a>Empfehlungen für Arbeitsspeicher (RAM) und Auslagerungsspeicher
 
->[!Note] 
-> Einige Systeme besitzen unter einer neuen Installation von Windows Server 2016 möglicherweise eine geringere Speicherleistung als unter Windows Server 2012 R2. Bei der Entwicklung von Windows Server 2016 wurde eine Reihe von Änderungen zur Verbesserung der Sicherheit und Zuverlässigkeit der Plattform vorgenommen. Einige Änderungen – etwa die standardmäßige Aktivierung von Windows Defender – führen zu längeren E/A-Pfaden, wodurch sich ggf. die E/A-Leistung bei bestimmten Workloads und Mustern verschlechtert. Microsoft rät davon ab, Windows Defender zu deaktivieren, da es sich dabei um eine wichtige Schutzebene für Ihre Systeme handelt. 
+>[!Note]
+> Einige Systeme besitzen unter einer neuen Installation von Windows Server 2016 möglicherweise eine geringere Speicherleistung als unter Windows Server 2012 R2. Bei der Entwicklung von Windows Server 2016 wurde eine Reihe von Änderungen zur Verbesserung der Sicherheit und Zuverlässigkeit der Plattform vorgenommen. Einige Änderungen – etwa die standardmäßige Aktivierung von Windows Defender – führen zu längeren E/A-Pfaden, wodurch sich ggf. die E/A-Leistung bei bestimmten Workloads und Mustern verschlechtert. Microsoft rät davon ab, Windows Defender zu deaktivieren, da es sich dabei um eine wichtige Schutzebene für Ihre Systeme handelt.
 
 Erhöhen Sie den Arbeitsspeicher, um Ihren Arbeitsspeicherbedarf zu decken.
 Sollte Ihr Computer akut mehr Arbeitsspeicher benötigen, nutzt Windows Speicherplatz auf der Festplatte, um den Arbeitsspeicher des Systems durch sogenanntes Auslagern zu ergänzen. Zu viel Auslagerung beeinträchtigt die Leistung des gesamten Systems.

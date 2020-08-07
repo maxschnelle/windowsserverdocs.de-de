@@ -1,20 +1,18 @@
 ---
 title: tracert
 description: Referenz Artikel zu tracert, der den Pfad zu einem Ziel bestimmt, indem ICMP-Echo Anforderungen (Internet Control Message Protocol) oder ICMPv6-Nachrichten an das Ziel gesendet werden, wobei die Werte für die Gültigkeitsdauer (Time to Live, TTL) inkrementell erhöht werden.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 9032a032-2e5e-49d4-9e86-f821600e4ba6
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: adc73fdd646b3a9f7202f286912b5295f0c4e140
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: f73c9df4a72b0c28976e25bc2970da372275ea8b
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85933732"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87897107"
 ---
 # <a name="tracert"></a>tracert
 
@@ -31,7 +29,7 @@ tracert [/d] [/h <MaximumHops>] [/j <Hostlist>] [/w <timeout>] [/R] [/S <Srcaddr
 
 #### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |-------|--------|
 |/d|Verhindert, dass **tracert** versucht, die IP-Adressen der zwischen Router in ihre Namen aufzulösen. Dadurch kann die Anzeige von **tracert** -Ergebnissen beschleunigt werden.|
 |/h\<MaximumHops>|Gibt die maximale Anzahl von Hops in dem Pfad an, der nach dem Ziel (Ziel) gesucht werden soll. Der Standardwert ist 30 Hops.|
@@ -44,7 +42,7 @@ tracert [/d] [/h <MaximumHops>] [/j <Hostlist>] [/w <timeout>] [/R] [/S <Srcaddr
 |\<TargetName>|Gibt das Ziel an, das entweder durch die IP-Adresse oder den Hostnamen identifiziert wird.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 - Dieses Diagnosetool bestimmt den Pfad zu einem Ziel, indem ICMP-Echo Anforderungs Nachrichten mit unterschiedlichen Gültigkeitsdauer (Time to Live, TTL) an das Ziel gesendet werden. Jeder Router entlang des Pfads ist erforderlich, um die Gültigkeitsdauer in einem IP-Paket mindestens 1 zu verringern, bevor es weitergeleitet wird. Tatsächlich handelt es sich bei der Gültigkeitsdauer um einen maximalen Verbindungs Counter. Wenn die Gültigkeitsdauer für ein Paket den Wert 0 erreicht, wird erwartet, dass der Router eine Meldung über die Nachricht "ICMP-Zeitüberschreitung" an den Quellcomputer tracert legt den Pfad fest, indem die erste Echo Anforderungs Nachricht mit einer Gültigkeitsdauer von 1 gesendet und die Gültigkeitsdauer für jede nachfolgende Übertragung um 1 erhöht wird, bis das Ziel antwortet oder die maximale Anzahl von Hops erreicht wird. Die maximale Anzahl von Hops beträgt standardmäßig 30 und kann mithilfe des **/h** -Parameters angegeben werden. Der Pfad wird durch die Untersuchung der von zwischen Routern zurückgegebenen ICMP-Zeitüberschreitung und der vom Ziel zurückgegebenen Echo Antwortnachricht bestimmt. Einige Router geben jedoch keine Zeitüberschreitung für die Nachrichten von Paketen mit abgelaufenen TTL-Werten zurück, die für den Befehl tracert nicht sichtbar sind. In diesem Fall wird für diesen Hop eine Zeile mit Sternchen (*) angezeigt.
 - Verwenden Sie den Befehl [**pathping**](pathping.md) , um einen Pfad zu verfolgen und Netzwerk Latenz und Paketverlust für jeden Router und Link im Pfad bereitzustellen.

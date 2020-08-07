@@ -1,20 +1,18 @@
 ---
 title: doskey
 description: Referenz Artikel für den Doskey-Befehl und Doskey.exe, der zuvor eingegebene Befehlszeilen Befehle, bearbeitbare Befehlszeilen und Makros erstellt.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 4874fd43-d5ea-45f3-ae24-388ae925ed76
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4a92c9e1d6ffe1f8d7ace5500179697b2a00df1b
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: f945c0b73509e0a936bf4de1cae9bb721b77e5c3
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85930556"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87890770"
 ---
 # <a name="doskey"></a>doskey
 
@@ -28,7 +26,7 @@ doskey [/reinstall] [/listsize=<size>] [/macros:[all | <exename>] [/history] [/i
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | /REINSTALL | Installiert eine neue Kopie von Doskey.exe und löscht den Puffer für den Befehlsverlauf. |
 | /ListSize =`<size>` | Gibt die maximale Anzahl der Befehle im Verlaufs Puffer an. |
@@ -43,7 +41,7 @@ doskey [/reinstall] [/listsize=<size>] [/macros:[all | <exename>] [/history] [/i
 | `<macroname>`=[`<text>`] | Erstellt ein Makro, das die durch *Text*angegebenen Befehle ausführt. *Macroname* gibt den Namen an, den Sie dem Makro zuweisen möchten. *Text* gibt die Befehle an, die Sie aufzeichnen möchten. Wenn der *Text* leer bleibt, wird *macroname* von allen zugewiesenen Befehlen gelöscht. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Bestimmte zeichenbasierte, interaktive Programme, wie z. b. Programm-Debugger oder FTP (File Transfer programs), verwenden automatisch Doskey.exe. Um Doskey.exe zu verwenden, muss ein Programm ein Konsolen Prozess sein und gepufferte Eingaben verwenden. Programmschlüssel Zuweisungen überschreiben **doskey** -schlüsselzuweisungen. Wenn das Programm z. b. die Taste F7 für eine Funktion verwendet, können Sie keinen **doskey** -Befehlsverlauf in einem Popup Fenster erhalten.
 
@@ -53,7 +51,7 @@ doskey [/reinstall] [/listsize=<size>] [/macros:[all | <exename>] [/history] [/i
 
 - Zum Abrufen eines Befehls können Sie einen der folgenden Schlüssel verwenden, nachdem Sie Doskey.exe gestartet haben:
 
-  | Schlüssel | BESCHREIBUNG |
+  | Key | BESCHREIBUNG |
   | --- | ----------- |
   | NACH-OBEN-TASTE | Gibt den Befehl an, den Sie vor dem angezeigten Befehl verwendet haben. |
   | NACH-UNTEN-TASTE | Gibt den Befehl an, den Sie nach dem angezeigten Befehl verwendet haben. |
@@ -62,7 +60,7 @@ doskey [/reinstall] [/listsize=<size>] [/macros:[all | <exename>] [/history] [/i
 
 - In der folgenden Tabelle sind die **doskey** -Bearbeitungs Schlüssel und ihre Funktionen aufgeführt:
 
-  | Schlüssel-oder Schlüssel Kombination | Beschreibung |
+  | Schlüssel-oder Schlüssel Kombination | BESCHREIBUNG |
   | ---------------------- | ----------- |
   | NACH-LINKS-TASTE | Verschiebt die Einfügemarke um ein Zeichen zurück. |
   | NACH-RECHTS-TASTE | Verschiebt die Einfügemarke um ein Zeichen vorwärts. |

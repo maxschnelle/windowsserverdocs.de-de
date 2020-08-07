@@ -1,20 +1,18 @@
 ---
 title: endlocal
 description: Referenz Artikel für den Befehl "endlocal", der die Lokalisierung von Umgebungs Änderungen in einer Batchdatei beendet und Umgebungsvariablen in ihren Werten wiederherstellt, bevor der entsprechende Befehl "setlocal" ausgeführt wurde.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 765fae3c-0c0a-4639-99a4-cf613489b949
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a17ef4b25a0b0bb4d77068aa3bff3d879955aec5
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: a7b4b95b38fc3b7bd333c131296bf07bbabeb378
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85932121"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87890610"
 ---
 # <a name="endlocal"></a>endlocal
 
@@ -28,11 +26,11 @@ endlocal
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Der Befehl " **endlocal** " hat keine Auswirkung außerhalb eines Skripts oder einer Batchdatei.
 

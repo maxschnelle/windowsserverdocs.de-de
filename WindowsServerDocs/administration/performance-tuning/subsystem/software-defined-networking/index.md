@@ -1,18 +1,16 @@
 ---
 title: Leistungsoptimierung für Software-Defined Networking (SDN)
 description: 'Software-Defined Networking (SDN): Richtlinien zur Leistungsoptimierung'
-ms.prod: windows-server
-ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: grcusanz; anpaul
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: cfd166aab7a0ef0383fe4700fdf50cc6d35289b1
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 9c097d9b777676da1caef062e8aee4267d2e4dac
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80851613"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87895943"
 ---
 # <a name="performance-tuning-software-defined-networks"></a>Leistungsoptimierung für Software-Defined Networking (SDN)
 
@@ -34,7 +32,7 @@ Die Anleitung im Abschnitt zur Hyper-V-Netzwerk-E/A-Leistung unter [Leistungsopt
 
 ### <a name="physical-network-adapter-nic-teaming"></a>NIC-Teamvorgang (Physischer Netzwerkadapter)
 
-Um die beste Leistung zu erzielen und die besten Failoverfunktionen zu erhalten, wird empfohlen, für die physischen Netzwerkadapter den Teamvorgang zu konfigurieren.  Bei Verwendung von SDN müssen Sie das Team per Switch Embedded Teaming (SET) erstellen.  
+Um die beste Leistung zu erzielen und die besten Failoverfunktionen zu erhalten, wird empfohlen, für die physischen Netzwerkadapter den Teamvorgang zu konfigurieren.  Bei Verwendung von SDN müssen Sie das Team per Switch Embedded Teaming (SET) erstellen.
 
 Die optimale Anzahl von Teammitgliedern ist 2, da der virtualisierte Datenverkehr für die ein- und ausgehende Richtung auf beide Teammitglieder verteilt wird.  Sie können auch mehr als zwei Teammitglieder verwenden. Der eingehende Datenverkehr wird aber auf maximal zwei Adapter verteilt.  Der Datenverkehr in ausgehender Richtung wird immer auf alle Adapter verteilt, wenn die Standardeinstellung für den dynamischen Lastenausgleich auf dem virtuellen Switch konfiguriert bleibt.
 
@@ -55,7 +53,7 @@ Die beste Leistung bei Rückgabe von VXLAN erzielen Sie, indem Sie sicherstellen
 
 Die Kapselung führt dazu, dass jedem Paket zusätzliche Byte hinzugefügt werden.  Um die Fragmentierung dieser Pakete zu vermeiden, muss das physische Netzwerk für die Verwendung von Großrahmen konfiguriert werden.  Ein MTU-Wert von 9234 ist die empfohlene Größe für VXLAN oder NVGRE und muss auf dem physischen Switch für die physischen Schnittstellen der Hostports (L2) und der Routerschnittstellen (L3) der VLANs konfiguriert werden, über die die gekapselten Pakete gesendet werden.  Dies schließt die Übertragungs-, HNV-Anbieter- und Verwaltungsnetzwerke ein.
 
-Die maximale Übertragungseinheit (MTU) auf dem Hyper-V-Host wird über den Netzwerkadapter konfiguriert. Der Netzwerkcontroller-Host-Agent, der auf dem Hyper-V-Host ausgeführt wird, wird automatisch für den Mehraufwand der Kapselung angepasst, wenn dies vom Netzwerkadaptertreiber unterstützt wird.  
+Die maximale Übertragungseinheit (MTU) auf dem Hyper-V-Host wird über den Netzwerkadapter konfiguriert. Der Netzwerkcontroller-Host-Agent, der auf dem Hyper-V-Host ausgeführt wird, wird automatisch für den Mehraufwand der Kapselung angepasst, wenn dies vom Netzwerkadaptertreiber unterstützt wird.
 
 Wenn Datenverkehr aus dem virtuellen Netzwerk über ein Gateway fließt, wird die Kapselung entfernt und die ursprüngliche MTU verwendet, die von der VM gesendet wird.
 
