@@ -1,20 +1,18 @@
 ---
 title: bdehdcfg target
 description: Referenz Artikel für den bdehdcfg-Ziel Befehl, mit dem eine Partition für die Verwendung als Systemlaufwerk durch BitLocker und Windows-Wiederherstellung vorbereitet wird.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: f761d25d-8349-4ac7-ac46-6bb340a4348f
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 509c659907878f7b0ddc0b0c601715fa996c5fe7
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: a4da764bf25a661c53c27b15cbbee8e4d4ec2981
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85923366"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87895039"
 ---
 # <a name="bdehdcfg-target"></a>bdehdcfg: Ziel
 
@@ -28,7 +26,7 @@ bdehdcfg -target {default|unallocated|<drive_letter> shrink|<drive_letter> merge
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | default | Gibt an, dass das Befehlszeilentool dem gleichen Prozess wie der BitLocker-Setup-Assistent folgt. |
 | unallocated | Erstellt die Systempartition aus dem verfügbaren Speicher auf dem Datenträger. |

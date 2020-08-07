@@ -1,20 +1,18 @@
 ---
 title: logman import and logman export
 description: Referenz Artikel zu logman Import und logman Export, der einen Datensammler Satz aus einer XML-Datei importiert oder einen Datensammler Satz in eine XML-Datei exportiert.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: c258daba-fb93-47c0-a53b-2fe83ed2c743
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d5fbe0139a1c320056e4ba80a845b43755fc0026
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 0d09d0e517acf19ba1cbb167eb24b16aea3ff2bc
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85934394"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87887289"
 ---
 # <a name="logman-import-and-logman-export"></a>logman import and logman export
 
@@ -31,9 +29,9 @@ logman export <[-n] <name> <-xml <name> [options]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
-| -s`<computer name>` | Führen Sie den Befehl auf dem angegebenen Remote Computer aus. |
+| -s `<computer name>` | Führen Sie den Befehl auf dem angegebenen Remote Computer aus. |
 | -config`<value>` | Gibt die Einstellungsdatei an, die Befehlsoptionen enthält. |
 | [-n]`<name>` | Name des Zielobjekts |
 | -XML`<name>` | Der Name der XML-Datei, die importiert oder exportiert werden soll. |

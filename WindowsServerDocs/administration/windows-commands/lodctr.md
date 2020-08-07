@@ -1,20 +1,18 @@
 ---
 title: lodctr
 description: Referenz Artikel für den lodctr-Befehl, mit dem Sie den Namen und die Registrierungs Einstellungen des Leistungs Zählers in einer Datei registrieren oder speichern und vertrauenswürdige Dienste festlegen können.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 5a849abd-6b31-4833-bc8a-306c05eca29a
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7e6dba42610923e8b0cd9d7ea25a0e1ea6df507a
-ms.sourcegitcommit: 67d9c51e396c8f937f8704a25e66fea8c5fae81a
+ms.openlocfilehash: 428830b06796914e66434c90f7624cc7c64eec5b
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87441529"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87887475"
 ---
 # <a name="lodctr"></a>lodctr
 
@@ -39,7 +37,7 @@ lodctr <filename> [/s:<filename>] [/r:<filename>] [/t:<servicename>]
 | /t:`<servicename>` | Gibt an, dass der Dienst `<servicename>` vertrauenswürdig ist. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Wenn die Informationen, die Sie angeben, Leerzeichen enthalten, verwenden Sie den Text in Anführungszeichen (z. b. "Dateiname 1").
 
@@ -51,6 +49,6 @@ Geben Sie Folgendes ein, um die aktuellen Leistungs Registrierungs Einstellungen
 lodctr /s:"perf backup1.txt"
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

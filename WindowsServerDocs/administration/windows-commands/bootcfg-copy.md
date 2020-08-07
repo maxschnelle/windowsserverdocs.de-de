@@ -1,20 +1,18 @@
 ---
 title: bootcfg copy
 description: Referenz Artikel zum Befehl "bootcfg Copy", der eine Kopie eines vorhandenen Start Eintrags erstellt, dem Sie Befehlszeilenoptionen hinzufügen können.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 2a236c2a-8675-444d-b695-9cbc9aff643b
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b158e4b9f892c0142d03281b6608f911afdf7b0a
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 5082f5d7e0cd585039b0ceb198052d528f1170cc
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85925003"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87880725"
 ---
 # <a name="bootcfg-copy"></a>bootcfg copy
 
@@ -30,7 +28,7 @@ bootcfg /copy [/s <computer> [/u <domain>\<user> /p <password>]] [/d <descriptio
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `/s <computer>` | Gibt den Namen oder die IP-Adresse eines Remote Computers an (verwenden Sie keine umgekehrten Schrägstriche). Die Standardeinstellung ist der lokale Computer. |
 | `/u <domain>\<user>`  | Führt den Befehl mit den Konto Berechtigungen des Benutzers aus, der von oder angegeben wird `<user>` `<domain>\<user>` . Der Standardwert sind die Berechtigungen des aktuell angemeldeten Benutzers auf dem Computer, von dem der Befehl ausgegeben wird. |

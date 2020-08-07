@@ -1,21 +1,19 @@
 ---
 title: Erste Schritte mit der Ereignissammlung für Setup und Start
 description: Einrichten von Sammlungs-und Start Ereignis Sammlungs-Sammlern und-Zielen
-ms.prod: windows-server
 manager: DonGill
-ms.technology: server-sbec
 ms.localizationpriority: medium
 ms.date: 10/16/2017
 ms.topic: get-started-article
 ms.assetid: fc239aec-e719-47ea-92fc-d82a7247b3f8
 author: jaimeo
 ms.author: jaimeo
-ms.openlocfilehash: bb70f25ca4564f1bdf76940c9d2fcb840db5afa2
-ms.sourcegitcommit: 145cf75f89f4e7460e737861b7407b5cee7c6645
+ms.openlocfilehash: e5e18ed5f5cc4cba319042f1a5da84acae8e5fd5
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87408889"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87879529"
 ---
 # <a name="get-started-with-setup-and-boot-event-collection"></a>Erste Schritte mit der Ereignissammlung für Setup und Start
 
@@ -45,7 +43,7 @@ Auf dem Collector-Computer muss Windows Server 2016 ausgeführt werden (er kann 
 |Windows 8.1|ja|ja|
 |Windows 10|ja|ja|
 |Windows Server 2016|ja|ja|
-|Windows Server 2012 R2|ja|nein|
+|Windows Server 2012 R2|ja|nein|
 
 ## <a name="installing-the-collector-service"></a>Installieren des Collector-Dienstanbieter
 Ab Windows Server 2016 ist der Ereignis Sammler Dienst als optionales Feature verfügbar. In dieser Version können Sie Sie mithilfe DISM.exe mit diesem Befehl an einer Windows PowerShell-Eingabeaufforderung mit erhöhten Rechten installieren:
@@ -158,7 +156,7 @@ Wenn der Zielcomputer über mehrere Netzwerkadapter verfügt, wählt der KDNet-T
 ### <a name="validate-target-computer-configuration"></a>Zielcomputer Konfiguration überprüfen
 Öffnen Sie zum Überprüfen der Einstellungen auf dem Zielcomputer eine Eingabeaufforderung mit erhöhten Rechten, und führen Sie **bcdedit/enum**aus. Wenn dies abgeschlossen ist, führen Sie **Bcdedit/eventsettings**aus. Sie können die folgenden Werte überprüfen:
 
--   Schlüssel
+-   Key
 
 -   DebugType = net
 

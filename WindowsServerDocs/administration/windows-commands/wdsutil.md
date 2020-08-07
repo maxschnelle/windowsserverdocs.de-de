@@ -1,20 +1,18 @@
 ---
 title: wdsutil
 description: Referenz Artikel für WDSUTIL, ein Befehlszeilen-Hilfsprogramm zum Verwalten des Windows-Bereitstellungsdiensteserver.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 3a1965a0-8677-40cc-9495-30ae806808d1
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 14fa0d962d1104279211696c7ff8b80d0f1b6fbf
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 1ff4ca30ff0e762cc1a51538088bd0bba376f0d6
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85930828"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87881200"
 ---
 # <a name="wdsutil"></a>wdsutil
 
@@ -22,7 +20,7 @@ ms.locfileid: "85930828"
 
 WDSUTIL ist ein Befehlszeilenprogramm, das zum Verwalten des Windows-Bereitstellungsdiensteserver verwendet wird. Klicken Sie zum Ausführen dieser Befehle auf **Start**, klicken Sie mit der rechten Maustaste auf **Eingabeaufforderung**, und klicken Sie dann auf **als Administrator ausführen**.
 ## <a name="commands"></a>Befehle
-|Befehl|Beschreibung|
+|Get-Help|BESCHREIBUNG|
 |------|--------|
 |[Verwenden des Befehls "hinzufügen"](using-the-add-command.md)|Hinzufügen von Objekten oder vorab Stufen von Computern.|
 |[Verwenden des Befehls "genehmigen-AutoAddDevices"](using-the-approve-autoadddevices-command.md)|Genehmigt Computer mit ausstehender Administrator Genehmigung.|

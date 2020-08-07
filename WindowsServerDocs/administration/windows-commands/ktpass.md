@@ -1,20 +1,18 @@
 ---
 title: ktpass
 description: Referenz Artikel für den Befehl "ktpass", mit dem der Server Prinzipal Name für den Host oder Dienst in AD DS konfiguriert wird und eine keytab-Datei generiert wird, die den gemeinsamen geheimen Schlüssel des Diensts enthält.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 47087676-311e-41f1-8414-199740d01444
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: fbf7b47f4f21a2c964d14dd1200b15ad635d7471
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 3bb523d35a1bbf2d15895201855a58e96ebb7772
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85931824"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87887646"
 ---
 # <a name="ktpass"></a>ktpass
 
@@ -44,7 +42,7 @@ ktpass
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ------------|
 | /Out`<filename>` | Gibt den Namen der zu generierenden Datei "Kerberos 5. keytab" an. **Hinweis:** Dies ist die Datei ". keytab", die Sie auf einen Computer übertragen, auf dem das Windows-Betriebssystem nicht ausgeführt wird, und dann ersetzen oder Zusammenführen mit der vorhandenen Keytab-Datei, */etc/krb5.keytab*. |
 | /princ `<principalname>` | Gibt den Prinzipal Namen im Formular an host/computer.contoso.com@CONTOSO.COM . **Warnung:** Bei diesem Parameter wird die Groß-/Kleinschreibung beachtet. |
@@ -58,7 +56,7 @@ ktpass
 | /crypto`{DES-CBC-CRC|DES-CBC-MD5|RC4-HMAC-NT|AES256-SHA1|AES128-SHA1|All}` | Gibt die Schlüssel an, die in der Schlüssel Tabellendatei-Datei generiert werden:<ul><li>**Des-CBC-CRC** -verwendet aus Kompatibilitätsgründen.</li><li>**Des-CBC-MD5** -hält die mit-Implementierung genauer an und wird aus Kompatibilitätsgründen verwendet.</li><li>**RC4-HMAC-NT** : verwendet die 128-Bit-Verschlüsselung.</li><li>**AES256-SHA1** : verwendet AES256-CTS-HMAC-SHA1-96-Verschlüsselung.</li><li>   **AES128-SHA1** : verwendet AES128-CTS-HMAC-SHA1-96-Verschlüsselung.</li><li>**Alle** -Zustände, die alle unterstützten kryptografietypen verwenden können.</li></ul><p>**Hinweis:** Da die Standardeinstellungen auf älteren mit-Versionen basieren, sollten Sie immer den- `/crypto` Parameter verwenden. |
 | /itercount | Gibt die Anzahl der Iterationen an, die für die AES-Verschlüsselung verwendet wird. Der Standardwert ignoriert **itercount** für die nicht-AES-Verschlüsselung und legt die AES-Verschlüsselung auf 4.096 fest. |
 | /ptype`{KRB5_NT_PRINCIPAL|KRB5_NT_SRV_INST|KRB5_NT_SRV_HST}` | Gibt den Prinzipaltyp an.<ul><li>**KRB5_NT_PRINCIPAL** : der allgemeine Prinzipaltyp (empfohlen).</li><li>**KRB5_NT_SRV_INST** : die Instanz des Benutzer Dienstanbieter</li><li>  **KRB5_NT_SRV_HST** -die Host Dienst Instanz</li></ul> |
-| /kvno`<keyversionnum>` | Gibt die Versionsnummer des Schlüssels an. Der Standardwert ist 1. |
+| /kvno`<keyversionnum>` | Gibt die Versionsnummer des Schlüssels an. Der Standardwert ist 1. |
 | /Answer`{-|+}` | Legt den Hintergrund Antwortmodus fest:<ul><li>**-** Antworten auf Kenn Wort Zurücksetzungen automatisch zurücksetzen, **ohne**.</li><li>**+** Antworten Zurücksetzen von Kenn Wort Eingabe Aufforderungen mit **Ja**.</li></ul> |
 | /target | Legt fest, welcher Domänen Controller verwendet werden soll. Standardmäßig wird der Domänen Controller basierend auf dem Prinzipal Namen erkannt. Wenn der Domänen Controller Name nicht aufgelöst wird, werden Sie in einem Dialogfeld zur Eingabe eines gültigen Domänen Controllers aufgefordert. |
 | /rawsalt | erzwingt, dass "ktpass" den rawsalt-Algorithmus beim Erzeugen des Schlüssels verwendet. Dieser Parameter ist optional. |
@@ -67,7 +65,7 @@ ktpass
 | `{-|+}setpass <password>` | Legt das Kennwort des Benutzers fest, wenn angegeben. Wenn rndpass verwendet wird, wird stattdessen ein zufälliges Kennwort generiert. |
 | /? | Zeigt die Hilfe für diesen Befehl an. |
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Dienste, die auf Systemen ausgeführt werden, auf denen das Windows-Betriebssystem nicht ausgeführt wird, können in AD DS mit Dienst Instanzen Konten konfiguriert werden. Dadurch kann sich jeder Kerberos-Client bei Diensten authentifizieren, auf denen das Windows-Betriebssystem nicht mithilfe von Windows-KDCs ausgeführt wird.
 

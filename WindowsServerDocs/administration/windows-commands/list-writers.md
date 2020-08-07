@@ -1,20 +1,18 @@
 ---
 title: list writers
 description: Referenz Artikel für den Befehl auflisten von Writer, in dem die Writer aufgelistet sind, die sich auf dem System befinden.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 1c30cbc4-f568-4fa7-b564-66c41d3ca82d
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a3b4334d9f1f1a76b390a29a1b9cfd877da91185
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 1a7176c949eb20af3488abe772c6ba683e1789f8
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85931776"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87887555"
 ---
 # <a name="list-writers"></a>list writers
 
@@ -28,7 +26,7 @@ list writers [metadata | detailed | status]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | metadata | Listet die Identität und den Status von Writern auf und zeigt Metadaten wie z. b. Komponenten Details und ausgeschlossene Dateien an. Dies ist der Standardparameter. |
 | Details | Listet die gleichen Informationen wie **Metadaten**auf, enthält jedoch auch die vollständige Datei Liste für alle Komponenten. |

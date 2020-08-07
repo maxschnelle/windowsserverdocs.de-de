@@ -1,20 +1,18 @@
 ---
 title: bootcfg debug
 description: Referenz Artikel für den bootcfg-Debugbefehl, mit dem die Debugeinstellungen für einen angegebenen Betriebssystem Eintrag hinzugefügt oder geändert werden.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 28afa5fb-a236-46e2-b1a4-a3c43a49c437
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: da4179d85d4e84918e75fb4c8490e229230412eb
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 8b3cbde64da67196a1067791e5dad3c2b02756d4
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85926323"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87880695"
 ---
 # <a name="bootcfg-debug"></a>bootcfg debug
 
@@ -33,7 +31,7 @@ bootcfg /debug {on | off | edit}[/s <computer> [/u <domain>\<user> /p <password>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `{on | off | edit}` | Gibt den Wert für das Port Debuggen an, einschließlich:<ul><li>**auf.** Aktiviert die Unterstützung für Remote Debugging durch Hinzufügen der/Debug-Option zum angegebenen `<osentrylinenum>` .</li><li>**abgeschrieben.** Deaktiviert die Unterstützung für Remote Debugging, indem die/Debug-Option aus dem angegebenen entfernt wird <osentrylinenum> .</li><li>**Bearbeiten.** Ermöglicht Änderungen an den Einstellungen für Port und Baudrate durch Ändern der Werte, die mit der/Debug-Option für das angegebene verknüpft sind <osentrylinenum> .</li></ul> |
 | `/s <computer>` | Gibt den Namen oder die IP-Adresse eines Remote Computers an (verwenden Sie keine umgekehrten Schrägstriche). Die Standardeinstellung ist der lokale Computer. |

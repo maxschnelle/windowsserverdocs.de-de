@@ -1,20 +1,18 @@
 ---
 title: bitsadmin setvalidationstate
 description: Referenz Artikel für den Befehl "BITSAdmin setvalidationstate", mit dem der Inhalts Überprüfungs Zustand der angegebenen Datei innerhalb des Auftrags festgelegt wird.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: e8fc8e8c-171c-4681-8057-6986b018e576
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ae776279b742e3af5af3cf555765007bbf0eb8de
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 1dcdbd017f225704fc20d0472346d98fd84bb2c0
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85927497"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87881027"
 ---
 # <a name="bitsadmin-setvalidationstate"></a>bitsadmin setvalidationstate
 
@@ -28,7 +26,7 @@ bitsadmin /setvalidationstate <job> <file_index> <TRUE|FALSE>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ---------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 | file_index | Beginnt bei 0. |

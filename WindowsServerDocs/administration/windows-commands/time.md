@@ -1,20 +1,18 @@
 ---
 title: time
 description: Erfahren Sie, wie Sie die Systemzeit festlegen und anzeigen.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 1276a257-7283-41da-ae80-fb4cfb311f9d
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e27b260bdaa8896ad3cf0ad58294467bbb63e1c2
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 1548952c7fcd6d3edcc2dcc0fb3459e27cd0efbb
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82721361"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87881426"
 ---
 # <a name="time"></a>time
 
@@ -34,7 +32,7 @@ time [/t | [<HH>[:<MM>[:<SS>]] [am|pm]]]
 
 |Parameter|BESCHREIBUNG|
 |---------|-----------|
-|\<HH> [:\<mm> [:\<SS> [.\< NN>]]] [am\|pm]|Legt die Systemzeit auf die neue angegebene Uhrzeit fest, wobei *HH* in Stunden (erforderlich), *mm* in Minuten und *SS* in Sekunden angegeben wird. *NN* kann verwendet werden, um Hundertstel Sekunden anzugeben. Wenn **am** oder **pm** nicht angegeben ist, verwendet die **Zeit** standardmäßig das 24-Stunden-Format.|
+|\<HH>[:\<MM> [:\<SS> [.\<NN>]]] [am \| pm]|Legt die Systemzeit auf die neue angegebene Uhrzeit fest, wobei *HH* in Stunden (erforderlich), *mm* in Minuten und *SS* in Sekunden angegeben wird. *NN* kann verwendet werden, um Hundertstel Sekunden anzugeben. Wenn **am** oder **pm** nicht angegeben ist, verwendet die **Zeit** standardmäßig das 24-Stunden-Format.|
 |/t|Zeigt die aktuelle Zeit an, ohne Sie zur Eingabe eines neuen Zeitraums aufzufordern.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
@@ -63,6 +61,6 @@ Enter the new time:
 ```
 Drücken Sie die EINGABETASTE, um die aktuelle Uhrzeit beizubehalten und zur Eingabeaufforderung zurückzukehren. Um die aktuelle Uhrzeit zu ändern, geben Sie die neue Uhrzeit ein, und drücken Sie dann die EINGABETASTE.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

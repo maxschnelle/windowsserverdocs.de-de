@@ -1,20 +1,18 @@
 ---
 title: telnet
 description: Referenz Artikel für Telnet, der mit einem Computer kommuniziert, auf dem der Telnet-Server Dienst ausgeführt wird.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: b70a6156-9413-4300-84ce-a34c467e2b4e
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 70c4eb44a654094410432dd9d37d0ad0082f5874
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: fd270011dfa3a0cfcef3cbdc41eb8140f409ff2d
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86958812"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87881605"
 ---
 # <a name="telnet"></a>telnet
 
@@ -51,7 +49,7 @@ Stellen Sie mithilfe von Telnet eine Verbindung mit dem Computer her, auf dem de
 telnet /f telnetlog.txt telnet.microsoft.com 44
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 -   [Installieren von Telnet](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754293(v=ws.10))
 -   [Technische Referenz für Telnet](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754987(v=ws.10))
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
