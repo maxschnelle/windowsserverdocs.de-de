@@ -1,20 +1,18 @@
 ---
 title: Cluster-zu-Cluster-Speicherreplikation
-ms.prod: windows-server
 manager: siroy
 ms.author: nedpyle
-ms.technology: storage-replica
 ms.topic: get-started-article
 ms.assetid: 834e8542-a67a-4ba0-9841-8a57727ef876
 author: nedpyle
 ms.date: 04/26/2019
 description: Verwenden des Speicher Replikats zum Replizieren von Volumes in einem Cluster in einen anderen Cluster unter Windows Server.
-ms.openlocfilehash: d99a7ebf933427e8e065f72261816610e62a433d
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 5de25151f0b49ac9cbf9d6be793c2ba0c6efb165
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86961242"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87950474"
 ---
 # <a name="cluster-to-cluster-storage-replication"></a>Cluster-zu-Cluster-Speicherreplikation
 
@@ -140,7 +138,7 @@ Das Vorliegen vieler dieser Voraussetzungen lässt sich mit dem `Test-SRTopology
 2. Stellen Sie sicher, dass sich die SR-Protokollvolumes immer am schnellsten Flash Speicher und den Datenvolumes bei einem langsameren Hochleistungsspeicher befinden.
 
 3. Starten Sie Windows PowerShell, und überprüfen Sie mithilfe des Cmdlets `Test-SRTopology`, ob alle Anforderungen für das Speicherreplikatfeature erfüllt sind. Für einen schnellen Test können Sie das Cmdlet in einem Modus zur ausschließlichen Überprüfung der Anforderungen ausführen, oder Sie wählen einen Modus mit langer Ausführungsdauer, um die Leistung auszuwerten.
-   Beispiel:
+   Ein auf ein Objekt angewendeter
 
    ```PowerShell
    MD c:\temp
@@ -194,7 +192,7 @@ Im Folgenden erstellen Sie zwei normale Failovercluster. Nach der Konfiguration,
     New-Cluster -Name SR-SRVCLUSB -Node SR-SRV03,SR-SRV04 -StaticAddress <your IP here>
     ```
 
-3.  Konfigurieren Sie in jedem Cluster einen Dateifreigabe- oder Cloudzeugen (Azure), der auf eine Freigabe verweist, die auf dem Domänencontroller oder auf einem anderen unabhängigen Server gehostet ist. Beispiel:
+3.  Konfigurieren Sie in jedem Cluster einen Dateifreigabe- oder Cloudzeugen (Azure), der auf eine Freigabe verweist, die auf dem Domänencontroller oder auf einem anderen unabhängigen Server gehostet ist. Zum Beispiel:
 
     ```PowerShell
     Set-ClusterQuorum -FileShareWitness \\someserver\someshare
@@ -247,7 +245,7 @@ Nun richten Sie die Cluster-zu-Cluster-Replikation mithilfe von Windows PowerShe
        ```PowerShell
        Get-WinEvent -ProviderName Microsoft-Windows-StorageReplica -max 20
        ```
-   2.  Führen Sie auf dem Zielserver den folgenden Befehl aus, um die Speicherreplikatereignisse anzuzeigen, die das Erstellen der Partnerschaft belegen. Dieses Ereignis gibt die Anzahl der kopierten Bytes sowie die dafür benötigte Zeit an. Beispiel:
+   2.  Führen Sie auf dem Zielserver den folgenden Befehl aus, um die Speicherreplikatereignisse anzuzeigen, die das Erstellen der Partnerschaft belegen. Dieses Ereignis gibt die Anzahl von kopierten Bytes und die dafür benötigte Zeit an. Beispiel:
 
        ```powershell
        Get-WinEvent -ProviderName Microsoft-Windows-StorageReplica | Where-Object {$_.ID -eq "1215"} | Format-List
@@ -271,7 +269,7 @@ Nun richten Sie die Cluster-zu-Cluster-Replikation mithilfe von Windows PowerShe
            Number of Bytes Recovered: 68583161856
            Elapsed Time (seconds): 117
        ```
-   3. Alternativ gibt die Zielservergruppe für das Replikat jederzeit die Anzahl der noch zu kopierenden Bytes an. Dieser Wert kann auch über PowerShell abgefragt werden. Beispiel:
+   3. Alternativ gibt die Zielservergruppe für das Replikat jederzeit die Anzahl der noch zu kopierenden Bytes an. Dieser Wert kann auch über PowerShell abgefragt werden. Zum Beispiel:
 
       ```PowerShell
       (Get-SRGroup).Replicas | Select-Object numofbytesremaining
@@ -287,7 +285,7 @@ Nun richten Sie die Cluster-zu-Cluster-Replikation mithilfe von Windows PowerShe
        }
        ```
 
-6. Führen Sie auf dem Zielserver im Zielcluster den folgenden Befehl aus, und überprüfen Sie die Ereignisse 5009, 1237, 5001, 5015, 5005 und 2200, um Informationen zum Verarbeitungsfortschritt zu erhalten. Diese Abfolge sollte keine Warnungen oder Fehler enthalten. Es werden eine Vielzahl von Ereignissen des Typs 1237 angezeigt, die für den Fortschritt stehen.
+6. Führen Sie auf dem Zielserver im Zielcluster den folgenden Befehl aus, und überprüfen Sie die Ereignisse 5009, 1237, 5001, 5015, 5005 und 2200, um Informationen zum Verarbeitungsfortschritt zu erhalten. In dieser Sequenz sollten keine Warnungen oder Fehler vorliegen. Es werden eine Vielzahl von Ereignissen des Typs 1237 angezeigt, die für den Fortschritt stehen.
 
    ```PowerShell
    Get-WinEvent -ProviderName Microsoft-Windows-StorageReplica | FL
@@ -386,7 +384,7 @@ Jetzt können Sie Ihre Cluster-zu-Cluster-Replikation verwalten und betreiben. S
     > [!NOTE]
     > Beim Speicher Replikat werden die Zielvolumes getrennt. Dies ist beabsichtigt.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Übersicht über Speicherreplikate](storage-replica-overview.md)
 -   [Stretch-Cluster Replikation mit frei gegebenem Speicher](stretch-cluster-replication-using-shared-storage.md)

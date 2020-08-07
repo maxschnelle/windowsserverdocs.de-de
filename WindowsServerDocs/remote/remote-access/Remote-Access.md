@@ -2,19 +2,17 @@
 title: Remotezugriff
 description: Dieses Thema enthält eine Übersicht über die Remote Zugriffs-Server Rolle in Windows Server 2016.
 manager: dougkim
-ms.prod: windows-server
-ms.technology: networking-ras
 ms.topic: article
 ms.assetid: eeca4cf7-90f0-485d-843c-76c5885c54b0
 ms.author: lizross
 author: eross-msft
 ms.date: 05/18/2018
-ms.openlocfilehash: 9fc6fef0bc868e2f2db1fa8deb102eb46e959264
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 3efbc9d05beacdcc1d8ceb466f25dfc59f2bae0c
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86959502"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87970447"
 ---
 # <a name="remote-access"></a>Remotezugriff
 
@@ -24,11 +22,11 @@ Im Handbuch für den Remote Zugriff erhalten Sie eine Übersicht über die RAS-S
 
 - [Always on VPN-Bereitstellungs Handbuch](vpn/always-on-vpn/deploy/always-on-vpn-deploy.md)
 - [Border Gateway Protocol &#40;BGP-&#41;](bgp/Border-Gateway-Protocol-BGP.md)
-- [RAS-Gateway](ras-gateway/RAS-Gateway.md) 
+- [RAS-Gateway](ras-gateway/RAS-Gateway.md)
 - [RAS-Serverrolle: Dokumentation](ras/Remote-Access-Server-Role-Documentation.md)
 - [RAS-Gateway für SDN](../../networking/sdn/technologies/network-function-virtualization/RAS-Gateway-for-SDN.md)
 - [Virtual Private Networking (VPN)](vpn/vpn-top.md)
- 
+
 Weitere Informationen zu anderen Netzwerktechnologien finden Sie unter [Netzwerk in Windows Server 2016](../../networking/index.yml).
 
 Die Remote Zugriffs-Server Rolle ist eine logische Gruppierung dieser verwandten Netzwerk Zugriffs Technologien: [RAS (Remote Access Service)](#bkmk_da), [Routing](#bkmk_rras)und [webanwendungsproxy](#bkmk_proxy). Diese Technologien sind die *Rollendienste* der Serverrolle "Remotezugriff". Wenn Sie die Remote Zugriffs-Server Rolle mit dem **Assistenten zum Hinzufügen von Rollen und Features** oder mit Windows PowerShell installieren, können Sie einen oder mehrere dieser drei Rollen Dienste installieren.
@@ -47,7 +45,7 @@ Wenn Sie den **DirectAccess-und VPN-Rollen Dienst (RAS)** installieren, stellen 
 >[!IMPORTANT]
 > Das RAS-Gateway mit mehr Instanzen fähigen Funktionen ist auch in Windows Server 2012 R2 verfügbar.
 
-- **Always on-VPN**. Always on-VPN ermöglicht Remote Benutzern den sicheren Zugriff auf freigegebene Ressourcen, Intranetwebsites und Anwendungen in einem internen Netzwerk, ohne eine Verbindung mit einem VPN herzustellen. 
+- **Always on-VPN**. Always on-VPN ermöglicht Remote Benutzern den sicheren Zugriff auf freigegebene Ressourcen, Intranetwebsites und Anwendungen in einem internen Netzwerk, ohne eine Verbindung mit einem VPN herzustellen.
 
 Weitere Informationen finden Sie unter [RAS-Gateway](ras-gateway/RAS-Gateway.md) und [Border Gateway Protocol (BGP)](bgp/Border-Gateway-Protocol-BGP.md).
 
@@ -57,19 +55,19 @@ Sie können den Remote Zugriff verwenden, um Netzwerk Datenverkehr zwischen Subn
 
 Verwenden Sie zum Installieren des Remote Zugriffs als LAN-Router entweder den Assistenten zum Hinzufügen von Rollen und Features in Server-Manager, und wählen Sie die **Remote Zugriffs** -Server Rolle und den **Routing** Rollen Dienst aus. oder geben Sie den folgenden Befehl an einer Windows PowerShell-Eingabeaufforderung ein, und drücken Sie dann die EINGABETASTE.
 
-```  
+```
 Install-RemoteAccess -VpnType RoutingOnly
-```  
+```
 
 ## <a name="web-application-proxy"></a><a name="bkmk_proxy"></a>Webanwendungsproxy
 
 Der webanwendungsproxy ist ein Remote Zugriffs-Rollen Dienst in Windows Server 2016. Der Webanwendungsproxy bietet Reverseproxyfunktionen für Webanwendungen in Ihrem Unternehmensnetzwerk, damit Benutzer außerhalb des Unternehmensnetzwerks von allen Geräten auf die Anwendungen zugreifen können. Der webanwendungsproxy authentifiziert den Zugriff auf Webanwendungen mit Active Directory-Verbunddienste (AD FS) (AD FS) und fungiert auch als AD FS Proxy.
 
-Verwenden Sie zum Installieren des Remote Zugriffs als webanwendungsproxy den Assistenten zum Hinzufügen von Rollen und Features in Server-Manager, und wählen Sie **die Server Rolle** RAS und den **webanwendungsproxy** -Rollen Dienst aus. oder geben Sie den folgenden Befehl an einer Windows PowerShell-Eingabeaufforderung ein, und drücken Sie dann die EINGABETASTE.  
+Verwenden Sie zum Installieren des Remote Zugriffs als webanwendungsproxy den Assistenten zum Hinzufügen von Rollen und Features in Server-Manager, und wählen Sie **die Server Rolle** RAS und den **webanwendungsproxy** -Rollen Dienst aus. oder geben Sie den folgenden Befehl an einer Windows PowerShell-Eingabeaufforderung ein, und drücken Sie dann die EINGABETASTE.
 
-```  
-Install-RemoteAccess -VpnType SstpProxy  
-```  
+```
+Install-RemoteAccess -VpnType SstpProxy
+```
 
 Weitere Informationen finden Sie unter [webanwendungsproxy](./web-application-proxy/web-application-proxy-windows-server.md).
 

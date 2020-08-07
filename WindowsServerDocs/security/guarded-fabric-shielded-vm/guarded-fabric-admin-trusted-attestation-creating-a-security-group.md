@@ -1,19 +1,17 @@
 ---
 title: Erstellen einer Sicherheitsgruppe für geschützte Hosts und Registrieren der Gruppe bei HGS
-ms.prod: windows-server
 ms.topic: article
 ms.assetid: a12c8494-388c-4523-8d70-df9400bbc2c0
 manager: dongill
 author: rpsqrd
 ms.author: ryanpu
-ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 84bf134ac5224f224339cc1ec216bded8cbcc792
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: efcf148356910a250a06ee9165c544c96226e10e
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85475677"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87971417"
 ---
 # <a name="create-a-security-group-for-guarded-hosts-and-register-the-group-with-hgs"></a>Erstellen einer Sicherheitsgruppe für geschützte Hosts und Registrieren der Gruppe bei HGS
 
@@ -56,6 +54,6 @@ In diesem Thema werden die Zwischenschritte zum Vorbereiten von Hyper-V-Hosts au
 > [Bestätigen des Nachweises](guarded-fabric-confirm-hosts-can-attest-successfully.md)
 
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Bereitstellen des Host-Überwachungsdiensts für überwachte Hosts und abgeschirmte VMs](guarded-fabric-deploying-hgs-overview.md)

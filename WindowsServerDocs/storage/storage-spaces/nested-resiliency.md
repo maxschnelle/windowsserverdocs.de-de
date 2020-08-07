@@ -1,18 +1,16 @@
 ---
 title: Direkte Speicherplätze für die
-ms.prod: windows-server
 ms.author: jgerend
-manager: dansimp
-ms.technology: storagespaces
+manager: dansimpspaces
 ms.topic: article
 author: cosmosdarwin
 ms.date: 03/15/2019
-ms.openlocfilehash: 311edb38f4cdf1dac153d843811442d5eafbce05
-ms.sourcegitcommit: acfdb7b2ad283d74f526972b47c371de903d2a3d
+ms.openlocfilehash: 91d8cce64088855d2e8a0c89c1084077a252e26a
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87769748"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87935956"
 ---
 # <a name="nested-resiliency-for-storage-spaces-direct"></a>Direkte Speicherplätze für die
 
@@ -111,7 +109,7 @@ Erstellen Sie dann mithilfe des `New-Volume` Cmdlets neue Volumes.
 
 #### <a name="nested-two-way-mirror"></a>Zwei-Wege-Spiegelung
 
-Wenn Sie die zweistufige Spiegelung verwenden möchten, verweisen Sie auf die `NestedMirror` Ebenenvorlage, und geben Sie die Größe an. Beispiel:
+Wenn Sie die zweistufige Spiegelung verwenden möchten, verweisen Sie auf die `NestedMirror` Ebenenvorlage, und geben Sie die Größe an. Zum Beispiel:
 
 ```PowerShell
 New-Volume -StoragePoolFriendlyName S2D* -FriendlyName Volume01 -StorageTierFriendlyNames NestedMirror -StorageTierSizes 500GB
@@ -171,11 +169,11 @@ Die Mindestanzahl der für direkte Speicherplätze erforderlichen Laufwerke betr
 
 ### <a name="does-nested-resiliency-change-how-drive-replacement-works"></a>Ändert sich die durch die Änderung von Netzwerken ersetzende Stabilität?
 
-Nein.
+Nein
 
 ### <a name="does-nested-resiliency-change-how-server-node-replacement-works"></a>Ändert sich die geänderte Resilienz, wie die Server Knoten Ersetzung funktioniert?
 
-Nein. Um einen Server Knoten und seine Laufwerke zu ersetzen, befolgen Sie die folgende Reihenfolge:
+Nein Um einen Server Knoten und seine Laufwerke zu ersetzen, befolgen Sie die folgende Reihenfolge:
 
 1. Außerbetriebnahme der Laufwerke auf dem ausgehenden Server
 2. Fügen Sie den neuen Server mit seinen Laufwerken dem Cluster hinzu.

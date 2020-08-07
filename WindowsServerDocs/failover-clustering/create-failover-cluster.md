@@ -1,20 +1,18 @@
 ---
 title: Erstellen eines Failoverclusters
 description: Erstellen eines Failoverclusters für Windows Server 2012 R2, Windows Server 2012, Windows Server 2016 und Windows Server 2019.
-ms.prod: windows-server
 ms.topic: article
 author: JasonGerend
 ms.author: jgerend
 manager: lizross
-ms.technology: storage-failover-clustering
 ms.date: 06/06/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 322eba03bb46a32191c46461c49eace4fcfda9e0
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: e96056eb26e200f360f92c4c6e2b94c2d77bf9ec
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87177836"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87950114"
 ---
 # <a name="create-a-failover-cluster"></a>Erstellen eines Failoverclusters
 

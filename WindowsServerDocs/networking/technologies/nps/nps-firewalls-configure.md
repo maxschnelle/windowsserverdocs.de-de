@@ -2,24 +2,22 @@
 title: Konfigurieren von Firewalls für den RADIUS-Datenverkehr
 description: Dieses Thema bietet einen Überblick über die Konfiguration von Firewalls, um RADIUS-Datenverkehr für den Netzwerk Richtlinien Server unter Windows Server 2016 zuzulassen.
 manager: brianlic
-ms.prod: windows-server
-ms.technology: networking
 ms.topic: article
 ms.assetid: 58cca2b2-4ef3-4a09-a614-8bdc08d24f15
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 57661fee2cf633a1efe8e264b0f7fe717b81e20d
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: ac1ec981b83607643d295411648c6f38892490f3
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80316096"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87937401"
 ---
 # <a name="configure-firewalls-for-radius-traffic"></a>Konfigurieren von Firewalls für den RADIUS-Datenverkehr
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Firewalls können so konfiguriert werden, dass Sie Typen von IP-Datenverkehr auf den Computer oder das Gerät, auf dem die Firewall ausgeführt wird, zulassen oder blockieren. Wenn Firewalls nicht ordnungsgemäß konfiguriert sind, um RADIUS-Datenverkehr zwischen RADIUS-Clients, RADIUS-Proxys und RADIUS-Servern zuzulassen, kann die Netzwerk Zugriffs Authentifizierung fehlschlagen, sodass Benutzer keinen Zugriff auf Netzwerkressourcen haben 
+Firewalls können so konfiguriert werden, dass Sie Typen von IP-Datenverkehr auf den Computer oder das Gerät, auf dem die Firewall ausgeführt wird, zulassen oder blockieren. Wenn Firewalls nicht ordnungsgemäß konfiguriert sind, um RADIUS-Datenverkehr zwischen RADIUS-Clients, RADIUS-Proxys und RADIUS-Servern zuzulassen, kann die Netzwerk Zugriffs Authentifizierung fehlschlagen, sodass Benutzer keinen Zugriff auf Netzwerkressourcen haben
 
 Möglicherweise müssen Sie zwei Arten von Firewalls konfigurieren, um RADIUS-Datenverkehr zuzulassen:
 
@@ -28,7 +26,7 @@ Möglicherweise müssen Sie zwei Arten von Firewalls konfigurieren, um RADIUS-Da
 
 ## <a name="windows-firewall-on-the-local-nps"></a>Windows-Firewall auf dem lokalen NPS
 
-Standardmäßig sendet und empfängt NPS RADIUS-Datenverkehr über das User Datagram-Protokoll \(UDP\) Ports 1812, 1813, 1645 und 1646. Die Windows Defender Firewall auf dem NPS wird während der Installation von NPS automatisch mit Ausnahmen konfiguriert, damit dieser RADIUS-Datenverkehr gesendet und empfangen werden kann.
+Standardmäßig sendet und empfängt NPS RADIUS-Datenverkehr über die \( UDP- \) Ports 1812, 1813, 1645 und 1646 des User Datagram-Protokolls. Die Windows Defender Firewall auf dem NPS wird während der Installation von NPS automatisch mit Ausnahmen konfiguriert, damit dieser RADIUS-Datenverkehr gesendet und empfangen werden kann.
 
 Wenn Sie also die UDP-Standardports verwenden, müssen Sie die Konfiguration von Windows Defender Firewall nicht ändern, um RADIUS-Datenverkehr zu und von NPSS zuzulassen.
 
@@ -45,12 +43,12 @@ In der gängigsten Konfiguration ist die Firewall mit dem Internet verbunden, un
 
 Um den Domänen Controller innerhalb des Intranets zu erreichen, hat der NPS möglicherweise Folgendes:
 
-- Eine Schnittstelle im Umkreis Netzwerk und eine Schnittstelle im Intranet (IP-Routing ist nicht aktiviert). 
+- Eine Schnittstelle im Umkreis Netzwerk und eine Schnittstelle im Intranet (IP-Routing ist nicht aktiviert).
 - Eine einzelne Schnittstelle im Umkreis Netzwerk. In dieser Konfiguration kommuniziert NPS über eine andere Firewall, die das Umkreis Netzwerk mit dem Intranet verbindet, mit Domänen Controllern.
 
 ## <a name="configuring-the-internet-firewall"></a>Konfigurieren der Internet Firewall
 
-Die Firewall, die mit dem Internet verbunden ist, muss mit Eingabe-und Ausgabefiltern auf der Internet Schnittstelle \(und optional mit der zugehörigen Netzwerk Umkreis Schnittstelle\)konfiguriert werden, um die Weiterleitung von RADIUS-Nachrichten zwischen den NPS-und RADIUS-Clients oder Proxys im Internet zuzulassen. Zusätzliche Filter können verwendet werden, um das Übergeben von Datenverkehr an Webserver, VPN-Server und andere Server Typen im Umkreis Netzwerk zuzulassen.
+Die Firewall, die mit dem Internet verbunden ist, muss mit Eingabe-und Ausgabefiltern an der Internet Schnittstelle und optional mit der zugehörigen \( Netzwerk Umkreis Schnittstelle konfiguriert werden \) , um die Weiterleitung von RADIUS-Nachrichten zwischen den NPS-und RADIUS-Clients oder Proxys im Internet zuzulassen. Zusätzliche Filter können verwendet werden, um das Übergeben von Datenverkehr an Webserver, VPN-Server und andere Server Typen im Umkreis Netzwerk zuzulassen.
 
 Separate Eingabe-und Ausgabe Paketfilter können auf der Internet Schnittstelle und der Umkreis Netzwerkschnittstelle konfiguriert werden.
 
@@ -60,8 +58,8 @@ Konfigurieren Sie die folgenden Eingabe Paketfilter für die Internet Schnittste
 
 - Ziel-IP-Adresse der Umkreis Netzwerkschnittstelle und UDP-Zielport 1812 (0x714) des NPS.  Dieser Filter ermöglicht RADIUS-Authentifizierungs Datenverkehr von Internet basierten RADIUS-Clients an den NPS. Dies ist der Standard-UDP-Port, der von NPS verwendet wird, wie in RFC 2865 definiert. Wenn Sie einen anderen Port verwenden, ersetzen Sie die Portnummer 1812.
 - Ziel-IP-Adresse der Umkreis Netzwerkschnittstelle und UDP-Zielport 1813 (0x715) des NPS. Dieser Filter ermöglicht RADIUS-Buchhaltungs Datenverkehr von Internet basierten RADIUS-Clients an den NPS. Dies ist der Standard-UDP-Port, der von NPS verwendet wird, wie in RFC 2866 definiert. Wenn Sie einen anderen Port verwenden, ersetzen Sie die Portnummer 1813.
-- \(optional\) Ziel-IP-Adresse der Umkreis Netzwerkschnittstelle und UDP-Zielport 1645 \(0x66D\) des NPS. Dieser Filter ermöglicht RADIUS-Authentifizierungs Datenverkehr von Internet basierten RADIUS-Clients an den NPS. Dies ist der UDP-Port, der von älteren RADIUS-Clients verwendet wird.
-- \(optional\) Ziel-IP-Adresse der Umkreis Netzwerkschnittstelle und UDP-Zielport 1646 \(0x66E\) des NPS. Dieser Filter ermöglicht RADIUS-Buchhaltungs Datenverkehr von Internet basierten RADIUS-Clients an den NPS. Dies ist der UDP-Port, der von älteren RADIUS-Clients verwendet wird.
+- \(Optionale \) Ziel-IP-Adresse der Umkreis Netzwerkschnittstelle und UDP-Zielport 1645 \( 0x66D \) des NPS. Dieser Filter ermöglicht RADIUS-Authentifizierungs Datenverkehr von Internet basierten RADIUS-Clients an den NPS. Dies ist der UDP-Port, der von älteren RADIUS-Clients verwendet wird.
+- \(Optionale \) Ziel-IP-Adresse der Umkreis Netzwerkschnittstelle und UDP-Zielport von 1646 \( 0x66E \) des NPS. Dieser Filter ermöglicht RADIUS-Buchhaltungs Datenverkehr von Internet basierten RADIUS-Clients an den NPS. Dies ist der UDP-Port, der von älteren RADIUS-Clients verwendet wird.
 
 ### <a name="configure-output-filters-on-the-internet-interface"></a>Konfigurieren von Ausgabefiltern an der Internet Schnittstelle
 
@@ -69,8 +67,8 @@ Konfigurieren Sie die folgenden Ausgabefilter für die Internet Schnittstelle de
 
 - Quell-IP-Adresse der Umkreis Netzwerkschnittstelle und UDP-Quellport 1812 (0x714) des NPS. Dieser Filter ermöglicht RADIUS-Authentifizierungs Datenverkehr von NPS zu Internet basierten RADIUS-Clients. Dies ist der Standard-UDP-Port, der von NPS verwendet wird, wie in RFC 2865 definiert. Wenn Sie einen anderen Port verwenden, ersetzen Sie die Portnummer 1812.
 - Quell-IP-Adresse der Umkreis Netzwerkschnittstelle und UDP-Quellport 1813 (0x715) des NPS. Dieser Filter ermöglicht RADIUS-Buchhaltungs Datenverkehr von NPS zu Internet basierten RADIUS-Clients. Dies ist der Standard-UDP-Port, der von NPS verwendet wird, wie in RFC 2866 definiert. Wenn Sie einen anderen Port verwenden, ersetzen Sie die Portnummer 1813.
-- \(optional\) Quell-IP-Adresse der Umkreis Netzwerkschnittstelle und UDP-Quellport 1645 \(0x66D\) des NPS. Dieser Filter ermöglicht RADIUS-Authentifizierungs Datenverkehr von NPS zu Internet basierten RADIUS-Clients. Dies ist der UDP-Port, der von älteren RADIUS-Clients verwendet wird.
-- \(optional\) Quell-IP-Adresse der Umkreis Netzwerkschnittstelle und UDP-Quellport 1646 \(0x66E\) des NPS. Dieser Filter ermöglicht RADIUS-Buchhaltungs Datenverkehr von NPS zu Internet basierten RADIUS-Clients. Dies ist der UDP-Port, der von älteren RADIUS-Clients verwendet wird.
+- \(Optionale \) Quell-IP-Adresse der Umkreis Netzwerkschnittstelle und UDP-Quellport von 1645 \( 0x66D \) des NPS. Dieser Filter ermöglicht RADIUS-Authentifizierungs Datenverkehr von NPS zu Internet basierten RADIUS-Clients. Dies ist der UDP-Port, der von älteren RADIUS-Clients verwendet wird.
+- \(Optionale \) Quell-IP-Adresse der Umkreis Netzwerkschnittstelle und UDP-Quellport von 1646 \( 0x66E \) des NPS. Dieser Filter ermöglicht RADIUS-Buchhaltungs Datenverkehr von NPS zu Internet basierten RADIUS-Clients. Dies ist der UDP-Port, der von älteren RADIUS-Clients verwendet wird.
 
 ### <a name="configure-input-filters-on-the-perimeter-network-interface"></a>Konfigurieren von Eingabe Filtern an der Umkreis Netzwerkschnittstelle
 
@@ -78,8 +76,8 @@ Konfigurieren Sie die folgenden Eingabe Filter für die Umkreis Netzwerkschnitts
 
 - Quell-IP-Adresse der Umkreis Netzwerkschnittstelle und UDP-Quellport 1812 (0x714) des NPS. Dieser Filter ermöglicht RADIUS-Authentifizierungs Datenverkehr von NPS zu Internet basierten RADIUS-Clients. Dies ist der Standard-UDP-Port, der von NPS verwendet wird, wie in RFC 2865 definiert. Wenn Sie einen anderen Port verwenden, ersetzen Sie die Portnummer 1812.
 - Quell-IP-Adresse der Umkreis Netzwerkschnittstelle und UDP-Quellport 1813 (0x715) des NPS. Dieser Filter ermöglicht RADIUS-Buchhaltungs Datenverkehr von NPS zu Internet basierten RADIUS-Clients. Dies ist der Standard-UDP-Port, der von NPS verwendet wird, wie in RFC 2866 definiert. Wenn Sie einen anderen Port verwenden, ersetzen Sie die Portnummer 1813.
-- \(optional\) Quell-IP-Adresse der Umkreis Netzwerkschnittstelle und UDP-Quellport 1645 \(0x66D\) des NPS. Dieser Filter ermöglicht RADIUS-Authentifizierungs Datenverkehr von NPS zu Internet basierten RADIUS-Clients. Dies ist der UDP-Port, der von älteren RADIUS-Clients verwendet wird.
-- \(optional\) Quell-IP-Adresse der Umkreis Netzwerkschnittstelle und UDP-Quellport 1646 \(0x66E\) des NPS. Dieser Filter ermöglicht RADIUS-Buchhaltungs Datenverkehr von NPS zu Internet basierten RADIUS-Clients. Dies ist der UDP-Port, der von älteren RADIUS-Clients verwendet wird.
+- \(Optionale \) Quell-IP-Adresse der Umkreis Netzwerkschnittstelle und UDP-Quellport von 1645 \( 0x66D \) des NPS. Dieser Filter ermöglicht RADIUS-Authentifizierungs Datenverkehr von NPS zu Internet basierten RADIUS-Clients. Dies ist der UDP-Port, der von älteren RADIUS-Clients verwendet wird.
+- \(Optionale \) Quell-IP-Adresse der Umkreis Netzwerkschnittstelle und UDP-Quellport von 1646 \( 0x66E \) des NPS. Dieser Filter ermöglicht RADIUS-Buchhaltungs Datenverkehr von NPS zu Internet basierten RADIUS-Clients. Dies ist der UDP-Port, der von älteren RADIUS-Clients verwendet wird.
 
 ### <a name="configure-output-filters-on-the-perimeter-network-interface"></a>Konfigurieren von Ausgabefiltern an der Umkreis Netzwerkschnittstelle
 
@@ -87,8 +85,8 @@ Konfigurieren Sie die folgenden Ausgabe Paketfilter in der Umkreis Netzwerkschni
 
 - Ziel-IP-Adresse der Umkreis Netzwerkschnittstelle und UDP-Zielport 1812 (0x714) des NPS. Dieser Filter ermöglicht RADIUS-Authentifizierungs Datenverkehr von Internet basierten RADIUS-Clients an den NPS. Dies ist der Standard-UDP-Port, der von NPS verwendet wird, wie in RFC 2865 definiert. Wenn Sie einen anderen Port verwenden, ersetzen Sie die Portnummer 1812.
 - Ziel-IP-Adresse der Umkreis Netzwerkschnittstelle und UDP-Zielport 1813 (0x715) des NPS. Dieser Filter ermöglicht RADIUS-Buchhaltungs Datenverkehr von Internet basierten RADIUS-Clients an den NPS. Dies ist der Standard-UDP-Port, der von NPS verwendet wird, wie in RFC 2866 definiert. Wenn Sie einen anderen Port verwenden, ersetzen Sie die Portnummer 1813.
-- \(optional\) Ziel-IP-Adresse der Umkreis Netzwerkschnittstelle und UDP-Zielport 1645 \(0x66D\) des NPS. Dieser Filter ermöglicht RADIUS-Authentifizierungs Datenverkehr von Internet basierten RADIUS-Clients an den NPS. Dies ist der UDP-Port, der von älteren RADIUS-Clients verwendet wird.
-- \(optional\) Ziel-IP-Adresse der Umkreis Netzwerkschnittstelle und UDP-Zielport 1646 \(0x66E\) des NPS. Dieser Filter ermöglicht RADIUS-Buchhaltungs Datenverkehr von Internet basierten RADIUS-Clients an den NPS. Dies ist der UDP-Port, der von älteren RADIUS-Clients verwendet wird.
+- \(Optionale \) Ziel-IP-Adresse der Umkreis Netzwerkschnittstelle und UDP-Zielport 1645 \( 0x66D \) des NPS. Dieser Filter ermöglicht RADIUS-Authentifizierungs Datenverkehr von Internet basierten RADIUS-Clients an den NPS. Dies ist der UDP-Port, der von älteren RADIUS-Clients verwendet wird.
+- \(Optionale \) Ziel-IP-Adresse der Umkreis Netzwerkschnittstelle und UDP-Zielport von 1646 \( 0x66E \) des NPS. Dieser Filter ermöglicht RADIUS-Buchhaltungs Datenverkehr von Internet basierten RADIUS-Clients an den NPS. Dies ist der UDP-Port, der von älteren RADIUS-Clients verwendet wird.
 
 Zur zusätzlichen Sicherheit können Sie die IP-Adressen der einzelnen RADIUS-Clients, von denen die Pakete über die Firewall gesendet werden, verwenden, um Filter für den Datenverkehr zwischen dem Client und der IP-Adresse des NPS im Umkreis Netzwerk zu definieren.
 

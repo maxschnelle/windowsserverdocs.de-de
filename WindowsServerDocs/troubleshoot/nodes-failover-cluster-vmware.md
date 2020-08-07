@@ -1,17 +1,15 @@
 ---
-title: Knoten aus aktiver failoverclustermitgliedschaft entfernen
+title: Entfernen eines Knotens aus aktiver Failoverclustermitgliedschaft
 description: In diesem Artikel wird das Auffinden von Knoten behandelt, die aus der Mitgliedschaft des aktiven Failoverclusters entfernt wurden
-ms.prod: windows-server
-ms.technology: server-general
 ms.date: 05/28/2020
 author: Deland-Han
 ms.author: delhan
-ms.openlocfilehash: 6613bf09c3588637cfe03cb7647e4fed358b760c
-ms.sourcegitcommit: ef089864980a1d4793a35cbf4cbdd02ce1962054
+ms.openlocfilehash: da46b39f853476676a06bcaaa20338dd1a178586
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84150328"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87935570"
 ---
 # <a name="nodes-being-removed-from-failover-cluster-membership-on-vmware-esx"></a>Knoten, die aus der failoverclustermitgliedschaft in VMware ESX entfernt werden
 

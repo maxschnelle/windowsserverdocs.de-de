@@ -2,26 +2,24 @@
 title: Planen eines NPS als RADIUS-Server
 description: Dieses Thema enthält Informationen zur Planung der RADIUS-Server Bereitstellung für den Netzwerk Richtlinien Server in Windows Server 2016.
 manager: brianlic
-ms.prod: windows-server
-ms.technology: networking
 ms.topic: article
 ms.assetid: 2900dd2c-0f70-4f8d-9650-ed83d51d509a
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 0e012746841bcf736b7698afb5d7c807194bbec0
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 73e85d9582e447466115ce30047a3968a8f457d8
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80315732"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87952005"
 ---
 # <a name="plan-nps-as-a-radius-server"></a>Planen eines NPS als RADIUS-Server
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Wenn Sie den Netzwerk Richtlinien Server \(NPS-\) als RADIUS-Server (Remote Authentication Dial-in User Service) bereitstellen, führt NPS Authentifizierung, Autorisierung und Kontoführung für Verbindungsanforderungen für die lokale Domäne und Domänen aus, die der lokalen Domäne vertrauen. Sie können diese Planungsrichtlinien verwenden, um die RADIUS-Bereitstellung zu vereinfachen.
+Wenn Sie den Netzwerk Richtlinien Server \( NPS \) als RADIUS-Server (Remote Authentication Dial-in User Service) bereitstellen, führt NPS Authentifizierung, Autorisierung und Kontoführung für Verbindungsanforderungen für die lokale Domäne und Domänen aus, die der lokalen Domäne vertrauen. Sie können diese Planungsrichtlinien verwenden, um die RADIUS-Bereitstellung zu vereinfachen.
 
-Diese Planungsrichtlinien enthalten keine Umstände, in denen Sie NPS als RADIUS-Proxy bereitstellen möchten. Wenn Sie NPS als RADIUS-Proxy bereitstellen, leitet NPS Verbindungsanforderungen an einen Server weiter, auf dem NPS oder andere RADIUS-Server in Remote Domänen, nicht vertrauenswürdigen Domänen oder beides ausgeführt werden. 
+Diese Planungsrichtlinien enthalten keine Umstände, in denen Sie NPS als RADIUS-Proxy bereitstellen möchten. Wenn Sie NPS als RADIUS-Proxy bereitstellen, leitet NPS Verbindungsanforderungen an einen Server weiter, auf dem NPS oder andere RADIUS-Server in Remote Domänen, nicht vertrauenswürdigen Domänen oder beides ausgeführt werden.
 
 Bevor Sie NPS als RADIUS-Server in Ihrem Netzwerk bereitstellen, verwenden Sie die folgenden Richtlinien, um die Bereitstellung zu planen.
 
@@ -62,7 +60,7 @@ RADIUS-Clients sind Netzwerk Zugriffs Server, z. b. drahtlos Zugriffspunkte, VPN
 >[!IMPORTANT]
 >Zugriffs Clients, z. b. Client Computer, sind keine RADIUS-Clients. Nur Netzwerk Zugriffs Server und Proxy Server, die das RADIUS-Protokoll unterstützen, sind RADIUS-Clients.
 
-Außerdem müssen sowohl drahtlos Zugriffspunkte als auch Switches in der 802.1 x-Authentifizierung aktiviert sein. Wenn Sie das Extensible Authentication-Protokoll \(EAP-\) oder das geschützte Extensible Authentication Protocol \(PEAP-\)bereitstellen möchten, müssen Zugriffspunkte und Switches die Verwendung von EAP unterstützen.
+Außerdem müssen sowohl drahtlos Zugriffspunkte als auch Switches in der 802.1 x-Authentifizierung aktiviert sein. Wenn Sie das Extensible Authentication-Protokoll \( EAP \) oder das PEAP-Protokoll des geschützten Extensible Authentication-Protokolls bereitstellen möchten \( \) , müssen Zugriffspunkte und Switches die Verwendung von EAP unterstützen.
 
 Zum Testen der grundlegenden Interoperabilität für PPP-Verbindungen für drahtlos Zugriffspunkte konfigurieren Sie den Zugriffspunkt und den Zugriffs Client für die Verwendung des Kennwort-Authentifizierungs Protokolls (PAP). Verwenden Sie zusätzliche PPP-basierte Authentifizierungsprotokolle, wie z. b. "Peer-AP", bis Sie die Tests getestet haben, die Sie für den Netzwerk Zugriff verwenden möchten.
 
@@ -70,7 +68,7 @@ Zum Testen der grundlegenden Interoperabilität für PPP-Verbindungen für draht
 
 Bei der Planung für RADIUS-Clients können Sie die folgenden Schritte ausführen.
 
-- Dokumentieren Sie die herstellerspezifischen Attribute (VSAs), die Sie in NPS konfigurieren müssen. Wenn Ihre Netzwerk Zugriffs Server VSAs erfordern, protokollieren Sie die VSA-Informationen zur späteren Verwendung, wenn Sie Ihre Netzwerk Richtlinien in NPS konfigurieren. 
+- Dokumentieren Sie die herstellerspezifischen Attribute (VSAs), die Sie in NPS konfigurieren müssen. Wenn Ihre Netzwerk Zugriffs Server VSAs erfordern, protokollieren Sie die VSA-Informationen zur späteren Verwendung, wenn Sie Ihre Netzwerk Richtlinien in NPS konfigurieren.
 
 - Dokumentieren Sie die IP-Adressen von RADIUS-Clients und ihrer NPS, um die Konfiguration aller Geräte zu vereinfachen. Beim Bereitstellen der RADIUS-Clients müssen Sie diese so konfigurieren, dass Sie das RADIUS-Protokoll verwenden. dabei wird die NPS-IP-Adresse als authentifizierende Server eingegeben. Wenn Sie NPS für die Kommunikation mit ihren RADIUS-Clients konfigurieren, müssen Sie die RADIUS-Client-IP-Adressen in das NPS-Snap-in eingeben.
 
@@ -80,7 +78,7 @@ Bei der Planung für RADIUS-Clients können Sie die folgenden Schritte ausführe
 
 NPS unterstützt sowohl Kenn Wort basierte als auch Zertifikat basierte Authentifizierungsmethoden. Allerdings unterstützen nicht alle Netzwerk Zugriffs Server die gleichen Authentifizierungsmethoden. In einigen Fällen möchten Sie möglicherweise eine andere Authentifizierungsmethode basierend auf dem Netzwerk Zugriffstyp bereitstellen.
 
-Beispielsweise können Sie drahtlos-und VPN-Zugriff für Ihre Organisation bereitstellen, aber eine andere Authentifizierungsmethode für jeden Zugriffstyp verwenden: EAP-TLS für VPN-Verbindungen, aufgrund der starken Sicherheit von EAP mit Transport Layer Security (EAP-TLS). bietet und PEAP-MS-CHAP v2 für drahtlose 802.1 x-Verbindungen.
+Beispielsweise möchten Sie möglicherweise sowohl drahtlosen als auch VPN-Zugriff für Ihre Organisation bereitstellen, aber eine andere Authentifizierungsmethode für jeden Zugriffstyp verwenden: EAP-TLS für VPN-Verbindungen, aufgrund der starken Sicherheit, die von EAP mit Transport Layer Security (EAP-TLS) bereitgestellt wird, und PEAP-MS-CHAP v2 für drahtlose 802.1 x-Verbindungen.
 
 Mit dem Microsoft Challenge Handshake Authentication-Protokollversion 2 (Peer Version 2, PAP-MS-CHAP v2) ist eine Funktion mit dem Namen fast Connect Connect verfügbar, die speziell für die Verwendung mit tragbaren Computern und anderen drahtlos Geräten konzipiert ist. Die schnelle Wiederherstellung der Verbindung ermöglicht drahtlosen Clients das Wechseln zwischen drahtlosen Zugriffs Punkten im gleichen Netzwerk, ohne dass Sie jedes Mal erneut authentifiziert werden, wenn Sie mit einem neuen Zugriffspunkt verknüpft werden. Dies bietet eine bessere Benutzerfunktion für drahtlose Benutzer und ermöglicht das Wechseln zwischen Zugriffs Punkten, ohne Ihre Anmelde Informationen erneut eingeben zu müssen.
 Aufgrund der schnellen Wiederherstellung der Verbindung und der von PEAP-MS-CHAP v2 bereitgestellten Sicherheit ist PEAP-MS-CHAP v2 eine logische Wahl als Authentifizierungsmethode für drahtlose Verbindungen.
@@ -97,7 +95,7 @@ PEAP-MS-CHAP v2 und EAP-TLS sind Zertifikat basierte Authentifizierungsmethoden,
 
 EAP-TLS verwendet Zertifikate für die Client-und Server Authentifizierung und erfordert, dass Sie eine Public Key-Infrastruktur (PKI) in Ihrer Organisation bereitstellen. Das Bereitstellen einer PKI kann komplex sein und erfordert eine Planungsphase, die unabhängig von der Planung der Verwendung von NPS als RADIUS-Server ist.
 
-Mit EAP-TLS registriert NPS ein Serverzertifikat von einer Zertifizierungsstelle \(ca\), und das Zertifikat wird auf dem lokalen Computer im Zertifikat Speicher gespeichert. Während des Authentifizierungs Vorgangs erfolgt die Server Authentifizierung, wenn das NPS sein Serverzertifikat an den Zugriffs Client sendet, um dessen Identität für den Zugriffs Client zu beweisen. Der Zugriffs Client prüft verschiedene Zertifikat Eigenschaften, um zu bestimmen, ob das Zertifikat gültig ist und für die Verwendung bei der Server Authentifizierung geeignet ist. Wenn das Serverzertifikat die Mindestanforderungen an das Serverzertifikat erfüllt und von einer Zertifizierungsstelle ausgestellt wird, der der Zugriffs Client vertraut, wird der NPS vom Client erfolgreich authentifiziert.
+Mit EAP-TLS registriert NPS ein Serverzertifikat von einer Zertifizierungsstellen-Zertifizierungsstelle \( \) , und das Zertifikat wird auf dem lokalen Computer im Zertifikat Speicher gespeichert. Während des Authentifizierungs Vorgangs erfolgt die Server Authentifizierung, wenn das NPS sein Serverzertifikat an den Zugriffs Client sendet, um dessen Identität für den Zugriffs Client zu beweisen. Der Zugriffs Client prüft verschiedene Zertifikat Eigenschaften, um zu bestimmen, ob das Zertifikat gültig ist und für die Verwendung bei der Server Authentifizierung geeignet ist. Wenn das Serverzertifikat die Mindestanforderungen an das Serverzertifikat erfüllt und von einer Zertifizierungsstelle ausgestellt wird, der der Zugriffs Client vertraut, wird der NPS vom Client erfolgreich authentifiziert.
 
 Auf ähnliche Weise erfolgt die Client Authentifizierung während des Authentifizierungsprozesses, wenn der Client das Client Zertifikat an den NPS sendet, um seine Identität für den NPS zu belegen. Das Zertifikat wird von NPS überprüft, und wenn das Client Zertifikat die Mindestanforderungen für das Client Zertifikat erfüllt und von einer Zertifizierungsstelle ausgestellt wird, der das NPS vertraut, wird der Zugriffs Client vom NPS erfolgreich authentifiziert.
 
@@ -157,9 +155,9 @@ Bei der Planung von Netzwerk Richtlinien können Sie die folgenden Schritte ausf
 
 ## <a name="plan-nps-accounting"></a>Planen der NPS-Kontoführung
 
-NPS bietet die Möglichkeit zum Protokollieren von RADIUS-Buchhaltungsdaten, wie z. b. Benutzerauthentifizierung und Buchhaltungs Anforderungen, in drei Formaten: IAS-Format, Daten Bank kompatibles Format und Microsoft SQL Server Protokollierung. 
+NPS bietet die Möglichkeit zum Protokollieren von RADIUS-Buchhaltungsdaten, wie z. b. Benutzerauthentifizierung und Buchhaltungs Anforderungen, in drei Formaten: IAS-Format, Daten Bank kompatibles Format und Microsoft SQL Server Protokollierung.
 
-IAS-Format und Daten Bank kompatibles Format erstellen Sie Protokolldateien auf dem lokalen NPS im Text Dateiformat. 
+IAS-Format und Daten Bank kompatibles Format erstellen Sie Protokolldateien auf dem lokalen NPS im Text Dateiformat.
 
 SQL Server Protokollierung bietet die Möglichkeit, sich in einer SQL Server 2000-oder SQL Server 2005-XML-kompatiblen Datenbank zu protokollieren. Dies erweitert die RADIUS-Kontoführung, um die Vorteile der Protokollierung in einer relationalen Datenbank
 
@@ -171,7 +169,7 @@ Bei der Planung der NPS-Buchhaltung können Sie die folgenden Schritte ausführe
 
 ### <a name="nps-accounting-using-local-log-files"></a>NPS-Kontoführung mit lokalen Protokolldateien
 
-Das Aufzeichnen von Benutzerauthentifizierungs-und Buchhaltungs Anforderungen in Protokolldateien wird hauptsächlich für Verbindungs Analyse und Abrechnungszwecke verwendet und ist auch als Sicherheitsuntersuchung nützlich und bietet eine Methode zum Nachverfolgen der Aktivität eines böswilligen Benutzers nach einem infar.
+Das Aufzeichnen von Benutzer Authentifizierungs-und Kontoführungs Anforderungen in Protokolldateien wird hauptsächlich für Verbindungs Analyse und Abrechnungszwecke verwendet und ist auch als Sicherheitsuntersuchung nützlich und bietet eine Methode zum Nachverfolgen der Aktivität eines böswilligen Benutzers nach einem Angriff.
 
 ### <a name="key-steps"></a>Wichtige Schritte
 
@@ -195,9 +193,9 @@ Bei der Planung der NPS-Kontoführung mithilfe lokaler Protokolldateien können 
 
 Die NPS-SQL Server Protokollierung wird verwendet, wenn Sie Sitzungs Zustandsinformationen, für die Erstellung von Berichten und zur Datenanalyse benötigen, und um die Verwaltung Ihrer Buchhaltungsdaten zu zentralisieren und zu vereinfachen.
 
-NPS bietet die Möglichkeit, SQL Server Protokollierung zum Aufzeichnen von Authentifizierungs-und Buchhaltungs Anforderungen von einem oder mehreren Netzwerk Zugriffs Servern an eine Datenquelle auf einem Computer zu verwenden, auf dem das Microsoft SQL Server Desktop-Engine \(MSDE 2000\)oder eine beliebige Version von SQL Server als SQL Server 2000 ausgeführt wird.
+NPS bietet die Möglichkeit, SQL Server Protokollierung zum Aufzeichnen von Authentifizierungs-und Buchhaltungs Anforderungen von einem oder mehreren Netzwerk Zugriffs Servern an eine Datenquelle auf einem Computer zu verwenden, auf dem das Microsoft SQL Server Desktop-Engine \( MSDE 2000 \) oder eine beliebige Version von SQL Server höher als SQL Server 2000 ausgeführt wird.
 
-Kontoführungs Daten werden vom NPS im XML-Format an eine gespeicherte Prozedur in der-Datenbank übermittelt, die sowohl strukturierte Abfragesprache \(SQL\) als auch XML \(SQLXML-\)unterstützt. Durch das Aufzeichnen von Benutzer Authentifizierungs-und Buchhaltungs Anforderungen in einer XML-kompatiblen SQL Server-Datenbank können mehrere NPSS über eine Datenquelle verfügen.
+Buchhaltungsdaten werden vom NPS im XML-Format an eine gespeicherte Prozedur in der-Datenbank übermittelt, die sowohl die strukturierte Abfragesprache \( SQL \) als auch XML \( SQLXML unterstützt \) . Durch das Aufzeichnen von Benutzer Authentifizierungs-und Buchhaltungs Anforderungen in einer XML-kompatiblen SQL Server-Datenbank können mehrere NPSS über eine Datenquelle verfügen.
 
 ### <a name="key-steps"></a>Wichtige Schritte
 

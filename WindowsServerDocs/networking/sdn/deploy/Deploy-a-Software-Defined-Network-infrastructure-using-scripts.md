@@ -1,20 +1,18 @@
 ---
 title: Bereitstellen einer Software definierten Netzwerkinfrastruktur mithilfe von Skripts
-description: In diesem Thema wird beschrieben, wie Sie eine Microsoft-Sdn-Infrastruktur (Software Defined Network) mithilfe von Skripts in Windows Server 2016 bereitstellen. '
+description: In diesem Thema wird beschrieben, wie Sie eine Microsoft-Sdn-Infrastruktur (Software Defined Network) mithilfe von Skripts in Windows Server 2016 bereitstellen.
 manager: grcusanz
-ms.prod: windows-server
-ms.technology: networking-sdn
 ms.topic: get-started-article
 ms.assetid: 5ba5bb37-ece0-45cb-971b-f7149f658d19
 ms.author: anpaul
 author: AnirbanPaul
 ms.date: 08/23/2018
-ms.openlocfilehash: 22cb35f2cc39b997fef7b26a8a8db08a4c2c5698
-ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
+ms.openlocfilehash: e671421225e9fa2d5e7461c795a9f7c9789efd88
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87517935"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87970817"
 ---
 # <a name="deploy-a-software-defined-network-infrastructure-using-scripts"></a>Bereitstellen einer Software-Defined Networking-Infrastruktur mithilfe von Skripts
 
@@ -89,7 +87,7 @@ Beginnen Sie, indem Sie den virtuellen Hyper-v-Switch und die IP-Adresszuweisung
    e. Geben Sie bei entsprechender Aufforderung den Benutzernamen und das Kennwort ein.
    f. Starten Sie den Server neu.
 
-### <a name="validation"></a>Validierung
+### <a name="validation"></a>Überprüfung
 Mithilfe der folgenden Schritte können Sie überprüfen, ob das Host Netzwerk ordnungsgemäß eingerichtet ist.
 
 1. Stellen Sie sicher, dass der virtuelle Computer erfolgreich erstellt wurde:
@@ -169,7 +167,7 @@ Wenn Sie nano als Hyper-V-Hosts (physische Server) für die Bereitstellung verwe
 
     ``SDNExpress\scripts\SDNExpressUndo.ps1 -ConfigurationDataFile FabricConfig.psd1 -Verbose``
 
-#### <a name="validation"></a>Validierung
+#### <a name="validation"></a>Überprüfung
 
 Vorausgesetzt, dass das Sdn Express-Skript bis zum Abschluss ausgeführt wurde, ohne Fehler zu melden, können Sie den folgenden Schritt ausführen, um sicherzustellen, dass die fabricressourcen ordnungsgemäß bereitgestellt und für die Mandanten Bereitstellung
 
@@ -184,15 +182,15 @@ Nachdem nun Fabric-Ressourcen bereitgestellt wurden, können Sie die End-to-End-
 
 1.  Passen Sie die Datei SDNExpress\scripts\TenantConfig.psd1 an, indem Sie die **<< ersetzen >>** Tags durch bestimmte Werte (z. b. VHD-Abbild Name, Netzwerk Controller-Rest-Name, vswitchname usw.) ändern, wie zuvor in der FabricConfig.psd1-Datei definiert).
 
-2.  Führen Sie das Skript aus. Beispiel:
+2.  Führen Sie das Skript aus. Zum Beispiel:
 
     ``SDNExpress\scripts\SDNExpressTenant.ps1 -ConfigurationDataFile TenantConfig.psd1 -Verbose``
 
-3.  Um die Konfiguration rückgängig zu machen, führen Sie das gleiche Skript mit dem Parameter **Rückgängig** aus. Beispiel:
+3.  Um die Konfiguration rückgängig zu machen, führen Sie das gleiche Skript mit dem Parameter **Rückgängig** aus. Zum Beispiel:
 
     ``SDNExpress\scripts\SDNExpressTenant.ps1 -Undo -ConfigurationDataFile TenantConfig.psd1 -Verbose``
 
-#### <a name="validation"></a>Validierung
+#### <a name="validation"></a>Überprüfung
 
 Gehen Sie folgendermaßen vor, um zu überprüfen, ob die Mandanten Bereitstellung erfolgreich war:
 

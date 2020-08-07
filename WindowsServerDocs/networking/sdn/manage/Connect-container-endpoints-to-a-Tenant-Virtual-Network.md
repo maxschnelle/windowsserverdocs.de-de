@@ -2,31 +2,29 @@
 title: Verbinden von Containerendpunkten mit einem virtuellen Mandantennetzwerk
 description: In diesem Thema erfahren Sie, wie Sie Container Endpunkte mit einem vorhandenen virtuellen Mandanten Netzwerk verbinden, das über Sdn erstellt wurde. Sie verwenden den Netzwerktreiber l2bridge (und optional l2tunnel), der mit dem Windows libnetwork-Plug-in für docker verfügbar ist, um ein Container Netzwerk auf der Mandanten-VM zu erstellen.
 manager: grcusanz
-ms.prod: windows-server
-ms.technology: networking-sdn
 ms.topic: article
 ms.assetid: f7af1eb6-d035-4f74-a25b-d4b7e4ea9329
 ms.author: anpaul
 author: AnirbanPaul
 ms.date: 08/24/2018
-ms.openlocfilehash: 2b8927ec260b4f5a42aa59a25db1b18896ce91ef
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: fd05441ecc64c05778234dc00fa315bb406dfb40
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80854533"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87970807"
 ---
 # <a name="connect-container-endpoints-to-a-tenant-virtual-network"></a>Verbinden von Containerendpunkten mit einem virtuellen Mandantennetzwerk
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 In diesem Thema erfahren Sie, wie Sie Container Endpunkte mit einem vorhandenen virtuellen Mandanten Netzwerk verbinden, das über Sdn erstellt wurde. Sie verwenden den Netzwerktreiber *l2bridge* (und optional *l2tunnel*), der mit dem Windows libnetwork-Plug-in für docker verfügbar ist, um ein Container Netzwerk auf der Mandanten-VM zu erstellen.
 
-Im Thema [Container Netzwerktreiber](https://docs.microsoft.com/virtualization/windowscontainers/container-networking/network-drivers-topologies) wurden die verschiedenen Netzwerktreiber erläutert, die über docker unter Windows verfügbar sind. Verwenden Sie für Sdn die Treiber *l2bridge* und *l2tunnel* . Für beide Treiber befindet sich jeder Container Endpunkt im gleichen virtuellen Subnetz wie der virtuelle Computer des Container Hosts (Mandant). 
+Im Thema [Container Netzwerktreiber](https://docs.microsoft.com/virtualization/windowscontainers/container-networking/network-drivers-topologies) wurden die verschiedenen Netzwerktreiber erläutert, die über docker unter Windows verfügbar sind. Verwenden Sie für Sdn die Treiber *l2bridge* und *l2tunnel* . Für beide Treiber befindet sich jeder Container Endpunkt im gleichen virtuellen Subnetz wie der virtuelle Computer des Container Hosts (Mandant).
 
-Mit dem Host Netzwerkdienst (HNS) über das Private Cloud-Plug-in werden die IP-Adressen für Container Endpunkte dynamisch zugewiesen. Die Container Endpunkte verfügen über eindeutige IP-Adressen, verwenden jedoch die gleiche Mac-Adresse des virtuellen Computers des Container Hosts (Mandant) aufgrund der Layer-2-Adressübersetzung. 
+Mit dem Host Netzwerkdienst (HNS) über das Private Cloud-Plug-in werden die IP-Adressen für Container Endpunkte dynamisch zugewiesen. Die Container Endpunkte verfügen über eindeutige IP-Adressen, verwenden jedoch die gleiche Mac-Adresse des virtuellen Computers des Container Hosts (Mandant) aufgrund der Layer-2-Adressübersetzung.
 
-Netzwerk Richtlinien (ACLs, Kapselung und QoS) für diese Container Endpunkte werden auf dem physischen Hyper-V-Host erzwungen, wie er vom Netzwerk Controller empfangen und in Verwaltungssystemen auf der obersten Ebene definiert wurde. 
+Netzwerk Richtlinien (ACLs, Kapselung und QoS) für diese Container Endpunkte werden auf dem physischen Hyper-V-Host erzwungen, wie er vom Netzwerk Controller empfangen und in Verwaltungssystemen auf der obersten Ebene definiert wurde.
 
 Der Unterschied zwischen den *l2bridge* -und *l2tunnel* -Treibern lautet wie folgt:
 
@@ -41,26 +39,26 @@ Der Unterschied zwischen den *l2bridge* -und *l2tunnel* -Treibern lautet wie fol
 >Diese Netzwerk Modi können nicht zum Verbinden von Windows-Container Endpunkten mit einem virtuellen Mandanten Netzwerk in Azure Public Cloud verwendet werden.
 
 
-## <a name="prerequisites"></a>Erforderliche Komponenten
+## <a name="prerequisites"></a>Voraussetzungen
 -  Eine bereitgestellte Sdn-Infrastruktur mit dem Netzwerk Controller.
 -  Ein virtuelles Mandanten Netzwerk wurde erstellt.
 -  Ein bereitgestellter virtueller Computer für einen Mandanten mit aktiviertem Windows-Container Feature, installiertem docker und aktiviertem Hyper-V-Feature. Das Hyper-V-Feature ist erforderlich, um mehrere Binärdateien für l2bridge-und l2tunnel-Netzwerke zu installieren.
 
    ```powershell
    # To install HyperV feature without checks for nested virtualization
-   dism /Online /Enable-Feature /FeatureName:Microsoft-Hyper-V /All 
+   dism /Online /Enable-Feature /FeatureName:Microsoft-Hyper-V /All
    ```
 
 >[!Note]
->Die [Genetzte Virtualisierung](https://msdn.microsoft.com/virtualization/hyperv_on_windows/user_guide/nesting) und das verfügbar machen von Virtualisierungserweiterungen ist nur erforderlich, wenn Hyper-V-Container verwendet werden 
+>Die [Genetzte Virtualisierung](https://msdn.microsoft.com/virtualization/hyperv_on_windows/user_guide/nesting) und das verfügbar machen von Virtualisierungserweiterungen ist nur erforderlich, wenn Hyper-V-Container verwendet werden
 
 
 ## <a name="workflow"></a>Workflow
 
-[1. Fügen Sie mithilfe des Netzwerk Controllers (Hyper-V-Host)
-2 mehrere IP-Konfigurationen zu einer vorhandenen VM-NIC-Ressource hinzu](#1-add-multiple-ip-configurations) . [ Aktivieren Sie den Netzwerk Proxy auf dem Host, um ca-IP-Adressen für Container Endpunkte (Hyper-V-Host)](#2-enable-the-network-proxy)
-[3 zuzuordnen. Installieren Sie das Private Cloud-Plug-in, um den Container Endpunkten (Container Host-VM)
-4 Zertifizierungsstellen-IP-Adressen zuzuweisen](#3-install-the-private-cloud-plug-in) [. Erstellen eines *l2bridge* -oder *l2tunnel* -Netzwerks mithilfe von docker (Container Host-VM)](#4-create-an-l2bridge-container-network)
+[1. Fügen Sie mithilfe des Netzwerk Controllers (Hyper-V-Host) 2 mehrere IP-Konfigurationen zu einer vorhandenen VM-NIC-Ressource hinzu](#1-add-multiple-ip-configurations). 
+ [ Aktivieren Sie den Netzwerk Proxy auf dem Host, um ca-IP-Adressen für Container Endpunkte (Hyper-V-Host)](#2-enable-the-network-proxy) 
+ [3 zuzuordnen. Installieren Sie das Private Cloud-Plug-in, um den Container Endpunkten (Container Host-VM) 4 Zertifizierungsstellen-IP-Adressen zuzuweisen](#3-install-the-private-cloud-plug-in) 
+ [. Erstellen eines *l2bridge* -oder *l2tunnel* -Netzwerks mithilfe von docker (Container Host-VM)](#4-create-an-l2bridge-container-network)
 
 >[!NOTE]
 >Mehrere IP-Konfigurationen werden für VM-NIC-Ressourcen nicht unterstützt, die über System Center Virtual Machine Manager erstellt wurden Für diese Bereitstellungs Typen wird empfohlen, dass Sie die VM-NIC-Ressource mithilfe der Netzwerk Controller-PowerShell out-of-Band erstellen.
@@ -89,7 +87,7 @@ foreach ($i in 1..10)
     $props = new-object Microsoft.Windows.NetworkController.NetworkInterfaceIpConfigurationProperties
 
     $resourceid = "IP_192_168_1_1"
-    if ($i -eq 10) 
+    if ($i -eq 10)
     {
         $resourceid += "10"
         $ipstr = "192.168.1.110"
@@ -101,7 +99,7 @@ foreach ($i in 1..10)
     }
 
     $newipconfig.ResourceId = $resourceid
-    $props.PrivateIPAddress = $ipstr    
+    $props.PrivateIPAddress = $ipstr
 
     $props.PrivateIPAllocationMethod = "Static"
     $props.Subnet = new-object Microsoft.Windows.NetworkController.Subnet
@@ -117,9 +115,9 @@ New-NetworkControllerNetworkInterface -ResourceId $vmnic.ResourceId -Properties 
 ```
 
 ### <a name="2-enable-the-network-proxy"></a>2. Aktivieren des Netzwerk Proxys
-In diesem Schritt aktivieren Sie den Netzwerk Proxy, um mehrere IP-Adressen für den virtuellen Container Host Computer zuzuweisen. 
+In diesem Schritt aktivieren Sie den Netzwerk Proxy, um mehrere IP-Adressen für den virtuellen Container Host Computer zuzuweisen.
 
-Um den Netzwerk Proxy zu aktivieren, führen Sie das Skript " [konfigurierten](https://github.com/Microsoft/SDN/blob/master/Containers/ConfigureMCNP.ps1) Skript" auf dem **Hyper-V-Host** aus, auf dem der virtuelle Computer des Container Hosts (Mandant) gehostet wird.
+Um den Netzwerk Proxy zu aktivieren, führen Sie das [ConfigureMCNP.ps1](https://github.com/Microsoft/SDN/blob/master/Containers/ConfigureMCNP.ps1) Skript auf dem **Hyper-V-Host** aus, der den virtuellen Computer des Container Hosts (Mandant) hostet.
 
 ```powershell
 PS C:\> ConfigureMCNP.ps1
@@ -128,7 +126,7 @@ PS C:\> ConfigureMCNP.ps1
 ### <a name="3-install-the-private-cloud-plug-in"></a>3. Installieren Sie das Private Cloud-Plug-in.
 In diesem Schritt installieren Sie ein Plug-in, um dem HNS die Kommunikation mit dem Netzwerk Proxy auf dem Hyper-V-Host zu ermöglichen.
 
-Um das Plug-in zu installieren, führen Sie das Skript " [installprivatecloudplugin. ps1](https://github.com/Microsoft/SDN/blob/master/Containers/InstallPrivateCloudPlugin.ps1) " auf dem **virtuellen Computer des Container Hosts (Mandant)** aus.
+Um das Plug-in zu installieren, führen Sie das [InstallPrivateCloudPlugin.ps1](https://github.com/Microsoft/SDN/blob/master/Containers/InstallPrivateCloudPlugin.ps1) Skript auf dem **virtuellen Computer des Container Hosts (Mandant)** aus.
 
 
 ```powershell
@@ -136,13 +134,13 @@ PS C:\> InstallPrivateCloudPlugin.ps1
 ```
 
 ### <a name="4-create-an-l2bridge-container-network"></a>4. Erstellen eines *l2bridge* -Container Netzwerks
-In diesem Schritt verwenden Sie den Befehl `docker network create` auf dem **virtuellen Computer des Container Hosts (Tenant)** , um ein l2bridge-Netzwerk zu erstellen. 
+In diesem Schritt verwenden Sie den `docker network create` Befehl auf dem **virtuellen Computer des Container Hosts (Tenant)** , um ein l2bridge-Netzwerk zu erstellen.
 
 ```powershell
 # Create the container network
 C:\> docker network create -d l2bridge --subnet="192.168.1.0/24" --gateway="192.168.1.1" MyContainerOverlayNetwork
 
-# Attach a container to the MyContainerOverlayNetwork 
+# Attach a container to the MyContainerOverlayNetwork
 C:\> docker run -it --network=MyContainerOverlayNetwork <image> <cmd>
 ```
 

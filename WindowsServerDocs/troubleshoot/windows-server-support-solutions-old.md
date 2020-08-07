@@ -1,61 +1,59 @@
 ---
-title: Die wichtigsten Supportlösungen für Windows Server
-description: Links zu Lösungen für Probleme mit Windows Server
-ms.prod: windows-server
+title: Top-Supportlösungen für Windows Server
+description: Hier finden Sie Links zu Lösungen für Windows Server-Probleme.
 manager: alant
-ms.technology: server-general
 ms.date: 03/16/2018
 ms.topic: article
 author: kaushika-msft
 ms.author: elizapo
-ms.openlocfilehash: 6bd0d22c7df7344e6c4bfbf8360532ab0f36d117
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 6e76c54f0adf97e506dc7ce77ca103ba70d9c5c1
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80820753"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87935544"
 ---
-# <a name="top-support-solutions-for-windows-server-2016"></a>Die wichtigsten Supportlösungen für Windows Server 2016
+# <a name="top-support-solutions-for-windows-server-2016"></a>Top Support Solutions for Windows Server 2016
 
-Microsoft veröffentlicht regelmäßig Updates und Lösungen für Windows Server. Um sicherzustellen, dass Ihre Server zukünftige Updates einschließlich der Sicherheitsupdates erhalten können, ist es wichtig, sie auf dem neuesten Stand zu halten. Eine komplette Liste der veröffentlichten Updates finden Sie unter [Updateverlauf für Windows 10 und Windows Server 2016](https://support.microsoft.com/help/4000825/windows-10-windows-server-2016-update-history).
+Microsoft veröffentlicht regelmäßig Updates und Lösungen für Windows Server. Um sicherzustellen, dass Ihre Server zukünftige Updates empfangen können (einschließlich Sicherheitsupdates), ist es wichtig, dass die Server aktualisiert werden. Eine komplette Liste der veröffentlichten Updates finden Sie im [Windows 10-und Windows Server 2016-Update Verlauf](https://support.microsoft.com/help/4000825/windows-10-windows-server-2016-update-history) .
 
-Hierbei handelt es sich um die wichtigsten Microsoft-Support-Lösungen für häufige Probleme mit Windows Server 2016. Die unten angegebenen Links enthalten Links zu KB-Artikel, Updates und Bibliotheksartikeln.
+Dies sind die wichtigsten Microsoft-Support Lösungen für die häufigsten Probleme, die bei der Verwendung von Windows Server 2016 auftreten. Die folgenden Links enthalten Links zu KB-Artikeln, Updates und Bibliotheks Artikeln.
 
 >[!TIP]
 > Suchen Sie nach Informationen zu älteren Versionen von Windows Server? Sehen Sie sich unsere [Windows Server-Bibliotheken](/previous-versions/windows/) auf „docs.microsoft.com“ an. Sie können auch nach bestimmten Informationen [auf dieser Website suchen](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions).
 
-## <a name="solutions-for-installing-or-upgrading-windows-server"></a>Lösungen für die Installation oder das Upgrade von Windows Server
+## <a name="solutions-for-installing-or-upgrading-windows-server"></a>Lösungen zum Installieren oder Aktualisieren von Windows Server
 
 - [Auflösen von Windows 10-upgradefehlern: technische Informationen für IT-Experten](https://docs.microsoft.com/windows/deployment/upgrade/resolve-windows-10-upgrade-errors)
 - [Wartungs Stapel Update für Windows 10, Version 1607 und Windows Server 2016:8. August 2017](https://support.microsoft.com/help/4035631)
 - [Kompatibilitäts Update für das Upgrade auf Windows 10, Version 1607 und Windows Server 2016:3. August 2017](https://support.microsoft.com/help/4033524)
 - [Ein direktes System Upgrade wird auf Windows-basierten Azure-VMS nicht unterstützt.](https://support.microsoft.com/help/4014997)
-- [Upgrade-und Konvertierungsoptionen für Windows Server 2016](../get-started/supported-upgrade-paths.md)
-- [Server Rollen Upgrade und Migrations Matrix für Windows Server 2016](../get-started/server-role-upgradeability-table.md)
+- [Upgrade- und Konvertierungsoptionen für Windows Server 2016](../get-started/supported-upgrade-paths.md)
+- [Serverrollenupgrade und Migrationsmatrix für Windows Server 2016](../get-started/server-role-upgradeability-table.md)
 - [Windows Server-Installation und-Upgrade](../get-started/installation-and-upgrade.md)
-- [Anmerkungen zu dieser Version: wichtige Probleme in Windows Server 2016](../get-started/windows-server-2016-ga-release-notes.md)
+- [Versionshinweise: Wichtige Probleme in Windows Server 2016](../get-started/windows-server-2016-ga-release-notes.md)
 - [Empfehlungen für die Umstellung auf Windows Server 2016](../get-started/recommendations-moving-to-server2016.md)
 
-## <a name="solutions-for-volume-activation"></a>Lösungen zur Volumenaktivierung
+## <a name="solutions-for-volume-activation"></a>Lösungen für die Volumen Aktivierung
 - [Windows Server 2016-Aktivierung](../get-started/server-2016-activation.md)
-- [Aktivierungsmethoden überprüfen und auswählen](https://technet.microsoft.com/library/jj134256(ws.11).aspx)
-- [Aktivierungs Fehler Codes für die Volumen Aktivierung](https://technet.microsoft.com/library/dn502528.aspx)
+- [Überprüfen und Auswählen von Aktivierungsmethoden](https://technet.microsoft.com/library/jj134256(ws.11).aspx)
+- [Aktivierungsfehlercodes für die Volumenaktivierung](https://technet.microsoft.com/library/dn502528.aspx)
 - [Behandeln von Problemen mit dem Schlüssel Verwaltungsdienst (Key Management Service, KMS)](https://technet.microsoft.com/library/ee939272.aspx)
 - [Problembehandlung bei Volumen Aktivierung](https://technet.microsoft.com/library/ff793439.aspx)
-- [Aktivierungs Fehler Codes](https://technet.microsoft.com/library/ff793399.aspx)
+- [Aktivierungsfehlercodes](https://technet.microsoft.com/library/ff793399.aspx)
 - [Bei der Windows-Installation tritt möglicherweise ein Fehler auf: "der eingegebene Product Key entspricht keinem der für die Installation verfügbaren Windows-Images. Geben Sie eine andere Product Key "](https://support.microsoft.com/help/2796988/windows-8-or-windows-server-2012-installation-may-fail-with-error-mess)
 
-## <a name="solutions-related-to-dcpromo-and-installing-domain-controllers"></a>Lösungen im Zusammenhang mit DCPromo und Installieren von Domänencontrollern
+## <a name="solutions-related-to-dcpromo-and-installing-domain-controllers"></a>Lösungen im Zusammenhang mit Dcpromo und Installieren von Domänen Controllern
 - [Active Directory-und Active Directory Domain Services Port Anforderungen](https://technet.microsoft.com/library/dd772723(v=ws.10).aspx)
 - [Active Directory Firewallports – wir versuchen, dies einfach zu machen](http://blogs.msmvps.com/acefekay/2011/11/01/active-directory-firewall-ports-let-s-try-to-make-this-simple/)
 - [Exchange Server-Unterstützung für Windows Server 2016](https://technet.microsoft.com/library/ff728623(v=exchg.150).aspx)
-- [Verwenden von "Ntdsutil. exe" zum übertragen und übernehmen von FSMO-Rollen an einen Domänen](https://support.microsoft.com/kb/255504)
+- [Verwenden von Ntdsutil.exe zum übertragen oder übernehmen von FSMO-Rollen an einen Domänen Controller](https://support.microsoft.com/kb/255504)
 - [Behandeln von Problemen bei der Domänencontrollerbereitstellung](../identity/ad-ds/deploy/troubleshooting-domain-controller-deployment.md)
-- [Problembehandlung bei Active Directory-Installations-Assistenten](https://msdn.microsoft.com/library/bb727058.aspx)
+- [Troubleshooting Active Directory Installation Wizard Problems](https://msdn.microsoft.com/library/bb727058.aspx) (Behandeln von Problemen mit dem Assistenten für die Active Directory-Installation)
 - [Bekannte Probleme beim Installieren und Entfernen von AD DS](https://technet.microsoft.com/library/cc754463(v=ws.10).aspx)
 
-## <a name="solutions-for-active-directory-federation-services-ad-fs"></a>Lösungen für Active Directory-Verbunddienste (AD FS)
-- [Konfigurieren der automatischen Registrierung von in die Domäne eingebundenen Windows-Geräten mit Azure Active Directory](/azure/active-directory/active-directory-conditional-access-automatic-device-registration-setup)
+## <a name="solutions-for-active-directory-federation-services-ad-fs"></a>Lösungen für Active Directory-Verbunddienste (AD FS) (AD FS)
+- [Es wird beschrieben, wie Sie die automatische Registrierung von in die Domäne eingebundenen Windows-Geräten mit Azure Active Directory konfigurieren.](/azure/active-directory/active-directory-conditional-access-automatic-device-registration-setup)
 - [Einrichten der Ausstellung von Ansprüchen](/azure/active-directory/device-management-hybrid-azuread-joined-devices-setup#step-2-setup-issuance-of-claims)
 - [Konfigurieren von AD FS zum Authentifizieren von Benutzern, die in LDAP-Verzeichnissen gespeichert sind](../identity/ad-fs/operations/configure-ad-fs-to-authenticate-users-stored-in-ldap-directories.md)
 - [AD FS: Unterstützung der alternativen Hostnamenbindung für die Zertifikatauthentifizierung](../identity/ad-fs/operations/ad-fs-support-for-alternate-hostname-binding-for-certificate-authentication.md)
@@ -65,7 +63,7 @@ Hierbei handelt es sich um die wichtigsten Microsoft-Support-Lösungen für häu
 - [Verwalten von SSL-Zertifikaten in AD FS und WAP in Windows Server 2016](../identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap-2016.md)
 - [Access Control Richtlinien in Windows Server 2016 AD FS](../identity/ad-fs/operations/access-control-policies-in-ad-fs.md)
 
-## <a name="solutions-related-to-active-directory-replication"></a>Lösungen für die Active Directory-Replikation
+## <a name="solutions-related-to-active-directory-replication"></a>Lösungen im Zusammenhang mit Active Directory Replikation
 
 - [Behandeln von Active Directory-Replikationsproblemen](../identity/ad-ds/manage/troubleshoot/troubleshooting-active-directory-replication-problems.md)
 - [Active Directory-Replikationsstatusmonitor Tool aus dem Microsoft Download Center herunterladen](https://www.microsoft.com/en-in/download/details.aspx?id=30005)

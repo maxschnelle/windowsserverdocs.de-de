@@ -1,19 +1,17 @@
 ---
 title: Skalierbarkeits Limits für iSCSI-Ziel Server
 TOCTitle: iSCSI Target Server Scalability Limits
-ms.prod: windows-server
-ms.technology: storage-iscsi
 ms.topic: article
 author: JasonGerend
 manager: dougkim
 ms.author: jgerend
 ms.date: 09/11/2018
-ms.openlocfilehash: 7a6d23ebd82afc192a9c306420811860d74cf469
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 3867df04c83fe536473c227e43700a4758c1294e
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86961362"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87935857"
 ---
 # <a name="iscsi-target-server-scalability-limits"></a>Skalierbarkeits Limits für iSCSI-Ziel Server
 
@@ -106,7 +104,7 @@ Dieses Thema enthält die unterstützten und getesteten Beschränkungen von Micr
 <td><p>Mehrere aktive Cluster Knoten</p></td>
 <td><p>Unterstützt</p></td>
 <td>
-<p>–</p></td>
+<p>Nicht zutreffend</p></td>
 <td><p>Jeder aktive Knoten im Failovercluster besitzt eine andere gruppierte Instanz des iSCSI-Zielservers mit anderen Knoten, die als mögliche Besitzer Knoten fungieren.</p></td>
 </tr>
 <tr class="odd">
@@ -130,7 +128,7 @@ Dieses Thema enthält die unterstützten und getesteten Beschränkungen von Micr
 <tr class="even">
 <td><p>Multipath-Eingabe/-Ausgabe (MPIO)</p></td>
 <td><p>Unterstützt</p></td>
-<td><p>–</p></td>
+<td><p>Nicht zutreffend</p></td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -187,19 +185,19 @@ Dieses Thema enthält die unterstützten und getesteten Beschränkungen von Micr
 <tr class="even">
 <td><p>IPv4</p></td>
 <td><p>Unterstützt</p></td>
-<td><p>–</p></td>
+<td><p>Nicht zutreffend</p></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td><p>IPv6</p></td>
 <td><p>Unterstützt</p></td>
-<td><p>–</p></td>
+<td><p>Nicht zutreffend</p></td>
 <td></td>
 </tr>
 <tr class="even">
 <td><p>TCP-Abladung</p></td>
 <td><p>Unterstützt</p></td>
-<td><p>–</p></td>
+<td><p>Nicht zutreffend</p></td>
 <td><p>Nutzen Sie große Sende Vorgänge (Segmentierung), Prüfsumme, interruptmoderation und RSS-Abladung</p></td>
 </tr>
 <tr class="odd">
@@ -211,19 +209,19 @@ Dieses Thema enthält die unterstützten und getesteten Beschränkungen von Micr
 <tr class="even">
 <td><p>Großrahmen</p></td>
 <td><p>Unterstützt</p></td>
-<td><p>–</p></td>
+<td><p>Nicht zutreffend</p></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td><p>IPsec</p></td>
 <td><p>Unterstützt</p></td>
-<td><p>–</p></td>
+<td><p>Nicht zutreffend</p></td>
 <td></td>
 </tr>
 <tr class="even">
 <td><p>CRC-Auslagerung</p></td>
 <td><p>Unterstützt</p></td>
-<td><p>–</p></td>
+<td><p>Nicht zutreffend</p></td>
 <td></td>
 </tr>
 </tbody>
@@ -328,13 +326,13 @@ Dieses Thema enthält die unterstützten und getesteten Beschränkungen von Micr
 <tr class="odd">
 <td><p>ReFS</p></td>
 <td><p>Unterstützt</p></td>
-<td><p>–</p></td>
+<td><p>Nicht zutreffend</p></td>
 <td></td>
 </tr>
 <tr class="even">
 <td><p>NTFS</p></td>
 <td><p>Unterstützt</p></td>
-<td><p>–</p></td>
+<td><p>Nicht zutreffend</p></td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -352,7 +350,7 @@ Dieses Thema enthält die unterstützten und getesteten Beschränkungen von Micr
 <tr class="odd">
 <td><p>Verkleinerung der logischen Einheit</p></td>
 <td><p>Ja (nur Windows Server 2012 R2 und höher)</p></td>
-<td><p>–</p></td>
+<td><p>Nicht zutreffend</p></td>
 <td><p>Verwenden Sie <a href="https://docs.microsoft.com/powershell/module/iscsitarget/resize-iscsivirtualdisk">Resize-iscsivirtualdisk</a> , um eine LUN zu verkleinern.</p></td>
 </tr>
 <tr class="even">
@@ -537,7 +535,7 @@ Wir haben auch die folgenden iSCSI-Initiatoren getestet, die einen Datenträger 
 
   - CD oder USB-Datenträger mit IPxE
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 Die folgende Liste enthält zusätzliche Ressourcen zum iSCSI-Zielserver und zu verwandten Technologien.
 

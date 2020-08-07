@@ -2,30 +2,28 @@
 title: Konfigurieren von NPS auf einem mehrfach vernetzten Computer
 description: Dieses Thema enthält Anweisungen zum Konfigurieren eines Servers mit mehreren Netzwerkadaptern, auf denen der Netzwerk Richtlinien Server unter Windows Server 2016 ausgeführt wird.
 manager: brianlic
-ms.prod: windows-server
-ms.technology: networking
 ms.topic: article
 ms.assetid: d9d9e9ac-4859-4522-89ed-a23092c9e12a
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: a937e151954629f7e8775ec68ba8ab5f2b63ee1a
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 1292accf4d19afa7f6a050281b7af373b3c867c3
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80315809"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87952085"
 ---
 # <a name="configure-nps-on-a-multihomed-computer"></a>Konfigurieren von NPS auf einem mehrfach vernetzten Computer
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 Sie können dieses Thema verwenden, um ein NPS mit mehreren Netzwerkadaptern zu konfigurieren.
 
 Wenn Sie mehrere Netzwerkadapter auf einem Server verwenden, auf dem der Netzwerk Richtlinien Server (Network Policy Server, NPS) ausgeführt wird, können Sie Folgendes konfigurieren:
 
-- Die Netzwerkadapter, von denen Remote Authentication Dial-in User Service \(RADIUS nicht gesendet und empfangen werden,\)-Datenverkehr.
-- Auf Netzwerkadapter Basis, ob NPS RADIUS-Datenverkehr auf Internet Protokollversion 4 \(IPv4-\), IPv6 oder sowohl IPv4 als auch IPv6 überwacht.
-- Die UDP-Portnummern, über die der RADIUS-Datenverkehr pro Protokoll \(IPv4-oder IPv6-\), pro Netzwerkadapter gesendet und empfangen wird.
+- Die Netzwerkadapter, die keine Remote Authentication Dial-in User Service RADIUS-Datenverkehr senden und empfangen \( \) .
+- Auf Netzwerkadapter Basis, ob NPS RADIUS-Datenverkehr unter Internet Protokollversion 4 \( IPv4 \) , IPv6 oder sowohl IPv4 als auch IPv6 überwacht.
+- Die UDP-Portnummern, über die der RADIUS-Datenverkehr an einem IPv4- \( oder IPv6-basierten IPv4-oder IPv6-Netzwerkadapter gesendet und empfangen wird \) .
 
 Standardmäßig überwacht NPS RADIUS-Datenverkehr über die Ports 1812, 1813, 1645 und 1646 sowohl für IPv6 als auch für IPv4 für alle installierten Netzwerkadapter. Da NPS automatisch alle Netzwerkadapter für RADIUS-Datenverkehr verwendet, müssen Sie nur die Netzwerkadapter angeben, die NPS für den RADIUS-Verkehr verwenden soll, wenn Sie verhindern möchten, dass NPS einen bestimmten Netzwerkadapter verwenden.
 
@@ -42,8 +40,8 @@ Wenn für Ihr NPS beispielsweise drei Netzwerkadapter installiert sind, Sie aber
 
 Verwenden Sie die folgende Syntax im Dialogfeld Eigenschaften von Netzwerk Richtlinien Server in der NPS-Konsole, um NPS zum lauschen auf und Senden von RADIUS-Datenverkehr auf einem Netzwerkadapter zu konfigurieren:
 
-- Syntax des IPv4-Datenverkehrs: IPAddress: UDPPort, wobei IPAddress die IPv4-Adresse ist, die auf dem Netzwerkadapter konfiguriert ist, über den Sie RADIUS-Datenverkehr senden möchten, und UDPPort ist die Nummer des RADIUS-Ports, den Sie für die RADIUS-Authentifizierung oder die Kontoführung verwenden möchten. verkehrssicher.
-- IPv6-Datenverkehrs Syntax: [IPv6Address]: UDPPort, bei dem die Klammern um IPv6Address erforderlich sind, IPv6Address ist die IPv6-Adresse, die auf dem Netzwerkadapter konfiguriert ist, über den RADIUS-Datenverkehr gesendet werden soll, und UDPPort ist die gewünschte RADIUS-Portnummer. zur Verwendung für RADIUS-Authentifizierung oder Daten Buchhaltungs Datenverkehr.
+- Syntax des IPv4-Datenverkehrs: IPAddress: UDPPort, wobei "IPAddress" die IPv4-Adresse ist, die auf dem Netzwerkadapter konfiguriert ist, über den Sie RADIUS-Datenverkehr senden möchten, und "UDPPort" ist die Nummer des RADIUS-Ports, den Sie für die RADIUS-Authentifizierung oder den Buchhaltungs Datenverkehr
+- IPv6-Datenverkehrs Syntax: [IPv6Address]: UDPPort, bei dem die Klammern um IPv6Address erforderlich sind, IPv6Address ist die IPv6-Adresse, die auf dem Netzwerkadapter konfiguriert ist, über den RADIUS-Datenverkehr gesendet werden soll, und UDPPort ist die Nummer des RADIUS-Ports, den Sie für die RADIUS-Authentifizierung oder den Buchhaltungs Datenverkehr verwenden möchten.
 
 Die folgenden Zeichen können als Trennzeichen für die Konfiguration von IP-Adresse und UDP-Port Informationen verwendet werden:
 

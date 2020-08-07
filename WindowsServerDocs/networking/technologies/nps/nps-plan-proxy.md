@@ -2,24 +2,22 @@
 title: Planen eines NPS als RADIUS-Proxy
 description: Dieses Thema enthält Informationen zur Planung der RADIUS-Proxy Bereitstellung für den Netzwerk Richtlinien Server in Windows Server 2016.
 manager: brianlic
-ms.prod: windows-server
-ms.technology: networking
 ms.topic: article
 ms.assetid: ca77d64a-065b-4bf2-8252-3e75f71b7734
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: d64fceaf7242b7fe44912f105229c132ef9ee3b3
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 9cdc28eae61acb0d8548627e48a882435cd7da81
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80315757"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87952025"
 ---
 # <a name="plan-nps-as-a-radius-proxy"></a>Planen eines NPS als RADIUS-Proxy
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Wenn Sie den Netzwerk Richtlinien Server (Network Policy Server, NPS) als Remote Authentication Dial-in User Service \(RADIUS\) Proxy bereitstellen, empfängt NPS Verbindungsanforderungen von RADIUS-Clients, wie z. b. Netzwerk Zugriffs Server oder anderen RADIUS-Proxys, und leitet diese Verbindungsanforderungen an Server weiter, auf denen NPS oder andere RADIUS-Server Sie können diese Planungsrichtlinien verwenden, um die RADIUS-Bereitstellung zu vereinfachen.
+Wenn Sie den Netzwerk Richtlinien Server (Network Policy Server, NPS) als Remote Authentication Dial-in User Service RADIUS-Proxy bereitstellen \( \) , empfängt NPS Verbindungsanforderungen von RADIUS-Clients, wie z. b. Netzwerk Zugriffs Server oder andere RADIUS-Proxys, und leitet diese Verbindungsanforderungen an Server weiter, auf denen NPS oder andere RADIUS Sie können diese Planungsrichtlinien verwenden, um die RADIUS-Bereitstellung zu vereinfachen.
 
 Diese Planungsrichtlinien enthalten keine Umstände, in denen Sie NPS als RADIUS-Server bereitstellen möchten. Wenn Sie NPS als RADIUS-Server bereitstellen, führt NPS Authentifizierung, Autorisierung und Kontoführung für Verbindungsanforderungen für die lokale Domäne und Domänen aus, die der lokalen Domäne vertrauen.
 
@@ -39,7 +37,7 @@ Bevor Sie NPS als RADIUS-Proxy in Ihrem Netzwerk bereitstellen, verwenden Sie di
 
 ## <a name="plan-nps-configuration"></a>Planen der NPS-Konfiguration
 
-Wenn Sie NPS als RADIUS-Proxy verwenden, leitet NPS Verbindungsanforderungen zur Verarbeitung an einen NPS-oder einen anderen RADIUS-Server weiter. Aus diesem Grund ist die Domänen Mitgliedschaft des NPS-Proxys irrelevant. Der Proxy muss nicht in Active Directory Domain Services \(AD DS\) registriert werden, da er keinen Zugriff auf die Einwähleigenschaften von Benutzerkonten benötigt. Außerdem müssen Sie keine Netzwerk Richtlinien auf einem NPS-Proxy konfigurieren, da der Proxy keine Autorisierung für Verbindungsanforderungen ausführt. Der NPS-Proxy kann ein Domänen Mitglied sein, oder es kann sich um einen eigenständigen Server ohne Domänen Mitgliedschaft handeln.
+Wenn Sie NPS als RADIUS-Proxy verwenden, leitet NPS Verbindungsanforderungen zur Verarbeitung an einen NPS-oder einen anderen RADIUS-Server weiter. Aus diesem Grund ist die Domänen Mitgliedschaft des NPS-Proxys irrelevant. Der Proxy muss nicht in Active Directory Domain Services AD DS registriert werden, \( \) da er keinen Zugriff auf die Einwähleigenschaften von Benutzerkonten benötigt. Außerdem müssen Sie keine Netzwerk Richtlinien auf einem NPS-Proxy konfigurieren, da der Proxy keine Autorisierung für Verbindungsanforderungen ausführt. Der NPS-Proxy kann ein Domänen Mitglied sein, oder es kann sich um einen eigenständigen Server ohne Domänen Mitgliedschaft handeln.
 
 NPS muss mit dem RADIUS-Protokoll für die Kommunikation mit RADIUS-Clients konfiguriert werden, die auch als Netzwerk Zugriffs Server bezeichnet werden. Außerdem können Sie die Typen von Ereignissen konfigurieren, die von NPS im Ereignisprotokoll aufgezeichnet werden, und Sie können eine Beschreibung für den Server eingeben.
 
@@ -59,7 +57,7 @@ Bei der Planung der NPS-Proxykonfiguration können Sie die folgenden Schritte au
 
 ## <a name="plan-radius-clients"></a>Planen von RADIUS-Clients
 
-RADIUS-Clients sind Netzwerk Zugriffs Server, z. b. drahtlos Zugriffspunkte, virtuelle private Netzwerke \(VPN-\) Servern, 802.1 x-fähige Switches und DFÜ-Server. RADIUS-Proxys, die Verbindungs Anforderungs Nachrichten an RADIUS-Server weiterleiten, sind ebenfalls RADIUS-Clients. NPS unterstützt alle Netzwerk Zugriffs Server und RADIUS-Proxys, die dem RADIUS-Protokoll entsprechen, wie in RFC 2865, "Remote Authentication Dial-in User Service \(RADIUS\)" und RFC 2866, "RADIUS Accounting" beschrieben.
+RADIUS-Clients sind Netzwerk Zugriffs Server, z. b. drahtlos Zugriffspunkte, VPN-Server für virtuelle private Netzwerke \( \) , 802.1 x-fähige Switches und DFÜ-Server. RADIUS-Proxys, die Verbindungs Anforderungs Nachrichten an RADIUS-Server weiterleiten, sind ebenfalls RADIUS-Clients. NPS unterstützt alle Netzwerk Zugriffs Server und RADIUS-Proxys, die dem RADIUS-Protokoll entsprechen, wie in RFC 2865, "Remote Authentication Dial-in User Service \( RADIUS \) " und RFC 2866, "RADIUS Accounting" beschrieben.
 
 Außerdem müssen sowohl drahtlos Zugriffspunkte als auch Switches in der 802.1 x-Authentifizierung aktiviert sein. Wenn Sie das Extensible Authentication Protocol (EAP) oder das Protected Extensible Authentication Protocol (PEAP) bereitstellen möchten, müssen Zugriffspunkte und Switches die Verwendung von EAP unterstützen.
 
@@ -103,7 +101,7 @@ Mit den Regeln für die Attribut Bearbeitung, die in Verbindungs Anforderungs Ri
 
 Sie können NPS so konfigurieren, dass alle Verbindungsanforderungen an eine Remote-RADIUS-Server Gruppe weiterleiten werden, ohne dass Regeln für die Attribut Bearbeitung
 
-Wenn Sie über mehrere Orte verfügen, an die Sie Verbindungsanforderungen weiterleiten möchten, müssen Sie jedoch für jeden Standort eine Verbindungs Anforderungs Richtlinie erstellen und dann die Richtlinie mit der Remote-RADIUS-Server Gruppe konfigurieren, an die Sie Nachrichten weiterleiten möchten, sowie mit den Regeln für die Attribut Bearbeitung, die NPS mitteilen, welche Nachrichten weiterleiten sollen.
+Wenn Sie mehr als einen Speicherort haben, an den Sie Verbindungsanforderungen weiterleiten möchten, müssen Sie für jeden Standort eine Verbindungs Anforderungs Richtlinie erstellen und dann die Richtlinie mit der Remote-RADIUS-Server Gruppe konfigurieren, an die Sie Nachrichten weiterleiten möchten, sowie mit den Regeln für die Attribut Bearbeitung, die NPS darüber informieren, welche Nachrichten weiterleiten sollen.
 
 Sie können Regeln für die folgenden Attribute erstellen.
 

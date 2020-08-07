@@ -5,15 +5,13 @@ ms.author: jgerend
 manager: dmoss
 ms.date: 10/16/2018
 ms.topic: article
-ms.prod: windows-server
-ms.technology: storage
 ms.assetid: 1f1215cd-404f-42f2-b55f-3888294d8a1f
-ms.openlocfilehash: 55611be13333c36201aad149be87207564d4ac97
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 15c4b7942be949af33e70d2a5f299af426040e7b
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85471145"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87950504"
 ---
 # <a name="refs-integrity-streams"></a>ReFS Integrity Streams
 >Gilt für: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server (halbjährlicher Kanal), Windows 10
@@ -92,8 +90,8 @@ PS C:\> Set-FileIntegrity H:\ -Enable $True
 PS C:\> Set-FileIntegrity H:\Docs -Enable $True
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [ReFS – Übersicht](refs-overview.md)
 -   [Block-Clone-Vorgänge auf ReFS](block-cloning.md)
--   [Übersicht über direkte Speicherplätze](../storage-spaces/storage-spaces-direct-overview.md)
+-   [Direkte Speicherplätze – Übersicht](../storage-spaces/storage-spaces-direct-overview.md)

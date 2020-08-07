@@ -2,26 +2,24 @@
 title: Konfigurieren und Anzeigen von VLAN-Einstellungen für virtuelle Hyper-V-Switchports
 description: In diesem Thema erfahren Sie mehr über bewährte Methoden zum Konfigurieren und Anzeigen von Einstellungen für virtuelle lokale Netzwerke (VLAN) auf einem virtuellen Hyper-V-Switchport in Windows Server 2016.
 manager: brianlic
-ms.prod: windows-server
-ms.technology: networking-hv-switch
 ms.topic: article
 ms.assetid: 69e0e28a-98ae-4ade-bd27-ce2ad7eb310f
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 083558762051283115211d10d32ebb6fd3ad3953
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 1f4812e05ff003d40b34b7bf757894f7e66aaa6e
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80308037"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87950294"
 ---
 # <a name="configure-and-view-vlan-settings-on-hyper-v-virtual-switch-ports"></a>Konfigurieren und Anzeigen von VLAN-Einstellungen für virtuelle Hyper-V-Switchports
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 In diesem Thema finden Sie bewährte Methoden zum Konfigurieren und Anzeigen von Einstellungen für virtuelle lokale Netzwerke (VLAN) auf einem virtuellen Hyper-V-Switchport.
 
-Wenn Sie VLAN-Einstellungen auf virtuellen Hyper-v-Switchports konfigurieren möchten, können Sie entweder Windows&reg; Server 2016 Hyper-V-Manager oder System Center Virtual Machine Manager (VMM) verwenden.
+Wenn Sie VLAN-Einstellungen auf virtuellen Hyper-v-Switchports konfigurieren möchten, können Sie entweder Windows &reg; Server 2016 Hyper-v-Manager oder System Center Virtual Machine Manager (VMM) verwenden.
 
 Wenn Sie VMM verwenden, verwendet VMM den folgenden Windows PowerShell-Befehl, um den Switchport zu konfigurieren.
 
@@ -41,7 +39,7 @@ Um sicherzustellen, dass diese Probleme nicht auftreten, müssen Sie die gleiche
 
 Gehen Sie folgendermaßen vor, um die Port Einstellungen für den VLAN-Switch zu konfigurieren und anzuzeigen:
 
-- Wenn Sie VMM oder den Netzwerk Controller zum Einrichten und Verwalten Ihres Netzwerks verwenden und Sie Software-Defined Networking (SDN) bereitgestellt haben, müssen Sie die **vmnetworkadapterisolation** -Cmdlets verwenden. 
+- Wenn Sie VMM oder den Netzwerk Controller zum Einrichten und Verwalten Ihres Netzwerks verwenden und Sie Software-Defined Networking (SDN) bereitgestellt haben, müssen Sie die **vmnetworkadapterisolation** -Cmdlets verwenden.
 - Wenn Sie Windows Server 2016 Hyper-V-Manager oder Windows PowerShell-Cmdlets verwenden und keine Software-Defined Networking (SDN) bereitgestellt haben, müssen Sie die **vmnetworkadaptervlan** -Cmdlets verwenden.
 
 ### <a name="possible-issues"></a>Mögliche Probleme

@@ -2,19 +2,17 @@
 title: Erstellen virtueller Windows 10 Enterprise-Desktops für Stationen
 description: Erfahren Sie, wie Sie Windows Server 2016-Desktops für Station erstellen.
 ms.date: 07/22/2016
-ms.prod: windows-server
-ms.technology: multipoint-services
 ms.topic: article
 ms.assetid: 63f08b5b-c735-41f4-b6c8-411eff85a4ab
 author: evaseydl
 ms.author: evas
 manager: scottman
-ms.openlocfilehash: 6f6d7d3ef66e8943fbb39cfd96cff1b91ab413eb
-ms.sourcegitcommit: 145cf75f89f4e7460e737861b7407b5cee7c6645
+ms.openlocfilehash: fb36cb13f9a78ae028f1217dd667a106a81e5c94
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87409821"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87937312"
 ---
 # <a name="create-windows-10-enterprise-virtual-desktops-for-stations"></a>Erstellen virtueller Windows 10 Enterprise-Desktops für Stationen
 Diese optionale Konfiguration in Multipoint Services ist hauptsächlich für Situationen vorgesehen, in denen eine erforderliche Anwendung für jeden Benutzer eine eigene Instanz eines Client Betriebssystems erfordert. Zu den Beispielen zählen Anwendungen, die nicht auf Windows Server installiert werden können, und Anwendungen, die nicht mehrere Instanzen auf demselben Host Computer ausführen.
@@ -25,7 +23,7 @@ Diese optionale Konfiguration in Multipoint Services ist hauptsächlich für Sit
 ## <a name="prerequisites"></a>Voraussetzungen
 Stellen Sie sicher, dass Ihr Multipoint Services-System die folgenden Anforderungen erfüllt, um die Erstellung virtueller Desktops auf der Station vorzubereiten:
 
-| Hardware | Requirements (Anforderungen) |
+| Hardware | Anforderungen |
 |--|--|
 | CPU (Multimedia) | 1 Kern oder Thread pro virtuellem Computer |
 | Solid State Drive (SSD) | Kapazitäts >= 20 GB pro Station + 40 GB für das Multipoint Services-Host Betriebssystem<p>Zufälliger Lese-/Schreib-IOPS->= 3K pro Station |
@@ -37,7 +35,7 @@ Stellen Sie sicher, dass Ihr Multipoint Services-System die folgenden Anforderun
 
 -   **Domäne** : der Windows-MultiPoint-Server Computer wurde der Domäne hinzugefügt, und ein Domänen Benutzer wurde der lokalen Administrator Gruppe auf dem Multipoint Services-Host Betriebssystem hinzugefügt.
 
-## <a name="procedures"></a>Vorgehensweisen
+## <a name="procedures"></a>Prozeduren
 Verwenden Sie die folgenden Verfahren für Folgendes:
 
 -   [Erstellen einer Vorlage für virtuelle Desktops](#create-a-template-for-virtual-desktops)

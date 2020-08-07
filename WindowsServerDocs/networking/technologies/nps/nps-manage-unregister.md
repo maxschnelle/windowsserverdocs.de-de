@@ -2,24 +2,22 @@
 title: Aufheben der Registrierung eines NPS aus einer Active Directory-Domäne
 description: Sie können dieses Thema verwenden, um einen Server, auf dem der Netzwerk Richtlinien Server ausgeführt wird, in Windows Server 2016 in der NPS-Standard Domäne oder in einer anderen Domäne zu registrieren.
 manager: brianlic
-ms.prod: windows-server
-ms.technology: networking
 ms.topic: article
 ms.assetid: 68a94616-3c29-45bd-bd33-e4c578f119e1
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 366e3e7eef6ac1e8682dd3064e0d133f21d1a8da
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 71bb0328e7265ad6981cdb3089e80572315b0fdd
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80315897"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87952106"
 ---
 # <a name="unregister-an-nps-from-an-active-directory-domain"></a>Aufheben der Registrierung eines NPS aus einer Active Directory-Domäne
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Beim Verwalten der NPS-Bereitstellung ist es möglicherweise hilfreich, eine NPS in eine andere Domäne zu verschieben, ein NPS zu ersetzen oder ein NPS außer Kraft zu setzen. 
+Beim Verwalten der NPS-Bereitstellung ist es möglicherweise hilfreich, eine NPS in eine andere Domäne zu verschieben, ein NPS zu ersetzen oder ein NPS außer Kraft zu setzen.
 
 Wenn Sie ein NPS verschieben oder außer Betrieb nehmen, können Sie die Registrierung des NPS in den Active Directory Domänen aufheben, in denen das NPS über die Berechtigung zum Lesen der Eigenschaften von Benutzerkonten in Active Directory verfügt.
 

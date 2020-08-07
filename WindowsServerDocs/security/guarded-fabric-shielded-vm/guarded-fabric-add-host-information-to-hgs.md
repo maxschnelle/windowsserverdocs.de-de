@@ -1,19 +1,17 @@
 ---
 title: Hinzufügen von Hostinformationen zur HGS-Konfiguration
-ms.prod: windows-server
 ms.topic: article
 ms.assetid: 0d1d19b6-820a-4b3f-9b97-6386dd544a64
 manager: dongill
 author: rpsqrd
 ms.author: ryanpu
-ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: ddb12d6e3c9f82d6452bd331dace23fffa6d3cdb
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 18b2c0d6d5145fc869ce3573cef5f21add88a286
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80856923"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87971397"
 ---
 # <a name="add-host-information-to-the-hgs-configuration"></a>Hinzufügen von Hostinformationen zur HGS-Konfiguration
 
@@ -22,5 +20,5 @@ ms.locfileid: "80856923"
 Erhalten Sie Informationen zu den Hosts vom Fabric-Administrator, und fügen Sie Sie zu HGS hinzu. Dieser Schritt variiert je nach Nachweis Modus:
 
 - [Hinzufügen von Hostinformationen für den Administrator vertrauenswürdigen Nachweis](guarded-fabric-add-host-information-for-admin-trusted-attestation.md)
-- [Hinzufügen von Hostinformationen für den TPM-vertrauenswürdigen Nachweis](guarded-fabric-add-host-information-for-tpm-trusted-attestation.md) 
+- [Hinzufügen von Hostinformationen für den TPM-vertrauenswürdigen Nachweis](guarded-fabric-add-host-information-for-tpm-trusted-attestation.md)
 

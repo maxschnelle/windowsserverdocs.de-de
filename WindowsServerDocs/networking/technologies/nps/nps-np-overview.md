@@ -2,35 +2,33 @@
 title: Netzwerkrichtlinien
 description: Dieses Thema bietet einen Überblick über die Netzwerk Richtlinien für den Netzwerk Richtlinien Server unter Windows Server 2016 und enthält Links zu weiteren Anleitungen zu NPS.
 manager: brianlic
-ms.prod: windows-server
-ms.technology: networking
 ms.topic: article
 ms.assetid: e4a9b134-6d1d-40d7-a49c-5f46d5fdb419
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 4ee256184cd551c5f2c2fcdb8544e4d061ea2bf3
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: f499de643a2460696305ef1ab35f695236849035
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80315768"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87952045"
 ---
 # <a name="network-policies"></a>Netzwerkrichtlinien
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 In diesem Thema finden Sie einen Überblick über die Netzwerk Richtlinien in NPS.
 
 >[!NOTE]
 >Zusätzlich zu diesem Thema ist die folgende Dokumentation zur Netzwerk Richtlinie verfügbar.
 > - [Zugriffsberechtigung](nps-np-access.md)
-> - [Konfigurieren von Netzwerkrichtlinien](nps-np-configure.md)
+> - [Konfigurieren von Netzwerk Richtlinien](nps-np-configure.md)
 
 Netzwerk Richtlinien sind Sätze von Bedingungen, Einschränkungen und Einstellungen, mit denen Sie festlegen können, wer zum Herstellen einer Verbindung mit dem Netzwerk autorisiert ist, sowie die Umstände, unter denen eine Verbindung hergestellt werden kann.
 
 Beim Verarbeiten von Verbindungsanforderungen als Remote Authentication Dial-in User Service Server (RADIUS) führt NPS sowohl die Authentifizierung als auch die Autorisierung für die Verbindungsanforderung aus. Während des Authentifizierungs Vorgangs überprüft NPS die Identität des Benutzers oder Computers, der eine Verbindung mit dem Netzwerk herstellt. Während des Autorisierungs Vorgangs bestimmt NPS, ob der Benutzer oder der Computer auf das Netzwerk zugreifen darf.
 
-Um diese Determinationen vorzunehmen, verwendet NPS Netzwerk Richtlinien, die in der NPS-Konsole konfiguriert sind. NPS überprüft auch die DFÜ-Eigenschaften des Benutzerkontos in Active Directory&reg; Domänen Diensten \(AD DS\), um die Autorisierung auszuführen.
+Um diese Determinationen vorzunehmen, verwendet NPS Netzwerk Richtlinien, die in der NPS-Konsole konfiguriert sind. NPS überprüft auch die DFÜ-Eigenschaften des Benutzerkontos in Active Directory &reg; Domänen Diensten \( AD DS \) , um die Autorisierung auszuführen.
 
 ## <a name="network-policies---an-ordered-set-of-rules"></a>Netzwerk Richtlinien: eine geordnete Gruppe von Regeln
 
@@ -54,14 +52,14 @@ Es gibt vier Kategorien von Eigenschaften für jede Netzwerk Richtlinie:
 
 ### <a name="conditions"></a>Bedingungen
 
- Mithilfe dieser Eigenschaften können Sie die Bedingungen angeben, die die Verbindungsanforderung aufweisen muss, damit Sie der Netzwerk Richtlinie entspricht. Wenn die in der Richtlinie konfigurierten Bedingungen der Verbindungsanforderung entsprechen, wendet NPS die in der Netzwerk Richtlinie festgelegten Einstellungen auf die Verbindung an. Wenn Sie z. b. die NAS-IPv4-Adresse als Bedingung der Netzwerk Richtlinie angeben und NPS eine Verbindungsanforderung von einem NAS-Gerät erhält, das über die angegebene IP-Adresse verfügt, entspricht die Bedingung in der Richtlinie der Verbindungsanforderung. 
+ Mithilfe dieser Eigenschaften können Sie die Bedingungen angeben, die die Verbindungsanforderung aufweisen muss, damit Sie der Netzwerk Richtlinie entspricht. Wenn die in der Richtlinie konfigurierten Bedingungen der Verbindungsanforderung entsprechen, wendet NPS die in der Netzwerk Richtlinie festgelegten Einstellungen auf die Verbindung an. Wenn Sie z. b. die NAS-IPv4-Adresse als Bedingung der Netzwerk Richtlinie angeben und NPS eine Verbindungsanforderung von einem NAS-Gerät erhält, das über die angegebene IP-Adresse verfügt, entspricht die Bedingung in der Richtlinie der Verbindungsanforderung.
 
 
 ### <a name="constraints"></a>Einschränkungen
 
  Einschränkungen sind zusätzliche Parameter der Netzwerk Richtlinie, die für die Anpassung der Verbindungsanforderung erforderlich sind. Wenn eine Einschränkung nicht mit der Verbindungsanforderung übereinstimmt, lehnt NPS die Anforderung automatisch ab. Anders als bei der NPS-Antwort auf nicht übereinstimmende Bedingungen in der Netzwerk Richtlinie, wenn eine Einschränkung nicht übereinstimmt, verweigert NPS die Verbindungsanforderung, ohne zusätzliche Netzwerk Richtlinien zu bewerten.
 
-### <a name="settings"></a>Einstellungen
+### <a name="settings"></a>Einstellung
 
  Mithilfe dieser Eigenschaften können Sie die Einstellungen angeben, die NPS für die Verbindungsanforderung anwendet, wenn alle Netzwerk Richtlinien Bedingungen für die Richtlinie übereinstimmen.
 

@@ -1,19 +1,17 @@
 ---
 title: Network File System (Übersicht)
 description: Erläutert, worum es sich bei dem Netzwerkdatei System handelt.
-ms.prod: windows-server
 ms.topic: article
 author: JasonGerend
 ms.author: jgerend
-ms.technology: storage
 ms.date: 07/09/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: aff9fbdfa6dc97cb644e207efdae9c44533c320b
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: 0a8ba971fb7224333fb495971cb06d4b97d83a62
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87181746"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87950453"
 ---
 # <a name="network-file-system-overview"></a>Network File System (Übersicht)
 
@@ -33,7 +31,7 @@ Windows unterstützt je nach Betriebssystemversion und-Familie mehrere Versionen
 
 | Betriebssysteme | NFS-Server Versionen |NFS-Client Versionen|
 | ----------------- | ------------------- | ----------------- |
-| Windows 7, Windows 8.1, Windows 10 | N/V | NFSv2, NFSv3 |
+| Windows 7, Windows 8.1, Windows 10 | Nicht zutreffend | NFSv2, NFSv3 |
 | Windows Server 2008, Windows Server 2008 R2 | NFSv2, NFSv3 | NFSv2, NFSv3 |
 | Windows Server 2012, Windows Server 2012 R2, Windows Server 2016, Windows Server 2019 | NFSv2, NFSv3, nfsv 4.1  | NFSv2, NFSv3 |
 

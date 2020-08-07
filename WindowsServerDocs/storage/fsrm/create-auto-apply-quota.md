@@ -2,18 +2,16 @@
 title: Erstellen eines automatisch zugewiesenen Kontingents
 description: In diesem Artikel wird beschrieben, wie basierend auf einer Kontingent Vorlage automatisch Apply-Kontingente erstellt werden.
 ms.date: 7/7/2017
-ms.prod: windows-server
-ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 38354a6c6e39f58574a64c752bb86800f3fc3039
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: b5ec19000e8fdb90fa413905dfd9ef4885347ed9
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85474067"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87935869"
 ---
 # <a name="create-an-auto-apply-quota"></a>Erstellen eines automatisch zugewiesenen Kontingents
 
@@ -40,7 +38,7 @@ Beispielsweise können Sie ein automatisches Apply-Kontingent für Unterordner d
 > [!Note]
 > Sie können alle automatisch generierten Kontingente überprüfen, indem Sie den Knoten **Kontingente** auswählen und dann **Aktualisieren**auswählen. Ein individuelles Kontingent für jeden Unterordner und das automatisch angewendende Kontingent Profil im übergeordneten Volume oder Ordner werden aufgelistet.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Kontingentverwaltung](quota-management.md)
 -   [Bearbeiten der Eigenschaften des automatisch zugewiesenen Kontingents](edit-auto-apply-quota-properties.md)

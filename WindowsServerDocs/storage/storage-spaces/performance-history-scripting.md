@@ -2,17 +2,16 @@
 title: Skripterstellung mit direkte Speicherplätze Leistungs Verlauf
 ms.author: cosdar
 manager: eldenc
-ms.technology: storage-spaces
 ms.topic: article
 author: cosmosdarwin
 ms.date: 05/15/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 7f3274210ea6c08d63862551570096ab10aa878e
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: a0e04034c79a82bb245b611eca291acca0e40f9f
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86961812"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87935781"
 ---
 # <a name="scripting-with-powershell-and-storage-spaces-direct-performance-history"></a>Skripterstellung mit PowerShell und direkte Speicherplätze Leistungs Verlauf
 
@@ -487,8 +486,8 @@ $Output | Sort-Object RawAvgMemoryUsage -Descending | Select-Object -First 10 | 
 
 Das ist alles! Hoffentlich inspirieren diese Beispiele Sie und unterstützen Sie beim Einstieg. Mit direkte Speicherplätze Leistungs Verlauf und dem leistungsstarken, Skript freundlichen `Get-ClusterPerf` Cmdlet können Sie – und Antworten anfordern. – komplexe Fragen, die Sie beim Verwalten und Überwachen Ihrer Windows Server 2019-Infrastruktur haben.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Einstieg in Windows PowerShell](/powershell/scripting/getting-started/getting-started-with-windows-powershell)
-- [Übersicht über direkte Speicherplätze](storage-spaces-direct-overview.md)
+- [Direkte Speicherplätze – Übersicht](storage-spaces-direct-overview.md)
 - [Leistungsverlauf](performance-history.md)

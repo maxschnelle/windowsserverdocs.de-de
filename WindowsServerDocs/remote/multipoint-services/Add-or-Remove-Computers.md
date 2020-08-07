@@ -1,19 +1,18 @@
 ---
 title: Hinzufügen oder Entfernen von Computern
 description: Erfahren Sie, wie Sie Computer aus Multipoint Services hinzufügen und daraus entfernen.
-ms.technology: multipoint-services
 ms.topic: article
 ms.assetid: 1c37739d-7ab0-4b80-8d05-0330e79fd631
 author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 07/13/2017
-ms.openlocfilehash: 40905afb2bff790425586c3f54e9ee43bdd4fc52
-ms.sourcegitcommit: 145cf75f89f4e7460e737861b7407b5cee7c6645
+ms.openlocfilehash: 5b72655966cc1c16c2da3625c70cd31facf70056
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87409841"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87970707"
 ---
 # <a name="add-or-remove-computers"></a>Hinzufügen oder Entfernen von Computern
 Mithilfe des Multipoint-Managers können Sie weitere Computer hinzufügen oder Computer aus dem Multipoint Services-System entfernen. Indem Sie andere PCs zum MultiPoint-Manager hinzufügen, können Sie die Sitzungen von Benutzern über das MultiPoint-Dashboard orchestrieren, wenn Sie an diesem PC angemeldet sind – auf die gleiche Weise wie für MultiPoint-Stationen.
@@ -24,7 +23,7 @@ Mithilfe des Multipoint-Managers können Sie weitere Computer hinzufügen oder C
 
 2.  Klicken Sie unter *Computername* **Aufgaben** auf **MultiPoint-Server hinzufügen oder entfernen**. Der Bildschirm zum **Hinzufügen oder Entfernen von Multipoint-Servern** wird gestartet und beginnt mit der Ermittlung anderer Server im Subnetz des lokalen Netzwerks, die mit Multipoint Manager verwaltet werden können.
 
-3.  Führen Sie einen der folgenden Schritte aus:
+3.  Führen Sie eines der folgenden Verfahren aus:
 
     -   So **fügen Sie einen Server hinzu:** Klicken Sie in der Liste **verfügbar** auf einen Server, den Sie mit Multipoint Manager verwalten möchten, und klicken Sie dann auf **Hinzufügen**. Wenn sich das Administratorbenutzerkonto und -kennwort für den Server von dem Konto unterscheiden, mit dem Sie aktuell angemeldet sind, werden Sie aufgefordert, die entsprechenden Kontoinformationen anzugeben.
 
@@ -38,7 +37,7 @@ Mithilfe des Multipoint-Managers können Sie weitere Computer hinzufügen oder C
 
 2.  Klicken Sie unter **Startaufgaben** auf **PCs hinzufügen oder entfernen**. Der Bildschirm zum **Hinzufügen oder Entfernen persönlicher Computer** wird gestartet und beginnt mit der Ermittlung anderer Computer im Subnetz des lokalen Netzwerks, die mit Multipoint Services verwaltet werden können.
 
-3.  Führen Sie einen der folgenden Schritte aus:
+3.  Führen Sie eines der folgenden Verfahren aus:
 
     -   So **fügen Sie einen Computer hinzu:** Klicken Sie in der Liste **verfügbar** auf einen Computer, den Sie mit Multipoint Services verwalten möchten, und klicken Sie dann auf **Hinzufügen**. Wenn Sie einen Computer hinzufügen, werden Sie aufgefordert, die Kontoinformationen bereitzustellen.
 

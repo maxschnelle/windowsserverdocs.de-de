@@ -2,18 +2,16 @@
 title: Verbindung mit einem Remotecomputer herstellen
 description: In diesem Artikel wird beschrieben, wie Sie eine Verbindung mit einem Remote Computer herstellen, um Speicherressourcen von Dateiservern zu verwalten Ressourcen-Manager
 ms.date: 7/7/2017
-ms.prod: windows-server
-ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 562164b461b4cd5db939b116feeb1bf21f78bad4
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: a412fcc0e1979ed158f01f6fba17fb6a9c4a20c7
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85474127"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87935879"
 ---
 # <a name="connect-to-a-remote-computer"></a>Verbindung mit einem Remotecomputer herstellen
 
@@ -45,6 +43,6 @@ So verwalten Sie Remote Ressourcen mit Datei Server Ressourcen-Manager:
 -   Auf dem Remote Computer muss Windows Server ausgeführt werden, und es muss ein Datei Server Ressourcen-Manager installiert sein.
 -   Die Ausnahme für den **Remote Datei Server Ressourcen-Manager Verwaltung** auf dem Remote Computer muss aktiviert sein. Aktivieren Sie diese Ausnahme mithilfe der Windows-Firewall in der Systemsteuerung.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Verwalten von Remotespeicherressourcen](managing-remote-storage-resources.md)

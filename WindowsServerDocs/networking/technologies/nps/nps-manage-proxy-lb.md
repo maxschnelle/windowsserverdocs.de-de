@@ -1,19 +1,17 @@
 ---
 title: NPS-Proxy Server-Lastenausgleich
 description: In diesem Thema erfahren Sie mehr über Windows Server 2016-und Windows 10-VPN-Features und-Funktionen.
-ms.prod: windows-server
-ms.technology: networking
 ms.topic: article
 ms.assetid: 528280e6-b47e-489f-b310-b257d434aa0d
 manager: brianlic
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 10a33494365f5a10923dd9ce46c3575675099b27
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 8710723c397744f3ba937ac863cf5ab45dc8a4f1
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80315977"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87952157"
 ---
 # <a name="nps-proxy-server-load-balancing"></a>NPS-Proxy Server-Lastenausgleich
 
@@ -23,9 +21,9 @@ Remote Authentication Dial-in User Service (RADIUS)-Clients, bei denen es sich u
 
 Der Lastenausgleich ist besonders nützlich für:
 
-- Organisationen, die das Extensible Authentication Protocol-Transport Layer Security \(EAP-TLS\) oder das Protected Extensible Authentication Protocol \(PEAP\)-TLS für die Authentifizierung verwenden. Da diese Authentifizierungsmethoden Zertifikate für die Server Authentifizierung und entweder für die Authentifizierung von Benutzern oder Client Computern verwenden, ist die Auslastung von RADIUS-Proxys und-Servern schwerer als bei der Verwendung von Kenn Wort basierten Authentifizierungsmethoden.
+- Organisationen, die das Extensible Authentication-Protokoll Transport Layer Security \( EAP-TLS \) oder das Protected Extensible Authentication Protocol \( PEAP \) -TLS für die Authentifizierung verwenden. Da diese Authentifizierungsmethoden Zertifikate für die Server Authentifizierung und entweder für die Authentifizierung von Benutzern oder Client Computern verwenden, ist die Auslastung von RADIUS-Proxys und-Servern schwerer als bei der Verwendung von Kenn Wort basierten Authentifizierungsmethoden.
 - Organisationen, die die fortlaufende Dienst Verfügbarkeit aufrechterhalten müssen.
-- Internet Dienstanbieter \(ISPs\), die den VPN-Zugriff für andere Organisationen auslagern. Die ausgelagerten VPN-Dienste können eine große Menge an Authentifizierungs Datenverkehr generieren.
+- Internet Dienstanbieter- \( ISPs \) , die den VPN-Zugriff für andere Organisationen auslagern. Die ausgelagerten VPN-Dienste können eine große Menge an Authentifizierungs Datenverkehr generieren.
 
 Es gibt zwei Methoden, mit denen Sie die Last von Verbindungsanforderungen, die an Ihren NPSS gesendet werden, ausgleichen können:
 
@@ -53,7 +51,7 @@ Erstellen Sie vor dem Konfigurieren des Lasten Ausgleichs einen Bereitstellungs 
 
 Wenn Sie NPS als Proxy Server konfigurieren und Verbindungsanforderungen von RADIUS-Clients an Remote-RADIUS-Server weiterleiten möchten, müssen Sie die folgenden Aktionen ausführen:
 
-1. Stellen Sie Ihre RADIUS-Clients \(VPN-Server, DFÜ-Server, Terminal Dienste-Gatewayservern, 802.1 x-authentifizier enden Switches und drahtlose 802.1 x-Zugriffspunkte bereit\) und konfigurieren Sie Sie so, dass Verbindungsanforderungen an Ihre NPS-Proxy Server gesendet werden.
+1. Stellen Sie Ihre RADIUS \( -Clients-VPN-Server, DFÜ-Server, Terminal Dienste-Gatewayserver, 802.1 x-authentifizier Ende Switches und drahtlose 802.1 x-Zugriffspunkte bereit, \) und konfigurieren Sie Sie für das Senden von Verbindungsanforderungen an Ihre NPS-Proxy Server
 
 2. Konfigurieren Sie auf dem NPS-Proxy die Netzwerk Zugriffs Server als RADIUS-Clients. Weitere Informationen finden Sie unter [Konfigurieren von RADIUS-Clients](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-radius-clients-configure).
 

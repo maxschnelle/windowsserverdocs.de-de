@@ -1,19 +1,17 @@
 ---
 title: Geschütztes Fabric und abgeschirmte VMs
-ms.prod: windows-server
 ms.topic: article
 ms.assetid: 5c7ada81-2d97-41d4-87cf-1a7ccf06cd20
 manager: dongill
 author: rpsqrd
 ms.author: ryanpu
-ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 9e76b3081438ae38c6b83b7cdd179d47b1e21a70
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 7a73bf1b677d09cc31783b58148c8ca7c581fbca
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80856913"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87971377"
 ---
 # <a name="guarded-fabric-and-shielded-vms"></a>Geschütztes Fabric und abgeschirmte VMs
 
@@ -43,14 +41,14 @@ Eines der wichtigsten Ziele bei der Bereitstellung einer gehosteten Umgebung bes
 - [Bereitstellungs Handbuch](guarded-fabric-deploying-hgs-overview.md)
     - [Schnellstart](guarded-fabric-deployment-overview.md)
     - [Bereitstellen von HGS](guarded-fabric-setting-up-the-host-guardian-service-hgs.md)
-    - [Bereitstellen geschützter Hosts](guarded-fabric-configure-hgs-with-authorized-hyper-v-hosts.md)
-        - [Konfigurieren des Fabric-DNS für Hosts, die zu überwachten Hosts werden](guarded-fabric-configuring-fabric-dns.md)
+    - [Bereitstellen überwachter Hosts](guarded-fabric-configure-hgs-with-authorized-hyper-v-hosts.md)
+        - [Konfigurieren des Fabric-DNS für Hosts, die als geschützte Hosts verwendet werden sollen](guarded-fabric-configuring-fabric-dns.md)
         - [Bereitstellen eines überwachten Hosts im AD-Modus](guarded-fabric-admin-trusted-attestation-creating-a-security-group.md)
         - [Bereitstellen eines überwachten Hosts mit dem TPM-Modus](guarded-fabric-tpm-trusted-attestation-capturing-hardware.md)
         - [Bestätigen, dass geschützte Hosts bestätigen können](guarded-fabric-confirm-hosts-can-attest-successfully.md)
-        - [Abgeschirmte VMS: der hostingdienstanbieter stellt überwachte Hosts in VMM bereit.](https://technet.microsoft.com/system-center-docs/vmm/scenario/guarded-hosts)
+        - [Abgeschirmte VMs: Hosting-Anbieter stellt geschützte Hosts in VMM bereit](https://technet.microsoft.com/system-center-docs/vmm/scenario/guarded-hosts)
     - [Bereitstellen von abgeschirmten VMs](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
-        - [Erstellen einer abgeschirmten VM-Vorlage](guarded-fabric-create-a-shielded-vm-template.md)
+        - [Erstellen einer Vorlage für eine abgeschirmte VM](guarded-fabric-create-a-shielded-vm-template.md)
         - [Vorbereiten einer VHD für ein VM-Schutz Hilfsprogramm](guarded-fabric-vm-shielding-helper-vhd.md)
         - [Einrichten des Windows Azure Packs](guarded-fabric-hoster-sets-up-windows-azure-pack.md)
         - [Erstellen einer Schutz Datendatei](guarded-fabric-tenant-creates-shielding-data.md)

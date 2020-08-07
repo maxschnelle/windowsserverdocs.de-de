@@ -2,56 +2,54 @@
 title: Übersicht über das Testumgebungsszenario
 description: 'Dieses Thema ist Teil der Test Umgebungs Anleitung: veranschaulichen einer DirectAccess-Bereitstellung für mehrere Standorte für Windows Server 2016'
 manager: brianlic
-ms.prod: windows-server
-ms.technology: networking-da
 ms.topic: article
 ms.assetid: 9afeced4-1a9b-4cb3-9fc4-d7e44c675755
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 46bcc22604a11a3fc3da764e149d900b1ada1dc8
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 5f442608fc21069a400acf0ded8d955e51791111
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80860383"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87950945"
 ---
 # <a name="overview-of-the-test-lab-scenario"></a>Übersicht über das Testumgebungsszenario
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-In diesem Test Labor Szenario wird DirectAccess mit folgenden Aufgaben bereitgestellt:  
-  
--   **DC1**-ein Server, der als Domänen Controller, DNS-Server und DHCP-Server für die Corp.contoso.com-Domäne konfiguriert ist.  
-  
--   **2-DC1**: ein Server, der als Domänen Controller und DNS-Server für die corp2.Corp.contoso.com-Domäne konfiguriert ist.  
-  
--   **Edge1 und 2-Edge1**-zwei Server im internen Netzwerk, die als RAS-Server konfiguriert sind. Jeder Server verfügt über zwei Netzwerkadapter: eine Verbindung mit dem internen Netzwerk und die andere mit dem externen Netzwerk.  
-  
--   **App1 und 2-App1**-zwei Server im internen Netzwerk, die als Web-und Dateiserver konfiguriert sind.  
-  
--   **APP2**-ein Computer im internen Netzwerk, der als einziger IPv4-Web-und-Dateiserver konfiguriert ist. Mithilfe dieses Computers werden die NAT64/DNS64-Funktionen hervorgehoben.  
-  
--   **ROUTER1**-ein Server, der für die Bereitstellung eines Routings zwischen den beiden internen Unternehmensnetzwerken konfiguriert ist.  
-  
--   **INET1**-ein Server, der als Internet-DNS und DHCP-Server konfiguriert ist.  
-  
--   **NAT1**-ein Client Computer, der als NAT-Gerät (Network Address Translator) mithilfe der Freigabe von Internet Verbindungen konfiguriert ist.  
-  
--   **CLIENT1 und CLIENT2**: zwei Client Computer, die als DirectAccess-Clients konfiguriert sind und zum Testen der DirectAccess-Konnektivität bei der Umstellung zwischen dem internen Netzwerk, dem simulierten Internet und einem Heimnetzwerk verwendet werden. **Client2** ist ein Windows 7-&reg; Client.  
-  
-Die Testumgebung besteht aus vier Subnetzen, die Folgendes simulieren:  
-  
--   Ein Heimnetzwerk mit dem Namen homenet (192.168.137.0/24), das durch eine NAT mit dem Internet verbunden ist.  
-  
--   Das externe Netzwerk, das durch das Internet Subnetz (131.107.0.0/24) dargestellt wird.  
-  
--   Ein internes Netzwerk mit dem Namen Corpnet (10.0.0.0/24; 2001: db8:1::/64), das durch den Edge1-Remote Zugriffs Server vom Internet getrennt ist.  
-  
--   Ein internes Netzwerk mit dem Namen 2-Corpnet1 (10.2.0.0/24; 2001: db8:2::/64), getrennt vom Internet durch den 2-Edge1-Remote Zugriffs Server.  
-  
-Computer in jedem Subnetz stellen eine Verbindung entweder über einen physischen oder einen virtuellen Hub oder Switch her, wie in der folgenden Abbildung dargestellt.  
-  
-![Übersicht über die Testumgebung](../../../media/Overview-of-the-Test-Lab-Scenario_4/TLG_DA_Multisite.png)  
-  
+In diesem Test Labor Szenario wird DirectAccess mit folgenden Aufgaben bereitgestellt:
+
+-   **DC1**-ein Server, der als Domänen Controller, DNS-Server und DHCP-Server für die Corp.contoso.com-Domäne konfiguriert ist.
+
+-   **2-DC1**: ein Server, der als Domänen Controller und DNS-Server für die corp2.Corp.contoso.com-Domäne konfiguriert ist.
+
+-   **Edge1 und 2-Edge1**-zwei Server im internen Netzwerk, die als RAS-Server konfiguriert sind. Jeder Server verfügt über zwei Netzwerkadapter: eine Verbindung mit dem internen Netzwerk und die andere mit dem externen Netzwerk.
+
+-   **App1 und 2-App1**-zwei Server im internen Netzwerk, die als Web-und Dateiserver konfiguriert sind.
+
+-   **APP2**-ein Computer im internen Netzwerk, der als einziger IPv4-Web-und-Dateiserver konfiguriert ist. Mithilfe dieses Computers werden die NAT64/DNS64-Funktionen hervorgehoben.
+
+-   **ROUTER1**-ein Server, der für die Bereitstellung eines Routings zwischen den beiden internen Unternehmensnetzwerken konfiguriert ist.
+
+-   **INET1**-ein Server, der als Internet-DNS und DHCP-Server konfiguriert ist.
+
+-   **NAT1**-ein Client Computer, der als NAT-Gerät (Network Address Translator) mithilfe der Freigabe von Internet Verbindungen konfiguriert ist.
+
+-   **CLIENT1 und CLIENT2**: zwei Client Computer, die als DirectAccess-Clients konfiguriert sind und zum Testen der DirectAccess-Konnektivität bei der Umstellung zwischen dem internen Netzwerk, dem simulierten Internet und einem Heimnetzwerk verwendet werden. **Client2** ist ein Windows 7- &reg; Client.
+
+Die Testumgebung besteht aus vier Subnetzen, die Folgendes simulieren:
+
+-   Ein Heimnetzwerk mit dem Namen homenet (192.168.137.0/24), das durch eine NAT mit dem Internet verbunden ist.
+
+-   Das externe Netzwerk, das durch das Internet Subnetz (131.107.0.0/24) dargestellt wird.
+
+-   Ein internes Netzwerk mit dem Namen Corpnet (10.0.0.0/24; 2001: db8:1::/64), das durch den Edge1-Remote Zugriffs Server vom Internet getrennt ist.
+
+-   Ein internes Netzwerk mit dem Namen 2-Corpnet1 (10.2.0.0/24; 2001: db8:2::/64), getrennt vom Internet durch den 2-Edge1-Remote Zugriffs Server.
+
+Computer in jedem Subnetz stellen eine Verbindung entweder über einen physischen oder einen virtuellen Hub oder Switch her, wie in der folgenden Abbildung dargestellt.
+
+![Übersicht über die Testumgebung](../../../media/Overview-of-the-Test-Lab-Scenario_4/TLG_DA_Multisite.png)
+
 
 

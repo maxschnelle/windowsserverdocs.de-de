@@ -1,40 +1,38 @@
 ---
 title: Verwalten von Remotespeicherressourcen
-description: In diesem Artikel wird beschrieben, wie Sie Speicherressourcen einem Remotecomputer verwalten können.
+description: In diesem Artikel wird beschrieben, wie Speicherressourcen auf einem Remote Computer verwaltet werden.
 ms.date: 7/7/2017
-ms.prod: windows-server
-ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 5c6dc9c931e130e36e01655de05fbd209f50f3dc
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 8498d55cbdeab609bb3526c9ef884e330148d714
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71394082"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87950634"
 ---
 # <a name="managing-remote-storage-resources"></a>Verwalten von Remotespeicherressourcen
 
 > Gilt für: Windows Server 2019, Windows Server 2016, Windows Server (halbjährlicher Kanal), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
-Wenn Sie Speicherressourcen auf einem Remotecomputer verwalten möchten, haben Sie zwei Optionen:
+Zum Verwalten von Speicherressourcen auf einem Remote Computer haben Sie zwei Möglichkeiten:
 
--   Verbinden Sie vom MMC-Snap-In (Microsoft Management Console) des Ressourcen-Managers für Dateiserver<sup>®</sup> aus den Remotecomputer (das Sie anschließend zum Verwalten der Remote-Ressourcen verwenden können).
--   Verwenden Sie die Befehlszeilentools, die auf dem Ressourcen-Manager für Dateiserver installiert sind.
+-   Stellen Sie vom Datei Server Ressourcen-Manager Microsoft<sup>®</sup> Management Console (MMC)-Snap-in eine Verbindung mit dem Remote Computer her (die Sie dann zum Verwalten der Remote Ressourcen verwenden können).
+-   Verwenden Sie die Befehlszeilen Tools, die mit Datei Server Ressourcen-Manager installiert werden.
 
-Beide Optionen ermöglichen Ihnen, Kontingente zu verwalten, Dateien zu überprüfen, Klassifizierungen zu verwalten, Dateiverwaltungsaufgaben zu planen und Berichte mit diesen Remote-Ressourcen zu verwalten.
+Mit beiden Optionen können Sie Kontingente, Bildschirm Dateien, Klassifizierungen verwalten, Datei Verwaltungsaufgaben planen und Berichte mit diesen Remote Ressourcen generieren.
 
 > [!Note]
-> Der Ressourcen-Manager für Dateiserver kann Ressourcen auf dem lokalen Computer oder auf einem Remotecomputer verwalten, jedoch nicht gleichzeitig.
+> Datei Server Ressourcen-Manager können Ressourcen auf dem lokalen Computer oder einem Remote Computer verwalten, jedoch nicht beides gleichzeitig.
 
-Sie haben u. a. folgende Möglichkeiten:
+Sie haben unter anderem folgende Möglichkeiten:
 
--   Stellen Sie mithilfe des MMC-Snap-In (Microsoft Management Console) des Ressourcen-Managers für Dateiserver eine Verbindung mit einem anderen Computer in der Domäne her und überprüfen Sie die Speichernutzung eines Volume oder eines Ordners auf dem Remotecomputer.
--   Erstellen Sie Kontingent- und Datenprüfungsvorlagen auf einem lokalen Server und verwenden Sie anschließend die Befehlszeilentools, um diese Vorlagen in einem Dateiserver in einer Zweigstelle zu importieren.
+-   Stellen Sie über das MMC-Snap-in "Datei Server Ressourcen-Manager" eine Verbindung mit einem anderen Computer in der Domäne her, und überprüfen Sie die Speicherauslastung auf einem Volume oder Ordner auf dem Remote Computer
+-   Erstellen Sie Kontingent-und Datei Bildschirm Vorlagen auf einem lokalen Server, und verwenden Sie dann die Befehlszeilen Tools, um diese Vorlagen in einen Dateiserver in einer Zweigstelle zu importieren.
 
-In diesem Abschnitt werden folgende Themen behandelt:
+Dieser Abschnitt schließt folgende Themen ein:
 
 -   [Verbindung mit einem Remotecomputer herstellen](connect-to-remote-computer.md)
 -   [Befehlszeilentools](command-line-tools.md)

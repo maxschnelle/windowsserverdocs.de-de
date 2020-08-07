@@ -1,20 +1,18 @@
 ---
 title: What's New for Managed Service Accounts
 description: Windows Server-Sicherheit
-ms.prod: windows-server
-ms.technology: security-gmsa
 ms.topic: article
 ms.assetid: 2f2a8b6b-c152-4c40-b712-bfabff0e408b
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 0932493c157bc9de39d3b3c819fa03b9a760a059
-ms.sourcegitcommit: 102a929be3523dbd6523079f0a5738844cef81b4
+ms.openlocfilehash: 32cc7a79f8b6efeaf7451444273b7e4285eeb544
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/14/2020
-ms.locfileid: "86384650"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87971427"
 ---
 # <a name="what39s-new-for-managed-service-accounts"></a>Neues für verwaltete Dienst Konten&#39;
 
@@ -49,7 +47,7 @@ Für Windows Server 2012 werden die Windows PowerShell-Cmdlets standardmäßig f
 
 ## <a name="additional-references"></a>Weitere Verweise
 
--   [Group Managed Service Accounts Overview](group-managed-service-accounts-overview.md) (Übersicht über gruppenverwaltete Dienstkonten)
+-   [Übersicht über Gruppen verwaltete Dienst Konten](group-managed-service-accounts-overview.md)
 
 -   [Übersicht über die Active Directory Domain Services](active-directory-domain-services-overview.md)
 

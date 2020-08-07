@@ -2,18 +2,16 @@
 title: Kontaktieren des Datencenter- und Cloud Networking-Teams
 description: Diese Seite soll Kunden über die besten Methoden zum Erreichen des SDN-Teams in verschiedenen Kontexten informieren.
 manager: grcusanz
-ms.prod: windows-server
-ms.technology: networking-sdn
 ms.topic: article
 ms.assetid: f9945c55-c2d0-448f-86dd-8c734e1b2987
 ms.author: anpaul
 author: AnirbanPaul
-ms.openlocfilehash: 45baf6966fc0bc703dcf354e557b9d4eeab8e9d9
-ms.sourcegitcommit: 0ccc7b2caa1781f0c67e1a3cc52c0b0f6a175ad4
+ms.openlocfilehash: fe5b9bc8c8b3b888b3c11a72c39756374cde566c
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87819581"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87970827"
 ---
 # <a name="contact-the-datacenter-and-cloud-networking-team"></a>Kontaktieren des Datencenter- und Cloud Networking-Teams
 
@@ -37,7 +35,7 @@ Wechseln Sie [hier](https://github.com/Microsoft/SDN/issues) , um über unser Gi
 Unsere [Container-Netzwerk Dokumentation](https://docs.microsoft.com/virtualization/windowscontainers/manage-containers/container-networking) finden Sie auf [Microsoft-Dokumentation (docs.Microsoft.com)](https://docs.microsoft.com/), die über eine **integrierte Kommentarfunktion**verfügt. Zum verlassen oder zum Antworten auf einen Kommentar zu Microsoft-Dokumentation melden Sie sich einfach an, Scrollen Sie nach unten zum unteren Rand der Microsoft-Dokumentation Seite, auf die Sie verweisen möchten, und stellen Sie dann Ihren Kommentar dort ein.
 
 > [Microsoft-Dokumentation](https://docs.microsoft.com/) ist die neue einheitliche Dokumentations Website von Microsoft. Während die meiste [Sdn-Dokumentation](https://technet.microsoft.com/windows-server-docs/networking/sdn/software-defined-networking) unseres Teams auf TechNet verbleibt, ist unsere [Container-Netzwerk Dokumentation](https://docs.microsoft.com/virtualization/windowscontainers) nun auf Microsoft-Dokumentation.
-> 
+>
 > *Wenn Sie in einem Thema Microsoft-Dokumentation, das eine Frage auslöst oder Sie mehr benötigen, können Sie einfach einen Kommentar auf dieser Seite hinterlassen, damit Sie Ihr Feedback an das Microsoft-Team weitergeben können, das Ihnen helfen kann.*
 
 ## <a name="container-specific-forums"></a>Container spezifische Foren
@@ -45,5 +43,5 @@ Sie können auf dieser Seite auch beliebige Möglichkeiten verwenden, um Feedbac
 - [Benutzersprache](https://windowsserver.uservoice.com/forums/304624-containers) : am besten für *Featureanforderungen*
 - [GitHub (virtualisierungsrepository)](https://github.com/Microsoft/Virtualization-Documentation) : am besten für die Suche nach *Hilfe zur Problem* Behandlung und *Fehlerberichterstattung*
 
-### <a name="not-seeing-the-forum-for-you"></a>Sie sehen das Forum nicht für Sie? 
+### <a name="not-seeing-the-forum-for-you"></a>Sie sehen das Forum nicht für Sie?
 Wir empfehlen, wann immer möglich, unsere öffentlichen Foren zu verwenden, damit die breitere Community von dem Zugriff auf die Fragen und Kommentare profitieren kann, die auf dem besten Weg sind. Es gibt jedoch auch Situationen, in denen die e-Mail-Nachricht einfach die bevorzugte Methode ist, sich mit uns in Verbindung zu setzen. Wenn Sie sich in einer dieser Situationen befinden, senden Sie uns eine e-Mail an, sdn_feedback@microsoft.com und wir freuen uns, Sie von Ihnen zu hören.
