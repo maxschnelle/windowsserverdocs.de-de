@@ -1,20 +1,18 @@
 ---
 title: cmd
 description: Referenz Artikel zum CMD-Befehl, der eine neue Instanz des Befehls Interpreters startet, Cmd.exe.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 6ec588db-31a9-4a73-a970-65a2c6f4abbe
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 69176c69434813745f6039b607f2992675df879c
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 0c4e651a4f88ffa1d85d5be225b3ae6e5d1676dd
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85929861"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87880096"
 ---
 # <a name="cmd"></a>cmd
 
@@ -28,7 +26,7 @@ cmd [/c|/k] [/s] [/q] [/d] [/a|/u] [/t:{<b><f> | <f>}] [/e:{on | off}] [/f:{on |
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | /C | Führt den durch die *Zeichenfolge* angegebenen Befehl aus und wird dann beendet. |
 | /k | Führt den durch die *Zeichenfolge* angegebenen Befehl aus und wird fortgesetzt. |
@@ -49,26 +47,26 @@ cmd [/c|/k] [/s] [/q] [/d] [/a|/u] [/t:{<b><f> | <f>}] [/e:{on | off}] [/f:{on |
 
 In der folgenden Tabelle werden gültige hexadezimale Ziffern aufgelistet, die Sie als Werte für und verwenden können `<b>` `<f>` :
 
-| Wert | Farbe |
+| Wert | Color |
 | ----- | ----- |
 | 0 | Schwarz |
-| 1 | Blue |
+| 1 | Blau |
 | 2 | Grün |
 | 3 | Aqua |
 | 4 | Red |
 | 5 | Purple |
-| 6 | Yellow |
+| 6 | Gelb |
 | 7 | White |
 | 8 | Grau |
 | 9 | Hellblau |
-| eine | Hellgrün |
-| k | Hell Aqua |
+| a | Hellgrün |
+| b | Hell Aqua |
 | c | Hellrot |
 | d | Hell lila |
 | e | Hellgelb |
 | f | Helles Weiß |
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 - Wenn Sie mehrere Befehle für verwenden möchten `<string>` , trennen Sie diese durch das Befehls **&&** Trennzeichen, und schließen Sie Sie in Anführungszeichen ein. Beispiel:
 

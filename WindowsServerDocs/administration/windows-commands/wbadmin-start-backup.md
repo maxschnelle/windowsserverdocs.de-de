@@ -1,20 +1,18 @@
 ---
 title: wbadmin start backup
 description: Referenz Artikel für die Wbadmin-Sicherung starten der Sicherung, bei der mithilfe der angegebenen Parameter eine Sicherung erstellt wird.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 56f3e752-d99a-4c3d-8e97-10303c37dd78
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b3d819b8c3d6ba0b188b11d7fc1db7f1536a844c
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: b8ef64e00f8361a2f006944be65977c3d70769df
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85935001"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87891685"
 ---
 # <a name="wbadmin-start-backup"></a>wbadmin start backup
 
@@ -57,7 +55,7 @@ Wbadmin start backup
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
 |-backupTarget|Gibt den Speicherort für diese Sicherung an. Erfordert einen Festplatten Laufwerksbuchstaben (f:), einen auf einem Volume-GUID basierenden Pfad im Format \\ \\ ? \\ Volume {GUID} oder ein Universal Naming Convention (UNC)-Pfad zu einem freigegebenen Remote Ordner ( \\ \\ \<servername> \\ \<sharename> \\ ). Standardmäßig wird die Sicherung unter: Windows Image Backup gespeichert \\ \\ \<servername> \\ \<sharename> \\ **WindowsImageBackup** \\ \<ComputerBackedUp> \\ .</br>Wichtig: Wenn Sie eine Sicherung in einem freigegebenen Remote Ordner speichern, wird diese Sicherung überschrieben, wenn Sie denselben Ordner zum erneuten sichern desselben Computers verwenden. Wenn der Sicherungs Vorgang fehlschlägt, können Sie darüber hinaus keine Sicherung erstellen, da die ältere Sicherung überschrieben wird, aber die neuere Sicherung nicht verwendbar ist. Sie können dies vermeiden, indem Sie Unterordner im freigegebenen Remote Ordner erstellen, um die Sicherungen zu organisieren. Wenn Sie dies tun, benötigen die Unterordner den doppelten Speicherplatz als übergeordneten Ordner.|
 |-include|Gibt für Windows ° Vista und Windows Server 2008 die durch Trennzeichen getrennte Liste der volumelaufwerks Buchstaben, Volumebereitstellungspunkte oder GUID-basierten Volumen Amen an, die in die Sicherung eingeschlossen werden sollen. Dieser Parameter sollte nur verwendet werden, wenn der **-backupTarget-** Parameter verwendet wird.</br>Für Windows 7 und Windows Server 2008 R2 und höher gibt die durch Trennzeichen getrennte Liste der Elemente an, die in die Sicherung eingeschlossen werden sollen. Sie können mehrere Dateien, Ordner oder Volumes einschließen. Volumepfade können mit Volumelaufwerkbuchstaben, Volumebereitstellungspunkten oder GUID-basierten Volumenamen angegeben werden. Wenn Sie einen GUID-basierten Volumenamen verwenden, sollte er mit einem umgekehrten Schrägstrich ( \\ ) beendet werden. Sie können das Platzhalter Zeichen ( \* ) im Dateinamen verwenden, wenn Sie einen Pfad zu einer Datei angeben. Sollte nur verwendet werden, wenn der **-backupTarget-** Parameter verwendet wird.|

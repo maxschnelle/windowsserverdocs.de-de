@@ -1,20 +1,18 @@
 ---
 title: ping
 description: Referenz Artikel zum Ping-Befehl, mit dem die Netzwerk Konnektivität überprüft wird.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 49272671-2eec-4fa5-881f-65c24cfbef52
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: b995edf4943cfbaac8bd96cf098d62687c32396f
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 999e8e80c85a85e2bbc2f933e1985c732ae85328
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85924272"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87884989"
 ---
 # <a name="ping"></a>ping
 
@@ -35,7 +33,7 @@ ping [/t] [/a] [/n <count>] [/l <size>] [/f] [/I <TTL>] [/v <TOS>] [/r <count>] 
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 |--|--|
 | /t | Gibt an, dass der Ping das Senden von Echo Request-Nachrichten an das Ziel fortsetzen soll Drücken Sie Strg + Eingabe, um die Statistiken zu unterbrechen und anzuzeigen. Um diesen Befehl zu unterbrechen und zu beenden, drücken Sie STRG + C. |
 | /a | Gibt an, dass die umgekehrte Namensauflösung für die Ziel-IP-Adresse ausgeführt wird. Wenn dies erfolgreich ist, zeigt Ping den entsprechenden Hostnamen an. |

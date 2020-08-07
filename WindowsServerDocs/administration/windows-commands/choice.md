@@ -1,20 +1,18 @@
 ---
 title: choice
 description: Referenz Artikel für den Choice-Befehl, der den Benutzer auffordert, ein Element aus einer Liste von Einzelzeichen in einem Batch Programm auszuwählen, und dann den Index der ausgewählten Auswahl zurückgibt.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: c65a9119-410b-4dcf-9fa7-4e07d2a7238b
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 745321c6388e6faa9de1ce1a8a24afe66514d259
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 6aec3af1966d0b7952f0bbb5880e373356117e42
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85929987"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87880252"
 ---
 # <a name="choice"></a>choice
 
@@ -28,7 +26,7 @@ choice [/c [<choice1><choice2><…>]] [/n] [/cs] [/t <timeout> /d <choice>] [/m 
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | /c`<choice1><choice2><…>` | Gibt die Liste der zu erstellenden Optionen an. Gültige Optionen sind a-z, a-z, 0-9 und erweiterte ASCII-Zeichen (128-254). Die Standardliste ist yn, das als angezeigt wird `[Y,N]?` . |
 | /n | Blendet die Liste der Auswahlmöglichkeiten aus, obwohl die Auswahl weiterhin aktiviert ist und der Meldungs Text (falls durch **/m**angegeben) weiterhin angezeigt wird. |
@@ -38,7 +36,7 @@ choice [/c [<choice1><choice2><…>]] [/n] [/cs] [/t <timeout> /d <choice>] [/m 
 | /m`<text>` | Gibt eine Meldung an, die vor der Auswahlliste angezeigt werden soll. Wenn **/m** nicht angegeben ist, wird nur die Auswahl Aufforderung angezeigt. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 - Die **ERRORLEVEL** -Umgebungsvariable wird auf den Index des Schlüssels festgelegt, den der Benutzer aus der Liste der Optionen auswählt. Die erste Auswahl in der Liste gibt den Wert zurück `1` , der zweite Wert von `2` usw. Wenn der Benutzer eine Taste drückt, bei der es sich nicht um eine gültige Auswahl handelt, wird von der **Auswahl** eine Warnung angezeigt.
 

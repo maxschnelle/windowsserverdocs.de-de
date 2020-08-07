@@ -1,20 +1,18 @@
 ---
 title: cipher
 description: Referenz Artikel zum Chiffre Befehl, der die Verschlüsselung von Verzeichnissen und Dateien auf NTFS-Volumes anzeigt oder ändert.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 78ef795e-0f87-4acd-8d15-192c972c0f41
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f23e2855c4542cc359d458f6825dd9420581657f
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 6b5d7c6708c714cd414e06e150b9b0344cc03f9c
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85929973"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87880235"
 ---
 # <a name="cipher"></a>cipher
 
@@ -37,7 +35,7 @@ cipher /rekey [pathname [...]]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ---------- | ----------- |
 | /b | Bricht ab, wenn ein Fehler aufgetreten ist. Standardmäßig wird die **Chiffre** auch dann ausgeführt, wenn Fehler auftreten. |
 | /C | Zeigt Informationen über die verschlüsselte Datei an. |
@@ -56,7 +54,7 @@ cipher /rekey [pathname [...]]
 | /removeuser /certhash:`<hash>` | Entfernt einen Benutzer aus den angegebenen Dateien. Der für **/CertHash** angegebene *Hash* muss der SHA1-Hash des Zertifikats sein, das entfernt werden soll. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-### <a name="remarks"></a>Hinweise
+### <a name="remarks"></a>Bemerkungen
 
 - Wenn das übergeordnete Verzeichnis nicht verschlüsselt ist, kann eine verschlüsselte Datei bei der Änderung entschlüsselt werden. Wenn Sie eine Datei verschlüsseln, sollten Sie daher auch das übergeordnete Verzeichnis verschlüsseln.
 

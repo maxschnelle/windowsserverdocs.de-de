@@ -1,20 +1,18 @@
 ---
 title: pnpunattend
 description: Referenz Artikel für den pnpunattend-Befehl, mit dem die Gerätetreiber auf einem Computer überwacht werden und automatische Treiber Installationen durchführt werden.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 4fa88932-cff0-4dfc-936c-98c0e3dfbeb8
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: cb01e2afa763d3e2c906d1b3ac5f194143caf114
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 72cb158804bcec3c57ef9bae8d21f8e15a7978d9
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85924246"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87884930"
 ---
 # <a name="pnpunattend"></a>pnpunattend
 
@@ -42,12 +40,12 @@ PnPUnattend.exe auditsystem [/help] [/?] [/h] [/s] [/l]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 |--|--|
 | Durchgänge | Gibt die Online Treiberinstallation an.<p>Erforderlich, es sei denn, dieser Befehl wird entweder mit **/help** dem/Help **-oder/?-** Befehl ausgeführt. Parameter auf. |
-| /s | Dies ist optional. Gibt an, dass Treiber ohne Installation von gesucht werden sollen. |
-| /l | Dies ist optional. Gibt an, dass die Protokollinformationen für diesen Befehl an der Eingabeaufforderung angezeigt werden. |
-| `/? | /help` | Dies ist optional. Zeigt die Hilfe für diesen Befehl an der Eingabeaufforderung an. |
+| /s | Optional. Gibt an, dass Treiber ohne Installation von gesucht werden sollen. |
+| /l | Optional. Gibt an, dass die Protokollinformationen für diesen Befehl an der Eingabeaufforderung angezeigt werden. |
+| `/? | /help` | Optional. Zeigt die Hilfe für diesen Befehl an der Eingabeaufforderung an. |
 
 ### <a name="examples"></a>Beispiele
 

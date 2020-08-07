@@ -1,20 +1,18 @@
 ---
 title: certreq
 description: Referenz Artikel für den Certreq-Befehl der Zertifikate von einer Zertifizierungsstelle (ca) anfordert, eine Antwort auf eine vorherige Anforderung von einer Zertifizierungsstelle abruft, eine neue Anforderung aus einer INF-Datei erstellt, eine Antwort auf eine Anforderung akzeptiert und installiert, eine Kreuz Zertifizierung oder eine qualifizierte Unterordnung von einem vorhandenen Zertifizierungsstellen Zertifikat oder einer vorhandenen Zertifizierungsstelle erstellt und eine Kreuz Zertifizierung oder eine qualifizierte Unterordnungs Anforderung signiert.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 7a04e51f-f395-4bff-b57a-0e9efcadf973
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4610db6755f5177306dfcf4feec005eab6efabfd
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: 4e9276acbad0f9e9d403d3e172b4935f1de43475
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87178676"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87880349"
 ---
 # <a name="certreq"></a>certreq
 
@@ -111,9 +109,9 @@ Dieser Bereich der INF-Datei ist für alle neuen Zertifikat Anforderungs Vorlage
 | KeyContainer | Es wird nicht empfohlen, diesen Parameter für neue Anforderungen festzulegen, bei denen ein neues Schlüsselmaterial generiert wird. Der Schlüssel Container wird vom System automatisch generiert und verwaltet.<p>Bei Anforderungen, bei denen das vorhandene Schlüsselmaterial verwendet werden soll, kann dieser Wert auf den Schlüssel Container Namen des vorhandenen Schlüssels festgelegt werden. Verwenden `certutil –key` Sie den Befehl, um die Liste der verfügbaren Schlüssel Container für den Computer Kontext anzuzeigen. Verwenden Sie den `certutil –key –user` -Befehl für den Kontext des aktuellen Benutzers.| Zufälliger Zeichen folgen Wert<p>**Tipp:** Verwenden Sie doppelte Anführungszeichen um alle INF-Schlüsselwerte, die Leerzeichen oder Sonderzeichen enthalten, um potenzielle Probleme mit der INF-Verarbeitung zu vermeiden. | `KeyContainer = {C347BD28-7F69-4090-AA16-BC58CF4D749C}` |
 | KeyLength | Definiert die Länge des öffentlichen und des privaten Schlüssels. Die Schlüssellänge wirkt sich auf die Sicherheitsstufe des Zertifikats aus. Eine größere Schlüssellänge bietet in der Regel eine höhere Sicherheitsstufe. Einige Anwendungen haben jedoch möglicherweise Einschränkungen hinsichtlich der Schlüssellänge. | Jede gültige Schlüssellänge, die vom Kryptografiedienstanbieter unterstützt wird. | `KeyLength = 2048` |
 | KeySpec | Bestimmt, ob der Schlüssel für Signaturen, für Exchange (Verschlüsselung) oder für beides verwendet werden kann. | `AT_NONE, AT_SIGNATURE, AT_KEYEXCHANGE` | `KeySpec = AT_KEYEXCHANGE` |
-| Endeinheits Zertifikaten der | Definiert, wofür der Zertifikat Schlüssel verwendet werden soll. | <ul><li>`CERT_DIGITAL_SIGNATURE_KEY_USAGE -- 80 (128)`</li><li>`CERT_NON_REPUDIATION_KEY_USAGE -- 40 (64)`</li><li>`CERT_KEY_ENCIPHERMENT_KEY_USAGE -- 20 (32)`</li><li>`CERT_DATA_ENCIPHERMENT_KEY_USAGE -- 10 (16)`</li><li>`CERT_KEY_AGREEMENT_KEY_USAGE -- 8`</li><li>`CERT_KEY_CERT_SIGN_KEY_USAGE -- 4`</li><li>`CERT_OFFLINE_CRL_SIGN_KEY_USAGE -- 2`</li><li>`CERT_CRL_SIGN_KEY_USAGE -- 2`</li><li>`CERT_ENCIPHER_ONLY_KEY_USAGE -- 1`</li><li>`CERT_DECIPHER_ONLY_KEY_USAGE -- 8000 (32768)`</li></ul> | `KeyUsage = CERT_DIGITAL_SIGNATURE_KEY_USAGE | CERT_KEY_ENCIPHERMENT_KEY_USAGE`<p>**Tipp:** Mehrere Werte verwenden eine Pipe (|) Symbol Trennzeichen. Stellen Sie sicher, dass Sie doppelte Anführungszeichen verwenden, wenn Sie mehrere Werte verwenden, um INF-Probleme zu vermeiden. Die angezeigten Werte sind hexadezimale Werte (Dezimalwerte) für jede bitdefinition. Ältere Syntax kann auch verwendet werden: ein einzelner Hexadezimalwert mit mehreren Bits, der anstelle der symbolischen Darstellung festgelegt ist. Beispiel: `KeyUsage = 0xa0`. |
+| Endeinheits Zertifikaten der | Definiert, wofür der Zertifikat Schlüssel verwendet werden soll. | <ul><li>`CERT_DIGITAL_SIGNATURE_KEY_USAGE -- 80 (128)`</li><li>`CERT_NON_REPUDIATION_KEY_USAGE -- 40 (64)`</li><li>`CERT_KEY_ENCIPHERMENT_KEY_USAGE -- 20 (32)`</li><li>`CERT_DATA_ENCIPHERMENT_KEY_USAGE -- 10 (16)`</li><li>`CERT_KEY_AGREEMENT_KEY_USAGE -- 8`</li><li>`CERT_KEY_CERT_SIGN_KEY_USAGE -- 4`</li><li>`CERT_OFFLINE_CRL_SIGN_KEY_USAGE -- 2`</li><li>`CERT_CRL_SIGN_KEY_USAGE -- 2`</li><li>`CERT_ENCIPHER_ONLY_KEY_USAGE -- 1`</li><li>`CERT_DECIPHER_ONLY_KEY_USAGE -- 8000 (32768)`</li></ul> | `KeyUsage = CERT_DIGITAL_SIGNATURE_KEY_USAGE | CERT_KEY_ENCIPHERMENT_KEY_USAGE`<p>**Tipp:** Mehrere Werte verwenden eine Pipe (|) Symbol Trennzeichen. Stellen Sie sicher, dass Sie doppelte Anführungszeichen verwenden, wenn Sie mehrere Werte verwenden, um INF-Probleme zu vermeiden. Die angezeigten Werte sind hexadezimale Werte (Dezimalwerte) für jede bitdefinition. Ältere Syntax kann auch verwendet werden: ein einzelner Hexadezimalwert mit mehreren Bits, der anstelle der symbolischen Darstellung festgelegt ist. Beispielsweise `KeyUsage = 0xa0`. |
 | Keyusageproperty | Ruft einen Wert ab, der den spezifischen Zweck angibt, für den ein privater Schlüssel verwendet werden kann. | <ul><li>`NCRYPT_ALLOW_DECRYPT_FLAG -- 1`</li><li>`NCRYPT_ALLOW_SIGNING_FLAG -- 2`</li><li>`NCRYPT_ALLOW_KEY_AGREEMENT_FLAG -- 4`</li><li>`NCRYPT_ALLOW_ALL_USAGES -- ffffff (16777215)`</li></ul> | `KeyUsageProperty = NCRYPT_ALLOW_DECRYPT_FLAG | NCRYPT_ALLOW_SIGNING_FLAG` |
-| Machinekeyset | Dieser Schlüssel ist wichtig, wenn Sie Zertifikate erstellen müssen, die sich im Besitz des Computers befinden, nicht für einen Benutzer. Das Schlüsselmaterial, das generiert wird, wird im Sicherheitskontext des Sicherheits Prinzipals (Benutzer-oder Computer Konto) verwaltet, von dem die Anforderung erstellt wurde. Wenn ein Administrator im Auftrag eines Computers eine Zertifikat Anforderung erstellt, muss das Schlüsselmaterial im Sicherheitskontext des Computers und nicht im Sicherheitskontext des Administrators erstellt werden. Andernfalls konnte der Computer nicht auf den privaten Schlüssel zugreifen, da er sich im Sicherheitskontext des Administrators befinden würde. | `true | false`. Die Standardeinstellung ist „false“. | `MachineKeySet = true` |
+| Machinekeyset | Dieser Schlüssel ist wichtig, wenn Sie Zertifikate erstellen müssen, die sich im Besitz des Computers befinden, nicht für einen Benutzer. Das Schlüsselmaterial, das generiert wird, wird im Sicherheitskontext des Sicherheits Prinzipals (Benutzer-oder Computer Konto) verwaltet, von dem die Anforderung erstellt wurde. Wenn ein Administrator im Auftrag eines Computers eine Zertifikat Anforderung erstellt, muss das Schlüsselmaterial im Sicherheitskontext des Computers und nicht im Sicherheitskontext des Administrators erstellt werden. Andernfalls konnte der Computer nicht auf den privaten Schlüssel zugreifen, da er sich im Sicherheitskontext des Administrators befinden würde. | `true | false`. Der Standardwert ist false. | `MachineKeySet = true` |
 | NotBefore | Gibt ein Datum oder ein Datum und eine Uhrzeit an, bevor die Anforderung nicht ausgegeben werden kann. `NotBefore`kann mit und verwendet `ValidityPeriod` werden `ValidityPeriodUnits` . | Datum oder Datum und Uhrzeit | `NotBefore = 7/24/2012 10:31 AM`<p>**Tipp:** `NotBefore` und `NotAfter` sind nur für R vorgesehen `equestType=cert` . Beim Auswerten von Datumsangaben wird Gebiets Schema unterschieden. Die Verwendung von Monatsnamen wird unterschieden und sollte in jedem Gebiets Schema funktionieren. |
 | NotAfter | Gibt ein Datum oder ein Datum und eine Uhrzeit an, nach der die Anforderung nicht mehr ausgegeben werden kann. `NotAfter`kann nicht mit oder verwendet werden `ValidityPeriod` `ValidityPeriodUnits` . | Datum oder Datum und Uhrzeit | `NotAfter = 9/23/2014 10:31 AM`<p>**Tipp:** `NotBefore` und `NotAfter` sind `RequestType=cert` nur für. Beim Auswerten von Datumsangaben wird Gebiets Schema unterschieden. Die Verwendung von Monatsnamen wird unterschieden und sollte in jedem Gebiets Schema funktionieren. |
 | Privatekeyarchive | Die privatekeyarchive-Einstellung kann nur verwendet werden, wenn der entsprechende RequestType auf "CMC" festgelegt ist, da nur das Anforderungs Format "Certificate Management messages over CMS (CMC)" die sichere Übertragung des privaten Schlüssels des Anforderers an die Zertifizierungsstelle für die Schlüssel Archivierung ermöglicht. | `true | false` | `PrivateKeyArchive = true` |
@@ -294,7 +292,7 @@ Sie können nur gültige Zertifikate erneuern. Abgelaufene Zertifikate können n
 
 ## <a name="options"></a>Optionen
 
-| Tastatur | BESCHREIBUNG |
+| Optionen | BESCHREIBUNG |
 | ------- | ----------- |
 | -beliebig | `Force ICertRequest::Submit`um den Codierungstyp zu bestimmen.|
 | -atungb`<attributestring>` | Gibt die **Name** - **Wert** -Zeichen folgen Paare an, getrennt durch einen Doppelpunkt.<p>Getrennte **Name** - **Wert** -Zeichen folgen Paare mit `\n` (z. b. Name1: value1\nName2: Value2). |

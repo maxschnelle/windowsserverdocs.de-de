@@ -1,20 +1,18 @@
 ---
 title: prnjobs
 description: Referenz Artikel zum prnjobs-Befehl, der Druckaufträge anhält, fortsetzt, abbricht und auflistet.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 5ad34199-7a5a-40c1-8053-bccd5929df43
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 79ad0631a2d1c871664ecebc11c26f2e005ca772
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: d955f50761e1229e0a1acf21a9f2179525bd7ee4
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85924199"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87884742"
 ---
 # <a name="prnjobs"></a>prnjobs
 
@@ -30,19 +28,19 @@ cscript prnjobs {-z | -m | -x | -l | -?} [-s <Servername>] [-p <Printername>] [-
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 |--|--|
 | -Z | Hält den Druckauftrag an, der durch den **-j-** Parameter angegeben wird. |
 | -M | Setzt den Druckauftrag fort, der durch den **-j-** Parameter angegeben wird. |
 | -X | Bricht den Druckauftrag ab, der durch den **-j-** Parameter angegeben wird. |
 | -l | Listet alle Druckaufträge in einer Druck Warteschlange auf. |
-| -s`<Servername>` | Gibt den Namen des Remote Computers an, der den Drucker hostet, den Sie verwalten möchten. Wenn Sie keinen Computer angeben, wird der lokale Computer verwendet. |
+| -s `<Servername>` | Gibt den Namen des Remote Computers an, der den Drucker hostet, den Sie verwalten möchten. Wenn Sie keinen Computer angeben, wird der lokale Computer verwendet. |
 | -p`<Printername>` | Erforderlich. Gibt den Namen des Druckers an, den Sie verwalten möchten. |
 | -j`<JobID>` | Gibt (nach ID-Nummer) den Druckauftrag an, den Sie abbrechen möchten. |
 | -u `<Username>` -w`<password>` | Gibt ein Konto mit Berechtigungen zum Herstellen einer Verbindung mit dem Computer an, der den zu verwaltenden Drucker hostet. Alle Mitglieder der lokalen Administratoren Gruppe des Ziel Computers verfügen über diese Berechtigungen, die Berechtigungen können jedoch auch anderen Benutzern erteilt werden. Wenn Sie kein Konto angeben, müssen Sie unter einem Konto mit diesen Berechtigungen angemeldet sein, damit der Befehl funktioniert. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Wenn die Informationen, die Sie angeben, Leerzeichen enthalten, verwenden Sie den Text in Anführungszeichen (z. b. "Computer Name").
 

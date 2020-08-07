@@ -1,20 +1,18 @@
 ---
 title: cmdkey
 description: Referenz Artikel zum cmdkey-Befehl, der gespeicherte Benutzernamen und Kenn Wörter oder Anmelde Informationen erstellt, auflistet und löscht.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 5fcd68ee-a14a-4b71-9300-c3f5c5d31e8e
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a7a5446a692719a55575853df6aebc78733135b8
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: d7194b19231209150197fbc4c20175b319da77cd
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85929834"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87880068"
 ---
 # <a name="cmdkey"></a>cmdkey
 
@@ -30,7 +28,7 @@ cmdkey [{/add:<targetname>|/generic:<targetname>}] {/smartcard | /user:<username
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ---------- | ----------- |
 | /Add`<targetname>` | Fügt der Liste einen Benutzernamen und ein Kennwort hinzu.<p>Erfordert den-Parameter `<targetname>` , der den Computer-oder Domänen Namen identifiziert, dem dieser Eintrag zugeordnet wird. |
 | /generisch`<targetname>` | Fügt der Liste generische Anmelde Informationen hinzu.<p>Erfordert den-Parameter `<targetname>` , der den Computer-oder Domänen Namen identifiziert, dem dieser Eintrag zugeordnet wird. |

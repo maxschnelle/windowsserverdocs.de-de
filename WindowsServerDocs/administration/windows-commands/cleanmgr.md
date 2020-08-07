@@ -1,19 +1,17 @@
 ---
 title: cleanmgr
-description: Konfigurieren Sie das Tool für die Datenträger Bereinigung (cleanmgr. exe), um bestimmte Dateien automatisch zu bereinigen.
-ms.prod: windows-server
+description: Konfigurieren Sie das Tool für die Datenträger Bereinigung (Cleanmgr.exe), um bestimmte Dateien automatisch zu bereinigen.
 ms.reviewer: cosmosdarwin
 author: iangpgh
 ms.author: jgerend
 manager: daveba
-ms.technology: storage-spaces
 ms.date: 06/20/2019
-ms.openlocfilehash: 49d85fe0c8ec1bbba810a502724fd7aac0c2f55d
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: c0b1cb2ff31bbf3fa25d5ac5e4be0e4b35260019
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82712851"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87880200"
 ---
 # <a name="cleanmgr"></a>cleanmgr
 
@@ -31,15 +29,15 @@ cleanmgr [/d <driveletter>] [/sageset:n]  [/sagerun:n] [/TUNEUP:n] [/LOWDISK] [/
 
 | Parameter | BESCHREIBUNG |
 | --------- | ----------- |
-| /d`<driveletter>` | Gibt das Laufwerk an, das Sie bereinigen möchten.<p>**Hinweis:** Die **/d** -Option wird mit `/sagerun:n`nicht verwendet. |
-| /sageset: n | Zeigt das Dialogfeld Einstellungen für die Datenträger **Bereinigung** an und erstellt außerdem einen Registrierungsschlüssel zum Speichern der von Ihnen ausgewählten Einstellungen. Der `n` -Wert, der in der Registrierung gespeichert ist, ermöglicht Ihnen das Angeben von Aufgaben für die Datenträger Bereinigung, die ausgeführt werden soll. Der `n` Wert kann ein beliebiger ganzzahliger Wert zwischen 0 und 65535 sein. |
+| /d`<driveletter>` | Gibt das Laufwerk an, das Sie bereinigen möchten.<p>**Hinweis:** Die **/d** -Option wird mit nicht verwendet `/sagerun:n` . |
+| /sageset: n | Zeigt das Dialogfeld Einstellungen für die Datenträger **Bereinigung** an und erstellt außerdem einen Registrierungsschlüssel zum Speichern der von Ihnen ausgewählten Einstellungen. Der- `n` Wert, der in der Registrierung gespeichert ist, ermöglicht Ihnen das Angeben von Aufgaben für die Datenträger Bereinigung, die ausgeführt werden soll. Der `n` Wert kann ein beliebiger ganzzahliger Wert zwischen 0 und 65535 sein. |
 | /sagerun: n | Führt die angegebenen Aufgaben aus, die dem n-Wert zugewiesen sind, wenn Sie die Option **\sageset** verwenden. Alle Laufwerke auf dem Computer werden aufgezählt, und das ausgewählte Profil wird für jedes Laufwerk ausgeführt. |
-| /TuneUp: n | Führen Sie **/sageset** und **/sagerun** für das `n` gleiche aus. |
+| /TuneUp: n | Führen Sie **/sageset** und **/sagerun** für das gleiche aus `n` . |
 | /lowdisk | Führen Sie mit den Standardeinstellungen aus. |
 | /verylowdisk | Führen Sie mit den Standardeinstellungen aus, keine Eingabe Aufforderungen. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="options"></a>Tastatur
+#### <a name="options"></a>Optionen
 
 Zu den Optionen für die Dateien, die Sie für die Datenträger Bereinigung mithilfe von **/sageset** und **/sagerun** angeben können, gehören:
 
@@ -61,7 +59,7 @@ Zu den Optionen für die Dateien, die Sie für die Datenträger Bereinigung mith
 
 - **Alte Dateien komprimieren** : Windows kann Dateien komprimieren, die Sie in jüngster Zeit nicht verwendet haben. Durch das Komprimieren von Dateien wird Speicherplatz gespart, aber Sie können die Dateien weiterhin verwenden. Es werden keine Dateien gelöscht. Da Dateien mit unterschiedlichen Raten komprimiert werden, ist die angezeigte Menge an Speicherplatz ungefähr annähernd. Mit der Schaltfläche "Optionen" können Sie angeben, wie viele Tage gewartet werden soll, bevor eine Datenträger Bereinigung eine nicht verwendete Datei komprimiert.
 
-- **Katalogdateien für den inhaltsindexer** : der Indizierungs Dienst beschleunigt und verbessert die Dateisuche, indem ein Index der Dateien auf dem Datenträger verwaltet wird. Diese Katalogdateien bleiben von einem vorherigen Indizierungs Vorgang und können problemlos gelöscht werden.<p>**Hinweis:** Die Katalog Datei wird möglicherweise in mehr als einem Laufwerk angezeigt, z. b `%SystemRoot%`. nicht nur in.
+- **Katalogdateien für den inhaltsindexer** : der Indizierungs Dienst beschleunigt und verbessert die Dateisuche, indem ein Index der Dateien auf dem Datenträger verwaltet wird. Diese Katalogdateien bleiben von einem vorherigen Indizierungs Vorgang und können problemlos gelöscht werden.<p>**Hinweis:** Die Katalog Datei wird möglicherweise in mehr als einem Laufwerk angezeigt, z. b. nicht nur in `%SystemRoot%` .
 
 >[!NOTE]
 > Wenn Sie die Bereinigung des Laufwerks angeben, das die Windows-Installation enthält, sind alle diese Optionen auf der Registerkarte "Datenträger **Bereinigung** " verfügbar. Wenn Sie ein anderes Laufwerk angeben, sind nur die Optionen Papierkorb und Katalogdateien für Inhalts Index auf der Registerkarte Datenträger **Bereinigung** verfügbar.
@@ -80,13 +78,13 @@ Zum Ausführen der Datenträger Bereinigung und einschließen der Optionen, die 
 cleanmgr /sagerun:1
 ```
 
-Geben Sie `cleanmgr /sageset:1` Folgendes `cleanmgr /sagerun:1` ein, um und zusammenzuführen:
+Geben Sie Folgendes ein `cleanmgr /sageset:1` , um und `cleanmgr /sagerun:1` zusammenzuführen:
 
 ```
 cleanmgr /tuneup:1
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Freigeben von Laufwerksspeicherplatz unter Windows 10](https://support.microsoft.com/help/12425/windows-10-free-up-drive-space)
 

@@ -1,20 +1,18 @@
 ---
 title: nslookup set timeout
 description: Referenz Artikel für den nslookup-Satz Timeout-Befehl, der die anfängliche Anzahl von Sekunden ändert, die auf eine Antwort auf eine Such Anforderung gewartet werden soll.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 07afdaf4-ffec-496f-a188-4e91cf1a28f8
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6df8d1229dd57a84cb0dced3829bb328e41f092c
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: ae0d23296e05519eef02384ebb90b8aa16d8c499
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85930348"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87885469"
 ---
 # <a name="nslookup-set-timeout"></a>nslookup set timeout
 
@@ -30,7 +28,7 @@ set timeout=<number>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ---------- | ---------- |
 | `<number>` | Gibt die Anzahl der Sekunden an, die auf eine Antwort gewartet werden soll. Die Standard Anzahl von Sekunden, die gewartet werden soll, ist **5**. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |

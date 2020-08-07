@@ -1,20 +1,18 @@
 ---
 title: certutil
 description: Referenz Artikel für den certutil-Befehl, bei dem es sich um ein Befehlszeilenprogramm handelt, das die Konfigurationsinformationen der Zertifizierungsstelle absichert und anzeigt, Zertifikat Dienste konfiguriert, Zertifizierungsstellen-und Wiederherstellungs Zertifizierungsstellen-Komponenten konfiguriert und Zertifikate, Schlüsselpaare und Zertifikat Ketten überprüft.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: c264ccf0-ba1e-412b-9dd3-d77dd9345ad9
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 12ef5e7fa5ff305b1670c2f88645f57500c4fb5b
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: 9f66bfb724a40a21bfaf323a54749f1d99c25e86
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87178586"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87880343"
 ---
 # <a name="certutil"></a>certutil
 
@@ -791,7 +789,7 @@ Hierbei gilt:
 [-f] [-user] [-enterprise] [-service] [-grouppolicy] [-silent] [-split] [-dc DCName]
 ```
 
-#### <a name="options"></a>Tastatur
+#### <a name="options"></a>Optionen
 
 - Die `-user` Option greift auf einen Benutzerspeicher anstelle eines Computerspeicher zu.
 
@@ -928,7 +926,7 @@ Hierbei gilt:
 [-f] [-user] [-enterprise] [-service] [-grouppolicy] [-dc DCName]
 ```
 
-#### <a name="options"></a>Tastatur
+#### <a name="options"></a>Optionen
 
 - Die `-user` Option greift auf einen Benutzerspeicher anstelle eines Computerspeicher zu.
 
@@ -968,7 +966,7 @@ Hierbei gilt:
 [-f] [-user] [-enterprise] [-service] [-grouppolicy] [-dc DCName]
 ```
 
-#### <a name="options"></a>Tastatur
+#### <a name="options"></a>Optionen
 
 - Die `-user` Option greift auf einen Benutzerspeicher anstelle eines Computerspeicher zu.
 
@@ -1960,11 +1958,11 @@ Hierbei gilt:
 
 - **-?-v** zeigt eine vollständige Liste der Parameter und Optionen an.
 
-## <a name="options"></a>Tastatur
+## <a name="options"></a>Optionen
 
 Dieser Abschnitt definiert alle Optionen, die Sie basierend auf dem Befehl angeben können. Jeder Parameter enthält Informationen darüber, welche Optionen für die Verwendung gültig sind.
 
-| Tastatur | BESCHREIBUNG |
+| Optionen | BESCHREIBUNG |
 | ------- | ----------- |
 | -nullsign | Verwenden Sie den Hash der Daten als Signatur. |
 | -f | Erzwingen von überschreiben. |
@@ -1999,7 +1997,7 @@ Dieser Abschnitt definiert alle Optionen, die Sie basierend auf dem Befehl angeb
 | -t Timeout | URL-Abruf Timeout in Millisekunden. |
 | -symkeyalg symmetrickeyalgorithmus [, keylength] | Der Name des symmetrischen Schlüssel Algorithmus mit optionaler Schlüssellänge. Beispiel: `AES,128` oder `3DES`. |
 
-### <a name="additional-references"></a>Zusätzliche Referenzen
+### <a name="additional-references"></a>Weitere Verweise
 
 Weitere Beispiele zur Verwendung dieses Befehls finden Sie unter.
 

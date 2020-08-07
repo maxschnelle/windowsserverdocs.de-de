@@ -1,20 +1,18 @@
 ---
 title: prncnfg
 description: Referenz Artikel zum prncnfg-Befehl, mit dem Konfigurationsinformationen zu einem Drucker konfiguriert oder angezeigt werden.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 38a4e8fa-3122-495b-a125-35b926bc6415
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 11eb66c3e1d4fb457f9655750d92ab90ad9b473b
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 4f7329d4f5c7441232efffbc40dcc1177f083e1e
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85924231"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87884768"
 ---
 # <a name="prncnfg"></a>prncnfg
 
@@ -30,7 +28,7 @@ cscript prncnfg {-g | -t | -x | -?} [-S <Servername>] [-P <Printername>] [-z <ne
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 |--|--|
 | -g | Zeigt Konfigurationsinformationen zu einem Drucker an. |
 | -t | Konfiguriert einen Drucker. |
@@ -42,7 +40,7 @@ cscript prncnfg {-g | -t | -x | -?} [-S <Servername>] [-P <Printername>] [-z <ne
 | -r`<portname>` | Gibt den Port an, mit dem der Drucker verbunden ist. Wenn es sich um einen parallelen oder seriellen Anschluss handelt, verwenden Sie die ID des Ports (z. b. LPT1 oder COM1). Wenn dies ein TCP/IP-Port ist, verwenden Sie den Portnamen, der beim Hinzufügen des Ports angegeben wurde. |
 | -l`<location>` | Gibt den Drucker Speicherort an, z. b. **copyroom**. Wenn der Speicherort Leerzeichen enthält, setzen Sie den Text in Anführungszeichen, z. b. **"Raum kopieren"**.|
 | -h`<sharename>` | Gibt den Freigabe Namen des Druckers an. |
-| -m`<comment>` | Gibt die Kommentar Zeichenfolge des Druckers an. |
+| -m `<comment>` | Gibt die Kommentar Zeichenfolge des Druckers an. |
 | -f`<separatorfilename>` | Gibt eine Datei an, die den Text enthält, der auf der Trenn Seite angezeigt wird. |
 | -y`<datatype>` | Gibt die Datentypen an, die der Drucker annehmen kann. |
 | -St`<starttime>` | Konfiguriert den Drucker für eingeschränkte Verfügbarkeit. Gibt die Uhrzeit an, zu der der Drucker verfügbar ist. Wenn Sie ein Dokument an einen Drucker senden, wenn es nicht verfügbar ist, wird das Dokument gespeichert (Spoolvorgang), bis der Drucker verfügbar ist. Sie müssen die Uhrzeit als 24-Stunden-Format angeben. Wenn Sie z. b. 11:00 Uhr angeben möchten, geben Sie **2300**ein. |
@@ -52,7 +50,7 @@ cscript prncnfg {-g | -t | -x | -?} [-S <Servername>] [-P <Printername>] [-z <ne
 | `{+|-}`Genu | Gibt an, ob dieser Drucker im Netzwerk freigegeben ist. |
 | `{+|-}`unmittelbaren | Gibt an, ob das Dokument direkt an den Drucker gesendet werden soll, ohne dass es gespoolte ist. |
 | `{+|-}`enes | Gibt an, ob dieser Drucker in Active Directory veröffentlicht werden soll. Wenn Sie den Drucker veröffentlichen, können andere Benutzer basierend auf dem Speicherort und den Funktionen (z. b. Farb Druck und Heftung) danach suchen. |
-| `{+|-}`hidden | Reservierte Funktion. |
+| `{+|-}`verbirgt | Reservierte Funktion. |
 | `{+|-}`raweinzierl | Gibt an, ob in dieser Warteschlange nur unformatierte Datendruck Aufträge gespoziert werden können. |
 | `{+|-}`} in der Warteschlange | Gibt an, dass der Drucker erst nach dem Spoolvorgang der letzten Seite des Dokuments gedruckt werden soll. Das Druckprogramm ist nicht verfügbar, bis das Drucken des Dokuments abgeschlossen ist. Durch die Verwendung dieses Parameters wird jedoch sichergestellt, dass das gesamte Dokument für den Drucker verfügbar ist. |
 | `{+|-}`KeepPrintedJobs | Gibt an, ob der Spooler Dokumente nach dem Drucken aufbewahren soll. Wenn Sie diese Option aktivieren, kann ein Benutzer ein Dokument aus der Druck Warteschlange und nicht aus dem Druckprogramm erneut an den Drucker übermitteln. |

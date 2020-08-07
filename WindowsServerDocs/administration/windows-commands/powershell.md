@@ -1,20 +1,18 @@
 ---
 title: PowerShell
 description: Referenz Artikel für den PowerShell-Befehl, mit dem die PowerShell-Konsole über eine Eingabeaufforderung geöffnet wird.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 694fc970-0b6c-4046-b1b5-7eb1a0d26609
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 765504ef9e21aedc367c55629a96501d8e8bd810
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 8608f10ae96d6137ce2dd7983d78236775af0df0
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86956582"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87884883"
 ---
 # <a name="powershell"></a>PowerShell
 
@@ -62,7 +60,7 @@ Mit dem Befehlszeilen Tool **PowerShell.exe** wird eine Windows PowerShell-Sitzu
 
 - Windows PowerShell wird auf der Server Core-Installationsoption von Windows Server-Betriebssystemen ausgeführt. Features, die eine grafische Benutzeroberfläche erfordern, wie z. b. die [Windows PowerShell Integrated Scripting Environment (ISE)](/previous-versions//hh849182(v=technet.10))und die Cmdlets " [out-GridView](/powershell/module/microsoft.powershell.utility/out-gridview) " und " [Show-Command](/powershell/module/microsoft.powershell.utility/show-command) ", werden jedoch nicht auf Server Core-Installationen ausgeführt.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [about_PowerShell.Exe](/powershell/module/microsoft.powershell.core/about/about_powershell_exe)
 

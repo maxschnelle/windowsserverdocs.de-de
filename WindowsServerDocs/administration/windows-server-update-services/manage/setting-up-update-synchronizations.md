@@ -1,22 +1,20 @@
 ---
-title: Einrichten von Updatesynchronisierungen
+title: Update-Synchronisierung einrichten
 description: 'Windows Server Update Service (WSUS)-Thema: Einrichten und Konfigurieren von Update synchronierungen'
-ms.prod: windows-server
-ms.technology: manage-wsus
 ms.topic: article
 ms.assetid: ddd5c395-451b-44a0-8e08-a05db26d2282
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f4da028b2100d824b55c00c185f8b90df7d787bf
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 9f47b5b6086263e901b79b7ed9e2a19e76771b11
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80828542"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87891696"
 ---
-# <a name="setting-up-update-synchronizations"></a>Einrichten von Updatesynchronisierungen
+# <a name="setting-up-update-synchronizations"></a>Update-Synchronisierung einrichten
 
 >Gilt für: Windows Server 2019, Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -24,9 +22,9 @@ Während der Synchronisierung werden von einem WSUS-Server Updates (Aktualisiere
 
 Das erste Mal, wenn ein WSUS-Server Updates herunterlädt, kann einige Zeit in Anspruch nehmen. Wenn Sie mehrere WSUS-Server einrichten, können Sie den Prozess bis zu einem gewissen Grad beschleunigen, indem Sie alle Updates auf einem WSUS-Server herunterladen und dann die Updates in die Inhaltsverzeichnisse der anderen WSUS-Server kopieren.
 
-Sie können Inhalt aus dem Inhaltsverzeichnis eines WSUS-Servers in einen anderen kopieren. Der Speicherort des Inhaltsverzeichnisses wird angegeben, wenn Sie die WSUS-Installationsprozedur nach der Installation ausführen. Sie können das Tool "WSUSutil. exe" verwenden, um Update Metadaten von einem WSUS-Server in eine Datei zu exportieren. Anschließend können Sie diese Datei in andere WSUS-Server importieren.
+Sie können Inhalt aus dem Inhaltsverzeichnis eines WSUS-Servers in einen anderen kopieren. Der Speicherort des Inhaltsverzeichnisses wird angegeben, wenn Sie die WSUS-Installationsprozedur nach der Installation ausführen. Sie können das wsusutil.exe Tool verwenden, um Update Metadaten von einem WSUS-Server in eine Datei zu exportieren. Anschließend können Sie diese Datei in andere WSUS-Server importieren.
 
-## <a name="setting-up-update-synchronizations"></a>Einrichten von Updatesynchronisierungen
+## <a name="setting-up-update-synchronizations"></a>Update-Synchronisierung einrichten
 Die Seite **Optionen** ist der zentrale Zugriffspunkt in der WSUS-Verwaltungskonsole, mit dem Sie die Synchronisierung von Updates durch den WSUS-Server anpassen. Sie können angeben, welche Updates automatisch synchronisiert werden sollen, wo der Server Updates, Verbindungseinstellungen und der Synchronisierungs Zeitplan erhält. Sie können den Konfigurations-Assistenten auch über die Seite **Optionen** verwenden, um den WSUS-Server zu einem beliebigen Zeitpunkt zu konfigurieren oder neu zu konfigurieren.
 
 ### <a name="synchronizing-update-by-product-and-classification"></a>Synchronisieren von Updates nach Produkt und Klassifizierung
@@ -48,7 +46,7 @@ Wenn ein WSUS-Server im Replikat Modus ausgeführt wird, sind Sie nicht in der L
 
 > [!NOTE]
 > Produkte oder Klassifizierungen können auf die gleiche Weise entfernt werden. Der WSUS-Server beendet die Synchronisierung neuer Updates für die gelöschten Produkte. Updates, die für diese Produkte synchronisiert wurden, bevor Sie Sie löschen, verbleiben jedoch auf dem WSUS-Server und werden als verfügbar aufgeführt.
-> 
+>
 > Um diese Produkte zu entfernen, lehnen Sie das Update ab, wie unter [Update Operations (Updates](updates-operations.md)) beschrieben, und entfernen Sie Sie dann mithilfe des [Assistenten zum Bereinigen von Servern](the-server-cleanup-wizard.md) .
 
 ### <a name="synchronizing-updates-by-language"></a>Synchronisieren von Updates nach Sprache

@@ -1,20 +1,18 @@
 ---
 title: clean
 description: Referenz Artikel zum Clean-Befehl DiskPart, mit dem alle Partitionen oder volumeformatierung aus dem Datenträger mit dem Fokus entfernt werden.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 9bbe6fd3-e07e-487b-9035-910957a1d326
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 39029c82dffe004d65b1279e5baafc14fbcc8257
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 9a8ab6d0b245862fbb935945b76f380b7163d2a3
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86955672"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87880211"
 ---
 # <a name="clean"></a>clean
 
@@ -33,7 +31,7 @@ clean [all]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | alle | Gibt an, dass jeder und jeder Sektor auf dem Datenträger auf NULL festgelegt ist, wodurch alle Daten auf dem Datenträger vollständig gelöscht werden. |
 
@@ -53,7 +51,7 @@ Geben Sie Folgendes ein, um die gesamte Formatierung des ausgewählten Datenträ
 clean
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Befehl "Clear-Disk"](/powershell/module/storage/clear-disk)
 

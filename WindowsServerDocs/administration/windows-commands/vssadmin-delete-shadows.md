@@ -1,19 +1,17 @@
 ---
 title: Löschen von Schatten durch vssadmin
 description: Eine Beschreibung des Befehls "vssadmin DELETE Shadows".
-ms.prod: windows-server
 ms.topic: article
 author: JasonGerend
 ms.author: jgerend
-ms.technology: storage
 ms.date: 05/18/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 84135624377f589417c7524c40375ed8470d3269
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 884407cee82926b3b258afba5ab2e47dc640e10f
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86954793"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87891801"
 ---
 # <a name="vssadmin-delete-shadows"></a>Löschen von Schatten durch vssadmin
 
@@ -29,7 +27,7 @@ vssadmin delete shadows /for=<ForVolumeSpec> [/oldest | /all | /shadow=<ShadowID
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---|---|
 |/for =\<ForVolumeSpec>|Gibt an, welche Schattenkopie des Volumes gelöscht wird.|
 |/oldest|Löscht nur die älteste Schatten Kopie.|
@@ -49,7 +47,7 @@ Um die älteste Schatten Kopie von Volume C zu löschen, geben Sie den folgenden
 vssadmin delete shadows /for=c: /oldest
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 * [Befehlszeilen-Syntax Schlüssel](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc771080(v%3dws.11))
 * [Vssadmin](vssadmin.md)

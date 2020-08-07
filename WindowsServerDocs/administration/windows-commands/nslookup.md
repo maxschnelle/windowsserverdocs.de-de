@@ -1,20 +1,18 @@
 ---
 title: nslookup
 description: Referenz Artikel für den Befehl "nslookup", in dem Informationen angezeigt werden, die Sie verwenden können, um die DNS-Infrastruktur (Domain Name System) zu diagnostizieren.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 41516932-7833-434a-aa92-b4cf0f9a7ef7
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 87f973349426016b6d62bd1f018f268d4e873c51
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 7d01f167a198803db269e97e806a6d2867074d60
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85925386"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87885322"
 ---
 # <a name="nslookup"></a>nslookup
 
@@ -42,7 +40,7 @@ nslookup [exit | finger | help | ls | lserver | root | server | set | view] [opt
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | [Nslookup beenden](nslookup-exit-command.md) | Beendet das Befehlszeilen Tool Nslookup. |
 | [Nslookup-Finger](nslookup-finger-command.md) | Stellt eine Verbindung mit dem Finger Server auf dem aktuellen Computer her. |
@@ -69,7 +67,7 @@ nslookup [exit | finger | help | ls | lserver | root | server | set | view] [opt
 | [nslookup set vc](nslookup-set-vc.md) | Gibt an, dass beim Senden von Anforderungen an den Server eine virtuelle Verbindung verwendet oder nicht verwendet werden soll. |
 | [nslookup view](nslookup-view.md) | Sortiert die Ausgabe der vorherigen **ls** -Unterbefehle und listet Sie auf. |
 
-### <a name="remarks"></a>Hinweise
+### <a name="remarks"></a>Bemerkungen
 
 - Wenn *computertofind* eine IP-Adresse ist und die Abfrage **für einen-** oder **ptr** -Ressourcen Daten Satz-Typ ist, wird der Name des Computers zurückgegeben.
 

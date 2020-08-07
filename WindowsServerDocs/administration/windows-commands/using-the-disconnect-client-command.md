@@ -1,20 +1,18 @@
 ---
 title: Disconnect-Client
 description: Referenz Artikel für Disconnect-Client, der einen Client von einer Multicast Übertragung oder einem Namespace trennt.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 876bbe6c-76ab-4de5-879b-d2066e700326
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 387f9b1e476371a6aee1487f418241afa1464d02
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 612cc83477e77de575e8a567c07aef18ea7fddad
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85936850"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87892079"
 ---
 # <a name="disconnect-client"></a>Disconnect-Client
 
@@ -28,7 +26,7 @@ WDSUTIL /Disconnect-Client /ClientId:<Client ID> [/Server:<Server name>] [/Force
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
 |ClientID\<Client ID>|Gibt die ID des Clients an, der getrennt werden soll. Zum Anzeigen der ID eines Clients geben Sie **WDSUTIL/Get-MulticastTransmission/Show: Clients**ein.|
 |[/Server:\<Server name>]|Gibt den Namen des Servers an. Dabei kann es sich um den NetBIOS-Namen oder den voll qualifizierten Domänen Namen (FQDN) handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.|
