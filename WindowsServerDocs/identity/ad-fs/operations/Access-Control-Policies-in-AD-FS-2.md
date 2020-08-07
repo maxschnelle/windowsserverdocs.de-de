@@ -5,14 +5,12 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server
-ms.technology: identity-adfs
-ms.openlocfilehash: 110bc74d6b77c63fc6a9554049b5adb940f2641d
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 3cf37c1fad67c652f67f4e862780c740ae5ebe60
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86962672"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87947294"
 ---
 # <a name="client-access-control-policies-in-ad-fs-20"></a>Client Access Control Richtlinien in AD FS 2,0
 Mit den Client Zugriffsrichtlinien in Active Directory-Verbunddienste (AD FS) 2,0 können Sie Benutzern den Zugriff auf Ressourcen einschränken oder gewähren.  In diesem Dokument wird beschrieben, wie Sie Client Zugriffsrichtlinien in AD FS 2,0 aktivieren und die gängigsten Szenarien konfigurieren.
@@ -74,13 +72,13 @@ Dieses Client Zugriffsrichtlinien-Szenario ermöglicht den Zugriff von allen int
 
 
 1. Klicken Sie auf Start, zeigen Sie auf Programme, zeigen Sie auf Verwaltung, und klicken Sie dann auf AD FS 2,0-Verwaltung.
-2. Klicken Sie in der Konsolen Struktur unter AD FS 2.0 \ Vertrauens Stellungen auf Vertrauens Stellungen der vertrauenden Seite, klicken Sie mit der rechten Maustaste auf die Microsoft Office 365 Identity Platform-Vertrauensstellung, und klicken Sie dann auf Anspruchs Regeln bearbeiten. 
+2. Klicken Sie in der Konsolen Struktur unter AD FS 2.0 \ Vertrauens Stellungen auf Vertrauens Stellungen der vertrauenden Seite, klicken Sie mit der rechten Maustaste auf die Microsoft Office 365 Identity Platform-Vertrauensstellung, und klicken Sie dann auf Anspruchs Regeln bearbeiten.
 3. Wählen Sie im Dialogfeld Anspruchs Regeln bearbeiten die Registerkarte Ausstellungs Autorisierungs Regeln aus, und klicken Sie dann auf Regel hinzufügen, um den Anspruchs Regel-Assistenten zu starten.
 4. Wählen Sie auf der Seite Regel Vorlage auswählen unter Anspruchs Regel Vorlage die Option Ansprüche mithilfe einer benutzerdefinierten Regel senden aus, und klicken Sie dann auf Weiter.
 5. Geben Sie auf der Seite Regel konfigurieren unter Anspruchs Regel Name den anzeigen Amen für diese Regel ein. Geben oder fügen Sie unter benutzerdefinierte Regel die folgende Syntax der Anspruchs Regel Sprache ein:`exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-proxy"]) &&
     NOT exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip",
     Value=~"customer-provided public ip address regex"])
-    => issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = "true");` 
+    => issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = "true");`
 6. Klicken Sie auf Fertig stellen. Vergewissern Sie sich, dass die neue Regel direkt unterhalb der Regel Zugriff auf alle Benutzer zulassen in der Liste Ausstellungs Autorisierungs Regeln angezeigt wird.
 7. Um die Regel zu speichern, klicken Sie im Dialogfeld Anspruchs Regeln bearbeiten auf OK.
 
@@ -97,7 +95,7 @@ Im folgenden Beispiel wird der Zugriff auf alle Office 365-Anwendungen einschlie
 
 
 1. Klicken Sie auf Start, zeigen Sie auf Programme, zeigen Sie auf Verwaltung, und klicken Sie dann auf AD FS 2,0-Verwaltung.
-2. Klicken Sie in der Konsolen Struktur unter AD FS 2.0 \ Vertrauens Stellungen auf Vertrauens Stellungen der vertrauenden Seite, klicken Sie mit der rechten Maustaste auf die Microsoft Office 365 Identity Platform-Vertrauensstellung, und klicken Sie dann auf Anspruchs Regeln bearbeiten. 
+2. Klicken Sie in der Konsolen Struktur unter AD FS 2.0 \ Vertrauens Stellungen auf Vertrauens Stellungen der vertrauenden Seite, klicken Sie mit der rechten Maustaste auf die Microsoft Office 365 Identity Platform-Vertrauensstellung, und klicken Sie dann auf Anspruchs Regeln bearbeiten.
 3. Wählen Sie im Dialogfeld Anspruchs Regeln bearbeiten die Registerkarte Ausstellungs Autorisierungs Regeln aus, und klicken Sie dann auf Regel hinzufügen, um den Anspruchs Regel-Assistenten zu starten.
 4. Wählen Sie auf der Seite Regel Vorlage auswählen unter Anspruchs Regel Vorlage die Option Ansprüche mithilfe einer benutzerdefinierten Regel senden aus, und klicken Sie dann auf Weiter.
 5. Geben Sie auf der Seite Regel konfigurieren unter Anspruchs Regel Name den anzeigen Amen für diese Regel ein. Geben oder fügen Sie unter benutzerdefinierte Regel die folgende Syntax der Anspruchs Regel Sprache ein:`exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-proxy"]) &&
@@ -126,7 +124,7 @@ Der Regelsatz basiert auf der standardmäßigen Ausstellungs Autorisierungs Rege
 
 
 1. Klicken Sie auf Start, zeigen Sie auf Programme, zeigen Sie auf Verwaltung, und klicken Sie dann auf AD FS 2,0-Verwaltung.
-2. Klicken Sie in der Konsolen Struktur unter AD FS 2.0 \ Vertrauens Stellungen auf Vertrauens Stellungen der vertrauenden Seite, klicken Sie mit der rechten Maustaste auf die Microsoft Office 365 Identity Platform-Vertrauensstellung, und klicken Sie dann auf Anspruchs Regeln bearbeiten. 
+2. Klicken Sie in der Konsolen Struktur unter AD FS 2.0 \ Vertrauens Stellungen auf Vertrauens Stellungen der vertrauenden Seite, klicken Sie mit der rechten Maustaste auf die Microsoft Office 365 Identity Platform-Vertrauensstellung, und klicken Sie dann auf Anspruchs Regeln bearbeiten.
 3. Wählen Sie im Dialogfeld Anspruchs Regeln bearbeiten die Registerkarte Ausstellungs Autorisierungs Regeln aus, und klicken Sie dann auf Regel hinzufügen, um den Anspruchs Regel-Assistenten zu starten.
 4. Wählen Sie auf der Seite Regel Vorlage auswählen unter Anspruchs Regel Vorlage die Option Ansprüche mithilfe einer benutzerdefinierten Regel senden aus, und klicken Sie dann auf Weiter.
 5. Geben Sie auf der Seite Regel konfigurieren unter Anspruchs Regel Name den anzeigen Amen für diese Regel ein. Geben oder fügen Sie unter benutzerdefinierte Regel die folgende Syntax der Anspruchs Regel Sprache ein:`exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-proxy"]) &&
@@ -146,7 +144,7 @@ Im folgenden Beispiel wird der Zugriff von internen Clients basierend auf der IP
 
 
 1. Klicken Sie auf Start, zeigen Sie auf Programme, zeigen Sie auf Verwaltung, und klicken Sie dann auf AD FS 2,0-Verwaltung.
-2. Klicken Sie in der Konsolen Struktur unter AD FS 2.0 \ Vertrauens Stellungen auf Vertrauens Stellungen der vertrauenden Seite, klicken Sie mit der rechten Maustaste auf die Microsoft Office 365 Identity Platform-Vertrauensstellung, und klicken Sie dann auf Anspruchs Regeln bearbeiten. 
+2. Klicken Sie in der Konsolen Struktur unter AD FS 2.0 \ Vertrauens Stellungen auf Vertrauens Stellungen der vertrauenden Seite, klicken Sie mit der rechten Maustaste auf die Microsoft Office 365 Identity Platform-Vertrauensstellung, und klicken Sie dann auf Anspruchs Regeln bearbeiten.
 3. Wählen Sie im Dialogfeld Anspruchs Regeln bearbeiten die Registerkarte Ausstellungs Autorisierungs Regeln aus, und klicken Sie dann auf Regel hinzufügen, um den Anspruchs Regel-Assistenten zu starten.
 4. Wählen Sie auf der Seite Regel Vorlage auswählen unter Anspruchs Regel Vorlage die Option Ansprüche mithilfe einer benutzerdefinierten Regel senden aus, und klicken Sie dann auf Weiter.
 5. Geben Sie auf der Seite Regel konfigurieren unter Anspruchs Regel Name den anzeigen Amen für diese Regel ein. Geben oder fügen Sie unter benutzerdefinierte Regel die folgende Syntax der Anspruchs Regel Sprache ein:`exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-proxy"]) &&
@@ -160,7 +158,7 @@ Im folgenden Beispiel wird der Zugriff von internen Clients basierend auf der IP
 
 ### <a name="descriptions-of-the-claim-rule-language-syntax-used-in-the-above-scenarios"></a>Beschreibungen der in den obigen Szenarien verwendeten Syntax der Anspruchs Regel Sprache
 
-|                                                                                                   Beschreibung                                                                                                   |                                                                     Syntax der Anspruchs Regel Sprache                                                                     |
+|                                                                                                   BESCHREIBUNG                                                                                                   |                                                                     Syntax der Anspruchs Regel Sprache                                                                     |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |              Standard AD FS Regel, um den Zugriff auf alle Benutzer zuzulassen. Diese Regel sollte bereits in der Liste der Autorisierungs Regeln für die Vertrauensstellung der vertrauenden Seite der Microsoft Office 365-Identitäts Plattform vorhanden sein              |                                  => Problem (Type = " <https://schemas.microsoft.com/authorization/claims/permit> ", Value = "true");                                   |
 |                               Das Hinzufügen dieser Klausel zu einer neuen, benutzerdefinierten Regel gibt an, dass die Anforderung vom Verbund Server Proxy stammt (d. h., Sie verfügt über den Header x-ms-Proxy).                                |                                                                                                                                                                    |
@@ -175,12 +173,12 @@ Im folgenden Beispiel wird der Zugriff von internen Clients basierend auf der IP
 
 Der "x-ms-weitergeleitete Client-IP"-Anspruch wird mit einem HTTP-Header aufgefüllt, der zurzeit nur von Exchange Online festgelegt ist. dieser Wert füllt den Header auf, wenn die Authentifizierungsanforderung an AD FS übergeben wird. Der Wert des Anspruchs kann eines der folgenden sein:
 
->[!Note] 
+>[!Note]
 >Exchange Online unterstützt derzeit nur IPv4-und nicht IPv6-Adressen.
 
 Eine einzelne IP-Adresse: die IP-Adresse des Clients, der direkt mit Exchange Online verbunden ist
 
->[!Note] 
+>[!Note]
 >Die IP-Adresse eines Clients im Unternehmensnetzwerk wird als IP-Adresse der externen Schnittstelle des ausgehenden Proxys oder Gateways der Organisation angezeigt.
 
 Clients, die über ein VPN oder Microsoft DirectAccess (da) mit dem Unternehmensnetzwerk verbunden sind, werden je nach Konfiguration von VPN oder da möglicherweise als interne Unternehmens Clients oder als externe Clients angezeigt.
@@ -209,7 +207,7 @@ Ein Beispiel für die Anpassung von nur zwei Adressen (z. b. 192.168.1.1 oder 10
 
 Auf diese Weise können Sie eine beliebige Anzahl von Adressen eingeben. Wenn ein Adressbereich zulässig sein muss, z. b. 192.168.1.1 – 192.168.1.25, muss der Abgleich Zeichen nach Zeichen durchgeführt werden: \b192 \. 168 \. 1 \. ([1-9] | 1 [0-9] | 2 [0-5]) \b
 
->[!Note] 
+>[!Note]
 >Die IP-Adresse wird als Zeichenfolge und nicht als Zahl behandelt.
 
 
@@ -235,11 +233,11 @@ Der folgende Ausdruck muss alle Adressen für "192.168.1.1 ~ 25" und "10.0.0.1 ~
 
 Regex-Ausdrücke können recht kompliziert werden, daher wird dringend empfohlen, ein Regex-Überprüfungs Tool zu verwenden. Wenn Sie eine Internetsuche nach "Online-Regex Expression Builder" durchführen, finden Sie mehrere gute Online Dienstprogramme, mit denen Sie Ihre Ausdrücke anhand von Beispiel Daten ausprobieren können.
 
-Beim Testen des Ausdrucks ist es wichtig, dass Sie wissen, was zu erwarten ist. Das Exchange Online-System sendet möglicherweise viele IP-Adressen, die durch Kommas getrennt sind. Der oben angegebene Ausdruck funktioniert für dieses. Dies ist jedoch wichtig, wenn Sie die Regex-Ausdrücke testen. Beispielsweise kann eine der folgenden Beispiel Eingaben verwendet werden, um die obigen Beispiele zu überprüfen: 
+Beim Testen des Ausdrucks ist es wichtig, dass Sie wissen, was zu erwarten ist. Das Exchange Online-System sendet möglicherweise viele IP-Adressen, die durch Kommas getrennt sind. Der oben angegebene Ausdruck funktioniert für dieses. Dies ist jedoch wichtig, wenn Sie die Regex-Ausdrücke testen. Beispielsweise kann eine der folgenden Beispiel Eingaben verwendet werden, um die obigen Beispiele zu überprüfen:
 
-192.168.1.1, 192.168.1.2, 192.169.1.1. 192.168.12.1, 192.168.1.10, 192.168.1.25, 192.168.1.26, 192.168.1.30, 1192.168.1.20 
+192.168.1.1, 192.168.1.2, 192.169.1.1. 192.168.12.1, 192.168.1.10, 192.168.1.25, 192.168.1.26, 192.168.1.30, 1192.168.1.20
 
-10.0.0.1, 10.0.0.5, 10.0.0.10, 10.0.1.0, 10.0.1.1, 110.0.0.1, 10.0.0.14, 10.0.0.15, 10.0.0.10, 10, 0.0.1 
+10.0.0.1, 10.0.0.5, 10.0.0.10, 10.0.1.0, 10.0.1.1, 110.0.0.1, 10.0.0.14, 10.0.0.15, 10.0.0.10, 10, 0.0.1
 
 
 
@@ -255,7 +253,7 @@ Beim Testen des Ausdrucks ist es wichtig, dass Sie wissen, was zu erwarten ist. 
 
 ### <a name="security-audit-logs"></a>Sicherheits Überwachungs Protokolle
 
-Aktivieren Sie die Überwachungs Protokollierung auf dem AD FS Server, um zu überprüfen, ob die neuen Anforderungs Kontext Ansprüche gesendet werden und für die AD FS Anspruchs Verarbeitungs Pipeline verfügbar sind. Senden Sie dann einige Authentifizierungsanforderungen, und überprüfen Sie die Anspruchs Werte in den standardmäßigen Sicherheits Überwachungs Protokoll-Einträgen. 
+Aktivieren Sie die Überwachungs Protokollierung auf dem AD FS Server, um zu überprüfen, ob die neuen Anforderungs Kontext Ansprüche gesendet werden und für die AD FS Anspruchs Verarbeitungs Pipeline verfügbar sind. Senden Sie dann einige Authentifizierungsanforderungen, und überprüfen Sie die Anspruchs Werte in den standardmäßigen Sicherheits Überwachungs Protokoll-Einträgen.
 
 Um die Protokollierung von Überwachungs Ereignissen im Sicherheitsprotokoll auf einem AD FS Server zu aktivieren, führen Sie die Schritte unter Konfigurieren der Überwachung für AD FS 2,0 aus.
 
@@ -267,7 +265,7 @@ Standardmäßig werden fehlgeschlagene Anforderungen im Anwendungs Ereignisproto
 
 AD FS Ablauf Verfolgungs Ereignisse werden im Debugprotokoll AD FS 2,0 protokolliert. Informationen zum Aktivieren der Ablauf Verfolgung finden Sie unter [configure Debug Tracing for AD FS 2,0](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ff641696(v=ws.10)).
 
-Nachdem Sie die Ablauf Verfolgung aktiviert haben, verwenden Sie die folgende Befehlszeilen Syntax, um den ausführlichen Protokolliergrad zu aktivieren: wevtutil.exe SL "AD FS 2,0 Tracing/Debug"/l: 5  
+Nachdem Sie die Ablauf Verfolgung aktiviert haben, verwenden Sie die folgende Befehlszeilen Syntax, um den ausführlichen Protokolliergrad zu aktivieren: wevtutil.exe SL "AD FS 2,0 Tracing/Debug"/l: 5
 
 ## <a name="related"></a>Verwandte Themen
 Weitere Informationen zu den neuen Anspruchs Typen finden Sie unter [AD FS Anspruchs Typen](AD-FS-Claims-Types.md).

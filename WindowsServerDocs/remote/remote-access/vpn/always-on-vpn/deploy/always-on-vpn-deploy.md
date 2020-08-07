@@ -1,20 +1,18 @@
 ---
-title: Always On VPN-Bereitstellung für Windows Server und Windows 10
+title: Always on der VPN-Bereitstellung für Windows Server und Windows 10
 description: Mithilfe dieser Bereitstellung können Sie Always on VPN-Verbindungen (virtuelles privates Netzwerk) für Remote Mitarbeiter mithilfe des Remote Zugriffs in Windows Server 2016 oder höher und Always on VPN-Profilen für Windows 10-Client Computer bereitstellen.
-ms.prod: windows-server
-ms.technology: networking-ras
 ms.topic: article
 ms.assetid: 5ae1a40b-4f10-4ace-8aaf-13f7ab581f4f
 ms.localizationpriority: medium
 ms.date: 12/20/2018
 ms.author: v-tea
 author: Teresa-MOTIV
-ms.openlocfilehash: bab89611932316d165e805e96f0a6d2d357c0780
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: bc7608d71dcb2bce19138fea18d6de23cda97d35
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86959181"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87963786"
 ---
 # <a name="always-on-vpn-deployment-for-windows-server-and-windows-10"></a>Always On VPN-Bereitstellung für Windows Server und Windows 10
 
@@ -34,7 +32,7 @@ Wahrscheinlich verfügen Sie über die bereitgestellten Technologien, die Sie zu
 - Server (virtuell oder physisch, vorhandener oder neuer) zum Installieren von Netzwerk Richtlinien Server (NPS). Wenn Sie bereits über NPS-Server in Ihrem Netzwerk verfügen, können Sie eine vorhandene NPS-Serverkonfiguration ändern, anstatt einen neuen Server hinzuzufügen.
 - Remote Zugriff als RAS-Gateway-VPN-Server mit einer kleinen Teilmenge von Features, die IKEv2-VPN-Verbindungen und LAN-Routing unterstützen.
 - Umkreis Netzwerk, das zwei Firewalls umfasst.  Stellen Sie sicher, dass ihre Firewalls den Datenverkehr, der für die VPN-und RADIUS-Kommunikation erforderlich ist, ordnungsgemäß funktionieren. Weitere Informationen finden Sie unter [Übersicht über Always on VPN-Technologie](../always-on-vpn-technology-overview.md).
-- Physischer Server oder virtueller Computer (VM) in Ihrem Umkreis Netzwerk mit zwei physischen Ethernet-Netzwerkadaptern, um den Remote Zugriff als RAS-Gateway-VPN-Server zu installieren. Virtuelle Computer erfordern ein virtuelles LAN (VLAN) für den Host. 
+- Physischer Server oder virtueller Computer (VM) in Ihrem Umkreis Netzwerk mit zwei physischen Ethernet-Netzwerkadaptern, um den Remote Zugriff als RAS-Gateway-VPN-Server zu installieren. Virtuelle Computer erfordern ein virtuelles LAN (VLAN) für den Host.
 - Sie müssen mindestens Mitglied der Gruppe Administratoren oder einer entsprechenden Gruppe sein.
 - Lesen Sie den Abschnitt Planning dieses Handbuchs, um sicherzustellen, dass Sie für diese Bereitstellung vorbereitet sind, bevor Sie die Bereitstellung ausführen.
 - Überprüfen Sie die Entwurfs-und Bereitstellungs Handbücher für die einzelnen verwendeten Technologien. Mithilfe dieser Leitfäden können Sie feststellen, ob die Bereitstellungs Szenarien die Dienste und die Konfiguration bereitstellen, die Sie für das Netzwerk Ihrer Organisation benötigen. Weitere Informationen finden Sie unter [Übersicht über Always on VPN-Technologie](../always-on-vpn-technology-overview.md).

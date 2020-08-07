@@ -6,14 +6,12 @@ author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 08/08/2018
 ms.topic: article
-ms.prod: windows-server
-ms.technology: identity-adds
-ms.openlocfilehash: ae68cf05f9631df0f942cb65ccf29971f7bc17c8
-ms.sourcegitcommit: 11421f4005f9f3a3f6c0db95b1836d0f765a9fa3
+ms.openlocfilehash: f10fea4e6e94ecc6636fe13588fea2bb94ad4407
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81624328"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87947762"
 ---
 # <a name="creating-a-site-link-design"></a>Erstellen eines Entwurfs für Standortverknüpfungen
 
@@ -29,7 +27,7 @@ Wenn Sie Standort Verknüpfungen erstellen, stellen Sie sicher, dass jeder Stand
 
 Wenn Sie Websites zu einer neu erstellten Standort Verknüpfung hinzufügen, stellen Sie fest, ob der hinzugefügte Standort Mitglied anderer Standort Verknüpfungen ist, und ändern Sie bei Bedarf die Standort Verknüpfungs Mitgliedschaft des Standorts. Wenn Sie z. b. einen Standort als Mitglied der Standard-First-Site-Verknüpfung festlegen, wenn Sie den Standort erstmalig erstellen, achten Sie darauf, dass Sie den Standort aus dem Standard-First-Site-Link entfernen, nachdem Sie den Standort einer neuen Standort Verknüpfung hinzugefügt haben. Wenn Sie den Standort nicht aus dem Standard-First-Site-Link entfernen, trifft die Konsistenzprüfung (KCC) Routing Entscheidungen auf Grundlage der Mitgliedschaft beider Standort Verknüpfungen, was zu einem falschen Routing führen kann.
 
-Verwenden Sie die Liste der Standorte und verknüpften Speicherorte, die Sie im Arbeitsblatt "geografische Standorte und Kommunikations Links" (DSSTOPO_1. doc) notiert haben, um die Mitgliedsstandorte zu identifizieren, die Sie mit einer Standort Verknüpfung verbinden möchten. Wenn mehrere Standorte die gleiche Konnektivität und Verfügbarkeit aufweisen, können Sie Sie mit derselben Standort Verknüpfung verbinden.
+Verwenden Sie die Liste der Standorte und verknüpften Speicherorte, die Sie im Arbeitsblatt "geografische Standorte und Kommunikations Links" (DSSTOPO_1.doc) notiert haben, um die Mitgliedsstandorte zu identifizieren, die Sie mit einer Standort Verknüpfung verbinden möchten. Wenn mehrere Standorte die gleiche Konnektivität und Verfügbarkeit aufweisen, können Sie Sie mit derselben Standort Verknüpfung verbinden.
 
 Der Container für standortübergreifende Transporte bietet die Möglichkeit zum Mapping von Standort Verknüpfungen zu dem Transport, den der Link verwendet. Wenn Sie ein Standort Verknüpfungs Objekt erstellen, erstellen Sie es entweder in dem IP-Container, der die Standort Verknüpfung mit dem Remote Prozedur Aufruf (RPC) über den IP-Transport verknüpft, oder den Simple Mail Transfer Protocol (SMTP)-Container, der die Standort Verknüpfung dem SMTP-Transport zuordnet.
 
@@ -40,7 +38,7 @@ Wenn Sie ein Standort Verknüpfungs Objekt im entsprechenden standortübergreife
 
 Wenn keine direkte IP-Verbindung verfügbar ist, können Sie die Replikation Zwischenstand Orten für die Verwendung von SMTP konfigurieren. Die SMTP-Replikations Funktionalität ist jedoch begrenzt und erfordert eine Unternehmens Zertifizierungsstelle (Certification Authority, ca). SMTP kann nur die Konfigurations-, Schema-und Anwendungsverzeichnis Partitionen replizieren. die Replikation von Domänen Verzeichnis Partitionen wird nicht unterstützt.
 
-Verwenden Sie zum Benennen von Standort Verknüpfungen ein konsistentes Benennungs Schema, z. b. name_of_site1-name_of_site2. Notieren Sie die Liste der Standorte, verknüpften Sites und die Namen der Standort Verknüpfungen, die diese Standorte in einem Arbeitsblatt verbinden. Ein Arbeitsblatt, das Sie beim Aufzeichnen von Standortnamen und verknüpften Standort Verknüpfungs Namen unterstützt, finden Sie unter [Auftrags Hilfen für das Windows Server 2003 Deployment Kit](https://microsoft.com/download/details.aspx?id=9608), Herunterladen von Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip und Öffnen von "Websites und zugeordnete Standort Verknüpfungen" (DSSTOPO_5. doc).
+Verwenden Sie zum Benennen von Standort Verknüpfungen ein konsistentes Benennungs Schema, z. b. name_of_site1-name_of_site2. Notieren Sie die Liste der Standorte, verknüpften Sites und die Namen der Standort Verknüpfungen, die diese Standorte in einem Arbeitsblatt verbinden. Ein Arbeitsblatt, das Sie beim Aufzeichnen von Standortnamen und verknüpften Standort Verknüpfungs Namen unterstützt, finden Sie unter [Auftrags Hilfen für das Windows Server 2003 Deployment Kit](https://microsoft.com/download/details.aspx?id=9608), herunterladen Job_Aids_Designing_and_Deploying_Directory_and_Security_Services.zip und Öffnen von "Websites und zugeordnete Standort Verknüpfungen" (DSSTOPO_5.doc).
 
 ## <a name="in-this-guide"></a>Inhalt dieser Anleitung
 

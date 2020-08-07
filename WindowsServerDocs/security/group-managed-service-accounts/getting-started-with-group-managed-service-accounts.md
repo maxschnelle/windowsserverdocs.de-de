@@ -1,20 +1,18 @@
 ---
 title: Getting Started with Group Managed Service Accounts
 description: Windows Server-Sicherheit
-ms.prod: windows-server
-ms.technology: security-gmsa
 ms.topic: article
 ms.assetid: 7130ad73-9688-4f64-aca1-46a9187a46cf
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 70bdbc49bc1e173b488d5934bae0a5b4837c76f5
-ms.sourcegitcommit: 599162b515c50106fd910f5c180e1a30bbc389b9
+ms.openlocfilehash: 728da4f2061156352045439a55cba7fa9e98ced9
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83775295"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87971467"
 ---
 # <a name="getting-started-with-group-managed-service-accounts"></a>Getting Started with Group Managed Service Accounts
 
@@ -25,9 +23,9 @@ Diese Anleitung enthält Schritt-für-Schritt-Anleitungen und Hintergrundinforma
 
 **Inhalt dieses Dokuments**
 
--   [Erforderliche Komponenten](#BKMK_Prereqs)
+-   [Voraussetzungen](#BKMK_Prereqs)
 
--   [Introduction (Einführung)](#BKMK_Intro)
+-   [Einführung](#BKMK_Intro)
 
 -   [Bereitstellen einer neuen Serverfarm](#BKMK_DeployNewFarm)
 
@@ -54,12 +52,12 @@ Dienste verfügen über die folgenden Prinzipale, aus denen ausgewählt werden k
 
 |Principals|`Scope`|Unterstützte Dienste|Kennwortverwaltung|
 |-------|-----|-----------|------------|
-|Computerkonto von Windows-System|Domäne|Auf einen mit einer Domäne verbundenen Server|Vom Computer verwaltet|
-|Computerkonto ohne Windows-System|Domäne|Jeder mit einer Domäne verbundene Server|Keine|
+|Computerkonto von Windows-System|Domain|Auf einen mit einer Domäne verbundenen Server|Vom Computer verwaltet|
+|Computerkonto ohne Windows-System|Domain|Jeder mit einer Domäne verbundene Server|Keine|
 |Virtuelles Konto|Lokal|Auf einen Server begrenzt|Vom Computer verwaltet|
-|Eigenständig verwaltetes Windows 7-Dienstkonto|Domäne|Auf einen mit einer Domäne verbundenen Server|Vom Computer verwaltet|
-|Benutzerkonto|Domäne|Jeder mit einer Domäne verbundene Server|Keine|
-|Gruppenverwaltetes Dienstkonto|Domäne|Alle in die Domäne eingebundenen Windows Server 2012-Server|Der Domänencontroller verwaltet, und der Host ruft ab|
+|Eigenständig verwaltetes Windows 7-Dienstkonto|Domain|Auf einen mit einer Domäne verbundenen Server|Vom Computer verwaltet|
+|Benutzerkonto|Domain|Jeder mit einer Domäne verbundene Server|Keine|
+|Gruppenverwaltetes Dienstkonto|Domain|Alle in die Domäne eingebundenen Windows Server 2012-Server|Der Domänencontroller verwaltet, und der Host ruft ab|
 
 Ein Windows-Computerkonto oder ein eigenständiges verwaltetes Windows 7-Dienstkonto (standalone Managed Service Account, sMSA) oder virtuelle Konten können nicht über mehrere Systeme hinweg freigegeben werden. Wenn Sie ein Konto für Dienste auf freizugebenden Serverfarmen konfigurieren, müssten Sie getrennt vom Windows-System ein Benutzer- oder Computerkonto auswählen. So oder so verfügen diese Konten nicht über die Fähigkeit der Kennwortverwaltung über einen einzigen Steuerungspunkt. Dies führt zu einem Problem, wobei jede Organisation eine teure Lösung erstellen muss, um die Schlüssel für den Dienst in Active Directory zu aktualisieren und anschließend die Schlüssel in allen Instanzen dieser Dienste bereitzustellen.
 
@@ -95,7 +93,7 @@ Zum Ausführen der Windows PowerShell-Befehle ist eine 64-Bit-Architektur erford
 
 -   Das Active Directory Schema in der Gesamtstruktur der GMSA-Domäne muss auf Windows Server 2012 aktualisiert werden, um ein GMSA zu erstellen.
 
-    Sie können das Schema aktualisieren, indem Sie einen Domänen Controller installieren, auf dem Windows Server 2012 ausgeführt wird, oder indem Sie die Version von "Adprep. exe" auf einem Computer mit Windows Server 2012 ausführen. Das Objektversionsattribut für das Objekt „CN=Schema,CN=Configuration,DC=Contoso,DC=Com“ muss „52“ sein.
+    Sie können das Schema aktualisieren, indem Sie einen Domänen Controller installieren, auf dem Windows Server 2012 ausgeführt wird, oder indem Sie die Version von adprep.exe von einem Computer mit Windows Server 2012 ausführen. Das Objektversionsattribut für das Objekt „CN=Schema,CN=Configuration,DC=Contoso,DC=Com“ muss „52“ sein.
 
 -   Neues gruppenverwaltetes Dienstkonto
 
@@ -107,7 +105,7 @@ Zum Ausführen der Windows PowerShell-Befehle ist eine 64-Bit-Architektur erford
 
 Anweisungen zum Erstellen des Schlüssels finden Sie unter [Erstellen des Schlüssel Verteilungs Dienste-KDS](create-the-key-distribution-services-kds-root-key.md)-Stamm Schlüssels. Der Microsoft-Schlüsselverteilungsdienst („kdssvc.dll“) ist der Stammschlüssel für Active Directory.
 
-**Lebens**
+**Lebenszyklus**
 
 Der Lebenszyklus einer Serverfarm, die das gMSA-Feature verwendet, umfasst für gewöhnlich folgende Aufgaben:
 
@@ -144,7 +142,7 @@ Sie können ein GMSA nur erstellen, wenn das Gesamtstruktur Schema auf Windows S
 Die Mitgliedschaft in **Domänen-Admins**, **Konten-Operatoren** oder Fähigkeit zum Erstellen von „msDS-GroupManagedServiceAccount“-Objekten ist die Mindestvoraussetzung, um die folgenden Verfahren abzuschließen.
 
 > [!NOTE]
-> Ein Wert für den Parameter "-Name" ist immer erforderlich (unabhängig davon, ob Sie "-Name" angeben), mit "-dNSHostName", "-restricttosinglecomputer" und "-restricttooutboundauthentication" sind sekundäre Anforderungen für die drei Bereitstellungs Szenarien.    
+> Ein Wert für den Parameter "-Name" ist immer erforderlich (unabhängig davon, ob Sie "-Name" angeben), mit "-dNSHostName", "-restricttosinglecomputer" und "-restricttooutboundauthentication" sind sekundäre Anforderungen für die drei Bereitstellungs Szenarien.
 
 
 #### <a name="to-create-a-gmsa-using-the-new-adserviceaccount-cmdlet"></a><a name="BKMK_CreateGMSA"></a>So erstellen Sie ein gMSA mithilfe des Cmdlets „New-ADServiceAccount“
@@ -167,7 +165,7 @@ Die Mitgliedschaft in **Domänen-Admins**, **Konten-Operatoren** oder Fähigkeit
 
     > [!IMPORTANT]
     > Das Kennwortänderungsintervall kann nur während der Erstellung festgelegt werden. Wenn Sie das Intervall ändern möchten, müssen Sie ein neues gMSA erstellen und es zur Erstellungszeit festlegen.
-   
+
     **Beispiel**
 
     Geben Sie jeden Befehl in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.
@@ -194,7 +192,7 @@ Die Mitgliedschaft in **Domänen-Admins**, **Konten-Operatoren** oder Fähigkeit
 
     > [!IMPORTANT]
     > Das Kennwortänderungsintervall kann nur während der Erstellung festgelegt werden. Wenn Sie das Intervall ändern möchten, müssen Sie ein neues gMSA erstellen und es zur Erstellungszeit festlegen.
-    
+
   **Beispiel**
 
 ```PowerShell
@@ -212,7 +210,7 @@ Informationen zum Konfigurieren der Dienste in Windows Server 2012 finden Sie in
 
     Weitere Informationen finden Sie unter [Dienste](https://technet.microsoft.com/library/cc772408.aspx).
 
--   Aufgaben
+-   Tasks
 
     Weitere Informationen finden Sie unter [Aufgabenplanung (Übersicht)](https://technet.microsoft.com/library/cc721871.aspx).
 
@@ -353,4 +351,4 @@ Geben Sie für weitere Informationen über das Cmdlet Uninstall-ADServiceAccount
 
 ## <a name="see-also"></a><a name="BKMK_Links"></a>Siehe auch
 
--   [Group Managed Service Accounts Overview](group-managed-service-accounts-overview.md) (Übersicht über gruppenverwaltete Dienstkonten)
+-   [Übersicht über Gruppen verwaltete Dienst Konten](group-managed-service-accounts-overview.md)

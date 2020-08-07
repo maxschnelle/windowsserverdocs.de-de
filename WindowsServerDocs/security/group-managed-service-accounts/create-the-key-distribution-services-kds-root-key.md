@@ -1,26 +1,24 @@
 ---
-title: Erstellen des KDS-Stammschlüssels der Schlüsselverteilungsdienste
+title: Erstellen des KDS-Stammschlüssels
 description: Windows Server-Sicherheit
-ms.prod: windows-server
-ms.technology: security-gmsa
 ms.topic: article
 ms.assetid: 42e5db8f-1516-4d42-be0a-fa932f5588e9
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: d26cd32f021e8b00c6c9c6d3949a00f71096a3c9
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 90fa1203f09bc04b27885034895e52db5fa1c5f0
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80857013"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87971487"
 ---
-# <a name="create-the-key-distribution-services-kds-root-key"></a>Erstellen des KDS-Stammschlüssels der Schlüsselverteilungsdienste
+# <a name="create-the-key-distribution-services-kds-root-key"></a>Erstellen des KDS-Stammschlüssels
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-In diesem Thema für IT-Experten wird beschrieben, wie ein Microsoft-Schlüssel Verteilungsdienst-Stamm Schlüssel (kdssvc. dll) auf dem Domänen Controller mithilfe von Windows PowerShell zum Generieren von Kenn Wörtern für Gruppen verwaltete Dienst Konten in Windows Server 2012 oder höher erstellt wird.
+In diesem Thema für IT-Experten wird beschrieben, wie ein Microsoft-Schlüssel Verteilungsdienst-Stamm Schlüssel (kdssvc.dll) auf dem Domänen Controller mithilfe von Windows PowerShell zum Generieren von Kenn Wörtern für Gruppen verwaltete Dienst Konten in Windows Server 2012 oder höher erstellt wird.
 
 Domänen Controller erfordern einen Stamm Schlüssel, um mit dem Erstellen von GMSA-Kenn Wörtern zu beginnen. Die Domänencontroller warten bis zu zehn Stunden ab der Erstellung, um allen Domänencontrollern zu ermöglichen, ihre AD-Replikation vor der Erstellung eines gMSA zu konvergieren. Bei den zehn Stunden handelt es sich um eine Sicherheitsmaßnahme, um zu verhindern, dass das Kennwort generiert wird, bevor alle Domänencontroller in der Umgebung in der Lage sind, auf gMSA-Anforderungen zu reagieren.  Wenn Sie zu früh versuchen, ein GMSA zu verwenden, wurde der Schlüssel möglicherweise nicht auf allen Domänen Controllern repliziert. Daher kann das Abrufen des Kennworts fehlschlagen, wenn der GMSA-Host versucht, das Kennwort abzurufen. Fehler beim gMSA-Kennwortabruf können auch auftreten, wenn Domänencontroller mit begrenzten Replikationszeitplänen verwendet werden oder wenn ein Replikationsproblem auftritt.
 
@@ -36,7 +34,7 @@ Sie müssen mindestens Mitglied der Gruppe **Domänen-Admins**, **Organisations-
 
 1.  Führen Sie auf dem Domänen Controller Windows Server 2012 oder höher Windows PowerShell über die Taskleiste aus.
 
-2.  Geben Sie an der Befehlszeile für das Windows PowerShell Active Directory-Modul die folgenden Befehle ein, und drücken Sie die EINGABETASTE:
+2.  Geben Sie an der Befehlszeile für das Windows PowerShell Active Directory-Modul die folgenden Befehle ein, und drücken Sie auf die EINGABETASTE:
 
     **Add-kdsrootkey-effectiveimmediately**
 
@@ -49,11 +47,11 @@ Für Testumgebungen mit nur einem Domänencontroller können Sie einen KDS-Stamm
 
 1.  Führen Sie auf dem Domänen Controller Windows Server 2012 oder höher Windows PowerShell über die Taskleiste aus.
 
-2.  Geben Sie an der Befehlszeile für das Windows PowerShell Active Directory-Modul die folgenden Befehle ein, und drücken Sie die EINGABETASTE:
+2.  Geben Sie an der Befehlszeile für das Windows PowerShell Active Directory-Modul die folgenden Befehle ein, und drücken Sie auf die EINGABETASTE:
 
-    **$a = Get-Date**
+    **$a=Get-Date**
 
-    **$b = $a. AddHours (-10)**
+    **$b=$a.AddHours(-10)**
 
     **Add-kdsrootkey-effectivetime-$b**
 
@@ -62,6 +60,6 @@ Für Testumgebungen mit nur einem Domänencontroller können Sie einen KDS-Stamm
     **Add-kdsrootkey-effectivetime ((Get-Date). AddHours (-10))**
 
 ## <a name="see-also"></a>Weitere Informationen
-[Erste Schritte mit gruppenverwalteten Dienstkonten](getting-started-with-group-managed-service-accounts.md)
+[Die ersten Schritte mit Gruppen verwalteten Dienst Konten](getting-started-with-group-managed-service-accounts.md)
 
 

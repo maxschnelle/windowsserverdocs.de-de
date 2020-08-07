@@ -1,26 +1,24 @@
 ---
 title: Problembehandlung bei Always On VPN
 description: Dieses Thema enthält Anweisungen für die Überprüfung und Problembehandlung Always on VPN-Bereitstellung in Windows Server 2016.
-ms.prod: windows-server
-ms.technology: networking-ras
 ms.topic: article
 ms.assetid: 4d08164e-3cc8-44e5-a319-9671e1ac294a
 ms.localizationpriority: medium
 ms.date: 06/11/2018
 ms.author: v-tea
 author: Teresa-MOTIV
-ms.openlocfilehash: bbb614886099bf2adc1239a699ef8d904e71be7b
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: f1e4713e6d658e6a51955e321e39cb7f90e261a9
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86961782"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87963806"
 ---
-# <a name="troubleshoot-always-on-vpn"></a>Problembehandlung bei Always On VPN 
+# <a name="troubleshoot-always-on-vpn"></a>Problembehandlung bei Always On VPN
 
 >Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
-Wenn Ihr Always on VPN-Setup keine Verbindung zwischen Clients und Ihrem internen Netzwerk herstellt, ist wahrscheinlich ein ungültiges VPN-Zertifikat, falsche NPS-Richtlinien oder Probleme mit den Client Bereitstellungs Skripts oder dem Routing-und RAS-Zugriff aufgetreten. Der erste Schritt bei der Problembehandlung und dem Testen Ihrer VPN-Verbindung ist das Verständnis der Kernkomponenten der Always on-VPN-Infrastruktur. 
+Wenn Ihr Always on VPN-Setup keine Verbindung zwischen Clients und Ihrem internen Netzwerk herstellt, ist wahrscheinlich ein ungültiges VPN-Zertifikat, falsche NPS-Richtlinien oder Probleme mit den Client Bereitstellungs Skripts oder dem Routing-und RAS-Zugriff aufgetreten. Der erste Schritt bei der Problembehandlung und dem Testen Ihrer VPN-Verbindung ist das Verständnis der Kernkomponenten der Always on-VPN-Infrastruktur.
 
 Sie können Verbindungsprobleme auf verschiedene Arten beheben. Bei Client seitigen Problemen und der allgemeinen Problembehandlung sind die Anwendungsprotokolle auf Client Computern von großer Bedeutung. Bei Authentifizierungs spezifischen Problemen kann das NPS-Protokoll auf dem NPS-Server Ihnen helfen, die Ursache des Problems zu bestimmen.
 
@@ -170,15 +168,15 @@ Eine geringfügige Fehlkonfiguration kann dazu führen, dass die Client Verbindu
 
   - Der Benutzer verfügt über ein gültiges Client Authentifizierungszertifikat im persönlichen Zertifikat Speicher, das nicht von Azure AD ausgestellt wurde.
 
-  - Der Abschnitt VPN-Profil \<TLSExtensions\> fehlt oder enthält nicht den ** \<EKUName\> Aad Conditional Access \</EKUName\> \<EKUOID\> 1.3.6.1.4.1.311.87</ekuoid \> \<EKUName> Aad Conditional Access</ekuname \> \<EKUOID\> 1.3.6.1.4.1.311.87</ekuoid \> ** Entries. Mit \<EKUName> den \<EKUOID> Einträgen und wird dem VPN-Client mitgeteilt, welches Zertifikat aus dem Zertifikat Speicher des Benutzers abgerufen werden soll, wenn das Zertifikat an den VPN-Server übergeben wird. Ohne diesen Vorgang verwendet der VPN-Client ein gültiges Client Authentifizierungszertifikat, das sich im Zertifikat Speicher des Benutzers befindet, und die Authentifizierung ist erfolgreich. 
+  - Der Abschnitt VPN-Profil \<TLSExtensions\> fehlt oder enthält nicht den ** \<EKUName\> Aad Conditional Access \</EKUName\> \<EKUOID\> 1.3.6.1.4.1.311.87</ekuoid \> \<EKUName> Aad Conditional Access</ekuname \> \<EKUOID\> 1.3.6.1.4.1.311.87</ekuoid \> ** Entries. Mit \<EKUName> den \<EKUOID> Einträgen und wird dem VPN-Client mitgeteilt, welches Zertifikat aus dem Zertifikat Speicher des Benutzers abgerufen werden soll, wenn das Zertifikat an den VPN-Server übergeben wird. Ohne diesen Vorgang verwendet der VPN-Client ein gültiges Client Authentifizierungszertifikat, das sich im Zertifikat Speicher des Benutzers befindet, und die Authentifizierung ist erfolgreich.
 
   - Der RADIUS-Server (NPS) wurde nicht so konfiguriert, dass nur Client Zertifikate akzeptiert werden, die die ID des **bedingten Aad-Zugriffs** enthalten.
 
 - **Mögliche Lösung.** Gehen Sie folgendermaßen vor, um diese Schleife zu verwenden:
 
-  1. Führen Sie in Windows PowerShell das Cmdlet **Get-WMIObject** zum Sichern der VPN-Profil Konfiguration aus. 
+  1. Führen Sie in Windows PowerShell das Cmdlet **Get-WMIObject** zum Sichern der VPN-Profil Konfiguration aus.
   2. Überprüfen Sie, ob die **\<TLSExtensions>** **\<EKUName>** Abschnitte, und vorhanden sind, **\<EKUOID>** und zeigen Sie den richtigen Namen und die OID an.
-      
+
       ```powershell
       PS C:\> Get-WmiObject -Class MDM_VPNv2_01 -Namespace root\cimv2\mdm\dmmap
 
@@ -261,7 +259,7 @@ Eine geringfügige Fehlkonfiguration kann dazu führen, dass die Client Verbindu
         Simple container name: te-User-c7bcc4bd-0498-4411-af44-da2257f54387
         Provider = Microsoft Enhanced Cryptographic Provider v1.0
       Encryption test passed
-        
+
       ================ Certificate 1 ================
       Serial Number: 367fbdd7e6e4103dec9b91f93959ac56
       Issuer: CN=Microsoft VPN root CA gen 1
@@ -280,7 +278,7 @@ Eine geringfügige Fehlkonfiguration kann dazu führen, dass die Client Verbindu
      >Wenn ein Zertifikat vom Aussteller **CN = Microsoft VPN Root CA Gen 1** im persönlichen Speicher des Benutzers vorhanden ist, der Benutzer aber durch Auswählen von **X** zum Schließen der oops-Nachricht Zugriff erhalten hat, erfassen Sie CAPI2-Ereignisprotokolle, um zu überprüfen, ob das Zertifikat, das für die Authentifizierung verwendet wurde, ein gültiges Client Authentifizierungszertifikat war, das von der Microsoft-VPN-Stamm Zertifizierungsstelle
 
   4. Wenn ein gültiges Client Authentifizierungszertifikat im persönlichen Speicher des Benutzers vorhanden ist, tritt bei der Verbindung ein Fehler auf (wie), nachdem der Benutzer das **X** ausgewählt hat und die **\<TLSExtensions>** **\<EKUName>** Abschnitte, und **\<EKUOID>** die richtigen Informationen enthalten.
-   
+
      Es wird eine Fehlermeldung angezeigt, die besagt, dass ein Zertifikat nicht gefunden werden kann, das mit dem Extensible Authenticate-Protokoll verwendet werden kann.
 
 ### <a name="unable-to-delete-the-certificate-from-the-vpn-connectivity-blade"></a>Das Zertifikat kann nicht auf dem Blatt "VPN-Konnektivität" gelöscht werden.

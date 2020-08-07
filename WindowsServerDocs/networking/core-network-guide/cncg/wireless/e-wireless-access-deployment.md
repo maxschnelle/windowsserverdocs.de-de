@@ -2,18 +2,16 @@
 title: Bereitstellung des Funkzugriffs
 description: Dieses Thema ist Teil des Windows Server 2016-Netzwerk Handbuchs "Bereitstellen von Kenn Wort basiertem 802.1 x authentifizierten drahtlosen Zugriff".
 manager: brianlic
-ms.prod: windows-server
-ms.technology: networking
 ms.topic: article
 ms.assetid: 4b66f517-b17d-408c-828f-a3793086bc1f
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 95d849d35cecb6db71207b655b243879520d9827
-ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
+ms.openlocfilehash: 6ba9221707ffdea76236cd8f94c80a1220a750d5
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87518425"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87971827"
 ---
 # <a name="wireless-access-deployment"></a>Bereitstellung des Funkzugriffs
 
@@ -179,7 +177,7 @@ Sie müssen mindestens Mitglied der Gruppe **Domänen-Admins** oder einer entspr
 
 3. Doppel \- Klicken Sie im linken Bereich auf **Domänen**, und doppelklicken Sie dann auf \- die Domäne, für die Sie ein Gruppenrichtlinie Objekt verwalten möchten. Beispiel: Doppel \- Klicken Sie auf **example.com**.
 
-4. Führen Sie einen der folgenden Schritte aus:
+4. Führen Sie eines der folgenden Verfahren aus:
 
     - **Um ein vorhandenes Gruppenrichtlinien Objekt auf Domänen \- Ebene für die Bearbeitung zu öffnen**, doppelklicken Sie auf die Domäne mit dem Gruppenrichtlinie Objekt, das Sie verwalten möchten, klicken Sie mit der rechten \- Maustaste auf die Domänen Richtlinie, die **Edit**Sie verwalten möchten, z. b. die Standard Domänen Richtlinie, und klicken **Gruppenrichtlinienverwaltungs-Editor** wird geöffnet.
 

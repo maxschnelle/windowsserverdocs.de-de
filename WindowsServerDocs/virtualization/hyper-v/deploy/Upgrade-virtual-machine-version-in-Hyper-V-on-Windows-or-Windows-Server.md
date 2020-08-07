@@ -1,20 +1,18 @@
 ---
 title: Aktualisieren der Version virtueller Computer in Hyper-V unter Windows 10 oder Windows Server
 description: Enthält Anweisungen und Überlegungen zum Aktualisieren der Version eines virtuellen Computers.
-ms.prod: windows-server
 manager: dongill
-ms.technology: compute-hyper-v
 ms.topic: article
 ms.assetid: 897f2454-5aee-445c-a63e-f386f514a0f6
 author: jasongerend
 ms.author: jgerend
 ms.date: 05/22/2019
-ms.openlocfilehash: e08d13e4d9b493b80cad59561c8088c7d3a12b57
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: e7c86cc15877c622cf3554a7ae69fe3d0aea1c50
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80860873"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87938924"
 ---
 # <a name="upgrade-virtual-machine-version-in-hyper-v-on-windows-10-or-windows-server"></a>Aktualisieren der Version virtueller Computer in Hyper-V unter Windows 10 oder Windows Server
 
@@ -43,7 +41,7 @@ Sie können die Konfigurations Version auch im Hyper-V-Manager anzeigen, indem S
 ## <a name="step-2-upgrade-the-virtual-machine-configuration-version"></a>Schritt 2: Aktualisieren der Konfigurations Version des virtuellen Computers
 
 1. Fahren Sie den virtuellen Computer im Hyper-V-Manager herunter.
-2. Wählen Sie Aktion > upgradekonfigurationsversion aus. Wenn diese Option für den virtuellen Computer nicht verfügbar ist, befindet er sich bereits in der höchsten Konfigurations Version, die vom Hyper-V-Host unterstützt wird.
+2. Wählen Sie Aktion > upgradekonfigurationsversion aus. Wenn diese Option nicht für die VM verfügbar ist, weist diese bereits die höchste vom Hyper-V-Host unterstützte Konfigurationsversion auf.
 
 Um die Konfigurations Version des virtuellen Computers mithilfe von Windows PowerShell zu aktualisieren, verwenden Sie das Cmdlet [Update-VMVersion](https://docs.microsoft.com/powershell/module/hyper-v/update-vmversion) . Führen Sie den folgenden Befehl aus, wobei "VMName" der Name des virtuellen Computers ist.
 
@@ -72,28 +70,28 @@ New-VM -Name "WindowsCV5" -Version 5.0
 
 In der folgenden Tabelle sind die VM-Konfigurations Versionen aufgelistet, die auf Hosts unterstützt werden, auf denen eine langfristige Wartungsversion von Windows ausgeführt wird.
 
-| Windows-Version des Hyper-V-Hosts | 9,1 | 9,0 | 8.3 | 8.2 | 8.1 | 8.0 | 7.1 | 7.0 | 6.2 | 5.0 |
+| Windows-Version des Hyper-V-Hosts | 9.1 | 9.0 | 8.3 | 8,2 | 8.1 | 8.0 | 7.1 | 7.0 | 6.2 | 5.0 |
 | --- |---|---|---|---|---|---|---|---|---|---|
 |Windows Server 2019|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Windows 10 Enterprise LTSC 2019|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Windows Server 2016|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
-|Windows 10 Enterprise 2016 LTSB|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
+|Windows 10 Enterprise 2016 ltenb|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Windows 10 Enterprise 2015 LTSB|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10004;|&#10004;|
 |Windows Server 2012 R2|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10004;|
-|Windows 8.1|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10004;|
+|Windows 8.1|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10004;|
 
 ### <a name="supported-vm-configuration-versions-for-semi-annual-channel-hosts"></a>Unterstützte VM-Konfigurations Versionen für halbjährliche channelhosts
 
 In der folgenden Tabelle werden die Versionen der VM-Konfiguration für Hosts aufgelistet, auf denen eine derzeit unterstützte halbjährliche Kanal Version von Windows ausgeführt wird. Weitere Informationen zu halbjährlichen Kanal Versionen von Windows finden Sie auf den folgenden Seiten für [Windows Server](../../../get-started-19/servicing-channels-19.md) und [Windows 10](https://docs.microsoft.com/windows/deployment/update/waas-overview#servicing-channels) .
 
-| Windows-Version des Hyper-V-Hosts | 9,1 | 9,0 | 8.3 | 8.2 | 8.1 | 8.0 | 7.1 | 7.0 | 6.2 | 5.0 |
+| Windows-Version des Hyper-V-Hosts | 9.1 | 9.0 | 8.3 | 8,2 | 8.1 | 8.0 | 7.1 | 7.0 | 6.2 | 5.0 |
 | --- |---|---|---|---|---|---|---|---|---|---|
 | Windows 10-Update vom Mai 2019 (Version 1903) |&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;| &#10004;|
 | Windows Server, Version 1903 |&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;| &#10004;|
 |Windows Server, Version 1809|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
-|Windows 10-Update vom Oktober 2018 (Version 1809)|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
+|Windows 10-Update von Oktober 2018 (Version 1809)|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Windows Server, Version 1803|&#10006;|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
-|Windows 10 April 2018-Update (Version 1803)|&#10006;|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
+|Windows 10-Update vom April 2018 (Version 1803)|&#10006;|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Windows 10 Fall Creators Update (Version 1709)|&#10006;|&#10006;|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Windows 10 Creators Update (Version 1703)|&#10006;|&#10006;|&#10006;|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Windows 10 Anniversary Update (Version 1607)|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
@@ -106,7 +104,7 @@ Die Konfigurations Version des virtuellen Computers stellt die Kompatibilität d
 
 In der folgenden Tabelle sind Beschreibungen, Dateinamen Erweiterungen und Standard Speicherorte für die einzelnen Dateitypen aufgeführt, die für neue oder aktualisierte virtuelle Maschinen verwendet werden.
 
- |Dateitypen virtueller Computer | Beschreibung|
+ |Dateitypen virtueller Computer | BESCHREIBUNG|
  |---|---|
 |Konfiguration |Konfigurationsinformationen für virtuelle Computer, die im Binärdatei Format gespeichert werden. <br /> Dateinamenerweiterung: vmcx <br /> Standard Speicherort: c:\ProgramData\Microsoft\Windows\Hyper-V\Virtual Machines|
  |Lauf Zeit Status|Lauf Zeit Zustandsinformationen des virtuellen Computers, die im Binärdatei Format gespeichert werden. <br />Dateinamenerweiterung:. VMRS und. vmgs <br />Standard Speicherort: c:\ProgramData\Microsoft\Windows\Hyper-V\Virtual Machines|
@@ -137,13 +135,13 @@ In der folgenden Tabelle ist die Mindestversion der VM-Konfiguration aufgeführt
 |XSAVE-Unterstützung|8.0|
 |Schlüsselspeicher Laufwerk|8.0|
 |Virtualisierungsbasierte Sicherheitsunterstützung (VSB)|8.0|
-|Netzwerkvirtualisierung|8.0|
+|Geschachtelte Virtualisierung|8.0|
 |Anzahl virtueller Prozessoren|8.0|
 |Große Arbeitsspeicher-VMS|8.0|
 |Erhöhen Sie die standardmäßige maximale Anzahl von virtuellen Geräten auf 64 pro Gerät (z. b. Netzwerk und zugewiesene Geräte).|8.3|
-|Zusätzliche Prozessor Features für Perfmon zulassen|9,0|
-|Automatisches Bereitstellen der [Multithreading](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types#background) -Konfiguration für VMS, die auf Hosts mit dem [Kern Planer](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types#windows-server-2019-hyper-v-defaults-to-using-the-core-scheduler) ausgeführt werden|9,0|
-|Ruhe Zustands Unterstützung|9,0|
+|Zusätzliche Prozessor Features für Perfmon zulassen|9.0|
+|Automatisches Bereitstellen der [Multithreading](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types#background) -Konfiguration für VMS, die auf Hosts mit dem [Kern Planer](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types#windows-server-2019-hyper-v-defaults-to-using-the-core-scheduler) ausgeführt werden|9.0|
+|Ruhe Zustands Unterstützung|9.0|
 
 Weitere Informationen zu diesen Features finden Sie unter [Neues in Hyper-V unter Windows Server](../What-s-new-in-Hyper-V-on-Windows.md).
 

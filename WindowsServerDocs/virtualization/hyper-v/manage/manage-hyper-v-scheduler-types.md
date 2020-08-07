@@ -5,16 +5,14 @@ author: allenma
 ms.author: allenma
 ms.date: 08/14/2018
 ms.topic: article
-ms.prod: windows-server-hyper-v
-ms.technology: virtualization
 ms.localizationpriority: low
 ms.assetid: 6cb13f84-cb50-4e60-a685-54f67c9146be
-ms.openlocfilehash: f82aab1b3a3af61afa08a1849392297ca5def2ab
-ms.sourcegitcommit: 9889f20270e8eb7508d06cbf844cba9159e39697
+ms.openlocfilehash: 954efafe3185cadb347384c3c93a2eb8ef895143
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/18/2020
-ms.locfileid: "83551103"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87963556"
 ---
 # <a name="managing-hyper-v-hypervisor-scheduler-types"></a>Verwalten von Hyper-V-Hypervisor-Scheduler-Typen
 

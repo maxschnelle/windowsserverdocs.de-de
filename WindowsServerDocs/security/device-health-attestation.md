@@ -1,17 +1,16 @@
 ---
 title: Integritätsnachweis für Geräte
-ms.technology: techgroup-security
 ms.topic: article
 ms.assetid: 8e7b77a4-1c6a-4c21-8844-0df89b63f68d
 author: brianlic-msft
 ms.author: brianlic
 ms.date: 10/12/2016
-ms.openlocfilehash: 2e810a2a20e7c5bdc404077760e259468cecd24e
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 8ed6e2aafeeca0486bdb45019ba879e391af9934
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80857033"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87936732"
 ---
 # <a name="device-health-attestation"></a>Integritätsnachweis für Geräte
 
@@ -30,8 +29,8 @@ Ab Windows Server 2016 können Sie den DHA-Dienst als Serverrolle in Ihrer Organ
 ## <a name="overview"></a>Übersicht
 
 Mit DHA können Sie den Integritätsnachweis für Geräte führen für:
-  
--    Windows 10 und mobile Geräte unter Windows 10, die TPM 1.2 oder 2.0 unterstützen.  
+
+-    Windows 10 und mobile Geräte unter Windows 10, die TPM 1.2 oder 2.0 unterstützen.
 -    Lokale Geräte, die von Active Directory mit Internetzugriff verwaltet werden, Geräte, die von Active Directory ohne Internetzugriff verwaltet werden, Geräte, die von Azure Active Directory oder einer Hybridbereitstellung sowohl mit Active Directory als auch Azure Active Directory verwaltet werden.
 
 
@@ -45,7 +44,7 @@ Der DHA-Dienst überprüft die TPM- und PCR-Protokolle für ein Gerät und gener
 
 - **DHA-Azure-Clouddienst**: Ein virtueller Host in Microsoft Azure. Zu diesem Zweck benötigen Sie einen virtuellen Host und Lizenzen für den lokalen DHA-Dienst.
 
-Der DHA-Dienst ist in MDM-Lösungen integriert und bietet Folgendes: 
+Der DHA-Dienst ist in MDM-Lösungen integriert und bietet Folgendes:
 
 -    Kombinieren der Informationen, die sie von Geräten (über vorhandene Geräteverwaltungs-Kommunikationskanäle) mit dem DHA-Bericht erhalten
 -    Treffen einer sichereren und vertrauenswürdigeren Sicherheitsentscheidung auf Basis der hardwarebescheinigten und -geschützten Daten
@@ -62,13 +61,13 @@ Hier ist ein Beispiel, das zeigt, wie Sie DHA nutzen können, um das Sicherheits
    - Kontrollierter Start erstellte einen TPM-geschützten Audit-Trail, der remote überprüft werden konnte.
    - BitLocker wurde aktiviert und schützte die Daten, als das Gerät ausgeschaltet wurde.
    - ELAM wurde in frühen Startphasen aktiviert und überwacht die Laufzeit.
-  
+
 #### <a name="dha-cloud-service"></a>DHA-Clouddienst
 
 Der DHA-Clouddienst bietet folgende Vorteile:
 
--    Überprüfung der TCG- und PCR-Gerätestartprotokolle, die er von einem Gerät empfängt, das mit einer MDM-Lösung registriert ist. 
--    Erstellen eines manipulationssicheren Berichts (DHA-Bericht), der beschreibt, wie das Gerät auf der Basis von Daten startete, die von einem TPM-Chip des Geräts gesammelt und geschützt wurden. 
+-    Überprüfung der TCG- und PCR-Gerätestartprotokolle, die er von einem Gerät empfängt, das mit einer MDM-Lösung registriert ist.
+-    Erstellen eines manipulationssicheren Berichts (DHA-Bericht), der beschreibt, wie das Gerät auf der Basis von Daten startete, die von einem TPM-Chip des Geräts gesammelt und geschützt wurden.
 -    Übermitteln des DHA-Berichts an den MDM-Server, der den Bericht in einem geschützten Kommunikationskanal angefordert hat.
 
 #### <a name="dha-on-premises-service"></a>Lokaler DHA-Dienst
@@ -90,21 +89,21 @@ Sie können den lokalen DHA-Dienst entweder zur Ausführung im EKCert- oder AIKC
 
 Der EKCert-Validierungsmodus ist optimiert für Geräte in Unternehmen, die nicht mit dem Internet verbunden sind. Geräte, die eine Verbindung mit einem DHA-Dienst herstellen, der im EKCert-Validierungsmodus ausgeführt wird, haben **keinen** direkten Zugriff auf das Internet.
 
-Wenn DHA im EKCert-Validierungsmodus ausgeführt wird, hängt DHA von einer unternehmensverwalteten Zertifikatkette ab, die gelegentlich (ca. 5 - 10 Mal pro Jahr) aktualisiert werden muss. 
+Wenn DHA im EKCert-Validierungsmodus ausgeführt wird, hängt DHA von einer unternehmensverwalteten Zertifikatkette ab, die gelegentlich (ca. 5 - 10 Mal pro Jahr) aktualisiert werden muss.
 
 Microsoft veröffentlicht aggregierte Pakete von vertrauenswürdigen Stammzertifizierungsstellen und Zwischenzertifizierungsstellen für genehmigte TPM-Hersteller (sobald sie verfügbar sind) in einem öffentlich zugänglichen Archiv im CAB-Archiv. Sie müssen den Feed herunterladen, die Integrität überprüfen und das Zertifikat auf dem Server installieren, der den Integritätsnachweis für Geräte ausführt.
 
-Ein Beispiel Archiv ist [https://go.microsoft.com/fwlink/?linkid=2097925](https://go.microsoft.com/fwlink/?linkid=2097925).
+Ein Beispiel Archiv ist [https://go.microsoft.com/fwlink/?linkid=2097925](https://go.microsoft.com/fwlink/?linkid=2097925) .
 
 #### <a name="aikcert-validation-mode"></a>AIKCert-Validierungsmodus
 
-Der AIKCert-Validierungsmodus ist optimiert für Betriebsumgebungen, die über Zugriff auf das Internet verfügen. Geräte, die eine Verbindung mit einem DHA-Dienst herstellen, der im AIKCert-Validierungsmodus ausgeführt wird, müssen direkten Zugriff auf das Internet haben und können ein AIK-Zertifikat von Microsoft bekommen. 
+Der AIKCert-Validierungsmodus ist optimiert für Betriebsumgebungen, die über Zugriff auf das Internet verfügen. Geräte, die eine Verbindung mit einem DHA-Dienst herstellen, der im AIKCert-Validierungsmodus ausgeführt wird, müssen direkten Zugriff auf das Internet haben und können ein AIK-Zertifikat von Microsoft bekommen.
 
 ## <a name="install-and-configure-the-dha-service-on-windows-server-2016"></a>Installieren und Konfigurieren des DHA-Diensts unter Windows Server 2016
 
 Verwenden Sie die folgenden Abschnitte, um DHA unter Windows Server 2016 zu installieren und konfigurieren.
 
-### <a name="prerequisites"></a>Erforderliche Komponenten
+### <a name="prerequisites"></a>Voraussetzungen
 
 Um einen lokalen DHA-Dienst einzurichten und zu überprüfen, benötigen Sie Folgendes:
 
@@ -113,8 +112,8 @@ Um einen lokalen DHA-Dienst einzurichten und zu überprüfen, benötigen Sie Fol
 - Entscheiden Sie sich zwischen einer Ausführung im EKCert- oder AIKCert-Validierungsmodus.
 - Die folgenden Zertifikate stehen zur Verfügung:
   - **DHA-SSL-Zertifikat**: Ein x.509-SSL-Zertifikat, das über eine Enterprise Trusted Root mit einem exportierbaren privaten Schlüssel verkettet ist. Dieses Zertifikat schützt DHA-Datenkommunikation im Transit einschließlich Server-zu-Server-Kommunikation (DHA-Dienst und MDM-Server) und Server-zu-Client-Kommunikation (DHA-Dienst und ein Windows 10-Gerät).
-  - **DHA-Signaturzertifikat**: Ein x.509-Zertifikat, das über eine Enterprise Trusted Root mit einem exportierbaren privaten Schlüssel verkettet ist. Der DHA-Dienst verwendet dieses Zertifikat zum digitalen Signieren. 
-  - **DHA-Verschlüsselungszertifikat**: Ein x.509-Zertifikat, das über eine Enterprise Trusted Root mit einem exportierbaren privaten Schlüssel verkettet ist. Der DHA-Dienst verwendet dieses Zertifikat auch zur Verschlüsselung. 
+  - **DHA-Signaturzertifikat**: Ein x.509-Zertifikat, das über eine Enterprise Trusted Root mit einem exportierbaren privaten Schlüssel verkettet ist. Der DHA-Dienst verwendet dieses Zertifikat zum digitalen Signieren.
+  - **DHA-Verschlüsselungszertifikat**: Ein x.509-Zertifikat, das über eine Enterprise Trusted Root mit einem exportierbaren privaten Schlüssel verkettet ist. Der DHA-Dienst verwendet dieses Zertifikat auch zur Verschlüsselung.
 
 
 ### <a name="install-windows-server-2016"></a>Installieren von Windows Server 2016
@@ -123,19 +122,19 @@ Installieren Sie Windows Server 2016 mithilfe Ihrer bevorzugten Installationsmet
 
 ### <a name="add-the-device-health-attestation-server-role"></a>Hinzufügen der Serverrolle „Integritätsnachweis für Geräte“
 
-Sie können die Serverrolle „Integritätsnachweis für Geräte“ und ihre Abhängigkeiten mithilfe des Server-Managers installieren. 
+Sie können die Serverrolle „Integritätsnachweis für Geräte“ und ihre Abhängigkeiten mithilfe des Server-Managers installieren.
 
 Nachdem Sie Windows Server 2016 installiert haben, wird das Gerät neu gestartet und der Server-Manager geöffnet. Wenn der Server-Manager nicht automatisch startet, klicken Sie auf **Start** und dann auf **Server-Manager**.
 
-1.    Klicken Sie auf **Rollen und Features** hinzufügen.
-2.    Klicken Sie auf der Seite **Bevor Sie beginnen** auf **Weiter**.
+1.    Klicken Sie auf **Rollen und Features hinzufügen**.
+2.    Klicken Sie auf der Seite **Vorbereitung** auf **Weiter**.
 3.    Klicken Sie auf der Seite **Installationstyp auswählen** auf **Rollenbasierte oder featurebasierte Installation**, und klicken Sie anschließend auf **Weiter**.
 4.    Klicken Sie auf der Seite **Zielserver auswählen** auf **Einen Server aus dem Serverpool auswählen**, treffen Sie Ihre Wahl, und klicken Sie dann auf **Weiter**.
 5.    Aktivieren Sie auf der Seite **Serverrollen auswählen** das Kontrollkästchen **Integritätsnachweis für Geräte**.
 6.    Klicken Sie auf **Features hinzufügen**, um andere erforderliche Rollendienste und Features zu installieren.
 7.    Klicken Sie auf **Weiter**.
 8.    Klicken Sie auf der Seite **Features auswählen** auf **Weiter**.
-9.    Klicken Sie auf der Seite **Rolle "Webserver (IIS)"** auf **Weiter**.
+9.    Klicken Sie auf der Seite **Webserverrolle (IIS)** auf **Weiter**.
 10.    Klicken Sie auf der Seite **Rollendienste auswählen** auf **Weiter**.
 11.    Klicken Sie auf der Seite **Integritätsnachweis für Geräte** auf **Weiter**.
 12.    Klicken Sie auf der Seite **Installationsauswahl bestätigen** auf **Installieren**.
@@ -150,7 +149,7 @@ $key = Get-ChildItem Cert:\LocalMachine\My | Where-Object {$_.Thumbprint -like "
 $keyname = $key.PrivateKey.CspKeyContainerInfo.UniqueKeyContainerName
 $keypath = $env:ProgramData + "\Microsoft\Crypto\RSA\MachineKeys\" + $keyname
 icacls $keypath /grant <username>`:R
-  
+
 #<thumbprint>: Certificate thumbprint for encryption certificate or signing certificate
 #<username>: Username for web service app pool, by default IIS_IUSRS
 ```
@@ -161,7 +160,7 @@ Um das vertrauenswürdige TPM-Stammzertifikatpaket zu installieren, müssen Sie 
 
 #### <a name="download-the-trusted-tpm-roots-certificate-package"></a>Herunterladen des vertrauenswürdigen TPM-Stammzertifikatpakets
 
-Vor der Installation des Zertifikat Pakets können Sie die aktuelle Liste der vertrauenswürdigen TPM-Stämme von [https://go.microsoft.com/fwlink/?linkid=2097925](https://go.microsoft.com/fwlink/?linkid=2097925)herunterladen.
+Vor der Installation des Zertifikat Pakets können Sie die aktuelle Liste der vertrauenswürdigen TPM-Stämme von herunterladen [https://go.microsoft.com/fwlink/?linkid=2097925](https://go.microsoft.com/fwlink/?linkid=2097925) .
 
 > **Wichtig:** Stellen Sie vor der Installation des Pakets sicher, dass es von Microsoft digital signiert ist.
 
@@ -261,7 +260,7 @@ Get-DHASActiveEncryptionCertificate
 Set-DHASActiveEncryptionCertificate -Thumbprint "<hex>" -Force
 ```
 
-Das Zertifikat muss auf dem Gerät im Zertifikatspeicher **LocalMachine\My** bereitgestellt werden. 
+Das Zertifikat muss auf dem Gerät im Zertifikatspeicher **LocalMachine\My** bereitgestellt werden.
 
 Wenn das aktive Verschlüsselungszertifikat festgelegt ist, wird das vorhandene aktive Verschlüsselungszertifikat in die Liste der inaktiven Verschlüsselungszertifikate verschoben.
 
@@ -274,10 +273,10 @@ Get-DHASInactiveEncryptionCertificates
 
 ```
 Remove-DHASInactiveEncryptionCertificates -Force
-Remove-DHASInactiveEncryptionCertificates -Thumbprint "<hex>" -Force 
+Remove-DHASInactiveEncryptionCertificates -Thumbprint "<hex>" -Force
 ```
 
-### <a name="get-the-x509chainpolicy-configuration"></a>Abrufen der X509ChainPolicy-Konfiguration 
+### <a name="get-the-x509chainpolicy-configuration"></a>Abrufen der X509ChainPolicy-Konfiguration
 
 ```
 Get-DHASCertificateChainPolicy
@@ -295,9 +294,9 @@ Set-DHASCertificateChainPolicy = $certificateChainPolicy
 
 ## <a name="dha-service-reporting"></a>DHA-Dienstberichterstellung
 
-Im Folgenden finden Sie eine Liste der Meldungen des DHA-Diensts an die MDM-Lösung: 
+Im Folgenden finden Sie eine Liste der Meldungen des DHA-Diensts an die MDM-Lösung:
 
 - **200** HTTP OK. Das Zertifikat wird zurückgegeben.
-- **400** Ungültige Anforderung. Ungültiges Anforderungsformat, ungültiges Integritätszertifikat, keine Übereinstimmung bei Zertifikatsignatur, ungültiges Integritätsnachweisblob oder ungültiges Integritätsstatusblob. Die Antwort enthält auch, wie im Antwortschema beschrieben, eine Nachricht mit einem Fehlercode und eine Fehlermeldung, die für die Diagnose verwendet werden kann.
-- **500** Interner Serverfehler. Dies kann geschehen, wenn Probleme auftreten, die verhindern, dass der Dienst Zertifikate ausstellt.
-- **503** Einschränkung lehnt Anforderungen ab, um eine Überlastung des Servers zu verhindern. 
+- **400** ungültige Anforderung. Ungültiges Anforderungsformat, ungültiges Integritätszertifikat, keine Übereinstimmung bei Zertifikatsignatur, ungültiges Integritätsnachweisblob oder ungültiges Integritätsstatusblob. Die Antwort enthält auch, wie im Antwortschema beschrieben, eine Nachricht mit einem Fehlercode und eine Fehlermeldung, die für die Diagnose verwendet werden kann.
+- **500** interner Server Fehler. Dies kann geschehen, wenn Probleme auftreten, die verhindern, dass der Dienst Zertifikate ausstellt.
+- **503** Einschränkung lehnt Anforderungen ab, um eine Überlastung des Servers zu verhindern.

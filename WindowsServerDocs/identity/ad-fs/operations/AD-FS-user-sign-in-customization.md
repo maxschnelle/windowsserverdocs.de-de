@@ -6,14 +6,12 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server
-ms.technology: identity-adfs
-ms.openlocfilehash: c8b332de4053aa64f3294c3cd68c37773742f9f5
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: f16ea84d339e1b6bb51d0c0e5be352aeda4abc41
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86962722"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87947340"
 ---
 # <a name="ad-fs-user-sign-in-customization"></a>AD FS: Anpassung der Benutzeranmeldung
 
@@ -22,9 +20,7 @@ AD FS bietet eine Reihe von Optionen, mit denen Administratoren die Endbenutzer 
 
 
 
-![AD FS-Anpassung](media/AD-FS-user-sign-in-customization/ADFS_Blue_Custom2.png) 
-    
-  
+![AD FS-Anpassung](media/AD-FS-user-sign-in-customization/ADFS_Blue_Custom2.png)
 
 
 
@@ -32,7 +28,9 @@ AD FS bietet eine Reihe von Optionen, mit denen Administratoren die Endbenutzer 
 
 
 
-Thema|Beschreibung|
+
+
+Thema|BESCHREIBUNG|
 -----|-----|
 [AD FS Anpassung in Windows Server 2016](./ad-fs-customization-in-windows-server.md)|Neue Anpassungsoptionen für AD FS in Windows Server 2016|
 [Ändern des Unternehmens namens](Change-the-company-name-on-the-AD-FS-sign-in-page.md)|Schritte zum Anzeigen des Namens Ihres Unternehmens auf der Anmeldeseite|

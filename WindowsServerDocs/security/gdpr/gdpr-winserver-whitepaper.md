@@ -1,19 +1,18 @@
 ---
 title: Ihre Reise in die Datenschutz-Grundverordnung (DSGVO) für Windows Server 2016
 description: Verwenden Sie diesen Artikel, um zu verstehen, welche dsgvo es sind und welche Produkte Microsoft bereitstellt, um Ihnen den Einstieg in die Konformität zu erleichtern.
-ms.technology: techgroup-security
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: nirb
 author: nirb-ms
-ms.openlocfilehash: 6e105171a9d645eb93ce4739514752698cd45c02
-ms.sourcegitcommit: f305bc5f1c5a44dac62f4288450af19f351f9576
+ms.openlocfilehash: 0a21adf3bafeb93f2f9fc18da785fae1a81260b3
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87118652"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87971527"
 ---
-# <a name="beginning-your-general-data-protection-regulation-gdpr-journey-for-windows-server"></a>Starten ihrer Datenschutz-Grundverordnung-Journey (dsgvo) für Windows Server 
+# <a name="beginning-your-general-data-protection-regulation-gdpr-journey-for-windows-server"></a>Starten ihrer Datenschutz-Grundverordnung-Journey (dsgvo) für Windows Server
 
 >Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
@@ -70,11 +69,11 @@ Diese Liste enthält Beispiele für verschiedene Arten von Informationen, die du
 ## <a name="getting-started-on-the-journey-towards-gdpr-compliance"></a>Einführung in die Einhaltung der dsgvo
 Wir empfehlen dringend, dass Sie nicht auf die Vorbereitung warten, bis die Erzwingung beginnt. Sie sollten die Datenschutz-und Daten Verwaltungsverfahren jetzt überprüfen. Es wird empfohlen, dass Sie mit der Einhaltung der dsgvo-Konformität beginnen, indem Sie sich auf vier wichtige Schritte konzentrieren:
 
--   **Stellen.** Identifizieren Sie, welche personenbezogenen Daten Sie haben und wo Sie sich befindet. 
+-   **Stellen.** Identifizieren Sie, welche personenbezogenen Daten Sie haben und wo Sie sich befindet.
 
 -   **Stelligen.** Legen Sie fest, wie personenbezogene Daten genutzt werden und wie darauf zugegriffen wird.
 
--   **Schützen.** Richten Sie Sicherheitsmaßnahmen ein, um Sicherheitsrisiken und Sicherheitsverletzungen bei Daten zu verhindern, zu erkennen und darauf zu reagieren.  
+-   **Schützen.** Richten Sie Sicherheitsmaßnahmen ein, um Sicherheitsrisiken und Sicherheitsverletzungen bei Daten zu verhindern, zu erkennen und darauf zu reagieren.
 
 -   **Ver.** Reagieren Sie auf Datenanforderungen, melden Sie Datenverletzungen, und behalten Sie die erforderliche Dokumentation bei.
 
@@ -105,7 +104,7 @@ Zwei wichtige Prinzipien haben eine Anleitung und Fortsetzung bei der Entwicklun
 
 - **Datenschutz.** Benutzer sollten Steuern, wie Ihre Daten verwendet werden. Die Richtlinien für die Verwendung von Informationen sollten für den Benutzer klar sein. Benutzer sollten steuern können, wann und ob Sie Informationen erhalten, um Ihre Zeit optimal zu nutzen. Es sollte einfach sein, dass Benutzer die geeignete Verwendung Ihrer Informationen angeben können, einschließlich der Steuerung der Verwendung von gesendeten e-Mails.
 
-Microsoft hat sich im Hinblick auf diese Prinzipien nicht wie vor kurzem vom CEO von Microsoft, Satya NADELLA, 
+Microsoft hat sich im Hinblick auf diese Prinzipien nicht wie vor kurzem vom CEO von Microsoft, Satya NADELLA,
 
 > "_Wenn sich die weltweiter ändert und sich die geschäftlichen Anforderungen weiterentwickeln, sind einige Dinge konsistent: die Nachfrage nach Sicherheit und Datenschutz durch einen Kunden._"
 
@@ -150,11 +149,11 @@ Wichtige Features in Windows Server können Sie bei der effizienten und effektiv
 
 Das Server Betriebssystem befindet sich in einer strategischen Schicht in der Infrastruktur einer Organisation und bietet neue Möglichkeiten, Schutz Ebenen vor Angriffen zu schaffen, die Daten stehlen und Ihr Unternehmen unterbrechen könnten. Wichtige Aspekte der dsgvo, wie z. b. Datenschutz, Datenschutz und Access Control müssen innerhalb Ihrer IT-Infrastruktur auf Serverebene adressiert werden.
 
-Windows Server 2016 trägt zum Schutz der Identitäts-, Betriebssystem-und Virtualisierungsebene bei, um die häufigen Angriffsvektoren zu blockieren, die für den unerlaubten Zugriff auf Ihre Systeme verwendet werden: gestohlene Anmelde Informationen, Schadsoftware und ein kompromittiertes virtualisierungsfabric. Zusätzlich zu den Sicherheitsrisiken, die in Windows Server 2016 integriert sind, unterstützen die Sicherheitskomponenten, die in Windows Server integriert sind, Compliance-Anforderungen für die wichtigsten behördlichen 
+Windows Server 2016 trägt zum Schutz der Identitäts-, Betriebssystem-und Virtualisierungsebene bei, um die häufigen Angriffsvektoren zu blockieren, die für den unerlaubten Zugriff auf Ihre Systeme verwendet werden: gestohlene Anmelde Informationen, Schadsoftware und ein kompromittiertes virtualisierungsfabric. Zusätzlich zu den Sicherheitsrisiken, die in Windows Server 2016 integriert sind, unterstützen die Sicherheitskomponenten, die in Windows Server integriert sind, Compliance-Anforderungen für die wichtigsten behördlichen
 
 Diese Identitäts-, Betriebssystem-und virtualisierungsschutzmaßnahmen ermöglichen es Ihnen, Ihr Rechenzentrum, das Windows Server ausführen wird, besser als einen virtuellen Computer in jeder Cloud zu schützen und die Fähigkeit von Angreifern einzuschränken, Anmelde Informationen zu kompromittieren, Schadsoftware zu starten und im Netzwerk unentdeckt bleiben. Ebenso bietet Windows Server 2016 bei der Bereitstellung als Hyper-V-Host eine Sicherheitsgarantie für Ihre Virtualisierungsumgebungen durch geschützte Virtual Machines und verteilte Firewallfunktionen. Mit Windows Server 2016 wird das Server Betriebssystem zu einem aktiven Teilnehmer in ihrer Datacenter-Sicherheit.
 
-### <a name="protect-your-credentials-and-limit-administrator-privileges"></a>Schützen Sie Ihre Anmelde Informationen, und beschränken Sie Administratorrechte. 
+### <a name="protect-your-credentials-and-limit-administrator-privileges"></a>Schützen Sie Ihre Anmelde Informationen, und beschränken Sie Administratorrechte.
 Die Kontrolle über den Zugriff auf personenbezogene Daten und die Systeme, die diese Daten verarbeiten, ist ein Bereich mit der dsgvo, der bestimmte Anforderungen umfasst, einschließlich des Zugriffs durch Administratoren. Privilegierte Identitäten sind Konten mit erhöhten Rechten, wie z. b. Benutzerkonten, die Mitglieder der Gruppe "Domänen Administratoren", "Organisations Administratoren", "lokale Administratoren" oder "Hauptbenutzer" sind. Diese Identitäten können auch Konten enthalten, denen direkt Berechtigungen erteilt wurden, z. b. das Ausführen von Sicherungen, das Herunterfahren des Systems oder andere Rechte, die im Knoten zuweisen von Benutzerrechten in der Konsole der lokalen Sicherheitsrichtlinie aufgeführt sind.
 
 Als allgemeines Zugriffs Steuerungs Prinzip und Inline mit der dsgvo müssen Sie diese privilegierten Identitäten vor Kompromittierung durch potenzielle Angreifer schützen. Zuerst ist es wichtig zu verstehen, wie Identitäten kompromittiert werden. Anschließend können Sie planen, um zu verhindern, dass Angreifer Zugriff auf diese privilegierten Identitäten erhalten.
@@ -166,7 +165,7 @@ Privilegierte Identitäten können kompromittiert werden, wenn Organisationen ni
 
 - **Ständig mit erhöhten Rechten angemeldet.** Ein weiteres häufiges Problem ist, dass Benutzer mit erhöhten Rechten diese für unbegrenzte Zeit verwenden können. Dies gilt sehr häufig für IT-Experten, die sich mit einem privilegierten Konto bei einem Desktop Computer anmelden, angemeldet bleiben und das privilegierte Konto zum Durchsuchen des Internets und zum Verwenden von e-Mails verwenden (typische IT-Arbeitsaufgaben Funktionen). Durch die unbegrenzte Dauer privilegierter Konten ist das Konto anfälliger für Angriffe und erhöht die Wahrscheinlichkeit, dass das Konto gefährdet wird.
 
-- **Social Engineering Research.** Die meisten Bedrohungen der Anmelde Informationen beginnen mit der Untersuchung der Organisation und Durchführung durch Social Engineering. Beispielsweise kann ein Angreifer einen e-Mail-Phishing-Angriff durchführen, um legitime Konten (aber nicht unbedingt Konten mit erhöhten Rechten) zu kompromittieren, die Zugriff auf das Netzwerk einer Organisation haben. Der Angreifer verwendet dann diese gültigen Konten, um zusätzliche Untersuchungen in Ihrem Netzwerk durchzuführen und privilegierte Konten zu identifizieren, die administrative Aufgaben ausführen können. 
+- **Social Engineering Research.** Die meisten Bedrohungen der Anmelde Informationen beginnen mit der Untersuchung der Organisation und Durchführung durch Social Engineering. Beispielsweise kann ein Angreifer einen e-Mail-Phishing-Angriff durchführen, um legitime Konten (aber nicht unbedingt Konten mit erhöhten Rechten) zu kompromittieren, die Zugriff auf das Netzwerk einer Organisation haben. Der Angreifer verwendet dann diese gültigen Konten, um zusätzliche Untersuchungen in Ihrem Netzwerk durchzuführen und privilegierte Konten zu identifizieren, die administrative Aufgaben ausführen können.
 
 - **Nutzen Sie Konten mit erhöhten Rechten.** Selbst bei einem normalen, nicht erhöhten Benutzerkonto im Netzwerk können Angreifer Zugriff auf Konten mit erhöhten Berechtigungen erhalten. Eine der gängigeren Methoden hierfür ist die Verwendung der Pass-the-Hash-oder Pass-the-Token-Angriffe. Weitere Informationen zu den Verfahren Pass-the-Hash und andere Verfahren zum Diebstahl von Anmelde Informationen finden Sie in den Ressourcen auf der [Seite Pass-the-Hash (PTH)](https://technet.microsoft.com/dn785092.aspx).
 
@@ -187,7 +186,7 @@ Stellen Sie sich dieses Szenario vor, wenn die Anmelde Informationen des DNS-Adm
 
 Außerdem verwenden viele Organisationen die kostenlose [lokale Administrator Kenn Wort Lösung (Runden)](https://aka.ms/laps) als einfachen, aber leistungsfähigen JIT-Verwaltungsmechanismus für Ihre Server-und Client Systeme. Die Runden Funktion ermöglicht die Verwaltung von lokalen Konto Kennwörtern für in die Domäne eingebundener Computer. Kenn Wörter werden in Active Directory (AD) gespeichert und von Access Control Liste (ACL) geschützt, sodass nur berechtigte Benutzer Sie lesen oder deren zurück Setzung anfordern können.
 
-Wie im Leitfaden zur [Entschärfung von Windows](https://www.microsoft.com/download/confirmation.aspx?id=54095)-Anmelde Informationen vermerkt, 
+Wie im Leitfaden zur [Entschärfung von Windows](https://www.microsoft.com/download/confirmation.aspx?id=54095)-Anmelde Informationen vermerkt,
 
 > "_die Tools und Techniken, die kriminelle zum Durchführen von Diebstahl von Anmelde Informationen und zum wieder verwenden von Angriffen verwenden, werden durch böswillige Angreifer leichter gefunden. Der Diebstahl von Anmelde Informationen basiert häufig auf Betriebspraktiken oder dem verfügbar machen von Benutzer Anmelde Informationen, sodass effektive entschärfungen einen ganzheitlichen Ansatz erfordern, der Personen, Prozesse und Technologien adressiert. Außerdem beruhen diese Angriffe darauf, dass der Angreifer Anmelde Informationen stiehlt, nachdem ein System zum Erweitern oder beibehalten des Zugriffs kompromittiert wurde, sodass Organisationen rasch Verletzungen durch Implementieren von Strategien aufweisen müssen, die verhindern, dass Angreifer in einem gefährdeten Netzwerk frei und unentdeckt bleiben._"
 
@@ -223,7 +222,7 @@ Mit Windows Defender Remote Credential Guard implementiert Windows Server 2016 S
 
 - Muss die Kerberos-Authentifizierung verwenden.
 
-- Muss mindestens Windows 10, Version 1607 oder Windows Server 2016 ausführen.  
+- Muss mindestens Windows 10, Version 1607 oder Windows Server 2016 ausführen.
 
 - Die Remotedesktop klassische Windows-APP ist erforderlich. Die Remotedesktop universelle Windows-Plattform-App unterstützt nicht Windows Defender Remote Credential Guard.
 
@@ -237,7 +236,7 @@ Windows Server 2016 enthält Windows Defender Device Guard, um sicherzustellen, 
 
 Windows Defender Device Guard ist auch in PowerShell integriert, sodass Sie autorisieren können, welche Skripts auf Ihrem System ausgeführt werden können. In früheren Versionen von Windows Server konnten Administratoren die Code Integritäts Erzwingung umgehen, indem Sie einfach die Richtlinie aus der Codedatei löschen. Mit Windows Server 2016 können Sie eine Richtlinie konfigurieren, die von Ihrer Organisation signiert wird, sodass nur eine Person mit Zugriff auf das Zertifikat, mit dem die Richtlinie signiert wurde, die Richtlinie ändern kann.
 
-#### <a name="control-flow-guard"></a>Ablaufsteuerungsschutz 
+#### <a name="control-flow-guard"></a>Ablaufsteuerungsschutz
 Windows Server 2016 umfasst auch integrierten Schutz gegen einige Klassen von Speicher Beschädigungen. Das Patchen Ihrer Server ist wichtig, aber es besteht immer die Möglichkeit, dass Schadsoftware für ein Sicherheitsrisiko entwickelt wird, das noch nicht identifiziert wurde. Einige der gängigsten Methoden zum Ausnutzen dieser Sicherheitsrisiken sind die Bereitstellung ungewöhnlicher oder extremer Daten für ein ausgelaufendes Programm. Ein Angreifer kann z. b. ein Pufferüberlauf-Sicherheitsrisiko ausnutzen, indem er mehr Eingaben für ein Programm als erwartet bereitstellt und den vom Programm reservierten Bereich zum Speichern einer Antwort überschreitet. Dadurch kann der angrenzende Arbeitsspeicher beschädigt werden, der möglicherweise einen Funktionszeiger enthält.
 
 Wenn das Programm diese Funktion aufruft, kann es zu einem unbeabsichtigten Speicherort springen, der vom Angreifer angegeben wird. Diese Angriffe werden auch als Jump-Oriented Programming-Angriffe (jop) bezeichnet. Der Ablauf Steuerungs Schutz verhindert Jop-Angriffe, indem strenge Einschränkungen für den Anwendungscode festgelegt werden, – insbesondere indirekte Aufrufe. Es werden vereinfachte Sicherheitsüberprüfungen hinzugefügt, um den Satz von Funktionen in der Anwendung zu identifizieren, die gültige Ziele für indirekte Aufrufe sind. Wenn eine Anwendung ausgeführt wird, überprüft Sie, ob diese indirekten callziele gültig sind.
@@ -255,7 +254,7 @@ Windows Defender AV ist eine integrierte antischadsoftwarelösung, die die Verwa
 
 - Der durch die Cloud bereitgestellte **Schutz** hilft, neue Schadsoftware innerhalb von Sekunden zu erkennen und zu blockieren, auch wenn die Schadsoftware bisher noch nie erkannt wurde.
 
-- Der **umfangreiche lokale Kontext** verbessert die Identifizierung von Schadsoftware. Windows Server informiert Windows Defender AV nicht nur über Inhalte wie Dateien und Prozesse, sondern auch über den Speicherort der Inhalte, wo Sie gespeichert wurden und vieles mehr. 
+- Der **umfangreiche lokale Kontext** verbessert die Identifizierung von Schadsoftware. Windows Server informiert Windows Defender AV nicht nur über Inhalte wie Dateien und Prozesse, sondern auch über den Speicherort der Inhalte, wo Sie gespeichert wurden und vieles mehr.
 
 - **Umfassende globale Sensoren** helfen dabei, Windows Defender AV auf dem neuesten Stand zu halten und selbst die neuesten Schadsoftware zu berücksichtigen. Dies erfolgt auf zwei Arten: durch Sammeln der Daten des umfassenden lokalen Kontexts von Endpunkten und das zentrale Analysieren dieser Daten.
 
@@ -263,13 +262,13 @@ Windows Defender AV ist eine integrierte antischadsoftwarelösung, die die Verwa
 
 - **Features auf Unternehmensebene** ermöglichen IT-Experten die Tools und Konfigurationsoptionen, die erforderlich sind, um Windows Defender AV zu einer Lösung für die Unternehmens-Antischadsoftware zu machen
 
-#### <a name="enhanced-security-auditing"></a>Verstärkte Sicherheitsüberwachung 
+#### <a name="enhanced-security-auditing"></a>Verstärkte Sicherheitsüberwachung
 Windows Server 2016 warnt Administratoren aktiv durch die verstärkte Sicherheitsüberprüfung, die ausführlichere Informationen bereitstellt, die zur schnelleren Erkennung von Angriffen und forensischen Analysen verwendet werden können. Es protokolliert Ereignisse von Ablauf Steuerungs Schutz, Windows Defender Device Guard und anderen Sicherheitsfeatures an einem Ort, sodass Administratoren leichter feststellen können, welche Systeme gefährdet sind.
 
 Zu den neuen Ereignis Kategorien gehören:
 
-- **Überwachen der Gruppenmitgliedschaft.** Ermöglicht es Ihnen, die Gruppen Mitgliedschafts Informationen im Anmelde Token eines Benutzers zu überwachen. Ereignisse werden generiert, wenn Gruppenmitgliedschaften auf dem PC aufgelistet oder abgefragt werden, auf dem die Anmelde Sitzung erstellt wurde. 
- 
+- **Überwachen der Gruppenmitgliedschaft.** Ermöglicht es Ihnen, die Gruppen Mitgliedschafts Informationen im Anmelde Token eines Benutzers zu überwachen. Ereignisse werden generiert, wenn Gruppenmitgliedschaften auf dem PC aufgelistet oder abgefragt werden, auf dem die Anmelde Sitzung erstellt wurde.
+
 - **Überwachen der PNP-Aktivität.** Ermöglicht Ihnen, zu überwachen, wann Plug & amp; Play ein externes Gerät erkennt – das möglicherweise Schadsoftware enthält. PNP-Ereignisse können verwendet werden, um Änderungen an der System Hardware zu verfolgen. Im Ereignis ist eine Liste der Hardwarehersteller-IDs enthalten.
 
 Windows Server 2016 lässt sich problemlos mit den SIEM-Systemen (Security Incident Management), wie z. b. Microsoft Operations Management Suite (OMS), integrieren, die die Informationen zu potenziellen Sicherheitsverletzungen in Intelligence-Berichte integrieren können. Die Tiefe der von der erweiterten Überwachung bereitgestellten Informationen ermöglicht es Sicherheitsteams, potenzielle Verletzungen schneller und effektiver zu erkennen und darauf zu reagieren.
@@ -328,7 +327,7 @@ Zu den wichtigsten Vorteilen von Windows Defender ATP zählen die folgenden:
 
 - **Erkennen der nicht erkennbaren.** Sensoren, die tief in den Kernel des Betriebssystems, Windows-Sicherheitsexperten und eindeutige Optiken integriert sind, von über 1 Milliarde Computern und Signalen über alle Microsoft-Dienste hinweg.
 
-- **Integriert, nicht fett formatiert.** Ohne Agent, mit hoher Leistung und minimaler Auswirkung, cloudbasiert; einfache Verwaltung ohne Bereitstellung. 
+- **Integriert, nicht fett formatiert.** Ohne Agent, mit hoher Leistung und minimaler Auswirkung, cloudbasiert; einfache Verwaltung ohne Bereitstellung.
 
 - **Einzelner Glasbereich für Windows-Sicherheit.** Erkunden Sie den umfangreichen Zeitraum von 6 Monaten, Machine-Timeline und Vereinheitlichung von Sicherheits Ereignissen von Windows Defender ATP, Windows Defender Antivirus und Windows Defender Device Guard.
 
@@ -339,7 +338,7 @@ Weitere Informationen finden Sie unter Neuigkeiten [in der Windows Defender ATP 
 ATA ist ein lokales Produkt, mit dem Identitäts Gefährdung in einer Organisation erkannt werden kann. ATA kann Netzwerk Datenverkehr für Authentifizierungs-, Autorisierungs-und Informations Sammel Protokolle (z. b. Kerberos, DNS, RPC, NTLM und andere Protokolle) erfassen und analysieren. ATA verwendet diese Daten, um ein Verhaltensprofil für Benutzer und andere Entitäten in einem Netzwerk zu erstellen, damit Anomalien und bekannte Angriffsmuster erkannt werden können. In der folgenden Tabelle sind die von ATA erkannten Angriffstypen aufgeführt.
 
 
-|Angreitertyp |Beschreibung |
+|Angreitertyp |BESCHREIBUNG |
 |---------|---------|
 |Böswillige Angriffe |Diese Angriffe werden erkannt, indem Sie nach Angriffen aus einer bekannten Liste von Angriffstypen suchen, einschließlich:<ul><li>Pass-the-Ticket (PtT)</li><li>Pass-the-Hash (PtH)</li><li>Overpass-the-Hash</li><li>Forged PAC (MS14-068)</li><li>Golden Ticket</li><li>Böswillige Replikationen</li><li>Reconnaissance</li><li>Brute-Force-Angriffe</li><li>Remoteausführung</li></ul>Eine umfassende Liste der gefundenen böswilligen Angriffe und deren Beschreibung finden Sie unter [welche verdächtigen Aktivitäten können von ATA erkannt werden?](https://docs.microsoft.com/advanced-threat-analytics/understand-explore/ata-threats).|
 |Ungewöhnliches Verhalten |Diese Angriffe werden mithilfe der Verhaltensanalyse erkannt und verwenden Machine Learning, um fragwürdige Aktivitäten zu identifizieren, einschließlich:<ul><li>Nicht normale Anmeldungen</li><li>Unbekannte Gefahren</li><li>Kennwortfreigabe</li><li>Seitwärtsbewegung</li></ul>|
@@ -368,7 +367,7 @@ Dies hat zur Folge, dass dieser Artikel nur zu Informationszwecken zur Verfügun
 
 Microsoft übernimmt keinerlei ausdrückliche, konkludente oder gesetzliche Gewährleistung hinsichtlich der Informationen in diesem Artikel. Dieser Artikel wird so bereitgestellt, wie es ist. Die in diesem Artikel enthaltenen Informationen und Ansichten, einschließlich URLs und anderer Verweise auf Internet Websites, können ohne vorherige Ankündigung geändert werden.
 
-In diesem Artikel erhalten Sie keine rechtlichen Rechte für geistiges Eigentum in Microsoft-Produkten.  Sie dürfen diesen Artikel nur für interne Referenzzwecke kopieren und verwenden.  
+In diesem Artikel erhalten Sie keine rechtlichen Rechte für geistiges Eigentum in Microsoft-Produkten.  Sie dürfen diesen Artikel nur für interne Referenzzwecke kopieren und verwenden.
 
 Veröffentlicht September 2017<br>
 Version 1.0<br>

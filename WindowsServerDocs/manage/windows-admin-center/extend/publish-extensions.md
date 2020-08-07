@@ -1,19 +1,17 @@
 ---
 title: Erweiterungen für das Windows Admin Center werden veröffentlicht.
 description: Veröffentlichen von Erweiterungen für Windows Admin Center (Project Honolulu)
-ms.technology: manage
 ms.topic: article
 author: daniellee-msft
 ms.author: jol
 ms.date: 09/18/2018
 ms.localizationpriority: medium
-ms.prod: windows-server
-ms.openlocfilehash: 357c37ec395e5c51f3c3f946414f38ea5f95e9e4
-ms.sourcegitcommit: eaf3fb57517b9110082edad356b12daf3345bb2c
+ms.openlocfilehash: c817a28494104a1bfed1d7e19eaebaa04fd5138e
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85593991"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87971967"
 ---
 # <a name="publishing-extensions"></a>Erweiterungen werden veröffentlicht.
 
@@ -93,7 +91,7 @@ Im folgenden finden Sie ein Beispiel für eine nuspec-Datei und die Liste der er
     <licenseUrl>http://YourLicenseLink</licenseUrl>
     <iconUrl>http://YourLogoLink</iconUrl>
     <description>Hello World extension by Contoso</description>
-    <copyright>(c) Contoso. All rights reserved.</copyright> 
+    <copyright>(c) Contoso. All rights reserved.</copyright>
     <tags></tags>
   </metadata>
   <files>
@@ -105,18 +103,18 @@ Im folgenden finden Sie ein Beispiel für eine nuspec-Datei und die Liste der er
 
 #### <a name="required-or-recommended-properties"></a>Erforderliche oder empfohlene Eigenschaften
 
-| Eigenschaftenname | Erforderlich/empfohlen | Beschreibung |
+| Eigenschaftenname | Erforderlich/empfohlen | BESCHREIBUNG |
 | ---- | ---- | ---- |
 | packageType | Erforderlich | Verwenden Sie "windowsadmincenterextension", bei dem es sich um den nuget-Pakettyp handelt, der für Erweiterungen des Windows Admin Centers |
 | id | Erforderlich | Eindeutiger Paket Bezeichner innerhalb des Feeds. Dieser Wert muss mit dem Wert "Name" in der manifest.jsDatei Ihres Projekts identisch sein.  Informationen finden Sie unter [Choosing a unique package identifier (Auswählen eines eindeutigen Paketbezeichners)](https://docs.microsoft.com/nuget/create-packages/creating-a-package#choosing-a-unique-package-identifier-and-setting-the-version-number). |
 | title | Zum Veröffentlichen im Windows Admin Center-Feed erforderlich | Anzeige Name für das Paket, das im Windows Admin Center Extension Manager angezeigt wird. |
-| version | Erforderlich | Erweiterungs Version. Die Verwendung der [semantischen Versionsverwaltung (semver-Konvention)](http://semver.org/spec/v1.0.0.html) wird empfohlen, ist jedoch nicht erforderlich. |
+| Version | Erforderlich | Erweiterungs Version. Die Verwendung der [semantischen Versionsverwaltung (semver-Konvention)](http://semver.org/spec/v1.0.0.html) wird empfohlen, ist jedoch nicht erforderlich. |
 | authors | Erforderlich | Wenn Sie im Auftrag Ihres Unternehmens veröffentlichen, verwenden Sie den Namen Ihres Unternehmens. |
 | description | Erforderlich | Geben Sie eine Beschreibung der Funktionalität der Erweiterung an. |
 | iconUrl | Empfohlen beim Veröffentlichen im Windows Admin Center-Feed | Die URL für das Symbol, das im Erweiterungs-Manager angezeigt werden soll. |
 | projectUrl | Zum Veröffentlichen im Windows Admin Center-Feed erforderlich | URL zur Website ihrer Erweiterung. Wenn Sie nicht über eine separate Website verfügen, verwenden Sie die URL für die Paket Webseite im nuget-Feed. |
 | licenseUrl | Zum Veröffentlichen im Windows Admin Center-Feed erforderlich | URL zum Endbenutzer-Lizenzvertrag ihrer Erweiterung. |
-| files | Erforderlich | Mit diesen beiden Einstellungen wird die Ordnerstruktur eingerichtet, die das Windows Admin Center für UI-Erweiterungen und Gateway-Plug-ins erwartet. |
+| Dateien | Erforderlich | Mit diesen beiden Einstellungen wird die Ordnerstruktur eingerichtet, die das Windows Admin Center für UI-Erweiterungen und Gateway-Plug-ins erwartet. |
 
 ### <a name="3-build-the-extension-nuget-package"></a>3. Erstellen Sie das nuget-Paket für Erweiterungen.
 

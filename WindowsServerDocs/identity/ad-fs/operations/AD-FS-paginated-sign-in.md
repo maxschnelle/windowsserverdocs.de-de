@@ -6,14 +6,12 @@ ms.author: billmath
 manager: mtillman
 ms.date: 09/19/2018
 ms.topic: article
-ms.prod: windows-server
-ms.technology: identity-adfs
-ms.openlocfilehash: ca13ebe29b0a9260302599110f333d166681abdb
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 27b0232b65a3003dde9a5702ec45063781abd813
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71358559"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87947446"
 ---
 # <a name="ad-fs-paginated-sign-in"></a>AD FS paginierte Anmeldung
 
@@ -64,4 +62,4 @@ Im folgenden finden Sie einige Links zu anderen Dokumenten für Ihre Referenz.
 
 • Für diejenigen, die nicht beabsichtigen, Ihre Server auf AD FS 2019 zu aktualisieren, aber trotzdem den neuen Entwurf wünschen: [Verwenden eines Azure AD UX-Webdesigns in Active Directory-Verbunddienste (AD FS)](azure-ux-web-theme-in-ad-fs.md)
 
-• Ein zentraler Speicherort für die Anpassung: [AD FS: Anpassung der Benutzeranmeldung](ad-fs-user-sign-in-customization.md)
+• Ein zentraler Speicherort für die Anpassung: [AD FS Anpassung der Benutzeranmeldung](ad-fs-user-sign-in-customization.md)

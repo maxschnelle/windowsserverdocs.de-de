@@ -5,36 +5,34 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server
-ms.technology: identity-adfs
-ms.openlocfilehash: 6d049175c7d89670f82bb45addc929d57b60b7b0
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 4d7d45b91e866b9df927620f2e214ced248b3361
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86960742"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87947486"
 ---
 # <a name="controlling-access-to-organizational-data-with-active-directory-federation-services"></a>Steuern des Zugriffs auf Organisationsdaten mit Active Directory-Verbunddienste (AD FS)
 
-Dieses Dokument bietet eine Übersicht über die Zugriffs Steuerung mit AD FS für lokale, Hybrid-und cloudumgebungen.  
+Dieses Dokument bietet eine Übersicht über die Zugriffs Steuerung mit AD FS für lokale, Hybrid-und cloudumgebungen.
 
-## <a name="ad-fs-and-conditional-access-to-on-premises-resources"></a>AD FS und bedingter Zugriff auf lokale Ressourcen 
+## <a name="ad-fs-and-conditional-access-to-on-premises-resources"></a>AD FS und bedingter Zugriff auf lokale Ressourcen
 Seit der Einführung von Active Directory-Verbunddienste (AD FS) sind Autorisierungs Richtlinien verfügbar, um Benutzern den Zugriff auf Ressourcen auf der Grundlage von Attributen der Anforderung und der Ressource einzuschränken oder zuzulassen.  Wenn AD FS von Version zu Version verschoben wurde, hat sich die Implementierung dieser Richtlinien geändert.  Ausführliche Informationen zu den Features der Zugriffs Steuerung finden Sie unter:
 - [Access Control Richtlinien in AD FS in Windows Server 2016](Access-Control-Policies-in-AD-FS.md)
 - [Zugriffs Steuerung in AD FS in Windows Server 2012 R2](Manage-Risk-with-Conditional-Access-Control.md)
 
 
-## <a name="ad-fs-and-conditional-access-in-a-hybrid-organization"></a>AD FS und bedingter Zugriff in einer Hybrid Organisation  
+## <a name="ad-fs-and-conditional-access-in-a-hybrid-organization"></a>AD FS und bedingter Zugriff in einer Hybrid Organisation
 
 AD FS bietet die lokale Komponente der Richtlinie für bedingten Zugriff in einem Hybrid Szenario. AD FS basierten Autorisierungs Regeln sollten für Ressourcen verwendet werden, die nicht Azure AD sind, z. b. lokale Anwendungen, die direkt mit AD FS Verbund verwendet werden.  Die cloudkomponente wird durch [Azure AD bedingten Zugriff](/azure/active-directory/active-directory-conditional-access)bereitgestellt.  Azure AD Connect stellt die Steuerungsebene bereit, die die beiden verbindet.
 
-Wenn Sie z. b. Geräte mit Azure AD für den bedingten Zugriff auf cloudressourcen registrieren, werden die Geräte Registrierungsinformationen von der Funktion zum Zurückschreiben von Azure AD Connect Geräten lokal zur Verfügung gestellt, damit AD FS Richtlinien genutzt und erzwungen werden.  Auf diese Weise haben Sie einen konsistenten Ansatz für die Zugriffs Steuerungs Richtlinien sowohl für lokale als auch für cloudressourcen.  
+Wenn Sie z. b. Geräte mit Azure AD für den bedingten Zugriff auf cloudressourcen registrieren, werden die Geräte Registrierungsinformationen von der Funktion zum Zurückschreiben von Azure AD Connect Geräten lokal zur Verfügung gestellt, damit AD FS Richtlinien genutzt und erzwungen werden.  Auf diese Weise haben Sie einen konsistenten Ansatz für die Zugriffs Steuerungs Richtlinien sowohl für lokale als auch für cloudressourcen.
 
-![Bedingter Zugriff](../deployment/media/Plan-Device-based-Conditional-Access-on-Premises/ADFS_ITPRO4.png)  
+![Bedingter Zugriff](../deployment/media/Plan-Device-based-Conditional-Access-on-Premises/ADFS_ITPRO4.png)
 
 
 ### <a name="the-evolution-of-client-access-policies-for-office-365"></a>Die Weiterentwicklung von Client Zugriffsrichtlinien für Office 365
-Viele von Ihnen verwenden Client Zugriffsrichtlinien mit AD FS, um den Zugriff auf Office 365 und andere Microsoft Online Services auf der Grundlage von Faktoren wie dem Standort des Clients und der Art der verwendeten Client Anwendung einzuschränken.  
+Viele von Ihnen verwenden Client Zugriffsrichtlinien mit AD FS, um den Zugriff auf Office 365 und andere Microsoft Online Services auf der Grundlage von Faktoren wie dem Standort des Clients und der Art der verwendeten Client Anwendung einzuschränken.
 - [Client Zugriffsrichtlinien in Windows Server 2012 R2 AD FS](Access-Control-Policies-W2K12.md)
 - [Client Zugriffsrichtlinien in AD FS 2,0](Access-Control-Policies-in-AD-FS-2.md)
 

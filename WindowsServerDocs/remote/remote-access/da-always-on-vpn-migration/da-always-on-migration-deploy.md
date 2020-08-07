@@ -2,19 +2,17 @@
 title: Migration von DirectAccess zu Always on-VPN
 description: Für die Migration von DirectAccess zu Always on VPN ist ein bestimmter Prozess zum Migrieren von Clients erforderlich. Dadurch können Racebedingungen minimiert werden, die durch das Ausführen von Migrations Schritten entstehen.
 manager: dougkim
-ms.prod: windows-server
-ms.technology: networking-ras
 ms.topic: article
 ms.assetid: eeca4cf7-90f0-485d-843c-76c5885c54b0
 ms.author: lizross
 author: eross-msft
 ms.date: 06/07/2018
-ms.openlocfilehash: 68184fe43fd027ea24bd0e77623002ec88368e86
-ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
+ms.openlocfilehash: a452c9ab1a24304a9acfec8357bc98a3d058e03c
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87517695"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87971747"
 ---
 # <a name="migrate-to-always-on-vpn-and-decommission-directaccess"></a>Migrieren zu Always on VPN und Außerbetriebnahme von DirectAccess
 

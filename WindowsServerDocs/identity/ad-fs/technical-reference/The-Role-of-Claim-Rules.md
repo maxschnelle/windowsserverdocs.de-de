@@ -6,14 +6,12 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server
-ms.technology: identity-adfs
-ms.openlocfilehash: 2152d6a242f829b56207632d214a1fc73e48515d
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 410e9ce5fbde7d84cbb4efbbde3515d0af537180
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86959592"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87937887"
 ---
 # <a name="the-role-of-claim-rules"></a>Rolle von Anspruchsregeln
 Die Gesamtfunktion der Verbunddienst in Active Directory-Verbunddienste (AD FS) \( AD FS \) besteht darin, ein Token auszugeben, das einen Satz von Ansprüchen enthält. Die Entscheidung bezüglich der Ansprüche, die AD FS akzeptiert und dann Probleme behandelt, unterliegt den Anspruchs Regeln.
@@ -97,7 +95,7 @@ Ein Anspruchsregelsatz-Typ ist ein logisches Segment einer Verbundvertrauensstel
 
 Die folgende Tabelle beschreibt die verschiedenen Anspruchsregelsatz-Typen und erläutert deren Beziehung zu entweder einer Anspruchsanbieter-Vertrauensstellung oder einer Vertrauensstellung der vertrauenden Seite.
 
-|Anspruchsregelsatz-Typ|Beschreibung|Verwendung|
+|Anspruchsregelsatz-Typ|BESCHREIBUNG|Verwendung|
 |-----------------------|---------------|-----------|
 |Akzeptanztransformations-Regelsatz|Ein Anspruchsregelsatz, den Sie für eine bestimmte Anspruchsanbieter-Vertrauensstellung verwenden, um die eingehenden Ansprüche, die von der Organisation des Anspruchsanbieters akzeptiert werden, sowie die ausgehenden Ansprüche anzugeben, die an die Vertrauensstellung der vertrauenden Seite gesendet werden.<p>Die eingehenden Ansprüche, die als Quelle für diesen Regelsatz verwendet werden, sind die Ansprüche, die von dem in der Anspruchsanbieterorganisation angegebenen Ausstellungstransformations-Regelsatz ausgegeben werden.<p>Standardmäßig enthält der Vertrauensstellungsknoten des Anspruchsanbieters eine Anspruchsanbieter-Vertrauensstellung mit dem Namen **Active Directory**, die verwendet wird, um den Quellattributspeicher für den Akzeptanztransformations-Regelsatz darzustellen. Mit diesem Vertrauensstellungsobjekt wird die Verbindung von Ihrem Verbunddienst zu einer Active Directory-Datenbank in Ihrem Netzwerk dargestellt. Diese Standardvertrauensstellung verarbeitet Ansprüche für Benutzer, die von Active Directory authentifiziert wurden, und kann nicht gelöscht werden.|Anspruchsanbieter-Vertrauensstellungen|
 |Ausstellungstransformations-Regelsatz|Ein Anspruchsregelsatz, den Sie für eine Vertrauensstellung der vertrauenden Seite verwenden, um die Ansprüche anzugeben, die für die vertrauende Seite ausgegeben werden.<p>Die eingehenden Ansprüche, die als Quelle für diesen Regelsatz verwendet werden, sind zunächst die Ansprüche, die von den Ausstellungstransformationsregeln ausgegeben werden.|Vertrauensstellungen der vertrauenden Seite|
