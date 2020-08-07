@@ -1,20 +1,18 @@
 ---
 title: dfsdiag testsites
 description: Referenz Artikel für Dfsdiag Testsites, der die Konfiguration von Active Directory-Domänen Diensten (AD DS) überprüft, indem überprüft wird, ob Server, die als Namespace Server oder Ordner (Verknüpfungs Ziele) fungieren, auf allen Domänen Controllern über die gleichen Standort Zuordnungen verfügen.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 39a0d415-7eb7-4a26-861b-7ff00c45dcda
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7942b1535957366af9485580d75c9eec17120f4d
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: d40d7833cabb9e03875660c7d4ebbc129eff0255
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85928686"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87891120"
 ---
 # <a name="dfsdiag-testsites"></a>dfsdiag testsites
 
@@ -30,7 +28,7 @@ dfsdiag /testsites </machine:<server name>| /DFSpath:<namespace root or DFS fold
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `/machine:<server name>` | Der Name des Servers, auf dem die Standort Zuordnung überprüft werden soll. |
 | `/DFSpath:<namespace root or DFS folder>` | Der Namespace Stamm oder verteiltes Dateisystem Ordner (DFS) (Link) mit Zielen, für die die Standort Zuordnung überprüft werden soll. |

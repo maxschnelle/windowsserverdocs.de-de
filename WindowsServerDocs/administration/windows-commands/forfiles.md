@@ -1,20 +1,18 @@
 ---
 title: forfiles
 description: Referenz Artikel zum forfiles-Befehl, mit dem ein Befehl für eine Datei oder einen Satz von Dateien ausgewählt und ausgeführt wird.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 43f6b004-446d-4fdd-91c5-5653613524a4
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 05/20/2020
-ms.openlocfilehash: 26c443aa05d081fc257dc49d2f2c7f6a9adae865
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 004c27b841629e18eac4d94f7fe0816b42762107
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85922396"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87890149"
 ---
 # <a name="forfiles"></a>forfiles
 
@@ -28,7 +26,7 @@ forfiles [/P pathname] [/M searchmask] [/S] [/C command] [/D [+ | -] [{<date> | 
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | /P`<pathname>` | Gibt den Pfad an, aus dem die Suche gestartet werden soll. Standardmäßig beginnt die Suche im aktuellen Arbeitsverzeichnis. |
 | /M`<searchmask>` | Durchsucht Dateien entsprechend der angegebenen Such Maske. Die standardmäßige searchmask ist `*` . |
@@ -37,7 +35,7 @@ forfiles [/P pathname] [/M searchmask] [/S] [/C command] [/D [+ | -] [{<date> | 
 | /D`[{+\|-}][{<date> | <days>}]` | Wählt Dateien mit dem Datum der letzten Änderung innerhalb des angegebenen Zeitraums aus:<ul><li>Wählt Dateien mit dem Datum der letzten Änderung, das später als oder gleich ( **+** ) oder früher als oder gleich ( **-** ) dem angegebenen Datum ist, wobei *Date* das Format mm/dd/yyyy hat.</li><li>Wählt Dateien mit dem Datum der letzten Änderung, das später oder gleich ( **+** ) dem aktuellen Datum plus der angegebenen Anzahl von Tagen entspricht, oder früher oder gleich ( **-** ) dem aktuellen Datum abzüglich der angegebenen Anzahl von Tagen aus.</li><li>Gültige Werte für *Tage* sind eine beliebige Zahl im Bereich 0 – 32768. Wenn kein Vorzeichen angegeben ist, **+** wird standardmäßig verwendet.</li></ul> |
 | /? | Zeigt den Hilfetext im Fenster "cmd" an. |
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Der `forfiles /S` Befehl ähnelt `dir /S` .
 

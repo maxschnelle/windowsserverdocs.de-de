@@ -1,20 +1,18 @@
 ---
 title: fsutil 8dot3name
 description: Referenz Artikel für den Befehl "bsutil 8dot3name", der die Einstellungen für das Verhalten von Kurznamen (8dot3-Name) abfragt oder ändert.
-ms.prod: windows-server
 manager: dmoss
 ms.author: toklima
 author: toklima
-ms.technology: storage
 ms.assetid: a0c6dbfe-d898-496d-9356-825f7fbd90ec
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: 069f7fed72cfe50ef15c869b129dbf98363d9111
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 15d6b323248a51102b2ddcd6b2620722f22ae47a
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85922377"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87890083"
 ---
 # <a name="fsutil-8dot3name"></a>fsutil 8dot3name
 
@@ -44,7 +42,7 @@ fsutil 8dot3name [strip] [/t] [/s] [/f] [/l [<log file.] ] [/v] <directorypath>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | Such`[<volumepath>]` | Fragt das Dateisystem nach dem Status des "8.3 Short Name Creation"-Verhaltens ab.<p>Wenn ein *volumepath* nicht als Parameter angegeben wird, wird die Standardeinstellung "8dot3name Creation Behavior" für alle Volumes angezeigt. |
 | fein`<directorypath>` | Scannt die Dateien im angegebenen *directerypath* nach Registrierungs Schlüsseln, die möglicherweise betroffen sind, wenn 8.3-Kurznamen aus den Dateinamen entfernt wurden. |

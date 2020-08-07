@@ -1,20 +1,18 @@
 ---
 title: für
 description: Referenz Artikel für den for-Befehl, der einen angegebenen Befehl für jede Datei in einem Satz von Dateien ausführt.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: e275726c-035f-4a74-8062-013c37f5ded1
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 44b6497af626079b05768fd245c1b86693bdfe61
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 7e964c502d012648f6633b099688781a8d4f22cf
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85922417"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87890171"
 ---
 # <a name="for"></a>für
 
@@ -28,7 +26,7 @@ for {%% | %}<variable> in (<set>) do <command> [<commandlineoptions>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `{%% | %}<variable>` | Erforderlich. Stellt einen austauschbaren Parameter dar. Verwenden Sie ein einzelnes Prozentzeichen ( `%` ), um den **for** -Befehl an der Eingabeaufforderung auszuführen. Verwenden Sie doppelte Prozentzeichen ( `%%` ), um den **for** -Befehl in einer Batchdatei auszuführen. Bei Variablen wird die Groß-/Kleinschreibung beachtet, und Sie müssen mit einem alphabetischen Wert wie **% a**, **% b**oder **% c**dargestellt werden. |
 | (`<set>`) | Erforderlich. Gibt eine oder mehrere Dateien, Verzeichnisse oder Text Zeichenfolgen oder einen Wertebereich an, für den der Befehl ausgeführt werden soll. Die Klammern sind erforderlich. |
@@ -36,7 +34,7 @@ for {%% | %}<variable> in (<set>) do <command> [<commandlineoptions>]
 | `<commandlineoptions>` | Gibt alle Befehlszeilenoptionen an, die Sie mit dem angegebenen Befehl verwenden möchten. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Sie können diesen Befehl in einer Batchdatei oder direkt über die Eingabeaufforderung verwenden.
 
@@ -107,7 +105,7 @@ for {%% | %}<variable> in (<set>) do <command> [<commandlineoptions>]
 
     In der folgenden Tabelle sind die Schlüsselwörter aufgeführt, die Sie für die Verwendung von *para*Metern verwenden können.
 
-    | Schlüsselwort | Beschreibung |
+    | Stichwort | BESCHREIBUNG |
     | ------- | ----------- |
     | EOL =`<c>` | Gibt ein Zeilenendezeichen an (nur ein Zeichen). |
     | Skip =`<n>` | Gibt die Anzahl der Zeilen an, die am Anfang der Datei übersprungen werden sollen. |
@@ -117,7 +115,7 @@ for {%% | %}<variable> in (<set>) do <command> [<commandlineoptions>]
 
   - **Variablen Ersetzung:** In der folgenden Tabelle ist die optionale Syntax (für jede Variable **I**) aufgelistet:
 
-    | Variable mit Modifizierer | Beschreibung |
+    | Variable mit Modifizierer | BESCHREIBUNG |
     | ---------------------- | ----------- |
     |` %~I` | Erweitert `%I` , wodurch alle umgebenden Anführungszeichen entfernt werden. |
     | `%~fI `| Wird `%I` zu einem voll qualifizierten Pfadnamen erweitert. |
@@ -133,7 +131,7 @@ for {%% | %}<variable> in (<set>) do <command> [<commandlineoptions>]
 
     In der folgenden Tabelle sind Modifiziererkombinationen aufgelistet, die Sie verwenden können, um zusammengesetzte Ergebnisse zu erhalten.
 
-    | Variable mit kombinierten modifizierervariablen | Beschreibung |
+    | Variable mit kombinierten modifizierervariablen | BESCHREIBUNG |
     | -------------------------------- | ----------- |
     | `%~dpI `| Wird `%I` nur zu einem Laufwerk Buchstaben und-Pfad erweitert. |
     | `%~nxI` | Wird `%I` nur auf einen Dateinamen und eine Erweiterung erweitert. |

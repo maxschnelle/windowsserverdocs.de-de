@@ -1,20 +1,18 @@
 ---
 title: bitsadmin cache
 description: Referenz Artikel für den bizadmin-Cache Befehl, der eine Liste der bizadmin-Cache Switches enthält.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 9ae4a283-a187-4fe3-b05c-4b53732c27cb
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 57b3897e89c70658d5b4015668d7b966222ce15d
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 45d2fb96a8e405f93b1bb63a4eec00d817c6b420
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85928411"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87894657"
 ---
 # <a name="bitsadmin-cache"></a>bitsadmin cache
 
@@ -41,7 +39,7 @@ bitsadmin /cache /setexpirationtime
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | -------------- | -------------- |
 | [bitsadmin cache and help](bitsadmin-cache-and-help.md) | Zeigt die Verwendung der Befehlszeile für die/Cache-Switches an. |
 | [bitsadmin cache and clear](bitsadmin-cache-clear.md) | Löscht den lokalen Cache. |

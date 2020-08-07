@@ -1,20 +1,18 @@
 ---
 title: fc
 description: Referenz Artikel für den FC-Befehl, der zwei Dateien oder Datei Sätze vergleicht und die Unterschiede zwischen Ihnen anzeigt.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 485fc3d8-b7c5-496d-87be-0011112f27d5
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6d9e12853d2634f7e7bcbd976b6c301f8e02c0dc
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 72c71a76b168b96164ea6739adff974ba37a2308
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85930480"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87890367"
 ---
 # <a name="fc"></a>fc
 
@@ -29,7 +27,7 @@ fc /b [<drive1:>][<path1>]<filename1> [<drive2:>][<path2>]<filename2>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | /a | Kürzt die Ausgabe eines ASCII-Vergleichs. Anstatt alle Zeilen anzuzeigen, die unterschiedlich sind, zeigt **FC** nur die erste und letzte Zeile für jeden Satz von Unterschieden an. |
 | /b | Vergleicht die beiden Dateien im binären Modus, Byte nach Byte, und versucht nicht, die Dateien erneut zu synchronisieren, nachdem eine Übereinstimmung gefunden wurde. Dies ist der Standardmodus zum Vergleichen von Dateien, die die folgenden Dateierweiterungen aufweisen:. exe,. com,. sys,. obj,. lib oder. bin. |
@@ -46,7 +44,7 @@ fc /b [<drive1:>][<path1>]<filename1> [<drive2:>][<path2>]<filename2>
 | `[<drive2>:][<path2>]<filename2>` | Gibt den Speicherort und den Namen der zweiten Datei oder Gruppe von Dateien an, die verglichen werden sollen. *filename2* ist erforderlich. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Dieser Befehl wird durch c:\WINDOWS\fc.exe implementiert. Sie können diesen Befehl in PowerShell verwenden, aber achten Sie darauf, die vollständige ausführbare Datei (fc.exe) zu benennen, da "FC" auch ein Alias für Format-Custom ist.
 

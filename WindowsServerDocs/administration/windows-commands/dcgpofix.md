@@ -1,20 +1,18 @@
 ---
 title: dcgpofix
 description: Referenz Artikel zum Dcgpofix-Befehl, mit dem die Standard-Gruppenrichtlinie Objekte (GPOs) für eine Domäne neu erstellt werden.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 81d5fa65-2aea-49d3-b353-357441846c00
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: cf9e3c37c054c34d602e472a2c5f83e9a8b284b9
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: b4e2da750883dbffaa45fe1800249543cd8b9209
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85928803"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87891506"
 ---
 # <a name="dcgpofix"></a>dcgpofix
 
@@ -31,7 +29,7 @@ dcgpofix [/ignoreschema] [/target: {domain | dc | both}] [/?]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | /ignoreschema | Ignoriert die Version des Active Directory Schemas, wenn Sie diesen Befehl ausführen. Andernfalls funktioniert der Befehl nur für dieselbe Schema Version wie die Windows-Version, in der der Befehl ausgeliefert wurde. |
 | `/target {domain | dc | both` | Gibt an, ob die Standard Domänen Richtlinie, die Standard Domänen Controller-Richtlinie oder beide Richtlinien Typen als Ziel festgelegt werden sollen. |

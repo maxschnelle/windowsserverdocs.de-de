@@ -1,20 +1,18 @@
 ---
 title: fsutil tiering
 description: Referenz Artikel für den Befehl "ssutil Tiering", der die Verwaltung von Funktionen für die Speicher Ebene ermöglicht, z. b. das Festlegen und Deaktivieren von Flags und das Auflisten von Ebenen.
-ms.prod: windows-server
 manager: dmoss
 ms.author: toklima
 author: toklima
-ms.technology: storage
 ms.assetid: e5f55f3e-8d2a-4526-8d67-36a539126c22
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: 1463a6c50d2f735456e0675bdeef235cb5484b3e
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 2aa4d82fd5b99bfac508d02628256557e8ed6044
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85932089"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87889810"
 ---
 # <a name="fsutil-tiering"></a>fsutil tiering
 
@@ -34,7 +32,7 @@ fsutil tiering [tierlist] <volume>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | ClearFlags | Deaktiviert die Tiering-verhaltenflags eines Volumes. |
 | `<volume>` | Gibt das Volume an. |

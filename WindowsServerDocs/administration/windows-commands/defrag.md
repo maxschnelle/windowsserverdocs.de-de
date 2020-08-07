@@ -1,20 +1,18 @@
 ---
 title: defrag
 description: Referenz Artikel für den Defragmentierung-Befehl, der fragmentierte Dateien auf lokalen Volumes sucht und konsolidiert, um die Systemleistung zu verbessern.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: aaf1d1ac-996a-4282-9b4d-1e8245ff162c
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 65c1d22bd45734a667bfc46840fe652e3f2f5314
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: c68edbb4511df12912adbc666201d5a381c06fe3
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86958432"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87891481"
 ---
 # <a name="defrag"></a>defrag
 
@@ -35,7 +33,7 @@ defrag <volume> [<parameters>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `<volume>` | Gibt den Laufwerk Buchstaben oder den Bereitstellungspunktpfad des Volumes an, das zerlegt oder analysiert werden soll. |
 | /a | Führt eine Analyse der angegebenen Volumes aus. |
@@ -131,7 +129,7 @@ Der Defragmentierungsprozess führt die geplante Aufgabe als Wartungs Task aus, 
 
     - Der Computer wurde erneut gestartet (im Leerlauf wieder aufgenommen).
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

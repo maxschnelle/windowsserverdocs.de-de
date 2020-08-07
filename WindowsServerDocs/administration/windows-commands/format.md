@@ -1,20 +1,18 @@
 ---
 title: format
 description: Referenz Artikel für den Format-Befehl, der einen Datenträger für die Annahme von Windows-Dateien formatiert.
-ms.prod: windows-server
 manager: dongill
 ms.author: jgerend
-ms.technology: storage
 ms.topic: article
 ms.assetid: 51ec7423-9a01-4219-868a-25d69cdcc832
 author: jasongerend
 ms.date: 10/16/2017
-ms.openlocfilehash: 73f83a07cb1537af66d59977099b251b6dd12f47
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: a923706252e6094cf12dcdf2632366ee7b2401f8
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86958222"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87890121"
 ---
 # <a name="format"></a>Format
 
@@ -116,6 +114,6 @@ Um eine Diskette in Laufwerk a zu formatieren und ihr die Daten der *Volumebezei
 format a: /v:DATA
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc771080(v=ws.11))

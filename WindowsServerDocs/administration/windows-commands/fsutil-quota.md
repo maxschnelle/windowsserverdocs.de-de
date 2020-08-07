@@ -1,20 +1,18 @@
 ---
 title: fsutil quota
 description: Referenz Artikel für den Befehl "fsutil Quota", der Datenträger Kontingente auf NTFS-Volumes verwaltet, um eine präzisere Steuerung des netzwerkbasierten Speichers zu ermöglichen.
-ms.prod: windows-server
 manager: dmoss
 ms.author: toklima
 author: toklima
-ms.technology: storage
 ms.assetid: 21225c11-7c72-4ea2-96bd-e63d4beb3be5
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: f757f822a903f6b5c6d221e17f87cf1e73d1555f
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 7edf7ac908df419611fb42dd819323b15c8ded4e
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85925224"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87889927"
 ---
 # <a name="fsutil-quota"></a>fsutil quota
 
@@ -35,7 +33,7 @@ fsutil quota [violations]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | disable | Deaktiviert die Kontingent Verfolgung und-Erzwingung auf dem angegebenen Volume. |
 | durch | Erzwingt die Kontingent Nutzung auf dem angegebenen Volume. |
@@ -48,7 +46,7 @@ fsutil quota [violations]
 | `<limit>` | Legt die maximal zulässige Datenträger Verwendung (in Bytes) fest. Dieser Parameter ist für den `fsutil quota modify` Befehl erforderlich. |
 | `<username>` | Gibt den Domänen-oder Benutzernamen an. Dieser Parameter ist für den `fsutil quota modify` Befehl erforderlich. |
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Datenträger Kontingente werden pro Volume implementiert und ermöglichen die Implementierung von Hard-und Soft Storage-Limits auf Benutzerbasis.
 

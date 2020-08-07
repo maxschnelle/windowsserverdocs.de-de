@@ -1,20 +1,18 @@
 ---
 title: create
 description: Referenz Artikel für den CREATE-Befehl, mit dem eine Partition oder eine Schatten Partition auf einem Datenträger, ein Volume auf einem oder mehreren Datenträgern oder eine virtuelle Festplatte (VHD) erstellt wird.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: b45acde1-8f4f-4ec3-b905-d8188f884af8
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0b5b31f43e58b9e2eddb18f624c1054c9d028f4c
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: cdf23152e6ddeced126d163fce7721f9978263ed
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85929536"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87891564"
 ---
 # <a name="create"></a>create
 
@@ -29,7 +27,7 @@ create volume
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | [create partition primary-Befehl](create-partition-primary.md) | Erstellt eine primäre Partition auf dem Basis Datenträger mit dem Fokus. |
 | [Create Partition (EFI-Befehl)](create-partition-efi.md) | Erstellt eine Extensible Firmware Interface (EFI)-Systempartition auf einem GPT-Datenträger (GUID-Partitionstabelle) auf Itanium-basierten Computern. |

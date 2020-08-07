@@ -1,20 +1,18 @@
 ---
 title: fsutil sparse
 description: Referenz Artikel für den Befehl "" mit geringer Dichte, der sparsesdateien verwaltet.
-ms.prod: windows-server
 manager: dmoss
 ms.author: toklima
 author: toklima
-ms.technology: storage
 ms.assetid: 77545920-2d13-4f35-a4d1-14dbec8340dc
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: c765b096f1b41b211d3a779d8f838aa56f31aeb8
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: d79144d3894e9e181ebd889ce7bf281b827dea26
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85925216"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87889840"
 ---
 # <a name="fsutil-sparse"></a>fsutil sparse
 
@@ -35,7 +33,7 @@ fsutil sparse [setrange] <filename> <beginningoffset> <length>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | queryflag | Abfragen mit geringer Dichte. |
 | queryrange | Scannt eine Datei und sucht nach Bereichen, die möglicherweise Daten enthalten, die nicht NULL sind. |
@@ -45,7 +43,7 @@ fsutil sparse [setrange] <filename> <beginningoffset> <length>
 | `<beginningoffset>` | Gibt den Offset in der Datei an, der als Sparse markiert werden soll. |
 | `<length>` | Gibt die Länge des Bereichs in der Datei an, der als Sparse (in Bytes) gekennzeichnet werden soll. |
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Alle aussagekräftigen Daten oder Daten, die nicht NULL sind, werden zugeordnet, während alle nicht aussagekräftigen Daten (große Daten Zeichenfolgen aus Nullen) nicht zugeordnet werden.
 

@@ -1,20 +1,18 @@
 ---
 title: dir
 description: Referenz Artikel für den Befehl dir, mit dem eine Liste der Dateien und Unterverzeichnisse eines Verzeichnisses angezeigt wird.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: edcbf69b-eaa4-466e-b210-3dd8892f4d93
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6abc9e1e760502047c5c740c72b79e302dd19249
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 51d36f0f5498c5c853df2d6663f52411037c13d4
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86958312"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87890985"
 ---
 # <a name="dir"></a>dir
 
@@ -30,7 +28,7 @@ dir [<drive>:][<path>][<filename>] [...] [/p] [/q] [/w] [/d] [/a[[:]<attributes>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `[<drive>:][<path>]` | Gibt das Laufwerk und das Verzeichnis an, für die eine Auflistung angezeigt werden soll. |
 | `[<filename>]` | Gibt eine bestimmte Datei oder Gruppe von Dateien an, für die eine Auflistung angezeigt werden soll. |
@@ -134,6 +132,6 @@ dir c:\*.txt /w/o/s/p
 
 Der Befehl **dir** zeigt im breiten Format eine alphabetisch sortierte Liste der übereinstimmenden Dateinamen in jedem Verzeichnis an und wird jedes Mal angehalten, wenn der Bildschirm ausgefüllt wird, bis Sie eine Taste drücken, um den Vorgang fortzusetzen.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

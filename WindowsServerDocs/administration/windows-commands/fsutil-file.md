@@ -1,20 +1,18 @@
 ---
 title: fsutil file
 description: Referenz Artikel zum Befehl "fsutil file", der eine Datei anhand des Benutzernamens findet, zugeordnete Bereiche für eine Datei abfragt, den Kurznamen einer Datei festlegt, die gültige Daten Länge einer Datei festlegt, keine Daten für eine Datei festlegt oder eine neue Datei erstellt.
-ms.prod: windows-server
 manager: dmoss
 ms.author: toklima
 author: toklima
-ms.technology: storage
 ms.assetid: 9f3dc104-dd69-4b03-b824-a29896780164
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: 6909d381ef5dfebb343e70ad117a1a5b400481fa
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 92b048d0ad3a7cb1f0c21dabf3cc14dc9850a251
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85932288"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87889998"
 ---
 # <a name="fsutil-file"></a>fsutil file
 
@@ -42,7 +40,7 @@ fsutil file [setzerodata] offset=<offset> length=<length> <filename>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | CreateNew | Erstellt eine Datei mit dem angegebenen Namen und der angegebenen Größe mit Inhalt, der aus Nullen besteht. |
 | `<length>` | Gibt die gültige Daten Länge der Datei an. |
@@ -72,7 +70,7 @@ fsutil file [setzerodata] offset=<offset> length=<length> <filename>
 | `<datalength>` | Gibt die Länge der Datei in Bytes an. |
 | "setzerodata" | Legt einen Bereich (angegeben durch *Offset* und *Länge*) der Datei auf Nullen fest, wodurch die Datei geleert wird. Wenn die Datei eine sparsedatei ist, wird der Commit für die zugrunde liegenden Zuordnungs Einheiten ausgeführt. |
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - In NTFS gibt es zwei wichtige Konzepte der Dateilänge: das Ende der Datei Markierung (End-of-File, EOF) und die gültige Daten Länge (VDL). Das EOF gibt die tatsächliche Länge der Datei an. Die VDL identifiziert die Länge gültiger Daten auf dem Datenträger. Bei allen Lesevorgängen zwischen VDL und EOF wird 0 zurückgegeben, um die Anforderung zur Wiederverwendung von C2-Objekten beizubehalten
 

@@ -1,20 +1,18 @@
 ---
 title: cscript
 description: Referenz Artikel zum cscript-Befehl, der ein Skript startet, sodass es in einer Befehlszeilen Umgebung ausgeführt wird.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: fba3cbca-594e-4663-bb22-4ee0f63a1ac6
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e7f6731c264fc5a22bee2d94b41a555431e48b42
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 3f6e27cae1531e0c10e8721d7f7fe11487406e35
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85928830"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87891539"
 ---
 # <a name="cscript"></a>cscript
 
@@ -33,7 +31,7 @@ cscript <scriptname.extension> [/b] [/d] [/e:<engine>] [{/h:cscript | /h:wscript
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | ScriptName. Extension | Gibt den Pfad und den Dateinamen der Skriptdatei mit der optionalen Dateinamenerweiterung an. |
 | /b | Gibt den Batch Modus an, in dem keine Warnungen, Skript Fehler oder Eingabe Aufforderungen angezeigt werden. |
@@ -52,7 +50,7 @@ cscript <scriptname.extension> [/b] [/d] [/e:<engine>] [{/h:cscript | /h:wscript
 | /? | Zeigt verfügbare Befehlsparameter an und bietet Hilfe zur Verwendung. Dies ist identisch mit der Eingabe von **cscript.exe** ohne Parameter und ohne Skript. |
 | scriptarguments | Gibt die Argumente an, die an das Skript geleitet werden. Jedem Skript Argument muss ein Schrägstrich () vorangestellt werden **/** . |
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Jeder Parameter ist optional. Sie können jedoch keine Skript Argumente angeben, ohne ein Skript anzugeben. Wenn Sie kein Skript oder Skript Argumente angeben, werden cscript.exe die cscript.exe Syntax und die gültigen Host Optionen anzeigt.
 

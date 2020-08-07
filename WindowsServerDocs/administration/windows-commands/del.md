@@ -1,20 +1,18 @@
 ---
 title: del
 description: Referenz Artikel für den Befehl "del", mit dem eine oder mehrere Dateien gelöscht werden.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 346eede2-2085-44f5-9936-6877b5d5a833
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: fe1ae558da0a4cb19159c68c67e1e72970e3b502
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: f909a212284f29fff15de0d02995b08b713cd889
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86958412"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87891493"
 ---
 # <a name="del"></a>del
 
@@ -96,7 +94,7 @@ Wenn Sie alle schreibgeschützten Dateien im aktuellen Verzeichnis löschen möc
 del /a:r *.*
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

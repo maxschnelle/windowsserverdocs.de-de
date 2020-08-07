@@ -1,20 +1,18 @@
 ---
 title: ftp append
 description: Referenz Artikel für den Befehl FTP anfügen, bei dem eine lokale Datei mithilfe der aktuellen Dateityp Einstellung an eine Datei auf dem Remote Computer angefügt wird.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 7c1a133c-31dc-41a4-9eb9-258efd79804d
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: cee11d52db784477b0b4ffeecc307d395f910a92
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 0c98e9eb4ed5d2dc560deac0720158cf90d801e4
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86958082"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87889687"
 ---
 # <a name="ftp-append"></a>ftp append
 
@@ -49,7 +47,7 @@ Fügen Sie den lokalen *file1.txt* an eine Datei mit dem Namen *file1.txt* auf d
 append file1.txt
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

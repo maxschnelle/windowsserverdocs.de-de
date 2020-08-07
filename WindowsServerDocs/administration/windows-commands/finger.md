@@ -1,20 +1,18 @@
 ---
 title: finger
 description: Referenz Artikel für den Finger Befehl, mit dem Informationen zu Benutzern auf einem angegebenen Remote Computer angezeigt werden, auf dem der Fingerdienst oder der Daemon ausgeführt wird.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 907ea637-5c6c-4752-84c2-46bbf2a68a33
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: fd629374b601686e91e5238ae8db060e0b6bf0f8
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 503b431905d764d371bff0c69eef9032fb0c8644
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85922422"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87890202"
 ---
 # <a name="finger"></a>finger
 
@@ -33,14 +31,14 @@ finger [-l] [<user>] [@<host>] [...]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | -l | Zeigt Benutzerinformationen im langen Listenformat an. |
 | `<user>` | Gibt den Benutzer an, zu dem Sie Informationen benötigen. Wenn Sie den Parameter " *User* " weglassen, werden mit diesem Befehl Informationen zu allen Benutzern auf dem angegebenen Computer angezeigt. |
 | `@<host>` | Gibt den Remote Computer an, auf dem der Finger Dienst ausgeführt wird, auf dem Sie nach Benutzerinformationen suchen. Sie können einen Computernamen oder eine IP-Adresse angeben. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Sie müssen **Finger** Parametern mit einem Bindestrich (-) anstelle eines Schrägstrichs (/) als Präfix versehen.
 

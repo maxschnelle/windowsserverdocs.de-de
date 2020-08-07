@@ -1,20 +1,18 @@
 ---
 title: dfsrmig
 description: Referenz Artikel für den DFSRMIG-Befehl, der die SYSVOL-Replikation von FRS zu DFS-Replikation migriert, Informationen zum Fortschritt der Migration bereitstellt und AD DS Objekte zur Unterstützung der Migration ändert.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: e1b6a464-6a93-4e66-9969-04f175226d8d
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 87882ebe0beb687f704c5573091f56c067c278ee
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 83e4d039b0c7c36960ab8dadfa4740d0c01daa33
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85928635"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87891046"
 ---
 # <a name="dfsrmig"></a>dfsrmig
 
@@ -31,7 +29,7 @@ dfsrmig [/setglobalstate <state> | /getglobalstate | /getmigrationstate | /creat
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `/setglobalstate <state>` | Legt den globalen Migrations Zustand der Domäne auf einen Wert fest, der dem durch *State*angegebenen Wert entspricht. Der globale Migrations Zustand kann nur auf einen stabilen Zustand festgelegt werden. Zu den *Zustands* Werten gehören:<ul><li>**0** -Start Status</li><li>**1** -vorbereiteter Zustand</li><li>**2** -umgeleiteter Zustand</li><li>**3** : Zustand wird gelöscht</li></ul> |
 | /getglobalstate | Ruft den aktuellen globalen Migrationsstatus für die Domäne aus der lokalen Kopie der AD DS Datenbank ab, wenn Sie auf dem PDC-Emulator ausgeführt wird. Verwenden Sie diese Option, um zu bestätigen, dass Sie den richtigen globalen Migrationsstatus festgelegt haben.<p>**Wichtig:** Sie sollten diesen Befehl nur für den PDC-Emulator ausführen. |
@@ -41,7 +39,7 @@ dfsrmig [/setglobalstate <state> | /getglobalstate | /getmigrationstate | /creat
 | `/deleterodfsrmember [<read_only_domain_controller_name>]` | Löscht die globalen AD DS Einstellungen für DFS-Replikation, die dem angegebenen schreibgeschützten Domänen Controller entsprechen, oder löscht die globalen AD DS Einstellungen für DFS-Replikation für alle schreibgeschützten Domänen Controller, wenn kein Wert für angegeben ist `<read_only_domain_controller_name>` .<p>Verwenden Sie diese Option, um die AD DS Einstellungen nur dann manuell zu löschen, wenn der automatische Löschvorgang auf einem schreibgeschützten Domänen Controller fehlschlägt und den schreibgeschützten Domänen Controller für einen längeren Zeitraum anhält, wenn ein Rollback der Migration vom Zustand "vorbereitet" in den Startstatus erfolgt. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Verwenden `/setglobalstate <state>` Sie den Befehl zum Festlegen des globalen Migrations Zustands in AD DS auf dem PDC-Emulator, um den Migrationsprozess zu initiieren und zu steuern. Wenn der PDC-Emulator nicht verfügbar ist, schlägt dieser Befehl fehl.
 

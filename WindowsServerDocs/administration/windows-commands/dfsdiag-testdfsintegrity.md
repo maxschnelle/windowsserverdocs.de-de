@@ -1,20 +1,18 @@
 ---
 title: dfsdiag testdfsintegrity
 description: Referenz Artikel für den Dfsdiag testdfsintegrity-Befehl, der die Integrität des DFS-Namespace (verteiltes Dateisystem) überprüft.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 173ee832-26e1-4ec8-a23a-38a7d6229ac3
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e7896174bb58c957e4c24b1c3f7e1b2bacc9f95f
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: da30b85acfccee47f976a932c71c2a8906f45a4f
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85930635"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87891146"
 ---
 # <a name="dfsdiag-testdfsintegrity"></a>dfsdiag testdfsintegrity
 
@@ -36,7 +34,7 @@ dfsdiag /testdfsintegrity /DFSroot: <DFS root path> [/recurse] [/full]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | /DFSroot:`<DFS root path>` | Der zu diagnostizieren DFS-Namespace. |
 | /recurse | Führt die Tests aus, einschließlich aller Namespace-Interlinks. |

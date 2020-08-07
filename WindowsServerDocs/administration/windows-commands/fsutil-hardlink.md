@@ -1,20 +1,18 @@
 ---
 title: fsutil hardlink
 description: Referenz Artikel für den Befehl "ssutil hardlink", mit dem eine feste Verknüpfung zwischen einer vorhandenen Datei und einer neuen Datei erstellt wird.
-ms.prod: windows-server
 manager: dmoss
 ms.author: toklima
 author: toklima
-ms.technology: storage
 ms.assetid: 835fc6f1-cc84-4189-b29a-dde90792469e
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: b4cbc3912339464a061c027234d0d22b2d73ea09
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: f6a36be6c30e348ac488cfc2a8da7c312f64b3a6
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85932286"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87889977"
 ---
 # <a name="fsutil-hardlink"></a>fsutil hardlink
 

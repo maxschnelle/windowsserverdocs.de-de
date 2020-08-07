@@ -1,20 +1,18 @@
 ---
 title: fsutil-Verhalten
 description: Referenz Artikel für den Befehl "bsutil Behavior", der das NTFS-volumeverhalten abfragt oder festlegt.
-ms.prod: windows-server
 manager: dmoss
 ms.author: toklima
 author: toklima
-ms.technology: storage
 ms.topic: article
 ms.date: 10/16/2017
 ms.assetid: 84eaba2c-c0af-49e1-bbbd-2ed2928e5e4b
-ms.openlocfilehash: 74a974bcb7f8138d28e563db35bbde7ae689e110
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 3a81d8350b2c8eed1abcfafcaa0971b022678db0
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85931835"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87890074"
 ---
 # <a name="fsutil-behavior"></a>fsutil-Verhalten
 
@@ -46,7 +44,7 @@ fsutil behavior set {allowextchar {1|0} | bugcheckoncorrupt {1|0} | disable8dot3
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- |------------ |
 | Abfrage | Fragt die Verhaltensparameter des Dateisystems ab. |
 | set | Ändert die Verhaltensparameter des Dateisystems. |
@@ -68,7 +66,7 @@ fsutil behavior set {allowextchar {1|0} | bugcheckoncorrupt {1|0} | disable8dot3
 | symlinkevaluation`<symboliclinktype>` | Steuert die Art von symbolischen Verknüpfungen, die auf einem Computer erstellt werden können. Folgende Optionen sind gültig:<ul><li>**1** -lokale und lokale symbolische Links,`L2L:{0|1}`</li><li>**2** -lokale zu-Remote-symbolische Verknüpfungen,`L2R:{1|0}`</li><li>**3** : Symbol Verknüpfungen für Remote-zu-lokal`R2R:{1|0}`</li><li>**4** -symbolische Links zu Remote-zu-Remote`R2L:{1|0}`</li></ul> |
 | disabledeletenotify | Deaktiviert (**1**) oder aktiviert (**0**) Benachrichtigungen löschen. DELETE-Benachrichtigungen (auch als Trim oder unmap bezeichnet) ist ein Feature, das das zugrunde liegende Speichergerät von Clustern benachrichtigt, die aufgrund eines Datei Löschvorgangs freigegeben wurden. Berücksichtigen Sie zudem Folgendes:<ul><li>Für Systeme, die refs v2 verwenden, ist Trim standardmäßig deaktiviert.</li><li>Für Systeme, die refs v1 verwenden, ist Trim standardmäßig aktiviert.</li><li>Für Systeme, die NTFS verwenden, ist Trim standardmäßig aktiviert, es sei denn, Sie werden von einem Administrator deaktiviert.</li><li>Wenn Ihr Festplattenlaufwerk oder San meldet, dass Trim nicht unterstützt wird, erhalten die Festplatte und die Sans keine Trim-Benachrichtigungen.</li><li>Die Aktivierung oder Deaktivierung erfordert keinen Neustart.</li><li>Trim ist wirksam, wenn der nächste aufheben-Befehl ausgegeben wird.</li><li>Vorhandene Flight-e/a sind von der Registrierungs Änderung nicht betroffen.</li><li>Erfordert keinen Dienst Neustart, wenn Sie Trim aktivieren oder deaktivieren.</li></ul> |
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Die MFT-Zone ist ein reservierter Bereich, der es ermöglicht, dass die Master Dateitabelle (MFT) nach Bedarf erweitert wird, um die MFT-Fragmentierung zu verhindern. Wenn die durchschnittliche Dateigröße auf dem Volume 2 KB oder weniger beträgt, kann es vorteilhaft sein, den **mftzone** -Wert auf **2**festzulegen. Wenn die durchschnittliche Dateigröße auf dem Volume mindestens 1 KB beträgt, kann es vorteilhaft sein, den **mftzone** -Wert auf **4**festzulegen.
 

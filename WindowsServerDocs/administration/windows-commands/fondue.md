@@ -1,20 +1,18 @@
 ---
 title: Fondue
 description: Referenz Artikel für den Fondue-Befehl, der optionale Windows-Funktionen ermöglicht, indem Sie erforderliche Dateien von Windows Update oder einer anderen durch Gruppenrichtlinie angegebenen Quelle herunterladen.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: fc4467f6-ddbb-4d6d-b51e-5a50a957b8c0
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5d2b7e4b2a8ef3158f5528c43944020274204970
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 16660ed745c28f84d7911f9784fbeb19a5c03ae3
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85922699"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87890190"
 ---
 # <a name="fondue"></a>Fondue
 
@@ -30,7 +28,7 @@ fondue.exe /enable-feature:<feature_name> [/caller-name:<program_name>] [/hide-u
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | /Enable-Feature`<feature_name>` | Gibt den Namen des optionalen Windows-Features an, das Sie aktivieren möchten. Sie können nur eine Funktion pro Befehlszeile aktivieren. Um mehrere Features zu aktivieren, verwenden Sie fondue.exe für die einzelnen Features. |
 | /caller-name:`<program_name>` | Gibt den Programm-oder Prozessnamen an, wenn Sie fondue.exe aus einem Skript oder einer Batchdatei abrufen. Sie können diese Option verwenden, um den Programmnamen dem sqm-Bericht hinzuzufügen, wenn ein Fehler vorliegt. |

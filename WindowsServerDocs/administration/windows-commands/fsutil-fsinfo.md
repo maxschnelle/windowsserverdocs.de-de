@@ -1,20 +1,18 @@
 ---
 title: F-Datei (f)
 description: Referenz Artikel für den Befehl "f" mit dem Befehl "f", der alle Laufwerke auflistet, den Laufwerkstyp abfragt, Volumeinformationen abfragt, NTFS-spezifische Volumeinformationen abfragt oder Dateisystem Statistiken abfragt.
-ms.prod: windows-server
 manager: dmoss
 ms.author: toklima
 author: toklima
-ms.technology: storage
 ms.assetid: 7787a72e-a26b-415f-b700-a32806803478
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: 0cb4e5b747e07c9409c7dbb80ac9950e765617bc
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 5642355769225fada014a98cce8d4533e72f7410
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85924730"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87889990"
 ---
 # <a name="fsutil-fsinfo"></a>fsutil fsinfo
 
@@ -34,7 +32,7 @@ fsutil fsinfo [volumeinfo] <rootpath>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- |------------ |
 | Laufwerke | Listet alle Laufwerke des Computers auf. |
 | DriveType | Fragt ein Laufwerk ab und listet seinen Typ auf, z. b. CD-ROM-Laufwerk. |

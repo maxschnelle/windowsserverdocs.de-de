@@ -1,20 +1,18 @@
 ---
 title: diantz
 description: Referenz Artikel für den diantz-Befehl, mit dem vorhandene Dateien in eine CAB-Datei (CAB-Datei) verpackt werden.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 218ed5d7-1203-4d68-ad9b-65cdd022d54f
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 339ffaa56b65b2b061923ab38ee172c5e933d675
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 108ab8df27faf6794e5ba77b725daf2944ecc240
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86958342"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87891016"
 ---
 # <a name="diantz"></a>diantz
 
@@ -41,7 +39,7 @@ diantz [/v[<n>]] [/d var=<value> ...] /f <directives_file> [...]
 | /v [ `<n>` ] | Ausführlichkeits Grad für das Debuggen festlegen (0 = keine,..., 3 = vollständig). |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

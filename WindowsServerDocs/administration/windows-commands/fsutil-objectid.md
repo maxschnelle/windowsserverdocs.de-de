@@ -1,20 +1,18 @@
 ---
 title: fsutil objectid
 description: Referenz Artikel für den Befehl fsutil objectid, mit dem Objekt Bezeichner zum Nachverfolgen anderer Objekte wie Dateien, Verzeichnisse und Links verwaltet werden.
-ms.prod: windows-server
 manager: dmoss
 ms.author: toklima
 author: toklima
-ms.technology: storage
 ms.assetid: 693ab895-9d0c-47c1-9f52-df5cd287842a
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: 5ab0b95bdcde8bce51e1d5a2c14888229621fcaa
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: f24a434a3b48186baa1743cc6159cac39443231e
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85925240"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87889964"
 ---
 # <a name="fsutil-objectid"></a>fsutil objectid
 
@@ -48,7 +46,7 @@ fsutil objectid [set] <objectID> <birthvolumeID> <birthobjectID> <domainID> <fil
 | `<domainID>` | hexadezimale 16-Byte-Domänen Bezeichner. Dieser Wert wird derzeit nicht verwendet und muss auf alle Nullen festgelegt werden. |
 | `<filename>` | Gibt den vollständigen Pfad zur Datei einschließlich des Datei namens und der Erweiterung an, z. b. *C:\documents\filename.txt*. |
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Jede Datei mit einem Objekt Bezeichner verfügt auch über einen Geburts volumenbezeichner, einen Geburts Objekt Bezeichner und einen Domänen Bezeichner. Wenn Sie eine Datei verschieben, kann sich der Objekt Bezeichner ändern, aber das Geburts Volume und die Geburts Objekt-IDs bleiben unverändert. Dieses Verhalten ermöglicht es dem Windows-Betriebssystem, immer eine Datei zu finden, unabhängig davon, wohin Sie verschoben wurde.
 

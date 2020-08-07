@@ -1,20 +1,18 @@
 ---
 title: fsutil usn
 description: Referenz Artikel für den Befehl "fisutil-Befehl", der das Änderungs Journal für die Aktualisierungs Sequenznummer verwaltet.
-ms.prod: windows-server
 manager: dmoss
 ms.author: toklima
 author: toklima
-ms.technology: storage
 ms.assetid: faad34aa-4ba1-4129-bc1f-08088399e2fa
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: b3f71588c7221f0ba8e3659d9a1a1dd133971ce9
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: c2bbd130902812f9a44d2d762a074b67de5e8dac
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85930468"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87889773"
 ---
 # <a name="fsutil-usn"></a>fsutil usn
 
@@ -36,7 +34,7 @@ fsutil usn [readjournal] [c= <chunk-size> s=<file-size-threshold>] <volumepath>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | "kreatejournal" | Erstellt ein Aktualitäts Änderungs Journal. |
 | m =`<maxsize>` | Gibt die maximale Größe in Bytes an, die von NTFS für das Änderungs Journal zugewiesen wird. |
@@ -60,7 +58,7 @@ fsutil usn [readjournal] [c= <chunk-size> s=<file-size-threshold>] <volumepath>
 | MaxVer =`<number>` | Die maximale Haupt Version USN_RECORD, die zurückgegeben werden soll. Standardwert = 4. |
 | startusn =`<USN number>` | Die Startseite für die ersten Lesevorgänge des Verwendungen der Startseite. Standardwert = 0. |
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Programme können sich das USN-Änderungs Journal ansehen, um alle Änderungen zu ermitteln, die an einem Satz von Dateien vorgenommen wurden. Das Aktualitäts Änderungs Journal ist viel effizienter als das Überprüfen von Zeitstempeln oder das Registrieren von Datei Benachrichtigungen. Das Aktualitäts Änderungs Journal wird aktiviert und vom Index Dienst, Datei Replikations Dienst (File Replication Service, FRS), Remoteinstallations Dienste (Remote Installation Services, RIS) und Remote Speicher verwendet.
 

@@ -1,20 +1,18 @@
 ---
 title: fsutil reparsepoint
 description: Referenz Artikel für den Befehl "bsutil-Analyse Punkt", der Analyse Punkte abfragt oder löscht.
-ms.prod: windows-server
 manager: dmoss
 ms.author: toklima
 author: toklima
-ms.technology: storage
 ms.assetid: fb95c8ee-a418-4520-a12a-7754ae947c3c
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: edbbc578b6a84ebd4e342493e29cbe2bd5c5a2cd
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: b7742b7bb970394f0ef8602ae5c862c2ff9a1a41
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85931217"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87889881"
 ---
 # <a name="fsutil-reparsepoint"></a>fsutil reparsepoint
 
@@ -39,13 +37,13 @@ fsutil reparsepoint [delete] <filename>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | Abfrage | Ruft die Analyse Punktdaten ab, die der Datei oder dem Verzeichnis zugeordnet sind, die durch das angegebene Handle identifiziert werden. |
 | delete | Löscht einen Analyse Punkt aus der durch das angegebene Handle identifizierten Datei oder dem Verzeichnis, löscht jedoch weder die Datei noch das Verzeichnis. |
 | `<filename>` | Gibt den vollständigen Pfad zur Datei einschließlich des Datei namens und der Erweiterung an, z. b. *C:\documents\filename.txt*. |
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Wenn von einem Programm ein Analyse Punkt festgelegt wird, werden diese Daten einschließlich eines Analyse Tags gespeichert, mit dem die Daten, die gespeichert werden, eindeutig identifiziert werden. Wenn das Dateisystem eine Datei mit einem Analyse Punkt öffnet, wird versucht, den zugeordneten Dateisystem Filter zu finden. Wenn der Dateisystem Filter gefunden wird, verarbeitet der Filter die Datei gemäß den Analysedaten. Wenn kein Dateisystem Filter gefunden wird, schlägt der **Datei Öffnungs** Vorgang fehl.
 

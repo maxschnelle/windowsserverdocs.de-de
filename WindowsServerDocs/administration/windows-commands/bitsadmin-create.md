@@ -1,20 +1,18 @@
 ---
 title: bitsadmin create
 description: Referenz Artikel für den Befehl bizadmin Create, mit dem ein Übertragungs Auftrag mit dem angegebenen anzeigen Amen erstellt wird.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 9a8c53af-900b-4c24-9265-5b8b08213fac
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b3e0f8fb7d8396a238cabcbeb375f61cbe526c3f
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: ca651705955826ab3b65bd95aa90c98170bdb935
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85928344"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87894600"
 ---
 # <a name="bitsadmin-create"></a>bitsadmin create
 

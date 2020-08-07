@@ -1,20 +1,18 @@
 ---
 title: fsutil transaction
 description: Referenz Artikel für den Befehl "sasutil Transaction", der NTFS-Transaktionen verwaltet.
-ms.prod: windows-server
 manager: dmoss
 ms.author: toklima
 author: toklima
-ms.technology: storage
 ms.assetid: f2eefaaf-2817-4ac7-abac-d2b65fa971dc
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: 776903b820c7d7381aff61bb754446b5682f88db
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: f70281af6ecf652cc1dba95ec09b07529f71752e
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86958172"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87889798"
 ---
 # <a name="fsutil-transaction"></a>fsutil transaction
 
@@ -52,7 +50,7 @@ Geben Sie Folgendes ein, um Transaktionsinformationen für Datei *c:\test.txt*an
 fsutil transaction fileinfo c:\test.txt
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
