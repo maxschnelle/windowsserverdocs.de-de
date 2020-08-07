@@ -1,20 +1,18 @@
 ---
 title: rem
 description: Referenz Artikel für den REM-Befehl, der Kommentare in einem Skript, in einem Batch oder in einer config.sys Datei aufzeichnet.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 1a45b585-a83c-4ff6-badd-ff40f34cec23
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: fe0bfce3f9f72d0a32ef5b3bb540e5a297df24a1
-ms.sourcegitcommit: 145cf75f89f4e7460e737861b7407b5cee7c6645
+ms.openlocfilehash: 6593e7700853af3658206b741817a86933fa66d1
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87409701"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87883858"
 ---
 # <a name="rem"></a>rem
 
@@ -79,6 +77,6 @@ create partition logical
 assign f:
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

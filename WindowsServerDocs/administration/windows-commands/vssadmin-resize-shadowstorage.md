@@ -1,19 +1,17 @@
 ---
 title: Vssadmin residieren von ShadowStorage
 description: Eine Beschreibung des Befehls vssadmin Größe shadowstorage.
-ms.prod: windows-server
 ms.topic: article
 author: JasonGerend
 ms.author: jgerend
-ms.technology: storage
 ms.date: 03/05/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 8b723fd3768561da7d636dd1724bd0c75ee2ee85
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 0b49c85ab628de040cf58d47b4e4c694674ce6e7
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86954702"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87892335"
 ---
 # <a name="vssadmin-resize-shadowstorage"></a>Vssadmin residieren von ShadowStorage
 
@@ -34,7 +32,7 @@ vssadmin resize shadowstorage /for=<ForVolumeSpec> /on=<OnVolumeSpec> [/maxsize=
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---|---|
 `/for=<ForVolumeSpec>`  | Gibt das Volume an, für das die maximale Speicherplatz Größe geändert werden soll.
 `/on=<OnVolumeSpec>` | Gibt das Speicher Volume an.
@@ -48,7 +46,7 @@ vssadmin Resize ShadowStorage /For=C: /On=D: /MaxSize=UNBOUNDED
 vssadmin Resize ShadowStorage /For=C: /On=C: /MaxSize=20%
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 * [Befehlszeilen-Syntax Schlüssel](./command-line-syntax-key.md)
 * [Vssadmin](vssadmin.md)

@@ -1,20 +1,18 @@
 ---
 title: convert mbr
 description: Referenz Artikel zum Convert MBR-Befehl, der einen leeren Basis Datenträger mit dem Partitions Stil der GUID-Partitionstabelle (GPT) in einen Basis Datenträger mit dem Partitions Stil Master Boot Record (MBR) konvertiert.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: a635a4c0-af73-4330-b021-51d483424537
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 784521c99e3fc0cf8d372f95424af785636a0687
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 61f387d55f310d2ea610aa3033464c66addfc353
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86958512"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87892558"
 ---
 # <a name="convert-mbr"></a>convert mbr
 
@@ -46,7 +44,7 @@ Zum Konvertieren eines Basis Datenträgers aus dem GPT-Partitions Stil in den MB
 convert mbr
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

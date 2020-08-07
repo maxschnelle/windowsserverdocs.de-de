@@ -1,20 +1,18 @@
 ---
 title: Modus
 description: Referenz Artikel für den Befehl "Modus", der den Systemstatus anzeigt, Systemeinstellungen ändert oder Ports oder Geräte neu konfiguriert.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: b59b04f2-b41d-42df-b5be-19c3721445b1
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5794b80f7457b133d3e5b599cb12613469ad58eb
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: ae436d5ed1328799f7c20d98274a574d40ef796d
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85936051"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87886395"
 ---
 # <a name="mode"></a>Modus
 
@@ -32,7 +30,7 @@ mode com<m>[:] [baud=<b>] [parity=<p>] [data=<d>] [stop=<s>] [to={on|off}] [xon=
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter  | Beschreibung |
+| Parameter  | BESCHREIBUNG |
 | ---------- | ----------- |
 | `com<m>[:]` | Gibt die Nummer des asynchronen prncnfg. vbshrton-Kommunikationsports an. |
 | `baud=<b>`  | Gibt die Übertragungsrate in Bits pro Sekunde an. Gültige Werte sind:<ul><li>**11** -110 Baudrate</li><li>**15** -150-Baudrate</li><li>**30** -300-Baudrate</li><li>**60** -600-Baudrate</li><li>**12** -1200-Baudrate</li><li>**24** -2400-Baudrate</li><li>**48** -4800-Baudrate</li><li>**96** -9600-Baudrate</li><li>**19** -19.200-Baudrate</li></ul> |
@@ -60,7 +58,7 @@ mode [<device>] [/status]
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `<device>` | Gibt den Namen des Geräts an, für das der Status angezeigt werden soll. Zu den Standard Namen zählen, LPT1: bis LPT3:, COM1: bis COM9: und con. |
 | /status | Fordert den Status sämtlicher umgeleiteter paralleler Drucker an. Sie können **/STA** auch als abgekürzte Version dieses Befehls verwenden. |
@@ -81,7 +79,7 @@ mode LPT<n>[:]=COM<m>[:]
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | LPT `<n>` [:] | Gibt die Anzahl der zu konfigurierenden LPT an. In der Regel bedeutet dies, dass ein Wert von **LTP1: bis LTP3:** bereitgestellt wird, es sei denn, Ihr System umfasst besondere parallele Port Unterstützung. Dieser Parameter ist erforderlich.|
 | COM `<m>` [:] | Gibt den COM-Port an, der konfiguriert werden soll. In der Regel bedeutet dies, dass Sie einen Wert von **COM1: bis COM9**angeben müssen, es sei denn, Ihr System verfügt über spezielle Hardware für zusätzliche com-Anschlüsse. Dieser Parameter ist erforderlich. |
@@ -117,7 +115,7 @@ mode <device> codepage [/status]
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `<device>` |Gibt das Gerät an, für das Sie eine Codepage auswählen möchten. CON ist der einzige gültige Name für ein Gerät. Dieser Parameter ist erforderlich. |
 | codepage | Gibt an, welche Codepage mit dem angegebenen Gerät verwendet werden soll. Sie können **CP** auch als abgekürzte Version dieses Befehls verwenden. Dieser Parameter ist erforderlich. |
@@ -137,7 +135,7 @@ mode con[:] [cols=<c>] [lines=<n>]
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | con [:] | Gibt an, dass die Änderung für das Eingabe Aufforderungs Fenster gilt. Dieser Parameter ist erforderlich. |
 | cols =`<c>` | Gibt die Anzahl der Spalten im Bildschirm Puffer der Eingabeaufforderung an. Die Standardeinstellung ist 80 Spalten, Sie können diese jedoch auf einen beliebigen Wert festlegen. Wenn Sie nicht die Standardeinstellung verwenden, sind die typischen Werte 40 und 135 Spalten. Die Verwendung von nicht standardmäßigen Werten kann zu Problemen bei der Eingabeaufforderung der APP führen. |
@@ -159,7 +157,7 @@ mode con[:] [rate=<r> delay=<d>]
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | con [:] | Gibt die Tastatur an. Dieser Parameter ist erforderlich. |
 | Rate =`<r>` | Gibt die Rate an, mit der ein Zeichen auf dem Bildschirm wiederholt wird, wenn Sie eine Taste gedrückt halten. Der Standardwert ist 20 Zeichen pro Sekunde für IBM-kompatible Tastaturen und 21 für IBM PS/2-kompatible Tastaturen, Sie können jedoch einen beliebigen Wert zwischen 1 und 32 verwenden. Wenn Sie diesen Parameter festlegen, müssen Sie auch den **Delay** -Parameter festlegen.|

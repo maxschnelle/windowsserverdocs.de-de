@@ -1,20 +1,18 @@
 ---
 title: ren
 description: Referenz Artikel für den Befehl "ren", der eine Datei oder ein Verzeichnis umbenennt.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 60398e12-a05d-4524-a73a-0a925943e21d
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: c5f873de224ff335be097d97c7d8933a70af726d
-ms.sourcegitcommit: 145cf75f89f4e7460e737861b7407b5cee7c6645
+ms.openlocfilehash: e21b521947ed02307c470932fffcf466016bae8b
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87409671"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87883804"
 ---
 # <a name="ren"></a>ren
 
@@ -61,7 +59,7 @@ Um den Namen eines Verzeichnisses von *Chap10* zu *part10*zu ändern, geben Sie 
 ren chap10 part10
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

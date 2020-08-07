@@ -1,20 +1,18 @@
 ---
 title: )
 description: Referenz Artikel für den weiteren Befehl, der einen Bildschirm der Ausgabe gleichzeitig anzeigt.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: ded14f6a-d82f-4aeb-a2d8-7ec1c94dfb8f
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/26/2019
-ms.openlocfilehash: ec7f8c29f71389a6b583fda805c32ddf872321b4
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 198f3f3f3b80282d876e4fdda9e7cde649a8c7da
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86956952"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87886375"
 ---
 # <a name="more"></a>)
 
@@ -33,7 +31,7 @@ more [/c] [/p] [/s] [/t<n>] [+<n>] [<files>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `<command>` | Gibt einen Befehl an, für den die Ausgabe angezeigt werden soll. |
 | /C | Löscht den Bildschirm, bevor eine Seite angezeigt wird. |
@@ -106,7 +104,7 @@ more s
 
 Wenn Sie die Eingabeaufforderung anfordern, werden Sie wie folgt zur **Eingabe der Anzahl** der zu über springenden Zeilen aufgefordert: `-- More -- Lines:` . Geben Sie die Anzahl der zu über springenden Zeilen ein, und drücken Sie die EINGABETASTE. Der Bildschirm wird geändert, um anzuzeigen, dass diese Zeilen übersprungen werden.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

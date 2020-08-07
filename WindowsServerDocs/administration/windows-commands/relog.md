@@ -1,20 +1,18 @@
 ---
 title: relog
 description: Referenz Artikel für den Befehl erneut aufzuzeichnen, mit dem Leistungsdaten aus den Leistungsdaten-Protokolldateien extrahiert werden.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 7480f6c0-9953-4d70-9b1c-b27e09d8db13
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: a404b896179aa43fff28556e995d369780ae544a
-ms.sourcegitcommit: 145cf75f89f4e7460e737861b7407b5cee7c6645
+ms.openlocfilehash: c3c60503cf725d05afd4b21ceef5f36c64c2b155
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87409711"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87883861"
 ---
 # <a name="relog"></a>relog
 
@@ -95,6 +93,6 @@ Geben Sie Folgendes ein, um vorhandene Ablauf Verfolgungs Protokolle in eine Dat
 relog "c:\perflogs\daily_trace_log.blg" -f sql -o "SQL:sql2016x64odbc!counter_log"
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

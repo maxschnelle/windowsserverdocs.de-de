@@ -1,20 +1,18 @@
 ---
 title: mstsc
 description: Referenz Artikel für den mstsc-Befehl, der Verbindungen mit Remotedesktop-Sitzungshost Servern oder anderen Remote Computern erstellt, eine vorhandene Remotedesktopverbindung (RDP-Konfigurationsdatei) bearbeitet und ältere Verbindungs Dateien, die mit dem Clientverbindungs-Manager erstellt wurden, in neue RDP-Verbindungs Dateien migriert.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 59801227-1e7e-4dbd-96e6-f54102a3ce92
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: cec9ef281c886964163c233022466d8478d65c79
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: abf4824c50b931944c96307f6c9df42e6924b638
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85934842"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87886149"
 ---
 # <a name="mstsc"></a>mstsc
 
@@ -32,7 +30,7 @@ mstsc.exe /migrate
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ------------|
 | `<connectionfile>` | Gibt den Namen einer RDP-Datei für die Verbindung an. |
 | /v:`<server>[:<port>]` | Gibt den Remote Computer und optional die Portnummer an, mit der Sie eine Verbindung herstellen möchten. |
@@ -46,7 +44,7 @@ mstsc.exe /migrate
 | /migrate | Migriert Legacy-Verbindungs Dateien, die mit dem Clientverbindungs-Manager erstellt wurden, in neue RDP-Verbindungs Dateien. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - "Default. RDP" wird für jeden Benutzer als versteckte Datei im Ordner " **Dokumente** " des Benutzers gespeichert.
 

@@ -1,20 +1,18 @@
 ---
 title: bitsadmin setdisplayname
 description: Referenz Artikel für den Befehl "bitadmin setdisplayname", mit dem der Anzeige Name des angegebenen Auftrags festgelegt wird.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 13706c53-fb5f-4879-b5ca-82531361d6e1
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b7cd1ce068e1e2a89b27ee88653fdd014d2da178
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: ac83fee33703555f1a8ba4b65ae8dc4d0f947916
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85927790"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87893161"
 ---
 # <a name="bitsadmin-setdisplayname"></a>bitsadmin setdisplayname
 
@@ -28,7 +26,7 @@ bitsadmin /setdisplayname <job> <display_name>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 | display_name | Text, der als angezeigter Name für den jeweiligen Auftrag verwendet wird. |

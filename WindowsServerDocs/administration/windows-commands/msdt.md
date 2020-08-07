@@ -1,20 +1,18 @@
 ---
 title: msdt
 description: Referenz Artikel für den MSDT-Befehl, der ein Problem Behandlungspaket in der Befehlszeile oder als Teil eines automatisierten Skripts aufruft und zusätzliche Optionen ohne Benutzereingaben ermöglicht.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: ead1b672-a120-4e16-94aa-a8e13602c1d0
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b5f00f34da20e9e151f093b919244fe3b49a85d6
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: e8ef856cd54b93c77d4e260a5e433c67407d9611
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86956892"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87886206"
 ---
 # <a name="msdt"></a>msdt
 
@@ -28,7 +26,7 @@ msdt </id <name> | /path <name> | /cab < name>> <</parameter> [options] … <par
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | /ID`<packagename>` | Gibt an, welches Diagnosepaket ausgeführt werden soll. Eine Liste der verfügbaren Pakete finden Sie unter [Verfügbare Problem Behandlungspakete](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/ee424379(v=ws.11)#available-troubleshooting-packs). |
 | /Path`<directory|.diagpkg file|.diagcfg file>` | Gibt den vollständigen Pfad zu einem Diagnosepaket an. Wenn Sie ein Verzeichnis angeben, muss das Verzeichnis ein Diagnosepaket enthalten. Der **/path** -Parameter kann nicht in Verbindung mit den Parametern * */ID * *, **/DCI**oder **/CAB** verwendet werden. |                                                                                   |
@@ -52,7 +50,7 @@ Die Problembehandlung von Paketen besteht aus einer Reihe von Hauptursachen, von
 | 1 | **Vorhanden, aber nicht korrigiert:** Die Problembehandlung hat eine oder mehrere Grundursachen identifiziert, die in einem nicht festgelegten Zustand bleiben. Dieser Code wird auch dann zurückgegeben, wenn eine andere Ursache korrigiert wurde. |
 | 2 | **Nicht gefunden:** Die Problembehandlung hat keine Grundursachen identifiziert. |
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

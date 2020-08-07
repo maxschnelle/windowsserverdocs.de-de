@@ -1,19 +1,17 @@
 ---
 title: Vssadmin
 description: Eine Übersicht über die vssadmin-Befehle.
-ms.prod: windows-server
 ms.topic: article
 author: JasonGerend
 ms.author: jgerend
-ms.technology: storage
 ms.date: 05/18/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: f3618841eb2f511323873d2ea962838f9ab777d0
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 529a135164495ad5d0cb2db09373139ac7663e57
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86954692"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87892275"
 ---
 # <a name="vssadmin"></a>Vssadmin
 
@@ -21,7 +19,7 @@ ms.locfileid: "86954692"
 
 Zeigt aktuelle Volumeschattenkopie-Sicherungen und alle installierten schattenkopierwriter und-Anbieter an. Wählen Sie in der folgenden Tabelle einen Befehlsnamen aus, um die Befehlssyntax anzuzeigen.
 
-|Befehl|BESCHREIBUNG|Verfügbarkeit
+|Get-Help|BESCHREIBUNG|Verfügbarkeit
 |---|---|---
 |[Vssadmin Hinzufügen von ShadowStorage](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc788051(v%3dws.11))|Fügt eine Volumeschattenkopie-Speicher Zuordnung hinzu.| Nur Server
 |[Vssadmin-Schatten erstellen](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc788055(v%3dws.11))|Erstellt eine neue Volumeschattenkopie.| Nur Server

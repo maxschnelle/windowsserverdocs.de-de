@@ -1,20 +1,18 @@
 ---
 title: Referenz zu den Befehlszeilen Tools für Remotedesktopdienste (Terminal Dienste)
 description: Referenz Artikel zu den Befehlszeilen Tools für Remotedesktopdienste (RDS).
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 2f371848-5c48-470c-908c-afbc95d3a805
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 36204940c339b937817457aa993ead6ed6644891
-ms.sourcegitcommit: 145cf75f89f4e7460e737861b7407b5cee7c6645
+ms.openlocfilehash: ae8156298c9b5108748afa114e1e3cabc0180441
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87409691"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87883843"
 ---
 # <a name="remote-desktop-services-terminal-services-command-line-tools-reference"></a>Referenz zu den Befehlszeilen Tools für Remotedesktopdienste (Terminal Dienste)
 
@@ -40,7 +38,7 @@ Informieren Sie sich über die verfügbaren Remotedesktopdienste Befehlszeilen T
 | [mstsc](mstsc.md) | Erstellt Verbindungen mit Remotedesktop-Sitzungshost Servern oder anderen Remote Computern. |
 | [qappsrv](qappsrv.md) | Zeigt eine Liste aller Remotedesktop-Sitzungshost Server im Netzwerk an. |
 | [qprocess](qprocess.md) | Zeigt Informationen zu Prozessen an, die auf einem Remotedesktop-Sitzungshost Server ausgeführt werden. |
-| [Frage](query.md) | Zeigt Informationen zu Prozessen, Sitzungen und Remotedesktop-Sitzungshost Servern an. |
+| [query](query.md) | Zeigt Informationen zu Prozessen, Sitzungen und Remotedesktop-Sitzungshost Servern an. |
 | [query process](query-process.md) | Zeigt Informationen zu Prozessen an, die auf einem Remotedesktop-Sitzungshost Server ausgeführt werden. |
 | [query session](query-session.md) | Zeigt Informationen zu Sitzungen auf einem Remotedesktop-Sitzungshost Server an. |
 | [query termserver](query-termserver.md) | Zeigt eine Liste aller Remotedesktop-Sitzungshost Server im Netzwerk an. |
@@ -56,6 +54,6 @@ Informieren Sie sich über die verfügbaren Remotedesktopdienste Befehlszeilen T
 | [tskill](tskill.md) | Beendet einen Prozess, der in einer Sitzung auf einem Remotedesktop-Sitzungshost-Server ausgeführt wird. |
 | [tsprof](tsprof.md) | Kopiert die Remotedesktopdienste Benutzer Konfigurationsinformationen von einem Benutzer in einen anderen. |
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

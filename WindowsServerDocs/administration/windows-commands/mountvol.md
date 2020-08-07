@@ -1,20 +1,18 @@
 ---
 title: mountvol
 description: Referenz Artikel für den Befehl "mountvol", der einen Volumebereitstellungspunkt erstellt, löscht oder auflistet.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: fea8ad4d-f04a-4aaa-a3e5-75931e867b39
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1617149fac677069d97b5b7c1353e85b4e1fea14
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 1289874f76bd9c3d5818a582a8fcefbfc8c4c130
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85936322"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87886365"
 ---
 # <a name="mountvol"></a>mountvol
 
@@ -34,7 +32,7 @@ mountvol <drive>: /s
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `[<drive>:]<path>` | Gibt das vorhandene NTFS-Verzeichnis an, in dem sich der Einstellungspunkt befinden soll. |
 | `<volumename>` | Gibt den Volumenamen an, der das Ziel des Bereitstellungs Punkts ist. Der Volumename verwendet die folgende Syntax, wobei *GUID* eine Globally Unique Identifier ist: `\\?\volume\{GUID}\` . Die Klammern `{ }` sind erforderlich. |
@@ -47,7 +45,7 @@ mountvol <drive>: /s
 | /s | Stellt die EFI-Systempartition auf dem angegebenen Laufwerk bereit. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 - Wenn Sie die Bereitstellung des Volumes aufheben, während Sie den **/p** -Parameter verwenden, wird in der Volumeliste angezeigt, dass das Volume erst bereitgestellt wird, wenn ein volumeeinstellungspunkt
 

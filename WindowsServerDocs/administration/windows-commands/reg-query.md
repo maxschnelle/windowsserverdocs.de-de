@@ -1,20 +1,18 @@
 ---
 title: reg query
 description: Referenz Artikel für den Befehl "reg Query", der eine Liste der nächsten Ebene von unter Schlüsseln und Einträgen zurückgibt, die sich unter einem angegebenen Unterschlüssel in der Registrierung befinden.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 0e6a0d7c-ed9b-4318-833d-33f265a81f39
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 18b7c5223227e0cf19de22f8bc9886ae798f027f
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: c8d841b537137088d95ce2be375ed83e718fca20
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85931063"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87884058"
 ---
 # <a name="reg-query"></a>reg query
 
@@ -28,7 +26,7 @@ reg query <keyname> [{/v <Valuename> | /ve}] [/s] [/se <separator>] [/f <data>] 
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 |--|--|
 | `<keyname>` | Gibt den vollständigen Pfad des unter Schlüssels an. Wenn Sie einen Remote Computer angeben möchten, schließen Sie den Computernamen (im Format `\\<computername>\` ) als Teil des *keyName*-Steuerelement ein. Das Weglassen bewirkt, dass `\\<computername>\` der Vorgang standardmäßig auf dem lokalen Computer durchgesetzt wird. Der *keyName* muss einen gültigen Stamm Schlüssel enthalten. Gültige Stamm Schlüssel für den lokalen Computer sind: **HKLM**, **HKCU**, **HKCR**, **HKU**und **HKCC**. Wenn ein Remote Computer angegeben ist, lauten gültige Stamm Schlüssel: **HKLM** und **HKU**. Wenn der Registrierungsschlüssel Name ein Leerzeichen enthält, müssen Sie den Schlüsselnamen in Anführungszeichen einschließen. |
 | /v`<Valuename>` | Gibt den Namen des Registrierungs Werts an, der abgefragt werden soll. Wenn der Wert nicht ausgelassen wird, werden alle Wert Namen für *keyName* zurückgegeben. *ValueName* für diesen Parameter ist optional, wenn auch die Option **/f** verwendet wird. |
@@ -44,11 +42,11 @@ reg query <keyname> [{/v <Valuename> | /ve}] [/s] [/se <separator>] [/f <data>] 
 | /z | Gibt an, dass die numerische Entsprechung für den Registrierungstyp in den Suchergebnissen enthalten soll. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Die Rückgabewerte für den **reg-Abfrage** Vorgang lauten:
 
-    | Wert | Beschreibung |
+    | Wert | BESCHREIBUNG |
     |--|--|
     | 0 | Erfolgreich |
     | 1 | Fehler |

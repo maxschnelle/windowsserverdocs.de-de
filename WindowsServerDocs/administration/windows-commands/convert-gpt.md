@@ -1,20 +1,18 @@
 ---
 title: convert gpt
 description: Referenz Artikel zum Convert GPT-Befehl, der einen leeren Basis Datenträger mit dem Partitions Stil Master Boot Record (MBR) in einen Basis Datenträger mit dem GPT-Partitions Stil (GUID-Partitionstabelle) konvertiert.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: b3b1b747-0a7a-4be2-8487-2c4be16ee190
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2384ea5a94de64051dc45caecd88e08960b567b0
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: ec1066e0ac50536db915eed9df7a6076ba5f3879
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86958532"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87892577"
 ---
 # <a name="convert-gpt"></a>convert gpt
 
@@ -46,7 +44,7 @@ Geben Sie Folgendes ein, um eine Basis-CD von MBR-Partitions Stil in GPT-Partiti
 convert gpt
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

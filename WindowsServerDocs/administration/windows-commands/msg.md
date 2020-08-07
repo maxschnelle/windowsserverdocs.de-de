@@ -1,22 +1,20 @@
 ---
-title: msg
+title: mldg
 description: Referenz Artikel für den Befehl "msg", der eine Nachricht an einen Benutzer auf einem Remotedesktop-Sitzungshost Server sendet
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 9501cf3e-568e-4982-9987-8daecc6c17ff
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6eff557b1fb7eb2c5f67b2902762786bbfc839c1
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 044d6c7e6dbf7c92cb0c947fcb60eb79ab1db05b
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85934972"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87886197"
 ---
-# <a name="msg"></a>msg
+# <a name="msg"></a>mldg
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -33,7 +31,7 @@ msg {<username> | <sessionname> | <sessionID>| @<filename> | *} [/server:<server
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `<username>` | Gibt den Namen des Benutzers an, der die Nachricht empfangen soll. Wenn Sie keinen Benutzer oder eine Sitzung angeben, wird mit diesem Befehl eine Fehlermeldung angezeigt. Wenn eine Sitzung angegeben wird, muss Sie aktiv sein. |
 | `<sessionname>` | Gibt den Namen der Sitzung an, die die Nachricht empfangen soll. Wenn Sie keinen Benutzer oder eine Sitzung angeben, wird mit diesem Befehl eine Fehlermeldung angezeigt. Wenn eine Sitzung angegeben wird, muss Sie aktiv sein. |

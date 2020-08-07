@@ -1,20 +1,18 @@
 ---
 title: msiexec
 description: Referenz Artikel für den Befehl "msiexec", der die Möglichkeit bietet, Windows Installer über die Befehlszeile zu installieren, zu ändern und auszuführen.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 122eb0ce-ecbc-4909-a52a-15c3413619af
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b1224d4dfeefd850dcc29e523972351b8cdd9778
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: a72798d7bdd94b3315d54e866e78145af4db1d79
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86956872"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87886178"
 ---
 # <a name="msiexec"></a>msiexec
 
@@ -32,7 +30,7 @@ msiexec.exe [/i][/a][/j{u|m|/g|/t}][/x] <path_to_package>
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ------- | -------- |
 | /i | Gibt die normale Installation an. |
 | /a | Gibt die administrative Installation an. |
@@ -63,7 +61,7 @@ msiexec.exe /i <path_to_package> [/quiet][/passive][/q{n|b|r|f}]
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ------- | -------- |
 | `<path_to_package>` | Gibt den Speicherort und den Namen der Installationspaket Datei an. |
 | /quiet | Gibt den stillen Modus an. Dies bedeutet, dass keine Benutzerinteraktion erforderlich ist. |
@@ -99,7 +97,7 @@ msiexec.exe /i <path_to_package> [/norestart][/promptrestart][/forcerestart]
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ------- | -------- |
 | `<path_to_package>` | Gibt den Speicherort und den Namen der Installationspaket Datei an. |
 | /norestart | Beendet das Starten des Geräts nach Abschluss der Installation. |
@@ -126,7 +124,7 @@ msiexec.exe [/i][/x] <path_to_package> [/L{i|w|e|a|r|u|c|m|o|p|v|x+|!|*}] <path_
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ------- | -------- |
 | /i | Gibt die normale Installation an. |
 | /x | Deinstalliert das Paket. |
@@ -170,7 +168,7 @@ msiexec.exe [/p][/update][/uninstall[/package<product_code_of_package>]] <path_t
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ------- | -------- |
 | /p | Installiert einen Patch. Wenn Sie eine unbeaufsichtigte Installation durcharbeiten, müssen Sie auch die Eigenschaft REINSTALLMODE auf *ecmus* festlegen und auf *alle*neu installieren. Andernfalls aktualisiert der Patch nur die MSI-Datei, die auf dem Zielgerät zwischengespeichert ist. |
 | /update | Option zum Installieren von Patches. Wenn Sie mehrere Updates anwenden, müssen Sie Sie mit einem Semikolon (;)) trennen. |
@@ -202,7 +200,7 @@ msiexec.exe [/f{p|o|e|d|c|a|u|m|s|v}] <product_code>
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ------- | -------- |
 | /fp | Repariert das Paket, wenn eine Datei fehlt. |
 | /fo | Repariert das Paket, wenn eine Datei nicht vorhanden ist, oder wenn eine ältere Version installiert ist. |
@@ -227,7 +225,7 @@ msiexec.exe /fa {AAD3D77A-7476-469F-ADF4-04424124E91D}
 
 Sie können öffentliche Eigenschaften mithilfe dieses Befehls festlegen. Informationen zu den verfügbaren Eigenschaften und deren Festlegung finden Sie unter [öffentliche Eigenschaften](/windows/win32/msi/public-properties).
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

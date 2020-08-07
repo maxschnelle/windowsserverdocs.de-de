@@ -1,20 +1,18 @@
 ---
 title: replace
 description: Erfahren Sie, wie Sie den Replace-Befehl verwenden, um Dateien zu ersetzen.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 6143661e-d90f-4812-b265-6669b567dd1f
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 4ac424154968b4f4c55664d0d20f524345b87986
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 34d1adfc6a92dce33a6a9bbac308d3338db3934e
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82722381"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87883688"
 ---
 # <a name="replace"></a>replace
 
@@ -27,16 +25,16 @@ Ersetzt Dateien. Bei Verwendung mit der Option **/a** fügt **Replace** neue Dat
 ## <a name="syntax"></a>Syntax
 
 ```
-replace [<Drive1>:][<Path1>]<FileName> [<Drive2>:][<Path2>] [/a] [/p] [/r] [/w] 
-replace [<Drive1>:][<Path1>]<FileName> [<Drive2>:][<Path2>] [/p] [/r] [/s] [/w] [/u] 
+replace [<Drive1>:][<Path1>]<FileName> [<Drive2>:][<Path2>] [/a] [/p] [/r] [/w]
+replace [<Drive1>:][<Path1>]<FileName> [<Drive2>:][<Path2>] [/p] [/r] [/s] [/w] [/u]
 ```
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
-|[\<Drive1>:] [\<Path1>] \<Dateiname>|Gibt den Speicherort und den Namen der Quelldatei oder des Satzes von Dateien an. *Dateiname* ist erforderlich und kann Platzhalter Zeichen (**&#42;** und **?**) enthalten.|
-|[\<Drive2>:] [\<Path2>]|Gibt den Speicherort der Zieldatei an. Sie können keinen Dateinamen für die Dateien angeben, die Sie ersetzen. Wenn Sie kein Laufwerk oder einen Pfad angeben, wird durch **Replace** das aktuelle Laufwerk und Verzeichnis als Ziel verwendet.|
+|[\<Drive1>:][\<Path1>]\<FileName>|Gibt den Speicherort und den Namen der Quelldatei oder des Satzes von Dateien an. *Dateiname* ist erforderlich und kann Platzhalter Zeichen (**&#42;** und **?**) enthalten.|
+|[\<Drive2>:][\<Path2>]|Gibt den Speicherort der Zieldatei an. Sie können keinen Dateinamen für die Dateien angeben, die Sie ersetzen. Wenn Sie kein Laufwerk oder einen Pfad angeben, wird durch **Replace** das aktuelle Laufwerk und Verzeichnis als Ziel verwendet.|
 |/a|Fügt dem Zielverzeichnis neue Dateien hinzu, anstatt vorhandene Dateien zu ersetzen. Sie können diese Befehlszeilenoption nicht mit der Befehlszeilenoption **/s** oder **/u** verwenden.|
 |/p|Sie werden zur Bestätigung aufgefordert, bevor Sie eine Zieldatei ersetzen oder eine Quelldatei hinzufügen.|
 |/r|Ersetzt schreibgeschützte und ungeschützte Dateien. Wenn Sie versuchen, eine schreibgeschützte Datei zu ersetzen, aber **/r**nicht angeben, wird ein Fehler ausgegeben, und der Ersetzungs Vorgang wird beendet.|
@@ -47,16 +45,16 @@ replace [<Drive1>:][<Path1>]<FileName> [<Drive2>:][<Path2>] [/p] [/r] [/s] [/w] 
 
 ## <a name="remarks"></a>Bemerkungen
 
-- Da **Replace** Dateien hinzufügt oder ersetzt, werden die Dateinamen auf dem Bildschirm angezeigt. Nachdem die **Ersetzung** abgeschlossen ist, wird eine Zusammenfassungs Zeile in einem der folgenden Formate angezeigt:  
+- Da **Replace** Dateien hinzufügt oder ersetzt, werden die Dateinamen auf dem Bildschirm angezeigt. Nachdem die **Ersetzung** abgeschlossen ist, wird eine Zusammenfassungs Zeile in einem der folgenden Formate angezeigt:
   ```
   nnn files added
   nnn files replaced
   no file added
   no file replaced
-  ```  
+  ```
 - Wenn Sie Disketten verwenden und während des **Ersetzungs** Vorgangs Datenträger wechseln müssen, können Sie die Befehlszeilenoption **/w** angeben, damit **Replace** darauf wartet, dass die Datenträger gewechselt werden.
 - Sie können nicht **ersetzen** verwenden, um ausgeblendete Dateien oder Systemdateien zu aktualisieren.
-- Die folgende Tabelle zeigt jeden Exitcode und eine kurze Beschreibung seiner Bedeutung:  
+- Die folgende Tabelle zeigt jeden Exitcode und eine kurze Beschreibung seiner Bedeutung:
   |Exitcode|BESCHREIBUNG|
   |---------|-----------|
   |0|Der **Replace** -Befehl hat die Dateien erfolgreich ersetzt oder hinzugefügt.|
@@ -76,6 +74,6 @@ Geben Sie Folgendes ein, um alle Versionen einer Datei mit dem Namen "Phones. CL
 
 `replace a:\phones.cli c:\ /s`
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

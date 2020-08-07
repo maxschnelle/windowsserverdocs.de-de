@@ -1,20 +1,18 @@
 ---
 title: chkdsk
 description: Referenz Artikel zum chkdsk-Befehl, mit dem das Dateisystem und die Dateisystem Metadaten eines Volumes auf logische und physische Fehler überprüft werden.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 62912a3c-d2cc-4ef6-9679-43709a286035
 author: jasongerend
 ms.author: jgerend
 manager: lizapo
 ms.date: 10/09/2019
-ms.openlocfilehash: b98699b7e0925b43c15a602b9c193be9301a14ce
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 34a32e22224168e92386408901571850973e6503
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85929995"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87892744"
 ---
 # <a name="chkdsk"></a>chkdsk
 
@@ -37,7 +35,7 @@ chkdsk [<volume>[[<path>]<filename>]] [/f] [/v] [/r] [/x] [/i] [/c] [/l[:<size>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `<volume>` | Gibt den Laufwerk Buchstaben (gefolgt von einem Doppelpunkt), einen Einfügepunkt oder einen Volumenamen an. |
 | [ `[<path>]<filename>` | Verwenden Sie nur mit der Datei Zuordnungs Tabelle (FAT) und FAT32. Gibt den Speicherort und den Namen einer Datei oder einer Gruppe von Dateien an, die von **chkdsk** auf Fragmentierung überprüft werden soll. Sie können den **?** und **&#42;** Platzhalter Zeichen zum Angeben mehrerer Dateien. |
@@ -59,7 +57,7 @@ chkdsk [<volume>[[<path>]<filename>]] [/f] [/v] [/r] [/x] [/i] [/c] [/l[:<size>]
 | /markclean | Verwenden Sie nur mit FAT/FAT32/exFAT. Markiert das Volume bereinigt, wenn keine Beschädigung erkannt wurde, auch wenn **/f** nicht angegeben wurde. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 - Der Schalter **/i** oder **/c** reduziert die Zeit, die zum Ausführen von **chkdsk** erforderlich ist, indem bestimmte volumeüberprüfungen übersprungen werden.
 

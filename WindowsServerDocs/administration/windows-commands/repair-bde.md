@@ -1,20 +1,18 @@
 ---
 title: repair-bde
 description: Referenz Artikel für * * * *-
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 534dca1a-05f7-4ea8-ac24-4fe5f14f988a
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5aaa915ef416130dd2017b8f0f35cd255d207678
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: c1ba55b5a1689ecfc6ebe8fb6ab3d02b717e7d38
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86956282"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87883766"
 ---
 # <a name="repair-bde"></a>repair-bde
 
@@ -74,6 +72,6 @@ Wenn Sie versuchen, Laufwerk c zu reparieren und den Inhalt von Laufwerk c auf L
 repair-bde C: D: -pw
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
