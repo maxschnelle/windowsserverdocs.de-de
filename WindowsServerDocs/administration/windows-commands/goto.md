@@ -1,20 +1,18 @@
 ---
 title: goto
 description: Referenz Artikel für den GOTO-Befehl, der cmd.exe an eine bezeichnete Zeile in einem Batch-Programm weiterleitet.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: e0de1458-1f78-48ff-a746-c285a945a510
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: afc77f7837ddaeb0552052538537285f0d652682
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: cc5059f90d471496deb0ccfc668054f1ed7cbde6
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85924689"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87888595"
 ---
 # <a name="goto"></a>goto
 
@@ -28,12 +26,12 @@ goto <label>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `<label>` | Gibt eine Text Zeichenfolge an, die im Batch Programm als Bezeichnung verwendet wird. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 -  Wenn Befehls Erweiterungen aktiviert sind (Standardeinstellung), und Sie den **goto** -Befehl mit der Ziel Bezeichnung **: EOF**verwenden, übertragen Sie die Steuerung an das Ende der aktuellen Batch Skriptdatei und beenden die Batch Skriptdatei, ohne eine Bezeichnung zu definieren. Wenn Sie diesen Befehl mit der Bezeichnung " **: EOF** " verwenden, müssen Sie vor der Bezeichnung einen Doppelpunkt einfügen. Beispiel: `goto:EOF`.
 

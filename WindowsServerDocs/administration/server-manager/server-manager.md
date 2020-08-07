@@ -1,40 +1,38 @@
 ---
 title: Server-Manager
 description: Server-Manager
-ms.prod: windows-server
-ms.technology: manage-server-manager
 ms.topic: article
 ms.assetid: d996ef40-8bcc-42b0-b6ae-806b828223f6
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 41d9227dd5472fc55858d75fa25e728dc69c2c7c
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: fbe1a6f787bcc2704ae1fa8dd00e43c406624fa0
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851473"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87895727"
 ---
 # <a name="server-manager"></a>Server-Manager
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Server-Manager ist eine Verwaltungskonsole in Windows Server, mit der IT-Experten lokale Windows-basierte Server und Remote Server von ihren Desktops aus bereitstellen und verwalten können, ohne dass Sie physischen Zugriff auf die Server benötigen oder RDP-Verbindungen (Remotedesktop Protocol) zu jedem Server aktivieren müssen. Obwohl Server-Manager in Windows Server 2008 R2 und Windows Server 2008 verfügbar ist, wurde Server-Manager in Windows Server 2012 aktualisiert, um die Remote Verwaltung mehrerer Server zu unterstützen und die Anzahl der Server zu erhöhen, die ein Administrator verwalten kann.
 
-In unseren Tests können Server-Manager in Windows Server 2016, Windows Server 2012 R2 und Windows Server 2012 verwendet werden, um bis zu 100 Server zu verwalten, abhängig von den Workloads, die auf den Servern ausgeführt werden. Die Anzahl der Server, die Sie mit einer einzelnen Server-Manager-Konsole verwalten können, kann von der Datenmenge abhängig sein, die Sie von den verwalteten Servern anfordern, sowie von den Hardware- und Netzwerkressourcen, die für den Computer mit dem Server-Manager zur Verfügung stehen. Wenn die anzuzeigende Datenmenge die Ressourcenkapazität des Computers erreicht, kann es zu langsamen Reaktionszeiten des Server-Managers und Verzögerungen bei der Durchführung von Aktualisierungen kommen. Um die Anzahl der Server zu erhöhen, die Sie mit dem Server-Manager verwalten können, sollten Sie die Ereignisdaten, die der Server-Manager von den verwalteten Servern empfängt, über das Dialogfeld **Ereignisdaten konfigurieren** beschränken. Sie können das Dialogfeld über das Menü **Aufgaben** in der Kachel **Ereignisse** öffnen. Wenn Sie in Ihrer Organisation eine organisationsübergreifende Anzahl von Servern verwalten müssen, wird empfohlen, die Produkte in der [Microsoft System Center-Suite](https://go.microsoft.com/fwlink/p/?LinkId=239437) auszuwerten.
+In unseren Tests können Server-Manager in Windows Server 2016, Windows Server 2012 R2 und Windows Server 2012 verwendet werden, um bis zu 100 Server zu verwalten, abhängig von den Workloads, die auf den Servern ausgeführt werden. Die Anzahl der Server, die Sie mithilfe einer einzigen Server-Manager Konsole verwalten können, kann je nach der von den verwalteten Servern angeforderten Datenmenge und den Hardware-und Netzwerkressourcen, die für den Computer mit Server-Manager verfügbar sind, variieren. Wenn die anzuzeigende Datenmenge die Ressourcenkapazität des Computers erreicht, kann es zu langsamen Antworten von Server-Manager und Verzögerungen bei der Beendigung von Aktualisierungen kommen. Um die Anzahl der Server zu erhöhen, die Sie mithilfe von Server-Manager verwalten können, empfiehlt es sich, die Ereignisdaten, die von den verwalteten Servern abgerufen Server-Manager, mithilfe von Einstellungen im Dialogfeld **Ereignisdaten konfigurieren** einzuschränken. Sie können das Dialogfeld über das Menü **Aufgaben** in der Kachel **Ereignisse** öffnen. Wenn Sie eine unternehmensweite Anzahl von Servern in Ihrer Organisation verwalten müssen, empfiehlt es sich, die Produkte in der [Microsoft System Center-Suite](https://go.microsoft.com/fwlink/p/?LinkId=239437)zu evaluieren.
 
 Dieses Thema und seine Unterthemen enthalten Informationen zur Verwendung von Funktionen in der Server-Manager-Konsole. Dieses Thema enthält folgende Abschnitte:
 
--   [Überprüfen der anfänglichen Überlegungen und Systemanforderungen](#review-initial-considerations-and-system-requirements)
+-   [Vorüberlegungen und Systemanforderungen](#review-initial-considerations-and-system-requirements)
 
--   [Aufgaben, die Sie in Server-Manager ausführen können](#tasks-that-you-can-perform-in-server-manager)
+-   [Im Server-Manager ausführbare Aufgaben](#tasks-that-you-can-perform-in-server-manager)
 
 -   [Start Server-Manager](#start-server-manager)
 
--   [Neustarten von Remote Servern](#restart-remote-servers)
+-   [Neustarten von Remoteservern](#restart-remote-servers)
 
--   [Exportieren von Server-Manager Einstellungen auf andere Computer](#export-server-manager-settings-to-other-computers)
+-   [Exportieren von Server-Manager-Einstellungen auf andere Computer](#export-server-manager-settings-to-other-computers)
 
 ## <a name="review-initial-considerations-and-system-requirements"></a>Vorüberlegungen und Systemanforderungen
 In den folgenden Abschnitten finden Sie einige Überlegungen, die Sie überprüfen müssen, sowie Hardware-und Softwareanforderungen für Server-Manager.
@@ -53,7 +51,7 @@ Zum Verwalten von Servern, auf denen Windows Server-Versionen älter als Windows
 |----------|-----------|
 | Windows Server 2012 R2 oder Windows Server 2012 |-   [.NET Framework 4,6](https://www.microsoft.com/download/details.aspx?id=45497)<br />-   [Windows Management Framework 5,0](https://go.microsoft.com/fwlink/?LinkID=395058). Das Windows Management Framework 5,0-Downloadpaket aktualisiert Windows-Verwaltungsinstrumentation (WMI)-Anbieter unter Windows Server 2012 R2 und Windows Server 2012. Mit den aktualisierten WMI-Anbietern können Server-Manager Informationen zu den auf den verwalteten Servern installierten Rollen und Features sammeln. Bis zum Anwenden des Updates haben Server, auf denen Windows Server 2012 R2 oder Windows Server 2012 ausgeführt wird, den verwaltbarkeitsstatus **nicht zugänglich**.<br />-Das mit dem [Knowledge Base-Artikel 2682011](https://go.microsoft.com/fwlink/p/?LinkID=245487) verknüpfte Leistungs Update ist auf Servern mit Windows Server 2012 R2 oder Windows Server 2012 nicht mehr erforderlich.|
 | Windows Server 2008 R2 |-   [.NET Framework 4,5](https://www.microsoft.com/download/details.aspx?id=30653)<br />-   [Windows Management Framework 4,0](https://go.microsoft.com/fwlink/?LinkId=293881). Das Windows Management Framework 4,0-Downloadpaket aktualisiert Windows-Verwaltungsinstrumentation (WMI)-Anbieter unter Windows Server 2008 R2. Mit den aktualisierten WMI-Anbietern können Server-Manager Informationen zu den auf den verwalteten Servern installierten Rollen und Features sammeln. Bis zum Anwenden des Updates haben Server, auf denen Windows Server 2008 R2 ausgeführt wird, den verwaltbarkeitsstatus **nicht zugänglich**.<br />-Das mit dem [Knowledge Base-Artikel 2682011](https://go.microsoft.com/fwlink/p/?LinkID=245487) verknüpfte Leistungs Update ermöglicht Server-Manager die Erfassung von Leistungsdaten von Windows Server 2008 R2.|
-| WindowsServer 2008 |-   [.NET Framework 4](https://www.microsoft.com/download/en/details.aspx?id=17718)<br />-   [Windows Management Framework 3,0](https://go.microsoft.com/fwlink/p/?LinkID=229019) Windows Management Framework 3,0 Download Package Updates Windows-Verwaltungsinstrumentation (WMI)-Anbieter unter Windows Server 2008. Mit den aktualisierten WMI-Anbietern können Server-Manager Informationen zu den auf den verwalteten Servern installierten Rollen und Features sammeln. Bis zum Anwenden des Updates haben Server, auf denen Windows Server 2008 ausgeführt wird, den verwaltbarkeitsstatus **nicht verfügbar: Überprüfen Sie, ob frühere Versionen Windows Management Framework 3,0 ausführen**.<br />-Das mit dem [Knowledge Base-Artikel 2682011](https://go.microsoft.com/fwlink/p/?LinkID=245487) verknüpfte Leistungs Update ermöglicht Server-Manager die Erfassung von Leistungsdaten von Windows Server 2008.|
+| WindowsServer 2008 |-   [.NET Framework 4](https://www.microsoft.com/download/en/details.aspx?id=17718)<br />-   [Windows Management Framework 3,0](https://go.microsoft.com/fwlink/p/?LinkID=229019) Das Windows Management Framework 3,0-Downloadpaket aktualisiert Windows-Verwaltungsinstrumentation (WMI)-Anbieter unter Windows Server 2008. Mit den aktualisierten WMI-Anbietern können Server-Manager Informationen zu den auf den verwalteten Servern installierten Rollen und Features sammeln. Bis zum Anwenden des Updates haben Server, auf denen Windows Server 2008 ausgeführt wird, den verwaltbarkeitsstatus **nicht verfügbar: Überprüfen Sie, ob frühere Versionen Windows Management Framework 3,0 ausführen**.<br />-Das mit dem [Knowledge Base-Artikel 2682011](https://go.microsoft.com/fwlink/p/?LinkID=245487) verknüpfte Leistungs Update ermöglicht Server-Manager die Erfassung von Leistungsdaten von Windows Server 2008.|
 
 #### <a name="manage-remote-computers-from-a-client-computer"></a>Verwalten von Remotecomputern über einen Clientcomputer
 Die Server-Manager Konsole ist in [Remoteserver-Verwaltungstools](https://go.microsoft.com/fwlink/?LinkID=404281) für Windows 10 enthalten. Beachten Sie Folgendes: Wenn Remoteserver-Verwaltungstools auf einem Client Computer installiert ist, können Sie den lokalen Computer nicht mithilfe von Server-Manager verwalten. Server-Manager können nicht zum Verwalten von Computern oder Geräten verwendet werden, auf denen ein Windows-Client Betriebssystem ausgeführt wird. Sie können Server-Manager nur zum Verwalten von Windows-basierten Servern verwenden.
@@ -110,7 +108,7 @@ Zum Ausführen von Verwaltungsaufgaben auf Remote Servern mithilfe von Server-Ma
 
 2.  Geben Sie Folgendes ein, und drücken **Sie** dann die EINGABETASTE, um alle erforderlichen Firewallregelausnahmen zu aktivieren.
 
-    **Configure-SMRemoting. exe-enable**
+    **Configure-SMremoting.exe aktivieren**
 
     > [!NOTE]
     > Dieser Befehl kann auch in einer Eingabeaufforderung verwendet werden, die mit erhöhten Benutzerrechten ("Als Administrator ausführen") geöffnet wurde.
@@ -131,9 +129,9 @@ Server-Manager wird die Serververwaltung effizienter, da Administratoren mithilf
 Administratoren können im Server-Manager Cmdlet-Modul, [enable-servermanagerstandarduserremoting](https://technet.microsoft.com/library/jj205470.aspx) und [Deaktivieren-servermanagerstandarduserremoting](https://technet.microsoft.com/library/jj205468.aspx), zwei Windows PowerShell-Cmdlets verwenden, um den Standardbenutzer Zugriff auf einige zusätzliche Daten weiter zu steuern. Das **enable-servermanagerstandarduserremoting-** Cmdlet kann einen oder mehrere Standardbenutzer ohne Administrator Rechte für den Zugriff auf Ereignis-, Dienst-, Leistungs-und Rollen-und featureinventur Daten bereitstellen.
 
 > [!IMPORTANT]
-> Server-Manager kann nicht verwendet werden, um eine neuere Version des Betriebssystems Windows Server zu verwalten. Server-Manager, die unter Windows Server 2012 oder Windows 8 ausgeführt werden, können nicht zum Verwalten von Servern verwendet werden, auf denen Windows Server 2012 R2 ausgeführt wird.
+> Server-Manager können nicht verwendet werden, um eine neuere Version des Windows Server-Betriebssystems zu verwalten. Server-Manager, die unter Windows Server 2012 oder Windows 8 ausgeführt werden, können nicht zum Verwalten von Servern verwendet werden, auf denen Windows Server 2012 R2 ausgeführt wird.
 
-|Aufgabenbeschreibung|Administratoren (einschließlich des des integrierten Administratorkontos)|Standardserverbenutzer|
+|Taskbeschreibung|Administratoren (einschließlich des des integrierten Administratorkontos)|Standardserverbenutzer|
 |----------|----------------------------------|-------------|
 |Hinzufügen von Remote Servern zu einem Pool von Servern, die Server-Manager zur Verwaltung von verwendet werden können.|Ja|Nein|
 |Erstellen und bearbeiten Sie benutzerdefinierte Server Gruppen, z. b. Server, die sich an einem bestimmten geografischen Standort befinden oder einen bestimmten Zweck erfüllen.|Ja|Ja|
@@ -175,7 +173,7 @@ Sie können einen Remote Server über die Kachel **Server** einer Rollen-oder Gr
 
 > [!IMPORTANT]
 > Beim eines Remoteservers wird der Server auch dann zum Neustarten gezwungen, wenn noch Benutzer am Remoteserver angemeldet und Programme mit ungespeicherten Daten geöffnet sind. Dieses Verhalten unterscheidet sich um Herunterfahren oder Neustarten des lokalen Computers, auf dem Sie aufgefordert würden, ungespeicherte Programmdaten zu speichern und zu bestätigen, dass angemeldete Benutzer zur Abmeldung gezwungen werden sollen. Stellen Sie sicher, dass Sie Benutzer zur Abmeldung von Remoteservern zwingen und ungespeicherte Daten in Programmen, die auf Remoteservern ausgeführt werden, verwerfen können.
-> 
+>
 > Wenn eine automatische Aktualisierung in Server-Manager erfolgt, während ein verwalteter Server heruntergefahren und neu gestartet wird, können Aktualisierungs-und verwaltbarkeitsstatusfehler für den verwalteten Server auftreten, da Server-Manager keine Verbindung mit dem Remote Server herstellen kann, bis der Neustart abgeschlossen ist.
 
 #### <a name="to-restart-remote-servers-in-server-manager"></a>So starten Sie Remoteserver im Server-Manager
@@ -189,12 +187,12 @@ Sie können einen Remote Server über die Kachel **Server** einer Rollen-oder Gr
 ## <a name="export-server-manager-settings-to-other-computers"></a>Exportieren von Server-Manager-Einstellungen auf andere Computer
 In Server-Manager werden die Liste der verwalteten Server, Änderungen an Server-Manager Konsolen Einstellungen und von Ihnen erstellte benutzerdefinierte Gruppen in den folgenden beiden Dateien gespeichert. Sie können diese Einstellungen auf anderen Computern, auf denen dieselbe Version von Server-Manager ausgeführt wird (oder Windows 10 mit installierter Remoteserver-Verwaltungstools), wieder verwenden. Remoteserver-Verwaltungstools müssen auf Windows-Client basierten Computern ausgeführt werden, um Server-Manager Einstellungen auf diese Computer zu exportieren.
 
--   %*AppData*% \ microsoft\windows\servermanager\serverlist.XML
+-   %*AppData*% \Microsoft\Windows\ServerManager\Serverlist.xml
 
--   %*AppData*% \ local \ Microsoft_Corporation \servermanager. exe_StrongName_*GUID*\6.2.0.0\user.config
+-   %*AppData*% \Local\Microsoft_Corporation\ServerManager.exe_StrongName_*GUID*\6.2.0.0\user.config
 
 > [!NOTE]
-> -   Alternative Anmeldeinformationen (bzw. %%amp;quot;Verwalten als%%amp;quot;) für Server im Serverpool werden nicht im Roamingprofil gespeichert. Server-Manager-Benutzer müssen diese auf dem jeweiligen Computer hinzufügen, den sie verwalten wollen.
+> -   Alternative Anmeldeinformationen (bzw. %%amp;quot;Verwalten als%%amp;quot;) für Server im Serverpool werden nicht im Roamingprofil gespeichert. Server-Manager Benutzer müssen Sie auf allen Computern hinzufügen, von denen Sie verwaltet werden möchten.
 > -   Das Netzwerkfreigaben-Roamingprofil wird erst erstellt, wenn sich ein Benutzer erstmalig am Netzwerk anmeldet und dann wieder abmeldet. Die Datei **Serverlist.xml** wird zu diesem Zeitpunkt erstellt.
 
 Sie können Server-Manager Einstellungen exportieren, Server-Manager Einstellungen portierbar machen oder Sie auf anderen Computern mithilfe einer der beiden folgenden Methoden verwenden.
@@ -211,13 +209,13 @@ Sie können Server-Manager Einstellungen exportieren, Server-Manager Einstellung
 
 3.  Führen Sie einen der folgenden Schritte aus:
 
-    -   Bei US-amerikanischen Builds (en-US) werden Änderungen an der Datei " **serverlist. XML** " automatisch im Profil gespeichert. Fahren Sie mit dem nächsten Schritt fort.
+    -   Bei US-amerikanischen Builds (en-US) werden Änderungen an der **Serverlist.xml** Datei automatisch im Profil gespeichert. Fahren Sie mit dem nächsten Schritt fort.
 
     -   Kopieren Sie bei anderen Builds die beiden folgenden Dateien von dem Computer, auf dem Server-Manager ausgeführt wird, auf die Netzwerkfreigabe, die zum Roamingprofil des Benutzers gehört.
 
-        -   %*AppData*% \ microsoft\windows\servermanager\serverlist.XML
+        -   %*AppData*% \Microsoft\Windows\ServerManager\Serverlist.xml
 
-        -   %*LocalAppData*% \ Microsoft_Corporation \servermanager. exe_StrongName_*GUID*\6.2.0.0\user.config
+        -   %*LocalAppData*% \Microsoft_Corporation\ServerManager.exe_StrongName_*GUID*\6.2.0.0\user.config
 
 4.  Klicken Sie auf **OK**, um die Änderungen zu speichern und das Dialogfeld **Eigenschaften** zu schließen.
 
@@ -225,9 +223,9 @@ Sie können Server-Manager Einstellungen exportieren, Server-Manager Einstellung
 
 -   Überschreiben Sie auf einem Computer, über den Sie Remote Server verwalten möchten, die beiden folgenden Dateien mit den gleichen Dateien von einem anderen Computer, auf dem Server-Manager ausgeführt wird und der über die gewünschten Einstellungen verfügt.
 
-    -   %*AppData*% \ microsoft\windows\servermanager\serverlist.XML
+    -   %*AppData*% \Microsoft\Windows\ServerManager\Serverlist.xml
 
-    -   %*LocalAppData*% \ Microsoft_Corporation \servermanager. exe_StrongName_*GUID*\6.2.0.0\user.config
+    -   %*LocalAppData*% \Microsoft_Corporation\ServerManager.exe_StrongName_*GUID*\6.2.0.0\user.config
 
 
 

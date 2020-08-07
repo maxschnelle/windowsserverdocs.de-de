@@ -7,18 +7,16 @@ ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
 ms.topic: article
-ms.prod: windows-server
-ms.technology: manage
-ms.openlocfilehash: 49f6132cfe99d9d4b719aeeecf149ecb1d7b76f2
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 4ec0190c97c5afc761c27c7c3156380441951544
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71382991"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87895686"
 ---
 # <a name="microsoft-server-performance-advisor"></a>Microsoft Server Performance Advisor
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Laden Sie Microsoft Server Performance Advisor (Spa) herunter, um bei der Bereitstellung von Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 oder Windows Server 2008 Leistungsprobleme zu diagnostizieren. Spa generiert umfassende Diagnose Berichte und-Diagramme und bietet Empfehlungen, mit deren Hilfe Sie Probleme schnell analysieren und Korrekturmaßnahmen entwickeln können.
 
@@ -30,7 +28,7 @@ Laden Sie Microsoft Server Performance Advisor (Spa) herunter, um bei der Bereit
 
 -   [Server Performance Advisor Pack-Entwicklungsleitfaden](server-performance-advisor-pack-development-guide.md)
 
-## <a href="" id="bkmk-aboutspa"></a>Übersicht über den Server Performance Advisor
+## <a name="overview-of-server-performance-advisor"></a><a href="" id="bkmk-aboutspa"></a>Übersicht über den Server Performance Advisor
 
 Der Server Performance Advisor besteht aus zwei Teilen: dem Spa-Framework und den Spa Advisor-Paketen.
 
@@ -50,7 +48,7 @@ Spa Advisor Packs stellen den Mittelpunkt aller Optimierungs Regeln dar, die aus
 
     **Hinweis** Das Hyper-V Advisor Pack analysiert keine Gast Betriebssysteme.
 
-     
+
 
 -   Das Active Directory Advisor Pack analysiert die allgemeine Leistung der Active Directory-Rolle.
 
@@ -58,9 +56,9 @@ Spa bietet auch ein erweiterbares Modell für Entwickler, die nicht von Microsof
 
 **Hinweis** Spa kann nicht alle Hardware-und Benutzer szenariokontexte verstehen. Verwenden Sie die Empfehlungen, die vom Tool bereitgestellt werden, um Entscheidungen zu treffen und die Konsequenzen von möglichen Änderungen zu verstehen, die an den Servern vorgenommen werden.
 
- 
 
-## <a href="" id="bkmk-downloadspa"></a>Herunterladen von Server Performance Advisor
+
+## <a name="download-server-performance-advisor"></a><a href="" id="bkmk-downloadspa"></a>Herunterladen von Server Performance Advisor
 
 
 Verwenden Sie die folgenden Links zum Herunterladen von Server Performance Advisor für Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 oder Windows Server 2008:
@@ -71,9 +69,9 @@ Verwenden Sie die folgenden Links zum Herunterladen von Server Performance Advis
 
 Sie können die Dateien in der CAB-Datei mit den folgenden Befehlen extrahieren:
 
--   für die x86-Version: `extrac32.exe /e /a /l  d:\SPA   d:\SPA\SPAPlus\_x86.cab`
+-   für die x86-Version:`extrac32.exe /e /a /l  d:\SPA   d:\SPA\SPAPlus\_x86.cab`
 
--   für x64-Version: `extrac32.exe /e /a /l  d:\SPA   d:\SPA\SPAPlus\_amd64.cab`
+-   für die x64-Version:`extrac32.exe /e /a /l  d:\SPA   d:\SPA\SPAPlus\_amd64.cab`
 
 **Vorsicht** Wenn Sie die CAB-Datei extrahieren, muss Spa die hierarchische Verzeichnisstruktur beibehalten, damit Sie ordnungsgemäß funktioniert. Abhängig von den CAB-Tools, die auf dem Server installiert sind, kann die Extraktion zu einer nicht operativen Verzeichnisstruktur führen. Um die hierarchische Verzeichnisstruktur beizubehalten, können Sie ein Tool zum Extrahieren von Hilfsprogramm verwenden, das eine Datei Verzeichnisstruktur extrahiert.
 

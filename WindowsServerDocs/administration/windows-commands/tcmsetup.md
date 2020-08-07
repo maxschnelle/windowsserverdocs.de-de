@@ -1,20 +1,18 @@
 ---
 title: tcmsetup
 description: Erfahren Sie, wie Sie den TAPI-Client einrichten und deaktivieren.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 15e0c10f-996f-4301-92e5-943f7ee8212d
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0e453ef94aedb8920c0310123ff6033fafbaddab
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: e078439fcb9889f075efd364ea9530bdfb8db26a
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86958622"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87881801"
 ---
 # <a name="tcmsetup"></a>tcmsetup
 
@@ -25,7 +23,7 @@ Richtet den TAPI-Client ein oder deaktiviert ihn.
 ## <a name="syntax"></a>Syntax
 
 ```
-tcmsetup [/q] [/x] /c <Server1> [<Server2> …] 
+tcmsetup [/q] [/x] /c <Server1> [<Server2> …]
 tcmsetup  [/q] /c /d
 ```
 
@@ -48,7 +46,7 @@ tcmsetup  [/q] /c /d
 -   Bevor ein Client Benutzer ein Telefon oder eine Zeile auf einem TAPI-Server verwenden kann, muss der Benutzer des Telefonieservers den Benutzer dem Telefon oder der Zeile zuweisen.
 -   Die Liste der von diesem Befehl erstellten Telefonieserver ersetzt jede vorhandene Liste von Telefonieservern, die für den Client verfügbar sind. Sie können diesen Befehl nicht verwenden, um der vorhandenen Liste hinzuzufügen.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

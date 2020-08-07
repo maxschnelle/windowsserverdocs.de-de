@@ -1,20 +1,18 @@
 ---
 title: create partition primary
 description: Referenz Artikel für den Befehl create partition primary, mit dem eine primäre Partition auf dem Basis Datenträger mit dem Fokus erstellt wird.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 6d652d8e-3935-4a91-8ced-b17c0e7937be
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9014b69528d4a67ba2c9c11b8ec53cf3a0f569f6
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: b5e2869729f56fd09abebb650526ea4f07c86b21
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85929620"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87879873"
 ---
 # <a name="create-partition-primary"></a>create partition primary
 
@@ -33,7 +31,7 @@ create partition primary [size=<n>] [offset=<n>] [id={ <byte> | <guid> }] [align
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | Größe =`<n>` | Gibt die Größe der Partition in Megabyte (MB) an. Wenn keine Größe angegeben wird, wird die Partition so lange fortgesetzt, bis nicht mehr zugewiesener Speicherplatz in der aktuellen Region vorhanden ist. |
 | Offset =`<n>` | Der Offset in Kilobyte (KB), an dem die Partition erstellt wird. Wenn kein Offset angegeben wird, wird die Partition am Anfang des größten Datenträger Blocks gestartet, der groß genug ist, um Sie zu speichern. |

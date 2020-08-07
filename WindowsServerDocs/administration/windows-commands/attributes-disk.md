@@ -1,20 +1,18 @@
 ---
 title: attributes disk
 description: Referenz Artikel zum Befehl "Attribut Datenträger", mit dem die Attribute eines Datenträgers angezeigt, festgelegt oder gelöscht werden.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: eed57071-c1c6-4394-9542-62b52a878c92
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 02ad39b84afb2487b388d046d6409a682b58615b
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: d6ebdd831a9ddfe1224c641a979ed972672a3ba3
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85923899"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87895500"
 ---
 # <a name="attributes-disk"></a>attributes disk
 
@@ -31,7 +29,7 @@ attributes disk [{set | clear}] [readonly] [noerr]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | set | Legt das angegebene Attribut des Datenträgers mit dem Fokus fest. |
 | clear | Löscht das angegebene Attribut des Datenträgers mit dem Fokus. |

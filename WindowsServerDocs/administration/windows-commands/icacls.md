@@ -1,20 +1,18 @@
 ---
 title: icacls
 description: Referenz Artikel für den Befehl icacls, der freigegebene Zugriffs Steuerungs Listen (DACL) für angegebene Dateien anzeigt oder ändert und gespeicherte DACLs auf Dateien in angegebenen Verzeichnissen anwendet.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 403edfcc-328a-479d-b641-80c290ccf73e
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 08/21/2018
-ms.openlocfilehash: 386e008ef7095cbef8d84b33682b494d8d6c9c52
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 5bb8842cdc91823a83d1b8ccfa305c6393433901
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85924520"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87888402"
 ---
 # <a name="icacls"></a>icacls
 
@@ -32,7 +30,7 @@ icacls <directory> [/substitute <sidold> <sidnew> [...]] [/restore <aclfile> [/c
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `<filename>` | Gibt die Datei an, für die DACLs angezeigt werden sollen. |
 | `<directory>` | Gibt das Verzeichnis an, für das DACLs angezeigt werden sollen. |
@@ -53,7 +51,7 @@ icacls <directory> [/substitute <sidold> <sidnew> [...]] [/restore <aclfile> [/c
 | /Restore `<ACLfile>` [/c] [/l] [/q] | Wendet gespeicherte DACLs von `<ACLfile>` auf Dateien im angegebenen Verzeichnis an. Erfordert die Verwendung von mit dem- `<directory>` Parameter. |
 | /inheritancelevel:`[e | d | r]` | Legt die Vererbungs Ebene fest. Dies kann wie folgt lauten:<ul><li>**e** -aktiviert Vererbung</li><li>**d** : Deaktivieren der Vererbung und Kopieren der ACEs</li><li>**r** -entfernt alle geerbten ACEs</li></ul> |
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 - SIDs können entweder in Form eines numerischen oder eines anzeigen Amens vorliegen. Wenn Sie ein numerisches Format verwenden, können Sie das Platzhalter Zeichen **&#42;** an den Anfang der SID anbinden.
 

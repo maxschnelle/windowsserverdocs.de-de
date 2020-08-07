@@ -1,20 +1,18 @@
 ---
 title: append
 description: Referenz Artikel für den Befehl anfügen, mit dem Programme Datendateien in angegebenen Verzeichnissen öffnen können, als ob Sie sich im aktuellen Verzeichnis befinden.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 9c3fea20-9502-40ad-a442-7a927aad88eb
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c8e67c4419b563fdeba156b2bb1f082bf7de834c
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 887d058baf333f068b2e1fb557f085f0cfe58615
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85924039"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87895578"
 ---
 # <a name="append"></a>append
 
@@ -32,7 +30,7 @@ append ;
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `[\<drive>:]<path>` | Gibt ein anzufügende Laufwerk und Verzeichnis an. |
 | /x: ein | Wendet angefügte Verzeichnisse auf Datei suchen und starten von Anwendungen an. |

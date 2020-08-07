@@ -1,20 +1,18 @@
 ---
 title: gpfixup
 description: Referenz Artikel für den Gpfixup-Befehl, mit dem Domänen Namen Abhängigkeiten in Gruppenrichtlinie Objekten und Gruppenrichtlinie links nach einem Domänen Umbenennungs Vorgang korrigiert werden.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 2b145410-fc75-4526-932d-f16b7ee3aaef
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 15bef10afa49fafebfad485836bd6f9cdd5f496e
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 9379efe545544028980cf570de30bc6d3d816c81
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86957172"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87888565"
 ---
 # <a name="gpfixup"></a>gpfixup
 
@@ -32,7 +30,7 @@ gpfixup [/v]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- |------------ |
 | /v | Zeigt detaillierte Statusmeldungen an. Wenn dieser Parameter nicht verwendet wird, werden nur Fehlermeldungen oder eine Zusammenfassungs Statusmeldung mit der Angabe, **Erfolg** oder **Fehler** angezeigt. |
 | /olddns:`<olddnsname>` | Gibt den alten DNS-Namen der umbenannten Domäne so an, dass der `<olddnsname>` DNS-Name einer Domäne durch den Domänen Umbenennungs Vorgang geändert wird. Sie können diesen Parameter nur verwenden, wenn Sie auch den **/newdns** -Parameter verwenden, um einen neuen DNS-Domänen Namen anzugeben. |
@@ -61,7 +59,7 @@ Dieses Beispiel ist mit dem vorherigen identisch, mit dem Unterschied, dass der 
 gpfixup /olddns: MyOldDnsName /newdns:MyNewDnsName /dc:MyDcDnsName 2>&1 >gpfixup.log
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

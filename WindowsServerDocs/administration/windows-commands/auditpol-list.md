@@ -1,20 +1,18 @@
 ---
 title: auditpol list
 description: Referenz Artikel für den Befehl auditpol list, der Überwachungs Richtlinien Kategorien und Unterkategorien auflistet oder Benutzer auflistet, für die eine Überwachungsrichtlinie pro Benutzer definiert ist.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 45502abe-3d6e-4e13-94f0-8e6fcb6db860
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a0ce67b9907fa4c5207d75422dc972d70f5e6eea
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 5047708056e4e926dc917b80b4b0a41ce5f9d773
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85923711"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87895427"
 ---
 # <a name="auditpol-list"></a>auditpol list
 
@@ -34,7 +32,7 @@ auditpol /list
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ------- | -------- |
 | /User | Ruft alle Benutzer ab, für die die Überwachungsrichtlinie pro Benutzer definiert wurde. Wenn Sie mit dem/v-Parameter verwendet wird, wird auch die Sicherheits-ID (SID) des Benutzers angezeigt. |
 | /category | Zeigt die Namen der Kategorien an, die vom System interpretiert werden. Wenn Sie mit dem/v-Parameter verwendet wird, wird auch die Kategorie Globally Unique Identifier (GUID) angezeigt. |

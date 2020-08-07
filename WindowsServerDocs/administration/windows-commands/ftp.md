@@ -1,20 +1,18 @@
 ---
 title: ftp
 description: Referenz Artikel für den FTP-Befehl, der Dateien an einen Computer überträgt, auf dem ein Dateiübertragungsprotokoll (FTP)-Server Dienst ausgeführt wird.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 758335e1-fd8d-448c-a654-993126239dd9
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 01d597bf4520fc41fa31f90c643c852ec9f77b2f
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 369a41cf6ad803a4fce939da58228997410cf177
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86957292"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87888786"
 ---
 # <a name="ftp"></a>ftp
 
@@ -30,7 +28,7 @@ ftp [-v] [-d] [-i] [-n] [-g] [-s:<filename>] [-a] [-A] [-x:<sendbuffer>] [-r:<re
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ----------| ----------- |
 | -v | Unterdrückt die Anzeige von Remote Server Antworten. |
 | -d | Aktiviert das Debuggen und zeigt alle Befehle an, die zwischen dem FTP-Client und dem FTP-Server |
@@ -71,7 +69,7 @@ Geben Sie Folgendes ein, um sich am FTP-Server mit dem Namen anzumelden `ftp.exa
 ftp -s:resync.txt ftp.example.microsoft.com
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

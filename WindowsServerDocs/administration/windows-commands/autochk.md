@@ -1,20 +1,18 @@
 ---
 title: autochk
 description: Referenz Artikel für den AUTOCHK-Befehl, der ausgeführt wird, wenn der Computer gestartet wird und vor Windows Server gestartet wurde, um die logische Integrität eines Dateisystems zu überprüfen.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 8787e6a3-f023-4ea5-b2d1-61c6876d8aff
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9cfb034f37f85b1e54e0cee2a8a4d128518c775a
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 91472aa7447c590aefcb4af58d1951e8e39225fe
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85923629"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87895284"
 ---
 # <a name="autochk"></a>autochk
 
@@ -28,7 +26,7 @@ Wird ausgeführt, wenn der Computer gestartet wird und bevor Windows Server mit 
 
 - , Wenn das Volume als geändert gekennzeichnet ist.
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 > [!WARNING]
 > Das Befehlszeilen Tool **Autochk** kann nicht direkt über die Befehlszeile ausgeführt werden. Verwenden Sie stattdessen das **chkntfs** -Befehlszeilen Tool, um die Art und Weise zu konfigurieren, in der **Autochk** beim Start ausgeführt werden soll.

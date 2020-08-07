@@ -1,20 +1,18 @@
 ---
 title: wbadmin start recovery
 description: Referenz Artikel für die Wbadmin-start Wiederherstellung, mit der ein Wiederherstellungs Vorgang basierend auf den von Ihnen angegebenen Parametern ausgeführt wird.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 52381316-a0fa-459f-b6a6-01e31fb21612
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f7eb408ae8b57279d2620e8971a6e5833e3a044d
-ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
+ms.openlocfilehash: d7d04e32eeae71593daf995e790b6dcbae05464b
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87519599"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87879692"
 ---
 # <a name="wbadmin-start-recovery"></a>wbadmin start recovery
 
@@ -89,7 +87,7 @@ Geben Sie Folgendes ein, um eine Wiederherstellung der Sicherung ab dem 30. Apri
 wbadmin start recovery -version:04/30/2013-09:00 -backupTarget:\\servername\share -machine:server01
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 - [Wbadmin](wbadmin.md)

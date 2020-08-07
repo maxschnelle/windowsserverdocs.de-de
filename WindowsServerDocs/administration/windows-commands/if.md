@@ -1,20 +1,18 @@
 ---
 title: if
 description: Referenz Artikel zum if-Befehl, der die bedingte Verarbeitung in Batch Programmen ausführt.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 698b3fb9-532b-4c2b-af7f-179f8dc57131
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: dd55ebb6ae3562906efdc710f7a067a7e7514e59
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 3644c64d4159d9232ec58e747efc542dd903791e
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85924471"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87888376"
 ---
 # <a name="if"></a>if
 
@@ -38,7 +36,7 @@ if defined <variable> <command> [else <expression>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- |------------ |
 | not | Gibt an, dass der Befehl nur ausgeführt werden soll, wenn die Bedingung false ist. |
 | ERRORLEVEL`<number>` | Gibt eine echte Bedingung nur dann an, wenn das vorherige Programm, das von Cmd.exe ausgeführt wird, einen Exitcode zurückgegeben hat, der gleich oder *größer als* |
@@ -52,7 +50,7 @@ if defined <variable> <command> [else <expression>]
 | `<expression>` | Gibt einen Befehlszeilen Befehl und alle Parameter an, die an den Befehl in einer **else** -Klausel weitergegeben werden sollen. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Wenn die in einer **if** -Klausel angegebene Bedingung true ist, wird der Befehl ausgeführt, der der Bedingung folgt. Wenn die Bedingung false ist, wird der Befehl in der **if** -Klausel ignoriert, und der Befehl führt jeden Befehl aus, der in der **else** -Klausel angegeben ist.
 

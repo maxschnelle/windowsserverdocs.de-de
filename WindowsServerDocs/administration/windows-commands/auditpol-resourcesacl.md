@@ -1,20 +1,18 @@
 ---
 title: resourcesacl für Auditpol
 description: Referenz Artikel für den Befehl Auditpol resourcesacl, der globale Ressourcensystem-Zugriffs Steuerungs Listen (SACLs) konfiguriert.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 28771ba7-967a-45e9-9bf0-b2a2673070f0
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4558d18b065cd668294952131b494342d600aee0
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: b20c97fce42bb57613ac421eabc5ac7acf7a921d
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86955492"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87895353"
 ---
 # <a name="auditpol-resourcesacl"></a>resourcesacl für Auditpol
 
@@ -46,7 +44,7 @@ auditpol /resourceSACL
 
 ### <a name="arguments"></a>Argumente
 
-| Argument | Beschreibung |
+| Argument | BESCHREIBUNG |
 | -------- | ----------- |
 | /type | Die Ressource, für die die Objekt Zugriffs Überwachung konfiguriert wird. Die unterstützten, Unterscheidung nach Groß-/Kleinschreibung, Argument Werte sind *File* (für Verzeichnisse und Dateien) und *Key* (für Registrierungsschlüssel). |
 | /Success | Gibt die erfolgreiche Überwachung an. |
@@ -92,7 +90,7 @@ So Listen Sie die Einträge für die globale Objekt Zugriffs Überwachung für e
 auditpol /resourceSACL /type:File /view /user:MYDOMAIN\myuser
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

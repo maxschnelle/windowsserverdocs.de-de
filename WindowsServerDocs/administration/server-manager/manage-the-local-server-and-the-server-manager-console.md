@@ -1,28 +1,26 @@
 ---
 title: Verwalten des lokalen Servers und der Server-Manager-Konsole
 description: Server-Manager
-ms.prod: windows-server
-ms.technology: manage-server-manager
 ms.topic: article
 ms.assetid: eeb32f65-d588-4ed5-82ba-1ca37f517139
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d64d45fec0c48f66da72dfee7ab9f1f9965205ad
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 7892ec8f4102c8baadd8cded8982b6b92702afa8
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851493"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87895742"
 ---
 # <a name="manage-the-local-server-and-the-server-manager-console"></a>Verwalten des lokalen Servers und der Server-Manager-Konsole
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 In Windows Server können Sie mit Server-Manager sowohl den lokalen Server (wenn Sie Server-Manager auf Windows Server ausführen, nicht auf einem Windows-basierten Client Betriebssystem) als auch Remote Server verwalten, auf denen Windows Server 2008 und neuere Versionen des Windows Server-Betriebssystems ausgeführt werden.
 
-Auf der Seite **lokaler Server** in Server-Manager werden Server Eigenschaften, Ereignisse, Dienst-und Leistungsdaten und Best Practices Analyzer Ergebnisse (BPA) für den lokalen Server angezeigt. Die Kacheln "Ereignis", "Dienst", "BPA" und "Leistung" funktionieren wie auf den Rollen- und Servergruppenseiten. Weitere Informationen zum Konfigurieren der Daten, die auf diesen Kacheln angezeigt werden, finden Sie unter [View und Configure Performance, Event, und Service Data](view-and-configure-performance-event-and-service-data.md) und [Run Best Practices Analyzer Scans und Manage Scan Results](run-best-practices-analyzer-scans-and-manage-scan-results.md).
+Auf der Seite **lokaler Server** in Server-Manager werden Server Eigenschaften, Ereignisse, Dienst-und Leistungsdaten und Best Practices Analyzer Ergebnisse (BPA) für den lokalen Server angezeigt. Die Kacheln "Ereignis", "Dienst", "BPA" und "Leistung" funktionieren wie auf den Rollen- und Servergruppenseiten. Weitere Informationen zum Konfigurieren der Daten, die auf diesen Kacheln angezeigt werden, finden Sie unter [anzeigen und Konfigurieren von Leistungs-, Ereignis-und Dienst Daten](view-and-configure-performance-event-and-service-data.md) und [Ausführen Best Practices Analyzer Scans und Verwalten der Scan Ergebnisse](run-best-practices-analyzer-scans-and-manage-scan-results.md).
 
 Menübefehle und Einstellungen in den Überschriften leisten der Server-Manager-Konsole werden global auf alle Server im Server Pool angewendet, und Sie können mit Server-Manager den gesamten Server Pool verwalten.
 
@@ -30,13 +28,13 @@ Dieses Thema enthält folgende Abschnitte:
 
 -   [Herunterfahren des lokalen Servers](#BKMK_shutdown)
 
--   [Konfigurieren von Server-Manager Eigenschaften](#BKMK_props)
+-   [Konfigurieren von Server-Manager-Eigenschaften](#BKMK_props)
 
--   [Verwalten der Server-Manager Konsole](#BKMK_managesm)
+-   [Verwalten der Server-Manager-Konsole](#BKMK_managesm)
 
 -   [Anpassen von Tools, die im Menü "Extras" angezeigt werden](#BKMK_tools)
 
--   [Verwalten von Rollen auf Rollen-Startseiten](#BKMK_roles)
+-   [Verwalten von Rollen auf Rollen-Homepages](#BKMK_roles)
 
 ## <a name="shut-down-the-local-server"></a><a name=BKMK_shutdown></a>Herunterfahren des lokalen Servers
 Im Menü **Aufgaben** auf der Kachel **Eigenschaften** des lokalen Servers können Sie eine Windows PowerShell-Sitzung auf dem lokalen Server starten, das MMC-Snap-in " **Computer Verwaltung** " öffnen oder MMC-Snap-Ins für Rollen oder Features öffnen, die auf dem lokalen Server installiert sind. Zudem kann der lokale Server mithilfe des Befehls **Lokalen Server herunterfahren** im Menü **Aufgaben** heruntergefahren werden. Der Befehl **Lokalen Server herunterfahren** ist für den lokalen Server auch auf der Kachel **Server** auf der Seite **Alle Server** oder auf einer Rollen- oder Gruppenseite verfügbar, auf der der lokale Server dargestellt wird.
@@ -46,15 +44,15 @@ Beim Herunterfahren des lokalen Servers mit dieser Methode wird im Gegensatz zum
 > [!NOTE]
 > Nur Mitglieder der Gruppe "Administratoren" können einen Server herunterfahren oder neu starten. Standardbenutzer können einen Server weder herunterfahren noch neu starten. Wenn Sie auf den Befehl **Lokalen Server herunterfahren** klicken, werden Standardbenutzer von Serversitzungen abgemeldet. Dies entspricht der Erfahrung eines Standardbenutzers, der den Befehl **Alt+F4** zum Herunterfahren über den Server-Desktop ausführt.
 
-## <a name="configure-server-manager-properties"></a><a name=BKMK_props></a>Konfigurieren von Server-Manager Eigenschaften
+## <a name="configure-server-manager-properties"></a><a name=BKMK_props></a>Konfigurieren von Server-Manager-Eigenschaften
 Auf der Kachel **Eigenschaften** auf der Seite **Lokaler Server** können Sie die folgenden Einstellungen anzeigen oder ändern. Um den Wert einer Einstellung zu ändern, klicken Sie auf den Hypertext-Wert der Einstellung.
 
 > [!NOTE]
 > Die auf der Kachel **Eigenschaften** des lokalen Servers angezeigten Eigenschaften können normalerweise nur auf dem lokalen Server geändert werden. Die Eigenschaften des lokalen Servers können nicht von einem Remote Computer mithilfe von Server-Manager geändert werden, da auf der Kachel **Eigenschaften** nur Informationen zum lokalen Computer, nicht für Remote Computer, angezeigt werden können.
-> 
+>
 > Da viele Eigenschaften, die auf der Kachel **Eigenschaften** angezeigt werden, über Tools gesteuert werden, die nicht Teil Server-Manager sind (z. b. die Systemsteuerung), werden Änderungen an den **Eigenschaften** Einstellungen nicht immer sofort in der Kachel **Eigenschaften** angezeigt. Die Daten auf der Kachel **Eigenschaften** werden standardmäßig alle zwei Minuten aktualisiert. Um die Daten der Kachel **Eigenschaften** sofort zu aktualisieren, klicken Sie in der Server-Manager Adressleiste auf **Aktualisieren** .
 
-|Einstellung|Beschreibung|
+|Einstellung|BESCHREIBUNG|
 |------|--------|
 |Computername|Zeigt den anzeigen amen des Computers an, und öffnet das Dialogfeld **System Eigenschaften** , in dem Sie den Namen des Servers, die Domänen Mitgliedschaft und andere System Einstellungen wie z. b. Benutzerprofile ändern können.|
 |Domäne (oder Arbeitsgruppe, wenn der Server keiner Domäne angehört)|Zeigt die Domäne oder Arbeitsgruppe an, der der Server angehört. Öffnet das Dialogfeld **System Eigenschaften** , in dem Sie den Namen des Servers, die Domänen Mitgliedschaft und andere System Einstellungen wie z. b. Benutzerprofile ändern können.|
@@ -66,7 +64,7 @@ Auf der Kachel **Eigenschaften** auf der Seite **Lokaler Server** können Sie di
 |Betriebssystemversion|In diesem schreibgeschützten Feld wird die Versionsnummer des Windows-Betriebssystems angezeigt, das auf dem lokalen Server ausgeführt wird.|
 |Hardwareinformationen|In diesem schreibgeschützten Feld werden Hersteller, Modellname und -nummer der Serverhardware angezeigt.|
 |Zuletzt installierte Updates|Zeigt den Tag und die Uhrzeit der letzten Installation von Windows-Updates an. Öffnet **Systemsteuerung\System und Sicherheit\Windows Update**.|
-|Windows Update|Zeigt die Windows Update-Einstellungen für den lokalen Server an. Öffnet **Systemsteuerung\System und Sicherheit\Windows Update**.|
+|Windows-Update|Zeigt die Windows Update-Einstellungen für den lokalen Server an. Öffnet **Systemsteuerung\System und Sicherheit\Windows Update**.|
 |Zuletzt auf Updates geprüft|Zeigt den Tag und die Uhrzeit der letzten Überprüfung des Servers auf verfügbare Windows-Updates an. Öffnet **Systemsteuerung\System und Sicherheit\Windows Update**.|
 |Windows-Fehlerberichterstattung|Zeigt den den Anmeldestatus der Windows-Fehlerberichterstattung an. Öffnet das Dialogfeld **Windows-Fehlerberichterstattungs-Konfiguration**. Weitere Informationen zur Windows-Fehlerberichterstattung, zu den Vorteilen, Datenschutzbestimmungen und Anmeldeeinstellungen finden Sie unter [Windows-Fehlerberichterstattung](https://go.microsoft.com/fwlink/?LinkID=245991).|
 |Programm zur Verbesserung der Benutzerfreundlichkeit|Zeigt den Anmeldestatus des Programms zur Verbesserung der Benutzerfreundlichkeit von Windows an. Öffnet das Dialogfeld **Konfiguration des Programms zur Verbesserung der Benutzerfreundlichkeit**. Weitere Informationen zum Programm zur Verbesserung der Benutzerfreundlichkeit von Windows, zu den Vorteilen und Anmeldeeinstellungen finden Sie unter [Programm zur Verbesserung der Benutzerfreundlichkeit von Windows](https://go.microsoft.com/fwlink/?LinkID=245992).|
@@ -77,7 +75,7 @@ Auf der Kachel **Eigenschaften** auf der Seite **Lokaler Server** können Sie di
 |Installierter Arbeitsspeicher (RAM)|In diesem schreibgeschützten Feld wird die Größe des verfügbaren Arbeitsspeichers in Gigabyte angezeigt.|
 |Speicherplatz insgesamt|In diesem schreibgeschützten Feld wird die Größe des verfügbaren Festplattenspeichers in Gigabyte angezeigt.|
 
-## <a name="manage-the-server-manager-console"></a><a name=BKMK_managesm></a>Verwalten der Server-Manager Konsole
+## <a name="manage-the-server-manager-console"></a><a name=BKMK_managesm></a>Verwalten der Server-Manager-Konsole
 Globale Einstellungen, die für die gesamte Server-Manager-Konsole gelten, sowie für alle Remote Server, die dem Server-Manager-Server Pool hinzugefügt wurden, befinden sich in den Überschriften leisten oben im Server-Manager Konsolenfenster.
 
 ### <a name="add-servers-to-server-manager"></a>Server zu Server-Manager hinzufügen
@@ -90,7 +88,7 @@ Sie können das Aktualisierungs Intervall für Daten konfigurieren, die in Serve
 
 1.  Klicken Sie in der Server-Manager Konsole im Menü **Verwalten** auf **Server-Manager Eigenschaften**.
 
-2.  Geben Sie im Dialogfeld **Eigenschaften von Server-Manager** einen Zeitraum (in Minuten) für die verstrichene Zeit in Minuten zwischen den Aktualisierungen der in Server-Manager angezeigten Daten an. Der Standardwert ist 10 Minuten. Klicken Sie anschließend auf OK.
+2.  Geben Sie im Dialogfeld **Eigenschaften von Server-Manager** einen Zeitraum (in Minuten) für die verstrichene Zeit in Minuten zwischen den Aktualisierungen der in Server-Manager angezeigten Daten an. Standardwert: 10 Minuten. Klicken Sie anschließend auf "OK".
 
 #### <a name="refresh-limitations"></a>Aktualisierungsbeschränkungen
 Die Aktualisierung gilt global für Daten von allen Servern, die Sie dem Server-Manager-Server Pool hinzugefügt haben. Es können keine Daten für einzelne Server, Rollen und Gruppen aktualisiert oder für einzelne Server, Rollen und Gruppen unterschiedliche Aktualisierungsintervalle konfiguriert werden.
@@ -143,9 +141,9 @@ Im folgenden Verfahren wird beschrieben, wie ein Beispiel Ordner mit dem Namen *
 
     > [!NOTE]
     > Wenn Sie den Zugriff auf einen vollständigen Ordner beschränken, den Sie in "Verwaltung" kopiert haben, können Benutzer mit eingeschränkten Berechtigungen weder den Ordner noch dessen Inhalt im Menü Server-Manager**Tools** anzeigen.
-    > 
+    >
     > Bearbeiten Sie die Berechtigungen für den Ordner im Ordner **Verwaltung** . Da ausgeblendete Dateien und Ordner in "Verwaltung" immer im Menü "Server-Manager**Tools** " angezeigt werden, verwenden Sie die Einstellung **ausgeblendet** im Dialogfeld **Eigenschaften** einer Datei oder eines Ordners nicht, um den Benutzer Zugriff auf Ihre benutzerdefinierten Tool Verknüpfungen einzuschränken.
-    > 
+    >
     > Mit der Berechtigung **Verweigern** wird die Berechtigung **Zulassen** immer überschrieben.
 
 6.  Klicken Sie **mit der rechten** Maustaste auf das ursprüngliche Tool, das Skript oder die ausführbare Datei, für das Sie im Menü Extras Einträge hinzufügen möchten, und klicken Sie dann auf **Verknüpfung erstellen**.
@@ -154,7 +152,7 @@ Im folgenden Verfahren wird beschrieben, wie ein Beispiel Ordner mit dem Namen *
 
 8.  Wenn erforderlich, können Sie Server-Manager aktualisieren oder neu starten, um die Verknüpfung des Benutzer **definierten Tools im Menü Extras** anzuzeigen.
 
-## <a name="manage-roles-on-role-home-pages"></a><a name=BKMK_roles></a>Verwalten von Rollen auf Rollen-Startseiten
+## <a name="manage-roles-on-role-home-pages"></a><a name=BKMK_roles></a>Verwalten von Rollen auf Rollen-Homepages
 Nachdem Sie dem Server-Manager Server Pool Server hinzugefügt haben und Server-Manager Inventur Daten zu Servern in Ihrem Pool sammelt, werden dem Navigationsbereich von Server-Manager Seiten für Rollen hinzugefügt, die auf verwalteten Servern erkannt werden. Auf der Kachel **Server** auf Rollenseiten werden verwaltete Server aufgelistet, von denen die Rolle ausgeführt wird. Standardmäßig werden auf den Kacheln **Ereignisse**, **Best Practices Analyzer**, **Dienste** und **Leistung** Daten für alle Server angezeigt, von denen die Rolle ausgeführt wird. Durch Auswahl bestimmter Server auf der Kachel **Server** wird der Bereich von Ereignissen, Diensten, Leistungsindikatoren und BPA-Ergebnissen auf die ausgewählten Server eingeschränkt. Verwaltungs Tools sind in der Regel im Menü "Server-Manager-Konsolen **Tools** " verfügbar, nachdem eine Rolle oder ein Feature auf einem verwalteten Server installiert oder erkannt wurde. Sie können auf der Kachel **Server** für eine Rolle oder Gruppe mit der rechten Maustaste auf Servereinträge klicken und dann das gewünschte Verwaltungstool starten.
 
 In Windows Server 2016 verfügen die folgenden Rollen und Features über Verwaltungs Tools, die in Server-Manager-Konsole als Seiten integriert sind.
@@ -172,13 +170,13 @@ In Windows Server 2016 verfügen die folgenden Rollen und Features über Verwalt
     Weitere Informationen zum Bereitstellen und Verwalten von IPAM finden Sie unter [IP Address Management (IPAM)](https://go.microsoft.com/fwlink/p/?LinkId=241533).
 
 ## <a name="see-also"></a>Weitere Informationen
-[Server-Manager](server-manager.md)
-[Hinzufügen von Servern zu Server-Manager](add-servers-to-server-manager.md)
-[Erstellen und Verwalten von Server Gruppen](create-and-manage-server-groups.md)
-[anzeigen und Konfigurieren von Leistungs-, Ereignis-und Dienst Daten](view-and-configure-performance-event-and-service-data.md)
-[Datei-und Speicherdienste](https://go.microsoft.com/fwlink/p/?LinkId=241530)
-[Remotedesktopdienste (rdS)](https://go.microsoft.com/fwlink/p/?LinkId=241532)
-[IP-Adressverwaltung (IPAM)](https://go.microsoft.com/fwlink/p/?LinkId=241533)
+[Server-Manager](server-manager.md) 
+ [Server zu Server-Manager](add-servers-to-server-manager.md) 
+ Hinzufügen [Erstellen und Verwalten von Server Gruppen](create-and-manage-server-groups.md) 
+ [Anzeigen und Konfigurieren von Leistungs-, Ereignis-und Dienst Daten](view-and-configure-performance-event-and-service-data.md) 
+ [Datei-und Speicherdienste](https://go.microsoft.com/fwlink/p/?LinkId=241530) 
+ [Remotedesktopdienste (rdS)](https://go.microsoft.com/fwlink/p/?LinkId=241532) 
+ [IP-Adressverwaltung (IP Address Management, IPAM)](https://go.microsoft.com/fwlink/p/?LinkId=241533)
 
 
 

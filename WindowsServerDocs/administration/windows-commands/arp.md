@@ -1,20 +1,18 @@
 ---
 title: arp
 description: Referenz Artikel für den ARP-Befehl, der Einträge im ARP-Cache (Address Resolution Protocol), die zum Speichern von IP-Adressen und deren aufgelösten physischen Adressen verwendet werden, anzeigt und ändert.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 827e96eb-1945-483f-980f-714703456f7c
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 41f9ebde5faa3eda99402aa86a0aef5e55b42eba
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: c3e44d471fc31b14bf37b1c4911c0f465e31b3ac
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85924000"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87895563"
 ---
 # <a name="arp"></a>arp
 
@@ -30,7 +28,7 @@ arp [/a [<inetaddr>] [/n <ifaceaddr>]] [/g [<inetaddr>] [-n <ifaceaddr>]] [/d <i
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `[/a [<inetaddr>] [/n <ifaceaddr>]` | Zeigt die aktuellen ARP-Cache Tabellen für alle Schnittstellen an. Beim Parameter **/n** wird die Groß-/Kleinschreibung beachtet. Wenn Sie den ARP-Cache Eintrag für eine bestimmte IP-Adresse anzeigen möchten, verwenden Sie **ARP/a** mit dem **inetaddr** -Parameter, wobei **inetaddr** eine IP-Adresse ist. Wenn **inetaddr** nicht angegeben wird, wird die erste anwendbare Schnittstelle verwendet. Zum Anzeigen der ARP-Cache Tabelle für eine bestimmte Schnittstelle verwenden Sie den **/n ifaceaddr** -Parameter in Verbindung mit dem **/a** -Parameter, wobei **inetaddr** die der Schnittstelle zugewiesene IP-Adresse ist. |
 | `[/g [<inetaddr>] [/n <ifaceaddr>]` | Identisch mit **/a**. |
@@ -38,7 +36,7 @@ arp [/a [<inetaddr>] [/n <ifaceaddr>]] [/g [<inetaddr>] [-n <ifaceaddr>]] [/d <i
 | `[/s <inetaddr> <etheraddr> [<ifaceaddr>]` | Fügt dem ARP-Cache einen statischen Eintrag hinzu, der die IP-Adresse **inetaddr** in die physische Adresse **etheraddr**auflöst. Wenn Sie der Tabelle einen statischen ARP-Cache Eintrag für eine bestimmte Schnittstelle hinzufügen möchten, verwenden Sie den **ifaceaddr** -Parameter, wobei **ifaceaddr** eine der Schnittstelle zugewiesene IP-Adresse ist. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-### <a name="remarks"></a>Hinweise
+### <a name="remarks"></a>Bemerkungen
 
 - Die IP-Adressen für **inetaddr** und **ifaceaddr** werden in punktierter Dezimal Schreibweise ausgedrückt.
 

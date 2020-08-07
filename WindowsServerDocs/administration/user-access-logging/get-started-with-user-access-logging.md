@@ -1,20 +1,18 @@
 ---
 title: Einstieg in die Benutzer Zugriffs Protokollierung
 desctription: Describes the User Access Logging feature and how to start using it.
-ms.prod: windows-server
-ms.technology: manage-user-access-logging
 ms.topic: article
 ms.assetid: 5c395b8b-3b35-4042-b9cc-07e438f86d50
 author: brentfor
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 44bcdd3d89946558934b8309634061f6b8e7ffda
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 6b5e8ae365fbf8130d134ab2f9fa555e952d012a
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85471165"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87895640"
 ---
 # <a name="get-started-with-user-access-logging"></a>Einstieg in die Benutzer Zugriffs Protokollierung
 
@@ -102,7 +100,7 @@ Die folgenden benutzerspezifischen Daten werden von der Benutzerzugriffsprotokol
 
 |Daten|BESCHREIBUNG|
 |--------|---------------|
-|**User**|Benutzername des Clients, der die Einträge der Benutzerzugriffsprotokollierung aus installierten Rollen und Produkten ggf. begleitet.|
+|**UserName**|Benutzername des Clients, der die Einträge der Benutzerzugriffsprotokollierung aus installierten Rollen und Produkten ggf. begleitet.|
 |**ActivityCount**|Die Anzahl der Zugriffe auf eine Rolle oder einen Dienst durch einen bestimmten Benutzer.|
 |**FirstSeen**|Datum und Uhrzeit des ersten Zugriffs auf eine Rolle oder einen Dienst durch einen Benutzer.|
 |**LastSeen**|Datum und Uhrzeit des letzten Zugriffs auf eine Rolle oder einen Dienst durch einen Benutzer.|
@@ -127,7 +125,7 @@ Die folgenden gerätespezifischen Daten werden von der Benutzerzugriffsprotokoll
 ## <a name="software-requirements"></a><a name="BKMK_SOFT"></a>Softwareanforderungen
 Die Benutzer Zugriffs Protokollierung kann auf jedem Computer verwendet werden, auf dem Windows Server-Versionen nach Windows Server 2012 ausgeführt werden.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 [Benutzerzugriffsprotokollierung](https://msdn.microsoft.com/library/windows/desktop/hh437528(v=vs.85).aspx) in MSDN.
 [Verwalten der Benutzerzugriffsprotokollierung](Manage-User-Access-Logging.md)
 

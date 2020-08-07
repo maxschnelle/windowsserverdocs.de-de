@@ -1,20 +1,18 @@
 ---
 title: auditpol clear
 description: Der Referenz Artikel für den Befehl Auditpol Clear, der die Überwachungsrichtlinie für alle Benutzer pro Benutzer löscht, setzt die System Überwachungsrichtlinie für alle Unterkategorien zurück (deaktiviert Sie) und legt alle Überwachungs Optionen auf deaktiviert fest.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 05bfa218-2434-4ad1-b33c-e6fcfb2b4f67
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 797f26ab9e191176808bbce917ca5ac0fa3d73a3
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 2cdb55633e15484f8ca98432fbe8bc28b5f59fd0
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85923797"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87895454"
 ---
 # <a name="auditpol-clear"></a>auditpol clear
 
@@ -32,7 +30,7 @@ auditpol /clear [/y]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ----------- | --------------- |
 | /y | Unterdrückt die Eingabeaufforderung, um zu bestätigen, dass alle Überwachungs Richtlinien Einstellungen gelöscht werden sollen. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
