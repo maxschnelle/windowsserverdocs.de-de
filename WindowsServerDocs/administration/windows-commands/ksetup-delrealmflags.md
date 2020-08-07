@@ -36,7 +36,7 @@ ksetup /delrealmflags <realmname> [sendaddress] [tcpsupported] [delegate] [ncsup
 
 | Wert | Bereichsflag | BESCHREIBUNG |
 | ----- | ---------- | ----------- |
-| 0xF | All | Alle bereichflags werden festgelegt. |
+| 0xF | Alles | Alle bereichflags werden festgelegt. |
 | 0x00 | Keine | Es wurden keine bereichflags festgelegt, und es sind keine weiteren Funktionen aktiviert. |
 | 0x01 | Element sendaddress | Die IP-Adresse wird in den Tickets für Ticket Gewährung enthalten sein. |
 | 0x02 | tcpsupported | In diesem Bereich werden sowohl das Transmission Control Protocol (TCP) als auch das User Datagram-Protokoll (UDP) unterstützt. |

@@ -39,7 +39,7 @@ Enable-DedupVolume <volume> -UsageType HyperV
 > [!NOTE]
 > Die datendeduplizierungsoptimierung von geöffneten Dateien wird nur für VDI-Szenarien mit Hyper-V unterstützt, die Remote Speicher über SMB 3,0 verwenden.
 
-### <a name="memory"></a>Memory
+### <a name="memory"></a>Arbeitsspeicher
 
 Die Auslastung des Server Arbeitsspeichers wird durch drei Hauptfaktoren gesteuert:
 

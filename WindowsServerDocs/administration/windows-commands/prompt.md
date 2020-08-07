@@ -35,7 +35,7 @@ prompt [<text>]
 
 - Die Zeichenkombinationen, die Sie anstelle von oder zusätzlich zu einer oder mehreren Zeichen folgen im *Text* Parameter einschließen können:
 
-    | Zeichen | BESCHREIBUNG |
+    | Zeichen | Beschreibung |
     |--|--|
     | $q | = (Gleichheitszeichen) |
     | $$ | $ (Dollar Zeichen) |
@@ -57,7 +57,7 @@ prompt [<text>]
 
 - Wenn Befehls Erweiterungen aktiviert sind, unterstützt der **prompt** -Befehl die folgenden Formatierungszeichen:
 
-    | Zeichen | BESCHREIBUNG |
+    | Zeichen | Beschreibung |
     |--|--|
     | $+ | 0 (null) oder mehr Pluszeichen ( **+** ), abhängig von der Tiefe des **pushd-** Verzeichnis Stapels (ein Zeichen für jede Ebene wird per Push abgelegt). |
     | $m | Der Remote Name, der dem aktuellen Laufwerk Buchstaben oder der leeren Zeichenfolge zugeordnet ist, wenn das aktuelle Laufwerk kein Netzwerklaufwerk ist. |

@@ -18,7 +18,7 @@ ms.locfileid: "87884700"
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Hiermit werden standardmäßige TCP/IP-Drucker Anschlüsse erstellt, gelöscht und aufgelistet, zusätzlich zum Anzeigen und Ändern der Port Konfiguration. Dieser Befehl ist ein Visual Basic Skript, das sich im `%WINdir%\System32\printing_Admin_Scripts\<language>` Verzeichnis befindet. Wenn Sie diesen Befehl an einer Eingabeaufforderung verwenden möchten, geben Sie **cscript** gefolgt vom vollständigen Pfad der prnport-Datei ein, oder ändern Sie die Verzeichnisse in den entsprechenden Ordner. Beispiel: `cscript %WINdir%\System32\printing_Admin_Scripts\en-US\prnport`.
+Hiermit werden standardmäßige TCP/IP-Drucker Anschlüsse erstellt, gelöscht und aufgelistet, zusätzlich zum Anzeigen und Ändern der Port Konfiguration. Dieser Befehl ist ein Visual Basic Skript, das sich im `%WINdir%\System32\printing_Admin_Scripts\<language>` Verzeichnis befindet. Wenn Sie diesen Befehl an einer Eingabeaufforderung verwenden möchten, geben Sie **cscript** gefolgt vom vollständigen Pfad der prnport-Datei ein, oder ändern Sie die Verzeichnisse in den entsprechenden Ordner. Beispiel: `cscript %WINdir%\System32\printing_Admin_Scripts\en-US\prnport`
 
 ## <a name="syntax"></a>Syntax
 
