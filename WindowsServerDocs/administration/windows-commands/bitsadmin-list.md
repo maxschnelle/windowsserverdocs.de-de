@@ -1,20 +1,18 @@
 ---
 title: bitsadmin list
 description: Referenz Artikel für den Befehl bizadmin List, der die Übertragungs Aufträge auflistet, die sich im Besitz des aktuellen Benutzers befinden.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 1416965e-e0e6-49cf-b1d4-b286d3cf8716
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9d9a2c86536ff0910b4e0a8bea15ec43d9371087
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 7b4bf346cd52e09d81bfbb934df86b94b9b544aa
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85926556"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87893707"
 ---
 # <a name="bitsadmin-list"></a>bitsadmin list
 
@@ -28,10 +26,10 @@ bitsadmin /list [/allusers][/verbose]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | -------------- | -------------- |
-| /ALLUSERS | Dies ist optional. Listet die Aufträge für alle Benutzer auf. Sie müssen über Administratorrechte verfügen, um diesen Parameter zu verwenden. |
-| /verbose | Dies ist optional. Stellt ausführliche Informationen zu jedem Auftrag bereit. |
+| /ALLUSERS | Optional. Listet die Aufträge für alle Benutzer auf. Sie müssen über Administratorrechte verfügen, um diesen Parameter zu verwenden. |
+| /verbose | Optional. Stellt ausführliche Informationen zu jedem Auftrag bereit. |
 
 ## <a name="examples"></a>Beispiele
 

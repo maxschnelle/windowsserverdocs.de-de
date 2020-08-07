@@ -1,20 +1,18 @@
 ---
 title: Abfrage
 description: Referenz Artikel für den Abfragebefehl, der Informationen über Prozesse, Sitzungen und Remotedesktop-Sitzungshost Server anzeigt.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 675c5128-f3cf-4e8f-8a3f-b29ab2a8b6de
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d00a0e3433b196db62599c628c8485032a82d54b
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: f5374779fa727e9bde33553c4293f6f31ff0d15a
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86956392"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87884394"
 ---
 # <a name="query"></a>Abfrage
 
@@ -40,7 +38,7 @@ query user
 | [query termserver](query-termserver.md) | Zeigt eine Liste aller Remotedesktop-Sitzungshost Server im Netzwerk an. |
 | [query user](query-user.md) | Zeigt Informationen zu Benutzersitzungen auf einem Remotedesktop-Sitzungshost Server an. |
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

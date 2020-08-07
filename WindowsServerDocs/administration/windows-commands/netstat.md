@@ -1,20 +1,18 @@
 ---
 title: netstat
 description: Referenz Artikel für den netstat-Befehl, in dem aktive TCP-Verbindungen, Ports, die der Computer überwacht, Ethernet-Statistiken, die IP-Routing Tabelle, IPv4-Statistiken und IPv6-Statistiken angezeigt werden.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 60e2718f-93cc-4ceb-bf0e-58a6a6e4fc8b
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c53ac83c1037d5f4998bb6efa43d66b418119df8
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 9fe7fc15e86df884fb9610ba5d6e72ab52e2d129
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85934805"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87886010"
 ---
 # <a name="netstat"></a>netstat
 
@@ -33,7 +31,7 @@ netstat [-a] [-b] [-e] [-n] [-o] [-p <Protocol>] [-r] [-s] [<interval>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | -a | Zeigt alle aktiven TCP-Verbindungen und die TCP-und UDP-Ports an, die der Computer abhört. |
 | -b | Zeigt die ausführbare Datei an, die zum Erstellen der einzelnen Verbindungen oder des Überwachungsports gehört In einigen Fällen hosten bekannte ausführbare Dateien mehrere unabhängige Komponenten, und in diesen Fällen wird die Abfolge der Komponenten, die beim Erstellen der Verbindung oder des Überwachungsports beteiligt sind, angezeigt. In diesem Fall befindet sich der Name der ausführbaren Datei unten in [], oben ist die Komponente, die Sie aufgerufen hat, und so weiter, bis TCP/IP erreicht wurde. Beachten Sie, dass diese Option zeitaufwändig sein kann und fehlschlägt, es sei denn, Sie verfügen über ausreichende Berechtigungen.
@@ -46,16 +44,16 @@ netstat [-a] [-b] [-e] [-n] [-o] [-p <Protocol>] [-r] [-s] [<interval>]
 | `<interval>` | Zeigt die ausgewählten Informationen jedes *Intervall* in Sekunden neu an. Drücken Sie STRG + C, um die erneute Anzeige zu verhindern. Wenn dieser Parameter ausgelassen wird, druckt dieser Befehl die ausgewählten Informationen nur einmal. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Der **netstat** -Befehl stellt Statistiken für Folgendes bereit:
 
-    | Parameter | Beschreibung |
+    | Parameter | BESCHREIBUNG |
     | --------- | ----------- |
     | Proto | Der Name des Protokolls (TCP oder UDP). |
     | Lokale Adresse | Die IP-Adresse des lokalen Computers und die verwendete Portnummer. Der Name des lokalen Computers, der der IP-Adresse und dem Namen des Ports entspricht, wird angezeigt, es sei denn, der Parameter " **-n** " wird angegeben. Wenn der Port noch nicht festgelegt ist, wird die Portnummer als Sternchen (*) angezeigt. |
     | Fremd Adresse | Die IP-Adresse und die Portnummer des Remote Computers, mit dem der Socket verbunden ist. Die Namen, die der IP-Adresse und dem Port entsprechen, werden angezeigt, es sei denn, der **-n-** Parameter wird angegeben. Wenn der Port noch nicht festgelegt ist, wird die Portnummer als Sternchen (*) angezeigt. |
-    | Status | Gibt den Status einer TCP-Verbindung an, einschließlich:<ul><li>CLOSE_WAIT</li><li>CLOSED</li><li>Nieder</li><li>FIN_WAIT_1</li><li>FIN_WAIT_2</li><li>LAST_ACK</li><li>Hin</li><li>SYN_RECEIVED</li><li>SYN_SEND</li><li>TIMED_WAIT</li></ul> |
+    | State | Gibt den Status einer TCP-Verbindung an, einschließlich:<ul><li>CLOSE_WAIT</li><li>CLOSED</li><li>Nieder</li><li>FIN_WAIT_1</li><li>FIN_WAIT_2</li><li>LAST_ACK</li><li>Hin</li><li>SYN_RECEIVED</li><li>SYN_SEND</li><li>TIMED_WAIT</li></ul> |
 
 ### <a name="examples"></a>Beispiele
 

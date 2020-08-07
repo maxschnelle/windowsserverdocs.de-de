@@ -1,20 +1,18 @@
 ---
 title: reg import
 description: Referenz Artikel zum Befehl "reg Import", der den Inhalt einer Datei mit exportierten Registrierungs unter Schlüsseln, Einträgen und Werten in die Registrierung des lokalen Computers kopiert.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 0be103de-08fc-4f02-b590-361782680b3e
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 77c8284dd2341f37292afdfd810b2182686aad68
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 4461f10cb31447a40f3d49df7731980f0f8a88a2
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85931865"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87884145"
 ---
 # <a name="reg-import"></a>reg import
 
@@ -28,16 +26,16 @@ reg import <filename>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 |--|--|
 | `<filename>` | Gibt den Namen und Pfad der Datei an, die Inhalte enthält, die in die Registrierung des lokalen Computers kopiert werden sollen. Diese Datei muss im Voraus mit dem reg- **Export**erstellt werden. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Die Rückgabewerte für den **reg-Import** Vorgang lauten:
 
-    | Wert | Beschreibung |
+    | Wert | BESCHREIBUNG |
     |--|--|
     | 0 | Erfolgreich |
     | 1 | Fehler |

@@ -1,20 +1,18 @@
 ---
 title: pushd
 description: Referenz Artikel für den Befehl pushd, der das aktuelle Verzeichnis für die Verwendung durch den Befehl popd speichert und dann in das angegebene Verzeichnis wechselt.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 396bc545-0f41-473e-b0ac-76fbbb74d390
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 871834ae1ac29eb53be982831e7ede93d9d309cf
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: e885cab58e23af9da050822c49a655ca897ce819
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85933755"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87884586"
 ---
 # <a name="pushd"></a>pushd
 
@@ -32,12 +30,12 @@ pushd [<path>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 |--|--|
 | `<path>` | Gibt das Verzeichnis an, das das aktuelle Verzeichnis bilden soll. Dieser Befehl unterstützt relative Pfade. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Wenn Befehls Erweiterungen aktiviert sind, akzeptiert der **pushd-** Befehl entweder einen Netzwerkpfad oder den Buchstaben und Pfad eines lokalen Laufwerks.
 

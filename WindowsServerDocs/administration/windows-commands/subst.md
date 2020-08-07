@@ -1,20 +1,18 @@
 ---
 title: subst
 description: Erfahren Sie, wie Sie einen Pfad mit einem Laufwerk Buchstaben verknüpfen.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 3e69234c-2312-4343-868b-afc1017c622a
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 62ba0de33e69998e7d3e343b1e53c1de7e630e10
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 385359a49ee1cc4df95a17bef6c2aed4704a2dcd
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82721612"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87881952"
 ---
 # <a name="subst"></a>subst
 
@@ -27,7 +25,7 @@ Ordnet einen Pfad einem Laufwerk Buchstaben zu. Bei Verwendung ohne Parameter ze
 ## <a name="syntax"></a>Syntax
 
 ```
-subst [<Drive1>: [<Drive2>:]<Path>] 
+subst [<Drive1>: [<Drive2>:]<Path>]
 subst <Drive1>: /d
 ```
 
@@ -36,7 +34,7 @@ subst <Drive1>: /d
 |Parameter|BESCHREIBUNG|
 |---------|-----------|
 |\<Drive1>:|Gibt das virtuelle Laufwerk an, dem Sie einen Pfad zuweisen möchten.|
-|[\<Drive2>:] \<Pfad>|Gibt das physische Laufwerk und den Pfad an, die einem virtuellen Laufwerk zugewiesen werden sollen.|
+|[\<Drive2>:]\<Path>|Gibt das physische Laufwerk und den Pfad an, die einem virtuellen Laufwerk zugewiesen werden sollen.|
 |/d|Löscht ein ersetzes (virtuelles) Laufwerk.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
@@ -63,13 +61,13 @@ subst <Drive1>: /d
 
 Geben Sie Folgendes ein, um ein virtuelles Laufwerk Z für den Pfad b:\user\tool\forms zu erstellen:
 ```
-subst z: b:\user\betty\forms 
+subst z: b:\user\betty\forms
 ```
 Anstatt den vollständigen Pfad einzugeben, können Sie dieses Verzeichnis erreichen, indem Sie den Buchstaben des virtuellen Laufwerks gefolgt von einem Doppelpunkt wie folgt eingeben:
 ```
-z: 
+z:
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

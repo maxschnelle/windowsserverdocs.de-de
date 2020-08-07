@@ -1,20 +1,18 @@
 ---
 title: bitsadmin gettype
 description: Referenz Artikel für den bizadmin GetType-Befehl, der den Auftragstyp des angegebenen Auftrags abruft.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: bec16f04-3e95-4587-889e-3de6ad03c9c8
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c7224add1b503d9ec50e84879a47442c12447e5d
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 3f0fe66256e59526b874aaf2ec8ae0193846a1da
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85926647"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87893827"
 ---
 # <a name="bitsadmin-gettype"></a>bitsadmin gettype
 
@@ -32,16 +30,16 @@ bitsadmin /gettype <job>
 | -------------- | -------------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 
-#### <a name="output"></a>Ausgabe
+#### <a name="output"></a>Output
 
 Die zurückgegebenen Ausgabewerte können wie folgt lauten:
 
-| Typ | Beschreibung |
+| type | BESCHREIBUNG |
 | --------------- | ----------- |
 | Download | Der Auftrag ist ein Download. |
-| Hochladen | Der Auftrag ist ein Upload. |
+| Upload | Der Auftrag ist ein Upload. |
 | Upload-Antwort | Der Auftrag ist ein Upload-Antwort-Vorgang. |
-| Unbekannt | Der Auftrag weist einen unbekannten Typ auf. |
+| Unknown | Der Auftrag weist einen unbekannten Typ auf. |
 
 ## <a name="examples"></a>Beispiele
 

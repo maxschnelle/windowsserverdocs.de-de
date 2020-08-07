@@ -1,20 +1,18 @@
 ---
 title: bootcfg ems
 description: Referenz Artikel zum Befehl "bootcfg EMS", der es dem Benutzer ermöglicht, die Einstellungen für die Umleitung der Konsole der Notfall Verwaltungsdienste zu einem Remote Computer hinzuzufügen oder zu ändern.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 57abdc50-c64a-45f1-8470-3f8c3a51f743
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9c24f8acf6beb368dd989e4b05c912b69c4e7b68
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: b3f703eefe9f9300d6576a9f4349d2fb275b2d57
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85926240"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87880578"
 ---
 # <a name="bootcfg-ems"></a>bootcfg ems
 
@@ -30,7 +28,7 @@ bootcfg /ems {on | off | edit}[/s <computer> [/u <domain>\<user> /p <password>]]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `{on | off | edit}` | Gibt den Wert für die Umleitung der Notfall Verwaltungsdienste an, einschließlich:<ul><li>**auf.** Aktiviert die Remote Ausgabe für die angegebene `<osentrylinenum>` . Fügt dem angegebenen außerdem eine/Redirect-Option <osentrylinenum> und eine `redirect=com<X>` Einstellung zum [Boot Loader]-Abschnitt hinzu. Der Wert von `com<X>` wird durch den **/Port** -Parameter festgelegt.</li><li>**abgeschrieben.** Deaktiviert die Ausgabe auf einem Remote Computer. Entfernt auch die Option/Redirect für die angegebene <osentrylinenum> und die `redirect=com<X>` Einstellung aus dem Abschnitt [Boot Loader].</li><li>**Bearbeiten.** Ermöglicht Änderungen an den Port Einstellungen durch Ändern der `redirect=com<X>` Einstellung im Abschnitt [Boot Loader]. Der Wert von `com<X>` wird durch den **/Port** -Parameter festgelegt.</li></ul> |
 | `/s <computer>` | Gibt den Namen oder die IP-Adresse eines Remote Computers an (verwenden Sie keine umgekehrten Schrägstriche). Die Standardeinstellung ist der lokale Computer. |

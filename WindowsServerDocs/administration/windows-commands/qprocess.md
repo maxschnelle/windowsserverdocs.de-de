@@ -1,20 +1,18 @@
 ---
 title: qprocess
 description: Referenz Artikel für den Befehl qprocess, der Informationen zu Prozessen anzeigt, die auf einem Remotedesktop-Sitzungshost Server ausgeführt werden.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 9825cb01-11e0-4cd1-8142-57910e2f4056
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0adc884e0bdbfac253d94f29d3543ae138c5f857
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 940b366ff11c1572849b9fef018aff805daf3a6b
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86956532"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87884548"
 ---
 # <a name="qprocess"></a>qprocess
 
@@ -25,7 +23,7 @@ Zeigt Informationen zu Prozessen an, die auf einem Remotedesktop-Sitzungshost Se
 > [!NOTE]
 > Dieser Befehl ist mit dem [Abfrageprozess Befehl](query-process.md)identisch.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

@@ -1,20 +1,18 @@
 ---
 title: query process
 description: Referenz Artikel für den Abfrageprozess Befehl, der Informationen zu Prozessen anzeigt, die auf einem Remotedesktop-Sitzungshost Server ausgeführt werden.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 36ce3ffc-0092-4eb1-a374-28e6616ca946
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 548be2874bf79aab88abd53f0303096a82486fd0
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 204782437d9fb144a9738038e82cdbbbcdc9078f
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86956522"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87884536"
 ---
 # <a name="query-process"></a>query process
 
@@ -76,7 +74,7 @@ Geben Sie Folgendes ein, um Informationen über die Prozesse anzuzeigen, die von
 query process /ID:2
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

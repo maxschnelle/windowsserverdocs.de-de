@@ -1,20 +1,18 @@
 ---
 title: bitsadmin getnotifyinterface
 description: Referenz Artikel für den bizadmin getnotifyinterface-Befehl, der bestimmt, ob ein anderes Programm eine com-Rückruf Schnittstelle für den angegebenen Auftrag registriert hat.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 40bf9dd8-b167-406a-80a6-a5a6f1b8cf7f
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9c86b611eb5f46759c474171085884c5702e07d1
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: c0e22b240f16aa417cf46b715527cd9098c60794
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85926900"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87894066"
 ---
 # <a name="bitsadmin-getnotifyinterface"></a>bitsadmin getnotifyinterface
 
@@ -28,11 +26,11 @@ bitsadmin /getnotifyinterface <job>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | -------------- | -------------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 
-#### <a name="output"></a>Ausgabe
+#### <a name="output"></a>Output
 
 Mit der Ausgabe für diesen Befehl wird entweder, **registriert** oder **nicht registriert**angezeigt.
 

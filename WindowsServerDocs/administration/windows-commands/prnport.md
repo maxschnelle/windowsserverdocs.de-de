@@ -1,20 +1,18 @@
 ---
 title: prnport
 description: Referenz Artikel zum prnport-Befehl, der die TCP/IP-Standarddrucker Anschlüsse erstellt, löscht und auflistet, zusätzlich zum Anzeigen und Ändern der Port Konfiguration.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 6a0ec638-a21e-4a34-be5c-bd0f7ca89ffe
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4b373547050d3d3dfb1d64160959c8dbb9e6f5c5
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: a8aa1729c84b54393a6154dd5fc4ba5a5e6834fc
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85931162"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87884700"
 ---
 # <a name="prnport"></a>prnport
 
@@ -30,7 +28,7 @@ cscript prnport {-a | -d | -l | -g | -t | -?} [-r <portname>] [-s <Servername>] 
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 |--|--|
 | -a | Erstellt einen standardmäßigen TCP/IP-Druckerport. |
 | -d | Löscht einen standardmäßigen TCP/IP-Druckerport. |
@@ -38,7 +36,7 @@ cscript prnport {-a | -d | -l | -g | -t | -?} [-r <portname>] [-s <Servername>] 
 | -g | Hiermit wird die Konfiguration eines standardmäßigen TCP/IP-Drucker Ports angezeigt. |
 | -t | Konfiguriert die Port Einstellungen für einen Standard-TCP/IP-Druckerport. |
 | -r`<portname>` | Gibt den Port an, mit dem der Drucker verbunden ist. |
-| -s`<Servername>` | Gibt den Namen des Remote Computers an, der den Drucker hostet, den Sie verwalten möchten. Wenn Sie keinen Computer angeben, wird der lokale Computer verwendet. |
+| -s `<Servername>` | Gibt den Namen des Remote Computers an, der den Drucker hostet, den Sie verwalten möchten. Wenn Sie keinen Computer angeben, wird der lokale Computer verwendet. |
 | -u `<Username>` -w`<password>` | Gibt ein Konto mit Berechtigungen zum Herstellen einer Verbindung mit dem Computer an, der den zu verwaltenden Drucker hostet. Alle Mitglieder der lokalen Administratoren Gruppe des Ziel Computers verfügen über diese Berechtigungen, die Berechtigungen können jedoch auch anderen Benutzern erteilt werden. Wenn Sie kein Konto angeben, müssen Sie unter einem Konto mit diesen Berechtigungen angemeldet sein, damit der Befehl funktioniert. |
 | -o`{raw|lpr}` | Gibt an, welches Protokoll der Port verwendet: TCP-RAW oder TCP LPR. Das TCP-RAW-Protokoll ist ein höheres Leistungs Protokoll unter Windows als das lpr-Protokoll. Wenn Sie TCP RAW verwenden, können Sie optional die Portnummer angeben, indem Sie den Parameter **-n** verwenden. Die Standard Portnummer ist 9100. |
 | -h`<Hostaddress>` | Gibt (nach IP-Adresse) den Drucker an, für den Sie den Port konfigurieren möchten. |
@@ -50,7 +48,7 @@ cscript prnport {-a | -d | -l | -g | -t | -?} [-r <portname>] [-s <Servername>] 
 | -2`{e|-d}` | Gibt an, ob doppelte Spool (auch als "respoolung" bezeichnet) für TCP LPR-Ports aktiviert sind. Doppelte Spool sind erforderlich, da TCP LPR eine genaue Byte Anzahl in der Steuerungs Datei enthalten muss, die an den Drucker gesendet wird, aber das Protokoll kann die Anzahl nicht vom lokalen Druckanbieter erhalten. Wenn eine Datei in eine TCP LPR-Druck Warteschlange gestellt wird, wird Sie daher auch als temporäre Datei im Verzeichnis "System32" gespoolt. TCP LPR bestimmt die Größe der temporären Datei und sendet die Größe an den Server, auf dem LPD ausgeführt wird. Der Parameter **e** aktiviert doppelte spools. Der Parameter **d** deaktiviert doppelte spools. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Wenn die Informationen, die Sie angeben, Leerzeichen enthalten, verwenden Sie den Text in Anführungszeichen (z. b. "Computer Name").
 

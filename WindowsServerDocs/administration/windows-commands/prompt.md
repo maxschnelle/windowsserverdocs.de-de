@@ -1,20 +1,18 @@
 ---
 title: prompt
 description: Referenz Artikel für den Prompt-Befehl, mit dem die Cmd.exe Eingabeaufforderung angepasst wird.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 3d98e965-02eb-46ad-9d0a-5dc44830373e
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 72ed82c316faddba9486649497c8c48f88e6da81
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: df849e70da973276360da6e81390466f0484f4b5
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85931138"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87884627"
 ---
 # <a name="prompt"></a>prompt
 
@@ -33,11 +31,11 @@ prompt [<text>]
 | `<text>` | Gibt den Text und die Informationen an, die Sie in die Eingabeaufforderung einschließen möchten. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Die Zeichenkombinationen, die Sie anstelle von oder zusätzlich zu einer oder mehreren Zeichen folgen im *Text* Parameter einschließen können:
 
-    | Zeichen | Beschreibung |
+    | Zeichen | BESCHREIBUNG |
     |--|--|
     | $q | = (Gleichheitszeichen) |
     | $$ | $ (Dollar Zeichen) |
@@ -59,7 +57,7 @@ prompt [<text>]
 
 - Wenn Befehls Erweiterungen aktiviert sind, unterstützt der **prompt** -Befehl die folgenden Formatierungszeichen:
 
-    | Zeichen | Beschreibung |
+    | Zeichen | BESCHREIBUNG |
     |--|--|
     | $+ | 0 (null) oder mehr Pluszeichen ( **+** ), abhängig von der Tiefe des **pushd-** Verzeichnis Stapels (ein Zeichen für jede Ebene wird per Push abgelegt). |
     | $m | Der Remote Name, der dem aktuellen Laufwerk Buchstaben oder der leeren Zeichenfolge zugeordnet ist, wenn das aktuelle Laufwerk kein Netzwerklaufwerk ist. |

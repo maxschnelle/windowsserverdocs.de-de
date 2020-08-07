@@ -1,20 +1,18 @@
 ---
 title: Unterbefehls Satz-Transportserver
 description: Referenz Artikel für den Unterbefehl Set-TransportServer, mit dem Konfigurationseinstellungen für einen Transport Server festgelegt werden.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 7863225c-f4b2-4cd0-b929-78a454bef249
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e678ac9f472666dcb5a49e5f0aad2bb9003cd3a5
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 9b7725101bcc2230a07c8082f9a57b85d411e80d
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85936973"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87882120"
 ---
 # <a name="subcommand-set-transportserver"></a>Unterbefehl: Set-TransportServer
 
@@ -41,7 +39,7 @@ wdsutil [Options] /Set-TransportServer [/Server:<Server name>]
                  [/Fallback:{Yes | No}]
 ```
 ### <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |-------|--------|
 |[/Server:<Server name>]|Gibt den Namen des Transport Servers an. Dabei kann es sich um den NetBIOS-Namen oder den voll qualifizierten Domänen Namen (FQDN) handeln. Wenn kein Transport Servername angegeben ist, wird der lokale Server verwendet.|
 |[/ObtainIpv4From: {DHCP-&#124; Bereich}]|Legt die Quelle der IPv4-Adressen wie folgt fest:<p>-[/Start: <IP address> ] legt den Anfang des IP-Adress Bereichs fest. Dies ist nur erforderlich und gültig, wenn diese Option auf **Bereich**festgelegt ist.<br />-[/End: <IP address> ] legt das Ende des IP-Adress Bereichs fest. Dies ist nur erforderlich und gültig, wenn diese Option auf **Bereich**festgelegt ist.<br />-[/startPort: <port> ] legt den Anfang des Port Bereichs fest.<br />-[/EndPort: <port> ] legt das Ende des Port Bereichs fest.|

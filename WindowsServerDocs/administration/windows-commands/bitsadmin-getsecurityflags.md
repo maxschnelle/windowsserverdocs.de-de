@@ -1,20 +1,18 @@
 ---
 title: bitsadmin getsecurityflags
 description: Referenz Artikel für den bitadmin getsecurityflags-Befehl, der die http-sicherheitsflags für die URL-Umleitung und die bei der Übertragung ausgeführten Prüfungen auf dem Serverzertifikat meldet.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: c2e73519-34f4-487b-af11-97d5d08ef9bb
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8613f2bd293bdbf7680aa730ec6fc222ffcfe158
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: ec6b5f4a52f1ecbf40b9374dd96914d4334eaf07
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85926687"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87893864"
 ---
 # <a name="bitsadmin-getsecurityflags"></a>bitsadmin getsecurityflags
 
@@ -30,7 +28,7 @@ bitsadmin /getsecurityflags <job>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | -------------- | -------------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 

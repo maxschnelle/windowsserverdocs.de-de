@@ -1,20 +1,18 @@
 ---
 title: bitsadmin monitor
 description: Referenz Artikel zum Befehl bizadmin Monitor, mit dem Aufträge in der Übertragungs Warteschlange überwacht werden, deren Besitzer der aktuelle Benutzer ist.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 2c424d27-e011-49c2-b579-a2c235467c39
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7ce08eccf46fc17086d216bc6797bec451ace7eb
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 3ba2cb315fb0696b8363506669aa41f1693bb758
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85926497"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87893662"
 ---
 # <a name="bitsadmin-monitor"></a>bitsadmin monitor
 
@@ -28,10 +26,10 @@ bitsadmin /monitor [/allusers] [/refresh <seconds>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | -------------- | -------------- |
-| /ALLUSERS | Dies ist optional. Überwacht Aufträge für alle Benutzer. Sie müssen über Administratorrechte verfügen, um diesen Parameter zu verwenden. |
-| /Refresh | Dies ist optional. Aktualisiert die Daten in einem durch angegebenen Intervall `<seconds>` . Das Standard Aktualisierungs Intervall beträgt 5 Sekunden. Drücken Sie STRG + C, um die Aktualisierung zu verhindern. |
+| /ALLUSERS | Optional. Überwacht Aufträge für alle Benutzer. Sie müssen über Administratorrechte verfügen, um diesen Parameter zu verwenden. |
+| /Refresh | Optional. Aktualisiert die Daten in einem durch angegebenen Intervall `<seconds>` . Das Standard Aktualisierungs Intervall beträgt 5 Sekunden. Drücken Sie STRG + C, um die Aktualisierung zu verhindern. |
 
 ## <a name="examples"></a>Beispiele
 

@@ -1,20 +1,18 @@
 ---
 title: Unterbefehl "Ende-Server"
 description: Referenz Artikel für den Unterbefehl "Stopp-Server", der alle Dienste auf einem Windows-Bereitstellungsdiensteserver stoppt.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 09f411c0-099f-4591-95fd-b77b3fd9118a
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 044b151247d4f525656f6ad97d882df7ca37472a
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: e923ad4a7151ada5b23beb149b9aadc02f4573b8
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85935368"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87882026"
 ---
 # <a name="subcommand-stop-server"></a>Unterbefehl: "Ende-Server"
 
@@ -27,7 +25,7 @@ Beendet alle Dienste auf einem Windows-Bereitstellungsdiensteserver.
 wdsutil [Options] /Stop-Server [/Server:<Server name>]
 ```
 ### <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |-------|--------|
 |[/Server:<Server name>]|Gibt den Namen des Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.|
 ## <a name="examples"></a>Beispiele

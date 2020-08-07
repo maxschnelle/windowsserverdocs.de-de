@@ -1,20 +1,18 @@
 ---
 title: sxstrace
 description: Erfahren Sie, wie Sie parallele Probleme diagnostizieren können.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: fcd26eeb-fbd9-4a86-b6a9-dfa5e9c6e4fc
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 88ea6ba9d7a8f9744997eb78be2309693a6267b5
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: d1ed136e72569c2dfbe59cd2132e13c23f94da02
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83821150"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87881933"
 ---
 # <a name="sxstrace"></a>sxstrace
 
@@ -32,13 +30,13 @@ sxstrace [{[trace -logfile:<FileName> [-nostop]|[parse -logfile:<FileName> -outf
 |-------|--------|
 |Ablaufverfolgung|Aktiviert die Ablauf Verfolgung für SxS (Seite an Seite).|
 |-Logfile|Gibt die unformatierte Protokolldatei an.|
-|\<Dateiname>|Speichert das Ablauf Verfolgungs Protokoll in *filename*.|
+|\<FileName>|Speichert das Ablauf Verfolgungs Protokoll in *filename*.|
 |-nostoppt|Gibt keine Aufforderung zum Abbrechen der Ablauf Verfolgung an.|
 |parse|Übersetzt die RAW-Ablauf Verfolgungs Datei.|
 |-outfile|Gibt den Ausgabe Dateinamen an.|
-|\<> für das von Dateien|Gibt den Dateinamen der analysierten Datei an.|
+|\<ParsedFile>|Gibt den Dateinamen der analysierten Datei an.|
 |-filter|Ermöglicht das Filtern der Ausgabe.|
-|\<AppName->|Gibt den Namen der Anwendung an.|
+|\<AppName>|Gibt den Namen der Anwendung an.|
 |stoptrace|Beenden Sie die Ablauf Verfolgung, wenn Sie noch nicht beendet wurde.|
 |-?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
@@ -47,11 +45,11 @@ Aktivieren Sie die Ablauf Verfolgung, und speichern Sie die Ablauf Verfolgungs D
 ```
 sxstrace trace -logfile:sxstrace.etl
 ```
-Übersetzen Sie die unformatierte Ablauf Verfolgungs Datei in ein lesbares Format, und speichern Sie das Ergebnis in **sxstrace. txt**:
+Übersetzen Sie die unformatierte Ablauf Verfolgungs Datei in ein lesbares Format, und speichern Sie das Ergebnis in **sxstrace.txt**:
 ```
 sxstrace parse -logfile:sxstrace.etl -outfile:sxstrace.txt
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

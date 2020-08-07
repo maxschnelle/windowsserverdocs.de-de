@@ -1,20 +1,18 @@
 ---
 title: systeminfo
 description: Referenz Artikel zu Systeminfo, der ausführliche Konfigurationsinformationen zu einem Computer und dessen Betriebssystem anzeigt, einschließlich Betriebs Systemkonfiguration, Sicherheitsinformationen, Produkt-ID und Hardware Eigenschaften (z. b. RAM, Speicherplatz und Netzwerkkarten).
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 39954968-3c2e-4d3e-9d89-c9c43347461e
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 670fdb94a2ccb10476faccab8f265a5e4db060dd
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: b34e92a5035360cb600bfe73b405f0a7033b6196
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85932568"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87881900"
 ---
 # <a name="systeminfo"></a>systeminfo
 
@@ -30,7 +28,7 @@ Systeminfo [/s <Computer> [/u <Domain>\<UserName> [/p <Password>]]] [/fo {TABLE 
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
 |/s\<Computer>|Gibt den Namen oder die IP-Adresse eines Remote Computers an (verwenden Sie keine umgekehrten Schrägstriche). Die Standardeinstellung ist der lokale Computer.|
 |/u\<Domain>\<UserName>|Führt den Befehl mit den Konto Berechtigungen des angegebenen Benutzerkontos aus. Wenn **/u** nicht angegeben ist, verwendet dieser Befehl die Berechtigungen des Benutzers, der zurzeit auf dem Computer angemeldet ist, von dem der Befehl ausgegeben wird.|

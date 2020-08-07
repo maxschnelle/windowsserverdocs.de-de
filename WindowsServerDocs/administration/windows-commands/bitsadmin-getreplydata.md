@@ -1,20 +1,18 @@
 ---
 title: bitsadmin getreplydata
 description: Referenz Artikel für den BITSAdmin getreplydata-Befehl, der die Upload-Antwort-Daten des Servers im Hexadezimal Format für den Auftrag abruft.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 819f97d5-b255-4b2d-9f63-0daa73915434
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 86c8a57664d6f90980212766e8e2bd2df6d95181
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: ab9f774c7b31576e18de3ec5db9b5a72427ecdaa
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85926741"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87893896"
 ---
 # <a name="bitsadmin-getreplydata"></a>bitsadmin getreplydata
 
@@ -31,7 +29,7 @@ bitsadmin /getreplydata <job>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | -------------- | -------------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 

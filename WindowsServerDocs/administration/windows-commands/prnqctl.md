@@ -1,20 +1,18 @@
 ---
 title: prnqctl
 description: Referenz Artikel für den prnqctl-Befehl, der eine Testseite ausgibt und einen Drucker anhält oder fortsetzt.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 8df9dfa7-984c-4276-bb7d-e7675e7c399e
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 7bcc6a36fb2387a82e25afd41be2d22615565bfe
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 9ab7c6e8302ebd2c94daee98d8bbef87ecfd4854
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85931152"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87884697"
 ---
 # <a name="prnqctl"></a>prnqctl
 
@@ -30,18 +28,18 @@ cscript Prnqctl {-z | -m | -e | -x | -?} [-s <Servername>] [-p <Printername>] [-
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 |--|--|
 | -Z | Hält den Druck auf dem Drucker an, der durch den **-p-** Parameter angegeben wird. |
 | -M | Setzt den Druckvorgang auf dem Drucker fort, der durch den **-p-** Parameter angegeben wird. |
 | -E | Druckt eine Testseite auf dem Drucker, der durch den **-p-** Parameter angegeben wird. |
 | -X | Bricht alle Druckaufträge auf dem Drucker ab, der durch den **-p-** Parameter angegeben wird. |
-| -s`<Servername>` | Gibt den Namen des Remote Computers an, der den Drucker hostet, den Sie verwalten möchten. Wenn Sie keinen Computer angeben, wird der lokale Computer verwendet. |
+| -s `<Servername>` | Gibt den Namen des Remote Computers an, der den Drucker hostet, den Sie verwalten möchten. Wenn Sie keinen Computer angeben, wird der lokale Computer verwendet. |
 | -p`<Printername>` | Erforderlich. Gibt den Namen des Druckers an, den Sie verwalten möchten. |
 | -u `<Username>` -w`<password>` | Gibt ein Konto mit Berechtigungen zum Herstellen einer Verbindung mit dem Computer an, der den zu verwaltenden Drucker hostet. Alle Mitglieder der lokalen Administratoren Gruppe des Ziel Computers verfügen über diese Berechtigungen, die Berechtigungen können jedoch auch anderen Benutzern erteilt werden. Wenn Sie kein Konto angeben, müssen Sie unter einem Konto mit diesen Berechtigungen angemeldet sein, damit der Befehl funktioniert. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Wenn die Informationen, die Sie angeben, Leerzeichen enthalten, verwenden Sie den Text in Anführungszeichen (z. b. "Computer Name").
 

@@ -1,20 +1,18 @@
 ---
 title: nlbmgr
 description: Referenz Artikel für den Befehl "Nlbmgr", mit dem Sie Ihre Netzwerk Lastenausgleichs-Cluster und alle Cluster Hosts mithilfe des Netzwerk Lastenausgleich-Managers von einem einzelnen Computer aus konfigurieren und verwalten können.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 89cb8590-b7cf-4a27-89fa-0fa62ea1a1ca
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 19aca0285eca202b4e43a15b8e880f3672f0c846
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: ac0eeb423c5cd590befcce8d7f986fc6b6ebf7d1
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86956712"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87885942"
 ---
 # <a name="nlbmgr"></a>nlbmgr
 
@@ -32,7 +30,7 @@ nlbmgr [/noping][/hostlist <filename>][/autorefresh <interval>][/help | /?]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | /noping | Verhindert, dass der Netzwerk Lastenausgleich-Manager die Hosts anheftet, bevor versucht wird, Sie über Windows-Verwaltungsinstrumentation (WMI) zu kontaktieren. Verwenden Sie diese Option, wenn Sie das Internet Control Message-Protokoll (ICMP) auf allen verfügbaren Netzwerkadaptern deaktiviert haben. Wenn der Netzwerk Lastenausgleich-Manager versucht, einen Host zu kontaktieren, der nicht verfügbar ist, tritt bei der Verwendung dieser Option eine Verzögerung auf. |
 | /hostlist`<filename>` | Lädt die in filename angegebenen Hosts in den Netzwerk Lastenausgleich-Manager. |
@@ -40,7 +38,7 @@ nlbmgr [/noping][/hostlist <filename>][/autorefresh <interval>][/help | /?]
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 | /help | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

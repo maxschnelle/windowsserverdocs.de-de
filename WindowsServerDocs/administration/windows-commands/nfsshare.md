@@ -1,20 +1,18 @@
 ---
 title: nfsshare
 description: Referenz Artikel für den nfsshare-Befehl, der NFS-Freigaben (Network File System) steuert.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 437a2615-335a-442f-9713-d50d5f3983a3
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9db04752ad7982f78dc72c02108fe706cdf2fa04
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 492b405468987f91f72019c710b8ae4eae4ff6fa
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86956762"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87885983"
 ---
 # <a name="nfsshare"></a>nfsshare
 
@@ -29,7 +27,7 @@ nfsshare {<sharename> | <drive>:<path> | * } /delete
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | -o anon =`{yes|no}` | Gibt an, ob anonyme (nicht zugeordnete) Benutzer auf das Freigabe Verzeichnis zugreifen können. |
 | -o RW =`[<host>[:<host>]...]` | Bietet Lese-/Schreibzugriff auf das freigegebene Verzeichnis durch die Hosts oder Client Gruppen, die vom *Host*angegeben werden. Host-und Gruppennamen müssen mit einem Doppelpunkt (**:**) getrennt werden. Wenn der *Host* nicht angegeben wird, erhalten alle Hosts und Client Gruppen (außer den mit der Option **RO** angegebenen) Lese-/Schreibzugriff. Wenn weder die **RO** -noch die **RW** -Option festgelegt ist, haben alle Clients Lese-/Schreibzugriff auf das freigegebene Verzeichnis. |
@@ -47,7 +45,7 @@ nfsshare {<sharename> | <drive>:<path> | * } /delete
 
 - Wenn *ShareName* und `<drive>:<path>` verwendet werden, exportiert dieser Befehl den von identifizierten Ordner `<drive>:<path>` als *ShareName*. Wenn Sie die Option **/Delete** verwenden, ist der angegebene Ordner für NFS-Clients nicht mehr verfügbar.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

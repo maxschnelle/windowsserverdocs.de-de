@@ -4,15 +4,13 @@ description: Referenz Artikel für das refsutil-Tool, das versucht, stark besch�
 author: laknight5
 ms.author: laknight
 ms.date: 6/29/2020
-ms.prod: windows-server
-ms.technology: windows-commands
 ms.topic: article
-ms.openlocfilehash: 3afc96970bb0350a3c1168c520cc20ad4f2254af
-ms.sourcegitcommit: 145cf75f89f4e7460e737861b7407b5cee7c6645
+ms.openlocfilehash: d40faa165666a5836dc6e87589d27f8eb643479e
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87409721"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87884209"
 ---
 # <a name="refsutil"></a>Ref
 
@@ -31,7 +29,7 @@ Refs-Rettung ist die primäre Funktion von ref und eignet sich für die Wiederhe
 | `<target directory>` | Gibt den Speicherort an, in den identifizierte Dateien kopiert werden. Er darf sich **nicht** im befinden `<source volume>` . |
 | \- Min. | Stellt alle möglichen Dateien einschließlich gelöschter Dateien wieder her.<p>**Warnung:** Dieser Parameter bewirkt nicht nur, dass die Ausführung des Prozesses länger dauert, sondern auch zu unerwarteten Ergebnissen führen kann. |
 | \-Ramelow | Gibt an, dass der ausführliche Modus verwendet werden soll. |
-| \-Stuben | Erzwingt, dass das Volume bei Bedarf zuerst entfernt wird. Alle geöffneten Handles für das Volume sind dann ungültig. Beispiel: `refsutil salvage -QA R: N:\WORKING N:\DATA -x`. |
+| \-x | Erzwingt, dass das Volume bei Bedarf zuerst entfernt wird. Alle geöffneten Handles für das Volume sind dann ungültig. Beispielsweise `refsutil salvage -QA R: N:\WORKING N:\DATA -x`. |
 
 ## <a name="usage-and-available-options"></a>Verwendungs-und verfügbare Optionen
 
@@ -99,6 +97,6 @@ Fortgeschrittene Benutzer können Dateien mithilfe einer interaktiven Konsole re
 refsutil salvage -IC <source volume> <working directory> <options>
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
