@@ -1,20 +1,18 @@
 ---
 title: Scwcmd-Register
 description: Referenz Artikel für * * * *-
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: fe4d126a-9f27-4076-b7b1-fbefa45f378a
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7917cfe8f71673ad45d8d3e32d29798757367c2a
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 227a59cd5a033f8bc6a30344a2c71afa435ab069
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85932640"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87883175"
 ---
 # <a name="scwcmd-register"></a>Scwcmd: registrieren
 
@@ -30,7 +28,7 @@ scwcmd register /kbname:<MyApp> [/kbfile:<kb.xml>] [/kb:<path>] [/d]
 
 #### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
 |/kbname:\<MyApp>|Gibt den Namen an, unter dem die Sicherheitskonfigurations-Daten Bank Erweiterung registriert wird. Dieser Parameter muss angegeben werden.|
 |/kbfile:\<Kb.xml>|Gibt den Pfad und den Dateinamen der Sicherheitskonfigurations-Datenbankdatei an, die verwendet wird, um die Datenbank der Basis Sicherheitskonfiguration zu erweitern oder anzupassen. Um zu überprüfen, ob die Sicherheitskonfigurations-Datenbankdatei mit dem SCW-Schema kompatibel ist, verwenden Sie die Schema Definitionsdatei "%windir%\security\kbregistrationinfo.xsd". Diese Option muss angegeben werden, es sei denn, der **/d** -Parameter wird angegeben.|
@@ -38,7 +36,7 @@ scwcmd register /kbname:<MyApp> [/kbfile:<kb.xml>] [/kb:<path>] [/d]
 |/d|Hebt die Registrierung einer Sicherheitskonfigurations-Daten Bank Erweiterung aus der Sicherheitskonfigurations-Datenbank auf. Die Erweiterung, deren Registrierung aufgehoben werden soll, wird durch den/kbname-Parameter angegeben. (Der **/kbfile** -Parameter sollte nicht angegeben werden.) Die Sicherheits Konfigurations Datenbank, von der die Registrierung der Erweiterung aufgehoben werden soll, wird durch den **/KB** -Parameter angegeben.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 Scwcmd.exe ist nur auf Computern verfügbar, auf denen Windows Server 2008 R2, Windows Server 2008 oder Windows Server 2003 ausgeführt wird.
 

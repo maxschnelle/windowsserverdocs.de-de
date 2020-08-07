@@ -1,20 +1,18 @@
 ---
 title: typeperf
 description: Referenz Artikel für typeperf, der Leistungsdaten in das Befehlsfenster oder in eine Protokolldatei schreibt.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 0c7ca89a-03b3-4626-afcf-ef8565e90043
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 90a53224b733489464b7432c6f8c9304dd62df18
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 38a459fb1c52c627d05f3d19fb8f2e8055a89338
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85937316"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87896643"
 ---
 # <a name="typeperf"></a>typeperf
 
@@ -31,7 +29,7 @@ typeperf -qx [object] [options]
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
 |\<counter [counter […]]>|Gibt die zu überwachenden Leistungsindikatoren an.|
 
@@ -40,7 +38,7 @@ typeperf -qx [object] [options]
 
 ## <a name="options"></a>Optionen
 
-|                   Option                   |                                                         Beschreibung                                                          |
+|                   Option                   |                                                         BESCHREIBUNG                                                          |
 |--------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
 |                     -?                     |                                               Zeigt die kontextbezogene Hilfe an.                                               |
 | -f\<CSV&verbar;TSV&verbar;BIN&verbar;SQL> |                                    Gibt das Format der Ausgabedatei an. Der Standardwert ist CSV.                                     |
@@ -51,7 +49,7 @@ typeperf -qx [object] [options]
 |                -QX [Objekt]                |        Zeigt eine Liste installierter Leistungsindikatoren mit Instanzen an. Zum Auflisten der Zähler für ein Objekt fügen Sie den Objektnamen ein.        |
 |               -SC\<samples>               |             Gibt die Anzahl der zu sammelnden Stichproben an. Der Standardwert ist das Sammeln von Daten, bis STRG + C gedrückt wird.              |
 |            -config\<filename>             |                                    Gibt eine Einstellungsdatei an, die Befehlsoptionen enthält.                                     |
-|            -s\<computer_name>             |                   Gibt einen Remote Computer an, der überwacht werden soll, wenn im Verbindungs Pfad kein Computer angegeben ist.                    |
+|            -s \<computer_name>             |                   Gibt einen Remote Computer an, der überwacht werden soll, wenn im Verbindungs Pfad kein Computer angegeben ist.                    |
 |                     -y                     |                                        Antworten Sie auf Ja, um alle Fragen zu beantworten.                                        |
 
 ## <a name="examples"></a>Beispiele

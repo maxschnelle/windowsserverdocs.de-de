@@ -1,18 +1,16 @@
 ---
 title: Zusätzliche Ressourcen zur Optimierung der Serverleistung
 description: Zusätzliche Ressourcen zur Optimierung der Serverleistung
-ms.prod: windows-server
-ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: phstee
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 3c011d3c6e75fb1d5212d9b1ec3c6e6c69fac5d6
-ms.sourcegitcommit: 3f9bcd188dda12dc5803defb47b2c3a907504255
+ms.openlocfilehash: 2b789fb3c5290c5f268c1e64f66fb25fd4856136
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "77001865"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87896758"
 ---
 # <a name="additional-performance-tuning-resources"></a>Zusätzliche Ressourcen zur Leistungsoptimierung
 
@@ -33,13 +31,13 @@ Verwenden Sie die Links in diesem Thema, um mehr über die Konzepte zu erfahren,
 
 -   [Evaluieren der System Energieeffizienz mithilfe von powercfg](https://technet.microsoft.com/library/cc748940.aspx)
 
--   [Interrupt-Affinitäts Richtlinien-Tool](https://support.microsoft.com/kb/252867)
+-   [Richtlinientool "Interrupt-Affinity"](https://support.microsoft.com/kb/252867)
 
 ## <a name="networking-subsystem-tuning-resources"></a>Optimierungs Ressourcen für das Netzwerk Subsystem
 
 -   [Skalierbares Netzwerk: vermeiden des Engpass bei der Empfangs Verarbeitung – Einführung in RSS](https://download.microsoft.com/download/5/D/6/5D6EAF2B-7DDF-476B-93DC-7CF0072878E6/NDIS_RSS.doc)
 
--   [Windows-Filter Plattform](https://msdn.microsoft.com/windows/hardware/gg463267.aspx)
+-   [Windows-Filterplattform](https://msdn.microsoft.com/windows/hardware/gg463267.aspx)
 
 -   [Netzwerk Bereitstellungs Handbuch: Bereitstellen von Features für hoch Geschwindigkeits Netzwerke](https://technet.microsoft.com/library/gg162681.aspx)
 
@@ -51,7 +49,7 @@ Verwenden Sie die Links in diesem Thema, um mehr über die Konzepte zu erfahren,
 
 -   [Richtlinien zur Leistungsoptimierung für Microsoft-Dienste für Network File System](https://technet.microsoft.com/library/bb463205.aspx)
 
--   [\[MS-bsso\]: System Übersicht über Datei Zugriffs Dienste](https://download.microsoft.com/download/5/0/1/501ED102-E53F-4CE0-AA6B-B0F93629DDC6/Windows/%5bMS-FSSO%5d.pdf)
+-   [\[MS-f SSO \] : System Übersicht über Datei Zugriffs Dienste](https://download.microsoft.com/download/5/0/1/501ED102-E53F-4CE0-AA6B-B0F93629DDC6/Windows/%5bMS-FSSO%5d.pdf)
 
 -   [Deaktivieren des Diagnosetools für die automatische automatische Optimierung von TCP](https://support.microsoft.com/kb/967475)
 
@@ -63,7 +61,7 @@ Verwenden Sie die Links in diesem Thema, um mehr über die Konzepte zu erfahren,
 
 -   [Neues in Hyper-V unter Windows Server 2016](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/what-s-new-in-hyper-v-on-windows)
 
--   [Konfigurations Handbuch für Hyper-V-dynamischer Arbeitsspeicher](https://technet.microsoft.com/library/ff817651.aspx)
+-   [Anleitung zum Konfigurieren von dynamischem Arbeitsspeicher für Hyper-V](https://technet.microsoft.com/library/ff817651.aspx)
 
 -   [NUMA-Knoten Ausgleich](https://blogs.technet.com/b/winserverperformance/archive/2009/12/10/numa-node-balancing.aspx)
 
@@ -71,7 +69,7 @@ Verwenden Sie die Links in diesem Thema, um mehr über die Konzepte zu erfahren,
 
 -   [Hyper-V-WMI-Klassen](https://msdn.microsoft.com/library/cc136986(VS.85).aspx)
 
--   [Informationen zu Virtual Machines und Gastbetriebssystemen](https://technet.microsoft.com/library/cc794868(v=ws.10))
+-   [Grundlegendes zu virtuellen Computern und Gastbetriebssystemen](https://technet.microsoft.com/library/cc794868(v=ws.10))
 
 -   [Optimieren und Problembehandlung von Hyper-V-Speicher](https://blogs.msdn.com/b/microsoft_press/archive/2013/07/24/new-book-optimizing-and-troubleshooting-hyper-v-storage.aspx)
 
@@ -79,7 +77,7 @@ Verwenden Sie die Links in diesem Thema, um mehr über die Konzepte zu erfahren,
 
 ## <a name="print-server-tuning-resources"></a>Druck Server-Optimierungs Ressourcen
 
--   [Skalierbarkeit und Kapazitätsplanung für Druck Server](https://technet.microsoft.com/library/dn554243.aspx)
+-   [Print Server Scalability and Capacity Planning](https://technet.microsoft.com/library/dn554243.aspx)
 
 ## <a name="server-workload-tuning-resources"></a>Optimieren von Ressourcen für die Server Auslastung
 
@@ -97,11 +95,11 @@ Verwenden Sie die Links in diesem Thema, um mehr über die Konzepte zu erfahren,
 
 -   [Leistungsoptimierung für die Online Transaktionsverarbeitung (OLTP)](https://msdn.microsoft.com/library/windows/hardware/dn567642(v=vs.85).aspx)
 
--   [Vorgehensweise: Konfigurieren von SQL Server für die Verwendung von Soft-NUMA](https://go.microsoft.com/fwlink/?LinkId=98292)
+-   [Vorgehensweise: Soft-NUMA (SQL Server)](https://go.microsoft.com/fwlink/?LinkId=98292)
 
--   [Gewusst wie: Zuordnen von TCP/IP-Ports zu NUMA-Knoten](https://go.microsoft.com/fwlink/?LinkId=98293)
+-   [Vorgehensweise: Zuordnen von TCP/IP-Ports zu NUMA-Knoten](https://go.microsoft.com/fwlink/?LinkId=98293)
 
--   [Alter Server Configuration (Transact-SQL)](https://msdn.microsoft.com/library/ee210585.aspx)
+-   [ALTER SERVER CONFIGURATION (Transact-SQL)](https://msdn.microsoft.com/library/ee210585.aspx)
 
 
 ## <a name="server-tuning-tools"></a>Server Optimierungs Tools

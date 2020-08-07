@@ -1,20 +1,18 @@
 ---
 title: Get-Namespace
 description: Referenz Artikel zu Get-Namespace, in dem Informationen zu einem benutzerdefinierten Namespace angezeigt werden.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: ea641bab-e97b-4909-918e-447730027dc1
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a029d56b2aea0a05bb12121cde89a1a731f3e4c5
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: e998334b8297b06bf5eb23b9106acd3770504ffb
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85932195"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87896935"
 ---
 # <a name="get-namespace"></a>Get-Namespace
 
@@ -33,7 +31,7 @@ wdsutil /Get-Namespace /Namespace:<Namespace name> [/Server:<Server name>] [/det
 ```
 ### <a name="parameters"></a>Parameter
 
-|               Parameter               |                                                                                                                                                                                         Beschreibung                                                                                                                                                                                          |
+|               Parameter               |                                                                                                                                                                                         BESCHREIBUNG                                                                                                                                                                                          |
 |---------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |      Namespace<Namespace name>      | Gibt den Namen des Namespace an. Beachten Sie, dass dies nicht der Anzeige Name ist und eindeutig sein muss.<p>-Bereitstellungs Server: die Syntax für den Namespace Namen lautet/Namspace: WDS: <ImageGroup> / <ImageName> / <Index> . Beispiel: **WDS: ImageGroup1/install. wim/1**<br />-Transport Server: dieser Wert sollte dem Namen entsprechen, der dem Namespace bei der Erstellung auf dem Server zugewiesen wurde. |
 |        [/Server:<Server name>]        |                                                                                                             Gibt den Namen des Servers an. Dabei kann es sich um den NetBIOS-Namen oder den voll qualifizierten Domänen Namen (FQDN) handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.                                                                                                              |

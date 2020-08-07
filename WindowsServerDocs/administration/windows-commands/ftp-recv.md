@@ -1,20 +1,18 @@
 ---
 title: ftp recv
 description: Referenz Artikel für den Befehl FTP empfangener, bei dem eine Remote Datei mit dem aktuellen Datei Übertragungstyp auf den lokalen Computer kopiert wird.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: f249ce61-247d-421b-9b93-48bce5108800
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a2b80a0f27bdb4b966ff66d736f05cb82fb2bb81
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 888acc77ec4f6edc57d9d1bed76563538f621eb5
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86957512"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87889056"
 ---
 # <a name="ftp-recv"></a>ftp recv
 
@@ -33,7 +31,7 @@ recv <remotefile> [<localfile>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `<remotefile>` | Gibt die zu Kopier-Remote Datei an. |
 | `[<localfile>]` | Gibt den Namen der Datei an, die auf dem lokalen Computer verwendet werden soll. Wenn *LocalFile* nicht angegeben wird, erhält die Datei den Namen der *remotefile*. |
@@ -52,7 +50,7 @@ recv test.txt
 recv test.txt test1.txt
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

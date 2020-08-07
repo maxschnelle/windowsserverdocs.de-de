@@ -1,18 +1,16 @@
 ---
 title: Übersicht über Leistungs-und Leistungsoptimierung für Windows Server
 description: Übersicht über die Optimierung der Prozessor Energie Verwaltung (ppm) für den Windows-Server.
-ms.prod: windows-server
-ms.technology: performance-tuning-guide
 ms.topic: conceptual
 ms.author: qizha;tristanb
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 67e72967d29fc96fe3f57b714bd8aaf19f406565
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 5e758e2335d8a5b536b0f0db9626dc88337de631
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85471655"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87896731"
 ---
 # <a name="power-and-performance-tuning"></a>Energie- und Leistungsoptimierung
 
@@ -74,7 +72,7 @@ Windows Server 2016 verfügt über drei integrierte Energie Sparpläne, die auf 
 | **Planen** | **Beschreibung** | **Allgemeine anwendbare Szenarien** | **Implementierungs Highlights** |
 |------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Ausgeglichen (empfohlen) | Standardeinstellung. Zielt auf eine gute Energieeffizienz mit minimalen Auswirkungen auf die Leistung ab. | Allgemeines Computing | Entspricht der Kapazität für die Nachfrage. Energiesparende Features sind ein ausgewogenes Verhältnis zwischen Leistung und Leistung. |
-| Leistung | Steigert die Leistung auf Kosten des hohen Energieverbrauchs. Leistungs-und wärmegrenzen, Betriebsausgaben und Zuverlässigkeits Überlegungen gelten. | Apps mit geringer Latenz und app-Code, der von den Prozessor Leistungsänderungen abhängig ist | Prozessoren werden immer mit dem höchsten Leistungsstatus (einschließlich der Frequenzen "Turbo") gesperrt. Alle Kerne werden entgeparkt. Die thermische Ausgabe kann signifikant sein. |
+| Hohe Leistung | Steigert die Leistung auf Kosten des hohen Energieverbrauchs. Leistungs-und wärmegrenzen, Betriebsausgaben und Zuverlässigkeits Überlegungen gelten. | Apps mit geringer Latenz und app-Code, der von den Prozessor Leistungsänderungen abhängig ist | Prozessoren werden immer mit dem höchsten Leistungsstatus (einschließlich der Frequenzen "Turbo") gesperrt. Alle Kerne werden entgeparkt. Die thermische Ausgabe kann signifikant sein. |
 | Energiesparmodus | Schränkt die Leistung ein, um Energie zu sparen und Betriebskosten zu senken. Nicht empfohlen, ohne gründliche Tests, um sicherzustellen, dass die Leistung ausreichend ist. | Bereit Stellungen mit eingeschränkten Energie Budgets und thermischen Einschränkungen | Begrenzt die Prozessorfrequenz mit einem Prozentsatz des maximalen Werts (falls unterstützt) und ermöglicht andere energiesparende Features. |
 
 
@@ -220,7 +218,7 @@ Powercfg -setacvalueindex scheme_current sub_processor DISTRIBUTEUTIL 0
 Powercfg -setactive scheme_current
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Überlegungen zur Leistung von Serverhardware](../index.md)
 - [Server Hardware Power Considerations](../power.md) (Überlegungen zum Energiebedarf von Serverhardware)

@@ -1,20 +1,18 @@
 ---
 title: Add-ImageGroup
 description: Referenz Artikel zu "Add-ImageGroup", mit dem einem Windows-Bereitstellungsdiensteserver eine Image Gruppe hinzugefügt wird.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 6ca88671-51de-4924-b969-88f3dfd84270
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5898b9bccb9ab0581cadd1ed51f4059a4c7c2dcc
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 611425c7c3ff997009e16792fea1924a403f364e
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85934127"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87896591"
 ---
 # <a name="add-imagegroup"></a>Add-ImageGroup
 
@@ -27,7 +25,7 @@ Fügt einem Windows-Bereitstellungsdiensteserver eine Abbild Gruppe hinzu.
 wdsutil [Options] /add-ImageGroumediaGroup:<Image group name> [/Server:<Server name>]
 ```
 ### <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |-------|--------|
 mediagroup:<Image group name>|Gibt den Namen der hinzu zufügenden Abbild Gruppe an.|
 |[/Server:<Server name>]|Gibt den Namen des Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn Sie keinen Servernamen angeben, wird der lokale Server verwendet.|

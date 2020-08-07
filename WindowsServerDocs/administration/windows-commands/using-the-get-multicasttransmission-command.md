@@ -1,20 +1,18 @@
 ---
 title: Get-MulticastTransmission
 description: Referenz Artikel zu Get-MulticastTransmission, der Informationen über die Multicast Übertragung für ein angegebenes Abbild anzeigt.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: b733737b-1e81-43d4-a058-d6985a613bef
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a764aa0a975fe29daed54e50b7ab0284a12a399f
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 883bfb0d462ab87162d6e849947334eae010b0b1
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85932198"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87896949"
 ---
 # <a name="get-multicasttransmission"></a>Get-MulticastTransmission
 
@@ -47,7 +45,7 @@ wdsutil [Options] /Get-MulticastTransmissiomedia:<Image name>
      [/Filename:<File name>]
 ```
 ### <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |-------|--------|
 Medien<Image name>|Zeigt die Multicast Übertragung an, die diesem Bild zugeordnet ist.|
 |[/Server:<Server name>]|Gibt den Namen des Servers an. Dabei kann es sich um den NetBIOS-Namen oder den voll qualifizierten Domänen Namen (FQDN) handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.|

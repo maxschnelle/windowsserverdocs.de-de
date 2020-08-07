@@ -1,20 +1,18 @@
 ---
 title: ftp hash
 description: Referenz Artikel für den FTP-Hash-Befehl, der das Nummern Zeichen (#) für jeden übertragenen Datenblock umschaltet.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 76bed9b3-3efd-4a3e-831f-460626d02c44
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8cd55576c033ec1e54a8db8c16a9f6825cfa59c0
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: daadc68bc52426164024c5c54c251d2aa0962765
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86957802"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87889408"
 ---
 # <a name="ftp-hash"></a>ftp hash
 
@@ -36,7 +34,7 @@ Geben Sie Folgendes ein, um das Nummern Zeichen (#) für jeden übertragenen Dat
 hash
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

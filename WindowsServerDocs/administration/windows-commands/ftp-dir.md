@@ -1,20 +1,18 @@
 ---
 title: ftp dir
 description: Referenz Artikel für den Befehl FTP dir, mit dem eine Liste der Verzeichnis Dateien und Unterverzeichnisse auf einem Remote Computer angezeigt wird.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: a29a92a5-7b79-4e6e-95cf-2ccb38bb6fb2
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1c3ec103797a1683c6f2810da375b00b56b87414
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 0a4f65cee67ec91b6871649fece4f580684c2e3f
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86957872"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87889475"
 ---
 # <a name="ftp-dir"></a>ftp dir
 
@@ -30,7 +28,7 @@ dir [<remotedirectory>] [<localfile>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ------- | -------- |
 | `[<remotedirectory>]` | Gibt das Verzeichnis an, für das eine Auflistung angezeigt werden soll. Wenn kein Verzeichnis angegeben ist, wird das aktuelle Arbeitsverzeichnis auf dem Remote Computer verwendet. |
 | `[<localfile>]` | Gibt eine lokale Datei an, in der die Verzeichnis Auflistung gespeichert werden soll. Wenn keine lokale Datei angegeben wird, werden die Ergebnisse auf dem Bildschirm angezeigt. |
@@ -49,7 +47,7 @@ Geben Sie Folgendes ein, um eine Liste mit dem aktuellen Verzeichnis auf dem Rem
 dir . dirlist.txt
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

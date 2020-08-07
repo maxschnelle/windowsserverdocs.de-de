@@ -1,24 +1,22 @@
 ---
 title: Vorgänge für Updates
 description: 'Windows Server Update Service (WSUS)-Thema: Verwalten von Updates, einschließlich des Genehmigungsprozesses'
-ms.prod: windows-server
-ms.technology: manage-wsus
 ms.topic: article
 ms.assetid: 4cb7ff54-3014-4e91-842a-a7b831ea59ff
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 327bff2e678e278dcba05ce1df807dc3842a56cd
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 32e6aa39dec354aeb7b3277d68c3bf07ef8a0161
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80828493"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87896810"
 ---
 # <a name="updates-operations"></a>Vorgänge für Updates
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Nachdem Updates mit dem WSUS-Server synchronisiert wurden, werden Sie automatisch auf die für die Client Computer des Servers relevanten Kriterien überprüft. Sie müssen jedoch die Updates genehmigen, bevor Sie auf den Computern in Ihrem Netzwerk bereitgestellt werden. Wenn Sie ein Update genehmigen, weisen Sie WSUS im Grunde zu, was damit zu tun ist (Ihre Auswahl ist für ein neues Update " **install** " oder " **ablehnen** "). Sie können Updates für die Gruppe **alle Computer** oder für Untergruppen genehmigen. Wenn Sie ein Update nicht genehmigen, wird der Genehmigungs Status **nicht genehmigt**angezeigt, und der WSUS-Server ermöglicht Clients, zu prüfen, ob das Update benötigt wird.
 
@@ -133,15 +131,15 @@ Es ist wichtig zu erwähnen, dass nicht alle Updates entfernt werden. Sie könne
 6.  Wenn Sie ein Update entfernen möchten, sobald die Client Computer den Server kontaktieren, klicken Sie auf **Benutzer**definiert, und legen Sie ein Datum in der Vergangenheit fest.
 
 ## <a name="approving-updates-automatically"></a>Automatisches genehmigen von Updates
-Sie können den WSUS-Server für die automatische Genehmigung bestimmter Updates konfigurieren. Sie können auch die automatische Genehmigung von Revisionen vorhandener Updates angeben, sobald diese verfügbar sind. Diese Option ist standardmäßig ausgewählt. Eine Revision ist eine Version eines Updates, bei der Änderungen vorgenommen wurden (z. b. Wenn Sie abgelaufen ist oder die anwendbarkeits Regeln geändert wurden). Wenn Sie die überarbeitete Version eines Updates nicht automatisch genehmigen, wird die ältere Version von WSUS verwendet, und Sie müssen die Update Revision manuell genehmigen.
+Sie können den WSUS-Server für die automatische Genehmigung bestimmter Updates konfigurieren. Sie können auch die automatische Genehmigung von Revisionen vorhandener Updates angeben, sobald diese verfügbar sind. Diese Option ist standardmäßig aktiviert. Eine Revision ist eine Version eines Updates, bei der Änderungen vorgenommen wurden (z. b. Wenn Sie abgelaufen ist oder die anwendbarkeits Regeln geändert wurden). Wenn Sie die überarbeitete Version eines Updates nicht automatisch genehmigen, wird die ältere Version von WSUS verwendet, und Sie müssen die Update Revision manuell genehmigen.
 
 Sie können Regeln erstellen, die auf dem WSUS-Server automatisch während der Synchronisierung angewendet werden. Sie geben an, welche Updates Sie automatisch für die Installation genehmigen möchten, indem Sie die Update Klassifizierung, das Produkt und die Computergruppe durchsuchen. Dies gilt nur für neue Updates und nicht für überarbeitete Updates. Sie können auch einen Stichtag für die Genehmigung von Updates angeben, mit dem eine Anzahl von Tagen und eine bestimmte Zeitspanne festgelegt wird, bevor das genehmigte Update Stichtag installiert wird. Diese Einstellungen sind im Bereich **Optionen** unter **Automatische Genehmigungen**verfügbar.
 
 #### <a name="to-automatically-approve-updates"></a>So genehmigen Sie Updates automatisch
 
-1.  Klicken Sie in der WSUS-Verwaltungskonsole auf **Optionen**, und klicken Sie dann auf **Automatische Genehmigungen**.
+1.  Klicken Sie in der WSUS-Verwaltungskonsole auf **Optionen**und dann auf **Automatische Genehmigungen**.
 
-2.  Klicken Sie in **Updateregeln** auf **Neue Regel**.
+2.  Klicken Sie in **Updateregeln**auf **Neue Regel**.
 
 3.  Wählen Sie im Dialogfeld **Regel hinzufügen** unter **Schritt 1: Eigenschaften auswählen**aus, ob verwendet werden soll, **Wenn ein Update in einer bestimmten Klassifizierung** oder ein **Update in einem bestimmten Produkt** (oder beiden) als Kriterium verwendet wird. Wählen Sie optional aus, ob Sie **einen Stichtag** für die Genehmigung festlegen möchten.
 
@@ -161,7 +159,7 @@ Der Abschnitt Automatische Genehmigungen des Bereichs Optionen enthält eine Sta
 
 #### <a name="to-automatically-approve-revisions-to-updates-and-decline-expired-updates"></a>So genehmigen Sie Aktualisierungen von Updates automatisch und lehnen abgelaufene Updates ab
 
-1.  Klicken Sie in der WSUS-Verwaltungskonsole auf **Optionen**, und klicken Sie dann auf **Automatische Genehmigungen**.
+1.  Klicken Sie in der WSUS-Verwaltungskonsole auf **Optionen**und dann auf **Automatische Genehmigungen**.
 
 2.  Vergewissern Sie sich, dass auf der Registerkarte **erweitert** sowohl **neue Revisionen genehmigter Updates automatisch genehmigen** als auch **Updates automatisch ablehnen, wenn eine neue Revision das ablaufen** der Änderungen bewirkt.
 

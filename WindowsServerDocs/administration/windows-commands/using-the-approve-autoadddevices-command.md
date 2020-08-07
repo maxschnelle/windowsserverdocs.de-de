@@ -1,20 +1,18 @@
 ---
 title: Genehmigen-AutoAddDevices
 description: Referenz Artikel zu "genehmigen-AutoAddDevices", mit dem Computer genehmigt werden, für die die administrative Genehmigung aussteht.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 8d76e8d3-ab35-429c-be7b-904f95d0782d
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8c7a4756a90c329ba6cccd1c1b7c1b93d58d06b4
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 79cc6d2aa9c91433cecb08e9a380b99a8c12332e
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85934133"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87896584"
 ---
 # <a name="approve-autoadddevices"></a>Genehmigen-AutoAddDevices
 
@@ -28,7 +26,7 @@ wdsutil [Options] /Approve-AutoaddDevices [/Server:<Server name>] /RequestId:{<R
 [/User:<Domain\User | User@Domain>] [/JoinRights:{JoinOnly | Full}] [/JoinDomain:{Yes | No}] [/ReferralServer:<Server name>] [/BootProgram:<Relative path>] [/WdsClientUnattend:<Relative path>] [/BootImagepath:<Relative path>]
 ```
 ### <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |-------|--------|
 |[/Server:<Server name>]|Gibt den Namen des Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn Sie keinen Servernamen angeben, wird der lokale Server verwendet.|
 |/RequestId: {Anforderungs-ID &#124; alle}|Gibt die Anforderungs-ID an, die dem ausstehenden Computer zugewiesen ist. Geben Sie **all** an, um alle ausstehenden Computer zu genehmigen.|

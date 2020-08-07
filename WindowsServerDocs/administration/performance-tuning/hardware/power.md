@@ -1,18 +1,16 @@
 ---
 title: Überlegungen zur Windows Server-Hardware Leistung
 description: Überlegungen zur Windows Server-Hardware Leistung.
-ms.prod: windows-server
-ms.technology: performance-tuning-guide
 ms.topic: conceptual
 ms.author: qizha;tristanb
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 0e110fbb41f44a4c8ac6ab014eeae44e542ade41
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: ee380937e54faa77ec17f8ae47445089ba1eece8
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85471685"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87896730"
 ---
 # <a name="server-hardware-power-considerations"></a>Server Hardware Power Considerations (Überlegungen zum Energiebedarf von Serverhardware)
 
@@ -69,7 +67,7 @@ Die in diesem Thema verwendete Prozessor Terminologie reflektiert die Hierarchie
 
 ![Prozessor Terminologie](../media/perftune-guide-figure-1.png)
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Überlegungen zur Leistung von Serverhardware](index.md)
 

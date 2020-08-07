@@ -1,20 +1,18 @@
 ---
 title: tsecimp
 description: Referenz Artikel für t-CIMP, der Zuweisungs Informationen aus einer Extensible Markup Language (XML)-Datei in die TAPI-Server Sicherheits Datei (Tsec.ini) importiert.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: d7488ec6-0eff-45ff-89ee-9cbe752416bf
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c5c3362571df5a3b22dda1b663fcbba749ee6df6
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 641e9724211034fa6e5bd76d0d3705b175a18b4c
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86954892"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87896687"
 ---
 # <a name="tsecimp"></a>tsecimp
 
@@ -152,7 +150,7 @@ tsecimp /d
 
     ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

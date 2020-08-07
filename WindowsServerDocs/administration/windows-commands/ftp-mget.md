@@ -1,20 +1,18 @@
 ---
 title: ftp mget
 description: Referenz Artikel für den FTP-mget-Befehl, mit dem Remote Dateien mit dem aktuellen Datei Übertragungstyp auf den lokalen Computer kopiert werden.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 6c85ae96-ec51-48a9-a227-7f02c7332c69
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d9b0cfe0b55074f94941dfde7b864a643e7eadd9
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 9074df66e70961c74ef1b479f31ac316e34ff051
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86957732"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87889335"
 ---
 # <a name="ftp-mget"></a>ftp mget
 
@@ -42,7 +40,7 @@ Wenn Sie Remote Dateien *a.exe* und *b.exe* mithilfe des aktuellen Datei Übertr
 mget a.exe b.exe
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

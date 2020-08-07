@@ -1,20 +1,18 @@
 ---
 title: winnt32
 description: Referenz Artikel für Winnt32, mit dem ein Produkt in Windows Server 2003 installiert oder aktualisiert wird.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 5a0a6fb3-ba4e-4ace-8984-7f6d3875560e
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e1b5844ee9cbdb11629e488e6506ef85b23b537b
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: d8055c25829b1084a9326d31f9ccad125b0dc75e
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86958942"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87896837"
 ---
 # <a name="winnt32"></a>winnt32
 
@@ -27,7 +25,7 @@ winnt32 [/checkupgradeonly] [/cmd: <CommandLine>] [/cmdcons] [/copydir:{i386|ia6
 ```
 #### <a name="parameters"></a>Parameter
 
-|     Parameter     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+|     Parameter     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           BESCHREIBUNG                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 |-------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | /checkupgradeonly |                                                                                                                                                                                                                                                                                                                                                                                                                      Hiermit wird der Computer auf die upgradekompatibilität mit Produkten in Windows Server 2003 überprüft.<p>Wenn Sie diese Option mit **/Unattend**verwenden, ist keine Benutzereingabe erforderlich.  Andernfalls werden die Ergebnisse auf dem Bildschirm angezeigt, und Sie können Sie unter dem von Ihnen angegebenen Dateinamen speichern. Der Standard Dateiname wird im Ordner systemroot **upgrade.txt** .                                                                                                                                                                                                                                                                                                                                                                                                                       |
 |       /cmd        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                               Weist Setup an, einen bestimmten Befehl vor der abschließenden Phase des Setups auszuführen. Dies tritt auf, nachdem der Computer neu gestartet wurde und nachdem das Setup die erforderlichen Konfigurationsinformationen gesammelt hat, aber bevor das Setup beendet ist.                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
@@ -70,5 +68,5 @@ Ausführlichere Informationen zur Verwendung von dynamischem Update und zur Inst
 Informationen zum Ändern von Start Einstellungen finden Sie unter Windows Deployment and Resource Kits for Windows Server 2003. Weitere Informationen finden Sie unter [Verwenden der Windows-Bereitstellung und von ressourcenkits](/previous-versions/windows/it-pro/windows-server-2003/cc779317(v=ws.10)).
 Die Verwendung der **/Unattend** -Befehlszeilenoption zum Automatisieren des Setups bestätigt, dass Sie den Microsoft-Lizenzvertrag für Windows Server 2003 gelesen und akzeptiert haben. Bevor Sie diese Befehlszeilenoption verwenden, um Windows Server 2003 im Auftrag einer anderen Organisation als ihrer eigenen zu installieren, müssen Sie sicherstellen, dass der Endbenutzer (ob eine Person oder eine einzelne Entität) die Bedingungen des Microsoft-Lizenzvertrags für dieses Produkt empfangen, gelesen und akzeptiert hat.  OEMs dürfen diesen Schlüssel nicht auf Computern angeben, die an Endbenutzer verkauft werden.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -1,20 +1,18 @@
 ---
 title: ftp quit
 description: Referenz Artikel für den Befehl FTP quit, der die FTP-Sitzung mit dem Remote Computer beendet und dann beendet.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: f5de9a79-5177-4e3a-80d9-df8f4d7660b7
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7b31f4e7cbf8c549e33875e26ed8c87eaef87c8d
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 8f69ad8cfcc94e1c9d9a146a2f7a81f41d3feb22
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86957532"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87889095"
 ---
 # <a name="ftp-quit"></a>ftp quit
 
@@ -39,7 +37,7 @@ Geben Sie Folgendes ein, um die FTP-Sitzung mit dem Remote Computer zu beenden u
 quit
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

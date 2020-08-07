@@ -1,22 +1,20 @@
 ---
-title: robocopy
+title: Robocopy
 description: Erfahren Sie, wie Sie Dateien mit dem Robocopy-Befehl in Windows und Windows Server kopieren.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: d4c6e8e9-fcb3-4a4a-9d04-2d8c367b6354
 author: jasongerend
 ms.author: jgerend
 manager: lizapo
 ms.date: 06/07/2020
-ms.openlocfilehash: 3ce409d0995449a4f5da98b69df6f436d75e04b7
-ms.sourcegitcommit: a538474d2c0a9520567f4e6ad0933f8660273098
+ms.openlocfilehash: fdf7eda5a17dccba0f43cca91cae122872dd5235
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84505792"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87883489"
 ---
-# <a name="robocopy"></a>robocopy
+# <a name="robocopy"></a>Robocopy
 
 Kopiert Datei Daten.
 
@@ -43,7 +41,7 @@ robocopy C:\reports '\\marketing\videos' yearly-report.mov /mt /z
 
 ### <a name="copy-options"></a>Kopier Optionen
 
-|Option|Beschreibung|
+|Option|BESCHREIBUNG|
 |------|-----------|
 |/s|Kopiert Unterverzeichnisse. Beachten Sie, dass bei dieser Option leere Verzeichnisse ausgeschlossen werden.|
 |/e|Kopiert Unterverzeichnisse. Beachten Sie, dass diese Option leere Verzeichnisse umfasst. Weitere Informationen finden Sie unter " [Hinweise](#remarks)".|
@@ -160,7 +158,7 @@ robocopy C:\reports '\\marketing\videos' yearly-report.mov /mt /z
 
 ### <a name="exit-return-codes"></a>Exit-Codes (Return)
 
-Wert | Beschreibung
+Wert | BESCHREIBUNG
 -- | --
 0 | Es wurden keine Dateien kopiert. Es wurde kein Fehler gefunden.  Keine Dateien stimmen nicht überein. Die Dateien sind bereits im Zielverzeichnis vorhanden. Daher wurde der Kopiervorgang übersprungen.
 1 | Alle Dateien wurden erfolgreich kopiert.
@@ -176,10 +174,10 @@ Wert | Beschreibung
 
 ### <a name="remarks"></a>Bemerkungen
 
--   Die Option **/mir** entspricht den Optionen **/e** Plus **/Purge** mit einem kleinen Unterschied im Verhalten:  
+-   Die Option **/mir** entspricht den Optionen **/e** Plus **/Purge** mit einem kleinen Unterschied im Verhalten:
     -   Wenn das Zielverzeichnis mit den Optionen **/e** Plus **/Purge** vorhanden ist, werden die Sicherheitseinstellungen des Zielverzeichnisses nicht überschrieben.
     -   Wenn das Zielverzeichnis vorhanden ist und die Option **/mir** vorhanden ist, werden die Sicherheitseinstellungen des Zielverzeichnisses überschrieben.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

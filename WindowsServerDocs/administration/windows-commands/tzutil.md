@@ -1,20 +1,18 @@
 ---
 title: tzutil
 description: Referenz Artikel zu "TZUtil", in dem das Windows-Zeit Zonen Dienstprogramm angezeigt wird.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: bcf6e007-c9b6-4df5-83c5-ed7b4b1b5913
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 99d88057c88a55aaf529d238088f8422c33e9ba7
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 4727423ed6752b3a0c2b578f5838a1108d1d14d4
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85937294"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87896635"
 ---
 # <a name="tzutil"></a>tzutil
 
@@ -27,14 +25,14 @@ Zeigt das Windows-Zeit Zonen Dienstprogramm an.
 tzutil [/?] [/g] [/s <timeZoneID>[_dstoff]] [/l]
 ```
 #### <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |-------|--------|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 |/g|Zeigt die aktuelle Zeit Zonen-ID an.|
 |/s \<timeZoneID> [_dstoff]|Legt die aktuelle Zeitzone mithilfe der angegebenen Zeit Zonen-ID fest. Mit dem **_dstoff** Suffix werden die Anpassungen der Sommerzeit für die Zeitzone deaktiviert (falls zutreffend).|
 |/l|Listet alle gültigen Zeit Zonen-IDs und anzeigen Amen auf. Ausgabe:<p>-   \<display name><br />-   \<time zone ID>|
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 Der Exitcode **0** gibt an, dass der Befehl erfolgreich abgeschlossen wurde.
 
 ## <a name="examples"></a>Beispiele

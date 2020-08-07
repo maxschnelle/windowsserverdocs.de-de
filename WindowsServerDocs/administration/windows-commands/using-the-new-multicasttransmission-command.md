@@ -1,20 +1,18 @@
 ---
 title: New-MulticastTransmission
 description: Referenz Artikel für New-MulticastTransmission, mit dem eine neue Multicast Übertragung für ein Abbild erstellt wird.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: c1f1dc46-dd50-4eb9-9f72-cf0e5d71bd3d
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c3d9c2b507243b9a024728e99885c7a429b34178
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 77f25940a3316d715bced365e92ed0614c74ed33
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85932454"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87896902"
 ---
 # <a name="new-multicasttransmission"></a>New-MulticastTransmission
 
@@ -49,7 +47,7 @@ wdsutil [Options] /New-MulticastTransmissiomedia:<Image name>
         [/Filename:<File name>]
 ```
 ### <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |-------|--------|
 Medien<Image name>|Gibt den Namen des Abbilds an, das mithilfe von Multicasting übertragen werden soll.|
 |[/Server:<Server name>]|Gibt den Namen des Servers an. Dabei kann es sich um den NetBIOS-Namen oder den voll qualifizierten Domänen Namen (FQDN) handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.|

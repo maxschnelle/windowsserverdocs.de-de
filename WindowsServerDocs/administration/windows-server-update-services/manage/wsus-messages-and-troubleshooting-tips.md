@@ -1,24 +1,22 @@
 ---
 title: WSUS-Nachrichten und Tipps zur Problembehandlung
 description: 'Windows Server Update Service (WSUS)-Thema: Problembehandlung bei Verwendung von WSUS-Nachrichten'
-ms.prod: windows-server
-ms.technology: manage-wsus
 ms.topic: article
 ms.assetid: 9f6317f7-bfe0-42d9-87ce-d8f038c728ca
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e4fe14eeaba3fc82e125288f8c47fb445f6e00b0
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 7ce07e38a3a8a07f97959e782fd22c1d5472d338
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80828313"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87896773"
 ---
 # <a name="wsus-messages-and-troubleshooting-tips"></a>WSUS-Nachrichten und Tipps zur Problembehandlung
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Dieses Thema enthält Informationen zu den folgenden WSUS-Meldungen:
 
@@ -45,18 +43,18 @@ Die häufigsten Gründe sind:
 
 ## <a name="message-id-6703---wsus-synchronization-failed"></a>Meldungs-ID 6703-Fehler beim Synchronisieren der WSUS
 > Meldung: Fehler bei der Anforderung mit HTTP-Status 503: Dienst nicht verfügbar.
-> 
+>
 > Quelle: Microsoft. updateservices. Administration. AdminProxy. kreateupdateserver.
 
 Wenn Sie versuchen, Update Services auf dem WSUS-Server zu öffnen, erhalten Sie die folgende Fehlermeldung:
 
 > Fehler: Verbindungsfehler
-> 
+>
 > Fehler beim Herstellen einer Verbindung mit dem WSUS-Server. Dieser Fehler kann aus verschiedenen Gründen auftreten. Wenden Sie sich an Ihren Netzwerkadministrator, falls das Problem weiterhin besteht. Klicken Sie auf den Server Knoten zurücksetzen, um erneut eine Verbindung mit dem Server herzustellen.
 
-Zusätzlich zu den obigen Schritten schlägt der Zugriff auf die URL für die WSUS-Verwaltungs Website (d. h. `http://CM12CAS:8530`) mit dem folgenden Fehler fehl:
+Zusätzlich zu den obigen Schritten schlägt der Zugriff auf die URL für die WSUS-Verwaltungs Website (d.h. `http://CM12CAS:8530` ) mit dem folgenden Fehler fehl:
 
-> HTTP-Fehler 503. Der Dienst ist nicht verfügbar.
+> HTTP-Fehler 503. Der Dienst ist nicht verfügbar
 
 In dieser Situation ist die wahrscheinlichste Ursache, dass sich der WsusPool-Anwendungs Pool in IIS im beendeten Zustand befindet.
 
@@ -73,20 +71,20 @@ Um dieses Problem zu beheben, erteilen Sie System Administrator Berechtigungen f
 
 - **SelfUpdate:** Weitere Informationen zur Problembehandlung beim SelfUpdate-Dienst finden Sie unter [Automatische Updates muss aktualisiert werden](https://technet.microsoft.com/library/cc708554(v=ws.10).aspx) .
 
-- **Wssuservice. exe:** Dieser Dienst vereinfacht die Synchronisierung. Wenn bei der Synchronisierung Probleme auftreten, greifen Sie auf "wsusservice. exe" zu, indem Sie auf **Start**, zeigen Sie auf **Verwaltung**, klicken Sie auf **Dienste**, und suchen Sie dann in der Liste der Dienste nach **Windows Server Update Service** . Gehen Sie wie folgt vor:
-    
+- **WSSUService.exe:** Dieser Dienst vereinfacht die Synchronisierung. Wenn bei der Synchronisierung Probleme auftreten WSUSService.exe, klicken Sie auf " **Start**", zeigen Sie auf " **Verwaltung**", klicken Sie auf **Dienste**, und suchen Sie dann in der Liste der Dienste nach **Windows Server Update Service** . Gehen Sie folgendermaßen vor:
+
     -   Überprüfen Sie, ob dieser Dienst ausgeführt wird. Klicken Sie auf **starten** , wenn es beendet oder **neu gestartet** wird, um den Dienst zu aktualisieren.
-    
+
     -   Verwenden Sie Ereignisanzeige, um die **Anwendungs**-, **SECURIT**-und **System** Ereignisprotokolle zu überprüfen, um festzustellen, ob Ereignisse vorhanden sind, die möglicherweise auf ein Problem hinweisen.
-    
+
     -   Sie können auch die Datei "SoftwareDistribution. log" überprüfen, um festzustellen, ob Ereignisse vorhanden sind, die auf ein Problem hinweisen können.
 
 - **Webservicessql-Dienst:** Webdienste werden in IIS gehostet. Wenn Sie nicht ausgeführt werden, stellen Sie sicher, dass IIS ausgeführt wird (oder gestartet). Sie können auch versuchen, den Webdienst zurückzusetzen, indem Sie an einer Eingabeaufforderung **iisreset** eingeben.
 
 - **SQL-Dienst:** Jeder Dienst mit Ausnahme des selbst Aktualisierungs-Dienstanbieter erfordert, dass der SQL-Dienst ausgeführt wird. Wenn eine der Protokolldateien SQL-Verbindungsprobleme anzeigt, überprüfen Sie zuerst den SQL-Dienst. Um auf den SQL-Dienst zuzugreifen, klicken Sie auf **Start**, zeigen Sie auf **Verwaltung**, klicken Sie auf **Dienste**, und suchen Sie dann nach einem der folgenden Informationen:
-    
+
   - **MSSQLSERVER** (wenn Sie WMSDE oder MSDE verwenden, oder wenn Sie SQL Server verwenden und den Standardinstanznamen für den Instanznamen verwenden)
-    
+
   - **MSSQL $ WSUS** (wenn Sie eine SQL Server Datenbank verwenden und die WSUS-Daten Bank Instanz benannt haben)
-    
+
     Klicken Sie mit der rechten Maustaste auf den Dienst, und klicken Sie dann auf **starten** , wenn der Dienst nicht ausgeführt wird, oder **neu starten** , um den Dienst zu aktualisieren, falls er ausgeführt wird

@@ -1,20 +1,18 @@
 ---
 title: rmdir
 description: Referenz Artikel zum rmdir-Befehl, mit dem ein Verzeichnis gelöscht wird.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: e4d7162b-7132-413c-a416-6eb3dc032a26
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e8edd2bc1a46532dc7542cdf03ca7c076da1dbcc
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 2351014e07d79baa0e8e5ec07b31f04c9226613e
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86956192"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87883505"
 ---
 # <a name="rmdir"></a>rmdir
 
@@ -74,6 +72,6 @@ Um das vorherige Beispiel im stillen Modus auszuführen, geben Sie Folgendes ein
 rmdir /s /q test
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

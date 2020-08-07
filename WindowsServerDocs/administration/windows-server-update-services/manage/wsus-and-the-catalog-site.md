@@ -1,24 +1,22 @@
 ---
-title: WSUS und die Katalogwebsite
+title: WSUS und Katalog-Website
 description: 'Windows Server Update Service (WSUS)-Thema: Importieren von Hotfixes in WSUS durch Zugriff auf die Microsoft Update-Katalog Website'
-ms.prod: windows-server
-ms.technology: manage-wsus
 ms.topic: article
 ms.assetid: f19a8659-5a96-4fdd-a052-29e4547fe51a
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 44c5ff9ffe793160b0d378a753c3f4c35e40f282
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 25a9852935c47e0c005d78ae7ea24d14c7c1a546
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80828323"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87896784"
 ---
-# <a name="wsus-and-the-catalog-site"></a>WSUS und die Katalogwebsite
+# <a name="wsus-and-the-catalog-site"></a>WSUS und Katalog-Website
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Die Katalog Site ist der Microsoft-Speicherort, von dem Sie Hotfixes und Hardwaretreiber importieren können.
 
@@ -37,7 +35,7 @@ Um Hotfixes in WSUS zu importieren, müssen Sie von einem WSUS-Computer aus auf 
 
 Genehmigte Updates, die von der Microsoft Update Katalog-Website importiert werden, werden bei der nächsten Synchronisierung des WSUS-Servers heruntergeladen. Sie werden nicht zum Zeitpunkt des Imports von der Microsoft Update Katalog-Website heruntergeladen.
 
-Beachten Sie, dass Sie über die WSUS-Konsole auf die Microsoft Update Katalog-Website zugreifen müssen, um sicherzustellen, dass die Updates in einem WSUS-kompatiblen Format importiert werden. Wenn Sie manuell auf die Microsoft Update Katalog-Website zugreifen, werden alle Updates, die Sie herunterladen, nicht in den WSUS-Server importiert, sondern als Einzelperson * heruntergeladen. MSU-Dateien. WSUS verfügt zurzeit nicht über einen unterstützten Mechanismus zum Importieren von Dateien in der \*. MSU-Format.
+Beachten Sie, dass Sie über die WSUS-Konsole auf die Microsoft Update Katalog-Website zugreifen müssen, um sicherzustellen, dass die Updates in einem WSUS-kompatiblen Format importiert werden. Wenn Sie manuell auf die Microsoft Update Katalog-Website zugreifen, werden alle Updates, die Sie herunterladen, nicht in den WSUS-Server importiert, sondern als Einzelperson * heruntergeladen. MSU-Dateien. WSUS verfügt zurzeit nicht über einen unterstützten Mechanismus zum Importieren von Dateien in \* . MSU-Format.
 
 Wenn Sie den-Server Bereinigungs-Assistenten ausführen, werden Updates, die aus dem Microsoft Update Katalog importiert wurden und als nicht genehmigt oder abgelehnt festgelegt wurden, möglicherweise vom WSUS-Server entfernt. Wenn Sie entfernt werden, können Sie aus dem Microsoft Update Katalog neu importiert werden.
 

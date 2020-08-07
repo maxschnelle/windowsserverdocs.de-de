@@ -1,24 +1,22 @@
 ---
 title: Anzeigen und Verwalten von Updates
 description: 'Thema zu Windows Server Update Service (WSUS): anzeigen und Verwalten von Updates in der WSUS-Konsole'
-ms.prod: windows-server
-ms.technology: manage-wsus
 ms.topic: article
 ms.assetid: ac70192b-0309-4385-b697-2e8eda51911c
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a2a9f7e1f1f3f648a0cba22d599ccc64e7b424d8
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 8da092fc64b46a192dd9f40816721d639af795cb
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80828443"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87896793"
 ---
 # <a name="viewing-and-managing-updates"></a>Anzeigen und Verwalten von Updates
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Sie können die WSUS-Konsole verwenden, um Updates anzuzeigen und zu verwalten.
 
@@ -49,7 +47,7 @@ Auf der Seite **Updates** können Sie folgende Aufgaben ausführen:
 
 1.  Erweitern Sie in der WSUS-Verwaltungskonsole den Knoten **Updates**, und klicken Sie dann auf **alle Updates**.
 
-2.  Wählen Sie im mittleren Bereich neben **Genehmigung**den gewünschten Genehmigungs Status aus, und wählen Sie neben **Status** den gewünschten Installationsstatus aus. Klicken Sie auf **Refresh**.
+2.  Wählen Sie im mittleren Bereich neben **Genehmigung**den gewünschten Genehmigungs Status aus, und wählen Sie neben **Status** den gewünschten Installationsstatus aus. Klicken Sie auf **Aktualisieren**.
 
 #### <a name="to-create-a-new-update-view-on-wsus"></a>So erstellen Sie eine neue Update Ansicht in WSUS
 
@@ -151,50 +149,50 @@ Sie werden die Synchronisierung einrichten und ausführen, Computer und Computer
 ## <a name="update-products-and-classifications"></a>Aktualisieren von Produkten und Klassifizierungen
 Die auf Microsoft Update verfügbaren Updates unterscheiden sich anhand des Produkts (oder der Produktfamilie) und der Klassifizierung.
 
-Ein Produkt ist eine bestimmte Edition eines Betriebssystems oder einer Anwendung, z. b. Windows Server 2012. Eine Produktfamilie ist das Basis Betriebssystem bzw. die Basisanwendung, von dem die einzelnen Produkte abgeleitet werden. Ein Beispiel für eine Produktfamilie ist Microsoft Windows, von dem Windows Server 2012 ein Mitglied ist. Sie können die Produkte oder Produktfamilien auswählen, für die der Server Updates synchronisieren soll. Sie können eine Produktfamilie oder einzelne Produkte innerhalb der Familie angeben. Wenn Sie ein Produkt oder eine Produktfamilie auswählen, erhalten Sie Updates für die aktuelle und zukünftige Version des Produkts.
+Ein Produkt ist eine bestimmte Edition eines Betriebssystems oder einer Anwendung, z. b. Windows Server 2012. Eine Produktfamilie ist das Basisbetriebssystem bzw. die Basisanwendung, von dem bzw. der die einzelnen Produkte abgeleitet sind. Ein Beispiel für eine Produktfamilie ist Microsoft Windows, von dem Windows Server 2012 ein Mitglied ist. Sie können die Produkte oder Produktfamilien auswählen, für die der Server Updates synchronisieren soll. Sie können eine Produktfamilie oder einzelne Produkte innerhalb der Familie angeben. Wenn Sie ein Produkt oder eine Produktfamilie auswählen, erhalten Sie Updates für die aktuelle und zukünftige Version des Produkts.
 
 Update Klassifizierungen stellen den Typ des Updates dar. Für ein bestimmtes Produkt oder eine Produktfamilie können Updates unter mehreren Update Klassifizierungen verfügbar sein (z. b. wichtige Updates und Sicherheitsupdates der Windows 7-Familie). In der folgenden Tabelle sind die Update Klassifizierungen aufgeführt.
 
-| Updateklassifizierungen  | Beschreibung   |
+| Updateklassifizierungen  | BESCHREIBUNG   |
 |--|--|
-|Kritische Updates|Im großen und ganzen finden Sie Korrekturen für bestimmte Probleme, die kritische, nicht sicherheitsrelevante Fehler behandeln.|
-|Definitionsupdates|Updates für Viren-oder andere Definitions Dateien.|
+|Wichtige Updates|Im großen und ganzen finden Sie Korrekturen für bestimmte Probleme, die kritische, nicht sicherheitsrelevante Fehler behandeln.|
+|Definitionsupdates|Updates für Viren- oder andere Definitionsdateien.|
 |Treiber|Software Komponenten, die zur Unterstützung neuer Hardware entwickelt wurden.|
 |Feature Packs|Neue featurereleases, die normalerweise in der nächsten Version in Produkte eingeführt werden.|
 |Sicherheitsupdates|Allgemein veröffentlichte Korrekturen für bestimmte Produkte, die Sicherheitsprobleme behandeln.|
 |Service Packs|Kumulative Sätze aller Hotfixes, Sicherheitsupdates, kritischer Updates und Updates, die seit der Veröffentlichung des Produkts erstellt wurden. Service Packs können auch eine begrenzte Anzahl von vom Kunden angeforderten Entwurfs Änderungen oder-Features enthalten.|
 |Tools|Hilfsprogramme oder Funktionen, die bei der Ausführung einer Aufgabe oder einer Gruppe von Aufgaben helfen.|
 |Updaterollups|Einen kumulativen Satz von Hotfixes, Sicherheitsupdates, kritischen Updates und anderen Updates, die zur einfachen Bereitstellung zusammengepackt werden. Ein Rollup bezieht sich in der Regel auf einen bestimmten Bereich, z. b. Sicherheit oder eine bestimmte Komponente, wie z. b. Internetinformationsdienste (IIS).|
-|Updates|Allgemein veröffentlichte Korrekturen für bestimmte Probleme, die auf nicht kritische, nicht sicherheitsrelevante Fehler hinweisen.|
+|Aktualisierungen|Allgemein veröffentlichte Korrekturen für bestimmte Probleme, die auf nicht kritische, nicht sicherheitsrelevante Fehler hinweisen.|
 
 ## <a name="icons-used-for-updates-in-windows-server-update-services"></a>Symbole, die für Updates in Windows Server Update Services verwendet werden
- Updates in WSUS werden durch eines der folgenden Symbole dargestellt.  
- Um diese Symbole anzuzeigen, müssen Sie die ablösungs Spalte in der Update Services-Konsole aktivieren.
- 
+ Updates in WSUS werden durch eines der folgenden Symbole dargestellt.
+Um diese Symbole anzuzeigen, müssen Sie die ablösungs Spalte in der Update Services-Konsole aktivieren.
+
 ### <a name="no-icon"></a>Kein Symbol
  Das Update hat keine ablösungs Beziehung zu anderen Updates.
 
- **Betriebliche Bedenken:**  
+ **Einsatzbedenken:**
 
- Keine Einsatzbedenken.  
- 
+ Keine Einsatzbedenken.
+
 ### <a name="superseding-icon"></a>Symbol "abgelöst"
- ![Symbol](../../media/wsus/wsus-superseding.png) Dieses Update ersetzt andere Updates.
+ ![icon](../../media/wsus/wsus-superseding.png) Dieses Update ersetzt andere Updates.
 
- **Betriebliche Bedenken:**  
+ **Einsatzbedenken:**
 
- Keine Einsatzbedenken.  
+ Keine Einsatzbedenken.
 
 ### <a name="superseded--superseding-icon"></a>Abgelöst & abgelöst-Symbol
- ![Symbol](../../media/wsus/wsus-superseded.png) Dieses Update wird durch ein anderes Update abgelöst und ersetzt andere Updates.
+ ![icon](../../media/wsus/wsus-superseded.png) Dieses Update wird durch ein anderes Update abgelöst und ersetzt andere Updates.
 
- **Betriebliche Bedenken:**  
+ **Einsatzbedenken:**
 
  Ersetzen Sie diese Updates, wenn möglich, durch die ersetzenden Updates.
- 
-### <a name="superseded-icon"></a>Symbol „Abgelöst“
- ![Symbol](../../media/wsus/wsus-superseded-leaf.png) Dieses Update wird durch ein anderes Update abgelöst.
 
- **Betriebliche Bedenken:**  
+### <a name="superseded-icon"></a>Symbol „Abgelöst“
+ ![icon](../../media/wsus/wsus-superseded-leaf.png) Dieses Update wird durch ein anderes Update abgelöst.
+
+ **Einsatzbedenken:**
 
  Ersetzen Sie diese Updates, wenn möglich, durch die ersetzenden Updates.

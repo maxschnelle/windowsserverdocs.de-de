@@ -1,18 +1,16 @@
 ---
 title: Optimieren der Prozessor Energie Verwaltung (ppm) für den Energie Sparplan von Windows Server ausgeglichen
 description: Optimieren der Prozessor Energie Verwaltung (ppm) für den Energie Sparplan von Windows Server ausgeglichen
-ms.prod: windows-server
-ms.technology: performance-tuning-guide
 ms.topic: conceptual
 ms.author: qizha;tristanb
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 25244ecb653f7a1b8461130bba40901b35945765
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 9b45ad16981667eff626278daadbe8b39f5cc5c8
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85471615"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87896714"
 ---
 # <a name="processor-power-management-ppm-tuning-for-the-windows-server-balanced-power-plan"></a>Optimieren der Prozessor Energie Verwaltung (ppm) für den Energie Sparplan von Windows Server ausgeglichen
 

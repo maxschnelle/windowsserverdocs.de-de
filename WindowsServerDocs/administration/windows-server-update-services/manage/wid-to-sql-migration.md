@@ -1,20 +1,18 @@
 ---
 title: Migrieren der WSUS-Datenbank von (interne Windows-Datenbank) zu SQL
 description: 'Thema zu Windows Server Update Service (WSUS): Migrieren der WSUS-Datenbank (SUSDB) von einer internen Windows-Daten Bank Instanz zu einer lokalen oder Remote Instanz von SQL Server.'
-ms.prod: windows-server
-ms.technology: manage-wsus
 ms.topic: get-started article
 ms.assetid: 90e3464c-49d8-4861-96db-ee6f8a09g7dr
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dougkim
 ms.date: 07/25/2018
-ms.openlocfilehash: facd846dd0c20ee2e5001b0592651ce310e19097
-ms.sourcegitcommit: 29f7a4811b4d36d60b8b7c55ce57d4ee7d52e263
+ms.openlocfilehash: edebd8ea11a844fbe6d00ca7ce7a6a375d8e9a51
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83716885"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87896864"
 ---
 # <a name="migrating-the-wsus-database-from-wid-to-sql"></a>Migrieren der WSUS-Datenbank von wid zu SQL
 
@@ -181,7 +179,7 @@ Führen Sie in PowerShell (mit erhöhten Rechten) Folgendes aus:
 ## <a name="uninstalling-the-wid-role-not-recommended"></a>Deinstallieren der wid-Rolle (nicht empfohlen)
 
 > [!WARNING]
-> Durch das Entfernen der wid-Rolle wird auch ein Daten Bank Ordner (**%systemdrive%\Programme\Update services\database**) entfernt, der Skripts enthält, die von "WSUSutil. exe" für Aufgaben nach der Installation benötigt werden. Wenn Sie die wid-Rolle deinstallieren möchten, stellen Sie sicher, dass Sie den Ordner **%systemdrive%\Programme\Update services\database** vorab sichern.
+> Durch das Entfernen der wid-Rolle wird auch ein Daten Bank Ordner (**%systemdrive%\Programme\Update services\database**) entfernt, der Skripts enthält, die für die WSUSUtil.exe nach der Installation erforderlich sind. Wenn Sie die wid-Rolle deinstallieren möchten, stellen Sie sicher, dass Sie den Ordner **%systemdrive%\Programme\Update services\database** vorab sichern.
 
 Mithilfe von PowerShell:
 

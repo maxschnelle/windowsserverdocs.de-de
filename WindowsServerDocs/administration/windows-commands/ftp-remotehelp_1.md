@@ -1,20 +1,18 @@
 ---
 title: ftp remotehelp
 description: Referenz Artikel für den ftp-remotehelp-Befehl, der Hilfe zu Remote Befehlen anzeigt.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: ef23adf3-ead4-44c8-ac1d-c8a6f4b2bf73
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7edfcdadf777dbff062665831fdc2aee3139ec6e
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 8e428a43ddcf36f1125c3fa83ddeeeff3cae979d
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86957485"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87889012"
 ---
 # <a name="ftp-remotehelp"></a>ftp remotehelp
 
@@ -30,7 +28,7 @@ remotehelp [<command>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ------- | -------- |
 | `[<command>]` | Gibt den Namen des Befehls an, zu dem Sie Hilfe benötigen. Wenn `<command>` nicht angegeben ist, zeigt dieser Befehl eine Liste aller Remote Befehle an. Sie können Remote Befehle auch über [FTP-Anführungs](ftp-quote.md) Zeichen oder [FTP-Literale](ftp-literal_1.md)ausführen. |
 
@@ -48,7 +46,7 @@ Um die Syntax für den Befehl " *feat* Remote" anzuzeigen, geben Sie Folgendes e
 remotehelp feat
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

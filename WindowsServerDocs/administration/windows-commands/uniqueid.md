@@ -1,20 +1,18 @@
 ---
 title: uniqueid
 description: Referenz Artikel für UniqueId, der die GUID-Partitionstabelle (GPT) oder die Master Boot Record (MBR)-Signatur für den Datenträger mit dem Fokus anzeigt oder festlegt.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 64235a4a-b91c-46da-b9b0-68ee90571c2a
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5acf29d9a7dfd505a5ecdad2a08dfdb1a9f4d975
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: ef76189e3377ecdb11605acf449ba68424d1588f
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85937279"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87897054"
 ---
 # <a name="uniqueid"></a>uniqueid
 
@@ -31,12 +29,12 @@ uniqueid disk [id={<dword> | <GUID>}] [noerr]
 
 ### <a name="parameters"></a>Parameter
 
-|  Parameter   |                                                                                             Beschreibung                                                                                              |
+|  Parameter   |                                                                                             BESCHREIBUNG                                                                                              |
 |--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ID = {\<dword> |                                                                                               <GUID>}                                                                                                |
 |    Noerr     | Nur für Skripterstellung. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird. |
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 -   Dieser Befehl funktioniert auf grundlegenden und dynamischen Datenträgern.
 -   Ein Datenträger muss ausgewählt werden, damit dieser Befehl erfolgreich ausgeführt werden konnte. Wählen Sie mit dem Befehl Datenträger **auswählen** einen Datenträger aus, und verschieben Sie den Fokus auf den Datenträger.

@@ -1,20 +1,18 @@
 ---
 title: ftp literal
 description: Referenz Artikel für den FTP-literalbefehl, der ausführliche Argumente an den Remote-FTP-Server sendet.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: fb81aa2d-07fa-4e79-bf44-1fb5526fdf14
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c13458a80aa78b377f8859f7e81b8789bd014dc3
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: bafa2626481941b91d501e4fd6df52aa1f8f05d1
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86957752"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87889360"
 ---
 # <a name="ftp-literal"></a>ftp literal
 
@@ -45,7 +43,7 @@ Geben Sie Folgendes ein, um einen Befehl zum **Beenden** an den FTP-Remote Serve
 literal quit
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

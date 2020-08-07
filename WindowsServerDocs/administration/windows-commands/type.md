@@ -1,19 +1,17 @@
 ---
 title: type
 description: Referenz Artikel für den Typ, der den Inhalt einer Textdatei anzeigt.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: c44fe905-a865-4c97-8cc5-fb95fec7d4d5
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dansimp
-ms.openlocfilehash: 4b79cf89c1363ba35ba6567139e119e0afeec905
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 1cb4e28a079c39aaadd85267c004781cc9c84f3c
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86954857"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87896651"
 ---
 # <a name="type"></a>type
 
@@ -50,6 +48,6 @@ Geben Sie Folgendes ein, um den Inhalt einer langen Datei mit dem Namen "Holiday
 type holiday.mar | more
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

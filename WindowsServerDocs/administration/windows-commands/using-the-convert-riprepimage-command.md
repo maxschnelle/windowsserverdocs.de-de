@@ -1,20 +1,18 @@
 ---
 title: Convert-RiprepImage
 description: Referenz Artikel zu Convert-RiprepImage, mit dem ein vorhandenes RIPrep-Image (Remote Installation Vorbereitungs Image) in das Windows-Abbild Format (WIM) konvertiert wird.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 88c2b96f-5947-4b64-9dcf-1946b3c013cf
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d0e360a23874ada4659819395db16de7527208b4
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 5e4a10c4013594c4b6ea19463cf41836f251127a
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85934114"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87896574"
 ---
 # <a name="convert-riprepimage"></a>Convert-RiprepImage
 
@@ -34,7 +32,7 @@ WDSUTIL [Options] /Convert-RIPrepImage /FilePath:<File path and name>
 
 ### <a name="parameters"></a>Parameter
 
-|            Parameter            |                                                                                                                                                                                                                                                                                                               Beschreibung                                                                                                                                                                                                                                                                                                                |
+|            Parameter            |                                                                                                                                                                                                                                                                                                               BESCHREIBUNG                                                                                                                                                                                                                                                                                                                |
 |---------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | FilePath\<File path and name> |                                                                                                                                                                                                       Gibt den vollständigen Pfad und den Dateinamen der SIF-Datei an, die dem RIPrep-Image entspricht. Diese Datei wird in der Regel als Riprep. sif bezeichnet und befindet sich im Unterordner \Templates des Ordners, der das RIPrep-Image enthält.                                                                                                                                                                                                       |
 |        /DestinationImage        | Gibt die Einstellungen für das Ziel Image mit den folgenden Optionen an.</br>-/FilePath: \<File path and name> legt den vollständigen Dateipfad für die neue Datei fest. Beispiel: **c:\temp\convert.wim**</br>-[/Name: \<Name> ]: legt den anzeigen amen des Bilds fest. Wenn kein Anzeige Name angegeben ist, wird der Anzeige Name des Quell Bilds verwendet.</br>-[/Description: \<Description> ]: legt die Beschreibung des Bilds fest.</br>-[/Inplace]: gibt an, dass die Konvertierung im ursprünglichen RIPrep-Image stattfinden soll, und nicht in einer Kopie des ursprünglichen Bilds. Dies ist das Standardverhalten.</br>-[/Overwrite: {Yes |

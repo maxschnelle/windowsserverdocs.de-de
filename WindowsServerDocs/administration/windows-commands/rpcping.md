@@ -1,20 +1,18 @@
 ---
 title: rpcping
 description: Referenz Artikel für * * * *-
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 7382aa0d-90fc-47c0-84b3-15f52dd656d0
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: aa2284c087a19d4eb9484d367b1264a5a3eebde0
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 339a9b6ad90ca068f7c81b9cacbfe1e86f71b6a0
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85932861"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87883435"
 ---
 # <a name="rpcping"></a>rpcping
 
@@ -38,7 +36,7 @@ rpcping [/t <protseq>] [/s <server_addr>] [/e <endpoint>
 
 #### <a name="parameters"></a>Parameter
 
-|            Parameter             |                                                                                                                                                                                                                                                                                                                                               Beschreibung                                                                                                                                                                                                                                                                                                                                               |
+|            Parameter             |                                                                                                                                                                                                                                                                                                                                               BESCHREIBUNG                                                                                                                                                                                                                                                                                                                                               |
 |----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |          /t\<protseq>           |                                                                                                                                                                                                                                                  Gibt die zu verwendende Protokoll Sequenz an. Kann eine der standardmäßigen RPC-Protokoll Sequenzen sein, z. b. ncacn_ip_tcp, ncacn_np oder ncacn_http.<p>Wenn nicht angegeben, wird der Standardwert ncacn_ip_tcp.                                                                                                                                                                                                                                                   |
 |        /s\<server_addr>         |                                                                                                                                                                                                                                                                                                            Gibt die Server Adresse an. Wenn nicht angegeben, wird der lokale Computer gepingt.                                                                                                                                                                                                                                                                                                            |

@@ -1,20 +1,18 @@
 ---
 title: Gerät hinzufügen
 description: Referenz Artikel für Add-Device, der einen Computer in den Active Directory-Domänen Diensten vorab bereitstellt. Vorab bereitgestellte Computer werden auch als bekannte Computer bezeichnet.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 1e599cc4-464a-421b-b6bb-c101af154131
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 486cd3a567fe8742d680a77378d8f5a933b876ae
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: d23e5a2bc69b782e635fa9a47158274796715edf
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86954803"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87897018"
 ---
 # <a name="add-device"></a>Gerät hinzufügen
 
@@ -28,7 +26,7 @@ wdsutil /add-Device /Device:<Device name> /ID:<UUID | MAC address> [/ReferralSer
 [/User:<Domain\User | User@Domain>] [/JoinRights:{JoinOnly | Full}] [/JoinDomain:{Yes | No}] [/BootImagepath:<Relative path>] [/OU:<DN of OU>] [/Domain:<Domain>]
 ```
 ### <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |-------|--------|
 |Schutz<computer name>|Gibt den Namen des hinzu zufügenden Computers an.|
 |/ID: <UUID &#124; Mac-Adresse>|Gibt entweder die GUID/UUID oder die Mac-Adresse des Computers an. Eine GUID/UUID muss in einem von zwei Formaten eine binäre Zeichenfolge oder eine GUID-Zeichenfolge sein. Beispiel:<p>Binäre Zeichenfolge: **/ID: ACEFA3E81F20694E953EB2DAA1E8B1B6**<p>GUID-Zeichenfolge: **/ID: E8A3EFAC-201F-4E69-953E-B2DAA1E8B1B6**<p>Eine Mac-Adresse muss folgendes Format aufweisen: **00b056882(** keine Bindestriche) oder **00-B0-56-88-2F-DC** (mit Bindestrichen)|
@@ -51,7 +49,7 @@ Um einen Computer mithilfe einer GUID-Zeichenfolge hinzuzufügen, geben Sie Folg
 wdsutil /add-Device /Device:computer1 /ID:{E8A3EFAC-201F-4E69-953F-B2DAA1E8B1B6} /ReferralServer:WDSServer1 /BootProgram:boot\x86\pxeboot.com
 /WDSClientUnattend:WDSClientUnattend\unattend.xml /User:Domain\MyUser/JoinRights:Full /BootImagepath:boot\x86\images\boot.wim /OU:OU=MyOU,CN=Test,DC=Domain,DC=com
 ```
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 - [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md) 
  [Verwenden des Befehls](using-the-get-alldevices-command.md) 
  Get-alldevices [Verwenden des Befehls](using-the-get-device-command.md) 

@@ -1,20 +1,18 @@
 ---
 title: route_ws2008
 description: Erfahren Sie, wie Einträge in der lokalen IP-Routing Tabelle geändert und angezeigt werden.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: afcd666c-0cef-47c2-9bcc-02d202b983b3
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 1f29a898ee6a18cf770c3b3d5e5e3dc2db326071
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: be68ece7b972da06a5638cc81a487518fe27bc68
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83820100"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87883472"
 ---
 # <a name="route_ws2008"></a>route_ws2008
 
@@ -33,15 +31,15 @@ route [/f] [/p] [<Command> [<Destination>] [mask <Netmask>] [<Gateway>] [metric 
 |-------|--------|
 |/f|Löscht die Routing Tabelle aller Einträge, die keine Host Routen sind (Routen mit einer Netzmaske von 255.255.255.255), der Loopback-Netzwerk Route (Routen mit dem Ziel 127.0.0.0 und einer Netzmaske von 255.0.0.0) oder einer Multicast Route (Routen mit dem Ziel 224.0.0.0 und einer Netzmaske von 240.0.0.0). Wenn dies in Verbindung mit einem der Befehle (z. b. "hinzufügen", "ändern" oder "Löschen") verwendet wird, wird die Tabelle vor dem Ausführen des Befehls gelöscht.|
 |/p|Bei Verwendung mit dem Add-Befehl wird die angegebene Route der Registrierung hinzugefügt und zum Initialisieren der IP-Routing Tabelle verwendet, wenn das TCP/IP-Protokoll gestartet wird. Standardmäßig werden hinzugefügte Routen nicht beibehalten, wenn das TCP/IP-Protokoll gestartet wird. Bei Verwendung mit dem Print-Befehl wird die Liste der persistenten Routen angezeigt. Dieser Parameter wird für alle anderen Befehle ignoriert. Persistente Routen werden am Registrierungs Speicherort **HKEY_LOCAL_MACHINE \system\currentcontrolset\services\tcpip\parameters\persistentroutes**gespeichert.|
-|\<Befehls>|Gibt den Befehl an, den Sie ausführen möchten. In der folgenden Tabelle sind die gültigen Befehle aufgeführt:<p>-   **hinzufügen:** fügt eine Route hinzu.<br />-   **ändern:** ändert eine vorhandene Route.<br />-   **Löschen:** löscht eine Route oder Routen.<br />-   **Print:** druckt eine Route oder Routen.|
-|\<Ziel>|Gibt das Netzwerk Ziel der Route an. Bei dem Ziel kann es sich um eine IP-Netzwerkadresse (bei der die Hostbits der Netzwerkadresse auf 0 festgelegt sind), eine IP-Adresse für eine Hostroute oder 0.0.0.0 für die Standardroute handeln.|
-|\<Netzmaske-> maskieren|Gibt das Netzwerk Ziel der Route an. Bei dem Ziel kann es sich um eine IP-Netzwerkadresse (bei der die Hostbits der Netzwerkadresse auf 0 festgelegt sind), eine IP-Adresse für eine Hostroute oder 0.0.0.0 für die Standardroute handeln.|
-|\<Gateway->|Gibt die IP-Adresse für den Weiterleitungs-oder nächsten Hop an, über die die vom Netzwerk Ziel und der Subnetzmaske definierten Adressen erreichbar sind. Bei lokal angehängten Subnetzrouten ist die Gatewayadresse die IP-Adresse, die der Schnittstelle zugewiesen ist, die mit dem Subnetz verbunden ist. Bei Remote Routen, die auf einem oder mehreren Routern verfügbar sind, ist die Gatewayadresse eine direkt erreichbare IP-Adresse, die einem benachbarten Router zugewiesen wird.|
-|\<Metrik>|Gibt eine ganzzahlige Kosten Metrik (von 1 bis 9999) für die Route an, die bei der Auswahl mehrerer Routen in der Routing Tabelle verwendet wird, die am ehesten mit der Zieladresse eines weitergeleiteten Pakets übereinstimmen. Die Route mit der niedrigsten Metrik wird ausgewählt. Die Metrik kann die Anzahl der Hops, die Geschwindigkeit des Pfades, die Pfad Zuverlässigkeit, den Pfad Durchsatz oder administrative Eigenschaften widerspiegeln.|
-|If- \< Schnittstelle>|Gibt den Schnittstellen Index für die Schnittstelle an, über die das Ziel erreichbar ist. Eine Liste der Schnittstellen und der zugehörigen Schnittstellen Indizes finden Sie in der Anzeige des Befehls Route Print. Sie können für den Schnittstellen Index entweder Dezimal-oder hexadezimale Werte verwenden. Stellen Sie bei hexadezimalen Werten der hexadezimalen Zahl 0x voran. Wenn der if-Parameter weggelassen wird, wird die-Schnittstelle von der Gatewayadresse bestimmt.|
+|\<Command>|Gibt den Befehl an, den Sie ausführen möchten. In der folgenden Tabelle sind die gültigen Befehle aufgeführt:<p>-   **hinzufügen:** fügt eine Route hinzu.<br />-   **ändern:** ändert eine vorhandene Route.<br />-   **Löschen:** löscht eine Route oder Routen.<br />-   **Print:** druckt eine Route oder Routen.|
+|\<Destination>|Gibt das Netzwerk Ziel der Route an. Bei dem Ziel kann es sich um eine IP-Netzwerkadresse (bei der die Hostbits der Netzwerkadresse auf 0 festgelegt sind), eine IP-Adresse für eine Hostroute oder 0.0.0.0 für die Standardroute handeln.|
+|chel\<Netmask>|Gibt das Netzwerk Ziel der Route an. Bei dem Ziel kann es sich um eine IP-Netzwerkadresse (bei der die Hostbits der Netzwerkadresse auf 0 festgelegt sind), eine IP-Adresse für eine Hostroute oder 0.0.0.0 für die Standardroute handeln.|
+|\<Gateway>|Gibt die IP-Adresse für den Weiterleitungs-oder nächsten Hop an, über die die vom Netzwerk Ziel und der Subnetzmaske definierten Adressen erreichbar sind. Bei lokal angehängten Subnetzrouten ist die Gatewayadresse die IP-Adresse, die der Schnittstelle zugewiesen ist, die mit dem Subnetz verbunden ist. Bei Remote Routen, die auf einem oder mehreren Routern verfügbar sind, ist die Gatewayadresse eine direkt erreichbare IP-Adresse, die einem benachbarten Router zugewiesen wird.|
+|Metrik\<Metric>|Gibt eine ganzzahlige Kosten Metrik (von 1 bis 9999) für die Route an, die bei der Auswahl mehrerer Routen in der Routing Tabelle verwendet wird, die am ehesten mit der Zieladresse eines weitergeleiteten Pakets übereinstimmen. Die Route mit der niedrigsten Metrik wird ausgewählt. Die Metrik kann die Anzahl der Hops, die Geschwindigkeit des Pfades, die Pfad Zuverlässigkeit, den Pfad Durchsatz oder administrative Eigenschaften widerspiegeln.|
+|sei\<Interface>|Gibt den Schnittstellen Index für die Schnittstelle an, über die das Ziel erreichbar ist. Eine Liste der Schnittstellen und der zugehörigen Schnittstellen Indizes finden Sie in der Anzeige des Befehls Route Print. Sie können für den Schnittstellen Index entweder Dezimal-oder hexadezimale Werte verwenden. Stellen Sie bei hexadezimalen Werten der hexadezimalen Zahl 0x voran. Wenn der if-Parameter weggelassen wird, wird die-Schnittstelle von der Gatewayadresse bestimmt.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 - Große Werte in der Spalte **Metrik** der Routing Tabelle sind das Ergebnis, dass TCP/IP die Metrik für Routen in der Routing Tabelle basierend auf der Konfiguration von IP-Adresse, Subnetzmaske und Standard Gateway für jede LAN-Schnittstelle automatisch ermitteln kann. Die automatische Bestimmung der Schnittstellen Metrik, die standardmäßig aktiviert ist, bestimmt die Geschwindigkeit der einzelnen Schnittstellen und passt die Metriken der Routen für jede Schnittstelle an, sodass mit der schnellsten Schnittstelle die Routen mit der niedrigsten Metrik erstellt werden. Deaktivieren Sie zum Entfernen der großen Metriken die automatische Ermittlung der Schnittstellen Metrik aus den erweiterten Eigenschaften des TCP/IP-Protokolls für jede LAN-Verbindung.
 - Namen können für das *Ziel* verwendet werden, wenn ein entsprechender Eintrag in der lokalen Netzwerkdatei vorhanden ist, die im Ordner <strong>systemroot\system32\drivers \\ </strong>usw. gespeichert ist. Namen können für das *Gateway* verwendet werden, sofern Sie über standardmäßige Host namens Auflösungs Techniken wie Domain Name System (DNS)-Abfragen in eine IP-Adresse aufgelöst werden können, die im Ordner <strong>systemroot\system32\drivers \\ </strong>usw. gespeicherte Datei local Hosts und die NetBIOS-Namensauflösung.
 - Wenn der Befehl **gedruckt** oder **gelöscht**wird, kann der Gatewayparameter ausgelassen werden, und Platzhalter können für das Ziel und das Gateway verwendet werden. *Gateway* Der *Zielwert* kann ein Platzhalter Wert sein, der durch ein Sternchen (*) angegeben wird. Wenn das angegebene Ziel ein Sternchen ( \* ) oder ein Fragezeichen (?) enthält, wird es als Platzhalter behandelt, und nur übereinstimmende Ziel Routen werden gedruckt oder gelöscht. Das Sternchen entspricht einer beliebigen Zeichenfolge, und das Fragezeichen entspricht einem beliebigen einzelnen Zeichen. Beispiel \* : 10. 1, 192,168. \* , 127. \* und \* 224 \* sind alle gültigen Verwendungen des Sternchen-Platzhalters.
@@ -91,5 +89,5 @@ Um die Adresse des nächsten Hops der Route mit dem Ziel 10.41.0.0 und der Subne
 route change 10.41.0.0 mask 255.255.0.0 10.27.0.25
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

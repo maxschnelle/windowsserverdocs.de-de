@@ -1,20 +1,18 @@
 ---
 title: ftp delete
 description: Referenz Artikel für den Befehl FTP DELETE, mit dem Dateien auf Remote Computern gelöscht werden.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 067c45f3-e4e8-4450-b8b6-836994f6adfe
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: fa24e8a052d2eb05d180bce2e843e34532a453f8
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 315a73f0ebfbefdf4a7033f42c2cad02e2ab77bc
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86957902"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87889523"
 ---
 # <a name="ftp-delete"></a>ftp delete
 
@@ -30,7 +28,7 @@ delete <remotefile>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `<remotefile>` | Gibt die Datei an, die gelöscht werden soll. |
 
@@ -42,7 +40,7 @@ Um die *test.txt* Datei auf dem Remote Computer zu löschen, geben Sie Folgendes
 delete test.txt
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
