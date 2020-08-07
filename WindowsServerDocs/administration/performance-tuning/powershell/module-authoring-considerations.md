@@ -1,18 +1,16 @@
 ---
 title: Überlegungen zur PowerShell-Modulerstellung
 description: Überlegungen zur PowerShell-Modulerstellung
-ms.prod: windows-server
-ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: jasonsh
 author: lzybkr
 ms.date: 10/16/2017
-ms.openlocfilehash: 25b202e56286b7c26c3150642a656eb31a120808
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: bb22009262cc1ae713846779c6b24402e3ed7928
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851933"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87896269"
 ---
 # <a name="powershell-module-authoring-considerations"></a>Überlegungen zur PowerShell-Modulerstellung
 
@@ -28,10 +26,10 @@ Wenn die exportierten Befehle während der Modul Analyse vollständig aus dem Ma
 
 ### <a name="guidelines"></a>Richtlinien
 
-* Verwenden Sie im Modul Manifest keine Platzhalter in den Einträgen `AliasesToExport`, `CmdletsToExport`und `FunctionsToExport`.
+* Verwenden Sie im Modul Manifest keine Platzhalter in den `AliasesToExport` `CmdletsToExport` Einträgen, und `FunctionsToExport` .
 
-* Wenn das Modul keine Befehle eines bestimmten Typs exportiert, geben Sie dies explizit im Manifest an, indem Sie `@()`angeben.
-Ein fehlender oder `$null` Eintrag entspricht der Angabe des Platzhalter `*`.
+* Wenn das Modul keine Befehle eines bestimmten Typs exportiert, geben Sie dies explizit im Manifest an, indem Sie angeben `@()` .
+Ein fehlender oder- `$null` Eintrag entspricht dem Angeben des Platzhalters `*` .
 
 Nach Möglichkeit sollte Folgendes vermieden werden:
 
@@ -59,7 +57,7 @@ Verwenden Sie stattdessen Folgendes:
 
 Bei der Entscheidung, wie das Modul implementiert werden soll, gibt es drei primäre Optionen:
 
-* Binary (in C#der Regel)
+* Binary (in der Regel c#)
 * Skript (PowerShell)
 * Cdxml (eine XML-Datei Wrapping CIM)
 

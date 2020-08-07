@@ -1,28 +1,26 @@
 ---
-title: Erstellen und Verwalten von Server Gruppen
+title: Erstellen und Verwalten von Servergruppen
 description: Server-Manager
-ms.prod: windows-server
-ms.technology: manage-server-manager
 ms.topic: article
 ms.assetid: 9d5b1be8-49fd-4ff7-9580-e4ff21fe4b17
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2f4ad512c55bcd1391ad55bdbdeb9a2ba3bfd7f0
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 496d950f8b73b141821963a028b01c71d5375447
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851543"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87895798"
 ---
 # <a name="create-and-manage-server-groups"></a>Erstellen und Verwalten von Server Gruppen
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 In diesem Thema wird beschrieben, wie benutzerdefinierte benutzerdefinierte Server Gruppen in Server-Manager in Windows Server erstellt werden.
 
-## <a name="server-groups"></a><a name=BKMK_groups></a>Server Gruppen
+## <a name="server-groups"></a><a name=BKMK_groups></a>Servergruppen
 Server, die Sie dem Server Pool hinzufügen, werden auf der Seite **alle Server** in Server-Manager angezeigt. Sie können benutzerdefinierte Gruppen von Servern erstellen, die Sie hinzugefügt haben. Mit Server Gruppen können Sie eine kleinere Teilmenge des Server Pools als logische Einheit anzeigen und verwalten. Sie können z. b. eine Gruppe namens **Buchhaltungsserver** für alle Server in der Buchhaltungsabteilung Ihrer Organisation oder eine Gruppe namens **Chicago** für alle Server erstellen, die sich geografisch in Chicago befinden. Nachdem Sie eine Server Gruppe erstellt haben, werden auf der Startseite der Gruppe in Server-Manager Informationen zu Ereignissen, Diensten, Leistungsindikatoren, Best Practices Analyzer Ergebnissen sowie zu installierten Rollen und Features für die Gruppe als Ganzes angezeigt.
 
 Server können mehreren Gruppen angehören.
@@ -31,7 +29,7 @@ Server können mehreren Gruppen angehören.
 
 1.  Klicken Sie im Menü **Verwalten** auf **Server Gruppe erstellen**.
 
-2.  Geben Sie im Textfeld **Servergruppenname** einen Anzeigenamen für die Servergruppe ein, z. B. **Buchhaltungsserver**.
+2.  Geben Sie im Textfeld **Servergruppenname** einen Anzeigenamen für die Servergruppe ein, z. B. **Buchhaltungsserver**.
 
 3.  Fügen Sie der **ausgewählten** Liste Server aus dem Server Pool hinzu, oder fügen Sie der Gruppe mithilfe der Registerkarten **Active Directory**, **DNS**oder **importieren** weitere Server hinzu. Weitere Informationen zur Verwendung dieser Registerkarten finden [Sie unter Hinzufügen von Servern zu Server-Manager](add-servers-to-server-manager.md) in diesem Handbuch.
 
@@ -68,8 +66,8 @@ Server können mehreren Gruppen angehören.
 3.  Klicken Sie nach dem Ändern der Gruppe auf **OK**.
 
 ## <a name="see-also"></a>Weitere Informationen
-[fügen Sie Server-Manager
-Server hinzu](add-servers-to-server-manager.md) [Server-Manager](server-manager.md)
+[Server zu Server-Manager](add-servers-to-server-manager.md) 
+ Hinzufügen [Server-Manager](server-manager.md)
 
 
 

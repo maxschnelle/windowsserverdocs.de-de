@@ -1,18 +1,16 @@
 ---
 title: Die Platzierung von Standort Definitionen und Domänen Controllern in erhöht die Leistungsoptimierung
 description: Überlegungen zur Platzierung von Standort Definitionen und Domänen Controllern in Active Directory Leistungsoptimierung.
-ms.prod: windows-server
-ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: timwi; chrisrob; herbertm; kenbrumf;  mleary; shawnrab
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 19574c859e038374a4cf3fe1e452adae0891e067
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 7502233cfd71fe2f3e7d25ff6ba246531233d1ff
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85471485"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87896209"
 ---
 # <a name="proper-placement-of-domain-controllers-and-site-considerations"></a>Ordnungsgemäße Platzierung von Domänencontrollern und Überlegungen zum Standort
 
@@ -76,7 +74,7 @@ Für alle Vertrauensstellungs Szenarien werden Anmelde Informationen entsprechen
 
 -   Hiermit deaktivieren Sie das Übergeben von Authentifizierungsanforderungen mit einer NULL-Domäne, die für alle verfügbaren [Der Lsass.exe Prozess reagiert möglicherweise nicht mehr, wenn Sie über viele externe Vertrauens Stellungen auf einem Active Directory Domänen Controller verfügen.](https://support.microsoft.com/kb/923241/EN-US)
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 - [Optimierung der Leistung von Active Directory-Servern](index.md)
 - [Hardwareaspekte](hardware-considerations.md)
 - [Überlegungen zu LDAP](ldap-considerations.md)

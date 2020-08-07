@@ -1,18 +1,16 @@
 ---
 title: Überlegungen zu LDAP in Hinzufügen von Leistungsoptimierungen
 description: Überlegungen zu LDAP in Active Directory Arbeits Auslastungen
-ms.prod: windows-server
-ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: timwi; chrisrob; herbertm; kenbrumf;  mleary; shawnrab
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 2ef32b379dcc5d1c2d8217564b639f44d024e5ee
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: b1678eadda1232da19c80e648c8b7ecb9c06f64b
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85471546"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87896213"
 ---
 # <a name="ldap-considerations-in-adds-performance-tuning"></a>Überlegungen zu LDAP in Hinzufügen von Leistungsoptimierungen
 
@@ -98,7 +96,7 @@ Weitere Informationen finden Sie in den folgenden Bereichen:
 
 -   [Indizierte Attribute](https://msdn.microsoft.com/library/windows/desktop/ms677112.aspx)
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Optimierung der Leistung von Active Directory-Servern](index.md)
 - [Hardwareaspekte](hardware-considerations.md)

@@ -1,20 +1,18 @@
 ---
 title: manage-bde on
 description: Referenz Artikel für den Befehl manage-bde on, der das Laufwerk verschlüsselt und BitLocker einschaltet.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: f6a12814-df74-416c-a04a-62ea8512263e
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b06c8a37524544201bf9f37a446a8d227f878ee4
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: cb1f58cb5f9683e4f9c01343d86af3332c8c3e32
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85935454"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87886793"
 ---
 # <a name="manage-bde-on"></a>manage-bde on
 
@@ -31,7 +29,7 @@ manage-bde –on <drive> {[-recoverypassword <numericalpassword>]|[-recoverykey 
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `<drive>` | Stellt einen von einem Doppelpunkt gefolgten Laufwerkbuchstaben dar. |
 | -wiederherstellungkennwort | Fügt eine numerische Kennwort-Schutzvorrichtung hinzu. Sie können auch **-RP** als abgekürzte Version dieses Befehls verwenden. |

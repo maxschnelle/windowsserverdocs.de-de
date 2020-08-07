@@ -1,20 +1,18 @@
 ---
 title: logman start and logman stop
 description: Referenz Artikel für die Befehle "Logman Start" und "Logman Stopp", die einen Datensammler starten und die Startzeit auf "manuell" festlegen oder einen Datensammler Satz beenden und die Endzeit auf "manuell" festlegen.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: a40006a1-876e-474b-aaf1-f365c730deea
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b7b7da9aad31b977c2343e6f784b19dd420c21e6
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 7a3ce29afa974a65ac86e9e17dd4ec7eb65135fd
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85925427"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87887259"
 ---
 # <a name="logman-start-and-logman-stop"></a>logman start and logman stop
 
@@ -31,9 +29,9 @@ logman stop <[-n] <name>> [options]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
-| -s`<computer name>` | Führen Sie den Befehl auf dem angegebenen Remote Computer aus. |
+| -s `<computer name>` | Führen Sie den Befehl auf dem angegebenen Remote Computer aus. |
 | -config`<value>` | Gibt die Einstellungsdatei an, die Befehlsoptionen enthält. |
 | [-n]`<name>` | Gibt den Namen des Zielobjekts an. |
 | -ETS | Sendet Befehle direkt an Ereignis Ablauf Verfolgungs Sitzungen, ohne zu speichern oder zu planen. |

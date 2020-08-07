@@ -1,20 +1,18 @@
 ---
 title: manage-bde Off
 description: Referenz Artikel für den Befehl manage-bde off, mit dem das Laufwerk entschlüsselt und BitLocker ausgeschaltet wird.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 0a27c119-d385-45e5-89fe-e311d4429876
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 65749f31750b1f7467539b25b09061ea267636df
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 5eb554a77b07028f22707456f90d62422613fb08
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85935519"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87886820"
 ---
 # <a name="manage-bde-off"></a>manage-bde Off
 
@@ -28,7 +26,7 @@ manage-bde -off [<volume>] [-computername <name>] [{-?|/?}] [{-help|-h}]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `<volume>` | Gibt einen Laufwerk Buchstaben an, gefolgt von einem Doppelpunkt, einem Volume-GUID-Pfad oder einem bereitgestellten Volume. |
 | -Computername | Gibt an, dass manage-bde.exe zum Ändern des BitLocker-Schutzes auf einem anderen Computer verwendet wird. Sie können auch **-CN** als abgekürzte Version dieses Befehls verwenden. |

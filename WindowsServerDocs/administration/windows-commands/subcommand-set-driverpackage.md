@@ -1,20 +1,18 @@
 ---
 title: Unterbefehls Satz-DriverPackage
 description: Referenz Artikel für den Unterbefehl set-DriverPackage, der ein Treiber Paket auf einem Server umbenennt und/oder aktiviert oder deaktiviert.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 11804bb6-ca29-4461-8c63-5131748cd742
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4c29d6de46d59ce4d30622c048c8cebc33b1d496
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 2b34802a0328a6e73469d8493f1453663740a243
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85937169"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87882183"
 ---
 # <a name="subcommand-set-driverpackage"></a>Unterbefehl: Set-DriverPackage
 
@@ -28,7 +26,7 @@ WDSUTIL /Set-DriverPackage [/Server:<Server name>] {/DriverPackage:<Name> | /Pac
 
 ### <a name="parameters"></a>Parameter
 
-|        Parameter         |                                                                                                                                                                                                               Beschreibung                                                                                                                                                                                                                |
+|        Parameter         |                                                                                                                                                                                                               BESCHREIBUNG                                                                                                                                                                                                                |
 |--------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [/Server:\<Server name>] |                                                                                                                                                 Gibt den Namen des Servers an. Dabei kann es sich um den NetBIOS-Namen oder den voll qualifizierten Namen handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.                                                                                                                                                 |
 | [/DriverPackage: \<Name> ] |                                                                                                                                                                                       Gibt den aktuellen Namen des zu ändernden Treiber Pakets an.                                                                                                                                                                                        |

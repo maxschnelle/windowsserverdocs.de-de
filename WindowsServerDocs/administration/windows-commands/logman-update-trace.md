@@ -1,20 +1,18 @@
 ---
 title: logman update trace
 description: Referenz Artikel für den Befehl logman update Trace, der die Eigenschaften eines vorhandenen Ereignis-Ablauf Verfolgungs Daten Sammlers aktualisiert.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: b7111f7f-4162-4d1a-8e53-d766db0ede1f
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7eb8b034958e14009101848d0aca381cb915a579
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 7c95d9cf4a0c6f2665057c9056bcbef04dc70b37
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85933124"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87887176"
 ---
 # <a name="logman-update-trace"></a>logman update trace
 
@@ -30,15 +28,15 @@ logman update trace <[-n] <name>> [options]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
-| -s`<computer name>` | Führt den Befehl auf dem angegebenen Remote Computer aus. |
+| -s `<computer name>` | Führt den Befehl auf dem angegebenen Remote Computer aus. |
 | -config`<value>` | Gibt die Einstellungsdatei an, die Befehlsoptionen enthält. |
 | -ETS | Sendet Befehle direkt an Ereignis Ablauf Verfolgungs Sitzungen, ohne zu speichern oder zu planen. |
 | [-n]`<name>` | Name des Zielobjekts |
 | -f`<bin|bincirc>` | Gibt das Protokoll Format für den Datensammler an. |
 | -[-] u`<user [password]>` | Gibt den Benutzer an, der als ausgeführt werden soll. Wenn Sie `*` für das Kennwort eingeben, wird eine Eingabeaufforderung für das Kennwort ausgegeben. Das Kennwort wird nicht angezeigt, während Sie es an der Eingabeaufforderung eingeben. |
-| -m`<[start] [stop] [[start] [stop] [...]]>` | Änderungen an manuellem starten oder beenden anstelle einer geplanten Anfangs-oder Endzeit. |
+| -m `<[start] [stop] [[start] [stop] [...]]>` | Änderungen an manuellem starten oder beenden anstelle einer geplanten Anfangs-oder Endzeit. |
 | -RF`<[[hh:]mm:]ss>` | Führt den Datensammler für den angegebenen Zeitraum aus. |
 | -b`<M/d/yyyy h:mm:ss[AM|PM]>` | Beginnt mit dem Sammeln von Daten zum angegebenen Zeitpunkt. |
 | -e `<M/d/yyyy h:mm:ss[AM|PM]>` | Beendet die Datensammlung zum angegebenen Zeitpunkt. |
@@ -63,7 +61,7 @@ logman update trace <[-n] <name>> [options]
 | -Modus`<globalsequence|localsequence|pagedmemory>` | Gibt den Protokollierungs Modus der Ereignis Ablauf Verfolgungs Sitzung an, einschließlich:<ul><li>**Globalsequence** : gibt an, dass die Ereignisüberwachung jedem empfangenen Ereignis eine Sequenznummer hinzufügt, unabhängig davon, welche Ablauf Verfolgungs Sitzung das Ereignis empfangen hat.</li><li>**Localsequence** : gibt an, dass der Ereignis Überwachungs Sequenznummern für Ereignisse hinzufügt, die bei einer bestimmten Ablauf Verfolgungs Sitzung empfangen werden. Wenn diese Option verwendet wird, können doppelte Sequenznummern über alle Sitzungen hinweg vorhanden sein, in jeder Ablauf Verfolgungs Sitzung jedoch eindeutig sein.</li><li>**Pgedmemory** : gibt an, dass die Ereignisüberwachung einen ausgelagerten Speicher anstelle des nicht ausgelagerten Standard Speicherpools für interne Puffer Belegungen verwendet.</li></ul> |
 | /? | Zeigt die kontextbezogene Hilfe an. |
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Wenn [-] aufgeführt ist, wird durch das Hinzufügen eines zusätzlichen Bindestrichs (-) die Option negiert.
 

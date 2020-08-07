@@ -1,20 +1,18 @@
 ---
 title: manage-bde Pause
 description: Referenz Artikel für den Befehl manage-bde Pause, der die BitLocker-Verschlüsselung oder-Entschlüsselung anhält.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: efda0e08-b9ff-4e71-83d8-bb666b3032bd
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 244d18ff9763ccb12c9567fbab68e2fd72f0f076
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 24b9a4db5bb0c00e8efcd831dc72abb8f583e94f
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85935462"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87886779"
 ---
 # <a name="manage-bde-pause"></a>manage-bde Pause
 
@@ -28,7 +26,7 @@ manage-bde -pause [<volume>] [-computername <name>] [{-?|/?}] [{-help|-h}]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `<volume>` | Gibt einen Laufwerk Buchstaben an, gefolgt von einem Doppelpunkt, einem Volume-GUID-Pfad oder einem bereitgestellten Volume. |
 | -Computername | Gibt an, dass manage-bde.exe zum Ändern des BitLocker-Schutzes auf einem anderen Computer verwendet wird. Sie können auch **-CN** als abgekürzte Version dieses Befehls verwenden. |

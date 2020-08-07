@@ -1,18 +1,16 @@
 ---
 title: Verbesserungen bei Cache und Arbeitsspeicher
-description: Verbesserungen bei Cache-und Speicher-Manager in Windows Server 2016
-ms.prod: windows-server
-ms.technology: performance-tuning-guide
+description: Cache- und Speicher-Manager-Verbesserungen in WindowsServer 2016
 ms.topic: article
 ms.author: pavel; atales
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: ef3658ab0f035435f6140c1dfa585de78537d37a
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 35eb3d01af9c957831a6c860738e6a2516096b03
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851643"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87895978"
 ---
 # <a name="cache-and-memory-manager-improvements"></a>Verbesserungen bei Cache und Arbeitsspeicher
 
@@ -20,7 +18,7 @@ In diesem Thema werden die Verbesserungen von Cache Manager und Speicher-Manager
 
 ## <a name="cache-manager-improvements-in-windows-server-2016"></a>Cache Manager-Verbesserungen in Windows Server 2016
 Cache-Manager hat auch Unterstützung für echte asynchrone zwischengespeicherte Lesevorgänge hinzugefügt.
-Dies kann möglicherweise die Leistung einer Anwendung verbessern, wenn Sie stark von asynchronen zwischengespeicherten Lesevorgängen abhängig ist.  Obwohl bei den meisten in-Box-Dateisystemen asynchrone zwischengespeicherte Lesevorgänge für eine Weile unterstützt wurden, gab es häufig Leistungseinschränkungen aufgrund verschiedener Entwurfs Optionen im Zusammenhang mit der Verarbeitung von internen Arbeits Warteschlangen für Thread Pools und Dateisysteme.  Durch die Unterstützung von Kernel-Proper verbirgt der Cache-Manager jetzt alle Komplexitäten der Thread Pool-und Arbeits Warteschlangen Verwaltung von Dateisysteme, was die Verarbeitung von asynchronen zwischengespeicherten Lesevorgängen effizienter macht. Der Cache-Manager verfügt über eine Gruppe von Steuerungs datastructures für jede der (vom System unterstützten maximalen) VHD-Schachtelungs Ebenen zum Maximieren der Parallelität.
+Dies kann möglicherweise die Leistung einer Anwendung verbessern, wenn Sie stark von asynchronen zwischengespeicherten Lesevorgängen abhängig ist.Obwohl bei den meisten in-Box-Dateisystemen asynchrone zwischengespeicherte Lesevorgänge für eine Weile unterstützt wurden, gab es häufig Leistungseinschränkungen aufgrund verschiedener Entwurfs Optionen im Zusammenhang mit der Verarbeitung von internen Arbeits Warteschlangen für Thread Pools und Dateisysteme.Durch die Unterstützung von Kernel-Proper verbirgt der Cache-Manager jetzt alle Komplexitäten der Thread Pool-und Arbeits Warteschlangen Verwaltung von Dateisysteme, was die Verarbeitung von asynchronen zwischengespeicherten Lesevorgängen effizienter macht. Der Cache-Manager verfügt über eine Gruppe von Steuerungs datastructures für jede der (vom System unterstützten maximalen) VHD-Schachtelungs Ebenen zum Maximieren der Parallelität.
 
 
 ## <a name="cache-manager-improvements-in-windows-server-2012"></a>Cache Manager-Verbesserungen in Windows Server 2012

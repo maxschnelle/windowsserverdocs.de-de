@@ -1,20 +1,18 @@
 ---
 title: serverweroptin
 description: Referenz Artikel für * * * *-
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: f3c0b0af-cafb-4f09-8b36-5a357ddf392d
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b8684f448f18ce28e572909fe3958e0e7b6d6a38
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 9bcedf0d855980b193f466e719483ec268afd40c
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85937133"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87882722"
 ---
 # <a name="serverweroptin"></a>serverweroptin
 
@@ -26,7 +24,7 @@ Ermöglicht es Ihnen, die Fehlerberichterstattung zu aktivieren.
 serverweroptin [/query] [/detailed] [/summary]
 ```
 #### <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |-------|--------|
 |/Query "aus|überprüft die aktuelle Einstellung.|
 |/Detailed|Sendet detaillierte Berichte automatisch.|

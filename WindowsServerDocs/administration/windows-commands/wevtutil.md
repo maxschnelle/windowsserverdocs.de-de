@@ -1,20 +1,18 @@
 ---
 title: wevtutil
 description: Referenz Artikel zu wevtutil, mit dem Sie Informationen über Ereignisprotokolle und Herausgeber abrufen können.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: d4c791e0-7e59-45c5-aa55-0223b77a4822
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0f76f04e54f1b502f3e816e4f547873d2ac6e1b4
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 11eb4d3d2ab9c07ed9fe2cdd3ee03855731fb65b
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86958722"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87896519"
 ---
 # <a name="wevtutil"></a>wevtutil
 
@@ -38,7 +36,7 @@ wevtutil [{el | enum-logs}] [{gl | get-log} <Logname> [/f:<Format>]]
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
 |{El \| -Aufzählungs Protokolle}|Zeigt die Namen aller Protokolle an.|
 |{GL \| Get-Log} \<Logname> [/f: \<Format> ]|Zeigt die Konfigurationsinformationen für das angegebene Protokoll an, das enthält, ob das Protokoll aktiviert ist oder nicht, die aktuelle maximale Größenbeschränkung des Protokolls und den Pfad zu der Datei, in der das Protokoll gespeichert ist.|
@@ -55,7 +53,7 @@ wevtutil [{el | enum-logs}] [{gl | get-log} <Logname> [/f:<Format>]]
 
 ## <a name="options"></a>Optionen
 
-|       Option       |                                                                                                                                                                                                                                                                 Beschreibung                                                                                                                                                                                                                                                                  |
+|       Option       |                                                                                                                                                                                                                                                                 BESCHREIBUNG                                                                                                                                                                                                                                                                  |
 |--------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |    /f\<Format>    |                                                                                                                                                               Gibt an, dass die Ausgabe entweder ein XML-oder Textformat sein soll. Wenn \<Format> XML ist, wird die Ausgabe im XML-Format angezeigt. Wenn \<Format> Text ist, wird die Ausgabe ohne XML-Tags angezeigt. Der Standardwert ist Text.                                                                                                                                                                |
 |   /e:\<Enabled>    |                                                                                                                                                                                                                                         Aktiviert oder deaktiviert ein Protokoll. \<Enabled>kann "true" oder "false" sein.                                                                                                                                                                                                                                          |
@@ -149,6 +147,6 @@ Löschen Sie alle Ereignisse aus dem Anwendungsprotokoll, nachdem Sie Sie im Ver
 wevtutil cl Application /bu:C:\admin\backups\a10306.evtx
 ```
 
-#### <a name="additional-references"></a>Zusätzliche Referenzen
+#### <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -1,20 +1,18 @@
 ---
 title: Schiebeoperatoren
 description: Referenz Artikel für Shift, der die Position von Batch Parametern in einer Batchdatei ändert.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: b56574e8-570a-4cc9-bbac-1b94fbf6a47a
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c72f1f2390a1adaa993be2caa7954d72dede51e9
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 985c1271a1da8f486e2313ba9aeb266803664b93
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85932585"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87882394"
 ---
 # <a name="shift"></a>Schiebeoperatoren
 
@@ -30,12 +28,12 @@ shift [/n <N>]
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
 |/n\<N>|Gibt an, dass die Verschiebung beim *n*-ten Argument gestartet werden soll, wobei *N* ein beliebiger Wert zwischen 0 und 8 ist. Erfordert Befehls Erweiterungen, die standardmäßig aktiviert sind.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 - Der **Shift** -Befehl ändert die Werte der Batch Parameter **%0** bis **%9** durch Kopieren jedes Parameters in den vorherigen – der Wert von **%1** wird in **%0**kopiert, der Wert von **%2** wird in **%1**kopiert usw. Dies ist hilfreich beim Schreiben einer Batchdatei, die denselben Vorgang für eine beliebige Anzahl von Parametern ausführt.
 - Wenn Befehls Erweiterungen aktiviert sind, unterstützt der Befehl **Shift** die Befehlszeilenoption **/n** . Die **/n** -Option gibt an, dass die Verschiebung beim n-ten Argument gestartet werden soll, wobei **n** ein beliebiger Wert zwischen 0 und 8 ist. Beispielsweise würde **Shift/2** " **%3** " in **"%2**", " **%4** " in " **%3**" usw. verschieben und " **%0** " und " **%1** " nicht beeinträchtigt. Befehls Erweiterungen werden standardmäßig aktiviert.

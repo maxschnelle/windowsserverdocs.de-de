@@ -1,18 +1,16 @@
 ---
 title: Hyper-V-Speicher-e/a-Leistung
 description: Überlegungen zur Speicher-e/a-Leistung bei der Hyper-V-Leistungsoptimierung
-ms.prod: windows-server
-ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: asmahi; sandysp; jopoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: c77f084e06e71c9aafd658b59ff385af85ef0b9d
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 6322d7f32c78109623a06a7674c08f76a2d5d542
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85471315"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87896086"
 ---
 # <a name="hyper-v-storage-io-performance"></a>Hyper-V-Speicher-e/a-Leistung
 
@@ -270,7 +268,7 @@ Nur Hyper-V-spezifische SCSI-, aktivierte IDE-und virtuelle Fibre Channel Contro
 
 Aus diesen Gründen wird empfohlen, dass Sie vhdx-Dateien verwenden, die an einen SCSI-Controller angeschlossen sind, wenn keine virtuellen Fibre Channel-Datenträger verwendet werden.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Hyper-V-Terminologie](terminology.md)
 

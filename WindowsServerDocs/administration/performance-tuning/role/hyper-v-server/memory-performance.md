@@ -1,18 +1,16 @@
 ---
 title: Hyper-V-Speicherleistung
 description: Überlegungen zum Arbeitsspeicher bei der Leistungsoptimierung in Hyper
-ms.prod: windows-server
-ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: asmahi; sandysp; jopoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: b513dd3346d593ec4c823808f540bce68dd472ce
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 08ccc5c8a6b7300f1fa476c01838080b0b01f67a
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85471365"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87896091"
 ---
 # <a name="hyper-v-memory-performance"></a>Hyper-V-Speicherleistung
 
@@ -41,7 +39,7 @@ Die Stamm Partition muss über ausreichend Arbeitsspeicher verfügen, um Dienste
 
 Hyper-V in Windows Server 2016 überwacht den Lauf Zeit Zustand des Verwaltungs Betriebssystems der Stamm Partition, um zu bestimmen, wie viel Arbeitsspeicher den untergeordneten Partitionen sicher zugeordnet werden kann, während gleichzeitig hohe Leistung und Zuverlässigkeit der Stamm Partition sichergestellt werden.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Hyper-V-Terminologie](terminology.md)
 

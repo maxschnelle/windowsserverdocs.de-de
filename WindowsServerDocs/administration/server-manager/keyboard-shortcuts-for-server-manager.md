@@ -1,24 +1,22 @@
 ---
 title: Tastenkombinationen für den Server-Manager
 description: Server-Manager
-ms.prod: windows-server
-ms.technology: manage-server-manager
 ms.topic: article
 ms.assetid: 96a2a8be-cbeb-4799-9034-284ea057915c
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8135f453f633f8193fa56d80ae05cd9601435c87
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 182a99ff3c20ff8a62b36714967b25603ff055b3
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851513"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87895770"
 ---
 # <a name="keyboard-shortcuts-for-server-manager"></a>Tastenkombinationen für den Server-Manager
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Da Server-Manager ab Windows Server 2012 vollständig neu gestaltet wurde, entsprechen die Tastenkombinationen, die in der Server-Manager-Konsole in Windows Server 2008 R2 oder Windows Server 2008 funktionieren, nicht notwendigerweise denselben Befehlen. In diesem Thema werden die neuen Tastenkombinationen und Zugriffstasten für Server-Manager in Windows Server 2012 und neueren Versionen von Windows Server beschrieben.
 
@@ -29,71 +27,71 @@ Auf Befehle, die keine eigenen Tastenkombination oder Zugriffstaste haben, könn
 
 **Willkommens Kachel**
 
-|Steuerelementgruppe|Zugriffsschlüssels|
+|Steuerelementgruppe|Zugriffsschlüssel|
 |---------|-------|
-|Willkommens Kachel-Registerkarte "Schnellstart"|**Alt + Q**|
-|Kachel für Willkommen - Registerkarte %%amp;quot;Neues%%amp;quot;|**Alt + W**|
+|Willkommens Kachel-Registerkarte "Schnellstart"|**ALT+Q**|
+|Kachel für Willkommen - Registerkarte %%amp;quot;Neues%%amp;quot;|**ALT+W**|
 |Willkommens Kachel-Weitere Informationen Registerkarte|**Alt + L**|
 |Kachel für Willkommen - Befehl %%amp;quot;Ausblenden%%amp;quot;|**Alt + D**|
 
 **Rollen-und Gruppen Miniaturansichten**
 
-|Steuerelementgruppe|Zugriffsschlüssels|
+|Steuerelementgruppe|Zugriffsschlüssel|
 |---------|-------|
-|Kachel %%amp;quot;Rollen und Servergruppen%%amp;quot;|**Alt + R**|
+|Kachel %%amp;quot;Rollen und Servergruppen%%amp;quot;|**ALT+R**|
 
 **Konsolen Header-Steuerelemente**
 
-|Steuerelementgruppe|Zugriffsschlüssels|
+|Steuerelementgruppe|Zugriffsschlüssel|
 |---------|-------|
 |Schaltfläche %%amp;quot;Zurück%%amp;quot; in der Adressleiste|**ALT+NACH-LINKS-TASTE** oder **RÜCKTASTE**|
 |Vorwärts Schaltfläche in der Adressleiste|**Alt + nach-rechts-Taste**|
-|Aktualisieren|**Aktualisieren**|
+|Aktualisieren|**F5**|
 |Benachrichtigungsbereich, Dialogfeld "Aufgaben Details öffnen"|**Alt + N**|
-|Menü %%amp;quot;Verwalten%%amp;quot;|**Alt + M**|
+|Menü %%amp;quot;Verwalten%%amp;quot;|**ALT+M**|
 |Menü "Ansicht"|**Alt + V**|
-|Menü "Hilfe"|**ALT + H**|
-|Öffnen Server-Manager Hilfe|**1**|
-|Vergrößern|**Strg + Plus (+)**|
-|Verkleinern|**STRG + minus (-)**|
+|Menü "Hilfe"|**ALT+H**|
+|Öffnen Server-Manager Hilfe|**F1**|
+|Vergrößern|**STRG+PLUS (+)**|
+|Verkleinern|**STRG+MINUS (-)**|
 |Konsole zu 100 % anzeigen|**STRG + 0**|
 
 **Kacheln auf Rollen-, Gruppen-oder lokalen Server Seiten**
 
-|Steuerelementgruppe|Zugriffsschlüssels|
+|Steuerelementgruppe|Zugriffsschlüssel|
 |---------|-------|
-|Kachel %%amp;quot;Eigenschaften%%amp;quot; auf lokaler Serverseite|**Alt + P**|
+|Kachel %%amp;quot;Eigenschaften%%amp;quot; auf lokaler Serverseite|**ALT+P**|
 |Kachel %%amp;quot;Ereignisse%%amp;quot; auf Rollen-, Gruppen- oder lokaler Serverseite|**ALT + E**|
-|Kachel %%amp;quot;Dienste%%amp;quot; auf Rollen-, Gruppen- oder lokaler Serverseite|**Alt + R**|
+|Kachel %%amp;quot;Dienste%%amp;quot; auf Rollen-, Gruppen- oder lokaler Serverseite|**ALT+R**|
 |Kachel "Rollen-, Gruppen-oder lokaler Server Page Best Practices Analyzer (BPA)"|**ALT + B**|
 |Kachel %%amp;quot;Leistung%%amp;quot; auf Rollen-, Gruppen- oder lokaler Serverseite|**ALT + O**|
-|Kachel %%amp;quot;Rollen und Features%%amp;quot; auf Rollen-, Gruppen- oder lokaler Serverseite|**Alt + A**|
-|Kachel %%amp;quot;Server%%amp;quot; auf der Seite %%amp;quot;Alle Server%%amp;quot;|**Alt + A**|
+|Kachel %%amp;quot;Rollen und Features%%amp;quot; auf Rollen-, Gruppen- oder lokaler Serverseite|**Alt+A**|
+|Kachel %%amp;quot;Server%%amp;quot; auf der Seite %%amp;quot;Alle Server%%amp;quot;|**Alt+A**|
 
-**Navigieren in der Kachel "Eigenschaften" des lokalen Servers**
+**Navigieren mit der Seite %%amp;quot;Eigenschaften des lokalen Servers%%amp;quot;**
 
-|Steuerelementgruppe|Zugriffsschlüssels|
+|Steuerelementgruppe|Zugriffsschlüssel|
 |---------|-------|
 |Computername|**Alt + C**|
 |Zuletzt installierte Updates|**Alt + L**|
 |Domäne oder Arbeitsgruppe|**Alt + D**|
-|Windows Update|**Alt + W**|
+|Windows-Update|**ALT+W**|
 |Zuletzt auf Updates geprüft|**Alt + S**|
-|Remoteverwaltung|**Alt + R**|
-|Windows-Firewall|**Alt + F**|
-|Remotedesktop|**ALT + K**|
+|Remoteverwaltung|**ALT+R**|
+|Windows-Firewall|**ALT+F**|
+|Remotedesktop|**ALT+K**|
 |Windows-Fehlerberichterstattung|**Alt + G**|
-|NIC-Teamvorgang|**Alt + T**|
+|NIC-Teamvorgang|**Alt+T**|
 |Programm zur Verbesserung der Benutzerfreundlichkeit|**ALT + X**|
 |Verkabelte Ethernetverbindung|**ALT + O**|
-|Verstärkte Sicherheitskonfiguration für IE|**ALT + Y**|
-|Zeitzone|**ALT + Z**|
+|Verstärkte Sicherheitskonfiguration für IE|**ALT+Y**|
+|Zeitzone|**ALT+Z**|
 
-**Navigieren in den Kacheln Ereignisse, Dienste, BPA, Leistung und Rollen und Features**
+**Navigieren mit den Kacheln %%amp;quot;Ereignisse%%amp;quot;, %%amp;quot;Dienste%%amp;quot;, %%amp;quot;Best Practices Analyzer%%amp;quot;, %%amp;quot;Leistung%%amp;quot; und %%amp;quot;Rollen und Features%%amp;quot;.**
 
-|Steuerelementgruppe|Zugriffsschlüssels|
+|Steuerelementgruppe|Zugriffsschlüssel|
 |---------|-------|
-|Menü %%amp;quot;Aufgaben%%amp;quot;|**Alt + T**|
-|Filtersteuerelement|**Alt + F**|
-|Abfrage Steuerelement|**Alt + Q**|
-|Speicherabfragen|**Alt + S**|
+|Menü „Aufgaben“|**Alt+T**|
+|Filtersteuerelement|**ALT+F**|
+|Abfrage Steuerelement|**ALT+Q**|
+|Speichern von Abfragen|**Alt + S**|

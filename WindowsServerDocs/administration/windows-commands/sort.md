@@ -1,20 +1,18 @@
 ---
 title: sort
 description: Referenz Artikel für Sort, bei dem die Eingabe gelesen, Daten sortiert und die Ergebnisse auf den Bildschirm, in eine Datei oder auf ein anderes Gerät geschrieben werden.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 77116469-4790-4442-8a21-9fa73b65ef9f
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a3246745a2dceddec6cb1a66a4316ea7a8acb522
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: ec95133af8e9c2c617fedc3bf6a3085a6663b104
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85937058"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87882358"
 ---
 # <a name="sort"></a>sort
 
@@ -30,7 +28,7 @@ sort [/r] [/+<N>] [/m <Kilobytes>] [/l <Locale>] [/rec <Characters>] [[<Drive1>:
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
 |/r|Kehrt die Sortierreihenfolge um (d. h., sortiert von Z bis A und zwischen 9 und 0).|
 |/+\<N>|Gibt die Zeichen Positionsnummer an, an der der **Sortier** Vorgang beginnt. *N* kann eine beliebige gültige ganze Zahl sein.|
@@ -42,7 +40,7 @@ sort [/r] [/+<N>] [/m <Kilobytes>] [/l <Locale>] [/rec <Characters>] [[<Drive1>:
 |/o [ \<Drive3> :] [ \<Path3> ]\<FileName3>|Gibt die Datei an, in der die sortierte Eingabe gespeichert werden soll. Wenn kein Wert angegeben ist, werden die Daten in die Standardausgabe geschrieben. Die Angabe der Ausgabedatei ist schneller als das Umleiten der Standardausgabe in dieselbe Datei.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 -   Verwenden der **/+** Befehlszeilenoption
 

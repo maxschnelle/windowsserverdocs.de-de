@@ -1,18 +1,16 @@
 ---
 title: Leistungsoptimierung für SMB-Dateiserver
 description: Leistungsoptimierung für SMB-Dateiserver
-ms.prod: windows-server
-ms.technology: performance-tuning-guide
 ms.topic: article
 author: phstee
 ms.author: nedpyle; danlo; dkruse
 ms.date: 4/14/2017
-ms.openlocfilehash: 89017686801501593c51245d44bf88a6ecf4baf6
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 9e20b05f911726837cf436798a3743fbb80af193
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851823"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87896151"
 ---
 # <a name="performance-tuning-for-smb-file-servers"></a>Leistungsoptimierung für SMB-Dateiserver
 
@@ -58,7 +56,7 @@ Weitere Informationen zum horizontalen Herunterskalieren von SMB finden Sie unte
 
 ### <a name="performance-counters-for-smb-30"></a>Leistungsindikatoren für SMB 3,0
 
-Die folgenden SMB-Leistungsindikatoren wurden in Windows Server 2012 eingeführt. Sie werden als Basisgruppe von Leistungsindikatoren betrachtet, wenn Sie die Ressourcenverwendung von SMB 2 und höheren Versionen überwachen. Protokolliert die Leistungsindikatoren in einem lokalen, Rohdaten-Leistungsindikator Protokoll (. blg). Es ist kostengünstiger, alle Instanzen mit dem Platzhalter Zeichen (\*) zu erfassen und anschließend bestimmte Instanzen während der Nachbearbeitung mithilfe von "Relog. exe" zu extrahieren.
+Die folgenden SMB-Leistungsindikatoren wurden in Windows Server 2012 eingeführt. Sie werden als Basisgruppe von Leistungsindikatoren betrachtet, wenn Sie die Ressourcenverwendung von SMB 2 und höheren Versionen überwachen. Protokolliert die Leistungsindikatoren in einem lokalen, Rohdaten-Leistungsindikator Protokoll (. blg). Es ist kostengünstiger, alle Instanzen mit dem Platzhalter Zeichen () zu erfassen \* und dann bestimmte Instanzen während der Nachbearbeitung mithilfe von Relog.exe zu extrahieren.
 
 -   **SMB-Client Freigaben**
 
@@ -91,7 +89,7 @@ Die folgenden SMB-Leistungsindikatoren wurden in Windows Server 2012 eingeführt
 ## <a name="tuning-parameters-for-smb-file-servers"></a>Optimieren von Parametern für SMB-Dateiserver
 
 
-Die folgenden reg\_DWORD-Registrierungs Einstellungen können sich auf die Leistung von SMB-Dateiservern auswirken:
+Die folgenden \_ Registrierungs Einstellungen für reg DWORD können sich auf die Leistung von SMB-Dateiservern auswirken:
 
 - **Smb2CreditsMin** und **"smb2creditsmax"**
 
@@ -104,11 +102,11 @@ Die folgenden reg\_DWORD-Registrierungs Einstellungen können sich auf die Leist
   ```
 
   Die Standardwerte sind 512 bzw. 8192. Mit diesen Parametern kann der Server die Parallelität von Client Vorgängen dynamisch innerhalb der angegebenen Grenzen drosseln. Einige Clients erzielen möglicherweise einen erhöhten Durchsatz mit höheren Parallelitäts Grenzen, z. b. das Kopieren von Dateien über Verbindungen mit hoher Bandbreite und hoher Latenz.
-    
+
   > [!TIP]
   > Vor Windows 10 und Windows Server 2016 hat sich die Anzahl der Gutschriften, die dem Client erteilt wurden, dynamisch zwischen Smb2CreditsMin und "smb2creditsmax" geändert, basierend auf einem Algorithmus, der versucht hat, die optimale Anzahl von Gutschriften zu ermitteln, die basierend auf der Netzwerk Latenz und der Gutschrift verwendet werden. In Windows 10 und Windows Server 2016 wurde der SMB-Server so geändert, dass auf Anforderung bis zu der konfigurierten maximalen Anzahl von Gutschriften uneingeschränkt Gutschriften erteilt werden. Im Rahmen dieser Änderung wurde der Mechanismus für die Kredit Drosselung, der die Größe des Kredit Fensters der einzelnen Verbindungen reduziert, wenn der Server nicht genügend Arbeitsspeicher hat, entfernt. Das nicht genügend Speicher Ereignis des Kernels, das eine Drosselung ausgelöst hat, wird nur signalisiert, wenn der Arbeitsspeicher des Servers (< einige MB) nicht nutzlos ist. Da der Server keine Gutschrift für Gutschriften mehr verkleinert, ist die Smb2CreditsMin-Einstellung nicht mehr erforderlich und wird jetzt ignoriert.
-  > 
-  > Sie können SMB-Client Freigaben\\Guthaben überwachen/Sek., um festzustellen, ob es Probleme mit Gutschriften gibt.
+  >
+  > Sie können Guthaben von SMB-Client Freigaben überwachen \\ /Sek. um festzustellen, ob es Probleme mit Gutschriften gibt.
 
 - **Additionalcriticalworkerthreads**
 
@@ -119,7 +117,7 @@ Die folgenden reg\_DWORD-Registrierungs Einstellungen können sich auf die Leist
     Der Standardwert ist 0 (null). Dies bedeutet, dass keine weiteren kritischen kernelarbeitsthreads hinzugefügt werden. Dieser Wert wirkt sich auf die Anzahl der Threads aus, die vom Dateisystem Cache für Read-Ahead-und Write-Behind-Anforderungen verwendet werden. Durch das Erhöhen dieses Werts können e/a-Vorgänge in der Warteschlange im Speichersubsystem möglich sein, und Sie können die e/a-Leistung verbessern, insbesondere bei Systemen mit vielen logischen Prozessoren und leistungsstarker Speicherhardware.
 
     >[!TIP]
-    > Der Wert muss ggf. vergrößert werden, wenn sich die Menge der geänderten Daten des Cache-Managers (Performance Counter Cache\\Dirty Pages) zu einem großen Teil vergrößert (ca. 25%). des Arbeitsspeichers oder, wenn das System viele synchrone Lese-e/a-Vorgänge durchläuft.
+    > Der Wert muss ggf. vergrößert werden, wenn sich die Menge der geänderten Daten im Cache-Manager-Cache (geänderte Seiten des Leistungs Zählers \\ ) um einen großen Teil vergrößert (über ~ 25%). des Arbeitsspeichers oder, wenn das System viele synchrone Lese-e/a-Vorgänge durchläuft.
 
 - **Maxthreadsperqueue**
 
@@ -130,19 +128,19 @@ Die folgenden reg\_DWORD-Registrierungs Einstellungen können sich auf die Leist
   Der Standardwert ist 20. Wenn Sie diesen Wert erhöhen, wird die Anzahl der Threads, die vom Dateiserver zum bedienen paralleler Anforderungen verwendet werden können, erhöht. Wenn eine große Anzahl aktiver Verbindungen gewartet werden muss und Hardware Ressourcen wie z. b. die Speicherbandbreite ausreichen, kann das Erhöhen des Werts die Skalierbarkeit, Leistung und Reaktionszeiten des Servers verbessern.
 
   >[!TIP]
-  > Ein Hinweis darauf, dass der Wert möglicherweise vergrößert werden muss, ist, wenn die SMB2-Arbeits Warteschlangen sehr groß werden (Leistungsindikator "Server Arbeits Warteschlangen\\Warteschlangen Länge\\SMB2 nicht blockierender \*" ist konstant über ~ 100).
+  > Ein Hinweis darauf, dass der Wert möglicherweise vergrößert werden muss, ist, wenn die SMB2-Arbeits Warteschlangen sehr groß werden (der Leistungsindikator "Warteschlangen Länge der Server Arbeits Warteschlangen \\ \\ SMB2 nicht blockierend \* " liegt ständig über ~ 100)
 
   >[!Note]
   >In Windows 10 und Windows Server 2016 ist maxthreadsperqueue nicht verfügbar. Die Anzahl der Threads für einen Thread Pool beträgt 20 * die Anzahl der Prozessoren in einem NUMA-Knoten.
-     
+
 
 - **Asynchronouscredits**
 
-  ``` 
+  ```
   HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters\AsynchronousCredits
   ```
 
-  Der Standardwert ist 512. Dieser Parameter schränkt die Anzahl von gleichzeitigen asynchronen SMB-Befehlen ein, die für eine einzelne Verbindung zulässig sind. In einigen Fällen (z. b. bei einem Front-End-Server mit einem Back-End-IIS-Server) ist eine große Menge an Parallelität erforderlich (insbesondere bei Benachrichtigungs Anforderungen für Dateiänderungen). Der Wert dieses Eintrags kann erweitert werden, um diese Fälle zu unterstützen.
+  Der Standardwert liegt bei 512. Dieser Parameter schränkt die Anzahl von gleichzeitigen asynchronen SMB-Befehlen ein, die für eine einzelne Verbindung zulässig sind. In einigen Fällen (z. b. bei einem Front-End-Server mit einem Back-End-IIS-Server) ist eine große Menge an Parallelität erforderlich (insbesondere bei Benachrichtigungs Anforderungen für Dateiänderungen). Der Wert dieses Eintrags kann erweitert werden, um diese Fälle zu unterstützen.
 
 ### <a name="smb-server-tuning-example"></a>Beispiel für die SMB-Server Optimierung
 

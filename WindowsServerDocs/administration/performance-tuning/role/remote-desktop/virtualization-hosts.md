@@ -1,18 +1,16 @@
 ---
 title: Leistungsoptimierung Remotedesktop Virtualisierungshosts
 description: Leistungsoptimierung für Remotedesktop Virtualisierungshosts
-ms.prod: windows-server
-ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: hammadbu; vladmis; denisgun
 author: phstee
 ms.date: 10/22/2019
-ms.openlocfilehash: 2a0db4d890a01df13c44a9bb7adfbd13bebbdde0
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 071321249db62c927ee5677a48c52a7f2cd9c20d
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851703"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87896032"
 ---
 # <a name="performance-tuning-remote-desktop-virtualization-hosts"></a>Leistungsoptimierung Remotedesktop Virtualisierungshosts
 
@@ -20,9 +18,9 @@ Remotedesktop-Virtualisierungshost (RD-Virtualisierungshost) ist ein Rollen Dien
 
 Windows Server unterstützt zwei Arten von virtuellen Desktops: Persönliche virtuelle Desktops und in einem Pool zusammengefasste virtuelle Desktops.
 
-## <a name="general-considerations"></a>Allgemeine Überlegungen
+## <a name="general-considerations"></a>Allgemeine Hinweise
 
-### <a name="storage"></a>Speicher
+### <a name="storage"></a>Storage
 
 Der Speicher ist der wahrscheinlichste Leistungsengpass, und es ist wichtig, die Größe Ihres Speichers so zu skaliert, dass die e/a-Auslastung ordnungsgemäß verarbeitet wird, die durch Zustandsänderungen virtueller Maschinen generiert wird. Wenn ein Pilotprojekt oder eine Simulation nicht durchführbar ist, empfiehlt es sich, eine Datenträger Spindel für vier aktive virtuelle Computer bereitzustellen. Verwenden Sie Datenträger Konfigurationen mit guter Schreibleistung (z. b. RAID 1 + 0).
 
@@ -32,7 +30,7 @@ Verwenden Sie ggf. die datenträgerdeduplizierung und Zwischenspeicherung, um di
 
 Die in Windows Server 2012 R2 eingeführte Datendeduplizierung unterstützt die Optimierung von geöffneten Dateien. Um virtuelle Computer zu verwenden, die auf einem deduplizierten Volume ausgeführt werden, müssen die Dateien der virtuellen Maschine auf einem separaten Host vom Hyper-V-Host gespeichert werden. Wenn Hyper-V und Deduplizierung auf dem gleichen Computer ausgeführt werden, werden die beiden Features für Systemressourcen in den Mittelwert geraten, was sich negativ auf die Gesamtleistung auswirkt.
 
-Außerdem muss das Volume so konfiguriert werden, dass der deduplizierungstyp "Virtual Desktop Infrastructure (VDI)" verwendet wird. Sie können dies mithilfe Server-Manager (**Datei-und Speicherdienste** -&gt; **Volumes** -&gt; **deduplizierungseinstellungen**) oder mithilfe des folgenden Windows PowerShell-Befehls konfigurieren:
+Außerdem muss das Volume so konfiguriert werden, dass der deduplizierungstyp "Virtual Desktop Infrastructure (VDI)" verwendet wird. Sie können dies mithilfe Server-Manager konfigurieren (**deduplizierungseinstellungen für Datei-und Speicherdienste**  - &gt; **Volumes**  - &gt; **Dedup Settings**), oder indem Sie den folgenden Windows PowerShell-Befehl verwenden:
 
 ``` syntax
 Enable-DedupVolume <volume> -UsageType HyperV
@@ -41,7 +39,7 @@ Enable-DedupVolume <volume> -UsageType HyperV
 > [!NOTE]
 > Die datendeduplizierungsoptimierung von geöffneten Dateien wird nur für VDI-Szenarien mit Hyper-V unterstützt, die Remote Speicher über SMB 3,0 verwenden.
 
-### <a name="memory"></a>Arbeitsspeicher
+### <a name="memory"></a>Memory
 
 Die Auslastung des Server Arbeitsspeichers wird durch drei Hauptfaktoren gesteuert:
 
@@ -93,7 +91,7 @@ Es ist sinnvoll, Windows-Features und-Dienste zu deaktivieren, die vom permanent
 
 Jeder bestimmte Dienst sollte vor jeder breiten Bereitstellung angemessen ausgewertet werden. Im folgenden sind einige der folgenden Punkte zu beachten:
 
-| Service                                      | Warum?                                                                                                                                                                                                      |
+| Dienst                                      | Warum?                                                                                                                                                                                                      |
 |----------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Automatische Aktualisierung                                  | In einem Pool zusammengefasste virtuelle Desktops werden aktualisiert, indem die Vorlage für virtuelle Desktops neu erstellt wird.                                                                                                                          |
 | Offlinedateien                                | Virtuelle Desktops sind immer online und über einen Netzwerk Ansichts Punkt verbunden.                                                                                                                         |

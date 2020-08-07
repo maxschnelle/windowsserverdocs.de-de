@@ -1,20 +1,18 @@
 ---
 title: macfile
 description: Referenz Artikel für den MacFile-Befehl, der den Datei Server für Macintosh-Server, Volumes, Verzeichnisse und Dateien verwaltet.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: e2ce586c-b316-41d3-90f8-4be0d074cc0e
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6937e8bbf40ec9ce908be095e5de0e04f793f40e
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: d3b450241ee3f8a765f9ac93ec09b0450d8c28e5
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85933654"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87887048"
 ---
 # <a name="macfile"></a>macfile
 
@@ -34,7 +32,7 @@ macfile directory[/server:\\<computername>] /path:<directory> [/owner:<ownername
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | /server:`\\<computername>` | Gibt den Server an, auf dem ein Verzeichnis geändert werden soll. Wenn der Vorgang nicht weggelassen wird, wird der Vorgang auf dem lokalen Computer ausgeführt. |
 | /Path`<directory>` | Gibt den Pfad zu dem Verzeichnis an, das Sie ändern möchten. Dieser Parameter ist erforderlich. **Hinweis:** Das Verzeichnis muss vorhanden sein, und das Verzeichnis " **MacFile** " erstellt keine Verzeichnisse. |
@@ -50,8 +48,8 @@ Die Position der Berechtigungs Ziffer bestimmt, welche Berechtigung festgelegt w
 | Position | Sets-Berechtigung |
 | -------- | --------------- |
 | First | Besitzer Dateien |
-| Second | Besitzer Ordner |
-| Dritter | Besitzmakechanges |
+| Sekunde | Besitzer Ordner |
+| Third | Besitzmakechanges |
 | Vierter | GroupSeeFiles |
 | 5. | Groupseedner |
 | 6. | GroupMakeChanges |
@@ -61,7 +59,7 @@ Die Position der Berechtigungs Ziffer bestimmt, welche Berechtigung festgelegt w
 | Zehnten | Das Verzeichnis kann nicht umbenannt, verschoben oder gelöscht werden. |
 | Stündigen | Die Änderungen gelten für das aktuelle Verzeichnis und alle Unterverzeichnisse. |
 
-##### <a name="remarks"></a>Hinweise
+##### <a name="remarks"></a>Bemerkungen
 
 - Wenn die Informationen, die Sie angeben, Leerzeichen oder Sonderzeichen enthalten, verwenden Sie Anführungszeichen um den Text (z `<computer name>` . b. "").
 
@@ -91,7 +89,7 @@ macfile forkize[/server:\\<computername>] [/creator:<creatorname>] [/type:<typen
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | /server:`\\<computername>` | Gibt den Server an, auf dem Dateien verknüpft werden sollen. Wenn der Vorgang nicht weggelassen wird, wird der Vorgang auf dem lokalen Computer ausgeführt. |
 | Hersteller`<creatorname>` | Gibt den Ersteller der Datei an. Der Macintosh-Finder verwendet die Befehlszeilenoption **/Creator** , um die Anwendung zu ermitteln, die die Datei erstellt hat. |
@@ -101,7 +99,7 @@ macfile forkize[/server:\\<computername>] [/creator:<creatorname>] [/type:<typen
 | targetfile`<filepath>` | Gibt den Speicherort der Datei an, die durch den Beitritt zu einer Daten Verzweigung und einer Ressourcen Verzweigung erstellt wird, oder gibt den Speicherort der Datei an, deren Typ oder Ersteller Sie ändern. Die Datei muss sich auf dem angegebenen Server befinden. Dieser Parameter ist erforderlich. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-##### <a name="remarks"></a>Hinweise
+##### <a name="remarks"></a>Bemerkungen
 
 - Wenn die Informationen, die Sie angeben, Leerzeichen oder Sonderzeichen enthalten, verwenden Sie Anführungszeichen um den Text (z `<computer name>` . b. "").
 
@@ -131,14 +129,14 @@ macfile server [/server:\\<computername>] [/maxsessions:{number | unlimited}] [/
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- |------------ |
 | /server:`\\<computername>` | Gibt den Server an, auf dem die Parameter geändert werden sollen. Wenn der Vorgang nicht weggelassen wird, wird der Vorgang auf dem lokalen Computer ausgeführt. |
 | MaxSessions`{number | unlimited}` | Gibt die maximale Anzahl von Benutzern an, die gleichzeitig Datei-und Druckserver für Macintosh verwenden können. Wenn der Wert nicht angegeben wird, bleibt die **MaxSessions** -Einstellung für den Server unverändert. |
 | /loginmessage:`<message>` | Ändert die Nachricht, die Macintosh-Benutzer bei der Anmeldung beim Datei Server für Macintosh-Server sehen. Die maximale Anzahl von Zeichen für die Anmelde Nachricht beträgt 199. Wenn der Wert nicht ausgelassen wird, bleibt die **loginmessage** -Nachricht für den Server unverändert. Wenn Sie eine vorhandene Anmelde Nachricht entfernen möchten, schließen Sie den **/loginmessage** -Parameter ein, lassen Sie die *Nachrichten* Variable jedoch leer. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-##### <a name="remarks"></a>Hinweise
+##### <a name="remarks"></a>Bemerkungen
 
 - Wenn die Informationen, die Sie angeben, Leerzeichen oder Sonderzeichen enthalten, verwenden Sie Anführungszeichen um den Text (z `<computer name>` . b. "").
 
@@ -163,7 +161,7 @@ macfile volume /remove[/server:\\<computername>] /name:<volumename>
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `{/add | /set}` | Erforderlich, wenn ein auf Macintosh zugängliches Volume hinzugefügt oder geändert wird. Fügt das angegebene Volume hinzu oder ändert es. |
 | /server:`\\<computername>` | Gibt den Server an, auf dem ein Volume hinzugefügt, geändert oder entfernt werden soll. Wenn der Vorgang nicht weggelassen wird, wird der Vorgang auf dem lokalen Computer ausgeführt. |
@@ -176,7 +174,7 @@ macfile volume /remove[/server:\\<computername>] /name:<volumename>
 | /remove | Erforderlich, wenn Sie ein auf Macintosh zugängliches Volume entfernen. entfernt das angegebene Volume. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-##### <a name="remarks"></a>Hinweise
+##### <a name="remarks"></a>Bemerkungen
 
 - Wenn die Informationen, die Sie angeben, Leerzeichen oder Sonderzeichen enthalten, verwenden Sie Anführungszeichen um den Text (z `<computer name>` . b. "").
 

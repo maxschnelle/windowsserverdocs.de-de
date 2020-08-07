@@ -1,20 +1,18 @@
 ---
 title: whoami
 description: Referenz Artikel zu whoami, der Benutzer-, Gruppen-und Berechtigungsinformationen für den Benutzer anzeigt, der zurzeit am lokalen System angemeldet ist.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 6e3f4d5c-f1f5-4429-b602-afad2b3488bf
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7a8ab5b02ab8670145887bcbf1ecfaa5efac95ad
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: bdcef4072fe692f2717fe79814af926a2c151636
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85936584"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87896492"
 ---
 # <a name="whoami"></a>whoami
 
@@ -34,7 +32,7 @@ whoami /all [/fo <Format>] [/nh]
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
 |/upn|Zeigt den Benutzernamen im UPN-Format (User Principal Name) an.|
 |/fqdn|Zeigt den Benutzernamen im voll qualifizierten Domänen Namen (FQDN)-Format an.|

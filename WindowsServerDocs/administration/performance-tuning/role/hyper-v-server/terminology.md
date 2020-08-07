@@ -1,18 +1,16 @@
 ---
 title: Hyper-V-Terminologie
 description: In der Hyper-v-Leistungsoptimierung Nützliche Hyper-v-Terminologie
-ms.prod: windows-server
-ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: asmahi; sandysp; jopoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: bba2ef96be812c930fbf0c93d3c3c612fa9c9c5a
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 78552615dd67d79b8c0f4f700068fd302256a567
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85471265"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87896068"
 ---
 # <a name="hyper-v-terminology"></a>Hyper-V-Terminologie
 In diesem Abschnitt wird die Schlüssel Terminologie für die Technologie virtueller Computer zusammengefasst, die in diesem Thema zur Leistungsoptimierung verwendet wird:
@@ -37,7 +35,7 @@ In diesem Abschnitt wird die Schlüssel Terminologie für die Technologie virtue
 | *Virtualisierungsstapel*|Eine Sammlung von Softwarekomponenten in der Stamm Partition, die zur Unterstützung virtueller Maschinen zusammenarbeiten. Der Virtualisierungsstapel funktioniert mit und befindet sich über dem Hypervisor. Außerdem werden Verwaltungsfunktionen bereitstellt.|
 |*VMBus*|Kanal basierter Kommunikationsmechanismus, der für die Kommunikation zwischen Partitionen und Geräteenumeration in Systemen mit mehreren aktiven virtualisierten Partitionen verwendet wird. Die VMBus wird mit Hyper-V-Integrationsdiensten installiert.|
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Hyper-V-Architektur](architecture.md)
 

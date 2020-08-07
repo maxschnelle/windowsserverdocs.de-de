@@ -1,18 +1,16 @@
 ---
 title: Optimieren von IIS 10.0
 description: Neukommungen für die Leistungsoptimierung von IIS 10,0-Webservern unter Windows Server 16
-ms.prod: windows-server
-ms.technology: performance-tuning-guide
 ms.topic: landing-page
 ms.author: davso; ericam; yashi
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 8617c285ae55521e4e301b5c6b74f389df6b32d2
-ms.sourcegitcommit: 145cf75f89f4e7460e737861b7407b5cee7c6645
+ms.openlocfilehash: 74badc4bd2c001a524a290b74054fffb1a08cd36
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87409450"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87896012"
 ---
 # <a name="tuning-iis-100"></a>Optimieren von IIS 10.0
 
@@ -393,7 +391,7 @@ Die folgenden Probleme können sich auf die IIS-Leistung auswirken:
 
     Aus Leistungsgründen wird die Verwendung von CGI-Anwendungen zum Verarbeiten von Anforderungen nicht mit IIS empfohlen. Das häufige erstellen und Löschen von CGI-Prozessen umfasst erheblichen Aufwand. Bessere Alternativen sind die Verwendung von FastCGI, ISAPI-Anwendungs Skripts und ASP-oder ASP.net-Skripts. Für jede dieser Optionen ist eine Isolation verfügbar.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Leistungsoptimierung für Webserver](index.md)
 - [HTTP 1.1/2-Optimierung](http-performance.md)

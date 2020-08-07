@@ -1,18 +1,17 @@
 ---
 title: Rollen, Rollen Dienste und Features, die nicht in Windows Server Server Core enthalten sind
 description: Erfahren Sie mehr über die Rollen und Features, die nicht in der Server Core-Installationsoption für Windows Server enthalten sind.
-ms.prod: windows-server
 ms.mktglfcycl: manage
 ms.sitesec: library
 author: lizap
 ms.localizationpriority: medium
 ms.date: 02/23/2018
-ms.openlocfilehash: ce8fd0edc426b673f873717a27e6045e3476170f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b2dd8012048d2a055fc412676874170395c597cd
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71383365"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87895877"
 ---
 # <a name="roles-role-services-and-features-not-in-windows-server---server-core"></a>Rollen, Rollen Dienste und Features, die nicht in Windows Server Server Core enthalten sind
 

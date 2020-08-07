@@ -1,18 +1,16 @@
 ---
 title: Hyper-V-Prozessorleistung
 description: Überlegungen zur Prozessorleistung bei der Hyper-V-Leistungsoptimierung
-ms.prod: windows-server
-ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: asmahi; sandysp; jopoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: d165413dfbf89b2debd77806110ca80e9b6af7c8
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: ab68975c84e1b299914e09045eddbc302ca9697f
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85471295"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87896071"
 ---
 # <a name="hyper-v-processor-performance"></a>Hyper-V-Prozessorleistung
 
@@ -69,7 +67,7 @@ Die Features virtuelles NUMA und dynamischer Arbeitsspeicher können nicht gleic
 
 Weitere Informationen zu virtuellem NUMA finden Sie unter [virtueller Hyper-V-NUMA (Übersicht](https://technet.microsoft.com/library/dn282282.aspx)).
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Hyper-V-Terminologie](terminology.md)
 

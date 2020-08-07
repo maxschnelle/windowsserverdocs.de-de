@@ -1,20 +1,18 @@
 ---
 title: shadow
 description: Referenz Artikel zu Schatten, mit dem Sie eine aktive Sitzung eines anderen Benutzers auf einem Remotedesktop-Sitzungshost Server remote steuern können.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: f81d9717-6883-4e14-9508-4b2a87e48ea7 Lizap
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f4f7d6483e46708cab31d46b917f16b1eba29a58
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 225d85d777c7c6785d2d07916aef1b7d88b6ae53
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85935882"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87882462"
 ---
 # <a name="shadow"></a>shadow
 
@@ -30,7 +28,7 @@ shadow {<SessionName> | <SessionID>} [/server:<ServerName>] [/v]
 ```
 
 #### <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |-------|--------|
 |\<SessionName>|Gibt den Namen der Sitzung an, die Sie remote steuern möchten.|
 |\<SessionID>|Gibt die ID der Sitzung an, die Sie remote steuern möchten. Verwenden Sie den **Abfrage Benutzer** , um die Liste der Sitzungen und ihre Sitzungs-IDs anzuzeigen.|
@@ -38,7 +36,7 @@ shadow {<SessionName> | <SessionID>} [/server:<ServerName>] [/v]
 |/v|Zeigt Informationen zu den Aktionen an, die ausgeführt werden.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 -   Sie können die Sitzung entweder anzeigen oder aktiv steuern. Wenn Sie die Sitzung eines Benutzers aktiv steuern möchten, können Sie Tastatur-und Mausaktionen für die Sitzung eingeben.
 -   Sie können Ihre eigenen Sitzungen (außer der aktuellen Sitzung) jederzeit Remote steuern. Sie müssen jedoch über die Berechtigung "Vollzugriff" oder "Remote Steuerung" verfügen, um eine andere Sitzung Remote zu steuern.
 -   Sie können die Remote Steuerung auch mithilfe von Remotedesktopdienste-Manager initiieren.

@@ -1,18 +1,16 @@
 ---
 title: Überlegungen zu virtuellen Linux-Computern
 description: Virtueller Linux-und BSD-Computer
-ms.prod: windows-server
-ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: asmahi; sandysp; jopoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 1109eb50bbe052b39fe7a91903fa0aea58b6e4f1
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 916239535b92e1248918c76897e5222fa1dc6451
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85471385"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87896120"
 ---
 # <a name="linux-virtual-machine-considerations"></a>Überlegungen zu virtuellen Linux-Computern
 
@@ -57,7 +55,7 @@ Einige bewährte Methoden, wie z. b. die folgenden, werden unter Empfohlene [Vor
 
 Ähnlich wie bei Netzwerken profitiert die Leistung der Linux-gastleistung mit dem Speicher am meisten von mehreren Warteschlangen mit ausreichender Tiefe, um den Host ausgelastet zu halten. Die Speicherleistung von Mikro Benchmarks ist wahrscheinlich am besten mit dem fio-Benchmark-Tool mit der libaio-Engine.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Hyper-V-Terminologie](terminology.md)
 

@@ -1,18 +1,16 @@
 ---
 title: Kapazitätsplanung für Active Directory Domain Services
 description: Ausführliche Erörterung der Faktoren, die bei der Kapazitätsplanung für AD DS zu berücksichtigen sind.
-ms.prod: windows-server
-ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: v-tea; kenbrunf
 author: teresa-motiv
 ms.date: 7/3/2019
-ms.openlocfilehash: c0ff1c12a94abed86f6fa3cecd54894016dd3ad1
-ms.sourcegitcommit: 145cf75f89f4e7460e737861b7407b5cee7c6645
+ms.openlocfilehash: 33ae34a953f71739fd909ff5548861c2aebfe170
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87409490"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87896304"
 ---
 # <a name="capacity-planning-for-active-directory-domain-services"></a>Kapazitätsplanung für Active Directory Domain Services
 
@@ -117,7 +115,7 @@ Im Allgemeinen:
 | CPU | <ul><li>"Logischer Datenträger *\<NTDS Database Drive\>* \ Mittlere Sek./Lesevorgänge"</li><li>"Process (LSASS) \\ % Processor Time"</li></ul> | <ul><li>Nachdem Sie den Speicher als Engpass eliminiert haben, müssen Sie die benötigte computestrommenge beheben.</li><li>Die Anzahl der Prozessorkerne, die für alle Server innerhalb eines bestimmten Bereichs (z. b. einer Website) beansprucht werden, kann zwar nicht perfekt linear sein, aber die Anzahl der Prozessoren, die zur Unterstützung der gesamten Client Last erforderlich sind, kann verwendet werden. Fügen Sie die erforderliche Mindestanzahl hinzu, um die aktuelle Dienst Ebene für alle Systeme innerhalb des Bereichs beizubehalten.</li><li>Änderungen an der Prozessorgeschwindigkeit, einschließlich der Energie verwaltungsbezogenen Änderungen, wirken sich auf die von der aktuellen Umgebung abgeleiteten Zahlen aus. Im Allgemeinen ist es nicht möglich, genau zu bewerten, wie von einem 2,5 GHz-Prozessor zu einem 3-GHz-Prozessor die Anzahl der benötigten CPUs verringert wird.</li></ul> |
 | Anmeldedienst | <ul><li>"Netlogon (*) \semaphore" ruft " </li> <li> " Netlogon (*) \semaphore Timeouts "ab.</li><li>"Netlogon (*) \average Semaphore Hold Time"</li></ul> | <ul><li>Der sichere Kanal für die Netzwerk Anmeldung/MaxConcurrentApi wirkt sich nur auf Umgebungen mit NTLM-Authentifizierungen und/oder PAC-Überprüfung aus. Die PAC-Überprüfung ist in Betriebssystemversionen vor Windows Server 2008 standardmäßig aktiviert. Dies ist eine Client Einstellung, sodass die DCS beeinträchtigt werden, bis diese auf allen Client Systemen ausgeschaltet ist.</li><li>Umgebungen mit erheblicher vertrauenswürdiger Authentifizierung, die Gesamtstruktur übergreifende Vertrauens Stellungen einschließt, haben ein höheres Risiko, wenn Sie nicht ordnungsgemäß skaliert werden.</li><li>Server Konsolidierungen erhöhen die Parallelität der vertrauenswürdigen Authentifizierung.</li><li>Die Übertragungen müssen berücksichtigt werden, wie z. b. Cluster-Failover, da Benutzer die Massen Authentifizierung für den neuen Cluster Knoten durchführen.</li><li>Einzelne Client Systeme (z. b. ein Cluster) müssen möglicherweise ebenfalls optimiert werden.</li></ul> |
 
-## <a name="planning"></a>Planen
+## <a name="planning"></a>Planung
 
 Für einen längeren Zeitraum ist die Empfehlung der Community für die Größenanpassung von AD DS, "in so viel RAM wie die Datenbankgröße" zu versetzen. Zum größten Teil ist diese Empfehlung alles, was für die meisten Umgebungen sorgen muss. Das Ökosystem, das AD DS beansprucht AD DS, hat sich jedoch seit seiner Einführung in 1999 erheblich vergrößert. Obwohl der Anstieg der computeleistung und der Wechsel von x86-Architekturen zu x64-Architekturen dazu geführt haben, dass die untergeordneten Aspekte der Größenanpassung für eine größere Anzahl von Kunden, die AD DS auf physischer Hardware ausgeführt haben, nicht relevant sind, wurden die Optimierungsprobleme durch das Wachstum der Virtualisierung auf eine größere Zielgruppe zurückgesetzt als bisher.
 
@@ -534,7 +532,7 @@ Während der Datensammlung muss dieser, wie in allen anderen Szenarien, während
 > [!NOTE]
 > In der Gesamtstruktur und in den Gesamtstruktur übergreifenden Szenarien kann die Authentifizierung mehrere Vertrauens Stellungen durchlaufen, und jede Phase muss optimiert werden.
 
-#### <a name="planning"></a>Planen
+#### <a name="planning"></a>Planung
 
 Es gibt eine Reihe von Anwendungen, die standardmäßig die NTLM-Authentifizierung verwenden, oder Sie verwenden Sie in einem bestimmten Konfigurations Szenario. Anwendungsserver wachsen in der Kapazität und bedienen eine wachsende Anzahl aktiver Clients. Es gibt auch einen Trend, dass Clients die Sitzungen für einen begrenzten Zeitraum offen halten und stattdessen regelmäßig eine Verbindung herstellen (z. b. e-Mail-Pull Sync). Ein weiteres häufiges Beispiel für eine hohe NTLM-Auslastung sind WebProxy Server, für die eine Authentifizierung für den Internet Zugriff erforderlich ist.
 

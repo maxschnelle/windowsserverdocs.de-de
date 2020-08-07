@@ -1,20 +1,18 @@
 ---
 title: manage-bde Resume
 description: Referenz Artikel für den Befehl manage-bde Resume, mit dem die BitLocker-Verschlüsselung oder-Entschlüsselung fortgesetzt wird, nachdem Sie angehalten wurde.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: ca3cd1ca-6f2c-4190-b68f-27816635facb
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d5bbdf58f290dc18c299a3cfdb8aca7bfd0e69e6
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 76eca472da7068511497a797aa31f91adad423ea
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85922294"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87886745"
 ---
 # <a name="manage-bde-resume"></a>manage-bde Resume
 
@@ -28,7 +26,7 @@ manage-bde -resume [<drive>] [-computername <name>] [{-?|/?}] [{-help|-h}]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `<drive>` | Stellt einen von einem Doppelpunkt gefolgten Laufwerkbuchstaben dar. |
 | -Computername | Gibt an, dass manage-bde.exe zum Ändern des BitLocker-Schutzes auf einem anderen Computer verwendet wird. Sie können auch **-CN** als abgekürzte Version dieses Befehls verwenden. |

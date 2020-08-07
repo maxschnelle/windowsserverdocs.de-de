@@ -1,18 +1,16 @@
 ---
 title: Leistungsoptimierung Remotedesktop Gateways
 description: Empfehlungen zur Leistungsoptimierung für Remotedesktop Gateways
-ms.prod: windows-server
-ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: hammadbu; vladmis
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 3794b47e7226a905944495dd7c31f3196a33d0d5
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 8aeaf524b3621c61cfdd6b0e4edd9d0f8f73ebae
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851733"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87896047"
 ---
 # <a name="performance-tuning-remote-desktop-gateways"></a>Leistungsoptimierung Remotedesktop Gateways
 
@@ -74,38 +72,38 @@ Die folgende Liste der Leistungsindikatoren wird als Basissatz von Indikatoren b
 
 -   \\RPC/HTTP-Proxy\\\*
 
--   \\des RPC/HTTP-Proxys pro Server\\\*
+-   \\RPC/HTTP-Proxy pro Server\\\*
 
 -   \\Webdienst\\\*
 
--   \\W3SVC\_w3wp\\\*
+-   \\W3SVC \_ w3wp\\\*
 
--   \\IPv4-\\\*
+-   \\IPv4\\\*
 
--   \\Arbeitsspeicher\\\*
+-   \\Gedenkens\\\*
 
--   \\Netzwerkschnittstelle (\*)\\\*
+-   \\Netzwerkschnittstelle ( \* )\\\*
 
--   \\Prozess (\*)\\\*
+-   \\Prozess ( \* )\\\*
 
--   \\Prozessor Informationen (\*)\\\*
+-   \\Prozessor Informationen ( \* )\\\*
 
--   \\Synchronisierung (\*)\\\*
+-   \\Synchronisierung ( \* )\\\*
 
--   \\System\\\*
+-   \\Anlage\\\*
 
 -   \\TCPv4\\\*
 
 Die folgenden Leistungsindikatoren sind nur für den Legacy-RPC-Transport anwendbar:
 
--   \\RPC/HTTP-Proxy\\\* RPC
+-   \\RPC/HTTP-Proxy- \\ \* RPC
 
--   \\RPC/HTTP-Proxy pro Server\\\* RPC
+-   \\RPC/HTTP-Proxy pro Server- \\ \* RPC
 
--   \\Webdienst\\\* RPC
+-   \\Webdienst- \\ \* RPC
 
--   \\W3SVC\_w3wp\\\* RPC
+-   \\W3SVC \_ w3wp \\ \* RPC
 
 > [!NOTE]
-> Fügen Sie ggf. die \\IPv6-\\\* und \\TCPv6\\\* Objekte hinzu. ReplaceThisText
+> Fügen Sie ggf \\ . die IPv6 \\ \* -und \\ TCPv6-Objekte hinzu \\ \* . ReplaceThisText
 

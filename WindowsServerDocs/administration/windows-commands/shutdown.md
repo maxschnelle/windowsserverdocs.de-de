@@ -1,20 +1,18 @@
 ---
 title: shutdown
 description: Referenz Artikel zum Herunterfahren, mit dem Sie lokale oder Remote Computer einzeln Herunterfahren oder neu starten können.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: c432f5cf-c5aa-4665-83af-0ec52c87112e
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2f31e5b0ee1252bf015c964fa76dd2852df3515b
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 8dff8150cb6ccfea24238567581320a9b11650d3
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86956122"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87882359"
 ---
 # <a name="shutdown"></a>shutdown
 
@@ -50,7 +48,7 @@ shutdown [/i | /l | /s | /r | /a | /p | /h | /e] [/f] [/m \\<ComputerName>] [/t 
 ## <a name="remarks"></a>Bemerkungen
 
 -   Benutzern muss das **System** Benutzerrecht Herunterfahren zugewiesen werden, um einen lokalen oder remote verwalteten Computer zu beenden, der den Befehl **Shutdown** verwendet.
--   Benutzer müssen Mitglied der Gruppe "Administratoren" sein, um ein unerwartetes Herunterfahren eines lokalen oder remote verwalteten Computers zu kommentieren. Wenn der Zielcomputer einer Domäne angehört, können Mitglieder der Gruppe "Domänen-Admins" dieses Verfahren möglicherweise ausführen. Weitere Informationen finden Sie unter
+-   Benutzer müssen Mitglied der Gruppe "Administratoren" sein, um ein unerwartetes Herunterfahren eines lokalen oder remote verwalteten Computers zu kommentieren. Wenn der Zielcomputer einer Domäne angehört, können Mitglieder der Gruppe "Domänen-Admins" dieses Verfahren möglicherweise ausführen. Weitere Informationen finden Sie unter:
     -   [Lokale Standardgruppen](/previous-versions/windows/it-pro/windows-server-2003/cc785098(v=ws.10))
     -   [Standardgruppen](/previous-versions/windows/it-pro/windows-server-2003/cc756898(v=ws.10))
 -   Wenn Sie mehrere Computer gleichzeitig Herunterfahren möchten, können Sie das **herunter** fahren für jeden Computer mithilfe eines Skripts aufrufen, oder Sie können **Shutdown** **/i** verwenden, um das Dialog Feld Remote Herunterfahren anzuzeigen.
@@ -68,6 +66,6 @@ Um den Remote Computer \\ \\ Servername mit denselben Parametern neu zu starten,
 shutdown /r /m \\servername /t 60 /c Reconfiguring myapp.exe /f /d p:4:1
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

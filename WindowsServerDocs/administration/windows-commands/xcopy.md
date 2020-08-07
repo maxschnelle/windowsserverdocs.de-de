@@ -1,20 +1,18 @@
 ---
 title: xcopy
 description: Referenz Artikel für xcopy, der Dateien und Verzeichnisse einschließlich Unterverzeichnissen kopiert.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 76a310d7-9925-4571-a252-0e28960d5f89
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 01/05/2019
-ms.openlocfilehash: e33450cd330ac962c111b145d71c2595f926da2c
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 9d2ac59abbeb8caffb3b5d94bf514a7c6daca4e9
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85936062"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87896431"
 ---
 # <a name="xcopy"></a>xcopy
 
@@ -30,7 +28,7 @@ Xcopy <Source> [<Destination>] [/w] [/p] [/c] [/v] [/q] [/f] [/l] [/g] [/d [:MM-
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
 |\<Source>|Erforderlich. Gibt den Speicherort und die Namen der Dateien an, die Sie kopieren möchten. Dieser Parameter muss entweder ein Laufwerk oder einen Pfad enthalten.|
 |[\<Destination>]|Gibt das Ziel der Dateien an, die Sie kopieren möchten. Dieser Parameter kann einen Laufwerk Buchstaben, einen Doppelpunkt, einen Verzeichnisnamen, einen Dateinamen oder eine Kombination dieser Parameter enthalten.|
@@ -64,7 +62,7 @@ Xcopy <Source> [<Destination>] [/w] [/p] [/c] [/v] [/q] [/f] [/l] [/g] [/d [:MM-
 |/j|Kopiert Dateien ohne Pufferung. Empfohlen für sehr große Dateien. Dieser Parameter wurde in Windows Server 2008 R2 hinzugefügt.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 - Verwenden von **"/z**
 
@@ -213,5 +211,5 @@ Im vorherigen Beispiel ist dieser bestimmte Quellparameter Wert **. \\ "Dec \* .
 - [Has](dir.md)
 - [Attrib](attrib.md)
 - [DISKCOPY](diskcopy.md)
-- [Sei](if.md)
+- [If](if.md)
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

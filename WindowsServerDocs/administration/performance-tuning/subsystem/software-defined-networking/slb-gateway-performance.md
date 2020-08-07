@@ -1,18 +1,16 @@
 ---
 title: Leistungsoptimierung des SLB-Gateways in Software definierten Netzwerken
 description: Leitfaden zur Leistungsoptimierung für SLB-Gateways in Sdn-Netzwerken
-ms.prod: windows-server
-ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: grcusanz; anpaul
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: d1a497f24eba26b3b9b866772ae5171ea0fcbb24
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 64d045a270b8762d0d269055c8c65d1e40a71d63
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851583"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87895932"
 ---
 # <a name="slb-gateway-performance-tuning-in-software-defined-networks"></a>Leistungsoptimierung des SLB-Gateways in Software definierten Netzwerken
 
@@ -22,7 +20,7 @@ Es ist keine zusätzliche Leistungsoptimierung erforderlich, um den Netzwerk Con
 
 ## <a name="slb-mux-vm-configuration"></a>SLB MUX-VM-Konfiguration
 
-Virtuelle SLB MUX-Computer werden in einer aktiv/aktiv-Konfiguration bereitgestellt.  Dies bedeutet, dass jeder virtuelle MUX-Computer, der dem Netzwerk Controller bereitgestellt und hinzugefügt wird, eingehende Anforderungen verarbeiten kann.  Folglich wird der gesamte aggregierte Durchsatz aller Verbindungen nur durch die Anzahl der von Ihnen bereitgestellten MUX-VMS beschränkt.  
+Virtuelle SLB MUX-Computer werden in einer aktiv/aktiv-Konfiguration bereitgestellt.  Dies bedeutet, dass jeder virtuelle MUX-Computer, der dem Netzwerk Controller bereitgestellt und hinzugefügt wird, eingehende Anforderungen verarbeiten kann.  Folglich wird der gesamte aggregierte Durchsatz aller Verbindungen nur durch die Anzahl der von Ihnen bereitgestellten MUX-VMS beschränkt.
 
 Eine einzelne Verbindung mit einer virtuellen IP-Adresse (VIP) wird immer an dieselbe MUX-Adresse gesendet, wobei angenommen wird, dass die Anzahl der Mux konstant bleibt. Infolgedessen wird der Durchsatz auf den Durchsatz einer einzelnen MUX-VM beschränkt.  Muxes verarbeiten nur den eingehenden Datenverkehr, der an eine VIP-Adresse gerichtet ist.  Antwort Pakete gelangen direkt von der VM, die die Antwort an den physischen Switch sendet, der Sie an den Client weiterleitet.
 

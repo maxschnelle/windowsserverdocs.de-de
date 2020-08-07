@@ -1,49 +1,48 @@
 ---
 title: Konfigurieren von Speicher Abbild Dateien für die Server Core-Installation
 description: Erfahren Sie, wie Sie Speicher Abbild Dateien für eine Server Core-Installation von Windows Server konfigurieren.
-ms.prod: windows-server
 ms.mktglfcycl: manage
 ms.sitesec: library
 author: lizap
 ms.localizationpriority: medium
 ms.date: 10/17/2017
-ms.openlocfilehash: 4f1baa52fc9f0ebfe8afae35d86b7a7238d56223
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ee5786684c4f3a6c75c3b123b9d3ef9d32143949
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71383387"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87895881"
 ---
 # <a name="configure-memory-dump-files-for-server-core-installation"></a>Konfigurieren von Speicher Abbild Dateien für die Server Core-Installation
 
 >Gilt für: Windows Server 2019, Windows Server 2016 und Windows Server (halbjährlicher Kanal)
 
-Führen Sie die folgenden Schritte aus, um ein Speicher Abbild für die Server Core-Installation zu konfigurieren. 
+Führen Sie die folgenden Schritte aus, um ein Speicher Abbild für die Server Core-Installation zu konfigurieren.
 
 ## <a name="step-1-disable-the-automatic-system-page-file-management"></a>Schritt 1: Deaktivieren der automatischen Dateiverwaltung von System Seiten
 
 Der erste Schritt besteht darin, die Systemfehler-und Wiederherstellungsoptionen manuell zu konfigurieren. Dies ist erforderlich, um die restlichen Schritte abzuschließen.
 
-Führen Sie den folgenden Befehl aus: 
+Führen Sie den folgenden Befehl aus:
 
 ```
 wmic computersystem set AutomaticManagedPagefile=False
 ```
- 
+
 ## <a name="step-2-configure-the-destination-path-for-a-memory-dump"></a>Schritt 2: Konfigurieren des Zielpfads für ein Speicher Abbild
 
-Sie müssen nicht über die Auslagerungs Datei auf der Partition verfügen, auf der das Betriebssystem installiert ist. Wenn Sie die Auslagerungs Datei auf einer anderen Partition platzieren möchten, müssen Sie einen neuen Registrierungs Eintrag mit dem Namen **dedikateddumpfile**erstellen. Sie können die Größe der Auslagerungs Datei mit dem Registrierungs Eintrag **DumpFileSize** definieren. Führen Sie die folgenden Schritte aus, um die Registrierungseinträge dedikateddumpfile und DumpFileSize zu erstellen: 
+Sie müssen nicht über die Auslagerungs Datei auf der Partition verfügen, auf der das Betriebssystem installiert ist. Wenn Sie die Auslagerungs Datei auf einer anderen Partition platzieren möchten, müssen Sie einen neuen Registrierungs Eintrag mit dem Namen **dedikateddumpfile**erstellen. Sie können die Größe der Auslagerungs Datei mit dem Registrierungs Eintrag **DumpFileSize** definieren. Führen Sie die folgenden Schritte aus, um die Registrierungseinträge dedikateddumpfile und DumpFileSize zu erstellen:
 
 1. Führen Sie an der Eingabeaufforderung den Befehl **Regedit** aus, um den Registrierungs-Editor zu öffnen.
 2. Suchen Sie den folgenden Registrierungs Unterschlüssel, und klicken Sie darauf: HKEY_LOCAL_MACHINE \system\currentcontrolset\control\crashcontrol.
 3. Klicken Sie **> neue > Zeichen folgen Wert bearbeiten**.
 4. Benennen Sie den neuen Wert **dediereddumpfile**, und drücken Sie dann die EINGABETASTE.
 5. Klicken Sie mit der rechten Maustaste auf **dedialisieddumpfile**, und klicken Sie dann auf **ändern**.
-6. Geben Sie unter **Wert Datentyp** **\<Laufwerk\>:\\\<Dedi. sys\>** ein, und klicken Sie dann auf **OK**.
+6. Geben **Value data** **OK**Sie im Feld Wert den Wert ein, und klicken Sie dann auf OK. ** \<Drive\> \\ \<Dedicateddumpfile.sys\> **
 
-   >[!NOTE] 
-   > Ersetzen Sie \<Laufwerk\> durch ein Laufwerk, das über ausreichend Speicherplatz für die Auslagerungs Datei verfügt, und ersetzen Sie \<dediereddumpfile. dmp\> durch den vollständigen Pfad zu der dedizierten Datei.
- 
+   >[!NOTE]
+   > Ersetzen \<Drive\> Sie dies durch ein Laufwerk, das über ausreichend Speicherplatz für die Auslagerungs Datei verfügt, und ersetzen \<Dedicateddumpfile.dmp\> Sie durch den vollständigen Pfad der dedizierten Datei.
+
 7. Klicken Sie auf **> neuen > DWORD-Wert bearbeiten**.
 8. Geben Sie **DumpFileSize**ein, und drücken Sie dann die EINGABETASTE.
 9. Klicken Sie mit der rechten Maustaste auf **DumpFileSize**, und klicken Sie dann auf **ändern**.
@@ -65,12 +64,12 @@ Das Standardziel für "Debug **FilePath** " ist%SystemRoot%\Memory.dmp. Um den a
 wmic RECOVEROS set DebugFilePath = <FilePath>
 ```
 
-Legen Sie \<filePath-\> auf den Zielpfad fest. Der folgende Befehl legt z. b. den Zielpfad des Speicher Abbilds auf "c:\WINDOWS\MEMORY" fest. DMP 
+Legen \<FilePath\> Sie den Zielpfad fest. Der folgende Befehl legt z. b. den Zielpfad des Speicher Abbilds auf "c:\WINDOWS\MEMORY" fest. DMP
 
 ```
 wmic RECOVEROS set DebugFilePath = C:\WINDOWS\MEMORY.DMP
 ```
- 
+
 ## <a name="step-3-set-the-type-of-memory-dump"></a>Schritt 3: Legen Sie den Typ des Speicher Abbilds fest.
 
 Bestimmen Sie den Typ des Speicher Abbilds, das für den Server konfiguriert werden soll. Führen Sie den folgenden Befehl aus, um den aktuellen speicherdumptyp anzuzeigen:
@@ -79,17 +78,17 @@ Bestimmen Sie den Typ des Speicher Abbilds, das für den Server konfiguriert wer
 wmic RECOVEROS get DebugInfoType
 ```
 
-Führen Sie den folgenden Befehl aus, um den aktuellen Speicherdump-Typ zu ändern: 
+Führen Sie den folgenden Befehl aus, um den aktuellen Speicherdump-Typ zu ändern:
 
 ```
 wmic RECOVEROS set DebugInfoType = <Value>
 ```
 
-\<Wert\> kann wie unten definiert 0, 1, 2 oder 3 sein.
+\<Value\>kann 0, 1, 2 oder 3 sein, wie unten definiert.
 
 - 0: Deaktivieren Sie das Entfernen eines Speicher Abbilds.
 - 1: vollständiges Speicher Abbild. Zeichnet den gesamten Inhalt des System Arbeitsspeichers auf, wenn der Computer unerwartet angehalten wird. Ein vollständiges Speicher Abbild kann Daten aus Prozessen enthalten, die bei der Erfassung des Speicher Abbilds ausgeführt wurden.
-- 2: Kernel Speicher Abbild (Standard). Zeichnet nur den Kernelspeicher auf. Dies beschleunigt den Prozess der Aufzeichnung von Informationen in einer Protokolldatei, wenn der Computer unerwartet angehalten wird.
+- 2: Kernel Speicher Abbild (Standard). Zeichnet nur den Kernel Speicher auf. Dies beschleunigt den Prozess der Aufzeichnung von Informationen in einer Protokolldatei, wenn der Computer unerwartet angehalten wird.
 - 3: kleines Speicher Abbild. Zeichnet die kleinsten nützlichen Informationen auf, anhand derer ermittelt werden kann, warum der Computer unerwartet angehalten wurde.
 
 ## <a name="step-4-configure-the-server-to-restart-automatically-after-generating-a-memory-dump"></a>Schritt 4: Konfigurieren des Servers für den automatischen Neustart nach dem Erstellen eines Speicher Abbilds
@@ -107,7 +106,7 @@ Wenn der Wert für **AutoReboot** den Wert false hat, wird der Server nicht auto
 ```
 wmic RECOVEROS set AutoReboot = true
 ```
- 
+
 ## <a name="step-5-configure-the-server-to-overwrite-the-existing-memory-dump-file"></a>Schritt 5: Konfigurieren des Servers zum Überschreiben der vorhandenen Speicher Abbild Datei
 
 Standardmäßig überschreibt der Server die vorhandene Speicher Abbild Datei, wenn ein neuer erstellt wird. Führen Sie den folgenden Befehl aus, um zu ermitteln, ob vorhandene Speicher Abbild Dateien bereits überschrieben werden können:
@@ -118,12 +117,12 @@ wmic RECOVEROS get OverwriteExistingDebugFile
 
 Wenn der Wert 1 ist, wird die vorhandene Speicher Abbild Datei vom Server überschrieben. Es ist keine Konfiguration erforderlich, und Sie können mit dem nächsten Schritt fortfahren.
 
-Wenn der Wert 0 ist, wird die vorhandene Speicher Abbild Datei vom Server nicht überschrieben. Führen Sie den folgenden Befehl aus, um den Wert zu ändern: 
+Wenn der Wert 0 ist, wird die vorhandene Speicher Abbild Datei vom Server nicht überschrieben. Führen Sie den folgenden Befehl aus, um den Wert zu ändern:
 
 ```
 wmic RECOVEROS set OverwriteExistingDebugFile = 1
 ```
- 
+
 ## <a name="step-6-set-an-administrative-alert"></a>Schritt 6: Festlegen einer administrativen Warnung
 
 Stellen Sie fest, ob eine administrative Warnung geeignet ist, und legen Sie **sendadminalert** entsprechend fest. Um den aktuellen Wert für sendadminalert anzuzeigen, führen Sie den folgenden Befehl aus:
@@ -132,12 +131,12 @@ Stellen Sie fest, ob eine administrative Warnung geeignet ist, und legen Sie **s
 wmic RECOVEROS get SendAdminAlert
 ```
 
-Die möglichen Werte für sendadminalert sind true oder false. Führen Sie den folgenden Befehl aus, um den vorhandenen sendadminalert-Wert in true zu ändern: 
+Die möglichen Werte für sendadminalert sind true oder false. Führen Sie den folgenden Befehl aus, um den vorhandenen sendadminalert-Wert in true zu ändern:
 
 ```
 wmic RECOVEROS set SendAdminAlert = true
 ```
- 
+
 ## <a name="step-7-set-the-memory-dumps-page-file-size"></a>Schritt 7: Festlegen der Größe der Auslagerungs Datei des Speicher Abbilds
 
 Führen Sie einen der folgenden Befehle aus, um die aktuellen Seiten Datei Einstellungen zu überprüfen:
@@ -184,13 +183,13 @@ Sie können manuelle Speicher Abbilder mit einer PS/2-Tastatur generieren, die m
 
 ## <a name="step-9-verify-that-memory-dump-files-are-being-created-correctly"></a>Schritt 9: überprüfen, ob die Speicher Abbild Dateien ordnungsgemäß erstellt werden
 
-Sie können die Utlity Dumpchk. exe verwenden, um zu überprüfen, ob die Speicher Abbild Dateien ordnungsgemäß erstellt werden. Das Hilfsprogramm "Dumpchk. exe" wird nicht mit der Server Core-Installationsoption installiert, sodass Sie es von einem Server mit Desktop Darstellung oder Windows 10 ausführen müssen. Außerdem müssen die Debugtools für Windows-Produkte installiert sein.  
+Sie können die dumpchk.exe Utlity verwenden, um zu überprüfen, ob die Speicher Abbild Dateien ordnungsgemäß erstellt werden. Das dumpchk.exe-Hilfsprogramm wird nicht mit der Server Core-Installationsoption installiert, sodass Sie es von einem Server mit Desktop Darstellung oder Windows 10 ausführen müssen. Außerdem müssen die Debugtools für Windows-Produkte installiert sein.
 
-Mit dem Hilfsprogramm "Dumpchk. exe" können Sie die Speicher Abbild Datei von der Server Core-Installation von Windows Server 2008 auf den anderen Computer übertragen, indem Sie das Mittel ihrer Wahl verwenden.
+Mit dem dumpchk.exe-Hilfsprogramm können Sie die Speicher Abbild Datei von der Server Core-Installation von Windows Server 2008 auf den anderen Computer übertragen, indem Sie das Mittel ihrer Wahl verwenden.
 
 > [!WARNING]
 > Auslagerungs Dateien können sehr groß sein, daher sollten Sie die Übertragungsmethode und die von der Methode benötigten Ressourcen sorgfältig berücksichtigen.
- 
+
 
 Weitere Verweise
 

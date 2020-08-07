@@ -1,18 +1,16 @@
 ---
 title: Überlegungen zur Hardware bei der AD-Leistungsoptimierung
 description: Überlegungen zur Hardware bei der AD-Leistungsoptimierung
-ms.prod: windows-server
-ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: timwi; chrisrob; herbertm; kenbrumf;  mleary; shawnrab
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 1fef257f860895b20c1ca1a24b6fa50e16f70c8c
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 0ec22e4c85dab5e76e61cea8a68d88d7fd37b14e
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85471575"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87896249"
 ---
 # <a name="hardware-considerations-in-adds-performance-tuning"></a>Überlegungen zur Hardware in werden Leistungsoptimierungen hinzugefügt
 
@@ -71,7 +69,7 @@ Ebenso wie bei Prozessoren führt eine übermäßige Auslastung des Netzwerkadap
 
 -   Verwenden Sie den Leistungs Leistungs Dienst "netzwerkschnittstellenbytes ( \* ) \\ mit gesendete Bytes/Sek." mit NetworkInterface ( \* ) \\ . Das Verhältnis sollte weniger als 60% betragen.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 - [Optimierung der Leistung von Active Directory-Servern](index.md)
 - [Überlegungen zu LDAP](ldap-considerations.md)
 - [Ordnungsgemäße Platzierung von Domänencontrollern und Überlegungen zum Standort](site-definition-considerations.md)

@@ -1,20 +1,18 @@
 ---
 title: Dienste für Network File System-Befehlsreferenz
 description: Referenz Artikel für * * * *-
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 06c81f88-a672-4405-9b73-085f8933114c
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bd729c6d363beaf31e7753ba01622b7ed9b395bf
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 4f471557214f51464c2f1285b64a76084ea1a487
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85937118"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87882712"
 ---
 # <a name="services-for-network-file-system-command-reference"></a>Dienste für Network File System-Befehlsreferenz
 
@@ -22,10 +20,10 @@ Services for Network File System (NFS) stellt eine Dateifreigabe Lösung bereit,
 Im folgenden finden Sie eine Liste der NFS-Befehlszeilen Tools:
 
 
-| Befehl | Beschreibung |
+| Get-Help | BESCHREIBUNG |
 | ------- | ----------- |
 | [mapadmin](mapadmin.md) | Verwalten Sie Benutzernamenzuordnung für Microsoft-Dienste für das Netzwerkdatei System. |
-| [LIS](mount.md) | Einbinden von Network File System (NFS)-Netzwerkfreigaben. |
+| [Einbinden](mount.md) | Einbinden von Network File System (NFS)-Netzwerkfreigaben. |
 | [Nfsadmin](nfsadmin.md) | Verwalten Sie Server für NFS und Client für NFS. |
 | [Nfsshare](nfsshare.md) | Steuern von NFS-Freigaben (Network File System). |
 | [Nfsstat](nfsstat.md) | Anzeigen oder Zurücksetzen der Anzahl der Aufrufe von Server für NFS. |

@@ -1,20 +1,18 @@
 ---
 title: logman update alert
 description: Referenz Artikel für den Befehl logman update Alert, mit dem die Eigenschaften eines vorhandenen Warnungs Daten Sammlers aktualisiert werden.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: ede94a76-931c-40ed-9fda-6766bed8ff72
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 84e198ef528d1f9192662ed89ad39b6884fab742
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 1139b3d5f8e49c70f00b5bd5780a96f30bafa41e
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85932272"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87887253"
 ---
 # <a name="logman-update-alert"></a>logman update alert
 
@@ -30,13 +28,13 @@ logman update alert <[-n] <name>> [options]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
-| -s`<computer name>` | Führen Sie den Befehl auf dem angegebenen Remote Computer aus. |
+| -s `<computer name>` | Führen Sie den Befehl auf dem angegebenen Remote Computer aus. |
 | -config`<value>` | Gibt die Einstellungsdatei an, die Befehlsoptionen enthält. |
 | [-n]`<name>` | Name des Zielobjekts |
 | -[-] u`<user [password]>` | Gibt den Benutzer an, der als ausgeführt werden soll. Wenn Sie `*` für das Kennwort eingeben, wird eine Eingabeaufforderung für das Kennwort ausgegeben. Das Kennwort wird nicht angezeigt, während Sie es an der Eingabeaufforderung eingeben. |
-| -m`<[start] [stop] [[start] [stop] [...]]>` | Änderungen an manuellem starten oder beenden anstelle einer geplanten Anfangs-oder Endzeit. |
+| -m `<[start] [stop] [[start] [stop] [...]]>` | Änderungen an manuellem starten oder beenden anstelle einer geplanten Anfangs-oder Endzeit. |
 | -RF`<[[hh:]mm:]ss>` | Führt den Datensammler für den angegebenen Zeitraum aus. |
 | -b`<M/d/yyyy h:mm:ss[AM|PM]>` | Beginnt mit dem Sammeln von Daten zum angegebenen Zeitpunkt. |
 | -e `<M/d/yyyy h:mm:ss[AM|PM]>` | Beendet die Datensammlung zum angegebenen Zeitpunkt. |
@@ -58,7 +56,7 @@ logman update alert <[-n] <name>> [options]
 | -[-] Targ`<argument>` | Gibt die Task Argumente an, die für die mit-TN angegebene Aufgabe verwendet werden sollen. |
 | /? | Zeigt die kontextbezogene Hilfe an. |
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Wenn [-] aufgeführt ist, wird durch das Hinzufügen eines zusätzlichen Bindestrichs (-) die Option negiert.
 

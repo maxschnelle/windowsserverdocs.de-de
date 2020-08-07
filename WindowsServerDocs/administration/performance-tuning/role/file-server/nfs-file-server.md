@@ -1,18 +1,16 @@
 ---
 title: Leistungsoptimierung für NFS-Dateiserver
 description: Leistungsoptimierung für NFS-Dateiserver
-ms.prod: windows-server
-ms.technology: performance-tuning-guide
 ms.topic: article
 author: phstee
 ms.author: roopeshb, nedpyle
 ms.date: 10/16/2017
-ms.openlocfilehash: 9bee396532c3319e43d10012e098533495cf0b03
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 897e45a99ac4640c5fbae4287ac99a0bce6eae66
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851853"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87896188"
 ---
 # <a name="performance-tuning-nfs-file-servers"></a>Leistungsoptimierung für NFS-Dateiserver
 
@@ -25,7 +23,7 @@ Für das NFS v 4.1-Protokoll ist keine Registrierungs Optimierung erforderlich.
 
 ### <a name="service-for-nfs-model-overview"></a>Übersicht über das Service for NFS-Modell
 
-Microsoft-Dienste für NFS bietet eine Dateifreigabe Lösung für Unternehmen, die über eine gemischte Windows-und UNIX-Umgebung verfügen. Dieses Kommunikationsmodell besteht aus Client Computern und einem-Server. Anwendungen auf den Client Anforderungs Dateien, die sich auf dem Server befinden, über den Redirector (Rdbss. sys) und den NFS-Mini-Redirectors (NF SRDR. sys). Der Mini-Redirector verwendet das NFS-Protokoll, um seine Anforderung über TCP/IP zu senden. Der Server empfängt mehrere Anforderungen von den Clients über TCP/IP und leitet die Anforderungen an das lokale Dateisystem (NTFS. sys) weiter, das auf den Speicher Stapel zugreift.
+Microsoft-Dienste für NFS bietet eine Dateifreigabe Lösung für Unternehmen, die über eine gemischte Windows-und UNIX-Umgebung verfügen. Dieses Kommunikationsmodell besteht aus Client Computern und einem-Server. Anwendungen auf den Client Anforderungs Dateien, die sich auf dem Server befinden, über den Redirector (Rdbss.sys) und den NFS-Mini-redirectoror (Nfsrdr.sys). Der Mini-Redirector verwendet das NFS-Protokoll, um seine Anforderung über TCP/IP zu senden. Der Server empfängt mehrere Anforderungen von den Clients über TCP/IP und leitet die Anforderungen an das lokale Dateisystem (Ntfs.sys) weiter, das auf den Speicher Stapel zugreift.
 
 Die folgende Abbildung zeigt das Kommunikationsmodell für NFS.
 
@@ -33,7 +31,7 @@ Die folgende Abbildung zeigt das Kommunikationsmodell für NFS.
 
 ### <a name="tuning-parameters-for-nfs-file-servers"></a>Optimieren von Parametern für NFS-Dateiserver
 
-Die folgenden reg\_DWORD-Registrierungs Einstellungen können sich auf die Leistung von NFS-Dateiservern auswirken:
+Die folgenden \_ Registrierungs Einstellungen für "reg DWORD" können sich auf die Leistung von NFS-Dateiservern auswirken:
 
 -   **Optimalreads**
 
@@ -41,7 +39,7 @@ Die folgenden reg\_DWORD-Registrierungs Einstellungen können sich auf die Leist
     HKLM\System\CurrentControlSet\Services\NfsServer\Parameters\OptimalReads
     ```
 
-    Der Standard ist 0. Dieser Parameter bestimmt, ob Dateien für Datei\_zufälligen\_Zugriff oder nur für Datei\_sequenzieller\_geöffnet werden, abhängig von den e/a-Merkmalen der Arbeitsauslastung. Legen Sie diesen Wert auf 1 fest, um zu erzwingen, dass Dateien für die Datei\_zufälligen\_Zugriff geöffnet werden. Datei\_Random\_Access verhindert, dass das Dateisystem und der Cache-Manager vorab abgerufen werden.
+    Die Standardeinstellung ist 0. Dieser Parameter bestimmt, ob Dateien für \_ den zufälligen Datei \_ Zugriff oder nur für Datei \_ sequenziell geöffnet werden \_ , abhängig von den e/a-Merkmalen der Arbeitsauslastung. Legen Sie diesen Wert auf 1 fest, um zu erzwingen, dass Dateien für den zufälligen Dateizugriff geöffnet werden \_ \_ . \_Der zufällige Datei \_ Zugriff verhindert, dass das Dateisystem und der Cache-Manager vorab abgerufen werden.
 
     >[!NOTE]
     > Diese Einstellung muss sorgfältig ausgewertet werden, da Sie möglicherweise Auswirkungen auf die Vergrößerung des Systemdatei Caches hat.
@@ -53,7 +51,7 @@ Die folgenden reg\_DWORD-Registrierungs Einstellungen können sich auf die Leist
     HKLM\System\CurrentControlSet\Services\NfsServer\Parameters\RdWrHandleLifeTime
     ```
 
-    Der Standardwert beträgt 5. Dieser Parameter steuert die Lebensdauer eines NFS-Cache Eintrags im Datei Handle-Cache. Der-Parameter verweist auf Cache Einträge, die über ein zugeordnetes Open NTFS-Datei Handle verfügen. Die tatsächliche Gültigkeitsdauer entspricht ungefähr rdwrhandlelifetime, multipliziert mit rdwrthreadsleeptime. Der Minimalwert ist 1, und der Höchstwert ist 60.
+    Der Standardwert ist 5. Dieser Parameter steuert die Lebensdauer eines NFS-Cache Eintrags im Datei Handle-Cache. Der-Parameter verweist auf Cache Einträge, die über ein zugeordnetes Open NTFS-Datei Handle verfügen. Die tatsächliche Gültigkeitsdauer entspricht ungefähr rdwrhandlelifetime, multipliziert mit rdwrthreadsleeptime. Der Minimalwert ist 1, und der Höchstwert ist 60.
 
 -   **Rdwrnf shandlelifetime**
 
@@ -61,7 +59,7 @@ Die folgenden reg\_DWORD-Registrierungs Einstellungen können sich auf die Leist
     HKLM\System\CurrentControlSet\Services\NfsServer\Parameters\RdWrNfsHandleLifeTime
     ```
 
-    Der Standardwert beträgt 5. Dieser Parameter steuert die Lebensdauer eines NFS-Cache Eintrags im Datei Handle-Cache. Der-Parameter verweist auf Cache Einträge, die über kein zugeordnetes Open NTFS-Datei Handle verfügen. Dienste für NFS verwenden diese Cache Einträge, um Dateiattribute für eine Datei zu speichern, ohne das Dateisystem mit einem geöffneten Handle zu versehen. Die tatsächliche Gültigkeitsdauer ist ungefähr gleich rdwrnfshandlelifetime, multipliziert mit rdwrthreadsleeptime. Der Minimalwert ist 1, und der Höchstwert ist 60.
+    Der Standardwert ist 5. Dieser Parameter steuert die Lebensdauer eines NFS-Cache Eintrags im Datei Handle-Cache. Der-Parameter verweist auf Cache Einträge, die über kein zugeordnetes Open NTFS-Datei Handle verfügen. Dienste für NFS verwenden diese Cache Einträge, um Dateiattribute für eine Datei zu speichern, ohne das Dateisystem mit einem geöffneten Handle zu versehen. Die tatsächliche Gültigkeitsdauer ist ungefähr gleich rdwrnfshandlelifetime, multipliziert mit rdwrthreadsleeptime. Der Minimalwert ist 1, und der Höchstwert ist 60.
 
 -   **Rdwrnfsleserslislifetime**
 
@@ -69,7 +67,7 @@ Die folgenden reg\_DWORD-Registrierungs Einstellungen können sich auf die Leist
     HKLM\System\CurrentControlSet\Services\NfsServer\Parameters\RdWrNfsReadHandlesLifeTime
     ```
 
-    Der Standardwert beträgt 5. Dieser Parameter steuert die Lebensdauer eines NFS-Lese Cache Eintrags im Datei Handle-Cache. Die tatsächliche Gültigkeitsdauer ist ungefähr gleich rdwrnfsleserslifetime, multipliziert mit rdwrthreadsleeptime. Der Minimalwert ist 1, und der Höchstwert ist 60.
+    Der Standardwert ist 5. Dieser Parameter steuert die Lebensdauer eines NFS-Lese Cache Eintrags im Datei Handle-Cache. Die tatsächliche Gültigkeitsdauer ist ungefähr gleich rdwrnfsleserslifetime, multipliziert mit rdwrthreadsleeptime. Der Minimalwert ist 1, und der Höchstwert ist 60.
 
 -   **Rdwrthreadsleeptime**
 
@@ -77,7 +75,7 @@ Die folgenden reg\_DWORD-Registrierungs Einstellungen können sich auf die Leist
     HKLM\System\CurrentControlSet\Services\NfsServer\Parameters\RdWrThreadSleepTime
     ```
 
-    Der Standardwert beträgt 5. Dieser Parameter steuert das warte Intervall, bevor der Bereinigungs Thread im Datei Handle-Cache ausgeführt wird. Der Wert ist in Ticks, und er ist nicht deterministisch. Ein Tick entspricht ungefähr 100 Nanosekunden. Der Minimalwert ist 1, und der Höchstwert ist 60.
+    Der Standardwert ist 5. Dieser Parameter steuert das warte Intervall, bevor der Bereinigungs Thread im Datei Handle-Cache ausgeführt wird. Der Wert ist in Ticks, und er ist nicht deterministisch. Ein Tick entspricht ungefähr 100 Nanosekunden. Der Minimalwert ist 1, und der Höchstwert ist 60.
 
 -   **Filehandlecachesizzumb**
 
@@ -85,7 +83,7 @@ Die folgenden reg\_DWORD-Registrierungs Einstellungen können sich auf die Leist
     HKLM\System\CurrentControlSet\Services\NfsServer\Parameters\FileHandleCacheSizeinMB
     ```
 
-    Der Standardwert ist 4. Dieser Parameter gibt den maximalen Arbeitsspeicher an, der von Datei Handle-Cache Einträgen beansprucht werden soll. Der Minimalwert ist 1, und der Höchstwert beträgt 1\*1024\*1024\*1024 (1073741824).
+    Der Standardwert ist 4. Dieser Parameter gibt den maximalen Arbeitsspeicher an, der von Datei Handle-Cache Einträgen beansprucht werden soll. Der Minimalwert ist 1, und der Höchstwert beträgt 1 \* 1024 \* 1024 \* 1024 (1073741824).
 
 -   **Lockfilehandlecachein Memory**
 
@@ -93,7 +91,7 @@ Die folgenden reg\_DWORD-Registrierungs Einstellungen können sich auf die Leist
     HKLM\System\CurrentControlSet\Services\NfsServer\Parameters\LockFileHandleCacheInMemory
     ```
 
-    Der Standard ist 0. Dieser Parameter gibt an, ob die physischen Seiten, die für die durch filehandlecachesizeinmb angegebene Cache Größe zugeordnet sind, im Arbeitsspeicher gesperrt sind. Wenn dieser Wert auf 1 festgelegt wird, wird diese Aktivität aktiviert. Seiten werden im Arbeitsspeicher gesperrt (nicht auf den Datenträger ausgelagert), was die Leistung der Auflösung von Datei Handles verbessert, aber den für Anwendungen verfügbaren Arbeitsspeicher reduziert.
+    Die Standardeinstellung ist 0. Dieser Parameter gibt an, ob die physischen Seiten, die für die durch filehandlecachesizeinmb angegebene Cache Größe zugeordnet sind, im Arbeitsspeicher gesperrt sind. Wenn dieser Wert auf 1 festgelegt wird, wird diese Aktivität aktiviert. Seiten werden im Arbeitsspeicher gesperrt (nicht auf den Datenträger ausgelagert), was die Leistung der Auflösung von Datei Handles verbessert, aber den für Anwendungen verfügbaren Arbeitsspeicher reduziert.
 
 -   **Maxicbnfsleserrehandscachesize**
 
@@ -109,7 +107,7 @@ Die folgenden reg\_DWORD-Registrierungs Einstellungen können sich auf die Leist
     HKLM\System\CurrentControlSet\Services\NfsServer\Parameters\HandleSigningEnabled
     ```
 
-    Der Standard ist 1. Dieser Parameter steuert, ob Handles, die vom NFS-Datei Server angegeben werden, kryptografisch signiert werden. Wenn der Wert auf 0 festgelegt wird, wird das Signieren von
+    Der Standardwert ist 1. Dieser Parameter steuert, ob Handles, die vom NFS-Datei Server angegeben werden, kryptografisch signiert werden. Wenn der Wert auf 0 festgelegt wird, wird das Signieren von
 
 -   **Rdwrnf sdeferredwrite tesflushdelay**
 
@@ -153,7 +151,7 @@ Die folgenden reg\_DWORD-Registrierungs Einstellungen können sich auf die Leist
     HKLM\System\CurrentControlSet\Control\FileSystem\NtfsDisableLastAccessUpdate
     ```
 
-    Der Standard ist 1. Dieser globale System Switch verringert die Datenträger-e/a-Auslastung und Wartezeiten, indem die Aktualisierung des Datums-und Zeitstempels für den letzten Datei-oder Verzeichnis Zugriff deaktiviert wird.
+    Der Standardwert ist 1. Dieser globale System Switch verringert die Datenträger-e/a-Auslastung und Wartezeiten, indem die Aktualisierung des Datums-und Zeitstempels für den letzten Datei-oder Verzeichnis Zugriff deaktiviert wird.
 
 -   **Maxconcurrentconnectionsperip**
 

@@ -1,20 +1,18 @@
 ---
 title: Unterbefehls Satz-drivergroup
 description: Referenz Artikel für den Unterbefehl set-drivergroup, der die Eigenschaften einer vorhandenen Treiber Gruppe auf einem Server festlegt.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: e4ba9b1c-8c52-4fd5-969b-f7905611b364
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bffd46298dce4313f9506129faf0684413c0d08a
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: a76277939906a5409bb109bdf52ed1403252acc9
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85937197"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87882250"
 ---
 # <a name="subcommand-set-drivergroup"></a>Unterbefehl: Set-drivergroup
 
@@ -27,7 +25,7 @@ Legt die Eigenschaften einer vorhandenen Treiber Gruppe auf einem Server fest.
 wdsutil /Set-DriverGroup /DriverGroup:<Group Name> [/Server:<Server Name>] [/Name:<New Group Name>] [/Enabled:{Yes | No}] [/Applicability:{Matched | All}]
 ```
 ### <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |-------|--------|
 |/DriverGroup:<Group Name>|Gibt den Namen der Treiber Gruppe an.|
 |[/Server:<Server name>]|Gibt den Namen des Servers an. Dabei kann es sich um den NetBIOS-Namen oder den voll qualifizierten Namen handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.|

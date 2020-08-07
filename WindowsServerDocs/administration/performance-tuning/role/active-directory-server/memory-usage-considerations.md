@@ -1,24 +1,22 @@
 ---
 title: Überlegungen zur Speicherauslastung bei der AD DS Leistungsoptimierung
-description: Speicherauslastung durch den LSASS. exe-Prozess auf Domänen Controllern, auf denen Windows Server 2012 R2, 2016 und 2019 ausgeführt wird.
-ms.prod: windows-server
-ms.technology: performance-tuning-guide
+description: Speicherauslastung durch den Lsass.exe Prozess auf Domänen Controllern, auf denen Windows Server 2012 R2, 2016 und 2019 ausgeführt wird.
 ms.topic: article
 ms.author: v-tea; lindakup
 author: teresa-motiv
 ms.date: 7/3/2019
-ms.openlocfilehash: cceabd73a3064ff82cfe1d3c353ea63574f5feff
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 6ad663e77603ca813601345614174afd0dcf0e99
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851883"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87896227"
 ---
 # <a name="memory-usage-considerations-for-ad-ds-performance-tuning"></a>Überlegungen zur Speicherauslastung für die AD DS Leistungsoptimierung
 
-In diesem Artikel werden einige Grundlagen des Subsystemdienst für die lokale Sicherheitsautorität (LSASS, auch bekannt als Lsass. exe-Prozess), bewährte Methoden für die Konfiguration von LSASS und die Erwartungen an die Speicherauslastung beschrieben. Dieser Artikel sollte als Leitfaden bei der Analyse der LSASS-Leistung und der Arbeitsspeicher Verwendung auf Domänen Controllern (DCS) verwendet werden. Die Informationen in diesem Artikel können nützlich sein, wenn Sie Fragen zum Optimieren und Konfigurieren von Servern und DCS haben, um diese Engine zu optimieren.  
+In diesem Artikel werden einige Grundlagen des Subsystemdienst für die lokale Sicherheitsautorität (LSASS, auch bekannt als Lsass.exe Prozess), bewährte Methoden für die Konfiguration von LSASS und die Erwartungen an die Speicherauslastung beschrieben. Dieser Artikel sollte als Leitfaden bei der Analyse der LSASS-Leistung und der Arbeitsspeicher Verwendung auf Domänen Controllern (DCS) verwendet werden. Die Informationen in diesem Artikel können nützlich sein, wenn Sie Fragen zum Optimieren und Konfigurieren von Servern und DCS haben, um diese Engine zu optimieren.
 
-LSASS ist für die Verwaltung der lokalen Sicherheits Autorität (Local Security Authority, LSA) und der Active Directory Verwaltung verantwortlich. LSASS übernimmt die Authentifizierung sowohl für den Client als auch für den Server und steuert auch das Active Directory Modul. LSASS ist für die folgenden Komponenten verantwortlich:  
+LSASS ist für die Verwaltung der lokalen Sicherheits Autorität (Local Security Authority, LSA) und der Active Directory Verwaltung verantwortlich. LSASS übernimmt die Authentifizierung sowohl für den Client als auch für den Server und steuert auch das Active Directory Modul. LSASS ist für die folgenden Komponenten verantwortlich:
 
 - Lokale Sicherheitsautorität
 - Anmeldedienst
@@ -29,19 +27,19 @@ LSASS ist für die Verwaltung der lokalen Sicherheits Autorität (Local Security
 - NTLM-Authentifizierungsprotokoll
 - Andere Authentifizierungs Pakete, die in LSA geladen werden
 
-Die Active Directory-Datenbankdienste (ntdsai. dll) funktionieren mit dem Extensible Storage Engine (ESE, ESENT. dll).
+Die Active Directory-Datenbankdienste (NTDSAI.dll) funktionieren mit dem Extensible Storage Engine (ESE, ESENT.dll).
 
 Im folgenden finden Sie ein visuelles Diagramm der LSASS-Speicherauslastung auf einem DC:
 
-![Diagramm der Komponenten, die LSASS-Speicher verwenden](media/domain-controller-lsass-memory-usage.png)  
+![Diagramm der Komponenten, die LSASS-Speicher verwenden](media/domain-controller-lsass-memory-usage.png)
 
 Die Menge an Arbeitsspeicher, die LSASS auf einem Domänen Controller verwendet, erhöht sich entsprechend der Active Directory Nutzung. Wenn die Daten abgefragt werden, werden Sie im Arbeitsspeicher zwischengespeichert. Daher ist es normal, dass LSASS eine Menge an Arbeitsspeicher verwendet, die größer ist als die Größe der Active Directory Datenbankdatei (NTDS. dit).
 
 Wie im Diagramm dargestellt, kann die LSASS-Speicherauslastung in mehrere Teile aufgeteilt werden, darunter der ESE-Daten Bank Puffer Cache, der ESE-Versionsspeicher und andere. Im restlichen Teil dieses Artikels erhalten Sie einen Einblick in die einzelnen Komponenten.
 
-## <a name="ese-database-buffer-cache"></a>ESE-Daten Bank Puffer Cache  
-Die größte Variable Speicherauslastung in LSASS ist der ESE-Daten Bank Puffer Cache. Die Größe des Caches kann zwischen weniger als 1 MB und der Größe der gesamten Datenbank liegen. Da ein größerer Cache die Leistung verbessert, versucht die Datenbank-Engine für Active Directory (ESENT), den Cache so groß wie möglich zu halten. Während die Größe des Caches mit der Arbeitsspeicher Auslastung des Computers variiert, wird die maximale Größe des Puffer Caches der ESE-Datenbank *nur* durch den physischen RAM beschränkt, der auf dem Computer installiert ist. Solange keine andere Arbeitsspeicher Auslastung vorhanden ist, kann der Cache auf die Größe der Active Directory NTDS. dit-Datenbankdatei anwachsen. Umso mehr der Datenbank, die zwischengespeichert werden kann, desto besser ist die Leistung des DC.  
-  
+## <a name="ese-database-buffer-cache"></a>ESE-Daten Bank Puffer Cache
+Die größte Variable Speicherauslastung in LSASS ist der ESE-Daten Bank Puffer Cache. Die Größe des Caches kann zwischen weniger als 1 MB und der Größe der gesamten Datenbank liegen. Da ein größerer Cache die Leistung verbessert, versucht die Datenbank-Engine für Active Directory (ESENT), den Cache so groß wie möglich zu halten. Während die Größe des Caches mit der Arbeitsspeicher Auslastung des Computers variiert, wird die maximale Größe des Puffer Caches der ESE-Datenbank *nur* durch den physischen RAM beschränkt, der auf dem Computer installiert ist. Solange keine andere Arbeitsspeicher Auslastung vorhanden ist, kann der Cache auf die Größe der Active Directory NTDS. dit-Datenbankdatei anwachsen. Umso mehr der Datenbank, die zwischengespeichert werden kann, desto besser ist die Leistung des DC.
+
 > [!NOTE]
 > Aufgrund der Art und Weise, wie der Algorithmus für die Daten Bank Zwischenspeicherung funktioniert, kann der Daten Bank Cache auf einem 64-Bit-System, auf dem die Datenbankgröße kleiner ist als der verfügbare Arbeitsspeicher, größer als die Datenbankgröße um 30 bis 40 Prozent zunehmen.
 
@@ -63,15 +61,15 @@ Um eine optimale Leistung zu erzielen, benötigt LSASS so viel Arbeitsspeicher w
 
 Aus diesem Grund empfiehlt es sich, die Anzahl der Programme auf einem DC einzuschränken oder zu minimieren, um die Leistung zu verbessern. Wenn keine Speicheranforderungen vorhanden sind, verwendet LSASS diesen Arbeitsspeicher, um die Active Directory Datenbank zwischenzuspeichern und somit eine optimale Leistung zu erzielen.
 
-Wenn Sie bemerken, dass ein Domänen Controller Leistungsprobleme aufweist, achten Sie auch auf Prozesse mit erheblicher Speicherauslastung. Dies kann ein Problem sein, das Sie bei der Problembehandlung benötigen. Sie können Microsoft-Komponenten enthalten. Stellen Sie sicher, dass Sie mit den neuesten Wartungsupdates Schritt halten&mdash;Microsoft enthält Lösungen für eine übermäßige Speicherauslastung im Rahmen der Qualitäts Updates, die möglicherweise auch die Leistung Ihres Domänen Controllers unterstützen.
+Wenn Sie bemerken, dass ein Domänen Controller Leistungsprobleme aufweist, achten Sie auch auf Prozesse mit erheblicher Speicherauslastung. Dies kann ein Problem sein, das Sie bei der Problembehandlung benötigen. Sie können Microsoft-Komponenten enthalten. Stellen Sie sicher, dass Sie mit den neuesten Wartungsupdates fort bleiben &mdash; . Microsoft umfasst Lösungen für eine übermäßige Speicherauslastung im Rahmen der Qualitäts Updates, die möglicherweise auch die Leistung Ihres Domänen Controllers unterstützen.
 
 Es gibt integrierte Betriebssystem Einrichtungen, die je nach Nutzungsprofil erheblichen RAM beanspruchen können:
 
 - **Dateiserver**. DCS sind auch Dateiserver für SYSVOL-und NETLOGON-Freigaben, die Gruppenrichtlinien und Skripts für Richtlinien-und Start-/Anmeldeskripts.
-  Wir sehen jedoch, dass Kunden DCS zum Dienst anderer Dateiinhalte verwenden. Der SMB-Dateiserver beansprucht dann Arbeitsspeicher, um die aktiven Clients zu überprüfen. der Dateiinhalt würde jedoch dazu führen, dass der Betriebssystem-Dateicache wächst und mit dem ESE-Daten Bank Cache für RAM konkurriert.  
+  Wir sehen jedoch, dass Kunden DCS zum Dienst anderer Dateiinhalte verwenden. Der SMB-Dateiserver beansprucht dann Arbeitsspeicher, um die aktiven Clients zu überprüfen. der Dateiinhalt würde jedoch dazu führen, dass der Betriebssystem-Dateicache wächst und mit dem ESE-Daten Bank Cache für RAM konkurriert.
 
-- **WMI-Abfragen**. Überwachungslösungen führen häufig zu vielen WMI-Abfragen. Die Ausführung einer einzelnen Abfrage ist möglicherweise kostengünstig. Häufig handelt es sich um die Anzahl der Aufrufe, die einen gewissen Aufwand verursachen, insbesondere, wenn die Überwachungslösungen neue Ereignisse aus den verschiedenen Ereignisprotokollen extrahieren, die von Windows verwaltet werden.  
+- **WMI-Abfragen**. Überwachungslösungen führen häufig zu vielen WMI-Abfragen. Die Ausführung einer einzelnen Abfrage ist möglicherweise kostengünstig. Häufig handelt es sich um die Anzahl der Aufrufe, die einen gewissen Aufwand verursachen, insbesondere, wenn die Überwachungslösungen neue Ereignisse aus den verschiedenen Ereignisprotokollen extrahieren, die von Windows verwaltet werden.
 
-  Das Ereignisprotokoll, das das größte Volume erzeugt, ist in der Regel das Sicherheits Ereignisprotokoll. Dies ist auch das Ereignisprotokoll, das Sicherheits Administratoren erfassen möchten, insbesondere von DCS.  
+  Das Ereignisprotokoll, das das größte Volume erzeugt, ist in der Regel das Sicherheits Ereignisprotokoll. Dies ist auch das Ereignisprotokoll, das Sicherheits Administratoren erfassen möchten, insbesondere von DCS.
 
-  Der WMI-Dienst verwendet ein dynamisches Speicher Belegungs Schema, das Abfragen optimiert. Daher kann der WMI-Dienst viel Arbeitsspeicher zuweisen, der wiederum mit dem ESE-Daten Bank Cache konkurriert.  
+  Der WMI-Dienst verwendet ein dynamisches Speicher Belegungs Schema, das Abfragen optimiert. Daher kann der WMI-Dienst viel Arbeitsspeicher zuweisen, der wiederum mit dem ESE-Daten Bank Cache konkurriert.

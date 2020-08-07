@@ -1,20 +1,18 @@
 ---
 title: Ablehnen-AutoAddDevices
 description: Referenz Artikel zu ablehnen-AutoAddDevices, bei dem Computer abgelehnt werden, für die die administrative Genehmigung aussteht.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: ea25a4b2-5fad-4360-9c47-c2c9df7ea31f
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2b678f7a9fc875dfeebf735475db3adfb7ad9ae7
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: 7b6b134b89040982325d55822583475fe91044cd
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85932422"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87896354"
 ---
 # <a name="reject-autoadddevices"></a>Ablehnen-AutoAddDevices
 
@@ -26,7 +24,7 @@ Weist Computer zurück, für die die administrative Genehmigung aussteht. Wenn d
 wdsutil [Options] /Reject-AutoaddDevices [/Server:<Server name>] /RequestId:<Request ID or ALL>
 ```
 ### <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |-------|--------|
 |[/Server:<Server name>]|Gibt den Namen des Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.|
 |/RequestId: <Anforderungs-ID &#124; alle>|Gibt die Anforderungs-ID an, die dem ausstehenden Computer zugewiesen ist. Geben Sie **alle**ausstehenden Computer an, um alle ausstehenden Computer abzulehnen.|

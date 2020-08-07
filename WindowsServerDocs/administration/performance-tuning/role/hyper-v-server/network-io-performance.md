@@ -1,18 +1,16 @@
 ---
 title: Hyper-V-Netzwerk-e/a-Leistung
 description: Überlegungen zur Netzwerk-e/a-Leistung bei der Hyper-V-Leistungsoptimierung
-ms.prod: windows-server
-ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: asmahi; sandysp; jopoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: dcf43bf41edada0a2e3df6fde825ff128a119a8f
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: b21ed45b97b1bc657b8a77ac7731dd32f5090c3d
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85471355"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87896104"
 ---
 # <a name="hyper-v-network-io-performance"></a>Hyper-V-Netzwerk-e/a-Leistung
 
@@ -35,7 +33,7 @@ Außerdem kann das Erhöhen der Anzahl der Sende-und Empfangs Puffer auf jedem N
 
 Windows Server 2012 R2 hat eine Option eingeführt, um Livemigration zu beschleunigen, indem Sie Speicher vor der Übertragung über das Netzwerk komprimieren oder den Remote Zugriff auf den direkten Speicher (RDMA) verwenden, wenn Ihre Hardware dies unterstützt.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Hyper-V-Terminologie](terminology.md)
 

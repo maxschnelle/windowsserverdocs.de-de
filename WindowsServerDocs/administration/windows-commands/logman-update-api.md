@@ -1,20 +1,18 @@
 ---
 title: logman update api
 description: Referenz Artikel für den Befehl logman Update API, mit dem die Eigenschaften eines vorhandenen API-Überwachungsdaten Sammlers aktualisiert werden.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 6f322e52-0f9f-42b1-bd64-8b8f8fe086fc
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 40575772e5f82474c4afbd4809773f47d7e4e075
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: eaa66a05fa6f47fc17990d1f84223c2e2a8086c3
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85933874"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87887242"
 ---
 # <a name="logman-update-api"></a>logman update api
 
@@ -30,14 +28,14 @@ logman update api <[-n] <name>> [options]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
-| -s`<computer name>` | Führt den Befehl auf dem angegebenen Remote Computer aus. |
+| -s `<computer name>` | Führt den Befehl auf dem angegebenen Remote Computer aus. |
 | -config`<value>` | Gibt die Einstellungsdatei an, die Befehlsoptionen enthält. |
 | [-n]`<name>` | Name des Zielobjekts |
 | -f`<bin|bincirc>` | Gibt das Protokoll Format für den Datensammler an. |
 | -[-] u`<user [password]>` | Gibt den Benutzer an, der als ausgeführt werden soll. Wenn Sie einen als Kennwort eingeben, wird `*` eine Eingabeaufforderung für das Kennwort ausgegeben. Das Kennwort wird nicht angezeigt, während Sie es an der Eingabeaufforderung eingeben. |
-| -m`<[start] [stop] [[start] [stop] [...]]>` | Wurde zum manuellen Starten oder beenden gewechselt, anstelle einer geplanten Begin-oder End-Zeit. |
+| -m `<[start] [stop] [[start] [stop] [...]]>` | Wurde zum manuellen Starten oder beenden gewechselt, anstelle einer geplanten Begin-oder End-Zeit. |
 | -RF`<[[hh:]mm:]ss>` | Führt den Datensammler für den angegebenen Zeitraum aus. |
 | -b`<M/d/yyyy h:mm:ss[AM|PM]>` | Beginnt mit dem Sammeln von Daten zum angegebenen Zeitpunkt. |
 | -e `<M/d/yyyy h:mm:ss[AM|PM]>` | Beenden Sie die Datensammlung zum angegebenen Zeitpunkt. |
@@ -59,7 +57,7 @@ logman update api <[-n] <name>> [options]
 | -exe`<value>` | Gibt den vollständigen Pfad einer ausführbaren Datei für die API-Ablauf Verfolgung an |
 | /? | Zeigt die kontextbezogene Hilfe an. |
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Wenn [-] aufgeführt ist, wird durch das Hinzufügen eines zusätzlichen Bindestrichs (-) die Option negiert.
 

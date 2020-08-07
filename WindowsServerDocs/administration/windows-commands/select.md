@@ -1,20 +1,18 @@
 ---
 title: select
 description: Referenz Artikel für * * * *-
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 9eeb40c0-4258-46e2-8dbc-94f63497e771
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6004d39e225b1ac4acd96b4108accff2ccfc485c
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: a41d240cfdcb15068d479fb96fce09880db7c1f9
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85935934"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87882776"
 ---
 # <a name="select"></a>select
 
@@ -33,14 +31,14 @@ select vdisk
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
 |[Datenträger auswählen](select-disk.md)|Verschiebt den Fokus auf einen Datenträger.|
 |[Partition auswählen](select-partition.md)|Verschiebt den Fokus auf eine Partition.|
 |[Volume auswählen](select-volume.md)|Verschiebt den Fokus auf ein Volume.|
 |[Vdisk auswählen](select-vdisk.md)|Verschiebt den Fokus auf eine virtuelle Festplatte.|
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 -   Wenn ein Volume mit einer entsprechenden Partition ausgewählt ist, wird die Partition automatisch ausgewählt.
 -   Wenn eine Partition mit einem entsprechenden Volume ausgewählt wird, wird das Volume automatisch ausgewählt.

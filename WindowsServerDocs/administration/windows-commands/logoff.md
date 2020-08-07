@@ -1,20 +1,18 @@
 ---
 title: Abmelden
 description: Referenz Artikel für den Befehl "Abmelden", bei dem ein Benutzer von einer Sitzung auf einem Remotedesktop-Sitzungshost Server abgemeldet und die Sitzung gelöscht wird.
-ms.prod: windows-server
-ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: 939f09cc-de8c-436c-a05d-aca5f2a06371
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d154b767302f5c536e0a7efb30d99ac0a8e087d5
-ms.sourcegitcommit: 2afed2461574a3f53f84fc9ec28d86df3b335685
+ms.openlocfilehash: b8eb1b13d7eeddc03ead24bcda10062aea5e1cfe
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85927167"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87887075"
 ---
 # <a name="logoff"></a>Abmelden
 
@@ -29,7 +27,7 @@ logoff [<sessionname> | <sessionID>] [/server:<servername>] [/v]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `<sessionname>` | Gibt den Namen der Sitzung an. Dabei muss es sich um eine aktive Sitzung handeln.|
 | `<sessionID>` | Gibt die numerische ID an, die die Sitzung mit dem Server identifiziert. |
@@ -37,7 +35,7 @@ logoff [<sessionname> | <sessionID>] [/server:<servername>] [/v]
 | /v | Zeigt Informationen zu den Aktionen an, die ausgeführt werden. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Sie können sich jederzeit von der Sitzung abmelden, an der Sie gerade angemeldet sind. Sie müssen jedoch über die Berechtigung " **voll** Zugriff" verfügen, um Benutzer von anderen Sitzungen abzumelden.
 

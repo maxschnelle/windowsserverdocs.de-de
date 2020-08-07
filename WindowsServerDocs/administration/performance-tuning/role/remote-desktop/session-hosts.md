@@ -1,18 +1,16 @@
 ---
 title: Leistungsoptimierung Remotedesktop Sitzungs Hosts
 description: Richtlinien zur Leistungsoptimierung für Remotedesktop Sitzungs Hosts
-ms.prod: windows-server
-ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: hammadbu; vladmis; denisgun
 author: phstee
 ms.date: 10/22/2019
-ms.openlocfilehash: 3227bfe3bf21343ca9b7e85a07f550b4684a2fb7
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 9de802638a6f8225d4c8b942ac3cbea303f09a89
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851713"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87896058"
 ---
 # <a name="performance-tuning-remote-desktop-session-hosts"></a>Leistungsoptimierung Remotedesktop Sitzungs Hosts
 
@@ -38,7 +36,7 @@ Die CPU-Konfiguration wird konzeptionell festgelegt, indem die erforderliche CPU
 
 Je mehr logische Prozessoren auf einem System, desto niedriger der in der CPU-Auslastungs Schätzung integrierte Auslagerungs Rand, was zu einem größeren Prozentsatz der aktiven Auslastung pro CPU führt. Ein wichtiger Aspekt ist, dass die doppelte Anzahl der CPUs nicht die CPU-Kapazität verdoppelt.
 
-### <a name="memory-configuration"></a>Speicherkonfiguration
+### <a name="memory-configuration"></a>Konfiguration des Arbeitsspeichers
 
 Die Speicherkonfiguration ist abhängig von den Anwendungen, die Benutzer verwenden. die erforderliche Arbeitsspeicher Menge kann jedoch mithilfe der folgenden Formel geschätzt werden: totalmem = osmem + sessionmem \* NS
 
@@ -93,7 +91,7 @@ Beachten Sie beim Konfigurieren von apps, die auf einem RD-Sitzungshost Server v
 
 -   Deaktivieren Sie unnötige Prozesse, die registriert werden, um mit der Benutzeranmeldung oder dem Start einer Sitzung zu beginnen.
 
-    Diese Prozesse können bei der Erstellung einer neuen Benutzersitzung, bei der es sich in der Regel um einen CPU-intensiven Prozess handelt, maßgeblich zu den Kosten der CPU-Auslastung beitragen und können in Morgen Szenarios sehr teuer sein. Verwenden Sie "msconfig. exe" oder "MsInfo32. exe", um eine Liste der Prozesse abzurufen, die bei der Benutzeranmeldung gestartet werden. Um ausführlichere Informationen zu erhalten, können Sie [Autoruns für Windows](https://technet.microsoft.com/sysinternals/bb963902.aspx)verwenden.
+    Diese Prozesse können bei der Erstellung einer neuen Benutzersitzung, bei der es sich in der Regel um einen CPU-intensiven Prozess handelt, maßgeblich zu den Kosten der CPU-Auslastung beitragen und können in Morgen Szenarios sehr teuer sein. Verwenden Sie MsConfig.exe oder MsInfo32.exe, um eine Liste der Prozesse abzurufen, die bei der Benutzeranmeldung gestartet werden. Um ausführlichere Informationen zu erhalten, können Sie [Autoruns für Windows](https://technet.microsoft.com/sysinternals/bb963902.aspx)verwenden.
 
 Für den Arbeitsspeicher Verbrauch sollten Sie Folgendes berücksichtigen:
 
@@ -101,13 +99,13 @@ Für den Arbeitsspeicher Verbrauch sollten Sie Folgendes berücksichtigen:
 
     -   Verschobene DLLs können überprüft werden, indem Sie die Option dll-Ansicht verarbeiten auswählen, wie in der folgenden Abbildung gezeigt, mithilfe des [Prozess-Explorers](https://technet.microsoft.com/sysinternals/bb896653.aspx).
 
-    -   Hier sehen Sie, dass "y. dll" verschoben wurde, da "x. dll" bereits seine Standardbasis Adresse besetzt hat und ASLR nicht aktiviert wurde.
+    -   Hier sehen Sie, dass y.dll verschoben wurde, weil x.dll seine Standardbasis Adresse bereits besetzt hat und ASLR nicht aktiviert war.
 
         ![verschobene DLLs](../../media/perftune-guide-relocated-dlls.png)
 
         Wenn DLLs verschoben werden, ist es nicht möglich, Ihren Code Sitzungs übergreifend freizugeben, was den Speicherbedarf einer Sitzung erheblich erhöht. Dies ist eines der häufigsten speicherbezogenen Leistungsprobleme auf einem RD-Sitzungshost Server.
 
--   Verwenden Sie für Common Language Runtime (CLR)-Anwendungen Native Image Generator (Ngen. exe), um die Seiten Freigabe zu erhöhen und den CPU-Overhead zu verringern.
+-   Verwenden Sie für Common Language Runtime (CLR)-Anwendungen den nativen Image Generator (Ngen.exe), um die Seiten Freigabe zu erhöhen und den CPU-Overhead zu verringern.
 
     Wenden Sie nach Möglichkeit ähnliche Techniken auf andere ähnliche Ausführungs-Engines an.
 
@@ -118,11 +116,11 @@ Für den Arbeitsspeicher Verbrauch sollten Sie Folgendes berücksichtigen:
 
 Unzureichende Größe der Auslagerungs Datei kann zu Fehlern bei der Speicher Belegung in Apps oder Systemkomponenten führen. Sie können den Leistungsindikatoren "Speicher zu Zugesicherte Bytes" verwenden, um zu überwachen, wie viel Commit für den virtuellen Arbeitsspeicher auf dem System ausgeführt wird.
 
-### <a name="antivirus"></a>Antivirensoftware
+### <a name="antivirus"></a>Antivirus
 
 Die Installation von Antivirensoftware auf einem RD-Sitzungshost Server wirkt sich stark auf die allgemeine Systemleistung aus, insbesondere auf die CPU Es wird dringend empfohlen, dass Sie aus der Liste der aktiven Überwachungen alle Ordner ausschließen, die temporäre Dateien enthalten, insbesondere diejenigen, die von Diensten und anderen Systemkomponenten generiert werden.
 
-### <a name="task-scheduler"></a>Aufgabenplaner
+### <a name="task-scheduler"></a>Aufgabenplanung
 
 Mit Taskplaner können Sie die Liste der Aufgaben untersuchen, die für verschiedene Ereignisse geplant sind. Bei einem RD-Sitzungshost Server ist es sinnvoll, sich speziell auf die Aufgaben zu konzentrieren, die für die Unterbrechung im Leerlauf, bei der Benutzeranmeldung oder bei der Verbindung und bei der Verbindung von Sitzungen konfiguriert sind. Aufgrund der Besonderheiten der Bereitstellung sind viele dieser Aufgaben möglicherweise unnötig.
 
@@ -132,7 +130,7 @@ Benachrichtigungs Symbole auf dem Desktop können über Recht teure Aktualisieru
 
 ### <a name="remote-desktop-protocol-data-compression"></a>Datenkomprimierung Remotedesktopprotokoll
 
-Remotedesktopprotokoll Komprimierung kann mithilfe Gruppenrichtlinie unter **Computer Konfiguration** &gt; **Administrative Vorlagen** &gt; Windows- **Komponenten** **&gt; Remotedesktopdienste &gt;** Remotedesktop-Sitzungshost **&gt;** &gt; **Remote Sitzungs Umgebung** konfiguriert werden konfigurieren Sie die **Komprimierung für remotefx-Daten**. Drei Werte sind möglich:
+Remotedesktopprotokoll Komprimierung kann mithilfe Gruppenrichtlinie unter **Computer Konfiguration** &gt; **Administrative Vorlagen** &gt; **Windows-Komponenten** &gt; **Remotedesktopdienste** &gt; **Remotedesktop-Sitzungshost** &gt; **Remote Sitzungs Umgebung** &gt; **Konfigurieren der Komprimierung für remotefx-Daten**konfiguriert werden. Drei Werte sind möglich:
 
 -   **Optimiert, um weniger Arbeitsspeicher zu verwenden** Beansprucht die geringste Menge an Arbeitsspeicher pro Sitzung, verfügt aber über das niedrigste Komprimierungs Verhältnis und somit über den höchsten Bandbreitenverbrauch.
 
@@ -142,9 +140,9 @@ Remotedesktopprotokoll Komprimierung kann mithilfe Gruppenrichtlinie unter **Com
 
 Sie können auch auswählen, dass kein Remotedesktopprotokoll Komprimierungs Algorithmus verwendet werden soll. Daher empfiehlt es sich, ihn nur mit einem Hardware Gerät zu verwenden, das zur Optimierung des Netzwerk Datenverkehrs konzipiert ist Auch wenn Sie keinen Komprimierungs Algorithmus verwenden möchten, werden einige Grafikdaten komprimiert.
 
-### <a name="device-redirection"></a>Geräte Umleitung
+### <a name="device-redirection"></a>Geräteumleitung
 
-Die Geräte Umleitung kann mithilfe der Gruppenrichtlinie unter **Computer Konfiguration** &gt; **Administrative Vorlagen** &gt; **Windows-Komponenten** &gt; **Remotedesktopdienste &gt; Remotedesktop-Sitzungshost** &gt; **Geräte-und Ressourcen Umleitung** oder mithilfe des Felds Eigenschaften der **Sitzungs Sammlung** in Server-Manager konfiguriert werden. **Remote Desktop Session Host**
+Die Geräte Umleitung kann mithilfe von Gruppenrichtlinie unter **Computer Konfiguration** &gt; **Administrative Vorlagen** &gt; **Windows-Komponenten** &gt; **Remotedesktopdienste** &gt; **Remotedesktop-Sitzungshost** &gt; **Geräte-und Ressourcen Umleitung** oder über das Feldeigenschaften der **Sitzungs Sammlung** in Server-Manager konfiguriert werden.
 
 Im allgemeinen erhöht die Geräte Umleitung, wie viel Netzwerkbandbreite RD-Sitzungshost Serververbindungen verwendet werden, da Daten zwischen Geräten auf den Client Computern und Prozessen ausgetauscht werden, die in der Server Sitzung ausgeführt werden. Der Umfang der Erhöhung ist eine Funktion der Häufigkeit von Vorgängen, die von den Anwendungen ausgeführt werden, die auf dem Server gegen die umgeleiteten Geräte ausgeführt werden.
 

@@ -1,18 +1,16 @@
 ---
 title: Erkennen von Engpässen in einer virtualisierten Umgebung
 description: Erkennen und beheben potenzieller Leistungsengpässe bei Hyper-v
-ms.prod: windows-server
-ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: asmahi; sandysp; jopoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 11b2f596fc8c1f8c193100e4a9f1ee792d3d7502
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 049df52033d637409a73400616b596037f9d7976
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85471415"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87896134"
 ---
 # <a name="detecting-bottlenecks-in-a-virtualized-environment"></a>Erkennen von Engpässen in einer virtualisierten Umgebung
 
@@ -130,7 +128,7 @@ Wenn die Latenzzeit konstant größer als 50 ms ist, sollten Sie folgende Schrit
 
 -   Verwenden von vhdx
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Hyper-V-Terminologie](terminology.md)
 

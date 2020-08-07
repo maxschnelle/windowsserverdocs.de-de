@@ -1,27 +1,26 @@
 ---
 title: Rollen, Rollen Dienste und Features nicht in Server Core-Containern-Windows Server, Version 1803
 description: Erfahren Sie mehr über die Rollen und Features, die wir aus dem Server Core-Container Image für Windows Server entfernt haben.
-ms.prod: windows-server
 ms.mktglfcycl: manage
 ms.sitesec: library
 author: lizap
 ms.localizationpriority: medium
 ms.date: 05/07/2018
-ms.openlocfilehash: 41b5a9ac32066f1b2a41de84f66b9be79252c336
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f577ebd805e5373a10dd43a3d5054f92d4881c7d
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71383412"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87895916"
 ---
 # <a name="roles-role-services-and-features-not-in-server-core-containers---windows-server-version-1803"></a>Rollen, Rollen Dienste und Features nicht in Server Core-Containern-Windows Server, Version 1803
 
 > Gilt für: Windows Server, Version 1803
 
-In Windows Server, Version 1803, haben wir [die Gesamtgröße des Server Core-Container Images auf **1,58 GB**reduziert](https://blogs.technet.microsoft.com/virtualization/2018/01/22/a-smaller-windows-server-core-container-with-better-application-compatibility/). Wir haben dies erreicht, indem wir die Architektur optimieren und nicht benötigte Elemente in einem [Server Core-Container](https://docs.microsoft.com/virtualization/windowscontainers/about/)entfernen. Einige waren Dinge, die in Containern nicht funktionierte, einige waren Rollen und Features, die nicht von einer verwendet wurden. 
+In Windows Server, Version 1803, haben wir [die Gesamtgröße des Server Core-Container Images auf **1,58 GB**reduziert](https://blogs.technet.microsoft.com/virtualization/2018/01/22/a-smaller-windows-server-core-container-with-better-application-compatibility/). Wir haben dies erreicht, indem wir die Architektur optimieren und nicht benötigte Elemente in einem [Server Core-Container](https://docs.microsoft.com/virtualization/windowscontainers/about/)entfernen. Einige waren Dinge, die in Containern nicht funktionierte, einige waren Rollen und Features, die nicht von einer verwendet wurden.
 
 > [!IMPORTANT]
-> Wir haben diese aus dem Server Core- **Container** Image, nicht von [Server Core selbst](server-core-roles-and-services.md)entfernt. 
+> Wir haben diese aus dem Server Core- **Container** Image, nicht von [Server Core selbst](server-core-roles-and-services.md)entfernt.
 
 Im folgenden finden Sie eine komplette Liste der Features und Rollen, die aus dem Server Core-Container Image entfernt wurden:
 

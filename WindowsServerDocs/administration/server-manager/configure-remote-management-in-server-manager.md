@@ -1,24 +1,22 @@
 ---
 title: Konfigurieren der Remote Verwaltung in Server-Manager
 description: Server-Manager
-ms.prod: windows-server
-ms.technology: manage-server-manager
 ms.topic: article
 ms.assetid: 509182ed-c37d-4b81-84bc-aee43d006873
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 01bc2d2d262882c08d1213bae6149896a8b284ab
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: b0d2369bd42fc884b1a401fc1450dbe9d1e47663
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851563"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87895806"
 ---
 # <a name="configure-remote-management-in-server-manager"></a>Konfigurieren der Remote Verwaltung in Server-Manager
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 In Windows Server können Sie Server-Manager verwenden, um Verwaltungsaufgaben auf Remote Servern auszuführen. die Remote Verwaltung ist auf Servern, auf denen Windows Server 2016 ausgeführt wird, standardmäßig aktiviert. Wenn Sie einen Server mithilfe von Server-Manager Remote verwalten möchten, fügen Sie den Server zum Server-Manager Server Pool hinzu.
 
@@ -30,7 +28,7 @@ Zum Verwalten von Servern, auf denen Windows Server-Versionen älter als Windows
 |----------|-----------|---------|
 | Windows Server 2012 R2 oder Windows Server 2012 |-   [.NET Framework 4,6](https://www.microsoft.com/download/details.aspx?id=45497)<br />-   [Windows Management Framework 5,0](https://go.microsoft.com/fwlink/?LinkID=395058). Das Windows Management Framework 5,0 Download Package Updates Windows-Verwaltungsinstrumentation (WMI)-Anbieter unter Windows Server 2012 R2, Windows Server 2012 und Windows Server 2008 R2. Mit den aktualisierten WMI-Anbietern können Server-Manager Informationen zu den auf den verwalteten Servern installierten Rollen und Features sammeln. Bis zum Anwenden des Updates haben Server, auf denen Windows Server 2012 R2, Windows Server 2012 oder Windows Server 2008 R2 ausgeführt wird, den verwaltbarkeitsstatus **nicht zugänglich**.<br />-Das mit dem [Knowledge Base-Artikel 2682011](https://go.microsoft.com/fwlink/p/?LinkID=245487) verknüpfte Leistungs Update ist auf Servern mit Windows Server 2012 R2 oder Windows Server 2012 nicht mehr erforderlich.||
 | Windows Server 2008 R2 |-   [.NET Framework 4,5](https://www.microsoft.com/download/details.aspx?id=30653)<br />-   [Windows Management Framework 4,0](https://go.microsoft.com/fwlink/?LinkId=293881). Das Windows Management Framework 4,0-Downloadpaket aktualisiert Windows-Verwaltungsinstrumentation (WMI)-Anbieter unter Windows Server 2008 R2. Mit den aktualisierten WMI-Anbietern können Server-Manager Informationen zu den auf den verwalteten Servern installierten Rollen und Features sammeln. Bis zum Anwenden des Updates haben Server, auf denen Windows Server 2008 R2 ausgeführt wird, den verwaltbarkeitsstatus **nicht zugänglich**.<br />-Das mit dem [Knowledge Base-Artikel 2682011](https://go.microsoft.com/fwlink/p/?LinkID=245487) verknüpfte Leistungs Update ermöglicht Server-Manager die Erfassung von Leistungsdaten von Windows Server 2008 R2.||
-| WindowsServer 2008 |-   [.NET Framework 4](https://www.microsoft.com/download/en/details.aspx?id=17718)<br />-   [Windows Management Framework 3,0](https://go.microsoft.com/fwlink/p/?LinkID=229019) Windows Management Framework 3,0 Download Package Updates Windows-Verwaltungsinstrumentation (WMI)-Anbieter unter Windows Server 2008. Mit den aktualisierten WMI-Anbietern können Server-Manager Informationen zu den auf den verwalteten Servern installierten Rollen und Features sammeln. Bis zum Anwenden des Updates haben Server, auf denen Windows Server 2008 ausgeführt wird, den verwaltbarkeitsstatus **nicht verfügbar: Überprüfen Sie, ob frühere Versionen Windows Management Framework 3,0 ausführen**.<br />-Das mit dem [Knowledge Base-Artikel 2682011](https://go.microsoft.com/fwlink/p/?LinkID=245487) verknüpfte Leistungs Update ermöglicht Server-Manager die Erfassung von Leistungsdaten von Windows Server 2008.||
+| WindowsServer 2008 |-   [.NET Framework 4](https://www.microsoft.com/download/en/details.aspx?id=17718)<br />-   [Windows Management Framework 3,0](https://go.microsoft.com/fwlink/p/?LinkID=229019) Das Windows Management Framework 3,0-Downloadpaket aktualisiert Windows-Verwaltungsinstrumentation (WMI)-Anbieter unter Windows Server 2008. Mit den aktualisierten WMI-Anbietern können Server-Manager Informationen zu den auf den verwalteten Servern installierten Rollen und Features sammeln. Bis zum Anwenden des Updates haben Server, auf denen Windows Server 2008 ausgeführt wird, den verwaltbarkeitsstatus **nicht verfügbar: Überprüfen Sie, ob frühere Versionen Windows Management Framework 3,0 ausführen**.<br />-Das mit dem [Knowledge Base-Artikel 2682011](https://go.microsoft.com/fwlink/p/?LinkID=245487) verknüpfte Leistungs Update ermöglicht Server-Manager die Erfassung von Leistungsdaten von Windows Server 2008.||
 
 Ausführliche Informationen zum Hinzufügen von Servern in zu verwaltenden Arbeitsgruppen oder zum Verwalten von Remote Servern über einen Arbeitsgruppen Computer, auf dem Server-Manager ausgeführt wird, finden [Sie unter Hinzufügen von Servern zu Server-Manager](add-servers-to-server-manager.md).
 
@@ -46,19 +44,19 @@ In Windows Server 2016 stützt Server-Manager die Windows-Remote Verwaltung (Win
 
 -   Wählen Sie zum Aktivieren der WinRM-Remoteverwaltung eines der folgenden Verfahren:
 
-    -   [So aktivieren Sie Server-Manager-Remote Verwaltung mithilfe der Windows-Benutzeroberfläche](#to-enable-server-manager-remote-management-by-using-the-windows-interface)
+    -   [So aktivieren Sie die Remoteverwaltung des Server-Managers auf der Windows-Benutzeroberfläche](#to-enable-server-manager-remote-management-by-using-the-windows-interface)
 
-    -   [So aktivieren Sie Server-Manager-Remote Verwaltung mithilfe von Windows PowerShell](#to-enable-server-manager-remote-management-by-using-windows-powershell)
+    -   [So aktivieren Sie die Remoteverwaltung des Server-Managers mithilfe von Windows PowerShell](#to-enable-server-manager-remote-management-by-using-windows-powershell)
 
-    -   [So aktivieren Sie Server-Manager-Remote Verwaltung über die Befehlszeile](#to-enable-server-manager-remote-management-by-using-the-command-line)
+    -   [So aktivieren Sie die Remoteverwaltung des Server-Managers über die Befehlszeile](#to-enable-server-manager-remote-management-by-using-the-command-line)
 
-    -   [So aktivieren Sie die Remote Verwaltung von Server-Manager und Windows PowerShell unter früheren Versionen von Windows Server](#to-enable-server-manager-and-windows-powershell-remote-management-on-earlier-releases-of-windows-server)
+    -   [So aktivieren Sie die Remoteverwaltung von Server-Manager und Windows PowerShell für ältere Versionen von Windows Server](#to-enable-server-manager-and-windows-powershell-remote-management-on-earlier-releases-of-windows-server)
 
 -   Wählen Sie eines der folgenden Verfahren aus, um WinRM und Server-Manager Remote Verwaltung zu deaktivieren.
 
-    -   [So deaktivieren Sie die Remote Verwaltung mithilfe von Gruppenrichtlinie](#to-disable-remote-management-by-using-group-policy)
+    -   [So deaktivieren Sie die Remoteverwaltung mithilfe von Gruppenrichtlinien](#to-disable-remote-management-by-using-group-policy)
 
-    -   [So deaktivieren Sie die Remote Verwaltung mithilfe einer Antwortdatei während der unbeaufsichtigten Installation](#to-disable-remote-management-by-using-an-answer-file-during-unattended-installation)
+    -   [So deaktivieren Sie die Remoteverwaltung mithilfe einer Antwortdatei während einer unbeaufsichtigten Installation](#to-disable-remote-management-by-using-an-answer-file-during-unattended-installation)
 
 -   Informationen zum Konfigurieren der DCOM-Remoteverwaltung finden Sie unter [So konfigurieren Sie die Remoteverwaltung mit der MMC oder einem anderen Tool über DCOM](#to-configure-mmc-or-other-tool-remote-management-over-dcom).
 
@@ -87,7 +85,7 @@ In Windows Server 2016 stützt Server-Manager die Windows-Remote Verwaltung (Win
 
 2.  Geben Sie Folgendes ein, und drücken **Sie** dann die EINGABETASTE, um alle erforderlichen Firewallregelausnahmen zu aktivieren.
 
-    **Configure-SMRemoting. exe-enable**
+    **Configure-SMremoting.exe aktivieren**
 
 ### <a name="to-enable-server-manager-remote-management-by-using-the-command-line"></a>So aktivieren Sie die Remoteverwaltung des Server-Managers über die Befehlszeile
 
@@ -95,19 +93,19 @@ In Windows Server 2016 stützt Server-Manager die Windows-Remote Verwaltung (Win
 
 2.  Führen Sie die folgende ausführbare Datei aus:
 
-    **%windir%\system32\konfiguriert-SMRemoting.exe**
+    **% windir% \system32\Configure-SMremoting.exe**
 
-3.  Führen Sie eine der folgenden Aktionen aus:
+3.  Führen Sie eines der folgenden Verfahren aus:
 
-    -   Um die Remote Verwaltung zu deaktivieren, geben Sie **configure-SMRemoting. exe-deaktivieren**ein, und drücken Sie dann die **Eingabe**Taste.
+    -   Geben Sie **Configure-SMremoting.exe-deaktivieren**ein, und drücken Sie dann die **Eingabe**Taste, um die Remote Verwaltung zu deaktivieren.
 
-    -   Um die Remote Verwaltung zu aktivieren, geben Sie **configure-SMRemoting. exe-enable**ein, und drücken Sie dann die **Eingabe**Taste.
+    -   Um die Remote Verwaltung zu aktivieren, geben Sie **Configure-SMremoting.exe-enable**ein, und drücken Sie dann die **Eingabe**Taste.
 
-    -   Wenn Sie die aktuelle Remote Verwaltungs Einstellung anzeigen möchten, geben Sie **configure-SMRemoting. exe-get**ein, und drücken Sie dann die EINGABETASTE.
+    -   Geben Sie zum Anzeigen der aktuellen Remote Verwaltungs Einstellung **Configure-SMremoting.exe-Get**ein, und drücken Sie dann die EINGABETASTE.
 
 ### <a name="to-enable-server-manager-and-windows-powershell-remote-management-on-earlier-releases-of-windows-server"></a>So aktivieren Sie die Remoteverwaltung von Server-Manager und Windows PowerShell für ältere Versionen von Windows Server
 
--   Führen Sie eine der folgenden Aktionen aus:
+-   Führen Sie eines der folgenden Verfahren aus:
 
     -   Informationen zum Aktivieren der Remote Verwaltung auf Servern, auf denen Windows Server 2012 ausgeführt wird, finden Sie unter so [Aktivieren Sie Server-Manager-Remote Verwaltung mithilfe der Windows-Benutzeroberfläche](#to-enable-server-manager-remote-management-by-using-the-windows-interface) in diesem Thema.
 
@@ -135,7 +133,7 @@ In Windows Server 2016 stützt Server-Manager die Windows-Remote Verwaltung (Win
 
     -   Remote-Ereignisprotokoll Verwaltung (RPC-EPMAP)
 
-4.  Klicken Sie mit der rechten Maustaste auf die nicht aktivierten Regeln, und klicken Sie anschließend im Kontextmenü auf **Regel aktivieren** .
+4.  Klicken Sie mit der rechten Maustaste auf die nicht aktivierten Regeln, und klicken Sie anschließend im Kontextmenü auf **Regel aktivieren**.
 
 5.  Schließen Sie das Snap-In %%amp;quot;Windows-Firewall mit erweiterter Sicherheit%%amp;quot;.
 
@@ -163,7 +161,7 @@ In Windows Server 2016 stützt Server-Manager die Windows-Remote Verwaltung (Win
 
     > [!NOTE]
     > Durch diese Einstellung wird die Remoteverwaltung bei der Installation des Betriebssystems deaktiviert. Durch das Konfigurieren dieser Einstellung wird verhindert, dass ein Administrator Server-Manager Remote Verwaltung auf einem Server aktiviert, nachdem das Betriebssystem Setup beendet wurde. Administratoren können Server-Manager Remote Verwaltung erneut aktivieren, indem Sie die Schritte in [zum Konfigurieren Server-Manager der Remote Verwaltung mithilfe der Windows-Benutzeroberfläche](#to-enable-server-manager-remote-management-by-using-the-windows-interface) oder [zum Aktivieren der Server-Manager-Remote Verwaltung mithilfe von Windows PowerShell](#to-enable-server-manager-remote-management-by-using-windows-powershell) in diesem Thema ausführen.
-    > 
+    >
     > Wenn Sie die Remote Verwaltung standardmäßig im Rahmen einer unbeaufsichtigten Installation deaktivieren und die Remote Verwaltung auf dem Server nach der Installation nicht wieder aktivieren, können Server, auf die diese Antwortdatei angewendet wird, nicht vollständig mithilfe Server-Manager verwaltet werden. Server, auf denen Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 ausgeführt wird (und die Remote Verwaltung standardmäßig deaktiviert haben), generieren verwaltbarkeitsstatusfehler in der Server-Manager-Konsole, nachdem Sie dem Server-Manager Server Pool hinzugefügt wurden.
 
 ## <a name="windows-remote-management-winrm-listener-settings"></a>WinRM-Listenereinstellungen (Windows Remote Management)
@@ -175,18 +173,18 @@ In der folgenden Liste werden die WinRM-Standard Listenereinstellungen für die 
 
 -   Ein WinRM-Listener wird erstellt, um HTTP-Anforderungen über die Portnummer 5985 zu akzeptieren.
 
--   Die Portnummer 5985 ist in den Einstellungen der Windows-Firewall aktiviert, um Anforderungen über WinRM zuzulassen.
+-   Die Portnummer 5985 ist in den Einstellungen der Windows-Firewall aktiviert, um Anforderungen über WinRM zuzulassen.
 
 -   Die Authentifizierungstypen **Kerberos** und **Negotiate** sind beide aktiviert.
 
-Die Standardportnummer für die WinRM-Kommunikation mit einem Remotecomputer lautet 5985.
+Die Standardportnummer für die WinRM-Kommunikation mit einem Remotecomputer lautet 5985.
 
 Weitere Informationen zum Konfigurieren von WinRM-Listenereinstellungen erhalten Sie, wenn Sie an einer Eingabeaufforderung **WinRM Help config**eingeben und dann die EINGABETASTE drücken.
 
 ## <a name="see-also"></a>Weitere Informationen
-[Hinzufügen von Servern zu Server-Manager](add-servers-to-server-manager.md)
-[Windows PowerShell: about_remote_Troubleshooting im Windows Server TechCenter](https://technet.microsoft.com/library/dd347642.aspx)
-[Beschreibung der Benutzerkontensteuerung](https://support.microsoft.com/kb/951016)
+[Server zu Server-Manager](add-servers-to-server-manager.md) 
+ Hinzufügen [Windows PowerShell: about_remote_Troubleshooting im Windows Server TechCenter](https://technet.microsoft.com/library/dd347642.aspx) 
+ [Beschreibung der Benutzerkontensteuerung](https://support.microsoft.com/kb/951016)
 
 
 

@@ -1,18 +1,16 @@
 ---
 title: Hyper-V – Konfiguration
 description: Überlegungen zur Hyper-V-Konfiguration für die Leistungsoptimierung
-ms.prod: windows-server
-ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: asmahi; sandysp; jopoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 3fb1001c99e084ab69f37db9779e5d5ae7acf58e
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 02f2849b7259379ebf6beed927601b13966a7704
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85471435"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87896147"
 ---
 # <a name="hyper-v-configuration"></a>Hyper-V – Konfiguration
 
@@ -28,11 +26,11 @@ Die Hardware Überlegungen für Server, auf denen Hyper-v ausgeführt wird, ähn
 
     Hyper-V kann von größeren Prozessor Caches profitieren, insbesondere bei Lasten mit einem großen Workingset im Arbeitsspeicher und in Konfigurationen für virtuelle Maschinen, bei denen das Verhältnis zwischen virtuellen Prozessoren und logischen Prozessoren hoch ist.
 
--   **Arbeitsspeicher**
+-   **Memory**
 
     Der physische Server benötigt ausreichend Arbeitsspeicher für die Stamm-und untergeordneten Partitionen. Die Stamm Partition benötigt Arbeitsspeicher, um e/a-Vorgänge im Auftrag der virtuellen Computer und Vorgänge (z. b. einer Momentaufnahme eines virtuellen Computers) effizient auszuführen. Hyper-V stellt sicher, dass genügend Arbeitsspeicher für die Stamm Partition verfügbar ist, und ermöglicht die Zuweisung von verbleibenden Arbeitsspeicher zu untergeordneten Partitionen. Untergeordnete Partitionen sollten basierend auf den Anforderungen der erwarteten Auslastung für jeden virtuellen Computer skaliert werden.
 
--   **Speicher**
+-   **Storage**
 
     Die Speicherhardware muss über ausreichend e/a-Bandbreite und Kapazität verfügen, um die aktuellen und zukünftigen Anforderungen der virtuellen Maschinen zu erfüllen, die der physische Server hostet. Beachten Sie diese Anforderungen, wenn Sie Speichercontroller und Datenträger auswählen und die RAID-Konfiguration auswählen. Das Platzieren virtueller Maschinen mit stark Datenträger intensiven Workloads auf verschiedenen physischen Datenträgern führt wahrscheinlich zu einer Verbesserung der Gesamtleistung. Wenn z. b. vier virtuelle Computer einen einzelnen Datenträger gemeinsam nutzen und ihn aktiv nutzen, kann jeder virtuelle Computer nur 25% der Bandbreite des Datenträgers liefern.
 
@@ -87,7 +85,7 @@ Die CPU-Auslastung des physischen Systems sollte immer mithilfe der Leistungsind
 - **Virtueller Hyper-V-Hypervisor-Prozessor ( \* ) \\ \\ *** misst die CPU-Auslastung von Gast Partitionen.
 
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Hyper-V-Terminologie](terminology.md)
 
