@@ -1,20 +1,18 @@
 ---
 title: Verwalten von Hyper-V unter Windows Server
 description: Enthält Links zu Artikeln zur Verwaltung von Hyper-V.
-ms.prod: windows-server
 manager: dongill
-ms.technology: compute-hyper-v
 ms.topic: article
 ms.assetid: 5c06b632-dd19-46ca-9f51-130c321963d8
 author: jasongerend
 ms.author: jgerend
 ms.date: 01/08/2018
-ms.openlocfilehash: ee2306aa2b207cf2aba164feeb47c496f7f25533
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 8c58236004b78902eed07cd5117e4aa6543c7245
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80860273"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87941985"
 ---
 # <a name="manage-hyper-v-on-windows-server"></a>Verwalten von Hyper-V unter Windows Server
 
@@ -33,6 +31,6 @@ Verwenden Sie die Ressourcen in diesem Abschnitt, um Hyper-V unter Windows Serve
 - [Informationen zur Hyper-V Scheduler-Auswahl](about-hyper-v-scheduler-type-selection.md)
 - [Verwalten von Integrationsdiensten](Manage-Hyper-V-integration-services.md)
 - [Verwalten von Windows-VMs mit PowerShell Direct](Manage-Windows-virtual-machines-with-powershell-direct.md)
-- [Einrichten von Hyper-V-Replikaten](Set-up-Hyper-V-Replica.md) 
+- [Einrichten von Hyper-V-Replikaten](Set-up-Hyper-V-Replica.md)
 - [Aktivieren der Intel Performance Monitoring-Hardware](Performance-Monitoring-Hardware.md)
 - [Verschieben von VMs mit Livemigration](Live-migration-overview.md)

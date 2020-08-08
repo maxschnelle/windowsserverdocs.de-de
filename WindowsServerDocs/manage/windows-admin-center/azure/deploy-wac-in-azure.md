@@ -6,12 +6,12 @@ author: jwwool
 ms.author: jeffrew
 ms.date: 04/12/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: b4ae232d47398800ecae8500cff6726128f22b83
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 381073ad383913684b1b861883b981a19583767f
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87971987"
+ms.locfileid: "87997523"
 ---
 # <a name="deploy-windows-admin-center-in-azure"></a>Bereitstellen von Windows Admin Center in Azure
 
@@ -29,7 +29,7 @@ Sie können [Deploy-WACAzVM.ps1](https://aka.ms/deploy-wacazvm) herunterladen, d
 
 Wenn Sie Ihr eigenes Zertifikat angeben:
 
-* Laden Sie das Zertifikat in [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)hoch. Erstellen Sie zunächst einen Schlüssel Tresor im Azure-Portal, und laden Sie dann das Zertifikat in den Schlüssel Tresor hoch. Alternativ können Sie das Azure-Portal verwenden, um ein Zertifikat für Sie zu generieren.
+* Laden Sie das Zertifikat in [Azure Key Vault](/azure/key-vault/key-vault-whatis)hoch. Erstellen Sie zunächst einen Schlüssel Tresor im Azure-Portal, und laden Sie dann das Zertifikat in den Schlüssel Tresor hoch. Alternativ können Sie das Azure-Portal verwenden, um ein Zertifikat für Sie zu generieren.
 
 ### <a name="script-parameters"></a>Skriptparameter
 

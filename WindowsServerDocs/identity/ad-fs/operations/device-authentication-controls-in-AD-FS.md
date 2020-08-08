@@ -6,14 +6,12 @@ ms.author: billmath
 manager: mtillman
 ms.date: 11/09/2017
 ms.topic: article
-ms.prod: windows-server
-ms.technology: identity-adfs
-ms.openlocfilehash: f9cc811c6a78e58ff3550343e89c19806b9914fb
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 976a8db89d8ffdb08f5f453619b7a341fb4dcdb4
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86966872"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87949694"
 ---
 # <a name="device-authentication-controls-in-ad-fs"></a>Steuerelemente für die Geräte Authentifizierung in AD FS
 Das folgende Dokument zeigt, wie Sie Geräte Authentifizierungs Steuerelemente in Windows Server 2016 und 2012 R2 aktivieren.
@@ -33,11 +31,11 @@ PS:\>Set-AdfsGlobalAuthenticationPolicy –DeviceAuthenticationEnabled $true
 Zum Deaktivieren der Geräte Authentifizierung wurde das gleiche Cmdlet verwendet, um den Wert auf $false festzulegen.
 
 ## <a name="device-authentication-controls-in-ad-fs-2016"></a>Geräte Authentifizierungs Steuerelemente in AD FS 2016
-Der einzige in 2012 R2 unterstützte Geräte Authentifizierungstyp war clienttls.  In AD FS 2016 sind neben clienttls zwei neue Arten der Geräte Authentifizierung für die Authentifizierung moderner Geräte vorhanden.  Dies sind:
+Der einzige in 2012 R2 unterstützte Geräte Authentifizierungstyp war clienttls.  In AD FS 2016 sind neben clienttls zwei neue Arten der Geräte Authentifizierung für die Authentifizierung moderner Geräte vorhanden.  Diese lauten wie folgt:
 - Pkeyauth
 - PRT
 
-Um das neue Verhalten zu steuern, `DeviceAuthenticationEnabled` wird die-Eigenschaft in Kombination mit einer neuen Eigenschaft namens verwendet `DeviceAuthenticationMethod` .  
+Um das neue Verhalten zu steuern, `DeviceAuthenticationEnabled` wird die-Eigenschaft in Kombination mit einer neuen Eigenschaft namens verwendet `DeviceAuthenticationMethod` .
 
 Die Geräte Authentifizierungsmethode bestimmt den Typ der Geräte Authentifizierung, die ausgeführt wird: PRT, pkeyauth, clienttls oder eine Kombination.
 Die folgenden Werte sind möglich:
@@ -78,11 +76,11 @@ Die Bedeutung der `DeviceAuthenticationMethod` Werte hat sich seit der Veröffen
 | ----- | ----- | ----- |
 |2016 RTM|Signedtoken|PRT + pkeyauth|
 ||clientTLS|clientTLS|
-||All|PRT + pkeyauth + clienttls|
+||Alle|PRT + pkeyauth + clienttls|
 |2016 RTM + aktuell mit Windows Update|Signedtoken (geänderte Bedeutung)|PRT (nur)|
 ||Pkeyauth (neu)|PRT + pkeyauth|
 ||clientTLS|PRT + clienttls|
-||All|PRT + pkeyauth + clienttls|
+||Alle|PRT + pkeyauth + clienttls|
 
 ## <a name="see-also"></a>Weitere Informationen
 [AD FS-Vorgänge](../ad-fs-operations.md)

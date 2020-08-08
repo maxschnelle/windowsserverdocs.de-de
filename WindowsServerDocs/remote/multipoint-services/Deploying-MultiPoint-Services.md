@@ -2,19 +2,17 @@
 title: Bereitstellen von MultiPoint Services
 description: Übersicht über den Multipoint Services-Bereitstellungs Prozess
 ms.date: 07/22/2016
-ms.prod: windows-server
-ms.technology: multipoint-services
 ms.topic: article
 ms.assetid: 594bc09e-5d2d-4984-a9de-79d40b1308d6
 author: evaseydl
 ms.author: evas
 manager: scottman
-ms.openlocfilehash: 0e24fadf1914c43bf6270e1d84c5a5535518d9bd
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: 7188e6db4d3b0f6c7846f1e8e4d8847980f2605a
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87182036"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87942449"
 ---
 # <a name="deploying-multipoint-services"></a>Bereitstellen von MultiPoint Services
 
@@ -40,6 +38,6 @@ Die Bereitstellungs Informationen sind wie folgt organisiert. Sie müssen mindes
 
     Führen Sie einige grundlegende Server Verwaltungsaufgaben aus, bevor Sie mit der Verwendung des Servers beginnen. Datenträger Schutz aktivieren; Server Sicherung installieren; um Energie zu sparen, konfigurieren Sie die standbyeinstellungen. Konfigurieren Sie Gruppenrichtlinien und die Registrierung für eine Domänen Bereitstellung.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [MultiPoint Services](MultiPoint-Services.md)

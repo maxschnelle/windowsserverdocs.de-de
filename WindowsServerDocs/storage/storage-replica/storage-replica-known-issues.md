@@ -1,19 +1,17 @@
 ---
 title: Bekannte Probleme mit Speicherreplikaten
-ms.prod: windows-server
 manager: siroy
 ms.author: nedpyle
-ms.technology: storage-replica
 ms.topic: get-started-article
 author: nedpyle
 ms.date: 06/25/2019
 ms.assetid: ceddb0fa-e800-42b6-b4c6-c06eb1d4bc55
-ms.openlocfilehash: 665d137673c3229f2b06283965c085ae25a2287c
-ms.sourcegitcommit: acfdb7b2ad283d74f526972b47c371de903d2a3d
+ms.openlocfilehash: ed566e5db46cb147925799b055e8bde8ead57b25
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87769618"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87961174"
 ---
 # <a name="known-issues-with-storage-replica"></a>Bekannte Probleme mit Speicherreplikaten
 
@@ -257,7 +255,7 @@ Dies funktioniert nicht mit lokalem Knoten Speicher. Sie können das Speicher Re
 
 ## <a name="the-smb-bandwidth-limiter-fails-to-throttle-storage-replica-bandwidth"></a>Die SMB-Bandbreitenbeschränkung kann die Speicher Replikat Bandbreite nicht drosseln
 
-Wenn Sie eine Bandbreitenbeschränkung für das Speicher Replikat angeben, wird der Grenzwert ignoriert und die volle Bandbreite verwendet. Beispiel:
+Wenn Sie eine Bandbreitenbeschränkung für das Speicher Replikat angeben, wird der Grenzwert ignoriert und die volle Bandbreite verwendet. Zum Beispiel:
 
 ```
 Set-SmbBandwidthLimit  -Category StorageReplication -BytesPerSecond 32MB
@@ -267,7 +265,7 @@ Dieses Problem tritt auf, weil ein Interoperabilitäts Problem Zwischenspeicher 
 
 ## <a name="event-1241-warning-repeated-during-initial-sync"></a>Ereignis 1241 Warnung bei der anfänglichen Synchronisierung wiederholt
 
-Wenn eine Replikations Partnerschaft als asynchron angegeben wird, protokolliert der Quellcomputer wiederholt das Warnungs Ereignis 1241 im Verwaltungs Kanal des Speicher Replikats. Beispiel:
+Wenn eine Replikations Partnerschaft als asynchron angegeben wird, protokolliert der Quellcomputer wiederholt das Warnungs Ereignis 1241 im Verwaltungs Kanal des Speicher Replikats. Zum Beispiel:
 
 ```
 Log Name:      Microsoft-Windows-StorageReplica/Admin
@@ -334,7 +332,7 @@ Beachten Sie, dass `Status: "{Access Denied}"` `A process has requested access t
 
 ## <a name="error-failed-to-bring-the-resource-cluster-disk-x-online-with-a-stretch-cluster"></a>Fehler "Fehler beim Verschieben der Ressource" Cluster Datenträger x ' Online ". mit einem Stretch-Cluster
 
-Wenn Sie versuchen, einen Cluster Datenträger nach einem erfolgreichen Failover online zu schalten, wenn Sie versuchen, den ursprünglichen primären Quell Standort erneut zu erstellen, erhalten Sie einen Fehler in Failovercluster-Manager. Beispiel:
+Wenn Sie versuchen, einen Cluster Datenträger nach einem erfolgreichen Failover online zu schalten, wenn Sie versuchen, den ursprünglichen primären Quell Standort erneut zu erstellen, erhalten Sie einen Fehler in Failovercluster-Manager. Zum Beispiel:
 
 ```
 Error
@@ -345,7 +343,7 @@ Error Code: 0x80071397
 The operation failed because either the specified cluster node is not the owner of the resource, or the node is not a possible owner of the resource.
 ```
 
-Wenn Sie versuchen, den Datenträger oder das CSV manuell zu verschieben, erhalten Sie einen zusätzlichen Fehler. Beispiel:
+Wenn Sie versuchen, den Datenträger oder das CSV manuell zu verschieben, erhalten Sie einen zusätzlichen Fehler. Zum Beispiel:
 
 ```
 Error

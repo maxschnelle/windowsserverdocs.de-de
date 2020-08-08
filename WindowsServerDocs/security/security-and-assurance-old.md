@@ -7,19 +7,19 @@ ms.assetid: b886b2fd-3567-4f0a-8aa3-4ba7923d2d21
 author: coreyp-at-msft
 ms.author: coreyp
 ms.localizationpriority: medium
-ms.openlocfilehash: f973d83c53fb4667163d950a169611721f53f78e
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: e6bb0df12ba193cb5b335af3bf05bdca538e148b
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87939477"
+ms.locfileid: "87997307"
 ---
 # <a name="security-and-assurance-in-windows-server"></a>Sicherheit und Sicherheit in Windows Server
 
 >Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 >[!TIP]
-> Suchen Sie nach Informationen zu älteren Versionen von Windows Server? Sehen Sie sich unsere [Windows Server-Bibliotheken](/previous-versions/windows/) auf „docs.microsoft.com“ an. Sie können auch nach bestimmten Informationen [auf dieser Website suchen](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions).
+> Suchen Sie nach Informationen zu älteren Versionen von Windows Server? Sehen Sie sich unsere [Windows Server-Bibliotheken](/previous-versions/windows/) auf „docs.microsoft.com“ an. Sie können auch nach bestimmten Informationen [auf dieser Website suchen](/search/index?dataSource=previousVersions&search=Windows+Server).
 
 <img src="../media/landing-icons/security.png" style='float:left; padding:.5em;' alt="Icon representing a lock"> Sie können sich auf neue Schutz Ebenen stützen, die in das Betriebssystem integriert sind, um Schutz vor Sicherheitsverletzungen zu gewährleisten. Wehren Sie bedrohliche Angriffe ab und erhöhen Sie die Sicherheit Ihrer virtuellen Maschinen, Anwendungen und Daten.
 
@@ -27,7 +27,7 @@ ms.locfileid: "87939477"
 ### <a name="windows-server-security-blog-post"></a>[Blogbeitrag zur Windows Server-Sicherheit](https://blogs.technet.microsoft.com/windowsserver/2016/04/25/ten-reasons-youll-love-windows-server-2016-8-security/)
 In diesem Blogbeitrag des Windows Server-Sicherheitsteams werden viele der Verbesserungen in Windows Server beschrieben, mit denen die Sicherheit beim Hosten und in Hybrid Cloud-Umgebungen erhöht wird.
 
-### <a name="datacenter-and-private-cloud-security-blog"></a>[Datacenter and Private Cloud Security Blog (Blog zur Sicherheit in Rechenzentren und Private Clouds)](https://blogs.technet.microsoft.com/datacentersecurity/)
+### <a name="datacenter-and-private-cloud-security-blog"></a>[Datacenter and Private Cloud Security Blog (Blog zur Sicherheit in Rechenzentren und Private Clouds)](/archive/blogs/datacentersecurity/)
 Dies ist die zentrale Blogwebsite für technische Inhalte des Microsoft Datacenter and Private Cloud Security-Teams.
 
 ### <a name="addressing-emerging-threats-and-landscape-shifts"></a>[Addressing emerging threats and landscape shifts (Reaktion auf neue Bedrohungen und Änderungen der Systemlandschaft)](https://www.youtube.com/watch?v=B5JMYxYWx1k&feature=youtu.be)
@@ -54,23 +54,23 @@ In diesem Video mit exemplarischer Vorgehensweise wird gezeigt, wie der Host-Üb
 
 Diese Ignite-Präsentation erläutert Erweiterungen in Hyper-V, Virtual Machine Manager und eine neue Host-Überwachungsdienst-Serverrolle zur Aktivierung von abgeschirmten VMs.
 
-### <a name="guarded-fabric-deployment-guide"></a>[Guarded Fabric Deployment Guide (Bereitstellungsleitfaden für geschütztes Fabric)](https://docs.microsoft.com/windows-server/virtualization/guarded-fabric-shielded-vm/guarded-fabric-deploying-hgs-overview)
+### <a name="guarded-fabric-deployment-guide"></a>[Guarded Fabric Deployment Guide (Bereitstellungsleitfaden für geschütztes Fabric)](./guarded-fabric-shielded-vm/guarded-fabric-deploying-hgs-overview.md)
 Dieser Leitfaden umfasst Installations- und Validierungsinformationen für Windows Server und System Center Virtual Machine Manager für Hosts mit geschütztem Fabric und abgeschirmten VMs.
 
-### <a name="shielded-vm-and-guarded-fabric-in-branch-offices"></a>[Abgeschirmte VMs und geschützte Fabrics in Filialen](https://docs.microsoft.com/windows-server/virtualization/guarded-fabric-shielded-vm/guarded-fabric-manage-branch-office)
+### <a name="shielded-vm-and-guarded-fabric-in-branch-offices"></a>[Abgeschirmte VMs und geschützte Fabrics in Filialen](./guarded-fabric-shielded-vm/guarded-fabric-manage-branch-office.md)
 Dieses Handbuch enthält bewährte Methoden für die Ausführung von abgeschirmten virtuellen Computern in Filialen und anderen Remoteszenarien, in denen Hyper-V-Hosts Zeiträume mit eingeschränkter Konnektivität zu HGS haben können.
 
-### <a name="shielded-vm-and-guarded-fabric-troubleshooting-guide"></a>[Shielded VM and Guarded Fabric Troubleshooting Guide (Leitfaden zur Problembehandlung für abgeschirmte VMs und geschütztes Fabric)](https://docs.microsoft.com/windows-server/virtualization/guarded-fabric-shielded-vm/guarded-fabric-troubleshoot-overview)
+### <a name="shielded-vm-and-guarded-fabric-troubleshooting-guide"></a>[Shielded VM and Guarded Fabric Troubleshooting Guide (Leitfaden zur Problembehandlung für abgeschirmte VMs und geschütztes Fabric)](./guarded-fabric-shielded-vm/guarded-fabric-troubleshoot-overview.md)
 In diesem Leitfaden finden Sie Informationen zur Behandlung von Problemen, die in Ihrer Umgebung mit abgeschirmten VMs auftreten können.
 
 ### <a name="shielded-vm-article"></a>[Artikel zu abgeschirmten VMs](http://windowsitpro.com/hyper-v/super-secure-hyper-v-environments-shielded-vms-2016)
 In diesem Whitepaper können Sie sich einen Überblick darüber verschaffen, wie sich die Sicherheit mit abgeschirmten VMs verbessern lässt und wie Sie Manipulationen mithilfe dieser VMs verhindern können.
 
 ## <a name="privileged-access-management"></a>Privileged Access Management (Schützen von Windows und Microsoft Azure Active Directory mit Privileged Access Management)
-### <a name="securing-privileged-access"></a>[Schützen des privilegierten Zugriffs](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/securing-privileged-access)
+### <a name="securing-privileged-access"></a>[Schützen des privilegierten Zugriffs](../identity/securing-privileged-access/securing-privileged-access.md)
 Ein Fahrplan zum Schutz Ihres privilegierten Zugriffs. Dieser Wegweiser basiert auf dem geballten Fachwissens des Teams für die Sicherheit von Servern, der Microsoft-IT, des Azure-Teams und Microsoft Consulting Services.
 
-### <a name="just-in-time-administration-with-microsoft-identity-manager"></a>[Just in Time Administration with Microsoft Identity Manager (Just-In-Time-Verwaltung mit Microsoft Identity Manager)](https://technet.microsoft.com/library/mt150258.aspx)
+### <a name="just-in-time-administration-with-microsoft-identity-manager"></a>[Just in Time Administration with Microsoft Identity Manager (Just-In-Time-Verwaltung mit Microsoft Identity Manager)](/microsoft-identity-manager/pam/privileged-identity-management-for-active-directory-domain-services)
 In diesem Artikel werden Features und Funktionen von Microsoft Identity Manager beschrieben. Dazu zählt auch die Unterstützung für Just-In-Time-Privileged Access Management.
 
 ### <a name="protecting-windows-and-microsoft-azure-active-directory-with-privileged-access-management"></a>[Video über den Schutz von Windows und Microsoft Azure Active Directory mit privilegierter Zugriffsverwaltung](https://channel9.msdn.com/events/ignite/2015/brk3873)
@@ -83,28 +83,28 @@ In diesem Dokument werden die Vision und technische Details von Just Enough Admi
 Just Enough Administration – exemplarische Vorgehensweise.
 ## <a name="credential-protection"></a>Schutz von Anmeldeinformationen
 
-### <a name="protect-derived-domain-credentials-with-credential-guard"></a>[Schützen abgeleiteter Domänenanmeldeinformationen mit Credential Guard](https://docs.microsoft.com/windows/security/identity-protection/credential-guard/credential-guard)
+### <a name="protect-derived-domain-credentials-with-credential-guard"></a>[Schützen abgeleiteter Domänenanmeldeinformationen mit Credential Guard](/windows/security/identity-protection/credential-guard/credential-guard)
 Credential Guard nutzt auf Virtualisierung basierende Sicherheitsverfahren, um geheime Daten zu isolieren, damit nur durch privilegierte Systemsoftware auf diese Daten zugegriffen werden kann. Nicht autorisierter Zugriff auf diese geheimen Schlüssel kann zum Diebstahl von Anmeldeinformationen führen, z. B. durch einen Pass-the-Hash- oder einen Pass-the-Ticket-Angriff. Credential Guard verhindert diese Angriffe, indem NTLM-Kennworthashes und Kerberos Ticket Granting Tickets geschützt werden.
 
-### <a name="protect-remote-desktop-credentials-with-remote-credential-guard"></a>[Schützen von Remotedesktop-Anmeldeinformationen mit Remote Credential Guard](https://docs.microsoft.com/windows/security/identity-protection/remote-credential-guard)
+### <a name="protect-remote-desktop-credentials-with-remote-credential-guard"></a>[Schützen von Remotedesktop-Anmeldeinformationen mit Remote Credential Guard](/windows/security/identity-protection/remote-credential-guard)
 Mit Remote Credential Guard können Sie Ihre Anmeldeinformationen über eine Remotedesktopverbindung schützen, indem Kerberos-Anforderungen an das Gerät zurückgeleitet werden, das die Verbindung anfordert. Darüber hinaus profitieren Sie mit dieser Lösung von einer SSO-Umgebung (Single Sign-On, einmaliges Anmelden) für Remotedesktopsitzungen.                                                                                                        |
 ### <a name="credential-guard-demo-video"></a>[Demovideo zu Credential Guard](https://www.youtube.com/watch?v=eUpKOGSl7yk)
 Dieses fünfminütige Video enthält Informationen über Credential Guard und Remote Credential Guard.
 
 ## <a name="hardening-the-os-and-applications"></a>Härtung des Betriebssystems und der Anwendungen
-### <a name="windows-defender-application-control-wdac-deployment-guide"></a>[Bereitstellungshandbuch zu Windows Defender-Anwendungssteuerung (WDAC)](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/windows-defender-application-control)
+### <a name="windows-defender-application-control-wdac-deployment-guide"></a>[Bereitstellungshandbuch zu Windows Defender-Anwendungssteuerung (WDAC)](/windows/security/threat-protection/windows-defender-application-control/windows-defender-application-control)
 Bei der WDAC handelt es sich um eine konfigurierbare Richtlinie zur Codeintegrität (CI), die Unternehmen dabei hilft zu steuern, welche Anwendungen in ihrer Umgebung ausgeführt werden. Sie hat keine speziellen Hardware- oder Softwareanforderungen, muss jedoch unter Windows 10 ausgeführt werden.
 
 ### <a name="device-guard-demo-video"></a>[Demovideo zu Device Guard](https://www.youtube.com/watch?v=F-pTkesjkhI)
 Device Guard ist eine Kombination aus WDAC und Hypervisor-geschützter Codeintegrität (HVCI). Dieses siebenminütige Video enthält Informationen über Device Guard und seine Verwendung unter Windows Server.
 
-### <a name="transport-layer-security-registry-settings"></a>[Registrierungseinstellungen für Transport Layer Security](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings)
+### <a name="transport-layer-security-registry-settings"></a>[Registrierungseinstellungen für Transport Layer Security](./tls/tls-registry-settings.md)
 Informationen zu unterstützten Registrierungseinstellungen für die Implementierung des Transport Layer Security (TLS)- und des Secure Sockets Layer (SSL)-Protokolls unter Windows.
 
-### <a name="control-flow-guard"></a>[Ablaufsteuerungsschutz](https://docs.microsoft.com/windows/desktop/SecBP/control-flow-guard)
+### <a name="control-flow-guard"></a>[Ablaufsteuerungsschutz](/windows/desktop/SecBP/control-flow-guard)
 Der Ablaufsteuerungsschutz bietet integrierten Schutz gegen einige Fälle von Speicherbeschädigungsangriffen.
 
-### <a name="windows-defender"></a>[Windows Defender](https://technet.microsoft.com/windows-server-docs/security/windows-defender/windows-defender-overview-windows-server)
+### <a name="windows-defender"></a>[Windows Defender](./windows-defender/windows-defender-overview-windows-server.md)
 Windows Defender bietet Funktionen zum aktiven Schutz, um bekannte Schadsoftware zu blockieren. Windows Defender ist standardmäßig aktiviert und für die Unterstützung der verschiedenen Serverrollen in Windows Server optimiert.
 
 ## <a name="detecting-and-responding-to-threats"></a>Ermitteln von und Reagieren auf Bedrohungen
@@ -125,10 +125,10 @@ Dieses 3-minütige Video bietet einen Überblick darüber, wie Microsoft Bedrohu
 
 ## <a name="network-security"></a>Netzwerksicherheit
 
-### <a name="datacenter-firewall-overview"></a>[Übersicht über Datacenter Firewall](https://technet.microsoft.com/library/dn920240.aspx)
+### <a name="datacenter-firewall-overview"></a>[Übersicht über Datacenter Firewall](/previous-versions/windows/server/dn920240(v=ws.12))
 In dieser Übersicht wird Datacenter Firewall erläutert, eine zustandsbehaftete, mehrinstanzenfähige 5-Tupel-Firewall (Protokoll, Portnummer von Quelle und Ziel sowie IP-Adresse von Quelle und Ziel), die auf der Vermittlungsschicht implementiert ist.
 
-### <a name="whats-new-in-dns-in-windows-server"></a>[What's New in DNS in Windows Server (Neues in DNS unter Windows Server)](https://technet.microsoft.com/windows-server-docs/networking/dns/what-s-new-in-dns-server)
+### <a name="whats-new-in-dns-in-windows-server"></a>[What's New in DNS in Windows Server (Neues in DNS unter Windows Server)](../networking/dns/what-s-new-in-dns-server.md)
 In dieser Übersicht finden Sie eine kurze Beschreibung der neuen Funktionen in DNS sowie eine Reihe von Links, um auf weitere Informationen zuzugreifen.
 
 ## <a name="mapping-security-features-to-compliance-regulations"></a>Abbilden von Compliancebestimmungen auf Sicherheitsfunktionen

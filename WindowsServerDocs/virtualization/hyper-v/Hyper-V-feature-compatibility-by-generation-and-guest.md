@@ -7,12 +7,12 @@ ms.assetid: 81c1f32d-7814-4992-8a66-dd4b77c939b4
 author: kbdazure
 ms.author: kathydav
 ms.date: 12/05/2016
-ms.openlocfilehash: 1ea9e0d86e61f574af45b85701bae941bb9f6ad5
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 5de7f55d9fead7b720991749dd1c83aa727636c4
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87960753"
+ms.locfileid: "87997026"
 ---
 # <a name="hyper-v-feature-compatibility-by-generation-and-guest"></a>Kompatibilität von Hyper-V-Features nach Generierung und Gast
 
@@ -32,13 +32,13 @@ Feature  | Generation | Gastbetriebssystem
 Prüfpunkte | 1 und 2 | Jeder unterstützte Gast
 Gastclustering | 1 und 2 | Gäste, die Cluster fähige Anwendungen ausführen und die iSCSI-Ziel Software installiert haben
 Replikation | 1 und 2 | Jeder unterstützte Gast
-Domänencontroller | 1 und 2 | Alle unterstützten Windows Server-Gäste, die nur Produktions Prüfpunkte verwenden. Siehe [unterstützte Windows Server-Gast Betriebssysteme](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows#supported-windows-server-guest-operating-systems)
+Domänencontroller | 1 und 2 | Alle unterstützten Windows Server-Gäste, die nur Produktions Prüfpunkte verwenden. Siehe [unterstützte Windows Server-Gast Betriebssysteme](./supported-windows-guest-operating-systems-for-hyper-v-on-windows.md#supported-windows-server-guest-operating-systems)
 
 ## <a name="compute"></a>Compute
 
 Feature  | Generation | Gastbetriebssystem
 ------------- | ------------- | -----------
-Dynamischer Arbeitsspeicher | 1 und 2 | Bestimmte Versionen von unterstützten Gästen. Weitere Informationen finden Sie unter [Übersicht über Hyper-V-dynamischer Arbeitsspeicher](https://technet.microsoft.com/library/hh831766.aspx) für ältere Versionen als Windows Server 2016 und Windows 10.
+Dynamischer Arbeitsspeicher | 1 und 2 | Bestimmte Versionen von unterstützten Gästen. Weitere Informationen finden Sie unter [Übersicht über Hyper-V-dynamischer Arbeitsspeicher](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831766(v=ws.11)) für ältere Versionen als Windows Server 2016 und Windows 10.
 Heißes hinzufügen/entfernen des Speichers | 1 und 2 | Windows Server 2016, Windows 10
 Virtuelle NUMA | 1 und 2 | Jeder unterstützte Gast
 
@@ -87,10 +87,3 @@ SMB3 | 1 und 2 | Alle, die SMB3 unterstützen
 Direkte Speicherplätze | 2 | Windows Server 2016
 Virtueller Fibre Channel | 1 und 2 | Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 VHDX-Format | 1 und 2 | Jeder unterstützte Gast
-
-
-
-
-
-
-

@@ -2,18 +2,16 @@
 title: Festlegen der Zielpriorität zum Überschreiben der Sortiermethode von Verweisen
 description: In diesem Artikel wird beschrieben, wie Sie die Ziel Priorität festlegen
 ms.date: 6/5/2017
-ms.prod: windows-server
-ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 77fe5b82b73a0f37ba81dda210f15d6017788822
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 04a295b8f6249521c809770af2c85fdce5dd54b4
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86966822"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87971217"
 ---
 # <a name="set-target-priority-to-override-referral-ordering"></a>Festlegen der Ziel Priorität zum Überschreiben der Verweis Anordnung
 
@@ -55,7 +53,7 @@ Verwenden Sie das folgende Verfahren, um die Ziel Priorität für ein Ordner Zie
 > [!NOTE]
 > Um Ziel Prioritäten mithilfe von Windows PowerShell festzulegen, verwenden Sie die Cmdlets " [Set-dfsnroottarget](/powershell/module/dfsr/update-dfsrconfigurationfromad?view=win10-ps) " und " [Set-dfsnfoldertarget](/powershell/module/dfsr/update-dfsrconfigurationfromad?view=win10-ps) " mit den Parametern " **referenralpriorityclass** " und " **referralpriorityrank** ". Diese Cmdlets wurden in Windows Server 2012 eingeführt.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Optimieren von DFS-Namespaces](tuning-dfs-namespaces.md)
 -   [Delegieren von Verwaltungsberechtigungen für DFS-Namespaces](delegate-management-permissions-for-dfs-namespaces.md)

@@ -1,23 +1,21 @@
 ---
 title: Funktionsweise der QoS-Richtlinie
 description: Dieses Thema bietet einen Überblick über die Richtlinie für Quality of Service (QoS), mit der Sie Gruppenrichtlinie die Bandbreite von Netzwerk Datenverkehr für bestimmte Anwendungen und Dienste in Windows Server 2016 priorisieren können.
-ms.prod: windows-server
-ms.technology: networking
 ms.topic: article
 ms.assetid: 25097cb8-b9b1-41c9-b3c7-3610a032e0d8
 manager: brianlic
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 65d2635744e7d49e45d8f878be9a5e734dea9e6d
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: fe91bba99000be307ed011cb5636dc49d65c389a
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80315406"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87942530"
 ---
 # <a name="how-qos-policy-works"></a>Funktionsweise der QoS-Richtlinie
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 Beim Starten oder Abrufen aktualisierter Benutzer-oder Computer Konfigurations Gruppenrichtlinie Einstellungen für QoS erfolgt der folgende Vorgang.
 
@@ -29,15 +27,15 @@ Beim Starten oder Abrufen aktualisierter Benutzer-oder Computer Konfigurations G
 
 4. Das QoS-Inspektions Modul ruft die QoS-Richtlinien für Benutzer oder Computer ab und speichert Sie.
 
-Wenn ein neuer Transport Schicht-Endpunkt \(TCP-Verbindung oder UDP-Datenverkehr\) erstellt wird, wird der folgende Vorgang ausgeführt.
+Wenn eine neue TCP-Verbindung mit Transport Schicht Endpunkt \( oder UDP-Datenverkehr \) erstellt wird, tritt der folgende Vorgang auf.
 
 1. Die Transport Schicht Komponente des TCP/IP-Stapels informiert das QoS-Inspektions Modul.
 
 2. Das QoS-Inspektions Modul vergleicht die Parameter des Transport Schicht-Endpunkts mit den gespeicherten QoS-Richtlinien.
 
-3. Wenn eine Übereinstimmung gefunden wird, kontaktiert das QoS-Inspektions Modul Pacer. sys, um einen Flow zu erstellen, eine Datenstruktur, die den DSCP-Wert enthält, und die Einstellungen für die Datenverkehrs Drosselung der entsprechenden QoS-Richtlinie. Wenn mehrere QoS-Richtlinien vorhanden sind, die mit den Parametern des Transport Schicht-Endpunkts identisch sind, wird die spezifischere QoS-Richtlinie verwendet.
+3. Wenn eine Übereinstimmung gefunden wird, kontaktiert das QoS-Inspektions Modul Pacer.sys, um einen Flow, eine Datenstruktur, die den DSCP-Wert enthält, und die Einstellungen für die Datenverkehrs Drosselung der entsprechenden QoS-Richtlinie zu erstellen. Wenn mehrere QoS-Richtlinien vorhanden sind, die mit den Parametern des Transport Schicht-Endpunkts identisch sind, wird die spezifischere QoS-Richtlinie verwendet.
 
-4. Pacer. sys speichert den Flow und gibt eine Fluss Nummer zurück, die dem Fluss zum QoS-Inspektions Modul entspricht.
+4. Pacer.sys speichert den Flow und gibt eine Fluss Nummer zurück, die dem Fluss zum QoS-Inspektions Modul entspricht.
 
 5. Das QoS-Inspektions Modul gibt die Fluss Nummer an die Transport Schicht zurück.
 
@@ -47,19 +45,19 @@ Wenn ein Paket gesendet wird, das einem mit einer Fluss Nummer markierten Transp
 
 1. Die Transport Schicht markiert das Paket intern mit der Fluss Nummer.
 
-2. Die Netzwerkschicht fragt Pacer. sys nach dem DSCP-Wert ab, der der Fluss Nummer des Pakets entspricht.
+2. Die netzwerkebenenabfragen Pacer.sys für den DSCP-Wert, der der Fluss Nummer des Pakets entspricht.
 
-3. Pacer. sys gibt den DSCP-Wert an die Netzwerkebene zurück.
+3. Pacer.sys gibt den DSCP-Wert an die Netzwerkebene zurück.
 
-4. Die Netzwerkschicht ändert das Feld IPv4-oder IPv6-Datenverkehrs Klasse in den von Pacer. sys angegebenen DSCP-Wert und berechnet bei IPv4-Paketen die abschließende Prüfsumme für den IPv4-Header.
+4. Die Netzwerkschicht ändert das Feld IPv4-oder IPv6-Datenverkehrs Klasse in den DSCP-Wert, der durch Pacer.sys angegeben wird, und berechnet bei IPv4-Paketen die abschließende IPv4-Header Prüfsumme.
 
 5. Die Netzwerkschicht übergibt das Paket an die Rahmen Ebene.
 
-6. Da das Paket mit einer Fluss Nummer gekennzeichnet wurde, übergibt die Rahmen Ebene das Paket über NDIS 6. x an Pacer. sys.
+6. Da das Paket mit einer Fluss Nummer gekennzeichnet wurde, übergibt die Rahmen Ebene das Paket an Pacer.sys über NDIS 6. x.
 
-7. Pacer. sys verwendet die Fluss Nummer des Pakets, um zu bestimmen, ob das Paket gedrosselt werden muss, und plant, wenn dies der Fall ist, das Paket zum Senden.
+7. Pacer.sys verwendet die Fluss Nummer des Pakets, um zu bestimmen, ob das Paket gedrosselt werden muss, und plant, wenn dies der Fall ist, das Paket zum Senden.
 
-8. Pacer. sys übergibt das Paket entweder sofort \(, wenn keine Datenverkehrs Drosselung\) oder wie geplant \(, wenn die Datenverkehrs Drosselung auf NDIS 6. x zur Übertragung über den entsprechenden Netzwerkadapter\).
+8. Pacer.sys das Paket sofort \( , wenn keine Drosselung des Datenverkehrs vorhanden ist \) , oder wie geplant \( , wenn die Datenverkehrs Drosselung \) auf NDIS 6. x zur Übertragung über die entsprechende Netzwerkkarte erfolgt.
 
 Diese Prozesse von Richtlinien basiertem QoS bieten die folgenden Vorteile.
 

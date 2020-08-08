@@ -1,45 +1,43 @@
 ---
 title: Fehlertoleranz und Speichereffizienz in Direkte Speicherplätze
-ms.prod: windows-server
 ms.author: cosmosdarwin
 manager: eldenc
-ms.technology: storage-spaces
 ms.topic: article
 author: cosmosdarwin
 ms.date: 10/11/2017
 ms.assetid: 5e1d7ecc-e22e-467f-8142-bad6d82fc5d0
-description: Eine Erörterung von resilienzoptionen in direkte Speicherplätze einschließlich Spiegelung und Parität.
+description: Enthält eine Beschreibung der Resilienzoptionen in „Direkte Speicherplätze“, einschließlich Spiegelung und Parität.
 ms.localizationpriority: medium
-ms.openlocfilehash: 517b5484bc02e377f40df84422a1910014c9b830
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 83a38655f1fa40522de84372e270b85f64128e6f
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86955392"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87961184"
 ---
 # <a name="fault-tolerance-and-storage-efficiency-in-storage-spaces-direct"></a>Fehlertoleranz und Speichereffizienz in Direkte Speicherplätze
 
 >Gilt für: Windows Server 2016
 
-In diesem Thema werden die in [Direkte Speicherplätze](storage-spaces-direct-overview.md) verfügbaren Resilienzoptionen vorgestellt und die Skalierungsanforderungen, Speichereffizienz sowie allgemeine Vorteile und Nachteile der einzelnen Optionen beschrieben. Außerdem finden Sie einige Anweisungen zur Verwendung, um Ihnen den Einstieg erleichtern, sowie Verweise auf einige hilfreiche Dokumente, Blogs und weitere Inhalte, mit denen Sie sich informieren können.
+In diesem Thema werden die in [direkte Speicherplätze](storage-spaces-direct-overview.md) verfügbaren resilienzoptionen vorgestellt und die Skalierungs Anforderungen, die Speichereffizienz sowie allgemeine Vorteile und Nachteile der einzelnen beschrieben. Darüber hinaus werden einige Nutzungshinweise gegeben, um Ihnen den Einstieg zu erleichtern, und es wird auf hilfreiche Dokumente, Blogs und Ressourcen mit weiteren Informationen verwiesen.
 
-Falls Sie bereits mit Speicherplätzen vertraut sind, können Sie mit dem Abschnitt [Zusammenfassung](#summary) fortfahren.
+Falls Sie mit „Direkte Speicherplätze“ bereits vertraut sind, können Sie ggf. direkt mit dem Abschnitt [Zusammenfassung](#summary) fortfahren.
 
 ## <a name="overview"></a>Übersicht
 
-Im Grunde geht es bei Speicherplätzen um die Bereitstellung von Fehlertoleranz, die häufig als "Resilienz" bezeichnet wird, für Ihre Daten. Die Implementierung erfolgt ähnlich wie bei RAID, allerdings verteilt über mehrere Server und in Software implementiert.
+Im Grunde geht es bei Speicherplätzen um die Bereitstellung von Fehlertoleranz, die häufig als "Resilienz" bezeichnet wird, für Ihre Daten. Die Implementierung ähnelt RAID, aber sie ist auf Server verteilt und wird per Software implementiert.
 
-Wie bei RAID gibt es auch für Speicherplätze verschiedene Implementierungsmethoden, bei denen jeweils unterschiedliche Kompromisse zwischen Fehlertoleranz, Speichereffizienz und rechnerischer Komplexität gelten. Diese werden im Wesentlichen in zwei Kategorien unterteilt: "Spiegelung" und "Parität", letztere wird manchmal als "Erasure Coding" bezeichnet.
+Wie auch bei RAID gibt es für „Direkte Speicherplätze“ verschiedene Möglichkeiten, dies zu erreichen. Es handelt sich jeweils um unterschiedliche Kompromisse in Bezug auf Fehlertoleranz, Speichereffizienz und Computekomplexität. Diese werden im Wesentlichen in zwei Kategorien unterteilt: "Spiegelung" und "Parität", letztere wird manchmal als "Erasure Coding" bezeichnet.
 
 ## <a name="mirroring"></a>Spiegelung
 
-Die Spiegelung ermöglicht Fehlertoleranz, indem mehrere Kopien aller Daten aufbewahrt werden. Diese Methode ist am ehesten mit RAID-1 vergleichbar. Das Striping und platzieren dieser Daten ist nicht trivial (Weitere Informationen finden Sie in [diesem Blog](https://techcommunity.microsoft.com/t5/storage-at-microsoft/deep-dive-the-storage-pool-in-storage-spaces-direct/ba-p/425959) ). es ist jedoch absolut zu sagen, dass alle Daten, die mit der Spiegelung gespeichert werden, in ihrer Gesamtheit mehrmals geschrieben werden. Jede Kopie wird auf andere physische Hardware (unterschiedliche Laufwerke von nicht identischen Servern) geschrieben, für die angenommen wird, dass sie nicht gemeinsam ausfallen.
+Die Spiegelung ermöglicht Fehlertoleranz, indem mehrere Kopien aller Daten aufbewahrt werden. Dies ähnelt am ehesten RAID-1. Das Striping und die Anordnung dieser Daten ist nicht trivial (weitere Informationen in [diesem Blog](https://techcommunity.microsoft.com/t5/storage-at-microsoft/deep-dive-the-storage-pool-in-storage-spaces-direct/ba-p/425959)), aber es lässt sich festhalten, dass alle per Spiegelung gespeicherten Daten vollständig mehrfach geschrieben werden. Jede Kopie wird auf andere physische Hardware (unterschiedliche Laufwerke von nicht identischen Servern) geschrieben, für die angenommen wird, dass sie nicht gemeinsam ausfallen.
 
 In Windows Server 2016 bieten Speicherplätze zwei Arten von Spiegelung – "bidirektional" und "drei-Wege".
 
 ### <a name="two-way-mirror"></a>Zwei-Wege-Spiegelung
 
-Die Zwei-Wege-Spiegelung schreibt zwei Kopien aller Elemente. Die Speichereffizienz ist 50 % – zum Schreiben von 1 TB an Daten benötigen Sie mindestens 2 TB physische Speicherkapazität. Ebenso benötigen Sie mindestens zwei [Fehler Domänen der Hardware](../../failover-clustering/fault-domains.md) – mit direkte Speicherplätze, d. h. zwei Server.
+Bei der Zwei-Wege-Spiegelung werden jeweils zwei Kopien aller Daten geschrieben. Die Speichereffizienz ist 50 % – zum Schreiben von 1 TB an Daten benötigen Sie mindestens 2 TB physische Speicherkapazität. Darüber hinaus benötigen Sie mindestens zwei [Hardwarefehlerdomänen](../../failover-clustering/fault-domains.md). Bei „Direkte Speicherplätze“ bedeutet dies, dass zwei Server verwendet werden.
 
 ![Zwei-Wege-Spiegelung](media/Storage-Spaces-Fault-Tolerance/two-way-mirror-180px.png)
 
@@ -48,76 +46,76 @@ Die Zwei-Wege-Spiegelung schreibt zwei Kopien aller Elemente. Die Speichereffizi
 
 ### <a name="three-way-mirror"></a>Drei-Wege-Spiegelung
 
-Die Drei-Wege-Spiegelung schreibt drei Kopien aller Elemente. Die Speichereffizienz ist 33.3 % – zum Schreiben von 1 TB an Daten benötigen Sie mindestens 3 TB physische Speicherkapazität. Ebenso benötigen Sie mindestens drei Hardware-Fehlerdomänen – bei Direkte Speicherplätze bedeutet das drei Server.
+Bei der Drei-Wege-Spiegelung werden jeweils drei Kopien aller Daten geschrieben. Die Speichereffizienz ist 33.3 % – zum Schreiben von 1 TB an Daten benötigen Sie mindestens 3 TB physische Speicherkapazität. Darüber hinaus benötigen Sie mindestens drei Hardwarefehlerdomänen. Bei „Direkte Speicherplätze“ bedeutet dies, dass drei Server verwendet werden.
 
-Die drei-Wege-Spiegelung kann [jeweils mindestens zwei Hardwareprobleme (Laufwerk oder Server)](#examples)sicher tolerieren. Wenn Sie beispielsweise einen Server neu starten und plötzlich ein anderes Laufwerk bzw. ein Server ausfällt, bleiben alle Daten geschützt und sind ohne Unterbrechung zugänglich.
+Bei der Drei-Wege-Spiegelung können mindestens [zwei gleichzeitige Hardwareprobleme (Laufwerk oder Server)](#examples) problemlos toleriert werden. Wenn Sie beispielsweise einen Server neu starten und plötzlich ein anderes Laufwerk bzw. ein Server ausfällt, bleiben alle Daten geschützt und sind ohne Unterbrechung zugänglich.
 
 ![Drei-Wege-Spiegelung](media/Storage-Spaces-Fault-Tolerance/three-way-mirror-180px.png)
 
 ## <a name="parity"></a>Parität
 
-Die Paritäts Codierung, oft als "Erasure Coding" bezeichnet, bietet Fehlertoleranz mithilfe bitweiser Arithmetik, die [erheblich kompliziert](https://www.microsoft.com/research/wp-content/uploads/2016/02/LRC12-cheng20webpage.pdf)werden kann. Die Funktionsweise ist weniger offensichtlich als bei der Spiegelung, und es gibt viele hilfreiche Onlineressourcen (z. B. das Dokument [Dummies Guide to Erasure Coding](http://smahesh.com/blog/2012/07/01/dummies-guide-to-erasure-coding/) eines Drittanbieter), die Ihnen einen Eindruck davon vermitteln. Hervorzuheben ist lediglich, dass diese Methode eine bessere Speichereffizienz bietet, ohne die Fehlertoleranz zu beeinträchtigen.
+Die Paritäts Codierung, oft als "Erasure Coding" bezeichnet, bietet Fehlertoleranz mithilfe bitweiser Arithmetik, die [erheblich kompliziert](https://www.microsoft.com/research/wp-content/uploads/2016/02/LRC12-cheng20webpage.pdf)werden kann. Die Funktionsweise ist hierbei weniger offensichtlich als bei der Spiegelung. Es sind viele hervorragende Onlineressourcen verfügbar (z. B. die [„Erasure Coding“-Anleitung für Anfänger](http://smahesh.com/blog/2012/07/01/dummies-guide-to-erasure-coding/) eines Drittanbieters), in denen die Grundlagen vermittelt werden. Kurz gesagt: Hierbei wird eine höhere Speichereffizienz ermöglicht, ohne dass dies zu Lasten der Fehlertoleranz geht.
 
 In Windows Server 2016 bieten Speicherplätze zwei Arten von Parität – die Parität "Single" und "Dual", letztere verwendet ein erweitertes Verfahren mit dem Namen "local Reconstruction Codes" in größerem Maßstab.
 
 > [!IMPORTANT]
-> Wir empfehlen die Verwendung von Spiegelung für die meisten Leistungs sensitiven Workloads. Weitere Informationen zum Ausgleichen der Leistung und Kapazität in Abhängigkeit von der Arbeitsauslastung finden Sie unter [Planen von Volumes](plan-volumes.md#choosing-the-resiliency-type).
+> Wir empfehlen Ihnen für die meisten leistungsempfindlichen Workloads die Nutzung der Spiegelung. Weitere Informationen zum Abwägen zwischen Leistung und Kapazität je nach Workload finden Sie unter [Planen von Volumes](plan-volumes.md#choosing-the-resiliency-type).
 
 ### <a name="single-parity"></a>Einzelparität
-Die Einzelparität behält nur ein bitweises Paritätssymbol bei, das nur Fehlertoleranz für jeweils einen Ausfall bereitstellt. Diese Methode ist am ehesten mit RAID-5 vergleichbar. Zur Verwendung der Einzelparität benötigen Sie mindestens drei Hardware-Fehlerdomänen – bei Direkte Speicherplätze bedeutet das drei Server. Da die Drei-Wege-Spiegelung mehr Fehlertoleranz im selben Maßstab bereitstellt, wird von der Verwendung einer Einzelparität abgeraten. Aber es ist, wenn Sie darauf beharren, es zu verwenden, und es wird vollständig unterstützt.
+Bei Einzelparität wird nur ein Symbol für bitweise Parität beibehalten, sodass nur Fehlertoleranz für jeweils einen Fehler vorhanden ist. Dies ähnelt am ehesten RAID-5. Für die Nutzung der Einzelparität benötigen Sie mindestens drei Hardwarefehlerdomänen. Bei „Direkte Speicherplätze“ bedeutet dies, dass drei Server verwendet werden. Da die Drei-Wege-Spiegelung bei gleichem Umfang eine höhere Fehlertoleranz ermöglicht, raten wir von der Nutzung der Einzelparität ab. Diese Option steht Ihnen aber offen, falls Sie dies möchten, und die Nutzung wird vollständig unterstützt.
 
    >[!WARNING]
-   > Wir raten davon ab, die einfache Parität zu verwenden, da Sie nur einen Hardwarefehler gleichzeitig sicher tolerieren kann: Wenn Sie einen Server neu starten, während plötzlich ein anderes Laufwerk oder Server ausfällt, treten Ausfallzeiten auf. Wenn Sie nur über drei Server verfügen, wird die Drei-Wege-Spiegelung empfohlen. Wenn Sie mindestens vier Server haben, lesen Sie im nächsten Abschnitt weiter.
+   > Wir raten von der Einzelparität ab, da nur jeweils ein Hardwarefehler problemlos toleriert werden kann: Wenn Sie einen Server neu starten und plötzlich ein anderes Laufwerk oder ein anderer Server ausfällt, kommt es zu Ausfallzeit. Falls Sie nur drei Server haben, empfehlen wir Ihnen, die Drei-Wege-Spiegelung zu verwenden. Bei vier oder mehr helfen Ihnen die Informationen im nächsten Abschnitt weiter.
 
 ### <a name="dual-parity"></a>Duale Parität
 
-Die duale Parität implementiert Fehler Behebungs Codes von Reed-Solomon, um zwei bitweise Paritäts Symbole beizubehalten, die dieselbe Fehlertoleranz wie die drei-Wege-Spiegelung (d. h. bis zu zwei Fehler gleichzeitig) bereitstellen, aber mit besserer Speichereffizienz. Diese Methode ist am ehesten mit RAID-6 vergleichbar. Zur Verwendung der dualen Parität benötigen Sie mindestens vier Hardware-Fehlerdomänen – bei Direkte Speicherplätze bedeutet das vier Server. In diesem Umfange beträgt die Speichereffizienz 50 % – zum Speichern von 2 TB an Daten benötigen Sie mindestens 4 TB physische Speicherkapazität.
+Bei der dualen Parität werden Reed-Solomon-Fehlerkorrekturcodes implementiert, um zwei Symbole für bitweise Parität beizubehalten. So wird die gleiche Fehlertoleranz wie bei der Drei-Wege-Spiegelung ermöglicht (also bis zu zwei Fehler auf einmal), aber es wird eine höhere Speichereffizienz erzielt. Dies ähnelt am ehesten RAID-6. Für die Nutzung der dualen Parität benötigen Sie mindestens vier Hardwarefehlerdomänen. Bei „Direkte Speicherplätze“ bedeutet dies, dass vier Server verwendet werden. Auf dieser Ebene beträgt die Speichereffizienz 50 %. Zum Speichern von 2 TB an Daten benötigen Sie 4 TB an physischer Speicherkapazität.
 
-![dual-parity](media/Storage-Spaces-Fault-Tolerance/dual-parity-180px.png)
+![Duale Parität](media/Storage-Spaces-Fault-Tolerance/dual-parity-180px.png)
 
 Die Speichereffizienz der dualen Parität steigt mit der Anzahl vorhandener Hardware-Fehlerdomänen von 50 % auf bis zu 80 %. Bei sieben Domänen (d. h. sieben Servern bei Direkte Speicherplätze) steigt die Effizienz auf 66,7 % – zum Speichern von 4 TB an Daten benötigen Sie nur 6 TB physische Speicherkapazität.
 
-![dual-parity-wide](media/Storage-Spaces-Fault-Tolerance/dual-parity-wide-180px.png)
+![Duale Parität (breit)](media/Storage-Spaces-Fault-Tolerance/dual-parity-wide-180px.png)
 
-Im Abschnitt [Zusammenfassung](#summary) finden Sie Informationen zur Effizienz der dualen Parität und von Codes für die lokale Wiederherstellung in jeder Größenordnung.
+Informationen zur Effizienz von dualer Parität und „Local Reconstruction Codes“ für jeden Umfang finden Sie im Abschnitt [Zusammenfassung](#summary).
 
-### <a name="local-reconstruction-codes"></a>Codes für die lokale Wiederherstellung
+### <a name="local-reconstruction-codes"></a>Local Reconstruction Codes
 
-Mithilfe von Speicherplätzen in Windows Server 2016 wird ein erweitertes Verfahren eingeführt, das von Microsoft Research entwickelt wurde, das als "local Reconstruction Codes" oder LRC bezeichnet wird. Bei umfangreichen Vorgängen verwendet die duale Parität LRC, um ihre Codierung/Decodierung in einige kleinere Gruppen aufzuteilen, sodass der Aufwand für Schreibvorgänge oder Wiederherstellungen nach Ausfällen reduziert wird.
+Mithilfe von Speicherplätzen in Windows Server 2016 wird ein erweitertes Verfahren eingeführt, das von Microsoft Research entwickelt wurde, das als "local Reconstruction Codes" oder LRC bezeichnet wird. Bei größerem Umfang wird LRC für die duale Parität genutzt, um die Codierung bzw. Decodierung in kleinere Gruppen zu unterteilen. So soll der Mehraufwand reduziert werden, der mit Schreibvorgängen oder der Wiederherstellung nach Fehlern verbunden ist.
 
-Bei Festplattenlaufwerken (HDDs) umfasst eine Gruppe vier Symbole, und bei Festkörperlaufwerken (SSDs) umfasst eine Gruppe sechs Symbole. Beispiel: Hier sehen Sie das Layout bei Festplattenlaufwerken und 12 Hardware-Fehlerdomänen (also 12 Server). Es sind zwei Gruppen mit je vier Datensymbolen vorhanden. Es wird eine Speichereffizienz von 72,7 % erzielt.
+Bei Festplattenlaufwerken (HDDs) beträgt die Gruppengröße vier Symbole, und bei Solid State Drives (SSDs) sind es sechs Symbole. Hier ist beispielsweise angegeben, wie das Layout mit Festplattenlaufwerken und zwölf Hardwarefehlerdomänen (zwölf Server) aussieht. Es sind zwei Gruppen mit vier Datensymbolen vorhanden. Es wird eine Speichereffizienz von 72,7 % erzielt.
 
-![local-reconstruction-codes](media/Storage-Spaces-Fault-Tolerance/local-reconstruction-codes-180px.png)
+![Local Reconstruction Codes](media/Storage-Spaces-Fault-Tolerance/local-reconstruction-codes-180px.png)
 
-Wir empfehlen Ihnen diese ausführliche, aber hervorragend lesbare Exemplarische Vorgehens [Weise, wie die Code der lokalen Wiederherstellung verschiedene Fehler Szenarien behandelt und warum Sie ansprechend](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB)sind, von unserem eigenen [Claus Joergensen](https://twitter.com/clausjor).
+Wir empfehlen Ihnen diese eingehende und dennoch gut lesbare Beschreibung zum [Umgang von Local Reconstruction Codes mit unterschiedlichen Fehlerszenarien und den Gründen für ihre Attraktivität](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB) von unserem Mitarbeiter [Claus Joergensen](https://twitter.com/clausjor).
 
-## <a name="mirror-accelerated-parity"></a>Durch Spiegelung beschleunigte Parität
+## <a name="mirror-accelerated-parity"></a>Parität mit Beschleunigung per Spiegelung
 
-Ab Windows Server 2016 kann ein direkte Speicherplätze Volume Teil Spiegelung und Teil Parität sein. Schreibt das Land zuerst in den gespiegelten Teil und wird später allmählich in den Paritäts Teil verschoben. Dadurch wird [die Verwendung von Spiegelung beschleunigt, um das Programmieren zu beschleunigen](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB).
+Ab Windows Server 2016 kann ein direkte Speicherplätze Volume Teil Spiegelung und Teil Parität sein. Schreibvorgänge landen zuerst im gespiegelten Teil und werden später dann allmählich in den Paritätsteil verschoben. Hierbei wird praktisch die [Spiegelung genutzt, um das Erasure Coding zu beschleunigen](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB).
 
-Für die Kombination aus Drei-Wege-Spiegelung und dualer Parität benötigen Sie mindestens vier Fehlerdomänen, d. h. vier Server.
+Zum Mischen von Drei-Wege-Spiegelung und dualer Parität benötigen Sie mindestens vier Fehlerdomänen (also vier Server).
 
-Die Speichereffizienz von Spiegel beschleunigter Parität liegt zwischen dem, was Sie bei der Verwendung der gesamten Spiegelung oder der gesamten Parität erzielen, und hängt von den Proportionen ab, die Sie auswählen. Die Demo in Minute 37 dieser Präsentation zeigt z. B. [verschiedene Kombinationen, die eine Effizienz von 46 %, 54 % und 65 % Effizienz](https://www.youtube.com/watch?v=-LK2ViRGbWs&t=36m55s) mit 12 Servern erzielen.
+Die Speichereffizienz der Parität mit Beschleunigung per Spiegelung liegt zwischen den Ergebnissen, die Sie bei reiner Spiegelung und bei reiner Parität erzielen, und hängt von den gewählten Proportionen ab. Die Demo in Minute 37 dieser Präsentation zeigt z. B. [verschiedene Kombinationen, die eine Effizienz von 46 %, 54 % und 65 % Effizienz](https://www.youtube.com/watch?v=-LK2ViRGbWs&t=36m55s) mit 12 Servern erzielen.
 
 > [!IMPORTANT]
-> Wir empfehlen die Verwendung von Spiegelung für die meisten Leistungs sensitiven Workloads. Weitere Informationen zum Ausgleichen der Leistung und Kapazität in Abhängigkeit von der Arbeitsauslastung finden Sie unter [Planen von Volumes](plan-volumes.md#choosing-the-resiliency-type).
+> Wir empfehlen Ihnen für die meisten leistungsempfindlichen Workloads die Nutzung der Spiegelung. Weitere Informationen zum Abwägen zwischen Leistung und Kapazität je nach Workload finden Sie unter [Planen von Volumes](plan-volumes.md#choosing-the-resiliency-type).
 
 ## <a name="summary"></a><a name="summary"></a>Zusammenfassung
 
-Dieser Abschnitt enthält die in „Direkte Speicherplätze“ verfügbaren Resilienztypen, die Mindestanforderungen für die Skalierung bei Verwendung der einzelnen Typen, die Anzahl von tolerierbaren Fehlern pro Typ und die entsprechende Speichereffizienz.
+In diesem Abschnitt sind die in „Direkte Speicherplätze“ verfügbaren Resilienztypen, die minimalen Skalierungsanforderungen der einzelnen Typen, die tolerierte Anzahl von Ausfällen pro Typ und die entsprechende Speichereffizienz zusammengefasst.
 
 ### <a name="resiliency-types"></a>Resilienztypen
 
 |    Resilienz          |    Fehlertoleranz       |    Speichereffizienz      |
 |------------------------|----------------------------|----------------------------|
-|    Zwei-Wege-Spiegelung      |    1                       |    50.0%                   |
-|    Drei-Wege-Spiegelung    |    2                       |    33,3 %                   |
-|    Duale Parität         |    2                       |    50,0 % - 80,0 %           |
-|    Mixed               |    2                       |    33,3 % - 80,0 %           |
+|    Zwei-Wege-Spiegelung      |    1                       |    50,0 %                   |
+|    Drei-Wege-Spiegelung    |    2                       |    33,3 %                   |
+|    Duale Parität         |    2                       |    50,0 % bis 80,0 %           |
+|    Mixed               |    2                       |    33,3 % bis 80,0 %           |
 
-### <a name="minimum-scale-requirements"></a>Mindestanforderungen für Skalierung
+### <a name="minimum-scale-requirements"></a>Mindestanforderungen für die Skalierung
 
-|    Resilienz          |    Mindestens erforderliche Fehler Domänen   |
+|    Resilienz          |    Mindestens erforderliche Fehlerdomänen   |
 |------------------------|-------------------------------------|
 |    Zwei-Wege-Spiegelung      |    2                                |
 |    Drei-Wege-Spiegelung    |    3                                |
@@ -125,19 +123,19 @@ Dieser Abschnitt enthält die in „Direkte Speicherplätze“ verfügbaren Resi
 |    Mixed               |    4                                |
 
    >[!TIP]
-   > Sofern Sie nicht die [Gehäuse- oder Rackfehlertoleranz](../../failover-clustering/fault-domains.md) verwenden, bezieht sich die Anzahl von Fehlerdomänen auf die Anzahl von Servern. Die Anzahl von Laufwerken auf jedem Server hat keine Auswirkung darauf, welche Resilienztypen Sie verwenden können, solange Sie die Mindestanforderungen für „Direkte Speicherplätze“ erfüllen.
+   > Wenn Sie keine [Chassis- oder Rack-Fehlertoleranz](../../failover-clustering/fault-domains.md) verwenden, bezieht sich die Anzahl von Fehlerdomänen auf die Anzahl von Servern. Die Anzahl von Laufwerken auf jedem Server wirkt sich nicht darauf aus, welche Resilienztypen Sie verwenden können, solange Sie die Mindestanforderungen für „Direkte Speicherplätze“ erfüllen.
 
 ### <a name="dual-parity-efficiency-for-hybrid-deployments"></a>Effizienz der dualen Parität für Hybridbereitstellungen
 
-In dieser Tabelle sind die Speichereffizienz der dualen Parität und die Codes für die lokale Wiederherstellung in jeder Größenordnung für Hybridbereitstellungen mit Festplattenlaufwerken (HDDs) und Festkörperlaufwerken (SSDs) angegeben.
+In dieser Tabelle ist die Speichereffizienz der dualen Parität und Local Reconstruction Codes für verschiedene Umfänge von Hybridbereitstellungen angegeben, die sowohl Festplattenlaufwerke (HDDs) als auch Solid State Drives (SSDs) enthalten.
 
 |    Fehlerdomänen      |    Layout           |    Effizienz   |
 |-----------------------|---------------------|-----------------|
 |    2                  |    –                |    –            |
 |    3                  |    –                |    –            |
-|    4                  |    RS 2+2           |    50.0%        |
-|    5                  |    RS 2+2           |    50.0%        |
-|    6                  |    RS 2+2           |    50.0%        |
+|    4                  |    RS 2+2           |    50,0 %        |
+|    5                  |    RS 2+2           |    50,0 %        |
+|    6                  |    RS 2+2           |    50,0 %        |
 |    7                  |    RS 4+2           |    66,7 %        |
 |    8                  |    RS 4+2           |    66,7 %        |
 |    9                  |    RS 4+2           |    66,7 %        |
@@ -151,72 +149,72 @@ In dieser Tabelle sind die Speichereffizienz der dualen Parität und die Codes f
 
 ### <a name="dual-parity-efficiency-for-all-flash-deployments"></a>Effizienz der dualen Parität für reine Flash-Bereitstellungen
 
-In dieser Tabelle sind die Speichereffizienz der dualen Parität und die Codes für die lokale Wiederherstellung in jeder Größenordnung für reine Flash-Bereitstellungen mit Festkörperlaufwerken (SSDs) angegeben. Für das Paritätslayout können höhere Gruppengrößen verwendet werden, und für eine reine Flash-Konfiguration kann eine bessere Speichereffizienz erzielt werden.
+In dieser Tabelle ist die Speichereffizienz der dualen Parität und Local Reconstruction Codes für verschiedene Umfänge von reinen Flash-Bereitstellungen angegeben, die nur Solid State Drives (SSDs) enthalten. Für das Paritätslayout können größere Gruppen verwendet werden, und es kann eine bessere Speichereffizienz für eine reine Flash-Konfiguration erzielt werden.
 
 |    Fehlerdomänen      |    Layout           |    Effizienz   |
 |-----------------------|---------------------|-----------------|
 |    2                  |    –                |    –            |
 |    3                  |    –                |    –            |
-|    4                  |    RS 2+2           |    50.0%        |
-|    5                  |    RS 2+2           |    50.0%        |
-|    6                  |    RS 2+2           |    50.0%        |
+|    4                  |    RS 2+2           |    50,0 %        |
+|    5                  |    RS 2+2           |    50,0 %        |
+|    6                  |    RS 2+2           |    50,0 %        |
 |    7                  |    RS 4+2           |    66,7 %        |
 |    8                  |    RS 4+2           |    66,7 %        |
-|    9                  |    RS 6+2           |    75.0%        |
-|    10                 |    RS 6+2           |    75.0%        |
-|    11                 |    RS 6+2           |    75.0%        |
-|    12                 |    RS 6+2           |    75.0%        |
-|    13                 |    RS 6+2           |    75.0%        |
-|    14                 |    RS 6+2           |    75.0%        |
-|    15                 |    RS 6+2           |    75.0%        |
+|    9                  |    RS 6+2           |    75,0 %        |
+|    10                 |    RS 6+2           |    75,0 %        |
+|    11                 |    RS 6+2           |    75,0 %        |
+|    12                 |    RS 6+2           |    75,0 %        |
+|    13                 |    RS 6+2           |    75,0 %        |
+|    14                 |    RS 6+2           |    75,0 %        |
+|    15                 |    RS 6+2           |    75,0 %        |
 |    16                 |    LRC (12, 2, 1)   |    80,0 %        |
 
 ## <a name="examples"></a><a name="examples"></a>Beispiele
 
-Sofern Sie nicht nur zwei Server verwenden, empfehlen wir Ihnen die Nutzung der Drei-Wege-Spiegelung bzw. der dualen Parität, weil dies eine bessere Fehlertoleranz ermöglicht. Es wird sichergestellt, dass alle Daten auch dann sicher und ständig verfügbar sind, wenn zwei Fehlerdomänen – bei „Direkte Speicherplätze“ also zwei Server – von gleichzeitigen Ausfällen betroffen sind.
+Sofern Sie nicht nur über zwei Server verfügen, empfehlen wir Ihnen die Nutzung der Drei-Wege-Spiegelung bzw. der dualen Parität, weil diese Verfahren eine bessere Fehlertoleranz bieten. Vor allem wird dabei sichergestellt, dass alle Daten auch dann sicher und dauerhaft zugänglich bleiben, wenn zwei Fehlerdomänen – bei „Direkte Speicherplätze“ also zwei Server – von gleichzeitigen Ausfällen betroffen sind.
 
-### <a name="examples-where-everything-stays-online"></a>Beispiele für Fälle, in denen alle Komponenten online bleiben
+### <a name="examples-where-everything-stays-online"></a>Beispiele für den allgemeinen Erhalt des Onlinezustands
 
-Diese sechs Beispiele verdeutlichen, was bei der Drei-Wege-Spiegelung bzw. der dualen Parität toleriert werden **kann**.
+In diesen sechs Beispielen ist dargestellt, was bei der Drei-Wege-Spiegelung bzw. bei dualer Parität toleriert werden **kann**.
 
-- **1.**    Ausfall eines Laufwerks (einschließlich Cachelaufwerke)
-- **2.**    Ausfall eines Servers
+- **1.**    Ein Laufwerk ist ausgefallen (einschließlich der Cachelaufwerke)
+- **2.**    Ein Server ist ausgefallen
 
 ![fault-tolerance-examples-1-and-2](media/Storage-Spaces-Fault-Tolerance/Fault-Tolerance-Example-12.png)
 
-- **3.**    Ausfall eines Servers und eines Laufwerks
-- **4.**    Ausfall von zwei Laufwerken auf unterschiedlichen Servern
+- **3.**    Ein Server und ein Laufwerk sind ausgefallen
+- **4.**    Zwei Laufwerke auf unterschiedlichen Servern sind ausgefallen
 
 ![fault-tolerance-examples-3-and-4](media/Storage-Spaces-Fault-Tolerance/Fault-Tolerance-Example-34.png)
 
-- **5.**    Ausfall von mehr als zwei Laufwerken, sofern maximal zwei Server betroffen sind
-- **6.**    Ausfall von zwei Servern
+- **5.**    Mehr als zwei Laufwerke sind ausgefallen, sofern höchstens zwei Server betroffen sind
+- **6.**    Zwei Server sind ausgefallen
 
 ![fault-tolerance-examples-5-and-6](media/Storage-Spaces-Fault-Tolerance/Fault-Tolerance-Example-56.png)
 
-In all diesen Fällen bleiben alle Volumes online. (Stellen Sie sicher, dass für Ihren Cluster das Quorum beibehalten wird.)
+...in allen Fällen bleiben alle Volumes im Onlinezustand. (Stellen Sie sicher, dass das Quorum für Ihren Cluster erhalten bleibt.)
 
-### <a name="examples-where-everything-goes-offline"></a>Beispiele, in denen alles offline geschaltet wird
+### <a name="examples-where-everything-goes-offline"></a>Beispiele für einen allgemeinen Wechsel in den Offlinezustand
 
-Während ihrer gesamten Lebensdauer können Speicherplätze eine beliebige Anzahl von Ausfällen tolerieren, da die Resilienz nach jedem Ausfall vollständig wiederhergestellt wird, sofern genügend Zeit ist. Es können aber jeweils nur maximal zwei Fehlerdomänen von einem Fehler betroffen sein, ohne dass es zu Problemen kommt. Daher sind hier Beispiele dafür angegeben, was bei der Drei-Wege-Spiegelung bzw. der dualen Parität toleriert werden **kann**.
+Während der Lebensdauer von „Speicherplätze“ kann das Feature eine beliebige Anzahl von Ausfällen tolerieren, weil nach jedem Ausfall die vollständige Resilienz wiederhergestellt wird – sofern dafür genügend Zeit ist. Es dürfen aber jeweils nur maximal zwei Fehlerdomänen von Ausfällen betroffen sein. Unten sind also Beispiele dafür aufgeführt, was bei der Drei-Wege-Spiegelung bzw. der dualen Parität **nicht** tolerierbar ist.
 
-- **7.** Gleichzeitiger Ausfall von Laufwerken auf drei oder mehr Servern
-- **8.** drei oder mehr Server, die gleichzeitig verloren gehen
+- **7.** Ausfall von Laufwerken auf drei oder mehr Servern gleichzeitig
+- **8.** Ausfall von drei oder mehr Servern gleichzeitig
 
 ![fault-tolerance-examples-7-and-8](media/Storage-Spaces-Fault-Tolerance/Fault-Tolerance-Example-78.png)
 
-## <a name="usage"></a>Usage
+## <a name="usage"></a>Verwendung
 
 Weitere Informationen finden Sie [unter Erstellen von Volumes in direkte Speicherplätze](create-volumes.md).
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 Alle folgenden Links sind inline im Text dieses Themas vorhanden.
 
 - [Direkte Speicherplätze in Windows Server 2016](storage-spaces-direct-overview.md)
 - [Fehler Domänen Bewusstsein in Windows Server 2016](../../failover-clustering/fault-domains.md)
 - [Erasure Coding in Azure von Microsoft Research](https://www.microsoft.com/research/publication/erasure-coding-in-windows-azure-storage/)
-- [Codes für die lokale Wiederherstellung und Beschleunigung von Paritätsvolumes](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB)
+- [Local Reconstruction Codes und Beschleunigung von Paritätsvolumes](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB)
 - [Volumes in der Speicherverwaltungs-API](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB)
-- [Demo zur Speichereffizienz auf der Microsoft Ignite 2016](https://www.youtube.com/watch?v=-LK2ViRGbWs&t=36m55s)
-- [Kapazitätsrechner (VORSCHAU) für Direkte Speicherplätze](https://aka.ms/s2dcalc)
+- [Demo zur Speichereffizienz bei der Microsoft Ignite 2016](https://www.youtube.com/watch?v=-LK2ViRGbWs&t=36m55s)
+- [Capacity Calculator (Vorschau) für „Direkte Speicherplätze“](https://aka.ms/s2dcalc)

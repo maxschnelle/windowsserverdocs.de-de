@@ -1,20 +1,18 @@
 ---
 title: Erstellen eines virtuellen Computers in Hyper-V
 description: Enthält Anweisungen zum Erstellen eines virtuellen Computers mit dem Hyper-V-Manager oder Windows PowerShell.
-ms.prod: windows-server
 manager: dongill
-ms.technology: compute-hyper-v
 ms.topic: get-started-article
 ms.assetid: 59297022-a898-456c-b299-d79cd5860238
 author: kbdazure
 ms.author: kathydav
 ms.date: 10/04/2016
-ms.openlocfilehash: 703c3f739200fafa4934681c300a61d8039d660c
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 5f4e07919503f283add8da1c8dd522f3d2b7f222
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85475657"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87942016"
 ---
 # <a name="create-a-virtual-machine-in-hyper-v"></a>Erstellen eines virtuellen Computers in Hyper-V
 
@@ -44,7 +42,7 @@ Erfahren Sie, wie Sie einen virtuellen Computer mit dem Hyper-v-Manager und Wind
 
 2. Klicken Sie mit der rechten Maustaste auf **Windows PowerShell**, und wählen Sie **Als Administrator ausführen** aus.
 
-3. Holen Sie sich den Namen des virtuellen Switches, den der virtuelle Computer verwenden soll, mithilfe von [Get-VMSwitch](https://technet.microsoft.com/library/hh848499.aspx).  Beispiel:
+3. Holen Sie sich den Namen des virtuellen Switches, den der virtuelle Computer verwenden soll, mithilfe von [Get-VMSwitch](https://technet.microsoft.com/library/hh848499.aspx).  Ein auf ein Objekt angewendeter
 
    ```
    Get-VMSwitch  * | Format-Table Name
@@ -68,7 +66,7 @@ Erfahren Sie, wie Sie einen virtuellen Computer mit dem Hyper-v-Manager und Wind
        New-VM -Name <Name> -MemoryStartupBytes <Memory> -BootDevice <BootDevice> -VHDPath <VHDPath> -Path <Path> -Generation <Generation> -Switch <SwitchName>
        ```
 
-       Beispiel:
+       Zum Beispiel:
 
        ```
        New-VM -Name Win10VM -MemoryStartupBytes 4GB -BootDevice VHD -VHDPath .\VMs\Win10.vhdx -Path .\VMData -Generation 2 -Switch ExternalSwitch
@@ -76,7 +74,7 @@ Erfahren Sie, wie Sie einen virtuellen Computer mit dem Hyper-v-Manager und Wind
 
        Dadurch wird ein virtueller Computer der Generation 2 mit dem Namen Win10VM und 4 GB Arbeitsspeicher erstellt. Er startet aus dem Ordner „VMs\Win10.vhdx“ im aktuellen Verzeichnis und verwendet den virtuellen Switch „ExternalSwitch“. Die VM-Konfigurationsdateien werden im Ordner „VMData“ gespeichert.
 
-   - **Neue virtuelle Festplatte** : um einen virtuellen Computer mit einer neuen virtuellen Festplatte zu erstellen, ersetzen Sie den Parameter " **-vhdpath** " aus dem obigen Beispiel durch " **-newvhdpath** ", und fügen Sie den Parameter " **-newvhdsizebytes** " hinzu. Beispiel:
+   - **Neue virtuelle Festplatte** : um einen virtuellen Computer mit einer neuen virtuellen Festplatte zu erstellen, ersetzen Sie den Parameter " **-vhdpath** " aus dem obigen Beispiel durch " **-newvhdpath** ", und fügen Sie den Parameter " **-newvhdsizebytes** " hinzu. Ein auf ein Objekt angewendeter
 
      ```
      New-VM -Name Win10VM -MemoryStartupBytes 4GB -BootDevice VHD -NewVHDPath .\VMs\Win10.vhdx -Path .\VMData -NewVHDSizeBytes 20GB -Generation 2 -Switch ExternalSwitch
@@ -90,7 +88,7 @@ Erfahren Sie, wie Sie einen virtuellen Computer mit dem Hyper-v-Manager und Wind
    Start-VM -Name <Name>
    ```
 
-   Beispiel:
+   Zum Beispiel:
 
    ```
    Start-VM -Name Win10VM
@@ -115,7 +113,7 @@ In der folgenden Tabelle sind die Optionen aufgeführt, die Sie auswählen könn
 |**Installationsoptionen**|Betriebssystem später installieren|Mit diesen Optionen wird die Start Reihenfolge des virtuellen Computers geändert, sodass Sie die Installation über eine ISO-Datei, eine startbare Diskette oder einen netzwerkinstallationsdienst wie die Windows-Bereitstellungs Dienste (WDS) Durchführung können.|
 |**Zusammenfassung**|Zeigt die Optionen an, die Sie ausgewählt haben, damit Sie sicherstellen können, dass Sie korrekt sind.<p>- Name<br />-Generierung<br />- Arbeitsspeicher<br />-Netzwerk<br />-Festplatte<br />-Betriebs System|**Tipp:** Sie können die Zusammenfassung von der Seite kopieren und in e-Mail oder an einer anderen Stelle einfügen, um die Nachverfolgung der virtuellen Computer zu unterstützen.|
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [New-VM](https://technet.microsoft.com/library/hh848537.aspx)
 

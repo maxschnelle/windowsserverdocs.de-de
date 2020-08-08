@@ -1,19 +1,17 @@
 ---
 title: Übersicht über Speicherreplikate
-ms.prod: windows-server
 manager: siroy
 ms.author: nedpyle
-ms.technology: storage-replica
 ms.topic: get-started-article
 author: nedpyle
 ms.date: 4/26/2019
 ms.assetid: e9b18e14-e692-458a-a39f-d5b569ae76c5
-ms.openlocfilehash: 400af7c4fb5db6e6740b1140688602c55d8ca0a9
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 1d8997edf1354a49b9b67e417906eeaa307fdee6
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85469805"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87961224"
 ---
 # <a name="storage-replica-overview"></a>Übersicht über Speicherreplikate
 
@@ -24,7 +22,7 @@ Speicher Replikat ist eine Windows Server-Technologie, die die Replikation von V
 Das Speicherreplikat unterstützt sowohl die synchrone als auch die asynchrone Replikation.
 
 * Die **synchrone Replikation** spiegelt Daten an physischen Standorten mit ausfallsicheren Volumes wider, um auf Dateisystemebene sicherzustellen, dass während eines Ausfalls kein Datenverlust auftritt.
-* Die **asynchrone Replikation** spiegelt Daten zwischen Standorten über regionale Bereiche über Netzwerklinks mit höherer Latenzen wider, jedoch ohne die Garantie, dass beide Standorte über identische Kopien der Daten zur Zeit eines Ausfalls verfügen.
+* Die **asynchrone Replikation** spiegelt Daten Zwischenstand Orten über regionale Bereiche hinweg über Netzwerkverbindungen mit höheren Wartezeiten wider, ohne dass sichergestellt ist, dass beide Standorte zum Zeitpunkt eines Fehlers identische Kopien der Daten aufweisen.
 
 ## <a name="why-use-storage-replica"></a>Gründe für die Verwendung von Speicherreplikaten
 
@@ -138,7 +136,7 @@ Bei der synchronen Replikation wird sichergestellt, dass die Anwendung Daten gle
 
 Wenn Anwendungsschreibvorgänge für die Quelldatenkopie ausgeführt werden, bestätigt der Ursprungsspeicher die E/A nicht umgehend. Stattdessen werden diese Datenänderungen in die Remotezielkopie repliziert, und es wird eine Bestätigung zurückgegeben. Erst dann empfängt die Anwendung die E/A-Bestätigung. Dadurch wird eine konstante Synchronisierung des Remote- und des Quellstandorts sichergestellt, und Speicher-E/A-Vorgänge werden auf das Netzwerk ausgeweitet. Bei einem Ausfall des Quellstandorts kann ein Anwendungsfailover auf den Remotestandort durchgeführt werden, sodass die Anwendungen ohne Datenverlust weiter ausgeführt werden können.
 
-| Mode | Diagramm | Schritte |
+| Modus | Diagramm | Schritte |
 | -------- | ----------- | --------- |
 | **Synchron**<p>Kein Datenverlust<p>RPO | ![Diagramm das zeigt, wie das Speicherreplikat Daten in die synchrone Replikation schreibt](./media/Storage-Replica-Overview/Storage_SR_SynchronousV2.png) | 1.  Anwendung schreibt Daten<br />2.  Protokolldaten werden geschrieben, und die Daten werden am Remotestandort repliziert<br />3.  Protokolldaten werden am Remotestandort geschrieben<br />4.  Bestätigung durch den Remotestandort<br />5.  Anwendungsschreibvorgang wird bestätigt<p>t & t1 : Daten werden auf das Volume geleert, Protokolle werden immer per Write-Through geschrieben |
 
@@ -150,7 +148,7 @@ Wenn die Anwendung Daten schreibt, erfasst die Replikations-Engine den Schreibvo
 
 Da der RPO-Wert bei der asynchronen Replikation größer Null ist, ist dieser Replikationstyp für Hochverfügbarkeitslösungen wie Failovercluster weniger gut geeignet. Bei diesen Lösungen sind ein unterbrechungsfreier Betrieb, Redundanz und keinerlei Datenverlust entscheidend.
 
-| Mode | Diagramm | Schritte |
+| Modus | Diagramm | Schritte |
 | -------- | ----------- | --------- |
 | **Asynchron**<p>Praktisch keinerlei Datenverlust<p>(von verschiedenen Faktoren abhängig)<p>RPO | ![Diagramm das zeigt, wie das Speicherreplikat Daten in die asynchrone Replikation schreibt](./media/Storage-Replica-Overview/Storage_SR_AsynchronousV2.png)|1.  Anwendung schreibt Daten<br />2.  Protokolldaten werden geschrieben<br />3.  Anwendungsschreibvorgang wird bestätigt<br />4.  Daten werden am Remotestandort repliziert<br />5.  Protokolldaten werden am Remotestandort geschrieben<br />6.  Bestätigung durch den Remotestandort<p>t & t1 : Daten werden auf das Volume geleert, Protokolle werden immer per Write-Through geschrieben |
 
@@ -188,7 +186,7 @@ In diesem Leitfaden werden folgende Begriffe häufig verwendet:
 
 Eine Liste der neuen Features im Speicher Replikat unter Windows Server 2019 finden Sie unter [What es New in Storage](../whats-new-in-storage.md#storage-replica2019) .
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Stretch-Cluster Replikation mit frei gegebenem Speicher](stretch-cluster-replication-using-shared-storage.md)
 - [Replikation von Server zu Server Speicher](server-to-server-storage-replication.md)

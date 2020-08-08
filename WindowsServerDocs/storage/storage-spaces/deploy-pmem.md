@@ -1,19 +1,17 @@
 ---
 title: Grundlagen und Bereitstellung des persistenten Speichers
 description: Ausführliche Informationen dazu, was beständiger Speicher ist und wie Sie ihn mit "direkte Speicherplätze" in Windows Server 2019 einrichten können.
-ms.prod: windows-server
 ms.author: adagashe
-ms.technology: storage-spaces
 ms.topic: article
 author: adagashe
 ms.date: 1/27/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 2f5f88ac2ec728e176735ad58d9d67112583c527
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 512b53be7af89fe9e0fd017af14425264062ed29
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85469645"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87960903"
 ---
 # <a name="understand-and-deploy-persistent-memory"></a>Grundlagen und Bereitstellung des persistenten Speichers
 
@@ -309,8 +307,8 @@ Initializing the physical persistent memory device. This may take a few moments.
 > [!IMPORTANT]
 > **Initialize-pmemphysicaldevice** führt zu Datenverlusten im persistenten Speicher. Verwenden Sie es als letzten Ausweg, um persistente speicherbezogene Probleme zu beheben.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
-- [Übersicht über direkte Speicherplätze](storage-spaces-direct-overview.md)
+- [Direkte Speicherplätze – Übersicht](storage-spaces-direct-overview.md)
 - [Integritätsverwaltung für Speicherklassenspeicher (NVDIMM-N) in Windows](storage-class-memory-health.md)
 - [Grundlegendes zum Cache](understand-the-cache.md)

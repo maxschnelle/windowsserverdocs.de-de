@@ -1,21 +1,19 @@
 ---
-title: Verwalten von Transport Layer Security (TLS)
+title: Verwalten von TLS (Transport Layer Security)
 description: Windows Server-Sicherheit
-ms.prod: windows-server
-ms.technology: security-tls-ssl
 ms.topic: article
 author: justinha
 ms.author: justinha
 manager: brianlic
 ms.date: 05/16/2018
-ms.openlocfilehash: a11c41ad386618f85421ec46c6111791f468fa92
-ms.sourcegitcommit: 95b60384b0b070263465eaffb27b8e3bb052a4de
+ms.openlocfilehash: 30ab0547fd538eec3f50120a5d536eb9a48de54b
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82850121"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87971287"
 ---
-# <a name="manage-transport-layer-security-tls"></a>Verwalten von Transport Layer Security (TLS)
+# <a name="manage-transport-layer-security-tls"></a>Verwalten von TLS (Transport Layer Security)
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows 10
 
@@ -35,14 +33,14 @@ Unterschiedliche Windows-Versionen unterstützen verschiedene TLS-Verschlüsselu
 
 Sie können die Reihenfolge Gruppenrichtlinie Einstellungen der SSL-Verschlüsselungs Sammlung verwenden, um die Standard Reihenfolge der TLS-Verschlüsselungs Sammlung zu konfigurieren.
 
-1. Wechseln Sie in der Gruppenrichtlinien-Verwaltungskonsole zu **Computer Konfiguration** > **Administrative Vorlagen** > **Netzwerk** > **SSL-Konfigurationseinstellungen**.
+1. Wechseln Sie in der Gruppenrichtlinien-Verwaltungskonsole zu **Computer Konfiguration**  >  **Administrative Vorlagen**  >  **Netzwerk**  >  **SSL-Konfigurationseinstellungen**.
 2. Doppelklicken Sie auf die **Reihenfolge der SSL**-Verschlüsselungs Sammlungen, und klicken Sie dann auf die Option **aktiviert** .
 3. Klicken Sie mit der rechten Maustaste auf das Feld **SSL** -Verschlüsselungs Sammlungen, und wählen Sie im Popupmenü die Option **Alle auswählen** aus.
 
    ![Gruppenrichtlinieneinstellung](../media/Transport-Layer-Security-protocol/ssl-cipher-suite-order-gp-setting.png)
 
 4. Klicken Sie mit der rechten Maustaste auf den ausgewählten Text, und wählen Sie im Popup Menü **Kopieren** aus.
-5. Fügen Sie den Text in einen Texteditor ein, z. b. "Notepad. exe", und aktualisieren Sie ihn mit der neuen Liste der Verschlüsselungs Sammlungen.
+5. Fügen Sie den Text in einen Text-Editor ein, z. b. notepad.exe, und aktualisieren Sie ihn mit der neuen Liste der Verschlüsselungs Sammlungen.
 
    > [!NOTE]
    > Die Reihen folgen Liste der TLS-Verschlüsselungs Sammlung muss ein strenges Komma getrenntes Format aufweisen. Jede Chiffre Zeichenfolge endet mit einem Komma (,) auf der rechten Seite.
@@ -69,13 +67,13 @@ Ab Windows 10 & Windows Server 2016 kann die ECC-Kurven Reihenfolge unabhängig 
 
 ### <a name="managing-windows-ecc-curves-using-certutil"></a>Verwalten von Windows ECC-Kurven mithilfe von certutil
 
-Ab Windows 10 und Windows Server 2016 bietet Windows eine elliptische Kurven Parameter Verwaltung über das Befehlszeilen-Hilfsprogramm certutil. exe.
-Parameter der elliptischen Kurve werden in der Datei "bcryptprimitives. dll" gespeichert. Mithilfe von certutil. exe können Administratoren Kurven Parameter zu bzw. aus Windows hinzufügen bzw. daraus entfernen. Certutil. exe speichert die Kurven Parameter sicher in der Registrierung.
+Ab Windows 10 und Windows Server 2016 bietet Windows eine elliptische Kurven Parameter Verwaltung über das Befehlszeilen-Hilfsprogramm certutil.exe.
+Parameter der elliptischen Kurve werden in der bcryptprimitives.dll gespeichert. Mithilfe certutil.exe können Administratoren Kurven Parameter zu bzw. aus Windows hinzufügen bzw. daraus entfernen. Certutil.exe speichert die Kurven Parameter sicher in der Registrierung.
 Windows kann die Kurven Parameter mit dem Namen verwenden, der mit der Kurve verknüpft ist.
 
 #### <a name="displaying-registered-curves"></a>Anzeigen von registrierten Kurven
 
-Verwenden Sie den folgenden certutil. exe-Befehl, um eine Liste der Kurven anzuzeigen, die für den aktuellen Computer registriert sind.
+Verwenden Sie den folgenden certutil.exe Befehl, um eine Liste der Kurven anzuzeigen, die für den aktuellen Computer registriert sind.
 
 ```powershell
 certutil.exe –displayEccCurve
@@ -83,13 +81,13 @@ certutil.exe –displayEccCurve
 
 ![Certutil-Anzeige Kurven](../media/Transport-Layer-Security-protocol/certutil-display-curves.png)
 
-*Abbildung 1: die Ausgabe von "Certutil. exe", um die Liste der registrierten Kurven anzuzeigen.*
+*Abbildung 1 Certutil.exe Ausgabe, um die Liste der registrierten Kurven anzuzeigen.*
 
 #### <a name="adding-a-new-curve"></a>Hinzufügen einer neuen Kurve
 
 Organisationen können Kurven Parameter erstellen und verwenden, die von anderen vertrauenswürdigen Entitäten erforscht werden.
 Administratoren, die diese neuen Kurven in Windows verwenden möchten, müssen die Kurve hinzufügen.
-Verwenden Sie den folgenden certutil. exe-Befehl, um dem aktuellen Computer eine Kurve hinzuzufügen:
+Verwenden Sie den folgenden certutil.exe Befehl, um dem aktuellen Computer eine Kurve hinzuzufügen:
 
 ```powershell
 Certutil —addEccCurue curveName curveParameters [curveOID] [curveType]
@@ -102,11 +100,11 @@ Certutil —addEccCurue curveName curveParameters [curveOID] [curveType]
 
 ![Certutil-Kurven hinzufügen](../media/Transport-Layer-Security-protocol/certutil-add-curves.png)
 
-*Abbildung 2: Hinzufügen einer Kurve mithilfe von "Certutil. exe".*
+*Abbildung 2: Hinzufügen einer Kurve mit certutil.exe.*
 
 #### <a name="removing-a-previously-added-curve"></a>Entfernen einer zuvor hinzugefügten Kurve
 
-Administratoren können eine zuvor hinzugefügte Kurve mit dem folgenden certutil. exe-Befehl entfernen:
+Administratoren können eine zuvor hinzugefügte Kurve mit dem folgenden certutil.exe Befehl entfernen:
 
 ```powershell
 Certutil.exe –deleteEccCurve curveName
@@ -119,10 +117,10 @@ Eine benannte Kurve kann nicht verwendet werden, nachdem ein Administrator die K
 Organisationen können Kurven Parameter mithilfe von Gruppenrichtlinie und der Registrierungs Erweiterung Gruppenrichtlinie Einstellungen an Enterprise, in eine Domäne eingebundenen Computer verteilen.
 Der Prozess zum Verteilen einer Kurve ist:
 
-1. Verwenden Sie unter Windows 10 und Windows Server 2016 " **certutil. exe** ", um Windows eine neue registrierte benannte Kurve hinzuzufügen.
+1. Verwenden Sie unter Windows 10 und Windows Server 2016 **certutil.exe** , um Windows eine neue registrierte benannte Kurve hinzuzufügen.
 2. Öffnen Sie auf demselben Computer die Gruppenrichtlinien-Verwaltungskonsole (GPMC), erstellen Sie ein neues Gruppenrichtlinie Objekt, und bearbeiten Sie es.
 3. Navigieren Sie zu **Computer Konfiguration | Einstellungen | Windows-Einstellungen | Registrierung**.  Klicken mit der rechten Maustaste auf **Registrierung**. Zeigen Sie auf **neu** , und wählen Sie **Sammel Element**aus. Benennen Sie das Sammel Element so um, dass es dem Namen der Kurve entspricht. Sie erstellen ein Registrierungs Sammel Element für jeden Registrierungsschlüssel unter *HKEY_LOCAL_MACHINE \currentcontrolset\control\cryptography\eccparameters*.
-4. Konfigurieren Sie die neu erstellte Gruppenrichtlinie Einstellungs Registrierungs Sammlung, indem Sie ein neues **Registrierungs Element** für jeden Registrierungs Wert hinzufügen, der unter *HKEY_LOCAL_MACHINE \currentcontrolset\control\cryptography\eccparameters\[Cursor Name]* aufgeführt ist.
+4. Konfigurieren Sie die neu erstellte Gruppenrichtlinie Einstellungs Registrierungs Sammlung, indem Sie ein neues **Registrierungs Element** für jeden Registrierungs Wert hinzufügen, der unter *HKEY_LOCAL_MACHINE \currentcontrolset\control\cryptography\eccparameters \[ Cursor Name]* aufgeführt ist.
 5. Stellen Sie das Gruppenrichtlinie Objekt, das Gruppenrichtlinie Registrierungs Sammel Element enthält, für Windows 10-und Windows Server 2016-Computer bereit, die die neuen benannten Kurven erhalten sollen.
 
     ![Kurven der GPP-Verteilung](../media/Transport-Layer-Security-protocol/gpp-distribute-curves.png)

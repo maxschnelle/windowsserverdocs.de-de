@@ -6,18 +6,18 @@ author: haley-rowland
 ms.author: harowl
 ms.date: 09/19/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: b56960a531c8d7d8cf42cb0462d2fe4d422dfba7
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: c0a19e9bf00667e142c3aa6585c26b69c63e2aa7
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87970897"
+ms.locfileid: "87997346"
 ---
 # <a name="configuring-azure-integration"></a>Konfigurieren der Azure-Integration
 
 >Gilt für: Windows Admin Center, Windows Admin Center-Vorschau
 
-Das Windows Admin Center unterstützt mehrere optionale Features, die in Azure-Dienste integriert werden. [Erfahren Sie mehr über die Azure-Integrationsoptionen, die im Windows Admin Center verfügbar sind.](../plan/azure-integration-options.md)
+Das Windows Admin Center unterstützt mehrere optionale Features, die in Azure-Dienste integriert werden. [Erfahren Sie mehr über die Azure-Integrationsoptionen, die im Windows Admin Center verfügbar sind.](./index.md)
 
 Damit das Windows Admin Center-Gateway mit Azure kommunizieren kann, um Azure Active Directory Authentifizierung für den Gatewayzugriff zu nutzen oder um Azure-Ressourcen in Ihrem Namen zu erstellen (z. b. um virtuelle Computer zu schützen, die im Windows Admin Center mithilfe von Azure Site Recovery verwaltet werden), müssen Sie zuerst Ihr Windows Admin Center-Gateway bei Azure registrieren. Sie müssen dies nur einmal für Ihr Windows Admin Center-Gateway durchführen. diese Einstellung wird beibehalten, wenn Sie Ihr Gateway auf eine neuere Version aktualisieren.
 

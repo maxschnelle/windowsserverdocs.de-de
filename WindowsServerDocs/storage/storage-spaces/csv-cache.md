@@ -1,19 +1,17 @@
 ---
 title: Direkte Speicherplätze in-Memory-Lesecache
-ms.prod: windows-server
 ms.author: eldenc
 manager: siroy
-ms.technology: storage-spaces
 ms.topic: article
 author: eldenchristensen
 ms.date: 02/20/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: fff78ddc831ae9f6cba103d7630da3afec2c87d7
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: ce4546a3c3933700b7aec812027e2abc91f718f9
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85474237"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87960913"
 ---
 # <a name="using-storage-spaces-direct-with-the-csv-in-memory-read-cache"></a>Verwenden von direkte Speicherplätze mit dem CSV-in-Memory-Lesecache
 > Gilt für: Windows Server 2016, Windows Server 2019
@@ -69,6 +67,6 @@ Get-ClusterSharedVolume | ForEach {
 }
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
-- [Übersicht über direkte Speicherplätze](storage-spaces-direct-overview.md)
+- [Direkte Speicherplätze – Übersicht](storage-spaces-direct-overview.md)

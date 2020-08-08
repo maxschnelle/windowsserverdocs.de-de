@@ -1,20 +1,18 @@
 ---
 title: Cluster Sätze
-ms.prod: windows-server
 manager: eldenc
-ms.technology: storage-spaces
 ms.topic: article
 author: johnmarlin-msft
 ms.author: johnmar
 ms.date: 01/30/2019
 description: Dieser Artikel beschreibt das Szenario mit Cluster Sätzen.
 ms.localizationpriority: medium
-ms.openlocfilehash: 06cf798a5adfeee1279f564df63c431a77affd18
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: b5b3f36cbc6627b13d2bba678cc1aeec02e57d81
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86955032"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87961164"
 ---
 # <a name="cluster-sets"></a>Clustergruppen
 
@@ -101,7 +99,7 @@ In Windows Server 2019 gibt es eine neue Datei Server Rolle mit horizontaler Ska
 
 Die folgenden Überlegungen gelten für eine Infrastruktur-sofs-Rolle:
 
-1. In einem Failovercluster kann es höchstens eine Infrastruktur-sofs-Cluster Rolle geben. Die Infrastruktur-sofs-Rolle wird erstellt, indem der Switch-Parameter "**-Infrastructure**" für das Cmdlet " **Add-clusterscaleoutfileserverrole** " angegeben wird. Beispiel:
+1. In einem Failovercluster kann es höchstens eine Infrastruktur-sofs-Cluster Rolle geben. Die Infrastruktur-sofs-Rolle wird erstellt, indem der Switch-Parameter "**-Infrastructure**" für das Cmdlet " **Add-clusterscaleoutfileserverrole** " angegeben wird. Zum Beispiel:
 
     ```PowerShell
     Add-ClusterScaleoutFileServerRole -Name "my_infra_sofs_name" -Infrastructure

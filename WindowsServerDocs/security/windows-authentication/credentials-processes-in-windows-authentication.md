@@ -1,24 +1,22 @@
 ---
 title: Anmeldeinformationen-Prozesse in der Windows-Authentifizierung
 description: Windows Server-Sicherheit
-ms.prod: windows-server
-ms.technology: security-windows-auth
 ms.topic: article
 ms.assetid: 48c60816-fb8b-447c-9c8e-800c2e05b14f
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 2de8383ce6a946dfdd80cfc027478c495037169b
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: c4c9554c7c5d34513ddf848989681d81e100f108
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80857583"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87989420"
 ---
 # <a name="credentials-processes-in-windows-authentication"></a>Anmeldeinformationen-Prozesse in der Windows-Authentifizierung
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 In diesem Referenz Thema für IT-Experten wird beschrieben, wie die Windows-Authentifizierung Anmelde Informationen verarbeitet.
 
@@ -36,15 +34,15 @@ In der folgenden Tabelle werden die einzelnen Komponenten beschrieben, mit denen
 
 **Authentifizierungs Komponenten für alle Systeme**
 
-|Komponente|Beschreibung|
+|Komponente|BESCHREIBUNG|
 |-------|--------|
-|Anmelden des Benutzers|Winlogon. exe ist die ausführbare Datei, die für die Verwaltung sicherer Benutzerinteraktionen zuständig ist. Der Winlogon-Dienst initiiert den Anmeldevorgang für Windows-Betriebssysteme, indem er die von der Benutzeraktion gesammelten Anmelde Informationen auf dem sicheren Desktop (Anmelde Benutzeroberfläche) über Secur32. dll an die lokale Sicherheits Autorität (Local Security Authority, LSA) übergibt.|
-|Anwendungs Anmeldung|Anwendungs-oder Dienst Anmeldungen, die keine interaktive Anmeldung erfordern. Die meisten vom Benutzer initiierten Prozesse werden mithilfe von Secur32. dll im Benutzermodus ausgeführt, während Prozesse, die beim Start initiiert werden, wie z. b. Dienste, mithilfe von Ksecdd. sys im Kernel Modus ausgeführt werden.<p>Weitere Informationen zum Benutzermodus und Kernel Modus finden Sie unter Anwendungen und Benutzermodus oder Dienste und Kernel Modus in diesem Thema.|
+|Anmelden des Benutzers|Winlogon.exe ist die ausführbare Datei, die für die Verwaltung sicherer Benutzerinteraktionen zuständig ist. Der Winlogon-Dienst initiiert den Anmeldevorgang für Windows-Betriebssysteme, indem er die von der Benutzeraktion gesammelten Anmelde Informationen auf dem sicheren Desktop (Anmelde Benutzeroberfläche) über Secur32.dll an die lokale Sicherheits Autorität (Local Security Authority, LSA) übergibt.|
+|Anwendungs Anmeldung|Anwendungs-oder Dienst Anmeldungen, die keine interaktive Anmeldung erfordern. Die meisten vom Benutzer initiierten Prozesse werden mithilfe von Secur32.dll im Benutzermodus ausgeführt, während Prozesse, die beim Start initiiert werden (z. b. Dienste), mithilfe von Ksecdd.sys im Kernel Modus ausgeführt werden.<p>Weitere Informationen zum Benutzermodus und Kernel Modus finden Sie unter Anwendungen und Benutzermodus oder Dienste und Kernel Modus in diesem Thema.|
 |Secur32.dll|Die Anbieter für mehrfache Authentifizierung, die die Grundlage für den Authentifizierungsprozess bilden.|
 |Lsasrv.dll|Der LSA-Server Dienst, der beide Sicherheitsrichtlinien erzwingt und als Sicherheitspaket-Manager für die LSA fungiert. Die LSA enthält die Funktion "aushandeln", die das NTLM-oder Kerberos-Protokoll auswählt, nachdem ermittelt wurde, welches Protokoll erfolgreich sein soll.|
 |Anbieter für Sicherheitsunterstützung|Eine Gruppe von Anbietern, die ein oder mehrere Authentifizierungsprotokolle einzeln aufrufen können. Der Standardsatz von Anbietern kann sich mit jeder Version des Windows-Betriebssystems ändern, und es können benutzerdefinierte Anbieter geschrieben werden.|
 |Netlogon.dll|Die vom Anmeldedienst ausgeführten Dienste lauten wie folgt:<p>: Verwaltet den sicheren Kanal des Computers (nicht zu verwechseln mit SChannel) mit einem Domänen Controller.<br />: Übergibt die Anmelde Informationen des Benutzers über einen sicheren Kanal an den Domänen Controller und gibt die Domänen Sicherheits-IDs (SIDs) und Benutzerrechte für den Benutzer zurück.<br />: Veröffentlicht Dienst Ressourcen Einträge im Domain Name System (DNS) und verwendet DNS, um Namen in die IP-Adressen von Domänen Controllern aufzulösen.<br />: Implementiert das Replikations Protokoll auf der Grundlage von Remote Prozedur Aufruf (RPC) zum Synchronisieren von primären Domänen Controllern (PDCs) und Sicherungs Domänen Controllern (BDCs).|
-|Samsrv. dll|Der Security Accounts Manager (Sam), der lokale Sicherheits Konten speichert, erzwingt lokal gespeicherte Richtlinien und unterstützt APIs.|
+|Samsrv.dll|Der Security Accounts Manager (Sam), der lokale Sicherheits Konten speichert, erzwingt lokal gespeicherte Richtlinien und unterstützt APIs.|
 |Registrierung|Die Registrierung enthält eine Kopie der SAM-Datenbank, Einstellungen für lokale Sicherheitsrichtlinien, Standard Sicherheitswerte und Kontoinformationen, die nur für das System zugänglich sind.|
 
 Dieses Thema enthält folgende Abschnitte:
@@ -53,13 +51,13 @@ Dieses Thema enthält folgende Abschnitte:
 
 -   [Eingabe der Anmelde Informationen für die Anmeldung von Anwendungen und Diensten](#BKMK_CredentialInputForApplicationAndServiceLogon)
 
--   [Lokale Sicherheits Autorität](#BKMK_LSA)
+-   [Lokale Sicherheitsautorität](#BKMK_LSA)
 
 -   [Zwischengespeicherte Anmelde Informationen und Validierung](#BKMK_CachedCredentialsAndValidation)
 
 -   [Speicherung und Validierung von Anmelde Informationen](#BKMK_CredentialStorageAndValidation)
 
--   [Sicherheits Konten-Manager-Datenbank](#BKMK_SAM)
+-   [SAM-Datenbank](#BKMK_SAM)
 
 -   [Lokale Domänen und vertrauenswürdige Domänen](#BKMK_LocalDomainsAndTrustedDomains)
 
@@ -141,15 +139,15 @@ System Dienste und Anwendungen auf Transport Ebene greifen über die Security Su
 
 Wenn eine Client/Server-Verbindung authentifiziert wird:
 
--   Die Anwendung auf der Clientseite der Verbindung sendet mithilfe der SSPI-Funktion `InitializeSecurityContext (General)`Anmelde Informationen an den Server.
+-   Die Anwendung auf der Clientseite der Verbindung sendet mithilfe der SSPI-Funktion Anmelde Informationen an den Server `InitializeSecurityContext (General)` .
 
--   Die Anwendung auf der Serverseite der Verbindung antwortet mit der SSPI-Funktion `AcceptSecurityContext (General)`.
+-   Die Anwendung auf der Serverseite der Verbindung antwortet mit der SSPI-Funktion `AcceptSecurityContext (General)` .
 
--   Die SSPI-Funktionen `InitializeSecurityContext (General)` und `AcceptSecurityContext (General)` werden wiederholt, bis alle erforderlichen Authentifizierungs Nachrichten zur erfolgreichen oder fehlerhaften Authentifizierung ausgetauscht wurden.
+-   Die SSPI `InitializeSecurityContext (General)` -Funktionen und `AcceptSecurityContext (General)` werden wiederholt, bis alle erforderlichen Authentifizierungs Nachrichten zur erfolgreichen oder fehlerhaften Authentifizierung ausgetauscht wurden.
 
 -   Nachdem die Verbindung authentifiziert wurde, werden von der LSA auf dem Server Informationen vom Client verwendet, um den Sicherheitskontext zu erstellen, der ein Zugriffs Token enthält.
 
--   Der Server kann dann die SSPI-Funktion `ImpersonateSecurityContext` aufrufen, um das Zugriffs Token an einen Identitätswechsel Thread für den Dienst anzufügen.
+-   Der Server kann dann die SSPI-Funktion aufrufen `ImpersonateSecurityContext` , um das Zugriffs Token an einen Identitätswechsel Thread für den Dienst anzufügen.
 
 **Anwendungen und Benutzermodus**
 
@@ -159,9 +157,9 @@ Das integrale System verwaltet betriebssystemspezifische Funktionen im Namen des
 
 Anwendungen können im Benutzermodus ausgeführt werden, in dem die Anwendung als beliebiger Prinzipal ausgeführt werden kann, einschließlich im Sicherheitskontext des lokalen Systems (System). Anwendungen können auch im Kernel Modus ausgeführt werden, in dem die Anwendung im Sicherheitskontext des lokalen Systems (System) ausgeführt werden kann.
 
-SSPI steht über das Modul Secur32. dll zur Verfügung, das eine API zum Abrufen integrierter Sicherheitsdienste für Authentifizierung, Nachrichten Integrität und Nachrichten Datenschutz ist. Es stellt eine Abstraktions Ebene zwischen Protokollen auf Anwendungsebene und Sicherheitsprotokollen bereit. Da für verschiedene Anwendungen unterschiedliche Methoden zum identifizieren oder Authentifizieren von Benutzern und zum Verschlüsseln von Daten während der Übertragung über ein Netzwerk erforderlich sind, bietet SSPI eine Möglichkeit für den Zugriff auf DLLs (Dynamic-Link Libraries), die unterschiedliche Authentifizierungs-und Kryptografiefunktionen enthalten. Diese DLLs werden als Security Support Provider (SSPs) bezeichnet.
+SSPI ist über das Modul Secur32.dll verfügbar, das eine API zum Abrufen integrierter Sicherheitsdienste für Authentifizierung, Nachrichten Integrität und Nachrichten Schutz ist. Es stellt eine Abstraktions Ebene zwischen Protokollen auf Anwendungsebene und Sicherheitsprotokollen bereit. Da für verschiedene Anwendungen unterschiedliche Methoden zum identifizieren oder Authentifizieren von Benutzern und zum Verschlüsseln von Daten während der Übertragung über ein Netzwerk erforderlich sind, bietet SSPI eine Möglichkeit für den Zugriff auf DLLs (Dynamic-Link Libraries), die unterschiedliche Authentifizierungs-und Kryptografiefunktionen enthalten. Diese DLLs werden als Security Support Provider (SSPs) bezeichnet.
 
-Verwaltete Dienst Konten und virtuelle Konten wurden in Windows Server 2008 R2 und Windows 7 eingeführt, um wichtige Anwendungen, wie z. b. Microsoft SQL Server und Internetinformationsdienste (IIS), mit der Isolation ihrer eigenen Domänen Konten bereitzustellen. gleichzeitig entfällt die Notwendigkeit, dass ein Administrator den Dienst Prinzipal Namen (SPN) und die Anmelde Informationen für diese Konten manuell verwaltet. Weitere Informationen zu diesen Features und deren Rolle bei der Authentifizierung finden Sie in der [Dokumentation zu verwalteten Dienst Konten für Windows 7 und Windows Server 2008 R2](https://technet.microsoft.com/library/ff641731(v=ws.10).aspx) und [Übersicht über Gruppen verwaltete Dienst Konten](../group-managed-service-accounts/group-managed-service-accounts-overview.md).
+Verwaltete Dienst Konten und virtuelle Konten wurden in Windows Server 2008 R2 und Windows 7 eingeführt, um wichtige Anwendungen, wie z. b. Microsoft SQL Server und Internetinformationsdienste (IIS), mit der Isolation ihrer eigenen Domänen Konten bereitzustellen. gleichzeitig entfällt die Notwendigkeit, dass ein Administrator den Dienst Prinzipal Namen (SPN) und die Anmelde Informationen für diese Konten manuell verwaltet. Weitere Informationen zu diesen Features und deren Rolle bei der Authentifizierung finden Sie in der [Dokumentation zu verwalteten Dienst Konten für Windows 7 und Windows Server 2008 R2](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ff641731(v=ws.10)) und [Übersicht über Gruppen verwaltete Dienst Konten](../group-managed-service-accounts/group-managed-service-accounts-overview.md).
 
 **Dienste und Kernel Modus**
 
@@ -172,11 +170,11 @@ Obwohl die meisten Windows-Anwendungen im Sicherheitskontext des Benutzers ausge
 
 Vor dem Starten eines dienstanders meldet sich der Dienst Controller mit dem Konto an, das für den Dienst bestimmt ist, und zeigt dann die Anmelde Informationen des Dienstanbieter für die Authentifizierung durch die LSA an. Der Windows-Dienst implementiert eine programmgesteuerte Schnittstelle, mit der der Service Controller-Manager den Dienst steuern kann. Ein Windows-Dienst kann automatisch gestartet werden, wenn das System gestartet oder manuell mit einem Dienst Steuerungsprogramm gestartet wird. Wenn ein Windows-Client Computer z. b. einer Domäne Beitritt, stellt der Messenger-Dienst auf dem Computer eine Verbindung mit einem Domänen Controller her und öffnet einen sicheren Kanal. Zum Abrufen einer authentifizierten Verbindung muss der Dienst über Anmelde Informationen verfügen, denen die lokale Sicherheits Autorität (LSA) des Remote Computers vertraut. Bei der Kommunikation mit anderen Computern im Netzwerk werden von der LSA die Anmelde Informationen für das Domänen Konto des lokalen Computers verwendet, ebenso wie alle anderen Dienste, die im Sicherheitskontext des lokalen Systems und des Netzwerk Diensts ausgeführt werden. Dienste auf dem lokalen Computer werden als System ausgeführt, sodass keine Anmelde Informationen für die LSA angezeigt werden müssen.
 
-Diese Anmelde Informationen werden von der Datei "Ksecdd. sys" verwaltet und verschlüsselt, und es wird ein lokaler Prozedur Aufrufe in die LSA verwendet. Der Dateityp ist "drv (Driver)" und wird als SSP (Kernel Mode Security Support Provider) bezeichnet, und in den Versionen, die in der Liste **gilt für** am Anfang dieses Themas angegeben sind, ist "fps 140-2 Level 1-kompatibel".
+Diese Anmelde Informationen werden von der Datei Ksecdd.sys verwaltet und verschlüsselt, und es wird ein lokaler Prozedur Aufrufe in die LSA verwendet. Der Dateityp ist "drv (Driver)" und wird als SSP (Kernel Mode Security Support Provider) bezeichnet, und in den Versionen, die in der Liste **gilt für** am Anfang dieses Themas angegeben sind, ist "fps 140-2 Level 1-kompatibel".
 
 Der Kernel Modus verfügt über Vollzugriff auf die Hardware-und Systemressourcen des Computers. Der Kernel Modus hindert benutzermodusdienste und-Anwendungen daran, auf kritische Bereiche des Betriebssystems zuzugreifen, auf die Sie keinen Zugriff haben sollen.
 
-## <a name="local-security-authority"></a><a name="BKMK_LSA"></a>Lokale Sicherheits Autorität
+## <a name="local-security-authority"></a><a name="BKMK_LSA"></a>Lokale Sicherheitsautorität
 Bei der lokalen Sicherheits Autorität (Local Security Authority, LSA) handelt es sich um einen geschützten System Prozess, der Benutzer auf dem lokalen Computer authentifiziert und protokolliert. Außerdem verwaltet LSA Informationen über alle Aspekte der lokalen Sicherheit auf einem Computer (diese Aspekte werden zusammen als lokale Sicherheitsrichtlinie bezeichnet) und bietet verschiedene Dienste für die Übersetzung zwischen Namen und Sicherheits-IDs (SIDs). Der Sicherheitssystem Prozess (Local Security Authority Server Service, LSASS) verfolgt die Sicherheitsrichtlinien und die Konten, die auf einem Computersystem wirksam sind.
 
 Die LSA überprüft die Identität eines Benutzers, je nachdem, welche der folgenden beiden Entitäten das Konto des Benutzers ausgegeben hat:
@@ -248,18 +246,18 @@ Der Remotedesktopprotokoll (RDP) verwaltet die Anmelde Informationen des Benutze
 Der eingeschränkte Administrator Modus wurde in Windows Server 2012 R2 und Windows 8.1 eingeführt und bietet zusätzliche Sicherheit für Remote Anmelde Szenarien. Dieser Modus von Remotedesktop bewirkt, dass die Client Anwendung eine Netzwerk Anmeldeaufforderung mit der unidirektionalen NT-Funktion (ntowf) ausführt oder bei der Authentifizierung beim Remote Host ein Kerberos-Dienst Ticket verwendet. Nachdem der Administrator authentifiziert wurde, verfügt der Administrator nicht über die entsprechenden Konto Anmelde Informationen in LSASS, da diese nicht für den Remote Host bereitgestellt wurden. Stattdessen verfügt der Administrator über die Anmelde Informationen des Computer Kontos für die Sitzung. Administrator Anmelde Informationen werden nicht für den Remote Host bereitgestellt, sodass Aktionen als Computer Konto ausgeführt werden. Ressourcen sind auch auf das Computer Konto beschränkt, und der Administrator kann nicht auf Ressourcen mit seinem eigenen Konto zugreifen.
 
 ### <a name="automatic-restart-sign-on-credential-process"></a>Automatischer Neustart der Anmelde Informationen für den Anmeldevorgang
-Wenn ein Benutzer sich auf einem Windows 8.1 Gerät anmeldet, speichert LSA die Anmelde Informationen des Benutzers in verschlüsseltem Speicher, auf den nur Lsass. exe zugreifen kann. Wenn Windows Update einen automatischen Neustart ohne Benutzer Präsenz initiiert, werden diese Anmelde Informationen verwendet, um die automatische Anmeldung für den Benutzer zu konfigurieren.
+Wenn ein Benutzer sich auf einem Windows 8.1 Gerät anmeldet, speichert LSA die Anmelde Informationen des Benutzers in verschlüsseltem Speicher, auf den nur LSASS.exe zugreifen kann. Wenn Windows Update einen automatischen Neustart ohne Benutzer Präsenz initiiert, werden diese Anmelde Informationen verwendet, um die automatische Anmeldung für den Benutzer zu konfigurieren.
 
 Beim Neustart wird der Benutzer automatisch über den Authentifizierungsmechanismus angemeldet, und der Computer wird außerdem zum Schutz der Benutzersitzung gesperrt. Die Sperre wird durch Winlogon initiiert, während die Verwaltung der Anmelde Informationen von LSA erfolgt. Durch automatisches anmelden und Sperren der Sitzung des Benutzers in der-Konsole werden die Anwendungen für den Sperrbildschirm des Benutzers neu gestartet und sind verfügbar.
 
-Weitere Informationen zu ARSO finden Sie [unter Winlogon Automatic Restart Sign-On &#40;ARSO&#41;](winlogon-automatic-restart-sign-on-arso.md).
+Weitere Informationen zu ARSO finden Sie [unter Winlogon Automatic Restart Sign-on &#40;ARSO&#41;](winlogon-automatic-restart-sign-on-arso.md).
 
 ### <a name="stored-user-names-and-passwords-in-windows-vista-and-windows-xp"></a>Gespeicherte Benutzernamen und Kenn Wörter in Windows Vista und Windows XP
 In Windows Server 2008, Windows Server 2003, Windows Vista und Windows XP vereinfachen die **gespeicherten Benutzernamen und Kenn Wörter** in der Systemsteuerung die Verwaltung und Verwendung mehrerer Gruppen von Anmelde Informationen, einschließlich X. 509-Zertifikaten, die mit Smartcards und Windows Live-Anmelde Informationen verwendet werden (jetzt als Microsoft-Konto bezeichnet). Die Anmelde Informationen, die Teil des Benutzerprofils sind, werden bis zum Bedarf gespeichert. Durch diese Aktion kann die Sicherheit auf Ressourcenbasis erhöht werden, indem sichergestellt wird, dass die Sicherheit nicht beeinträchtigt wird, wenn ein Kennwort kompromittiert wird.
 
 Wenn ein Benutzer sich anmeldet und versucht, auf zusätzliche durch Kennwort geschützte Ressourcen wie eine Freigabe auf einem Server zuzugreifen, und wenn die Standard Anmelde Informationen des Benutzers nicht ausreichen, um Zugriff zu erhalten, werden **Gespeicherte Benutzernamen und Kenn Wörter** abgefragt. Wenn Alternative Anmelde Informationen mit den richtigen Anmelde Informationen in **gespeicherten Benutzernamen und Kenn Wörtern**gespeichert wurden, werden diese Anmelde Informationen verwendet, um Zugriff zu erhalten. Andernfalls wird der Benutzer zur Angabe neuer Anmelde Informationen aufgefordert, die dann zur Wiederverwendung gespeichert werden können, entweder später in der Anmelde Sitzung oder während einer nachfolgenden Sitzung.
 
-Die folgenden Einschränkungen gelten:
+Es gelten folgende Einschränkungen:
 
 -   Wenn **Gespeicherte Benutzernamen und Kenn Wörter** ungültige oder falsche Anmelde Informationen für eine bestimmte Ressource enthalten, wird der Zugriff auf die Ressource verweigert, und das Dialogfeld **Gespeicherte Benutzernamen und Kenn Wörter** wird nicht angezeigt.
 
@@ -276,7 +274,7 @@ Wenn eine Website, eine Anwendung oder ein anderer Computer die Authentifizierun
 
 Wenn der Dienst das nächste Mal verwendet wird, werden die Anmelde Informationen, die im Windows-Tresor gespeichert sind, von Anmelde Informationen Manager automatisch bereitgestellt. Werden diese nicht akzeptiert, wird der Benutzer zur Eingabe der richtigen Information für den Zugriff aufgefordert. Wenn der Zugriff mit den neuen Anmelde Informationen gewährt wird, überschreibt die Anmelde Informationsverwaltung die vorherigen Anmelde Informationen mit der neuen Anmelde Information und speichert dann die neuen Anmelde Informationen im Windows-Tresor.
 
-## <a name="security-accounts-manager-database"></a><a name="BKMK_SAM"></a>Sicherheits Konten-Manager-Datenbank
+## <a name="security-accounts-manager-database"></a><a name="BKMK_SAM"></a>SAM-Datenbank
 Der Security Accounts Manager (Sam) ist eine Datenbank, in der lokale Benutzerkonten und-Gruppen gespeichert werden. Es ist in jedem Windows-Betriebssystem vorhanden. Wenn ein Computer jedoch einer Domäne hinzugefügt wird, verwaltet Active Directory Domänen Konten in Active Directory Domänen.
 
 Beispielsweise werden Client Computer, auf denen ein Windows-Betriebssystem ausgeführt wird, an einer Netzwerk Domäne teilnehmen, indem Sie mit einem Domänen Controller kommunizieren, auch wenn kein Benutzer angemeldet ist. Zum Initiieren der Kommunikation muss der Computer über ein aktives Konto in der Domäne verfügen. Vor dem Akzeptieren der Kommunikation vom Computer wird die Identität des Computers von der LSA auf dem Domänen Controller authentifiziert. Anschließend wird der Sicherheitskontext des Computers genauso wie für einen Human Security Principal erstellt. Dieser Sicherheitskontext definiert die Identität und die Funktionen eines Benutzers oder Diensts auf einem bestimmten Computer, einem Benutzer, einem Dienst oder einem Computer in einem Netzwerk. Das Zugriffs Token, das im Sicherheitskontext enthalten ist, definiert z. b. die Ressourcen (z. b. eine Dateifreigabe oder einen Drucker), auf die zugegriffen werden kann, sowie die Aktionen (z. b. lesen, schreiben oder ändern), die von diesem Prinzipal ausgeführt werden können, einen Benutzer, einen Computer oder einen Dienst für diese Ressource.
@@ -288,7 +286,7 @@ Wenn eine Vertrauensstellung zwischen zwei Domänen vorhanden ist, basieren die 
 
 Wie eine bestimmte Vertrauensstellung Authentifizierungsanforderungen übergibt, hängt von der Konfiguration ab. Vertrauens Stellungen können unidirektional sein, indem der Zugriff von der vertrauenswürdigen Domäne auf Ressourcen in der vertrauenden Domäne bereitgestellt wird (oder bidirektional), indem der Zugriff von jeder Domäne auf Ressourcen in der anderen Domäne gewährt wird. Vertrauens Stellungen sind auch nicht transitiv. in diesem Fall besteht nur eine Vertrauensstellung zwischen den beiden vertrauenswürdigen Partner Domänen oder transitiv. in diesem Fall wird eine Vertrauensstellung automatisch auf alle anderen Domänen ausgedehnt, denen beide Partner vertraut sind.
 
-Informationen zu Domänen-und Gesamtstruktur-Vertrauens Stellungen hinsichtlich der Authentifizierung finden Sie unter [Delegierte Authentifizierung und Vertrauens](https://technet.microsoft.com/library/dn169022.aspx)Stellungen.
+Informationen zu Domänen-und Gesamtstruktur-Vertrauens Stellungen hinsichtlich der Authentifizierung finden Sie unter [Delegierte Authentifizierung und Vertrauens](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dn169022(v=ws.10))Stellungen.
 
 ## <a name="certificates-in-windows-authentication"></a><a name="BKMK_CertificatesInWindowsAuthentication"></a>Zertifikate in der Windows-Authentifizierung
 Bei einer Public Key-Infrastruktur (PKI) handelt es sich um eine Kombination aus Software, Verschlüsselungstechnologien, Prozessen und Diensten, mit deren Hilfe die Kommunikation und Geschäftstransaktionen einer Organisation gesichert werden können. Die Fähigkeit einer PKI zum Sichern von Kommunikation und Geschäftstransaktionen basiert auf dem Austausch digitaler Zertifikate zwischen authentifizierten Benutzern und vertrauenswürdigen Ressourcen.
@@ -306,11 +304,11 @@ Um ein Zertifikat zu erhalten, werden die Authentifizierungsdaten durch Hash Alg
 > [!NOTE]
 > SHA1 ist die Standardeinstellung in Windows 7 und Windows Vista, wurde aber in Windows 8 in SHA2 geändert.
 
-**Smartcardauthentifizierung**
+**Authentifizierung mit Smartcards**
 
 Die Smartcard-Technologie ist ein Beispiel für eine Zertifikat basierte Authentifizierung. Die Anmeldung bei einem Netzwerk mit einer Smartcard bietet eine starke Form der Authentifizierung, da Sie eine kryptografiebasierte Identifikation und einen Nachweis des Besitzes verwendet, wenn ein Benutzer bei einer Domäne authentifiziert wird. Active Directory Zertifikat Dienste (AD CS) bieten die kryptografiebasierte Identifikation durch die Ausstellung eines Anmelde Zertifikats für jede Smartcard.
 
-Informationen zur Smartcardauthentifizierung finden Sie in der [technischen Referenz für die Windows-Smartcard](https://technet.microsoft.com/library/ff404297.aspx).
+Informationen zur Smartcardauthentifizierung finden Sie in der [technischen Referenz für die Windows-Smartcard](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ff404297(v=ws.10)).
 
 Die Technologie für virtuelle Smartcards wurde in Windows 8 eingeführt. Er speichert das Zertifikat der Smartcard auf dem PC und schützt es dann mithilfe des Sicherheitstokendiensts für den Geräte Manipulations Trusted Platform Module (TPM). Auf diese Weise wird der PC tatsächlich zur Smartcard, die die PIN des Benutzers erhalten muss, damit Sie authentifiziert werden kann.
 
@@ -318,9 +316,7 @@ Die Technologie für virtuelle Smartcards wurde in Windows 8 eingeführt. Er spe
 
 Die Authentifizierung von Remote-und Drahtlos Netzwerken ist eine andere Technologie, die Zertifikate für die Authentifizierung verwendet. Der Internet Authentifizierungsdienst (IAS) und die virtuellen privaten Netzwerkserver verwenden das Extensible Authentication Protocol-Transport Level Security (EAP-TLS), PEAP (Protected Extensible Authentication Protocol) oder IPSec (Internet Protocol Security), um eine Zertifikat basierte Authentifizierung für viele Arten von Netzwerk Zugriff durchzuführen, einschließlich VPN (virtuelles privates Netzwerk) und Drahtlos Verbindungen.
 
-Informationen zur Zertifikat basierten Authentifizierung im Netzwerk finden Sie unter [Netzwerk Zugriffs Authentifizierung und-Zertifikate](https://technet.microsoft.com/library/cc759575(WS.10).aspx).
+Informationen zur Zertifikat basierten Authentifizierung im Netzwerk finden Sie unter [Netzwerk Zugriffs Authentifizierung und-Zertifikate](/previous-versions/windows/it-pro/windows-server-2003/cc759575(v=ws.10)).
 
 ## <a name="see-also"></a><a name="BKMK_SeeAlso"></a>Siehe auch
-[Windows-Authentifizierungskonzepte](https://docs.microsoft.com/windows-server/security/windows-authentication/windows-authentication-concepts)
-
-
+[Windows-Authentifizierungskonzepte](./windows-authentication-concepts.md)

@@ -1,19 +1,17 @@
 ---
 title: Bereitstellen von abgeschirmten VMs
-ms.prod: windows-server
 ms.topic: article
 ms.assetid: 5d1a06c9-24e1-4e14-9c9a-efb2adbfeddd
 manager: dongill
 author: rpsqrd
 ms.author: ryanpu
-ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 78d8d76c2d8fc92e7fc5ca070d04942facd97427
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 0eed5d3166410cd006469eaac97ff152dfc8304e
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85475357"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87971347"
 ---
 # <a name="deploy-shielded-vms"></a>Bereitstellen von abgeschirmten VMs
 
@@ -43,6 +41,6 @@ In den folgenden Themen wird beschrieben, wie ein Mandant mit abgeschirmten VMS 
 > [!div class="nextstepaction"]
 > [Erstellen einer Vorlage für eine abgeschirmte VM](guarded-fabric-create-a-shielded-vm-template.md)
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Geschütztes Fabric und abgeschirmte VMs](guarded-fabric-and-shielded-vms-top-node.md)

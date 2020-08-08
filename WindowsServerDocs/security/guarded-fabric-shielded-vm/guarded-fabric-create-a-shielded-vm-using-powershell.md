@@ -1,24 +1,23 @@
 ---
 title: Erstellen einer abgeschirmten VM mithilfe von PowerShell
-ms.prod: windows-server
 ms.topic: article
 manager: dongill
 author: rpsqrd
 ms.author: ryanpu
-ms.technology: security-guarded-fabric
 ms.date: 09/25/2019
-ms.openlocfilehash: abc1a2af7353bd85e0ae7ac55debc36d63d1782f
-ms.sourcegitcommit: fe89b8001ad664b3618708b013490de93501db05
+ms.openlocfilehash: 3272f1dd75f3e8df506341d49c1c32346bb5dbce
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84942289"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87971327"
 ---
 # <a name="create-a-shielded-vm-using-powershell"></a>Erstellen einer abgeschirmten VM mithilfe von PowerShell
 
 >Gilt für: Windows Server 2019, Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-In der Produktionsumgebung verwenden Sie in der Regel einen Fabric-Manager (z. b. VMM), um abgeschirmte VMS bereitzustellen. Die unten dargestellten Schritte ermöglichen Ihnen jedoch, das gesamte Szenario ohne Fabric-Manager bereitzustellen und zu überprüfen.
+In der Produktionsumgebung verwenden Sie in der Regel einen Fabric-Manager (z. b. VMM), um abgeschirmte VMS bereitzustellen.
+Die unten dargestellten Schritte ermöglichen Ihnen jedoch, das gesamte Szenario ohne Fabric-Manager bereitzustellen und zu überprüfen.
 
 Kurz gesagt, erstellen Sie einen Vorlagen Datenträger, eine geschützte Datendatei, eine Antwortdatei für die unbeaufsichtigte Installation und andere Sicherheits Artefakte auf einem beliebigen Computer. Kopieren Sie diese Dateien dann auf einen überwachten Host, und stellen Sie die abgeschirmte VM bereit.
 
@@ -56,21 +55,21 @@ Außerdem benötigen Sie eine Antwortdatei für die unbeaufsichtigte Installatio
 Führen Sie die folgenden Cmdlets auf einem Computer aus, auf dem die Remoteserver-Verwaltungstools für abgeschirmte VMS installiert ist.
 Wenn Sie ein PDK für eine Linux-VM erstellen, müssen Sie dies auf einem Server ausführen, auf dem Windows Server, Version 1709 oder höher, ausgeführt wird.
 
- 
+
 ```powershell
 # Create owner certificate, don't lose this!
 # The certificate is stored at Cert:\LocalMachine\Shielded VM Local Certificates
 $Owner = New-HgsGuardian –Name 'Owner' –GenerateCertificates
- 
+
 # Import the HGS guardian for each fabric you want to run your shielded VM
 $Guardian = Import-HgsGuardian -Path C:\HGSGuardian.xml -Name 'TestFabric'
- 
+
 # Create the PDK file
 # The "Policy" parameter describes whether the admin can see the VM's console or not
 # Use "EncryptionSupported" if you are testing out shielded VMs and want to debug any issues during the specialization process
 New-ShieldingDataFile -ShieldingDataFilePath 'C:\temp\Contoso.pdk' -Owner $Owner –Guardian $guardian –VolumeIDQualifier (New-VolumeIDQualifier -VolumeSignatureCatalogFilePath 'C:\temp\MyTemplateDiskCatalog.vsc' -VersionRule Equals) -WindowsUnattendFile 'C:\unattend.xml' -Policy Shielded
 ```
-    
+
 ## <a name="provision-shielded-vm-on-a-guarded-host"></a>Bereitstellen einer abgeschirmten VM auf einem überwachten Host
 Auf einem Host, auf dem Windows Server 2016 ausgeführt wird, können Sie überwachen, ob der virtuelle Computer heruntergefahren wird, um den Abschluss des Bereitstellungs Tasks zu signalisieren, und die Hyper-V-Ereignisprotokolle auf Fehlerinformationen überprüfen, wenn die Bereitstellung nicht erfolgreich ist.
 

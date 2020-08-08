@@ -1,21 +1,19 @@
 ---
 ms.assetid: 898d72f1-01e7-4b87-8eb3-a8e0e2e6e6da
 title: Hinzufügen von Servern oder Laufwerken zu „direkten Speicherplätzen“
-ms.prod: windows-server
 ms.author: cosdar
 manager: dongill
-ms.technology: storage-spaces
 ms.topic: article
 author: cosmosdarwin
 ms.date: 11/06/2017
 description: Vorgehensweise beim Hinzufügen von Servern oder Laufwerken zu einem direkte Speicherplätze Cluster
 ms.localizationpriority: medium
-ms.openlocfilehash: 773bb3a55de27d049d26fa76659d3a4d8057f0fe
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: b9a26d3ac982cccf4471f3a3e03bfdae55b55eed
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86966392"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87961064"
 ---
 # <a name="adding-servers-or-drives-to-storage-spaces-direct"></a>Hinzufügen von Servern oder Laufwerken zu „direkten Speicherplätzen“
 
@@ -45,7 +43,7 @@ Typische Bereitstellungen lassen sich durch Hinzufügen von Servern ganz einfach
 2. Führen Sie das folgende -Cmdlet auf dem Cluster aus, um das Hinzufügen des Servers abzuschließen:
 
 ```
-Add-ClusterNode -Name NewNode 
+Add-ClusterNode -Name NewNode
 ```
 
    >[!NOTE]
@@ -59,7 +57,7 @@ Mit zwei Servern können Sie nur Volumes mit Zwei-Wege-Spiegelung erstellen (vgl
 
 Volumes mit Zwei-Wege-Spiegelungen können nicht direkt auf Volumes mit Drei-Wege-Spiegelungen aktualisiert werden. Erstellen Sie stattdessen ein neues Volume und migrieren Sie (kopieren Sie, z. B. mithilfe von [Speicher Replikat](../storage-replica/server-to-server-storage-replication.md)) Ihre Daten. Entfernen Sie anschließend das alte Volume.
 
-Als Einstieg in die Erstellung von Volumes mit Drei-Wege-Spiegelung stehen Ihnen mehrere gute Optionen zur Verfügung: Verwenden Sie die von Ihnen gewünschte Option. 
+Als Einstieg in die Erstellung von Volumes mit Drei-Wege-Spiegelung stehen Ihnen mehrere gute Optionen zur Verfügung: Verwenden Sie die von Ihnen gewünschte Option.
 
 #### <a name="option-1"></a>Option 1:
 
@@ -84,7 +82,7 @@ New-Volume -FriendlyName <Name> -FileSystem CSVFS_ReFS -StoragePoolFriendlyName 
 Legen Sie **PhysicalDiskRedundancy = 2** für die **StorageTier **-Vorlage namens *Capacity* fest und erstellen Sie dann Volumes durch Verweisen auf die Ebene.
 
 ```PowerShell
-Set-StorageTier -FriendlyName Capacity -PhysicalDiskRedundancy 2 
+Set-StorageTier -FriendlyName Capacity -PhysicalDiskRedundancy 2
 
 New-Volume -FriendlyName <Name> -FileSystem CSVFS_ReFS -StoragePoolFriendlyName S2D* -StorageTierFriendlyNames Capacity -StorageTierSizes <Size>
 ```
@@ -135,7 +133,7 @@ Das ist alles! Sie sind jetzt bereit, um durch das verweisen auf diese ebenenvor
 #### <a name="example"></a>Beispiel
 
 ```PowerShell
-New-Volume -FriendlyName "Sir-Mix-A-Lot" -FileSystem CSVFS_ReFS -StoragePoolFriendlyName S2D* -StorageTierFriendlyNames Performance, Capacity -StorageTierSizes <Size, Size> 
+New-Volume -FriendlyName "Sir-Mix-A-Lot" -FileSystem CSVFS_ReFS -StoragePoolFriendlyName S2D* -StorageTierFriendlyNames Performance, Capacity -StorageTierSizes <Size, Size>
 ```
 
 ### <a name="beyond-4-servers-greater-parity-efficiency"></a>Bei über 4 Servern: größere Paritätseffizienz
@@ -153,13 +151,13 @@ Wenn Ihre Bereitstellung Gehäuse- oder Rackfehlertoleranz verwendet, müssen Si
 1. Erstellen Sie eine temporäre Fehler Domäne für den Knoten, indem Sie eine PowerShell-Sitzung mit erhöhten Rechten öffnen und dann den folgenden Befehl verwenden, wobei *\<NewNode>* der Name des neuen Cluster Knotens ist:
 
    ```PowerShell
-   New-ClusterFaultDomain -Type Node -Name <NewNode> 
+   New-ClusterFaultDomain -Type Node -Name <NewNode>
    ```
 
 2. Verschieben Sie diese temporäre Fehler Domäne in das Chassis oder Rack, in dem sich der neue Server in der realen Welt befindet, wie in angegeben *\<ParentName>* :
 
    ```PowerShell
-   Set-ClusterFaultDomain -Name <NewNode> -Parent <ParentName> 
+   Set-ClusterFaultDomain -Name <NewNode> -Parent <ParentName>
    ```
 
    Weitere Informationen finden Sie unter [Fehlerdomänenunterstützung in Windows Server 2016](../../failover-clustering/fault-domains.md).

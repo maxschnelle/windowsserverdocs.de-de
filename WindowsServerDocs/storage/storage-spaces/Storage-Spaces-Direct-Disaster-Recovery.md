@@ -1,20 +1,18 @@
 ---
 title: Notfall Wiederherstellungs Szenarien für hyperkonvergierte Infrastrukturen
-ms.prod: windows-server
 manager: eldenc
-ms.technology: storage-spaces
 ms.topic: article
 author: johnmarlin-msft
 ms.author: johnmar
 ms.date: 03/29/2018
 description: In diesem Artikel werden die heute für die Notfall Wiederherstellung von Microsoft HCI (direkte Speicherplätze) verfügbaren Szenarios beschrieben.
 ms.localizationpriority: medium
-ms.openlocfilehash: 8ebe54cf6823f65fae484960ff21cee2baac0131
-ms.sourcegitcommit: acfdb7b2ad283d74f526972b47c371de903d2a3d
+ms.openlocfilehash: e154cd4bbb5039e2a35237ec2a4644ebecff8d06
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87769088"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87961144"
 ---
 # <a name="disaster-recovery-with-storage-spaces-direct"></a>Notfall Wiederherstellung mit direkte Speicherplätze
 

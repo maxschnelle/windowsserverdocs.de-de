@@ -1,20 +1,18 @@
 ---
 title: Übersicht über TLS-SSL (Schannel SSP)
 description: Windows Server-Sicherheit
-ms.prod: windows-server
-ms.technology: security-tls-ssl
 ms.topic: article
 ms.assetid: c8836345-16bb-4dcc-8d2b-2b9b687456a3
 author: justinha
 ms.author: justinha
 manager: brianlic
 ms.date: 05/16/2018
-ms.openlocfilehash: b70a8fefc05723b78dbf5e652bf35f7b8b5cff4d
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: a60ed0b1228780ebb6e8d1e75541dc3089f7665c
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87182316"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87989455"
 ---
 # <a name="overview-of-tls---ssl-schannel-ssp"></a>Übersicht über TLS-SSL (Schannel SSP)
 
@@ -24,7 +22,7 @@ In diesem Thema für IT-Experten werden die Änderungen an der Funktionalität i
 
 Schannel ist ein Security Support Provider (SSP), der die standardmäßigen Internetauthentifizierungsprotokolle SSL, TLS und DTLS implementiert. Die Security Support Provider-Schnittstelle (Security Support Provider Interface, SSPI) ist eine API, die von Windows-Systemen verwendet wird, um sicherheitsbezogene Funktionen wie Authentifizierungen durchzuführen. Die SSPI dienst als gemeinsame Schnittstelle für mehrere SSPs (Security Support Providers), einschließlich des Schannel SSP.
 
-Weitere Informationen zur Microsoft-Implementierung von TLS und SSL im Schannel SSP finden Sie in der [technischen Referenz zu TLS/SSL (2003)](https://technet.microsoft.com/library/cc784149(v=ws.10).aspx).
+Weitere Informationen zur Microsoft-Implementierung von TLS und SSL im Schannel SSP finden Sie in der [technischen Referenz zu TLS/SSL (2003)](/previous-versions/windows/it-pro/windows-server-2003/cc784149(v=ws.10)).
 
 
 ## <a name="tlsssl-schannel-ssp-features"></a>Features von TLS/SSL (Schannel SSP)
@@ -94,11 +92,11 @@ Wenn der verwendete Speicher für **Vertrauenswürdige Stamm Zertifizierungs** s
 
 Die Schannel SSP-Architektur in Windows Server 2012 verwendet standardmäßig die oben beschriebenen Speicher, um die Liste der vertrauenswürdigen Aussteller zu verwalten. Es können weiterhin die vorhandenen Cmdlets des PowerShell-Anbieters und von Befehlszeilentools wie „Certutil“ für die Zertifikatverwaltung verwendet werden.
 
-Informationen zum Verwalten von Zertifikaten mithilfe des PowerShell-Anbieters finden Sie unter [AD CS Administration Cmdlets in Windows](https://technet.microsoft.com/library/hh848365(v=wps.620).aspx).
+Informationen zum Verwalten von Zertifikaten mithilfe des PowerShell-Anbieters finden Sie unter [AD CS Administration Cmdlets in Windows](/powershell/module/adcsadministration/?view=winserver2012-ps).
 
-Informationen zum Verwalten von Zertifikaten mithilfe des Zertifikatdienstprogramms finden Sie unter [certutil.exe](https://technet.microsoft.com/library/cc732443.aspx).
+Informationen zum Verwalten von Zertifikaten mithilfe des Zertifikatdienstprogramms finden Sie unter [certutil.exe](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc732443(v=ws.11)).
 
-Informationen dazu, welche Daten einschließlich des anwendungsdefinierten Speichers als Anmeldeinformationen für Schannel definiert sind, finden Sie unter [SCHANNEL_CRED structure (Windows)](https://msdn.microsoft.com/library/windows/desktop/aa379810(v=vs.85).aspx).
+Informationen dazu, welche Daten einschließlich des anwendungsdefinierten Speichers als Anmeldeinformationen für Schannel definiert sind, finden Sie unter [SCHANNEL_CRED structure (Windows)](/windows/win32/api/schannel/ns-schannel-schannel_cred).
 
 **Standardeinstellungen für Vertrauensstellungs Modi**
 
@@ -147,5 +145,5 @@ Anwendungen, die DTLS über UDP nutzen, können das SSPI-Modell in Windows Serve
 ### <a name="deprecated-functionality"></a><a name="BKMK_Deprecated"></a>Veraltete Funktionen
 Im Schannel SSP für Windows Server 2012 und Windows 8 gibt es keine veralteten Features oder Funktionen.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
--   [Sicherheitsmodell für die private Cloud – Wrapperfunktion](https://docs.microsoft.com/archive/blogs/cloudsolutions/cloud-services-foundation-reference-architecture-overview)
+## <a name="additional-references"></a>Weitere Verweise
+-   [Sicherheitsmodell für die private Cloud – Wrapperfunktion](/archive/blogs/cloudsolutions/cloud-services-foundation-reference-architecture-overview)

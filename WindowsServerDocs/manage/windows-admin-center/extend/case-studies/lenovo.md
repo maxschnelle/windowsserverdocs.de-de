@@ -1,25 +1,23 @@
 ---
 title: Fallstudie zum Windows Admin Center SDK-Lenovo
 description: Fallstudie zum Windows Admin Center SDK-Lenovo
-ms.technology: extend
 ms.topic: article
 author: daniellee-msft
 ms.author: jol
 ms.date: 1/7/2019
 ms.localizationpriority: medium
-ms.prod: windows-server
-ms.openlocfilehash: a51b4bb5f6dc7dcd002b8e7a8998ce731fa374ed
-ms.sourcegitcommit: fe89b8001ad664b3618708b013490de93501db05
+ms.openlocfilehash: 74afb81918512b45b39e3ba85649cd3edac1d3d7
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84942327"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87949714"
 ---
 # <a name="lenovo-xclarity-integrator-extension"></a>Lenovo xclarity Integrator-Erweiterung
 
 ## <a name="integrated-hardware-management-everywhere"></a>Integrierte Hardware Verwaltung überall!
 
-Die [Lenovo xclarity Integrator](https://www.lenovo.com/us/en/data-center/software/systems-management/XClarity-Integrator/p/WMD00000370) -Erweiterung für Windows Admin Center bietet Administratoren eine nahtlose Möglichkeit zur direkten Verwaltung von Lenovo-Infrastrukturen über das Windows Admin Center. Die xclarity Integrator-Erweiterung enthält eine eigenständige projektmappenerweiterung und erweitert außerdem die vorhandenen Server-Manager, Failovercluster-Manager und hyperkonvergierten Cluster-Manager-Lösungen in einer einzelnen, einheitlichen Benutzeroberfläche, um eine einfache Server Verwaltung zu ermöglichen. 
+Die [Lenovo xclarity Integrator](https://www.lenovo.com/us/en/data-center/software/systems-management/XClarity-Integrator/p/WMD00000370) -Erweiterung für Windows Admin Center bietet Administratoren eine nahtlose Möglichkeit zur direkten Verwaltung von Lenovo-Infrastrukturen über das Windows Admin Center. Die xclarity Integrator-Erweiterung enthält eine eigenständige projektmappenerweiterung und erweitert außerdem die vorhandenen Server-Manager, Failovercluster-Manager und hyperkonvergierten Cluster-Manager-Lösungen in einer einzelnen, einheitlichen Benutzeroberfläche, um eine einfache Server Verwaltung zu ermöglichen.
 
 Die in der xclarity Integrator-Erweiterung enthaltene projektmappenerweiterung ermöglicht das Herstellen einer Verbindung mit einem Lenovo xclarity-Administrator, Lenovo-Rack-oder-Turm Servern oder allen Servern in einem gesamten Gehäuse gleichzeitig. Nachdem die Server hinzugefügt wurden, können Sie den Gesamt Integritäts Status für alle hinzugefügten Knoten anzeigen.
 

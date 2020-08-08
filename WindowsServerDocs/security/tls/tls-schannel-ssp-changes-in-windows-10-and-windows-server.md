@@ -1,28 +1,26 @@
 ---
 title: TLS (Schannel SSP)
-ms.prod: windows-server
 ms.topic: article
 ms.assetid: ebd3c40c-b4c0-4f6d-a00c-f90eda4691df
 manager: alanth
 author: justinha
-ms.technology: security-authentication
 ms.date: 05/16/2018
-ms.openlocfilehash: 3547c77e8c58bcbb219a7b017c3186f198007805
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 92a61452d3c22c34bb3251ee2668679068f3a2ad
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80820163"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87989498"
 ---
 # <a name="tls-schannel-ssp-changes-in-windows-10-and-windows-server-2016"></a>TLS-Änderungen (Schannel SSP) in Windows 10 und Windows Server 2016
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016 und Windows 10
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016 und Windows 10
 
 ## <a name="cipher-suite-changes"></a>Verschlüsselungs Sammlungs Änderungen
 
 Windows 10, Version 1511 und Windows Server 2016 fügen Unterstützung für die Konfiguration der Verschlüsselung der Verschlüsselungs Suite mithilfe der Verwaltung mobiler Geräte (Mobile Device Management, MDM) hinzu.
 
-Informationen zu den Änderungen der Prioritäts Reihenfolge der Verschlüsselungs Suite finden Sie unter Verschlüsselungs Sammlungen [in Schannel](https://msdn.microsoft.com/library/windows/desktop/aa374757.aspx).
+Informationen zu den Änderungen der Prioritäts Reihenfolge der Verschlüsselungs Suite finden Sie unter Verschlüsselungs Sammlungen [in Schannel](/windows/win32/secauthn/cipher-suites-in-schannel).
 
 Unterstützung für die folgenden Verschlüsselungs Sammlungen hinzugefügt:
 
@@ -55,16 +53,17 @@ Weitere Informationen finden Sie unter [keyexchangealgorithmus-Diffie-Hellman-Sc
 
 ### <a name="sch_use_strong_crypto-option-changes"></a>SCH_USE_STRONG_CRYPTO Option "Änderungen"
 
-Mit Windows 10, Version 1507 und Windows Server 2016, deaktiviert [SCH_USE_STRONG_CRYPTO](https://msdn.microsoft.com/library/windows/desktop/aa379810.aspx) Option jetzt NULL-, MD5-, des-und Export Chiffren.
+Mit Windows 10, Version 1507 und Windows Server 2016, deaktiviert [SCH_USE_STRONG_CRYPTO](/windows/win32/api/schannel/ns-schannel-schannel_cred) Option jetzt NULL-, MD5-, des-und Export Chiffren.
 
 ## <a name="elliptical-curve-changes"></a>Änderungen der elliptischen Kurve
 
-Windows 10, Version 1507 und Windows Server 2016 fügen Gruppenrichtlinie Konfiguration für elliptische Kurven unter Computer Konfiguration > Administrative Vorlagen > Netzwerk > ssl-Konfigurationseinstellungen hinzu. Die ECC-Kurven Reihenfolge gibt die Reihenfolge an, in der elliptische Kurven bevorzugt werden, und ermöglicht unterstützte Kurven, die nicht aktiviert sind. 
- 
+Windows 10, Version 1507 und Windows Server 2016 fügen Gruppenrichtlinie Konfiguration für elliptische Kurven unter Computer Konfiguration > administrative Vorlagen > Netzwerk > SSL-Konfigurationseinstellungen hinzu.
+Die ECC-Kurven Reihenfolge gibt die Reihenfolge an, in der elliptische Kurven bevorzugt werden, und ermöglicht unterstützte Kurven, die nicht aktiviert sind.
+
 Unterstützung für die folgenden Ellipsen Kurven hinzugefügt:
 
 - Benannte brainpoolp256r1 (RFC 7027) in Windows 10, Version 1507 und Windows Server 2016
-- Benannte brainpoolp384r1 (RFC 7027) in Windows 10, Version 1507 und Windows Server 2016 
+- Benannte brainpoolp384r1 (RFC 7027) in Windows 10, Version 1507 und Windows Server 2016
 - Benannte brainpoolp512r1 (RFC 7027) in Windows 10, Version 1507 und Windows Server 2016
 - Curve25519 (RFC Draft-IETF-TLS-Curve25519) in Windows 10, Version 1607 und Windows Server 2016
 
@@ -76,15 +75,18 @@ Windows 10, Version 1507 und Windows Server 2016 fügen Unterstützung für "ver
 
 Windows 10, Version 1607 und Windows Server 2016, Unterstützung für DTLS 1,2 (RFC 6347) hinzufügen.
 
-## <a name="httpsys-thread-pool"></a>HTTP. SYS-Thread Pool 
+## <a name="httpsys-thread-pool"></a>Thread Pool HTTP.SYS
 
-Windows 10, Version 1607 und Windows Server 2016 fügen Sie die Registrierungs Konfiguration der Größe des Thread Pools hinzu, der zum Verarbeiten von TLS-Handshakes für HTTP verwendet wird. Einsetzt.
+Windows 10, Version 1607 und Windows Server 2016 fügen Sie die Registrierungs Konfiguration der Größe des Thread Pools hinzu, der zum Verarbeiten von TLS-Handshakes für HTTP.SYS verwendet wird.
 
-Registrierungspfad: 
+Registrierungspfad:
 
 HKLM\System\CurrentControlSet\Control\LSA
 
-Um eine maximale Thread Pool Größe pro CPU-Kern anzugeben, erstellen Sie einen **maxasyncworkerthreadspercpu** -Eintrag. Dieser Eintrag ist nicht standardmäßig in der Registrierung vorhanden. Nachdem Sie den Eintrag erstellt haben, ändern Sie den DWORD-Wert in die gewünschte Größe. Wenn nicht konfiguriert, beträgt der Höchstwert 2 Threads pro CPU-Kern.
+Um eine maximale Thread Pool Größe pro CPU-Kern anzugeben, erstellen Sie einen **maxasyncworkerthreadspercpu** -Eintrag.
+Dieser Eintrag ist nicht standardmäßig in der Registrierung vorhanden.
+Nachdem Sie den Eintrag erstellt haben, ändern Sie den DWORD-Wert in die gewünschte Größe.
+Wenn nicht konfiguriert, beträgt der Höchstwert 2 Threads pro CPU-Kern.
 
 ## <a name="next-protocol-negotiation-npn-support"></a>Unterstützung der nächsten Protokoll Aushandlung (NPN)
 
@@ -111,18 +113,20 @@ Windows 10, Version 1507 und Windows Server 2016 bieten im Vergleich zu Windows 
 
 Windows 10, Version 1507 und Windows Server 2016 fügen Unterstützung für den RFC 7627: Transport Layer Security (TLS)-Sitzungs Hash und die erweiterte Erweiterung für den geheimen Hauptschlüssel hinzu.
 
-Aufgrund dieser Änderung sind für Windows 10 und Windows Server 2016 Updates von Drittanbieter- [SSL-Anbietern](https://msdn.microsoft.com/library/windows/desktop/ff468652.aspx) erforderlich, um NCRYPT_SSL_INTERFACE_VERSION_3 zu unterstützen und diese neue Schnittstelle zu beschreiben.
+Aufgrund dieser Änderung sind für Windows 10 und Windows Server 2016 Updates von Drittanbieter- [SSL-Anbietern](/windows/win32/seccng/cng-ssl-provider-functions) erforderlich, um NCRYPT_SSL_INTERFACE_VERSION_3 zu unterstützen und diese neue Schnittstelle zu beschreiben.
 
 
 ## <a name="ssl-support"></a>SSL-Unterstützung
 
-Ab Windows 10, Version 1607 und Windows Server 2016, sind der TLS-Client und der Server-SSL 3,0 standardmäßig deaktiviert. Dies bedeutet, dass der Client nicht SSL 3,0 anbietet oder akzeptiert, es sei denn, die Anwendung oder der Dienst fordert SSL 3,0 über die SSPI an, und der Server wählt niemals SSL 3,0 aus.
+Ab Windows 10, Version 1607 und Windows Server 2016, sind der TLS-Client und der Server-SSL 3,0 standardmäßig deaktiviert.
+Dies bedeutet, dass der Client nicht SSL 3,0 anbietet oder akzeptiert, es sei denn, die Anwendung oder der Dienst fordert SSL 3,0 über die SSPI an, und der Server wählt niemals SSL 3,0 aus.
 
 Ab Windows 10, Version 1607 und Windows Server 2016, wurde SSL 2,0 entfernt und wird nicht mehr unterstützt.
 
 ## <a name="changes-to-windows-tls-adherence-to-tls-12-requirements-for-connections-with-non-compliant-tls-clients"></a>Änderungen an der Windows TLS-Einhaltung der TLS 1,2-Anforderungen für Verbindungen mit nicht kompatiblen TLS-Clients
 
-In TLS 1,2 verwendet der Client die [Erweiterung "signature_algorithms"](https://tools.ietf.org/html/rfc5246#section-7.4.1.4.1) , um dem Server mitzuteilen, welche Signatur-/Hashalgorithmus-Paare in digitalen Signaturen (d. h. Server Zertifikate und Server Schlüsselaustausch) verwendet werden können. Die TLS 1,2-RFC erfordert auch, dass die Serverzertifikat Nachricht die Erweiterung "signature_algorithms" berücksichtigt:
+In TLS 1,2 verwendet der Client die [Erweiterung "signature_algorithms"](https://tools.ietf.org/html/rfc5246#section-7.4.1.4.1) , um dem Server mitzuteilen, welche Signatur-/Hashalgorithmus-Paare in digitalen Signaturen (d. h. Server Zertifikate und Server Schlüsselaustausch) verwendet werden können.
+Die TLS 1,2-RFC erfordert auch, dass die Serverzertifikat Nachricht die Erweiterung "signature_algorithms" berücksichtigt:
 
 "Wenn der Client eine Erweiterung vom Typ" signature_algorithms "bereitgestellt hat, müssen alle vom Server bereitgestellten Zertifikate von einem Hash-/signaturalgorithmuspaar signiert werden, das in dieser Erweiterung angezeigt wird.
 
@@ -130,8 +134,8 @@ In der Praxis entsprechen einige TLS-Clients von Drittanbietern nicht der TLS 1,
 
 Ein TLS-Server verfügt häufig nur über ein Zertifikat, das pro Endpunkt konfiguriert ist. Dies bedeutet, dass der Server nicht immer ein Zertifikat bereitstellen kann, das die Anforderungen des Clients erfüllt.
 
-Vor Windows 10 und Windows Server 2016 hat der Windows TLS-Stapel streng den TLS 1,2 RFC-Anforderungen gerecht, was zu Verbindungsfehlern mit nicht kompatiblen RFC-Clients und Interoperabilitätsproblemen führt. In Windows 10 und Windows Server 2016 werden die Einschränkungen gelockert, und der Server kann ein Zertifikat senden, das nicht mit TLS 1,2 RFC übereinstimmt, wenn dies die einzige Option des Servers ist. Der Client kann dann den Hand Shake Vorgang fortsetzen oder beenden.
+Vor Windows 10 und Windows Server 2016 hat der Windows TLS-Stapel streng den TLS 1,2 RFC-Anforderungen gerecht, was zu Verbindungsfehlern mit nicht kompatiblen RFC-Clients und Interoperabilitätsproblemen führt.
+In Windows 10 und Windows Server 2016 werden die Einschränkungen gelockert, und der Server kann ein Zertifikat senden, das nicht mit TLS 1,2 RFC übereinstimmt, wenn dies die einzige Option des Servers ist.
+Der Client kann dann den Hand Shake Vorgang fortsetzen oder beenden.
 
 Beim Validieren von Server-und Client Zertifikaten erfüllt der Windows TLS-Stapel streng die TLS 1,2-RFC und lässt nur die ausgehandelte Signatur und die Hash Algorithmen in den Server-und Client Zertifikaten zu.
-
-

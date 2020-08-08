@@ -6,14 +6,12 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server
-ms.technology: identity-adfs
-ms.openlocfilehash: b97a9cb50743972a85826d10aba89f9e6fffb5a6
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: b38f61dc5b505ac135b0f6ac5f67544b4897252e
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86954462"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87949844"
 ---
 # <a name="managing-ssltls-protocols-and-cipher-suites-for-ad-fs"></a>Verwalten von SSL/TLS-Protokollen und Verschlüsselungs Sammlungen für AD FS
 Die folgende Dokumentation enthält Informationen zum Deaktivieren und Aktivieren bestimmter TLS/SSL-Protokolle und Verschlüsselungs Sammlungen, die von verwendet werden AD FS
@@ -34,10 +32,10 @@ AD FS verwendet Schannel.dll, um sichere Kommunikations Interaktionen auszuführ
 
 ## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>Verwalten von TLS/SSL-Protokollen und Verschlüsselungssammlungen
 > [!IMPORTANT]
-> Dieser Abschnitt enthält Schritte, die Ihnen zeigen, wie Sie die Registrierung ändern können. Wenn Sie die Registrierung falsch ändern, können jedoch schwerwiegende Probleme auftreten. Achten Sie darum auf eine sorgfältige Ausführung der folgenden Schritte. 
-> 
+> Dieser Abschnitt enthält Schritte, die Ihnen zeigen, wie Sie die Registrierung ändern können. Wenn Sie die Registrierung falsch ändern, können jedoch schwerwiegende Probleme auftreten. Achten Sie darum auf eine sorgfältige Ausführung der folgenden Schritte.
+>
 > Beachten Sie, dass das Ändern der Standard Sicherheitseinstellungen für SChannel die Kommunikation zwischen bestimmten Clients und Servern unterbrechen oder verhindern kann.  Dies tritt auf, wenn eine sichere Kommunikation erforderlich ist und Sie nicht über ein Protokoll zum Aushandeln der Kommunikation verfügen.
-> 
+>
 > Wenn Sie diese Änderungen anwenden, müssen Sie auf alle AD FS Server in der Farm angewendet werden.  Nach dem Anwenden dieser Änderungen ist ein Neustart erforderlich.
 
 Heutzutage wird die Härtung Ihrer Server und das Entfernen älterer oder schwacher Verschlüsselungs Sammlungen für viele Organisationen zu einer wichtigen Priorität.  Software Suites sind verfügbar, mit denen die Server getestet werden und detaillierte Informationen zu diesen Protokollen und Sammlungen bereitgestellt werden.  Um die Konformität zu gewährleisten oder sichere Bewertungen zu erzielen, ist das Entfernen oder deaktivieren schwächer Protokolle oder Verschlüsselungs Sammlungen zu einem muss.  Im restlichen Teil dieses Dokuments finden Sie Anleitungen zum Aktivieren oder Deaktivieren bestimmter Protokolle und Verschlüsselungs Sammlungen.
@@ -53,11 +51,11 @@ Verwenden Sie die folgenden Registrierungsschlüssel und deren Werte, um SSL 2,0
 - [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols\ssl 2.0 \ Server] "Aktiviert" = DWORD: 00000001
 - [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols\ssl 2.0 \ Server] "Disabledbydefault" = DWORD: 00000000
 - [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols\ssl 2.0 \ Client] "Aktiviert" = DWORD: 00000001
-- [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols\ssl 2.0 \ Client] "Disabledbydefault" = DWORD: 00000000 
+- [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols\ssl 2.0 \ Client] "Disabledbydefault" = DWORD: 00000000
 
 ### <a name="disable-ssl-20"></a>SSL 2,0 deaktivieren
 - [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols\ssl 2.0 \ Server] "Aktiviert" = DWORD: 00000000
-- [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols\ssl 2.0 \ Server] "Disabledbydefault" = DWORD: 00000001 
+- [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols\ssl 2.0 \ Server] "Disabledbydefault" = DWORD: 00000001
 - [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols\ssl 2.0 \ Client] "Aktiviert" = DWORD: 00000000
 - [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols\ssl 2.0 \ Client] "Disabledbydefault" = DWORD: 00000001
 
@@ -65,15 +63,15 @@ Verwenden Sie die folgenden Registrierungsschlüssel und deren Werte, um SSL 2,0
 
 ``` powershell
 New-Item 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\SSL 2.0\Server' -Force | Out-Null
-    
+
 New-ItemProperty -path 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\SSL 2.0\Server' -name 'Enabled' -value '0' -PropertyType 'DWord' -Force | Out-Null
-            
+
 New-ItemProperty -path 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\SSL 2.0\Server' -name 'DisabledByDefault' -value 1 -PropertyType 'DWord' -Force | Out-Null
-            
+
 New-Item 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\SSL 2.0\Client' -Force | Out-Null
-            
+
 New-ItemProperty -path 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\SSL 2.0\Client' -name 'Enabled' -value '0' -PropertyType 'DWord' -Force | Out-Null
-            
+
 New-ItemProperty -path 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\SSL 2.0\Client' -name 'DisabledByDefault' -value 1 -PropertyType 'DWord' -Force | Out-Null
 Write-Host 'SSL 2.0 has been disabled.'
 ```
@@ -83,29 +81,29 @@ Verwenden Sie die folgenden Registrierungsschlüssel und deren Werte, um SSL 3,0
 
 ### <a name="enable-ssl-30"></a>Aktivieren von SSL 3.0
 - [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols\ssl 3.0 \ Server] "Aktiviert" = DWORD: 00000001
-- [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols\ssl 3.0 \ Server] "Disabledbydefault" = DWORD: 00000000 
+- [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols\ssl 3.0 \ Server] "Disabledbydefault" = DWORD: 00000000
 - [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols\ssl 3.0 \ Client] "Aktiviert" = DWORD: 00000001
-- [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols\ssl 3.0 \ Client] "Disabledbydefault" = DWORD: 00000000 
+- [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols\ssl 3.0 \ Client] "Disabledbydefault" = DWORD: 00000000
 
 ### <a name="disable-ssl-30"></a>Deaktivieren von SSL 3.0
 - [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols\ssl 3.0 \ Server] "Aktiviert" = DWORD: 00000000
 - [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols\ssl 3.0 \ Server] "Disabledbydefault" = DWORD: 00000001
 - [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols\ssl 3.0 \ Client] "Aktiviert" = DWORD: 00000000
-- [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols\ssl 3.0 \ Client] "Disabledbydefault" = DWORD: 00000001 
+- [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols\ssl 3.0 \ Client] "Disabledbydefault" = DWORD: 00000001
 
 ### <a name="using-powershell-to-disable-ssl-30"></a>Verwenden von PowerShell zum Deaktivieren von SSL 3,0
 
 ```powershell
     New-Item 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\SSL 3.0\Server' -Force | Out-Null
-    
+
     New-ItemProperty -path 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\SSL 3.0\Server' -name 'Enabled' -value '0' -PropertyType 'DWord' -Force | Out-Null
-    
+
     New-ItemProperty -path 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\SSL 3.0\Server' -name 'DisabledByDefault' -value 1 -PropertyType 'DWord' -Force | Out-Null
-    
+
     New-Item 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\SSL 3.0\Client' -Force | Out-Null
-    
+
     New-ItemProperty -path 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\SSL 3.0\Client' -name 'Enabled' -value '0' -PropertyType 'DWord' -Force | Out-Null
-    
+
     New-ItemProperty -path 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\SSL 3.0\Client' -name 'DisabledByDefault' -value 1 -PropertyType 'DWord' -Force | Out-Null
     Write-Host 'SSL 3.0 has been disabled.'
 ```
@@ -114,35 +112,35 @@ Verwenden Sie die folgenden Registrierungsschlüssel und deren Werte, um SSL 3,0
 Verwenden Sie die folgenden Registrierungsschlüssel und deren Werte, um TLS 1,0 zu aktivieren und zu deaktivieren.
 
 > [!IMPORTANT]
-> Durch das Deaktivieren von TLS 1,0 wird der WAP zum AD FS vertrauenswürdig.  Wenn Sie TLS 1,0 deaktivieren, sollten Sie die starke Authentifizierung für Ihre Anwendungen aktivieren.  Siehe [Aktivieren der starken Authentifizierung](#enabling-strong-authentication-for-net-applications) 
+> Durch das Deaktivieren von TLS 1,0 wird der WAP zum AD FS vertrauenswürdig.  Wenn Sie TLS 1,0 deaktivieren, sollten Sie die starke Authentifizierung für Ihre Anwendungen aktivieren.  Siehe [Aktivieren der starken Authentifizierung](#enabling-strong-authentication-for-net-applications)
 
 
 
 ### <a name="enable-tls-10"></a>Aktivieren von TLS 1,0
 - [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols\tls 1.0 \ Server] "Aktiviert" = DWORD: 00000001
-- [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols\tls 1.0 \ Server] "Disabledbydefault" = DWORD: 00000000 
+- [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols\tls 1.0 \ Server] "Disabledbydefault" = DWORD: 00000000
 - [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols\tls 1.0 \ Client] "Aktiviert" = DWORD: 00000001
-- [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols\tls 1.0 \ Client] "Disabledbydefault" = DWORD: 00000000 
+- [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols\tls 1.0 \ Client] "Disabledbydefault" = DWORD: 00000000
 
 ### <a name="disable-tls-10"></a>Deaktivieren von TLS 1.0
 - [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols\tls 1.0 \ Server] "Aktiviert" = DWORD: 00000000
 - [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols\tls 1.0 \ Server] "Disabledbydefault" = DWORD: 00000001
 - [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols\tls 1.0 \ Client] "Aktiviert" = DWORD: 00000000
-- [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols\tls 1.0 \ Client] "Disabledbydefault" = DWORD: 00000001 
+- [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols\tls 1.0 \ Client] "Disabledbydefault" = DWORD: 00000001
 
 ### <a name="using-powershell-to-disable-tls-10"></a>Deaktivieren von TLS 1,0 mithilfe von PowerShell
 
 ```powershell
     New-Item 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Server' -Force | Out-Null
-    
+
     New-ItemProperty -path 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Server' -name 'Enabled' -value '0' -PropertyType 'DWord' -Force | Out-Null
-    
+
     New-ItemProperty -path 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Server' -name 'DisabledByDefault' -value 1 -PropertyType 'DWord' -Force | Out-Null
-    
+
     New-Item 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Client' -Force | Out-Null
-    
+
     New-ItemProperty -path 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Client' -name 'Enabled' -value '0' -PropertyType 'DWord' -Force | Out-Null
-    
+
     New-ItemProperty -path 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Client' -name 'DisabledByDefault' -value 1 -PropertyType 'DWord' -Force | Out-Null
     Write-Host 'TLS 1.0 has been disabled.'
 ```
@@ -151,7 +149,7 @@ Verwenden Sie die folgenden Registrierungsschlüssel und deren Werte, um TLS 1,0
 ## <a name="enable-and-disable-tls-11"></a>Aktivieren und Deaktivieren von TLS 1,1
 Verwenden Sie die folgenden Registrierungsschlüssel und deren Werte, um TLS 1,1 zu aktivieren und zu deaktivieren.
 
-### <a name="enable-tls-11"></a>Aktivieren von TLS 1,1
+### <a name="enable-tls-11"></a>Aktivieren von TLS 1.1
 - [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols\tls 1.1 \ Server] "Aktiviert" = DWORD: 00000001
 - [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols\tls 1.1 \ Server] "Disabledbydefault" = DWORD: 00000000
 - [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols\tls 1.1 \ Client] "Aktiviert" = DWORD: 00000001
@@ -161,21 +159,21 @@ Verwenden Sie die folgenden Registrierungsschlüssel und deren Werte, um TLS 1,1
 - [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols\tls 1.1 \ Server] "Aktiviert" = DWORD: 00000000
 - [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols\tls 1.1 \ Server] "Disabledbydefault" = DWORD: 00000001
 - [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols\tls 1.1 \ Client] "Aktiviert" = DWORD: 00000000
-- [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols\tls 1.1 \ Client] "Disabledbydefault" = DWORD: 00000001 
+- [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols\tls 1.1 \ Client] "Disabledbydefault" = DWORD: 00000001
 
 ### <a name="using-powershell-to-disable-tls-11"></a>Deaktivieren von TLS 1,1 mithilfe von PowerShell
 
 ``` powershell
     New-Item 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Server' -Force | Out-Null
-    
+
     New-ItemProperty -path 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Server' -name 'Enabled' -value '0' -PropertyType 'DWord' -Force | Out-Null
-    
+
     New-ItemProperty -path 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Server' -name 'DisabledByDefault' -value 1 -PropertyType 'DWord' -Force | Out-Null
-    
+
     New-Item 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Client' -Force | Out-Null
-    
+
     New-ItemProperty -path 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Client' -name 'Enabled' -value '0' -PropertyType 'DWord' -Force | Out-Null
-    
+
     New-ItemProperty -path 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Client' -name 'DisabledByDefault' -value 1 -PropertyType 'DWord' -Force | Out-Null
     Write-Host 'TLS 1.1 has been disabled.'
 ```
@@ -186,7 +184,7 @@ Verwenden Sie die folgenden Registrierungsschlüssel und deren Werte, um TLS 1,2
 
 ### <a name="enable-tls-12"></a>Aktivieren von TLS 1.2
 - [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server] "Enabled"=dword:00000001
-- [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server] "DisabledByDefault"=dword:00000000 
+- [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server] "DisabledByDefault"=dword:00000000
 - [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client] "Enabled"=dword:00000001
 - [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client] "DisabledByDefault"=dword:00000000
 
@@ -200,20 +198,20 @@ Verwenden Sie die folgenden Registrierungsschlüssel und deren Werte, um TLS 1,2
 
 ```powershell
     New-Item 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server' -Force | Out-Null
-    
+
     New-ItemProperty -path 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server' -name 'Enabled' -value '0' -PropertyType 'DWord' -Force | Out-Null
-    
+
     New-ItemProperty -path 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server' -name 'DisabledByDefault' -value 1 -PropertyType 'DWord' -Force | Out-Null
-    
+
     New-Item 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client' -Force | Out-Null
-    
+
     New-ItemProperty -path 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client' -name 'Enabled' -value '0' -PropertyType 'DWord' -Force | Out-Null
-    
+
     New-ItemProperty -path 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client' -name 'DisabledByDefault' -value 1 -PropertyType 'DWord' -Force | Out-Null
     Write-Host 'TLS 1.2 has been disabled.'
 ```
 
-## <a name="enable-and-disable-rc4"></a>Aktivieren und Deaktivieren von RC4 
+## <a name="enable-and-disable-rc4"></a>Aktivieren und Deaktivieren von RC4
 
 Verwenden Sie die folgenden Registrierungsschlüssel und deren Werte, um RC4 zu aktivieren und zu deaktivieren.  Die Registrierungsschlüssel dieser Verschlüsselungs Sammlung befinden sich hier:
 
@@ -227,30 +225,30 @@ Verwenden Sie die folgenden Registrierungsschlüssel und deren Werte, um RC4 zu 
 
 - [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\ciphers\rc4 128/128] "Aktiviert" = DWORD: 00000001
 - [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\ciphers\rc4 40/128] "Aktiviert" = DWORD: 00000001
-- [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\ciphers\rc4 56/128] "Aktiviert" = DWORD: 00000001 
+- [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\ciphers\rc4 56/128] "Aktiviert" = DWORD: 00000001
 
 ### <a name="disable-rc4"></a>Disable RC4
 
 - [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\ciphers\rc4 128/128] "Aktiviert" = DWORD: 00000000
 - [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\ciphers\rc4 40/128] "Aktiviert" = DWORD: 00000000
-- [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\ciphers\rc4 56/128] "Aktiviert" = DWORD: 00000000 
+- [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\ciphers\rc4 56/128] "Aktiviert" = DWORD: 00000000
 
 ### <a name="using-powershell"></a>PowerShell
 
 ```powershell
-    ([Microsoft.Win32.RegistryKey]::OpenRemoteBaseKey([Microsoft.Win32.RegistryHive]::LocalMachine,$env:COMPUTERNAME)).CreateSubKey('SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers\RC4 128/128') 
+    ([Microsoft.Win32.RegistryKey]::OpenRemoteBaseKey([Microsoft.Win32.RegistryHive]::LocalMachine,$env:COMPUTERNAME)).CreateSubKey('SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers\RC4 128/128')
     New-ItemProperty -path 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers\RC4 128/128' -name 'Enabled' -value '0' -PropertyType 'DWord' -Force | Out-Null
-    
-    ([Microsoft.Win32.RegistryKey]::OpenRemoteBaseKey([Microsoft.Win32.RegistryHive]::LocalMachine,$env:COMPUTERNAME)).CreateSubKey('SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers\RC4 40/128') 
+
+    ([Microsoft.Win32.RegistryKey]::OpenRemoteBaseKey([Microsoft.Win32.RegistryHive]::LocalMachine,$env:COMPUTERNAME)).CreateSubKey('SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers\RC4 40/128')
     New-ItemProperty -path 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers\RC4 40/128' -name 'Enabled' -value '0' -PropertyType 'DWord' -Force | Out-Null
-    
-    ([Microsoft.Win32.RegistryKey]::OpenRemoteBaseKey([Microsoft.Win32.RegistryHive]::LocalMachine,$env:COMPUTERNAME)).CreateSubKey('SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers\RC4 56/128') 
+
+    ([Microsoft.Win32.RegistryKey]::OpenRemoteBaseKey([Microsoft.Win32.RegistryHive]::LocalMachine,$env:COMPUTERNAME)).CreateSubKey('SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers\RC4 56/128')
     New-ItemProperty -path 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers\RC4 56/128' -name 'Enabled' -value '0' -PropertyType 'DWord' -Force | Out-Null
 ```
 
 ## <a name="enabling-or-disabling-additional-cipher-suites"></a>Aktivieren oder deaktivieren zusätzlicher Verschlüsselungs Sammlungen
 
-Sie können bestimmte bestimmte Chiffren deaktivieren, indem Sie Sie aus HKEY_LOCAL_MACHINE \system\currentcontrolset\control\cryptography\configuration\local\ssl\00010002 entfernen. 
+Sie können bestimmte bestimmte Chiffren deaktivieren, indem Sie Sie aus HKEY_LOCAL_MACHINE \system\currentcontrolset\control\cryptography\configuration\local\ssl\00010002 entfernen.
 
 ![Registrierungsspeicherort](media/Managing-SSL-Protocols-in-AD-FS/suites.png)
 
@@ -274,7 +272,7 @@ Verwenden Sie für den .NET Framework 4.0/4.5. x den folgenden Registrierungssch
 ![Strenge Authentifizierung](media/Managing-SSL-Protocols-in-AD-FS/strongauth.png)
 
 ```powershell
-    
+
     New-ItemProperty -path 'HKLM:\SOFTWARE\Microsoft\.NetFramework\v4.0.30319' -name 'SchUseStrongCrypto' -value '1' -PropertyType 'DWord' -Force | Out-Null
 ```
 

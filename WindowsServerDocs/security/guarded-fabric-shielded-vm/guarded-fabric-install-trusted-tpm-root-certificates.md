@@ -1,18 +1,16 @@
 ---
 title: Installieren Sie vertrauenswürdige TPM-Stamm Zertifikate.
-ms.prod: windows-server
 ms.topic: article
 manager: dongill
 author: rpsqrd
 ms.author: ryanpu
-ms.technology: security-guarded-fabric
 ms.date: 06/27/2019
-ms.openlocfilehash: 096a40f422f308a036b8062e4515ebe698c31f08
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 04beb3f517df090393690a871a12015cf0bed163
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80856573"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87971317"
 ---
 # <a name="install-trusted-tpm-root-certificates"></a>Installieren Sie vertrauenswürdige TPM-Stamm Zertifikate.
 
@@ -20,7 +18,7 @@ ms.locfileid: "80856573"
 
 Wenn Sie HGS für die Verwendung des TPM-Attestation konfigurieren, müssen Sie auch HGS so konfigurieren, dass Sie den Anbietern der TPMs auf Ihren Servern vertrauen.
 Durch diesen zusätzlichen Überprüfungsprozess wird sichergestellt, dass nur echte vertrauenswürdige TPMs ihre HGS überzeugen können.
-Wenn Sie versuchen, ein nicht vertrauenswürdiges TPM bei `Add-HgsAttestationTpmHost`zu registrieren, erhalten Sie eine Fehlermeldung, die darauf hinweist, dass der TPM-Anbieter nicht vertrauenswürdig ist.
+Wenn Sie versuchen, ein nicht vertrauenswürdiges TPM bei zu registrieren `Add-HgsAttestationTpmHost` , erhalten Sie eine Fehlermeldung, die darauf hinweist, dass der TPM-Anbieter nicht vertrauenswürdig ist.
 
 Um den TPMs zu vertrauen, müssen die Stamm-und zwischen Signatur Zertifikate, die zum Signieren des Endorsement Key in den TPMs Ihres Servers verwendet werden, auf HGS installiert werden.
 Wenn Sie in Ihrem Daten Center mehr als ein TPM-Modell verwenden, müssen Sie möglicherweise verschiedene Zertifikate für jedes Modell installieren.
@@ -35,19 +33,19 @@ Wenn Ihre TPM-Zertifikate nicht im folgenden Paket enthalten sind, wenden Sie si
 
 Wiederholen Sie die folgenden Schritte auf **jedem HGS-Server**:
 
-1.  Laden Sie das neueste Paket aus [https://go.microsoft.com/fwlink/?linkid=2097925](https://go.microsoft.com/fwlink/?linkid=2097925)herunter.
+1.  Laden Sie das neueste Paket aus herunter [https://go.microsoft.com/fwlink/?linkid=2097925](https://go.microsoft.com/fwlink/?linkid=2097925) .
 
 2.  Überprüfen Sie die Signatur der CAB-Datei, um ihre Echtheit sicherzustellen. Fahren Sie nicht fort, wenn die Signatur ungültig ist.
 
     ```powershell
     Get-AuthenticodeSignature .\TrustedTpm.cab
     ```
-    
-    Ausgabebeispiel:
-    
+
+    Hier ist eine Beispielausgabe angegeben:
+
     ```
     Directory: C:\Users\Administrator\Downloads
-        
+
     SignerCertificate                         Status                                 Path
     -----------------                         ------                                 ----
     0DD6D4D4F46C0C7C2671962C4D361D607E370940  Valid                                  TrustedTpm.cab

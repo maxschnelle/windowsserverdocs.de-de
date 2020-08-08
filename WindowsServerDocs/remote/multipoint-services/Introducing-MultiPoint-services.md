@@ -7,12 +7,12 @@ ms.assetid: 1cbef744-4661-4ba9-9e2b-0bbd8854fd5c
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: c1f317909b05c421058041bcd2546c4cc0e704bb
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 663b3d4afade9b4fb459f34120d1e6b18984285a
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87970637"
+ms.locfileid: "87997429"
 ---
 # <a name="introducing-multipoint-services"></a>Einführung in MultiPoint Services
 Die Multipoint Services-Rolle in Windows Server 2016 ermöglicht es mehreren Benutzern, die jeweils über eine eigene unabhängige und vertraute Windows-Benutzeroberflächen verfügen, gleichzeitig einen Computer gemeinsam zu nutzen. Es gibt mehrere Möglichkeiten, wie Benutzer auf Ihre Sitzungen zugreifen können. Eine Möglichkeit besteht darin, mithilfe der [Remote Desktop-Apps](../remote-desktop-services/clients/remote-desktop-clients.md) mit beliebigen Geräten einen Remoting in den Server zu verwenden. Eine andere Möglichkeit ist die Verwendung von physischen Stationen, die Stationen an den Multipoint-Server angefügt sind:
@@ -29,9 +29,9 @@ In diesem Dokument werden die folgenden Faktoren behandelt, die bei der Planung 
 
 -   Welche Art von Desktops für Ihr Multipoint Services-System verwendet werden soll: benötigen Sie Sitzungen, virtuelle Computer oder Windows-PCs?
 
--   [Auswählen von Hardware für Ihr Multipoint Services-System](Selecting-Hardware-for-Your-MultiPoint-services-System.md): welche Hardware Entscheidungen sollten Sie treffen?
+-   [Auswählen von Hardware für Ihr Multipoint Services-System](./select-hardware-mps.md): welche Hardware Entscheidungen sollten Sie treffen?
 
--   [Hardwareanforderungen und Empfehlungen zur Leistung](Hardware-Requirements-and-Performance-Recommendations.md): welche Hardware ist für Multipoint Services erforderlich?
+-   [Hardwareanforderungen und Empfehlungen zur Leistung](./hardware-and-performance-recommendations.md): welche Hardware ist für Multipoint Services erforderlich?
 
 -   [Planung der Multipoint Services-Site](MultiPoint-services-Site-Planning.md): wo werden die Computer, auf denen Multipoint Services und deren Stationen ausgeführt werden, und wie werden Sie konfiguriert?
 

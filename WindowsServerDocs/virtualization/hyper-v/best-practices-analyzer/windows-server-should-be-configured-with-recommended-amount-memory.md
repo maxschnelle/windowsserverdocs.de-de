@@ -7,12 +7,12 @@ ms.topic: article
 ms.assetid: 7860e609-d278-42a3-85a4-ca92c8b6b2ad
 author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: 1a9ffeab68a59bcb2954ec2e3f66d4438ebf2e09
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 774ab1b92c31e007e4ca022f3d0b1efe0d1a00d8
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87948030"
+ms.locfileid: "87997229"
 ---
 # <a name="windows-server-2016-should-be-configured-with-the-recommended-amount-of-memory"></a>Windows Server 2016 sollte mit der empfohlenen Menge an Arbeitsspeicher konfiguriert werden.
 
@@ -65,7 +65,4 @@ Set-VMMemory <MyVM> -StartupBytes 1GB
 ```
 
 ## <a name="see-also"></a>Weitere Informationen
-[Set-vmmemory](https://technet.microsoft.com/library/hh848572.aspx)
-
-
-
+[Set-vmmemory](/powershell/module/hyper-v/set-vmmemory?view=win10-ps)

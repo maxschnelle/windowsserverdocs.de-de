@@ -5,15 +5,13 @@ author: jasongerend
 ms.author: jgerend
 ms.date: 12/06/2019
 ms.topic: article
-ms.prod: windows-server
-ms.technology: storage-spaces
 manager: brianlic
-ms.openlocfilehash: d7bbef54d0ec554c6a3cf184dcb0414f7456547c
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: 81480c413c2d9775ee81374534fc54af4fdcfced
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87182156"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87997489"
 ---
 # <a name="troubleshoot-storage-spaces-and-storage-spaces-direct-health-and-operational-states"></a>Problembehandlung bei Speicherplätzen und direkte Speicherplätze Integritäts-und Betriebszuständen
 
@@ -73,7 +71,7 @@ Wenn der Integritäts Status eines Speicher **Unknown** Pools unbekannt **oder F
 ||Richtlinie|Ein Administrator hat den Speicherpool als schreibgeschützt festgelegt.<br><br>**Aktion:** Um einen Cluster Speicherpool in Failovercluster-Manager auf Lese-/Schreibzugriff festzulegen, wechseln Sie zu **Pools**, klicken Sie mit der rechten Maustaste auf den Pool, und wählen Sie dann **Online**schalten aus.<br><br>Öffnen Sie für andere Server und PCs eine PowerShell-Sitzung mit Administrator Berechtigungen, und geben Sie dann Folgendes ein:<br><br><code>Get-StoragePool <PoolName> \| Set-StoragePool -IsReadOnly $false</code><br><br> |
 ||Wird gestartet|Speicherplätze werden gestartet, oder es wird darauf gewartet, dass Laufwerke im Pool verbunden werden. Dies sollte ein temporärer Zustand sein. Nachdem der Pool vollständig gestartet wurde, sollte er in einen anderen Betriebsstatus übergehen.<br><br>**Aktion:** Wenn der Pool im *anfangs* Zustand bleibt, stellen Sie sicher, dass alle Laufwerke im Pool ordnungsgemäß verbunden sind.|
 
-Siehe auch das [Windows Server-Speicher Forum](https://docs.microsoft.com/answers/topics/windows-server-storage.html).
+Siehe auch das [Windows Server-Speicher Forum](/answers/topics/windows-server-storage.html).
 
 ## <a name="virtual-disk-states"></a>Virtuelle Datenträger Zustände
 
@@ -203,11 +201,11 @@ Die folgende Tabelle enthält einige weitere Informationen zu den einzelnen Grü
 |Offline|Das Laufwerk ist offline. <br><br>Um alle Offline Laufwerke Online zu schalten und auf Lese-/Schreibzugriff festzulegen, öffnen Sie eine PowerShell-Sitzung als Administrator, und verwenden Sie die folgenden Skripts:<br><br><code>Get-Disk \| Where-Object -Property OperationalStatus -EQ "Offline" \| Set-Disk -IsOffline $false</code><br><br><code>Get-Disk \| Where-Object -Property IsReadOnly -EQ $true \| Set-Disk -IsReadOnly $false</code>|
 |Unzureichende Kapazität|Dies tritt normalerweise auf, wenn Partitionen den freien Speicherplatz auf dem Laufwerk einnehmen. <br><br>**Aktion**: Löschen Sie alle Volumes auf dem Laufwerk, und löschen Sie alle Daten auf dem Laufwerk. Eine Möglichkeit hierfür ist die Verwendung des PowerShell-Cmdlets [Clear-Disk](/powershell/module/storage/clear-disk?view=win10-ps) .|
 |Überprüfung in Bearbeitung|Der [Integritätsdienst](../../failover-clustering/health-service-overview.md#supported-components-document) überprüft, ob das Laufwerk oder die Firmware auf dem Laufwerk für die Verwendung durch den Server Administrator genehmigt ist.|
-|Überprüfungsfehler|Der [Integritätsdienst](../../failover-clustering/health-service-overview.md#supported-components-document) konnte nicht überprüfen, ob das Laufwerk oder die Firmware auf dem Laufwerk für die Verwendung durch den Server Administrator genehmigt ist.|
+|Fehler bei der Überprüfung|Der [Integritätsdienst](../../failover-clustering/health-service-overview.md#supported-components-document) konnte nicht überprüfen, ob das Laufwerk oder die Firmware auf dem Laufwerk für die Verwendung durch den Server Administrator genehmigt ist.|
 |Firmware nicht kompatibel|Die Firmware auf dem physischen Laufwerk ist nicht in der Liste der genehmigten Firmwarerevisionen enthalten, die vom Server Administrator mithilfe des [Integritätsdienst](../../failover-clustering/health-service-overview.md#supported-components-document)angegeben werden. |
 |Hardware nicht kompatibel|Das Laufwerk ist nicht in der Liste der genehmigten Speicher Modelle enthalten, die vom Server Administrator mithilfe des [Integritätsdienst](../../failover-clustering/health-service-overview.md#supported-components-document)angegeben werden.|
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Direkte Speicherplätze](storage-spaces-direct-overview.md)
 - [Hardwareanforderungen für „Direkte Speicherplätze“](storage-spaces-direct-hardware-requirements.md)

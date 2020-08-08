@@ -1,18 +1,16 @@
 ---
 title: Verstehen und Konfigurieren von Azure Monitor
 description: Ausführliche Informationen zur Einrichtung der Azure Monitor und zum Konfigurieren von e-Mail-und SMS-Warnungen für den Cluster "direkte Speicherplätze" in Windows Server 2016 und 2019.
-ms.prod: windows-server
 ms.author: adagashe
-ms.technology: storage-spaces
 ms.topic: article
 author: adagashe
 ms.date: 01/10/2020
-ms.openlocfilehash: 72d08b3e4461eeea07e161de1073f5320830028c
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 40ee23fa8c1fa88c54e5c8ee1e2c3ebd3453bfff
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86953984"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87961134"
 ---
 # <a name="use-azure-monitor-to-send-emails-for-health-service-faults"></a>Verwenden von Azure Monitor zum Senden von E-Mails über Integritätsdienstfehler
 
@@ -126,7 +124,7 @@ Mit den folgenden Schritten wird Microsoft Monitoring Agent installiert und konf
 5. Wählen Sie auf der Seite **Agent-Setupoptionen** aus, dass der Agent mit Azure Log Analytics verbunden werden soll, und klicken Sie dann auf **Weiter**.
 6. Führen Sie auf der Seite **Azure Log Analytics** die folgenden Schritte aus:
    1. Fügen Sie die **Arbeitsbereichs-ID** und den **Arbeitsbereichsschlüssel (Primärschlüssel)** ein, die Sie zuvor kopiert haben.
-    a) Wenn der Computer über einen Proxyserver mit dem Log Analytics-Dienst kommunizieren muss, klicken Sie auf **Erweitert**, und stellen Sie die URL sowie die Portnummer des Proxyservers bereit.  Wenn der Proxyserver eine Authentifizierung erfordert, geben Sie den Benutzernamen und das Kennwort für die Authentifizierung mit dem Proxyserver ein, und klicken Sie dann auf **Weiter**.
+    a. Wenn der Computer über einen Proxyserver mit dem Log Analytics-Dienst kommunizieren muss, klicken Sie auf **Erweitert**, und stellen Sie die URL sowie die Portnummer des Proxyservers bereit.  Wenn der Proxyserver eine Authentifizierung erfordert, geben Sie den Benutzernamen und das Kennwort für die Authentifizierung mit dem Proxyserver ein, und klicken Sie dann auf **Weiter**.
 7. Klicken Sie auf **Weiter**, nachdem Sie die Bereitstellung der erforderlichen Konfigurationseinstellungen abgeschlossen haben.<br><br> ![Arbeitsbereichs-ID und Primärschlüssel einfügen](media/configure-azure-monitor/log-analytics-mma-setup-laworkspace.png)<br><br>
 8. Überprüfen Sie Ihre Auswahl auf der Seite **Bereit zum Installieren**, und klicken Sie dann auf **Installieren**.
 9. Klicken Sie auf der Seite **Die Konfiguration wurde erfolgreich abgeschlossen** auf **Fertig stellen**.
@@ -218,7 +216,7 @@ Sehen wir uns nun ein Beispiel für das Erstellen einer Warnung an.
 3. Im ersten Schritt wählen Sie im Abschnitt **Warnung erstellen** Ihren Log Analytics-Arbeitsbereich als Ressource aus, da es sich dabei um ein protokollbasiertes Warnungssignal handelt.  Wenn Sie mehrere Abonnements besitzen, filtern Sie die Ergebnisse, indem Sie in der Dropdownliste das gewünschte **Abonnement** auswählen, das den zuvor erstellten Log Analytics-Arbeitsbereich enthält.  Filtern Sie den **Ressourcentyp**, indem Sie in der Dropdownliste **Log Analytics** auswählen.  Wählen Sie abschließend die **Ressource** mit dem Namen **DefaultLAWorkspace** aus, und klicken Sie dann auf **Fertig**.<br><br> ![Schritt 1: Erstellen einer Warnung](media/configure-azure-monitor/alert-rule-03.png)<br>
 4. Klicken Sie im Abschnitt **Warnungskriterien** auf **Kriterien hinzufügen**, um die gespeicherte Abfrage auszuwählen, und geben Sie dann eine Logik für die Warnungsregel an.
 5. Konfigurieren Sie die Warnung mit den folgenden Informationen: a. Wählen Sie in der Dropdownliste **Basierend auf** die Option **Metrische Maßeinheit** aus.  Mit „Metrische Maßeinheit“ wird eine Warnung für jedes Objekt in der Abfrage mit einem Wert erzeugt, der den angegebenen Schwellenwert überschreitet.
-   b) Wählen Sie **Condition**für die Bedingung **größer als** aus, und geben Sie ein thershold an.
+   b. Wählen Sie **Condition**für die Bedingung **größer als** aus, und geben Sie ein thershold an.
    c. Legen Sie dann fest, wann die Warnung ausgelöst werden soll. Sie können beispielsweise **Aufeinanderfolgende Sicherheitsverletzungen** und in der Dropdownliste **Größer als** den Wert 3 auswählen.
    d. Ändern Sie unter „Evaluation based on“ (Auswertung basierend auf) den Wert für **Zeitraum** in **30** Minuten und den Wert für **Häufigkeit** in 5. Die Regel wird alle fünf Minuten ausgeführt und gibt Datensätze zurück, die innerhalb der letzten 30 Minuten erstellt wurden.  Durch die Verwendung eines weiter gefassten Zeitfensters wird potenziellen Datenlatenzen Rechnung getragen und sichergestellt, dass die Abfrage Daten zurückgibt, um ein falsch negatives Ergebnis zu vermeiden, bei dem die Warnung nie ausgelöst wird.
 6. Klicken Sie auf **Fertig**, um die Warnungsregel fertig zu stellen.<br><br> ![Konfigurieren eines Warnungssignals](media/configure-azure-monitor/alert-signal-logic-02.png)<br>
@@ -246,8 +244,8 @@ Im folgenden finden Sie ein Beispiel für die e-Mail, die Sie Azure Monitor send
 
 ![Beispiel für eine Warn Benachrichtigung](media/configure-azure-monitor/warning.png)
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
-- [Übersicht über direkte Speicherplätze](storage-spaces-direct-overview.md)
+- [Direkte Speicherplätze – Übersicht](storage-spaces-direct-overview.md)
 - Ausführlichere Informationen finden Sie in der [Azure Monitor-Dokumentation](/azure/azure-monitor/learn/tutorial-viewdata).
 - Lesen Sie diesen Artikel, um eine Übersicht über das [Herstellen einer Verbindung mit anderen Azure-Hybrid Diensten](../../manage/windows-admin-center/azure/index.md)zu erhalten.

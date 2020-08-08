@@ -2,18 +2,16 @@
 title: Verwenden vererbter Berechtigungen mit zugriffsbasierter Aufzählung
 description: In diesem Artikel wird beschrieben, wie geerbte Berechtigungen mit Zugriffs basierter Enumeration verwendet werden.
 ms.date: 6/5/2017
-ms.prod: windows-server
-ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 112ec4363177ac6dd560493843c8937bdfbac4de
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 96b6280b8f69325a9f5c819430dd7a5249247302
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85475147"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87971207"
 ---
 # <a name="using-inherited-permissions-with-access-based-enumeration"></a>Verwenden von geerbten Berechtigungen mit Zugriffs basierter Enumeration
 
@@ -58,6 +56,6 @@ Um einzuschränken, welche Benutzer einen DFS-Ordner anzeigen können, müssen S
 
 4.  Verwenden Sie Windows-Explorer oder den Befehl **icacls** , um die geerbten Berechtigungen für Ordner oder Namespace Stämme in einem DFS-Namespace zu ändern.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Erstellen eines DFS-Namespaces](create-a-dfs-namespace.md)

@@ -5,15 +5,13 @@ author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 08/09/2018
 ms.topic: article
-ms.prod: windows-server
 ms.assetid: 5a291f65-794e-4fc3-996e-094c5845a383
-ms.technology: identity-adds
-ms.openlocfilehash: fbb1f0f0f1b21c626f344bb01b793211586c7cf3
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: fcc344010f25a11051bed5afc6bc6632729f7f4e
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86953972"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87949934"
 ---
 # <a name="determine-how-to-recover-the-forest"></a>Festlegen der Wiederherstellung der Gesamtstruktur
 
@@ -63,7 +61,7 @@ Sie können auch den Befehl **Ntdsutil snapshot** verwenden, um Momentaufnahmen 
 Der einfache Wiederherstellungs Vorgang ist ein wichtiger Faktor bei der Entscheidung, welcher Domänen Controller wieder hergestellt werden soll. Es wird empfohlen, einen dedizierten Domänen Controller für jede Domäne zu haben, die der bevorzugte Domänen Controller für eine Wiederherstellung ist. Mit einem dedizierten Wiederherstellungs-DC wird die Wiederherstellung der Gesamtstruktur einfacher geplant und ausgeführt, da Sie die gleiche Quell Konfiguration verwenden, die zum Ausführen von Wiederherstellungs Tests verwendet wurde. Sie können ein Skript für die Wiederherstellung erstellen und sich nicht mit verschiedenen Konfigurationen auseinandersetzen, z. b. ob der Domänen Controller Betriebs Master Rollen enthält oder nicht, oder ob es sich um einen GC-oder DNS-Server handelt.
 
 > [!NOTE]
-> Obwohl es nicht empfohlen wird, einen Besitzer der Betriebs Master Rolle im Interesse der Einfachheit wiederherzustellen, können einige Organisationen eine Wiederherstellung für andere Vorteile auswählen. Beispielsweise kann das Wiederherstellen des RID-Masters helfen, Probleme beim Verwalten von RIDs während der Wiederherstellung zu vermeiden.  
+> Obwohl es nicht empfohlen wird, einen Besitzer der Betriebs Master Rolle im Interesse der Einfachheit wiederherzustellen, können einige Organisationen eine Wiederherstellung für andere Vorteile auswählen. Beispielsweise kann das Wiederherstellen des RID-Masters helfen, Probleme beim Verwalten von RIDs während der Wiederherstellung zu vermeiden.
 
 Wählen Sie einen DC aus, der am besten die folgenden Kriterien erfüllt:
 
@@ -89,59 +87,59 @@ Bestimmen Sie die aktuelle Gesamtstruktur Struktur, indem Sie alle Domänen in d
 
 Bereiten Sie eine Tabelle vor, die die Funktionen der einzelnen Domänen Controller in der Domäne anzeigt, wie im folgenden Beispiel gezeigt. Auf diese Weise können Sie nach der Wiederherstellung auf die Konfiguration der Gesamtstruktur vor dem Ausfall zurückgreifen.
 
-|DC-Name|Betriebssystem|FSMO|GC|RODC|Backup|DNS|Server Core|VM|VM-GenID|  
-|-------------|----------------------|----------|--------|----------|------------|---------|-----------------|--------|---------------|  
-|DC_1|Windows Server 2012|Schema Master, Domänen Namen Master|Ja|Nein|Ja|Nein|Nein |Ja|Ja|  
-|DC_2|Windows Server 2012|Keine|Ja|Nein|Ja|Ja|Nein|Ja|Ja|  
-|DC_3|Windows Server 2012|Infrastrukturmaster|Nein|Nein|Nein |Ja|Ja|Ja|Ja|  
-|DC_4|Windows Server 2012|PDC-Emulator, RID-Master|Ja|Nein|Nein|Nein|Nein |Ja|Nein|  
-|DC_5|Windows Server 2012|Keine|Nein|Nein |Ja|Ja|Nein|Ja|Ja|  
-|RODC_1|Windows Server 2008 R2|Keine|Ja|Ja|Ja|Ja|Ja|Ja|Nein|  
-|RODC_2|Windows Server 2008|Keine|Ja|Ja|Nein|Ja|Ja|Ja|Nein|  
+|DC-Name|Betriebssystem|FSMO|GC|RODC|Backup|DNS|Server Core|VM|VM-GenID|
+|-------------|----------------------|----------|--------|----------|------------|---------|-----------------|--------|---------------|
+|DC_1|Windows Server 2012|Schema Master, Domänen Namen Master|Ja|Nein|Ja|Nein|Nein|Ja|Ja|
+|DC_2|Windows Server 2012|Keine|Ja|Nein|Ja|Ja|Nein|Ja|Ja|
+|DC_3|Windows Server 2012|Infrastrukturmaster|Nein|Nein|Nein|Ja|Ja|Ja|Ja|
+|DC_4|Windows Server 2012|PDC-Emulator, RID-Master|Ja|Nein|Nein|Nein|Nein|Ja|Nein|
+|DC_5|Windows Server 2012|Keine|Nein|Nein|Ja|Ja|Nein|Ja|Ja|
+|RODC_1|Windows Server 2008 R2|Keine|Ja|Ja|Ja|Ja|Ja|Ja|Nein|
+|RODC_2|WindowsServer 2008|Keine|Ja|Ja|Nein|Ja|Ja|Ja|Nein|
 
 Identifizieren Sie für jede Domäne in der Gesamtstruktur einen einzelnen beschreibbaren DC, der über eine vertrauenswürdige Sicherung der Active Directory-Datenbank für diese Domäne verfügt. Gehen Sie vorsichtig vor, wenn Sie eine Sicherung zum Wiederherstellen eines Domänen Controllers auswählen. Wenn der Tag und die Ursache des Fehlers ungefähr bekannt sind, empfiehlt es sich, eine Sicherung zu verwenden, die ein paar Tage vor diesem Datum erstellt wurde.
-  
-In diesem Beispiel gibt es vier Sicherungs Kandidaten: DC_1, DC_2, DC_4 und DC_5. Diese Sicherungs Kandidaten stellen nur eine wieder her. Der empfohlene Domänen Controller wird aus den folgenden Gründen DC_5:  
 
-- Sie erfüllt die Anforderungen für die Verwendung als Quelle für das Klonen virtualisierter Domänen Controller, d. h., Sie führt Windows Server 2012 als virtuellen Domänen Controller auf einem Hypervisor aus, der "VM-generationid" unterstützt, führt Software aus, die geklont werden darf (oder die entfernt werden kann, wenn Sie nicht geklont werden kann). Nach der Wiederherstellung wird die PDC-Emulatorrolle für diesen Server übernommen und kann der Gruppe klonbare Domänen Controller für die Domäne hinzugefügt werden.  
-- Sie führt eine vollständige Installation von Windows Server 2012 aus. Ein Domänen Controller, auf dem eine Server Core-Installation ausgeführt wird, kann als Ziel für die Wiederherstellung weniger praktisch sein  
-- Dabei handelt es sich um einen DNS-Server. Daher muss DNS nicht neu installiert werden.  
+In diesem Beispiel gibt es vier Sicherungs Kandidaten: DC_1, DC_2, DC_4 und DC_5. Diese Sicherungs Kandidaten stellen nur eine wieder her. Der empfohlene Domänen Controller wird aus den folgenden Gründen DC_5:
+
+- Sie erfüllt die Anforderungen für die Verwendung als Quelle für das Klonen virtualisierter Domänen Controller, d. h., Sie führt Windows Server 2012 als virtuellen Domänen Controller auf einem Hypervisor aus, der "VM-generationid" unterstützt, führt Software aus, die geklont werden darf (oder die entfernt werden kann, wenn Sie nicht geklont werden kann). Nach der Wiederherstellung wird die PDC-Emulatorrolle für diesen Server übernommen und kann der Gruppe klonbare Domänen Controller für die Domäne hinzugefügt werden.
+- Sie führt eine vollständige Installation von Windows Server 2012 aus. Ein Domänen Controller, auf dem eine Server Core-Installation ausgeführt wird, kann als Ziel für die Wiederherstellung weniger praktisch sein
+- Dabei handelt es sich um einen DNS-Server. Daher muss DNS nicht neu installiert werden.
 
 > [!NOTE]
-> Da DC_5 kein globaler Katalogserver ist, hat er auch den Vorteil, dass der globale Katalog nach der Wiederherstellung nicht entfernt werden muss. Ob der DC auch ein globaler Katalogserver ist, ist jedoch kein entscheidender Faktor, da ab Windows Server 2012 alle DCS standardmäßig globale Katalogserver sind. das Entfernen und Hinzufügen des globalen Katalogs nach der Wiederherstellung wird in jedem Fall als Teil der Gesamtstruktur Wiederherstellung empfohlen.  
+> Da DC_5 kein globaler Katalogserver ist, hat er auch den Vorteil, dass der globale Katalog nach der Wiederherstellung nicht entfernt werden muss. Ob der DC auch ein globaler Katalogserver ist, ist jedoch kein entscheidender Faktor, da ab Windows Server 2012 alle DCS standardmäßig globale Katalogserver sind. das Entfernen und Hinzufügen des globalen Katalogs nach der Wiederherstellung wird in jedem Fall als Teil der Gesamtstruktur Wiederherstellung empfohlen.
 
 ## <a name="recover-the-forest-in-isolation"></a>Wiederherstellen der Gesamtstruktur isoliert
 
-Das bevorzugte Szenario besteht darin, Alle beschreibbaren DCS herunterzufahren, bevor der erste wiederhergestellte Domänen Controller wieder in die Produktion gebracht wird. Dadurch wird sichergestellt, dass alle gefährlichen Daten nicht wieder in die wiederhergestellte Gesamtstruktur repliziert werden. Es ist besonders wichtig, alle Inhaber der Betriebs Master Rolle zu beenden.  
+Das bevorzugte Szenario besteht darin, Alle beschreibbaren DCS herunterzufahren, bevor der erste wiederhergestellte Domänen Controller wieder in die Produktion gebracht wird. Dadurch wird sichergestellt, dass alle gefährlichen Daten nicht wieder in die wiederhergestellte Gesamtstruktur repliziert werden. Es ist besonders wichtig, alle Inhaber der Betriebs Master Rolle zu beenden.
 
 > [!NOTE]
 > Es gibt möglicherweise Fälle, in denen Sie den ersten Domänen Controller, den Sie für jede Domäne wiederherstellen möchten, in ein isoliertes Netzwerk verschieben, während andere DCS online bleiben, um die Ausfallzeiten des Systems zu minimieren. Wenn Sie z. b. nach einem fehlerhaften Schema Upgrade wiederherstellen, können Sie festlegen, dass die Domänen Controller im Produktionsnetzwerk ausgeführt werden, während Sie die Wiederherstellungsschritte isoliert ausführen.
 
-Wenn Sie virtualisierte DCS ausführen, können Sie Sie in ein virtuelles Netzwerk verschieben, das vom Produktionsnetzwerk isoliert ist, in dem Sie die Wiederherstellung durchführen möchten. Das Verschieben virtualisierter DCS in ein separates Netzwerk bietet zwei Vorteile:  
+Wenn Sie virtualisierte DCS ausführen, können Sie Sie in ein virtuelles Netzwerk verschieben, das vom Produktionsnetzwerk isoliert ist, in dem Sie die Wiederherstellung durchführen möchten. Das Verschieben virtualisierter DCS in ein separates Netzwerk bietet zwei Vorteile:
 
-- Wiederhergestellte DCS werden daran gehindert, das Problem wiederherzustellen, das die Wiederherstellung der Gesamtstruktur verursacht hat, da Sie isoliert sind.  
+- Wiederhergestellte DCS werden daran gehindert, das Problem wiederherzustellen, das die Wiederherstellung der Gesamtstruktur verursacht hat, da Sie isoliert sind.
 - Das Klonen virtualisierter Domänen Controller kann im separaten Netzwerk ausgeführt werden, sodass eine kritische Anzahl von DCS ausgeführt und getestet werden kann, bevor Sie in das Produktionsnetzwerk zurückgebracht werden.
 
-Wenn Sie DCS auf physischer Hardware ausführen, trennen Sie das Netzwerkkabel des ersten DC, den Sie wiederherstellen möchten, in der Stamm Domäne der Gesamtstruktur. Trennen Sie nach Möglichkeit auch die Netzwerkkabel aller anderen DCS. Dadurch wird verhindert, dass DCS replizieren, wenn Sie versehentlich während des Wiederherstellungsprozesses der Gesamtstruktur gestartet werden.  
+Wenn Sie DCS auf physischer Hardware ausführen, trennen Sie das Netzwerkkabel des ersten DC, den Sie wiederherstellen möchten, in der Stamm Domäne der Gesamtstruktur. Trennen Sie nach Möglichkeit auch die Netzwerkkabel aller anderen DCS. Dadurch wird verhindert, dass DCS replizieren, wenn Sie versehentlich während des Wiederherstellungsprozesses der Gesamtstruktur gestartet werden.
 
-In einer großen Gesamtstruktur, die über mehrere Standorte verteilt ist, kann es schwierig sein, sicherzustellen, dass alle beschreibbaren DCS heruntergefahren werden. Aus diesem Grund sind die Wiederherstellungsschritte – beispielsweise das Zurücksetzen des Computer Kontos und des krbtgt-Kontos, zusätzlich zur Metadatenbereinigung – so konzipiert, dass sichergestellt wird, dass die wiederhergestellten Schreib baren DCS nicht mit gefährlichen beschreibbaren DCS repliziert werden (Falls einige in der Gesamtstruktur noch online sind).  
-  
-Allerdings können Sie nur, wenn Sie schreibgeschützte DCS offline nehmen, sicherstellen, dass die Replikation nicht erfolgt. Daher sollten Sie nach Möglichkeit eine Remote Verwaltungs Technologie bereitstellen, mit der Sie die beschreibbaren DCS während der Wiederherstellung der Gesamtstruktur Herunterfahren und physisch isolieren können.  
-  
-RODCs können weiterhin ausgeführt werden, während beschreibbare DCS offline sind. Kein anderer Domänen Controller repliziert Alle Änderungen direkt von einem RODC – insbesondere ohne Schema-oder Konfigurations Container Änderungen – sodass Sie während der Wiederherstellung nicht dasselbe Risiko wie beschreibbare DCS darstellen. Nachdem alle beschreibbaren DCS wieder hergestellt und online geschaltet wurden, sollten Sie alle RODCs neu erstellen.  
-  
-RODCs erlauben weiterhin den Zugriff auf lokale Ressourcen, die auf den jeweiligen Standorten zwischengespeichert werden, während die Wiederherstellungs Vorgänge parallel ausgeführt werden. Für lokale Ressourcen, die nicht auf dem RODC zwischengespeichert werden, werden Authentifizierungsanforderungen an einen beschreibbaren Domänen Controller weitergeleitet. Diese Anforderungen schlagen fehl, da beschreibbare DCS offline sind. Einige Vorgänge, z. b. Kenn Wort Änderungen, funktionieren auch erst, nachdem Sie beschreibbare DCS wieder hergestellt haben.  
-  
-Wenn Sie eine Hub-und Sprachnetzwerk Architektur verwenden, können Sie sich zunächst auf die Wiederherstellung der beschreibbaren DCS in den Hub-Standorten konzentrieren. Später können Sie die RODCs an Remote Standorten neu erstellen.  
-  
+In einer großen Gesamtstruktur, die über mehrere Standorte verteilt ist, kann es schwierig sein, sicherzustellen, dass alle beschreibbaren DCS heruntergefahren werden. Aus diesem Grund sind die Wiederherstellungsschritte – beispielsweise das Zurücksetzen des Computer Kontos und des krbtgt-Kontos, zusätzlich zur Metadatenbereinigung – so konzipiert, dass sichergestellt wird, dass die wiederhergestellten Schreib baren DCS nicht mit gefährlichen beschreibbaren DCS repliziert werden (Falls einige in der Gesamtstruktur noch online sind).
+
+Allerdings können Sie nur, wenn Sie schreibgeschützte DCS offline nehmen, sicherstellen, dass die Replikation nicht erfolgt. Daher sollten Sie nach Möglichkeit eine Remote Verwaltungs Technologie bereitstellen, mit der Sie die beschreibbaren DCS während der Wiederherstellung der Gesamtstruktur Herunterfahren und physisch isolieren können.
+
+RODCs können weiterhin ausgeführt werden, während beschreibbare DCS offline sind. Kein anderer Domänen Controller repliziert Alle Änderungen direkt von einem RODC – insbesondere ohne Schema-oder Konfigurations Container Änderungen – sodass Sie während der Wiederherstellung nicht dasselbe Risiko wie beschreibbare DCS darstellen. Nachdem alle beschreibbaren DCS wieder hergestellt und online geschaltet wurden, sollten Sie alle RODCs neu erstellen.
+
+RODCs erlauben weiterhin den Zugriff auf lokale Ressourcen, die auf den jeweiligen Standorten zwischengespeichert werden, während die Wiederherstellungs Vorgänge parallel ausgeführt werden. Für lokale Ressourcen, die nicht auf dem RODC zwischengespeichert werden, werden Authentifizierungsanforderungen an einen beschreibbaren Domänen Controller weitergeleitet. Diese Anforderungen schlagen fehl, da beschreibbare DCS offline sind. Einige Vorgänge, z. b. Kenn Wort Änderungen, funktionieren auch erst, nachdem Sie beschreibbare DCS wieder hergestellt haben.
+
+Wenn Sie eine Hub-und Sprachnetzwerk Architektur verwenden, können Sie sich zunächst auf die Wiederherstellung der beschreibbaren DCS in den Hub-Standorten konzentrieren. Später können Sie die RODCs an Remote Standorten neu erstellen.
+
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Wiederherstellung der AD-Gesamtstruktur: Voraussetzungen](AD-Forest-Recovery-Prerequisties.md)  
-- [AD-Gesamtstruktur Wiederherstellung: Entwerfen eines benutzerdefinierten Wiederherstellungs Plans](AD-Forest-Recovery-Devising-a-Plan.md)  
+- [Wiederherstellung der AD-Gesamtstruktur: Voraussetzungen](AD-Forest-Recovery-Prerequisties.md)
+- [AD-Gesamtstruktur Wiederherstellung: Entwerfen eines benutzerdefinierten Wiederherstellungs Plans](AD-Forest-Recovery-Devising-a-Plan.md)
 - [AD-Gesamtstruktur Wiederherstellung: Identifizieren des Problems](AD-Forest-Recovery-Identify-the-Problem.md)
 - [AD-Gesamtstruktur Wiederherstellung: Bestimmen der Wiederherstellung](AD-Forest-Recovery-Determine-how-to-Recover.md)
-- [AD-Gesamtstruktur Wiederherstellung: Ausführen der ersten Wiederherstellung](AD-Forest-Recovery-Perform-initial-recovery.md)  
-- [Wiederherstellung der AD-Gesamtstruktur: Verfahren](AD-Forest-Recovery-Procedures.md)  
-- [AD-Gesamtstruktur Wiederherstellung: häufig gestellte Fragen](AD-Forest-Recovery-FAQ.md)  
-- [Wiederherstellung der AD-Gesamtstruktur: Wiederherstellen einer einzelnen Domäne innerhalb einer Gesamtstruktur mit mehreren](AD-Forest-Recovery-Single-Domain-in-Multidomain-Recovery.md)  
-- [Active Directory-Gesamtstruktur Wiederherstellung mit Windows Server 2003-Domänen Controllern](AD-Forest-Recovery-Windows-Server-2003.md)  
+- [AD-Gesamtstruktur Wiederherstellung: Ausführen der ersten Wiederherstellung](AD-Forest-Recovery-Perform-initial-recovery.md)
+- [Wiederherstellung der AD-Gesamtstruktur: Verfahren](AD-Forest-Recovery-Procedures.md)
+- [AD-Gesamtstruktur Wiederherstellung: häufig gestellte Fragen](AD-Forest-Recovery-FAQ.md)
+- [Wiederherstellung der AD-Gesamtstruktur: Wiederherstellen einer einzelnen Domäne innerhalb einer Gesamtstruktur mit mehreren](AD-Forest-Recovery-Single-Domain-in-Multidomain-Recovery.md)
+- [Active Directory-Gesamtstruktur Wiederherstellung mit Windows Server 2003-Domänen Controllern](AD-Forest-Recovery-Windows-Server-2003.md)

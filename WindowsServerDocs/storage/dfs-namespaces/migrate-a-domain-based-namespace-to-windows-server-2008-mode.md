@@ -2,18 +2,16 @@
 title: Migrieren Sie einen domänenbasierten Namespace zum Windows Server 2008-Modus
 description: In diesem Artikel wird beschrieben, wie Sie einen domänenbasierten Namespace zum Windows Server 2008-Modus migrieren.
 ms.date: 6/5/2017
-ms.prod: windows-server
-ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 3aa7743773a8a6e9ed22c0f626c2c6a0dbafce56
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: a7326584e2889fc0fd451b56ca4af065040f408d
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85475467"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87942274"
 ---
 # <a name="migrate-a-domain-based-namespace-to-windows-server-2008-mode"></a>Migrieren eines domänenbasierten Namespace zum Windows Server 2008-Modus
 
@@ -53,6 +51,6 @@ Wenn Sie einen domänenbasierten Namespace vom Windows 2000-Server Modus zum Win
     > [!NOTE]
     > Sie können Namespace Server hinzufügen, bevor Sie den Namespace importieren. Dies bewirkt jedoch, dass die Namespace Server die Metadaten für den Namespace inkrementell herunterladen, anstatt den gesamten Namespace nach dem Hinzufügen als Namespace Server sofort herunterzuladen.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 -   [Bereitstellen von DFS-Namespaces](deploying-dfs-namespaces.md)
 -   [Auswählen eines Namespacetyps](choose-a-namespace-type.md)

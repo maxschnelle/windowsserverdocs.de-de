@@ -1,20 +1,18 @@
 ---
 title: In der Windows-Authentifizierung verwendete Gruppenrichtlinien
 description: Windows Server-Sicherheit
-ms.prod: windows-server
-ms.technology: security-windows-auth
 ms.topic: article
 ms.assetid: 9e237f89-45b1-4a4e-9b72-11dc7d6a470b
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 9cbf10e9ebce5bbe0865f28001d0c505b42c9742
-ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
+ms.openlocfilehash: 2735474c9c993dc132ab902a6fe828ee4aa42972
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87517995"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87942397"
 ---
 # <a name="group-policy-settings-used-in-windows-authentication"></a>In der Windows-Authentifizierung verwendete Gruppenrichtlinien
 
@@ -60,7 +58,7 @@ In der folgenden Tabelle sind die für die-Authentifizierung relevanten Richtlin
 |**STRG + ALT + ENTF-Optionen**|Computerkonfiguration\Administrative Vorlagen\Windows-komponents\strg + ALT + ENTF-Optionen|Diese Richtlinien Einstellungen wirken sich auf die Darstellung von und den Zugriff auf Funktionen auf der Anmelde Benutzeroberfläche (sicherer Desktop) aus, z. b. Task-Manager und die Tastatursperre des Computers.|
 |**Anmelden**|Computerkonfiguration\Administrative Vorlagen\Windows-komponents\logon|Mit diesen Richtlinien Einstellungen wird festgelegt, ob oder welche Prozesse ausgeführt werden können, wenn sich der Benutzer anmeldet.|
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 [Windows-Authentifizierung: Technische Übersicht](windows-authentication-technical-overview.md)
 
 

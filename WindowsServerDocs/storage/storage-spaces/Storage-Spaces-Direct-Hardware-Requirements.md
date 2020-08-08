@@ -1,20 +1,18 @@
 ---
 title: Hardwareanforderungen für direkte Speicherplätze
-ms.prod: windows-server
 description: Mindesthardwareanforderungen zum Testen von „Direkte Speicherplätze“.
 ms.author: eldenc
 manager: eldenc
-ms.technology: storage-spaces
 ms.topic: article
 author: eldenchristensen
 ms.date: 07/24/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 45ef438d58c9d36275f2e7a32ce93a383bd21a70
-ms.sourcegitcommit: de8fea497201d8f3d995e733dfec1d13a16cb8fa
+ms.openlocfilehash: 8c53179f32f0e6837297859413fa0cb88d66a0d2
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87864275"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87961124"
 ---
 # <a name="storage-spaces-direct-hardware-requirements"></a>Hardwareanforderungen für „Direkte Speicherplätze“
 
@@ -47,7 +45,7 @@ Außerdem gelten die folgenden Anforderungen:
 - Intel Nehalem oder höher kompatibler Prozessor; noch
 - Mit AMD epyc oder höher kompatibler Prozessor
 
-## <a name="memory"></a>Memory
+## <a name="memory"></a>Arbeitsspeicher
 
 - Arbeitsspeicher für Windows Server, VMS und andere apps oder Arbeits Auslastungen; ZZ
 - 4 GB RAM pro Terabyte (TB) der Cache Laufwerks Kapazität auf jedem Server, für direkte Speicherplätze-Metadaten
@@ -60,19 +58,19 @@ Außerdem gelten die folgenden Anforderungen:
 
 ## <a name="networking"></a>Netzwerk
 
-Direkte Speicherplätze erfordert eine zuverlässige Netzwerkverbindung mit hoher Bandbreite und geringer Latenz zwischen den einzelnen Knoten.  
+Direkte Speicherplätze erfordert eine zuverlässige Netzwerkverbindung mit hoher Bandbreite und geringer Latenz zwischen den einzelnen Knoten.
 
 Minimale Verbindungs Verbindung für kleinen 2-3-Knoten
 - Netzwerkschnittstellenkarte (NIC) mit 10 Gbit/s oder schneller
 - Zwei oder mehr Netzwerkverbindungen von jedem Knoten, der für Redundanz und Leistung empfohlen wird
 
-Empfohlene Interverbindung für hohe Leistung, Skalierbarkeit oder bereit Stellungen von 4 und höher 
+Empfohlene Interverbindung für hohe Leistung, Skalierbarkeit oder bereit Stellungen von 4 und höher
 - NICs, die RDMA (Remote Direct Memory Access), IWarp (empfohlen) oder ROCE sind
 - Zwei oder mehr Netzwerkverbindungen von jedem Knoten, der für Redundanz und Leistung empfohlen wird
 - Netzwerkkarte mit 25 Gbit/s oder schneller
 
 Umgeschaltete oder switchlose Knoten Verbindungen
-- Umgestellt: Netzwerk Switches müssen ordnungsgemäß für die Handhabung der Bandbreite und des Netzwerk Typs konfiguriert werden.  Wenn Sie RDMA verwenden, das das ROCE-Protokoll implementiert, ist die Netzwerkgeräte-und Switchkonfiguration noch wichtiger. 
+- Umgestellt: Netzwerk Switches müssen ordnungsgemäß für die Handhabung der Bandbreite und des Netzwerk Typs konfiguriert werden.  Wenn Sie RDMA verwenden, das das ROCE-Protokoll implementiert, ist die Netzwerkgeräte-und Switchkonfiguration noch wichtiger.
 - Switchless: Knoten können mithilfe direkter Verbindungen miteinander verbunden werden, sodass die Verwendung eines Schalters vermieden wird.  Es ist erforderlich, dass jeder Knoten über eine direkte Verbindung mit allen anderen Knoten des Clusters verfügt.
 
 

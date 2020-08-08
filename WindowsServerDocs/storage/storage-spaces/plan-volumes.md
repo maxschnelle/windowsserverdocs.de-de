@@ -1,20 +1,18 @@
 ---
 ms.assetid: 342173ca-4e10-44f4-b2c9-02a6c26f7a4a
 title: Planen von Volumes in direkte Speicherplätze
-ms.prod: windows-server
 ms.author: cosdar
 manager: eldenc
-ms.technology: storage-spaces
 ms.topic: article
 author: cosmosdarwin
 ms.date: 06/28/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: d5c45b68f18fe3126867a9b6608b0911bb3f63b2
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: dcc98fba7194da322f9fc97b67eb43d481f50133
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85474757"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87971147"
 ---
 # <a name="planning-volumes-in-storage-spaces-direct"></a>Planen von Volumes in direkte Speicherplätze
 
@@ -22,22 +20,22 @@ ms.locfileid: "85474757"
 
 Dieses Thema enthält Anleitungen zum Planen von Volumes in direkte Speicherplätze, um die Leistungs-und Kapazitätsanforderungen ihrer Arbeits Auslastungen zu erfüllen, einschließlich der Auswahl des Dateisystems, des resilienztyps und der Größe.
 
-## <a name="review-what-are-volumes"></a>Review: Was sind Volumes?
+## <a name="review-what-are-volumes"></a>Überprüfung: Was sind Volumes?
 
-In Volumes platzieren Sie die Dateien, die ihre Workloads benötigen, z. b. VHD-oder vhdx-Dateien für virtuelle Hyper-V-Computer. Für Volumes werden die Laufwerke im Speicherpool kombiniert, um die Fehlertoleranz, Skalierbarkeit und Leistungsvorteile von „Direkte Speicherplätze“ zu erhalten.
+In Volumes ordnen Sie die Dateien an, die von Ihren Workloads benötigt werden, z. B. VHD- oder VHDX-Dateien für virtuelle Hyper-V-Computer. Für Volumes werden die Laufwerke im Speicherpool kombiniert, um die Fehlertoleranz, Skalierbarkeit und Leistungsvorteile von „Direkte Speicherplätze“ zu erhalten.
 
    >[!NOTE]
-   > In der Dokumentation für direkte Speicherplätze wird der Begriff "Volume" verwendet, um gemeinsam auf das Volume und den virtuellen Datenträger zu verweisen, einschließlich der Funktionen, die von anderen integrierten Windows-Features wie freigegebenen Clustervolumes (CSV) und Refs bereitgestellt werden. Das Verständnis dieser Unterschiede in der Implementierungs Ebene ist nicht erforderlich, um direkte Speicherplätze erfolgreich zu planen und bereitzustellen.
+   > In der gesamten Dokumentation für „Direkte Speicherplätze“ verwenden wir den Begriff „Volume“, um sowohl auf das Volume als auch auf den zugrunde liegenden virtuellen Datenträger zu verweisen – einschließlich der Funktionalität, die von anderen integrierten Windows-Features, z. B. freigegebenen Clustervolumes (Cluster Shared Volumes, CSV) und ReFS, bereitgestellt wird. Eine genaue Kenntnis dieser Unterschiede auf Implementierungsebene ist nicht erforderlich, um „Direkte Speicherplätze“ erfolgreich planen und bereitstellen zu können.
 
-![Was sind Volumes?](media/plan-volumes/what-are-volumes.png)
+![what-are-volumes](media/plan-volumes/what-are-volumes.png)
 
-Alle Server im Cluster können gleichzeitig auf alle Volumes zugreifen. Nach der Erstellung werden Sie auf allen Servern unter " **c:\ClusterStorage \\ ** " angezeigt.
+Auf alle Volumes kann von allen Servern des Clusters gleichzeitig zugegriffen werden. Nach der Erstellung werden sie auf allen Servern unter **C:\ClusterStorage\\** angezeigt.
 
-![CSV-Folder-Bildschirmfoto](media/plan-volumes/csv-folder-screenshot.png)
+![csv-folder-screenshot](media/plan-volumes/csv-folder-screenshot.png)
 
-## <a name="choosing-how-many-volumes-to-create"></a>Auswählen, wie viele Volumes erstellt werden sollen
+## <a name="choosing-how-many-volumes-to-create"></a>Auswählen der Anzahl zu erstellender Volumes
 
-Es wird empfohlen, die Anzahl der Volumes um ein Vielfaches der Anzahl der Server in Ihrem Cluster zu übernehmen. Wenn Sie z. b. über vier Server verfügen, kommt es zu einer konsistenten Leistung mit vier Gesamt Volumes als 3 oder 5. Dadurch kann der Cluster das Volume "Ownership" verteilen (ein Server verarbeitet die metadatenorchestrierung für jedes Volume) gleichmäßig zwischen den Servern.
+Wir empfehlen Ihnen, als Anzahl von Volumes ein Vielfaches der Anzahl von Servern Ihres Clusters zu wählen. Wenn Sie beispielsweise vier Server verwenden, erzielen Sie mit vier Volumes eine einheitlichere Leistung als mit drei oder fünf. Der Cluster kann den „Volumebesitz“ (ein Server führt die Metadatenorchestrierung für jedes Volume durch) dann gleichmäßig auf die Server verteilen.
 
 Es wird empfohlen, die Gesamtanzahl der Volumes auf Folgendes zu beschränken:
 
@@ -47,82 +45,82 @@ Es wird empfohlen, die Gesamtanzahl der Volumes auf Folgendes zu beschränken:
 
 ## <a name="choosing-the-filesystem"></a>Auswählen des Dateisystems
 
-Wir empfehlen die Verwendung des neuen [robusten Dateisystems (Refs)](../refs/refs-overview.md) für direkte Speicherplätze. Refs ist das wichtigste Dateisystem, das für die Virtualisierung entwickelt wurde und viele Vorteile bietet, einschließlich dramatischer Leistungs Beschleunigung und integrierter Schutz vor Daten Beschädigung. Es unterstützt fast alle wichtigen NTFS-Features, einschließlich der Datendeduplizierung in Windows Server, Version 1709 und höher. Weitere Informationen finden Sie in der [Vergleichstabelle](../refs/refs-overview.md#feature-comparison) zu Refs-Features.
+Wir empfehlen Ihnen die Verwendung des neuen [resilienten Dateisystems (Resilient File System, ReFS)](../refs/refs-overview.md) für „Direkte Speicherplätze“. ReFS ist ein Dateisystem, das speziell für die Virtualisierung entwickelt wurde. Es bietet viele Vorteile, z. B. erhebliche Leistungsverbesserungen und integrierter Schutz vor Datenbeschädigung. Es unterstützt fast alle wichtigen NTFS-Features, einschließlich der Datendeduplizierung in Windows Server, Version 1709 und höher. Ausführliche Informationen finden Sie in der [Tabelle mit dem Featurevergleich](../refs/refs-overview.md#feature-comparison) für ReFS.
 
-Wenn für ihre Arbeitsauslastung ein Feature erforderlich ist, das von refs noch nicht unterstützt wird, können Sie stattdessen NTFS verwenden.
+Falls Sie für Ihre Workload ein Feature benötigen, das von ReFS noch nicht unterstützt wird, können Sie stattdessen NTFS verwenden.
 
    > [!TIP]
-   > Volumes mit unterschiedlichen Dateisystemen können im gleichen Cluster nebeneinander vorhanden sein.
+   > Volumes mit unterschiedlichen Dateisystemen können in demselben Cluster parallel vorhanden sein.
 
-## <a name="choosing-the-resiliency-type"></a>Auswählen des resilienztyps
+## <a name="choosing-the-resiliency-type"></a>Auswählen des Resilienztyps
 
 Volumes unter „Direkte Speicherplätze“ bieten Resilienz als Schutz vor Hardwareproblemen, z. B. Laufwerks- oder Serverfehler, und ermöglichen eine ununterbrochene Verfügbarkeit bei der Serverwartung, z. B. Softwareupdates.
 
    > [!NOTE]
-   > Welche resilienztypen Sie auswählen können, ist unabhängig davon, welche Arten von Laufwerken Sie haben.
+   > Welche Resilienztypen Sie auswählen können, ist unabhängig davon, welche Laufwerkstypen Sie verwenden.
 
 ### <a name="with-two-servers"></a>Mit zwei Servern
 
-Mit zwei Servern im Cluster können Sie die bidirektionale Spiegelung verwenden. Wenn Sie Windows Server 2019 ausführen, können Sie auch die Möglichkeit zur Ausfallsicherheit verwenden.
+Bei zwei Servern im Cluster können Sie die Zwei-Wege-Spiegelung verwenden. Wenn Sie Windows Server 2019 ausführen, können Sie auch die geschachtelte Resilienz nutzen.
 
-Die bidirektionale Spiegelung speichert zwei Kopien aller Daten, eine Kopie auf den Laufwerken auf den einzelnen Servern. Die Speichereffizienz beträgt 50% – um 1 TB Daten zu schreiben, benötigen Sie mindestens 2 TB physische Speicherkapazität im Speicherpool. Die bidirektionale Spiegelung kann einen Hardwarefehler auf sichere Weise tolerieren (ein Server oder Laufwerk).
+Bei der Zwei-Wege-Spiegelung werden zwei Kopien aller Daten beibehalten (eine Kopie auf dem Laufwerk jedes Servers). Die Speichereffizienz beträgt 50% – um 1 TB Daten zu schreiben, benötigen Sie mindestens 2 TB physische Speicherkapazität im Speicherpool. Bei der Zwei-Wege-Spiegelung kann jeweils problemlos ein Hardwarefehler toleriert werden (ein Server oder Laufwerk).
 
 ![Zwei-Wege-Spiegelung](media/plan-volumes/two-way-mirror.png)
 
-Geschachtelte Resilienz (nur unter Windows Server 2019 verfügbar) bietet datenresilienz zwischen Servern mit bidirektionaler Spiegelung und erhöht dann die Resilienz innerhalb eines Servers mit bidirektionaler Spiegelung oder einer Spiegel beschleunigten Parität. Die Schachtelung bietet Daten Resilienz, selbst wenn ein Server neu gestartet oder nicht verfügbar ist. Die Speichereffizienz beträgt 25% mit einer gedugten bidirektionalen Spiegelung und ca. 35-40% für eine gespiegelte, in der Spiegelung beschleunigte Parität. Die geschlagene Resilienz kann zwei Hardwarefehler auf sichere Weise tolerieren (zwei Laufwerke oder ein Server und ein Laufwerk auf dem verbleibenden Server). Aufgrund dieser zusätzlichen Daten Resilienz wird empfohlen, dass Sie bei der Bereitstellung von zwei Servern, wenn Sie Windows Server 2019 ausführen, die Sicherheit bei der Bereitstellung von Daten in der Produktionsumgebung in der Produktionsumgebung verwenden. Weitere Informationen finden Sie unter in der [nsted Resilienz](nested-resiliency.md).
+Die geschachtelte Resilienz (nur unter Windows Server 2019 verfügbar) ermöglicht die Datenresilienz zwischen Servern mit Zwei-Wege-Spiegelung und fügt innerhalb eines Servers dann Resilienz per Zwei-Wege-Spiegelung oder Parität mit Beschleunigung per Spiegelung hinzu. Die Schachtelung ermöglicht auch dann Datenresilienz, wenn ein Server neu gestartet wird oder nicht verfügbar ist. Die Speichereffizienz beträgt 25% mit einer gedugten bidirektionalen Spiegelung und ca. 35-40% für eine gespiegelte, in der Spiegelung beschleunigte Parität. Bei der geschachtelten Resilienz können jeweils zwei Hardwarefehler toleriert werden (zwei Laufwerke oder ein Server und ein Laufwerk auf dem verbleibenden Server). Aufgrund dieser zusätzlichen Resilienz empfehlen wir Ihnen die Verwendung der geschachtelten Resilienz in Produktionsbereitstellungen mit Clustern mit zwei Servern, wenn Sie Windows Server 2019 ausführen. Weitere Informationen finden Sie unter [Geschachtelte Resilienz](nested-resiliency.md).
 
-![Gespiegelte gespiegelte Spiegelung](media/nested-resiliency/nested-mirror-accelerated-parity.png)
+![Geschachtelte Parität mit Beschleunigung per Spiegelung](media/nested-resiliency/nested-mirror-accelerated-parity.png)
 
 ### <a name="with-three-servers"></a>Mit drei Servern
 
-Mit drei Servern sollten Sie eine drei-Wege-Spiegelung verwenden, um die Fehlertoleranz und die Leistung zu verbessern. Die drei-Wege-Spiegelung speichert drei Kopien aller Daten, eine Kopie auf den Laufwerken auf den einzelnen Servern. Die Speichereffizienz beträgt 33,3% – um 1 TB Daten zu schreiben, benötigen Sie im Speicherpool mindestens 3 TB physischer Speicherkapazität. Die drei-Wege-Spiegelung kann [jeweils mindestens zwei Hardwareprobleme (Laufwerk oder Server)](storage-spaces-fault-tolerance.md#examples)sicher tolerieren. Wenn zwei Knoten nicht mehr verfügbar sind, verliert der Speicherpool das Quorum, da 2/3 der Datenträger nicht verfügbar sind und die virtuellen Datenträger nicht zugänglich sind. Ein Knoten kann jedoch Herunterfahren, und ein oder mehrere Datenträger auf einem anderen Knoten können fehlschlagen, und die virtuellen Datenträger bleiben online. Wenn Sie beispielsweise einen Server neu starten und plötzlich ein anderes Laufwerk bzw. ein Server ausfällt, bleiben alle Daten geschützt und sind ohne Unterbrechung zugänglich.
+Bei drei Servern sollten Sie die Drei-Wege-Spiegelung verwenden, um eine bessere Fehlertoleranz und Leistung zu erzielen. Bei der Drei-Wege-Spiegelung werden drei Kopien aller Daten beibehalten (eine Kopie auf dem Laufwerk jedes Servers). Die Speichereffizienz beträgt 33,3% – um 1 TB Daten zu schreiben, benötigen Sie im Speicherpool mindestens 3 TB physischer Speicherkapazität. Bei der Drei-Wege-Spiegelung können [mindestens zwei gleichzeitige Hardwareprobleme (Laufwerk oder Server)](storage-spaces-fault-tolerance.md#examples) problemlos toleriert werden. Wenn zwei Knoten ausfallen, geht das Quorum für den Speicherpool verloren, weil zwei Drittel der Datenträger nicht verfügbar sind und der Zugriff auf die virtuellen Datenträger nicht möglich ist. Die virtuellen Datenträger bleiben aber online, wenn ein Knoten ausfällt und ein oder mehrere Datenträger auf einem anderen Knoten ausfallen. Wenn Sie beispielsweise einen Server neu starten und plötzlich ein anderes Laufwerk bzw. ein Server ausfällt, bleiben alle Daten geschützt und sind ohne Unterbrechung zugänglich.
 
 ![Drei-Wege-Spiegelung](media/plan-volumes/three-way-mirror.png)
 
 ### <a name="with-four-or-more-servers"></a>Mit vier oder mehr Servern
 
-Mit vier oder mehr Servern können Sie für jedes Volume auswählen, ob die drei-Wege-Spiegelung, die duale Parität (häufig "Lösch Programmierung" genannt) verwendet werden soll, oder Sie können die beiden mit der Spiegel beschleunigten Parität vermischen.
+Bei vier oder mehr Servern können Sie für jedes Volume auswählen, ob die Drei-Wege-Spiegelung, die duale Parität (häufig als „Erasure Coding“ bezeichnet) oder eine Mischung dieser beiden Optionen mit Parität mit Beschleunigung per Spiegelung verwendet werden soll.
 
-Die duale Parität bietet die gleiche Fehlertoleranz wie die drei-Wege-Spiegelung, aber mit besserer Speichereffizienz. Bei vier Servern beträgt die Speichereffizienz von 50,0% – um 2 TB Daten speichern zu können, benötigen Sie 4 TB physische Speicherkapazität im Speicherpool. Dies erhöht die Speichereffizienz von 66,7% mit sieben Servern und setzt bis zu 80,0% Speichereffizienz fort. Der Kompromiss besteht darin, dass die Parität-Codierung Rechen intensiver ist, was die Leistung begrenzen kann.
+Die duale Parität bietet die gleiche Fehlertoleranz wie die Drei-Wege-Spiegelung, aber eine höhere Speichereffizienz. Bei vier Servern beträgt die Speichereffizienz von 50,0% – um 2 TB Daten speichern zu können, benötigen Sie 4 TB physische Speicherkapazität im Speicherpool. Dies erhöht die Speichereffizienz von 66,7% mit sieben Servern und setzt bis zu 80,0% Speichereffizienz fort. Der Nachteil ist, dass es zu Leistungseinbußen kommen kann, weil die Paritätscodierung rechenintensiver ist.
 
-![dual-parity](media/plan-volumes/dual-parity.png)
+![Duale Parität](media/plan-volumes/dual-parity.png)
 
-Welcher resilienztyp zu verwenden ist, hängt von den Anforderungen der Arbeitsauslastung ab. Im folgenden finden Sie eine Tabelle, in der zusammengefasst ist, welche Arbeits Auslastungen für die einzelnen resilienztypen geeignet sind, sowie die Leistung und Speichereffizienz jedes resilienztyps.
+Welcher Resilienztyp verwendet werden sollte, hängt von den Anforderungen Ihrer Workload ab. In der Tabelle unten ist zusammengefasst, welche Workloads für einen Resilienztyp jeweils gut geeignet sind. Außerdem sind die Leistung und die Speichereffizienz für jeden Resilienztyp angegeben.
 
-| Resilienztyp | Kapazitäts Effizienz | Geschwindigkeit | Arbeitsauslastungen |
+| Resilienztyp | Kapazitätseffizienz | Geschwindigkeit | Arbeitsauslastungen |
 | ------------------- | ----------------------  | --------- | ------------- |
-| **Spiegel**         | ![Speichereffizienz, die 33% anzeigt](media/plan-volumes/3-way-mirror-storage-efficiency.png)<br>Drei-Wege-Spiegelung: 33% <br>Zwei-Wege-Spiegelung: 50%     |![Leistungsanzeige 100%](media/plan-volumes/three-way-mirror-perf.png)<br> Höchste Leistung  | Virtualisierte Arbeits Auslastungen<br> Datenbanken<br>Andere hochleistungsfähige Workloads |
-| **Durch Spiegelung beschleunigte Parität** |![Speichereffizienz mit ungefähr 50%](media/plan-volumes/mirror-accelerated-parity-storage-efficiency.png)<br> Hängt von einem Anteil von Spiegelung und Parität ab | ![Leistungsanzeige ungefähr 20%](media/plan-volumes/mirror-accelerated-parity-perf.png)<br>Viel langsamer als die Spiegelung, aber bis zu doppelt so schnell wie die duale Parität<br> Beste für große sequenzielle Schreib-und Lesevorgänge | Archivierung und Sicherung<br> Virtualisierte Desktop Infrastruktur     |
-| **Duale Parität**               | ![Speichereffizienz mit ungefähr 80%](media/plan-volumes/dual-parity-storage-efficiency.png)<br>4 Server: 50% <br>16 Server: bis zu 80% | ![Leistungsanzeige ungefähr 10%](media/plan-volumes/dual-parity-perf.png)<br>Höchste e/a-Latenz & CPU-Auslastung bei Schreibvorgängen<br> Beste für große sequenzielle Schreib-und Lesevorgänge | Archivierung und Sicherung<br> Virtualisierte Desktop Infrastruktur  |
+| **Spiegel**         | ![Speichereffizienz von 33 %](media/plan-volumes/3-way-mirror-storage-efficiency.png)<br>Drei-Wege-Spiegelung: 33 % <br>Zwei-Wege-Spiegelung: 50%     |![Leistung von 100 %](media/plan-volumes/three-way-mirror-perf.png)<br> Höchste Leistung  | Virtualisierte Workloads<br> Datenbanken<br>Weitere Hochleistungsworkloads |
+| **Parität mit Beschleunigung per Spiegelung** |![Speichereffizienz von ca. 50 %](media/plan-volumes/mirror-accelerated-parity-storage-efficiency.png)<br> Abhängig von Spiegelungs- und Paritätsanteil | ![Leistung von ca. 20 %](media/plan-volumes/mirror-accelerated-parity-perf.png)<br>Deutlich langsamer als die Spiegelung, aber bis zu doppelt so schnell wie die duale Parität<br> Am besten für umfangreiche sequenzielle Schreib- und Lesevorgänge geeignet | Archivierung und Sicherung<br> Virtualisierte Desktopinfrastruktur     |
+| **Duale Parität**               | ![Speichereffizienz von ca. 80 %](media/plan-volumes/dual-parity-storage-efficiency.png)<br>4 Server: 50% <br>16 Server: bis zu 80 % | ![Leistung von ca. 10 %](media/plan-volumes/dual-parity-perf.png)<br>Höchste E/A-Latenz und CPU-Auslastung bei Schreibvorgängen<br> Am besten für umfangreiche sequenzielle Schreib- und Lesevorgänge geeignet | Archivierung und Sicherung<br> Virtualisierte Desktopinfrastruktur  |
 
-#### <a name="when-performance-matters-most"></a>Wenn die Leistung am meisten liegt
+#### <a name="when-performance-matters-most"></a>Bei hohen Leistungsanforderungen
 
-Workloads, die strenge Latenz Anforderungen aufweisen oder viele gemischte, zufällige IOPS benötigen, wie z. b. SQL Server-Datenbanken oder Leistungs relevante virtuelle Hyper-V-Computer, sollten auf Volumes ausgeführt werden, die die-Spiegelung zum Maximieren der Leistung verwenden.
+Workloads, für die hohe Latenzanforderungen gelten oder für die viele verschiedene zufällige IOPS-Vorgänge durchgeführt werden müssen, z. B. SQL Server-Datenbanken oder leistungsempfindliche virtuelle Hyper-V-Computer, sollten auf Volumes ausgeführt werden, für die die Spiegelung zum Maximieren der Leistung genutzt wird.
 
    >[!TIP]
-   > Die Spiegelung ist schneller als jeder andere Resilienztyp. Wir verwenden die Spiegelung für fast alle Leistungs Beispiele.
+   > Die Spiegelung ist schneller als alle anderen Resilienztypen. Wir verwenden die Spiegelung für nahezu alle Beispiele zur Leistung.
 
-#### <a name="when-capacity-matters-most"></a>Wenn die Kapazität die größte Rolle spielt
+#### <a name="when-capacity-matters-most"></a>Bei hohen Kapazitätsanforderungen
 
-Workloads, die selten schreiben, z. b. Data Warehouse-Daten oder "kalte" Speicher, sollten auf Volumes ausgeführt werden, die duale Parität verwenden, um die Speichereffizienz zu maximieren. Bestimmte andere Workloads, z. b. herkömmliche Dateiserver, virtuelle Desktop Infrastruktur (VDI) oder andere, die keinen großen schnellen drifteten e/a-Datenverkehr erstellen und/oder nicht die beste Leistung erfordern, können nach eigenem Ermessen auch duale Parität verwenden. Die Parität erhöht die CPU-Auslastung und die e/a-Latenz, insbesondere bei Schreibvorgängen, im Vergleich zur
+Workloads mit seltenen Schreibvorgängen, z. B. Data Warehouses oder „Cold Storage“, sollten auf Volumes ausgeführt werden, für die die duale Parität zum Maximieren der Speichereffizienz genutzt wird. Für bestimmte andere Workloads, z. B. herkömmliche Dateiserver, virtuelle Desktopinfrastruktur (VDI) oder andere, bei denen keine großen Mengen von sich schnell änderndem, zufälligem E/A-Datenverkehr anfallen oder für die nicht die höchstmögliche Leistung erforderlich ist, kann je nach Ihren Anforderungen auch die duale Parität genutzt werden. Im Vergleich zur Spiegelung kommt es bei Parität unweigerlich zu einer Erhöhung der CPU-Auslastung und E/A-Latenz, vor allem für Schreibvorgänge.
 
-#### <a name="when-data-is-written-in-bulk"></a>Wenn Daten in einem Massen Vorgang geschrieben werden
+#### <a name="when-data-is-written-in-bulk"></a>Bei Massenschreibvorgängen für Daten
 
-Workloads, die in großen, sequenziellen Durchläufen schreiben, wie z. b. Archivierungs-oder Sicherungs Ziele, haben eine weitere Option, die in Windows Server 2016 neu ist: ein Volume kann Spiegelung und duale Parität kombinieren Schreibt das Land zuerst in den gespiegelten Teil und wird später allmählich in den Paritäts Teil verschoben. Dadurch wird die Erfassung beschleunigt, und die Ressourcennutzung wird reduziert, wenn umfangreiche Schreibvorgänge eintreffen, indem die rechenintensive Paritäts Codierung über einen längeren Zeitraum ausgeführt wird. Berücksichtigen Sie bei der Größenanpassung der Teile, dass die Menge der Schreibvorgänge, die gleichzeitig ausgeführt werden (z. b. eine tägliche Sicherung), in den Spiegel Teil passt. Wenn Sie z. b. 100 GB einmal täglich erfassen, sollten Sie die Verwendung von Spiegelung für 150 GB bis 200 GB und die duale Parität für den Rest in Erwägung gezogen.
+Workloads, die in großen, sequenziellen Durchläufen schreiben, wie z. b. Archivierungs-oder Sicherungs Ziele, haben eine weitere Option, die in Windows Server 2016 neu ist: ein Volume kann Spiegelung und duale Parität kombinieren Schreibvorgänge landen zuerst im gespiegelten Teil und werden später dann allmählich in den Paritätsteil verschoben. Hierdurch wird die Erfassung beschleunigt und die Ressourcenverwendung reduziert, wenn große Schreibvorgänge auftreten, indem es ermöglicht wird, dass die rechenintensive Paritätscodierung über einen längeren Zeitraum erfolgt. Beachten Sie bei der Größenanpassung für die Teile, dass die Menge an gleichzeitig durchgeführten Schreibvorgängen (z. B. die tägliche Sicherung) gut in den Spiegelungsteil passt. Wenn Sie beispielsweise einmal täglich 100 GB erfassen, sollten Sie erwägen, die Spiegelung für 150 bis 200 GB und die duale Parität für den Rest zu verwenden.
 
-Die resultierende Speichereffizienz hängt von den Proportionen ab, die Sie auswählen. In [dieser Demo](https://www.youtube.com/watch?v=-LK2ViRGbWs&t=36m55s) finden Sie einige Beispiele.
+Die sich ergebende Speichereffizienz richtet sich nach den von Ihnen gewählten Anteilen. Einige Beispiele sind in [dieser Demo](https://www.youtube.com/watch?v=-LK2ViRGbWs&t=36m55s) enthalten.
 
    > [!TIP]
-   > Wenn Sie eine abrupte Abnahme der Schreibleistung bei der Datenerfassung beobachten, kann dies darauf hindeuten, dass der Spiegelungs Bereich nicht groß genug ist oder dass die Spiegelungs beschleunigte Parität für Ihren Anwendungsfall nicht gut geeignet ist. Wenn z. b. die Schreibleistung von 400 MB/s auf 40 MB/s sinkt, sollten Sie den Spiegel Teil erweitern oder zu einer drei-Wege-Spiegelung wechseln.
+   > Falls Sie während der Datenerfassung eine abrupte Abnahme der Schreibleistung bemerken, kann dies ein Hinweis darauf sein, dass der Spiegelungsteil nicht groß genug ist oder die Parität mit Beschleunigung per Spiegelung für Ihren Anwendungsfall nicht gut geeignet ist. Beispiel: Wenn die Schreibleistung von 400 MB/s auf 40 MB/s abnimmt, sollten Sie erwägen, den Spiegelungsteil zu erweitern oder zur Drei-Wege-Spiegelung zu wechseln.
 
-### <a name="about-deployments-with-nvme-ssd-and-hdd"></a>Informationen zu bereit Stellungen mit nvme, SSD und HDD
+### <a name="about-deployments-with-nvme-ssd-and-hdd"></a>Informationen zu Bereitstellungen mit NVMe, SSDs und HDDs
 
-Bei bereit Stellungen mit zwei Arten von Laufwerken ermöglichen die schnelleren Laufwerke das Zwischenspeichern, während die langsameren Laufwerke Kapazität bereitstellen. Dies geschieht automatisch – weitere Informationen finden Sie Untergrund Legendes [zum Cache in direkte Speicherplätze](understand-the-cache.md). In solchen bereit Stellungen befinden sich alle Volumes letztendlich auf demselben Lauftyp – die Kapazitäts Laufwerke.
+Bei Bereitstellungen mit zwei Arten von Laufwerken übernehmen die schnelleren Laufwerke die Zwischenspeicherung und die langsameren die Kapazitätsaufgaben. Dies erfolgt automatisch. Weitere Informationen finden Sie unter [Grundlegendes zum Cache in „Direkte Speicherplätze“](understand-the-cache.md). Bei Bereitstellungen dieser Art befinden sich alle Volumes letztendlich auf dem gleichen Laufwerkstyp, nämlich den Kapazitätslaufwerken.
 
-In bereit Stellungen mit allen drei Laufwerkstypen bieten nur die schnellsten Laufwerke (nvme) Zwischenspeicherung, sodass zwei Arten von Laufwerken (SSD und HDD) die Kapazität bereitstellen. Sie können für jedes Volume auswählen, ob es sich vollständig auf der SSD-Ebene befindet, vollständig auf der HDD-Ebene, oder ob es sich um die beiden Volumes handelt.
+Bei Bereitstellungen mit allen drei Laufwerkstypen übernehmen nur die schnellsten Laufwerke (NVMe) die Zwischenspeicherung, und zwei Laufwerkstypen (SSD und HDD) sind für die Kapazität zuständig. Sie können für jedes Volume auswählen, ob es sich vollständig auf der SSD-Ebene oder der HDD-Ebene befindet oder ob es übergreifend angeordnet ist.
 
    > [!IMPORTANT]
-   > Es wird empfohlen, die SSD-Ebene zu verwenden, um die Leistungs sensitiven Workloads bei allen Flash-Vorgängen zu platzieren.
+   > Wir empfehlen Ihnen, die SSD-Ebene zu verwenden, um Ihre leistungsempfindlichsten Workloads als reine Flash-Bereitstellung anzuordnen.
 
 ## <a name="choosing-the-size-of-volumes"></a>Auswählen der Größe von Volumes
 
@@ -133,50 +131,50 @@ Es wird empfohlen, die Größe der einzelnen Volumes auf Folgendes zu beschränk
 | Bis zu 32 TB         | Bis zu 64 TB         |
 
    > [!TIP]
-   > Wenn Sie eine Sicherungs Lösung verwenden, die auf dem Volumeschattenkopie-Dienst (Volume Shadow Copy Service, VSS) und dem Volsnap-Softwareanbieter basiert – wie bei Dateiserver-Arbeits Auslastungen üblich – wird die Leistung und Zuverlässigkeit durch die Beschränkung der Volumegröße auf 10 Sicherungslösungen, die die neuere Hyper-V-RCT-API und/oder das Klonen von refs-Blöcken und/oder die nativen SQL-Sicherungs-APIs verwenden, können bis zu 32 TB und darüber hinaus ausführen.
+   > Bei Verwendung einer Sicherungslösung, die auf dem Volumeschattenkopie-Dienst (VSS) und dem Softwareanbieter Volsnap basiert – wie bei Dateiserverworkloads üblich –, können Leistung und Zuverlässigkeit durch die Begrenzung der Volumegröße auf 10 TB verbessert werden. Sicherungslösungen, für die die neuere Hyper-V RCT-API, das Klonen von ReFS-Blöcken oder die nativen SQL-Sicherungs-APIs genutzt werden, weisen bei bis zu 32 TB und darüber hinaus eine gute Leistung auf.
 
-### <a name="footprint"></a>Bruch
+### <a name="footprint"></a>Speicherbedarf
 
-Die Größe eines Volumes bezieht sich auf seine nutzbare Kapazität, die Menge der Daten, die gespeichert werden können. Dies wird durch den **-size-** Parameter des Cmdlets **New-Volume** bereitgestellt und dann in der **size** -Eigenschaft angezeigt, wenn Sie das **Get-Volume** -Cmdlet ausführen.
+Die Größe eines Volumes bezieht sich auf die nutzbare Kapazität – also die Daten, die gespeichert werden können. Hierfür wird der Parameter **-Size** des Cmdlets **New-Volume** verwendet. Die Größe wird dann in der **Size**-Eigenschaft angezeigt, wenn Sie das Cmdlet **Get-Volume** ausführen.
 
-Die Größe unterscheidet sich vom Speicher *Bedarf*des Volumes, der gesamten physischen Speicherkapazität, die für den Speicherpool belegt ist. Der Speicherbedarf hängt vom resilienztyp ab. Beispielsweise verfügen Volumes, die die drei-Wege-Spiegelung verwenden, über einen dreidimensionalen Speicherbedarf.
+Die Größe ist etwas anderes als der *Speicherbedarf* des Volumes. Der Speicherbedarf ist die gesamte physische Speicherkapazität, die im Speicherpool dafür genutzt wird. Der Speicherbedarf richtet sich jeweils nach dem Resilienztyp. Für Volumes mit Drei-Wege-Spiegelung wird beispielsweise ein Speicherbedarf in Höhe ihrer dreifachen Größe benötigt.
 
-Die Spuren Ihrer Volumes müssen in den Speicherpool passen.
+Der Speicherpool muss ausreichend groß sein, um den Speicherbedarf Ihrer Volumes abdecken zu können.
 
-![Größe und Speicherbedarf](media/plan-volumes/size-versus-footprint.png)
+![size-versus-footprint](media/plan-volumes/size-versus-footprint.png)
 
-### <a name="reserve-capacity"></a>Kapazität reservieren
+### <a name="reserve-capacity"></a>Reservekapazität
 
-Wenn Sie einige Kapazität im Speicherpool nicht zuordnen lassen, werden Volumes Speicherplatz zur Reparatur von "direkt" nach einem Ausfall der Laufwerke bereitgestellt, wodurch die Datensicherheit und die Leistung verbessert werden. Wenn ausreichend Kapazität vorhanden ist, kann eine sofortige, direkte und parallele Reparatur Volumes wieder in vollständiger Resilienz wiederherstellen, auch wenn die fehlerhaften Laufwerke ersetzt wurden. Dies geschieht automatisch.
+Wenn ein Teil der Kapazität im Speicherpool nicht belegt wird, ist für Volumes nach Laufwerksausfällen Platz für direkte Reparaturen, und dies führt zu einer Verbesserung der Datensicherheit und Leistung. Wenn ausreichende Kapazität vorhanden ist, kann für Volumes durch eine sofortige, direkte, parallele Reparatur die Resilienz vollständig wiederhergestellt werden, noch bevor die ausgefallenen Laufwerke ausgetauscht werden. Dies erfolgt automatisch.
 
-Es wird empfohlen, das Äquivalent eines Kapazitäts Laufwerks pro Server und bis zu 4 Laufwerken zu reservieren. Sie können sich nach eigenem Ermessen besser reservieren, aber durch diese minimale Empfehlung wird gewährleistet, dass eine sofortige, direkte und parallele Reparatur nach dem Ausfall eines beliebigen Laufwerks erfolgreich durchgeführt werden kann.
+Wir empfehlen Ihnen, pro Server ein Kapazitätslaufwerk zu reservieren (bis zu vier Laufwerke). Sie können bei Bedarf auch mehr Laufwerke reservieren. Mit dieser Empfehlung zur Mindestkonfiguration wird aber sichergestellt, dass die sofortige, direkte, parallele Reparatur nach dem Ausfall eines Laufwerks erfolgreich durchgeführt werden kann.
 
-![reserve](media/plan-volumes/reserve.png)
+![Reserve](media/plan-volumes/reserve.png)
 
-Wenn Sie z. b. über zwei Server verfügen und 1 TB Kapazitäts Laufwerke verwenden, legen Sie 2 x 1 = 2 TB des Pools als Reserve fest. Wenn Sie über drei Server und 1 TB Kapazitäts Laufwerke verfügen, legen Sie 3 x 1 = 3 TB als Reserve fest. Wenn Sie über vier oder mehr Server und Kapazitäts Laufwerke von 1 TB verfügen, legen Sie 4 x 1 = 4 TB als Reserve fest.
+Wenn Sie beispielsweise zwei Server und Kapazitätslaufwerke mit 1 TB verwenden, sollten Sie zwei Terabyte (2 x 1 = 2 TB) des Pools als Reserve bereitstellen. Bei drei Servern und Kapazitätslaufwerken mit 1 TB sind drei Terabyte (3 x 1 = 3 TB) als Reserve ratsam. Bei vier oder mehr Servern und Kapazitätslaufwerken mit 1 TB sind vier Terabyte (4 x 1 = 4 TB) als Reserve zu empfehlen.
 
    >[!NOTE]
-   > In Clustern mit Laufwerken aller drei Typen (nvme + SSD + HDD) empfiehlt es sich, das Äquivalent von einem SSD plus einer HDD pro Server, jeweils bis zu 4 Laufwerke, zu reservieren.
+   > Bei Clustern mit allen drei Laufwerkstypen (NVMe, SSDs und HDDs) lautet die Empfehlung, pro Server eine SSD und eine HDD zu reservieren (jeweils bis zu vier Laufwerke).
 
 ## <a name="example-capacity-planning"></a>Beispiel: Kapazitätsplanung
 
-Beachten Sie 1 4-Server Cluster. Jeder Server verfügt über einige Cache Laufwerke Plus sechzehn 2-TB-Laufwerke für die Kapazität.
+Stellen Sie sich einen Cluster mit vier Servern vor. Jeder Server verfügt über einige Cachelaufwerke sowie 16 Kapazitätslaufwerke mit jeweils 2 TB.
 
 ```
 4 servers x 16 drives each x 2 TB each = 128 TB
 ```
 
-Aus diesen 128 TB im Speicherpool haben wir vier Laufwerke oder 8 TB eingestellt, sodass direkte Reparaturen erfolgen können, ohne dass die Laufwerke nach einem Ausfall ersetzt werden müssen. Dadurch bleiben in dem Pool, mit dem wir Volumes erstellen können, 120 TB physische Speicherkapazität erhalten.
+Von diesen 128 TB im Speicherpool reservieren wir vier Laufwerke (also 8 TB), damit direkte Reparaturen durchgeführt werden können, ohne dass Zeitnot beim Austauschen von Laufwerken nach einem Ausfall besteht. Es verbleiben 120 TB an physischer Speicherkapazität im Pool, die für die Erstellung von Volumes genutzt werden kann.
 
 ```
 128 TB – (4 x 2 TB) = 120 TB
 ```
 
-Angenommen, wir benötigen unsere Bereitstellung, um einige hochaktive virtuelle Hyper-V-Computer zu hosten, aber wir verfügen auch über viele Cold Storage – alte Dateien und Sicherungen, die wir beibehalten müssen. Da wir vier Server haben, erstellen wir vier Volumes.
+Angenommen, wir benötigen unsere Bereitstellung zum Hosten von einigen sehr aktiven virtuellen Hyper-V-Computern, verfügen aber auch über eine große Menge von „Cold Storage“ (alte Dateien und Sicherungen, die beibehalten werden müssen). Da wir vier Server haben, erstellen wir vier Volumes.
 
-Fügen wir die virtuellen Computer auf die ersten beiden Volumes ein, *volume1* und *Volume2*. Wir wählen Refs als Dateisystem (für schnellere Erstellung und Prüfpunkte) und drei-Wege-Spiegelung für Resilienz, um die Leistung zu maximieren. Wir legen die Cold Storage auf den anderen beiden Volumes, *Volume 3* und *Volume 4*, ab. Wir wählen NTFS als Dateisystem (für die Datendeduplizierung) und duale Parität für Resilienz, um die Kapazität zu maximieren.
+Wir ordnen die virtuellen Computer auf den ersten beiden Volumes *Volume1* und *Volume2* an. Wir verwenden ReFS als Dateisystem (aufgrund der schnelleren Erstellung und der Prüfpunkte) und die Drei-Wege-Spiegelung zur Erzielung von Resilienz, um die Leistung zu maximieren. „Cold Storage“ ordnen wir auf den anderen beiden Volumes *Volume3* und *Volume4* an. Wir wählen NTFS als Dateisystem (für die Datendeduplizierung) und die duale Parität zur Erzielung von Resilienz, um die Kapazität zu maximieren.
 
-Es ist nicht erforderlich, dass alle Volumes die gleiche Größe haben, aber aus Gründen der Einfachheit ist es – beispielsweise, dass Sie alle 12 TB erreichen können.
+Es müssen nicht unbedingt alle Volumes die gleiche Größe haben, aber der Einfachheit halber wählen wir hier diese Vorgehensweise, indem wir beispielsweise für alle eine Größe von 12 TB festlegen.
 
 *Volume1* und *Volume2* belegen jeweils 12 TB x 33,3% Effizienz = 36 TB physischer Speicherkapazität.
 
@@ -186,21 +184,21 @@ Es ist nicht erforderlich, dass alle Volumes die gleiche Größe haben, aber aus
 36 TB + 36 TB + 24 TB + 24 TB = 120 TB
 ```
 
-Die vier Volumes passen genau auf die physische Speicherkapazität, die in unserem Pool verfügbar ist. Ragend!
+Die vier Volumes füllen genau die physische Speicherkapazität aus, die in unserem Pool verfügbar ist. Perfekt!
 
 ![Beispiel](media/plan-volumes/example.png)
 
    >[!TIP]
-   > Sie müssen nicht alle Volumes sofort erstellen. Sie können Volumes jederzeit erweitern oder später neue Volumes erstellen.
+   > Sie müssen nicht alle Volumes sofort erstellen. Es ist später jederzeit möglich, Volumes zu erweitern oder neue Volumes zu erstellen.
 
-Der Einfachheit halber werden in diesem Beispiel dezimale (Basis 10) Einheiten verwendet, d. h. 1 TB = 1 Billion Bytes. Allerdings werden Speichermengen in Windows in binären Einheiten (Basis 2) angezeigt. Beispielsweise würde jedes Laufwerk mit 2 TB in Windows als 1,82 tib angezeigt werden. Ebenso wird der Speicherpool mit 128 TB als 116,41 tib angezeigt. Dies entspricht dem erwarteten Verhalten.
+Der Einfachheit halber werden in diesem Beispiel durchgängig dezimale Einheiten (Basis 10) verwendet. Dies bedeutet dass 1 TB 1.000.000.000.000 Byte entspricht. Unter Windows werden Speichermengen dagegen als Binäreinheiten (Basis 2) angezeigt. Beispielsweise wird für 2-TB-Laufwerke unter Windows eine Größe von 1,82 TiB angegeben. Analog wird für den Speicherpool mit 128 TB eine Größe von 116,41 TiB angegeben. Dies entspricht dem erwarteten Verhalten.
 
-## <a name="usage"></a>Zweck
+## <a name="usage"></a>Verwendung
 
 Siehe [Erstellen von Volumes in direkte Speicherplätze](create-volumes.md).
 
-### <a name="additional-references"></a>Zusätzliche Referenzen
+### <a name="additional-references"></a>Weitere Verweise
 
-- [Übersicht über direkte Speicherplätze](storage-spaces-direct-overview.md)
-- [Auswählen von Laufwerken für direkte Speicherplätze](choosing-drives.md)
+- [Direkte Speicherplätze – Übersicht](storage-spaces-direct-overview.md)
+- [Auswählen von Laufwerken für „Direkte Speicherplätze“](choosing-drives.md)
 - [Fehlertoleranz und Speichereffizienz](storage-spaces-fault-tolerance.md)
