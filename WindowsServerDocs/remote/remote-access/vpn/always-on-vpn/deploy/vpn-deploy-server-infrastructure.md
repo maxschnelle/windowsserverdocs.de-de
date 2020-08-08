@@ -1,22 +1,20 @@
 ---
 title: Konfigurieren der Server Infrastruktur
 description: In diesem Schritt installieren und konfigurieren Sie die serverseitigen Komponenten, die zur Unterstützung des VPN erforderlich sind. Zu den serverseitigen Komponenten gehört das Konfigurieren der PKI für die Verteilung der Zertifikate, die von Benutzern, dem VPN-Server und dem NPS-Server verwendet werden.
-ms.prod: windows-server
-ms.technology: networking-ras
 ms.topic: article
 ms.localizationpriority: medium
 ms.author: v-tea
 author: Teresa-MOTIV
 ms.date: 08/30/2018
 ms.reviewer: deverette
-ms.openlocfilehash: 0a9d9c139c721608e9104c4943dda2664432c94d
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 31a11fa1a2991b9ee0ea70434e485cb6cdc7460f
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86955102"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87946583"
 ---
-# <a name="step-2-configure-the-server-infrastructure"></a>Schritt 2 Konfigurieren der Serverinfrastruktur
+# <a name="step-2-configure-the-server-infrastructure"></a>Schritt 2: Konfigurieren der Serverinfrastruktur
 
 >Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
@@ -26,7 +24,7 @@ ms.locfileid: "86955102"
 In diesem Schritt installieren und konfigurieren Sie die serverseitigen Komponenten, die zur Unterstützung des VPN erforderlich sind. Zu den serverseitigen Komponenten gehört das Konfigurieren der PKI für die Verteilung der Zertifikate, die von Benutzern, dem VPN-Server und dem NPS-Server verwendet werden.  Außerdem konfigurieren Sie RRAS für die Unterstützung von IKEv2-Verbindungen und den NPS-Server zum Ausführen der Autorisierung für die VPN-Verbindungen.
 
 ## <a name="configure-certificate-autoenrollment-in-group-policy"></a>Konfigurieren der automatischen Zertifikat Registrierung in Gruppenrichtlinie
-In diesem Verfahren konfigurieren Sie Gruppenrichtlinie auf dem Domänen Controller, damit Domänen Mitglieder automatisch Benutzer-und Computer Zertifikate anfordern. Auf diese Weise können VPN-Benutzer Benutzerzertifikate anfordern und abrufen, die VPN-Verbindungen automatisch authentifizieren. Ebenso ermöglicht diese Richtlinie NPS-Servern das automatische anfordern von Server Authentifizierungs Zertifikaten. 
+In diesem Verfahren konfigurieren Sie Gruppenrichtlinie auf dem Domänen Controller, damit Domänen Mitglieder automatisch Benutzer-und Computer Zertifikate anfordern. Auf diese Weise können VPN-Benutzer Benutzerzertifikate anfordern und abrufen, die VPN-Verbindungen automatisch authentifizieren. Ebenso ermöglicht diese Richtlinie NPS-Servern das automatische anfordern von Server Authentifizierungs Zertifikaten.
 
 Sie registrieren Zertifikate manuell auf VPN-Servern.
 
@@ -99,7 +97,7 @@ Da der RRAS-Server keiner Domäne beigetreten ist, kann die automatische Registr
 
 7. Wenn Sie im Fenster "Zertifizierungsstellen Liste" aufgefordert werden, wählen Sie die entsprechende Unternehmens Zertifizierungsstelle für die Zertifikat Anforderung aus.
 
-8. Kopieren Sie die neu erstellte **vpngateway. CER** -Ausgabedatei auf den RRAS-Server. 
+8. Kopieren Sie die neu erstellte **vpngateway. CER** -Ausgabedatei auf den RRAS-Server.
 
 9. Speichern oder kopieren Sie die Datei " **vpngateway. CER** " an einen ausgewählten Speicherort auf dem RRAS-Server.
 
@@ -113,7 +111,7 @@ Da der RRAS-Server keiner Domäne beigetreten ist, kann die automatische Registr
 
 12. Stellen Sie sicher, dass für den RRAS-Server ein gültiges Zertifikat mit den folgenden Eigenschaften vorhanden ist:
 
-    - **Beabsichtigte Zwecke:** Server Authentifizierung, IP-Sicherheits-IKE-zwischen 
+    - **Beabsichtigte Zwecke:** Server Authentifizierung, IP-Sicherheits-IKE-zwischen
 
     - **Zertifikat Vorlage:** [_Customer_] VPN-Server
 
@@ -125,19 +123,19 @@ Hier sehen Sie ein Beispielskript für eine Richtlinie für Zertifikat Anforderu
 >Eine Kopie des Skripts vpngateway. inf finden Sie im IP-Kit für VPN-Angebote unter dem Ordner Zertifikat Anforderungs Richtlinien. Aktualisieren Sie nur "Subject" und " \_ Continue" \_ mit kundenspezifischen Werten.
 
 ```
-[Version] 
+[Version]
 
 Signature="$Windows NT$"
 
 [NewRequest]
 Subject = "CN=vpn.contoso.com"
-Exportable = FALSE   
-KeyLength = 2048     
-KeySpec = 1          
-KeyUsage = 0xA0      
+Exportable = FALSE
+KeyLength = 2048
+KeySpec = 1
+KeyUsage = 0xA0
 MachineKeySet = True
 ProviderName = "Microsoft RSA SChannel Cryptographic Provider"
-RequestType = PKCS10 
+RequestType = PKCS10
 
 [Extensions]
 2.5.29.17 = "{text}"
@@ -203,7 +201,7 @@ Außerdem fügen Sie eine Gruppe hinzu, die VPN-Server und eine andere Gruppe mi
 
 In diesem Verfahren konfigurieren Sie eine benutzerdefinierte Client-Server-Authentifizierungs Vorlage. Diese Vorlage ist erforderlich, da Sie die Gesamtsicherheit des Zertifikats verbessern möchten, indem Sie aktualisierte Kompatibilitäts Grade auswählen und den Kryptografieanbieter der Microsoft-Plattform auswählen. Mit dieser letzten Änderung können Sie das TPM auf den Client Computern zum Sichern des Zertifikats verwenden. Eine Übersicht über das TPM finden Sie unter [Übersicht](/windows/device-security/tpm/trusted-platform-module-overview)über die Trusted Platform Module-Technologie.
 
->[!IMPORTANT] 
+>[!IMPORTANT]
 >Kryptografieanbieter für Microsoft-Plattform erfordert einen TPM-Chip, wenn Sie einen virtuellen Computer ausführen und die folgende Fehlermeldung angezeigt wird: "Es wurde kein gültiger CSP auf dem lokalen Computer gefunden". Wenn Sie versuchen, das Zertifikat manuell zu registrieren, müssen Sie "Microsoft Software Key Storage Provider" (Microsoft-Software Schlüsselspeicher-Anbieter) aktivieren und es in der richtigen Reihenfolge auf der Registerkarte "Kryptografie" in den Zertifikat Eigenschaften aktivieren.
 
 **Dringlichkeit**
@@ -215,7 +213,7 @@ In diesem Verfahren konfigurieren Sie eine benutzerdefinierte Client-Server-Auth
 3. Klicken Sie in der Konsole Zertifikat Vorlagen mit der rechten Maustaste auf **Benutzer** , und wählen Sie **Doppelte Vorlage**aus.
 
    >[!WARNING]
-   >Wählen Sie vor Schritt 10 nicht **anwenden** oder **OK** aus.  Wenn Sie diese Schaltflächen vor dem Eingeben aller Parameter auswählen, werden viele Optionen korrigiert und können nicht mehr bearbeitet werden. Wenn z. b. auf der Registerkarte **Cryptography** der _Legacy-Kryptografiespeicheranbieter_ im Feld Anbieter Kategorie angezeigt wird, wird dieser deaktiviert und verhindert weitere Änderungen. Die einzige Alternative besteht darin, die Vorlage zu löschen und neu zu erstellen.  
+   >Wählen Sie vor Schritt 10 nicht **anwenden** oder **OK** aus.  Wenn Sie diese Schaltflächen vor dem Eingeben aller Parameter auswählen, werden viele Optionen korrigiert und können nicht mehr bearbeitet werden. Wenn z. b. auf der Registerkarte **Cryptography** der _Legacy-Kryptografiespeicheranbieter_ im Feld Anbieter Kategorie angezeigt wird, wird dieser deaktiviert und verhindert weitere Änderungen. Die einzige Alternative besteht darin, die Vorlage zu löschen und neu zu erstellen.
 
 4. Führen Sie im Dialogfeld Eigenschaften der neuen Vorlage auf der Registerkarte **Allgemein** die folgenden Schritte aus:
 
@@ -234,7 +232,7 @@ In diesem Verfahren konfigurieren Sie eine benutzerdefinierte Client-Server-Auth
    4. Aktivieren Sie in **Berechtigungen für VPN-Benutzer**in der Spalte **zulassen** die Kontroll **Kästchen registrieren und** **automatisch registrieren** .
 
       >[!TIP]
-      >Stellen Sie sicher, dass das Kontrollkästchen Lesen aktiviert ist. Anders ausgedrückt: Sie benötigen die Leseberechtigungen für die Registrierung. 
+      >Stellen Sie sicher, dass das Kontrollkästchen Lesen aktiviert ist. Anders ausgedrückt: Sie benötigen die Leseberechtigungen für die Registrierung.
 
    5. Klicken Sie unter **Gruppen-oder Benutzernamen**auf **Domänen Benutzer**, und wählen Sie dann **Entfernen**aus.
 
@@ -298,7 +296,7 @@ In die Domäne eingebundenen VPN-Servern
     2. Wählen Sie im Dialogfeld **Anwendungsrichtlinien Erweiterung bearbeiten** die Option **Hinzufügen**aus.
 
     3. Wählen Sie im Dialogfeld **Anwendungs Richtlinie hinzufügen** die Option **IP-Sicherheit IKE zwischen**aus, und klicken Sie dann auf **OK**.
-   
+
         Das Hinzufügen der IP-Sicherheits-IKE Intermediate zur EKU unterstützt Szenarien, in denen mehrere Server Authentifizierungs Zertifikate auf dem VPN-Server vorhanden sind. Wenn IP-Sicherheits-IKE Intermediate vorhanden ist, verwendet IPSec nur das Zertifikat mit beiden EKU-Optionen. Andernfalls kann die IKEv2-Authentifizierung mit Fehler 13801 fehlschlagen: die Anmelde Informationen für die IKE-Authentifizierung sind nicht zulässig.
 
     4. Wählen Sie **OK** aus, um zum Dialogfeld **Eigenschaften der neuen Vorlage** zurückzukehren.
@@ -437,10 +435,10 @@ Im Gegensatz zum Benutzerzertifikat müssen Sie das Zertifikat des VPN-Servers m
 
 7. Wählen Sie **Anmelden**aus.
 
-8. Wählen Sie **Fertig stellen**aus.
+8. Wählen Sie **Fertig stellen** aus.
 
 9. Wählen Sie im Zertifikate-Snap-in unter **persönlich**die Option **Zertifikate**aus.
-    
+
     Die aufgelisteten Zertifikate werden im Bereich Details angezeigt.
 
 10. Klicken Sie mit der rechten Maustaste auf das Zertifikat mit dem Namen des VPN-Servers, und wählen Sie dann **Öffnen**aus.

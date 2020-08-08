@@ -1,22 +1,20 @@
 ---
-title: Konfigurieren von DNS und Firewall-Einstellungen
+title: Konfigurieren von DNS und Firewalleinstellungen
 description: Dieses Thema enthält ausführliche Anweisungen zum Bereitstellen von Always on-VPN in Windows Server 2016.
-ms.prod: windows-server
-ms.technology: networking-ras
 ms.topic: article
 ms.assetid: d8cf3bae-45bf-4ffa-9205-290d555c59da
 ms.localizationpriority: medium
 ms.author: v-tea
 author: Teresa-MOTIV
 ms.date: 06/11/2018
-ms.openlocfilehash: 0bdf2917a5f33b1e2ba5e3d216d8610887c79e8c
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 99db65c2c5bd78154e14ab9e388eb709351afc11
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80860463"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87946683"
 ---
-# <a name="step-5-configure-dns-and-firewall-settings"></a>Schritt 5 Konfigurieren von DNS-und Firewalleinstellungen
+# <a name="step-5-configure-dns-and-firewall-settings"></a>Schritt 5: Konfigurieren von DNS-und Firewalleinstellungen
 
 >Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
@@ -72,7 +70,7 @@ Konfigurieren Sie die Firewall so, dass RADIUS-Datenverkehr in beide Richtungen 
 Standardmäßig lauschen NPS und VPN auf den Ports 1812, 1813, 1645 und 1646 auf den RADIUS-Datenverkehr auf allen installierten Netzwerkadaptern. Wenn Sie die Windows-Firewall mit erweiterter Sicherheit bei der Installation von NPS aktivieren, werden Firewallausnahmen für diese Ports während des Installationsvorgangs für IPv6-und IPv4-Datenverkehr automatisch erstellt.
 
 >[!IMPORTANT]
->Wenn Ihre Netzwerk Zugriffs Server für das Senden von RADIUS-Datenverkehr über andere Ports als diese Standardeinstellungen konfiguriert sind, entfernen Sie die Ausnahmen, die bei der NPS-Installation unter Windows-Firewall mit erweiterter Sicherheit erstellt wurden, und erstellen Sie Ausnahmen für die Ports, die Sie für RADIUS-Datenverkehr.
+>Wenn Ihre Netzwerk Zugriffs Server für das Senden von RADIUS-Datenverkehr über andere Ports als diese Standardeinstellungen konfiguriert sind, entfernen Sie die Ausnahmen, die bei der NPS-Installation in der Windows-Firewall mit erweiterter Sicherheit erstellt wurden, und erstellen Sie Ausnahmen für die Ports, die Sie für den RADIUS
 
 ### <a name="use-the-same-radius-ports-for-the-internal-perimeter-network-firewall-configuration"></a>Verwenden Sie die gleichen RADIUS-Ports für die Firewallkonfiguration des internen Umkreis Netzwerks.
 

@@ -1,20 +1,18 @@
 ---
 title: Konfigurieren des RAS-Servers für Always On VPN
 description: RRAS ist so konzipiert, dass Sie sowohl einen Router als auch einen Remote Zugriffs Server ausführen können. Daher unterstützt es eine Vielzahl von Features.
-ms.prod: windows-server
-ms.technology: networking-ras
 ms.topic: article
 ms.localizationpriority: medium
 ms.author: v-tea
 author: Teresa-MOTIV
 ms.date: 08/30/2018
 ms.reviewer: deverette
-ms.openlocfilehash: 4cb5d5fc65eee997068ea3192081bf753fdd9083
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 6861ff0925c21c1723346ab75fc1be2f268b0551
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80818983"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87946593"
 ---
 # <a name="step-3-configure-the-remote-access-server-for-always-on-vpn"></a>Schritt 3: Konfigurieren des RAS-Servers für Always On VPN
 
@@ -40,7 +38,7 @@ Konfigurieren Sie den RRAS-Server für die Unterstützung von IKEv2-Verbindungen
 
 ## <a name="install-remote-access-as-a-ras-gateway-vpn-server"></a>Installieren des Remote Zugriffs als RAS-Gateway-VPN-Server
 
-In diesem Verfahren installieren Sie die Remote Zugriffs Rolle als einzelner Mandanten-RAS-Gateway-VPN-Server. Weitere Informationen finden Sie unter [Remote Access](../../../Remote-Access.md).
+In diesem Verfahren installieren Sie die Remote Zugriffs Rolle als einzelner Mandanten-RAS-Gateway-VPN-Server. Weitere Informationen finden Sie unter [Remote Zugriff](../../../Remote-Access.md).
 
 ### <a name="install-the-remote-access-role-by-using-windows-powershell"></a>Installieren der Remote Zugriffs Rolle mithilfe von Windows PowerShell
 
@@ -65,7 +63,7 @@ In diesem Verfahren installieren Sie die Remote Zugriffs Rolle als einzelner Man
 Mithilfe des folgenden Verfahrens können Sie die Remote Zugriffs Rolle mithilfe von Server-Manager installieren.
 
 1. Wählen Sie auf dem VPN-Server in Server-Manager die Option **Verwalten** aus, und wählen Sie **Rollen und Features hinzufügen**aus.
-   
+
    Der Assistent zum Hinzufügen von Rollen und Features wird geöffnet.
 
 2. Wählen Sie auf der Seite Vorbereitung die Option **weiter**aus.
@@ -94,7 +92,7 @@ Mithilfe des folgenden Verfahrens können Sie die Remote Zugriffs Rolle mithilfe
 
 14. Überprüfen Sie auf der Seite Installations Auswahl bestätigen Ihre Auswahl, und wählen Sie dann **Installieren**aus.
 
-15. Wenn die Installation abgeschlossen ist, wählen Sie **Schließen**aus.
+15. Klicken Sie nach Abschluss der Installation auf **Schließen**.
 
 ## <a name="configure-remote-access-as-a-vpn-server"></a>Konfigurieren des Remote Zugriffs als VPN-Server
 
@@ -144,7 +142,7 @@ In diesem Abschnitt können Sie das RAS-VPN so konfigurieren, dass es IKEv2-VPN-
        Das Dialogfeld RADIUS-Server hinzufügen wird geöffnet.
 
     d. Geben Sie unter **Server Name**den voll qualifizierten Domänen Namen (Fully Qualified Domain Name, FQDN) des NPS-Servers in Ihrer Organisation/Ihrem Unternehmensnetzwerk ein.
-    
+
        Wenn der NetBIOS-Name des NPS-Servers beispielsweise NPS1 lautet und Ihr Domänen Name Corp.contoso.com lautet, geben Sie **NPS1.Corp.contoso.com**ein.
 
     e. Wählen Sie unter **gemeinsamer geheimer**Schlüssel die Option **ändern**aus.
@@ -193,7 +191,7 @@ In diesem Abschnitt können Sie das RAS-VPN so konfigurieren, dass es IKEv2-VPN-
 
 16. Optionale *Wenn Sie den bedingten Zugriff für VPN-Konnektivität konfigurieren*, wählen Sie in der Dropdown Liste **Zertifikat** unter **SSL-Zertifikat Bindung**die VPN-Server Authentifizierung aus.
 
-17. Optionale *Wenn Sie den bedingten Zugriff für VPN-Konnektivität konfigurieren*, erweitern Sie in der NPS-MMC **Richtlinien\\Netzwerk Richtlinien** , und gehen Sie wie folgt vor: 
+17. Optionale *Wenn Sie den bedingten Zugriff für VPN-Konnektivität konfigurieren*, erweitern Sie in der NPS-MMC **Richtlinien \\ Netzwerk Richtlinien** , und gehen Sie wie folgt vor:
 
     a. Rechts: die **Verbindungen mit der Netzwerk Richtlinie für den Routing-und RAS-Server von Microsoft** und wählen **Eigenschaften**aus.
 
@@ -201,33 +199,33 @@ In diesem Abschnitt können Sie das RAS-VPN so konfigurieren, dass es IKEv2-VPN-
 
     c. Wählen Sie unter Typ des Netzwerk Zugriffs Servers in der Dropdown-Datei den Eintrag RAS- **Server (VPN-Dial-up)** aus.
 
-18. Klicken Sie in der MMC für Routing und RAS mit der rechten Maustaste auf **Ports,** und wählen Sie dann **Eigenschaften**aus. 
-    
+18. Klicken Sie in der MMC für Routing und RAS mit der rechten Maustaste auf **Ports,** und wählen Sie dann **Eigenschaften**aus.
+
     Das Dialogfeld Eigenschaften von Ports wird geöffnet.
 
 19. Wählen Sie **WAN Miniport (SSTP)** aus, und wählen Sie **Konfigurieren**aus. Das Dialogfeld Device-WAN-Miniport konfigurieren (SSTP) wird geöffnet.
 
     a. Deaktivieren Sie die Kontrollkästchen RAS- **Verbindungen (nur eingehend)** und **Routing Verbindungen nach Bedarf (eingehend und ausgehend)** .
 
-    b. Wählen Sie **OK**.
+    b. Klicken Sie auf **OK**.
 
 20. Wählen Sie **WAN Miniport (L2TP)** , und wählen Sie **Konfigurieren**aus. Das Dialogfeld Device-WAN-Miniport konfigurieren (L2TP) wird geöffnet.
 
     a. Geben Sie unter Maximale Anzahl von **Ports**die Anzahl der Ports ein, die der maximalen Anzahl gleichzeitiger VPN-Verbindungen entsprechen soll, die Sie unterstützen möchten.
 
-    b. Wählen Sie **OK**.
+    b. Klicken Sie auf **OK**.
 
 21. Wählen Sie **WAN Miniport (PPTP)** aus, und wählen Sie **Konfigurieren**aus. Das Dialogfeld Device-WAN-Miniport konfigurieren (PPTP) wird geöffnet.
 
     a. Geben Sie unter Maximale Anzahl von **Ports**die Anzahl der Ports ein, die der maximalen Anzahl gleichzeitiger VPN-Verbindungen entsprechen soll, die Sie unterstützen möchten.
 
-    b. Wählen Sie **OK**.
+    b. Klicken Sie auf **OK**.
 
 22. Wählen Sie **WAN Miniport (IKEv2)** , und wählen Sie **Konfigurieren**aus. Das Dialogfeld Device-WAN-Miniport konfigurieren (IKEv2) wird geöffnet.
 
      a. Geben Sie unter Maximale Anzahl von **Ports**die Anzahl der Ports ein, die der maximalen Anzahl gleichzeitiger VPN-Verbindungen entsprechen soll, die Sie unterstützen möchten.
 
-     b. Wählen Sie **OK**.
+     b. Klicken Sie auf **OK**.
 
 23. Wenn Sie dazu aufgefordert werden, wählen Sie **Ja** aus, um den Server neu zu starten, und wählen Sie **Schließen** aus, um den Server
 

@@ -1,19 +1,17 @@
 ---
 ms.assetid: e5945bae-4a33-487c-a019-92a69db8cf6c
 title: Aktualisieren der Firmware
-ms.prod: windows-server
 ms.author: toklima
 manager: dmoss
-ms.technology: storage-spaces
 ms.topic: article
 author: toklima
 ms.date: 10/04/2016
-ms.openlocfilehash: 0e117b486fd628397bfe36aa897ff64cdd26f98b
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 15e0d6dedc6bb81c0b511479ee342dbd463654e2
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86965832"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87946213"
 ---
 # <a name="updating-drive-firmware"></a>Aktualisieren der Firmware
 >Gilt für: Windows Server 2019, Windows Server 2016, Windows 10
@@ -25,13 +23,13 @@ Das Aktualisieren der Firmware für Laufwerke war bisher eine mühsame Aufgabe m
 
 ## <a name="drive-compatibility"></a>Laufwerkkompatibilität
 
-Sie müssen über unterstützte Laufwerke verfügen, um Windows Server zum Aktualisieren von Laufwerkfirmware zu verwenden. Um häufiges Geräteverhalten zu gewährleisten, haben wir zunächst neue und-für Windows 10-und Windows Server 2016-optionale HLK-Anforderungen (Hardware Lab Kit) für SAS-, SATA-und nvme-Geräte definiert. Diese Anforderungen geben an, welche Befehle ein SATA-, SAS- oder NVMe-Gerät unterstützen muss, um mithilfe dieser neuen in Windows vorhandenen PowerShell-Cmdlets aktualisiert werden zu können. Für die Unterstützung dieser Anforderungen gibt es eine neue HLK-Prüfung, um zu überprüfen, ob Herstellerprodukte den richtigen Befehl unterstützen, und um sie in zukünftigen Revisionen zu implementieren. 
+Sie müssen über unterstützte Laufwerke verfügen, um Windows Server zum Aktualisieren von Laufwerkfirmware zu verwenden. Um häufiges Geräteverhalten zu gewährleisten, haben wir zunächst neue und-für Windows 10-und Windows Server 2016-optionale HLK-Anforderungen (Hardware Lab Kit) für SAS-, SATA-und nvme-Geräte definiert. Diese Anforderungen geben an, welche Befehle ein SATA-, SAS- oder NVMe-Gerät unterstützen muss, um mithilfe dieser neuen in Windows vorhandenen PowerShell-Cmdlets aktualisiert werden zu können. Für die Unterstützung dieser Anforderungen gibt es eine neue HLK-Prüfung, um zu überprüfen, ob Herstellerprodukte den richtigen Befehl unterstützen, und um sie in zukünftigen Revisionen zu implementieren.
 
 Wenden Sie sich an Ihren Lösungsanbieter, um Informationen darüber zu erhalten, ob Ihre Hardware unterstützt, dass Windows die Laufwerkfirmware aktualisiert.
 Im Folgenden sind Links zu den verschiedenen Anforderungen aufgelistet:
 
 -   SATA: [Device.Storage.Hd.Sata](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj127250(v=ws.11)#devicestoragehdsata) – im Abschnitt **[falls implementiert\] Firmware Download & Activate (Download und Aktivierung der Firmware)**
-    
+
 -   SAS: [Device.Storage.Hd.Sas](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj127250(v=ws.11)#devicestoragehdsas) – im Abschnitt **[falls implementiert\]Firmware Download & Activate (Download und Aktivierung der Firmware)**
 
 -   NVMe: [Device.Storage.ControllerDrive.NVMe](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj127250(v=ws.11)#devicestoragecontrollerdrivenvme) – in den Abschnitten **5.7** und **5.8**
@@ -43,7 +41,7 @@ Die beiden Cmdlets, die zu Windows hinzugefügt werden, sind:
 -   Get-StorageFirmwareInformation
 -   Update-StorageFirmware
 
-Das erste Cmdlet bietet ausführliche Informationen zu den Funktionen des Geräts, firmwareimages und Revisionen. In diesem Fall enthält der Computer nur ein einzelnes SATA-SSD mit einem Firmwareslot. Ein Beispiel:
+Das erste Cmdlet bietet ausführliche Informationen zu den Funktionen des Geräts, firmwareimages und Revisionen. In diesem Fall enthält der Computer nur ein einzelnes SATA-SSD mit einem Firmwareslot. Hier sehen Sie ein Beispiel:
 
    ```powershell
    Get-PhysicalDisk | Get-StorageFirmwareInformation
@@ -65,7 +63,7 @@ Das zweit Cmdlet, „Update-StorageFirmware“ erlaubt den Administratoren, die 
 
 Das Laufwerk lädt zunächst das neue Firmwareimage in einen internen Staging-Bereich. Währenddessen wird E/A normalerweise fortgesetzt. Das Image wird nach dem Download aktiviert. Während dieses Zeitraums kann das Laufwerk nicht auf E/A-Befehle reagieren, da eine interne Zurücksetzung erfolgt. Dies bedeutet, dass das Laufwerk keine Daten während der Aktivierung zur Verfügung stellt. Eine Anwendung, die auf diesem Laufwerk auf Daten zugreift, muss auf eine Antwort warten, bis die Aktivierung der Firmware abgeschlossen ist. Im folgenden finden Sie ein Beispiel für das Cmdlet in Aktion:
 
-   ```powershell 
+   ```powershell
    $pd | Update-StorageFirmware -ImagePath C:\Firmware\J3E160@3.enc -SlotNumber 0
    $pd | Get-StorageFirmwareInformation
 
@@ -81,7 +79,7 @@ Laufwerke schließen normalerweise keine E/A-Einforderungen ab, wenn ein neues F
 
 Dieses Laufwerk hat das Firmwareupdate innerhalb von ungefähr 5,8 Sekunden abgeschlossen, wie hier gezeigt wird:
 
-```powershell 
+```powershell
 Measure-Command {$pd | Update-StorageFirmware -ImagePath C:\\Firmware\\J3E16101.enc -SlotNumber 0}
 
  Days : 0

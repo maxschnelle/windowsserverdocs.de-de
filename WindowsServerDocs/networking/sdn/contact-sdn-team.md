@@ -6,12 +6,12 @@ ms.topic: article
 ms.assetid: f9945c55-c2d0-448f-86dd-8c734e1b2987
 ms.author: anpaul
 author: AnirbanPaul
-ms.openlocfilehash: fe5b9bc8c8b3b888b3c11a72c39756374cde566c
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: d9bba302c80a810e44c41079d7041b49741fd5b4
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87970827"
+ms.locfileid: "87995252"
 ---
 # <a name="contact-the-datacenter-and-cloud-networking-team"></a>Kontaktieren des Datencenter- und Cloud Networking-Teams
 
@@ -31,10 +31,10 @@ Wechseln Sie [hier](https://github.com/Microsoft/SDN/issues) , um über unser Gi
 
 > GitHub ist der beste Ort, um uns über Themen zu kontaktieren, die detaillierter sind als die Arten von Dingen, die Sie problemlos in einen Tweet einfügen können. *Benötigen Sie Hilfe bei der Sdn-Bereitstellung? Sie sind nicht sicher, wie unsere Features für die individuellen Anforderungen Ihrer Organisation geeignet sind? Werden Sie durch einen potenziellen Fehler gehalten?* Alle guten Gründe, um uns durch das Einreichen eines GitHub-Problems zu kontaktieren.
 
-## <a name="microsoft-docs"></a>[Microsoft Docs](https://docs.microsoft.com/)
-Unsere [Container-Netzwerk Dokumentation](https://docs.microsoft.com/virtualization/windowscontainers/manage-containers/container-networking) finden Sie auf [Microsoft-Dokumentation (docs.Microsoft.com)](https://docs.microsoft.com/), die über eine **integrierte Kommentarfunktion**verfügt. Zum verlassen oder zum Antworten auf einen Kommentar zu Microsoft-Dokumentation melden Sie sich einfach an, Scrollen Sie nach unten zum unteren Rand der Microsoft-Dokumentation Seite, auf die Sie verweisen möchten, und stellen Sie dann Ihren Kommentar dort ein.
+## <a name="microsoft-docs"></a>[Microsoft Docs](/)
+Unsere [Container-Netzwerk Dokumentation](/virtualization/windowscontainers/manage-containers/container-networking) finden Sie auf [Microsoft-Dokumentation (docs.Microsoft.com)](/), die über eine **integrierte Kommentarfunktion**verfügt. Zum verlassen oder zum Antworten auf einen Kommentar zu Microsoft-Dokumentation melden Sie sich einfach an, Scrollen Sie nach unten zum unteren Rand der Microsoft-Dokumentation Seite, auf die Sie verweisen möchten, und stellen Sie dann Ihren Kommentar dort ein.
 
-> [Microsoft-Dokumentation](https://docs.microsoft.com/) ist die neue einheitliche Dokumentations Website von Microsoft. Während die meiste [Sdn-Dokumentation](https://technet.microsoft.com/windows-server-docs/networking/sdn/software-defined-networking) unseres Teams auf TechNet verbleibt, ist unsere [Container-Netzwerk Dokumentation](https://docs.microsoft.com/virtualization/windowscontainers) nun auf Microsoft-Dokumentation.
+> [Microsoft-Dokumentation](/) ist die neue einheitliche Dokumentations Website von Microsoft. Während die meiste [Sdn-Dokumentation](./software-defined-networking.md) unseres Teams auf TechNet verbleibt, ist unsere [Container-Netzwerk Dokumentation](/virtualization/windowscontainers) nun auf Microsoft-Dokumentation.
 >
 > *Wenn Sie in einem Thema Microsoft-Dokumentation, das eine Frage auslöst oder Sie mehr benötigen, können Sie einfach einen Kommentar auf dieser Seite hinterlassen, damit Sie Ihr Feedback an das Microsoft-Team weitergeben können, das Ihnen helfen kann.*
 

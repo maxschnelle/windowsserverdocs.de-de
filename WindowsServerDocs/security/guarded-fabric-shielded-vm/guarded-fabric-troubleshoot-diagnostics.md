@@ -6,12 +6,12 @@ manager: dongill
 author: rpsqrd
 ms.author: ryanpu
 ms.date: 01/14/2020
-ms.openlocfilehash: a0537c938b86141f83857f1763fbb18260a23e42
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 40381a08c22c8b559fbf2b7da8e8151e91c77718
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87944193"
+ms.locfileid: "87995366"
 ---
 # <a name="troubleshooting-using-the-guarded-fabric-diagnostic-tool"></a>Problembehandlung mithilfe des geschützten Fabric-Diagnosetools
 
@@ -19,7 +19,7 @@ ms.locfileid: "87944193"
 
 In diesem Thema wird beschrieben, wie Sie häufige Fehler bei der Bereitstellung, Konfiguration und beim laufenden Betrieb der geschützten Fabric-Infrastruktur mithilfe des geschützten Fabric-Diagnosetools identifizieren und beheben. Dies schließt den Host-Überwachungsdienst (Host Guardian Service, HGS), alle überwachten Hosts und unterstützende Dienste wie DNS und Active Directory ein. Das Diagnosetool kann verwendet werden, um einen ersten Durchlauf bei der Selektierung eines fehlerhaften geschützten Fabrics durchzuführen, sodass Administratoren einen Ausgangspunkt für die Behebung von Ausfällen und die Identifizierung falsch konfigurierter Assets erhalten. Das Tool ist kein Ersatz für einen fundierten Einblick in das Betreiben eines geschützten Fabrics und dient nur der schnellen Überprüfung der häufigsten Probleme, die bei alltäglichen Vorgängen auftreten.
 
-Eine vollständige Dokumentation der in diesem Artikel verwendeten Cmdlets finden Sie in der [Referenz zum hgsdiagnostics-Modul](https://docs.microsoft.com/powershell/module/hgsdiagnostics/?view=win10-ps).
+Eine vollständige Dokumentation der in diesem Artikel verwendeten Cmdlets finden Sie in der [Referenz zum hgsdiagnostics-Modul](/powershell/module/hgsdiagnostics/?view=win10-ps).
 
 [!INCLUDE [Guarded fabric diagnostics tool](../../../includes/guarded-fabric-diagnostics-tool.md)]
 
@@ -105,10 +105,10 @@ Get-HgsTrace -RunDiagnostics -Target $server
 ```
 In diesem Beispiel wird eine Aufforderung zum Erfassen der Anmelde Informationen des Remote Benutzers generiert. Anschließend wird die Diagnose mithilfe des Remote Hosts unter ausgeführt, um die Ablauf `hgs-01.secure.contoso.com` Verfolgungs Sammlung abzuschließen.  Die resultierenden Ablauf Verfolgungen werden auf den localhost heruntergeladen und anschließend diagnostiziert.  Die Diagnoseergebnisse werden genauso wie bei der [lokalen Diagnose](#local-diagnosis)angezeigt.  Ebenso ist es nicht notwendig, eine Rolle anzugeben, da Sie auf Grundlage der auf dem Remote System installierten Windows PowerShell-Module abgeleitet werden kann.
 
-Bei der Remote Diagnose werden Windows PowerShell-Remoting für alle Zugriffe auf den Remote Host verwendet.  Daher ist es eine Voraussetzung dafür, dass für das Ablauf Verfolgungs Ziel Windows PowerShell-Remoting aktiviert ist (siehe [Aktivieren von psremoting](https://technet.microsoft.com/library/hh849694.aspx)) und dass der localhost ordnungsgemäß für das Starten von Verbindungen mit dem Ziel konfiguriert ist.
+Bei der Remote Diagnose werden Windows PowerShell-Remoting für alle Zugriffe auf den Remote Host verwendet.  Daher ist es eine Voraussetzung dafür, dass für das Ablauf Verfolgungs Ziel Windows PowerShell-Remoting aktiviert ist (siehe [Aktivieren von psremoting](/powershell/module/microsoft.powershell.core/enable-psremoting?view=powershell-7)) und dass der localhost ordnungsgemäß für das Starten von Verbindungen mit dem Ziel konfiguriert ist.
 
 > [!NOTE]
-> In den meisten Fällen ist es lediglich erforderlich, dass "localhost" ein Teil derselben Active Directory Gesamtstruktur ist und dass ein gültiger DNS-Hostname verwendet wird.  Wenn Ihre Umgebung ein komplizierteres Verbund Modell verwendet oder Sie direkte IP-Adressen für die Konnektivität verwenden möchten, müssen Sie möglicherweise eine zusätzliche Konfiguration durchführen, z. b. das Festlegen von WinRM- [vertrauenswürdigen Hosts](https://technet.microsoft.com/library/ff700227.aspx).
+> In den meisten Fällen ist es lediglich erforderlich, dass "localhost" ein Teil derselben Active Directory Gesamtstruktur ist und dass ein gültiger DNS-Hostname verwendet wird.  Wenn Ihre Umgebung ein komplizierteres Verbund Modell verwendet oder Sie direkte IP-Adressen für die Konnektivität verwenden möchten, müssen Sie möglicherweise eine zusätzliche Konfiguration durchführen, z. b. das Festlegen von WinRM- [vertrauenswürdigen Hosts](/previous-versions/technet-magazine/ff700227(v=msdn.10)).
 
 Mithilfe des Cmdlets können Sie überprüfen, ob ein Ablauf Verfolgungs Ziel ordnungsgemäß instanziiert und für das akzeptieren von Verbindungen konfiguriert ist `Test-HgsTraceTarget` :
 ```PowerShell
@@ -122,7 +122,7 @@ Dieser Befehl gibt `$True` nur dann zurück, wenn `Get-HgsTrace` eine Remote Dia
 Wenn eine Remote Diagnose von einem Benutzer mit ausreichenden Berechtigungen zum Herstellen einer Remote Verbindung mit dem Ablauf Verfolgungs Ziel durchgeführt wird, ist es nicht erforderlich, Anmelde Informationen für bereitzustellen `New-HgsTraceTarget` .  Das `Get-HgsTrace` Cmdlet verwendet automatisch die Anmelde Informationen des Benutzers, der das Cmdlet aufgerufen hat, wenn er eine Verbindung öffnet.
 
 > [!WARNING]
-> Einige Einschränkungen gelten für die Wiederverwendung von Anmelde Informationen, insbesondere bei der Durchführung eines "zweiten Hops".  Dies tritt auf, wenn versucht wird, Anmelde Informationen aus einer Remote Sitzung auf einem anderen Computer wiederzuverwenden.  [CredSSP](https://technet.microsoft.com/library/hh849872.aspx) muss zur Unterstützung dieses Szenarios eingerichtet werden, aber dies liegt außerhalb des Umfangs der Verwaltung und Problembehandlung für geschützte Fabrics.
+> Einige Einschränkungen gelten für die Wiederverwendung von Anmelde Informationen, insbesondere bei der Durchführung eines "zweiten Hops".  Dies tritt auf, wenn versucht wird, Anmelde Informationen aus einer Remote Sitzung auf einem anderen Computer wiederzuverwenden.  [CredSSP](/powershell/module/microsoft.wsman.management/enable-wsmancredssp?view=powershell-7) muss zur Unterstützung dieses Szenarios eingerichtet werden, aber dies liegt außerhalb des Umfangs der Verwaltung und Problembehandlung für geschützte Fabrics.
 
 #### <a name="using-windows-powershell-just-enough-administration-jea-and-diagnostics"></a>Verwenden von Windows PowerShell Just Enough Administration (Jea) und Diagnostics
 

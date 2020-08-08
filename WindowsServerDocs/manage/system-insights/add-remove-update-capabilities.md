@@ -1,19 +1,17 @@
 ---
 title: Hinzufügen, Entfernen und Aktualisieren von Funktionen
 description: Mit System Insights können Sie neue Funktionen erstellen, die die vorhandene Daten Sammlungs-und-Verwaltungs Funktionalität nutzen. Es ist wichtig, dass Sie auch über die Platt Form Unterstützung verfügen, um das Hinzufügen, entfernen und Aktualisieren dieser Funktionen zu verwalten. In diesem Thema werden die Funktionen auf hoher Ebene zum Hinzufügen, entfernen und Aktualisieren von Funktionen in System Insights beschrieben.
-ms.prod: windows-server
-ms.technology: system-insights
 ms.topic: article
 author: gawatu
 ms.author: gawatu
 manager: mallikarjun.chadalapaka
 ms.date: 7/31/2018
-ms.openlocfilehash: 217cb528896e3b09ce81821bb0201388fab28701
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 17d31b480e013cf0276041a88a86530448071ca5
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85475277"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87958688"
 ---
 # <a name="adding-removing-and-updating-capabilities"></a>Hinzufügen, Entfernen und Aktualisieren von Funktionen
 
@@ -55,7 +53,7 @@ Durch das Entfernen einer Funktion werden die Funktionen und alle zugehörigen I
 >[!TIP]
 >Deaktivieren Sie ggf. eine Funktion, anstatt Sie zu entfernen, wenn Sie sich Sorgen machen, dass alle der Funktion zugeordneten Informationen dauerhaft gelöscht werden.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 Weitere Informationen zu System Insights finden Sie in den folgenden Ressourcen:
 
 - [Systemdaten: Übersicht](overview.md)

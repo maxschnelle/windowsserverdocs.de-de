@@ -7,12 +7,12 @@ ms.date: 08/14/2018
 ms.topic: article
 ms.localizationpriority: low
 ms.assetid: 6cb13f84-cb50-4e60-a685-54f67c9146be
-ms.openlocfilehash: 954efafe3185cadb347384c3c93a2eb8ef895143
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: a1f53dba659af7d5ac0efff2e72bd168523bde0c
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87963556"
+ms.locfileid: "87995630"
 ---
 # <a name="managing-hyper-v-hypervisor-scheduler-types"></a>Verwalten von Hyper-V-Hypervisor-Scheduler-Typen
 
@@ -40,7 +40,7 @@ Für den Zweck dieses Artikels gelten die Beschreibungen von SMT und deren Verwe
 
 ## <a name="understanding-how-hyper-v-virtualizes-processors"></a>Grundlegendes zur Virtualisierung von Prozessoren durch Hyper-V
 
-Vor der Betrachtung der Hypervisor-planertypen ist es auch hilfreich, die Hyper-V-Architektur zu verstehen. Eine allgemeine Zusammenfassung finden Sie in der [Übersicht über die Hyper-V-Technologie](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-technology-overview). Dies sind wichtige Konzepte für diesen Artikel:
+Vor der Betrachtung der Hypervisor-planertypen ist es auch hilfreich, die Hyper-V-Architektur zu verstehen. Eine allgemeine Zusammenfassung finden Sie in der [Übersicht über die Hyper-V-Technologie](../hyper-v-technology-overview.md). Dies sind wichtige Konzepte für diesen Artikel:
 
 * Hyper-V erstellt und verwaltet virtuelle Computer Partitionen, für die Compute-Ressourcen zugeordnet und freigegeben werden, unter Kontrolle über den Hypervisor. Partitionen bieten starke Isolations Grenzen zwischen allen virtuellen Gast Computern und zwischen Gast-VMS und der Stamm Partition.
 

@@ -6,29 +6,27 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server
-ms.technology: identity-adds
-ms.openlocfilehash: 63ecad01ec6d4b4d72b7aaff315b74541cb0fadc
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 62ba9e757195861989fcd6d9eca395a47262aa7e
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80822983"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87967777"
 ---
 # <a name="introduction-to-active-directory-replication-and-topology-management-using-windows-powershell-level-100"></a>Einführung in die Active Directory-Replikation und Topologieverwaltung mithilfe von Windows PowerShell (Stufe 100)
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Windows PowerShell für Active Directory bietet die Möglichkeit zum Verwalten von Replikationen, Standorten, Domänen und Gesamtstrukturen, Domänencontrollern und Partitionen. Benutzer älterer Verwaltungstools, wie des Active Directory-Standorte und -Dienste-Snap-Ins und „repadmin.exe“, werden bemerken, dass eine ähnliche Funktionalität jetzt innerhalb des Windows PowerShell für Active Directory-Kontextes verfügbar ist. Außerdem sind diese Cmdlets kompatibel mit den vorhandenen Windows PowerShell für Active Directory-Cmdlets und sorgen so für eine optimale Erfahrung. Außerdem können Kunden problemlos Automatisierungsskripts erstellen.
 
 > [!NOTE]
 > Die Windows PowerShell für Active Directory-Replikations- und -Topologie-Cmdlets sind in folgenden Umgebungen verfügbar:
-> 
+>
 > -    Windows Server 2012-Domänen Controller
 > -    Windows Server 2012 mit der Remoteserver-Verwaltungstools für AD DS und AD LDS installiert.
-> -   Windows&reg; 8 mit der Remoteserver-Verwaltungstools für AD DS und AD LDS installiert.
+> -   Windows &reg; 8 mit dem Remoteserver-Verwaltungstools für AD DS und AD LDS installiert.
 
-## <a name="installing-the-active-directory-module-for-windows-powershell"></a>Installieren des Active Directory-Moduls für Windows PowerShell
+## <a name="installing-the-active-directory-module-for-windows-powershell"></a>Installieren des Active Directory-Moduls für Windows PowerShell
 Das Active Directory-Modul für Windows PowerShell wird standardmäßig installiert, wenn die AD DS Server Rolle auf einem Server installiert ist, auf dem Windows Server 2012 ausgeführt wird. Es sind keine weiteren Schritte neben dem Hinzufügen der Serverrolle erforderlich. Sie können auch das Active Directory Modul auf einem Server installieren, auf dem Windows Server 2012 ausgeführt wird, indem Sie die Remoteserver-Verwaltungstools installieren. Sie können das Modul Active Directory auf einem Computer installieren, auf dem Windows 8 ausgeführt wird, indem Sie die [Remote Server-Verwaltungs Tools (RSAT)](https://www.microsoft.com/download/details.aspx?id=28972)herunterladen und installieren. Die Installationsschritte finden Sie unter [Instructions](https://www.microsoft.com/download/details.aspx?id=28972).
 
 ## <a name="scenarios-for-testing-windows-powershell-for-active-directory-replication-and-topology-management-cmdlets"></a>Szenarios zum Testen der Windows PowerShell für Active Directory-Replikations- und -Topologieverwaltungs-Cmdlets
@@ -36,7 +34,7 @@ Die folgenden Szenarios wurden für Administratoren entwickelt, um sich mit den 
 
 -   Abrufen einer Liste aller Domänencontroller und ihrer entsprechenden Standorte
 
--   Replikationstopologie verwalten
+-   Verwalten der Replikationstopologie
 
 -   Anzeigen von Replikationsstatus und -informationen
 
@@ -57,14 +55,14 @@ Damit Sie die Schritte in den folgenden Verfahren ausführen können, müssen Si
 
     `Get-ADReplicationSite -Filter *`
 
-    Dieser Befehl gibt detaillierte Informationen zu den einzelnen Standorten zurück. Der `Filter` -Parameter wird in PowerShell-Cmdlets für Active Directory verwendet, um die Anzahl der zurückgegebenen Objekte einzuschränken. In diesem Fall zeigt das Sternchen (*) alle Standortobjekte an.
+    Dieser Befehl gibt detaillierte Informationen zu den einzelnen Standorten zurück. Der `Filter`-Parameter wird in PowerShell-Cmdlets für Active Directory verwendet, um die Anzahl der zurückgegebenen Objekte einzuschränken. In diesem Fall zeigt das Sternchen (*) alle Standortobjekte an.
 
     > [!TIP]
     > Sie können die Tab-Taste verwenden, um Befehle in Windows PowerShell automatisch zu vervollständigen.
-    > 
-    > Beispiel: Geben Sie `Get-ADRep` ein, und blättern Sie durch mehrmaliges Drücken der TAB-TASTE durch die passenden Befehle, bis Sie `Get-ADReplicationSite`erreichen. AutoVervollständigen kann auch für Parameternamen wie `Filter` verwendet werden.
+    >
+    > Beispiel: Geben Sie `Get-ADRep` ein, und blättern Sie durch mehrmaliges Drücken von TAB durch die passenden Befehle, bis Sie `Get-ADReplicationSite` erreichen. AutoVervollständigen kann auch für Parameternamen wie `Filter` verwendet werden.
 
-    Wenn Sie die Ausgabe des Befehls `Get-ADReplicationSite` als Tabelle formatieren und die Anzeige auf bestimmte Felder beschränken möchten, können Sie die Ausgabe an den `Format-Table`-Befehl übergeben (oder kurz "`ft`"):
+    Wenn Sie die Ausgabe des `Get-ADReplicationSite` Befehls als Tabelle formatieren und die Anzeige auf bestimmte Felder beschränken möchten, können Sie die Ausgabe an den `Format-Table` Befehl (oder `ft` kurz "") übergeben:
 
     `Get-ADReplicationSite -Filter * | ft Name`
 
@@ -78,8 +76,8 @@ Damit Sie die Schritte in den folgenden Verfahren ausführen können, müssen Si
 
     Dieser Befehl gibt die Hostnamen der Domänencontroller sowie ihre Standortzuordnungen zurück.
 
-## <a name="manage-replication-topology"></a>Replikationstopologie verwalten
-Im vorherigen Schritt wurde `Get-ADDomainController -Filter * | ft Hostname,Site`DC2 **nach dem Ausführen des Befehls** als Teil des Standorts **CORPORATE** aufgeführt. In den folgenden Prozeduren erstellen Sie den neuen Filialstandort **BRANCH1** sowie eine neue Standortverknüpfung, legen die Kosten und die Replikationsfrequenz für die Standortverknüpfung fest und verschieben **DC2** anschließend nach **BRANCH1**.
+## <a name="manage-replication-topology"></a>Verwalten der Replikationstopologie
+Im vorherigen Schritt wurde **DC2** nach dem Ausführen des Befehls `Get-ADDomainController -Filter * | ft Hostname,Site` als Teil des Standorts **CORPORATE** aufgeführt. In den folgenden Prozeduren erstellen Sie den neuen Filialstandort **BRANCH1** sowie eine neue Standortverknüpfung, legen die Kosten und die Replikationsfrequenz für die Standortverknüpfung fest und verschieben **DC2** anschließend nach **BRANCH1**.
 
 Damit Sie die Schritte in den folgenden Verfahren ausführen können, müssen Sie ein Mitglied der Gruppe der Domänenadministratoren sein oder über vergleichbare Berechtigungen verfügen.
 
@@ -108,7 +106,7 @@ Damit Sie die Schritte in den folgenden Verfahren ausführen können, müssen Si
 
     `Set-ADReplicationSiteLink CORPORATE-BRANCH1 -Cost 100 -ReplicationFrequencyInMinutes 15`
 
-    Mit diesem Befehl werden die Standortverknüpfungskosten für **BRANCH1** auf **100** und die Replikationsfrequenz für den Standort wird auf **15 Minuten**festgelegt.
+    Mit diesem Befehl werden die Standortverknüpfungskosten für **BRANCH1** auf **100** und die Replikationsfrequenz für den Standort wird auf **15 Minuten** festgelegt.
 
 #### <a name="to-move-a-domain-controller-to-a-different-site"></a>So verschieben sie einen Domänencontroller an einen anderen Standort
 
@@ -149,11 +147,11 @@ Damit Sie die Schritte in den folgenden Verfahren ausführen können, müssen Si
 
     `Get-ADReplicationUpToDatenessVectorTable * | sort Partner,Server | ft Partner,Server,UsnFilter`
 
-    Bei diesem Befehl wird **DC1** durch `*`ersetzt. Dadurch werden die Daten der Aktualitätsvektortabelle von allen Domänencontrollern gesammelt. Die Daten werden nach **Partner** und **Server** sortiert und anschließend in Tabellenform angezeigt.
+    Bei diesem Befehl wird **DC1** durch `*` ersetzt. Dadurch werden die Daten der Aktualitätsvektortabelle von allen Domänencontrollern gesammelt. Die Daten werden nach **Partner** und **Server** sortiert und anschließend in Tabellenform angezeigt.
 
     Durch die Sortierung können Sie den letzten USN, der von den einzelnen Domänencontrollern für einen angegebenen Replikationspartner erfasst wurde, einfach vergleichen. Dies ist eine schnelle Möglichkeit, um zu überprüfen, ob die Replikation in der gesamten Umgebung stattfindet. Wenn die Replikation ordnungsgemäß funktioniert, sollten die %%amp;quot;UsnFilter%%amp;quot;- Werte, die für einen angegebenen Replikationspartner gemeldet werden, auf allen Domänencontrollern ähnlich sein.
 
 ## <a name="see-also"></a>Weitere Informationen
-[Erweiterte Active Directory Replikation und Topologieverwaltung mithilfe &#40;der Windows PowerShell-Ebene 200&#41;](Advanced-Active-Directory-Replication-and-Topology-Management-Using-Windows-PowerShell--Level-200-.md)
+[Erweiterte Active Directory Replikation und Topologieverwaltung mithilfe von Windows PowerShell &#40;Level 200&#41;](Advanced-Active-Directory-Replication-and-Topology-Management-Using-Windows-PowerShell--Level-200-.md)
 
 

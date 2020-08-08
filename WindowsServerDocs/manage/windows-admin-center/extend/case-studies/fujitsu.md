@@ -1,19 +1,17 @@
 ---
 title: Windows Admin Center SDK-Fallstudie-Fujitsu
 description: Windows Admin Center SDK-Fallstudie-Fujitsu
-ms.technology: extend
 ms.topic: article
 author: daniellee-msft
 ms.author: jol
 ms.date: 05/23/2018
 ms.localizationpriority: medium
-ms.prod: windows-server
-ms.openlocfilehash: 9acfa873e4ce7d3e91a23abff726836f0e11ce59
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 15f0120fdf1792ad127a9f5fa0e045ef7df18e85
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71357219"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87958748"
 ---
 # <a name="fujitsu-serverview-health-and-raid-extensions"></a>Server View-Integritäts-und RAID-Erweiterungen für Fujitsu
 
@@ -25,10 +23,10 @@ Fujitsu sah eine Gelegenheit, um problemlos in Windows Admin Center integriert z
 
 ![Fujitsu-Erweiterung-Integritäts Strukturansicht](../../media/extend-case-study-fujitsu/health-tree.png)
 
-Nachdem das Team mit dem Windows Admin Center SDK vertraut ist, war das Hinzufügen von Benutzeroberflächen zur Offenlegung zusätzlicher Hardwareinformationen oft einfach nur noch ein paar mehr HTML-Codezeilen, und Sie waren schnell in der Lage, von einem einzigen Tool zu erweitern, um eine Zusammenfassungs Ansicht der Hardwarekomponente anzuzeigen. Integrität, ausführliche Ansichten für System Ereignisprotokolle, Treiber Monitor, separate Ansichten für Prozessor, Arbeitsspeicher, Lüfter, Stromversorgung, Temperatur und Spannungen und sogar ein zusätzliches Tool für die RAID-Verwaltung. Durch die Verwendung von UI-Steuerelementen, die im SDK verfügbar sind, z. b. die Struktur-, Raster-und Detailbereich-Steuerelemente, konnte das Team schnell eine Benutzeroberfläche erstellen
+Nachdem das Team mit dem Windows Admin Center SDK vertraut ist, war das Hinzufügen von Benutzeroberflächen zur Offenlegung zusätzlicher Hardwareinformationen oft einfach nur ein paar mehr HTML-Codezeilen, und Sie konnten schnell von einem einzigen Tool aus erweitert werden, um eine Übersicht über die Integrität der Hardwarekomponenten, ausführliche Ansichten für System Ereignisprotokolle, Treiber Monitor, separate Ansichten für Prozessor, Arbeitsspeicher anzuzeigen. , Lüfter, Stromversorgung, Temperatur und Spannungen und sogar ein zusätzliches Tool für die RAID-Verwaltung. Durch die Verwendung von UI-Steuerelementen, die im SDK verfügbar sind, z. b. die Struktur-, Raster-und Detailbereich-Steuerelemente, konnte das Team schnell eine Benutzeroberfläche erstellen
 
 ![Fujitsu-Erweiterung-RAID-Strukturansicht](../../media/extend-case-study-fujitsu/raid-tree.png)
 
 ![Fujitsu-Erweiterung-RAID-Volumes (Ansicht)](../../media/extend-case-study-fujitsu/raid-volumes.png)
 
-Die Partnerschaft zwischen Fujitsu und dem Windows Admin Center-Team zeigt eindeutig den Wert der Integration innerhalb des Windows Admin Centers, sodass Kunden End-to-End-Einblicke in Server Rollen und-Dienste, das Betriebssystem und die Hardware Verwaltung haben. .
+Die Partnerschaft zwischen Fujitsu und dem Windows Admin Center-Team zeigt eindeutig den Wert der Integration innerhalb des Windows Admin Centers, sodass Kunden End-to-End-Einblicke in Server Rollen und-Dienste, das Betriebssystem und die Hardware Verwaltung haben.

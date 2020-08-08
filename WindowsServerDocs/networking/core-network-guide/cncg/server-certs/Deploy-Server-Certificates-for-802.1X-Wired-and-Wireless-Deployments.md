@@ -4,16 +4,14 @@ description: Dieses Thema ist Teil des Handbuchs Bereitstellen von Server Zertif
 manager: brianlic
 ms.topic: article
 ms.assetid: 0a39ecae-39cc-4f26-bd6f-b71ed02fc4ad
-ms.prod: windows-server
-ms.technology: networking
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: c2de22bc7edd51c3469939920a2027ad4cbc2ee9
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: fd5c9ea9954053fd21f6ab46ff0b6d2f8da5245f
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87181776"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87995564"
 ---
 # <a name="deploy-server-certificates-for-8021x-wired-and-wireless-deployments"></a>Bereitstellen von Serverzertifikaten für drahtgebundene und drahtlose 802.1X-Bereitstellungen
 
@@ -91,4 +89,4 @@ Weitere Informationen finden Sie unter [Übersicht über Active Directory Zertif
 
 Die Rolle "Webserver (IIS)" in Windows Server 2016 bietet eine sichere, einfach zu verwaltende, modulare und erweiterbare Plattform für das zuverlässige Hosting von Websites, Diensten und Anwendungen. Mit IIS können Sie Informationen für Benutzer im Internet, in einem Intranet oder in einem Extranet freigeben. IIS ist eine einheitliche Webplattform, die IIS, ASP.net, FTP-Dienste, PHP und Windows Communication Foundation (WCF) integriert.
 
-Weitere Informationen finden Sie unter [Webserver (IIS): Übersicht](https://technet.microsoft.com/library/hh831725.aspx).
+Weitere Informationen finden Sie unter [Webserver (IIS): Übersicht](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831725(v=ws.11)).

@@ -6,12 +6,12 @@ ms.topic: article
 ms.assetid: f66ee49a-1fd3-4927-a813-64a15017b63b
 ms.author: anpaul
 author: AnirbanPaul
-ms.openlocfilehash: e502ab3bc751bbbd1302de3c58c70754d50a5c4e
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 4896b7d5c4a1c555c431e42b597d1c43a02ec71b
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87970837"
+ms.locfileid: "87995261"
 ---
 # <a name="system-center-technologies-for-sdn"></a>System Center-Technologien für SDN
 
@@ -27,7 +27,7 @@ System Center beinhaltet die folgenden Technologien zur Verwendung mit Software-
 ## <a name="system-center-operations-manager"></a><a name="bkmk_scom"></a>System Center Operations Manager
 System Center 2016 Operations Manager stellt eine flexible und kostengünstige Infrastrukturüberwachung bereit, trägt zur Sicherstellung der vorhersagbaren Leistung und Verfügbarkeit wichtiger Anwendungen bei und bietet eine umfassende Überwachung für Ihr Rechenzentrum und Ihre private und öffentliche Cloud.
 
-Weitere Informationen finden Sie unter [Operations Manager](https://technet.microsoft.com/library/hh205987.aspx).
+Weitere Informationen finden Sie unter [Operations Manager](/previous-versions/system-center/system-center-2012-R2/hh205987(v=sc.12)).
 
 ## <a name="system-center-virtual-machine-manager"></a><a name="bkmk_scvmm"></a>System Center Virtual Machine Manager
 Mit System Center 2016 Virtual Machine Manager (VMM) können Sie folgende Aktionen ausführen:
@@ -40,6 +40,4 @@ Mit System Center 2016 Virtual Machine Manager (VMM) können Sie folgende Aktion
 - Unterstützt Sie bei der Steuerung des Datenverkehrs zwischen virtuellen Netzwerken, einschließlich der Möglichkeit, die garantierte Bandbreite für Ihre kritischen Anwendungen und Workloads zu definieren.
 
 
-Weitere Informationen finden Sie unter [Einrichten einer Sdn-Infrastruktur (Software Defined Network) im VMM-Fabric](https://technet.microsoft.com/system-center-docs/vmm/scenario/sdn-overview).
-
-
+Weitere Informationen finden Sie unter [Einrichten einer Sdn-Infrastruktur (Software Defined Network) im VMM-Fabric](/system-center/vmm/deploy-sdn?view=sc-vmm-2019).

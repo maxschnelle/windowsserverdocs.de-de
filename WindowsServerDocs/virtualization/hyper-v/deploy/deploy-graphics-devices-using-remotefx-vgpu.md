@@ -7,12 +7,12 @@ ms.author: rickman
 manager: stevelee
 ms.topic: article
 ms.date: 07/14/2020
-ms.openlocfilehash: 9a060f1650d20a029d64739e1fc7f9be44d8355c
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 38d0ae70e0b6e70e87cc962ec5776d4ffb950fe5
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87953436"
+ms.locfileid: "87995612"
 ---
 # <a name="deploy-graphics-devices-using-remotefx-vgpu"></a>Bereitstellen von Grafikgeräten mit RemoteFX vGPU
 
@@ -75,10 +75,10 @@ Sie können entweder die Hyper-V-Manager-Benutzeroberfläche oder die PowerShell
 
 Verwenden Sie die folgenden PowerShell-Cmdlets, um den Adapter hinzuzufügen, zu überprüfen und zu konfigurieren:
 
-- [Add-VMRemoteFx3dVideoAdapter](https://docs.microsoft.com/powershell/module/hyper-v/add-vmremotefx3dvideoadapter?view=win10-ps)
-- [Get-VMRemoteFx3dVideoAdapter](https://docs.microsoft.com/powershell/module/hyper-v/get-vmremotefx3dvideoadapter?view=win10-ps)
-- [Set-VMRemoteFx3dVideoAdapter](https://docs.microsoft.com/powershell/module/hyper-v/set-vmremotefx3dvideoadapter?view=win10-ps)
-- [Get-vmremotefxphysicalvideoadapter](https://docs.microsoft.com/powershell/module/hyper-v/get-vmremotefxphysicalvideoadapter?view=win10-ps)
+- [Add-VMRemoteFx3dVideoAdapter](/powershell/module/hyper-v/add-vmremotefx3dvideoadapter?view=win10-ps)
+- [Get-VMRemoteFx3dVideoAdapter](/powershell/module/hyper-v/get-vmremotefx3dvideoadapter?view=win10-ps)
+- [Set-VMRemoteFx3dVideoAdapter](/powershell/module/hyper-v/set-vmremotefx3dvideoadapter?view=win10-ps)
+- [Get-vmremotefxphysicalvideoadapter](/powershell/module/hyper-v/get-vmremotefxphysicalvideoadapter?view=win10-ps)
 
 ## <a name="monitor-performance"></a>Überwachen der Leistung
 
@@ -108,4 +108,4 @@ Normalerweise sind Grafikgeräte und Treiber darauf abgestimmt, nur einige Anwen
 
 Wenn eine GPU wenig Ressourcen hat, dauert die Ausführung von Lese-und Schreibvorgängen lange. Administratoren können mithilfe von Leistungsindikatoren erkennen, wann Ressourcen angepasst und Ausfallzeiten für Benutzer verhindert werden sollen.
 
-Weitere Informationen zu Leistungsindikatoren zum Überwachen von remotefx vgpu-Verhalten finden Sie unter [Diagnostizieren von Problemen mit der Grafikleistung in Remotedesktop](https://docs.microsoft.com/azure/virtual-desktop/remotefx-graphics-performance-counters).
+Weitere Informationen zu Leistungsindikatoren zum Überwachen von remotefx vgpu-Verhalten finden Sie unter [Diagnostizieren von Problemen mit der Grafikleistung in Remotedesktop](/azure/virtual-desktop/remotefx-graphics-performance-counters).

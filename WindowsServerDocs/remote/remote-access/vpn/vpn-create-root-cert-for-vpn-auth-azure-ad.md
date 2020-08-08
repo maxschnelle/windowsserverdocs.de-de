@@ -1,20 +1,18 @@
 ---
 title: Erstellen von Stammzertifikaten für die VPN-Authentifizierung mit Azure AD
 description: In Azure AD wird das VPN-Zertifikat zum Signieren von Zertifikaten verwendet, die für Windows 10-Clients ausgestellt werden, wenn die Authentifizierung bei Azure AD für VPN-Verbindungen erfolgt. Das als primär gekennzeichnete Zertifikat ist der Aussteller, der von Azure AD verwendet wird.
-ms.prod: windows-server
-ms.technology: networking-ras
 ms.topic: article
 ms.date: 06/28/2019
 ms.author: v-tea
 author: Teresa-MOTIV
 ms.localizationpriority: medium
 ms.reviewer: deverette
-ms.openlocfilehash: 5058095fa4bd6f7ba769fd274f46bc8b96878158
-ms.sourcegitcommit: 430c6564c18f89eecb5bbc39cfee1a6f1d8ff85b
+ms.openlocfilehash: 098d2f2c17555c3e4375e4b54b676ef67a40dc4d
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83855674"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87946573"
 ---
 # <a name="step-72-create-conditional-access-root-certificates-for-vpn-authentication-with-azure-ad"></a>Schritt 7.2: Erstellen von Stamm Zertifikaten für den bedingten Zugriff für die VPN-Authentifizierung mit Azure AD
 
@@ -32,9 +30,9 @@ In diesem Schritt konfigurieren Sie die Stamm Zertifikate für den bedingten Zug
 > [!IMPORTANT]
 > Sobald ein VPN-Zertifikat in der Azure-Portal erstellt wurde, wird es von Azure AD sofort verwendet, um dem VPN-Client kurzlebige Zertifikate auszustellen. Es ist wichtig, dass das VPN-Zertifikat sofort auf dem VPN-Server bereitgestellt wird, um Probleme mit der Überprüfung der Anmelde Informationen des VPN-Clients zu vermeiden.
 
-Wenn ein Benutzer versucht, eine VPN-Verbindung herzustellen, ruft der VPN-Client den Webkonto-Manager (WAM) auf dem Windows 10-Client auf. WAM Ruft die VPN-Server-Cloud-App auf. Wenn die Bedingungen und Steuerelemente in der Richtlinie für bedingten Zugriff erfüllt sind, stellt Azure AD ein Token in Form eines kurzlebigen Zertifikats (1 Stunde) für das WAM aus. Das Zertifikat wird vom WAM in den Zertifikat Speicher des Benutzers eingefügt, und die Steuerung wird an den VPN-Client weitergeleitet.  
+Wenn ein Benutzer versucht, eine VPN-Verbindung herzustellen, ruft der VPN-Client den Webkonto-Manager (WAM) auf dem Windows 10-Client auf. WAM Ruft die VPN-Server-Cloud-App auf. Wenn die Bedingungen und Steuerelemente in der Richtlinie für bedingten Zugriff erfüllt sind, stellt Azure AD ein Token in Form eines kurzlebigen Zertifikats (1 Stunde) für das WAM aus. Das Zertifikat wird vom WAM in den Zertifikat Speicher des Benutzers eingefügt, und die Steuerung wird an den VPN-Client weitergeleitet. 
 
-Der VPN-Client sendet die Zertifikat Probleme dann an das VPN, um die Überprüfung der Anmelde Informationen durch Azure AD.  
+Der VPN-Client sendet die Zertifikat Probleme dann an das VPN, um die Überprüfung der Anmelde Informationen durch Azure AD. 
 
 > [!NOTE]
 > Azure AD verwendet das zuletzt erstellte Zertifikat auf dem Blatt VPN-Konnektivität als Aussteller.

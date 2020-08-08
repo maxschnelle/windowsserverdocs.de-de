@@ -1,19 +1,17 @@
 ---
 title: Windows Admin Center SDK-Fallstudie-NEC
 description: Windows Admin Center SDK-Fallstudie-NEC
-ms.technology: extend
 ms.topic: article
 author: daniellee-msft
 ms.author: jol
 ms.date: 04/01/2019
 ms.localizationpriority: medium
-ms.prod: windows-server
-ms.openlocfilehash: 9b238f25d856f42515ed93780de730ac672aa288
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5fc926a2526de8277ff69cf8c7b7e01d628948ba
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71357161"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87958708"
 ---
 # <a name="nec-esmpro-extension"></a>NEC esmpro-Erweiterung
 

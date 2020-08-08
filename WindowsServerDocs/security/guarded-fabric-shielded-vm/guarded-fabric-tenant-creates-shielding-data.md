@@ -6,12 +6,12 @@ manager: dongill
 author: rpsqrd
 ms.author: ryanpu
 ms.date: 09/25/2019
-ms.openlocfilehash: 296de5fbb7387e469d7e1ce39a477366dd274bbb
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: c9d1237caeb5838d1e95d00ec9afab9eeb436fd4
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87936751"
+ms.locfileid: "87995482"
 ---
 # <a name="shielded-vms-for-tenants---creating-shielding-data-to-define-a-shielded-vm"></a>Abgeschirmte VMs für Mandanten: Erstellen von Schutz Daten zum Definieren einer abgeschirmten VM
 
@@ -39,7 +39,7 @@ Anschließend können Sie die geschützte Datendatei erstellen:
 
 Da Mandanten nur über Remotedesktopverbindung oder andere Remote Verwaltungs Tools eine Verbindung mit ihren abgeschirmten VMS herstellen können, ist es wichtig sicherzustellen, dass Mandanten sicherstellen können, dass Sie eine Verbindung mit dem richtigen Endpunkt herstellen (d. h. es gibt keine "man in the Middle", die die Verbindung abfängt).
 
-Eine Möglichkeit, um zu überprüfen, ob Sie eine Verbindung mit dem vorgesehenen Server herstellen, ist die Installation und Konfiguration eines Zertifikats, das Remotedesktopdienste beim Initiieren einer Verbindung vorhanden ist. Der Client Computer, der eine Verbindung mit dem Server herstellt, prüft, ob das Zertifikat vertrauenswürdig ist, und zeigt eine Warnung an. Im Allgemeinen werden RDP-Zertifikate von der PKI des Mandanten ausgegeben, um sicherzustellen, dass der Verbindungs Client dem Zertifikat vertraut. Weitere Informationen zur [Verwendung von Zertifikaten in Remotedesktopdienste finden Sie](https://technet.microsoft.com/library/dn781533.aspx) im TechNet.
+Eine Möglichkeit, um zu überprüfen, ob Sie eine Verbindung mit dem vorgesehenen Server herstellen, ist die Installation und Konfiguration eines Zertifikats, das Remotedesktopdienste beim Initiieren einer Verbindung vorhanden ist. Der Client Computer, der eine Verbindung mit dem Server herstellt, prüft, ob das Zertifikat vertrauenswürdig ist, und zeigt eine Warnung an. Im Allgemeinen werden RDP-Zertifikate von der PKI des Mandanten ausgegeben, um sicherzustellen, dass der Verbindungs Client dem Zertifikat vertraut. Weitere Informationen zur [Verwendung von Zertifikaten in Remotedesktopdienste finden Sie](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn781533(v=ws.11)) im TechNet.
 
  Beachten Sie Folgendes, um Sie bei der Entscheidung zu unterstützen, ob Sie ein benutzerdefiniertes RDP-Zertifikat erhalten müssen:
 
@@ -103,7 +103,7 @@ Bei der Verwendung von Ersetzungs Zeichenfolgen müssen Sie sicherstellen, dass 
 Beachten Sie außerdem, dass die netzwerkbezogenen Ersetzungs Zeichenfolgen für das Ende der Tabelle nur verwendet werden, wenn Sie statische VMM-IP-Adress Pools nutzen. Ihr hostingdienstanbieter sollte Ihnen mitteilen können, ob diese Ersetzungs Zeichenfolgen erforderlich sind. Weitere Informationen zu statischen IP-Adressen in VMM-Vorlagen finden Sie in der folgenden Dokumentation in der VMM-Dokumentation:
 
 - [Richtlinien für IP-Adresspools](https://technet.microsoft.com/system-center-docs/vmm/plan/plan-network#guidelines-for-ip-address-pools)
-- [Einrichten von statischen IP-Adresspools im VMM-Fabric](https://technet.microsoft.com/system-center-docs/vmm/manage/manage-network-static-address-pools)
+- [Einrichten von statischen IP-Adresspools im VMM-Fabric](/system-center/vmm/network-pool?view=sc-vmm-2019)
 
 Schließlich ist es wichtig zu beachten, dass bei der Bereitstellung der abgeschirmten VM nur das Betriebssystem Laufwerk verschlüsselt wird. Wenn Sie einen abgeschirmten virtuellen Computer mit einem oder mehreren Daten Laufwerken bereitstellen, wird dringend empfohlen, dass Sie einen Unattend-Befehl oder Gruppenrichtlinie Einstellung in der Mandanten Domäne hinzufügen, um die Daten Laufwerke automatisch zu verschlüsseln.
 
@@ -206,10 +206,10 @@ Führen Sie den Assistenten für die Schutz Datendatei aus, um eine Datei mit ge
 
 ## <a name="create-a-shielding-data-file-and-add-guardians-using-powershell"></a>Erstellen einer Schutz Datendatei und Hinzufügen von Betreuern mithilfe von PowerShell
 
-Als Alternative zum Assistenten zum Schützen von Datendateien können Sie [New-shieldingdatafile](https://docs.microsoft.com/powershell/module/shieldedvmdatafile/new-shieldingdatafile?view=win10-ps) ausführen, um eine geschützte Datendatei zu erstellen.
+Als Alternative zum Assistenten zum Schützen von Datendateien können Sie [New-shieldingdatafile](/powershell/module/shieldedvmdatafile/new-shieldingdatafile?view=win10-ps) ausführen, um eine geschützte Datendatei zu erstellen.
 
 Alle Schutz Datendateien müssen mit den richtigen Besitzer-und Überwachungs Zertifikaten konfiguriert werden, damit Ihre abgeschirmten VMS auf einem geschützten Fabric ausgeführt werden können.
-Durch Ausführen von [Get-hgsguardian](https://docs.microsoft.com/powershell/module/hgsclient/get-hgsguardian?view=win10-ps)können Sie überprüfen, ob eine lokale Installation vorhanden ist. Besitzer Wächter verfügen über private Schlüssel, während Wächter für Ihr Rechenzentrum dies in der Regel nicht tun.
+Durch Ausführen von [Get-hgsguardian](/powershell/module/hgsclient/get-hgsguardian?view=win10-ps)können Sie überprüfen, ob eine lokale Installation vorhanden ist. Besitzer Wächter verfügen über private Schlüssel, während Wächter für Ihr Rechenzentrum dies in der Regel nicht tun.
 
 Wenn Sie einen Owner-Wächter erstellen müssen, führen Sie den folgenden Befehl aus:
 
@@ -251,7 +251,7 @@ Der Datenträger Name und das Signaturzertifikat müssen exakt mit dem Versionsv
 Sie können mehr als einen Vorlagen Datenträger als vertrauenswürdig einstufen, indem Sie eine durch Trennzeichen getrennte Liste mit Volumen-ID-Qualifizierern `-VolumeIDQualifier`
 Wenn Sie weitere Dateien haben, die die Antwortdatei mit dem virtuellen Computer begleiten müssen, verwenden Sie den `-OtherFile` Parameter, und geben Sie eine durch Trennzeichen getrennte Liste mit Dateipfaden an.
 
-Weitere Informationen zu weiteren Möglichkeiten zum Konfigurieren ihrer geschützten Datendatei finden Sie in der Cmdlet-Dokumentation für [New-shieldingdatafile](https://docs.microsoft.com/powershell/module/shieldedvmdatafile/New-ShieldingDataFile?view=win10-ps) und [New-volumeidqualifizierer](https://docs.microsoft.com/powershell/module/shieldedvmdatafile/New-VolumeIDQualifier?view=win10-ps) .
+Weitere Informationen zu weiteren Möglichkeiten zum Konfigurieren ihrer geschützten Datendatei finden Sie in der Cmdlet-Dokumentation für [New-shieldingdatafile](/powershell/module/shieldedvmdatafile/new-shieldingdatafile?view=win10-ps) und [New-volumeidqualifizierer](/powershell/module/shieldedvmdatafile/New-VolumeIDQualifier?view=win10-ps) .
 
 ## <a name="additional-references"></a>Weitere Verweise
 

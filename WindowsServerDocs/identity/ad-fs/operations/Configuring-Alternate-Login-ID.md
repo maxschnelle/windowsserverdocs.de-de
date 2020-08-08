@@ -6,20 +6,18 @@ ms.author: billmath
 manager: mtillman
 ms.date: 11/14/2018
 ms.topic: article
-ms.prod: windows-server
-ms.technology: identity-adfs
-ms.openlocfilehash: 0872131de7ba2a201b0a0e70fb6157b0e2706def
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 9d3e37f92482f7352ccb07ef9528783d7e693565
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86958632"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87967497"
 ---
 # <a name="configuring-alternate-login-id"></a>Konfigurieren von alternativen Anmelde-ID
 
 
 ## <a name="what-is-alternate-login-id"></a>Was ist eine Alternative Anmelde-ID?
-In den meisten Szenarien verwenden Benutzer ihren UPN (Benutzer Prinzipal Namen), um sich bei ihren Konten anzumelden. In einigen Umgebungen kann es jedoch sein, dass Benutzer aufgrund von Unternehmensrichtlinien oder lokalen Anwendungsabhängigkeiten eine andere Art von Anmeldung verwenden. 
+In den meisten Szenarien verwenden Benutzer ihren UPN (Benutzer Prinzipal Namen), um sich bei ihren Konten anzumelden. In einigen Umgebungen kann es jedoch sein, dass Benutzer aufgrund von Unternehmensrichtlinien oder lokalen Anwendungsabhängigkeiten eine andere Art von Anmeldung verwenden.
 
 >[!NOTE]
 >Die empfohlenen Best Practices von Microsoft sind die Anpassung des UPN an die primäre SMTP-Adresse. In diesem Artikel wird der kleine Prozentsatz der Kunden behandelt, die die UPN nicht wiederherstellen können.
@@ -30,9 +28,9 @@ Mit Active Directory-Verbunddienste (AD FS) (AD FS) können Verbund Anwendungen,
 
 ## <a name="alternate-id-in-azure-ad"></a>Alternative ID in Azure AD
 Möglicherweise muss eine Organisation eine Alternative ID in den folgenden Szenarien verwenden:
-1. Der lokale Domänen Name ist nicht Routing fähig, z. b.. "" Von "" in "" von "" in " jdoe@contoso.local ". Vorhandener UPN kann aufgrund lokaler Anwendungsabhängigkeiten oder Unternehmensrichtlinien nicht geändert werden. Azure AD und Office 365 erfordern, dass alle dem Azure AD Verzeichnis zugeordneten Domänen Suffixe vollständig über das Internet Routing fähig sind. 
+1. Der lokale Domänen Name ist nicht Routing fähig, z. b.. "" Von "" in "" von "" in " jdoe@contoso.local ". Vorhandener UPN kann aufgrund lokaler Anwendungsabhängigkeiten oder Unternehmensrichtlinien nicht geändert werden. Azure AD und Office 365 erfordern, dass alle dem Azure AD Verzeichnis zugeordneten Domänen Suffixe vollständig über das Internet Routing fähig sind.
 2. Der lokale UPN ist nicht mit der e-Mail-Adresse des Benutzers identisch. um sich bei Office 365 anzumelden, verwenden Benutzer eine e-Mail-Adresse, und der UPN kann aufgrund von Einschränkungen der Organisation nicht verwendet werden.
-   In den oben erwähnten Szenarios ermöglicht die Alternative ID mit AD FS Benutzern das Anmelden bei Azure AD, ohne Ihre lokalen UPNs zu ändern. 
+   In den oben erwähnten Szenarios ermöglicht die Alternative ID mit AD FS Benutzern das Anmelden bei Azure AD, ohne Ihre lokalen UPNs zu ändern.
 
 ## <a name="end-user-experience-with-alternate-login-id"></a>Endbenutzer mit alternativer Anmelde-ID
 Die Endbenutzer-Benutzer Leistung variiert abhängig von der Authentifizierungsmethode, die mit der alternativen Anmelde-ID verwendet wird.  Derzeit gibt es drei verschiedene Möglichkeiten, wie eine Alternative Anmelde-ID verwendet werden kann.  Sie lauten wie folgt:
@@ -60,7 +58,7 @@ Wenn Azure AD Connect Details zur AD FS Umgebung bereitgestellt wird, wird autom
 ### <a name="manually-configure-alternate-id"></a>Alternative ID manuell konfigurieren
 Zum Konfigurieren einer alternativen Anmelde-ID müssen Sie die folgenden Aufgaben ausführen: Konfigurieren der AD FS Anspruchs Anbieter-Vertrauens Stellungen zum Aktivieren einer alternativen Anmelde-ID.
 
-1.  Wenn Sie Server 2012r2 haben, stellen Sie sicher, dass KB2919355 auf allen AD FS Servern installiert ist. Sie können Sie über Windows Update Services herunterladen oder direkt herunterladen. 
+1.  Wenn Sie Server 2012r2 haben, stellen Sie sicher, dass KB2919355 auf allen AD FS Servern installiert ist. Sie können Sie über Windows Update Services herunterladen oder direkt herunterladen.
 
 2.  Aktualisieren Sie die AD FS Konfiguration, indem Sie das folgende PowerShell-Cmdlet auf einem der Verbund Server in der Farm ausführen (wenn Sie über eine wid-Farm verfügen, müssen Sie diesen Befehl auf dem primären AD FS Server in der Farm ausführen):
 
@@ -125,16 +123,16 @@ Wenn Sie Ihr Verzeichnis für einmaliges Anmelden mit alternativer ID mithilfe v
 
 Mit der folgenden zusätzlichen Konfiguration wird die Benutzer Leistung erheblich verbessert, und Sie können für Benutzer mit alternativer ID in Ihrer Organisation fast null-Aufforderungen für die Authentifizierung erreichen.
 
-##### <a name="step-1-update-to-required-office-version"></a>Schritt 1 Update auf erforderliche Office-Version
+##### <a name="step-1-update-to-required-office-version"></a>Schritt 1: Update auf erforderliche Office-Version
 Office-Version 1712 (Build No 8827,2148) und höher hat die Authentifizierungs Logik aktualisiert, um das alternatives-ID-Szenario zu verarbeiten. Um die neue Logik nutzen zu können, müssen die Client Computer auf Office Version 1712 (Build No 8827,2148) und höher aktualisiert werden.
 
-##### <a name="step-2-update-to-required-windows-version"></a>Schritt 2 Update auf erforderliche Windows-Version
+##### <a name="step-2-update-to-required-windows-version"></a>Schritt 2: Update auf erforderliche Windows-Version
 Windows Version 1709 und höher hat die Authentifizierungs Logik aktualisiert, um das alternatives-ID-Szenario zu verarbeiten. Um die neue Logik nutzen zu können, müssen die Client Computer auf Windows, Version 1709 und höher, aktualisiert werden.
 
-##### <a name="step-3-configure-registry-for-impacted-users-using-group-policy"></a>Schritt 3 Konfigurieren der Registrierung für betroffene Benutzer mithilfe von Gruppenrichtlinien
+##### <a name="step-3-configure-registry-for-impacted-users-using-group-policy"></a>Schritt 3: Konfigurieren der Registrierung für betroffene Benutzer mithilfe von Gruppenrichtlinien
 Die Office-Anwendungen basieren auf Informationen, die vom Verzeichnis Administrator zur Identifizierung der alternativen-ID-Umgebung übermittelt wurden. Die folgenden Registrierungsschlüssel müssen konfiguriert werden, damit Office-Anwendungen den Benutzer mit alternativer ID authentifizieren können, ohne dass zusätzliche Eingabe Aufforderungen angezeigt werden.
 
-|Hinzu zufügende RegKey|Name, Typ und Wert von RegKey|Windows 7/8|Windows 10|Beschreibung|
+|Hinzu zufügende RegKey|Name, Typ und Wert von RegKey|Windows 7/8|Windows 10|BESCHREIBUNG|
 |-----|-----|-----|-----|-----|
 |HKEY_CURRENT_USER \software\microsoft\authn|DomainHint</br>REG_SZ</br>contoso.com|Erforderlich|Erforderlich|Der Wert dieses RegKey ist ein verifizierter benutzerdefinierter Domänen Name im Mandanten der Organisation. So kann z. b. der Wert contoso.com in diesem Registrierungsschlüssel von "Configuration Manager" bereitgestellt werden, wenn "contoso.com" einer der überprüften benutzerdefinierten Domänen Namen im Mandanten contoso.onmicrosoft.com ist.|
 HKEY_CURRENT_USER \software\microsoft\office\16.0\common\identity|Enablealternative eidunterstützung</br>REG_DWORD</br>1|Erforderlich für Outlook 2016 ProPlus|Erforderlich für Outlook 2016 ProPlus|Der Wert dieses RegKey kann 1/0 sein, um der Outlook-Anwendung mitzuteilen, ob Sie die verbesserte Authentifizierungs Logik der alternativen ID einsetzen soll.|
@@ -155,24 +153,24 @@ HKEY_CURRENT_USER \software\microsoft\windows\currentversion\internet settings\z
 
 ### <a name="non-exchange-and-skype-for-business-clients"></a>Nicht-Exchange-und Skype for Business-Clients
 
-|Client|Supporthinweis|Bemerkungen|
+|Client|Supporthinweis|Hinweise|
 | ----- | -----|-----|
-|Microsoft Teams|Unterstützt|<li>Microsoft Teams unterstützt AD FS (SAML-P, WS-Fed, WS-Trust und OAuth) und die moderne Authentifizierung.</li><li> Wichtige Microsoft-Teams, wie z. b. Kanäle, Chats und Dateien, funktionieren mit einer alternativen Anmelde-ID.</li><li>Drittanbieter-apps müssen separat vom Kunden untersucht werden. Dies liegt daran, dass jede Anwendung über eigene Authentifizierungsprotokolle für die Unterstützung verfügt.</li>|     
+|Microsoft Teams|Unterstützt|<li>Microsoft Teams unterstützt AD FS (SAML-P, WS-Fed, WS-Trust und OAuth) und die moderne Authentifizierung.</li><li> Wichtige Microsoft-Teams, wie z. b. Kanäle, Chats und Dateien, funktionieren mit einer alternativen Anmelde-ID.</li><li>Drittanbieter-apps müssen separat vom Kunden untersucht werden. Dies liegt daran, dass jede Anwendung über eigene Authentifizierungsprotokolle für die Unterstützung verfügt.</li>|
 |OneDrive for Business|Unterstützt-Client seitiger Registrierungsschlüssel empfohlen |Wenn eine Alternative ID konfiguriert ist, sehen Sie, dass der lokale UPN im Feld Überprüfung vorab ausgefüllt ist. Dies muss in die alternative Identität geändert werden, die verwendet wird. Es wird empfohlen, den Client seitigen Registrierungsschlüssel zu verwenden, der in diesem Artikel angegeben ist: Office 2013 und lync 2013 werden regelmäßig zur Eingabe von Anmelde Informationen für SharePoint Online, onedrive und lync Online aufgefordert.|
-|Onedrive for Business Mobile-Client|Unterstützt|| 
+|Onedrive for Business Mobile-Client|Unterstützt||
 |Office 365 pro Plus-Aktivierungs Seite|Unterstützt-Client seitiger Registrierungsschlüssel empfohlen|Wenn eine Alternative ID konfiguriert ist, sehen Sie, dass der lokale UPN im Feld Überprüfung vorab ausgefüllt ist. Dies muss in die alternative Identität geändert werden, die verwendet wird. Es wird empfohlen, den Client seitigen Registrierungsschlüssel zu verwenden, der in diesem Artikel beschrieben wird: Office 2013 und lync 2013 fordert regelmäßig zur Eingabe von Anmelde Informationen für SharePoint Online, onedrive und lync online auf.|
 
 ### <a name="exchange-and-skype-for-business-clients"></a>Exchange-und Skype for Business-Clients
 
 |Client|Support-Anweisung mit HMA|Support-Anweisung ohne HMA|
 | ----- |----- | ----- |
-|Outlook|Unterstützt, keine zusätzlichen Eingabe Aufforderungen|Unterstützt</br></br>Mit **moderner Authentifizierung** für Exchange Online: unterstützt</br></br>Mit **regulärer Authentifizierung** für Exchange Online: wird mit folgenden Einschränkungen unterstützt:</br><li>Sie müssen sich auf einem mit der Domäne verknüpften Computer befinden und mit dem Unternehmensnetzwerk verbunden sein. </li><li>Sie können nur eine Alternative ID in Umgebungen verwenden, die keinen externen Zugriff für Postfach-Benutzer zulassen. Dies bedeutet, dass Benutzer sich nur dann auf eine unterstützte Weise bei Ihrem Postfach authentifizieren können, wenn Sie mit dem Unternehmensnetzwerk, einem VPN oder über einen direkt Zugriffs Computer verbunden sind. Sie erhalten jedoch einige zusätzliche Eingabe Aufforderungen, wenn Sie Ihr Outlook-Profil konfigurieren.| 
+|Outlook|Unterstützt, keine zusätzlichen Eingabe Aufforderungen|Unterstützt</br></br>Mit **moderner Authentifizierung** für Exchange Online: unterstützt</br></br>Mit **regulärer Authentifizierung** für Exchange Online: wird mit folgenden Einschränkungen unterstützt:</br><li>Sie müssen sich auf einem mit der Domäne verknüpften Computer befinden und mit dem Unternehmensnetzwerk verbunden sein. </li><li>Sie können nur eine Alternative ID in Umgebungen verwenden, die keinen externen Zugriff für Postfach-Benutzer zulassen. Dies bedeutet, dass Benutzer sich nur dann auf eine unterstützte Weise bei Ihrem Postfach authentifizieren können, wenn Sie mit dem Unternehmensnetzwerk, einem VPN oder über einen direkt Zugriffs Computer verbunden sind. Sie erhalten jedoch einige zusätzliche Eingabe Aufforderungen, wenn Sie Ihr Outlook-Profil konfigurieren.|
 |Hybride öffentliche Ordner|Unterstützt, keine zusätzlichen Eingabe Aufforderungen.|Mit **moderner Authentifizierung** für Exchange Online: unterstützt</br></br>Mit **regulärer Authentifizierung** für Exchange Online: nicht unterstützt</br></br><li>Hybride öffentliche Ordner können nicht erweitert werden, wenn alternative IDs verwendet werden, und sollten daher noch heute nicht mit regulären Authentifizierungsmethoden verwendet werden.|
 |Standortübergreifende Delegierung|Weitere Informationen finden [Sie unter Konfigurieren von Exchange für die Unterstützung von Delegierten Post Fach Berechtigungen in](/exchange/hybrid-deployment/set-up-delegated-mailbox-permissions)|Weitere Informationen finden [Sie unter Konfigurieren von Exchange für die Unterstützung von Delegierten Post Fach Berechtigungen in](/exchange/hybrid-deployment/set-up-delegated-mailbox-permissions)|
-|Archivieren des Post Fach Zugriffs (Postfach lokal-Archive in der Cloud)|Unterstützt, keine zusätzlichen Eingabe Aufforderungen|Unterstützt: Benutzer erhalten eine zusätzliche Aufforderung zum Eingeben von Anmelde Informationen, wenn Sie auf das Archiv zugreifen. Sie müssen bei entsprechender Aufforderung Ihre alternative ID angeben.| 
+|Archivieren des Post Fach Zugriffs (Postfach lokal-Archive in der Cloud)|Unterstützt, keine zusätzlichen Eingabe Aufforderungen|Unterstützt: Benutzer erhalten eine zusätzliche Aufforderung zum Eingeben von Anmelde Informationen, wenn Sie auf das Archiv zugreifen. Sie müssen bei entsprechender Aufforderung Ihre alternative ID angeben.|
 |Outlook Web Access|Unterstützt|Unterstützt|
 |Outlook-Mobile Apps für Android, IOS und Windows Phone|Unterstützt|Unterstützt|
-|Skype for Business/lync|Unterstützt, ohne zusätzliche Eingabe Aufforderungen|Unterstützt (außer wie bereits erwähnt), aber es gibt eine Möglichkeit für Benutzer Verwirrung.</br></br>Auf mobilen Clients wird die Alternative ID nur unterstützt, wenn SIP Address = Email Address = Alternative ID lautet.</br></br> Benutzer müssen sich möglicherweise zweimal beim Skype for Business-Desktop Client anmelden, zuerst den lokalen UPN verwenden und dann die Alternative ID verwenden. (Beachten Sie, dass es sich bei der "Anmelde Adresse" tatsächlich um die SIP-Adresse handelt, die möglicherweise nicht mit dem "Benutzernamen" identisch ist, obwohl dies häufig der Wert ist). Wenn Sie zum ersten Mal einen Benutzernamen eingeben, sollte der Benutzer den UPN eingeben, auch wenn er nicht korrekt mit der alternativen ID oder SIP-Adresse aufgefüllt ist. Nachdem der Benutzer mit dem UPN auf "Anmelden" geklickt hat, wird die Eingabeaufforderung für den Benutzernamen erneut angezeigt, dieses Mal mit dem UPN gefüllt. Dieses Mal muss der Benutzer dies durch die Alternative ID ersetzen und auf Anmelden klicken, um den Anmeldevorgang abzuschließen. Auf mobilen Clients sollten Benutzer die lokale Benutzer-ID auf der Seite "Erweitert" mit dem Sam-Format ("Domäne \ Benutzername") und nicht mit dem UPN-Format eingeben.</br></br>Wenn Skype for Business oder lync nach erfolgreicher Anmeldung besagt, dass Exchange ihre Anmelde Informationen benötigt, müssen Sie die Anmelde Informationen angeben, die für den Speicherort des Postfachs gültig sind. Wenn sich das Postfach in der Cloud befindet, müssen Sie die Alternative ID angeben. Wenn das Postfach lokal ist, müssen Sie den lokalen UPN bereitstellen.| 
+|Skype for Business/lync|Unterstützt, ohne zusätzliche Eingabe Aufforderungen|Unterstützt (außer wie bereits erwähnt), aber es gibt eine Möglichkeit für Benutzer Verwirrung.</br></br>Auf mobilen Clients wird die Alternative ID nur unterstützt, wenn SIP Address = Email Address = Alternative ID lautet.</br></br> Benutzer müssen sich möglicherweise zweimal beim Skype for Business-Desktop Client anmelden, zuerst den lokalen UPN verwenden und dann die Alternative ID verwenden. (Beachten Sie, dass es sich bei der "Anmelde Adresse" tatsächlich um die SIP-Adresse handelt, die möglicherweise nicht mit dem "Benutzernamen" identisch ist, obwohl dies häufig der Wert ist). Wenn Sie zum ersten Mal einen Benutzernamen eingeben, sollte der Benutzer den UPN eingeben, auch wenn er nicht korrekt mit der alternativen ID oder SIP-Adresse aufgefüllt ist. Nachdem der Benutzer mit dem UPN auf "Anmelden" geklickt hat, wird die Eingabeaufforderung für den Benutzernamen erneut angezeigt, dieses Mal mit dem UPN gefüllt. Dieses Mal muss der Benutzer dies durch die Alternative ID ersetzen und auf Anmelden klicken, um den Anmeldevorgang abzuschließen. Auf mobilen Clients sollten Benutzer die lokale Benutzer-ID auf der Seite "Erweitert" mit dem Sam-Format ("Domäne \ Benutzername") und nicht mit dem UPN-Format eingeben.</br></br>Wenn Skype for Business oder lync nach erfolgreicher Anmeldung besagt, dass Exchange ihre Anmelde Informationen benötigt, müssen Sie die Anmelde Informationen angeben, die für den Speicherort des Postfachs gültig sind. Wenn sich das Postfach in der Cloud befindet, müssen Sie die Alternative ID angeben. Wenn das Postfach lokal ist, müssen Sie den lokalen UPN bereitstellen.|
 
 ## <a name="additional-details--considerations"></a>Weitere Details & Überlegungen
 

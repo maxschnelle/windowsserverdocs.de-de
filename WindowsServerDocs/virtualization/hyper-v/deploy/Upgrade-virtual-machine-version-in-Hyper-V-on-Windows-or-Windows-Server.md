@@ -7,12 +7,12 @@ ms.assetid: 897f2454-5aee-445c-a63e-f386f514a0f6
 author: jasongerend
 ms.author: jgerend
 ms.date: 05/22/2019
-ms.openlocfilehash: e7c86cc15877c622cf3554a7ae69fe3d0aea1c50
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 24e67bd88a644c44b65d5eb8ccd3d6190737b5db
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87938924"
+ms.locfileid: "87995639"
 ---
 # <a name="upgrade-virtual-machine-version-in-hyper-v-on-windows-10-or-windows-server"></a>Aktualisieren der Version virtueller Computer in Hyper-V unter Windows 10 oder Windows Server
 
@@ -24,13 +24,13 @@ Machen Sie die neuesten Hyper-V-Features auf Ihren virtuellen Computern verfügb
 - Sie aktualisieren die Cluster Funktionsebene.
 - Sie müssen den virtuellen Computer nicht auf einen Hyper-V-Host verschieben, auf dem eine frühere Version von Windows oder Windows Server ausgeführt wird.
 
-Weitere Informationen finden Sie unter [Cluster Operating System Rolling Upgrade](../../../failover-clustering/Cluster-Operating-System-Rolling-Upgrade.md) und [Durchführen eines parallelen Upgrades eines Hyper-V-Host Clusters in VMM](https://docs.microsoft.com/system-center/vmm/hyper-v-rolling-upgrade).
+Weitere Informationen finden Sie unter [Cluster Operating System Rolling Upgrade](../../../failover-clustering/Cluster-Operating-System-Rolling-Upgrade.md) und [Durchführen eines parallelen Upgrades eines Hyper-V-Host Clusters in VMM](/system-center/vmm/hyper-v-rolling-upgrade).
 
 ## <a name="step-1-check-the-virtual-machine-configuration-versions"></a>Schritt 1: Überprüfen der Konfigurations Versionen des virtuellen Computers
 
 1. Klicken Sie auf dem Windows-Desktop auf die Schaltfläche „Start“, und geben Sie einen beliebigen Teil des Namens **Windows PowerShell** ein.
 2. Klicken Sie mit der rechten Maustaste auf Windows PowerShell, und wählen Sie **als Administrator ausführen**.
-3. Verwenden Sie das Cmdlet [Get-VM](https://docs.microsoft.com/powershell/module/hyper-v/get-vm). Führen Sie den folgenden Befehl aus, um die Versionen Ihrer virtuellen Computer zu erhalten.
+3. Verwenden Sie das Cmdlet [Get-VM](/powershell/module/hyper-v/get-vm). Führen Sie den folgenden Befehl aus, um die Versionen Ihrer virtuellen Computer zu erhalten.
 
 ```PowerShell
 Get-VM * | Format-Table Name, Version
@@ -43,7 +43,7 @@ Sie können die Konfigurations Version auch im Hyper-V-Manager anzeigen, indem S
 1. Fahren Sie den virtuellen Computer im Hyper-V-Manager herunter.
 2. Wählen Sie Aktion > upgradekonfigurationsversion aus. Wenn diese Option nicht für die VM verfügbar ist, weist diese bereits die höchste vom Hyper-V-Host unterstützte Konfigurationsversion auf.
 
-Um die Konfigurations Version des virtuellen Computers mithilfe von Windows PowerShell zu aktualisieren, verwenden Sie das Cmdlet [Update-VMVersion](https://docs.microsoft.com/powershell/module/hyper-v/update-vmversion) . Führen Sie den folgenden Befehl aus, wobei "VMName" der Name des virtuellen Computers ist.
+Um die Konfigurations Version des virtuellen Computers mithilfe von Windows PowerShell zu aktualisieren, verwenden Sie das Cmdlet [Update-VMVersion](/powershell/module/hyper-v/update-vmversion) . Führen Sie den folgenden Befehl aus, wobei "VMName" der Name des virtuellen Computers ist.
 
 ```PowerShell
 Update-VMVersion <vmname>
@@ -51,13 +51,13 @@ Update-VMVersion <vmname>
 
 ## <a name="supported-virtual-machine-configuration-versions"></a>Unterstützte Konfigurations Versionen für virtuelle Computer
 
-Führen Sie das PowerShell-Cmdlet [Get-vmhostsupportedversion](https://docs.microsoft.com/powershell/module/hyper-v/get-vmhostsupportedversion) aus, um die vom Hyper-V-Host unterstützten VM-Konfigurations Versionen anzuzeigen. Wenn Sie einen virtuellen Computer erstellen, wird er mit der Standard Konfigurations Version erstellt. Führen Sie den folgenden Befehl aus, um zu sehen, was der Standardwert ist.
+Führen Sie das PowerShell-Cmdlet [Get-vmhostsupportedversion](/powershell/module/hyper-v/get-vmhostsupportedversion) aus, um die vom Hyper-V-Host unterstützten VM-Konfigurations Versionen anzuzeigen. Wenn Sie einen virtuellen Computer erstellen, wird er mit der Standard Konfigurations Version erstellt. Führen Sie den folgenden Befehl aus, um zu sehen, was der Standardwert ist.
 
 ```PowerShell
 Get-VMHostSupportedVersion -Default
 ```
 
-Wenn Sie einen virtuellen Computer erstellen müssen, der zu einem Hyper-V-Host verschoben werden kann, auf dem eine ältere Version von Windows ausgeführt wird, verwenden Sie das Cmdlet [New-VM](https://docs.microsoft.com/powershell/module/hyper-v/new-vm) mit dem Parameter-Version. Um beispielsweise einen virtuellen Computer zu erstellen, den Sie auf einen Hyper-V-Host mit Windows Server 2012 R2 verschieben können, führen Sie den folgenden Befehl aus. Mit diesem Befehl wird ein virtueller Computer namens "WindowsCV5" mit der Konfigurations Version 5,0 erstellt.
+Wenn Sie einen virtuellen Computer erstellen müssen, der zu einem Hyper-V-Host verschoben werden kann, auf dem eine ältere Version von Windows ausgeführt wird, verwenden Sie das Cmdlet [New-VM](/powershell/module/hyper-v/new-vm) mit dem Parameter-Version. Um beispielsweise einen virtuellen Computer zu erstellen, den Sie auf einen Hyper-V-Host mit Windows Server 2012 R2 verschieben können, führen Sie den folgenden Befehl aus. Mit diesem Befehl wird ein virtueller Computer namens "WindowsCV5" mit der Konfigurations Version 5,0 erstellt.
 
 ```PowerShell
 New-VM -Name "WindowsCV5" -Version 5.0
@@ -82,7 +82,7 @@ In der folgenden Tabelle sind die VM-Konfigurations Versionen aufgelistet, die a
 
 ### <a name="supported-vm-configuration-versions-for-semi-annual-channel-hosts"></a>Unterstützte VM-Konfigurations Versionen für halbjährliche channelhosts
 
-In der folgenden Tabelle werden die Versionen der VM-Konfiguration für Hosts aufgelistet, auf denen eine derzeit unterstützte halbjährliche Kanal Version von Windows ausgeführt wird. Weitere Informationen zu halbjährlichen Kanal Versionen von Windows finden Sie auf den folgenden Seiten für [Windows Server](../../../get-started-19/servicing-channels-19.md) und [Windows 10](https://docs.microsoft.com/windows/deployment/update/waas-overview#servicing-channels) .
+In der folgenden Tabelle werden die Versionen der VM-Konfiguration für Hosts aufgelistet, auf denen eine derzeit unterstützte halbjährliche Kanal Version von Windows ausgeführt wird. Weitere Informationen zu halbjährlichen Kanal Versionen von Windows finden Sie auf den folgenden Seiten für [Windows Server](../../../get-started-19/servicing-channels-19.md) und [Windows 10](/windows/deployment/update/waas-overview#servicing-channels) .
 
 | Windows-Version des Hyper-V-Hosts | 9.1 | 9.0 | 8.3 | 8,2 | 8.1 | 8.0 | 7.1 | 7.0 | 6.2 | 5.0 |
 | --- |---|---|---|---|---|---|---|---|---|---|
@@ -116,7 +116,7 @@ In der folgenden Tabelle sind Beschreibungen, Dateinamen Erweiterungen und Stand
 
 Wenn Sie über virtuelle Computer verfügen, die Sie mit einer früheren Version von Hyper-V erstellt haben, funktionieren einige Features, die auf dem neueren Host Betriebssystem verfügbar sind, möglicherweise erst dann für diese virtuellen Maschinen, wenn Sie die Konfigurations Version aktualisieren.
 
-Als allgemeine Richtlinie wird empfohlen, die Konfigurations Version zu aktualisieren, nachdem Sie die Virtualisierungshosts erfolgreich auf eine neuere Version von Windows aktualisiert haben, und Sie können sicher sein, dass kein Rollback erforderlich ist. Wenn Sie das Feature für parallele [Upgrades des Cluster](https://docs.microsoft.com/windows-server/failover-clustering/Cluster-Operating-System-Rolling-Upgrade) Betriebssystems verwenden, liegt dies in der Regel nach dem Aktualisieren der Cluster Funktionsebene. Auf diese Weise profitieren Sie auch von neuen Features, internen Änderungen und Optimierungen.
+Als allgemeine Richtlinie wird empfohlen, die Konfigurations Version zu aktualisieren, nachdem Sie die Virtualisierungshosts erfolgreich auf eine neuere Version von Windows aktualisiert haben, und Sie können sicher sein, dass kein Rollback erforderlich ist. Wenn Sie das Feature für parallele [Upgrades des Cluster](../../../failover-clustering/cluster-operating-system-rolling-upgrade.md) Betriebssystems verwenden, liegt dies in der Regel nach dem Aktualisieren der Cluster Funktionsebene. Auf diese Weise profitieren Sie auch von neuen Features, internen Änderungen und Optimierungen.
 
 >[!NOTE]
 >Nachdem die VM-Konfigurations Version aktualisiert wurde, kann der virtuelle Computer nicht auf Hosts gestartet werden, die die aktualisierte Konfigurations Version nicht unterstützen.
@@ -140,8 +140,7 @@ In der folgenden Tabelle ist die Mindestversion der VM-Konfiguration aufgeführt
 |Große Arbeitsspeicher-VMS|8.0|
 |Erhöhen Sie die standardmäßige maximale Anzahl von virtuellen Geräten auf 64 pro Gerät (z. b. Netzwerk und zugewiesene Geräte).|8.3|
 |Zusätzliche Prozessor Features für Perfmon zulassen|9.0|
-|Automatisches Bereitstellen der [Multithreading](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types#background) -Konfiguration für VMS, die auf Hosts mit dem [Kern Planer](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types#windows-server-2019-hyper-v-defaults-to-using-the-core-scheduler) ausgeführt werden|9.0|
+|Automatisches Bereitstellen der [Multithreading](../manage/manage-hyper-v-scheduler-types.md#background) -Konfiguration für VMS, die auf Hosts mit dem [Kern Planer](../manage/manage-hyper-v-scheduler-types.md#windows-server-2019-hyper-v-defaults-to-using-the-core-scheduler) ausgeführt werden|9.0|
 |Ruhe Zustands Unterstützung|9.0|
 
 Weitere Informationen zu diesen Features finden Sie unter [Neues in Hyper-V unter Windows Server](../What-s-new-in-Hyper-V-on-Windows.md).
-

@@ -7,12 +7,12 @@ ms.assetid: f7af1eb6-d035-4f74-a25b-d4b7e4ea9329
 ms.author: anpaul
 author: AnirbanPaul
 ms.date: 08/24/2018
-ms.openlocfilehash: fd05441ecc64c05778234dc00fa315bb406dfb40
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: af8232de75005ae295079eb2207bce303629acaa
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87970807"
+ms.locfileid: "87995195"
 ---
 # <a name="connect-container-endpoints-to-a-tenant-virtual-network"></a>Verbinden von Containerendpunkten mit einem virtuellen Mandantennetzwerk
 
@@ -20,7 +20,7 @@ ms.locfileid: "87970807"
 
 In diesem Thema erfahren Sie, wie Sie Container Endpunkte mit einem vorhandenen virtuellen Mandanten Netzwerk verbinden, das über Sdn erstellt wurde. Sie verwenden den Netzwerktreiber *l2bridge* (und optional *l2tunnel*), der mit dem Windows libnetwork-Plug-in für docker verfügbar ist, um ein Container Netzwerk auf der Mandanten-VM zu erstellen.
 
-Im Thema [Container Netzwerktreiber](https://docs.microsoft.com/virtualization/windowscontainers/container-networking/network-drivers-topologies) wurden die verschiedenen Netzwerktreiber erläutert, die über docker unter Windows verfügbar sind. Verwenden Sie für Sdn die Treiber *l2bridge* und *l2tunnel* . Für beide Treiber befindet sich jeder Container Endpunkt im gleichen virtuellen Subnetz wie der virtuelle Computer des Container Hosts (Mandant).
+Im Thema [Container Netzwerktreiber](/virtualization/windowscontainers/container-networking/network-drivers-topologies) wurden die verschiedenen Netzwerktreiber erläutert, die über docker unter Windows verfügbar sind. Verwenden Sie für Sdn die Treiber *l2bridge* und *l2tunnel* . Für beide Treiber befindet sich jeder Container Endpunkt im gleichen virtuellen Subnetz wie der virtuelle Computer des Container Hosts (Mandant).
 
 Mit dem Host Netzwerkdienst (HNS) über das Private Cloud-Plug-in werden die IP-Adressen für Container Endpunkte dynamisch zugewiesen. Die Container Endpunkte verfügen über eindeutige IP-Adressen, verwenden jedoch die gleiche Mac-Adresse des virtuellen Computers des Container Hosts (Mandant) aufgrund der Layer-2-Adressübersetzung.
 
@@ -50,7 +50,7 @@ Der Unterschied zwischen den *l2bridge* -und *l2tunnel* -Treibern lautet wie fol
    ```
 
 >[!Note]
->Die [Genetzte Virtualisierung](https://msdn.microsoft.com/virtualization/hyperv_on_windows/user_guide/nesting) und das verfügbar machen von Virtualisierungserweiterungen ist nur erforderlich, wenn Hyper-V-Container verwendet werden
+>Die [Genetzte Virtualisierung](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization) und das verfügbar machen von Virtualisierungserweiterungen ist nur erforderlich, wenn Hyper-V-Container verwendet werden
 
 
 ## <a name="workflow"></a>Workflow
@@ -148,5 +148,4 @@ C:\> docker run -it --network=MyContainerOverlayNetwork <image> <cmd>
 >Die statische IP-Zuweisung wird bei Verwendung mit dem Microsoft Sdn-Stapel nicht mit *l2bridge* -oder *l2tunnel* -Container Netzwerken unterstützt.
 
 ## <a name="more-information"></a>Weitere Informationen
-Weitere Informationen zum Bereitstellen einer Sdn-Infrastruktur finden Sie unter Bereitstellen [einer Software definierten Netzwerkinfrastruktur](https://docs.microsoft.com/windows-server/networking/sdn/deploy/deploy-a-software-defined-network-infrastructure).
-
+Weitere Informationen zum Bereitstellen einer Sdn-Infrastruktur finden Sie unter Bereitstellen [einer Software definierten Netzwerkinfrastruktur](../deploy/deploy-a-software-defined-network-infrastructure.md).
