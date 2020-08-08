@@ -7,12 +7,12 @@ ms.assetid: fdc8063c-47ce-4448-b445-d7ff9894dc17
 author: kbdazure
 ms.author: kathydav
 ms.date: 10/04/2016
-ms.openlocfilehash: 7140c9e8b3205a2772e50652fd0e162790204b4c
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: b9de14f9c3f66f6d8c8b532e8f4a83192b3e824b
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87960119"
+ms.locfileid: "87996626"
 ---
 # <a name="create-a-virtual-switch-for-hyper-v-virtual-machines"></a>Erstellen eines virtuellen Switches für Hyper-V-VMs
 
@@ -49,7 +49,7 @@ Das Netzwerk virtueller Computer kann ein komplexer Betreff sein. Außerdem gibt
     |Einstellungsname|BESCHREIBUNG|
     |----------------|---------------|
     |Gemeinsames Verwenden dieses Netzwerkadapters für das Verwaltungsbetriebssystem zulassen|Wählen Sie diese Option aus, wenn Sie zulassen möchten, dass der Hyper-V-Host die Verwendung des virtuellen Switches und der NIC bzw. des NIC-Teams mit dem virtuellen Computer gemeinsam verwenden kann. Wenn dieses Feature aktiviert ist, kann der Host jede der Einstellungen verwenden, die Sie für den virtuellen Switch konfigurieren, wie z. b. Quality of Service Einstellungen (QoS), Sicherheitseinstellungen oder andere Features des virtuellen Hyper-V-Switches.|
-    |E/A-Virtualisierung mit Einzelstamm (SR-IOV) aktivieren|Wählen Sie diese Option nur aus, wenn Sie zulassen möchten, dass der virtuelle Computer den Switch der virtuellen Maschine umgeht und direkt zur physischen NIC wechselt. Weitere Informationen finden Sie unter [Single-root-e/a-Virtualisierung](https://technet.microsoft.com/library/dn641211.aspx#Sec4) in der Poster-Begleit Referenz: Hyper-V-Netzwerke.|
+    |E/A-Virtualisierung mit Einzelstamm (SR-IOV) aktivieren|Wählen Sie diese Option nur aus, wenn Sie zulassen möchten, dass der virtuelle Computer den Switch der virtuellen Maschine umgeht und direkt zur physischen NIC wechselt. Weitere Informationen finden Sie unter [Single-root-e/a-Virtualisierung](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn641211(v=ws.11)#Sec4) in der Poster-Begleit Referenz: Hyper-V-Netzwerke.|
 
 7.  Wenn Sie Netzwerk Datenverkehr vom Betriebssystem des Verwaltungs-Hyper-V-Hosts oder von anderen virtuellen Computern, die denselben virtuellen Switch verwenden, isolieren möchten, wählen Sie **virtuelle LAN-Identifizierung für Verwaltungs Betriebssystem aktivieren aus**. Sie können die VLAN-ID in eine beliebige Zahl ändern oder die Standardeinstellung überlassen. Dies ist die virtuelle LAN-ID, die vom Verwaltungs Betriebssystem für die gesamte Netzwerkkommunikation über diesen virtuellen Switch verwendet wird.
 
@@ -73,7 +73,7 @@ Das Netzwerk virtueller Computer kann ein komplexer Betreff sein. Außerdem gibt
     Get-NetAdapter
     ```
 
-4.  Erstellen Sie einen virtuellen Switch mithilfe des Cmdlets [New-VMSwitch](https://technet.microsoft.com/library/hh848455.aspx) . Führen Sie beispielsweise den folgenden Befehl aus, um einen externen virtuellen Switch mit dem Namen externalswitch zu erstellen, indem Sie den Ethernet-Netzwerkadapter verwenden und das **Verwaltungs Betriebssystem zulassen, dass dieser Netzwerkadapter** aktiviert ist.
+4.  Erstellen Sie einen virtuellen Switch mithilfe des Cmdlets [New-VMSwitch](/powershell/module/hyper-v/new-vmswitch?view=win10-ps) . Führen Sie beispielsweise den folgenden Befehl aus, um einen externen virtuellen Switch mit dem Namen externalswitch zu erstellen, indem Sie den Ethernet-Netzwerkadapter verwenden und das **Verwaltungs Betriebssystem zulassen, dass dieser Netzwerkadapter** aktiviert ist.
 
     ```
     New-VMSwitch -name ExternalSwitch  -NetAdapterName Ethernet -AllowManagementOS $true
@@ -96,6 +96,3 @@ Erweiterte Windows PowerShell-Skripts, die verbesserte oder neue virtuelle Switc
 
 ## <a name="next-step"></a>Nächster Schritt
 [Erstellen eines virtuellen Computers in Hyper-V](Create-a-virtual-machine-in-Hyper-V.md)
-
-
-
