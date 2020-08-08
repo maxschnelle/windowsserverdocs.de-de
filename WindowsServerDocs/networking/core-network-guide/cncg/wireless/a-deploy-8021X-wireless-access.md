@@ -6,12 +6,12 @@ ms.topic: article
 ms.assetid: ff06ba23-9c0f-49ec-8f7b-611cf8d73a1b
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 29a570cdda76bf514f3843d3fefca4cdd1406a95
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 252c687d3ea42254edc81d1ea1e6019a4bad69fe
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87969607"
+ms.locfileid: "87997643"
 ---
 # <a name="deploy-password-based-8021x-authenticated-wireless-access"></a>Bereitstellen von Kenn Wort \- basiertem, 802.1 x authentifizierten drahtlos Zugriff
 
@@ -53,7 +53,7 @@ Dieses Handbuch richtet sich an Netzwerk-und Systemadministratoren, die die Anwe
 
 Das Handbuch zum Hauptnetzwerk ist an den folgenden Orten verfügbar:
 
-- Das Windows Server 2016- [Kern Netzwerk Handbuch](https://technet.microsoft.com/windows-server-docs/networking/core-network-guide/core-network-guide) ist in der technischen Bibliothek für Windows Server 2016 verfügbar.
+- Das Windows Server 2016- [Kern Netzwerk Handbuch](../../core-network-guide.md) ist in der technischen Bibliothek für Windows Server 2016 verfügbar.
 
 - Das [Handbuch](https://gallery.technet.microsoft.com/Core-Network-Guide-for-9da2e683) zum Hauptnetzwerk ist auch im Word-Format in der TechNet Gallery unter verfügbar [https://gallery.technet.microsoft.com/Core-Network-Guide-for-9da2e683](https://gallery.technet.microsoft.com/Core-Network-Guide-for-9da2e683) .
 
@@ -65,7 +65,7 @@ Netzwerk-und Systemadministratoren, die authentifizierte drahtlos Bereitstellung
 
 Dieses Handbuch ist unter folgendem Speicherort verfügbar.
 
-- Im Windows Server 2016 Core Network-Begleit Handbuch werden [Server Zertifikate für drahtlose und drahtlose 802.1 x-bereit Stellungen](https://technet.microsoft.com/windows-server-docs/networking/core-network-guide/cncg/server-certs/deploy-server-certificates-for-802.1x-wired-and-wireless-deployments?f=255&MSPPError=-2147217396) im HTML-Format in der technischen Bibliothek bereitgestellt.
+- Im Windows Server 2016 Core Network-Begleit Handbuch werden [Server Zertifikate für drahtlose und drahtlose 802.1 x-bereit Stellungen](../server-certs/deploy-server-certificates-for-802.1x-wired-and-wireless-deployments.md?f=255&MSPPError=-2147217396) im HTML-Format in der technischen Bibliothek bereitgestellt.
 
 ##### <a name="public-ca"></a>Öffentliche Zertifizierungsstelle
 Sie können Server Zertifikate von einer öffentlichen Zertifizierungsstelle, z. b. VeriSign, erwerben, der Client Computer bereits Vertrauen.
