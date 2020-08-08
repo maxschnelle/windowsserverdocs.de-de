@@ -1,20 +1,18 @@
 ---
 title: Verwalten von Hyper-V-Integration Services
 description: Beschreibt, wie Integrationsdienste ein-und ausgeschaltet werden und bei Bedarf installiert werden.
-ms.technology: compute-hyper-v
 author: kbdazure
 ms.author: kathydav
 manager: dongill
 ms.date: 12/20/2016
 ms.topic: article
-ms.prod: windows-server
 ms.assetid: 9cafd6cb-dbbe-4b91-b26c-dee1c18fd8c2
-ms.openlocfilehash: 4237da8ee393953a8eb2a2b577c2df201f96a7be
-ms.sourcegitcommit: aed942d11f1a361fc1d17553a4cf190a864d1268
+ms.openlocfilehash: 5d5f69e1c71df9746421329d8fdf11a9786a948b
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83235064"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87996756"
 ---
 # <a name="manage-hyper-v-integration-services"></a>Verwalten von Hyper-V-Integration Services
 
@@ -22,7 +20,7 @@ ms.locfileid: "83235064"
 
 Mithilfe der bidirektionalen Kommunikation mit dem Hyper-v-Host können Sie Hyper-V Integration Services die Leistung virtueller Computer verbessern und bequeme Features bereitstellen. Viele dieser Dienste sind Bequemlichkeiten, wie z. b. das Kopieren von Gast Dateien, während andere für die Funktionalität des virtuellen Computers, z. b. synthetische Gerätetreiber, wichtig sind. Diese Dienste und Treiber werden manchmal als "Integrations Komponenten" bezeichnet. Sie können steuern, ob einzelne bequeme Dienste für einen bestimmten virtuellen Computer ausgeführt werden. Die Treiber Komponenten sind nicht für die manuelle Wartung vorgesehen.
 
-Ausführliche Informationen zu den einzelnen Integrationsdiensten finden Sie unter [Hyper-V-Integration Services](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/integration-services).
+Ausführliche Informationen zu den einzelnen Integrationsdiensten finden Sie unter [Hyper-V-Integration Services](/virtualization/hyper-v-on-windows/reference/integration-services).
 
 > [!IMPORTANT]
 > Jeder Dienst, den Sie verwenden möchten, muss sowohl auf dem Host als auch auf dem Gast aktiviert sein, damit er funktioniert. Alle Integrationsdienste mit Ausnahme von "Hyper-V-Gastschnittstellendienst" sind unter Windows-Gastbetriebssystemen standardmäßig aktiviert. Die Dienste können einzeln aktiviert und deaktiviert werden. In den nächsten Abschnitten wird erläutert, wie Sie.
@@ -37,7 +35,7 @@ Im Integration Services Bereich werden alle Integrationsdienste aufgelistet, die
 
 ### <a name="turn-an-integration-service-on-or-off-using-powershell"></a>Aktivieren oder Deaktivieren eines Integrations Dienstanbieter mithilfe von PowerShell
 
-Verwenden Sie hierzu " [enable-vmintegrationservice](https://technet.microsoft.com/library/hh848500.aspx) " und "Enable [-vmintegrationservice](https://technet.microsoft.com/library/hh848488.aspx)", um dies in PowerShell zu tun.
+Verwenden Sie hierzu " [enable-vmintegrationservice](/powershell/module/hyper-v/enable-vmintegrationservice?view=win10-ps) " und "Enable [-vmintegrationservice](/powershell/module/hyper-v/disable-vmintegrationservice?view=win10-ps)", um dies in PowerShell zu tun.
 
 In den folgenden Beispielen wird veranschaulicht, wie Sie den Integrations Dienst für Gast Dateien kopieren für einen virtuellen Computer namens "demovm" aktivieren und deaktivieren.
 
@@ -113,7 +111,7 @@ Damit ein Integrations Dienst voll funktionsfähig ist, muss der zugehörige Die
     Get-Service -Name vm*
     ```
 
-1.  Die Ausgabe sollte etwa so aussehen:
+1.  Die Ausgabe sollte in etwa wie folgt aussehen:
 
     ```PowerShell
     Status   Name               DisplayName
@@ -128,7 +126,7 @@ Damit ein Integrations Dienst voll funktionsfähig ist, muss der zugehörige Die
     Running  vmicvss            Hyper-V Volume Shadow Copy Requestor
     ```
 
-1. Ausführen von " [Start-Service](https://technet.microsoft.com/library/hh849825.aspx) " oder "Start [-Service](https://technet.microsoft.com/library/hh849790.aspx)". Um beispielsweise Windows PowerShell Direct zu deaktivieren, führen Sie Folgendes aus:
+1. Ausführen von " [Start-Service](/powershell/module/microsoft.powershell.management/start-service?view=powershell-7) " oder "Start [-Service](/powershell/module/microsoft.powershell.management/stop-service?view=powershell-7)". Um beispielsweise Windows PowerShell Direct zu deaktivieren, führen Sie Folgendes aus:
 
     ```
     Stop-Service -Name vmicvmsession
@@ -144,7 +142,7 @@ Linux-Integrationsdienste werden in der Regel über den Linux-Kernel bereitgeste
    lsmod | grep hv_utils
    ```
 
-2. Die Ausgabe sollte etwa so aussehen:
+2. Die Ausgabe sollte in etwa wie folgt aussehen:
 
     ``` BASH
     Module                  Size   Used by
@@ -158,7 +156,7 @@ Linux-Integrationsdienste werden in der Regel über den Linux-Kernel bereitgeste
     ps -ef | grep hv
     ```
 
-4. Die Ausgabe sollte etwa so aussehen:
+4. Die Ausgabe sollte in etwa wie folgt aussehen:
 
     ```BASH
     root       236     2  0 Jul11 ?        00:00:00 [hv_vmbus_con]
@@ -177,7 +175,7 @@ Linux-Integrationsdienste werden in der Regel über den Linux-Kernel bereitgeste
     compgen -c hv_
     ```
 
-6. Die Ausgabe sollte etwa so aussehen:
+6. Die Ausgabe sollte in etwa wie folgt aussehen:
 
     ``` BASH
     hv_vss_daemon
@@ -188,7 +186,7 @@ Linux-Integrationsdienste werden in der Regel über den Linux-Kernel bereitgeste
     hv_fcopy_daemon
     ```
 
-   Zu den unter Umständen aufgelisteten Integrations Dienst-Daemons zählen die folgenden. Wenn fehlende vorhanden sind, werden Sie möglicherweise auf Ihrem System nicht unterstützt, oder Sie sind möglicherweise nicht installiert. Weitere Informationen finden Sie [unter Unterstützte virtuelle Linux-und FreeBSD-Computer für Hyper-V unter Windows](https://technet.microsoft.com/library/dn531030.aspx).
+   Zu den unter Umständen aufgelisteten Integrations Dienst-Daemons zählen die folgenden. Wenn fehlende vorhanden sind, werden Sie möglicherweise auf Ihrem System nicht unterstützt, oder Sie sind möglicherweise nicht installiert. Weitere Informationen finden Sie [unter Unterstützte virtuelle Linux-und FreeBSD-Computer für Hyper-V unter Windows](../supported-linux-and-freebsd-virtual-machines-for-hyper-v-on-windows.md).
    - **hv_vss_daemon**: Dieser Daemon ist zum Erstellen von Sicherungen virtueller Linux-Computer erforderlich.
    - **hv_kvp_daemon**: Dieser Daemon ermöglicht das Festlegen und Abfragen von systeminternen und extrinsischen Schlüssel-Wert-Paaren.
    - **hv_fcopy_daemon**: Dieser Daemon implementiert einen Datei Kopier Dienst zwischen Host und Gast.
@@ -230,22 +228,22 @@ Es wird empfohlen, Integration Services auf dem neuesten Stand zu halten, um die
 > [!NOTE]
 > Die Image Datei "vmguest. ISO" ist nicht in Hyper-V unter Windows 10/Windows Server 2016/2019 enthalten, da Sie nicht mehr benötigt wird.
 
-| Gast  | Updatemechanismus | Notizen |
+| Gast  | Updatemechanismus | Hinweise |
 |:---------|:---------|:---------|
-| Windows 10 | Windows Update | |
-| Windows 8.1 | Windows Update | |
-| Windows 8 | Windows Update | Benötigt den Integrationsdienst „Datenaustausch“.* |
-| Windows 7 | Windows Update | Benötigt den Integrationsdienst „Datenaustausch“.* |
-| Windows Vista (SP 2) | Windows Update | Benötigt den Integrationsdienst „Datenaustausch“.* |
+| Windows 10 | Windows-Update | |
+| Windows 8.1 | Windows-Update | |
+| Windows 8 | Windows-Update | Benötigt den Integrationsdienst „Datenaustausch“.* |
+| Windows 7 | Windows-Update | Benötigt den Integrationsdienst „Datenaustausch“.* |
+| Windows Vista (SP 2) | Windows-Update | Benötigt den Integrationsdienst „Datenaustausch“.* |
 | - | | |
-| Windows Server 2016 | Windows Update | |
-| Windows Server (halbjährlicher Kanal) | Windows Update | |
-| Windows Server 2012 R2 | Windows Update | |
-| Windows Server 2012 | Windows Update | Benötigt den Integrationsdienst „Datenaustausch“.* |
-| Windows Server 2008 R2 (SP 1) | Windows Update | Benötigt den Integrationsdienst „Datenaustausch“.* |
-| Windows Server 2008 (SP 2) | Windows Update | Erweiterte Unterstützung nur in Windows Server 2016 ([Weitere Informationen](https://support.microsoft.com/lifecycle?p1=12925)). |
-| Windows Home Server 2011 | Windows Update | Wird in Windows Server 2016 ([Weitere Informationen](https://support.microsoft.com/lifecycle?p1=15820)) nicht unterstützt. |
-| Windows Small Business Server 2011 | Windows Update | Nicht im grundlegenden Support enthalten ([Weitere Informationen](https://support.microsoft.com/lifecycle?p1=15817)). |
+| Windows Server 2016 | Windows-Update | |
+| Windows Server (halbjährlicher Kanal) | Windows-Update | |
+| Windows Server 2012 R2 | Windows-Update | |
+| Windows Server 2012 | Windows-Update | Benötigt den Integrationsdienst „Datenaustausch“.* |
+| Windows Server 2008 R2 (SP 1) | Windows-Update | Benötigt den Integrationsdienst „Datenaustausch“.* |
+| Windows Server 2008 (SP 2) | Windows-Update | Erweiterte Unterstützung nur in Windows Server 2016 ([Weitere Informationen](https://support.microsoft.com/lifecycle?p1=12925)). |
+| Windows Home Server 2011 | Windows-Update | Wird in Windows Server 2016 ([Weitere Informationen](https://support.microsoft.com/lifecycle?p1=15820)) nicht unterstützt. |
+| Windows Small Business Server 2011 | Windows-Update | Nicht im grundlegenden Support enthalten ([Weitere Informationen](https://support.microsoft.com/lifecycle?p1=15817)). |
 | - | | |
 | Linux-Gastbetriebssysteme | Paket-Manager | Integration Services für Linux sind in die Distribution integriert, es können jedoch optionale Updates verfügbar sein. ******** |
 
@@ -253,17 +251,17 @@ Es wird empfohlen, Integration Services auf dem neuesten Stand zu halten, um die
 
 **Für virtuelle Maschinen, die auf Windows 8.1/Windows Server 2012r2-Hosts ausgeführt werden:**
 
-| Gast  | Updatemechanismus | Notizen |
+| Gast  | Updatemechanismus | Hinweise |
 |:---------|:---------|:---------|
-| Windows 10 | Windows Update | |
+| Windows 10 | Windows-Update | |
 | Windows 8.1 | Integrationsdienste-Datenträger | Weitere [Informationen](#install-or-update-integration-services)finden Sie unten unter. |
 | Windows 8 | Integrationsdienste-Datenträger | Weitere [Informationen](#install-or-update-integration-services)finden Sie unten unter. |
 | Windows 7 | Integrationsdienste-Datenträger | Weitere [Informationen](#install-or-update-integration-services)finden Sie unten unter. |
 | Windows Vista (SP 2) | Integrationsdienste-Datenträger | Weitere [Informationen](#install-or-update-integration-services)finden Sie unten unter. |
 | Windows XP (SP 2, SP 3) | Integrationsdienste-Datenträger | Weitere [Informationen](#install-or-update-integration-services)finden Sie unten unter. |
 | - | | |
-| Windows Server 2016 | Windows Update | |
-| Windows Server (halbjährlicher Kanal) | Windows Update | |
+| Windows Server 2016 | Windows-Update | |
+| Windows Server (halbjährlicher Kanal) | Windows-Update | |
 | Windows Server 2012 R2 | Integrationsdienste-Datenträger | Weitere [Informationen](#install-or-update-integration-services)finden Sie unten unter. |
 | Windows Server 2012 | Integrationsdienste-Datenträger | Weitere [Informationen](#install-or-update-integration-services)finden Sie unten unter. |
 | Windows Server 2008 R2 | Integrationsdienste-Datenträger | Weitere [Informationen](#install-or-update-integration-services)finden Sie unten unter. |
@@ -278,7 +276,7 @@ Es wird empfohlen, Integration Services auf dem neuesten Stand zu halten, um die
 
 **Für virtuelle Computer, die auf Windows 8/Windows Server 2012-Hosts ausgeführt werden:**
 
-| Gast  | Updatemechanismus | Notizen |
+| Gast  | Updatemechanismus | Hinweise |
 |:---------|:---------|:---------|
 | Windows 8.1 | Integrationsdienste-Datenträger | Weitere [Informationen](#install-or-update-integration-services)finden Sie unten unter. |
 | Windows 8 | Integrationsdienste-Datenträger | Weitere [Informationen](#install-or-update-integration-services)finden Sie unten unter. |
@@ -297,7 +295,7 @@ Es wird empfohlen, Integration Services auf dem neuesten Stand zu halten, um die
 | - | | |
 | Linux-Gastbetriebssysteme | Paket-Manager | Integration Services für Linux sind in die Distribution integriert, es können jedoch optionale Updates verfügbar sein. ** |
 
-Weitere Informationen zu Linux-Gastbetriebssystemen finden Sie [unter Unterstützte virtuelle Linux-und FreeBSD-Computer für Hyper-V unter Windows](https://technet.microsoft.com/windows-server-docs/virtualization/hyper-v/supported-linux-and-freebsd-virtual-machines-for-hyper-v-on-windows).
+Weitere Informationen zu Linux-Gastbetriebssystemen finden Sie [unter Unterstützte virtuelle Linux-und FreeBSD-Computer für Hyper-V unter Windows](../supported-linux-and-freebsd-virtual-machines-for-hyper-v-on-windows.md).
 
 ## <a name="install-or-update-integration-services"></a>Installieren oder Aktualisieren von Integrationsdiensten
 
@@ -316,5 +314,5 @@ Verfahren zum manuellen Installieren oder Aktualisieren der Integrationsdienste:
 
 > [!NOTE]
 > Diese Schritte **können nicht automatisiert** oder innerhalb einer Windows PowerShell-Sitzung für virtuelle **Online** Computer ausgeführt werden.
-> Sie können Sie auf vhdx- **Offline** Images anwenden. Weitere Informationen finden [Sie unter Installieren von Integration Services, wenn der virtuelle Computer nicht ausgeführt wird](https://docs.microsoft.com/virtualization/community/team-blog/2013/20130418-how-to-install-integration-services-when-the-virtual-machine-is-not-running).
-> Sie können die Bereitstellung der Integrationsdienste auch über **Configuration Manager** mit den VMS **Online**automatisieren, aber Sie müssen die VMs am Ende der Installation neu starten. Weitere Informationen finden [Sie unter Bereitstellen von Hyper-V-Integration Services auf VMS mithilfe von config Manager](https://docs.microsoft.com/archive/blogs/manageabilityguys/deploying-hyper-v-integration-services-to-vms-using-config-manager-and-dism)
+> Sie können Sie auf vhdx- **Offline** Images anwenden. Weitere Informationen finden [Sie unter Installieren von Integration Services, wenn der virtuelle Computer nicht ausgeführt wird](/virtualization/community/team-blog/2013/20130418-how-to-install-integration-services-when-the-virtual-machine-is-not-running).
+> Sie können die Bereitstellung der Integrationsdienste auch über **Configuration Manager** mit den VMS **Online**automatisieren, aber Sie müssen die VMs am Ende der Installation neu starten. Weitere Informationen finden [Sie unter Bereitstellen von Hyper-V-Integration Services auf VMS mithilfe von config Manager](/archive/blogs/manageabilityguys/deploying-hyper-v-integration-services-to-vms-using-config-manager-and-dism)

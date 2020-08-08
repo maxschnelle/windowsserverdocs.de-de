@@ -2,19 +2,17 @@
 title: Verwenden von ETW zur Problembehandlung bei LDAP-Verbindungen
 description: Informationen zum Aktivieren und Verwenden von etw für die Ablauf Verfolgung von LDAP-Verbindungen zwischen AD DS Domänen Controllern.
 author: Teresa-Motiv
-manager: dcscontentpm
-ms.prod: windows-server-dev
-ms.technology: active-directory-lightweight-directory-services
+manager: dcscontentpm-dev
 audience: Admin
 ms.author: v-tea
 ms.topic: article
 ms.date: 11/22/2019
-ms.openlocfilehash: 516304498206523a1ce618da6aa21640e38c9654
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 37f588be3b181aea66555389c120f147a74e6314
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86965652"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87941554"
 ---
 # <a name="using-etw-to-troubleshoot-ldap-connections"></a>Verwenden von ETW zur Problembehandlung bei LDAP-Verbindungen
 
@@ -30,7 +28,7 @@ Die [Ereignis Ablauf Verfolgung für Windows (Event Tracing for Windows, etw)](/
 
    In diesem Unterschlüssel ist *ProcessName* der vollständige Name des Prozesses, den Sie verfolgen möchten, einschließlich der Erweiterung (z. b. "Svchost.exe").
 
-1. (**Optional**) Erstellen Sie unter diesem Unterschlüssel einen neuen Eintrag mit dem Namen **PID**. Wenn Sie diesen Eintrag verwenden möchten, weisen Sie eine Prozess-ID als DWORD-Wert zu.  
+1. (**Optional**) Erstellen Sie unter diesem Unterschlüssel einen neuen Eintrag mit dem Namen **PID**. Wenn Sie diesen Eintrag verwenden möchten, weisen Sie eine Prozess-ID als DWORD-Wert zu.
 
    Wenn Sie eine Prozess-ID angeben, verfolgt etw nur die Instanz der Anwendung, die diese Prozess-ID aufweist.
 
@@ -44,8 +42,8 @@ Die [Ereignis Ablauf Verfolgung für Windows (Event Tracing for Windows, etw)](/
 
    Die Platzhalter in diesem Befehl stellen die folgenden Werte dar.
 
-  - \<*SessionName*>ist ein beliebiger Bezeichner, der zum bezeichnen der Ablauf Verfolgungs Sitzung verwendet wird.  
-  > [!NOTE]  
+  - \<*SessionName*>ist ein beliebiger Bezeichner, der zum bezeichnen der Ablauf Verfolgungs Sitzung verwendet wird.
+  > [!NOTE]
   > Wenn Sie die Ablauf Verfolgungs Sitzung beenden, müssen Sie später auf diesen Sitzungs Namen verweisen.
   - \<*FileName*>Gibt die Protokolldatei an, in die Ereignisse geschrieben werden.
   - \<*TraceFlags*>muss mindestens einer der Werte sein, die in der Ablaufverfolgungsflags- [Tabelle](#values-for-trace-flags)aufgeführt sind.
@@ -70,7 +68,7 @@ Die [Ereignis Ablauf Verfolgung für Windows (Event Tracing for Windows, etw)](/
 
 Um ein Flag zu verwenden, ersetzen Sie den-Flag-Wert für den <*TraceFlags*> Platzhalter in den Argumenten des **tracelog.exe-Start-** Befehls.
 
-> [!NOTE]  
+> [!NOTE]
 > Sie können mehrere Flags angeben, indem Sie die Summe der entsprechenden Flagwerte verwenden. Um z. b. die Flags für die **Debug- \_ Suche** (0x00000001) und den **Debug- \_ Cache** (0x00000010) anzugeben, ist der entsprechende \<*TraceFlags*> Wert **0x00000011**.
 
 |Flagname |Flagwert |Flag-Beschreibung |
@@ -138,5 +136,5 @@ Angenommen, eine Anwendung, App1.exe, mit der Kenn Wörter für Benutzerkonten f
     tracerpt.exe .\ldap.etl -o -report
     ```
 
-   > [!NOTE]  
+   > [!NOTE]
    > In diesem Befehl ist **tracerpt.exe** ein Consumer-Tool für die Ablauf [Verfolgung](https://go.microsoft.com/fwlink/p/?linkid=83876) .

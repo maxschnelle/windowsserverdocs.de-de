@@ -2,18 +2,16 @@
 title: Verwenden von DNS-Richtlinien für eine auf Geolocation basierende Datenverkehrsverwaltung mit primären und sekundären Bereitstellungen
 description: Dieses Thema ist Teil des DNS-Richtlinien szenariohandbuchs für Windows Server 2016.
 manager: brianlic
-ms.prod: windows-server
-ms.technology: networking-dns
 ms.topic: article
 ms.assetid: a9ee7a56-f062-474f-a61c-9387ff260929
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: e819cf2e3e0b4803e9efc9886a679e5128432087
-ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
+ms.openlocfilehash: 45bff2c65f0497216cb8c7e7dc9dd670c5387ba2
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87518266"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87996857"
 ---
 # <a name="use-dns-policy-for-geo-location-based-traffic-management-with-primary-secondary-deployments"></a>Verwenden von DNS-Richtlinien für eine auf Geolocation basierende Datenverkehrsverwaltung mit primären und sekundären Bereitstellungen
 
@@ -80,7 +78,7 @@ Für alle weiteren Updates in einem Zonen Bereich wird eine IXFR-Benachrichtigun
 
 ## <a name="how-to-configure-dns-policy-for-primary-secondary-geo-location-based-traffic-management"></a>Konfigurieren der DNS-Richtlinie für primäre sekundäre georedunlokbasierte Datenverkehrs Verwaltung
 
-Bevor Sie beginnen, stellen Sie sicher, dass Sie alle Schritte im Thema Verwenden der [DNS-Richtlinie für die georedundante Datenverkehrs Verwaltung mit primären Servern](../../dns/deploy/Scenario--Use-DNS-Policy-for-Geo-Location-Based-Traffic-Management-with-Primary-Servers.md)abgeschlossen haben und der primäre DNS-Server mit Zonen, Zonen Bereichen, DNS-Clientsubnetzen und DNS-Richtlinie konfiguriert ist.
+Bevor Sie beginnen, stellen Sie sicher, dass Sie alle Schritte im Thema Verwenden der [DNS-Richtlinie für die georedundante Datenverkehrs Verwaltung mit primären Servern](./primary-geo-location.md)abgeschlossen haben und der primäre DNS-Server mit Zonen, Zonen Bereichen, DNS-Clientsubnetzen und DNS-Richtlinie konfiguriert ist.
 
 > [!NOTE]
 > Die Anweisungen in diesem Thema, um DNS-Clientsubnetze, Zonen Bereiche und DNS-Richtlinien von primären DNS-Servern auf DNS-sekundäre Server zu kopieren, sind für die anfängliche DNS-Einrichtung und-Überprüfung vorgesehen. In Zukunft möchten Sie möglicherweise die DNS-Clientsubnetze, Zonen Bereiche und Richtlinien Einstellungen auf dem primären Server ändern. In diesem Fall können Sie Automatisierungs Skripts erstellen, um die sekundären Server mit dem primären Server synchron zu halten.
@@ -113,7 +111,7 @@ Add-DnsServerSecondaryZone -Name "woodgrove.com" -ZoneFile "woodgrove.com.dns" -
 Add-DnsServerSecondaryZone -Name "woodgrove.com" -ZoneFile "woodgrove.com.dns" -MasterServers 10.0.0.1 -ComputerName SecondaryServer2
 ```
 
-Weitere Informationen finden Sie unter [Add-dnsserversecondaryzone](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserversecondaryzone?view=win10-ps).
+Weitere Informationen finden Sie unter [Add-dnsserversecondaryzone](/powershell/module/dnsserver/add-dnsserversecondaryzone?view=win10-ps).
 
 ### <a name="configure-the-zone-transfer-settings-on-the-primary-zone"></a>Konfigurieren der Zonen Übertragungs Einstellungen in der primären Zone
 
@@ -131,7 +129,7 @@ Sie können die folgenden Windows PowerShell-Befehle verwenden, um die Zonen Üb
 Set-DnsServerPrimaryZone -Name "woodgrove.com" -Notify Notify -SecondaryServers "10.0.0.2,10.0.0.3" -SecureSecondaries TransferToSecureServers -ComputerName PrimaryServer
 ```
 
-Weitere Informationen finden Sie unter [Set-dnsserverprimaryzone](https://docs.microsoft.com/powershell/module/dnsserver/set-dnsserverprimaryzone?view=win10-ps).
+Weitere Informationen finden Sie unter [Set-dnsserverprimaryzone](/powershell/module/dnsserver/set-dnsserverprimaryzone?view=win10-ps).
 
 ### <a name="copy-the-dns-client-subnets"></a>Kopieren der DNS-Clientsubnetze
 
@@ -144,7 +142,7 @@ Get-DnsServerClientSubnet -ComputerName PrimaryServer | Add-DnsServerClientSubne
 Get-DnsServerClientSubnet -ComputerName PrimaryServer | Add-DnsServerClientSubnet -ComputerName SecondaryServer2
 ```
 
-Weitere Informationen finden Sie unter [Add-dnsserverclientsubnet](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverclientsubnet?view=win10-ps).
+Weitere Informationen finden Sie unter [Add-dnsserverclientsubnet](/powershell/module/dnsserver/add-dnsserverclientsubnet?view=win10-ps).
 
 ### <a name="create-the-zone-scopes-on-the-secondary-server"></a>Erstellen der Zonen Bereiche auf dem sekundären Server
 
@@ -160,7 +158,7 @@ Get-DnsServerZoneScope -ZoneName "woodgrove.com" -ComputerName PrimaryServer|Add
 > [!NOTE]
 > In diesen Beispiel Befehlen ist der Parameter " **-ErrorAction Ignore** " enthalten, da für jede Zone ein Standard Zonen Bereich vorhanden ist. Der Standard Zonen Bereich kann nicht erstellt oder gelöscht werden. Pipelining führt zu einem Versuch, diesen Bereich zu erstellen, und es tritt ein Fehler auf. Alternativ können Sie die nicht standardmäßigen Zonen Bereiche in zwei sekundären Zonen erstellen.
 
-Weitere Informationen finden Sie unter [Add-dnsserverzonescope](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverzonescope?view=win10-ps).
+Weitere Informationen finden Sie unter [Add-dnsserverzonescope](/powershell/module/dnsserver/add-dnsserverzonescope?view=win10-ps).
 
 ### <a name="configure-dns-policy"></a>DNS-Richtlinie konfigurieren
 
@@ -174,7 +172,7 @@ $policy | Add-DnsServerQueryResolutionPolicy -ZoneName "woodgrove.com" -Computer
 $policy | Add-DnsServerQueryResolutionPolicy -ZoneName "woodgrove.com" -ComputerName SecondaryServer2
 ```
 
-Weitere Informationen finden Sie unter [Add-dnsserverqueryresolutionpolicy](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverqueryresolutionpolicy?view=win10-ps).
+Weitere Informationen finden Sie unter [Add-dnsserverqueryresolutionpolicy](/powershell/module/dnsserver/add-dnsserverqueryresolutionpolicy?view=win10-ps).
 
 Nun werden die sekundären DNS-Server mit den erforderlichen DNS-Richtlinien zum Umleiten des Datenverkehrs basierend auf dem georedunsort konfiguriert
 

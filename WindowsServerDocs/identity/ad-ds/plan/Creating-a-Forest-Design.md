@@ -6,14 +6,12 @@ author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 08/07/2018
 ms.topic: article
-ms.prod: windows-server
-ms.technology: identity-adds
-ms.openlocfilehash: 77e091c1c1990e5cd30ac485c1ea3b085531df53
-ms.sourcegitcommit: 11421f4005f9f3a3f6c0db95b1836d0f765a9fa3
+ms.openlocfilehash: d14a65a25041cc8d1932d291483c1833156c5956
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81624358"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87941348"
 ---
 # <a name="creating-a-forest-design"></a>Erstellen eines Gesamtstrukturentwurfs
 
@@ -23,7 +21,7 @@ Beim Erstellen eines Gesamtstruktur Entwurfs werden zunächst die Gruppen innerh
 
 Nachdem Sie alle Entwurfs Anforderungen zu Gesamtstruktur Modellen zugeordnet und das Gesamtstruktur Modell ausgewählt haben, das den Anforderungen Ihrer Organisation entspricht, dokumentieren Sie den vorgeschlagenen Gesamtstruktur Entwurf. Fügen Sie in der Dokumentation den Namen der Gruppe ein, für die die Gesamtstruktur entworfen wurde, die Kontaktinformationen für den Gesamtstruktur Besitzer, den Typ der Gesamtstruktur für jede Gesamtstruktur, die Sie einschließen, sowie die Anforderungen, die die einzelnen Gesamtstrukturen erfüllen sollen. Diese Dokumentation unterstützt das Entwurfs Team, um sicherzustellen, dass alle geeigneten Personen am Entwurfsprozess beteiligt sind, und um den Umfang des Bereitstellungs Projekts zu verdeutlichen.
 
-Für ein Arbeitsblatt, das Sie bei der Dokumentation des vorgeschlagenen Gesamtstruktur Entwurfs unterstützt, laden Sie Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip aus den [Auftrags Hilfen für Windows Server 2003 Deployment Kit](https://microsoft.com/download/details.aspx?id=9608) herunter, und öffnen Sie "Gesamtstruktur Entwurf" (DSSLOGI_3. doc).
+Für ein Arbeitsblatt, das Sie bei der Dokumentation des vorgeschlagenen Gesamtstruktur Entwurfs unterstützt, laden Sie Job_Aids_Designing_and_Deploying_Directory_and_Security_Services.zip aus den [Auftrags Hilfen für Windows Server 2003 Deployment Kit](https://microsoft.com/download/details.aspx?id=9608) herunter, und öffnen Sie "Gesamtstruktur Entwurf" (DSSLOGI_3.doc).
 
 ## <a name="in-this-section"></a>In diesem Abschnitt
 

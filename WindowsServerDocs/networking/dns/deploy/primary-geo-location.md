@@ -2,18 +2,16 @@
 title: Verwenden von DNS-Richtlinien für eine auf Geolocation basierende Datenverkehrsverwaltung mit Primärservern
 description: Dieses Thema ist Teil des DNS-Richtlinien szenariohandbuchs für Windows Server 2016.
 manager: brianlic
-ms.prod: windows-server
-ms.technology: networking-dns
 ms.topic: article
 ms.assetid: ef9828f8-c0ad-431d-ae52-e2065532e68f
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 47124531c3e516efeceda57574bd6a648667f90f
-ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
+ms.openlocfilehash: 9a1abc00bd8683c716563159aac889a98f364f87
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87518276"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87996879"
 ---
 # <a name="use-dns-policy-for-geo-location-based-traffic-management-with-primary-servers"></a>Verwenden von DNS-Richtlinien für eine auf Geolocation basierende Datenverkehrsverwaltung mit Primärservern
 
@@ -98,7 +96,7 @@ Add-DnsServerClientSubnet -Name "USSubnet" -IPv4Subnet "192.0.0.0/24"
 Add-DnsServerClientSubnet -Name "EuropeSubnet" -IPv4Subnet "141.1.0.0/24"
 ```
 
-Weitere Informationen finden Sie unter [Add-dnsserverclientsubnet](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverclientsubnet?view=win10-ps).
+Weitere Informationen finden Sie unter [Add-dnsserverclientsubnet](/powershell/module/dnsserver/add-dnsserverclientsubnet?view=win10-ps).
 
 ### <a name="create-zone-scopes"></a><a name="bkmk_scopes"></a>Zonen Bereiche erstellen
 Nachdem die Clientsubnetze konfiguriert wurden, müssen Sie die Zone partitionieren, deren Datenverkehr Sie in zwei verschiedene Zonen Bereiche umleiten möchten, einen Bereich für jedes der von Ihnen konfigurierten DNS-Clientsubnetze.
@@ -117,7 +115,7 @@ Add-DnsServerZoneScope -ZoneName "woodgrove.com" -Name "USZoneScope"
 Add-DnsServerZoneScope -ZoneName "woodgrove.com" -Name "EuropeZoneScope"
 ```
 
-Weitere Informationen finden Sie unter [Add-dnsserverzonescope](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverzonescope?view=win10-ps).
+Weitere Informationen finden Sie unter [Add-dnsserverzonescope](/powershell/module/dnsserver/add-dnsserverzonescope?view=win10-ps).
 
 ### <a name="add-records-to-the-zone-scopes"></a><a name="bkmk_records"></a>Hinzufügen von Datensätzen zu den Zonen Bereichen
 Nun müssen Sie die Datensätze, die den Webserver Host darstellen, in den zwei Zonen Bereichen hinzufügen.
@@ -140,7 +138,7 @@ Add-DnsServerResourceRecord -ZoneName "woodgrove.com" -A -Name "www" -IPv4Addres
 
 Der **zonescope** -Parameter ist nicht eingeschlossen, wenn Sie einen Datensatz im Standardbereich hinzufügen. Dies ist das gleiche wie das Hinzufügen von Datensätzen zu einer standardmäßigen DNS-Zone.
 
-Weitere Informationen finden Sie unter [Add-dnsserverresourcerecord](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverresourcerecord?view=win10-ps).
+Weitere Informationen finden Sie unter [Add-dnsserverresourcerecord](/powershell/module/dnsserver/add-dnsserverresourcerecord?view=win10-ps).
 
 ### <a name="create-the-policies"></a><a name="bkmk_policies"></a>Erstellen der Richtlinien
 Nachdem Sie die Subnetze, die Partitionen (Zonen Bereiche) und Datensätze hinzugefügt haben, müssen Sie Richtlinien erstellen, die die Subnetze und Partitionen verbinden, damit die Abfrage Antwort aus dem korrekten Bereich der Zone zurückgegeben wird, wenn eine Abfrage aus einer Quelle in einem der DNS-Clientsubnetze stammt. Zum Mapping des Standard Zonen Bereichs sind keine Richtlinien erforderlich.
@@ -152,7 +150,7 @@ Add-DnsServerQueryResolutionPolicy -Name "USPolicy" -Action ALLOW -ClientSubnet 
 Add-DnsServerQueryResolutionPolicy -Name "EuropePolicy" -Action ALLOW -ClientSubnet "eq,EuropeSubnet" -ZoneScope "EuropeZoneScope,1" -ZoneName "woodgrove.com"
 ```
 
-Weitere Informationen finden Sie unter [Add-dnsserverqueryresolutionpolicy](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverqueryresolutionpolicy?view=win10-ps).
+Weitere Informationen finden Sie unter [Add-dnsserverqueryresolutionpolicy](/powershell/module/dnsserver/add-dnsserverqueryresolutionpolicy?view=win10-ps).
 
 Nun wird der DNS-Server mit den erforderlichen DNS-Richtlinien zum Umleiten des Datenverkehrs basierend auf dem georedunsort konfiguriert.
 

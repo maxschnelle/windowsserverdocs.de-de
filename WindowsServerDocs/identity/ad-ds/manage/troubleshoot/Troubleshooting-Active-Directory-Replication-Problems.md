@@ -6,20 +6,18 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server
-ms.technology: identity-adds
-ms.openlocfilehash: a3e9c3e901f164d793ca40943934efbbccafda38
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 630ba90cd2e5c00753b707754d32530b38c8db8d
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80822963"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87941619"
 ---
 # <a name="troubleshooting-active-directory-replication-problems"></a>Problembehandlung für Active Directory-Replikationsprobleme
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Active Directory Replikationsprobleme können mehrere verschiedene Quellen haben. Beispielsweise können Domain Name System (DNS)-Probleme, Netzwerkprobleme oder Sicherheitsprobleme dazu führen, dass Active Directory Replikation fehlschlägt. 
+Active Directory Replikationsprobleme können mehrere verschiedene Quellen haben. Beispielsweise können Domain Name System (DNS)-Probleme, Netzwerkprobleme oder Sicherheitsprobleme dazu führen, dass Active Directory Replikation fehlschlägt.
 
 Im weiteren Verlauf dieses Themas werden Tools und eine allgemeine Methode zur Behebung Active Directory Replikations Fehlers erläutert. In den folgenden Unterthemen werden Symptome, Gründe und die Vorgehensweise zum Beheben bestimmter Replikations Fehler behandelt:
 
@@ -38,7 +36,7 @@ Informationen zur Funktionsweise Active Directory Replikation finden Sie in den 
 
 ## <a name="event-and-tool-solution-recommendations"></a>Empfehlungen zur Ereignis-und Tool Lösung
 
-Im Idealfall wird durch die roten (Fehler) und gelben Ereignisse (Warnung) im Verzeichnisdienst-Ereignisprotokoll die bestimmte Einschränkung vorgeschlagen, die auf dem Quell-oder Zieldomänen Controller einen Replikations Fehler auslöst. Wenn in der Ereignismeldung Schritte für eine Projekt Mappe vorgeschlagen werden, führen Sie die Schritte aus, die im Ereignis beschrieben werden. Das repadmin-Tool und andere Diagnosetools bieten außerdem Informationen, die Ihnen beim Beheben von Replikations Fehlern helfen können. 
+Im Idealfall wird durch die roten (Fehler) und gelben Ereignisse (Warnung) im Verzeichnisdienst-Ereignisprotokoll die bestimmte Einschränkung vorgeschlagen, die auf dem Quell-oder Zieldomänen Controller einen Replikations Fehler auslöst. Wenn in der Ereignismeldung Schritte für eine Projekt Mappe vorgeschlagen werden, führen Sie die Schritte aus, die im Ereignis beschrieben werden. Das repadmin-Tool und andere Diagnosetools bieten außerdem Informationen, die Ihnen beim Beheben von Replikations Fehlern helfen können.
 
 Ausführliche Informationen zur Verwendung von Repadmin bei der Behandlung von Replikations Problemen finden [Sie unter Überwachung und Problembehandlung Active Directory Replikation mit repadmin](https://go.microsoft.com/fwlink/?LinkId=122830).
 
@@ -48,7 +46,7 @@ Manchmal treten Replikations Fehler aufgrund von absichtlichen Störungen auf. W
 
 ### <a name="intentional-disconnections"></a>Absichtliche Trennung von Verbindungen
 
-Wenn Replikations Fehler von einem Domänen Controller gemeldet werden, der versucht, eine Replikation mit einem Domänen Controller durchlaufen, der in einem Stagingstandort erstellt wurde und zurzeit offline ist und seine Bereitstellung am endgültigen Produktionsstandort (einem Remote Standort, wie z. b. einer Zweigstelle) wartet, können Sie diese Replikations Fehler berücksichtigen Um zu vermeiden, dass ein Domänen Controller für erweiterte Zeiträume von der Replikations Topologie getrennt wird, sodass fortlaufende Fehler auftreten, bis der Domänen Controller wieder verbunden ist, sollten Sie diese Computer anfänglich als Mitglieds Server hinzufügen und die Methode Install From Media (IFM) zum Installieren von Active Directory Domain Services (AD DS) verwenden. Mit dem Befehlszeilen Tool Ntdsutil können Sie Installationsmedien erstellen, die Sie auf Wechselmedien (CD, DVD oder anderen Medien) speichern und an den Ziel Standort senden können. Anschließend können Sie das-Installationsmedium zum Installieren von AD DS auf den Domänen Controllern am Standort verwenden, ohne die Replikation zu verwenden. 
+Wenn Replikations Fehler von einem Domänen Controller gemeldet werden, der versucht, eine Replikation mit einem Domänen Controller durchlaufen, der in einem Stagingstandort erstellt wurde und zurzeit offline ist und seine Bereitstellung am endgültigen Produktionsstandort (einem Remote Standort, wie z. b. einer Zweigstelle) wartet, können Sie diese Replikations Fehler berücksichtigen Um zu vermeiden, dass ein Domänen Controller für erweiterte Zeiträume von der Replikations Topologie getrennt wird, sodass fortlaufende Fehler auftreten, bis der Domänen Controller wieder verbunden ist, sollten Sie diese Computer anfänglich als Mitglieds Server hinzufügen und die Methode Install From Media (IFM) zum Installieren von Active Directory Domain Services (AD DS) verwenden. Mit dem Befehlszeilen Tool Ntdsutil können Sie Installationsmedien erstellen, die Sie auf Wechselmedien (CD, DVD oder anderen Medien) speichern und an den Ziel Standort senden können. Anschließend können Sie das-Installationsmedium zum Installieren von AD DS auf den Domänen Controllern am Standort verwenden, ohne die Replikation zu verwenden.
 
 ### <a name="hardware-failures-or-upgradestitle"></a>Hardware Fehler oder-Upgrades</title>
 
@@ -58,7 +56,7 @@ Regelmäßige Hardware Upgrades können auch dazu führen, dass Domänen Control
 
 ### <a name="firewall-configuration"></a>Firewallkonfiguration
 
-Standardmäßig erfolgen Active Directory Replikations-Remote Prozedur Aufrufe (Remote Procedure Calls, RPCs) über einen verfügbaren Port dynamisch über den RPC-Endpunkt Mapper (RPCSS) an Port 135. Stellen Sie sicher, dass die Windows-Firewall mit erweiterter Sicherheit und anderen Firewalls ordnungsgemäß konfiguriert ist, um die Replikation zuzulassen. Informationen zum Angeben des Ports für Active Directory Replikation und Port Einstellungen finden Sie [im Artikel 224196 in der Microsoft Knowledge Base](https://go.microsoft.com/fwlink/?LinkId=22578). 
+Standardmäßig erfolgen Active Directory Replikations-Remote Prozedur Aufrufe (Remote Procedure Calls, RPCs) über einen verfügbaren Port dynamisch über den RPC-Endpunkt Mapper (RPCSS) an Port 135. Stellen Sie sicher, dass die Windows-Firewall mit erweiterter Sicherheit und anderen Firewalls ordnungsgemäß konfiguriert ist, um die Replikation zuzulassen. Informationen zum Angeben des Ports für Active Directory Replikation und Port Einstellungen finden Sie [im Artikel 224196 in der Microsoft Knowledge Base](https://go.microsoft.com/fwlink/?LinkId=22578).
 
 Informationen zu den Ports, die Active Directory Replikation verwendet, finden Sie unter [Active Directory Replikations Tools und-Einstellungen](https://go.microsoft.com/fwlink/?LinkId=123774).
 
@@ -66,13 +64,13 @@ Informationen zum Verwalten von Active Directory Replikation über Firewalls fin
 
 ## <a name="responding-to-failure-of-an-outdated-server-running-windows-2000-server"></a>Reagieren auf Ausfälle eines veralteten Servers mit Windows 2000 Server
 
-Wenn ein Domänen Controller unter Windows 2000 Server länger als die Anzahl der Tage in der Tombstone-Lebensdauer fehlgeschlagen ist, ist die Lösung immer identisch: 
+Wenn ein Domänen Controller unter Windows 2000 Server länger als die Anzahl der Tage in der Tombstone-Lebensdauer fehlgeschlagen ist, ist die Lösung immer identisch:
 
 1. Verschieben Sie den Server aus dem Unternehmensnetzwerk in ein privates Netzwerk.
 2. Entfernen Sie entweder das Betriebssystem Active Directory oder installieren Sie es neu.
-3. Entfernen Sie die Server Metadaten aus Active Directory, damit das Server Objekt nicht wieder verwendet werden kann. 
+3. Entfernen Sie die Server Metadaten aus Active Directory, damit das Server Objekt nicht wieder verwendet werden kann.
 
-Sie können ein Skript zum Bereinigen von Server Metadaten auf den meisten Windows-Betriebssystemen verwenden. Weitere Informationen zum Verwenden dieses Skripts finden Sie unter [Remove Active Directory-Domäne Controller Metadata](https://go.microsoft.com/fwlink/?LinkID=123599). 
+Sie können ein Skript zum Bereinigen von Server Metadaten auf den meisten Windows-Betriebssystemen verwenden. Weitere Informationen zum Verwenden dieses Skripts finden Sie unter [Remove Active Directory-Domäne Controller Metadata](https://go.microsoft.com/fwlink/?LinkID=123599).
 
 Standardmäßig werden NTDS-Einstellungs Objekte, die gelöscht werden, für einen Zeitraum von 14 Tagen automatisch wieder hergestellt. Wenn Sie also keine Server Metadaten entfernen (verwenden Sie Ntdsutil oder das zuvor erwähnte Skript zum Durchführen der Metadatenbereinigung), werden die Server Metadaten im Verzeichnis wieder hergestellt, das die Replikation anfordert. In diesem Fall werden Fehler permanent protokolliert, weil die Replikation nicht mit dem fehlenden Domänen Controller fehlschlägt.
 
@@ -89,9 +87,9 @@ Wenn Sie absichtliche Trennungen, Hardwarefehler und veraltete Windows 2000-Dom�
 
 ## <a name="general-approach-to-fixing-problems"></a>Allgemeiner Ansatz zum Beheben von Problemen
 
-Verwenden Sie den folgenden allgemeinen Ansatz, um Replikationsprobleme zu beheben: 
+Verwenden Sie den folgenden allgemeinen Ansatz, um Replikationsprobleme zu beheben:
 
-1. Überwachen Sie die Replikations Integrität täglich, oder verwenden Sie Repadmin. exe, um den Replikations Status
+1. Überwachen der Replikations Integrität Repadmin.exe täglich
 2. Versuchen Sie, alle gemeldeten Fehler rechtzeitig mithilfe der Methoden zu beheben, die in Ereignismeldungen und in diesem Handbuch beschrieben werden. Wenn möglicherweise das Problem durch Software verursacht wird, deinstallieren Sie die Software, bevor Sie mit anderen Lösungen fortfahren.
 3. Wenn das Problem, das zu einem Fehler bei der Replikation führt, von keiner bekannten Methode gelöst werden kann, entfernen Sie AD DS vom Server, und installieren Sie AD DS erneut. Weitere Informationen zum erneuten Installieren von AD DS finden Sie unter Außerbetriebsetzen [eines Domänen Controllers](https://go.microsoft.com/fwlink/?LinkId=128290).
 4. Wenn AD DS nicht normal entfernt werden kann, während der Server mit dem Netzwerk verbunden ist, verwenden Sie eine der folgenden Methoden, um das Problem zu beheben:
@@ -109,16 +107,16 @@ Der Replikations Status ist eine wichtige Möglichkeit zum Auswerten des Status 
 - DNS-Infrastruktur
 - Kerberos-Authentifizierungsprotokoll
 - Windows-Zeit Dienst (W32Time)
-- Remote Prozedur Aufruf (RPC)
-- Netzwerkverbindungen
+- Remoteprozeduraufruf (RPC)
+- Netzwerkkonnektivität
 
 Verwenden Sie Repadmin, um den Replikations Status täglich zu überwachen, indem Sie einen Befehl ausführen, mit dem der Replikations Status aller Domänen Controller in der Die Prozedur generiert eine CSV-Datei, die Sie in Microsoft Excel öffnen und nach Replikations Fehlern filtern können.
 
-Mit dem folgenden Verfahren können Sie den Replikations Status aller Domänen Controller in der Gesamtstruktur abrufen. 
+Mit dem folgenden Verfahren können Sie den Replikations Status aller Domänen Controller in der Gesamtstruktur abrufen.
 
-Voraussetzungen
+Anforderungen
 
-Um dieses Verfahren auszuführen, ist mindestens die Mitgliedschaft in **Unternehmensadministratoren** oder eine entsprechende Berechtigung erforderlich. 
+Um dieses Verfahren auszuführen, ist mindestens die Mitgliedschaft in **Unternehmensadministratoren** oder eine entsprechende Berechtigung erforderlich.
 
 Tools:
 
@@ -128,9 +126,9 @@ Tools:
 ### <a name="to-generate-a-repadmin-showrepl-spreadsheet-for-domain-controllers"></a>So generieren Sie ein repadmin/showrepl-Arbeitsblatt für Domänen Controller
 
 1. Öffnen Sie eine Eingabeaufforderung als Administrator: Klicken Sie im Startmenü mit der rechten Maustaste auf Eingabeaufforderung, und klicken Sie dann auf als Administrator ausführen. Wenn das Dialogfeld Benutzerkontensteuerung angezeigt wird, geben Sie bei Bedarf Anmelde Informationen für Enterprise Admins an, und klicken Sie dann auf Weiter.
-2. Geben Sie an der Eingabeaufforderung den folgenden Befehl ein, und drücken Sie dann die EINGABETASTE: `repadmin /showrepl * /csv > showrepl.csv`
+2. Geben Sie an der Eingabeaufforderung den folgenden Befehl ein, und drücken Sie dann die EINGABETASTE:`repadmin /showrepl * /csv > showrepl.csv`
 3. Öffnen Sie Excel.
-4. Klicken Sie auf die Schaltfläche Office, klicken Sie auf öffnen, navigieren Sie zu showrepl. CSV, und klicken Sie dann auf Öffnen.
+4. Klicken Sie auf die Schaltfläche Office, klicken Sie auf öffnen, navigieren Sie zu showrepl.csv und klicken Sie dann auf Öffnen.
 5. Blenden Sie die Spalte A und die Spalte Transporttyp wie folgt aus, oder löschen Sie Sie:
 6. Wählen Sie eine Spalte aus, die Sie ausblenden oder löschen möchten.
 
@@ -160,29 +158,29 @@ Um Active Directory Replikationsprobleme zu identifizieren, verwenden Sie den Be
 |Repadmin-Fehler|Grundursache|Lösung|
 | --- | --- | --- |
 |Die Zeit seit der letzten Replikation mit diesem Server hat die Tombstone-Lebensdauer überschritten.|Ein Domänen Controller hat die eingehende Replikation mit dem benannten Quell Domänen Controller so lange nicht bestanden, dass ein Löschvorgang, repliziert und Garbage Collection von AD DS durchgeführt wurde.|Ereignis-ID 2042: Die Replikation dieses Computers ist zu lange her|
-|Keine eingehenden Nachbarn.|Wenn im Abschnitt "eingehende Nachbarn" der von Repadmin/showrepl generierten Ausgabe keine Elemente angezeigt werden, konnte der Domänen Controller keine Replikations Verknüpfungen mit einem anderen Domänen Controller herstellen.|Beheben von Verbindungsproblemen bei der Replikation (Ereignis-ID 1925)| 
-|Der Zugriff wurde verweigert.|Zwischen zwei Domänen Controllern ist ein Replikations Link vorhanden, aber die Replikation kann aufgrund eines Authentifizierungsfehlers nicht ordnungsgemäß ausgeführt werden.|Beheben von Problemen mit der Replikationssicherheit| 
-|Der letzte Versuch zum < Datum/Uhrzeit-> mit dem "Ziel Konto Name ist falsch" fehlgeschlagen.|Dieses Problem kann sich auf Konnektivitätsprobleme, DNS-oder Authentifizierungs Probleme beziehen. Wenn es sich um einen DNS-Fehler handelt, konnte der lokale Domänen Controller den Globally Unique Identifier (GUID)-basierten DNS-Namen seines Replikations Partners nicht auflösen.|Beheben von Problemen mit der DNS-Replikation (Ereignis-IDs 1925, 2087, 2088) beheben von Replikations Sicherheitsproblemen Beheben von Problemen 1925 bei der Replikation| 
-|LDAP-Fehler 49.|Das Domänen Controller-Computer Konto ist möglicherweise nicht mit dem Schlüsselverteilungscenter (KDC) synchronisiert.|Beheben von Problemen mit der Replikationssicherheit| 
-|Die LDAP-Verbindung zum lokalen Host kann nicht geöffnet werden.|Vom Verwaltungs Tool konnte keine Verbindung mit AD DS hergestellt werden.|Beheben von DNS-Lookupproblemen bei der Replikation (Ereignis-IDs 1925, 2087, 2088)| 
-|Active Directory Replikation wurde vorzeitig entfernt.|Der Fortschritt der eingehenden Replikation wurde durch eine Replikations Anforderung mit höherer Priorität unterbrochen, z. b. eine Anforderung, die manuell mit dem Befehl repadmin/Sync generiert wurde.|Warten Sie, bis die Replikation beendet ist. Diese Informations Meldung gibt den normalen Vorgang an.| 
-|Die Replikation wurde gesendet und wartet.| Der Domänen Controller hat eine Replikations Anforderung gepostet und wartet auf eine Antwort. Die Replikation wird von dieser Quelle ausgeführt.|Warten Sie, bis die Replikation beendet ist. Diese Informations Meldung gibt den normalen Vorgang an.| 
+|Keine eingehenden Nachbarn.|Wenn im Abschnitt "eingehende Nachbarn" der von Repadmin/showrepl generierten Ausgabe keine Elemente angezeigt werden, konnte der Domänen Controller keine Replikations Verknüpfungen mit einem anderen Domänen Controller herstellen.|Beheben von Verbindungsproblemen bei der Replikation (Ereignis-ID 1925)|
+|Zugriff verweigert.“|Zwischen zwei Domänen Controllern ist ein Replikations Link vorhanden, aber die Replikation kann aufgrund eines Authentifizierungsfehlers nicht ordnungsgemäß ausgeführt werden.|Beheben von Problemen mit der Replikationssicherheit|
+|Der letzte Versuch zum <Datum/Uhrzeit-> mit dem "Ziel Konto Name ist falsch" fehlgeschlagen.|Dieses Problem kann sich auf Konnektivitätsprobleme, DNS-oder Authentifizierungs Probleme beziehen. Wenn es sich um einen DNS-Fehler handelt, konnte der lokale Domänen Controller den Globally Unique Identifier (GUID)-basierten DNS-Namen seines Replikations Partners nicht auflösen.|Beheben von Problemen mit der DNS-Replikation (Ereignis-IDs 1925, 2087, 2088) beheben von Replikations Sicherheitsproblemen Beheben von Problemen 1925 bei der Replikation|
+|LDAP-Fehler 49.|Das Domänen Controller-Computer Konto ist möglicherweise nicht mit dem Schlüsselverteilungscenter (KDC) synchronisiert.|Beheben von Problemen mit der Replikationssicherheit|
+|Die LDAP-Verbindung zum lokalen Host kann nicht geöffnet werden.|Vom Verwaltungs Tool konnte keine Verbindung mit AD DS hergestellt werden.|Beheben von DNS-Lookup-Problemen bei der Replikation (Ereignis-IDs 1925, 2087, 2088)|
+|Active Directory Replikation wurde vorzeitig entfernt.|Der Fortschritt der eingehenden Replikation wurde durch eine Replikations Anforderung mit höherer Priorität unterbrochen, z. b. eine Anforderung, die manuell mit dem Befehl repadmin/Sync generiert wurde.|Warten Sie, bis die Replikation beendet ist. Diese Informations Meldung gibt den normalen Vorgang an.|
+|Die Replikation wurde gesendet und wartet.| Der Domänen Controller hat eine Replikations Anforderung gepostet und wartet auf eine Antwort. Die Replikation wird von dieser Quelle ausgeführt.|Warten Sie, bis die Replikation beendet ist. Diese Informations Meldung gibt den normalen Vorgang an.|
 
-In der folgenden Tabelle werden häufige Ereignisse aufgelistet, die auf Probleme mit Active Directory Replikation hinweisen können, sowie die Hauptursachen der Probleme und Links zu Themen, die Lösungen für die Probleme bereitstellen. 
+In der folgenden Tabelle werden häufige Ereignisse aufgelistet, die auf Probleme mit Active Directory Replikation hinweisen können, sowie die Hauptursachen der Probleme und Links zu Themen, die Lösungen für die Probleme bereitstellen.
 
 |Ereignis-ID und Quelle|Grundursache|Lösung|
-| --- | --- | --- | 
-|1311 NTDS-KCC|Die Replikations Konfigurationsinformationen in AD DS entsprechen nicht exakt der physischen Topologie des Netzwerks.|Beheben von Topologieproblemen bei der Replikation (Ereignis-ID 1311)| 
+| --- | --- | --- |
+|1311 NTDS-KCC|Die Replikations Konfigurationsinformationen in AD DS entsprechen nicht exakt der physischen Topologie des Netzwerks.|Beheben von Topologieproblemen bei der Replikation (Ereignis-ID 1311)|
 |1388 NTDS-Replikation|Strikte Replikations Konsistenz ist nicht wirksam, und ein veraltetes Objekt wurde auf dem Domänen Controller repliziert.|Beheben von Problemen bei der Replikation fortbestehender Objekte (Ereignis-IDs 1388, 1988 2042)|
-|1925 NTDS-KCC|Der Versuch, einen Replikations Link für eine beschreibbare Verzeichnis Partition festzulegen, ist fehlgeschlagen. Dieses Ereignis kann je nach Fehler verschiedene Gründe haben.| Beheben von Konnektivitätsproblemen (Ereignis-ID 1925) beheben von Problemen mit der DNS-Suche (Ereignis-IDs 1925, 2087, 2088)| 
+|1925 NTDS-KCC|Der Versuch, einen Replikations Link für eine beschreibbare Verzeichnis Partition festzulegen, ist fehlgeschlagen. Dieses Ereignis kann je nach Fehler verschiedene Gründe haben.| Beheben von Konnektivitätsproblemen (Ereignis-ID 1925) beheben von Problemen mit der DNS-Suche (Ereignis-IDs 1925, 2087, 2088)|
 |1988 NTDS-Replikation|Der lokale Domänen Controller hat versucht, ein Objekt von einem Quell Domänen Controller zu replizieren, der nicht auf dem lokalen Domänen Controller vorhanden ist, weil er möglicherweise gelöscht und bereits in die Garbage Collection aufgenommen wurde. Die Replikation wird für diese Verzeichnis Partition mit diesem Partner nicht fortgesetzt, bis die Situation behoben ist.|Beheben von Problemen bei der Replikation fortbestehender Objekte (Ereignis-IDs 1388, 1988 2042)|
-|2042 NTDS-Replikation|Bei diesem Partner ist keine Replikation für eine Tombstone-Lebensdauer aufgetreten, und die Replikation kann nicht fortgesetzt werden|Beheben von Problemen bei der Replikation fortbestehender Objekte (Ereignis-IDs 1388, 1988 2042)| 
-|2087 NTDS-Replikation|Der DNS-Hostname des Quell Domänen Controllers konnte von AD DS nicht in eine IP-Adresse aufgelöst werden, und die Replikation ist fehlgeschlagen.|Beheben von DNS-Lookupproblemen bei der Replikation (Ereignis-IDs 1925, 2087, 2088)| 
-|2088 NTDS-Replikation |Der DNS-Hostname des Quell Domänen Controllers konnte AD DS nicht in eine IP-Adresse aufgelöst werden, aber die Replikation war erfolgreich.|Beheben von DNS-Lookupproblemen bei der Replikation (Ereignis-IDs 1925, 2087, 2088)|
-|5805 net-Anmeldung|Ein Computer Konto konnte nicht authentifiziert werden. Dies wird normalerweise durch mehrere Instanzen desselben Computer namens oder durch den Computernamen verursacht, der nicht auf jeden Domänen Controller repliziert wird.|Beheben von Problemen mit der Replikationssicherheit| 
+|2042 NTDS-Replikation|Bei diesem Partner ist keine Replikation für eine Tombstone-Lebensdauer aufgetreten, und die Replikation kann nicht fortgesetzt werden|Beheben von Problemen bei der Replikation fortbestehender Objekte (Ereignis-IDs 1388, 1988 2042)|
+|2087 NTDS-Replikation|Der DNS-Hostname des Quell Domänen Controllers konnte von AD DS nicht in eine IP-Adresse aufgelöst werden, und die Replikation ist fehlgeschlagen.|Beheben von DNS-Lookup-Problemen bei der Replikation (Ereignis-IDs 1925, 2087, 2088)|
+|2088 NTDS-Replikation |Der DNS-Hostname des Quell Domänen Controllers konnte AD DS nicht in eine IP-Adresse aufgelöst werden, aber die Replikation war erfolgreich.|Beheben von DNS-Lookup-Problemen bei der Replikation (Ereignis-IDs 1925, 2087, 2088)|
+|5805 net-Anmeldung|Ein Computer Konto konnte nicht authentifiziert werden. Dies wird normalerweise durch mehrere Instanzen desselben Computer namens oder durch den Computernamen verursacht, der nicht auf jeden Domänen Controller repliziert wird.|Beheben von Problemen mit der Replikationssicherheit|
 
 Weitere Informationen zu den Replikations Konzepten finden Sie unter [Active Directory Replikations Technologien](https://go.microsoft.com/fwlink/?LinkId=41950).
-  
+
 ## <a name="next-steps"></a>Nächste Schritte
 
 Weitere Informationen, einschließlich der für Fehlercodes spezifischen Support Artikeln, finden Sie im Artikel zur Problembehandlung allgemeiner [Active Directory Replikations Fehler](https://support.microsoft.com/help/3108513) .

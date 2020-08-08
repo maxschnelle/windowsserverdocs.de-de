@@ -6,14 +6,12 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server
-ms.technology: identity-adds
-ms.openlocfilehash: bcdfd575b0f8cf2be739e70317560542afa2fed1
-ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
+ms.openlocfilehash: b3e384eaa85e0becfa501743fc4d7efa45eac02a
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87518657"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87941564"
 ---
 # <a name="virtualized-domain-controller-troubleshooting"></a>Problembehandlung bei virtualisierten Domänencontrollern
 
@@ -184,8 +182,8 @@ Im Folgenden sind die klonspezifischen Windows Server 2012-Ereignisse im Verzeic
 | -- |--|
 | **Ereignis-ID** | **2160** |
 | **Quelle** | Microsoft-Windows-ActiveDirectory_DomainService |
-| **Severity** | Informational |
-| **Message**
+| **Schweregrad** | Informational |
+| **Meldung**
 | Die lokale *<COMPUTERNAME>* Datei hat eine Klon Konfigurationsdatei für virtuelle Domänen Controller gefunden.<p>Fundstelle der Klonkonfigurationsdatei: %1<p>Das Vorliegen einer Klonkonfigurationsdatei lässt darauf schließen, dass der lokale virtuelle Domänencontroller ein Klon eines anderen virtuellen Domänencontrollers ist. *<COMPUTERNAME>* Startet den Klon Vorgang. |
  **Hinweise und Lösung** | Dies ist ein Erfolgsereignis und nur ein Problem, wenn es unerwartet ist. Überprüfen Sie das DSA-Arbeitsverzeichnis, %systemroot%\ntds, und den Stamm aller lokalen oder Wechseldatenträger auf die Datei dcclconeconfig.xml. |
 
@@ -193,261 +191,261 @@ Im Folgenden sind die klonspezifischen Windows Server 2012-Ereignisse im Verzeic
 | -- |--|
 | **Ereignis-ID** | **2161** |
 | **Quelle** | Microsoft-Windows-ActiveDirectory_DomainService |
-| **Severity** | Informational |
-| **Message** | Vom lokalen *<COMPUTERNAME>* wurde die Klon Konfigurationsdatei für den virtuellen Domänen Controller nicht gefunden. Folglich ist der lokale Computer kein geklonter Domänencontroller.| **Hinweise und Lösung** | Dies ist ein Erfolgsereignis und nur ein Problem, wenn es unerwartet ist. Überprüfen Sie das DSA-Arbeitsverzeichnis, %systemroot%\ntds, und den Stamm aller lokalen oder Wechseldatenträger auf die Datei dcclconeconfig.xml. |
+| **Schweregrad** | Informational |
+| **Meldung** | Vom lokalen *<COMPUTERNAME>* wurde die Klon Konfigurationsdatei für den virtuellen Domänen Controller nicht gefunden. Folglich ist der lokale Computer kein geklonter Domänencontroller.| **Hinweise und Lösung** | Dies ist ein Erfolgsereignis und nur ein Problem, wenn es unerwartet ist. Überprüfen Sie das DSA-Arbeitsverzeichnis, %systemroot%\ntds, und den Stamm aller lokalen oder Wechseldatenträger auf die Datei dcclconeconfig.xml. |
 
 | Events | BESCHREIBUNG |
 |--|--|
 | **Ereignis-ID** | **2162** |
 | **Quelle** | Microsoft-Windows-ActiveDirectory_DomainService |
-| **Severity** | Fehler |
-| **Message** | Fehler beim Klonen des virtuellen Domänencontrollers.<p>Überprüfen Sie die in den Systemereignisprotokollen und in %systemroot%\debug\dcpromo.log protokollierten Ereignisse, um weitere Informationen zum Versuch des Klonens eines virtuellen Domänencontrollers zu erhalten.<p>Fehlercode: %1 |
+| **Schweregrad** | Fehler |
+| **Meldung** | Fehler beim Klonen des virtuellen Domänencontrollers.<p>Überprüfen Sie die in den Systemereignisprotokollen und in %systemroot%\debug\dcpromo.log protokollierten Ereignisse, um weitere Informationen zum Versuch des Klonens eines virtuellen Domänencontrollers zu erhalten.<p>Fehlercode: %1 |
 | **Hinweise und Lösung** | Befolgen Sie die Anweisungen in der Meldung, dieser Fehler ist ein „catchall“. |
 
 | Events | BESCHREIBUNG |
 | -- |--|
 |**Ereignis-ID**|**2163**|
 |**Quelle**|Microsoft-Windows-ActiveDirectory_DomainService|
-|**Severity**|Informational|
-|**Message**|Der DsRoleSvc-Dienst zum Klonen des lokalen virtuellen Domänencontrollers wurde gestartet.|
+|**Schweregrad**|Informational|
+|**Meldung**|Der DsRoleSvc-Dienst zum Klonen des lokalen virtuellen Domänencontrollers wurde gestartet.|
 |**Hinweise und Lösung**|Dies ist ein Erfolgsereignis und nur ein Problem, wenn es unerwartet ist. Überprüfen Sie das DSA-Arbeitsverzeichnis, %systemroot%\ntds, und den Stamm aller lokalen oder Wechseldatenträger auf die Datei dcclconeconfig.xml.|
 
 | Events | BESCHREIBUNG |
 | -- |--|
 | **Ereignis-ID** | **2164** |
 | **Quelle** | Microsoft-Windows-ActiveDirectory_DomainService |
-| **Severity** | Fehler |
-| **Message** | *<COMPUTERNAME>* Fehler beim Starten des dsrolesvc-Dienes zum Klonen des lokalen virtuellen Domänen Controllers. |
+| **Schweregrad** | Fehler |
+| **Meldung** | *<COMPUTERNAME>* Fehler beim Starten des dsrolesvc-Dienes zum Klonen des lokalen virtuellen Domänen Controllers. |
 | **Hinweise und Lösung** | Untersuchen Sie die Diensteinstellungen für den DS-Rollenserverdienst (DsRoleSvc), und stellen Sie sicher, dass der Starttyp auf normal festgelegt ist. Vergewissern Sie sich, dass kein Drittanbieterprogramm das Starten dieses Diensts verhindert. |
 
 | Events | BESCHREIBUNG |
 | -- |--|
 | **Ereignis-ID** | **2165** |
 | **Quelle** | Microsoft-Windows-ActiveDirectory_DomainService |
-| **Severity** | Fehler |
-| **Message** | *<COMPUTERNAME>* Fehler beim Starten eines Threads beim Klonen des lokalen virtuellen Domänen Controllers.<p>Fehlercode:%1<p>Fehlermeldung:%2<p>Name des Threads:%3 |
+| **Schweregrad** | Fehler |
+| **Meldung** | *<COMPUTERNAME>* Fehler beim Starten eines Threads beim Klonen des lokalen virtuellen Domänen Controllers.<p>Fehlercode:%1<p>Fehlermeldung:%2<p>Name des Threads:%3 |
 | **Hinweise und Lösung** | Wenden Sie sich an den Microsoft-Produktsupport. |
 
 | Events | BESCHREIBUNG |
 | -- |--|
 | **Ereignis-ID** | **2166** |
 | **Quelle** | Microsoft-Windows-ActiveDirectory_DomainService |
-| **Severity** | Fehler |
-| **Message** | *<COMPUTERNAME>* erfordert den RPCSS-Dienst, um einen Neustart in DSRM zu initiieren. Fehler beim Warten auf das Initialisieren des RPCSS-Diensts bis zum Erreichen eines Ausführungsstatus.<p>Fehlercode:%1 |
+| **Schweregrad** | Fehler |
+| **Meldung** | *<COMPUTERNAME>* erfordert den RPCSS-Dienst, um einen Neustart in DSRM zu initiieren. Fehler beim Warten auf das Initialisieren des RPCSS-Diensts bis zum Erreichen eines Ausführungsstatus.<p>Fehlercode:%1 |
 | **Hinweise und Lösung** | Untersuchen Sie die Systemereignisprotokolle und die Diensteinstellungen für den RPC-Serverdienst (Rpcss) |
 
 | Events | BESCHREIBUNG |
 |--|--|
 | **Ereignis-ID** | **2168** |
 | **Quelle** | Microsoft-Windows-ActiveDirectory_DomainService |
-| **Severity** | Informational |
-| **Message** | Microsoft-Windows-ActiveDirectory_DomainService<p>Der Domänencontroller wird auf einem unterstützten Hypervisor ausgeführt. Eine VM-Generations-ID wurde erkannt.<p>Aktueller Wert der VM-Generations-ID: %1 |
+| **Schweregrad** | Informational |
+| **Meldung** | Microsoft-Windows-ActiveDirectory_DomainService<p>Der Domänencontroller wird auf einem unterstützten Hypervisor ausgeführt. Eine VM-Generations-ID wurde erkannt.<p>Aktueller Wert der VM-Generations-ID: %1 |
 | **Hinweise und Lösung** | Dies ist ein Erfolgsereignis und nur ein Problem, wenn es unerwartet ist. |
 
 | Events | BESCHREIBUNG |
 |--|--|
 | **Ereignis-ID** | **2169** |
 | **Quelle** | Microsoft-Windows-ActiveDirectory_DomainService |
-| **Severity** | Informational |
-| **Message** | Es wurde keine VM-Generations-ID erkannt. Der Host des Domänencontrollers ist ein physischer Computer, eine ältere Version von Hyper-V oder ein Hypervisor, der VM-Generations-IDs nicht unterstützt.<p>Zusätzliche Daten<p>Fehlercode beim Überprüfen der VM-Generations-ID:%1 |
+| **Schweregrad** | Informational |
+| **Meldung** | Es wurde keine VM-Generations-ID erkannt. Der Host des Domänencontrollers ist ein physischer Computer, eine ältere Version von Hyper-V oder ein Hypervisor, der VM-Generations-IDs nicht unterstützt.<p>Zusätzliche Daten<p>Fehlercode beim Überprüfen der VM-Generations-ID:%1 |
 | **Hinweise und Lösung** | Dies ist ein Erfolgsereignis, wenn kein Klonen beabsichtigt ist. Andernfalls untersuchen Sie das Systemereignisprotokoll, und lesen Sie die Produktsupportdokumentation zum Hypervisor noch einmal durch. |
 
 | Events | BESCHREIBUNG |
 |--|--|
 | **Ereignis-ID** | **2170** |
 | **Quelle** | Microsoft-Windows-ActiveDirectory_DomainService |
-| **Severity** | Warnung |
-| **Message** | Es wurde keine Änderung der Generations-ID erkannt.<p>Zwischengespeicherte Generations-ID (DS, alter Wert):%1<p>Aktuelle Generations-ID des virtuellen Computers (neuer Wert):%2<p>Die Änderung der Generations-ID erfolgt nach der Anwendung einer Momentaufnahme des virtuellen Computers, nach einem Importvorgang für den virtuellen Computer oder nach einer Livemigration. *<COMPUTERNAME>* erstellt eine neue Aufruf-ID, um den Domänen Controller wiederherzustellen. Virtualisierte Domänencontroller dürfen nicht mit einer Momentaufnahme des virtuellen Computers wiederhergestellt werden. Das unterstützte Verfahren zum Wiederherstellen oder Zurücksetzen des Inhalts einer Datenbank der Active Directory-Domänendienste ist das Wiederherstellen einer Systemstatussicherung, die mit einer für die Active Directory-Domänendienste geeigneten Sicherungsanwendung erstellt wurde. |
+| **Schweregrad** | Warnung |
+| **Meldung** | Es wurde keine Änderung der Generations-ID erkannt.<p>Zwischengespeicherte Generations-ID (DS, alter Wert):%1<p>Aktuelle Generations-ID des virtuellen Computers (neuer Wert):%2<p>Die Änderung der Generations-ID erfolgt nach der Anwendung einer Momentaufnahme des virtuellen Computers, nach einem Importvorgang für den virtuellen Computer oder nach einer Livemigration. *<COMPUTERNAME>* erstellt eine neue Aufruf-ID, um den Domänen Controller wiederherzustellen. Virtualisierte Domänencontroller dürfen nicht mit einer Momentaufnahme des virtuellen Computers wiederhergestellt werden. Das unterstützte Verfahren zum Wiederherstellen oder Zurücksetzen des Inhalts einer Datenbank der Active Directory-Domänendienste ist das Wiederherstellen einer Systemstatussicherung, die mit einer für die Active Directory-Domänendienste geeigneten Sicherungsanwendung erstellt wurde. |
 | **Hinweise und Lösung** | Dies ist ein Erfolgsereignis, wenn ein Klonen beabsichtigt ist. Andernfalls untersuchen Sie das Systemereignisprotokoll. |
 
 | Events | BESCHREIBUNG |
 |--|--|
 | **Ereignis-ID** | **2171** |
 | **Quelle** | Microsoft-Windows-ActiveDirectory_DomainService |
-| **Severity** | Informational |
-| **Message** | Es wurde keine Änderung der Generations-ID erkannt.<p>Zwischengespeicherte Generations-ID (DS, alter Wert):%1<p>Aktuelle Generations-ID des virtuellen Computers (neuer Wert):%2 |
+| **Schweregrad** | Informational |
+| **Meldung** | Es wurde keine Änderung der Generations-ID erkannt.<p>Zwischengespeicherte Generations-ID (DS, alter Wert):%1<p>Aktuelle Generations-ID des virtuellen Computers (neuer Wert):%2 |
 | **Hinweise und Lösung** | Dies ist eine Erfolgsmeldung, wenn kein Klonen beabsichtigt ist, die bei jedem Neustart eines virtualisierten Domänencontrollers angezeigt werden sollte. Andernfalls untersuchen Sie das Systemereignisprotokoll. |
 
 | Events | BESCHREIBUNG |
 |--|--|
 | **Ereignis-ID** | **2172** |
 | **Quelle** | Microsoft-Windows-ActiveDirectory_DomainService |
-| **Severity** | Informational |
-| **Message** | Das msDS-GenerationId-Attribut des Domänencontrollers wurde gelesen.<p>Wert des msDS-GenerationId-Attributs:%1 |
+| **Schweregrad** | Informational |
+| **Meldung** | Das msDS-GenerationId-Attribut des Domänencontrollers wurde gelesen.<p>Wert des msDS-GenerationId-Attributs:%1 |
 | **Hinweise und Lösung** | Dies ist ein Erfolgsereignis, wenn ein Klonen beabsichtigt ist. Andernfalls untersuchen Sie das Systemereignisprotokoll. |
 
 | Events | BESCHREIBUNG |
 |--|--|
 | **Ereignis-ID** | **2173** |
 | **Quelle** | Microsoft-Windows-ActiveDirectory_DomainService |
-| **Severity** | Informational |
-| **Message** | Fehler beim Lesen des msDS-GenerationId-Attributs des Computerobjekts des Domänencontrollers. Mögliche Ursachen sind, dass eine Datenbanktransaktion nicht korrekt ausgeführt wurde oder dass die Generations-ID in der lokalen Datenbank nicht vorhanden ist. Zu bedenken ist auch, dass beim ersten Neustart nach einem DCPromo-Vorgang noch kein msDS-GenerationId-Attribut vorhanden ist.<p>Zusätzliche Daten<p>Fehlercode:%1 |
+| **Schweregrad** | Informational |
+| **Meldung** | Fehler beim Lesen des msDS-GenerationId-Attributs des Computerobjekts des Domänencontrollers. Mögliche Ursachen sind, dass eine Datenbanktransaktion nicht korrekt ausgeführt wurde oder dass die Generations-ID in der lokalen Datenbank nicht vorhanden ist. Zu bedenken ist auch, dass beim ersten Neustart nach einem DCPromo-Vorgang noch kein msDS-GenerationId-Attribut vorhanden ist.<p>Zusätzliche Daten<p>Fehlercode:%1 |
 | **Hinweise und Lösung** | Dies ist eine Erfolgsnachricht, wenn ein Klonen beabsichtigt ist und es sich um den ersten Neustart des virtuellen Computers nach dem Klonen handelt. Auf nicht virtuellen Domänencontrollern kann sie ignoriert werden. Andernfalls untersuchen Sie das Systemereignisprotokoll. |
 
 | Events | BESCHREIBUNG |
 |--|--|
 | **Ereignis-ID** | **2174** |
 | **Quelle** | Microsoft-Windows-ActiveDirectory_DomainService |
-| **Severity** | Informational |
-| **Message** | Der Domänencontroller ist weder ein Klon noch eine wiederhergestellte Momentaufnahme eines virtuellen Domänencontrollers. |
+| **Schweregrad** | Informational |
+| **Meldung** | Der Domänencontroller ist weder ein Klon noch eine wiederhergestellte Momentaufnahme eines virtuellen Domänencontrollers. |
 | **Hinweise und Lösung** | Dies ist ein Erfolgsereignis, wenn kein Klonen beabsichtigt ist. Andernfalls untersuchen Sie das Systemereignisprotokoll. |
 
 | Events | BESCHREIBUNG |
 | -- |--|
 |**Ereignis-ID**|**2175**|
 |**Quelle**|Microsoft-Windows-ActiveDirectory_DomainService|
-|**Severity**|Fehler|
-|**Message**|Die Konfigurationsdatei zum Klonen des virtuellen Domänencontrollers befindet sich auf einer nicht unterstützten Plattform.|
+|**Schweregrad**|Fehler|
+|**Meldung**|Die Konfigurationsdatei zum Klonen des virtuellen Domänencontrollers befindet sich auf einer nicht unterstützten Plattform.|
 |**Hinweise und Lösung**|Zu dieser Meldung kommt es, wenn eine dccloneconfig.xml-Datei, aber keine VM-Generations-ID gefunden wird, beispielsweise wenn eine dccloneconfig.xml-Datei auf einem physischen Computer oder einem Hypervisor gefunden wird, der die VM-Generations-ID nicht unterstützt.|
 
 | Events | BESCHREIBUNG |
 |--|--|
 | **Ereignis-ID** | **2176** |
 | **Quelle** | Microsoft-Windows-ActiveDirectory_DomainService |
-| **Severity** | Informational |
-| **Message** | Die Klonkonfigurationsdatei für virtuelle Domänencontroller wurde umbenannt.<p>Zusätzliche Daten<p>Bisheriger Dateiname:%1<p>Neuer Dateiname:%2 |
+| **Schweregrad** | Informational |
+| **Meldung** | Die Klonkonfigurationsdatei für virtuelle Domänencontroller wurde umbenannt.<p>Zusätzliche Daten<p>Bisheriger Dateiname:%1<p>Neuer Dateiname:%2 |
 | **Hinweise und Lösung** | Die Umbenennung ist erwartet, wenn eine Sicherung eines virtuellen Quellcomputers gestartet wird, da sich die VM-Generations-ID nicht geändert hat. Dies verhindert, dass der Quelldomänencontroller einen Klonvorgang versucht. |
 
 | Events | BESCHREIBUNG |
 |--|--|
 | **Ereignis-ID** | **2177** |
 | **Quelle** | Microsoft-Windows-ActiveDirectory_DomainService |
-| **Severity** | Fehler |
-| **Message** | Fehler beim Umbenennen der Konfigurationsdatei zum Klonen des virtuellen Domänencontrollers.<p>Zusätzliche Daten<p>Dateiname:%1<p>Fehlercode:%2 %3 |
+| **Schweregrad** | Fehler |
+| **Meldung** | Fehler beim Umbenennen der Konfigurationsdatei zum Klonen des virtuellen Domänencontrollers.<p>Zusätzliche Daten<p>Dateiname:%1<p>Fehlercode:%2 %3 |
 | **Hinweise und Lösung** | Der Umbenennungsversuch ist erwartet, wenn eine Sicherung eines virtuellen Quellcomputers gestartet wird, da sich die VM-Generations-ID nicht geändert hat. Dies verhindert, dass der Quelldomänencontroller einen Klonvorgang versucht. Nennen Sie die Datei manuell um, und untersuchen Sie installierte Drittanbieterprodukte, die möglicherweise die Umbenennung der Datei verhindern. |
 
 | Events | BESCHREIBUNG |
 | -- |--|
 |**Ereignis-ID**|**2178**|
 |**Quelle**|Microsoft-Windows-ActiveDirectory_DomainService|
-|**Severity**|Informational|
-|**Message**|Eine Klonkonfigurationsdatei für virtuelle Domänencontroller wurde erkannt, doch die VM-Generations-ID wurde nicht geändert. Der lokale Domänencontroller ist der Quelldomänencontroller für den Klonvorgang. Benennen Sie die Klonkonfigurationsdatei um.|
+|**Schweregrad**|Informational|
+|**Meldung**|Eine Klonkonfigurationsdatei für virtuelle Domänencontroller wurde erkannt, doch die VM-Generations-ID wurde nicht geändert. Der lokale Domänencontroller ist der Quelldomänencontroller für den Klonvorgang. Benennen Sie die Klonkonfigurationsdatei um.|
 |**Hinweise und Lösung**|Erwartet, wenn eine Sicherung eines virtuellen Quellcomputers gestartet wird, da sich die VM-Generations-ID nicht geändert hat. Dies verhindert, dass der Quelldomänencontroller einen Klonvorgang versucht.|
 
 | Events | BESCHREIBUNG |
 |--|--|
 | **Ereignis-ID** | **2179** |
 | **Quelle** | Microsoft-Windows-ActiveDirectory_DomainService |
-| **Severity** | Informational |
-| **Message** | Für das msDS-GenerationId-Attribut des Computerobjekts des Domänencontrollers wurde der folgende Parameter festgelegt:<p>Generations-ID-Attribut:%1 |
+| **Schweregrad** | Informational |
+| **Meldung** | Für das msDS-GenerationId-Attribut des Computerobjekts des Domänencontrollers wurde der folgende Parameter festgelegt:<p>Generations-ID-Attribut:%1 |
 | **Hinweise und Lösung** | Dies ist ein Erfolgsereignis und nur ein Problem, wenn es unerwartet ist. |
 
 | Events | BESCHREIBUNG |
 |--|--|
 | **Ereignis-ID** | **2180** |
 | **Quelle** | Microsoft-Windows-ActiveDirectory_DomainService |
-| **Severity** | Warnung |
-| **Message** | Fehler beim Festlegen des Attributs "msDS-GenerationId" für das Computerobjekt des Domänencontrollers.<p>Zusätzliche Daten<p>Fehlercode:%1 |
+| **Schweregrad** | Warnung |
+| **Meldung** | Fehler beim Festlegen des Attributs "msDS-GenerationId" für das Computerobjekt des Domänencontrollers.<p>Zusätzliche Daten<p>Fehlercode:%1 |
 | **Hinweise und Lösung** | Untersuchen Sie das Systemereignisprotokoll und die Datei Dcpromo.log. Suchen Sie unter MS TechNet, in der MS Knowledge Base und in MS-Blogs nach dem bestimmten Fehler, um seine gewöhnliche Bedeutung zu bestimmen und ihn dann auf der Basis dieser Ergebnisse zu behandeln. |
 
 | Events | BESCHREIBUNG |
 |--|--|
 | **Ereignis-ID** | **2182** |
 | **Quelle** | Microsoft-Windows-ActiveDirectory_DomainService |
-| **Severity** | Informational |
-| **Message** | Internes Ereignis: der Verzeichnisdienst wurde zum Klonen eines remotedsa aufgefordert: |
+| **Schweregrad** | Informational |
+| **Meldung** | Internes Ereignis: der Verzeichnisdienst wurde zum Klonen eines remotedsa aufgefordert: |
 | **Hinweise und Lösung** | Dies ist ein Erfolgsereignis und nur ein Problem, wenn es unerwartet ist. |
 
 | Events | BESCHREIBUNG |
 |--|--|
 | **Ereignis-ID** | **2183** |
 | **Quelle** | Microsoft-Windows-ActiveDirectory_DomainService |
-| **Severity** | Informational |
-| **Message** | Internes Ereignis: *<COMPUTERNAME>* die Anforderung zum Klonen des Remote Verzeichnis System-Agents wurde abgeschlossen.<p>Name des ursprünglichen DC:%3<p>Name des angeforderten Klon-DC:%4<p>Standort des angeforderten Klon-DC:%5<p>Zusätzliche Daten<p>Fehlerwert:%1 %2 |
+| **Schweregrad** | Informational |
+| **Meldung** | Internes Ereignis: *<COMPUTERNAME>* die Anforderung zum Klonen des Remote Verzeichnis System-Agents wurde abgeschlossen.<p>Name des ursprünglichen DC:%3<p>Name des angeforderten Klon-DC:%4<p>Standort des angeforderten Klon-DC:%5<p>Zusätzliche Daten<p>Fehlerwert:%1 %2 |
 | **Hinweise und Lösung** | Dies ist ein Erfolgsereignis und nur ein Problem, wenn es unerwartet ist. |
 
 | Events | BESCHREIBUNG |
 |--|--|
 | **Ereignis-ID** | **2184** |
 | **Quelle** | Microsoft-Windows-ActiveDirectory_DomainService |
-| **Severity** | Fehler |
-| **Message** | *<COMPUTERNAME>* Fehler beim Erstellen eines Domänen Controller Kontos für den geklonten Domänen Controller.<p>Name des ursprünglichen DC: %1<p>Zulässige Anzahl geklonter DCs:%2<p>Der Grenzwert für die Anzahl der Domänen Controller Konten, die durch Klonen generiert werden können, <em> <COMPUTERNAME> </em> wurde überschritten. |
+| **Schweregrad** | Fehler |
+| **Meldung** | *<COMPUTERNAME>* Fehler beim Erstellen eines Domänen Controller Kontos für den geklonten Domänen Controller.<p>Name des ursprünglichen DC: %1<p>Zulässige Anzahl geklonter DCs:%2<p>Der Grenzwert für die Anzahl der Domänen Controller Konten, die durch Klonen generiert werden können, <em> <COMPUTERNAME> </em> wurde überschritten. |
 | **Hinweise und Lösung** | Der Name eines einzigen Quelldomänencontrollers kann basieren auf der Benennungskonvention nur 9.999-mal automatisch generiert werden, wenn die Domänencontroller nicht herabgestuft werden. Verwenden Sie das Elemente <computername> in der XML, um einen neuen eindeutigen Namen zu generieren oder von einem Domänencontroller mit einem anderen Namen zu klonen. |
 
 | Events | BESCHREIBUNG |
 |--|--|
 | **Ereignis-ID** | **2191** |
 | **Quelle** | Microsoft-Windows-ActiveDirectory_DomainService |
-| **Severity** | Informational |
-| **Message** | *<COMPUTERNAME>* Legen Sie den folgenden Registrierungs Wert fest, um DNS-Updates zu deaktivieren.<p>Registrierungswert:%1<p>Registrierungswert: %2<p>Registrierungswertdaten: %3<p>Während des Klonens sind die Computernamen des lokalen Computers und des Quellcomputers möglicherweise kurzzeitig identisch. Für diese Zeitspanne wird die Registrierung von DNS A- und AAAA-Datensätzen deaktiviert, sodass Clients keine Anforderungen an den lokalen Computer senden können. Nach dem Klonen werden DNS-Aktualisierungen vom Klonprozess wieder aktiviert. |
+| **Schweregrad** | Informational |
+| **Meldung** | *<COMPUTERNAME>* Legen Sie den folgenden Registrierungs Wert fest, um DNS-Updates zu deaktivieren.<p>Registrierungswert:%1<p>Registrierungswert: %2<p>Registrierungswertdaten: %3<p>Während des Klonens sind die Computernamen des lokalen Computers und des Quellcomputers möglicherweise kurzzeitig identisch. Für diese Zeitspanne wird die Registrierung von DNS A- und AAAA-Datensätzen deaktiviert, sodass Clients keine Anforderungen an den lokalen Computer senden können. Nach dem Klonen werden DNS-Aktualisierungen vom Klonprozess wieder aktiviert. |
 | **Hinweise und Lösung** | Dies ist ein Erfolgsereignis und nur ein Problem, wenn es unerwartet ist. |
 
 | Events | BESCHREIBUNG |
 |--|--|
 | **Ereignis-ID** | **2192** |
 | **Quelle** | Microsoft-Windows-ActiveDirectory_DomainService |
-| **Severity** | Fehler |
-| **Message** | *<COMPUTERNAME>* der folgende Registrierungs Wert zum Deaktivieren von DNS-Aktualisierungen konnte nicht festgelegt werden.<p>Registrierungswert:%1<p>Registrierungswert: %2<p>Registrierungswertdaten: %3<p>Fehlercode: %4<p>Fehlermeldungen: %5<p>Während des Klonens sind die Computernamen des lokalen Computers und des Quellcomputers möglicherweise kurzzeitig identisch. Für diese Zeitspanne wird die Registrierung von DNS A- und AAAA-Datensätzen deaktiviert, sodass Clients keine Anforderungen an den lokalen Computer senden können. |
+| **Schweregrad** | Fehler |
+| **Meldung** | *<COMPUTERNAME>* der folgende Registrierungs Wert zum Deaktivieren von DNS-Aktualisierungen konnte nicht festgelegt werden.<p>Registrierungswert:%1<p>Registrierungswert: %2<p>Registrierungswertdaten: %3<p>Fehlercode: %4<p>Fehlermeldungen: %5<p>Während des Klonens sind die Computernamen des lokalen Computers und des Quellcomputers möglicherweise kurzzeitig identisch. Für diese Zeitspanne wird die Registrierung von DNS A- und AAAA-Datensätzen deaktiviert, sodass Clients keine Anforderungen an den lokalen Computer senden können. |
 | **Hinweise und Lösung** | Untersuchen Sie die Anwendungs- und Systemereignisprotokolle. Überprüfen Sie Drittanbieteranwendungen, die möglicherweise Registrierungsaktualisierungen blockieren. |
 
 | Events | BESCHREIBUNG |
 |--|--|
 | **Ereignis-ID** | **2193** |
 | **Quelle** | Microsoft-Windows-ActiveDirectory_DomainService |
-| **Severity** | Informational |
-| **Message** | *<COMPUTERNAME>* Legen Sie den folgenden Registrierungs Wert fest, um DNS-Updates zu aktivieren.<p>Registrierungswert:%1<p>Registrierungswert: %2<p>Registrierungswertdaten: %3<p>Während des Klonens sind die Computernamen des lokalen Computers und des Quellcomputers möglicherweise kurzzeitig identisch. Für diese Zeitspanne wird die Registrierung von DNS A- und AAAA-Datensätzen deaktiviert, sodass Clients keine Anforderungen an den lokalen Computer senden können. |
+| **Schweregrad** | Informational |
+| **Meldung** | *<COMPUTERNAME>* Legen Sie den folgenden Registrierungs Wert fest, um DNS-Updates zu aktivieren.<p>Registrierungswert:%1<p>Registrierungswert: %2<p>Registrierungswertdaten: %3<p>Während des Klonens sind die Computernamen des lokalen Computers und des Quellcomputers möglicherweise kurzzeitig identisch. Für diese Zeitspanne wird die Registrierung von DNS A- und AAAA-Datensätzen deaktiviert, sodass Clients keine Anforderungen an den lokalen Computer senden können. |
 | **Hinweise und Lösung** | Dies ist ein Erfolgsereignis und nur ein Problem, wenn es unerwartet ist. |
 
 | Events | BESCHREIBUNG |
 |--|--|
 | **Ereignis-ID** | **2194** |
 |--|--|
-| **Severity** | Fehler |
-| **Message** | *<COMPUTERNAME>* der folgende Registrierungs Wert zum Aktivieren von DNS-Updates konnte nicht festgelegt werden.<p>Registrierungswert:%1<p>Registrierungswert: %2<p>Registrierungswertdaten: %3<p>Fehlercode: %4<p>Fehlermeldungen: %5<p>Während des Klonens sind die Computernamen des lokalen Computers und des Quellcomputers möglicherweise kurzzeitig identisch. Für diese Zeitspanne wird die Registrierung von DNS A- und AAAA-Datensätzen deaktiviert, sodass Clients keine Anforderungen an den lokalen Computer senden können. |
+| **Schweregrad** | Fehler |
+| **Meldung** | *<COMPUTERNAME>* der folgende Registrierungs Wert zum Aktivieren von DNS-Updates konnte nicht festgelegt werden.<p>Registrierungswert:%1<p>Registrierungswert: %2<p>Registrierungswertdaten: %3<p>Fehlercode: %4<p>Fehlermeldungen: %5<p>Während des Klonens sind die Computernamen des lokalen Computers und des Quellcomputers möglicherweise kurzzeitig identisch. Für diese Zeitspanne wird die Registrierung von DNS A- und AAAA-Datensätzen deaktiviert, sodass Clients keine Anforderungen an den lokalen Computer senden können. |
 | **Hinweise und Lösung** | Untersuchen Sie die Anwendungs- und Systemereignisprotokolle. Überprüfen Sie Drittanbieteranwendungen, die möglicherweise Registrierungsaktualisierungen blockieren. |
 
 | Events | BESCHREIBUNG |
 |--|--|
 | **Ereignis-ID** | **2195** |
 | **Quelle** | Microsoft-Windows-ActiveDirectory_DomainService |
-| **Severity** | Fehler |
-| **Message** | Fehler beim Festlegen des DSRM-Starts.<p>Fehlercode:%1<p>Fehlermeldung:%2<p>Wenn beim Klonen eines virtuellen Domänencontrollers Fehler auftreten oder wenn der Hypervisor mit der Klonkonfigurationsdatei nicht unterstützt wird, wird der lokale Computer zur Problembehandlung im Verzeichnisdienst-Wiederherstellungsmodus (DSRM) neu gestartet. Der DSRM-Start konnte jedoch nicht festgelegt werden. |
+| **Schweregrad** | Fehler |
+| **Meldung** | Fehler beim Festlegen des DSRM-Starts.<p>Fehlercode:%1<p>Fehlermeldung:%2<p>Wenn beim Klonen eines virtuellen Domänencontrollers Fehler auftreten oder wenn der Hypervisor mit der Klonkonfigurationsdatei nicht unterstützt wird, wird der lokale Computer zur Problembehandlung im Verzeichnisdienst-Wiederherstellungsmodus (DSRM) neu gestartet. Der DSRM-Start konnte jedoch nicht festgelegt werden. |
 | **Hinweise und Lösung** | Untersuchen Sie die Anwendungs- und Systemereignisprotokolle. Überprüfen Sie Drittanbieteranwendungen, die möglicherweise Registrierungsaktualisierungen blockieren. |
 
 | Events | BESCHREIBUNG |
 |--|--|
 | **Ereignis-ID** | **2196** |
 | **Quelle** | Microsoft-Windows-ActiveDirectory_DomainService |
-| **Severity** | Fehler |
-| **Message** | Fehler beim Aktivieren des Rechts zum Herunterfahren.<p>Fehlercode:%1<p>Fehlermeldung:%2<p>Wenn beim Klonen eines virtuellen Domänencontrollers Fehler auftreten oder wenn der Hypervisor mit der Klonkonfigurationsdatei nicht unterstützt wird, wird der lokale Computer zur Problembehandlung im Verzeichnisdienst-Wiederherstellungsmodus (DSRM) neu gestartet. Das Recht zum Herunterfahren konnte jedoch nicht aktiviert werden. |
+| **Schweregrad** | Fehler |
+| **Meldung** | Fehler beim Aktivieren des Rechts zum Herunterfahren.<p>Fehlercode:%1<p>Fehlermeldung:%2<p>Wenn beim Klonen eines virtuellen Domänencontrollers Fehler auftreten oder wenn der Hypervisor mit der Klonkonfigurationsdatei nicht unterstützt wird, wird der lokale Computer zur Problembehandlung im Verzeichnisdienst-Wiederherstellungsmodus (DSRM) neu gestartet. Das Recht zum Herunterfahren konnte jedoch nicht aktiviert werden. |
 | **Hinweise und Lösung** | Untersuchen Sie die Anwendungs- und Systemereignisprotokolle. Überprüfen Sie Drittanbieteranwendungen, die möglicherweise die Verwendung von Berechtigungen blockieren. |
 
 | Events | BESCHREIBUNG |
 |--|--|
 | **Ereignis-ID** | **2197** |
 | **Quelle** | Microsoft-Windows-ActiveDirectory_DomainService |
-| **Severity** | Fehler |
-| **Message** | Fehler beim Initiieren des Herunterfahrens.<p>Fehlercode:%1<p>Fehlermeldung:%2<p>Wenn beim Klonen eines virtuellen Domänencontrollers Fehler auftreten oder wenn der Hypervisor mit der Klonkonfigurationsdatei nicht unterstützt wird, wird der lokale Computer zur Problembehandlung im Verzeichnisdienst-Wiederherstellungsmodus (DSRM) neu gestartet. Das Herunterfahren des Systems konnte jedoch nicht initiiert werden. |
+| **Schweregrad** | Fehler |
+| **Meldung** | Fehler beim Initiieren des Herunterfahrens.<p>Fehlercode:%1<p>Fehlermeldung:%2<p>Wenn beim Klonen eines virtuellen Domänencontrollers Fehler auftreten oder wenn der Hypervisor mit der Klonkonfigurationsdatei nicht unterstützt wird, wird der lokale Computer zur Problembehandlung im Verzeichnisdienst-Wiederherstellungsmodus (DSRM) neu gestartet. Das Herunterfahren des Systems konnte jedoch nicht initiiert werden. |
 | **Hinweise und Lösung** | Untersuchen Sie die Anwendungs- und Systemereignisprotokolle. Überprüfen Sie Drittanbieteranwendungen, die möglicherweise die Verwendung von Berechtigungen blockieren. |
 
 | Events | BESCHREIBUNG |
 |--|--|
 | **Ereignis-ID** | **2198** |
 | **Quelle** | Microsoft-Windows-ActiveDirectory_DomainService |
-| **Severity** | Fehler |
-| **Message** | *<COMPUTERNAME>* Fehler beim Erstellen oder Ändern des folgenden geklonten DC-Objekts.<p>Zusätzliche Daten:<p>Objekt:<p>%1<p>Fehlerwert: %2<p>%3 |
+| **Schweregrad** | Fehler |
+| **Meldung** | *<COMPUTERNAME>* Fehler beim Erstellen oder Ändern des folgenden geklonten DC-Objekts.<p>Zusätzliche Daten:<p>Objekt:<p>%1<p>Fehlerwert: %2<p>%3 |
 | **Hinweise und Lösung** | Suchen Sie unter MS TechNet, in der MS Knowledge Base und in MS-Blogs nach dem bestimmten Fehler, um seine gewöhnliche Bedeutung zu bestimmen und ihn dann auf der Basis dieser Ergebnisse zu behandeln. |
 
 | Events | BESCHREIBUNG |
 |--|--|
 | **Ereignis-ID** | **2199** |
 | **Quelle** | Microsoft-Windows-ActiveDirectory_DomainService |
-| **Severity** | Fehler |
-| **Message** | *<COMPUTERNAME>* Fehler beim Erstellen des folgenden geklonten DC-Objekts, da das Objekt bereits vorhanden ist.<p>Zusätzliche Daten:<p>Quelldomänencontroller:<p>%1<p>Objekt:<p>%2 |
+| **Schweregrad** | Fehler |
+| **Meldung** | *<COMPUTERNAME>* Fehler beim Erstellen des folgenden geklonten DC-Objekts, da das Objekt bereits vorhanden ist.<p>Zusätzliche Daten:<p>Quelldomänencontroller:<p>%1<p>Objekt:<p>%2 |
 | **Hinweise und Lösung** | Vergewissern Sie sich, dass in der Datei dccloneconfig.xml kein vorhandener Domänencontroller angegeben ist und dass keine Kopien der Datei dccloneconfig.xml auf mehreren Klonen verwendet wurden, ohne den Namen zu bearbeiten. Wenn die Kollision immer noch unerwartet ist, legen Sie fest, welcher Administrator sie heraufgestuft hat. Wenden Sie sich an den Administrator, um zu besprechen, ob der vorhandene Domänencontroller herabgestuft, die Metadaten des vorhandenen Domänencontrollers bereinigt oder der Klon einen anderen Namen verwenden sollte. |
 
 | Events | BESCHREIBUNG |
 |--|--|
 | **Ereignis-ID** | **2203** |
 | **Quelle** | Microsoft-Windows-ActiveDirectory_DomainService |
-| **Severity** | Fehler |
-| **Message** | Fehler beim Klonen des letzten virtuellen Domänencontrollers. Dies ist der erste Neustart nach dem Fehler, daher sollte der Klonvorgang nun wiederholt werden. Es ist jedoch weder eine Konfigurationsdatei für das Klonen von virtuellen Domänencontrollern noch eine Änderung der VM-Generations-ID vorhanden. Starten Sie im DSRM.<p>Fehler beim Klonen des letzten virtuellen Domänencontrollers:%1<p>Die Konfigurationsdatei zum Klonen des virtuellen Domänencontrollers ist vorhanden:%2<p>Eine Änderung der VM-Generations-ID wird erkannt:%3 |
+| **Schweregrad** | Fehler |
+| **Meldung** | Fehler beim Klonen des letzten virtuellen Domänencontrollers. Dies ist der erste Neustart nach dem Fehler, daher sollte der Klonvorgang nun wiederholt werden. Es ist jedoch weder eine Konfigurationsdatei für das Klonen von virtuellen Domänencontrollern noch eine Änderung der VM-Generations-ID vorhanden. Starten Sie im DSRM.<p>Fehler beim Klonen des letzten virtuellen Domänencontrollers:%1<p>Die Konfigurationsdatei zum Klonen des virtuellen Domänencontrollers ist vorhanden:%2<p>Eine Änderung der VM-Generations-ID wird erkannt:%3 |
 | **Hinweise und Lösung** | Erwartet, wenn das Klonen zuvor aufgrund einer fehlenden oder ungültigen dccloneconfig.xml-Datei fehlgeschlagen ist. |
 
 | Events | BESCHREIBUNG |
 |--|--|
 | Ereignis-ID | 2210 |
-| `Source` | Microsoft-Windows-ActiveDirectory_DomainService |
+| Quelle | Microsoft-Windows-ActiveDirectory_DomainService |
 | Schweregrad | Fehler |
 | `Message` | <COMPUTERNAME> konnte keine Objekte für den geklonten Domänencontroller erstellen.<p>Zusätzliche Daten:<p>Klon-ID: %6<p>Name des geklonten Domänencontrollers: %1<p>Wiederholungsschleife: %2<p>Ausnahmewert: %3<p>Fehlerwert: %4<p>DSID: %5 |
 | Hinweise und Lösung | Überprüfen Sie die System- und Verzeichnisdienstprotokolle sowie die Datei dcpromo.log auf weitere Details für das Fehlschlagen des Klonens. |
@@ -455,7 +453,7 @@ Im Folgenden sind die klonspezifischen Windows Server 2012-Ereignisse im Verzeic
 | Events | BESCHREIBUNG |
 |--|--|
 | Ereignis-ID | 2211 |
-| `Source` | Microsoft-Windows-ActiveDirectory_DomainService |
+| Quelle | Microsoft-Windows-ActiveDirectory_DomainService |
 | Schweregrad | Informational |
 | Meldung | <COMPUTERNAME> hat Objekte für den geklonten Domänencontroller erstellt.<p>Zusätzliche Daten:<p>Klon-ID: %3<p>Name des geklonten Domänencontrollers: %1<p>Wiederholungsschleife: %2 |
 | Hinweise und Lösung | Dies ist ein Erfolgsereignis und nur ein Problem, wenn es unerwartet ist. |
@@ -463,7 +461,7 @@ Im Folgenden sind die klonspezifischen Windows Server 2012-Ereignisse im Verzeic
 | Events | BESCHREIBUNG |
 |--|--|
 | Ereignis-ID | 2212 |
-| `Source` | Microsoft-Windows-ActiveDirectory_DomainService |
+| Quelle | Microsoft-Windows-ActiveDirectory_DomainService |
 | Schweregrad | Informational |
 | Meldung | <COMPUTERNAME> hat mit der Erstellung von Objekten für den geklonten Domänencontroller begonnen.<p>Zusätzliche Daten:<p>Klon-ID: %1<p>Klonname: %2<p>Klonsite: %3<p>Geklonter RODC: %4 |
 | Hinweise und Lösung | Dies ist ein Erfolgsereignis und nur ein Problem, wenn es unerwartet ist. |
@@ -471,7 +469,7 @@ Im Folgenden sind die klonspezifischen Windows Server 2012-Ereignisse im Verzeic
 | Events | BESCHREIBUNG |
 |--|--|
 | Ereignis-ID | 2213 |
-| `Source` | Microsoft-Windows-ActiveDirectory_DomainService |
+| Quelle | Microsoft-Windows-ActiveDirectory_DomainService |
 | Schweregrad | Informational |
 | Meldung | <COMPUTERNAME> hat ein neues KrbTgt-Objekt für das Klonen schreibgeschützter Domänencontroller erstellt.<p>Zusätzliche Daten:<p>Klon-ID: %1<p>GUID des neuen KrbTgt-Objekts: %2 |
 | Hinweise und Lösung | Dies ist ein Erfolgsereignis und nur ein Problem, wenn es unerwartet ist. |
@@ -479,7 +477,7 @@ Im Folgenden sind die klonspezifischen Windows Server 2012-Ereignisse im Verzeic
 | Events | BESCHREIBUNG |
 | -- |--|
 |Ereignis-ID|2214|
-|`Source`|Microsoft-Windows-ActiveDirectory_DomainService|
+|Quelle|Microsoft-Windows-ActiveDirectory_DomainService|
 |Schweregrad|Informational|
 |Meldung|<COMPUTERNAME> erstellt ein Computerobjekt für den geklonten Domänencontroller.<p>Zusätzliche Daten:<p>Klon-ID: %1<p>Ursprünglicher Domänencontroller: %2<p>Geklonter Domänencontroller: %3|
 |Hinweise und Lösung|Dies ist ein Erfolgsereignis und nur ein Problem, wenn es unerwartet ist.|
@@ -487,7 +485,7 @@ Im Folgenden sind die klonspezifischen Windows Server 2012-Ereignisse im Verzeic
 | Events | BESCHREIBUNG |
 | -- |--|
 |Ereignis-ID|2215|
-|`Source`|Microsoft-Windows-ActiveDirectory_DomainService|
+|Quelle|Microsoft-Windows-ActiveDirectory_DomainService|
 |Schweregrad|Informational|
 |Meldung|<COMPUTERNAME> fügen den geklonten Domänencontroller in der folgenden Site hinzu.<p>Zusätzliche Daten:<p>Klon-ID: %1<p>Website: %2|
 |Hinweise und Lösung|Dies ist ein Erfolgsereignis und nur ein Problem, wenn es unerwartet ist.|
@@ -495,7 +493,7 @@ Im Folgenden sind die klonspezifischen Windows Server 2012-Ereignisse im Verzeic
 | Events | BESCHREIBUNG |
 | -- |--|
 |Ereignis-ID|2216|
-|`Source`|Microsoft-Windows-ActiveDirectory_DomainService|
+|Quelle|Microsoft-Windows-ActiveDirectory_DomainService|
 |Schweregrad|Informational|
 |Meldung|<COMPUTERNAME> erstellt einen Servercontainer für den geklonten Domänencontroller.<p>Zusätzliche Daten:<p>Klon-ID: %1<p>Servercontainer: %2|
 |Hinweise und Lösung|Dies ist ein Erfolgsereignis und nur ein Problem, wenn es unerwartet ist.|
@@ -503,7 +501,7 @@ Im Folgenden sind die klonspezifischen Windows Server 2012-Ereignisse im Verzeic
 | Events | BESCHREIBUNG |
 | -- |--|
 |Ereignis-ID|2217|
-|`Source`|Microsoft-Windows-ActiveDirectory_DomainService|
+|Quelle|Microsoft-Windows-ActiveDirectory_DomainService|
 |Schweregrad|Informational|
 |Meldung|<COMPUTERNAME> erstellt ein Serverobjekt für den geklonten Domänencontroller.<p>Zusätzliche Daten:<p>Klon-ID: %1<p>Serverobjekt: %2|
 |Hinweise und Lösung|Dies ist ein Erfolgsereignis und nur ein Problem, wenn es unerwartet ist.|
@@ -511,7 +509,7 @@ Im Folgenden sind die klonspezifischen Windows Server 2012-Ereignisse im Verzeic
 | Events | BESCHREIBUNG |
 | -- |--|
 |Ereignis-ID|2218|
-|`Source`|Microsoft-Windows-ActiveDirectory_DomainService|
+|Quelle|Microsoft-Windows-ActiveDirectory_DomainService|
 |Schweregrad|Informational|
 |Meldung|<COMPUTERNAME> erstellt ein Objekt mit NTDS-Einstellungen für den geklonten Domänencontroller.<p>Zusätzliche Daten:<p>Klon-ID: %1<p>Objekt: %2|
 |Hinweise und Lösung|Dies ist ein Erfolgsereignis und nur ein Problem, wenn es unerwartet ist.|
@@ -519,7 +517,7 @@ Im Folgenden sind die klonspezifischen Windows Server 2012-Ereignisse im Verzeic
 | Events | BESCHREIBUNG |
 | -- |--|
 |Ereignis-ID|2219|
-|`Source`|Microsoft-Windows-ActiveDirectory_DomainService|
+|Quelle|Microsoft-Windows-ActiveDirectory_DomainService|
 |Schweregrad|Informational|
 |Meldung|<COMPUTERNAME> erstellt Verbindungsobjekte für den geklonten schreibgeschützten Domänencontroller.<p>Zusätzliche Daten:<p>Klon-ID: %1|
 |Hinweise und Lösung|Dies ist ein Erfolgsereignis und nur ein Problem, wenn es unerwartet ist.|
@@ -527,7 +525,7 @@ Im Folgenden sind die klonspezifischen Windows Server 2012-Ereignisse im Verzeic
 | Events | BESCHREIBUNG |
 | -- |--|
 |Ereignis-ID|2220|
-|`Source`|Microsoft-Windows-ActiveDirectory_DomainService|
+|Quelle|Microsoft-Windows-ActiveDirectory_DomainService|
 |Schweregrad|Informational|
 |Meldung|<COMPUTERNAME> erstellt SYSVOL-Objekte für den geklonten schreibgeschützten Domänencontroller.<p>Zusätzliche Daten:<p>Klon-ID: %1|
 |Hinweise und Lösung|Dies ist ein Erfolgsereignis und nur ein Problem, wenn es unerwartet ist.|
@@ -535,7 +533,7 @@ Im Folgenden sind die klonspezifischen Windows Server 2012-Ereignisse im Verzeic
 | Events | BESCHREIBUNG |
 | -- |--|
 |Ereignis-ID|2221|
-|`Source`|Microsoft-Windows-ActiveDirectory_DomainService|
+|Quelle|Microsoft-Windows-ActiveDirectory_DomainService|
 |Schweregrad|Fehler|
 |`Message`|<COMPUTERNAME> konnte kein zufälliges Kennwort für den geklonten Domänencontroller erstellen.<p>Zusätzliche Daten:<p>Klon-ID: %1<p>Name des geklonten Domänencontrollers: %2<p>Fehler: %3 %4|
 |Hinweise und Lösung|Untersuchen Sie das Systemereignisprotokoll auf weitere Details für die Gründe, aus denen das Computerkontokennwort nicht erstellt werden konnte.|
@@ -543,7 +541,7 @@ Im Folgenden sind die klonspezifischen Windows Server 2012-Ereignisse im Verzeic
 | Events | BESCHREIBUNG |
 | -- |--|
 |Ereignis-ID|2222|
-|`Source`|Microsoft-Windows-ActiveDirectory_DomainService|
+|Quelle|Microsoft-Windows-ActiveDirectory_DomainService|
 |Schweregrad|Fehler|
 |`Message`|<COMPUTERNAME> konnte kein Kennwort für den geklonten Domänencontroller festlegen.<p>Zusätzliche Daten:<p>Klon-ID: %1<p>Name des geklonten Domänencontrollers: %2<p>Fehler: %3 %4|
 |Hinweise und Lösung|Untersuchen Sie das Systemereignisprotokoll auf weitere Details für die Gründe, aus denen das Computerkontokennwort nicht festgelegt werden konnte.|
@@ -551,7 +549,7 @@ Im Folgenden sind die klonspezifischen Windows Server 2012-Ereignisse im Verzeic
 | Events | BESCHREIBUNG |
 | -- |--|
 |Ereignis-ID|2223|
-|`Source`|Microsoft-Windows-ActiveDirectory_DomainService|
+|Quelle|Microsoft-Windows-ActiveDirectory_DomainService|
 |Schweregrad|Informational|
 |Meldung|<COMPUTERNAME> hat das Computerkontokennwort für den geklonten Domänencontroller festgelegt.<p>Zusätzliche Daten:<p>Klon-ID: %1<p>Name des geklonten Domänencontrollers: %2<p>Gesamtanzahl der Wiederholungen: %3|
 |Hinweise und Lösung|Dies ist ein Erfolgsereignis und nur ein Problem, wenn es unerwartet ist.|
@@ -559,7 +557,7 @@ Im Folgenden sind die klonspezifischen Windows Server 2012-Ereignisse im Verzeic
 | Events | BESCHREIBUNG |
 | -- |--|
 |Ereignis-ID|2224|
-|`Source`|Microsoft-Windows-ActiveDirectory_DomainService|
+|Quelle|Microsoft-Windows-ActiveDirectory_DomainService|
 |Schweregrad|Fehler|
 |`Message`|Fehler beim Klonen des virtuellen Domänencontrollers. Die folgenden %1 verwalteten Dienstkonten sind auf dem geklonten Computer vorhanden:<p>%2<p>Damit der Klonvorgang erfolgreich ist, müssen alle verwalteten Dienstkonten entfernt werden. Dazu können Sie das PowerShell-Cmdlet "Remove-ADComputerServiceAccount" verwenden.|
 |Hinweise und Lösung|Erwartet bei der Verwendung von eigenständigen MSAs (nicht bei Gruppen-MSA). Befolgen Sie *nicht* den Ereignisratschlag, das Konto zu entfernen – dieser ist falsch. Verwenden Sie Uninstall-ADServiceAccount- [https://technet.microsoft.com/library/hh852310](/previous-versions/windows/it-pro/windows-powershell-1.0/ee176927(v=technet.10)) .<p>Eigenständige MSAs, die zuerst in Windows Server 2008 R2 eingeführt wurden, wurden in Windows Server 2012 durch Gruppen-MSAs (gMSA) ersetzt. GMSAs bieten Unterstützung für das Klonen.|
@@ -567,7 +565,7 @@ Im Folgenden sind die klonspezifischen Windows Server 2012-Ereignisse im Verzeic
 | Events | BESCHREIBUNG |
 | -- |--|
 |Ereignis-ID|2225|
-|`Source`|Microsoft-Windows-ActiveDirectory_DomainService|
+|Quelle|Microsoft-Windows-ActiveDirectory_DomainService|
 |Schweregrad|Informational|
 |Meldung|Die zwischengespeicherten geheimen Schlüssel des folgenden Sicherheitsprinzipals wurden erfolgreich vom lokalen Domänencontroller entfernt:<p>%1<p>Nach dem Klonen eines schreibgeschützten Domänencontrollers werden geheime Schlüssel, die zuvor auf dem als Klonquelle verwendeten schreibgeschützten Domänencontroller zwischengespeichert wurden, vom geklonten Domänencontroller entfernt.|
 |Hinweise und Lösung|Dies ist ein Erfolgsereignis und nur ein Problem, wenn es unerwartet ist.|
@@ -575,7 +573,7 @@ Im Folgenden sind die klonspezifischen Windows Server 2012-Ereignisse im Verzeic
 | Events | BESCHREIBUNG |
 | -- |--|
 |Ereignis-ID|2226|
-|`Source`|Microsoft-Windows-ActiveDirectory_DomainService|
+|Quelle|Microsoft-Windows-ActiveDirectory_DomainService|
 |Schweregrad|Fehler|
 |`Message`|Fehler beim Entfernen von zwischengespeicherten geheimen Schlüsseln des folgenden Sicherheitsprinzipals vom lokalen Domänencontroller:<p>%1<p>Fehler: %2 (%3)<p>Nach dem Klonen eines schreibgeschützten Domänencontrollers müssen geheime Schlüssel, die zuvor auf dem als Klonquelle verwendeten schreibgeschützten Domänencontroller zwischengespeichert wurden, aus dem Klon entfernt werden. Geschieht dies nicht, wird das Risiko eines Angriffs zum Abrufen dieser Anmeldeinformationen von einem gestohlenen oder kompromittierten Klon erhöht. Falls der Sicherheitsprinzipal ein Konto mit umfangreichen Rechten ist und dagegen geschützt werden sollte, verwenden Sie den rootDSE-Vorgang "rODCPurgeAccount", um die geheimen Schlüssel manuell auf dem lokalen Domänencontroller zu löschen.|
 |Hinweise und Lösung|Untersuchen Sie die System- und Verzeichnisdienst-Ereignisprotokolle auf weitere Informationen.|
@@ -583,7 +581,7 @@ Im Folgenden sind die klonspezifischen Windows Server 2012-Ereignisse im Verzeic
 | Events | BESCHREIBUNG |
 | -- |--|
 |Ereignis-ID|2227|
-|`Source`|Microsoft-Windows-ActiveDirectory_DomainService|
+|Quelle|Microsoft-Windows-ActiveDirectory_DomainService|
 |Schweregrad|Fehler|
 |`Message`|Bei dem Versuch, zwischengespeicherte geheime Schlüssel vom lokalen Domänencontroller zu entfernen, wurde eine Ausnahme ausgegeben.<p>Zusätzliche Daten:<p>Ausnahmewert: %1<p>Fehlerwert: %2<p>DSID: %3<p>Nach dem Klonen eines schreibgeschützten Domänencontrollers müssen geheime Schlüssel, die zuvor auf dem als Klonquelle verwendeten schreibgeschützten Domänencontroller zwischengespeichert wurden, aus dem Klon entfernt werden. Geschieht dies nicht, wird das Risiko eines Angriffs zum Abrufen dieser Anmeldeinformationen von einem gestohlenen oder kompromittierten Klon erhöht. Falls einer dieser Sicherheitsprinzipale ein Konto mit umfangreichen Rechten ist und dagegen geschützt werden sollte, verwenden Sie den rootDSE-Vorgang "rODCPurgeAccount", um die geheimen Schlüssel manuell auf dem lokalen Domänencontroller zu löschen.|
 |Hinweise und Lösung|Untersuchen Sie die System- und Verzeichnisdienst-Ereignisprotokolle auf weitere Informationen.|
@@ -591,7 +589,7 @@ Im Folgenden sind die klonspezifischen Windows Server 2012-Ereignisse im Verzeic
 | Events | BESCHREIBUNG |
 | -- |--|
 |Ereignis-ID|2228|
-|`Source`|Microsoft-Windows-ActiveDirectory_DomainService|
+|Quelle|Microsoft-Windows-ActiveDirectory_DomainService|
 |Schweregrad|Fehler|
 |`Message`|Die Generierungs-ID des virtuellen Computers in der Active Directory-Datenbank dieses Domänencontrollers unterscheidet sich vom aktuellen Wert dieses virtuellen Computers. Eine Konfigurationsdatei zum Klonen des virtuellen Domänencontrollers (DCCloneConfig.xml) konnte jedoch nicht gefunden werden, sodass der Domänencontroller nicht geklont wurde. Falls ein Klonvorgang für den Domänencontroller ausgeführt werden sollte, stellen Sie sicher, dass eine DCCloneConfig.xml-Datei in einem der unterstützten Speicherorte bereitgestellt ist. Darüber hinaus steht die IP-Adresse dieses Domänencontrollers in Konflikt mit der IP-Adresse eines anderen Domänencontrollers. Um sicherzustellen, dass der Betrieb nicht unterbrochen wird, wurde der Domänencontroller so konfiguriert, dass er im DSRM gestartet wird.<p>Zusätzliche Daten:<p>Doppelte IP-Adresse: %1|
 |Hinweise und Lösung|Dieser Schutzmechanismus beendet doppelte Domänencontroller, wenn möglich (bei der Verwendung von DHCP beispielsweise nicht). Fügen Sie eine gültige DcCloneConfig.xml-Datei hinzu, entfernen Sie das DSRM-Kennzeichen, und führen Sie das Klonen dann erneut durch.|
@@ -599,7 +597,7 @@ Im Folgenden sind die klonspezifischen Windows Server 2012-Ereignisse im Verzeic
 | Events | BESCHREIBUNG |
 | -- |--|
 |Ereignis-ID|29218|
-|`Source`|Microsoft-Windows-DirectoryServices-DSROLE-Server|
+|Quelle|Microsoft-Windows-DirectoryServices-DSROLE-Server|
 |Schweregrad|Fehler|
 |`Message`|Fehler beim Klonen des virtuellen Domänencontrollers. Der Klonvorgang konnte nicht abgeschlossen werden, und der geklonte Domänencontroller wurde im DSRM (Directory Services Restore Mode) neu gestartet.<p>Weitere Informationen zu Fehlern, die mit dem Klonversuch für den virtuellen Domänencontroller im Zusammenhang stehen, finden Sie in den zuvor protokollierten Ereignissen und in "%systemroot%\debug\dcpromo.log". Hier finden Sie auch Angaben dazu, ob dieses Klonimage wiederverwendet werden kann.<p>Falls mindestens ein Protokolleintrag darauf hinweist, dass der Klonvorgang nicht wiederholt werden kann, muss das Image auf sichere Art zerstört werden. Andernfalls können Sie die Fehler beheben, das DSRM-Startkennzeichen löschen und normal neu starten. Beim Neustart wird der Klonvorgang wiederholt.|
 |Hinweise und Lösung|Überprüfen Sie die System- und Verzeichnisdienstprotokolle sowie die Datei dcpromo.log auf weitere Details für das Fehlschlagen des Klonens.|
@@ -607,7 +605,7 @@ Im Folgenden sind die klonspezifischen Windows Server 2012-Ereignisse im Verzeic
 | Events | BESCHREIBUNG |
 | -- |--|
 |Ereignis-ID|29219|
-|`Source`|Microsoft-Windows-DirectoryServices-DSROLE-Server|
+|Quelle|Microsoft-Windows-DirectoryServices-DSROLE-Server|
 |Schweregrad|Informational|
 |Meldung|Der virtuelle Domänencontroller wurde erfolgreich geklont.|
 |Hinweise und Lösung|Dies ist ein Erfolgsereignis und nur ein Problem, wenn es unerwartet ist.|
@@ -615,7 +613,7 @@ Im Folgenden sind die klonspezifischen Windows Server 2012-Ereignisse im Verzeic
 | Events | BESCHREIBUNG |
 | -- |--|
 |Ereignis-ID|29248|
-|`Source`|Microsoft-Windows-DirectoryServices-DSROLE-Server|
+|Quelle|Microsoft-Windows-DirectoryServices-DSROLE-Server|
 |Schweregrad|Fehler|
 |`Message`|Für das Klonen des Domänencontrollers konnte die Winlogon-Benachrichtigung nicht abgerufen werden. Folgender Fehlercode wurde zurückgegeben: %1 (%2).<p>Weitere Informationen zu diesem Fehler finden Sie in "%systemroot%\debug\dcpromo.log". Suchen Sie dort nach Fehlern, die mit dem Klonversuch für den virtuellen Domänencontroller zu tun haben.|
 |Hinweise und Lösung|Wenden Sie sich an den Microsoft-Produktsupport.|
@@ -623,7 +621,7 @@ Im Folgenden sind die klonspezifischen Windows Server 2012-Ereignisse im Verzeic
 | Events | BESCHREIBUNG |
 | -- |--|
 |Ereignis-ID|29249|
-|`Source`|Microsoft-Windows-DirectoryServices-DSROLE-Server|
+|Quelle|Microsoft-Windows-DirectoryServices-DSROLE-Server|
 |Schweregrad|Fehler|
 |`Message`|Fehler bei dem Versuch, beim Klonen des virtuellen Domänencontrollers die Konfigurationsdatei für den virtuellen Domänencontroller zu analysieren.<p>Folgender HRESULT-Code wurde zurückgegeben: %1.<p>Die Konfigurationsdatei ist:%2<p>Beheben Sie die Fehler in der Konfigurationsdatei, und wiederholen Sie den Klonvorgang.<p>Weitere Informationen zu diesem Fehler finden Sie in "%systemroot%\debug\dcpromo.log".|
 |Hinweise und Lösung|Untersuchen Sie die Datei dclconeconfig.xml mithilfe eines XML-Editors auf Syntaxfehler und die DCCloneConfigSchema.xsd-Schemadatei.|
@@ -631,7 +629,7 @@ Im Folgenden sind die klonspezifischen Windows Server 2012-Ereignisse im Verzeic
 | Events | BESCHREIBUNG |
 | -- |--|
 |Ereignis-ID|29250|
-|`Source`|Microsoft-Windows-DirectoryServices-DSROLE-Server|
+|Quelle|Microsoft-Windows-DirectoryServices-DSROLE-Server|
 |Schweregrad|Fehler|
 |`Message`|Fehler beim Klonen des virtuellen Domänencontrollers. Auf dem geklonten virtuellen Domänencontroller sind momentan Anwendungen oder Dienste aktiviert, die in der für das Klonen von virtuellen Domänencontrollern verwendeten Liste zulässiger Anwendungen nicht aufgeführt sind.<p>Die folgenden Einträge fehlen:<p>%2<p>%1 (falls vorhanden) wurde als definierte Aufnahmeliste verwendet.<p>Der Klonvorgang kann nicht abgeschlossen werden, wenn nicht klonbare Anwendungen installiert sind.<p>Führen Sie das Active Directory-Powershell-Cmdlet "Get-ADDCCloningExcludedApplicationList" aus, um zu prüfen, welche Anwendungen auf dem geklonten Computer installiert, aber nicht in der Liste zugelassener Anwendungen enthalten sind. Fügen Sie diese Anwendungen der Liste zulässiger Anwendungen hinzu, wenn sie mit dem Klonen eines virtuellen Domänencontrollers kompatibel sind. Deinstallieren Sie alle Anwendungen, die nicht mit dem Klonen des virtuellen Domänencontrollers kompatibel sind, und wiederholen Sie dann den Klonvorgang.<p>Der Klonvorgang für virtuelle Domänencontroller sucht nach der Datei mit der Liste zugelassener Anwendungen, "CustomDCCloneAllowList.xml", basierend auf der folgenden Reihenfolge: Die zuerst gefundene Datei wird verwendet, und alle anderen werden ignoriert:<p>1. Name des Registrierungs Werts: HKEY_LOCAL_MACHINE \system\currentcontrolset\services\ntds\parameters\allowlistfolder<p>2. das Verzeichnis, in dem sich der DSA-Arbeitsverzeichnis Ordner befindet<p>3. %windir%\NTDS<p>4. Wechselmedien mit Lese-/Schreibzugriff in der Reihenfolge der Laufwerk Buchstaben im Stammverzeichnis des Laufwerks|
 |Hinweise und Lösung|Befolgen Sie die Anweisungen in der Meldung.|
@@ -639,7 +637,7 @@ Im Folgenden sind die klonspezifischen Windows Server 2012-Ereignisse im Verzeic
 | Events | BESCHREIBUNG |
 |--|--|
 | Ereignis-ID | 29251 |
-| `Source` | Microsoft-Windows-DirectoryServices-DSROLE-Server |
+| Quelle | Microsoft-Windows-DirectoryServices-DSROLE-Server |
 | Schweregrad | Fehler |
 | `Message` | Die IP-Adresse des geklonten Rechners konnte nicht zurückgesetzt werden.<p>Folgender Fehlercode wurde zurückgegeben: %1 (%2).<p>Ursache dieses Fehlers könnte eine fehlerhafte Konfiguration in den Netzwerkkonfigurationsabschnitten in der Konfigurationsdatei des virtuellen Domänencontrollers sein.<p>Weitere Informationen zu Fehlern, die beim Klonen eines virtuellen Domänencontrollers hinsichtlich des Zurücksetzens von IP-Adressen auftreten können, finden Sie in "%systemroot%\debug\dcpromo.log".<p>Details zum Zurücksetzen von Computer-IP-Adressen auf dem geklonten Computer finden Sie unterhttps://go.microsoft.com/fwlink/?LinkId=208030 |
 | Hinweise und Lösung | Vergewissern Sie sich, dass die in der dccloneconfig.xml- Datei festgelegten IP-Informationen gültig sind und den ursprünglichen Quellcomputer nicht duplizieren. |
@@ -647,7 +645,7 @@ Im Folgenden sind die klonspezifischen Windows Server 2012-Ereignisse im Verzeic
 | Events | BESCHREIBUNG |
 |--|--|
 | Ereignis-ID | 29253 |
-| `Source` | Microsoft-Windows-DirectoryServices-DSROLE-Server |
+| Quelle | Microsoft-Windows-DirectoryServices-DSROLE-Server |
 | Schweregrad | Fehler |
 | `Message` | Fehler beim Klonen des virtuellen Domänencontrollers. Der Klondomänencontroller konnte den als primären Domänencontroller (PDC) fungierenden Betriebsmaster nicht in der Ursprungsdomäne des geklonten Computers finden.<p>Folgender Fehlercode wurde zurückgegeben: %1 (%2).<p>Vergewissern Sie sich, dass der primäre Domänencontroller in der Ursprungsdomäne des geklonten Computers einem aktiven Domänencontroller zugeordnet, online und betriebsbereit ist. Vergewissern Sie sich, dass der geklonte Computer über die erforderlichen Ports und Protokolle eine LDAP/RPC-Verbindung mit dem primären Domänencontroller hat. |
 | Hinweise und Lösung | Vergewissern Sie sich, dass die IP-Adresse des geklonten Domänencontrollers und die DNS-Informationen festgelegt sind. Verwenden Sie Dcdiag.exe/Test: loercheck, um zu überprüfen, ob der PDCE Online ist. verwenden Sie Nltest.exe/Server: *<PDCE>* /DCLIST: *<domain>* zum gültigen RPC, rufen Sie eine Netzwerk Erfassung vom PDCE ab, während das Klonen fehlschlägt, und analysieren Sie den Datenverkehr. |
@@ -655,7 +653,7 @@ Im Folgenden sind die klonspezifischen Windows Server 2012-Ereignisse im Verzeic
 | Events | BESCHREIBUNG |
 |--|--|
 | Ereignis-ID | 29254 |
-| `Source` | Microsoft-Windows-DirectoryServices-DSROLE-Server |
+| Quelle | Microsoft-Windows-DirectoryServices-DSROLE-Server |
 | Schweregrad | Fehler |
 | `Message` | Es konnte keine Bindung mit dem primären Domänencontroller %1 hergestellt werden.<p>Folgender Fehlercode wurde zurückgegeben: %2 (%3).<p>Vergewissern Sie sich, dass der primäre Domänencontroller %1 online und betriebsbereit ist. Vergewissern Sie sich, dass der geklonte Computer über die erforderlichen Ports und Protokolle eine LDAP/RPC-Verbindung mit dem primären Domänencontroller hat. |
 | Hinweise und Lösung | Vergewissern Sie sich, dass die IP-Adresse des geklonten Domänencontrollers und die DNS-Informationen festgelegt sind. Verwenden Sie Dcdiag.exe/Test: loercheck, um zu überprüfen, ob der PDCE Online ist. verwenden Sie Nltest.exe/Server: *<PDCE>* /DCLIST: *<domain>* zum gültigen RPC, rufen Sie eine Netzwerk Erfassung vom PDCE ab, während das Klonen fehlschlägt, und analysieren Sie den Datenverkehr. |
@@ -663,7 +661,7 @@ Im Folgenden sind die klonspezifischen Windows Server 2012-Ereignisse im Verzeic
 | Events | BESCHREIBUNG |
 | -- |--|
 |Ereignis-ID|29255|
-|`Source`|Microsoft-Windows-DirectoryServices-DSROLE-Server|
+|Quelle|Microsoft-Windows-DirectoryServices-DSROLE-Server|
 |Schweregrad|Fehler|
 |`Message`|Fehler beim Klonen des virtuellen Domänencontrollers.<p>Bei dem Versuch, Objekte auf dem primären Domänencontroller %1 zu erstellen, die für das zu klonende Image erforderlich sind, wurde der Fehler %2 (%3) zurückgegeben.<p>Überprüfen Sie, ob der geklonte Domänencontroller über die Berechtigung verfügt, sich selbst zu klonen. Suchen Sie auf dem primären Domänencontroller %1 im Ereignisprotokoll für den Verzeichnisdienst nach zugehörigen Ereignissen.|
 |Hinweise und Lösung|Suchen Sie unter MS TechNet, in der MS Knowledge Base und in MS-Blogs nach dem bestimmten Fehler, um seine typische Bedeutung zu bestimmen und ihn dann auf der Basis dieser Ergebnisse zu behandeln.|
@@ -671,7 +669,7 @@ Im Folgenden sind die klonspezifischen Windows Server 2012-Ereignisse im Verzeic
 | Events | BESCHREIBUNG |
 | -- |--|
 |Ereignis-ID|29256|
-|`Source`|Microsoft-Windows-DirectoryServices-DSROLE-Server|
+|Quelle|Microsoft-Windows-DirectoryServices-DSROLE-Server|
 |Schweregrad|Fehler|
 |`Message`|Fehler beim Festlegen des Kennzeichens für Starten im Verzeichnisdienste-Wiederherstellungsmodus. Fehlercode: %1.<p>Weitere Informationen zu Fehlern finden Sie in der Datei %systemroot%\debug\dcpromo.log.|
 |Hinweise und Lösung|Untersuchen Sie das Verzeichnisdienstprotokoll und dcpromo.log auf Details. Untersuchen Sie die Anwendungs- und Systemereignisprotokolle. Überprüfen Sie Drittanbieteranwendungen, die möglicherweise die Verwendung von Berechtigungen blockieren.|
@@ -679,7 +677,7 @@ Im Folgenden sind die klonspezifischen Windows Server 2012-Ereignisse im Verzeic
 | Events | BESCHREIBUNG |
 | -- |--|
 |Ereignis-ID|29257|
-|`Source`|Microsoft-Windows-DirectoryServices-DSROLE-Server|
+|Quelle|Microsoft-Windows-DirectoryServices-DSROLE-Server|
 |Schweregrad|Fehler|
 |`Message`|Der virtuelle Domänencontroller wurde geklont. Der Computer konnte wegen eines Fehlers nicht neu gestartet werden: Fehlercode: %1.<p>Starten Sie den Computer neu, damit der Klonvorgang abgeschlossen wird.|
 |Hinweise und Lösung|Untersuchen Sie die Anwendungs- und Systemereignisprotokolle. Überprüfen Sie Drittanbieteranwendungen, die möglicherweise die Verwendung von Berechtigungen blockieren.|
@@ -687,7 +685,7 @@ Im Folgenden sind die klonspezifischen Windows Server 2012-Ereignisse im Verzeic
 | Events | BESCHREIBUNG |
 | -- |--|
 |Ereignis-ID|29264|
-|`Source`|Microsoft-Windows-DirectoryServices-DSROLE-Server|
+|Quelle|Microsoft-Windows-DirectoryServices-DSROLE-Server|
 |Schweregrad|Fehler|
 |`Message`|Fehler beim Löschen des Kennzeichens für Starten im Verzeichnisdienste-Wiederherstellungsmodus. Fehlercode: %1.<p>Weitere Informationen zu Fehlern finden Sie in der Datei %systemroot%\debug\dcpromo.log.|
 |Hinweise und Lösung|Untersuchen Sie das Verzeichnisdienstprotokoll und dcpromo.log auf Details. Untersuchen Sie die Anwendungs- und Systemereignisprotokolle. Überprüfen Sie Drittanbieteranwendungen, die möglicherweise die Verwendung von Berechtigungen blockieren.|
@@ -695,7 +693,7 @@ Im Folgenden sind die klonspezifischen Windows Server 2012-Ereignisse im Verzeic
 | Events | BESCHREIBUNG |
 | -- |--|
 |Ereignis-ID|29265|
-|`Source`|Microsoft-Windows-DirectoryServices-DSROLE-Server|
+|Quelle|Microsoft-Windows-DirectoryServices-DSROLE-Server|
 |Schweregrad|Informational|
 |Meldung|Der virtuelle Domänencontroller wurde erfolgreich geklont. Die für das Klonen des virtuellen Domänencontrollers verwendete Konfigurationsdatei "%1" wurde in "%2" umbenannt.|
 |Hinweise und Lösung|Nicht zutreffend, die ist ein Erfolgsereignis.|
@@ -703,7 +701,7 @@ Im Folgenden sind die klonspezifischen Windows Server 2012-Ereignisse im Verzeic
 | Events | BESCHREIBUNG |
 | -- |--|
 |Ereignis-ID|29266|
-|`Source`|Microsoft-Windows-DirectoryServices-DSROLE-Server|
+|Quelle|Microsoft-Windows-DirectoryServices-DSROLE-Server|
 |Schweregrad|Fehler|
 |`Message`|Der virtuelle Domänencontroller wurde erfolgreich geklont. Die für das Klonen des virtuellen Domänencontrollers verwendete Konfigurationsdatei "%1" konnte wegen eines Fehlers aber nicht umbenannt werden. Fehlercode: %2 (%3).|
 |Hinweise und Lösung|Benennen Sie die Datei dccloneconfig.xml manuell um.|
@@ -711,7 +709,7 @@ Im Folgenden sind die klonspezifischen Windows Server 2012-Ereignisse im Verzeic
 | Events | BESCHREIBUNG |
 | -- |--|
 |Ereignis-ID|29267|
-|`Source`|Microsoft-Windows-DirectoryServices-DSROLE-Server|
+|Quelle|Microsoft-Windows-DirectoryServices-DSROLE-Server|
 |Schweregrad|Fehler|
 |`Message`|Beim Klonen des virtuellen Domänencontrollers wurde die Liste der für das Klonen virtueller Domänencontroller zugelassenen Anwendungen nicht überprüft.<p>Folgender Fehlercode wurde zurückgegeben: %1 (%2).<p>Dieser Fehler wird möglicherweise durch einen Syntaxfehler in der Datei mit der Klonzulassungsliste verursacht. (Zurzeit wird diese Datei überprüft: %3) Weitere Informationen zu diesem Fehler finden Sie in "%systemroot%\debug\dcpromo.log".|
 |Hinweise und Lösung|Befolgen Sie die Anweisungen im Ereignis.|
@@ -741,7 +739,7 @@ Im Folgenden sind bekannte Probleme aufgeführt, die während des Windows Server
 
 |**Problem**|**Beim Klonen werden nicht alle Dienstprinzipalnamen erneut erstellt.**|
 | -- |--|
-|**Symptome**|Wenn ein Satz von *dreiteiligen* Dienstprinzipalnamen sowohl einen NetBIOS-Namen mit einem Port als auch einen ansonsten identischen NetBIOS-Namen ohne einen Port enthalten, wird der Eintrag ohne Port nicht mit dem neuen Computernamen erneut erstellt. Beispiel:<p>customspn/DC1:200/app1 INVALID USE OF SYMBOLS *wird mit dem neuen Computernamen neu erstellt*<p>customspn/DC1/app1 INVALID USE OF SYMBOLS *wird nicht mit dem neuen Computernahmen neu erstellt*<p>Vollqualifizierte Namen und SPNs ohne drei Teile werden neu erstellt, unabhängig von Ports. Die folgenden werden beispielsweise erfolgreich auf dem Klon neu erstellt:<p>customspn/DC1:202 INVALID USE OF SYMBOLS *wird neu erstellt*<p>customspn/DC1 INVALID USE OF SYMBOLS *wird neu erstellt*<p>customspn/DC1.corp.contoso.com:202 INVALID USE OF SYMBOLS *wird neu erstellt*<p>customspn/DC1.corp.contoso.com INVALID USE OF SYMBOLS *wird neu erstellt*|
+|**Symptome**|Wenn ein Satz von *dreiteiligen* Dienstprinzipalnamen sowohl einen NetBIOS-Namen mit einem Port als auch einen ansonsten identischen NetBIOS-Namen ohne einen Port enthalten, wird der Eintrag ohne Port nicht mit dem neuen Computernamen erneut erstellt. Zum Beispiel:<p>customspn/DC1:200/app1 INVALID USE OF SYMBOLS *wird mit dem neuen Computernamen neu erstellt*<p>customspn/DC1/app1 INVALID USE OF SYMBOLS *wird nicht mit dem neuen Computernahmen neu erstellt*<p>Vollqualifizierte Namen und SPNs ohne drei Teile werden neu erstellt, unabhängig von Ports. Die folgenden werden beispielsweise erfolgreich auf dem Klon neu erstellt:<p>customspn/DC1:202 INVALID USE OF SYMBOLS *wird neu erstellt*<p>customspn/DC1 INVALID USE OF SYMBOLS *wird neu erstellt*<p>customspn/DC1.corp.contoso.com:202 INVALID USE OF SYMBOLS *wird neu erstellt*<p>customspn/DC1.corp.contoso.com INVALID USE OF SYMBOLS *wird neu erstellt*|
 |**Lösung und Hinweise**|Dies ist eine Einschränkung des Benennungsvorgangs für Domänencontroller in Windows, nicht nur beim Klonen. Dreiteilige SPNS werden in keinem Szenario von der Benennungslogik verarbeitet. Die meisten in Windows enthaltenen Dienste sind davon nicht betroffen, da sie alle fehlenden SPNs nach Bedarf neu erstellen. Für andere Anwendungen ist möglicherweise eine manuelle Eingabe des SPN erforderlich, um das Problem zu beheben.<p>Beschrieben in KB 2742874.|
 
 |**Problem**|**Fehler beim Klonen, Start im DSRM, allgemeine Netzwerkfehler**|
@@ -803,7 +801,7 @@ In diesem Beispiel verwendet der geklonte Domänencontroller DHCP, um eine IP-Ad
 ##### <a name="directory-services-event-log"></a>Verzeichnisdienst-Ereignisprotokoll
 Das Verzeichnisdienst-Ereignisprotokoll enthält den größten Teil der ereignisbasierten Betriebsinformationen beim Klonen. Der Hypervisor ändert die VM-Generations-ID. Der NTDS-Dienst bemerkt dies, macht den RID-Pool ungültig und ändert die Aufrufkennung. Die neue VM-Generations-ID wird festgelegt, und der Server repliziert Active Directory-Daten eingehend. Der DFSR-Dienst wird angehalten, und seine Datenbank, die SYSVOL hostet, wird gelöscht, wodurch eine nicht autoritative eingehende Synchronisierung erzwungen wird. Der hohe USN-Grenzwert wird angepasst.
 
-| **Ereignis-ID** | **Quelle** | **Message** |
+| **Ereignis-ID** | **Quelle** | **Meldung** |
 |--|--|--|
 | **2160** | ActiveDirectory_DomainService | Von der lokalen Instanz der Active Directory-Domänendienste wurde eine Klonkonfigurationsdatei für virtuelle Domänencontroller gefunden.<p>Fundstelle der Klonkonfigurationsdatei:<p>*<path>* \DCCloneConfig.xml<p>Das Vorliegen einer Klonkonfigurationsdatei lässt darauf schließen, dass der lokale virtuelle Domänencontroller ein Klon eines anderen virtuellen Domänencontrollers ist. Es wird begonnen, die Active Directory -Domänendienste zu klonen. |
 | **2191** | ActiveDirectory_DomainService | Fehler beim Festlegen des unten stehenden Registrierungswerts zum Deaktivieren von DNS-Aktualisierungen durch die Active Directory-Domänendienste.<p>Registrierungsschlüssel:<p>SYSTEM\CurrentControlSet\Services\Netlogon\Parameters<p>Registrierungswert:<p>UseDynamicDns<p>Registrierungswertdaten:<p>0<p>Während des Klonens sind die Computernamen des lokalen Computers und des Quellcomputers möglicherweise kurzzeitig identisch. Für diese Zeitspanne wird die Registrierung von DNS A- und AAAA-Datensätzen deaktiviert, sodass Clients keine Anforderungen an den lokalen Computer senden können. Nach dem Klonen werden DNS-Aktualisierungen vom Klonprozess wieder aktiviert. |
@@ -838,7 +836,7 @@ Das Verzeichnisdienst-Ereignisprotokoll enthält den größten Teil der ereignis
 ##### <a name="system-event-log"></a>Systemereignisprotokoll
 Die nächsten Hinweise zu Klonvorgängen befinden sich im Systemereignisprotokoll. Wenn der Hypervisor dem Gastcomputer mitteilt, dass er geklont oder aus einer Momentaufnahme wiederhergestellt wurde, macht der Domänencontroller sofort seinen RID-Pool ungültig, um ein späteres Duplizieren von Sicherheitsprinzipalen zu vermeiden. Wenn das Klonen fortgesetzt wird, kommt es zu verschiedenen erwarteten Vorgängen und Meldungen, hauptsächlich rund um das Starten und Anhalten von Diensten und die dadurch verursachten Fehler. Nach Abschluss des Klonvorgangs notiert das Systemereignisprotokoll einen Erfolg des gesamten Klonvorgangs.
 
-|**Ereignis-ID**|**Quelle**|**Message**|
+|**Ereignis-ID**|**Quelle**|**Meldung**|
 |--|--|--|
 |**16654**|Verzeichnisdienst-SAM|Ein Pool aus Kontobezeichnern (RIDs) wurde ungültig gemacht. Dies kann in folgenden erwarteten Fällen vorkommen:<p>1. ein Domänen Controller wird aus der Sicherung wieder hergestellt.<p>2. ein Domänen Controller, der auf einer virtuellen Maschine ausgeführt wird, wird aus einer Momentaufnahme wieder hergestellt<p>3. ein Administrator hat den Pool manuell ungültig gemacht.|
 |**7036**|Dienststeuerungs-Manager|Der Dienst der Active Directory-Verzeichnisdienste wird jetzt ausgeführt.|
@@ -1347,7 +1345,7 @@ Microsoft Active Directory Domain Services startup complete, version 6.2.8225.0
 ##### <a name="active-directory-web-services-event-log"></a>Ereignisprotokoll der Active Directory-Webdienste
 Während des Klonens ist die NTDS.DIT-Datenbank oft für längere Zeit offline geschaltet. Der ADWS-Dienst protokolliert dafür mindestens ein Ereignis. Wenn das Klonen abgeschlossen ist, wird der ADWS-Dienst neu gestartet und bemerkt, dass noch kein gültiges Computerzertifikat vorhanden ist (je nachdem, ob In Ihrer Umgebung eine Microsoft PKI mit automatischer Registrierung vorhanden ist, kann dies sein oder nicht), und startet dann die Instanz für den neuen Domänencontroller.
 
-|**Ereignis-ID**|**Quelle**|**Message**|
+|**Ereignis-ID**|**Quelle**|**Meldung**|
 |--|--|--|
 |**1202**|Ereignisse der ADWS-Instanz|Auf diesem Computer wird nun die angegebene Verzeichnisinstanz gehostet, doch konnte diese von Active Directory-Webdiensten nicht bedient werden. Von Active Directory-Webdiensten wird in regelmäßigen Abständen erneut versucht, den Vorgang auszuführen.<p>Verzeichnis Instanz: NTDS<p>LDAP-Port der Verzeichnis Instanz: 389<p>SSL-Port der Verzeichnis Instanz: 636|
 |**1000**|Ereignisse der ADWS-Instanz|Die Active Directory-Webdienste werden gestartet.|
@@ -1360,7 +1358,7 @@ Während des Klonens ist die NTDS.DIT-Datenbank oft für längere Zeit offline g
 ##### <a name="dns-server-event-log"></a>Ereignisprotokoll des DNS-Servers
 Beim DNS-Dienst treten während des Klonvorgangs kurze erwartete Ausfälle auf, da der DNS-Dienst weiter ausgeführt wird, während die AD DS-Datenbank offline geschaltet ist. Dazu kommt es, wenn Sie den in Active Directory integrierten DNS verwenden, nicht, wenn Sie den standardmäßigen primären oder sekundären DNS verwenden. Diese Fehler werden mehrmals protokolliert. Nach Abschluss des Klonvorgangs ist DNS wieder ganz normal online.
 
-|**Ereignis-ID**|**Quelle**|**Message**|
+|**Ereignis-ID**|**Quelle**|**Meldung**|
 |--|--|--|
 |**4013**|DNS-Server-Service|Der DNS-Server wartet darauf, dass von den Active Directory-Domänendiensten angezeigt wird, dass die Erstsynchronisierung des Verzeichnisses durchgeführt wurde. Der DNS-Serverdienst kann erst nach der Erstsynchronisierung gestartet werden, da wichtige DNS-Daten möglicherweise noch nicht auf diesen Domänencontroller repliziert wurden. Sofern die im Ereignisprotokoll der Active Directory-Domänendienste protokollierten Ereignisse deutlich machen, dass Probleme bei der DNS-Namensauflösung vorliegen, sollte ggf. die IP-Adresse eines weiteren DNS-Servers für diese Domäne der DNS-Serverliste in den Internetprotokolleigenschaften dieses Computers hinzugefügt werden. Dieses Ereignis wird alle zwei Minuten protokolliert, bis von den Active Directory-Domänendiensten angezeigt wird, dass die Erstsynchronisierung durchgeführt wurde.|
 |**4015**|DNS-Server-Service|Der DNS-Server hat einen kritischen Active Directory-Fehler ermittelt. Stellen Sie sicher, dass Active Directory ordnungsgemäß funktioniert. Die erweiterten Fehlerdebuginformationen (die eventuell leer sind) lauten """. Die Ereignisdaten enthalten den Fehlercode.|
@@ -1372,7 +1370,7 @@ Beim DNS-Dienst treten während des Klonvorgangs kurze erwartete Ausfälle auf, 
 ##### <a name="file-replication-service-event-log"></a>Ereignisprotokoll des Dateireplikationsdiensts
 Der Dateireplikationsdienst synchronisiert während des Klonvorgangs nicht autoritativ von einem Partner. Der Klonvorgang erreicht dies durch Löschen der NTFRS-Datenbankdateien und unveränderten Inhalten von SYSVOL zur Verwendung als zuvor per Seeding hinzugefügte Daten. Die zwei Synchronisierungsversuche sind erwartet.
 
-| **Ereignis-ID** | **Quelle** | **Message** |
+| **Ereignis-ID** | **Quelle** | **Meldung** |
 |--|--|--|
 | **13562** | NtFrs | Es folgt eine Zusammenfassung aller Warnungen und Fehler, die beim Abfragen des Domänencontrollers DC2.root.fabrikam.com der Konfigurationsinformationen des FRS-Replikatsatzes vom Dateireplikationsdienst ermittelt wurden.<p>Es konnte keine Bindung mit dem Domänencontroller hergestellt werden. Der Vorgang wird beim nächsten Abrufzyklus wiederholt. |
 | **13502** | NtFrs | Der Dateireplikationsdienst wird beendet. |
@@ -1391,7 +1389,7 @@ Der Dateireplikationsdienst synchronisiert während des Klonvorgangs nicht autor
 ##### <a name="dfs-replication-event-log"></a>Ereignisprotokoll der DFS-Replikation
 Die DFSR-Dienste synchronisieren während des Klonvorgangs nicht autoritativ von einem Partner. Der Klonvorgang erreicht dies durch Löschen der DFSR-Datenbankdateien und unveränderten Inhalten von SYSVOL zur Verwendung als zuvor per Seeding hinzugefügte Daten. Die zwei Synchronisierungsversuche sind erwartet.
 
-| **Ereignis-ID** | **Quelle** | **Message** |
+| **Ereignis-ID** | **Quelle** | **Meldung** |
 |--|--|--|
 | **1004** | DFSR | Der DFS-Replikationsdienst wurde gestartet. |
 | **1314** | DFSR | Der DFS-Replikationsdienst hat die Debugprotokolldateien erfolgreich konfiguriert.<p>Weitere Informationen:<p>Pfad der Debugprotokoll Datei: c:\windows\debug |
@@ -1461,143 +1459,143 @@ Im Folgenden sind die für die sichere Wiederherstellung in Windows Server 2012 
 |--|--|
 | **Ereignis-ID** | **2170** |
 | **Quelle** | Microsoft-Windows-ActiveDirectory_DomainService |
-| **Severity** | Warnung |
-| **Message** | Es wurde keine Änderung der Generations-ID erkannt.<p>Zwischengespeicherte Generations-ID (DS, alter Wert):%1<p>Aktuelle Generations-ID des virtuellen Computers (neuer Wert):%2<p>Die Änderung der Generations-ID erfolgt nach der Anwendung einer Momentaufnahme des virtuellen Computers, nach einem Importvorgang für den virtuellen Computer oder nach einer Livemigration. *<COMPUTERNAME>* erstellt eine neue Aufruf-ID, um den Domänen Controller wiederherzustellen. Virtualisierte Domänencontroller dürfen nicht mit einer Momentaufnahme des virtuellen Computers wiederhergestellt werden. Das unterstützte Verfahren zum Wiederherstellen oder Zurücksetzen des Inhalts einer Datenbank der Active Directory-Domänendienste ist das Wiederherstellen einer Systemstatussicherung, die mit einer für die Active Directory-Domänendienste geeigneten Sicherungsanwendung erstellt wurde. |
+| **Schweregrad** | Warnung |
+| **Meldung** | Es wurde keine Änderung der Generations-ID erkannt.<p>Zwischengespeicherte Generations-ID (DS, alter Wert):%1<p>Aktuelle Generations-ID des virtuellen Computers (neuer Wert):%2<p>Die Änderung der Generations-ID erfolgt nach der Anwendung einer Momentaufnahme des virtuellen Computers, nach einem Importvorgang für den virtuellen Computer oder nach einer Livemigration. *<COMPUTERNAME>* erstellt eine neue Aufruf-ID, um den Domänen Controller wiederherzustellen. Virtualisierte Domänencontroller dürfen nicht mit einer Momentaufnahme des virtuellen Computers wiederhergestellt werden. Das unterstützte Verfahren zum Wiederherstellen oder Zurücksetzen des Inhalts einer Datenbank der Active Directory-Domänendienste ist das Wiederherstellen einer Systemstatussicherung, die mit einer für die Active Directory-Domänendienste geeigneten Sicherungsanwendung erstellt wurde. |
 | **Hinweise und Lösung** | Dies ist ein Erfolgsereignis, wenn die Momentaufnahme erwartet war. Falls nicht, untersuchen Sie das Hyper-V-Worker-Ereignisprotokoll, oder wenden Sie sich an den Hypervisoradministrator. |
 
 | Events | BESCHREIBUNG |
 | -- |--|
 |**Ereignis-ID**|**2174**|
 |**Quelle**|Microsoft-Windows-ActiveDirectory_DomainService|
-|**Severity**|Informational|
-|**Message**|Der Domänencontroller ist weder ein Klon noch eine wiederhergestellte Momentaufnahme eines virtuellen Domänencontrollers.|
+|**Schweregrad**|Informational|
+|**Meldung**|Der Domänencontroller ist weder ein Klon noch eine wiederhergestellte Momentaufnahme eines virtuellen Domänencontrollers.|
 |**Hinweise und Lösung**|Erwartetes Ereignis beim Starten von physischen Domänencontrollern oder virtualisierten Domänencontrollern, die nicht von einer Momentaufnahme wiederhergestellt wurden|
 
 | Events | BESCHREIBUNG |
 | -- |--|
 |**Ereignis-ID**|**2181**|
 |**Quelle**|Microsoft-Windows-ActiveDirectory_DomainService|
-|**Severity**|Informational|
-|**Message**|Die Transaktion wurde aufgrund der Wiederherstellung des virtuellen Computers in einen früheren Zustand abgebrochen. Dies erfolgt nach der Anwendung einer Momentaufnahme des virtuellen Computers, nach einem Importvorgang für den virtuellen Computer oder nach einer Livemigration.|
+|**Schweregrad**|Informational|
+|**Meldung**|Die Transaktion wurde aufgrund der Wiederherstellung des virtuellen Computers in einen früheren Zustand abgebrochen. Dies erfolgt nach der Anwendung einer Momentaufnahme des virtuellen Computers, nach einem Importvorgang für den virtuellen Computer oder nach einer Livemigration.|
 |**Hinweise und Lösung**|Beim Wiederherstellen einer Momentaufnahme erwartet. Transaktionen verfolgen die Änderung der VM-Generations-ID.|
 
 | Ereignis | BESCHREIBUNG |
 |--|--|
 | **Ereignis-ID** | **2185** |
 | **Quelle** | Microsoft-Windows-ActiveDirectory_DomainService |
-| **Severity** | Informational |
-| **Message** | *<COMPUTERNAME>* der FRS-oder DFSR-Dienst zum Replizieren des Ordners "SYSVOL" wurde beendet.<p>Dienstname:%1<p>Von Active Directory wurde erkannt, dass der virtuelle Computer, der den Domänencontroller hostet, in einen früheren Zustand zurückversetzt wurde. *<COMPUTERNAME>* Es muss eine nicht autoritative Wiederherstellung für das lokale SYSVOL-Replikat initialisiert werden. Zu diesem Zweck wird der FRS oder der DFS-Replikationsdienst zum Replizieren des Ordners "SYSVOL" beendet und mit den geeigneten Registrierungsschlüsseln und -werten zum Auslösen der Wiederherstellung neu gestartet. Beim Neustart des Diensts wird das Ereignis 2187 protokolliert. |
+| **Schweregrad** | Informational |
+| **Meldung** | *<COMPUTERNAME>* der FRS-oder DFSR-Dienst zum Replizieren des Ordners "SYSVOL" wurde beendet.<p>Dienstname:%1<p>Von Active Directory wurde erkannt, dass der virtuelle Computer, der den Domänencontroller hostet, in einen früheren Zustand zurückversetzt wurde. *<COMPUTERNAME>* Es muss eine nicht autoritative Wiederherstellung für das lokale SYSVOL-Replikat initialisiert werden. Zu diesem Zweck wird der FRS oder der DFS-Replikationsdienst zum Replizieren des Ordners "SYSVOL" beendet und mit den geeigneten Registrierungsschlüsseln und -werten zum Auslösen der Wiederherstellung neu gestartet. Beim Neustart des Diensts wird das Ereignis 2187 protokolliert. |
 | **Hinweise und Lösung** | Beim Wiederherstellen einer Momentaufnahme erwartet. Alle SYSVOL-Daten auf diesem Domänencontroller werden mit der Kopie eines Partnerdomänencontrollers ersetzt. |
 
 | Ereignis | BESCHREIBUNG |
 |--|--|
 | **Ereignis-ID** | 2186 |
 | **Quelle** | Microsoft-Windows-ActiveDirectory_DomainService |
-| **Severity** | Fehler |
-| **Message** | *<COMPUTERNAME>* der FRS-oder DFSR-Dienst zum Replizieren des Ordners "SYSVOL" konnte nicht beendet werden.<p>Dienstname:%1<p>Fehlercode: %2<p>Fehlermeldung: %3<p>Von Active Directory wurde erkannt, dass der virtuelle Computer, der den Domänencontroller hostet, in einen früheren Zustand zurückversetzt wurde. *<COMPUTERNAME>* Es muss eine nicht autoritative Wiederherstellung für das lokale SYSVOL-Replikat initialisiert werden. Zu diesem Zweck wird der FRS oder der DFS-Replikationsdienst zum Replizieren des Ordners "SYSVOL" beendet und dann mit den geeigneten Registrierungsschlüsseln und -werten zum Auslösen der Wiederherstellung neu gestartet. *<COMPUTERNAME>* der aktuell ausgelaufende Dienst konnte nicht beendet werden, und die nicht autoritative Wiederherstellung kann nicht durchgeführt werden. Führen Sie manuell eine nicht autoritative Wiederherstellung aus. |
+| **Schweregrad** | Fehler |
+| **Meldung** | *<COMPUTERNAME>* der FRS-oder DFSR-Dienst zum Replizieren des Ordners "SYSVOL" konnte nicht beendet werden.<p>Dienstname:%1<p>Fehlercode: %2<p>Fehlermeldung: %3<p>Von Active Directory wurde erkannt, dass der virtuelle Computer, der den Domänencontroller hostet, in einen früheren Zustand zurückversetzt wurde. *<COMPUTERNAME>* Es muss eine nicht autoritative Wiederherstellung für das lokale SYSVOL-Replikat initialisiert werden. Zu diesem Zweck wird der FRS oder der DFS-Replikationsdienst zum Replizieren des Ordners "SYSVOL" beendet und dann mit den geeigneten Registrierungsschlüsseln und -werten zum Auslösen der Wiederherstellung neu gestartet. *<COMPUTERNAME>* der aktuell ausgelaufende Dienst konnte nicht beendet werden, und die nicht autoritative Wiederherstellung kann nicht durchgeführt werden. Führen Sie manuell eine nicht autoritative Wiederherstellung aus. |
 | **Hinweise und Lösung** | Untersuchen Sie die System-, FRS- und DFSR-Ereignisprotokolle auf weitere Informationen. |
 
 | Ereignis | BESCHREIBUNG |
 |--|--|
 | **Ereignis-ID** | **2187** |
-| **Severity** | Informational |
-| **Message** | *<COMPUTERNAME>* der FRS-oder DFSR-Dienst zum Replizieren des Ordners "SYSVOL" wurde gestartet.<p>Dienstname:%1<p>Von Active Directory wurde erkannt, dass der virtuelle Computer, der den Domänencontroller hostet, in einen früheren Zustand zurückversetzt wurde. *<COMPUTERNAME>* erforderlich, um eine nicht autoritative Wiederherstellung für das lokale SYSVOL-Replikat zu initialisieren. Zu diesem Zweck wurde der FRS oder der DFS-Replikationsdienst zum Replizieren des Ordners "SYSVOL" beendet und mit den geeigneten Registrierungsschlüsseln und -werten zum Auslösen der Wiederherstellung neu gestartet. |
+| **Schweregrad** | Informational |
+| **Meldung** | *<COMPUTERNAME>* der FRS-oder DFSR-Dienst zum Replizieren des Ordners "SYSVOL" wurde gestartet.<p>Dienstname:%1<p>Von Active Directory wurde erkannt, dass der virtuelle Computer, der den Domänencontroller hostet, in einen früheren Zustand zurückversetzt wurde. *<COMPUTERNAME>* erforderlich, um eine nicht autoritative Wiederherstellung für das lokale SYSVOL-Replikat zu initialisieren. Zu diesem Zweck wurde der FRS oder der DFS-Replikationsdienst zum Replizieren des Ordners "SYSVOL" beendet und mit den geeigneten Registrierungsschlüsseln und -werten zum Auslösen der Wiederherstellung neu gestartet. |
 | **Hinweise und Lösung** | Beim Wiederherstellen einer Momentaufnahme erwartet. Alle SYSVOL-Daten auf diesem Domänencontroller werden mit der Kopie eines Partnerdomänencontrollers ersetzt. |
 
 | Ereignis | BESCHREIBUNG |
 |--|--|
 | **Ereignis-ID** | **2188** |
 | **Quelle** | Microsoft-Windows-ActiveDirectory_DomainService |
-| **Severity** | Fehler |
-| **Message** | *<COMPUTERNAME>* der FRS-oder DFSR-Dienst zum Replizieren des Ordners "SYSVOL" konnte nicht gestartet werden.<p>Dienstname:%1<p>Fehlercode: %2<p>Fehlermeldung: %3<p>Von Active Directory wurde erkannt, dass der virtuelle Computer, der den Domänencontroller hostet, in einen früheren Zustand zurückversetzt wurde. *<COMPUTERNAME>* Es muss eine nicht autoritative Wiederherstellung für das lokale SYSVOL-Replikat initialisiert werden. Zu diesem Zweck wird der FRS oder der DFS-Replikationsdienst zum Replizieren von SYSVOL beendet und mit geeigneten Registrierungsschlüsseln und -werten zum Auslösen der Wiederherstellung neu gestartet. *<COMPUTERNAME>* der FRS-oder DFSR-Dienst zum Replizieren des SYSVOL-Ordners konnte nicht gestartet werden. die nicht autoritative Wiederherstellung kann nicht durchgeführt werden. Führen Sie manuell eine nicht autoritative Wiederherstellung aus, und starten Sie den Dienst neu. |
+| **Schweregrad** | Fehler |
+| **Meldung** | *<COMPUTERNAME>* der FRS-oder DFSR-Dienst zum Replizieren des Ordners "SYSVOL" konnte nicht gestartet werden.<p>Dienstname:%1<p>Fehlercode: %2<p>Fehlermeldung: %3<p>Von Active Directory wurde erkannt, dass der virtuelle Computer, der den Domänencontroller hostet, in einen früheren Zustand zurückversetzt wurde. *<COMPUTERNAME>* Es muss eine nicht autoritative Wiederherstellung für das lokale SYSVOL-Replikat initialisiert werden. Zu diesem Zweck wird der FRS oder der DFS-Replikationsdienst zum Replizieren von SYSVOL beendet und mit geeigneten Registrierungsschlüsseln und -werten zum Auslösen der Wiederherstellung neu gestartet. *<COMPUTERNAME>* der FRS-oder DFSR-Dienst zum Replizieren des SYSVOL-Ordners konnte nicht gestartet werden. die nicht autoritative Wiederherstellung kann nicht durchgeführt werden. Führen Sie manuell eine nicht autoritative Wiederherstellung aus, und starten Sie den Dienst neu. |
 | **Hinweise und Lösung** | Untersuchen Sie die System-, FRS- und DFSR-Ereignisprotokolle auf weitere Informationen. |
 
 | Ereignis | BESCHREIBUNG |
 |--|--|
 | **Ereignis-ID** | **2189** |
 | **Quelle** | Microsoft-Windows-ActiveDirectory_DomainService |
-| **Severity** | Informational |
-| **Message** | *<COMPUTERNAME>* Legen Sie die folgenden Registrierungs Werte zum Initialisieren des SYSVOL-Replikats während einer nicht autorisierenden Wiederherstellung fest:<p>Registrierungswert:%1<p>Registrierungswert: %2<p>Registrierungswertdaten: %3<p>Von Active Directory wurde erkannt, dass der virtuelle Computer, der den Domänencontroller hostet, in einen früheren Zustand zurückversetzt wurde. *<COMPUTERNAME>* Es muss eine nicht autoritative Wiederherstellung für das lokale SYSVOL-Replikat initialisiert werden. Zu diesem Zweck wird der FRS oder der DFS-Replikationsdienst zum Replizieren des Ordners "SYSVOL" beendet und mit den geeigneten Registrierungsschlüsseln und -werten zum Auslösen der Wiederherstellung neu gestartet. |
+| **Schweregrad** | Informational |
+| **Meldung** | *<COMPUTERNAME>* Legen Sie die folgenden Registrierungs Werte zum Initialisieren des SYSVOL-Replikats während einer nicht autorisierenden Wiederherstellung fest:<p>Registrierungswert:%1<p>Registrierungswert: %2<p>Registrierungswertdaten: %3<p>Von Active Directory wurde erkannt, dass der virtuelle Computer, der den Domänencontroller hostet, in einen früheren Zustand zurückversetzt wurde. *<COMPUTERNAME>* Es muss eine nicht autoritative Wiederherstellung für das lokale SYSVOL-Replikat initialisiert werden. Zu diesem Zweck wird der FRS oder der DFS-Replikationsdienst zum Replizieren des Ordners "SYSVOL" beendet und mit den geeigneten Registrierungsschlüsseln und -werten zum Auslösen der Wiederherstellung neu gestartet. |
 | **Hinweise und Lösung** | Beim Wiederherstellen einer Momentaufnahme erwartet. Alle SYSVOL-Daten auf diesem Domänencontroller werden mit der Kopie eines Partnerdomänencontrollers ersetzt. |
 
 | Ereignis | BESCHREIBUNG |
 |--|--|
 | **Ereignis-ID** | **2190** |
 | **Quelle** | Microsoft-Windows-ActiveDirectory_DomainService |
-| **Severity** | Fehler |
-| **Message** | *<COMPUTERNAME>* Fehler beim Festlegen der folgenden Registrierungs Werte zum Initialisieren des SYSVOL-Replikats während einer nicht autorisierenden Wiederherstellung:<p>Registrierungswert:%1<p>Registrierungswert: %2<p>Registrierungswertdaten: %3<p>Fehlercode: %4<p>Fehlermeldungen: %5<p>Von Active Directory wurde erkannt, dass der virtuelle Computer, der die Domänencontrollerrolle hostet, in einen früheren Zustand zurückversetzt wurde. *<COMPUTERNAME>* Es muss eine nicht autoritative Wiederherstellung für das lokale SYSVOL-Replikat initialisiert werden. Zu diesem Zweck wird der FRS oder der DFS-Replikationsdienst zum Replizieren des Ordners "SYSVOL" beendet und mit den geeigneten Registrierungsschlüsseln und -werten zum Auslösen der Wiederherstellung neu gestartet. *<COMPUTERNAME>* die oben aufgeführten Registrierungs Werte konnten nicht festgelegt werden, und die nicht autoritative Wiederherstellung kann nicht ausgeführt werden. Führen Sie manuell eine nicht autoritative Wiederherstellung aus. |
+| **Schweregrad** | Fehler |
+| **Meldung** | *<COMPUTERNAME>* Fehler beim Festlegen der folgenden Registrierungs Werte zum Initialisieren des SYSVOL-Replikats während einer nicht autorisierenden Wiederherstellung:<p>Registrierungswert:%1<p>Registrierungswert: %2<p>Registrierungswertdaten: %3<p>Fehlercode: %4<p>Fehlermeldungen: %5<p>Von Active Directory wurde erkannt, dass der virtuelle Computer, der die Domänencontrollerrolle hostet, in einen früheren Zustand zurückversetzt wurde. *<COMPUTERNAME>* Es muss eine nicht autoritative Wiederherstellung für das lokale SYSVOL-Replikat initialisiert werden. Zu diesem Zweck wird der FRS oder der DFS-Replikationsdienst zum Replizieren des Ordners "SYSVOL" beendet und mit den geeigneten Registrierungsschlüsseln und -werten zum Auslösen der Wiederherstellung neu gestartet. *<COMPUTERNAME>* die oben aufgeführten Registrierungs Werte konnten nicht festgelegt werden, und die nicht autoritative Wiederherstellung kann nicht ausgeführt werden. Führen Sie manuell eine nicht autoritative Wiederherstellung aus. |
 | **Hinweise und Lösung** | Untersuchen Sie die Anwendungs- und Systemereignisprotokolle. Überprüfen Sie Drittanbieteranwendungen, die möglicherweise Registrierungsaktualisierungen blockieren. |
 
 | Ereignis | BESCHREIBUNG |
 |--|--|
 | **Ereignis-ID** | **2200** |
 | **Quelle** | Microsoft-Windows-ActiveDirectory_DomainService |
-| **Severity** | Informational |
-| **Message** | Von Active Directory wurde erkannt, dass der virtuelle Computer, der den Domänencontroller hostet, in einen früheren Zustand zurückversetzt wurde. *<COMPUTERNAME>* Initialisiert die Replikation, um den Domänen Controller aktuell zu machen. Nach Abschluss der Replikation wird das Ereignis 2201 protokolliert. |
+| **Schweregrad** | Informational |
+| **Meldung** | Von Active Directory wurde erkannt, dass der virtuelle Computer, der den Domänencontroller hostet, in einen früheren Zustand zurückversetzt wurde. *<COMPUTERNAME>* Initialisiert die Replikation, um den Domänen Controller aktuell zu machen. Nach Abschluss der Replikation wird das Ereignis 2201 protokolliert. |
 | **Hinweise und Lösung** | Beim Wiederherstellen einer Momentaufnahme erwartet. Kennzeichnet den Beginn einer eingehenden Replikation. |
 
 | Ereignis | BESCHREIBUNG |
 |--|--|
 | **Ereignis-ID** | **2201** |
 | **Quelle** | Microsoft-Windows-ActiveDirectory_DomainService |
-| **Severity** | Informational |
-| **Message** | Von Active Directory wurde erkannt, dass der virtuelle Computer, der den Domänencontroller hostet, in einen früheren Zustand zurückversetzt wurde. *<COMPUTERNAME>* hat die Replikation beendet, um den Domänen Controller aktuell zu machen. |
+| **Schweregrad** | Informational |
+| **Meldung** | Von Active Directory wurde erkannt, dass der virtuelle Computer, der den Domänencontroller hostet, in einen früheren Zustand zurückversetzt wurde. *<COMPUTERNAME>* hat die Replikation beendet, um den Domänen Controller aktuell zu machen. |
 | **Hinweise und Lösung** | Beim Wiederherstellen einer Momentaufnahme erwartet. Kennzeichnet das Ende einer eingehenden Replikation. |
 
 | Ereignis | BESCHREIBUNG |
 |--|--|
 | **Ereignis-ID** | **2202** |
 | **Quelle** | Microsoft-Windows-ActiveDirectory_DomainService |
-| **Severity** | Fehler |
-| **Message** | Von Active Directory wurde erkannt, dass der virtuelle Computer, der den Domänencontroller hostet, in einen früheren Zustand zurückversetzt wurde. *<COMPUTERNAME>* Fehler bei der Replikation, um den Domänen Controller auf den neuesten Stand zu bringen. Er wird nach der nächsten periodischen Replikation aktualisiert. |
+| **Schweregrad** | Fehler |
+| **Meldung** | Von Active Directory wurde erkannt, dass der virtuelle Computer, der den Domänencontroller hostet, in einen früheren Zustand zurückversetzt wurde. *<COMPUTERNAME>* Fehler bei der Replikation, um den Domänen Controller auf den neuesten Stand zu bringen. Er wird nach der nächsten periodischen Replikation aktualisiert. |
 | **Hinweise und Lösung** | Untersuchen Sie das Verzeichnisdienst- und das Systemereignisprotokoll. Verwenden Sie repadmin.exe, um eine Replikation zu erzwingen, und notieren Sie alle Fehler. |
 
 | Ereignis | BESCHREIBUNG |
 |--|--|
 | **Ereignis-ID** | **2204** |
 | **Quelle** | Microsoft-Windows-ActiveDirectory_DomainService |
-| **Severity** | Informational |
-| **Message** | *<COMPUTERNAME>* hat eine Änderung der Generations-ID der virtuellen Maschine erkannt. Die Änderung bedeutet, dass der virtuelle Domänencontroller in einem früheren Zustand wiederhergestellt wurde. *<COMPUTERNAME>* führt die folgenden Vorgänge aus, um den wiederhergestellten Domänen Controller vor möglichen Daten Abweichungen zu schützen und die Erstellung von Sicherheits Prinzipalen mit doppelten SIDs zu schützen:<p>Es wird eine neue Aufruf-ID erstellt.<p>Der aktuelle RID-Pool wird ungültig gemacht.<p>Bei der nächsten eingehenden Replikation erfolgt eine Überprüfung hinsichtlich des Besitzers der FSMO-Rollen. Wenn der Domänencontroller Besitzer einer FSMO-Rolle ist, ist diese Rolle bis zum Abschluss der Replikation nicht verfügbar.<p>Der SYSVOL-Replikationsdienst wird wiederhergestellt.<p>Die Replikation wird gestartet, um den wiederhergestellten Domänencontroller auf den aktuellen Stand zu bringen.<p>Es wird ein neuer RID-Pool angefordert. |
+| **Schweregrad** | Informational |
+| **Meldung** | *<COMPUTERNAME>* hat eine Änderung der Generations-ID der virtuellen Maschine erkannt. Die Änderung bedeutet, dass der virtuelle Domänencontroller in einem früheren Zustand wiederhergestellt wurde. *<COMPUTERNAME>* führt die folgenden Vorgänge aus, um den wiederhergestellten Domänen Controller vor möglichen Daten Abweichungen zu schützen und die Erstellung von Sicherheits Prinzipalen mit doppelten SIDs zu schützen:<p>Es wird eine neue Aufruf-ID erstellt.<p>Der aktuelle RID-Pool wird ungültig gemacht.<p>Bei der nächsten eingehenden Replikation erfolgt eine Überprüfung hinsichtlich des Besitzers der FSMO-Rollen. Wenn der Domänencontroller Besitzer einer FSMO-Rolle ist, ist diese Rolle bis zum Abschluss der Replikation nicht verfügbar.<p>Der SYSVOL-Replikationsdienst wird wiederhergestellt.<p>Die Replikation wird gestartet, um den wiederhergestellten Domänencontroller auf den aktuellen Stand zu bringen.<p>Es wird ein neuer RID-Pool angefordert. |
 | **Hinweise und Lösung** | Beim Wiederherstellen einer Momentaufnahme erwartet. Das erklärt die verschiedenen Vorgänge zum Zurücksetzen, die als Teil des sicheren Wiederherstellungsvorgangs vorkommen. |
 
 | Ereignis | BESCHREIBUNG |
 |--|--|
 | **Ereignis-ID** | **2205** |
 | **Quelle** | Microsoft-Windows-ActiveDirectory_DomainService |
-| **Severity** | Informational |
-| **Message** | *<COMPUTERNAME>* der aktuelle RID-Pool wurde ungültig, nachdem der virtuelle Domänen Controller in den vorherigen Zustand zurückversetzt wurde. |
+| **Schweregrad** | Informational |
+| **Meldung** | *<COMPUTERNAME>* der aktuelle RID-Pool wurde ungültig, nachdem der virtuelle Domänen Controller in den vorherigen Zustand zurückversetzt wurde. |
 | **Hinweise und Lösung** | Beim Wiederherstellen einer Momentaufnahme erwartet. Der lokale RID-Pool muss zerstört werden, da der Domänencontroller eine Zeitreise gemacht hat und der Pool möglicherweise bereits ausgestellt wurde. |
 
 | Ereignis | BESCHREIBUNG |
 |--|--|
 | **Ereignis-ID** | **2206** |
 | **Quelle** | Microsoft-Windows-ActiveDirectory_DomainService |
-| **Severity** | ERROR |
-| **Message** | *<COMPUTERNAME>* der aktuelle RID-Pool konnte nicht ungültig gemacht werden, nachdem der virtuelle Domänen Controller in den vorherigen Zustand zurückversetzt wurde.<p>Zusätzliche Daten:<p>Fehlercode: %1<p>Fehlerwert: %2 |
+| **Schweregrad** | ERROR |
+| **Meldung** | *<COMPUTERNAME>* der aktuelle RID-Pool konnte nicht ungültig gemacht werden, nachdem der virtuelle Domänen Controller in den vorherigen Zustand zurückversetzt wurde.<p>Zusätzliche Daten:<p>Fehlercode: %1<p>Fehlerwert: %2 |
 | **Hinweise und Lösung** | Untersuchen Sie das Verzeichnisdienst- und das Systemereignisprotokoll. Vergewissern Sie sich über Dcdiag.exe /test:ridmanager, dass der RID-Master online ist und von diesem Server erreicht werden kann. |
 
 | Ereignis | BESCHREIBUNG |
 |--|--|
 | **Ereignis-ID** | **2207** |
 | **Quelle** | Microsoft-Windows-ActiveDirectory_DomainService |
-| **Severity** | ERROR |
-| **Message** | *<COMPUTERNAME>* Fehler beim Wiederherstellen, nachdem der virtuelle Domänen Controller in den vorherigen Zustand zurückversetzt wurde. Es war ein Neustart im Verzeichnisdienst-Wiederherstellungsmodus (DSRM) erforderlich. Weitere Informationen finden Sie in den vorhergehenden Ereignissen. |
+| **Schweregrad** | ERROR |
+| **Meldung** | *<COMPUTERNAME>* Fehler beim Wiederherstellen, nachdem der virtuelle Domänen Controller in den vorherigen Zustand zurückversetzt wurde. Es war ein Neustart im Verzeichnisdienst-Wiederherstellungsmodus (DSRM) erforderlich. Weitere Informationen finden Sie in den vorhergehenden Ereignissen. |
 | **Hinweise und Lösung** | Untersuchen Sie das Verzeichnisdienst- und das Systemereignisprotokoll. |
 
 | Ereignis | BESCHREIBUNG |
 |--|--|
 | **Ereignis-ID** | **2208** |
 | **Quelle** | Microsoft-Windows-ActiveDirectory_DomainService |
-| **Severity** | Informational |
-| **Message** | *<COMPUTERNAME>* DFSR-Datenbanken zum Initialisieren des SYSVOL-Replikats während einer nicht autorisierenden Wiederherstellung gelöscht. |
+| **Schweregrad** | Informational |
+| **Meldung** | *<COMPUTERNAME>* DFSR-Datenbanken zum Initialisieren des SYSVOL-Replikats während einer nicht autorisierenden Wiederherstellung gelöscht. |
 | **Hinweise und Lösung** | Beim Wiederherstellen einer Momentaufnahme erwartet. Damit wird garantiert, dass DFSR SYSVOL nicht autoritativ von einem Partnerdomänencontroller synchronisiert. Beachten Sie, dass alle anderen von DFSR replizierten Ordner auf demselben Volume wie SYSVOL ebenfalls nicht autoritativ synchronisiert werden (es wird nicht empfohlen, dass Domänencontroller benutzerdefinierte DFSR-Sätze auf demselben Volume wie SYSVOL hosten). |
 
 | Ereignis | BESCHREIBUNG |
 |--|--|
 | **Ereignis-ID** | **2209** |
 | **Quelle** | Microsoft-Windows-ActiveDirectory_DomainService |
-| **Severity** | Fehler |
-| **Message** | *<COMPUTERNAME>* Fehler beim Löschen von DFSR-Datenbanken.<p>Zusätzliche Daten:<p>Fehlercode: %1<p>Fehlerwert: %2<p>Von Active Directory wurde erkannt, dass der virtuelle Computer, der den Domänencontroller hostet, in einen früheren Zustand zurückversetzt wurde. *<COMPUTERNAME>* Es muss eine nicht autoritative Wiederherstellung für das lokale SYSVOL-Replikat initialisiert werden. Für DFSR wird dies ausgeführt, indem der DFSR-Dienst beendet wird, die DFSR-Datenbanken gelöscht werden und der Dienst neu gestartet wird. Beim Neustart wird von DSFR so vorgegangen, dass die Datenbanken wiederhergestellt werden und die Erstsynchronisierung gestartet wird. |
+| **Schweregrad** | Fehler |
+| **Meldung** | *<COMPUTERNAME>* Fehler beim Löschen von DFSR-Datenbanken.<p>Zusätzliche Daten:<p>Fehlercode: %1<p>Fehlerwert: %2<p>Von Active Directory wurde erkannt, dass der virtuelle Computer, der den Domänencontroller hostet, in einen früheren Zustand zurückversetzt wurde. *<COMPUTERNAME>* Es muss eine nicht autoritative Wiederherstellung für das lokale SYSVOL-Replikat initialisiert werden. Für DFSR wird dies ausgeführt, indem der DFSR-Dienst beendet wird, die DFSR-Datenbanken gelöscht werden und der Dienst neu gestartet wird. Beim Neustart wird von DSFR so vorgegangen, dass die Datenbanken wiederhergestellt werden und die Erstsynchronisierung gestartet wird. |
 | **Hinweise und Lösung** | Untersuchen Sie das DFSR-Ereignisprotokoll. |
 
 #### <a name="error-messages"></a>Fehlermeldungen
@@ -1624,7 +1622,7 @@ In diesem Modul erfahren Sie mehr über die erweiterte Fehlerbehandlung, indem *
 ##### <a name="directory-services-event-log"></a>Verzeichnisdienst-Ereignisprotokoll
 Das Verzeichnisdienst-Ereignisprotokoll enthält den größten Teil der Betriebsinformationen für die sichere Wiederherstellung. Der Hypervisor ändert die VM-Generations-ID. Der NTDS-Dienst bemerkt dies, macht den RID-Pool ungültig und ändert die Aufrufkennung. Die neue VM-Generations-ID wird festgelegt, und der Server repliziert AD-Daten eingehend. Der DFSR-Dienst wird angehalten, und seine Datenbank, die SYSVOL hostet, wird gelöscht, wodurch eine nicht autoritative eingehende Synchronisierung erzwungen wird. Der hohe USN-Grenzwert wird angepasst.
 
-| **Ereignis-ID** | **Quelle** | **Message** |
+| **Ereignis-ID** | **Quelle** | **Meldung** |
 |--|--|--|
 | **2170** | ActiveDirectory_DomainService | Es wurde keine Änderung der Generations-ID erkannt.<p>Zwischengespeicherte Generations-ID in DS (alter Wert):<p>*<number>*<p>Aktuelle Generations-ID des virtuellen Computers (neuer Wert):<p>*<number>*<p>Die Änderung der Generations-ID erfolgt nach der Anwendung einer Momentaufnahme des virtuellen Computers, nach einem Importvorgang für den virtuellen Computer oder nach einer Livemigration. Von den Active Directory-Domänendiensten wird eine neue Aufruf-ID zur Wiederherstellung des Domänencontrollers erstellt. Virtualisierte Domänencontroller dürfen nicht mit einer Momentaufnahme des virtuellen Computers wiederhergestellt werden. Das unterstützte Verfahren zum Wiederherstellen oder Zurücksetzen des Inhalts einer Datenbank der Active Directory-Domänendienste ist das Wiederherstellen einer Systemstatussicherung, die mit einer für die Active Directory-Domänendienste geeigneten Sicherungsanwendung erstellt wurde. |
 | **2181** | ActiveDirectory_DomainService | Die Transaktion wurde aufgrund der Wiederherstellung des virtuellen Computers in einen früheren Zustand abgebrochen. Dies erfolgt nach der Anwendung einer Momentaufnahme des virtuellen Computers, nach einem Importvorgang für den virtuellen Computer oder nach einer Livemigration. |
@@ -1642,7 +1640,7 @@ Das Verzeichnisdienst-Ereignisprotokoll enthält den größten Teil der Betriebs
 ##### <a name="system-event-log"></a>Systemereignisprotokoll
 Im Systemereignisprotokoll ist die Computerzeit vermerkt, zu der ein offline geschalteter virtueller Computer wieder online geschaltet und mit der Hostzeit synchronisiert wird. Der RID-Pool wird ungültig gemacht, und der DFSR- oder FRS-Dienst wird neu gestartet.
 
-| **Ereignis-ID** | **Quelle** | **Message** |
+| **Ereignis-ID** | **Quelle** | **Meldung** |
 |--|--|--|
 | **1** | Kernel-General | Hat sich die Systemzeit in *geändert <now> ?* aus *<Momentaufnahme Zeit/Datum>*.<p>Änderungs Grund: eine Anwendung oder Systemkomponente hat die Zeit geändert. |
 | **16654** | Verzeichnisdienst-SAM | Ein Pool aus Kontobezeichnern (RIDs) wurde ungültig gemacht. Dies kann in folgenden erwarteten Fällen vorkommen:<p>1. ein Domänen Controller wird aus der Sicherung wieder hergestellt.<p>2. ein Domänen Controller, der auf einer virtuellen Maschine ausgeführt wird, wird aus einer Momentaufnahme wieder hergestellt<p>3. ein Administrator hat den Pool manuell ungültig gemacht.<p>Weitere Informationen finden Sie unter <https://go.microsoft.com/fwlink/?LinkId=226247>. |
@@ -1652,7 +1650,7 @@ Im Systemereignisprotokoll ist die Computerzeit vermerkt, zu der ein offline ges
 ##### <a name="application-event-log"></a>Anwendungsereignisprotokoll
 Im Anwendungsereignisprotokoll wird das Starten und Beenden der DFSR-Datenbank notiert.
 
-| **Ereignis-ID** | **Quelle** | **Message** |
+| **Ereignis-ID** | **Quelle** | **Meldung** |
 |--|--|--|
 | **103** | ESENT | Dfsrs (1360) \\ \\ .\c: \System Volume information\dfsr\database <em> _ <GUID> </em> \dfsr.DB: das Datenbankmodul hat die Instanz (0) beendet.<p>Dirty Shutdown: 0<p>Interne Zeitsteuerungsabfolge: [1] 0.000, [2] 0.000, [3] 0.000, [4] 0.000, [5] 0.141, [6] 0.000, [7] 0.000, [8] 0.000, [9] 0.000, [10] 0.000, [11] 0.016, [12] 0.000, [13] 0.000, [14] 0.000, [15] 0.000. |
 | **102** | ESENT | Dfsrs (532) \\ \\ .\c: \System Volume information\dfsr\database <em> _ <GUID> </em> \dfsr.DB: die Datenbank-Engine (6.02.8189.0000) startet eine neue Instanz (0). |
@@ -1662,7 +1660,7 @@ Im Anwendungsereignisprotokoll wird das Starten und Beenden der DFSR-Datenbank n
 ##### <a name="dfs-replication-event-log"></a>Ereignisprotokoll der DFS-Replikation
 Der DFSR-Dienst wird beendet, und die Datenbank, die SYSVOL enthält, wird gelöscht, wodurch eine eingehende nicht autoritative Synchronisierung erzwungen wird.
 
-| **Ereignis-ID** | **Quelle** | **Message** |
+| **Ereignis-ID** | **Quelle** | **Meldung** |
 |--|--|--|
 | **1006** | DFSR | Der DFS-Replikationsdienst wird beendet. |
 | **1008** | DFSR | Der DFS-Replikationsdienst wurde beendet. |
@@ -1681,7 +1679,7 @@ In diesem Fall wird das Dateireplikations-Ereignisprotokoll anstelle des DFSR-Er
 ##### <a name="file-replication-service-event-log"></a>Ereignisprotokoll des Dateireplikationsdiensts
 Der FRS-Dienst wird mit einem D2 BURFLAGS-Wert beendet und neu gestartet, um SYSVOL nicht autoritativ zu synchronisieren.
 
-| **Ereignis-ID** | **Quelle** | **Message** |
+| **Ereignis-ID** | **Quelle** | **Meldung** |
 |--|--|--|
 | **13502** | NTFRS | Der Dateireplikationsdienst wird beendet. |
 | **13503** | NTFRS | Der Dateireplikationsdienst wurde beendet. |
@@ -1696,7 +1694,7 @@ Der FRS-Dienst wird mit einem D2 BURFLAGS-Wert beendet und neu gestartet, um SYS
 ##### <a name="application-event-log"></a>Anwendungsereignisprotokoll
 Die FRS-Datenbank wird beendet und startet und wird aufgrund des D2 BURFLAGS-Vorgangs analysiert.
 
-| **Ereignis-ID** | **Quelle** | **Message** |
+| **Ereignis-ID** | **Quelle** | **Meldung** |
 |--|--|--|
 | **327** | ESENT | ntfrs (1424) Die Datenbank-Engine hat eine Datenbank getrennt (1, c:\windows\ntfrs\jet\ntfrs.jdb). (Zeit=0 Sekunden)<p>Interne Zeitsteuerungsabfolge: [1] 0.000, [2] 0.015, [3] 0.000, [4] 0.000, [5] 0.000, [6] 0.516, [7] 0.000, [8] 0.000, [9] 0.000, [10] 0.000, [11] 0.063, [12] 0.000.<p>Cache wiederbelebt: 0 |
 | **103** | ESENT | ntfrs (1424) Die Datenbank-Engine hat die Instanz (0) beendet.<p>Dirty Shutdown: 0<p>Interne Zeitsteuerungsabfolge: [1] 0.000, [2] 0.000, [3] 0.000, [4] 0.000, [5] 0.000, [6] 0.000, [7] 0.000, [8] 0.000, [9] 0.031, [10] 0.000, [11] 0.016, [12] 0.000, [13] 0.000, [14] 0.047, [15] 0.000. |

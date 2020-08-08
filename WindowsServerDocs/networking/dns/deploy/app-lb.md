@@ -6,12 +6,12 @@ ms.topic: article
 ms.assetid: f9c313ac-bb86-4e48-b9b9-de5004393e06
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 0af8a819494754fc45392116230edad808835e80
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 745d296fdeecef5eddd45648c3cfc132f901cdf0
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87964236"
+ms.locfileid: "87996930"
 ---
 # <a name="use-dns-policy-for-application-load-balancing"></a>Verwenden der DNS-Richtlinie für den Anwendungslastenausgleich
 
@@ -75,7 +75,7 @@ Add-DnsServerZoneScope -ZoneName "contosogiftservices.com" -Name "DallasZoneScop
 Add-DnsServerZoneScope -ZoneName "contosogiftservices.com" -Name "ChicagoZoneScope"
 ```
 
-Weitere Informationen finden Sie unter [Add-dnsserverzonescope](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverzonescope?view=win10-ps) .
+Weitere Informationen finden Sie unter [Add-dnsserverzonescope](/powershell/module/dnsserver/add-dnsserverzonescope?view=win10-ps) .
 
 #### <a name="add-records-to-the-zone-scopes"></a><a name="bkmk_records"></a>Hinzufügen von Datensätzen zu den Zonen Bereichen
 
@@ -95,7 +95,7 @@ Add-DnsServerResourceRecord -ZoneName "contosogiftservices.com" -A -Name "www" -
 Add-DnsServerResourceRecord -ZoneName "contosogiftservices.com" -A -Name "www" -IPv4Address "162.0.0.1" -ZoneScope "DallasZoneScope"
 ```
 
-Weitere Informationen finden Sie unter [Add-dnsserverresourcerecord](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverresourcerecord?view=win10-ps).
+Weitere Informationen finden Sie unter [Add-dnsserverresourcerecord](/powershell/module/dnsserver/add-dnsserverresourcerecord?view=win10-ps).
 
 #### <a name="create-the-dns-policies"></a><a name="bkmk_policies"></a>Erstellen der DNS-Richtlinien
 
@@ -110,7 +110,7 @@ Mithilfe der folgenden Windows PowerShell-Befehle können Sie eine DNS-Richtlini
 Add-DnsServerQueryResolutionPolicy -Name "AmericaPolicy" -Action ALLOW -ZoneScope "SeattleZoneScope,2;ChicagoZoneScope,1;DallasZoneScope,1" -ZoneName "contosogiftservices.com"
 ```
 
-Weitere Informationen finden Sie unter [Add-dnsserverqueryresolutionpolicy](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverqueryresolutionpolicy?view=win10-ps).
+Weitere Informationen finden Sie unter [Add-dnsserverqueryresolutionpolicy](/powershell/module/dnsserver/add-dnsserverqueryresolutionpolicy?view=win10-ps).
 
 Sie haben nun erfolgreich eine DNS-Richtlinie erstellt, die den Anwendungs Lastenausgleich über Webserver in drei verschiedenen Rechenzentren hinweg ermöglicht.
 

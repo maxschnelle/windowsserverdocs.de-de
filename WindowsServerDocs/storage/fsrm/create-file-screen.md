@@ -2,18 +2,16 @@
 title: Erstellen einer Dateiprüfung
 description: In diesem Artikel wird beschrieben, wie ein Datei Bildschirm erstellt wird.
 ms.date: 7/7/2017
-ms.prod: windows-server
-ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: e7827f1e80b1cfe2288bee968cc3c4e3cd428e15
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 4efa2add790e4284865a54eaedf3cbb7d9c0589c
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85474377"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87971097"
 ---
 # <a name="create-a-file-screen"></a>Erstellen einer Dateiprüfung
 
@@ -54,7 +52,7 @@ Wenn Sie einen neuen Bildschirm erstellen, können Sie wählen, ob Sie eine Date
 
 12. Klicken Sie auf **OK**.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Datei Prüfungsverwaltung](file-screening-management.md)
 -   [Definieren von Dateigruppen für die Prüfung](define-file-groups-for-screening.md)

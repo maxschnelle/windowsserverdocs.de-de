@@ -1,20 +1,18 @@
 ---
 title: Einrichten von Hyper-V-Replikaten
-ms.technology: compute-hyper-v
 description: Enthält Anweisungen zum Einrichten des Replikats, Testen des Failovers und Durchführung einer ersten Replikation.
-ms.prod: windows-server
 manager: dongill
 ms.topic: article
 ms.assetid: eea9e996-bfec-4065-b70b-d8f66e7134ac
 author: kbdazure
 ms.author: kathydav
 ms.date: 10/10/2016
-ms.openlocfilehash: c24b26617f7174632bc39842afc9e83843e7673b
-ms.sourcegitcommit: acfdb7b2ad283d74f526972b47c371de903d2a3d
+ms.openlocfilehash: 24fce3e0ebbfc51167a7e6e390de092433cceaff
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87769688"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87941848"
 ---
 # <a name="set-up-hyper-v-replica"></a>Einrichten von Hyper-V-Replikaten
 

@@ -6,12 +6,12 @@ ms.topic: article
 ms.assetid: 161446ff-a072-4cc4-b339-00a04857ff3a
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: f371b91ecd87e07af90a7a2f7a0c802fb3d6c7e5
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 771b87776e6530f330e68f1f06b39fef191cb7c7
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87955937"
+ms.locfileid: "87996883"
 ---
 # <a name="use-dns-policy-for-intelligent-dns-responses-based-on-the-time-of-day"></a>Verwenden von DNS-Richtlinien für intelligente DNS-Antworten basierend auf der Tageszeit
 
@@ -80,7 +80,7 @@ Add-DnsServerClientSubnet -Name "AmericaSubnet" -IPv4Subnet "192.0.0.0/24, 182.0
 Add-DnsServerClientSubnet -Name "EuropeSubnet" -IPv4Subnet "141.1.0.0/24, 151.1.0.0/24"
 
 ```
-Weitere Informationen finden Sie unter [Add-dnsserverclientsubnet](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverclientsubnet?view=win10-ps).
+Weitere Informationen finden Sie unter [Add-dnsserverclientsubnet](/powershell/module/dnsserver/add-dnsserverclientsubnet?view=win10-ps).
 
 #### <a name="create-the-zone-scopes"></a><a name="bkmk_zscopes"></a>Erstellen der Zonen Bereiche
 Nachdem die Clientsubnetze konfiguriert wurden, müssen Sie die Zone partitionieren, deren Datenverkehr Sie in zwei verschiedene Zonen Bereiche umleiten möchten, einen Bereich für jedes der von Ihnen konfigurierten DNS-Clientsubnetze.
@@ -100,7 +100,7 @@ Add-DnsServerZoneScope -ZoneName "contosogiftservices.com" -Name "SeattleZoneSco
 Add-DnsServerZoneScope -ZoneName "contosogiftservices.com" -Name "DublinZoneScope"
 
 ```
-Weitere Informationen finden Sie unter [Add-dnsserverzonescope](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverzonescope?view=win10-ps).
+Weitere Informationen finden Sie unter [Add-dnsserverzonescope](/powershell/module/dnsserver/add-dnsserverzonescope?view=win10-ps).
 
 #### <a name="add-records-to-the-zone-scopes"></a><a name="bkmk_records"></a>Hinzufügen von Datensätzen zu den Zonen Bereichen
 Nun müssen Sie die Datensätze, die den Webserver Host darstellen, in den zwei Zonen Bereichen hinzufügen.
@@ -117,7 +117,7 @@ Add-DnsServerResourceRecord -ZoneName "contosogiftservices.com" -A -Name "www" -
 ```
 Der zonescope-Parameter ist nicht eingeschlossen, wenn Sie einen Datensatz im Standardbereich hinzufügen. Dies ist das gleiche wie das Hinzufügen von Datensätzen zu einer standardmäßigen DNS-Zone.
 
-Weitere Informationen finden Sie unter [Add-dnsserverresourcerecord](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverresourcerecord?view=win10-ps).
+Weitere Informationen finden Sie unter [Add-dnsserverresourcerecord](/powershell/module/dnsserver/add-dnsserverresourcerecord?view=win10-ps).
 
 #### <a name="create-the-dns-policies"></a><a name="bkmk_policies"></a>Erstellen der DNS-Richtlinien
 Nachdem Sie die Subnetze, die Partitionen (Zonen Bereiche) und Datensätze hinzugefügt haben, müssen Sie Richtlinien erstellen, die die Subnetze und Partitionen verbinden, damit die Abfrage Antwort aus dem korrekten Bereich der Zone zurückgegeben wird, wenn eine Abfrage aus einer Quelle in einem der DNS-Clientsubnetze stammt. Zum Mapping des Standard Zonen Bereichs sind keine Richtlinien erforderlich.
@@ -148,12 +148,10 @@ Add-DnsServerQueryResolutionPolicy -Name "EuropePolicy" -Action ALLOW -ClientSub
 Add-DnsServerQueryResolutionPolicy -Name "RestOfWorldPolicy" -Action ALLOW --ZoneScope "DublinZoneScope,1;SeattleZoneScope,1" -ZoneName "contosogiftservices.com" -ProcessingOrder 5
 
 ```
-Weitere Informationen finden Sie unter [Add-dnsserverqueryresolutionpolicy](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverqueryresolutionpolicy?view=win10-ps).
+Weitere Informationen finden Sie unter [Add-dnsserverqueryresolutionpolicy](/powershell/module/dnsserver/add-dnsserverqueryresolutionpolicy?view=win10-ps).
 
 Nun wird der DNS-Server mit den erforderlichen DNS-Richtlinien konfiguriert, um den Datenverkehr basierend auf dem Standort und der Tageszeit umzuleiten.
 
 Wenn der DNS-Server namens Auflösungs Abfragen empfängt, wertet der DNS-Server die Felder in der DNS-Anforderung anhand der konfigurierten DNS-Richtlinien aus. Wenn die Quell-IP-Adresse in der namens Auflösungs Anforderung mit einer der Richtlinien übereinstimmt, wird der zugehörige Zonen Bereich verwendet, um auf die Abfrage zu antworten, und der Benutzer wird an die Ressource weitergeleitet, die geografisch am nächsten liegt.
 
 Sie können Tausende von DNS-Richtlinien gemäß Ihren Anforderungen für die Datenverkehrs Verwaltung erstellen, und alle neuen Richtlinien werden dynamisch angewendet, ohne dass der DNS-Server bei eingehenden Abfragen neu gestartet wird.
-
-

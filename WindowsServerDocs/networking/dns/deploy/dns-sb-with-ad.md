@@ -6,12 +6,12 @@ ms.topic: article
 ms.assetid: f9533204-ad7e-4e49-81c1-559324a16aeb
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 1f6da8584f7a2b2221fb1a283b8ea4de842ddc58
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 4aa18e3f93cdb0a50cac3db697a10dd40c1f05e0
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87964136"
+ms.locfileid: "87996904"
 ---
 # <a name="use-dns-policy-for-split-brain-dns-in-active-directory"></a>Verwenden der DNS-Richtlinie für Split-Brain-DNS in Active Directory
 
@@ -75,8 +75,8 @@ $policies |  Add-DnsServerQueryResolutionPolicy -ZoneName "contoso.com" -Compute
 
 Weitere Informationen finden Sie in den folgenden Windows PowerShell-Referenz Themen.
 
-- [Get-dnsserverqueryresolutionpolicy](https://docs.microsoft.com/powershell/module/dnsserver/get-dnsserverqueryresolutionpolicy?view=win10-ps)
-- [Add-dnsserverqueryresolutionpolicy](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverqueryresolutionpolicy?view=win10-ps)
+- [Get-dnsserverqueryresolutionpolicy](/powershell/module/dnsserver/get-dnsserverqueryresolutionpolicy?view=win10-ps)
+- [Add-dnsserverqueryresolutionpolicy](/powershell/module/dnsserver/add-dnsserverqueryresolutionpolicy?view=win10-ps)
 
 ## <a name="how-to-configure-dns-policy-for-split-brain-dns-in-active-directory"></a>Konfigurieren der DNS-Richtlinie für Split \- Brain DNS in Active Directory
 
@@ -90,7 +90,7 @@ Sie können den folgenden Beispiel Befehl verwenden, um dem DNS-Server die Activ
 Add-DnsServerPrimaryZone -Name "contoso.com" -ReplicationScope "Domain" -PassThru
 ```
 
-Weitere Informationen finden Sie unter [Add-dnsserverprimaryzone](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverprimaryzone?view=win10-ps).
+Weitere Informationen finden Sie unter [Add-dnsserverprimaryzone](/powershell/module/dnsserver/add-dnsserverprimaryzone?view=win10-ps).
 
 ### <a name="create-the-scopes-of-the-zone"></a>Erstellen der Bereiche der Zone
 
@@ -108,7 +108,7 @@ Sie können den folgenden Beispiel Befehl verwenden, um den Zonen Bereich auf de
 Add-DnsServerZoneScope -ZoneName "contoso.com" -Name "external"
 ```
 
-Weitere Informationen finden Sie unter [Add-dnsserverzonescope](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverzonescope?view=win10-ps).
+Weitere Informationen finden Sie unter [Add-dnsserverzonescope](/powershell/module/dnsserver/add-dnsserverzonescope?view=win10-ps).
 
 ### <a name="add-records-to-the-zone-scopes"></a>Hinzufügen von Datensätzen zu den Zonen Bereichen
 
@@ -128,7 +128,7 @@ Add-DnsServerResourceRecord -ZoneName "contoso.com" -A -Name "www.career" -IPv4A
 > [!NOTE]
 > Der **– zonescope** -Parameter ist nicht eingeschlossen, wenn der Datensatz dem Standard Zonen Bereich hinzugefügt wird. Diese Aktion ist mit dem Hinzufügen von Datensätzen zu einer normalen Zone identisch.
 
-Weitere Informationen finden Sie unter [Add-dnsserverresourcerecord](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverresourcerecord?view=win10-ps).
+Weitere Informationen finden Sie unter [Add-dnsserverresourcerecord](/powershell/module/dnsserver/add-dnsserverresourcerecord?view=win10-ps).
 
 ### <a name="create-the-dns-policies"></a>Erstellen der DNS-Richtlinien
 
@@ -149,7 +149,7 @@ Add-DnsServerQueryResolutionPolicy -Name "SplitBrainZonePolicy" -Action ALLOW -S
 > [!NOTE]
 > 208.84.0.53 ist die IP-Adresse der öffentlichen Netzwerkschnittstelle.
 
-Weitere Informationen finden Sie unter [Add-dnsserverqueryresolutionpolicy](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverqueryresolutionpolicy?view=win10-ps).
+Weitere Informationen finden Sie unter [Add-dnsserverqueryresolutionpolicy](/powershell/module/dnsserver/add-dnsserverqueryresolutionpolicy?view=win10-ps).
 
 Nun wird der DNS-Server mit den erforderlichen DNS-Richtlinien für einen Split-Brain-Namen Server mit einer Active Directory integrierten DNS-Zone konfiguriert.
 

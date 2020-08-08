@@ -1,20 +1,18 @@
 ---
 title: Offline schalten eines direkte Speicherplätze Servers zur Wartung
-ms.prod: windows-server
 ms.author: eldenc
 manager: eldenc
-ms.technology: storage-spaces
 ms.topic: article
 author: eldenchristensen
 ms.date: 10/08/2018
 ms.assetid: 73dd8f9c-dcdb-4b25-8540-1d8707e9a148
 ms.localizationpriority: medium
-ms.openlocfilehash: 8dba155f8b8d7312a823dedc72d23268d7d13fbf
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: d3fd3e1c6ca9a7493ac0bcdc809f68fe22f8fa67
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86955912"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87971087"
 ---
 # <a name="taking-a-storage-spaces-direct-server-offline-for-maintenance"></a>Offline schalten eines direkte Speicherplätze Servers zur Wartung
 
@@ -82,7 +80,7 @@ Alle virtuellen Computer beginnen Live, auf andere Server im Cluster zu migriere
 
 Nachdem der Server die Ableitung abgeschlossen hat, wird er in Failovercluster-Manager und PowerShell als **angeh** alten angezeigt.
 
-![Pause](media/maintain-servers/paused.png)
+![Angehalten](media/maintain-servers/paused.png)
 
 Sie können ihn jetzt problemlos neu starten oder Herunterfahren, genauso wie normal (z. b. mit den PowerShell-Cmdlets "Restart-Computer" oder "Start-Computer").
 
@@ -120,7 +118,7 @@ Wechseln Sie in Failovercluster-Manager zu **Knoten**, klicken Sie mit der recht
 
 ## <a name="waiting-for-storage-to-resync"></a>Warten auf Neusynchronisierung des Speichers
 
-Beim Fortsetzen des Servers müssen alle neuen Schreibvorgänge, die während der Nichtverfügbarkeit nicht verfügbar waren, neu synchronisiert werden. Dies geschieht automatisch. Mithilfe der intelligenten Änderungs Nachverfolgung ist es nicht notwendig, dass *alle* Daten gescannt oder synchronisiert werden. nur die Änderungen. Dieser Prozess wird gedrosselt, um die Auswirkungen auf produktionsworkloads zu mindern. Je nachdem, wie lange der Server angehalten wurde und wie viele neue Daten geschrieben wurden, kann es mehrere Minuten dauern, bis der Vorgang abgeschlossen ist.
+Beim Fortsetzen des Servers müssen alle neuen Schreibvorgänge, die während der Nichtverfügbarkeit nicht verfügbar waren, neu synchronisiert werden. Dies erfolgt automatisch. Mithilfe der intelligenten Änderungs Nachverfolgung ist es nicht notwendig, dass *alle* Daten gescannt oder synchronisiert werden. nur die Änderungen. Dieser Prozess wird gedrosselt, um die Auswirkungen auf produktionsworkloads zu mindern. Je nachdem, wie lange der Server angehalten wurde und wie viele neue Daten geschrieben wurden, kann es mehrere Minuten dauern, bis der Vorgang abgeschlossen ist.
 
 Sie müssen warten, bis die erneute Synchronisierung beendet ist, bevor Sie andere Server im Cluster offline schalten.
 
@@ -183,7 +181,7 @@ Führen Sie die folgenden Schritte aus, um das direkte Speicherplätze System sc
 10. Überwachen Sie den Status der virtuellen Datenträger, indem Sie die Cmdlets " **Get-Volume** " und " **Get-virtualdisk** " ausführen.
 
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
-- [Übersicht über direkte Speicherplätze](storage-spaces-direct-overview.md)
+- [Direkte Speicherplätze – Übersicht](storage-spaces-direct-overview.md)
 - [Cluster fähiges aktualisieren (Cau)](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831694(v=ws.11))

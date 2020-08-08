@@ -6,14 +6,12 @@ author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 08/07/2018
 ms.topic: article
-ms.prod: windows-server
-ms.technology: identity-adds
-ms.openlocfilehash: 2a389b00fbf983a24b745431fee98a760f0fc756
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: f10c3c5bc1b974e27aa14341c5367885333172fc
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86963562"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87971007"
 ---
 # <a name="mapping-design-requirements-to-forest-design-models"></a>Zuordnung von Entwurfs Anforderungen zu Gesamtstruktur-Entwurfs Modellen
 
@@ -28,15 +26,15 @@ Wenn nicht alle Gruppen in Ihrer Organisation eine einzelne Organisations Gesamt
 > [!NOTE]
 > Wenn ein Faktor als "N/v" aufgeführt ist, wird er nicht berücksichtigt, da andere Anforderungen auch diesen Faktor berücksichtigen.
 
-|Szenario|Eingeschränkte Konnektivität|Datenisolation|Daten Autonomie|Dienst Isolation|Dienst Autonomie|
+|Szenario|Eingeschränkte Konnektivität|Datenisolation|Daten Autonomie|Dienstisolierung|Dienst Autonomie|
 |------------|------------------------|------------------|-----------------|---------------------|--------------------|
-|[Szenario 1: beitreten zu einer vorhandenen Gesamtstruktur für die Daten Autonomie](#BKMK_1)|Nein|Nein |Ja|Nein|Nein |
-|[Szenario 2: Verwenden einer Organisations Gesamtstruktur oder Domäne für die Dienst Autonomie](#BKMK_2)|Nein|Nein |–|Nein|Ja|
-|[Szenario 3: Verwenden einer Organisations-oder Ressourcen Gesamtstruktur für die Dienst Isolation](#BKMK_3)|Nein|Nein |–|Ja|N/V|
-|[Szenario 4: Verwenden einer Gesamtstruktur der Organisation oder eines eingeschränkten Zugriffs für die Daten Isolation](#BKMK_4)|–|Ja|N/V|Nicht zutreffend|Nicht zutreffend|
-|[Szenario 5: Verwenden einer Organisations Gesamtstruktur oder Neukonfigurieren der Firewall für eingeschränkte Konnektivität](#BKMK_5)|Ja|Nein|–|Nein|Nein |
+|[Szenario 1: beitreten zu einer vorhandenen Gesamtstruktur für die Daten Autonomie](#BKMK_1)|Nein|Nein|Ja|Nein|Nein|
+|[Szenario 2: Verwenden einer Organisations Gesamtstruktur oder Domäne für die Dienst Autonomie](#BKMK_2)|Nein|Nein|–|Nein|Ja|
+|[Szenario 3: Verwenden einer Organisations-oder Ressourcen Gesamtstruktur für die Dienst Isolation](#BKMK_3)|Nein|Nein|–|Ja|–|
+|[Szenario 4: Verwenden einer Gesamtstruktur der Organisation oder eines eingeschränkten Zugriffs für die Daten Isolation](#BKMK_4)|–|Ja|–|Nicht zutreffend|Nicht zutreffend|
+|[Szenario 5: Verwenden einer Organisations Gesamtstruktur oder Neukonfigurieren der Firewall für eingeschränkte Konnektivität](#BKMK_5)|Ja|Nein|–|Nein|Nein|
 |[Szenario 6: Verwenden einer Organisations Gesamtstruktur oder Domäne und Neukonfigurieren der Firewall für Dienst Autonomie mit eingeschränkter Konnektivität](#BKMK_6)|Ja|Nein|–|Nein|Ja|
-|[Szenario 7: Verwenden einer Ressourcen Gesamtstruktur und Neukonfigurieren der Firewall für die Dienst Isolation mit eingeschränkter Konnektivität](#BKMK_7)|Ja|Nein|–|Ja|N/V|
+|[Szenario 7: Verwenden einer Ressourcen Gesamtstruktur und Neukonfigurieren der Firewall für die Dienst Isolation mit eingeschränkter Konnektivität](#BKMK_7)|Ja|Nein|–|Ja|–|
 
 ## <a name="scenario-1-join-an-existing-forest-for-data-autonomy"></a><a name="BKMK_1"></a>Szenario 1: beitreten zu einer vorhandenen Gesamtstruktur für die Daten Autonomie
 

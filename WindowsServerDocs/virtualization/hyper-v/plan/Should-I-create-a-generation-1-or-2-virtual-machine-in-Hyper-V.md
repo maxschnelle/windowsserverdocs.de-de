@@ -7,23 +7,23 @@ ms.assetid: 02e31413-6140-4723-a8d6-46c7f667792d
 author: kbdazure
 ms.author: kathydav
 ms.date: 12/05/2016
-ms.openlocfilehash: 35023f1b6c217da45dc0c0f5a27d0ce26a298567
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: b41cefc34bce2a9d1e2e29e9d31353d4f9b8a669
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87938889"
+ms.locfileid: "87996975"
 ---
 # <a name="should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v"></a>Soll ich in Hyper-V einen virtuellen Computer der 1. oder der 2. Generation erstellen?
 
 >Gilt für: Windows 10, Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019, Microsoft Hyper-V Server 2019
 
 > [!NOTE]
-> Wenn Sie virtuelle Windows-Computer (VMS) aus einer lokalen Umgebung in Microsoft Azure hochladen möchten, werden VMS der Generation 1 und der Generation 2 im VHD-Dateiformat unterstützt, die einen Datenträger mit fester Größe aufweisen. Weitere Informationen zu den in Azure unterstützten Funktionen der Generation 2 finden Sie unter [VMS der Generation](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) 2 in Azure. Weitere Informationen zum Hochladen einer Windows-VHD-oder vhdx-Datei finden Sie unter [Vorbereiten einer Windows-VHD oder vhdx zum Hochladen in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
+> Wenn Sie virtuelle Windows-Computer (VMS) aus einer lokalen Umgebung in Microsoft Azure hochladen möchten, werden VMS der Generation 1 und der Generation 2 im VHD-Dateiformat unterstützt, die einen Datenträger mit fester Größe aufweisen. Weitere Informationen zu den in Azure unterstützten Funktionen der Generation 2 finden Sie unter [VMS der Generation](/azure/virtual-machines/windows/generation-2) 2 in Azure. Weitere Informationen zum Hochladen einer Windows-VHD-oder vhdx-Datei finden Sie unter [Vorbereiten einer Windows-VHD oder vhdx zum Hochladen in Azure](/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
 
 Die Entscheidung, einen virtuellen Computer der Generation 1 oder 2 zu erstellen, hängt von dem Gast Betriebssystem ab, das Sie installieren möchten, und von der Start Methode, die Sie zum Bereitstellen der virtuellen Maschine verwenden möchten. Es wird empfohlen, einen virtuellen Computer der Generation 2 zu erstellen, um Funktionen wie den sicheren Start zu nutzen, es sei denn, eine der folgenden Anweisungen ist true:
 
-- Die VHD, die Sie starten möchten, ist nicht [UEFI-kompatibel](https://technet.microsoft.com/library/hh824898.aspx).
+- Die VHD, die Sie starten möchten, ist nicht [UEFI-kompatibel](/previous-versions/windows/it-pro/windows-8.1-and-8/hh824898(v=win.10)).
 - Generation 2 unterstützt nicht das Betriebssystem, das Sie auf dem virtuellen Computer ausführen möchten.
 - Generation 2 unterstützt die gewünschte Start Methode nicht.
 
@@ -167,11 +167,11 @@ Die folgende Tabelle zeigt, welche Startmethoden von virtuellen Maschinen der Ge
 ## <a name="what-are-the-advantages-of-using-generation-2-virtual-machines"></a>Was sind die Vorteile der Verwendung von virtuellen Computern der Generation 2?
 
 Im folgenden finden Sie einige der Vorteile, die Sie bei der Verwendung eines virtuellen Computers der Generation 2 erhalten:
-- **Sicherer Start** Dies ist ein Feature, mit dem überprüft wird, ob das Start Lade Paket von einer vertrauenswürdigen Zertifizierungsstelle in der UEFI-Datenbank signiert ist, um zu verhindern, dass nicht autorisierte Firmware, Betriebssysteme oder UEFI-Treiber zur Startzeit ausgeführt werden. Der sichere Start ist standardmäßig bei virtuellen Computern der Generation 2 aktiviert. Wenn Sie ein Gast Betriebssystem ausführen müssen, das vom sicheren Start nicht unterstützt wird, können Sie es nach der Erstellung des virtuellen Computers deaktivieren.  Weitere Informationen finden Sie unter [Sicherer Start](https://technet.microsoft.com/library/dn486875.aspx).
+- **Sicherer Start** Dies ist ein Feature, mit dem überprüft wird, ob das Start Lade Paket von einer vertrauenswürdigen Zertifizierungsstelle in der UEFI-Datenbank signiert ist, um zu verhindern, dass nicht autorisierte Firmware, Betriebssysteme oder UEFI-Treiber zur Startzeit ausgeführt werden. Der sichere Start ist standardmäßig bei virtuellen Computern der Generation 2 aktiviert. Wenn Sie ein Gast Betriebssystem ausführen müssen, das vom sicheren Start nicht unterstützt wird, können Sie es nach der Erstellung des virtuellen Computers deaktivieren.  Weitere Informationen finden Sie unter [Sicherer Start](/previous-versions/windows/it-pro/windows-8.1-and-8/dn486875(v=ws.11)).
 
     Zum Sichern von virtuellen Linux-Computern der Start Generation müssen Sie die Vorlage für den sicheren Start der UEFI-Zertifizierungsstelle auswählen, wenn Sie den virtuellen Computer erstellen.
 
-- **Größeres Start Volume** Das maximale Start Volume für virtuelle Maschinen der Generation 2 beträgt 64 TB. Dies ist die maximale Datenträger Größe, die von einem unterstützt wird. VHDX. Bei virtuellen Computern der Generation 1 beträgt das maximale Start Volume 2 TB für ein. Vhdx und 2040gb für ein. VHD. Weitere Informationen finden Sie unter [Übersicht über die Hyper-V-Format für virtuelle Festplatten](https://technet.microsoft.com/library/hh831446.aspx).
+- **Größeres Start Volume** Das maximale Start Volume für virtuelle Maschinen der Generation 2 beträgt 64 TB. Dies ist die maximale Datenträger Größe, die von einem unterstützt wird. VHDX. Bei virtuellen Computern der Generation 1 beträgt das maximale Start Volume 2 TB für ein. Vhdx und 2040gb für ein. VHD. Weitere Informationen finden Sie unter [Übersicht über die Hyper-V-Format für virtuelle Festplatten](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831446(v=ws.11)).
 
   Sie können auch eine geringfügige Verbesserung der Start-und Installationszeiten virtueller Maschinen mit virtuellen Computern der Generation 2 festzustellen.
 
@@ -202,7 +202,7 @@ Hier finden Sie einige zusätzliche Tipps zur Verwendung virtueller Computer der
 
 ### <a name="attach-or-add-a-dvd-drive"></a>Anfügen oder Hinzufügen eines DVD-Laufwerks
 
-- Sie können ein physisches CD-oder DVD-Laufwerk nicht an einen virtuellen Computer der Generation 2 anfügen. Das virtuelle DVD-Laufwerk in virtuellen Computern der Generation 2 unterstützt nur ISO-Imagedateien. Zum Erstellen einer ISO-Imagedatei einer Windows-Umgebung können Sie das Befehlszeilentool Oscdimg verwenden. Weitere Informationen finden Sie unter [Befehlszeilenoptionen von Oscdimg](https://msdn.microsoft.com/library/hh824847.aspx).
+- Sie können ein physisches CD-oder DVD-Laufwerk nicht an einen virtuellen Computer der Generation 2 anfügen. Das virtuelle DVD-Laufwerk in virtuellen Computern der Generation 2 unterstützt nur ISO-Imagedateien. Zum Erstellen einer ISO-Imagedatei einer Windows-Umgebung können Sie das Befehlszeilentool Oscdimg verwenden. Weitere Informationen finden Sie unter [Befehlszeilenoptionen von Oscdimg](/previous-versions/windows/it-pro/windows-8.1-and-8/hh824847(v=win.10)).
 - Wenn Sie einen neuen virtuellen Computer mit dem Windows PowerShell-Cmdlet "New-VM" erstellen, verfügt der virtuelle Computer der Generation 2 über kein DVD-Laufwerk. Sie können ein DVD-Laufwerk hinzufügen, während der virtuelle Computer ausgeführt wird.
 
 ### <a name="use-uefi-firmware"></a>UEFI-Firmware verwenden
@@ -220,7 +220,7 @@ Hier finden Sie einige zusätzliche Tipps zur Verwendung virtueller Computer der
 
 ### <a name="use-ipv6-instead-of-ipv4"></a>Verwenden von IPv6 anstelle von IPv4
 
-Virtuelle Computer der Generation 2 verwenden standardmäßig IPv4. Um stattdessen IPv6 zu verwenden, führen Sie das Windows PowerShell-Cmdlet [Set-vmfirmware](https://technet.microsoft.com/library/dn464287.aspx) aus. Mit dem folgenden Befehl wird beispielsweise das bevorzugte Protokoll für einen virtuellen Computer namens "testvm" auf IPv6 festgelegt:
+Virtuelle Computer der Generation 2 verwenden standardmäßig IPv4. Um stattdessen IPv6 zu verwenden, führen Sie das Windows PowerShell-Cmdlet [Set-vmfirmware](/powershell/module/hyper-v/set-vmfirmware?view=win10-ps) aus. Mit dem folgenden Befehl wird beispielsweise das bevorzugte Protokoll für einen virtuellen Computer namens "testvm" auf IPv6 festgelegt:
 
 ```powershell
 Set-VMFirmware -VMName TestVM -IPProtocolPreference IPv6
@@ -232,13 +232,13 @@ COM-Ports sind auf virtuellen Computern der Generation 2 nicht verfügbar, bis S
 
 So fügen Sie einen COM-Port hinzu:
 
-1. Deaktivieren Sie den sicheren Start. Das Kernel Debugging ist mit dem sicheren Start nicht kompatibel. Stellen Sie sicher, dass der virtuelle Computer ausgeschaltet ist, und verwenden Sie dann das Cmdlet [Set-vmfirmware](https://technet.microsoft.com/library/dn464287.aspx) . Beispielsweise deaktiviert der folgende Befehl den sicheren Start auf dem virtuellen Computer "testvm":
+1. Deaktivieren Sie den sicheren Start. Das Kernel Debugging ist mit dem sicheren Start nicht kompatibel. Stellen Sie sicher, dass der virtuelle Computer ausgeschaltet ist, und verwenden Sie dann das Cmdlet [Set-vmfirmware](/powershell/module/hyper-v/set-vmfirmware?view=win10-ps) . Beispielsweise deaktiviert der folgende Befehl den sicheren Start auf dem virtuellen Computer "testvm":
 
     ```powershell
     Set-VMFirmware -Vmname TestVM -EnableSecureBoot Off
     ```
 
-2. Fügen Sie einen COM-Port hinzu. Verwenden Sie hierfür das Cmdlet [Set-vmcomport](https://technet.microsoft.com/library/hh848616.aspx) . Mit dem folgenden Befehl wird z. b. der erste com-Port auf dem virtuellen Computer "testvm" konfiguriert, um eine Verbindung mit dem Named Pipe "testpipe" auf dem lokalen Computer herzustellen:
+2. Fügen Sie einen COM-Port hinzu. Verwenden Sie hierfür das Cmdlet [Set-vmcomport](/powershell/module/hyper-v/set-vmcomport?view=win10-ps) . Mit dem folgenden Befehl wird z. b. der erste com-Port auf dem virtuellen Computer "testvm" konfiguriert, um eine Verbindung mit dem Named Pipe "testpipe" auf dem lokalen Computer herzustellen:
 
     ```powershell
     Set-VMComPort -VMName TestVM 1 \\.\pipe\TestPipe
@@ -251,4 +251,4 @@ So fügen Sie einen COM-Port hinzu:
 
 - [Virtuelle Linux- und FreeBSD Computer unter Hyper-V](../Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows.md)
 - [Verwenden von lokalen Ressourcen auf einem virtuellen Hyper-V-Computer mit VMConnect](../learn-more/Use-local-resources-on-Hyper-V-virtual-machine-with-VMConnect.md)
-- [Planen der Hyper-V-Skalierbarkeit in Windows Server 2016](Plan-for-Hyper-V-scalability-in-Windows-Server-2016.md)
+- [Planen der Hyper-V-Skalierbarkeit in Windows Server 2016](./plan-hyper-v-scalability-in-windows-server.md)

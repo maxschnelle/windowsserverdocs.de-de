@@ -6,18 +6,18 @@ ms.topic: article
 ms.assetid: 5dc529f7-7bc3-48dd-b83d-92a09e4055c4
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: c52c26d44e50075f9c28dfdec7c2ab4fc420e163
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: a93302ee89bf8c4b9a78fc6651e77fb566d1e9c6
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87948953"
+ms.locfileid: "87997001"
 ---
 # <a name="step-1-configure-the-directaccess-infrastructure"></a>Schritt 1 Konfigurieren der DirectAccess-Infrastruktur
 
 >Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-In diesem Thema wird beschrieben, wie Sie die erforderliche Infrastruktur zur Aktivierung von DirectAccess für eine vorhandene VPN-Bereitstellung konfigurieren. Vergewissern Sie sich vor Beginn der Bereitstellungs Schritte, dass Sie die in [Schritt 1: Planen der DirectAccess-Infrastruktur](Step-1-Plan-DirectAccess-Infrastructure.md)beschriebenen Planungsschritte abgeschlossen haben.
+In diesem Thema wird beschrieben, wie Sie die erforderliche Infrastruktur zur Aktivierung von DirectAccess für eine vorhandene VPN-Bereitstellung konfigurieren. Vergewissern Sie sich vor Beginn der Bereitstellungs Schritte, dass Sie die in [Schritt 1: Planen der DirectAccess-Infrastruktur](./step-1-plan-da-inf-davpn.md)beschriebenen Planungsschritte abgeschlossen haben.
 
 |Aufgabe|BESCHREIBUNG|
 |----|--------|
@@ -328,6 +328,3 @@ Der Netzwerkadressenserver sollte sich auf einem Server mit hoher Verfügbarkeit
 13. Klicken Sie auf **OK**, **Registrieren** und dann auf **Fertig stellen**.
 
 14. Überprüfen Sie im Detailbereich des Zertifikat-Snap-in, dass das neue Zertifikat unter Serverauthentifizierung mit der Option Beabsichtigte Zwecke registriert wurde.
-
-
-

@@ -6,12 +6,12 @@ author: jwwool
 ms.author: jeffrew
 ms.localizationpriority: medium
 ms.date: 06/07/2019
-ms.openlocfilehash: bb416a45e18ea34628994b589e452f25d2d7744e
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 91e14b5ac023f6726ffc508f945567b83311d7a4
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87937669"
+ms.locfileid: "87997019"
 ---
 # <a name="windows-admin-center-known-issues"></a>Bekannte Probleme im Windows Admin Center
 
@@ -195,7 +195,7 @@ Die Lösung für die Computer Verwaltung enthält eine Teilmenge der Tools aus d
 
   - Um die Verwaltung des Windows 10-Clients zu aktivieren, müssen Sie den Befehl an ```Enable-PSRemoting``` einer PowerShell-Eingabeaufforderung mit erhöhten Rechten ausgeben.
 
-  - Möglicherweise müssen Sie die Firewall auch aktualisieren, um Verbindungen von außerhalb des lokalen Subnetzes mit zuzulassen ```Set-NetFirewallRule -Name WINRM-HTTP-In-TCP -RemoteAddress Any``` . Weitere einschränkende Netzwerk Szenarios finden Sie in [dieser Dokumentation](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/enable-psremoting?view=powershell-5.1).
+  - Möglicherweise müssen Sie die Firewall auch aktualisieren, um Verbindungen von außerhalb des lokalen Subnetzes mit zuzulassen ```Set-NetFirewallRule -Name WINRM-HTTP-In-TCP -RemoteAddress Any``` . Weitere einschränkende Netzwerk Szenarios finden Sie in [dieser Dokumentation](/powershell/module/microsoft.powershell.core/enable-psremoting?view=powershell-5.1).
 
 ## <a name="cluster-deployment"></a>Cluster Bereitstellung
 
@@ -222,7 +222,7 @@ Wenn Sie den Server manuell neu starten möchten, beenden Sie die aktuelle Assis
 Es wird empfohlen, bei der Erstellung eines Stretch-Clusters Server zu verwenden, die einer Domäne beigetreten sind. Bei der Verwendung von Arbeitsgruppen Computern für die Stretch-Cluster Bereitstellung aufgrund von WinRM-Einschränkungen gibt es ein Problem mit der Netzwerksegmentierung.
 
 ### <a name="undo-and-start-over"></a>Rückgängig machen und beginnen
-Wenn Sie dieselben Computer für die Cluster Bereitstellung wiederholt verwenden, ist die Bereinigung vorheriger Cluster Entitäten wichtig, um eine erfolgreiche Cluster Bereitstellung auf derselben Gruppe von Computern zu erhalten. Anweisungen zum Bereinigen des Clusters finden Sie auf der Seite zum Bereitstellen der [hyperkonvergierten Infrastruktur](https://docs.microsoft.com/windows-server/manage/windows-admin-center/use/deploy-hyperconverged-infrastructure#undo-and-start-over) .
+Wenn Sie dieselben Computer für die Cluster Bereitstellung wiederholt verwenden, ist die Bereinigung vorheriger Cluster Entitäten wichtig, um eine erfolgreiche Cluster Bereitstellung auf derselben Gruppe von Computern zu erhalten. Anweisungen zum Bereinigen des Clusters finden Sie auf der Seite zum Bereitstellen der [hyperkonvergierten Infrastruktur](../use/deploy-hyperconverged-infrastructure.md#undo-and-start-over) .
 
 ### <a name="credssp"></a>CredSSP
 Der Assistent für die Cluster Bereitstellung in Windows Admin Center verwendet an verschiedenen Stellen "kredssp". Diese Fehlermeldung wird während des Assistenten angezeigt (Dies tritt am häufigsten im Schritt "Cluster überprüfen" auf):
@@ -291,7 +291,7 @@ Der Assistent für die Cluster Bereitstellung in Windows Admin Center, Version 2
 
 ### <a name="azure-file-sync-permissions"></a>Azure-Dateisynchronisierung Berechtigungen
 
-Azure-Dateisynchronisierung erfordert Berechtigungen in Azure, die von Windows Admin Center vor Version 1910 nicht bereitgestellt wurden. Wenn Sie Ihr Windows Admin Center-Gateway in Azure mit einer älteren Version als Windows Admin Center, Version 1910, registriert haben, müssen Sie Ihre Azure Active Directory Anwendung aktualisieren, um die richtigen Berechtigungen für die Verwendung Azure-Dateisynchronisierung in der neuesten Version von Windows Admin Center zu erhalten. Mit der zusätzlichen Berechtigung können Azure-Dateisynchronisierung die automatische Konfiguration des Speicherkonto Zugriffs ausführen, wie in diesem Artikel beschrieben: [sicherstellen, dass Azure-Dateisynchronisierung Zugriff auf das Speicherkonto hat](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tabpanel_CeZOj-G++Q-5_azure-portal).
+Azure-Dateisynchronisierung erfordert Berechtigungen in Azure, die von Windows Admin Center vor Version 1910 nicht bereitgestellt wurden. Wenn Sie Ihr Windows Admin Center-Gateway in Azure mit einer älteren Version als Windows Admin Center, Version 1910, registriert haben, müssen Sie Ihre Azure Active Directory Anwendung aktualisieren, um die richtigen Berechtigungen für die Verwendung Azure-Dateisynchronisierung in der neuesten Version von Windows Admin Center zu erhalten. Mit der zusätzlichen Berechtigung können Azure-Dateisynchronisierung die automatische Konfiguration des Speicherkonto Zugriffs ausführen, wie in diesem Artikel beschrieben: [sicherstellen, dass Azure-Dateisynchronisierung Zugriff auf das Speicherkonto hat](/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2cazure-portal#tabpanel_CeZOj-G++Q-5_azure-portal).
 
 Zum Aktualisieren Ihrer Azure Active Directory-App können Sie eine der beiden folgenden Aktionen ausführen:
 1. Wechseln Sie zu **Einstellungen**  >  **Azure**  >  **Unregister**, und registrieren Sie dann das Windows Admin Center erneut bei Azure. Stellen Sie sicher, dass Sie eine neue Azure Active Directory Anwendung erstellen.
@@ -301,5 +301,5 @@ Zum Aktualisieren Ihrer Azure Active Directory-App können Sie eine der beiden f
 
 Azure-Verwaltungsdienste, einschließlich Azure Monitor, Azure Updateverwaltung und Azure Security Center, verwenden denselben Agent für einen lokalen Server: die Microsoft Monitoring Agent. Azure Updateverwaltung verfügt über eine begrenzte Anzahl von unterstützten Regionen und erfordert, dass der Arbeitsbereich Log Analytics mit einem Azure Automation Konto verknüpft ist. Wenn Sie im Windows Admin Center mehrere Dienste einrichten möchten, müssen Sie die Azure-Updateverwaltung zuerst einrichten und dann entweder Azure Security Center oder Azure Monitor. Wenn Sie Azure-Verwaltungsdienste konfiguriert haben, die die Microsoft Monitoring Agent verwenden, und dann versuchen, Azure Updateverwaltung mithilfe des Windows Admin Centers einzurichten, gestattet Ihnen Windows Admin Center nur das Konfigurieren von Azure Updateverwaltung, wenn die vorhandenen Ressourcen, die mit dem Microsoft Monitoring Agent verknüpft sind, Azure Updateverwaltung unterstützen. Wenn dies nicht der Fall ist, haben Sie zwei Möglichkeiten:
 
-1. Wechseln Sie zur Systemsteuerung > Microsoft Monitoring Agent, um [den Server von den vorhandenen Azure-Verwaltungslösungen](https://docs.microsoft.com/azure/azure-monitor/platform/log-faq#q-how-do-i-stop-an-agent-from-communicating-with-log-analytics) (wie Azure Monitor oder Azure Security Center) zu trennen. Richten Sie dann das Azure-Updateverwaltung im Windows Admin Center ein. Danach können Sie Ihre anderen Azure-Verwaltungslösungen ohne Probleme über das Windows Admin Center einrichten.
-2. Sie können [die erforderlichen Azure-Ressourcen für Azure Updateverwaltung manuell einrichten](https://docs.microsoft.com/azure/automation/automation-update-management) und dann [die Microsoft Monitoring Agent](https://docs.microsoft.com/azure/azure-monitor/platform/agent-manage#adding-or-removing-a-workspace) (außerhalb des Windows Admin Centers) manuell aktualisieren, um den neuen Arbeitsbereich hinzuzufügen, der der Updateverwaltung Lösung entspricht, die Sie verwenden möchten.
+1. Wechseln Sie zur Systemsteuerung > Microsoft Monitoring Agent, um [den Server von den vorhandenen Azure-Verwaltungslösungen](/azure/azure-monitor/platform/log-faq#q-how-do-i-stop-an-agent-from-communicating-with-log-analytics) (wie Azure Monitor oder Azure Security Center) zu trennen. Richten Sie dann das Azure-Updateverwaltung im Windows Admin Center ein. Danach können Sie Ihre anderen Azure-Verwaltungslösungen ohne Probleme über das Windows Admin Center einrichten.
+2. Sie können [die erforderlichen Azure-Ressourcen für Azure Updateverwaltung manuell einrichten](/azure/automation/automation-update-management) und dann [die Microsoft Monitoring Agent](/azure/azure-monitor/platform/agent-manage#adding-or-removing-a-workspace) (außerhalb des Windows Admin Centers) manuell aktualisieren, um den neuen Arbeitsbereich hinzuzufügen, der der Updateverwaltung Lösung entspricht, die Sie verwenden möchten.

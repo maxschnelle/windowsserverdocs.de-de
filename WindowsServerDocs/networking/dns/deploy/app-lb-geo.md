@@ -2,18 +2,16 @@
 title: Verwenden der DNS-Richtlinie für den Anwendungslastenausgleich mit Geolocation-Informationen
 description: Dieses Thema ist Teil des DNS-Richtlinien szenariohandbuchs für Windows Server 2016.
 manager: brianlic
-ms.prod: windows-server
-ms.technology: networking-dns
 ms.topic: article
 ms.assetid: b6e679c6-4398-496c-88bc-115099f3a819
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: b66ae0ef1bf319b991efc01c062ec156bf277c31
-ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
+ms.openlocfilehash: 00195c4993f3e5bef9688adbfd09f62f908b6276
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87518395"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87996934"
 ---
 # <a name="use-dns-policy-for-application-load-balancing-with-geo-location-awareness"></a>Verwenden der DNS-Richtlinie für den Anwendungslastenausgleich mit Geolocation-Informationen
 
@@ -21,10 +19,10 @@ ms.locfileid: "87518395"
 
 In diesem Thema erfahren Sie, wie Sie eine DNS-Richtlinie konfigurieren, um einen Lastenausgleich für eine Anwendung mit georedundanstand zu erreichen.
 
-Im vorherigen Thema in dieser Anleitung, [Verwenden der DNS-Richtlinie für den Anwendungs Lastenausgleich](https://technet.microsoft.com/windows-server-docs/networking/dns/deploy/app-lb), wird ein Beispiel für ein fiktives Unternehmen, das die Online-betreffenden-Dienste bereitstellt und die eine Website mit dem Namen contosogiftservices.com enthält, verwendet. Der Lastenausgleich für die Benutzer in den Daten Centern in Seattle, WA, Chicago, Il und Dallas (TX) wird von der Verwendung der Online-Webanwendung zwischen den Servern in Nordamerika-Daten Centern ausgeglichen.
+Im vorherigen Thema in dieser Anleitung, [Verwenden der DNS-Richtlinie für den Anwendungs Lastenausgleich](./app-lb.md), wird ein Beispiel für ein fiktives Unternehmen, das die Online-betreffenden-Dienste bereitstellt und die eine Website mit dem Namen contosogiftservices.com enthält, verwendet. Der Lastenausgleich für die Benutzer in den Daten Centern in Seattle, WA, Chicago, Il und Dallas (TX) wird von der Verwendung der Online-Webanwendung zwischen den Servern in Nordamerika-Daten Centern ausgeglichen.
 
 >[!NOTE]
->Es wird empfohlen, dass Sie sich mit dem Thema [Verwenden der DNS-Richtlinie für den Anwendungs Lastenausgleich](https://technet.microsoft.com/windows-server-docs/networking/dns/deploy/app-lb) vertraut machen, bevor Sie die Anweisungen in diesem Szenario ausführen.
+>Es wird empfohlen, dass Sie sich mit dem Thema [Verwenden der DNS-Richtlinie für den Anwendungs Lastenausgleich](./app-lb.md) vertraut machen, bevor Sie die Anweisungen in diesem Szenario ausführen.
 
 In diesem Thema wird die gleiche fiktive Firma und Netzwerkinfrastruktur als Grundlage für eine neue Beispiel Bereitstellung verwendet, die Informationen zur georedunzierung enthält.
 
@@ -60,7 +58,7 @@ Add-DnsServerClientSubnet -Name "AmericaSubnet" -IPv4Subnet 192.0.0.0/24,182.0.0
 Add-DnsServerClientSubnet -Name "EuropeSubnet" -IPv4Subnet 141.1.0.0/24,151.1.0.0/24
 ```
 
-Weitere Informationen finden Sie unter [Add-dnsserverclientsubnet](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverclientsubnet?view=win10-ps).
+Weitere Informationen finden Sie unter [Add-dnsserverclientsubnet](/powershell/module/dnsserver/add-dnsserverclientsubnet?view=win10-ps).
 
 ### <a name="create-the-zone-scopes"></a><a name="bkmk_zscopes2"></a>Erstellen der Zonen Bereiche
 
@@ -84,7 +82,7 @@ Add-DnsServerZoneScope -ZoneName "contosogiftservices.com" -Name "DublinZoneScop
 Add-DnsServerZoneScope -ZoneName "contosogiftservices.com" -Name "AmsterdamZoneScope"
 ```
 
-Weitere Informationen finden Sie unter [Add-dnsserverzonescope](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverzonescope?view=win10-ps) .
+Weitere Informationen finden Sie unter [Add-dnsserverzonescope](/powershell/module/dnsserver/add-dnsserverzonescope?view=win10-ps) .
 
 ### <a name="add-records-to-the-zone-scopes"></a><a name="bkmk_records2"></a>Hinzufügen von Datensätzen zu den Zonen Bereichen
 
@@ -97,7 +95,7 @@ Add-DnsServerResourceRecord -ZoneName "contosogiftservices.com" -A -Name "www" -
 Add-DnsServerResourceRecord -ZoneName "contosogiftservices.com" -A -Name "www" -IPv4Address "141.1.0.1" -ZoneScope "AmsterdamZoneScope"
 ```
 
-Weitere Informationen finden Sie unter [Add-dnsserverresourcerecord](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverresourcerecord?view=win10-ps).
+Weitere Informationen finden Sie unter [Add-dnsserverresourcerecord](/powershell/module/dnsserver/add-dnsserverresourcerecord?view=win10-ps).
 
 ### <a name="create-the-dns-policies"></a><a name="bkmk_policies2"></a>Erstellen der DNS-Richtlinien
 
@@ -117,7 +115,7 @@ Add-DnsServerQueryResolutionPolicy -Name "EuropeLBPolicy" -Action ALLOW -ClientS
 Add-DnsServerQueryResolutionPolicy -Name "WorldWidePolicy" -Action ALLOW -FQDN "eq,*.contoso.com" -ZoneScope "SeattleZoneScope,1;ChicagoZoneScope,1; TexasZoneScope,1;DublinZoneScope,1;AmsterdamZoneScope,1" -ZoneName "contosogiftservices.com" -ProcessingOrder 3
 ```
 
-Weitere Informationen finden Sie unter [Add-dnsserverqueryresolutionpolicy](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverqueryresolutionpolicy?view=win10-ps).
+Weitere Informationen finden Sie unter [Add-dnsserverqueryresolutionpolicy](/powershell/module/dnsserver/add-dnsserverqueryresolutionpolicy?view=win10-ps).
 
 Sie haben nun erfolgreich eine DNS-Richtlinie erstellt, die den Anwendungs Lastenausgleich über Webserver hinweg ermöglicht, die sich in fünf verschiedenen Rechenzentren auf mehreren Kontinenten befinden.
 

@@ -6,12 +6,12 @@ ms.topic: article
 ms.assetid: 4b66f517-b17d-408c-828f-a3793086bc1f
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 6ba9221707ffdea76236cd8f94c80a1220a750d5
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 32e54b5129bf2215758adf35bd23c4d99ab2d8e9
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87971827"
+ms.locfileid: "87996965"
 ---
 # <a name="wireless-access-deployment"></a>Bereitstellung des Funkzugriffs
 
@@ -489,7 +489,7 @@ Zum Durchführen dieses Verfahrens ist mindestens die Mitgliedschaft in **Domän
     >[!TIP]
     >Wenn Sie eine Fehlermeldung erhalten, die besagt, dass ein Zertifikat für die Verwendung mit der Authentifizierungsmethode nicht gefunden werden kann, und Sie haben Active Directory Zertifikat Dienste so konfiguriert, dass Zertifikate automatisch für RAS-und IAS-Server in Ihrem Netzwerk ausgestellt werden. Stellen Sie zunächst sicher, dass Sie die Schritte zum Registrieren von NPS in Active Directory Domain Services befolgt **haben, und**drücken Sie **Run**dann die folgenden Schritte **Open** **, um**die Gruppenrichtlinie zu aktualisieren: **Windows System** Wenn der Befehl Ergebnisse zurückgibt, die anzeigen, dass der Benutzer und der Computer Gruppenrichtlinie erfolgreich aktualisiert wurden, wählen Sie erneut **Microsoft: geschützter EAP- \( \) PEAP** aus, und klicken Sie dann auf **Konfigurieren**.
     >
-    >Wenn Sie nach der Aktualisierung Gruppenrichtlinie weiterhin die Fehlermeldung erhalten, dass ein Zertifikat für die Verwendung mit der Authentifizierungsmethode nicht gefunden werden kann, wird das Zertifikat nicht angezeigt, weil es die Mindestanforderungen an das Serverzertifikat nicht erfüllt, wie im Hauptnetzwerk-Begleit Handbuch: bereitstellen [von Server Zertifikaten für Kabel-und drahtlos Bereitstellungen mit 802.1 x](https://technet.microsoft.com/windows-server-docs/networking/core-network-guide/cncg/server-certs/deploy-server-certificates-for-802.1x-wired-and-wireless-deployments)dokumentiert. Wenn dies der Fall ist, müssen Sie die NPS-Konfiguration einstellen, das Zertifikat, das für Ihre NPS ausgestellt wurde, widerrufen \( \) und dann die Anweisungen zum Konfigurieren eines neuen Zertifikats mithilfe des Bereitstellungs Handbuchs für Server Zertifikate befolgen.
+    >Wenn Sie nach der Aktualisierung Gruppenrichtlinie weiterhin die Fehlermeldung erhalten, dass ein Zertifikat für die Verwendung mit der Authentifizierungsmethode nicht gefunden werden kann, wird das Zertifikat nicht angezeigt, weil es die Mindestanforderungen an das Serverzertifikat nicht erfüllt, wie im Hauptnetzwerk-Begleit Handbuch: bereitstellen [von Server Zertifikaten für Kabel-und drahtlos Bereitstellungen mit 802.1 x](../server-certs/deploy-server-certificates-for-802.1x-wired-and-wireless-deployments.md)dokumentiert. Wenn dies der Fall ist, müssen Sie die NPS-Konfiguration einstellen, das Zertifikat, das für Ihre NPS ausgestellt wurde, widerrufen \( \) und dann die Anweisungen zum Konfigurieren eines neuen Zertifikats mithilfe des Bereitstellungs Handbuchs für Server Zertifikate befolgen.
 
 7.  Vergewissern Sie sich, dass auf der Seite **geschützter EAP-Eigenschaften bearbeiten** unter **Zertifikat ausgestellt**das richtige NPS-Zertifikat ausgewählt ist, und gehen Sie dann wie folgt vor:
 
@@ -554,7 +554,7 @@ Nachdem Sie den Computer der Domäne hinzugefügt haben, verwenden Sie dieses Ve
 3. Verknüpfen Sie den neuen drahtlos Computer mit der Domäne \( , z. b. über eine Ethernet-Verbindung, bei der keine IEEE 802.1 x-Authentifizierung erforderlich ist, \) und fügen Sie das Bootstrap-drahtlos Profil dem Computer mithilfe des Befehls **Netsh WLAN Add profile** hinzu.
 
     >[!NOTE]
-    >Weitere Informationen finden Sie unter Netsh Commands for Wireless Local Area Network \( WLAN \) unter [http: \/ \/ TechNet.Microsoft.com \/ Library \/ dd744890. aspx](https://technet.microsoft.com/library/dd744890).
+    >Weitere Informationen finden Sie unter Netsh Commands for Wireless Local Area Network \( WLAN \) unter [http: \/ \/ TechNet.Microsoft.com \/ Library \/ dd744890. aspx](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd744890(v=ws.10)).
 
 4. Verteilen Sie den neuen drahtlos Computer mit dem Verfahren zum Anmelden bei der Domäne mithilfe von Computern, auf denen Windows 10 ausgeführt wird, an den Benutzer.
 
@@ -586,7 +586,7 @@ Mit dieser Methode führen Sie die Schritte im Abschnitt Allgemeine Schritte aus
     >Wenn Sie einen Computer einer Domäne hinzufügen möchten, muss der Benutzer am Computer mit dem lokalen Administrator Konto angemeldet sein. Alternativ muss der Benutzer die Anmelde Informationen für das lokale Administrator Konto beim Hinzufügen des Computers zur Domäne angeben. Außerdem muss der Benutzer über ein Benutzerkonto in der Domäne verfügen, der der Benutzer den Computer hinzufügen möchte. Beim Hinzufügen des Computers zur Domäne wird der Benutzer zur Eingabe der Anmelde Informationen des Domänen Kontos aufgefordert, den \( Benutzernamen und das Kennwort einzugeben \) .
 
 2. Geben Sie Ihren Domänen Benutzern die Anweisungen zum Konfigurieren eines Bootstrap-drahtlos Profils, wie im folgenden Verfahren beschrieben, **um ein Bootstrap-drahtlos Profil zu konfigurieren**.
-3. Außerdem können Sie den Benutzern sowohl die Anmelde Informationen des lokalen Computers als \( \) auch das Kennwort und \( das Kennwort des Domänen Benutzerkontos und das Kennwort des \) Domänen Benutzers in Form von *Domänen Name \\ username*sowie die Verfahren zum Hinzufügen des Computers zur Domäne und zum Anmelden bei der Domäne bereitstellen, wie im Windows Server 2016- [Kern Netzwerk Handbuch](https://technet.microsoft.com/windows-server-docs/networking/core-network-guide/core-network-guide)beschrieben.
+3. Außerdem können Sie den Benutzern sowohl die Anmelde Informationen des lokalen Computers als \( \) auch das Kennwort und \( das Kennwort des Domänen Benutzerkontos und das Kennwort des \) Domänen Benutzers in Form von *Domänen Name \\ username*sowie die Verfahren zum Hinzufügen des Computers zur Domäne und zum Anmelden bei der Domäne bereitstellen, wie im Windows Server 2016- [Kern Netzwerk Handbuch](../../core-network-guide.md)beschrieben.
 
 #### <a name="to-configure-a-bootstrap-wireless-profile"></a>So konfigurieren Sie ein Bootstrap-drahtlos Profil
 

@@ -6,12 +6,12 @@ author: gawatu
 ms.author: gawatu
 manager: mallikarjun.chadalapaka
 ms.date: 6/05/2018
-ms.openlocfilehash: e82b27d2d746592b29b86a66ee34b21f8605a0d8
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: e78afb47877bb908df81876afe01d2f60b853c70
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87940161"
+ms.locfileid: "87996707"
 ---
 # <a name="managing-capabilities"></a>Verwalten von Funktionen
 
@@ -86,7 +86,7 @@ System Insights protokolliert jedes Mal ein Ereignis, wenn eine Funktion eine Vo
 | Keine | 132 |
 
 >[!TIP]
->Verwenden Sie [Azure Monitor](https://azure.microsoft.com/services/monitor/) oder [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/welcome?view=sc-om-1807) , um diese Ereignisse zu aggregieren und die Vorhersage Ergebnisse für eine Gruppe von Computern anzuzeigen.
+>Verwenden Sie [Azure Monitor](https://azure.microsoft.com/services/monitor/) oder [System Center Operations Manager](/system-center/scom/welcome?view=sc-om-1807) , um diese Ereignisse zu aggregieren und die Vorhersage Ergebnisse für eine Gruppe von Computern anzuzeigen.
 
 
 ## <a name="setting-a-capability-schedule"></a>Festlegen eines Funktions Zeitplans

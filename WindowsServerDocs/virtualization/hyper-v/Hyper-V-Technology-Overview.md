@@ -1,24 +1,22 @@
 ---
 title: Übersicht über die Hyper-V-Technologie
 description: In diesem Thema wird beschrieben, was Hyper-V ist, wie Sie es erhalten, welche Features Sie nutzen können
-ms.prod: windows-server
 manager: dongill
-ms.technology: compute-hyper-v
 ms.topic: article
 ms.assetid: ac069fed-7bf5-4cc3-aff5-25a2766040b8
 author: kbdazure
 ms.author: kathydav
 ms.date: 11/29/2016
-ms.openlocfilehash: d21bec24a22607213771bdad0b48df18fd88eb4d
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 5fd4c0199cea04d6697b593ad70b4f31b55afad0
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80853243"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87960763"
 ---
 # <a name="hyper-v-technology-overview"></a>Übersicht über die Hyper-V-Technologie
 
->Gilt für: Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019, Microsoft Hyper-V Server 2019
+>Gilt für: Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019, Microsoft Hyper-V Server 2019
 
 Hyper-V ist das Hardware-Virtualisierungsprodukt von Microsoft. Es ermöglicht Ihnen das Erstellen und Ausführen einer Softwareversion eines Computers, der als *virtueller*Computer bezeichnet wird. Jeder virtuelle Computer verhält sich wie ein kompletter Computer, auf dem ein Betriebssystem und Programme ausgeführt werden. Wenn Sie computeressourcen benötigen, bieten Ihnen virtuelle Computer mehr Flexibilität, Zeit und Geld zu sparen und eine effizientere Möglichkeit zur Verwendung von Hardware, als nur ein Betriebssystem auf physischer Hardware ausgeführt wird.
 
@@ -28,13 +26,13 @@ Hyper-V führt jeden virtuellen Computer in einem eigenen isolierten Speicherpla
 
 Hyper-V kann Ihnen Folgendes helfen:
 
-- **Richten Sie eine Private Cloud Umgebung ein oder erweitern Sie Sie.** Bieten Sie flexiblere, Bedarfs gesteuerte IT-Dienste an, indem Sie die Verwendung von freigegebenen Ressourcen verschieben oder erweitern und die Auslastung bei Bedarf anpassen.
+- **Aufbauen oder Erweitern einer privaten Cloud-Umgebung** Bieten Sie flexiblere, Bedarfs gesteuerte IT-Dienste an, indem Sie die Verwendung von freigegebenen Ressourcen verschieben oder erweitern und die Auslastung bei Bedarf anpassen.
 
 - **Verwenden Sie Ihre Hardware effektiver.** Konsolidieren Sie Server und Arbeits Auslastungen auf weniger, leistungsfähigere physische Computer, um weniger Strom und physischen Speicherplatz zu nutzen.
 
-- **Verbessern Sie die Geschäftskontinuität.** Minimieren Sie die Auswirkungen sowohl geplanter als auch nicht geplanter Ausfallzeiten Ihrer Workloads.
+- **Verbessern der Geschäftskontinuität** Minimieren Sie die Auswirkungen sowohl geplanter als auch nicht geplanter Ausfallzeiten Ihrer Workloads.
 
-- **Einrichten oder Erweitern einer virtuellen Desktop Infrastruktur (VDI).** Mithilfe einer zentralisierten Desktop Strategie mit VDI können Sie die geschäftliche Flexibilität und Datensicherheit steigern und die Einhaltung gesetzlicher Vorschriften und die Verwaltung von Desktop Betriebssystemen und-Anwendungen vereinfachen. Stellen Sie Hyper-V und Remotedesktop-Virtualisierungshost (RD-Virtualisierungshost) auf demselben Server bereit, um Ihren Benutzern persönliche virtuelle Desktops oder virtuelle Desktop Pools zur Verfügung zu stellen.
+- **Aufbauen oder Erweitern einer virtuellen Desktopinfrastruktur (VDI).** Mithilfe einer zentralisierten Desktop Strategie mit VDI können Sie die geschäftliche Flexibilität und Datensicherheit steigern und die Einhaltung gesetzlicher Vorschriften und die Verwaltung von Desktop Betriebssystemen und-Anwendungen vereinfachen. Stellen Sie Hyper-V und Remotedesktop-Virtualisierungshost (RD-Virtualisierungshost) auf demselben Server bereit, um Ihren Benutzern persönliche virtuelle Desktops oder virtuelle Desktop Pools zur Verfügung zu stellen.
 
 - **Entwickeln und testen Sie die Entwicklung und das Testen effizienter.** Reproduzieren Sie unterschiedliche Computerumgebungen, ohne dass Sie die erforderliche Hardware erwerben oder verwalten müssen, wenn Sie nur physische Systeme verwendet haben.
 
@@ -88,7 +86,7 @@ Hyper-V verfügt auch über Tools für Verwaltung und Konnektivität. Sie könne
 
 - Hyper-V-Manager
 - [Hyper-V-Modul für Windows PowerShell](https://docs.microsoft.com/powershell/module/hyper-v/index)
-- Die [Verbindung des virtuellen](https://docs.microsoft.com/windows-server/virtualization/hyper-v/learn-more/hyper-v-virtual-machine-connect) Computers \(manchmal als "VMConnect" bezeichnet\)
+- Verbindung mit virtuellen Computern [Virtual Machine Connection](https://docs.microsoft.com/windows-server/virtualization/hyper-v/learn-more/hyper-v-virtual-machine-connect) \( manchmal auch VMConnect genannt\)
 - [Windows PowerShell Direct](manage/Manage-Windows-virtual-machines-with-PowerShell-Direct.md)
 
 ## <a name="related-technologies"></a>Verwandte Technologien

@@ -6,14 +6,12 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server
-ms.technology: identity-adds
-ms.openlocfilehash: 4d39ee3053133286c07a93d18b5c3bd5809e3b54
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: 03e45cbeadf25391522728bf3d30006bec76e1e0
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87182396"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87996684"
 ---
 # <a name="dynamic-access-control-scenario-overview"></a>Dynamische Zugriffsteuerung: Szenarioübersicht
 
@@ -60,9 +58,9 @@ Folgende Szenarien und Anweisungen sind in diesem Inhaltssatz enthalten:
 
 |Inhaltstyp|Referenzen|
 |----------------|--------------|
-|**Produktbewertung**|- [Leitfaden zu dynamischen Access Control Reviewern](https://docs.microsoft.com/previous-versions/orphan-topics/ws.10/cc732148(v=ws.10))<br>- [Leitfaden für dynamische Access Control-Entwickler](https://docs.microsoft.com/previous-versions/windows/desktop/dacx/dynamic-access-control-developer-extensibility-roadmap)|
-|**Planung**|- [Planen einer Bereitstellung einer zentralen Zugriffs Richtlinie](https://docs.microsoft.com/windows-server/identity/solution-guides/scenario--central-access-policy)<br>- [Planen der Datei Zugriffs Überwachung](Plan-for-File-Access-Auditing.md)|
-|**Bereitstellung**|- [Active Directory Bereitstellung](https://docs.microsoft.com/windows-server/identity/ad-ds/deploy/ad-ds-deployment)<br>- [Bereitstellung von Datei-und Speicherdiensten](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831487(v=ws.11))|
-|**Vorgänge**|[PowerShell-Referenz für die dynamische Zugriffssteuerung](https://docs.microsoft.com/powershell/module/addsadministration/?view=win10-ps)|
+|**Produktbewertung**|- [Leitfaden zu dynamischen Access Control Reviewern](/previous-versions/orphan-topics/ws.10/cc732148(v=ws.10))<br>- [Leitfaden für dynamische Access Control-Entwickler](/previous-versions/windows/desktop/dacx/dynamic-access-control-developer-extensibility-roadmap)|
+|**Planung**|- [Planen einer Bereitstellung einer zentralen Zugriffs Richtlinie](./scenario--central-access-policy.md)<br>- [Planen der Datei Zugriffs Überwachung](Plan-for-File-Access-Auditing.md)|
+|**Bereitstellung**|- [Active Directory Bereitstellung](../ad-ds/deploy/ad-ds-deployment.md)<br>- [Bereitstellung von Datei-und Speicherdiensten](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831487(v=ws.11))|
+|**Vorgänge**|[PowerShell-Referenz für die dynamische Zugriffssteuerung](/powershell/module/addsadministration/?view=win10-ps)|
 |**Tools und Einstellungen**|[Toolkit zur Datenklassifizierung](https://www.microsoft.com/download/details.aspx?id=27123)|
-|**Communityressourcen**|[Forum zu Verzeichnisdiensten](https://docs.microsoft.com/answers/topics/windows-active-directory.html)|
+|**Communityressourcen**|[Forum zu Verzeichnisdiensten](/answers/topics/windows-active-directory.html)|

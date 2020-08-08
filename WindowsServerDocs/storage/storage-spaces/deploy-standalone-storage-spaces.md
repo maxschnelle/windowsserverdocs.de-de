@@ -1,19 +1,17 @@
 ---
 title: Bereitstellen von Speicherplätzen auf einem eigenständigen Server
 description: Hier wird beschrieben, wie Speicherplätze auf einem eigenständigen Windows Server 2012-basierten Server bereitgestellt werden.
-ms.prod: windows-server
 ms.topic: article
 author: JasonGerend
 ms.author: jgerend
-ms.technology: storage-spaces
 ms.date: 07/09/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: b5f1ccab7e4c0ca2bbd478509a76a4a37559c345
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: ac661631eef9053e202c7e21ffff9982d26d1d38
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87181866"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87960823"
 ---
 # <a name="deploy-storage-spaces-on-a-stand-alone-server"></a>Bereitstellen von Speicherplätzen auf einem eigenständigen Server
 
@@ -46,7 +44,7 @@ Wenn Sie Speicherplätze auf einem eigenständigen Windows Server 2012-basierten
 > [!IMPORTANT]
 > Weitere Informationen zum Bereitstellen von Speicherplätzen auf einem Failovercluster finden Sie unter Bereitstellen [eines Speicherplätze-Clusters unter Windows Server 2012 R2](</previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/mt270997(v%3dws.11)>). Für eine failoverclusterbereitstellung gelten andere Voraussetzungen, z. b. unterstützte Daten trägerbus Typen, unterstützte resilienztypen und die erforderliche Mindestanzahl von Datenträgern
 
-|Bereich|Anforderung|Notizen|
+|Bereich|Anforderung|Hinweise|
 |---|---|---|
 |Datenträgerbustypen|-Serial Attached SCSI (SAS)<br>-Serial Advanced Technology Attachment (SATA)<br>-iSCSI-und Fibre Channel Controller. |Sie können auch USB-Laufwerke verwenden. Es ist jedoch nicht optimal, USB-Laufwerke in einer Serverumgebung zu verwenden.<br>Speicherplätze werden auf iSCSI-und Fibre Channel (FC)-Controllern unterstützt, solange die darauf erstellten virtuellen Datenträger nicht stabil sind (einfach mit einer beliebigen Anzahl von Spalten).<br>|
 |Datenträgerkonfiguration|-Der physische Datenträger muss mindestens 4 GB groß sein.<br>-Datenträger müssen leer und nicht formatiert sein. Erstellen Sie keine Volumes||
@@ -154,7 +152,7 @@ Als Nächstes erstellen Sie einzelne oder mehrere virtuelle Datenträger aus dem
 
      Bei einer schlanken Bereitstellung wird Speicher nur auf Bedarf zugeordnet. Dadurch wird die Nutzung des verfügbaren Speichers optimiert. Da auf diese Weise aber eine übermäßige Zuteilung des Speichers möglich ist, müssen Sie sorgfältig überwachen, wie viel Speicherplatz verfügbar ist.
 
-   - **Fest**
+   - **Festen**
 
      Bei einer festen Bereitstellung wird die Speicherkapazität sofort beim Erstellen eines virtuellen Datenträgers zugeteilt. Daher entspricht der Speicherplatz, der bei einer festen Bereitstellung aus dem Speicherpool verwendet wird, der Größe des virtuellen Datenträgers.
 

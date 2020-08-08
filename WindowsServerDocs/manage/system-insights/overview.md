@@ -1,19 +1,17 @@
 ---
 title: 'Systemdaten: Übersicht'
 description: System Insights ist ein neues Predictive Analytics Feature in Windows Server 2019. Die Vorhersagefunktionen von System Insights, die jeweils durch ein Machine Learning-Modell unterstützt werden, analysieren lokal Windows Server-System Daten (z. b. Leistungsindikatoren und Ereignisse), um Einblicke in die Funktionsweise Ihrer Server zu erhalten und die Betriebskosten zu reduzieren, die mit der reaktiven Verwaltung von Problemen in ihren bereit Stellungen einhergehen.
-ms.prod: windows-server
-ms.technology: system-insights
 ms.topic: article
 author: gawatu
 ms.author: gawatu
 manager: mallikarjun.chadalapaka
 ms.date: 5/23/2018
-ms.openlocfilehash: b1f0fc5343c5228a02369a64bff2de50ab3f863e
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 9bedd593cdd26b67e6e16ddea73955bb926a87a5
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85471765"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87996677"
 ---
 # <a name="system-insights-overview"></a>Systemdaten: Übersicht
 
@@ -23,7 +21,7 @@ System Insights ist ein neues Predictive Analytics Feature in Windows Server 201
 
 In Windows Server 2019 wird System Insights mit vier Standardfunktionen ausgeliefert, die sich auf die Kapazitäts Vorhersage konzentrieren, und zukünftige Ressourcen für Compute-, Netzwerk-und Speicherressourcen basierend auf Ihren vorherigen Verwendungs Mustern Vorhersagen. System Insights ist auch mit einer [erweiterbaren Infrastruktur](adding-and-developing-capabilities.md)ausgeliefert, sodass von Microsoft und Drittanbietern neue Vorhersagefunktionen zu System Insights hinzugefügt werden können, ohne das Betriebs System zu aktualisieren.
 
-Sie können System Einblicke über eine intuitive [Windows Admin Center](https://docs.microsoft.com/windows-server/manage/windows-admin-center/overview) -Erweiterung oder [direkt über PowerShell](https://aka.ms/SystemInsightsPowerShell)verwalten. mit System Insights können Sie jede Vorhersagefunktion separat entsprechend den Anforderungen Ihrer Bereitstellung konfigurieren. Alle Vorhersage Ergebnisse werden im Ereignisprotokoll veröffentlicht, sodass Sie [Azure Monitor](https://azure.microsoft.com/services/monitor/) oder [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/welcome?view=sc-om-1807) verwenden können, um auf einfache Weise Vorhersagen für eine Gruppe von Computern zu aggregieren und anzuzeigen.
+Sie können System Einblicke über eine intuitive [Windows Admin Center](../windows-admin-center/overview.md) -Erweiterung oder [direkt über PowerShell](https://aka.ms/SystemInsightsPowerShell)verwalten. mit System Insights können Sie jede Vorhersagefunktion separat entsprechend den Anforderungen Ihrer Bereitstellung konfigurieren. Alle Vorhersage Ergebnisse werden im Ereignisprotokoll veröffentlicht, sodass Sie [Azure Monitor](https://azure.microsoft.com/services/monitor/) oder [System Center Operations Manager](/system-center/scom/welcome?view=sc-om-1807) verwenden können, um auf einfache Weise Vorhersagen für eine Gruppe von Computern zu aggregieren und anzuzeigen.
 
 ![System Insights-Erweiterung im Windows Admin Center und zeigt die Prognose der CPU-Kapazität mit einem Diagramm, das die Vorhersage gezeichnet.](media/cpu-forecast-2.png)
 
@@ -65,7 +63,7 @@ Wir freuen uns über Ihr Feedback, um uns bei der Verbesserung dieses Features z
 - **UserVoice**: übermitteln Sie Featureanforderungen über unsere [UserVoice-Seite](https://windowsserver.uservoice.com/forums/295071-management-tools). Teilen Sie den Kollegen mit, dass Sie die für Sie wichtigen Elemente upstimmen.
 - **E-Mail**: Wenn Sie Ihr Feedback privat an das Featureteam senden möchten, senden Sie eine e-Mail an system-insights-feed@microsoft.com . Beachten Sie, dass wir Sie möglicherweise bitten, Feedback-Hub oder UserVoice zu verwenden.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 Weitere Informationen zu System Insights finden Sie in den folgenden Ressourcen:
 
 - [Grundlegendes zu Funktionen](understanding-capabilities.md)

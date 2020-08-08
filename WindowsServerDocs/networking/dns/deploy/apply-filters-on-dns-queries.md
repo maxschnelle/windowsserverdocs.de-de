@@ -6,12 +6,12 @@ ms.topic: article
 ms.assetid: b86beeac-b0bb-4373-b462-ad6fa6cbedfa
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 81afa40adc51a89a12e096000de1f11f13730df6
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 79e0a0c0e99c49fc251d8aebc3fc76e68603e45c
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87964176"
+ms.locfileid: "87996921"
 ---
 # <a name="use-dns-policy-for-applying-filters-on-dns-queries"></a>Verwenden der DNS-Richtlinie zum Anwenden von Filtern auf DNS-Abfragen
 
@@ -41,7 +41,7 @@ Sie können Abfrage Filter mit einer beliebigen logischen Kombination (und/oder/
 In den folgenden Beispielen wird gezeigt, wie Sie Filter für die DNS-Richtlinie erstellen, die DNS-Namens Auflösungs Abfragen blockieren oder zulassen.
 
 >[!NOTE]
->Die Beispiel Befehle in diesem Thema verwenden den Windows PowerShell-Befehl **Add-dnsserverqueryresolutionpolicy**. Weitere Informationen finden Sie unter [Add-dnsserverqueryresolutionpolicy](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverqueryresolutionpolicy?view=win10-ps).
+>Die Beispiel Befehle in diesem Thema verwenden den Windows PowerShell-Befehl **Add-dnsserverqueryresolutionpolicy**. Weitere Informationen finden Sie unter [Add-dnsserverqueryresolutionpolicy](/powershell/module/dnsserver/add-dnsserverqueryresolutionpolicy?view=win10-ps).
 
 ## <a name="block-queries-from-a-domain"></a><a name="bkmk_block1"></a>Blockieren von Abfragen aus einer Domäne
 

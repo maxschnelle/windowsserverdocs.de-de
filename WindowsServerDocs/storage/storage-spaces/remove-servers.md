@@ -1,21 +1,19 @@
 ---
 title: Entfernen von Servern in direkte Speicherplätze
 ms.assetid: 9d8499a7-1307-473d-9f00-8a051164fad2
-ms.prod: windows-server
 ms.author: cosdar
 manager: eldenc
-ms.technology: storage-spaces
 ms.topic: article
 author: cosmosdarwin
 description: Entfernen von Servern aus einem direkte Speicherplätze-Cluster in Windows Server.
 ms.date: 2/5/2017
 ms.localizationpriority: medium
-ms.openlocfilehash: 4fa3fe64cb5d7448a7e71eb344309ecb9990ebcd
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: cc6ca368be71b24b8a552051c6edc2b7220dd57b
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86960022"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87971067"
 ---
 # <a name="removing-servers-in-storage-spaces-direct"></a>Entfernen von Servern in direkte Speicherplätze
 
@@ -70,7 +68,7 @@ Wenn Ihre Volumes z. b. die drei-Wege-Spiegelung auf Serverebene für Resilienz 
 
 Diese Tabelle zeigt die Mindestanzahl von Fehler Domänen, die für jeden resilienztyp erforderlich sind.
 
-|    Resilienz          |    Mindestens erforderliche Fehler Domänen   |
+|    Resilienz          |    Mindestens erforderliche Fehlerdomänen   |
 |------------------------|-------------------------------------|
 |    Zwei-Wege-Spiegelung      |    2                                |
 |    Drei-Wege-Spiegelung    |    3                                |
@@ -79,6 +77,6 @@ Diese Tabelle zeigt die Mindestanzahl von Fehler Domänen, die für jeden resili
    >[!NOTE]
    > Es ist in Ordnung, kurz weniger Server zu haben, z. b. bei Fehlern oder Wartungs Tasks. Damit Volumes in einen vollständig fehlerfreien Status zurückversetzt werden können, müssen Sie jedoch über die Mindestanzahl der oben aufgeführten Server verfügen.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
-- [Übersicht über direkte Speicherplätze](storage-spaces-direct-overview.md)
+- [Direkte Speicherplätze – Übersicht](storage-spaces-direct-overview.md)

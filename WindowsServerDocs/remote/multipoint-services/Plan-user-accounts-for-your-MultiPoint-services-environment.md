@@ -7,12 +7,12 @@ ms.assetid: d47be540-e891-47bd-85da-6df4bbf93b2f
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: 63acb44d5b5015d1fb1d560f52ffde8cd37f8cbf
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 096d09a78abb8902225432a358692d00f460e91c
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87951765"
+ms.locfileid: "87996816"
 ---
 # <a name="plan-user-accounts-for-your-multipoint-services-environment"></a>Planen von Benutzerkonten für eine MultiPoint Services-Umgebung
 Die beste Methode zum Implementieren von Benutzerkonten in Multipoint Services hängt von der Größe und Komplexität Ihrer Bereitstellung ab:
@@ -22,7 +22,7 @@ Die beste Methode zum Implementieren von Benutzerkonten in Multipoint Services h
 -   **Domänen Konten** : Wenn in Ihrer Umgebung viele Computer mit Multipoint Services und vielen Benutzern vorhanden sind, ist es wahrscheinlich sinnvoller, eine Active Directory Domain Services \( AD DS \) Domäne einzurichten und *Domänen Benutzerkonten*zu verwenden, die es Benutzern ermöglichen, von einer beliebigen Station in der Domäne aus auf Ihr eigenes Benutzerprofil und ihre eigenen Einstellungen zuzugreifen. Domänen Benutzerkonten müssen von einem Domänen Administrator auf dem Domänen Controller erstellt werden.
 
 > [!NOTE]
-> In den folgenden Abschnitten werden Szenarien erörtert, die Sie möglicherweise für lokale Benutzerkonten in Multipoint Services implementieren. Wenn Sie Domänen Benutzerkonten verwenden, finden Sie weitere Informationen im Szenario "mindestens ein Multipoint-Server in einer Domänen Netzwerkumgebung" in [Beispielszenarien: Multipoint Services-Benutzerkonten](Example-scenarios--MultiPoint-Services-user-accounts.md).
+> In den folgenden Abschnitten werden Szenarien erörtert, die Sie möglicherweise für lokale Benutzerkonten in Multipoint Services implementieren. Wenn Sie Domänen Benutzerkonten verwenden, finden Sie weitere Informationen im Szenario "mindestens ein Multipoint-Server in einer Domänen Netzwerkumgebung" in [Beispielszenarien: Multipoint Services-Benutzerkonten](./multipoint-users-scenario.md).
 
 ## <a name="planning-local-user-accounts"></a>Planen von lokalen Benutzerkonten
 In den folgenden Abschnitten werden die vor-und Nachteile sowie die Anforderungen für verschiedene Methoden zum Implementieren einzelner oder gemeinsam genutzter lokaler Benutzerkonten in Ihrer Windows-MultiPoint Services-Umgebung berücksichtigt.

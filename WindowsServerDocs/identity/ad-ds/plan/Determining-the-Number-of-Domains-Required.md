@@ -6,14 +6,12 @@ author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 08/08/2018
 ms.topic: article
-ms.prod: windows-server
-ms.technology: identity-adds
-ms.openlocfilehash: 2ed2a6b601ee2cabd45fd5170764c812307b6ac1
-ms.sourcegitcommit: 11421f4005f9f3a3f6c0db95b1836d0f765a9fa3
+ms.openlocfilehash: 6ff1d69afc95aa87d81c8737313d425e84cbc531
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81624268"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87941328"
 ---
 # <a name="determining-the-number-of-domains-required"></a>Bestimmen der Anzahl der erforderlichen Domänen
 
@@ -128,4 +126,4 @@ Obwohl die Gesamtzahl der Benutzer, die Sie in einer Domäne in einer Gesamtstru
 
 Nachdem Sie Ihre Organisation in regionale Domänen aufgeteilt haben, dokumentieren Sie die Regionen, die Sie darstellen möchten, sowie die Anzahl der Benutzer, die in jeder Region vorhanden sein werden. Beachten Sie außerdem die Geschwindigkeit der langsamsten Links in den einzelnen Regionen, die Sie für die Active Directory Replikation verwenden werden. Diese Informationen werden verwendet, um zu bestimmen, ob zusätzliche Domänen oder Gesamtstrukturen benötigt werden.
 
-Für ein Arbeitsblatt, das Sie bei der Dokumentation der identifizierten Regionen unterstützt, laden Sie Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip aus den [Auftrags Hilfen für das Windows Server 2003 Deployment Kit](https://microsoft.com/download/details.aspx?id=9608) herunter, und öffnen Sie "Identifizierungs Regionen" (DSSLOGI_4. doc).
+Für ein Arbeitsblatt, das Sie bei der Dokumentation der identifizierten Regionen unterstützt, laden Sie Job_Aids_Designing_and_Deploying_Directory_and_Security_Services.zip aus den [Auftrags Hilfen für Windows Server 2003 Deployment Kit](https://microsoft.com/download/details.aspx?id=9608) herunter, und öffnen Sie "Identifizierungs Regionen" (DSSLOGI_4.doc).

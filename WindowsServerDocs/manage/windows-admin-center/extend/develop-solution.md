@@ -1,19 +1,17 @@
 ---
 title: Entwickeln einer Lösungserweiterung
 description: Entwickeln einer projektmappenerweiterung Windows Admin Center SDK (Project Honolulu)
-ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
 ms.author: niwashbu
 ms.date: 09/18/2018
 ms.localizationpriority: medium
-ms.prod: windows-server
-ms.openlocfilehash: 6ac9c6296fdf9159c9f50a1304dd345932052ac9
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 27ded378a40537455423f79869dfd07dcd2ba625
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71357146"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87949595"
 ---
 # <a name="develop-a-solution-extension"></a>Entwickeln einer Lösungserweiterung
 
@@ -45,7 +43,7 @@ Nachdem Sie alle Abhängigkeiten installiert haben, können Sie Ihre neue projek
 wac create --company "{!Company Name}" --solution "{!Solution Name}" --tool "{!Tool Name}"
 ```
 
-| Wert | Erläuterung | Beispiel |
+| Wert | Erklärung | Beispiel |
 | ----- | ----------- | ------- |
 | ```{!Company Name}``` | Name Ihres Unternehmens (mit Leerzeichen) | ```Contoso Inc``` |
 | ```{!Solution Name}``` | Ihr Projektmappenname (mit Leerzeichen) | ```Contoso Foo Works Suite``` |
@@ -57,7 +55,7 @@ Beispiel zur Verwendung:
 wac create --company "Contoso Inc" --solution "Contoso Foo Works Suite" --tool "Manage Foo Works"
 ```
 
-Dadurch wird im aktuellen Arbeitsverzeichnis ein neuer Ordner mit dem Namen erstellt, den Sie für die Projekt Mappe angegeben haben. alle erforderlichen Vorlagen Dateien werden in das Projekt kopiert, und die Dateien werden mit Ihrem Unternehmen, ihrer Lösung und dem Toolnamen konfiguriert.  
+Dadurch wird im aktuellen Arbeitsverzeichnis ein neuer Ordner mit dem Namen erstellt, den Sie für die Projekt Mappe angegeben haben. alle erforderlichen Vorlagen Dateien werden in das Projekt kopiert, und die Dateien werden mit Ihrem Unternehmen, ihrer Lösung und dem Toolnamen konfiguriert.
 
 Wechseln Sie als nächstes das Verzeichnis in den soeben erstellten Ordner, und installieren Sie die erforderlichen lokalen Abhängigkeiten, indem Sie den folgenden Befehl ausführen:
 
@@ -65,7 +63,7 @@ Wechseln Sie als nächstes das Verzeichnis in den soeben erstellten Ordner, und 
 npm install
 ```
 
-Nachdem dieser Vorgang abgeschlossen ist, haben Sie alles eingerichtet, was Sie benötigen, um Ihre neue Erweiterung in das Windows Admin Center zu laden. 
+Nachdem dieser Vorgang abgeschlossen ist, haben Sie alles eingerichtet, was Sie benötigen, um Ihre neue Erweiterung in das Windows Admin Center zu laden.
 
 ## <a name="add-content-to-your-extension"></a>Hinzufügen von Inhalt zu ihrer Erweiterung
 
@@ -75,7 +73,7 @@ Nachdem Sie nun mit der Windows Admin Center-CLI eine Erweiterung erstellt haben
 - [Iframe](guides/add-iframe.md) hinzufügen
 - Erstellen eines [benutzerdefinierten Verbindungs Anbieters](guides/create-connection-provider.md)
 - Ändern des Verhaltens der Stamm [Navigation](guides/modify-root-navigation.md)
- 
+
 Weitere Beispiele finden Sie auf unserer [GitHub SDK-Website](https://aka.ms/wacsdk):
 -  [Entwicklertools](https://github.com/Microsoft/windows-admin-center-sdk/tree/master/windows-admin-center-developer-tools) ist eine voll funktionsfähige Erweiterung, die im Windows Admin Center nebeneinander geladen werden kann und eine umfangreiche Sammlung von Beispiel Funktionen und Tool Beispielen enthält, die Sie in ihrer eigenen Erweiterung durchsuchen und verwenden können.
 
@@ -83,28 +81,28 @@ Weitere Beispiele finden Sie auf unserer [GitHub SDK-Website](https://aka.ms/wac
 
 Erstellen Sie als nächstes die Erweiterung, und laden Sie Sie auf das Windows Admin Center.  Öffnen Sie ein Befehlsfenster, wechseln Sie zum Quellverzeichnis, und erstellen Sie das Verzeichnis.
 
-* Erstellen und mit schlucken dienen:
+* Erstellen Sie mit Gulp, und bedienen Sie es:
 
     ```
     gulp build
     gulp serve -p 4201
     ```
 
-Beachten Sie, dass müssen Sie einen Port auswählen, der derzeit frei ist. Stellen Sie sicher, dass Sie versucht nicht, den Port verwenden, den Windows Admin Center ausgeführt wird.
+Beachten Sie, dass Sie einen Port auswählen müssen, der derzeit kostenlos ist. Stellen Sie sicher, dass Sie nicht versuchen, den Port zu verwenden, auf dem Windows Admin Center ausgeführt wird.
 
-Das Projekt kann Seite in eine lokale Instanz des Windows Admin Center zu Testzwecken durch Anfügen des lokal vom Server ausgegebenen Projekts in Windows Admin Center geladen sein.
+Ihr Projekt kann zum Testen in eine lokale Instanz des Windows Admin Centers geladen werden, indem das lokal bereitgestellte Projekt an das Windows Admin Center angefügt wird.
 
-* Starten des Windows Admin Center in einem Webbrowser
-* Öffnen Sie den Debugger (F12)
-* Öffnen Sie die Konsole, und geben Sie den folgenden Befehl ein:
+* Starten des Windows Admin Centers in einem Webbrowser
+* Öffnen Sie den Debugger (F12).
+* Öffnen Sie die-Konsole, und geben Sie den folgenden Befehl ein:
 
     ```
     MsftSme.sideLoad("http://localhost:4201")
     ```
 
-*   Aktualisieren Sie den Webbrowser
+*   Webbrowser aktualisieren
 
-Das Projekt wird jetzt in der Liste Tools mit (Seite geladen) neben dem Namen angezeigt.
+Das Projekt ist nun in der Liste der Tools mit (neben dem Namen) sichtbar.
 
 ## <a name="target-a-different-version-of-the-windows-admin-center-sdk"></a>Eine andere Version des Windows Admin Center SDK als Zielversion
 

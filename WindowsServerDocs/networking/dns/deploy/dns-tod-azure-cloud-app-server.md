@@ -6,12 +6,12 @@ ms.topic: article
 ms.assetid: 4846b548-8fbc-4a7f-af13-09e834acdec0
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 04e4d33f6c5894a59547e84a6066d3af04f80a9b
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: d7df84e26ef86f553d57b2019d4d46581d7c17fa
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87964106"
+ms.locfileid: "87996897"
 ---
 # <a name="dns-responses-based-on-time-of-day-with-an-azure-cloud-app-server"></a>Auf der Tageszeit basierende DNS-Antworten mit einem Azure-Cloud-App-Server
 
@@ -22,7 +22,7 @@ In diesem Thema erfahren Sie, wie Sie den Anwendungs Datenverkehr mithilfe von D
 Dieses Szenario ist nützlich, wenn Sie Datenverkehr in einer Zeitzone an Alternative Anwendungsserver weiterleiten möchten, z. b. Webserver, die auf Microsoft Azure gehostet werden, die sich in einer anderen Zeitzone befinden. Dies ermöglicht Ihnen den Lastenausgleich für Datenverkehr über Anwendungs Instanzen hinweg in Spitzenzeiten, in denen Ihre primären Server mit Datenverkehr überlastet sind.
 
 > [!NOTE]
-> Informationen zum Verwenden der DNS-Richtlinie für intelligente DNS-Antworten ohne Verwendung von Azure finden Sie unter [Verwenden der DNS-Richtlinie für Intelligent DNS-Antworten basierend auf der Tageszeit](Scenario--Use-DNS-Policy-for-Intelligent-DNS-Responses-Based-on-the-Time-of-Day.md).
+> Informationen zum Verwenden der DNS-Richtlinie für intelligente DNS-Antworten ohne Verwendung von Azure finden Sie unter [Verwenden der DNS-Richtlinie für Intelligent DNS-Antworten basierend auf der Tageszeit](./dns-tod-intelligent.md).
 
 ## <a name="example-of-intelligent-dns-responses-based-on-the-time-of-day-with-azure-cloud-app-server"></a>Beispiel für intelligente DNS-Antworten basierend auf der Tageszeit mit Azure Cloud App Server
 
@@ -91,7 +91,7 @@ Sie können den folgenden Beispiel Befehl verwenden, um einen Zonen Bereich zum 
 Add-DnsServerZoneScope -ZoneName "contosogiftservices.com" -Name "AzureZoneScope"
 ```
 
-Weitere Informationen finden Sie unter [Add-dnsserverzonescope](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverzonescope?view=win10-ps) .
+Weitere Informationen finden Sie unter [Add-dnsserverzonescope](/powershell/module/dnsserver/add-dnsserverzonescope?view=win10-ps) .
 
 ### <a name="add-records-to-the-zone-scopes"></a>Hinzufügen von Datensätzen zu den Zonen Bereichen
 Der nächste Schritt besteht darin, die Datensätze, die den Webserver Host darstellen, zu den Zonen Bereichen hinzuzufügen.
@@ -110,7 +110,7 @@ Add-DnsServerResourceRecord -ZoneName "contosogiftservices.com" -A -Name "www" -
 Add-DnsServerResourceRecord -ZoneName "contosogiftservices.com" -A -Name "www" -IPv4Address "192.68.30.2"
 ```
 
-Weitere Informationen finden Sie unter [Add-dnsserverresourcerecord](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverresourcerecord?view=win10-ps).
+Weitere Informationen finden Sie unter [Add-dnsserverresourcerecord](/powershell/module/dnsserver/add-dnsserverresourcerecord?view=win10-ps).
 
 ### <a name="create-the-dns-policies"></a>Erstellen der DNS-Richtlinien
 Nachdem die Zonen Bereiche erstellt wurden, können Sie DNS-Richtlinien erstellen, die die eingehenden Abfragen über diese Bereiche verteilen, sodass Folgendes auftritt.
@@ -126,7 +126,7 @@ Sie können den folgenden Beispiel Befehl verwenden, um die DNS-Richtlinie zu er
 Add-DnsServerQueryResolutionPolicy -Name "Contoso6To9Policy" -Action ALLOW -ZoneScope "contosogiftservices.com,7;AzureZoneScope,3" –TimeOfDay “EQ,18:00-21:00” -ZoneName "contosogiftservices.com" –ProcessingOrder 1
 ```
 
-Weitere Informationen finden Sie unter [Add-dnsserverqueryresolutionpolicy](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverqueryresolutionpolicy?view=win10-ps).
+Weitere Informationen finden Sie unter [Add-dnsserverqueryresolutionpolicy](/powershell/module/dnsserver/add-dnsserverqueryresolutionpolicy?view=win10-ps).
 
 Nun wird der DNS-Server mit den erforderlichen DNS-Richtlinien konfiguriert, um den Datenverkehr basierend auf der Tageszeit an den Azure-Webserver umzuleiten.
 

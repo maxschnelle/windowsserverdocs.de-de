@@ -6,18 +6,18 @@ author: haley-rowland
 ms.author: harowl
 ms.date: 07/17/2018
 ms.localizationpriority: low
-ms.openlocfilehash: 265589789f2966e7b6140543876f41058aa5d705
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 651eff1819a7ec867febd86005415e5044e6bbd0
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87940081"
+ms.locfileid: "87996824"
 ---
 # <a name="protect-your-hyper-v-virtual-machines-with-azure-site-recovery-and-windows-admin-center"></a>Schützen Sie Ihre Hyper-V-Virtual Machines mit Azure Site Recovery und Windows Admin Center
 
 >Gilt für: Windows Admin Center-Vorschau, Windows Admin Center
 
-[Erfahren Sie mehr über die Azure-Integration in Windows Admin Center.](../plan/azure-integration-options.md)
+[Erfahren Sie mehr über die Azure-Integration in Windows Admin Center.](./index.md)
 
 Windows Admin Center optimiert den Prozess der Replikation ihrer virtuellen Computer auf Ihren Hyper-V-Servern oder-Clustern, sodass Sie die Leistungsfähigkeit von Azure aus Ihrem eigenen Daten Center leichter nutzen können. Zum Automatisieren des Setups können Sie das Windows Admin Center-Gateway mit Azure verbinden.
 
@@ -25,7 +25,7 @@ Verwenden Sie die folgenden Informationen, um die Replikationseinstellungen zu k
 
 ## <a name="what-is-azure-site-recovery-and-how-does-it-work-with-windows-admin-center"></a>Was ist Azure Site Recovery und wie funktioniert es mit dem Windows Admin Center?
 
-**Azure Site Recovery** ist ein Azure-Dienst, der Workloads auf virtuellen Computern repliziert, damit Ihre unternehmenskritische Infrastruktur im Notfall geschützt wird.  [Erfahren Sie mehr über Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview).
+**Azure Site Recovery** ist ein Azure-Dienst, der Workloads auf virtuellen Computern repliziert, damit Ihre unternehmenskritische Infrastruktur im Notfall geschützt wird.  [Erfahren Sie mehr über Azure Site Recovery](/azure/site-recovery/site-recovery-overview).
 
 Azure Site Recovery besteht aus zwei Komponenten: **Replikation** und **Failover**. Der Replikations Teil schützt Ihre VMS im Notfall, indem die VHD des virtuellen Ziel Computers in einem Azure-Speicherkonto repliziert wird. Sie können dann ein Failover für diese VMS ausführen und Sie im Falle eines Notfalls in Azure ausführen. Sie können auch ein Test Failover ausführen, ohne dass sich dies auf Ihre primären VMS auswirkt, um den Wiederherstellungsprozess in Azure zu testen.
 
@@ -36,7 +36,7 @@ Das Abschließen des Setups für die Replikations Komponente ist ausreichend, um
 
 - Die Zielserver, auf denen die virtuellen Computer gehostet werden, die Sie schützen möchten, müssen über Internet Zugang verfügen, um die Replikation
 - [Verbinden Sie Ihr Windows Admin Center-Gateway mit Azure](azure-integration.md).
-- [Überprüfen Sie das Tool Capacity Planning, um die Anforderungen für eine erfolgreiche Replikation und ein Failover auszuwerten](https://docs.microsoft.com/azure/site-recovery/hyper-v-site-walkthrough-capacity).
+- [Überprüfen Sie das Tool Capacity Planning, um die Anforderungen für eine erfolgreiche Replikation und ein Failover auszuwerten](/azure/site-recovery/hyper-v-site-walkthrough-capacity).
 
 ## <a name="step-1-set-up-vm-protection-on-your-target-host"></a>Schritt 1: Einrichten des VM-Schutzes auf dem Zielhost
 
@@ -68,9 +68,9 @@ Diese kann bis zu 10 Minuten dauern. Sie können den Fortschritt verfolgen, inde
 1. Navigieren Sie zurück zum Server oder Cluster, den Sie in Schritt 2 oben konfiguriert haben, und wechseln Sie zu **Virtual Machines > Inventory**.
 2. Wählen Sie den virtuellen Computer aus, den Sie schützen möchten.
 3. Wählen Sie **Weitere**  >  **Schutz-VM**aus.
-4. Überprüfen Sie die [Kapazitätsanforderungen für den Schutz der VM](https://docs.microsoft.com/azure/site-recovery/site-recovery-capacity-planner).
+4. Überprüfen Sie die [Kapazitätsanforderungen für den Schutz der VM](/azure/site-recovery/site-recovery-capacity-planner).
 
-    Wenn Sie ein Storage Premium-Konto verwenden möchten, erstellen Sie ein Storage Premium-Konto [in der Azure-Portal](https://docs.microsoft.com/azure/storage/common/storage-premium-storage). Die Option **neu erstellen** im Bereich Windows Admin Center erstellt ein Standard Speicherkonto.
+    Wenn Sie ein Storage Premium-Konto verwenden möchten, erstellen Sie ein Storage Premium-Konto [in der Azure-Portal](/azure/storage/common/storage-premium-storage). Die Option **neu erstellen** im Bereich Windows Admin Center erstellt ein Standard Speicherkonto.
 
 5. Geben Sie den Namen des **Speicher Kontos** ein, das für die Replikation dieser VM verwendet werden soll, und wählen Sie **VM schützen**aus. Mit diesem Schritt wird die Replikation für den ausgewählten virtuellen Computer aktiviert.
 
@@ -80,13 +80,13 @@ Diese kann bis zu 10 Minuten dauern. Sie können den Fortschritt verfolgen, inde
 
  Obwohl Sie diesen Schritt beim Starten der VM-Replikation nicht ausführen müssen (der virtuelle Computer wird bereits durch die Replikation geschützt), empfiehlt es sich, beim Einrichten von Azure Site Recovery Failovereinstellungen zu konfigurieren. Wenn Sie ein Failover auf eine Azure-VM vorbereiten möchten, führen Sie die folgenden Schritte aus:
 
-1. [Richten Sie ein Azure-Netzwerk ein](https://docs.microsoft.com/azure/site-recovery/hyper-v-site-walkthrough-prepare-azure) , das durch einen virtuellen Computer mit Failover an dieses vnet angefügt wird. Beachten Sie, dass die anderen auf der verknüpften Seite aufgeführten Schritte automatisch vom Windows Admin Center abgeschlossen werden.  Sie müssen das Azure-Netzwerk nur einrichten.
+1. [Richten Sie ein Azure-Netzwerk ein](/azure/site-recovery/hyper-v-site-walkthrough-prepare-azure) , das durch einen virtuellen Computer mit Failover an dieses vnet angefügt wird. Beachten Sie, dass die anderen auf der verknüpften Seite aufgeführten Schritte automatisch vom Windows Admin Center abgeschlossen werden.  Sie müssen das Azure-Netzwerk nur einrichten.
 
-2. [Führen Sie ein Test Failover](https://docs.microsoft.com/azure/site-recovery/hyper-v-site-walkthrough-test-failover)aus.
+2. [Führen Sie ein Test Failover](/azure/site-recovery/hyper-v-site-walkthrough-test-failover)aus.
 
 ## <a name="step-4-create-recovery-plans"></a>Schritt 4: Erstellen von Wiederherstellungs Plänen
 
-Der **Wiederherstellungs Plan** ist eine Funktion in Azure Site Recovery, mit der Sie ein Failover und eine vollständige Anwendung mit einer Sammlung von virtuellen Computern durch ein Failover durch Obwohl es möglich ist, geschützte VMS einzeln wiederherzustellen, indem Sie die virtuellen Computer, die eine Anwendung enthalten, einem Wiederherstellungs Plan hinzufügen, können Sie ein Failover für die gesamte Anwendung über den Wiederherstellungs Plan ausführen. Sie können auch das Feature Test Failover des Wiederherstellungs Plans verwenden, um die Wiederherstellung der Anwendung zu testen. Mit dem Wiederherstellungs Plan können Sie virtuelle Computer gruppieren, die Reihenfolge, in der Sie während eines Failovers hochgefahren werden sollten, sequenzieren und zusätzliche Schritte automatisieren, die im Rahmen des Wiederherstellungs Vorgangs ausgeführt werden sollen. Nachdem Sie Ihre virtuellen Computer geschützt haben, können Sie in der Azure-Portal zum Azure Site Recovery Tresor wechseln und Wiederherstellungs Pläne für diese VMS erstellen. [Erfahren Sie mehr über Wiederherstellungs Pläne](https://docs.microsoft.com/azure/site-recovery/site-recovery-create-recovery-plans).
+Der **Wiederherstellungs Plan** ist eine Funktion in Azure Site Recovery, mit der Sie ein Failover und eine vollständige Anwendung mit einer Sammlung von virtuellen Computern durch ein Failover durch Obwohl es möglich ist, geschützte VMS einzeln wiederherzustellen, indem Sie die virtuellen Computer, die eine Anwendung enthalten, einem Wiederherstellungs Plan hinzufügen, können Sie ein Failover für die gesamte Anwendung über den Wiederherstellungs Plan ausführen. Sie können auch das Feature Test Failover des Wiederherstellungs Plans verwenden, um die Wiederherstellung der Anwendung zu testen. Mit dem Wiederherstellungs Plan können Sie virtuelle Computer gruppieren, die Reihenfolge, in der Sie während eines Failovers hochgefahren werden sollten, sequenzieren und zusätzliche Schritte automatisieren, die im Rahmen des Wiederherstellungs Vorgangs ausgeführt werden sollen. Nachdem Sie Ihre virtuellen Computer geschützt haben, können Sie in der Azure-Portal zum Azure Site Recovery Tresor wechseln und Wiederherstellungs Pläne für diese VMS erstellen. [Erfahren Sie mehr über Wiederherstellungs Pläne](/azure/site-recovery/site-recovery-create-recovery-plans).
 
 ## <a name="monitoring-replicated-vms-in-azure"></a>Überwachen von replizierten VMs in Azure ##
 

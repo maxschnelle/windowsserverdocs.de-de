@@ -7,12 +7,12 @@ ms.author: rickman
 manager: stevelee
 ms.topic: article
 ms.date: 07/14/2020
-ms.openlocfilehash: afdb856fc84bcee634381f04054a97f545056882
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 8cba3ac4d2e4680f480ff76db12c10553c1857d3
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87938793"
+ms.locfileid: "87996953"
 ---
 # <a name="plan-for-gpu-acceleration-in-windows-server"></a>Planen der GPU-Beschleunigung in Windows Server
 
@@ -37,7 +37,7 @@ Die folgenden Technologien zur Grafik Virtualisierung sind für Hyper-V-VMs in W
 - [Diskrete Geräte Zuweisung (DDA)](#discrete-device-assignment-dda)
 - [RemoteFX vGPU](#remotefx-vgpu)
 
-Zusätzlich zu VM-Workloads unterstützt Windows Server auch die GPU-Beschleunigung von containerisierten Workloads innerhalb von Windows-Containern. Weitere Informationen finden Sie unter [GPU-Beschleunigung in Windows-Containern](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/gpu-acceleration).
+Zusätzlich zu VM-Workloads unterstützt Windows Server auch die GPU-Beschleunigung von containerisierten Workloads innerhalb von Windows-Containern. Weitere Informationen finden Sie unter [GPU-Beschleunigung in Windows-Containern](/virtualization/windowscontainers/deploy-containers/gpu-acceleration).
 
 ## <a name="discrete-device-assignment-dda"></a>Diskrete Geräte Zuweisung (DDA)
 

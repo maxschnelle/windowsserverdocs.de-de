@@ -7,12 +7,12 @@ manager: dougkim
 ms.author: lizross
 author: eross-msft
 ms.date: 09/12/2018
-ms.openlocfilehash: b2cbb47262033d5149e47704e3f232b7662f69e6
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 30055b7954674b1cea99e7ef60d45cfa33543c3d
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87955666"
+ms.locfileid: "87996738"
 ---
 # <a name="hardware-only-ho-features-and-technologies"></a>„Hardware Only (HO)“-Features und -Technologien
 
@@ -79,4 +79,4 @@ LSO ermöglicht einer Anwendung, einen großen Datenblock an die NIC zu übergeb
 
 ## <a name="receive-segment-coalescing-rsc"></a>Receive Segment Coalescing (RSC)
 
-Das Zusammenstellen von Empfangs Segmenten (auch als große Empfangs Abladung bezeichnet) ist eine NIC-Funktion, die Pakete annimmt, die Teil desselben Streams sind, der zwischen Netzwerk Interrupts eingeht, und Sie in ein einzelnes Paket zusammenfasst, bevor Sie an das Betriebssystem übertragen werden. RSC ist auf NICs, die an den virtuellen Hyper-V-Switch gebunden sind, nicht verfügbar. Weitere Informationen finden Sie unter [Receive Segment Coalescing (RSC)](https://docs.microsoft.com/windows-server/networking/technologies/hpn/rsc-in-the-vswitch).
+Das Zusammenstellen von Empfangs Segmenten (auch als große Empfangs Abladung bezeichnet) ist eine NIC-Funktion, die Pakete annimmt, die Teil desselben Streams sind, der zwischen Netzwerk Interrupts eingeht, und Sie in ein einzelnes Paket zusammenfasst, bevor Sie an das Betriebssystem übertragen werden. RSC ist auf NICs, die an den virtuellen Hyper-V-Switch gebunden sind, nicht verfügbar. Weitere Informationen finden Sie unter [Receive Segment Coalescing (RSC)](./rsc-in-the-vswitch.md).
