@@ -1,19 +1,17 @@
 ---
 title: Übersicht über Always on VPN-Technologie
 description: 'Auf dieser Seite wird eine kurze Übersicht über die Always on VPN-Technologien mit Links zu ausführlichen Dokumenten bereitgestellt. '
-ms.prod: windows-server
-ms.technology: networking-ras
 ms.topic: article
 ms.date: 11/05/2018
 ms.author: v-tea
 author: Teresa-MOTIV
 ms.localizationpriority: medium
-ms.openlocfilehash: 12c80e7e266ac3a8c788781a4d98f0a856164084
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: 155d06657811878464d905a51f249cbc8ad3cfe2
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87182016"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87958288"
 ---
 # <a name="always-on-vpn-technology-overview"></a>Übersicht über Always on VPN-Technologie
 
@@ -165,7 +163,7 @@ Tabelle 1. In dieser Bereitstellung erörterte VPN-Features und-Konfigurationen
 
 | VPN-Feature     |     Konfiguration der Bereitstellungs Szenarien         |
 |-----------------|-----------------------------------------------|
-| Verbindungstyp |                 Native IKEv2                  |
+| Connection type (Verbindungstyp) |                 Native IKEv2                  |
 |     Routing     |                Tunnelung aufteilen                |
 | Namensauflösung |  Domänen Namen-Informationsliste und DNS-Suffix  |
 |   Ängste    |    Erkennung von Always on und vertrauenswürdigen Netzwerken    |
@@ -190,7 +188,7 @@ Windows 10 bietet viele CSPs, aber bei dieser Bereitstellung liegt der Schwerpun
 
 - [Beginnen der Planung Ihrer Always on-VPN-Bereitstellung](deploy/always-on-vpn-deploy-deployment.md)
 
-## <a name="related-topics"></a>Zugehörige Themen
+## <a name="related-topics"></a>Verwandte Themen
 
 - [Microsoft-Server Softwareunterstützung für Microsoft Azure Virtual Machines](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines): in diesem Artikel wird die Unterstützungs Richtlinie für die Ausführung von Microsoft-Server Software in der Microsoft Azure-Umgebung für virtuelle Maschinen (Infrastructure-as-a-Service) erläutert.
 
