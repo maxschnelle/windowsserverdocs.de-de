@@ -5,15 +5,13 @@ author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
 ms.date: 04/11/2019
-ms.technology: identity-adds
 ms.topic: article
-ms.prod: windows-server
-ms.openlocfilehash: a429ae3fed8694b5d9f05722b9f9d580b6b27ae6
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 7272ddc3693816974df528e6c5e10671bbe4ffb7
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86962982"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87943775"
 ---
 # <a name="install-a-new-active-directory-forest-using-azure-cli"></a>Installieren einer neuen Active Directory-Gesamtstruktur mit der Azure CLI
 
@@ -40,7 +38,7 @@ Wir verwenden die [Azure-Portal](https://portal.azure.com) und [Azure CLI](/cli/
 
 Die Azure CLI dient zum Erstellen und Verwalten von Azure-Ressourcen über die Befehlszeile oder mit Skripts. In diesem Tutorial wird die Verwendung des Azure CLI zum Bereitstellen virtueller Maschinen mit Windows Server 2019 ausführlich erläutert. Nach Abschluss der Bereitstellung stellen wir eine Verbindung mit den Servern her und installieren AD DS.
 
-Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto erstellen](https://azure.microsoft.com/free), bevor Sie beginnen.
+Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free) erstellen, bevor Sie beginnen.
 
 ### <a name="using-azure-cli"></a>Verwenden der Azure-Befehlszeilenschnittstelle
 

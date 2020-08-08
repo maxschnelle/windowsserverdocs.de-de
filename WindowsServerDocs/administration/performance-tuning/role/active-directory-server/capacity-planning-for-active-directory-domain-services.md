@@ -5,12 +5,12 @@ ms.topic: article
 ms.author: v-tea; kenbrunf
 author: teresa-motiv
 ms.date: 7/3/2019
-ms.openlocfilehash: 33ae34a953f71739fd909ff5548861c2aebfe170
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 2067f3dd8c07190c7f52eb75229f08e080ae0208
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87896304"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87992304"
 ---
 # <a name="capacity-planning-for-active-directory-domain-services"></a>Kapazitätsplanung für Active Directory Domain Services
 
@@ -43,7 +43,7 @@ Außerdem wird der Ansatz von einer serverbasierten Kapazitäts Planungsübung z
 
 In diesem Artikel werden die folgenden grundlegenden Anforderungen erwartet:
 
-- Leser haben Lese-und Lesezugriff [auf die Richtlinien zur Leistungsoptimierung für Windows Server 2012 R2](/previous-versions//dn529133(v=vs.85)).
+- Leser haben Lese-und Lesezugriff [auf die Richtlinien zur Leistungsoptimierung für Windows Server 2012 R2](/previous-versions/dn529133(v=vs.85)).
 - Die Windows Server-Plattform ist eine x64-basierte Architektur. Auch wenn Ihre Active Directory-Umgebung unter Windows Server 2003 x86 installiert ist (jetzt über das Ende des Support Lebenszyklus hinaus) und eine Verzeichnis Informationsstruktur (DIT) mit einer Größe von weniger 1,5 GB aufweist, die im Arbeitsspeicher problemlos aufbewahrt werden kann, gelten die Richtlinien aus diesem Artikel weiterhin.
 - Die Kapazitätsplanung ist ein kontinuierlicher Prozess, und Sie sollten regelmäßig überprüfen, wie gut die Umgebung die Erwartungen erfüllt.
 - Die Optimierung erfolgt über mehrere Hardware Lebenszyklen, wenn sich die Hardwarekosten ändern. Beispielsweise wird der Arbeitsspeicher günstiger, die Kosten pro Kern werden verringert, oder der Preis für verschiedene Speicheroptionen ändert sich.
@@ -410,7 +410,7 @@ Leider ist aufgrund der großen Variabilität von Client Anwendungen, die AD nut
 
 Wie bereits erwähnt, ist das Ziel, beim Planen der Kapazität für einen gesamten Standort einen Entwurf mit einem Kapazitäts Entwurf von *N* + 1 als Ziel festzustellen, sodass der Ausfall eines Systems während des Spitzen Zeitraums für die Fortsetzung des dienplatzes auf einer angemessenen Qualität ermöglicht wird. Dies bedeutet, dass in einem "*N*"-Szenario das Laden in alle Felder weniger als 100% betragen muss (besser als 80%). während der Spitzenzeiten.
 
-Wenn außerdem die Anwendungen und Clients am Standort bewährte Methoden für die Suche nach Domänen Controllern verwenden (d. h. mit der [DsGetDcName-Funktion](https://docs.microsoft.com/windows/win32/api/dsgetdc/nf-dsgetdc-dsgetdcnamea)), sollten die Clients aufgrund einer beliebigen Anzahl von Faktoren relativ gleichmäßig mit geringfügigen vorübergehenden Spitzen verteilt werden.
+Wenn außerdem die Anwendungen und Clients am Standort bewährte Methoden für die Suche nach Domänen Controllern verwenden (d. h. mit der [DsGetDcName-Funktion](/windows/win32/api/dsgetdc/nf-dsgetdc-dsgetdcnamea)), sollten die Clients aufgrund einer beliebigen Anzahl von Faktoren relativ gleichmäßig mit geringfügigen vorübergehenden Spitzen verteilt werden.
 
 Im nächsten Beispiel werden folgende Annahmen getroffen:
 
@@ -572,10 +572,10 @@ Für dieses System sind die Standardwerte zulässig.
 
 In diesem Artikel wurde erläutert, dass die Planung und Skalierung zu Verwendungs Zielen geführt hat. Im folgenden finden Sie ein Übersichts Diagramm der empfohlenen Schwellenwerte, die überwacht werden müssen, um sicherzustellen, dass die Systeme innerhalb von ausreichenden Kapazitäts Schwellenwerten betrieben werden. Beachten Sie, dass es sich hierbei nicht um Leistungs Schwellenwerte, sondern um Schwellenwerte zur Kapazitätsplanung handelt. Ein Server, der über diese Schwellenwerte hinausgeht, funktioniert, ist jedoch Zeit, zu überprüfen, ob alle Anwendungen gut funktionieren. Wenn die genannten Anwendungen gut funktionieren, ist es an der Zeit, mit der Bewertung von Hardware Upgrades oder anderen Konfigurationsänderungen zu beginnen.
 
-| Category | Leistungsindikator | Intervall/Stichprobenentnahme | Ziel | Warnung |
+| Kategorie | Leistungsindikator | Intervall/Stichprobenentnahme | Ziel | Warnung |
 |--|--|--|--|--|
 | Prozessor | Prozessor Informationen (_Total) \\ % Prozessor Dienstprogramm | 60 Min. | 40% | 60 % |
-| RAM (Windows Server 2008 R2 oder früher) | Speicher \ verfügbare MB | < 100 MB | – | < 100 MB |
+| RAM (Windows Server 2008 R2 oder früher) | Speicher \ verfügbare MB | < 100 MB | Nicht zutreffend | < 100 MB |
 | RAM (Windows Server 2012) | Memory\langterm durchschnittliche standbycache-Lebensdauer (n) | 30 Min. | Muss getestet werden | Muss getestet werden |
 | Netzwerk | Netzwerkschnittstelle ( \* ) \Gesendete Bytes/Sek.<p>Netzwerkschnittstelle ( \* ) \Empfangene Bytes/Sek. | 30 Min. | 40% | 60 % |
 | Storage | LogicalDisk ( *\<NTDS Database Drive\>* ) \ Mittlere Sek./Lesevorgänge<p>LogicalDisk ( *\<NTDS Database Drive\>* ) \ Mittlere Sek./Schreibvorgänge | 60 Min. | 10 ms | 15 ms |
@@ -792,7 +792,7 @@ Nach der Analyse der Komponenten dieses Speicher Subsystems ist die Spindel der 
 
 Nachdem Sie nun eine einfache Konfiguration analysiert haben, zeigt die folgende Tabelle, wo der Engpass auftritt, wenn Komponenten im Speichersubsystem geändert oder hinzugefügt werden.
 
-| Notizen | Engpass-Analyse | Datenträger | Bus | Adapter | PCI-Bus |
+| Hinweise | Engpass-Analyse | Datenträger | Bus | Adapter | PCI-Bus |
 |--|--|--|--|--|--|
 | Dies ist die Konfiguration des Domänen Controllers nach dem Hinzufügen eines zweiten Datenträgers. Die Datenträger Konfiguration stellt den Engpass bei 800 KB/s dar. | 1 Datenträger hinzufügen (Gesamt = 2)<p>E/a ist zufällig<p>Blockgröße 4 KB<p>10.000 rpm HD | 200 I/OS Gesamt<br />800 KB/s insgesamt. |  |  |  |
 | Nach dem Hinzufügen von 7 Datenträgern stellt die Datenträger Konfiguration weiterhin den Engpass bei 3200 KB/s dar. | **7 Datenträger hinzufügen (Gesamt = 8)**  <p>E/a ist zufällig<p>Blockgröße 4 KB<p>10.000 rpm HD | 800 I/OS gesamt.<br />3200 KB/s insgesamt |  |  |  |

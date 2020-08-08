@@ -1,32 +1,30 @@
 ---
-title: Verwalten von NPSs
+title: Verwalten von Netzwerkrichtlinienservern
 description: Dieses Thema enthält Links zu Verfahren zum Verwalten von NPSS in Windows Server 2016.
 manager: brianlic
-ms.prod: windows-server
-ms.technology: networking
 ms.topic: article
 ms.assetid: 6005dc27-f49e-427f-92f7-b0e558ffe3ff
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 89b0ff250d118b47b16996018ffb0e973072f6e7
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: fd03e794e4ba6efb5c68b0ddce50732b490a4c2d
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80315948"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87952229"
 ---
-# <a name="manage-npss"></a>Verwalten von NPSs
+# <a name="manage-npss"></a>Verwalten von Netzwerkrichtlinienservern
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 Die Themen in diesem Abschnitt können Sie zum Verwalten von NPSS verwenden.
 
 >[!NOTE]
 >Weitere Informationen zur Netzwerk Richtlinien Server-Dokumentation finden Sie in den folgenden Bibliotheks Abschnitten.
->- [Ersten Schritte mit dem Netzwerk Richtlinien Server](nps-getstart-top.md)
->- [Netzwerk Richtlinien Server bereitstellen](nps-deploy.md) 
+>- [Erste Schritte mit dem Netzwerkrichtlinienserver](nps-getstart-top.md)
+>- [Bereitstellen eines Netzwerkrichtlinienservers](nps-deploy.md)
 
-Dieser Abschnitt enthält die folgenden Themen:
+In diesem Abschnitt werden die folgenden Themen behandelt:
 
 - [Konfigurieren von NPS auf einem mehrfach vernetzten Computer](nps-multihomed-configure.md)
 - [Konfigurieren von NPS-UDP-Port Informationen](nps-udp-ports-configure.md)

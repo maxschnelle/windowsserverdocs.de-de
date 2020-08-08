@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.assetid: fc239aec-e719-47ea-92fc-d82a7247b3f8
 author: jaimeo
 ms.author: jaimeo
-ms.openlocfilehash: e5e18ed5f5cc4cba319042f1a5da84acae8e5fd5
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: e5275937e12542e16c40273d69d9684d72a4ee82
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87879529"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87992448"
 ---
 # <a name="get-started-with-setup-and-boot-event-collection"></a>Erste Schritte mit der Ereignissammlung für Setup und Start
 
@@ -130,9 +130,9 @@ Wenn Sie Windows PowerShell-Remoting nicht einrichten können, können Sie das S
 
 1.  Starten Sie auf dem Zielcomputer Regedit.exe, und suchen Sie den folgenden Registrierungsschlüssel:
 
-    **HKEY_LOCAL_MACHINE \system\currentcontrolset\control\wmi\autologger**. Verschiedene Protokoll Sitzungen werden unter diesem Schlüssel als Unterschlüssel aufgeführt. **Setup Platform**, **NT Kernel Logger**und **Microsoft-Windows-Setup** sind möglicherweise für die Verwendung mit der Setup-und Start Ereignis Sammlung geeignet. die empfohlene Option ist jedoch **EventLog-System**. Diese Schlüssel werden unter [Konfigurieren und Starten einer autologger-Sitzung](https://msdn.microsoft.com/library/windows/desktop/aa363687(v=vs.85).aspx)ausführlich erläutert.
+    **HKEY_LOCAL_MACHINE \system\currentcontrolset\control\wmi\autologger**. Verschiedene Protokoll Sitzungen werden unter diesem Schlüssel als Unterschlüssel aufgeführt. **Setup Platform**, **NT Kernel Logger**und **Microsoft-Windows-Setup** sind möglicherweise für die Verwendung mit der Setup-und Start Ereignis Sammlung geeignet. die empfohlene Option ist jedoch **EventLog-System**. Diese Schlüssel werden unter [Konfigurieren und Starten einer autologger-Sitzung](/windows/win32/etw/configuring-and-starting-an-autologger-session)ausführlich erläutert.
 
-2.  Ändern Sie im Schlüssel "EventLog-System" den Wert von " **logfilemode** " von " **0x10000180** " in " **0x10080180**". Weitere Informationen zu diesen Einstellungen finden Sie unter [Protokollierungs Modus-Konstanten](https://msdn.microsoft.com/library/windows/desktop/aa364080(v=vs.85).aspx).
+2.  Ändern Sie im Schlüssel "EventLog-System" den Wert von " **logfilemode** " von " **0x10000180** " in " **0x10080180**". Weitere Informationen zu diesen Einstellungen finden Sie unter [Protokollierungs Modus-Konstanten](/windows/win32/etw/logging-mode-constants).
 
 3.  Optional können Sie auch die Weiterleitung von Fehler Prüf Daten an den Collector-Computer aktivieren. Suchen Sie hierzu den Registrierungsschlüssel HKEY_LOCAL_MACHINE \system\currentcontrolset\control\session Manager, und erstellen Sie den **schlüsseldebugdruckfilter** mit dem Wert **0x1**.
 
@@ -156,7 +156,7 @@ Wenn der Zielcomputer über mehrere Netzwerkadapter verfügt, wählt der KDNet-T
 ### <a name="validate-target-computer-configuration"></a>Zielcomputer Konfiguration überprüfen
 Öffnen Sie zum Überprüfen der Einstellungen auf dem Zielcomputer eine Eingabeaufforderung mit erhöhten Rechten, und führen Sie **bcdedit/enum**aus. Wenn dies abgeschlossen ist, führen Sie **Bcdedit/eventsettings**aus. Sie können die folgenden Werte überprüfen:
 
--   Key
+-   Schlüssel
 
 -   DebugType = net
 
@@ -276,7 +276,7 @@ Die minimale von Nano Server angebotene Schnittstelle kann es manchmal schwierig
 
 ### <a name="to-configure-nano-server-as-a-target-computer"></a>So konfigurieren Sie nano Server als Bereitstellungs Zielcomputer
 
-1. Erstellen Sie Ihr grundlegendes Nano Server-Image. Weitere Informationen finden Sie [unter "Getting Started with Nano Server](https://technet.microsoft.com/library/mt126167.aspx) ".
+1. Erstellen Sie Ihr grundlegendes Nano Server-Image. Weitere Informationen finden Sie [unter "Getting Started with Nano Server](../get-started/getting-started-with-nano-server.md) ".
 
 2. Richten Sie einen Collector-Computer wie im Abschnitt Konfigurieren des Collector-Computers in diesem Thema ein.
 
@@ -286,7 +286,7 @@ Die minimale von Nano Server angebotene Schnittstelle kann es manchmal schwierig
 
     2. Starten Sie eine Windows PowerShell-Konsole mit erhöhten Berechtigungen, und führen Sie aus `Import-Module BootEventCollector` .
 
-    3. Aktualisieren Sie die Nano Server-VHD-Registrierung, um autologger zu aktivieren. Führen Sie dazu aus `Enable-SbecAutoLogger -Path C:\NanoServer\Workloads\IncludingWorkloads.vhd` . Dadurch wird eine einfache Liste der typischen Setup-und Start Ereignisse hinzugefügt. Weitere Untersuchungen finden Sie unter [Steuern von Ereignis Ablauf Verfolgungs Sitzungen](https://msdn.microsoft.com/library/windows/desktop/aa363694(v=vs.85).aspx).
+    3. Aktualisieren Sie die Nano Server-VHD-Registrierung, um autologger zu aktivieren. Führen Sie dazu aus `Enable-SbecAutoLogger -Path C:\NanoServer\Workloads\IncludingWorkloads.vhd` . Dadurch wird eine einfache Liste der typischen Setup-und Start Ereignisse hinzugefügt. Weitere Untersuchungen finden Sie unter [Steuern von Ereignis Ablauf Verfolgungs Sitzungen](/windows/win32/etw/controlling-event-tracing-sessions).
 
 4. Aktualisieren Sie die BCD-Einstellungen im Nano Server-Abbild, um das Ereignis Flag zu aktivieren, und legen Sie den Collector-Computer fest, damit Diagnose Ereignisse an den richtigen Server gesendet werden. Notieren Sie sich die IPv4-Adresse, den TCP-Port und den Verschlüsselungsschlüssel des Collector-Computers, die Sie in der Active.XML Datei des Sammlers konfiguriert haben (in diesem Thema beschrieben). Verwenden Sie diesen Befehl in einer Windows PowerShell-Konsole mit erhöhten Berechtigungen:`Enable-SbecBcd -Path C:\NanoServer\Workloads\IncludingWorkloads.vhd -CollectorIp 192.168.100.1 -CollectorPort 50000 -Key a.b.c.d`
 

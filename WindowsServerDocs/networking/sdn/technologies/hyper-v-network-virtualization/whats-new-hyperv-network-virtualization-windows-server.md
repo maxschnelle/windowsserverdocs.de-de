@@ -2,19 +2,17 @@
 title: Neuerungen bei der Hyper-V-Netzwerkvirtualisierung unter Windows Server 2016
 description: Dieses Thema enthält Informationen zu neuen Features bei der Hyper-V-Netzwerkvirtualisierung unter Windows Server 2016.
 manager: grcusanz
-ms.prod: windows-server
-ms.technology: networking-sdn
 ms.topic: article
 ms.assetid: 0254275a-0a77-40a9-b68a-1029284c03fe
 ms.author: anpaul
 author: AnirbanPaul
 ms.date: 03/19/2018
-ms.openlocfilehash: 6178ca0913ef27f656a566ffdb39a957ab743733
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: aa53b13526172e37a46fbb3108278ad7aa859b64
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85471705"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87952485"
 ---
 # <a name="whats-new-in-hyper-v-network-virtualization-in-windows-server-2016"></a>Neuerungen bei der Hyper-V-Netzwerkvirtualisierung unter Windows Server 2016
 
@@ -55,10 +53,10 @@ Windows Server 2016 umfasst einen Software Lastenausgleich (Software Load Balanc
 ### <a name="compliant-ieee-ethernet-headers"></a><a name="L2"></a>Kompatible IEEE-Ethernet-Header
 HNV implementiert korrekte L2-Ethernet-Header, um die Interoperabilität mit virtuellen und physischen Geräten von Drittanbietern zu gewährleisten, die von branchenüblichen Protokollen abhängen. Microsoft stellt sicher, dass alle übertragenen Pakete über kompatible Werte in allen Feldern verfügen, um diese Interoperabilität zu gewährleisten. Darüber hinaus muss die Unterstützung für groß Rahmen (MTU > 1780) im physischen L2-Netzwerk den Paket Mehraufwand berücksichtigen, der durch Kapselungs Protokolle (nvgre, vxlan) eingeführt wurde, und gleichzeitig sicherstellen, dass Gast Virtual Machines mit einem HNV-Virtual Network eine 1514 MTU beibehält.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Hyper-V-Netzwerkvirtualisierung – Übersicht](hyperv-network-virtualization-overview-windows-server.md)
 
 -   [Hyper-V-Netzwerkvirtualisierung – Technische Details](hyperv-network-virtualization-technical-details-windows-server.md)
 
--   [Softwaredefiniertes Netzwerk](../../Software-Defined-Networking--SDN-.md)
+-   [Software-Defined Networking](../../Software-Defined-Networking--SDN-.md)

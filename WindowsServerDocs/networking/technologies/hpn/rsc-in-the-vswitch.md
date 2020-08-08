@@ -2,18 +2,16 @@
 title: Empfangssegmentzusammenfügung im vSwitch
 description: Receive Segment Sammel (RSC) im Vswitch ist eine Funktion in Windows Server 2019 und dem Windows 10-Update vom Oktober 2018, mit der die CPU-Auslastung des Hosts reduziert und der Durchsatz für virtuelle Arbeits Auslastungen erhöht wird, indem mehrere TCP-Segmente in weniger, aber größere Segmente zusammengestellt werden. Die Verarbeitung von weniger großen Segmenten (zusammen Fügung) ist effizienter als die Verarbeitung zahlreicher, kleiner Segmente.
 manager: dougkim
-ms.prod: windows-server
-ms.technology: networking
 ms.topic: article
 ms.author: dacuo
 author: dcuomo
 ms.date: 09/07/2018
-ms.openlocfilehash: e7db6656bd9331e5cc6c2deaee143b3602ef1239
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: 26f4a5fc028ebe134e6eff8ff22c348d52ba3f90
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87181816"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87962044"
 ---
 # <a name="rsc-in-the-vswitch"></a>RSC im Vswitch
 >Gilt für: Windows Server 2019
@@ -26,7 +24,7 @@ Windows Server 2012 und höher enthielt eine nur-Hardware-Auslagerung-Version (i
 
 Workloads, deren Datenpfad einen virtuellen Switch durchläuft, profitiert von diesem Feature.
 
-Beispiel:
+Zum Beispiel:
 
 -   Virtuelle Netzwerkkarten für Hosts einschließlich:
 
@@ -34,7 +32,7 @@ Beispiel:
 
     -   Hyper-V-Host
 
-    -   Speicherplätze direkt
+    -   Speicherplätze DAS
 
 -   Virtuelle Hyper-V-Gast-NICs
 

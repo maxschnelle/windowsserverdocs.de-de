@@ -6,19 +6,19 @@ author: lizap
 ms.author: elizapo
 ms.date: 03/16/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 2edfddb644a2c92a05be8d2d943c089bf6774d06
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 55b33c7ab74ac9295d42ef884540d551b1ad6ec4
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87879325"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87992429"
 ---
 # <a name="manage-windows-server"></a>Verwalten von Windows Server
 
 >Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 >[!TIP]
-> Suchen Sie nach Informationen zu älteren Versionen von Windows Server? Sehen Sie sich unsere [Windows Server-Bibliotheken](/previous-versions/windows/) auf „docs.microsoft.com“ an. Sie können auch nach bestimmten Informationen [auf dieser Website suchen](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions).
+> Suchen Sie nach Informationen zu älteren Versionen von Windows Server? Sehen Sie sich unsere [Windows Server-Bibliotheken](/previous-versions/windows/) auf „docs.microsoft.com“ an. Sie können auch nach bestimmten Informationen [auf dieser Website suchen](/search/index?dataSource=previousVersions&search=Windows+Server).
 
  <ul class="cardse panelContent cols cols3">
     <li>

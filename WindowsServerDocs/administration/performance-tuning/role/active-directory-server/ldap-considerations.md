@@ -5,12 +5,12 @@ ms.topic: article
 ms.author: timwi; chrisrob; herbertm; kenbrumf;  mleary; shawnrab
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: b1678eadda1232da19c80e648c8b7ecb9c06f64b
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 779175a4e1e42bae5f40aa4d4d8495ac7803c655
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87896213"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87992259"
 ---
 # <a name="ldap-considerations-in-adds-performance-tuning"></a>Überlegungen zu LDAP in Hinzufügen von Leistungsoptimierungen
 
@@ -21,19 +21,19 @@ ms.locfileid: "87896213"
 
 Überprüfen Sie, ob LDAP-Abfragen mit den Empfehlungen zum Erstellen effizienter Abfragen übereinstimmen.
 
-In der MSDN-Dokumentation finden Sie Informationen dazu, wie Sie Abfragen für die Verwendung mit Active Directory ordnungsgemäß schreiben, strukturieren und analysieren. Weitere Informationen finden Sie unter [Erstellen effizienterer Microsoft Active Directory-fähiger Anwendungen](https://msdn.microsoft.com/library/ms808539.aspx).
+In der MSDN-Dokumentation finden Sie Informationen dazu, wie Sie Abfragen für die Verwendung mit Active Directory ordnungsgemäß schreiben, strukturieren und analysieren. Weitere Informationen finden Sie unter [Erstellen effizienterer Microsoft Active Directory-fähiger Anwendungen](/previous-versions/ms808539(v=msdn.10)).
 
 ## <a name="optimize-ldap-page-sizes"></a>Optimieren der Größe von LDAP-Seiten
 
 Beim Zurückgeben von Ergebnissen mit mehreren Objekten als Reaktion auf Client Anforderungen muss der Domänen Controller das Resultset temporär im Arbeitsspeicher speichern. Das Erhöhen der Seitengröße führt zu einer höheren Speicherauslastung und kann unnötigerweise Elemente aus dem Cache löschen. In diesem Fall sind die Standardeinstellungen optimal. Es gibt verschiedene Szenarien, in denen Empfehlungen zum Vergrößern der Seitengrößen Einstellungen erstellt wurden. Es wird empfohlen, die Standardwerte zu verwenden, es sei denn, Sie sind nicht besonders
 
-Wenn Abfragen viele Ergebnisse aufweisen, kann es vorkommen, dass ein Limit ähnlicher Abfragen gleichzeitig ausgeführt wird.  Dieser Fehler tritt auf, wenn der LDAP-Server einen globalen Speicherbereich, der als Cookie-Pool bezeichnet wird, erschöpft.  Möglicherweise ist es erforderlich, die Größe des Pools zu vergrößern, wie in der Behandlung von [LDAP-Server Cookies](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/manage/how-ldap-server-cookies-are-handled)erläutert.
+Wenn Abfragen viele Ergebnisse aufweisen, kann es vorkommen, dass ein Limit ähnlicher Abfragen gleichzeitig ausgeführt wird.  Dieser Fehler tritt auf, wenn der LDAP-Server einen globalen Speicherbereich, der als Cookie-Pool bezeichnet wird, erschöpft.  Möglicherweise ist es erforderlich, die Größe des Pools zu vergrößern, wie in der Behandlung von [LDAP-Server Cookies](../../../../identity/ad-ds/manage/how-ldap-server-cookies-are-handled.md)erläutert.
 
 Informationen zum Optimieren dieser Einstellungen finden Sie unter [Windows Server 2008 und neuere Domänen Controller gibt nur 5000-Werte in einer LDAP-Antwort zurück](https://support.microsoft.com/kb/2009267).
 
 ## <a name="determine-whether-to-add-indices"></a>Bestimmen, ob Indizes hinzugefügt werden sollen
 
-Indizierungs Attribute sind bei der Suche nach Objekten mit dem Attributnamen in einem Filter nützlich. Durch Indizierung kann die Anzahl der Objekte reduziert werden, die beim Auswerten des Filters besucht werden müssen. Dadurch wird jedoch die Leistung von Schreibvorgängen verringert, da der Index aktualisiert werden muss, wenn das entsprechende Attribut geändert oder hinzugefügt wird. Außerdem wird die Größe der Verzeichnis Datenbank erhöht, obwohl die Vorteile oft die Kosten für die Speicherung überwiegen. Die Protokollierung kann verwendet werden, um die teuren und ineffizienten Abfragen zu suchen. Nach der Identifizierung sollten Sie einige Attribute indizieren, die in den entsprechenden Abfragen verwendet werden, um die Suchleistung zu verbessern. Weitere Informationen zur Funktionsweise von Active Directory suchen finden Sie unter [Funktionsweise von Active Directory suchen](https://technet.microsoft.com/library/cc755809.aspx).
+Indizierungs Attribute sind bei der Suche nach Objekten mit dem Attributnamen in einem Filter nützlich. Durch Indizierung kann die Anzahl der Objekte reduziert werden, die beim Auswerten des Filters besucht werden müssen. Dadurch wird jedoch die Leistung von Schreibvorgängen verringert, da der Index aktualisiert werden muss, wenn das entsprechende Attribut geändert oder hinzugefügt wird. Außerdem wird die Größe der Verzeichnis Datenbank erhöht, obwohl die Vorteile oft die Kosten für die Speicherung überwiegen. Die Protokollierung kann verwendet werden, um die teuren und ineffizienten Abfragen zu suchen. Nach der Identifizierung sollten Sie einige Attribute indizieren, die in den entsprechenden Abfragen verwendet werden, um die Suchleistung zu verbessern. Weitere Informationen zur Funktionsweise von Active Directory suchen finden Sie unter [Funktionsweise von Active Directory suchen](/previous-versions/windows/it-pro/windows-server-2003/cc755809(v=ws.10)).
 
 ### <a name="scenarios-that-benefit-in-adding-indices"></a>Szenarien, die das Hinzufügen von Indizes nutzen
 
@@ -54,11 +54,11 @@ Indizierungs Attribute sind bei der Suche nach Objekten mit dem Attributnamen in
 
 Diese Szenarien können mithilfe eines oder mehrerer der folgenden Ansätze erkannt werden:
 
--   [Bestimmen der Abfragezeit Überschreitung mit dem Statistik Steuerelement](https://msdn.microsoft.com/library/ms808539.aspx)
+-   [Bestimmen der Abfragezeit Überschreitung mit dem Statistik Steuerelement](/previous-versions/ms808539(v=msdn.10))
 
--   [Nachverfolgen von teuren und ineffizienten suchen](https://msdn.microsoft.com/library/ms808539.aspx)
+-   [Nachverfolgen von teuren und ineffizienten suchen](/previous-versions/ms808539(v=msdn.10))
 
--   Active Directory Diagnosedaten Sammler Satz im System Monitor ([Son of Spa: AD Data Collector Sets in Win2008 und Beyond](https://blogs.technet.com/b/askds/archive/2010/06/08/son-of-spa-ad-data-collector-sets-in-win2008-and-beyond.aspx))
+-   Active Directory Diagnosedaten Sammler Satz im System Monitor ([Son of Spa: AD Data Collector Sets in Win2008 und Beyond](/archive/blogs/askds/son-of-spa-ad-data-collector-sets-in-win2008-and-beyond))
 
 -   [Microsoft Server Performance Advisor](../../../server-performance-advisor/microsoft-server-performance-advisor.md) Active Directory Advisor-Paket
 
@@ -68,11 +68,11 @@ Diese Szenarien können mithilfe eines oder mehrerer der folgenden Ansätze erka
 
 -   Stellen Sie sicher, dass das Erstellen des Indexes die richtige Lösung für das Problem ist, nachdem die Abfrage als Option aufgebraucht wurde. Die korrekte Größenanpassung von Hardware ist äußerst wichtig. Indizes sollten nur dann hinzugefügt werden, wenn das Attribut mit der richtigen Korrektur indiziert wird und kein Versuch, Hardwareprobleme zu verbergen.
 
--   Indizes erhöhen die Größe der Datenbank um mindestens die Gesamtgröße des indizierten Attributs. Eine Schätzung des Daten Bank Wachstums kann daher ausgewertet werden, indem die durchschnittliche Größe der Daten im Attribut übernommen und die Anzahl der Objekte multipliziert wird, für die das Attribut aufgefüllt wird. In der Regel liegt dies bei einer Vergrößerung der Datenbankgröße von 1%. Weitere Informationen finden Sie unter [Funktionsweise des Datenspeicher](https://technet.microsoft.com/library/cc772829.aspx).
+-   Indizes erhöhen die Größe der Datenbank um mindestens die Gesamtgröße des indizierten Attributs. Eine Schätzung des Daten Bank Wachstums kann daher ausgewertet werden, indem die durchschnittliche Größe der Daten im Attribut übernommen und die Anzahl der Objekte multipliziert wird, für die das Attribut aufgefüllt wird. In der Regel liegt dies bei einer Vergrößerung der Datenbankgröße von 1%. Weitere Informationen finden Sie unter [Funktionsweise des Datenspeicher](/previous-versions/windows/it-pro/windows-server-2003/cc772829(v=ws.10)).
 
 -   Wenn das Suchverhalten vorwiegend auf Organisationseinheiten Ebene erfolgt, sollten Sie die Indizierung für containerisierte suchen in Erwägung gezogen.
 
--   Tupelindizes sind größer als normale Indizes, aber es ist wesentlich schwieriger, die Größe zu schätzen. Verwenden Sie normale Index Größenschätzungen als Boden für Wachstum und maximal 20%. Weitere Informationen finden Sie unter [Funktionsweise des Datenspeicher](https://technet.microsoft.com/library/cc772829.aspx).
+-   Tupelindizes sind größer als normale Indizes, aber es ist wesentlich schwieriger, die Größe zu schätzen. Verwenden Sie normale Index Größenschätzungen als Boden für Wachstum und maximal 20%. Weitere Informationen finden Sie unter [Funktionsweise des Datenspeicher](/previous-versions/windows/it-pro/windows-server-2003/cc772829(v=ws.10)).
 
 -   Wenn das Suchverhalten vorwiegend auf Organisationseinheiten Ebene erfolgt, sollten Sie die Indizierung für containerisierte suchen in Erwägung gezogen.
 
@@ -90,11 +90,11 @@ Diese Szenarien können mithilfe eines oder mehrerer der folgenden Ansätze erka
 
 Weitere Informationen finden Sie in den folgenden Bereichen:
 
--   [Erstellen effizienterer Microsoft Active Directory-fähiger Anwendungen](https://msdn.microsoft.com/library/ms808539.aspx)
+-   [Erstellen effizienterer Microsoft Active Directory-fähiger Anwendungen](/previous-versions/ms808539(v=msdn.10))
 
--   [Suchen in Active Directory Domain Services](https://msdn.microsoft.com/library/aa746427.aspx)
+-   [Suchen in Active Directory Domain Services](/windows/win32/ad/searching-in-active-directory-domain-services)
 
--   [Indizierte Attribute](https://msdn.microsoft.com/library/windows/desktop/ms677112.aspx)
+-   [Indizierte Attribute](/windows/win32/ad/indexed-attributes)
 
 ## <a name="additional-references"></a>Weitere Verweise
 

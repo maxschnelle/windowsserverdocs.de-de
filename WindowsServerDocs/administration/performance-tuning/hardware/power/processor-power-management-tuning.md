@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.author: qizha;tristanb
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 9b45ad16981667eff626278daadbe8b39f5cc5c8
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 1fcc21df93d9963ee83159c1df2fcf918ddbbfba
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87896714"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87992375"
 ---
 # <a name="processor-power-management-ppm-tuning-for-the-windows-server-balanced-power-plan"></a>Optimieren der Prozessor Energie Verwaltung (ppm) für den Energie Sparplan von Windows Server ausgeglichen
 
@@ -87,7 +87,7 @@ Wenn sich Ihre primären workloadmerkmale erheblich von den fünf Arbeits Auslas
 
 Aufgrund der Anzahl und Komplexität von Parametern ist dies möglicherweise eine schwierige Aufgabe. Wenn Sie jedoch nach dem optimalen Kompromiss zwischen Energieverbrauch und workloadwirksamkeit für Ihre spezielle Umgebung suchen, ist es möglicherweise sinnvoll, dies zu tun.
 
- Den gesamten Satz von anpassbaren ppm-Parametern finden Sie unter [Optimieren der Prozessor Energie Verwaltung](https://msdn.microsoft.com/windows/hardware/gg566941.aspx). Einige der einfachsten Leistungsparameter, mit denen Sie beginnen können, sind:
+ Den gesamten Satz von anpassbaren ppm-Parametern finden Sie unter [Optimieren der Prozessor Energie Verwaltung](/previous-versions/windows/hardware/design/dn613983(v=vs.85)). Einige der einfachsten Leistungsparameter, mit denen Sie beginnen können, sind:
 
 -   **Prozessorleistung erhöhen Sie den Schwellenwert und die Prozessorleistung erhöhen** – größere Werte verlangsamen die Leistungs-Antwort auf eine erhöhte Aktivität
 

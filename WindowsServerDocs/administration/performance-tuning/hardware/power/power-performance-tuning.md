@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.author: qizha;tristanb
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 5e758e2335d8a5b536b0f0db9626dc88337de631
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 535c1e2ccff14f01f015b67fd0fc2c6be4a04729
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87896731"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87992404"
 ---
 # <a name="power-and-performance-tuning"></a>Energie- und Leistungsoptimierung
 
@@ -63,7 +63,7 @@ Sie müssen ihre workloadanforderungen gründlich verstehen, um eine optimale Ko
 
 Verkürzte Zeit Geber Raten, Treiber, die keine Unterstützung der Energie Verwaltung haben, und übermäßige CPU-Auslastung sind einige der Verhaltensprobleme, die vom Befehl " **powercfg/Energy** " erkannt werden. Dieses Tool bietet eine einfache Möglichkeit, Probleme mit der Energie Verwaltung zu erkennen und zu beheben, was potenziell zu erheblichen Kosteneinsparungen in einem großen Rechenzentrum führen kann.
 
-Weitere Informationen zu PowerCfg.exe finden [Sie unter Verwenden von PowerCfg zum Auswerten der Energieeffizienz des Systems](https://msdn.microsoft.com/windows/hardware/gg463250.aspx).
+Weitere Informationen zu PowerCfg.exe finden [Sie unter Verwenden von PowerCfg zum Auswerten der Energieeffizienz des Systems](/previous-versions/windows/hardware/download/dn550976(v=vs.85)).
 
 ## <a name="using-power-plans-in-windows-server"></a>Verwenden von Energie Sparplänen in Windows Server
 
@@ -78,7 +78,7 @@ Windows Server 2016 verfügt über drei integrierte Energie Sparpläne, die auf 
 
 Diese Energie Sparpläne sind in Windows für abwechselnde aktuelle (AC) und Direct Current (DC) Systeme vorhanden, aber wir gehen davon aus, dass die Server immer eine Stromversorgung der Stromversorgung verwenden.
 
-Weitere Informationen zu Energie Sparplänen und Energierichtlinien Konfigurationen finden Sie unter [Energierichtlinien Konfiguration und-Bereitstellung in Windows](https://msdn.microsoft.com/windows/hardware/gg463243.aspx).
+Weitere Informationen zu Energie Sparplänen und Energierichtlinien Konfigurationen finden Sie unter [Energierichtlinien Konfiguration und-Bereitstellung in Windows](/previous-versions/windows/hardware/design/dn642106(v=vs.85)).
 
 > [!Note]
 > Einige Serverhersteller verfügen über eigene Energie Verwaltungs Optionen, die über die BIOS-Einstellungen verfügbar sind. Wenn das Betriebssystem keine Kontrolle über die Energie Verwaltung hat, wirkt sich das Ändern der Energie Sparpläne in Windows nicht auf die Systemleistung und-Leistung aus.
@@ -87,7 +87,7 @@ Weitere Informationen zu Energie Sparplänen und Energierichtlinien Konfiguratio
 
 Jeder Energie Sparplan stellt eine Kombination aus zahlreichen zugrunde liegenden Energie Verwaltungs Parametern dar. Bei den integrierten Plänen handelt es sich um drei Sammlungen empfohlener Einstellungen, die eine Vielzahl von Arbeits Auslastungen und Szenarios abdecken. Wir erkennen jedoch, dass diese Pläne nicht den Anforderungen aller Kunden entsprechen.
 
-In den folgenden Abschnitten wird beschrieben, wie Sie einige spezifische Parameter für die Prozessor Energie Verwaltung optimieren, um die Ziele zu erreichen, die von den drei integrierten Plänen nicht behandelt werden. Wenn Sie eine größere Anzahl von Strom Parametern verstehen müssen, finden Sie weitere Informationen unter [Energierichtlinien Konfiguration und-Bereitstellung in Windows](https://msdn.microsoft.com/windows/hardware/gg463243.aspx).
+In den folgenden Abschnitten wird beschrieben, wie Sie einige spezifische Parameter für die Prozessor Energie Verwaltung optimieren, um die Ziele zu erreichen, die von den drei integrierten Plänen nicht behandelt werden. Wenn Sie eine größere Anzahl von Strom Parametern verstehen müssen, finden Sie weitere Informationen unter [Energierichtlinien Konfiguration und-Bereitstellung in Windows](/previous-versions/windows/hardware/design/dn642106(v=vs.85)).
 
 ## <a name="processor-performance-boost-mode"></a>Boost-Modus für Prozessorleistung
 

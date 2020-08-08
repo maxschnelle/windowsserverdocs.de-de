@@ -5,12 +5,12 @@ ms.topic: article
 ms.author: timwi; chrisrob; herbertm; kenbrumf;  mleary; shawnrab
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 7502233cfd71fe2f3e7d25ff6ba246531233d1ff
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: bb0850923dca2f0749c1f2cb5e787d998e8f03ca
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87896209"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87992244"
 ---
 # <a name="proper-placement-of-domain-controllers-and-site-considerations"></a>Ordnungsgemäße Platzierung von Domänencontrollern und Überlegungen zum Standort
 
@@ -23,8 +23,8 @@ Ein weiterer Aspekt ist die Suche nach Lese-/Schreib-DCS in Szenarien, in denen 
 -   Dabei kann es sein, dass ein Beschreib barer Domänen Controller erforderlich ist.  Platzieren Sie Domänen Controller mit Lese-/Schreibzugriff an zentralen Orten, um die Latenz
 
 Weitere Informationen finden Sie unter:
--   [Anwendungs Kompatibilität mit RODCs](https://technet.microsoft.com/library/cc772597.aspx)
--   [Active Directory Service Interface (ADSI) und der Read Only-Domänen Controller (RODC) – vermeiden von Leistungsproblemen](https://blogs.technet.microsoft.com/fieldcoding/2012/06/24/active-directory-service-interface-adsi-and-the-read-only-domain-controller-rodc-avoiding-performance-issues/)
+-   [Anwendungs Kompatibilität mit RODCs](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc772597(v=ws.10))
+-   [Active Directory Service Interface (ADSI) und der Read Only-Domänen Controller (RODC) – vermeiden von Leistungsproblemen](/archive/blogs/fieldcoding/active-directory-service-interface-adsi-and-the-read-only-domain-controller-rodc-avoiding-performance-issues)
 
 ## <a name="optimize-for-referrals"></a>Für Verweise optimieren
 
@@ -54,9 +54,9 @@ Domänen Übergreifende Vertrauensstellungs Szenarien sind ein Bereich, der für
 
 -   Domänen Controller in der vertrauenden Domäne versuchen, nach Domänen Controllern in der vertrauenswürdigen Domäne zu suchen, die sich zuerst am gleichen Standort befinden, und dann ein Failback auf die generischen Locators auszuführen.
 
-    -   Weitere Informationen zur Funktionsweise von DCLOCATOR finden Sie untersuchen [eines Domänen Controllers am nächstgelegenen Standort](https://technet.microsoft.com/library/cc978016.aspx).
+    -   Weitere Informationen zur Funktionsweise von DCLOCATOR finden Sie untersuchen [eines Domänen Controllers am nächstgelegenen Standort](/previous-versions/windows/it-pro/windows-2000-server/cc978016(v=technet.10)).
 
-    -   Konvergiert Standortnamen zwischen vertrauenswürdigen und vertrauenden Domänen, um den Domänen Controller am selben Standort widerzuspiegeln. Stellen Sie sicher, dass Subnetz-und IP-Adress Zuordnungen ordnungsgemäß mit Standorten in beiden Gesamtstrukturen verknüpft Weitere Informationen finden Sie unter [Domänen Locator über eine](https://blogs.technet.com/b/askds/archive/2008/09/24/domain-locator-across-a-forest-trust.aspx)Gesamtstruktur-Vertrauensstellung hinweg.
+    -   Konvergiert Standortnamen zwischen vertrauenswürdigen und vertrauenden Domänen, um den Domänen Controller am selben Standort widerzuspiegeln. Stellen Sie sicher, dass Subnetz-und IP-Adress Zuordnungen ordnungsgemäß mit Standorten in beiden Gesamtstrukturen verknüpft Weitere Informationen finden Sie unter [Domänen Locator über eine](/archive/blogs/askds/domain-locator-across-a-forest-trust)Gesamtstruktur-Vertrauensstellung hinweg.
 
     -   Stellen Sie sicher, dass Ports gemäß den Anforderungen an den Domänen Controller für den Standort des Domänen Controllers offen sind. Wenn zwischen den Domänen Firewalls vorhanden sind, stellen Sie sicher, dass die Firewalls für alle Vertrauens Stellungen ordnungsgemäß konfiguriert sind. Wenn Firewalls nicht geöffnet sind, versucht der vertrauende Domänen Controller weiterhin, auf die vertrauenswürdige Domäne zuzugreifen. Wenn die Kommunikation aus irgendeinem Grund fehlschlägt, führt der vertrauende Domänen Controller die Anforderung an den vertrauenswürdigen Domänen Controller aus. Diese Timeouts können jedoch mehrere Sekunden pro Anforderung dauern und die Netzwerkports auf dem vertrauenden Domänen Controller überschreiten, wenn die Menge der eingehenden Anforderungen hoch ist. Der Client kann den Timeout Vorgang auf dem Domänen Controller als nicht reagierende Threads feststellen, was zu nicht reagierenden Anwendungen führen könnte (wenn die Anwendung die Anforderung im Vordergrund Thread ausführt). Weitere Informationen finden Sie unter [Konfigurieren einer Firewall für Domänen und](https://support.microsoft.com/kb/179442)Vertrauens Stellungen.
 

@@ -8,14 +8,12 @@ manager: mtillman
 ms.reviewer: cahick
 ms.date: 08/20/2019
 ms.topic: article
-ms.prod: windows-server
-ms.technology: identity-adds
-ms.openlocfilehash: 68232d0b8ab6f4b7330b746657fc63e30a3c2e74
-ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
+ms.openlocfilehash: 711a3fc22977d7aa9751c8e200524f4cd295110b
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87518828"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87943307"
 ---
 # <a name="winlogon-automatic-restart-sign-on-arso"></a>Automatische Winlogon-Neustart Anmeldung (ARSO)
 
@@ -169,6 +167,6 @@ Die Anmeldezeiten und die Steuerelement-Steuerelemente können verhindern, dass 
 
 Wenn für ein Gerät Credential Guard aktiviert ist, werden die abgeleiteten geheimen Schlüssel eines Benutzers mit einem Schlüssel verschlüsselt, der für die aktuelle Start Sitzung spezifisch ist. Daher wird ARSO derzeit nicht auf Geräten unterstützt, auf denen Credential Guard aktiviert ist.
 
-## <a name="additional-resources"></a>Zusätzliche Ressourcen
+## <a name="additional-resources"></a>Weitere Ressourcen
 
 Autologon ist ein Feature, das in Windows für mehrere Versionen vorhanden ist. Dabei handelt es sich um ein dokumentiertes Feature von Windows, das auch Tools wie Autologon für Windows [http:/technet. Microsoft. com/Sysinternals/bb963905. aspx](/sysinternals/downloads/autologon)enthält. Dadurch kann sich ein einzelner Benutzer des Geräts automatisch anmelden, ohne Anmelde Informationen einzugeben. Die Anmelde Informationen werden konfiguriert und als verschlüsselter LSA-Schlüssel in der Registrierung gespeichert. Dies könnte für viele untergeordnete Fälle problematisch sein, bei denen eine Kontosperrung zwischen der Zeit des Abrufs und der Reaktivierung auftreten kann, insbesondere, wenn das Wartungsfenster in der Regel während dieser Zeit liegt.
