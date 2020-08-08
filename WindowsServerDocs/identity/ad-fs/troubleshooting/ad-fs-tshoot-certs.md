@@ -6,24 +6,22 @@ ms.author: billmath
 manager: mtillman
 ms.date: 02/21/2017
 ms.topic: article
-ms.prod: windows-server
-ms.technology: identity-adfs
-ms.openlocfilehash: fdadbefc138562246c72f7707b303d966bff0989
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 7f209ba7a9afdb7a2522bcb167609ec823ddea8e
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407199"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87954206"
 ---
 # <a name="ad-fs-troubleshooting---certificates"></a>AD FS Problembehandlung: Zertifikate
-AD FS erfordert die folgenden Zertifikate, um ordnungsgemäß zu funktionieren.  Wenn eine dieser Einstellungen nicht eingerichtet oder ordnungsgemäß konfiguriert wurde, können Probleme auftreten.  
+AD FS erfordert die folgenden Zertifikate, um ordnungsgemäß zu funktionieren.  Wenn eine dieser Einstellungen nicht eingerichtet oder ordnungsgemäß konfiguriert wurde, können Probleme auftreten.
 
 ## <a name="required-certificates"></a>Erforderliche Zertifikate
 AD FS erfordert die folgenden Zertifikate:
 
 
 
-- Verbund **Vertrauensstellung** – dies erfordert, dass entweder ein Zertifikat, das mit einer gegenseitig vertrauenswürdigen Internet-Stamm Zertifizierungsstelle (ca) verkettet ist, im vertrauenswürdigen Stamm Speicher des Anspruchs Anbieters und der Verbund Server der vertrauenden Seite vorhanden ist. der Entwurf der Kreuz Zertifizierung wurde implementiert, wobei jede Seite die Stamm Zertifizierungsstelle mit Ihrem Partner ausgetauscht hat, oder selbst signierte Zertifikate, die ggf. auf jeder Seite importiert wurden.
+- Verbund **Vertrauensstellung** – dies erfordert, dass entweder ein Zertifikat, das mit einer gegenseitig vertrauenswürdigen Internet-Stamm Zertifizierungsstelle (Certification Authority, ca) verkettet ist, im vertrauenswürdigen Stamm Speicher des Anspruchs Anbieters und der Verbund Server der vertrauenden Seite vorhanden ist. es wurde ein Kreuz Zertifizierungs Entwurf implementiert, bei dem jede Seite die Stamm Zertifizierungsstelle mit Ihrem Partner ausgetauscht hat, bzw
 - **Tokensignierung** – für jeden Verbunddienst Computer ist ein Tokensignaturzertifikat erforderlich.  Das Tokensignaturzertifikat des Anspruchs Anbieters muss vom Verbund Server der vertrauenden Seite als vertrauenswürdig eingestuft werden. Das Tokensignaturzertifikat der vertrauenden Seite muss von allen Anwendungen als vertrauenswürdig eingestuft werden, die Token vom RP-Verbund Server empfangen.
 - **Secure Sockets Layer (SSL)** – das SSL-Zertifikat für die Verbunddienst muss in einem vertrauenswürdigen Speicher auf dem Verbund Server Proxy-Computer vorhanden sein und über eine gültige Kette zu einem Speicher der vertrauenswürdigen Zertifizierungsstelle (ca) verfügen.
 - **Zertifikat Sperr Liste (CRL)** – für alle Zertifikate, die eine Zertifikat Sperr Liste veröffentlicht haben, muss für alle Clients und Server, die auf das Zertifikat zugreifen müssen, der Zugriff auf die CRL möglich sein.
@@ -46,15 +44,15 @@ Im folgenden finden Sie eine Liste der Dinge, die auftreten können und überpr�
 ## <a name="common-certificate-errors"></a>Allgemeine Zertifikat Fehler
 In der folgenden Tabelle sind häufige Fehler und mögliche Ursachen aufgeführt.
 
-|Ereignis|Ursache|Auflösung
+|Ereignis|Ursache|Lösung
 |-----|-----|-----|
 |Ereignis 249: im Zertifikat Speicher wurde kein Zertifikat gefunden. In Szenarios für den zertifikatrol Lover kann dies möglicherweise zu einem Fehler führen, wenn die Verbunddienst mit diesem Zertifikat signiert oder entschlüsselt wird.|Das betreffende Zertifikat ist nicht im lokalen Zertifikat Speicher vorhanden, oder das Dienst Konto verfügt nicht über die Berechtigung für den privaten Schlüssel des Zertifikats.|Stellen Sie sicher, dass das Zertifikat im Speicher LocalMachine\MY auf dem AD FS Server installiert ist. Stellen Sie sicher, dass das AD FS-Dienst Konto über Lesezugriff auf den privaten Schlüssel des Zertifikats verfügt.|
-|Ereignis 315: Fehler beim Versuch, die Zertifikat Kette für das Anspruchs Anbieter-Vertrauensstellungs Zertifikat zu erstellen.|Das Zertifikat wurde gesperrt.</br></br>Die Zertifikatskette kann nicht überprüft werden.</br></br>Das Zertifikat ist abgelaufen oder noch nicht gültig.|Stellen Sie sicher, dass das Zertifikat gültig ist und nicht widerrufen wurde.</br></br>Stellen Sie sicher, dass die CRL zugänglich ist.|
-|Ereignis 316: Fehler beim Versuch, die Zertifikat Kette für das Signaturzertifikat der vertrauenden Seite zu erstellen.|Das Zertifikat wurde gesperrt.</br></br>Die Zertifikatskette kann nicht überprüft werden.</br></br>Das Zertifikat ist abgelaufen oder noch nicht gültig.|Stellen Sie sicher, dass das Zertifikat gültig ist und nicht widerrufen wurde.</br></br>Stellen Sie sicher, dass die CRL zugänglich ist.|
-|Ereignis 317: Fehler beim Versuch, die Zertifikat Kette für das Verschlüsselungs Zertifikat der vertrauenden Seite zu erstellen.|Das Zertifikat wurde gesperrt.</br></br>Die Zertifikatskette kann nicht überprüft werden.</br></br>Das Zertifikat ist abgelaufen oder noch nicht gültig.|Stellen Sie sicher, dass das Zertifikat gültig ist und nicht widerrufen wurde.</br></br>Stellen Sie sicher, dass die CRL zugänglich ist.|
-|Ereignis 319: Fehler beim Erstellen der Zertifikat Kette für das Client Zertifikat.|Das Zertifikat wurde gesperrt.</br></br>Die Zertifikatskette kann nicht überprüft werden.</br></br>Das Zertifikat ist abgelaufen oder noch nicht gültig.|Stellen Sie sicher, dass das Zertifikat gültig ist und nicht widerrufen wurde.</br></br>Stellen Sie sicher, dass die CRL zugänglich ist.|
+|Ereignis 315: Fehler beim Versuch, die Zertifikat Kette für das Anspruchs Anbieter-Vertrauensstellungs Zertifikat zu erstellen.|Das Zertifikat wurde widerrufen.</br></br>Die Zertifikatskette kann nicht überprüft werden.</br></br>Das Zertifikat ist abgelaufen oder noch nicht gültig.|Stellen Sie sicher, dass das Zertifikat gültig ist und nicht widerrufen wurde.</br></br>Stellen Sie sicher, dass die CRL zugänglich ist.|
+|Ereignis 316: Fehler beim Versuch, die Zertifikat Kette für das Signaturzertifikat der vertrauenden Seite zu erstellen.|Das Zertifikat wurde widerrufen.</br></br>Die Zertifikatskette kann nicht überprüft werden.</br></br>Das Zertifikat ist abgelaufen oder noch nicht gültig.|Stellen Sie sicher, dass das Zertifikat gültig ist und nicht widerrufen wurde.</br></br>Stellen Sie sicher, dass die CRL zugänglich ist.|
+|Ereignis 317: Fehler beim Versuch, die Zertifikat Kette für das Verschlüsselungs Zertifikat der vertrauenden Seite zu erstellen.|Das Zertifikat wurde widerrufen.</br></br>Die Zertifikatskette kann nicht überprüft werden.</br></br>Das Zertifikat ist abgelaufen oder noch nicht gültig.|Stellen Sie sicher, dass das Zertifikat gültig ist und nicht widerrufen wurde.</br></br>Stellen Sie sicher, dass die CRL zugänglich ist.|
+|Ereignis 319: Fehler beim Erstellen der Zertifikat Kette für das Client Zertifikat.|Das Zertifikat wurde widerrufen.</br></br>Die Zertifikatskette kann nicht überprüft werden.</br></br>Das Zertifikat ist abgelaufen oder noch nicht gültig.|Stellen Sie sicher, dass das Zertifikat gültig ist und nicht widerrufen wurde.</br></br>Stellen Sie sicher, dass die CRL zugänglich ist.|
 |Ereignis 360: an einen Zertifikat Transport Endpunkt wurde eine Anforderung gerichtet, aber die Anforderung enthielt kein Client Zertifikat.|Die Stamm Zertifizierungsstelle, die das Client Zertifikat ausgestellt hat, ist nicht vertrauenswürdig.</br></br>Das Client Zertifikat ist abgelaufen.</br></br>Das Client Zertifikat ist selbst signiert und nicht vertrauenswürdig.|Stellen Sie sicher, dass die Stamm Zertifizierungsstelle, die das Client Zertifikat ausgestellt hat, im vertrauenswürdigen Stamm Speicher vorhanden ist.</br></br>Stellen Sie sicher, dass das Client Zertifikat nicht abgelaufen ist.</br></br>Wenn das Client Zertifikat selbst signiert ist, stellen Sie sicher, dass es der Liste der vertrauenswürdigen Zertifikate hinzugefügt wurde, oder ersetzen Sie das selbst signierte Zertifikat durch ein vertrauenswürdiges Zertifikat.|
-|Ereignis 374: Fehler beim Aufbau der Zertifikat Kette für das Verschlüsselungs Zertifikat der Anspruchs Anbieter Vertrauensstellung.|Das Zertifikat wurde gesperrt.</br></br>Die Zertifikatskette kann nicht überprüft werden.</br></br>Das Zertifikat ist abgelaufen oder noch nicht gültig.|Stellen Sie sicher, dass das Zertifikat gültig ist und nicht widerrufen wurde.</br></br>Stellen Sie sicher, dass die CRL zugänglich ist.|
+|Ereignis 374: Fehler beim Aufbau der Zertifikat Kette für das Verschlüsselungs Zertifikat der Anspruchs Anbieter Vertrauensstellung.|Das Zertifikat wurde widerrufen.</br></br>Die Zertifikatskette kann nicht überprüft werden.</br></br>Das Zertifikat ist abgelaufen oder noch nicht gültig.|Stellen Sie sicher, dass das Zertifikat gültig ist und nicht widerrufen wurde.</br></br>Stellen Sie sicher, dass die CRL zugänglich ist.|
 |Ereignis 381: Fehler beim Versuch, die Zertifikat Kette für das Konfigurations Zertifikat zu erstellen.|Eines der Zertifikate, die für die Verwendung auf dem AD FS-Server konfiguriert sind, ist abgelaufen oder wurde widerrufen.|Stellen Sie sicher, dass alle konfigurierten Zertifikate nicht gesperrt und nicht abgelaufen sind.|
 |Ereignis 385-AD FS erkannt, dass mindestens ein Zertifikat in der AD FS Konfigurationsdatenbank manuell aktualisiert werden muss.|Eines der Zertifikate, die für die Verwendung auf dem AD FS-Server konfiguriert sind, ist abgelaufen oder nähert sich dem Ablaufdatum.|Aktualisieren Sie das abgelaufene oder bald ablaufende Zertifikat mit einer Ersetzung. (Wenn Sie selbst signierte Zertifikate verwenden und automatisches zertifikatrol Lover aktiviert ist, wird dieser Fehler möglicherweise ignoriert, da er sich selbst auflöst.)|
 |Ereignis 387-AD FS erkannt, dass auf mindestens eines der Zertifikate, die in der Verbunddienst angegeben sind, für das Dienst Konto, das vom AD FS Windows-Dienst verwendet wird, nicht zugegriffen werden kann.|Das AD FS-Dienst Konto verfügt nicht über Leseberechtigungen für den privaten Schlüssel eines oder mehrerer konfigurierter Zertifikate.|Stellen Sie sicher, dass das AD FS-Dienst Konto über Leseberechtigung für den privaten Schlüssel aller konfigurierten Zertifikate verfügt.|
@@ -66,4 +64,3 @@ In der folgenden Tabelle sind häufige Fehler und mögliche Ursachen aufgeführt
 ## <a name="next-steps"></a>Nächste Schritte
 
 - [Behandeln von AD FS-Problemen](ad-fs-tshoot-overview.md)
- 

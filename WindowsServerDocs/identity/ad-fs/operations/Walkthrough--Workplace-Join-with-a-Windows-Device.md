@@ -6,14 +6,12 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server
-ms.technology: identity-adfs
-ms.openlocfilehash: 68249c4afcd3fc23f040020a221e53df6d2f6865
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 4f2e3dbf5754b4b33aec972e40a91cbe67c82220
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80816013"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87966977"
 ---
 # <a name="walkthrough-workplace-join-with-a-windows-device"></a>Exemplarische Vorgehensweise: Arbeitsplatzbeitritt mit einem Windows-Gerät
 
@@ -26,15 +24,15 @@ In dieser exemplarischen Vorgehensweise greifen Sie auf eine Unternehmenswebanwe
 
 1. Melden Sie sich mit Ihrem Microsoft-Konto bei Client1 an.
 
-2. Öffnen Sie Internet Explorer, und navigieren Sie zu ihrer generischen Anspruchs-APP, **https://webserv1.contoso.com/claimapp** .
+2. Öffnen Sie Internet Explorer, und navigieren Sie zu ihrer generischen Anspruchs-APP **https://webserv1.contoso.com/claimapp** .
 
-3. Melden Sie sich bei der Webseite mit einem Unternehmens Domänen Konto an: <strong>roberth@contoso.com</strong>, Password: <strong>P@ssword</strong>.
+3. Melden Sie sich bei der Webseite mit einem Unternehmens Domänen Konto an: <strong>roberth@contoso.com</strong> , Kennwort: <strong>P@ssword</strong> .
 
 4. Auf der Webseite werden alle Ansprüche in Ihrem Sicherheitstoken aufgelistet. In Ihrem Sicherheitstoken sind nur Benutzeransprüche vorhanden.
 
 5. Schließen Sie Internet Explorer.
 
-6. Öffnen Sie Internet Explorer, und navigieren Sie zur gleichen Anspruchs-APP, **https://webserv1.contoso.com/claimapp** .
+6. Öffnen Sie Internet Explorer, und navigieren Sie zur gleichen Anspruchs-APP **https://webserv1.contoso.com/claimapp** .
 
 7. Beachten Sie, dass Sie aufgefordert werden, Ihre Anmeldeinformationen erneut einzugeben. Sie werden nicht mit dem Arbeitsplatz von einem Gerät mit dem Arbeitsplatzbeitritt verbunden und verfügen deshalb nicht über ein einmaliges Anmelden.
 
@@ -42,7 +40,7 @@ In dieser exemplarischen Vorgehensweise greifen Sie auf eine Unternehmenswebanwe
 
 > [!IMPORTANT]
 > Für einen erfolgreichen Arbeitsplatzbeitritt muss der Clientcomputer („Client1“) dem SSL-Zertifikat vertrauen, das für die Konfiguration der Active Directory-Verbunddienste (AD FS) in [Step 2: Configure the Federation Server with Device Registration Service (ADFS1)](../deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md#BKMK_4)konfiguriert wurde. Darüber hinaus muss er die Sperrinformationen für das Zertifikat validieren können. Falls beim Arbeitsplatzbeitritt Probleme auftreten, können Sie das Ereignisprotokoll auf %%amp;quot;Client1%%amp;quot; anzeigen.
-> 
+>
 > Öffnen Sie zum Anzeigen des Protokolls die Ereignisanzeige, erweitern Sie **Anwendungs- und Dienstprotokolle**, **Microsoft** und **Windows**, und klicken Sie dann auf **Arbeitsplatzbeitritt**.
 
 #### <a name="to-join-your-device-with-workplace-join"></a>So fügen Sie Ihr Gerät mit dem Arbeitsplatzbeitritt hinzu
@@ -53,9 +51,9 @@ In dieser exemplarischen Vorgehensweise greifen Sie auf eine Unternehmenswebanwe
 
 3. Wählen Sie auf der Seite **PC-Einstellungen** die Option **Netzwerk** aus, und klicken Sie dann auf **Arbeitsplatz**.
 
-4. Geben Sie im Feld **Geben Sie Ihre Benutzer-ID ein, um Arbeitsplatz Zugriff zu erhalten oder Geräteverwaltung zu** aktivieren <strong>roberth@contoso.com</strong>ein, und klicken Sie dann auf **beitreten**.
+4. Geben Sie im Feld **Geben Sie Ihre Benutzer-ID ein, um Arbeitsplatz Zugriff zu erhalten, oder schalten Sie die Geräteverwaltung** ein <strong>roberth@contoso.com</strong> , und klicken Sie dann auf **beitreten**
 
-5. Wenn Sie zur Eingabe von Anmelde Informationen aufgefordert werden, geben Sie <strong>roberth@contoso.com</strong>und Kennwort ein: <strong>P@ssword</strong>. Klicken Sie auf **OK**.
+5. Wenn Sie zur Eingabe von Anmelde Informationen aufgefordert werden, geben Sie <strong>roberth@contoso.com</strong> ein, und Kennwort: <strong>P@ssword</strong> . Klicken Sie auf **OK**.
 
 6. Jetzt sollte die Meldung „Dieses Gerät wurde Ihrem Arbeitsplatznetzwerk hinzugefügt.“ angezeigt werden.
 
@@ -66,22 +64,22 @@ In diesem Teil der Demo greifen Sie von Ihrem Gerät, das mit dem Arbeitsblattbe
 
 1. Melden Sie sich mit Ihrem Microsoft-Konto bei **Client1** an.
 
-2. Öffnen Sie Internet Explorer, und navigieren Sie zu ihrer generischen Anspruchs-APP, **https://webserv1.contoso.com/claimapp** .
+2. Öffnen Sie Internet Explorer, und navigieren Sie zu ihrer generischen Anspruchs-APP **https://webserv1.contoso.com/claimapp** .
 
-3. Melden Sie sich bei der Webseite mit einem Unternehmens Domänen Konto an: <strong>roberth@contoso.com</strong>, Password: <strong>P@ssword</strong>.
+3. Melden Sie sich bei der Webseite mit einem Unternehmens Domänen Konto an: <strong>roberth@contoso.com</strong> , Kennwort: <strong>P@ssword</strong> .
 
 4. Auf der Webseite werden die Ansprüche in Ihrem Sicherheitstoken aufgelistet. Das Token enthält sowohl Benutzer- als auch Geräteansprüche.
 
 5. Schließen Sie Internet Explorer.
 
-6. Öffnen Sie Internet Explorer, und navigieren Sie zur gleichen Anspruchs-APP, **https://webserv1.contoso.com/claimapp** .
+6. Öffnen Sie Internet Explorer, und navigieren Sie zur gleichen Anspruchs-APP **https://webserv1.contoso.com/claimapp** .
 
 7. Beachten Sie, dass Sie **nicht** aufgefordert werden, Ihre Anmeldeinformationen erneut einzugeben. Sie sind von einem Gerät mit Arbeitsplatzbeitritt verbunden und verfügen deshalb über das einmalige Anmelden.
 
 ## <a name="see-also"></a>Weitere Informationen
-[Arbeitsplatz Beitritt von einem beliebigen Gerät für SSO und die nahtlose zweistufige Authentifizierung bei allen Unternehmensanwendungen](Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md)
-[Einrichten der Lab-Umgebung für AD FS in Windows Server 2012 R2](../deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md)
-Exemplarische Vorgehensweise [: Workplace Join mit einem IOS-Gerät](Walkthrough--Workplace-Join-with-an-iOS-Device.md)
+[Arbeitsplatz Beitritt von einem beliebigen Gerät für SSO und die nahtlose zweistufige Authentifizierung bei allen Unternehmensanwendungen](Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md) 
+ [Einrichten der Lab-Umgebung für AD FS in Windows Server 2012 R2](../deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md) 
+ Exemplarische Vorgehensweise [: Workplace Join mit einem IOS-Gerät](Walkthrough--Workplace-Join-with-an-iOS-Device.md)
 
 
 

@@ -6,14 +6,12 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server
-ms.technology: identity-adfs
-ms.openlocfilehash: dc6608713ddd60d20b0b717d4133d93d23fc7b25
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: b9f764b64a50b0c69116cf19e253097da464cdbb
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80816253"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87954296"
 ---
 # <a name="manage-risk-with-additional-multi-factor-authentication-for-sensitive-applications"></a>Verwalten von Risiken mit zusätzlicher mehrstufiger Authentifizierung für sensible Anwendungen
 
@@ -26,7 +24,7 @@ ms.locfileid: "80816253"
 
 -   [Konfigurieren zusätzlicher Authentifizierungsmethoden für AD FS](../../ad-fs/operations/Configure-Additional-Authentication-Methods-for-AD-FS.md)
 
-## <a name="in-this-guide"></a>In diesem Handbuch
+## <a name="in-this-guide"></a>Inhalt dieser Anleitung
 Dieses Handbuch enthält die folgenden Informationen:
 
 -   [Authentifizierungsmechanismen in AD FS](../../ad-fs/operations/Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md#BKMK_1) -Beschreibung der in Active Directory-Verbunddienste (AD FS) (AD FS) verfügbaren Authentifizierungsmechanismen in Windows Server 2012 R2
@@ -38,7 +36,7 @@ Dieses Handbuch enthält die folgenden Informationen:
 
     Ausführliche Schritt-für-Schritt-Anleitungen zum Konfigurieren und überprüfen dieses Szenarios finden Sie unter Exemplarische Vorgehensweise [: Verwalten von Risiken mit zusätzlichen Multi-Factor Authentication für sensible Anwendungen](../../ad-fs/operations/Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md).
 
-## <a name="key-concepts---authentication-mechanisms-in-ad-fs"></a><a name="BKMK_1"></a>Schlüsselkonzepte: Authentifizierungsmechanismen in AD FS
+## <a name="key-concepts---authentication-mechanisms-in-ad-fs"></a><a name="BKMK_1"></a>Wichtige Konzepte – Authentifizierungsmechanismen in AD FS
 
 ### <a name="benefits-of-authentication-mechanisms-in-ad---fs"></a>Vorteile der Authentifizierungsmechanismen in AD FS
 Active Directory-Verbunddienste (AD FS) (AD FS) in Windows Server 2012 R2 bietet IT-Administratoren einen umfassenderen, flexiblere Satz von Tools zum Authentifizieren von Benutzern, die auf Unternehmensressourcen zugreifen möchten. Dadurch können Administratoren die primären und zusätzlichen Authentifizierungsmethoden flexibel steuern. Außerdem bietet Sie eine umfassende Verwaltungs Oberfläche für die Konfiguration von Authentifizierungs Richtlinien (sowohl über die Benutzeroberfläche als auch über Windows PowerShell) und verbessert die Benutzerfreundlichkeit für Endbenutzer, die auf die von AD FS gesicherten Anwendungen und Dienste zugreifen. Im folgenden finden Sie einige der Vorteile, die sich aus der Sicherung Ihrer Anwendung und ihrer Dienste mit AD FS in Windows Server 2012 R2 ergeben:
@@ -147,8 +145,8 @@ Weitere Szenarien zum Aktivieren der MFA in AD FS sind:
     ```
 
 ## <a name="see-also"></a>Weitere Informationen
-Leitfaden für die exemplarische Vorgehensweise [: Verwalten von Risiken mit zusätzlichen Multi-Factor Authentication für sensible Anwendungen](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md)
-[Einrichten der Lab-Umgebung für AD FS in Windows Server 2012 R2](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md)
+Leitfaden für die exemplarische Vorgehensweise [: Verwalten von Risiken mit zusätzlichen Multi-Factor Authentication für sensible Anwendungen](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md) 
+ [Einrichten der Lab-Umgebung für AD FS in Windows Server 2012 R2](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md)
 
 
 

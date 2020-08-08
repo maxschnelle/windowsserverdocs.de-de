@@ -6,14 +6,12 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server
-ms.technology: identity-adfs
-ms.openlocfilehash: 42131ef5e149c62dd5449d8ada196b1068fd30ac
-ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
+ms.openlocfilehash: c47649e5a60de646de331a6c723c18c3b041bca6
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87519719"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87967007"
 ---
 # <a name="update-password-customization"></a>Aktualisieren der Kenn Wort Anpassung
 
@@ -33,6 +31,6 @@ Verwenden Sie zum Anpassen der Beschreibung der Seite zum Aktualisieren des Kenn
 Set-AdfsGlobalWebContent -UpdatePasswordPageDescriptionText "This is the Contoso Update Password page."
 ```
 
-## <a name="additional-references"></a>Zusätzliche Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
 [AD FS Anpassung der Benutzeranmeldung](AD-FS-user-sign-in-customization.md)

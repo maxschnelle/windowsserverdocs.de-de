@@ -6,14 +6,12 @@ ms.author: billmath
 manager: samueld
 ms.date: 10/23/2017
 ms.topic: article
-ms.prod: windows-server
-ms.technology: identity-adfs
-ms.openlocfilehash: 423587d7beb434af13aac68da82ee791f5c6b071
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: a96b256fbd2f1a5ce3db71bd11de8715eccf60e9
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86961712"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87966907"
 ---
 # <a name="obtain-and-configure-ts-and-td-certificates-for-ad-fs"></a>Abrufen und Konfigurieren von TS-und TD-Zertifikaten für AD FS
 
@@ -27,15 +25,15 @@ Weitere Informationen finden Sie unter [Zertifikat Anforderungen](../design/ad-f
 Standardmäßig ist AD FS so konfiguriert, dass die Zertifikate für die Tokensignatur und Tokenentschlüsselung automatisch generiert werden, sowohl bei der Erstkonfiguration als auch zu dem Zeitpunkt, wenn sich die Zertifikate dem Ablaufdatum nähern.
 
 Sie können den folgenden Windows PowerShell-Befehl ausführen: `Get-AdfsProperties` .
-  
+
   ![Get-ADF sproperties](media/configure-TS-TD-certs-ad-fs/ts1.png)
-  
+
 Die autocertificaterollover-Eigenschaft beschreibt, ob AD FS so konfiguriert ist, dass die Tokensignatur und die tokenentschlüsselungszertifikate automatisch erneuert werden.
 
 Wenn autocertificaterollover auf true festgelegt ist, werden die AD FS Zertifikate in AD FS automatisch erneuert und konfiguriert. Nachdem das neue Zertifikat konfiguriert wurde, müssen Sie zur Vermeidung eines Ausfalls sicherstellen, dass jeder Verbund Partner (der in Ihrer AD FS Farm durch Vertrauens Stellungen der vertrauenden Seite oder Anspruchs Anbieter-Vertrauens Stellungen dargestellt wird) mit diesem neuen Zertifikat aktualisiert wird.
-    
+
 Wenn AD FS nicht für das automatische Erneuern von Tokensignierung und tokenentschlüsselungszertifikaten konfiguriert ist ("autocertificaterollover" ist auf "false" festgelegt), werden von AD FS nicht automatisch neue Tokensignatur-oder tokenentschlüsselungszertifikate generiert oder gestartet. Diese Aufgaben müssen manuell ausgeführt werden.
-    
+
 Wenn AD FS für das automatische Erneuern von Tokensignierung und tokenentschlüsselungszertifikate konfiguriert ist (autocertificaterollover ist auf true festgelegt), können Sie bestimmen, wann Sie erneuert werden:
 
 Certificategenerationthreshold: gibt an, wie viele Tage vor dem Datum, an dem das Zertifikat nicht nach dem Datum generiert wird, ein neues Zertifikat generiert wird.
@@ -43,7 +41,7 @@ Certificategenerationthreshold: gibt an, wie viele Tage vor dem Datum, an dem da
 Mit "certificatepromotionthreshold" wird festgelegt, wie viele Tage nach dem Generieren des neuen Zertifikats der Dienst als primäres Zertifikat herauf gestuft wird (d. h. AD FS mit der Verwendung beginnen, um Token zu signieren, die es ausgibt, und Token von Identitäts Anbietern entschlüsseln).
 
 ![Get-ADF sproperties](media/configure-TS-TD-certs-ad-fs/ts2.png)
-  
+
 Wenn AD FS für das automatische Erneuern von Tokensignierung und tokenentschlüsselungszertifikate konfiguriert ist (autocertificaterollover ist auf true festgelegt), können Sie bestimmen, wann Sie erneuert werden:
 
  - **Certificategenerationthreshold** : gibt an, wie viele Tage vor dem Datum, an dem das Zertifikat nicht nach dem Datum generiert wird, ein neues Zertifikat generiert wird.

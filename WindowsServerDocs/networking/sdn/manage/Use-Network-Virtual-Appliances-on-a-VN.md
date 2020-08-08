@@ -3,22 +3,20 @@ title: Verwenden virtueller Netzwerkgeräte in einem virtuellen Netzwerk
 description: In diesem Thema erfahren Sie, wie Sie virtuelle Netzwerkgeräte in virtuellen Mandanten Netzwerken bereitstellen. Sie können virtuelle Netzwerkgeräte zu Netzwerken hinzufügen, die benutzerdefinierte Routing-und Port Spiegelungs Funktionen ausführen.
 manager: grcusanz
 ms.topic: article
-ms.prod: windows-server
-ms.technology: networking-sdn
 ms.assetid: 3c361575-1050-46f4-ac94-fa42102f83c1
 ms.author: anpaul
 author: AnirbanPaul
 ms.date: 08/30/2018
-ms.openlocfilehash: 5d8ac7256e9c7e59c7df260bea5d5a8f0fb6b42b
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 3fa6fcd735a2cad6a062d7b2daaa7cf206589c20
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80854473"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87954056"
 ---
 # <a name="use-network-virtual-appliances-on-a-virtual-network"></a>Verwenden virtueller Netzwerkgeräte in einem virtuellen Netzwerk
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 In diesem Thema erfahren Sie, wie Sie virtuelle Netzwerkgeräte in virtuellen Mandanten Netzwerken bereitstellen. Sie können virtuelle Netzwerkgeräte zu Netzwerken hinzufügen, die benutzerdefinierte Routing-und Port Spiegelungs Funktionen ausführen.
 
@@ -28,7 +26,7 @@ Sie können einen der beiden Typen von virtuellen Geräten verwenden:
 
 1. **Benutzerdefiniertes Routing** : ersetzt verteilte Router im virtuellen Netzwerk durch die Routing Funktionen des virtuellen Geräts.  Beim benutzerdefinierten Routing wird das virtuelle Gerät als Router zwischen den virtuellen Subnetzen im virtuellen Netzwerk verwendet.
 
-2. **Port Spiegelung** -der gesamte Netzwerk Datenverkehr, der den überwachten Port eingibt oder verlässt, wird dupliziert und zur Analyse an ein virtuelles Gerät gesendet. 
+2. **Port Spiegelung** -der gesamte Netzwerk Datenverkehr, der den überwachten Port eingibt oder verlässt, wird dupliziert und zur Analyse an ein virtuelles Gerät gesendet.
 
 
 ## <a name="deploying-a-network-virtual-appliance"></a>Bereitstellen eines virtuellen Netzwerkgeräts
@@ -37,20 +35,20 @@ Zum Bereitstellen eines virtuellen Netzwerkgeräts müssen Sie zunächst einen v
 
 Für einige Geräte sind mehrere virtuelle Netzwerkadapter erforderlich. Normalerweise ist dies ein Netzwerkadapter, der für die Geräteverwaltung reserviert ist, während zusätzliche Adapter Datenverkehr verarbeiten.  Wenn für Ihr Gerät mehrere Netzwerkadapter erforderlich sind, müssen Sie jede Netzwerkschnittstelle im Netzwerk Controller erstellen. Außerdem müssen Sie auf jedem Host eine Schnittstellen-ID für jeden der zusätzlichen Adapter zuweisen, die sich in verschiedenen virtuellen Subnetzen befinden.
 
-Nachdem Sie das virtuelle Netzwerkgerät bereitgestellt haben, können Sie das Gerät für das definierte Routing, das Portieren von Spiegelung oder beides verwenden. 
+Nachdem Sie das virtuelle Netzwerkgerät bereitgestellt haben, können Sie das Gerät für das definierte Routing, das Portieren von Spiegelung oder beides verwenden.
 
 
 ## <a name="example-user-defined-routing"></a>Beispiel: benutzerdefiniertes Routing
 
 In den meisten Umgebungen benötigen Sie nur die System Routen, die bereits vom verteilten Router des virtuellen Netzwerks definiert wurden. Möglicherweise müssen Sie jedoch eine Routing Tabelle erstellen und eine oder mehrere Routen in bestimmten Fällen hinzufügen, z. b.:
 
-- Erzwingen Sie Tunnelung zum Internet über das lokale Netzwerk.
+- Tunnelerzwingung für das Internet über das lokale Netzwerk.
 - Verwendung von virtuellen Geräten in Ihrer Umgebung.
 
 In diesen Szenarien müssen Sie eine Routing Tabelle erstellen und der Tabelle benutzerdefinierte Routen hinzufügen. Sie können über mehrere Routing Tabellen verfügen, und Sie können dieselbe Routing Tabelle einem oder mehreren Subnetzen zuordnen. Sie können jedes Subnetz nur einer Routing Tabelle zuordnen. Alle VMs in einem Subnetz verwenden die Routing Tabelle, die dem Subnetz zugeordnet ist.
 
 Subnetze basieren auf System Routen, bis eine Routing Tabelle dem Subnetz zugeordnet wird. Nachdem eine Zuordnung vorhanden ist, erfolgt das Routing basierend auf der längsten Präfix Übereinstimmung (LPM) zwischen benutzerdefinierten Routen und System Routen. Wenn mehrere Routen mit derselben LPM-Übereinstimmung vorhanden sind, wird die benutzerdefinierte Route zuerst vor der System Route ausgewählt.
- 
+
 **Dringlichkeit**
 
 1. Erstellen Sie die Eigenschaften der Routing Tabelle, die alle benutzerdefinierten Routen enthält.<p>System Routen gelten weiterhin gemäß den oben definierten Regeln.
@@ -91,7 +89,7 @@ Sobald Sie die Routing Tabelle auf das virtuelle Netzwerk anwenden, wird der Dat
 
 ## <a name="example-port-mirroring"></a>Beispiel: Port Spiegelung
 
-In diesem Beispiel konfigurieren Sie den Datenverkehr für die MyVM_Ethernet1, um Appliance_Ethernet1 zu spiegeln.  Wir gehen davon aus, dass Sie zwei VMS bereitgestellt haben, eine als Appliance und die andere als die VM, die mit Spiegelung überwacht werden soll. 
+In diesem Beispiel konfigurieren Sie den Datenverkehr für die MyVM_Ethernet1, um Appliance_Ethernet1 zu spiegeln.  Wir gehen davon aus, dass Sie zwei VMS bereitgestellt haben, eine als Appliance und die andere als die VM, die mit Spiegelung überwacht werden soll.
 
 Die Appliance muss über eine zweite Netzwerkschnittstelle für die Verwaltung verfügen. Nachdem Sie die Spiegelung als Ziel auf Appliciance_Ethernet1 aktiviert haben, empfängt Sie keinen Datenverkehr mehr, der für die hier konfigurierte IP-Schnittstelle bestimmt ist.
 
@@ -165,5 +163,5 @@ Die Appliance muss über eine zweite Netzwerkschnittstelle für die Verwaltung v
    ```
 
 Nachdem Sie diese Schritte ausgeführt haben, spiegelt die Appliance_Ethernet1-Schnittstelle den Datenverkehr von der MyVM_Ethernet1 Schnittstelle wider.
- 
+
 ---

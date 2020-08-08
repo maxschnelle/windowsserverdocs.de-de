@@ -1,20 +1,18 @@
 ---
 title: Handbuch zur Problembehandlung für das Dynamic Host Configuration-Protokoll (DHCP)
 description: Diese Artilce enthält eine Anleitung zur Problembehandlung für DHCP-Probleme.
-ms.prod: windows-server
 ms.service: na
 manager: dcscontentpm
-ms.technology: server-general
 ms.date: 5/26/2020
 ms.topic: article
 author: Deland-Han
 ms.author: delhan
-ms.openlocfilehash: 4bded9f879061903b1e925632a3cb4c83dfaac08
-ms.sourcegitcommit: ef089864980a1d4793a35cbf4cbdd02ce1962054
+ms.openlocfilehash: 88b02dc70ff60c13fd84366883e4f741fa4694a9
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84150318"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87954657"
 ---
 # <a name="troubleshooting-guide-for-dynamic-host-configuration-protocol-dhcp"></a>Handbuch zur Problembehandlung für das Dynamic Host Configuration-Protokoll (DHCP)
 
@@ -35,21 +33,19 @@ Die Prozedur für die IPv4-Adresszuweisung umfasst in der Regel drei Hauptkompon
 Die Kommunikation zwischen DHCP-Client und Server besteht aus drei Arten der Interaktion zwischen den beiden Peers:
 
 - **Broadcast basierte Dora** (ermitteln, Angebot, Anforderung, Bestätigung). Dieser Vorgang umfasst die folgenden Schritte:
-  
+
     - Der DHCP-Client sendet eine DHCP Discovery-Broadcast Anforderung an alle verfügbaren DHCP-Server innerhalb des gültigen Bereichs.
-  
+
     - Eine DHCP-Angebot-Broadcast Antwort wird vom DHCP-Server empfangen und bietet eine verfügbare IP-Adresse.
-  
+
     - Die DHCP-Client Broadcast Anforderung fordert am Ende die angebotene IP-Adress Lease und die DHCP-Broadcast Bestätigung an.
-  
+
     - Wenn sich der DHCP-Client und-Server in unterschiedlichen logischen Netzwerksegmenten befinden, wird von einem DHCP-Relay-Agent eine Weiterleitung durchlaufen, und die DHCP-Broadcast Pakete werden zwischen Peers hin und her gesendet.
 
 - **Unicastdhcp**-Erneuerungs Anforderungen: Diese werden direkt vom DHCP-Client an den DHCP-Server gesendet, um die IP-Adresszuweisung nach 50 Prozent der IP-Adress Lease zu erneuern.
 
 - **Neubinden von DHCP-Broadcast Anforderungen**: Diese werden an jeden DHCP-Server innerhalb des Bereichs des Clients vorgenommen. Diese werden nach 87,5 Prozent der IP-Adress Leasedauer gesendet, da dies darauf hinweist, dass die gesteuerte unicastanforderung nicht funktioniert hat. Wie beim Dora-Prozess umfasst dieser Prozess die Kommunikation mit dem DHCP-Relay-Agent.
 
-Wenn ein Microsoft DHCP-Client keine gültige DHCP-IPv4-Adresse erhält, ist der Client wahrscheinlich für die Verwendung einer APIPA-Adresse konfiguriert. Weitere Informationen finden Sie im folgenden Knowledge Base-Artikel:  
-[220874](https://support.microsoft.com/help/220874) verwenden der automatischen TCP/IP-Adressierung ohne DHCP-Server
+Wenn ein Microsoft DHCP-Client keine gültige DHCP-IPv4-Adresse erhält, ist der Client wahrscheinlich für die Verwendung einer APIPA-Adresse konfiguriert. Weitere Informationen finden Sie im folgenden Knowledge Base-Artikel: [220874](https://support.microsoft.com/help/220874) verwenden der automatischen TCP/IP-Adressierung ohne DHCP-Server.
 
-Die gesamte Kommunikation erfolgt über UDP-Ports 67 und 68. Weitere Informationen finden Sie im folgenden Knowledge Base-Artikel:  
-[169289](https://support.microsoft.com/help/169289) DHCP-Grundlagen (Dynamic Host Configuration-Protokoll).
+Die gesamte Kommunikation erfolgt über UDP-Ports 67 und 68. Weitere Informationen finden Sie im folgenden Knowledge Base-Artikel: [169289](https://support.microsoft.com/help/169289) DHCP (Dynamic Host Configuration-Protokoll) Grundlagen.

@@ -6,20 +6,18 @@ ms.author: billmath
 manager: mtillman
 ms.date: 02/21/2017
 ms.topic: article
-ms.prod: windows-server
-ms.technology: identity-adfs
-ms.openlocfilehash: 98f6c2e39b2a5eeab76103c1ae477dde785a0e04
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 4c1823e1cbfc58e50c7231293b846c31480e01a6
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71385393"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87954156"
 ---
 # <a name="ad-fs-troubleshooting---integrated-windows-authentication"></a>AD FS Problembehandlung: integrierte Windows-Authentifizierung
 Die integrierte Windows-Authentifizierung ermöglicht es Benutzern, sich mit Ihren Windows-Anmelde Informationen anzumelden und einmaliges Anmelden (Single-Sign-on, SSO) mithilfe von Kerberos oder NTLM auszuführen.
 
 ## <a name="reason-integrated-windows-authentication-fails"></a>Grund für die integrierte Windows-Authentifizierung
-Es gibt drei Hauptgründe, warum die integrierte Windows-Authentifizierung fehlschlägt. Die Überladungen sind:
+Es gibt drei Hauptgründe, warum die integrierte Windows-Authentifizierung fehlschlägt. Sie lauten wie folgt:
     - Falsche Konfiguration des Dienst Prinzipal namens (SPN)
     - Kanal Bindungs Token
     - Internet Explorer-Konfiguration
@@ -32,9 +30,9 @@ Ein Beispiel für einen SPN, der mit AD FS verwendet wird, sieht wie folgt aus:
 2. Active Directory teilt dem Browser mit, dass es sich um das AD FS Dienst Konto handelt.
 3. Der Browser erhält ein Kerberos-Ticket für das AD FS-Dienst Konto.
 
-Wenn für das AD FS-Dienst Konto ein falsch konfigurierter oder falscher SPN vorliegt, kann dies zu Problemen führen.  Bei der Betrachtung von Netzwerk Ablauf Verfolgungen werden möglicherweise Fehler wie z. b. krb-Fehler angezeigt: KRB5KDC_ERR_S_PRINCIPAL_UNKNOWN.
+Wenn für das AD FS-Dienst Konto ein falsch konfigurierter oder falscher SPN vorliegt, kann dies zu Problemen führen.  Wenn Sie sich Netzwerk Ablauf Verfolgungen ansehen, werden möglicherweise Fehler wie "krb-Fehler: KRB5KDC_ERR_S_PRINCIPAL_UNKNOWN" angezeigt.
 
-Mithilfe von Netzwerk Ablauf Verfolgungen (z. b. wireshark) können Sie feststellen, welcher SPN vom Browser aufgelöst werden soll. Anschließend können Sie das Befehlszeilen Tool Setspn-Q <spn> verwenden, um einen Suchvorgang für den SPN durchzuführen.  Sie wird möglicherweise nicht gefunden, oder Sie kann einem anderen Konto zugewiesen werden, außer dem AD FS-Dienst Konto.
+Mithilfe von Netzwerk Ablauf Verfolgungen (z. b. wireshark) können Sie feststellen, welcher SPN vom Browser aufgelöst werden soll. Anschließend können Sie mit dem Befehlszeilen Tool Setspn-Q <spn> eine Suche nach diesem SPN durchführen.  Sie wird möglicherweise nicht gefunden, oder Sie kann einem anderen Konto zugewiesen werden, außer dem AD FS-Dienst Konto.
 
 ![Verbund](media/ad-fs-tshoot-iwa/iwa3.png)
 
@@ -43,7 +41,7 @@ Sie können den SPN überprüfen, indem Sie sich die Eigenschaften des AD FS-Die
 ![Verbund](media/ad-fs-tshoot-iwa/iwa1.png)
 
 ## <a name="channel-binding-token"></a>Kanal Bindungs Token
-Wenn sich eine Client Anwendung derzeit mithilfe von Kerberos, Digest oder NTLM mithilfe von HTTPS beim Server authentifiziert, wird zunächst ein Transport Level Security (TLS)-Kanal eingerichtet, und die Authentifizierung erfolgt mithilfe dieses Kanals. 
+Aktuell wird zunächst ein Transport Level Security (TLS)-Kanal eingerichtet und eine Authentifizierung über diesen Kanal durchgeführt, wenn sich eine Clientanwendung mit Kerberos, Hashwert oder NTLM mit HTTPS im Server authentifiziert.
 
 Das channelbindungstoken ist eine Eigenschaft des TLS-gesicherten äußeren Kanals und wird verwendet, um den äußeren Kanal an eine Konversation über den Client authentifizierten inneren Kanal zu binden.
 
@@ -54,7 +52,7 @@ Dies kann folgende Ursachen haben:
  - Fiddler
  - Reverseproxys mit SSL
 
-Standardmäßig ist für AD FS dieser Wert auf "zulassen" festgelegt.  Sie können diese Einstellung mithilfe von PowerShell-Cmdlet ändern `Set-ADFSProperties -ExtendProtectionTokenCheck`
+Standardmäßig ist für AD FS dieser Wert auf "zulassen" festgelegt.  Sie können diese Einstellung mithilfe von PowerShell-Cmdlet ändern.`Set-ADFSProperties -ExtendProtectionTokenCheck`
 
 Weitere Informationen hierzu finden Sie unter [bewährte Methoden für die sichere Planung und Bereitstellung von AD FS](../../ad-fs/design/best-practices-for-secure-planning-and-deployment-of-ad-fs.md).
 
@@ -67,9 +65,9 @@ Internet Explorer wird standardmäßig wie folgt verwendet:
 
 Es gibt zwei Haupt Dinge, die dies verhindern können.
    - Aktivieren der integrierten Windows-Authentifizierung ist nicht in den Eigenschaften von IE aktiviert.  Diese befindet sich unter "Internet Optionen" > "Erweiterte > Sicherheit".
-   
+
    ![Verbund](media/ad-fs-tshoot-iwa/iwa4.png)
-   
+
    - Sicherheitszonen sind nicht ordnungsgemäß konfiguriert.
        - Voll qualifizierte Domänen Namen befinden sich nicht in der Intranetzone
        - AD FS-URL befindet sich nicht in der Intranetzone.

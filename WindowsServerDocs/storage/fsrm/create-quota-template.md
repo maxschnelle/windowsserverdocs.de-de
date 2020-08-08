@@ -2,18 +2,16 @@
 title: Erstellen einer Kontingent Vorlage
 description: In diesem Artikel wird beschrieben, wie Sie eine Kontingent Vorlage erstellen, um eine Speicherplatz Beschränkung zu definieren.
 ms.date: 7/7/2017
-ms.prod: windows-server
-ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: ad05d72098851e39bc245711b73e5ad721c5a784
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 785540c9b8e436ba994af5408b769ea37528c8ba
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85473557"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87954637"
 ---
 # <a name="create-a-quota-template"></a>Erstellen einer Kontingent Vorlage
 
@@ -88,7 +86,7 @@ Beispielsweise können Sie Schwellenwerte konfigurieren, um eine e-Mail-Nachrich
 
 8. Wiederholen Sie diese Schritte, wenn Sie zusätzliche Benachrichtigungs Schwellenwerte für die Kontingent Vorlage konfigurieren möchten.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Kontingentverwaltung](quota-management.md)
 -    [Festlegen der Optionen des Ressourcen-Managers für Dateiserver](setting-file-server-resource-manager-options.md)

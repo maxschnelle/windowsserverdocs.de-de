@@ -6,14 +6,12 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server
-ms.technology: identity-adfs
-ms.openlocfilehash: b599d5b1d9d66758f70b7e5ab8cab8f53c475788
-ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
+ms.openlocfilehash: 679f60d1328795ef4f272f0159c6be5185428d59
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87519739"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87954266"
 ---
 # <a name="customize-the-display-names-and-descriptions-for-authentication-methods"></a>Anpassen von anzeigen Amen und Beschreibungen für Authentifizierungsmethoden
 
@@ -41,6 +39,6 @@ Wie Sie sehen, hat sich die angezeigte Meldung geändert.
 
 ![Display Name anpassen](media/AD-FS-user-sign-in-customization/ADFS_Customize_Update3.PNG)
 
-## <a name="additional-references"></a>Zusätzliche Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
 [AD FS Anpassung der Benutzeranmeldung](AD-FS-user-sign-in-customization.md)

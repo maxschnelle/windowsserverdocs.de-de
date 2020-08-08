@@ -6,20 +6,18 @@ ms.author: billmath
 manager: mtillman
 ms.date: 03/01/2018
 ms.topic: article
-ms.prod: windows-server
-ms.technology: identity-adfs
-ms.openlocfilehash: 94e841282963e2b2b6ada552b54c7732d965b6b6
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 349b673b7c062fd8f14d9a9fd857e1d7c859d3de
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86955972"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87954196"
 ---
 # <a name="ad-fs-troubleshooting---claims-rules-syntax"></a>AD FS Problembehandlung: Syntax von Anspruchs Regeln
 Ein Anspruch ist eine-Anweisung, die ein Subjekt über sich selbst oder einen anderen Betreff trifft.  Ansprüche werden von einer vertrauenden Seite ausgegeben, und Sie erhalten einen oder mehrere Werte und werden dann in Sicherheits Token verpackt, die vom AD FS Server ausgestellt werden.  In diesem Artikel werden die Anspruchs Syntax und die Erstellung behandelt.  Weitere Informationen zur Anspruchs Ausstellung finden Sie unter [AD FS Problembehandlung: Anspruchs Ausstellung](ad-fs-tshoot-claims-issuance.md).
 
->[!NOTE]  
->Sie können [claimsxray](https://adfshelp.microsoft.com/ClaimsXray/TokenRequest) auf der [ADFS-Hilfe](https://adfshelp.microsoft.com) Website verwenden, um die Behandlung von Anspruchs Problemen zu unterstützen.   
+>[!NOTE]
+>Sie können [claimsxray](https://adfshelp.microsoft.com/ClaimsXray/TokenRequest) auf der [ADFS-Hilfe](https://adfshelp.microsoft.com) Website verwenden, um die Behandlung von Anspruchs Problemen zu unterstützen.
 
 ## <a name="how-claim-rules-are-processed"></a>Verarbeiten von Anspruchsregeln
 Anspruchs Regeln werden mithilfe der Anspruchs- [Engine](../../ad-fs/technical-reference/The-Role-of-the-Claims-Engine.md)über die Anspruchs [Pipeline](../../ad-fs/technical-reference/The-Role-of-the-Claims-Pipeline.md) verarbeitet. Die Anspruchs-Engine ist eine logische Komponente des Verbunddiensts, die den Satz der von einem Benutzer gesendeten eingehenden Ansprüche untersucht und anschließend in Abhängigkeit von der Logik in jeder Regel einen Ausgabeanspruchssatz erzeugt.
@@ -36,7 +34,7 @@ Die Anspruchs Regel Sprache besteht aus den folgenden Komponenten, getrennt durc
 
 Beispiel:
 
-```c:[type == "Name", value == "domain user"] => issue(type = "Role", value = "employee");``` 
+```c:[type == "Name", value == "domain user"] => issue(type = "Role", value = "employee");```
 
 Der folgende Anspruch hat Folgendes:
 - Bedingung: `c:[type == "Name", value == "domain user"] ` wertet den Eingabe Anspruch aus, ob der Name des Windows-Kontos ein Domänen Benutzer ist.

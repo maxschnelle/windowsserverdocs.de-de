@@ -6,14 +6,12 @@ ms.author: billmath
 manager: femila
 ms.date: 12/05/2017
 ms.topic: article
-ms.prod: windows-server
-ms.technology: identity-adfs
-ms.openlocfilehash: ea421bb274ec7f6a6b1ba5be03391dd92fb10b33
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 584088900bea8acb83da076311d29ed5f45ea71e
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86955053"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87954236"
 ---
 # <a name="join-to-workplace-from-any-device-for-sso-and-seamless-second-factor-authentication-across-company-applications"></a>Arbeitsplatzbeitritt von einem beliebigen Gerät für SSO und die nahtlose zweistufige Authentifizierung bei allen Unternehmensanwendungen
 
@@ -42,7 +40,7 @@ Unternehmen können das mit dem Informationszugriff verbundene Risiko verwalten 
 
 -   Bietet eine nahtlosere Anmeldeerfahrung für Benutzer, um von vertrauenswürdigen Geräten auf Unternehmensressourcen zuzugreifen.
 
-### <a name="single-sign-on"></a>Einmaliges Anmelden
+### <a name="single-sign-on"></a>Single Sign-On
 Im Zusammenhang mit diesem Szenario ist das einmalige Anmelden (Single Sign-On, SSO) die Funktion, mit der die Anzahl von Kennworteingabeaufforderungen reduziert wird, bei denen der Benutzer ein Kennwort eingeben muss, um von bekannten Geräten auf Unternehmensressourcen zuzugreifen. Diese Funktion bedeutet, dass Benutzer während der SSO-Lebensdauer nur einmal aufgefordert werden, um von diesem Gerät auf Anwendungen und Ressourcen des Unternehmens zuzugreifen. Wenn ein Gerät den Arbeitsplatzbeitritt verwendet, erhält der Benutzer, der für die Verwendung des Geräts registriert ist, standardmäßig für sieben ein beständiges einmaliges Anmelden. Dieser Benutzer hat eine nahtlose Anmeldeerfahrung in derselben oder in neuen Sitzungen.
 
 ## <a name="solution-overview"></a>Übersicht über die Lösungen

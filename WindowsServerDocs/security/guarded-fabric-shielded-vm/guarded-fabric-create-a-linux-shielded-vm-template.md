@@ -1,27 +1,25 @@
 ---
 title: Erstellen eines virtuellen Linux-VM-Vorlagen Datenträgers
-ms.prod: windows-server
 ms.topic: article
 ms.assetid: d0e1d4fb-97fc-4389-9421-c869ba532944
 manager: dongill
 author: rpsqrd
 ms.author: ryanpu
-ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 1a6325a5d8e931f1e62c83ba4013d94760e39f86
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 0535a15d0b21b62bb9f8b91729f773d1f4db0db0
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80856793"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87966067"
 ---
 # <a name="create-a-linux-shielded-vm-template-disk"></a>Erstellen eines virtuellen Linux-VM-Vorlagen Datenträgers
 
-> Gilt für: Windows Server 2019, Windows Server (halbjährlicher Kanal), 
+> Gilt für: Windows Server 2019, Windows Server (halbjährlicher Kanal),
 
 In diesem Thema wird erläutert, wie ein Vorlagen Datenträger für abgeschirmte Linux-VMs vorbereitet wird, mit denen eine oder mehrere Mandanten-VMS instanziiert werden können.
 
-## <a name="prerequisites"></a>Erforderliche Komponenten
+## <a name="prerequisites"></a>Voraussetzungen
 
 Zum Vorbereiten und Testen einer abgeschirmten Linux-VM benötigen Sie die folgenden verfügbaren Ressourcen:
 
@@ -72,7 +70,7 @@ Diese Schritte führen Sie durch die Mindestanforderungen für eine Linux-VM, di
 5.  Konfigurieren Sie mit dem Hyper-V-Manager [einen externen Switch](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines) auf dem Virtualisierungsserver, damit die Linux-VM auf das Internet zugreifen kann, um Updates abzurufen.
 
 6.  Erstellen Sie als nächstes einen neuen virtuellen Computer, auf dem das Linux-Betriebssystem installiert werden soll.
-    Klicken Sie im Aktionsbereich auf **neu** > **virtuellen Computer** , um den Assistenten zu aktivieren.
+    Klicken Sie im Aktionsbereich auf **neuer**  >  **virtueller Computer** , um den Assistenten zu aktivieren.
     Geben Sie einen anzeigen Amen für den virtuellen Computer an, z. b. "Pre--Vorlagen-Linux", und klicken Sie auf **weiter**.
 
 7.  Wählen Sie auf der zweiten Seite des Assistenten **Generation 2** aus, um sicherzustellen, dass die VM mit einem UEFI-basierten firmwareprofil bereitgestellt wird.
@@ -139,7 +137,7 @@ Diese Schritte führen Sie durch die Mindestanforderungen für eine Linux-VM, di
     ```
 
 14. Wenn Sie die Anpassung des Linux-Betriebssystems abgeschlossen haben, suchen Sie das Installationsprogramm lsvmprep auf dem System, und führen Sie es aus.
-    
+
     ```bash
     # The path below may change based on the version of lsvmprep installed
     # Run "find /opt -name lsvmprep" to locate the lsvmprep executable
@@ -150,7 +148,7 @@ Diese Schritte führen Sie durch die Mindestanforderungen für eine Linux-VM, di
 
 16. Wenn Sie Prüfpunkte Ihres virtuellen Computers (einschließlich automatischer Prüfpunkte, die von Hyper-V mit dem Windows 10 Fall Creators Update erstellt wurden) vorgenommen haben, achten Sie darauf, dass Sie Sie löschen, bevor Sie fortfahren.
     Prüfpunkte erstellen differenzierende Datenträger (. avhdx), die vom Vorlagen-Assistenten für Vorlagen nicht unterstützt werden.
-    
+
     Um Prüfpunkte zu löschen, öffnen Sie den **Hyper-V-Manager**, wählen Sie den virtuellen Computer aus, **Klicken Sie mit**der rechten Maustaste auf den obersten Prüfpunkt im Bereich Prüfpunkte, und klicken Sie dann auf Prüf Punkt
 
     ![Löschen Sie alle Prüfpunkte für Ihre Vorlagen-VM im Hyper-V-Manager.](../media/Guarded-Fabric-Shielded-VM/delete-checkpoints-lsvm-template.png)
@@ -166,11 +164,11 @@ Der Hash und die digitale Signatur werden überprüft, wenn eine abgeschirmte VM
 Um die Datenträger Messungen Digital zu signieren, müssen Sie auf dem Computer, auf dem Sie den Vorlagen Datenträger-Assistenten ausführen werden, ein Zertifikat abrufen.
 Das Zertifikat muss die folgenden Anforderungen erfüllen:
 
-Zertifikat Eigenschaft | Erforderlicher Wert
+Certificate-Eigenschaft | Erforderlicher Wert
 ---------------------|---------------
 Schlüssel Algorithmus | RSA
-Minimale Schlüsselgröße | 2\.048 Bits
-Signatur Algorithmus | SHA256 (empfohlen)
+Minimale Schlüsselgröße | 2.048 Bits
+Signaturalgorithmus | SHA256 (empfohlen)
 Schlüsselverwendung | Digitale Signatur
 
 Details zu diesem Zertifikat werden den Mandanten angezeigt, wenn Sie Ihre geschützten Datendateien erstellen und die Datenträger autorisierst, denen Sie vertrauen.
@@ -187,7 +185,7 @@ New-SelfSignedCertificate -Subject "CN=Linux Shielded VM Template Disk Signing C
 ### <a name="process-the-disk-with-the-template-disk-wizard-cmdlet"></a>Verarbeiten des Datenträgers mit dem Datenträger-Assistenten-Cmdlet
 
 Kopieren Sie den Vorlagen Datenträger und das Zertifikat auf einen Computer unter Windows Server, Version 1709, und führen Sie dann die folgenden Befehle aus, um den Signatur Prozess zu initiieren
-Die vhdx, die Sie dem `-Path`-Parameter bereitstellen, wird mit dem aktualisierten Vorlagen Datenträger überschrieben. Stellen Sie daher sicher, dass Sie vor dem Ausführen des Befehls eine Kopie erstellen
+Die vhdx-Datei, die Sie für den-Parameter bereitstellen `-Path` , wird mit dem aktualisierten Vorlagen Datenträger überschrieben. Achten Sie daher darauf, dass Sie vor dem Ausführen des Befehls
 
 > [!IMPORTANT]
 > Der Remoteserver-Verwaltungstools, der unter Windows Server 2016 oder Windows 10 verfügbar ist, kann nicht verwendet werden, um einen Linux-Vorlagen Datenträger für geschützte

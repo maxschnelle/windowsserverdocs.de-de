@@ -1,20 +1,18 @@
 ---
 title: Beheben von Problemen auf dem DHCP-Client
 description: Diese Artilce bietet eine Einführung in die Behandlung von Problemen auf dem DHCP-Client und das Sammeln von Daten.
-ms.prod: windows-server
 ms.service: na
 manager: dcscontentpm
-ms.technology: server-general
 ms.date: 5/26/2020
 ms.topic: article
 author: Deland-Han
 ms.author: delhan
-ms.openlocfilehash: a6064b9e497fcd54671292ade77a08c06ba42920
-ms.sourcegitcommit: ef089864980a1d4793a35cbf4cbdd02ce1962054
+ms.openlocfilehash: 650b3f83ebd0467df2a747d865db2d0a346bcddc
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84150298"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87954577"
 ---
 # <a name="troubleshoot-problems-on-the-dhcp-client"></a>Beheben von Problemen auf dem DHCP-Client
 
@@ -38,7 +36,7 @@ In diesem Artikel wird erläutert, wie Sie Probleme beheben, die auf DHCP-Client
 
 ## <a name="event-logs"></a>Ereignisprotokolle
 
-Überprüfen Sie die Ereignisprotokolle "Microsoft-Windows-DHCP-Client Ereignisse/betriebsbereit" und "Microsoft-Windows-DHCP-Client Ereignisse/admin". Alle Ereignisse, die sich auf den DHCP-Client Dienst beziehen, werden an diese Ereignisprotokolle gesendet.  
+Überprüfen Sie die Ereignisprotokolle "Microsoft-Windows-DHCP-Client Ereignisse/betriebsbereit" und "Microsoft-Windows-DHCP-Client Ereignisse/admin". Alle Ereignisse, die sich auf den DHCP-Client Dienst beziehen, werden an diese Ereignisprotokolle gesendet.
 Die Microsoft-Windows-DHCP-Client Ereignisse befinden sich im Ereignisanzeige unter **Anwendungs-und Dienst Protokolle**.
 
 Der PowerShell-Befehl "Get-netadapter-includehidden" enthält die erforderlichen Informationen, um die in den Protokollen aufgelisteten Ereignisse zu interpretieren. Beispielsweise Schnittstellen-ID, Mac-Adresse usw.
@@ -52,7 +50,7 @@ Verwenden Sie [wireshark](https://www.wireshark.org/download.html)zum Sammeln vo
 Führen Sie auf dem Client, auf dem das Problem auftritt, die folgenden Befehle aus:
 
 ```console
-ipconfig /release  
+ipconfig /release
 ipconfig /renew
 ```
 

@@ -6,16 +6,14 @@ ms.author: billmath
 manager: mtillman
 ms.date: 01/03/2017
 ms.topic: article
-ms.prod: windows-server
-ms.technology: identity-adfs
-ms.openlocfilehash: a9be4a72cd60cfdd5807c67132dba837093be4db
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: b0134478ce0a4e91d6e33d5a0845a2be5df53d3f
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86959022"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87954176"
 ---
-# <a name="ad-fs-troubleshooting---dns"></a>AD FS Problembehandlung: DNS 
+# <a name="ad-fs-troubleshooting---dns"></a>AD FS Problembehandlung: DNS
 Eine der ersten Überprüfungen, wenn AD FS nicht funktioniert oder antwortet, ist die DNS-Namensauflösung.  Dabei handelt es sich um grundlegende Tests, um zu bestimmen, ob die AD FS Server oder WAP-Server in Ihrem Netzwerk gefunden werden.  Bei internen Benutzern sollten diese Tests auf die AD FS Server (STS) aufgelöst werden.    Für externe Benutzer sollten diese Tests auf die WAP-Server aufgelöst werden.
 
 Im restlichen Teil dieses Dokuments erfahren Sie, wie Sie mithilfe von Befehlszeilen Tools einige schnelle namens Auflösungs Prüfungen durchführen.

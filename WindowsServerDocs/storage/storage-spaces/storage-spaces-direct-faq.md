@@ -1,19 +1,17 @@
 ---
 title: 'Direkte Speicherplätze: häufig gestellte Fragen'
 description: Weitere Informationen zu direkte Speicherplätze
-ms.prod: windows-server
 ms.author: kaushik
-ms.technology: storage-spaces
 ms.topic: article
 author: kaushika-msft
 ms.date: 10/24/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 5c033a5a810d1cdedeb4c733ba4bf0ac99e669f0
-ms.sourcegitcommit: 3483f886f331b9d954a0e5dba8e910dbe5ee5765
+ms.openlocfilehash: 9371403fedce0383be117728da48eec70745c3a7
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82977248"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87954617"
 ---
 # <a name="storage-spaces-direct---frequently-asked-questions-faq"></a>Direkte Speicherplätze: häufig gestellte Fragen (FAQ)
 
@@ -41,7 +39,7 @@ Wenn Sie direkte Speicherplätze mithilfe des Cmdlets "Enable-S2D" konfigurieren
 
 ## <a name="is-it-possible-to-add-a-spinning-disk-hdd-to-the-storage-spaces-direct-pool-after-you-have-created-storage-spaces-direct-with-ssd-devices"></a>Ist es möglich, einen spindatenträger (HDD) zum direkte Speicherplätze Pool hinzuzufügen, nachdem Sie direkte Speicherplätze mit SSD-Geräten erstellt haben?
 
-Nein. Wenn Sie zum Erstellen des Pools den einzelnen Gerätetyp verwenden, werden standardmäßig keine Cache Datenträger konfiguriert, und alle Datenträger werden für die Kapazität verwendet. Sie können nvme-Datenträger zur Konfiguration hinzufügen, und nvme-Datenträger werden für den Cache konfiguriert.
+Nein Wenn Sie zum Erstellen des Pools den einzelnen Gerätetyp verwenden, werden standardmäßig keine Cache Datenträger konfiguriert, und alle Datenträger werden für die Kapazität verwendet. Sie können nvme-Datenträger zur Konfiguration hinzufügen, und nvme-Datenträger werden für den Cache konfiguriert.
 
 ## <a name="i-have-configured-a-2-rack-fault-domain-rack-1-has-2-fault-domains-rack-2-has-1-fault-domain-each-server-has-4-capacity-100-gb-devices-can-i-use-all-1200-gb-of-space-from-the-pool"></a>Ich habe eine 2-Rack-Fehler Domäne konfiguriert: Rack 1 hat zwei Fehler Domänen, Rack 2 hat eine Fehler Domäne. Jeder Server verfügt über vier Kapazität 100 GB-Geräte. Kann ich alle 1.200 GB Speicherplatz aus dem Pool verwenden?
 

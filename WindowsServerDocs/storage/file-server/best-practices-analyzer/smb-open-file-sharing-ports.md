@@ -1,17 +1,15 @@
 ---
 title: SMB-Datei-und Druckerfreigabe Ports müssen geöffnet sein.
 ms.date: 07/02/2012
-ms.prod: windows-server
-ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: d9d24f1ce66ca691bfa31479a00b9ecf719abe1e
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: dc2e1d7f5408ad123297b8df2dc06f59053fe870
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86961302"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87954767"
 ---
 # <a name="smb-file-and-printer-sharing-ports-should-be-open"></a>SMB: Ports für Datei- und Druckerfreigaben sollten offen sein
 
@@ -38,7 +36,7 @@ Gilt für: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 und 
 <td><p>Dateidienste</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>Severity</strong></p></td>
+<td><p><strong>Schweregrad</strong></p></td>
 <td><p>Fehler</p></td>
 </tr>
 <tr class="even">
@@ -72,6 +70,6 @@ Zum Ausführen dieser Prozedur müssen Sie Mitglied der Gruppe **Administratoren
 
 4.  Klicken Sie mit der rechten Maustaste auf jede Regel, und klicken Sie dann auf **Regel aktivieren**.
 
-## <a name="additional-references"></a>Zusätzliche Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
 Grundlegendes [zu freigegebenen Ordnern und der Windows-Firewall](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731402(v=ws.11))(https://technet.microsoft.com/library/cc731402.aspx)

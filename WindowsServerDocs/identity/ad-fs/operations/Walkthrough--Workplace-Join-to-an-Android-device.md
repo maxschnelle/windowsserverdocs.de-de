@@ -6,14 +6,12 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server
-ms.technology: identity-adfs
-ms.openlocfilehash: 8db10b43a2511cb5e16609e36c9356c853b93bfc
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: adcaecd7b1eba93d074dba8ac908e6f539e9d9d6
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86966892"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87966997"
 ---
 # <a name="walkthrough-workplace-join-to-an-android-device"></a>Exemplarische Vorgehensweise: Workplace Join zu einem Android-Gerät
 

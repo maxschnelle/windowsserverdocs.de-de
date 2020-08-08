@@ -1,19 +1,17 @@
 ---
 title: Ändern des Stammnavigationsverhaltens
 description: Entwickeln einer projektmappenerweiterung Windows Admin Center SDK (Project Honolulu)-Ändern des Stamm Navigations Verhaltens
-ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
 ms.author: niwashbu
 ms.date: 08/07/2018
 ms.localizationpriority: medium
-ms.prod: windows-server
-ms.openlocfilehash: 78c94f3ea13f54ac31f9de9dd60873b93eba2c17
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: bc7ef3c25c41abd6c7b91e37cecca017664ee223
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71385277"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87944941"
 ---
 # <a name="modify-root-navigation-behavior-for-a-solution-extension"></a>Ändern des Stamm Navigations Verhaltens für eine projektmappenerweiterung
 
@@ -23,11 +21,11 @@ In dieser Anleitung erfahren Sie, wie Sie das Verhalten der Stamm Navigation fü
 
 ## <a name="modifying-root-navigation-behavior"></a>Ändern des Verhaltens der Stamm Navigation
 
-Öffnen Sie die Datei "Manifest. JSON" in {Extension root} \src, und suchen Sie die Eigenschaft "rootnavigationbehavior". Diese Eigenschaft hat zwei gültige Werte: "Connections" oder "Path". Das Verhalten "Verbindungen" wird weiter unten in der Dokumentation ausführlich erläutert.
+Öffnen Sie manifest.jsin der Datei {Extension root} \src, und suchen Sie die Eigenschaft rootnavigationbehavior. Diese Eigenschaft hat zwei gültige Werte: "Connections" oder "Path". Das Verhalten "Verbindungen" wird weiter unten in der Dokumentation ausführlich erläutert.
 
 ### <a name="setting-path-as-a-rootnavigationbehavior"></a>Festlegen des Pfads als rootnavigationbehavior
 
-Legen Sie den Wert ```rootNavigationBehavior``` auf ```path``` fest, und löschen Sie dann die Eigenschaft ```requirements```, und belassen Sie die ```path```-Eigenschaft als leere Zeichenfolge. Sie haben die minimal erforderliche Konfiguration abgeschlossen, um eine projektmappenerweiterung zu erstellen. Speichern Sie die Datei, und Gulp Build-> Gulp dient als Tool, und laden Sie dann die Erweiterung in die lokale Windows Admin Center-Erweiterung.
+Legen Sie den Wert von ```rootNavigationBehavior``` auf fest ```path``` , und löschen Sie dann die- ```requirements``` Eigenschaft, und belassen Sie die- ```path``` Eigenschaft als leere Zeichenfolge. Sie haben die minimal erforderliche Konfiguration abgeschlossen, um eine projektmappenerweiterung zu erstellen. Speichern Sie die Datei, und Gulp Build-> Gulp dient als Tool, und laden Sie dann die Erweiterung in die lokale Windows Admin Center-Erweiterung.
 
 Ein gültiges Manifest-entryPoints-Array sieht wie folgt aus:
 ```
@@ -49,7 +47,7 @@ Bei Tools, die mit dieser Art von Struktur erstellt werden, sind keine Verbindun
 
 ### <a name="setting-connections-as-a-rootnavigationbehavior"></a>Festlegen von Verbindungen als rootnavigationbehavior
 
-Wenn Sie die ```rootNavigationBehavior```-Eigenschaft auf ```connections``` festlegen, wird der Windows Admin Center-Shell mitgeteilt, dass ein verbundener Knoten (immer ein Server eines Typs) vorhanden ist, mit dem eine Verbindung hergestellt werden soll, und der Verbindungsstatus überprüft wird. Dies umfasst zwei Schritte beim Überprüfen der Verbindung. 1) das Windows Admin Center versucht, sich mit Ihren Anmelde Informationen beim Knoten anzumelden (zum Einrichten der PowerShell-Remote Sitzung) und 2) führt das PowerShell-Skript aus, das Sie bereitstellen, um zu ermitteln, ob sich der Knoten in einem Verbindungs fähigen Zustand befindet.
+Wenn Sie die- ```rootNavigationBehavior``` Eigenschaft auf festlegen ```connections``` , geben Sie der Windows Admin Center-Shell an, dass ein verbundener Knoten (immer ein Server eines Typs) vorhanden ist, mit dem eine Verbindung hergestellt werden soll, und überprüfen Sie den Verbindungsstatus. Dies umfasst zwei Schritte beim Überprüfen der Verbindung. 1) das Windows Admin Center versucht, sich mit Ihren Anmelde Informationen beim Knoten anzumelden (zum Einrichten der PowerShell-Remote Sitzung) und 2) führt das PowerShell-Skript aus, das Sie bereitstellen, um zu ermitteln, ob sich der Knoten in einem Verbindungs fähigen Zustand befindet.
 
 Eine gültige Projektmappendefinition mit Verbindungen sieht wie folgt aus:
 

@@ -1,19 +1,17 @@
 ---
 title: Bereitstellen überwachter Hosts
-ms.prod: windows-server
 ms.topic: article
 ms.assetid: 2379ca26-b32d-4055-8b4b-99d1f2df37e1
 manager: dongill
 author: rpsqrd
 ms.author: ryanpu
-ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 59b6aaa22fa89620df2ce6757b2d9f5ffe91c652
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: d69ce87349e7714a1aaf1bb0cc03fb9a145da12e
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85475347"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87966137"
 ---
 # <a name="deploy-guarded-hosts"></a>Bereitstellen überwachter Hosts
 
@@ -38,6 +36,6 @@ In den Themen in diesem Abschnitt werden die Schritte beschrieben, die ein Fabri
 3. [Bestätigen, dass geschützte Hosts bestätigen können](guarded-fabric-confirm-hosts-can-attest-successfully.md)
 
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Bereitstellungs Aufgaben für geschützte Fabrics und abgeschirmte VMS](guarded-fabric-deploying-hgs-overview.md#deployment-tasks-for-guarded-fabrics-and-shielded-vms)

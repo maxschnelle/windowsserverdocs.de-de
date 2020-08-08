@@ -6,14 +6,12 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server
-ms.technology: identity-adfs
-ms.openlocfilehash: b72f324d7037df30a9a8b1f0b9a966a633d30950
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 97466c5f7d0a6c89980195d7b71e6697748db334
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86966492"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87954216"
 ---
 # <a name="manage-risk-with-conditional-access-control"></a>Verwalten von Risiken mit der bedingten Zugriffssteuerung
 
@@ -53,7 +51,7 @@ Die bedingte Zugriffs Steuerung in AD FS in Windows Server 2012 R2 bietet die fo
 
 In der folgenden Tabelle sind alle in AD FS in Windows Server 2012 R2 verfügbaren Anspruchs Typen enthalten, die für die Implementierung der bedingten Zugriffs Steuerung verwendet werden können.
 
-|Anspruchstyp|Beschreibung|
+|Anspruchstyp|BESCHREIBUNG|
 |--------------|---------------|
 |E-Mail-Adresse|Die E-Mail-Adresse des Benutzers.|
 |Vorname|Angegebener Name des Benutzers|
@@ -94,7 +92,7 @@ In der folgenden Tabelle sind alle in AD FS in Windows Server 2012 R2 verfügbar
 |Zertifizierungsstellenschlüssel-ID|Erweiterung der Zertifizierungsstellenschlüssel-ID des Zertifikats, von dem ein ausgestelltes Zertifikat signiert wurde|
 |Basiseinschränkung|Eine der Basiseinschränkungen des Zertifikats|
 |Erweiterte Schlüsselverwendung|Beschreibt eine der erweiterten Schlüsselverwendungen des Zertifikats|
-|Issuer (Aussteller)|Der Name der Zertifizierungsstelle, die das X.509-Zertifikat ausgestellt hat.|
+|Aussteller|Der Name der Zertifizierungsstelle, die das X.509-Zertifikat ausgestellt hat.|
 |Ausstellername|Definierter Name des Zertifikatausstellers|
 |Schlüsselverwendung|Eine der Schlüsselverwendungen des Zertifikats|
 |Nicht nach|Datum (lokale Zeit), nach dem ein Zertifikat nicht mehr gültig ist|

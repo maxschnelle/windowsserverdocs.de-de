@@ -1,20 +1,18 @@
 ---
 title: Datagram TLS-Protokoll (Transport Layer Security)
 description: Windows Server-Sicherheit
-ms.prod: windows-server
-ms.technology: security-tls-ssl
 ms.topic: article
 ms.assetid: 57b8873a-ad9c-4f2c-93e0-a2af352c6965
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 05/16/2018
-ms.openlocfilehash: 79477aa441b82854852fe35a9b45bafdee664532
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: adf57e05cd759d2524782507d6f3ce5f90e0d702
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85475267"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87954797"
 ---
 # <a name="datagram-transport-layer-security-protocol"></a>Datagram TLS-Protokoll (Transport Layer Security)
 
@@ -29,7 +27,7 @@ Datagramme sind häufig in Streamingmedien, z. b. Spiele oder gesicherte Videoko
 
 Die Verschlüsselungs Sammlungen, die für die Konfiguration verfügbar sind, werden nach den für die Konfiguration konfigurierten Verschlüsselungs Sammlungen gemustert. RC4 ist nicht zulässig. SChannel verwendet weiterhin Cryptography Next Generation (CNG). Dadurch wird die in Windows Vista eingeführte in Windows Vista eingeführte PPS 140-Zertifizierung genutzt.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 [IETF RFC 4347 Datagram Transport Layer Security](http://tools.ietf.org/html/rfc4347)
 

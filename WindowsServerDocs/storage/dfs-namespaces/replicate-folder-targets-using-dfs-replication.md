@@ -2,18 +2,16 @@
 title: Replizieren von Ordnerzielen mit DFS-Replikation
 description: In diesem Artikel wird beschrieben, wie Sie mit DFS-Replikation Ordner Ziele replizieren.
 ms.date: 6/5/2017
-ms.prod: windows-server
-ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 399d9915cccc5d66c2b25b1e9f51c30e37d8dff6
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 8345d12c77af92999d64f63809752180a3ea91bc
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86966442"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87954747"
 ---
 # <a name="replicate-folder-targets-using-dfs-replication"></a>Replizieren von Ordner Zielen mithilfe von DFS-Replikation
 
@@ -34,7 +32,7 @@ Sie können DFS-Replikation verwenden, um den Inhalt der Ordner Ziele synchron z
 <br />
 Verwenden Sie hierzu das Cmdlet [Update-dfsrconfigurationfromad](/powershell/module/dfsr/update-dfsrconfigurationfromad?view=win10-ps) , das in Windows Server 2012 R2 eingeführt wurde.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Bereitstellen von DFS-Namespaces](deploying-dfs-namespaces.md)
 -   [Delegieren von Verwaltungsberechtigungen für DFS-Namespaces](delegate-management-permissions-for-dfs-namespaces.md)

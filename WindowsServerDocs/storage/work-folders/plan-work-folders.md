@@ -1,20 +1,18 @@
 ---
 ms.assetid: a7c39656-81ee-4c2b-80ef-4d017dd11b07
 title: Planen der Bereitstellung von Arbeits Ordnern
-ms.prod: windows-server
-ms.technology: storage-work-folders
 ms.topic: article
 author: JasonGerend
 manager: dongill
 ms.author: jgerend
 ms.date: 4/5/2017
 description: Planen der Bereitstellung von Arbeits Ordnern, einschließlich der Systemanforderungen und der Vorbereitung der Netzwerkumgebung.
-ms.openlocfilehash: 603711676aa5f35047b0623694f3a16922a2b240
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 3f082a9542853f822b2b493cf3dabafe2cd65add
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86960002"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87954587"
 ---
 # <a name="planning-a-work-folders-deployment"></a>Planen der Bereitstellung von Arbeits Ordnern
 
@@ -250,7 +248,7 @@ Die folgenden Fragen zum Entwurf sollen Kunden dabei helfen, die am besten geeig
 ## <a name="next-steps"></a>Nächste Schritte
  Nachdem Sie die Arbeitsordner Implementierung entworfen haben, ist es Zeit, Arbeitsordner bereitzustellen. Weitere Informationen finden Sie unter [Bereitstellen von Arbeitsordnern](deploy-work-folders.md).
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
  Weitere verwandte Informationen finden Sie in den folgenden Ressourcen:
 
 |Inhaltstyp|Referenzen|

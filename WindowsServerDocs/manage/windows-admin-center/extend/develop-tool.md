@@ -1,21 +1,19 @@
 ---
-title: Entwickeln einer Tool-Erweiterung
+title: Entwickeln einer Toolerweiterung
 description: Entwickeln einer Tool Erweiterung Windows Admin Center SDK (Project Honolulu)
-ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
 ms.author: niwashbu
 ms.date: 09/18/2018
 ms.localizationpriority: medium
-ms.prod: windows-server
-ms.openlocfilehash: de2cbf3a47771555eef02cd7d18f93b2b33227b3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f3bf885cd86015842be26124e7374f622d38a9c2
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406903"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87954126"
 ---
-# <a name="develop-a-tool-extension"></a>Entwickeln einer Tool-Erweiterung
+# <a name="develop-a-tool-extension"></a>Entwickeln einer Toolerweiterung
 
 >Gilt für: Windows Admin Center, Windows Admin Center-Vorschau
 
@@ -38,7 +36,7 @@ Nachdem Sie alle Abhängigkeiten installiert haben, können Sie die neue Tool Er
 wac create --company "{!Company Name}" --tool "{!Tool Name}"
 ```
 
-| Wert | Erläuterung | Beispiel |
+| Wert | Erklärung | Beispiel |
 | ----- | ----------- | ------- |
 | ```{!Company Name}``` | Name Ihres Unternehmens (mit Leerzeichen) | ```Contoso Inc``` |
 | ```{!Tool Name}``` | Ihr Toolname (mit Leerzeichen) | ```Manage Foo Works``` |
@@ -49,7 +47,7 @@ Beispiel zur Verwendung:
 wac create --company "Contoso Inc" --tool "Manage Foo Works"
 ```
 
-Dadurch wird im aktuellen Arbeitsverzeichnis ein neuer Ordner mit dem Namen erstellt, den Sie für das Tool angegeben haben. alle erforderlichen Vorlagen Dateien werden in das Projekt kopiert, und die Dateien werden mit dem Namen Ihres Unternehmens und des Tools konfiguriert.  
+Dadurch wird im aktuellen Arbeitsverzeichnis ein neuer Ordner mit dem Namen erstellt, den Sie für das Tool angegeben haben. alle erforderlichen Vorlagen Dateien werden in das Projekt kopiert, und die Dateien werden mit dem Namen Ihres Unternehmens und des Tools konfiguriert.
 
 Wechseln Sie als nächstes das Verzeichnis in den soeben erstellten Ordner, und installieren Sie die erforderlichen lokalen Abhängigkeiten, indem Sie den folgenden Befehl ausführen:
 
@@ -57,7 +55,7 @@ Wechseln Sie als nächstes das Verzeichnis in den soeben erstellten Ordner, und 
 npm install
 ```
 
-Nachdem dieser Vorgang abgeschlossen ist, haben Sie alles eingerichtet, was Sie benötigen, um Ihre neue Erweiterung in das Windows Admin Center zu laden. 
+Nachdem dieser Vorgang abgeschlossen ist, haben Sie alles eingerichtet, was Sie benötigen, um Ihre neue Erweiterung in das Windows Admin Center zu laden.
 
 ## <a name="add-content-to-your-extension"></a>Hinzufügen von Inhalt zu ihrer Erweiterung
 
@@ -65,56 +63,56 @@ Nachdem Sie nun mit der Windows Admin Center-CLI eine Erweiterung erstellt haben
 
 - Hinzufügen eines [leeren Moduls](guides/add-module.md)
 - [Iframe](guides/add-iframe.md) hinzufügen
- 
+
 Weitere Beispiele finden Sie auf unserer [GitHub SDK-Website](https://aka.ms/wacsdk):
 -  [Entwicklertools](https://github.com/Microsoft/windows-admin-center-sdk/tree/master/windows-admin-center-developer-tools) ist eine voll funktionsfähige Erweiterung, die im Windows Admin Center nebeneinander geladen werden kann und eine umfangreiche Sammlung von Beispiel Funktionen und Tool Beispielen enthält, die Sie in ihrer eigenen Erweiterung durchsuchen und verwenden können.
 
 ## <a name="customize-your-extensions-icon"></a>Anpassen des Symbols der Erweiterung
 
-Sie können das Symbol, das für Ihre Erweiterung angezeigt wird, in der Toolliste anpassen.  Ändern Sie zu diesem Zweck alle ```icon```-Einträge in ```manifest.json``` für die Erweiterung:
+Sie können das Symbol, das für Ihre Erweiterung angezeigt wird, in der Toolliste anpassen.  Ändern Sie hierzu alle ```icon``` Einträge in ```manifest.json``` für die Erweiterung:
 
 ``` json
 "icon": "{!icon-uri}",
 ```
 
-| Wert | Erläuterung | Beispiel-URI |
+| Wert | Erklärung | Beispiel-URI |
 | ----- | ----------- | ------- |
 | ```{!icon-uri}``` | Der Speicherort Ihrer Symbol Ressource. | ```assets/foo-icon.svg``` |
 
-HINWEIS: Derzeit sind benutzerdefinierte Symbole nicht sichtbar, wenn Sie Ihre Erweiterung im Entwicklungsmodus laden.  Um dieses Problem zu umgehen, entfernen Sie den Inhalt von ```target``` wie folgt:
+Hinweis: Derzeit sind benutzerdefinierte Symbole nicht sichtbar, wenn Sie die Erweiterung im Entwicklungsmodus laden.  Um dieses Problem zu umgehen, entfernen Sie den Inhalt von ```target``` wie folgt:
 
 ``` json
 "target": "",
 ```
 
-Diese Konfiguration gilt nur für das Sideloading im Entwicklungsmodus. Daher ist es wichtig, den in ```target``` enthaltenen Wert beizubehalten und ihn vor dem Veröffentlichen der Erweiterung wiederherzustellen.
+Diese Konfiguration gilt nur für das Sideloading im Entwicklungsmodus. Daher ist es wichtig, den in enthaltenen Wert beizubehalten ```target``` und ihn vor dem Veröffentlichen der Erweiterung wiederherzustellen.
 
 ## <a name="build-and-side-load-your-extension"></a>Erstellen und neben Laden Ihrer Erweiterung
 
 Erstellen Sie als nächstes die Erweiterung, und laden Sie Sie auf das Windows Admin Center.  Öffnen Sie ein Befehlsfenster, wechseln Sie zum Quellverzeichnis, und erstellen Sie das Verzeichnis.
 
-* Erstellen und mit schlucken dienen:
+* Erstellen Sie mit Gulp, und bedienen Sie es:
 
     ``` cmd
     gulp build
     gulp serve -p 4201
     ```
 
-Beachten Sie, dass müssen Sie einen Port auswählen, der derzeit frei ist. Stellen Sie sicher, dass Sie versucht nicht, den Port verwenden, den Windows Admin Center ausgeführt wird.
+Beachten Sie, dass Sie einen Port auswählen müssen, der derzeit kostenlos ist. Stellen Sie sicher, dass Sie nicht versuchen, den Port zu verwenden, auf dem Windows Admin Center ausgeführt wird.
 
-Das Projekt kann Seite in eine lokale Instanz des Windows Admin Center zu Testzwecken durch Anfügen des lokal vom Server ausgegebenen Projekts in Windows Admin Center geladen sein.
+Ihr Projekt kann zum Testen in eine lokale Instanz des Windows Admin Centers geladen werden, indem das lokal bereitgestellte Projekt an das Windows Admin Center angefügt wird.
 
-* Starten des Windows Admin Center in einem Webbrowser
-* Öffnen Sie den Debugger (F12)
-* Öffnen Sie die Konsole, und geben Sie den folgenden Befehl ein:
+* Starten des Windows Admin Centers in einem Webbrowser
+* Öffnen Sie den Debugger (F12).
+* Öffnen Sie die-Konsole, und geben Sie den folgenden Befehl ein:
 
     ``` cmd
     MsftSme.sideLoad("http://localhost:4201")
     ```
 
-*   Aktualisieren Sie den Webbrowser
+*   Webbrowser aktualisieren
 
-Das Projekt wird jetzt in der Liste Tools mit (Seite geladen) neben dem Namen angezeigt.
+Das Projekt ist nun in der Liste der Tools mit (neben dem Namen) sichtbar.
 
 ## <a name="target-a-different-version-of-the-windows-admin-center-sdk"></a>Eine andere Version des Windows Admin Center SDK als Zielversion
 
