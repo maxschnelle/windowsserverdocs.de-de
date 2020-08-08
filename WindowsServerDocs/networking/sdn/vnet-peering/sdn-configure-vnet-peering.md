@@ -1,21 +1,19 @@
 ---
-title: Konfigurieren von virtuellen Netzwerks peering
+title: Konfigurieren des VNET-Peerings
 description: Das Konfigurieren des Peerings virtueller Netzwerke umfasst das Erstellen von zwei virtuellen Netzwerken mit Peering.
 manager: grcusanz
-ms.prod: windows-server
-ms.technology: networking-hv-switch
 ms.topic: get-started-article
 ms.author: anpaul
 author: AnirbanPaul
 ms.date: 08/08/2018
-ms.openlocfilehash: ede13fd47c32b2d75ec71ad7c7bf7eb50c269c82
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: b78ec1b73625a6064f6330ec6453d75ffea048c8
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80853563"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87955847"
 ---
-# <a name="configure-virtual-network-peering"></a>Konfigurieren von virtuellen Netzwerks peering
+# <a name="configure-virtual-network-peering"></a>Konfigurieren des VNET-Peerings
 
 >Gilt für: Windows Server
 
@@ -33,59 +31,59 @@ In diesem Verfahren verwenden Sie Windows PowerShell zum Erstellen von zwei virt
 >[!IMPORTANT]
 >Denken Sie daran, die Eigenschaften für Ihre Umgebung zu aktualisieren.
 
-## <a name="step-1-create-the-first-virtual-network"></a>Schritt 1 Erstellen des ersten virtuellen Netzwerks
+## <a name="step-1-create-the-first-virtual-network"></a>Schritt 1: Erstellen des ersten virtuellen Netzwerks
 
 In diesem Schritt verwenden Sie Windows PowerShell suchen Sie das logische HNV-anbieternetzwerk, um das erste virtuelle Netzwerk mit einem Subnetz zu erstellen. Mit dem folgenden Beispielskript wird das virtuelle Netzwerk von "Configuration Manager" mit einem Subnetz erstellt.
 
 ``` PowerShell
-#Find the HNV Provider Logical Network  
+#Find the HNV Provider Logical Network
 
-$logicalnetworks = Get-NetworkControllerLogicalNetwork -ConnectionUri $uri  
-foreach ($ln in $logicalnetworks) {  
-   if ($ln.Properties.NetworkVirtualizationEnabled -eq "True") {  
-      $HNVProviderLogicalNetwork = $ln  
-   }  
-}   
+$logicalnetworks = Get-NetworkControllerLogicalNetwork -ConnectionUri $uri
+foreach ($ln in $logicalnetworks) {
+   if ($ln.Properties.NetworkVirtualizationEnabled -eq "True") {
+      $HNVProviderLogicalNetwork = $ln
+   }
+}
 
-#Create the Virtual Subnet  
+#Create the Virtual Subnet
 
-$vsubnet = new-object Microsoft.Windows.NetworkController.VirtualSubnet  
-$vsubnet.ResourceId = "Contoso"  
-$vsubnet.Properties = new-object Microsoft.Windows.NetworkController.VirtualSubnetProperties  
+$vsubnet = new-object Microsoft.Windows.NetworkController.VirtualSubnet
+$vsubnet.ResourceId = "Contoso"
+$vsubnet.Properties = new-object Microsoft.Windows.NetworkController.VirtualSubnetProperties
 $vsubnet.Properties.AddressPrefix = "24.30.1.0/24"
-$uri=”https://restserver”  
+$uri=”https://restserver”
 
-#Create the Virtual Network  
+#Create the Virtual Network
 
-$vnetproperties = new-object Microsoft.Windows.NetworkController.VirtualNetworkProperties  
-$vnetproperties.AddressSpace = new-object Microsoft.Windows.NetworkController.AddressSpace  
-$vnetproperties.AddressSpace.AddressPrefixes = @("24.30.1.0/24")  
-$vnetproperties.LogicalNetwork = $HNVProviderLogicalNetwork  
-$vnetproperties.Subnets = @($vsubnet)  
+$vnetproperties = new-object Microsoft.Windows.NetworkController.VirtualNetworkProperties
+$vnetproperties.AddressSpace = new-object Microsoft.Windows.NetworkController.AddressSpace
+$vnetproperties.AddressSpace.AddressPrefixes = @("24.30.1.0/24")
+$vnetproperties.LogicalNetwork = $HNVProviderLogicalNetwork
+$vnetproperties.Subnets = @($vsubnet)
 New-NetworkControllerVirtualNetwork -ResourceId "Contoso_VNet1" -ConnectionUri $uri -Properties $vnetproperties
 ```
 
-## <a name="step-2-create-the-second-virtual-network"></a>Schritt 2 Erstellen des zweiten virtuellen Netzwerks
+## <a name="step-2-create-the-second-virtual-network"></a>Schritt 2: Erstellen des zweiten virtuellen Netzwerks
 
 In diesem Schritt erstellen Sie ein zweites virtuelles Netzwerk mit einem Subnetz. Mit dem folgenden Beispielskript wird das virtuelle Netzwerk von Woodgrove mit einem Subnetz erstellt.
 
 ``` PowerShell
 
-#Create the Virtual Subnet  
+#Create the Virtual Subnet
 
-$vsubnet = new-object Microsoft.Windows.NetworkController.VirtualSubnet  
-$vsubnet.ResourceId = "Woodgrove"  
-$vsubnet.Properties = new-object Microsoft.Windows.NetworkController.VirtualSubnetProperties  
-$vsubnet.Properties.AddressPrefix = "24.30.2.0/24"  
+$vsubnet = new-object Microsoft.Windows.NetworkController.VirtualSubnet
+$vsubnet.ResourceId = "Woodgrove"
+$vsubnet.Properties = new-object Microsoft.Windows.NetworkController.VirtualSubnetProperties
+$vsubnet.Properties.AddressPrefix = "24.30.2.0/24"
 $uri=”https://restserver”
 
-#Create the Virtual Network  
+#Create the Virtual Network
 
-$vnetproperties = new-object Microsoft.Windows.NetworkController.VirtualNetworkProperties  
-$vnetproperties.AddressSpace = new-object Microsoft.Windows.NetworkController.AddressSpace  
-$vnetproperties.AddressSpace.AddressPrefixes = @("24.30.2.0/24")  
-$vnetproperties.LogicalNetwork = $HNVProviderLogicalNetwork  
-$vnetproperties.Subnets = @($vsubnet)  
+$vnetproperties = new-object Microsoft.Windows.NetworkController.VirtualNetworkProperties
+$vnetproperties.AddressSpace = new-object Microsoft.Windows.NetworkController.AddressSpace
+$vnetproperties.AddressSpace.AddressPrefixes = @("24.30.2.0/24")
+$vnetproperties.LogicalNetwork = $HNVProviderLogicalNetwork
+$vnetproperties.Subnets = @($vsubnet)
 New-NetworkControllerVirtualNetwork -ResourceId "Woodgrove_VNet1" -ConnectionUri $uri -Properties $vnetproperties
 ```
 
@@ -117,28 +115,28 @@ New-NetworkControllerVirtualNetworkPeering -ConnectionUri $uri -VirtualNetworkId
 >[!IMPORTANT]
 >Nachdem Sie dieses Peering erstellt haben, wird im vnet-Status **initiiert**angezeigt.
 
-## <a name="step-4-configure-peering-from-the-second-virtual-network-to-the-first-virtual-network"></a>Schritt 4 Konfigurieren von Peering vom zweiten virtuellen Netzwerk mit dem ersten virtuellen Netzwerk
+## <a name="step-4-configure-peering-from-the-second-virtual-network-to-the-first-virtual-network"></a>Schritt 4. Konfigurieren von Peering vom zweiten virtuellen Netzwerk mit dem ersten virtuellen Netzwerk
 
 In diesem Schritt konfigurieren Sie das Peering zwischen dem zweiten virtuellen Netzwerk und dem ersten virtuellen Netzwerk, das Sie in den Schritten 1 und 2 erstellt haben. Mit dem folgenden Beispielskript wird das Peering virtueller Netzwerke von **Woodgrove_vnet1** auf **Contoso_vnet1**festgelegt.
 
 ```PowerShell
-$peeringProperties = New-Object Microsoft.Windows.NetworkController.VirtualNetworkPeeringProperties 
+$peeringProperties = New-Object Microsoft.Windows.NetworkController.VirtualNetworkPeeringProperties
 $vnet2=Get-NetworkControllerVirtualNetwork -ConnectionUri $uri -ResourceId "Contoso_VNet1"
-$peeringProperties.remoteVirtualNetwork = $vnet2 
+$peeringProperties.remoteVirtualNetwork = $vnet2
 
-# Indicates whether communication between the two virtual networks is allowed 
-$peeringProperties.allowVirtualnetworkAccess = $true 
+# Indicates whether communication between the two virtual networks is allowed
+$peeringProperties.allowVirtualnetworkAccess = $true
 
 # Indicates whether forwarded traffic will be allowed across the vnets
-$peeringProperties.allowForwardedTraffic = $true 
+$peeringProperties.allowForwardedTraffic = $true
 
 # Indicates whether the peer virtual network can access this virtual network's gateway
-$peeringProperties.allowGatewayTransit = $false 
+$peeringProperties.allowGatewayTransit = $false
 
 # Indicates whether this virtual network will use peer virtual network's gateway
-$peeringProperties.useRemoteGateways =$false 
+$peeringProperties.useRemoteGateways =$false
 
-New-NetworkControllerVirtualNetworkPeering -ConnectionUri $uri -VirtualNetworkId “Woodgrove_vnet1” -ResourceId “WoodgrovetoContoso” -Properties $peeringProperties 
+New-NetworkControllerVirtualNetworkPeering -ConnectionUri $uri -VirtualNetworkId “Woodgrove_vnet1” -ResourceId “WoodgrovetoContoso” -Properties $peeringProperties
 
 ```
 

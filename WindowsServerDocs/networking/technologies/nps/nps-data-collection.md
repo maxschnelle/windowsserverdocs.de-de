@@ -6,16 +6,14 @@ manager: mtillman
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.prod: windows-server
-ms.technology: networking
 ms.topic: article
 ms.date: 05/01/2018
-ms.openlocfilehash: def65c174ff608301f8d4f35ef1ce19818103e61
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: a5cce413e2e95387edf73c628f38a4d225c80adb
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80859373"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87955577"
 ---
 # <a name="network-policy-server-user-data-collection"></a>Benutzerdaten Sammlung für Netzwerk Richtlinien Server
 
@@ -28,9 +26,9 @@ In diesem Dokument wird erläutert, wie Sie die vom Netzwerk Richtlinien Server 
 
 - Timestamp
 - Ereigniszeitstempel
-- Benutzername
+- Username
 - Voll qualifizierter Benutzername
-- Client-IP-Adresse
+- Client IP Address
 - Client Hersteller
 - Anzeige Name des Clients
 - Authentifizierungstyp
@@ -38,12 +36,12 @@ In diesem Dokument wird erläutert, wie Sie die vom Netzwerk Richtlinien Server 
 
 ## <a name="gather-data-from-nps"></a>Sammeln von Daten aus NPS
 
-Wenn Buchhaltungsdaten aktiviert und konfiguriert sind, können die Datensätze der NPS-Authentifizierungs Versuche eines Benutzers abhängig von der Konfiguration von SQL Server oder den Protokolldateien abgerufen werden. 
+Wenn Buchhaltungsdaten aktiviert und konfiguriert sind, können die Datensätze der NPS-Authentifizierungs Versuche eines Benutzers abhängig von der Konfiguration von SQL Server oder den Protokolldateien abgerufen werden.
 
-Wenn Buchhaltungsdaten für SQL Server konfiguriert sind, Fragen Sie alle Datensätze ab, bei denen user_name = `'<username>'`ist.
+Wenn Buchhaltungsdaten für SQL Server konfiguriert sind, Fragen Sie alle Datensätze ab, bei denen user_name = ist `'<username>'` .
 
-Wenn Buchhaltungsdaten für eine Protokolldatei konfiguriert sind, suchen Sie in der Protokolldatei nach den `<username>`, um alle Protokolleinträge zu finden.
+Wenn Buchhaltungsdaten für eine Protokolldatei konfiguriert sind, suchen Sie in der Protokolldatei nach `<username>` allen Protokoll Einträgen.
 
 Die Ereignisprotokoll Einträge für Netzwerk Richtlinien-und Zugriffs Dienste gelten als Duplizierung der Buchhaltungsdaten und müssen nicht gesammelt werden.
 
-Wenn die Buchhaltungsdaten nicht aktiviert sind, können Datensätze der NPS-Authentifizierungs Versuche eines Benutzers aus dem Ereignisprotokoll für die Netzwerk Richtlinien-und Zugriffs Dienste abgerufen werden, indem Sie nach dem `<username>`suchen.
+Wenn die Kontoführungs Daten nicht aktiviert sind, können Datensätze der NPS-Authentifizierungs Versuche eines Benutzers aus dem Ereignisprotokoll der Netzwerk Richtlinien-und Zugriffs Dienste abgerufen werden, indem Sie nach suchen `<username>` .

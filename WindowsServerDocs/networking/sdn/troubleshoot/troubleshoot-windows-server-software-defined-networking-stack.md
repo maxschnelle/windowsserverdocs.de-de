@@ -2,19 +2,17 @@
 title: Problembehandlung für Windows Server-Software Defined Networking-Stapel
 description: In diesem Windows Server-Handbuch werden die allgemeinen Sdn (Software Defined Networking)-Fehler und-Fehler Szenarios untersucht, und es wird ein Problem Behandlungs Workflow mit den verfügbaren Diagnosetools beschrieben.
 manager: grcusanz
-ms.prod: windows-server
-ms.technology: networking-sdn
 ms.topic: article
 ms.assetid: 9be83ed2-9e62-49e8-88e7-f52d3449aac5
 ms.author: anpaul
 author: AnirbanPaul
 ms.date: 08/14/2018
-ms.openlocfilehash: 3c6ac190b721492a03c7dcb9ab367df4174e55ff
-ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
+ms.openlocfilehash: 87972f9a0d83a4b7f192e2fe0f751ee66c599044
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87520239"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87955917"
 ---
 # <a name="troubleshoot-the-windows-server-software-defined-networking-stack"></a>Problembehandlung für Windows Server-Software Defined Networking-Stapel
 
@@ -116,7 +114,7 @@ Message:          Host is not Connected.
 
 Die folgende Tabelle zeigt die Liste der Fehlercodes, Meldungen und nach Verfolgungs Aktionen, die basierend auf dem beobachteten Konfigurations Status ausgeführt werden müssen.
 
-| **Code** | **Message** | **Aktion** |
+| **Code** | **Meldung** | **Aktion** |
 |--|--|--|
 | Unknown | Unbekannter Fehler. |  |
 | Host nicht erreichbar | Der Host Computer ist nicht erreichbar. | Überprüfen Sie die Konnektivität des Verwaltungs Netzwerks zwischen Netzwerk Controller und Host. |
@@ -632,7 +630,7 @@ Der Netzwerk Controller kann automatisch debuggerprotokolle erfassen und an eine
 Diese Protokolle umfassen Debugprotokolle für den Netzwerk Controller Cluster, die Netzwerk Controller Anwendung, gatewayprotokolle, SLB, virtuelle Netzwerke und die verteilte Firewall. Wenn dem Netzwerk Controller ein neuer Host/SLB/Gateway hinzugefügt wird, wird die Protokollierung auf diesen Computern gestartet.
 Ebenso wird die Protokollierung auf diesen Computern beendet, wenn ein Host/SLB/Gateway vom Netzwerk Controller entfernt wird.
 
-#### <a name="enable-logging"></a>Protokollierung aktivieren
+#### <a name="enable-logging"></a>Aktivieren der Protokollierung
 
 Die Protokollierung wird automatisch aktiviert, wenn Sie den Netzwerk Controller Cluster mithilfe des Cmdlets **install-networkcontrollercluster** installieren. Standardmäßig werden die Protokolle lokal auf den Netzwerk Controller Knoten unter " *%systemdrive%\sdndiagnostics*" gesammelt. Es wird **dringend empfohlen** , diesen Speicherort in eine Remote Dateifreigabe (nicht lokal) zu ändern.
 

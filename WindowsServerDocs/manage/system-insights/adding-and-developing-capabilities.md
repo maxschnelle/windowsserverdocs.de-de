@@ -1,19 +1,17 @@
 ---
 title: Hinzufügen und Entwickeln von Funktionen
 description: System Insights ermöglicht Ihnen das Hinzufügen neuer Vorhersagefunktionen zu System Insights, ohne dass Betriebssystemupdates erforderlich sind. Dadurch können Entwickler, einschließlich Microsoft und Drittanbietern, neue Funktionen in der Mitte der Veröffentlichung erstellen und bereitstellen, um die Szenarios zu berücksichtigen, die Sie interessieren. Neue Funktionen können benutzerdefinierte Daten angeben, die erfasst und analysiert werden sollen, und Sie können auch in die vorhandenen System Insights-Verwaltungsebenen integriert werden.
-ms.prod: windows-server
-ms.technology: system-insights
 ms.topic: article
 author: gawatu
 ms.author: gawatu
 manager: mallikarjun.chadalapaka
 ms.date: 7/31/2018
-ms.openlocfilehash: 891edb108bc2c298c70b29c596fb8d0ca0e06b7e
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: b28621b24b321cdc22f07c03e9c04f0dde22759b
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85475187"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87972017"
 ---
 # <a name="adding-and-developing-new-capabilities"></a>Hinzufügen und Entwickeln neuer Funktionen
 
@@ -39,7 +37,7 @@ Verwenden Sie die folgenden Ressourcen, um Ihnen den Einstieg in die Erstellung 
 >[!NOTE]
 >Dies ist eine vorab Funktionalität. Es kann geändert werden, da wir neue Funktionen hinzufügen und Feedback integrieren.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 Weitere Informationen zu System Insights finden Sie in den folgenden Ressourcen:
 
 - [Systemdaten: Übersicht](overview.md)

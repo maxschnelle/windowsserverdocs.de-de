@@ -1,19 +1,17 @@
 ---
 title: System Insights-Datenquellen
 description: Wenn Sie eine neue Funktion in System Insights schreiben, können Sie vorhandene oder neue Datenquellen angeben, die lokal erfasst und analysiert werden sollen. In diesem Thema werden die Datenquellen beschrieben, die Sie auswählen können, wenn Sie eine neue Funktion registrieren.
-ms.prod: windows-server
-ms.technology: system-insights
 ms.topic: article
 author: gawatu
 ms.author: gawatu
 manager: mallikarjun.chadalapaka
 ms.date: 7/31/2018
-ms.openlocfilehash: 5dc44d9309c25ca1475e512a11d9868d7fa49e97
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 23150a741c9ec218077f63ca65e6948b1c48f8bf
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85473667"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87972007"
 ---
 # <a name="system-insights-data-sources"></a>System Insights-Datenquellen
 
@@ -71,8 +69,8 @@ Da jede Reihe nur einen Datenpunkt für jedes Sammlungs Intervall aufzeichnen, v
 | Systemereignisse | Anzahl |
 | Bekannte Reihe zu Datenträgern | Last (aktueller Wert im Sammlungs Intervall) |
 | Well-Known-Reihe von Volumes | Last (aktueller Wert im Sammlungs Intervall) |
-| Well-Known-Serie (CPU) | Average |
-| Bekannte Serie zu Netzwerken | Average |
+| Well-Known-Serie (CPU) | Mittelwert |
+| Bekannte Serie zu Netzwerken | Mittelwert |
 
 ## <a name="data-footprint"></a>Daten Bedarf
 
@@ -90,7 +88,7 @@ System Insights sammelt alle Daten lokal auf Ihrem Laufwerk c (c:). Im Allgemein
 >[!NOTE]
 >**Bei den standardmäßigen Vorhersagefunktionen muss der maximale Speicherplatz für die meisten eigenständigen Computer weniger als 10 MB betragen.**
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 Weitere Informationen zu System Insights finden Sie in den folgenden Ressourcen:
 
 - [Systemdaten: Übersicht](overview.md)

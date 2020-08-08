@@ -2,19 +2,17 @@
 title: Netzwerklastenausgleich
 description: In diesem Thema erhalten Sie eine Übersicht über das NLB-Feature für den Netzwerk Lastenausgleich \( \) in Windows Server 2016. Sie können NLB verwenden, um zwei oder mehr Server als einzelnen virtuellen Cluster zu verwalten. Mit NLB wird die Verfügbarkeit und Skalierbarkeit von Internet Server Anwendungen verbessert, wie z. b. für Web-, FTP-, Firewall-, Proxy \( -, VPN \) -und andere Unternehmens \- kritische Server.
 manager: dougkim
-ms.prod: windows-server
-ms.technology: networking-nlb
 ms.topic: article
 ms.assetid: 244a4b48-06e5-4796-8750-a50e4f88ac72
 ms.author: lizross
 author: eross-msft
 ms.date: 09/13/2018
-ms.openlocfilehash: f6631920fd4df056447d702df78145d4b375e0f5
-ms.sourcegitcommit: 145cf75f89f4e7460e737861b7407b5cee7c6645
+ms.openlocfilehash: ecea87a3716ef68c599594851037e774ad589998
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87409610"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87955807"
 ---
 # <a name="network-load-balancing"></a>Netzwerklastenausgleich
 
@@ -148,7 +146,7 @@ Weitere Informationen finden Sie unter [Install-WindowsFeature](https://docs.mic
 ### <a name="network-load-balancing-manager"></a>Netzwerk Lastenausgleich-Manager
 Klicken Sie zum Öffnen des Netzwerklastenausgleich-Managers im Server-Manager auf **Extras**, und klicken Sie dann auf **Netzwerklastenausgleich-Manager**.
 
-## <a name="additional-resources"></a>Zusätzliche Ressourcen
+## <a name="additional-resources"></a>Weitere Ressourcen
 In der folgenden Tabelle finden Sie Links zu weiteren Informationen zum NLB-Feature.
 
 |Inhaltstyp|Referenzen|

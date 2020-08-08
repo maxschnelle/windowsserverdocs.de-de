@@ -6,14 +6,12 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server
-ms.technology: identity-adfs
-ms.openlocfilehash: b9ba6ca7900f33880fda6d77398ffa819cf1038c
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: 30dc33bec01cf4a9ab0b944464d4bbc60f6ca74e
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87177796"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87938232"
 ---
 # <a name="set-up-the-lab-environment-for-ad-fs-in-windows-server-2012-r2"></a>Einrichten der Testumgebung für AD FS unter Windows Server 2012 R2
 
@@ -173,7 +171,7 @@ Der nächste Schritt ist die Konfiguration des Geräteregistrierungsdiensts auf 
 ### <a name="add-host-a-and-alias-cname-resource-records-to-dns"></a>Hinzufügen von Host- (A) und Aliasressourcendatensätzen (CNAME) zu DNS
 Auf DC1 müssen Sie sicherstellen, dass die folgenden DNS-Datensätze für den Geräteregistrierungsdienst erstellt werden.
 
-|Eingabe|type|Adresse|
+|Eingabe|Typ|Adresse|
 |---------|--------|-----------|
 |adfs1|Host (A)|IP-Adresse des AD FS Servers|
 |enterpriseregistration|Alias (CNAME)|adfs1.contoso.com|
@@ -256,7 +254,7 @@ Sie müssen die folgenden Schritte durchführen, um einen Webserver mit dieser a
 
 2.  Kopieren Sie die Inhalte von C:\Program Files (x86)\Windows Identity Foundation SDK\v3.5\Samples\Quick Start\Web Application\PassiveRedirectBasedClaimsAwareWebApp nach C:\Inetpub\Claimapp.
 
-3.  Bearbeiten Sie die Datei **Default.aspx.cs**, damit keine Anspruchsfilterung stattfindet. Mit diesem Schritt wird sichergestellt, dass die Beispielanwendung alle Ansprüche anzeigt, die vom Verbundserver ausgegeben werden. Gehen Sie wie folgt vor:
+3.  Bearbeiten Sie die Datei **Default.aspx.cs**, damit keine Anspruchsfilterung stattfindet. Mit diesem Schritt wird sichergestellt, dass die Beispielanwendung alle Ansprüche anzeigt, die vom Verbundserver ausgegeben werden. Gehen Sie folgendermaßen vor:
 
     1.  Öffenen Sie **Default.aspx.cs** in einem Text-Editor.
 

@@ -7,21 +7,19 @@ ms.author: billmath
 manager: daveba
 ms.date: 04/01/2020
 ms.topic: article
-ms.prod: windows-server-threshold
-ms.technology: identity-adfs
-ms.openlocfilehash: 1716c1e3684ed09d051970a2ab3b43938b5eeb5e
-ms.sourcegitcommit: 20d07170c7f3094c2fb4455f54b13ec4b102f2d7
+ms.openlocfilehash: 7dff0b19b4d8783dcd43344c6152be9d2c36441d
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81269441"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87972187"
 ---
 # <a name="creating-an-ad-fs-farm-without-domain-admin-privileges"></a>Erstellen einer AD FS Farm ohne Domänen Administrator Berechtigungen
 
 >Gilt für: Windows Server 2019 und 2016
 
 ## <a name="overview"></a>Übersicht
-Ab AD FS in Windows Server 2016 können Sie das Cmdlet Install-adfsfarm als lokalen Administrator auf dem Verbund Server ausführen, vorausgesetzt, dass Ihr Domänen Administrator Active Directory vorbereitet hat.  Das in diesem Artikel beschriebene Skript kann verwendet werden, um AD vorzubereiten.  Das Verfahren besteht aus folgenden Schritten:
+Ab AD FS in Windows Server 2016 können Sie das Cmdlet Install-adfsfarm als lokalen Administrator auf dem Verbund Server ausführen, vorausgesetzt, dass Ihr Domänen Administrator Active Directory vorbereitet hat.  Das in diesem Artikel beschriebene Skript kann verwendet werden, um AD vorzubereiten.  Die Schritte lauten wie folgt:
 
 1) Führen Sie als Domänen Administrator das Skript aus (oder erstellen Sie die Active Directory Objekte und Berechtigungen manuell).
 2) Das Skript gibt ein AdminConfiguration-Objekt zurück, das den DN des neu erstellten AD-Objekts enthält.
@@ -165,7 +163,7 @@ if ($pscmdlet.ShouldProcess("$ou", "Creating DKM container and assinging access"
     }
     else
     {
-        write-verbose "ADFS administrator account is a standard AD user"    
+        write-verbose "ADFS administrator account is a standard AD user"
         $objUser = New-Object System.Security.Principal.NTAccount($AdfsAdministratorAccount)
         $strSID = $objUser.Translate([System.Security.Principal.SecurityIdentifier])
     }

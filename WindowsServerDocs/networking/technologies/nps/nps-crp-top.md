@@ -2,22 +2,20 @@
 title: Verarbeitung von Verbindungsanforderungen
 description: Dieses Thema enthält eine Übersicht über die Verarbeitung von Verbindungsanforderungen für Netzwerk Richtlinien Server in Windows Server 2016.
 manager: brianlic
-ms.prod: windows-server
-ms.technology: networking
 ms.topic: article
 ms.assetid: 849d661a-42c1-4f93-b669-6009d52aad39
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 311003201f96c5f566077867b09fee0a325ed011
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 9b50fe9a3adce7967a555237446e77e4d4080221
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80316195"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87955597"
 ---
 # <a name="connection-request-processing"></a>Verarbeitung von Verbindungsanforderungen
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 In diesem Thema erfahren Sie mehr über die Verarbeitung von Verbindungsanforderungen auf dem Netzwerk Richtlinien Server unter Windows Server 2016.
 
@@ -27,7 +25,7 @@ In diesem Thema erfahren Sie mehr über die Verarbeitung von Verbindungsanforder
 > - [Bereichs Namen](nps-crp-realm-names.md)
 > - [Remote-RADIUS-Server Gruppen](nps-crp-rrsg.md)
 
-Sie können die Verarbeitung von Verbindungsanforderungen verwenden, um anzugeben, wo die Authentifizierung von Verbindungsanforderungen erfolgt: auf dem lokalen Computer oder auf einem Remote-RADIUS-Server, der Mitglied einer RADIUS-Remote Server Gruppe ist. 
+Sie können die Verarbeitung von Verbindungsanforderungen verwenden, um anzugeben, wo die Authentifizierung von Verbindungsanforderungen erfolgt: auf dem lokalen Computer oder auf einem Remote-RADIUS-Server, der Mitglied einer RADIUS-Remote Server Gruppe ist.
 
 Wenn der lokale Server, auf dem der Netzwerk Richtlinien Server (Network Policy Server, NPS) ausgeführt wird, eine Authentifizierung für Verbindungsanforderungen ausführen soll, können Sie die Standard-Verbindungs Anforderungs Richtlinie ohne zusätzliche Konfiguration verwenden. Basierend auf der Standard Richtlinie authentifiziert NPS Benutzer und Computer, die über ein Konto in der lokalen Domäne und vertrauenswürdigen Domänen verfügen.
 
@@ -40,7 +38,7 @@ Die folgende Abbildung zeigt den Pfad einer Access-Request-Nachricht von einem N
 
 
 >[!NOTE]
->Bei den Netzwerk Zugriffs Servern, die Sie mit NPS verwenden, kann es sich um Gatewaygeräte handeln, die mit dem RADIUS-Protokoll kompatibel sind, z. b. drahtlose 802.1 x-Zugriffspunkte und authentifizier Ende Switches, Server mit Remote Zugriff, die als VPN-oder DFÜ-Server konfiguriert sind. andere mit RADIUS kompatible Geräte.
+>Bei den Netzwerk Zugriffs Servern, die Sie mit NPS verwenden, kann es sich um Gatewaygeräte handeln, die mit dem RADIUS-Protokoll kompatibel sind, z. b. drahtlose 802.1 x-Zugriffspunkte und authentifizier Ende Switches, Server mit Remote Zugriff, die als VPN-oder DFÜ-Server oder andere mit RADIUS kompatible Geräte konfiguriert sind
 
 Wenn Sie möchten, dass NPS einige Authentifizierungsanforderungen lokal verarbeitet, während andere Anforderungen an eine Remote-RADIUS-Server Gruppe weitergeleitet werden, müssen Sie mehr als eine Verbindungs Anforderungs Richtlinie konfigurieren.
 
@@ -52,23 +50,23 @@ Informationen zum Angeben von NPS oder anderen RADIUS-Servern, an die Authentifi
 
 Wenn Sie NPS als RADIUS-Server verwenden, bieten RADIUS-Nachrichten Authentifizierung, Autorisierung und Kontoführung für Netzwerk Zugriffs Verbindungen auf folgende Weise:
 
-1. Zugriffs Server, z. b. DFÜ-Netzwerk Zugriffs Server, VPN-Server und drahtlos Zugriffspunkte, empfangen Verbindungsanforderungen von Zugriffs Clients. 
+1. Zugriffs Server, z. b. DFÜ-Netzwerk Zugriffs Server, VPN-Server und drahtlos Zugriffspunkte, empfangen Verbindungsanforderungen von Zugriffs Clients.
 
-2. Der Zugriffs Server, der für die Verwendung von RADIUS als Authentifizierungs-, Autorisierungs-und Kontoführungs Protokoll konfiguriert ist, erstellt eine Access-Request-Nachricht und sendet Sie an den NPS. 
+2. Der Zugriffs Server, der für die Verwendung von RADIUS als Authentifizierungs-, Autorisierungs-und Kontoführungs Protokoll konfiguriert ist, erstellt eine Access-Request-Nachricht und sendet Sie an den NPS.
 
-3. Der NPS wertet die Access-Request-Nachricht aus. 
+3. Der NPS wertet die Access-Request-Nachricht aus.
 
-4. Bei Bedarf sendet der NPS eine Access-Challenge-Nachricht an den Zugriffs Server. Der Zugriffs Server verarbeitet die Anforderung und sendet eine aktualisierte Zugriffs Anforderung an den NPS. 
+4. Bei Bedarf sendet der NPS eine Access-Challenge-Nachricht an den Zugriffs Server. Der Zugriffs Server verarbeitet die Anforderung und sendet eine aktualisierte Zugriffs Anforderung an den NPS.
 
-5. Die Benutzer Anmelde Informationen werden geprüft, und die Einwähleigenschaften des Benutzerkontos werden mithilfe einer sicheren Verbindung mit einem Domänen Controller abgerufen. 
+5. Die Benutzer Anmelde Informationen werden geprüft, und die Einwähleigenschaften des Benutzerkontos werden mithilfe einer sicheren Verbindung mit einem Domänen Controller abgerufen.
 
-6. Der Verbindungsversuch wird sowohl mit den Einwähleigenschaften des Benutzerkontos als auch mit den Netzwerk Richtlinien autorisiert. 
+6. Der Verbindungsversuch wird sowohl mit den Einwähleigenschaften des Benutzerkontos als auch mit den Netzwerk Richtlinien autorisiert.
 
-7. Wenn der Verbindungsversuch sowohl authentifiziert als auch autorisiert ist, sendet der NPS eine Access-Accept-Nachricht an den Zugriffs Server. Wenn der Verbindungsversuch entweder nicht authentifiziert oder nicht autorisiert ist, sendet der NPS eine Zugriffs Ablehnungs Nachricht an den Zugriffs Server. 
+7. Wenn der Verbindungsversuch sowohl authentifiziert als auch autorisiert ist, sendet der NPS eine Access-Accept-Nachricht an den Zugriffs Server. Wenn der Verbindungsversuch entweder nicht authentifiziert oder nicht autorisiert ist, sendet der NPS eine Zugriffs Ablehnungs Nachricht an den Zugriffs Server.
 
-8. Der Zugriffs Server schließt den Verbindungsprozess mit dem Zugriffs Client ab und sendet eine Buchhaltungs Anforderungs Nachricht an den NPS, bei dem die Nachricht protokolliert wird. 
+8. Der Zugriffs Server schließt den Verbindungsprozess mit dem Zugriffs Client ab und sendet eine Buchhaltungs Anforderungs Nachricht an den NPS, bei dem die Nachricht protokolliert wird.
 
-9. Der NPS sendet eine Buchhaltungs Antwort an den Zugriffs Server. 
+9. Der NPS sendet eine Buchhaltungs Antwort an den Zugriffs Server.
 
 >[!NOTE]
 >Der Zugriffs Server sendet außerdem Buchhaltungs Anforderungs Nachrichten während des Zeitraums, in dem die Verbindung hergestellt wird, wenn die Zugriffs Client Verbindung geschlossen wird und wenn der Zugriffs Server gestartet und beendet wird.

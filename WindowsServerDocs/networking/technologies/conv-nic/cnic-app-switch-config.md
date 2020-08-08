@@ -1,20 +1,18 @@
 ---
 title: Konfiguration des physischen Switches für konvergierte NIC
 description: In diesem Thema erhalten Sie Richtlinien für die Konfiguration physischer Switches.
-ms.prod: windows-server
-ms.technology: networking
 ms.topic: article
 ms.assetid: 6d53c797-fb67-4b9e-9066-1c9a8b76d2aa
 manager: dougkim
 ms.author: lizross
 author: eross-msft
 ms.date: 09/14/2018
-ms.openlocfilehash: 8d227098fb23b233b416cb9342a15d6d4ca0699e
-ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
+ms.openlocfilehash: 418b8aaaeceeb55d73c720270476f8f96d955fc4
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87520219"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87955757"
 ---
 # <a name="physical-switch-configuration-for-converged-nic"></a>Konfiguration des physischen Switches für konvergierte NIC
 
@@ -115,7 +113,7 @@ Dabei handelt es sich nur um Befehle und deren Verwendung. Sie müssen die Ports
     priority-flow-control mode on
 ```
 
-## <a name="related-topics"></a>Zugehörige Themen
+## <a name="related-topics"></a>Verwandte Themen
 
 - [Konvergierte NIC-Konfiguration mit einem einzelnen Netzwerk Adapter](cnic-single.md)
 - [Konvergierte NIC-Konfiguration mit Nic](cnic-datacenter.md)

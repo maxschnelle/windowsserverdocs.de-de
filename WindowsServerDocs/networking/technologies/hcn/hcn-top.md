@@ -3,39 +3,38 @@ title: Host Compute Network (HCN)-Dienst-API für VMS und Container
 description: Die HCN-Dienst-API (Host Compute Network) ist eine öffentlich zugänglichen Win32-API, die Zugriff auf Platt Form Ebene zum Verwalten der virtuellen Netzwerke, der virtuellen Netzwerk Endpunkte und der zugehörigen Richtlinien bietet. Dies ermöglicht die Konnektivität und Sicherheit für virtuelle Computer (Virtual Machines, VMS) und Container, die auf einem Windows-Host ausgeführt werden.
 ms.author: jmesser
 author: jmesser81
-ms.prod: windows-server
 ms.date: 11/05/2018
-ms.openlocfilehash: 6e4d665ba431331fbf1f41a0ac4774e58693a5e2
-ms.sourcegitcommit: 717222e9efceb5964872dbf97034cad60f3c48df
+ms.openlocfilehash: 8e83af4ea54d2fcc75ff8ff054f4ad253a5422ea
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87295042"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87955658"
 ---
 # <a name="host-compute-network-hcn-service-api-for-vms-and-containers"></a>Host Compute Network (HCN)-Dienst-API für VMS und Container
 
 >Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019
 
-Die HCN-Dienst-API (Host Compute Network) ist eine öffentlich zugänglichen Win32-API, die Zugriff auf Platt Form Ebene zum Verwalten der virtuellen Netzwerke, der virtuellen Netzwerk Endpunkte und der zugehörigen Richtlinien bietet. Dies ermöglicht die Konnektivität und Sicherheit für virtuelle Computer (Virtual Machines, VMS) und Container, die auf einem Windows-Host ausgeführt werden. 
+Die HCN-Dienst-API (Host Compute Network) ist eine öffentlich zugänglichen Win32-API, die Zugriff auf Platt Form Ebene zum Verwalten der virtuellen Netzwerke, der virtuellen Netzwerk Endpunkte und der zugehörigen Richtlinien bietet. Dies ermöglicht die Konnektivität und Sicherheit für virtuelle Computer (Virtual Machines, VMS) und Container, die auf einem Windows-Host ausgeführt werden.
 
-Entwickler verwenden die HCN-Dienst-API, um Netzwerke für VMS und Container in ihren Anwendungs Workflows zu verwalten. Die HCN-API wurde entwickelt, um Entwicklern das beste Verhalten zu bieten. Endbenutzer interagieren nicht direkt mit diesen APIs.  
+Entwickler verwenden die HCN-Dienst-API, um Netzwerke für VMS und Container in ihren Anwendungs Workflows zu verwalten. Die HCN-API wurde entwickelt, um Entwicklern das beste Verhalten zu bieten. Endbenutzer interagieren nicht direkt mit diesen APIs.
 
 ## <a name="features-of-the-hcn-service-api"></a>Features der HCN-Dienst-API
 -    Wird als C-API implementiert, die vom Host Netzwerkdienst (HNS) auf der Oncore/VM gehostet wird.
 
 -    Bietet die Möglichkeit, HCN-Objekte, z. b. Netzwerke, Endpunkte, Namespaces und Richtlinien, zu erstellen, zu ändern, zu löschen und aufzuzählen. Vorgänge werden in Handles für die Objekte (z. b. ein Netzwerk handle) durchgeführt, und intern werden diese Handles mithilfe von RPC-Kontext Handles implementiert.
 
--    Schema basiert. Die meisten Funktionen der API definieren Eingabe-und Ausgabeparameter als Zeichen folgen, die die Argumente des Funktions Aufrufes als JSON-Dokumente enthalten. Die JSON-Dokumente basieren auf stark typisierten und versionierten Schemas. diese Schemas sind Teil der öffentlichen Dokumentation. 
+-    Schema basiert. Die meisten Funktionen der API definieren Eingabe-und Ausgabeparameter als Zeichen folgen, die die Argumente des Funktions Aufrufes als JSON-Dokumente enthalten. Die JSON-Dokumente basieren auf stark typisierten und versionierten Schemas. diese Schemas sind Teil der öffentlichen Dokumentation.
 
 -    Eine Abonnement-/Rückruf-API wird bereitgestellt, um Clients das Registrieren für Benachrichtigungen von Dienst weiten Ereignissen wie z. b. Netzwerk Erstellungen und Löschungen zu ermöglichen.
 
 -    HCN-API funktioniert in Desktop Bridge (auch bekannt als Centennial) apps, die in System Diensten ausgeführt werden. Die API überprüft die ACL, indem das Benutzer Token vom Aufrufer abgerufen wird.
 
 >[!TIP]
->Die HCN-Dienst-API wird in Hintergrundaufgaben und nicht-Vordergrund-Fenstern unterstützt. 
+>Die HCN-Dienst-API wird in Hintergrundaufgaben und nicht-Vordergrund-Fenstern unterstützt.
 
 ## <a name="terminology-host-vs-compute"></a>Terminologie: Host und Compute
-Der hostcomputedienst ermöglicht es Aufrufern, virtuelle Maschinen und Container auf einem einzelnen physischen Computer zu erstellen und zu verwalten. Sie hat den Namen, um die Branchen Terminologie zu befolgen. 
+Der hostcomputedienst ermöglicht es Aufrufern, virtuelle Maschinen und Container auf einem einzelnen physischen Computer zu erstellen und zu verwalten. Sie hat den Namen, um die Branchen Terminologie zu befolgen.
 
 - Der **Host** wird in der Virtualisierungstechnologie häufig verwendet, um auf das Betriebssystem zu verweisen, das virtualisierte Ressourcen bereitstellt.
 
@@ -47,18 +46,18 @@ Konfigurations Dokumente, die auf klar definierten Schemas basieren, sind im Vir
 Die Sprache, die zum Erstellen von Konfigurations Dokumenten verwendet wird, ist [JSON](https://tools.ietf.org/html/rfc8259), die Sie in Kombination mit verwenden:
 -    Schema Definitionen, die ein Objektmodell für das Dokument definieren
 -    Validierung, ob ein JSON-Dokument einem Schema entspricht
--    Automatisierte Konvertierung von JSON-Dokumenten in und aus nativen Darstellungen dieser Schemas in den Programmiersprachen, die von den Aufrufern der APIs verwendet werden 
+-    Automatisierte Konvertierung von JSON-Dokumenten in und aus nativen Darstellungen dieser Schemas in den Programmiersprachen, die von den Aufrufern der APIs verwendet werden
 
 Häufig verwendete Schema Definitionen sind das [OpenAPI](https://www.openapis.org/) -und [JSON-Schema](http://json-schema.org/), mit dem Sie die detaillierten Definitionen der Eigenschaften in einem Dokument angeben können, z. b.:
 -    Der gültige Satz von Werten für eine Eigenschaft, z. b. 0-100 für eine Eigenschaft, die einen Prozentsatz darstellt.
 -    Die Definition von Enumerationen, die als Satz gültiger Zeichen folgen für eine Eigenschaft dargestellt werden.
--    Ein regulärer Ausdruck für das erwartete Format einer Zeichenfolge. 
+-    Ein regulärer Ausdruck für das erwartete Format einer Zeichenfolge.
 
-Als Teil der Dokumentation der HCN-APIs planen wir, das Schema unserer JSON-Dokumente als OpenAPI-Spezifikation zu veröffentlichen. Basierend auf dieser Spezifikation können sprachspezifische Darstellungen des Schemas eine typsichere Verwendung der Schema Objekte in der vom Client verwendeten Programmiersprache ermöglichen. 
+Als Teil der Dokumentation der HCN-APIs planen wir, das Schema unserer JSON-Dokumente als OpenAPI-Spezifikation zu veröffentlichen. Basierend auf dieser Spezifikation können sprachspezifische Darstellungen des Schemas eine typsichere Verwendung der Schema Objekte in der vom Client verwendeten Programmiersprache ermöglichen.
 
-### <a name="example"></a>Beispiel 
+### <a name="example"></a>Beispiel
 
-Im folgenden finden Sie ein Beispiel für diesen Workflow für das-Objekt, das einen SCSI-Controller im Konfigurations Dokument einer VM darstellt. 
+Im folgenden finden Sie ein Beispiel für diesen Workflow für das-Objekt, das einen SCSI-Controller im Konfigurations Dokument einer VM darstellt.
 
 ```
 enum IpamType
@@ -98,12 +97,12 @@ class PolicySettings
     [NewIn("2.0"),OmitEmpty]  string      Name;
 };
 
-class VlanPolicy : HCN.Schema.Common.PolicySettings 
+class VlanPolicy : HCN.Schema.Common.PolicySettings
 {
     [NewIn("2.0")] uint32 IsolationId;
 };
 
-class Route 
+class Route
 {
     [NewIn("2.0"),OmitEmpty] string NextHop;
     [NewIn("2.0"),OmitEmpty] string DestinationPrefix;
@@ -118,13 +117,13 @@ class Route
 Aus dieser internen Definition generieren wir die OpenAPI-Spezifikationen für das Schema:
 
 ```
-{ 
-    "swagger" : "2.0", 
-    "info" : { 
-       "version" : "2.1", 
-       "title" : "HCN API" 
+{
+    "swagger" : "2.0",
+    "info" : {
+       "version" : "2.1",
+       "title" : "HCN API"
     },
-    "definitions": {        
+    "definitions": {
         "Ipam": {
             "type": "object",
             "properties": {
@@ -150,7 +149,7 @@ Aus dieser internen Definition generieren wir die OpenAPI-Spezifikationen für d
                 "ID": {
                     "type": "string",
                     "pattern": "^[0-9A-Fa-f]{8}-([0-9A-Fa-f]{4}-){3}[0-9A-Fa-f]{12}$"
-                },                
+                },
                 "IpAddressPrefix": {
                     "type": "string"
                 },
@@ -190,7 +189,7 @@ Aus dieser internen Definition generieren wir die OpenAPI-Spezifikationen für d
                     "type": "string"
                 }
             }
-        },                      
+        },
         "VlanPolicy": {
             "type": "object",
             "properties": {
@@ -217,9 +216,9 @@ Aus dieser internen Definition generieren wir die OpenAPI-Spezifikationen für d
                     "format": "uint16"
                 }
             }
-        }        
+        }
     }
-} 
+}
 ```
 
 Sie können Tools wie [Swagger](https://swagger.io/)verwenden, um sprachspezifische Darstellungen der von einem Client verwendeten Schema Programmiersprache zu generieren. Swagger unterstützt eine Vielzahl von Sprachen, wie z. b. c#, go, JavaScript und python.
@@ -269,9 +268,9 @@ class HostComputeNamespace : HCN.Schema.Common.Base
 
 class HostComputeLoadBalancer : HCN.Schema.Common.Base
 {
-    [NewIn("2.0"), OmitEmpty] string                                               HostComputeEndpoints[]; 
-    [NewIn("2.0"), OmitEmpty] string                                               VirtualIPs[]; 
-    [NewIn("2.0"), OmitEmpty] HCN.Schema.Network.Endpoint.Policy.PortMappingPolicy PortMappings[]; 
+    [NewIn("2.0"), OmitEmpty] string                                               HostComputeEndpoints[];
+    [NewIn("2.0"), OmitEmpty] string                                               VirtualIPs[];
+    [NewIn("2.0"), OmitEmpty] HCN.Schema.Network.Endpoint.Policy.PortMappingPolicy PortMappings[];
     [NewIn("2.0"), OmitEmpty] HCN.Schema.LoadBalancer.LoadBalancerPolicy           Policies[];
 };
 ```

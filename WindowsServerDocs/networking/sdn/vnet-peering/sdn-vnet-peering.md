@@ -1,24 +1,22 @@
 ---
 title: Peering in virtuellen Netzwerken
 manager: grcusanz
-ms.prod: windows-server
-ms.technology: networking-hv-switch
 ms.topic: get-started-article
 ms.author: anpaul
 author: AnirbanPaul
 ms.date: 08/08/2018
-ms.openlocfilehash: d4dadcabfb911c7722da493c45db112477eab34c
-ms.sourcegitcommit: a1641b80c88205c0253f354f2d427d77bb879643
+ms.openlocfilehash: 21008268f14435852c7de78ce826bc380f9017a1
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85345414"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87955817"
 ---
 # <a name="virtual-network-peering"></a>Peering in virtuellen Netzwerken
 
 >Gilt für: Windows Server
 
-Das Peering virtueller Netzwerke ermöglicht das nahtlose Verbinden von zwei virtuellen Netzwerken. Nach dem Peer werden die virtuellen Netzwerke zu konnektivitätszwecken als eins angezeigt. 
+Das Peering virtueller Netzwerke ermöglicht das nahtlose Verbinden von zwei virtuellen Netzwerken. Nach dem Peer werden die virtuellen Netzwerke zu konnektivitätszwecken als eins angezeigt.
 
 Die Verwendung von VNET-Peering bietet unter anderem folgende Vorteile:
 

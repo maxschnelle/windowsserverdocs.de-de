@@ -6,14 +6,12 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server
-ms.technology: identity-adds
-ms.openlocfilehash: ec66353802b31432d182c1538c0d2f5322f457af
-ms.sourcegitcommit: 11421f4005f9f3a3f6c0db95b1836d0f765a9fa3
+ms.openlocfilehash: 2b25f714913df4c8453194dbc2b691c5cca0db80
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81624398"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87947914"
 ---
 # <a name="assigning-domain-names"></a>Zuweisen von Domänennamen
 
@@ -36,4 +34,4 @@ Wenn der aktuelle NetBIOS-Name der Domäne ungeeignet ist, um den Bereich darzus
 
 Wählen Sie für jede neu bereitgestellte Domäne ein Präfix aus, das für die Region geeignet ist und die Präfix-Benennungs Regeln erfüllt. Es wird empfohlen, dass der NetBIOS-Name der Domäne mit dem DNS-Präfix identisch ist.
 
-Dokumentieren Sie das DNS-Präfix und die NetBIOS-Namen, die Sie für jede Domäne in der Gesamtstruktur auswählen. Sie können die DNS-und NetBIOS-Namensinformationen dem Arbeitsblatt "Domänen Planung" hinzufügen, das Sie erstellt haben, um den Plan für neue und aktualisierte Domänen zu dokumentieren. Um es zu öffnen, laden Sie Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip aus den [Auftrags Hilfen für Windows Server 2003 Deployment Kit](https://microsoft.com/download/details.aspx?id=9608) herunter, und öffnen Sie "Domänen Planung" (DSSLOGI_5. doc).
+Dokumentieren Sie das DNS-Präfix und die NetBIOS-Namen, die Sie für jede Domäne in der Gesamtstruktur auswählen. Sie können die DNS-und NetBIOS-Namensinformationen dem Arbeitsblatt "Domänen Planung" hinzufügen, das Sie erstellt haben, um den Plan für neue und aktualisierte Domänen zu dokumentieren. Um es zu öffnen, laden Sie Job_Aids_Designing_and_Deploying_Directory_and_Security_Services.zip aus den [Auftrags Hilfen für Windows Server 2003 Deployment Kit](https://microsoft.com/download/details.aspx?id=9608) herunter, und öffnen Sie "Domänen Planung" (DSSLOGI_5.doc).

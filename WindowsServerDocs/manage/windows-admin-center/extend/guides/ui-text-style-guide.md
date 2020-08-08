@@ -1,19 +1,17 @@
 ---
 title: Windows Admin Center UI-Text und Entwurfs Stil Handbuch
 description: Windows Admin Center UI-Text und Design Style Guide SDK
-ms.technology: manage
 ms.topic: article
 author: jasongerend
 ms.author: jgerend
 ms.date: 01/17/2020
 ms.localizationpriority: medium
-ms.prod: windows-server
-ms.openlocfilehash: d8215f3589e021ec5df6a3a150d09a2388a2f35d
-ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
+ms.openlocfilehash: d77498b9d4c8573dfac82b7291b6d0676d0d8c1e
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87518548"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87971977"
 ---
 # <a name="windows-admin-center-ui-text-and-design-style-guide"></a>Windows Admin Center UI-Text und Entwurfs Stil Handbuch
 
@@ -40,7 +38,7 @@ Wir folgen dem [Microsoft-Stil](https://docs.microsoft.com/style-guide/capitaliz
 
 ## <a name="colons"></a>Doppelpunkte
 
-Verwenden Sie Doppelpunkte zum Einführen von Listen. Beispiel:
+Verwenden Sie Doppelpunkte zum Einführen von Listen. Zum Beispiel:
 
 Wählen Sie eine der folgenden Optionen aus:
 
@@ -133,7 +131,7 @@ Microsoft-Entwickler sollten einen fwlink verwenden, außer wenn es sich um eine
 
 - Verwenden Sie vollständige Sätze.
 - Fügen Sie keine endpunktierungen mit Ausnahme von Fragezeichen ein.
-- Sie müssen nicht denselben Text wie den Aufgaben Titel verwenden. Verwenden Sie Text, der im Kontext der Benutzeroberfläche sinnvoll ist, aber stellen Sie sicher, dass zwischen den beiden eine logische Verbindung besteht. Beispiel:
+- Sie müssen nicht denselben Text wie den Aufgaben Titel verwenden. Verwenden Sie Text, der im Kontext der Benutzeroberfläche sinnvoll ist, aber stellen Sie sicher, dass zwischen den beiden eine logische Verbindung besteht. Zum Beispiel:
 - Hilfelink: welche Risiken besteht darin, Ausnahmen zuzulassen?
 - Hilfe Thementitel: "zulassen, dass ein Programm über die Windows-Firewall kommuniziert"
 - Gehen Sie so spezifisch wie möglich zum Inhalt des Hilfe Themas.
@@ -143,7 +141,7 @@ Microsoft-Entwickler sollten einen fwlink verwenden, außer wenn es sich um eine
     - Nicht unser Stil
         - Weitere Informationen zur Windows-Firewall
         - Weitere Informationen zur Farbverwaltung
-        - Erfahren Sie mehr
+        - Weitere Informationen
 - Verwenden Sie den gesamten Satz für den Linktext, nicht nur die Schlüsselwörter.
     - Unser Stil
         - [Welche Risiken besteht darin, Ausnahmen zuzulassen?]()
@@ -168,7 +166,7 @@ Verwenden Sie eine Nachricht pro Fehlerfall.
 - Vermeiden Sie die Verwendung von "Es gab ein Problem" in Überschriften, es sei denn, Sie haben keine andere Wahl. Spezifischere Informationen zum Problem.
 - Vermeiden Sie die Verwendung von Variablen (wie Datei-, Ordner-und APP-Namen) in Überschriften. Fügen Sie Sie in den Text ein.
 
-#### <a name="body"></a>Text
+#### <a name="body"></a>Body
 
 - Wenn die Überschrift ausreichend das Problem oder die Lösung erläutert, benötigen Sie keinen Textkörper.
 - Wiederholen Sie den Titel in der Nachricht nicht mit einem etwas anderen Wortlaut.
@@ -223,7 +221,7 @@ Der Status NULL tritt auf, wenn Kundendaten oder-Inhalte nicht in einer APP oder
 
 Status Meldungen bestehen aus Popup-und Benachrichtigungs Meldungen.
 
-|Zeichen Folgentyp         | Notizen                               |
+|Zeichen Folgentyp         | Hinweise                               |
 |------------        |-------------------------------------|
 |Toast               |Satz Fall mit endeinterpunktions Zeichen (idealerweise mit einer Objektvariablen), damit Benutzer erkennen können, auf welches Objekt die Nachricht angewendet wird, wenn Sie vom Objekt entfernt wurden.|
 |Benachrichtigungs Überschrift (Titel) |Satz Fall ohne endende Interpunktions Zeichen (eine Überschrift), idealerweise mit einer Objektvariablen|
@@ -231,12 +229,12 @@ Status Meldungen bestehen aus Popup-und Benachrichtigungs Meldungen.
 
 Im folgenden finden Sie einige ausführliche Empfehlungen für Benachrichtigungs Meldungen:
 
-|Zeichen Folgentyp         | Notizen                               |
+|Zeichen Folgentyp         | Hinweise                               |
 |------------        |-------------------------------------|
 |Gestartet             |Nach Möglichkeit weglassen: Normalerweise können Sie einfach mit der in Bearbeitung befindlichen Nachricht fortfahren, um die Anzahl der Ablenkungen zu minimieren.|
-|In Bearbeitung         |Beginnen Sie mit dem Verb der Aktion, die Sie ausführen, und beenden Sie mit Auslassungs Zeichen, um einen laufenden Vorgang anzuzeigen. Ein Beispiel:<br> *Das Volume "Kundendaten" wird erstellt...* <br><br>Wenn mehrere Variablen vorhanden sind, verwenden Sie dieses Muster: <br>*Der folgende virtuelle Computer wird gelöscht: {0} ; Host{1}* |
-|Erfolg             |Beginnen Sie mit "erfolgreich", und beenden Sie das, was die Software soeben getan hat. Ein Beispiel:<br> *Das Volume "Customer Data" wurde erfolgreich erstellt.*|
-|Fehler             |Beginnen Sie mit "was nicht", und beenden Sie den Funktionsumfang der Software. Ein Beispiel:<br> *Das Volume "Customer Data" konnte nicht erstellt werden.*|
+|In Bearbeitung         |Beginnen Sie mit dem Verb der Aktion, die Sie ausführen, und beenden Sie mit Auslassungs Zeichen, um einen laufenden Vorgang anzuzeigen. Hier sehen Sie ein Beispiel:<br> *Das Volume "Kundendaten" wird erstellt...* <br><br>Wenn mehrere Variablen vorhanden sind, verwenden Sie dieses Muster: <br>*Der folgende virtuelle Computer wird gelöscht: {0} ; Host{1}* |
+|Erfolg             |Beginnen Sie mit "erfolgreich", und beenden Sie das, was die Software soeben getan hat. Hier sehen Sie ein Beispiel:<br> *Das Volume "Customer Data" wurde erfolgreich erstellt.*|
+|Fehler             |Beginnen Sie mit "was nicht", und beenden Sie den Funktionsumfang der Software. Hier sehen Sie ein Beispiel:<br> *Das Volume "Customer Data" konnte nicht erstellt werden.*|
 
 ## <a name="tooltips"></a>QuickInfos
 
@@ -246,7 +244,7 @@ Quick Infos sollten sehr sparsam oder gar nicht verwendet werden. Dies kann eine
 
 |    Kontext                                 |    Schreiben der Quick Infos    |
 |    -----------------------                 |    -------------------------    |
-|Wenn ein Steuerelement oder ein Benutzeroberflächen Element nicht beschriftet ist...|Verwenden Sie einen einfachen, beschreibenden Substantiv Ausdruck. Beispiel:<br> Stift hervorheben |
+|Wenn ein Steuerelement oder ein Benutzeroberflächen Element nicht beschriftet ist...|Verwenden Sie einen einfachen, beschreibenden Substantiv Ausdruck. Zum Beispiel:<br> Stift hervorheben |
 |Wenn ein Benutzeroberflächen Element gekennzeichnet ist, aber sein Zweck eine Erläuterung erfordert...|<ul><li>Beschreiben Sie kurz, was Sie mit diesem UI-Element tun können. </li><li>Verwenden Sie das imperative Verb-Formular. Beispiel: "Text in dieser Datei suchen" (nicht "sucht nach Text in dieser Datei").</li><li>Schließen Sie keine Endpunkte ein, es sei denn, es gibt mehrere vollständige Sätze.</li> </ul>|
 |Wenn eine Text Bezeichnung abgeschnitten wird oder in einigen Sprachen abgeschnitten wird...|<ul><li>Geben Sie die nicht gekürzte Bezeichnung in der QuickInfo an.</li><li>Optional: Geben Sie in einer anderen Zeile eine Beschreibungs Beschreibung an, aber nur bei Bedarf.</li><li>Geben Sie keine QuickInfo an, wenn die nicht abgeschnittene Informationen an anderer Stelle auf der Seite oder im Flow bereitgestellt werden.</li></ul>|
 |Wenn eine Tastenkombination verfügbar ist...|<ul><li>Optional: Geben Sie die Tastenkombination in Klammern nach der Bezeichnung oder dem beschreibenden Ausdruck an, z. b. "Drucken (STRG + P)" oder "Text in dieser Datei suchen (STRG + F)".</li><li>Es ist in Ordnung, eine hilfreiche Tastenkombination zu einer QuickInfo-QuickInfo hinzuzufügen. vermeiden Sie jedoch, eine QuickInfo hinzuzufügen, um eine Tastenkombination anzuzeigen. </li></ul>|

@@ -2,19 +2,18 @@
 title: DNS-Server
 description: In diesem Artikel wird beschrieben, wie Sie DNS-Probleme auf Serverseite beheben.
 manager: dcscontentpm
-ms.technology: networking-dns
 ms.topic: article
 ms.author: delhan
 ms.date: 8/8/2019
 author: Deland-Han
-ms.openlocfilehash: 4413c60072c43b623f386d5037e3da7ed5dc128d
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: ce4a3f4a183478cd250159f1953a0fd2193f6de6
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80861323"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87964076"
 ---
-# <a name="troubleshooting-dns-servers"></a>DNS-Server
+# <a name="troubleshooting-dns-servers"></a>Problembehandlung bei DNS-Servern
 
 In diesem Artikel wird erläutert, wie Sie Probleme auf DNS-Servern beheben.
 
@@ -29,7 +28,7 @@ In diesem Artikel wird erläutert, wie Sie Probleme auf DNS-Servern beheben.
    ```cmd
    nslookup <name> <IP address of the DNS server>
    ```
-   Beispiel: 
+   Beispiel:
    ```cmd
    nslookup app1 10.0.0.1
    ```
@@ -45,7 +44,7 @@ In diesem Artikel wird erläutert, wie Sie Probleme auf DNS-Servern beheben.
    Clear-DnsServerCache
    ```
 
-5. Wiederholen Sie Schritt 3. 
+5. Wiederholen Sie Schritt 3.
 
 ## <a name="check-dns-server-problems"></a>DNS-Serverprobleme überprüfen
 
@@ -53,7 +52,7 @@ In diesem Artikel wird erläutert, wie Sie Probleme auf DNS-Servern beheben.
 
 Überprüfen Sie die folgenden Protokolle, um festzustellen, ob aufgezeichnete Fehler aufgetreten sind:
 
-- Anwendung
+- Application
 
 - System
 
@@ -83,7 +82,7 @@ In seltenen Fällen kann der DNS-Server über eine erweiterte Sicherheits-oder F
 
 ## <a name="checking-for-problems-with-authoritative-data"></a>Überprüfen auf Probleme mit autorisierenden Daten
 
-Überprüfen Sie, ob der Server, der die falsche Antwort zurückgibt, ein primärer Server für die Zone ist (der Standard primäre Server für die Zone oder ein Server, der Active Directory Integration verwendet, um die Zone zu laden), oder ein Server, der eine sekundäre Kopie der Zone gehostet. 
+Überprüfen Sie, ob der Server, der die falsche Antwort zurückgibt, ein primärer Server für die Zone ist (der Standard primäre Server für die Zone oder ein Server, der Active Directory Integration verwendet, um die Zone zu laden), oder ein Server, der eine sekundäre Kopie der Zone gehostet.
 
 ### <a name="if-the-server-is-a-primary-server"></a>Wenn es sich bei dem Server um einen primären Server handelt
 
@@ -98,16 +97,16 @@ Das Problem kann durch einen Benutzerfehler verursacht werden, wenn Benutzerdate
 
    Wenn der Name auf dem Master Server nicht richtig ist, fahren Sie mit Schritt 4 fort.
 
-2. Wenn der Name auf dem Master Server richtig ist, überprüfen Sie, ob die Seriennummer auf dem Master Server kleiner oder gleich der Seriennummer auf dem sekundären Server ist. Wenn dies der Fall ist, ändern Sie entweder den Master Server oder den sekundären Server so, dass die Seriennummer auf dem Master Server größer ist als die Seriennummer auf dem sekundären Server. 
-  
+2. Wenn der Name auf dem Master Server richtig ist, überprüfen Sie, ob die Seriennummer auf dem Master Server kleiner oder gleich der Seriennummer auf dem sekundären Server ist. Wenn dies der Fall ist, ändern Sie entweder den Master Server oder den sekundären Server so, dass die Seriennummer auf dem Master Server größer ist als die Seriennummer auf dem sekundären Server.
+
 3. Erzwingen Sie auf dem sekundären Server eine Zonen Übertragung in der DNS-Konsole, oder führen Sie den folgenden Befehl aus:
-  
+
    ```cmd
    dnscmd /zonerefresh <zone name>
    ```
-  
-   Wenn die Zone z. b. Corp.contoso.com lautet, geben Sie Folgendes ein: `dnscmd /zonerefresh corp.contoso.com`.
-  
+
+   Wenn die Zone z. b. Corp.contoso.com lautet, geben Sie Folgendes ein: `dnscmd /zonerefresh corp.contoso.com` .
+
 4. Überprüfen Sie den sekundären Server erneut, um festzustellen, ob die Zone korrekt übertragen wurde Wenn dies nicht der Fall ist, liegt wahrscheinlich ein Zonen Übertragungsproblem vor. Weitere Informationen finden Sie unter [Zonen Übertragungsprobleme](#zone-transfer-problems).
 
 5. Wenn die Zone ordnungsgemäß übertragen wurde, überprüfen Sie, ob die Daten jetzt korrekt sind. Andernfalls sind die Daten in der primären Zone falsch. Das Problem kann durch einen Benutzerfehler verursacht werden, wenn Benutzerdaten in die Zone eingeben. Möglicherweise wird dies durch ein Problem verursacht, das sich auf Active Directory Replikation oder dynamisches Update auswirkt.
@@ -128,7 +127,7 @@ Wenn dieser Server Abfragen an einen anderen Server weiterleitet, überprüfen S
 
 Wenn der Server fehlerfrei ist und Abfragen weiterleiten kann, wiederholen Sie diesen Schritt, und überprüfen Sie den Server, an den dieser Server Abfragen weiterleitet.
 
-Wenn von diesem Server keine Abfragen an einen anderen Server weiterleiten werden, testen Sie, ob dieser Server einen Stamm Server Abfragen kann. Führen Sie hierzu den folgenden Befehl aus:
+Wenn von diesem Server keine Abfragen an einen anderen Server weiterleiten werden, testen Sie, ob dieser Server einen Stamm Server Abfragen kann. Führen Sie zu diesem Zweck den folgenden Befehl aus:
 
 ```cmd
 nslookup
@@ -155,11 +154,11 @@ Starten Sie die Tests im folgenden Verfahren, indem Sie einen gültigen Stamm Se
    ```
    > [!NOTE]
    >Der Ressourcen eingabentyp ist der Typ des Ressourceneinsatzes, den Sie in der ursprünglichen Abfrage abgefragt haben. der voll qualifizierte Name ist der voll qualifizierte Name des voll qualifizierten Datensatzes (durch einen Zeitraum beendet).
- 
+
 2. Wenn die Antwort eine Liste der "NS"-und "a"-Ressourcen Einträge für Delegierte Server enthält, wiederholen Sie Schritt 1 für jeden Server, und verwenden Sie die IP-Adresse aus den "a"-Ressourcen Einträgen als Server-IP-Adresse.
 
    - Wenn die Antwort keinen "NS"-Ressourcen Daten Satz enthält, ist die Delegierung beschädigt.
-   
+
    - Wenn die Antwort "NS"-Ressourcen Einträge, aber keine "A"-Ressourcen Einträge enthält, geben Sie **Rekursion festlegen**ein, und führen Sie einzeln Abfragen für "A"-Ressourcen Einträge von Servern aus, die in den NS-Einträgen aufgeführt sind. Wenn Sie nicht mindestens eine gültige IP-Adresse eines "A"-Ressourceneinsatzes für jeden NS-Ressourcen Daten Satz in einer Zone finden, ist die Delegierung beschädigt.
 
 3. Wenn Sie feststellen, dass die Delegierung beschädigt ist, korrigieren Sie Sie durch Hinzufügen oder Aktualisieren eines "a"-Ressourceneinsatzes in der übergeordneten Zone, indem Sie eine gültige IP-Adresse für einen korrekten DNS-Server für die delegierte Zone verwenden.
@@ -186,7 +185,7 @@ Führen Sie die folgenden Überprüfungen aus:
 
 - Überprüfen Sie Ereignisanzeige für den primären und den sekundären DNS-Server.
 
-- Überprüfen Sie auf dem Master Server, ob die Übertragung der Sicherheit verweigert wird. 
+- Überprüfen Sie auf dem Master Server, ob die Übertragung der Sicherheit verweigert wird.
 
 - Überprüfen Sie die Registerkarte **Zonenübertragungen** der Zonen Eigenschaften in der DNS-Konsole. Wenn der Server Zonenübertragungen zu einer Liste von Servern einschränkt, z. b. auf der Registerkarte **Namen Server** der Zonen Eigenschaften, stellen Sie sicher, dass der sekundäre Server in der Liste enthalten ist. Stellen Sie sicher, dass der Server für das Senden von Zonenübertragungen konfiguriert ist.
 
@@ -199,6 +198,6 @@ Führen Sie die folgenden Überprüfungen aus:
   - Wenn eine Forward-Lookupzone auf dem Windows-Server einen Daten Recordtyp (z. b. einen SRV-Datensatz) enthält, den der sekundäre Server nicht unterstützt, kann der sekundäre Serverprobleme beim Ziehen der Zone haben.
 
 Überprüfen Sie, ob auf dem Master Server eine andere DNS-Server Implementierung ausgeführt wird, beispielsweise BIND. Wenn dies der Fall ist, ist es möglich, dass die Zone auf dem Master Server nicht kompatible Ressourcen Einträge enthält, die von Windows nicht erkannt werden.
- 
+
 Wenn auf dem Master-oder sekundären Server eine andere DNS-Server Implementierung ausgeführt wird, überprüfen Sie beide Server, um sicherzustellen, dass Sie dieselben Features unterstützen. Sie können den Windows-Server in der DNS-Konsole auf der Registerkarte **erweitert** der Seite Eigenschaften für den Server überprüfen. Zusätzlich zum Kontrollkästchen "Binden von sekundären Replikaten aktivieren" enthält diese Seite die Dropdown Liste " **namens Überprüfung** ". Auf diese Weise können Sie die Erzwingung der strikten RFC-Konformität für Zeichen in DNS-Namen auswählen.
 

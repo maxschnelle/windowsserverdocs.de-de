@@ -2,20 +2,18 @@
 title: Leistungsoptimierung für Netzwerkadapter
 description: Dieses Thema ist Teil des Handbuch zur Leistungsoptimierung des Netzwerk Subsystems für Windows Server 2016.
 audience: Admin - CI ID 111485 - CSSTroubleshoot
-ms.prod: windows-server
-ms.technology: networking
 ms.topic: article
 ms.assetid: 0b9b0f80-415c-4f5e-8377-c09b51d9c5dd
 manager: dcscontentpm
 ms.author: v-tea
 author: Teresa-Motiv
 ms.date: 12/23/2019
-ms.openlocfilehash: eb402c9cd7bb4f9ae472859fcd45fcc050d1df85
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: a29830fe5f6f23138b5872b95926ae7dc8834ae4
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87182136"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87955587"
 ---
 # <a name="performance-tuning-network-adapters"></a>Leistungsoptimierung für Netzwerkadapter
 
@@ -231,7 +229,7 @@ Sie können die automatische Optimierung des Empfangs Fensters auf eine beliebig
 |Ebene |Hexadezimalwert |Kommentare |
 | --- | --- | --- |
 |Normal (Standardeinstellung) |0x8 (Skalierungsfaktor 8) |Legen Sie fest, dass das TCP-Empfangs Fenster für fast alle Szenarien erweitert werden soll. |
-|Deaktiviert |Kein Skalierungsfaktor verfügbar |Legen Sie das TCP-Empfangs Fenster auf den Standardwert fest. |
+|Disabled |Kein Skalierungsfaktor verfügbar |Legen Sie das TCP-Empfangs Fenster auf den Standardwert fest. |
 |Eingeschränkt |0x4 (Skalierungsfaktor 4) |Legen Sie fest, dass das TCP-Empfangs Fenster über den Standardwert hinaus vergrößert wird, aber begrenzen Sie dieses Wachstum in einigen Szenarien. |
 |Stark eingeschränkt |0x2 (Skalierungsfaktor von 2) |Legen Sie fest, dass das TCP-Empfangs Fenster über den Standardwert hinaus wächst, aber dies ist sehr konservativ. |
 |Experimentell |0xe (Skalierungsfaktor 14) |Legen Sie fest, dass das TCP-Empfangs Fenster erweitert wird, um extrem Szenarios aufzunehmen |

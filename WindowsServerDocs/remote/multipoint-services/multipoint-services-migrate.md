@@ -2,26 +2,24 @@
 title: Migrieren zu Multipoint Services in Windows Server 2016
 description: Erfahren Sie, wie Sie von einer früheren Version von Multipoint Services migrieren.
 ms.date: 07/29/2016
-ms.prod: windows-server
-ms.technology: multipoint-services
 ms.topic: article
 ms.assetid: 16c217ad-700a-48a3-8398-4a7f7e9edb52
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.openlocfilehash: 1609ff02c8e1b1480d004104bdc7e37f1240729a
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: ce5fb28f92808d736f66f1f900228aac09d98bf5
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86959272"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87955337"
 ---
 # <a name="multipoint-services-migration-in-windows-server-2016"></a>Migration von Multipoint Services in Windows Server 2016
 >Gilt für: Windows Server 2016
 
 Sie können von einer früheren Version von Windows Server 2016 Multipoint Services zur RTM-Version von Multipoint Services migrieren. Die folgenden Informationen enthalten Informationen zur Vorbereitung sowie zu Migrations-und Überprüfungs Schritten.
 
-Die Migrations Dokumentation und-Tools vereinfachen die Migration von Server Rollen Einstellungen und Daten von einem vorhandenen Server zu einem Zielserver, auf dem Windows Server 2016 ausgeführt wird. Mit dem in diesem Handbuch beschriebenen Prozess können Sie den Migrationsvorgang vereinfachen, die Migration beschleunigen, ihre Genauigkeit verbessern und mögliche Konflikte vermeiden, die andernfalls während der Migration auftreten können. 
+Die Migrations Dokumentation und-Tools vereinfachen die Migration von Server Rollen Einstellungen und Daten von einem vorhandenen Server zu einem Zielserver, auf dem Windows Server 2016 ausgeführt wird. Mit dem in diesem Handbuch beschriebenen Prozess können Sie den Migrationsvorgang vereinfachen, die Migration beschleunigen, ihre Genauigkeit verbessern und mögliche Konflikte vermeiden, die andernfalls während der Migration auftreten können.
 
 ## <a name="what-to-know-before-you-begin"></a>Was Sie wissen sollten, bevor Sie beginnen
 Beachten Sie Folgendes, bevor Sie mit der Migration beginnen:

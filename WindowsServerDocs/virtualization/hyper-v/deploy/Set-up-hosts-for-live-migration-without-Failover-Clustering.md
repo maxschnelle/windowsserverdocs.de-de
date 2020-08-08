@@ -1,24 +1,22 @@
 ---
 title: Einrichten von Hosts für die Live Migration ohne Failoverclustering
 description: Enthält Anweisungen zum Einrichten einer Live Migration in einer nicht geclusterten Umgebung.
-ms.prod: windows-server
 manager: dongill
-ms.technology: compute-hyper-v
 ms.topic: article
 ms.assetid: b5e3c405-cb76-4ff2-8042-c2284448c435
 author: kbdazure
 ms.author: kathydav
 ms.date: 9/30/2016
-ms.openlocfilehash: 2c2f671bf59e95de2604c91944fab3d65f82410e
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 7bcd4e625f340ba7358a8ce9bdd860581c390e96
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80860883"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87948019"
 ---
 # <a name="set-up-hosts-for-live-migration-without-failover-clustering"></a>Einrichten von Hosts für die Live Migration ohne Failoverclustering
 
->Gilt für: Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019, Microsoft Hyper-V Server 2019
+>Gilt für: Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019, Microsoft Hyper-V Server 2019
 
 In diesem Artikel erfahren Sie, wie Sie Hosts einrichten, die nicht gruppiert sind, damit Sie Live Migrationen zwischen Ihnen ausführen können. Verwenden Sie diese Anweisungen, wenn Sie bei der Installation von Hyper-V keine Live Migration eingerichtet haben, oder wenn Sie die Einstellungen ändern möchten. Verwenden Sie zum Einrichten von gruppierten Hosts die Tools für Failoverclustering.
 
@@ -55,7 +53,7 @@ Wenn Sie sich für die Verwendung von Kerberos zum Authentifizieren des Datenver
 
 ### <a name="use-the-users-and-computers-snap-in-to-configure-constrained-delegation"></a>Verwenden des Snap-Ins "Benutzer und Computer" zum Konfigurieren der eingeschränkten Delegierung
 
-1.  Öffnen Sie das Snap-In %%amp;quot;Active Directory-Benutzer und -Computer%%amp;quot;. (Wählen Sie unter Server-Manager den Server aus, wenn er nicht ausgewählt ist **, klicken Sie** auf Extras >> **Active Directory Benutzer und Computer**).
+1.  Öffnen Sie das Snap-In %%amp;quot;Active Directory-Benutzer und -Computer%%amp;quot;. (Wählen Sie in Server-Manager den Server aus, wenn er nicht ausgewählt ist, **und klicken Sie** auf  >>  Extras. **Active Directory von Benutzern und Computern**).
 
 2.  Wählen Sie im Navigationsbereich von **Active Directory Benutzer und Computer**die Domäne aus, und doppelklicken Sie auf den Ordner **Computer** .
 
@@ -91,11 +89,11 @@ Dieser Schritt umfasst die Auswahl von Optionen für die Authentifizierung und d
 
 ### <a name="use-hyper-v-manager-to-set-up-the-source-and-destination-computers-for-live-migration"></a>Verwenden des Hyper-V-Managers zum Einrichten der Quell-und Zielcomputer für die Live Migration
 
-1.  Öffnen Sie den Hyper-V-Manager. ( **Klicken Sie** in Server-Manager auf Extras >>**Hyper-V-Manager**.)
+1.  Öffnen Sie den Hyper-V-Manager. ( **Klicken Sie** in Server-Manager auf  >> Extras. **Hyper-V-Manager**.)
 
 2.  Wählen Sie im Navigationsbereich einen der Server aus. (Falls nicht aufgeführt, klicken Sie mit der rechten Maustaste auf **Hyper-V-Manager**, klicken Sie auf **Verbindung mit Server herstellen**, geben Sie den Servernamen ein, und klicken Sie auf **OK** Wiederholen Sie den Vorgang, um weitere Server hinzuzufügen.
 
-3.  Klicken Sie im Bereich **Aktion** auf **Hyper-V-Einstellungen** >>**Live Migrationen**.
+3.  Klicken Sie im Bereich **Aktion** auf **Hyper-V-Einstellungen**  >> **Live Migrationen**.
 
 4.  Aktivieren Sie im Bereich **Livemigrationen** die Option **Ein- und ausgehende Livemigrationen ermöglichen**.
 
@@ -137,7 +135,7 @@ PS C:\> Set-VMHost -VirtualMachineMigrationPerformanceOption SMB
 
 In dieser Tabelle wird beschrieben, wie die Leistungsoptionen funktionieren.
 
-|Option|Beschreibung|
+|Option|BESCHREIBUNG|
 |----------|---------------|
     |TCP/IP|Der Arbeitsspeicher des virtuellen Computers wird über eine TCP/IP-Verbindung auf den Zielserver kopiert.|
     |Komprimierung|Komprimiert den Speicherinhalt der virtuellen Maschine, bevor Sie über eine TCP/IP-Verbindung auf den Zielserver kopiert wird. **Hinweis:** Dies ist die **Standard** Einstellung.|
