@@ -2,28 +2,26 @@
 title: Prozess der Bereitstellung des Funkzugriffs
 description: Dieses Thema ist Teil des Windows Server 2016-Netzwerk Handbuchs "Bereitstellen von Kenn Wort basiertem 802.1 x authentifizierten drahtlosen Zugriff".
 manager: brianlic
-ms.prod: windows-server
-ms.technology: networking
 ms.topic: article
 ms.assetid: 2555f238-926e-4b20-9bfb-9774831062da
 author: eross-msft
 ms.author: lizross
-ms.openlocfilehash: 30e3da7e1365585bf9dc5ff34a72a367e1ed28f7
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 9c2326df824288b6adf4453d6ef272ba632eb6c2
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80318083"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87969597"
 ---
 # <a name="wireless-access-deployment-process"></a>Prozess der Bereitstellung des Funkzugriffs
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 Der Prozess, mit dem Sie den drahtlosen Zugriff bereitstellen, erfolgt in den folgenden Phasen:
 
 ## <a name="stage-1--ap-deployment"></a>Phase 1 – AP-Bereitstellung
 
-Planen, bereitstellen und Konfigurieren von APS für drahtlose Client Konnektivität und für die Verwendung mit NPS. Abhängig von Ihrer Präferenz und den Netzwerk Abhängigkeiten können Sie vor der Installation im Netzwerk entweder\-vorab Einstellungen für Ihre drahtlos Zugriffspunkte konfigurieren, oder Sie können Sie nach der Installation Remote konfigurieren.
+Planen, bereitstellen und Konfigurieren von APS für drahtlose Client Konnektivität und für die Verwendung mit NPS. Abhängig von Ihrer Präferenz und den Netzwerk Abhängigkeiten können Sie vor der \- Installation im Netzwerkeinstellungen für Ihre drahtlos Zugriffspunkte konfigurieren, oder Sie können Sie nach der Installation Remote konfigurieren.
 
 ## <a name="stage-2--adds-group-configuration"></a>Phase 2 – AD DS Gruppenkonfiguration
 
@@ -38,11 +36,11 @@ Fügen Sie abschließend die Benutzer zu den entsprechenden Sicherheitsgruppen h
 
 ## <a name="stage-3--group-policy-configuration"></a>Phase 3 – Gruppenrichtlinie Konfiguration
 
-Konfigurieren Sie mithilfe der Gruppenrichtlinienverwaltungs-Editor Microsoft Management Console \(MMC-\)das Drahtlos Netzwerk \(IEEE 802,11\) Richtlinien Erweiterung von Gruppenrichtlinie.
+Konfigurieren Sie die Drahtlos Netzwerk \( IEEE 802,11- \) Richtlinien Erweiterung Gruppenrichtlinie mithilfe der Gruppenrichtlinienverwaltungs-Editor Microsoft Management Console \( MMC \) .
 
-Zum Konfigurieren von Domänen\-Mitglieds Computern mithilfe der Einstellungen in den Drahtlos Netzwerk Richtlinien müssen Sie Gruppenrichtlinie anwenden. Wenn ein Computer erstmalig der Domäne hinzugefügt wird, wird Gruppenrichtlinie automatisch angewendet. Wenn Änderungen an Gruppenrichtlinie vorgenommen werden, werden die neuen Einstellungen automatisch angewendet:
+Zum Konfigurieren von Domänen \- Mitglieds Computern mithilfe der Einstellungen in den Drahtlos Netzwerk Richtlinien müssen Sie Gruppenrichtlinie anwenden. Wenn ein Computer erstmalig der Domäne hinzugefügt wird, wird Gruppenrichtlinie automatisch angewendet. Wenn Änderungen an Gruppenrichtlinie vorgenommen werden, werden die neuen Einstellungen automatisch angewendet:
 
-- Durch Gruppenrichtlinie in vor\-festgelegten Intervallen
+- Nach Gruppenrichtlinie in vorab \- festgelegten Intervallen
 
 - Wenn ein Domänen Benutzer sich ab-und wieder am Netzwerk anmeldet
 
@@ -62,7 +60,7 @@ Verwenden Sie Client Computer, um eine Verbindung mit dem Netzwerk herzustellen.
 
 Für Domänen Mitglieds Computer, die sich am kabelgebundenen LAN anmelden können, werden die erforderlichen drahtlos Konfigurationseinstellungen automatisch angewendet, wenn Gruppenrichtlinie aktualisiert wird.
 
-Wenn Sie die Einstellung in Drahtlos Netzwerk \(IEEE 802,11\) Richtlinien aktivieren, um automatisch eine Verbindung herzustellen\-, wenn sich der Computer im Broadcast Bereich des drahtlos Netzwerks befindet, wird automatisch versucht, eine Verbindung mit dem drahtlosen LAN herzustellen.
+Wenn Sie die Einstellung in Drahtlos Netzwerk \( IEEE 802,11- \) Richtlinien aktiviert haben, um automatisch eine Verbindung herzustellen, wenn sich der Computer im Broadcast Bereich des drahtlos Netzwerks befindet, \- wird automatisch versucht, eine Verbindung mit dem drahtlosen LAN herzustellen.
 
 Zum Herstellen einer Verbindung mit dem Drahtlos Netzwerk müssen Benutzer nur Ihre Domänen Benutzernamen-und Kenn Wort Anmelde Informationen angeben, wenn Sie von Windows aufgefordert werden.
 

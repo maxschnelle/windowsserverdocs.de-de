@@ -6,12 +6,12 @@ manager: dongill
 author: rpsqrd
 ms.author: ryanpu
 ms.date: 08/29/2018
-ms.openlocfilehash: 7e62b5dab69676e15494ff531ffe0fce0e550c1a
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 3d6af6e6dea584485e2517d8e54c107c5cc2af90
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87970087"
+ms.locfileid: "87996263"
 ---
 # <a name="shielded-vms---hosting-service-provider-sets-up-windows-azure-pack"></a>Abgeschirmte VMs: Hosting-Anbieter richtet Windows Azure Pack ein
 
@@ -25,7 +25,7 @@ Sie führen die folgenden Aufgaben aus, um Windows Azure Pack in Ihrer Umgebung 
 
 1. Vervollständigen Sie die Konfiguration von System Center 2016-Virtual Machine Manager (VMM) für Ihr hostingfabric. Dies umfasst das Einrichten von VM-Vorlagen und eine VM-Cloud, die über Windows Azure Pack verfügbar gemacht wird:
 
-    [Szenario: Bereitstellen von überwachten Hosts und geschützten virtuellen Maschinen in VMM](https://technet.microsoft.com/system-center-docs/vmm/scenario/guarded-overview)
+    [Szenario: Bereitstellen von überwachten Hosts und geschützten virtuellen Maschinen in VMM](/system-center/vmm/deploy-guarded-host-fabric?view=sc-vmm-2019)
 
 2. Installieren und Konfigurieren von System Center 2016-Service Provider Foundation (SPF). Diese Software ermöglicht Windows Azure Pack die Kommunikation mit Ihren VMM-Servern:
 
@@ -44,7 +44,7 @@ Sie führen die folgenden Aufgaben aus, um Windows Azure Pack in Ihrer Umgebung 
 
 Installieren und konfigurieren Sie Windows Azure Pack (WAP) auf dem Computer, auf dem Sie das Webportal für Ihre Mandanten hosten möchten. Dieser Computer muss in der Lage sein, den SPF-Server zu erreichen und für Ihre Mandanten erreichbar zu sein.
 
-1.  Überprüfen der [WAP-Systemanforderungen](https://technet.microsoft.com/library/dn296442.aspx) und Installieren der [erforderlichen Software](https://technet.microsoft.com/library/dn469335.aspx).
+1.  Überprüfen der [WAP-Systemanforderungen](/previous-versions/azure/windows-server-azure-pack/dn296442(v=technet.10)) und Installieren der [erforderlichen Software](/previous-versions/azure/windows-server-azure-pack/dn469335(v=technet.10)).
 
 2.  Herunterladen und Installieren des [Webplattform-Installers](https://www.microsoft.com/web/downloads/platform.aspx). Wenn der Computer nicht mit dem Internet verbunden ist, befolgen Sie die [Anweisungen zur Offline Installation](https://www.iis.net/learn/install/web-platform-installer/web-platform-installer-v4-command-line-webpicmdexe-rtw-release).
 
@@ -52,7 +52,7 @@ Installieren und konfigurieren Sie Windows Azure Pack (WAP) auf dem Computer, au
 
 4.  Führen Sie die weiteren Schritte der Installation aus. Nachdem die Installation abgeschlossen ist, wird die Konfigurations Website (*https:// &lt; wapserver &gt; : 30101/*) in Ihrem Webbrowser geöffnet. Geben Sie auf dieser Website Informationen zu Ihrem SQL-Server an, und schließen Sie die Konfiguration von WAP ab.
 
-Hilfe zum Einrichten von Windows Azure Pack finden Sie unter [Installieren einer Express-Bereitstellung Windows Azure Pack](https://technet.microsoft.com/dn296439.aspx).
+Hilfe zum Einrichten von Windows Azure Pack finden Sie unter [Installieren einer Express-Bereitstellung Windows Azure Pack](/previous-versions/azure/windows-server-azure-pack/dn296439(v=technet.10)).
 
 > [!NOTE]
 > Wenn Sie Windows Azure Pack bereits in Ihrer Umgebung ausgeführt haben, können Sie die vorhandene-Installation verwenden. Um mit den neuesten geschützten VM-Features arbeiten zu können, müssen Sie jedoch die Installation auf mindestens Updaterollup 10 aktualisieren.

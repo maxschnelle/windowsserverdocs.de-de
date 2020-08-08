@@ -2,22 +2,20 @@
 title: Verbindungsanforderungsrichtlinien
 description: Dieses Thema enthält eine Übersicht über die Verbindungs Anforderungs Richtlinien für Netzwerk Richtlinien Server in Windows Server 2016.
 manager: brianlic
-ms.prod: windows-server
-ms.technology: networking
 ms.topic: article
 ms.assetid: 4ec45e0c-6b37-4dfb-8158-5f40677b0157
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 021cef4a220b183f6580bca75bc6db68aba893cf
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: f3f6aa743f592ae9336a5b8a20a13ff9e1048621
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80316236"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87969407"
 ---
 # <a name="connection-request-policies"></a>Verbindungsanforderungsrichtlinien
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 In diesem Thema erfahren Sie, wie Sie NPS-Verbindungs Anforderungs Richtlinien verwenden, um den NPS als RADIUS-Server, RADIUS-Proxy oder beides zu konfigurieren.
 
@@ -26,18 +24,18 @@ In diesem Thema erfahren Sie, wie Sie NPS-Verbindungs Anforderungs Richtlinien v
 > - [Konfigurieren von Verbindungs Anforderungs Richtlinien](nps-crp-configure.md)
 > - [Konfigurieren von Remote-RADIUS-Server Gruppen](nps-crp-rrsg-configure.md)
 
-Verbindungs Anforderungs Richtlinien sind Sätze von Bedingungen und Einstellungen, mit denen Netzwerkadministratoren festlegen können, welche Remote Authentication Dial-in User Service (RADIUS)-Server die Authentifizierung und Autorisierung von Verbindungsanforderungen durchführen, die von der der Server, auf dem der Netzwerk Richtlinien Server (Network Policy Server, NPS) ausgeführt wird, Verbindungs Anforderungs Richtlinien können konfiguriert werden, um anzugeben, welche RADIUS-Server für die RADIUS-Kontoführung verwendet werden.
+Verbindungs Anforderungs Richtlinien sind Sätze von Bedingungen und Einstellungen, mit denen Netzwerkadministratoren festlegen können, welche Remote Authentication Dial-in User Service (RADIUS)-Server die Authentifizierung und Autorisierung von Verbindungsanforderungen durchführen, die der Server mit dem Netzwerk Richtlinien Server (Network Policy Server, NPS) von RADIUS-Clients empfängt. Verbindungs Anforderungs Richtlinien können konfiguriert werden, um anzugeben, welche RADIUS-Server für die RADIUS-Kontoführung verwendet werden.
 
 Sie können Verbindungs Anforderungs Richtlinien erstellen, damit einige RADIUS-Anforderungs Nachrichten, die von RADIUS-Clients gesendet werden, lokal verarbeitet werden (NPS wird als RADIUS-Server verwendet) und andere Nachrichten Typen an einen anderen RADIUS-Server weitergeleitet werden (NPS wird als RADIUS-Proxy verwendet).
 
-Mit Verbindungs Anforderungs Richtlinien können Sie NPS als RADIUS-Server oder als RADIUS-Proxy verwenden, basierend auf Faktoren wie den folgenden: 
+Mit Verbindungs Anforderungs Richtlinien können Sie NPS als RADIUS-Server oder als RADIUS-Proxy verwenden, basierend auf Faktoren wie den folgenden:
 
 - Uhrzeit und Tag der Woche
 - Der Bereichs Name in der Verbindungsanforderung.
 - Der angeforderte Verbindungstyp.
 - Die IP-Adresse des RADIUS-Clients
 
-RADIUS-Zugriffs Anforderungs Nachrichten werden nur von NPS verarbeitet oder weitergeleitet, wenn die Einstellungen der eingehenden Nachricht mindestens einer der Verbindungs Anforderungs Richtlinien entsprechen, die auf dem NPS konfiguriert sind. 
+RADIUS-Zugriffs Anforderungs Nachrichten werden nur von NPS verarbeitet oder weitergeleitet, wenn die Einstellungen der eingehenden Nachricht mindestens einer der Verbindungs Anforderungs Richtlinien entsprechen, die auf dem NPS konfiguriert sind.
 
 Wenn die Richtlinien Einstellungen stimmen und die Richtlinie erfordert, dass der NPS die Nachricht verarbeitet, fungiert NPS als RADIUS-Server, der die Verbindungsanforderung authentifiziert und autorisiert. Wenn die Richtlinien Einstellungen stimmen und die Richtlinie erfordert, dass der NPS die Nachricht weiterleitet, fungiert NPS als RADIUS-Proxy und leitet die Verbindungsanforderung zur Verarbeitung an einen Remote-RADIUS-Server weiter.
 
@@ -85,7 +83,7 @@ Die Attribut Gruppe "Verbindungs Eigenschaften" enthält die folgenden Attribute
 - **Diensttyp**. Dient zum Festlegen des angeforderten Dienst Typs. Beispiele hierfür sind z. b. zusammengefasst (z. b. PPP-Verbindungen) und die Anmeldung (z.b. Telnet-Verbindungen). Weitere Informationen zu RADIUS-Dienst Typen finden Sie unter RFC 2865, "Remote Authentication Dial-in User Service (RADIUS)".
 - **Tunneltyp**. Dient zum Festlegen des Tunnel Typs, der vom anfordernden Client erstellt wird. Zu den Tunnel Typen zählen das Point-to-Point-Tunneling-Protokoll (PPTP) und das Layer-Two-Tunneling-Protokoll (L2TP).
 
-### <a name="day-and-time-restrictions-attribute-group"></a>Attribut Gruppe für Tages-und Uhrzeit Einschränkungen 
+### <a name="day-and-time-restrictions-attribute-group"></a>Attribut Gruppe für Tages-und Uhrzeit Einschränkungen
 
 Die Attribut Gruppe für die Tages-und Uhrzeit Einschränkungen enthält das Tag-und Uhrzeit-Einschränkungs Attribut. Mit diesem Attribut können Sie den Wochentag und die Uhrzeit des Verbindungsversuchs angeben. Der Tag und die Uhrzeit sind relativ zum Tag und zur Uhrzeit des NPS.
 
@@ -107,7 +105,7 @@ Die Attribut Gruppe für die Computer Identität enthält das Attribut "Computer
 
 Die Attribut Gruppe "RADIUS-Client Eigenschaften" enthält die folgenden Attribute.
 
-- **Aufruf Station-ID**. Dient zum Festlegen der Telefonnummer, die vom Aufrufer (dem Zugriffs Client) verwendet wird. Dieses Attribut ist eine Zeichenfolge. Sie können die Muster Vergleichs Syntax zum Angeben von Bereichs Codes verwenden.  In 802.1 x-Authentifizierungen wird die Mac-Adresse in der Regel aufgefüllt und kann vom Client abgeglichen werden.  Dieses Feld wird in der Regel für Mac-Adress Umgehungs Szenarien verwendet, wenn die Verbindungs Anforderungs Richtlinie für "Benutzer ohne Überprüfung von Anmelde Informationen akzeptieren" konfiguriert ist.  
+- **Aufruf Station-ID**. Dient zum Festlegen der Telefonnummer, die vom Aufrufer (dem Zugriffs Client) verwendet wird. Dieses Attribut ist eine Zeichenfolge. Sie können die Muster Vergleichs Syntax zum Angeben von Bereichs Codes verwenden.  In 802.1 x-Authentifizierungen wird die Mac-Adresse in der Regel aufgefüllt und kann vom Client abgeglichen werden.  Dieses Feld wird in der Regel für Mac-Adress Umgehungs Szenarien verwendet, wenn die Verbindungs Anforderungs Richtlinie für "Benutzer ohne Überprüfung von Anmelde Informationen akzeptieren" konfiguriert ist.
 - Anzeige **Name des Clients**. Wird verwendet, um den Namen des RADIUS-Client Computers anzugeben, der die Authentifizierung anfordert. Dieses Attribut ist eine Zeichenfolge. Sie können die Muster Vergleichs Syntax verwenden, um Client Namen anzugeben.
 - **Client-IPv4-Adresse**. Dient zum Festlegen der IPv4-Adresse des Netzwerk Zugriffs Servers (RADIUS-Client). Dieses Attribut ist eine Zeichenfolge. Zum Angeben von IP-Netzwerken können Sie die Syntax für Muster Übereinstimmungen verwenden.
 - **IPv6-Client Adresse**. Dient zum Festlegen der IPv6-Adresse des Netzwerk Zugriffs Servers (RADIUS-Client). Dieses Attribut ist eine Zeichenfolge. Zum Angeben von IP-Netzwerken können Sie die Syntax für Muster Übereinstimmungen verwenden.
@@ -122,7 +120,7 @@ Die Benutzernamen-Attribut Gruppe enthält das User Name-Attribut. Mithilfe dies
 Verbindungs Anforderungs Richtlinien-Einstellungen sind ein Satz von Eigenschaften, die auf eine eingehende RADIUS-Nachricht angewendet werden. Die Einstellungen bestehen aus den folgenden Eigenschaften Gruppen.
 
 - Authentifizierung
-- Kontoführung
+- Buchhaltung
 - Attribut Bearbeitung
 - Weiterleitungs Anforderung
 - Erweitert
@@ -134,16 +132,16 @@ In den folgenden Abschnitten finden Sie weitere Details zu diesen Einstellungen.
 Mit dieser Einstellung können Sie die Authentifizierungs Einstellungen außer Kraft setzen, die in allen Netzwerk Richtlinien konfiguriert sind, und Sie können die Authentifizierungsmethoden und-Typen festlegen, die für die Verbindung mit dem Netzwerk erforderlich sind.
 
 >[!IMPORTANT]
->Wenn Sie eine Authentifizierungsmethode in einer Verbindungs Anforderungs Richtlinie konfigurieren, die weniger sicher ist als die Authentifizierungsmethode, die Sie in der Netzwerk Richtlinie konfigurieren, wird die sicherere Authentifizierungsmethode, die Sie in der Netzwerk Richtlinie konfigurieren, überschrieben. Wenn Sie z. b. über eine Netzwerk Richtlinie verfügen, die die Verwendung des geschützten Extensible Authentication Protocol erfordert, ist das Microsoft Challenge Handshake Authentication-Protokollversion 2 \("Peer-MS-CHAP v2"\). dabei handelt es sich um eine Kenn Wort basierte Authentifizierungsmethode für Secure Wireless. außerdem konfigurieren Sie eine Verbindungs Anforderungs Richtlinie, um nicht authentifizierten Zugriff zuzulassen. das Ergebnis ist, dass keine Clients für die Authentifizierung mithilfe von "PAP-MS-CHAP v2" erforderlich sind. In diesem Beispiel erhalten alle Clients, die eine Verbindung mit Ihrem Netzwerk herstellen, nicht authentifizierten Zugriff.
+>Wenn Sie eine Authentifizierungsmethode in einer Verbindungs Anforderungs Richtlinie konfigurieren, die weniger sicher ist als die Authentifizierungsmethode, die Sie in der Netzwerk Richtlinie konfigurieren, wird die sicherere Authentifizierungsmethode, die Sie in der Netzwerk Richtlinie konfigurieren, überschrieben. Wenn Sie z. b. über eine Netzwerk Richtlinie verfügen, die die Verwendung des geschützten Extensible Authentication Protocol erfordert, muss das Microsoft Challenge Handshake Authentication-Protokoll, Version 2 \( , Peer-MS-CHAP v2 \) , dabei handelt es sich um eine Kenn Wort basierte Authentifizierungsmethode für Secure Wireless. außerdem konfigurieren Sie eine Verbindungs Anforderungs Richtlinie, um nicht authentifizierten Zugriff zuzulassen. das Ergebnis ist, dass keine Clients für die Authentifizierung mithilfe von "PAP-MS-CHAP v2" erforderlich sind. In diesem Beispiel erhalten alle Clients, die eine Verbindung mit Ihrem Netzwerk herstellen, nicht authentifizierten Zugriff.
 
-### <a name="accounting"></a>Kontoführung
+### <a name="accounting"></a>Buchhaltung
 
 Mit dieser Einstellung können Sie die Verbindungs Anforderungs Richtlinie so konfigurieren, dass Buchhaltungsinformationen an einen NPS oder einen anderen RADIUS-Server in einer RADIUS-Remote Server Gruppe weiterleiten werden, damit die Remote-RADIUS-Server Gruppe eine Buchhaltung ausführt.
 
 >[!NOTE]
->Wenn Sie über mehrere RADIUS-Server verfügen und Buchhaltungsinformationen für alle Server benötigen, die in einer zentralen RADIUS-Buchhaltungs Datenbank gespeichert sind, können Sie die Einstellungen für die Verbindungs Anforderungs Richtlinie in einer Richtlinie auf jedem RADIUS-Server verwenden, um Buchhaltungsdaten weiterzuleiten. alle Server auf einem NPS oder einem anderen RADIUS-Server, der als Buchhaltungsserver festgelegt ist.
+>Wenn Sie über mehrere RADIUS-Server verfügen und Informationen zur Kontoführung für alle Server benötigen, die in einer zentralen RADIUS-Buchhaltungs Datenbank gespeichert sind, können Sie die Einstellung Verbindungs Anforderungs Richtlinie in einer Richtlinie auf jedem RADIUS-Server verwenden, um Buchhaltungsdaten von allen Servern an einen NPS oder einen anderen RADIUS-Server weiterzuleiten, der als Buchhaltungsserver festgelegt ist.
 
-Die Verbindungs Anforderungs Richtlinien-Buchhaltungs Einstellungen funktionieren unabhängig von der Kontoführungs Konfiguration des lokalen NPS. Anders ausgedrückt: Wenn Sie das lokale NPS so konfigurieren, dass RADIUS-Buchhaltungsinformationen in einer lokalen Datei oder einer Microsoft SQL Server Datenbank protokolliert werden, erfolgt dies unabhängig davon, ob Sie eine Verbindungs Anforderungs Richtlinie zum Weiterleiten von Buchhaltungs Nachrichten an einen Remote RADIUS konfigurieren. Server Gruppe.
+Die Verbindungs Anforderungs Richtlinien-Buchhaltungs Einstellungen funktionieren unabhängig von der Kontoführungs Konfiguration des lokalen NPS. Anders ausgedrückt: Wenn Sie das lokale NPS so konfigurieren, dass RADIUS-Buchhaltungsinformationen in einer lokalen Datei oder einer Microsoft SQL Server Datenbank protokolliert werden, erfolgt dies unabhängig davon, ob Sie eine Verbindungs Anforderungs Richtlinie zum Weiterleiten von Buchhaltungs Nachrichten an eine Remote-RADIUS-Server Gruppe konfigurieren.
 
 Wenn Buchhaltungsinformationen Remote, aber nicht lokal protokolliert werden sollen, müssen Sie den lokalen NPS so konfigurieren, dass er keine Buchhaltung ausführt, und gleichzeitig die Kontoführung in einer Verbindungs Anforderungs Richtlinie konfigurieren, um Buchhaltungsdaten an eine Remote-RADIUS-Server Gruppe weiterzuleiten.
 
@@ -158,7 +156,7 @@ Sie können eine Reihe von Such-und Ersetzungs Regeln konfigurieren, mit denen d
 Die Verarbeitung von "suchen und ersetzen"-Regeln tritt für eines der vorangehenden Attribute ein, bevor die RADIUS-Nachricht den Authentifizierungs-und Kontoführungs Einstellungen unterliegt. Attribut Bearbeitungs Regeln gelten nur für ein einzelnes Attribut. Sie können für jedes Attribut keine Regeln für die Attribut Bearbeitung konfigurieren. Außerdem ist die Liste der Attribute, die Sie bearbeiten können, eine statische Liste. der Liste der zur Bearbeitung verfügbaren Attribute kann nicht hinzugefügt werden.
 
 >[!NOTE]
->Wenn Sie das MS-CHAP v2-Authentifizierungsprotokoll verwenden, können Sie das User Name-Attribut nicht bearbeiten, wenn die Verbindungs Anforderungs Richtlinie zum Weiterleiten der RADIUS-Nachricht verwendet wird. Die einzige Ausnahme tritt auf, wenn ein umgekehrter Schrägstrich (\) Zeichen verwendet wird, und die Bearbeitung wirkt sich nur auf die Informationen auf der linken Seite aus. Ein umgekehrter Schrägstrich wird normalerweise verwendet, um einen Domänen Namen (die Informationen auf der linken Seite des umgekehrten Schrägstrichs) und einen Benutzerkonto Namen innerhalb der Domäne (die Informationen auf der rechten Seite des umgekehrten Schrägstrichs) anzugeben. In diesem Fall sind nur Attribut Bearbeitungs Regeln zulässig, die den Domänen Namen ändern oder ersetzen.
+>Wenn Sie das MS-CHAP v2-Authentifizierungsprotokoll verwenden, können Sie das User Name-Attribut nicht bearbeiten, wenn die Verbindungs Anforderungs Richtlinie zum Weiterleiten der RADIUS-Nachricht verwendet wird. Die einzige Ausnahme tritt auf, wenn ein umgekehrter Schrägstrich ( \) Zeichen verwendet wird, und die Bearbeitung wirkt sich nur auf die Informationen auf der linken Seite aus. Ein umgekehrter Schrägstrich wird normalerweise verwendet, um einen Domänen Namen (die Informationen auf der linken Seite des umgekehrten Schrägstrichs) und einen Benutzerkonto Namen innerhalb der Domäne (die Informationen auf der rechten Seite des umgekehrten Schrägstrichs) anzugeben. In diesem Fall sind nur Attribut Bearbeitungs Regeln zulässig, die den Domänen Namen ändern oder ersetzen.
 
 Beispiele zum Bearbeiten des Bereichs namens im User Name-Attribut finden Sie im Abschnitt "Beispiele für die Bearbeitung des Bereichs namens im User Name-Attribut" im Thema [Verwenden von regulären Ausdrücken in NPS](nps-crp-reg-expressions.md).
 
@@ -182,7 +180,7 @@ Beispiele für die Verwendung von regulären Ausdrücken zum Erstellen von Routi
 Sie können erweiterte Eigenschaften festlegen, um die Reihe von RADIUS-Attributen anzugeben, die Folgendes sind:
 
 - Wird der RADIUS-Antwortnachricht hinzugefügt, wenn der NPS als RADIUS-Authentifizierung oder Buchhaltungsserver verwendet wird. Wenn in einer Netzwerk Richtlinie und in der Verbindungs Anforderungs Richtlinie Attribute angegeben sind, sind die in der RADIUS-Antwortnachricht gesendeten Attribute die Kombination der beiden Attribut Sätze.
-- Wird der RADIUS-Nachricht hinzugefügt, wenn der NPS als RADIUS-Authentifizierung oder als Buchhaltungs Proxy verwendet wird. Wenn das Attribut bereits in der weitergeleiteten Nachricht vorhanden ist, wird es durch den Wert des in der Verbindungs Anforderungs Richtlinie angegebenen Attributs ersetzt. 
+- Wird der RADIUS-Nachricht hinzugefügt, wenn der NPS als RADIUS-Authentifizierung oder als Buchhaltungs Proxy verwendet wird. Wenn das Attribut bereits in der weitergeleiteten Nachricht vorhanden ist, wird es durch den Wert des in der Verbindungs Anforderungs Richtlinie angegebenen Attributs ersetzt.
 
 Außerdem stellen bestimmte Attribute, die für die Konfiguration auf der Registerkarte Verbindungs Anforderungs Richtlinien **Einstellungen** in der Kategorie **erweitert** verfügbar sind, spezielle Funktionen bereit. Beispielsweise können Sie das Attribut **Remote RADIUS für Windows-Benutzer Zuordnung** konfigurieren, wenn Sie die Authentifizierung und Autorisierung einer Verbindungsanforderung zwischen zwei Benutzerkonten Datenbanken aufteilen möchten.
 
@@ -209,4 +207,4 @@ Bei der Installation von NPS wird eine standardmäßige Verbindungs Anforderungs
 Die Standard-Verbindungs Anforderungs Richtlinie verwendet NPS als RADIUS-Server. Zum Konfigurieren eines Servers, auf dem NPS ausgeführt wird, der als RADIUS-Proxy fungiert, müssen Sie auch eine Remote-RADIUS-Server Gruppe konfigurieren. Sie können eine neue Remote-RADIUS-Server Gruppe erstellen, während Sie eine neue Verbindungs Anforderungs Richtlinie mithilfe des Assistenten für neue Verbindungs Anforderungs Richtlinien erstellen. Sie können entweder die Standard-Verbindungs Anforderungs Richtlinie löschen oder überprüfen, ob die standardmäßige Verbindungs Anforderungs Richtlinie die letzte Richtlinie ist, die von NPS verarbeitet wurde, indem Sie Sie zuletzt in der geordneten Liste der Richtlinien platzieren.
 
 >[!NOTE]
->Wenn NPS und der RAS-Dienst auf demselben Computer installiert sind und der RAS-Dienst für die Windows-Authentifizierung und-Kontoführung konfiguriert ist, ist es möglich, dass die Remote Zugriffs Authentifizierung und die Buchhaltungs Anforderungen an einen RADIUS-Server weitergeleitet werden. . Dies kann vorkommen, wenn die RAS-Authentifizierung und die Buchhaltungs Anforderungen einer Verbindungs Anforderungs Richtlinie entsprechen, die so konfiguriert ist, dass Sie an eine Remote-RADIUS-Server Gruppe weiterleiten werden.
+>Wenn NPS und der RAS-Dienst auf demselben Computer installiert sind und der RAS-Dienst für die Windows-Authentifizierung und-Kontoführung konfiguriert ist, können die RAS-Authentifizierung und die Buchhaltungs Anforderungen an einen RADIUS-Server weitergeleitet werden. Dies kann vorkommen, wenn die RAS-Authentifizierung und die Buchhaltungs Anforderungen einer Verbindungs Anforderungs Richtlinie entsprechen, die so konfiguriert ist, dass Sie an eine Remote-RADIUS-Server Gruppe weiterleiten werden.

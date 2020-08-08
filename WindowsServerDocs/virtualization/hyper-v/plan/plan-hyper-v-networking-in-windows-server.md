@@ -6,12 +6,12 @@ ms.topic: article
 author: kbdazure
 ms.author: kathydav
 ms.date: 10/04/2016
-ms.openlocfilehash: 638b4879d7980d817863ad0cd45397ac4a095569
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: b31d942e8d7890a8f699f743bcd24953d2a3e760
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87948007"
+ms.locfileid: "87996072"
 ---
 # <a name="plan-for-hyper-v-networking-in-windows-server"></a>Planen der Hyper-V-Netzwerke in Windows Server
 
@@ -52,7 +52,7 @@ Die neuesten Versionen von Windows Server enthalten Verbesserungen, die Ihnen we
 
 Einige Features basieren auf bestimmten Netzwerkkonfigurationen oder unter bestimmten Konfigurationen besser. Beachten Sie diese Punkte beim Planen oder Aktualisieren der Netzwerkinfrastruktur.
 
-**Failoverclustering** : Es empfiehlt sich, den Cluster Datenverkehr zu isolieren und Hyper-V-Quality of Service (QoS) auf dem virtuellen Switch zu verwenden. Weitere Informationen finden Sie unter [Netzwerk Empfehlungen für einen Hyper-V-Cluster](https://technet.microsoft.com/library/dn550728.aspx) .
+**Failoverclustering** : Es empfiehlt sich, den Cluster Datenverkehr zu isolieren und Hyper-V-Quality of Service (QoS) auf dem virtuellen Switch zu verwenden. Weitere Informationen finden Sie unter [Netzwerk Empfehlungen für einen Hyper-V-Cluster](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn550728(v=ws.11)) .
 
 **Live Migration** : Verwenden Sie Leistungsoptionen, um die Netzwerk-und CPU-Auslastung zu reduzieren und die Zeit, die zum Durchführen einer Live Migration benötigt wird. Anweisungen finden Sie unter [Einrichten von Hosts für die Live Migration ohne Failoverclustering](../deploy/set-up-hosts-for-live-migration-without-failover-clustering.md).
 

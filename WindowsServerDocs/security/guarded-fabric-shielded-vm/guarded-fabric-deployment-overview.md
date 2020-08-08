@@ -6,19 +6,19 @@ manager: dongill
 author: justinha
 ms.author: justinha
 ms.date: 01/30/2019
-ms.openlocfilehash: 8ddd4699358a6725ed5e2f80683a363a1120caf7
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 35e95204e076c0e0c96eb1669ff267b87ba7242a
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87944250"
+ms.locfileid: "87996330"
 ---
 # <a name="quick-start-for-guarded-fabric-deployment"></a>Schnellstart für die geschützte Fabric-Bereitstellung
 
 >Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 In diesem Thema wird erläutert, was ein geschütztes Fabric ist, seine Anforderungen und eine Zusammenfassung des Bereitstellungs Prozesses.
-Ausführliche Informationen zur Bereitstellung finden Sie unter Bereitstellen [des Host-Überwachungs Diensts für überwachte Hosts und abgeschirmte VMS](https://technet.microsoft.com/windows-server-docs/security/guarded-fabric-shielded-vm/guarded-fabric-deploying-hgs-overview).
+Ausführliche Informationen zur Bereitstellung finden Sie unter Bereitstellen [des Host-Überwachungs Diensts für überwachte Hosts und abgeschirmte VMS](./guarded-fabric-deploying-hgs-overview.md).
 
 Video bevorzugen? Weitere Informationen finden Sie im Microsoft Virtual Academy-Kurs bereitstellen [von abgeschirmten VMS und einem geschützten Fabric mit Windows Server 2016](https://mva.microsoft.com/training-courses/deploying-shielded-vms-and-a-guarded-fabric-with-windows-server-2016-17131?l=WFLef7vUD_4604300474).
 
@@ -72,7 +72,7 @@ Stellen Sie sich dieses Szenario vor – Sie haben ein vorhandenes Hyper-V-Fabri
 
 ## <a name="step-1-deploy-the-hyper-v-hosts-running-windows-server-2016"></a>Schritt 1: Bereitstellen der Hyper-V-Hosts unter Windows Server 2016
 
-Auf den Hyper-V-Hosts muss Windows Server 2016 Datacenter Edition oder höher ausgeführt werden. Wenn Sie Hosts aktualisieren, können Sie ein [Upgrade](https://technet.microsoft.com/windowsserver/dn527667.aspx) von der Standard Edition auf Datacenter Edition durchführen.
+Auf den Hyper-V-Hosts muss Windows Server 2016 Datacenter Edition oder höher ausgeführt werden. Wenn Sie Hosts aktualisieren, können Sie ein [Upgrade](../../get-started/installation-and-upgrade.md) von der Standard Edition auf Datacenter Edition durchführen.
 
 ![Aktualisieren von Hyper-V-Hosts](../../security/media/Guarded-Fabric-Shielded-VM/guarded-fabric-deployment-step-one-upgrade-hyper-v.png)
 
@@ -159,7 +159,7 @@ Die Schutz Datendatei enthält auch die Sicherheitsrichtlinien Einstellung für 
 
     ![Neuer Verschlüsselungs unterstützter virtueller Computer](../media/Guarded-Fabric-Shielded-VM/guarded-fabric-new-shielded-vm.png)
 
-Sie können optionale Verwaltungs Elemente wie VMM oder Windows Azure Pack hinzufügen. Wenn Sie einen virtuellen Computer erstellen möchten, ohne diese Komponenten zu installieren, finden Sie weitere Informationen unter [Schritt für Schritt – Erstellen von abgeschirmten VMS ohne VMM](https://blogs.technet.microsoft.com/datacentersecurity/2016/06/06/step-by-step-creating-shielded-vms-without-vmm/).
+Sie können optionale Verwaltungs Elemente wie VMM oder Windows Azure Pack hinzufügen. Wenn Sie einen virtuellen Computer erstellen möchten, ohne diese Komponenten zu installieren, finden Sie weitere Informationen unter [Schritt für Schritt – Erstellen von abgeschirmten VMS ohne VMM](/archive/blogs/datacentersecurity/step-by-step-creating-shielded-vms-without-vmm).
 
 ## <a name="step-6-create-a-shielded-vm"></a>Schritt 6: Erstellen einer abgeschirmten VM
 

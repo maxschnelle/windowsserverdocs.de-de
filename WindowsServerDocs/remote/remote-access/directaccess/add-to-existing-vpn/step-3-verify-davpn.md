@@ -2,18 +2,16 @@
 title: Schritt 3 Überprüfen der Remote Zugriffs Bereitstellung (VPN)
 description: Dieses Thema ist Teil des Handbuchs Hinzufügen von DirectAccess zu einer vorhandenen Remote Zugriffs Bereitstellung (VPN) für Windows Server 2016.
 manager: brianlic
-ms.prod: windows-server
-ms.technology: networking-da
 ms.topic: article
 ms.assetid: 43ac612e-2e77-418c-8171-ebb2086b7cb6
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 9eb64024eb7ad9b80a1ba8c949939b33426ad6da
-ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
+ms.openlocfilehash: 9da14f076f177e7e819c1529f9de647b5dde0500
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87518156"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87969217"
 ---
 # <a name="step-3-verify-the-remote-access-vpn-deployment"></a>Schritt 3 Überprüfen der Remote Zugriffs Bereitstellung (VPN)
 

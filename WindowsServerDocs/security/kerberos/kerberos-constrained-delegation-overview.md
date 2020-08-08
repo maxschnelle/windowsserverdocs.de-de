@@ -7,12 +7,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: bd34723d1f5223c2576237c768d9da55172eebc6
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: fb0c35d51c0aa2a0f63f61c0be48099bb6aa5269
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87943890"
+ms.locfileid: "87996177"
 ---
 # <a name="kerberos-constrained-delegation-overview"></a>Kerberos Constrained Delegation Overview
 
@@ -28,7 +28,7 @@ In früheren Betriebssystemversionen, in denen der Dienst vom Domänenadministra
 
 In Windows Server 2012 R2 und Windows Server 2012 wurde die Möglichkeit zum Konfigurieren der eingeschränkten Delegierung für den Dienst vom Domänen Administrator an den Dienst Administrator übertragen. Auf diese Weise kann der Back-End-Dienstadministrator Front-End-Dienste erlauben oder verweigern.
 
-Ausführliche Informationen zu der in Windows Server 2003 eingeführten eingeschränkten Delegierung finden Sie unter [Kerberos-Protokollübergang und eingeschränkte Delegierung](https://technet.microsoft.com/library/cc739587(v=ws.10)).
+Ausführliche Informationen zu der in Windows Server 2003 eingeführten eingeschränkten Delegierung finden Sie unter [Kerberos-Protokollübergang und eingeschränkte Delegierung](/previous-versions/windows/it-pro/windows-server-2003/cc739587(v=ws.10)).
 
 Die Implementierung des Kerberos-Protokolls in Windows Server 2012 R2 und Windows Server 2012 umfasst Erweiterungen speziell für die eingeschränkte Delegierung.  Service-for-User-to-Proxy (S4U2Proxy) ermöglicht es einem Dienst, mithilfe seines Kerberos-Diensttickets für einen Benutzer ein Dienstticket aus dem Schlüsselverteilungscenter (Key Distribution Center, KDC) für einen Back-End-Dienst abzurufen. Diese Erweiterungen ermöglichen die Konfiguration der eingeschränkten Delegierung für das Konto des Back-End-Dienstanbieter, das sich in einer anderen Domäne befinden kann. Weitere Informationen zu diesen Erweiterungen finden Sie in der MSDN Library unter [ \[ MS-SFU \] : Kerberos-Protokoll Erweiterungen: Dienst für Benutzer und eingeschränkte Delegierungs Protokollspezifikation](https://msdn.microsoft.com/library/cc246071(PROT.13).aspx) .
 
@@ -54,7 +54,7 @@ Eine Änderung im zugrunde liegenden Protokoll ermöglicht die domänenübergrei
 
 Implementierungs Informationen zu diesen Erweiterungen finden Sie unter [ \[ MS-SFU \] : Kerberos-Protokoll Erweiterungen: Dienst für Benutzer und eingeschränkte Delegierungs Protokollspezifikation](https://msdn.microsoft.com/library/cc246071(PROT.10).aspx) in MSDN.
 
-Weitere Informationen zur grundlegenden Nachrichtensequenz für die Kerberos-Delegierung mit einem weitergeleiteten Ticket-Granting Ticket (TGT) im Vergleich zu Service-for-User-Erweiterungen (S4U) finden Sie im Abschnitt [1.3.3 Übersicht über das Protokoll](https://msdn.microsoft.com/library/cc246080(v=prot.10).aspx) in [MS-SFU]: Kerberos-Protokollerweiterungen: Protokollspezifikation für Service-for-User und eingeschränkte Delegierung.
+Weitere Informationen zur grundlegenden Nachrichtensequenz für die Kerberos-Delegierung mit einem weitergeleiteten Ticket-Granting Ticket (TGT) im Vergleich zu Service-for-User-Erweiterungen (S4U) finden Sie im Abschnitt [1.3.3 Übersicht über das Protokoll](/openspecs/windows_protocols/ms-sfu/1fb9caca-449f-4183-8f7a-1a5fc7e7290a) in [MS-SFU]: Kerberos-Protokollerweiterungen: Protokollspezifikation für Service-for-User und eingeschränkte Delegierung.
 
 **Sicherheitsauswirkungen der ressourcenbasierten eingeschränkten Delegierung**
 

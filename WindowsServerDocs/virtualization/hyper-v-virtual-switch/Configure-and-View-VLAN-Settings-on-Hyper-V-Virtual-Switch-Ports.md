@@ -6,12 +6,12 @@ ms.topic: article
 ms.assetid: 69e0e28a-98ae-4ade-bd27-ce2ad7eb310f
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 1f4812e05ff003d40b34b7bf757894f7e66aaa6e
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: ac7d3f4ea17e35b42d974d1e29c692e8510c35ef
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87950294"
+ms.locfileid: "87995701"
 ---
 # <a name="configure-and-view-vlan-settings-on-hyper-v-virtual-switch-ports"></a>Konfigurieren und Anzeigen von VLAN-Einstellungen für virtuelle Hyper-V-Switchports
 
@@ -55,12 +55,7 @@ Es ist auch wichtig, nicht zu versuchen, dieselben VLAN-Einstellungen für den S
 
 Weitere Informationen zu den in diesem Thema erwähnten Windows PowerShell-Befehlen finden Sie in den folgenden Themen:
 
-- [Set-vmnetworkadapterisolation](https://technet.microsoft.com/library/dn464283.aspx)
-- [Get-vmnetworkadapterisolation](https://technet.microsoft.com/library/dn464277.aspx)
-- [Set-vmnetworkadaptervlan](https://technet.microsoft.com/library/hh848475.aspx)
-- [Get-vmnetworkadaptervlan](https://technet.microsoft.com/library/hh848516.aspx)
-
-
-
-
-
+- [Set-vmnetworkadapterisolation](/powershell/module/hyper-v/set-vmnetworkadapterisolation?view=win10-ps)
+- [Get-vmnetworkadapterisolation](/powershell/module/hyper-v/get-vmnetworkadapterisolation?view=win10-ps)
+- [Set-vmnetworkadaptervlan](/powershell/module/hyper-v/set-vmnetworkadaptervlan?view=win10-ps)
+- [Get-vmnetworkadaptervlan](/powershell/module/hyper-v/get-vmnetworkadaptervlan?view=win10-ps)

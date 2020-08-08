@@ -7,12 +7,12 @@ manager: dongill
 author: larsiwer
 ms.author: kathydav
 ms.date: 08/03/2018
-ms.openlocfilehash: b9cb34a7d7c790bb7eee939f9247609e7cee6e3e
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: af974edfb94ccf1a0a4844df43885198ab68d416
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87947976"
+ms.locfileid: "87996008"
 ---
 # <a name="plan-for-hyper-v-security-in-windows-server"></a>Planen der Hyper-V-Sicherheit in Windows Server
 
@@ -22,18 +22,18 @@ Sichern Sie das Hyper-V-Host Betriebssystem, die virtuellen Computer, die Konfig
 
 ## <a name="secure-the-hyper-v-host"></a>Sichern des Hyper-V-Hosts
 - **Halten Sie das Host Betriebssystem als sicher.**
-    - Minimieren Sie die Angriffsfläche mithilfe der mindestens erforderlichen Windows Server-Installationsoption, die Sie für das Verwaltungs Betriebssystem benötigen. Weitere Informationen finden Sie im [Abschnitt Installationsoptionen](/windows-server/windows-server#installation-options) der technischen Inhalts Bibliothek für Windows Server. Es wird nicht empfohlen, produktionsworkloads auf Hyper-V unter Windows 10 auszuführen.
+    - Minimieren Sie die Angriffsfläche mithilfe der mindestens erforderlichen Windows Server-Installationsoption, die Sie für das Verwaltungs Betriebssystem benötigen. Weitere Informationen finden Sie im [Abschnitt Installationsoptionen](../../../get-started-19/install-upgrade-migrate-19.md) der technischen Inhalts Bibliothek für Windows Server. Es wird nicht empfohlen, produktionsworkloads auf Hyper-V unter Windows 10 auszuführen.
     - Halten Sie das Betriebssystem, die Firmware und die Gerätetreiber für das Hyper-V-Host mit den neuesten Sicherheitsupdates auf dem neuesten Stand. Überprüfen Sie die Empfehlungen Ihres Herstellers, um Firmware und Treiber zu aktualisieren.
     - Verwenden Sie den Hyper-V-Host nicht als Arbeitsstation, oder installieren Sie keine unnötige Software.
-    - Verwalten Sie den Hyper-V-Host Remote. Wenn Sie den Hyper-V-Host lokal verwalten müssen, verwenden Sie Credential Guard. Weitere Informationen finden Sie unter [Schützen abgeleiteter Domänenanmeldeinformationen mit Credential Guard](https://docs.microsoft.com/windows/access-protection/credential-guard/credential-guard).
-    - Aktivieren von Code Integritäts Richtlinien Verwenden Sie virtualisierungsbasierte, Sicherheits geschützte Code Integritäts Dienste. Weitere Informationen finden Sie im [Device Guard-Bereitstellungs Handbuch](https://docs.microsoft.com/windows/device-security/device-guard/device-guard-deployment-guide).
+    - Verwalten Sie den Hyper-V-Host Remote. Wenn Sie den Hyper-V-Host lokal verwalten müssen, verwenden Sie Credential Guard. Weitere Informationen finden Sie unter [Schützen abgeleiteter Domänenanmeldeinformationen mit Credential Guard](/windows/access-protection/credential-guard/credential-guard).
+    - Aktivieren von Code Integritäts Richtlinien Verwenden Sie virtualisierungsbasierte, Sicherheits geschützte Code Integritäts Dienste. Weitere Informationen finden Sie im [Device Guard-Bereitstellungs Handbuch](/windows/device-security/device-guard/device-guard-deployment-guide).
 - **Verwenden Sie ein sicheres Netzwerk.**
     - Verwenden Sie ein separates Netzwerk mit einem dedizierten Netzwerkadapter für den physischen Hyper-V-Computer.
     - Verwenden Sie ein privates oder sicheres Netzwerk für den Zugriff auf VM-Konfigurationen und virtuelle Festplatten Dateien.
     - Verwenden Sie ein privates/dediziertes Netzwerk für den Live Migrations Datenverkehr. Aktivieren Sie IPSec in diesem Netzwerk, um die Verschlüsselung zu verwenden und die Daten Ihrer VM während der Migration zu schützen. Weitere Informationen finden Sie unter [Einrichten von Hosts für die Live Migration ohne Failoverclustering](../deploy/set-up-hosts-for-live-migration-without-failover-clustering.md).
 - **Sicherer Speicher Migrations Datenverkehr.**
 
-    Verwenden Sie SMB 3,0 für die End-to-End-Verschlüsselung von SMB-Daten und Datenschutz Manipulationen bzw. das Löschen von nicht vertrauenswürdigen Netzwerken. Verwenden Sie ein privates Netzwerk für den Zugriff auf den SMB-Freigabe Inhalt, um man-in-the-Middle-Angriffe zu verhindern. Weitere Informationen finden Sie unter [SMB-Sicherheitsverbesserungen](https://technet.microsoft.com/library/dn551363.aspx).
+    Verwenden Sie SMB 3,0 für die End-to-End-Verschlüsselung von SMB-Daten und Datenschutz Manipulationen bzw. das Löschen von nicht vertrauenswürdigen Netzwerken. Verwenden Sie ein privates Netzwerk für den Zugriff auf den SMB-Freigabe Inhalt, um man-in-the-Middle-Angriffe zu verhindern. Weitere Informationen finden Sie unter [SMB-Sicherheitsverbesserungen](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn551363(v=ws.11)).
 - **Konfigurieren Sie Hosts als Teil eines geschützten Fabrics.**
 
     Weitere Informationen finden Sie unter geschütztes [Fabric](../../../security/guarded-fabric-shielded-vm/guarded-fabric-and-shielded-vms-top-node.md).
@@ -47,7 +47,7 @@ Sichern Sie das Hyper-V-Host Betriebssystem, die virtuellen Computer, die Konfig
 
 - **Sichern Sie das Hyper-V-Host Betriebssystem.**
 
-    Verwenden Sie die in der [Windows Server-Sicherheitsbasis Linie](https://docs.microsoft.com/windows/device-security/windows-security-baselines)beschriebenen grundlegenden Sicherheitseinstellungen.
+    Verwenden Sie die in der [Windows Server-Sicherheitsbasis Linie](/windows/device-security/windows-security-baselines)beschriebenen grundlegenden Sicherheitseinstellungen.
 
 - **Erteilen Sie entsprechende Berechtigungen.**
     - Fügen Sie Benutzer hinzu, die den Hyper-v-Host für die Hyper-v-Administratoren Gruppe verwalten müssen.
@@ -55,7 +55,7 @@ Sichern Sie das Hyper-V-Host Betriebssystem, die virtuellen Computer, die Konfig
 
 - **Konfigurieren Sie antivirenausschlüsse und Optionen für Hyper-V.**
 
-    Für Windows Defender sind bereits [Automatische Ausschlüsse](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-server-exclusions-windows-defender-antivirus) konfiguriert. Weitere Informationen zu Ausschlüssen finden Sie unter [Empfohlene antivirenausschlüsse für Hyper-V-Hosts](https://support.microsoft.com/kb/3105657).
+    Für Windows Defender sind bereits [Automatische Ausschlüsse](/windows/security/threat-protection/windows-defender-antivirus/configure-server-exclusions-windows-defender-antivirus) konfiguriert. Weitere Informationen zu Ausschlüssen finden Sie unter [Empfohlene antivirenausschlüsse für Hyper-V-Hosts](https://support.microsoft.com/kb/3105657).
 
 - **Fügen Sie keine unbekannten VHDs ein.** Dadurch kann der Host Angriffe auf Dateisystem Ebene verfügbar machen.
 
@@ -82,7 +82,7 @@ Für sicherere Umgebungen:
 
     - Installieren Sie die neuesten Sicherheitsupdates, bevor Sie einen virtuellen Computer in einer Produktionsumgebung einschalten.
     - Installieren Sie Integration Services für die unterstützten Gast Betriebssysteme, die diese benötigen, und halten Sie Sie auf dem neuesten Stand. Integration Services-Updates für Gäste, die unterstützte Windows-Versionen ausführen, sind über Windows Update verfügbar.
-    - Härtung des Betriebssystems, das auf den einzelnen virtuellen Computern ausgeführt wird, basierend auf der Rolle, die es ausführt. Verwenden Sie die grundlegenden Sicherheits Einstellungs Empfehlungen, die in der [Windows-Sicherheitsbaseline](https://docs.microsoft.com/windows/device-security/windows-security-baselines)beschrieben werden.
+    - Härtung des Betriebssystems, das auf den einzelnen virtuellen Computern ausgeführt wird, basierend auf der Rolle, die es ausführt. Verwenden Sie die grundlegenden Sicherheits Einstellungs Empfehlungen, die in der [Windows-Sicherheitsbaseline](/windows/device-security/windows-security-baselines)beschrieben werden.
 
 - **Verwenden Sie ein sicheres Netzwerk.**
 
@@ -98,7 +98,7 @@ Für sicherere Umgebungen:
 
 - **Aktivieren Sie die virtualisierungsbasierte Sicherheit für Gäste, auf denen Windows 10 oder Windows Server 2016 oder höher ausgeführt wird.**
 
-    Weitere Informationen finden Sie im [Device Guard-Bereitstellungs Handbuch](https://docs.microsoft.com/windows/device-security/device-guard/device-guard-deployment-guide).
+    Weitere Informationen finden Sie im [Device Guard-Bereitstellungs Handbuch](/windows/device-security/device-guard/device-guard-deployment-guide).
 
 - **Aktivieren Sie nur diskrete Geräte Zuweisungen, wenn dies für eine bestimmte Arbeitsauslastung erforderlich ist**.
 

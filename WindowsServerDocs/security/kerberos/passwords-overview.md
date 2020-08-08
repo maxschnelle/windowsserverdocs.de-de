@@ -7,12 +7,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 762aa3307395f60d15a547c7b4b2b433c20d4411
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 4f38ee2062b2c154cc99a22a398e02e823a47ca2
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87968797"
+ms.locfileid: "87996081"
 ---
 # <a name="passwords-overview"></a>Kennwörter: Übersicht
 
@@ -23,7 +23,7 @@ In diesem Thema für IT-Experten werden Kenn Wörter beschrieben, die in den Win
 ## <a name="feature-description"></a><a name="BKMK_OVER"></a>Featurebeschreibung
 Betriebssysteme und Anwendungen sind heute mit Kenn Wörtern entworfen, und auch wenn Sie Smartcards oder biometrische Systeme verwenden, haben alle Konten weiterhin Kenn Wörter und können in einigen Fällen weiterhin verwendet werden. Einige Konten, insbesondere Konten, die zum Ausführen von Diensten verwendet werden, können nicht einmal Smartcards und biometrische Token verwenden und müssen daher ein Kennwort für die Authentifizierung verwenden. Windows schützt Kenn Wörter mithilfe kryptografischer Hashes.
 
-Weitere Informationen zu Windows-Kenn Wörtern finden Sie unter [Technische Übersicht](https://technet.microsoft.com/library/hh994558(WS.10).aspx)über Kenn Wörter.
+Weitere Informationen zu Windows-Kenn Wörtern finden Sie unter [Technische Übersicht](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/hh994558(v=ws.10))über Kenn Wörter.
 
 ## <a name="practical-applications"></a><a name="BKMK_APP"></a>Praktische Anwendung
 In Windows und vielen anderen Betriebssystemen ist die häufigste Methode zum Authentifizieren der Identität eines Benutzers die Verwendung einer geheimen Passphrase oder eines geheimen Kennworts. Zum Sichern Ihrer Netzwerkumgebung müssen von allen Benutzern sichere Kenn Wörter verwendet werden. Dadurch wird verhindert, dass böswillige Benutzer ein schwaches Kennwort erraten, ob durch manuelle Methoden oder mithilfe von Tools, um die Anmelde Informationen eines kompromittierten Benutzerkontos zu erhalten. Dies gilt insbesondere für Administrator Konten. Wenn Sie ein komplexes Kennwort regelmäßig ändern, verringert es die Wahrscheinlichkeit, dass ein Kenn Wort Angriff dieses Konto kompromittiert.
@@ -45,10 +45,8 @@ In dieser Tabelle werden zusätzliche Ressourcen für Kenn Wort Features, die Te
 |Inhaltstyp|Referenzen|
 |--------|-------|
 |**Dokumentation der Szenarien**|[Schutz Ihrer digitalen Identität](https://blogs.msdn.com/b/b8/archive/2011/12/14/protecting-your-digital-identity.aspx)|
-|**Vorgänge**|[Active Directory-Benutzer und -Computer](https://technet.microsoft.com/library/cc754217.aspx)|
+|**Vorgänge**|[Active Directory-Benutzer und -Computer](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754217(v=ws.11))|
 |**Problembehandlung**|[Ermitteln, wann Ihr Kennwort abläuft \- Active Directory PowerShell-Blog](https://blogs.msdn.com/b/adpowershell/archive/2010/08/09/9970198.aspx)|
-|**Security**| [Leitfaden zu Bedrohungen und Gegenmaßnahmen](https://technet.microsoft.com/library/hh125920(v=ws.10).aspx) für Windows Server 2008 R2 und Windows 7: Konto Richtlinien<p>Leitfaden zum [ändern und erstellen](https://www.microsoft.com/security/online-privacy/passwords-create.aspx) sicherer Kenn Wörter|
+|**Security**| [Leitfaden zu Bedrohungen und Gegenmaßnahmen](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/hh125920(v=ws.10)) für Windows Server 2008 R2 und Windows 7: Konto Richtlinien<p>Leitfaden zum [ändern und erstellen](https://www.microsoft.com/security/online-privacy/passwords-create.aspx) sicherer Kenn Wörter|
 |**Tools und Einstellungen**|[Referenz zu Gruppenrichtlinie Einstellungen für Windows und Windows Server im Microsoft Download Center](https://www.microsoft.com/download/en/details.aspx?amp;displaylang=en&displaylang=en&id=25250)|
-|**Communityressourcen**|[Schutz Ihrer digitalen Identität](https://blogs.msdn.com/b/b8/archive/2011/12/14/protecting-your-digital-identity.aspx)<p>[Anmelden bei Windows 8 mit einer Windows Live ID](https://blogs.msdn.com/b/b8/archive/2011/09/26/signing-in-to-windows-8-with-a-windows-live-id.aspx)<p>[Anmelden mit einem Bild Kennwort](https://blogs.msdn.com/b/b8/archive/2011/12/16/signing-in-with-a-picture-password.aspx)<p>[Optimieren der Bild Kenn Wort Sicherheit](https://blogs.msdn.com/b/b8/archive/2011/12/19/optimizing-picture-password-security.aspx)|
-
-
+|**Communityressourcen**|[Schutz Ihrer digitalen Identität](https://blogs.msdn.com/b/b8/archive/2011/12/14/protecting-your-digital-identity.aspx)<p>[Anmelden bei Windows 8 mit einer Windows Live ID](https://blogs.msdn.com/b/b8/archive/2011/09/26/signing-in-to-windows-8-with-a-windows-live-id.aspx)<p>[Anmelden mit einem Bild Kennwort](/archive/blogs/b8/signing-in-with-a-picture-password)<p>[Optimieren der Bild Kenn Wort Sicherheit](/archive/blogs/b8/optimizing-picture-password-security)|

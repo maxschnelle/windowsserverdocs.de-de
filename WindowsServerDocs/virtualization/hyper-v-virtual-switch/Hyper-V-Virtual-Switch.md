@@ -6,12 +6,12 @@ ms.topic: article
 ms.assetid: 398440ac-5988-41ce-b91e-eab343a255d3
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: e8722e5ff925bca1d99c39d7eb6bf360dc12c065
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 1e2db53f28ff5262778b36b8a5cb91e6062ca9c0
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87968697"
+ms.locfileid: "87995712"
 ---
 # <a name="hyper-v-virtual-switch"></a>Virtueller Hyper-V-Switch
 
@@ -26,13 +26,13 @@ Sie können auch eine Verbindung mit virtuellen Netzwerken auf dem Server herste
 >
 > - [Verwalten virtueller Hyper-V-Switches](Manage-Hyper-V-Virtual-Switch.md)
 > - [Remotezugriff auf den direkten Speicher (RDMA) und Switch Embedded Teaming (SET)](RDMA-and-Switch-Embedded-Teaming.md)
-> - [Cmdlets für Netzwerkswitch-Teams in Windows PowerShell](https://docs.microsoft.com/powershell/module/netswitchteam/new-netswitchteam?view=win10-ps)
-> - [Neues in VMM 2016](https://docs.microsoft.com/system-center/vmm/whats-new#networking)
-> - [Einrichten des VMM-Netzwerkfabrics](https://docs.microsoft.com/system-center/vmm/manage-networks)
-> - [Hyper-V-Forum](https://docs.microsoft.com/answers/topics/windows-server-hyper-v.html)
-> - [Hyper-V: Die WFP-Erweiterung für virtuelle Switches sollte aktiviert werden, wenn sie für Erweiterungen von Drittanbietern erforderlich ist.](https://docs.microsoft.com/answers/topics/windows-server-hyper-v.html)
+> - [Cmdlets für Netzwerkswitch-Teams in Windows PowerShell](/powershell/module/netswitchteam/new-netswitchteam?view=win10-ps)
+> - [Neues in VMM 2016](/system-center/vmm/whats-new#networking)
+> - [Einrichten des VMM-Netzwerkfabrics](/system-center/vmm/manage-networks)
+> - [Hyper-V-Forum](/answers/topics/windows-server-hyper-v.html)
+> - [Hyper-V: Die WFP-Erweiterung für virtuelle Switches sollte aktiviert werden, wenn sie für Erweiterungen von Drittanbietern erforderlich ist.](/answers/topics/windows-server-hyper-v.html)
 >
-> Weitere Informationen zu anderen Netzwerktechnologien finden Sie unter [Netzwerk in Windows Server 2016](https://docs.microsoft.com/windows-server/networking/networking).
+> Weitere Informationen zu anderen Netzwerktechnologien finden Sie unter [Netzwerk in Windows Server 2016](../../networking/index.yml).
 
 \-Der virtuelle Hyper-v-Switch ist ein softwarebasierter Schicht-2-Ethernet-Netzwerk Switch, der im Hyper-v-Manager verfügbar ist, \- Wenn Sie die Hyper- \- v-Server Rolle installieren.
 

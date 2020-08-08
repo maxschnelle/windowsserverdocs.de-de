@@ -7,12 +7,12 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 342a374027abc3019b4fc01dbc91b676d63e922b
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 2469bbb35ce0e68801b28e221c05c285b4f1c464
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87970677"
+ms.locfileid: "87996333"
 ---
 # <a name="getting-started-with-multipoint-services"></a>Einstieg in Multipoint Services
 Das Multipoint Services-System ermöglicht vielen Benutzern die Verwendung mehrerer Stationen, die physisch verbunden sind, indem Sie Station Hubs nur auf einem Computer verwenden. Jede Station besteht in der Regel aus einem stationshub, einer Maus, einer Tastatur und einem Videomonitor. Jeder Benutzer an einer Multipoint Services-Station verfügt über eine eindeutige Windows Computing-Sitzung, die Sie mithilfe von Multipoint Manager verwalten können.
@@ -91,7 +91,7 @@ Weitere Informationen zum Speichern und Verwalten von privaten und öffentlichen
 
 ## <a name="see-also"></a>Weitere Informationen
 [Verwalten des Multipoint-Server Systems](managing-your-multipoint-services-system.md) 
- [Wichtige Informationen zur Software Lizenz Konformität](Important-Information-about-Software-License-Compliance.md) 
+ [Wichtige Informationen zur Software Lizenz Konformität](./multipoint-software-license-compliance.md) 
  [Verwalten von System Aufgaben mithilfe des Multipoint-Managers](Manage-System-Tasks-Using-MultiPoint-Manager.md) 
  [Verwalten von Benutzer Dateien](Manage-User-Files.md) 
  [Verwalten von Benutzer Desktops](manage-user-desktops-using-multipoint-dashboard.md) 
@@ -104,4 +104,3 @@ Weitere Informationen zum Speichern und Verwalten von privaten und öffentlichen
  [Verwalten von Benutzer Desktops mithilfe des Multipoint-Dashboards](Manage-User-Desktops-Using-MultiPoint-Dashboard.md) 
  [Verwalten von Multipoint-Systemen mit dem Multipoint-Dashboard](Manage-MultiPoint-Systems-Using-MultiPoint-Dashboard.md) 
  [Problem](Troubleshooting.md) Behandlung
-

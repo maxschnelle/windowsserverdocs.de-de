@@ -4,23 +4,22 @@ title: Aktualisieren von AD RMS auf Windows Server 2016
 author: msmbaldwin
 ms.author: esaggese
 ms.date: 05/30/2019
-ms.prod: windows-server
 ms.topic: article
-ms.openlocfilehash: cb27477f71dbded1f1171fde613f55f6267fc2cb
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 8a2d0ec94619f74260f1fbc934e8e3328201ffa9
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86965472"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87947210"
 ---
 # <a name="upgrading-ad-rms-to-windows-server-2016"></a>Aktualisieren von AD RMS auf Windows Server 2016
 
 ## <a name="introduction"></a>Einführung
 
-Active Directory Rights Management Services (AD RMS) ist ein Microsoft-Dienst, der sensible Dokumente und e-Mails schützt. Im Gegensatz zu herkömmlichen Schutzmethoden wie Firewalls und ACLs sind AD RMS Verschlüsselung und Schutz immer persistent, unabhängig davon, wo sich eine Datei befindet oder wie Sie transportiert wird. 
+Active Directory Rights Management Services (AD RMS) ist ein Microsoft-Dienst, der sensible Dokumente und e-Mails schützt. Im Gegensatz zu herkömmlichen Schutzmethoden wie Firewalls und ACLs sind AD RMS Verschlüsselung und Schutz immer persistent, unabhängig davon, wo sich eine Datei befindet oder wie Sie transportiert wird.
 
 Dieses Dokument enthält Anleitungen zum Migrieren von Windows Server 2012 R2 mit SQL Server 2012 zu Windows Server 2016 und SQL Server 2016. Der gleiche Prozess kann für die Migration von älteren, aber unterstützten Versionen von AD RMS verwendet werden.
-Beachten Sie, dass sich Active Directory Rights Management Services nicht mehr in der aktiven Entwicklung befindet, und für die neuesten Funktionen sollten Kunden in Erwägung gezogen werden, zu [Azure Information Protection](https://azure.microsoft.com/services/information-protection/)zu migrieren, der einen weitaus umfassenderen Satz an Features bietet, bei denen die Geräte-und Anwendungsunterstützung vollständiger ist 
+Beachten Sie, dass sich Active Directory Rights Management Services nicht mehr in der aktiven Entwicklung befindet, und für die neuesten Funktionen sollten Kunden in Erwägung gezogen werden, zu [Azure Information Protection](https://azure.microsoft.com/services/information-protection/)zu migrieren, der einen weitaus umfassenderen Satz an Features bietet, bei denen die Geräte-und Anwendungsunterstützung vollständiger ist
 
 Informationen zum Migrieren zu Azure Information Protection von AD RMS, ohne den Inhalt erneut schützen zu müssen, finden Sie in [der Dokumentation zur Azure Information Protection Migration](/azure/information-protection/migrate-from-ad-rms-to-azure-rms).
 
@@ -28,7 +27,8 @@ Informationen zum Migrieren zu Azure Information Protection von AD RMS, ohne den
 
 AD FS ist eine optionale Komponente einer AD RMS-Installation. In dieser Anleitung wird davon ausgegangen, dass ADFS verwendet wird. Wenn AD FS in Ihrer Umgebung nicht für die Unterstützung von AD RMS Benutzern verwendet wurde, können Sie alle Schritte überspringen, die auf ADFS verweisen.
 
-In diesem Handbuch wird SQL Server auf SQL Server 2016 aktualisiert, indem eine parallele Installation durchgeführt und die Datenbanken über eine Sicherung verschoben werden. Wenn Sie ein Upgrade Ihrer AD RMS-und ADFS-Datenbankserver auf SQL Server 2016 direkt durchführen können, können Sie mit dem nächsten Abschnitt in diesem Dokument fortfahren, ohne die Schritte in diesem Abschnitt ausführen zu müssen.  
+In diesem Handbuch wird SQL Server auf SQL Server 2016 aktualisiert, indem eine parallele Installation durchgeführt und die Datenbanken über eine Sicherung verschoben werden.
+Wenn Sie ein Upgrade Ihrer AD RMS-und ADFS-Datenbankserver auf SQL Server 2016 direkt durchführen können, können Sie mit dem nächsten Abschnitt in diesem Dokument fortfahren, ohne die Schritte in diesem Abschnitt ausführen zu müssen.
 
 ## <a name="installation"></a>Installation
 
@@ -36,7 +36,7 @@ In diesem Handbuch wird SQL Server auf SQL Server 2016 aktualisiert, indem eine 
 
 Im folgenden Abschnitt werden die Implementierungsaufgaben erläutert, die direkt mit der Konfiguration von SQL Server 2016 verknüpft sind. Dieser Leitfaden konzentriert sich auf die Verwendung der Server-Manager und des SQL Server Management Studio, um diese Aufgaben auszuführen.
 
-Diese Schritte müssen bei einer SQL Server 2016-Installation ausgeführt werden. Installieren Sie SQL Server 2016 auf geeigneter Hardware gemäß den Standardverfahren und-Richtlinien Ihres Unternehmens. 
+Diese Schritte müssen bei einer SQL Server 2016-Installation ausgeführt werden. Installieren Sie SQL Server 2016 auf geeigneter Hardware gemäß den Standardverfahren und-Richtlinien Ihres Unternehmens.
 
 #### <a name="preparing-the-sql-server"></a>Vorbereiten der SQL Server
 
@@ -219,15 +219,15 @@ Wenn Sie die MDE-Protokollierung für die Problembehandlung verwenden, empfiehlt
 
 Die folgenden Abschnitte enthalten Anleitungen zum Hinzufügen eines Windows Server 2016-basierten AD RMS Servers zum aktuellen Windows Server 2012 R2-Cluster. Der Server wird dem Cluster hinzugefügt, und die Informationen werden darauf repliziert, sodass der vorherige AD RMS Server als veraltet markiert werden kann, um Ressourcen freizugeben.
 
-Nachdem Sie einen Windows Server 2016-basierten AD RMS Server hinzugefügt haben, der dem AD RMS Cluster hinzugefügt wurde, werden alle Knoten, die auf älteren Versionen von Windows basieren, inaktiv. Anschließend können Sie die Bereitstellung dieser Server aufheben (z. b. Herunterfahren, neu zuweisen oder mit Windows Server 2016 neu installieren, um dem AD RMS Cluster beizutreten). 
+Nachdem Sie einen Windows Server 2016-basierten AD RMS Server hinzugefügt haben, der dem AD RMS Cluster hinzugefügt wurde, werden alle Knoten, die auf älteren Versionen von Windows basieren, inaktiv. Anschließend können Sie die Bereitstellung dieser Server aufheben (z. b. Herunterfahren, neu zuweisen oder mit Windows Server 2016 neu installieren, um dem AD RMS Cluster beizutreten).
 
 Sie können zusätzliche AD RMS Server für den Cluster bereitstellen, um die Auslastung Ihrer AD RMS-Bereitstellung zu unterstützen. Sie können diese Aktion auch ausführen, wenn Sie den Datenverkehr an die AD RMS Server erhöhen.
 
-Dieses Handbuch behandelt nicht die Schritte, die zum Ändern der in Ihrer Umgebung verwendeten Lasten Ausgleichsmechanismen erforderlich sind, um die von Ihnen veralteten Server auszuschließen und diejenigen einzuschließen, die Sie dem Cluster hinzufügen. 
+Dieses Handbuch behandelt nicht die Schritte, die zum Ändern der in Ihrer Umgebung verwendeten Lasten Ausgleichsmechanismen erforderlich sind, um die von Ihnen veralteten Server auszuschließen und diejenigen einzuschließen, die Sie dem Cluster hinzufügen.
 
 #### <a name="adding-a-2016-ad-rms-server"></a>Hinzufügen eines 2016-AD RMS Servers
 
-Wenn Ihr AD RMS Cluster ein Hardware Sicherheitsmodul anstelle eines zentral verwalteten Schlüssels für das Lizenzgeber Zertifikat eines Servers verwendet, müssen Sie die Software und andere HSM-Artefakte (z. b. Schlüssel-und Konfigurationsdateien) auf dem Server installieren, bevor Sie AD RMS installieren. Außerdem müssen Sie das HSM entweder physisch oder über die relevanten Netzwerkkonfigurationen mit dem Server verbinden. Befolgen Sie die Anleitung zum HSM für diese Schritte. 
+Wenn Ihr AD RMS Cluster ein Hardware Sicherheitsmodul anstelle eines zentral verwalteten Schlüssels für das Lizenzgeber Zertifikat eines Servers verwendet, müssen Sie die Software und andere HSM-Artefakte (z. b. Schlüssel-und Konfigurationsdateien) auf dem Server installieren, bevor Sie AD RMS installieren. Außerdem müssen Sie das HSM entweder physisch oder über die relevanten Netzwerkkonfigurationen mit dem Server verbinden. Befolgen Sie die Anleitung zum HSM für diese Schritte.
 
 **So fügen Sie einen 2016-AD RMS Server hinzu**
 
@@ -257,11 +257,12 @@ Wenn Ihr AD RMS Cluster ein Hardware Sicherheitsmodul anstelle eines zentral ver
 
 13. Nachdem Sie sich wieder angemeldet haben, öffnen Sie **Server-Manager** **Tools** auswählen und **Active Directory Rights Management**. Das Fenster "Verwaltung" sollte angezeigt werden und angeben, dass der Cluster über den zusätzlichen Server im Cluster verfügt.
 
-14. Wenn die AD RMS Mobile-Geräte Erweiterung im ursprünglichen AD RMS-Cluster installiert wurde, müssen Sie auch die MDE in den aktualisierten Cluster Knoten installieren. Befolgen Sie die Anweisungen in der MDE-Dokumentation, um MDE zu Ihrem AD RMS Cluster hinzuzufügen. An diesem Punkt können Sie alle bereits vorhandenen Knoten wieder verwenden oder Sie auf Windows Server 2016 aktualisieren und mit dem oben beschriebenen Prozess erneut mit dem AD RMS Cluster verknüpfen. 
+14. Wenn die AD RMS Mobile-Geräte Erweiterung im ursprünglichen AD RMS-Cluster installiert wurde, müssen Sie auch die MDE in den aktualisierten Cluster Knoten installieren. Befolgen Sie die Anweisungen in der MDE-Dokumentation, um MDE zu Ihrem AD RMS Cluster hinzuzufügen.
+An diesem Punkt können Sie alle bereits vorhandenen Knoten wieder verwenden oder Sie auf Windows Server 2016 aktualisieren und mit dem oben beschriebenen Prozess erneut mit dem AD RMS Cluster verknüpfen.
 
 ### <a name="configuring-windows-server-2016-web-application-proxy-wap"></a>Konfigurieren von Windows Server 2016-webanwendungsproxy (WAP)
 
-Die folgenden Abschnitte enthalten Anleitungen zu betrieblichen Aufgaben, die Sie möglicherweise für die Bereitstellung des webanwendungsproxys ausführen müssen. Dies ist ein optionaler Schritt, der nicht erforderlich ist, wenn Sie AD RMS über andere Mechanismen im Internet veröffentlichen. 
+Die folgenden Abschnitte enthalten Anleitungen zu betrieblichen Aufgaben, die Sie möglicherweise für die Bereitstellung des webanwendungsproxys ausführen müssen. Dies ist ein optionaler Schritt, der nicht erforderlich ist, wenn Sie AD RMS über andere Mechanismen im Internet veröffentlichen.
 
 #### <a name="adding-a-windows-server-2016-wap-server"></a>Hinzufügen eines Windows Server 2016-WAP-Servers
 

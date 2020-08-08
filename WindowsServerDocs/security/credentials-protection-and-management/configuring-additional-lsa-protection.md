@@ -7,12 +7,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 78533908de1a1f43cbfac9054dcfe6ec83edce9d
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: bfb40249dffa08e1c05aa1dc7cbc26fad6f7885d
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87948753"
+ms.locfileid: "87995891"
 ---
 # <a name="configuring-additional-lsa-protection"></a>Konfigurieren von zusätzlichem LSA-Schutz
 
@@ -29,13 +29,13 @@ Damit ein LSA-Plug-In oder -Treiber erfolgreich als geschützter Prozess geladen
 
     Der geschützte Modus erfordert, dass alle Plug-Ins, die in die lokale Sicherheitsautorität geladen werden, mit einer Microsoft-Signatur digital signiert werden. Daher können alle Plug-Ins, die nicht signiert sind bzw. nicht mit einer Microsoft-Signatur signiert sind, in der lokalen Sicherheitsautorität nicht geladen werden. Beispiele für diese Plug-Ins sind Smartcard-Treiber, kryptografische Plug-Ins und Kennwortfilter.
 
-    LSA-Plug-Ins, bei denen es sich um Treiber handelt, z. B. Smartcard-Treiber, müssen mithilfe der WHQL-Zertifizierung signiert werden. Weitere Informationen finden Sie unter [WHQL-releasesignatur](https://msdn.microsoft.com/library/windows/hardware/ff553976%28v=vs.85%29.aspx).
+    LSA-Plug-Ins, bei denen es sich um Treiber handelt, z. B. Smartcard-Treiber, müssen mithilfe der WHQL-Zertifizierung signiert werden. Weitere Informationen finden Sie unter [WHQL-releasesignatur](/windows-hardware/drivers/install/whql-release-signature).
 
     LSA-Plug-Ins, die nicht über einen WHQL-Zertifizierungsprozess verfügen, müssen mithilfe des [Dateisignierdiensts für LSA](https://go.microsoft.com/fwlink/?LinkId=392590)signiert werden.
 
 2.  Anleitung zur Einhaltung des Microsoft Security Development Lifecycle (SDL)-Prozesses
 
-    Alle Plug-Ins müssen die Vorgaben zur Einhaltung des jeweiligen SDL-Prozesses erfüllen. Weitere Informationen finden Sie unter [Microsoft Security Development Lifecycle (SDL) – Anhang](https://msdn.microsoft.com/library/windows/desktop/cc307891.aspx).
+    Alle Plug-Ins müssen die Vorgaben zur Einhaltung des jeweiligen SDL-Prozesses erfüllen. Weitere Informationen finden Sie unter [Microsoft Security Development Lifecycle (SDL) – Anhang](/previous-versions/windows/desktop/cc307891(v=msdn.10)).
 
     Auch wenn die Plug-Ins ordnungsgemäß mit einer Microsoft-Signatur signiert sind, kann eine Nichteinhaltung des SDL-Prozesses beim Laden eines Plug-Ins zu einem Fehler führen.
 
@@ -180,7 +180,7 @@ Sie können die folgenden Verfahren verwenden, um den LSA-Schutz zu aktivieren o
 
     Weitere Informationen zu diesem Tool finden Sie auf der [Seite zum Download von Local Security Authority (LSA) Protected Process Opt-out im offiziellen Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=40897).
 
-    Weitere Informationen zum Verwalten von "Sicherer Start" finden Sie unter [UEFI-Firmware](https://technet.microsoft.com/library/hh824898.aspx).
+    Weitere Informationen zum Verwalten von "Sicherer Start" finden Sie unter [UEFI-Firmware](/previous-versions/windows/it-pro/windows-8.1-and-8/hh824898(v=win.10)).
 
     > [!WARNING]
     > Wenn %%amp;quot;Sicherer Start%%amp;quot; deaktiviert ist, werden alle auf %%amp;quot;Sicherer Start%%amp;quot; und UEFI bezogenen Konfigurationen zurückgesetzt. Sie sollten %%amp;quot;Sicherer Start%%amp;quot; nur deaktivieren, wenn alle anderen Mittel zum Deaktivieren des LSA-Schutzes nicht zum Erfolg führen.
@@ -194,5 +194,3 @@ Wenn Sie ermitteln möchten, ob LSA beim Starten von Windows im geschützten Mod
 [Schutz und Verwaltung von Anmeldeinformationen](credentials-protection-and-management.md)
 
 [Dateisignierdiensts für LSA](https://go.microsoft.com/fwlink/?LinkId=392590)
-
-

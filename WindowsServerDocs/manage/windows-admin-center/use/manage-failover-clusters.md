@@ -6,12 +6,12 @@ author: daniellee-msft
 ms.author: jol
 ms.date: 06/18/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: a0b9c0e43d1573a52f69454ce05dd7a1c281510e
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: e181e52c2e461d6f1ef00f72684b8228cf9889d1
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87964416"
+ms.locfileid: "87995977"
 ---
 # <a name="manage-failover-clusters-with-windows-admin-center"></a>Verwalten von Failoverclustern mit dem Windows Admin Center
 
@@ -22,7 +22,7 @@ ms.locfileid: "87964416"
 > [Weitere Informationen zum Windows Admin Center finden Sie hier](../overview.md).
 
 ## <a name="managing-failover-clusters"></a>Verwalten von Failoverclustern
-[Failoverclustering](https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview) ist eine Windows Server-Funktion, mit der Sie mehrere Server zu einem fehlertoleranten Cluster gruppieren können, um die Verfügbarkeit und Skalierbarkeit von Anwendungen und Diensten wie Dateiserver mit horizontaler Skalierung, Hyper-V und Microsoft SQL Server zu erhöhen.
+[Failoverclustering](../../../failover-clustering/failover-clustering-overview.md) ist eine Windows Server-Funktion, mit der Sie mehrere Server zu einem fehlertoleranten Cluster gruppieren können, um die Verfügbarkeit und Skalierbarkeit von Anwendungen und Diensten wie Dateiserver mit horizontaler Skalierung, Hyper-V und Microsoft SQL Server zu erhöhen.
 
 Während Sie Failoverclusterknoten als einzelne Server verwalten können, indem Sie Sie als [Server Verbindungen](manage-servers.md) im Windows Admin Center hinzufügen, können Sie Sie auch als Failovercluster hinzufügen, um Cluster Ressourcen, Speicher, Netzwerk, Knoten, Rollen, virtuelle Maschinen und virtuelle Switches anzuzeigen und zu verwalten.
 

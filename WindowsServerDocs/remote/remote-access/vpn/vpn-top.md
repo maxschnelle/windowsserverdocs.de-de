@@ -1,20 +1,18 @@
 ---
 title: Virtuelle private Netzwerke (Virtual Private Networks, VPNs)
 description: In diesem Thema erfahren Sie mehr über Windows Server 2016-und Windows 10-VPN-Features und-Funktionen.
-ms.prod: windows-server
-ms.technology: networking
 ms.topic: article
 ms.assetid: cd4908f0-0d6f-4c02-8f98-4dc88c3dcb65
 ms.date: 11/05/2018
 ms.author: v-tea
 author: Teresa-MOTIV
 ms.localizationpriority: medium
-ms.openlocfilehash: 35293f98dd36fc48750a811981dafe37a06af7c9
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 30f08f02bf7a06619b9a32206863a9ddefc0fc2d
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86959172"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87968917"
 ---
 # <a name="virtual-private-networking-vpn"></a>Virtuelle private Netzwerke (Virtual Private Networks, VPNs)
 
@@ -37,8 +35,8 @@ Wenn Sie den **DirectAccess-und VPN-Rollen Dienst (RAS)** installieren, stellen 
 >[!NOTE]
 >Sie können das RAS-Gateway auch als mehr Instanzen fähigen VPN-Server für die Verwendung mit Software-Defined Networking (SDN) oder als DirectAccess-Server bereitstellen. Weitere Informationen finden Sie unter [RAS-Gateway](../ras-gateway/ras-gateway.md), [Software-Defined Networking (SDN)](../../../networking/sdn/software-defined-networking.md)und [DirectAccess](../directaccess/directaccess.md).
 
-## <a name="related-topics"></a>Zugehörige Themen
-- [Always on von VPN-Features und-Funktionen](vpn-map-da.md): in diesem Thema erfahren Sie mehr über die Features und Funktionen von Always on VPN. 
+## <a name="related-topics"></a>Verwandte Themen
+- [Always on von VPN-Features und-Funktionen](vpn-map-da.md): in diesem Thema erfahren Sie mehr über die Features und Funktionen von Always on VPN.
 
 - [Konfigurieren von VPN-Geräte Tunneln in Windows 10](vpn-device-tunnel-config.md): Always on-VPN bietet Ihnen die Möglichkeit, ein dediziertes VPN-Profil für das Gerät oder den Computer zu erstellen. Always on-VPN-Verbindungen umfassen zwei Arten von Tunneln: _Geräte Tunnel_ und _Benutzer Tunnel_. Der Geräte Tunnel wird für Konnektivitätsszenarien vor der Anmeldung und für Geräteverwaltung verwendet. Mit dem Benutzertunnel können Benutzer über VPN-Server auf Organisationsressourcen zugreifen.
 

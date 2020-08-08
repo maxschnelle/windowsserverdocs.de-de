@@ -4,12 +4,12 @@ ms.topic: article
 manager: dongill
 author: rpsqrd
 ms.author: ryanpu
-ms.openlocfilehash: b56b2d4f74f18e68a3849b01e84b0aca5ca7412e
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 140888bdaa27d5040ff723b94df2e28f3bbab167
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87957908"
+ms.locfileid: "87996161"
 ---
 # <a name="branch-office-considerations"></a>Überlegungen zu Filialen
 
@@ -39,7 +39,7 @@ Damit der Hyper-V-Host den Nachweis sowohl mit dem primären als auch dem Fall B
 Außerdem müssen die Zertifikate, mit denen das TPM des virtuellen Computers entschlüsselt wird, in beiden HGS-Clustern verfügbar sein.
 Sie können jeden HGS mit verschiedenen Zertifikaten konfigurieren und den virtuellen Computer so konfigurieren, dass er sowohl vertrauenswürdig ist, als auch einen freigegebenen Satz von Zertifikaten zu beiden HGS-Clustern hinzufügen.
 
-Weitere Informationen zum Konfigurieren von HGS in einer Zweigstelle mithilfe von Fall Back-URLs finden Sie im Blogbeitrag [verbesserte Unterstützung für Zweigstellen für abgeschirmte VMs in Windows Server, Version 1709](https://blogs.technet.microsoft.com/datacentersecurity/2017/11/15/improved-branch-office-support-for-shielded-vms-in-windows-server-version-1709/).
+Weitere Informationen zum Konfigurieren von HGS in einer Zweigstelle mithilfe von Fall Back-URLs finden Sie im Blogbeitrag [verbesserte Unterstützung für Zweigstellen für abgeschirmte VMs in Windows Server, Version 1709](/archive/blogs/datacentersecurity/improved-branch-office-support-for-shielded-vms-in-windows-server-version-1709).
 
 
 ## <a name="offline-mode"></a>Offline Modus

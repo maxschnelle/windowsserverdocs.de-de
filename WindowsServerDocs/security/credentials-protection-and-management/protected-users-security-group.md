@@ -7,12 +7,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 450279f5af907e4643f8ee8c1ea0ff36edd9aea5
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: fb8fef4b954416e7ed284db9cf57b77f5a84c594
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87948693"
+ms.locfileid: "87995803"
 ---
 # <a name="protected-users-security-group"></a>Sicherheitsgruppe "Geschützte Benutzer"
 
@@ -37,7 +37,7 @@ Zum Bereitstellen von Geräteschutz für Mitglieder der Gruppe "geschützte Benu
 
 - Die globale Sicherheitsgruppe der geschützten Benutzer wird zu allen Domänencontrollern in der Kontodomäne repliziert.
 
-- Windows 8.1 und Windows Server 2012 R2 haben standardmäßig Unterstützung hinzugefügt. Die [Microsoft-Sicherheitsempfehlung 2871997](https://technet.microsoft.com/library/security/2871997) bietet Unterstützung für Windows 7, Windows Server 2008 R2 und Windows Server 2012.
+- Windows 8.1 und Windows Server 2012 R2 haben standardmäßig Unterstützung hinzugefügt. Die [Microsoft-Sicherheitsempfehlung 2871997](/security-updates/SecurityAdvisories/2016/2871997) bietet Unterstützung für Windows 7, Windows Server 2008 R2 und Windows Server 2012.
 
 Folgende Anforderungen müssen erfüllt sein, damit Mitglieder der Gruppe der geschützten Benutzer Domänencontrollerschutz erhalten:
 
@@ -50,7 +50,7 @@ Domänen Controller, auf denen ein älteres Betriebssystem als Windows Server 20
 > [!Note]
 > Domänen Controller werden von den Domänen Controllern nicht unterstützt.
 
-Die Gruppe "geschützte Benutzer" kann erstellt werden, indem [die Rolle "primärer Domänen Controller (PDC)](https://technet.microsoft.com/library/cc816944(v=ws.10).aspx) " auf einen Domänen Controller mit Windows Server 2012 R2 übertragen wird. Nachdem das Gruppenobjekt auf andere Domänencontroller repliziert wurde, kann die PDC-Emulatorrolle auf einem Domänencontroller gehostet werden, der unter einer älteren Windows Server-Version läuft.
+Die Gruppe "geschützte Benutzer" kann erstellt werden, indem [die Rolle "primärer Domänen Controller (PDC)](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc816944(v=ws.10)) " auf einen Domänen Controller mit Windows Server 2012 R2 übertragen wird. Nachdem das Gruppenobjekt auf andere Domänencontroller repliziert wurde, kann die PDC-Emulatorrolle auf einem Domänencontroller gehostet werden, der unter einer älteren Windows Server-Version läuft.
 
 ### <a name="protected-users-group-ad-properties"></a><a name="BKMK_ADgroup"></a>Eigenschaften der Gruppe "geschützte Benutzer"
 
@@ -83,7 +83,7 @@ Wenn der angemeldete Benutzer ein Mitglied der Gruppe "geschützte Benutzer" ist
 - Ab Windows 8.1 und Windows Server 2012 R2 werden die nur-Text-Anmelde Informationen des Benutzers von Windows Digest nicht zwischengespeichert, selbst wenn Windows Digest aktiviert ist.
 
 > [!Note]
-> Nach der Installation der [Microsoft-Sicherheitsempfehlung 2871997](https://technet.microsoft.com/library/security/2871997) werden die Anmelde Informationen von Windows Digest weiterhin zwischengespeichert, bis der Registrierungsschlüssel konfiguriert wurde. Weitere Informationen finden [Sie unter Microsoft-Sicherheitsempfehlung: Update zum Verbessern von Anmelde Informationen Schutz und Verwaltung: 13. Mai 2014](https://support.microsoft.com/help/2871997/microsoft-security-advisory-update-to-improve-credentials-protection-a) .
+> Nach der Installation der [Microsoft-Sicherheitsempfehlung 2871997](/security-updates/SecurityAdvisories/2016/2871997) werden die Anmelde Informationen von Windows Digest weiterhin zwischengespeichert, bis der Registrierungsschlüssel konfiguriert wurde. Weitere Informationen finden [Sie unter Microsoft-Sicherheitsempfehlung: Update zum Verbessern von Anmelde Informationen Schutz und Verwaltung: 13. Mai 2014](https://support.microsoft.com/help/2871997/microsoft-security-advisory-update-to-improve-credentials-protection-a) .
 
 - NTLM speichert nicht die nur-Text-Anmelde Informationen des Benutzers oder die unidirektionale NT-Funktion (ntowf).
 
@@ -106,7 +106,7 @@ Konten, die Mitglieder der Gruppe der geschützten Benutzer sind, die sich bei e
 
 Nicht konfigurierbare Einstellungen zum Ablauf von TGTs werden für jedes Konto in der Gruppe der geschützten Benutzer eingerichtet. Normalerweise legt der Domänencontroller die Lebensdauer und Erneuerung der TGTs basierend auf den Domänenrichtlinien fest, **Max. Gültigkeitsdauer des Benutzertickets** und **Max. Zeitraum, in dem ein Benutzerticket erneuert werden kann**. Für die Gruppe der geschützten Benutzer ist 600 Minuten für diese Domänenrichtlinien eingestellt.
 
-Weitere Informationen finden Sie unter [Konfigurieren geschützter Konten](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/how-to-configure-protected-accounts).
+Weitere Informationen finden Sie unter [Konfigurieren geschützter Konten](../../identity/ad-ds/manage/how-to-configure-protected-accounts.md).
 
 ## <a name="troubleshooting"></a>Problembehandlung
 Es gibt zwei betriebliche Administrativprotokolle für die Fehlerbehebung von Ereignissen hinsichtlich geschützter Benutzer. Diese neuen Protokolle befinden sich in Ereignisanzeige und sind standardmäßig deaktiviert und befinden sich unter **Anwendungs-und dienstprotokolle\microsoft\windows\authentication**.
@@ -126,4 +126,4 @@ Es gibt zwei betriebliche Administrativprotokolle für die Fehlerbehebung von Er
 
 - [Authentifizierungsrichtlinien und Authentifizierungsrichtliniensilos](authentication-policies-and-authentication-policy-silos.md)
 
-- [Konfigurieren geschützter Konten](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/how-to-configure-protected-accounts)
+- [Konfigurieren geschützter Konten](../../identity/ad-ds/manage/how-to-configure-protected-accounts.md)

@@ -2,17 +2,16 @@
 title: Installieren des Webservers WEB1
 description: Dieses Thema ist Teil des Handbuchs Bereitstellen von Server Zertifikaten für drahtlose und drahtlose 802.1 x-bereit Stellungen.
 manager: brianlic
-ms.technology: networking
 ms.topic: article
 ms.assetid: f51c9e38-98bb-49c1-9d39-427d07021499
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 2d68b83f24a9948d42ee425218646cc5f44d5f4a
-ms.sourcegitcommit: 145cf75f89f4e7460e737861b7407b5cee7c6645
+ms.openlocfilehash: 97ee8c257d9c84b63ee069d87d7bfa6ebf3299e4
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87409641"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87949464"
 ---
 # <a name="install-the-web-server-web1"></a>Installieren des Webservers WEB1
 

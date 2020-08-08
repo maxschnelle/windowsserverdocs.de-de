@@ -2,21 +2,20 @@
 title: Deaktivieren des clientseitigen DNS-Cachings auf DNS-Clients
 description: In diesem Artikel wird beschrieben, wie Sie das Client seitige DNS-Zwischenspeichern auf DNS-Clients deaktivieren.
 manager: dcscontentpm
-ms.technology: networking-dns
 ms.topic: article
 ms.author: delhan
 ms.date: 8/8/2019
 author: Deland-Han
-ms.openlocfilehash: 74e7f3936418bd2f04234d07b2f600197e94b357
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: 107527f621dd82f9ca78df2f036600b7ecb7bccd
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87182346"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87947190"
 ---
 # <a name="disable-dns-client-side-caching-on-dns-clients"></a>Deaktivieren des clientseitigen DNS-Cachings auf DNS-Clients
 
-Windows enthält einen Client seitigen DNS-Cache. Das Client seitige DNS-Cache-Feature generiert möglicherweise einen falschen Eindruck, dass der DNS-Lastenausgleich "Roundrobin" nicht vom DNS-Server zum Windows-Client Computer stattfindet. Wenn Sie den Ping-Befehl verwenden, um nach demselben A-Datensatz-Domänen Namen zu suchen, verwendet der Client möglicherweise dieselbe IP-Adresse.  
+Windows enthält einen Client seitigen DNS-Cache. Das Client seitige DNS-Cache-Feature generiert möglicherweise einen falschen Eindruck, dass der DNS-Lastenausgleich "Roundrobin" nicht vom DNS-Server zum Windows-Client Computer stattfindet. Wenn Sie den Ping-Befehl verwenden, um nach demselben A-Datensatz-Domänen Namen zu suchen, verwendet der Client möglicherweise dieselbe IP-Adresse.
 
 ## <a name="how-to-disable-client-side-caching"></a>Deaktivieren der Client seitigen Zwischenspeicherung
 
@@ -31,33 +30,33 @@ sc servername stop dnscache
 ```
 
 
-Um den DNS-Cache dauerhaft in Windows zu deaktivieren, verwenden Sie das Service Controller-Tool oder das Tool Dienste, um den Starttyp des DNS-Client Diensts auf **deaktiviert**festzulegen. Beachten Sie, dass der Name des Windows DNS-Client diensdienstanens auch als "dnscache" angezeigt wird. 
+Um den DNS-Cache dauerhaft in Windows zu deaktivieren, verwenden Sie das Service Controller-Tool oder das Tool Dienste, um den Starttyp des DNS-Client Diensts auf **deaktiviert**festzulegen. Beachten Sie, dass der Name des Windows DNS-Client diensdienstanens auch als "dnscache" angezeigt wird.
 
 > [!NOTE]
-> Wenn der DNS-resolvercache deaktiviert ist, wird die Gesamtleistung des Client Computers verringert, und der Netzwerk Datenverkehr für DNS-Abfragen wird erhöht. 
+> Wenn der DNS-resolvercache deaktiviert ist, wird die Gesamtleistung des Client Computers verringert, und der Netzwerk Datenverkehr für DNS-Abfragen wird erhöht.
 
-Der DNS-Client Dienst optimiert die Leistung der DNS-Namensauflösung, indem zuvor aufgelöste Namen im Arbeitsspeicher gespeichert werden. Wenn der DNS-Client Dienst ausgeschaltet ist, kann der Computer weiterhin DNS-Namen mithilfe der DNS-Server des Netzwerks auflösen. 
+Der DNS-Client Dienst optimiert die Leistung der DNS-Namensauflösung, indem zuvor aufgelöste Namen im Arbeitsspeicher gespeichert werden. Wenn der DNS-Client Dienst ausgeschaltet ist, kann der Computer weiterhin DNS-Namen mithilfe der DNS-Server des Netzwerks auflösen.
 
-Wenn der Windows-Konflikt Löser eine Antwort (positiv oder negativ) an eine Abfrage empfängt, wird diese Antwort dem Cache hinzugefügt und ein DNS-Ressourcen Daten Satz erstellt. Der Konflikt Löser überprüft den Cache immer, bevor er einen DNS-Server abfragt. Wenn sich ein DNS-Ressourcen Daten Satz im Cache befindet, verwendet der Konflikt Löser den Datensatz aus dem Cache, anstatt einen Server abzufragen. Dieses Verhalten beschleunigt Abfragen und reduziert den Netzwerk Datenverkehr für DNS-Abfragen. 
+Wenn der Windows-Konflikt Löser eine Antwort (positiv oder negativ) an eine Abfrage empfängt, wird diese Antwort dem Cache hinzugefügt und ein DNS-Ressourcen Daten Satz erstellt. Der Konflikt Löser überprüft den Cache immer, bevor er einen DNS-Server abfragt. Wenn sich ein DNS-Ressourcen Daten Satz im Cache befindet, verwendet der Konflikt Löser den Datensatz aus dem Cache, anstatt einen Server abzufragen. Dieses Verhalten beschleunigt Abfragen und reduziert den Netzwerk Datenverkehr für DNS-Abfragen.
 
 Sie können das Tool ipconfig verwenden, um den DNS-Konflikt Löser-Cache anzuzeigen und zu leeren. Um den DNS-Konflikt Löser-Cache anzuzeigen, führen Sie den folgenden Befehl an einer Eingabeaufforderung aus:
 
 ```cmd
-ipconfig /displaydns 
+ipconfig /displaydns
 ```
 
 Mit diesem Befehl wird der Inhalt des DNS-resolvercaches angezeigt, einschließlich der DNS-Ressourcen Einträge, die aus der Hostdatei vorab geladen werden, und aller vor kurzem abgefragten Namen, die vom System aufgelöst wurden. Nach einiger Zeit verwirft der Konflikt Löser den Datensatz aus dem Cache. Der Zeitraum wird durch den Wert für die Gültigkeitsdauer **(Time to Live, TTL)** angegeben, der dem DNS-Ressourcen Daten Satz zugeordnet ist. Sie können den Cache auch manuell leeren. Nachdem Sie den Cache geleert haben, muss der Computer die DNS-Server erneut für alle DNS-Ressourcen Einträge Abfragen, die zuvor vom Computer aufgelöst wurden. Führen Sie `ipconfig /flushdns` an einer Eingabeaufforderung aus, um die Einträge im DNS-Konflikt Löser-Cache zu löschen.
 
 ## <a name="using-the-registry-to-control-the-caching-time"></a>Steuern der zwischen Speicherungs Zeit mithilfe der Registrierung
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > Folgen Sie den Schritten in diesem Abschnitt sorgfältig. Wird die Registrierung falsch angepasst, können schwerwiegende Probleme auftreten. Bevor Sie sie ändern, [sichern Sie die Registrierung zwecks Wiederherstellung](https://support.microsoft.com/help/322756) für den Fall, dass Probleme auftreten.
 
 Die Zeitspanne, für die eine positive oder negative Antwort zwischengespeichert wird, hängt von den Werten der Einträge im folgenden Registrierungsschlüssel ab:
 
 **HKEY_LOCAL_MACHINE \system\currentcontrolset\services\dnscache\parameters**
 
-Die Gültigkeitsdauer für positive Antworten ist der kleinere der folgenden Werte: 
+Die Gültigkeitsdauer für positive Antworten ist der kleinere der folgenden Werte:
 
 - Die Anzahl der Sekunden, die in der vom Konflikt Löser empfangenen Abfrage Antwort angegeben wurden.
 

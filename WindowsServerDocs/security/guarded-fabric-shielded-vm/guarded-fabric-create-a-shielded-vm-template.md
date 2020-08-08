@@ -6,19 +6,19 @@ manager: dongill
 author: rpsqrd
 ms.author: ryanpu
 ms.date: 01/29/2019
-ms.openlocfilehash: fedfce4980cd36a904ef4f2c49a68fa3016a4359
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: c52581eda53c595c45fb906fabf8d147bdc0562f
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87939651"
+ms.locfileid: "87996273"
 ---
 # <a name="create-a-windows-shielded-vm-template-disk"></a>Erstellen eines Datenträgers für eine geschützte Windows-VM-Vorlage
 
 >Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2019
 
 
-Wie bei regulären virtuellen Computern können Sie eine VM-Vorlage erstellen (z. b. eine [VM-Vorlage in Virtual Machine Manager (VMM)](https://technet.microsoft.com/system-center-docs/vmm/manage/manage-library-add-vm-templates)), damit Mandanten und Administratoren mithilfe eines Vorlagen Datenträgers problemlos neue VMS im Fabric bereitstellen können. Da abgeschirmte VMS sicherheitsrelevante Ressourcen sind, sind zusätzliche Schritte erforderlich, um eine VM-Vorlage zu erstellen, die Schutz unterstützt. In diesem Thema werden die Schritte zum Erstellen eines geschützten Vorlagen Datenträgers und einer VM-Vorlage in VMM behandelt.
+Wie bei regulären virtuellen Computern können Sie eine VM-Vorlage erstellen (z. b. eine [VM-Vorlage in Virtual Machine Manager (VMM)](/system-center/vmm/library-vm-templates?view=sc-vmm-2019)), damit Mandanten und Administratoren mithilfe eines Vorlagen Datenträgers problemlos neue VMS im Fabric bereitstellen können. Da abgeschirmte VMS sicherheitsrelevante Ressourcen sind, sind zusätzliche Schritte erforderlich, um eine VM-Vorlage zu erstellen, die Schutz unterstützt. In diesem Thema werden die Schritte zum Erstellen eines geschützten Vorlagen Datenträgers und einer VM-Vorlage in VMM behandelt.
 
 Informationen dazu, wie sich dieses Thema in den Gesamtprozess der Bereitstellung von abgeschirmten VMS einfügt, finden Sie unter [Hosten von Dienstanbietern Konfigurationsschritte für geschützte Hosts und abgeschirmte VMS](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md).
 
@@ -138,7 +138,7 @@ Nachdem die Vorlage erstellt wurde, können Mandanten Sie zum Erstellen neuer vi
 
 ## <a name="prepare-and-protect-the-vhdx-using-powershell"></a>Vorbereiten und schützen der vhdx-Datei mithilfe von PowerShell
 
-Als Alternative zum Ausführen des Assistenten für Vorlagen Datenträger können Sie den Vorlagen Datenträger und das Zertifikat auf einen Computer mit RSAT kopieren und [Protect-templatedisk](https://docs.microsoft.com/powershell/module/shieldedvmtemplate/protect-templatedisk?view=win10-ps
+Als Alternative zum Ausführen des Assistenten für Vorlagen Datenträger können Sie den Vorlagen Datenträger und das Zertifikat auf einen Computer mit RSAT kopieren und [Protect-templatedisk](/powershell/module/shieldedvmtemplate/protect-templatedisk?view=win10-ps
 ) ausführen, um den Signatur Prozess zu initiieren.
 Im folgenden Beispiel werden der Name und die Versionsinformationen verwendet, die von den Parametern _templatename_ und _Version_ angegeben werden.
 Die vhdx-Datei, die Sie für den-Parameter bereitstellen `-Path` , wird mit dem aktualisierten Vorlagen Datenträger überschrieben. Achten Sie daher darauf, dass Sie vor dem Ausführen des Befehls

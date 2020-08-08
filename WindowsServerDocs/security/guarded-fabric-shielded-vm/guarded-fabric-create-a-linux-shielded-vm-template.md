@@ -6,12 +6,12 @@ manager: dongill
 author: rpsqrd
 ms.author: ryanpu
 ms.date: 08/29/2018
-ms.openlocfilehash: 0535a15d0b21b62bb9f8b91729f773d1f4db0db0
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: fca3faca236a2fc5162d7a50ef02acad9b508226
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87966067"
+ms.locfileid: "87996307"
 ---
 # <a name="create-a-linux-shielded-vm-template-disk"></a>Erstellen eines virtuellen Linux-VM-Vorlagen Datenträgers
 
@@ -67,7 +67,7 @@ Diese Schritte führen Sie durch die Mindestanforderungen für eine Linux-VM, di
 4.  Öffnen Sie den **Hyper-V-Manager** auf dem Verwaltungs Computer, und stellen Sie eine Verbindung mit dem Virtualisierungsserver
     Klicken Sie hierzu auf "Verbindung mit Server herstellen...". Klicken Sie im Aktionsbereich oder mit der rechten Maustaste auf Hyper-V-Manager, und wählen Sie "Verbindung mit Server herstellen..." aus. Geben Sie den DNS-Namen für den Hyper-V-Server und ggf. die Anmelde Informationen an, die zum Herstellen einer Verbindung erforderlich sind.
 
-5.  Konfigurieren Sie mit dem Hyper-V-Manager [einen externen Switch](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines) auf dem Virtualisierungsserver, damit die Linux-VM auf das Internet zugreifen kann, um Updates abzurufen.
+5.  Konfigurieren Sie mit dem Hyper-V-Manager [einen externen Switch](../../virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines.md) auf dem Virtualisierungsserver, damit die Linux-VM auf das Internet zugreifen kann, um Updates abzurufen.
 
 6.  Erstellen Sie als nächstes einen neuen virtuellen Computer, auf dem das Linux-Betriebssystem installiert werden soll.
     Klicken Sie im Aktionsbereich auf **neuer**  >  **virtueller Computer** , um den Assistenten zu aktivieren.
@@ -119,7 +119,7 @@ Diese Schritte führen Sie durch die Mindestanforderungen für eine Linux-VM, di
 
 13. Wenn Sie beabsichtigen, System Center Virtual Machine Manager für die Bereitstellung Ihrer VMS zu verwenden, installieren Sie den VMM-Gast-Agent, damit VMM das Betriebssystem während der VM-Bereitstellung spezialisiert.
     Die Spezialisierung ermöglicht die sichere Einrichtung jeder VM mit unterschiedlichen Benutzern und SSH-Schlüsseln, Netzwerkkonfigurationen und benutzerdefinierten Einrichtungs Schritten.
-    Erfahren Sie, wie Sie [den VMM-Gast-Agent](https://docs.microsoft.com/system-center/vmm/vm-linux#install-the-vmm-guest-agent) in der VMM-Dokumentation abrufen und installieren.
+    Erfahren Sie, wie Sie [den VMM-Gast-Agent](/system-center/vmm/vm-linux#install-the-vmm-guest-agent) in der VMM-Dokumentation abrufen und installieren.
 
 14. [Fügen Sie als nächstes das Microsoft Linux-Softwarerepository Ihrem Paket-Manager hinzu](../../administration/linux-package-repository-for-microsoft-software.md).
 
@@ -189,7 +189,7 @@ Die vhdx-Datei, die Sie für den-Parameter bereitstellen `-Path` , wird mit dem 
 
 > [!IMPORTANT]
 > Der Remoteserver-Verwaltungstools, der unter Windows Server 2016 oder Windows 10 verfügbar ist, kann nicht verwendet werden, um einen Linux-Vorlagen Datenträger für geschützte
-> Verwenden Sie das Cmdlet " [Protect-templatedisk](https://docs.microsoft.com/powershell/module/shieldedvmtemplate/protect-templatedisk?view=win10-ps) ", das unter Windows Server, Version 1709, verfügbar ist, oder das Remoteserver-Verwaltungstools, das unter Windows Server 2019 verfügbar ist, um einen Linux-Vorlagen Datenträger
+> Verwenden Sie das Cmdlet " [Protect-templatedisk](/powershell/module/shieldedvmtemplate/protect-templatedisk?view=win10-ps) ", das unter Windows Server, Version 1709, verfügbar ist, oder das Remoteserver-Verwaltungstools, das unter Windows Server 2019 verfügbar ist, um einen Linux-Vorlagen Datenträger
 
 ```powershell
 # Replace "THUMBPRINT" with the thumbprint of your template disk signing certificate in the line below

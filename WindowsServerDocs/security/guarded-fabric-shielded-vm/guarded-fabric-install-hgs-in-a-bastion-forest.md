@@ -5,12 +5,12 @@ manager: dongill
 author: rpsqrd
 ms.author: ryanpu
 ms.date: 08/29/2018
-ms.openlocfilehash: cb2fe57963ac2786586d75df2a783945e2fb7d11
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 4e4bdf9c33d4511c470da50462469fadbd0641ce
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87963776"
+ms.locfileid: "87996239"
 ---
 # <a name="install-hgs-in-an-existing-bastion-forest"></a>Installieren von HGS in einer vorhandenen geschützten Gesamtstruktur
 
@@ -41,7 +41,7 @@ Sie können die Cluster Objekte auch vorab bereitstellen, wenn das Konto, mit de
 
 ## <a name="group-managed-service-account"></a>Gruppenverwaltetes Dienstkonto
 
-Das Gruppen verwaltete Dienst Konto (Group Managed Service Account, GMSA) ist die Identität, die von HGS zum Abrufen und Verwenden der Zertifikate verwendet wird. Verwenden Sie [New-ADServiceAccount](https://technet.microsoft.com/itpro/powershell/windows/addsadministration/new-adserviceaccount) , um ein GMSA zu erstellen.
+Das Gruppen verwaltete Dienst Konto (Group Managed Service Account, GMSA) ist die Identität, die von HGS zum Abrufen und Verwenden der Zertifikate verwendet wird. Verwenden Sie [New-ADServiceAccount](/powershell/module/addsadministration/new-adserviceaccount?view=win10-ps) , um ein GMSA zu erstellen.
 Wenn dies das erste GMSA in der Domäne ist, müssen Sie einen Schlüssel Verteilungsdienst-Stamm Schlüssel hinzufügen.
 
 Jedem HGS-Knoten muss der Zugriff auf das GMSA-Kennwort gestattet werden.
@@ -72,7 +72,7 @@ Wenn Sie Gruppenrichtlinie verwenden, um die Zuweisung von Benutzerrechten zu ko
 
 > [!NOTE]
 > Gruppen verwaltete Dienst Konten sind ab dem Windows Server 2012-Active Directory Schema verfügbar.
-> Weitere Informationen finden Sie unter [Gruppen verwaltete Dienst Kontoanforderungen](https://technet.microsoft.com/library/jj128431.aspx).
+> Weitere Informationen finden Sie unter [Gruppen verwaltete Dienst Kontoanforderungen](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj128431(v=ws.11)).
 
 ## <a name="jea-security-groups"></a>Jea-Sicherheitsgruppen
 
@@ -81,7 +81,7 @@ Sie müssen Jea nicht zum Verwalten von HGS verwenden, aber es muss beim Ausfüh
 Die Konfiguration des Jea-Endpunkts besteht aus dem Festlegen von zwei Sicherheitsgruppen, die ihre HGS-Administratoren und HGS-Reviewer enthalten.
 Benutzer, die der Administrator Gruppe angehören, können Richtlinien auf HGS hinzufügen, ändern oder entfernen. Reviewer können die aktuelle Konfiguration nur anzeigen.
 
-Erstellen Sie zwei Sicherheitsgruppen für diese Jea-Gruppen, indem Sie Active Directory Admin Tools oder [New-adgroup](https://technet.microsoft.com/itpro/powershell/windows/addsadministration/new-adgroup)verwenden.
+Erstellen Sie zwei Sicherheitsgruppen für diese Jea-Gruppen, indem Sie Active Directory Admin Tools oder [New-adgroup](/powershell/module/addsadministration/new-adgroup?view=win10-ps)verwenden.
 
 ```powershell
 New-ADGroup -Name 'HgsJeaReviewers' -GroupScope DomainLocal
@@ -91,7 +91,7 @@ New-ADGroup -Name 'HgsJeaAdmins' -GroupScope DomainLocal
 ## <a name="cluster-objects"></a>Clusterobjekte
 
 Wenn das Konto, das Sie zum Einrichten von HGS verwenden, nicht über die Berechtigung zum Erstellen neuer Computer Objekte in der Domäne verfügt, müssen Sie die Cluster Objekte vorab bereitstellen.
-Diese Schritte werden unter vorab Bereitstellen von [Cluster Computer Objekten in Active Directory Domain Services](https://technet.microsoft.com/library/dn466519(v=ws.11).aspx)erläutert.
+Diese Schritte werden unter vorab Bereitstellen von [Cluster Computer Objekten in Active Directory Domain Services](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn466519(v=ws.11))erläutert.
 
 Zum Einrichten des ersten HGS-Knotens müssen Sie ein Cluster Namen Objekt (CNO) und ein virtuelles Computer Objekt (VCO) erstellen.
 Das CNO stellt den Namen des Clusters dar und wird hauptsächlich intern vom Failoverclustering verwendet.
@@ -140,7 +140,7 @@ Wenn Sie HGS in einer stark gesperrten Umgebung bereitstellen, können bestimmte
 
 **Richtlinien Name:** Netzwerksicherheit: Konfigurieren der für Kerberos zulässigen Verschlüsselungstypen
 
-**Aktion**: Wenn diese Richtlinie konfiguriert ist, müssen Sie das GMSA-Konto mit " [Set-ADServiceAccount](https://docs.microsoft.com/powershell/module/addsadministration/set-adserviceaccount?view=win10-ps) " aktualisieren, sodass nur die unterstützten Verschlüsselungstypen in dieser Richtlinie verwendet werden. Wenn Ihre Richtlinie beispielsweise nur AES128 \_ HMAC \_ SHA1 und AES256 \_ HMAC \_ SHA1 zulässt, sollten Sie Ausführen `Set-ADServiceAccount -Identity HGSgMSA -KerberosEncryptionType AES128,AES256` .
+**Aktion**: Wenn diese Richtlinie konfiguriert ist, müssen Sie das GMSA-Konto mit " [Set-ADServiceAccount](/powershell/module/addsadministration/set-adserviceaccount?view=win10-ps) " aktualisieren, sodass nur die unterstützten Verschlüsselungstypen in dieser Richtlinie verwendet werden. Wenn Ihre Richtlinie beispielsweise nur AES128 \_ HMAC \_ SHA1 und AES256 \_ HMAC \_ SHA1 zulässt, sollten Sie Ausführen `Set-ADServiceAccount -Identity HGSgMSA -KerberosEncryptionType AES128,AES256` .
 
 
 
@@ -149,4 +149,3 @@ Wenn Sie HGS in einer stark gesperrten Umgebung bereitstellen, können bestimmte
 - Die nächsten Schritte zum Einrichten eines TPM-basierten Nachweis finden Sie unter [Initialisieren des HGS-Clusters mit dem TPM-Modus in einer vorhandenen](guarded-fabric-initialize-hgs-tpm-mode-bastion.md)geschützten Gesamtstruktur.
 - Die nächsten Schritte zum Einrichten des Host Schlüssel-Attestation finden Sie unter [Initialisieren des HGS-Clusters mithilfe des Schlüssel Modus in einer vorhandenen](guarded-fabric-initialize-hgs-key-mode-bastion.md)geschützten Gesamtstruktur.
 - Die nächsten Schritte zum Einrichten des Administrator basierten Nachweis (in Windows Server 2019 veraltet) finden Sie unter [Initialisieren des HGS-Clusters mit dem AD-Modus in einer vorhandenen](guarded-fabric-initialize-hgs-ad-mode-bastion.md)geschützten Gesamtstruktur.
-

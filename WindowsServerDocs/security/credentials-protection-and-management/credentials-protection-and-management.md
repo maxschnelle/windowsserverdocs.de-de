@@ -7,12 +7,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 3dc1d0ae3658e4379d3a358211471ac7f675651c
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: be120eda25b4d01da60faa2af241cd3ce243abfc
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87948703"
+ms.locfileid: "87995826"
 ---
 # <a name="credentials-protection-and-management"></a>Schutz und Verwaltung von Anmeldeinformationen
 
@@ -64,10 +64,7 @@ Mit der neuen Active Directory Objektklasse "Authentifizierungs Richtlinie" kön
 
 Weitere Informationen finden Sie unter [Authentifizierungsrichtlinien und Authentifizierungsrichtliniensilos](authentication-policies-and-authentication-policy-silos.md).
 
-Weitere Informationen zum Konfigurieren geschützter Konten finden Sie unter [Konfigurieren geschützter Konten](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/how-to-configure-protected-accounts).
+Weitere Informationen zum Konfigurieren geschützter Konten finden Sie unter [Konfigurieren geschützter Konten](../../identity/ad-ds/manage/how-to-configure-protected-accounts.md).
 
 ## <a name="additional-references"></a>Weitere Verweise
-Weitere Informationen zu LSA und LSASS finden Sie unter [Technische Übersicht über die Windows-Anmeldung und -Authentifizierung](https://technet.microsoft.com/library/dn169029(v=ws.10).aspx).
-
-
-
+Weitere Informationen zu LSA und LSASS finden Sie unter [Technische Übersicht über die Windows-Anmeldung und -Authentifizierung](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dn169029(v=ws.10)).

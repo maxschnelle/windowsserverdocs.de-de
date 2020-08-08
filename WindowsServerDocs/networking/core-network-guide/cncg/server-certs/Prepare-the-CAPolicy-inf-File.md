@@ -4,19 +4,17 @@ description: Die Datei CAPolicy. inf enthält verschiedene Einstellungen, die be
 manager: alanth
 ms.topic: article
 ms.assetid: 65b36794-bb09-4c1b-a2e7-8fc780893d97
-ms.prod: windows-server
-ms.technology: networking
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 4df23cd64bcf3bf9c27190908fb5f2a48b30b833
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 83e2acbc9edfd9ca236f01b1fef3474ffe1bbb51
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80318291"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87949454"
 ---
 # <a name="capolicyinf-syntax"></a>CAPolicy. inf-Syntax
->   Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+>   Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 Die Datei "capolicy. inf" ist eine Konfigurationsdatei, die Erweiterungen, Einschränkungen und andere Konfigurationseinstellungen definiert, die auf ein Zertifikat der Stamm Zertifizierungsstelle und alle von der Stamm Zertifizierungsstelle ausgestellten Zertifikate angewendet werden. Die Datei CAPolicy. inf muss auf einem Host Server installiert werden, bevor die Setup Routine für die Stamm Zertifizierungsstelle beginnt. Wenn die Sicherheitseinschränkungen für eine Stamm Zertifizierungsstelle geändert werden sollen, muss das Stamm Zertifikat erneuert und eine aktualisierte CAPolicy. inf-Datei auf dem Server installiert werden, bevor der Erneuerungs Vorgang beginnt.
 
@@ -42,7 +40,7 @@ Die folgenden Begriffe werden verwendet, um die INF-Dateistruktur zu beschreiben
 
 -   _Value_ – ist der Parameter und wird rechts neben dem Gleichheitszeichen angezeigt.
 
-Im folgenden Beispiel ist **[Version]** der-Abschnitt, **Signature** ist der Schlüssel, und **"\$Windows NT\$"** ist der Wert.
+Im folgenden Beispiel ist **[Version]** der-Abschnitt, **Signature** ist der Schlüssel, und **" \$ Windows NT \$ "** ist der Wert.
 
 Beispiel:
 
@@ -77,7 +75,7 @@ OID=1.1.1.1.1.1.2
 URL=https://pki.wingtiptoys.com/policies/legalpolicy.asp
 ```
 
-Beachten Sie auch Folgendes:
+Berücksichtigen Sie zudem Folgendes:
 
 -   Mehrere URL-und Hinweis Schlüssel werden unterstützt.
 
@@ -97,7 +95,7 @@ Notice=”Legal policy statement text”
 
 ### <a name="crldistributionpoint"></a>CRLDistributionPoint
 
-Sie können CRL-Verteilungs Punkte (CDPs) für ein Zertifikat der Stamm Zertifizierungsstelle in der Datei "capolicy. inf" angeben.  Nach der Installation der Zertifizierungsstelle können Sie die CDP-URLs konfigurieren, die in den einzelnen ausgestellten Zertifikaten enthalten sind. Das Zertifikat der Stamm Zertifizierungsstelle zeigt die URLs an, die in diesem Abschnitt der Datei "capolicy. inf" angegeben sind. 
+Sie können CRL-Verteilungs Punkte (CDPs) für ein Zertifikat der Stamm Zertifizierungsstelle in der Datei "capolicy. inf" angeben.  Nach der Installation der Zertifizierungsstelle können Sie die CDP-URLs konfigurieren, die in den einzelnen ausgestellten Zertifikaten enthalten sind. Das Zertifikat der Stamm Zertifizierungsstelle zeigt die URLs an, die in diesem Abschnitt der Datei "capolicy. inf" angegeben sind.
 
 ```
 [CRLDistributionPoint]
@@ -105,12 +103,12 @@ URL=http://pki.wingtiptoys.com/cdp/WingtipToysRootCA.crl
 ```
 
 Weitere Informationen zu diesem Abschnitt:
--   Stützten
-    - HTTP 
+-   Unterstützt:
+    - HTTP
     - Datei-URLs
-    - LDAP-URLs 
+    - LDAP-URLs
     - Mehrere URLs
-   
+
     >[!IMPORTANT]
     >HTTPS-URLs werden von nicht unterstützt.
 
@@ -121,7 +119,7 @@ Weitere Informationen zu diesem Abschnitt:
 -    Die Zertifizierungsstelle kann in der Datei "UNC" veröffentlichen, z. b. in einer Freigabe, die den Ordner einer Website darstellt, in der ein Client über HTTP abruft.
 
 -   Verwenden Sie diesen Abschnitt nur, wenn Sie eine Stamm Zertifizierungsstelle einrichten oder das Zertifikat der Stamm Zertifizierungsstelle erneuern. Die Zertifizierungsstelle bestimmt die CDP-Erweiterungen der untergeordneten Zertifizierungsstelle.
-   
+
 
 ### <a name="authorityinformationaccess"></a>Autorityinformationaccess
 
@@ -193,7 +191,7 @@ Bei einer Standardinstallation der Zertifizierungsstelle wird dem Ordner Zertifi
 
 Möglicherweise möchten Sie nicht sofort nach der Installation einer Zertifizierungsstelle Zertifikate ausstellen. Sie können daher die Einstellung loaddefaulttemplates verwenden, um zu verhindern, dass die Standardvorlagen der Unternehmens Zertifizierungsstelle hinzugefügt werden. Wenn keine Vorlagen auf der Zertifizierungsstelle konfiguriert sind, können keine Zertifikate ausgestellt werden.
 
-Die Zertifizierungsstelle wird von " **Alternativen** Dienstanbieter" so konfiguriert, dass das PKCS-\#1 v 2.1-Signatur Format sowohl für das Zertifizierungsstellen Zertifikat als auch für die Zertifikat Anforderungen unterstützt wird. Wenn für eine Stamm Zertifizierungsstelle der Wert 1 festgelegt wird, enthält das Zertifizierungsstellen Zertifikat das PKCS-\#1 v 2.1-Signatur Format. Wenn die untergeordnete Zertifizierungsstelle auf eine untergeordnete Zertifizierungsstelle festgelegt ist, wird eine Zertifikat Anforderung erstellt, die das PKCS-\#1 v 2.1-Signatur Format enthält.
+Die Zertifizierungsstelle wird von " **Alternativen** Dienstanbieter" so konfiguriert, dass das PKCS \# 1 v 2.1-Signatur Format sowohl für das Zertifizierungsstellen Zertifikat als auch für die Zertifikat Anforderungen unterstützt wird. Wenn für eine Stamm Zertifizierungsstelle der Wert 1 festgelegt wird, enthält das Zertifizierungsstellen Zertifikat das PKCS \# 1 v 2.1-Signatur Format. Wenn die untergeordnete Zertifizierungsstelle auf eine untergeordnete Zertifizierungsstelle festgelegt ist, wird eine Zertifikat Anforderung erstellt, die das PKCS \# 1 v 2.1-Signatur Format enthält.
 
 **ForceUTF8** ändert die Standard Codierung relativer definierter Namen (rDNS) in Antragsteller-und Aussteller definierter Namen in UTF-8. Nur die RDNs, die UTF-8 unterstützen, z. b. solche, die durch eine RFC als Verzeichnis Zeichen folgen Typen definiert sind, sind betroffen. Beispielsweise unterstützt der RDN für Domänen Komponenten (DC) die Codierung entweder als IA5 oder UTF-8, während das Land RDN (C) nur die Codierung als Druck Bare Zeichenfolge unterstützt. Die ForceUTF8-Direktive wirkt sich daher auf eine DC-RDN aus, wirkt sich aber nicht auf eine C RDN aus.
 
@@ -211,30 +209,30 @@ Vor der Installation von AD CS konfigurieren Sie die Datei CAPolicy. inf mit spe
 
 3. Geben Sie folgenden Dateiinhalt an:
    ```
-   [Version]  
-   Signature="$Windows NT$"  
-   [PolicyStatementExtension]  
-   Policies=InternalPolicy  
-   [InternalPolicy]  
-   OID=1.2.3.4.1455.67.89.5  
-   Notice="Legal Policy Statement"  
-   URL=https://pki.corp.contoso.com/pki/cps.txt  
-   [Certsrv_Server]  
-   RenewalKeyLength=2048  
-   RenewalValidityPeriod=Years  
-   RenewalValidityPeriodUnits=5  
-   CRLPeriod=weeks  
-   CRLPeriodUnits=1  
-   LoadDefaultTemplates=0  
-   AlternateSignatureAlgorithm=1  
-   [CRLDistributionPoint]  
+   [Version]
+   Signature="$Windows NT$"
+   [PolicyStatementExtension]
+   Policies=InternalPolicy
+   [InternalPolicy]
+   OID=1.2.3.4.1455.67.89.5
+   Notice="Legal Policy Statement"
+   URL=https://pki.corp.contoso.com/pki/cps.txt
+   [Certsrv_Server]
+   RenewalKeyLength=2048
+   RenewalValidityPeriod=Years
+   RenewalValidityPeriodUnits=5
+   CRLPeriod=weeks
+   CRLPeriodUnits=1
+   LoadDefaultTemplates=0
+   AlternateSignatureAlgorithm=1
+   [CRLDistributionPoint]
    [AuthorityInformationAccess]
    ```
 4. Klicken Sie auf **Datei**und dann auf **Speichern**unter.
 
 5. Navigieren Sie zum Ordner% SystemRoot%.
 
-6. Vergewissern Sie sich, dass folgende Bedingungen erfüllt sind:
+6. Stellen Sie Folgendes sicher:
 
    -   **Dateiname** ist auf **CAPolicy.inf**
 
@@ -251,7 +249,7 @@ Vor der Installation von AD CS konfigurieren Sie die Datei CAPolicy. inf mit spe
    > [!CAUTION]
    >   Vergewissern Sie sich, dass die Datei %%amp;quot;CAPolicy.inf%%amp;quot; mit der Dateierweiterung INF gespeichert wurde. Wenn Sie am Ende des Dateinamens nicht ausdrücklich **.inf** eingeben und die beschriebenen Optionen auswählen, wird die Datei als Textdatei gespeichert und nicht während der Zertifizierungsstelleninstallation verwendet.
 
-9. Schließen Sie Editor.
+9. Schließen Sie den Editor.
 
 > [!IMPORTANT]
->   In der Datei "capolicy. inf" sehen Sie eine Zeile, in der die URL https://pki.corp.contoso.com/pki/cps.txtangegeben wird. Der Abschnitt der Datei %%amp;quot;CAPolicy.inf%%amp;quot; zu den internen Richtlinien dient lediglich als Beispiel dafür, wie Sie den Speicherort einer Zertifikatverwendungserklärung (Certificate Practice Statement, CPS) angeben können. In diesem Handbuch werden Sie nicht aufgefordert, die CPS (Certificate Practice Statement) zu erstellen.
+>   In der CAPolicy. inf sehen Sie, dass eine Zeile die URL angibt https://pki.corp.contoso.com/pki/cps.txt . Der Abschnitt der Datei %%amp;quot;CAPolicy.inf%%amp;quot; zu den internen Richtlinien dient lediglich als Beispiel dafür, wie Sie den Speicherort einer Zertifikatverwendungserklärung (Certificate Practice Statement, CPS) angeben können. In diesem Handbuch werden Sie nicht aufgefordert, die CPS (Certificate Practice Statement) zu erstellen.
