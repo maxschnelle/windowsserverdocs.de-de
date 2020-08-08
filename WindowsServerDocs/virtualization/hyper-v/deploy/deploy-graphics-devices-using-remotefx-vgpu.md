@@ -1,26 +1,25 @@
 ---
 title: Bereitstellen von Grafikgeräten mit RemoteFX vGPU
 description: Erfahren Sie, wie Sie remotefx vgpu in Windows Server bereitstellen und konfigurieren.
-ms.prod: windows-server
 ms.reviewer: rickman
 author: rick-man
 ms.author: rickman
 manager: stevelee
 ms.topic: article
 ms.date: 07/14/2020
-ms.openlocfilehash: ab16dcdc8ce29f2440207ea5bbc7c421f171ed4a
-ms.sourcegitcommit: f81aa22739d818382d314561dece59a9341dfb6f
+ms.openlocfilehash: 9a060f1650d20a029d64739e1fc7f9be44d8355c
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/15/2020
-ms.locfileid: "86390087"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87953436"
 ---
 # <a name="deploy-graphics-devices-using-remotefx-vgpu"></a>Bereitstellen von Grafikgeräten mit RemoteFX vGPU
 
 > Gilt für: Windows Server 2016, Microsoft Hyper-V Server 2016
 
 > [!NOTE]
-> Aus Sicherheitsgründen ist remotefx vgpu standardmäßig für alle Versionen von Windows ab dem 2020-Sicherheits Update vom 14. Juli deaktiviert. Weitere Informationen finden Sie in [KB 4570006](https://support.microsoft.com/help/4570006).
+> Aufgrund von Sicherheitsbedenken ist RemoteFX vGPU auf allen Windows-Versionen ab dem Sicherheitsupdate vom 14. Juli 2020 standardmäßig deaktiviert. Weitere Informationen dazu finden Sie in [KB 4570006](https://support.microsoft.com/help/4570006).
 
 Die vgpu-Funktion für remotefx ermöglicht es mehreren virtuellen Computern, eine physische GPU gemeinsam zu nutzen. Rendering-und computeressourcen werden dynamisch zwischen virtuellen Computern gemeinsam genutzt, sodass remotefx vgpu für hochleistungsfähige Workloads geeignet ist, bei denen keine dedizierten GPU-Ressourcen erforderlich sind. Beispielsweise kann in einem VDI-Dienst remotefx vgpu zum Auslagern von App-renderingkosten an die GPU verwendet werden, wobei die CPU-Auslastung verringert und die Dienst Skalierbarkeit verbessert wird.
 
@@ -38,7 +37,7 @@ Anforderungen an die Gast-VM:
 
 Weitere Überlegungen zu Gast-VMs:
 
-- Die Funktionen OpenGL und OpenCL sind nur in Gästen verfügbar, auf denen Windows 10 oder Windows Server 2016 ausgeführt wird.  
+- Die Funktionen OpenGL und OpenCL sind nur in Gästen verfügbar, auf denen Windows 10 oder Windows Server 2016 ausgeführt wird.
 - DirectX 11,0 ist nur für Gäste verfügbar, auf denen Windows 8 oder höher ausgeführt wird.
 
 ## <a name="enable-remotefx-vgpu"></a>Remotefx-vgpu aktivieren

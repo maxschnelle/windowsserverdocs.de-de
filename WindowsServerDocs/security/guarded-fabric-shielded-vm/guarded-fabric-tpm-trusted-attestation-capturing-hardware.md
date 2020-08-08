@@ -1,25 +1,23 @@
 ---
 title: Erfassen der von HGS benötigten Informationen zum TPM-Modus
-ms.prod: windows-server
 ms.topic: article
 ms.assetid: 915b1338-5085-481b-8904-75d29e609e93
 manager: dongill
 author: rpsqrd
 ms.author: ryanpu
-ms.technology: security-guarded-fabric
 ms.date: 04/01/2019
-ms.openlocfilehash: 480901321b53adb03cc44f7e8b7c597c77404c90
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: a0bc065f9654091ece18445488e4b46cfb197ad3
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80856423"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87944150"
 ---
 # <a name="authorize-guarded-hosts-using-tpm-based-attestation"></a>Autorisieren von überwachten Hosts mithilfe von TPM-basiertem Nachweis
 
 >Gilt für: Windows Server 2019, Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Der TPM-Modus verwendet einen TPM-Bezeichner (auch als Platt Form Bezeichner oder Endorsement Key \[ekpub\]bezeichnet), um zu bestimmen, ob ein bestimmter Host als "geschützt" autorisiert ist. Bei diesem Nachweis werden sichere Start-und Code Integritäts Messungen verwendet, um sicherzustellen, dass sich ein bestimmter Hyper-V-Host in einem fehlerfreien Zustand befindet und nur vertrauenswürdiger Code ausgeführt wird. Damit der Nachweis weiß, was nicht fehlerfrei ist, müssen Sie die folgenden Artefakte erfassen:
+Der TPM-Modus verwendet einen TPM-Bezeichner (auch als Platt Form Bezeichner oder Endorsement Key \[ ekpub bezeichnet \] ), um zu bestimmen, ob ein bestimmter Host als "geschützt" autorisiert ist. Bei diesem Nachweis werden sichere Start-und Code Integritäts Messungen verwendet, um sicherzustellen, dass sich ein bestimmter Hyper-V-Host in einem fehlerfreien Zustand befindet und nur vertrauenswürdiger Code ausgeführt wird. Damit der Nachweis weiß, was nicht fehlerfrei ist, müssen Sie die folgenden Artefakte erfassen:
 
 1.  TPM-Bezeichner (ekpub)
 
@@ -33,19 +31,19 @@ Der TPM-Modus verwendet einen TPM-Bezeichner (auch als Platt Form Bezeichner ode
 
     -  Dies gilt für alle Hyper-V-Hosts, die gemeinsame Hardware und Software gemeinsam verwenden.
 
-Es wird empfohlen, die Baseline-und CI-Richtlinie von einem "Verweis Host" zu erfassen, der für jede eindeutige Klasse der Hyper-V-Hardwarekonfiguration innerhalb Ihres Rechenzentrums repräsentativ ist. Ab Windows Server, Version 1709, sind die CI-Beispiel Richtlinien unter c:\windows\schemas\codeintegrity\examplepoliciesenthalten. 
+Es wird empfohlen, die Baseline-und CI-Richtlinie von einem "Verweis Host" zu erfassen, der für jede eindeutige Klasse der Hyper-V-Hardwarekonfiguration innerhalb Ihres Rechenzentrums repräsentativ ist. Ab Windows Server, Version 1709, sind die CI-Beispiel Richtlinien unter c:\windows\schemas\codeintegrity\examplepoliciesenthalten.
 
 ## <a name="versioned-attestation-policies"></a>Nachweis Richtlinien mit Versions Angabe
 
-In Windows Server 2019 wird eine neue Methode für den Nachweis namens " *v2*-Nachweis" eingeführt, in der ein TPM-Zertifikat vorhanden sein muss, um die ekpub-Datei zu HGS hinzuzufügen. Mit der in Windows Server 2016 verwendeten v1-Nachweismethode konnten Sie diese Sicherheitsüberprüfung außer Kraft setzen, indem Sie das Flag "-Force" angeben, wenn Sie "Add-hgsattestationtpmhost" oder andere TPM-Nachweis-Cmdlets ausführen, um die Artefakte zu erfassen. Ab Windows Server 2019 wird der V2-Nachweis standardmäßig verwendet, und Sie müssen das Flag "-PolicyVersion v1" angeben, wenn Sie "Add-hgsattestationtpmhost" ausführen müssen, wenn Sie ein TPM ohne Zertifikat registrieren müssen. Das Flag-Force funktioniert nicht mit dem V2-Nachweis. 
+In Windows Server 2019 wird eine neue Methode für den Nachweis namens " *v2*-Nachweis" eingeführt, in der ein TPM-Zertifikat vorhanden sein muss, um die ekpub-Datei zu HGS hinzuzufügen. Mit der in Windows Server 2016 verwendeten v1-Nachweismethode konnten Sie diese Sicherheitsüberprüfung außer Kraft setzen, indem Sie das Flag "-Force" angeben, wenn Sie "Add-hgsattestationtpmhost" oder andere TPM-Nachweis-Cmdlets ausführen, um die Artefakte zu erfassen. Ab Windows Server 2019 wird der V2-Nachweis standardmäßig verwendet, und Sie müssen das Flag "-PolicyVersion v1" angeben, wenn Sie "Add-hgsattestationtpmhost" ausführen müssen, wenn Sie ein TPM ohne Zertifikat registrieren müssen. Das Flag-Force funktioniert nicht mit dem V2-Nachweis.
 
-Ein Host kann nur überzeugen, ob für alle Artefakte (ekpub + TPM-Baseline und CI-Richtlinie) dieselbe Version des Nachweis verwendet wird. Der V2-Nachweis wird zuerst ausprobiert, und wenn dies nicht möglich ist, wird der v1-Nachweis verwendet. Dies bedeutet Folgendes: Wenn Sie eine TPM-ID mithilfe des v1-Nachweis registrieren müssen, müssen Sie auch das Flag "-PolicyVersion v1" angeben, um den v1-Nachweis zu verwenden, wenn Sie die TPM-Baseline erfassen und die CI-Richtlinie erstellen. Wenn die TPM-Baseline und die CI-Richtlinie mit dem V2-Nachweis erstellt wurden und Sie später einen überwachten Host ohne TPM-Zertifikat hinzufügen müssen, müssen Sie jedes artefaktelement mit dem Flag "-PolicyVersion v1" neu erstellen. 
+Ein Host kann nur überzeugen, ob für alle Artefakte (ekpub + TPM-Baseline und CI-Richtlinie) dieselbe Version des Nachweis verwendet wird. Der V2-Nachweis wird zuerst ausprobiert, und wenn dies nicht möglich ist, wird der v1-Nachweis verwendet. Dies bedeutet Folgendes: Wenn Sie eine TPM-ID mithilfe des v1-Nachweis registrieren müssen, müssen Sie auch das Flag "-PolicyVersion v1" angeben, um den v1-Nachweis zu verwenden, wenn Sie die TPM-Baseline erfassen und die CI-Richtlinie erstellen. Wenn die TPM-Baseline und die CI-Richtlinie mit dem V2-Nachweis erstellt wurden und Sie später einen überwachten Host ohne TPM-Zertifikat hinzufügen müssen, müssen Sie jedes artefaktelement mit dem Flag "-PolicyVersion v1" neu erstellen.
 
 ## <a name="capture-the-tpm-identifier-platform-identifier-or-ekpub-for-each-host"></a>Erfassen Sie den TPM-Bezeichner (Platt Form Bezeichner oder ekpub) für jeden Host.
 
 1.  Stellen Sie in der Fabric-Domäne sicher, dass das TPM auf den einzelnen Hosts zur Verwendung bereit ist, d. h., das TPM ist initialisiert, und der Besitz wurde abgerufen. Sie können den Status des TPM überprüfen, indem Sie die TPM-Verwaltungskonsole (TPM. msc) öffnen oder **Get-TPM** in einem Windows PowerShell-Fenster mit erhöhten Rechten ausführen. Wenn das TPM nicht den Status **bereit** aufweist, müssen Sie es initialisieren und dessen Besitz festlegen. Dies kann in der TPM-Verwaltungskonsole oder durch Ausführen von **Initialize-TPM**erfolgen.
 
-2.  Führen Sie auf jedem überwachten Host den folgenden Befehl in einer Windows PowerShell-Konsole mit erhöhten Rechten aus, um die ekpub-Datei abzurufen. Ersetzen Sie für `<HostName>`den eindeutigen Hostnamen durch etwas, das zum Identifizieren dieses Hosts geeignet ist. dabei kann es sich um den Hostnamen oder den Namen handeln, der von einem Fabric-Inventur Dienst (falls verfügbar) verwendet wird. Benennen Sie die Ausgabedatei unter Verwendung des Host namens.
+2.  Führen Sie auf jedem überwachten Host den folgenden Befehl in einer Windows PowerShell-Konsole mit erhöhten Rechten aus, um die ekpub-Datei abzurufen. `<HostName>`Ersetzen Sie für den eindeutigen Hostnamen durch etwas, das zum Identifizieren dieses Hosts geeignet ist. dabei kann es sich um den Hostnamen oder den Namen handeln, der von einem Fabric-Inventur Dienst (falls verfügbar) verwendet wird. Benennen Sie die Ausgabedatei unter Verwendung des Host namens.
 
     ```powershell
     (Get-PlatformIdentifier -Name '<HostName>').InnerXml | Out-file <Path><HostName>.xml -Encoding UTF8
@@ -64,22 +62,26 @@ Ein Host kann nur überzeugen, ob für alle Artefakte (ekpub + TPM-Baseline und 
     > Wenn beim Hinzufügen eines TPM-Bezeichners zu einem nicht vertrauenswürdigen Endorsement Key-Zertifikat (ekcert) ein Fehler auftritt, stellen Sie sicher, dass die [vertrauenswürdigen TPM](guarded-fabric-install-trusted-tpm-root-certificates.md) -Stamm Zertifikate dem HGS-Knoten hinzugefügt wurden.
     > Darüber hinaus verwenden einige TPM-Anbieter keine ekcerts.
     > Sie können überprüfen, ob ein ekcert fehlt, indem Sie die XML-Datei in einem Editor wie z. b. Editor öffnen und auf eine Fehlermeldung mit dem Hinweis, dass kein ekcert gefunden wurde, prüfen.
-    > Wenn dies der Fall ist und Sie sich darauf verlassen, dass das TPM auf dem Computer authentisch ist, können Sie den `-Force`-Parameter verwenden, um den Host Bezeichner zu HGS hinzuzufügen. In Windows Server 2019 müssen Sie auch den `-PolicyVersion v1`-Parameter verwenden, wenn Sie `-Force`verwenden. Dadurch wird eine Richtlinie erstellt, die mit dem Verhalten von Windows Server 2016 konsistent ist, und Sie müssen beim Registrieren der CI-Richtlinie und der TPM-Baseline auch `-PolicyVersion v1` verwenden.
+    > Wenn dies der Fall ist und Sie sich darauf verlassen, dass das TPM auf dem Computer authentisch ist, können Sie den-Parameter verwenden, `-Force` um den Host Bezeichner zu HGS hinzuzufügen. In Windows Server 2019 müssen Sie auch den-Parameter verwenden, `-PolicyVersion v1` Wenn Sie verwenden `-Force` . Dadurch wird eine Richtlinie erstellt, die dem Verhalten von Windows Server 2016 entspricht, und es ist erforderlich, dass Sie `-PolicyVersion v1` beim Registrieren der CI-Richtlinie und der TPM-Baseline ebenfalls verwenden.
 
 ## <a name="create-and-apply-a-code-integrity-policy"></a>Erstellen und Anwenden einer Code Integritätsrichtlinie
 
-Mit einer Code Integritätsrichtlinie kann sichergestellt werden, dass nur die ausführbaren Dateien, denen Sie Vertrauen, auf einem Host ausgeführt werden dürfen, ausgeführt werden dürfen. Schadsoftware und andere ausführbare Dateien außerhalb der vertrauenswürdigen ausführbaren Dateien können nicht ausgeführt werden.
+Mit einer Code Integritätsrichtlinie kann sichergestellt werden, dass nur die ausführbaren Dateien, denen Sie Vertrauen, auf einem Host ausgeführt werden dürfen, ausgeführt werden dürfen.
+Schadsoftware und andere ausführbare Dateien außerhalb der vertrauenswürdigen ausführbaren Dateien können nicht ausgeführt werden.
 
-Für jeden überwachten Host muss eine Code Integritätsrichtlinie angewendet werden, damit abgeschirmte VMS im TPM-Modus ausgeführt werden können. Sie geben die exakten Code Integritäts Richtlinien an, denen Sie Vertrauen, indem Sie Sie zu HGS hinzufügen. Code Integritäts Richtlinien können konfiguriert werden, um die Richtlinie zu erzwingen, jegliche Software zu blockieren, die die Richtlinie nicht einhält, oder einfach ein Ereignis zu überwachen (protokollieren, wenn Software, die nicht in der Richtlinie definiert ist). 
+Für jeden überwachten Host muss eine Code Integritätsrichtlinie angewendet werden, damit abgeschirmte VMS im TPM-Modus ausgeführt werden können.
+Sie geben die exakten Code Integritäts Richtlinien an, denen Sie Vertrauen, indem Sie Sie zu HGS hinzufügen.
+Code Integritäts Richtlinien können konfiguriert werden, um die Richtlinie zu erzwingen, jegliche Software zu blockieren, die die Richtlinie nicht einhält, oder einfach ein Ereignis zu überwachen (protokollieren, wenn Software, die nicht in der Richtlinie definiert ist).
 
 Ab Windows Server, Version 1709, sind Beispielcode Integritäts Richtlinien in Windows unter c:\windows\schemas\codeintegrity\examplepoliciesenthalten. Für Windows Server werden zwei Richtlinien empfohlen:
 
 - **Allowmicrosoft**: erlaubt alle Dateien, die von Microsoft signiert wurden. Diese Richtlinie wird für Server Anwendungen, z. b. SQL oder Exchange, empfohlen, oder wenn der Server von Agents überwacht wird, die von Microsoft veröffentlicht wurden.
-- **DefaultWindows_Enforced**: erlaubt nur Dateien, die in Windows enthalten sind und keine anderen von Microsoft veröffentlichten Anwendungen, wie z. b. Office, zulässt. Diese Richtlinie wird für Server empfohlen, auf denen nur integrierte Server Rollen und Features wie z. b. Hyper-V ausgeführt werden. 
+- **DefaultWindows_Enforced**: erlaubt nur Dateien, die in Windows enthalten sind und keine anderen von Microsoft veröffentlichten Anwendungen, wie z. b. Office, zulässt. Diese Richtlinie wird für Server empfohlen, auf denen nur integrierte Server Rollen und Features wie z. b. Hyper-V ausgeführt werden.
 
-Es wird empfohlen, zuerst die CI-Richtlinie im Überwachungsmodus (Protokollierungs Modus) zu erstellen, um festzustellen, ob Sie etwas hat, und dann die Richtlinie für Host produktionsworkloads zu erzwingen. 
+Es wird empfohlen, zuerst die CI-Richtlinie im Überwachungsmodus (Protokollierungs Modus) zu erstellen, um festzustellen, ob Sie etwas hat, und dann die Richtlinie für Host produktionsworkloads zu erzwingen.
 
-Wenn Sie das Cmdlet " [New-cipolicy](https://docs.microsoft.com/powershell/module/configci/new-cipolicy?view=win10-ps) " verwenden, um eine eigene Code Integritätsrichtlinie zu generieren, müssen Sie die zu verwendenden Regel Ebenen festlegen. Wir empfehlen eine primäre Ebene des **Verlegers** mit Fall Back auf **Hash**, sodass die meisten digital signierten Software aktualisiert werden kann, ohne die CI-Richtlinie zu ändern.
+Wenn Sie das Cmdlet " [New-cipolicy](https://docs.microsoft.com/powershell/module/configci/new-cipolicy?view=win10-ps) " verwenden, um eine eigene Code Integritätsrichtlinie zu generieren, müssen Sie die zu verwendenden Regel Ebenen festlegen.
+Wir empfehlen eine primäre Ebene des **Verlegers** mit Fall Back auf **Hash**, sodass die meisten digital signierten Software aktualisiert werden kann, ohne die CI-Richtlinie zu ändern.
 Neue Software, die vom selben Verleger geschrieben wird, kann auch auf dem Server installiert werden, ohne dass die CI-Richtlinie geändert wird.
 Ausführbare Dateien, die nicht digital signiert sind, werden Hashwerte aufweisen: bei Updates für diese Dateien müssen Sie eine neue CI-Richtlinie erstellen.
 Weitere Informationen zu den verfügbaren CI-Richtlinien Regel Ebenen finden Sie unter Bereitstellen von [Code Integritäts Richtlinien: Richtlinien Regeln und Datei Regeln](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/select-types-of-rules-to-create#windows-defender-application-control-policy-rules) und Cmdlet-Hilfe.
@@ -121,18 +123,18 @@ Weitere Informationen zu den verfügbaren CI-Richtlinien Regel Ebenen finden Sie
 
     ```powershell
     Invoke-CimMethod -Namespace root/Microsoft/Windows/CI -ClassName PS_UpdateAndCompareCIPolicy -MethodName Update -Arguments @{ FilePath = "C:\temp\HW1CodeIntegrity.p7b" }
-    
+
     Restart-Computer
     ```
 
     >[!NOTE]
-    >Seien Sie vorsichtig, wenn Sie CI-Richtlinien auf Hosts anwenden und Software auf diesen Computern aktualisieren. Alle Kernelmodustreiber, die nicht mit der CI-Richtlinie kompatibel sind, können verhindern, dass der Computer gestartet wird. 
+    >Seien Sie vorsichtig, wenn Sie CI-Richtlinien auf Hosts anwenden und Software auf diesen Computern aktualisieren. Alle Kernelmodustreiber, die nicht mit der CI-Richtlinie kompatibel sind, können verhindern, dass der Computer gestartet wird.
 
-6.  Stellen Sie die Binärdatei (in diesem Beispiel HW1CodeIntegrity\_erzwungen. p7b) für den HGS-Administrator bereit.
+6.  Stellen Sie dem HGS-Administrator die Binärdatei (in diesem Beispiel HW1CodeIntegrity \_ erzwungene. p7b) bereit.
 
 7.  Kopieren Sie in der HGS-Domäne die Code Integritätsrichtlinie auf einen HGS-Server, und führen Sie den folgenden Befehl aus.
 
-    Geben Sie für `<PolicyName>`einen Namen für die CI-Richtlinie ein, die den Hosttyp beschreibt, auf den Sie angewendet wird. Eine bewährte Vorgehensweise besteht darin, den Namen nach dem Make/Model Ihres Computers und allen darauf laufenden speziellen Software Konfigurationen zu benennen.<br>Geben Sie für `<Path>`den Pfad und den Dateinamen der Code Integritätsrichtlinie an.
+    `<PolicyName>`Geben Sie unter einen Namen für die CI-Richtlinie ein, die den Hosttyp beschreibt, auf den Sie angewendet wird. Eine bewährte Vorgehensweise besteht darin, den Namen nach dem Make/Model Ihres Computers und allen darauf laufenden speziellen Software Konfigurationen zu benennen.<br>Geben Sie für `<Path>` den Pfad und den Dateinamen der Code Integritätsrichtlinie an.
 
     ```powershell
     Add-HgsAttestationCIPolicy -Path <Path> -Name '<PolicyName>'
@@ -140,7 +142,7 @@ Weitere Informationen zu den verfügbaren CI-Richtlinien Regel Ebenen finden Sie
 
 ## <a name="capture-the-tpm-baseline-for-each-unique-class-of-hardware"></a>Erfassen der TPM-Baseline für jede eindeutige Hardware Klasse
 
-Eine TPM-Baseline ist für jede eindeutige Hardware Klasse in Ihrer Rechenzentrums Struktur erforderlich. Verwenden Sie erneut einen "Verweis Host". 
+Eine TPM-Baseline ist für jede eindeutige Hardware Klasse in Ihrer Rechenzentrums Struktur erforderlich. Verwenden Sie erneut einen "Verweis Host".
 
 1. Stellen Sie auf dem Referenz Host sicher, dass die Hyper-v-Rolle und die Hyper-v-Unterstützung des Host-Überwachungs Diensts installiert sind.
 
@@ -150,9 +152,9 @@ Eine TPM-Baseline ist für jede eindeutige Hardware Klasse in Ihrer Rechenzentru
     ```powershell
     Install-WindowsFeature Hyper-V, HostGuardian -IncludeManagementTools -Restart
     ```
-        
+
 2. Führen Sie den folgenden Befehl in einer Windows PowerShell-Konsole mit erhöhten Rechten aus, um die Baseline-Richtlinie aufzuzeichnen.
-        
+
     ```powershell
     Get-HgsAttestationBaselinePolicy -Path 'HWConfig1.tcglog'
     ```

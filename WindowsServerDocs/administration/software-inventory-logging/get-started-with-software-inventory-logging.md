@@ -7,12 +7,12 @@ author: brentfor
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 940c5d7795ff4dcf84bad0727d1f92d155b3ea1b
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: a8584b5e2cf1048e0bba5c217aa3e6031600839a
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87895651"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87993050"
 ---
 # <a name="get-started-with-software-inventory-logging"></a>Beginnen Sie mit der Protokollierung des Software Bestands
 
@@ -39,9 +39,8 @@ Die Softwareinventurprotokollierung kann Serveradministratoren beim Ausführen f
 -   Aggregierte Software-und Server Inventur Informationen für eine Vielzahl von Software Asset Management-Szenarien durch Aktivieren der Protokollierungsfunktion des Software Bestands für jedes Server und Auswählen eines Ziel-URIs für den Webserver und des Zertifikat Fingerabdrucks für die Authentifizierung.
 
 ## <a name="see-also"></a>Weitere Informationen
-[Aggregator der Protokollierung des Softwarebestands](https://technet.microsoft.com/library/mt572043.aspx)<br>
+[Aggregator der Protokollierung des Softwarebestands](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/mt572043(v=ws.11))<br>
 [Verwaltung der Protokollierung des Softwarebestands](manage-software-inventory-logging.md)<br>
-[Cmdlets für die Protokollierung des Softwarebestands in Windows PowerShell](https://technet.microsoft.com/library/dn283390.aspx)<br>
+[Cmdlets für die Protokollierung des Softwarebestands in Windows PowerShell](/powershell/module/softwareinventorylogging/?view=winserver2012R2-ps)<br>
 [Microsoft Assessment and Planning Toolkit](https://www.microsoft.com/download/en/details.aspx?id=7826) 
  [Tool für die Volumen Aktivierungs Verwaltung](https://blogs.technet.com/b/volume-licensing/)
-

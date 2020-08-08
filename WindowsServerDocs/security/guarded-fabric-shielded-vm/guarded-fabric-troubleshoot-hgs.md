@@ -1,19 +1,17 @@
 ---
 title: Problembehandlung beim Host-Überwachungsdienst
-ms.prod: windows-server
 ms.topic: article
 ms.assetid: 424b8090-0692-49a6-9dc4-3c0e77d74b80
 manager: dongill
 author: rpsqrd
 ms.author: ryanpu
-ms.technology: security-guarded-fabric
 ms.date: 09/25/2019
-ms.openlocfilehash: 4cbbb41b965a44b6c81b58adc94990bb4d6af046
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 21c29c8432d9f578a50130719c61a255fdb5c649
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80856403"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87944080"
 ---
 # <a name="troubleshooting-the-host-guardian-service"></a>Problembehandlung beim Host-Überwachungsdienst
 
@@ -126,7 +124,7 @@ ADCs-Vorlagen Eigenschaft | Erforderlicher Wert
 -----------------------|---------------
 Anbieter Kategorie      | Schlüsselspeicheranbieter
 Algorithmusname         | RSA
-Minimale Schlüsselgröße       | 2\.048
+Minimale Schlüsselgröße       | 2048
 Zweck                | Signatur und Verschlüsselung
 Schlüssel Verwendungs Erweiterung    | Digitale Signatur, Schlüssel Verschlüsselung, Datenverschlüsselung ("Verschlüsselung von Benutzerdaten zulassen")
 
@@ -139,7 +137,7 @@ Das Signatur Geber Zertifikat wird im Hintergrund auf HGS erstellt und erneuert 
 Führen Sie den folgenden Befehl an einer PowerShell-Eingabeaufforderung mit erhöhten Rechten aus, um das Signatur Geber Zertifikat zu aktualisieren.
 
 ```powershell
-Start-ScheduledTask -TaskPath \Microsoft\Windows\HGSServer -TaskName 
+Start-ScheduledTask -TaskPath \Microsoft\Windows\HGSServer -TaskName
 AttestationSignerCertRenewalTask
 ```
 
@@ -154,14 +152,14 @@ Es wird empfohlen, dass Sie keine Richtlinien entfernen, die Hosts aus dem vorhe
 **Bekanntes Problem beim Wechsel von TPM in den AD-Modus**
 
 Wenn Sie Ihren HGS-Cluster im TPM-Modus initialisiert und später in den Active Directory-Modus gewechselt haben, liegt ein bekanntes Problem vor, das verhindert, dass andere Knoten in Ihrem HGS-Cluster in den neuen Nachweis Modus wechseln.
-Um sicherzustellen, dass alle HGS-Server den richtigen Nachweis Modus erzwingen, führen Sie `Set-HgsServer -TrustActiveDirectory` **auf jedem Knoten** des HGS-Clusters aus.
+Um sicherzustellen, dass alle HGS-Server den richtigen Nachweis Modus erzwingen, führen `Set-HgsServer -TrustActiveDirectory` Sie **auf jedem Knoten** des HGS-Clusters aus.
 Dieses Problem tritt nicht auf, wenn Sie vom TPM-Modus in den AD *-* Modus wechseln und der Cluster ursprünglich im AD-Modus eingerichtet wurde.
 
 Sie können den Nachweis Modus Ihres HGS-Servers durch Ausführen von [Get-hgsserver](https://technet.microsoft.com/library/mt652162.aspx)überprüfen.
 
 ## <a name="memory-dump-encryption-policies"></a>Verschlüsselungsrichtlinien für den Speicher Abbild
 
-Wenn Sie versuchen, Speicher Abbild-Verschlüsselungsrichtlinien zu konfigurieren und die standardmäßigen HGS-dumprichtlinien (HGS\_nodumps, HGS\_dumpencryption und HGS\_dumpverschlüsselungkey) oder das dumprichtliniencmdlet (Add-hgsattestationdumppolicy) nicht zu sehen, ist es wahrscheinlich, dass das neueste kumulative Update nicht installiert ist
+Wenn Sie versuchen, die Verschlüsselungsrichtlinien für Speicher Abbilder zu konfigurieren und die standardmäßigen HGS-dumprichtlinien (HGS \_ nodumps, HGS \_ dumpencryption und HGS \_ dumpverschlüsselungskey) oder das Cmdlet für die dumprichtlinie (Add-hgsattestationdumppolicy) nicht zu sehen, ist es wahrscheinlich, dass das neueste kumulative Update nicht installiert ist.
 [Aktualisieren Sie den HGS-Server](guarded-fabric-manage-hgs.md#patching-hgs) auf das neueste kumulative Windows Update, und [Aktivieren Sie die neuen Nachweis Richtlinien](guarded-fabric-manage-hgs.md#updates-requiring-policy-activation), um dies zu beheben.
 Stellen Sie sicher, dass Sie Ihre Hyper-V-Hosts auf das gleiche kumulative Update aktualisieren, bevor Sie die neuen Nachweis Richtlinien aktivieren, da Hosts, auf denen die neuen dumpverschlüsselungs Funktionen nicht installiert sind, möglicherweise nach dem Aktivieren der HGS-Richtlinie fehlschlagen.
 
@@ -176,8 +174,8 @@ Beim Registrieren eines TPM-Hosts wird eine Fehlermeldung angezeigt, wenn eine d
 2. Die Plattform-bezeichnerdatei enthält ein Endorsement Key-Zertifikat, aber dieses Zertifikat ist auf dem System **nicht vertrauenswürdig** .
 
 Bestimmte TPM-Hersteller enthalten keine ekcerts in ihren TPMs.
-Wenn Sie vermuten, dass dies bei Ihrem TPM der Fall ist, vergewissern Sie sich bei Ihrem OEM, dass die TPMs kein ekcert aufweisen sollten, und verwenden Sie das `-Force`-Flag, um den Host manuell bei HGS zu registrieren.
+Wenn Sie vermuten, dass dies bei Ihrem TPM der Fall ist, vergewissern Sie sich bei Ihrem OEM, dass Ihre TPMs kein ekcert aufweisen sollten, und verwenden Sie das `-Force` Flag, um den Host manuell bei HGS zu registrieren.
 Wenn Ihr TPM über ein ekcert verfügen soll, aber in der Datei mit der Platt Form Kennung nicht gefunden wurde, stellen Sie sicher, dass Sie beim Ausführen von " [Get-platformidentifier](https://docs.microsoft.com/powershell/module/platformidentifier/get-platformidentifier) " auf dem Host eine Administrator-PowerShell-Konsole (erweitert) verwenden.
 
-Wenn Sie die Fehlermeldung erhalten, dass Ihr ekcert nicht vertrauenswürdig ist, stellen Sie sicher, dass Sie [das vertrauenswürdige TPM](guarded-fabric-install-trusted-tpm-root-certificates.md) -Stamm Zertifikat Paket auf jedem HGS-Server installiert haben und dass das Stamm Zertifikat für den TPM-Hersteller im Trust **dtpm-\_rootca** -Speicher des lokalen Computers vorhanden ist. Alle anwendbaren zwischen Zertifikate müssen auch im Trust **dtpm-\_intermediateca** -Speicher auf dem lokalen Computer installiert werden.
-Nachdem Sie die Stamm-und zwischen Zertifikate installiert haben, sollten Sie `Add-HgsAttestationTpmHost` erfolgreich ausführen können.
+Wenn Sie die Fehlermeldung erhalten, dass Ihr ekcert nicht vertrauenswürdig ist, stellen Sie sicher, dass Sie [das vertrauenswürdige TPM](guarded-fabric-install-trusted-tpm-root-certificates.md) -Stamm Zertifikat Paket auf jedem HGS-Server installiert haben und dass das Stamm Zertifikat für den TPM-Hersteller im Trust **dtpm \_ rootca** -Speicher des lokalen Computers vorhanden ist. Alle anwendbaren zwischen Zertifikate müssen auch im Trust **dtpm \_ intermediateca** -Speicher auf dem lokalen Computer installiert werden.
+Nachdem Sie die Stamm-und zwischen Zertifikate installiert haben, sollten Sie erfolgreich ausgeführt werden können `Add-HgsAttestationTpmHost` .

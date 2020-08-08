@@ -1,20 +1,18 @@
 ---
 title: Richtlinien für die Softwareeinschränkung
 description: Windows Server-Sicherheit
-ms.prod: windows-server
-ms.technology: security-software-restriction-policies
 ms.topic: article
 ms.assetid: 5c0befad-07c3-4262-b418-372d01850305
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 28a4773899d0ccd53f6c7facd36898225ca7e007
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 44f917beaa7b1e13171d2c8ade6f0172b450350d
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86966152"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87953017"
 ---
 # <a name="software-restriction-policies"></a>Richtlinien für die Softwareeinschränkung
 
@@ -90,6 +88,6 @@ In der folgenden Tabelle finden Sie Links zu relevanten Ressourcen mit Grundlage
 |**Bereitstellung**|Keine Ressourcen verfügbar.|
 |**Vorgänge**|[Verwalten von Richtlinien für Software Einschränkung](administer-software-restriction-policies.md) (Windows Server 2012)<p>[Richtlinien für Softwareeinschränkung – Produkthilfe](/previous-versions/windows/it-pro/windows-server-2003/cc779607(v=ws.10)) (Windows Server 2003)|
 |**Problembehandlung**|Problembehandlung bei [Richtlinien für Software Einschränkung](troubleshoot-software-restriction-policies.md) (Windows Server 2012)<p>[Problembehandlung bei Richtlinien für Softwareeinschränkung](/previous-versions/windows/it-pro/windows-server-2003/cc737011(v=ws.10)) (Windows  Server 2003)|
-|**Sicherheit**|[Bedrohungen und Gegenmaßnahmen für Richtlinien für Softwareeinschränkungen](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd349795(v=ws.10)) (Windows  Server 2008)<p>[Bedrohungen und Gegenmaßnahmen für Richtlinien für Softwareeinschränkungen](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/hh125926(v=ws.10)) (Windows  Server 2008 R2)|
+|**Security**|[Bedrohungen und Gegenmaßnahmen für Richtlinien für Softwareeinschränkungen](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd349795(v=ws.10)) (Windows  Server 2008)<p>[Bedrohungen und Gegenmaßnahmen für Richtlinien für Softwareeinschränkungen](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/hh125926(v=ws.10)) (Windows  Server 2008 R2)|
 |**Tools und Einstellungen**|[Tools und Einstellungen für Richtlinien für Softwareeinschränkung](/previous-versions/windows/it-pro/windows-server-2003/cc782454(v=ws.10)) (Windows  Server 2003)|
 |**Communityressourcen**|[Sperren von Anwendungen mit Richtlinien für Softwareeinschränkung](/previous-versions/technet-magazine/cc510322(v=msdn.10)?pr=blog)|

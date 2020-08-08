@@ -1,19 +1,17 @@
 ---
 title: Integritätsdienst in Windows Server
-ms.prod: windows-server
 manager: eldenc
 ms.author: cosdar
-ms.technology: storage-health-service
 ms.topic: article
 ms.assetid: 5bc71e71-920e-454f-8195-afebd2a23725
 author: cosmosdarwin
 ms.date: 02/09/2018
-ms.openlocfilehash: 1b607869245ff46bd01824ebe4392e283be50b0d
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 69bf8d66fdd3e7fac4066791d0521173484a894f
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85473077"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87953416"
 ---
 # <a name="health-service-in-windows-server"></a>Integritätsdienst in Windows Server
 
@@ -90,7 +88,7 @@ Falls zulässig, wird der Austauschdatenträger automatisch dem Pool seines Vorg
 
 Der Integritätsdienst stellt einen Erzwingungs Mechanismus bereit, mit dem die von direkte Speicherplätze verwendeten Komponenten auf die von dem Administrator oder dem Lösungs Hersteller bereitgestellten Komponenten beschränkt werden. Diese kann verwendet werden, um eine versehentliche Nutzung nicht unterstützter Hardware durch Sie oder andere zu verhindern, sodass Garantie- und Supportvertragsbedingungen besser eingehalten werden. Diese Funktion ist zurzeit auf physische Festplattengeräte beschränkt, einschließlich SSDs, HDDs und nvme-Laufwerke. Das Dokument "Unterstützte Komponenten" kann für das Modell, den Hersteller (optional) und die Firmwareversion (optional) eingeschränkt werden.
 
-### <a name="usage"></a>Zweck
+### <a name="usage"></a>Verwendung
 
 Im Dokument "Unterstützte Komponenten" wird eine XML-inspirierte Syntax verwendet. Es wird empfohlen, Ihren bevorzugten Text-Editor, z. b. die kostenlose [Visual Studio Code](https://code.visualstudio.com/) oder den Editor, zum Erstellen eines XML-Dokuments zu verwenden, das Sie speichern und wieder verwenden können.
 
@@ -166,11 +164,11 @@ Sie können dies mit dem folgenden PowerShell-Cmdlet überprüfen:
 Get-PhysicalDisk | Select Model, Manufacturer, FirmwareVersion
 ```
 
-## <a name="settings"></a>Einstellungen
+## <a name="settings"></a>Einstellung
 
 Siehe [Integritätsdienst Einstellungen](health-service-settings.md).
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Integritätsdienst Berichte](health-service-reports.md)
 - [Integritätsdienst Fehler](health-service-faults.md)

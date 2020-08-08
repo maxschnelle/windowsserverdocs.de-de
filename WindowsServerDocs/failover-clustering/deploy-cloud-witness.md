@@ -7,12 +7,12 @@ ms.topic: article
 author: JasonGerend
 ms.date: 01/18/2019
 description: In diesem Abschnitt wird erläutert, wie Sie den Zeugen für einen Windows Server-Failovercluster in der Cloud hosten und wie Sie einen cloudzeugen bereitstellen. Microsoft Azure
-ms.openlocfilehash: 937fb6c2d4aaabfd6399a6bebdce50e351b78fc6
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: fa0fee044b0a5e702cb56816bf9a878f209d6117
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87950194"
+ms.locfileid: "87993017"
 ---
 # <a name="deploy-a-cloud-witness-for-a-failover-cluster"></a>Bereitstellen eines Cloudzeugen für einen Failovercluster
 
@@ -111,7 +111,7 @@ Navigieren Sie im Azure-Portal zu Ihrem Speicherkonto, klicken Sie auf **alle Ei
 ![Momentaufnahme der cloudzeugen-Endpunkt Links ](media/Deploy-a-Cloud-Witness-for-a-Failover-Cluster/CloudWitness_5.png)
  **Abbildung 5: URL-Links für Cloud-Zeugen Endpunkt**
 
-Weitere Informationen zum Erstellen und Verwalten von Azure Storage Konten finden Sie unter [Informationen zu Azure Storage Konten](https://azure.microsoft.com/documentation/articles/storage-create-storage-account/) .
+Weitere Informationen zum Erstellen und Verwalten von Azure Storage Konten finden Sie unter [Informationen zu Azure Storage Konten](/azure/storage/common/storage-account-create) .
 
 ## <a name="configure-cloud-witness-as-a-quorum-witness-for-your-cluster"></a>Konfigurieren des cloudzeugen als Quorum Zeugen für Ihren Cluster
 Die cloudzeugen Konfiguration ist innerhalb des vorhandenen Quorum Konfigurationsassistenten, der in die Failovercluster-Manager integriert ist, gut integriert.
@@ -146,7 +146,7 @@ Die cloudzeugen Konfiguration ist innerhalb des vorhandenen Quorum Konfiguration
 ### <a name="configuring-cloud-witness-using-powershell"></a>Konfigurieren eines cloudzeugen mithilfe von PowerShell
 Der vorhandene PowerShell-Befehl "Set-Clusterquorum" verfügt über neue zusätzliche Parameter, die dem cloudzeugen entsprechen.
 
-Sie können einen cloudzeugen mit dem [`Set-ClusterQuorum`](https://technet.microsoft.com/library/ee461013.aspx) folgenden PowerShell-Befehl konfigurieren:
+Sie können einen cloudzeugen mit dem [`Set-ClusterQuorum`](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee461013(v=technet.10)) folgenden PowerShell-Befehl konfigurieren:
 
 ```PowerShell
 Set-ClusterQuorum -CloudWitness -AccountName <StorageAccountName> -AccessKey <StorageAccountAccessKey>

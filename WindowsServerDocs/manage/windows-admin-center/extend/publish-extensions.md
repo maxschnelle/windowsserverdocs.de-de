@@ -6,12 +6,12 @@ author: daniellee-msft
 ms.author: jol
 ms.date: 09/18/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: c817a28494104a1bfed1d7e19eaebaa04fd5138e
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 910ed2733d01fe502a93d43f46530d781ba8c7e5
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87971967"
+ms.locfileid: "87992697"
 ---
 # <a name="publishing-extensions"></a>Erweiterungen werden veröffentlicht.
 
@@ -32,7 +32,7 @@ Standardmäßig ist das Windows Admin Center mit einem nuget-Feed verbunden, der
 
 ### <a name="publishing-to-a-different-nuget-feed"></a>Veröffentlichen in einem anderen nuget-Feed
 
-Sie können auch einen eigenen nuget-Feed erstellen, um Ihre Erweiterungen unter Verwendung einer der vielen [unterschiedlichen Optionen zum Einrichten einer privaten Quelle oder mithilfe eines nuget-Hostingdiensts](https://docs.microsoft.com/nuget/hosting-packages/overview)zu veröffentlichen. Der nuget-Feed muss die nuget v2-API unterstützen. Da Windows Admin Center derzeit keine Feed-Authentifizierung unterstützt, muss der Feed so konfiguriert werden, dass jeder beliebige den Lesezugriff zulässt.
+Sie können auch einen eigenen nuget-Feed erstellen, um Ihre Erweiterungen unter Verwendung einer der vielen [unterschiedlichen Optionen zum Einrichten einer privaten Quelle oder mithilfe eines nuget-Hostingdiensts](/nuget/hosting-packages/overview)zu veröffentlichen. Der nuget-Feed muss die nuget v2-API unterstützen. Da Windows Admin Center derzeit keine Feed-Authentifizierung unterstützt, muss der Feed so konfiguriert werden, dass jeder beliebige den Lesezugriff zulässt.
 
 ### <a name="publishing-to-a-file-share"></a>Veröffentlichen in einer Dateifreigabe
 
@@ -72,7 +72,7 @@ Verwenden Sie Ihre buildinfrastruktur (Dies könnte so einfach sein wie das Öff
 
 Um das nuget-Paket zu erstellen, müssen Sie zunächst eine nuspec-Datei erstellen. Bei einer nuspec-Datei handelt es sich um ein XML-Manifest, das nuget-Paket Metadaten enthält. Diese Manifestdatei wird sowohl für die Erstellung des Pakets als auch zur Bereitstellung von Informationen für die Benutzer verwendet.  Legen Sie diese Datei im Stammverzeichnis des Ordners "nuget-Paket" ab.
 
-Im folgenden finden Sie ein Beispiel für eine nuspec-Datei und die Liste der erforderlichen oder empfohlenen Eigenschaften. Das vollständige Schema finden Sie in der [. nuspec-Referenz](https://docs.microsoft.com/nuget/reference/nuspec). Speichern Sie die nuspec-Datei im Stamm Ordner Ihres Projekts mit einem Dateinamen Ihrer Wahl.
+Im folgenden finden Sie ein Beispiel für eine nuspec-Datei und die Liste der erforderlichen oder empfohlenen Eigenschaften. Das vollständige Schema finden Sie in der [. nuspec-Referenz](/nuget/reference/nuspec). Speichern Sie die nuspec-Datei im Stamm Ordner Ihres Projekts mit einem Dateinamen Ihrer Wahl.
 
 > [!IMPORTANT]
 > Der ```<id>``` Wert in der nuspec-Datei muss mit dem ```"name"``` Wert in der Projektdatei identisch sein ```manifest.json``` , oder Ihre veröffentlichte Erweiterung wird nicht erfolgreich in das Windows Admin Center geladen.
@@ -106,7 +106,7 @@ Im folgenden finden Sie ein Beispiel für eine nuspec-Datei und die Liste der er
 | Eigenschaftenname | Erforderlich/empfohlen | BESCHREIBUNG |
 | ---- | ---- | ---- |
 | packageType | Erforderlich | Verwenden Sie "windowsadmincenterextension", bei dem es sich um den nuget-Pakettyp handelt, der für Erweiterungen des Windows Admin Centers |
-| id | Erforderlich | Eindeutiger Paket Bezeichner innerhalb des Feeds. Dieser Wert muss mit dem Wert "Name" in der manifest.jsDatei Ihres Projekts identisch sein.  Informationen finden Sie unter [Choosing a unique package identifier (Auswählen eines eindeutigen Paketbezeichners)](https://docs.microsoft.com/nuget/create-packages/creating-a-package#choosing-a-unique-package-identifier-and-setting-the-version-number). |
+| id | Erforderlich | Eindeutiger Paket Bezeichner innerhalb des Feeds. Dieser Wert muss mit dem Wert "Name" in der manifest.jsDatei Ihres Projekts identisch sein.  Informationen finden Sie unter [Choosing a unique package identifier (Auswählen eines eindeutigen Paketbezeichners)](/nuget/create-packages/creating-a-package#choosing-a-unique-package-identifier-and-setting-the-version-number). |
 | title | Zum Veröffentlichen im Windows Admin Center-Feed erforderlich | Anzeige Name für das Paket, das im Windows Admin Center Extension Manager angezeigt wird. |
 | Version | Erforderlich | Erweiterungs Version. Die Verwendung der [semantischen Versionsverwaltung (semver-Konvention)](http://semver.org/spec/v1.0.0.html) wird empfohlen, ist jedoch nicht erforderlich. |
 | authors | Erforderlich | Wenn Sie im Auftrag Ihres Unternehmens veröffentlichen, verwenden Sie den Namen Ihres Unternehmens. |
@@ -120,7 +120,7 @@ Im folgenden finden Sie ein Beispiel für eine nuspec-Datei und die Liste der er
 
 Mithilfe der zuvor erstellten nuspec-Datei erstellen Sie jetzt die nupkg-Datei "nuget Package", die Sie hochladen und in den nuget-Feed veröffentlichen können.
 
-1. Laden Sie das nuget.exe CLI-Tool von der Website für die [nuget-Client Tools](https://docs.microsoft.com/nuget/install-nuget-client-tools)herunter.
+1. Laden Sie das nuget.exe CLI-Tool von der Website für die [nuget-Client Tools](/nuget/install-nuget-client-tools)herunter.
 2. Führen Sie "nuget.exe Pack [. nuspec File Name]" aus, um die nupkg-Datei zu erstellen.
 
 ### <a name="4-signing-your-extension-nuget-package"></a>4. Signieren eines nuget-Pakets für die Erweiterung

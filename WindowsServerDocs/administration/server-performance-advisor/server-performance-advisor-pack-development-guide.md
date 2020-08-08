@@ -5,12 +5,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: cdf812f862534ba8cd07d4558e424faf3c56c699
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 46daa58e6a13f0cf0f71131b05def481f42a594c
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75947147"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87993093"
 ---
 # <a name="server-performance-advisor-pack-development-guide"></a>Server Performance Advisor Pack-Entwicklungsleitfaden
 
@@ -39,9 +39,9 @@ Ein Advisor Pack ist in der Regel für eine bestimmte Server Rolle konzipiert un
 
 Ein Advisor-Pack umfasst die folgenden Elemente:
 
-* **XML-Metadaten** ("provisionmetadata. xml")
+* **XML-Metadaten** (ProvisionMetadata.xml)
 
-    * [Leistungsprotokolle und-Warnungen (PLA)](https://msdn.microsoft.com/library/windows/desktop/aa372635.aspx) -Datensammler Satz
+    * [Leistungsprotokolle und-Warnungen (PLA)](/previous-versions/windows/desktop/pla/pla-portal) -Datensammler Satz
 
     * Berichtslayout
 
@@ -65,9 +65,9 @@ Wenn ein Advisor-Pack mithilfe von Spa für einen bestimmten Server in die Warte
 
 ### <a name="import-data-into-the-database"></a>Importieren von Daten in die Datenbank
 
-Nachdem die Datensammlung abgeschlossen ist, wird jeder Datentyp in eine entsprechende Tabelle in der SQL Server-Datenbank importiert. Registrierungs Einstellungen werden z. b. in eine Tabelle namens "\#RegistryKeys" importiert.
+Nachdem die Datensammlung abgeschlossen ist, wird jeder Datentyp in eine entsprechende Tabelle in der SQL Server-Datenbank importiert. Registrierungs Einstellungen werden z. b. in eine Tabelle namens \# RegistryKeys importiert.
 
-zum Importieren der etw-Datei ist eine ETW-Schema Datei zum Decodieren der ETL-Datei erforderlich. Die ETW-Schema Datei ist eine XML-Datei. Sie kann mithilfe von tracerpt. exe generiert werden, das in Windows enthalten ist. Die ETW-Schema Datei ist nur erforderlich, wenn das Advisor-Paket etw-Daten importieren muss.
+zum Importieren der etw-Datei ist eine ETW-Schema Datei zum Decodieren der ETL-Datei erforderlich. Die ETW-Schema Datei ist eine XML-Datei. Sie kann mithilfe von tracerpt.exe generiert werden, der in Windows enthalten ist. Die ETW-Schema Datei ist nur erforderlich, wenn das Advisor-Paket etw-Daten importieren muss.
 
 ### <a name="switch-to-low-user-rights"></a>Zu niedrigen Benutzerrechten wechseln
 
@@ -102,9 +102,9 @@ Ein Advisor-Pack ist normalerweise wie folgt strukturiert:
 
 Advisor-Pack
 
-"Provisionmetadata. xml"
+ProvisionMetadata.xml
 
-Scripts
+Skripts
 
 Main. SQL
 
@@ -112,7 +112,7 @@ Func. SQL
 
 Schema. man
 
-Jedes Advisor-Paket muss über eine Datei namens "provisionmetadata. xml" verfügen. Es definiert grundlegende Advisor-Paketinformationen, die zu sammelnden Daten, Benachrichtigungen und Regeln sowie die Art und Weise, wie der Bericht gespeichert und angezeigt werden muss. Das Spa-Framework verwendet diese Informationen zum Generieren einer temporären Tabelle und zum anschließenden übertragen der Ergebnisse in der temporären Tabelle in eine Tabelle, auf die Benutzer zugreifen können.
+Jedes Advisor-Paket muss über eine Datei namens ProvisionMetadata.xml verfügen. Es definiert grundlegende Advisor-Paketinformationen, die zu sammelnden Daten, Benachrichtigungen und Regeln sowie die Art und Weise, wie der Bericht gespeichert und angezeigt werden muss. Das Spa-Framework verwendet diese Informationen zum Generieren einer temporären Tabelle und zum anschließenden übertragen der Ergebnisse in der temporären Tabelle in eine Tabelle, auf die Benutzer zugreifen können.
 
 Alle Berichts-SQL-Skripts müssen in einem Unterordner namens " **Scripts**" gespeichert werden. Zu Wartungszwecken empfiehlt es sich, unterschiedliche Datenbankobjekte in verschiedenen SQL Server Dateien zu speichern. Es muss mindestens eine gespeicherte Prozedur als Haupteinstiegspunkt vorhanden sein.
 
@@ -121,9 +121,9 @@ Alle Berichts-SQL-Skripts müssen in einem Unterordner namens " **Scripts**" ges
 
 ### <a name="defining-basic-information"></a>Definieren grundlegender Informationen
 
-In diesem Abschnitt werden einige der grundlegenden Elemente beschrieben, aus denen ein Advisor-Pack besteht, einschließlich "provisionmetadata. xml" und Attribute.
+In diesem Abschnitt werden einige der grundlegenden Elemente beschrieben, aus denen ein Advisor-Pack besteht, einschließlich ProvisionMetadata.xml und Attributen.
 
-Im folgenden finden Sie eine Beispiel Kopfzeile für die Datei "provisionmetadata. xml":
+Im folgenden finden Sie eine Beispiel Kopfzeile für die ProvisionMetadata.xml-Datei:
 
 ``` syntax
 <advisorPack
@@ -173,7 +173,7 @@ Im folgenden finden Sie einige weitere Attribute, die zum Identifizieren eines A
 
 * Benachrichtigung über verlorene Ereignisse: **showeventlostwarning**
 
-### <a href="" id="bkmk-definedatacollector"></a>Definieren des Datensammler Satzes
+### <a name="defining-the-data-collector-set"></a><a href="" id="bkmk-definedatacollector"></a>Definieren des Datensammler Satzes
 
 Ein Datensammler Satz definiert die Leistungsdaten, die das Spa-Framework vom Zielserver sammeln soll. Es unterstützt Registrierungs Einstellungen, WMI, Leistungsindikatoren, Dateien vom Zielserver und etw.
 
@@ -201,29 +201,29 @@ Ein Datensammler Satz definiert die Leistungsdaten, die das Spa-Framework vom Zi
 </advisorPack>
 ```
 
-Mit dem **Duration** -Attribut von **&lt;datacollector Set/&gt;** im vorherigen Beispiel wird die Dauer der Datensammlung definiert (die Zeiteinheit ist Sekunden). **Duration** ist ein erforderliches Attribut. Mit dieser Einstellung wird die von Leistungsindikatoren und etw verwendete Sammlungs Dauer gesteuert.
+Mit dem **Duration** -Attribut von ** &lt; datacollector &gt; Set/** im vorherigen Beispiel wird die Dauer der Datensammlung definiert (die Zeiteinheit ist Sekunden). **Duration** ist ein erforderliches Attribut. Mit dieser Einstellung wird die von Leistungsindikatoren und etw verwendete Sammlungs Dauer gesteuert.
 
 ### <a name="collect-registry-data"></a>Sammeln von Registrierungsdaten
 
 Sie können Registrierungsdaten aus den folgenden Registrierungs Strukturen erfassen:
 
-* HKEY-\_Klassen\_root
+* HKEY- \_ Klassen Stamm \_
 
-* HKEY-\_aktuelle\_config
+* Aktuelle HKEY- \_ \_ Konfiguration
 
-* HKEY-\_aktueller\_Benutzer
+* Aktueller HKEY- \_ \_ Benutzer
 
-* HKEY\_lokalen\_Computer
+* lokaler HKEY- \_ \_ Computer
 
-* HKEY-\_Benutzer
+* HKEY- \_ Benutzer
 
-Um eine Registrierungs Einstellung zu erfassen, geben Sie den vollständigen Pfad zum Wertnamen an: HKEY\_lokalen\_Computer\\MyKey\\meinWert
+Um eine Registrierungs Einstellung zu erfassen, geben Sie den vollständigen Pfad zum Wertnamen an: HKEY \_ local \_ Machine \\ myKey \\ myValue
 
-Um alle Einstellungen unter einem Registrierungsschlüssel zu erfassen, geben Sie den vollständigen Pfad zum Registrierungsschlüssel an: HKEY\_lokalen\_Computers\\MyKey\\
+Um alle Einstellungen unter einem Registrierungsschlüssel zu erfassen, geben Sie den vollständigen Pfad zum Registrierungsschlüssel an: HKEY \_ local \_ Machine \\ myKey\\
 
-Wenn Sie alle Werte unter einem Registrierungsschlüssel und seinen untergeordneten Schlüsseln erfassen möchten (die Daten werden von der Datenbank rekursiv gesammelt), verwenden Sie zwei umgekehrte Schrägstriche für das letzte Pfad Trennzeichen: HKEY\_local\_Machine\\MyKey\\\\
+Wenn Sie alle Werte unter einem Registrierungsschlüssel und dessen untergeordneten Schlüsseln erfassen möchten (bei der Registrierung werden die Registrierungsdaten rekursiv erfasst), verwenden Sie zwei umgekehrte Schrägstriche für das letzte Pfad Trennzeichen: HKEY \_ local \_ Machine \\ myKey\\\\
 
-Um Registrierungsinformationen von einem Remote Computer zu erfassen, fügen Sie den Computernamen am Anfang des Registrierungs Pfads ein: HKEY\_lokalen\_Machine\\MyKey\\meinWert
+Um Registrierungsinformationen von einem Remote Computer zu erfassen, fügen Sie den Computernamen am Anfang des Registrierungs Pfads ein: HKEY \_ local \_ Machine \\ myKey \\ myValue
 
 Beispielsweise können Sie über einen Registrierungsschlüssel verfügen, der wie folgt aussieht:
 
@@ -257,9 +257,9 @@ Beispiel 2: gibt alle Schlüssel-Wert-Paare unter diesem Pfad zurück:
 <registryKey>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\User\PowerSchemes\\</registryKey>
 ```
 
-Alle gesammelten Daten werden in eine temporäre Tabelle namens **\#RegistryKeys** importiert, bevor ein SQL-Berichts Skript ausgeführt wird. In der folgenden Tabelle werden die Ergebnisse für Beispiel 2 angezeigt:
+Alle gesammelten Daten werden in eine temporäre Tabelle namens ** \# RegistryKeys** importiert, bevor ein SQL-Berichts Skript ausgeführt wird. In der folgenden Tabelle werden die Ergebnisse für Beispiel 2 angezeigt:
 
-KeyName | Keytypeid | Value
+KeyName | Keytypeid | Wert
 ------ | ----- | -------
 HKEY_LOCAL_MACHINE. ..\powerschemas | 1 | db310065-829b-4671-9647-2261c00e86ef
 \db310065-829b-4671-9647-2261c00e86ef\description | 2 | |
@@ -269,19 +269,19 @@ HKEY_LOCAL_MACHINE. ..\powerschemas | 1 | db310065-829b-4671-9647-2261c00e86ef
 
 Das Schema für die **#registryKeys** Tabelle lautet wie folgt:
 
-Name der Spalte | SQL-Datentyp | Beschreibung
+Spaltenname | SQL-Datentyp | BESCHREIBUNG
 -------- | -------- | --------
 KeyName | Nvarchar (300) nicht NULL | Vollständiger Pfadname des Registrierungsschlüssels
 Keytypeid | Smallint not NULL | Interne Typ-ID
-Value | Nvarchar (4000) nicht NULL | Alle Werte
+Wert | Nvarchar (4000) nicht NULL | Alle Werte
 
 Die **keytypeid** -Spalte kann einen der folgenden Typen aufweisen:
 
-ID | Geben Sie in das Suchfeld auf der Taskleiste
+id | Typ
 --- | ---
-1 | Zeichenfolge
+1 | String
 2 | ExpandString
-3 | Binär
+3 | Binary
 4 | DWord
 5 | Dwordbigendian
 6 | Link
@@ -293,7 +293,7 @@ ID | Geben Sie in das Suchfeld auf der Taskleiste
 
 ### <a name="collect-wmi"></a>WMI-Erfassung
 
-Sie können eine beliebige WMI-Abfrage hinzufügen. Weitere Informationen zum Schreiben von WMI-Abfragen finden Sie unter [WQL (SQL für WMI)](https://msdn.microsoft.com/library/windows/desktop/aa394606.aspx). Im folgenden Beispiel wird eine Auslagerungs Datei abgefragt:
+Sie können eine beliebige WMI-Abfrage hinzufügen. Weitere Informationen zum Schreiben von WMI-Abfragen finden Sie unter [WQL (SQL für WMI)](/windows/win32/wmisdk/wql-sql-for-wmi). Im folgenden Beispiel wird eine Auslagerungs Datei abgefragt:
 
 ``` syntax
 <path>Root\Cimv2:select * FROM Win32_PageFileUsage</path>
@@ -301,33 +301,33 @@ Sie können eine beliebige WMI-Abfrage hinzufügen. Weitere Informationen zum Sc
 
 Die Abfrage im obigen Beispiel gibt einen Datensatz zurück:
 
-Untertitel für Hörgeschädigte | Name | Peer Usage
+Caption | Name | Peer Usage
 ----- | ----- | -----
 C:\pagefile.sys | C:\pagefile.sys | 215
 
 Da WMI eine Tabelle mit unterschiedlichen Spalten zurückgibt und die gesammelten Daten in eine Datenbank importiert werden, führt Spa eine Daten Normalisierung durch und wird den folgenden Tabellen hinzugefügt:
 
-**wmiobjects-Tabelle (\#)**
+**\#Wmiobjects-Tabelle**
 
 SequenceID | Namespace | ClassName | RelativePath | Wmiqueryid
 ----- | ----- | ----- | ----- | -----
-10 | Root\Cimv2 | Win32_PageFileUsage | Win32_PageFileUsage. Name =<br>C:\\Pagefile. sys | 1
+10 | Root\Cimv2 | Win32_PageFileUsage | Win32_PageFileUsage. Name =<br>C: \\pagefile.sys | 1
 
-**\#Tabelle "wmiobjectsproperties"**
+**\#Wmiobjectsproperties-Tabelle**
 
-ID | query
+id | Abfrage
 --- | ---
 1 | Root\cimv2: SELECT * from Win32_PageFileUsage
 
-**\#wmiqueries-Tabelle**
+**\#Wmiqueries-Tabelle**
 
-ID | query
+id | Abfrage
 --- | ---
 1 | Root\cimv2: SELECT * from Win32_PageFileUsage
 
-**wmiobjects-Tabellen Schema (\#)**
+**\#Wmiobjects-Tabellen Schema**
 
-Name der Spalte | SQL-Datentyp | Beschreibung
+Spaltenname | SQL-Datentyp | BESCHREIBUNG
 --- | --- | ---
 SequenceId | Int not NULL | Korrelieren der Zeile und ihrer Eigenschaften
 Namespace | Nvarchar (200) nicht NULL | WMI-Namespace
@@ -335,20 +335,20 @@ ClassName | Nvarchar (200) nicht NULL | WMI-Klassenname
 RelativePath | Nvarchar (500) nicht NULL | Relativer WMI-Pfad
 Wmiqueryid | Int not NULL | Korrelieren Sie den Schlüssel #WmiQueries
 
-**wmiobjectproperties-Tabellen Schema \#**
+**\#Wmiobjectproperties-Tabellen Schema**
 
-Name der Spalte | SQL-Datentyp | Beschreibung
+Spaltenname | SQL-Datentyp | BESCHREIBUNG
 --- | --- | ---
 SequenceId | Int not NULL | Korrelieren der Zeile und ihrer Eigenschaften
 Name | Nvarchar (1000) nicht NULL | Eigenschaftenname
-Value | Nvarchar (4000) NULL | Der Wert der aktuellen Eigenschaft.
+Wert | Nvarchar (4000) NULL | Der Wert der aktuellen Eigenschaft.
 
-**\#wmiqueries-Tabellen Schema**
+**\#Wmiqueries-Tabellen Schema**
 
-Name der Spalte | SQL-Datentyp | Beschreibung
+Spaltenname | SQL-Datentyp | BESCHREIBUNG
 --- | --- | ---
-ID | Int not NULL | eindeutige Abfrage-ID >
-query | Nvarchar (4000) nicht NULL | Ursprüngliche Abfrage Zeichenfolge in den Bereitstellungs Metadaten
+Id | Int not NULL | Eindeutige Abfrage-ID >
+Abfrage | Nvarchar (4000) nicht NULL | Ursprüngliche Abfrage Zeichenfolge in den Bereitstellungs Metadaten
 
 ### <a name="collect-performance-counters"></a>Leistungsindikatoren erfassen
 
@@ -362,70 +362,70 @@ Hier finden Sie ein Beispiel für die Erfassung eines Leistungs Zählers:
 
 Das **Interval** -Attribut ist eine erforderliche globale Einstellung für alle Leistungsindikatoren. Er definiert das Intervall (die Zeiteinheit ist Sekunden) für die Erfassung von Leistungsdaten.
 
-Im vorherigen Beispiel wird die Leistungsindikator \\PhysicalDisk (\*)\\Mittlere Sek./Übertragung pro Sekunde abgefragt.
+Im vorherigen Beispiel wird der Leistungsindikator " \\ PhysicalDisk ( \* ) mittlere \\ Sek./Übertragung" pro Sekunde abgefragt.
 
-Es können zwei Instanzen vorhanden sein: **\_Gesamt** und **0 C: D:** , und die Ausgabe könnte wie folgt lauten:
+Es können zwei Instanzen vorhanden sein: ** \_ Total** und **0 C: D:**, und die Ausgabe könnte wie folgt lauten:
 
 timestamp | CategoryName | CounterName | Instanzwert _Total | Instanzwert 0 C: D:
 ---- | ---- | ---- | ---- | ----
-13:45:52.630 | PhysicalDisk | Mittlere Sek./Übertragung | 0.00100008362473995 |0.00100008362473995
-13:45:53.629 | PhysicalDisk | Mittlere Sek./Übertragung | 0.00280023414927187 | 0.00280023414927187
-13:45:54.627 | PhysicalDisk | Mittlere Sek./Übertragung | 0.00385999853230048 | 0.00385999853230048
-13:45:55.626 | PhysicalDisk | Mittlere Sek./Übertragung | 0.000933297607934224 | 0.000933297607934224
+13:45:52.630 | Physischer Datenträger | Durchschn. Datenträger s/übertragen | 0.00100008362473995 |0.00100008362473995
+13:45:53.629 | Physischer Datenträger | Durchschn. Datenträger s/übertragen | 0.00280023414927187 | 0.00280023414927187
+13:45:54.627 | Physischer Datenträger | Durchschn. Datenträger s/übertragen | 0.00385999853230048 | 0.00385999853230048
+13:45:55.626 | Physischer Datenträger | Durchschn. Datenträger s/übertragen | 0.000933297607934224 | 0.000933297607934224
 
-Um die Daten in die Datenbank zu importieren, werden die Daten in eine Tabelle mit dem Namen **\#performanceCounters**normalisiert.
+Um die Daten in die Datenbank zu importieren, werden die Daten in eine Tabelle mit dem Namen ** \# Performance Counters**normalisiert.
 
-Categorydisplayname | InstanceName | Counter Display Name | Value
+Categorydisplayname | InstanceName | Counter Display Name | Wert
 ---- | ---- | ---- | ----
-PhysicalDisk | _Gesamt | Mittlere Sek./Übertragung | 0.00100008362473995
-PhysicalDisk | 0 C: D: | Mittlere Sek./Übertragung | 0.00100008362473995
-PhysicalDisk | _Gesamt | Mittlere Sek./Übertragung | 0.00280023414927187
-PhysicalDisk | 0 C: D: | Mittlere Sek./Übertragung | 0.00280023414927187
-PhysicalDisk | _Gesamt | Mittlere Sek./Übertragung | 0.00385999853230048
-PhysicalDisk | 0 C: D: | Mittlere Sek./Übertragung | 0.00385999853230048
-PhysicalDisk | _Gesamt | Mittlere Sek./Übertragung | 0.000933297607934224
-PhysicalDisk | 0 C: D: | Mittlere Sek./Übertragung | 0.000933297607934224
+Physischer Datenträger | _Total | Durchschn. Datenträger s/übertragen | 0.00100008362473995
+Physischer Datenträger | 0 C: D: | Durchschn. Datenträger s/übertragen | 0.00100008362473995
+Physischer Datenträger | _Total | Durchschn. Datenträger s/übertragen | 0.00280023414927187
+Physischer Datenträger | 0 C: D: | Durchschn. Datenträger s/übertragen | 0.00280023414927187
+Physischer Datenträger | _Total | Durchschn. Datenträger s/übertragen | 0.00385999853230048
+Physischer Datenträger | 0 C: D: | Durchschn. Datenträger s/übertragen | 0.00385999853230048
+Physischer Datenträger | _Total | Durchschn. Datenträger s/übertragen | 0.000933297607934224
+Physischer Datenträger | 0 C: D: | Durchschn. Datenträger s/übertragen | 0.000933297607934224
 
 **Hinweis** Die lokalisierten Namen, wie z. b. **categorydisplayname** und **counterdisplayname**, variieren je nach der auf dem Zielserver verwendeten Anzeige Sprache. Verwenden Sie diese Felder nicht, wenn Sie ein sprach neutrales Advisor Pack erstellen möchten.
 
-**\#performanceCounters** -Tabellen Schema
+** \# Performance Counters** -Tabellen Schema
 
-Name der Spalte | SQL-Datentyp | Beschreibung
+Spaltenname | SQL-Datentyp | BESCHREIBUNG
 ---- | ---- | ---- | ----
 timestamp | datetime2 (3) nicht NULL | Datum/Uhrzeit der Erfassung in UNC
 CategoryName | Nvarchar (200) nicht NULL | Kategoriename
 Categorydisplayname | Nvarchar (200) nicht NULL | Lokalisierter Kategoriename
-InstanceName | Nvarchar (200) NULL | Instanzenname
+InstanceName | Nvarchar (200) NULL | Instanzname
 CounterName | Nvarchar (200) nicht NULL | Name des Leistungsindikators
 Counter Display Name | Nvarchar (200) nicht NULL | Lokalisierter namens Name
-Value | Float not NULL | Der gesammelte Wert
+Wert | Float not NULL | Der gesammelte Wert
 
 ### <a name="collect-files"></a>Dateien sammeln
 
-Die Pfade können absolut oder relativ sein. Der Dateiname kann das Platzhalter Zeichen (\*) und das Fragezeichen (?) enthalten. Wenn Sie z. b. alle Dateien im temporären Ordner sammeln möchten, können Sie c:\\Temp\\\*angeben. Das Platzhalter Zeichen gilt für Dateien im angegebenen Ordner.
+Die Pfade können absolut oder relativ sein. Der Dateiname kann das Platzhalter Zeichen ( \* ) und das Fragezeichen (?) enthalten. Um z. b. alle Dateien im temporären Ordner zu erfassen, können Sie c: \\ Temp angeben \\ \* . Das Platzhalter Zeichen gilt für Dateien im angegebenen Ordner.
 
-Wenn Sie auch Dateien aus den Unterordnern des angegebenen Ordners sammeln möchten, verwenden Sie zwei umgekehrte Schrägstriche für das letzte Ordner Trennzeichen, z. b. c:\\Temp\\\\\*.
+Wenn Sie auch Dateien aus den Unterordnern des angegebenen Ordners sammeln möchten, verwenden Sie zwei umgekehrte Schrägstriche für das letzte Ordner Trennzeichen (z. b. c: \\ Temp) \\ \\ \* .
 
-Hier ist ein Beispiel für die Abfrage der Datei " **ApplicationHost. config** ":
+Hier ist ein Beispiel, das die **applicationHost.config** Datei abfragt:
 
 ``` syntax
 <path>%windir%\System32\inetsrv\config\applicationHost.config</path>
 ```
 
-Die Ergebnisse finden Sie in einer Tabelle namens **\#Dateien**, z. b.:
+Die Ergebnisse finden Sie in einer Tabelle mit dem Namen ** \# Files**, z. b.:
 
-querypath | FullPath | Element Pfad | Dateiname | Inhalt
+querypath | FullPath | Element Pfad | FileName | Inhalt
 ----- | ----- | ----- | ----- | -----
-% windir%\... \applicationhost.config |C:\Windows<br>\... \applicationhost.config | C:\Windows<br>\... \Config | ApplicationHost. | 0x3c3f
+% windir% \...\applicationHost.config |C:\Windows<br>\...\applicationHost.config | C:\Windows<br>\... \Config | ApplicationHost. | 0x3c3f
 
-**Tabellen Schema für \#Dateien**
+**\#Dateitabellenschema**
 
-Name der Spalte | SQL-Datentyp | Beschreibung
+Spaltenname | SQL-Datentyp | BESCHREIBUNG
 ---- | ---- | ----
 querypath | Nvarchar (300) nicht NULL | Ursprüngliche Abfrage Anweisung
 FullPath | Nvarchar (300) nicht NULL | Absoluter Dateipfad und Dateiname
 Element Pfad | Nvarchar (300) nicht NULL | Dateipfad
-Dateiname | Nvarchar (300) nicht NULL | Dateiname
+FileName | Nvarchar (300) nicht NULL | Dateiname
 Inhalt | Varbinary (max) NULL | Dateiinhalt in Binärdatei
 
 ### <a name="defining-rules"></a>Definieren von Regeln
@@ -508,7 +508,7 @@ Sie können beliebig viele Ratschläge definieren, und Sie sollten in der Regel 
 
 Sie können mit beliebig vielen Schwellenwerten verknüpfen. Sie können sogar eine Verknüpfung mit einem Schwellenwert herstellen, der für die aktuelle Regel irrelevant ist. Durch die Verknüpfung können Sie die Schwellenwerte problemlos verwalten.
 
-Der Regelname und die Empfehlungen sind Schlüssel, die in Ihrem Bereich eindeutig sind. Es können nicht zwei Regeln denselben Namen aufweisen, und es können nicht zwei Empfehlungen innerhalb einer Regel denselben Namen haben. Diese Namen sind sehr wichtig, wenn Sie einen SQL-Skript Bericht schreiben. Sie können den \[dbo-\]abrufen.\[setnotification\] API, um den Regel Status festzulegen.
+Der Regelname und die Empfehlungen sind Schlüssel, die in Ihrem Bereich eindeutig sind. Es können nicht zwei Regeln denselben Namen aufweisen, und es können nicht zwei Empfehlungen innerhalb einer Regel denselben Namen haben. Diese Namen sind sehr wichtig, wenn Sie einen SQL-Skript Bericht schreiben. Sie können den dbo-Befehl Abrufen \[ \] . \[ Setnotification- \] API zum Festlegen des Regel Status
 
 ### <a name="defining-ui-display-elements"></a>Definieren von Benutzeroberflächen-Anzeigeelementen
 
@@ -516,14 +516,14 @@ Nachdem die Regeln definiert wurden, können Systemadministratoren die Berichts 
 
 Wenn Sie mit dem vorherigen Beispiel fortfahren, weiß der Benutzer, ob genügend freier Speicherplatz auf dem Systemlaufwerk vorhanden ist. Benutzer sind möglicherweise auch an der tatsächlichen Größe des freien Speicherplatzes interessiert. Eine einzelne Wert Gruppe wird zum Speichern und anzeigen derartiger Ergebnisse verwendet. Mehrere einzelne Werte können gruppiert und in einer Tabelle in der Spa-Konsole angezeigt werden. Die Tabelle hat nur zwei Spalten, Name und Wert, wie hier gezeigt.
 
-Name | Value
+Name | Wert
 ---- | ----
 Freie Datenträger Größe auf System Laufwerk (GB) | 100
 Gesamte installierte Datenträger Größe (GB) | 500 
 
 Wenn ein Benutzer eine Liste aller Festplatten sehen möchte, die auf dem Server und dessen Datenträger Größe installiert sind, können wir einen Listen Wert, der drei Spalten und mehrere Zeilen enthält, wie hier gezeigt, abrufen.
 
-Festplatte | Größe des freien Datenträgers (GB) | Gesamtgröße (GB)
+Datenträger | Größe des freien Datenträgers (GB) | Gesamtgröße (GB)
 ---- | ---- | ----
 0 | 100 | 500
 1 | 20 | 320
@@ -532,7 +532,7 @@ In einem Advisor-Pack können viele Tabellen vorhanden sein (Einzelwert Gruppen 
 
 Zusammenfassend gibt es drei Typen von Benutzeroberflächen Elementen:
 
-* [Abschnitte](#bkmk-ui-section)
+* [Strecken](#bkmk-ui-section)
 
 * [Einzelwert Gruppen](#bkmk-ui-svg)
 
@@ -562,7 +562,7 @@ Hier sehen Sie ein Beispiel, das die Elemente der Benutzeroberfläche anzeigt:
 </advisorPack>
 ```
 
-### <a href="" id="bkmk-ui-section"></a>Strecken
+### <a name="sections"></a><a href="" id="bkmk-ui-section"></a>Strecken
 
 Ein Abschnitt ist ausschließlich für das Layout der Benutzeroberfläche vorgesehen. Er ist nicht an logischen Berechnungen beteiligt. Jeder einzelne Bericht enthält eine Reihe von Abschnitten der obersten Ebene, für die kein übergeordneter Abschnitt vorhanden ist. Die Abschnitte der obersten Ebene werden als Registerkarten im Bericht angezeigt. Abschnitte können Unterabschnitte mit maximal 10 Ebenen aufweisen. Alle Unterabschnitte in den Abschnitten der obersten Ebene werden in erweiterbaren Bereichen angezeigt. Ein Abschnitt kann mehrere Unterabschnitte, Einzelwert Gruppen und Listen Wert Tabellen enthalten. Einzelwert Gruppen und Listen Wert Tabellen werden als Tabellen dargestellt.
 
@@ -590,7 +590,7 @@ Die folgende Einzelwert Gruppe verfügt über ein-Attribut **, und**es kann auf 
 
 Eine Einzelwert Gruppe und eine Listen Wert Tabelle enthalten unterschiedliche Datentypen, z. b. String, int und float. Da diese Werte in der SQL Server-Datenbank gespeichert werden, können Sie einen SQL-Datentyp für jede Dateneigenschaft definieren. Die Definition eines SQL-Datentyps ist jedoch recht kompliziert. Sie müssen die Länge oder Genauigkeit angeben, die möglicherweise geändert werden kann.
 
-Zum Definieren logischer Datentypen können Sie das erste untergeordnete Element von **&lt;ReportDefinition/&gt;** verwenden. hier können Sie eine Zuordnung des SQL-Datentyps und des logischen Typs definieren.
+Zum Definieren logischer Datentypen können Sie das erste untergeordnete Element von ** &lt; ReportDefinition/ &gt; **verwenden. hier können Sie eine Zuordnung des SQL-Datentyps und des logischen Typs definieren.
 
 Im folgenden Beispiel werden zwei Datentypen definiert. Eine ist eine **Zeichenfolge** , und die andere ist " **companycode**".
 
@@ -603,7 +603,7 @@ Ein Datentyp Name kann eine beliebige gültige Zeichenfolge sein. Im folgenden f
 
 * BIGINT
 
-* binär
+* BINARY
 
 * bit
 
@@ -617,41 +617,41 @@ Ein Datentyp Name kann eine beliebige gültige Zeichenfolge sein. Im folgenden f
 
 * datetimeoffset
 
-* Dezimalzahl
+* Decimal
 
 * float
 
-* int
+* INT
 
-* Verdienst
+* money
 
-* nchar
+* NCHAR
 
-* numeric
+* NUMERIC
 
-* nvarchar
+* NVARCHAR
 
-* Reelle
+* real
 
 * smalldatetime
 
-* smallint
+* SMALLINT
 
 * SMALLMONEY
 
-* Zeit
+* time
 
-* tinyint
+* TINYINT
 
-* uniqueidentifier
+* UNIQUEIDENTIFIER
 
 * varbinary
 
 * varchar
 
-Weitere Informationen zu diesen SQL-Datentypen finden Sie unter [Datentypen (Transact-SQL)](https://msdn.microsoft.com/library/ms187752.aspx).
+Weitere Informationen zu diesen SQL-Datentypen finden Sie unter [Datentypen (Transact-SQL)](/sql/t-sql/data-types/data-types-transact-sql?view=sql-server-ver15).
 
-### <a href="" id="bkmk-ui-svg"></a>Einzelwert Gruppen
+### <a name="single-value-groups"></a><a href="" id="bkmk-ui-svg"></a>Einzelwert Gruppen
 
 In einer Einzelwert Gruppe werden mehrere einzelne Werte in einer Tabelle gruppiert, wie hier gezeigt.
 
@@ -669,19 +669,19 @@ Ein einzelner Wert muss über ein globales Attribut für einen eindeutigen Namen
 
 Obwohl Sie mehrere Einzelwert Gruppen definieren können, dürfen keine zwei einzelnen Werte Namen identisch sein, auch wenn Sie sich in unterschiedlichen Gruppen befinden. Der Einzelwert Name wird vom SQL-Skript Bericht verwendet, um den Wert entsprechend festzulegen.
 
-Sie können einen Datentyp für jeden einzelnen Wert definieren. Die zulässige Eingabe für **Type** ist in **&lt;DataType/&gt;** definiert. Der endgültige Bericht könnte wie folgt aussehen:
+Sie können einen Datentyp für jeden einzelnen Wert definieren. Die zulässige Eingabe für **Type** ist in ** &lt; DataType/ &gt; **definiert. Der endgültige Bericht könnte wie folgt aussehen:
 
 **Fakten**
 
-Name | Value
+Name | Wert
 --- | ---
-Betriebssystem | &lt;_ein Wert vom Berichts Skript festgelegt wird_&gt;
-BS-Version | &lt;_ein Wert vom Berichts Skript festgelegt wird_&gt;
-Betriebssystem Standort | &lt;_ein Wert vom Berichts Skript festgelegt wird_&gt;
+Betriebssystem | &lt;_ein Wert wird durch das Berichts Skript festgelegt._&gt;
+Betriebssystemversion | &lt;_ein Wert wird durch das Berichts Skript festgelegt._&gt;
+Betriebssystem Standort | &lt;_ein Wert wird durch das Berichts Skript festgelegt._&gt;
 
-Das **Caption** -Attribut **&lt;Werts/&gt;** wird in der ersten Spalte angezeigt. Werte in der Spalte Wert werden in der Zukunft vom Skript Bericht über \[dbo-\]festgelegt.\[setsinglevalue-\]. Das **Description** -Attribut von **&lt;Wert/&gt;** wird in einer QuickInfo angezeigt. Normalerweise zeigt die QuickInfo den Benutzern die Quelle der Daten an. Weitere Informationen zu Quick [Infos finden Sie](#bkmk-tooltips)unter Quick Infos.
+Das **Caption** -Attribut von ** &lt; Value &gt; /** wird in der ersten Spalte angezeigt. Werte in der Spalte Wert werden in der Zukunft vom Skript Bericht über \[ dbo festgelegt \] . \[ Setsinglevalue \] . Das **Beschreibungs** Attribut von ** &lt; Wert &gt; /** wird in einer QuickInfo angezeigt. Normalerweise zeigt die QuickInfo den Benutzern die Quelle der Daten an. Weitere Informationen zu Quick [Infos finden Sie](#bkmk-tooltips)unter Quick Infos.
 
-### <a href="" id="bkmk-ui-lvt"></a>Auflisten von Wert Tabellen
+### <a name="list-value-tables"></a><a href="" id="bkmk-ui-lvt"></a>Auflisten von Wert Tabellen
 
 Die Definition eines Listen Werts entspricht dem Definieren einer Tabelle.
 
@@ -695,21 +695,21 @@ Die Definition eines Listen Werts entspricht dem Definieren einer Tabelle.
 </listValue>
 ```
 
-Der Name des Listen Werts muss global eindeutig sein. Dieser Name wird zum Namen einer temporären Tabelle. Im vorherigen Beispiel wird die Tabelle mit dem Namen \#networkadapterinformation in der Initialisierungsphase der Ausführungsumgebung erstellt, in der alle beschriebenen Spalten enthalten sind. Ähnlich wie bei einem einzelnen Wertnamen wird auch ein Listen Wert Name als Teil des benutzerdefinierten Ansichts namens verwendet, z.b. vwnetworkadapterinformation.
+Der Name des Listen Werts muss global eindeutig sein. Dieser Name wird zum Namen einer temporären Tabelle. Im vorherigen Beispiel wird die Tabelle mit dem Namen \# networkadapterinformation in der Initialisierungsphase der Ausführungsumgebung erstellt, in der alle beschriebenen Spalten enthalten sind. Ähnlich wie bei einem einzelnen Wertnamen wird auch ein Listen Wert Name als Teil des benutzerdefinierten Ansichts namens verwendet, z.b. vwnetworkadapterinformation.
 
-@type von &lt;Column/&gt; wird durch &lt;DataType/&gt; definiert.
+@typeder &lt; Spalte/ &gt; wird durch &lt; DataType/definiert.&gt;
 
 Die Mock-Benutzeroberfläche des letzten Berichts könnte wie folgt aussehen:
 
 **Informationen zum physischen Netzwerkadapter**
 
-ID | Name | Geben Sie in das Suchfeld auf der Taskleiste | Geschwindigkeit (Mbit/s) | MAC-Adresse
+id | Name | Typ | Geschwindigkeit (Mbit/s) | MAC-Adresse
 --- | --- | --- | --- | ---
  | <br> | | |
  | | | |
 
 
-Das **Caption** -Attribut &lt;Spalte/&gt; wird als Spaltenname angezeigt, und das **Beschreibungs** Attribut &lt;Spalte/&gt; wird als QuickInfo für den entsprechenden Spaltenheader angezeigt. In der Regel wird der Benutzer von der QuickInfo die Quelle der Daten angezeigt. Weitere [Informationen finden Sie](#bkmk-tooltips)unter Quick Infos.
+Das **Beschriftungs** Attribut von &lt; Spalte/ &gt; wird als Spaltenname angezeigt, und das **Beschreibungs** Attribut von &lt; Spalte/wird als QuickInfo &gt; für den entsprechenden Spaltenheader angezeigt. In der Regel wird der Benutzer von der QuickInfo die Quelle der Daten angezeigt. Weitere [Informationen finden Sie](#bkmk-tooltips)unter Quick Infos.
 
 In einigen Fällen kann eine Tabelle viele Spalten und nur wenige Zeilen enthalten, sodass das Austauschen der Spalten und Zeilen die Tabelle erheblich besser aussehen würde. Zum Austauschen der Spalten und Zeilen können Sie das folgende Formatvorlagen Attribut hinzufügen:
 
@@ -767,18 +767,18 @@ Gleichzeitig werden zwei Statistik Schlüssel durch das Spa-Framework generiert.
 
 Das folgende Beispiel zeigt, dass mehrere **Wert** Spalten mit mehreren **Schlüssel** Spalten unterstützt werden.
 
-CounterName | InstanceName | Mittelmäßig | Summe
+CounterName | InstanceName | Mittelwert | SUM
 --- | :---: | :---: | :---:
-Prozessorzeit (%) | _Gesamt | 10 | 20
-Prozessorzeit (%) | CPU0 | 20 | 30 
+% Prozessorzeit | _Total | 10 | 20
+% Prozessorzeit | CPU0 | 20 | 30 
 
 In diesem Beispiel verfügen Sie über zwei **Schlüssel** Spalten und zwei **Wert** Spalten. Spa generiert zwei Statistik Schlüssel für die Average-Spalte und weitere zwei Schlüssel für die Sum-Spalte. Die Statistik Schlüssel lauten:
 
-* Counter Name (Prozessorzeit (%))/instanceName (\_gesamt)/Durchschnitt
+* Counter Name (Prozessorzeit (%)/instanceName ( \_ gesamt)/Durchschnitt
 
 * Counter Name (Prozessorzeit (%)/instanceName (cpu0)/Durchschnitt
 
-* Counter Name (Prozessorzeit (%)/instanceName (\_gesamt)/Summe
+* Counter Name (Prozessorzeit (%)/instanceName ( \_ Summe)/Sum
 
 * Counter Name (Prozessorzeit (%)/instanceName (cpu0)/Sum
 
@@ -786,7 +786,7 @@ Counter Name und instanceName werden als ein Schlüssel kombiniert. Der kombinie
 
 Die Spa generiert viele Statistik Schlüssel. Einige davon sind für Sie möglicherweise nicht interessant, und Sie möchten Sie möglicherweise über die Benutzeroberfläche ausblenden. Mithilfe von Spa können Entwickler einen Filter erstellen, um nur hilfreiche Statistik Schlüssel anzuzeigen.
 
-im vorherigen Beispiel sind die Systemadministratoren möglicherweise nur an Schlüsseln interessiert, bei denen "instanceName" \_"Total" oder "CPU1" ist. Der Filter kann wie folgt definiert werden:
+im vorherigen Beispiel sind die Systemadministratoren möglicherweise nur an Schlüsseln interessiert, bei denen instanceName den Wert \_ Total oder CPU1 hat. Der Filter kann wie folgt definiert werden:
 
 ``` syntax
 <listValue name="CpuPerformance">
@@ -802,7 +802,7 @@ im vorherigen Beispiel sind die Systemadministratoren möglicherweise nur an Sch
 </listValue>
 ```
 
-**&lt;trendablekeyvalues/&gt;** können unter jeder Schlüssel Spalte definiert werden. Wenn mehr als eine Schlüssel Spalte einen solchen Filter konfiguriert hat, wird Logik angewendet.
+** &lt; trendablekeyvalues/ &gt; ** kann unter jeder Schlüssel Spalte definiert werden. Wenn mehr als eine Schlüssel Spalte einen solchen Filter konfiguriert hat, wird Logik angewendet.
 
 ### <a name="developing-report-scripts"></a>Entwickeln von Berichts Skripts
 
@@ -814,7 +814,7 @@ Der Header "Bereitstellen von Metadaten" enthält die Attribute " **Name** " und
 <advisorPack name="Microsoft.ServerPerformanceAdvisor.CoreOS.V1" reportScript="ReportScript"  
 ```
 
-Das Hauptberichts Skript wird durch Kombinieren der Attribute " **Name** " und " **reportscript** " benannt. Im folgenden Beispiel wird \[Microsoft. serverperformanceadvisor. coreos. v2\].\[reportscript-\].
+Das Hauptberichts Skript wird durch Kombinieren der Attribute " **Name** " und " **reportscript** " benannt. Im folgenden Beispiel wird \[ Microsoft. serverperformanceadvisor. coreos. v2 verwendet \] . \[ Report Script \] .
 
 ``` syntax
 create PROCEDURE [Microsoft.ServerPerformanceAdvisor.CoreOS.V2].[ReportScript] AS SET NOCOUNT ON
@@ -848,39 +848,39 @@ Ein normales Berichts Skript führt folgende Schritte aus:
 
 Alle gesammelten Daten werden in die folgenden entsprechenden Tabellen importiert. Weitere Informationen zum Tabellen Schema finden Sie unter [Definieren des Datensammler Satzes](#bkmk-definedatacollector).
 
-* registry
+* Registrierung
 
-    * RegistryKeys \#
+    * \#registryKeys
 
 * WMI
 
-    * wmiobjects-\#
+    * \#Wmiobjects
 
-    * wmiobjectproperties-\#
+    * \#Wmiobjectproperties
 
-    * \#wmiqueries
+    * \#Wmiqueries
 
 * Leistungsindikator
 
     * \#Performance Counters
 
-* File
+* Datei
 
-    * \#Dateien
+    * \#Audiodateien
 
 * ETW
 
-    * Ereignisse \#
+    * \#Fall
 
-    * \#eventproperties
+    * \#EventProperties
 
 ### <a name="set-rule-status"></a>Festlegen des Regel Status
 
-Der \[dbo-\].\[setnotification\] API den Regel Status festlegt, wird auf der Benutzeroberfläche ein Symbol für **Erfolg** oder **Warnung** angezeigt.
+Der \[ dbo \] . \[ Die setnotification- \] API legt den Regel Status fest, sodass Sie ein Symbol für **Erfolg** oder **Warnung** in der Benutzeroberfläche sehen können.
 
-* @ruleName nvarchar (50)
+* @ruleNamenvarchar (50)
 
-* @adviceName nvarchar (50)
+* @adviceNamenvarchar (50)
 
 Die Warn-und Empfehlungs Nachrichten werden in der XML-Datei mit den Bereitstellungs Metadaten gespeichert. Dadurch wird das Berichts Skript einfacher zu verwalten.
 
@@ -910,11 +910,11 @@ END
 
 ### <a name="get-threshold-value"></a>Schwellenwert erhalten
 
-Der \[dbo-\].\[getthreshold\] API die Schwellenwerte abrufen:
+Der \[ dbo \] . \[ Die getthreshold- \] API ruft die Schwellenwerte ab:
 
-* @key nvarchar (50)
+* @keynvarchar (50)
 
-* @value float-Ausgabe
+* @valuefloat-Ausgabe
 
 > [!NOTE]
 > Die Schwellenwerte sind Name-Wert-Paare, auf die in beliebigen Regeln verwiesen werden kann. Die Systemadministratoren können die-Konsole verwenden, um die Schwellenwerte zu ändern.
@@ -947,11 +947,11 @@ if (@freediskSizeInGB < @freediskSize)
 
 ### <a name="set-or-remove-the-single-value"></a>Festlegen oder Entfernen eines einzelnen Werts
 
-Der \[dbo-\].\[setsinglevalue\]-API legt den einzelnen Wert fest:
+Der \[ dbo \] . \[ Setsinglevalue- \] API legt den einzelnen Wert fest:
 
-* @key nvarchar (50)
+* @keynvarchar (50)
 
-* @value SQL-\_Variant
+* @valueSQL- \_ Variante
 
 Dieser Wert kann mehrmals für den gleichen Einzelwert Schlüssel ausgeführt werden. Der letzte Wert wird gespeichert.
 
@@ -973,9 +973,9 @@ exec dbo.SetSingleValue N Osversion ,  6.1.7601
 exec dbo.SetSingleValue N OsLocation ,  c:\ 
 ```
 
-In seltenen Fällen möchten Sie möglicherweise das zuvor festgelegte Ergebnis mithilfe der \[dbo-\]entfernen.\[removesinglevalue\] API.
+In seltenen Fällen möchten Sie möglicherweise das zuvor festgelegte Ergebnis mithilfe von \[ dbo entfernen \] . \[ removesinglevalue- \] API.
 
-* @key nvarchar (50)
+* @keynvarchar (50)
 
 Sie können das folgende Skript verwenden, um den zuvor festgelegten Wert zu entfernen.
 
@@ -985,9 +985,9 @@ exec dbo.removeSingleValue N Osversion
 
 ### <a name="get-data-collection-information"></a>Sammeln von Informationen zur Datensammlung
 
-Der \[dbo-\].\[getduration\]-API ruft die vom Benutzer festgelegte Dauer in Sekunden für die Datensammlung ab:
+Der \[ dbo \] . \[ Die getduration- \] API ruft die vom Benutzer festgelegte Dauer in Sekunden für die Datensammlung ab:
 
-* @duration int-Ausgabe
+* @durationint-Ausgabe
 
 Hier ist ein Beispiel für ein Berichts Skript:
 
@@ -996,9 +996,9 @@ DECLARE @duration int
 exec dbo.GetDuration @duration output
 ```
 
-Der \[dbo-\].\[getinternal\]-API ruft das Intervall eines Leistungs Zählers ab. Der Wert kann NULL zurückgeben, wenn der aktuelle Bericht keine Leistungsdaten des Leistungs Zählers enthält.
+Der \[ dbo \] . \[ Getinternal \] API ruft das Intervall eines Leistungs Zählers ab. Der Wert kann NULL zurückgeben, wenn der aktuelle Bericht keine Leistungsdaten des Leistungs Zählers enthält.
 
-* @interval int-Ausgabe
+* @intervalint-Ausgabe
 
 Hier ist ein Beispiel für ein Berichts Skript:
 
@@ -1051,7 +1051,7 @@ exec dbo.WriteSystemLog N'Any information you want to show to the system adminis
 
 Der erste Parameter ist die Meldung, die im Protokoll angezeigt werden soll. Der zweite Parameter ist die Protokollebene. Die gültige Eingabe für den zweiten Parameter kann " **Information**", " **Warning**" oder " **Error**" lauten.
 
-### <a name="debug"></a>Debugprotokolle
+### <a name="debug"></a>Debuggen
 
 Die Spa-Konsole kann in zwei Modi ausgeführt werden: "Debug" oder "Release". Der Releasemodus ist die Standardeinstellung und bereinigt alle gesammelten Rohdaten, nachdem der Bericht generiert wurde. Im Debugmodus werden alle Rohdaten in der Dateifreigabe und in der Datenbank gespeichert, sodass Sie das Berichts Skript in Zukunft Debuggen können.
 
@@ -1059,7 +1059,7 @@ Die Spa-Konsole kann in zwei Modi ausgeführt werden: "Debug" oder "Release". De
 
 1.  Installieren Sie Microsoft SQL Server Management Studio (SSMS).
 
-2.  Stellen Sie nach dem Starten von SSMS eine Verbindung mit localhost\\SQLExpress her. Beachten Sie, dass Sie localhost anstelle von verwenden müssen. . Andernfalls können Sie den Debugger möglicherweise nicht in SQL Server starten.
+2.  Stellen Sie nach dem Starten von SSMS eine Verbindung mit localhost \\ SQLExpress her. Beachten Sie, dass Sie localhost anstelle von verwenden müssen. . Andernfalls können Sie den Debugger möglicherweise nicht in SQL Server starten.
 
 3.  Führen Sie folgendes Skript aus, um den Debugmodus zu aktivieren:
 
@@ -1080,7 +1080,7 @@ Die Spa-Konsole kann in zwei Modi ausgeführt werden: "Debug" oder "Release". De
 
     Beispielsweise könnte die Ausgabe wie folgt lauten:
 
-    ID | SessionId | Advisorypackageid | ReportStatus-ID | Lastupdatetime | Stammoldversionid
+    Id | SessionID | Advisorypackageid | ReportStatus-ID | Lastupdatetime | Stammoldversionid
     :---: | :---: | :---: | :---: | :---: | :---:
     12 | 17 | 1 | 2 | 2011-05-11 05:35:24.387 | 1
 
@@ -1094,7 +1094,7 @@ Die Spa-Konsole kann in zwei Modi ausgeführt werden: "Debug" oder "Release". De
 
 
 
-Ausführen \[dbo-\].\[debugreportscript\] gibt mehrere Resultsets zurück, einschließlich:
+Ausführen von \[ dbo \] . \[ Debugreportscript \] gibt mehrere Resultsets zurück, einschließlich:
 
 1.  Microsoft SQL Server Meldungen und Advisor Pack-Protokolle
 
@@ -1106,13 +1106,13 @@ Ausführen \[dbo-\].\[debugreportscript\] gibt mehrere Resultsets zurück, einsc
 
 5.  Alle Listen Wert Tabellen
 
-## <a name="best-practices"></a>Bewährte Verfahren
+## <a name="best-practices"></a>Bewährte Methoden
 
 ### <a name="naming-convention-and-styles"></a>Benennungs Konventionen und Stile
 
 |                                                                 Pascal-Schreibweise                                                                 |                       Camel-Case-Schreibweise                        |             Großbuchstaben             |
 |-----------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------|-----------------------------------|
-| <ul><li>Namen in "provisionmetadata. xml"</li><li>Gespeicherte Prozeduren</li><li>Funktionen</li><li>Namen anzeigen</li><li>Temporäre Tabellennamen</li></ul> | <ul><li>Parameternamen</li><li>Lokale Variablen</li></ul> | Für alle reservierten SQL-Schlüsselwörter verwenden |
+| <ul><li>Namen in ProvisionMetadata.xml</li><li>Gespeicherte Prozeduren</li><li>Functions</li><li>Namen anzeigen</li><li>Temporäre Tabellennamen</li></ul> | <ul><li>Parameternamen</li><li>Lokale Variablen</li></ul> | Für alle reservierten SQL-Schlüsselwörter verwenden |
 
 ### <a name="other-recommendations"></a>Weitere Empfehlungen
 
@@ -1128,11 +1128,11 @@ Ausführen \[dbo-\].\[debugreportscript\] gibt mehrere Resultsets zurück, einsc
 
 * Verwenden Sie temporäre Tabellen für die Übertragung großer Datenmengen.
 
-* Verwenden Sie ggf. **Set XACT\_Abort on** , um den Prozess zu beenden, wenn ein Fehler auftritt.
+* Verwenden Sie **Set XACT \_ Abort on** , um den Prozess zu beenden, wenn ein Fehler auftritt.
 
 * Schließen Sie die Hauptversionsnummer immer in den Anzeige Namen des Advisor-Pakets ein.
 
-## <a href="" id="bkmk-advancedtopics"></a>Erweiterte Themen
+## <a name="advanced-topics"></a><a href="" id="bkmk-advancedtopics"></a>Erweiterte Themen
 
 ### <a name="run-multiple-advisor-packs-simultaneously"></a>Gleichzeitiges Ausführen mehrerer Advisor-Pakete
 
@@ -1150,7 +1150,7 @@ Der Zusammenführungs Daten-sammlersatz dient nur zum Erfassen von Leistungsdate
 
    1. Nehmen Sie das kleinste Intervall für das neue Intervall an.
 
-   2. Nehmen Sie die Obermenge der Leistungsindikatoren an. Beispielsweise werden mit dem **Prozess (\*)\\% Prozessorzeit** und **Prozess (\*)\\\*\\Prozess (\*)\\\\** * mehr Daten zurückgegeben, sodass **Prozess (\*)\\Prozessorzeit (%)** und Prozess ( **\*)\\\\** * aus dem zusammengeführten Datensammler Satz entfernt wird.
+   2. Nehmen Sie die Obermenge der Leistungsindikatoren an. Mit **Process ( \* ) \\ % Processor Time** und **Process () gibt \* \\ \* \\ Process ( \* ) \\ \\ *** z. b. mehr Daten zurück, sodass **Process ( \* ) \\ % Processor Time** und **Process ( \* ) \\ \\ *** aus dem zusammengeführten Datensammler Satz entfernt werden.
 
 ### <a name="collect-dynamic-data"></a>Dynamische Daten erfassen
 
@@ -1173,7 +1173,7 @@ ROOT\*IPHTTPS\0000
 
 ```
 
-Um den Wert **FriendlyName** zu ermitteln, öffnen Sie den Registrierungs-Editor, und navigieren Sie zu der Registrierungs Einstellung, indem Sie **HKEY\_lokalen\_Machine\\System\\CurrentControlSet\\Enum-\\** mit jeder Zeile im vorherigen Beispiel kombinieren. Beispiel: **HKEY\_local\_Machine\\System\\CurrentControlSet\\Enum\\ root\\\*IPHTTPS\\0000**.
+Um den Wert **FriendlyName** zu ermitteln, öffnen Sie den Registrierungs-Editor, und navigieren Sie zu der Registrierungs Einstellung, indem Sie **HKEY \_ local \_ Machine \\ System \\ CurrentControlSet \\ Enum \\ ** mit jeder Zeile im vorherigen Beispiel kombinieren. Beispiel: **HKEY \_ local \_ Machine \\ System \\ CurrentControlSet \\ Enum \\ root \\ \* IPHTTPS \\ 0000**.
 
 Fügen Sie das Skript im folgenden Codebeispiel hinzu, um die vorherigen Schritte in die Spa-Bereitstellungs Metadaten zu übersetzen:
 
@@ -1195,15 +1195,15 @@ In der folgenden Tabelle wird definiert, ob ein Datensammler in Spa dynamische D
 
 Datentyp | Dynamische Daten unterstützen | Kann referenziert werden
 --- | :---: | :---:
-Registrierungsschlüssel | „Ja“ | „Ja“
-WMI | „Ja“ | „Ja“
-File | „Ja“ | Nein
+Registrierungsschlüssel | Ja | Ja
+WMI | Ja | Ja
+Datei | Ja | Nein
 Leistungsindikator | Nein | Nein
 ETW | Nein | Nein
 
-Bei einem WMI-Datensammler verfügt jedes WMI-Objekt über viele angefügte Attribute. Jeder Typ von WMI-Objekt hat immer drei Attribute: \_\_Namespace, \_\_Klasse und \_\_RelPath.
+Bei einem WMI-Datensammler verfügt jedes WMI-Objekt über viele angefügte Attribute. Jeder Typ von WMI-Objekt hat immer drei Attribute: " \_ \_ Namespace", " \_ \_ Class" und " \_ \_ RelPath".
 
-Um einen Datensammler zu definieren, auf den von anderen Datensammlern verwiesen wird, weisen Sie das **Name** -Attribut mit einem eindeutigen Schlüssel in der Datei "provisionmetadata. xml" zu. Dieser Schlüssel wird von abhängigen Datensammlern verwendet, um dynamische Daten zu generieren.
+Um einen Datensammler zu definieren, auf den von anderen Datensammlern verwiesen wird, weisen Sie das **Name** -Attribut einem eindeutigen Schlüssel in der ProvisionMetadata.xml zu. Dieser Schlüssel wird von abhängigen Datensammlern verwendet, um dynamische Daten zu generieren.
 
 Hier ist ein Beispiel für den Registrierungsschlüssel:
 
@@ -1217,11 +1217,11 @@ Und ein Beispiel für WMI:
 <path name="wmi">Root\Cimv2:select PNPDeviceID FROM Win32_NetworkAdapter</path>
 ```
 
-Zum Definieren eines abhängigen Daten Sammlers wird die folgende Syntax verwendet: $ ( *{Name}* ). *{Attribute}* ).
+Zum Definieren eines abhängigen Daten Sammlers wird die folgende Syntax verwendet: $ (*{Name}*).* {Attribute}*).
 
 " *{Name}* " und " *{Attribute}* " sind Platzhalter.
 
-Wenn das Spa Daten von einem Zielserver sammelt, ersetzt es dynamisch das Muster $ (\*.\*) durch die tatsächlich gesammelten Daten aus dem zugehörigen Verweis Datensammler (Registrierungsschlüssel/WMI), z. b.:
+Wenn das Spa Daten von einem Zielserver sammelt, ersetzt es dynamisch das Muster $ ( \* . \* ) durch die tatsächlich gesammelten Daten aus dem zugehörigen Verweis Datensammler (Registrierungsschlüssel/WMI), z. b.:
 
 ``` syntax
 <registryKey>HKEY_LOCAL_MACHINE\$(registry.key)\ </registryKey>
@@ -1256,7 +1256,7 @@ Die Einschränkungen von Änderungen an der geringfügigen Version bestehen dari
 
 * Hinzufügen oder Entfernen einer Spalte mit Listen Werten
 
-### <a href="" id="bkmk-tooltips"></a>Quick Infos
+### <a name="tooltips"></a><a href="" id="bkmk-tooltips"></a>QuickInfos
 
 Fast alle **Beschreibungs** Attribute werden in der Spa-Konsole als QuickInfo angezeigt.
 
@@ -1275,17 +1275,17 @@ Es wird empfohlen, dass in der QuickInfo die Datenquelle für den Benutzer angez
 
 Datenquelle | Format | Beispiel
 --- | --- | ---
-WMI | WMI: &lt;WMIClass-&gt;/&lt;Feld&gt; | WMI: Win32_OperatingSystem/Caption
-Leistungsindikator | PerfCounter: &lt;CategoryName&gt;/&lt;instanceName&gt; | PerfCounter: Prozess\Prozessorzeit (%)
-registry | Registrierung: &lt;Register Key&gt; | Registrierung: HKLM\Software\Microsoft<br>\\ASP.net\\Rootver
-Konfigurationsdatei | Configfile: &lt;filePath&gt;\[; XPath: &lt;XPath-&gt;\]<br>**Hinweis**<br>XPath ist optional und nur gültig, wenn es sich bei der Datei um eine XML-Datei handelt. | Configfile: windir%\\System32\\inetsrv\config\\ApplicationHost. config<br>XPath: Configuration&frasl;System. Webserver<br>&frasl;httpProtocol&frasl;@allowKeepAlive
-ETW | Etw: &lt;Provider/&gt;(Schlüsselwörter) | Etw: Windows-Kernel-Ablauf Verfolgung (Prozess, net)
+WMI | WMI: &lt; WMIClass- &gt; / &lt; Feld&gt; | WMI: Win32_OperatingSystem/Caption
+Leistungsindikator | PerfCounter: &lt; CategoryName &gt; / &lt; instanceName&gt; | PerfCounter: Prozess\Prozessorzeit (%)
+Registrierung | Registrierung: &lt; registerkey&gt; | Registrierung: HKLM\Software\Microsoft<br>\\ASP.net \\ Rootver
+Konfigurationsdatei | Configfile: &lt; FilePath &gt; \[ ; XPath: &lt; XPath&gt;\]<br>**Hinweis**<br>XPath ist optional und nur gültig, wenn es sich bei der Datei um eine XML-Datei handelt. | Configfile: windir% \\ system32 \\ inetsrv\config \\applicationHost.config<br>XPath: Configuration &frasl; System. Webserver<br>&frasl;httpProtocol&frasl;@allowKeepAlive
+ETW | Etw: &lt; Provider/ &gt; (Schlüsselwörter) | Etw: Windows-Kernel-Ablauf Verfolgung (Prozess, net)
 
 ### <a name="table-collation"></a>Tabellen Sortierung
 
 Wenn ein Advisor-Paket komplizierter wird, können Sie eigene Variablen Tabellen oder temporäre Tabellen erstellen, um Zwischenergebnisse im Berichts Skript zu speichern.
 
-Das Sortieren von Zeichen folgen Spalten kann problematisch sein, da die von Ihnen erstellte Tabellen Sortierung sich von der Tabelle unterscheiden kann, die durch das Spa-Framework erstellt wird. Wenn Sie zwei Zeichen folgen Spalten in verschiedenen Tabellen korrelieren, wird möglicherweise ein Sortierungs Fehler angezeigt. Um dieses Problem zu vermeiden, sollten Sie immer die Zeichenfolge für eine Spalten Sortierung als **SQL\_latin1\_allgemein\_CP1\_CI\_** definieren, als wenn Sie eine Tabelle definieren.
+Das Sortieren von Zeichen folgen Spalten kann problematisch sein, da die von Ihnen erstellte Tabellen Sortierung sich von der Tabelle unterscheiden kann, die durch das Spa-Framework erstellt wird. Wenn Sie zwei Zeichen folgen Spalten in verschiedenen Tabellen korrelieren, wird möglicherweise ein Sortierungs Fehler angezeigt. Um dieses Problem zu vermeiden, sollten Sie immer die Zeichenfolge für eine Spalten Sortierung als **SQL \_ latin1 \_ General \_ CP1 \_ ci \_ ** definieren, als wenn Sie eine Tabelle definieren.
 
 Hier finden Sie Informationen zum Definieren einer Variablen Tabelle:
 
@@ -1300,7 +1300,7 @@ DECLARE @filesIO TABLE (
 
 ### <a name="collect-etw"></a>Etw erfassen
 
-Hier finden Sie Informationen zum Definieren von etw in einer Datei "provisionmetadata. xml":
+Hier finden Sie Informationen zum Definieren von etw in einer ProvisionMetadata.xml Datei:
 
 ``` syntax
 <dataSourceDefinition>
@@ -1312,24 +1312,24 @@ Hier finden Sie Informationen zum Definieren von etw in einer Datei "provisionme
 
 Die folgenden Anbieter Attribute sind für die Erfassung von etw verfügbar:
 
-Attribut | Geben Sie in das Suchfeld auf der Taskleiste | Beschreibung
+attribute | type | BESCHREIBUNG
 --- | --- | ---
 guid | GUID | Anbieter-GUID
-Sitzung | String | Etw-Sitzungsname (optional, nur für Kernel Ereignisse erforderlich)
-keywordsany | Hexadezimal | Beliebige Schlüsselwörter (optional, kein 0x-Präfix)
-keywordsall | Hexadezimal | Alle Schlüsselwörter (optional)
-Eigenschaften | Hexadezimal | Eigenschaften (optional)
-level | Hexadezimal | Ebene (optional)
-bufferSize | Ganze Zahl | Puffergröße (optional)
-flushtime | Ganze Zahl | Leerungs Zeit (optional)
-maxBuffer | Ganze Zahl | Maximaler Puffer (optional)
-minbuffer | Ganze Zahl | Minimaler Puffer (optional)
+session | Zeichenfolge | Etw-Sitzungsname (optional, nur für Kernel Ereignisse erforderlich)
+keywordsany | Hex | Beliebige Schlüsselwörter (optional, kein 0x-Präfix)
+keywordsall | Hex | Alle Schlüsselwörter (optional)
+properties | Hex | Eigenschaften (optional)
+level | Hex | Ebene (optional)
+bufferSize | Int | Puffergröße (optional)
+flushtime | Int | Leerungs Zeit (optional)
+maxBuffer | Int | Maximaler Puffer (optional)
+minbuffer | Int | Minimaler Puffer (optional)
 
 Es gibt zwei Ausgabe Tabellen, wie hier gezeigt.
 
-**Tabellen Schema für \#Ereignisse**
+**\#Schema der Ereignis Tabelle**
 
-Name der Spalte | SQL-Datentyp | Beschreibung
+Spaltenname | SQL-Datentyp | BESCHREIBUNG
 --- | --- | ---
 SequenceID | Int not NULL | Korrelations Sequenz-ID
 Eventtypeid | Int not NULL | Ereignistyp-ID (siehe [dbo]. [ EventTypes])
@@ -1339,17 +1339,17 @@ timestamp | datetime2 nicht NULL | timestamp
 Kernelzeit | Bigint not NULL | Kernel Zeit
 Usertime | Bigint not NULL | Benutzer Zeit
 
-**\#eventproperties-Tabellen Schema**
+**\#Eventproperties-Tabellen Schema**
 
-Name der Spalte | SQL-Datentyp | Beschreibung
+Spaltenname | SQL-Datentyp | BESCHREIBUNG
 --- | --- | ---
 SequenceID | Int not NULL | Korrelations Sequenz-ID
 Name | Nvarchar (100) | Eigenschaftenname
-Value | Nvarchar(4000) | Value
+Wert | Nvarchar(4000) | Wert
 
 ### <a name="etw-schema"></a>Etw-Schema
 
-Ein etw-Schema kann durch Ausführen von "tracerpt. exe" für die ETL-Datei generiert werden. Eine "Schema. man"-Datei wird generiert. Da das Format der ETL-Datei Computer abhängig ist, funktioniert das folgende Skript nur in den folgenden Situationen:
+Ein etw-Schema kann generiert werden, indem tracerpt.exe für die ETL-Datei ausgeführt wird. Eine "Schema. man"-Datei wird generiert. Da das Format der ETL-Datei Computer abhängig ist, funktioniert das folgende Skript nur in den folgenden Situationen:
 
 1.  Führen Sie das Skript auf dem Computer aus, auf dem die entsprechende ETL-Datei gesammelt wird.
 
@@ -1370,7 +1370,7 @@ Ein Advisor-Paket ist eine Sammlung von Metadaten und SQL-Skripts, die die Leist
 
 **Spa-Konsole**
 
-Die Spa-Konsole bezieht sich auf spaconsole. exe, das der zentrale Bestandteil von Server Performance Advisor ist. Die Spa muss nicht auf dem Zielserver ausgeführt werden, den Sie testen. Die Spa-Konsole enthält alle Benutzeroberflächen für Spa, von der Einrichtung des Projekts bis hin zur Ausführung von Analysen und Anzeigen von Berichten. Das Spa ist eine Anwendung mit zwei Ebenen. Die Spa-Konsole enthält die UI-Schicht und einen Teil der Geschäftslogik Ebene. Die Spa-Konsole plant und verarbeitet Leistungsanalyse Anforderungen.
+Die Spa-Konsole bezieht sich auf SpaConsole.exe, die der zentrale Teil von Server Performance Advisor ist. Die Spa muss nicht auf dem Zielserver ausgeführt werden, den Sie testen. Die Spa-Konsole enthält alle Benutzeroberflächen für Spa, von der Einrichtung des Projekts bis hin zur Ausführung von Analysen und Anzeigen von Berichten. Das Spa ist eine Anwendung mit zwei Ebenen. Die Spa-Konsole enthält die UI-Schicht und einen Teil der Geschäftslogik Ebene. Die Spa-Konsole plant und verarbeitet Leistungsanalyse Anforderungen.
 
 **Spa-Framework**
 
@@ -1390,7 +1390,7 @@ Eine Datenanalyse Sitzung ist eine Leistungsanalyse auf einem bestimmten Zielser
 
 **Ereignisablaufverfolgung für Windows**
 
-Die Ereignis Ablauf Verfolgung für Windows ( [Event Tracing](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) for Windows, etw) ist ein hochleistungsfähiges, skalierbares Ablauf Verfolgungssystem, das in den Windows-Betriebssystemen bereitgestellt wird. Es bietet Profil Erstellungs-und Debuggingfunktionen, die zur Problembehandlung für eine Vielzahl von Szenarien verwendet werden können. Spa verwendet ETW-Ereignisse als Datenquelle zum Erstellen von Leistungs Berichten. Allgemeine Informationen zu etw finden Sie unter verbessertes [Debugging und Leistungsoptimierung mit etw](https://msdn.microsoft.com/magazine/cc163437.aspx).
+Die Ereignis Ablauf Verfolgung für Windows ( [Event Tracing](/windows/win32/etw/event-tracing-portal) for Windows, etw) ist ein hochleistungsfähiges, skalierbares Ablauf Verfolgungssystem, das in den Windows-Betriebssystemen bereitgestellt wird. Es bietet Profil Erstellungs-und Debuggingfunktionen, die zur Problembehandlung für eine Vielzahl von Szenarien verwendet werden können. Spa verwendet ETW-Ereignisse als Datenquelle zum Erstellen von Leistungs Berichten. Allgemeine Informationen zu etw finden Sie unter verbessertes [Debugging und Leistungsoptimierung mit etw](/archive/msdn-magazine/2007/april/event-tracing-improve-debugging-and-performance-tuning-with-etw).
 
 **WMI-Abfrage**
 

@@ -6,14 +6,12 @@ author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 08/09/2018
 ms.topic: article
-ms.prod: windows-server
-ms.technology: identity-adds
-ms.openlocfilehash: f211acd5e93f3f4654983e2c61d6b1a460415655
-ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
+ms.openlocfilehash: f4c4cfa0fe56acc19f1a78a5b1140d90b585cce5
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87519378"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87953309"
 ---
 # <a name="upgrade-domain-controllers-to-windows-server-2012-r2-and-windows-server-2012"></a>Aktualisieren von Domänencontrollern auf Windows Server 2012 R2 und Windows Server 2012
 
@@ -154,11 +152,11 @@ Für AD DS wurden einige Änderungen vorgenommen:
 
 Ab Windows Server 2008 verfügen Domänen Controller im Vergleich zu Domänen Controllern, auf denen Windows Server 2003 oder Windows 2000 ausgeführt wird, auch über die folgenden sicheren Standardeinstellungen.
 
-| Verschlüsselungstyp oder -richtlinie | Windows Server 2008-Standardeinstellung | Windows Server 2012- und Windows Server 2008 R2-Standardeinstellung | Kommentar |
+| Verschlüsselungstyp oder -richtlinie | Windows Server 2008-Standardeinstellung | Windows Server 2012- und Windows Server 2008 R2-Standardeinstellung | Comment |
 |--|--|--|--|
 | AllowNT4Crypto | Disabled | Disabled | SMB-Clients (Server Message Block) von Drittanbietern sind möglicherweise nicht mit den sicheren Standardeinstellungen auf Domänencontrollern kompatibel. Um Interoperabilität zu erreichen, können diese Einstellungen jeweils auch gelockert werden, jedoch nur auf Kosten der Sicherheit. Weitere Informationen finden Sie im [Artikel 942564](https://go.microsoft.com/fwlink/?LinkId=164558) in der Microsoft Knowledge Base ( https://go.microsoft.com/fwlink/?LinkId=164558) . |
 | DES | Aktiviert | Disabled | [Artikel 977321](https://go.microsoft.com/fwlink/?LinkId=177717) in der Microsoft Knowledge Base (https://go.microsoft.com/fwlink/?LinkId=177717) |
-| CBT/Erweiterter Schutz für integrierte Authentifizierung | – | Aktiviert | Weitere Informationen finden Sie in der [Microsoft-Sicherheitsempfehlung (937811)](https://go.microsoft.com/fwlink/?LinkId=164559) ( https://go.microsoft.com/fwlink/?LinkId=164559) und im [Artikel 976918](https://go.microsoft.com/fwlink/?LinkId=178251) der Microsoft Knowledge Base) ( https://go.microsoft.com/fwlink/?LinkId=178251) .<p>Überprüfen und installieren Sie den Hotfix im [Artikel 977073](https://go.microsoft.com/fwlink/?LinkId=186394) ( https://go.microsoft.com/fwlink/?LinkId=186394) in der Microsoft Knowledge Base nach Bedarf). |
+| CBT/Erweiterter Schutz für integrierte Authentifizierung | Nicht zutreffend | Aktiviert | Weitere Informationen finden Sie in der [Microsoft-Sicherheitsempfehlung (937811)](https://go.microsoft.com/fwlink/?LinkId=164559) ( https://go.microsoft.com/fwlink/?LinkId=164559) und im [Artikel 976918](https://go.microsoft.com/fwlink/?LinkId=178251) der Microsoft Knowledge Base) ( https://go.microsoft.com/fwlink/?LinkId=178251) .<p>Überprüfen und installieren Sie den Hotfix im [Artikel 977073](https://go.microsoft.com/fwlink/?LinkId=186394) ( https://go.microsoft.com/fwlink/?LinkId=186394) in der Microsoft Knowledge Base nach Bedarf). |
 | LMv2 | Aktiviert | Disabled | [Artikel 976918](https://go.microsoft.com/fwlink/?LinkId=178251) in der Microsoft Knowledge Base (https://go.microsoft.com/fwlink/?LinkId=178251) |
 
 ## <a name="operating-system-requirements"></a><a name="BKMK_SysReqs"></a>Betriebssystemanforderungen
@@ -271,11 +269,11 @@ Verbesserungen in AD DS ab Windows Server 2012 ermöglichen eine sicherere Virtu
 
 Verwenden Sie den [Remoteserver-Verwaltungstools für Windows 8](https://www.microsoft.com/download/details.aspx?id=28972) zum Verwalten von Domänen Controllern und anderen Servern, auf denen Windows Server 2012 ausgeführt wird. Sie können Windows Server 2012 Remoteserver-Verwaltungstools auf einem Computer mit Windows 8 ausführen.
 
-## <a name="application-compatibility"></a><a name="BKMK_AppCompat"></a>Anwendungs Kompatibilität
+## <a name="application-compatibility"></a><a name="BKMK_AppCompat"></a>Anwendungskompatibilität
 
 In der folgenden Tabelle sind die allgemeinen Microsoft-Anwendungen mit Active Directory-Integration zusammengefasst. Es ist angegeben, unter welchen Versionen von Windows Server die Anwendungen installiert werden können und ob sich die Einführung von Windows Server 2012-Domänencontrollern auf die Anwendungskompatibilität auswirkt.
 
-|Produkt|Notizen|
+|Produkt|Hinweise|
 |-----------|---------|
 |[Microsoft SharePoint 2010](https://support.microsoft.com/kb/2724471)|SharePoint 2010 Service Pack 2 ist für die Installation und den Betrieb erforderlich. <br />SharePoint 2010 auf Windows Server 2012-Servern<p>SharePoint 2010 Foundation Service Pack 2 ist für die Installation und den Betrieb vonSharePoint 2010 Foundation auf Windows Server 2012-Servern erforderlich.<p>Beim Installationsvorgang von SharePoint Server 2010 (ohne Service Packs) tritt unter Windows Server 2012 ein Fehler auf.<p>Das Installationsprogramm für die erforderlichen Komponenten für SharePoint Server 2010 (PrerequisiteInstaller.exe) schlägt mit der Fehlermeldung "dieses Programm weist Kompatibilitätsprobleme auf. Wenn Sie auf "Programm ohne Hilfe erhalten" klicken, wird die Fehlermeldung "Es wird überprüft, ob SharePoint installiert werden kann &#124; SharePoint Server 2010 (ohne Service Packs)" nicht unter Windows Server 2012 installiert werden kann angezeigt.|
 |[Microsoft SharePoint 2013](/SharePoint/install/hardware-and-software-requirements-0)|Mindestanforderungen für einen Datenbankserver in einer Farm:<p>64-Bit-Edition von Windows Server 2008 R2 Service Pack 1 (SP1) Standard, Enterprise oder Datacenter oder 64-Bit-Edition von Windows Server 2012 Standard oder Datacenter<p>Mindestanforderungen für einen Einzelserver mit integrierter Datenbank:<p>64-Bit-Edition von Windows Server 2008 R2 Service Pack 1 (SP1) Standard, Enterprise oder Datacenter oder 64-Bit-Edition von Windows Server 2012 Standard oder Datacenter<p>Mindestanforderungen für Front-End-Webserver und Anwendungsserver in einer Farm:<p>64-Bit-Edition von Windows Server 2008 R2 Service Pack 1 (SP1) Standard, Enterprise oder Datacenter oder 64-Bit-Edition von Windows Server 2012 Standard oder Datacenter|

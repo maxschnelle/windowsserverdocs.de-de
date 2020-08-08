@@ -7,12 +7,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4e9276acbad0f9e9d403d3e172b4935f1de43475
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: e3beb043272de304edfcac294bc9b831a60b1003
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87880349"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87992994"
 ---
 # <a name="certreq"></a>certreq
 
@@ -63,7 +63,7 @@ So übermitteln Sie eine einfache Zertifikat Anforderung:
 certreq –submit certrequest.req certnew.cer certnew.pfx
 ```
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Dies ist der Standard certreq.exe Parameter. Wenn an der Eingabeaufforderung keine Option angegeben ist, wird von certreq.exe versucht, eine Zertifikat Anforderung an eine Zertifizierungsstelle zu übermitteln. Sie müssen eine Zertifikat Anforderungs Datei angeben, wenn Sie die Option **– Submit** verwenden. Wenn dieser Parameter ausgelassen wird, wird ein gemeinsames **Datei Öffnungs** Fenster angezeigt, in dem Sie die entsprechende Zertifikat Anforderungs Datei auswählen können.
 
@@ -77,7 +77,7 @@ Zum Abrufen der Zertifikat-ID 20 und zum Erstellen einer Zertifikatsdatei (. cer
 certreq -retrieve 20 MyCertificate.cer
 ```
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Verwenden Sie certreq-retrieve *RequestId* , um das Zertifikat abzurufen, nachdem es von der Zertifizierungsstelle ausgestellt wurde. Das *RequestId-* PKC kann ein Dezimal-oder hexadezimal mit einem 0x-Präfix sein, und es kann sich um eine Zertifikat Seriennummer ohne 0x-Präfix Sie können damit auch alle Zertifikate abrufen, die jemals von der Zertifizierungsstelle ausgestellt wurden, einschließlich widerrufener oder abgelaufener Zertifikate, ohne Rücksicht darauf, ob die Anforderung des Zertifikats jemals den Status "Ausstehend" hatte.
 
@@ -258,7 +258,7 @@ certreq -sign myrequest.req myrequest.req
 certreq -submit myrequest_sign.req myrequest_cert.cer
 ```
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Wenn Sie `certreq -sign` ohne zusätzlichen Parameter verwenden, wird ein Dialogfenster geöffnet, in dem Sie die angeforderte Datei (req, CMC, txt, der, CER oder CRT) auswählen können.
 
@@ -339,7 +339,7 @@ Die folgenden Artikel enthalten Beispiele für die Verwendung von Certreq:
 
 - [Manuelles Erstellen eines Webserver-SSL-Zertifikats](https://techcommunity.microsoft.com/t5/core-infrastructure-and-security/how-to-create-a-web-server-ssl-certificate-manually/ba-p/1128529)
 
-- [Zertifikat Registrierung für System Center Operations Manager-Agent](https://docs.microsoft.com/system-center/scom/plan-planning-agent-deployment?view=sc-om-2019)
+- [Zertifikat Registrierung für System Center Operations Manager-Agent](/system-center/scom/plan-planning-agent-deployment?view=sc-om-2019)
 
 - [Active Directory-Zertifikatdienste: Übersicht](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831740(v=ws.11))
 

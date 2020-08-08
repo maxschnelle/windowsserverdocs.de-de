@@ -1,19 +1,17 @@
 ---
 title: Erstellen eines Verbindungs Anbieters für eine projektmappenerweiterung
 description: Entwickeln einer projektmappenerweiterung Windows Admin Center SDK (Project Honolulu)-Erstellen eines Verbindungs Anbieters
-ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
 ms.author: niwashbu
 ms.date: 06/06/2019
 ms.localizationpriority: medium
-ms.prod: windows-server
-ms.openlocfilehash: 9c04db3196d1e806e50af9164b3c8bcdfb19b079
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ec11b8a6b9129348ec2405548c21fa9d6ec5deff
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406882"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87952683"
 ---
 # <a name="create-a-connection-provider-for-a-solution-extension"></a>Erstellen eines Verbindungs Anbieters für eine projektmappenerweiterung
 
@@ -34,15 +32,15 @@ Führen Sie die folgenden Schritte aus, um einen eigenen benutzerdefinierten Ver
 * Verbindungs Status Anbieter definieren
 * Implementieren des Verbindungs Anbieters in der Anwendungsschicht
 
-## <a name="add-connection-provider-details-to-manifestjson"></a>Details zum Verbindungsanbieter zu "Manifest. JSON" hinzufügen
+## <a name="add-connection-provider-details-to-manifestjson"></a>Verbindungsanbieter Details zu manifest.jshinzufügen
 
-Nun gehen wir darauf ein, was Sie wissen müssen, um einen Verbindungsanbieter in der Datei des ```manifest.json``` Projekts zu definieren.
+Nun gehen wir darauf ein, was Sie wissen müssen, um einen Verbindungsanbieter in der Datei des Projekts zu definieren ```manifest.json``` .
 
-### <a name="create-entry-in-manifestjson"></a>Eintrag in "Manifest. JSON" erstellen
+### <a name="create-entry-in-manifestjson"></a>Eintrag in manifest.jserstellen
 
 Die ```manifest.json``` Datei befindet sich im Ordner "\src" und enthält unter anderem Definitionen der Einstiegspunkte in Ihr Projekt. Zu den Typen von Einstiegspunkten zählen Tools, Projektmappen und Verbindungsanbieter. Wir definieren einen Verbindungsanbieter.
 
-Ein Beispiel für einen Verbindungsanbieter Eintrag in "Manifest. JSON" finden Sie unten:
+Ein Beispiel für einen Verbindungsanbieter Eintrag in manifest.json lautet unten:
 
 ``` json
     {
@@ -73,13 +71,13 @@ Ein Beispiel für einen Verbindungsanbieter Eintrag in "Manifest. JSON" finden S
 
 Ein Einstiegspunkt des Typs "Verbindungsanbieter" zeigt der Windows Admin Center-Shell an, dass das konfigurierte Element ein Anbieter ist, der von einer Lösung verwendet wird, um einen Verbindungsstatus zu überprüfen. Einstiegspunkte für Verbindungsanbieter enthalten eine Reihe wichtiger Eigenschaften, die unten definiert sind:
 
-| Eigenschaft | Beschreibung |
+| Eigenschaft | BESCHREIBUNG |
 | -------- | ----------- |
-| entryPointType | Dies ist eine erforderliche Eigenschaft. Es gibt drei gültige Werte: "Tool", "Solution" und "ConnectionProvider". | 
-| NAME | Identifiziert den Verbindungsanbieter innerhalb des Gültigkeits Bereichs einer Projekt Mappe. Dieser Wert muss innerhalb einer vollständigen Windows Admin Center-Instanz (nicht nur einer Lösung) eindeutig sein. |
+| entryPointType | Dies ist eine erforderliche Eigenschaft. Es gibt drei gültige Werte: "Tool", "Solution" und "ConnectionProvider". |
+| Name | Identifiziert den Verbindungsanbieter innerhalb des Gültigkeits Bereichs einer Projekt Mappe. Dieser Wert muss innerhalb einer vollständigen Windows Admin Center-Instanz (nicht nur einer Lösung) eindeutig sein. |
 | path | Stellt den URL-Pfad für die Benutzeroberfläche "Verbindung hinzufügen" dar, wenn Sie von der Lösung konfiguriert wird. Dieser Wert muss einer Route zugeordnet werden, die in der Datei App-Routing. Module. TS konfiguriert ist. Wenn der projektmappeneinstiegs Punkt für die Verwendung der Verbindungen rootnavigationbehavior konfiguriert ist, lädt diese Route das Modul, das von der Shell verwendet wird, um die Benutzeroberfläche zum Hinzufügen von Verbindungen anzuzeigen. Weitere Informationen finden Sie im Abschnitt zu rootnavigationbehavior. |
 | displayName | Der hier eingegebene Wert wird auf der rechten Seite der Shell angezeigt, wenn ein Benutzer die Verbindungs Seite eines Projektmappen lädt. |
-| Symbol | Stellt das Symbol dar, das im Dropdown Menü Lösungen zum Darstellen der Projekt Mappe verwendet wird. |
+| icon | Stellt das Symbol dar, das im Dropdown Menü Lösungen zum Darstellen der Projekt Mappe verwendet wird. |
 | description | Geben Sie eine kurze Beschreibung für den Einstiegspunkt ein. |
 | connectionType | Stellt den Verbindungstyp dar, der vom Anbieter geladen wird. Der hier eingegebene Wert wird auch im Einstiegspunkt der Projekt Mappe verwendet, um anzugeben, dass diese Verbindungen von der Lösung geladen werden können. Der hier eingegebene Wert wird auch in Tool Einstiegspunkten verwendet, um anzugeben, dass das Tool mit diesem Typ kompatibel ist. Dieser hier eingegebene Wert wird auch in dem Verbindungs Objekt verwendet, das an den RPC-Aufruf im Fenster "hinzufügen" im Implementierungs Schritt der Anwendungsschicht gesendet wird. |
 | connectiontyname | Wird in der Verbindungstabelle verwendet, um eine Verbindung darzustellen, die ihren Verbindungsanbieter verwendet. Es wird davon ausgegangen, dass es sich um den Plural Namen des Typs handelt. |
@@ -90,14 +88,14 @@ Ein Einstiegspunkt des Typs "Verbindungsanbieter" zeigt der Windows Admin Center
 
 ## <a name="define-connection-status-provider"></a>Verbindungs Status Anbieter definieren
 
-Der Verbindungs Status Anbieter ist der Mechanismus, mit dem ein Ziel validiert und verfügbar ist. Außerdem wird sichergestellt, dass der Benutzer, der die Verbindung herstellt, über die Berechtigung zum Zugreifen auf das Ziel verfügt. Zurzeit gibt es zwei Arten von Verbindungs Status Anbietern:  PowerShell und relativegatewayurl.
+Der Verbindungs Status Anbieter ist der Mechanismus, mit dem ein Ziel validiert und verfügbar ist. Außerdem wird sichergestellt, dass der Benutzer, der die Verbindung herstellt, über die Berechtigung zum Zugreifen auf das Ziel verfügt. Zurzeit gibt es zwei Arten von Verbindungs Status Anbietern: PowerShell und relativegatewayurl.
 
 *   <strong>PowerShell-Verbindungs Status Anbieter</strong> : legt fest, ob ein Ziel Online ist und mit einem PowerShell-Skript zugänglich ist. Das Ergebnis muss in einem Objekt mit einer einzelnen Eigenschaft "Status" zurückgegeben werden, die unten definiert ist.
 *   <strong>Relativegatewayurl-Verbindungs Status Anbieter</strong> : bestimmt, ob ein Ziel Online ist und mit einem Rest-Aufruf zugänglich ist. Das Ergebnis muss in einem Objekt mit einer einzelnen Eigenschaft "Status" zurückgegeben werden, die unten definiert ist.
 
 ### <a name="define-status"></a>Status definieren
 
-Verbindungs Status Anbieter müssen ein Objekt mit einer einzelnen Eigenschaft ```status``` zurückgeben, die dem folgenden Format entspricht:
+Verbindungs Status Anbieter müssen ein Objekt mit einer einzelnen Eigenschaft zurückgeben ```status``` , die dem folgenden Format entspricht:
 
 ``` json
 {
@@ -117,7 +115,7 @@ Status Eigenschaften:
 
    Solche
 
-  | Wert | Description |
+  | Wert | BESCHREIBUNG |
   | ----- | ----------- |
   | 0 | Online |
   | 1 | Warnung |
@@ -162,7 +160,7 @@ Get-Status
 
 ### <a name="define-relativegatewayurl-connection-status-provider-method"></a>Verbindungs Status-Anbieter Methode für relativegatewayurl definieren
 
-Die Verbindungs Status- ```RelativeGatewayUrl``` Anbieter Methode ruft eine Rest-API auf, um zu bestimmen, ob ein Ziel Online und zugänglich ist. Das Ergebnis muss in einem Objekt mit der einzelnen Eigenschaft "Status" zurückgegeben werden. Unten ist ein Beispiel für einen Verbindungsanbieter Eintrag in "Manifest. JSON" von relativegatewayurl angegeben.
+Die Verbindungs Status ```RelativeGatewayUrl``` -Anbieter Methode ruft eine Rest-API auf, um zu bestimmen, ob ein Ziel Online und zugänglich ist. Das Ergebnis muss in einem Objekt mit der einzelnen Eigenschaft "Status" zurückgegeben werden. Unten ist ein Beispiel für einen Verbindungsanbieter Eintrag in manifest.json von relativegatewayurl angegeben.
 
 ``` json
     {
@@ -191,14 +189,14 @@ Die Verbindungs Status- ```RelativeGatewayUrl``` Anbieter Methode ruft eine Rest
 
 Hinweise zur Verwendung von relativegatewayurl:
 
-* "relativegatewayurl" gibt an, wo der Verbindungsstatus aus einer Gateway-URL angezeigt werden soll. Dieser URI ist relativ zu/API. Wenn $ConnectionName in der URL gefunden wird, wird Sie durch den Namen der Verbindung ersetzt.
+* "relativegatewayurl" gibt an, wo der Verbindungsstatus aus einer Gateway-URL angezeigt werden soll. Dieser URI ist relativ zu/API.. Wenn $ConnectionName in der URL gefunden wird, wird Sie durch den Namen der Verbindung ersetzt.
 * Alle relativegatewayurl-Eigenschaften müssen für das Host Gateway ausgeführt werden. Dies kann durch Erstellen einer gatewayerweiterung erreicht werden.
 
 ### <a name="map-values-in-runtime"></a>Zuordnen von Werten zur Laufzeit
 
 Die Bezeichnungs-und Detail Werte im Status Rückgabe Objekt können zum Zeitpunkt der Optimierung formatiert werden, indem Sie Schlüssel und Werte in die Eigenschaft "defaultvaluemap" des Anbieters einschließen.
 
-Wenn Sie z. b. den unten angegebenen Wert hinzufügen, wird "defaultConnection_test" immer als Wert für Bezeichnung oder Details angezeigt. das Windows Admin Center ersetzt den Schlüssel automatisch durch den konfigurierten Wert der Ressourcen Zeichenfolge.
+Wenn Sie z. b. den unten angegebenen Wert hinzufügen, wird der Schlüssel automatisch durch den konfigurierten Wert der Ressourcen Zeichenfolge ersetzt, wenn "defaultConnection_test" als Wert für "Bezeichnung" oder "Details" angezeigt wird.
 
 ``` json
     "defaultConnection_test": "resources:strings:addServer_status_defaultConnection_label"
@@ -208,9 +206,9 @@ Wenn Sie z. b. den unten angegebenen Wert hinzufügen, wird "defaultConnection_t
 
 Nun wird der Verbindungsanbieter in der Anwendungsschicht implementiert, indem eine typescript-Klasse erstellt wird, die OnInit implementiert. Die-Klasse verfügt über die folgenden Funktionen:
 
-| Funktion | Beschreibung |
+| Funktion | BESCHREIBUNG |
 | -------- | ----------- |
-| Konstruktor (privater appcontextservice: Appcontextservice, private Route: Activatedroute) |  |
+| Konstruktor (privater appcontextservice: appcontextservice, private Route: activatedroute) |  |
 | Public ngoninit () |  |
 | Public onsubmit () | Enthält Logik zum Aktualisieren der Shell, wenn ein Add connection-Versuch durchgeführt wird. |
 | Public OnCancel () | Enthält Logik zum Aktualisieren der Shell, wenn ein Add connection-Versuch abgebrochen wird. |
@@ -311,7 +309,7 @@ this.appContextService.rpc.updateData(EnvironmentModule.nameOfShell, '##', <RpcU
 
 ## <a name="connection-provider-example"></a>Beispiel für Verbindungsanbieter
 
-Die vollständige typescript-Klasse zum Implementieren eines Verbindungs Anbieters finden Sie unten. Beachten Sie, dass die "connectionType"-Zeichenfolge mit "connectionType" übereinstimmt, wie im Verbindungsanbieter in "Manifest. JSON" definiert.
+Die vollständige typescript-Klasse zum Implementieren eines Verbindungs Anbieters finden Sie unten. Beachten Sie, dass die "connectionType"-Zeichenfolge mit der "connectionType" übereinstimmt, wie im Verbindungsanbieter in manifest.json definiert.
 
 ``` ts
 import { Component, OnInit } from '@angular/core';
@@ -331,7 +329,7 @@ export class AddExampleComponent implements OnInit {
   public newConnectionName: string;
   public strings = MsftSme.resourcesStrings<Strings>().SolutionExample;
   private connectionType = 'msft.sme.connection-type.example'; // This needs to match the connectionTypes value used in the manifest.json.
-  
+
   constructor(private appContextService: AppContextService, private route: ActivatedRoute) {
     // TODO:
   }

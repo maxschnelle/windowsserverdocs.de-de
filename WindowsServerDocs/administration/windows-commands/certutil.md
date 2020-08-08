@@ -7,12 +7,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9f66bfb724a40a21bfaf323a54749f1d99c25e86
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: afaf0c75350cfb4121d0ebc664469f4494afe8c7
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87880343"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87992950"
 ---
 # <a name="certutil"></a>certutil
 
@@ -128,7 +128,7 @@ Hierbei gilt:
 [-config Machine\CAName]
 ```
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Namen und Werte müssen durch Doppelpunkte getrennt sein, während mehrere Name-Wert-Paare zeilenweise getrennt sein müssen. Beispiel: `CertificateTemplate:User\nEMail:User@Domain.com` `\n` gibt an, wo die Sequenz in ein Zeilen Trennzeichen konvertiert wird.
 
@@ -152,7 +152,7 @@ Hierbei gilt:
 [-config Machine\CAName]
 ```
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Wenn der letzte Parameter numerisch ist, wird er als **Long**-Wert angenommen.
 
@@ -517,7 +517,7 @@ Hierbei gilt:
 [-silent] [-split] [-config Machine\CAName] [-restrict RestrictionList] [-out ColumnList]
 ```
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Wenn Sie die Spalte **Statuscode** für alle Einträge anzeigen möchten, geben Sie ein.`-out StatusCode`
 
@@ -719,7 +719,7 @@ Hierbei gilt:
 [-f] [-user] [-p password] [-csp provider]
 ```
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Der Standardwert ist der persönliche Computerspeicher.
 
@@ -765,7 +765,7 @@ certutil [options] -store [certificatestorename [certID [outputfile]]]
 
 Hierbei gilt:
 
-- **certifikatestorename** ist der Name des Zertifikat Speichers. Beispiel:
+- **certifikatestorename** ist der Name des Zertifikat Speichers. Zum Beispiel:
 
   - `My, CA (default), Root,`
 
@@ -799,7 +799,7 @@ Hierbei gilt:
 
 - Die `-grouppolicy` Option greift auf einen Computer Gruppenrichtlinien Speicher zu.
 
-Beispiel:
+Zum Beispiel:
 
 - `-enterprise NTAuth`
 
@@ -936,7 +936,7 @@ Hierbei gilt:
 
 - Die `-grouppolicy` Option greift auf einen Computer Gruppenrichtlinien Speicher zu.
 
-Beispiel:
+Zum Beispiel:
 
 - `-enterprise NTAuth`
 
@@ -976,7 +976,7 @@ Hierbei gilt:
 
 - Die `-grouppolicy` Option greift auf einen Computer Gruppenrichtlinien Speicher zu.
 
-Beispiel:
+Zum Beispiel:
 
 - `-enterprise NTAuth`
 
@@ -1094,14 +1094,14 @@ Hierbei gilt:
 [-f] [-config Machine\CAName] [-dc DCName]
 ```
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Die `-config` Option ist für eine einzelne Zertifizierungsstelle vorgesehen (standardmäßig alle Zertifizierungsstellen).
 
 - Die `-f` Option kann verwendet werden, um Validierungs Fehler für den angegebenen **Sitename** zu überschreiben oder alle Zertifizierungsstellen-sitenames zu löschen.
 
 > [!NOTE]
-> Weitere Informationen zum Konfigurieren von Zertifizierungsstellen für die Active Directory Domain Services (AD DS) Standortinformationen finden Sie unter [AD DS Site Awareness for AD CS and PKI Clients](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831740(v=ws.11)).
+> Weitere Informationen zum Konfigurieren von Zertifizierungsstellen für die Active Directory Domain Services (AD DS) Standortinformationen finden Sie unter [AD DS Site Awareness for AD CS and PKI Clients](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831740(v=ws.11)).
 
 ### <a name="-enrollmentserverurl"></a>-enrollmentserverURL
 
@@ -1358,7 +1358,7 @@ Hierbei gilt:
 [-f] [-user] [-silent] [-config Machine\CAName]
 ```
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Wenn keine Argumente angegeben werden, wird jedes Signatur Zertifizierungsstellen Zertifikat anhand des privaten Schlüssels überprüft.
 
@@ -1397,7 +1397,7 @@ Hierbei gilt:
 [-f] [-enterprise] [-user] [-silent] [-split] [-urlfetch] [-t timeout]
 ```
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Die Verwendung von **applicationpolicylist** schränkt die Ketten Bildung auf die für die angegebenen Anwendungsrichtlinien gültigen Ketten ein.
 
@@ -1474,7 +1474,7 @@ Hierbei gilt:
 
 - **objectidlist** ist die durch Trennzeichen getrennte Erweiterung ObjectID der Dateien, die entfernt werden sollen.
 
-- ** \@ extensionfile** ist die INF-Datei mit den zu aktualisierenden oder zu entfernenden Erweiterungen. Beispiel:
+- ** \@ extensionfile** ist die INF-Datei mit den zu aktualisierenden oder zu entfernenden Erweiterungen. Zum Beispiel:
 
   ```
   [Extensions]
@@ -1491,7 +1491,7 @@ Hierbei gilt:
 [-nullsign] [-f] [-silent] [-cert certID]
 ```
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Wenn Sie das Minuszeichen (-) verwenden, werden Seriennummern und Erweiterungen entfernt.
 
@@ -1683,7 +1683,7 @@ Hierbei gilt:
 [-f] [-user] [-grouppolicy] [-config Machine\CAName]
 ```
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Wenn ein Zeichen folgen Wert mit `+` oder beginnt `-` und der vorhandene Wert ein `REG_MULTI_SZ` Wert ist, wird die Zeichenfolge dem vorhandenen Registrierungs Wert hinzugefügt oder daraus entfernt. Um das Erstellen eines Werts zu erzwingen `REG_MULTI_SZ` , fügen Sie am `\n` Ende des Zeichen folgen Werts ein.
 
@@ -1727,7 +1727,7 @@ Hierbei gilt:
 [-f] [-user] [-grouppolicy] [-config Machine\CAName]
 ```
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Wenn ein Zeichen folgen Wert mit `+` oder beginnt `-` und der vorhandene Wert ein `REG_MULTI_SZ` Wert ist, wird die Zeichenfolge dem vorhandenen Registrierungs Wert hinzugefügt oder daraus entfernt. Um das Erstellen eines Werts zu erzwingen `REG_MULTI_SZ` , fügen Sie am `\n` Ende des Zeichen folgen Werts ein.
 
@@ -1771,7 +1771,7 @@ Hierbei gilt:
 [-f] [-user] [-grouppolicy] [-config Machine\CAName]
 ```
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Wenn ein Zeichen folgen Wert mit `+` oder beginnt `-` und der vorhandene Wert ein `REG_MULTI_SZ` Wert ist, wird die Zeichenfolge dem vorhandenen Registrierungs Wert hinzugefügt oder daraus entfernt. Um das Erstellen eines Werts zu erzwingen `REG_MULTI_SZ` , fügen Sie am `\n` Ende des Zeichen folgen Werts ein.
 
@@ -1821,7 +1821,7 @@ Hierbei gilt:
 [-f] [-config Machine\CAName]
 ```
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 Die Zertifizierungsstelle muss möglicherweise auch für die Unterstützung von fremd Zertifikaten konfiguriert werden. Geben Sie hierzu ein `import - certutil -setreg ca\KRAFlags +KRAF_ENABLEFOREIGN` .
 
@@ -1899,7 +1899,7 @@ Hierbei gilt:
 [-f] [-user] [-split] [-p password] [-protectto SAMnameAndSIDlist] [-csp provider]
 ```
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Das in der Befehlszeile angegebene Kennwort muss eine durch Trennzeichen getrennte Kenn Wort Liste sein.
 
@@ -1934,7 +1934,7 @@ Hierbei gilt:
 [-f] [-silent] [-split] [-dc DCName] [-p password] [-csp provider]
 ```
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Das in der Befehlszeile angegebene Kennwort muss eine durch Trennzeichen getrennte Kenn Wort Liste sein.
 

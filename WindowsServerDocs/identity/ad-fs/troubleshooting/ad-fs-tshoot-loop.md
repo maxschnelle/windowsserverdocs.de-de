@@ -6,17 +6,15 @@ ms.author: billmath
 manager: mtillman
 ms.date: 02/21/2017
 ms.topic: article
-ms.prod: windows-server
-ms.technology: identity-adfs
-ms.openlocfilehash: 2f8842dc53756cc4f65b6d6794a8c4952e111c00
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e3d654f44ba75d9b647c0c1d9db7345c7ea75435
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71385345"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87953090"
 ---
-# <a name="ad-fs-troubleshooting---loop-detection"></a>AD FS Problembehandlung: Schleifen Erkennung 
- 
+# <a name="ad-fs-troubleshooting---loop-detection"></a>AD FS Problembehandlung: Schleifen Erkennung
+
 Schleifen in AD FS treten auf, wenn eine vertrauende Seite ein gültiges Sicherheits Token fortlaufend ablehnt und zurück an AD FS umgeleitet wird.
 
 ## <a name="loop-detection-cookie"></a>Schleifen Erkennungs Cookie
@@ -24,9 +22,9 @@ Um dies zu verhindern, hat AD FS das als Schleifen Erkennungs Cookie bezeichnete
 
 Wenn ein passiver Client die Verbunddienst für ein Token innerhalb von 20 Sekunden fünf Mal besucht, löst AD FS den folgenden Fehler aus:
 
-**MSIS7042: Dieselbe Client Browsersitzung hat "{0}" Anforderungen in den letzten "{1}" Sekunden gestellt. Weitere Informationen erhalten Sie vom Administrator.**
+**MSIS7042: die Client Browsersitzung hat " {0} " Anforderungen in den letzten {1} Sekunden angegeben. Weitere Informationen erhalten Sie von Ihrem Administrator.**
 
-Das Eintreten in unendliche Schleifen wird häufig durch eine nicht verhaltende Anwendung der vertrauenden Seite verursacht, die das von AD FS ausgegebene Token nicht erfolgreich nutzt, und die Anwendung sendet den passiven Client wiederholt an AD FS, wiederholt für ein neues Token.  AD FS gibt den passiven Client jedes Mal ein neues Token aus, solange nicht fünf Anforderungen innerhalb von 20 Sekunden überschritten werden. 
+Das Eintreten in unendliche Schleifen wird häufig durch eine nicht verhaltende Anwendung der vertrauenden Seite verursacht, die das von AD FS ausgegebene Token nicht erfolgreich nutzt, und die Anwendung sendet den passiven Client wiederholt an AD FS, wiederholt für ein neues Token.  AD FS gibt den passiven Client jedes Mal ein neues Token aus, solange nicht fünf Anforderungen innerhalb von 20 Sekunden überschritten werden.
 
 ## <a name="adjusting-the-loop-detection-cookie"></a>Anpassen des Cookies für die Schleifen Erkennung
 Sie können PowerShell verwenden, um die Anzahl der ausgegebenen Token und den TimeSpan-Wert zu ändern.

@@ -1,20 +1,18 @@
 ---
 title: Richtlinien zur Softwareeinschränkung (Software Restriction Policies, SRP) –  Technische Übersicht
 description: Windows Server-Sicherheit
-ms.prod: windows-server
-ms.technology: security-software-restriction-policies
 ms.topic: article
 ms.assetid: dc7013b0-0efd-40fd-bd6d-75128adbd0b8
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 9a9a44cd4ab1f4c8ee1c4dadf5cc09de2208b46a
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: f98075cd8e662b3344f426bd8d69181994096a5f
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86966162"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87953049"
 ---
 # <a name="software-restriction-policies-technical-overview"></a>Richtlinien zur Softwareeinschränkung (Software Restriction Policies, SRP) –  Technische Übersicht
 
@@ -27,7 +25,7 @@ Software Einschränkungs Richtlinien bieten Administratoren einen Gruppenrichtli
 
 Richtlinien für Softwareeinschränkung sind Vertrauensrichtlinien. Hierbei handelt es sich um von einem Administrator festgelegte Vorschriften, um die Ausführung von Skripts und anderem Code zu beschränken, der als nicht als absolut vertrauenswürdig erachtet wird. Die Erweiterung für Software Einschränkungs Richtlinien für den Editor für lokale Gruppenrichtlinien bietet eine einzelne Benutzeroberfläche, über die die Einstellungen zum Einschränken der Anwendungs Verwendung auf dem lokalen Computer oder in einer Domäne verwaltet werden können.
 
-## <a name="procedures"></a>Vorgehensweisen
+## <a name="procedures"></a>Prozeduren
 
 -   [Verwalten der Richtlinien für Softwareeinschränkung](administer-software-restriction-policies.md)
 
@@ -176,6 +174,6 @@ Weitere Informationen zur SRP-Architektur und zur Verwaltung von Regeln, Prozess
 |**Planung**|[Technische Referenz für Software Einschränkungs Richtlinien](/previous-versions/windows/it-pro/windows-server-2003/cc728085(v=ws.10))|
 |**Vorgänge**|[Verwalten der Richtlinien für Softwareeinschränkung](administer-software-restriction-policies.md)|
 |**Problembehandlung**|[Problembehandlung bei Richtlinien für Software Einschränkung (2003)](/previous-versions/windows/it-pro/windows-server-2003/cc737011(v=ws.10))|
-|**Sicherheit**|[Bedrohungen und Gegenmaßnahmen für Richtlinien für Software Einschränkung (2008)](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd349795(v=ws.10))<p>[Bedrohungen und Gegenmaßnahmen für Richtlinien für Software Einschränkung (2008 R2)](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/hh125926(v=ws.10))|
+|**Security**|[Bedrohungen und Gegenmaßnahmen für Richtlinien für Software Einschränkung (2008)](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd349795(v=ws.10))<p>[Bedrohungen und Gegenmaßnahmen für Richtlinien für Software Einschränkung (2008 R2)](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/hh125926(v=ws.10))|
 |**Tools und Einstellungen**|[Tools und Einstellungen für Richtlinien für Software Einschränkung (2003)](/previous-versions/windows/it-pro/windows-server-2003/cc782454(v=ws.10))|
 |**Communityressourcen**|[Sperren von Anwendungen mit Richtlinien für Softwareeinschränkung](/previous-versions/technet-magazine/cc510322(v=msdn.10)?pr=blog)|

@@ -1,18 +1,16 @@
 ---
 title: Integritätsdienst Einstellungen
-ms.prod: windows-server
 manager: eldenc
 ms.author: cosdar
-ms.technology: storage-health-service
 ms.topic: article
 author: cosmosdarwin
 ms.date: 08/14/2017
-ms.openlocfilehash: d2284587ca68bbcf8648adeb2de361cb95e0f6d2
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 389dfa8890e67b3caf7d9ec6fb69b16ae6a8083b
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85473257"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87953382"
 ---
 # <a name="health-service-settings"></a>Integritätsdienst Einstellungen
 
@@ -99,7 +97,7 @@ Weitere Informationen finden Sie im vorherigen Abschnitt.
 "System.LogLevel" = 4
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Der Integritätsdienst in Windows Server 2016](health-service-overview.md)
 - [Direkte Speicherplätze in Windows Server 2016](../storage/storage-spaces/storage-spaces-direct-overview.md)

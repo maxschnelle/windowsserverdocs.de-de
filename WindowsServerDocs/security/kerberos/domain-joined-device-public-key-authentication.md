@@ -1,33 +1,31 @@
 ---
 title: Public Key Authentication für Geräte in einer Domäne
-ms.prod: windows-server
 ms.topic: article
 ms.assetid: 7bd17803-6e42-4a3b-803f-e47c74725813
 manager: alanth
 author: michikos
-ms.technology: security-authentication
 ms.date: 08/18/2017
-ms.openlocfilehash: 450d3e64ff753a718c2e72e69cb60d51c8c18f78
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 37710710bc301173503450a46fc1ccc2b0614cf4
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80856333"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87943950"
 ---
 # <a name="domain-joined-device-public-key-authentication"></a>Public Key Authentication für Geräte in einer Domäne
 
 >Gilt für: Windows Server 2016, Windows 10
 
-Kerberos hat die Unterstützung von in die Domäne eingebundenen Geräten zum Anmelden mit einem Zertifikat ab Windows Server 2012 und Windows 8 hinzugefügt. Diese Änderung ermöglicht Drittanbietern das Erstellen von Lösungen zum Bereitstellen und Initialisieren von Zertifikaten für in die Domäne eingebundenen Geräten, die für die Domänen Authentifizierung verwendet werden sollen. 
+Kerberos hat die Unterstützung von in die Domäne eingebundenen Geräten zum Anmelden mit einem Zertifikat ab Windows Server 2012 und Windows 8 hinzugefügt. Diese Änderung ermöglicht Drittanbietern das Erstellen von Lösungen zum Bereitstellen und Initialisieren von Zertifikaten für in die Domäne eingebundenen Geräten, die für die Domänen Authentifizierung verwendet werden sollen.
 
 ## <a name="automatic-public-key-provisioning"></a>Automatische Bereitstellung öffentlicher Schlüssel
 
 Ab Windows 10, Version 1507 und Windows Server 2016, stellen in die Domäne eingebundene Geräte automatisch einen gebundenen öffentlichen Schlüssel für einen Windows Server 2016-Domänen Controller (DC) bereit. Nachdem ein Schlüssel bereitgestellt wurde, kann Windows die Authentifizierung mit öffentlichem Schlüssel für die Domäne verwenden.
 
 ### <a name="key-generation"></a>Schlüsselgenerierung
-Wenn auf dem Gerät Credential Guard ausgeführt wird, wird ein öffentliches/privates Schlüsselpaar erstellt, das durch Credential Guard geschützt wird. 
+Wenn auf dem Gerät Credential Guard ausgeführt wird, wird ein öffentliches/privates Schlüsselpaar erstellt, das durch Credential Guard geschützt wird.
 
-Wenn Credential Guard nicht verfügbar ist und ein TPM ist, wird ein öffentliches/privates Schlüsselpaar durch das TPM geschützt. 
+Wenn Credential Guard nicht verfügbar ist und ein TPM ist, wird ein öffentliches/privates Schlüsselpaar durch das TPM geschützt.
 
 Wenn keines von beiden verfügbar ist, wird kein Schlüsselpaar generiert, und das Gerät kann sich nur mit einem Kennwort authentifizieren.
 

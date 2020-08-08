@@ -7,12 +7,12 @@ ms.assetid: b5e3c405-cb76-4ff2-8042-c2284448c435
 author: kbdazure
 ms.author: kathydav
 ms.date: 9/30/2016
-ms.openlocfilehash: 7bcd4e625f340ba7358a8ce9bdd860581c390e96
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: e07910b6f822ca29769fb398434f83272867dbe7
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87948019"
+ms.locfileid: "87992705"
 ---
 # <a name="set-up-hosts-for-live-migration-without-failover-clustering"></a>Einrichten von Hosts für die Live Migration ohne Failoverclustering
 
@@ -112,7 +112,7 @@ Dieser Schritt umfasst die Auswahl von Optionen für die Authentifizierung und d
 
 ### <a name="use-windows-powershell-to-set-up-the-source-and-destination-computers-for-live-migration"></a>Verwenden von Windows PowerShell zum Einrichten der Quell-und Zielcomputer für die Live Migration
 
-Zum Konfigurieren der Live Migration auf nicht gruppierten Hosts sind drei Cmdlets verfügbar: " [enable-vmmigration](https://technet.microsoft.com/library/hh848544.aspx)", " [Set-vmmigrationnetwork](https://technet.microsoft.com/library/hh848467.aspx)" und " [Set-VMHost](https://technet.microsoft.com/library/hh848524.aspx)". In diesem Beispiel werden alle drei verwendet und folgende Aktionen durchführt:
+Zum Konfigurieren der Live Migration auf nicht gruppierten Hosts sind drei Cmdlets verfügbar: " [enable-vmmigration](/powershell/module/hyper-v/enable-vmmigration?view=win10-ps)", " [Set-vmmigrationnetwork](/powershell/module/hyper-v/set-vmmigrationnetwork?view=win10-ps)" und " [Set-VMHost](/powershell/module/hyper-v/set-vmhost?view=win10-ps)". In diesem Beispiel werden alle drei verwendet und folgende Aktionen durchführt:
   - Hiermit wird die Live Migration auf dem lokalen Host konfiguriert.
   - Ermöglicht eingehenden Migrations Datenverkehr nur in einem bestimmten Netzwerk.
   - Wählt Kerberos als Authentifizierungsprotokoll aus.
@@ -139,7 +139,7 @@ In dieser Tabelle wird beschrieben, wie die Leistungsoptionen funktionieren.
 |----------|---------------|
     |TCP/IP|Der Arbeitsspeicher des virtuellen Computers wird über eine TCP/IP-Verbindung auf den Zielserver kopiert.|
     |Komprimierung|Komprimiert den Speicherinhalt der virtuellen Maschine, bevor Sie über eine TCP/IP-Verbindung auf den Zielserver kopiert wird. **Hinweis:** Dies ist die **Standard** Einstellung.|
-    |SMB|Der Arbeitsspeicher des virtuellen Computers wird über eine SMB 3,0-Verbindung auf den Zielserver kopiert.<p>-SMB Direct wird verwendet, wenn für die Netzwerkadapter auf den Quell-und Ziel Servern RDMA (Remote Direct Memory Access)-Funktionen aktiviert sind.<br />-SMB Multichannel erkennt und verwendet automatisch mehrere Verbindungen, wenn eine entsprechende SMB Multichannel-Konfiguration identifiziert wird.<p>Weitere Informationen finden Sie unter [Optimieren der Leistung von Dateiservern mit %%amp;quot;SMB Direct%%amp;quot;](https://technet.microsoft.com/library/jj134210(WS.11).aspx).|
+    |SMB|Der Arbeitsspeicher des virtuellen Computers wird über eine SMB 3,0-Verbindung auf den Zielserver kopiert.<p>-SMB Direct wird verwendet, wenn für die Netzwerkadapter auf den Quell-und Ziel Servern RDMA (Remote Direct Memory Access)-Funktionen aktiviert sind.<br />-SMB Multichannel erkennt und verwendet automatisch mehrere Verbindungen, wenn eine entsprechende SMB Multichannel-Konfiguration identifiziert wird.<p>Weitere Informationen finden Sie unter [Optimieren der Leistung von Dateiservern mit %%amp;quot;SMB Direct%%amp;quot;](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj134210(v=ws.11)).|
 
  ## <a name="next-steps"></a>Nächste Schritte
 

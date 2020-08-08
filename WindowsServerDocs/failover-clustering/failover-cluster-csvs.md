@@ -7,12 +7,12 @@ ms.author: jgerend
 manager: lizross
 ms.date: 06/07/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 0dbfaea12444de607cc28a33be334f86ee273d78
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 1293abac44cc648442939784ed5bb2b8049e702f
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87945863"
+ms.locfileid: "87992863"
 ---
 # <a name="use-cluster-shared-volumes-in-a-failover-cluster"></a>Verwenden von freigegebenen Clustervolumes in einem Failovercluster
 
@@ -45,7 +45,7 @@ Berücksichtigen Sie Folgendes, wenn Sie die Netzwerke konfigurieren, die freige
 
 - **Mehrere Netzwerke und Netzwerkadapter**: Es wird empfohlen, dass mehrere Clusternetzwerke den CSV-Datenverkehr übernehmen oder Sie kombinierte Netzwerkadapter konfigurieren, um im Falle eines Netzwerkfehlers die entsprechende Fehlertoleranz bereitzustellen.
 
-    Wenn die Clusterknoten mit Netzwerken verbunden sind, die vom Cluster nicht verwendet werden sollten, können Sie diese Netzwerke deaktivieren. Es wird z. B. empfohlen, dass Sie iSCSI-Netzwerke für Cluster deaktivieren, um CSV-Datenverkehr in diesen Netzwerken zu verhindern. Klicken Sie zum Deaktivieren eines Netzwerks in Failovercluster-Manager auf **Netzwerke**, wählen Sie das Netzwerk aus, wählen Sie die Aktion **Eigenschaften** aus, und wählen Sie dann **Netzwerkkommunikation für Cluster in diesem Netzwerk nicht zulassen**. Alternativ können Sie die **Role** -Eigenschaft des Netzwerks mithilfe des Windows PowerShell-Cmdlets [Get-ClusterNetwork](https://docs.microsoft.com/powershell/module/failoverclusters/get-clusternetwork?view=win10-ps) konfigurieren.
+    Wenn die Clusterknoten mit Netzwerken verbunden sind, die vom Cluster nicht verwendet werden sollten, können Sie diese Netzwerke deaktivieren. Es wird z. B. empfohlen, dass Sie iSCSI-Netzwerke für Cluster deaktivieren, um CSV-Datenverkehr in diesen Netzwerken zu verhindern. Klicken Sie zum Deaktivieren eines Netzwerks in Failovercluster-Manager auf **Netzwerke**, wählen Sie das Netzwerk aus, wählen Sie die Aktion **Eigenschaften** aus, und wählen Sie dann **Netzwerkkommunikation für Cluster in diesem Netzwerk nicht zulassen**. Alternativ können Sie die **Role** -Eigenschaft des Netzwerks mithilfe des Windows PowerShell-Cmdlets [Get-ClusterNetwork](/powershell/module/failoverclusters/get-clusternetwork?view=win10-ps) konfigurieren.
 - **Netzwerkadaptereigenschaften** Stellen Sie in den Eigenschaften für alle Adapter, die für die Clusterkommunikation zuständig sind, sicher, dass die folgenden Einstellungen aktiviert sind:
 
   - **Client für Microsoft-Netzwerke** und **Datei- und Druckerfreigabe für Microsoft-Netzwerke**: Diese Einstellungen unterstützen SMB 3.0 (Server Message Block), mit dem standardmäßig der CSV-Datenverkehr zwischen den Knoten übertragen wird. Stellen Sie zum Aktivieren von SMB außerdem sicher, dass der Server- und der Arbeitsstationsdienst aktiv sind und diese auf den einzelnen Clusterknoten für den automatischen Start konfiguriert sind.
@@ -64,7 +64,7 @@ Eine Übersicht über die Hardware-, Netzwerk- und Speicheranforderungen für Fa
 
 #### <a name="about-io-synchronization-and-io-redirection-in-csv-communication"></a>Informationen zur E/A-Synchronisierung und E/A-Umleitung bei der CSV-Kommunikation
 
-- E **/a-Synchronisierung**: CSV ermöglicht mehreren Knoten den gleichzeitigen Lese-/Schreibzugriff auf denselben freigegebenen Speicher. Wenn ein Knoten Datenträgereingaben/-ausgaben (E/A) für ein CSV-Volume ausführt, kommuniziert der Knoten direkt mit dem Speicher, z. B. über ein SAN (Storage Area Network). Zu jedem Zeitpunkt ist jedoch ein einzelner Knoten (als koordinatorknoten bezeichnet) "Besitzer" der physischen Datenträger Ressource, die der LUN zugeordnet ist. Der Koordinatorknoten für ein CSV-Volume wird im Failovercluster-Manager unter **Datenträger** als **Besitzerknoten** angezeigt. Sie wird auch in der Ausgabe des Windows PowerShell-Cmdlets [Get-clustersharedvolume](https://docs.microsoft.com/powershell/module/failoverclusters/get-clustersharedvolume?view=win10-ps) angezeigt.
+- E **/a-Synchronisierung**: CSV ermöglicht mehreren Knoten den gleichzeitigen Lese-/Schreibzugriff auf denselben freigegebenen Speicher. Wenn ein Knoten Datenträgereingaben/-ausgaben (E/A) für ein CSV-Volume ausführt, kommuniziert der Knoten direkt mit dem Speicher, z. B. über ein SAN (Storage Area Network). Zu jedem Zeitpunkt ist jedoch ein einzelner Knoten (als koordinatorknoten bezeichnet) "Besitzer" der physischen Datenträger Ressource, die der LUN zugeordnet ist. Der Koordinatorknoten für ein CSV-Volume wird im Failovercluster-Manager unter **Datenträger** als **Besitzerknoten** angezeigt. Sie wird auch in der Ausgabe des Windows PowerShell-Cmdlets [Get-clustersharedvolume](/powershell/module/failoverclusters/get-clustersharedvolume?view=win10-ps) angezeigt.
 
   >[!NOTE]
   >In Windows Server 2012 R2 ist der CSV-Besitz gleichmäßig auf die Failoverclusterknoten verteilt, basierend auf der Anzahl der CSV-Volumes, die für die einzelnen Knoten gehören. Zudem wird das Besitzrecht automatisch ausgeglichen, wenn z. B. folgende Bedingungen auftreten: CSV-Failover, ein Knoten wird dem Cluster erneut hinzugefügt, ein Knoten wird zum Cluster hinzugefügt, ein Clusterknoten wird neu gestartet, der Failovercluster wird nach dem Herunterfahren wieder gestartet.
@@ -256,5 +256,5 @@ Bei der Auswahl einer Sicherungsanwendung und eines Sicherungszeitplans für CSV
 
 ## <a name="more-information"></a>Weitere Informationen
 
-- [Failoverclustering](failover-clustering.md)
+- [Failoverclustering](./failover-clustering-overview.md)
 - [„Bereitstellen von Clusterspeicherplätzen“](</previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj822937(v%3dws.11)>)

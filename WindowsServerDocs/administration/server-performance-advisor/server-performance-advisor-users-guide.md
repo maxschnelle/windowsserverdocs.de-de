@@ -7,12 +7,12 @@ ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
 ms.topic: article
-ms.openlocfilehash: dd6270f1aadea058a1b0fb6ffb3f7dad59a54811
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 1a7ea3b902793f281156930a8e666c1d32d05cbe
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87895719"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87993118"
 ---
 # <a name="server-performance-advisor-users-guide"></a>Server Performance Advisor-Benutzerhandbuch
 
@@ -155,7 +155,7 @@ Das folgende Diagramm zeigt die allgemeine Architektur des Spa-Systems. Der Proz
 ## <a name="getting-started-with-spa"></a>Einstieg in die Spa
 
 
-### <a name="requirements"></a>Requirements (Anforderungen)
+### <a name="requirements"></a>Anforderungen
 
 Die Spa-Konsole kann auf Windows 8.1, Windows 8, Windows 7, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 und Windows Server 2008 installiert werden. Das Ausführen von Spa unter früheren Versionen des Windows Server-Betriebssystems wird nicht unterstützt. Spa wird auf x86 oder x64 ausgeführt, unterstützt jedoch keine ia64-oder ARM-Architekturen.
 
@@ -591,7 +591,7 @@ In der folgenden Tabelle werden die Windows PowerShell-Cmdlets für Spa beschrie
 | Get-spaserver | **-SqlInstanceName** Der Name der SQL Server Instanz.<br>**-SQLDatabaseName** Der Name der Spa-Projektdatenbank. | Ruft die Serverliste in der Datenbank ab. Sie gibt eine Liste von-Objekten zurück, einschließlich der folgenden Eigenschaften: Name, Status, Dateifreigabe und Anmerkung. |
 | Get-spaadvisorpacks | **-SqlInstanceName** Name der SQL Server Instanz<br>**-SQLDatabaseName** Name der Spa-Projektdatenbank | Ruft die Advisor Pack-Liste in der Datenbank ab. Sie gibt eine Liste von-Objekten zurück, einschließlich der folgenden Eigenschaften: Name, Display Name, Author und Version. |
 
-Windows PowerShell bietet die Möglichkeit, Anmelde Informationen über verschlüsselte Dateien zu übergeben, um Automatisierungs Szenarios zu ermöglichen. Weitere Informationen zur Verwendung verschlüsselter Dateien zum Übergeben von Anmelde Informationen an ein Cmdlet finden Sie unter [Erstellen von Windows PowerShell-Skripts, die Anmelde Informationen akzeptieren](https://technet.microsoft.com/magazine/ff714574.aspx).
+Windows PowerShell bietet die Möglichkeit, Anmelde Informationen über verschlüsselte Dateien zu übergeben, um Automatisierungs Szenarios zu ermöglichen. Weitere Informationen zur Verwendung verschlüsselter Dateien zum Übergeben von Anmelde Informationen an ein Cmdlet finden Sie unter [Erstellen von Windows PowerShell-Skripts, die Anmelde Informationen akzeptieren](/previous-versions/technet-magazine/ff714574(v=msdn.10)).
 
 ### <a name="automating-spa-report-collection-by-using-windows-powershell"></a>Automatisieren der Spa-Bericht Sammlung mithilfe von Windows PowerShell
 
@@ -774,7 +774,7 @@ Im folgenden finden Sie einige der in Spa verwendeten Begriffe:
 
 * **Datenanalyse Sitzung** Eine Leistungsanalyse auf einem bestimmten Zielserver. Eine Datenanalyse Sitzung kann mehrere Advisor-Pakete enthalten. Die Datensammler Sätze aus diesen Advisor-Paketen werden zu einem einzelnen Datensammler Satz zusammengeführt. Alle Leistungs Protokolle für eine einzelne Datenanalyse Sitzung werden innerhalb desselben Zeitraums gesammelt. Das Analysieren von Berichten, die von Advisor-Paketen generiert werden, die in derselben Datenanalyse Sitzung ausgeführt werden, kann Benutzern helfen, die Gesamtleistung zu verstehen und die Ursachen für Leistungsprobleme zu identifizieren.
 
-* **Ereignis Ablauf Verfolgung für Windows** Ein leistungsfähiges, skalierbares, skalierbares Ablauf Verfolgungssystem, das in Windows bereitgestellt wird. Es bietet Profil Erstellungs-und Debuggingfunktionen, die zur Problembehandlung für eine Vielzahl von Szenarien verwendet werden können. Spa verwendet ETW-Ereignisse als Datenquelle zum Erstellen von Leistungs Berichten. Allgemeine Informationen zu etw finden Sie unter verbessertes [Debugging und Leistungsoptimierung mit etw](https://msdn.microsoft.com/magazine/cc163437.aspx).
+* **Ereignis Ablauf Verfolgung für Windows** Ein leistungsfähiges, skalierbares, skalierbares Ablauf Verfolgungssystem, das in Windows bereitgestellt wird. Es bietet Profil Erstellungs-und Debuggingfunktionen, die zur Problembehandlung für eine Vielzahl von Szenarien verwendet werden können. Spa verwendet ETW-Ereignisse als Datenquelle zum Erstellen von Leistungs Berichten. Allgemeine Informationen zu etw finden Sie unter verbessertes [Debugging und Leistungsoptimierung mit etw](/archive/msdn-magazine/2007/april/event-tracing-improve-debugging-and-performance-tuning-with-etw).
 
 * **Windows-Verwaltungsinstrumentation (WMI)** Die Infrastruktur für Verwaltungsdaten und-Vorgänge in Windows. Sie können WMI-Skripts oder-Anwendungen schreiben, um administrative Aufgaben auf Remote Computern zu automatisieren. WMI stellt auch Verwaltungsdaten für andere Teile des Betriebssystems und für Produkte bereit. Spa verwendet WMI-Klassen Informationen und Datenpunkte als Quellen zum Erstellen von Leistungs Berichten.
 

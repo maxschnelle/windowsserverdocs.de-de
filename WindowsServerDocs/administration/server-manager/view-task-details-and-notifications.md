@@ -7,12 +7,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b347f5cf3a3d752c500e602b84889afa9c580ab0
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 479105e7f1e605142ec54103825b1ba4934fb127
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87895699"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87993103"
 ---
 # <a name="view-task-details-and-notifications"></a>Anzeigen von Aufgabendetails und Benachrichtigungen
 
@@ -37,7 +37,7 @@ Zu den Elementen im Menü **Benachrichtigungen** gehören eine Statusleiste, ein
 
 Benachrichtigungen sind besonders nützlich für das Installieren oder Deinstallieren von Rollen, Rollen Diensten und Features. Wenn Sie z. b. eine Featureinstallation auf einem Remote Server starten, können Sie den Assistenten zum Hinzufügen von Rollen und Features schließen, während die Installation noch läuft, die aktive Aufgabe bleibt jedoch in der **Benachrichtigungs** Liste. Das **Benachrichtigungs** Element zeigt eine Statusanzeige für die Installation an, und Sie können den Assistenten zum Hinzufügen von Rollen und Features bei Bedarf erneut öffnen, indem Sie auf **Assistent zum Hinzufügen von Rollen und Features**klicken. Die Elemente in der Liste informieren Sie darüber, ob eine Installation fehlgeschlagen ist oder zusätzliche Konfigurationsschritte erforderlich sind, um die Bereitstellung des Features abzuschließen.
 
-Benachrichtigungen spielen auch einen wichtigen Teil bei der Behebung von Problemen mit Aufgaben oder Prozessen in Server-Manager. Weitere Informationen zum Verwenden von Nachrichten im **Benachrichtigungs** Bereich und im Dialogfeld **Aufgaben Details** zur Problembehandlung bei fehlgeschlagenen Tasks oder Prozessen finden Sie im [Server-Manager Forum](https://docs.microsoft.com/answers/topics/windows-server-manager.html).
+Benachrichtigungen spielen auch einen wichtigen Teil bei der Behebung von Problemen mit Aufgaben oder Prozessen in Server-Manager. Weitere Informationen zum Verwenden von Nachrichten im **Benachrichtigungs** Bereich und im Dialogfeld **Aufgaben Details** zur Problembehandlung bei fehlgeschlagenen Tasks oder Prozessen finden Sie im [Server-Manager Forum](/answers/topics/windows-server-manager.html).
 
 Um eine Benachrichtigung zu löschen, die Sie nicht mehr in der **Benachrichtigungs** Liste anzeigen möchten, zeigen Sie mit dem Mauszeiger auf die Benachrichtigung, und klicken Sie dann auf **Aufgabe entfernen** (**X**).
 
@@ -48,4 +48,4 @@ Der untere Bereich ist vor allem bei der Problembehandlung fehlgeschlagener Aufg
 
 ## <a name="see-also"></a>Weitere Informationen
 [Filtern, Sortieren und Abfragen von Daten in Server-Manager Kacheln](filter-sort-and-query-data-in-server-manager-tiles.md) 
- [Server-Manager Forum](https://docs.microsoft.com/answers/topics/windows-server-manager.html).
+ [Server-Manager Forum](/answers/topics/windows-server-manager.html).

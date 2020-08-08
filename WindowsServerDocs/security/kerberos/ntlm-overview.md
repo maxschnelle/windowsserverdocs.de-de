@@ -1,20 +1,18 @@
 ---
 title: NTLM Overview
 description: Windows Server-Sicherheit
-ms.prod: windows-server
-ms.technology: security-kerberos
 ms.topic: article
 ms.assetid: 773909fd-c0bc-498a-95fc-bb452ec04d90
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 972b5b8eb5e25382c2c9b7841cf0d0fe4db6e647
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: 4a86b2571ab586bf2289ba263346a791ea28b02e
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87181876"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87943880"
 ---
 # <a name="ntlm-overview"></a>NTLM Overview
 
@@ -22,7 +20,7 @@ ms.locfileid: "87181876"
 
 In diesem Thema für IT-Experten werden NTLM, alle Änderungen an der Funktionalität beschrieben und Links zu technischen Ressourcen für die Windows-Authentifizierung und NTLM für Windows Server 2012 und frühere Versionen bereitstellt.
 
-## <a name="feature-description"></a><a name="BKMK_OVER"></a>Funktionsbeschreibung
+## <a name="feature-description"></a><a name="BKMK_OVER"></a>Featurebeschreibung
 Die NTLM-Authentifizierung ist eine Familie von Authentifizierungs Protokollen, die in der Windows Msv1-0.dll enthalten sind \_ . Zu den NTLM-Authentifizierungsprotokollen gehören LAN-Manager Version 1 und 2 sowie NTLM Version 1 und 2. Die NTLM-Authentifizierungsprotokolle authentifizieren Benutzer und Computer auf der Grundlage eines Challenge \/ Response-Mechanismus, der einem Server oder einem Domänen Controller bestätigt, dass ein Benutzer das mit einem Konto verknüpfte Kennwort kennt. Bei Verwendung des NTLM-Protokolls muss ein Ressourcenserver eine der folgenden Aktionen ausführen, um die Identität eines Computers oder Benutzers zu überprüfen, wenn ein neues Zugriffstoken benötigt wird:
 
 -   Kontaktieren eines Domänenauthentifizierungsdienstes auf dem Domänencontroller für die Kontodomäne des Computers oder Benutzers, wenn es sich um ein Domänenkonto handelt.

@@ -1,24 +1,22 @@
 ---
 title: Festlegen der Zulassen bzw. Verweigern-Liste und des Anwendungsinventars für Richtlinien für die Softwareeinschränkung
 description: Windows Server-Sicherheit
-ms.prod: windows-server
-ms.technology: security-software-restriction-policies
 ms.topic: article
 ms.assetid: 0abb73b6-b5d8-4505-8ab1-2f29e4bf0411
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: c0fdb5c1d7c4b03610a173c6cd0575d39646a7d0
-ms.sourcegitcommit: af1cf89632d62a94943d3ad9f6b5234b88499278
+ms.openlocfilehash: 831508de2aae56aab53cbd1ff7820ea1af0da565
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81524905"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87953037"
 ---
 # <a name="determine-allow-deny-list-and-application-inventory-for-software-restriction-policies"></a>Festlegen der Zulassen bzw. Verweigern-Liste und des Anwendungsinventars für Richtlinien für die Softwareeinschränkung
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 In diesem Thema für IT-Experten wird beschrieben, wie Sie eine Zulassungs-und Verweigerungs Liste für Anwendungen erstellen, die mit Software Einschränkungs Richtlinien (SRP) ab Windows Server 2008 und Windows Vista verwaltet werden.
 
@@ -68,5 +66,5 @@ Um die Zulassungs Standardregel effektiv verwenden zu können, müssen Sie genau
 
     Ein Beispiel für die Ausgabe, die in eine Protokolldatei geschrieben wird:
 
-**Explorer. exe (PID = 4728) identifiedc: \ windows\system32\onenote.exe als unbeschränkte usingpath-Regel, GUID = {320bd852-AA7C-4674-82c5-9a80321670a3}**    Alle Anwendungen und zugeordneten Code, die von SRP überprüft und auf Block festgelegt werden, werden in der Protokolldatei vermerkt. Diese können Sie dann verwenden, um zu bestimmen, welche ausführbaren Dateien für die zulässige Liste berücksichtigt werden sollen.
+**explorer.exe (PID = 4728) identifiedC:\Windows\system32\onenote.exe als uneingeschränkte usingpath-Regel, GUID = {320bd852-AA7C-4674-82c5-9a80321670a3}**    Alle Anwendungen und zugeordneten Code, die von SRP überprüft und auf Block festgelegt werden, werden in der Protokolldatei vermerkt. Diese können Sie dann verwenden, um zu bestimmen, welche ausführbaren Dateien für die zulässige Liste berücksichtigt werden sollen.
 

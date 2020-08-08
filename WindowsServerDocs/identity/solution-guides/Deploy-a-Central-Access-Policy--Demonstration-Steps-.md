@@ -6,14 +6,12 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server
-ms.technology: identity-adds
-ms.openlocfilehash: f83e828dd8ce90da4265eb03f94b498933d9c2a6
-ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
+ms.openlocfilehash: 406674f26039f80cbca5ed3ba96e041bc8624729
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87518608"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87952791"
 ---
 # <a name="deploy-a-central-access-policy-demonstration-steps"></a>Bereitstellen einer zentralen Zugriffsrichtlinie (Demonstrationsschritte)
 
@@ -318,7 +316,7 @@ Im nächsten Schritt stellen Sie sicher, dass der Zugriff richtig konfiguriert w
 
 2.  Klicken Sie auf der Registerkarte **Sicherheit** auf **Erweitert**, und klicken Sie dann auf die Registerkarte **Effektiver Zugriff**.
 
-3.  Um die Berechtigungen für einen Benutzer zu überprüfen, klicken Sie auf **Benutzer auswählen**, geben Sie den Namen des Benutzers ein, und klicken Sie dann auf **effektiven Zugriff anzeigen** , um die effektiven Zugriffsrechte anzuzeigen. Beispiel:
+3.  Um die Berechtigungen für einen Benutzer zu überprüfen, klicken Sie auf **Benutzer auswählen**, geben Sie den Namen des Benutzers ein, und klicken Sie dann auf **effektiven Zugriff anzeigen** , um die effektiven Zugriffsrechte anzuzeigen. Zum Beispiel:
 
     -   Myriam Delesalle (MDelesalle) ist Mitglied der Finanzabteilung und sollte die Zugriffsberechtigung „Lesen“ für den Ordner haben.
 

@@ -7,12 +7,12 @@ author: msjimwu
 ms.author: coreyp
 manager: dongill
 ms.date: 3/15/2018
-ms.openlocfilehash: 3e5b732beb502bb0bf365136947ff380caf71545
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 253cf78e39809473fc865de90915b6a9f870d098
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87879913"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87992765"
 ---
 # <a name="deploy-windows-server-hybrid-cloud-print"></a>Bereitstellen von Windows Server Hybrid Cloud Print
 
@@ -34,19 +34,19 @@ Es gibt eine Reihe von Abonnements, Diensten und Computern, die Sie vor dem Star
 
 - Computer mit Windows Server 2016 oder höher, auf dem Active Directory ausgeführt wird.
 
-  [Unterschritt Weise Anleitung: Einrichten von Active Directory in Windows Server 2016](https://blogs.technet.microsoft.com/canitpro/2017/02/22/step-by-step-setting-up-active-directory-in-windows-server-2016/) finden Sie Hilfe zum Einrichten Active Directory.
+  [Unterschritt Weise Anleitung: Einrichten von Active Directory in Windows Server 2016](/archive/blogs/canitpro/step-by-step-setting-up-active-directory-in-windows-server-2016) finden Sie Hilfe zum Einrichten Active Directory.
 
 - Ein dedizierter, in eine Domäne eingebundener Windows Server 2016-Computer, der als Druck Server ausgeführt wird.
 
 - Ein dedizierter, in eine Domäne eingebundener Windows Server 2016-Computer, der als Connector-Server ausgeführt wird.
 
-  Weitere Informationen finden Sie Untergrund Legendes [Azure AD anwendungsproxyconnectors](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors) .
+  Weitere Informationen finden Sie Untergrund Legendes [Azure AD anwendungsproxyconnectors](/azure/active-directory/manage-apps/application-proxy-connectors) .
 
 - Ein Windows 10 Fall Creator-Update oder ein späterer Computer zum Veröffentlichen von Druckern.
 
 - Öffentlicher Domänen Name.
 
-  Sie können den für Sie von Azure erstellten Domänen Namen (Domain*Name*. onmicrosoft.com) verwenden oder einen eigenen Domänen Namen erwerben. Siehe [Hinzufügen des benutzerdefinierten Domänen Namens mithilfe des Azure Active Directory Portals](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)
+  Sie können den für Sie von Azure erstellten Domänen Namen (Domain*Name*. onmicrosoft.com) verwenden oder einen eigenen Domänen Namen erwerben. Siehe [Hinzufügen des benutzerdefinierten Domänen Namens mithilfe des Azure Active Directory Portals](/azure/active-directory/fundamentals/add-custom-domain)
 
 ## <a name="deployment-steps"></a>Bereitstellungsschritte
 
@@ -54,13 +54,13 @@ Die folgenden Schritte gelten für eine typische Hybrid Cloud-Druck Bereitstellu
 
 ### <a name="step-1---install-azure-ad-connect"></a>Schritt 1: Installieren von Azure AD Connect
 
-1. Azure AD Connect synchronisiert Azure AD mit lokalem AD. Laden Sie auf dem Windows Server-Computer mit Active Directory die Azure AD Connect Software mit Express-Einstellungen herunter, und installieren Sie Sie. Weitere Informationen finden [Sie unter Getting Started with Azure AD Connect using Express Settings](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-express).
+1. Azure AD Connect synchronisiert Azure AD mit lokalem AD. Laden Sie auf dem Windows Server-Computer mit Active Directory die Azure AD Connect Software mit Express-Einstellungen herunter, und installieren Sie Sie. Weitere Informationen finden [Sie unter Getting Started with Azure AD Connect using Express Settings](/azure/active-directory/hybrid/how-to-connect-install-express).
 
 ### <a name="step-2---install-application-proxy"></a>Schritt 2: Installieren des Anwendungs Proxys
 
 1. Mithilfe des Anwendungs Proxys können Benutzer in Ihrer Organisation über die Cloud auf lokale Anwendungen zugreifen. Installieren Sie den Anwendungs Proxy auf dem Connector-Server.
-    - Installationsanweisungen finden Sie unter [Tutorial: Hinzufügen einer lokalen Anwendung für den Remote Zugriff über den Anwendungs Proxy in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application).
-    - Eine dedizierte Connectorgruppe wird empfohlen, wenn die Organisation über eine komplexe Netzwerktopologie verfügt. Weitere Informationen finden [Sie unter Veröffentlichen von Anwendungen in getrennten Netzwerken und Orten mithilfe von](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connector-groups)Stecker
+    - Installationsanweisungen finden Sie unter [Tutorial: Hinzufügen einer lokalen Anwendung für den Remote Zugriff über den Anwendungs Proxy in Azure Active Directory](/azure/active-directory/manage-apps/application-proxy-add-on-premises-application).
+    - Eine dedizierte Connectorgruppe wird empfohlen, wenn die Organisation über eine komplexe Netzwerktopologie verfügt. Weitere Informationen finden [Sie unter Veröffentlichen von Anwendungen in getrennten Netzwerken und Orten mithilfe von](/azure/active-directory/manage-apps/application-proxy-connector-groups)Stecker
 
 ### <a name="step-3---register-and-configure-applications"></a>Schritt 3: registrieren und Konfigurieren von Anwendungen
 
@@ -174,7 +174,7 @@ Um die authentifizierte Kommunikation mit den HCP-Diensten zu ermöglichen, müs
     - Installieren Sie die folgenden Server Rollen:
         - Druck Server Rolle
         - Internetinformationsdienste (IIS)
-    - Ausführliche Informationen zum Installieren von Server Rollen finden [Sie unter Installieren von Rollen, Rollen Diensten und Features mithilfe des Assistenten zum Hinzufügen von Rollen und Features](https://docs.microsoft.com/windows-server/administration/server-manager/install-or-uninstall-roles-role-services-or-features#BKMK_installarfw) .
+    - Ausführliche Informationen zum Installieren von Server Rollen finden [Sie unter Installieren von Rollen, Rollen Diensten und Features mithilfe des Assistenten zum Hinzufügen von Rollen und Features](../server-manager/install-or-uninstall-roles-role-services-or-features.md#install-roles-role-services-and-features-by-using-the-add-roles-and-features-wizard) .
 
     ![Druck Server Rollen](../media/hybrid-cloud-print/PrintServer-Roles.png)
 
@@ -297,13 +297,13 @@ Um die authentifizierte Kommunikation mit den HCP-Diensten zu ermöglichen, müs
         `sqlite3.exe MopriaDeviceDb.db .read MopriaSQLiteDb.sql`
 
     - Öffnen Sie im Datei-Explorer die Eigenschaften der Datei "mopriadevicedb. DB", um Benutzer oder Gruppen hinzuzufügen, die auf der Registerkarte "Sicherheit" in der Datenbank "mopria" veröffentlichen dürfen. Die Benutzer oder Gruppen müssen lokal Active Directory vorhanden und mit Azure AD synchronisiert werden.
-    - Wenn die Lösung in einer nicht Routing fähigen Domäne (z. b. *mydomain*. local) bereitgestellt wird, muss die Azure AD Domäne (z. b. Domain *Name*. onmicrosoft.com oder eine, die von einem Drittanbieter erworben wurde) als UPN-Suffix zu lokalen Active Directory hinzugefügt werden. Dies ist derselbe Benutzer, der Drucker veröffentlichen soll (z. b. admin@*Domain Name*. onmicrosoft.com), kann in der Sicherheitseinstellung der Datenbankdatei hinzugefügt werden. Weitere Informationen finden Sie unter [Vorbereiten einer nicht Routing fähigen Domäne für die Verzeichnis Synchronisierung](https://docs.microsoft.com/office365/enterprise/prepare-a-non-routable-domain-for-directory-synchronization).
+    - Wenn die Lösung in einer nicht Routing fähigen Domäne (z. b. *mydomain*. local) bereitgestellt wird, muss die Azure AD Domäne (z. b. Domain *Name*. onmicrosoft.com oder eine, die von einem Drittanbieter erworben wurde) als UPN-Suffix zu lokalen Active Directory hinzugefügt werden. Dies ist derselbe Benutzer, der Drucker veröffentlichen soll (z. b. admin@*Domain Name*. onmicrosoft.com), kann in der Sicherheitseinstellung der Datenbankdatei hinzugefügt werden. Weitere Informationen finden Sie unter [Vorbereiten einer nicht Routing fähigen Domäne für die Verzeichnis Synchronisierung](/office365/enterprise/prepare-a-non-routable-domain-for-directory-synchronization).
 
     ![Druck Server-mopria-Registrierungsschlüssel](../media/hybrid-cloud-print/PrintServer-SQLiteDB.png)
 
 ### <a name="step-5-optional---configure-pre-authentication-with-azure-ad"></a>Schritt 5 \[ \] : Konfigurieren der Vorauthentifizierung mit Azure AD
 
-1. Überprüfen Sie die [Eingeschränkte Kerberos-Delegierung für Single Sign-on zu ihren apps mit dem Anwendungs Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-with-kcd).
+1. Überprüfen Sie die [Eingeschränkte Kerberos-Delegierung für Single Sign-on zu ihren apps mit dem Anwendungs Proxy](/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-with-kcd).
 
 2. Konfigurieren Sie die lokale Active Directory.
     - Öffnen Sie auf dem Active Directory Computer Server-Manager, und navigieren Sie zu **Tools**  >  **Active Directory Benutzer und Computer**.
@@ -357,7 +357,7 @@ Um die authentifizierte Kommunikation mit den HCP-Diensten zu ermöglichen, müs
 |Ressourcen-URI für Drucker Ermittlungsdienst  |Mopriadiscoveryresourceid      |
 
 > [!NOTE]
-> Wenn die clouddruckrichtliniengruppe nicht verfügbar ist, der MDM-Anbieter jedoch Oma-URI-Einstellungen unterstützt, können Sie dieselben Richtlinien festlegen.  Weitere Informationen finden Sie in [diesem](https://docs.microsoft.com/windows/client-management/mdm/policy-csp-enterprisecloudprint#enterprisecloudprint-cloudprintoauthauthority) Artikel.
+> Wenn die clouddruckrichtliniengruppe nicht verfügbar ist, der MDM-Anbieter jedoch Oma-URI-Einstellungen unterstützt, können Sie dieselben Richtlinien festlegen.  Weitere Informationen finden Sie in [diesem](/windows/client-management/mdm/policy-csp-enterprisecloudprint#enterprisecloudprint-cloudprintoauthauthority) Artikel.
 
 - Werte für OMA-URI
   - Cloudprintoauthauthority =./Vendor/MSFT/Policy/config/EnterpriseCloudPrint/CloudPrintOAuthAuthority
@@ -407,7 +407,7 @@ Um die authentifizierte Kommunikation mit den HCP-Diensten zu ermöglichen, müs
         - Azuretenantguid = Verzeichnis-ID Ihres Azure AD Mandanten.
         - Discoveryresourceid = Anwendungs-ID-URI der mopria Discovery Service-Anwendung.
 
-    - Sie können auch alle erforderlichen Parameterwerte in der Befehlszeile eingeben. Die Syntax ist:
+    - Sie können auch alle erforderlichen Parameterwerte in der Befehlszeile eingeben. Die Syntax lautet:
 
         `Publish-CloudPrinter -Printer <string> -Manufacturer <string> -Model <string> -OrgLocation <string> -Sddl <string> -DiscoveryEndpoint <string> -PrintServerEndpoint <string> -AzureClientId <string> -AzureTenantGuid <string> -DiscoveryResourceId <string>`
 
@@ -446,9 +446,9 @@ Im folgenden sind häufige Probleme bei der HCP-Bereitstellung
 
 |Fehler |Empfohlene Schritte |
 |------|------|
-|Cloudprintbereitstellungs-PowerShell-Skript fehlgeschlagen | <ul><li>Stellen Sie sicher, dass Windows Server das neueste Update aufweist.</li><li>Wenn Windows Server Update Services (WSUS) verwendet wird, finden Sie unter Gewusst [wie: Bedarfs gesteuerte Features und Sprachpakete bei Verwendung von WSUS/SCCM](https://docs.microsoft.com/windows/deployment/update/fod-and-lang-packs)Weitere Informationen.</li></ul> |
+|Cloudprintbereitstellungs-PowerShell-Skript fehlgeschlagen | <ul><li>Stellen Sie sicher, dass Windows Server das neueste Update aufweist.</li><li>Wenn Windows Server Update Services (WSUS) verwendet wird, finden Sie unter Gewusst [wie: Bedarfs gesteuerte Features und Sprachpakete bei Verwendung von WSUS/SCCM](/windows/deployment/update/fod-and-lang-packs)Weitere Informationen.</li></ul> |
 |Fehler bei der SQLite-Installation mit der folgenden Meldung: Abhängigkeits Schleife für Paket "System. Data. sqlite" erkannt | Install-package System. Data. sqlite. Core-ProviderName nuget-skipdependen<br>Install-package System. Data. sqlite. EF6-ProviderName nuget-skipdependen<br>Install-package System. Data. sqlite. Linq-ProviderName nuget-skipdependen<br><br>Nachdem die Pakete erfolgreich heruntergeladen wurden, stellen Sie sicher, dass Sie die gleiche Version aufweisen. Wenn dies nicht der Wert ist, fügen Sie den-Requirements dversion-Parameter den obigen Befehlen hinzu, und legen Sie diese auf die gleiche Version fest. |
-|Fehler beim Veröffentlichungs Drucker. | <ul><li>Stellen Sie für Passthrough-Vorauthentifizierung sicher, dass der Benutzer, der den Drucker veröffentlicht, die richtige Berechtigung für die Veröffentlichungs Datenbank erhält.</li><li>Stellen Sie für Azure AD Vorauthentifizierung sicher, dass die Windows-Authentifizierung in IIS aktiviert ist. Siehe Schritt 5,3. Versuchen Sie außerdem, die Passthrough-Vorauthentifizierung zu verwenden. Wenn die Passthrough-Vorauthentifizierung funktioniert, liegt das Problem wahrscheinlich im Zusammenhang mit dem Anwendungs Proxy. Weitere Informationen finden Sie unter [Beheben von Problemen mit Anwendungs Proxy und Fehlermeldungen](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-troubleshoot). Beachten Sie, dass der Wechsel zu Passthrough die Single Sign-on Einstellung zurücksetzt. Wiederholen Sie Schritt 5, um die Vorauthentifizierung erneut Azure AD.</li></ul> |
+|Fehler beim Veröffentlichungs Drucker. | <ul><li>Stellen Sie für Passthrough-Vorauthentifizierung sicher, dass der Benutzer, der den Drucker veröffentlicht, die richtige Berechtigung für die Veröffentlichungs Datenbank erhält.</li><li>Stellen Sie für Azure AD Vorauthentifizierung sicher, dass die Windows-Authentifizierung in IIS aktiviert ist. Siehe Schritt 5,3. Versuchen Sie außerdem, die Passthrough-Vorauthentifizierung zu verwenden. Wenn die Passthrough-Vorauthentifizierung funktioniert, liegt das Problem wahrscheinlich im Zusammenhang mit dem Anwendungs Proxy. Weitere Informationen finden Sie unter [Beheben von Problemen mit Anwendungs Proxy und Fehlermeldungen](/azure/active-directory/manage-apps/application-proxy-troubleshoot). Beachten Sie, dass der Wechsel zu Passthrough die Single Sign-on Einstellung zurücksetzt. Wiederholen Sie Schritt 5, um die Vorauthentifizierung erneut Azure AD.</li></ul> |
 |Druckaufträge werden in den Drucker Zustand versetzt. | <ul><li>Stellen Sie sicher, dass TLS 1,2 auf dem Connector-Server aktiviert ist. Weitere Informationen finden Sie im verknüpften Artikel in Schritt 2,1.</li><li>Stellen Sie sicher, dass HTTP2 auf dem Connector-Server deaktiviert ist. Weitere Informationen finden Sie im verknüpften Artikel in Schritt 2,1.</li></ul> |
 
 Im folgenden finden Sie Speicherorte von Protokollen zur Problembehandlung.

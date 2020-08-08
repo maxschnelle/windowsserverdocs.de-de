@@ -1,49 +1,47 @@
 ---
 title: Arbeiten mit Regeln der Richtlinien für die Softwareeinschränkung
 description: Windows Server-Sicherheit
-ms.prod: windows-server
-ms.technology: security-software-restriction-policies
 ms.topic: article
 ms.assetid: 4a8047d5-9bb9-4bed-bc8f-583a237731e2
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 249426f7b0ef1b427d903e8d0cac9ca2e0747b68
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 619564d618ba542e915f19ba69884a48652c8bbc
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80820983"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87952976"
 ---
 # <a name="work-with-software-restriction-policies-rules"></a>Arbeiten mit Regeln der Richtlinien für die Softwareeinschränkung
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 In diesem Thema werden Verfahren zum Arbeiten mit Zertifikaten, Pfaden, Internet Zonen und Hash Regeln mithilfe von Richtlinien für Software Einschränkung beschrieben.
 
 ## <a name="introduction"></a>Einführung
 Mit Richtlinien für Software Einschränkung können Sie Ihre Computerumgebung vor nicht vertrauenswürdiger Software schützen, indem Sie identifizieren und angeben, welche Software ausgeführt werden darf. Sie können die Standard Sicherheitsstufe " **uneingeschränkt** " oder "unzulässig" für ein Gruppenrichtlinie Objekt (GPO) definieren, damit Softwarestandard mäßig zugelassen oder **nicht zulässig ist** . Sie können Ausnahmen für diese Standard Sicherheitsstufe vornehmen, indem Sie Regeln für Software Einschränkungs Richtlinien für bestimmte Software erstellen. Wird als Standardsicherheitsstufe beispielsweise **Nicht erlaubt** festgelegt, können Sie Regeln erstellen, die die Ausführung bestimmter Software zulassen. Die Typen von Regeln lauten wie folgt:
 
--   **Zertifikat Regeln**
+-   **Zertifikatregeln**
 
     Informationen zu entsprechenden Verfahren finden Sie unter [Arbeiten mit Zertifikatregeln](#BKMK_Cert_Rules).
 
--   **Hash Regeln**
+-   **Hashregeln**
 
     Informationen zu entsprechenden Verfahren finden Sie unter [Arbeiten mit Hashregeln](#BKMK_Hash_Rules).
 
--   **Internet Zonen Regeln**
+-   **Internetzonenregeln**
 
     Informationen zu Verfahren finden Sie unter [Arbeiten mit Internet Zonen Regeln](#BKMK_Internet_Zone_Rules).
 
--   **Pfad Regeln**
+-   **Pfadregeln**
 
     Informationen zu entsprechenden Verfahren finden Sie unter [Arbeiten mit Pfadregeln](#BKMK_Path_Rules).
 
 Informationen zu anderen Aufgaben für die Verwaltung von Richtlinien für Software Einschränkung finden Sie unter [Verwalten von Richtlinien für Software Einschränkung](administer-software-restriction-policies.md).
 
-## <a name="working-with-certificate-rules"></a><a name="BKMK_Cert_Rules"></a>Arbeiten mit Zertifikat Regeln
+## <a name="working-with-certificate-rules"></a><a name="BKMK_Cert_Rules"></a>Arbeiten mit Zertifikatregeln
 Software Einschränkungs Richtlinien können auch Software anhand ihres Signatur Zertifikats identifizieren. Sie können eine Zertifikatregel erstellen, die Software identifiziert und anschließend ihre Ausführung abhängig von der Sicherheitsstufe zulässt oder verweigert. Sie können Zertifikatregeln beispielsweise verwenden, um Software aus einer vertrauenswürdigen Quelle in einer Domäne automatisch ohne Benutzeraufforderung zu vertrauen. Sie können mithilfe von Zertifikatregeln auch Dateien in nicht zulässigen Bereichen des Betriebssystems ausführen. Zertifikatregeln sind nicht standardmäßig aktiviert.
 
 Wenn Regeln für die Domäne mithilfe von Gruppenrichtlinie erstellt werden, müssen Sie über Berechtigungen zum Erstellen oder Ändern eines Gruppenrichtlinie Objekts verfügen. Beim Erstellen von Regeln für den lokalen Computer benötigen Sie Administratorrechte für diesen Computer.
@@ -104,7 +102,7 @@ Abhängig von Ihrer Umgebung stehen verschiedene Vorgehensweisen zum Aktivieren 
 
 5.  Wählen Sie in **nach einem Gruppenrichtlinie Objekt suchen**ein Gruppenrichtlinie Objekt (GPO) in der entsprechenden Domäne, Site oder Organisationseinheit aus, oder erstellen Sie ein neues, und klicken Sie dann auf **Fertig**stellen.
 
-6.  Klicken Sie auf **Schließen**und dann auf **OK**.
+6.  Klicken Sie auf **Schließen** und dann auf **OK**.
 
 7.  Klicken Sie in der Konsolen Struktur auf **Sicherheitsoptionen** , die sich unter *GroupPolicyObject* [*Computername*] Richtlinie/Computer Konfiguration/Windows-Einstellungen/Sicherheitseinstellungen/Lokale Richtlinien/befinden.
 
@@ -120,7 +118,7 @@ Abhängig von Ihrer Umgebung stehen verschiedene Vorgehensweisen zum Aktivieren 
 
 #### <a name="to-enable-certificate-rules-for-a-group-policy-object-and-you-are-on-a-domain-controller-or-on-a-workstation-that-has-the-remote-server-administration-tools-installed"></a><a name="BKMK_3"></a>So aktivieren Sie Zertifikat Regeln für ein Gruppenrichtlinie Objekt, und Sie befinden sich auf einem Domänen Controller oder einer Arbeitsstation, auf der die Remoteserver-Verwaltungstools installiert ist
 
-1.  Öffnen Sie Active Directory-Benutzer und -Computer.
+1.  Öffnen Sie „Active Directory-Benutzer und -Computer“.
 
 2.  Klicken Sie in der Konsolenstruktur mit der rechten Maustaste auf das Gruppenrichtlinienobjekt, für das Zertifikatregeln aktiviert werden sollen.
 
@@ -214,7 +212,7 @@ Mit den Richtlinieneinstellungen auf der Registerkarte **Vertrauenswürdige Hera
 
 6.  Aktivieren Sie das Kontrollkästchen **Diese Richtlinieneinstellungen definieren**, implementieren Sie die gewünschten Änderungen, und klicken Sie dann auf **OK**, um die neuen Einstellungen zu übernehmen.
 
-## <a name="working-with-hash-rules"></a><a name="BKMK_Hash_Rules"></a>Arbeiten mit Hash Regeln
+## <a name="working-with-hash-rules"></a><a name="BKMK_Hash_Rules"></a>Arbeiten mit Hashregeln
 Ein Hash ist eine Reihe von Bytes mit einer festen Länge, der eindeutig ein Softwareprogramm oder eine Datei angibt. Der Hash wird durch einen Hashalgorithmus berechnet. Wenn für ein Softwareprogramm eine Hashregel erstellt wird, wird von den Softwareeinschränkungsrichtlinien ein Hash des Programms berechnet. Wenn ein Benutzer versucht, ein Softwareprogramm zu öffnen, wird ein Hash des Programms mit vorhandenen Hashregeln für Softwareeinschränkungsrichtlinien verglichen. Der Hash eines Softwareprogramms ist immer gleich, unabhängig vom Speicherort des Programms auf dem Computer. Wird ein Softwareprogramm jedoch in irgendeiner Weise geändert, ändert sich auch sein Hash. Er entspricht dann nicht mehr dem Hash in der Hashregel für Softwareeinschränkungsrichtlinien.
 
 Sie können beispielsweise eine Hashregel erstellen und als Sicherheitsstufe **Nicht erlaubt** festlegen, um die Ausführung einer bestimmten Datei durch Benutzer zu verhindern. Eine Datei kann umbenannt oder in einen anderen Ordner verschoben werden – der Hash bleibt derselbe. Durch Änderungen an der Datei selbst ändert sich jedoch auch der Hashwert, und die Datei kann dadurch Einschränkungen umgehen.
@@ -263,7 +261,7 @@ Internetzonenregeln gelten nur für Windows Installer-Pakete. Mit einer Zonenre
 > -   Damit Richtlinien für Software Einschränkung wirksam werden, müssen Benutzer die Richtlinien Einstellungen aktualisieren, indem Sie sich von abmelden und sich bei ihren Computern anmelden.
 > -   Wenn mehr als eine Regel für Software Einschränkungs Richtlinien auf Richtlinien Einstellungen angewendet wird, gibt es eine Rangfolge der Regeln für die Behandlung von Konflikten.
 
-## <a name="working-with-path-rules"></a><a name="BKMK_Path_Rules"></a>Arbeiten mit Pfad Regeln
+## <a name="working-with-path-rules"></a><a name="BKMK_Path_Rules"></a>Arbeiten mit Pfadregeln
 Eine Pfadregel identifiziert Software anhand des Dateipfads. Wenn auf einem Computer beispielsweise die Standardsicherheitsstufe **Nicht erlaubt** festgelegt ist, können Sie jedem Benutzer dennoch unbeschränkten Zugriff auf einen bestimmten Ordner gewähren. Sie können eine Pfadregel erstellen, indem Sie den Dateipfad verwenden und als Sicherheitsstufe der Pfadregel **Nicht eingeschränkt** festlegen. Häufig verwendete Pfade für diesen Regeltyp: %userprofile%, %windir%, %appdata%, %programfiles%, und %temp%. Außerdem können Sie Registrierungspfadregeln erstellen, die den Registrierungsschlüssel der Software als Pfad verwenden.
 
 Da diese Regeln anhand des Pfads angegeben werden, gilt die Pfadregel nicht mehr, wenn ein Softwareprogramm verschoben wird.

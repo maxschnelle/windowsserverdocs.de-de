@@ -6,14 +6,12 @@ ms.author: joflore
 manager: mtillman
 ms.date: 03/20/2019
 ms.topic: article
-ms.prod: windows-server
-ms.technology: identity-adds
-ms.openlocfilehash: e3f215abaccbd1f95ee46eca93a573aa1db9e065
-ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
+ms.openlocfilehash: 3615d7a0a536a0bb54efee2e8982f9b4e3686c8d
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87519408"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87953329"
 ---
 # <a name="troubleshooting-domain-controller-deployment"></a>Problembehandlung der Domänencontrollerbereitstellung
 
@@ -95,13 +93,13 @@ Bei der Herauf- und Herabstufung von Domänencontrollern wird am Ende der Operat
 
 1. Wenn Sie Server-Manager verwenden, wird das Heraufstufungsergebnis in den zehn Sekunden vor dem automatischen Neustart angezeigt.
 
-2. Wenn Sie ADDSDeployment Windows PowerShell verwenden, wird das Heraufstufungsergebnis in den zehn Sekunden vor dem automatischen Neustart angezeigt. Alternativ können Sie sich entscheiden, nach Abschluss keinen automatischen Neustart durchzuführen. Sie sollten die **Format-List**-Pipeline hinzufügen, um die Ausgabe leichter lesbar zu machen. Beispiel:
+2. Wenn Sie ADDSDeployment Windows PowerShell verwenden, wird das Heraufstufungsergebnis in den zehn Sekunden vor dem automatischen Neustart angezeigt. Alternativ können Sie sich entscheiden, nach Abschluss keinen automatischen Neustart durchzuführen. Sie sollten die **Format-List**-Pipeline hinzufügen, um die Ausgabe leichter lesbar zu machen. Zum Beispiel:
 
    ```
    Install-addsdomaincontroller <options> -norebootoncompletion:$true | format-list
    ```
 
-   Im Fehlerfall bei der Voraussetzungsprüfung wird kein Neustart durchgeführt, daher sind diese Fehler in jedem Fall sichtbar. Beispiel:
+   Im Fehlerfall bei der Voraussetzungsprüfung wird kein Neustart durchgeführt, daher sind diese Fehler in jedem Fall sichtbar. Zum Beispiel:
 
    ![Problembehandlung](media/Troubleshooting-Domain-Controller-Deployment/ADDS_PSPrereqError.png)
 

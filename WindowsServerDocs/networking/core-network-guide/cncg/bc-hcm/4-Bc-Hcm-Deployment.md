@@ -2,22 +2,20 @@
 title: Bereitstellung des BranchCache-Modus „Gehosteter Cache“
 description: Dieses Handbuch enthält Anweisungen zum Bereitstellen von BranchCache im Modus "gehosteter Cache" auf Computern unter Windows Server 2016 und Windows 10.
 manager: brianlic
-ms.prod: windows-server
-ms.technology: networking-bc
 ms.topic: article
 ms.assetid: c635fa48-d064-4b8b-9dce-9f26abfbcfa4
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 10aba87b82804234a91dbc011be75b45724a1e9d
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 0da0e9044841af8e86ef629e505103dd0fdb0804
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80861743"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87952590"
 ---
 # <a name="branchcache-hosted-cache-mode-deployment"></a>Bereitstellung des BranchCache-Modus „Gehosteter Cache“
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 In diesem Thema finden Sie Links zu ausführlichen Verfahrens bezogenen Themen, in denen Sie durch den BranchCache-Bereitstellungs Prozess für gehostete Caches geführt werden.
 
@@ -27,7 +25,7 @@ Führen Sie die folgenden Schritte aus, um den BranchCache-Modus für gehostete 
 
 - [Verschieben und Ändern der Größe des gehosteten Caches &#40;optional&#41;](6-Bc-Move-Resize-Cache.md)
 
-- [Inhalt von "prehash" und "preload" &#40;auf dem gehosteten Cache Server optional&#41;](7-Bc-Prehash-Preload.md)
+- [Das vorab Hash-und vorab Laden von Inhalt auf dem gehosteten Cache Server &#40;optional&#41;](7-Bc-Prehash-Preload.md)
 
 - [Konfigurieren der automatischen Ermittlung von Clients im gehosteten Cache durch den Dienst Verbindungspunkt](10-Bc-Client-By-Scp.md)
 

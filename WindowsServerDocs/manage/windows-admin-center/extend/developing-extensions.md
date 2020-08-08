@@ -1,19 +1,17 @@
 ---
 title: Entwickeln einer Erweiterung für Windows Admin Center
 description: Entwickeln einer Erweiterung für das Windows Admin Center SDK (Project Honolulu)
-ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
 ms.author: niwashbu
 ms.date: 09/19/2018
 ms.localizationpriority: medium
-ms.prod: windows-server
-ms.openlocfilehash: 4b3d5b371a9ebec27dafa74610f8c6a87c404d82
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 37f74354720c4f326fd7186b314e342432fd8a8d
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71357118"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87952666"
 ---
 # <a name="develop-an-extension-for-windows-admin-center"></a>Entwickeln einer Erweiterung für Windows Admin Center
 
@@ -27,10 +25,10 @@ Das Windows Admin Center unterstützt drei Arten von Erweiterungen: Tool Erweite
 ## <a name="development-step-by-step"></a>Schritt-für-Schritt-Entwicklung
 
 - [Vorbereiten](prepare-development-environment.md) der Entwicklungsumgebung
-- Erstellen Sie eine Erweiterung [tool](develop-tool.md)
-- Erstellen Sie eine [Lösung](develop-solution.md) -Erweiterung
-- Erstellen Sie ein [Gateway-Plug-in](develop-gateway-plugin.md)
-- Weitere Informationen finden Sie mit unserem [Führungslinien](guides.md)
+- Erstellen einer [Tool](develop-tool.md) Erweiterung
+- Erstellen einer [solution](develop-solution.md) projektmappenerweiterung
+- Erstellen eines [Gateway-Plug](develop-gateway-plugin.md) -ins
+- Weitere Informationen finden Sie in unseren [Leitfäden](guides.md)
 
 ## <a name="sdk-design-toolkit"></a>SDK-Entwurfs-Toolkit
 

@@ -7,12 +7,12 @@ ms.author: jgerend
 manager: lizross
 ms.date: 06/06/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: e96056eb26e200f360f92c4c6e2b94c2d77bf9ec
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 266559ba8da3add8920861f910f061d8b2994d53
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87950114"
+ms.locfileid: "87992892"
 ---
 # <a name="create-a-failover-cluster"></a>Erstellen eines Failoverclusters
 
@@ -216,15 +216,15 @@ Im folgenden Beispiel wird der Cluster *MyCluster* in der Organisationseinheit *
 New-Cluster -Name CN=MyCluster,OU=Cluster,DC=Contoso,DC=com -Node Server1, Server2
 ```
 
-Beispiele zum Hinzufügen von Clusterrollen finden Sie in Themen wie z. B. [Add-ClusterFileServerRole](https://docs.microsoft.com/powershell/module/failoverclusters/add-clusterfileserverrole?view=win10-ps) und [Add-ClusterGenericApplicationRole](https://docs.microsoft.com/powershell/module/failoverclusters/add-clustergenericapplicationrole?view=win10-ps).
+Beispiele zum Hinzufügen von Clusterrollen finden Sie in Themen wie z. B. [Add-ClusterFileServerRole](/powershell/module/failoverclusters/add-clusterfileserverrole?view=win10-ps) und [Add-ClusterGenericApplicationRole](/powershell/module/failoverclusters/add-clustergenericapplicationrole?view=win10-ps).
 
 ## <a name="more-information"></a>Weitere Informationen
 
-  - [Failoverclustering](failover-clustering.md)
+  - [Failoverclustering](./failover-clustering-overview.md)
   - [Bereitstellen eines Hyper-V-Clusters](</previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj863389(v%3dws.11)>)
   - [Dateiserver mit horizontaler Skalierung für Anwendungsdaten](</previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831349(v%3dws.11)>)
   - [Bereitstellen eines von Active Directory getrennten Clusters](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265970(v=ws.11))
   - [Verwenden von Gastclustering für hohe Verfügbarkeit](</previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn440540(v%3dws.11)>)
   - [Clusterfähiges Aktualisieren](cluster-aware-updating.md)
-  - [New-Cluster](https://docs.microsoft.com/powershell/module/failoverclusters/new-cluster?view=win10-ps)
-  - [Test-Cluster](https://docs.microsoft.com/powershell/module/failoverclusters/test-cluster?view=win10-ps)
+  - [New-Cluster](/powershell/module/failoverclusters/new-cluster?view=win10-ps)
+  - [Test-Cluster](/powershell/module/failoverclusters/test-cluster?view=win10-ps)

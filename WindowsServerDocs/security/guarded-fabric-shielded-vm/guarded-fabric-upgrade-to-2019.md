@@ -1,18 +1,16 @@
 ---
 title: Upgrade eines überwachten Fabric auf Windows Server 2019
-ms.prod: windows-server
 ms.topic: article
 manager: dongill
 author: rpsqrd
 ms.author: ryanpu
-ms.technology: security-guarded-fabric
 ms.date: 11/21/2018
-ms.openlocfilehash: 50e35939031a74173fb031cf963af97bf8bb6dba
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: aefff380a1320898ff342f813498b8f45dfa6122
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80856353"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87944000"
 ---
 # <a name="upgrade-a-guarded-fabric-to-windows-server-2019"></a>Upgrade eines überwachten Fabric auf Windows Server 2019
 
@@ -55,8 +53,8 @@ Wenn Sie Ihren HGS-Cluster aktualisieren, müssen Sie einen Knoten temporär aus
 
 Um Ihr HGS-Cluster zu aktualisieren, führen Sie die folgenden Schritte auf jedem Knoten des Clusters, jeweils jeweils einem Knoten aus:
 
-1.  Entfernen Sie den HGS-Server aus Ihrem Cluster durch Ausführen von `Clear-HgsServer` an einer PowerShell-Eingabeaufforderung mit erhöhten Rechten. Mit diesem Cmdlet werden der replizierte HGS-Speicher, die HGS-Websites und der Knoten aus dem Failovercluster entfernt.
-2.  Wenn es sich bei dem HGS-Server um einen Domänen Controller (Standardkonfiguration) handelt, müssen Sie `adprep /forestprep` ausführen und `adprep /domainprep` auf dem ersten Knoten ausführen, der aktualisiert wird, um die Domäne für ein Betriebssystem Upgrade vorzubereiten. Weitere Informationen finden Sie in der [Active Directory Domain Services Upgradedokumentation](https://docs.microsoft.com/windows-server/identity/ad-ds/deploy/upgrade-domain-controllers#supported-in-place-upgrade-paths) .
+1.  Entfernen Sie den HGS-Server aus Ihrem Cluster, indem Sie `Clear-HgsServer` an einer PowerShell-Eingabeaufforderung mit erhöhten Rechten ausführen Mit diesem Cmdlet werden der replizierte HGS-Speicher, die HGS-Websites und der Knoten aus dem Failovercluster entfernt.
+2.  Wenn es sich bei dem HGS-Server um einen Domänen Controller (Standardkonfiguration) handelt, müssen Sie `adprep /forestprep` und `adprep /domainprep` auf dem ersten Knoten ausführen, der aktualisiert wird, um die Domäne für ein Betriebssystem Upgrade vorzubereiten. Weitere Informationen finden Sie in der [Active Directory Domain Services Upgradedokumentation](https://docs.microsoft.com/windows-server/identity/ad-ds/deploy/upgrade-domain-controllers#supported-in-place-upgrade-paths) .
 3.  Führen Sie ein direktes Upgrade auf Windows Server 2019 [aus](../../get-started-19/install-upgrade-migrate-19.md) .
 4.  Führen Sie [Initialize-hgsserver](guarded-fabric-configure-additional-hgs-nodes.md) aus, um den Knoten wieder zum Cluster hinzuzufügen.
 
@@ -73,7 +71,7 @@ Bevor Sie ein Upgrade für Ihre Hyper-v-Hosts auf Windows Server 2019 durchführ
 1.  Wenn Sie Windows Defender-Anwendungs Steuerungs Code-Integritäts Richtlinien auf dem Server verwenden (immer bei der Verwendung des TPM-Nachweis), stellen Sie sicher, dass die Richtlinie entweder im Überwachungsmodus oder deaktiviert ist, bevor Sie versuchen, den Server zu aktualisieren. [Erfahren Sie, wie Sie eine WDac-Richtlinie deaktivieren](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/disable-windows-defender-application-control-policies)
 2.  Befolgen Sie die Anweisungen im [Windows Server-upgradeinhalt](../../upgrade/upgrade-overview.md) , um Ihren Host auf Windows Server 2019 zu aktualisieren. Wenn Ihr Hyper-V-Host Teil eines Failoverclusters ist, können Sie ein paralleles [Upgrade des Cluster Betriebssystems](../../failover-clustering/Cluster-Operating-System-Rolling-Upgrade.md)in Erwägung gezogen.
 3.  Testen Sie Ihre Windows Defender-Anwendungs Steuerungs Richtlinie, [und aktivieren](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/audit-windows-defender-application-control-policies) Sie Sie erneut, wenn Sie vor dem Upgrade eine aktiviert haben.
-4.  Führen Sie `Get-HgsClientConfiguration` aus, um zu überprüfen, ob **ishostbewacht = true**ist. Dies bedeutet, dass der Host erfolgreich mit Ihrem HGS-Server übergeben wird.
+4.  Führen `Get-HgsClientConfiguration` Sie aus, um zu überprüfen, ob **ishostbewacht = true**lautet. Dies bedeutet, dass der Host erfolgreich mit Ihrem HGS-Server übergeben wird.
 5.  Wenn Sie einen TPM-Nachweis verwenden, müssen Sie [die TPM-Baseline oder die Code Integritätsrichtlinie](guarded-fabric-add-host-information-for-tpm-trusted-attestation.md) nach dem Upgrade erneut erfassen, um den Nachweis zu erfüllen.
 6.  Erneutes Ausführen von abgeschirmten VMS auf dem Host
 
