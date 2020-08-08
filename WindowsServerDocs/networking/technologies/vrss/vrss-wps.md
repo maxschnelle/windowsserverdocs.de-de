@@ -8,12 +8,12 @@ manager: dougkim
 ms.author: lizross
 author: eross-msft
 ms.date: 09/05/2018
-ms.openlocfilehash: 6b44cdfec4778cf7f36f541021f23a073cb17806
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 424344147ff926694709aa60fbf57380fbbf665b
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87964006"
+ms.locfileid: "87996409"
 ---
 # <a name="windows-powershell-commands-for-rss-and-vrss"></a>Windows PowerShell-Befehle für RSS und vrss
 
@@ -21,16 +21,16 @@ ms.locfileid: "87964006"
 
 In diesem Thema erfahren Sie, wie Sie auf schnelle Weise technische Referenzinformationen zu Windows PowerShell-Befehlen für die Empfangs seitige Skalierung von \( RSS \) und virtuellem RSS- \( vrss finden \) .
 
-Verwenden Sie die folgenden RSS-Befehle, um RSS auf einem physischen Computer mit mehreren Prozessoren oder mehreren Kernen zu konfigurieren. Sie können die gleichen Befehle verwenden, um vrss auf einem virtuellen Computer zu konfigurieren \( \) , auf dem ein unterstütztes Betriebssystem ausgeführt wird. Weitere Informationen finden Sie unter [Netzwerk Adapter-Cmdlets in Windows PowerShell](https://docs.microsoft.com/powershell/module/netadapter/?view=win10-ps).
+Verwenden Sie die folgenden RSS-Befehle, um RSS auf einem physischen Computer mit mehreren Prozessoren oder mehreren Kernen zu konfigurieren. Sie können die gleichen Befehle verwenden, um vrss auf einem virtuellen Computer zu konfigurieren \( \) , auf dem ein unterstütztes Betriebssystem ausgeführt wird. Weitere Informationen finden Sie unter [Netzwerk Adapter-Cmdlets in Windows PowerShell](/powershell/module/netadapter/?view=win10-ps).
 
 ## <a name="configure-vmq"></a>Konfigurieren von VMQ
 
 vrss erfordert, dass VMQ aktiviert und konfiguriert ist. Sie können die folgenden Windows PowerShell-Befehle verwenden, um VMQ-Einstellungen zu verwalten.
 
-- [Deaktivieren von-netadaptervmq](https://docs.microsoft.com/powershell/module/netadapter/disable-netadaptervmq?view=win10-ps)
-- [Enable-netadaptervmq](https://docs.microsoft.com/powershell/module/netadapter/enable-netadaptervmq?view=win10-ps)
-- [Get-netadaptervmq](https://docs.microsoft.com/powershell/module/netadapter/get-netadaptervmq?view=win10-ps)
-- [Set-netadaptervmq](https://docs.microsoft.com/powershell/module/netadapter/set-netadaptervmq?view=win10-ps)
+- [Deaktivieren von-netadaptervmq](/powershell/module/netadapter/disable-netadaptervmq?view=win10-ps)
+- [Enable-netadaptervmq](/powershell/module/netadapter/enable-netadaptervmq?view=win10-ps)
+- [Get-netadaptervmq](/powershell/module/netadapter/get-netadaptervmq?view=win10-ps)
+- [Set-netadaptervmq](/powershell/module/netadapter/set-netadaptervmq?view=win10-ps)
 
 ## <a name="enable-and-configure-rss-on-a-native-host"></a>Aktivieren und Konfigurieren von RSS auf einem nativen Host
 
@@ -39,10 +39,10 @@ Verwenden Sie die folgenden PowerShell-Befehle, um RSS auf einem nativen Host zu
 >[!IMPORTANT]
 >Das Aktivieren von RSS auf einem virtuellen Computer oder auf einer Host-vNIC ist eine Voraussetzung für die Aktivierung und Verwendung von vrss.
 
-- [Deaktivieren Sie-netadapterrss.](https://docs.microsoft.com/powershell/module/netadapter/disable-netadapterrss?view=win10-ps)
-- [Enable-netadapterrss](https://docs.microsoft.com/powershell/module/netadapter/enable-netadapterrss?view=win10-ps)
-- [Get-netadapterrss](https://docs.microsoft.com/powershell/module/netadapter/get-netadapterrss?view=win10-ps)
-- [Set-netadapterrss](https://docs.microsoft.com/powershell/module/netadapter/Set-NetAdapterRss?view=win10-ps)
+- [Deaktivieren Sie-netadapterrss.](/powershell/module/netadapter/disable-netadapterrss?view=win10-ps)
+- [Enable-netadapterrss](/powershell/module/netadapter/enable-netadapterrss?view=win10-ps)
+- [Get-netadapterrss](/powershell/module/netadapter/get-netadapterrss?view=win10-ps)
+- [Set-netadapterrss](/powershell/module/netadapter/Set-NetAdapterRss?view=win10-ps)
 
 ## <a name="enable-vrss-on-the-hyper-v-virtual-switch-port"></a>Aktivieren von vrss auf dem \- virtuellen Hyper-V-Switchport
 
@@ -118,7 +118,7 @@ Verwenden Sie die folgenden Windows PowerShell-Befehle, um den aktuellen Planung
 ## <a name="related-topics"></a>Verwandte Themen
 Weitere Informationen finden Sie in den folgenden Referenz Themen.
 
-- [Get-vmnetworkadapter](https://technet.microsoft.com/itpro/powershell/windows/hyper-v/get-vmnetworkadapter)
-- [Set-VMNetworkAdapter](https://technet.microsoft.com/itpro/powershell/windows/hyper-v/set-vmnetworkadapter)
+- [Get-vmnetworkadapter](/powershell/module/hyper-v/get-vmnetworkadapter?view=win10-ps)
+- [Set-VMNetworkAdapter](/powershell/module/hyper-v/set-vmnetworkadapter?view=win10-ps)
 
 Weitere Informationen finden Sie unter [virtuelle Empfangs seitige Skalierung (Virtual Receive Side Scaling, vrss)](vrss-top.md).

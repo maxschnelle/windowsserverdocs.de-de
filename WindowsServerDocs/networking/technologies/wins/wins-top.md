@@ -6,12 +6,12 @@ ms.topic: article
 ms.assetid: 32eabe7d-1130-4001-a79a-8ddb31993e5b
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 36dc2b0e8bbb6b65b0cc3568641017aa51122650
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 7d7c49ffc8866091fea138b8b61411b8a31be51c
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87955497"
+ms.locfileid: "87996399"
 ---
 #  <a name="windows-internet-name-service-wins"></a>Windows Internet Name Service (WINS)
 
@@ -21,6 +21,6 @@ Windows Internet Name Service (WINS) ist ein Legacy Dienst für die Registrierun
 
 Wenn WINS nicht bereits in Ihrem Netzwerk bereitgestellt wurde, stellen Sie WINS stattdessen bereit, und stellen Sie Domain Name System \( DNS bereit \) . DNS bietet auch Dienste für die Registrierung und Auflösung von Computernamen und umfasst viele zusätzliche Vorteile gegenüber WINS, wie z. b. die Integration mit Active Directory Domain Services.
 
-Weitere Informationen finden Sie unter [Domain Name System (DNS)](https://docs.microsoft.com/windows-server/networking/dns/dns-top)
+Weitere Informationen finden Sie unter [Domain Name System (DNS)](../../dns/dns-top.md)
 
 Wenn Sie WINS bereits in Ihrem Netzwerk bereitgestellt haben, wird empfohlen, dass Sie DNS bereitstellen und dann WINS außer Betrieb setzen.

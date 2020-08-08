@@ -7,12 +7,12 @@ ms.assetid: ea7e53c8-11ec-410b-b287-897c7aaafb13
 ms.author: anpaul
 author: AnirbanPaul
 ms.date: 08/10/2018
-ms.openlocfilehash: 60ba3ea51bf958f2cc5fa598e4f1323bd5631a80
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 1930ee8d74a1aa99b5c94df19e572d382144e604
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87962174"
+ms.locfileid: "87996554"
 ---
 # <a name="plan-a-software-defined-network-infrastructure"></a>Planen einer Software-Defined Networking-Infrastruktur
 
@@ -243,7 +243,7 @@ Role|vCPU-Anforderungen|Speicheranforderungen|Datenträgeranforderungen|
 |RAS-Gateway-BGP-Router für SLB/MUX-Peering<p>(Alternativ können Sie den Tor-Switch als BGP-Router verwenden)|2 vCPUs|2 GB|75 GB für das Betriebssystem Laufwerk|
 
 
-Wenn Sie VMM für die Bereitstellung verwenden, sind zusätzliche Infrastruktur Ressourcen für virtuelle Maschinen für VMM und andere nicht-Sdn-Infrastrukturen erforderlich. Weitere Informationen finden Sie unter [Minimal Hardware Empfehlungen für System Center Technical Preview.](https://technet.microsoft.com/library/dn997303.aspx)
+Wenn Sie VMM für die Bereitstellung verwenden, sind zusätzliche Infrastruktur Ressourcen für virtuelle Maschinen für VMM und andere nicht-Sdn-Infrastrukturen erforderlich. Weitere Informationen finden Sie unter [Minimal Hardware Empfehlungen für System Center Technical Preview.](/system-center/)
 
 ## <a name="extending-your-infrastructure"></a>Erweitern der Infrastruktur
 Die Größenanpassung und Ressourcenanforderungen für Ihre Infrastruktur sind abhängig von den virtuellen Computern der Mandanten Arbeitsauslastung, die Sie hosten möchten. Die CPU-, Arbeitsspeicher-und Datenträger Anforderungen für die virtuellen Computer der Infrastruktur (z. b. Netzwerk Controller, SLB, Gateway usw.) werden in der vorherigen Tabelle aufgelistet. Sie können weitere dieser Infrastruktur-VMS hinzufügen, um nach Bedarf horizontal hochskalieren zu können. Alle auf den Hyper-V-Hosts laufenden virtuellen Mandanten Computer verfügen jedoch über eigene CPU-, Arbeitsspeicher-und Datenträger Anforderungen, die Sie beachten müssen.
@@ -253,7 +253,4 @@ Wenn die virtuellen Computer der Mandanten Arbeitsauslastung zu viele Ressourcen
 
 ## <a name="see-also"></a>Weitere Informationen
 [Installations-und Vorbereitungs Anforderungen für die Bereitstellung des Netzwerk Controllers](Installation-and-Preparation-Requirements-for-Deploying-Network-Controller.md) 
- [Software-Defined Networking &#40;Sdn&#41;](../Software-Defined-Networking--SDN-.md)
-
-
-
+ [Software-Defined Networking &#40;Sdn&#41;](../software-defined-networking.md)

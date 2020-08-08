@@ -7,12 +7,12 @@ ms.assetid: 1a65a98e-54b6-4c41-9732-1e3d32fe3a5f
 author: kbdazure
 ms.author: kathydav
 ms.date: 09/21/2017
-ms.openlocfilehash: d70dacd2f6ea407350641b33111d40c6059a4110
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: aa61fd14418efe2cb5ee68c1b86e300db24c4fe4
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87954567"
+ms.locfileid: "87996622"
 ---
 # <a name="whats-new-in-hyper-v-on-windows-server"></a>Neues in Hyper-V unter Windows Server
 
@@ -38,13 +38,13 @@ Weitere Informationen finden Sie unter [Server Core-App-Kompatibilitätsfeature]
 
 - **Verbesserungen für Filialen**
 
-    Sie können nun abgeschirmte virtuelle Computer auf Computern mit intermittierender Konnektivität zum Host-Überwachungsdienst (Host Guardian Service, HGS) ausführen, indem Sie die neuen [Fallback-HGS](https://docs.microsoft.com/windows-server/security/guarded-fabric-shielded-vm/guarded-fabric-manage-branch-office#fallback-configuration)- und [Offline-Modus](https://docs.microsoft.com/windows-server/security/guarded-fabric-shielded-vm/guarded-fabric-manage-branch-office#offline-mode)-Features nutzen. Fallback HGS ermöglicht es Ihnen, einen zweiten Satz von URLs für Hyper-V zu konfigurieren, um zu prüfen, ob Ihr primärer HGS-Server erreicht werden kann.
+    Sie können nun abgeschirmte virtuelle Computer auf Computern mit intermittierender Konnektivität zum Host-Überwachungsdienst (Host Guardian Service, HGS) ausführen, indem Sie die neuen [Fallback-HGS](../../security/guarded-fabric-shielded-vm/guarded-fabric-manage-branch-office.md#fallback-configuration)- und [Offline-Modus](../../security/guarded-fabric-shielded-vm/guarded-fabric-manage-branch-office.md#offline-mode)-Features nutzen. Fallback HGS ermöglicht es Ihnen, einen zweiten Satz von URLs für Hyper-V zu konfigurieren, um zu prüfen, ob Ihr primärer HGS-Server erreicht werden kann.
 
     Im Offline-Modus können Sie Ihre abgeschirmten VMs auch dann starten, wenn HGS nicht erreichbar ist, sofern die VM einmal erfolgreich gestartet wurde und sich die Sicherheitskonfiguration des Hosts nicht geändert hat.
 
 - **Verbesserungen bei der Problembehandlung**
 
-    Darüber hinaus haben wir die Problembehandlung bei Ihren [abgeschirmten virtuellen Computern](https://docs.microsoft.com/windows-server/security/guarded-fabric-shielded-vm/guarded-fabric-troubleshoot-shielded-vms) vereinfacht, indem wir den erweiterten VMConnect-Sitzungsmodus und PowerShell Direct unterstützen. Diese Tools sind besonders nützlich, wenn Sie die Netzwerkverbindung zu Ihrer VM verloren haben und ihre Konfiguration aktualisieren müssen, um den Zugriff wiederherzustellen.
+    Darüber hinaus haben wir die Problembehandlung bei Ihren [abgeschirmten virtuellen Computern](../../security/guarded-fabric-shielded-vm/guarded-fabric-troubleshoot-shielded-vms.md) vereinfacht, indem wir den erweiterten VMConnect-Sitzungsmodus und PowerShell Direct unterstützen. Diese Tools sind besonders nützlich, wenn Sie die Netzwerkverbindung zu Ihrer VM verloren haben und ihre Konfiguration aktualisieren müssen, um den Zugriff wiederherzustellen.
 
     Diese Features müssen nicht konfiguriert werden, und sie werden automatisch zur Verfügung gestellt, wenn eine abgeschirmte VM auf einem Hyper-V-Host mit Windows Server, Version 1803 oder höher, ausgeführt wird.
 
@@ -74,7 +74,7 @@ Mit dieser Funktion wird verhindert, dass ein virtueller Computer mehr als den A
 Set-VMProcessor TestVM -EnableHostResourceProtection $true
 ```
 
-Weitere Informationen zu diesem Cmdlet finden Sie unter [Set-vmprocessor](https://docs.microsoft.com/powershell/module/hyper-v/set-vmprocessor).
+Weitere Informationen zu diesem Cmdlet finden Sie unter [Set-vmprocessor](/powershell/module/hyper-v/set-vmprocessor).
 
 ### <a name="hot-add-and-remove-for-network-adapters-and-memory-new"></a>Hot Add und Remove für Netzwerkadapter und neuer Arbeitsspeicher \(\)
 
@@ -105,7 +105,7 @@ Linux-Betriebssysteme auf virtuellen Computern der Generation 2 können jetzt mi
 Set-VMFirmware TestVM -SecureBootTemplate MicrosoftUEFICertificateAuthority
 ```
 
-Weitere Informationen zu virtuellen Linux-Computern in Hyper-v finden Sie [unter Linux und FreeBSD Virtual Machines auf Hyper-v](Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows.md). Weitere Informationen zum Cmdlet finden Sie unter [Set-vmfirmware](https://docs.microsoft.com/powershell/module/hyper-v/set-vmfirmware).
+Weitere Informationen zu virtuellen Linux-Computern in Hyper-v finden Sie [unter Linux und FreeBSD Virtual Machines auf Hyper-v](Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows.md). Weitere Informationen zum Cmdlet finden Sie unter [Set-vmfirmware](/powershell/module/hyper-v/set-vmfirmware).
 
 ### <a name="more-memory-and-processors-for-generation-2-virtual-machines-and-hyper-v-hosts-updated"></a>Mehr Arbeitsspeicher und Prozessoren für virtuelle Maschinen der Generation 2 und Hyper-V-Hosts \( aktualisiert\)
 
@@ -119,13 +119,13 @@ Mit dieser Funktion können Sie einen virtuellen Computer als Hyper-V-Host verwe
 
 -   Ein Prozessor mit Intel VT-x (Nested Virtualization steht zurzeit nur für Intel-Prozessoren zur Verfügung).
 
-Weitere Informationen und Anweisungen finden Sie unter [Ausführen von Hyper-V auf einem virtuellen Computer mit der Netzwerkvirtualisierung](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization).
+Weitere Informationen und Anweisungen finden Sie unter [Ausführen von Hyper-V auf einem virtuellen Computer mit der Netzwerkvirtualisierung](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization).
 
 ### <a name="networking-features-new"></a>Neue Netzwerk Features \(\)
 
 Zu den neuen Netzwerk Features gehören:
 
--   **Remote Zugriff auf den direkten Speicher (RDMA) und Switch Embedded Team Vorgang (Set)**. Sie können RDMA für Netzwerkadapter einrichten, die an einen virtuellen Hyper-V-Switch gebunden sind, unabhängig davon, ob auch Set verwendet wird. Set bietet einen virtuellen Switch mit einigen der gleichen Funktionen wie der NIC-Team Vorgang. Weitere Informationen finden Sie unter [Remote Direct Memory Access (RDMA) und Switch Embedded Teaming (Set)](https://docs.microsoft.com/windows-server/virtualization/hyper-v-virtual-switch/rdma-and-switch-embedded-teaming).
+-   **Remote Zugriff auf den direkten Speicher (RDMA) und Switch Embedded Team Vorgang (Set)**. Sie können RDMA für Netzwerkadapter einrichten, die an einen virtuellen Hyper-V-Switch gebunden sind, unabhängig davon, ob auch Set verwendet wird. Set bietet einen virtuellen Switch mit einigen der gleichen Funktionen wie der NIC-Team Vorgang. Weitere Informationen finden Sie unter [Remote Direct Memory Access (RDMA) und Switch Embedded Teaming (Set)](../hyper-v-virtual-switch/rdma-and-switch-embedded-teaming.md).
 
 -   **Virtual Machine-multiwarteschlangen (vmmq)**. Verbessert den VMQ-Durchsatz durch Zuordnen mehrerer Hardware Warteschlangen pro virtuellem Computer.  Die Standard Warteschlange wird zu einem Satz von Warteschlangen für einen virtuellen Computer, und der Datenverkehr wird zwischen den Warteschlangen verteilt.
 
@@ -142,7 +142,7 @@ Produktions Prüfpunkte sind "Point-in-Time"-Images einer virtuellen Maschine. A
 
 ### <a name="rolling-hyper-v-cluster-upgrade-new"></a>Paralleles Upgrade für Hyper-V-Cluster \( neu\)
 
-Sie können nun einen Knoten unter Windows Server 2019 oder Windows Server 2016 zu einem Hyper-V-Cluster hinzufügen, auf dem Windows Server 2012 R2 ausgeführt wird. Dies ermöglicht es Ihnen, den Cluster ohne Ausfallzeiten zu aktualisieren. Der Cluster wird auf einer Windows Server 2012 R2-Funktionsebene ausgeführt, bis Sie ein Upgrade für alle Knoten im Cluster durchführen und die Cluster Funktionsebene mit dem Windows PowerShell-Cmdlet [Update-clusterfunctionallevel](https://docs.microsoft.com/powershell/module/failoverclusters/Update-ClusterFunctionalLevel)aktualisieren.
+Sie können nun einen Knoten unter Windows Server 2019 oder Windows Server 2016 zu einem Hyper-V-Cluster hinzufügen, auf dem Windows Server 2012 R2 ausgeführt wird. Dies ermöglicht es Ihnen, den Cluster ohne Ausfallzeiten zu aktualisieren. Der Cluster wird auf einer Windows Server 2012 R2-Funktionsebene ausgeführt, bis Sie ein Upgrade für alle Knoten im Cluster durchführen und die Cluster Funktionsebene mit dem Windows PowerShell-Cmdlet [Update-clusterfunctionallevel](/powershell/module/failoverclusters/Update-ClusterFunctionalLevel)aktualisieren.
 
 > [!IMPORTANT]
 > Nachdem Sie die Cluster Funktionsebene aktualisiert haben, können Sie Sie nicht mehr an Windows Server 2012 R2 zurückgeben.
@@ -174,15 +174,15 @@ Weitere Informationen und Anweisungen finden Sie unter Paralleles [Upgrade des C
 ### <a name="shared-virtual-hard-disks-updated"></a>Aktualisierte freigegebene virtuelle Festplatten \(\)
 Sie können jetzt die Größe der freigegebenen virtuellen Festplatten (vhdx-Dateien), die für Gastclustering verwendet werden, ohne Ausfallzeiten ändern. Freigegebene virtuelle Festplatten können vergrößert oder verkleinert werden, während der virtuelle Computer online ist. Gast Cluster können jetzt auch freigegebene virtuelle Festplatten mithilfe des Hyper-V-Replikats für die Notfall Wiederherstellung schützen.
 
-Aktivieren Sie die Replikation für die Sammlung. Das Aktivieren der Replikation für eine Sammlung wird **nur über die WMI-Schnittstelle**verfügbar gemacht. Weitere Informationen finden Sie in der Dokumentation zur [Msvm_CollectionReplicationService-Klasse](https://msdn.microsoft.com/library/mt167787%28v=vs.85%29.aspx) . **Die Replikation einer Sammlung kann nicht über das PowerShell-Cmdlet oder die Benutzeroberfläche verwaltet werden.** Die VMs sollten sich auf Hosts befinden, die Teil eines Hyper-V-Clusters sind, um auf Features zuzugreifen, die für eine Sammlung spezifisch sind. Dies gilt auch für freigegebene virtuelle Festplatten: freigegebene virtuelle Festplatten auf eigenständigen Hosts werden vom Hyper-V-Replikat nicht unterstützt.
+Aktivieren Sie die Replikation für die Sammlung. Das Aktivieren der Replikation für eine Sammlung wird **nur über die WMI-Schnittstelle**verfügbar gemacht. Weitere Informationen finden Sie in der Dokumentation zur [Msvm_CollectionReplicationService-Klasse](/previous-versions/windows/desktop/clushyperv/msvm-collectionreplicationservice) . **Die Replikation einer Sammlung kann nicht über das PowerShell-Cmdlet oder die Benutzeroberfläche verwaltet werden.** Die VMs sollten sich auf Hosts befinden, die Teil eines Hyper-V-Clusters sind, um auf Features zuzugreifen, die für eine Sammlung spezifisch sind. Dies gilt auch für freigegebene virtuelle Festplatten: freigegebene virtuelle Festplatten auf eigenständigen Hosts werden vom Hyper-V-Replikat nicht unterstützt.
 
-Befolgen Sie die Richtlinien für freigegebene VHDs unter [Übersicht über die Freigabe virtueller Festplatten](https://technet.microsoft.com/library/dn281956.aspx), und stellen Sie sicher, dass die freigegebenen VHDs Teil eines Gast Clusters sind.
+Befolgen Sie die Richtlinien für freigegebene VHDs unter [Übersicht über die Freigabe virtueller Festplatten](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn281956(v=ws.11)), und stellen Sie sicher, dass die freigegebenen VHDs Teil eines Gast Clusters sind.
 
 Eine Sammlung mit einer freigegebenen VHD, aber keinem zugeordneten Gast Cluster, kann keine Referenzpunkte für die Sammlung erstellen (unabhängig davon, ob die freigegebene virtuelle Festplatte in der Referenzpunkt Erstellung enthalten ist oder nicht).
 
 ### <a name="virtual-machine-backupnew"></a>Sicherung virtueller Computer \( neu\)
 
-Wenn Sie einen einzelnen virtuellen Computer sichern (unabhängig davon, ob der Host geclustert ist), sollten Sie keine VM-Gruppe verwenden.  Sie sollten auch keine Momentaufnahme Sammlung verwenden. VM-Gruppen und die Momentaufnahme Sammlung dienen ausschließlich zum Sichern von Gast Clustern, die freigegebene vhdx verwenden. Stattdessen sollten Sie eine Momentaufnahme mithilfe des [Hyper-V-WMI v2-Anbieters](https://msdn.microsoft.com/library/windows/desktop/hh850319(v=vs.85).aspx)erstellen. Verwenden Sie auch den [WMI-Anbieter für den Failovercluster](https://msdn.microsoft.com/library/windows/desktop/mt167750(v=vs.85).aspx)nicht.
+Wenn Sie einen einzelnen virtuellen Computer sichern (unabhängig davon, ob der Host geclustert ist), sollten Sie keine VM-Gruppe verwenden.  Sie sollten auch keine Momentaufnahme Sammlung verwenden. VM-Gruppen und die Momentaufnahme Sammlung dienen ausschließlich zum Sichern von Gast Clustern, die freigegebene vhdx verwenden. Stattdessen sollten Sie eine Momentaufnahme mithilfe des [Hyper-V-WMI v2-Anbieters](/windows/win32/hyperv_v2/windows-virtualization-portal)erstellen. Verwenden Sie auch den [WMI-Anbieter für den Failovercluster](/previous-versions/windows/desktop/clushyperv/failover-clustering-hyper-v-wmi-provider-portal)nicht.
 
 ### <a name="shielded-virtual-machines-new"></a>Geschützte virtuelle Computer \( neu\)
 
@@ -193,7 +193,7 @@ Abgeschirmte virtuelle Computer verwenden mehrere Features, um Hyper-V-Administr
 
 ### <a name="start-order-priority-for-clustered-virtual-machines-new"></a>Priorität der Start Reihenfolge für geclusterte virtuelle Computer \( neu\)
 
-Diese Funktion ermöglicht Ihnen mehr Kontrolle darüber, welche virtuellen Cluster Computer zuerst gestartet oder neu gestartet werden. Dies erleichtert das Starten von virtuellen Computern, die Dienste vor virtuellen Computern bereitstellen, die diese Dienste verwenden. Definieren von Sätzen, platzieren virtueller Maschinen in Gruppen und Angeben von Abhängigkeiten. Verwenden Sie Windows PowerShell-Cmdlets, um die Sätze zu verwalten, z. b. [New-clustergroupset](https://docs.microsoft.com/powershell/module/failoverclusters/new-clustergroupset), [Get-clustergroupset](https://docs.microsoft.com/powershell/module/failoverclusters/get-clustergroupset)und [Add-clustergroupsetabhängigkeit](https://docs.microsoft.com/powershell/module/failoverclusters/add-clustergroupsetdependency).
+Diese Funktion ermöglicht Ihnen mehr Kontrolle darüber, welche virtuellen Cluster Computer zuerst gestartet oder neu gestartet werden. Dies erleichtert das Starten von virtuellen Computern, die Dienste vor virtuellen Computern bereitstellen, die diese Dienste verwenden. Definieren von Sätzen, platzieren virtueller Maschinen in Gruppen und Angeben von Abhängigkeiten. Verwenden Sie Windows PowerShell-Cmdlets, um die Sätze zu verwalten, z. b. [New-clustergroupset](/powershell/module/failoverclusters/new-clustergroupset), [Get-clustergroupset](/powershell/module/failoverclusters/get-clustergroupset)und [Add-clustergroupsetabhängigkeit](/powershell/module/failoverclusters/add-clustergroupsetdependency).
 .
 ### <a name="storage-quality-of-service-qos-updated"></a>Quality of Service (QoS) für Speicher wurde \( aktualisiert\)
 
@@ -217,7 +217,7 @@ Anweisungen zum Überprüfen und Aktualisieren der Version finden Sie unter [Akt
 > [!IMPORTANT]
 > -   Nachdem Sie die Version aktualisiert haben, können Sie die virtuelle Maschine nicht auf einen Server mit Windows Server 2012 R2 verschieben.
 > -   Sie können die Konfiguration nicht auf eine frühere Version herabstufen.
-> -   Das [Update-VMVersion-](https://docs.microsoft.com/powershell/module/hyper-v/update-vmversion) Cmdlet wird auf einem Hyper-V-Cluster blockiert, wenn die Cluster Funktionsebene Windows Server 2012 R2 ist.
+> -   Das [Update-VMVersion-](/powershell/module/hyper-v/update-vmversion) Cmdlet wird auf einem Hyper-V-Cluster blockiert, wenn die Cluster Funktionsebene Windows Server 2012 R2 ist.
 
 ### <a name="virtualization-based-security-for-generation-2-virtual-machines-new"></a>Virtualisierungsbasierte Sicherheit für virtuelle Computer der Generation 2 \( neu)
 
@@ -237,7 +237,7 @@ Hauptfunktionen:
 
 -   Möglichkeit zum Einschränken von Container Ressourcen
 
-Weitere Informationen, einschließlich Schnellstart Handbücher, finden Sie in der [Dokumentation zu Windows-Containern](https://docs.microsoft.com/virtualization/windowscontainers/index).
+Weitere Informationen, einschließlich Schnellstart Handbücher, finden Sie in der [Dokumentation zu Windows-Containern](/virtualization/windowscontainers/index).
 
 ### <a name="windows-powershell-direct-new"></a>Windows PowerShell Direct \( New\)
 

@@ -7,12 +7,12 @@ ms.assetid: 7f899e62-6e5b-4fca-9a59-130d4766ee2f
 ms.author: anpaul
 author: AnirbanPaul
 ms.date: 08/10/2018
-ms.openlocfilehash: 060194959f80c9d2a6d174910b0264c58214373b
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 051518873bd028e8b1253b9bf7cb17dcff344d0d
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87964086"
+ms.locfileid: "87996602"
 ---
 # <a name="requirements-for-deploying-network-controller"></a>Anforderungen für die Bereitstellung des Netzwerk Controllers
 
@@ -102,7 +102,7 @@ Schließlich möchten Sie als nächstes Netzwerk Controller-Cluster Knoten im gl
 
 ### <a name="step-4-configure-service-principal-name-if-using-kerberos-based-authentication"></a>Schritt 4. Konfigurieren des Dienst Prinzipal namens bei Verwendung der Kerberos-basierten Authentifizierung
 
-Wenn der Netzwerk Controller die Kerberos-basierte Authentifizierung für die Kommunikation mit Verwaltungs Clients verwendet, müssen Sie einen Dienst Prinzipal Namen (SPN) für den Netzwerk Controller in Active Directory konfigurieren. Der SPN wird vom Netzwerk Controller automatisch konfiguriert. Sie müssen lediglich Berechtigungen für die Netzwerk Controller Computer bereitstellen, um den SPN zu registrieren und zu ändern. Weitere Informationen finden Sie unter [Konfigurieren von Dienst Prinzipal Namen (SPN)](https://docs.microsoft.com/windows-server/networking/sdn/security/kerberos-with-spn#configure-service-principal-names-spn).
+Wenn der Netzwerk Controller die Kerberos-basierte Authentifizierung für die Kommunikation mit Verwaltungs Clients verwendet, müssen Sie einen Dienst Prinzipal Namen (SPN) für den Netzwerk Controller in Active Directory konfigurieren. Der SPN wird vom Netzwerk Controller automatisch konfiguriert. Sie müssen lediglich Berechtigungen für die Netzwerk Controller Computer bereitstellen, um den SPN zu registrieren und zu ändern. Weitere Informationen finden Sie unter [Konfigurieren von Dienst Prinzipal Namen (SPN)](../security/kerberos-with-spn.md#configure-service-principal-names-spn).
 
 ## <a name="deployment-options"></a>Bereitstellungsoptionen
 
@@ -129,7 +129,7 @@ Es gibt drei virtuelle Gateway-Computer: zwei sind aktiv, und eine ist redundant
 
 
 ## <a name="next-steps"></a>Nächste Schritte
-[Planen Sie eine Software definierte Netzwerkinfrastruktur](https://technet.microsoft.com/windows-server-docs/networking/sdn/plan/plan-a-software-defined-network-infrastructure).
+[Planen Sie eine Software definierte Netzwerkinfrastruktur](./plan-a-software-defined-network-infrastructure.md).
 
 ## <a name="related-topics"></a>Verwandte Themen
 - [Netzwerkcontroller](../technologies/network-controller/Network-Controller.md)

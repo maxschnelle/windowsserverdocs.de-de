@@ -2,18 +2,16 @@
 title: Schritt 2 Planen der Bereitstellung des Remote Zugriffs
 description: Dieses Thema ist Teil des Handbuchs zur Remote Verwaltung von DirectAccess-Clients in Windows Server 2016.
 manager: brianlic
-ms.prod: windows-server
-ms.technology: networking-ras
 ms.topic: article
 ms.assetid: cc9f02b9-8ddd-4cae-b397-a832996144dd
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: a1971345a1a5256768651bc29e03d9c7824fecb3
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 0de2e1fa0d5dcb6c7ed2bd5ea8c6a65048296315
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85475567"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87970247"
 ---
 # <a name="step-2-plan-the-remote-access-deployment"></a>Schritt 2 Planen der Bereitstellung des Remote Zugriffs
 
@@ -24,7 +22,7 @@ Nachdem Sie die Infrastruktur geplant haben, die Sie zum Einrichten des einzelne
 > [!NOTE]
 > Bevor Sie mit diesen Aufgaben fortfahren, finden Sie weitere Informationen unter [Schritt 1: Planen der Infrastruktur für den Remote Zugriff](Step-1-Plan-the-Remote-Access-Infrastructure.md).
 
-|Aufgabe|Beschreibung|
+|Aufgabe|BESCHREIBUNG|
 |----|--------|
 |[Planen einer Strategie für die Client Bereitstellung](#plan-a-client-deployment-strategy)|Legen Sie fest, welche verwalteten Computer als DirectAccess-Clients konfiguriert werden sollen.|
 |[Planen einer Bereitstellungs Strategie für den Remote Zugriffs Server](#plan-a-remote-access-server-deployment-strategy)|Planen Sie die Bereitstellung des Remotezugriffsservers.|
@@ -114,7 +112,7 @@ Der Remote Zugriff erfordert drei Arten von Infrastruktur Servern:
 
 -   **Verwaltungsserver**
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Schritt 1: Planen der Infrastruktur für den Remotezugriff](Step-1-Plan-the-Remote-Access-Infrastructure.md)
 

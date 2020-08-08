@@ -6,18 +6,18 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: 41ec95b44c6953e061390f181bc22c9788db50de
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: c75f2109f7ef67cb9c83ddd05f95030904413e23
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87937680"
+ms.locfileid: "87996582"
 ---
 # <a name="understanding-key-ad-fs-concepts"></a>Understanding Key AD FS Concepts
 Es wird empfohlen, dass Sie sich mit den wichtigen Konzepten für Active Directory-Verbunddienste (AD FS) vertraut machen und sich mit dem Funktions Satz vertraut machen.
 
 > [!TIP]
-> Weitere AD FS Ressourcen Verknüpfungen finden Sie Untergrund Legendes zu [Schlüssel AD FS Konzepten](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/understanding-key-ad-fs-concepts).
+> Weitere AD FS Ressourcen Verknüpfungen finden Sie Untergrund Legendes zu [Schlüssel AD FS Konzepten]().
 
 ## <a name="ad-fs-terminology-used-in-this-guide"></a>AD FS-Terminologie in dieser Anleitung
 
@@ -62,5 +62,3 @@ Mit AD FS können Organisationen Anforderungen für sekundäre Anmelde Informati
 -   [Bestimmen des Typs der zu verwendenden Anspruchs Regel Vorlage](Determine-the-Type-of-Claim-Rule-Template-to-Use.md)
 
 -   [Verwenden von URIs in AD FS](How-URIs-Are-Used-in-AD-FS.md)
-
-

@@ -7,12 +7,12 @@ ms.assetid: 59297022-a898-456c-b299-d79cd5860238
 author: kbdazure
 ms.author: kathydav
 ms.date: 10/04/2016
-ms.openlocfilehash: 5f4e07919503f283add8da1c8dd522f3d2b7f222
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 22dc2e83f1c7370bfd6f97d821a83041a9c528fe
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87942016"
+ms.locfileid: "87996606"
 ---
 # <a name="create-a-virtual-machine-in-hyper-v"></a>Erstellen eines virtuellen Computers in Hyper-V
 
@@ -42,16 +42,16 @@ Erfahren Sie, wie Sie einen virtuellen Computer mit dem Hyper-v-Manager und Wind
 
 2. Klicken Sie mit der rechten Maustaste auf **Windows PowerShell**, und wählen Sie **Als Administrator ausführen** aus.
 
-3. Holen Sie sich den Namen des virtuellen Switches, den der virtuelle Computer verwenden soll, mithilfe von [Get-VMSwitch](https://technet.microsoft.com/library/hh848499.aspx).  Ein auf ein Objekt angewendeter
+3. Holen Sie sich den Namen des virtuellen Switches, den der virtuelle Computer verwenden soll, mithilfe von [Get-VMSwitch](/powershell/module/hyper-v/get-vmswitch?view=win10-ps).  Ein auf ein Objekt angewendeter
 
    ```
    Get-VMSwitch  * | Format-Table Name
    ```
 
-4. Verwenden Sie das Cmdlet [New-VM](https://technet.microsoft.com/library/hh848537.aspx) , um den virtuellen Computer zu erstellen.  Weitere Informationen finden Sie in den folgenden Beispielen.
+4. Verwenden Sie das Cmdlet [New-VM](/powershell/module/hyper-v/new-vm?view=win10-ps) , um den virtuellen Computer zu erstellen.  Weitere Informationen finden Sie in den folgenden Beispielen.
 
    > [!NOTE]
-   > Wenn Sie diese virtuelle Maschine auf einen Hyper-V-Host mit Windows Server 2012 R2 verschieben können, verwenden Sie den Parameter-Version mit [New-VM](https://technet.microsoft.com/library/hh848537.aspx) , um die Konfigurations Version der virtuellen Maschine auf 5 festzulegen. Die standardmäßige VM-Konfigurations Version für Windows Server 2016 wird von Windows Server 2012 R2 oder früheren Versionen nicht unterstützt. Nachdem der virtuelle Computer erstellt wurde, können Sie die Konfigurations Version des virtuellen Computers nicht mehr ändern. Weitere Informationen finden Sie [unter Unterstützte Konfigurations Versionen für virtuelle Computer](../deploy/Upgrade-virtual-machine-version-in-Hyper-V-on-Windows-or-Windows-Server.md#supported-virtual-machine-configuration-versions).
+   > Wenn Sie diese virtuelle Maschine auf einen Hyper-V-Host mit Windows Server 2012 R2 verschieben können, verwenden Sie den Parameter-Version mit [New-VM](/powershell/module/hyper-v/new-vm?view=win10-ps) , um die Konfigurations Version der virtuellen Maschine auf 5 festzulegen. Die standardmäßige VM-Konfigurations Version für Windows Server 2016 wird von Windows Server 2012 R2 oder früheren Versionen nicht unterstützt. Nachdem der virtuelle Computer erstellt wurde, können Sie die Konfigurations Version des virtuellen Computers nicht mehr ändern. Weitere Informationen finden Sie [unter Unterstützte Konfigurations Versionen für virtuelle Computer](../deploy/Upgrade-virtual-machine-version-in-Hyper-V-on-Windows-or-Windows-Server.md#supported-virtual-machine-configuration-versions).
 
    - **Vorhandene virtuelle Festplatte** : um einen virtuellen Computer mit einer vorhandenen virtuellen Festplatte zu erstellen, können Sie den folgenden Befehl verwenden:
      - **-Name** ist der Name, den Sie für den erstellten virtuellen Computer angeben.
@@ -80,9 +80,9 @@ Erfahren Sie, wie Sie einen virtuellen Computer mit dem Hyper-v-Manager und Wind
      New-VM -Name Win10VM -MemoryStartupBytes 4GB -BootDevice VHD -NewVHDPath .\VMs\Win10.vhdx -Path .\VMData -NewVHDSizeBytes 20GB -Generation 2 -Switch ExternalSwitch
      ```
 
-   - **Neue virtuelle Festplatte, die mit dem Betriebssystem Abbild** gestartet wird: um einen virtuellen Computer mit einem neuen virtuellen Datenträger zu erstellen, der zu einem Betriebssystem Abbild gestartet wird, finden Sie weitere Informationen im PowerShell-Beispiel unter Exemplarische Vorgehensweise: Erstellen eines virtuellen Computers unter [Windows 10](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_create_vm).
+   - **Neue virtuelle Festplatte, die mit dem Betriebssystem Abbild** gestartet wird: um einen virtuellen Computer mit einem neuen virtuellen Datenträger zu erstellen, der zu einem Betriebssystem Abbild gestartet wird, finden Sie weitere Informationen im PowerShell-Beispiel unter Exemplarische Vorgehensweise: Erstellen eines virtuellen Computers unter [Windows 10](/virtualization/hyper-v-on-windows/quick-start/create-virtual-machine).
 
-5. Starten Sie den virtuellen Computer mithilfe des Cmdlets [Start-VM](https://technet.microsoft.com/library/hh848589.aspx) . Führen Sie das folgende Cmdlet aus, wobei Name der Name des virtuellen Computers ist, den Sie erstellt haben.
+5. Starten Sie den virtuellen Computer mithilfe des Cmdlets [Start-VM](/powershell/module/hyper-v/start-vm?view=win10-ps) . Führen Sie das folgende Cmdlet aus, wobei Name der Name des virtuellen Computers ist, den Sie erstellt haben.
 
    ```
    Start-VM -Name <Name>
@@ -107,7 +107,7 @@ In der folgenden Tabelle sind die Optionen aufgeführt, die Sie auswählen könn
 |--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------|
 |**Name und Pfad angeben**|Name: neuer virtueller Computer.<p>Speicherort: **c:\ProgramData\Microsoft\Windows\Hyper-v \\ **.|Sie können auch einen eigenen Namen eingeben und einen anderen Speicherort für den virtuellen Computer auswählen.<p>Hier werden die Konfigurationsdateien für den virtuellen Computer gespeichert.|
 |**Generation angeben**|Generation 1|Sie können auch einen virtuellen Computer der Generation 2 erstellen. Weitere Informationen finden Sie unter [sollte ich einen virtuellen Computer der Generation 1 oder 2 in Hyper-V erstellen?.](../plan/Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V.md)|
-|**Speicher zuweisen**|Start Speicher: 1024 MB<p>Dynamischer Arbeitsspeicher: **nicht ausgewählt**|Sie können den Start Speicher von 32 MB auf 5902mb festlegen.<p>Sie können auch dynamischer Arbeitsspeicher verwenden. Weitere Informationen finden Sie unter [Übersicht über Hyper-V-dynamischer Arbeitsspeicher](https://technet.microsoft.com/library/hh831766.aspx).|
+|**Speicher zuweisen**|Start Speicher: 1024 MB<p>Dynamischer Arbeitsspeicher: **nicht ausgewählt**|Sie können den Start Speicher von 32 MB auf 5902mb festlegen.<p>Sie können auch dynamischer Arbeitsspeicher verwenden. Weitere Informationen finden Sie unter [Übersicht über Hyper-V-dynamischer Arbeitsspeicher](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831766(v=ws.11)).|
 |**Netzwerk konfigurieren**|Not connected|Sie können eine Netzwerkverbindung für die virtuelle Maschine aus einer Liste vorhandener virtueller Switches auswählen. Weitere Informationen finden Sie unter [Erstellen eines virtuellen Switches für virtuelle Hyper-V-](Create-a-virtual-switch-for-Hyper-V-virtual-machines.md)Computer.|
 |**Virtuelle Festplatte verbinden**|Erstellen einer virtuellen Festplatte<p>Name: <*VMName*>. vhdx<p>**Speicherort**: **c:\Users\Public\Documents\Hyper-v\virtuelle fest \\ Platten**<p>**Größe**: 127 GB|Sie können auch eine vorhandene virtuelle Festplatte verwenden oder warten und eine virtuelle Festplatte später anfügen.|
 |**Installationsoptionen**|Betriebssystem später installieren|Mit diesen Optionen wird die Start Reihenfolge des virtuellen Computers geändert, sodass Sie die Installation über eine ISO-Datei, eine startbare Diskette oder einen netzwerkinstallationsdienst wie die Windows-Bereitstellungs Dienste (WDS) Durchführung können.|
@@ -115,7 +115,7 @@ In der folgenden Tabelle sind die Optionen aufgeführt, die Sie auswählen könn
 
 ## <a name="additional-references"></a>Weitere Verweise
 
-- [New-VM](https://technet.microsoft.com/library/hh848537.aspx)
+- [New-VM](/powershell/module/hyper-v/new-vm?view=win10-ps)
 
 - [Unterstützte Konfigurations Versionen für virtuelle Computer](../deploy/Upgrade-virtual-machine-version-in-Hyper-V-on-Windows-or-Windows-Server.md#supported-virtual-machine-configuration-versions)
 

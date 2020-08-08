@@ -7,12 +7,12 @@ ms.assetid: bc625de9-ee31-40a4-9ad2-7448bfbfb6e6
 ms.author: anpaul
 author: AnirbanPaul
 ms.date: 08/23/2018
-ms.openlocfilehash: 3937f124ba91a597af83c00cd5497ea57c1b2fed
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: ce85e93f229c62d836a00e7665e2a76bd08b44dd
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87962134"
+ms.locfileid: "87996548"
 ---
 # <a name="kerberos-with-service-principal-name-spn"></a>Kerberos mit Dienstprinzipalname (SPN)
 
@@ -20,7 +20,7 @@ ms.locfileid: "87962134"
 
 Der Netzwerk Controller unterstützt mehrere Authentifizierungsmethoden für die Kommunikation mit Verwaltungs Clients. Sie können die Kerberos-basierte Authentifizierung, die auf X509-Zertifikaten basierende Authentifizierung verwenden. Sie haben auch die Möglichkeit, keine Authentifizierung für Test Bereitstellungen zu verwenden.
 
-System Center Virtual Machine Manager verwendet die Kerberos-basierte Authentifizierung. Wenn Sie die Kerberos-basierte Authentifizierung verwenden, müssen Sie einen Dienst Prinzipal Namen (Service Principal Name, SPN) für den Netzwerk Controller in Active Directory konfigurieren. Der SPN ist ein eindeutiger Bezeichner für die Netzwerk Controller-Dienst Instanz, die von der Kerberos-Authentifizierung zum Zuordnen einer Dienst Instanz zu einem Dienst Anmelde Konto verwendet wird. Weitere Informationen finden Sie unter [Dienst Prinzipal Namen](https://docs.microsoft.com/windows/desktop/ad/service-principal-names).
+System Center Virtual Machine Manager verwendet die Kerberos-basierte Authentifizierung. Wenn Sie die Kerberos-basierte Authentifizierung verwenden, müssen Sie einen Dienst Prinzipal Namen (Service Principal Name, SPN) für den Netzwerk Controller in Active Directory konfigurieren. Der SPN ist ein eindeutiger Bezeichner für die Netzwerk Controller-Dienst Instanz, die von der Kerberos-Authentifizierung zum Zuordnen einer Dienst Instanz zu einem Dienst Anmelde Konto verwendet wird. Weitere Informationen finden Sie unter [Dienst Prinzipal Namen](/windows/desktop/ad/service-principal-names).
 
 ## <a name="configure-service-principal-names-spn"></a>Konfigurieren von Dienst Prinzipal Namen (SPN)
 

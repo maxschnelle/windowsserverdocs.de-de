@@ -7,12 +7,12 @@ ms.assetid: 318659e5-e4a5-4e46-99d6-211dfc46f6b8
 ms.author: anpaul
 author: AnirbanPaul
 ms.date: 09/04/2018
-ms.openlocfilehash: 7d45987b863eaabd3ed57630ff1ee425e35fd939
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 1cfd326cd2ab5054829b1f4b9df6b072b3856eb7
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87966597"
+ms.locfileid: "87996489"
 ---
 # <a name="container-networking-overview"></a>Übersicht über Container Netzwerke
 
@@ -33,6 +33,6 @@ Zum Erzwingen der Isolation zwischen Containern auf demselben Host erstellen Sie
 
 ## <a name="related-topics"></a>Verwandte Themen
 
-- [Windows-Container Netzwerk](https://docs.microsoft.com/virtualization/windowscontainers/container-networking/architecture): erfahren Sie, wie Sie Container Netzwerke für nicht-Overlay-/Sdn-bereit Stellungen erstellen und verwalten.
+- [Windows-Container Netzwerk](/virtualization/windowscontainers/container-networking/architecture): erfahren Sie, wie Sie Container Netzwerke für nicht-Overlay-/Sdn-bereit Stellungen erstellen und verwalten.
 
 - [Verbinden von Container Endpunkten mit einem virtuellen Mandanten Netzwerk](../../manage/Connect-container-endpoints-to-a-Tenant-Virtual-Network.md): erfahren Sie mehr über das Erstellen und Verwalten von Container Netzwerken für virtuelle über Lagerungs Netzwerke mit Sdn.

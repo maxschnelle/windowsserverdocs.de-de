@@ -7,12 +7,12 @@ ms.assetid: bc625de9-ee31-40a4-9ad2-7448bfbfb6e6
 ms.author: anpaul
 author: AnirbanPaul
 ms.date: 08/30/2018
-ms.openlocfilehash: 42bed85fed8da210d3a7583caf0170064fd2aff5
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: c66030d1940bca12ab603767da2d17d1086004a6
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87962074"
+ms.locfileid: "87996536"
 ---
 # <a name="secure-the-network-controller"></a>Schützen des Netzwerkcontrollers
 
@@ -46,7 +46,7 @@ Der Netzwerk Controller unterstützt die folgenden drei Authentifizierungs Modi 
 
 3. **None** (Keine). Verwenden Sie keine zu Testzwecken in einer Testumgebung und daher nicht für die Verwendung in einer Produktionsumgebung. Wenn Sie diesen Modus auswählen, wird keine Authentifizierung zwischen Knoten und Verwaltungs Clients durchgeführt.
 
-Sie können den Authentifizierungsmodus für die Northbound-Kommunikation konfigurieren, indem Sie den Windows PowerShell **[-Befehl install-networkcontroller](https://docs.microsoft.com/powershell/module/networkcontroller/install-networkcontroller)** mit dem _clientauthentication_ -Parameter verwenden.
+Sie können den Authentifizierungsmodus für die Northbound-Kommunikation konfigurieren, indem Sie den Windows PowerShell **[-Befehl install-networkcontroller](/powershell/module/networkcontroller/install-networkcontroller)** mit dem _clientauthentication_ -Parameter verwenden.
 
 
 ### <a name="authorization"></a>Authorization
@@ -55,9 +55,9 @@ Wenn Sie die Autorisierung für die Kommunikation zwischen Netzwerk Controller u
 
 Verwenden Sie die folgenden Autorisierungs Methoden für jeden Authentifizierungsmodus, der vom Netzwerk Controller unterstützt wird.
 
-1.  **Kerberos**. Wenn Sie die Kerberos-Authentifizierungsmethode verwenden, definieren Sie die Benutzer und Computer, die für die Kommunikation mit dem Netzwerk Controller autorisiert sind, indem Sie eine Sicherheitsgruppe in Active Directory erstellen und dann die autorisierten Benutzer und Computer der Gruppe hinzufügen. Sie können den Netzwerk Controller so konfigurieren, dass die Sicherheitsgruppe für die Autorisierung verwendet wird. verwenden Sie dazu den _clientsecuritygroup_ -Parameter des Windows PowerShell-Befehls **[install-networkcontroller](https://docs.microsoft.com/powershell/module/networkcontroller/install-networkcontroller)** . Nachdem Sie den Netzwerk Controller installiert haben, können Sie die Sicherheitsgruppe ändern, indem Sie den Befehl **[Set-networkcontroller](https://docs.microsoft.com/powershell/module/networkcontroller/Set-NetworkController)** mit dem Parameter _-clientsecuritygroup_verwenden. Wenn Sie SCVMM verwenden, müssen Sie die Sicherheitsgruppe während der Bereitstellung als Parameter bereitstellen.
+1.  **Kerberos**. Wenn Sie die Kerberos-Authentifizierungsmethode verwenden, definieren Sie die Benutzer und Computer, die für die Kommunikation mit dem Netzwerk Controller autorisiert sind, indem Sie eine Sicherheitsgruppe in Active Directory erstellen und dann die autorisierten Benutzer und Computer der Gruppe hinzufügen. Sie können den Netzwerk Controller so konfigurieren, dass die Sicherheitsgruppe für die Autorisierung verwendet wird. verwenden Sie dazu den _clientsecuritygroup_ -Parameter des Windows PowerShell-Befehls **[install-networkcontroller](/powershell/module/networkcontroller/install-networkcontroller)** . Nachdem Sie den Netzwerk Controller installiert haben, können Sie die Sicherheitsgruppe ändern, indem Sie den Befehl **[Set-networkcontroller](/powershell/module/networkcontroller/Set-NetworkController)** mit dem Parameter _-clientsecuritygroup_verwenden. Wenn Sie SCVMM verwenden, müssen Sie die Sicherheitsgruppe während der Bereitstellung als Parameter bereitstellen.
 
-2.  **X509**. Wenn Sie die X509-Authentifizierungsmethode verwenden, akzeptiert der Netzwerk Controller nur Anforderungen von Verwaltungs Clients, deren Zertifikat Fingerabdrücke dem Netzwerk Controller bekannt sind. Sie können diese Fingerabdrücke mithilfe des Parameters _clientcertifigatethrebprint_ des Windows PowerShell **[-Befehls Install-networkcontroller](https://docs.microsoft.com/powershell/module/networkcontroller/install-networkcontroller)** konfigurieren. Sie können jederzeit mit dem Befehl **[Set-networkcontroller](https://docs.microsoft.com/powershell/module/networkcontroller/Set-NetworkController)** weitere Client Fingerabdrücke hinzufügen.
+2.  **X509**. Wenn Sie die X509-Authentifizierungsmethode verwenden, akzeptiert der Netzwerk Controller nur Anforderungen von Verwaltungs Clients, deren Zertifikat Fingerabdrücke dem Netzwerk Controller bekannt sind. Sie können diese Fingerabdrücke mithilfe des Parameters _clientcertifigatethrebprint_ des Windows PowerShell **[-Befehls Install-networkcontroller](/powershell/module/networkcontroller/install-networkcontroller)** konfigurieren. Sie können jederzeit mit dem Befehl **[Set-networkcontroller](/powershell/module/networkcontroller/Set-NetworkController)** weitere Client Fingerabdrücke hinzufügen.
 
 3.  **None** (Keine). Wenn Sie diesen Modus auswählen, wird keine Authentifizierung zwischen Knoten und Verwaltungs Clients durchgeführt. Verwenden Sie keine zu Testzwecken in einer Testumgebung und daher nicht für die Verwendung in einer Produktionsumgebung.
 
@@ -82,15 +82,15 @@ Sie müssen das SSL-Zertifikat auf den Netzwerk Controller Knoten manuell regist
 Nachdem das Zertifikat registriert wurde, können Sie den Netzwerk Controller so konfigurieren, dass das Zertifikat mit dem Parameter **-serverCertificate** des Windows PowerShell-Befehls **install-networkcontroller** verwendet wird. Wenn Sie den Netzwerk Controller bereits installiert haben, können Sie die Konfiguration jederzeit mithilfe des Befehls **Set-networkcontroller** aktualisieren.
 
 >[!NOTE]
->Wenn Sie SCVMM verwenden, müssen Sie das Zertifikat als Bibliotheks Ressource hinzufügen. Weitere Informationen finden Sie unter [Einrichten eines Sdn-Netzwerk Controllers im VMM-Fabric](https://docs.microsoft.com/system-center/vmm/sdn-controller).
+>Wenn Sie SCVMM verwenden, müssen Sie das Zertifikat als Bibliotheks Ressource hinzufügen. Weitere Informationen finden Sie unter [Einrichten eines Sdn-Netzwerk Controllers im VMM-Fabric](/system-center/vmm/sdn-controller).
 
 ## <a name="network-controller-cluster-communication"></a>Netzwerk Controller-Cluster Kommunikation
 
-Der Netzwerk Controller unterstützt die Authentifizierung, Autorisierung und Verschlüsselung für die Kommunikation zwischen Netzwerk Controller Knoten. Die Kommunikation erfolgt über [Windows Communication Foundation](https://docs.microsoft.com/dotnet/framework/wcf/whats-wcf) \( WCF \) und TCP.
+Der Netzwerk Controller unterstützt die Authentifizierung, Autorisierung und Verschlüsselung für die Kommunikation zwischen Netzwerk Controller Knoten. Die Kommunikation erfolgt über [Windows Communication Foundation](/dotnet/framework/wcf/whats-wcf) \( WCF \) und TCP.
 
 Sie können diesen Modus mit dem Parameter " **clusterauthentication** " des Windows PowerShell-Befehls " **install-networkcontrollercluster** " konfigurieren.
 
-Weitere Informationen finden Sie unter [install-networkcontrollercluster](https://docs.microsoft.com/powershell/module/networkcontroller/install-networkcontrollercluster).
+Weitere Informationen finden Sie unter [install-networkcontrollercluster](/powershell/module/networkcontroller/install-networkcontrollercluster).
 
 ### <a name="authentication"></a>Authentifizierung
 
@@ -113,9 +113,9 @@ Wenn Sie die Autorisierung für die Netzwerk Controller-Cluster Kommunikation ko
 
 Für jeden Authentifizierungsmodus, der vom Netzwerk Controller unterstützt wird, werden die folgenden Autorisierungs Methoden verwendet.
 
-1. **Kerberos**. Netzwerk Controller Knoten akzeptieren Kommunikationsanforderungen nur von anderen Netzwerk Controller-Computer Konten. Sie können diese Konten konfigurieren, wenn Sie den Netzwerk Controller mit dem **Name** -Parameter des Windows PowerShell-Befehls [New-networkcontrollernodeobject](https://docs.microsoft.com/powershell/module/networkcontroller/new-networkcontrollernodeobject) bereitstellen.
+1. **Kerberos**. Netzwerk Controller Knoten akzeptieren Kommunikationsanforderungen nur von anderen Netzwerk Controller-Computer Konten. Sie können diese Konten konfigurieren, wenn Sie den Netzwerk Controller mit dem **Name** -Parameter des Windows PowerShell-Befehls [New-networkcontrollernodeobject](/powershell/module/networkcontroller/new-networkcontrollernodeobject) bereitstellen.
 
-2. **X509**. Netzwerk Controller Knoten akzeptieren Kommunikationsanforderungen nur von anderen Netzwerk Controller-Computer Konten. Sie können diese Konten konfigurieren, wenn Sie den Netzwerk Controller mit dem **Name** -Parameter des Windows PowerShell-Befehls [New-networkcontrollernodeobject](https://docs.microsoft.com/powershell/module/networkcontroller/new-networkcontrollernodeobject) bereitstellen.
+2. **X509**. Netzwerk Controller Knoten akzeptieren Kommunikationsanforderungen nur von anderen Netzwerk Controller-Computer Konten. Sie können diese Konten konfigurieren, wenn Sie den Netzwerk Controller mit dem **Name** -Parameter des Windows PowerShell-Befehls [New-networkcontrollernodeobject](/powershell/module/networkcontroller/new-networkcontrollernodeobject) bereitstellen.
 
 3. **None** (Keine). Wenn Sie diesen Modus auswählen, wird keine Autorisierung zwischen den Netzwerk Controller Knoten durchgeführt. Dieser Modus wird nur zu Testzwecken bereitgestellt und wird nicht für die Verwendung in einer Produktionsumgebung empfohlen.
 
@@ -123,8 +123,8 @@ Für jeden Authentifizierungsmodus, der vom Netzwerk Controller unterstützt wir
 
 Die Kommunikation zwischen den Netzwerk Controller Knoten wird mithilfe der WCF-Transport Schicht Verschlüsselung verschlüsselt. Diese Art der Verschlüsselung wird verwendet, wenn die Authentifizierungs-und Autorisierungs Methoden entweder Kerberos-oder X509-Zertifikate sind. Weitere Informationen finden Sie in den nachfolgenden Themen.
 
-- [Vorgehensweise: Sichern eines Diensts mit Windows-Anmeldeinformationen](https://docs.microsoft.com/dotnet/framework/wcf/how-to-secure-a-service-with-windows-credentials)
-- Vorgehens [Weise: Sichern eines Dienstanbieter mit X. 509-Zertifikaten](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-secure-a-service-with-an-x-509-certificate).
+- [Vorgehensweise: Sichern eines Diensts mit Windows-Anmeldeinformationen](/dotnet/framework/wcf/how-to-secure-a-service-with-windows-credentials)
+- Vorgehens [Weise: Sichern eines Dienstanbieter mit X. 509-Zertifikaten](/dotnet/framework/wcf/feature-details/how-to-secure-a-service-with-an-x-509-certificate).
 
 ## <a name="southbound-communication"></a>Southbound-Kommunikation
 

@@ -7,12 +7,12 @@ ms.assetid: b491089c-5bcb-49d4-95b1-915b7ce69f88
 ms.author: anpaul
 author: AnirbanPaul
 ms.date: 02/14/2019
-ms.openlocfilehash: 591a81c91dc444cfe48f0fa40142489b72142409
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 69e01630cf34a588b6861c833015076bd4a31ef4
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87952570"
+ms.locfileid: "87996463"
 ---
 # <a name="sdn-technologies"></a>SDN-Technologien
 
@@ -72,7 +72,7 @@ Set ist eine Alternative NIC-Team Vorgangs Lösung, die Sie in Umgebungen verwen
 Mit Set können Sie zwischen einem und acht physischen Ethernet-Netzwerkadaptern in einem oder mehreren softwarebasierten virtuellen Netzwerkadaptern gruppieren. Diese virtuellen Netzwerkadapter bieten schnelle Leistung und Fehlertoleranz bei Ausfall eines Netzwerkadapters.
 Alle Netzwerkadapter für Mitglieder müssen auf demselben physischen Hyper-V-Host installiert sein, damit Sie in einem Team platziert werden können.
 
-Außerdem können Sie Windows PowerShell-Befehle verwenden, um Data Center Bridging (DCB) zu aktivieren, einen virtuellen Hyper-v-Switch mit einer virtuellen RDMA-NIC (VNIC) zu erstellen und einen virtuellen Hyper-v-Switch mit Set-und RDMA-vNICs zu erstellen. Weitere Informationen finden Sie unter [Remote Direct Memory Access (RDMA) und Switch Embedded Teaming (Set)](https://docs.microsoft.com/windows-server/virtualization/hyper-v-virtual-switch/rdma-and-switch-embedded-teaming.md).
+Außerdem können Sie Windows PowerShell-Befehle verwenden, um Data Center Bridging (DCB) zu aktivieren, einen virtuellen Hyper-v-Switch mit einer virtuellen RDMA-NIC (VNIC) zu erstellen und einen virtuellen Hyper-v-Switch mit Set-und RDMA-vNICs zu erstellen. Weitere Informationen finden Sie unter [Remote Direct Memory Access (RDMA) und Switch Embedded Teaming (Set)](../../../virtualization/hyper-v-virtual-switch/rdma-and-switch-embedded-teaming.md).
 
 ## <a name="border-gateway-protocol-bgp"></a>[Border Gateway Protocol (BGP)](../../../remote/remote-access/bgp/Border-Gateway-Protocol-BGP.md)
 
@@ -87,7 +87,7 @@ Windows Server-Container sind eine vereinfachte Virtualisierungsmethode für das
 
 ## <a name="system-center"></a>System Center
 
-Bereitstellen und Verwalten der Sdn-Infrastruktur mit [Virtual Machine Management (VMM)](https://docs.microsoft.com/system-center/vmm/) und [Operations Manager](https://docs.microsoft.com/system-center/scom/). Mit VMM führen Sie die Bereitstellung und Verwaltung der Ressourcen durch, die zum Erstellen und Bereitstellen von virtuellen Computern und Diensten in privaten Clouds benötigt werden.  Mit Operations Manager überwachen Sie Dienste, Geräte und Vorgänge in Ihrem gesamten Unternehmen, um Probleme zu identifizieren, bei denen sofort Maßnahmen ergriffen werden müssen.
+Bereitstellen und Verwalten der Sdn-Infrastruktur mit [Virtual Machine Management (VMM)](/system-center/vmm/) und [Operations Manager](/system-center/scom/). Mit VMM führen Sie die Bereitstellung und Verwaltung der Ressourcen durch, die zum Erstellen und Bereitstellen von virtuellen Computern und Diensten in privaten Clouds benötigt werden.  Mit Operations Manager überwachen Sie Dienste, Geräte und Vorgänge in Ihrem gesamten Unternehmen, um Probleme zu identifizieren, bei denen sofort Maßnahmen ergriffen werden müssen.
 
 
 ---

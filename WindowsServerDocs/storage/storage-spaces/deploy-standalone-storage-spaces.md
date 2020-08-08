@@ -6,12 +6,12 @@ author: JasonGerend
 ms.author: jgerend
 ms.date: 07/09/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: ac661631eef9053e202c7e21ffff9982d26d1d38
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 7f98ec982601281d5b16a5ec369ca275de189c85
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87960823"
+ms.locfileid: "87996479"
 ---
 # <a name="deploy-storage-spaces-on-a-stand-alone-server"></a>Bereitstellen von Speicherplätzen auf einem eigenständigen Server
 
@@ -21,7 +21,7 @@ In diesem Thema wird beschrieben, wie Sie Speicherplätze auf einem eigenständi
 
 Um einen Speicherplatz zu erstellen, müssen Sie zuerst einen oder mehrere Speicherpools erstellen. Ein Speicherpool ist eine Gruppe physischer Datenträger. Speicherpools ermöglichen eine Speicheraggregation, eine flexible Kapazitätserweiterung und eine delegierte Verwaltung.
 
-Aus einem Speicherpool können Sie einzelne oder mehrere virtuelle Datenträger erstellen. Diese virtuellen Datenträger werden auch als *Speicherplätze* bezeichnet. Ein Speicherplatz wird vom Windows-Betriebssystem als ein normaler Datenträger angesehen, von dem Sie formatierte Volumes erstellen können. Wenn Sie einen virtuellen Datenträger über die Benutzeroberfläche "Datei- und Speicherdienste" erstellen, können Sie den Resilienztyp (einfach, Spiegeln oder Parität), den Bereitstellungstyp (schlank oder fest) und die Größe konfigurieren. Über Windows PowerShell können Sie zusätzliche Parameter, wie die Anzahl der Spalten, den Überlappungswert und die im Pool zu verwendenden physischen Datenträger festlegen. Weitere Informationen zu diesen zusätzlichen Parametern finden Sie unter [New-virtualdisk](/powershell/module/storage/new-virtualdisk?view=win10-ps) und im [Windows Server Storage-Forum](https://docs.microsoft.com/answers/topics/windows-server-storage.html).
+Aus einem Speicherpool können Sie einzelne oder mehrere virtuelle Datenträger erstellen. Diese virtuellen Datenträger werden auch als *Speicherplätze* bezeichnet. Ein Speicherplatz wird vom Windows-Betriebssystem als ein normaler Datenträger angesehen, von dem Sie formatierte Volumes erstellen können. Wenn Sie einen virtuellen Datenträger über die Benutzeroberfläche "Datei- und Speicherdienste" erstellen, können Sie den Resilienztyp (einfach, Spiegeln oder Parität), den Bereitstellungstyp (schlank oder fest) und die Größe konfigurieren. Über Windows PowerShell können Sie zusätzliche Parameter, wie die Anzahl der Spalten, den Überlappungswert und die im Pool zu verwendenden physischen Datenträger festlegen. Weitere Informationen zu diesen zusätzlichen Parametern finden Sie unter [New-virtualdisk](/powershell/module/storage/new-virtualdisk?view=win10-ps) und im [Windows Server Storage-Forum](/answers/topics/windows-server-storage.html).
 
 >[!NOTE]
 >Ein Speicherplatz kann nicht zum Hosten des Windows-Betriebssystems verwendet werden.
@@ -266,4 +266,4 @@ Get-VirtualDisk –FriendlyName VirtualDisk1 | Get-Disk | Initialize-Disk –Pas
 - [Speicherplätze](overview.md)
 - [Speicher-Cmdlets in Windows PowerShell](/powershell/module/storage/index?view=win10-ps)
 - [„Bereitstellen von Clusterspeicherplätzen“](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj822937(v%3dws.11))
-- [Windows Server-Speicher Forum](https://docs.microsoft.com/answers/topics/windows-server-storage.html)
+- [Windows Server-Speicher Forum](/answers/topics/windows-server-storage.html)

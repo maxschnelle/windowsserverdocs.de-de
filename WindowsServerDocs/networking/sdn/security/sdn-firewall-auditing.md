@@ -7,18 +7,18 @@ ms.assetid: c4e2f6c7-0364-4bf8-bb66-9af59c0bbd74
 ms.author: anpaul
 author: AnirbanPaul
 ms.date: 08/22/2018
-ms.openlocfilehash: e37fc548db0a1043b2b78d95f97e8b4ef01214c8
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 256c1e503dcaaf0e482ab3f69ca1c5a1b977a10b
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87962054"
+ms.locfileid: "87996523"
 ---
 # <a name="sdn-firewall-auditing"></a>SDN-Firewallüberwachung
 
 >Gilt für: Windows Server 2019
 
-Die firewallüberwachung ist eine neue Funktion für die Sdn-Firewall in Windows Server 2019. Wenn Sie die Sdn-Firewall aktivieren, werden alle Flows aufgezeichnet, die von Sdn-Firewallregeln (ACLs) mit aktivierter Protokollierung verarbeitet werden. Die Protokolldateien müssen eine Syntax aufweisen, die mit den [Azure Network Watcher Flow-Protokollen](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview)konsistent ist. Diese Protokolle können für die Diagnose verwendet werden oder zur späteren Analyse archiviert werden. 
+Die firewallüberwachung ist eine neue Funktion für die Sdn-Firewall in Windows Server 2019. Wenn Sie die Sdn-Firewall aktivieren, werden alle Flows aufgezeichnet, die von Sdn-Firewallregeln (ACLs) mit aktivierter Protokollierung verarbeitet werden. Die Protokolldateien müssen eine Syntax aufweisen, die mit den [Azure Network Watcher Flow-Protokollen](/azure/network-watcher/network-watcher-nsg-flow-logging-overview)konsistent ist. Diese Protokolle können für die Diagnose verwendet werden oder zur späteren Analyse archiviert werden. 
 
 In Kürze werden einige Beispiele für die Verarbeitung dieser Dateien mithilfe von Tools wie Power BI bereitgestellt.
 
@@ -169,4 +169,3 @@ Beachten Sie, dass die Protokollierung nur für Regeln durchgeführt wird, für 
                    }
 }
 ```
-
