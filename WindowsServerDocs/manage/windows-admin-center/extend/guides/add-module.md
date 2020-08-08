@@ -1,21 +1,19 @@
 ---
-title: Hinzufügen eines Moduls zu einer Tool-Erweiterung
+title: Hinzufügen eines Moduls zu einer Toolerweiterung
 description: 'Entwickeln einer Tool Erweiterung Windows Admin Center SDK (Project Honolulu): Hinzufügen eines Moduls zu einer Tool Erweiterung'
-ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
 ms.author: niwashbu
 ms.date: 09/18/2018
 ms.localizationpriority: medium
-ms.prod: windows-server
-ms.openlocfilehash: 9d30980ca404187ff1481242c1c0ef0a3d571416
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e7875f8aa2320d7292b314cb18f3e17894e76fa0
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71357098"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87945043"
 ---
-# <a name="add-a-module-to-a-tool-extension"></a>Hinzufügen eines Moduls zu einer Tool-Erweiterung
+# <a name="add-a-module-to-a-tool-extension"></a>Hinzufügen eines Moduls zu einer Toolerweiterung
 
 >Gilt für: Windows Admin Center, Windows Admin Center-Vorschau
 
@@ -27,13 +25,13 @@ Wenn Sie dies noch nicht getan haben, befolgen Sie die Anweisungen unter Entwick
 
 ## <a name="use-the-angular-cli-to-create-a-module-and-component"></a>Verwenden der Angular-CLI zum Erstellen eines Moduls (und einer Komponente)
 
-Wenn Sie mit Angular vertraut sind, ist das Lesen Sie der Dokumentation zur Angular.Io Websiteseite, um weitere Informationen zu Angular und NgModule dringend empfohlen. Weitere Informationen zu NgModule finden Sie hier: [https://angular.io/guide/ngmodule](https://angular.io/guide/ngmodule )
+Wenn Sie noch nicht mit Angular vertraut sind, wird dringend empfohlen, dass Sie die Dokumentation auf der Angular.IO-Website lesen, um mehr über Angular und ngmodule zu erfahren. Weitere Informationen zu ngmodule finden Sie hier:https://angular.io/guide/ngmodule
 
-* Weitere Informationen zum Generieren eines neuen Moduls in Winkel CLI: [https://github.com/angular/angular-cli/wiki/generate-module](https://github.com/angular/angular-cli/wiki/generate-module )
-* Weitere Informationen zum Generieren von einer neuen Komponente in Winkel CLI: [https://github.com/angular/angular-cli/wiki/generate-component](https://github.com/angular/angular-cli/wiki/generate-component )
+* Weitere Informationen zum Erstellen eines neuen Moduls in der Angular CLI:https://github.com/angular/angular-cli/wiki/generate-module
+* Weitere Informationen zum Erstellen einer neuen Komponente in der Angular CLI:https://github.com/angular/angular-cli/wiki/generate-component
 
 
-Öffnen Sie eine Eingabeaufforderung, wechseln Sie in Ihrem Projekt zum Verzeichnis "\src\app", und führen Sie dann die folgenden Befehle aus. ersetzen Sie dabei ```{!ModuleName}``` durch ihren Modulnamen (Leerzeichen entfernt):
+Öffnen Sie eine Eingabeaufforderung, wechseln Sie in Ihrem Projekt zum Verzeichnis "\src\app", und führen Sie dann die folgenden Befehle aus. ersetzen ```{!ModuleName}``` Sie dabei durch den Namen Ihres Moduls (Leerzeichen entfernt):
 
 ```
 cd \src\app
@@ -41,11 +39,11 @@ ng generate module {!ModuleName}
 ng generate component {!ModuleName}
 ```
 
-| Wert | Erläuterung | Beispiel |
+| Wert | Erklärung | Beispiel |
 | ----- | ----------- | ------- |
-| ```{!ModuleName}``` | Ihre Modulnamen (entfernt Leerzeichen) | ```ManageFooWorksPortal``` |
+| ```{!ModuleName}``` | Name des Moduls (Leerzeichen entfernt) | ```ManageFooWorksPortal``` |
 
-Beispielanwendung:
+Verwendungsbeispiel:
 ```
 cd \src\app
 ng generate module ManageFooWorksPortal
@@ -53,23 +51,23 @@ ng generate component ManageFooWorksPortal
 ```
 
 
-## <a name="add-routing-information"></a>Routing-Informationen hinzufügen
+## <a name="add-routing-information"></a>Routing Informationen hinzufügen
 
-Wenn Sie mit Angular vertraut sind, wird empfohlen, dass Winkel Routing und Navigation lernen. In den folgenden Abschnitten werden die erforderlichen routing Elemente, mit denen Windows Admin Center, zur Erweiterung und zwischen Ansichten in der Erweiterung als Antwort auf die Aktivität des Benutzers zu navigieren definiert. Weitere Informationen finden Sie hier: [https://angular.io/guide/router](https://angular.io/guide/router )
+Wenn Sie noch nicht mit Angular vertraut sind, wird dringend empfohlen, sich über das Angular-Routing und die Navigation zu informieren. In den folgenden Abschnitten werden die erforderlichen Routing Elemente definiert, mit denen Windows Admin Center in Reaktion auf die Benutzeraktivität zu ihrer Erweiterung und zwischen Sichten in ihrer Erweiterung navigieren kann. Weitere Informationen finden Sie hier:https://angular.io/guide/router
 
 Verwenden Sie den gleichen Modulnamen, den Sie im obigen Schritt verwendet haben.
 
-### <a name="add-content-to-new-routing-file"></a>Hinzufügen von Inhalten zu neuen routing-Datei
+### <a name="add-content-to-new-routing-file"></a>Neuen Routing Dateiinhalt hinzufügen
 
-* Navigieren Sie zu dem Modul-Ordner, die vom erstellt wurde ``` ng generate ``` im vorherigen Schritt.
+* Navigieren Sie zum Modul Ordner, der ``` ng generate ``` im vorherigen Schritt erstellt wurde.
 
-* Erstellen Sie eine neue Datei ```{!module-name}.routing.ts```, befolgen die folgende Benennungskonvention:
+* Erstellen Sie eine neue Datei ```{!module-name}.routing.ts``` , und befolgen Sie diese Benennungs Konvention:
 
-    | Wert | Erläuterung | Beispiel-Dateiname |
+    | Wert | Erklärung | Beispiel Dateiname |
     | ----- | ----------- | ------- |
-    | ```{!module-name}``` | Ihre Modulnamen (Kleinbuchstabe, Leerzeichen ersetzt, die mit Bindestrichen) | ```manage-foo-works-portal.routing.ts``` |
+    | ```{!module-name}``` | Der Modulname (in Kleinbuchstaben, Leerzeichen durch Bindestriche ersetzt) | ```manage-foo-works-portal.routing.ts``` |
 
-* Fügen Sie diese Inhalte auf die soeben erstellte Datei hinzu:
+* Fügen Sie den Inhalt der soeben erstellten Datei hinzu:
 
     ``` ts
     import { NgModule } from '@angular/core';
@@ -83,7 +81,7 @@ Verwenden Sie den gleichen Modulnamen, den Sie im obigen Schritt verwendet haben
             // if the component has child components that need to be routed to, include them in the children array.
             children: [
                 {
-                    path: '', 
+                    path: '',
                     redirectTo: 'base',
                     pathMatch: 'full'
                 }
@@ -101,50 +99,50 @@ Verwenden Sie den gleichen Modulnamen, den Sie im obigen Schritt verwendet haben
     export class Routing { }
     ```
 
-* Ersetzen Sie die Werte in der Datei, die soeben erstellte durch Ihre gewünschten Werte:
+* Ersetzen Sie die Werte in der soeben erstellten Datei durch die gewünschten Werte:
 
-    | Wert | Erläuterung | Beispiel |
+    | Wert | Erklärung | Beispiel |
     | ----- | ----------- | ------- |
-    | ```{!ModuleName}``` | Ihre Modulnamen (entfernt Leerzeichen) | ```ManageFooWorksPortal``` |
-    | ```{!module-name}``` | Ihre Modulnamen (Kleinbuchstabe, Leerzeichen ersetzt, die mit Bindestrichen) | ```manage-foo-works-portal``` |
+    | ```{!ModuleName}``` | Name des Moduls (Leerzeichen entfernt) | ```ManageFooWorksPortal``` |
+    | ```{!module-name}``` | Der Modulname (in Kleinbuchstaben, Leerzeichen durch Bindestriche ersetzt) | ```manage-foo-works-portal``` |
 
-### <a name="add-content-to-new-module-file"></a>Hinzufügen von Inhalten zu neue Moduldatei
+### <a name="add-content-to-new-module-file"></a>Inhalt der neuen Modul Datei hinzufügen
 
-Öffnen Sie die Datei ```{!module-name}.module.ts``` mit folgender Namenskonvention:
+Datei öffnen ```{!module-name}.module.ts``` , mit der folgenden Benennungs Konvention gefunden:
 
-| Wert | Erläuterung | Beispiel-Dateiname |
+| Wert | Erklärung | Beispiel Dateiname |
 | ----- | ----------- | ------- |
-| ```{!module-name}``` | Ihre Modulnamen (Kleinbuchstabe, Leerzeichen ersetzt, die mit Bindestrichen) | ```manage-foo-works-portal.module.ts``` |
+| ```{!module-name}``` | Der Modulname (in Kleinbuchstaben, Leerzeichen durch Bindestriche ersetzt) | ```manage-foo-works-portal.module.ts``` |
 
-* Hinzufügen von Inhalt zu der Datei:
+* Fügen Sie der Dateiinhalt hinzu:
 
     ``` ts
     import { Routing } from './{!module-name}.routing';
     ```
 
-* Ersetzen Sie die Werte in den Inhalt durch Ihre gewünschten Werte soeben hinzugefügt haben:
+* Ersetzen Sie die Werte im soeben hinzugefügten Inhalt mit den gewünschten Werten:
 
-    | Wert | Erläuterung | Beispiel |
+    | Wert | Erklärung | Beispiel |
     | ----- | ----------- | ------- |
-    | ```{!module-name}``` | Ihre Modulnamen (Kleinbuchstabe, Leerzeichen ersetzt, die mit Bindestrichen) | ```manage-foo-works-portal``` |
+    | ```{!module-name}``` | Der Modulname (in Kleinbuchstaben, Leerzeichen durch Bindestriche ersetzt) | ```manage-foo-works-portal``` |
 
 * Ändern Sie die Imports-Anweisung, um Routing zu importieren:
 
-    | Originalwert | Neuer Wert |
+    | Ursprünglicher Wert | Neuer Wert |
     | -------------- | --------- |
     | ```imports: [ CommonModule ]``` | ```imports: [ CommonModule, Routing ]``` |
 
-* Stellen Sie sicher, dass ```import``` Anweisungen werden alphabetisch sortiert nach Quelle.
+* Stellen Sie sicher, dass- ```import``` Anweisungen nach Quelle alphabetisch sortiert werden.
 
 ### <a name="add-content-to-new-component-typescript-file"></a>Inhalt der neuen komponententypescript-Datei hinzufügen
 
-Öffnen Sie die Datei ```{!module-name}.component.ts``` mit folgender Namenskonvention:
+Datei öffnen ```{!module-name}.component.ts``` , mit der folgenden Benennungs Konvention gefunden:
 
-| Wert | Erläuterung | Beispiel-Dateiname |
+| Wert | Erklärung | Beispiel Dateiname |
 | ----- | ----------- | ------- |
-| ```{!module-name}``` | Ihre Modulnamen (Kleinbuchstabe, Leerzeichen ersetzt, die mit Bindestrichen) | ```manage-foo-works-portal.component.ts``` |
-    
-Ändern Sie Inhalt der Datei wie folgt:
+| ```{!module-name}``` | Der Modulname (in Kleinbuchstaben, Leerzeichen durch Bindestriche ersetzt) | ```manage-foo-works-portal.component.ts``` |
+
+Ändern Sie den Inhalt der Datei wie folgt:
 
 ``` ts
 constructor() {
@@ -157,23 +155,23 @@ public ngOnInit() {
 ```
 ### <a name="update-app-routingmodulets"></a>Aktualisieren von App-Routing. Module. TS
 
-Öffnen Sie die Datei ```app-routing.module.ts```, und ändern Sie den Standardpfad, damit das soeben erstellte neue Modul geladen wird.  Suchen Sie den Eintrag für ```path: ''```, und aktualisieren Sie ```loadChildren```, um das Modul anstelle des Standardmoduls zu laden:
+Öffnen Sie die Datei ```app-routing.module.ts``` , und ändern Sie den Standardpfad, damit das neue Modul geladen wird, das Sie soeben erstellt haben.  Suchen Sie den Eintrag für ```path: ''``` , und aktualisieren ```loadChildren``` Sie, um das Modul anstelle des Standardmoduls zu laden:
 
-| Wert | Erläuterung | Beispiel |
+| Wert | Erklärung | Beispiel |
 | ----- | ----------- | ------- |
-| ```{!ModuleName}``` | Ihre Modulnamen (entfernt Leerzeichen) | ```ManageFooWorksPortal``` |
-| ```{!module-name}``` | Ihre Modulnamen (Kleinbuchstabe, Leerzeichen ersetzt, die mit Bindestrichen) | ```manage-foo-works-portal``` |
+| ```{!ModuleName}``` | Name des Moduls (Leerzeichen entfernt) | ```ManageFooWorksPortal``` |
+| ```{!module-name}``` | Der Modulname (in Kleinbuchstaben, Leerzeichen durch Bindestriche ersetzt) | ```manage-foo-works-portal``` |
 
 ``` ts
     {
-        path: '', 
+        path: '',
         loadChildren: 'app/{!module-name}/{!module-name}.module#{!ModuleName}Module'
     },
 ```
 Im folgenden finden Sie ein Beispiel für einen aktualisierten Standardpfad:
 ``` ts
     {
-        path: '', 
+        path: '',
         loadChildren: 'app/manage-foo-works-portal/manage-foo-works-portal.module#ManageFooWorksPortalModule'
     },
 ```

@@ -6,19 +6,19 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: ad4275bf7b6231692171209b19c4c60190e30126
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: ad3184dbe43cfa108aa1b178421102880b3ef4d7
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87942976"
+ms.locfileid: "87994983"
 ---
 # <a name="appendix-a-reviewing-ad-fs-requirements"></a>Anhang A: Überprüfen der AD FS-Anforderungen
 
 Damit die Organisations Partner in Ihrer Active Directory-Verbunddienste (AD FS)-Bereitstellung (AD FS) erfolgreich zusammenarbeiten können, müssen Sie zunächst sicherstellen, dass Ihre Unternehmensnetzwerk Infrastruktur für die Unterstützung von AD FS Anforderungen für Konten, Namensauflösung und Zertifikate konfiguriert ist. Für AD FS müssen die folgenden Anforderungen erfüllt sein:
 
 > [!TIP]
-> Weitere AD FS Ressourcen Verknüpfungen finden Sie Untergrund Legendes zu [Schlüssel AD FS Konzepten](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/understanding-key-ad-fs-concepts).
+> Weitere AD FS Ressourcen Verknüpfungen finden Sie Untergrund Legendes zu [Schlüssel AD FS Konzepten](../technical-reference/understanding-key-ad-fs-concepts.md).
 
 ## <a name="hardware-requirements"></a>Hardwareanforderungen
 Die folgenden Mindestanforderungen und empfohlenen Hardwareanforderungen gelten für die Verbund Server-und Verbund Server Proxy-Computer.

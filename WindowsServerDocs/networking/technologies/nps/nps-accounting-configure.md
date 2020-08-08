@@ -2,23 +2,21 @@
 title: Konfigurieren der Kontoführung für den Netzwerkrichtlinienserver
 description: Dieses Thema enthält Informationen zur Textdatei und SQL Server Protokollierung für den Netzwerk Richtlinien Server unter Windows Server 2016.
 manager: dougkim
-ms.prod: windows-server
-ms.technology: networking
 ms.topic: article
 ms.assetid: dfde2e21-f3d5-41e8-8492-cb3f0d028afb
 ms.author: lizross
 author: eross-msft
 ms.date: 05/25/2018
-ms.openlocfilehash: 26edf4d1ae4a30ccd9219392c7c4ee3604dcdad9
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: efeee9287851cbadd27b10420c670ecb394adb90
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80316366"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87994216"
 ---
 # <a name="configure-network-policy-server-accounting"></a>Konfigurieren der Kontoführung für den Netzwerkrichtlinienserver
 
-Es gibt drei Arten der Protokollierung für den Netzwerk Richtlinien Server \(NPS-\):
+Es gibt drei Arten der Protokollierung für den Netzwerk Richtlinien Server- \( NPS \) :
 
 - **Ereignisprotokollierung**. Wird hauptsächlich für die Überwachung und Problembehandlung von Verbindungs versuchen verwendet. Sie können die NPS-Ereignisprotokollierung konfigurieren, indem Sie die NPS-Eigenschaften in der NPS-Konsole abrufen.
 
@@ -32,7 +30,7 @@ Mit dem Konfigurations-Assistenten für die Buchhaltung können Sie die folgende
 
 - **Nur SQL-Protokollierung**. Mit dieser Einstellung können Sie einen Daten Link zu einer SQL Server konfigurieren, die es NPS ermöglicht, eine Verbindung mit dem SQL-Server herzustellen und Buchhaltungsdaten zu senden. Außerdem kann der Assistent die Datenbank auf dem SQL Server konfigurieren, um sicherzustellen, dass die Datenbank mit der NPS SQL Server-Protokollierung kompatibel ist.
 - **Nur Text Protokollierung**. Mit dieser Einstellung können Sie NPS so konfigurieren, dass Buchhaltungsdaten in einer Textdatei protokolliert werden.
-- **Parallele Protokollierung**. Wenn Sie diese Einstellung verwenden, können Sie den SQL Server Daten Link und die Datenbank konfigurieren. Sie können auch die Protokollierung von Textdateien so konfigurieren, dass NPS sich gleichzeitig in der Textdatei und der SQL Server-Datenbank anmeldet. 
+- **Parallele Protokollierung**. Wenn Sie diese Einstellung verwenden, können Sie den SQL Server Daten Link und die Datenbank konfigurieren. Sie können auch die Protokollierung von Textdateien so konfigurieren, dass NPS sich gleichzeitig in der Textdatei und der SQL Server-Datenbank anmeldet.
 - **SQL-Protokollierung mit Backup**. Wenn Sie diese Einstellung verwenden, können Sie den SQL Server Daten Link und die Datenbank konfigurieren. Außerdem können Sie die Protokollierung von Textdateien konfigurieren, die NPS verwendet, wenn SQL Server Protokollierung fehlschlägt.
 
 Zusätzlich zu diesen Einstellungen können Sie mit SQL Server Protokollierung und Text Protokollierung angeben, ob NPS weiterhin Verbindungsanforderungen verarbeitet, wenn die Protokollierung fehlschlägt. Sie können dies im **Abschnitt Protokollierungs Fehler Aktion** unter lokale Datei Protokollierungs Eigenschaften, in SQL Server-Protokollierungs Eigenschaften und während der Ausführung des Konfigurations-Assistenten für die Buchhaltung angeben.
@@ -47,15 +45,15 @@ Führen Sie die folgenden Schritte aus, um den Konfigurations-Assistenten für d
 
 ## <a name="configure-nps-log-file-properties"></a>Konfigurieren von NPS-Protokolldatei Eigenschaften
 
-Sie können den Netzwerk Richtlinien Server (Network Policy Server, NPS) für die Durchführung von Remote Authentication Dial-in User Service (RADIUS) für Benutzer Authentifizierungsanforderungen, Zugriffs Accept-Nachrichten, Zugriffs Ablehnungs Meldungen, Buchhaltungs Anforderungen und-Antworten sowie regelmäßige Statusaktualisierungen. Mit diesem Verfahren können Sie die Protokolldateien konfigurieren, in denen die Buchhaltungsdaten gespeichert werden sollen.
+Sie können den Netzwerk Richtlinien Server (Network Policy Server, NPS) für die Durchführung von Remote Authentication Dial-in User Service (RADIUS) für Benutzer Authentifizierungsanforderungen, Zugriffs Accept-Nachrichten, Zugriffs Ablehnungs Meldungen, Buchhaltungs Anforderungen und-Antworten sowie regelmäßige Statusaktualisierungen konfigurieren. Mit diesem Verfahren können Sie die Protokolldateien konfigurieren, in denen die Buchhaltungsdaten gespeichert werden sollen.
 
-Weitere Informationen zum Interpretieren von Protokolldateien finden Sie unter [Interpretieren von NPS-Daten Bank Format-Protokolldateien](https://technet.microsoft.com/library/cc771748.aspx).
+Weitere Informationen zum Interpretieren von Protokolldateien finden Sie unter [Interpretieren von NPS-Daten Bank Format-Protokolldateien](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771748(v=ws.10)).
 
 Um zu verhindern, dass die Protokolldateien die Festplatte auffüllen, wird dringend empfohlen, dass Sie Sie auf einer Partition aufbewahren, die von der Systempartition getrennt ist. Im folgenden finden Sie weitere Informationen zum Konfigurieren der Kontoführung für NPS:
 
-- Um die Protokolldatei Daten für die Sammlung von einem anderen Prozess zu senden, können Sie NPS so konfigurieren, dass er in eine Named Pipe schreibt. Zum Verwenden von Named Pipes legen Sie den Protokolldatei Ordner auf \\.\pipe oder \\computername\pipefest. Das Named Pipe Server-Programm erstellt eine Named Pipe mit dem Namen \\.\pipe\iaslog.log, um die Daten zu akzeptieren. Wählen Sie im Dialogfeld Eigenschaften der lokalen Datei in neue Protokolldatei erstellen die Option nie (unbegrenzte Dateigröße) aus, wenn Sie Named Pipes verwenden.
+- Um die Protokolldatei Daten für die Sammlung von einem anderen Prozess zu senden, können Sie NPS so konfigurieren, dass er in eine Named Pipe schreibt. Um Named Pipes zu verwenden, legen Sie den Protokolldatei Ordner auf \\ .\pipe oder \\ computername\pipefest. Das Named Pipe Server-Programm erstellt eine Named Pipe \\ mit dem Namen .\pipe\iaslog.log, um die Daten zu akzeptieren. Wählen Sie im Dialogfeld Eigenschaften der lokalen Datei in neue Protokolldatei erstellen die Option nie (unbegrenzte Dateigröße) aus, wenn Sie Named Pipes verwenden.
 
-- Das Protokoll Dateiverzeichnis kann mithilfe von System Umgebungsvariablen (anstelle von Benutzervariablen) erstellt werden, z. b. "% System Drive%", "% SystemRoot%" und "% windir%". Beispielsweise sucht der folgende Pfad unter Verwendung der Umgebungsvariablen "% windir%" die Protokolldatei im Verzeichnis "System" im Unterordner "\System32\Logs" (d. h. "%windir%\System32\Logs\)".
+- Das Protokoll Dateiverzeichnis kann mithilfe von System Umgebungsvariablen (anstelle von Benutzervariablen) erstellt werden, z. b. "% System Drive%", "% SystemRoot%" und "% windir%". Beispielsweise sucht der folgende Pfad unter Verwendung der Umgebungsvariablen "% windir%" die Protokolldatei im Verzeichnis "System" im Unterordner "\System32\Logs" (d. h. "%windir%\System32\Logs") \) .
 
 - Das Wechseln von Protokolldatei Formaten führt nicht dazu, dass ein neues Protokoll erstellt wird. Wenn Sie die Protokolldatei Formate ändern, enthält die Datei, die zum Zeitpunkt der Änderung aktiv ist, eine Mischung der beiden Formate (Datensätze am Anfang des Protokolls haben das vorherige Format, und Datensätze am Ende des Protokolls haben das neue Format).
 
@@ -75,13 +73,13 @@ Zum Ausführen dieses Verfahrens ist mindestens die Mitgliedschaft in der Gruppe
 5. Wählen Sie unter **Protokollierungs Fehler Aktion**aus, **ob die Protokollierung fehlschlägt, Verbindungsanforderungen verwerfen,** wenn die Verarbeitung von Zugriffs Anforderungs Nachrichten durch NPS beendet werden soll, wenn Protokolldateien vollständig oder nicht verfügbar sind. Wenn Sie möchten, dass der NPS die Verarbeitung von Verbindungsanforderungen fortsetzt, wenn die Protokollierung fehlschlägt, aktivieren Sie dieses Kontrollkästchen nicht.
 6. Klicken Sie im Dialogfeld **Eigenschaften der Protokolldatei** auf die Registerkarte **Protokolldatei** .
 7. Geben Sie auf der Registerkarte **Protokolldatei** unter **Verzeichnis**den Speicherort ein, an dem die NPS-Protokolldateien gespeichert werden sollen. Der Standard Speicherort ist der Ordner systemroot\System32\LogFiles.<br>Wenn Sie im **Protokoll Dateiverzeichnis**keine vollständige Pfad Anweisung angeben, wird der Standardpfad verwendet. Wenn Sie z. b. **NPSLogFile** in das **Protokoll Dateiverzeichnis**eingeben, befindet sich die Datei unter%systemroot%\System32\NPSLogFile.
-8. Klicken Sie unter **Format**auf **DTS-kompatibel**. Wenn Sie möchten, können Sie stattdessen ein Legacy Dateiformat auswählen, z. b. **ODBC \(Legacy\)** oder **IAS \(Legacy\)** .<br>**ODBC** -und **IAS** -Legacy Dateitypen enthalten eine Teilmenge der Informationen, die von NPS an die SQL Server Datenbank gesendet werden. Das XML-Format des **DTS-kompatiblen** Dateityps ist mit dem XML-Format identisch, das NPS zum Importieren von Daten in die SQL Server Datenbank verwendet. Aus diesem Grund bietet das **DTS-kompatible** Dateiformat eine effizientere und umfassende Übertragung von Daten in die Standard-SQL Server-Datenbank für NPS.
+8. Klicken Sie unter **Format**auf **DTS-kompatibel**. Wenn Sie möchten, können Sie stattdessen ein Legacy Dateiformat auswählen, z. b. **ODBC- \( Legacy \) ** oder **IAS- \( Legacy \) **.<br>**ODBC** -und **IAS** -Legacy Dateitypen enthalten eine Teilmenge der Informationen, die von NPS an die SQL Server Datenbank gesendet werden. Das XML-Format des **DTS-kompatiblen** Dateityps ist mit dem XML-Format identisch, das NPS zum Importieren von Daten in die SQL Server Datenbank verwendet. Aus diesem Grund bietet das **DTS-kompatible** Dateiformat eine effizientere und umfassende Übertragung von Daten in die Standard-SQL Server-Datenbank für NPS.
 9. Klicken Sie in **neue Protokolldatei erstellen**, um NPS so zu konfigurieren, dass in angegebenen Intervallen neue Protokolldateien gestartet werden. Klicken Sie dann auf das gewünschte Intervall:
     - Klicken Sie bei umfangreichen Transaktionsvolumen-und Protokollierungs Aktivitäten auf **täglich**.
     - Klicken Sie für kleinere Transaktions Volumes und Protokollierungs Aktivitäten auf **wöchentlich** oder **monatlich**.
-    - Um alle Transaktionen in einer Protokolldatei zu speichern, klicken Sie auf **nie \(unbegrenzte Dateigröße\)** .
+    - Um alle Transaktionen in einer Protokolldatei zu speichern, klicken Sie auf **nie \( unbegrenzte Dateigröße \) **.
     - Um die Größe der einzelnen Protokolldateien einzuschränken, klicken Sie auf **Wenn die Protokolldatei diese Größe erreicht**, und geben Sie dann eine Dateigröße ein, nach der ein neues Protokoll erstellt wird. Die Standardgröße ist 10 Megabyte (MB).
-10. Wenn Sie möchten, dass der NPS alte Protokolldateien löscht, um Speicherplatz für neue Protokolldateien zu erstellen, wenn die Festplatte fast ausgelastet ist, stellen Sie sicher, dass beim vollständigen Löschen der Datenträger die Option **ältere Protokolldateien löschen** ausgewählt ist Diese Option ist jedoch nicht verfügbar, wenn der Wert von **Create a new log file** **nie \(unbegrenzte Dateigröße\)** . Auch wenn die älteste Protokolldatei die aktuelle Protokolldatei ist, wird Sie nicht gelöscht.
+10. Wenn Sie möchten, dass der NPS alte Protokolldateien löscht, um Speicherplatz für neue Protokolldateien zu erstellen, wenn die Festplatte fast ausgelastet ist, stellen Sie sicher, dass beim vollständigen Löschen der Datenträger die Option **ältere Protokolldateien löschen** ausgewählt ist Diese Option ist jedoch nicht verfügbar, wenn der Wert von **neue Protokolldatei erstellen** **niemals \( \) unbegrenzt**ist. Auch wenn die älteste Protokolldatei die aktuelle Protokolldatei ist, wird Sie nicht gelöscht.
 
 ## <a name="configure-nps-sql-server-logging"></a>Konfigurieren der NPS-SQL Server Protokollierung
 
@@ -90,27 +88,27 @@ Mit diesem Verfahren können Sie die RADIUS-Buchhaltungsdaten in einer lokalen o
 >[!NOTE]
 >NPS formatiert Buchhaltungsdaten als XML-Dokument, das an die gespeicherte Prozedur **report_event** in der SQL Server-Datenbank gesendet wird, die Sie in NPS festlegen. Damit SQL Server Protokollierung ordnungsgemäß funktioniert, müssen Sie über eine gespeicherte Prozedur mit dem Namen **report_event** in der SQL Server Datenbank verfügen, die die XML-Dokumente von NPS empfangen und analysieren kann.
 
-Um diese Schritte ausführen zu können, ist mindestens die Mitgliedschaft in der Gruppe Domänen-Admins (oder einer ähnlichen Gruppe) erforderlich.
+Um dieses Verfahren auszuführen, ist mindestens die Mitgliedschaft in "Domänen-Admins" oder eine entsprechende Berechtigung erforderlich.
 
 ### <a name="to-configure-sql-server-logging-in-nps"></a>So konfigurieren Sie SQL Server Protokollierung in NPS
 
 1. Öffnen Sie die NPS-Konsole oder das NPS-MMC-Snap-in (Microsoft Management Console).
 2. Klicken Sie in der Konsolen Struktur auf **Buchhaltung**.
 3. Klicken Sie im Detailfenster in **SQL Server Protokollierungs Eigenschaften**auf **SQL Server Protokollierungs Eigenschaften ändern**. Das Dialogfeld **Eigenschaften für SQL Server Protokollierung** wird geöffnet.
-4. Wählen Sie unter **folgende Informationen protokollieren**die Informationen aus, die Sie protokollieren möchten: 
+4. Wählen Sie unter **folgende Informationen protokollieren**die Informationen aus, die Sie protokollieren möchten:
     - Wenn Sie alle Buchhaltungs Anforderungen protokollieren möchten, klicken Sie auf **Buchhaltungs Anforderungen**.
     - Um Authentifizierungsanforderungen zu protokollieren, klicken Sie auf **Authentifizierungsanforderungen**.
     - Zum Protokollieren des regelmäßigen Buchhaltungs Status klicken Sie auf **regelmäßiger Buchhaltungs Status**.
     - Zum Protokollieren des regelmäßigen Status, z. b. von zwischenbuchhaltungs Anforderungen, klicken Sie auf **regelmäßig**
 5. Um die Anzahl der gleichzeitigen Sitzungen zwischen dem Server, auf dem NPS ausgeführt wird, und dem SQL Server zu konfigurieren, geben Sie eine Zahl in **Maximale Anzahl gleichzeitiger Sitzungen**ein.
-6. Klicken Sie zum Konfigurieren der SQL Server Datenquelle in **SQL Server Protokollierung**auf **Konfigurieren**. Das Dialogfeld **Daten Link Eigenschaften** wird geöffnet. Geben Sie auf der Registerkarte **Verbindung** Folgendes an: 
+6. Klicken Sie zum Konfigurieren der SQL Server Datenquelle in **SQL Server Protokollierung**auf **Konfigurieren**. Das Dialogfeld **Daten Link Eigenschaften** wird geöffnet. Geben Sie auf der Registerkarte **Verbindung** Folgendes an:
     - Um den Namen des Servers anzugeben, auf dem die Datenbank gespeichert ist, geben Sie einen Namen ein, oder wählen Sie einen Namen aus, **oder geben Sie einen Servernamen ein**.
     - Um die Authentifizierungsmethode anzugeben, mit der Sie sich beim Server anmelden möchten, klicken Sie auf **Windows NT Integrated Security verwenden**. Oder klicken Sie auf **bestimmten Benutzernamen und Kennwort verwenden**, und geben Sie dann Anmelde Informationen in **Benutzername** und **Kennwort**ein.
     - Um ein leeres Kennwort zuzulassen, klicken Sie auf **leeres Kennwort**.
     - Um das Kennwort zu speichern, klicken Sie auf **Kennwort speichern**.
     - Um anzugeben, mit welcher Datenbank auf dem SQL Server Computer eine Verbindung hergestellt werden soll, klicken Sie auf **Datenbank auf dem Server auswählen**, und wählen Sie dann einen Datenbanknamen aus der Liste aus.
 7. Um die Verbindung zwischen NPS und SQL Server zu testen, klicken Sie auf **Verbindung testen**. Klicken Sie auf **OK** , um die **Daten Link Eigenschaften**zu schließen
-8. Wählen Sie unter **Protokollierungs Fehler Aktion**die Option **Text Datei Protokollierung für Failover aktivieren aus** , wenn der NPS die Text Datei Protokollierung fortsetzen soll, wenn SQL Server Protokollierung fehlschlägt. 
+8. Wählen Sie unter **Protokollierungs Fehler Aktion**die Option **Text Datei Protokollierung für Failover aktivieren aus** , wenn der NPS die Text Datei Protokollierung fortsetzen soll, wenn SQL Server Protokollierung fehlschlägt.
 9. Wählen Sie unter **Protokollierungs Fehler Aktion**aus, **ob die Protokollierung fehlschlägt, Verbindungsanforderungen verwerfen,** wenn die Verarbeitung von Zugriffs Anforderungs Nachrichten durch NPS beendet werden soll, wenn Protokolldateien vollständig oder nicht verfügbar sind. Wenn Sie möchten, dass der NPS die Verarbeitung von Verbindungsanforderungen fortsetzt, wenn die Protokollierung fehlschlägt, aktivieren Sie dieses Kontrollkästchen nicht.
 
 ## <a name="ping-user-name"></a>Ping-Benutzername
@@ -122,7 +120,7 @@ Wenn Sie einen Registrierungs Eintrag für **Ping User-Name**konfigurieren, glei
 **Ping User-Name** wird nicht standardmäßig installiert. Sie müssen **Ping User-Name** der Registrierung hinzufügen. Mithilfe des Registrierungs-Editors können Sie der Registrierung einen Eintrag hinzufügen.
 
 >[!CAUTION]
->Das System kann durch falsches Bearbeiten der Registrierung schwerwiegend beschädigt werden. Bevor Sie Änderungen an der Registrierung vornehmen, sollten Sie alle wichtigen Computerdaten sichern.
+>Durch eine fehlerhafte Bearbeitung der Registrierung können ernsthafte Systemschäden verursacht werden. Bevor Sie Änderungen an der Registrierung vornehmen, sollten Sie alle wichtigen Computerdaten sichern.
 
 ### <a name="to-add-ping-user-name-to-the-registry"></a>So fügen Sie Ping User-Name zur Registrierung hinzu
 
@@ -131,7 +129,7 @@ Ein Ping-Benutzername kann dem folgenden Registrierungsschlüssel als Zeichen fo
 `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\IAS\Parameters`
 
 - **Name**: `ping user-name`
-- **Typ**: `REG_SZ`
+- **Typ:** `REG_SZ`
 - **Daten**: *Benutzername*
 
 >[!TIP]

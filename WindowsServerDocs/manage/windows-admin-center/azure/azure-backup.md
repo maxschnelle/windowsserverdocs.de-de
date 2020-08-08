@@ -6,18 +6,18 @@ author: saurabhsensharma
 ms.author: saurse
 ms.date: 03/25/2019
 ms.localizationpriority: low
-ms.openlocfilehash: 796dfe509b1d24595dd3bc1aedd514789f4a378b
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 12b549daeb6cb5f1db53af2bc2cbc08dd6091eae
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87949634"
+ms.locfileid: "87994663"
 ---
 # <a name="backup-your-windows-servers-from-windows-admin-center-with-azure-backup"></a>Sichern Sie Ihre Windows-Server aus dem Windows Admin Center mit Azure Backup
 
 >Gilt für: Windows Admin Center-Vorschau, Windows Admin Center
 
-[Erfahren Sie mehr über die Azure-Integration in Windows Admin Center.](../plan/azure-integration-options.md)
+[Erfahren Sie mehr über die Azure-Integration in Windows Admin Center.](./index.md)
 
 Windows Admin Center optimiert den Prozess der Sicherung Ihrer Windows-Server in Azure und schützt Sie vor versehentlichen oder bösartigen Löschungen, Beschädigungen und sogar Ransomware. Zum Automatisieren des Setups können Sie das Windows Admin Center-Gateway mit Azure verbinden.
 
@@ -26,7 +26,7 @@ Verwenden Sie die folgenden Informationen zum Konfigurieren der Sicherung für I
 ## <a name="what-is-azure-backup-and-how-does-it-work-with-windows-admin-center"></a>Was ist Azure Backup und wie funktioniert es mit dem Windows Admin Center?
 
 **Azure Backup** ist der Azure-basierte Dienst, den Sie zum Sichern (bzw. Schützen) und Wiederherstellen Ihrer Daten in der Microsoft Cloud verwenden können. Azure Backup ersetzt Ihre vorhandene lokale bzw. standortexterne Lösung durch eine zuverlässige, sichere und wirtschaftliche Cloudlösung.
-[Erfahren Sie mehr über Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview).
+[Erfahren Sie mehr über Azure Backup](/azure/backup/backup-overview).
 
 Azure Backup verfügt über mehrere Komponenten, die Sie herunterladen und auf dem jeweiligen Computer, Server oder in der Cloud bereitstellen. Die Komponente (der Agent), die Sie bereitstellen, richtet sich danach, was geschützt werden soll. Alle Azure Backup Komponenten (unabhängig davon, ob Sie Daten lokal oder in Azure schützen) können verwendet werden, um Daten in einem Recovery Services Tresor in Azure zu sichern.
 
@@ -75,7 +75,7 @@ Wählen Sie die entsprechenden Einstellungen für Azure Backup wie unten beschri
 - Geben Sie eine **Verschlüsselungs Passphrase** Ihrer Wahl ein (mindestens 16 Zeichen).  **Azure Backup** sichert Ihre Sicherungsdaten mit einer vom Benutzer konfigurierten und von der Benutzer verwalteten Verschlüsselungs Passphrase. Die Verschlüsselungspassphrase ist erforderlich, um Daten aus Azure Backup wiederherzustellen.
 
 > [!NOTE]
-> Die Passphrase muss an einem sicheren externen Speicherort gespeichert werden, z. b. auf einem anderen Server oder dem [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-portal). Microsoft speichert die Passphrase nicht und kann sie nicht abrufen oder zurücksetzen, wenn sie verloren oder vergessen wird.
+> Die Passphrase muss an einem sicheren externen Speicherort gespeichert werden, z. b. auf einem anderen Server oder dem [Azure Key Vault](/azure/key-vault/quick-create-portal). Microsoft speichert die Passphrase nicht und kann sie nicht abrufen oder zurücksetzen, wenn sie verloren oder vergessen wird.
 
 - Überprüfen Sie alle Einstellungen, und klicken Sie auf **anwenden** .
 
@@ -90,7 +90,7 @@ Das Windows Admin Center führt dann die folgenden Vorgänge aus:
 
 Wenn Sie Azure Backup erfolgreich eingerichtet haben, wird das Backup- **Dashboard** angezeigt, wenn Sie das Sicherungs Tool für eine vorhandene Server Verbindung öffnen. Sie können die folgenden Aufgaben über das **Backup-Dashboard** ausführen.
 
-- **Greifen Sie auf den Tresor in Azure zu:** Sie können auf den Link **Recovery Services** Tresor auf der Registerkarte " **Übersicht** " des **Sicherungs Dashboards** klicken, um den Tresor in Azure zu erstellen und einen [umfangreichen Satz von Verwaltungs Vorgängen](https://docs.microsoft.com/azure/backup/backup-azure-manage-windows-server) auszuführen.
+- **Greifen Sie auf den Tresor in Azure zu:** Sie können auf den Link **Recovery Services** Tresor auf der Registerkarte " **Übersicht** " des **Sicherungs Dashboards** klicken, um den Tresor in Azure zu erstellen und einen [umfangreichen Satz von Verwaltungs Vorgängen](/azure/backup/backup-azure-manage-windows-server) auszuführen.
 - **Führen Sie eine Ad-hoc-Sicherung aus:** Klicken Sie auf **jetzt sichern** , um eine Ad-hoc-Sicherung durchführen.
-- **Überwachen von Aufträgen und Konfigurieren von Warn Benachrichtigungen:** Navigieren Sie zur Registerkarte **Aufträge** des Dashboards, um laufende oder vergangene Aufträge zu überwachen, und [Konfigurieren Sie Warn Benachrichtigungen](https://docs.microsoft.com/azure/backup/backup-azure-manage-windows-server#configuring-notifications-for-alerts) , um e-Mails für fehlerhafte Aufträge oder andere Sicherungs relevante Warnungen zu erhalten.
+- **Überwachen von Aufträgen und Konfigurieren von Warn Benachrichtigungen:** Navigieren Sie zur Registerkarte **Aufträge** des Dashboards, um laufende oder vergangene Aufträge zu überwachen, und [Konfigurieren Sie Warn Benachrichtigungen](/azure/backup/backup-azure-manage-windows-server#configuring-notifications-for-alerts) , um e-Mails für fehlerhafte Aufträge oder andere Sicherungs relevante Warnungen zu erhalten.
 - **Anzeigen von Wiederherstellungs Punkten und Wiederherstellen von Daten:** Klicken Sie im Dashboard auf die Registerkarte **Wiederherstellungspunkte** , um die Wiederherstellungspunkte anzuzeigen, und klicken Sie auf **Daten wiederherstellen** , um die Daten aus Azure wiederherzustellen.

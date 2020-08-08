@@ -1,19 +1,17 @@
 ---
 title: Always On VPN-Verbesserungen
 description: Always on-VPN hat gegenüber den Windows-VPN-Lösungen der Vergangenheit viele Vorteile. Wichtige Verbesserungen bei Integration, Sicherheit, Konnektivität, Netzwerk Kontrolle und Kompatibilität richten sich Always on-VPN mit der Cloud-First, Mobile-First-Vision von Microsoft.
-ms.prod: windows-server
-ms.technology: networking-ras
 ms.topic: article
 ms.author: v-tea
 author: Teresa-MOTIV
 ms.date: 11/05/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: e20d59311d8bc21052855acae9fc2eb356fdff23
-ms.sourcegitcommit: 717222e9efceb5964872dbf97034cad60f3c48df
+ms.openlocfilehash: db2d33f2452d7fddffef5458d0e80954b3603a48
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87295052"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87958238"
 ---
 # <a name="always-on-vpn-enhancements"></a>Always On VPN-Verbesserungen
 
@@ -28,7 +26,7 @@ Always on-VPN hat gegenüber den Windows-VPN-Lösungen der Vergangenheit viele V
 
 - **Sicherheit:** Always on-VPN verfügt über neue, erweiterte Sicherheitsfunktionen, mit denen der Typ des Datenverkehrs eingeschränkt wird, welche Anwendungen die VPN-Verbindung verwenden können und welche Authentifizierungsmethoden Sie verwenden können, um die Verbindung zu initiieren. Wenn die Verbindung in den meisten Fällen aktiv ist, ist es besonders wichtig, die Verbindung zu schützen. Weitere Informationen finden Sie unter [VPN-Authentifizierungs Optionen](/windows/security/identity-protection/vpn/vpn-authentication).
 
-- **VPN-Konnektivität:** Always on-VPN mit oder ohne Geräte Tunnel bietet automatische auslöserfunktionen. Vor der Always on-VPN war es nicht möglich, eine automatische Verbindung über die Benutzer-oder Geräte Authentifizierung zu initiieren.  
+- **VPN-Konnektivität:** Always on-VPN mit oder ohne Geräte Tunnel bietet automatische auslöserfunktionen. Vor der Always on-VPN war es nicht möglich, eine automatische Verbindung über die Benutzer-oder Geräte Authentifizierung zu initiieren.
 
 - **Netzwerksteuerung:** Always on VPN ermöglicht Administratoren das Angeben von Routing Richtlinien auf einer präziseteren Ebene – sogar bis hin zu der einzelnen Anwendung – die perfekt für branchenspezifische apps geeignet ist, die einen besonderen Remote Zugriff erfordern.  Always on-VPN ist auch vollständig mit Internet Protokollversion 4 (IPv4) und Version 6 (IPv6) kompatibel. Anders als bei DirectAccess gibt es keine bestimmte Abhängigkeit von IPv6.
 
@@ -82,7 +80,7 @@ Im folgenden finden Sie einige der Netzwerk Verbesserungen in Always on-VPN:
 | **Anwendungsspezifische Routing Richtlinien** |                            Zusätzlich zum Definieren von Richtlinien für die globale VPN-Verbindungs Weiterleitung für die Trennung von Internet-und Intranetdatenverkehr können Routing Richtlinien hinzugefügt werden, um die Verwendung von Split-Tunneln oder Tunnel Erzwingungen pro Anwendung zu steuern. Mit dieser Option können Sie besser steuern, welche apps mit welchen Ressourcen über den VPN-Tunnel interagieren können.                             |
 |           **Ausschluss Routen**            |                 Always on-VPN unterstützt die Möglichkeit, Ausschluss Routen anzugeben, die speziell das Routing Verhalten steuern, um zu definieren, welcher Datenverkehr nur das VPN durchlaufen soll, und nicht über die physische Netzwerkschnittstelle.<p><p>***Hinweise:***<br>-Ausschluss Routen funktionieren derzeit für Datenverkehr im gleichen Subnetz wie der Client, z. b. LINKLOCAL.<br>-Ausschluss Routen funktionieren nur in einem Split-Tunnel-Setup.                  |
 
-## <a name="configuration-and-compatibility"></a>Konfiguration und Kompatibilität 
+## <a name="configuration-and-compatibility"></a>Konfiguration und Kompatibilität
 
 Im folgenden finden Sie einige der Konfigurations-und Kompatibilitäts Verbesserungen in Always on VPN:
 

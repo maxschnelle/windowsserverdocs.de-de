@@ -8,19 +8,19 @@ ms.reviewer: richagi
 ms.custom: it-pro
 ms.topic: article
 ms.date: 05/01/2018
-ms.openlocfilehash: a5cce413e2e95387edf73c628f38a4d225c80adb
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: a47cb5791b6e157b434d80535d10b107159db48f
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87955577"
+ms.locfileid: "87994599"
 ---
 # <a name="network-policy-server-user-data-collection"></a>Benutzerdaten Sammlung für Netzwerk Richtlinien Server
 
 In diesem Dokument wird erläutert, wie Sie die vom Netzwerk Richtlinien Server (Network Policy Server, NPS) gesammelten Benutzerinformationen für das Ereignis ermitteln, das Sie entfernen möchten.
 
 >[!Note]
->Wenn Sie personenbezogene Daten anzeigen oder löschen möchten, lesen Sie den Leitfaden von Microsoft in den [Windows-Datensubjekt Anforderungen für die](https://docs.microsoft.com/microsoft-365/compliance/gdpr-dsr-windows) dsgvo-Website. Allgemeine Informationen zur dsgvo finden Sie im Abschnitt zur dsgvo [des Dienst Vertrauensstellungs Portals](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).
+>Wenn Sie personenbezogene Daten anzeigen oder löschen möchten, lesen Sie den Leitfaden von Microsoft in den [Windows-Datensubjekt Anforderungen für die](/microsoft-365/compliance/gdpr-dsr-windows) dsgvo-Website. Allgemeine Informationen zur dsgvo finden Sie im Abschnitt zur dsgvo [des Dienst Vertrauensstellungs Portals](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).
 
 ## <a name="information-collected-by-nps"></a>Von NPS gesammelte Informationen
 

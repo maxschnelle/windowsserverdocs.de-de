@@ -5,14 +5,12 @@ ms.author: billmath
 manager: daveba
 ms.date: 01/20/2020
 ms.topic: article
-ms.prod: windows-server
-ms.technology: identity-adfs
-ms.openlocfilehash: 4f6822747902d02313b6aea5c5ca21d9d7ed8a04
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: c306f901aba2991a238fb994117789d4a9a81a67
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86961882"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87967127"
 ---
 # <a name="setting-up-an-ad-fs-deployment-with-alwayson-availability-groups"></a>Einrichten einer AD FS-Bereitstellung mit AlwaysOn-Verfügbarkeitsgruppen
 Eine hochverfügbare georedunverteilte Topologie bietet Folgendes:
@@ -37,12 +35,12 @@ Ein verfügbarkeitsgruppenlistener im Knoten des primären Replikats antwortet a
 Wenn bei einem Failover der Besitz von freigegebenen physischen Ressourcen nicht auf einen anderen Knoten übertragen wird, wird wsfc genutzt, um ein sekundäres Replikat auf einer anderen SQL Server Instanz neu zu konfigurieren, um das primäre Replikat der Verfügbarkeits Gruppe zu werden. Die virtuelle Netzwerknamenressource der Verfügbarkeitsgruppe wird dann auf diese Instanz übertragen.
 Zu einem beliebigen Zeitpunkt kann nur eine einzelne SQL Server Instanz das primäre Replikat der Datenbanken einer Verfügbarkeits Gruppe hosten. alle zugeordneten sekundären Replikate müssen sich jeweils auf einer separaten Instanz befinden, und jede Instanz muss sich auf separaten physischen Knoten befinden.
 
-> [!NOTE] 
+> [!NOTE]
 > Wenn Computer in Azure ausgeführt werden, richten Sie die virtuellen Azure-Computer ein, um die Listenerkonfiguration für die Kommunikation mit AlwaysOn-Verfügbarkeits Gruppen zu aktivieren. Weitere Informationen [Virtual Machines: SQL Always on Listener](/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener).
 
 Eine weitere Übersicht über AlwaysOn-Verfügbarkeitsgruppen finden Sie unter [Übersicht über Always on Verfügbarkeits Gruppen (SQL Server)](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server?view=sql-server-ver15).
 
-> [!NOTE] 
+> [!NOTE]
 > Wenn die Organisation ein Failover über mehrere Daten Center hinweg erfordert, empfiehlt es sich, in jedem Daten Center eine artefaktdatenbank zu erstellen und einen Hintergrund Cache zu aktivieren, der die Latenzzeit während der Anforderungs Verarbeitung reduziert. Befolgen Sie die Anweisungen für die [Feinabstimmung von SQL und die Reduzierung der Latenz](./adfs-sql-latency.md)Zeit.
 
 ## <a name="deployment-guidance"></a>Leitfaden zur Bereitstellung
@@ -51,13 +49,13 @@ Eine weitere Übersicht über AlwaysOn-Verfügbarkeitsgruppen finden Sie unter [
 In der folgenden Tabelle werden die Unterschiede in den unterstützten Funktionen zwischen einer wid und einer SQL-Datenbank beschrieben.
 
 
-| Category      | Funktion       | Unterstützt von wid  | Von SQL unterstützt |
+| Kategorie      | Feature       | Unterstützt von wid  | Von SQL unterstützt |
 | ------------------ |:-------------:| :---:|:---: |
 | AD FS Features     | Bereitstellung einer Verbundserverfarm | Ja  | Ja |
-| AD FS Features     | SAML-Artefaktauflösung. Hinweis: Dies ist für SAML-Anwendungen nicht üblich.     |   Nein  | Ja  |
-| AD FS Features | Wiedergabe Erkennung für SAML/WS-Verbund Token. Hinweis: Dies ist nur erforderlich, wenn AD FS Token von externen IDPs empfängt. Dies ist nicht erforderlich, wenn AD FS nicht als Verbund Partner fungiert.      |    Nein   | Ja |
+| AD FS Features     | SAML-Artefaktauflösung. Hinweis: Dies ist für SAML-Anwendungen nicht üblich.     |   Nein | Ja  |
+| AD FS Features | Wiedergabe Erkennung für SAML/WS-Verbund Token. Hinweis: Dies ist nur erforderlich, wenn AD FS Token von externen IDPs empfängt. Dies ist nicht erforderlich, wenn AD FS nicht als Verbund Partner fungiert.      |    Nein  | Ja |
 | Datenbankfunktionen     |   Grundlegende Daten Bank Redundanz mithilfe der Pull-Replikation, bei der ein oder mehrere Server, die eine schreibgeschützte Kopie der Datenbank hosten, Änderungen anfordern, die auf einem Quell Server eine Lese-/Schreibkopie der Datenbank durchgeführt haben.    |   Nein | Nein  |
-| Datenbankfunktionen | Daten Bank Redundanz mithilfe von Lösungen für Hochverfügbarkeit, z. b. Clustering oder Spiegelung (auf Datenbankebene)      |    Nein   | Ja |
+| Datenbankfunktionen | Daten Bank Redundanz mithilfe von Lösungen für Hochverfügbarkeit, z. b. Clustering oder Spiegelung (auf Datenbankebene)      |    Nein  | Ja |
 | Zusätzliche Funktionen | OAuth-AuthCode-Szenario     |   Ja  | Ja |
 
 Wenn Sie ein großes Unternehmen mit mehr als 100 Vertrauens Stellungen sind, die sowohl interne als auch externe Benutzer mit einmaligem Anmelden für Verbund Anwendungen oder-Dienste bereitstellen müssen, ist SQL die empfohlene Option.
@@ -83,7 +81,7 @@ In diesem Handbuch werden die folgenden Schritte erläutert:
 
 ## <a name="deploy-ad-fs"></a>AD FS bereitstellen
 
-> [!NOTE] 
+> [!NOTE]
 > Wenn Computer in Azure ausgeführt werden, muss die Virtual Machines auf eine bestimmte Art und Weise konfiguriert werden, damit der Listener mit der Always on Verfügbarkeits Gruppe kommunizieren kann. Weitere Informationen zur Konfiguration finden Sie unter [Konfigurieren eines Load Balancers für eine Verfügbarkeits Gruppe in Azure SQL Server VMS](/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener) .
 
 
@@ -113,7 +111,7 @@ Das Konfigurieren einer AD FS-Farm mit AlwaysOn-Verfügbarkeits Gruppen erforder
 
 5.  Schließen Sie die Konfiguration und Installation der AD FS Farm ab.
 
-> [!NOTE] 
+> [!NOTE]
 > SQL Server müssen unter einem Domänen Konto für die Installation von Always on Verfügbarkeits Gruppen ausgeführt werden. Standardmäßig wird es als lokales System ausgeführt.
 
 ## <a name="install-the-failover-clustering-role"></a>Installieren der Rolle "Failoverclustering"
@@ -258,7 +256,7 @@ Legen Sie im Feld zum Angeben eines freigegebenen Netzwerkspeicherorts, auf den 
 
 10. Überprüfen Sie auf der Seite Zusammenfassung die Optionen für die neue Verfügbarkeitsgruppe. Um eine Änderung vorzunehmen, klicken Sie auf Zurück, um zu der relevanten Seite zurückzukehren. Nachdem Sie die Änderung vorgenommen haben, klicken Sie auf Weiter, um zur Seite Zusammenfassung zurückzukehren.
 
-> [!NOTE] 
+> [!NOTE]
 > Wenn das SQL Server-Dienst Konto einer Server Instanz, die ein neues Verfügbarkeits Replikat hostet, noch nicht als Anmelde Name vorhanden ist, muss der Anmelde Name vom Assistenten für neue Verfügbarkeits Gruppen erstellt werden. Auf der Seite Zusammenfassung des Assistenten werden die Informationen für den zu erstellenden Anmeldenamen angezeigt. Wenn Sie auf Fertig stellen klicken, erstellt der Assistent diesen Anmeldenamen für das SQL Server-Dienstkonto und erteilt ihm die CONNECT-Berechtigung.
 > Wenn Sie mit der Auswahl zufrieden sind, klicken Sie optional auf "Skript", um ein Skript der Schritte zu erstellen, die der Assistent ausführt. Klicken Sie dann zum Erstellen und Konfigurieren der neuen Verfügbarkeitsgruppe auf Fertig stellen.
 

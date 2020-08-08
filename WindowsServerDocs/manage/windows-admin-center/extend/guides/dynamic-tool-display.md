@@ -1,33 +1,31 @@
 ---
 title: Steuern der Sichtbarkeit Ihres Tools in einer Lösung
 description: Steuern der Sichtbarkeit Ihres Tools in einer Lösung Windows Admin Center SDK (Project Honolulu)
-ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
 ms.author: niwashbu
 ms.date: 09/18/2018
 ms.localizationpriority: medium
-ms.prod: windows-server
-ms.openlocfilehash: 440ba3d11da671beedc2c2fb90caa3e176f83877
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: df939bb1a87c9ded77431661dcabd7faf607bb6e
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71385320"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87945003"
 ---
 # <a name="control-your-tools-visibility-in-a-solution"></a>Steuern der Sichtbarkeit Ihres Tools in einer Lösung #
 
 >Gilt für: Windows Admin Center, Windows Admin Center-Vorschau
 
-Es kann vorkommen, dass Sie die Erweiterung oder das Tool aus der Liste der verfügbaren Tools ausschließen (oder ausblenden) möchten. Wenn Ihr Tool z. b. nur auf Windows Server 2016 (nicht ältere Versionen) ausgerichtet ist, möchten Sie möglicherweise nicht, dass ein Benutzer, der eine Verbindung mit einem Windows Server 2012 R2-Server herstellt, das Tool überhaupt anzeigen kann. (Stellen Sie sich die Benutzerumgebung vor: Sie klicken darauf, und warten Sie, bis das Tool geladen wird, um eine Meldung zu erhalten, dass ihre Features für Ihre Verbindung nicht verfügbar sind.) Sie können definieren, wann Sie Ihre Funktion in der Datei "Manifest. JSON" des Tools anzeigen (oder ausblenden) möchten.
+Es kann vorkommen, dass Sie die Erweiterung oder das Tool aus der Liste der verfügbaren Tools ausschließen (oder ausblenden) möchten. Wenn Ihr Tool z. b. nur auf Windows Server 2016 (nicht ältere Versionen) ausgerichtet ist, möchten Sie möglicherweise nicht, dass ein Benutzer, der eine Verbindung mit einem Windows Server 2012 R2-Server herstellt, das Tool überhaupt anzeigen kann. (Stellen Sie sich die Benutzerumgebung vor: Sie klicken darauf, und warten Sie, bis das Tool geladen wird, um eine Meldung zu erhalten, dass ihre Features für Ihre Verbindung nicht verfügbar sind.) Sie können definieren, wann Sie Ihre Funktion in der manifest.jsDatei des Tools anzeigen (oder ausblenden) möchten.
 
 ## <a name="options-for-deciding-when-to-show-a-tool"></a>Optionen für die Entscheidung, wann ein Tool angezeigt werden soll ##
 
 Es gibt drei verschiedene Optionen, die Sie verwenden können, um zu bestimmen, ob das Tool für eine bestimmte Server-oder Cluster Verbindung angezeigt und verfügbar sein soll.
 
-* localhost
+* Localhost
 * Inventar (ein Array von Eigenschaften)
-* Skript
+* script
 
 ### <a name="localhost"></a>LocalHost ###
 
@@ -85,11 +83,11 @@ Das SDK enthält einen vordefinierten Satz von Inventur Eigenschaften, mit denen
 
 | Eigenschaftenname | Erwarteter Werttyp |
 | ------------- | ------------------- |
-| Computerhersteller | String |
+| Computerhersteller | Zeichenfolge |
 | OperatingSystemSKU | number |
 | operatingSystemVersion | version_string (z. b. "10,1. *") |
 | productType | number |
-| Cluster-qdn | String |
+| Cluster-qdn | Zeichenfolge |
 | ishypervroleinstemmt | boolean |
 | ishypervpowershellinstalliert | boolean |
 | ismanagementtoolsavailable | boolean |
@@ -107,36 +105,36 @@ Jedes Objekt im Inventur Array muss der folgenden JSON-Struktur entsprechen:
 
 #### <a name="operator-values"></a>Operator Werte ####
 
-| Operator | Beschreibung |
+| Operator | BESCHREIBUNG |
 | -------- | ----------- |
-| siegt | Größer als |
-| Färbung | größer als oder gleich |
-| General | Kleiner als |
-| Kirchturm | kleiner als oder gleich |
-| stecken | gleich |
-| NES | ungleich |
-| auf | Überprüfen, ob ein Wert true ist |
+| gt | Größer als |
+| ge | Größer oder gleich |
+| lt | Kleiner als |
+| le | Kleiner oder gleich |
+| eq | gleich |
+| ne | not equal to (ungleich) |
+| is | Überprüfen, ob ein Wert true ist |
 | not | Überprüfen, ob ein Wert false ist |
-| Inhalt | Element ist in einer Zeichenfolge vorhanden. |
+| contains | Element ist in einer Zeichenfolge vorhanden. |
 | notContains | das Element ist in einer Zeichenfolge nicht vorhanden. |
 
 #### <a name="data-types"></a>Datentypen ####
 
 Verfügbare Optionen für die Eigenschaft "Type":
 
-| Typ | Beschreibung |
+| Typ | BESCHREIBUNG |
 | ---- | ----------- |
 | version | eine Versionsnummer (z. b. 10,1. *) |
-| number | Ein numerischer Wert |
-| String | ein Zeichen folgen Wert |
+| number | ein numerischer Wert |
+| Zeichenfolge | ein Zeichen folgen Wert |
 | boolean | true oder false |
 
 #### <a name="value-types"></a>Werttypen ####
 
 Die Value-Eigenschaft akzeptiert folgende Typen:
 
-* String
-* number
+* Zeichenfolge
+* Zahl
 * boolean
 
 Ein ordnungsgemäß geformter Inventur Bedingungs Satz sieht wie folgt aus:
@@ -193,9 +191,9 @@ Zum Schluss können Sie ein benutzerdefiniertes PowerShell-Skript ausführen, um
         @{Name='Prop2'; Value = 12345678; Type='number'; };
 }
 ```
-Die State-Eigenschaft ist der wichtige Wert, der die Entscheidung steuert, ihre Erweiterung in der Liste der Tools anzuzeigen oder auszublenden.  Folgende Werte sind zulässig:
+Die State-Eigenschaft ist der wichtige Wert, der die Entscheidung steuert, ihre Erweiterung in der Liste der Tools anzuzeigen oder auszublenden.  Zulässige Werte sind:
 
-| Wert | Beschreibung |
+| Wert | BESCHREIBUNG |
 | ---- | ----------- |
 | Verfügbar | Die Erweiterung sollte in der Liste der Tools angezeigt werden. |
 | NotSupported | Die Erweiterung sollte nicht in der Liste der Tools angezeigt werden. |
@@ -212,7 +210,7 @@ $response = @{
 }
 
 if (Get-Module -ListAvailable -Name servermanager) {
-    Import-module servermanager; 
+    Import-module servermanager;
     $isInstalled = (Get-WindowsFeature -name bitlocker).Installed;
     $isGood = $isInstalled;
 }

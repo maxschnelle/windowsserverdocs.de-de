@@ -6,12 +6,12 @@ author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 08/09/2018
 ms.topic: article
-ms.openlocfilehash: 7444fcc6807e43192e68c006dcd49464a503976b
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 09863123a69eec72b3d8bfaaf138bb2d2562f687
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87953297"
+ms.locfileid: "87994504"
 ---
 # <a name="whats-new-in-active-directory-domain-services-installation-and-removal"></a>Neues beim Installieren und Entfernen der Active Directory-Domänendienste
 
@@ -173,7 +173,7 @@ In diesem Abschnitt werden einige bekannte Probleme aufgeführt, die sich auf di
 
    In diesem Fall müssen Sie das Cmdlet %%amp;quot;ADDSDeployment%%amp;quot; getrennt von dem Cmdlet ausführen, das keine systemeigenen 64-Bit-Prozesse unterstützt.
 
-- In Windows Server 2012 ist ein neues Dateisystem mit dem Namen "robustes Dateisystem" vorhanden. Speichern Sie auf einem mit dem robusten Dateisystem (Resilient File System, ReFS) formatierten Datenvolume keinesfalls die Active Directory-Datenbanken, -Protokolldateien oder SYSVOL. Weitere Informationen zu ReFS finden Sie unter [Erstellen der nächsten Dateisystemgeneration für Windows: ReFS](https://blogs.msdn.com/b/b8/archive/2012/01/16/building-the-next-generation-file-system-for-windows-refs.aspx).
+- In Windows Server 2012 ist ein neues Dateisystem mit dem Namen "robustes Dateisystem" vorhanden. Speichern Sie auf einem mit dem robusten Dateisystem (Resilient File System, ReFS) formatierten Datenvolume keinesfalls die Active Directory-Datenbanken, -Protokolldateien oder SYSVOL. Weitere Informationen zu ReFS finden Sie unter [Erstellen der nächsten Dateisystemgeneration für Windows: ReFS](/archive/blogs/b8/building-the-next-generation-file-system-for-windows-refs).
 - In Server-Manager kann auf Servern, auf denen AD DS oder andere Server Rollen in einer Server Core-Installation ausgeführt werden und die auf Windows Server 2012 aktualisiert wurden, die Server Rolle mit dem Status "rot" angezeigt werden, obwohl Ereignisse und Status erwartungsgemäß erfasst werden. Server, auf denen eine Server Core-Installation einer vorläufigen Version von Windows Server 2012 ausgeführt wird, können ebenfalls beeinträchtigt werden.
 
 ### <a name="active-directory-domain-services-installation-hangs-if-an-error-prevents-critical-replication"></a>Die Installation der Active Directory-Domänendienste hängt, wenn eine kritische Replikation durch einen Fehler verhindert wird

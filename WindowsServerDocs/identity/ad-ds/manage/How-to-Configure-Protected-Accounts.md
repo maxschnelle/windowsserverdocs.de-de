@@ -6,12 +6,12 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: 08065e153a7f0c09e305e87fc2d745b3daa0b3f0
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 7e69a808a48c3dedcc29d8876dc460559157f191
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87943869"
+ms.locfileid: "87994828"
 ---
 # <a name="guidance-about-how-to-configure-protected-accounts"></a>Leitfaden zum Konfigurieren geschützter Konten
 
@@ -114,7 +114,7 @@ Konten für Dienste und Computer dürfen nicht Mitglieder der Benutzergruppe **G
 -   Ablehnen von RC4 für die Kerberos-Vorabauthentifizierung: nicht konfigurierbar.
 
     > [!NOTE]
-    > Obwohl es möglich ist, [die Konfiguration unterstützter Verschlüsselungstypen zu ändern](https://blogs.msdn.com/b/openspecification/archive/2011/05/31/windows-configurations-for-kerberos-supported-encryption-type.aspx), empfiehlt es sich nicht, diese Einstellungen für Computer Konten zu ändern, ohne in der Zielumgebung zu testen.
+    > Obwohl es möglich ist, [die Konfiguration unterstützter Verschlüsselungstypen zu ändern](/archive/blogs/openspecification/windows-configurations-for-kerberos-supported-encryption-type), empfiehlt es sich nicht, diese Einstellungen für Computer Konten zu ändern, ohne in der Zielumgebung zu testen.
 
 -   Beschränken Sie die Benutzer Tickets (TGTs) auf eine anfängliche Zeit von 4 Stunden: Verwenden Sie Authentifizierungs Richtlinien.
 

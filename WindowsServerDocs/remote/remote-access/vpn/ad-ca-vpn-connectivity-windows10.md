@@ -1,20 +1,18 @@
 ---
 title: Bedingter Zugriff für VPN-Konnektivität mit Azure AD
 description: In diesem optionalen Schritt können Sie optimieren, wie autorisierte VPN-Benutzer mithilfe des bedingten Zugriffs von Azure Active Directory (Azure AD) auf Ihre Ressourcen zugreifen.
-ms.prod: windows-server
-ms.technology: networking-ras
 ms.topic: article
 ms.localizationpriority: medium
 ms.author: v-tea
 author: Teresa-MOTIV
 ms.date: 06/28/2019
 ms.reviewer: deverette
-ms.openlocfilehash: da32df185cb0c0c2370e60119dd9c2fbd510bd08
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 9c57d120106041692b920891b7d0c3341daec314
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86964262"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87958228"
 ---
 # <a name="step-7-optional-conditional-access-for-vpn-connectivity-using-azure-ad"></a>Schritt 7. Optionale Bedingter Zugriff für VPN-Konnektivität mithilfe von Azure AD
 
@@ -46,7 +44,7 @@ Ein EAP-TLS-Client kann keine Verbindung herstellen, es sei denn, der NPS-Server
 
 ## <a name="step-72-create-root-certificates-for-vpn-authentication-with-azure-ad"></a>[Schritt 7.2: Erstellen von Stammzertifikaten für die VPN-Authentifizierung mit Azure AD](vpn-create-root-cert-for-vpn-auth-azure-ad.md)
 
-In diesem Schritt konfigurieren Sie Stamm Zertifikate für die VPN-Authentifizierung mit Azure AD, wodurch automatisch eine VPN-Server-Cloud-App im Mandanten erstellt wird.  
+In diesem Schritt konfigurieren Sie Stamm Zertifikate für die VPN-Authentifizierung mit Azure AD, wodurch automatisch eine VPN-Server-Cloud-App im Mandanten erstellt wird.
 
 Erforderliche Schritte zum Konfigurieren des bedingten Zugriffs für VPN-Verbindungen:
 
@@ -85,7 +83,7 @@ In diesem Schritt können Sie OMA-DM-basierte VPNv2-Profile mithilfe von InTune 
 
 [Schritt 7,1. Konfigurieren von EAP-TLS zum Ignorieren der CRL-Überprüfung (Zertifikat Sperr Liste)](vpn-config-eap-tls-to-ignore-crl-checking.md): in diesem Schritt müssen Sie **IgnoreNoRevocationCheck** hinzufügen und festlegen, dass die Authentifizierung von Clients zugelassen wird, wenn das Zertifikat keine CRL-Verteilungs Punkte enthält. Standardmäßig ist IgnoreNoRevocationCheck auf 0 (deaktiviert) festgelegt.
 
-## <a name="related-topics"></a>Zugehörige Themen
+## <a name="related-topics"></a>Verwandte Themen
 
 - [Konfigurieren von VPNv2-Profilen](/windows/access-protection/vpn/vpn-conditional-access): der VPN-Client ist nun in der Lage, die cloudbasierte Plattform für den bedingten Zugriff zu integrieren, um eine Geräte Kompatibilitäts Option für Remote Clients bereitzustellen. In diesem Schritt konfigurieren Sie die VPNv2-Profile mit " ** \<DeviceCompliance> \<Enabled> true \</Enabled> **".
 

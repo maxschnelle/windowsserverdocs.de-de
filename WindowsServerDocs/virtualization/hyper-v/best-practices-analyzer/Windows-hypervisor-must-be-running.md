@@ -7,12 +7,12 @@ ms.topic: article
 ms.assetid: 501a9beb-c464-46c0-88c5-e3e7e3e70101
 author: kbdazure
 ms.date: 10/03/2016
-ms.openlocfilehash: c0e056d2e2b26180399d3fab3321c5e75bff8780
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: aa89f3735151b2dee795c1a325e22446e3770fa0
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87948117"
+ms.locfileid: "87994542"
 ---
 # <a name="windows-hypervisor-must-be-running"></a>Der Windows-Hypervisor muss ausgeführt werden.
 
@@ -86,6 +86,4 @@ Informationen zum Überprüfen des Katalogs finden Sie unter [Windows Server-Kat
     2. Suchen Sie nach Ereignissen, die Probleme melden. Die Ereignis-ID 41 zeigt beispielsweise ein Problem mit der BIOS-Konfiguration an: "Fehler beim Starten von Hyper-V. VMX ist im BIOS nicht vorhanden oder nicht aktiviert. "
 
 ### <a name="see-also"></a>Weitere Informationen
-Ausführliche Informationen zur Verwendung von Hyper-v unter Windows 10, einschließlich der Überprüfung, ob Hyper-v auf Ihrem Computer ausgeführt werden kann, finden Sie unter [System Anforderungen für Windows 10 Hyper-v](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_compatibility).
-
-
+Ausführliche Informationen zur Verwendung von Hyper-v unter Windows 10, einschließlich der Überprüfung, ob Hyper-v auf Ihrem Computer ausgeführt werden kann, finden Sie unter [System Anforderungen für Windows 10 Hyper-v](/virtualization/hyper-v-on-windows/reference/hyper-v-requirements).

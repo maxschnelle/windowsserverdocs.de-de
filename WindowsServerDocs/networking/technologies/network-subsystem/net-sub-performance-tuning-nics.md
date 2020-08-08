@@ -8,12 +8,12 @@ manager: dcscontentpm
 ms.author: v-tea
 author: Teresa-Motiv
 ms.date: 12/23/2019
-ms.openlocfilehash: a29830fe5f6f23138b5872b95926ae7dc8834ae4
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 0b6b09960e6d5f344aa4873d4c821ebdfb6f6a30
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87955587"
+ms.locfileid: "87994227"
 ---
 # <a name="performance-tuning-network-adapters"></a>Leistungsoptimierung für Netzwerkadapter
 
@@ -79,7 +79,7 @@ Viele Netzwerkadapter bieten Optionen zum Optimieren der betriebssystembedingten
 
 Im Folgenden finden Sie einige Vorschläge zur Leistungsfeineinstellung für mikrosekundenbezogene Netzwerke.
 
-- Legen Sie das Computer-BIOS auf **High Performance** mit deaktivierten C-Status fest. Beachten Sie jedoch, dass dies system- und BIOS-abhängig ist, und einige Systeme bieten eine höhere Leistung, wenn das Betriebssystem die Energieverwaltung steuert. Sie können Ihre Energie Verwaltungs Einstellungen über **Einstellungen** oder mithilfe des Befehls **powercfg** überprüfen und anpassen. Weitere Informationen finden Sie unter [powercfg-Befehlszeilenoptionen](https://docs.microsoft.com/windows-hardware/design/device-experiences/powercfg-command-line-options).
+- Legen Sie das Computer-BIOS auf **High Performance** mit deaktivierten C-Status fest. Beachten Sie jedoch, dass dies system- und BIOS-abhängig ist, und einige Systeme bieten eine höhere Leistung, wenn das Betriebssystem die Energieverwaltung steuert. Sie können Ihre Energie Verwaltungs Einstellungen über **Einstellungen** oder mithilfe des Befehls **powercfg** überprüfen und anpassen. Weitere Informationen finden Sie unter [powercfg-Befehlszeilenoptionen](/windows-hardware/design/device-experiences/powercfg-command-line-options).
 
 - Legen Sie das Energieverwaltungsprofil des Betriebssystems auf **Höchstleistung** fest.
    > [!NOTE]
@@ -219,8 +219,8 @@ Set-NetTCPSetting -AutoTuningLevelLocal <Value>
 
 Weitere Informationen zu diesen Cmdlets finden Sie in den folgenden Artikeln:
 
-- [Get-nettcpsetting](https://docs.microsoft.com/powershell/module/nettcpip/get-nettcpsetting?view=win10-ps)
-- [Set-nettcpsetting](https://docs.microsoft.com/powershell/module/nettcpip/set-nettcpsetting?view=win10-ps)
+- [Get-nettcpsetting](/powershell/module/nettcpip/get-nettcpsetting?view=win10-ps)
+- [Set-nettcpsetting](/powershell/module/nettcpip/set-nettcpsetting?view=win10-ps)
 
 #### <a name="autotuning-levels"></a>Automatische Optimierungs Stufen
 
@@ -376,6 +376,6 @@ Alle diese Einstellungen befinden sich im folgenden Registrierungs Unterschlüss
 Windows Vista und Windows Server 2008 haben die Windows-Filter Plattform (WFP) eingeführt. WFP stellt APIs für unabhängige Microsoft-Softwarehersteller (ISVs) zur Verfügung, um Paketverarbeitungs Filter zu erstellen. Zu Beispielen zählen Firewall- und Antivirensoftware.
 
 > [!NOTE]
-> Ein schlecht geschriebener WFP-Filter kann die Netzwerkleistung eines Servers erheblich verringern. Weitere Informationen finden Sie im Windows dev Center [unter Portieren von Paketen für die Paketverarbeitung und Apps auf WFP](https://docs.microsoft.com/windows-hardware/drivers/network/porting-packet-processing-drivers-and-apps-to-wfp) .
+> Ein schlecht geschriebener WFP-Filter kann die Netzwerkleistung eines Servers erheblich verringern. Weitere Informationen finden Sie im Windows dev Center [unter Portieren von Paketen für die Paketverarbeitung und Apps auf WFP](/windows-hardware/drivers/network/porting-packet-processing-drivers-and-apps-to-wfp) .
 
 Links zu allen Themen in diesem Handbuch finden Sie unter [Network Subsystem Performance Tuning](net-sub-performance-top.md).

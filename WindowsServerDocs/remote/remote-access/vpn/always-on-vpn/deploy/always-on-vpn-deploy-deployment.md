@@ -1,20 +1,18 @@
 ---
 title: Bereitstellen von Always On VPN
 description: Dieses Thema enthält ausführliche Anweisungen zum Bereitstellen von Always on-VPN in Windows Server 2016.
-ms.prod: windows-server
-ms.technology: networking-ras
 ms.topic: article
 ms.assetid: ad748de2-d175-47bf-b05f-707dc48692cf
 ms.localizationpriority: medium
 ms.date: 11/05/2018
 ms.author: v-tea
 author: Teresa-MOTIV
-ms.openlocfilehash: a8f4549b4c2755788366ecf3ff477ae9bbc85010
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 1ba1e31c743d986e777af26f9acee5ed8820515a
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86965552"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87958268"
 ---
 # <a name="deploy-always-on-vpn"></a>Bereitstellen von Always On VPN
 
@@ -23,7 +21,7 @@ ms.locfileid: "86965552"
 - [**Vorheriges:** Erfahren Sie mehr über die erweiterten Features für Always on-VPN](always-on-vpn-adv-options.md)
 - [**Weiter:** Schritt 1: Beginnen der Planung der Always on-VPN-Bereitstellung](always-on-vpn-deploy-planning.md)
 
-In diesem Abschnitt erfahren Sie mehr über den Workflow für die Bereitstellung von Always on-VPN-Verbindungen für in die Domäne eingebundenen Windows 10-Client Computern. Wenn Sie den **bedingten Zugriff konfigurieren** möchten, um zu optimieren, wie VPN-Benutzer auf Ihre Ressourcen zugreifen, finden Sie unter [bedingter Zugriff für VPN-Konnektivität mithilfe von Azure AD](../../ad-ca-vpn-connectivity-windows10.md)Weitere Informationen. Weitere Informationen zum bedingten Zugriff für VPN-Konnektivität mithilfe von Azure AD finden Sie unter [bedingter Zugriff in Azure Active Directory](/azure/active-directory/active-directory-conditional-access-azure-portal). 
+In diesem Abschnitt erfahren Sie mehr über den Workflow für die Bereitstellung von Always on-VPN-Verbindungen für in die Domäne eingebundenen Windows 10-Client Computern. Wenn Sie den **bedingten Zugriff konfigurieren** möchten, um zu optimieren, wie VPN-Benutzer auf Ihre Ressourcen zugreifen, finden Sie unter [bedingter Zugriff für VPN-Konnektivität mithilfe von Azure AD](../../ad-ca-vpn-connectivity-windows10.md)Weitere Informationen. Weitere Informationen zum bedingten Zugriff für VPN-Konnektivität mithilfe von Azure AD finden Sie unter [bedingter Zugriff in Azure Active Directory](/azure/active-directory/active-directory-conditional-access-azure-portal).
 
 Das folgende Diagramm veranschaulicht den Workflow Prozess für die verschiedenen Szenarien beim Bereitstellen Always on VPN:
 
@@ -69,7 +67,7 @@ Zum Konfigurieren von NPS müssen Sie die folgenden Aufgaben ausführen:
 
 ## <a name="step-5-configure-dns-and-firewall-settings-for-always-on-vpn"></a>[Schritt 5: Konfigurieren von DNS-und Firewalleinstellungen für Always on-VPN](vpn-deploy-dns-firewall.md)
 
-In diesem Schritt konfigurieren Sie DNS-und Firewalleinstellungen. Wenn Remote-VPN-Clients eine Verbindung herstellen, verwenden Sie die gleichen DNS-Server, die von den internen Clients verwendet werden. auf diese Weise können Namen auf die gleiche Weise wie die übrigen internen Arbeitsstationen aufgelöst werden. 
+In diesem Schritt konfigurieren Sie DNS-und Firewalleinstellungen. Wenn Remote-VPN-Clients eine Verbindung herstellen, verwenden Sie die gleichen DNS-Server, die von den internen Clients verwendet werden. auf diese Weise können Namen auf die gleiche Weise wie die übrigen internen Arbeitsstationen aufgelöst werden.
 
 ## <a name="step-6-configure-windows-10-client-always-on-vpn-connections"></a>[Schritt 6: Konfigurieren von Always On VPN-Verbindungen für den Windows 10-Client](vpn-deploy-client-vpn-connections.md)
 
@@ -81,4 +79,4 @@ In diesem optionalen Schritt können Sie optimieren, wie autorisierte VPN-Benutz
 
 ## <a name="next-step"></a>Nächster Schritt
 
-[Schritt 1: Planen Sie die Always on-VPN-Bereitstellung](always-on-vpn-deploy-planning.md): vor der Installation der RAS-Server Rolle auf dem Computer, den Sie als VPN-Server verwenden möchten. Nach der ordnungsgemäßen Planung können Sie Always on VPN bereitstellen und optional den bedingten Zugriff für VPN-Konnektivität mithilfe Azure AD konfigurieren.  
+[Schritt 1: Planen Sie die Always on-VPN-Bereitstellung](always-on-vpn-deploy-planning.md): vor der Installation der RAS-Server Rolle auf dem Computer, den Sie als VPN-Server verwenden möchten. Nach der ordnungsgemäßen Planung können Sie Always on VPN bereitstellen und optional den bedingten Zugriff für VPN-Konnektivität mithilfe Azure AD konfigurieren.

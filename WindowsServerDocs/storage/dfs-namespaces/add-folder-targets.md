@@ -1,19 +1,17 @@
 ---
 title: Hinzufügen von Ordnerzielen
 description: In diesem Thema wird beschrieben, wie Sie Ordner Ziele (UNC-Pfade) hinzufügen.
-ms.prod: windows-server
 ms.author: jgerend
 manager: brianlic
-ms.technology: storage
 ms.topic: article
 author: jasongerend
 ms-date: 06/05/2017
-ms.openlocfilehash: e5a81f2967953b985028407d53d6a039fd8990eb
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: bc229360a616e7fa56231e6211b4b909d45ec2de
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86961272"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87957818"
 ---
 # <a name="add-folder-targets"></a>Ordner Ziele hinzufügen
 
@@ -39,7 +37,7 @@ Gehen Sie folgendermaßen vor, um mithilfe der DFS-Verwaltung ein Ordner Ziel hi
 > [!NOTE]
 > Ordner können Ordner Ziele oder andere DFS-Ordner, aber nicht beides auf derselben Ebene in der Ordnerhierarchie enthalten.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Bereitstellen von DFS-Namespaces](deploying-dfs-namespaces.md)
 -   [Delegieren von Verwaltungsberechtigungen für DFS-Namespaces](delegate-management-permissions-for-dfs-namespaces.md)

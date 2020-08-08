@@ -1,20 +1,18 @@
 ---
 title: Authentifizierungsrichtlinie und Authentifizierungsrichtliniensilos
 description: Windows Server-Sicherheit
-ms.prod: windows-server
-ms.technology: security-credential-protection
 ms.topic: article
 ms.assetid: 7eb0e640-033d-49b5-ab44-3959395ad567
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 705cba94299572f02c12896e2dac0ec8c2d070c0
-ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
+ms.openlocfilehash: 0bca5a7e78a663c535e1d727339c6dd9eb50704b
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87520179"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87957918"
 ---
 # <a name="authentication-policies-and-authentication-policy-silos"></a>Authentifizierungsrichtlinie und Authentifizierungsrichtliniensilos
 
@@ -86,11 +84,11 @@ Die Richtlinien für die Active Directory-Objekte für Benutzer, Computer und Di
 
 |type|Anzeigename|BESCHREIBUNG|
 |----|--------|--------|
-|Policy|Authentifizierungsrichtlinie|Eine Instanz dieser Klasse definiert Authentifizierungsrichtlinienverhalten für die zugewiesenen Prinzipale.|
-|Policy|Authentifizierungsrichtlinien|Ein Container dieser Klasse kann Authentifizierungsrichtlinien-Objekte enthalten.|
-|Policy|Authentication Policy Enforced (Authentifizierungsrichtlinien erzwungen)|Gibt an, ob die Authentifizierungsrichtlinie erzwungen wird.<p>Wenn sie nicht erzwungen wird, dann ist für die Richtlinie standardmäßig der Überwachungsmodus aktiviert, und es werden Ereignisse zum Anzeigen potenzieller Erfolge oder Fehler generiert, aber keine Schutzmaßnahmen auf das System angewendet.|
-|Policy|Assigned Authentication Policy Backlink (Rückverweis für zugewiesene Authentifizierungsrichtlinie)|Dieses Attribut ist der Rückverweis für msDS-AssignedAuthNPolicy.|
-|Policy|Assigned Authentication Policy (Zugewiesene Authentifizierungsrichtlinie)|Gibt an, welches AuthNPolicy-Objekt auf diesen Prinzipal angewendet werden soll.|
+|Richtlinie|Authentifizierungsrichtlinie|Eine Instanz dieser Klasse definiert Authentifizierungsrichtlinienverhalten für die zugewiesenen Prinzipale.|
+|Richtlinie|Authentifizierungsrichtlinien|Ein Container dieser Klasse kann Authentifizierungsrichtlinien-Objekte enthalten.|
+|Richtlinie|Authentication Policy Enforced (Authentifizierungsrichtlinien erzwungen)|Gibt an, ob die Authentifizierungsrichtlinie erzwungen wird.<p>Wenn sie nicht erzwungen wird, dann ist für die Richtlinie standardmäßig der Überwachungsmodus aktiviert, und es werden Ereignisse zum Anzeigen potenzieller Erfolge oder Fehler generiert, aber keine Schutzmaßnahmen auf das System angewendet.|
+|Richtlinie|Assigned Authentication Policy Backlink (Rückverweis für zugewiesene Authentifizierungsrichtlinie)|Dieses Attribut ist der Rückverweis für msDS-AssignedAuthNPolicy.|
+|Richtlinie|Assigned Authentication Policy (Zugewiesene Authentifizierungsrichtlinie)|Gibt an, welches AuthNPolicy-Objekt auf diesen Prinzipal angewendet werden soll.|
 |Benutzer|User Authentication Policy (Benutzerauthentifizierungsrichtlinie)|Gibt an, welches AuthNPolicy-Objekt auf die Benutzer, die diesem Siloobjekt zugewiesen wurden, angewendet werden soll.|
 |Benutzer|User Authentication Policy Backlink (Rückverweis für Benutzerauthentifizierungsrichtlinie)|Dieses Attribut ist der Rückverweis für msDS-UserAuthNPolicy.|
 |Benutzer|ms-DS-User-Allowed-To-Authenticate-To|Mit diesem Attribut wird bestimmt, welcher Gruppe von Prinzipalen erlaubt wird, sich gegenüber einem Dienst, der unter dem Benutzerkonto ausgeführt wird, zu authentifizieren.|
@@ -236,7 +234,7 @@ Informationen zu Problembehandlungsschritten mit diesen Ereignissen finden Sie u
 |106<p>**AuthenticationPolicyFailures-DomainController**|Ursache: ein Kerberos-Einschränkungs Fehler tritt auf, weil der Benutzer oder das Gerät nicht für die Authentifizierung beim Server berechtigt war.<p>Auf dem Domänencontroller wird ein Ereignis protokolliert, das anzeigt, dass ein Kerberos-Dienstticket verweigert wurde, weil der Benutzer, das Gerät oder beide nicht die erzwungenen Zugriffssteuerungseinschränkungen erfüllen.<p>Zeigt den Gerätenamen, Richtliniennamen und Silonamen an.|
 |306<p>**AuthenticationPolicyFailures-DomainController**|Ursache: Möglicherweise tritt ein Kerberos-Einschränkungs Fehler auf, weil der Benutzer oder das Gerät nicht auf dem Server authentifiziert werden darf.<p>Im Überwachungsmodus wird auf dem Domänencontroller ein Ereignis protokolliert, das anzeigt, dass ein Kerberos-Dienstticket verweigert wurde, weil der Benutzer, das Gerät oder beide nicht die Zugriffssteuerungseinschränkungen erfüllen.<p>Zeigt den Gerätenamen, Richtliniennamen und Silonamen an.|
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 [Konfigurieren geschützter Konten](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/how-to-configure-protected-accounts)
 
 [Schutz und Verwaltung von Anmeldeinformationen](credentials-protection-and-management.md)

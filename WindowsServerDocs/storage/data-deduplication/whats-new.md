@@ -1,19 +1,17 @@
 ---
 ms.assetid: d11acbc2-40c6-4ab2-9514-2bc3ad81499a
 title: Neuigkeiten bei der Datendeduplizierung
-ms.technology: storage-deduplication
-ms.prod: windows-server
 ms.topic: article
 author: wmgries
 manager: klaasl
 ms.author: wgries
 ms.date: 04/17/2019
-ms.openlocfilehash: 1d75d0c25f17e76eba547c30e721f6ffa2b55adc
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 4db55ece9edbd261bad05d94f6bcca288c54109f
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86961282"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87957868"
 ---
 # <a name="whats-new-in-data-deduplication"></a>Neuigkeiten bei der Datendeduplizierung
 
@@ -23,13 +21,13 @@ Die [Datendeduplizierung](overview.md) in Windows Server wurde optimiert und ist
 
 Die Datendeduplizierung bietet die folgenden Verbesserungen in Windows Server 2019:
 
-| Funktionalität | Neu oder aktualisiert | Beschreibung |
+| Funktionalität | Neu oder aktualisiert | BESCHREIBUNG |
 |---------------|----------------|-------------|
 | Refs-Unterstützung  | Neu            | Speichern Sie bis zu 10 mal mehr Daten auf demselben Volume mit Deduplizierung und Komprimierung für das Refs-Dateisystem. (Es ist [nur ein Mausklick](https://www.youtube.com/watch?v=PRibTacyKko&feature=youtu.be) , um mit dem Windows Admin Center zu aktivieren.) Der Blockspeicher variabler Größe mit optionaler Komprimierung maximiert die Einsparungs Raten, während sich die nach Verarbeitungs Architektur mit mehreren Threads nur minimal auf die Leistung auswirkt. Von werden Volumes mit bis zu 64 TB unterstützt, und die ersten 4 TB der einzelnen Dateien werden dedupliziert.|
 
 Die Datendeduplizierung bietet die folgenden Verbesserungen ab Windows Server 2016:
 
-| Funktionalität | Neu oder aktualisiert | Beschreibung |
+| Funktionalität | Neu oder aktualisiert | BESCHREIBUNG |
 |---------------|----------------|-------------|
 | [Unterstützung für große Volumes](whats-new.md#large-volume-support) | Aktualisiert | Vor Windows Server 2016 musste die Größe der Volumes speziell für die erwartete Änderung konfiguriert werden, wobei Volumes mit über 10 TB keine geeigneten Kandidaten für die Deduplizierung waren. In Windows Server 2016 unterstützt die Datendeduplizierung Volumegrößen von bis zu 64 TB. |
 | [Unterstützung für große Dateien](whats-new.md#large-file-support) | Aktualisiert | Vor Windows Server 2016 waren Dateien mit einer Größe von knapp 1 TB keine geeigneten Kandidaten für die Deduplizierung. In Windows Server 2016 werden Dateien mit einer Größe von bis zu 1 TB vollständig unterstützt. |
@@ -39,12 +37,12 @@ Die Datendeduplizierung bietet die folgenden Verbesserungen ab Windows Server 20
 
 ## <a name="support-for-large-volumes"></a><a name="large-volume-support"></a>Unterstützung für große Volumes
 
-**Welchen Nutzen bietet diese Änderung?**  
+**Welchen Nutzen bietet diese Änderung?**
 Um eine maximale Leistung bei der Datendeduplizierung in Windows Server 2012 R2 zu erreichen, muss die Größe von Volumes ordnungsgemäß konfiguriert werden, damit der Optimierungsauftrag mit der Geschwindigkeit von Datenänderungen Schritt halten kann. Das bedeutet, dass typischerweise nur bei Volumes mit einer Größe von maximal 10 TB eine gute Leistung bei der Datendeduplizierung erreicht wird (abhängig von den Schreibmustern der Workload).
 
 In Windows Server 2016 bietet die Datendeduplizierung bei Volumes mit einer Größe von bis zu 64 TB eine hervorragende Leistung.
 
-**Worin bestehen die Unterschiede?**  
+**Worin bestehen die Unterschiede?**
 In Windows Server 2012 R2 verwendet die Datendeduplizierungs-Auftragspipeline eine Singlethread- und E/A-Warteschlange für jedes Volume. Um eine ausreichende Geschwindigkeit der Optimierungsaufträge sicherzustellen, damit die Speichergeschwindigkeit für das Volume insgesamt nicht sinkt, müssen große Datasets in kleinere Volumes unterteilt werden. Die geeignete Volumegröße hängt von dem erwarteten Änderungsumfang für dieses Volume ab. Der Höchstwert beträgt durchschnittlich etwa 6-7 TB für Volumes mit hohem Änderungsumfang und etwa 9-10 TB für Volumes mit niedrigem Änderungsumfang.
 
 In Windows Server 2016 wurde die Deduplizierungs-Auftragspipeline überarbeitet, um mithilfe mehrerer E/A-Warteschlangen für jedes Volume mehrere Threads parallel ausführen zu können. Dies führt zu Leistung, die bisher nur durch Aufteilen der Daten auf mehrere kleinere Volumes möglich war. Diese Änderung wird in der folgenden Abbildung dargestellt:
@@ -54,22 +52,22 @@ In Windows Server 2016 wurde die Deduplizierungs-Auftragspipeline überarbeitet,
 Diese Optimierungen gelten nicht nur für den Optimierungsauftrag, sondern für [alle Datendeduplizierungsaufträge](understand.md#job-info).
 
 ## <a name="support-for-large-files"></a><a name="large-file-support"></a>Unterstützung für große Dateien
-**Welchen Nutzen bietet diese Änderung?**  
+**Welchen Nutzen bietet diese Änderung?**
 In Windows Server 2012 R2 sind sehr große Dateien keine geeigneten Kandidaten für die Datendeduplizierung, da die Leistung der Deduplizierungs-Verarbeitungspipeline bei diesen Dateien sinkt. In Windows Server 2016 wird bei der Deduplizierung von Dateien mit einer Größe von bis zu 1 TB eine hervorragende Leistung erreicht, sodass Administratoren bei einer breiteren Palette von Workloads von der Deduplizierung profitieren können. Ein Beispiel ist die Deduplizierung von sehr großen Dateien, die normalerweise mit Sicherungsworkloads einhergehen.
 
-**Worin bestehen die Unterschiede?**  
+**Worin bestehen die Unterschiede?**
 In Windows Server 2016 werden bei der Datendeduplizierung neue Streamzuordnungsstrukturen sowie weitere „verdeckte“ Verbesserungen genutzt, um den Optimierungsdurchsatz und die Zugriffsleistung zu verbessern. Darüber hinaus kann die Deduplizierungs-Verarbeitungspipeline die Optimierung jetzt nach einem Failover fortsetzen (die Optimierung muss nicht neu gestartet werden). Durch diese Änderungen wird bei der Deduplizierung von Dateien mit einer Größe von bis zu 1 TB eine erstklassige Leistung erzielt.
 
 ## <a name="support-for-nano-server"></a><a name="nano-server-support"></a>Unterstützung für Nano Server
-**Welchen Nutzen bietet diese Änderung?**  
+**Welchen Nutzen bietet diese Änderung?**
 Nano Server ist eine neue monitorlose Bereitstellungsoption in Windows Server 2016 mit wesentlich geringerer Systemressourcennutzung und erheblich kürzerer Startzeit, für die weniger Updates und Neustarts erforderlich sind als bei der Windows Server Core-Bereitstellungsoption. Die Datendeduplizierung wird bei Nano Server vollständig unterstützt. Weitere Informationen zu Nano Server finden Sie unter [Getting Started with Nano Server](../../get-started/getting-started-with-nano-server.md) (Erste Schritte mit Nano Server).
 
 ## <a name=""></a><a name="simple-backup-support">Vereinfachte Konfiguration für virtualisierte Sicherungs Anwendungen</a>
-**Welchen Nutzen bietet diese Änderung?**  
+**Welchen Nutzen bietet diese Änderung?**
 Die Datendeduplizierung für virtualisierte Sicherungsanwendungen wird in Windows Server 2012 R2 unterstützt, die Deduplizierungseinstellungen müssen aber bei dieser Windows Server-Version manuell angepasst und optimiert werden. Die Konfiguration der Deduplizierung für virtualisierte Sicherungsanwendungen wurde in Windows Server 2016 stark vereinfacht. Beim Aktivieren der Deduplizierung für ein Volume wird eine vordefinierte Verwendungstypoption verwendet, vergleichbar mit den Optionen für allgemeine Dateiserver und VDI.
 
 ## <a name=""></a><a name="cluster-upgrade-support">Unterstützung für parallele Upgrades des Clusterbetriebssystems</a>
-**Welchen Nutzen bietet diese Änderung?**  
+**Welchen Nutzen bietet diese Änderung?**
 Windows Server-Failovercluster, auf denen die Datendeduplizierung ausgeführt wird, können über eine Kombination aus Knoten mit Windows Server 2012 R2-Versionen der Datendeduplizierung und Windows Server 2016-Versionen der Datendeduplizierung verfügen. Diese Verbesserung ermöglicht während eines parallelen Clusterupgrades vollen Datenzugriff auf alle deduplizierten Volumes, sodass der Rollout der neuen Datendeduplizierungsversion auf einem vorhandenen Windows Server 2012 R2-Cluster schrittweise erfolgen kann. Auf diese Weise lässt sich Downtime verhindern, da die Knoten nicht gleichzeitig, sondern nacheinander aktualisiert werden.
 
 **Worin bestehen die Unterschiede?**<br />

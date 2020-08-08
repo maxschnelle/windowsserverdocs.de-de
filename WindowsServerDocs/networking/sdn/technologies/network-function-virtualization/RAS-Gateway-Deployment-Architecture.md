@@ -6,12 +6,12 @@ ms.topic: get-started-article
 ms.assetid: d46e4e91-ece0-41da-a812-af8ab153edc4
 ms.author: anpaul
 author: AnirbanPaul
-ms.openlocfilehash: 0de90508ec3a7db2624047d23de47e79d9ea2a39
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: e15131291f14f8e7affc45d49f1b81e7c8b29ba7
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87952291"
+ms.locfileid: "87994759"
 ---
 # <a name="ras-gateway-deployment-architecture"></a>RAS-Gateway: Bereitstellungsarchitektur
 
@@ -91,7 +91,7 @@ Wenn Sie einen neuen Kunden Signieren und den Kunden als neuen Mandanten in Ihre
     > -   Nachdem der Netzwerk Controller ein RAS-Gateway und einen Weiterleitungs Reflektor für den Mandanten konfiguriert hat, überprüft der Netzwerk Controller immer dann, wenn der gleiche Mandant eine neue Standort-zu-Standort-VPN-Verbindung erfordert, die verfügbare Kapazität auf diesem virtuellen RAS-Gatewaycomputer Wenn das ursprüngliche Gateway die erforderliche Kapazität bedienen kann, wird die neue Netzwerkverbindung auch auf demselben virtuellen RAS-Gateway-Computer konfiguriert. Wenn die VM des RAS-Gateways keine zusätzliche Kapazität verarbeiten kann, wählt der Netzwerk Controller eine neue verfügbare RAS-Gateway-VM aus und konfiguriert die neue Verbindung darauf. Diese neue RAS-Gateway-VM, die dem Mandanten zugeordnet ist, wird zum Routen Reflektor-Client des ursprünglichen RAS-gatewayserverweiterleitungs-
     > -   Da sich RAS-gatewaypools hinter Software Lastenausgleich (slsb) befinden, die Site-to-Site-VPN-Adressen der Mandanten verwenden jeweils eine einzelne öffentliche IP-Adresse, die als virtuelle IP-Adresse (VIP) bezeichnet wird, die von den SLAs in eine interne IP-Adresse des Rechenzentrums übersetzt wird, die als dynamische IP-Adresse (DIP) bezeichnet wird, für ein RAS-Gateway, das den Datenverkehr für den Unternehmens Mandanten weiterleitet. Diese Zuordnung von "Public zu private IP Address" durch SLB stellt sicher, dass die Standort-zu-Standort-VPN-Tunnel zwischen den Unternehmensstandorten und den CSP-RAS-Gateways und Routen Reflektoren ordnungsgemäß eingerichtet werden.
     >
-    >     Weitere Informationen zu SLB, VIPs und Dips finden Sie unter [Software Load Balancing &#40;SLB&#41; for Sdn](../../../sdn/technologies/network-function-virtualization/Software-Load-Balancing--SLB--for-SDN.md).
+    >     Weitere Informationen zu SLB, VIPs und Dips finden Sie unter [Software Load Balancing &#40;SLB&#41; for Sdn](./software-load-balancing-for-sdn.md).
 
 5.  Nachdem der Standort-zu-Standort-VPN-Tunnel zwischen dem Unternehmens Standort und dem RAS-Gateway des CSP-Rechenzentrums für den neuen Mandanten eingerichtet wurde, werden die statischen Routen, die den Tunneln zugeordnet sind, automatisch sowohl auf der Unternehmensseite als auch auf der CSP-Seite des Tunnels bereitgestellt.
 
@@ -154,8 +154,3 @@ Wenn Ihr Mandant über mehrere Unternehmensstandorte verfügt, kann der Mandant 
 **Schnelle Behebung von gatewayfehlern**
 
 Um eine schnelle Failoverantwort zu gewährleisten, können Sie die BGP KeepAlive-Parameter Zeit zwischen den Edge-Routen und dem Steuerelement Router in einem kurzen Zeitintervall (z. b. kleiner oder gleich zehn Sekunden) konfigurieren. Wenn bei diesem kurzen Keep-Alive-Intervall ein RAS-Gateway-BGP-edgerrouter fehlschlägt, wird der Fehler schnell erkannt, und der Netzwerk Controller führt die in den vorherigen Abschnitten beschriebenen Schritte aus. Dieser Vorteil kann die Notwendigkeit eines separaten Protokolls zur Fehlererkennung, wie z. b. das BFD-Protokoll (bidirektionale Weiterleitungs Erkennung), verringern.
-
-
-
-
-

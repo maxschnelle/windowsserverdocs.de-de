@@ -7,12 +7,12 @@ ms.assetid: 3c62f533-1815-4f08-96b1-dc271f5a2b36
 ms.author: anpaul
 author: AnirbanPaul
 ms.date: 08/24/2018
-ms.openlocfilehash: 0b82128c703f5f3d1fe357beae90a15481232d5c
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 2ca1c308ee38726d02ef19ebdfa4c83086fef0a7
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87970777"
+ms.locfileid: "87995144"
 ---
 # <a name="create-a-vm-and-connect-to-a-tenant-virtual-network-or-vlan"></a>Erstellen eines virtuellen Computers und Verbinden mit einem virtuellen Mandantennetzwerk oder VLAN
 
@@ -31,9 +31,9 @@ Die Abschnitte in diesem Thema enthalten Beispiele für Windows PowerShell-Befeh
 
 2. Wenn für den virtuellen Computer beim Start Netzwerk Zugriff erforderlich ist, starten Sie den virtuellen Computer erst, nachdem Sie die Schnittstellen-ID auf dem VM-Netzwerkadapter Port festgelegt haben. Wenn Sie den virtuellen Computer vor dem Festlegen der Schnittstellen-ID starten und die Netzwerkschnittstelle nicht vorhanden ist, kann der virtuelle Computer nicht im Netzwerk im Netzwerk Controller kommunizieren, und alle Richtlinien werden angewendet.
 
-3. Wenn Sie benutzerdefinierte ACLs für diese Netzwerkschnittstelle benötigen, erstellen Sie die ACL jetzt mithilfe der Anweisungen im Thema [Verwenden von Access Control Listen (ACLs) zum Verwalten des Netzwerk Datenverkehrs für Daten Center](../../sdn/manage/Use-Access-Control-Lists--ACLs--to-Manage-Datacenter-Network-Traffic-Flow.md) .
+3. Wenn Sie benutzerdefinierte ACLs für diese Netzwerkschnittstelle benötigen, erstellen Sie die ACL jetzt mithilfe der Anweisungen im Thema [Verwenden von Access Control Listen (ACLs) zum Verwalten des Netzwerk Datenverkehrs für Daten Center](./use-acls-for-traffic-flow.md) .
 
-Stellen Sie sicher, dass Sie bereits eine Virtual Network erstellt haben, bevor Sie diesen Beispiel Befehl verwenden. Weitere Informationen finden Sie unter [erstellen, löschen oder Aktualisieren von virtuellen Mandanten Netzwerken](https://technet.microsoft.com/windows-server-docs/networking/sdn/manage/create%2c-delete%2c-or-update-tenant-virtual-networks).
+Stellen Sie sicher, dass Sie bereits eine Virtual Network erstellt haben, bevor Sie diesen Beispiel Befehl verwenden. Weitere Informationen finden Sie unter [erstellen, löschen oder Aktualisieren von virtuellen Mandanten Netzwerken](./create,-delete,-or-update-tenant-virtual-networks.md).
 
 ## <a name="create-a-vm-and-connect-to-a-virtual-network-by-using-the-windows-powershell-network-controller-cmdlets"></a>Erstellen eines virtuellen Computers und Herstellen einer Verbindung mit einem Virtual Network mithilfe der Windows PowerShell-Cmdlets für Netzwerk Controller
 
@@ -221,6 +221,3 @@ Sie haben erfolgreich einen virtuellen Computer erstellt, den virtuellen Compute
    ```
 
 Sie haben erfolgreich einen virtuellen Computer erstellt, den virtuellen Computer mit einem VLAN verbunden und den virtuellen Computer gestartet, damit er workerworkloads verarbeiten kann.
-
-
-

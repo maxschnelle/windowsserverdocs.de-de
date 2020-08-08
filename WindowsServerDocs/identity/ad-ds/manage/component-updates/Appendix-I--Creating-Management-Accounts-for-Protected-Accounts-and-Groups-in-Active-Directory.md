@@ -6,12 +6,12 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: 7f8624b23a746eed5df9ab55c7c01d0dfbd9cb0f
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 944e71b546f6e5a7484f533b5c6dc86840484e46
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87943859"
+ms.locfileid: "87994915"
 ---
 # <a name="appendix-i-creating-management-accounts-for-protected-accounts-and-groups-in-active-directory"></a>Anhang I: Erstellen von Verwaltungskonten für geschützte Konten und Gruppen in Active Directory
 
@@ -141,7 +141,7 @@ Führen Sie die folgenden Schritte aus, um die Verwaltungs Konten zu erstellen:
    >
    > Obwohl das Implementieren von sichereren Verschlüsselungstypen für die Hosts keine Angriffe auf Diebstahl von Anmelde Informationen durchführt, erfolgt die geeignete Verwendung und Konfiguration der sicheren Hosts. Das Festlegen stärkerer Verschlüsselungstypen für Hosts, die nur von privilegierten Konten verwendet werden, reduziert einfach die Gesamt Angriffsfläche der Computer.
    >
-   > Weitere Informationen zum Konfigurieren von Verschlüsselungstypen für Systeme und Konten finden Sie [unter Windows-Konfigurationen für den von Kerberos unterstützten Verschlüsselungstyp](https://blogs.msdn.com/b/openspecification/archive/2011/05/31/windows-configurations-for-kerberos-supported-encryption-type.aspx).
+   > Weitere Informationen zum Konfigurieren von Verschlüsselungstypen für Systeme und Konten finden Sie [unter Windows-Konfigurationen für den von Kerberos unterstützten Verschlüsselungstyp](/archive/blogs/openspecification/windows-configurations-for-kerberos-supported-encryption-type).
    >
    > Diese Einstellungen werden nur auf Computern unterstützt, auf denen Windows Server 2012, Windows Server 2008 R2, Windows 8 oder Windows 7 ausgeführt wird.
 

@@ -2,18 +2,16 @@
 title: Hinzufügen von Namespaceservern zu einem domänenbasierten DFS-Namespace
 description: In diesem Artikel wird beschrieben, wie Sie zusätzliche Namespace Server angeben, um einen Namespace mithilfe der DFS-Verwaltung zu hosten.
 ms.date: 6/5/2017
-ms.prod: windows-server
-ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: f00a6419bae1951a7c1597212d3c37676a4db90e
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: ada742f53435b8b3894fc1a19eee4dd69d3777d6
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86961252"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87957808"
 ---
 # <a name="add-namespace-servers-to-a-domain-based-dfs-namespace"></a>Hinzufügen von Namespace Servern zu einem domänenbasierten DFS-Namespace
 
@@ -38,7 +36,7 @@ Zum Hinzufügen eines Namespace Servers zu einem domänenbasierten Namespace mit
 > [!TIP]
 > Verwenden Sie zum Hinzufügen eines Namespace Servers mithilfe von Windows PowerShell das [Cmdlet New-dfsnroottarget](/powershell/module/dfsn/new-dfsnroottarget). Das DFSN-Windows PowerShell-Modul wurde in Windows Server 2012 eingeführt.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Bereitstellen von DFS-Namespaces](deploying-dfs-namespaces.md)
 -   [Überprüfen der Server Anforderungen für DFS-Namespaces](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753448(v=ws.11))

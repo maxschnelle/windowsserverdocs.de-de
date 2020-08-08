@@ -6,12 +6,12 @@ author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 08/09/2018
 ms.topic: article
-ms.openlocfilehash: f4c4cfa0fe56acc19f1a78a5b1140d90b585cce5
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: ae0aa44dba50c467dd1bd2423e9eb67104387cd3
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87953309"
+ms.locfileid: "87994490"
 ---
 # <a name="upgrade-domain-controllers-to-windows-server-2012-r2-and-windows-server-2012"></a>Aktualisieren von Domänencontrollern auf Windows Server 2012 R2 und Windows Server 2012
 
@@ -55,7 +55,7 @@ Schritt-für-Schritt-Anleitungen zum Heraufstufen von Windows Server 2012-Domän
 - [Installieren eines Windows Server 2012-Domänencontrollerreplikats in einer vorhandenen Domäne (Stufe 200)](./install-a-replica-windows-server-2012-domain-controller-in-an-existing-domain--level-200-.md)
 - [Installieren einer neuen untergeordneten oder Active Directory-Gesamtstrukturdomäne in Windows Server 2012 (Stufe 200)](./install-a-new-windows-server-2012-active-directory-child-or-tree-domain--level-200-.md)
 - [Installieren eines schreibgeschützten Domänencontrollers (RODC) in Windows Server 2012 (Stufe 200)](./rodc/install-a-windows-server-2012-active-directory-read-only-domain-controller--rodc---level-200-.md)
-- [Windows Server 2012-Forum zu Domänen Controllern](https://docs.microsoft.com/answers/topics/windows-server-2012.html)
+- [Windows Server 2012-Forum zu Domänen Controllern](/answers/topics/windows-server-2012.html)
 
 ## <a name="windows-update-considerations"></a>Überlegungen zu Windows Update
 
@@ -175,7 +175,7 @@ Die Mindestsystemanforderungen für Windows Server 2012 sind in der folgenden Ta
 
 In diesem Abschnitt werden nur die Speicherplatzanforderungen für Upgrades von Domänen Controllern von Windows Server 2008 oder Windows Server 2008 R2 behandelt. Weitere Informationen zu den Speicherplatzanforderungen für Upgrades von Domänencontrollern auf frühere Versionen von Windows Server finden Sie unter [Disk space requirements for upgrading to Windows Server 2008](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754463(v=ws.10)#BKMK_2008) oder [Disk space requirements for upgrading to Windows Server 2008 R2](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754463(v=ws.10)#BKMK_2008R2).
 
-Bemessen Sie den Datenträger, auf dem die Active Directory-Datenbank und die Protokolldateien gehostet werden, so, dass genügend Platz für benutzerdefinierte und anwendungsgesteuerte Schemaerweiterungen und für von Anwendungen und Administratoren initiierte Indizes vorhanden ist. Berücksichtigen Sie auch den Platz für die Objekte und Attribute, die dem Verzeichnis im Laufe der Bereitstellungslebensdauer des Domänencontrollers (normalerweise 5 bis 8 Jahre) hinzugefügt werden. Die richtige Bemessung zur Bereitstellungszeit ist meist eine gute Investition gegenüber den höheren Kosten, die für die Erweiterung des Datenträgerspeichers nach der Bereitstellung anfallen. Weitere Informationen finden Sie unter [Capacity Planning for Active Directory Domain Services](https://docs.microsoft.com/windows-server/administration/performance-tuning/role/active-directory-server/capacity-planning-for-active-directory-domain-services).
+Bemessen Sie den Datenträger, auf dem die Active Directory-Datenbank und die Protokolldateien gehostet werden, so, dass genügend Platz für benutzerdefinierte und anwendungsgesteuerte Schemaerweiterungen und für von Anwendungen und Administratoren initiierte Indizes vorhanden ist. Berücksichtigen Sie auch den Platz für die Objekte und Attribute, die dem Verzeichnis im Laufe der Bereitstellungslebensdauer des Domänencontrollers (normalerweise 5 bis 8 Jahre) hinzugefügt werden. Die richtige Bemessung zur Bereitstellungszeit ist meist eine gute Investition gegenüber den höheren Kosten, die für die Erweiterung des Datenträgerspeichers nach der Bereitstellung anfallen. Weitere Informationen finden Sie unter [Capacity Planning for Active Directory Domain Services](../../../administration/performance-tuning/role/active-directory-server/capacity-planning-for-active-directory-domain-services.md).
 
 Stellen Sie auf Domänencontrollern, für die Sie ein Upgrade ausführen möchten, sicher, dass auf dem zum Hosten der Active Directory-Datenbank (NTDS.DIT) verwendeten Laufwerk mindestens eine Speicherplatzmenge frei ist, die 20 % der Dateigröße von NTDS.DIT entspricht, bevor Sie das Betriebssystemupgrade starten. Wenn auf dem Datenträger kein ausreichender Speicherplatz verfügbar ist, kann das Upgrade fehlschlagen, und der Upgradekompatibilitätsbericht gibt einen Fehler mit dem Hinweis zurück, dass nicht genügend freier Speicherplatz vorhanden ist:
 

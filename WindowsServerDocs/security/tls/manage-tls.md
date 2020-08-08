@@ -6,12 +6,12 @@ author: justinha
 ms.author: justinha
 manager: brianlic
 ms.date: 05/16/2018
-ms.openlocfilehash: 30ab0547fd538eec3f50120a5d536eb9a48de54b
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 8f5f18452c158b2e1c8d14173d80193465ead17f
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87971287"
+ms.locfileid: "87994793"
 ---
 # <a name="manage-transport-layer-security-tls"></a>Verwalten von TLS (Transport Layer Security)
 
@@ -19,10 +19,10 @@ ms.locfileid: "87971287"
 
 ## <a name="configuring-tls-cipher-suite-order"></a>Konfigurieren der Reihenfolge der TLS-Verschlüsselungs Sammlungen
 
-Unterschiedliche Windows-Versionen unterstützen verschiedene TLS-Verschlüsselungs Sammlungen und Prioritäts Reihenfolge. Weitere Informationen finden Sie unter Verschlüsselungs Sammlungen [in TLS/SSL (Schannel SSP)](https://docs.microsoft.com/windows/win32/secauthn/cipher-suites-in-schannel) für die Standard Reihenfolge, die vom Microsoft SChannel-Anbieter in verschiedenen Windows-Versionen unterstützt wird.
+Unterschiedliche Windows-Versionen unterstützen verschiedene TLS-Verschlüsselungs Sammlungen und Prioritäts Reihenfolge. Weitere Informationen finden Sie unter Verschlüsselungs Sammlungen [in TLS/SSL (Schannel SSP)](/windows/win32/secauthn/cipher-suites-in-schannel) für die Standard Reihenfolge, die vom Microsoft SChannel-Anbieter in verschiedenen Windows-Versionen unterstützt wird.
 
 > [!NOTE]
-> Sie können auch die Liste der Verschlüsselungs Sammlungen mithilfe von CNG-Funktionen ändern. Weitere Informationen finden Sie unter [Priorisieren von SChannel Chiffre Suites](https://docs.microsoft.com/windows/win32/secauthn/prioritizing-schannel-cipher-suites) .
+> Sie können auch die Liste der Verschlüsselungs Sammlungen mithilfe von CNG-Funktionen ändern. Weitere Informationen finden Sie unter [Priorisieren von SChannel Chiffre Suites](/windows/win32/secauthn/prioritizing-schannel-cipher-suites) .
 
 Änderungen an der Reihenfolge der TLS-Verschlüsselungs Sammlungen werden beim nächsten Start wirksam. Bis zum Neustart oder zum Herunterfahren wird die vorhandene Bestellung wirksam.
 
@@ -52,11 +52,11 @@ Sie können die Reihenfolge Gruppenrichtlinie Einstellungen der SSL-Verschlüsse
 
 ### <a name="configuring-tls-cipher-suite-order-by-using-mdm"></a>Konfigurieren der Reihenfolge der TLS-Verschlüsselungs Sammlungen mithilfe von MDM
 
-Der Windows 10 Policy CSP unterstützt die Konfiguration der TLS-Verschlüsselungs Sammlungen. Weitere Informationen finden Sie unter [Cryptography/tlsciphersuites](https://docs.microsoft.com/windows/client-management/mdm/policy-csp-cryptography#cryptography-tlsciphersuites) .
+Der Windows 10 Policy CSP unterstützt die Konfiguration der TLS-Verschlüsselungs Sammlungen. Weitere Informationen finden Sie unter [Cryptography/tlsciphersuites](/windows/client-management/mdm/policy-csp-cryptography#cryptography-tlsciphersuites) .
 
 ### <a name="configuring-tls-cipher-suite-order-by-using-tls-powershell-cmdlets"></a>Konfigurieren der Reihenfolge der TLS-Verschlüsselungs Sammlungen mithilfe von TLS-PowerShell-Cmdlets
 
-Das TLS-PowerShell-Modul unterstützt das erhalten der geordneten Liste von TLS-Verschlüsselungs Sammlungen, das Deaktivieren einer Verschlüsselungs Sammlung und das Aktivieren einer Verschlüsselungs Sammlung. Weitere Informationen finden Sie unter [TLS-Modul](https://docs.microsoft.com/powershell/module/tls/?view=win10-ps) .
+Das TLS-PowerShell-Modul unterstützt das erhalten der geordneten Liste von TLS-Verschlüsselungs Sammlungen, das Deaktivieren einer Verschlüsselungs Sammlung und das Aktivieren einer Verschlüsselungs Sammlung. Weitere Informationen finden Sie unter [TLS-Modul](/powershell/module/tls/?view=win10-ps) .
 
 ## <a name="configuring-tls-ecc-curve-order"></a>Konfigurieren der TLS ECC-Kurven Reihenfolge
 
@@ -136,4 +136,3 @@ Neue Kurven Prioritäts Listen werden beim nächsten Neustart nach dem Empfang d
 ![Kurven der GPP-Verteilung](../media/Transport-Layer-Security-protocol/gp-managing-tls-curve-priority-order.png)
 
 *Abbildung 4 Verwalten der TLS-Kurven Priorität mithilfe Gruppenrichtlinie*
-

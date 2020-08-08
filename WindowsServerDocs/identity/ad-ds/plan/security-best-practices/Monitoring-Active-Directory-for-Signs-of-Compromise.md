@@ -6,20 +6,18 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server
-ms.technology: identity-adds
-ms.openlocfilehash: b4031ce1d9a5bce4f0dd8fe98dea304b2373c2ae
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: 8b28d412411336062187a842912b6f4a41957eba
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87181826"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87994345"
 ---
 # <a name="monitoring-active-directory-for-signs-of-compromise"></a>Überwachen von Active Directory auf Anzeichen für einen Kompromiss
 
 >Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-*Gesetzes Nummer fünf: die ewige Wachsamkeit ist der Preis der Sicherheit.* - [10 unveränderliche Gesetze der Sicherheitsverwaltung](/previous-versions//cc722488(v=technet.10))
+*Gesetzes Nummer fünf: die ewige Wachsamkeit ist der Preis der Sicherheit.* - [10 unveränderliche Gesetze der Sicherheitsverwaltung](/previous-versions/cc722488(v=technet.10))
 
 Ein Solid-Ereignisprotokoll-Überwachungssystem ist ein wichtiger Bestandteil jedes sicheren Active Directory Entwurfs. Viele Computer Sicherheits Kompromisse könnten frühzeitig erkannt werden, wenn die Opfer die entsprechende Überwachung und Warnungen für das Ereignisprotokoll erlassen haben. Diese Schlussfolgerung wird von unabhängigen Berichten lange unterstützt. Beispielsweise gibt der [2009 Verizon-Daten Verletzungs Bericht](http://www.verizonbusiness.com/resources/security/reports/2009_databreach_rp.pdf) Folgendes an:
 
@@ -197,7 +195,7 @@ Diese Unterkategorie meldet ausführliche Informationen zu den Informationen, di
 
 #### <a name="logonlogoff"></a>Anmeldung/Abmeldung
 
-##### <a name="logon"></a>Anmeldung
+##### <a name="logon"></a>Anmelden
 Diese Unterkategorie meldet, wenn ein Benutzer versucht, sich am System anzumelden. Diese Ereignisse erfolgen auf dem Computer, auf den zugegriffen wird. Bei interaktiven Anmeldungen tritt die Generierung dieser Ereignisse auf dem Computer auf, der bei angemeldet ist. Wenn für den Zugriff auf eine Freigabe eine Netzwerk Anmeldung erfolgt, werden diese Ereignisse auf dem Computer generiert, der die Ressource hostet, auf die zugegriffen wird. Wenn diese Einstellung auf **keine**Überwachung konfiguriert ist, ist es schwierig oder unmöglich, zu ermitteln, auf welchen Benutzer zugegriffen wurde oder ob er auf Organisations Computer zugegriffen hat.
 
 ##### <a name="network-policy-server"></a>Netzwerkrichtlinienserver

@@ -1,23 +1,21 @@
 ---
 title: Aktivieren des Banner zum Ermitteln der Erweiterung
 description: Aktivieren des Banner zum Ermitteln der Erweiterung
-ms.technology: manage
 ms.topic: article
 author: daniellee-msft
 ms.author: jol
 ms.date: 06/06/2019
 ms.localizationpriority: medium
-ms.prod: windows-server
-ms.openlocfilehash: f51070abfeed3a790055b12f733fc61be383472c
-ms.sourcegitcommit: 20d07170c7f3094c2fb4455f54b13ec4b102f2d7
+ms.openlocfilehash: ef08eec08b43f83121bc94abc46a5f657556db65
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81269257"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87945022"
 ---
 # <a name="enabling-the-extension-discovery-banner"></a>Aktivieren des Banner zum Ermitteln der Erweiterung
 
->Gilt für: Windows Admin Center, Windows Admin Center Vorschau
+>Gilt für: Windows Admin Center, Windows Admin Center-Vorschau
 
 Das Erweiterungs Ermittlungs Banner-Feature wurde in der Version Windows Admin Center Preview 1903 eingeführt. Diese Funktion ermöglicht einer Erweiterung das Deklarieren des Server Hardwareherstellers und der von ihr unterstützten Modelle. Wenn ein Benutzer eine Verbindung mit einem Server oder Cluster herstellt, für den eine Erweiterung verfügbar ist, wird ein Benachrichtigungs Banner angezeigt, um die Erweiterung zu installieren. Erweiterungs Entwickler können eine höhere Sichtbarkeit für Ihre Erweiterungen erzielen, und Benutzer können auf einfache Weise weitere Verwaltungsfunktionen für Ihre Server ermitteln.
 
@@ -29,13 +27,13 @@ Wenn das Windows Admin Center gestartet wird, stellt es eine Verbindung mit den 
 
 ## <a name="how-to-implement-the-extension-discovery-banner"></a>So implementieren Sie das Banner für die Erweiterungs Ermittlung
 
-Die "Tags"-Metadaten in der nuspec-Datei werden verwendet, um die von der Erweiterung unterstützten Hardwarehersteller und/oder Modelle zu deklarieren. Tags werden durch Leerzeichen getrennt, und Sie können entweder einen Hersteller oder ein modelltag oder beides hinzufügen, um den unterstützten Hersteller und/oder die unterstützten Modelle zu deklarieren. Das Tagformat ist ``"[value type]_[value condition]"``, wobei [Werttyp] entweder "Hersteller" oder "Modell" (Groß-/Kleinschreibung beachten) und [Wert Bedingung] ein [regulärer JavaScript-Ausdruck](https://developer.mozilla.org/docs/Web/JavaScript/Guide/Regular_Expressions) ist, der die Hersteller-oder Modell Zeichenfolge definiert, und [Werttyp] und [Wert Bedingung] durch einen Unterstrich voneinander getrennt sind. Diese Zeichenfolge wird dann mithilfe der URI-Codierung codiert und zur nuspec-Metadatenzeichenfolge "Tags" hinzugefügt.
+Die "Tags"-Metadaten in der nuspec-Datei werden verwendet, um die von der Erweiterung unterstützten Hardwarehersteller und/oder Modelle zu deklarieren. Tags werden durch Leerzeichen getrennt, und Sie können entweder einen Hersteller oder ein modelltag oder beides hinzufügen, um den unterstützten Hersteller und/oder die unterstützten Modelle zu deklarieren. Das Tagformat ist ``"[value type]_[value condition]"`` , wobei [Werttyp] entweder ' Hersteller ' oder ' Model ' (Groß-/Kleinschreibung beachten) und [value Condition] ein [regulärer JavaScript-Ausdruck](https://developer.mozilla.org/docs/Web/JavaScript/Guide/Regular_Expressions) ist, der den Hersteller oder die Modell Zeichenfolge definiert, und [Werttyp] und [value Condition] durch einen Unterstrich voneinander getrennt sind. Diese Zeichenfolge wird dann mithilfe der URI-Codierung codiert und zur nuspec-Metadatenzeichenfolge "Tags" hinzugefügt.
 
 ### <a name="example"></a>Beispiel
 
 Nehmen wir an, ich habe eine Erweiterung entwickelt, die Server von einem Unternehmen mit dem Namen "Configuration Manager" mit dem Modellnamen "R3xx" und "R4xx" unterstützt.
 
-1. Das Tag für den Hersteller wird ``"Manufacturer_/Contoso Inc./"``. Das Tag für die Modelle kann ``"Model_/^R[34][0-9]{2}$/"``werden. Abhängig davon, wie genau die Übereinstimmungs Bedingung definiert werden soll, gibt es verschiedene Möglichkeiten zum Definieren des regulären Ausdrucks. Sie können auch die Hersteller-oder Modell Tags in mehrere Tags aufteilen, beispielsweise könnte auch das modelltag ``"Model_/R3../ Model_/R4../"``werden.
+1. Das Tag für den Hersteller wäre ``"Manufacturer_/Contoso Inc./"`` . Das-Tag für die Modelle kann sein ``"Model_/^R[34][0-9]{2}$/"`` . Abhängig davon, wie genau die Übereinstimmungs Bedingung definiert werden soll, gibt es verschiedene Möglichkeiten zum Definieren des regulären Ausdrucks. Sie können auch die Hersteller-oder Modell Tags in mehrere Tags aufteilen, beispielsweise könnte auch das modelltag lauten ``"Model_/R3../ Model_/R4../"`` .
 2. Sie können den regulären Ausdruck mit der devtools-Konsole Ihres Webbrowsers testen. Drücken Sie in Edge oder Chrome F12, um das devtools-Fenster zu öffnen, und geben Sie auf der Registerkarte Konsole Folgendes ein, und drücken Sie die EINGABETASTE:
 
    ```javascript

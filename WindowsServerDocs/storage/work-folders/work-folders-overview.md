@@ -7,12 +7,12 @@ manager: dougkim
 ms.author: jgerend
 ms.date: 06/15/2020
 description: 'Eine Übersicht über Arbeitsordner: eine Server Rolle in Windows Server, die Benutzern eine konsistente Möglichkeit bietet, auf Arbeitsdateien von PCs und Geräten zuzugreifen.'
-ms.openlocfilehash: 5641ea38a75e79420a5e697c14c0e4e3422aa913
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: adc03d9bcb4289896b996984ebb53b185008f3fb
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87970067"
+ms.locfileid: "87994109"
 ---
 # <a name="work-folders-overview"></a>Übersicht über Arbeitsordner
 
@@ -170,5 +170,5 @@ Weitere Informationen zu den ersten Schritten mit virtuellen Windows Azure-Compu
 | **Bereitstellung** | -   [Entwerfen einer Arbeitsordner Implementierung](plan-work-folders.md)<br />-   [Bereitstellen von Arbeits Ordnern](deploy-work-folders.md)<br />-   [Bereitstellen von Arbeits Ordnern mit AD FS und webanwendungsproxy (WAP)](deploy-work-folders-adfs-overview.md)<br />-   [Bereitstellen von Arbeits Ordnern mit Azure AD Anwendungs Proxy](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB)<br />- [Migrations Handbuch für Offlinedateien (CSC) zu Arbeits Ordnern](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB)<br />-   [Überlegungen zur Leistung von Arbeitsordner Bereitstellungen](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB)<br />-   [Arbeitsordner für Windows 7 (64-Bit-Download)](https://www.microsoft.com/download/details.aspx?id=42558)<br />-   [Arbeitsordner für Windows 7 (32-Bit-Download)](https://www.microsoft.com/download/details.aspx?id=42559) |
 | **Vorgänge** | -   [Arbeitsordner iPad-App: FAQ](https://windows.microsoft.com/windows/work-folders-ipad-faq) (für Benutzer)<br />-   [Arbeitsordner-Zertifikat Verwaltung](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB) (Blogbeitrag)<br />-   Über [Wachen von Windows Server 2012 R2-Arbeitsordner Bereitstellungen](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB) (Blogbeitrag)<br />-   [Cmdlets für syncshare (Arbeitsordner) in Windows PowerShell](/powershell/module/syncshare/?view=win10-ps)<br />-   [Speicher-und Dateidienste PowerShell-Cmdlets kurz Referenzkarte für Windows Server 2012 R2 Preview Edition](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB) |
 | **Problembehandlung** | -   [Windows Server 2012 R2 – Auflösen von Port Konflikten mit IIS-Websites und Arbeits Ordnern](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB) (Blogbeitrag)<br />-   [Häufige Fehler in Arbeits Ordnern](https://techcommunity.microsoft.com/t5/storage-at-microsoft/troubleshooting-work-folders-on-windows-client/ba-p/425627) |
-| **Communityressourcen** | -   [Forum zu Datei Diensten und Speicher](https://docs.microsoft.com/answers/topics/windows-server-storage.html)<br />-   [Das Speicher Team im Microsoft-Datei CAB-Blog](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB)<br />-   [Fragen Sie den Verzeichnisdienste-Teamblog](/archive/blogs/askds/) |
+| **Communityressourcen** | -   [Forum zu Datei Diensten und Speicher](/answers/topics/windows-server-storage.html)<br />-   [Das Speicher Team im Microsoft-Datei CAB-Blog](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB)<br />-   [Fragen Sie den Verzeichnisdienste-Teamblog](/archive/blogs/askds/) |
 | **Verwandte Technologien** | -   [Speicherung in Windows Server 2016](../storage.yml)<br>-   [Datei-und Speicherdienste](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831487(v=ws.11))<br />-   [Datei Server Ressourcen-Manager](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831701(v=ws.11))<br />-   [Ordner Umleitung, Offlinedateien und Roamingbenutzerprofile](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh848267(v=ws.11))<br />-   [BranchCache](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831696(v=ws.11))<br />-   [DFS-Namespaces und-DFS-Replikation](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj127250(v=ws.11)) |

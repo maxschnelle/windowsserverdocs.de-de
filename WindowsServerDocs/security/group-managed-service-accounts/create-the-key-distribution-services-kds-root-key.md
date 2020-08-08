@@ -7,12 +7,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 90fa1203f09bc04b27885034895e52db5fa1c5f0
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: b90ea772874c2a5731e03f4bcbc44de6efc34a20
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87971487"
+ms.locfileid: "87995037"
 ---
 # <a name="create-the-key-distribution-services-kds-root-key"></a>Erstellen des KDS-Stammschlüssels
 
@@ -25,7 +25,7 @@ Domänen Controller erfordern einen Stamm Schlüssel, um mit dem Erstellen von G
 > [!NOTE]
 > Das Löschen und erneute Erstellen des Stamm Schlüssels kann zu Problemen führen, bei denen der alte Schlüssel nach dem Löschen weiterhin verwendet wird, da der Schlüssel zwischengespeichert wird. Der Schlüssel Verteilungsdienst (Key Distribution Service, KDC) sollte auf allen Domänen Controllern neu gestartet werden, wenn der Stamm Schlüssel neu erstellt wird.
 
-Sie müssen mindestens Mitglied der Gruppe **Domänen-Admins**, **Organisations-Admins** oder einer entsprechenden Gruppe sein, damit Sie dieses Verfahren ausführen können. Detaillierte Informationen zu den geeigneten Konten und Gruppenmitgliedschaften finden Sie unter [Lokale und Domänenstandardgruppen](https://technet.microsoft.com/library/dd728026(WS.10).aspx).
+Sie müssen mindestens Mitglied der Gruppe **Domänen-Admins**, **Organisations-Admins** oder einer entsprechenden Gruppe sein, damit Sie dieses Verfahren ausführen können. Detaillierte Informationen zu den geeigneten Konten und Gruppenmitgliedschaften finden Sie unter [Lokale und Domänenstandardgruppen](/previous-versions/orphan-topics/ws.10/dd728026(v=ws.10)).
 
 > [!NOTE]
 > Zum Ausführen der Windows PowerShell-Befehle ist eine 64-Bit-Architektur erforderlich, die zum Verwalten von gruppenverwalteten Dienstkonten (group Managed Service Accounts, gMSA) verwendet werden.
@@ -61,5 +61,3 @@ Für Testumgebungen mit nur einem Domänencontroller können Sie einen KDS-Stamm
 
 ## <a name="see-also"></a>Weitere Informationen
 [Die ersten Schritte mit Gruppen verwalteten Dienst Konten](getting-started-with-group-managed-service-accounts.md)
-
-

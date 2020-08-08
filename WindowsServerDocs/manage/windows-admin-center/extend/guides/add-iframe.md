@@ -1,23 +1,21 @@
 ---
-title: Hinzufügen eines iFrames zu einer Tool-Erweiterung
+title: Hinzufügen eines iFrames zu einer Toolerweiterung
 description: 'Entwickeln einer Tool Erweiterung Windows Admin Center SDK (Project Honolulu): Hinzufügen eines IFRAMEs zu einer Tool Erweiterung'
-ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
 ms.author: niwashbu
 ms.date: 09/18/2018
 ms.localizationpriority: medium
-ms.prod: windows-server
-ms.openlocfilehash: 0833b2fd92f2bf4b512120783bb71295a3112745
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: da145d4ef3a58af51846d395081fb643af7c78ac
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406898"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87945107"
 ---
-# <a name="add-an-iframe-to-a-tool-extension"></a>Hinzufügen eines iFrames zu einer Tool-Erweiterung
+# <a name="add-an-iframe-to-a-tool-extension"></a>Hinzufügen eines iFrames zu einer Toolerweiterung
 
->Gilt für: Windows Admin Center, Windows Admin Center Vorschau
+>Gilt für: Windows Admin Center, Windows Admin Center-Vorschau
 
 In diesem Artikel wird ein IFRAME zu einer neuen, leeren Tool Erweiterung hinzugefügt, die mit der Windows Admin Center CLI erstellt wurde.
 
@@ -27,18 +25,18 @@ Wenn Sie dies noch nicht getan haben, befolgen Sie die Anweisungen unter [Entwic
 
 ## <a name="add-a-module-to-your-project"></a>Hinzufügen eines Moduls zum Projekt ##
 
-Fügen Sie dem Projekt ein neues [leeres Modul](add-module.md) hinzu, dem im nächsten Schritt ein IFRAME hinzugefügt wird.  
+Fügen Sie dem Projekt ein neues [leeres Modul](add-module.md) hinzu, dem im nächsten Schritt ein IFRAME hinzugefügt wird.
 
 ## <a name="add-an-iframe-to-your-module"></a>Hinzufügen eines IFRAMEs zum Modul ##
 
 Nun fügen wir diesem neuen, leeren Modul, das wir soeben erstellt haben, ein IFRAME hinzu.
 
-Navigieren Sie in \src\app\, in den Modul Ordner, und öffnen Sie dann die Datei ```{!module-name}.component.html```mit der folgenden Benennungs Konvention:
+Navigieren Sie in \src\app \, zum Ordner "Module", und öffnen Sie dann ```{!module-name}.component.html``` die Datei mit der folgenden Benennungs Konvention:
 
-| Wert | Erläuterung | Beispiel-Dateiname |
+| Wert | Erklärung | Beispiel Dateiname |
 | ----- | ----------- | ------- |
-| ```{!module-name}``` | Ihre Modulnamen (Kleinbuchstabe, Leerzeichen ersetzt, die mit Bindestrichen) | ```manage-foo-works-portal.component.html``` |
-    
+| ```{!module-name}``` | Der Modulname (in Kleinbuchstaben, Leerzeichen durch Bindestriche ersetzt) | ```manage-foo-works-portal.component.html``` |
+
 Fügen Sie der HTML-Datei den folgenden Inhalt hinzu:
 
 ``` html
@@ -50,4 +48,4 @@ Fügen Sie der HTML-Datei den folgenden Inhalt hinzu:
 Sie haben der Erweiterung einen iframe hinzugefügt.  Als nächstes können Sie Ihre Erweiterung im Windows Admin Center [Erstellen und](../develop-tool.md#build-and-side-load-your-extension) auslagern, um die Ergebnisse anzuzeigen.
 
 > [!Note]
-> Die Einstellungen der Content Security Policy (CSP) könnten verhindern, dass einige Websites in einem IFRAME innerhalb des Windows Admin Centers gerendert werden. Weitere Informationen hierzu finden Sie [hier](https://content-security-policy.com/). 
+> Die Einstellungen der Content Security Policy (CSP) könnten verhindern, dass einige Websites in einem IFRAME innerhalb des Windows Admin Centers gerendert werden. Weitere Informationen hierzu finden Sie [hier](https://content-security-policy.com/).
