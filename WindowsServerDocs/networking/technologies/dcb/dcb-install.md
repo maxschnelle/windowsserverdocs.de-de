@@ -1,23 +1,21 @@
 ---
 title: Installieren von Data Center Bridging (DCB) in Windows Server oder Client
 description: Dieses Thema enthält Anweisungen zum Installieren von Data Center Bridging in Windows Server oder Windows-Client.
-ms.prod: windows-server
-ms.technology: networking
 ms.topic: article
 ms.assetid: b89213d8-143a-45f3-a609-bc6a7027204c
 manager: brianlic
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: edca8269178d9e1de9f8d57abac04400da0ac5c1
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: fe9ef94784baf88ac4871c679d83eec3bbe30ecb
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80312801"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87954006"
 ---
-# <a name="install-data-center-bridging-dcb-in-windows-server-2016-or-windows-10"></a>Installieren von Data Center Bridging \(DCB-\) in Windows Server 2016 oder Windows 10
+# <a name="install-data-center-bridging-dcb-in-windows-server-2016-or-windows-10"></a>Installieren von Data Center Bridging \( DCB \) in Windows Server 2016 oder Windows 10
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 In diesem Thema erfahren Sie, wie Sie DCB in Windows Server 2016 oder Windows 10 installieren.
 
@@ -29,9 +27,9 @@ Im folgenden finden Sie die Voraussetzungen für das Konfigurieren und Verwalten
 
 Sie können die DCB-Befehle in diesem Handbuch unter den folgenden Betriebssystemen verwenden.
 
-- Windows Server (Semi-Annual Channel)
+- Windows Server (Halbjährlicher Kanal)
 - Windows Server 2016
-- Windows 10 \(alle Versionen\)
+- Windows 10 \( alle Versionen\)
 
 Die folgenden Betriebssysteme enthalten frühere Versionen von DCB, die nicht mit den Befehlen kompatibel sind, die in der DCB-Dokumentation für Windows Server 2016 und Windows 10 verwendet werden.
 
@@ -42,8 +40,8 @@ Die folgenden Betriebssysteme enthalten frühere Versionen von DCB, die nicht mi
 
 Im folgenden finden Sie eine Liste der Hardwareanforderungen für DCB.
 
-- Der DCB-\-fähige Ethernet-Netzwerkadapter\(s\) muss auf Computern installiert sein, die Windows Server 2016 DCB bereitstellen.
-- DCB-\-fähige Hardware Switches müssen in Ihrem Netzwerk bereitgestellt werden.
+- DCB- \- fähige Ethernet-Netzwerkadapter \( \) müssen auf Computern installiert werden, die Windows Server 2016 DCB bereitstellen.
+- DCB- \- fähige Hardware Switches müssen in Ihrem Netzwerk bereitgestellt werden.
 
 
 ## <a name="install-dcb-in-windows-server-2016"></a>Installieren von DCB in Windows Server 2016
@@ -76,12 +74,12 @@ Mithilfe des folgenden Verfahrens können Sie DCB mithilfe von Server-Manager in
 2. Klicken Sie auf der Seite **Vorbemerkungen** auf **Weiter**.
 3. Wählen Sie unter **Installationstyp auswählen** die Option **Rollenbasierte oder featurebasierte Installation** aus, und klicken Sie dann auf **Weiter**.
 4. Stellen Sie sicher, dass unter **Zielserver auswählen** die Option **Einen Server aus dem Serverpool auswählen** aktiviert ist. Wählen Sie unter **Serverpool** den lokalen Computer aus. Klicken Sie auf **Weiter**.
-5. Klicken Sie in **Serverrollen auswählen**auf **Weiter**.
+5. Klicken Sie in **Serverrollen auswählen** auf **Weiter**.
 6. Klicken Sie unter Features **auswählen**in **Features**auf **Data Center Bridging**. Es wird ein Dialogfeld geöffnet, in dem Sie gefragt werden, ob Sie DCB erforderliche Features hinzufügen möchten. Klicken Sie auf **Features hinzufügen**.
-7. Klicken Sie unter **Features auswählen**auf **weiter**. 
+7. Klicken Sie unter **Features auswählen**auf **weiter**.
 8. 7.in **Installations Auswahl bestätigen**, klicken Sie auf **Installieren**. Auf der Seite **Installationsfortschritt** wird während des Installationsvorgangs der Status angezeigt. Wenn die Meldung angezeigt wird, dass die Installation erfolgreich war, klicken Sie auf **Schließen**.
 
-### <a name="configure-the-kernel-debugger-to-allow-qos-optional"></a>Konfigurieren Sie den Kernel Debugger so, dass QoS \(optional ist\)
+### <a name="configure-the-kernel-debugger-to-allow-qos-optional"></a>Konfigurieren Sie den Kernel Debugger so, dass QoS optional ist. \(\)
 
  Standardmäßig blockieren Kernel-Debug-Geräte NetQoS. Unabhängig von der Methode, die Sie zum Installieren von DCB verwendet haben, müssen Sie den Debugger so konfigurieren, dass die Aktivierung und Konfiguration von QoS durch Ausführen des folgenden Befehls möglich ist, wenn ein Kernel Debugger auf dem Computer installiert ist.
 

@@ -1,21 +1,19 @@
 ---
-title: Egress Messung im virtuellen Netzwerk
+title: Ausgehende Messung im virtuellen Netzwerk
 description: 'Ein grundlegender Aspekt der cloudantennetzwerkmonetarisierung ist die ausgehende Netzwerkbandbreite. Beispiel: ausgehende Datenübertragungen in Microsoft Azure Geschäftsmodell. Ausgehende Daten werden basierend auf der Gesamtmenge der Daten berechnet, die aus den Azure-Rechenzentren über das Internet in einem bestimmten Abrechnungszeitraum verschoben werden.'
 manager: grcusanz
-ms.prod: windows-server
-ms.technology: networking-hv-switch
 ms.topic: get-started-article
 ms.author: anpaul
 author: AnirbanPaul
 ms.date: 10/02/2018
-ms.openlocfilehash: a5d530d5cd1b42206bd6881ee902496713573793
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: be28e5b3b9939907398b0c245fc49fcfd6f5e49a
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80854433"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87954016"
 ---
-# <a name="egress-metering-in-a-virtual-network"></a>Egress-Messung in einem virtuellen Netzwerk
+# <a name="egress-metering-in-a-virtual-network"></a>Messen des ausgehenden Datenverkehrs in einem virtuellen Netzwerk
 
 >Gilt für: Windows Server 2019
 

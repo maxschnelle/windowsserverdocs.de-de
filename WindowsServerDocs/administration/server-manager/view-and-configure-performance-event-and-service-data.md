@@ -7,12 +7,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4819f07f974848ed775c07be51601d870edeaa0b
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: e7fbf4c96213d7db042143c1da8065f87e642f47
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87895701"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87993170"
 ---
 # <a name="view-and-configure-performance-event-and-service-data"></a>Anzeigen und Konfigurieren von Leistungs-, Ereignis- und Dienstdaten
 
@@ -47,7 +47,7 @@ Die Miniaturansicht zeigt eine kurze Übersicht über den Status und die Verwalt
 
 |Miniaturansichtszeile|BESCHREIBUNG|
 |---------|--------|
-|Verwaltbarkeit|Die Verwaltbarkeit eines Servers umfasst mehrere Measures: ob der Server Online oder offline ist, ob auf ihn zugegriffen werden kann und welche Daten Server-Manager werden, ob der Benutzer, der am lokalen Computer angemeldet ist, über ausreichende Benutzerrechte für den Zugriff auf den Remote Server verfügt und ob auf dem Remote Server die gesamte für die Remote Verwaltung erforderliche Software verfügbar ist. oder, ob der Server so konfiguriert wurde, dass er mit Server-Manager abgefragt und verwaltet werden kann. Die einzigen verwaltbarkeitsdaten, die Server-Manager von einem Server, auf dem Windows Server 2003 ausgeführt wird, erfassen können, ist, ob der Server Online oder offline ist. Ausführliche Informationen zu verwaltbarkeitsstatusfehlern und deren Behebung finden Sie im [Server-Manager Forum](https://docs.microsoft.com/answers/topics/windows-server-manager.html).|
+|Verwaltbarkeit|Die Verwaltbarkeit eines Servers umfasst mehrere Measures: ob der Server Online oder offline ist, ob auf ihn zugegriffen werden kann und welche Daten Server-Manager werden, ob der Benutzer, der am lokalen Computer angemeldet ist, über ausreichende Benutzerrechte für den Zugriff auf den Remote Server verfügt und ob auf dem Remote Server die gesamte für die Remote Verwaltung erforderliche Software verfügbar ist. oder, ob der Server so konfiguriert wurde, dass er mit Server-Manager abgefragt und verwaltet werden kann. Die einzigen verwaltbarkeitsdaten, die Server-Manager von einem Server, auf dem Windows Server 2003 ausgeführt wird, erfassen können, ist, ob der Server Online oder offline ist. Ausführliche Informationen zu verwaltbarkeitsstatusfehlern und deren Behebung finden Sie im [Server-Manager Forum](/answers/topics/windows-server-manager.html).|
 |Ereignisse|Sie können die Zeile **Ereignisse** einer Miniaturansicht so konfigurieren, dass Benachrichtigungen angezeigt werden, wenn Ereignisse mit den von Ihnen angegebenen Schweregraden, Quellen, Zeiträumen, Servern oder Ereignis-IDs protokolliert werden. Zeigen Sie Details zu Ereignissen an, und ändern Sie die Warnungen, die Sie anzeigen möchten, indem Sie auf die Zeile **Ereignisse** klicken und das Dialogfeld **Detailansicht Ereignisse** für die Rolle oder Server Gruppe öffnen.|
 |Dienste|Sie können die Zeile **Dienste** so konfigurieren, dass Warnungen angezeigt werden, wenn Dienste in einer Rolle oder Server Gruppe gefunden werden, die Start Typen, Dienststatus, Dienstnamen und Servern entsprechen, die Sie im Dialogfeld **Dienst Detailansicht** angeben.<p>Nachdem ein Server dem Server-Manager-Server Pool hinzugefügt wurde, können Dienst Warnungen zum Dienst für die Shellhardwareerkennung angezeigt werden, wenn keine Benutzer am verwalteten Server angemeldet sind. Dies geschieht, weil der Dienst für die Shellhardwareerkennung nur ausgeführt wird, wenn Benutzer am verwalteten Server angemeldet oder mit einer Remotedesktopsitzung auf dem verwalteten Server verbunden sind. Damit in diesem Fall keine Shellhardwareerkennung-Dienstwarnungen angezeigt werden, klicken Sie in den Miniaturansichten für Servergruppen, einschließlich der Gruppe **Alle Server**, auf **Dienste**. Deaktivieren Sie im Dialogfeld **Dienst Detailansicht** in der Dropdown Liste **Dienste** das Kontrollkästchen für **Shellhardwareerkennung**, und klicken Sie dann auf **OK**.|
 |Leistung|Sie können die Zeile **Leistung** so konfigurieren, dass Warnungen für eine Rolle oder Server Gruppe angezeigt werden, wenn Leistungs Warnungen auftreten, die Ressourcentypen, Servern oder Zeiträumen entsprechen, die Sie im Dialogfeld **Leistungs Detailansicht** angeben.<p>Leistungsindikatoren sind standardmäßig deaktiviert. Verwaltete Server, auf denen Betriebssysteme ausgeführt werden, die neuer als Windows Server 2003 sind und für die keine Leistungsindikatoren gestartet wurden, zeigen normalerweise verwaltbarkeitsstatusfehler von **Online-Leistungsindikatoren** , die auf der Kachel **Server** der Rollen-oder Gruppen Seiten nicht gestartet sind, an. Um die Leistungsindikatoren für verwaltete Server zu aktivieren, klicken Sie auf der Seite **alle Server** mit der rechten Maustaste auf Einträge auf der Kachel **Leistung** , die den Indikator **Status** Wert **aus**anzeigt, und klicken Sie dann auf **Leistungsindikatoren starten**. Sie können Leistungsindikatoren auch starten, indem Sie in der Kachel **Server** der Rollen-oder Gruppen Seiten mit der rechten Maustaste auf Einträge für Server klicken und dann auf **Leistungsindikatoren starten**klicken.|
@@ -126,7 +126,7 @@ Leistungsindikatoren sind standardmäßig deaktiviert. Verwaltete Server, auf de
     Beachten Sie, dass sich die Anzahl der Leistungswarnungen in der Kachel **Leistung** und die im Diagramm dargestellte Zuordnung der Warnungen im Zeitverlauf ändern können, nachdem Sie auf **Speichern** geklickt haben.
 
     > [!NOTE]
-    > bei virtuellen Maschinen, für die [dynamischer Arbeitsspeicher](https://technet.microsoft.com/library/ff817651.aspx) aktiviert ist, kann das Erhöhen des Schwellenwerts für die Leistungs Warnungen zu falsch positiven Warnungen führen.
+    > bei virtuellen Maschinen, für die [dynamischer Arbeitsspeicher](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ff817651(v=ws.10)) aktiviert ist, kann das Erhöhen des Schwellenwerts für die Leistungs Warnungen zu falsch positiven Warnungen führen.
 
 7.  Klicken Sie im Menü **Aufgaben** auf **Aktualisieren**, um die Liste der Leistungswarnungen zu aktualisieren, die von den Servern gesammelt werden.
 
@@ -167,7 +167,7 @@ Weitere Informationen zum Analysieren von Leistungsdaten in Server-Manager und z
 
 -   [Behebung von Leistungsproblemen](https://go.microsoft.com/fwlink/?LinkId=239831)
 
-Weitere Informationen zu erweiterten Tools für die Leistungsüberwachung und-Analyse, die für Windows Server 2012 und spätere Versionen von Windows Server verfügbar sind, einschließlich Server Performance Advisor 3,0, finden Sie unter Performance on MSDN ( [Leistung](https://msdn.microsoft.com/windows/hardware/gg463374.aspx) auf MSDN).
+Weitere Informationen zu erweiterten Tools für die Leistungsüberwachung und-Analyse, die für Windows Server 2012 und spätere Versionen von Windows Server verfügbar sind, einschließlich Server Performance Advisor 3,0, finden Sie unter Performance on MSDN ( [Leistung](/previous-versions/windows/hardware/design/dn614608(v=vs.85)) auf MSDN).
 
 ## <a name="manage-services-and-configure-service-alerts"></a><a name=BKMK_services></a>Verwalten von Diensten und Konfigurieren von Dienstbenachrichtigungen
 In diesem Abschnitt erfahren Sie, wie Sie Dienste starten, anhalten, neu starten, anhalten oder fortsetzen, die auf den Rollen-und Server Gruppen Seiten in Server-Manager auf der Kachel **Dienste** angezeigt werden. Sie können auch die Dienste konfigurieren, über die Sie in den Miniaturansichten auf dem Server-Manager-Dashboard benachrichtigt werden.

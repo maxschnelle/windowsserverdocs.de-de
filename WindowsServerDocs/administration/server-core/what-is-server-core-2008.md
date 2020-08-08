@@ -5,18 +5,18 @@ ms.author: helohr
 ms.date: 11/01/2017
 ms.topic: article
 author: heidilohr
-ms.openlocfilehash: 5cadad3dd8fafe28ba127610afd3dfa219f92b73
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: fb3e0b60787cb12c3401a14a54aebf4809c61b45
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87895848"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87993227"
 ---
 # <a name="what-is-server-core-2008"></a>Was ist Server Core 2008?
 >Gilt für: Windows Server 2008
 
 >[!NOTE]
->Diese Informationen gelten für Windows Server 2008. Weitere Informationen zu Server Core in Windows Server finden Sie unter [Was ist die Server Core-Installation in Windows Server](https://docs.microsoft.com/windows-server/administration/server-core/what-is-server-core).
+>Diese Informationen gelten für Windows Server 2008. Weitere Informationen zu Server Core in Windows Server finden Sie unter [Was ist die Server Core-Installation in Windows Server](./what-is-server-core.md).
 
 Bei der Server Core-Option handelt es sich um eine neue minimale Installationsoption, die verfügbar ist, wenn Sie die Standard Edition, Enterprise oder Datacenter Edition von Windows Server 2008 bereitstellen. Server Core bietet eine minimale Installation von Windows Server 2008, die die Installation bestimmter Server Rollen unterstützt, wie weiter unten in diesem Kapitel beschrieben. Vergleichen Sie dies mit der vollständigen Installationsoption für Windows Server 2008, die die Installation aller verfügbaren Server Rollen sowie anderer Microsoft-oder Drittanbieter-Server Anwendungen wie Microsoft Exchange Server oder SAP unterstützt.
 
@@ -131,7 +131,7 @@ Eine Server Core-Installation unterstützt auch nur eine begrenzte Teilmenge der
 
 **Tabelle 1-4** Vergleich der Features für vollständige und Server Core-Installationen von Windows Server 2008 Enterprise Edition
 
-| Funktion  | In vollständiger Installation verfügbar  | Verfügbar in Server Core  |
+| Feature  | In vollständiger Installation verfügbar  | Verfügbar in Server Core  |
 | ------------- | :-------------: | :------------: |
 | .NET Framework 3.0-Funktionen  | X  |  |
 | BitLocker-Laufwerkverschlüsselung  | X  | X |

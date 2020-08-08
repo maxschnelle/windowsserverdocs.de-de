@@ -6,12 +6,12 @@ ms.sitesec: library
 author: lizap
 ms.localizationpriority: medium
 ms.date: 10/17/2017
-ms.openlocfilehash: ee5786684c4f3a6c75c3b123b9d3ef9d32143949
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: d01757fcf1539e41db866b46cdf9eba60a59fc04
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87895881"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87993208"
 ---
 # <a name="configure-memory-dump-files-for-server-core-installation"></a>Konfigurieren von Speicher Abbild Dateien für die Server Core-Installation
 
@@ -195,7 +195,4 @@ Weitere Verweise
 
 Allgemeine Informationen zur Verwendung von Speicher Abbild Dateien finden Sie unter Übersicht über die [Optionen für die Speicher Abbild Datei für Windows](https://support.microsoft.com/help/254649/overview-of-memory-dump-file-options-for-windows).
 
-Weitere Informationen zu dedizierten Dumpdateien finden Sie unter Gewusst [wie: Verwenden des Registrierungs Werts "dedikateddeumpfile" zum überwinden von Speicherplatz Beschränkungen auf dem Systemlaufwerk beim Erfassen eines Systemspeicher Abbilds](https://blogs.msdn.microsoft.com/ntdebugging/2010/04/02/how-to-use-the-dedicateddumpfile-registry-value-to-overcome-space-limitations-on-the-system-drive-when-capturing-a-system-memory-dump/).
-
-
-
+Weitere Informationen zu dedizierten Dumpdateien finden Sie unter Gewusst [wie: Verwenden des Registrierungs Werts "dedikateddeumpfile" zum überwinden von Speicherplatz Beschränkungen auf dem Systemlaufwerk beim Erfassen eines Systemspeicher Abbilds](/archive/blogs/ntdebugging/how-to-use-the-dedicateddumpfile-registry-value-to-overcome-space-limitations-on-the-system-drive-when-capturing-a-system-memory-dump).
