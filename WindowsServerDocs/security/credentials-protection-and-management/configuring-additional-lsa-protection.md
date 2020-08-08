@@ -1,24 +1,22 @@
 ---
 title: Konfigurieren von zusätzlichem LSA-Schutz
 description: Windows Server-Sicherheit
-ms.prod: windows-server
-ms.technology: security-credential-protection
 ms.topic: article
 ms.assetid: 038e7c2b-c032-491f-8727-6f3f01116ef9
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 1c923cfe39892ba105c437cf73843c2f6d07e49b
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 78533908de1a1f43cbfac9054dcfe6ec83edce9d
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80857073"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87948753"
 ---
 # <a name="configuring-additional-lsa-protection"></a>Konfigurieren von zusätzlichem LSA-Schutz
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 In diesem Thema für IT-Spezialisten erfahren Sie, wie Sie den zusätzlichen Schutz für den Prozess der lokalen Sicherheitsautorität (Local Security Authority, LSA) konfigurieren, um eine Codeinjizierung mit einer möglichen Beeinträchtigung der Anmeldeinformationen zu verhindern.
 
@@ -44,7 +42,7 @@ Damit ein LSA-Plug-In oder -Treiber erfolgreich als geschützter Prozess geladen
 #### <a name="recommended-practices"></a>Empfohlene Vorgehensweisen
 Nutzen Sie die folgende Liste, um eingehend zu testen, ob der LSA-Schutz aktiviert ist, bevor Sie das Feature allgemein bereitstellen:
 
--   Identifizieren Sie alle LSA-Plug-Ins und -Treiber, die in Ihrer Organisation verwendet werden. 
+-   Identifizieren Sie alle LSA-Plug-Ins und -Treiber, die in Ihrer Organisation verwendet werden.
     Dazu gehören nicht von Microsoft stammende Treiber oder Plug-Ins, z. B. Smartcard-Treiber und kryptografische Plug-Ins, und eine intern entwickelte Software, die eingesetzt wird, um Kennwortfilter oder Benachrichtigungen über Kennwortänderungen zu erzwingen.
 
 -   Stellen Sie sicher, dass alle LSA-Plug-Ins digital mit einem Microsoft-Zertifikat signiert sind, damit beim Laden des Plug-Ins kein Fehler auftritt.
@@ -67,9 +65,9 @@ Mithilfe des Überwachungsmodus können Sie LSA-Plug-Ins und -Treiber identifizi
 
 ##### <a name="to-enable-the-audit-mode-for-lsassexe-on-a-single-computer-by-editing-the-registry"></a>So aktivieren Sie den Überwachungsmodus für %%amp;quot;Lsass.exe%%amp;quot; auf einem einzelnen Computer per Bearbeitung der Registrierung
 
-1.  Öffnen Sie den Registrierungs-Editor (RegEdit.exe), und navigieren Sie zum Registrierungsschlüssel unter %%amp;quot;HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\LSASS.exe%%amp;quot;.
+1.  Öffnen Sie den Registrierungs-Editor (RegEdit.exe), und navigieren Sie zum Registrierungsschlüssel unter: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\LSASS.exe.
 
-2.  Legen Sie den Wert des Registrierungsschlüssels wie folgt fest: **AuditLevel=dword:00000008**.
+2.  Legen Sie den Wert des Registrierungsschlüssels auf **AuditLevel=dword:00000008** fest.
 
 3.  Starten Sie den Computer neu.
 
@@ -83,14 +81,14 @@ Anschließend werden diese Ereignisse möglicherweise in Ereignisanzeige angezei
 
 > [!IMPORTANT]
 > Diese Betriebsereignisse werden nicht generiert, wenn auf einem System ein Kerneldebugger angefügt und aktiviert ist.
-> 
+>
 > Wenn ein Plug-In oder Treiber freigegebene Abschnitte enthält, wird Ereignis 3066 zusammen mit dem Ereignis 3065 protokolliert. Durch das Entfernen der freigegebenen Abschnitte sollte verhindert werden, dass diese beiden Ereignisse eintreten, es sei denn, das Plug-In erfüllt die Anforderungen an die Microsoft-Signaturebene nicht.
 
 Zum Aktivieren des Überwachungsmodus für mehrere Computer in einer Domäne können Sie die clientseitige Registrierungserweiterung für die Gruppenrichtlinie verwenden, um den Überwachungsebenen-Registrierungswert für %%amp;quot;Lsass.exe%%amp;quot; bereitzustellen. Sie müssen den Registrierungsschlüssel %%amp;quot;HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\LSASS.exe%%amp;quot; ändern.
 
 ##### <a name="to-create-the-auditlevel-value-setting-in-a-gpo"></a>So erstellen Sie die Einstellung des AuditLevel-Werts in einem Gruppenrichtlinienobjekt
 
-1.  Öffnen Sie die Gruppenrichtlinien-Verwaltungskonsole (GPMC).
+1.  Öffnen Sie die Gruppenrichtlinien-Verwaltungskonsole (Group Policy Management Console, GPMC).
 
 2.  Erstellen Sie ein neues Gruppenrichtlinienobjekt (Group Policy Object, GPO), das auf der Domänenebene verknüpft ist oder das mit der Organisationseinheit verknüpft ist, die Ihre Computerkonten enthält. Alternativ dazu können Sie ein GPO auswählen, das schon bereitgestellt wurde.
 
@@ -100,15 +98,15 @@ Zum Aktivieren des Überwachungsmodus für mehrere Computer in einer Domäne kö
 
 5.  Klicken Sie mit der rechten Maustaste auf **Registrierung**, zeigen Sie auf **Neu**, und klicken Sie dann auf **Registrierungselement**. Das Dialogfeld **Neue Registrierungseigenschaften** wird angezeigt.
 
-6.  Klicken Sie in der Liste **Struktur** auf **HKEY_LOCAL_MACHINE.**
+6.  Klicken Sie in der Liste **Hive** auf **HKEY_LOCAL_MACHINE.**
 
 7.  Navigieren Sie in der Liste **Schlüsselpfad** zu **SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\LSASS.exe**.
 
-8.  Geben Sie im Feld **Wertname** Folgendes ein: **AuditLevel**.
+8.  Geben Sie im Feld **Wertname** den Text **AuditLevel** ein.
 
 9. Klicken Sie im Feld **Werttyp** auf **REG_DWORD**, um diese Option auszuwählen.
 
-10. Geben Sie im Feld **Wert** Folgendes ein: **00000008**.
+10. Geben Sie im Feld **Wert** den Wert **00000008** ein.
 
 11. Klicken Sie auf **OK**.
 
@@ -130,8 +128,8 @@ Anschließend werden diese Ereignisse möglicherweise in Ereignisanzeige angezei
 
 Freigegebene Abschnitte sind in der Regel das Ergebnis von Programmiertechniken, bei denen Instanzdaten mit anderen Prozessen interagieren können, für die der gleiche Sicherheitskontext verwendet wird. Dies kann zu Sicherheitsrisiken führen.
 
-## <a name="how-to-configure-additional-lsa-protection-of-credentials"></a><a name="BKMK_HowToConfigure"></a>Konfigurieren des zusätzlichen LSA-Schutzes für Anmelde Informationen
-Auf Geräten mit Windows 8.1 (mit oder ohne sicheren Start oder UEFI) ist die Konfiguration möglich, indem die in diesem Abschnitt beschriebenen Verfahren ausgeführt werden. Bei Geräten, auf denen Windows RT 8,1 ausgeführt wird, ist der Schutz von LSASS. exe immer aktiviert und kann nicht deaktiviert werden.
+## <a name="how-to-configure-additional-lsa-protection-of-credentials"></a><a name="BKMK_HowToConfigure"></a>Konfigurieren des zusätzlichen LSA-Schutzes für Anmeldeinformationen
+Auf Geräten mit Windows 8.1 (mit oder ohne sicheren Start oder UEFI) ist die Konfiguration möglich, indem die in diesem Abschnitt beschriebenen Verfahren ausgeführt werden. Bei Geräten, auf denen Windows RT 8,1 ausgeführt wird, ist lsass.exe Schutz immer aktiviert und kann nicht deaktiviert werden.
 
 ### <a name="on-x86-based-or-x64-based-devices-using-secure-boot-and-uefi-or-not"></a>Auf x86-basierten oder x64-basierten Geräten mit oder ohne %%amp;quot;Sicherer Start%%amp;quot; und UEFI
 Auf x86-oder x64-basierten Geräten, von denen der sichere Start oder UEFI verwendet wird, wird in der UEFI-Firmware eine UEFI-Variable festgelegt, wenn der LSA-Schutz mithilfe des Registrierungsschlüssels aktiviert wird. Wenn die Einstellung in der Firmware gespeichert wird, kann die UEFI-Variable im Registrierungsschlüssel nicht gelöscht oder geändert werden. Die UEFI-Variable muss zurückgesetzt werden.
@@ -142,7 +140,7 @@ Sie können die folgenden Verfahren verwenden, um den LSA-Schutz zu aktivieren o
 
 ##### <a name="to-enable-lsa-protection-on-a-single-computer"></a>So aktivieren Sie den LSA-Schutz auf einem einzelnen Computer
 
-1.  Öffnen Sie den Registrierungs-Editor (RegEdit.exe), und navigieren Sie zum Registrierungsschlüssel unter %%amp;quot;HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa%%amp;quot;.
+1.  Öffnen Sie den Registrierungs-Editor (RegEdit.exe), und navigieren Sie zum Registrierungsschlüssel unter: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa.
 
 2.  Legen Sie den Wert des Registrierungsschlüssels wie folgt fest: "RunAsPPL"=dword:00000001.
 
@@ -150,7 +148,7 @@ Sie können die folgenden Verfahren verwenden, um den LSA-Schutz zu aktivieren o
 
 ##### <a name="to-enable-lsa-protection-using-group-policy"></a>So aktivieren Sie den LSA-Schutz mithilfe der Gruppenrichtlinie
 
-1.  Öffnen Sie die Gruppenrichtlinien-Verwaltungskonsole (GPMC).
+1.  Öffnen Sie die Gruppenrichtlinien-Verwaltungskonsole (Group Policy Management Console, GPMC).
 
 2.  Erstellen Sie ein neues Gruppenrichtlinienobjekt, das auf der Domänenebene verknüpft ist oder das mit der Organisationseinheit verknüpft ist, die Ihre Computerkonten enthält. Alternativ dazu können Sie ein GPO auswählen, das schon bereitgestellt wurde.
 
@@ -174,7 +172,7 @@ Sie können die folgenden Verfahren verwenden, um den LSA-Schutz zu aktivieren o
 
 ##### <a name="to-disable-lsa-protection"></a>So deaktivieren Sie den LSA-Schutz
 
-1.  Öffnen Sie den Registrierungs-Editor (RegEdit.exe), und navigieren Sie zum Registrierungsschlüssel unter %%amp;quot;HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa%%amp;quot;.
+1.  Öffnen Sie den Registrierungs-Editor (RegEdit.exe), und navigieren Sie zum Registrierungsschlüssel unter: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa.
 
 2.  Löschen Sie den folgenden Wert aus dem Registrierungsschlüssel: "RunAsPPL"=dword:00000001.
 
@@ -190,11 +188,11 @@ Sie können die folgenden Verfahren verwenden, um den LSA-Schutz zu aktivieren o
 ### <a name="verifying-lsa-protection"></a>Überprüfen des LSA-Schutzes
 Wenn Sie ermitteln möchten, ob LSA beim Starten von Windows im geschützten Modus gestartet wurde, können Sie im Protokoll **System** unter **Windows-Protokolle** nach dem folgenden WinInit-Ereignis suchen:
 
--   12: LSASS.exe wurde als geschützter Prozess mit folgender Stufe gestartet: 4
+-   12: "LSASS.exe" wurde als geschützter Prozess mit folgender Stufe gestartet: 4
 
 ## <a name="additional-resources"></a>Weitere Ressourcen
 [Schutz und Verwaltung von Anmeldeinformationen](credentials-protection-and-management.md)
 
-[Datei Signatur Dienst für LSA](https://go.microsoft.com/fwlink/?LinkId=392590)
+[Dateisignierdiensts für LSA](https://go.microsoft.com/fwlink/?LinkId=392590)
 
 

@@ -5,12 +5,12 @@ ms.topic: get-started-article
 ms.author: anpaul
 author: AnirbanPaul
 ms.date: 08/08/2018
-ms.openlocfilehash: 21008268f14435852c7de78ce826bc380f9017a1
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: d0d9f149a95c00fdac02cbdd383fb950e56b845a
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87955817"
+ms.locfileid: "87990040"
 ---
 # <a name="virtual-network-peering"></a>Peering in virtuellen Netzwerken
 
@@ -57,7 +57,7 @@ Nachdem Sie virtuelle Netzwerke mittels Peering verbunden haben, können Ressour
 
 -   Virtuelle Computer in einem virtuellen Netzwerk können auf den internen Load Balancer im per Peer-Board basierenden virtuellen Netzwerk zugreifen.
 
-Sie können Zugriffs Steuerungs Listen (ACLs) in jedem virtuellen Netzwerk anwenden, um den Zugriff auf andere virtuelle Netzwerke oder Subnetze zu blockieren, wenn dies gewünscht wird. Wenn Sie die vollständige Konnektivität zwischen virtuellen Netzwerken mit virtuellen Netzwerken (Standardoption) öffnen, können Sie ACLs auf bestimmte Subnetze oder virtuelle Computer anwenden, um einen bestimmten Zugriff zu blockieren oder zu verweigern. Weitere Informationen zu ACLs finden Sie unter [Verwenden von Access Control Listen (ACLs) zum Verwalten des Netzwerk Datenverkehrs im Daten Center](https://docs.microsoft.com/windows-server/networking/sdn/manage/use-acls-for-traffic-flow).
+Sie können Zugriffs Steuerungs Listen (ACLs) in jedem virtuellen Netzwerk anwenden, um den Zugriff auf andere virtuelle Netzwerke oder Subnetze zu blockieren, wenn dies gewünscht wird. Wenn Sie die vollständige Konnektivität zwischen virtuellen Netzwerken mit virtuellen Netzwerken (Standardoption) öffnen, können Sie ACLs auf bestimmte Subnetze oder virtuelle Computer anwenden, um einen bestimmten Zugriff zu blockieren oder zu verweigern. Weitere Informationen zu ACLs finden Sie unter [Verwenden von Access Control Listen (ACLs) zum Verwalten des Netzwerk Datenverkehrs im Daten Center](../manage/use-acls-for-traffic-flow.md).
 
 ## <a name="service-chaining"></a>Dienstverkettung
 
@@ -65,7 +65,7 @@ Sie können benutzerdefinierte Routen konfigurieren, die auf virtuelle Computer 
 
 Sie können Hub-und sprach Netzwerke bereitstellen, in denen das virtuelle Hub-Netzwerkinfrastruktur Komponenten (z. b. ein virtuelles Netzwerkgerät) hosten kann. Alle virtuellen Netzwerke, die sich mit dem virtuellen Hub-Netzwerk verbinden. Der Datenverkehr kann über virtuelle Netzwerkgeräte im virtuellen Hub-Netzwerk fließen.
 
-Das Peering virtueller Netzwerke ermöglicht es dem nächsten Hop in einer benutzerdefinierten Route, die IP-Adresse eines virtuellen Computers im mittels Peering gebundenen virtuellen Netzwerk zu sein. Weitere Informationen zu benutzerdefinierten Routen finden Sie unter [Verwenden von virtuellen Netzwerkgeräten auf einem Virtual Network](https://docs.microsoft.com/windows-server/networking/sdn/manage/use-network-virtual-appliances-on-a-vn).
+Das Peering virtueller Netzwerke ermöglicht es dem nächsten Hop in einer benutzerdefinierten Route, die IP-Adresse eines virtuellen Computers im mittels Peering gebundenen virtuellen Netzwerk zu sein. Weitere Informationen zu benutzerdefinierten Routen finden Sie unter [Verwenden von virtuellen Netzwerkgeräten auf einem Virtual Network](../manage/use-network-virtual-appliances-on-a-vn.md).
 
 ## <a name="gateways-and-on-premises-connectivity"></a>Gateways und lokale Konnektivität
 
@@ -87,4 +87,3 @@ Sie können den Status Ihrer Peeringverbindung überwachen, die sich in einem de
 
 ## <a name="next-steps"></a>Nächste Schritte
 [Konfigurieren des Peerings virtueller](sdn-configure-vnet-peering.md)Netzwerke: in diesem Verfahren verwenden Sie Windows PowerShell, um das logische HNV-anbieternetzwerk zu suchen und zwei virtuelle Netzwerke mit jeweils einem Subnetz zu erstellen. Außerdem konfigurieren Sie das Peering zwischen den beiden virtuellen Netzwerken.
-

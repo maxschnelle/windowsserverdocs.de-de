@@ -1,19 +1,17 @@
 ---
 title: Überwachen von Servern und Konfigurieren von Warnungen mit Azure Monitor aus dem Windows Admin Center
 description: Windows Admin Center (Project Honolulu) ist in Azure Monitor integriert
-ms.technology: manage
 ms.topic: article
 author: haley-rowland
 ms.author: harowl
 ms.localizationpriority: medium
-ms.prod: windows-server
 ms.date: 03/24/2019
-ms.openlocfilehash: d6c18e3c4ef052b2e2d274f491762d8e31de4758
-ms.sourcegitcommit: c40c29683d25ed75b439451d7fa8eda9d8d9e441
+ms.openlocfilehash: 81501cb5f4255b7a65ebc5f9f6cb9413938864f0
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85833313"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87940121"
 ---
 # <a name="monitor-servers-and-configure-alerts-with-azure-monitor-from-windows-admin-center"></a>Überwachen von Servern und Konfigurieren von Warnungen mit Azure Monitor aus dem Windows Admin Center
 
@@ -22,11 +20,11 @@ ms.locfileid: "85833313"
 [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) ist eine Lösung, die Telemetriedaten aus einer Vielzahl von Ressourcen sammelt, analysiert und bearbeitet, einschließlich Windows-Servern und-VMS, sowohl lokal als auch in der Cloud. Obwohl Azure Monitor Daten von Azure-VMS und anderen Azure-Ressourcen abruft, konzentriert sich dieser Artikel auf die Funktionsweise von Azure Monitor mit lokalen Servern und VMS, insbesondere mit Windows Admin Center. Wenn Sie wissen möchten, wie Sie Azure Monitor verwenden können, um e-Mail-Benachrichtigungen über Ihren hyperkonvergenten Cluster zu erhalten, informieren Sie sich über die [Verwendung Azure Monitor, um e-Mails zu Integritätsdienst Fehlern zu senden](https://docs.microsoft.com/windows-server/storage/storage-spaces/configure-azure-monitor).
 
 ## <a name="how-does-azure-monitor-work"></a>Funktionsweise von Azure Monitor
-![IMG ](../media/azure-monitor-diagram.png) -Daten, die von lokalen Windows-Servern generiert werden, werden in einem Log Analytics Arbeitsbereich in Azure Monitor gesammelt. Sie können in einem Arbeitsbereich verschiedene Überwachungslösungen aktivieren. Dies sind Sätze von Logik, die Erkenntnisse für ein bestimmtes Szenario bieten. Überwachungslösungen, die in einem Arbeitsbereich aktiviert werden können, sind beispielsweise die Azure-Updateverwaltung, Azure Security Center und Azure Monitor für VMs. 
+![IMG ](../media/azure-monitor-diagram.png) -Daten, die von lokalen Windows-Servern generiert werden, werden in einem Log Analytics Arbeitsbereich in Azure Monitor gesammelt. Sie können in einem Arbeitsbereich verschiedene Überwachungslösungen aktivieren. Dies sind Sätze von Logik, die Erkenntnisse für ein bestimmtes Szenario bieten. Überwachungslösungen, die in einem Arbeitsbereich aktiviert werden können, sind beispielsweise die Azure-Updateverwaltung, Azure Security Center und Azure Monitor für VMs.
 
-Wenn Sie eine Überwachungslösung in einem Log Analytics-Arbeitsbereich aktivieren, beginnen alle Server, die an diesen Arbeitsbereich berichten, mit dem Sammeln von Daten, die für diese Lösung relevant sind, damit die Lösung Erkenntnisse für alle Server im Arbeitsbereich generieren kann. 
+Wenn Sie eine Überwachungslösung in einem Log Analytics-Arbeitsbereich aktivieren, beginnen alle Server, die an diesen Arbeitsbereich berichten, mit dem Sammeln von Daten, die für diese Lösung relevant sind, damit die Lösung Erkenntnisse für alle Server im Arbeitsbereich generieren kann.
 
-Zum Sammeln von Telemetriedaten auf einem lokalen Server und zum Übertragung per Push an den Arbeitsbereich Log Analytics Azure Monitor muss die Microsoft Monitoring Agent oder MMA installiert werden. Bestimmte Überwachungslösungen erfordern zudem einen sekundären Agent. Beispielsweise benötigt Azure Monitor für VMs auch einen ServiceMap-Agent für zusätzliche Funktionalität, die von dieser Lösung bereitgestellt wird. 
+Zum Sammeln von Telemetriedaten auf einem lokalen Server und zum Übertragung per Push an den Arbeitsbereich Log Analytics Azure Monitor muss die Microsoft Monitoring Agent oder MMA installiert werden. Bestimmte Überwachungslösungen erfordern zudem einen sekundären Agent. Beispielsweise benötigt Azure Monitor für VMs auch einen ServiceMap-Agent für zusätzliche Funktionalität, die von dieser Lösung bereitgestellt wird.
 
 Einige Lösungen, z. B. die Azure-Updateverwaltung, benötigen auch Azure Automation, damit Ressourcen sowohl in Azure-Umgebungen als auch in Umgebungen außerhalb von Azure zentral verwaltet werden können. Beispielsweise verwendet die Azure-Updateverwaltung Azure Automation, um die Installation von Updates auf allen Computern in Ihrer Umgebung zentral über das Azure-Portal zu planen und zu orchestrieren.
 
@@ -38,7 +36,7 @@ Im WAC können Sie zwei Überwachungslösungen aktivieren:
 - [Azure-Updateverwaltung](azure-update-management.md) (im Tool Updates)
 - Azure Monitor für VMS (in Servereinstellungen), a. k. a Virtual Machines Insights
 
-Sie können Azure Monitor von einem dieser Tools aus verwenden. Wenn Sie noch nie Azure Monitor verwendet haben, stellt WAC automatisch einen Log Analytics Arbeitsbereich bereit (und ggf. Azure Automation Konto) und die Microsoft Monitoring Agent (MMA) auf dem Zielserver zu installieren und zu konfigurieren. Anschließend wird die entsprechende Lösung im Arbeitsbereich installiert. 
+Sie können Azure Monitor von einem dieser Tools aus verwenden. Wenn Sie noch nie Azure Monitor verwendet haben, stellt WAC automatisch einen Log Analytics Arbeitsbereich bereit (und ggf. Azure Automation Konto) und die Microsoft Monitoring Agent (MMA) auf dem Zielserver zu installieren und zu konfigurieren. Anschließend wird die entsprechende Lösung im Arbeitsbereich installiert.
 
 Wenn Sie zum Beispiel das Tool Updates zum Einrichten von Azure Updateverwaltung aufrufen, führt der WAC folgende Schritte aus:
 
@@ -81,6 +79,6 @@ Wenn Admin Center einen Server in der VM Insights-Lösung innerhalb Azure Monito
 
 ## <a name="disabling-monitoring"></a>Deaktivieren der Überwachung
 
-Deinstallieren Sie den MMA-Agent, um den Server vollständig vom Log Analytics Arbeitsbereich zu trennen. Dies bewirkt, dass dieser Server keine Daten mehr an den Arbeitsbereich sendet und alle in diesem Arbeitsbereich installierten Lösungen keine Daten mehr von diesem Server sammeln und verarbeiten. Dies wirkt sich jedoch nicht auf den Arbeitsbereich selbst aus – alle Ressourcen, die diesem Arbeitsbereich melden, werden dies weiterhin tun. Wenn Sie den MMA-Agent im Windows Admin Center deinstallieren möchten, stellen Sie eine Verbindung mit dem Server her, und navigieren Sie zu **installierte apps**, suchen Sie die Microsoft Monitoring Agent, und wählen Sie dann **Entfernen**
+Deinstallieren Sie den MMA-Agent, um den Server vollständig vom Log Analytics Arbeitsbereich zu trennen. Dies bewirkt, dass dieser Server keine Daten mehr an den Arbeitsbereich sendet und alle in diesem Arbeitsbereich installierten Lösungen keine Daten mehr von diesem Server sammeln und verarbeiten. Dies wirkt sich jedoch nicht auf den Arbeitsbereich selbst aus – alle Ressourcen, die diesem Arbeitsbereich melden, werden dies weiterhin tun. Wenn Sie den MMA-Agent innerhalb von Windows Admin Center deinstallieren möchten, stellen Sie eine Serververbindung her, navigieren Sie dann zu **Installierte Apps**, suchen Sie den Microsoft Monitoring Agent, und wählen Sie dann **Entfernen** aus.
 
 Wenn Sie eine bestimmte Lösung in einem Arbeitsbereich deaktivieren möchten, müssen Sie [die Überwachungslösung aus dem Azure-Portal entfernen](https://docs.microsoft.com/azure/azure-monitor/insights/solutions#remove-a-management-solution). Das Entfernen einer Überwachungslösung bedeutet, dass die von dieser Lösung erstellten Erkenntnisse für _keinen_ der Server mehr generiert werden, die an diesen Arbeitsbereich berichten. Wenn ich beispielsweise die Azure Monitor für VMS Lösung deinstalliere, sehe ich keine Einblicke in die VM-oder Serverleistung von Computern, die mit dem Arbeitsbereich verbunden sind.

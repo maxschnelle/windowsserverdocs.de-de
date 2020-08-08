@@ -1,20 +1,18 @@
 ---
 title: Hardwareanforderungen und Speicheroptionen für Failoverclustering
 description: Hardware Anforderungen und Speicheroptionen zum Erstellen eines Failoverclusters.
-ms.prod: windows-server
 ms.topic: article
 author: JasonGerend
 ms.author: jgerend
 manager: lizross
-ms.technology: storage-failover-clustering
 ms.date: 04/26/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: ed3337e0543953182ed73337ff7aa0a2f093376c
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: 65d2d21138efbae3c5ada56bfa8628f06c4dcbe7
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87177927"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87990796"
 ---
 # <a name="failover-clustering-hardware-requirements-and-storage-options"></a>Hardwareanforderungen und Speicheroptionen für Failoverclustering
 
@@ -52,8 +50,8 @@ Zum Erstellen eines Failoverclusters benötigen Sie die folgende Hardware. Die U
 
 Wenn Sie einen Failovercluster erstellen, der virtuelle Clustercomputer einbezieht, müssen die Clusterserver die Hardwareanforderungen für die Hyper-V-Rolle unterstützen. Für Hyper-V ist ein 64-Bit-Prozessor erforderlich, der Folgendes einschließt:
 
-- Hardwareunterstützte Virtualisierung. Diese ist für Prozessoren mit Virtualisierungsoption verfügbar, insbesondere für Prozessoren mit Intel VT (Intel Virtualization Technology)- oder AMD-V (AMD Virtualization)-Technologie.
-- Von der Hardware erzwungene Datenausführungsverhinderung (DEP) muss verfügbar und aktiviert sein. Das heißt, Sie müssen Intel XD-Bit (Execute Disable Bit) oder AMD NX-Bit (No Execute Bit) aktivieren.
+- Hardwaregestützte Virtualisierung. Diese ist für Prozessoren mit Virtualisierungsoption verfügbar, insbesondere für Prozessoren mit Intel VT (Intel Virtualization Technology)- oder AMD-V (AMD Virtualization)-Technologie.
+- Die auf der Hardware erzwungene Datenausführungsverhinderung (Data Execution Protection, DEP) muss verfügbar und aktiviert sein. Das heißt, Sie müssen Intel XD-Bit (Execute Disable Bit) oder AMD NX-Bit (No Execute Bit) aktivieren.
 
 Weitere Informationen zur Hyper-v-Rolle finden Sie unter [Hyper-v Overview (Übersicht über Hyper-v](</previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831531(v%3dws.11)>)).
 
@@ -65,7 +63,7 @@ Befolgen Sie die folgenden Richtlinien, wenn Sie ein SAN mit einem Failoverclust
 - **Isolieren Sie Speichergeräte – ein Cluster pro Gerät**: Server aus unterschiedlichen Clustern dürfen keinen Zugriff auf die gleichen Speichergeräte haben. In den meisten Fällen muss eine LUN, die für eine Gruppe mit Clusterservern verwendet wird, durch LUN-Masking oder -Zonen von allen anderen Servern isoliert werden.
 - **Verwenden Sie ggf. Multipfad-E/A-Software oder ein Netzwerkadapterteam**: In einem Speicherfabric mit hoher Verfügbarkeit können Sie Failovercluster mithilfe von Multipfad-E/A-Software oder eines Netzwerkadapterteams (auch als Lastenausgleich und Failover oder LBFO bezeichnet) mit mehreren Hostbusadaptern bereitstellen. Auf diese Weise erhalten Sie den höchsten Grad an Redundanz und Verfügbarkeit. Für Windows Server 2012 R2 oder Windows Server 2012 muss die Multipfadlösung auf Microsoft Multipfad-e/a (MPIO) basieren. Die meisten Hardwarehersteller stellen ein gerätespezifisches MPIO-Modul (DSM) für die Hardware bereit, obwohl Windows Server mindestens ein DSM als Bestandteil des Betriebssystems enthält.
 
-    Weitere Informationen zu LBFO finden Sie unter [NIC Teaming Overview](https://docs.microsoft.com/windows-server/networking/technologies/nic-teaming/nic-teaming) in der technischen Bibliothek für Windows Server.
+    Weitere Informationen zu LBFO finden Sie unter [NIC Teaming Overview](../networking/technologies/nic-teaming/nic-teaming.md) in der technischen Bibliothek für Windows Server.
 
     >[!IMPORTANT]
     >Bei Hostbusadaptern und der MPIO-Software muss möglicherweise genau auf die Version geachtet werden. Wenn Sie für Ihren Cluster eine Multipfadlösung implementieren, sollten Sie die richtigen Adapter sowie die Firm- und Software für die von Ihnen ausgeführte Version von Windows Server in enger Zusammenarbeit mit dem Hardwarehersteller auswählen.
@@ -74,6 +72,6 @@ Befolgen Sie die folgenden Richtlinien, wenn Sie ein SAN mit einem Failoverclust
 
 ## <a name="more-information"></a>Weitere Informationen
 
-- [Failoverclustering](failover-clustering.md)
+- [Failoverclustering](./failover-clustering-overview.md)
 - [Speicherplätze](</previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831739(v%3dws.11)>)
 - [Verwenden von Gastclustering für hohe Verfügbarkeit](</previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn440540(v%3dws.11)>)

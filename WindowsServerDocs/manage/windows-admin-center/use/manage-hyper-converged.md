@@ -1,19 +1,17 @@
 ---
 title: Verwalten der hyperkonvergierten Infrastruktur mit dem Windows Admin Center
 description: Verwalten der hyperkonvergierten Infrastruktur mit Windows Admin Center (Project Honolulu)
-ms.technology: manage
 ms.topic: article
 author: daniellee-msft
 ms.author: jol
 ms.date: 03/01/2019
 ms.localizationpriority: medium
-ms.prod: windows-server
-ms.openlocfilehash: 8344fcb01a5d527dfce46118121fbf7623636549
-ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
+ms.openlocfilehash: a2fd0e688d33265119c8dcb915d485e953507c80
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87519669"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87990489"
 ---
 # <a name="manage-hyper-converged-infrastructure-with-windows-admin-center"></a>Verwalten der hyperkonvergierten Infrastruktur mit dem Windows Admin Center
 
@@ -21,7 +19,7 @@ ms.locfileid: "87519669"
 
 ## <a name="what-is-hyper-converged-infrastructure"></a>Was ist eine hyperkonvergierte Infrastruktur?
 
-Die hyperkonvergierte Infrastruktur konsolidiert softwaredefinierte COMPUTE-, Speicher-und Netzwerk Netzwerke in einem Cluster, um eine leistungsfähige, kostengünstige und leicht skalierbare Virtualisierung bereitzustellen. Diese Funktion wurde in Windows Server 2016 mit [direkte Speicherplätze](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview), [Software-Defined Networking](https://docs.microsoft.com/windows-server/networking/sdn/software-defined-networking) und [Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-on-windows-server)eingeführt.
+Die hyperkonvergierte Infrastruktur konsolidiert softwaredefinierte COMPUTE-, Speicher-und Netzwerk Netzwerke in einem Cluster, um eine leistungsfähige, kostengünstige und leicht skalierbare Virtualisierung bereitzustellen. Diese Funktion wurde in Windows Server 2016 mit [direkte Speicherplätze](../../../storage/storage-spaces/storage-spaces-direct-overview.md), [Software-Defined Networking](../../../networking/sdn/software-defined-networking.md) und [Hyper-V](../../../virtualization/hyper-v/hyper-v-on-windows-server.md)eingeführt.
 
 > [!Tip]
 > Sie möchten eine hyperkonvergierte Infrastruktur erwerben? Microsoft empfiehlt von unseren Partnern diese [Software definierten Lösungen von Windows Server](https://microsoft.com/wssd) . Sie wurden in unserer Referenzarchitektur entworfen, zusammengestellt und überprüft, um Kompatibilität und Zuverlässigkeit sicherzustellen, sodass Sie schnell loslegen können.
@@ -165,7 +163,7 @@ Nein
 
 ### <a name="does-it-require-an-internet-connection"></a>Ist eine Internet Verbindung erforderlich?
 
-Nein.
+Nein
 
 Obwohl das Windows Admin Center eine leistungsstarke und bequeme Integration in die Microsoft Azure Cloud bietet, ist die zentrale Verwaltungs-und Überwachungsumgebung für hyperkonvergierte Infrastrukturen vollständig lokal. Sie kann ohne Internet Verbindung installiert und verwendet werden.
 
@@ -286,9 +284,9 @@ Ihr Feedback ist alles! Der wichtigste Vorteil von häufigen Updates besteht dar
 - [Besuchen Sie das Forum zum Windows Admin Center in der Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Windows-Server-Management/bd-p/WindowsServerManagement)
 - Tweet zu`@servermgmt`
 
-### <a name="additional-references"></a>Zusätzliche Referenzen
+### <a name="additional-references"></a>Weitere Verweise
 
 - [Windows Admin Center](../overview.md)
-- [Direkte Speicherplätze](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview)
-- [Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-on-windows-server)
-- [Softwaredefiniertes Netzwerk](https://docs.microsoft.com/windows-server/networking/sdn/software-defined-networking)
+- [Direkte Speicherplätze](../../../storage/storage-spaces/storage-spaces-direct-overview.md)
+- [Hyper-V](../../../virtualization/hyper-v/hyper-v-on-windows-server.md)
+- [Software-Defined Networking](../../../networking/sdn/software-defined-networking.md)

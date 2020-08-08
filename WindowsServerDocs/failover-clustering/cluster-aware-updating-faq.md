@@ -2,18 +2,17 @@
 ms.assetid: 6416d125-bcaf-433d-971a-2f0283bca2c2
 title: 'Cluster fähiges aktualisieren: häufig gestellte Fragen'
 ms.topic: article
-ms.prod: windows-server
 manager: lizross
 ms.author: jgerend
 author: JasonGerend
 ms.date: 04/28/2017
 description: Hier erhalten Sie Antworten auf häufig gestellte Fragen zum Cluster fähigen aktualisieren in Windows Server.
-ms.openlocfilehash: aa2f99378713d93bafed710b96542559ac44ead7
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 0283f7f29ccc647508530d6cfdbf54b41086b90c
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85473337"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87990912"
 ---
 # <a name="cluster-aware-updating-frequently-asked-questions"></a>Clusterfähiges Aktualisieren: Häufig gestellte Fragen
 
@@ -101,7 +100,7 @@ Ja. CAU bietet die folgenden Dimensionen der Flexibilität, um den individuellen
 
 **Erweiterte Aktualisierungs Lauf Optionen** Der Administrator kann zusätzlich einen umfangreichen Satz von erweiterten Optionen für die Aktualisierungs Laufzeit angeben, z. b. die maximale Anzahl von Wiederholungs versuchen für den Update Vorgang auf jedem Knoten. Diese Optionen können entweder über die Cau-Benutzeroberfläche oder über die PowerShell-Cmdlets für Cau angegeben werden. Diese benutzerdefinierten Einstellungen können in einem Profil für die Updateausführung gespeichert und bei späteren Updateausführungen wiederverwendet werden.
 
-**Public Plug- \- in-Architektur** Cau enthält Features zum Registrieren, Aufheben der Registrierung und Auswählen von Plug- \- ins. Cau wird mit zwei Standard-Plug- \- ins ausgeliefert: eine koordiniert die Windows Update Agent- \( WUA- \) APIs auf jedem Cluster Knoten, die zweite wendet Hotfixes an, die manuell in eine Dateifreigabe kopiert werden, auf die die Cluster Knoten zugreifen können. Wenn ein Unternehmen besondere Anforderungen hat, die mit diesen beiden Plug-ins nicht erfüllt werden können \- , kann das Unternehmen \- gemäß der öffentlichen API-Spezifikation ein neues Cau-Plug-in erstellen. Weitere Informationen finden Sie unter [ \- Referenz zum Plug- \- in für Cluster fähiges aktualisieren](https://msdn.microsoft.com/library/hh418084(VS.85).aspx).
+**Public Plug- \- in-Architektur** Cau enthält Features zum Registrieren, Aufheben der Registrierung und Auswählen von Plug- \- ins. Cau wird mit zwei Standard-Plug- \- ins ausgeliefert: eine koordiniert die Windows Update Agent- \( WUA- \) APIs auf jedem Cluster Knoten, die zweite wendet Hotfixes an, die manuell in eine Dateifreigabe kopiert werden, auf die die Cluster Knoten zugreifen können. Wenn ein Unternehmen besondere Anforderungen hat, die mit diesen beiden Plug-ins nicht erfüllt werden können \- , kann das Unternehmen \- gemäß der öffentlichen API-Spezifikation ein neues Cau-Plug-in erstellen. Weitere Informationen finden Sie unter [ \- Referenz zum Plug- \- in für Cluster fähiges aktualisieren](/previous-versions/windows/desktop/mscs/cluster-aware-update-plug-in-interfaces-and-classes).
 
 Informationen zum Konfigurieren und Anpassen von Plug-Ins für Cluster fähiges \- Aktualisieren für die Unterstützung unterschiedlicher Aktualisierungs Szenarien finden Sie unter [Funktionsweise von Plug- \- ins](assetId:///847b571b-12b3-473c-953f-75a5a1f51333).
 
@@ -154,11 +153,10 @@ Ja. Von CAU werden einige Aktualisierungsausführungsoptionen unterstützt, mit 
 
 ## <a name="where-is-the-cau-plug-in-specification"></a>Wo ist die Plug-in-Spezifikation für Cau \- ?
 
--   [\-Referenz zu Plug- \- ins für Cluster fähiges aktualisieren](https://msdn.microsoft.com/library/hh418084(VS.85).aspx)
+-   [\-Referenz zu Plug- \- ins für Cluster fähiges aktualisieren](/previous-versions/windows/desktop/mscs/cluster-aware-update-plug-in-interfaces-and-classes)
 
 -   [Plug-in- \- Beispiel für Cluster fähiges aktualisieren](https://code.msdn.microsoft.com/windowsdesktop/Cluster-Aware-Updating-6a8854c9)
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Übersicht über das Cluster fähige \- Aktualisieren](cluster-aware-updating.md)
-

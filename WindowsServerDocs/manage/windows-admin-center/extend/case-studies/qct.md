@@ -1,27 +1,25 @@
 ---
 title: Windows Admin Center SDK-Fallstudie-qct
 description: Windows Admin Center SDK-Fallstudie-qct
-ms.technology: extend
 ms.topic: article
 author: daniellee-msft
 ms.author: jol
 ms.date: 06/14/2019
 ms.localizationpriority: medium
-ms.prod: windows-server
-ms.openlocfilehash: 2922bcdd08fac7bf2179a0ebbad37c7151d660b3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 13f23a46647ec6cc2d8c2813c426f6372ead39ca
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71357249"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87964668"
 ---
 # <a name="qct-management-suite-extension"></a>Qct Management Suite-Erweiterung
 
 ## <a name="a-simple-path-to-server-infrastructure-management"></a>Ein einfacher Weg zur Verwaltung der Serverinfrastruktur
 
-Die qct Management Suite-Erweiterung für Windows Admin Center bietet eine zentrale Palette von Glas Dashboards zum Überwachen von Systemkonfigurationen und zum Verwalten der Server Integrität von [qct-Azure Stack HCI-zertifizierten Systemen](https://go.qct.io/solutions/enterprise-private-cloud/qxstack-windows-server-cloud-ready-appliances/windows-server-software-defined-solution-wssd/) : [Quantagrid D52BQ-2U](https://www.qct.io/product/index/Server/rackmount-server/2U-Rackmount-Server/QuantaGrid-D52BQ-2U), [quantagrid D52T-1ulh](https://www.qct.io/product/index/Storage/Storage-Server/1U-Storage-Server/QuantaGrid-D52T-1ULH) und [quantaplex T21P-4U](https://www.qct.io/product/index/Storage/Storage-Server/4U-Storage-Server/QuantaPlex-T21P-4U).
+Die qct Management Suite-Erweiterung für Windows Admin Center bietet eine zentrale Palette von Glas Dashboards für die Überwachung von Systemkonfigurationen und die Verwaltung der Server Integrität von [qct-Azure Stack HCI-zertifizierten Systemen](https://go.qct.io/solutions/enterprise-private-cloud/qxstack-windows-server-cloud-ready-appliances/windows-server-software-defined-solution-wssd/) : [quantagrid D52BQ-2U](https://www.qct.io/product/index/Server/rackmount-server/2U-Rackmount-Server/QuantaGrid-D52BQ-2U), [quantagrid D52T-1ulh](https://www.qct.io/product/index/Storage/Storage-Server/1U-Storage-Server/QuantaGrid-D52T-1ULH) und [quantaplex T21P-4U](https://www.qct.io/product/index/Storage/Storage-Server/4U-Storage-Server/QuantaPlex-T21P-4U).
 
-Qct wurde durch Kunden Probleme im Zusammenhang mit der bestehenden Überwachung und Verwaltung gesteuert und bietet exklusive, ergänzende Features und Funktionen, die eine Übersicht über System Ereignisprotokolle, Überwachungs Treiber und Hardwarekomponenten Integrität enthalten, um die Gesamtmenge zu verbessern. Verwaltung.
+Qct wurde durch Kunden Probleme im Zusammenhang mit der vorhandenen Überwachung und Verwaltung gesteuert und bietet exklusive, ergänzende Features und Funktionen, die eine Übersicht über System Ereignisprotokolle, Überwachungs Treiber und Hardwarekomponenten Integrität enthalten, um die allgemeine Verwaltungsleistung zu verbessern.
 
 ![Qct-Erweiterung](../../media/extend-case-study-qct/D52T_DarkMode_Disk-Detail-General.PNG)
 

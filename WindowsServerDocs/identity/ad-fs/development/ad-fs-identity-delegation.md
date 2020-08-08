@@ -6,19 +6,17 @@ ms.author: billmath
 manager: mtillman
 ms.date: 02/22/2018
 ms.topic: article
-ms.prod: windows-server
-ms.technology: identity-adfs
-ms.openlocfilehash: 2162937498a5c16ce33b67ba5e478d2a6bb1a687
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 9d0cc816ce27130867988f51a097456bb37faef0
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86964982"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87964947"
 ---
 # <a name="identity-delegation-scenario-with-ad-fs"></a>Identitäts Delegierungs Szenario mit AD FS
 
 
-[Windows Identity Foundation (WIF) wurde ab dem .NET Framework 4,5 vollständig in das .NET Framework integriert. Die in diesem Thema, WIF 3,5, adressierte WIF-Version ist veraltet und sollte nur bei der Entwicklung für die .NET Framework 3,5 SP1 oder .NET Framework 4 verwendet werden. Weitere Informationen zu WIF im .NET Framework 4,5, auch bekannt als WIF 4,5, finden Sie in der Dokumentation zu Windows Identity Foundation im .NET Framework 4,5-Entwicklungs Handbuch. 
+[Windows Identity Foundation (WIF) wurde ab dem .NET Framework 4,5 vollständig in das .NET Framework integriert. Die in diesem Thema, WIF 3,5, adressierte WIF-Version ist veraltet und sollte nur bei der Entwicklung für die .NET Framework 3,5 SP1 oder .NET Framework 4 verwendet werden. Weitere Informationen zu WIF im .NET Framework 4,5, auch bekannt als WIF 4,5, finden Sie in der Dokumentation zu Windows Identity Foundation im .NET Framework 4,5-Entwicklungs Handbuch.
 
 In diesem Szenario wird eine Anwendung beschrieben, die auf Back-End-Ressourcen zugreifen muss, die die Identitäts Delegierungs Kette für die Durchführung von Zugriffs Steuerungs Prüfungen benötigen. Eine einfache Identitäts Delegierungs Kette besteht normalerweise aus den Informationen zum ursprünglichen Aufrufer und der Identität des unmittelbaren Aufrufers.
 
@@ -41,7 +39,7 @@ Folgende Komponenten sind an diesem Szenario beteiligt:
 - sts1: ein STS, der die Rolle des Anspruchs Anbieters hat, und gibt Ansprüche aus, die von der Anwendung erwartet werden (web1). Sie hat eine Vertrauensstellung mit fabrikam.com und auch mit der Anwendung hergestellt.
 - sts2: ein STS, der sich in der Rolle des Identitäts Anbieters für fabrikam.com befindet und einen Endpunkt bereitstellt, den der Fabrikam-Mitarbeiter zum Authentifizieren verwendet. Sie hat eine Vertrauensstellung mit contoso.com hergestellt, sodass Fabrikam-Mitarbeiter auf Ressourcen auf contoso.com zugreifen können.
 
->[!NOTE] 
+>[!NOTE]
 >Der Begriff "ACTAS Token", der in diesem Szenario häufig verwendet wird, bezieht sich auf ein Token, das von einem STS ausgegeben wird und die Identität des Benutzers enthält. Die Actor-Eigenschaft enthält die STS-Identität.
 
 Wie im vorherigen Diagramm gezeigt, ist der Ablauf in diesem Szenario:
@@ -111,7 +109,7 @@ ChannelFactory<IService2Channel> factory = (ChannelFactory<IService2Channel>)App
 IService2Channel channel;
 lock (factory)
 {
-// Setup the ActAs to point to the caller's token so that we perform a 
+// Setup the ActAs to point to the caller's token so that we perform a
 // delegated call to the backend service
 // on behalf of the original caller.
     channel = factory.CreateChannelActingAs<IService2Channel>(callerToken);
@@ -136,7 +134,7 @@ try
 ```
 ## <a name="web-service-specific-changes"></a>Webdienst spezifische Änderungen
 
-Da der Webdienst mit WCF erstellt und für WIF aktiviert ist, wird nach der Konfiguration der Bindung mit IssuedSecurityTokenParameters und der richtigen Aussteller Adresse die Überprüfung der ACTAS automatisch von WIF durchgeführt. 
+Da der Webdienst mit WCF erstellt und für WIF aktiviert ist, wird nach der Konfiguration der Bindung mit IssuedSecurityTokenParameters und der richtigen Aussteller Adresse die Überprüfung der ACTAS automatisch von WIF durchgeführt.
 
 Der Webdienst macht die spezifischen Methoden verfügbar, die für die Anwendung erforderlich sind. Es gibt keine spezifischen Codeänderungen, die für den Dienst erforderlich sind. Das folgende Codebeispiel zeigt die Konfiguration des Webdiensts mit IssuedSecurityTokenParameters:
 
@@ -183,4 +181,4 @@ using ( ServiceHost host = new ServiceHost( typeof( Service2 ), new Uri( "http:/
 ```
 
 ## <a name="next-steps"></a>Nächste Schritte
-[AD FS-Entwicklung](../../ad-fs/AD-FS-Development.md)  
+[AD FS-Entwicklung](../../ad-fs/AD-FS-Development.md)

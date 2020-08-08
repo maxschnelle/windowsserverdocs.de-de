@@ -6,14 +6,12 @@ ms.author: billmath
 manager: mtillman
 ms.date: 03/01/2018
 ms.topic: article
-ms.prod: windows-server
-ms.technology: identity-adfs
-ms.openlocfilehash: b66d688052398ba76b6721e8bab0d0878be4959a
-ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
+ms.openlocfilehash: d7941733ff2191e94c6c1e380d4349585a5c98d3
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87517705"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87956177"
 ---
 # <a name="ad-fs-troubleshooting---azure-ad"></a>AD FS Problembehandlung-Azure AD
 Mit dem Wachstum der Cloud können viele Unternehmen Azure AD für ihre verschiedenen apps und Dienste nutzen.  Der Verbund mit Azure AD wurde in vielen Organisationen zu einer Standardübung.  In diesem Dokument werden einige Aspekte der Problembehandlung für diesen Verbund behandelt.  Einige der Themen im Dokument zur allgemeinen Problembehandlung betreffen weiterhin den Verbund mit Azure, sodass sich dieses Dokument auf Besonderheiten bei der Azure AD-und AD FS Interaktion konzentriert.

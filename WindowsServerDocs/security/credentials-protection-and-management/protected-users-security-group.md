@@ -1,20 +1,18 @@
 ---
 title: Sicherheitsgruppe "Geschützte Benutzer"
 description: Windows Server-Sicherheit
-ms.prod: windows-server
-ms.technology: security-credential-protection
 ms.topic: article
 ms.assetid: 1b0b5180-f65a-43ac-8ef3-66014116f296
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: cd849486e441c8315daa95db351bcd214b929759
-ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
+ms.openlocfilehash: 450279f5af907e4643f8ee8c1ea0ff36edd9aea5
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87518006"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87948693"
 ---
 # <a name="protected-users-security-group"></a>Sicherheitsgruppe "Geschützte Benutzer"
 
@@ -61,7 +59,7 @@ Die folgende Tabelle zeigt die Eigenschaften der Gruppe der geschützten Benutze
 |Attribut|Wert|
 |-------|-----|
 |Gut bekannte SID/RID|S-1-5-21-<domain>-525|
-|type|Globale Domäne|
+|Typ|Globale Domäne|
 |Standardcontainer|CN=Benutzer, DC=<domain>, DC=|
 |Standardelemente|Keine|
 |Standardmitglied von|Keine|
@@ -122,7 +120,7 @@ Es gibt zwei betriebliche Administrativprotokolle für die Fehlerbehebung von Er
 |303<p>**ProtectedUserSuccesses-DomainController**|Grund: Ein Kerberos-Ticket-Granting-Ticket (TGT) wurde erfolgreich für ein Mitglied der Gruppe der geschützten Benutzer ausgegeben.|
 
 
-## <a name="additional-resources"></a>Zusätzliche Ressourcen
+## <a name="additional-resources"></a>Weitere Ressourcen
 
 - [Schutz und Verwaltung von Anmeldeinformationen](credentials-protection-and-management.md)
 

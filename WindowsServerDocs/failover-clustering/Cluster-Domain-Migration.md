@@ -1,20 +1,18 @@
 ---
 title: Domänen übergreifende Cluster Migration in Windows Server 2016/2019
 description: In diesem Artikel wird das Verschieben eines Windows Server 2019-Clusters von einer Domäne in eine andere beschrieben.
-ms.prod: windows-server
 manager: eldenc
-ms.technology: failover-clustering
 ms.topic: article
 author: johnmarlin-msft
 ms.author: johnmar
 ms.date: 01/18/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 6062dd987a136bc2be67c09efbe399bb8fae24f6
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: 32f7e62fd08080f8b56c9c495f374d5c927454bb
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87178526"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87990969"
 ---
 # <a name="failover-cluster-domain-migration"></a>Migration der failoverclusterdomäne
 
@@ -41,7 +39,7 @@ Microsoft bietet keine Unterstützung für Administratoren, die versuchen, Resso
 
 In Windows Server 2016 und früher hatte die Clusterdienst nicht die Möglichkeit, von einer Domäne in eine andere zu wechseln.  Dies war auf die zunehmende Abhängigkeit von Active Directory Domain Services und den erstellten virtuellen Namen zurückzuführen.
 
-## <a name="options"></a>Tastatur
+## <a name="options"></a>Optionen
 
 Um eine solche Verschiebung durchzuführen, gibt es zwei Optionen.
 
@@ -65,7 +63,7 @@ Wie die Animation zeigt, ist diese Option nicht destruktiv, erfordert jedoch ent
 2. Verwenden Sie den [Clustermigrations-Assistenten](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754481(v=ws.10)) , um alle Ressourcen in den neuen Cluster zu migrieren. Erinnerung: Dadurch werden keine Daten kopiert, daher muss Sie separat durchgeführt werden.
 3. Entfernen oder zerstören Sie den alten Cluster.
 
-Bei beiden Optionen muss auf dem neuen Cluster alle [Cluster fähigen Anwendungen](https://technet.microsoft.com/aa369082(v=vs.90)) installiert sein, die Treiber sind auf dem neuesten Stand und möglicherweise Tests, um sicherzustellen, dass alles ordnungsgemäß ausgeführt wird.  Dies ist ein zeitaufwändiger Prozess, wenn Daten ebenfalls verschoben werden müssen.
+Bei beiden Optionen muss auf dem neuen Cluster alle [Cluster fähigen Anwendungen](/previous-versions/windows/desktop/mscs/cluster-aware-applications) installiert sein, die Treiber sind auf dem neuesten Stand und möglicherweise Tests, um sicherzustellen, dass alles ordnungsgemäß ausgeführt wird.  Dies ist ein zeitaufwändiger Prozess, wenn Daten ebenfalls verschoben werden müssen.
 
 ## <a name="windows-server-2019"></a>Windows Server 2019
 
@@ -140,4 +138,3 @@ Wenn Sie die neue USB-Zeugen Funktion verwenden, können Sie den Cluster nicht d
 ```
 New-ClusternameAccount : Cluster name account cannot be created.  This cluster contains a file share witness with invalid permissions for a cluster of type AdministrativeAccesssPoint ActiveDirectoryAndDns. To proceed, delete the file share witness.  After this you can create the cluster name account and recreate the file share witness.  The new file share witness will be automatically created with valid permissions.
 ```
-

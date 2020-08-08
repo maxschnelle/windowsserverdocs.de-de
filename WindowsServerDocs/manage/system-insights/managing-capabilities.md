@@ -1,19 +1,17 @@
 ---
 title: Verwalten von Funktionen
 description: System Insights macht eine Vielzahl von Einstellungen verfügbar, die für jede Funktion konfiguriert werden können. diese Einstellungen können angepasst werden, um den spezifischen Anforderungen Ihrer Bereitstellung gerecht zu werden. In diesem Thema wird beschrieben, wie die verschiedenen Einstellungen für jede Funktion über das Windows Admin Center oder PowerShell verwaltet werden, und es werden grundlegende PowerShell-Beispiele und Windows Admin Center-Screenshots bereitgestellt, um die Anpassung dieser Einstellungen zu veranschaulichen.
-ms.prod: windows-server
-ms.technology: system-insights
 ms.topic: article
 author: gawatu
 ms.author: gawatu
 manager: mallikarjun.chadalapaka
 ms.date: 6/05/2018
-ms.openlocfilehash: 66745440094ccf55b774727320d59074139a7f33
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: e82b27d2d746592b29b86a66ee34b21f8605a0d8
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85471781"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87940161"
 ---
 # <a name="managing-capabilities"></a>Verwalten von Funktionen
 
@@ -152,7 +150,7 @@ Mithilfe der Registerkarte **Aktionen** auf der Seite **Einstellungen** können 
 ![Seite "Einstellungen", auf der Benutzer Wartungs Aktionen angeben können](media/actions-page-contoso.png)
 
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 Weitere Informationen zu System Insights finden Sie in den folgenden Ressourcen:
 
 - [Systemdaten: Übersicht](overview.md)

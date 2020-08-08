@@ -1,38 +1,36 @@
 ---
 title: Aktualisieren von Failoverclustern mit der gleichen Hardware
 description: In diesem Artikel wird beschrieben, wie Sie einen Failovercluster mit zwei Knoten mithilfe derselben Hardware aktualisieren.
-ms.prod: windows-server
 manager: eldenc
-ms.technology: failover-clustering
 ms.topic: article
 author: johnmarlin-msft
 ms.author: johnmar
 ms.date: 02/28/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: b2d9866417908b3979a4ee17b25dd0d3a404bb1c
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 3e25660eda2d21658f01fe1d8a01ae86a4b42116
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80828183"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87990945"
 ---
 # <a name="upgrading-failover-clusters-on-the-same-hardware"></a>Aktualisieren von Failoverclustern auf derselben Hardware
 
 > Gilt für: Windows Server 2019, Windows Server 2016
 
-Ein Failovercluster besteht aus einer Gruppe von unabhängigen Computern, die miteinander interagieren und somit die Verfügbarkeit von Anwendungen und Diensten erhöhen. Die geclusterten Server ("Knoten") sind physisch über Kabel sowie durch Software verbunden. Wenn auf einem der Clusterknoten ein Fehler auftritt, werden seine Aufgaben sofort auf einen anderen Knoten übertragen. Dies wird als Failover bezeichnet. So ergeben sich für die Benutzer nur minimale Unterbrechungen des Betriebs.
+Ein Failovercluster besteht aus einer Gruppe von unabhängigen Computern, die miteinander interagieren und somit die Verfügbarkeit von Anwendungen und Diensten erhöhen. Die Clusterserver (sogenannte Knoten) sind durch physische Kabel und durch Software miteinander verbunden. Wenn auf einem der Clusterknoten ein Fehler auftritt, werden seine Aufgaben sofort auf einen anderen Knoten übertragen. Dies wird als Failover bezeichnet. So ergeben sich für die Benutzer nur minimale Unterbrechungen des Betriebs.
 
 In dieser Anleitung werden die Schritte zum Aktualisieren der Cluster Knoten auf Windows Server 2019 oder Windows Server 2016 von einer früheren Version mit derselben Hardware beschrieben.
 
 ## <a name="overview"></a>Übersicht
 
-Das Upgrade des Betriebssystems auf einem vorhandenen Failovercluster wird nur unterstützt, wenn Sie von Windows Server 2016 zu Windows 2019 wechseln.  Wenn auf dem Failovercluster eine frühere Version ausgeführt wird, wie z. b. Windows Server 2012 R2 und früher, können bei der Ausführung des Cluster Diensts keine Verbindungsknoten miteinander verknüpft werden.  Wenn Sie dieselbe Hardware verwenden, können Sie Schritte ausführen, um Sie auf die neuere Version zu übernehmen.  
+Das Upgrade des Betriebssystems auf einem vorhandenen Failovercluster wird nur unterstützt, wenn Sie von Windows Server 2016 zu Windows 2019 wechseln.  Wenn auf dem Failovercluster eine frühere Version ausgeführt wird, wie z. b. Windows Server 2012 R2 und früher, können bei der Ausführung des Cluster Diensts keine Verbindungsknoten miteinander verknüpft werden.  Wenn Sie dieselbe Hardware verwenden, können Sie Schritte ausführen, um Sie auf die neuere Version zu übernehmen.
 
 Lesen Sie vor dem Upgrade des Failoverclusters den [Windows Server-upgradeinhalt](../upgrade/upgrade-overview.md).  Wenn Sie einen Windows-Server direkt aktualisieren, wechseln Sie von einer vorhandenen Betriebssystemversion zu einer neueren Version, während Sie auf derselben Hardware bleiben. Für Windows Server kann ein direktes Upgrade von mindestens einem ausgeführt werden, manchmal aber auch für zwei Versionen. Beispielsweise können Windows Server 2012 R2 und Windows Server 2016 direkt auf Windows Server 2019 aktualisiert werden.  Beachten Sie auch, dass der [Clustermigrations-Assistent](https://blogs.msdn.microsoft.com/clustering/2012/06/25/how-to-move-highly-available-clustered-vms-to-windows-server-2012-with-the-cluster-migration-wizard/) verwendet werden kann, jedoch nur bis zu zwei Versionen wieder unterstützt werden. Die folgende Grafik zeigt die Upgradepfade für Windows Server. Nach unten zeigende Pfeile stellen den unterstützten Upgradepfad dar, der von früheren Versionen bis zu Windows Server 2019 wechselt.
 
 ![Diagramm für ein direktes Upgrade](media/In-Place-Upgrade/In-Place-Upgrade-1.png)
 
-Die folgenden Schritte sind ein Beispiel für den Wechsel von einem Windows Server 2012-Failoverclusterserver zu Windows Server 2019 unter Verwendung derselben Hardware.  
+Die folgenden Schritte sind ein Beispiel für den Wechsel von einem Windows Server 2012-Failoverclusterserver zu Windows Server 2019 unter Verwendung derselben Hardware.
 
 Stellen Sie vor dem Start eines Upgrades sicher, dass eine aktuelle Sicherung, einschließlich des Systemstatus, abgeschlossen ist.  Stellen Sie außerdem sicher, dass alle Treiber und Firmware auf die zertifizierten Stufen des Betriebssystems aktualisiert wurden, das Sie verwenden werden.  Diese beiden Notizen werden hier nicht behandelt.
 
@@ -40,11 +38,11 @@ Im folgenden Beispiel ist der Name des Failoverclusters Cluster, und die Knoten 
 
 ## <a name="step-1-evict-first-node-and-upgrade-to-windows-server-2016"></a>Schritt 1: Entfernen des ersten Knotens und Aktualisieren auf Windows Server 2016
 
-1. Entfernen Sie in Failovercluster-Manager alle Ressourcen von Node1 zu Node2, indem Sie mit der rechten Maustaste auf den Knoten klicken und **Rollen**anhalten und **Entfernen auswählen.**  Alternativ können Sie den PowerShell [-Befehl Suspend-clusternode](https://docs.microsoft.com/powershell/module/failoverclusters/suspend-clusternode)verwenden.
+1. Entfernen Sie in Failovercluster-Manager alle Ressourcen von Node1 zu Node2, indem Sie mit der rechten Maustaste auf den Knoten klicken und **Rollen**anhalten und **Entfernen auswählen.**  Alternativ können Sie den PowerShell [-Befehl Suspend-clusternode](/powershell/module/failoverclusters/suspend-clusternode)verwenden.
 
     ![Knoten entladen](media/In-Place-Upgrade/In-Place-Upgrade-2.png)
 
-2. Entfernen Sie Node1 aus dem Cluster, indem Sie mit der rechten Maustaste auf den Knoten klicken **und** **Weitere Aktionen** auswählen und entfernen.  Alternativ können Sie den PowerShell [-Befehl Remove-clusternode](https://docs.microsoft.com/powershell/module/failoverclusters/remove-clusternode)verwenden.
+2. Entfernen Sie Node1 aus dem Cluster, indem Sie mit der rechten Maustaste auf den Knoten klicken **und** **Weitere Aktionen** auswählen und entfernen.  Alternativ können Sie den PowerShell [-Befehl Remove-clusternode](/powershell/module/failoverclusters/remove-clusternode)verwenden.
 
     ![Knoten entladen](media/In-Place-Upgrade/In-Place-Upgrade-3.png)
 
@@ -69,9 +67,9 @@ Nachdem Sie überprüft haben, dass alles wie erforderlich funktioniert, kann No
 1. Führen Sie eine Neuinstallation von Windows Server 2019 auf Node2 aus. Stellen Sie sicher, dass Sie alle erforderlichen Rollen, Features, Treiber und Sicherheitsupdates hinzugefügt haben.
 
 2. Nachdem der ursprüngliche Cluster (Cluster) nicht mehr vorhanden ist, können Sie den neuen Cluster Namen als CLUSTER1 belassen oder zum ursprünglichen Namen zurückkehren.  Wenn Sie zum ursprünglichen Namen zurückkehren möchten, führen Sie die folgenden Schritte aus:
-   
+
    a. Klicken Sie auf Node1 in Failovercluster-Manager klicken Sie mit der rechten Maustaste auf den Namen des Clusters (CLUSTER1), und wählen Sie **Eigenschaften**aus.
-   
+
    b. Benennen Sie den Cluster auf der Registerkarte **Allgemein** in Cluster um.
 
    c. Wenn Sie "OK" oder "anwenden" auswählen, wird das folgende Dialogfeld angezeigt.
@@ -82,9 +80,9 @@ Nachdem Sie überprüft haben, dass alles wie erforderlich funktioniert, kann No
 
 3. Öffnen Sie auf Node1 Failovercluster-Manager.  Klicken Sie mit der rechten Maustaste auf **Knoten** , und wählen Sie **Knoten hinzufügen**  Durchlaufen Sie den Assistenten, indem Sie Node2 zum Cluster hinzufügen.
 
-4. Fügen Sie den Speicher an Node2 an. Dies kann das erneute Verbinden der Speicher Kabel einschließen. 
+4. Fügen Sie den Speicher an Node2 an. Dies kann das erneute Verbinden der Speicher Kabel einschließen.
 
-5. Entfernen Sie alle Ressourcen von Node1 zu Node2, indem Sie mit der rechten Maustaste auf den Knoten klicken und **Rollen**anhalten und **Entfernen auswählen.**  Alternativ können Sie den PowerShell [-Befehl Suspend-clusternode](https://docs.microsoft.com/powershell/module/failoverclusters/suspend-clusternode)verwenden.  Stellen Sie sicher, dass alle Ressourcen online sind und wie Sie funktionieren.
+5. Entfernen Sie alle Ressourcen von Node1 zu Node2, indem Sie mit der rechten Maustaste auf den Knoten klicken und **Rollen**anhalten und **Entfernen auswählen.**  Alternativ können Sie den PowerShell [-Befehl Suspend-clusternode](/powershell/module/failoverclusters/suspend-clusternode)verwenden.  Stellen Sie sicher, dass alle Ressourcen online sind und wie Sie funktionieren.
 
 ## <a name="step-3-rebuild-first-node-to-windows-server-2019"></a>Schritt 3: Erneutes Erstellen des ersten Knotens in Windows Server 2019
 
@@ -96,13 +94,13 @@ Nachdem Sie überprüft haben, dass alles wie erforderlich funktioniert, kann No
 
 4. Verschieben Sie alle Ressourcen in Node1, und stellen Sie sicher, dass Sie online geschaltet werden und bei Bedarf funktionieren.
 
-5. Die aktuelle Cluster Funktionsebene bleibt bei Windows 2016.  Aktualisieren Sie die Funktionsebene mit dem PowerShell [-Befehl Update-clusterfunctionallevel](https://docs.microsoft.com/powershell/module/failoverclusters/update-clusterfunctionallevel)auf Windows 2019.
+5. Die aktuelle Cluster Funktionsebene bleibt bei Windows 2016.  Aktualisieren Sie die Funktionsebene mit dem PowerShell [-Befehl Update-clusterfunctionallevel](/powershell/module/failoverclusters/update-clusterfunctionallevel)auf Windows 2019.
 
 Sie führen jetzt mit einem voll funktionsfähigen Windows Server 2019-Failovercluster aus.
 
-## <a name="additional-notes"></a>Weitere Anmerkungen
+## <a name="additional-notes"></a>Zusätzliche Hinweise
 
 - Wie bereits erläutert, ist die Trennung des Speichers möglicherweise nicht erforderlich.  Wir möchten uns in unserer Dokumentation auf der Seite mit Vorsicht befinden.  Wenden Sie sich an den Speicher Anbieter.
 - Wenn als Ausgangspunkt Windows Server 2008-oder 2008 R2-Cluster verwendet wird, sind möglicherweise weitere Schritte erforderlich.
-- Wenn auf dem Cluster virtuelle Computer ausgeführt werden, stellen Sie sicher, dass Sie die Ebene der virtuellen Maschine aktualisieren, sobald die Cluster Funktionsebene mit dem PowerShell [-Befehl Update-VMVersion](https://docs.microsoft.com/powershell/module/hyper-v/update-vmversion)erreicht wurde.
+- Wenn auf dem Cluster virtuelle Computer ausgeführt werden, stellen Sie sicher, dass Sie die Ebene der virtuellen Maschine aktualisieren, sobald die Cluster Funktionsebene mit dem PowerShell [-Befehl Update-VMVersion](/powershell/module/hyper-v/update-vmversion)erreicht wurde.
 - Beachten Sie Folgendes: Wenn Sie eine Anwendung wie SQL Server, Exchange Server usw. ausführen, wird die Anwendung nicht mit dem Assistenten zum Kopieren von Cluster Rollen migriert.  Wenden Sie sich an den Hersteller der Anwendung, um die entsprechenden Migrations Schritte für die Anwendung auszuführen.

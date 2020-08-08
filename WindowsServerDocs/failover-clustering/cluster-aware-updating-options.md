@@ -3,17 +3,16 @@ ms.assetid: 2f4b6641-0ec2-4b1c-85fb-a1f1d16685c8
 title: Cluster fähiges aktualisieren erweiterter Optionen und Update Lauf profile
 description: Konfigurieren erweiterter Optionen und Aktualisieren von Lauf Profilen für Cluster fähiges aktualisieren (Cau)
 ms.topic: article
-ms.prod: windows-server
 manager: lizross
 ms.author: jgerend
 author: JasonGerend
 ms.date: 08/06/2018
-ms.openlocfilehash: e9bda378b287407f6225c844c2a147b8cd85c709
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: f5f81edbe1c7eab772d1c4b1bbe90695fa725f8c
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85473317"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87990901"
 ---
 # <a name="cluster-aware-updating-advanced-options-and-updating-run-profiles"></a>Cluster fähiges aktualisieren erweiterter Optionen und Update Lauf profile
 
@@ -52,7 +51,7 @@ Die folgende Tabelle enthält Optionen, die Sie in einem Profil für die CAU-Upd
 
 |Option|Standardwert|Details|
 |------------|-------------------|-------------|
-|**Cluster Name**|Keine <br>**Hinweis:**  Diese Option muss nur festgelegt werden, wenn die Benutzeroberfläche für Cluster fähiges aktualisieren nicht auf einem Failoverclusterknoten ausgeführt wird, oder wenn Sie auf einen Failovercluster verweisen möchten, der sich vom Standort der Cau-Benutzeroberfläche unterscheidet|Der NetBIOS-Name des Clusters, auf dem die Updateausführung erfolgen soll.|
+|**ClusterName**|Keine <br>**Hinweis:**  Diese Option muss nur festgelegt werden, wenn die Benutzeroberfläche für Cluster fähiges aktualisieren nicht auf einem Failoverclusterknoten ausgeführt wird, oder wenn Sie auf einen Failovercluster verweisen möchten, der sich vom Standort der Cau-Benutzeroberfläche unterscheidet|Der NetBIOS-Name des Clusters, auf dem die Updateausführung erfolgen soll.|
 |**Credential**|Aktuelle Kontoanmeldeinformationen|Die Administratoranmeldeinformationen für den Zielcluster, in dem die Updateausführung erfolgen soll. Möglicherweise verfügen Sie bereits über die erforderlichen Anmelde Informationen, wenn Sie die Cau-Benutzeroberfläche starten (oder eine PowerShell-Sitzung öffnen, wenn Sie die PowerShell-Cmdlets für Cau verwenden), von einem Konto, das über Administratorrechte und-Berechtigungen für den Cluster verfügt.|
 |**NodeOrder**|Standardmäßig wird bei CAU mit dem Knoten begonnen, der die kleinste Anzahl von Clusterrollen besitzt. Danach folgen die Knoten mit der jeweils nächsthöheren Anzahl.|Die Namen der Clusterknoten in der Reihenfolge, in der sie aktualisiert werden sollten (sofern möglich).|
 
@@ -82,8 +81,8 @@ Invoke-CauRun –ClusterName CONTOSO-FC1 @MyRunProfile
 
 
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Clusterfähiges Aktualisieren](cluster-aware-updating.md)
 
--   [Cmdlets für clusterfähiges Aktualisieren in Windows PowerShell](https://docs.microsoft.com/powershell/module/clusterawareupdating/?view=win10-ps)
+-   [Cmdlets für clusterfähiges Aktualisieren in Windows PowerShell](/powershell/module/clusterawareupdating/?view=win10-ps)

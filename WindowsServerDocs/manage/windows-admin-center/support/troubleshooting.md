@@ -6,12 +6,12 @@ author: jwwool
 ms.author: jeffrew
 ms.localizationpriority: medium
 ms.date: 06/07/2019
-ms.openlocfilehash: a7ef7eb2acf9a641babf5690119c61f452aaabbc
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 76b171b81ff01a7a16b700d720bf289fefddf0f7
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87937619"
+ms.locfileid: "87990209"
 ---
 # <a name="troubleshooting-windows-admin-center"></a>Problembehandlung für Windows Admin Center
 
@@ -69,7 +69,7 @@ Dies kann vorkommen, wenn Ihr PowerShell-Standard Modulpfad geändert oder entfe
 
 * [Überprüfen der Windows-Version](#check-the-windows-version)
 * Haben Sie eine Regel für den eingehenden Port für HTTPS hinzugefügt?
-* [Weitere Informationen zum Installieren des Windows Admin Centers auf einer Azure-VM](https://docs.microsoft.com/windows-server/manage/windows-admin-center/configure/azure-integration#use-a-windows-admin-center-gateway-deployed-in-azure)
+* [Weitere Informationen zum Installieren des Windows Admin Centers auf einer Azure-VM](../azure/azure-integration.md)
 
 ### <a name="check-the-windows-version"></a>Überprüfen der Windows-Version
 
@@ -237,4 +237,3 @@ Fügen Sie alle Fehler oder Warnungen, die Sie im Ereignisprotokoll finden, sowi
 * Windows- [Version](#check-the-windows-version) des Computers, den Sie **verwalten möchten**:
 * Welchen Browser verwenden Sie?
     * Was ist die Version, wenn Sie Google Chrome verwenden? (Hilfe > zu Google Chrome)
-

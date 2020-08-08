@@ -7,12 +7,12 @@ ms.author: jgerend
 manager: lizross
 ms.date: 04/26/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: dfd39210b6db8516fafbe8b437c7d38cd7839bad
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 9147d88b2d31def46e7a755abf17a2cdf767f8a2
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87972387"
+ms.locfileid: "87990690"
 ---
 # <a name="scale-out-file-server-for-application-data-overview"></a>Übersicht über Dateiserver mit horizontaler Skalierung für Anwendungsdaten
 
@@ -231,12 +231,12 @@ Dateiserver mit horizontaler Skalierung eignen sich ideal für die Speicherung v
 
 - Der IIS-Webserver (Internetinformationsdienste) kann Konfigurationen und Daten für Websites in einer Dateifreigabe mit horizontaler Skalierung speichern. Weitere Informationen finden Sie unter [Freigegebene Konfiguration](https://www.iis.net/learn/manage/managing-your-configuration-settings/shared-configuration_264).
 - Hyper-V kann Konfigurationen und aktive virtuelle Datenträger in einer Dateifreigabe mit horizontaler Skalierung speichern. Weitere Informationen finden Sie unter [Bereitstellen von Hyper-V über SMB](</previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj134187(v%3dws.11)>).
-- SQL Server kann aktive Datenbankdateien in einer Dateifreigabe mit horizontaler Skalierung speichern. Weitere Informationen finden Sie unter [Installieren von SQL Server mit SMB-Dateifreigabe als Speicheroption](https://docs.microsoft.com/sql/database-engine/install-windows/install-sql-server-with-smb-fileshare-as-a-storage-option).
+- SQL Server kann aktive Datenbankdateien in einer Dateifreigabe mit horizontaler Skalierung speichern. Weitere Informationen finden Sie unter [Installieren von SQL Server mit SMB-Dateifreigabe als Speicheroption](/sql/database-engine/install-windows/install-sql-server-with-smb-fileshare-as-a-storage-option).
 - Virtual Machine Manager (VMM) kann eine Bibliotheksfreigabe (mit Vorlagen für virtuelle Computer und zugehörigen Dateien) in einer Dateifreigabe mit horizontaler Skalierung speichern. Der Bibliothek Server selbst kann jedoch kein Dateiserver mit horizontaler Skalierung sein – er muss sich auf einem eigenständigen Server oder einem Failovercluster befinden, der die Dateiserver mit horizontaler Skalierung Cluster Rolle nicht verwendet.
 
 Wenn Sie eine Dateifreigabe mit horizontaler Skalierung als Bibliotheksfreigabe verwenden, können Sie nur Technologien nutzen, die mit dem Dateiserver mit horizontaler Skalierung kompatibel sind. Beispielsweise können Sie DFS-Replikation nicht verwenden, um eine Bibliotheks Freigabe zu replizieren, die auf einer Dateifreigabe mit horizontaler Skalierung gehostet wird. Es ist auch wichtig, dass für den Dateiserver mit horizontaler Skalierung die neuesten Softwareupdates installiert sind.
 
-Zum Verwenden einer Dateifreigabe mit horizontaler Skalierung fügen Sie zunächst einen Bibliotheksserver (wahrscheinlich einen virtuellen Computer) mit einer lokalen Freigabe bzw. ohne Freigaben hinzu. Wenn Sie dann eine Bibliotheks Freigabe hinzufügen, wählen Sie eine Dateifreigabe aus, die auf einem Dateiserver mit horizontaler Skalierung gehostet wird. Diese Freigabe muss von VMM verwaltet werden und ausschließlich für die Verwendung durch den Bibliotheksserver erstellt worden sein. Stellen Sie außerdem sicher, dass auf dem Dateiserver mit horizontaler Skalierung die neuesten Updates installiert werden. Weitere Informationen zum Hinzufügen von VMM-Bibliothek Servern und Bibliotheks Freigaben finden [Sie unter Hinzufügen von Profilen zur VMM-Bibliothek](https://docs.microsoft.com/system-center/vmm/library-profiles?view=sc-vmm-1801). Eine Liste der derzeit verfügbaren Hotfixes für Datei- und Speicherdienste finden Sie im [Microsoft Knowledge Base-Artikel 2899011](https://support.microsoft.com/help/2899011/list-of-currently-available-hotfixes-for-the-file-services-technologie).
+Zum Verwenden einer Dateifreigabe mit horizontaler Skalierung fügen Sie zunächst einen Bibliotheksserver (wahrscheinlich einen virtuellen Computer) mit einer lokalen Freigabe bzw. ohne Freigaben hinzu. Wenn Sie dann eine Bibliotheks Freigabe hinzufügen, wählen Sie eine Dateifreigabe aus, die auf einem Dateiserver mit horizontaler Skalierung gehostet wird. Diese Freigabe muss von VMM verwaltet werden und ausschließlich für die Verwendung durch den Bibliotheksserver erstellt worden sein. Stellen Sie außerdem sicher, dass auf dem Dateiserver mit horizontaler Skalierung die neuesten Updates installiert werden. Weitere Informationen zum Hinzufügen von VMM-Bibliothek Servern und Bibliotheks Freigaben finden [Sie unter Hinzufügen von Profilen zur VMM-Bibliothek](/system-center/vmm/library-profiles?view=sc-vmm-1801). Eine Liste der derzeit verfügbaren Hotfixes für Datei- und Speicherdienste finden Sie im [Microsoft Knowledge Base-Artikel 2899011](https://support.microsoft.com/help/2899011/list-of-currently-available-hotfixes-for-the-file-services-technologie).
 
 >[!NOTE]
 >Einige Benutzer, wie z. B. Information-Worker, haben Arbeitsauslastungen, die eine größere Auswirkung auf die Leistung haben. Vorgänge wie das Öffnen und Schließen von Dateien, das Erstellen neuer Dateien und das Umbenennen vorhandener Dateien haben Auswirkungen auf die Leistung, wenn sie durch mehrere Benutzer erfolgen. Wenn eine Dateifreigabe mit fortlaufender Verfügbarkeit aktiviert ist, bietet diese Datenintegrität, wirkt sich aber auch auf die allgemeine Leistung aus. Die fortlaufende Verfügbarkeit erfordert das Schreiben von Daten auf den Datenträger, damit bei einem Ausfall eines Clusterknotens in einem Dateiserver mit horizontaler Skalierung die Integrität gewährleistet ist. Daher muss ein Benutzer, der mehrere große Dateien auf einen Dateiserver kopiert, in einer fortlaufend verfügbaren Dateifreigabe mit einer erheblich langsameren Leistung rechnen.

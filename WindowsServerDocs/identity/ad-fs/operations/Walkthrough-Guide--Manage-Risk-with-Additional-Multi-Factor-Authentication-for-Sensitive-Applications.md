@@ -6,14 +6,12 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server
-ms.technology: identity-adfs
-ms.openlocfilehash: be9eaa7b742f554539fa5bbd08f46d47a347c1ad
-ms.sourcegitcommit: f305bc5f1c5a44dac62f4288450af19f351f9576
+ms.openlocfilehash: f651f60b5ba9e871a88a2df15d87b6819e851642
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87118574"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87956287"
 ---
 # <a name="walkthrough-guide-manage-risk-with-additional-multi-factor-authentication-for-sensitive-applications"></a>Handbuch mit exemplarischer Vorgehensweise: Verwalten von Risiken mit zusätzlicher mehrstufiger Authentifizierung für sensible Anwendungen
 
@@ -168,7 +166,7 @@ Sie können nun den auf Ihrem Verbundserver installierten Windows Azure Multi-Fa
 
 2.  Wechseln Sie zum Aktivieren des Multi-Factor Authentication-Servers zurück auf die Seite im Multi-Factor Authentication-Verwaltungsportal, auf der Sie den Multi-Factor Authentication-Server heruntergeladen haben, und klicken Sie auf die Schaltfläche **Anmeldeinformationen für Aktivierung generieren**. Geben Sie auf der Benutzeroberfläche des Multi-Factor Authentication-Servers die generierten Anmeldeinformationen ein, und klicken Sie auf **Aktivieren**.
 
-3.  Auf der Benutzeroberfläche von **Multi-Factor Authentication-Server** werden Sie zum Ausführen des Multiserverkonfigurations-Assistenten**** aufgefordert.  Wählen Sie also **Nein** aus.
+3.  Auf der Benutzeroberfläche von **Multi-Factor Authentication-Server** werden Sie zum Ausführen des Multiserverkonfigurations-Assistenten**** aufgefordert.  Wählen Sie **Nein** aus.
 
     > [!IMPORTANT]
     > Da zum Abschließen dieser exemplarischen Vorgehensweise eine Testumgebung mit nur einem Verbundserver verwendet wird, können Sie die Ausführung des Multiserverkonfigurations-Assistenten**** überspringen. Wenn Ihre Umgebung jedoch mehrere Verbundserver enthält, müssen Sie den Multi-Factor Authentication-Server installieren und den Multiserverkonfigurations-Assistenten**** auf jedem Verbundserver ausführen, um die Replikation zwischen den auf den Verbundservern ausgeführten Multi-Factor-Servern zu ermöglichen.
@@ -183,9 +181,9 @@ Sie können nun den auf Ihrem Verbundserver installierten Windows Azure Multi-Fa
 
     > [!NOTE]
     > Vom Installations-Assistenten für **Multi-Factor Authentication AD FS Adapter** (Multi-Factor Authentication-AD FS-Adapter) wird in Ihrem Active Directory eine Sicherheitsgruppe namens **PhoneFactor Admins** erstellt. Anschließend wird das AD FS-Dienstkonto Ihres Verbunddiensts dieser Gruppe hinzugefügt.
-    > 
+    >
     > Überprüfen Sie für den Domänencontroller, ob die Gruppe **PhoneFactor Admins** tatsächlich erstellt wurde und das AD FS-Dienstkonto ein Mitglied dieser Gruppe ist.
-    > 
+    >
     > Fügen Sie ggf. das AD FS-Dienstkonto manuell zur Gruppe **PhoneFactor Admins** auf dem Domänencontroller hinzu.
 
     Klicken Sie im Multi-Factor Authentication-Server in der Ecke oben rechts auf den Hilfelink, um zusätzliche Informationen zum Installieren des AD FS-Adapters zu erhalten.

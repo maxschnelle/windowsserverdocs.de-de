@@ -7,12 +7,12 @@ ms.assetid: 9be83ed2-9e62-49e8-88e7-f52d3449aac5
 ms.author: anpaul
 author: AnirbanPaul
 ms.date: 08/14/2018
-ms.openlocfilehash: 87972f9a0d83a4b7f192e2fe0f751ee66c599044
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 2bf186d2f8761ca51c77b4d02489b0d85c53e046
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87955917"
+ms.locfileid: "87990158"
 ---
 # <a name="troubleshoot-the-windows-server-software-defined-networking-stack"></a>Problembehandlung für Windows Server-Software Defined Networking-Stapel
 
@@ -20,7 +20,7 @@ ms.locfileid: "87955917"
 
 In dieser Anleitung werden allgemeine Sdn (Software Defined Networking)-Fehler und-Fehler Szenarios untersucht, und es wird ein Problem Behandlungs Workflow beschrieben, der die verfügbaren Diagnosetools nutzt.
 
-Weitere Informationen zu Software-Defined Networking von Microsoft finden Sie unter [Software Defined Networking (Software-Defined Networking](../../sdn/Software-Defined-Networking--SDN-.md)).
+Weitere Informationen zu Software-Defined Networking von Microsoft finden Sie unter [Software Defined Networking (Software-Defined Networking](../software-defined-networking.md)).
 
 ## <a name="error-types"></a>Fehlertypen
 In der folgenden Liste sind Probleme aufgeführt, die am häufigsten mit der Hyper-V-Netzwerkvirtualisierung (HNVv1) in Windows Server 2012 R2 von in-Market-Produktions Bereitstellungen erkannt werden, und in vielerlei Hinsicht mit denselben Arten von Problemen in Windows Server 2016 HNVv2 mit dem neuen Software Defined Network (SDN)-Stapel übereinstimmen.
@@ -54,12 +54,12 @@ Import-Module hnvdiagnostics
 ```
 
 ### <a name="network-controller-diagnostics"></a>Netzwerk Controller Diagnose
-Diese Cmdlets sind auf TechNet im [Thema Network Controller Diagnostics Cmdlet](https://docs.microsoft.com/powershell/module/networkcontrollerdiagnostics/)dokumentiert. Sie helfen bei der Identifizierung von Problemen mit der Netzwerk Richtlinien Konsistenz im Steuerungs Pfad zwischen den Netzwerk Controller Knoten und zwischen dem Netzwerk Controller und den NC-Host-Agents, die auf den Hyper-V-Hosts ausgeführt werden.
+Diese Cmdlets sind auf TechNet im [Thema Network Controller Diagnostics Cmdlet](/powershell/module/networkcontrollerdiagnostics/)dokumentiert. Sie helfen bei der Identifizierung von Problemen mit der Netzwerk Richtlinien Konsistenz im Steuerungs Pfad zwischen den Netzwerk Controller Knoten und zwischen dem Netzwerk Controller und den NC-Host-Agents, die auf den Hyper-V-Hosts ausgeführt werden.
 
  Die Cmdlets _Debug-servicefabricnodestatus_ und _Get-networkcontrollerreplica_ müssen von einem der virtuellen Computer mit dem Netzwerk Controller Knoten ausgeführt werden. Alle anderen NC-Diagnose-Cmdlets können von jedem Host ausgeführt werden, der über eine Verbindung mit dem Netzwerk Controller verfügt und sich entweder in der Netzwerk Controller-Verwaltungs Sicherheitsgruppe (Kerberos) befindet oder über Zugriff auf das X. 509-Zertifikat zum Verwalten des Netzwerk Controllers verfügt.
 
 ### <a name="hyper-v-host-diagnostics"></a>Hyper-V-Host Diagnose
-Diese Cmdlets sind auf TechNet im Thema zum [Hyper-v-netzwerkvirtualisierungsdiagnose-Cmdlet (HNV)](https://docs.microsoft.com/powershell/module/hnvdiagnostics/)dokumentiert. Sie helfen bei der Identifizierung von Problemen im Daten Pfad zwischen virtuellen Mandanten Computern (Ost/West) und dem eingehenden Datenverkehr über eine SLB-VIP (Nord/Süd).
+Diese Cmdlets sind auf TechNet im Thema zum [Hyper-v-netzwerkvirtualisierungsdiagnose-Cmdlet (HNV)](/powershell/module/hnvdiagnostics/)dokumentiert. Sie helfen bei der Identifizierung von Problemen im Daten Pfad zwischen virtuellen Mandanten Computern (Ost/West) und dem eingehenden Datenverkehr über eine SLB-VIP (Nord/Süd).
 
 Die Befehle _Debug-virtualmachinequeueoperation_, _Get-customerroute_, _Get-pacamapping_, _Get-provideraddress_, _Get-vmnetworkadapterportid_, _Get-vmswitchexternalportid_und _Test-eincapoverheadsettings_ sind alle lokalen Tests, die von jedem Hyper-V-Host ausgeführt werden können. Die anderen Cmdlets rufen Daten Pfad Tests über den Netzwerk Controller auf und benötigen daher Zugriff auf den Netzwerk Controller, wie oben beschrieben.
 

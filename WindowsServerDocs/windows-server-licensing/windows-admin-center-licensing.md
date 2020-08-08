@@ -5,24 +5,23 @@ ms.topic: reference
 author: eross-msft
 ms.author: lizross
 ms.date: 06/11/2019
-ms.prod: windows-server
-ms.openlocfilehash: ad9e0bfb77464e99118ebded5745abf6e23e687f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 73b822f37185119990f3fe220dac3f21b25efae5
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71392518"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87989281"
 ---
 # <a name="windows-admin-center---license-terms"></a>Windows Admin Center-Lizenzbedingungen
 
 Lesen Sie die Lizenzbedingungen für das Windows Admin Center.
 
-- [Microsoft-Software-Lizenzbedingungen: Erweiterungen der Vorabversion für Microsoft Windows Admin Center](https://docs.microsoft.com/legal/windows-server/windows-admin-center/windows-pre-release-extension-eula)
+- [Microsoft-Software-Lizenzbedingungen: Erweiterungen der Vorabversion für Microsoft Windows Admin Center](/legal/windows-server/windows-admin-center/windows-pre-release-extension-eula)
 
-- [Lizenzbedingungen für Erweiterungen](https://docs.microsoft.com/legal/windows-server/windows-admin-center/license-terms-for-extensions)
+- [Lizenzbedingungen für Erweiterungen](/legal/windows-server/windows-admin-center/license-terms-for-extensions)
 
-- [Microsoft-Software-Lizenzbedingungen-Windows Admin Center (Vorschau)](https://docs.microsoft.com/legal/windows-server/windows-admin-center/wac-prerelease-eula)
+- [Microsoft-Software-Lizenzbedingungen-Windows Admin Center (Vorschau)](/legal/windows-server/windows-admin-center/wac-prerelease-eula)
 
-- [Windows Admin Center für Microsoft Windows Server und Microsoft Windows-Betriebssystem (Version 10)](https://docs.microsoft.com/legal/windows-server/windows-admin-center/wac-product-ga-eula)
+- [Windows Admin Center für Microsoft Windows Server und Microsoft Windows-Betriebssystem (Version 10)](/legal/windows-server/windows-admin-center/wac-product-ga-eula)
 
-- [Windows Server-bezogene Lizenzbedingungen](https://docs.microsoft.com/legal/windows-server/windows-server-licensing)
+- [Windows Server-bezogene Lizenzbedingungen](/legal/windows-server/windows-server-licensing)

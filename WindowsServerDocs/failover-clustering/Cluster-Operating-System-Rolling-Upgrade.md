@@ -1,19 +1,17 @@
 ---
 title: Paralleles Upgrade für Clusterbetriebssystem
-ms.prod: windows-server
-ms.technology: storage-failover-clustering
 ms.topic: get-started-article
 ms.assetid: 6e102c1f-df26-4eaa-bc7a-d0d55d3b82d5
 author: jasongerend
 ms.author: jgerend
 manager: lizross
 ms.date: 03/27/2018
-ms.openlocfilehash: fd981d3bc30af6cd73033c73337ec5dad7423280
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: a1694bdb8af495073723a74f24b9d0e153d580b9
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85473577"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87991089"
 ---
 # <a name="cluster-operating-system-rolling-upgrade"></a>Paralleles Upgrade des Cluster Betriebssystems
 
@@ -44,7 +42,7 @@ In diesem Leitfaden werden die verschiedenen Phasen des parallelen Upgradevorgan
 Das folgende Szenario wird in Windows Server 2016 nicht unterstützt:
 -  Paralleles Upgrade des Cluster Betriebssystems von Gast Clustern unter Verwendung einer virtuellen Festplatte (vhdx-Datei) als frei gegebener Speicher
 
-Das parallele Upgrade des Cluster Betriebssystems wird von System Center Virtual Machine Manager (SCVMM) 2016 vollständig unterstützt. Wenn Sie SCVMM 2016 verwenden, finden Sie unter [Durchführen eines parallelen Upgrades eines Hyper-V-Host Clusters auf Windows Server 2016 in VMM eine](https://docs.microsoft.com/system-center/vmm/hyper-v-rolling-upgrade?view=sc-vmm-1807) Anleitung zum Aktualisieren der Cluster und zum Automatisieren der in diesem Dokument beschriebenen Schritte.
+Das parallele Upgrade des Cluster Betriebssystems wird von System Center Virtual Machine Manager (SCVMM) 2016 vollständig unterstützt. Wenn Sie SCVMM 2016 verwenden, finden Sie unter [Durchführen eines parallelen Upgrades eines Hyper-V-Host Clusters auf Windows Server 2016 in VMM eine](/system-center/vmm/hyper-v-rolling-upgrade?view=sc-vmm-1807) Anleitung zum Aktualisieren der Cluster und zum Automatisieren der in diesem Dokument beschriebenen Schritte.
 
 ## <a name="requirements"></a>Anforderungen
 Führen Sie die folgenden Anforderungen aus, bevor Sie mit dem parallelen Upgrade des Cluster Betriebssystems beginnen:
@@ -52,7 +50,7 @@ Führen Sie die folgenden Anforderungen aus, bevor Sie mit dem parallelen Upgrad
 - Beginnen Sie mit einem Failovercluster, auf dem Windows Server (halbjährlicher Kanal), Windows Server 2016 oder Windows Server 2012 R2 ausgeführt wird.
 - Das Upgrade eines direkte Speicherplätze Clusters auf Windows Server 1709 wird nicht unterstützt.
 - Wenn es sich bei der Cluster Arbeitsauslastung um virtuelle Hyper-V-Computer oder Dateiserver mit horizontaler Skalierung handelt, kann ein Upgrade ohne Ausfallzeiten erwartet werden.
-- Stellen Sie sicher, dass die Hyper-V-Knoten über CPUs verfügen, die die Adressierungs Tabelle (slat) der zweiten Ebene mithilfe einer der folgenden Methoden unterstützen:       -Überprüfen [Sie, dass Sie slat-kompatibel sind? WP8 SDK Tip 01](https://blogs.msdn.com/b/devfish/archive/2012/11/06/are-you-slat-compatible-wp8-sdk-tip-01.aspx) Artikel mit zwei Methoden zum Überprüfen, ob eine CPU SLATS unterstützt. Laden Sie das [Coreinfo v](https://technet.microsoft.com/sysinternals/cc835722) -Version-Tool herunter, um zu ermitteln, ob eine CPU slat unterstützt.
+- Stellen Sie sicher, dass die Hyper-V-Knoten über CPUs verfügen, die die Adressierungs Tabelle (slat) der zweiten Ebene mithilfe einer der folgenden Methoden unterstützen:       -Überprüfen [Sie, dass Sie slat-kompatibel sind? WP8 SDK Tip 01](/archive/blogs/devfish/are-you-slat-compatible-wp8-sdk-tip-01) Artikel mit zwei Methoden zum Überprüfen, ob eine CPU SLATS unterstützt. Laden Sie das [Coreinfo v](/sysinternals/downloads/coreinfo) -Version-Tool herunter, um zu ermitteln, ob eine CPU slat unterstützt.
 
 ## <a name="cluster-transition-states-during-cluster-os-rolling-upgrade"></a>Cluster Übergangszustände beim parallelen Upgrade des Cluster Betriebssystems
 
@@ -105,27 +103,27 @@ Das parallele Upgrade des Cluster Betriebssystems umfasst die folgenden Schritte
     1. Zum parallelen Upgrade des Cluster Betriebssystems muss jeweils ein Knoten aus dem Cluster entfernt werden. Überprüfen Sie, ob die Kapazität des Clusters ausreichend ist, um ha-SLAs beizubehalten, wenn einer der Cluster Knoten für ein Betriebssystem Upgrade aus dem Cluster entfernt wird. Dies bedeutet, dass Sie die Möglichkeit zum Failover von Arbeits Auslastungen auf einen anderen Knoten benötigen, wenn beim parallelen Upgrade des Cluster Betriebssystems ein Knoten aus dem Cluster entfernt wird? Verfügt der Cluster über die Kapazität zum Ausführen der erforderlichen Workloads, wenn ein Knoten für ein paralleles Upgrade des Cluster Betriebssystems aus dem Cluster entfernt wird?
     2. Überprüfen Sie für Hyper-v-Arbeits Auslastungen, ob alle Windows Server 2016 Hyper-V-Hosts über CPU-Unterstützung für die Adress Tabelle (slat) der zweiten Ebene verfügen Die Hyper-V-Rolle in Windows Server 2016 kann nur von slat-fähigen Computern verwendet werden.
     3. Überprüfen Sie, ob alle Arbeits Auslastungs Sicherungen abgeschlossen wurden, und sichern Sie den Cluster. Beendet Sicherungs Vorgänge beim Hinzufügen von Knoten zum Cluster.
-    4. Überprüfen Sie, ob alle Cluster Knoten online sind/Running/up mithilfe des [`Get-ClusterNode`](https://docs.microsoft.com/powershell/module/failoverclusters/Get-ClusterNode?view=win10-ps) Cmdlets (siehe Abbildung 7).
+    4. Überprüfen Sie, ob alle Cluster Knoten online sind/Running/up mithilfe des [`Get-ClusterNode`](/powershell/module/failoverclusters/Get-ClusterNode?view=win10-ps) Cmdlets (siehe Abbildung 7).
 
         ![ScreenCap mit den Ergebnissen der Ausführung des Cmdlets Get-clusternode ](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_GetClusterNode.png) **Abbildung 7: Bestimmen des Knoten Status mithilfe des Get-clusternode-Cmdlets**
 
-    5. Wenn Sie Cluster fähige Updates (Cluster Aware Updates, Cau) ausführen, überprüfen Sie, ob das **Cluster fähige aktualisieren** derzeit über die Benutzeroberfläche für Cluster fähiges aktualisieren oder über das [`Get-CauRun`](https://docs.microsoft.com/powershell/module/clusterawareupdating/Get-CauRun?view=win10-ps) Cmdlet ausgeführt wird (siehe Abbildung 8). Brechen Sie Cau mithilfe des [`Disable-CauClusterRole`](https://docs.microsoft.com/powershell/module/clusterawareupdating/Disable-CauClusterRole?view=win10-ps) Cmdlets ab (siehe Abbildung 9), um zu verhindern, dass Knoten während des parallelen Upgradevorgangs des Cluster Betriebssystems von Cau angehalten und entladen werden.
+    5. Wenn Sie Cluster fähige Updates (Cluster Aware Updates, Cau) ausführen, überprüfen Sie, ob das **Cluster fähige aktualisieren** derzeit über die Benutzeroberfläche für Cluster fähiges aktualisieren oder über das [`Get-CauRun`](/powershell/module/clusterawareupdating/Get-CauRun?view=win10-ps) Cmdlet ausgeführt wird (siehe Abbildung 8). Brechen Sie Cau mithilfe des [`Disable-CauClusterRole`](/powershell/module/clusterawareupdating/Disable-CauClusterRole?view=win10-ps) Cmdlets ab (siehe Abbildung 9), um zu verhindern, dass Knoten während des parallelen Upgradevorgangs des Cluster Betriebssystems von Cau angehalten und entladen werden.
 
-        ![ScreenCap mit der Ausgabe des Cmdlets "Get-caurun" ](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_GetCAU.png) **, Abbildung 8: Verwenden des [`Get-CauRun`](https://docs.microsoft.com/powershell/module/clusterawareupdating/Get-CauRun?view=win10-ps) Cmdlets, um zu bestimmen, ob Cluster fähige Updates auf dem Cluster ausgeführt** werden
+        ![ScreenCap mit der Ausgabe des Cmdlets "Get-caurun" ](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_GetCAU.png) **, Abbildung 8: Verwenden des [`Get-CauRun`](/powershell/module/clusterawareupdating/Get-CauRun?view=win10-ps) Cmdlets, um zu bestimmen, ob Cluster fähige Updates auf dem Cluster ausgeführt** werden
 
-        ![ScreenCap mit der Ausgabe des Cmdlets "Disab-cauclusterrole", ](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_DisableCAU.png) **Abbildung 9: Deaktivieren der Rolle "Cluster fähiges aktualisieren" mithilfe des [`Disable-CauClusterRole`](https://docs.microsoft.com/powershell/module/clusterawareupdating/Disable-CauClusterRole?view=win10-ps) Cmdlets**
+        ![ScreenCap mit der Ausgabe des Cmdlets "Disab-cauclusterrole", ](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_DisableCAU.png) **Abbildung 9: Deaktivieren der Rolle "Cluster fähiges aktualisieren" mithilfe des [`Disable-CauClusterRole`](/powershell/module/clusterawareupdating/Disable-CauClusterRole?view=win10-ps) Cmdlets**
 
 2. Führen Sie für jeden Knoten im Cluster die folgenden Schritte aus:
-    1. Wählen Sie über die Benutzeroberfläche des Cluster-Managers einen Knoten aus, und verwenden Sie die **Pause Die Menüoption** zum Entfernen des Knotens (siehe Abbildung 10) oder Verwenden des [`Suspend-ClusterNode`](https://docs.microsoft.com/powershell/module/failoverclusters/Suspend-ClusterNode?view=win10-ps) Cmdlets (siehe Abbildung 11).
+    1. Wählen Sie über die Benutzeroberfläche des Cluster-Managers einen Knoten aus, und verwenden Sie die **Pause Die Menüoption** zum Entfernen des Knotens (siehe Abbildung 10) oder Verwenden des [`Suspend-ClusterNode`](/powershell/module/failoverclusters/Suspend-ClusterNode?view=win10-ps) Cmdlets (siehe Abbildung 11).
 
         ![ScreenCap zum Entfernen von Rollen mit der Cluster-Manager-Benutzeroberfläche ](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_FCM_DrainRoles.png) **Abbildung 10: Entfernen von Rollen von einem Knoten mithilfe von Failovercluster-Manager**
 
-        ![ScreenCap mit der Ausgabe des Suspend-clusternode-Cmdlets ](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_SuspendNode.png) **Abbildung 11: Ableiten von Rollen von einem Knoten mithilfe des [`Suspend-ClusterNode`](https://docs.microsoft.com/powershell/module/failoverclusters/Suspend-ClusterNode?view=win10-ps) Cmdlets**
+        ![ScreenCap mit der Ausgabe des Suspend-clusternode-Cmdlets ](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_SuspendNode.png) **Abbildung 11: Ableiten von Rollen von einem Knoten mithilfe des [`Suspend-ClusterNode`](/powershell/module/failoverclusters/Suspend-ClusterNode?view=win10-ps) Cmdlets**
 
-    2.  Entfernen Sie mithilfe der Cluster-Manager-Benutzeroberfläche den angehaltenen Knoten **aus dem Cluster** , oder verwenden Sie das [`Remove-ClusterNode`](https://docs.microsoft.com/powershell/module/failoverclusters/Remove-ClusterNode?view=win10-ps) Cmdlet.
+    2.  Entfernen Sie mithilfe der Cluster-Manager-Benutzeroberfläche den angehaltenen Knoten **aus dem Cluster** , oder verwenden Sie das [`Remove-ClusterNode`](/powershell/module/failoverclusters/Remove-ClusterNode?view=win10-ps) Cmdlet.
 
         ![ScreenCap mit der Ausgabe des Cmdlets "Remove-clusternode", ](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_RemoveNode.png)
-         **Abbildung 12: Entfernen eines Knotens aus dem Cluster mithilfe des [`Remove-ClusterNode`](https://docs.microsoft.com/powershell/module/failoverclusters/Remove-ClusterNode?view=win10-ps) Cmdlets**
+         **Abbildung 12: Entfernen eines Knotens aus dem Cluster mithilfe des [`Remove-ClusterNode`](/powershell/module/failoverclusters/Remove-ClusterNode?view=win10-ps) Cmdlets**
 
     3.  Formatieren Sie das Systemlaufwerk neu, und führen Sie eine "Neuinstallation des Betriebssystems" von Windows Server 2016 auf dem Knoten mithilfe der Option " **Benutzer definiert: nur Windows installieren (erweitert)** " (siehe Abbildung 13) in setup.exe aus. Wählen Sie die Option **Upgrade: Windows installieren und Dateien beibehalten, Einstellungen und Anwendungen** nicht aus, da das parallele Upgrade des Cluster Betriebssystems keine direkte Aktualisierung fördert.
 
@@ -161,10 +159,10 @@ Das parallele Upgrade des Cluster Betriebssystems umfasst die folgenden Schritte
         ![ScreenCap mit dem Dialogfeld Cluster auswählen ](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_AddNode.png)
          **Abbildung 15: Hinzufügen eines Knotens zum Cluster mithilfe Failovercluster-Manager**
 
-    13. Verwenden Sie entweder die Failovercluster-Manager-Benutzeroberfläche oder das- [`Add-ClusterNode`](https://docs.microsoft.com/powershell/module/failoverclusters/Add-ClusterNode?view=win10-ps) Cmdlet (siehe Abbildung 16), um den Knoten zum Cluster hinzuzufügen.
+    13. Verwenden Sie entweder die Failovercluster-Manager-Benutzeroberfläche oder das- [`Add-ClusterNode`](/powershell/module/failoverclusters/Add-ClusterNode?view=win10-ps) Cmdlet (siehe Abbildung 16), um den Knoten zum Cluster hinzuzufügen.
 
         ![ScreenCap mit der Ausgabe des Add-clusternode-Cmdlets ](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_AddNode3.png)
-         **Abbildung 16: Hinzufügen eines Knotens zum Cluster mithilfe des [`Add-ClusterNode`](https://docs.microsoft.com/powershell/module/failoverclusters/Add-ClusterNode?view=win10-ps) Cmdlets**
+         **Abbildung 16: Hinzufügen eines Knotens zum Cluster mithilfe des [`Add-ClusterNode`](/powershell/module/failoverclusters/Add-ClusterNode?view=win10-ps) Cmdlets**
 
         > [!NOTE]
         > Wenn der erste Windows Server 2016-Knoten dem Cluster Beitritt, wechselt der Cluster in den Modus "gemischter Betriebssystem", und die Hauptressourcen des Clusters werden auf den Knoten "Windows Server 2016" verschoben. Bei einem Cluster mit gemischtem Betriebssystem handelt es sich um einen voll funktionsfähigen Cluster, in dem die neuen Knoten in einem Kompatibilitätsmodus mit den alten Knoten ausgeführt werden. Der Modus "gemischter Betriebssystem" ist ein transitiver Modus für den Cluster. Es ist nicht als permanent gedacht, und die Kunden möchten innerhalb von vier Wochen alle Knoten Ihres Clusters aktualisieren.
@@ -172,57 +170,57 @@ Das parallele Upgrade des Cluster Betriebssystems umfasst die folgenden Schritte
     14. Nachdem der Windows Server 2016-Knoten dem Cluster erfolgreich hinzugefügt wurde, können Sie (optional) einen Teil der Cluster Arbeitsauslastung auf den neu hinzugefügten Knoten verschieben, um die Arbeitsauslastung wie folgt auf den Cluster umzuverteilen:
 
         ![ScreenCap mit der Ausgabe des Move-clustervirtualmachinerole-Cmdlets ](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_MoveVMRole.png)
-         **Abbildung 17: Verschieben einer Cluster Arbeitsauslastung (Cluster-VM-Rolle) mithilfe des [`Move-ClusterVirtualMachineRole`](https://docs.microsoft.com/powershell/module/failoverclusters/Move-ClusterVirtualMachineRole?view=win10-ps) Cmdlets**
+         **Abbildung 17: Verschieben einer Cluster Arbeitsauslastung (Cluster-VM-Rolle) mithilfe des [`Move-ClusterVirtualMachineRole`](/powershell/module/failoverclusters/Move-ClusterVirtualMachineRole?view=win10-ps) Cmdlets**
 
-        1. Verwenden Sie **Livemigration** aus dem Failovercluster-Manager für virtuelle Computer oder das- [`Move-ClusterVirtualMachineRole`](https://docs.microsoft.com/powershell/module/failoverclusters/Move-ClusterVirtualMachineRole?view=win10-ps) Cmdlet (siehe Abbildung 17), um eine Live Migration der virtuellen Computer durchzuführen.
+        1. Verwenden Sie **Livemigration** aus dem Failovercluster-Manager für virtuelle Computer oder das- [`Move-ClusterVirtualMachineRole`](/powershell/module/failoverclusters/Move-ClusterVirtualMachineRole?view=win10-ps) Cmdlet (siehe Abbildung 17), um eine Live Migration der virtuellen Computer durchzuführen.
 
             ```PowerShell
             Move-ClusterVirtualMachineRole -Name VM1 -Node robhind-host3
             ```
 
-        2. Verwenden Sie **Move** aus dem Failovercluster-Manager oder dem [`Move-ClusterGroup`](https://docs.microsoft.com/powershell/module/failoverclusters/Move-ClusterGroup?view=win10-ps) Cmdlet für andere clusterworkloads.
+        2. Verwenden Sie **Move** aus dem Failovercluster-Manager oder dem [`Move-ClusterGroup`](/powershell/module/failoverclusters/Move-ClusterGroup?view=win10-ps) Cmdlet für andere clusterworkloads.
 
 3. Gehen Sie wie folgt vor, wenn jeder Knoten auf Windows Server 2016 aktualisiert und wieder dem Cluster hinzugefügt wurde oder wenn verbleibende Windows Server 2012 R2-Knoten entfernt wurden:
 
     > [!IMPORTANT]
     > -   Nachdem Sie die Cluster Funktionsebene aktualisiert haben, können Sie nicht mehr zur Windows Server 2012 R2-Funktionsebene zurückkehren und Windows Server 2012 R2-Knoten können dem Cluster nicht mehr hinzugefügt werden.
-    > -   Bis zum [`Update-ClusterFunctionalLevel`](https://docs.microsoft.com/powershell/module/failoverclusters/Update-ClusterFunctionalLevel?view=win10-ps) Ausführen des Cmdlets ist der Prozess vollständig umkehrbar, und Windows Server 2012 R2-Knoten können diesem Cluster hinzugefügt werden, und Windows Server 2016-Knoten können entfernt werden.
-    > -   Nachdem das [`Update-ClusterFunctionalLevel`](https://docs.microsoft.com/powershell/module/failoverclusters/Update-ClusterFunctionalLevel?view=win10-ps) Cmdlet ausgeführt wurde, sind neue Features verfügbar.
+    > -   Bis zum [`Update-ClusterFunctionalLevel`](/powershell/module/failoverclusters/Update-ClusterFunctionalLevel?view=win10-ps) Ausführen des Cmdlets ist der Prozess vollständig umkehrbar, und Windows Server 2012 R2-Knoten können diesem Cluster hinzugefügt werden, und Windows Server 2016-Knoten können entfernt werden.
+    > -   Nachdem das [`Update-ClusterFunctionalLevel`](/powershell/module/failoverclusters/Update-ClusterFunctionalLevel?view=win10-ps) Cmdlet ausgeführt wurde, sind neue Features verfügbar.
 
-    1.  Überprüfen Sie mithilfe der Failovercluster-Manager-Benutzeroberfläche oder des- [`Get-ClusterGroup`](https://docs.microsoft.com/powershell/module/failoverclusters/Get-ClusterGroup?view=win10-ps) Cmdlets, ob alle Cluster Rollen erwartungsgemäß auf dem Cluster ausgeführt werden. Im folgenden Beispiel wird der verfügbare Speicher nicht verwendet. stattdessen wird CSV verwendet. Daher zeigt der verfügbare Speicher einen **Offline** Status an (siehe Abbildung 18).
+    1.  Überprüfen Sie mithilfe der Failovercluster-Manager-Benutzeroberfläche oder des- [`Get-ClusterGroup`](/powershell/module/failoverclusters/Get-ClusterGroup?view=win10-ps) Cmdlets, ob alle Cluster Rollen erwartungsgemäß auf dem Cluster ausgeführt werden. Im folgenden Beispiel wird der verfügbare Speicher nicht verwendet. stattdessen wird CSV verwendet. Daher zeigt der verfügbare Speicher einen **Offline** Status an (siehe Abbildung 18).
 
         ![ScreenCap mit der Ausgabe des Cmdlets "Get-clustergroup", ](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_GetClusterGroup.png)
-         **Abbildung 18: überprüfen, ob alle Clustergruppen (Cluster Rollen) mithilfe des [`Get-ClusterGroup`](https://docs.microsoft.com/powershell/module/failoverclusters/Get-ClusterGroup?view=win10-ps) Cmdlets ausgeführt werden**
+         **Abbildung 18: überprüfen, ob alle Clustergruppen (Cluster Rollen) mithilfe des [`Get-ClusterGroup`](/powershell/module/failoverclusters/Get-ClusterGroup?view=win10-ps) Cmdlets ausgeführt werden**
 
-    2.  Überprüfen Sie, ob alle Cluster Knoten online sind und mit dem- [`Get-ClusterNode`](https://docs.microsoft.com/powershell/module/failoverclusters/Get-ClusterNode?view=win10-ps) Cmdlet ausgeführt werden.
+    2.  Überprüfen Sie, ob alle Cluster Knoten online sind und mit dem- [`Get-ClusterNode`](/powershell/module/failoverclusters/Get-ClusterNode?view=win10-ps) Cmdlet ausgeführt werden.
     3.  Führen Sie das [`Update-ClusterFunctionalLevel`](https://technet.microsoft.com/library/mt589702.aspx) Cmdlet aus. es sollten keine Fehler zurückgegeben werden (siehe Abbildung 19).
 
         ![ScreenCap mit der Ausgabe des Cmdlets Update-clusterfunctionallevel ](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_SelectFunctionalLevel.png)
          **Abbildung 19: Aktualisieren der Funktionsebene eines Clusters mithilfe von PowerShell**
 
-    4.  Nachdem das [`Update-ClusterFunctionalLevel`](https://docs.microsoft.com/powershell/module/failoverclusters/Update-ClusterFunctionalLevel?view=win10-ps) Cmdlet ausgeführt wurde, sind neue Features verfügbar.
+    4.  Nachdem das [`Update-ClusterFunctionalLevel`](/powershell/module/failoverclusters/Update-ClusterFunctionalLevel?view=win10-ps) Cmdlet ausgeführt wurde, sind neue Features verfügbar.
 
 4. Windows Server 2016-fortsetzen normaler Cluster Aktualisierungen und-Sicherungen:
 
-    1. Wenn Sie zuvor Cau ausgeführt haben, starten Sie es mithilfe der Cau-Benutzeroberfläche neu, oder verwenden Sie das [`Enable-CauClusterRole`](https://docs.microsoft.com/powershell/module/clusterawareupdating/Enable-CauClusterRole?view=win10-ps) Cmdlet (siehe Abbildung 20).
+    1. Wenn Sie zuvor Cau ausgeführt haben, starten Sie es mithilfe der Cau-Benutzeroberfläche neu, oder verwenden Sie das [`Enable-CauClusterRole`](/powershell/module/clusterawareupdating/Enable-CauClusterRole?view=win10-ps) Cmdlet (siehe Abbildung 20).
 
-        ![ScreenCap mit der Ausgabe von enable-cauclusterrole ](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_EnableCAUClusterRole.png) **Abbildung 20: Aktivieren der Rolle für Cluster fähige Updates mithilfe des [`Enable-CauClusterRole`](https://docs.microsoft.com/powershell/module/clusterawareupdating/Enable-CauClusterRole?view=win10-ps) Cmdlets**
+        ![ScreenCap mit der Ausgabe von enable-cauclusterrole ](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_EnableCAUClusterRole.png) **Abbildung 20: Aktivieren der Rolle für Cluster fähige Updates mithilfe des [`Enable-CauClusterRole`](/powershell/module/clusterawareupdating/Enable-CauClusterRole?view=win10-ps) Cmdlets**
 
     2. Fortsetzen von Sicherungs Vorgängen.
 
 5. Aktivieren und verwenden Sie die Windows Server 2016-Features auf Hyper-V-Virtual Machines.
 
-    1. Nachdem der Cluster auf die Funktionsebene von Windows Server 2016 aktualisiert wurde, verfügen viele Workloads wie Hyper-V-VMS über neue Funktionen. Eine Liste der neuen Hyper-V-Funktionen. siehe [migrieren und Aktualisieren virtueller](https://msdn.microsoft.com/virtualization/hyperv_on_windows/user_guide/migrating_vms) Computer
+    1. Nachdem der Cluster auf die Funktionsebene von Windows Server 2016 aktualisiert wurde, verfügen viele Workloads wie Hyper-V-VMS über neue Funktionen. Eine Liste der neuen Hyper-V-Funktionen. siehe [migrieren und Aktualisieren virtueller](../virtualization/hyper-v/deploy/upgrade-virtual-machine-version-in-hyper-v-on-windows-or-windows-server.md) Computer
 
-    2. Verwenden Sie auf jedem Hyper-v-Host Knoten im Cluster das [`Get-VMHostSupportedVersion`](https://docs.microsoft.com/powershell/module/hyper-v/Get-VMHostSupportedVersion?view=win10-ps) Cmdlet, um die vom Host unterstützten Hyper-v-VM-Konfigurations Versionen anzuzeigen.
+    2. Verwenden Sie auf jedem Hyper-v-Host Knoten im Cluster das [`Get-VMHostSupportedVersion`](/powershell/module/hyper-v/Get-VMHostSupportedVersion?view=win10-ps) Cmdlet, um die vom Host unterstützten Hyper-v-VM-Konfigurations Versionen anzuzeigen.
 
         ![ScreenCap mit der Ausgabe des Cmdlets "Get-vmhostsupportedversion", ](media/Cluster-Operating-System-Rolling-Upgrade/Clustering_GetVMHostSupportVersion.png) **Abbildung 21: Anzeigen der vom Host unterstützten Hyper-V-VM-Konfigurations Versionen**
 
-   3. Auf jedem Knoten des Hyper-v-Hosts im Cluster kann ein Upgrade für Hyper-v-VM-Konfigurations Versionen durchgeführt werden, indem ein kurzes Wartungsfenster für Benutzer geplant wird, wenn die Benutzer gesichert werden, virtuelle Maschinen ausgeschaltet und das [`Update-VMVersion`](https://docs.microsoft.com/powershell/module/hyper-v/Update-VMVersion?view=win10-ps) Cmdlet ausgeführt wird (siehe Abbildung 22). Dadurch wird die Version des virtuellen Computers aktualisiert, und neue Hyper-v-Features werden aktiviert, sodass keine weiteren Updates von Hyper-v-Integrations Komponenten (IC) erforderlich sind. Dieses Cmdlet kann über den Hyper-V-Knoten ausgeführt werden, der als Host für den virtuellen Computer dient, oder der `-ComputerName` Parameter kann verwendet werden, um die VM-Version Remote zu aktualisieren. In diesem Beispiel aktualisieren wir die Konfigurations Version von VM1 von 5,0 auf 7,0, um von vielen neuen Hyper-V-Features zu profitieren, die dieser VM-Konfigurations Version zugeordnet sind, z. b. Produktions Prüfpunkte (Anwendungs konsistente Sicherungen) und binäre VM-Konfigurationsdatei.
+   3. Auf jedem Knoten des Hyper-v-Hosts im Cluster kann ein Upgrade für Hyper-v-VM-Konfigurations Versionen durchgeführt werden, indem ein kurzes Wartungsfenster für Benutzer geplant wird, wenn die Benutzer gesichert werden, virtuelle Maschinen ausgeschaltet und das [`Update-VMVersion`](/powershell/module/hyper-v/Update-VMVersion?view=win10-ps) Cmdlet ausgeführt wird (siehe Abbildung 22). Dadurch wird die Version des virtuellen Computers aktualisiert, und neue Hyper-v-Features werden aktiviert, sodass keine weiteren Updates von Hyper-v-Integrations Komponenten (IC) erforderlich sind. Dieses Cmdlet kann über den Hyper-V-Knoten ausgeführt werden, der als Host für den virtuellen Computer dient, oder der `-ComputerName` Parameter kann verwendet werden, um die VM-Version Remote zu aktualisieren. In diesem Beispiel aktualisieren wir die Konfigurations Version von VM1 von 5,0 auf 7,0, um von vielen neuen Hyper-V-Features zu profitieren, die dieser VM-Konfigurations Version zugeordnet sind, z. b. Produktions Prüfpunkte (Anwendungs konsistente Sicherungen) und binäre VM-Konfigurationsdatei.
 
        ![ScreenCap mit dem Update-VMVersion-Cmdlet in Aktion ](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_StopVM.png) **Abbildung 22: Aktualisieren einer VM-Version mithilfe des PowerShell-Cmdlets "Update-VMVersion** "
 
-6. Speicherpools können mithilfe des PowerShell-Cmdlets " [Update-storagepool](https://docs.microsoft.com/powershell/module/storage/Update-StoragePool?view=win10-ps) " aktualisiert werden. Dies ist ein Online Vorgang.
+6. Speicherpools können mithilfe des PowerShell-Cmdlets " [Update-storagepool](/powershell/module/storage/Update-StoragePool?view=win10-ps) " aktualisiert werden. Dies ist ein Online Vorgang.
 
 Obwohl wir auf Szenarien für die Private Cloud abzielen, insbesondere Hyper-V-und Datei Server Cluster mit horizontaler Skalierung, die ohne Ausfallzeiten aktualisiert werden können, kann der parallele Upgradeprozess des Cluster Betriebssystems für jede beliebige Cluster Rolle verwendet werden.
 
@@ -244,8 +242,8 @@ Es ist nicht geplant, diese Funktion auf vorherige Versionen zurück zu portiere
 **Muss für den Windows Server 2012 R2-Cluster alle Software Updates installiert sein, bevor der parallele Upgradeprozess des Cluster Betriebssystems gestartet wird?**
 Ja, bevor Sie mit dem parallelen Upgrade des Cluster Betriebssystems beginnen, überprüfen Sie, ob alle Cluster Knoten mit den neuesten Software Updates aktualisiert wurden.
 
-**Kann ich das [`Update-ClusterFunctionalLevel`](https://docs.microsoft.com/powershell/module/failoverclusters/Update-ClusterFunctionalLevel?view=win10-ps) Cmdlet ausführen, während Knoten deaktiviert oder angehalten werden?**
-Nein Alle Cluster Knoten müssen sich in der aktiven Mitgliedschaft befinden, damit das [`Update-ClusterFunctionalLevel`](https://docs.microsoft.com/powershell/module/failoverclusters/Update-ClusterFunctionalLevel?view=win10-ps) Cmdlet funktioniert.
+**Kann ich das [`Update-ClusterFunctionalLevel`](/powershell/module/failoverclusters/Update-ClusterFunctionalLevel?view=win10-ps) Cmdlet ausführen, während Knoten deaktiviert oder angehalten werden?**
+Nein Alle Cluster Knoten müssen sich in der aktiven Mitgliedschaft befinden, damit das [`Update-ClusterFunctionalLevel`](/powershell/module/failoverclusters/Update-ClusterFunctionalLevel?view=win10-ps) Cmdlet funktioniert.
 
 **Funktioniert das parallele Upgrade des Cluster Betriebssystems für jede Cluster Arbeitsauslastung? Funktioniert es für SQL Server?**
 Ja, das parallele Upgrade des Cluster Betriebssystems funktioniert für jede Cluster Arbeitsauslastung. Allerdings ist es für Hyper-V-und Datei Server Cluster mit horizontaler Skalierung nur zu Ausfallzeiten. Bei den meisten anderen Arbeits Auslastungen treten bei einem Failover einige Ausfallzeiten (in der Regel einige Minuten) auf, und ein Failover muss mindestens einmal während des parallelen Upgradevorgangs des Cluster Betriebssystems ausgeführt werden.
@@ -256,8 +254,8 @@ Ja, wir haben das parallele Upgrade für Cluster Betriebssysteme entworfen, um S
 **Kann ich bei einem großen Cluster mit zusätzlicher Arbeitsauslastung und Failoverkapazität mehrere Knoten gleichzeitig aktualisieren?**
 Ja. Wenn ein Knoten aus dem Cluster entfernt wird, um das Betriebssystem zu aktualisieren, verfügt der Cluster über einen geringeren Knoten für das Failover und verfügt daher über eine reduzierte Failoverkapazität. Bei großen Clustern mit ausreichender Arbeitsauslastung und Failoverkapazität können mehrere Knoten gleichzeitig aktualisiert werden. Sie können dem Cluster vorübergehend Cluster Knoten hinzufügen, um beim parallelen Upgradeprozess des Cluster Betriebssystems eine verbesserte Arbeitsauslastung und Failoverkapazität bereitzustellen.
 
-**Was geschieht, wenn ich in meinem Cluster ein Problem feststellen, nachdem [`Update-ClusterFunctionalLevel`](https://docs.microsoft.com/powershell/module/failoverclusters/Update-ClusterFunctionalLevel?view=win10-ps) erfolgreich ausgeführt wurde?**
-Wenn Sie die Cluster Datenbank vor der Ausführung mit einer Sicherung des System Status gesichert haben [`Update-ClusterFunctionalLevel`](https://docs.microsoft.com/powershell/module/failoverclusters/Update-ClusterFunctionalLevel?view=win10-ps) , können Sie eine autorisierende Wiederherstellung auf einem Windows Server 2012 R2-Cluster Knoten durchführen und die ursprüngliche Cluster Datenbank und-Konfiguration wiederherstellen.
+**Was geschieht, wenn ich in meinem Cluster ein Problem feststellen, nachdem [`Update-ClusterFunctionalLevel`](/powershell/module/failoverclusters/Update-ClusterFunctionalLevel?view=win10-ps) erfolgreich ausgeführt wurde?**
+Wenn Sie die Cluster Datenbank vor der Ausführung mit einer Sicherung des System Status gesichert haben [`Update-ClusterFunctionalLevel`](/powershell/module/failoverclusters/Update-ClusterFunctionalLevel?view=win10-ps) , können Sie eine autorisierende Wiederherstellung auf einem Windows Server 2012 R2-Cluster Knoten durchführen und die ursprüngliche Cluster Datenbank und-Konfiguration wiederherstellen.
 
 **Kann ich für jeden Knoten ein direktes Upgrade verwenden, anstatt die Clean-OS-Installation durch Neuformatierung des System Laufwerks zu verwenden?**
 Wir empfehlen nicht die Verwendung eines direkten Upgrades von Windows Server, aber wir wissen, dass es in einigen Fällen funktioniert, in denen Standardtreiber verwendet werden. Lesen Sie sorgfältig alle Warnmeldungen, die während der direkten Aktualisierung eines Cluster Knotens angezeigt werden.
@@ -268,7 +266,7 @@ Ja, das Hyper-V-Replikat bleibt während und nach dem parallelen Upgrade des Clu
 **Kann ich System Center 2016 Virtual Machine Manager (SCVMM) verwenden, um den parallelen Upgradeprozess für Cluster Betriebssysteme zu automatisieren?**
 Ja, Sie können das parallele Upgradeverfahren für Cluster Betriebssysteme mithilfe von VMM in System Center 2016 automatisieren.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
--   [Versionshinweise: Wichtige Probleme in Windows Server 2016](../get-started/Release-Notes--Important-Issues-in-Windows-Server-2016-Technical-Preview.md)
--   [Neuerungen in Windows Server 2016](../get-started/What-s-New-in-windows-server-2016.md)
+## <a name="additional-references"></a>Weitere Verweise
+-   [Versionshinweise: Wichtige Probleme in Windows Server 2016](../get-started/windows-server-2016-ga-release-notes.md)
+-   [Neuerungen in Windows Server 2016](../get-started/whats-new-in-windows-server-2016.md)
 -   [Neues beim Failoverclustering unter Windows Server](whats-new-in-failover-clustering.md)

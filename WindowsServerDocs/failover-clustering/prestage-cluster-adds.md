@@ -1,22 +1,20 @@
 ---
-title: Vorabbereitstellen von Clustercomputerobjekten in Active Directory Domain Services
+title: Vorab Bereitstellen von Cluster Computer Objekten in Active Directory Domain Services
 description: Vorab Bereitstellen von Cluster Computer Objekten in Active Directory Domain Services.
-ms.prod: windows-server
 ms.topic: article
 author: JasonGerend
 ms.author: jgerend
 manager: lizross
-ms.technology: storage-failover-clustering
 ms.date: 05/09/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: c0d8efc1bdb5a2c3a653afbe61b211f94658101d
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: 1f9255b0f3ca85a2c128549fbe9dc2c01c870b1b
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87181726"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87990761"
 ---
-# <a name="prestage-cluster-computer-objects-in-active-directory-domain-services"></a>Vorabbereitstellen von Clustercomputerobjekten in Active Directory Domain Services
+# <a name="prestage-cluster-computer-objects-in-active-directory-domain-services"></a>Vorab Bereitstellen von Cluster Computer Objekten in Active Directory Domain Services
 
 > Gilt für: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -138,5 +136,5 @@ Ein Administrator des Failoverclusters kann jetzt die Clusterrolle mit einem Cli
 
 ## <a name="more-information"></a>Weitere Informationen
 
-- [Failoverclustering](failover-clustering.md)
+- [Failoverclustering](./failover-clustering-overview.md)
 - [Konfigurieren von Clusterkonten in Active Directory](configure-ad-accounts.md)

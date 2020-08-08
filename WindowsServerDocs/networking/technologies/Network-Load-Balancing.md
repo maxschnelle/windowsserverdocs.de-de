@@ -7,12 +7,12 @@ ms.assetid: 244a4b48-06e5-4796-8750-a50e4f88ac72
 ms.author: lizross
 author: eross-msft
 ms.date: 09/13/2018
-ms.openlocfilehash: ecea87a3716ef68c599594851037e774ad589998
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 4417748504a0458396cd02e965547c2573f2c44f
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87955807"
+ms.locfileid: "87990087"
 ---
 # <a name="network-load-balancing"></a>Netzwerklastenausgleich
 
@@ -21,7 +21,7 @@ ms.locfileid: "87955807"
 In diesem Thema erhalten Sie eine Übersicht über das NLB-Feature für den Netzwerk Lastenausgleich \( \) in Windows Server 2016. Sie können NLB verwenden, um zwei oder mehr Server als einzelnen virtuellen Cluster zu verwalten. Mit NLB wird die Verfügbarkeit und Skalierbarkeit von Internet Server Anwendungen verbessert, wie z. b. für Web-, FTP-, Firewall-, Proxy \( -, VPN \) -und andere Unternehmens \- kritische Server.
 
 > [!NOTE]
-> Windows Server 2016 enthält eine neue, von Azure inspirierte Software Load Balancer \( SLB \) als Komponente der Software Defined Networking \( Sdn \) Infrastructure. Verwenden Sie SLB anstelle von Netzwerk Lastenausgleich, wenn Sie Sdn verwenden, nicht-Windows-Workloads verwenden, ausgehende Netzwerkadressen Übersetzung benötigen \( \) oder Layer 3 \( L3 \) -oder nicht-TCP-basierten Lastenausgleich benötigen. Sie können NLB weiterhin mit Windows Server 2016 für nicht-Sdn-bereit Stellungen verwenden. Weitere Informationen zu SLB finden Sie unter [Software Lastenausgleich (Software Load Balancing, SLB) für Sdn](../sdn/technologies/network-function-virtualization/Software-Load-Balancing--SLB--for-SDN.md).
+> Windows Server 2016 enthält eine neue, von Azure inspirierte Software Load Balancer \( SLB \) als Komponente der Software Defined Networking \( Sdn \) Infrastructure. Verwenden Sie SLB anstelle von Netzwerk Lastenausgleich, wenn Sie Sdn verwenden, nicht-Windows-Workloads verwenden, ausgehende Netzwerkadressen Übersetzung benötigen \( \) oder Layer 3 \( L3 \) -oder nicht-TCP-basierten Lastenausgleich benötigen. Sie können NLB weiterhin mit Windows Server 2016 für nicht-Sdn-bereit Stellungen verwenden. Weitere Informationen zu SLB finden Sie unter [Software Lastenausgleich (Software Load Balancing, SLB) für Sdn](../sdn/technologies/network-function-virtualization/software-load-balancing-for-sdn.md).
 
 Mit dem \( NLB-Feature für den Netzwerk Lastenausgleich \) wird der Datenverkehr mithilfe des TCP \/ IP-Netzwerk Protokolls auf mehrere Server verteilt. Wenn Sie zwei oder mehr Computer, auf denen Anwendungen ausgeführt werden, in einem einzelnen virtuellen Cluster kombinieren, bietet NLB Zuverlässigkeit und Leistung für Webserver und andere Unternehmens \- kritische Server.
 
@@ -59,7 +59,7 @@ Die Skalierbarkeit ist ein Maß dafür, wie gut ein Computer, ein Dienst oder ei
 ### <a name="manageability"></a>Verwaltbarkeit
 Zur Unterstützung der Verwaltbarkeit kann mit NLB Folgendes ausgeführt werden:
 
--   Verwalten und konfigurieren Sie mehrere NLB-Cluster und die Cluster Hosts auf einem einzelnen Computer mithilfe des NLB-Managers oder der [Cmdlets für den Netzwerk Lastenausgleich (Network Load Balancing, NLB) in Windows PowerShell](https://technet.microsoft.com/library/hh801274.aspx).
+-   Verwalten und konfigurieren Sie mehrere NLB-Cluster und die Cluster Hosts auf einem einzelnen Computer mithilfe des NLB-Managers oder der [Cmdlets für den Netzwerk Lastenausgleich (Network Load Balancing, NLB) in Windows PowerShell](/previous-versions/windows/powershell-scripting/hh801274(v=wps.630)).
 
 -   Festlegen des Lastausgleichsverhaltens für einen einzigen IP-Port oder eine Gruppe von Ports mit Portverwaltungsregeln
 
@@ -141,7 +141,7 @@ Install-WindowsFeature NLB -IncludeManagementTools
 
 Nach Abschluss der Installation ist kein Neustart des Computers erforderlich.
 
-Weitere Informationen finden Sie unter [Install-WindowsFeature](https://docs.microsoft.com/powershell/module/servermanager/install-windowsfeature?view=win10-ps).
+Weitere Informationen finden Sie unter [Install-WindowsFeature](/powershell/module/servermanager/install-windowsfeature?view=win10-ps).
 
 ### <a name="network-load-balancing-manager"></a>Netzwerk Lastenausgleich-Manager
 Klicken Sie zum Öffnen des Netzwerklastenausgleich-Managers im Server-Manager auf **Extras**, und klicken Sie dann auf **Netzwerklastenausgleich-Manager**.
@@ -151,8 +151,8 @@ In der folgenden Tabelle finden Sie Links zu weiteren Informationen zum NLB-Feat
 
 |Inhaltstyp|Referenzen|
 |----------------|--------------|
-|Bereitstellung|[Bereitstellungs Handbuch für den Netzwerk Lastenausgleich](https://technet.microsoft.com/library/cc754833(WS.10).aspx) &#124; [Konfigurieren des Netzwerk Lastenausgleichs mit Terminal Diensten](https://technet.microsoft.com/library/cc771300(v=WS.10).aspx)|
-|Operationen (Operations)|[Verwalten von Netzwerk Lastenausgleich-Clustern](https://technet.microsoft.com/library/cc753954(WS.10).aspx) &#124; [Festlegen von Netzwerk Lastenausgleich-Parametern](https://technet.microsoft.com/library/cc731619(WS.10).aspx) &#124; [Steuern von Hosts auf Netzwerk Lastenausgleich](https://technet.microsoft.com/library/cc770870(WS.10).aspx)|
-|Problembehandlung|[Problembehandlung für Netzwerk Lastenausgleichs-Cluster](https://technet.microsoft.com/library/cc732592(WS.10).aspx) &#124; [NLB-Cluster Ereignisse und-Fehler](https://technet.microsoft.com/library/cc731678(WS.10).aspx)|
+|Bereitstellung|[Bereitstellungs Handbuch für den Netzwerk Lastenausgleich](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754833(v=ws.10)) &#124; [Konfigurieren des Netzwerk Lastenausgleichs mit Terminal Diensten](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771300(v=ws.10))|
+|Operationen (Operations)|[Verwalten von Netzwerk Lastenausgleich-Clustern](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753954(v=ws.10)) &#124; [Festlegen von Netzwerk Lastenausgleich-Parametern](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731619(v=ws.10)) &#124; [Steuern von Hosts auf Netzwerk Lastenausgleich](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770870(v=ws.10))|
+|Problembehandlung|[Problembehandlung für Netzwerk Lastenausgleichs-Cluster](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc732592(v=ws.10)) &#124; [NLB-Cluster Ereignisse und-Fehler](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731678(v=ws.10))|
 |Tools und Einstellungen|[Windows PowerShell-Cmdlets für den Netzwerklastenausgleich](https://go.microsoft.com/fwlink/p/?LinkId=238123)|
 |Communityressourcen|[\(Clustering-Forum für Hochverfügbarkeit \)](https://go.microsoft.com/fwlink/p/?LinkId=230641)

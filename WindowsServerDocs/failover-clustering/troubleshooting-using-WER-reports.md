@@ -1,23 +1,21 @@
 ---
 title: Problembehandlung bei einem Failovercluster mit Windows-Fehlerberichterstattung
 description: Problembehandlung bei einem Failovercluster mithilfe von wer-Berichten mit spezifischen Details zum Erfassen von Berichten und diagnostizieren allgemeiner Probleme.
-ms.prod: windows-server
-ms.technology: storage-failover-clustering
 ms.author: johnmar
 author: JohnMarlin-MSFT
 ms.date: 03/27/2018
-ms.openlocfilehash: f888b7f49c2bf97eb42070a6028b137aeb730406
-ms.sourcegitcommit: acfdb7b2ad283d74f526972b47c371de903d2a3d
+ms.openlocfilehash: 9b4569f4f4d28ad1380cf057cdf96e4b81fbdb2a
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87768537"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87990735"
 ---
 # <a name="troubleshooting-a-failover-cluster-using-windows-error-reporting"></a>Problembehandlung bei einem Failovercluster mit Windows-Fehlerberichterstattung
 
 > Gilt für: Windows Server 2019, Windows Server 2016, Windows Server
 
-Bei Windows-Fehlerberichterstattung (wer) handelt es sich um eine flexible ereignisbasierte Feedback Infrastruktur, mit der erweiterte Administratoren oder Support von Unterstützung von Windows Informationen zu den Hardware-und Softwareproblemen sammeln können, die von Windows erkannt werden können, die Informationen an Microsoft gemeldet werden und Benutzern alle verfügbaren Lösungen bereitgestellt werden. Diese [Referenz](https://docs.microsoft.com/powershell/module/windowserrorreporting/) enthält Beschreibungen und Syntax für alle windowserrorreporting-Cmdlets.
+Bei Windows-Fehlerberichterstattung (wer) handelt es sich um eine flexible ereignisbasierte Feedback Infrastruktur, mit der erweiterte Administratoren oder Support von Unterstützung von Windows Informationen zu den Hardware-und Softwareproblemen sammeln können, die von Windows erkannt werden können, die Informationen an Microsoft gemeldet werden und Benutzern alle verfügbaren Lösungen bereitgestellt werden. Diese [Referenz](/powershell/module/windowserrorreporting/) enthält Beschreibungen und Syntax für alle windowserrorreporting-Cmdlets.
 
 Die folgenden Informationen zur Problembehandlung sind hilfreich bei der Behebung erweiterter Probleme, die eskaliert wurden und möglicherweise erfordern, dass Daten für die Selektierung an Microsoft gesendet werden.
 
@@ -75,11 +73,11 @@ Diese Ereignis Kanäle werden auf jedem Cluster Knoten aktiviert, wenn der Clust
 
 ## <a name="gathering-logs"></a>Protokolle werden gesammelt.
 
-Nachdem Sie Ereignis Kanäle aktiviert haben, können Sie die **dumplogquery** verwenden, um Protokolle zu erfassen. Die öffentliche Ressourcentyp Eigenschaft **dumplogquery** ist ein mutistring-Wert. Jede Zeichenfolge ist eine [XPath-Abfrage, wie hier beschrieben](https://msdn.microsoft.com/library/windows/desktop/dd996910(v=vs.85).aspx).
+Nachdem Sie Ereignis Kanäle aktiviert haben, können Sie die **dumplogquery** verwenden, um Protokolle zu erfassen. Die öffentliche Ressourcentyp Eigenschaft **dumplogquery** ist ein mutistring-Wert. Jede Zeichenfolge ist eine [XPath-Abfrage, wie hier beschrieben](/windows/win32/wes/consuming-events).
 
 Wenn Sie bei der Problembehandlung weitere Ereignis Kanäle erfassen müssen, können Sie die **dumplogquery** -Eigenschaft ändern, indem Sie zusätzliche Abfragen hinzufügen oder die Liste ändern.
 
-Testen Sie hierzu zunächst die XPath-Abfrage mithilfe des PowerShell-Cmdlets [Get-WinEvent](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Diagnostics/Get-WinEvent?view=powershell-5.1) :
+Testen Sie hierzu zunächst die XPath-Abfrage mithilfe des PowerShell-Cmdlets [Get-WinEvent](/powershell/module/Microsoft.PowerShell.Diagnostics/Get-WinEvent?view=powershell-5.1) :
 
 ```powershell
 get-WinEvent -FilterXML "<QueryList><Query><Select Path='Microsoft-Windows-GroupPolicy/Operational'>*[System[TimeCreated[timediff(@SystemTime) &gt;= 600000]]]</Select></Query></QueryList>"
@@ -158,7 +156,7 @@ Directory of c:\ProgramData\Microsoft\Windows\WER\ReportArchive
 
 ```
 
-Windows-Fehlerberichterstattung bietet viele Einstellungen zur Anpassung der Problembericht Erstellungs Umgebung. Weitere Informationen finden Sie in der Windows-Fehlerberichterstattung- [Dokumentation](https://msdn.microsoft.com/library/windows/desktop/bb513638(v=vs.85).aspx).
+Windows-Fehlerberichterstattung bietet viele Einstellungen zur Anpassung der Problembericht Erstellungs Umgebung. Weitere Informationen finden Sie in der Windows-Fehlerberichterstattung- [Dokumentation](/windows/win32/wer/wer-settings).
 
 
 ## <a name="troubleshooting-using-windows-error-reporting-reports"></a>Problembehandlung mithilfe von Windows-Fehlerberichterstattung Berichten

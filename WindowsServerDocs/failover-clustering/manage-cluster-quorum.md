@@ -1,20 +1,18 @@
 ---
 title: „Konfigurieren und Verwalten des Quorums in einem Failovercluster“
 description: Ausführliche Informationen zum Verwalten des Cluster Quorums in einem Windows Server-Failovercluster.
-ms.prod: windows-server
 ms.topic: article
 author: JasonGerend
 ms.author: jgerend
 manager: lizross
-ms.technology: storage-failover-clustering
 ms.date: 06/07/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 2847b9268207155efc181c97c58a91c1d51eac6d
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: 02158cc005cc46bd42e88569b14c17c59ef377ee
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87177816"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87990774"
 ---
 # <a name="configure-and-manage-quorum"></a>Konfigurieren und Verwalten des Quorums
 
@@ -60,7 +58,7 @@ Die folgende Tabelle enthält zusätzliche Informationen und Überlegungen zu de
 | ---------    |---------        |---------                        |
 | Datenträgerzeuge     |  <ul><li> Dedizierte LUN, die eine Kopie der Clusterdatenbank speichert</li><li> Besonders für Cluster mit freigegebenem (nicht repliziertem) Speicher geeignet</li>       |  <ul><li>Die Größe der LUN muss mindestens 512 MB betragen</li><li> Muss für die Clusterverwendung dediziert sein und darf keiner Clusterrolle zugewiesen werden</li><li> Muss in den Clusterspeicher einbezogen werden und die Speichervalidierungstests bestehen</li><li> Darf kein Datenträger sein, der ein freigegebenes Clustervolume (CSV) ist</li><li> Einfacher Datenträger mit einzelnem Volume</li><li> Laufwerksbuchstabe ist nicht erforderlich</li><li> Formatierung mit NTFS oder ReFS zulässig</li><li> Kann für die Fehlertoleranz optional mit Hardware-RAID konfiguriert werden</li><li> Sollte von Sicherungen und Antivirenscans ausgeschlossen werden</li><li> Ein Datenträger Zeuge wird mit direkte Speicherplätze nicht unterstützt.</li>|
 | Dateifreigabenzeuge     | <ul><li>SMB-Dateifreigabe, die auf einem Dateiserver konfiguriert ist, der Windows Server ausführt</li><li> Speichert keine Kopie der Clusterdatenbank</li><li> Verwaltet Clusterinformationen nur in der Datei "witness.log"</li><li> Besonders für Cluster mit repliziertem Speicher für mehrere Standorte geeignet </li>       |  <ul><li>Es sind mindestens 5 MB freier Speicherplatz erforderlich</li><li> Muss dem einzelnen Cluster zugeteilt und nicht zum Speichern von Benutzer- oder Anwendungsdaten verwendet werden</li><li> Schreibberechtigungen müssen für das Computerobjekt für den Clusternamen aktiviert sein</li></ul><br>Nachfolgend sind weitere Überlegungen zu einem Dateiserver aufgeführt, der den Dateifreigabezeugen hostet:<ul><li>Ein einzelner Dateiserver mit Dateifreigabezeugen kann für mehrere Cluster konfiguriert werden.</li><li> Der Dateiserver muss sich an einem Standort befinden, der von der Clusterarbeitsauslastung getrennt ist. Dadurch haben alle Clusterstandorte bei einer Unterbrechung der Netzwerkkommunikation zwischen den Standorten dieselbe Chance, diesen Zwischenfall zu überstehen. Wenn sich der Dateiserver am gleichen Standort befindet, wird der Standort zum primären Standort. Dies ist dann der einzige Standort, der auf die Dateifreigabe zugreifen kann.</li><li> Der Dateiserver kann auf einem virtuellen Computer ausgeführt werden, wenn der virtuelle Computer nicht auf demselben Cluster gehostet wird, der den Dateifreigabezeugen verwendet.</li><li> Der Dateiserver kann auf einem separaten Failovercluster konfiguriert werden, um eine hohe Verfügbarkeit zu bieten. </li>      |
-| Cloudzeuge     |  <ul><li>Eine in Azure BLOB Storage gespeicherte Zeugen Datei</li><li> Empfohlen, wenn alle Server im Cluster über eine zuverlässige Internet Verbindung verfügen.</li>      |  Siehe bereitstellen [eines cloudzeugen](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness).       |
+| Cloudzeuge     |  <ul><li>Eine in Azure BLOB Storage gespeicherte Zeugen Datei</li><li> Empfohlen, wenn alle Server im Cluster über eine zuverlässige Internet Verbindung verfügen.</li>      |  Siehe bereitstellen [eines cloudzeugen](./deploy-cloud-witness.md).       |
 
 ### <a name="node-vote-assignment"></a>„Knotenvotumszuweisung“
 
@@ -83,7 +81,7 @@ In Windows Server 2012 können Sie als erweiterte Quorum Konfigurationsoption di
 
 Bei der dynamischen Quorumverwaltung ist es außerdem für Cluster möglich, dass sie auf dem letzten verbleibenden Clusterknoten ausgeführt werden können. Durch die dynamische Anpassung der Anforderungen an die Quorummehrheit kann der Cluster das fortlaufende Herunterfahren von Knoten für einen einzelnen Knoten fortsetzen.
 
-Die vom Cluster zugewiesene dynamische Stimme eines Knotens kann mit der allgemeinen **dynamicweight** -Eigenschaft des Cluster Knotens mithilfe des Windows PowerShell-Cmdlets [Get-clusternode](https://docs.microsoft.com/powershell/module/failoverclusters/get-clusternode?view=win10-ps) überprüft werden. Der Wert 0 gibt an, dass der Knoten keine Quorumstimme besitzt. Der Wert 1 gibt an, dass der Knoten eine Quorumstimme besitzt.
+Die vom Cluster zugewiesene dynamische Stimme eines Knotens kann mit der allgemeinen **dynamicweight** -Eigenschaft des Cluster Knotens mithilfe des Windows PowerShell-Cmdlets [Get-clusternode](/powershell/module/failoverclusters/get-clusternode?view=win10-ps) überprüft werden. Der Wert 0 gibt an, dass der Knoten keine Quorumstimme besitzt. Der Wert 1 gibt an, dass der Knoten eine Quorumstimme besitzt.
 
 Die Stimmenzuweisung für alle Clusterknoten kann mithilfe des Validierungstests **Clusterquorum überprüfen** überprüft werden.
 
@@ -96,7 +94,7 @@ Die Stimmenzuweisung für alle Clusterknoten kann mithilfe des Validierungstests
 
 ## <a name="general-recommendations-for-quorum-configuration"></a>„Allgemeine Empfehlungen zur Quorumkonfiguration“
 
-Die Clustersoftware konfiguriert das Quorum für einen neuen Cluster auf Basis der Anzahl der konfigurierten Knoten und der Verfügbarkeit von freigegebenen Speicher automatisch. Dies ist im Allgemeinen die am besten geeignete Quorumkonfiguration für diesen Cluster. Es ist jedoch eine gute Idee, die Quorumkonfiguration zu überprüfen, nachdem der Cluster erstellt wurde und bevor der Cluster in der Produktionsumgebung eingesetzt wird. Zum Anzeigen der detaillierten Konfiguration des Cluster Quorums können Sie den Konfigurationsüberprüfungs-Assistenten oder das Windows PowerShell-Cmdlet [Test-Cluster](https://docs.microsoft.com/powershell/module/failoverclusters/test-cluster?view=win10-ps) verwenden, um den Test **Quorum Konfiguration** überprüfen auszuführen. In Failovercluster-Manager wird die grundlegende Quorum Konfiguration in den zusammenfassenden Informationen für den ausgewählten Cluster angezeigt. Sie können auch die Informationen zu den Quorum Ressourcen überprüfen, die beim Ausführen des Windows PowerShell-Cmdlets [Get-Clusterquorum](https://docs.microsoft.com/powershell/module/failoverclusters/get-clusterquorum?view=win10-ps) zurückgegeben werden.
+Die Clustersoftware konfiguriert das Quorum für einen neuen Cluster auf Basis der Anzahl der konfigurierten Knoten und der Verfügbarkeit von freigegebenen Speicher automatisch. Dies ist im Allgemeinen die am besten geeignete Quorumkonfiguration für diesen Cluster. Es ist jedoch eine gute Idee, die Quorumkonfiguration zu überprüfen, nachdem der Cluster erstellt wurde und bevor der Cluster in der Produktionsumgebung eingesetzt wird. Zum Anzeigen der detaillierten Konfiguration des Cluster Quorums können Sie den Konfigurationsüberprüfungs-Assistenten oder das Windows PowerShell-Cmdlet [Test-Cluster](/powershell/module/failoverclusters/test-cluster?view=win10-ps) verwenden, um den Test **Quorum Konfiguration** überprüfen auszuführen. In Failovercluster-Manager wird die grundlegende Quorum Konfiguration in den zusammenfassenden Informationen für den ausgewählten Cluster angezeigt. Sie können auch die Informationen zu den Quorum Ressourcen überprüfen, die beim Ausführen des Windows PowerShell-Cmdlets [Get-Clusterquorum](/powershell/module/failoverclusters/get-clusterquorum?view=win10-ps) zurückgegeben werden.
 
 Sie können den Test **Quorumkonfiguration überprüfen** jederzeit ausführen, um zu überprüfen, ob die Quorumkonfiguration für Ihren Cluster optimal geeignet ist. Die Testausgabe gibt die optimalen Einstellungen an. Zudem weist die darauf hin, ob eine Änderung an der Quorumkonfiguration empfohlen wird. Wenn eine Änderung empfohlen wird, können Sie die empfohlenen Einstellungen mithilfe des Assistenten zum Konfigurieren des Clusterquorums anwenden.
 
@@ -165,7 +163,7 @@ Wenn Sie den Assistenten ausführen und die Seite **Zusammenfassung** angezeigt 
 
 ### <a name="windows-powershell-equivalent-commands"></a>Gleichwertige Windows PowerShell-Befehle
 
-In den folgenden Beispielen wird gezeigt, wie das Cmdlet [Set-Clusterquorum](https://docs.microsoft.com/powershell/module/failoverclusters/set-clusterquorum?view=win10-ps) und andere Windows PowerShell-Cmdlets zum Konfigurieren des Cluster Quorums verwendet werden.
+In den folgenden Beispielen wird gezeigt, wie das Cmdlet [Set-Clusterquorum](/powershell/module/failoverclusters/set-clusterquorum?view=win10-ps) und andere Windows PowerShell-Cmdlets zum Konfigurieren des Cluster Quorums verwendet werden.
 
 Im folgenden Beispiel wird die Quorumkonfiguration für Cluster *CONTOSO-FC1* in eine Konfiguration mit einfacher Knotenmehrheit ohne Quorumzeugen geändert.
 
@@ -287,7 +285,7 @@ In der folgenden Tabelle sind die Überlegungen und Empfehlungen für diese Konf
 | „Knotenvotumszuweisung“     |  Knotenstimmen sollten nicht entfernt werden, da alle Knoten gleich wichtig sind       |
 | „Dynamische Quorumverwaltung“     |   Sollte aktiviert sein      |
 | „Zeugenkonfiguration“     |  Es wird ein Dateifreigabezeuge empfohlen, der an einem Standort konfiguriert ist, der sich von Clusterstandorten unterscheidet       |
-| Workloads     |  Arbeitsauslastungen können an einem beliebigen Standort konfiguriert werden       |
+| Arbeitsauslastungen     |  Arbeitsauslastungen können an einem beliebigen Standort konfiguriert werden       |
 
 #### <a name="additional-considerations-for-automatic-failover"></a>Weitere Überlegungen zum automatischen Failover
 
@@ -304,7 +302,7 @@ In der folgenden Tabelle sind die Überlegungen und Empfehlungen für diese Konf
 | Anzahl von Knotenstimmen pro Standort     |  <ul><li> Knotenstimmen sollten nicht von Knoten am primären Standort, **SiteA**, entfernt werden.</li><li>Knotenstimmen sollten von Knoten am Sicherungsstandort, **SiteB**, entfernt werden.</li><li>Wenn am Standort **SiteA** ein langfristiger Ausfall eintritt, müssen die Stimmen zu Knoten am Standort **SiteB** zugewiesen werden, um im Rahmen der Wiederherstellung eine Quorummehrheit an diesem Standort zu aktivieren.</li>       |
 | „Dynamische Quorumverwaltung“     |  Sollte aktiviert sein       |
 | „Zeugenkonfiguration“     |  <ul><li>Konfigurieren eines Zeugen bei ungerader Anzahl der Knoten am Standort **SiteA**</li><li>Wenn ein Zeuge erforderlich ist, konfigurieren Sie entweder einen Dateifreigabezeugen oder einen Datenträgerzeugen, auf den nur Knoten am Standort **SiteA** zugreifen können (gelegentlich als asymmetrischer Datenträgerzeuge bezeichnet).</li>       |
-| Workloads     |  Verwenden bevorzugter Besitzer, damit Arbeitsauslastungen auf Knoten von Standort **SiteA** erhalten bleiben       |
+| Arbeitsauslastungen     |  Verwenden bevorzugter Besitzer, damit Arbeitsauslastungen auf Knoten von Standort **SiteA** erhalten bleiben       |
 
 #### <a name="additional-considerations-for-manual-failover"></a>Weitere Überlegungen zum manuellen Failover
 
@@ -313,6 +311,6 @@ In der folgenden Tabelle sind die Überlegungen und Empfehlungen für diese Konf
 
 ## <a name="more-information"></a>Weitere Informationen
 
-* [Failoverclustering](failover-clustering.md)
-* [Windows PowerShell-Cmdlets für Failovercluster](https://docs.microsoft.com/powershell/module/failoverclusters/?view=win10-ps)
+* [Failoverclustering](./failover-clustering-overview.md)
+* [Windows PowerShell-Cmdlets für Failovercluster](/powershell/module/failoverclusters/?view=win10-ps)
 * [Grundlegendes zum Cluster-und Pool Quorum](../storage/storage-spaces/understand-quorum.md)

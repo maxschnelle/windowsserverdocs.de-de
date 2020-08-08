@@ -5,13 +5,12 @@ ms.author: delhan
 manager: dcscontentpm
 ms.date: 11/12/2019
 ms.topic: article
-ms.prod: windows-server
-ms.openlocfilehash: c4c74fc5fef01c21d5c1818c212c004786caca66
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: 5e8618853e28c6deef4a15e84361e339c70bf052
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87182216"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87940334"
 ---
 # <a name="configuring-certificate-enrollment-web-service-for-certificate-key-based-renewal-on-a-custom-port"></a>Konfigurieren des Zertifikatregistrierungs-Webdiensts ür die Zertifikatschlüssel-basierte Erneuerung an einem benutzerdefinierten Port
 
@@ -223,7 +222,7 @@ Set-ADUser -Identity cepcessvc -Add @{'msDS-AllowedToDelegateTo'=@('HOST/CA1.con
 
    CN = entca, CN = Registrierungsdienste, CN = Public Key Services, CN = Services, CN = Configuration, DC = ca. DC = com
 
-3. Klicken Sie mit der rechten Maustaste, und bearbeiten Sie das Objekt Ändern Sie das **mspki-** Anmeldungs Server-Attribut, indem Sie den benutzerdefinierten Port mit ihren CEP-und CES-Server-URIs verwenden, die in den Anwendungseinstellungen gefunden wurden. Beispiel:
+3. Klicken Sie mit der rechten Maustaste, und bearbeiten Sie das Objekt Ändern Sie das **mspki-** Anmeldungs Server-Attribut, indem Sie den benutzerdefinierten Port mit ihren CEP-und CES-Server-URIs verwenden, die in den Anwendungseinstellungen gefunden wurden. Zum Beispiel:
 
    ```
    140https://cepces.contoso.com:49999/ENTCA_CES_UsernamePassword/service.svc/CES0
@@ -286,7 +285,7 @@ Führen Sie den folgenden Befehl aus:
 certreq -machine -q -enroll -cert <thumbprint> renew
 ```
 
-![-Befehl.](media/certificate-enrollment-certificate-key-based-renewal-14.png)
+![command](media/certificate-enrollment-certificate-key-based-renewal-14.png)
 
 ### <a name="method-2"></a>Methode 2
 
@@ -296,14 +295,14 @@ Die Zertifikat Vorlage verfügt beispielsweise über eine Einstellung von 2 Tage
 
 Wenn Sie also die Zeit auf 8:10 Uhr verschieben. am 19. Nachdem das Erneuerungs Fenster in der Vorlage auf 8 Stunden festgelegt wurde, wird das Zertifikat durch Ausführen von certutil-Pulse (zum auslöst der AE-Engine) für Sie registriert.
 
-![-Befehl.](media/certificate-enrollment-certificate-key-based-renewal-15.png)
+![command](media/certificate-enrollment-certificate-key-based-renewal-15.png)
 
 Nachdem der Test abgeschlossen ist, setzen Sie die Zeiteinstellung auf den ursprünglichen Wert zurück, und starten Sie den Client Computer neu.
 
 > [!Note]
 > Der vorherige Screenshot zeigt, dass die automatische Registrierungs-Engine erwartungsgemäß funktioniert, da das Datum der Zertifizierungsstelle weiterhin auf den 18. Wert festgelegt ist. Aus diesem Grund werden weiterhin Zertifikate ausgestellt. In einer realen Situation tritt diese große Menge von Erneuerungen nicht auf.
 
-## <a name="references"></a>Verweise
+## <a name="references"></a>References
 
 [Test Lab Guide: Demonstrating Certificate Key-Based Renewal](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj590165(v%3dws.11))
 

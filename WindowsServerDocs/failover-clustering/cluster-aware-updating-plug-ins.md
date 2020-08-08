@@ -3,18 +3,16 @@ ms.assetid: d44d4430-41e2-483a-9685-92610cdef32a
 title: Funktionsweise von Plug-Ins für Cluster fähiges aktualisieren
 description: Verwenden von Plug-ins zum Koordinieren von Updates bei Verwendung des Cluster fähigen Aktualisierens in Windows Server zum Installieren von Updates auf einem Cluster.
 ms.topic: article
-ms.prod: windows-server
 manager: lizross
 ms.author: jgerend
 author: JasonGerend
 ms.date: 04/28/2017
-ms.technology: storage-failover-clustering
-ms.openlocfilehash: ac09163eb40045289a68287aa3eace20ff714d09
-ms.sourcegitcommit: 145cf75f89f4e7460e737861b7407b5cee7c6645
+ms.openlocfilehash: 42ba496ce0d62a6a911f762f6ea7330001fb9031
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87409580"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87990893"
 ---
 # <a name="how-cluster-aware-updating-plug-ins-work"></a>Funktionsweise von Plug-Ins für Cluster fähiges aktualisieren
 
@@ -48,10 +46,10 @@ Mithilfe der in der folgenden Tabelle aufgeführten PowerShell-Cmdlets für Clus
 
 |Cmdlet|BESCHREIBUNG|
 |----------|---------------|
-|[Add-CauClusterRole](https://docs.microsoft.com/powershell/module/clusterawareupdating/add-cauclusterrole)|Fügt die Cluster Rolle für Cluster fähiges aktualisieren hinzu, die dem \- angegebenen Cluster die selbst Aktualisierungs Funktion bereitstellt.|
-|[Invoke-CauRun](https://docs.microsoft.com/powershell/module/clusterawareupdating/invoke-caurun)|Prüft Clusterknoten auf geeignete Updates und installiert diese Updates über eine Updateausführung auf dem angegebenen Cluster.|
-|[Invoke-CauScan](https://docs.microsoft.com/powershell/module/clusterawareupdating/invoke-causcan)|Prüft Clusterknoten auf geeignete Updates und gibt eine Liste des ersten Updatesatzes zurück, der auf jeden Knoten des angegebenen Clusters angewendet werden würde.|
-|[Set-CauClusterRole](https://docs.microsoft.com/powershell/module/clusterawareupdating/set-cauclusterrole)|Legt Konfigurationseigenschaften für die Clusterrolle für clusterfähiges Aktualisieren auf dem angegebenen Cluster fest.|
+|[Add-CauClusterRole](/powershell/module/clusterawareupdating/add-cauclusterrole)|Fügt die Cluster Rolle für Cluster fähiges aktualisieren hinzu, die dem \- angegebenen Cluster die selbst Aktualisierungs Funktion bereitstellt.|
+|[Invoke-CauRun](/powershell/module/clusterawareupdating/invoke-caurun)|Prüft Clusterknoten auf geeignete Updates und installiert diese Updates über eine Updateausführung auf dem angegebenen Cluster.|
+|[Invoke-CauScan](/powershell/module/clusterawareupdating/invoke-causcan)|Prüft Clusterknoten auf geeignete Updates und gibt eine Liste des ersten Updatesatzes zurück, der auf jeden Knoten des angegebenen Clusters angewendet werden würde.|
+|[Set-CauClusterRole](/powershell/module/clusterawareupdating/set-cauclusterrole)|Legt Konfigurationseigenschaften für die Clusterrolle für clusterfähiges Aktualisieren auf dem angegebenen Cluster fest.|
 
 Wenn Sie mithilfe dieser Cmdlets keinen Plug-in-Parameter für Cluster fähiges aktualisieren angeben \- , ist der Standardwert der Plug- \- in **Microsoft. windowsupdateplugin**.
 
@@ -83,9 +81,9 @@ Die Plug- \- ins, die von Cau \( **Microsoft. windowsupdateplugin** und **Micros
 
 |Cmdlet|BESCHREIBUNG|
 |----------|---------------|
-|[Get-CauPlugin](https://docs.microsoft.com/powershell/module/clusterawareupdating/get-cauplugin)|Ruft Informationen zu einem oder mehreren Software Update-Plug- \- ins ab, die auf dem lokalen Computer registriert sind.|
-|[Register-CauPlugin](https://docs.microsoft.com/powershell/module/clusterawareupdating/register-cauplugin)|Registriert ein Plug-in für Cau-Software Updates \- auf dem lokalen Computer.|
-|[Unregister-CauPlugin](https://docs.microsoft.com/powershell/module/clusterawareupdating/unregister-cauplugin)|Entfernt ein Software Update-Plug- \- in aus der Liste der Plug- \- ins, die von Cau verwendet werden können. **Hinweis:** Die Registrierung der Plug- \- ins, die mit Cau \( **Microsoft. windowsupdateplugin** und **Microsoft. hotfixplugin** installiert werden, \) kann nicht aufgehoben werden.|
+|[Get-CauPlugin](/powershell/module/clusterawareupdating/get-cauplugin)|Ruft Informationen zu einem oder mehreren Software Update-Plug- \- ins ab, die auf dem lokalen Computer registriert sind.|
+|[Register-CauPlugin](/powershell/module/clusterawareupdating/register-cauplugin)|Registriert ein Plug-in für Cau-Software Updates \- auf dem lokalen Computer.|
+|[Unregister-CauPlugin](/powershell/module/clusterawareupdating/unregister-cauplugin)|Entfernt ein Software Update-Plug- \- in aus der Liste der Plug- \- ins, die von Cau verwendet werden können. **Hinweis:** Die Registrierung der Plug- \- ins, die mit Cau \( **Microsoft. windowsupdateplugin** und **Microsoft. hotfixplugin** installiert werden, \) kann nicht aufgehoben werden.|
 
 ## <a name="using-the-microsoftwindowsupdateplugin"></a><a name="BKMK_WUP"></a>Verwenden von "Microsoft. windowsupdateplugin"
 
@@ -97,7 +95,7 @@ Das Standard-Plug- \- in für Cau, **Microsoft. windowsupdateplugin**, führt di
 > [!NOTE]
 > Wenn Sie andere Updates als die wichtigen Software Updates anwenden möchten, die standardmäßig ausgewählt werden, \( z \) . b. Treiber Updates, können Sie einen optionalen Plug- \- in-Parameter konfigurieren. Weitere Informationen finden Sie unter [Konfigurieren der Abfragezeichenfolge für den Windows Update-Agent](#BKMK_QUERY).
 
-### <a name="requirements"></a>Requirements (Anforderungen)
+### <a name="requirements"></a>Anforderungen
 
 - Der Failovercluster und der Remote Update Coordinator-Computer \( \) müssen die Anforderungen für Cau und die Konfiguration erfüllen, die für die Remote Verwaltung in den [Anforderungen und bewährten Methoden für Cau](cluster-aware-updating-requirements.md)erforderlich ist.
 - Lesen Sie die [Empfehlungen für die Anwendung von Microsoft-Updates](cluster-aware-updating-requirements.md#BKMK_BP_WUA), und nehmen Sie dann alle erforderlichen Änderungen an der Microsoft-Updatekonfiguration für die Failoverclusterknoten vor.
@@ -149,7 +147,7 @@ Mit dem Plug \- -in " **Microsoft. hotfixplugin** " können Microsoft Limited Di
 > [!NOTE]
 > In Knowledge Base-Artikeln können Hotfixes manchmal von Microsoft heruntergeladen werden, Sie werden jedoch auch nach Bedarf für Kunden bereitgestellt \- .
 
-### <a name="requirements"></a>Requirements (Anforderungen)
+### <a name="requirements"></a>Anforderungen
 
 - Der Failovercluster und der Remote Update Coordinator-Computer \( \) müssen die Anforderungen für Cau und die Konfiguration erfüllen, die für die Remote Verwaltung in den [Anforderungen und bewährten Methoden für Cau](cluster-aware-updating-requirements.md)erforderlich ist.
 - Lesen Sie hierzu [Empfehlungen zur Verwendung von Microsoft.HotfixPlugin](cluster-aware-updating-requirements.md#BKMK_BP_HF).
@@ -379,7 +377,7 @@ Optional können Sie die obigen Prüfungen deaktivieren, die vom Plug- \- in sta
 
 Es wird jedoch in vielen Umgebungen als bewährte Methode empfohlen, dass Sie diese Prüfungen mithilfe der Standardkonfiguration erzwingen.
 
-#### <a name="step-4-configure-settings-for-smb-data-integrity"></a>Schritt 4: Konfigurieren der Einstellungen für die SMB-Datenintegrität
+#### <a name="step-4-configure-settings-for-smb-data-integrity"></a>Schritt 4. Konfigurieren der Einstellungen für die SMB-Datenintegrität
 
 Zum Überprüfen der Datenintegrität in den Verbindungen zwischen den Cluster Knoten und der SMB-Dateifreigabe erfordert das Hotfix-Plug- \- in, dass Sie die Einstellungen auf der SMB-Dateifreigabe für die SMB-Signatur oder SMB-Verschlüsselung aktivieren. Die SMB-Verschlüsselung, die in vielen Umgebungen eine höhere Sicherheit und bessere Leistung bietet, wird ab Windows Server 2012 unterstützt. Sie können eine oder beide Einstellungen wie folgt aktivieren:
 
@@ -402,11 +400,10 @@ Um optional die Verwendung der SMB-Verschlüsselung in den Verbindungen mit dem 
 
 Sie müssen die **Dateiserver-Remoteverwaltungs- \( SMB \- in \) ** der Regel in der Windows-Firewall auf dem SMB-Dateiserver aktivieren. Dies ist in Windows Server 2016, Windows Server 2012 R2 und Windows Server 2012 standardmäßig aktiviert.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Übersicht über das Cluster fähige aktualisieren](cluster-aware-updating.md)
 
--   [Windows PowerShell-Cmdlets für das clusterfähige Aktualisieren](https://docs.microsoft.com/powershell/module/clusterawareupdating)
+-   [Windows PowerShell-Cmdlets für das clusterfähige Aktualisieren](/powershell/module/clusterawareupdating)
 
--   [Referenz zu Plug-Ins für clusterfähiges Aktualisieren](https://msdn.microsoft.com/library/hh418084.aspx)
-
+-   [Referenz zu Plug-Ins für clusterfähiges Aktualisieren](/previous-versions/windows/desktop/mscs/cluster-aware-update-plug-in-interfaces-and-classes)

@@ -6,12 +6,12 @@ author: nwashburn-ms
 ms.author: niwashbu
 ms.localizationpriority: medium
 ms.date: 02/15/2019
-ms.openlocfilehash: f03e97cb4c318a65b0daf4034f0f0cfd6fe053bf
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: c824b2ae8c43be4b5b33b79ce9ddb75dd03c9a9e
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87964606"
+ms.locfileid: "87990522"
 ---
 # <a name="get-started-with-windows-admin-center"></a>Einstieg in das Windows Admin Center
 
@@ -115,7 +115,7 @@ Sie können die Anmelde Informationen auf alle Verbindungen anwenden, wodurch Si
 
 **Lokale Administrator Kenn Wort Lösung (Runden)**
 
-Wenn Ihre Umgebung [runden](https://technet.microsoft.com/mt227395.aspx)verwendet und Sie Windows Admin Center auf Ihrem Windows 10-PC installiert haben, können Sie die Runden-Anmelde Informationen verwenden, um sich mit dem verwalteten Knoten zu authentifizieren. **Wenn Sie dieses Szenario verwenden, geben Sie uns** [Feedback](https://aka.ms/WACFeedback).
+Wenn Ihre Umgebung [runden](/previous-versions/mt227395(v=msdn.10))verwendet und Sie Windows Admin Center auf Ihrem Windows 10-PC installiert haben, können Sie die Runden-Anmelde Informationen verwenden, um sich mit dem verwalteten Knoten zu authentifizieren. **Wenn Sie dieses Szenario verwenden, geben Sie uns** [Feedback](https://aka.ms/WACFeedback).
 
 ## <a name="using-tags-to-organize-your-connections"></a>Verwenden von Tags zum Organisieren von Verbindungen
 

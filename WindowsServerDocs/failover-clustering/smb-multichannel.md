@@ -1,18 +1,16 @@
 ---
 ms.assetid: a6343f1c-e9dd-4a02-91ad-39bd519d66cd
 title: Vereinfachte SMB Multichannel- und Multi-NIC-Clusternetzwerke
-ms.prod: windows-server
-ms.technology: storage-failover-clustering
 ms.topic: article
 author: RobHindman
 ms.author: robhind
 ms.date: 09/15/2016
-ms.openlocfilehash: f345cd877f1c611683c2ffdef56b9b58cc070e49
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 7fad43cb5f3de5c10ed815fa802b6168c15850d1
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85473057"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87990747"
 ---
 # <a name="simplified-smb-multichannel-and-multi-nic-cluster-networks"></a>Vereinfachte SMB Multichannel- und Multi-NIC-Clusternetzwerke
 
@@ -58,7 +56,7 @@ Wenn Sie mehr als ein privates Netzwerk (nur Cluster) verwenden, überprüfen Si
  **Abbildung 4: automatische IPv6-Verbindungs Konfiguration (FE80) Adress Ressourcen Konfiguration**
 
 ## <a name="throughput-and-fault-tolerance"></a>Durchsatz und Fehlertoleranz
-Mit Windows Server 2019 und Windows Server 2016 werden NIC-Funktionen automatisch erkannt, und es wird versucht, jede NIC in der schnellstmöglichen Konfiguration zu verwenden. NICs, die kombiniert werden, NICs mit RSS und NICs mit RDMA-Funktion können verwendet werden. In der folgenden Tabelle werden die Kompromisse bei der Verwendung dieser Technologien zusammengefasst. Maximaler Durchsatz wird erzielt, wenn mehrere RDMA-fähige NICs verwendet werden. Weitere Informationen finden Sie [Untergrund lagen von SMB mutlichannel](https://blogs.technet.microsoft.com/josebda/2012/06/28/the-basics-of-smb-multichannel-a-feature-of-windows-server-2012-and-smb-3-0/).
+Mit Windows Server 2019 und Windows Server 2016 werden NIC-Funktionen automatisch erkannt, und es wird versucht, jede NIC in der schnellstmöglichen Konfiguration zu verwenden. NICs, die kombiniert werden, NICs mit RSS und NICs mit RDMA-Funktion können verwendet werden. In der folgenden Tabelle werden die Kompromisse bei der Verwendung dieser Technologien zusammengefasst. Maximaler Durchsatz wird erzielt, wenn mehrere RDMA-fähige NICs verwendet werden. Weitere Informationen finden Sie [Untergrund lagen von SMB mutlichannel](/archive/blogs/josebda/the-basics-of-smb-multichannel-a-feature-of-windows-server-2012-and-smb-3-0).
 
 ![Eine Abbildung des Durchsatzes und der Fehlertoleranz für verschiedene NIC-Konfigurationen ](media/Simplified-SMB-Multichannel-and-Multi-NIC-Cluster-Networks/Clustering_MulitNIC_Fig5.png)
  **Abbildung 5: Durchsatz und Fehlertoleranz für verschiedene NIC-conifigurationen**
@@ -79,5 +77,5 @@ Verwenden Sie das Cmdlet **Get-smbserverconfiguration** , und suchen Sie nach de
 **Wird die allgemeine Cluster Eigenschaft "plumballcrosssubnettrotroutes" in einem Netzwerk mit mehreren NIC beachtet?**
 Ja.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 - [Neues beim Failoverclustering unter Windows Server](whats-new-in-failover-clustering.md)

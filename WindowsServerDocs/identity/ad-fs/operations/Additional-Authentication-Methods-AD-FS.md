@@ -6,21 +6,19 @@ ms.author: billmath
 manager: mtillman
 ms.date: 09/19/2018
 ms.topic: article
-ms.prod: windows-server
-ms.technology: identity-adfs
-ms.openlocfilehash: ff129f2b049d3e17e6b39d653cc3962eba75090b
-ms.sourcegitcommit: 2cc251eb5bc3069bf09bc08e06c3478fcbe1f321
+ms.openlocfilehash: fed038c81b298036401004751aab46dba520eab3
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84333901"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87940273"
 ---
 # <a name="configure-3rd-party-authentication-providers-as-primary-authentication-in-ad-fs-2019"></a>Konfigurieren von Drittanbieter-Authentifizierungs Anbietern als primäre Authentifizierung in AD FS 2019
 
 
-Organisationen stoßen auf Angriffe, bei denen versucht wird, Benutzerkonten durch das Senden von Kenn Wort basierten Authentifizierungsanforderungen auf Brute-Force-, kompromittierten oder anderweitig auszusperren.  Um Organisationen vor Gefährdung zu schützen, hat AD FS Funktionen wie die "intelligente" Sperre für das Extranet und die auf IP-Adressen basierende Blockierung eingeführt.  
+Organisationen stoßen auf Angriffe, bei denen versucht wird, Benutzerkonten durch das Senden von Kenn Wort basierten Authentifizierungsanforderungen auf Brute-Force-, kompromittierten oder anderweitig auszusperren.  Um Organisationen vor Gefährdung zu schützen, hat AD FS Funktionen wie die "intelligente" Sperre für das Extranet und die auf IP-Adressen basierende Blockierung eingeführt.
 
-Diese entschärfungen sind jedoch reaktiv.  Um auf proaktive Weise den Schweregrad dieser Angriffe zu reduzieren, ist AD FS in der Lage, vor dem Erfassen des Kennworts vor dem Erfassen des Kennworts zur Eingabe von nicht Kenn Wort Faktoren aufzufordern.  
+Diese entschärfungen sind jedoch reaktiv.  Um auf proaktive Weise den Schweregrad dieser Angriffe zu reduzieren, ist AD FS in der Lage, vor dem Erfassen des Kennworts vor dem Erfassen des Kennworts zur Eingabe von nicht Kenn Wort Faktoren aufzufordern.
 
 Beispielsweise wurde in AD FS 2016 Azure MFA als primäre Authentifizierung eingeführt, damit OTP-Codes aus der Authenticator-App als erster Faktor verwendet werden können.
 Mit AD FS 2019 können Sie externe Authentifizierungs Anbieter als primäre Authentifizierungsfaktoren konfigurieren.
@@ -54,7 +52,7 @@ Sobald ein externer Anbieter für das Extranet, das Intranet oder beides aktivie
 Bevor Sie externe Authentifizierungs Anbieter als primär konfigurieren, stellen Sie sicher, dass die folgenden Voraussetzungen erfüllt sind:
 - Die AD FS-Farm Verhaltensebene (FBL) wurde auf ' 4 ' (dieser Wert wird in AD FS 2019 übersetzt).
     - Dies ist der standardmäßige Standardwert für den Standardwert für die AD FS 2019-Farmen.
-    - Bei AD FS Farmen, die auf Windows Server 2012 R2 oder 2016 basieren, kann der FBL mithilfe des PowerShell-Commandlets "aufrufen-adfsfarmverhalorlevelraise" ausgelöst werden.  Weitere Informationen zum Aktualisieren einer AD FS-Farm finden Sie im Artikel Farm Upgrade für SQL-Farmen oder WID-Farmen. 
+    - Bei AD FS Farmen, die auf Windows Server 2012 R2 oder 2016 basieren, kann der FBL mithilfe des PowerShell-Commandlets "aufrufen-adfsfarmverhalorlevelraise" ausgelöst werden.  Weitere Informationen zum Aktualisieren einer AD FS-Farm finden Sie im Artikel Farm Upgrade für SQL-Farmen oder WID-Farmen.
     - Sie können den FBL-Wert mithilfe des Cmdlets Get-adfsfarminformation überprüfen.
 - Die AD FS 2019-Farm ist so konfiguriert, dass Sie die neuen Seiten mit der Seite "paginierte" von 2019 verwendet.
     - Dies ist das Standardverhalten für neue AD FS 2019-Farmen.
@@ -63,12 +61,12 @@ Bevor Sie externe Authentifizierungs Anbieter als primär konfigurieren, stellen
 ## <a name="enable-external-authentication-methods-as-primary"></a>Externe Authentifizierungsmethoden als primär aktivieren
 Nachdem Sie die Voraussetzungen überprüft haben, gibt es zwei Möglichkeiten, um AD FS zusätzlichen Authentifizierungs Anbietern als primär zu konfigurieren:
 
-### <a name="using-powershell"></a>Verwenden von PowerShell
+### <a name="using-powershell"></a>PowerShell
 
 
 ```powershell
 PS C:\> Set-AdfsGlobalAuthenticationPolicy -AllowAdditionalAuthenticationAsPrimary $true
-``` 
+```
 
 
 Der AD FS-Dienst muss nach dem Aktivieren oder Deaktivieren der zusätzlichen Authentifizierung als primär neu gestartet werden.
@@ -82,7 +80,7 @@ Der AD FS-Dienst muss nach dem Aktivieren oder Deaktivieren der zusätzlichen Au
 
 ## <a name="enable-username-and-password-as-additional-authentication"></a>Benutzernamen und Kennwort als zusätzliche Authentifizierung aktivieren
 Aktivieren Sie den Benutzernamen und das Kennwort mithilfe von PowerShell oder der AD FS Management Console als zusätzliche Authentifizierung, um das Szenario "Schützen des Kennworts" abzuschließen.
-### <a name="using-powershell"></a>Verwenden von PowerShell
+### <a name="using-powershell"></a>PowerShell
 
 
 
@@ -92,7 +90,7 @@ PS C:\> $providers = (Get-AdfsGlobalAuthenticationPolicy).AdditionalAuthenticati
 PS C:\>$providers = $providers + "FormsAuthentication"
 
 PS C:\>Set-AdfsGlobalAuthenticationPolicy -AdditionalAuthenticationProvider $providers
-``` 
+```
 
 ### <a name="using-the-ad-fs-management-console"></a>Verwenden der AD FS-Verwaltungskonsole
 Klicken Sie in der AD FS-Verwaltungskonsole unter " **Dienst**  ->  **Authentifizierungsmethoden**" unter **zusätzliche Authentifizierungsmethoden**auf **Bearbeiten** .

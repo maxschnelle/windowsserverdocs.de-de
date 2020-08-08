@@ -2,19 +2,17 @@
 title: Übersicht über die clusterfähige Aktualisierung.
 description: Das Cluster fähige aktualisieren (Cluster-Aware Update, Cau) automatisiert die Installation von Software Updates auf Clustern unter Windows Server.
 ms.topic: article
-ms.prod: windows-server
 manager: lizross
 author: JasonGerend
 ms.author: jgerend
-ms.technology: storage-failover-clustering
 ms.date: 08/06/2018
 ms.assetid: 3c2993b4-aa81-452b-a5c3-3724ad95d892
-ms.openlocfilehash: a889e19947d014bc2008417f64f6be5cc53112e6
-ms.sourcegitcommit: 145cf75f89f4e7460e737861b7407b5cee7c6645
+ms.openlocfilehash: defec4b34dfd0e2efa5724e499330c79b993bb60
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87409891"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87990808"
 ---
 # <a name="cluster-aware-updating-overview"></a>Übersicht über die clusterfähige Aktualisierung.
 
@@ -25,7 +23,7 @@ Dieses Thema enthält eine Übersicht über das Cluster fähige \- Aktualisieren
 > [!NOTE]
 > Wenn Sie [direkte Speicherplätze](../storage/storage-spaces/storage-spaces-direct-overview.md) Cluster aktualisieren, empfiehlt es sich, das Cluster fähige aktualisieren zu verwenden.
 
-## <a name="feature-description"></a><a name="BKMK_OVER"></a>Funktionsbeschreibung
+## <a name="feature-description"></a><a name="BKMK_OVER"></a>Featurebeschreibung
 Das Cluster fähige aktualisieren ist ein automatisiertes Feature, mit dem Sie Server in einem [Failovercluster](failover-clustering-overview.md) mit geringem oder ohne Verfügbarkeit während des Aktualisierungs Vorgangs aktualisieren können. Während einer Update Ausführung führt das Cluster fähige aktualisieren transparent die folgenden Aufgaben aus:
 
 1. Versetzt jeden Knoten des Clusters in den Knoten Wartungsmodus.
@@ -65,7 +63,7 @@ Im folgenden finden Sie eine Beschreibung der wichtigen Funktionen für die Clus
 
 -   Eine erweiterbare Architektur, die neue Plug-in-Entwicklungen unterstützt, \- um andere Knoten \- Aktualisierungs Tools im Cluster zu koordinieren, wie z. b. benutzerdefinierte Software Installationsprogramme, Tools für die BIOS-Aktualisierung und Netzwerkadapter-oder Hostbus Adapter- \( HBA \)
 
-Beim Cluster fähigen aktualisieren kann der gesamte Cluster Aktualisierungs Vorgang in zwei Modi koordiniert werden:
+Das Feature des clusterfähigen Aktualisierens kann die gesamte Clusteraktualisierung in zwei Modi koordinieren:
 
 -   **Selbst \- Aktualisierungs Modus** in diesem Modus wird die Cluster Rolle für Cluster fähiges aktualisieren als Arbeitsauslastung auf dem zu aktualisierenden Failovercluster konfiguriert, und ein zugeordneter Aktualisierungs Zeitplan wird definiert. Der Cluster aktualisiert sich zu den geplanten Zeiten anhand eines standardmäßigen oder benutzerdefinierten Updateausführungsprofils selbst. Bei der Updateausführung startet der CAU-Updatekoordinatorprozess auf dem Knoten, der aktuell der Besitzer der Clusterrolle für CAU ist, und alle Clusterknoten werden nacheinander durch den Prozess aktualisiert. Von der CAU-Clusterrolle wird zum Aktualisieren des aktuellen Clusterknotens ein Failover zu einem anderen Clusterknoten ausgeführt, und ein neuer Updatekoordinatorprozess auf diesem Knoten übernimmt die Steuerung der Updateausführung. Im selbst \- Aktualisierungs Modus kann mit Cau der Failovercluster mit einem vollständig automatisierten, End- \- to- \- End-Aktualisierungsprozess aktualisiert werden. Ein Administrator kann auch Updates \- Bedarfs gesteuert in diesem Modus oder bei Bedarf einfach den Ansatz für die Remote \- Aktualisierung verwenden. Im selbst \- Aktualisierungs Modus kann ein Administrator Zusammenfassungs Informationen zu einer laufenden Update Ausführung erhalten, indem er eine Verbindung mit dem Cluster herstellt und das Windows PowerShell-Cmdlet **get \- caurun** ausführen.
 
@@ -80,7 +78,7 @@ Um Cau zu verwenden, installieren Sie das Failoverclustering-Feature in Windows 
 
 Zur Installation des Failoverclustering-Features können Sie die folgenden Tools verwenden:
 - Assistent zum Hinzufügen von Rollen und Features im Server-Manager
-- [Install-Windows Feature](https://docs.microsoft.com/powershell/module/servermanager/Install-WindowsFeature?view=winserver2012r2-ps&viewFallbackFrom=win10-ps)   Windows PowerShell-Cmdlet
+- [Install-Windows Feature](/powershell/module/servermanager/Install-WindowsFeature?view=winserver2012r2-ps&viewFallbackFrom=win10-ps)   Windows PowerShell-Cmdlet
 - Befehlszeilentool %%amp;quot;Abbildverwaltung für die Bereitstellung%%amp;quot; (Deployment Image Servicing and Management, DISM)
 
 Weitere Informationen finden Sie unter [Installieren des Failoverclustering-Features](create-failover-cluster.md#install-the-failover-clustering-feature).
@@ -101,9 +99,9 @@ Sie müssen die Failoverclusteringtools wie folgt installieren, um die verschied
 ### <a name="enabling-self-updating-mode"></a>Aktivieren des selbst Aktualisierungs Modus
 Um den selbst Aktualisierungs Modus zu aktivieren, müssen Sie dem Failovercluster die Cluster Rolle für Cluster fähiges aktualisieren hinzufügen. Verwenden Sie hierzu eine der folgenden Methoden:
 - Wählen Sie unter Server-Manager **Tools**  >  die Option Tools**Cluster fähiges aktualisieren**aus, und wählen Sie dann im Fenster Cluster fähiges aktualisieren die **Option selbst Aktualisierungs Optionen für Cluster konfigurieren**aus.
-- Führen Sie in einer PowerShell-Sitzung das Cmdlet [Add-cauclusterrole](https://docs.microsoft.com/powershell/module/clusterawareupdating/Add-CauClusterRole?view=win10-ps) aus.
+- Führen Sie in einer PowerShell-Sitzung das Cmdlet [Add-cauclusterrole](/powershell/module/clusterawareupdating/Add-CauClusterRole?view=win10-ps) aus.
 
-Deinstallieren Sie zum Deinstallieren von Cau das Failoverclustering-Feature oder die failoverclusteringtools mithilfe von Server-Manager, dem Cmdlet " [Uninstall-Windows Feature](https://docs.microsoft.com/powershell/module/servermanager/Uninstall-WindowsFeature?view=win10-ps) " oder den Befehls \- Zeilen Tools der Befehlszeilen Programme.
+Deinstallieren Sie zum Deinstallieren von Cau das Failoverclustering-Feature oder die failoverclusteringtools mithilfe von Server-Manager, dem Cmdlet " [Uninstall-Windows Feature](/powershell/module/servermanager/Uninstall-WindowsFeature?view=win10-ps) " oder den Befehls \- Zeilen Tools der Befehlszeilen Programme.
 
 ### <a name="additional-requirements-and-best-practices"></a>Weitere Anforderungen und Best Practices
 
@@ -117,13 +115,13 @@ Ausführliche Informationen zu den Anforderungen und bewährten Methoden für di
 
 1.  Starten Sie den Server-Manager.
 
-2.  Führen Sie einen der folgenden Schritte aus:
+2.  Führen Sie eines der folgenden Verfahren aus:
 
     -   Klicken Sie **im Menü Extras** auf **Cluster fähiges \- Aktualisieren**.
 
     -   Wenn mindestens ein Cluster Knoten oder der Cluster zu Server-Manager hinzugefügt wird, klicken Sie auf der Seite **alle Server** mit \- der rechten Maustaste auf den Namen eines Knotens \( oder den Namen des Clusters \) , und klicken Sie dann auf **Cluster aktualisieren**.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 Die folgenden Links enthalten weitere Informationen zur Verwendung des Cluster fähigen Updates.
 
 -   [Anforderungen und bewährte Methoden für die Cluster fähige \- Aktualisierung](cluster-aware-updating.md)
@@ -134,8 +132,6 @@ Die folgenden Links enthalten weitere Informationen zur Verwendung des Cluster f
 
 -   [Funktionsweise von Cau-Plug- \- ins](cluster-aware-updating-plug-ins.md)
 
--   [\-Cmdlets für Cluster fähiges aktualisieren in Windows PowerShell](https://docs.microsoft.com/powershell/module/clusterawareupdating/?view=win10-ps&viewFallbackFrom=winserverr2-ps)
+-   [\-Cmdlets für Cluster fähiges aktualisieren in Windows PowerShell](/powershell/module/clusterawareupdating/?view=win10-ps&viewFallbackFrom=winserverr2-ps)
 
 -   [\-Referenz zu Plug- \- ins für Cluster fähiges aktualisieren](/previous-versions/windows/desktop/mscs/cluster-aware-update-plug-in-interfaces-and-classes)
-
-

@@ -1,18 +1,16 @@
 ---
 title: Integritätsdienst Berichte
-ms.prod: windows-server
 manager: eldenc
 ms.author: cosdar
-ms.technology: storage-health-service
 ms.topic: article
 author: cosmosdarwin
 ms.date: 10/05/2017
-ms.openlocfilehash: a1aedd4dc48abb38c33679f219a6825c6a9141bb
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 1e6b11bc73ef34e5247ca43140d3e2122e77ab61
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85473027"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87990775"
 ---
 # <a name="health-service-reports"></a>Integritätsdienst Berichte
 
@@ -109,7 +107,7 @@ public void DiscoverObjects(CimSession Session)
 
 Dabei handelt es sich um dieselben Objekte, die Sie in PowerShell mithilfe von Cmdlets wie " **Get-storagesubsystem**", " **Get-storagenode**" und " **Get-Volume**" erhalten.
 
-Sie können auf die gleichen Eigenschaften zugreifen, die unter [Klassen der Speicher Verwaltungs-API](https://msdn.microsoft.com/library/windows/desktop/hh830612(v=vs.85).aspx)dokumentiert sind.
+Sie können auf die gleichen Eigenschaften zugreifen, die unter [Klassen der Speicher Verwaltungs-API](/previous-versions/windows/desktop/stormgmt/storage-management-api-classes)dokumentiert sind.
 
 ```
 using System.Diagnostics;
@@ -129,7 +127,7 @@ Die komplette Liste der Metriken, die in jedem Bereich in Windows Server 2016 ve
 
 ### <a name="iobserveronnext"></a>IObserver. OnNext ()
 
-In diesem Beispielcode wird das [Observer-Entwurfsmuster](https://msdn.microsoft.com/library/ee850490(v=vs.110).aspx) zum Implementieren eines Beobachters verwendet, dessen **OnNext ()** -Methode aufgerufen wird, wenn jedes neue metrikbeispiel erreicht wird. Die zugehörige **onabgeschlossene ()** -Methode wird beim Beenden des Streamings aufgerufen. Beispielsweise können Sie es verwenden, um das Streaming erneut zu initiieren, sodass es unbegrenzt fortgesetzt wird.
+In diesem Beispielcode wird das [Observer-Entwurfsmuster](/dotnet/standard/events/observer-design-pattern) zum Implementieren eines Beobachters verwendet, dessen **OnNext ()** -Methode aufgerufen wird, wenn jedes neue metrikbeispiel erreicht wird. Die zugehörige **onabgeschlossene ()** -Methode wird beim Beenden des Streamings aufgerufen. Beispielsweise können Sie es verwenden, um das Streaming erneut zu initiieren, sodass es unbegrenzt fortgesetzt wird.
 
 ```
 class MetricsObserver<T> : IObserver<T>
@@ -211,7 +209,7 @@ Jede Stichprobe von Metriken ist ein "Bericht", der viele "Datensätze" enthält
 
 Jede Metrik hat pro dieser Tabelle nur drei Eigenschaften.
 
-| **Eigenschaft** | **Beispiel**       |
+| **Property** | **Beispiel**       |
 | -------------|-------------------|
 | Name         | Iolatencyaverage  |
 | Wert        | 0,00021           |
@@ -280,6 +278,6 @@ Im folgenden finden Sie die verfügbaren Metriken für jeden Bereich in Windows 
 | Iodurchlauf puttotal   | 1         |
 | Iothrough putwrite   | 1         |
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Der Integritätsdienst in Windows Server 2016](health-service-overview.md)

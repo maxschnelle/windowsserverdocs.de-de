@@ -6,20 +6,18 @@ ms.author: billmath
 manager: mtillman
 ms.date: 10/18/2018
 ms.topic: article
-ms.prod: windows-server
-ms.technology: identity-adfs
-ms.openlocfilehash: 8c478e31c3a86203f6c5f249185659caf9881723
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 1090c5c79ad0f4b4cf2fa27bf735604ad334b90e
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86963472"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87956377"
 ---
 # <a name="walkthrough-workplace-join-with-an-ios-device"></a>Exemplarische Vorgehensweise: Arbeitsplatzbeitritt mit einem iOS-Gerät
 
 
-> [!IMPORTANT] 
-> Diese Methode ist nur für vollständig lokale Kunden relevant. Hybrid-oder cloudkunden dürfen diese Methode nicht verwenden, um Ihre IOS-Geräte zu registrieren. Diese Methode ist nicht kompatibel, wenn die lokalen Kunden eine Umstellung auf die Cloud durchführen. Die Registrierung des Geräts muss aufgehoben werden, und die Registrierung muss bei der Cloud erfolgen. 
+> [!IMPORTANT]
+> Diese Methode ist nur für vollständig lokale Kunden relevant. Hybrid-oder cloudkunden dürfen diese Methode nicht verwenden, um Ihre IOS-Geräte zu registrieren. Diese Methode ist nicht kompatibel, wenn die lokalen Kunden eine Umstellung auf die Cloud durchführen. Die Registrierung des Geräts muss aufgehoben werden, und die Registrierung muss bei der Cloud erfolgen.
 
 In diesem Thema wird der Arbeitsplatzbeitritt mit einem iOS-Gerät dargestellt. Sie müssen die Schritte im Abschnitt [Einrichten der Lab-Umgebung für AD FS in Windows Server 2012 R2](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md) ausführen, bevor Sie diese exemplarische Vorgehensweise ausprobieren können. Sie können das Gerät verwenden, um auf dieselbe Unternehmensweb Anwendung zuzugreifen, auf die Sie unter Exemplarische Vorgehensweise [: Workplace Join mit einem Windows-Gerät](Walkthrough--Workplace-Join-with-a-Windows-Device.md)zugegriffen haben.
 
@@ -28,7 +26,7 @@ In diesem Thema wird der Arbeitsplatzbeitritt mit einem iOS-Gerät dargestellt. 
 
 > [!IMPORTANT]
 > Wenn lokales DRS konfiguriert ist, muss das iOS-Gerät dem SSL-Zertifikat (Secure Socket Layer) vertrauen, das für die Konfiguration von Active Directory-Verbunddienste (AD FS) in [Step 2: Configure the federation server (ADFS1) with Device Registration Service](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md#BKMK_4)für den Arbeitsplatzbeitritt konfiguriert wurde.
-> 
+>
 > -   Wenn das AD FS-SSL-Zertifikat von einer Testzertifizierungsstelle ausgegeben wurde, müssen Sie das Zertifizierungsstellenzertifikat auf Ihrem iOS-Gerät installieren.
 > -   Wenn Ihr Zertifizierungsstellenzertifikat auf einer Website veröffentlicht ist, können Sie von Ihrem iOS-Gerät zu der Website navigieren und das Zertifikat installieren.
 

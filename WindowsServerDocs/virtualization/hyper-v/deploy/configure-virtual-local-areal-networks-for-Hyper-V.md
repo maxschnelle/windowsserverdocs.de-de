@@ -7,12 +7,12 @@ ms.assetid: 8510a709-001c-4eee-b6d6-c451e8a8a836
 author: kbdazure
 ms.author: kathydav
 ms.date: 10/11/2016
-ms.openlocfilehash: dea2da2d0a10839fd9fe69dbb7b3974290b85975
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: e44a60becc84e3b376797bd64ffe433ce44b8c55
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87963616"
+ms.locfileid: "87990352"
 ---
 # <a name="configure-virtual-local-area-networks-for-hyper-v"></a>Konfigurieren von virtuellen lokalen Netzwerken für Hyper-V
 Virtuelle lokale Netzwerke \( VLANs \) bieten eine Möglichkeit, den Netzwerk Datenverkehr zu isolieren. VLANs werden in Switches und Routern konfiguriert, die 802.1 q unterstützen. Wenn Sie mehrere VLANs konfigurieren und die Kommunikation zwischen Ihnen stattfinden soll, müssen Sie die Netzwerkgeräte so konfigurieren, dass Sie dies zulassen.
@@ -50,8 +50,8 @@ Wenn die virtuelle Maschine weitere VLANs verwenden muss, führen Sie einen der 
 
 - Verbinden Sie weitere virtuelle Netzwerkadapter mit den entsprechenden virtuellen Switches, und weisen Sie die VLAN-IDs zu. Stellen Sie sicher, dass die IP-Adressen ordnungsgemäß konfiguriert sind und dass der Datenverkehr, den Sie über das VLAN weiterleiten möchten, auch die richtige IP-Adresse verwendet
 
-- Konfigurieren Sie den virtuellen Netzwerkadapter im trunk Modus mithilfe des [Set \- vmnetworkadaptervlan](https://technet.microsoft.com/library/hh848475.aspx) -Cmdlets.
+- Konfigurieren Sie den virtuellen Netzwerkadapter im trunk Modus mithilfe des [Set \- vmnetworkadaptervlan](/powershell/module/hyper-v/set-vmnetworkadaptervlan?view=win10-ps) -Cmdlets.
 
 ## <a name="see-also"></a>Weitere Informationen
 
-[Virtueller Hyper- \- V-Switch](https://technet.microsoft.com/windows-server-docs/networking/technologies/hyper-v-virtual-switch/hyper-v-virtual-switch)
+[Virtueller Hyper- \- V-Switch](../../hyper-v-virtual-switch/hyper-v-virtual-switch.md)

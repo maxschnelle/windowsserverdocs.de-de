@@ -7,12 +7,12 @@ ms.assetid: 378213f5-2d59-4c9b-9607-1fc83f8072f1
 ms.author: anpaul
 author: AnirbanPaul
 ms.date: 08/08/2018
-ms.openlocfilehash: 24b716283eeab929f09db3c4e9cf3ec577211d32
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 41bf68a18a05f97de4cff14651bf98bfa28bc33c
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87955857"
+ms.locfileid: "87990134"
 ---
 # <a name="configure-encryption-for-a-virtual-subnet"></a>Konfigurieren der Verschlüsselung für ein virtuelles Subnetz
 
@@ -31,7 +31,7 @@ Wenn Sie die Verschlüsselung in einem Subnetz aktivieren, wird der gesamte Netz
 >Bei der Kommunikation mit einem anderen virtuellen Computer im gleichen Subnetz, unabhängig davon, ob er zu einem späteren Zeitpunkt verbunden oder verbunden ist, wird der Datenverkehr automatisch verschlüsselt.
 
 >[!TIP]
->Wenn Sie Anwendungen darauf beschränken müssen, nur im verschlüsselten Subnetz zu kommunizieren, können Sie Access Control Listen (ACLs) nur verwenden, um die Kommunikation innerhalb des aktuellen Subnetzes zuzulassen. Weitere Informationen finden [Sie unter Verwenden von Access Control Listen (ACLs) zum Verwalten des Netzwerk Datenverkehrs Flusses des Daten](https://docs.microsoft.com/windows-server/networking/sdn/manage/use-acls-for-traffic-flow)Centers.
+>Wenn Sie Anwendungen darauf beschränken müssen, nur im verschlüsselten Subnetz zu kommunizieren, können Sie Access Control Listen (ACLs) nur verwenden, um die Kommunikation innerhalb des aktuellen Subnetzes zuzulassen. Weitere Informationen finden [Sie unter Verwenden von Access Control Listen (ACLs) zum Verwalten des Netzwerk Datenverkehrs Flusses des Daten](../manage/use-acls-for-traffic-flow.md)Centers.
 
 
 ## <a name="step-1-create-the-encryption-certificate"></a>Schritt 1: Erstellen des Verschlüsselungs Zertifikats

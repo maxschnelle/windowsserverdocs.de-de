@@ -1,18 +1,16 @@
 ---
 title: What's New in Kerberos Authentication
-ms.prod: windows-server
 ms.topic: article
 ms.assetid: 7bd17803-6e42-4a3b-803f-e47c74725813
 manager: alanth
 author: justinha
-ms.technology: security-authentication
 ms.date: 11/09/2016
-ms.openlocfilehash: 35eff73e97c8fdbb6df2c1412779b033a9ca3fa5
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 514b19689c73c1c5c61184a1ff8c13636b57864e
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80858813"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87948663"
 ---
 # <a name="whats-new-in-kerberos-authentication"></a>What's New in Kerberos Authentication
 
@@ -20,15 +18,19 @@ ms.locfileid: "80858813"
 
 ## <a name="kdc-support-for-public-key-trust-based-client-authentication"></a>KDC-Unterstützung für vertrauenswürdige Authentifizierung mit öffentlichem Schlüssel
 
-Ab Windows Server 2016 unterstützen KDCs eine Zuordnung von öffentlichen Schlüsseln. Wenn der öffentliche Schlüssel für ein Konto bereitgestellt wird, unterstützt der KDC Kerberos PKINIT explizit mithilfe des Schlüssels. Da keine Zertifikat Validierung vorhanden ist, werden selbst signierte Zertifikate unterstützt, und die Authentifizierungsmechanismen werden nicht unterstützt.
+Ab Windows Server 2016 unterstützen KDCs eine Zuordnung von öffentlichen Schlüsseln.
+Wenn der öffentliche Schlüssel für ein Konto bereitgestellt wird, unterstützt der KDC Kerberos PKINIT explizit mithilfe des Schlüssels.
+Da keine Zertifikat Validierung vorhanden ist, werden selbst signierte Zertifikate unterstützt, und die Authentifizierungsmechanismen werden nicht unterstützt.
 
 Die Schlüssel Vertrauensstellung wird bevorzugt, wenn Sie für ein Konto unabhängig von der Einstellung "Einstellung für" "Einstellung" "von" Einstellung "
 
 ## <a name="kerberos-client-and-kdc-support-for-rfc-8070-pkinit-freshness-extension"></a>Kerberos-Client und KDC-Unterstützung für RFC 8070 PKINIT-Erweiterung
 
-Ab Windows 10, Version 1607 und Windows Server 2016, versuchen die Kerberos-Clients, die [RFC 8070 PKINIT-Erweiterung](https://datatracker.ietf.org/doc/draft-ietf-kitten-pkinit-freshness/) für Anmeldungen mit öffentlichem Schlüssel zu registrieren. 
+Ab Windows 10, Version 1607 und Windows Server 2016, versuchen die Kerberos-Clients, die [RFC 8070 PKINIT-Erweiterung](https://datatracker.ietf.org/doc/draft-ietf-kitten-pkinit-freshness/) für Anmeldungen mit öffentlichem Schlüssel zu registrieren.
 
-Ab Windows Server 2016 können KDCs die Erweiterung PKINIT-Aktualität unterstützen. Standardmäßig bieten KDCs keine PKINIT-Aktualität-Erweiterung. Um es zu aktivieren, verwenden Sie die neue KDC-Unterstützung für die administrative Vorlage für die administrative Vorlage für die PKINIT-Erweiterung für alle DCS in der Domäne. Bei der Konfiguration werden die folgenden Optionen unterstützt, wenn die Domäne Windows Server 2016-Domänen Funktionsebene (DFL) ist:
+Ab Windows Server 2016 können KDCs die Erweiterung PKINIT-Aktualität unterstützen.
+Standardmäßig bieten KDCs keine PKINIT-Aktualität-Erweiterung. Um es zu aktivieren, verwenden Sie die neue KDC-Unterstützung für die administrative Vorlage für die administrative Vorlage für die PKINIT-Erweiterung für alle DCS in der Domäne.
+Bei der Konfiguration werden die folgenden Optionen unterstützt, wenn die Domäne Windows Server 2016-Domänen Funktionsebene (DFL) ist:
 
 - **Deaktiviert**: der KDC bietet die PKINIT-Erweiterung nie an und akzeptiert gültige Authentifizierungsanforderungen, ohne auf Aktualität zu prüfen. Benutzer erhalten nie die neue Identität der öffentlichen Schlüssel Identität.
 - **Unterstützt**: PKINIT-Erweiterungen werden auf Anforderung unterstützt. Kerberos-Clients, die sich erfolgreich bei der PKINIT-Erweiterung authentifizieren, erhalten die aktuelle SID der öffentlichen Schlüssel Identität.
@@ -40,15 +42,18 @@ Ab Windows 10, Version 1507 und Windows Server 2016, kann das Gerät mithilfe de
 
 ## <a name="kerberos-clients-allow-ipv4-and-ipv6-address-hostnames-in-service-principal-names-spns"></a>Kerberos-Clients lassen IPv4-und IPv6-Adress Hostnamen in Dienst Prinzipal Namen (SPNs) zu.
 
-Ab Windows 10, Version 1507 und Windows Server 2016, können Kerberos-Clients für die Unterstützung von IPv4-und IPv6-Hostnamen in SPNs konfiguriert werden. 
+Ab Windows 10, Version 1507 und Windows Server 2016, können Kerberos-Clients für die Unterstützung von IPv4-und IPv6-Hostnamen in SPNs konfiguriert werden.
 
 Registrierungspfad:
 
 Hklm\software\microsoft\windows\currentversion\policies\system\kerberos\parameters
 
-Erstellen Sie einen tryipspn-Eintrag, um die Unterstützung für IP-Adress Hostnamen in SPNs zu konfigurieren. Dieser Eintrag ist nicht standardmäßig in der Registrierung vorhanden. Nachdem Sie den Eintrag erstellt haben, ändern Sie den DWORD-Wert in 1. Wenn diese Eigenschaft nicht konfiguriert ist, wird nicht versucht, die Hostnamen der IP-Adressen
+Erstellen Sie einen tryipspn-Eintrag, um die Unterstützung für IP-Adress Hostnamen in SPNs zu konfigurieren.
+Dieser Eintrag ist nicht standardmäßig in der Registrierung vorhanden.
+Nachdem Sie den Eintrag erstellt haben, ändern Sie den DWORD-Wert in 1.
+Wenn diese Eigenschaft nicht konfiguriert ist, wird nicht versucht, die Hostnamen der IP-Adressen
 
-Wenn der SPN in Active Directory registriert ist, ist die Authentifizierung mit Kerberos erfolgreich. 
+Wenn der SPN in Active Directory registriert ist, ist die Authentifizierung mit Kerberos erfolgreich.
 
 Weitere Informationen finden Sie im Dokument [Konfigurieren von Kerberos für IP-Adressen](configuring-kerberos-over-ip.md).
 
@@ -66,4 +71,4 @@ Ab Windows Server 2016 haben Domänen Controller Unterstützung für die Zuordnu
 
 ## <a name="see-also"></a>Weitere Informationen
 
-- [Kerberos-Authentifizierung (Übersicht)](kerberos-authentication-overview.md)
+- [Kerberos Authentication Overview](kerberos-authentication-overview.md)
