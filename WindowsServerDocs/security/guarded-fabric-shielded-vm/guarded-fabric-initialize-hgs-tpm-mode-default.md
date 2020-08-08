@@ -1,18 +1,16 @@
 ---
 title: Initialisieren des HGS-Clusters mit dem TPM-Modus in einer neuen dedizierten Gesamtstruktur (Standard)
-ms.prod: windows-server
 ms.topic: article
 manager: dongill
 author: rpsqrd
 ms.author: ryanpu
-ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: ba7543dfa92942c6854edb6b0d7f0f6ee2547766
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 47e0780eb846e690c766dd241060d2687587c7ff
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80856643"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87961644"
 ---
 # <a name="initialize-the-hgs-cluster-using-tpm-mode-in-a-new-dedicated-forest-default"></a>Initialisieren des HGS-Clusters mit dem TPM-Modus in einer neuen dedizierten Gesamtstruktur (Standard)
 
@@ -33,7 +31,7 @@ ms.locfileid: "80856643"
         Initialize-HgsServer -HgsServiceName 'MyHgsDNN' -SigningCertificatePath '.\signCert.pfx' -SigningCertificatePassword $signingCertPass -EncryptionCertificatePath '.\encCert.pfx' -EncryptionCertificatePassword $encryptionCertPass -TrustTpm
         ```
 
-    -   Wenn Sie nicht exportierbare Zertifikate verwenden, die im lokalen Zertifikat Speicher installiert sind, führen Sie den folgenden Befehl aus. Wenn Sie die Fingerabdrücke ihrer Zertifikate nicht kennen, können Sie die verfügbaren Zertifikate auflisten, indem Sie `Get-ChildItem Cert:\LocalMachine\My`ausführen.
+    -   Wenn Sie nicht exportierbare Zertifikate verwenden, die im lokalen Zertifikat Speicher installiert sind, führen Sie den folgenden Befehl aus. Wenn Sie die Fingerabdrücke ihrer Zertifikate nicht kennen, können Sie die verfügbaren Zertifikate auflisten, indem Sie Ausführen `Get-ChildItem Cert:\LocalMachine\My` .
 
         ```powershell
         Initialize-HgsServer -HgsServiceName 'MyHgsDNN' -SigningCertificateThumbprint '1A2B3C4D5E6F...' -EncryptionCertificateThumbprint '0F9E8D7C6B5A...' -TrustTpm
@@ -47,4 +45,3 @@ ms.locfileid: "80856643"
 
 > [!div class="nextstepaction"]
 > [Installieren von TPM-Stammzertifikaten](guarded-fabric-install-trusted-tpm-root-certificates.md)
-  

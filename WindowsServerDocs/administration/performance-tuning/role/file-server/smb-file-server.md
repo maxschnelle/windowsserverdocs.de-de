@@ -5,12 +5,12 @@ ms.topic: article
 author: phstee
 ms.author: nedpyle; danlo; dkruse
 ms.date: 4/14/2017
-ms.openlocfilehash: 9e20b05f911726837cf436798a3743fbb80af193
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 4a1fd4036e20e4cbb5b137832297daca99e9f5cc
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87896151"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87992171"
 ---
 # <a name="performance-tuning-for-smb-file-servers"></a>Leistungsoptimierung für SMB-Dateiserver
 
@@ -52,7 +52,7 @@ Weitere Informationen zu SMB Multichannel finden Sie unter Bereitstellen von [SM
 
 SMB-horizontales Skalieren ermöglicht SMB 3,0 in einer Cluster Konfiguration das Anzeigen einer Freigabe in allen Knoten eines Clusters. Diese aktiv/aktiv-Konfiguration ermöglicht das weitere Skalieren von Dateiserver Clustern ohne eine komplexe Konfiguration mit mehreren Volumes, Freigaben und Cluster Ressourcen. Die maximale Freigabe Bandbreite entspricht der Gesamtbandbreite aller Dateiserver-Cluster Knoten. Die Gesamtbandbreite wird nicht mehr durch die Bandbreite eines einzelnen Cluster Knotens beschränkt, sondern hängt von der Funktion des Sicherungs Speichersystems ab. Sie können die Gesamtbandbreite erhöhen, indem Sie Knoten hinzufügen.
 
-Weitere Informationen zum horizontalen Herunterskalieren von SMB finden Sie unter [Dateiserver mit horizontaler Skalierung für Anwendungsdaten (Übersicht](https://technet.microsoft.com/library/hh831349.aspx) ) und im Blogbeitrag zum horizontalen hochskalieren [oder nicht zum](https://blogs.technet.com/b/filecab/archive/2013/12/05/to-scale-out-or-not-to-scale-out-that-is-the-question.aspx)horizontalen hochskalieren.
+Weitere Informationen zum horizontalen Herunterskalieren von SMB finden Sie unter [Dateiserver mit horizontaler Skalierung für Anwendungsdaten (Übersicht](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831349(v=ws.11)) ) und im Blogbeitrag zum horizontalen hochskalieren [oder nicht zum](https://blogs.technet.com/b/filecab/archive/2013/12/05/to-scale-out-or-not-to-scale-out-that-is-the-question.aspx)horizontalen hochskalieren.
 
 ### <a name="performance-counters-for-smb-30"></a>Leistungsindikatoren für SMB 3,0
 
@@ -62,7 +62,7 @@ Die folgenden SMB-Leistungsindikatoren wurden in Windows Server 2012 eingeführt
 
     Diese Leistungsindikatoren zeigen Informationen zu Dateifreigaben auf dem Server an, auf die von einem Client zugegriffen wird, der SMB 2,0 oder eine höhere Version verwendet.
 
-    Wenn Sie mit den regulären Datenträger Indikatoren in Windows vertraut sind, wird Ihnen möglicherweise eine gewisse Ähnlichkeit auffallen. Das ist nicht versehentlich. Die Leistungsindikatoren des SMB-Clients sind so konzipiert, dass Sie exakt mit den Datenträger Indikatoren übereinstimmen. Auf diese Weise können Sie problemlos einen Leitfaden zur Leistungsoptimierung für Anwendungs Datenträger wieder verwenden. Weitere Informationen zur Indikator Zuordnung finden Sie [im Blog zu pro Share-Client-Leistungsindikatoren](https://blogs.technet.com/b/josebda/archive/2012/11/19/windows-server-2012-file-server-tip-new-per-share-smb-client-performance-counters-provide-great-insight.aspx).
+    Wenn Sie mit den regulären Datenträger Indikatoren in Windows vertraut sind, wird Ihnen möglicherweise eine gewisse Ähnlichkeit auffallen. Das ist nicht versehentlich. Die Leistungsindikatoren des SMB-Clients sind so konzipiert, dass Sie exakt mit den Datenträger Indikatoren übereinstimmen. Auf diese Weise können Sie problemlos einen Leitfaden zur Leistungsoptimierung für Anwendungs Datenträger wieder verwenden. Weitere Informationen zur Indikator Zuordnung finden Sie [im Blog zu pro Share-Client-Leistungsindikatoren](/archive/blogs/josebda/windows-server-2012-file-server-tip-new-per-share-smb-client-performance-counters-provide-great-insight).
 
 -   **SMB-Server Freigaben**
 
@@ -146,7 +146,7 @@ Die folgenden \_ Registrierungs Einstellungen für reg DWORD können sich auf di
 
 Die folgenden Einstellungen können einen Computer in vielen Fällen für die Dateiserver Leistung optimieren. Die Einstellungen sind nicht für alle Computer optimal bzw. geeignet. Sie sollten die Auswirkungen der einzelnen Einstellungen vor dem Anwenden überprüfen.
 
-| Parameter                       | Wert | Standard |
+| Parameter                       | Wert | Standardwert |
 |---------------------------------|-------|---------|
 | Additionalcriticalworkerthreads | 64    | 0       |
 | Maxthreadsperqueue              | 64    | 20      |
@@ -154,4 +154,4 @@ Die folgenden Einstellungen können einen Computer in vielen Fällen für die Da
 
 ### <a name="smb-client-performance-monitor-counters"></a>Leistungsindikatoren für den SMB-Client
 
-Weitere Informationen zu SMB-Client-Leistungsindikatoren finden Sie unter [Windows Server 2012-Datei Server Tipp: neue pro-Freigabe-SMB-Client Leistungsindikatoren bieten einen guten Einblick](https://blogs.technet.com/b/josebda/archive/2012/11/19/windows-server-2012-file-server-tip-new-per-share-smb-client-performance-counters-provide-great-insight.aspx).
+Weitere Informationen zu SMB-Client-Leistungsindikatoren finden Sie unter [Windows Server 2012-Datei Server Tipp: neue pro-Freigabe-SMB-Client Leistungsindikatoren bieten einen guten Einblick](/archive/blogs/josebda/windows-server-2012-file-server-tip-new-per-share-smb-client-performance-counters-provide-great-insight).

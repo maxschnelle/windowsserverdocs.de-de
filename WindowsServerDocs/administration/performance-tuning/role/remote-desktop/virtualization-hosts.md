@@ -5,12 +5,12 @@ ms.topic: article
 ms.author: hammadbu; vladmis; denisgun
 author: phstee
 ms.date: 10/22/2019
-ms.openlocfilehash: 071321249db62c927ee5677a48c52a7f2cd9c20d
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 235dd0209030854f1fc883f52ab41550ab693dc5
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87896032"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87992081"
 ---
 # <a name="performance-tuning-remote-desktop-virtualization-hosts"></a>Leistungsoptimierung Remotedesktop Virtualisierungshosts
 
@@ -104,7 +104,7 @@ Jeder bestimmte Dienst sollte vor jeder breiten Bereitstellung angemessen ausgew
 | Freigabe der Internet Verbindung                  | Verbraucherorientierter Dienst                                                                                                                                                                                  |
 | Erweiterte Dienste von Media Center               | Verbraucherorientierter Dienst                                                                                                                                                                                  |
 > [!NOTE]
-> Diese Liste ist keine komplette Liste, da Änderungen sich auf die beabsichtigten Ziele und Szenarios auswirken. Weitere Informationen finden Sie unter [Hot Off the Backups, get it now, the Windows 8 VDI Optimization Script, courtesy of pfe!](https://blogs.technet.com/b/jeff_stokes/archive/2013/04/09/hot-off-the-presses-get-it-now-the-windows-8-vdi-optimization-script-courtesy-of-pfe.aspx).
+> Diese Liste ist keine komplette Liste, da Änderungen sich auf die beabsichtigten Ziele und Szenarios auswirken. Weitere Informationen finden Sie unter [Hot Off the Backups, get it now, the Windows 8 VDI Optimization Script, courtesy of pfe!](/archive/blogs/jeff_stokes/hot-off-the-presses-get-it-now-the-windows-8-vdi-optimization-script-courtesy-of-pfe).
 
 
 > [!NOTE]

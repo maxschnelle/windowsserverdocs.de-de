@@ -6,14 +6,12 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server
-ms.technology: identity-adfs
-ms.openlocfilehash: 4f36b1808ff58b29cbd7be852617689bff8bb146
-ms.sourcegitcommit: de8fea497201d8f3d995e733dfec1d13a16cb8fa
+ms.openlocfilehash: a6d1a23e7a038c11fac8840b4034c519f46be030
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87863783"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87943007"
 ---
 # <a name="ad-fs-requirements-for-windows-server"></a>AD FS Anforderungen für Windows Server
 
@@ -341,8 +339,8 @@ In der folgenden Tabelle finden Sie zusätzliche Informationen zur Kryptografieu
 |AES256KeyWrap[http://www.w3.org/2001/04/xmlenc#kw-aes256](http://www.w3.org/2001/04/xmlenc#kw-aes256)|256|Unterstützter Algorithmus zum Verschlüsseln des symmetrischen Schlüssels, der das Sicherheits Token verschlüsselt.|
 |RsaV15KeyWrap -[http://www.w3.org/2001/04/xmlenc#rsa-1_5](http://www.w3.org/2001/04/xmlenc#rsa-1_5)|1024|Unterstützter Algorithmus zum Verschlüsseln des symmetrischen Schlüssels, der das Sicherheits Token verschlüsselt.|
 |RsaOaepKeyWrap[http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p](http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p)|1024|Standard. Unterstützter Algorithmus zum Verschlüsseln des symmetrischen Schlüssels, der das Sicherheits Token verschlüsselt.|
-|SHA1[http://www.w3.org/PICS/DSig/SHA1_1_0.html](http://www.w3.org/PICS/DSig/SHA1_1_0.html)|–|Wird von AD FS Server in artefaktquellengenerierung verwendet: in diesem Szenario verwendet der STS SHA1 (gemäß der Empfehlung im SAML 2,0-Standard) zum Erstellen eines kurzen 160-Bit-Werts für das artefaktelement SourceID.<p>Wird auch vom ADFS-Web-Agent (Legacy Komponente aus WS2003 Zeitrahmen) verwendet, um Änderungen in einem "zuletzt aktualisierten" Uhrzeitwert zu identifizieren, sodass er weiß, wann Informationen aus dem STS aktualisiert werden müssen.|
-|SHA1withRSA<p>[http://www.w3.org/PICS/DSig/RSA-SHA1_1_0.html](http://www.w3.org/PICS/DSig/RSA-SHA1_1_0.html)|–|Wird in Fällen verwendet, in denen AD FS Server die Signatur von SAML authenticationrequest überprüft, die artefaktauflösungs Anforderung oder-Antwort Signieren und Tokensignaturzertifikat erstellen.<p>In diesen Fällen ist SHA256 der Standardwert, und SHA1 wird nur verwendet, wenn der Partner (vertrauende Seite) SHA256 nicht unterstützt und SHA1 verwenden muss.|
+|SHA1[http://www.w3.org/PICS/DSig/SHA1_1_0.html](http://www.w3.org/PICS/DSig/SHA1_1_0.html)|Nicht zutreffend|Wird von AD FS Server in artefaktquellengenerierung verwendet: in diesem Szenario verwendet der STS SHA1 (gemäß der Empfehlung im SAML 2,0-Standard) zum Erstellen eines kurzen 160-Bit-Werts für das artefaktelement SourceID.<p>Wird auch vom ADFS-Web-Agent (Legacy Komponente aus WS2003 Zeitrahmen) verwendet, um Änderungen in einem "zuletzt aktualisierten" Uhrzeitwert zu identifizieren, sodass er weiß, wann Informationen aus dem STS aktualisiert werden müssen.|
+|SHA1withRSA<p>[http://www.w3.org/PICS/DSig/RSA-SHA1_1_0.html](http://www.w3.org/PICS/DSig/RSA-SHA1_1_0.html)|Nicht zutreffend|Wird in Fällen verwendet, in denen AD FS Server die Signatur von SAML authenticationrequest überprüft, die artefaktauflösungs Anforderung oder-Antwort Signieren und Tokensignaturzertifikat erstellen.<p>In diesen Fällen ist SHA256 der Standardwert, und SHA1 wird nur verwendet, wenn der Partner (vertrauende Seite) SHA256 nicht unterstützt und SHA1 verwenden muss.|
 
 ## <a name="permissions-requirements"></a><a name="BKMK_13"></a>Berechtigungsanforderungen
 Der Administrator, der die Installation ausführt, und die Erstkonfiguration AD FS müssen über Domänen Administrator Berechtigungen in der lokalen Domäne verfügen (anders ausgedrückt: die Domäne, der der Verbund Server beigetreten ist).

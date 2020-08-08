@@ -2,18 +2,16 @@
 title: Management von Sollvorgaben
 description: In diesem Artikel wird das Erstellen und Verwalten von Kontingenten beschrieben.
 ms.date: 7/7/2017
-ms.prod: windows-server
-ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 1f2d584e7d3a0239e38dcadcf6415683d91a4bec
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: b1d2d37d73a3d7837fd5390b9f5860f7cb41ee85
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85474198"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87961374"
 ---
 # <a name="quota-management"></a>Management von Sollvorgaben
 
@@ -25,7 +23,7 @@ Im Knoten **Kontingent Verwaltung** des-Dateiservers Ressourcen-Manager Microsof
 -   Generieren von automatischen Apply-Kontingenten, die für alle vorhandenen Unterordner in einem Volume oder Ordner und für alle Unterordner gelten, die in der Zukunft erstellt werden.
 -   Definieren Sie Kontingent Vorlagen, die auf einfache Weise auf neue Volumes oder Ordner angewendet und dann in einer Organisation verwendet werden können.
 
-Beispielsweise können Sie folgende Aktionen ausführen:
+Sie haben unter anderem folgende Möglichkeiten:
 
 -   Legen Sie eine Beschränkung von 200 Megabyte (MB) für die persönlichen Server Ordner der Benutzer fest, und senden Sie eine e-Mail-Benachrichtigung an Sie und den Benutzer, wenn 180 MB Speicher überschritten wurden.
 -   Legen Sie für den freigegebenen Ordner einer Gruppe ein flexibles Kontingent von 500 MB fest. Wenn diese Speichergrenze erreicht ist, werden alle Benutzer in der Gruppe per e-Mail benachrichtigt, dass das Speicher Kontingent vorübergehend auf 520 MB erweitert wurde, sodass Sie unnötige Dateien löschen und die vordefinierte 500 MB-Kontingent Richtlinie einhalten können.
@@ -42,7 +40,7 @@ Dieser Abschnitt schließt folgende Themen ein:
 > [!Note]
 > Zum Festlegen von e-Mail-Benachrichtigungen und Bericht Erstellungs Funktionen müssen Sie zunächst die allgemeinen Optionen für den Datei Server Ressourcen-Manager konfigurieren.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Festlegen der Optionen des Ressourcen-Managers für Dateiserver](setting-file-server-resource-manager-options.md)
 

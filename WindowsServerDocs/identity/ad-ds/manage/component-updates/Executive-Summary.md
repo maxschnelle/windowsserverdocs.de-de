@@ -6,14 +6,12 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/08/2018
 ms.topic: article
-ms.prod: windows-server
-ms.technology: identity-adds
-ms.openlocfilehash: 3755f1cdaa5dfb49083c9e3c3e8b6a8c4edb40d2
-ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
+ms.openlocfilehash: 23959e4f373afbd745e5f1c8c4b760d766ab53e3
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87518848"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87943265"
 ---
 # <a name="executive-summary"></a>Kurzfassung
 
@@ -182,5 +180,5 @@ Die Vorgehensweise wird in der ungefähren Reihenfolge der Priorität aufgeführ
 | Vereinfachen Sie die Sicherheit für Endbenutzer. | Strategisch | Vorbeugend |
 | Verwenden Sie Host basierte Firewalls zum Steuern und Sichern der Kommunikation. | Taktisch | Vorbeugend |
 | Patchen von Geräten. | Taktisch | Vorbeugend |
-| Implementieren Sie die geschäftsorientierte Lebenszyklus Verwaltung für IT-Ressourcen. | Strategisch | – |
+| Implementieren Sie die geschäftsorientierte Lebenszyklus Verwaltung für IT-Ressourcen. | Strategisch | Nicht zutreffend |
 | Erstellen oder aktualisieren Sie Wiederherstellungs Pläne für Vorfälle. | Strategisch | Nicht zutreffend |

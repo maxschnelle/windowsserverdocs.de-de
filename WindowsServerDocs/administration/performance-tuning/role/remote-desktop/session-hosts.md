@@ -5,12 +5,12 @@ ms.topic: article
 ms.author: hammadbu; vladmis; denisgun
 author: phstee
 ms.date: 10/22/2019
-ms.openlocfilehash: 9de802638a6f8225d4c8b942ac3cbea303f09a89
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 9a82f0db1f586e1f762292c61eabdd7f6556c8bc
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87896058"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87992103"
 ---
 # <a name="performance-tuning-remote-desktop-session-hosts"></a>Leistungsoptimierung Remotedesktop Sitzungs Hosts
 
@@ -91,13 +91,13 @@ Beachten Sie beim Konfigurieren von apps, die auf einem RD-Sitzungshost Server v
 
 -   Deaktivieren Sie unnötige Prozesse, die registriert werden, um mit der Benutzeranmeldung oder dem Start einer Sitzung zu beginnen.
 
-    Diese Prozesse können bei der Erstellung einer neuen Benutzersitzung, bei der es sich in der Regel um einen CPU-intensiven Prozess handelt, maßgeblich zu den Kosten der CPU-Auslastung beitragen und können in Morgen Szenarios sehr teuer sein. Verwenden Sie MsConfig.exe oder MsInfo32.exe, um eine Liste der Prozesse abzurufen, die bei der Benutzeranmeldung gestartet werden. Um ausführlichere Informationen zu erhalten, können Sie [Autoruns für Windows](https://technet.microsoft.com/sysinternals/bb963902.aspx)verwenden.
+    Diese Prozesse können bei der Erstellung einer neuen Benutzersitzung, bei der es sich in der Regel um einen CPU-intensiven Prozess handelt, maßgeblich zu den Kosten der CPU-Auslastung beitragen und können in Morgen Szenarios sehr teuer sein. Verwenden Sie MsConfig.exe oder MsInfo32.exe, um eine Liste der Prozesse abzurufen, die bei der Benutzeranmeldung gestartet werden. Um ausführlichere Informationen zu erhalten, können Sie [Autoruns für Windows](/sysinternals/downloads/autoruns)verwenden.
 
 Für den Arbeitsspeicher Verbrauch sollten Sie Folgendes berücksichtigen:
 
 -   Überprüfen Sie, ob die von einer APP geladenen DLLs nicht verschoben werden.
 
-    -   Verschobene DLLs können überprüft werden, indem Sie die Option dll-Ansicht verarbeiten auswählen, wie in der folgenden Abbildung gezeigt, mithilfe des [Prozess-Explorers](https://technet.microsoft.com/sysinternals/bb896653.aspx).
+    -   Verschobene DLLs können überprüft werden, indem Sie die Option dll-Ansicht verarbeiten auswählen, wie in der folgenden Abbildung gezeigt, mithilfe des [Prozess-Explorers](/sysinternals/downloads/process-explorer).
 
     -   Hier sehen Sie, dass y.dll verschoben wurde, weil x.dll seine Standardbasis Adresse bereits besetzt hat und ASLR nicht aktiviert war.
 

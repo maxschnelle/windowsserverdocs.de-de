@@ -1,27 +1,25 @@
 ---
 title: Installieren der Hyper-V-Rolle auf Windows Server
 description: Enthält Anweisungen zum Installieren von Hyper-V mithilfe von Server-Manager oder Windows PowerShell.
-ms.prod: windows-server
 manager: dongill
-ms.technology: compute-hyper-v
 ms.topic: get-started-article
 ms.assetid: 8e871317-09d2-4314-a6ec-ced12b7aee89
 author: kbdazure
 ms.author: kathydav
 ms.date: 12/02/2016
-ms.openlocfilehash: 5bd77284fd73d75075cec307e989274c86552209
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 32632e7af3db0c3b390606bc784b929e76b2892f
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85475647"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87997602"
 ---
 # <a name="install-the-hyper-v-role-on-windows-server"></a>Installieren der Hyper-V-Rolle auf Windows Server
 
 >Gilt für: Windows Server 2016, Windows Server 2019
 
 Um virtuelle Computer zu erstellen und auszuführen, installieren Sie die Hyper-V-Rolle unter Windows Server, indem Sie Server-Manager oder das Cmdlet **install-Windows Feature** in Windows PowerShell verwenden.
-Informationen zu Windows 10 finden Sie unter [Installieren von Hyper-V unter Windows 10](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v).
+Informationen zu Windows 10 finden Sie unter [Installieren von Hyper-V unter Windows 10](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v).
 
 Weitere Informationen zu Hyper-v finden Sie in der [Übersicht über die Hyper-v-Technologie](../Hyper-V-Technology-Overview.md). Zum Ausprobieren von Windows Server 2019 können Sie eine Evaluierungsversion herunterladen und installieren. Weitere Informationen finden Sie im [Evaluation Center](https://www.microsoft.com/evalcenter/evaluate-windows-server-2019).
 
@@ -76,6 +74,6 @@ Wenn Sie nur die Verwaltungs Tools (z. b. Hyper-v-Manager) installieren möchten
 > [!NOTE]
 > Wenn Sie diese Rolle auf einem Server installieren, auf dem die Server Core-Installationsoption von Windows Server 2016 ausgeführt wird, und den-Parameter verwenden `-IncludeManagementTools` , wird nur das Hyper-V-Modul für Windows PowerShell installiert. Sie können das GUI-Verwaltungs Tool Hyper-v-Manager auf einem anderen Computer verwenden, um einen Hyper-v-Host, der auf einer Server Core-Installation ausgeführt wird, Remote zu verwalten. Anweisungen zum Herstellen einer Remote Verbindung finden Sie unter [Remote Verwaltung von Hyper-v-Hosts mit dem Hyper-v-Manager](../Manage/Remotely-manage-Hyper-V-hosts.md).
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
-- [Install-Windows Feature](https://docs.microsoft.com/powershell/module/Microsoft.Windows.ServerManager.Migration/Install-WindowsFeature)
+- [Install-Windows Feature](/powershell/module/Microsoft.Windows.ServerManager.Migration/Install-WindowsFeature)

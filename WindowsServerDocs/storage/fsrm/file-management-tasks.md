@@ -2,18 +2,16 @@
 title: Dateiverwaltungsaufgaben
 description: In diesem Artikel wird der Prozess der Automatisierung von Datei Verwaltungsaufgaben beschrieben.
 ms.date: 7/7/2017
-ms.prod: windows-server
-ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 402af4bd7c00bedfc3d01d43071af4fcd374d428
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 4e10aeec47498d6af72e767f519b11ebb4e72932
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85473997"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87961384"
 ---
 # <a name="file-management-tasks"></a>Dateiverwaltungsaufgaben
 
@@ -41,7 +39,7 @@ Dieser Abschnitt schließt folgende Themen ein:
 > [!Note]
 > Um e-Mail-Benachrichtigungen und bestimmte Berichterstattungs Funktionen festzulegen, müssen Sie zunächst die allgemeinen Optionen für den Datei Server Ressourcen-Manager konfigurieren.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Festlegen der Optionen des Ressourcen-Managers für Dateiserver](setting-file-server-resource-manager-options.md)
 

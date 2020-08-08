@@ -5,19 +5,19 @@ ms.topic: article
 ms.author: asmahi; sandysp; jopoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: ab68975c84e1b299914e09045eddbc302ca9697f
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: ba426a2a4db853dbd91180fcceed6807726efbf8
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87896071"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87992102"
 ---
 # <a name="hyper-v-processor-performance"></a>Hyper-V-Prozessorleistung
 
 
 ## <a name="virtual-machine-integration-services"></a>Integration Services für virtuelle Computer
 
-Der virtuelle Computer Integration Services enthält aktivierte Treiber für die Hyper-V-spezifischen e/a-Geräte, wodurch der CPU-Overhead für e/a-Vorgänge im Vergleich zu emulierten Geräten erheblich reduziert wird. Sie sollten die neueste Version des virtuellen Computers Integration Services in jedem unterstützten virtuellen Computer installieren. Die Dienste verringern die CPU-Auslastung der Gäste, von den Gastbetriebssystemen auf häufig genutzte Gäste und verbessern den e/a-Durchsatz. Dies ist der erste Schritt beim Optimieren der Leistung auf einem Server, auf dem Hyper-V ausgeführt wird. Eine Liste der unterstützten Gast Betriebssysteme finden Sie unter [Hyper-V: Übersicht](https://technet.microsoft.com/library/hh831531.aspx).
+Der virtuelle Computer Integration Services enthält aktivierte Treiber für die Hyper-V-spezifischen e/a-Geräte, wodurch der CPU-Overhead für e/a-Vorgänge im Vergleich zu emulierten Geräten erheblich reduziert wird. Sie sollten die neueste Version des virtuellen Computers Integration Services in jedem unterstützten virtuellen Computer installieren. Die Dienste verringern die CPU-Auslastung der Gäste, von den Gastbetriebssystemen auf häufig genutzte Gäste und verbessern den e/a-Durchsatz. Dies ist der erste Schritt beim Optimieren der Leistung auf einem Server, auf dem Hyper-V ausgeführt wird. Eine Liste der unterstützten Gast Betriebssysteme finden Sie unter [Hyper-V: Übersicht](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831531(v=ws.11)).
 
 ## <a name="virtual-processors"></a>Virtuelle Prozessoren
 
@@ -61,11 +61,11 @@ In Windows Server 2016 stellt Hyper-V virtuellen Computern eine virtuelle NUMA-T
 
 Es gibt keinen Unterschied zwischen einem virtuellen und einem physischen NUMA aus der Sicht der Arbeitsauslastung. Wenn eine Arbeitsauslastung in einem virtuellen Computer lokalen Arbeitsspeicher für Daten zuweist und auf die Daten im selben NUMA-Knoten zugreift, führt dies zu einem schnellen lokalen Speicherzugriff auf dem zugrunde liegenden physischen System. Leistungsbenachteiligungen aufgrund des Remotearbeitsspeicherzugriffs wird erfolgreich vermieden. Nur NUMA-fähige Anwendungen können von vnuma profitieren.
 
-Microsoft SQL Server ist ein Beispiel für eine NUMA-fähige Anwendung. Weitere Informationen finden Sie Untergrund Legendes zum [nicht einheitlichen Speicherzugriff](https://technet.microsoft.com/library/ms178144.aspx).
+Microsoft SQL Server ist ein Beispiel für eine NUMA-fähige Anwendung. Weitere Informationen finden Sie Untergrund Legendes zum [nicht einheitlichen Speicherzugriff](/previous-versions/sql/sql-server-2008-r2/ms178144(v=sql.105)).
 
 Die Features virtuelles NUMA und dynamischer Arbeitsspeicher können nicht gleichzeitig verwendet werden. Ein virtueller Computer mit aktiviertem dynamischen Arbeitsspeicher hat effektiv nur einen virtuellen NUMA-Knoten, und keine NUMA-Topologie wird mit dem virtuellen Computer angezeigt – unabhängig von den virtuellen NUMA-Einstellungen.
 
-Weitere Informationen zu virtuellem NUMA finden Sie unter [virtueller Hyper-V-NUMA (Übersicht](https://technet.microsoft.com/library/dn282282.aspx)).
+Weitere Informationen zu virtuellem NUMA finden Sie unter [virtueller Hyper-V-NUMA (Übersicht](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn282282(v=ws.11))).
 
 ## <a name="additional-references"></a>Weitere Verweise
 

@@ -7,12 +7,12 @@ ms.assetid: bc4a4971-f727-40cd-91f5-2ee6d24b54cb
 author: kbdazure
 ms.author: kathydav
 ms.date: 9/30/2016
-ms.openlocfilehash: 56d9f862d4bd31ac8fba08837e59c94b865f7b1a
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: d0cbbc79fe1dc942dfe79ca9dbe81769dd112730
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87970027"
+ms.locfileid: "87997613"
 ---
 # <a name="system-requirements-for-hyper-v-on-windows-server"></a>System Anforderungen für Hyper-V unter Windows Server
 
@@ -22,7 +22,7 @@ Für Hyper-v gelten bestimmte Hardwareanforderungen, und einige Hyper-v-Features
 
 Wenn Sie Hyper-V bereits verwenden, ist es wahrscheinlich, dass Sie Ihre vorhandene Hardware verwenden können. Die allgemeinen Hardwareanforderungen wurden von Windows Server 2012 R2 nicht signifikant geändert.  Sie benötigen jedoch neuere Hardware, um abgeschirmte virtuelle Computer oder eine diskrete Geräte Zuweisung zu verwenden. Diese Features basieren auf einer bestimmten Hardwareunterstützung, wie unten beschrieben. Der wichtigste Unterschied bei der Hardware besteht darin, dass die Adressübersetzung (slat) der zweiten Ebene jetzt anstelle von "empfohlen" erforderlich ist.
 
-Ausführliche Informationen zu den maximal unterstützten Konfigurationen für Hyper-v, wie z. b. die Anzahl der aktiven virtuellen Maschinen, finden Sie unter [Planen der Hyper-v-Skalierbarkeit in Windows Server 2016](plan/Plan-for-Hyper-V-scalability-in-Windows-Server-2016.md). Die Liste der Betriebssysteme, die Sie auf Ihren virtuellen Computern ausführen können, finden Sie [unter Unterstützte Windows-Gast Betriebssysteme für Hyper-V unter Windows Server](Supported-Windows-guest-operating-systems-for-Hyper-V-on-Windows.md).
+Ausführliche Informationen zu den maximal unterstützten Konfigurationen für Hyper-v, wie z. b. die Anzahl der aktiven virtuellen Maschinen, finden Sie unter [Planen der Hyper-v-Skalierbarkeit in Windows Server 2016](./plan/plan-hyper-v-scalability-in-windows-server.md). Die Liste der Betriebssysteme, die Sie auf Ihren virtuellen Computern ausführen können, finden Sie [unter Unterstützte Windows-Gast Betriebssysteme für Hyper-V unter Windows Server](Supported-Windows-guest-operating-systems-for-Hyper-V-on-Windows.md).
 
 ## <a name="general-requirements"></a>Allgemeine Anforderungen
 
@@ -89,4 +89,3 @@ Anforderungen an **virtuelle Computer** :
 
 - Generation 2
 - Windows Server 2012 oder höher als Gast Betriebssystem
-

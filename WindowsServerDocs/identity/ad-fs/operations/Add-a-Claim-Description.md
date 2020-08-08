@@ -6,21 +6,19 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server
-ms.technology: identity-adfs
-ms.openlocfilehash: a022ec618c7255021cd424120330671e007a658a
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 31c04f557900cee661c2283957f590caf370bbe5
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86962702"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87942734"
 ---
 # <a name="add-a-claim-description"></a>Hinzufügen einer Anspruchsbeschreibung
 
 
 In einer Konto Partnerorganisation erstellen Administratoren Ansprüche, um die Mitgliedschaft eines Benutzers in einer Gruppe oder Rolle darzustellen oder um einige Daten über einen Benutzer darzustellen, z. b. die Mitarbeiter-ID eines Benutzers.
 
-In einer Ressourcen Partnerorganisation erstellen Administratoren entsprechende Ansprüche zur Darstellung von Gruppen und Benutzern, die als Ressourcen Benutzer erkannt werden können. Da ausgehende Ansprüche in der Konto Partnerorganisation eingehenden Ansprüchen in der Ressourcen Partnerorganisation zugeordnet werden, kann der Ressourcen Partner die Anmelde Informationen akzeptieren, die der Konto Partner bereitstellt. 
+In einer Ressourcen Partnerorganisation erstellen Administratoren entsprechende Ansprüche zur Darstellung von Gruppen und Benutzern, die als Ressourcen Benutzer erkannt werden können. Da ausgehende Ansprüche in der Konto Partnerorganisation eingehenden Ansprüchen in der Ressourcen Partnerorganisation zugeordnet werden, kann der Ressourcen Partner die Anmelde Informationen akzeptieren, die der Konto Partner bereitstellt.
 
 Mit dem folgenden Verfahren können Sie einen Anspruch hinzufügen.
 
@@ -28,7 +26,7 @@ Zum Ausführen dieses Verfahrens ist mindestens die Mitgliedschaft in der Gruppe
 
 ## <a name="to-add-a-claim-description"></a>So fügen Sie eine Anspruchs Beschreibung hinzu
 
-1. Klicken Sie im Server-Manager auf **Tools**, und wählen Sie **AD FS-Verwaltung** aus. 
+1. Klicken Sie im Server-Manager auf **Tools**, und wählen Sie **AD FS-Verwaltung** aus.
 
 2. Erweitern Sie **Dienst** , und klicken Sie auf der rechten Seite auf **Anspruchs Beschreibung hinzufügen**
    ![Anspruchs Beschreibung hinzufügen](media/Add-a-Claim-Description/claimdesc1.png)
@@ -54,5 +52,5 @@ Zum Ausführen dieses Verfahrens ist mindestens die Mitgliedschaft in der Gruppe
 ![Anspruchs Beschreibung hinzufügen](media/Add-a-Claim-Description/claimdesc2.png)
 
 
-## <a name="see-also"></a>Weitere Informationen  
-[AD FS-Vorgänge](../ad-fs-operations.md) 
+## <a name="see-also"></a>Weitere Informationen
+[AD FS-Vorgänge](../ad-fs-operations.md)

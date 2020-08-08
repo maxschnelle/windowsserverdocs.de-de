@@ -6,12 +6,12 @@ manager: dongill
 author: rpsqrd
 ms.author: ryanpu
 ms.date: 08/29/2018
-ms.openlocfilehash: 7a73bf1b677d09cc31783b58148c8ca7c581fbca
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: c3f17320432d44a84be05040e23e7af30995c969
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87971377"
+ms.locfileid: "87997561"
 ---
 # <a name="guarded-fabric-and-shielded-vms"></a>Geschütztes Fabric und abgeschirmte VMs
 
@@ -28,7 +28,7 @@ Eines der wichtigsten Ziele bei der Bereitstellung einer gehosteten Umgebung bes
 - Video: [Einführung in abgeschirmte Virtual Machines in Windows Server 2016](https://channel9.msdn.com/Shows/Mechanics/Introduction-to-Shielded-Virtual-Machines-in-Windows-Server-2016)
 - Video: [Einblicke in abgeschirmte VMS mit Windows Server 2016 Hyper-V](https://channel9.msdn.com/events/Ignite/2016/BRK3124)
 - Video: bereitstellen [von abgeschirmten VMS und einem geschützten Fabric mit Windows Server 2016](https://mva.microsoft.com/training-courses/deploying-shielded-vms-and-a-guarded-fabric-with-windows-server-2016-17131?l=WFLef7vUD_4604300474)
-- Blog: [Daten Center-und Private Cloud-Sicherheitsblog](https://blogs.technet.microsoft.com/datacentersecurity/)
+- Blog: [Daten Center-und Private Cloud-Sicherheitsblog](/archive/blogs/datacentersecurity/)
 - Übersicht: [Übersicht über geschützte Fabric-und abgeschirmte VMS](Guarded-Fabric-and-Shielded-VMs.md)
 
 ## <a name="planning-topics"></a>Themen zur Planung
@@ -46,7 +46,7 @@ Eines der wichtigsten Ziele bei der Bereitstellung einer gehosteten Umgebung bes
         - [Bereitstellen eines überwachten Hosts im AD-Modus](guarded-fabric-admin-trusted-attestation-creating-a-security-group.md)
         - [Bereitstellen eines überwachten Hosts mit dem TPM-Modus](guarded-fabric-tpm-trusted-attestation-capturing-hardware.md)
         - [Bestätigen, dass geschützte Hosts bestätigen können](guarded-fabric-confirm-hosts-can-attest-successfully.md)
-        - [Abgeschirmte VMs: Hosting-Anbieter stellt geschützte Hosts in VMM bereit](https://technet.microsoft.com/system-center-docs/vmm/scenario/guarded-hosts)
+        - [Abgeschirmte VMs: Hosting-Anbieter stellt geschützte Hosts in VMM bereit](/system-center/vmm/guarded-deploy-host?view=sc-vmm-2019)
     - [Bereitstellen von abgeschirmten VMs](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
         - [Erstellen einer Vorlage für eine abgeschirmte VM](guarded-fabric-create-a-shielded-vm-template.md)
         - [Vorbereiten einer VHD für ein VM-Schutz Hilfsprogramm](guarded-fabric-vm-shielding-helper-vhd.md)

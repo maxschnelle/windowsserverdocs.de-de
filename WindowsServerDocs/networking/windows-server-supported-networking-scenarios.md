@@ -6,12 +6,12 @@ ms.topic: article
 ms.assetid: 6de4232d-b0b3-4e43-8735-ebae35ae4f9f
 author: dcuomo
 ms.author: dacuo
-ms.openlocfilehash: 5a0f8d372c8e84e6e9140ef40f89c1fa7b116355
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 0059e04b79754a3fb183a51cbd75bc03e9a89ae5
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87940001"
+ms.locfileid: "87997543"
 ---
 # <a name="windows-server-supported-networking-scenarios"></a>Von Windows Server unterstützte Netzwerkszenarios
 
@@ -170,7 +170,7 @@ Weitere Informationen finden Sie unter [NIC](technologies/nic-teaming/NIC-Teamin
 
 Set ist eine Alternative NIC-Team Vorgangs Lösung, die Sie in Umgebungen verwenden können, die Hyper-V und den Sdn-Stapel (Software Defined Networking) in Windows Server 2016 enthalten. Set integriert einige NIC-Team Vorgangs Funktionen in den virtuellen Hyper-V-Switch.
 
-Weitere Informationen finden Sie unter [Remote Direct Memory Access (RDMA) und Switch Embedded Teaming (Set)](https://technet.microsoft.com/windows-server-docs/networking/technologies/hyper-v-virtual-switch/rdma-and-switch-embedded-teaming) .
+Weitere Informationen finden Sie unter [Remote Direct Memory Access (RDMA) und Switch Embedded Teaming (Set)](../virtualization/hyper-v-virtual-switch/rdma-and-switch-embedded-teaming.md) .
 
 
 
@@ -180,6 +180,3 @@ Die folgenden Netzwerkszenarien werden in Windows Server 2016 nicht unterstützt
 -   VLAN-basierte virtuelle Mandanten Netzwerke
 
 -   IPv6 wird weder in der unter-noch in der Überlagerung unterstützt.
-
-
-

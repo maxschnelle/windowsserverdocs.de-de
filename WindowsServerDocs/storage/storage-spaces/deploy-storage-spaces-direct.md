@@ -8,12 +8,12 @@ author: stevenek
 ms.date: 07/24/2020
 description: Schritt-für-Schritt-Anleitung zum Bereitstellen von Software definiertem Speicher mit direkte Speicherplätze in Windows Server als hyperkonvergierte Infrastruktur oder konvergierte Infrastruktur (auch als disaggiert bezeichnet).
 ms.localizationpriority: medium
-ms.openlocfilehash: a15f9df55fd5650443f4d0220dee6b4ada9253d2
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: f0115e76ca297fa0af5fc57e197d75e428cb3e72
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87971107"
+ms.locfileid: "87997572"
 ---
 # <a name="deploy-storage-spaces-direct"></a>Bereitstellen von direkten Speicherplätzen
 
@@ -49,7 +49,7 @@ Sammeln Sie die folgenden Informationen:
 
 Der erste Schritt besteht darin, Windows Server auf allen Servern zu installieren, die sich im Cluster befinden. Direkte Speicherplätze erfordert Windows Server 2016 Datacenter Edition. Sie können die Server Core-Installationsoption oder Server mit Desktop Darstellung verwenden.
 
-Wenn Sie Windows Server mithilfe des Setup-Assistenten installieren, können Sie zwischen *Windows Server* (bezogen auf Server Core) und *Windows Server (Server mit Desktop Darstellung)* wählen. Dies entspricht der *vollständigen* Installationsoption, die in Windows Server 2012 R2 verfügbar ist. Wenn Sie nicht auswählen, erhalten Sie die Server Core-Installationsoption. Weitere Informationen finden Sie unter [Installationsoptionen für Windows Server 2016](../../get-started/Windows-Server-2016.md).
+Wenn Sie Windows Server mithilfe des Setup-Assistenten installieren, können Sie zwischen *Windows Server* (bezogen auf Server Core) und *Windows Server (Server mit Desktop Darstellung)* wählen. Dies entspricht der *vollständigen* Installationsoption, die in Windows Server 2012 R2 verfügbar ist. Wenn Sie nicht auswählen, erhalten Sie die Server Core-Installationsoption. Weitere Informationen finden Sie unter [Installationsoptionen für Windows Server 2016](../../index.yml).
 
 ### <a name="step-12-connect-to-the-servers"></a>Schritt 1,2: Herstellen einer Verbindung mit den Servern
 

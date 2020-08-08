@@ -5,12 +5,12 @@ manager: dongill
 author: rpsqrd
 ms.author: ryanpu
 ms.date: 08/29/2018
-ms.openlocfilehash: c508df5b23481a53ccc112d6c81b11fc9dcea790
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: f81e77b0de231a03bcaa0cfe6877b1e67dd081db
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87971387"
+ms.locfileid: "87989573"
 ---
 # <a name="guarded-fabric-and-shielded-vms-overview"></a>Übersicht über geschütztes Fabric und abgeschirmte VMs
 
@@ -58,7 +58,7 @@ Der Host-Überwachungsdienst bietet zusammen mit den Methoden zum Erstellen abge
 
 | **Typ der Garantie für VMs**                         | **Garantien für abgeschirmte VMs vom Schlüsselschutzdienst und von Erstellungsmethoden für abgeschirmte VMs.** |
 |----------------------------|--------------------------------------------------|
-| **Mit BitLocker verschlüsselte Datenträger (Betriebssystemdatenträger und Datenträger)**   | Abgeschirmte VMs verwenden BitLocker zum Schutz ihrer Datenträger. Die BitLocker-Schlüssel, die zum Starten des virtuellen Computers und zum Entschlüsseln der Datenträger erforderlich sind, werden vom virtuellen TPM der abgeschirmten VM mithilfe von branchenspezifischen Technologien wie dem sicheren gemessenen Start geschützt. Während abgeschirmte VMs den Betriebssystemdatenträger nur automatisch verschlüsseln und schützen, können Sie der abgeschirmten VM angefügte [Datenlaufwerke gleichermaßen verschlüsseln](https://technet.microsoft.com/itpro/windows/keep-secure/bitlocker-overview). |
+| **Mit BitLocker verschlüsselte Datenträger (Betriebssystemdatenträger und Datenträger)**   | Abgeschirmte VMs verwenden BitLocker zum Schutz ihrer Datenträger. Die BitLocker-Schlüssel, die zum Starten des virtuellen Computers und zum Entschlüsseln der Datenträger erforderlich sind, werden vom virtuellen TPM der abgeschirmten VM mithilfe von branchenspezifischen Technologien wie dem sicheren gemessenen Start geschützt. Während abgeschirmte VMs den Betriebssystemdatenträger nur automatisch verschlüsseln und schützen, können Sie der abgeschirmten VM angefügte [Datenlaufwerke gleichermaßen verschlüsseln](/windows/security/information-protection/bitlocker/bitlocker-overview). |
 | **Bereitstellung neuer abgeschirmter VMS aus "vertrauenswürdigen" Vorlagen Datenträgern/Images** | Bei der Bereitstellung neuer abgeschirmter VMs können Mandanten angeben, welche Vorlagedatenträger sie als vertrauenswürdig einstufen. Abgeschirmte Vorlagedatenträger verfügen über Signaturen, die zu einem Zeitpunkt berechnet werden, wenn ihre Inhalte als vertrauenswürdig eingestuft werden. Die Datenträgersignaturen werden dann in einem Signaturenkatalog gespeichert, den Mandanten beim Erstellen von abgeschirmten VMs sicher dem Fabric bereitstellen. Während der Bereitstellung abgeschirmter VMs wird die Signatur des Datenträgers erneut berechnet und mit den vertrauenswürdigen Signaturen im Katalog verglichen. Wenn die Signaturen übereinstimmen, wird die abgeschirmte VM bereitgestellt. Wenn die Signaturen nicht übereinstimmen, gilt der abgeschirmte Vorlagedatenträger als nicht vertrauenswürdig, und bei der Bereitstellung tritt ein Fehler auf. |
 | **Schutz von Kennwörtern und anderen geheimen Schlüsseln beim Erstellen einer abgeschirmten VM** | Beim Erstellen von VMS muss sichergestellt werden, dass die VM-Geheimnisse, wie z. b. die vertrauenswürdigen Datenträger Signaturen, RDP-Zertifikate und das Kennwort des lokalen Administrator Kontos der VM, nicht an das Fabric weitergegeben werden. Diese vertraulichen Informationen befinden sich in einer als geschützte Datendatei (PDK-Datei) bezeichneten verschlüsselten Datei, die von Mandantenschlüsseln geschützt und vom Mandanten in das Fabric hochgeladen wird. Beim Erstellen einer abgeschirmten VM wählt der Mandant die zu verwendenden geschützten Daten aus, wodurch diese Informationen sicher nur den vertrauenswürdigen Komponenten innerhalb des geschützten Fabrics zur Verfügung gestellt werden. |
 | **Mandanten steuern, wo die VM gestartet werden kann.** | Zu den geschützten Daten zählt auch eine Liste der geschützten Fabrics, in denen eine bestimmte abgeschirmte VM ausgeführt werden darf. Dies ist z.B. in Fällen hilfreich, in denen eine abgeschirmte VM sich typischerweise in einer lokalen privaten Cloud befindet, jedoch möglicherweise zur Wiederherstellung im Notfall zu einer anderen (öffentlichen oder privaten) Cloud migriert werden muss. Die Zielcloud oder das Zielfabric muss abgeschirmte VMs unterstützen, und die abgeschirmte VM muss dem Fabric die Ausführung genehmigen. |
@@ -164,6 +164,6 @@ Sowohl abgeschirmte als auch durch Verschlüsselung unterstützte VMs unterstüt
 ## <a name="additional-references"></a>Weitere Verweise
 
 - [Geschütztes Fabric und abgeschirmte VMs](guarded-fabric-and-shielded-vms-top-node.md)
-- Blog: [Daten Center-und Private Cloud-Sicherheitsblog](https://blogs.technet.microsoft.com/datacentersecurity/)
+- Blog: [Daten Center-und Private Cloud-Sicherheitsblog](/archive/blogs/datacentersecurity/)
 - Video: [Einführung in abgeschirmte Virtual Machines](https://channel9.msdn.com/Shows/Mechanics/Introduction-to-Shielded-Virtual-Machines-in-Windows-Server-2016)
 - Video: [Einblicke in abgeschirmte VMS mit Windows Server 2016 Hyper-V](https://channel9.msdn.com/events/Ignite/2016/BRK3124)
