@@ -2,18 +2,16 @@
 title: Erstellen eines DFS-Namespaces
 description: In diesem Artikel wird beschrieben, wie Sie einen DFS-Namespace erstellen.
 ms.date: 6/5/2017
-ms.prod: windows-server
-ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 60b31b90ed54137898043e79c3c6504afb3f4b7f
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 6999dec3681a765ac64fdedd2e695c8a3f7dbcfa
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86953362"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87939425"
 ---
 # <a name="create-a-dfs-namespace"></a>Erstellen eines DFS-Namespace
 
@@ -38,7 +36,7 @@ Mit der folgenden Vorgehensweise können Sie nach der Installation des Rollen di
 > [!IMPORTANT]
 > Versuchen Sie nicht, einen domänenbasierten Namespace im Windows Server 2008-Modus zu erstellen, es sei denn, die Gesamtstruktur Funktionsebene ist Windows Server 2003 oder höher. Dies kann zu einem Namespace führen, für den DFS-Ordner nicht gelöscht werden können, und die folgende Fehlermeldung wird angezeigt: "der Ordner kann nicht gelöscht werden. Diese Funktion kann nicht ausgeführt werden. "
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Bereitstellen von DFS-Namespaces](deploying-dfs-namespaces.md)
 -   [Auswählen eines Namespacetyps](choose-a-namespace-type.md)

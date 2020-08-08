@@ -1,19 +1,17 @@
 ---
 title: Bestätigen, dass geschützte Hosts bestätigen können
-ms.prod: windows-server
 ms.topic: article
 ms.assetid: 7485796b-b840-4678-9b33-89e9710fbbc7
 manager: dongill
 author: rpsqrd
 ms.author: ryanpu
-ms.technology: security-guarded-fabric
 ms.date: 09/25/2019
-ms.openlocfilehash: 69ff4bcfb407d01e184abd039be8aa0117372b4a
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 0162cd8c14640bfc025796995fdc2ce78b5912a2
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85475337"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87939641"
 ---
 # <a name="confirm-guarded-hosts-can-attest"></a>Bestätigen, dass geschützte Hosts bestätigen können
 
@@ -41,7 +39,7 @@ Ein fabricadministrator muss bestätigen, dass Hyper-V-Hosts als geschützte Hos
 
     - **Über VMM**: Wenn Sie System Center 2016-Virtual Machine Manager (VMM) verwenden, können Sie die URLs für den Nachweis und den Schlüsselschutz in VMM konfigurieren. Weitere Informationen finden Sie unter [Konfigurieren globaler HGS-Einstellungen](https://technet.microsoft.com/system-center-docs/vmm/scenario/guarded-hosts#configure-global-hgs-settings) in Bereitstellen von über **wachten Hosts in VMM**.
 
-    >**Notizen**
+    >**Hinweise**
     > - Wenn der HGS-Administrator [https auf dem HGS-Server aktiviert](guarded-fabric-configure-hgs-https.md)hat, beginnen Sie mit den URLs `https://` .
     > - Wenn der HGS-Administrator HTTPS auf dem HGS-Server aktiviert und ein selbst signiertes Zertifikat verwendet hat, müssen Sie das Zertifikat in den Speicher vertrauenswürdiger Stamm Zertifizierungsstellen auf jedem Host importieren. Führen Sie hierzu den folgenden Befehl auf jedem Host aus:
        ```PowerShell
@@ -70,7 +68,7 @@ Ein fabricadministrator muss bestätigen, dass Hyper-V-Hosts als geschützte Hos
 > [!div class="nextstepaction"]
 > [Bereitstellen von abgeschirmten VMs](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Bereitstellen des Host-Überwachungsdiensts](guarded-fabric-deploying-hgs-overview.md)
 - [Bereitstellen von abgeschirmten VMs](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)

@@ -2,18 +2,16 @@
 title: Remotezugriff auf den direkten Speicher (RDMA) und Switch Embedded Teaming (SET)
 description: Dieses Thema enthält Informationen zum Konfigurieren von RDMA-Schnittstellen (Remote Direct Memory Access) mit Hyper-V in Windows Server 2016 sowie Informationen zum Switch Embedded Teaming (Set).
 manager: brianlic
-ms.prod: windows-server
-ms.technology: networking-hv-switch
 ms.topic: get-started-article
 ms.assetid: 68c35b64-4d24-42be-90c9-184f2b5f19be
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: b0f11e67467521a8cfa98f4035435bbed537eda2
-ms.sourcegitcommit: acfdb7b2ad283d74f526972b47c371de903d2a3d
+ms.openlocfilehash: 54d3ecbf752ce806a14d16088476bbb270e28271
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87769568"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87989130"
 ---
 # <a name="remote-direct-memory-access-rdma-and-switch-embedded-teaming-set"></a>Remote Zugriff auf den direkten Speicher für \( RDMA \) und Switch Embedded Teaming \( Set\)
 
@@ -190,7 +188,7 @@ In der folgenden Abbildung wird die festgelegte Architektur dargestellt.
 
 Da Set in den virtuellen Hyper-V-Switch integriert ist, können Sie Set nicht innerhalb eines virtuellen Computers (Virtual Machine, VM) verwenden. Sie können jedoch den NIC-Team Vorgang innerhalb von VMS verwenden.
 
-Weitere Informationen finden Sie unter NIC-Team Vorgang [in Virtual Machines (VMS)](https://docs.microsoft.com/windows-server/networking/technologies/nic-teaming/nict-vms).
+Weitere Informationen finden Sie unter NIC-Team Vorgang [in Virtual Machines (VMS)](../../networking/technologies/nic-teaming/nic-teaming.md).
 
 Außerdem werden von der Set-Architektur keine Team Schnittstellen verfügbar gemacht. Stattdessen müssen Sie virtuelle Hyper-V-Switchports konfigurieren.
 
@@ -342,7 +340,7 @@ Im folgenden finden Sie Listen, die das Austausch Verhalten von Mac-Adressen fes
 
 Es wird empfohlen, dass Sie System Center Virtual Machine Manager \( VMM verwenden \) , um Set-Teams zu verwalten. Sie können jedoch auch Windows PowerShell verwenden, um die Gruppe zu verwalten. In den folgenden Abschnitten werden die Windows PowerShell-Befehle bereitgestellt, die Sie zum Verwalten von Set verwenden können.
 
-Informationen zum Erstellen eines Set-Teams mithilfe von VMM finden Sie im Abschnitt "Einrichten eines logischen Switches" in der System Center VMM-Bibliothek unter [Erstellen logischer Switches](https://docs.microsoft.com/system-center/vmm/network-switch).
+Informationen zum Erstellen eines Set-Teams mithilfe von VMM finden Sie im Abschnitt "Einrichten eines logischen Switches" in der System Center VMM-Bibliothek unter [Erstellen logischer Switches](/system-center/vmm/network-switch).
 
 ### <a name="create-a-set-team"></a>Erstellen eines Set-Teams
 
@@ -376,7 +374,7 @@ Set-VMSwitchTeam -Name TeamedvSwitch -NetAdapterName "NIC 1","NIC 3"
 
 ### <a name="removing-a-set-team"></a>Entfernen eines Set-Teams
 
-Sie können ein Set-Team nur entfernen, indem Sie den virtuellen Hyper-V-Switch entfernen, der das Set-Team enthält.  Verwenden Sie das Thema [Remove-VMSwitch](https://technet.microsoft.com/itpro/powershell/windows/hyper-v/remove-vmswitch) , um zu erfahren, wie Sie den virtuellen Hyper-V-Switch entfernen. Im folgenden Beispiel wird ein virtueller Switch mit dem Namen **setvswitch**entfernt.
+Sie können ein Set-Team nur entfernen, indem Sie den virtuellen Hyper-V-Switch entfernen, der das Set-Team enthält.  Verwenden Sie das Thema [Remove-VMSwitch](/powershell/module/hyper-v/remove-vmswitch?view=win10-ps) , um zu erfahren, wie Sie den virtuellen Hyper-V-Switch entfernen. Im folgenden Beispiel wird ein virtueller Switch mit dem Namen **setvswitch**entfernt.
 
 ```
 Remove-VMSwitch "SETvSwitch"

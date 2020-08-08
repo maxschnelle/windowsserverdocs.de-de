@@ -1,19 +1,17 @@
 ---
 title: Zertifikate für HGS abrufen
-ms.prod: windows-server
 ms.topic: article
 ms.assetid: f4b4d1a8-bf6d-4881-9150-ddeca8b48038
 manager: dongill
 author: rpsqrd
 ms.author: ryanpu
-ms.technology: security-guarded-fabric
 ms.date: 09/25/2019
-ms.openlocfilehash: da1ae4bacd5a6b2e38b22930aacf06f65b16bb29
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 995a115b9e611500732e4674880ee4ca4b204e14
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80856533"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87989117"
 ---
 # <a name="obtain-certificates-for-hgs"></a>Zertifikate für HGS abrufen
 
@@ -33,12 +31,12 @@ Hoster und Dienstanbieter sollten stattdessen eine bekannte öffentliche Zertifi
 
 Die Signatur-und Verschlüsselungs Zertifikate müssen mit den folgenden certificiate-Eigenschaften ausgestellt werden (es sei denn, Sie sind als "empfohlen" gekennzeichnet):
 
-Zertifikat Vorlagen Eigenschaft | Erforderlicher Wert 
+Zertifikat Vorlagen Eigenschaft | Erforderlicher Wert
 ------------------------------|----------------
 Kryptografieanbieter               | Alle Schlüsselspeicher Anbieter (Key Storage Provider, KSP). Ältere Kryptografiedienstanbieter (CSPs) werden **nicht** unterstützt.
 Schlüssel Algorithmus                 | RSA
-Minimale Schlüsselgröße              | 2\.048 Bits
-Signatur Algorithmus           | Empfohlen: SHA256
+Minimale Schlüsselgröße              | 2.048 Bits
+Signaturalgorithmus           | Empfohlen: SHA256
 Schlüsselverwendung                     | Digitale Signatur *und* Datenverschlüsselung
 Erweiterte Schlüssel Verwendung            | Serverauthentifizierung
 Richtlinie zur Schlüssel Erneuerung            | Erneuern Sie mit demselben Schlüssel. Durch das Erneuern von HGS-Zertifikaten mit unterschiedlichen Schlüsseln wird verhindert, dass abgeschirmte VMS gestartet werden.
@@ -81,11 +79,11 @@ Die Hyper-V-Hosts und HGS-Knoten müssen das von Ihnen bereitgestellte SSL-Zerti
 
 SSL-Zertifikat Eigenschaft | Erforderlicher Wert
 -------------------------|---------------
-Antragstellername             | Der Name des HGS-Clusters (als Name des verteilten Netzwerks oder des FQDN des virtuellen Computer Objekts bezeichnet). Dabei handelt es sich um die Verkettung Ihres HGS-Dienst namens, der für `Initialize-HgsServer` und ihren HGS-Domänen Namen angegeben wird.
-Alternativer Antragsteller Name | Wenn Sie einen anderen DNS-Namen verwenden, um Ihren HGS-Cluster zu erreichen (z. b. wenn er sich hinter einem Load Balancer befindet), müssen Sie diese DNS-Namen in das Feld San ihrer Zertifikat Anforderung einschließen.
+Antragstellername             | Der Name des HGS-Clusters (als Name des verteilten Netzwerks oder des FQDN des virtuellen Computer Objekts bezeichnet). Dabei handelt es sich um die Verkettung Ihres für bereitgestellten HGS-Dienst namens `Initialize-HgsServer` und ihren HGS-Domänen Namen.
+Alternativer Antragstellername | Wenn Sie einen anderen DNS-Namen verwenden, um Ihren HGS-Cluster zu erreichen (z. b. wenn er sich hinter einem Load Balancer befindet), müssen Sie diese DNS-Namen in das Feld San ihrer Zertifikat Anforderung einschließen.
 
 Die Optionen zum Angeben dieses Zertifikats beim Initialisieren des HGS-Servers finden Sie unter [Konfigurieren des ersten HGS-Knotens](guarded-fabric-initialize-hgs.md).
-Sie können das SSL-Zertifikat auch zu einem späteren Zeitpunkt mit dem Cmdlet [Set-hgsserver](https://docs.microsoft.com/powershell/module/hgsserver/set-hgsserver?view=win10-ps) hinzufügen oder ändern.
+Sie können das SSL-Zertifikat auch zu einem späteren Zeitpunkt mit dem Cmdlet [Set-hgsserver](/powershell/module/hgsserver/set-hgsserver?view=win10-ps) hinzufügen oder ändern.
 
 ## <a name="next-step"></a>Nächster Schritt
 

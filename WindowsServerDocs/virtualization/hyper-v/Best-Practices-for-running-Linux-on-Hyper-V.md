@@ -1,20 +1,18 @@
 ---
 title: Bewährte Methoden für die Ausführung von Linux unter Hyper-V
 description: Bietet Empfehlungen zum Ausführen von Linux auf einem virtuellen Computer
-ms.prod: windows-server
 manager: dongill
-ms.technology: compute-hyper-v
 ms.topic: article
 ms.assetid: a08648eb-eea0-4e2b-87fb-52bfe8953491
 author: shirgall
 ms.author: kathydav
 ms.date: 04/15/2020
-ms.openlocfilehash: 75b471d4083ef1597d5edcc775ea6fc847992483
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: b9a03ec24adf0b77ff4a6e477f550c63760c9d85
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85474467"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87989108"
 ---
 # <a name="best-practices-for-running-linux-on-hyper-v"></a>Bewährte Methoden für die Ausführung von Linux unter Hyper-V
 
@@ -94,14 +92,14 @@ Hyper-V ermöglicht das Verkleinern von virtuellen Festplatten Dateien (vhdx) oh
 
 Nachdem die Größe einer VHD-oder vhdx-Datei geändert wurde, sollten Administratoren ein Hilfsprogramm wie fdisk oder parted verwenden, um die Größe der Partition, des Volumes und des Dateisystems zu aktualisieren und die Größe des Datenträgers widerzuspiegeln. Das Verkleinern oder Erweitern der Größe einer VHD oder vhdx mit einer GUID-Partitionstabelle (GPT) führt zu einer Warnung, wenn ein Partitions Verwaltungs Tool zum Überprüfen des Partitionslayouts verwendet wird, und der Administrator wird gewarnt, den ersten und sekundären GPT-Header zu korrigieren. Dieser manuelle Schritt kann ohne Datenverlust sicher durchgeführt werden.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 * [Unterstützte virtuelle Linux-und FreeBSD-Computer für Hyper-V unter Windows](Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows.md)
 
 * [Bewährte Methoden für die Ausführung von FreeBSD unter Hyper-V](Best-practices-for-running-FreeBSD-on-Hyper-V.md)
 
-* [Bereitstellen eines Hyper-V-Clusters](https://technet.microsoft.com/library/jj863389.aspx)
+* [Bereitstellen eines Hyper-V-Clusters](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj863389(v=ws.11))
 
-* [Erstellen von Linux-Images für Azure](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic)
+* [Erstellen von Linux-Images für Azure](/azure/virtual-machines/linux/create-upload-generic)
 
-* [Optimieren virtueller Linux-Computer in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/optimization)
+* [Optimieren virtueller Linux-Computer in Azure](/azure/virtual-machines/linux/optimization)

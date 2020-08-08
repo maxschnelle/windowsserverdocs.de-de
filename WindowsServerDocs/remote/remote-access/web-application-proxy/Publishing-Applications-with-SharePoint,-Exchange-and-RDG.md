@@ -6,14 +6,12 @@ manager: mtillman
 ms.author: billmath
 ms.date: 04/30/2018
 ms.topic: article
-ms.prod: windows-server
-ms.technology: web-app-proxy
-ms.openlocfilehash: 3bfb94a841265695b1a95cff8cc3cc87ee8088bf
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 115a55ab9ddfde42027a991d172f92c3d62c4613
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86961502"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87939791"
 ---
 # <a name="publishing-applications-with-sharepoint-exchange-and-rdg"></a>Veröffentlichen von Anwendungen mit SharePoint, Exchange und RDG
 
@@ -43,7 +41,7 @@ Wenn die SharePoint-Website mithilfe alternativer Zugriffszuordnungen (AAM) oder
 In der folgenden Tabelle werden die Exchange-Dienste beschrieben, die Sie über den webanwendungsproxy veröffentlichen können, sowie die unterstützte Vorauthentifizierung für diese Dienste:
 
 
-|    Exchange-Dienst    |                                                                            Vorauthentifizierung                                                                            |                                                                                                                                       Notizen                                                                                                                                        |
+|    Exchange-Dienst    |                                                                            Vorauthentifizierung                                                                            |                                                                                                                                       Hinweise                                                                                                                                        |
 |------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |    Outlook Web App     | -AD FS mit nicht Anspruchs basierter Authentifizierung<br />-Pass-Through<br />-AD FS verwenden der Anspruchs basierten Authentifizierung für lokales Exchange 2013 Service Pak 1 (SP1) |                                                                  Weitere Informationen finden Sie unter: [Verwenden anspruchsbasierter Authentifizierung von AD FS mit Outlook Web App und EAC](https://go.microsoft.com/fwlink/?LinkId=393723)                                                                  |
 | Exchange-Systemsteuerung |                                                                               Pass-Through                                                                               |                                                                                                                                                                                                                                                                                    |

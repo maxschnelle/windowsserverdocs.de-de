@@ -6,12 +6,12 @@ ms.topic: article
 ms.assetid: a4587cff-c086-49f1-a0bf-cd74b8a44440
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 64ec120f552c5a95b69e9ac635e861507805b281
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: d03169b3af61dd4925b0ca2f972faff496955b9d
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87971957"
+ms.locfileid: "87989234"
 ---
 # <a name="branchcache"></a>BranchCache
 
@@ -143,7 +143,7 @@ Da für BranchCache keine neue Hardware oder Änderungen der Netzwerktopologie e
 > [!NOTE]
 > Da einige Webproxys keine nicht standardmäßigen Content-Encoding-Header verarbeiten können, empfiehlt es sich, BranchCache mit Secure (HTTPS) mit hypertextübertragungs Protokoll und nicht http zu verwenden.
 
-= = = = = = = Weitere Informationen zu cloudtechnologien in Windows Server 2016 finden Sie unter [Software Defined Networking &#40;Sdn&#41;](../sdn/Software-Defined-Networking--SDN-.md).
+= = = = = = = Weitere Informationen zu cloudtechnologien in Windows Server 2016 finden Sie unter [Software Defined Networking &#40;Sdn&#41;](../sdn/software-defined-networking.md).
 
 ## <a name="content-information-versions"></a><a name="bkmk_version"></a>Versionen von Inhaltsinformationen
 

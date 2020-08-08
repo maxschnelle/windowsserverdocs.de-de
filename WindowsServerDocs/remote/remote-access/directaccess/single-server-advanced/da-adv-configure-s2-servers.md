@@ -6,12 +6,12 @@ ms.topic: article
 ms.assetid: 35afec8e-39a4-463b-839a-3c300ab01174
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: f1d4be029ffac40486482ff8ff56528b5f662ba9
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 8b2ae3691ff0181dc4559692829febbbdba94c86
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87955267"
+ms.locfileid: "87989819"
 ---
 # <a name="step-2-configure-advanced-directaccess-servers"></a>Schritt 2 Konfigurieren von erweiterten DirectAccess-Servern
 
@@ -241,5 +241,4 @@ Set-DAClientExperienceConfiguration -FriendlyName 'Contoso DirectAccess Connecti
 
 ## <a name="next-step"></a>Nächster Schritt
 
--   [Schritt 3: Überprüfen der Bereitstellung](Step-3-Verify-the-Deployment.md)
-
+-   [Schritt 3: Überprüfen der Bereitstellung](./da-adv-configure-s3-verify.md)

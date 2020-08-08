@@ -3,23 +3,21 @@ title: Bereitstellen hyperkonvergierter Infrastrukturen mit dem Windows Admin Ce
 ms.topic: article
 author: cosmosdarwin
 ms.author: cosdar
-ms.prod: windows-server
-ms.technology: manage
 ms.date: 11/04/2019
-ms.openlocfilehash: f0f3e313124dd10cd508bf11853969cc67de6368
-ms.sourcegitcommit: b35fbd2a67d7a3395b50b2a3acd0817ba4e36b26
+ms.openlocfilehash: a7c15bd07754d48b7fbffe2cd95edaa871c9bde3
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/22/2020
-ms.locfileid: "86891365"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87964446"
 ---
 # <a name="deploy-hyperconverged-infrastructure-with-windows-admin-center"></a>Bereitstellen hyperkonvergierter Infrastrukturen mit dem Windows Admin Center
 
-> Gilt für: Windows Admin Center, Windows Admin Center-Vorschau
+> Gilt für: Windows Admin Center, Windows Admin Center (Vorschauversion)
 
 Sie können Windows Admin Center, [Version 1910](https://docs.microsoft.com/windows-server/manage/windows-admin-center/understand/windows-admin-center) oder höher, verwenden, um eine hyperkonvergierte Infrastruktur mithilfe von mindestens zwei passenden Windows-Servern bereitzustellen. Dieses neue Feature ist ein mehrstufiger Workflow, der Sie durch die Installation von Features, das Konfigurieren von Netzwerken, das Erstellen des Clusters und das Bereitstellen von direkte Speicherplätze und/oder Software-Defined Networking (SDN) (sofern ausgewählt) führt.
 
-Ab Version 2007 des Windows Admin Centers unterstützt das Windows Admin Center die Azure Stack HCI-Betriebssystem. Weitere Informationen zum Bereitstellen [eines Clusters im Windows Admin Center finden Sie in der Azure Stack HCI](https://docs.microsoft.com/azure-stack/hci/getting-started)-Dokumentation. Diese Dokumentation konzentriert sich auf Azure Stack HCI, die Anweisungen sind auch für Windows Server-bereit Stellungen geeignet. 
+Ab Version 2007 des Windows Admin Centers unterstützt das Windows Admin Center die Azure Stack HCI-Betriebssystem. Weitere Informationen zum Bereitstellen [eines Clusters im Windows Admin Center finden Sie in der Azure Stack HCI](https://docs.microsoft.com/azure-stack/hci/getting-started)-Dokumentation. Diese Dokumentation konzentriert sich auf Azure Stack HCI, die Anweisungen sind auch für Windows Server-bereit Stellungen geeignet.
 
 ## <a name="undo-and-start-over"></a>Rückgängig machen und beginnen
 
@@ -88,7 +86,7 @@ Get-NetAdapter | Where Name -Ne "Management" | Set-NetAdapter -VlanID 0
 
 Sie sind jetzt bereit, um den Workflow zu starten.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Hallo, Windows Admin Center](https://docs.microsoft.com/windows-server/manage/windows-admin-center/understand/windows-admin-center)
 - [Bereitstellen von direkten Speicherplätzen](https://docs.microsoft.com/windows-server/storage/storage-spaces/deploy-storage-spaces-direct)

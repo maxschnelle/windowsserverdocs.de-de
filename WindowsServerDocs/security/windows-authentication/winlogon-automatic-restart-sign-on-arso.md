@@ -6,12 +6,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 3e709c76bb1ae8c3557748d3a1e14f80fce89525
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: ee6e5817564389c1870e72543a0c073dd40df4db
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87936460"
+ms.locfileid: "87989068"
 ---
 # <a name="winlogon-automatic-restart-sign-on-arso"></a>Winlogon Automatic Restart Sign-On (ARSO)
 
@@ -140,6 +140,4 @@ Die Anmeldezeiten und die Steuerelement-Steuerelemente können verhindern, dass 
 
 |Begriff|Definition|
 |----|-------|
-|Automatische Anmeldung|Autologon ist ein Feature, das in Windows für mehrere Versionen vorhanden ist.  Dabei handelt es sich um ein dokumentiertes Feature von Windows, das auch Tools wie Autologon für Windows v 3.01 * [http:/technet. Microsoft. com/Sysinternals/bb963905. aspx](https://technet.microsoft.com/sysinternals/bb963905.aspx) enthält.*<p>Dadurch kann sich ein einzelner Benutzer des Geräts automatisch anmelden, ohne Anmelde Informationen einzugeben. Die Anmelde Informationen werden konfiguriert und als verschlüsselter LSA-Schlüssel in der Registrierung gespeichert.|
-
-
+|Automatische Anmeldung|Autologon ist ein Feature, das in Windows für mehrere Versionen vorhanden ist.  Dabei handelt es sich um ein dokumentiertes Feature von Windows, das auch Tools wie Autologon für Windows v 3.01 * [http:/technet. Microsoft. com/Sysinternals/bb963905. aspx](/sysinternals/downloads/autologon) enthält.*<p>Dadurch kann sich ein einzelner Benutzer des Geräts automatisch anmelden, ohne Anmelde Informationen einzugeben. Die Anmelde Informationen werden konfiguriert und als verschlüsselter LSA-Schlüssel in der Registrierung gespeichert.|

@@ -4,28 +4,26 @@ description: Dieses Thema ist Teil des Handbuchs Bereitstellen von Server Zertif
 manager: brianlic
 ms.topic: article
 ms.assetid: c81e85cb-ecb8-442a-ad27-442c2f9e40df
-ms.prod: windows-server
-ms.technology: networking
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 9c85c4fd9026155fe1ca880ecb05f4c9358a2309
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 502e0542d326fd46a1736c08b3f34fea178b4198
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80318428"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87955947"
 ---
 # <a name="configure-certificate-auto-enrollment"></a>Konfigurieren der automatischen Zertifikat Registrierung
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 > [!NOTE]
-> Bevor Sie dieses Verfahren ausführen, müssen Sie eine Serverzertifikat Vorlage konfigurieren, indem Sie das Microsoft Management Console-Snap-in "Zertifikat Vorlagen" auf einer Zertifizierungsstelle verwenden, auf der AD CS ausgeführt wird.
+> Sie müssen vor der Ausführung dieses Verfahrens mithilfe des MMC-Snap-Ins Zertifikatvorlagen in einer Zertifizierungsstelle mit AD CS eine Serverzertifikatvorlage konfigurieren.
 Für dieses Verfahren sind mindestens die Mitgliedschaften in den Gruppen **Organisations-Admins** und **Domänen-Admins** der Stammdomäne erforderlich.
 
 ## <a name="configure-server-certificate-auto-enrollment"></a>Konfigurieren der automatischen Registrierung von Server Zertifikaten
 
-1. Öffnen Sie auf dem Computer, auf dem AD DS installiert ist, Windows PowerShell&reg;, geben Sie **MMC**ein, und drücken Sie dann die EINGABETASTE. Microsoft Management Console wird geöffnet.
+1. Öffnen Sie auf dem Computer, auf dem AD DS installiert ist, Windows PowerShell &reg; , geben Sie **MMC**ein, und drücken Sie dann die EINGABETASTE. Microsoft Management Console wird geöffnet.
 2. Klicken Sie im Menü **Datei** auf **Snap-In hinzufügen/entfernen**. Das Dialogfeld **Snap-Ins hinzufügen bzw. entfernen** wird geöffnet.
 3. Scrollen Sie in **Verfügbare Snap-Ins**nach unten, und doppelklicken Sie auf **Gruppenrichtlinienverwaltungs-Editor**. Das Dialogfeld **Gruppenrichtlinie Objekt auswählen** wird geöffnet.
 
@@ -46,7 +44,7 @@ Für dieses Verfahren sind mindestens die Mitgliedschaften in den Gruppen **Orga
 
 ## <a name="configure-user-certificate-auto-enrollment"></a>Konfigurieren der automatischen Registrierung von Benutzer Zertifikaten
 
-1. Öffnen Sie auf dem Computer, auf dem AD DS installiert ist, Windows PowerShell&reg;, geben Sie **MMC**ein, und drücken Sie dann die EINGABETASTE. Microsoft Management Console wird geöffnet.
+1. Öffnen Sie auf dem Computer, auf dem AD DS installiert ist, Windows PowerShell &reg; , geben Sie **MMC**ein, und drücken Sie dann die EINGABETASTE. Microsoft Management Console wird geöffnet.
 2. Klicken Sie im Menü **Datei** auf **Snap-In hinzufügen/entfernen**. Das Dialogfeld **Snap-Ins hinzufügen bzw. entfernen** wird geöffnet.
 3. Scrollen Sie in **Verfügbare Snap-Ins**nach unten, und doppelklicken Sie auf **Gruppenrichtlinienverwaltungs-Editor**. Das Dialogfeld **Gruppenrichtlinie Objekt auswählen** wird geöffnet.
 

@@ -2,24 +2,22 @@
 title: Verwenden der DNS-Richtlinie zum Anwenden von Filtern auf DNS-Abfragen
 description: Dieses Thema ist Teil des DNS-Richtlinien szenariohandbuchs für Windows Server 2016.
 manager: brianlic
-ms.prod: windows-server
-ms.technology: networking-dns
 ms.topic: article
 ms.assetid: b86beeac-b0bb-4373-b462-ad6fa6cbedfa
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 45dad1eb40caba7ac304fc640e3d56044254f08c
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 81afa40adc51a89a12e096000de1f11f13730df6
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80317830"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87964176"
 ---
 # <a name="use-dns-policy-for-applying-filters-on-dns-queries"></a>Verwenden der DNS-Richtlinie zum Anwenden von Filtern auf DNS-Abfragen
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-In diesem Thema erfahren Sie, wie Sie die DNS-Richtlinie in Windows Server&reg; 2016 konfigurieren, um Abfrage Filter basierend auf den von Ihnen bereitgestellten Kriterien zu erstellen. 
+In diesem Thema erfahren Sie, wie Sie die DNS-Richtlinie in Windows Server &reg; 2016 konfigurieren, um Abfrage Filter basierend auf den von Ihnen bereitgestellten Kriterien zu erstellen.
 
 Mithilfe von Abfrage Filtern in der DNS-Richtlinie können Sie den DNS-Server so konfigurieren, dass er basierend auf der DNS-Abfrage und dem DNS-Client, der die DNS-Abfrage sendet, Benutzer definiert reagiert
 
@@ -30,20 +28,20 @@ Ein weiteres Beispiel besteht darin, eine Abfrage Filter-Zulassungsliste zu erst
 ## <a name="query-filter-criteria"></a><a name="bkmk_criteria"></a>Abfrage Filterkriterien
 Sie können Abfrage Filter mit einer beliebigen logischen Kombination (und/oder/nicht) der folgenden Kriterien erstellen.
 
-|Name|Beschreibung|
+|Name|BESCHREIBUNG|
 |-----------------|---------------------|
 |Clientsubnetz|Name eines vordefinierten Clientsubnetzes. Wird verwendet, um das Subnetz zu überprüfen, aus dem die Abfrage gesendet wurde.|
-|Transport Protokoll|Das Transport Protokoll, das in der Abfrage verwendet wird. Mögliche Werte sind UDP und TCP.|
+|Transportprotokoll|Das Transport Protokoll, das in der Abfrage verwendet wird. Mögliche Werte sind UDP und TCP.|
 |Internetprotokoll|In der Abfrage verwendetes Netzwerkprotokoll. Mögliche Werte sind IPv4 und IPv6.|
 |IP-Adresse der Server Schnittstelle|IP-Adresse der Netzwerkschnittstelle des DNS-Servers, von dem die DNS-Anforderung empfangen wurde.|
 |FQDN|Der voll qualifizierte Domänen Name des Datensatzes in der Abfrage, mit der Möglichkeit, eine Platzhalter zu verwenden.|
-|Abfragetyp|Der Typ des abgefragten Datensatzes \(A, SRV, txt usw.\).|
+|Abfragetyp|Typ des Datensatzes \( , von dem A, SRV, txt usw. abgefragt wird \) .|
 |Tageszeit|Tageszeit, zu der die Abfrage empfangen wird.|
 
 In den folgenden Beispielen wird gezeigt, wie Sie Filter für die DNS-Richtlinie erstellen, die DNS-Namens Auflösungs Abfragen blockieren oder zulassen.
 
 >[!NOTE]
->Die Beispiel Befehle in diesem Thema verwenden den Windows PowerShell-Befehl **Add-dnsserverqueryresolutionpolicy**. Weitere Informationen finden Sie unter [Add-dnsserverqueryresolutionpolicy](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverqueryresolutionpolicy?view=win10-ps). 
+>Die Beispiel Befehle in diesem Thema verwenden den Windows PowerShell-Befehl **Add-dnsserverqueryresolutionpolicy**. Weitere Informationen finden Sie unter [Add-dnsserverqueryresolutionpolicy](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverqueryresolutionpolicy?view=win10-ps).
 
 ## <a name="block-queries-from-a-domain"></a><a name="bkmk_block1"></a>Blockieren von Abfragen aus einer Domäne
 
@@ -54,14 +52,14 @@ Die Richtlinie, die Sie in diesem Beispiel konfigurieren, wird nicht in einer be
 Mit dem folgenden Beispiel Befehl wird eine Richtlinie auf Server Ebene so konfiguriert, dass alle Abfragen mit dem Domänen **Suffix contosomalicious.com**blockiert werden.
 
 `
-Add-DnsServerQueryResolutionPolicy -Name "BlockListPolicy" -Action IGNORE -FQDN "EQ,*.contosomalicious.com" -PassThru 
+Add-DnsServerQueryResolutionPolicy -Name "BlockListPolicy" -Action IGNORE -FQDN "EQ,*.contosomalicious.com" -PassThru
 `
 
 >[!NOTE]
 >Wenn Sie den **Action** -Parameter mit dem Wert **Ignore**konfigurieren, wird der DNS-Server so konfiguriert, dass er Abfragen ohne Antwort löscht. Dies bewirkt, dass für den DNS-Client in der bösartigen Domäne ein Timeout auftritt.
 
 ## <a name="block-queries-from-a-subnet"></a><a name="bkmk_block2"></a>Blockieren von Abfragen aus einem Subnetz
-In diesem Beispiel können Sie Abfragen aus einem Subnetz blockieren, wenn Sie von Schadsoftware infiziert werden und versuchen, mithilfe Ihres DNS-Servers eine Verbindung mit böswilligen Sites herzustellen. 
+In diesem Beispiel können Sie Abfragen aus einem Subnetz blockieren, wenn Sie von Schadsoftware infiziert werden und versuchen, mithilfe Ihres DNS-Servers eine Verbindung mit böswilligen Sites herzustellen.
 
 "Add-dnsserverclientsubnet-Name" MaliciousSubnet06 "-IPv4Subnet 172.0.33.0/24-passthru
 
@@ -86,7 +84,7 @@ Sie können die DNS-Richtlinie nicht nur zum Blockieren von Abfragen verwenden, 
 Mit dem folgenden Beispiel Befehl können nur Computer und Geräte in der contoso.com und den untergeordneten Domänen den DNS-Server Abfragen.
 
 `
-Add-DnsServerQueryResolutionPolicy -Name "AllowListPolicyDomain" -Action IGNORE -FQDN "NE,*.contoso.com" -PassThru 
+Add-DnsServerQueryResolutionPolicy -Name "AllowListPolicyDomain" -Action IGNORE -FQDN "NE,*.contoso.com" -PassThru
 `
 
 ## <a name="allow-queries-only-from-a-subnet"></a><a name="bkmk_allow2"></a>Nur Abfragen aus einem Subnetz zulassen
@@ -100,7 +98,7 @@ Add-DnsServerQueryResolutionPolicy -Name "AllowListPolicySubnet” -Action IGNOR
 `
 
 ## <a name="allow-only-certain-qtypes"></a><a name="bkmk_allow3"></a>Nur bestimmte qtypes zulassen
-Sie können Allow-Listen auf qtypes anwenden. 
+Sie können Allow-Listen auf qtypes anwenden.
 
 Wenn Sie z. b. externe Kunden zum Abfragen der DNS-Server Schnittstelle 164.8.1.1 haben, können nur bestimmte qtypes abgefragt werden, während andere qtypes wie SRV-oder TXT-Einträge vorhanden sind, die von internen Servern zur Namensauflösung oder zu Überwachungszwecken verwendet werden.
 
@@ -108,4 +106,4 @@ Wenn Sie z. b. externe Kunden zum Abfragen der DNS-Server Schnittstelle 164.8.1.
 Add-DnsServerQueryResolutionPolicy -Name "AllowListQType" -Action IGNORE -QType "NE,A,AAAA,MX,NS,SOA" –ServerInterface “EQ,164.8.1.1” -PassThru
 `
 
-Sie können Tausende von DNS-Richtlinien gemäß Ihren Anforderungen für die Datenverkehrs Verwaltung erstellen, und alle neuen Richtlinien werden dynamisch angewendet, ohne dass der DNS-Server bei eingehenden Abfragen neu gestartet wird. 
+Sie können Tausende von DNS-Richtlinien gemäß Ihren Anforderungen für die Datenverkehrs Verwaltung erstellen, und alle neuen Richtlinien werden dynamisch angewendet, ohne dass der DNS-Server bei eingehenden Abfragen neu gestartet wird.

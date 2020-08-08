@@ -1,19 +1,17 @@
 ---
 title: Optimieren von DFS-Namespaces
-description: Dieser Artikel beschreibt, wie Sie DFS-Namespaces optimieren oder anpassen.
+description: In diesem Artikel wird beschrieben, wie Sie DFS-Namespaces optimieren oder optimieren.
 ms.date: 6/5/2017
-ms.prod: windows-server
-ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 011512deaeb99ded7d0bfc32a48f19ab3b622475
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 348a34e24cf7d22dc376df37607f21f1dceea74a
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386151"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87939396"
 ---
 # <a name="tuning-dfs-namespaces"></a>Optimieren von DFS-Namespaces
 
@@ -30,4 +28,4 @@ Nachdem Sie einen Namespace erstellt und Ordner und Ziele hinzugefügt haben, le
 -   [Verwenden von geerbten Berechtigungen mit Zugriffs basierter Enumeration](using-inherited-permissions-with-access-based-enumeration.md)
 
 > [!NOTE]
-> Um nach Ordnern oder Ordnerzielen zu suchen, wählen Sie einen Namespace, klicken Sie auf die Registerkarte **Suche**, geben Sie die Suchzeichenfolge in das Textfeld ein und klicken Sie dann auf **Suche**.
+> Um Ordner oder Ordner Ziele zu suchen, wählen Sie einen Namespace aus, klicken Sie auf die Registerkarte **Suchen** , geben Sie die Such Zeichenfolge in das Textfeld ein, und klicken Sie dann auf **Suchen**.

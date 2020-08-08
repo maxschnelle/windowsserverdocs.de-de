@@ -1,20 +1,18 @@
 ---
 title: Beheben von Problemen auf dem DHCP-Server
 description: Diese Artilce bietet eine Einführung in die Behandlung von Problemen auf dem DHCP-Server und das Sammeln von Daten.
-ms.prod: windows-server
 ms.service: na
 manager: dcscontentpm
-ms.technology: server-general
 ms.date: 5/26/2020
 ms.topic: article
 author: Deland-Han
 ms.author: delhan
-ms.openlocfilehash: 5ec2ef358cfaf7841b093843848f2ea5ee42433e
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: d6fc69c15c3465769232d89f70a65ca915d0584e
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87181896"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87989036"
 ---
 # <a name="troubleshoot-problems-on-the-dhcp-server"></a>Beheben von Problemen auf dem DHCP-Server
 
@@ -26,7 +24,7 @@ In diesem Artikel wird erläutert, wie Sie Probleme beheben, die auf dem DHCP-Se
 
   - Der DHCP-Server Dienst wird gestartet und ausgeführt. Um diese Einstellung zu überprüfen, führen Sie den Befehl **net Start** aus, und suchen Sie nach **DHCP-Server**.
 
-  - Der DHCP-Server ist autorisiert. Weitere Informationen finden Sie [unter Windows-DHCP-Server Autorisierung in einer Domäne](https://docs.microsoft.com/openspecs/windows_protocols/ms-dhcpe/56f8870b-a7c1-4db1-8a86-f69079fe5077)
+  - Der DHCP-Server ist autorisiert. Weitere Informationen finden Sie [unter Windows-DHCP-Server Autorisierung in einer Domäne](/openspecs/windows_protocols/ms-dhcpe/56f8870b-a7c1-4db1-8a86-f69079fe5077)
 
   - Vergewissern Sie sich, dass IP-Adressleases im DHCP-Serverbereich für das Subnetz verfügbar sind, in dem sich der DHCP-Client befindet. Informationen hierzu finden Sie in der Statistik für den entsprechenden Bereich in der DHCP-Server-Verwaltungskonsole.
 

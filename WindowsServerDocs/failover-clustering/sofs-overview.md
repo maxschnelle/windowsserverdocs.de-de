@@ -1,20 +1,18 @@
 ---
 title: Übersicht über Dateiserver mit horizontaler Skalierung für Anwendungsdaten
 description: Übersicht über das Dateiserver mit horizontaler Skalierung Feature für Windows Server 201 R2 und Windows Server 2012.
-ms.prod: windows-server
 ms.topic: article
 author: JasonGerend
 ms.author: jgerend
 manager: lizross
-ms.technology: storage-failover-clustering
 ms.date: 04/26/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 8bcfb53b04a03a259c712dd4b3003f8c4a66d8ff
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: dfd39210b6db8516fafbe8b437c7d38cd7839bad
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87181716"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87972387"
 ---
 # <a name="scale-out-file-server-for-application-data-overview"></a>Übersicht über Dateiserver mit horizontaler Skalierung für Anwendungsdaten
 
@@ -66,7 +64,7 @@ In der folgenden Tabelle sind die neuen Funktionen in SMB 3.0, die gängigen Win
 <thead>
 <tr class="header">
 <th>Technologiebereich</th>
-<th>Funktion</th>
+<th>Feature</th>
 <th>Dateiservercluster zur allgemeinen Verwendung</th>
 <th>Dateiserver mit horizontaler Skalierung</th>
 </tr>
@@ -250,7 +248,7 @@ In der folgenden Tabelle werden die Features dieses Szenarios und die Art der be
 <table>
 <thead>
 <tr class="header">
-<th>Funktion</th>
+<th>Feature</th>
 <th>Auf welche Weise dieses Szenario unterstützt wird</th>
 </tr>
 </thead>

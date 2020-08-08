@@ -1,20 +1,18 @@
 ---
 title: Remote Verwaltung von Hyper-V-Hosts
 description: Beschreibt die Versions Kompatibilität zwischen Hyper-v-Hosts und Hyper-v-Manager sowie das Herstellen einer Verbindung mit Remote Hosts in verschiedenen Umgebungen, einschließlich Domänen übergreifender und eigenständiger Umgebungen.
-ms.prod: windows-server
 manager: dongill
-ms.technology: compute-hyper-v
 ms.topic: article
 ms.assetid: 2d34e98c-6134-479b-8000-3eb360b8b8a3
 author: kbdazure
 ms.author: kathydav
 ms.date: 12/06/2016
-ms.openlocfilehash: bbd96e35cbab94f3e10a4f62f785db7724308a0f
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 86e8ca55dbd61dca98054e15c06394f03190122e
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85471105"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87989748"
 ---
 # <a name="remotely-manage-hyper-v-hosts-with-hyper-v-manager"></a>Remoteverwaltung von Hyper-V-Hosts mit Hyper-V-Manager
 
@@ -122,7 +120,7 @@ Gehen Sie dazu folgendermaßen vor:
    Enable-WSManCredSSP -Role server
    ```
 
-    Weitere Informationen finden Sie unter [enable-psremoting](https://technet.microsoft.com/library/hh849694.aspx) und [enable-wsmankredssp](https://technet.microsoft.com/library/hh849872.aspx).
+    Weitere Informationen finden Sie unter [enable-psremoting](/powershell/module/microsoft.powershell.core/enable-psremoting?view=powershell-7) und [enable-wsmankredssp](/powershell/module/microsoft.wsman.management/enable-wsmancredssp?view=powershell-7).
 
 Konfigurieren Sie als nächstes den Computer, den Sie zum Verwalten des Hyper-V-Hosts verwenden.
 
@@ -145,7 +143,7 @@ Konfigurieren Sie als nächstes den Computer, den Sie zum Verwalten des Hyper-V-
 >[!NOTE]
 > Dies funktioniert nur für Windows Server 2016-oder Windows 10- **Remote** Hosts.
 
-Informationen zu Cmdlets finden Sie unter [Set-Item](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.management/set-item) und [enable-wsmankredssp](https://technet.microsoft.com/library/hh849872.aspx).
+Informationen zu Cmdlets finden Sie unter [Set-Item](/powershell/module/microsoft.powershell.management/set-item?view=powershell-7) und [enable-wsmankredssp](/powershell/module/microsoft.wsman.management/enable-wsmancredssp?view=powershell-7).
 
 ## <a name="install-hyper-v-manager"></a>Installieren von Hyper-V-Manager
 
@@ -153,7 +151,7 @@ Wenn Sie ein UI-Tool verwenden möchten, wählen Sie das geeignete für das Betr
 
 Öffnen Sie unter Windows Server Server-Manager \> **Verwalten** \> **Rollen und Features hinzufügen**. Wechseln Sie zur Seite " **Features** ", und erweitern Sie **Remote Server-Verwaltungs Tools** \> **Rollen Verwaltungs Tools** \> **Hyper-V-Verwaltungs Tools**.
 
-Unter Windows ist Hyper-v-Manager auf [jedem Windows-Betriebssystem verfügbar, das Hyper-v umfasst](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_compatibility).
+Unter Windows ist Hyper-v-Manager auf [jedem Windows-Betriebssystem verfügbar, das Hyper-v umfasst](/virtualization/hyper-v-on-windows/reference/hyper-v-requirements).
 
 1. Klicken Sie auf dem Windows-Desktop auf die Schaltfläche Start, und geben Sie **Programme und Funktionen**ein.
 1. Klicken Sie in den Suchergebnissen auf **Programme und Funktionen**.
@@ -167,7 +165,6 @@ Um Windows PowerShell zu verwenden, führen Sie den folgenden Befehl als Adminis
 add-windowsfeature rsat-hyper-v-tools
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 [Installieren von Hyper-V](../get-started/Install-the-Hyper-V-role-on-Windows-Server.md)
-

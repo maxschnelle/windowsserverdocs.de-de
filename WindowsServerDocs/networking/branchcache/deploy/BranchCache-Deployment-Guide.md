@@ -6,12 +6,12 @@ ms.topic: get-started-article
 ms.assetid: 3830b356-36d3-44f9-a1d7-990ff3e57403
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 6fea97938343039f0e2e76aaf0a653672b11faea
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 2868bfcca87f44ee9c29aa4c36de3486c660ee62
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87971947"
+ms.locfileid: "87989169"
 ---
 # <a name="branchcache-deployment-guide"></a>BranchCache-Bereitstellungshandbuch
 
@@ -56,7 +56,7 @@ Dieses Handbuch enthält auch Anweisungen zum Bereitstellen von drei Arten von I
 
 -   **Dateiserver basierte Inhalts Server**. Auf diesen Inhalts Servern müssen die Versionen Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 oder Windows Server 2008 R2 ausgeführt werden, die BranchCache unterstützen und auf denen die Server Rolle "Dateidienste" installiert ist. Außerdem muss der Rollen Dienst " **BranchCache für Netzwerkdateien** " der Server Rolle "Dateidienste" installiert und konfiguriert werden. Inhaltsserver dieses Typs senden Inhalte über SMB (Server Message Block) an BranchCache-Clientcomputer.
 
-Weitere Informationen finden Sie unter [Betriebssystemversionen für BranchCache](https://technet.microsoft.com/windows-server-docs/networking/branchcache/branchcache#a-namebkmkosaoperating-system-versions-for-branchcache).
+Weitere Informationen finden Sie unter [Betriebssystemversionen für BranchCache](../branchcache.md#bkmk_os).
 
 ### <a name="branchcache-deployment-requirements"></a>BranchCache-Bereitstellungs Anforderungen
 
@@ -66,7 +66,7 @@ Im folgenden finden Sie die Anforderungen für die Bereitstellung von BranchCach
 
 -   Auf **Client Computern** muss Windows 10, Windows 8.1 oder Windows 8 ausgeführt werden, um das aktuellste Bereitstellungs Modell und die in Windows Server 2012 eingeführten Verbesserungen für das segmentieren und hashten nutzen zu können.
 
--   Auf **gehosteten Cache Servern** muss Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 ausgeführt werden, um die in diesem Dokument beschriebenen Verbesserungen für die Bereitstellung und Skalierungs Funktionen nutzen zu können.  Ein Computer, auf dem eines der Betriebssysteme ausgeführt wird, das als gehosteter Cache Server konfiguriert ist, kann weiterhin Client Computern unter Windows 7 bereitstellen. zu diesem Zweck muss er jedoch mit einem Zertifikat ausgestattet sein, das für die Transport Layer Security (TLS) geeignet ist, wie im Windows Server 2008 R2-und Windows 7 [BranchCache-Bereitstellungs Handbuch](https://technet.microsoft.com/library/ee649232.aspx)beschrieben.
+-   Auf **gehosteten Cache Servern** muss Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 ausgeführt werden, um die in diesem Dokument beschriebenen Verbesserungen für die Bereitstellung und Skalierungs Funktionen nutzen zu können.  Ein Computer, auf dem eines der Betriebssysteme ausgeführt wird, das als gehosteter Cache Server konfiguriert ist, kann weiterhin Client Computern unter Windows 7 bereitstellen. zu diesem Zweck muss er jedoch mit einem Zertifikat ausgestattet sein, das für die Transport Layer Security (TLS) geeignet ist, wie im Windows Server 2008 R2-und Windows 7 [BranchCache-Bereitstellungs Handbuch](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee649232(v=ws.10))beschrieben.
 
 -   **Eine Active Directory Domäne** ist erforderlich, um die automatische Ermittlung von Gruppenrichtlinie und gehosteten Caches zu nutzen, aber für die Verwendung von BranchCache ist keine Domäne erforderlich.  Sie können einzelne Computer mithilfe von Windows PowerShell konfigurieren. Außerdem ist es nicht erforderlich, dass auf Ihren Domänen Controllern Windows Server 2012 oder höher ausgeführt wird, um neue BranchCache-Gruppenrichtlinie Einstellungen zu nutzen. Sie können die BranchCache-Verwaltungsvorlagen auf Domänen Controllern importieren, auf denen frühere Betriebssysteme ausgeführt werden, oder Sie können die Gruppenrichtlinien Objekte Remote auf anderen Computern erstellen, auf denen Windows 10, Windows Server 2016, Windows 8.1, Windows Server 2012 R2, Windows 8 oder Windows Server 2012 ausgeführt wird.
 
@@ -79,8 +79,5 @@ BranchCache wurde erstmals in Windows 7 &reg; und Windows Server &reg; 2008 R2 e
 > [!NOTE]
 > Wenn Sie BranchCache in anderen Betriebssystemen als Windows Server 2016 bereitstellen, sind die folgenden Dokumentations Ressourcen verfügbar.
 >
-> - Informationen zu BranchCache in Windows 8, Windows 8.1, Windows Server 2012 und Windows Server 2012 R2 finden Sie unter [Übersicht über BranchCache](https://technet.microsoft.com/library/hh831696.aspx).
-> - Informationen zu BranchCache in Windows 7 und Windows Server 2008 R2 finden Sie unter [BranchCache für Windows Server 2008 R2](https://technet.microsoft.com/library/dd996634.aspx).
-
-
-
+> - Informationen zu BranchCache in Windows 8, Windows 8.1, Windows Server 2012 und Windows Server 2012 R2 finden Sie unter [Übersicht über BranchCache](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831696(v=ws.11)).
+> - Informationen zu BranchCache in Windows 7 und Windows Server 2008 R2 finden Sie unter [BranchCache für Windows Server 2008 R2](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd996634(v=ws.10)).

@@ -6,14 +6,12 @@ ms.author: jgerend
 manager: elizapo
 ms.date: 03/26/2020
 ms.topic: article
-ms.prod: windows-server
-ms.technology: storage
-ms.openlocfilehash: 1403e0ecd12c4c15924781d75bd9127874018451
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 18c9bb2bf22f107b988942706850907c67b5ec9a
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86953892"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87939328"
 ---
 # <a name="storage-migration-service-overview"></a>Übersicht über den Speicher Migrationsdienst
 
@@ -51,7 +49,7 @@ Im folgenden Video wird gezeigt, wie Sie Storage Migration Service verwenden, um
 
 > [!VIDEO https://www.youtube.com/embed/h-Xc9j1w144]
 
-## <a name="requirements"></a>Requirements (Anforderungen)
+## <a name="requirements"></a>Anforderungen
 
 Um Storage Migration Service verwenden zu können, benötigen Sie Folgendes:
 
@@ -136,7 +134,7 @@ In Windows Admin Center, Version 1910, können Sie virtuelle Azure-Computer bere
 
    Im folgenden Video wird gezeigt, wie Sie mithilfe von Storage Migration Service zu Azure-VMS migrieren.
    > [!VIDEO https://www.youtube-nocookie.com/embed/k8Z9LuVL0xQ]
-   
+
 Wenn Sie virtuelle Computer zu Azure migrieren und verschieben möchten, ohne zu einem späteren Betriebssystem zu migrieren, sollten Sie die Verwendung von Azure migrate in Erwägung gezogen. Weitere Informationen finden Sie unter [Azure migrate Übersicht](https://go.microsoft.com/fwlink/?linkid=2056064).
 
 ## <a name="whats-new-in-storage-migration-service"></a>Neuerungen bei Storage Migration Service
@@ -151,7 +149,7 @@ Die folgenden neuen Funktionen sind verfügbar, wenn Sie den Speicher Migrations
 - Vereinfachte Synchronisierung von migrierten Freigaben zu Azure mithilfe von Azure-Dateisynchronisierung
 - Migrieren zu neuen Netzwerken wie etwa Azure
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Migrieren eines Dateiservers mithilfe von Storage Migration Service](migrate-data.md)
 - [Häufig gestellte Fragen (FAQ) zu Storage Migration Services](faq.md)

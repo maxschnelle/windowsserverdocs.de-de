@@ -1,51 +1,49 @@
 ---
-title: Vorbereiten der Entwicklungsumgebung
-description: Vorbereiten der Entwicklungs-Umgebung Windows Admin Center SDK (Projekt Honolulu)
-ms.technology: manage
+title: Vorbereiten Ihrer Entwicklungsumgebung
+description: Vorbereiten der Entwicklungsumgebung Windows Admin Center SDK (Projekt Honolulu)
 ms.topic: article
 author: nwashburn-ms
 ms.author: niwashbu
 ms.localizationpriority: medium
 ms.date: 09/18/2018
-ms.prod: windows-server
-ms.openlocfilehash: 136107210d2a8a4b336c9e4eb809e2ca096bfba2
-ms.sourcegitcommit: 20d07170c7f3094c2fb4455f54b13ec4b102f2d7
+ms.openlocfilehash: 09d39aa027adf360c339da434b16038a3b8e5c90
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81269217"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87964596"
 ---
-# <a name="prepare-your-development-environment"></a>Vorbereiten der Entwicklungsumgebung
+# <a name="prepare-your-development-environment"></a>Vorbereiten Ihrer Entwicklungsumgebung
 
->Gilt für: Windows Admin Center, Windows Admin Center Vorschau
+>Gilt für: Windows Admin Center, Windows Admin Center-Vorschau
 
 Beginnen wir mit der Entwicklung von Erweiterungen mit dem Windows Admin Center SDK!  In diesem Dokument wird der Prozess behandelt, mit dem Sie Ihre Umgebung einrichten und eine Erweiterung für Windows Admin Center erstellen und testen können.
 
 > [!NOTE]
-> Neue Windows Admin Center SDK?  Erfahren Sie mehr über [Erweiterungen für Windows Admin Center](extensibility-overview.md)
+> Neu beim Windows Admin Center SDK?  Weitere Informationen zu [Erweiterungen für Windows Admin Center](extensibility-overview.md)
 
-Zur Vorbereitung Ihrer Entwicklungsumgebung, führen Sie die folgenden Schritte aus:
+Führen Sie die folgenden Schritte aus, um Ihre Entwicklungsumgebung vorzubereiten:
 
-## <a name="install-prerequisites"></a>Voraussetzungen installieren
+## <a name="install-prerequisites"></a>Installieren der erforderlichen Komponenten
 
-Zunächst bei der Entwicklung mit dem SDK herunter, und installieren Sie die folgenden Komponenten:
+Zum Einstieg in die Entwicklung mit dem SDK müssen Sie die folgenden Voraussetzungen herunterladen und installieren:
 
 * [Windows Admin Center](https://aka.ms/WACDownloadPage) (GA-oder Vorschauversion)
 * Visual Studio oder [Visual Studio Code](https://code.visualstudio.com)
-* [Node. js](https://nodejs.org/en/download/releases/) (Version 10.3.0)
+* [Node.js](https://nodejs.org/en/download/releases/) (Version 10.3.0)
 * [Knoten Paket-Manager](https://npmjs.com/get-npm) (8.12.0 oder höher)
-* [NuGet](https://www.nuget.org/downloads) (zum Veröffentlichen von Erweiterungen)
+* [Nuget](https://www.nuget.org/downloads) (zum Veröffentlichen von Erweiterungen)
 
 > [!NOTE]
-> Sie müssen zum Installieren und Windows Admin Center im Dev-Modus, um die folgenden Schritte ausführen. Dev Modus ermöglicht Windows Admin Center nicht signierte Erweiterung Pakete geladen werden. Das Windows Admin Center kann nur im Entwicklungsmodus auf einem Windows 10-Computer installiert werden. 
+> Sie müssen das Windows Admin Center im Entwicklungsmodus installieren und ausführen, um die folgenden Schritte ausführen zu können. Der Entwicklungsmodus ermöglicht Windows Admin Center das Laden von nicht signierten Erweiterungs Paketen. Das Windows Admin Center kann nur im Entwicklungsmodus auf einem Windows 10-Computer installiert werden.
 >
->  Installieren Sie zum Aktivieren des Dev Modus Windows Admin Center über die Befehlszeile mit dem Parameter DEV_MODE = 1. Im folgenden Beispiel ersetzen ```<version>``` mit der Version, die Sie, d. h. installieren ```WindowsAdminCenter1809.msi```.
+>  Um den Entwicklungsmodus zu aktivieren, installieren Sie das Windows Admin Center über die Befehlszeile mit dem Parameter DEV_MODE = 1. Ersetzen Sie im folgenden Beispiel ```<version>``` durch die Version, die Sie installieren, z. b. ```WindowsAdminCenter1809.msi``` .
 >
 > ```msiexec /i WindowsAdminCenter<version>.msi DEV_MODE=1```
 
 ## <a name="install-global-dependencies"></a>Installieren von globalen Abhängigkeiten
 
-Installieren oder aktualisieren Sie anschließend die Abhängigkeiten, die für Ihre Projekte erforderlich sind, mit dem Knoten Paket-Manager. Diese Abhängigkeiten werden global installiert und werden für alle Projekte verfügbar sein.
+Installieren oder aktualisieren Sie anschließend die Abhängigkeiten, die für Ihre Projekte erforderlich sind, mit dem Knoten Paket-Manager. Diese Abhängigkeiten werden global installiert und sind für alle Projekte verfügbar.
 
 ```
 npm install -g npm
@@ -59,16 +57,16 @@ npm install -g windows-admin-center-cli
 ```
 
 >[!NOTE]
->Sie können eine spätere Version von @angular/cliinstallieren. Beachten Sie jedoch, dass bei der Installation einer höheren Version als "7.1.2" während des Gulp-Buildschritts eine Warnung angezeigt wird, dass die lokale CLI-Version nicht mit der installierten Version identisch ist.
+>Sie können eine neuere Version von installieren. Beachten @angular/cli Sie jedoch, dass bei der Installation einer höheren Version als "7.1.2" während des Gulp-Buildschritts eine Warnung angezeigt wird, dass die lokale CLI-Version nicht mit der installierten Version identisch ist.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 Nachdem Sie Ihre Umgebung vorbereitet haben, können Sie nun mit dem Erstellen von Inhalten beginnen.
 
-- Erstellen Sie eine Erweiterung [tool](develop-tool.md)
-- Erstellen Sie eine [Lösung](develop-solution.md) -Erweiterung
-- Erstellen Sie ein [Gateway-Plug-in](develop-gateway-plugin.md)
-- Weitere Informationen finden Sie mit unserem [Führungslinien](guides.md)
+- Erstellen einer [Tool](develop-tool.md) Erweiterung
+- Erstellen einer [solution](develop-solution.md) projektmappenerweiterung
+- Erstellen eines [Gateway-Plug](develop-gateway-plugin.md) -ins
+- Weitere Informationen finden Sie in unseren [Leitfäden](guides.md)
 
 ## <a name="sdk-design-toolkit"></a>SDK-Entwurfs-Toolkit
 

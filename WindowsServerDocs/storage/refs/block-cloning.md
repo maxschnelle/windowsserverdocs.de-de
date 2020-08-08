@@ -6,14 +6,12 @@ ms.author: gawatu
 manager: gawatu
 ms.date: 10/17/2018
 ms.topic: article
-ms.prod: windows-server
-ms.technology: storage-file-systems
-ms.openlocfilehash: cd74468029ff973846ddfd10cce8ba0e26a607e9
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 01177b24646f7f1213378f08c930cdaae8f591de
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86961392"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87939435"
 ---
 # <a name="block-cloning-on-refs"></a>Block-Clone-Vorgänge auf ReFS
 
@@ -61,10 +59,10 @@ Nach dem Ändern des Schreibvorgangs wird Region B weiterhin von beide Dateien v
 - Der Block-Clone-Vorgang durchbricht die Shared Opportunistic Sperrfunktion (auch bekannt als [Level 2 Opportunistic Locks](/windows/win32/fileio/types-of-opportunistic-locks)).
 - Das ReFS-Volume muss mit Windows Server 2016 formatiert worden sein und wenn Failoverclustering verwendet wird muss die Clustering-Funktionsebene Windows Server 2016 oder höher zum Zeitpunkt der Formatierung verwendet haben.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [ReFS – Übersicht](refs-overview.md)
 -   [ReFS Integrity Streams](integrity-streams.md)
--   [Übersicht über direkte Speicherplätze](../storage-spaces/storage-spaces-direct-overview.md)
+-   [Direkte Speicherplätze – Übersicht](../storage-spaces/storage-spaces-direct-overview.md)
 -   [DUPLICATE_EXTENTS_DATA](/windows/win32/api/winioctl/ns-winioctl-duplicate_extents_data)
 -   [FSCTL_DUPLICATE_EXTENTS_TO_FILE](/windows/win32/api/winioctl/ni-winioctl-fsctl_duplicate_extents_to_file)
