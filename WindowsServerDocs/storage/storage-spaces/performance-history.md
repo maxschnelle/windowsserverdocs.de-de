@@ -2,17 +2,16 @@
 title: Leistungsverlauf für Direkte Speicherplätze
 ms.author: cosdar
 manager: eldenc
-ms.technology: storage-spaces
 ms.topic: article
 author: cosmosdarwin
 ms.date: 09/07/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: ce984d3a88f46b77773c524e5b75135930e1bb03
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: f3c0babfad0ebecdac40262a783ecf683d6dc1e8
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86961792"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87968787"
 ---
 # <a name="performance-history-for-storage-spaces-direct"></a>Leistungsverlauf für Direkte Speicherplätze
 
@@ -226,6 +225,6 @@ Wenn im Diagramm "*keine Daten verfügbar*" angezeigt werden, gehen Sie wie folg
 
 5. Wenn der Befehl im vorherigen Schritt nichts zurückgibt, können Sie versuchen, den Integritätsdienst (der Leistungs Verlauf sammelt) zu starten, indem Sie `Stop-ClusterResource Health ; Start-ClusterResource Health` in PowerShell ausführen.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
-- [Übersicht über direkte Speicherplätze](storage-spaces-direct-overview.md)
+- [Direkte Speicherplätze – Übersicht](storage-spaces-direct-overview.md)

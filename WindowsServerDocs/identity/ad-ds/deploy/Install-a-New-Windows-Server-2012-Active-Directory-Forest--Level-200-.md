@@ -6,14 +6,12 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server
-ms.technology: identity-adds
-ms.openlocfilehash: 273651b8be1352218feb76c50cfd39cf9580a8a3
-ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
+ms.openlocfilehash: 0b83588268e6a6c8dd685082b3862520fcbd80d5
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87519547"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87968257"
 ---
 # <a name="install-a-new-windows-server-2012-active-directory-forest-level-200"></a>Installieren einer neuen Active Directory-Gesamtstrukturdomäne in Windows Server 2012 (Stufe 200)
 
@@ -286,7 +284,7 @@ Auf der Seite **Pfade** können Sie die standardmäßigen Ordnerpfade der AD DS-
 
 Auf der Seite **Optionen prüfen** können Sie vor dem Starten der Installation Ihre Einstellungen überprüfen und sicherstellen, dass Ihre Anforderungen erfüllt werden. Dies ist jedoch nicht die letzte Möglichkeit, um die Installation mit Server-Manager zu stoppen. Dies ist lediglich eine Option zum Bestätigen Ihrer Einstellungen, bevor Sie die Konfiguration fortsetze
 
-Die Seite **Optionen prüfen** im Server-Manager bietet zudem die optionale Schaltfläche **Skript anzeigen** zum Erstellen einer Unicode-Textdatei, die die aktuelle ADDSDeployment-Konfiguration als einzelnes Windows PowerShell-Skript enthält. Dies ermöglicht Ihnen die Verwendung der grafischen Oberfläche von Server-Manager als Windows PowerShell-Bereitstellungsstudio. Mithilfe des Konfigurations-Assistenten für die Active Directory-Domänendienste können Sie Optionen konfigurieren, die Konfiguration exportieren und den Assistenten abbrechen. Bei diesem Prozess wird ein gültiges und syntaktisch korrektes Muster zur weiteren Änderung oder direkten Verwendung erstellt. Beispiel:
+Die Seite **Optionen prüfen** im Server-Manager bietet zudem die optionale Schaltfläche **Skript anzeigen** zum Erstellen einer Unicode-Textdatei, die die aktuelle ADDSDeployment-Konfiguration als einzelnes Windows PowerShell-Skript enthält. Dies ermöglicht Ihnen die Verwendung der grafischen Oberfläche von Server-Manager als Windows PowerShell-Bereitstellungsstudio. Mithilfe des Konfigurations-Assistenten für die Active Directory-Domänendienste können Sie Optionen konfigurieren, die Konfiguration exportieren und den Assistenten abbrechen. Bei diesem Prozess wird ein gültiges und syntaktisch korrektes Muster zur weiteren Änderung oder direkten Verwendung erstellt. Zum Beispiel:
 
 ```powershell
 #
@@ -365,7 +363,7 @@ Verwenden Sie **Get-Command**, um Aliase und Cmdlets in ServerManager zu exporti
 Get-Command -module ServerManager
 ```
 
-Beispiel:
+Zum Beispiel:
 
 ![Neue Gesamtstruktur installieren](media/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-/ADDS_PSGetCommand.png)
 
@@ -381,7 +379,7 @@ Falls Sie die AD DS-Management-Tools installieren möchten - was sehr zu empfehl
 Install-WindowsFeature -name AD-Domain-Services -IncludeManagementTools
 ```
 
-Beispiel:
+Zum Beispiel:
 
 ![Neue Gesamtstruktur installieren](media/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-/ADDS_PSInstallWinFeature.png)
 
@@ -415,7 +413,7 @@ Windows PowerShell 3.0 hat die für diese Pipeline-Operation benötigten Befehls
 Get-WindowsFeature | where {$_.displayname - like "*active dir*"}
 ```
 
-Mit der Windows PowerShell-Pipeline können Sie lesbare Ergebnisse erzielen. Beispiel:
+Mit der Windows PowerShell-Pipeline können Sie lesbare Ergebnisse erzielen. Zum Beispiel:
 
 ```powershell
 Install-WindowsFeature | Format-List
@@ -493,7 +491,7 @@ Sie können eine sichere Zeichenfolge auch als konvertierte Klartextvariable ang
 -safemodeadministratorpassword (convertto-securestring "Password1" -asplaintext -force)
 ```
 
-Zuletzt sollten Sie das verborgene Kennwort in einer Datei speichern und später wiederverwenden, ohne dass jemals das Klartextkennwort erscheint. Beispiel:
+Zuletzt sollten Sie das verborgene Kennwort in einer Datei speichern und später wiederverwenden, ohne dass jemals das Klartextkennwort erscheint. Zum Beispiel:
 
 ```powershell
 $file = "c:\pw.txt"
@@ -540,7 +538,7 @@ Die entsprechenden Server-Manager-**Pfade** für die ADDSDeployment-Cmdlet-Argum
 
 Verwenden Sie das optionale **Whatif**-Argument für das Cmdlet **Install-ADDSForest**, um die Konfigurationsinformationen zu überprüfen. Auf diese Weise können Sie die expliziten und impliziten Werte der Argumente eines Cmdlets anzeigen.
 
-Beispiel:
+Zum Beispiel:
 
 ![Neue Gesamtstruktur installieren](media/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-/ADDS_PSPaths.png)
 

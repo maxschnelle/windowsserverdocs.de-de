@@ -1,20 +1,18 @@
 ---
 title: Bewährte Methoden für die Ausführung von FreeBSD unter Hyper-V
 description: Bietet Empfehlungen zum Ausführen von FreeBSD auf virtuellen Computern.
-ms.prod: windows-server
 manager: dongill
-ms.technology: compute-hyper-v
 ms.topic: article
 ms.assetid: 0c66f1c8-2606-43a3-b4cc-166acaaf2d2a
 author: shirgall
 ms.author: kathydav
 ms.date: 01/09/2017
-ms.openlocfilehash: 18f59020ed4878e9a54150dcda18bca3da1dd614
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: f0903fa53e5a9384e3940c53fb880090108aa492
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80853283"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87968607"
 ---
 # <a name="best-practices-for-running-freebsd-on-hyper-v"></a>Bewährte Methoden für die Ausführung von FreeBSD unter Hyper-V
 
@@ -26,13 +24,13 @@ Dieses Thema enthält eine Liste der Empfehlungen zum Ausführen von FreeBSD als
 
 Das Common Address Redundanz-Protokoll (CARP) ermöglicht es mehreren Hosts, dieselbe IP-Adresse und virtuelle Host-ID (vhid) zu verwenden, um eine hohe Verfügbarkeit für einen oder mehrere Dienste zu gewährleisten. Wenn mindestens ein Host ausfällt, übernehmen die anderen Hosts transparent, sodass Benutzer keinen Dienst Fehler bemerken. Um Karpfen in FreeBSD 10,2 zu verwenden, befolgen Sie die Anweisungen im [FreeBSD-Handbuch](https://www.freebsd.org/doc/en/books/handbook/carp.html) , und führen Sie im Hyper-V-Manager die folgenden Schritte aus.
 
-* Vergewissern Sie sich, dass der virtuelle Computer über einen Netzwerk Adapter verfügt und ihm ein virtueller Switch zugewiesen ist. Wählen Sie den virtuellen Computer aus, und wählen Sie **Aktionen** > **Einstellungen**aus.
+* Vergewissern Sie sich, dass der virtuelle Computer über einen Netzwerk Adapter verfügt und ihm ein virtueller Switch zugewiesen ist. Wählen Sie den virtuellen Computer aus, und wählen Sie **Aktions**  >  **Einstellungen**.
 
 ![Screenshot der Einstellungen für virtuelle Computer mit ausgewähltem Netzwerkadapter](media/Hyper-V_Settings_NetworkAdapter.png)
 
-* Spoofing von Mac-Adressen aktivieren. Gehen Sie hierzu wie folgt vor:
+* Spoofing von Mac-Adressen aktivieren. Gehen Sie dazu folgendermaßen vor:
 
-   1. Wählen Sie den virtuellen Computer aus, und wählen Sie **Aktionen** > **Einstellungen**aus.
+   1. Wählen Sie den virtuellen Computer aus, und wählen Sie **Aktions**  >  **Einstellungen**.
 
    2. Erweitern Sie **Netzwerk Adapter** , und wählen Sie **Erweiterte Features**aus.
 
@@ -40,7 +38,7 @@ Das Common Address Redundanz-Protokoll (CARP) ermöglicht es mehreren Hosts, die
 
 ## <a name="create-labels-for-disk-devices"></a>Erstellen von Bezeichnungen für Datenträger Geräte
 
-Während des Starts werden Geräteknoten erstellt, wenn neue Geräte erkannt werden. Dies kann bedeuten, dass sich Gerätenamen ändern können, wenn neue Geräte hinzugefügt werden. Wenn beim Starten ein Fehler bei der Stamm einreihe auftritt, sollten Sie für jede IDE-Partition Bezeichnungen erstellen, um Konflikte und Änderungen zu vermeiden. Informationen zur Vorgehensweise finden Sie unter bezeichnen von Datenträger [Geräten](https://www.freebsd.org/doc/handbook/geom-glabel.html). Im folgenden finden Sie Beispiele. 
+Während des Starts werden Geräteknoten erstellt, wenn neue Geräte erkannt werden. Dies kann bedeuten, dass sich Gerätenamen ändern können, wenn neue Geräte hinzugefügt werden. Wenn beim Starten ein Fehler bei der Stamm einreihe auftritt, sollten Sie für jede IDE-Partition Bezeichnungen erstellen, um Konflikte und Änderungen zu vermeiden. Informationen zur Vorgehensweise finden Sie unter bezeichnen von Datenträger [Geräten](https://www.freebsd.org/doc/handbook/geom-glabel.html). Im folgenden finden Sie Beispiele.
 
 > [!IMPORTANT]
 > Erstellen Sie vor dem vornehmen von Änderungen eine Sicherungskopie Ihrer Datei.
@@ -88,6 +86,6 @@ Wenn der virtuelle Switch auf dem Host auf dem Drahtlos Netzwerkadapter basiert,
 ```
 
 
-Siehe auch
+Weitere Informationen
 
 * [Unterstützte virtuelle FreeBSD-Maschinen auf Hyper-V](Supported-FreeBSD-virtual-machines-on-Hyper-V.md)

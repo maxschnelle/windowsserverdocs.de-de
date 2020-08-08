@@ -1,18 +1,16 @@
 ---
 title: Verhindern eines Kerberos-Änderungs Kennworts, das RC4-Geheimnis Schlüssel verwendet
-ms.prod: windows-server
 ms.topic: article
 ms.assetid: de207d55-aa3d-4c16-bd3b-496db43663a4
 manager: alanth
 author: justinha
-ms.technology: security-credential-protection-and-management
 ms.date: 11/09/2016
-ms.openlocfilehash: 4b335ca4432f17acd60d9246de81081cf0441552
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 4069d88c6c46415417cb3e0e03a539e5b7118f33
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80858823"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87968737"
 ---
 # <a name="preventing-kerberos-change-password-that-uses-rc4-secret-keys"></a>Verhindern, dass ein Kennwort, das geheime RC4-Schlüssel verwendet, von Kerberos geändert wird
 
@@ -20,11 +18,11 @@ ms.locfileid: "80858823"
 
 In diesem Thema für IT-Experten werden einige Einschränkungen im Kerberos-Protokoll erläutert, die dazu führen können, dass böswillige Benutzer die Kontrolle über das Konto eines Benutzers nehmen. Der Kerberos-Netzwerk Authentifizierungsdienst (V5) (RFC 4120), der in der Branche gut bekannt ist, gibt eine Einschränkung, bei der sich ein Angreifer als Benutzer authentifizieren oder das Kennwort des Benutzers ändern kann, wenn der Angreifer den geheimen Schlüssel des Benutzers kennt.
 
-Der Besitz der von Kenn Wörtern abgeleiteten Kerberos-Schlüssel eines Benutzers (RC4 und Advanced Encryption Standard [AES] wird standardmäßig bei der Kerberos-Kenn Wort Änderungs Änderung pro RFC 4757 überprüft. Das nur-Text-Kennwort des Benutzers wird niemals für den Schlüsselverteilungscenter (KDC) bereitgestellt, und Active Directory Domänen Controller besitzen standardmäßig keine Kopie von nur-Text-Kenn Wörtern für Konten. Wenn der Domänen Controller keinen Kerberos-Verschlüsselungstyp unterstützt, kann der geheime Schlüssel nicht zum Ändern des Kennworts verwendet werden. 
+Der Besitz der von Kenn Wörtern abgeleiteten Kerberos-Schlüssel eines Benutzers (RC4 und Advanced Encryption Standard [AES] wird standardmäßig bei der Kerberos-Kenn Wort Änderungs Änderung pro RFC 4757 überprüft. Das nur-Text-Kennwort des Benutzers wird niemals für den Schlüsselverteilungscenter (KDC) bereitgestellt, und Active Directory Domänen Controller besitzen standardmäßig keine Kopie von nur-Text-Kenn Wörtern für Konten. Wenn der Domänen Controller keinen Kerberos-Verschlüsselungstyp unterstützt, kann der geheime Schlüssel nicht zum Ändern des Kennworts verwendet werden.
 
 In den Windows-Betriebssystemen, die in der Liste gilt für am Anfang dieses Themas angegeben sind, gibt es drei Möglichkeiten, um die Möglichkeit zum Ändern von Kenn Wörtern mithilfe von Kerberos mit RC4-geheimen Schlüsseln zu blockieren:
 
-- Konfigurieren Sie das Benutzerkonto für die Konto Option Smartcard ist für die interaktive Anmeldung erforderlich. Dadurch wird der Benutzer darauf beschränkt, sich nur mit einer gültigen Smartcard anzumelden, damit RC4-Authentifizierungsdienst Anforderungen (as-reqs) abgelehnt werden. Klicken Sie mit der rechten Maustaste auf das Konto, klicken Sie auf Eigenschaften, und klicken Sie auf die Registerkarte Konto, um die Konto Optionen für ein Konto festzulegen. 
+- Konfigurieren Sie das Benutzerkonto für die Konto Option Smartcard ist für die interaktive Anmeldung erforderlich. Dadurch wird der Benutzer darauf beschränkt, sich nur mit einer gültigen Smartcard anzumelden, damit RC4-Authentifizierungsdienst Anforderungen (as-reqs) abgelehnt werden. Klicken Sie mit der rechten Maustaste auf das Konto, klicken Sie auf Eigenschaften, und klicken Sie auf die Registerkarte Konto, um die Konto Optionen für ein Konto festzulegen.
 
 - Deaktivieren Sie die RC4-Unterstützung für Kerberos auf allen Domänen Controllern. Dies erfordert mindestens eine Windows Server 2008-Domänen Funktionsebene und eine Umgebung, in der alle Kerberos-Clients, Anwendungsserver und Vertrauens Stellungen von und von der Domäne AES unterstützen müssen. Die Unterstützung für AES wurde in Windows Server 2008 und Windows Vista eingeführt.
 

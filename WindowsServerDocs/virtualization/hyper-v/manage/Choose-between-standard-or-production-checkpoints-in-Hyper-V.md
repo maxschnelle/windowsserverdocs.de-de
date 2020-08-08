@@ -1,20 +1,18 @@
 ---
 title: Auswählen zwischen Standard-oder Produktions Prüfpunkten in Hyper-V
 description: Enthält Anweisungen zum Konfigurieren einer virtuellen Maschine für die Verwendung von Standard-oder Produktions Prüfpunkten.
-ms.prod: windows-server
 manager: dongill
-ms.technology: compute-hyper-v
 ms.topic: article
 ms.assetid: 92bb573b-03b7-470e-b72e-e35edf52b349
 author: kbdazure
 ms.author: kathydav
 ms.date: 10/04/2016
-ms.openlocfilehash: 4e5e3d2d81f9ee1b7cbb4a60a1ade2c218d1e769
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 9aeff8371b357d9e4b063d48c310b32843dc00af
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85474287"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87968157"
 ---
 # <a name="choose-between-standard-or-production-checkpoints-in-hyper-v"></a>Auswählen zwischen Standard-oder Produktions Prüfpunkten in Hyper-V
 
@@ -44,7 +42,7 @@ Ab Windows Server 2016 und Windows 10 können Sie zwischen Standard-und Produkti
 > [!NOTE]
 > Nur **Produktions Prüfpunkte** werden auf Gast Computern unterstützt, auf denen Active Directory Domain Services Rolle (Domänen Controller) oder Active Directory Lightweight Directory Services Rolle ausgeführt wird.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Produktionsprüfpunkte](../What-s-new-in-Hyper-V-on-Windows.md#production-checkpoints-new)
 
