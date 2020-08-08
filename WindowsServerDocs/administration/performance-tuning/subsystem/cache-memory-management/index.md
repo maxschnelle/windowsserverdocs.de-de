@@ -5,12 +5,12 @@ ms.topic: landing-page
 ms.author: pavel; atales
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 404bc76e0bc3b08fc87b49b8263427cd4496bd43
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 07a8b12b9d4be5f9105baefaae0ef4030e02f69f
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87896000"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87993327"
 ---
 # <a name="performance-tuning-cache-and-memory-manager"></a>Leistungsoptimierung für Cache- und Speicher-Manager
 
@@ -30,4 +30,4 @@ Wie mit den durchgezogenen Pfeilen in der obigen Abbildung dargestellt, wird ein
 
 -   [Problembehandlung bei Cache- und Speicher-Manager-Leistungsproblemen](troubleshoot.md)
 
--   [Cache- und Speicher-Manager-Verbesserungen in WindowsServer 2016](improvements-in-2016.md)
+-   [Cache- und Speicher-Manager-Verbesserungen in WindowsServer 2016](./improvements-in-windows-server.md)

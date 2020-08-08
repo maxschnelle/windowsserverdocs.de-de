@@ -10,35 +10,35 @@ metadata:
   ms.topic: hub-page
   ms.date: 06/06/2019
   ms.author: lizross
-  ms.openlocfilehash: f1d4865d5213d2889aad1fc114c7ea300b4bfe4e
-  ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+  ms.openlocfilehash: c0820365f1a022545752e90ff01b625f7aa72c98
+  ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 07/27/2020
-  ms.locfileid: "87177696"
+  ms.lasthandoff: 08/07/2020
+  ms.locfileid: "87996667"
 highlightedContent:
   items:
   - title: Neues in Windows Server 2019
     itemType: whats-new
-    url: /windows-server/get-started-19/whats-new-19
+    url: ./get-started-19/whats-new-19.md
   - title: Erste Schritte mit Windows Server 2019
     itemType: overview
-    url: /windows-server/get-started-19/get-started-19
+    url: ./get-started-19/get-started-19.md
   - title: Windows Admin Center
     itemType: how-to-guide
-    url: /windows-server/manage/windows-admin-center/overview
+    url: ./manage/windows-admin-center/overview.md
   - title: Hyperkonvergente Infrastruktur
     itemType: overview
-    url: /windows-server/hyperconverged/index
+    url: ./hyperconverged/index.yml
   - title: Herstellen einer Verbindung mit Azure-Hybriddiensten
     itemType: how-to-guide
-    url: /windows-server/azure-hybrid-services/index
+    url: ./manage/windows-admin-center/azure/index.md
   - title: Erste Schritte mit Windows Server 2016
     itemType: how-to-guide
-    url: /windows-server/get-started/server-basics
+    url: ./get-started/server-basics.md
   - title: Erweiterte Sicherheitsupdates für Windows Server 2008 und 2008 R2
     itemType: how-to-guide
-    url: /windows-server/get-started/extended-security-updates
+    url: ./get-started/extended-security-updates.md
   - title: Windows-Insider-Programm für Server
     itemType: overview
     url: /windows-insider/at-work/
@@ -46,146 +46,146 @@ conceptualContent:
   items:
   - title: Upgrade von Windows Server
     links:
-    - url: /windows-server/upgrade/upgrade-2016-to-2019
+    - url: ./upgrade/upgrade-2016-to-2019.md
       itemType: how-to-guide
       text: Upgrade von Windows Server 2016
-    - url: /windows-server/upgrade/upgrade-2012r2-to-2019
+    - url: ./upgrade/upgrade-2012r2-to-2019.md
       itemType: how-to-guide
       text: Upgrade von Windows Server 2012 R2
-    - url: /windows-server/upgrade/upgrade-2012-to-2016
+    - url: ./upgrade/upgrade-2012-to-2016.md
       itemType: how-to-guide
       text: Upgrade von Windows Server 2012
-    - url: /windows-server/upgrade/upgrade-2008r2-to-2012r2
+    - url: ./upgrade/upgrade-2008r2-to-2012r2.md
       itemType: how-to-guide
       text: Upgrade von Windows Server 2008 R2
     footerLink:
-      url: /windows-server/upgrade/upgrade-overview
+      url: ./upgrade/upgrade-overview.md
       text: Weitere Informationen
   - title: Identität und Zugriff
     links:
-    - url: /windows-server/identity/ad-ds/ad-ds-getting-started
+    - url: ./identity/ad-ds/ad-ds-getting-started.md
       itemType: overview
       text: Erste Schritte mit Active Directory Domain Services (AD DS)
-    - url: /windows-server/identity/active-directory-federation-services
+    - url: ./identity/active-directory-federation-services.md
       itemType: overview
       text: Active Directory-Verbunddienste (Active Directory Federation Services, AD FS)
-    - url: /windows-server/identity/securing-privileged-access/securing-privileged-access
+    - url: ./identity/securing-privileged-access/securing-privileged-access.md
       itemType: concept
       text: Schützen des privilegierten Zugriffs
     footerLink:
-      url: /windows-server/identity/identity-and-access
+      url: ./identity/identity-and-access.yml
       text: Weitere Informationen
   - title: Failoverclusterunterstützung
     links:
-    - url: /windows-server/failover-clustering/whats-new-in-failover-clustering
+    - url: ./failover-clustering/whats-new-in-failover-clustering.md
       itemType: whats-new
       text: What's new in Failover Clustering (Neues beim Failoverclustering)
-    - url: /windows-server/failover-clustering/create-failover-cluster
+    - url: ./failover-clustering/create-failover-cluster.md
       itemType: how-to-guide
       text: Erstellen eines Failoverclusters
-    - url: /windows-server/failover-clustering/cluster-aware-updating
+    - url: ./failover-clustering/cluster-aware-updating.md
       itemType: overview
       text: Übersicht über die clusterfähige Aktualisierung.
     footerLink:
-      url: /windows-server/failover-clustering/failover-clustering-overview
+      url: ./failover-clustering/failover-clustering-overview.md
       text: Weitere Informationen
   - title: Verwaltung
     links:
-    - url: /windows-server/manage/windows-admin-center/overview
+    - url: ./manage/windows-admin-center/overview.md
       itemType: overview
       text: Verwenden des Windows Admin Centers zur Verwaltung der Umgebung
-    - url: /windows-server/manage/system-insights/overview
+    - url: ./manage/system-insights/overview.md
       itemType: overview
       text: 'Systemdaten: Übersicht'
-    - url: /windows-server/administration/performance-tuning/
+    - url: ./administration/performance-tuning/index.md
       itemType: overview
       text: Richtlinien zur Optimierung der Leistung für Windows Server 2016
     footerLink:
-      url: /windows-server/administration/manage-windows-server
+      url: ./administration/manage-windows-server.yml
       text: Weitere Informationen
   - title: Netzwerk
     links:
-    - url: /windows-server/networking/what-s-new-in-networking
+    - url: ./networking/what-s-new-in-networking.md
       itemType: whats-new
       text: Neues zu Netzwerken
-    - url: /windows-server/networking/sdn/
+    - url: ./networking/sdn/index.yml
       itemType: overview
       text: Übersicht zu Software-Defined Networking (SDN)
-    - url: /windows-server/networking/sdn/technologies/network-controller/network-controller
+    - url: ./networking/sdn/technologies/network-controller/network-controller.md
       itemType: overview
       text: Netzwerkcontroller
     footerLink:
-      url: /windows-server/networking/networking
+      url: ./networking/index.yml
       text: Weitere Informationen
   - title: Remote
     links:
-    - url: /windows-server/remote/remote-desktop-services/welcome-to-rds
+    - url: ./remote/remote-desktop-services/welcome-to-rds.md
       itemType: overview
       text: Remotedesktopdienste – Übersicht
-    - url: /windows-server/remote/remote-desktop-services/clients/remote-desktop-clients
+    - url: ./remote/remote-desktop-services/clients/remote-desktop-clients.md
       itemType: overview
       text: Remotedesktopclients
-    - url: /windows-server/remote/remote-desktop-services/clients/remote-desktop-allow-access
+    - url: ./remote/remote-desktop-services/clients/remote-desktop-allow-access.md
       itemType: how-to-guide
       text: Remotedesktop – Gewähren des Zugriffs auf Ihren PC
     footerLink:
-      url: /windows-server/remote/index
+      url: ./remote/index.yml
       text: Weitere Informationen
   - title: Sicherheit und Zusicherungen
     links:
-    - url: /windows-server/security/windows-authentication/windows-authentication-overview
+    - url: ./security/windows-authentication/windows-authentication-overview.md
       itemType: overview
       text: 'Windows-Authentifizierung: Übersicht'
-    - url: /windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts
+    - url: ./security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts.md
       itemType: how-to-guide
       text: Erste Schritte mit gruppenverwalteten Dienstkonten
-    - url: /windows-server/security/windows-authentication/credentials-processes-in-windows-authentication
+    - url: ./security/windows-authentication/credentials-processes-in-windows-authentication.md
       itemType: overview
       text: Anmeldeinformationen-Prozesse in der Windows-Authentifizierung
     footerLink:
-      url: /windows-server/security/security-and-assurance
+      url: ./security/security-and-assurance.yml
       text: Weitere Informationen
   - title: Speicher
     links:
-    - url: /windows-server/storage/whats-new-in-storage
+    - url: ./storage/whats-new-in-storage.md
       itemType: whats-new
       text: What's new in storage (Neues im Speicher)
-    - url: /windows-server/storage/disk-management/overview-of-disk-management
+    - url: ./storage/disk-management/overview-of-disk-management.md
       itemType: overview
       text: 'Datenträgerverwaltung: Übersicht'
-    - url: /windows-server/storage/storage-spaces/understand-quorum
+    - url: ./storage/storage-spaces/understand-quorum.md
       itemType: overview
       text: Grundlegendes zum Cluster- und Poolquorum
     footerLink:
-      url: /windows-server/storage/storage
+      url: ./storage/storage.yml
       text: Weitere Informationen
   - title: Problembehandlung
     links:
-    - url: /windows-server/manage/windows-admin-center/support/troubleshooting
+    - url: ./manage/windows-admin-center/support/troubleshooting.md
       itemType: how-to-guide
       text: Problembehandlung für Windows Admin Center
-    - url: /windows-server/failover-clustering/troubleshooting-using-wer-reports
+    - url: ./failover-clustering/troubleshooting-using-wer-reports.md
       itemType: how-to-guide
       text: Problembehandlung bei einem Failovercluster mit Windows-Fehlerberichterstattung
-    - url: /windows-server/storage/disk-management/troubleshooting-disk-management
+    - url: ./storage/disk-management/troubleshooting-disk-management.md
       itemType: how-to-guide
       text: 'Datenträgerverwaltung: Problembehandlung'
     footerLink:
-      url: /windows-server/troubleshoot/windows-server-troubleshooting
+      url: ./troubleshoot/windows-server-troubleshooting.md
       text: Weitere Informationen
   - title: Virtualisierung
     links:
     - url: /virtualization/windowscontainers/
       itemType: overview
       text: 'Container unter Windows Server: Übersicht'
-    - url: /windows-server/virtualization/hyper-v/hyper-v-on-windows-server
+    - url: ./virtualization/hyper-v/hyper-v-on-windows-server.md
       itemType: overview
       text: Hyper-V unter Windows Server
-    - url: /windows-server/virtualization/hyper-v-virtual-switch/hyper-v-virtual-switch
+    - url: ./virtualization/hyper-v-virtual-switch/hyper-v-virtual-switch.md
       itemType: overview
       text: 'Virtueller Hyper-V-Switch: Übersicht'
     footerLink:
-      url: /windows-server/virtualization/virtualization
+      url: ./virtualization/virtualization.yml
       text: Weitere Informationen
 additionalContent:
   sections:
@@ -195,4 +195,4 @@ additionalContent:
       url: /previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh801901(v=ws.11)
     - title: Windows Server Essentials
       summary: Technische Inhalte für IT-Experten, die Windows Server Essentials verwalten, den erste Server mit Cloudverbindung für kleine Unternehmen mit bis zu 25 Benutzern und 50 Geräten.
-      url: https://docs.microsoft.com/en-us/windows-server-essentials/get-started/get-started
+      url: /windows-server-essentials/get-started/get-started

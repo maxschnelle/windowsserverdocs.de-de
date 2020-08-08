@@ -7,12 +7,12 @@ ms.author: nedpyle; danlo; dkruse; v-tea
 ms.date: 12/12/2019
 manager: dcscontentpm
 audience: Admin
-ms.openlocfilehash: 951d59a1a0e1d58a064eb71bd073259c15fd46d4
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: ecbd1bc751f133b80cf1d9cb264cf70a4ac4f47c
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87896179"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87992197"
 ---
 # <a name="performance-tuning-for-file-servers"></a>Leistungsoptimierung für Dateiserver
 
@@ -171,7 +171,7 @@ Die folgenden REG\_DWORD-Registrierungseinstellungen können sich auf die Leistu
 
     Die Standardeinstellung ist 0 (SMB-Signatur deaktiviert). Wenn Sie diesen Wert in 1 ändern, werden SMB-Signaturen für die gesamte SMB-Kommunikation aktiviert. Die SMB-Kommunikation mit Computern, für die SMB-Signaturen deaktiviert sind, wird so verhindert. Bei Verwendung von SMB-Signaturen können sich die CPU-Kosten und Netzwerkroundtrips erhöhen, aber Man-in-the-Middle-Angriffe werden blockiert. Wenn SMB-Signaturen nicht erforderlich sind, sollten Sie sicherstellen, dass dieser Registrierungswert auf allen Clients und Servern 0 ist.
 
-    Weitere Informationen finden Sie unter [The Basics of SMB Signing](https://blogs.technet.microsoft.com/josebda/2010/12/01/the-basics-of-smb-signing-covering-both-smb1-and-smb2/) (Grundlagen von SMB-Signaturen).
+    Weitere Informationen finden Sie unter [The Basics of SMB Signing](/archive/blogs/josebda/the-basics-of-smb-signing-covering-both-smb1-and-smb2) (Grundlagen von SMB-Signaturen).
 
 -   **FileInfoCacheEntriesMax**
 
