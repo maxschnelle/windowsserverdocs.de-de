@@ -1,18 +1,16 @@
 ---
 title: 'Robustes Dateisystem (ReFS) : Übersicht'
-ms.prod: windows-server
 ms.author: gawatu
 manager: mchad
-ms.technology: storage-file-systems
 ms.topic: article
 author: gawatu
 ms.date: 06/29/2019
-ms.openlocfilehash: 5bcdbc76259d1dfecaaa5266bb952a21bcbc7825
-ms.sourcegitcommit: 457e88e5aa6be13a2bffdb8e434a8efc3698678f
+ms.openlocfilehash: 668ee7a0c9e948c12140d3e25309a68ad3b2148b
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85548895"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87957267"
 ---
 # <a name="resilient-file-system-refs-overview"></a>Robustes Dateisystem (ReFS) : Übersicht
 
@@ -106,7 +104,7 @@ Das Bereitstellen von refs als Sicherungs Ziel eignet sich am besten für Anwend
 
 ### <a name="limits"></a>Einschränkungen
 
-| Funktion       | ReFS                                        | NTFS |
+| Feature       | ReFS                                        | NTFS |
 |----------------|------------------------------------------------|-----------------------|
 | Maximale Dateinamenslänge | 255 Unicode-Zeichen  | 255 Unicode-Zeichen               |
 | Maximale Pfadnamenslänge |32.000 Unicode-Zeichen | 32.000 Unicode-Zeichen                |
@@ -147,7 +145,7 @@ Das Bereitstellen von refs als Sicherungs Ziel eignet sich am besten für Anwend
 |---------------------------|------------------|-----------------------|
 | Block-Clone-Vorgang | Ja | Nein |
 | Platzsparende VDL | Ja | Nein |
-| Durch Spiegelung beschleunigte Parität| Ja (auf direkten Speicherplätzen) | Nein |
+| Parität mit Beschleunigung per Spiegelung| Ja (auf direkten Speicherplätzen) | Nein |
 
 #### <a name="the-following-features-are-unavailable-on-refs-at-this-time"></a>Folgende Features sind im Moment nicht auf ReFS verfügbar:
 
@@ -169,7 +167,7 @@ Das Bereitstellen von refs als Sicherungs Ziel eignet sich am besten für Anwend
 ## <a name="additional-references"></a>Weitere Verweise
 
 - [Empfehlungen für die Clustergröße für ReFS und NTFS](https://techcommunity.microsoft.com/t5/Storage-at-Microsoft/Cluster-size-recommendations-for-ReFS-and-NTFS/ba-p/425960)
-- [Übersicht über direkte Speicherplätze](../storage-spaces/storage-spaces-direct-overview.md)
+- [Direkte Speicherplätze – Übersicht](../storage-spaces/storage-spaces-direct-overview.md)
 - [Block-Clone-Vorgänge auf ReFS](block-cloning.md)
 - [ReFS Integrity Streams](integrity-streams.md)
 - [Problembehandlung bei Refs mit Ref](../../administration/windows-commands/refsutil.md)

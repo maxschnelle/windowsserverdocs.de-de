@@ -7,12 +7,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: ee204320696ac10eaf341df06d7c458198b3ec28
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 7ef3b9fde0ca9b9364a1fdcc99690b58f4f14f68
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87936534"
+ms.locfileid: "87990004"
 ---
 # <a name="windows-authentication-concepts"></a>Windows-Authentifizierungskonzepte
 
@@ -55,7 +55,7 @@ Ein Passport-und möglicherweise zugeordnetes Visum sind die akzeptierten Anmeld
 Eine Form der Multi-Factor Authentication für den Reisenden ist möglicherweise die Anforderung, mehrere Dokumente zu übertragen und zu präsentieren, um Ihre Identität zu authentifizieren, z. b. Pass-und Konferenz Registrierungsinformationen. Windows implementiert dieses Formular oder die Authentifizierung mithilfe von Smartcards, virtuellen Smartcards und biometrischen Technologien.
 
 ## <a name="security-principals-and-accounts"></a>Sicherheits Prinzipale und Konten
-In Windows ist jeder Benutzer, jeder Dienst, jede Gruppe oder jeder Computer, der eine Aktion initiieren kann, ein Sicherheits Prinzipal. Sicherheits Prinzipale verfügen über Konten, die auf einem Computer lokal sein können oder Domänen basiert sind. Beispielsweise können Windows-Client Computer, die einer Domäne angehören, an einer Netzwerk Domäne teilnehmen, indem Sie mit einem Domänen Controller kommunizieren, auch wenn kein Benutzer angemeldet ist. Zum Initiieren der Kommunikation muss der Computer über ein aktives Konto in der Domäne verfügen. Vor der Annahme der Kommunikation vom Computer wird die Identität des Computers von der lokalen Sicherheits Autorität auf dem Domänen Controller authentifiziert. Anschließend wird der Sicherheitskontext des Computers genau wie für einen Human Security Principal definiert. Dieser Sicherheitskontext definiert die Identität und die Funktionen eines Benutzers oder Diensts auf einem bestimmten Computer oder einem Benutzer, einem Dienst, einer Gruppe oder einem Computer in einem Netzwerk. Er definiert z. b. die Ressourcen, z. b. eine Dateifreigabe oder einen Drucker, auf die zugegriffen werden kann, sowie die Aktionen, wie z. b. lesen, schreiben oder ändern, die von einem Benutzer, einem Dienst oder einem Computer auf dieser Ressource ausgeführt werden können. Weitere Informationen finden Sie unter [Sicherheits Prinzipale](https://technet.microsoft.com/itpro/windows/keep-secure/security-principals).
+In Windows ist jeder Benutzer, jeder Dienst, jede Gruppe oder jeder Computer, der eine Aktion initiieren kann, ein Sicherheits Prinzipal. Sicherheits Prinzipale verfügen über Konten, die auf einem Computer lokal sein können oder Domänen basiert sind. Beispielsweise können Windows-Client Computer, die einer Domäne angehören, an einer Netzwerk Domäne teilnehmen, indem Sie mit einem Domänen Controller kommunizieren, auch wenn kein Benutzer angemeldet ist. Zum Initiieren der Kommunikation muss der Computer über ein aktives Konto in der Domäne verfügen. Vor der Annahme der Kommunikation vom Computer wird die Identität des Computers von der lokalen Sicherheits Autorität auf dem Domänen Controller authentifiziert. Anschließend wird der Sicherheitskontext des Computers genau wie für einen Human Security Principal definiert. Dieser Sicherheitskontext definiert die Identität und die Funktionen eines Benutzers oder Diensts auf einem bestimmten Computer oder einem Benutzer, einem Dienst, einer Gruppe oder einem Computer in einem Netzwerk. Er definiert z. b. die Ressourcen, z. b. eine Dateifreigabe oder einen Drucker, auf die zugegriffen werden kann, sowie die Aktionen, wie z. b. lesen, schreiben oder ändern, die von einem Benutzer, einem Dienst oder einem Computer auf dieser Ressource ausgeführt werden können. Weitere Informationen finden Sie unter [Sicherheits Prinzipale](/windows/security/identity-protection/access-control/security-principals).
 
 Ein Konto ist ein Mittel zum Identifizieren eines Anforderer: der Benutzer oder der Dienst, der den Zugriff oder die Ressourcen anfordert. Der Reisende, der den authentischen Passport innehat, verfügt über ein Konto mit dem hostland. Benutzer, Gruppen von Benutzern, Objekten und Diensten können über einzelne Konten oder Freigabe Konten verfügen. Konten können Mitglied von Gruppen sein, und Ihnen können bestimmte Rechte und Berechtigungen zugewiesen werden. Konten können auf den lokalen Computer, die Arbeitsgruppe, das Netzwerk oder die zugewiesene Mitgliedschaft zu einer Domäne beschränkt werden.
 
@@ -65,17 +65,17 @@ Eigenständige verwaltete Dienst Konten und virtuelle Konten wurden in Windows S
 
 Weitere Informationen zu Konten finden Sie unter:
 
--   [Active Directory-Konten](https://technet.microsoft.com/itpro/windows/keep-secure/active-directory-accounts)
+-   [Active Directory-Konten](/windows/security/identity-protection/access-control/active-directory-accounts)
 
--   [Active Directory-Sicherheitsgruppen](https://technet.microsoft.com/itpro/windows/keep-secure/active-directory-security-groups)
+-   [Active Directory-Sicherheitsgruppen](/windows/security/identity-protection/access-control/active-directory-security-groups)
 
 -   [Lokale Konten](https://technet.microsoft.com/itpro/windows/keep-bastion.local-accounts)
 
--   [Microsoft-Konten](https://technet.microsoft.com/itpro/windows/keep-secure/microsoft-accounts)
+-   [Microsoft-Konten](/windows/security/identity-protection/access-control/microsoft-accounts)
 
--   [Dienstkonten](https://technet.microsoft.com/itpro/windows/keep-secure/service-accounts)
+-   [Dienstkonten](/windows/security/identity-protection/access-control/service-accounts)
 
--   [Besondere Identitäten](https://technet.microsoft.com/itpro/windows/keep-secure/special-identities)
+-   [Besondere Identitäten](/windows/security/identity-protection/access-control/special-identities)
 
 ## <a name="delegated-authentication"></a>Delegierte Authentifizierung
 Um die Reise Analogie zu verwenden, können Länder den gleichen Zugriff für alle Mitglieder einer offiziellen behördlichen Delegierung ausgeben, so lange die Delegaten bekannt sind. Diese Delegierung ermöglicht einem Mitglied das agieren der Autorität eines anderen Mitglieds. In Windows erfolgt die delegierte Authentifizierung, wenn ein Netzwerkdienst eine Authentifizierungsanforderung von einem Benutzer akzeptiert und die Identität dieses Benutzers annimmt, um eine neue Verbindung mit einem zweiten Netzwerkdienst zu initiieren. Zur Unterstützung der delegierten Authentifizierung müssen Sie Front-End-Server oder Server der ersten Ebene einrichten, wie z. b. Webserver, die für die Verarbeitung von Client Authentifizierungsanforderungen und Back-End-oder n-Tier-Servern (z. b. große Datenbanken) verantwortlich sind, die für das Speichern von Informationen verantwortlich sind Sie können das Recht zum Einrichten der delegierten Authentifizierung für Benutzer in Ihrer Organisation delegieren, um die administrative Belastung Ihrer Administratoren zu verringern.
@@ -89,12 +89,12 @@ Wenn eine Vertrauensstellung zwischen zwei Domänen besteht, Vertrauen die Authe
 
 Wie eine bestimmte Vertrauensstellung Authentifizierungsanforderungen übergibt, hängt von der Konfiguration ab. Vertrauens Stellungen können unidirektional sein, indem der Zugriff von der vertrauenswürdigen Domäne auf Ressourcen in der vertrauenden Domäne bereitgestellt wird (oder bidirektional), indem der Zugriff von jeder Domäne auf Ressourcen in der anderen Domäne gewährt wird. Vertrauens Stellungen sind ebenfalls nicht transitiv. in diesem Fall besteht nur eine Vertrauensstellung zwischen den beiden vertrauenswürdigen Partner Domänen oder transitiv. in diesem Fall wird die Vertrauensstellung automatisch auf alle anderen Domänen ausgedehnt, denen beide Partner vertraut sind.
 
-Informationen zur Funktionsweise einer Vertrauensstellung finden Sie unter [Funktionsweise von Domänen-und](https://technet.microsoft.com/library/cc773178(v=ws.10).aspx)Gesamtstruktur-Vertrauens Stellungen.
+Informationen zur Funktionsweise einer Vertrauensstellung finden Sie unter [Funktionsweise von Domänen-und](/previous-versions/windows/it-pro/windows-server-2003/cc773178(v=ws.10))Gesamtstruktur-Vertrauens Stellungen.
 
 ### <a name="protocol-transition"></a>Protokoll Übergang
 Der Protokoll Übergang unterstützt Anwendungsentwickler, indem es Anwendungen ermöglicht, verschiedene Authentifizierungsmechanismen auf der Benutzer Authentifizierungs Ebene zu unterstützen und in den nachfolgenden Anwendungsebenen auf das Kerberos-Protokoll für Sicherheitsfeatures wie z. b. gegenseitige Authentifizierung und eingeschränkte Delegierung zu wechseln.
 
-Weitere Informationen zum Protokoll Übergang finden Sie unter [Kerberos-Protokoll Übergang und eingeschränkte Delegierung](https://technet.microsoft.com/library/cc758097(v=ws.10).aspx).
+Weitere Informationen zum Protokoll Übergang finden Sie unter [Kerberos-Protokoll Übergang und eingeschränkte Delegierung](/previous-versions/windows/it-pro/windows-server-2003/cc758097(v=ws.10)).
 
 ### <a name="constrained-delegation"></a>Eingeschränkte Delegierung
 Die eingeschränkte Delegierung bietet Administratoren die Möglichkeit, Anwendungs Vertrauensstellungs Grenzen anzugeben und zu erzwingen, indem Sie den Bereich einschränken, in dem Anwendungsdienste im Auftrag eines Benutzers agieren können. Sie können bestimmte Dienste angeben, von denen ein Computer, der für die Delegierung vertrauenswürdig ist, Ressourcen anfordern kann. Die Flexibilität, Autorisierungs Rechte für Dienste einzuschränken, trägt dazu bei, den Entwurf der Anwendungssicherheit zu verbessern, indem die Möglichkeiten der Gefährdung durch nicht vertrauenswürdige Dienste verringert
@@ -103,5 +103,3 @@ Weitere Informationen zur eingeschränkten Delegierung finden Sie unter [Übersi
 
 ## <a name="additional-references"></a>Weitere Verweise
 [Technische Übersicht zur Windows-Anmeldung und -Authentifizierung.](https://technet.microsoft.com/library/dn269029.aspx)
-
-

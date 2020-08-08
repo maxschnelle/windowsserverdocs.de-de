@@ -1,18 +1,16 @@
 ---
-title: Planen der Bereitstellung von Geräten mit diskreter Geräte Zuweisung
+title: Planen der Bereitstellung von Geräten mit Discrete Device Assignment
 description: Weitere Informationen zur Funktionsweise von DDA in Windows Server
-ms.prod: windows-server
-ms.technology: hyper-v
 ms.topic: article
 author: chrishuybregts
 ms.author: chrihu
 ms.date: 08/21/2019
-ms.openlocfilehash: 9cc9614524c424398df550351aa2abfa7d173d43
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 189a4f399ac76f1b7f30c5b45725c3a4fb6a8215
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80856093"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87989857"
 ---
 # <a name="plan-for-deploying-devices-using-discrete-device-assignment"></a>Planen der Bereitstellung von Geräten mit diskreter Geräte Zuweisung
 >Gilt für: Microsoft Hyper-V Server 2016, Windows Server 2016, Microsoft Hyper-V Server 2019, Windows Server 2019
@@ -27,7 +25,7 @@ Weitere Informationen zu anderen Methoden der GPU-Virtualisierung finden Sie unt
 Für VMS der Generation 1 oder 2 wird eine diskrete Geräte Zuweisung unterstützt.  Zu den unterstützten Gästen zählen zusätzlich Windows 10, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 mit angewendetem [KB 3133690](https://support.microsoft.com/kb/3133690) und verschiedene Verteilungen des [Linux-Betriebssystems.](../supported-linux-and-freebsd-virtual-machines-for-hyper-v-on-windows.md)
 
 ## <a name="system-requirements"></a>Systemanforderungen
-Zusätzlich zu den [Systemanforderungen für Windows Server](../../../get-started/System-Requirements--and-Installation.md) und den [Systemanforderungen für Hyper-V](../System-requirements-for-Hyper-V-on-Windows.md)erfordert die diskrete Geräte Zuweisung Server Klassen Hardware, die dem Betriebs System die Steuerung der Konfiguration des PCIe-Fabrics (System eigenes PCI Express-Steuerelement) gewähren kann. Außerdem muss das komplexe PCIe-Stammverzeichnis "Access Control Services (ACS)" unterstützen, mit dem Hyper-V den gesamten PCIe-Datenverkehr über die e/a-MMU erzwingen kann.
+Zusätzlich zu den [Systemanforderungen für Windows Server](../../../get-started/system-requirements.md) und den [Systemanforderungen für Hyper-V](../System-requirements-for-Hyper-V-on-Windows.md)erfordert die diskrete Geräte Zuweisung Server Klassen Hardware, die dem Betriebs System die Steuerung der Konfiguration des PCIe-Fabrics (System eigenes PCI Express-Steuerelement) gewähren kann. Außerdem muss das komplexe PCIe-Stammverzeichnis "Access Control Services (ACS)" unterstützen, mit dem Hyper-V den gesamten PCIe-Datenverkehr über die e/a-MMU erzwingen kann.
 
 Diese Funktionen werden in der Regel nicht direkt im BIOS des Servers verfügbar gemacht und sind häufig hinter anderen Einstellungen verborgen.  Beispielsweise sind die gleichen Funktionen für die SR-IOV-Unterstützung erforderlich, und im BIOS müssen Sie möglicherweise "SR-IOV aktivieren" festlegen.  Wenden Sie sich an Ihren Systemhersteller, wenn Sie die richtige Einstellung in Ihrem BIOS nicht identifizieren können.
 
@@ -41,30 +39,30 @@ Gerätehersteller können sich an Ihren Microsoft-Vertreter wenden, um weitere I
 ## <a name="device-driver"></a>Gerätetreiber
 Da die diskrete Geräte Zuweisung das gesamte PCIe-Gerät an die Gast-VM übergibt, muss vor dem Bereitstellen des Geräts innerhalb des virtuellen Computers kein Host Treiber installiert werden.  Die einzige Voraussetzung für den Host ist, dass der [PCIe-Speicherort Pfad](#pcie-location-path) des Geräts bestimmt werden kann.  Der Treiber des Geräts kann optional installiert werden, wenn dies zur Identifizierung des Geräts beiträgt.  Beispielsweise wird eine GPU, auf der der Gerätetreiber auf dem Host installiert ist, möglicherweise als Microsoft Basic-Rendering-Gerät angezeigt.  Wenn der Gerätetreiber installiert ist, werden der Hersteller und das Modell wahrscheinlich angezeigt.
 
-Nachdem das Gerät innerhalb des Gast Betriebssystems bereitgestellt wurde, kann der Gerätetreiber des Herstellers jetzt wie üblich innerhalb des virtuellen Gast Computers installiert werden.  
+Nachdem das Gerät innerhalb des Gast Betriebssystems bereitgestellt wurde, kann der Gerätetreiber des Herstellers jetzt wie üblich innerhalb des virtuellen Gast Computers installiert werden.
 
 ## <a name="virtual-machine-limitations"></a>Einschränkungen für virtuelle Computer
-Aufgrund der Art, wie die diskrete Geräte Zuweisung implementiert ist, werden einige Features eines virtuellen Computers eingeschränkt, während ein Gerät angefügt wird.  Die folgenden Funktionen sind nicht verfügbar:
+Aufgrund der Art, wie die diskrete Geräte Zuweisung implementiert ist, werden einige Features eines virtuellen Computers eingeschränkt, während ein Gerät angefügt wird.  Folgende Funktionen stehen nicht zur Verfügung:
 - Speichern/Wiederherstellen virtueller Computer
 - Live Migration eines virtuellen Computers
 - Die Verwendung von dynamischem Arbeitsspeicher
 - Hinzufügen des virtuellen Computers zu einem hoch Verfügbarkeits Cluster (ha)
 
 ## <a name="security"></a>Sicherheit
-Die diskrete Geräte Zuweisung übergibt das gesamte Gerät an den virtuellen Computer.  Dies bedeutet, dass alle Funktionen dieses Geräts über das Gast Betriebssystem zugänglich sind. Einige Funktionen, wie z. b. Firmwareupdates, können sich negativ auf die Stabilität des Systems auswirken. Daher werden dem Administrator beim Aufheben der Einbindung des Geräts vom Host zahlreiche Warnungen angezeigt. Es wird dringend empfohlen, die diskrete Geräte Zuweisung nur dann zu verwenden, wenn die Mandanten der VMS vertrauenswürdig sind.  
+Die diskrete Geräte Zuweisung übergibt das gesamte Gerät an den virtuellen Computer.  Dies bedeutet, dass alle Funktionen dieses Geräts über das Gast Betriebssystem zugänglich sind. Einige Funktionen, wie z. b. Firmwareupdates, können sich negativ auf die Stabilität des Systems auswirken. Daher werden dem Administrator beim Aufheben der Einbindung des Geräts vom Host zahlreiche Warnungen angezeigt. Es wird dringend empfohlen, die diskrete Geräte Zuweisung nur dann zu verwenden, wenn die Mandanten der VMS vertrauenswürdig sind.
 
 Wenn der Administrator ein Gerät mit einem nicht vertrauenswürdigen Mandanten verwenden möchte, haben wir Geräteherstellern die Möglichkeit gegeben, einen geräteentschärfungs-Treiber zu erstellen, der auf dem Host installiert werden kann.  Wenden Sie sich an den Gerätehersteller, um zu erfahren, ob er einen Geräte Entschärfungs Treiber bereitstellt.
 
-Wenn Sie die Sicherheitsüberprüfungen für ein Gerät umgehen möchten, das keinen Treiber für die Geräte Entschärfung hat, müssen Sie den `-Force` Parameter an das `Dismount-VMHostAssignableDevice`-Cmdlet übergeben.  Dabei haben Sie sich bewusst, dass Sie das Sicherheitsprofil des Systems geändert haben und dies nur während der Erstellung von Prototypen oder vertrauenswürdigen Umgebungen empfohlen wird.
+Wenn Sie die Sicherheitsüberprüfungen für ein Gerät umgehen möchten, das keinen Treiber für die Geräte Entschärfung hat, müssen Sie den `-Force` Parameter an das `Dismount-VMHostAssignableDevice` Cmdlet übergeben.  Dabei haben Sie sich bewusst, dass Sie das Sicherheitsprofil des Systems geändert haben und dies nur während der Erstellung von Prototypen oder vertrauenswürdigen Umgebungen empfohlen wird.
 
 ## <a name="pcie-location-path"></a>PCIe-Speicherort Pfad
-Der Pfad für den PCIe-Speicherort ist erforderlich, um das Gerät vom Host zu entfernen und zu binden.  Ein Beispiel für einen Speicherort Pfad sieht wie folgt aus: `"PCIROOT(20)#PCI(0300)#PCI(0000)#PCI(0800)#PCI(0000)"`.   Das [Computer Profil Skript](#machine-profile-script) gibt auch den Speicherort Pfad des PCIe-Geräts zurück.
+Der Pfad für den PCIe-Speicherort ist erforderlich, um das Gerät vom Host zu entfernen und zu binden.  Ein Beispiel für einen Speicherort Pfad sieht wie folgt aus: `"PCIROOT(20)#PCI(0300)#PCI(0000)#PCI(0800)#PCI(0000)"` .   Das [Computer Profil Skript](#machine-profile-script) gibt auch den Speicherort Pfad des PCIe-Geräts zurück.
 
 ### <a name="getting-the-location-path-by-using-device-manager"></a>Der Speicherort Pfad wird mithilfe Geräte-Manager
 ![Geräte-Manager](../deploy/media/dda-devicemanager.png)
-- Öffnen Sie Geräte-Manager, und suchen Sie nach dem Gerät.  
+- Öffnen Sie Geräte-Manager, und suchen Sie nach dem Gerät.
 - Klicken Sie mit der rechten Maustaste auf das Gerät und wählen Sie "Eigenschaften"
-- Navigieren Sie zur Registerkarte Details, und wählen Sie in der Dropdown-Eigenschaft die Option "Location Path" aus.  
+- Navigieren Sie zur Registerkarte Details, und wählen Sie in der Dropdown-Eigenschaft die Option "Location Path" aus.
 - Klicken Sie mit der rechten Maustaste auf den Eintrag, der mit pciroot beginnt, und wählen Sie "Kopieren".  Sie verfügen nun über den Speicherort Pfad für das Gerät.
 
 ## <a name="mmio-space"></a>MMIO-Speicherplatz
@@ -102,7 +100,7 @@ Wenn ein Benutzer eine einzelne K520-GPU wie im obigen Beispiel zuweisen würde,
 Eine ausführlichere Betrachtung von MMIO Space finden Sie im techcommunity [-Blog unter diskrete Geräte Zuweisung-GPUs](https://techcommunity.microsoft.com/t5/Virtualization/Discrete-Device-Assignment-GPUs/ba-p/382266) .
 
 ## <a name="machine-profile-script"></a>Skript für Computer Profil
-Um zu vereinfachen, ob der Server ordnungsgemäß konfiguriert ist und welche Geräte durch diskrete Geräte Zuweisung übermittelt werden können, stellt einer unserer Techniker das folgende PowerShell-Skript bereit: [surveydda. ps1.](https://github.com/Microsoft/Virtualization-Documentation/blob/live/hyperv-tools/DiscreteDeviceAssignment/SurveyDDA.ps1)
+Um zu vereinfachen, ob der Server ordnungsgemäß konfiguriert ist und welche Geräte durch diskrete Geräte Zuweisung übermittelt werden können, stellt einer unserer Techniker das folgende PowerShell-Skript bereit: [SurveyDDA.ps1.](https://github.com/Microsoft/Virtualization-Documentation/blob/live/hyperv-tools/DiscreteDeviceAssignment/SurveyDDA.ps1)
 
 Stellen Sie vor der Verwendung des Skripts sicher, dass die Hyper-V-Rolle installiert ist, und führen Sie das Skript in einem PowerShell-Befehlsfenster aus, das über Administrator Rechte verfügt.
 
@@ -110,4 +108,4 @@ Wenn das System nicht ordnungsgemäß für die Unterstützung der diskreten Ger�
 
 Das Tool zeigt für jedes gefundene Gerät an, ob es mit diskreter Geräte Zuweisung verwendet werden kann. Wenn ein Gerät als kompatibel mit der diskreten Geräte Zuweisung identifiziert wird, stellt das Skript einen Grund dar.  Wenn ein Gerät erfolgreich als kompatibel identifiziert wurde, wird der Speicherort Pfad des Geräts angezeigt.  Wenn dieses Gerät außerdem [MMIO-Speicherplatz](#mmio-space)erfordert, wird es ebenfalls angezeigt.
 
-![Surveydda. ps1](./images/hyper-v-surveydda-ps1.png)
+![SurveyDDA.ps1](./images/hyper-v-surveydda-ps1.png)

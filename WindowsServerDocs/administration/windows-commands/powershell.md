@@ -7,12 +7,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 8608f10ae96d6137ce2dd7983d78236775af0df0
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 29751bdb6f17c167ffa17170be24c302fda557fd
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87884883"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87991154"
 ---
 # <a name="powershell"></a>PowerShell
 
@@ -52,13 +52,13 @@ Mit dem Befehlszeilen Tool **PowerShell.exe** wird eine Windows PowerShell-Sitzu
 
 - Um eine Windows PowerShell-Sitzung in einem Eingabe Aufforderungs Fenster zu beenden, geben Sie ein `exit` . Die typische Eingabeaufforderung gibt zurück.
 
-### <a name="remarks"></a>Bemerkungen
+### <a name="remarks"></a>Hinweise
 
 - Eine umfassende Liste der **PowerShell.exe** Befehlszeilenparameter finden Sie unter [about_PowerShell.Exe](/powershell/module/microsoft.powershell.core/about/about_powershell_exe).
 
 - Informationen zu anderen Möglichkeiten zum Starten von Windows PowerShell finden Sie unter [Starten von Windows PowerShell](/powershell/scripting/windows-powershell/starting-windows-powershell).
 
-- Windows PowerShell wird auf der Server Core-Installationsoption von Windows Server-Betriebssystemen ausgeführt. Features, die eine grafische Benutzeroberfläche erfordern, wie z. b. die [Windows PowerShell Integrated Scripting Environment (ISE)](/previous-versions//hh849182(v=technet.10))und die Cmdlets " [out-GridView](/powershell/module/microsoft.powershell.utility/out-gridview) " und " [Show-Command](/powershell/module/microsoft.powershell.utility/show-command) ", werden jedoch nicht auf Server Core-Installationen ausgeführt.
+- Windows PowerShell wird auf der Server Core-Installationsoption von Windows Server-Betriebssystemen ausgeführt. Features, die eine grafische Benutzeroberfläche erfordern, wie z. b. die [Windows PowerShell Integrated Scripting Environment (ISE)](/previous-versions/hh849182(v=technet.10))und die Cmdlets " [out-GridView](/powershell/module/microsoft.powershell.utility/out-gridview) " und " [Show-Command](/powershell/module/microsoft.powershell.utility/show-command) ", werden jedoch nicht auf Server Core-Installationen ausgeführt.
 
 ## <a name="additional-references"></a>Weitere Verweise
 

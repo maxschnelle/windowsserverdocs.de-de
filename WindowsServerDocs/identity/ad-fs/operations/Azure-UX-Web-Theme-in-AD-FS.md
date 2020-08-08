@@ -6,14 +6,12 @@ ms.author: billmath
 manager: femila
 ms.date: 10/24/2017
 ms.topic: article
-ms.prod: windows-server
-ms.technology: identity-adfs
-ms.openlocfilehash: ce9bddbc9b03a9019860e9b831bb928326098b76
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: a7cb3a037d074fc4a61e6c805bca181316643bb3
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86965952"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87956677"
 ---
 # <a name="using-an-azure-ad-ux-web-theme-in-active-directory-federation-services"></a>Verwenden eines Azure AD UX-Webdesigns in Active Directory-Verbunddienste (AD FS)
 Der Anmeldevorgang von AD FS Formularen spiegelt derzeit nicht die Anmeldung bei Azure/O365 wider.  Um Endbenutzern eine einheitlichere und reibungslose Darstellung zu bieten, haben wir das folgende Cascading Stylesheet-Webdesign veröffentlicht, das auf Ihre AD FS Server angewendet werden kann.  Derzeit sieht die Formular Anmeldung für AD FS unter Windows Server 2016 wie folgt aus:
@@ -44,13 +42,13 @@ Wenn Sie die zentrierte Benutzeroberfläche aktivieren, können Sie die gleichen
 
 ### <a name="logo"></a>Logo
 
-Beschreibung | Einschränkungen | Empfehlungen
+BESCHREIBUNG | Einschränkungen | Empfehlungen
 ------- | ------- | ----------
 Das Logo wird oben im Anmelde Panel angezeigt. | Transparente JPG- oder PNG-Datei<br>Max. Höhe: 36 px<br>Max. Breite: 245 px | Verwenden Sie das Logo Ihrer Organisation hier.<br>Verwenden Sie ein transparentes Bild. Gehen Sie nicht davon aus, dass der Hintergrund weiß ist.<br>Fügen Sie keinen Abstand um Ihr Logo herum in der Abbildung ein, da Ihr Logo anderenfalls unverhältnismäßig klein aussehen wird.
 
 ### <a name="background"></a>Hintergrund
 
-Beschreibung | Einschränkungen | Empfehlungen
+BESCHREIBUNG | Einschränkungen | Empfehlungen
 ------- | ------- | ----------
 Diese Option wird im Hintergrund der Anmeldeseite angezeigt, ist in der Mitte des sichtbaren Bereichs verankert und wird so skaliert und zugeschnitten, dass das gesamte Browserfenster ausgefüllt ist.    <br>Auf schmalen Bildschirmen, z.B. von Mobiltelefonen, wird dieses Bild nicht angezeigt.<br>Beim Laden der Seite wird eine schwarze Maske mit einer Deckkraft von 0,55 auf dieses Bild angewendet. | JPG oder PNG<br>Bildmaße: 1.920 x 1.080 px<br>Dateigröße: &lt; 300 KB | <br>Verwenden Sie Bilder, in denen die Bildschärfe sich nicht auf einen Bereich konzentriert. Das nicht transparente Anmeldeformular wird über dem Mittelpunkt dieses Bilds angezeigt und kann abhängig von der Größe des Browserfensters einen beliebigen Teil des Bilds einnehmen.<br>Verwenden Sie keine große Datei, um kurze Ladezeiten zu gewährleisten.
 

@@ -5,15 +5,13 @@ author: billmath
 manager: femila
 ms.date: 04/09/2018
 ms.topic: article
-ms.prod: windows-server
-ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: b6fc6c662630af5658e5f186c958f4ddaffccc42
-ms.sourcegitcommit: 4af8ab2e5c199ecff0697e5331fa7f61f2556a8f
+ms.openlocfilehash: cf8a12957621ce86492cc4216c56d9a159f1ee5c
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86866029"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87940566"
 ---
 # <a name="upgrading-to-ad-fs-in-windows-server-2016-using-a-wid-database"></a>Aktualisieren auf AD FS unter Windows Server 2016 unter Verwendung einer WID-Datenbank
 
@@ -156,8 +154,9 @@ Set-WebApplicationProxyConfiguration -UpgradeConfigurationVersion
 Dadurch wird das Upgrade der WAP-Server beendet.
 
 
-> [!NOTE] 
-> In AD FS 2019 ist ein bekanntes PRT-Problem aufgetreten, wenn Windows Hello for Business mit einer hybriden Zertifikat Vertrauensstellung ausgeführt wird. Dieser Fehler kann in den Ereignisprotokollen von ADFS Admin auftreten: Es wurde eine ungültige OAuth-Anforderung empfangen. Dem Client „NAME“ ist der Zugriff auf die Ressource mit dem Bereich „ugs“ untersagt. So behebst du diesen Fehler 
+> [!NOTE]
+> In AD FS 2019 ist ein bekanntes PRT-Problem aufgetreten, wenn Windows Hello for Business mit einer hybriden Zertifikat Vertrauensstellung ausgeführt wird. Dieser Fehler kann in den Ereignisprotokollen von ADFS Admin auftreten: Es wurde eine ungültige OAuth-Anforderung empfangen. Dem Client „NAME“ ist der Zugriff auf die Ressource mit dem Bereich „ugs“ untersagt.
+> So behebst du diesen Fehler
 > 1. Starte die AD FS-Verwaltungskonsole. Navigiere zu „Dienste > Bereichsbeschreibungen“.
 > 2. Klicke mit der rechten Maustaste auf „Bereichsbeschreibungen“ und wähle „Bereichsbeschreibung hinzufügen“ aus.
 > 3. Gebe unter Name den Namen „ugs“ ein und klicke dann auf „Übernehmen“ > „OK“.

@@ -1,20 +1,18 @@
 ---
 title: Unterstützte virtuelle SuSE-Computer auf Hyper-V
 description: Listet die in jeder Version enthaltenen Linux-Integrationsdienste und-Funktionen auf.
-ms.prod: windows-server
 manager: dongill
-ms.technology: compute-hyper-v
 ms.topic: article
 ms.assetid: 7ec0e14c-4498-4bd9-8fe6-b94260198efc
 author: shirgall
 ms.author: kathydav
 ms.date: 04/07/2020
-ms.openlocfilehash: 96dadc56c17dcdbf391c480029e3124bf70dbec7
-ms.sourcegitcommit: 7b1ebc4934998af2472962ca8cce1c872f39946f
+ms.openlocfilehash: 4e2948bdb07ecefc0cbb46553aeaece3efd914c2
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80994523"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87989296"
 ---
 # <a name="supported-suse-virtual-machines-on-hyper-v"></a>Unterstützte virtuelle SuSE-Computer auf Hyper-V
 
@@ -34,12 +32,12 @@ Die integrierten SUSE Linux Enterprise Service-Treiber für Hyper-V sind von SUS
 
 SLES12 + ist nur 64 Bit.
 
-|**Feature**|**Windows Server-Betriebssystemversion**|**SLES 15 SP1**|**SLES 15**|**SLES 12 SP3-SP5**|**SLES 12 SP2**|**SLES 12 SP1**|**SLES 11 SP4**|**SLES 11 SP3**|
+|**Feature**|**Windows Server-Betriebssystemversion**|**SLES 15 SP1**|**SLES 15**|**SLES 12 SP3-SP5**|**SLES 12 SP2**|**SLES 12 SP1**|**SLES 11 SP4**|**SLES 11 SP3**|
 |-|-|-|-|-|-|-|-|-|
-|**Verfügbarkeit**||Integrierte|Integrierte|Integrierte|Integrierte|Integrierte|Integrierte|Integrierte|
+|**Verfügbarkeit**||Integriert|Integriert|Integriert|Integriert|Integriert|Integriert|Integriert|
 |**[Core](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#core)**|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Windows Server 2016 genaue Zeit|2019, 2016|&#10004;|&#10004;|&#10004;|&#10004;||||
-|**[Ungs](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#networking)**|||||||||
+|**[Netzwerk](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#networking)**|||||||||
 |Großrahmen|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |VLAN-Tagging und-Abschneiden|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Livemigration|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
@@ -47,32 +45,32 @@ SLES12 + ist nur 64 Bit.
 |vRSS|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|||
 |TCP-Segmentierung und Prüfsummen Offloads|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;||
 |SR-IOV|2019, 2016|&#10004;|&#10004;|&#10004;|&#10004;||||
-|**[Speicher](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#storage)**|||||||||
+|**[Storage](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#storage)**|||||||||
 |Vhdx-Größe ändern|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Virtueller Fibre Channel|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
-|Sicherung virtueller Computer|2019, 2016, 2012 R2|&#10004;Notiz 2, 3, 8|&#10004;Notiz 2, 3, 8|&#10004;Notiz 2, 3, 8|&#10004;Notiz 2, 3, 8|&#10004;Notiz 2, 3, 8|&#10004;Notiz 2, 3, 8|&#10004;Notiz 2, 3, 8|
+|Sicherung virtueller Computer|2019, 2016, 2012 R2|&#10004; Hinweis 2, 3, 8|&#10004;Hinweis 2, 3, 8|&#10004; Hinweis 2, 3, 8|&#10004; Hinweis 2, 3, 8|&#10004; Hinweis 2, 3, 8|&#10004; Hinweis 2, 3, 8|&#10004; Hinweis 2, 3, 8|
 |Trim-Unterstützung|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;||
 |SCSI-WWN|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;||||
-|**[Gedenkens](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#memory)**|||||||||
-|Unterstützung für den unterstützten Kernel|2019, 2016, 2012 R2|N/V|N/V|N/V|N/V|N/V|&#10004;|&#10004;|
+|**[Arbeitsspeicher](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#memory)**|||||||||
+|Unterstützung für den unterstützten Kernel|2019, 2016, 2012 R2|Nicht zutreffend|Nicht zutreffend|Nicht zutreffend|Nicht zutreffend|Nicht zutreffend|&#10004;|&#10004;|
 |MMIO-Lücke konfigurieren|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
-|Dynamischer Arbeitsspeicher-Hot-Add|2019, 2016, 2012 R2|&#10004;Hinweis 6|&#10004;Hinweis 6|&#10004;Hinweis 6|&#10004;Hinweis 6|&#10004;Hinweis 6|&#10004;Hinweis 4, 5, 6|&#10004;Hinweis 4, 5, 6|
-|Dynamischer Arbeitsspeicher-Ballooning|2019, 2016, 2012 R2|&#10004;Hinweis 6|&#10004;Hinweis 6|&#10004;Hinweis 6|&#10004;Hinweis 6|&#10004;Hinweis 6|&#10004;Hinweis 4, 5, 6|&#10004;Hinweis 4, 5, 6|
-|Größenänderung des Lauf Zeit Speichers|2019, 2016|&#10004;Hinweis 6|&#10004;Hinweis 6|&#10004;Hinweis 6|&#10004;Hinweis 6||||
+|Dynamischer Arbeitsspeicher-Hot-Add|2019, 2016, 2012 R2|&#10004; Hinweis 6|&#10004;Hinweis 6|&#10004; Hinweis 6|&#10004; Hinweis 6|&#10004; Hinweis 6|&#10004; Hinweis 4, 5, 6|&#10004; Hinweis 4, 5, 6|
+|Dynamischer Arbeitsspeicher-Ballooning|2019, 2016, 2012 R2|&#10004; Hinweis 6|&#10004; Hinweis 6|&#10004; Hinweis 6|&#10004; Hinweis 6|&#10004; Hinweis 6|&#10004; Hinweis 4, 5, 6|&#10004; Hinweis 4, 5, 6|
+|Größenänderung des Lauf Zeit Speichers|2019, 2016|&#10004; Hinweis 6|&#10004; Hinweis 6|&#10004; Hinweis 6|&#10004; Hinweis 6||||
 |**[Video](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#video)**|||||||||
 |Hyper-V-spezifisches Videogerät|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
-|**[Verschiedensten](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#miscellaneous)**|||||||||
-|Schlüssel-Wert-Paar|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;Hinweis 7|&#10004;Hinweis 7|
+|**[Verschiedenes](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#miscellaneous)**|||||||||
+|Schlüssel-Wert-Paar|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004; Note 7|&#10004; Note 7|
 |Nicht mastbare Unterbrechung|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Dateikopie von Host zu Gast|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;||
 |lsvmbus-Befehl|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;||||
 |Hyper-V-Sockets|2019, 2016|&#10004;|&#10004;|&#10004;|||||
 |PCI-Passthrough/DDA|2019, 2016|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|||
-|**[Virtuelle Maschinen der Generation 2](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#generation-2-virtual-machines)**|||||||||
-|Starten mithilfe von UEFI|2019, 2016, 2012 R2|&#10004;Hinweis 9|&#10004;Hinweis 9|&#10004;Hinweis 9|&#10004;Hinweis 9|&#10004;Hinweis 9|&#10004;Hinweis 9||
+|**[Virtuelle Computer der Generation 2](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#generation-2-virtual-machines)**|||||||||
+|Starten mithilfe von UEFI|2019, 2016, 2012 R2|&#10004; Hinweis 9|&#10004; Hinweis 9|&#10004; Hinweis 9|&#10004; Hinweis 9|&#10004; Hinweis 9|&#10004; Hinweis 9||
 |Sicherer Start|2019, 2016|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|||
 
-## <a name="notes"></a><a name="BKMK_notes"></a>Anmerkungen
+## <a name="notes"></a><a name="BKMK_notes"></a>Hinweise
 
 1. Die statische IP-Injektion funktioniert möglicherweise nicht, wenn der **Netzwerk-Manager** für einen bestimmten, für Hyper-V spezifischen Netzwerkadapter auf dem virtuellen Computer konfiguriert wurde. Stellen Sie sicher, dass der Netzwerk-Manager vollständig ausgeschaltet ist oder für einen bestimmten Netzwerkadapter über seine **ifcfg-ethX-** Datei ausgeschaltet wurde, um eine reibungslose Funktionsweise der statischen IP-Injektion sicherzustellen.
 
@@ -101,9 +99,9 @@ SLES12 + ist nur 64 Bit.
 
    ```
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 
-* [Set-vmfirmware](https://technet.microsoft.com/library/dn464287.aspx)
+* [Set-vmfirmware](/powershell/module/hyper-v/set-vmfirmware?view=win10-ps)
 
 * [Unterstützte virtuelle Computer der CentOS-und Red Hat Enterprise Linux auf Hyper-V](Supported-CentOS-and-Red-Hat-Enterprise-Linux-virtual-machines-on-Hyper-V.md)
 

@@ -2,19 +2,17 @@
 title: Schritte zum Migrieren von Multipoint Services
 description: Führt Sie durch die Schritte zum Migrieren zu Multipoint Services in Windows Server 2016.
 ms.date: 07/29/2016
-ms.prod: windows-server
-ms.technology: multipoint-services
 ms.topic: article
 ms.assetid: 3ee77efa-7cc5-4ddf-aaff-b5634a717014
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.openlocfilehash: f2e293fafb8d6f5d84e9ea5a4ad8ef3b7fe2ba7d
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 0d76e3518801829b852c94d0b112b906abbd92c0
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80858693"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87948933"
 ---
 # <a name="migrate-to--multipoint-services-in-windows-server-2016"></a>Migrieren zu Multipoint Services in Windows Server 2016
 
@@ -41,7 +39,7 @@ Bevor Sie die VDI-Vorlage vom Quell Server importieren können, können Sie virt
 4. Klicken Sie auf **Vorlage für virtuellen Desktop importieren**. Befolgen Sie die Anweisungen, um die Vorlage vom Quell Server zu importieren.
 
 > [!NOTE]
-> Wenn Sie eine Vorlage für virtuelle Desktops importieren, werden alle Anpassungen, die auf die Vorlage angewendet werden, zurückgesetzt. 
+> Wenn Sie eine Vorlage für virtuelle Desktops importieren, werden alle Anpassungen, die auf die Vorlage angewendet werden, zurückgesetzt.
 
 ## <a name="next-step"></a>Nächster Schritt
 [Überprüfen Sie die neue Multipoint Services-Bereitstellung.](multipoint-services-post-migration-steps.md)

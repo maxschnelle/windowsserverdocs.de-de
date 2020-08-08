@@ -1,19 +1,17 @@
 ---
 title: iSCSI Target Server Overview
 TOCTitle: iSCSI Target Server
-ms.prod: windows-server
-ms.technology: storage-iscsi
 ms.topic: article
 author: JasonGerend
 manager: dougkim
 ms.author: jgerend
 ms.date: 09/11/2018
-ms.openlocfilehash: 34515988c46b680701cc39b3948fcd53645741f4
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: febd4b7ab74e89949997b6a182390ef5177f5ac5
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86961352"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87957277"
 ---
 # <a name="iscsi-target-server-overview"></a>iSCSI-Ziel Server (Übersicht)
 
@@ -39,5 +37,5 @@ Wenn Sie Gast-Clustering aktivieren, müssen Sie Blockspeicher bereitstellen. Al
 
 ## <a name="see-also"></a>Weitere Informationen
 
-[iSCSI-Zielblockspeicher: So wird's gemacht](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh848268(v%3dws.11))  
-[Neues beim iSCSI-Zielserver unter Windows Server](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn305893(v%3dws.11))
+[iSCSI-Ziel Block Speicher, Vorgehensweise](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh848268(v%3dws.11)) 
+ [Neues beim iSCSI-Zielserver unter Windows Server](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn305893(v%3dws.11))

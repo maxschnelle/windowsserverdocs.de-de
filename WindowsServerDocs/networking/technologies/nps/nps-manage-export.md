@@ -2,18 +2,16 @@
 title: Exportieren einer NPS-Konfiguration für den Import auf einem anderen Server
 description: In diesem Thema erfahren Sie, wie Sie eine Netzwerk Richtlinien Server-Konfiguration in Windows Server 2016 exportieren.
 manager: brianlic
-ms.prod: windows-server
-ms.technology: networking
 ms.topic: article
 ms.assetid: d268dc57-78f8-47ba-9a7a-a607e8b9225c
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: bbc4982057c306e6f4b94c3c4bf8e8a2761db12a
-ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
+ms.openlocfilehash: 20b3f933565e8170e99f1eed2bfda24bd7705e1b
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87517805"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87949113"
 ---
 # <a name="export-an-nps-configuration-for-import-on-another-server"></a>Exportieren einer NPS-Konfiguration für den Import auf einem anderen Server
 
@@ -109,6 +107,6 @@ Sie müssen Mitglied der Gruppe Administratoren sein, um diesen Vorgang auszufü
 
 5. Geben Sie an einer Eingabeaufforderung auf dem Ziel-NPS **netsh NPS Import filename =**"*path\file.xml*" ein, und drücken Sie dann die EINGABETASTE. Es wird eine Meldung angezeigt, die angibt, ob der Import aus der XML-Datei erfolgreich war.
 
-## <a name="additional-references"></a>Zusätzliche Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Network Shell (Netsh)](../netsh/netsh.md)

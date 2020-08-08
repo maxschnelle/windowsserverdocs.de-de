@@ -6,14 +6,12 @@ author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 08/09/2018
 ms.topic: article
-ms.prod: windows-server
-ms.technology: identity-adds
-ms.openlocfilehash: 4358f48b2373ee0c521c3970c4cb235a0d19dfca
-ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
+ms.openlocfilehash: 61961acf9fc1c858fddb4da70b4899e229ec6a3d
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87519037"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87956977"
 ---
 # <a name="ad-ds-simplified-administration"></a>Vereinfachte Verwaltung für AD DS
 

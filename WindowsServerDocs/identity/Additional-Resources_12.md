@@ -1,24 +1,22 @@
 ---
 ms.assetid: 20dff664-2370-469b-96a8-df1acf7c7f12
-title: Zusätzliche Ressourcen
-ms.prod: windows-server
-ms.technology: identity-adds
+title: Weitere Ressourcen
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 08/07/2018
-ms.openlocfilehash: 6f1d9a19e62a505b2f9e15c074cb32240983e889
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: fc42d406f150c96fe40e00888bc3f42a13bb2774
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80825733"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87965217"
 ---
-# <a name="additional-resources"></a>Zusätzliche Ressourcen
+# <a name="additional-resources"></a>Weitere Ressourcen
 
 >Gilt für: Windows Server
 
-Ausführliche Informationen zur Verwendung von "Repadmin. exe" zum Verwalten Active Directory Replikation finden Sie in der folgenden Ressource: 
+Ausführliche Informationen zur Verwendung von Repadmin.exe zum Verwalten Active Directory Replikation finden Sie in der folgenden Ressource:
 
 - [Überwachung und Problembehandlung Active Directory Replikation mit repadmin](https://go.microsoft.com/fwlink/?LinkId=122830)
 
@@ -32,7 +30,7 @@ Informationen zu Active Directory bekannten Problemen und bewährten Methoden fi
 - [Bewährte Methoden für die Verwaltung von Domänen-und Gesamtstruktur](https://go.microsoft.com/fwlink/?LinkId=128785)
 - [Bekannte Probleme bei der Sicherung Active Directory Domain Services](https://go.microsoft.com/fwlink/?LinkId=128793)
 - [Bekannte Probleme bei der autorisierenden Wiederherstellung](https://go.microsoft.com/fwlink/?LinkId=128788)
-- [Bewährte Methoden für die autorisierende Wiederherstellung](https://go.microsoft.com/fwlink/?LinkId=128791) 
+- [Bewährte Methoden für die autorisierende Wiederherstellung](https://go.microsoft.com/fwlink/?LinkId=128791)
 - [Bekannte Probleme beim Hinzufügen von Domänen Controllern an Remote Standorten](https://go.microsoft.com/fwlink/?LinkId=128794)
 - [Bewährte Methoden zum Hinzufügen von Domänen Controllern an Remote Standorten](https://go.microsoft.com/fwlink/?LinkId=128796)
 

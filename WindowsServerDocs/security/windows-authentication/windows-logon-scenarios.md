@@ -7,12 +7,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 3e3876680031cdb31f2fa3e6ce200efdf6fb5185
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: b1a7783e02746f53d818066eb20ceb3094bd2707
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87936450"
+ms.locfileid: "87990038"
 ---
 # <a name="windows-logon-scenarios"></a>Windows-Anmeldeszenarios
 
@@ -103,14 +103,12 @@ Das folgende Diagramm zeigt die für die Smartcardanmeldung erforderlichen Eleme
 
 Wenn eine Smartcard anstelle eines Kennworts verwendet wird, wird ein privates/öffentliches Schlüsselpaar, das auf der Smartcard des Benutzers gespeichert ist, durch den gemeinsamen geheimen Schlüssel ersetzt, der aus dem Kennwort des Benutzers abgeleitet ist. Der private Schlüssel wird nur auf der Smartcard gespeichert. Der öffentliche Schlüssel kann allen Benutzern zur Verfügung gestellt werden, für die der Besitzer vertrauliche Informationen austauschen möchte.
 
-Weitere Informationen zum Anmeldevorgang für Smartcards in Windows finden Sie unter [Funktionsweise der Smartcard-Anmeldung in Windows](https://technet.microsoft.com/library/ff404285.aspx).
+Weitere Informationen zum Anmeldevorgang für Smartcards in Windows finden Sie unter [Funktionsweise der Smartcard-Anmeldung in Windows](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ff404285(v=ws.10)).
 
 ## <a name="biometric-logon"></a><a name="BKMK_BioLogon"></a>Biometrische Anmeldung
 Ein Gerät wird zum Erfassen und Erstellen eines digitalen Merkmals eines Artefakts verwendet, z. b. eines Fingerabdrucks. Diese digitale Darstellung wird dann mit einem Beispiel desselben Artefakts verglichen, und wenn die beiden erfolgreich verglichen werden, kann die Authentifizierung erfolgen. Computer mit einem der in der Liste **gilt für** am Anfang dieses Themas angegebenen Betriebssysteme können so konfiguriert werden, dass Sie diese Art der Anmeldung akzeptieren. Wenn die biometrische Anmeldung jedoch nur für die lokale Anmeldung konfiguriert ist, muss der Benutzer beim Zugriff auf eine Active Directory Domäne Domänen Anmelde Informationen darstellen.
 
 ## <a name="additional-resources"></a>Weitere Ressourcen
-Informationen zur Verwaltung von Anmelde Informationen, die während der Anmeldung übermittelt werden, finden Sie unter [Verwaltung von Anmelde Informationen in der Windows-Authentifizierung](https://technet.microsoft.com/library/dn169014.aspx).
+Informationen zur Verwaltung von Anmelde Informationen, die während der Anmeldung übermittelt werden, finden Sie unter [Verwaltung von Anmelde Informationen in der Windows-Authentifizierung](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dn169014(v=ws.10)).
 
-[Technische Übersicht zur Windows-Anmeldung und -Authentifizierung.](https://technet.microsoft.com/library/dn169029.aspx)
-
-
+[Technische Übersicht zur Windows-Anmeldung und -Authentifizierung.](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dn169029(v=ws.10))

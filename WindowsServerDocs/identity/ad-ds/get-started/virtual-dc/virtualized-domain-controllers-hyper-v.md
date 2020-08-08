@@ -5,13 +5,12 @@ author: MicrosoftGuyJFlo
 ms.author: joflore
 ms.date: 04/19/2018
 ms.topic: article
-ms.prod: windows-server
-ms.openlocfilehash: 99d470af623be7ccc7ad2a5fe0d63576a406ff57
-ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
+ms.openlocfilehash: ad40b5e5049c8b4f29dab4ffac8246a73e5b2fcd
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87519047"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87956987"
 ---
 # <a name="virtualizing-domain-controllers-using-hyper-v"></a>Virtualisieren von Domänen Controllern mithilfe von Hyper-V
 
@@ -31,7 +30,7 @@ Zum Installieren und Verwenden der Hyper-V-Rolle benötigen Sie Folgendes:
 
    - **Ein x64-Prozessor**
       - Hyper-V ist in x64-basierten Versionen von Windows Server 2008 oder höher verfügbar.
-   - **Hardware gestützte Virtualisierung**
+   - **Hardwareunterstützte Virtualisierung**
       - Dieses Feature ist für Prozessoren mit Virtualisierungsoption (Intel Virtualization Technology (Intel VT) oder AMD Virtualization (AMD-V)) verfügbar.
    - **Hardware-Datenausführungsschutz (DEP)**
       - Die Hardware-DEP muss verfügbar und aktiviert sein. Das heißt, Sie müssen Intel XD-Bit (Execute Disable Bit) oder AMD NX-Bit (No Execute Bit) aktivieren.

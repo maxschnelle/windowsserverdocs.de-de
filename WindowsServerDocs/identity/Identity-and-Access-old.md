@@ -6,15 +6,13 @@ ms.author: billmath
 manager: femila
 ms.date: 03/16/2018
 ms.topic: article
-ms.prod: windows-server
 ms.localizationpriority: medium
-ms.technology: identity-adds
-ms.openlocfilehash: 971622f0680d1a1b864a1f98332bc836dbdc3b00
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 92584ba048791df5de3e525ee7d5456e1a44f3e7
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86965662"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87965177"
 ---
 # <a name="identity-and-access-in-windows-server-2016"></a>Identität und Zugriff in Windows Server 2016
 
@@ -27,10 +25,10 @@ ms.locfileid: "86965662"
 
 
 ## <a name="whats-new-in-active-directory-federation-services-for-windows-server-2016"></a>[Neuerungen in Active Directory-Verbunddienste für Windows Server 2016](ad-fs/overview/whats-new-active-directory-federation-services-windows-server.md)
-Eine Übersicht über alle neuen Features, die in Windows Server 2016 für AD FS verfügbar sind.  
+Eine Übersicht über alle neuen Features, die in Windows Server 2016 für AD FS verfügbar sind.
 
 ## <a name="whats-new-in-active-directory-domain-services-for-windows-server-2016"></a>[Neues in Active Directory Domain Services für Windows Server 2016](whats-new-active-directory-domain-services.md)
-Listet alle neuen Features auf, die in Windows Server 2016 für AD DS verfügbar sind.  
+Listet alle neuen Features auf, die in Windows Server 2016 für AD DS verfügbar sind.
 
 ## <a name="privileged-access-management-for-active-directory-domain-services-40ad-ds41"></a>[Privileged Access Management für Active Directory Domain Services &#40;AD DS&#41;](/microsoft-identity-manager/pam/privileged-identity-management-for-active-directory-domain-services)
 Privileged Access Management (PAM) für Active Directory Domain Services (AD DS) ist eine Lösung, die auf Microsoft Identity Manager (MIM) und Windows Server 2012 R2 und Windows Server 2016 basiert.
@@ -42,10 +40,10 @@ Windows 10 ermöglicht es Ihnen, Azure Active Directory zu nutzen. Windows 10-Ge
 Ausführliche Dokumentation zu allen Features, die in Windows Server 2016 für AD DS verfügbar sind.
 
 ## <a name="active-directory-federation-services"></a>[Active Directory-Verbunddienste (AD FS)](Active-Directory-Federation-Services.md)
-Ausführliche Dokumentation zu allen Features, die in Windows Server 2016 für AD FS verfügbar sind.  
+Ausführliche Dokumentation zu allen Features, die in Windows Server 2016 für AD FS verfügbar sind.
 
-## <a name="solutions-and-scenario-guides"></a>Handbücher zu Lösungen und Szenarien  
-* [Sicherer Zugriff auf Unternehmensressourcen von praktisch jedem Standort und Gerät aus](/previous-versions/windows/it-pro/solutions-guidance/dn550982(v=ws.11))  
-*  [Arbeitsplatzbeitritt von einem beliebigen Gerät für SSO und die nahtlose zweistufige Authentifizierung bei allen Unternehmensanwendungen](./ad-fs/operations/join-to-workplace-from-any-device-for-sso-and-seamless-second-factor-authentication-across-company-applications.md)  
-* [Verwalten von Risiken mit zusätzlicher mehrstufiger Authentifizierung für sensible Anwendungen](./ad-fs/operations/manage-risk-with-additional-multi-factor-authentication-for-sensitive-applications.md)  
+## <a name="solutions-and-scenario-guides"></a>Handbücher zu Lösungen und Szenarien
+* [Sicherer Zugriff auf Unternehmensressourcen von praktisch jedem Standort und Gerät aus](/previous-versions/windows/it-pro/solutions-guidance/dn550982(v=ws.11))
+*  [Arbeitsplatzbeitritt von einem beliebigen Gerät für SSO und die nahtlose zweistufige Authentifizierung bei allen Unternehmensanwendungen](./ad-fs/operations/join-to-workplace-from-any-device-for-sso-and-seamless-second-factor-authentication-across-company-applications.md)
+* [Verwalten von Risiken mit zusätzlicher mehrstufiger Authentifizierung für sensible Anwendungen](./ad-fs/operations/manage-risk-with-additional-multi-factor-authentication-for-sensitive-applications.md)
 * [Verwalten von Risiken mit der bedingten Zugriffssteuerung](./ad-fs/operations/manage-risk-with-conditional-access-control.md)

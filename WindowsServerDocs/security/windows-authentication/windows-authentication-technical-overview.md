@@ -7,12 +7,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 8d5f800b759ae310913e8e62f269da1e45db0259
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: c2ac43da06d6df177523b389eac90f02e6e26b93
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87936470"
+ms.locfileid: "87989976"
 ---
 # <a name="windows-authentication-technical-overview"></a>Windows-Authentifizierung: Technische Übersicht
 
@@ -24,40 +24,40 @@ In dieser Sammlung von Themen werden die Architektur der Windows-Authentifizieru
 
 Klicken Sie zum digitalen Speichern oder Drucken von Seiten aus dieser Bibliothek auf **Exportieren** (oben rechts auf der Seite), und folgen Sie dann den Anweisungen.
 
--   [Unterschiede bei der Windows-Authentifizierung zwischen Windows-Betriebssystemen](https://technet.microsoft.com/library/dn169017.aspx)
+-   [Unterschiede bei der Windows-Authentifizierung zwischen Windows-Betriebssystemen](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dn169017(v=ws.10))
 
     Beschreibt die wesentlichen Unterschiede in der Authentifizierungs Architektur und den Prozessen.
 
--   [Windows-Authentifizierungskonzepte](https://technet.microsoft.com/library/dn169018.aspx)
+-   [Windows-Authentifizierungskonzepte](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dn169018(v=ws.10))
 
     Beschreibt die Konzepte, auf denen die Windows-Authentifizierung basiert.
 
--   [Szenarien für die Windows-Anmelde Authentifizierung](https://technet.microsoft.com/library/dn169020.aspx)
+-   [Szenarien für die Windows-Anmelde Authentifizierung](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dn169020(v=ws.10))
 
     Fasst die verschiedenen Anmelde Szenarien zusammen.
 
--   [Architektur der Windows-Authentifizierung](https://technet.microsoft.com/library/dn169024.aspx)
+-   [Architektur der Windows-Authentifizierung](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dn169024(v=ws.10))
 
     Beschreibt die wesentlichen Unterschiede in der Authentifizierungs Architektur und den Prozessen für Windows-Betriebssysteme.
 
-    -   [Architektur der Security Support Provider-Schnittstelle](https://technet.microsoft.com/library/dn169026.aspx)
+    -   [Architektur der Security Support Provider-Schnittstelle](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dn169026(v=ws.10))
 
         Beschreibt die SSPI-Architektur.
 
-    -   [Anmeldeinformationen-Prozesse in der Windows-Authentifizierung](https://technet.microsoft.com/library/dn169014.aspx)
+    -   [Anmeldeinformationen-Prozesse in der Windows-Authentifizierung](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dn169014(v=ws.10))
 
         Beschreibt die verschiedenen Prozesse zur Verwaltung von Anmelde Informationen.
 
--   [Bei der Windows-Authentifizierung verwendete Gruppenrichtlinien](https://technet.microsoft.com/library/dn169021.aspx)
+-   [Bei der Windows-Authentifizierung verwendete Gruppenrichtlinien](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dn169021(v=ws.10))
 
     Beschreibt die Verwendung und Auswirkung von Gruppenrichtlinien in den Authentifizierungsprozess.
 
 ## <a name="what-is-not-covered"></a>Was nicht behandelt wird
 Diese Themensammlung behandelt keine Prozeduren für das Entwerfen, implementieren oder Überwachen von Authentifizierungs Technologien innerhalb einer Windows-Umgebung.
 
--   Entwurfs Informationen zu Windows-Autorisierungs Strategien finden Sie unter [Entwerfen einer Ressourcen Autorisierungs Strategie](https://technet.microsoft.com/library/cc783368.aspx).
+-   Entwurfs Informationen zu Windows-Autorisierungs Strategien finden Sie unter [Entwerfen einer Ressourcen Autorisierungs Strategie](/previous-versions/windows/it-pro/windows-server-2003/cc783368(v=ws.10)).
 
--   Entwurfs Informationen zu Windows-Authentifizierungs Strategien finden Sie unter [Entwerfen einer Authentifizierungs Strategie](https://technet.microsoft.com/library/cc758124.aspx).
+-   Entwurfs Informationen zu Windows-Authentifizierungs Strategien finden Sie unter [Entwerfen einer Authentifizierungs Strategie](/previous-versions/windows/it-pro/windows-server-2003/cc758124(v=ws.10)).
 
 -   Entwurfs Informationen zu den Implementierungs Strategien für die Public Key-Infrastruktur von Windows finden Sie unter [Entwerfen einer Public Key-Infrastruktur](/previous-versions/windows/it-pro/windows-server-2003/cc773138(v=ws.10)).
 
@@ -65,14 +65,12 @@ Diese Themensammlung behandelt keine Prozeduren für das Entwerfen, implementier
 
     -   [Windows XP-Sicherheitshandbuch](https://www.microsoft.com/download/details.aspx?id=962)
 
-    -   [Windows Vista-Sicherheitsbaseline](https://technet.microsoft.com/library/dd450978.aspx)
+    -   [Windows Vista-Sicherheitsbaseline](/previous-versions/tn-archive/dd450978(v=technet.10))
 
-    -   [Windows Server 2003-Sicherheitsbaseline](https://technet.microsoft.com/library/cc163140.aspx) und das [Handbuch zu Bedrohungen und Gegenmaßnahmen](https://technet.microsoft.com/library/dd162275.aspx)
+    -   [Windows Server 2003-Sicherheitsbaseline](/previous-versions/tn-archive/cc163140(v=technet.10)) und das [Handbuch zu Bedrohungen und Gegenmaßnahmen](/previous-versions/tn-archive/dd162275(v=technet.10))
 
     -   [Windows Server 2008-Sicherheitsleitfaden](https://www.microsoft.com/download/details.aspx?id=17606)
 
-    -   [Windows Server 2008 R2-Sicherheitsbaseline](https://technet.microsoft.com/library/gg236605.aspx)
+    -   [Windows Server 2008 R2-Sicherheitsbaseline](/previous-versions/tn-archive/gg236605(v=technet.10))
 
--   Informationen zum Überwachen von Anmelde-und Authentifizierungs Ereignissen in Windows finden Sie unter Überwachen von [Sicherheits Ereignissen](https://technet.microsoft.com/library/cc776394.aspx).
-
-
+-   Informationen zum Überwachen von Anmelde-und Authentifizierungs Ereignissen in Windows finden Sie unter Überwachen von [Sicherheits Ereignissen](/previous-versions/windows/it-pro/windows-server-2003/cc776394(v=ws.10)).
