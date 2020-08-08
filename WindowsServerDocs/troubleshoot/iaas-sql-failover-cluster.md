@@ -1,17 +1,15 @@
 ---
 title: Anpassen des Baselinenetzwerk-Schwellenwerts für das Failover
 description: In diesem Artikel werden Lösungen zum Anpassen des Schwellenwerts von failoverclusternetzwerken vorgestellt.
-ms.prod: windows-server
-ms.technology: server-general
 ms.date: 05/28/2020
 author: Deland-Han
 ms.author: delhan
-ms.openlocfilehash: 86a7023f6480e68f917cb8cdd9d0c69c417d3145
-ms.sourcegitcommit: 145cf75f89f4e7460e737861b7407b5cee7c6645
+ms.openlocfilehash: 9f28aa9c10fe64e0b86a405c1feb480396bcb76b
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87409791"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87965807"
 ---
 # <a name="iaas-with-sql-alwayson---tuning-failover-cluster-network-thresholds"></a>IaaS mit SQL Always On: Optimieren der Failovercluster-Netzwerkschwellenwerte
 
@@ -77,7 +75,7 @@ Zum Konfigurieren der konnektivitätsintegrität des Clusters werden zwei Einste
 
 Standardmäßig legt Windows Server 2016 **samesubnetthreshold** auf 10 und **samesubnetdelay** auf 1000 ms fest. Wenn beispielsweise die Verbindungsüberwachung 10 Sekunden lang ausfällt, wird der failoverschwellen Wert erreicht, was dazu führt, dass der Knoten aus der Cluster Mitgliedschaft entfernt wurde. Dies führt dazu, dass die Ressourcen auf einen anderen verfügbaren Knoten im Cluster verschoben werden. Cluster Fehler werden gemeldet, einschließlich des Cluster Fehlers 1135 (oben).
 
-## <a name="resolution"></a>Auflösung
+## <a name="resolution"></a>Lösung
 
 Lockern Sie in einer IaaS-Umgebung die Konfigurationseinstellungen des Cluster Netzwerks.
 
@@ -91,7 +89,7 @@ C:\Windows\system32> get-cluster | fl *subnet*
 
 Standard-, minimal-, höchst-und empfohlene Werte für jedes Support Betriebssystem
 
-| BESCHREIBUNG | OS | Min | Max | Standard | Empfohlen |
+| BESCHREIBUNG | Betriebssystem | Min | Max | Standardwert | Empfohlen |
 |--|--|--|--|--|--|
 | CrossSubnetThreshold | 2008 R2 | 3 | 20 | 5 | 20 |
 | Crosssubnet-Schwellenwert | 2012 | 3 | 120 | 5 | 20 |
@@ -136,7 +134,7 @@ Der **Schwellenwert** definiert die Anzahl der Takte, die übersehen werden, bev
 
     :::image type="content" source="media/iaas-sql-failover-cluster/cmd.png" alt-text="cmd" border="false":::
 
-## <a name="references"></a>Referenzen
+## <a name="references"></a>References
 
 Weitere Informationen zum Optimieren der Netzwerk Konfigurationseinstellungen für Windows-Cluster finden Sie unter [Optimieren der Netzwerk Schwellenwerte für Failovercluster](https://techcommunity.microsoft.com/t5/failover-clustering/tuning-failover-cluster-network-thresholds/ba-p/371834).
 

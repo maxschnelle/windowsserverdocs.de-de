@@ -2,18 +2,16 @@
 title: Erstellen einer Klassifizierungseigenschaft
 description: In diesem Artikel werden die Klassifizierungs Eigenschaften beschrieben, die zum Zuweisen von Werten zu Dateien in einem angegebenen Ordner oder Volume verwendet werden.
 ms.date: 7/7/2017
-ms.prod: windows-server
-ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: f8e0ba45883385a2b2bf161b04f99f8077fdef28
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 8a5d044ae78ad45b59fa4cb97694c15aad3c4bbe
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85473757"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87957497"
 ---
 # <a name="create-a-classification-property"></a>Erstellen einer Klassifizierungseigenschaft
 
@@ -49,7 +47,7 @@ Das folgende Verfahren führt Sie durch den Prozess der Erstellung einer Klassif
 
 6.  Klicken Sie auf **OK**.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Erstellen einer automatischen Klassifizierungsregel](create-automatic-classification-rule.md)
 -   [Klassifizierungsverwaltung](classification-management.md)

@@ -7,12 +7,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 731d73c8aa7ea5ad7f7b2777b2694da232fae12a
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 480b03f49b806ca0096c64d824679473b02695c5
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87895760"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87991849"
 ---
 # <a name="manage-multiple-remote-servers-with-server-manager"></a>Verwalten mehrerer Remote Server mit Server-Manager
 
@@ -132,7 +132,7 @@ Zum Ausführen von Verwaltungsaufgaben auf Remote Servern mithilfe von Server-Ma
 
     -   Informationen zum Aktivieren der Remote Verwaltung auf Servern, auf denen Windows Server 2008 ausgeführt wird, finden Sie unter [aktivieren und Verwenden von Remote Befehlen in Windows PowerShell](https://go.microsoft.com/fwlink/p/?LinkId=242565).
 
-    -   Zum Aktivieren der Remoteverwaltung auf Servern unter Windows Server 2003 aktivieren Sie WMI-DCOM-Ausnahmen in der Windows-Firewall. Weitere Informationen dazu, wie Sie dies auf Servern unter Windows Server 2003 ausführen, finden Sie unter [Herstellen einer Verbindung über die Windows-Firewall](https://msdn.microsoft.com/library/aa389286.aspx) auf der MSDN-Website.
+    -   Zum Aktivieren der Remoteverwaltung auf Servern unter Windows Server 2003 aktivieren Sie WMI-DCOM-Ausnahmen in der Windows-Firewall. Weitere Informationen dazu, wie Sie dies auf Servern unter Windows Server 2003 ausführen, finden Sie unter [Herstellen einer Verbindung über die Windows-Firewall](/windows/win32/wmisdk/connecting-to-wmi-remotely-with-vbscript) auf der MSDN-Website.
 
 ## <a name="tasks-that-you-can-perform-in-server-manager"></a><a name=BKMK_tasks></a>Im Server-Manager ausführbare Aufgaben
 Server-Manager wird die Serververwaltung effizienter, da Administratoren mithilfe eines einzigen Tools Aufgaben in der folgenden Tabelle ausführen können. In Windows Server 2012 R2 und Windows Server 2012 können sowohl Standardbenutzer eines Servers als auch Mitglieder der Gruppe "Administratoren" Verwaltungsaufgaben in Server-Manager ausführen. Standardbenutzer werden jedoch standardmäßig daran gehindert, einige Aufgaben auszuführen, wie in der folgenden Tabelle gezeigt.
@@ -237,5 +237,3 @@ Sie können Server-Manager Einstellungen exportieren, Server-Manager Einstellung
     -   %*AppData*% \Microsoft\Windows\ServerManager\Serverlist.xml
 
     -   %*LocalAppData*% \Microsoft_Corporation\ServerManager.exe_StrongName_*GUID*\6.2.0.0\user.config
-
-

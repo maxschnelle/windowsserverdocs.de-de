@@ -1,19 +1,17 @@
 ---
 title: Verstehen und Anzeigen der erneuten Synchronisierung von Speicher
 description: Ausführliche Informationen darüber, wann die erneute Synchronisierung des Speichers stattfindet und wie Sie in Windows Server 2019 angezeigt wird.
-ms.prod: windows-server
 ms.author: adagashe
-ms.technology: storage-spaces
 ms.topic: article
 author: adagashe
 ms.date: 01/14/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 79e5e1e9daba005a086c16dd1d8e3e3f9a28a8a2
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 2a8eb653de2d72177f3ce39f0b63fe53b50c0ae8
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85473417"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87957327"
 ---
 # <a name="understand-and-monitor-storage-resync"></a>Grundlagen und Überwachung der Neusynchronisierung des Speichers
 
@@ -111,7 +109,7 @@ Regeneration          00:01:19              Running               50            
 
 Diese Ansicht ist weitaus präziser, da die aufgeführten Speicher Aufträge pro Volume angezeigt werden. Sie können die Liste der ausgeführten Aufträge anzeigen und Ihren individuellen Fortschritt nachverfolgen. Dieses Cmdlet funktioniert sowohl auf Windows Server 2016 als auch auf 2019.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Offlineschalten eines „Direkte Speicherplätze“-Servers zu Wartungszwecken](maintain-servers.md)
-- [Übersicht über direkte Speicherplätze](storage-spaces-direct-overview.md)
+- [Direkte Speicherplätze – Übersicht](storage-spaces-direct-overview.md)

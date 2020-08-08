@@ -8,12 +8,12 @@ ms.author: coreyp
 manager: dongill
 ms.localizationpriority: medium
 ms.date: 02/01/2018
-ms.openlocfilehash: 2280dd901756c033a16e5203ad60bc0b6cad5ce4
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: b1c3e2f1c521615ff365642566745411db8aa612
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87895823"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87991942"
 ---
 # <a name="add-servers-to-server-manager"></a>Add Servers to Server Manager
 
@@ -157,7 +157,7 @@ Diese oder ähnliche Fehler können unter den folgenden Bedingungen auftreten.
 
 5.  Melden Sie sich vom Computer ab, auf dem Sie Server-Manager ausführen, und melden Sie sich dann wieder mit dem integrierten Administrator Konto an. Wiederholen Sie den vorherigen Schritt, um zu überprüfen, ob Server-Manager eine Verbindung mit dem Remote Server herstellen und Daten vom Remote Server sammeln kann.
 
-Wenn Sie die Verfahren in diesem Abschnitt befolgt haben und weiterhin Probleme beim Verwalten von Arbeitsgruppen Computern oder bei der Verwaltung anderer Computer von Arbeitsgruppen Computern haben, finden Sie weitere Informationen unter [about_remote_Troubleshooting](https://technet.microsoft.com/library/dd347642.aspx) auf der Microsoft-Website.
+Wenn Sie die Verfahren in diesem Abschnitt befolgt haben und weiterhin Probleme beim Verwalten von Arbeitsgruppen Computern oder bei der Verwaltung anderer Computer von Arbeitsgruppen Computern haben, finden Sie weitere Informationen unter [about_remote_Troubleshooting](/previous-versions/dd347642(v=technet.10)) auf der Microsoft-Website.
 
 ### <a name="add-and-manage-servers-in-clusters"></a>Hinzufügen und Verwalten von Servern in Clustern
 Sie können Server-Manager zum Verwalten von Servern verwenden, die sich in Failoverclustern (auch Server Cluster oder MSCS genannt) befinden. Server in Failoverclustern (unabhängig davon, ob die Cluster Knoten physisch oder virtuell sind) weisen einige eindeutige Verhaltensweisen und Verwaltungs Einschränkungen in Server-Manager auf.

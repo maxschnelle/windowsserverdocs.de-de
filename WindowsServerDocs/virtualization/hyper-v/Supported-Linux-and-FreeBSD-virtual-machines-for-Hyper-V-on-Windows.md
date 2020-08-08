@@ -1,20 +1,18 @@
 ---
 title: Unterstützte virtuelle Linux-und FreeBSD-Computer für Hyper-V unter Windows
 description: Listet die in jeder Version enthaltenen Linux-Integrationsdienste und-Funktionen auf.
-ms.prod: windows-server
 manager: dongill
-ms.technology: compute-hyper-v
 ms.topic: article
 ms.assetid: 990ff94a-30fb-434b-b4a2-3804a5245ba6
 author: shirgall
 ms.author: kathydav
 ms.date: 10/03/2016
-ms.openlocfilehash: dff7a0f829f11a92f2c87305da806b9be43f42fe
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 3c971b3b802f1059454bc8935b638ddcc10c825c
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80855943"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87965627"
 ---
 # <a name="supported-linux-and-freebsd-virtual-machines-for-hyper-v-on-windows"></a>Unterstützte virtuelle Linux-und FreeBSD-Computer für Hyper-V unter Windows
 
@@ -45,7 +43,7 @@ Ziel dieses Inhalts sind die Bereitstellung von Informationen, die Ihnen helfen,
 
 **Möchten Sie einen Vorschlag zu Features und Funktionen erstellen?** Gibt es etwas, das wir besser machen können? Auf der [Windows Server User Voice](https://windowsserver.uservoice.com/forums/295062-linux-support) -Website können Sie neue Features und Funktionen für Linux-und FreeBSD-Virtual Machines auf Hyper-V vorschlagen und sehen, was andere Personen sagen.
 
-## <a name="in-this-section"></a>Inhalt dieses Abschnitts
+## <a name="in-this-section"></a>In diesem Abschnitt
 
 * [Unterstützte virtuelle Computer der CentOS-und Red Hat Enterprise Linux auf Hyper-V](Supported-CentOS-and-Red-Hat-Enterprise-Linux-virtual-machines-on-Hyper-V.md)
 

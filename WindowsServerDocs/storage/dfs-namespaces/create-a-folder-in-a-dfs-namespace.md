@@ -2,18 +2,16 @@
 title: Erstellen eines Ordners in einem DFS-Namespace
 description: In diesem Artikel wird beschrieben, wie Sie einen Ordner in einem DFS-Namespace erstellen.
 ms.date: 6/5/2017
-ms.prod: windows-server
-ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 4034c3b40a6b409f295875e424668e68bce24cdb
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: d854cfcb02288f6262ee380edc0614baf9e29878
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86962862"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87957698"
 ---
 # <a name="create-a-folder-in-a-dfs-namespace"></a>Erstellen eines Ordners in einem DFS-Namespace
 
@@ -38,7 +36,7 @@ Mithilfe des folgenden Verfahrens können Sie einen Ordner in einem Namespace mi
 > Verwenden Sie zum Erstellen eines Ordners in einem Namespace mithilfe von Windows PowerShell das Cmdlet [New-dfsnfolder](/powershell/module/dfsn/new-dfsnfolder) . Das DFSN-Windows PowerShell-Modul wurde in Windows Server 2012 eingeführt.
 
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Bereitstellen von DFS-Namespaces](deploying-dfs-namespaces.md)
 -   [Delegieren von Verwaltungsberechtigungen für DFS-Namespaces](delegate-management-permissions-for-dfs-namespaces.md)

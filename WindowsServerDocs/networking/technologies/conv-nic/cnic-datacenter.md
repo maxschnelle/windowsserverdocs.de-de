@@ -1,20 +1,18 @@
 ---
 title: Konvergierte NIC in einer kombinierten NIC-Konfiguration (Datacenter)
 description: In diesem Thema erhalten Sie Anweisungen zum Bereitstellen einer konvergenten NIC in einer kombinierten NIC-Konfiguration mit Switch Embedded Teaming (Set).
-ms.prod: windows-server
-ms.technology: networking
 ms.topic: article
 ms.assetid: f01546f8-c495-4055-8492-8806eee99862
 manager: dougkim
 ms.author: lizross
 author: eross-msft
 ms.date: 09/17/2018
-ms.openlocfilehash: d81e4013d7cc38a15dd8b0bcd48529a2d72d0b69
-ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
+ms.openlocfilehash: 918b3d10c39c6f06330f9c0986bc08b5bc04a229
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87520199"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87949374"
 ---
 # <a name="converged-nic-in-a-teamed-nic-configuration-datacenter"></a>Konvergierte NIC in einer kombinierten NIC-Konfiguration (Datacenter)
 
@@ -59,7 +57,7 @@ Stellen Sie sicher, dass die physische NIC eine Verbindung mit dem Zielhost hers
    | InterfaceIndex |     11      |
    | InterfaceAlias | Test-40G-1  |
    | AddressFamily  |    IPv4     |
-   |      type      |   Unicast   |
+   |      Typ      |   Unicast   |
    |  PrefixLength  |     24      |
 
 3. Anzeigen der zweiten Netzwerkadapter Eigenschaften.
@@ -91,7 +89,7 @@ Stellen Sie sicher, dass die physische NIC eine Verbindung mit dem Zielhost hers
    | InterfaceIndex |     13      |
    | InterfaceAlias | Test-40G-2  |
    | AddressFamily  |    IPv4     |
-   |      type      |   Unicast   |
+   |      Typ      |   Unicast   |
    |  PrefixLength  |     24      |
 
 5. Überprüfen Sie, ob andere NIC-Team-oder Set-Member-pnics eine gültige IP-Adresse aufweisen<p>Verwenden Sie ein separates Subnetz, \( xxx.xxx.** 2**. xxx im Vergleich zu xxx.xxx. **1**. xxx \) , um das Senden von diesem Adapter an das Ziel zu vereinfachen. Wenn Sie beide pnics im gleichen Subnetz finden, wird die Windows-TCP/IP-Stapel Last zwischen den Schnittstellen und der einfachen Validierung komplizierter.
@@ -267,7 +265,7 @@ In der folgenden Abbildung sind zwei Hyper-V-Hosts mit jeweils zwei Netzwerkadap
    |      RemoteAddress       | 192.168.1.5 erstellt |
    |      InterfaceAlias      | Test-40G-1  |
    |      SourceAddress       | 192.168.1.5 erstellt |
-   |      Pingerfolg       |    Richtig     |
+   |      Pingerfolg       |    True     |
    | Pingreplydetails \( RTT\) |    0 ms     |
 
 8. Überprüfen Sie die Konnektivität für die erste NIC, Test-40G-2.<p>Wenn eine Verbindung nicht hergestellt werden kann, überprüfen Sie die Switch-VLAN-Konfiguration oder die Ziel Teilnahme im gleichen VLAN.
@@ -285,7 +283,7 @@ In der folgenden Abbildung sind zwei Hyper-V-Hosts mit jeweils zwei Netzwerkadap
    |      RemoteAddress       | 192.168.2.5 |
    |      InterfaceAlias      | Test-40G-2  |
    |      SourceAddress       | 192.168.2.3 |
-   |      Pingerfolg       |    Richtig     |
+   |      Pingerfolg       |    True     |
    | Pingreplydetails \( RTT\) |    0 ms     |
 
    >[!IMPORTANT]
@@ -299,7 +297,7 @@ In der folgenden Abbildung sind zwei Hyper-V-Hosts mit jeweils zwei Netzwerkadap
    ![Konfigurieren von Quality of Service](../../media/Converged-NIC/3-datacenter-configure-qos.jpg)
 
 
-## <a name="step-4-configure-quality-of-service-qos"></a>Schritt 4: Konfigurieren von Quality of Service \( QoS\)
+## <a name="step-4-configure-quality-of-service-qos"></a>Schritt 4. Konfigurieren von Quality of Service \( QoS\)
 
 >[!NOTE]
 >Sie müssen alle der folgenden DCB-und QoS-Konfigurationsschritte auf allen Hosts ausführen, die miteinander kommunizieren sollen.
@@ -318,7 +316,7 @@ In der folgenden Abbildung sind zwei Hyper-V-Hosts mit jeweils zwei Netzwerkadap
 
    | Erfolg | Neustart erforderlich | Exitcode |     Funktionsergebnis     |
    |---------|----------------|-----------|------------------------|
-   |  Richtig   |       Nein       |  Erfolg  | {Data Center Bridging} |
+   |  True   |       Nein       |  Erfolg  | {Data Center Bridging} |
 
 2. Legen Sie die QoS-Richtlinien für SMB-Direct fest:
 
@@ -338,7 +336,7 @@ In der folgenden Abbildung sind zwei Hyper-V-Hosts mit jeweils zwei Netzwerkadap
    |----------------|--------------------------|
    |      Name      |           SMB            |
    |     Besitzer      | Gruppenrichtlinie \( Computer\) |
-   | " |           All            |
+   | " |           Alle            |
    |   Rangfolge   |           127            |
    |   JobObject    |          &nbsp;          |
    | Netdirectport  |           445            |
@@ -357,9 +355,9 @@ In der folgenden Abbildung sind zwei Hyper-V-Hosts mit jeweils zwei Netzwerkadap
    |----------------|--------------------------|
    |      Name      |         DEFAULT          |
    |     Besitzer      | Gruppenrichtlinie \( Computer\) |
-   | " |           All            |
+   | " |           Alle            |
    |   Rangfolge   |           127            |
-   |    Vorlage    |         Standard          |
+   |    Vorlage    |         Standardwert          |
    |   JobObject    |          &nbsp;          |
    | PriorityValue  |            0             |
 
@@ -575,8 +573,8 @@ Die folgende Abbildung zeigt den aktuellen Status der Hyper-V-Hosts.
 
    |    Name    |        Interfacedescription        | Aktiviert |
    |------------|------------------------------------|---------|
-   | Test-40G-1 | Mellanox ConnectX-4 VPI-Adapter #2 |  Richtig   |
-   | Test-40G-2 |  Mellanox ConnectX-4 VPI-Adapter   |  Richtig   |
+   | Test-40G-1 | Mellanox ConnectX-4 VPI-Adapter #2 |  True   |
+   | Test-40G-2 |  Mellanox ConnectX-4 VPI-Adapter   |  True   |
 
 2. Bestimmen Sie den **ifindex** -Wert der Ziel Adapter.<p>Sie verwenden diesen Wert in nachfolgenden Schritten, wenn Sie das Skript ausführen, das Sie herunterladen.
 
@@ -715,7 +713,7 @@ Die folgende Abbildung zeigt Hyper-V-Host 1 mit einem Vswitch.
 
    |  Name   | Ismanagementos | VMName  |  SwitchName  | MacAddress | Status | IPAddresses |
    |---------|----------------|---------|--------------|------------|--------|-------------|
-   | Vmstest |      Richtig      | Vmstest | E41D2D074071 |    Okay    | &nbsp; |             |
+   | Vmstest |      True      | Vmstest | E41D2D074071 |    Okay    | &nbsp; |             |
 
 
 5. Testen Sie die Netzwerkverbindung mit dem Remote-VLAN 101-Adapter.
@@ -822,8 +820,8 @@ Sie müssen die VLAN-Zugriffs Einstellung entfernen, um zu verhindern, dass sowo
 
    |         Name         | Ismanagementos | VMName |      SwitchName      |  MacAddress  | Status | IPAddresses |
    |----------------------|----------------|--------|----------------------|--------------|--------|-------------|
-   | Corp-externer Switch |      Richtig      | &nbsp; | Corp-externer Switch | 001b785768aa |  Okay  |   &nbsp;    |
-   |         Verwaltung          |      Richtig      | &nbsp; |       Vmstest        | E41D2D074071 |  Okay  |   &nbsp;    |
+   | Corp-externer Switch |      True      | &nbsp; | Corp-externer Switch | 001b785768aa |  Okay  |   &nbsp;    |
+   |         Verwaltung          |      True      | &nbsp; |       Vmstest        | E41D2D074071 |  Okay  |   &nbsp;    |
 
 5. Anzeigen zusätzlicher NIC-Eigenschaften.
 
@@ -873,10 +871,10 @@ Die folgende Abbildung zeigt den aktuellen Status der Hyper-v-Hosts, einschließ
 
    |         Name         | Ismanagementos |        VMName        |  SwitchName  | MacAddress | Status | IPAddresses |
    |----------------------|----------------|----------------------|--------------|------------|--------|-------------|
-   | Corp-externer Switch |      Richtig      | Corp-externer Switch | 001b785768aa |    Okay    | &nbsp; |             |
-   |         Verwaltung          |      Richtig      |       Vmstest        | E41D2D074071 |    Okay    | &nbsp; |             |
-   |         Server Message Block         |      Richtig      |       Vmstest        | 00155d30aa00 |    Okay    | &nbsp; |             |
-   |         SMB2         |      Richtig      |       Vmstest        | 00155d30aa01 |    Okay    | &nbsp; |             |
+   | Corp-externer Switch |      True      | Corp-externer Switch | 001b785768aa |    Okay    | &nbsp; |             |
+   |         Verwaltung          |      True      |       Vmstest        | E41D2D074071 |    Okay    | &nbsp; |             |
+   |         Server Message Block         |      True      |       Vmstest        | 00155d30aa00 |    Okay    | &nbsp; |             |
+   |         SMB2         |      True      |       Vmstest        | 00155d30aa01 |    Okay    | &nbsp; |             |
 
 ## <a name="step-9-assign-an-ip-address-to-the-smb-host-vnics-vethernet-smb1-and-vethernet-smb2"></a>Schritt 9 Zuweisen einer IP-Adresse zu den SMB-Host-vNICs vethernet \( Server Message Block \) und vethernet \( SMB2\)
 
@@ -1337,7 +1335,7 @@ Sie möchten die RDMA-Funktionalität vom Remote System auf das lokale System, d
 
 Die letzte Zeile in der Ausgabe "RDMA-Datenverkehrs Test erfolgreich: RDMA-Datenverkehr wurde an 192.168.2.5 gesendet" zeigt, dass Sie die konvergierte NIC erfolgreich auf dem Adapter konfiguriert haben.
 
-## <a name="related-topics"></a>Zugehörige Themen
+## <a name="related-topics"></a>Verwandte Themen
 
 - [Konvergierte NIC-Konfiguration mit einem einzelnen Netzwerk Adapter](cnic-single.md)
 - [Konfiguration des physischen Switches für konvergierte NIC](cnic-app-switch-config.md)

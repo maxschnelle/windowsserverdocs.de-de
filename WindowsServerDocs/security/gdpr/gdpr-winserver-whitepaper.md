@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 09/25/2017
 ms.author: nirb
 author: nirb-ms
-ms.openlocfilehash: 0a21adf3bafeb93f2f9fc18da785fae1a81260b3
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 1ddfbbda9ab0bdf4d04213069e192e471e4d1b98
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87971527"
+ms.locfileid: "87991690"
 ---
 # <a name="beginning-your-general-data-protection-regulation-gdpr-journey-for-windows-server"></a>Starten ihrer Datenschutz-Grundverordnung-Journey (dsgvo) für Windows Server
 
@@ -167,7 +167,7 @@ Privilegierte Identitäten können kompromittiert werden, wenn Organisationen ni
 
 - **Social Engineering Research.** Die meisten Bedrohungen der Anmelde Informationen beginnen mit der Untersuchung der Organisation und Durchführung durch Social Engineering. Beispielsweise kann ein Angreifer einen e-Mail-Phishing-Angriff durchführen, um legitime Konten (aber nicht unbedingt Konten mit erhöhten Rechten) zu kompromittieren, die Zugriff auf das Netzwerk einer Organisation haben. Der Angreifer verwendet dann diese gültigen Konten, um zusätzliche Untersuchungen in Ihrem Netzwerk durchzuführen und privilegierte Konten zu identifizieren, die administrative Aufgaben ausführen können.
 
-- **Nutzen Sie Konten mit erhöhten Rechten.** Selbst bei einem normalen, nicht erhöhten Benutzerkonto im Netzwerk können Angreifer Zugriff auf Konten mit erhöhten Berechtigungen erhalten. Eine der gängigeren Methoden hierfür ist die Verwendung der Pass-the-Hash-oder Pass-the-Token-Angriffe. Weitere Informationen zu den Verfahren Pass-the-Hash und andere Verfahren zum Diebstahl von Anmelde Informationen finden Sie in den Ressourcen auf der [Seite Pass-the-Hash (PTH)](https://technet.microsoft.com/dn785092.aspx).
+- **Nutzen Sie Konten mit erhöhten Rechten.** Selbst bei einem normalen, nicht erhöhten Benutzerkonto im Netzwerk können Angreifer Zugriff auf Konten mit erhöhten Berechtigungen erhalten. Eine der gängigeren Methoden hierfür ist die Verwendung der Pass-the-Hash-oder Pass-the-Token-Angriffe. Weitere Informationen zu den Verfahren Pass-the-Hash und andere Verfahren zum Diebstahl von Anmelde Informationen finden Sie in den Ressourcen auf der [Seite Pass-the-Hash (PTH)](/previous-versions/dn785092(v=msdn.10)).
 
 Es gibt natürlich andere Methoden, mit denen Angreifer privilegierte Identitäten identifizieren und kompromittieren können (wobei täglich neue Methoden erstellt werden). Daher ist es wichtig, dass Sie Verfahren für Benutzer einrichten, die sich mit Konten mit geringsten Berechtigungen anmelden, um die Möglichkeit zu verringern, dass Angreifer Zugriff auf privilegierte Identitäten erhalten. In den folgenden Abschnitten werden die Funktionen beschrieben, mit denen Windows Server diese Risiken mindern kann.
 
@@ -211,7 +211,7 @@ Windows Defender Credential Guard verwendet Folgendes:
 
 - TPM 2,0 entweder diskret oder Firmware (bevorzugt-Bereitstellen der Bindung an die Hardware)
 
-Sie können Windows Defender Anmelde Informationen Guard verwenden, um privilegierte Identitäten zu schützen, indem Sie die Anmelde Informationen und die Ableitungen von Anmelde Informationen unter Windows Server 2016 schützen. Weitere Informationen zu den Anforderungen von Windows Defender Credential Guard finden Sie unter [schützen abgeleiteter Domänen Anmelde Informationen mit Windows Defender Credential Guard](https://docs.microsoft.com/windows/access-protection/credential-guard/credential-guard).
+Sie können Windows Defender Anmelde Informationen Guard verwenden, um privilegierte Identitäten zu schützen, indem Sie die Anmelde Informationen und die Ableitungen von Anmelde Informationen unter Windows Server 2016 schützen. Weitere Informationen zu den Anforderungen von Windows Defender Credential Guard finden Sie unter [schützen abgeleiteter Domänen Anmelde Informationen mit Windows Defender Credential Guard](/windows/access-protection/credential-guard/credential-guard).
 
 #### <a name="windows-defender-remote-credential-guard"></a>Windows Defender Remote Credential Guard
 Windows Defender Remote Credential Guard unter Windows Server 2016 und Windows 10 Anniversary Update unterstützt auch den Schutz von Anmelde Informationen für Benutzer mit Remote Desktop Verbindungen. Zuvor musste sich jede Person, die Remotedesktopdienste verwendet, bei Ihrem lokalen Computer anmelden und sich dann erneut anmelden, wenn Sie eine Remote Verbindung mit dem Zielcomputer durchgeführt hat. Dieser zweite Anmelde Name übergibt Anmelde Informationen an den Zielcomputer und macht Sie für Pass-the-Hash-oder Pass-The-Ticket-Angriffe verfügbar.
@@ -226,7 +226,7 @@ Mit Windows Defender Remote Credential Guard implementiert Windows Server 2016 S
 
 - Die Remotedesktop klassische Windows-APP ist erforderlich. Die Remotedesktop universelle Windows-Plattform-App unterstützt nicht Windows Defender Remote Credential Guard.
 
-Sie können Windows Defender Remote Credential Guard aktivieren, indem Sie eine Registrierungs Einstellung auf dem Remotedesktop Server und Gruppenrichtlinie oder einen Remotedesktopverbindung Parameter auf dem Remotedesktop Client verwenden. Weitere Informationen zum Aktivieren von Windows Defender Remote Credential Guard finden Sie unter [Schützen von Remotedesktop Anmelde Informationen mit Windows Defender Remote Credential Guard](https://docs.microsoft.com/windows/access-protection/remote-credential-guard). Wie bei Windows Defender Credential Guard können Sie Windows Defender Remote Credential Guard verwenden, um privilegierte Identitäten unter Windows Server 2016 zu schützen.
+Sie können Windows Defender Remote Credential Guard aktivieren, indem Sie eine Registrierungs Einstellung auf dem Remotedesktop Server und Gruppenrichtlinie oder einen Remotedesktopverbindung Parameter auf dem Remotedesktop Client verwenden. Weitere Informationen zum Aktivieren von Windows Defender Remote Credential Guard finden Sie unter [Schützen von Remotedesktop Anmelde Informationen mit Windows Defender Remote Credential Guard](/windows/access-protection/remote-credential-guard). Wie bei Windows Defender Credential Guard können Sie Windows Defender Remote Credential Guard verwenden, um privilegierte Identitäten unter Windows Server 2016 zu schützen.
 
 ### <a name="secure-the-operating-system-to-run-your-apps-and-infrastructure"></a>Sichern des Betriebssystems zum Ausführen von apps und Infrastrukturen
 Das verhindern von Cyberbedrohungen erfordert auch das Auffinden und Blockieren von Schadsoftware und Angriffen, die die Kontrolle über die Standard Betriebssysteme Ihrer Infrastruktur erlangen. Wenn Angreifer ein Betriebssystem oder eine Anwendung für die Ausführung in einer nicht vordefinierten, nicht realisierbaren Weise erhalten können, verwenden Sie wahrscheinlich dieses System, um böswillige Aktionen auszuführen. Windows Server 2016 bietet Schutz Ebenen, die verhindern, dass externe Angreifer Schadsoftware ausführen oder Sicherheitsrisiken ausnutzen. Das Betriebssystem übernimmt eine aktive Rolle beim Schutz von Infrastruktur und Anwendungen, indem Administratoren auf Aktivitäten hingewiesen werden, die darauf hindeuten, dass ein System verletzt wurde.
@@ -340,11 +340,11 @@ ATA ist ein lokales Produkt, mit dem Identitäts Gefährdung in einer Organisati
 
 |Angreitertyp |BESCHREIBUNG |
 |---------|---------|
-|Böswillige Angriffe |Diese Angriffe werden erkannt, indem Sie nach Angriffen aus einer bekannten Liste von Angriffstypen suchen, einschließlich:<ul><li>Pass-the-Ticket (PtT)</li><li>Pass-the-Hash (PtH)</li><li>Overpass-the-Hash</li><li>Forged PAC (MS14-068)</li><li>Golden Ticket</li><li>Böswillige Replikationen</li><li>Reconnaissance</li><li>Brute-Force-Angriffe</li><li>Remoteausführung</li></ul>Eine umfassende Liste der gefundenen böswilligen Angriffe und deren Beschreibung finden Sie unter [welche verdächtigen Aktivitäten können von ATA erkannt werden?](https://docs.microsoft.com/advanced-threat-analytics/understand-explore/ata-threats).|
+|Böswillige Angriffe |Diese Angriffe werden erkannt, indem Sie nach Angriffen aus einer bekannten Liste von Angriffstypen suchen, einschließlich:<ul><li>Pass-the-Ticket (PtT)</li><li>Pass-the-Hash (PtH)</li><li>Overpass-the-Hash</li><li>Forged PAC (MS14-068)</li><li>Golden Ticket</li><li>Böswillige Replikationen</li><li>Reconnaissance</li><li>Brute-Force-Angriffe</li><li>Remoteausführung</li></ul>Eine umfassende Liste der gefundenen böswilligen Angriffe und deren Beschreibung finden Sie unter [welche verdächtigen Aktivitäten können von ATA erkannt werden?](/advanced-threat-analytics/understand-explore/ata-threats).|
 |Ungewöhnliches Verhalten |Diese Angriffe werden mithilfe der Verhaltensanalyse erkannt und verwenden Machine Learning, um fragwürdige Aktivitäten zu identifizieren, einschließlich:<ul><li>Nicht normale Anmeldungen</li><li>Unbekannte Gefahren</li><li>Kennwortfreigabe</li><li>Seitwärtsbewegung</li></ul>|
 |Sicherheitsprobleme und-Risiken |Diese Angriffe werden erkannt, wenn Sie die aktuelle Netzwerk-und Systemkonfiguration betrachten, einschließlich:<ul><li>einer fehlerhaften Vertrauensstellung</li><li>schwacher Protokolle</li><li>bekannter Protokollschwachstellen.</li></ul>|
 
-Mithilfe von ATA können Sie Angreifer erkennen, die versuchen, privilegierte Identitäten zu kompromittieren. Weitere Informationen zum Bereitstellen von ATA finden Sie in den Themen Plan, Entwurf und Bereitstellung in der [Advanced Threat Analytics-Dokumentation](https://docs.microsoft.com/advanced-threat-analytics/).
+Mithilfe von ATA können Sie Angreifer erkennen, die versuchen, privilegierte Identitäten zu kompromittieren. Weitere Informationen zum Bereitstellen von ATA finden Sie in den Themen Plan, Entwurf und Bereitstellung in der [Advanced Threat Analytics-Dokumentation](/advanced-threat-analytics/).
 
 ## <a name="related-content-for-associated-windows-server-2016-solutions"></a>Verwandte Inhalte für zugehörige Windows Server 2016-Lösungen
 
@@ -372,5 +372,3 @@ In diesem Artikel erhalten Sie keine rechtlichen Rechte für geistiges Eigentum 
 Veröffentlicht September 2017<br>
 Version 1.0<br>
 © 2017 Microsoft. Alle Rechte vorbehalten.
-
-

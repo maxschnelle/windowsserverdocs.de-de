@@ -7,12 +7,12 @@ author: brentfor
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: fad4586b4d510fd22ecd90855b3afa1c8870c1bf
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 75f0395afbcbefcdc4ac3a9fc4dc4de3bf962428
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87895621"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87991744"
 ---
 # <a name="manage-user-access-logging"></a>Verwalten der Benutzerzugriffsprotokollierung
 
@@ -233,11 +233,11 @@ Benutzer Zugriffs Protokollierung **auf**Datenträger: die Festplatten Anforderu
 ## <a name="recovering-from-a-corrupt-state"></a>Wiederherstellen nach einer Beschädigung
 In diesem Abschnitt wird erläutert, wie die Extensible Storage Engine (ESE) auf hoher Ebene verwendet wird und was ein Administrator tun kann, wenn Daten der Benutzer Zugriffs Protokollierung beschädigt oder nicht wiederherstellbar sind.
 
-Die Benutzerzugriffsprotokollierung verwendet die ESE, um die Verwendung von Systemressourcen und ihre Beständigkeit gegenüber Beschädigungen zu optimieren.  Weitere Informationen zu den Vorteilen der ESE finden Sie unter [Extensible Storage Engine](https://msdn.microsoft.com/library/windows/desktop/gg269259(v=exchg.10).aspx) auf MSDN.
+Die Benutzerzugriffsprotokollierung verwendet die ESE, um die Verwendung von Systemressourcen und ihre Beständigkeit gegenüber Beschädigungen zu optimieren.  Weitere Informationen zu den Vorteilen der ESE finden Sie unter [Extensible Storage Engine](/windows/win32/extensible-storage-engine/extensible-storage-engine) auf MSDN.
 
-Bei jedem Start des Diensts für die Benutzerzugriffsprotokollierung führt die ESE eine Wiederherstellung aus. Weitere Informationen finden Sie unter [Extensible Storage Engine-Dateien](https://msdn.microsoft.com/library/windows/desktop/gg294069(v=exchg.10).aspx) auf MSDN.
+Bei jedem Start des Diensts für die Benutzerzugriffsprotokollierung führt die ESE eine Wiederherstellung aus. Weitere Informationen finden Sie unter [Extensible Storage Engine-Dateien](/windows/win32/extensible-storage-engine/extensible-storage-engine-files) auf MSDN.
 
-Falls bei der Wiederherstellung ein Problem auftritt, führt die ESE eine Wiederherstellung nach Systemabsturz aus. Weitere Informationen finden Sie unter [JetInit-Funktion](https://msdn.microsoft.com/library/windows/desktop/gg294068(v=exchg.10).aspx) auf MSDN.
+Falls bei der Wiederherstellung ein Problem auftritt, führt die ESE eine Wiederherstellung nach Systemabsturz aus. Weitere Informationen finden Sie unter [JetInit-Funktion](/windows/win32/extensible-storage-engine/jetinit-function) auf MSDN.
 
 Kann die Benutzerzugriffsprotokollierung danach noch immer nicht mit den vorhandenen ESE-Dateien gestartet werden, werden alle Dateien im Verzeichnis %%amp;quot;\Windows\System32\LogFiles\SUM\%%amp;quot; gelöscht. Nachdem diese Dateien gelöscht wurden, wird der Dienst für die Benutzerzugriffsprotokollierung neu gestartet, und es werden neue Dateien erstellt. Der Dienst für die Benutzerzugriffsprotokollierung wird dann wie auf einem neu installierten Computer fortgesetzt.
 
@@ -258,5 +258,3 @@ Nachdem die Protokollierung aktiviert ist, werden immer dann, wenn sich ein Clie
 ## <a name="see-also"></a><a name="BKMK_Links"></a>Siehe auch
 
 - [Einstieg in die Benutzer Zugriffs Protokollierung](get-started-with-user-access-logging.md)
-
-

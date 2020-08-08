@@ -1,19 +1,17 @@
 ---
 ms.assetid: 0f2a7f7b-aca8-4e5d-ad67-4258e88bc52f
 title: Neuerungen beim Speicher in Windows Server
-ms.prod: windows-server
 ms.author: jgerend
 manager: dongill
-ms.technology: storage
 ms.topic: article
 author: jasongerend
 ms.date: 05/29/2019
-ms.openlocfilehash: 447c8fe33a0454179d8c9aacc9c324ac7bcf1f49
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 3b1a3fa120e27439c1ec55f68521b813588d330b
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86965822"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87965947"
 ---
 # <a name="whats-new-in-storage-in-windows-server"></a>Neuerungen beim Speicher in Windows Server
 
@@ -109,7 +107,7 @@ Es gibt eine Reihe von Verbesserungen bei der direkte Speicherplätze in Windows
 
     Dadurch können Administratoren die Zuordnung von Volumes in direkte Speicherplätze manuell begrenzen. Dadurch kann die Fehlertoleranz unter bestimmten Bedingungen erheblich erhöht werden, es werden jedoch einige zusätzliche Überlegungen zur Verwaltung und Komplexität auferlegt. Weitere Informationen finden Sie unter [begrenzen der Zuordnung von Volumes](storage-spaces/delimit-volume-allocation.md).
 
-### <a name="storage-replica"></a><a name="storage-replica2019"></a>Speicher Replikat
+### <a name="storage-replica"></a><a name="storage-replica2019"></a>Speicherreplikat
 
 In dieser Version gibt es eine Reihe von Verbesserungen für das [Speicher Replikat](storage-replica/storage-replica-overview.md) :
 
@@ -248,7 +246,7 @@ Dies ist eine neue Funktion in Windows Server 2016. Das Verwalten von Mindestres
 Weitere Informationen finden Sie unter [Storage Quality of Service](storage-qos/storage-qos-overview.md)
 
 ### <a name="data-deduplication"></a><a name="dedup"></a>Datendeduplizierung
-| Funktionalität | Neu oder aktualisiert | Beschreibung |
+| Funktionalität | Neu oder aktualisiert | BESCHREIBUNG |
 |---------------|----------------|-------------|
 | [Unterstützung für große Volumes](data-deduplication/whats-new.md#large-volume-support) | Aktualisiert | Vor Windows Server 2016 musste die Größe der Volumes speziell für die erwartete Änderung konfiguriert werden, wobei Volumes mit über 10 TB keine geeigneten Kandidaten für die Deduplizierung waren. In Windows Server 2016 unterstützt die Datendeduplizierung Volumegrößen **von bis zu 64 TB**. |
 | [Unterstützung für große Dateien](data-deduplication/whats-new.md#large-file-support) | Aktualisiert | Vor Windows Server 2016 waren Dateien mit einer Größe von knapp 1 TB keine geeigneten Kandidaten für die Deduplizierung. In Windows Server 2016 werden Dateien **mit einer Kapazität von bis zu 1 TB** vollständig unterstützt. |
@@ -296,5 +294,5 @@ ReFS sorgt für folgende Verbesserungen:
 **Worin bestehen die Unterschiede?**<br>
 Diese Funktionen sind neu in Windows Server 2016.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 * [Neuerungen in Windows Server 2016](../get-started/whats-new-in-windows-server-2016.md)

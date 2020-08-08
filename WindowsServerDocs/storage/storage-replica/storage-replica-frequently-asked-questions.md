@@ -1,19 +1,17 @@
 ---
 title: Häufig gestellte Fragen zu Speicherreplikaten
-ms.prod: windows-server
 manager: siroy
 ms.author: nedpyle
-ms.technology: storage-replica
 ms.topic: get-started-article
 author: nedpyle
 ms.date: 04/15/2020
 ms.assetid: 12bc8e11-d63c-4aef-8129-f92324b2bf1b
-ms.openlocfilehash: 04477ac9d7aa7905a4d5fc4dd58c7891c91f5baf
-ms.sourcegitcommit: acfdb7b2ad283d74f526972b47c371de903d2a3d
+ms.openlocfilehash: 01bda8c501ca1416ebc887a98a4369f99c60f0f2
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87769698"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87989369"
 ---
 # <a name="frequently-asked-questions-about-storage-replica"></a>Häufig gestellte Fragen zu Speicherreplikaten
 
@@ -86,7 +84,7 @@ Set-SRNetworkConstraint -SourceComputerName sr-cluster01 -SourceRGName group1 -S
 Nein, das Speicher Replikat unterstützt nur eine Replikation eines Servers, Clusters oder eines Stretch-Cluster Knotens. In einem späteren Release kann sich dies ändern. Sie können natürlich eine Replikation zwischen verschiedenen Servern eines bestimmten Volume-Paars in beide Richtungen konfigurieren. Beispielsweise kann Server 1 sein D-Volume an Server 2, und sein E-Volume von Server 3 replizieren.
 
 ## <a name="can-i-grow-or-shrink-replicated-volumes-replicated-by-storage-replica"></a><a name="FAQ5"></a>Kann ich replizierte Volumes vergrößern oder verkleinern, die vom Speicher Replikat repliziert werden
-Volumes können vergrößert (erweitert), aber nicht verkleinert werden. Standardmäßig verhindert das Speicher Replikat, dass Administratoren replizierte Volumes erweitern. verwenden `Set-SRGroup -AllowVolumeResize $TRUE` Sie die Option für die Quell Gruppe, bevor Sie die Größe ändern. Beispiel:
+Volumes können vergrößert (erweitert), aber nicht verkleinert werden. Standardmäßig verhindert das Speicher Replikat, dass Administratoren replizierte Volumes erweitern. verwenden `Set-SRGroup -AllowVolumeResize $TRUE` Sie die Option für die Quell Gruppe, bevor Sie die Größe ändern. Zum Beispiel:
 
 1. Verwendung für den Quellcomputer:`Set-SRGroup -Name YourRG -AllowVolumeResize $TRUE`
 2. Erweitern Sie das Volume mit der von Ihnen bevorzugten Methode.
@@ -115,7 +113,7 @@ Obwohl es technisch möglich ist, ist dies keine empfohlene Konfiguration, weil 
 Bei der Konfiguration einer Cluster-zu-Cluster-Replikation bietet das Speicherreplikatfeature bei der Replikation zwischen zwei Clustern volle Unterstützung für Dateiserver mit horizontaler Skalierung (einschließlich Verwendung von direkten Speicherplätzen).
 
 ## <a name="is-csv-required-to-replicate-in-a-stretch-cluster-or-between-clusters"></a><a name="FAQ7.5"></a>Muss CSV in einem Stretch-Cluster oder zwischen Clustern repliziert werden?
-Nein. Sie können eine Replikation mit einer CSV-oder persistenten Datenträger Reservierung (PDR) im Besitz einer Cluster Ressource (z. b. einer Datei Server Rolle) durch
+Nein Sie können eine Replikation mit einer CSV-oder persistenten Datenträger Reservierung (PDR) im Besitz einer Cluster Ressource (z. b. einer Datei Server Rolle) durch
 
 Bei der Konfiguration einer Cluster-zu-Cluster-Replikation bietet das Speicherreplikatfeature bei der Replikation zwischen zwei Clustern volle Unterstützung für Dateiserver mit horizontaler Skalierung (einschließlich Verwendung von direkten Speicherplätzen).
 
@@ -145,7 +143,7 @@ Sie können auch Datenvolumes mit Seeding verwenden, um die Bandbreitennutzung z
 
 ## <a name="can-i-delegate-users-to-administer-replication"></a><a name="FAQ13"></a>Kann ich Benutzer zur Verwaltung der Replikation delegieren?
 
-Sie können das `Grant-SRDelegation` Cmdlet verwenden. Mit diesem Cmdlet können Sie bestimmte Benutzer in Server-zu-Server-, Cluster-zu-Cluster- und Stretched Cluster-Replikationsszenarien festlegen, die über die Berechtigungen zum Erstellen, Ändern oder Entfernen der Replikation verfügen, ohne Mitglied der lokalen Administratorengruppe zu sein. Beispiel:
+Sie können das `Grant-SRDelegation` Cmdlet verwenden. Mit diesem Cmdlet können Sie bestimmte Benutzer in Server-zu-Server-, Cluster-zu-Cluster- und Stretched Cluster-Replikationsszenarien festlegen, die über die Berechtigungen zum Erstellen, Ändern oder Entfernen der Replikation verfügen, ohne Mitglied der lokalen Administratorengruppe zu sein. Zum Beispiel:
 
 ```
 Grant-SRDelegation -UserName contso\tonywang
@@ -254,7 +252,7 @@ Um jedoch die verbesserte Replikations Leistung von Windows Server 2019 zu erzie
 
 ## <a name="how-do-i-report-an-issue-with-storage-replica-or-this-guide"></a><a name="FAQ17"></a>Gewusst wie melden Sie ein Problem mit dem Speicher Replikat oder diesem Handbuch?
 
-Technische Unterstützung beim Speicher Replikat finden Sie in den [Microsoft-Foren](https://docs.microsoft.com/answers/index.html). Sie können in srfeed@microsoft.com dieser Dokumentation auch eine e-Mail mit Fragen zu Speicher Replikaten oder Problemen senden. Die [Allgemeine Windows Server-Feedback-Website](https://windowsserver.uservoice.com/forums/295047-general-feedback) wird für Entwurfs Änderungsanforderungen bevorzugt, da Sie Ihren Kollegen die Möglichkeit bietet, Support und Feedback für Ihre Ideen bereitzustellen.
+Technische Unterstützung beim Speicher Replikat finden Sie in den [Microsoft-Foren](/answers/index.html). Sie können in srfeed@microsoft.com dieser Dokumentation auch eine e-Mail mit Fragen zu Speicher Replikaten oder Problemen senden. Die [Allgemeine Windows Server-Feedback-Website](https://windowsserver.uservoice.com/forums/295047-general-feedback) wird für Entwurfs Änderungsanforderungen bevorzugt, da Sie Ihren Kollegen die Möglichkeit bietet, Support und Feedback für Ihre Ideen bereitzustellen.
 
 ## <a name="can-storage-replica-be-configured-to-replicate-in-both-directions"></a><a name="FAQ18"></a>Kann das Speicher Replikat für die Replikation in beide Richtungen konfiguriert werden?
 

@@ -7,12 +7,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7819bdfe1c5a65adc126ab902e6138d372982f20
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: ffe38a896e7913d03cc8f4ad62d1e520cec6a0c2
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87895815"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87991923"
 ---
 # <a name="configure-features-on-demand-in-windows-server"></a>Konfigurieren von "Features bei Bedarf" unter Windows Server
 
@@ -71,7 +71,7 @@ Es gibt zwei Möglichkeiten zum Entfernen von Featuredateien aus Windows Server 
 
 -   Der- `remove` Parameter des `Uninstall-WindowsFeature` Cmdlets ermöglicht das Löschen von Featuredateien von einem Server oder einer offline geschalteten virtuellen Festplatte (VHD), auf dem Windows Server 2012 R2 oder Windows Server 2012 ausgeführt wird. Gültige Werte für den- `remove` Parameter sind die Namen von Rollen, Rollen Diensten und Features.
 
--   DISM-Befehle (Deployment Image Servicing and Management, Abbildverwaltung für die Bereitstellung) ermöglichen das Erstellen benutzerdefinierter WIM-Dateien zum Einsparen von Festplattenspeicher, indem Featuredateien weggelassen werden, die entweder nicht benötigt werden oder aus anderen Remotequellen abgerufen werden können. Weitere Informationen zum Vorbereiten benutzerdefinierter Images mit DISM finden Sie unter [How to Enable or Disable Windows Features](https://technet.microsoft.com/library/hh824822.aspx).
+-   DISM-Befehle (Deployment Image Servicing and Management, Abbildverwaltung für die Bereitstellung) ermöglichen das Erstellen benutzerdefinierter WIM-Dateien zum Einsparen von Festplattenspeicher, indem Featuredateien weggelassen werden, die entweder nicht benötigt werden oder aus anderen Remotequellen abgerufen werden können. Weitere Informationen zum Vorbereiten benutzerdefinierter Images mit DISM finden Sie unter [How to Enable or Disable Windows Features](/previous-versions/windows/it-pro/windows-8.1-and-8/hh824822(v=win.10)).
 
 ## <a name="remove-feature-files-by-using-uninstall-windowsfeature"></a><a name=BKMK_remove></a>Entfernen von Featuredateien mithilfe von "Uninstall-WindowsFeature"
 Mit dem Cmdlet "Uninstall-Windows Feature" können Sie sowohl Rollen, Rollen Dienste und Features von Servern als auch offline-VHDs, auf denen Windows Server 2012 R2 oder Windows Server 2012 ausgeführt wird, deinstallieren und Featuredateien löschen. Wenn gewünscht, können Sie dieselben Rollen, Rollen Dienste und Features im gleichen Befehl deinstallieren und löschen.
@@ -117,8 +117,6 @@ Mit dem Cmdlet "Uninstall-Windows Feature" können Sie sowohl Rollen, Rollen Die
 
 ## <a name="see-also"></a>Weitere Informationen
 [Installieren oder Deinstallieren von Rollen, Rollen Diensten oder Features](install-or-uninstall-roles-role-services-or-features.md) 
- [Windows Server-Installationsoptionen](https://technet.microsoft.com/library/hh831786.aspx) 
- [Aktivieren oder Deaktivieren von Windows-Features](https://technet.microsoft.com/library/hh824822.aspx) 
- [Übersicht über die Abbild Verwaltung für die Bereitstellung](https://technet.microsoft.com/library/hh825236.aspx)
-
-
+ [Windows Server-Installationsoptionen](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831786(v=ws.11)) 
+ [Aktivieren oder Deaktivieren von Windows-Features](/previous-versions/windows/it-pro/windows-8.1-and-8/hh824822(v=win.10)) 
+ [Übersicht über die Abbild Verwaltung für die Bereitstellung](/previous-versions/windows/it-pro/windows-8.1-and-8/hh825236(v=win.10))

@@ -2,18 +2,16 @@
 title: Speicherberichtmanagement
 description: In diesem Artikel wird beschrieben, wie Speicher Berichte generiert, geplant und überwacht werden.
 ms.date: 7/7/2017
-ms.prod: windows-server
-ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 5bdcada1b445298c8743bdb39491726b594d0a66
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: a43dbeac08c1cb851df48cb8412343928e07b1d0
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85475477"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87957347"
 ---
 # <a name="storage-reports-management"></a>Speicherberichtmanagement
 
@@ -25,7 +23,7 @@ Im Knoten **Speicher Berichte-Verwaltung** des-Dateiservers Ressourcen-Manager M
 -   Monitor versucht, nicht autorisierte Dateien für alle Benutzer oder eine ausgewählte Benutzergruppe zu speichern.
 -   Speicher Berichte sofort generieren.
 
-Beispielsweise können Sie folgende Aktionen ausführen:
+Sie haben unter anderem folgende Möglichkeiten:
 
 -   Planen eines Berichts, der jeden Sonntag um Mitternacht ausgeführt wird und eine Liste mit den Dateien generiert, auf die in den beiden vorherigen Tagen zuletzt zugegriffen wurde. Mit diesen Informationen können Sie die Speicher Aktivität für das Wochenende überwachen und die Server-Betriebszeit planen, die weniger Auswirkungen auf die Benutzer haben, die über das Wochenende eine Verbindung herstellen.
 -   Sie können jederzeit einen Bericht ausführen, um alle doppelten Dateien in einem Volume auf einem Server zu identifizieren, damit der Speicherplatz schnell freigegeben werden kann, ohne dass Daten verloren gehen.
@@ -40,7 +38,7 @@ Dieser Abschnitt schließt folgende Themen ein:
 > [!Note]
 > Um e-Mail-Benachrichtigungen und bestimmte Berichterstattungs Funktionen festzulegen, müssen Sie zunächst die allgemeinen Optionen für den Datei Server Ressourcen-Manager konfigurieren.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Festlegen der Optionen des Ressourcen-Managers für Dateiserver](setting-file-server-resource-manager-options.md)
 

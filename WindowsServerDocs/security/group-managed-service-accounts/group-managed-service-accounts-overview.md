@@ -7,12 +7,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 51b9b0d7b912cfc2fbf123cf4c666f8653dc86a1
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 09405b940e9fd862372fe80c4a5194caa205e5ea
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87971457"
+ms.locfileid: "87991502"
 ---
 # <a name="group-managed-service-accounts-overview"></a>Group Managed Service Accounts Overview
 
@@ -42,7 +42,7 @@ Failovercluster unterstützen keine gruppenverwalteten Dienstkonten. Dienste, di
 Ein verwaltetes Dienstkonto ist abhängig von Verschlüsselungstypen mit Kerberos-Unterstützung. Wenn sich ein Clientcomputer gegenüber einem Server per Kerberos authentifiziert, wird vom Domänencontroller ein Kerberos-Dienstticket erstellt, das mit einer Verschlüsselung geschützt ist, die sowohl vom Domänencontroller als auch vom Server unterstützt wird. Der Domänen Controller verwendet das msDS \- supportedencryptiontypes-Attribut des Kontos, um zu bestimmen, welche Verschlüsselung der Server unterstützt. Wenn kein Attribut vorhanden ist, wird davon ausgegangen, dass der Client Computer stärkere Verschlüsselungstypen nicht unterstützt. Wenn der Host so konfiguriert ist, dass RC4 nicht unterstützt wird, tritt bei der Authentifizierung immer ein Fehler auf. Aus diesem Grund muss AES für verwaltete Dienstkonten immer explizit konfiguriert sein.
 
 > [!NOTE]
-> Ab Windows Server 2008 R2 ist DES standardmäßig deaktiviert. Weitere Informationen zu den unterstützten Verschlüsselungsarten finden Sie unter [Changes in Kerberos Authentication](https://technet.microsoft.com/library/dd560670(WS.10).aspx).
+> Ab Windows Server 2008 R2 ist DES standardmäßig deaktiviert. Weitere Informationen zu den unterstützten Verschlüsselungsarten finden Sie unter [Changes in Kerberos Authentication](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd560670(v=ws.10)).
 
 gmsas gelten nicht für Windows-Betriebssysteme vor Windows Server 2012.
 
@@ -54,14 +54,12 @@ In der folgenden Tabelle sind Links zu weiterführenden Ressourcen im Zusammenha
 
 |Inhaltstyp|Referenzen|
 |--------|-------|
-|**Produktbewertung**|[What's New for Managed Service Accounts](what-s-new-for-managed-service-accounts.md)<p>[Dokumentation zu verwalteten Dienstkonten für Windows 7 und Windows Server 2008 R2](https://technet.microsoft.com/library/ff641731(v=ws.10).aspx)<p>[Schritt- \- für-Schritt-Anleitung für Dienst Konten \-](https://technet.microsoft.com/library/dd548356(v=ws.10).aspx)|
+|**Produktbewertung**|[What's New for Managed Service Accounts](what-s-new-for-managed-service-accounts.md)<p>[Dokumentation zu verwalteten Dienstkonten für Windows 7 und Windows Server 2008 R2](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ff641731(v=ws.10))<p>[Schritt- \- für-Schritt-Anleitung für Dienst Konten \-](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd548356(v=ws.10))|
 |**Planung**|Noch nicht verfügbar|
 |**Bereitstellung**|Noch nicht verfügbar|
-|**Vorgänge**|[Verwaltete Dienstkonten in Active Directory](https://technet.microsoft.com/library/dd378925(v=ws.10).aspx)|
+|**Vorgänge**|[Verwaltete Dienstkonten in Active Directory](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd378925(v=ws.10))|
 |**Problembehandlung**|Noch nicht verfügbar|
 |**Auswertung**|[Die ersten Schritte mit Gruppen verwalteten Dienst Konten](getting-started-with-group-managed-service-accounts.md)|
-|**Tools und Einstellungen**|[Verwaltete Dienstkonten in Active Directory-Domänendiensten](https://technet.microsoft.com/library/dd378925(v=WS.10).aspx)|
-|**Communityressourcen**|[Verwaltete Dienstkonten: Grundlegendes, Implementierung, bewährte Methoden und Problembehandlung](https://blogs.technet.com/b/askds/archive/2009/09/10/managed-service-accounts-understanding-implementing-best-practices-and-troubleshooting.aspx)|
+|**Tools und Einstellungen**|[Verwaltete Dienstkonten in Active Directory-Domänendiensten](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd378925(v=ws.10))|
+|**Communityressourcen**|[Verwaltete Dienstkonten: Grundlegendes, Implementierung, bewährte Methoden und Problembehandlung](/archive/blogs/askds/managed-service-accounts-understanding-implementing-best-practices-and-troubleshooting)|
 |**Verwandte Technologien**|[Übersicht über die Active Directory Domain Services](active-directory-domain-services-overview.md)|
-
-

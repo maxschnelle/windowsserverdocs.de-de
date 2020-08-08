@@ -6,12 +6,12 @@ ms.topic: article
 ms.assetid: b3cd60f7-d380-4712-9a78-0a8f551e1121
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 2c41fde041183ff7e039bd2fed877aad8ff0f234
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 6db855343ef037fb1e55925620f1842c7fdff98a
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87962324"
+ms.locfileid: "87997137"
 ---
 # <a name="core-network-components"></a>Komponenten des Kernnetzwerks
 
@@ -548,8 +548,8 @@ Sie können die folgenden Befehle verwenden, um AD DS und DNS zu installieren un
 
 >[!NOTE]
 >Weitere Informationen zu diesen Windows PowerShell-Befehlen finden Sie in den folgenden Referenz Themen.
->- [Install-Windows Feature](https://docs.microsoft.com/powershell/module/servermanager/install-windowsfeature?view=win10-ps)
->- [Install-addsforest](https://docs.microsoft.com/powershell/module/addsdeployment/install-addsforest?view=win10-ps)
+>- [Install-Windows Feature](/powershell/module/servermanager/install-windowsfeature?view=win10-ps)
+>- [Install-addsforest](/powershell/module/addsdeployment/install-addsforest?view=win10-ps)
 
 Sie müssen mindestens Mitglied der Gruppe **Administratoren** sein, damit Sie dieses Verfahren ausführen können.
 
@@ -1157,19 +1157,19 @@ Weitere Informationen zu den Technologien in diesem Handbuch finden Sie in den f
 
  Ressourcen für die technische Bibliothek von Windows Server 2016, Windows Server 2012 R2 und Windows Server 2012
 
-- [Neues in Active Directory Domain Services (AD DS) unter Windows Server 2016](https://technet.microsoft.com/library/mt163897.aspx)
+- [Neues in Active Directory Domain Services (AD DS) unter Windows Server 2016](../../identity/whats-new-active-directory-domain-services.md)
 
-- [Active Directory Domain Services Übersicht](https://technet.microsoft.com/library/hh831484.aspx) unter https://technet.microsoft.com/library/hh831484.aspx .
+- [Active Directory Domain Services Übersicht](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831484(v=ws.11)) unter https://technet.microsoft.com/library/hh831484.aspx .
 
-- [Domain Name System (DNS) Übersicht](https://technet.microsoft.com/library/hh831667.aspx) unter https://technet.microsoft.com/library/hh831667.aspx .
+- [Domain Name System (DNS) Übersicht](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831667(v=ws.11)) unter https://technet.microsoft.com/library/hh831667.aspx .
 
-- [Implementieren der Rolle "DNS-Administratoren"](https://technet.microsoft.com/library/cc756152(WS.10).aspx)
+- [Implementieren der Rolle "DNS-Administratoren"](/previous-versions/windows/it-pro/windows-server-2003/cc756152(v=ws.10))
 
-- [Übersicht über das Dynamic Host Configuration-Protokoll (DHCP)](https://technet.microsoft.com/library/hh831825.aspx) unter https://technet.microsoft.com/library/hh831825.aspx .
+- [Übersicht über das Dynamic Host Configuration-Protokoll (DHCP)](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831825(v=ws.11)) unter https://technet.microsoft.com/library/hh831825.aspx .
 
-- [Übersicht über Netzwerk Richtlinien-und Zugriffs Dienste](https://technet.microsoft.com/library/hh831683.aspx) unter https://technet.microsoft.com/library/hh831683.aspx .
+- [Übersicht über Netzwerk Richtlinien-und Zugriffs Dienste](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831683(v=ws.11)) unter https://technet.microsoft.com/library/hh831683.aspx .
 
-- [Webserver (IIS): Übersicht](https://technet.microsoft.com/library/hh831725.aspx) unter https://technet.microsoft.com/library/hh831725.aspx .
+- [Webserver (IIS): Übersicht](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831725(v=ws.11)) unter https://technet.microsoft.com/library/hh831725.aspx .
 
 ## <a name="appendices-a-through-e"></a><a name="BKMK_appendix"></a>Anhänge A bis E
 Die folgenden Abschnitte enthalten zusätzliche Konfigurationsinformationen für Computer, auf denen andere Betriebssysteme als Windows Server 2016, Windows 10, Windows Server 2012 und Windows 8 ausgeführt werden. Außerdem wird ein Arbeitsblatt für die netzwerkvorbereitung bereitgestellt, um Sie bei der Bereitstellung zu unterstützen.
@@ -1543,4 +1543,3 @@ Die folgende Tabelle enthält Konfigurationselemente für die Vorbereitung der I
 Konfigurationselemente für die NPS-Bereitstellungs Prozeduren des Windows Server Core-Netzwerks [installieren den Netzwerk Richtlinien Server (NPS)](#BKMK_installNPS) und [registrieren den NPS in der Standard Domäne](#BKMK_registerNPS).
 
 - Für die Installation und Registrierung von NPS sind keine weiteren Konfigurationselemente erforderlich.
-

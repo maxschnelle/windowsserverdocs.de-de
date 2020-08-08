@@ -6,12 +6,12 @@ author: gawatu
 ms.author: gawatu
 manager: mallikarjun.chadalapaka
 ms.date: 5/23/2018
-ms.openlocfilehash: 9f746e71b64497835fc5f0f90e9b46c03b63fd15
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 2a97fdbc2e2a80c310cac2b770e18f34d53dd983
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87971997"
+ms.locfileid: "87997149"
 ---
 # <a name="system-insights-faq"></a>FAQ zu System Insights
 
@@ -19,15 +19,15 @@ ms.locfileid: "87971997"
 
 ## <a name="how-can-you-use-system-insights-with-azure-monitor-or-system-center-operations-manager"></a>Wie können Sie System Einblicke mit Azure Monitor oder System Center Operations Manager verwenden?
 
-In [Azure Monitor](https://azure.microsoft.com/services/monitor/) und [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/welcome?view=sc-om-1807) werden Betriebsinformationen für Ihre bereit Stellungen bereitgestellt, um Ihnen die Verwaltung Ihrer Infrastruktur zu erleichtern. System Insights ist dagegen eine Windows Server-Funktion, die lokale Predictive Analytics Funktionen einführt. Mithilfe von System Insights und Azure Monitor oder SCOM können Sie die Vorhersagen über eine Population von Geräten hinweg ermitteln:
+In [Azure Monitor](https://azure.microsoft.com/services/monitor/) und [System Center Operations Manager](/system-center/scom/welcome?view=sc-om-1807) werden Betriebsinformationen für Ihre bereit Stellungen bereitgestellt, um Ihnen die Verwaltung Ihrer Infrastruktur zu erleichtern. System Insights ist dagegen eine Windows Server-Funktion, die lokale Predictive Analytics Funktionen einführt. Mithilfe von System Insights und Azure Monitor oder SCOM können Sie die Vorhersagen über eine Population von Geräten hinweg ermitteln:
 
  Azure Monitor oder SCOM können die von System Insights erstellten Ereignisse als Schlüssel ausgeben, da System Einblicke das Ergebnis jeder Vorhersage an das Ereignisprotokoll übergibt. Diese computerspezifischen Vorhersagen können über eine Flotte von Windows-Servern hinweg angezeigt werden, sodass Sie über eine einheitliche Ansicht dieser Vorhersagen für eine Gruppe von Server Instanzen verfügen.
 
- Sehen Sie sich die Kanal-und Ereignis-IDs für [jede Vorhersage](https://docs.microsoft.com/windows-server/manage/system-insights/managing-capabilities#retrieving-capability-results)an.
+ Sehen Sie sich die Kanal-und Ereignis-IDs für [jede Vorhersage](./managing-capabilities.md#retrieving-capability-results)an.
 
 ## <a name="how-does-system-insights-relate-to-windows-ml"></a>Wie verhält sich System Insights mit Windows ml?
 
-[Windows ml](https://docs.microsoft.com/windows/uwp/machine-learning/) ist eine Plattform, die es Entwicklern ermöglicht, vorab trainierte Machine Learning-Modelle auf Windows-Geräten zu importieren und zu bewerten. Diese Modelle profitieren von der Hardwarebeschleunigung und können lokal bewertet werden.
+[Windows ml](/windows/uwp/machine-learning/) ist eine Plattform, die es Entwicklern ermöglicht, vorab trainierte Machine Learning-Modelle auf Windows-Geräten zu importieren und zu bewerten. Diese Modelle profitieren von der Hardwarebeschleunigung und können lokal bewertet werden.
 
 System Insights ist ein Feature in Windows Server 2019, das lokale Vorhersagefunktionen sowie eine komplette Verwaltungs Umgebung bietet, einschließlich der PowerShell-und Windows Admin Center-Integration.
 

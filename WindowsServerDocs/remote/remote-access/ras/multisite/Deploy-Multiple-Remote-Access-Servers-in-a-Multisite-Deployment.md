@@ -2,18 +2,16 @@
 title: Bereitstellen Sie mehrere RAS-Server in einer Bereitstellung mit mehreren Standorten
 description: Dieses Thema ist Teil des Handbuchs Bereitstellen mehrerer Remote Zugriffs Server in einer Bereitstellung mit mehreren Standorten in Windows Server 2016.
 manager: brianlic
-ms.prod: windows-server
-ms.technology: networking-ras
 ms.topic: article
 ms.assetid: ac2f6015-50a5-4909-8f67-8565f9d332a2
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: d8f12839deb1279b9f6c095068a85f528dad4a72
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: 8f0d8b4416c8480921d43fd4e705b837082152fb
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87181756"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87991353"
 ---
 # <a name="deploy-multiple-remote-access-servers-in-a-multisite-deployment"></a>Bereitstellen Sie mehrere RAS-Server in einer Bereitstellung mit mehreren Standorten
 
@@ -45,7 +43,7 @@ Bevor Sie mit der Bereitstellung dieses Szenarios beginnen, sollten Sie die List
 
 -   Eine Public Key-Infrastruktur muss bereitgestellt werden.
 
-    Weitere Informationen finden Sie unter: [Testumgebungsanleitung – Minimodul: Basis-PKI für Windows Server 2012](https://docs.microsoft.com/answers/topics/windows-server-2012.html)
+    Weitere Informationen finden Sie unter: [Testumgebungsanleitung – Minimodul: Basis-PKI für Windows Server 2012](/answers/topics/windows-server-2012.html)
 
 -   Das Unternehmensnetzwerk muss IPv6-fähig sein. Wenn Sie ISATAP verwenden, sollten Sie es entfernen und das systemeigene IPv6 verwenden.
 
@@ -156,6 +154,3 @@ Im folgenden finden Sie bekannte Probleme beim Konfigurieren eines Szenarios mit
 -   Wenn DirectAccess bereitgestellt wurde, als eine vorhandene ISATAP-Infrastruktur vorhanden war, wird beim Entfernen eines Einstiegs Punkts, bei dem es sich um einen ISATAP-Host handelt, die IPv6-Adresse des DNS64-Diensts aus den DNS-Serveradressen aller DNS-Suffixe in der NRPT entfernt.
 
     Um dieses Problem zu beheben, entfernen Sie im Assistenten zum **Einrichten des Infrastruktur Servers** auf der Seite **DNS** die geänderten DNS-Suffixe, und fügen Sie Sie erneut mit den richtigen DNS-Serveradressen hinzu, indem Sie im Dialogfeld **DNS-Serveradressen** auf **erkennen** klicken.
-
-
-

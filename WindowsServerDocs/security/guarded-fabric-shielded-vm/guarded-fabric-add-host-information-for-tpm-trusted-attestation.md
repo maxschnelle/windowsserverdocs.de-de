@@ -6,12 +6,12 @@ manager: dongill
 author: rpsqrd
 ms.author: ryanpu
 ms.date: 06/21/2019
-ms.openlocfilehash: 7ec49467b3875ba552f5b92fb3776892a2d54c13
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: fc879fda0f6a708a8a1d4ebd60834f4e6543f3ba
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87971407"
+ms.locfileid: "87997167"
 ---
 # <a name="add-host-information-for-tpm-trusted-attestation"></a>Hinzufügen von Hostinformationen für den TPM-vertrauenswürdigen Nachweis
 
@@ -55,7 +55,7 @@ Nachdem der Fabric-Administrator die Informationen erfasst hat, fügen Sie ihn d
     Add-HgsAttestationTpmPolicy -Path <Filename>.tcglog -Name '<PolicyName>'
     ```
 
-Dadurch wird der Prozess der Konfiguration eines HGS-Clusters für den TPM-Modus abgeschlossen. Der Fabric-Administrator muss möglicherweise zwei URLs von HGS bereitstellen, bevor die Konfiguration für die Hosts abgeschlossen werden kann. Um diese URLs zu erhalten, führen Sie auf einem HGS [-Server Get-hgsserver](https://docs.microsoft.com/powershell/module/hgsserver/get-hgsserver?view=win10-ps)aus.
+Dadurch wird der Prozess der Konfiguration eines HGS-Clusters für den TPM-Modus abgeschlossen. Der Fabric-Administrator muss möglicherweise zwei URLs von HGS bereitstellen, bevor die Konfiguration für die Hosts abgeschlossen werden kann. Um diese URLs zu erhalten, führen Sie auf einem HGS [-Server Get-hgsserver](/powershell/module/hgsserver/get-hgsserver?view=win10-ps)aus.
 
 ## <a name="next-step"></a>Nächster Schritt
 

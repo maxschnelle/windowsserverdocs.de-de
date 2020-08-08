@@ -2,18 +2,16 @@
 title: Definieren von Dateigruppen für die Prüfung
 description: In diesem Artikel wird beschrieben, wie Sie Dateigruppen definieren, um einen Namespace für den Datei Bildschirm, die Datei Bildschirm Ausnahme oder Dateien nach Dateigruppen-Speicher Berichten zu erstellen.
 ms.date: 7/7/2017
-ms.prod: windows-server
-ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: e38dee0381b33bb9d11b038de715a4420906e131
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: cbcf96a4ab5c6516b87ebde57f6adaf1cf4df17f
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85474327"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87957477"
 ---
 # <a name="define-file-groups-for-screening"></a>Definieren von Dateigruppen für die Prüfung
 
@@ -45,7 +43,7 @@ Eine *Datei Gruppe* wird verwendet, um einen Namespace für einen Datei Bildschi
 
 5.  Klicken Sie auf **OK**.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Datei Prüfungsverwaltung](file-screening-management.md)
 -   [Erstellen einer Dateiprüfung](create-file-screen.md)

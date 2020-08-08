@@ -7,12 +7,12 @@ author: brentfor
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1df4ffbb0cdc79527bef0fd2e3400d78995d5474
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 548158fd1df4ee4fbd8d6f1bcee28693961c8d79
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87895667"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87991859"
 ---
 # <a name="manage-software-inventory-logging"></a>Verwaltung der Protokollierung des Softwarebestands
 
@@ -91,7 +91,7 @@ In diesem Dokument werden folgende Konfigurationsoptionen behandelt:
 Die tägliche Erfassung der Software Inventur Protokollierung und die Weiterleitung über das Netzwerk müssen auf einem Computer mit Windows Server 2012 R2 aktiviert sein, um die Software Inventur protokollieren
 
 > [!NOTE]
-> Sie können das PowerShell-Cmdlet **[Get-SilLogging](https://technet.microsoft.com/library/dn283396.aspx)** verwenden, um Informationen zum Dienst für die Protokollierung des Softwarebestands abzurufen, z. B. ob er ausgeführt wird oder beendet wurde.
+> Sie können das PowerShell-Cmdlet **[Get-SilLogging](/previous-versions/windows/powershell-scripting/dn283396(v=wps.630))** verwenden, um Informationen zum Dienst für die Protokollierung des Softwarebestands abzurufen, z. B. ob er ausgeführt wird oder beendet wurde.
 
 #### <a name="to-start-software-inventory-logging"></a>So starten Sie die Protokollierung des Softwarebestands
 
@@ -99,7 +99,7 @@ Die tägliche Erfassung der Software Inventur Protokollierung und die Weiterleit
 
 2.  Öffnen Sie PowerShell als Administrator.
 
-3.  Geben Sie an der PowerShell-Eingabeaufforderung **[Start SilLogging](https://technet.microsoft.com/library/dn283391.aspx)** ein.
+3.  Geben Sie an der PowerShell-Eingabeaufforderung **[Start SilLogging](/previous-versions/windows/powershell-scripting/dn283391(v=wps.630))** ein.
 
 > [!NOTE]
 > Es ist möglich, das Ziel festzulegen, ohne einen Fingerabdruck des Zertifikats einzurichten. Ein solches Vorgehen führt jedoch dazu, dass Weiterleitungen fehlschlagen und Daten lokal bis zu 30 Tage lang vorgehalten werden. (Nach Ablauf dieser Zeit werden sie gelöscht.) Sobald ein gültiges Zertifikat-Hash für das Ziel festgelegt (und das entsprechende gültige Zertifikat im LocalMachine/Personal Speicher installiert) wurde, werden lokal gespeicherte Daten an das Ziel weitergeleitet, sofern das Ziel so konfiguriert wurde, dass diese Daten mit diesem Zertifikat akzeptiert werden (weitere Informationen finden Sie unter [Software Inventory Logging Aggregator](Software-Inventory-Logging-Aggregator.md) ).
@@ -110,7 +110,7 @@ Die tägliche Erfassung der Software Inventur Protokollierung und die Weiterleit
 
 2.  Öffnen Sie PowerShell als Administrator.
 
-3.  Geben Sie an der PowerShell-Eingabeaufforderung **[Stop- SilLogging](https://technet.microsoft.com/library/dn283394.aspx)**
+3.  Geben Sie an der PowerShell-Eingabeaufforderung **[Stop- SilLogging](/previous-versions/windows/powershell-scripting/dn283394(v=wps.630))**
 
 ## <a name="configuring-software-inventory-logging"></a>Konfigurieren der Protokollierung des Softwarebestands
 Sie führen drei Schritte aus, um die Protokollierung des Softwarebestands so zu konfigurieren, dass Daten nach und nach an einen Aggregationsserver weitergeleitet werden:
@@ -126,7 +126,7 @@ Es empfiehlt sich, die Schritte vor der Verwendung von **Start-SilLogging** ausz
 Eine umfassende Anleitung zum Einrichten des SIL-Frameworks als Ganzes finden Sie unter [Software Inventory Logging Aggregator](software-inventory-logging-aggregator.md).  Insbesondere sollten Sie den Abschnitt über die Problembehandlung zurate ziehen, wenn bei **Publish-SilData** ein Fehler auftritt oder wenn die SIL-Protokollierung auf andere Weise fehlschlägt.
 
 ## <a name="software-inventory-logging-over-time"></a><a name="BKMK_Step2"></a>Verlauf der Protokollierung des Softwarebestands
-Wenn die Protokollierung des Softwarebestands von einem Administrator gestartet wurde, beginnt die stündliche Sammlung und Weiterleitung der Daten an den Aggregationsserver (Ziel-URI). Die erste Weiterleitung besteht aus einem vollständigen Datensatz, den [Get-SilData](https://technet.microsoft.com/library/dn283388.aspx) abruft und zu einem bestimmten Zeitpunkt auf der Konsole anzeigt. Danach prüft SIL bei jedem Intervall die Daten und leitet nur eine kleine ID-Bestätigung an den Aggregationszielserver weiter, sofern seit der letzten Sammlung keine Änderung aufgetreten ist. Wenn ein Wert geändert wurde, sendet SIL erneut einen vollständigen Datensatz.
+Wenn die Protokollierung des Softwarebestands von einem Administrator gestartet wurde, beginnt die stündliche Sammlung und Weiterleitung der Daten an den Aggregationsserver (Ziel-URI). Die erste Weiterleitung besteht aus einem vollständigen Datensatz, den [Get-SilData](/previous-versions/windows/powershell-scripting/dn283388(v=wps.630)) abruft und zu einem bestimmten Zeitpunkt auf der Konsole anzeigt. Danach prüft SIL bei jedem Intervall die Daten und leitet nur eine kleine ID-Bestätigung an den Aggregationszielserver weiter, sofern seit der letzten Sammlung keine Änderung aufgetreten ist. Wenn ein Wert geändert wurde, sendet SIL erneut einen vollständigen Datensatz.
 
 > [!IMPORTANT]
 > Wenn in jedem Intervall der Ziel-URI nicht erreichbar ist, oder die Datenübertragung über das Netzwerk aus irgendeinem Grund nicht erfolgreich ist, werden gesammelte Daten lokal bis zu einem Standardwert von 30 Tagen gespeichert. (Nach Ablauf dieser Zeit werden sie gelöscht.) Bei der nächsten erfolgreichen Weiterleitung von Daten auf den Zielserver für die Aggregation werden alle lokal gespeicherten Daten weitergeleitet und lokal zwischengespeicherte Daten werden gelöscht.
@@ -134,19 +134,19 @@ Wenn die Protokollierung des Softwarebestands von einem Administrator gestartet 
 ## <a name="displaying-software-inventory-logging-data"></a><a name="BKMK_Step3"></a>Anzeigen von Daten der Protokollierung des Softwarebestands
 Neben den im vorherigen Abschnitt beschriebenen PowerShell-Cmdlets stehen Ihnen in sechs weitere Cmdlets zum Sammeln von Daten der Protokollierung des Softwarebestands zur Verfügung:
 
--   **[Get-SilComputer](https://technet.microsoft.com/library/dn283392.aspx)**: Zeigt sowohl den zeitlichen Verlauf der Werte für bestimmte server- und betriebssystembezogene Daten an, als auch den FQDN oder Hostnamen des physischen Hosts, falls verfügbar.
+-   **[Get-SilComputer](/previous-versions/windows/powershell-scripting/dn283392(v=wps.630))**: Zeigt sowohl den zeitlichen Verlauf der Werte für bestimmte server- und betriebssystembezogene Daten an, als auch den FQDN oder Hostnamen des physischen Hosts, falls verfügbar.
 
--   **[Get-SilComputerIdentity (KB 3000850)](https://technet.microsoft.com/library/dn858074.aspx)**: Zeigt die von SIL verwendeten Bezeichner für einzelne Server an.
+-   **[Get-SilComputerIdentity (KB 3000850)](/previous-versions/windows/powershell-scripting/dn858074(v=wps.630))**: Zeigt die von SIL verwendeten Bezeichner für einzelne Server an.
 
--   **[Get-SilData](https://technet.microsoft.com/library/dn283388.aspx)**: Zeigt den gesammelten zeitlichen Verlauf aller Daten der Protokollierung des Softwarebestands an.
+-   **[Get-SilData](/previous-versions/windows/powershell-scripting/dn283388(v=wps.630))**: Zeigt den gesammelten zeitlichen Verlauf aller Daten der Protokollierung des Softwarebestands an.
 
--   **[Get-SilSoftware](https://technet.microsoft.com/library/dn283397.aspx)**: Zeigt die Identität im zeitlichen Verlauf der gesamten auf dem Computer installierten Software an.
+-   **[Get-SilSoftware](/previous-versions/windows/powershell-scripting/dn283397(v=wps.630))**: Zeigt die Identität im zeitlichen Verlauf der gesamten auf dem Computer installierten Software an.
 
--   **[Get-SilUalAccess](https://technet.microsoft.com/library/dn283389.aspx)**: Zeigt für die vergangenen zwei Tage die Gesamtzahl der eindeutigen Clientanforderungen für Geräte und Benutzer an.
+-   **[Get-SilUalAccess](/previous-versions/windows/powershell-scripting/dn283389(v=wps.630))**: Zeigt für die vergangenen zwei Tage die Gesamtzahl der eindeutigen Clientanforderungen für Geräte und Benutzer an.
 
--   **[Get-SilWindowsUpdate](https://technet.microsoft.com/library/dn283393.aspx)**: Zeigt den zeitlichen Verlauf der Liste aller auf dem Computer installierten Windows-Updates an.
+-   **[Get-SilWindowsUpdate](/previous-versions/windows/powershell-scripting/dn283393(v=wps.630))**: Zeigt den zeitlichen Verlauf der Liste aller auf dem Computer installierten Windows-Updates an.
 
-Ein typischer Anwendungsfall für Cmdlets zur Protokollierung des Softwarebestands wäre das Abfragen der Protokollierung des Softwarebestands für einen bestimmten Zeitpunkt der gesamten Protokollierung durch einen Administrator mithilfe von [Get-SilSoftware](https://technet.microsoft.com/library/dn283397.aspx).
+Ein typischer Anwendungsfall für Cmdlets zur Protokollierung des Softwarebestands wäre das Abfragen der Protokollierung des Softwarebestands für einen bestimmten Zeitpunkt der gesamten Protokollierung durch einen Administrator mithilfe von [Get-SilSoftware](/previous-versions/windows/powershell-scripting/dn283397(v=wps.630)).
 
 **Ausgabe Beispiel**
 
@@ -200,7 +200,7 @@ Die Protokollierung des Softwarebestands wurde nicht als unternehmenskritische K
 
 #### <a name="to-delete-data-logged-by-software-inventory-logging"></a>So löschen Sie mit der Protokollierung des Softwarebestands protokollierte Daten
 
-1. Beenden Sie in PowerShell die Protokollierung des Softwarebestands mit dem Befehl **[Stop-SilLogging](https://technet.microsoft.com/library/dn283394.aspx)**.
+1. Beenden Sie in PowerShell die Protokollierung des Softwarebestands mit dem Befehl **[Stop-SilLogging](/previous-versions/windows/powershell-scripting/dn283394(v=wps.630))**.
 
 2. Öffnen Sie Windows-Explorer.
 
@@ -223,17 +223,17 @@ Daten, die von SIL protokolliert, aber lokal gespeichert werden (wenn der Forwar
 ## <a name="software-inventory-logging-security"></a><a name="BKMK_Step7"></a>Sicherheit bei der Protokollierung des Softwarebestands
 Auf dem lokalen Server sind Administratorrechte erforderlich, um erfolgreich Daten aus dem WMI der Protokollierung des Softwarebestands über PowerShell-APIs abzurufen.
 
-Um alle Funktionen der Protokollierung des Softwarebestands zum stündlichen Weiterleiten von Verlaufsdaten an einen Aggregationspunkt nutzen zu können, muss der Administrator mithilfe von Clientzertifikaten sichere SSL-Sessions für das Weiterleiten von Daten über HTTPS gewährleisten. Eine grundlegende Übersicht über HTTPS-Authentifizierung finden Sie hier: [HTTPS-Authentifizierung](https://technet.microsoft.com/library/cc736680(v=WS.10).aspx).
+Um alle Funktionen der Protokollierung des Softwarebestands zum stündlichen Weiterleiten von Verlaufsdaten an einen Aggregationspunkt nutzen zu können, muss der Administrator mithilfe von Clientzertifikaten sichere SSL-Sessions für das Weiterleiten von Daten über HTTPS gewährleisten. Eine grundlegende Übersicht über HTTPS-Authentifizierung finden Sie hier: [HTTPS-Authentifizierung](/previous-versions/windows/it-pro/windows-server-2003/cc736680(v=ws.10)).
 
 Auf alle Daten, die lokal auf einem Windows-Server gespeichert sind (tritt nur auf, wenn die Funktion gestartet wurde, aber das Ziel nicht erreichbar ist), kann nur mit Administratorrechten auf dem lokalen Server zugegriffen werden.
 
 ## <a name="working-with-date-and-time-settings-in-windows-server-2012-r2-software-inventory-logging"></a><a name="BKMK_Step8"></a>Umgang mit Datums- und Uhrzeiteinstellungen bei der Windows Server 2012 R2-Protokollierung des Softwarebestands
 
--   Bei Verwendung von „ [Set-SilLogging](https://technet.microsoft.com/library/dn283387.aspx) - TimeOfDay“ zum Festlegen des Ausführungszeitpunkts für die SIL-Protokollierung müssen Sie ein Datum und eine Uhrzeit angeben.Das Kalenderdatum wird festgelegt, und die Protokollierung erfolgt erst, wenn das betreffende Datum in der lokalen Systemzeit erreicht wird.
+-   Bei Verwendung von „ [Set-SilLogging](/previous-versions/windows/powershell-scripting/dn283387(v=wps.630)) - TimeOfDay“ zum Festlegen des Ausführungszeitpunkts für die SIL-Protokollierung müssen Sie ein Datum und eine Uhrzeit angeben.Das Kalenderdatum wird festgelegt, und die Protokollierung erfolgt erst, wenn das betreffende Datum in der lokalen Systemzeit erreicht wird.
 
--   Bei Verwendung von [Get-silsoftware](https://technet.microsoft.com/library/dn283397.aspx)oder [Get-silwindowsupdate](https://technet.microsoft.com/library/dn283393.aspx)zeigt "InstallDate" immer den bedeutungslosen Wert "12:00:00AM" an.
+-   Bei Verwendung von [Get-silsoftware](/previous-versions/windows/powershell-scripting/dn283397(v=wps.630))oder [Get-silwindowsupdate](/previous-versions/windows/powershell-scripting/dn283393(v=wps.630))zeigt "InstallDate" immer den bedeutungslosen Wert "12:00:00AM" an.
 
--   Bei Verwendung von [Get-silualaccess](https://technet.microsoft.com/library/dn283389.aspx)zeigt "Sample Date" immer den bedeutungslosen Wert "11:59:00PM" an.Für diese Cmdlet-Abfragen ist „Date“ entscheidend.
+-   Bei Verwendung von [Get-silualaccess](/previous-versions/windows/powershell-scripting/dn283389(v=wps.630))zeigt "Sample Date" immer den bedeutungslosen Wert "11:59:00PM" an.Für diese Cmdlet-Abfragen ist „Date“ entscheidend.
 
 ## <a name="enabling-and-configuring-software-inventory-logging-in-a-mounted-virtual-hard-disk"></a><a name="BKMK_Step10"></a>Aktivieren und Konfigurieren der Protokollierung des Softwarebestands auf einem bereitgestellten virtuellen Datenträger
 Die Protokollierung des Softwarebestands unterstützt auch das Konfigurieren und Aktivieren auf offline geschalteten virtuellen Computern. Die praktische Verwendung hierfür ist das Einrichten der "Gold Image"-Einrichtung für die weite Bereitstellung in Rechenzentren sowie das Konfigurieren von Endbenutzer Images, die von einem lokalen Standort zu einer cloudbereitstellung ausgehen.
@@ -242,20 +242,20 @@ Um diese Einsatzbereiche zu unterstützen, sind der Protokollierung des Software
 
 | Funktion | Wertname | Daten | Entsprechendes Cmdlet (nur im ausgeführten Betriebssystem verfügbar) |
 | --- | --- | --- | --- |
-|Start/Stopp-Feature|CollectionState|1 oder 0|[Start-SilLogging](https://technet.microsoft.com/library/dn283391.aspx), [Stop-SilLogging](https://technet.microsoft.com/library/dn283394.aspx)|
-|Legt den Aggregationszielpunkt im Netzwerk fest|TargetUri|Zeichenfolge|[Set-SilLogging](https://technet.microsoft.com/library/dn283387.aspx) -TargetURI|
-|Legt den Zertifikatfingerabdruck oder Hash des Zertifikats für die SSL-Authentifizierung für den Ziel-Webserver fest|CertificateThumbprint|Zeichenfolge|[Set-SilLogging](https://technet.microsoft.com/library/dn283387.aspx) -CertificateThumbprint|
-|Legt das Datum und die Uhrzeit für den Startzeitpunkt der Funktion fest (sofern der angegebene Wert in der lokalen Systemzeit in der Zukunft liegt)|CollectionTime|Standard: 2000-01-01T03:00:00|[Set-SilLogging](https://technet.microsoft.com/library/dn283387.aspx) -TimeOfDay|
+|Start/Stopp-Feature|CollectionState|1 oder 0|[Start-SilLogging](/previous-versions/windows/powershell-scripting/dn283391(v=wps.630)), [Stop-SilLogging](/previous-versions/windows/powershell-scripting/dn283394(v=wps.630))|
+|Legt den Aggregationszielpunkt im Netzwerk fest|TargetUri|Zeichenfolge|[Set-SilLogging](/previous-versions/windows/powershell-scripting/dn283387(v=wps.630)) -TargetURI|
+|Legt den Zertifikatfingerabdruck oder Hash des Zertifikats für die SSL-Authentifizierung für den Ziel-Webserver fest|CertificateThumbprint|Zeichenfolge|[Set-SilLogging](/previous-versions/windows/powershell-scripting/dn283387(v=wps.630)) -CertificateThumbprint|
+|Legt das Datum und die Uhrzeit für den Startzeitpunkt der Funktion fest (sofern der angegebene Wert in der lokalen Systemzeit in der Zukunft liegt)|CollectionTime|Standard: 2000-01-01T03:00:00|[Set-SilLogging](/previous-versions/windows/powershell-scripting/dn283387(v=wps.630)) -TimeOfDay|
 
 Um diese Werte auf einer offline geschalteten virtuellen Festplatte (VM-Betriebssystem wird nicht ausgeführt) zu ändern, muss die VHD zunächst bereitgestellt werden, und dann können die folgenden Befehle verwendet werden, um Änderungen vorzunehmen.
 
--   [Reg load](https://technet.microsoft.com/library/cc742053.aspx)
+-   [Reg load](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc742053(v=ws.11))
 
--   [Reg delete](https://technet.microsoft.com/library/cc742145.aspx)
+-   [Reg delete](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc742145(v=ws.11))
 
--   [Reg add](https://technet.microsoft.com/library/cc742162.aspx)
+-   [Reg add](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc742162(v=ws.11))
 
--   [Reg unload](https://technet.microsoft.com/library/cc742043.aspx)
+-   [Reg unload](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc742043(v=ws.11))
 
 Die Protokollierung des Softwarebestands überprüft diese Werte beim Start des Betriebssystems und verfährt entsprechend.
 
@@ -291,6 +291,6 @@ Im folgenden finden Sie zwei Beispiele dafür, wie die Ausgabe in der PowerShell
 ## <a name="see-also"></a>Weitere Informationen
 [Beginnen Sie mit der Protokollierung](get-started-with-software-inventory-logging.md) 
  des Software Bestands Aggregator der Protokollierung des [Software Bestands](software-inventory-logging-aggregator.md) 
- [Cmdlets für die Protokollierung des Software Bestands in Windows PowerShell](https://technet.microsoft.com/library/dn283390.aspx) 
+ [Cmdlets für die Protokollierung des Software Bestands in Windows PowerShell](/powershell/module/softwareinventorylogging/?view=winserver2012R2-ps) 
  [Import-binarymilog](https://technet.microsoft.com/library/dn262592.aspx) 
  [Export-binarymilog](https://technet.microsoft.com/library/dn262591.aspx)

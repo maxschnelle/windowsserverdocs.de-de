@@ -6,12 +6,12 @@ ms.topic: article
 author: jasongerend
 ms.date: 06/07/2019
 description: In diesem Thema werden DFS-Namespaces beschrieben, bei denen es sich um einen Rollen Dienst in Windows Server handelt, der es Ihnen ermöglicht, freigegebene Ordner auf verschiedenen Servern in einem oder mehreren logisch strukturierten Namespaces zu gruppieren.
-ms.openlocfilehash: 54f26a605c15ab683dbe51f768e82bce2c00a290
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: cc29d4bbb73a3255497b89a438c2f3962fd07751
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87936190"
+ms.locfileid: "87989388"
 ---
 # <a name="dfs-namespaces-overview"></a>Übersicht über DFS-Namespaces
 
@@ -123,7 +123,7 @@ Weitere verwandte Informationen finden Sie in den folgenden Ressourcen:
 | **Produktbewertung** | [Neues in DFS-Namespaces und DFS-Replikation in Windows Server](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn281957(v=ws.11)) |
 | **Bereitstellung**    | [Überlegungen zur Skalierbarkeit von DFS-Namespaces](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB) |
 | **Vorgänge**    | [DFS-Namespaces: Häufig gestellte Fragen](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee404780(v=ws.10)) |
-| **Communityressourcen** | [TechNet-Forum für Dateidienste und Speicher](https://docs.microsoft.com/answers/topics/windows-server-storage.html) |
+| **Communityressourcen** | [TechNet-Forum für Dateidienste und Speicher](/answers/topics/windows-server-storage.html) |
 | **Protokolle**        | [Datei Dienst Protokolle in Windows Server](/openspecs/windows_protocols/MS-WINPROTLP/df36f95e-6a6b-48d6-a3ae-35a17674f546) (veraltet) |
 | **Verwandte Technologien** | [Failoverclustering](../../failover-clustering/failover-clustering-overview.md)|
 | **Unterstützung** | [Windows IT Pro-Support](https://www.microsoft.com/itpro/windows/support)|

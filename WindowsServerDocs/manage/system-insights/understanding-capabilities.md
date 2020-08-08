@@ -1,19 +1,17 @@
 ---
 title: Grundlegendes zu Funktionen
 description: In diesem Thema wird das Konzept der Funktionen in System Insights definiert und die in Windows Server 2019 verfügbaren Standardfunktionen vorgestellt.
-ms.prod: windows-server
-ms.technology: system-insights
 ms.topic: article
 author: gawatu
 ms.author: gawatu
 manager: mallikarjun.chadalapaka
 ms.date: 6/05/2018
-ms.openlocfilehash: c6738e6e914d97c70aa31af2fe3b6987b0b9ea33
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 195ab01ded24742a26e1d7558529044c9883b8fc
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85471745"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87991709"
 ---
 # <a name="understanding-capabilities"></a>Grundlegendes zu Funktionen
 
@@ -40,7 +38,7 @@ Wenn eine Funktion aufgerufen wird, stellt Sie eine Ausgabe bereit, um das Ergeb
 - **Fehler** : ein unbekanntes Problem hat dazu geführt, dass die Funktion fehlgeschlagen ist.
 - **None** : Es wurde keine Vorhersage erstellt. Dies kann auf fehlende oder andere Funktions spezifische Gründe zurückzuführen sein, die keine Vorhersage treffen.
 
-Außerdem werden alle Funktions spezifischen Daten, die im Ergebnis enthalten sind, in einer vom Benutzer zugänglichen JSON-Datei platziert, und der Dateipfad [kann mithilfe von PowerShell gefunden werden](https://docs.microsoft.com/windows-server/manage/system-insights/managing-capabilities#retrieving-capability-results).
+Außerdem werden alle Funktions spezifischen Daten, die im Ergebnis enthalten sind, in einer vom Benutzer zugänglichen JSON-Datei platziert, und der Dateipfad [kann mithilfe von PowerShell gefunden werden](./managing-capabilities.md#retrieving-capability-results).
 
 ## <a name="default-capabilities"></a>Standardfunktionen
 In Windows Server 2019 werden mit System Insights vier Standardfunktionen eingeführt, die sich auf die Kapazitäts Vorhersage konzentrieren:
@@ -94,7 +92,7 @@ Alle System Insights-Funktionen müssen einen Status ausgeben, der mit jeder Vor
 >Wenn eine Funktions Vorhersage für mehrere Instanzen ist (z. b. mehrere Volumes oder Netzwerkadapter), gibt der Status den schwerwiegendsten Status für alle Instanzen an. Einzelne Statuswerte für jedes Volume oder jeden Netzwerkadapter werden im Windows Admin Center oder innerhalb der Daten angezeigt, die in der Ausgabe der einzelnen Funktionen enthalten sind. Anweisungen zum Analysieren der JSON-Ausgabe der Standardfunktionen finden Sie in [diesem Blog](https://aka.ms/systeminsights-mitigationscripts).
 
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 Weitere Informationen zu System Insights finden Sie in den folgenden Ressourcen:
 
 - [Systemdaten: Übersicht](overview.md)

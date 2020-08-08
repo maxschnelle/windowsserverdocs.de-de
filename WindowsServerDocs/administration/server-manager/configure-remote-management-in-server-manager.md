@@ -7,12 +7,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b0d2369bd42fc884b1a401fc1450dbe9d1e47663
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 0a39eaaff5497ee85cb823907cd8b57f1888dd08
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87895806"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87991875"
 ---
 # <a name="configure-remote-management-in-server-manager"></a>Konfigurieren der Remote Verwaltung in Server-Manager
 
@@ -153,7 +153,7 @@ In Windows Server 2016 stützt Server-Manager die Windows-Remote Verwaltung (Win
 
 ### <a name="to-disable-remote-management-by-using-an-answer-file-during-unattended-installation"></a>So deaktivieren Sie die Remoteverwaltung mithilfe einer Antwortdatei während einer unbeaufsichtigten Installation
 
-1.  Erstellen Sie mithilfe von Windows System Image Manager (Windows SIM) eine Antwortdatei für die unbeaufsichtigte Installation für Windows Server 2016-Installationen. Weitere Informationen zum Erstellen einer Antwortdatei und zum Verwenden von Windows SIM finden Sie unter [Was ist der Windows System Image Manager?](https://technet.microsoft.com/library/cc766347.aspx) und [Schrittweise Anleitung: Grundlegende Windows-Bereitstellung für IT-Spezialisten](https://technet.microsoft.com/library/dd349348.aspx).
+1.  Erstellen Sie mithilfe von Windows System Image Manager (Windows SIM) eine Antwortdatei für die unbeaufsichtigte Installation für Windows Server 2016-Installationen. Weitere Informationen zum Erstellen einer Antwortdatei und zum Verwenden von Windows SIM finden Sie unter [Was ist der Windows System Image Manager?](/previous-versions/windows/it-pro/windows-vista/cc766347(v=ws.10)) und [Schrittweise Anleitung: Grundlegende Windows-Bereitstellung für IT-Spezialisten](/previous-versions/windows/it-pro/windows-7/dd349348(v=ws.10)).
 
 2.  Suchen Sie in der Antwortdatei die Einstellung **Microsoft-Windows-Web-Services-for-Management-Core\EnableServerremoteManagement**.
 
@@ -183,8 +183,5 @@ Weitere Informationen zum Konfigurieren von WinRM-Listenereinstellungen erhalten
 
 ## <a name="see-also"></a>Weitere Informationen
 [Server zu Server-Manager](add-servers-to-server-manager.md) 
- Hinzufügen [Windows PowerShell: about_remote_Troubleshooting im Windows Server TechCenter](https://technet.microsoft.com/library/dd347642.aspx) 
+ Hinzufügen [Windows PowerShell: about_remote_Troubleshooting im Windows Server TechCenter](/previous-versions/dd347642(v=technet.10)) 
  [Beschreibung der Benutzerkontensteuerung](https://support.microsoft.com/kb/951016)
-
-
-

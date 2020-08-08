@@ -1,21 +1,19 @@
 ---
-title: Ermitteln der Mindestanforderungen an die DFSR-Anforderungen eines replizierten Ordners
+title: Ermitteln der Mindestanforderungen an den DFSR-Stagingbereich für einen replizierten Ordner
 description: Dieser Artikel ist eine Kurzanleitung zum Berechnen des minimalen Stagingbereichs, der für die ordnungsgemäße Funktionsweise von DFSR benötigt wird.
-ms.prod: windows-server
-ms.technology: server-general
 ms.date: 06/10/2020
 author: Deland-Han
 ms.author: delhan
-ms.openlocfilehash: 5e5bfdbb90d2b3e631aaa020a173eca779f0d6b3
-ms.sourcegitcommit: fa9a8badf4eb366aeeca7d2905e2cad711ee8dae
+ms.openlocfilehash: 581b485f219e960ecd467baa1f7dff7742c3acf8
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84715004"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87965787"
 ---
-# <a name="how-to-determine-the-minimum-staging-area-dfsr-needs-for-a-replicated-folder"></a>Ermitteln der Mindestanforderungen an die DFSR-Anforderungen eines replizierten Ordners
+# <a name="how-to-determine-the-minimum-staging-area-dfsr-needs-for-a-replicated-folder"></a>Ermitteln der Mindestanforderungen an den DFSR-Stagingbereich für einen replizierten Ordner
 
-Dieser Artikel ist eine Kurzanleitung zum Berechnen des minimalen Stagingbereichs, der für die ordnungsgemäße Funktionsweise von DFSR benötigt wird. Werte, die niedriger als solche sind, können dazu führen, dass die Replikation langsam ist 
+Dieser Artikel ist eine Kurzanleitung zum Berechnen des minimalen Stagingbereichs, der für die ordnungsgemäße Funktionsweise von DFSR benötigt wird. Werte, die niedriger als solche sind, können dazu führen, dass die Replikation langsam ist
 
 Beachten Sie, dass es sich hierbei *nur um Mindestgebühren*handelt. Wenn Sie die Größe des Stagingbereichs berücksichtigen, desto größer ist der Stagingbereich, bis zur Größe des replizierten Ordners. Weitere Informationen dazu, warum es wichtig ist, einen Stagingbereich mit ordnungsgemäßer Skalierungs Umfang zu haben, finden Sie im Abschnitt "bestimmen, ob Probleme mit dem Stagingbereich vorliegen" und in den Blogbeiträgen, die am Ende dieses Artikels verknüpft sind.
 
@@ -38,23 +36,23 @@ PowerShell ist unter Windows 2008 und höher enthalten. Sie müssen PowerShell u
 
 Verwenden Sie ein PowerShell-Skript, um die größten Dateien (32 oder 9) zu suchen und zu bestimmen, wie viele Gigabyte Sie addieren (aufgrund von Ned Pyle für die PowerShell-Befehle). Ich werde Ihnen tatsächlich drei PowerShell-Skripts vorstellen. Jede ist selbst nützlich. Allerdings ist Number 3 die nützlichste.
 
-1. Führen Sie den folgenden Befehl aus:  
+1. Führen Sie den folgenden Befehl aus:
    ```Powershell
    Get-ChildItem c:\\temp -recurse | Sort-Object length -descending | select-object -first 32 | ft name,length -wrap –auto
    ```
-   
+
    Mit diesem Befehl werden die Dateinamen und die Größe der Dateien in Bytes zurückgegeben. Nützlich, wenn Sie wissen möchten, welche 32-Dateien im replizierten Ordner am größten sind, damit Sie Ihre Besitzer "besuchen" können.
 
-2. Führen Sie den folgenden Befehl aus:  
+2. Führen Sie den folgenden Befehl aus:
    ```Poswershell
    Get-ChildItem c:\\temp -recurse | Sort-Object length -descending | select-object -first 32 | measure-object -property length –sum
    ```
    Mit diesem Befehl wird die Gesamtzahl der Bytes der 32 größten Dateien im Ordner zurückgegeben, ohne dass die Dateinamen aufgelistet werden.
 
-3. Führen Sie den folgenden Befehl aus:  
+3. Führen Sie den folgenden Befehl aus:
    ```Poswershell
    $big32 = Get-ChildItem c:\\temp -recurse | Sort-Object length -descending | select-object -first 32 | measure-object -property length –sum
-   
+
    $big32.sum /1gb
    ```
    Mit diesem Befehl wird die Gesamtzahl der Bytes von 32 größten Dateien im Ordner angezeigt, und Sie können die Berechnungen durchführen, um Bytes für Sie in Gigabyte zu konvertieren. Dieser Befehl ist zwei separate Zeilen. Sie können beide Elemente gleichzeitig in die PowerShell-Befehlsshell einfügen oder Sie wieder zurückführen.
@@ -174,29 +172,24 @@ Sie erkennen Probleme mit dem Stagingbereich, indem Sie bestimmte Ereignisse-IDs
 
 ### <a name="staging-area-events"></a>Ereignisse im Stagingbereich
 
-> Ereignis-ID: **4202**  
-> Schweregrad: **Warnung**
-> 
+> Ereignis-ID: **4202** Schweregrad: **Warnung**
+>
 > Der DFS-Replikation Dienst hat festgestellt, dass der Stagingbereich, der für den replizierten Ordner im lokalen Pfad (Pfad) verwendet wird, über dem oberen Grenzwert liegt. Der Dienst versucht, die ältesten Stagingdateien zu löschen. Die Leistung kann beeinträchtigt werden.
-> 
-> Ereignis-ID: **4204**  
-> Schweregrad: **Information**
-> 
+>
+> Ereignis-ID: **4204** Schweregrad: **Information**
+>
 > Der DFS-Replikation Dienst hat alte Stagingdateien für den replizierten Ordner unter dem lokalen Pfad (Pfad) erfolgreich gelöscht. Der Stagingbereich liegt nun unter dem hohen Grenzwert.
-> 
-> Ereignis-ID: **4206**  
-> Schweregrad: **Warnung**
-> 
+>
+> Ereignis-ID: **4206** Schweregrad: **Warnung**
+>
 > Der DFS-Replikation-Dienst konnte die alten Stagingdateien für den replizierten Ordner unter dem lokalen Pfad (Pfad) nicht bereinigen. Der Dienst kann möglicherweise einige große Dateien nicht replizieren, und der replizierte Ordner ist möglicherweise nicht mehr synchron. Der Dienst versucht automatisch, den stagingbereinigungs-Bereinigung in (x) Minuten zu wiederholen. Der Dienst startet die Bereinigung möglicherweise früher, wenn er erkennt, dass einige Stagingdateien entsperrt wurden.
-> 
-> Ereignis-ID: **4208**  
-> Schweregrad: **Warnung**
-> 
+>
+> Ereignis-ID: **4208** Schweregrad: **Warnung**
+>
 > Der DFS-Replikation Dienst hat festgestellt, dass die Speicherplatz Auslastung über dem Stagingkontingent für den replizierten Ordner unter lokaler Pfad (Pfad) liegt. Der Dienst kann möglicherweise einige große Dateien nicht replizieren, und der replizierte Ordner ist möglicherweise nicht mehr synchron. Der Dienst versucht automatisch, den Stagingbereich zu bereinigen.
-> 
-> Ereignis-ID: **4212**  
-> Schweregrad: **Fehler**
-> 
+>
+> Ereignis-ID: **4212** Schweregrad: **Fehler**
+>
 > Der DFS-Replikation Dienst konnte den replizierten Ordner nicht unter dem lokalen Pfad (Pfad) replizieren, da der Stagingpfad ungültig oder nicht verfügbar ist.
 
 ## <a name="what-is-the-difference-between-4202-and-4208"></a>Worin besteht der Unterschied zwischen 4202 und 4208?

@@ -7,12 +7,12 @@ ms.assetid: e74961a2-bd38-48ae-b1c0-4b3eff761b4a
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: 37fd4d30183d626caf0891fea2a41f79046030e9
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 4a38b26604ae6089acf6e9b64c20fd9115edcade
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87970467"
+ms.locfileid: "87997204"
 ---
 # <a name="selecting-hardware-for-your-multipoint-services-system"></a>Auswählen von Hardware für Ihr MultiPoint Services-System
 
@@ -51,7 +51,7 @@ Verwenden Sie die folgenden Informationen, um Hardware Entscheidungen zu treffen
 
 Bei einem Multipoint Services-System handelt es sich um eine \- Umgebung mit mehreren Benutzern, bei der alle Benutzer mit einem einzelnen Host Computer verbunden sind. Dadurch erhöht sich die CPU-Auslastung, da alle Benutzer denselben Computer gemeinsam verwenden. Einige Aufgaben, z. b. Multimedia-Programme, z \( . b. Medien Player oder Video \- Bearbeitungssoftware \) , haben größere Verarbeitungsanforderungen. Stellen Sie daher sicher, dass Sie eine CPU auswählen, mit der die Verarbeitungsanforderungen für die Anzahl der Benutzer und Typen von Benutzer Szenarien, die unterstützt werden müssen, erfüllt werden können.
 
-Multipoint Services erfordert eine x64 \- -basierte CPU und muss die Systemanforderungen für den Computer erfüllen, wie unter [Hardware Anforderungen und Empfehlungen zur Leistung](Hardware-Requirements-and-Performance-Recommendations.md)beschrieben.
+Multipoint Services erfordert eine x64 \- -basierte CPU und muss die Systemanforderungen für den Computer erfüllen, wie unter [Hardware Anforderungen und Empfehlungen zur Leistung](./hardware-and-performance-recommendations.md)beschrieben.
 
 Die folgenden Prozessoren wurden für die Verwendung in einem Multipoint Services-System mit Programmen für die \- Bedarfs gesteuerte Verarbeitung getestet, wie z. b. Multimedia-Programme:
 

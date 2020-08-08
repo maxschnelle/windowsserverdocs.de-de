@@ -2,18 +2,16 @@
 title: Bereitstellen des Remotezugriffs mit OTP-Authentifizierung
 description: Dieses Thema ist Teil des Handbuchs Bereitstellen des Remote Zugriffs mit OTP-Authentifizierung in Windows Server 2016.
 manager: brianlic
-ms.prod: windows-server
-ms.technology: networking-ras
 ms.topic: article
 ms.assetid: b1b2fe70-7956-46e8-a3e3-43848868df09
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: d1b38f753e2e4d8333299c369042a72e0dc3a6e6
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: 8cc47a3a94425b4f77e5ed430cffe86429bf9b23
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87182006"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87991290"
 ---
 # <a name="deploy-remote-access-with-otp-authentication"></a>Bereitstellen des Remotezugriffs mit OTP-Authentifizierung
 
@@ -35,7 +33,7 @@ Bevor Sie mit der Bereitstellung dieses Szenarios beginnen, sollten Sie die List
 
 -   Eine Public Key-Infrastruktur muss bereitgestellt werden.
 
-    Weitere Informationen finden Sie unter: [Testumgebungsanleitung – Minimodul: Basis-PKI für Windows Server 2012](https://docs.microsoft.com/answers/topics/windows-server-2012.html)
+    Weitere Informationen finden Sie unter: [Testumgebungsanleitung – Minimodul: Basis-PKI für Windows Server 2012](/answers/topics/windows-server-2012.html)
 
 -   Das Ändern von Richtlinien außerhalb der DirectAccess-Verwaltungskonsole oder der Windows PowerShell-Cmdlets wird nicht unterstützt.
 
@@ -129,4 +127,3 @@ Im Folgenden finden Sie bekannte Probleme beim Konfigurieren eines OTP-Szenarios
         -   HKEY \_ local \_ Machine \\ Software \\ Microsoft \\ DirectAccess \\ OTP \\ radiusprobepass
 
 -   Wenn Sie das IPsec-Stammzertifikat in einer konfigurierten und ausgeführten DirectAccess-Bereitstellung ändern, funktioniert OTP nicht mehr. Um dieses Problem zu beheben, führen Sie auf jedem DirectAccess-Server an einer Windows PowerShell-Eingabeaufforderung den folgenden Befehl aus:`iisreset`
-

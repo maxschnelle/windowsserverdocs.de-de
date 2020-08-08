@@ -6,12 +6,12 @@ author: nwashburn-ms
 ms.author: niwashbu
 ms.date: 11/21/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 69f8f20aa9e1b222ff112f91df8d6b3d7767fc84
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 25edd2851638fec99b6afda0415fdf8e8c8f1699
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87962384"
+ms.locfileid: "87997190"
 ---
 # <a name="manage-servers-with-windows-admin-center"></a>Verwalten von Servern mit dem Windows Admin Center
 
@@ -411,7 +411,7 @@ Die folgenden Funktionen werden in-Diensten unterstützt:
 ### <a name="features"></a>Features
 
 - Anzeigen und Ändern von Benutzer-und System Umgebungsvariablen
-- Anzeigen der Konfiguration zum Überwachen von Warnungen von [Azure Monitor](azure-monitor.md)
+- Anzeigen der Konfiguration zum Überwachen von Warnungen von [Azure Monitor](../azure/azure-monitor.md)
 - Anzeigen und Ändern der Energie Konfiguration
 - Anzeigen und Ändern von Remotedesktop Einstellungen
 - Anzeigen und Ändern der rollenbasierten Zugriffs Steuerungseinstellungen
@@ -436,7 +436,7 @@ Die folgenden Funktionen werden im Speicher unterstützt:
 - Volumeeigenschaften bearbeiten
 - Löschen von Volumes
 - Installieren der Kontingent Verwaltung
-- Verwalten von Dateiservern Ressourcen-Manager Kontingente [Storage->Create/Update-Kontingent](https://docs.microsoft.com/windows-server/storage/fsrm/quota-management)
+- Verwalten von Dateiservern Ressourcen-Manager Kontingente [Storage->Create/Update-Kontingent](../../../storage/fsrm/quota-management.md)
 
 [**Feedback und vorgeschlagene Features für den Speicher anzeigen**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BStorage%5D)
 
@@ -451,7 +451,7 @@ Die folgenden Funktionen werden im Speicher unterstützt:
 ## <a name="storage-replica"></a>Speicherreplikat
 
 Verwenden Sie **Speicher** Replikate zum Verwalten der Server-zu-Server-Speicher Replikation.
- [Weitere Informationen zum Speicherreplikat](https://docs.microsoft.com/windows-server/storage/storage-replica/storage-replica-ui)
+ [Weitere Informationen zum Speicherreplikat](../../../storage/storage-replica/server-to-server-storage-replication.md)
 
 ## <a name="system-insights"></a>Systemdaten
 
@@ -473,7 +473,7 @@ Die folgenden Funktionen werden bei Updates unterstützt:
 - Anzeigen einer Liste mit Update Verlauf
 - Installieren von Updates
 - Online nach Updates suchen Microsoft Update
-- Verwalten der Integration von [Azure Updateverwaltung](https://docs.microsoft.com/azure/automation/automation-update-management)
+- Verwalten der Integration von [Azure Updateverwaltung](/azure/automation/automation-update-management)
 
 [**Feedback und vorgeschlagene Features für Updates anzeigen**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BUpdates%5D)
 

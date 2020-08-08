@@ -2,22 +2,20 @@
 title: Dynamic Host Configuration-Protokoll (DHCP)
 description: Dieses Thema enthält eine kurze Übersicht über das Dynamic Host Configuration-Protokoll (DHCP) in Windows Server 2016.
 manager: brianlic
-ms.prod: windows-server
-ms.technology: networking-dhcp
 ms.topic: article
 ms.assetid: 0ff29ef3-c458-4432-9065-e50a7de5b4b9
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 5fc44d0f58ed73ff48f530bad3206baa675d9ac9
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: ba932599b7d23a8504c146118489598e45cc9fd7
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80312524"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87949223"
 ---
 # <a name="dynamic-host-configuration-protocol-dhcp"></a>Dynamic Host Configuration-Protokoll (DHCP)
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 In diesem Thema finden Sie eine kurze Übersicht über DHCP in Windows Server 2016.
 
@@ -49,8 +47,8 @@ Der Netzwerkadministrator richtet DHCP-Server ein, die TCP/IP-Konfigurationsinfo
 
 Ein DHCP-fähiger Client empfängt nach Annahme eines Lease-Angebots Folgendes:
 
-- Eine gültige IP-Adresse für das Subnetz, mit dem eine Verbindung hergestellt wird.  
-  
+- Eine gültige IP-Adresse für das Subnetz, mit dem eine Verbindung hergestellt wird.
+
 - Angeforderte DHCP-Optionen, bei denen es sich um zusätzliche Parameter handelt, die ein DHCP-Server für die Zuweisung zu Clients konfiguriert ist Einige Beispiele für DHCP-Optionen sind Router (Standard Gateway), DNS-Server und DNS-Domänen Name.
 
 ## <a name="benefits-of-dhcp"></a>Vorteile von DHCP

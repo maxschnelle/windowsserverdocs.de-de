@@ -1,19 +1,17 @@
 ---
 title: Übersicht über Datei Server Ressourcen-Manager (Übersicht)
-ms.prod: windows-server
 ms.author: jgerend
 manager: brianlic
-ms.technology: storage
 ms.topic: article
 author: jasongerend
 ms.date: 5/14/2018
 description: File Server Ressourcen-Manager (FSRM) ist ein Tool, mit dem Sie Daten auf einem Windows Server-Dateiserver verwalten und klassifizieren können.
-ms.openlocfilehash: 58b410e51dae3ea102bb1a15f5bb60f00ab702fa
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: f09e262176d0e5741c60390497fd2f241eaa965a
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86964562"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87957387"
 ---
 # <a name="file-server-resource-manager-fsrm-overview"></a>Übersicht über Datei Server Ressourcen-Manager (Übersicht)
 
@@ -90,7 +88,7 @@ Führen Sie die folgenden Schritte aus, um zu verhindern, dass Datei Server Ress
        ```
     2. Klicken Sie im Registrierungs-Editor mit der rechten Maustaste auf den Schlüssel **HKEY_LOCAL_MACHINE \system\currentcontrolset\services\srmsvc\settings** , und wählen Sie dann **neuer**  >  **Wert für mehrere Zeichen**Folgen aus.
     3. Benennen Sie den Wert `SkipUSNCreationForVolumes` .
-    4. Geben Sie den Pfad für jedes Volume ein, auf dem Sie das Erstellen eines Änderungs Journals überspringen, und platzieren Sie die einzelnen Pfade in einer separaten Zeile. Beispiel:
+    4. Geben Sie den Pfad für jedes Volume ein, auf dem Sie das Erstellen eines Änderungs Journals überspringen, und platzieren Sie die einzelnen Pfade in einer separaten Zeile. Zum Beispiel:
 
         ```
         \\?\Volume{8d3c9e8a-0000-0000-0000-100000000000}\
@@ -104,6 +102,6 @@ Führen Sie die folgenden Schritte aus, um zu verhindern, dass Datei Server Ress
 
 
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 - [Dynamische Access Control](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn408191(v=ws.11))

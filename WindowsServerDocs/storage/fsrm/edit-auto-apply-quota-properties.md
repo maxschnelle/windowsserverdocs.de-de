@@ -2,18 +2,16 @@
 title: Bearbeiten der Eigenschaften des automatisch zugewiesenen Kontingents
 description: In diesem Artikel wird beschrieben, wie Sie die Eigenschaften des automatischen Anwendungs Kontingents
 ms.date: 7/7/2017
-ms.prod: windows-server
-ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 2d520d80dc06969f21211d461fc33e2e9336df12
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 558f6b094e97a6196177e728c238f5bb7a38e7a1
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85474937"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87957447"
 ---
 # <a name="edit-auto-apply-quota-properties"></a>Bearbeiten der Eigenschaften des automatisch zugewiesenen Kontingents
 
@@ -42,7 +40,7 @@ Wenn Sie Änderungen an einem automatischen Apply-Kontingent vornehmen, haben Si
 
 6.  Klicken Sie auf **OK**.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Kontingentverwaltung](quota-management.md)
 -   [Erstellen eines automatisch zugewiesenen Kontingents](create-auto-apply-quota.md)

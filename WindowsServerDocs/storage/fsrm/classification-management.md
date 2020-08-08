@@ -2,18 +2,16 @@
 title: Klassifizierungsverwaltung
 description: In diesem Artikel wird beschrieben, wie Sie Dateien basierend auf Klassifizierungs Eigenschaften kategorisieren.
 ms.date: 7/7/2017
-ms.prod: windows-server
-ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: e742b5f9f94da06d43127c437f6ce693d4bcfc16
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 53886eeace17c0e6611747031533a1480b493eaf
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85472886"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87957567"
 ---
 # <a name="classification-management"></a>Klassifizierungsverwaltung
 
@@ -33,6 +31,6 @@ Dieser Abschnitt schließt folgende Themen ein:
 > Um e-Mail-Benachrichtigungen und bestimmte Berichterstattungs Funktionen festzulegen, müssen Sie zunächst die allgemeinen Optionen für den Datei Server Ressourcen-Manager konfigurieren.
 
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 [Festlegen der Optionen des Ressourcen-Managers für Dateiserver](setting-file-server-resource-manager-options.md)

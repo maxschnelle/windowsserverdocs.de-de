@@ -2,18 +2,16 @@
 title: Prüfliste Bereitstellen von DFS-Namespaces
 description: In diesem Artikel wird beschrieben, wie Sie DFS-Namespaces konfigurieren und bereitstellen.
 ms.date: 6/5/2017
-ms.prod: windows-server
-ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 389d02ae7269ef48ef77d066db3064759d9253c1
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 43cb085eb8af627609371f37f61eab22be91d606
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86961962"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87957718"
 ---
 # <a name="checklist-deploy-dfs-namespaces"></a>Prüfliste: Bereitstellen von DFS-Namespaces
 
@@ -36,7 +34,7 @@ Führen Sie zum Bereitstellen von DFS-Namespaces die folgenden Aufgaben aus:
 -   Replizieren von Inhalten zwischen Ordner Zielen mithilfe von DFS-Replikation (optional). [Replizieren von Ordner Zielen mithilfe von DFS-Replikation](replicate-folder-targets-using-dfs-replication.md)
 
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Namespaces](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771914(v=ws.11))
 -   [Prüfliste: Optimieren eines DFS-Namespaces](checklist-tune-a-dfs-namespace.md)

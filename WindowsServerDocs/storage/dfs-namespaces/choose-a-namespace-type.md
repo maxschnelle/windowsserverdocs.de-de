@@ -2,18 +2,16 @@
 title: Auswählen eines Namespacetyps
 description: In diesem Artikel wird beschrieben, wie Sie einen Namespace-Typ auswählen.
 ms.date: 6/5/2017
-ms.prod: windows-server
-ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: ce991a628b63732f645e859a4855a18eacbacd77
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: c78e97148dffba920be5e65b19d97594c1b302d1
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86953732"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87957678"
 ---
 # <a name="choose-a-namespace-type"></a>Wählen Sie einen Namespace aus.
 
@@ -63,13 +61,13 @@ Die Merkmale der einzelnen Namespacetyp und-Modi werden in der folgenden Tabelle
 |Speicherort der Namespace Informationen|In der Registrierung und in einem Arbeitsspeicher Cache auf dem Namespace Server|In AD DS und in einem Arbeitsspeicher Cache auf jedem Namespace Server|In AD DS und in einem Arbeitsspeicher Cache auf jedem Namespace Server|
 |Empfehlungen zur Namespace Größe|Der Namespace kann mehr als 5.000 Ordner mit Zielen enthalten. der empfohlene Grenzwert ist 50.000 Ordner mit Zielen.|Die Größe des Namespace Objekts in AD DS sollte kleiner als 5 Megabyte (MB) sein, um die Kompatibilität mit Domänen Controllern zu gewährleisten, auf denen nicht Windows Server 2008 ausgeführt wird. Dies bedeutet, dass nicht mehr als ungefähr 5.000 Ordner mit Zielen.|Der Namespace kann mehr als 5.000 Ordner mit Zielen enthalten. der empfohlene Grenzwert ist 50.000 Ordner mit Zielen. |
 |Minimale AD DS Gesamtstruktur Funktionsebene|AD DS ist nicht erforderlich.|Windows 2000|Windows Server 2003|
-|Minimale AD DS Domänen Funktionsebene|AD DS ist nicht erforderlich.|Windows 2000 im gemischten Modus bezeichnet|Windows Server 2008|
-|Mindestens unterstützte Namespace Server|Windows 2000 Server|Windows 2000 Server|Windows Server 2008|
+|Minimale AD DS Domänen Funktionsebene|AD DS ist nicht erforderlich.|Windows 2000 im gemischten Modus bezeichnet|WindowsServer 2008|
+|Mindestens unterstützte Namespace Server|Windows 2000 Server|Windows 2000 Server|WindowsServer 2008|
 |Unterstützung für die Zugriffs basierte Enumeration (sofern aktiviert)|Ja, erfordert Windows Server 2008-Namespace Server|Nein|Ja|
 |Unterstützte Methoden zum Sicherstellen der Namespace Verfügbarkeit|Erstellen Sie einen eigenständigen Namespace auf einem Failovercluster.|Verwenden Sie mehrere Namespace Server, um den Namespace zu hosten. (Die Namespace Server müssen sich in der gleichen Domäne befinden.)|Verwenden Sie mehrere Namespace Server, um den Namespace zu hosten. (Die Namespace Server müssen sich in der gleichen Domäne befinden.)|
 |Unterstützung für die Verwendung DFS-Replikation zum Replizieren von Ordner Zielen|Unterstützt, wenn einer AD DS Domäne hinzugefügt wird|Unterstützt|Unterstützt|
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Bereitstellen von DFS-Namespaces](deploying-dfs-namespaces.md)
 -   [Migrieren Sie einen domänenbasierten Namespace zum Windows Server 2008-Modus](migrate-a-domain-based-namespace-to-windows-server-2008-mode.md)

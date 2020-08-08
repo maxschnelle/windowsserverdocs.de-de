@@ -7,12 +7,12 @@ author: brentfor
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 697ca5e27db6a937c31b4dad072eef19a6f3df06
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 4f8e7743e51a5316df474ad97768cf01292db668
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87895673"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87991919"
 ---
 # <a name="software-inventory-logging-aggregator"></a>Aggregator der Protokollierung des Softwarebestands
 
@@ -178,7 +178,7 @@ Es gibt einige Dinge, die Sie vor der Installation des SIL-Aggregators auf einem
 
 6.  Wählen Sie in **Kontotyp auswählen**, entweder **Lokaler Benutzer** oder **gMSA**aus, ganz nach Ihren Vorlieben.
 
-    Wenn Sie die Option für das lokale Benutzerkonto auswählen, wird ein lokaler Benutzer mit einem automatisch generierten, sicheren Kennwort erstellt. Dieses Konto wird für alle SIL-Aggregatordienste und -aufgabenvorgänge auf dem lokalen Server verwendet.  Die Verwendung von gruppenverwalteten Dienstkonten (gMSA) wird empfohlen, wenn der Aggregator Teil der Active Directory-Domäne ist (Windows Server 2012 und höher). Weitere Informationen zu gruppenverwalteten Dienstkonten (gMSA) finden Sie unter [Gruppenverwaltete Dienstkonten: Übersicht](https://technet.microsoft.com/library/hh831782.aspx).
+    Wenn Sie die Option für das lokale Benutzerkonto auswählen, wird ein lokaler Benutzer mit einem automatisch generierten, sicheren Kennwort erstellt. Dieses Konto wird für alle SIL-Aggregatordienste und -aufgabenvorgänge auf dem lokalen Server verwendet.  Die Verwendung von gruppenverwalteten Dienstkonten (gMSA) wird empfohlen, wenn der Aggregator Teil der Active Directory-Domäne ist (Windows Server 2012 und höher). Weitere Informationen zu gruppenverwalteten Dienstkonten (gMSA) finden Sie unter [Gruppenverwaltete Dienstkonten: Übersicht](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11)).
 
     -   Die gMSA-Kontooption muss verwendet werden, wenn Sie die Ausführung der SQL Server-Datenbank auf einem vom SIL-Aggregator getrennten Server planen.
 
@@ -397,7 +397,7 @@ Im Folgenden finden Sie Beschreibungen der einzelnen Spalten auf der Registerkar
 |Host Last Seen Date Time (Datum/Uhrzeit der letzten Anzeige des Hosts)|Datum und Uhrzeit, zu dem der Aggregator zuletzt Inventardaten über HTTPS von diesem physischen Windows Server-Host erhalten hat.<p>Hierbei wird das Vorhandensein physischer Hosts, auf denen Windows Server und Hyper-V ausgeführt wird, unterstützt, um SIL zu aktivieren und Inventardaten über HTTPS an einen SIL-Aggregator weiterzuleiten.|
 
 ## <a name="sil-aggregator-cmdlets-detail"></a>Details zu SIL-Aggregator-Cmdlets
-Im Folgenden finden Sie Detailinformationen zu den Cmdlets des SIL-Aggregators. Die vollständigen Cmdlet-Dokumentation finden Sie unter: [PowerShell-Cmdlets des SIL-Aggregators](https://technet.microsoft.com/library/mt548455.aspx)
+Im Folgenden finden Sie Detailinformationen zu den Cmdlets des SIL-Aggregators. Die vollständigen Cmdlet-Dokumentation finden Sie unter: [PowerShell-Cmdlets des SIL-Aggregators](/previous-versions/windows/powershell-scripting/mt548455(v=wps.640))
 
 ### <a name="publish-silreport"></a>Publish-SilReport
 
@@ -591,8 +591,7 @@ Wenn Sie die Inventarisierung von Servern in Ihrer Umgebung mit einem anderen SI
 
 ## <a name="see-also"></a>Weitere Informationen
 [Aggregator der Protokollierung des Softwarebestands 1.0 für Windows Server](https://www.microsoft.com/download/details.aspx?id=49046)<br>
-[PowerShell-Cmdlets des SIL-Aggregators](https://technet.microsoft.com/library/mt548455.aspx)<br>
-[SIL PowerShell-Cmdlets](https://technet.microsoft.com/library/dn283390.aspx)<br>
-[Eine Übersicht über SIL](https://technet.microsoft.com/library/dn268301.aspx)<br>
-[Verwalten von SIL](https://technet.microsoft.com/library/dn383584.aspx)
-
+[PowerShell-Cmdlets des SIL-Aggregators](/previous-versions/windows/powershell-scripting/mt548455(v=wps.640))<br>
+[SIL PowerShell-Cmdlets](/powershell/module/softwareinventorylogging/?view=winserver2012R2-ps)<br>
+[Eine Übersicht über SIL](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn268301(v=ws.11))<br>
+[Verwalten von SIL](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383584(v=ws.11))
