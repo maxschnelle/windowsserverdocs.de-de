@@ -6,12 +6,12 @@ ms.assetid: da58f312-bd3b-4bb6-98ca-6177869dd6ad
 manager: brianlic
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 488171c2f42ede1ede8f1bbca2c473c72dbf833a
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 646660c1371b592670737b7d7d208b62208bfec9
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87966577"
+ms.locfileid: "87993940"
 ---
 # <a name="data-center-bridging-dcb"></a>Data Center Bridging \( DCB\)
 
@@ -64,8 +64,8 @@ im Folgenden finden Sie eine Liste, die die von DCB bereitgestellten Funktionen 
 4. Ermöglicht Serveradministratoren und Netzwerkadministratoren das Zuweisen einer Anwendung zu einer bestimmten Datenverkehrsklasse oder zu prioritätsbasierten bzw. bekannten Protokollen, TCP/UDP-Ports oder NetworkDirect-Ports, die von dieser Anwendung verwendet werden.
 
 5. Bietet die DCB-Verwaltung über Windows Server 2016 Windows-Verwaltungsinstrumentation \( WMI \) und Windows PowerShell. Weitere Informationen finden Sie weiter unten in diesem Thema im Abschnitt [Windows PowerShell-Befehle für DCB](#bkmk_wps) , zusätzlich zu den folgenden Themen.
-    - [Vom System bereitgestellte DCB-Komponenten](https://msdn.microsoft.com/windows/hardware/drivers/network/system-provided-dcb-components)
-    - [NDIS-QoS-Anforderungen für Data Center Bridging](https://msdn.microsoft.com/windows/hardware/drivers/network/ndis-qos-requirements-for-data-center-bridging)
+    - [Vom System bereitgestellte DCB-Komponenten](/windows-hardware/drivers/network/system-provided-dcb-components)
+    - [NDIS-QoS-Anforderungen für Data Center Bridging](/windows-hardware/drivers/network/ndis-qos-requirements-for-data-center-bridging)
 
 6. Bietet die DCB-Verwaltung über Windows Server 2016 Gruppenrichtlinie.
 
@@ -102,10 +102,10 @@ Es gibt DCB-Windows PowerShell-Befehle für Windows Server 2016 und Windows Serv
 
 Im folgenden Thema für Windows Server 2016 finden Sie Windows PowerShell-Cmdlet-Beschreibungen und Syntax für alle Data Center Bridging \( DCB \) Quality of Service \( QoS- \) \- spezifischen Cmdlets. Die Cmdlets werden in alphabetischer Reihenfolge (basierend auf dem Verb am Anfang des Cmdlets) aufgeführt.
 
-- [Dcbqos-Modul](https://technet.microsoft.com/itpro/powershell/windows/dcbqos/dcbqos)
+- [Dcbqos-Modul](/powershell/module/dcbqos/?view=win10-ps)
 
 ### <a name="windows-server-2012-r2-windows-powershell-commands-for-dcb"></a>Windows Server 2012 R2 Windows PowerShell-Befehle für DCB
 
 Im folgenden Thema für Windows Server 2012 R2 finden Sie Windows PowerShell-Cmdlet-Beschreibungen und Syntax für alle Data Center Bridging \( DCB \) Quality of Service \( QoS- \) \- spezifischen Cmdlets. Die Cmdlets werden in alphabetischer Reihenfolge (basierend auf dem Verb am Anfang des Cmdlets) aufgeführt.
 
-- [QoS-Cmdlets für Data Center Bridging (DCB) in der Windows PowerShell](https://technet.microsoft.com/library/hh967440.aspx)
+- [QoS-Cmdlets für Data Center Bridging (DCB) in der Windows PowerShell](/powershell/module/dcbqos/?view=win10-ps&viewFallbackFrom=winserverr2-ps)

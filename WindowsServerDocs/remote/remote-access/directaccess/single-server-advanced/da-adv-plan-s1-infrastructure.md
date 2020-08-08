@@ -6,12 +6,12 @@ ms.topic: article
 ms.assetid: aa3174f3-42af-4511-ac2d-d8968b66da87
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 8f60a960d76e7c24ff3dc9afaf931792713f06af
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 9d00622ce5712a2f725f1c6f1b533387651bc903
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87970407"
+ms.locfileid: "87993596"
 ---
 # <a name="step-1-plan-the-advanced-directaccess-infrastructure"></a>Schritt 1 Planen der erweiterten DirectAccess-Infrastruktur
 
@@ -52,9 +52,9 @@ In diesem Abschnitt wird erklärt, wie Sie Ihr Netzwerk planen, einschließlich:
 
     DirectAccess verwendet IPv6 mit IPsec, um eine sichere Verbindung zwischen DirectAcces-Clientcomputern und dem internen Unternehmensnetzwerk herzustellen. Jedoch erfordert DirectAccess nicht unbedingt Konnektivität mit dem IPv6-Internet oder nativen IPv6-Support auf internen Netzwerken. Stattdessen konfiguriert und verwendet es automatisch IPv6-Übergangstechnologien, um IPv6-Datenverkehr durch das IPv4-Internet (durch die Verwendung von 6to4, Teredo oder IP-HTTPS) und durch Ihr nur-IPv4-Intranet (durch die Verwendung von NAT64 oder ISATAP) zu tunneln. Eine Übersicht über diese Übergangstechnologien finden Sie in folgenden Ressourcen:
 
-    - [IPv6-Übergangstechnologien](/previous-versions//bb726951(v=technet.10))
+    - [IPv6-Übergangstechnologien](/previous-versions/bb726951(v=technet.10))
 
-    - [IP-HTTPS-Tunneling-Protokollspezifikationen](/previous-versions//bb726951(v=technet.10))
+    - [IP-HTTPS-Tunneling-Protokollspezifikationen](/previous-versions/bb726951(v=technet.10))
 
 3. Konfigurieren Sie erforderliche Adapter und Adressen entsprechend folgender Tabelle. Für Bereitstellungen, die einen einzigen Netzwerkadapter verwenden und hinter einem NAT-Gerät eingerichtet sind, konfigurieren Sie die IP-Adressen, indem Sie nur die Spalte **Interner Netzwerkadapter** verwenden.
 

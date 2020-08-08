@@ -7,12 +7,12 @@ ms.localizationpriority: medium
 ms.date: 06/11/2018
 ms.author: v-tea
 author: Teresa-MOTIV
-ms.openlocfilehash: f1e4713e6d658e6a51955e321e39cb7f90e261a9
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 3a1b85504fcae1aabc155d9cf415bc49d4722494
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87963806"
+ms.locfileid: "87993640"
 ---
 # <a name="troubleshoot-always-on-vpn"></a>Problembehandlung bei Always On VPN
 
@@ -112,7 +112,7 @@ Im Allgemeinen wird der VPN-Client Computer mit der Active Directory – basiert
 
 In den Anwendungs Protokollen auf Client Computern wird der größte Teil der Details der VPN-Verbindungs Ereignisse auf höherer Ebene aufgezeichnet.
 
-Suchen Sie nach Ereignissen aus der Quelle RasClient. Alle Fehlermeldungen geben den Fehlercode am Ende der Nachricht zurück. Einige der gängigeren Fehlercodes sind unten aufgeführt, aber eine vollständige Liste ist in den [Routing-und RAS-Fehlercodes](/previous-versions//mt728163(v=technet.10))verfügbar.
+Suchen Sie nach Ereignissen aus der Quelle RasClient. Alle Fehlermeldungen geben den Fehlercode am Ende der Nachricht zurück. Einige der gängigeren Fehlercodes sind unten aufgeführt, aber eine vollständige Liste ist in den [Routing-und RAS-Fehlercodes](/previous-versions/mt728163(v=technet.10))verfügbar.
 
 ## <a name="nps-logs"></a>NPS-Protokolle
 

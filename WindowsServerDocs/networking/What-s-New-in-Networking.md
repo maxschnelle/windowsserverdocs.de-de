@@ -5,12 +5,12 @@ ms.topic: get-started-article
 ms.assetid: 08fb7563-d319-48a9-b181-ca0ca3032c18
 author: dcuomo
 ms.author: dacuo
-ms.openlocfilehash: 78741ae45a5f175d6be0e608adba5c6c6fcbf771
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 69e1fee1a8ae0ff1c878c64790650290b4804351
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87964396"
+ms.locfileid: "87993818"
 ---
 # <a name="whats-new-in-networking"></a>Neues zu Netzwerken
 
@@ -35,7 +35,7 @@ Die folgenden Abschnitte enthalten Informationen zu diesen neuen Netzwerk Featur
 
 Im folgenden finden Sie die neuen oder verbesserten Sdn-Infrastruktur Technologien.
 
--   **Netzwerk Controller**. Der Netzwerk Controller ist neu in Windows Server 2016 und bietet einen zentralisierten, programmierbaren Automatisierungs Punkt für die Verwaltung, Konfiguration, Überwachung und Problembehandlung der virtuellen und physischen Netzwerkinfrastruktur in Ihrem Daten Center. Mithilfe von Netzwerkcontroller können Sie die Konfiguration der Netzwerkinfrastruktur automatisieren und müssen Netzwerkgeräte und -dienste nicht länger manuell konfigurieren. Weitere Informationen finden Sie unter [Netzwerk Controller](sdn/technologies/network-controller/Network-Controller.md) und Bereitstellen von [Software definierten Netzwerken mithilfe von Skripts](https://technet.microsoft.com/library/mt427380.aspx).
+-   **Netzwerk Controller**. Der Netzwerk Controller ist neu in Windows Server 2016 und bietet einen zentralisierten, programmierbaren Automatisierungs Punkt für die Verwaltung, Konfiguration, Überwachung und Problembehandlung der virtuellen und physischen Netzwerkinfrastruktur in Ihrem Daten Center. Mithilfe von Netzwerkcontroller können Sie die Konfiguration der Netzwerkinfrastruktur automatisieren und müssen Netzwerkgeräte und -dienste nicht länger manuell konfigurieren. Weitere Informationen finden Sie unter [Netzwerk Controller](sdn/technologies/network-controller/Network-Controller.md) und Bereitstellen von [Software definierten Netzwerken mithilfe von Skripts](/previous-versions/windows/server/mt427380(v=ws.12)).
 
 -   **Virtueller Hyper-V-Switch**. Der virtuelle Hyper-v-Switch wird auf Hyper-v-Hosts ausgeführt und ermöglicht die Erstellung verteilter Wechsel und Routing sowie eine mit Microsoft Azure ausgerichtete und kompatible Richtlinien Erzwingungs Ebene. Weitere Informationen finden Sie unter [virtueller Hyper-V-Switch](../virtualization/hyper-v-virtual-switch/Hyper-V-Virtual-Switch.md).
 
@@ -50,7 +50,7 @@ Im folgenden finden Sie die neuen oder verbesserten Sdn-Infrastruktur Technologi
         Weitere Informationen finden Sie unter [Neues beim RAS-Gateway](sdn/technologies/network-function-virtualization/What-s-New-in-RAS-Gateway.md) und [RAS-Gateway für Sdn](sdn/technologies/network-function-virtualization/RAS-Gateway-for-SDN.md).
 
     - **Software Load Balancer (SLB) und Netzwerk Adressübersetzung (NAT)**. Das Lasten Ausgleichs Modul "Nord-Süd" und "Ost-West" und "NAT" verbessern den Durchsatz durch Unterstützung von Direct Server Return, mit dem der Netzwerk Lastenausgleich für den Lastenausgleich umgangen werden kann.
-       Weitere Informationen finden Sie unter [Software Lastenausgleich &#40;SLB-&#41; für Sdn](sdn/technologies/network-function-virtualization/Software-Load-Balancing--SLB--for-SDN.md).
+       Weitere Informationen finden Sie unter [Software Lastenausgleich &#40;SLB-&#41; für Sdn](./sdn/technologies/network-function-virtualization/software-load-balancing-for-sdn.md).
 
     Weitere Informationen finden Sie unter [netzwerkfunktionsvirtualisierung](sdn/technologies/network-function-virtualization/Network-Function-Virtualization.md).
 
@@ -145,5 +145,3 @@ IPAM bietet hochgradig anpassbare Verwaltungs-und Überwachungsfunktionen für d
      Sie können Windows PowerShell verwenden, um Zugriffs Bereiche für IPAM-Objekte festzulegen.
 
 Weitere Informationen finden Sie unter [Neues in IPAM](technologies/ipam/What-s-New-in-IPAM.md) und Verwalten von [IPAM](technologies/ipam/Manage-IPAM.md).
-
-

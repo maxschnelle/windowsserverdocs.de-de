@@ -6,18 +6,18 @@ ms.sitesec: library
 author: lizap
 ms.localizationpriority: medium
 ms.date: 05/07/2018
-ms.openlocfilehash: f577ebd805e5373a10dd43a3d5054f92d4881c7d
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 2092e330af479ae0cbdb1da88ba87cf233307b59
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87895916"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87993254"
 ---
 # <a name="roles-role-services-and-features-not-in-server-core-containers---windows-server-version-1803"></a>Rollen, Rollen Dienste und Features nicht in Server Core-Containern-Windows Server, Version 1803
 
 > Gilt für: Windows Server, Version 1803
 
-In Windows Server, Version 1803, haben wir [die Gesamtgröße des Server Core-Container Images auf **1,58 GB**reduziert](https://blogs.technet.microsoft.com/virtualization/2018/01/22/a-smaller-windows-server-core-container-with-better-application-compatibility/). Wir haben dies erreicht, indem wir die Architektur optimieren und nicht benötigte Elemente in einem [Server Core-Container](https://docs.microsoft.com/virtualization/windowscontainers/about/)entfernen. Einige waren Dinge, die in Containern nicht funktionierte, einige waren Rollen und Features, die nicht von einer verwendet wurden.
+In Windows Server, Version 1803, haben wir [die Gesamtgröße des Server Core-Container Images auf **1,58 GB**reduziert](https://blogs.technet.microsoft.com/virtualization/2018/01/22/a-smaller-windows-server-core-container-with-better-application-compatibility/). Wir haben dies erreicht, indem wir die Architektur optimieren und nicht benötigte Elemente in einem [Server Core-Container](/virtualization/windowscontainers/about/)entfernen. Einige waren Dinge, die in Containern nicht funktionierte, einige waren Rollen und Features, die nicht von einer verwendet wurden.
 
 > [!IMPORTANT]
 > Wir haben diese aus dem Server Core- **Container** Image, nicht von [Server Core selbst](server-core-roles-and-services.md)entfernt.

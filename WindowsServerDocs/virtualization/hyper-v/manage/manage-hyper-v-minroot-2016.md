@@ -4,13 +4,12 @@ description: Konfigurieren von Host-CPU-Ressourcen Steuerungen
 author: allenma
 ms.date: 12/15/2017
 ms.topic: article
-ms.prod: windows-server
-ms.openlocfilehash: 1e35595a0b5a0ab12187aae2cf714fc4d53901ee
-ms.sourcegitcommit: acfdb7b2ad283d74f526972b47c371de903d2a3d
+ms.openlocfilehash: fc65159474f9b1cd8bf282acf00ff06f4727673b
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87769628"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87994054"
 ---
 # <a name="hyper-v-host-cpu-resource-management"></a>Verwaltung von CPU-Ressourcen für Hyper-V-Hosts
 
@@ -18,12 +17,12 @@ Die in Windows Server 2016 oder höher eingeführten CPU-Ressourcen Steuerungen 
 Mithilfe dieser Steuerelemente können Administratoren eine Teilmenge der Prozessoren eines Host Systems für die Stamm Partition festlegen.
 Dies kann die von einem Hyper-V-Host ausgeführte Arbeit von den Arbeits Auslastungen, die auf virtuellen Gast Computern ausgeführt werden, trennen, indem Sie Sie in separaten Teilmengen der System Prozessoren ausführen.
 
-Ausführliche Informationen zu Hardware für Hyper-v-Hosts finden Sie unter [System Anforderungen für Windows 10 Hyper-v](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements).
+Ausführliche Informationen zu Hardware für Hyper-v-Hosts finden Sie unter [System Anforderungen für Windows 10 Hyper-v](/virtualization/hyper-v-on-windows/reference/hyper-v-requirements).
 
 ## <a name="background"></a>Hintergrund
 
 Vor dem Festlegen von Steuerelementen für die CPU-Ressourcen von Hyper-v-Hosts ist es hilfreich, die Grundlagen der Hyper-v-Architektur zu überprüfen.
-Eine allgemeine Zusammenfassung finden Sie im Abschnitt " [Hyper-V-Architektur](https://docs.microsoft.com/windows-server/administration/performance-tuning/role/hyper-v-server/architecture) ".
+Eine allgemeine Zusammenfassung finden Sie im Abschnitt " [Hyper-V-Architektur](../../../administration/performance-tuning/role/hyper-v-server/architecture.md) ".
 Dies sind wichtige Konzepte für diesen Artikel:
 
 * Hyper-V erstellt und verwaltet virtuelle Computer Partitionen, für die Compute-Ressourcen zugeordnet und freigegeben werden, unter Kontrolle über den Hypervisor.  Partitionen bieten starke Isolations Grenzen zwischen allen virtuellen Gast Computern und zwischen Gast-VMS und der Stamm Partition.

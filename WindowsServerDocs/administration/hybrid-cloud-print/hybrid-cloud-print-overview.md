@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: trudyha
 ms.author: trudyha
 ms.date: 10/16/2017
-ms.openlocfilehash: fc76aef0f7fbc9f3c1dd73b94c6510c0ad37034c
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 49c5ee234a6983902e7eb2f68e64a058167a3182
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87879411"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87993414"
 ---
 # <a name="windows-server-hybrid-cloud-print-overview"></a>Übersicht über Windows Server Hybrid Cloud Print
 
@@ -56,7 +56,7 @@ Diese Tabelle enthält weitere Informationen zu den Elementen im Diagramm.
 | BYOD-Gerät/Windows-Druck Server Spooler/Drucker | Diese sind unverändert. Keine Änderung der Funktionalität in der Bereitstellung. |
 
 Es gibt zwei Möglichkeiten zum Installieren von **Hybrid Cloud Print**:
-- * * Features bei Bedarf. Weitere Informationen zum Hinzufügen und Entfernen von Rollen-und Featuredateien finden Sie unter [Konfigurieren von Features bei Bedarf in Windows Server](https://docs.microsoft.com/windows-server/administration/server-manager/configure-features-on-demand-in-windows-server) .
+- * * Features bei Bedarf. Weitere Informationen zum Hinzufügen und Entfernen von Rollen-und Featuredateien finden Sie unter [Konfigurieren von Features bei Bedarf in Windows Server](../server-manager/configure-features-on-demand-in-windows-server.md) .
 - * * Einstellungen für Windows Server 2016, die Administratoren zu **Einstellungen**  ->  **apps**  ->  **Verwalten optionaler Features**wechseln.  ->  **fügen Sie ein Feature hinzu** , und suchen Sie nach dem Paket "Features bei Bedarf".
 - PowerShell-Befehle: führen Sie in einem PowerShell-Administrator Fenster die folgenden Befehle aus:
 

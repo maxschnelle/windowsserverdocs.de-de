@@ -8,12 +8,12 @@ manager: dougkim
 ms.author: lizross
 author: eross-msft
 ms.date: 09/04/2018
-ms.openlocfilehash: 9457a1763f92e7f2571040c1c6e8e323d96ee598
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: ccfaa9fa02dd7324f1682592867b027cad4006a8
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87951939"
+ms.locfileid: "87993559"
 ---
 # <a name="plan-the-use-of-vrss"></a>Planen der Verwendung von vrss
 
@@ -40,7 +40,7 @@ Im folgenden finden Sie weitere Informationen, die Sie benötigen, um diese Vorb
 
 3. **Abwesenheit von SR \- IOV**. Vergewissern Sie sich, dass \- \( \- \) der virtuelle Computer \( \) mit der VM-Netzwerkschnittstelle nicht an die VM-Netzwerkschnittstelle angefügt ist. Dies können Sie mit dem Befehl **Get-netadaptersriov** überprüfen. Wenn ein VF-Treiber geladen wird, verwendet RSS die Skalierungs Einstellungen aus diesem Treiber anstelle der von vrss konfigurierten. Wenn der VF-Treiber RSS nicht unterstützt, wird vrss deaktiviert.
 
-4. **Konfiguration des NIC**-Team Vorgangs. Wenn Sie NIC-Team Vorgänge verwenden, ist es wichtig, dass Sie VMQ ordnungsgemäß konfigurieren, damit Sie mit den NIC-Team Vorgangs Einstellungen arbeiten können. Ausführliche Informationen zur Bereitstellung und Verwaltung von NIC-Teaming finden Sie unter [NIC](https://docs.microsoft.com/windows-server/networking/technologies/nic-teaming/nic-teaming)-Team Vorgang.
+4. **Konfiguration des NIC**-Team Vorgangs. Wenn Sie NIC-Team Vorgänge verwenden, ist es wichtig, dass Sie VMQ ordnungsgemäß konfigurieren, damit Sie mit den NIC-Team Vorgangs Einstellungen arbeiten können. Ausführliche Informationen zur Bereitstellung und Verwaltung von NIC-Teaming finden Sie unter [NIC](../nic-teaming/nic-teaming.md)-Team Vorgang.
 
 5. **Anzahl der LPs**. Vergewissern Sie sich, dass der virtuelle Computer über mehr als eine logische Prozessor- \( LP verfügt \) . vrss basiert auf RSS auf dem virtuellen Computer oder auf dem Hyper-V-Host, um einen Lastenausgleich für den empfangenen Datenverkehr auf mehrere LPs zur parallelen Verarbeitung durchzusetzen. Sie können die Anzahl der LPs Ihres virtuellen Computers beobachten, indem Sie den Windows PowerShell-Befehl **Get-vmprocessor** auf dem Host ausführen. Nachdem Sie den Befehl ausgeführt haben, können Sie den Eintrag für die Anzahl der-Spalten in der Anzahl der LPs beobachten.
 

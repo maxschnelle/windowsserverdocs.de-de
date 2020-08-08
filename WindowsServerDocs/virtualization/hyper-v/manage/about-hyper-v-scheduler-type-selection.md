@@ -5,16 +5,14 @@ author: allenma
 ms.author: allenma
 ms.date: 08/14/2018
 ms.topic: article
-ms.prod: windows-server-hyper-v
-ms.technology: virtualization
 ms.localizationpriority: low
 ms.assetid: 5fe163d4-2595-43b0-ba2f-7fad6e4ae069
-ms.openlocfilehash: 128f9d734311f8eaf0f06204e114171fa8b0f750
-ms.sourcegitcommit: acfdb7b2ad283d74f526972b47c371de903d2a3d
+ms.openlocfilehash: 332ec3a31d8a442fada7f01d30c5cb7d44965238
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87768428"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87994101"
 ---
 # <a name="about-hyper-v-hypervisor-scheduler-type-selection"></a>Informationen zu Hyper-V Hypervisor Scheduler Type Selection
 
@@ -32,7 +30,7 @@ In diesem Dokument werden wichtige Änderungen an der standardmäßigen und empf
 
 ## <a name="background"></a>Hintergrund
 
-Ab Windows Server 2016 unterstützt Hyper-V verschiedene Methoden zum Planen und Verwalten virtueller Prozessoren, die als Hypervisor-planertypen bezeichnet werden.  Eine ausführliche Beschreibung aller Hypervisor-planertypen finden Sie Untergrund Legendes zu [und Verwendung von Hyper-V-Hypervisor-Scheduler-Typen](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types).
+Ab Windows Server 2016 unterstützt Hyper-V verschiedene Methoden zum Planen und Verwalten virtueller Prozessoren, die als Hypervisor-planertypen bezeichnet werden.  Eine ausführliche Beschreibung aller Hypervisor-planertypen finden Sie Untergrund Legendes zu [und Verwendung von Hyper-V-Hypervisor-Scheduler-Typen](./manage-hyper-v-scheduler-types.md).
 
 >[!NOTE]
 >Neue Hypervisor-Scheduler-Typen wurden erstmals mit Windows Server 2016 eingeführt und sind in früheren Versionen nicht verfügbar. Alle Versionen von Hyper-V vor Windows Server 2016 unterstützen nur den klassischen Scheduler. Die Unterstützung für den Kern Planer wurde erst kürzlich veröffentlicht.
@@ -78,7 +76,7 @@ Diese Auswirkungen auf die Leistung können minimiert werden, indem die Bereitst
 Zum Bereitstellen von Hyper-V-Hosts mit dem maximalen Sicherheitsstatus ist die Verwendung des Typs "Hypervisor Core Scheduler" erforderlich. Um sicherzustellen, dass unsere Kunden standardmäßig sicher sind, ändert Microsoft die folgenden Standardeinstellungen und empfohlenen Einstellungen.
 
 >[!NOTE]
->Obwohl die interne Unterstützung der Scheduler-Typen in der ersten Version von Windows Server 2016, Windows Server 1709 und Windows Server 1803 enthalten war, sind Updates erforderlich, um auf die Konfigurations Steuerung zuzugreifen, mit der der Hypervisor-Planertyp ausgewählt werden kann.  Ausführliche Informationen zu diesen Updates finden Sie unter [verstehen und Verwenden von Hyper-V-Hypervisor-planertypen](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types) .
+>Obwohl die interne Unterstützung der Scheduler-Typen in der ersten Version von Windows Server 2016, Windows Server 1709 und Windows Server 1803 enthalten war, sind Updates erforderlich, um auf die Konfigurations Steuerung zuzugreifen, mit der der Hypervisor-Planertyp ausgewählt werden kann.  Ausführliche Informationen zu diesen Updates finden Sie unter [verstehen und Verwenden von Hyper-V-Hypervisor-planertypen](./manage-hyper-v-scheduler-types.md) .
 
 ### <a name="virtualization-host-changes"></a>Änderungen am Virtualisierungshost
 
@@ -168,7 +166,7 @@ Die Details dieser Gast Aufklärung werden unten bereitgestellt, aber der Hauptg
 
 ### <a name="nononarchitecturalcoresharing-enlightenment-details"></a>Details zu "nononarchitekturalcoresharung"
 
-Ab Windows Server 2016 definiert der Hypervisor eine neue Erleuchtung, um die Verarbeitung der VP-Planung und-Platzierung für das Gast Betriebssystem zu beschreiben. Diese Aufklärung wird in der [Funktionsspezifikation der obersten Ebene von Hypervisor v 5.0 c](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/tlfs)definiert.
+Ab Windows Server 2016 definiert der Hypervisor eine neue Erleuchtung, um die Verarbeitung der VP-Planung und-Platzierung für das Gast Betriebssystem zu beschreiben. Diese Aufklärung wird in der [Funktionsspezifikation der obersten Ebene von Hypervisor v 5.0 c](/virtualization/hyper-v-on-windows/reference/tlfs)definiert.
 
 Synthetisches CPUID-Blatt "Hypervisor" CPUID. 0x40000004. EAX: 18 [nononarchitekturalcoreshareing = 1] gibt an, dass ein virtueller Prozessor nie einen physischen Kern mit einem anderen virtuellen Prozessor gemeinsam nutzt, mit Ausnahme von virtuellen Prozessoren, die als gleich geordnete SMT-Threads gemeldet werden. Beispielsweise wird ein Gast-VP nie in einem SMT-Thread parallel zu einem Stamm-VP ausgeführt, der gleichzeitig auf einem gleich geordneten SMT-Thread desselben Prozessorkerns ausgeführt wird. Diese Bedingung ist nur bei der virtualisierten Ausführung möglich und stellt ein nicht architektonisches SMT-Verhalten dar, das auch schwerwiegende Auswirkungen auf die Sicherheit hat. Das Gast Betriebssystem kann nononarchitekturalcoreshareing = 1 verwenden, um zu verhindern, dass Optimierungen sicher aktiviert werden können. Dies kann dazu beitragen, den Leistungs Aufwand bei der Festlegung von stibp zu vermeiden.
 

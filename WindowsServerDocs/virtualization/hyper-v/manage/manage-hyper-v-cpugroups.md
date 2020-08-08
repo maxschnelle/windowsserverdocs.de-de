@@ -6,12 +6,12 @@ ms.date: 06/18/2018
 ms.topic: article
 ms.service: windows-10-hyperv
 ms.assetid: cc7bb88e-ae75-4a54-9fb4-fc7c14964d67
-ms.openlocfilehash: 1f902a37dd4df28b2591380e78fe86c271f4ed3e
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 215521886418167fe6504c5f08b59dbfa7375432
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87963596"
+ms.locfileid: "87994052"
 ---
 # <a name="virtual-machine-resource-controls"></a>Ressourcen Steuerelemente für virtuelle Maschinen
 
@@ -113,7 +113,7 @@ Dies kann mithilfe einer Kombination aus der "minroot"-Konfiguration erreicht we
 Der Virtualisierungshost kann so konfiguriert werden, dass die Host Partition auf bestimmte LPs beschränkt wird, wobei eine oder mehrere CPU-Gruppen den verbleibenden LPs zugeordnet werden.
 Auf diese Weise können die Stamm-und Gast Partitionen auf dedizierten CPU-Ressourcen und vollständig isoliert und ohne CPU-Freigabe ausgeführt werden.
 
-Weitere Informationen zur Konfiguration von "minroot" finden Sie unter [Hyper-V-Host-CPU-Ressourcenverwaltung](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-minroot-2016).
+Weitere Informationen zur Konfiguration von "minroot" finden Sie unter [Hyper-V-Host-CPU-Ressourcenverwaltung](./manage-hyper-v-minroot-2016.md).
 
 ## <a name="using-the-cpugroups-tool"></a>Verwenden des cpugroups-Tools
 

@@ -7,12 +7,12 @@ ms.assetid: 5ba5bb37-ece0-45cb-971b-f7149f658d19
 ms.author: anpaul
 author: AnirbanPaul
 ms.date: 08/23/2018
-ms.openlocfilehash: e671421225e9fa2d5e7461c795a9f7c9789efd88
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 7fcf8b095479ec21c045a60244917b09883a6162
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87970817"
+ms.locfileid: "87993766"
 ---
 # <a name="deploy-a-software-defined-network-infrastructure-using-scripts"></a>Bereitstellen einer Software-Defined Networking-Infrastruktur mithilfe von Skripts
 
@@ -20,7 +20,7 @@ ms.locfileid: "87970817"
 
 Wenn Sie möchten, dass Ihre mandantenworkloads außerhalb Ihrer virtuellen Netzwerke kommunizieren, können Sie SLB-NAT-Regeln, Site-to-Site-gatewaytunnel oder Layer-3-Weiterleitung einrichten, um zwischen virtuellen und physischen Workloads zu leiten.
 
-Sie können auch eine Sdn-Infrastruktur mithilfe von Virtual Machine Manager (VMM) bereitstellen. Weitere Informationen finden Sie unter [Einrichten einer Sdn-Infrastruktur (Software Defined Network) im VMM-Fabric](https://technet.microsoft.com/system-center-docs/vmm/scenario/sdn-overview).
+Sie können auch eine Sdn-Infrastruktur mithilfe von Virtual Machine Manager (VMM) bereitstellen. Weitere Informationen finden Sie unter [Einrichten einer Sdn-Infrastruktur (Software Defined Network) im VMM-Fabric](/system-center/vmm/deploy-sdn?view=sc-vmm-2019).
 
 ## <a name="pre-deployment"></a>Vor der Bereitstellung
 
@@ -35,7 +35,7 @@ Beginnen Sie, indem Sie den virtuellen Hyper-v-Switch und die IP-Adresszuweisung
 ### <a name="install-host-networking"></a>Installieren von Host Netzwerken
 
 1. Installieren Sie die neuesten Netzwerktreiber, die für Ihre NIC-Hardware verfügbar sind.
-2. Installieren Sie die Hyper-v-Rolle auf allen Hosts (Weitere Informationen finden [Sie unter Get Started with Hyper-v on Windows Server 2016](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/Get-started-with-Hyper-V-on-Windows).
+2. Installieren Sie die Hyper-v-Rolle auf allen Hosts (Weitere Informationen finden [Sie unter Get Started with Hyper-v on Windows Server 2016](../../../virtualization/hyper-v/get-started/get-started-with-hyper-v-on-windows.md).
 
    ```PowerShell
    Install-WindowsFeature -Name Hyper-V -ComputerName <computer_name> -IncludeManagementTools -Restart
@@ -62,7 +62,7 @@ Beginnen Sie, indem Sie den virtuellen Hyper-v-Switch und die IP-Adresszuweisung
    New-NetIPAddress -InterfaceAlias "vEthernet (<switch name>)" -IPAddress <IP> -DefaultGateway <Gateway IP> -AddressFamily IPv4 -PrefixLength <Length of Subnet Mask - for example: 24>
    ```
 
-5. Optionale Stellen Sie eine virtuelle Maschine auf dem Host Active Directory Domain Services bereit ([Installieren Sie Active Directory Domain Services (Stufe 100)](https://technet.microsoft.com/library/hh472162.aspx) und einen DNS-Server.
+5. Optionale Stellen Sie eine virtuelle Maschine auf dem Host Active Directory Domain Services bereit ([Installieren Sie Active Directory Domain Services (Stufe 100)](../../../identity/ad-ds/deploy/install-active-directory-domain-services--level-100-.md) und einen DNS-Server.
 
     a. Verbinden Sie den virtuellen Computer für den Active Directory/DNS-Server mit dem Verwaltungs-VLAN:
 
@@ -171,7 +171,7 @@ Wenn Sie nano als Hyper-V-Hosts (physische Server) für die Bereitstellung verwe
 
 Vorausgesetzt, dass das Sdn Express-Skript bis zum Abschluss ausgeführt wurde, ohne Fehler zu melden, können Sie den folgenden Schritt ausführen, um sicherzustellen, dass die fabricressourcen ordnungsgemäß bereitgestellt und für die Mandanten Bereitstellung
 
-Verwenden Sie [Diagnosetools](https://docs.microsoft.com/windows-server/networking/sdn/troubleshoot/troubleshoot-windows-server-software-defined-networking-stack) , um sicherzustellen, dass keine Fehler in Fabric-Ressourcen im Netzwerk Controller vorhanden sind.
+Verwenden Sie [Diagnosetools](../troubleshoot/troubleshoot-windows-server-software-defined-networking-stack.md) , um sicherzustellen, dass keine Fehler in Fabric-Ressourcen im Netzwerk Controller vorhanden sind.
 
    ``Debug-NetworkControllerConfigurationState -NetworkController <FQDN of Network Controller Rest Name>``
 

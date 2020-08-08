@@ -8,12 +8,12 @@ ms.localizationpriority: medium
 manager: dougkim
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 135008db9f8a5f6b1238c18df64e89ed8c71180c
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 86403af3cea6843905ca58437a3858b77351bc81
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87955527"
+ms.locfileid: "87993719"
 ---
 # <a name="virtual-receive-side-scaling-vrss"></a>Virtuelle Empfangs seitige Skalierung ( \( vrss)\)
 
@@ -45,7 +45,7 @@ Multiprozessor-oder mehr Kern-VMS, auf denen die folgenden Microsoft-Betriebssys
 - Windows Server 2012 mit installierter Windows Server 2012 R2-Integrations Komponenten.
 - Windows 8 mit installierter Windows Server 2012 R2-Integrations Komponenten.
 
-Informationen zur vrss-Unterstützung für VMS, auf denen FreeBSD oder Linux als Gast Betriebssystem auf Hyper-v ausgeführt wird, finden Sie [unter Unterstützte virtuelle Linux-und FreeBSD-Computer für Hyper-v unter Windows](https://docs.microsoft.com/windows-server/virtualization/hyper-v/Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows).
+Informationen zur vrss-Unterstützung für VMS, auf denen FreeBSD oder Linux als Gast Betriebssystem auf Hyper-v ausgeführt wird, finden Sie [unter Unterstützte virtuelle Linux-und FreeBSD-Computer für Hyper-v unter Windows](../../../virtualization/hyper-v/supported-linux-and-freebsd-virtual-machines-for-hyper-v-on-windows.md).
 
 ## <a name="hardware-requirements"></a>Hardwareanforderungen
 

@@ -5,18 +5,18 @@ ms.topic: article
 ms.author: asmahi; sandysp; jopoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 916239535b92e1248918c76897e5222fa1dc6451
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: b1616af3cfc1f14c534392c7f083b333b4744ef3
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87896120"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87993343"
 ---
 # <a name="linux-virtual-machine-considerations"></a>Überlegungen zu virtuellen Linux-Computern
 
 Bei virtuellen Linux-und BSD-Computern müssen im Vergleich zu virtuellen Windows-Computern in Hyper-V zusätzliche Aspekte berücksichtigt werden.
 
-Der erste Aspekt ist, ob Integration Services vorhanden sind oder ob der virtuelle Computer nur auf emulierten Hardware ohne Aufklärung ausgeführt wird. Eine Tabelle mit Linux-und BSD-Releases, die über integrierte oder herunterladbare Integration Services verfügen, ist [unter Unterstützte virtuelle Linux-und FreeBSD-Computer für Hyper-V unter Windows](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/supported-linux-and-freebsd-virtual-machines-for-hyper-v-on-windows)verfügbar. Diese Seiten enthalten Raster verfügbarer Hyper-V-Features, die für Linux-Verteilungs Releases verfügbar sind, sowie Hinweise zu diesen Features, sofern zutreffend.
+Der erste Aspekt ist, ob Integration Services vorhanden sind oder ob der virtuelle Computer nur auf emulierten Hardware ohne Aufklärung ausgeführt wird. Eine Tabelle mit Linux-und BSD-Releases, die über integrierte oder herunterladbare Integration Services verfügen, ist [unter Unterstützte virtuelle Linux-und FreeBSD-Computer für Hyper-V unter Windows](../../../../virtualization/hyper-v/supported-linux-and-freebsd-virtual-machines-for-hyper-v-on-windows.md)verfügbar. Diese Seiten enthalten Raster verfügbarer Hyper-V-Features, die für Linux-Verteilungs Releases verfügbar sind, sowie Hinweise zu diesen Features, sofern zutreffend.
 
 Auch wenn der Gast Integration Services ausgeführt wird, kann er mit Legacy Hardware konfiguriert werden, die nicht die beste Leistung aufweist. Konfigurieren und verwenden Sie z. b. einen virtuellen Ethernet-Adapter für den Gast, anstatt einen Legacy-Netzwerkadapter zu verwenden. Mit Windows Server 2016 sind auch erweiterte Netzwerke wie SR-IOV verfügbar.
 
@@ -51,7 +51,7 @@ Ein nützliches Tool für Netzwerk-Mikrobenchmarks ist ntttcp, das unter Linux u
 
 ## <a name="linux-storage-performance"></a>Linux-Speicherleistung
 
-Einige bewährte Methoden, wie z. b. die folgenden, werden unter Empfohlene [Vorgehensweisen für die Ausführung von Linux unter Hyper-V](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/best-practices-for-running-linux-on-hyper-v)aufgeführt. Der Linux-Kernel verfügt über unterschiedliche e/a-Planer, um Anforderungen mit unterschiedlichen Algorithmen neu anzuordnen. NOOP ist eine First-in-First-Out-Warteschlange, die die vom Hypervisor vorgenommene Zeit Plan Entscheidung übergibt. Es wird empfohlen, NOOP als Scheduler zu verwenden, wenn Sie virtuelle Linux-Computer unter Hyper-V ausführen. Um den Scheduler für ein bestimmtes Gerät zu ändern, fügen Sie in der Konfiguration des Start Laders (z. b./etc/grub.conf) `elevator=noop` die Kernel Parameter hinzu, und starten Sie dann neu.
+Einige bewährte Methoden, wie z. b. die folgenden, werden unter Empfohlene [Vorgehensweisen für die Ausführung von Linux unter Hyper-V](../../../../virtualization/hyper-v/best-practices-for-running-linux-on-hyper-v.md)aufgeführt. Der Linux-Kernel verfügt über unterschiedliche e/a-Planer, um Anforderungen mit unterschiedlichen Algorithmen neu anzuordnen. NOOP ist eine First-in-First-Out-Warteschlange, die die vom Hypervisor vorgenommene Zeit Plan Entscheidung übergibt. Es wird empfohlen, NOOP als Scheduler zu verwenden, wenn Sie virtuelle Linux-Computer unter Hyper-V ausführen. Um den Scheduler für ein bestimmtes Gerät zu ändern, fügen Sie in der Konfiguration des Start Laders (z. b./etc/grub.conf) `elevator=noop` die Kernel Parameter hinzu, und starten Sie dann neu.
 
 Ähnlich wie bei Netzwerken profitiert die Leistung der Linux-gastleistung mit dem Speicher am meisten von mehreren Warteschlangen mit ausreichender Tiefe, um den Host ausgelastet zu halten. Die Speicherleistung von Mikro Benchmarks ist wahrscheinlich am besten mit dem fio-Benchmark-Tool mit der libaio-Engine.
 

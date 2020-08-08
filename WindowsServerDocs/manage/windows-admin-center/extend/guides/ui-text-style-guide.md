@@ -6,12 +6,12 @@ author: jasongerend
 ms.author: jgerend
 ms.date: 01/17/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: d77498b9d4c8573dfac82b7291b6d0676d0d8c1e
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: a784bdfdfbfbbc4f91579d40cedb22230a70b13a
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87971977"
+ms.locfileid: "87993583"
 ---
 # <a name="windows-admin-center-ui-text-and-design-style-guide"></a>Windows Admin Center UI-Text und Entwurfs Stil Handbuch
 
@@ -19,7 +19,7 @@ ms.locfileid: "87971977"
 
 In diesem Thema wird der allgemeine Ansatz zum Schreiben von Text der Benutzeroberfläche (UI) für das Windows Admin Center sowie einige spezifische Konventionen und Ansätze beschrieben.
 
-Das Windows Admin Center und alle Erweiterungen sollten den [sprach Prinzipien von Microsoft](https://docs.microsoft.com/style-guide/brand-voice-above-all-simple-human) folgen, damit die Benutzerfreundlichkeit einfach zu verwenden und benutzerfreundlich ist. Dieser Stil Leitfaden baut auf diesen sprach Prinzipien und dem Microsoft- [Leitfaden für Schreib](https://docs.microsoft.com/style-guide/welcome/)Vorgänge auf. Achten Sie daher darauf, dass Sie sich diese beiden Ressourcen ansehen, um Informationen zu den Themen wie [Barrierefreiheit](https://docs.microsoft.com/style-guide/accessibility/accessibility-guidelines-requirements), [Akronyme](https://docs.microsoft.com/style-guide/acronyms)und [Word](https://docs.microsoft.com/style-guide/word-choice/) -Auswahl [sorry](https://docs.microsoft.com/style-guide/a-z-word-list-term-collections/s/sorry)zu [erhalten](https://docs.microsoft.com/style-guide/a-z-word-list-term-collections/p/please).
+Das Windows Admin Center und alle Erweiterungen sollten den [sprach Prinzipien von Microsoft](/style-guide/brand-voice-above-all-simple-human) folgen, damit die Benutzerfreundlichkeit einfach zu verwenden und benutzerfreundlich ist. Dieser Stil Leitfaden baut auf diesen sprach Prinzipien und dem Microsoft- [Leitfaden für Schreib](/style-guide/welcome/)Vorgänge auf. Achten Sie daher darauf, dass Sie sich diese beiden Ressourcen ansehen, um Informationen zu den Themen wie [Barrierefreiheit](/style-guide/accessibility/accessibility-guidelines-requirements), [Akronyme](/style-guide/acronyms)und [Word](/style-guide/word-choice/) -Auswahl [sorry](/style-guide/a-z-word-list-term-collections/s/sorry)zu [erhalten](/style-guide/a-z-word-list-term-collections/p/please).
 
 ## <a name="buttons"></a>Schaltflächen
 
@@ -29,7 +29,7 @@ Das Windows Admin Center und alle Erweiterungen sollten den [sprach Prinzipien v
 
 ## <a name="capitalization"></a>Großschreibung
 
-Wir folgen dem [Microsoft-Stil](https://docs.microsoft.com/style-guide/capitalization) für die Groß-/Kleinschreibung. verwenden Sie die Groß-/Kleinschreibung im Satz.
+Wir folgen dem [Microsoft-Stil](/style-guide/capitalization) für die Groß-/Kleinschreibung. verwenden Sie die Groß-/Kleinschreibung im Satz.
 
 | Benutzeroberflächenelement              |Großschreibung|Kommentare|
 |-------------------------|--------------|--------|
@@ -215,7 +215,7 @@ Der Status NULL tritt auf, wenn Kundendaten oder-Inhalte nicht in einer APP oder
 ## <a name="punctuation"></a>Interpunktion
 
 - Keine endende Interpunktions Zeichen (Zeiträume, Fragezeichen) für Überschriften oder unvollständige Sätze. Eine Ausnahme wird in einem Bestätigungs Dialogfeld angezeigt, in dem die Frage angezeigt wird.
-- Verwenden Sie die Anleitung des Microsoft-Styleguides zu [Zeiträumen](https://docs.microsoft.com/style-guide/punctuation/periods) und [Fragezeichen](https://docs.microsoft.com/style-guide/punctuation/question-marks).
+- Verwenden Sie die Anleitung des Microsoft-Styleguides zu [Zeiträumen](/style-guide/punctuation/periods) und [Fragezeichen](/style-guide/punctuation/question-marks).
 
 ## <a name="status-messages"></a>Statusmeldungen
 
