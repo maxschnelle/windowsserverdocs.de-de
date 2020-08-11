@@ -1,20 +1,18 @@
 ---
 title: Unterstützte Konfigurationen für Remotedesktopdienste
 description: Enthält Informationen zu Konfigurationen für RDS in Windows Server 2016 und Windows Server 2019.
-ms.prod: windows-server
-ms.technology: remote-desktop-services
 ms.author: elizapo
 ms.date: 07/14/2020
 ms.topic: article
 ms.assetid: c925c7eb-6880-411f-8e59-bd0f57cc5fc3
 author: lizap
 manager: dongill
-ms.openlocfilehash: 1285a63b3b283914a439817886cd84c4b93b59c8
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 47aa9327e70d07ce46477024fb0c734ea1d64603
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86965682"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87954837"
 ---
 # <a name="supported-configurations-for-remote-desktop-services"></a>Unterstützte Konfigurationen für Remotedesktopdienste
 
@@ -137,4 +135,4 @@ Weitere Informationen zum Erstellen der VDI-Bereitstellung von Remotedesktopdien
 
 ## <a name="using-remote-desktop-services-with-application-proxy-services"></a>Verwenden von Remotedesktopdiensten mit Anwendungsproxydiensten
 
-Sie können Remotedesktopdienste, mit Ausnahme des Webclients, mit dem [Azure AD-Anwendungsproxy](/azure/active-directory/application-proxy-publish-remote-desktop) verwenden. Remotedesktopdienste unterstützen nicht die Verwendung von [Webanwendungsproxys](../remote-access/web-application-proxy/web-application-proxy-windows-server.md), die in Windows Server 2016 und früheren Versionen enthalten sind.
+Sie können Remotedesktopdienste mit dem [Azure AD-Anwendungsproxy](/azure/active-directory/application-proxy-publish-remote-desktop) verwenden. Remotedesktopdienste unterstützen nicht die Verwendung von [Webanwendungsproxys](../remote-access/web-application-proxy/web-application-proxy-windows-server.md), die in Windows Server 2016 und früheren Versionen enthalten sind.

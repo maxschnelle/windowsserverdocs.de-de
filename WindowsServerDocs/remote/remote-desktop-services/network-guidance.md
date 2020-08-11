@@ -1,19 +1,17 @@
 ---
 title: Netzwerkrichtlinien
 description: Bandbreitenempfehlungen für Remotedesktopbereitstellungen.
-ms.prod: windows-server
-ms.technology: remote-desktop-services
 ms.author: helohr
 ms.date: 12/12/2019
 ms.topic: article
 author: Heidilohr
 manager: lizross
-ms.openlocfilehash: ba084c58e725627e838c07b5b5b9849d131b2038
-ms.sourcegitcommit: 32f810c5429804c384d788c680afac427976e351
+ms.openlocfilehash: 3817178ef303573490cc98af8a35844715286e8e
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83203550"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87948893"
 ---
 # <a name="network-guidelines"></a>Netzwerkrichtlinien
 
@@ -54,6 +52,10 @@ Unterschiedliche Anzeigeauflösungen erfordern unterschiedliche verfügbare Band
 | Etwa 1920 × 1080 px                     | 5 Mbit/s                |
 | Etwa 3840 × 2160 px (4 K)                | 15 Mbit/s               |
 
-## <a name="additional-resources"></a>Zusätzliche Ressourcen
+## <a name="windows-virtual-desktop-experience-estimator"></a>Einschätzung der Servicequalität für Windows Virtual Desktop
 
 Die Azure-Region, in der du dich befindest, kann die Benutzererfahrung ebenso beeinflussen wie die Netzwerkbedingungen. Unter [Einschätzung der Servicequalität für Windows Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/assessment/) findest du weitere Informationen.
+
+## <a name="assistive-technologies"></a>Hilfstechnologien
+
+Hilfstechnologieworkloads, wie die Verwendung der Sprachausgabe in der Remotesitzung, erfordern für eine optimale Benutzererfahrung Verbindungen mit einer Roundtripzeit (RTT) von 20 Millisekunden (ms) oder besser.

@@ -1,225 +1,212 @@
 ---
 title: Verwalten von Nano Server
 description: Updates, Wartungspakete, Netzwerkablaufverfolgung und Leistungsüberwachung
-ms.prod: windows-server
 manager: DonGill
-ms.technology: server-nano
 ms.date: 09/06/2017
 ms.topic: get-started-article
 ms.assetid: 599d6438-a506-4d57-a0ea-1eb7ec19f46e
 author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
-ms.openlocfilehash: f07c6ffd96aabd4bac5a7e34c7bb612df33274f6
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 78a869f826bd9d13e627f5710cca1b3ef1cdcdc4
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86961112"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87959628"
 ---
 # <a name="manage-nano-server"></a>Verwalten von Nano Server
 
 >Gilt für: Windows Server 2016
 
 > [!IMPORTANT]
-> Ab Windows Server, Version 1709, steht Nano Server nur als [Basis-Betriebssystemimage für Container](/virtualization/windowscontainers/quick-start/using-insider-container-images#install-base-container-image) zur Verfügung. Sieh dir [Änderungen an Nano Server](nano-in-semi-annual-channel.md) an und erfahre, was dies bedeutet.   
+> Ab Windows Server, Version 1709, steht Nano Server nur als [Basis-Betriebssystemimage für Container](/virtualization/windowscontainers/quick-start/using-insider-container-images#install-base-container-image) zur Verfügung. Sieh dir [Änderungen an Nano Server](nano-in-semi-annual-channel.md) an und erfahre, was dies bedeutet.
 
-Nano Server wird remote verwaltet. Es besteht weder die Möglichkeit, sich lokal anzumelden, noch werden Terminaldienste unterstützt. Allerdings verfügen Sie über eine Vielzahl von Optionen zur Remoteverwaltung von Nano Server, einschließlich Windows PowerShell, der Windows-Verwaltungsinstrumentation (Windows Management Instrumentation, WMI), der Windows-Remoteverwaltung und der Notverwaltungsdienste (Emergency Management Services, EMS).  
+Nano Server wird remote verwaltet. Es besteht weder die Möglichkeit, sich lokal anzumelden, noch werden Terminaldienste unterstützt. Allerdings verfügen Sie über eine Vielzahl von Optionen zur Remoteverwaltung von Nano Server, einschließlich Windows PowerShell, der Windows-Verwaltungsinstrumentation (Windows Management Instrumentation, WMI), der Windows-Remoteverwaltung und der Notverwaltungsdienste (Emergency Management Services, EMS).
 
-Um Remoteverwaltungstools verwenden zu können, müssen Sie wahrscheinlich die IP-Adresse des Nano Servers kennen. Sie können die IP-Adresse z.B. auf folgende Weise ermitteln:  
-  
--   Verwenden Sie die Nano-Wiederherstellungskonsole (siehe den Abschnitt „Verwenden der Nano-Wiederherstellungskonsole“ in diesem Thema).  
-  
--   Verbinden Sie ein serielles Kabel mit dem Computer, und verwenden Sie EMS.  
-  
--   Wenn Sie den Computernamen verwenden, den Sie dem Nano Server während der Konfiguration zugewiesen haben, können Sie die IP-Adresse mit Ping abrufen. Beispiel: `ping NanoServer-PC /4`.  
-  
-## <a name="using-windows-powershell-remoting"></a>Verwenden von Windows PowerShell-Remoting  
-Um Nano Server mit Windows PowerShell-Remoting zu verwalten, müssen Sie zuerst die IP-Adresse des Nano Servers der Liste vertrauenswürdiger Hosts hinzufügen, die Ihr Verwaltungscomputer besitzt, dann das Konto, das Sie verwenden, zu den Nano Server-Administratoren hinzufügen und schließlich CredSSP aktivieren, wenn Sie dieses Feature verwenden möchten.  
+Um Remoteverwaltungstools verwenden zu können, müssen Sie wahrscheinlich die IP-Adresse des Nano Servers kennen. Sie können die IP-Adresse z.B. auf folgende Weise ermitteln:
+
+-   Verwenden Sie die Nano-Wiederherstellungskonsole (siehe den Abschnitt „Verwenden der Nano-Wiederherstellungskonsole“ in diesem Thema).
+
+-   Verbinden Sie ein serielles Kabel mit dem Computer, und verwenden Sie EMS.
+
+-   Wenn Sie den Computernamen verwenden, den Sie dem Nano Server während der Konfiguration zugewiesen haben, können Sie die IP-Adresse mit Ping abrufen. Beispiel: `ping NanoServer-PC /4`.
+
+## <a name="using-windows-powershell-remoting"></a>Verwenden von Windows PowerShell-Remoting
+Um Nano Server mit Windows PowerShell-Remoting zu verwalten, müssen Sie zuerst die IP-Adresse des Nano Servers der Liste vertrauenswürdiger Hosts hinzufügen, die Ihr Verwaltungscomputer besitzt, dann das Konto, das Sie verwenden, zu den Nano Server-Administratoren hinzufügen und schließlich CredSSP aktivieren, wenn Sie dieses Feature verwenden möchten.
 
 > [!NOTE]
 > Wenn sich die Zielinstanz von Nano Server und dein Verwaltungscomputer in derselben AD DS-Gesamtstruktur (oder in Gesamtstrukturen mit einer Vertrauensstellung) befinden, solltest du Nano Server nicht zur Liste der vertrauenswürdigen Hosts hinzufügen. Du kannst eine Verbindung mit Nano Server herstellen, indem du dessen vollständig qualifizierten Domänennamen verwendest, z. B.: PS C:\> Enter-PSSession -ComputerName nanoserver.contoso.com -Credential (Get-Credential).
-  
-  
-Um den Nano Server zu der Liste der vertrauenswürdigen Hosts hinzuzufügen, führen Sie diesen Befehl über eine Windows PowerShell-Eingabeaufforderung mit erhöhten Rechten aus:  
-  
-`Set-Item WSMan:\localhost\Client\TrustedHosts <IP address of Nano Server>`  
-  
-Um die Windows PowerShell-Remotesitzung zu starten, initiieren Sie eine lokale Windows PowerShell-Sitzung mit erhöhten Rechten, und führen Sie die folgenden Befehle aus:  
-  
-  
-```  
-$ip = <IP address of Nano Server>  
-$user = $ip\Administrator  
-Enter-PSSession -ComputerName $ip -Credential $user  
-```  
-  
-  
-Sie können nun wie gewohnt Windows PowerShell-Befehle auf dem Nano Server ausführen.  
-  
-> [!NOTE]  
-> In diesem Release von Nano Server sind nicht alle Windows PowerShell-Befehle verfügbar. Führen Sie `Get-Command -CommandType Cmdlet` aus, um die verfügbaren Befehle anzuzeigen.  
-  
-Beenden Sie die Remotesitzung mit dem Befehl `Exit-PSSession`.  
-  
-## <a name="using-windows-powershell-cim-sessions-over-winrm"></a>Verwenden von Windows PowerShell-CIM-Sitzungen über WinRM  
-Sie können CIM-Sitzungen und -Instanzen in Windows PowerShell verwenden, um WMI-Befehle über die Windows-Remoteverwaltung (Windows Remote Management, WinRM) auszuführen.  
-  
-Starten Sie die CIM-Sitzung, indem Sie an einer Windows PowerShell-Eingabeaufforderung diese Befehle ausführen:  
-  
-  
-```  
-$ip = <IP address of the Nano Server\>  
-$user = $ip\Administrator  
-$cim = New-CimSession -Credential $user -ComputerName $ip  
-```  
-  
-  
-Sobald die Sitzung hergestellt wurde, können Sie verschiedene WMI-Befehle ausführen, wie z.B.:  
-  
-  
-```  
-Get-CimInstance -CimSession $cim -ClassName Win32_ComputerSystem | Format-List *  
-Get-CimInstance -CimSession $Cim -Query SELECT * from Win32_Process WHERE name LIKE 'p%'  
-```  
-  
-  
-## <a name="windows-remote-management"></a>Windows-Remoteverwaltung  
-Sie können Programme auf dem Nano Server mit der Windows-Remoteverwaltung (WinRM) remote ausführen. Konfigurieren Sie zum Verwenden von WinRM zuerst den Dienst, und richten Sie die Codepage mit den folgenden Befehlen über eine Eingabeaufforderung mit erhöhten Rechten ein:  
-  
+
+
+Um den Nano Server zu der Liste der vertrauenswürdigen Hosts hinzuzufügen, führen Sie diesen Befehl über eine Windows PowerShell-Eingabeaufforderung mit erhöhten Rechten aus:
+
+`Set-Item WSMan:\localhost\Client\TrustedHosts <IP address of Nano Server>`
+
+Um die Windows PowerShell-Remotesitzung zu starten, initiieren Sie eine lokale Windows PowerShell-Sitzung mit erhöhten Rechten, und führen Sie die folgenden Befehle aus:
+
+
+```
+$ip = <IP address of Nano Server>
+$user = $ip\Administrator
+Enter-PSSession -ComputerName $ip -Credential $user
+```
+
+
+Sie können nun wie gewohnt Windows PowerShell-Befehle auf dem Nano Server ausführen.
+
+> [!NOTE]
+> In diesem Release von Nano Server sind nicht alle Windows PowerShell-Befehle verfügbar. Führen Sie `Get-Command -CommandType Cmdlet` aus, um die verfügbaren Befehle anzuzeigen.
+
+Beenden Sie die Remotesitzung mit dem Befehl `Exit-PSSession`.
+
+## <a name="using-windows-powershell-cim-sessions-over-winrm"></a>Verwenden von Windows PowerShell-CIM-Sitzungen über WinRM
+Sie können CIM-Sitzungen und -Instanzen in Windows PowerShell verwenden, um WMI-Befehle über die Windows-Remoteverwaltung (Windows Remote Management, WinRM) auszuführen.
+
+Starten Sie die CIM-Sitzung, indem Sie an einer Windows PowerShell-Eingabeaufforderung diese Befehle ausführen:
+
+
+```
+$ip = <IP address of the Nano Server\>
+$user = $ip\Administrator
+$cim = New-CimSession -Credential $user -ComputerName $ip
+```
+
+
+Sobald die Sitzung hergestellt wurde, können Sie verschiedene WMI-Befehle ausführen, wie z.B.:
+
+
+```
+Get-CimInstance -CimSession $cim -ClassName Win32_ComputerSystem | Format-List *
+Get-CimInstance -CimSession $Cim -Query SELECT * from Win32_Process WHERE name LIKE 'p%'
+```
+
+
+## <a name="windows-remote-management"></a>Windows-Remoteverwaltung
+Sie können Programme auf dem Nano Server mit der Windows-Remoteverwaltung (WinRM) remote ausführen. Konfigurieren Sie zum Verwenden von WinRM zuerst den Dienst, und richten Sie die Codepage mit den folgenden Befehlen über eine Eingabeaufforderung mit erhöhten Rechten ein:
+
 ```
 winrm quickconfig
 winrm set winrm/config/client @{TrustedHosts=<ip address of Nano Server>}
 chcp 65001
 ```
-  
-Sie können die Befehle jetzt auf dem Nano Server remote ausführen. Beispiel:  
+
+Sie können die Befehle jetzt auf dem Nano Server remote ausführen. Beispiel:
 
 ```
 winrs -r:<IP address of Nano Server> -u:Administrator -p:<Nano Server administrator password> ipconfig
 ```
-  
-Weitere Informationen zur Windows-Remoteverwaltung finden Sie unter [Übersicht über die Windows-Remoteverwaltung (Windows Remote Management, WinRM)](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn265971(v=ws.11)).  
-   
-   
-  
-## <a name="running-a-network-trace-on-nano-server"></a>Ausführen einer Netzwerkablaufverfolgung unter Nano-Server  
- Die Netsh-Ablaufverfolgung, Tracelog.exe und Logman.exe sind für Nano Server nicht verfügbar. Um Netzwerkpakete zu erfassen, können Sie diese Windows PowerShell-Cmdlets verwenden:  
-   
-   
-```  
-New-NetEventSession [-Name]  
-Add-NetEventPacketCaptureProvider -SessionName  
-Start-NetEventSession [-Name]  
-Stop-NetEventSession [-Name]  
-```  
-Diese Cmdlets finden Sie unter [Network Event Packet Capture Cmdlets in Windows PowerShell (Windows PowerShell-Cmdlets zum Erfassen von Netzwerkereignispaketen)](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn265971(v=ws.11)) detailliert dokumentiert.  
 
-## <a name="installing-servicing-packages"></a>Installieren von Wartungspaketen  
-Wenn Sie ein Wartungspaket installieren möchten, verwenden Sie den Parameter „-ServicingPackagePath“ (Sie können ein Array von Pfaden an CAB-Dateien übergeben):  
-  
-`New-NanoServerImage -DeploymentType Guest -Edition Standard -MediaPath \\Path\To\Media\en_us -BasePath .\Base -TargetPath .\NanoServer.wim -ServicingPackagePath \\path\to\kb123456.cab`  
-  
-Häufig wird ein Wartungspaket oder Hotfix als KB-Artikel, der eine CAB-Datei enthält, heruntergeladen. Befolgen Sie diese Schritte, um die CAB-Datei zu extrahieren, den Sie anschließend mit dem Parameter „-ServicingPackagePath“ installieren können:  
-  
-1.  Laden Sie das Wartungspaket aus dem zugehörigen Knowledge Base-Artikel oder dem [Microsoft Update-Katalog](https://catalog.update.microsoft.com/v7/site/home.aspx) herunter. Speichern Sie es in einem lokalen Verzeichnis oder einer Netzwerkfreigabe, z.B.: C:\ServicingPackages  
-2.  Erstellen Sie einen Ordner, in dem Sie das extrahierte Wartungspaket speichern.  Beispiel: C:\KB3157663_expanded  
-3.  Öffnen Sie eine Windows PowerShell-Konsole, und verwenden Sie den `Expand`-Befehl, um den Pfad zur MSU-Datei des Wartungspakets anzugeben, einschließlich des `-f:*`-Parameters und des Pfads, in den das Wartungspaket extrahiert werden soll.  Beispiel: `Expand C:\ServicingPackages\Windows10.0-KB3157663-x64.msu -f:* C:\KB3157663_expanded`  
-  
-    Die erweiterten Dateien sollten dem folgenden Beispiel ähneln:  
-C:>dir C:\KB3157663_expanded   
-Volume in drive C is OS  
-Volume Serial Number is B05B-CC3D  
-   
-      Directory of C:\KB3157663_expanded  
-   
-      19.04.2016  13:17    \<DIR>          .  
-      19.04.2016  13:17    \<DIR>          ..  
-        04/17/2016  12:31 AM               517 Windows10.0-KB3157663-x64-pkgProperties.txt  
-04/17/2016  12:30 AM        93,886,347 Windows10.0-KB3157663-x64.cab  
-04/17/2016  12:31 AM               454 Windows10.0-KB3157663-x64.xml  
-04/17/2016  12:36 AM           185,818 WSUSSCAN.cab  
-               4 File(s)     94,073,136 bytes  
-               2 Dir(s)  328,559,427,584 bytes free  
-4.  Führen Sie `New-NanoServerImage` mit dem Parameter „-ServicingPackagePath“ aus, indem Sie auf die CAB-Datei in diesem Verzeichnis verweisen, z.B.: `New-NanoServerImage -DeploymentType Guest -Edition Standard -MediaPath \\Path\To\Media\en_us -BasePath .\Base -TargetPath .\NanoServer.wim -ServicingPackagePath C:\KB3157663_expanded\Windows10.0-KB3157663-x64.cab`  
+Weitere Informationen zur Windows-Remoteverwaltung finden Sie unter [Übersicht über die Windows-Remoteverwaltung (Windows Remote Management, WinRM)](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn265971(v=ws.11)).
+
+
+
+## <a name="running-a-network-trace-on-nano-server"></a>Ausführen einer Netzwerkablaufverfolgung unter Nano-Server
+ Die Netsh-Ablaufverfolgung, Tracelog.exe und Logman.exe sind für Nano Server nicht verfügbar. Um Netzwerkpakete zu erfassen, können Sie diese Windows PowerShell-Cmdlets verwenden:
+
+
+```
+New-NetEventSession [-Name]
+Add-NetEventPacketCaptureProvider -SessionName
+Start-NetEventSession [-Name]
+Stop-NetEventSession [-Name]
+```
+Diese Cmdlets finden Sie unter [Network Event Packet Capture Cmdlets in Windows PowerShell (Windows PowerShell-Cmdlets zum Erfassen von Netzwerkereignispaketen)](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn265971(v=ws.11)) detailliert dokumentiert.
+
+## <a name="installing-servicing-packages"></a>Installieren von Wartungspaketen
+Wenn Sie ein Wartungspaket installieren möchten, verwenden Sie den Parameter „-ServicingPackagePath“ (Sie können ein Array von Pfaden an CAB-Dateien übergeben):
+
+`New-NanoServerImage -DeploymentType Guest -Edition Standard -MediaPath \\Path\To\Media\en_us -BasePath .\Base -TargetPath .\NanoServer.wim -ServicingPackagePath \\path\to\kb123456.cab`
+
+Häufig wird ein Wartungspaket oder Hotfix als KB-Artikel, der eine CAB-Datei enthält, heruntergeladen. Befolgen Sie diese Schritte, um die CAB-Datei zu extrahieren, den Sie anschließend mit dem Parameter „-ServicingPackagePath“ installieren können:
+
+1.  Laden Sie das Wartungspaket aus dem zugehörigen Knowledge Base-Artikel oder dem [Microsoft Update-Katalog](https://catalog.update.microsoft.com/v7/site/home.aspx) herunter. Speichern Sie es in einem lokalen Verzeichnis oder einer Netzwerkfreigabe, z.B.: C:\ServicingPackages
+2.  Erstellen Sie einen Ordner, in dem Sie das extrahierte Wartungspaket speichern.  Beispiel: C:\KB3157663_expanded
+3.  Öffnen Sie eine Windows PowerShell-Konsole, und verwenden Sie den `Expand`-Befehl, um den Pfad zur MSU-Datei des Wartungspakets anzugeben, einschließlich des `-f:*`-Parameters und des Pfads, in den das Wartungspaket extrahiert werden soll.  Beispiel: `Expand C:\ServicingPackages\Windows10.0-KB3157663-x64.msu -f:* C:\KB3157663_expanded`
+
+    Die erweiterten Dateien sollten dem folgenden Beispiel ähneln: C:>dir C:\KB3157663_expanded Volume in drive C is OS Volume Serial Number is B05B-CC3D
+
+      Directory of C:\KB3157663_expanded
+
+      19.04.2016  13:17    \<DIR>          .
+      19.04.2016  13:17    \<DIR>          ..
+        04/17/2016  12:31 AM               517 Windows10.0-KB3157663-x64-pkgProperties.txt 04/17/2016  12:30 AM        93,886,347 Windows10.0-KB3157663-x64.cab 04/17/2016  12:31 AM               454 Windows10.0-KB3157663-x64.xml 04/17/2016  12:36 AM           185,818 WSUSSCAN.cab 4 File(s)     94,073,136 bytes 2 Dir(s)  328,559,427,584 bytes free
+4.  Führen Sie `New-NanoServerImage` mit dem Parameter „-ServicingPackagePath“ aus, indem Sie auf die CAB-Datei in diesem Verzeichnis verweisen, z.B.: `New-NanoServerImage -DeploymentType Guest -Edition Standard -MediaPath \\Path\To\Media\en_us -BasePath .\Base -TargetPath .\NanoServer.wim -ServicingPackagePath C:\KB3157663_expanded\Windows10.0-KB3157663-x64.cab`
 
 ## <a name="managing-updates-in-nano-server"></a>Verwalten von Updates in Nano Server
 
-Derzeit können Sie den Windows Update-Anbieter für die Windows-Verwaltungsinstrumentation (Windows Management Instrumentation, WMI) verwenden, um die Liste der anwendbaren Updates zu suchen und anschließend alle oder einen Teil der Updates zu installieren. Wenn Sie Windows Server Update Services (WSUS) verwenden, können Sie Nano Server dazu konfigurieren, den WSUS-Server für Updates aufzurufen.  
+Derzeit können Sie den Windows Update-Anbieter für die Windows-Verwaltungsinstrumentation (Windows Management Instrumentation, WMI) verwenden, um die Liste der anwendbaren Updates zu suchen und anschließend alle oder einen Teil der Updates zu installieren. Wenn Sie Windows Server Update Services (WSUS) verwenden, können Sie Nano Server dazu konfigurieren, den WSUS-Server für Updates aufzurufen.
 
-In jedem Fall müssen Sie zuerst eine Windows PowerShell-Remotesitzung zu dem Nano Server-Computer aufbauen. Diese Beispiele verwenden *$sess* für die Sitzung. Wenn Sie ein anderes Element verwenden, ersetzen Sie es nach Bedarf.  
-
-
-### <a name="view-all-available-updates"></a>Anzeigen aller verfügbaren Updates  
----  
-Rufen Sie mithilfe dieser Befehle die vollständige Liste der anwendbaren Updates ab:  
-```  
-$sess = New-CimInstance -Namespace root/Microsoft/Windows/WindowsUpdate -ClassName MSFT_WUOperationsSession  
-
-$scanResults = Invoke-CimMethod -InputObject $sess -MethodName ScanForUpdates -Arguments @{SearchCriteria=IsInstalled=0;OnlineScan=$true}  
-```  
-**Hinweis:**  
-Wenn keine Updates verfügbar sind, gibt dieser Befehl den folgenden Fehler zurück:  
-```  
-Invoke-CimMethod : A general error occurred that is not covered by a more specific error code.  
-
-At line:1 char:16  
-
-+ ... anResults = Invoke-CimMethod -InputObject $sess -MethodName ScanForUp ...  
-
-+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  
-
-    + CategoryInfo          : NotSpecified: (MSFT_WUOperatio...-5b842a3dd45d)  
-
-   :CimInstance) [Invoke-CimMethod], CimException  
-
-    + FullyQualifiedErrorId : MI RESULT 1,Microsoft.Management.Infrastructure.  
-
-   CimCmdlets.InvokeCimMethodCommand  
-```  
-
-### <a name="install-all-available-updates"></a>Installieren aller verfügbaren Updates  
----  
-Sie können **alle** verfügbaren Updates gleichzeitig mit folgenden Befehlen erkennen, herunterladen und installieren:  
-
-```  
-$sess = New-CimInstance -Namespace root/Microsoft/Windows/WindowsUpdate -ClassName MSFT_WUOperationsSession  
-
-$scanResults = Invoke-CimMethod -InputObject $sess -MethodName ApplyApplicableUpdates  
-
-Restart-Computer  
-```  
-**Hinweis:**  
-Windows Defender verhindert die Installation von Updates. Um dies zu umgehen, deinstallieren Sie Windows Defender, installieren Sie die Updates, und installieren Sie Windows Defender erneut. Alternativ können Sie Updates auf einen anderen Computer herunterladen, auf den Nano-Server kopieren und diese mit „DISM.exe“ anwenden.  
+In jedem Fall müssen Sie zuerst eine Windows PowerShell-Remotesitzung zu dem Nano Server-Computer aufbauen. Diese Beispiele verwenden *$sess* für die Sitzung. Wenn Sie ein anderes Element verwenden, ersetzen Sie es nach Bedarf.
 
 
-### <a name="verify-installation-of-updates"></a>Überprüfen der Updateinstallation  
----  
-Verwenden Sie diese Befehle, um eine Liste der installierten Updates zu erhalten:  
-```  
-$sess = New-CimInstance -Namespace root/Microsoft/Windows/WindowsUpdate -ClassName MSFT_WUOperationsSession  
+### <a name="view-all-available-updates"></a>Anzeigen aller verfügbaren Updates
+---
+Rufen Sie mithilfe dieser Befehle die vollständige Liste der anwendbaren Updates ab:
+```
+$sess = New-CimInstance -Namespace root/Microsoft/Windows/WindowsUpdate -ClassName MSFT_WUOperationsSession
 
-$scanResults = Invoke-CimMethod -InputObject $sess -MethodName ScanForUpdates -Arguments @{SearchCriteria=IsInstalled=1;OnlineScan=$true}  
-```  
+$scanResults = Invoke-CimMethod -InputObject $sess -MethodName ScanForUpdates -Arguments @{SearchCriteria=IsInstalled=0;OnlineScan=$true}
+```
+**Hinweis:** Wenn keine Updates verfügbar sind, gibt dieser Befehl den folgenden Fehler zurück:
+```
+Invoke-CimMethod : A general error occurred that is not covered by a more specific error code.
 
-**Hinweis:**  
-Diese Befehle listen die installierten Updates auf, markieren sie in der Ausgabe jedoch nicht speziell als „installiert“. Wenn Sie möchten, dass dies in der Ausgabe angegeben wird, z.B. für einen Bericht, führen Sie Folgendes aus:  
+At line:1 char:16
+
++ ... anResults = Invoke-CimMethod -InputObject $sess -MethodName ScanForUp ...
+
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    + CategoryInfo          : NotSpecified: (MSFT_WUOperatio...-5b842a3dd45d)
+
+   :CimInstance) [Invoke-CimMethod], CimException
+
+    + FullyQualifiedErrorId : MI RESULT 1,Microsoft.Management.Infrastructure.
+
+   CimCmdlets.InvokeCimMethodCommand
+```
+
+### <a name="install-all-available-updates"></a>Installieren aller verfügbaren Updates
+---
+Sie können **alle** verfügbaren Updates gleichzeitig mit folgenden Befehlen erkennen, herunterladen und installieren:
+
+```
+$sess = New-CimInstance -Namespace root/Microsoft/Windows/WindowsUpdate -ClassName MSFT_WUOperationsSession
+
+$scanResults = Invoke-CimMethod -InputObject $sess -MethodName ApplyApplicableUpdates
+
+Restart-Computer
+```
+**Hinweis:** Windows Defender verhindert die Installation von Updates. Um dies zu umgehen, deinstallieren Sie Windows Defender, installieren Sie die Updates, und installieren Sie Windows Defender erneut. Alternativ können Sie Updates auf einen anderen Computer herunterladen, auf den Nano-Server kopieren und diese mit „DISM.exe“ anwenden.
+
+
+### <a name="verify-installation-of-updates"></a>Überprüfen der Updateinstallation
+---
+Verwenden Sie diese Befehle, um eine Liste der installierten Updates zu erhalten:
+```
+$sess = New-CimInstance -Namespace root/Microsoft/Windows/WindowsUpdate -ClassName MSFT_WUOperationsSession
+
+$scanResults = Invoke-CimMethod -InputObject $sess -MethodName ScanForUpdates -Arguments @{SearchCriteria=IsInstalled=1;OnlineScan=$true}
+```
+
+**Hinweis:** Diese Befehle listen die installierten Updates auf, markieren sie in der Ausgabe jedoch nicht speziell als „installiert“. Wenn Sie möchten, dass dies in der Ausgabe angegeben wird, z.B. für einen Bericht, führen Sie Folgendes aus:
 ```PowerShell
 Get-WindowsPackage -Online
 ```
 
-### <a name="using-wsus"></a>Verwenden von WSUS  
----  
-Die oben aufgeführten Befehle fragen den Windows Update und Microsoft Update-Dienst online ab, um Updates zu suchen und herunterzuladen. Wenn Sie WSUS verwenden, können Sie die Registrierungsschlüssel auf dem Nano Server so anpassen, dass stattdessen Ihr WSUS-Server verwendet wird.  
-  
-Informationen hierzu finden Sie in der Tabelle „Windows Update Agent Environment Options Registry Keys“ (Registrierungsschlüssel der Optionen der Windows Update-Agent-Umgebung) unter [Konfigurieren von automatischen Updates in einer nicht auf Active Directory basierenden Umgebung](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc708449(v=ws.10)).  
-  
-Sie sollten mindestens die Registrierungsschlüssel **WUServer** und **WUStatusServer** festlegen, allerdings könnten je nach Ihrer WSUS-Implementierung andere Werte erforderlich sein. Sie können diese Einstellungen immer überprüfen, indem Sie einen anderen Windows Server in der gleichen Umgebung untersuchen.  
+### <a name="using-wsus"></a>Verwenden von WSUS
+---
+Die oben aufgeführten Befehle fragen den Windows Update und Microsoft Update-Dienst online ab, um Updates zu suchen und herunterzuladen. Wenn Sie WSUS verwenden, können Sie die Registrierungsschlüssel auf dem Nano Server so anpassen, dass stattdessen Ihr WSUS-Server verwendet wird.
 
-Nachdem diese Werte für WSUS festlegt wurden, fragen die Befehle im vorherigen Abschnitt diesen Server nach Updates ab und verwenden ihn als Downloadquelle.  
+Informationen hierzu finden Sie in der Tabelle „Windows Update Agent Environment Options Registry Keys“ (Registrierungsschlüssel der Optionen der Windows Update-Agent-Umgebung) unter [Konfigurieren von automatischen Updates in einer nicht auf Active Directory basierenden Umgebung](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc708449(v=ws.10)).
 
-### <a name="automatic-updates"></a>Automatische Updates  
----  
+Sie sollten mindestens die Registrierungsschlüssel **WUServer** und **WUStatusServer** festlegen, allerdings könnten je nach Ihrer WSUS-Implementierung andere Werte erforderlich sein. Sie können diese Einstellungen immer überprüfen, indem Sie einen anderen Windows Server in der gleichen Umgebung untersuchen.
+
+Nachdem diese Werte für WSUS festlegt wurden, fragen die Befehle im vorherigen Abschnitt diesen Server nach Updates ab und verwenden ihn als Downloadquelle.
+
+### <a name="automatic-updates"></a>Automatische Updates
+---
 Derzeit besteht der Weg, die Updateinstallation zu automatisieren, darin, die oben beschriebenen Schritte in ein lokales Windows PowerShell-Skript zu konvertieren, und anschließend einen geplanten Task zu erstellen, diesen auszuführen und das System Ihrem Zeitplan entsprechend erneut zu starten.
 
 
@@ -259,7 +246,7 @@ Erstellen Sie eine Ablaufverfolgung, starten Sie sie, und geben Sie dabei einen 
 PS C:\> New-EtwTraceSession -Name ExampleTrace -LocalFilePath c:\etrace.etl
 ```
 
-Fügen Sie der Ablaufverfolgung eine Anbieter-GUID hinzu. Verwenden Sie ```wpr.exe -providers``` für die Übersetzung des Anbieternamens in GUID. 
+Fügen Sie der Ablaufverfolgung eine Anbieter-GUID hinzu. Verwenden Sie ```wpr.exe -providers``` für die Übersetzung des Anbieternamens in GUID.
 ```
 PS C:\> wpr.exe -providers | select-string Kernel-Memory
 
@@ -286,7 +273,7 @@ Mode                LastWriteTime         Length Name
 ### <a name="record-traces-from-multiple-etw-providers"></a>Aufzeichnen von Ablaufverfolgungen von mehreren ETW-Anbietern
 Die Option ```-profiles``` von [Windows Performance Recorder](/previous-versions/windows/it-pro/windows-8.1-and-8/hh448229(v=win.10)) ermöglicht die Ablaufverfolgung von mehreren Anbietern zur gleichen Zeit. Es steht eine Reihe integrierter Profile wie CPU, Netzwerk und DiskIO zur Auswahl:
 ```
-PS C:\Users\Administrator\Documents> wpr.exe -profiles 
+PS C:\Users\Administrator\Documents> wpr.exe -profiles
 
 Microsoft Windows Performance Recorder Version 10.0.14393 (CoreSystem)
 Copyright (c) 2015 Microsoft Corporation. All rights reserved.
@@ -328,7 +315,7 @@ Verwenden Sie das Cmdlet ```New-AutologgerConfig``` zum Sammeln von Ereignissen 
 
 Erstellen Sie zunächst eine neue AutoLogger-Konfiguration.
 ```
-PS C:\> New-AutologgerConfig -Name BootPnpLog -LocalFilePath c:\bootpnp.etl 
+PS C:\> New-AutologgerConfig -Name BootPnpLog -LocalFilePath c:\bootpnp.etl
 ```
 
 Fügen Sie der Konfiguration einen ETW-Anbieter hinzu. Dieses Beispiel verwendet die Kernel-Plug & Play-Anbieter. Rufen Sie ```Add-EtwTraceProvider``` erneut auf, und geben Sie denselben AutoLogger-Namen, jedoch eine andere GUID an, um die Sammlung von Startablaufdaten aus mehreren Quellen zu aktivieren.
@@ -394,7 +381,7 @@ TimeCreated           Message
 9/15/2016 11:31:16 AM The Virtualization Based Security enablement policy check at phase 0 failed with status: {File...
 ```
 
-Nano Server unterstützt außerdem ```wevtutil.exe```, womit Sie Informationen über Ereignisprotokolle und Herausgeber abrufen können. Weitere Informationen finden Sie unter [Wevtutil.exe-Dokumentation](https://aka.ms/qvod7p). 
+Nano Server unterstützt außerdem ```wevtutil.exe```, womit Sie Informationen über Ereignisprotokolle und Herausgeber abrufen können. Weitere Informationen finden Sie unter [Wevtutil.exe-Dokumentation](https://aka.ms/qvod7p).
 
 ### <a name="graphical-interface-tools"></a>Tools für die grafische Oberfläche
 [Web-basierte Server-Verwaltungstools](https://techcommunity.microsoft.com/t5/windows-admin-center-blog/bg-p/Windows-Admin-Center-Blog) können zur Remoteverwaltung der Nano Server-Ziele verwendet werden und stellen ein Nano Server-Ereignisprotokoll mithilfe eines Webbrowsers bereit. Schließlich kann auch das MMC-Snap-In „Ereignisanzeige“ (eventvwr.msc) dazu verwendet werden, Protokolle anzuzeigen. Öffnen Sie es einfach auf einem Computer mit einem Desktop, und verweisen Sie es an einen Nano Remoteserver.
@@ -402,8 +389,8 @@ Nano Server unterstützt außerdem ```wevtutil.exe```, womit Sie Informationen �
 
 
 
-## <a name="using-windows-powershell-desired-state-configuration-with-nano-server"></a>Verwenden von Windows PowerShell DSC mit Nano Server  
-  
-Sie können Nano Server als Zielknoten mit Windows PowerShell Desired State Configuration (DSC) verwalten. Derzeit können Sie Knoten unter Nano Server mit DSC nur im Pushmodus verwenden. Allerdings funktionieren nicht alle DSC-Features mit Nano Server.  
-  
-Ausführliche Informationen finden Sie unter [Using DSC on Nano Server (Verwenden von DSC unter Nano Server)](https://techcommunity.microsoft.com/t5/windows-admin-center-blog/bg-p/Windows-Admin-Center-Blog).  
+## <a name="using-windows-powershell-desired-state-configuration-with-nano-server"></a>Verwenden von Windows PowerShell DSC mit Nano Server
+
+Sie können Nano Server als Zielknoten mit Windows PowerShell Desired State Configuration (DSC) verwalten. Derzeit können Sie Knoten unter Nano Server mit DSC nur im Pushmodus verwenden. Allerdings funktionieren nicht alle DSC-Features mit Nano Server.
+
+Ausführliche Informationen finden Sie unter [Using DSC on Nano Server (Verwenden von DSC unter Nano Server)](https://techcommunity.microsoft.com/t5/windows-admin-center-blog/bg-p/Windows-Admin-Center-Blog).

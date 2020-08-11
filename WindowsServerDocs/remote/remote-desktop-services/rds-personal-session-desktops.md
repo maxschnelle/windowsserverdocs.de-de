@@ -1,25 +1,23 @@
 ---
 title: Verwenden von persönlichen Sitzungsdesktops mit Remotedesktopdiensten
 description: Hier erfährst du, wie du personalisierte, zugewiesene Desktops über die Remotedesktopdienste freigibst.
-ms.prod: windows-server
-ms.technology: remote-desktop-services
 ms.topic: article
 author: lizap
 ms.author: elizapo
 ms.date: 10/22/2019
 manager: dongill
-ms.openlocfilehash: c0c36793d08391ad98fa797004ed6dec9883e9f1
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: ccb8bd5a91af6e4b9a8d1a610bf22747433bf913
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80857403"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87946423"
 ---
 # <a name="use-personal-session-desktops-with-remote-desktop-services"></a>Verwenden von persönlichen Sitzungsdesktops mit Remotedesktopdiensten
 
 >Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016
 
-Mithilfe von persönlichen Sitzungsdesktops kannst du serverbasierte persönliche Desktops in einer Cloud Computing-Umgebung bereitstellen.  (In einer Cloud Computing-Umgebung besteht eine Trennung zwischen den Hyper-V-Fabricservern und den Gast-VMs wie der Microsoft Azure Cloud oder der Microsoft-Cloudplattform.) Die Funktion für persönliche Sitzungsdesktops erweitert das Szenario für die Bereitstellung sitzungsbasierter Desktops in den Remotedesktopdiensten: Es wird eine neue Art von Sitzungssammlung erstellt, in der jeder Benutzer zu einem eigenen persönlichen Sitzungshost zugewiesen wird und dafür Administratorrechte erhält. 
+Mithilfe von persönlichen Sitzungsdesktops kannst du serverbasierte persönliche Desktops in einer Cloud Computing-Umgebung bereitstellen.  (In einer Cloud Computing-Umgebung besteht eine Trennung zwischen den Hyper-V-Fabricservern und den Gast-VMs wie der Microsoft Azure Cloud oder der Microsoft-Cloudplattform.) Die Funktion für persönliche Sitzungsdesktops erweitert das Szenario für die Bereitstellung sitzungsbasierter Desktops in den Remotedesktopdiensten: Es wird eine neue Art von Sitzungssammlung erstellt, in der jeder Benutzer zu einem eigenen persönlichen Sitzungshost zugewiesen wird und dafür Administratorrechte erhält.
 
 Verwende die folgenden Informationen, um eine Sammlung persönlicher Sitzungsdesktops zu erstellen und zu verwalten.
 
@@ -34,13 +32,13 @@ Verwende das Cmdlet „New-RDSessionCollection“, um eine Sammlung persönliche
 ## <a name="manually-assign-a-user-to-a-personal-session-host"></a>Manuelles Zuweisen eines Benutzers zu einem persönlichen Sitzungshost
 Verwende das Cmdlet **Set-RDPersonalSessionDesktopAssignment**, um einen Benutzer manuell einem persönlichen Sitzungshostserver in der Sammlung zuzuweisen. Das Cmdlet unterstützt die folgenden Parameter:
 
--CollectionName \<Zeichenfolge\>
+-CollectionName \<string\>
 
--ConnectionBroker \<Zeichenfolge\> 
+-ConnectionBroker \<string\>
 
--User \<Zeichenfolge\>
+-User \<string\>
 
--Name \<Zeichenfolge\>
+-Name \<string\>
 
 - **-CollectionName**: Gibt den Namen einer Sammlung mit persönlichen Sitzungsdesktops an. Dieser Parameter ist erforderlich.
 - **-ConnectionBroker**: Gibt den Server des Remotedesktop-Verbindungsbrokers für deine Remotedesktopbereitstellung an. Wenn du keinen Wert angibst, verwendet das Cmdlet den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) des lokalen Computers.
@@ -49,50 +47,50 @@ Verwende das Cmdlet **Set-RDPersonalSessionDesktopAssignment**, um einen Benutze
 
 Das Cmdlet **Import-RDPersonalSessionDesktopAssignment** importiert Zuordnungen zwischen Benutzerkonen und persönlichen Sitzungsdesktops aus einer Textdatei. Das Cmdlet unterstützt die folgenden Parameter:
 
--CollectionName \<Zeichenfolge\>
+-CollectionName \<string\>
 
--ConnectionBroker \<Zeichenfolge\>
+-ConnectionBroker \<string\>
 
--Path \<Zeichenfolge>
+-Path \<string>
 
 **-Path** gibt den Pfad und den Dateinamen der Datei an, die importiert werden soll.
- 
+
 ## <a name="removing-a-user-assignment-from-a-personal-session-host"></a>Entfernen einer Benutzerzuweisung aus einem persönlichen Sitzungshost
 Verwende das Cmdlet **Remove-RDPersonalSessionDesktopAssignment**, um die Zuordnung zwischen einem persönlichen Sitzungsdesktop und einem Benutzer zu entfernen. Das Cmdlet unterstützt die folgenden Parameter:
 
--CollectionName \<Zeichenfolge\>
+-CollectionName \<string\>
 
--ConnectionBroker \<Zeichenfolge\>
+-ConnectionBroker \<string\>
 
 -Force
 
--Name \<Zeichenfolge\>
+-Name \<string\>
 
--User \<Zeichenfolge\>
+-User \<string\>
 
 **-Force** erzwingt die Ausführung des Befehls ohne Aufforderung zur Bestätigung durch den Benutzer.
 
 ## <a name="query-user-assignments"></a>Abfragen von Benutzerzuweisungen
 Verwende das Cmdlet **Get-RDPersonalSessionDesktopAssignment**, um eine Liste mit persönlichen Sitzungsdesktops und den zugeordneten Benutzerkonten abzurufen. Das Cmdlet unterstützt die folgenden Parameter:
 
--CollectionName \<Zeichenfolge\>
+-CollectionName \<string\>
 
--ConnectionBroker \<Zeichenfolge\>
+-ConnectionBroker \<string\>
 
--User \<Zeichenfolge\>
+-User \<string\>
 
--Name \<Zeichenfolge\>
+-Name \<string\>
 
-Mit diesem Cmdlet kannst du Abfragen nach Sammlungsnamen, Benutzernamen oder Namen von Sitzungsdesktops ausführen. Wenn du nur den Parameter **-CollectionName** angibst, gibt das Cmdlet eine Liste mit Sitzungshosts und zugeordneten Benutzern zurück. Wenn du auch den Parameter **-User** angibst, wird der Sitzungshost zurückgegeben, der diesem Benutzer zugeordnet ist. Wenn du den Parameter **-Name** angibst, wird der Benutzer zurückgegeben, der diesem Sitzungshost zugeordnet ist. 
+Mit diesem Cmdlet kannst du Abfragen nach Sammlungsnamen, Benutzernamen oder Namen von Sitzungsdesktops ausführen. Wenn du nur den Parameter **-CollectionName** angibst, gibt das Cmdlet eine Liste mit Sitzungshosts und zugeordneten Benutzern zurück. Wenn du auch den Parameter **-User** angibst, wird der Sitzungshost zurückgegeben, der diesem Benutzer zugeordnet ist. Wenn du den Parameter **-Name** angibst, wird der Benutzer zurückgegeben, der diesem Sitzungshost zugeordnet ist.
 
 
 Das Cmdlet **Export-RDPersonalPersonalDesktopAssignment** exportiert die aktuellen Zuordnungen zwischen Benutzern und persönlichen virtuellen Desktops in eine Textdatei. Das Cmdlet unterstützt die folgenden Parameter:
 
--CollectionName \<Zeichenfolge\>
+-CollectionName \<string\>
 
--ConnectionBroker \<Zeichenfolge\>
+-ConnectionBroker \<string\>
 
--Path \<Zeichenfolge\>
+-Path \<string\>
 
 
 Alle neuen Cmdlets unterstützen die folgenden allgemeinen Parameter: -Verbose, -Debug, -ErrorAction, -ErrorVariable, -OutBuffer und -OutVariable. Weitere Informationen findest du unter [about_CommonParameters](https://go.microsoft.com/fwlink/p/?LinkID=113216).

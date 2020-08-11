@@ -1,20 +1,18 @@
 ---
 title: Unterstützte RDP-Dateieinstellungen für Remotedesktop
 description: Erfahre mehr über die RDP-Dateieinstellungen für Remotedesktop.
-ms.prod: windows-server
-ms.technology: remote-desktop-services
 ms.topic: article
 author: heidilohr
 manager: lizross
 ms.author: helohr
 ms.date: 06/30/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 8132c6d996a3e814b15eb34b713832fb6a98d6a0
-ms.sourcegitcommit: 643a9916efb95ad0bb5cc0a9b115ac29af4cb076
+ms.openlocfilehash: 5303bb696131d4e122da11c2d72152bf304716b4
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85586703"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87961934"
 ---
 # <a name="supported-remote-desktop-rdp-file-settings"></a>Unterstützte RDP-Dateieinstellungen für Remotedesktop
 
@@ -59,17 +57,18 @@ In der Tabelle werden auch die Einstellungen gezeigt, die als benutzerdefinierte
 | redirected video capture encoding quality:i:value | Steuert die Qualität codierter Videos. | - 0: Video mit hoher Komprimierung. Bei viel Bewegung kann dies die Qualität beeinträchtigen. </br>- 1: Mittlere Komprimierung</br>- 2: Video mit niedriger Komprimierung und hoher Bildqualität | 0 | Ja |
 | audiomode:i:value | Ausgabespeicherort für Audiodaten:</br>Bestimmt, ob der lokale oder Remotecomputer Audiodateien wiedergibt. | - 0: Gibt Sound auf dem lokalen Computer wieder („Auf diesem Computer wiedergeben“)</br>- 1: Gibt Sound auf dem Remotecomputer wieder („Auf dem Remotecomputer wiedergeben“)</br>- 2: Keine Sounds wiedergeben (Nicht wiedergeben) | 0 | Ja |
 | camerastoredirect:s:value | Kameraumleitung:</br>Konfiguriert, welche Kameras umgeleitet werden sollen. Für diese Einstellung wird eine durch Semikolons getrennte Liste der KSCATEGORY_VIDEO_CAMERA-Schnittstellen von Kameras verwendet, deren Umleitung aktiviert ist. | - * : Alle Kameras umleiten</br> - Liste der Kameras, z. B.: camerastoredirect:s:\\?\usb#vid_0bda&pid_58b0&mi</br>- Der Ausschluss einer bestimmten Kamera erfolgt durch Hinzufügen von „-“ vor der Zeichenfolge der symbolischen Verknüpfung. | Es wird nicht empfohlen, Kameras umzuleiten. | Ja |
-| devicestoredirect:s:value | USB-Geräteumleitung:</br>Legt fest, welche Geräte auf dem lokalen Computer umgeleitet werden und in der Remotesitzung verfügbar sind. | - *: Alle unterstützten Geräte umleiten, einschließlich der, die später verbunden werden</br> – Gültige Hardware-ID für ein oder mehrere Geräte | Es wird nicht empfohlen, Geräte umzuleiten. | Ja |
+| devicestoredirect:s:value | Umleitung von Plug & Play-Geräten:</br>Legt fest, welche Geräte auf dem lokalen Computer umgeleitet werden und in der Remotesitzung verfügbar sind. | - *: Alle unterstützten Geräte umleiten, einschließlich der, die später verbunden werden</br> – Gültige Hardware-ID für ein oder mehrere Geräte</br> - DynamicDevices: Alle unterstützten Geräte umleiten, die später verbunden werden | Es wird nicht empfohlen, Geräte umzuleiten. | Ja |
 | drivestoredirect:s:value | Laufwerk-/Speicherumleitung:</br>Legt fest, welche Datenträgerlaufwerke auf dem lokalen Computer umgeleitet werden und in der Remotesitzung verfügbar sind. | - Kein Wert angegeben: keine Laufwerke umleiten</br>- * : Alle Datenträgerlaufwerke umleiten, einschließlich aller Laufwerke, die später verbunden werden</br>- DynamicDrives: alle Laufwerke umleiten, die später verbunden werden</br>- Laufwerk und Bezeichnungen für ein oder mehrere Laufwerke, wie etwa "drivestoredirect:s:C:;E:;": das angegebene Laufwerk bzw. die angegebenen Laufwerke umleiten | Es wird nicht empfohlen, Laufwerke umzuleiten. | Ja |
 | redirectclipboard:i:value | Umleitung der Zwischenablage:</br>Bestimmt, ob die Umleitung der Zwischenablage aktiviert ist. | - 0: Zwischenablage auf dem lokalen Computer ist in Remotesitzung nicht verfügbar</br>- 1: Zwischenablage auf dem lokalen Computer ist in Remotesitzung verfügbar | 1 | Ja |
 | redirectprinters:i:value | Druckerumleitung:</br>Legt fest, ob die auf dem lokalen Computer konfigurierten Drucker umgeleitet werden und in der Remotesitzung verfügbar sind. | - 0: Die Drucker auf dem lokalen Computer sind in der Remotesitzung nicht verfügbar</br>- 1: Die Drucker auf dem lokalen Computer sind in der Remotesitzung verfügbar | 1 | Ja |
 | redirectsmartcards:i:value | Smartcardumleitung:</br>Legt fest, ob Smartcardgeräte auf dem lokalen Computer umgeleitet werden und in der Remotesitzung verfügbar sind. |- 0: Das Smartcardgerät auf dem lokalen Computer ist in der Remotesitzung nicht verfügbar</br>- 1: Das Smartcardgerät auf dem lokalen Computer ist in der Remotesitzung verfügbar | 1 | Ja |
+| usbdevicestoredirect:s:value | USB-Umleitung | - *: Alle USB-Geräte umleiten, die nicht bereits von einer anderen übergeordneten Umleitung umgeleitet werden</br> - {Device Setup Class GUID}: Alle Geräte umleiten, die Mitglieder der angegebenen [Gerätesetupklasse](/windows-hardware/drivers/install/system-defined-device-setup-classes-available-to-vendors/) sind</br> - USBInstanceID: Ein bestimmtes, von der Instanz-ID identifizierten USB-Gerät umleiten| USB-Geräte nicht umleiten | Ja |
 
 ## <a name="display-settings"></a>Anzeigeeinstellungen
 
 | RDP-Einstellung                        | Beschreibung            | Werte                 | Standardwert          | Unterstützung für Windows Virtual Desktop |
 |------------------------------------|------------------------|------------------------|:----------------------:|:-----------------------:|
-| use multimon:i:value | Legt fest, ob die Remotesitzung eine oder mehrere Anzeigen auf dem lokalen Computer verwendet. | - 0: Unterstützung für mehrere Anzeigen nicht aktivieren</br>- 1: Unterstützung für mehrere Anzeigen aktivieren | 0 | Ja |
+| use multimon:i:value | Legt fest, ob die Remotesitzung eine oder mehrere Anzeigen auf dem lokalen Computer verwendet. | - 0: Unterstützung für mehrere Anzeigen nicht aktivieren</br>- 1: Unterstützung für mehrere Anzeigen aktivieren | 1 | Ja |
 | selectedmonitors:s:value | Gibt an, welche lokalen Anzeigen von der Remotesitzung verwendet werden sollen. Die ausgewählten Anzeigen müssen zusammenhängend sein. Erfordert die Festlegung von multimon auf „1“.</br></br>Nur auf den Windows-Posteingangsclients (MSTSC) und Windows-Desktopclients (MSRDC) verfügbar. | Eine durch Trennzeichen getrennte Liste von computerspezifischen Anzeige-IDs. Die IDs können durch Aufrufen von „mstsc.exe /l“ abgerufen werden. Die erste aufgeführte ID wird als primäre Anzeige der Sitzung festgelegt. | Alle Anzeigen | Ja |
 | maximizetocurrentdisplays:i:value | Legt fest, auf welcher Anzeige die Remotesitzung beim Maximieren in den Vollbildmodus wechselt. Erfordert die Festlegung von multimon auf „1“.</br></br>Nur auf dem Windows-Desktopclient (MSRDC) verfügbar. | - 0: Die Sitzung wird auf der Anzeige im Vollbildmodus angezeigt, die beim Maximieren anfänglich ausgewählt wurde.</br>- 1: Die Sitzung wechselt dynamisch auf den Anzeigen in den Vollbildmodus, auf denen das Sitzungsfenster beim Maximieren angezeigt wird. | 0 | Ja |
 | singlemoninwindowedmode:i:value | Legt fest, ob eine Remotesitzung mit mehreren Anzeigen beim Beenden des Vollbildmodus automatisch zur einzelnen Anzeige wechselt. Erfordert die Festlegung von multimon auf „1“.</br></br>Nur auf dem Windows-Desktopclient (MSRDC) verfügbar. | - 0: Die Sitzung bleibt beim Beenden des Vollbildmodus auf allen Anzeigen erhalten.</br>- 1: Die Sitzung wechselt beim Beenden des Vollbildmodus zu einer einzelnen Anzeige. | 0 | Ja |
