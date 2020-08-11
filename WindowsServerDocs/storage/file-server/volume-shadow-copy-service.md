@@ -1,17 +1,15 @@
 ---
 title: Volumeschattenkopie-Dienst
 ms.date: 01/30/2019
-ms.prod: windows-server
-ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: 9948fab77ab4869c27fd63e623315bd1b3e9ff47
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 44f0db935e50bf7976612edc4317b4212818f84d
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86966692"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87950744"
 ---
 # <a name="volume-shadow-copy-service"></a>Volumeschattenkopie-Dienst
 
@@ -22,7 +20,6 @@ Das Sichern und Wiederherstellen wichtiger Geschäftsdaten kann aufgrund der fol
   - Die Daten müssen in der Regel gesichert werden, während die Anwendungen, die die Daten liefern, noch ausgeführt werden. Dies bedeutet, dass einige der Datendateien geöffnet sein oder sich in einem inkonsistenten Zustand befinden können.
 
   - Wenn das Dataset groß ist, kann es schwierig sein, alle Daten gleichzeitig zu sichern.
-
 
 Die ordnungsgemäße Ausführung von Sicherungs- und Wiederherstellungsvorgängen erfordert eine enge Koordination zwischen den Sicherungsanwendungen, den zu sichernden Branchenanwendungen und der Speicherverwaltungshardware und -software. Der Volumeschattenkopie-Dienst (Volume Shadow Copy Service oder VSS), der in Windows Server® 2003 eingeführt wurde, ermöglicht die Konversation zwischen diesen Komponenten, damit diese besser zusammenarbeiten können. Wenn alle Komponenten VSS unterstützen, können Sie sie verwenden, um Ihre Anwendungsdaten zu sichern, ohne die Anwendungen offline zu schalten.
 
@@ -62,7 +59,7 @@ Für eine vollständige VSS-Lösung sind alle der folgenden grundlegenden Kompon
 
 Im folgenden Diagramm wird veranschaulicht, wie der VSS-Dienst Anforderer, Writer und Anbieter koordiniert, um eine Schattenkopie eines Volumes zu erstellen.
 
-![](media/volume-shadow-copy-service/Ee923636.94dfb91e-8fc9-47c6-abc6-b96077196741(WS.10).jpg)
+![Architekturdiagramm des Volumeschattenkopie-Diensts](media/volume-shadow-copy-service/Ee923636.94dfb91e-8fc9-47c6-abc6-b96077196741(WS.10).jpg)
 
 **Abbildung 1**   Architekturdiagramm des Volumeschattenkopie-Diensts
 
@@ -70,7 +67,7 @@ Im folgenden Diagramm wird veranschaulicht, wie der VSS-Dienst Anforderer, Write
 
 Dieser Abschnitt setzt die verschiedenen Rollen von Anforderer, Writer und Anbieter in einen Kontext, indem die Schritte aufgelistet werden, die zum Erstellen einer Schattenkopie ausgeführt werden müssen. Das folgende Diagramm zeigt, wie der Volumeschattenkopie-Dienst die Gesamtkoordination von Anforderer, Writer und des Anbieter steuert.
 
-![](media/volume-shadow-copy-service/Ee923636.1c481a14-d6bc-4796-a3ff-8c6e2174749b(WS.10).jpg)
+![Diagramm der Funktionsweise des Volumeschattenkopie-Diensts](media/volume-shadow-copy-service/Ee923636.1c481a14-d6bc-4796-a3ff-8c6e2174749b(WS.10).jpg)
 
 **Abbildung 2**Erstellungsvorgang für Schattenkopie
 
@@ -309,7 +306,7 @@ Wenn der Volumeschattenkopie-Dienst und ein Speicherarray mit einem Hardwareanbi
 
 3.  Die Daten können jetzt verwendet werden.
 
-![](media/volume-shadow-copy-service/Ee923636.633752e0-92f6-49a7-9348-f451b1dc0ed7(WS.10).jpg)
+![Diagramm des Transports einer Schattenkopie zwischen zwei Servern](media/volume-shadow-copy-service/Ee923636.633752e0-92f6-49a7-9348-f451b1dc0ed7(WS.10).jpg)
 
 **Abbildung 3**   Erstellen von Schattenkopien und Übertragung zwischen zwei Servern
 
@@ -577,7 +574,7 @@ In der folgenden Tabelle sind die Mindestanforderungen für die unterstützten C
 </colgroup>
 <thead>
 <tr class="header">
-<th><img src="media/volume-shadow-copy-service/Dd560667.note(WS.10).gif" />Hinweis</th>
+<th>Hinweis</th>
 </tr>
 </thead>
 <tbody>
