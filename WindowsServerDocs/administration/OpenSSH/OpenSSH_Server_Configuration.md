@@ -4,14 +4,13 @@ description: Konfigurationsinformationen zu OpenSSH Server für Windows 10 1809 
 ms.date: 09/27/2018
 ms.topic: conceptual
 contributor: maertendMSFT
-ms.product: windows-server
 author: maertendmsft
-ms.openlocfilehash: abd156936bbd26479b0fe6bb7ffb98c1dd122f8e
-ms.sourcegitcommit: 771db070a3a924c8265944e21bf9bd85350dd93c
+ms.openlocfilehash: 4e2052ef9bf67eea241b6668a734f2f3e166bb61
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85469755"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87992386"
 ---
 # <a name="openssh-server-configuration-for-windows-10-1809-and-server-2019"></a>Konfiguration des OpenSSH-Servers für Windows 10 1809 und Windows Server 2019
 
@@ -64,7 +63,7 @@ Aus diesem Grund wird * zum Abdecken von FQDNs hinzugefügt.
 Außerdem verwendet dieser Ansatz ? anstelle von @, um Konflikte mit dem Format username@host zu vermeiden.
 
 Arbeitsgruppenbenutzer, Gruppen und mit dem Internet verbundene Konten werden stets in Ihren lokalen Kontonamen aufgelöst (ohne Domänenteil vergleichbar mit UNIX-Standardnamen).
-Domänenbenutzer und -gruppen werden streng in das Format [NameSamCompatible](https://docs.microsoft.com/windows/desktop/api/secext/ne-secext-extended_name_format) aufgelöst: Kurzname_der_Domäne\Benutzername.
+Domänenbenutzer und -gruppen werden streng in das Format [NameSamCompatible](/windows/desktop/api/secext/ne-secext-extended_name_format) aufgelöst: Kurzname_der_Domäne\Benutzername.
 Alle Benutzer-/gruppenbasierten Konfigurationsregeln müssen sich an dieses Format halten.
 
 Beispiele für Domänenbenutzer und -gruppen
@@ -149,4 +148,3 @@ Die folgenden Konfigurationsoptionen sind in der OpenSSH-Version unter Windows S
 * X11Forwarding
 * X11UseLocalhost
 * XAuthLocation
-

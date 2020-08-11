@@ -1,7 +1,6 @@
 ---
 title: Schützen deiner Organisation mit Arbeitsstationen mit privilegiertem Zugriff
 description: Erhöhen der Sicherheit deiner Organisation durch Arbeitsstationen mit privilegiertem Zugriff
-ms.prod: windows-server
 ms.topic: article
 ms.assetid: 93589778-3907-4410-8ed5-e7b6db406513
 ms.date: 03/13/2019
@@ -9,12 +8,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: mas
-ms.openlocfilehash: b51255a0ac0120847e3eb05a373535bc1b7f5d44
-ms.sourcegitcommit: 3632b72f63fe4e70eea6c2e97f17d54cb49566fd
+ms.openlocfilehash: 6a7e916c78ad7b2711268f02bcf028dfb2621303
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87520159"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87991868"
 ---
 # <a name="privileged-access-workstations"></a>Arbeitsstationen mit privilegiertem Zugriff
 
@@ -138,7 +137,7 @@ Diese Methode eignet sich für Konten mit Zugriff auf hochwertige Assets:
 * **Information Worker mit hoher Sicherheitsstufe**: PAWs bieten auch Schutz für Mitarbeiter, die mit hochsensiblen Informationen zu tun haben, z. B. bei Aktivitäten in Zusammenhang mit einer Unternehmensfusion, bevor diese bekanntgegeben wird. Andere Beispiele sind Finanzberichte vor der Veröffentlichung, die Darstellung einer Organisation in sozialen Medien, Kommunikation der Geschäftsleitung, noch nicht patentierte Geschäftsgeheimnisse, vertrauliche Recherchen sowie andere vertrauliche oder sensible Daten. Der vorliegende Leitfaden erläutert nicht die detaillierte Konfiguration solcher Information Worker-Szenarien, auch wird das Szenario nicht in den technischen Anweisungen behandelt.
 
     > [!NOTE]
-    > Die Microsoft-IT-Abteilung verwendet PAWs (die intern als „Sichere Arbeitsstationen für Administratoren“ [Secure Admin Workstations, SAWs] bezeichnet werden), um den sicheren Zugriff auf diese wertvollen Microsoft-internen Systeme zu verwalten. Im Abschnitt „Verwendung von Arbeitsstationen für Administratoren bei Microsoft“ finden Sie weitere Informationen dazu, wie Microsoft PAWs einsetzt. Ausführlichere Informationen zu diesem Ansatz für eine Umgebung mit höchst wertvollen Assets finden Sie im Artikel [Schützen von wertvollen Assets mit sicheren Arbeitsstationen für Administratoren](/previous-versions//mt186538(v=technet.10)).
+    > Die Microsoft-IT-Abteilung verwendet PAWs (die intern als „Sichere Arbeitsstationen für Administratoren“ [Secure Admin Workstations, SAWs] bezeichnet werden), um den sicheren Zugriff auf diese wertvollen Microsoft-internen Systeme zu verwalten. Im Abschnitt „Verwendung von Arbeitsstationen für Administratoren bei Microsoft“ finden Sie weitere Informationen dazu, wie Microsoft PAWs einsetzt. Ausführlichere Informationen zu diesem Ansatz für eine Umgebung mit höchst wertvollen Assets finden Sie im Artikel [Schützen von wertvollen Assets mit sicheren Arbeitsstationen für Administratoren](/previous-versions/mt186538(v=technet.10)).
 
 Das vorliegende Dokument erläutert, warum diese Vorgehensweise zum Schutz von privilegierten Konten mit weitreichenden Berechtigungen empfohlen wird, wie diese PAW-Lösungen zum Schutz von Administratorrechten aussehen und wie Sie schnell eine PAW-Lösung für die Verwaltung von Domänen- und Clouddiensten bereitstellen.
 
@@ -1086,7 +1085,7 @@ Nachdem der Vorlagendatenträger und die geschützte Datendatei bereit sind, kan
 
 [Device Guard – Übersicht](/windows/security/threat-protection/device-guard/introduction-to-device-guard-virtualization-based-security-and-windows-defender-application-control)
 
-[Schützen wertvoller Ressourcen mit sicheren Arbeitsstationen für Administratoren](/previous-versions//mt186538(v=technet.10))
+[Schützen wertvoller Ressourcen mit sicheren Arbeitsstationen für Administratoren](/previous-versions/mt186538(v=technet.10))
 
 [Isolierter Benutzermodus in Windows 10 mit Dave Probert (Channel 9)](https://channel9.msdn.com/Blogs/Seth-Juarez/Isolated-User-Mode-in-Windows-10-with-Dave-Probert)
 

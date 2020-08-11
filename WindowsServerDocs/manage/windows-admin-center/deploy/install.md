@@ -1,19 +1,17 @@
 ---
 title: Installieren von Windows Admin Center
 description: Hier erfahren Sie, wie Sie Windows Admin Center auf einem Windows-PC oder auf einem Servern installieren, sodass mehrere Benutzer mit einem Webbrowser auf Windows Admin Center zugreifen können.
-ms.technology: manage
 ms.topic: article
 author: jwwool
 ms.author: jeffrew
 ms.date: 07/17/2019
 ms.localizationpriority: medium
-ms.prod: windows-server
-ms.openlocfilehash: cab128a3da9fa58c598cebcdf188058631c33977
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: df5e7e2c23b9120a890b34448868ec4d5b1c99b3
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "75950001"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87997409"
 ---
 # <a name="install-windows-admin-center"></a>Installieren von Windows Admin Center
 
@@ -27,7 +25,7 @@ In diesem Thema wird beschrieben, wie Sie Windows Admin Center auf einem Windows
 
 ## <a name="determine-your-installation-type"></a>Bestimmen des Installationstyps
 
-Überprüfen Sie die [Installationsoptionen](../plan/installation-options.md), einschließlich der [unterstützten Betriebssysteme](https://docs.microsoft.com/windows-server/manage/windows-admin-center/plan/installation-options#installation-supported-operating-systems). Informationen zum Installieren von Windows Admin Center auf einem virtuellen Computer in Azure finden Sie unter [Bereitstellen von Windows Admin Center in Azure](../azure/deploy-wac-in-azure.md).
+Überprüfen Sie die [Installationsoptionen](../plan/installation-options.md), einschließlich der [unterstützten Betriebssysteme](../plan/installation-options.md#installation-supported-operating-systems). Informationen zum Installieren von Windows Admin Center auf einem virtuellen Computer in Azure finden Sie unter [Bereitstellen von Windows Admin Center in Azure](../azure/deploy-wac-in-azure.md).
 
 ## <a name="install-on-windows-10"></a>Installieren unter Windows 10
 
@@ -61,7 +59,7 @@ Wenn Sie über eine Server Core-Installationsoption von Windows Server verfügen
 
 Führen Sie den folgenden Befehl zum Installieren von Windows Admin Center und automatischen Generieren eines selbstsignierten Zertifikats aus:
 
-```   
+```
 msiexec /i <WindowsAdminCenterInstallerName>.msi /qn /L*v log.txt SME_PORT=<port> SSL_CERTIFICATE_OPTION=generate
 ```
 

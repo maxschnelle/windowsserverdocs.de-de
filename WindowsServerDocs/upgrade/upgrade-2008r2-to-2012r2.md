@@ -1,18 +1,16 @@
 ---
 title: Upgrade von Windows Server 2008 R2 auf Windows Server 2012 R2 | Microsoft-Dokumentation
 description: Erfahren Sie, wie Sie ein direktes Upgrade von Windows Server 2008 R2 auf Windows Server 2012 R2 durchführen.
-ms.prod: windows-server
-ms.technology: server-general
 ms.topic: upgrade
 author: RobHindman
 ms.author: robhind
 ms.date: 09/16/2019
-ms.openlocfilehash: 7598826bee4abd869dff82c3891fdbe126db35fb
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: fad4caf75be75bae5361a99f1e6e6520767680cd
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87182176"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87996095"
 ---
 # <a name="upgrade-windows-server-2008-r2-to-windows-server-2012-r2"></a>Upgrade von Windows Server 2008 R2 auf Windows Server 2012 R2
 
@@ -66,7 +64,7 @@ Nachdem Sie alle mit Windows Server zusammenhängenden Informationen gesammelt h
 
     ![Bildschirm zur Auswahl Ihres Installationstyps](media/upgrade-2008r2-2012r2/choose-install-upgrade.png)
 
-9. Setup fordert Sie auf, anhand der Informationen im Artikel [Windows Server: Installation und Upgrade](https://docs.microsoft.com/windows-server/get-started/installation-and-upgrade) sicherzustellen, dass Ihre Apps mit Windows Server 2012 R2 kompatibel sind, und dann **Weiter** auszuwählen.
+9. Setup fordert Sie auf, anhand der Informationen im Artikel [Windows Server: Installation und Upgrade](../get-started/installation-and-upgrade.md) sicherzustellen, dass Ihre Apps mit Windows Server 2012 R2 kompatibel sind, und dann **Weiter** auszuwählen.
 
     ![Bildschirm zur Aufforderung zur Überprüfung der App-Kompatibilität](media/upgrade-2008r2-2012r2/compatibility-report.png)
 

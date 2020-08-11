@@ -1,19 +1,17 @@
 ---
 title: Konfigurieren der Benutzerzugriffssteuerung und von Berechtigungen
 description: Erfahre, wie du die Benutzerzugriffssteuerung und Berechtigungen mithilfe von Active Directory oder Azure AD (Project Honolulu) konfigurierst.
-ms.technology: manage
 ms.topic: article
 author: haley-rowland
 ms.author: harowl
 ms.date: 06/07/2019
 ms.localizationpriority: medium
-ms.prod: windows-server
-ms.openlocfilehash: 0de38560301d4d793214846036850a05a5d5a326
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: 99fafcb5a42133baeb119a9857a2e05b7e3dbd89
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87182206"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87997413"
 ---
 # <a name="configure-user-access-control-and-permissions"></a>Konfigurieren der Benutzerzugriffssteuerung und von Berechtigungen
 
@@ -82,7 +80,7 @@ Benutzer und Administratoren können auf der Registerkarte **Konto** in den Wind
 
 ### <a name="configuring-azure-active-directory-authentication-for-windows-admin-center"></a>Konfigurieren der Azure Active Directory-Authentifizierung für Windows Admin Center
 
-[Um Azure AD-Authentifizierung einzurichten, musst du zuerst dein Gateway bei Azure registrieren](azure-integration.md) (du musst dies nur einmal für dein Windows Admin Center-Gateway durchführen). In diesem Schritt wird eine Azure AD Anwendung erstellt, mit der du den Gatewaybenutzer- und Gatewayadministratorzugriff verwalten kannst.
+[Um Azure AD-Authentifizierung einzurichten, musst du zuerst dein Gateway bei Azure registrieren](../azure/azure-integration.md) (du musst dies nur einmal für dein Windows Admin Center-Gateway durchführen). In diesem Schritt wird eine Azure AD Anwendung erstellt, mit der du den Gatewaybenutzer- und Gatewayadministratorzugriff verwalten kannst.
 
 Wenn du bestimmten Azure AD-Benutzern oder -Gruppen Gatewaybenutzer- oder Gatewayadministratorzugriff auf den Windows Admin Center-Dienst erteilen möchtest, gehe wie folgt vor:
 
@@ -103,7 +101,7 @@ Auf der Registerkarte **Azure** in den allgemeinen Windows Admin Center-Einstell
 
 Einer der Vorteile der Verwendung von Azure AD als zusätzliche Sicherheitsschicht zum Steuern des Zugriffs auf das Windows Admin Center-Gateway besteht darin, dass du die leistungsstarken Sicherheitsfeatures von Azure AD nutzen kannst wie bedingten Zugriff und mehrstufige Authentifizierung.
 
-[Weitere Informationen zum Konfigurieren des bedingten Zugriffs mit Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal-get-started).
+[Weitere Informationen zum Konfigurieren des bedingten Zugriffs mit Azure Active Directory](/azure/active-directory/active-directory-conditional-access-azure-portal-get-started).
 
 ## <a name="configure-single-sign-on"></a>Konfigurieren des einmaligen Anmeldens
 
@@ -111,7 +109,7 @@ Einer der Vorteile der Verwendung von Azure AD als zusätzliche Sicherheitsschic
 
 Wenn du Windows Admin Center unter Windows 10 installierst, ist es bereit für die Verwendung der einmaligen Anmeldung. Wenn du Windows Admin Center unter Windows Server verwenden möchtest, musst du jedoch eine Form der Kerberos-Delegierung in deiner Umgebung einrichten, bevor du einmaliges Anmelden verwenden kannst. Die Delegierung konfiguriert den Gatewaycomputer als vertrauenswürdig für die Delegierung an den Zielknoten.
 
-Um [ressourcenbasierte eingeschränkte Delegierung](https://docs.microsoft.com/windows-server/security/kerberos/kerberos-constrained-delegation-overview) in deiner Umgebung zu konfigurieren, verwendest du folgendes PowerShell-Beispiel. Dieses Beispiel zeigt, wie du einen Windows-Server [node01.contoso.com] so konfigurierst, dass die Delegierung von deinem Windows Admin Center-Gateway [wac.contoso.com] in der Domäne „contoso.com“ akzeptiert wird.
+Um [ressourcenbasierte eingeschränkte Delegierung](../../../security/kerberos/kerberos-constrained-delegation-overview.md) in deiner Umgebung zu konfigurieren, verwendest du folgendes PowerShell-Beispiel. Dieses Beispiel zeigt, wie du einen Windows-Server [node01.contoso.com] so konfigurierst, dass die Delegierung von deinem Windows Admin Center-Gateway [wac.contoso.com] in der Domäne „contoso.com“ akzeptiert wird.
 
 ```powershell
 Set-ADComputer -Identity (Get-ADComputer node01) -PrincipalsAllowedToDelegateToAccount (Get-ADComputer wac)

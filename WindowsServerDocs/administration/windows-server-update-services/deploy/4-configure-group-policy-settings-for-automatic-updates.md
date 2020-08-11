@@ -1,20 +1,18 @@
 ---
 title: 'Schritt 4: Konfigurieren von Gruppenrichtlinien für „Automatische Updates“'
 description: 'Thema zu Windows Server Update Service (WSUS): „Konfigurieren von Gruppenrichtlinieneinstellungen für ‚Automatische Updates‘“ ist Schritt 4 in einem vierstufigen Verfahren zum Bereitstellen von WSUS'
-ms.prod: windows-server
-ms.technology: manage-wsus
 ms.topic: article
 ms.assetid: 62177d05-d832-4ea8-bca4-47a8cd34a19c
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d678c139ae2327eeecdff2731f1edb57d358a28a
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: ca59369cda4c38af111b9ccd3141219b1516cbd7
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80828843"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87991098"
 ---
 # <a name="step-4-configure-group-policy-settings-for-automatic-updates"></a>Schritt 4: Konfigurieren von Gruppenrichtlinien für „Automatische Updates“
 
@@ -639,7 +637,7 @@ Nachfolgend wird beschrieben, wie Sie die Gruppenrichtlinien-Verwaltungskonsole 
 
     -   **Öffnen Sie die Gruppenrichtlinienerweiterung „Computerkonfiguration> Wartungszeitplan“** . Navigieren Sie im Gruppenrichtlinienobjekt-Editor zu *Richtlinienname* > **Computerkonfiguration** > **Richtlinien** > **Administrative Vorlagen** > **Windows-Komponenten** > **Wartungszeitplan**.
 
-Weitere Informationen zu Gruppenrichtlinien finden Sie unter [Übersicht über Gruppenrichtlinien](https://technet.microsoft.com/library/hh831791.aspx(v=ws.12)).
+Weitere Informationen zu Gruppenrichtlinien finden Sie unter [Übersicht über Gruppenrichtlinien](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831791(v=ws.11)).
 
 > [!TIP]
 > Nachdem Sie die gewünschte Gruppenrichtlinienerweiterung geöffnet haben, können Sie mit den folgenden Schritten die Einstellungen aktivieren, deaktivieren oder zwischen ihnen wechseln:

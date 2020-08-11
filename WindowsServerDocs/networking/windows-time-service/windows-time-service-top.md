@@ -1,19 +1,17 @@
 ---
 ms.assetid: e34622ff-b2d0-4f81-8d00-dacd5d6c215e
-title: Windows-Zeitdienst
+title: Windows-Zeitdienst (W32Time)
 author: dcuomo
 ms.author: dacuo
 manager: dougkim
 ms.date: 05/08/2018
 ms.topic: article
-ms.prod: windows-server
-ms.technology: networking
-ms.openlocfilehash: 5dbb0db20f7100ed7dbe99587f201f38abf632ad
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 2bd28bc9e774ebdd30c81397bfe3a3bb6320a679
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80815903"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87997384"
 ---
 # <a name="windows-time-service-w32time"></a>Windows-Zeitdienst (W32Time)
 
@@ -32,9 +30,9 @@ Im Thema „Windows-Zeitdienst (W32Time)“ findest du folgenden Inhalt:
 
 
 ## <a name="related-topics"></a>Verwandte Themen
-Weitere Informationen zur Domänenhierarchie und zum Bewertungssystem findest du im Blogbeitrag [„Was ist der Windows-Zeitdienst?“](https://blogs.msdn.microsoft.com/w32time/2007/07/07/what-is-windows-time-service/) .
+Weitere Informationen zur Domänenhierarchie und zum Bewertungssystem findest du im Blogbeitrag [„Was ist der Windows-Zeitdienst?“](/archive/blogs/w32time/what-is-windows-time-service) .
 
-Das Windows-Zeitanbieter-Plug-In-Modell ist [auf TechNet dokumentiert](https://msdn.microsoft.com/library/windows/desktop/ms725475%28v=vs.85%29.aspx).
+Das Windows-Zeitanbieter-Plug-In-Modell ist [auf TechNet dokumentiert](/windows/win32/sysinfo/time-provider).
 
 Ein Nachtrag, auf den im Artikel „Windows 2016 – Genaue Uhrzeit“ verwiesen wird, kann [hier](https://windocs.blob.core.windows.net/windocs/WindowsTimeSyncAccuracy_Addendum.pdf) heruntergeladen werden.
 

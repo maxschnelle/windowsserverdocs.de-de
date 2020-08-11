@@ -1,20 +1,18 @@
 ---
 title: Planen der WSUS-Bereitstellung
 description: 'Thema zu Windows Server Update Service (WSUS): Übersicht über den Planungsprozess für die Bereitstellung mit Links zu den verwandten Themen'
-ms.prod: windows-server
-ms.technology: manage-wsus
 ms.topic: article
 ms.assetid: 35865398-b011-447a-b781-1c52bc0c9e3a
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 05/24/2018
-ms.openlocfilehash: de4fe62b179286f058a9c4508e9f907eeb9ae806
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: 8e6aaaef666577db134d5d5bb42feffb38cb5a36
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87178576"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87990941"
 ---
 # <a name="plan-your-wsus-deployment"></a>Planen der WSUS-Bereitstellung
 
@@ -101,14 +99,14 @@ Beachten Sie, dass das Konfigurieren von Clientcomputern (einschließlich Server
 2. Windows-Client-Editionen können .NET 3.5 nicht bei Bedarf über das Web installieren. Die gleichen Überlegungen wie Serverrollen gelten für .NET 3.5.
 
    > [!NOTE]
-   > Das Konfigurieren einer Installationsquelle für „Features bei Bedarf“ umfasst nicht WSUS. Informationen zum Konfigurieren von Features finden Sie unter [Configure Features on Demand in Windows Server](https://technet.microsoft.com/library/jj127275.aspx).
+   > Das Konfigurieren einer Installationsquelle für „Features bei Bedarf“ umfasst nicht WSUS. Informationen zum Konfigurieren von Features finden Sie unter [Configure Features on Demand in Windows Server](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj127275(v=ws.11)).
 
 3. Auf Unternehmensgeräten, auf denen Windows 10, Version 1709 oder Version 1803 ausgeführt wird, können „Features bei Bedarf“ nicht direkt über WSUS installiert werden. Um „Features bei Bedarf“ zu installieren, erstellen Sie [eine Featuredatei (oder einen Seite-an-Seite-Speicher)](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj127275%28v=ws.11%29#create-a-feature-file-or-side-by-side-store), oder beziehen Sie das „Features bei Bedarf“-Paket aus einer der folgenden Quellen:
    - [Volume Licensing Service Center](https://www.microsoft.com/licensing/servicecenter) (VLSC): VL-Zugriff erforderlich
    - OEM-Portal: OEM-Zugriff erforderlich
    - MSDN-Download: MSDN-Abonnement erforderlich
 
-     Einzeln bezogene „Features bei Bedarf“-Pakete können über [DISM-Befehlszeilenoptionen](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-operating-system-package-servicing-command-line-options) installiert werden.
+     Einzeln bezogene „Features bei Bedarf“-Pakete können über [DISM-Befehlszeilenoptionen](/windows-hardware/manufacture/desktop/dism-operating-system-package-servicing-command-line-options) installiert werden.
 
 ### <a name="wsus-database-requirements"></a>WSUS-Datenbankanforderungen
 WSUS erfordert eine der folgenden Datenbanken:
@@ -244,9 +242,9 @@ In den folgenden Fällen wird empfohlen, die interne Windows-Datenbank zu verwen
 
 Die interne Windows-Datenbank stellt keine Benutzeroberfläche oder Tools zur Datenbankverwaltung bereit. Wenn Sie diese Datenbank für WSUS verwenden, müssen Sie sie mit externen Tools verwalten. Weitere Informationen finden Sie unter:
 
--   [Sicherung und Wiederherstellung von WSUS-Daten und Sichern des Servers](https://technet.microsoft.com/library/dd939904(WS.10).aspx)
+-   [Sicherung und Wiederherstellung von WSUS-Daten und Sichern des Servers](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd939904(v=ws.10))
 
--   [Neuindizieren der WSUS-Datenbank](https://technet.microsoft.com/library/dd939795(WS.10).aspx)
+-   [Neuindizieren der WSUS-Datenbank](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd939795(v=ws.10))
 
 #### <a name="wsus-with-sql-server"></a>WSUS mit SQL Server
 In den folgenden Fällen wird empfohlen, SQL Server mit WSUS zu verwenden:
@@ -324,7 +322,7 @@ Das Auswählen von Sprachen für einen Upstreamserver ist nicht dasselbe wie das
 WSUS bietet Ihnen die Möglichkeit, Updates gezielt auf Gruppen von Clientcomputern anzuwenden, sodass Sie sicherstellen können, dass bestimmte Computer immer zum geeigneten Zeitpunkt die richtigen Updates erhalten. Wenn z. B. für alle Computer in einer Abteilung (z. B. im Buchhaltungsteam) eine bestimmte Konfiguration verwendet wird, können Sie eine Gruppe für das Team erstellen, entscheiden, welche Updates für die Computer erforderlich sind und wann sie installiert werden sollen, und anschließend mithilfe von WSUS-Berichten die Updates für das Team auswerten.
 
 > [!NOTE]
-> Auf einem im Replikatmodus ausgeführten WSUS-Server können keine Computergruppen erstellt werden. Alle Computergruppen, die für Clientcomputer des Replikatservers erforderlich sind, müssen auf dem WSUS-Stammserver der WSUS-Serverhierarchie erstellt werden. Weitere Informationen zum Replikatmodus finden Sie unter [Verwalten von WSUS-Replikatservern](https://technet.microsoft.com/library/dd939893(WS.10).aspx) im Betriebshandbuch für WSUS 3.0 SP2.
+> Auf einem im Replikatmodus ausgeführten WSUS-Server können keine Computergruppen erstellt werden. Alle Computergruppen, die für Clientcomputer des Replikatservers erforderlich sind, müssen auf dem WSUS-Stammserver der WSUS-Serverhierarchie erstellt werden. Weitere Informationen zum Replikatmodus finden Sie unter [Verwalten von WSUS-Replikatservern](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd939893(v=ws.10)) im Betriebshandbuch für WSUS 3.0 SP2.
 
 Computer sind immer der Gruppe **Alle Computer** zugewiesen und bleiben in der Gruppe **Nicht zugewiesene Computer**, bis Sie sie einer anderen Gruppe zuweisen. Computer können mehreren Gruppen angehören.
 
@@ -436,14 +434,14 @@ Nicht alle Updates eignen sich für die Verteilung mittels Schnellinstallationsd
 ### <a name="large-update-deployment"></a>Große Updatebereitstellung
 Mithilfe der folgenden Methoden können Sie beim Bereitstellen großer Updates (z. B. Service Packs) eine Überlastung des Netzwerks verhindern:
 
-1.  Verwenden Sie die Bandbreiteneinschränkung des intelligenten Hintergrundübertragungsdiensts (BITS). BITS-Bandbreiteneinschränkungen können nach Tageszeit gesteuert werden, sie gelten jedoch für alle Anwendungen, für die BITS verwendet wird. Informationen zur Steuerung der BITS-Drosselung finden Sie unter [Gruppenrichtlinien](https://msdn.microsoft.com/library/windows/desktop/aa362844(v=vs.85).aspx).
+1.  Verwenden Sie die Bandbreiteneinschränkung des intelligenten Hintergrundübertragungsdiensts (BITS). BITS-Bandbreiteneinschränkungen können nach Tageszeit gesteuert werden, sie gelten jedoch für alle Anwendungen, für die BITS verwendet wird. Informationen zur Steuerung der BITS-Drosselung finden Sie unter [Gruppenrichtlinien](/windows/win32/bits/group-policies).
 
 2.  Verwenden Sie die Bandbreiteneinschränkung der Internetinformationsdienste (Internet Information Services, IIS), um die Einschränkung auf einen oder mehrere Webdienste zu beschränken.
 
 3.  Verwenden Sie Computergruppen, um das Rollout zu steuern. Ein Clientcomputer identifiziert sich selbst als Mitglied einer bestimmten Computergruppe, wenn er Informationen an den WSUS-Server sendet. Der WSUS-Server ermittelt anhand dieser Informationen, welche Updates auf dem Computer bereitgestellt werden müssen. Sie können mehrere Computergruppen einrichten und Downloads großer Service Packs nacheinander für eine Teilmenge dieser Gruppen genehmigen.
 
 ### <a name="background-intelligent-transfer-service"></a>Intelligenter Hintergrundübertragungsdienst (Background Intelligent Transfer Service, BITS)
-WSUS verwendet das BITS-Protokoll für alle Dateiübertragungsaufgaben. Dies beinhaltet Downloads auf Clientcomputer und Serversynchronisierungen. Mithilfe von BITS können Programme Dateien mit wenig Bandbreite herunterladen. BITS verwaltet Dateiübertragungen durch Trennen von Netzwerkverbindungen und Computerneustarts. Weitere Informationen finden Sie unter: [Intelligenter Hintergrundübertragungsdienst (Background Intelligent Transfer Service, BITS)](https://msdn.microsoft.com/library/bb968799.aspx).
+WSUS verwendet das BITS-Protokoll für alle Dateiübertragungsaufgaben. Dies beinhaltet Downloads auf Clientcomputer und Serversynchronisierungen. Mithilfe von BITS können Programme Dateien mit wenig Bandbreite herunterladen. BITS verwaltet Dateiübertragungen durch Trennen von Netzwerkverbindungen und Computerneustarts. Weitere Informationen finden Sie unter: [Intelligenter Hintergrundübertragungsdienst (Background Intelligent Transfer Service, BITS)](/windows/win32/bits/background-intelligent-transfer-service-portal).
 
 ## <a name="17-plan-automatic-updates-settings"></a>1.7. Planen der Einstellungen für automatische Updates
 Sie können einen Stichtag für die Genehmigung von Updates auf dem WSUS-Server festlegen. Der Stichtag führt dazu, dass Clientcomputer das Update zu einem bestimmten Zeitpunkt installieren. Abhängig davon, ob der Stichtag abgelaufen ist, andere zu installierende Updates für den Computer in der Warteschlange vorhanden sind und das Update (oder ein anderes Update in der Warteschlange) einen Neustart erfordert, können jedoch unterschiedliche Situationen auftreten.
@@ -463,4 +461,3 @@ Zum geplanten Zeitpunkt installiert %%amp;quot;Automatische Updates%%amp;quot; d
 Wenn der Computer neu gestartet werden muss und ein Benutzer angemeldet ist, wird ein ähnliches Countdowndialogfeld angezeigt, um den Benutzer über den bevorstehenden Neustart zu informieren. Die Einstellungen für Computerneustarts können mit dem Feature %%amp;quot;Gruppenrichtlinie%%amp;quot; bearbeitet werden.
 
 Nachdem die neuen Updates heruntergeladen wurden, ruft %%amp;quot; Automatische Updates%%amp;quot; die Liste genehmigter Pakete vom WSUS-Server ab, um zu überprüfen, ob die heruntergeladenen Pakete noch gültig und genehmigt sind. Entfernt ein WSUS-Administrator Updates aus der Liste genehmigter Updates, während Updates von %%amp;quot;Automatische Updates%%amp;quot; heruntergeladen werden, werden somit nur die Updates installiert, die noch immer genehmigt sind.
-

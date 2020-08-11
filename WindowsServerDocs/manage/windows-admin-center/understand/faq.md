@@ -1,19 +1,17 @@
 ---
 title: Häufig gestellte Fragen zu Windows Admin Center
 description: Antworten zum Windows Admin Center (Projekt Honolulu)
-ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
 ms.author: niwashbu
 ms.localizationpriority: medium
 ms.date: 12/02/2019
-ms.prod: windows-server
-ms.openlocfilehash: 4125a3f427bd19ae7461aaaef058a558722d1987
-ms.sourcegitcommit: b35fbd2a67d7a3395b50b2a3acd0817ba4e36b26
+ms.openlocfilehash: 2b1b6c8665e289647fe793125e7cc4c5024b4135
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/22/2020
-ms.locfileid: "86891375"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87993533"
 ---
 # <a name="windows-admin-center-frequently-asked-questions"></a>Häufig gestellte Fragen zu Windows Admin Center
 
@@ -104,12 +102,12 @@ Der Datenverkehr vom Browser zum Windows Admin Center-Gateway verwendet HTTPS. D
 
 Ja, in einigen Fällen erfordert Windows Admin Center CredSSP. Dies ist erforderlich, um Ihre Anmeldeinformationen an Computer jenseits des spezifischen Servers zu übergeben, der Ihr Verwaltungsziel darstellt. Angenommen, Sie verwalten virtuelle Computer auf **server B**, möchten aber die VHDX-Dateien für diese virtuellen Computer auf einer Dateifreigabe speichern, die von **server C** gehostet wird, dann muss Windows Admin Center CredSSP für die Authentifizierung bei **server C** verwenden, um auf die Dateifreigabe zuzugreifen.
 
-Windows Admin Center übernimmt die Konfiguration von CredSSP automatisch, nachdem es Ihre Zustimmung eingeholt hat. Bevor es CredSSP konfiguriert, überprüft Windows Admin Center, ob das System über die aktuellen CredSSP-[Updates](https://support.microsoft.com/help/4093492/credssp-updates-for-cve-2018-0886-march-13-2018) verfügt. 
+Windows Admin Center übernimmt die Konfiguration von CredSSP automatisch, nachdem es Ihre Zustimmung eingeholt hat. Bevor es CredSSP konfiguriert, überprüft Windows Admin Center, ob das System über die aktuellen CredSSP-[Updates](https://support.microsoft.com/help/4093492/credssp-updates-for-cve-2018-0886-march-13-2018) verfügt.
 
 CredSSP wird zurzeit in den folgenden Bereichen verwendet:
 
 - Beim Einsatz von verstreutem SMB-Speicher im VM-Tool (das Beispiel oben.)
-- Bei Verwendung des Updates-Tools in der Clusterverwaltungslösung für Failover oder für hyperkonvertente Cluster, das eine [clusterfähige Aktualisierung](https://docs.microsoft.com/windows-server/failover-clustering/cluster-aware-updating) ausführt. 
+- Bei Verwendung des Updates-Tools in der Clusterverwaltungslösung für Failover oder für hyperkonvertente Cluster, das eine [clusterfähige Aktualisierung](../../../failover-clustering/cluster-aware-updating.md) ausführt.
 
 ## <a name="are-there-any-cloud-dependencies"></a>Gibt es Abhängigkeiten mit der Cloud?
 
@@ -164,4 +162,4 @@ Unsere [Startseite](https://aka.ms/WindowsAdminCenter) ist der beste Ausgangspun
 
 ## <a name="im-having-an-issue-with-windows-admin-center-where-can-i-get-help"></a>Ich habe ein Problem mit Windows Admin Center, wo erhalte ich Hilfe?
 
-Lesen Sie unseren [Leitfaden zur Problembehandlung](../use/troubleshooting.md) und unsere Liste der [bekannten Probleme](../use/known-issues.md).
+Lesen Sie unseren [Leitfaden zur Problembehandlung](../support/troubleshooting.md) und unsere Liste der [bekannten Probleme](../support/known-issues.md).

@@ -1,19 +1,17 @@
 ---
 title: Vorbereiten der Umgebung für Windows Admin Center
 description: Vorbereiten der Umgebung für Windows Admin Center (Projekt Honolulu)
-ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
 ms.author: niwashbu
 ms.date: 06/07/2019
 ms.localizationpriority: medium
-ms.prod: windows-server
-ms.openlocfilehash: a37c7e8765ba6f83fc1ebe20aaba3dfb8bc29a3d
-ms.sourcegitcommit: b35fbd2a67d7a3395b50b2a3acd0817ba4e36b26
+ms.openlocfilehash: 5506918ed8da3a71c5ca078ce84502a3d889a386
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/22/2020
-ms.locfileid: "86891345"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87997460"
 ---
 # <a name="prepare-your-environment-for-windows-admin-center"></a>Vorbereiten der Umgebung für Windows Admin Center
 
@@ -35,7 +33,7 @@ Windows Admin Center erfordert PowerShell-Features, die nicht standardmäßig in
 
 Gebe `$PSVersiontable` in PowerShell ein, um zu prüfen, ob WMF 5.1 oder höher installiert ist.
 
-Wenn dies nicht der Fall ist, kannst du [herunterladen und WMF 5.1 installieren](https://docs.microsoft.com/powershell/scripting/wmf/setup/install-configure).
+Wenn dies nicht der Fall ist, kannst du [herunterladen und WMF 5.1 installieren](/powershell/scripting/wmf/setup/install-configure).
 
 ## <a name="prepare-microsoft-hyper-v-server-2016"></a>Vorbereiten von Microsoft Hyper-V Server 2016
 
@@ -93,7 +91,7 @@ Windows Admin Center erfordert PowerShell-Features, die in Microsoft Hyper-V Ser
 
 Gebe `$PSVersiontable` in PowerShell ein, um zu prüfen, ob WMF 5.1 oder höher installiert ist.
 
-Wenn es nicht installiert ist, kannst du [WMF 5.1](https://docs.microsoft.com/powershell/scripting/wmf/setup/install-configure) herunterladen.
+Wenn es nicht installiert ist, kannst du [WMF 5.1](/powershell/scripting/wmf/setup/install-configure) herunterladen.
 
 ### <a name="step-2-enable-remote-management"></a>Schritt 2: Aktivieren der Remoteverwaltung
 
@@ -129,4 +127,4 @@ Microsoft Hyper-V Server 2012 R2 ist jetzt für die Verwaltung mit Windows Adm
 Windows Admin Center verwendet das SMB-Dateifreigabeprotokoll für einige Dateikopieraufgaben, z. B. beim Importieren eines Zertifikats auf einem Remoteserver. Damit diese Dateikopiervorgänge erfolgreich sind, muss die Firewall auf dem Remoteserver eingehende Verbindungen an Port 445 zulassen.  Du kannst das Firewalltool in Windows Admin Center verwenden, um zu überprüfen, ob die Eingangsregel für „Dateiserver-Remoteverwaltung (SMB-In)“ so eingestellt ist, dass der Zugriff auf diesen Port zulässig ist.
 
 > [!Tip]
-> Bist du für die Installation von Windows Admin Center bereit? [Jetzt herunterladen](https://docs.microsoft.com/windows-server/manage/windows-admin-center/understand/windows-admin-center#download-now)
+> Bist du für die Installation von Windows Admin Center bereit? [Jetzt herunterladen](../overview.md#download-now)

@@ -1,20 +1,18 @@
 ---
 title: Optimieren von Windows 10, Version 1909, für eine VDI-Rolle (Virtual Desktop Infrastructure)
 description: Empfohlene Einstellungen und Konfiguration zum Minimieren des Mehraufwands für Windows 10-Desktops (Version 1909), die als VDI-Images verwendet werden.
-ms.prod: windows-server
 ms.reviewer: robsmi
-ms.technology: remote-desktop-services
 ms.author: helohr
 ms.topic: article
 author: heidilohr
 manager: lizross
 ms.date: 02/19/2020
-ms.openlocfilehash: 7568db50f09273b398955c314491b903f627d1a9
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: 7b9500c11ca5dba7ed2f51d1d6b32b7cf689f070
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87182096"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87997129"
 ---
 # <a name="optimizing-windows-10-version-1909-for-a-virtual-desktop-infrastructure-vdi-role"></a>Optimieren von Windows 10, Version 1909, für eine VDI-Rolle (Virtual Desktop Infrastructure)
 
@@ -195,7 +193,7 @@ Jede UWP-App sollte in jeder spezifischen Umgebung auf ihre Anwendbarkeit geprü
 
 ### <a name="manage-windows-optional-features-using-powershell"></a>Verwalten optionaler Windows-Features mit PowerShell
 
-Du kannst optionale Windows-Features mit PowerShell verwalten. Weitere Informationen finden Sie im [Windows Server PowerShell-Forum](https://docs.microsoft.com/answers/topics/windows-server-powershell.html). Liste die aktuell installierten Windows-Features mit folgendem PowerShell-Befehl auf:
+Du kannst optionale Windows-Features mit PowerShell verwalten. Weitere Informationen finden Sie im [Windows Server PowerShell-Forum](/answers/topics/windows-server-powershell.html). Liste die aktuell installierten Windows-Features mit folgendem PowerShell-Befehl auf:
 
 ```powershell
 Get-WindowsOptionalFeature -Online
@@ -715,7 +713,7 @@ Es gibt einige Registrierungseinstellungen, mit denen die Netzwerkleistung geste
 >[!NOTE]
 > Einige Einstellungen in diesem Abschnitt sind nur registrierungsbasiert und sollten in das Basisimage integriert werden, bevor das Image für die Produktion bereitgestellt wird.
 
-Die folgenden Einstellungen sind in den [Richtlinien zur Optimierung der Leistung für Windows Server 2016](/windows-server/administration/performance-tuning/) dokumentiert, die von der Windows-Produktgruppe auf Microsoft.com veröffentlicht wurden.
+Die folgenden Einstellungen sind in den [Richtlinien zur Optimierung der Leistung für Windows Server 2016](../../administration/performance-tuning/index.md) dokumentiert, die von der Windows-Produktgruppe auf Microsoft.com veröffentlicht wurden.
 
 #### <a name="disablebandwidththrottling"></a>DisableBandwidthThrottling
 

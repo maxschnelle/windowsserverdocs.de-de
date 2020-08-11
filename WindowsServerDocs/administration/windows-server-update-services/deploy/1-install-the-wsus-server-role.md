@@ -1,20 +1,18 @@
 ---
 title: 'Schritt 1: Installieren der WSUS-Serverrolle'
 description: 'Artikel zu WSUS (Windows Server Update Services): Anweisungen zur Installation der Serverrolle mithilfe des Server-Managers'
-ms.prod: windows-server
-ms.technology: manage-wsus
 ms.topic: article
 ms.assetid: fabc8619-350e-403b-96f8-116424931300
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a923b2da4583c32010e7e3104315957f3f05acaf
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: 980aa106b9ed4cb1ebc5b091fa308906dcdb2d6a
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87178566"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87991030"
 ---
 # <a name="step-1-install-the-wsus-server-role"></a>Schritt 1: Installieren der WSUS-Serverrolle
 
@@ -23,7 +21,7 @@ ms.locfileid: "87178566"
 Der nächste Schritt zur Bereitstellung des WSUS-Servers ist die Installation der WSUS-Serverrolle. Anhand des folgenden Verfahrens wird die Installation der WSUS-Serverrolle mithilfe von Server-Manager beschrieben.
 
 > [!IMPORTANT]
-> In diesem Installationsverfahren wird nur die Installation von WSUS mit der internen Windows-Datenbank (WID) behandelt. Die Verfahren zum Installieren von WSUS mithilfe von Microsoft SQL Server sind [im WSUS-Forum](https://docs.microsoft.com/answers/topics/windows-server-update-services.html) dokumentiert.
+> In diesem Installationsverfahren wird nur die Installation von WSUS mit der internen Windows-Datenbank (WID) behandelt. Die Verfahren zum Installieren von WSUS mithilfe von Microsoft SQL Server sind [im WSUS-Forum](/answers/topics/windows-server-update-services.html) dokumentiert.
 
 ### <a name="to-install-the-wsus-server-role"></a>So installieren Sie die WSUS-Serverrolle
 
@@ -63,4 +61,3 @@ Der nächste Schritt zur Bereitstellung des WSUS-Servers ist die Installation de
 
 > [!IMPORTANT]
 > Hiermit ist der Installationsvorgang abgeschlossen, jedoch müssen Sie mit [Schritt 2: Konfigurieren von WSUS](2-configure-wsus.md) fortfahren, damit WSUS voll funktionsfähig ist.
-

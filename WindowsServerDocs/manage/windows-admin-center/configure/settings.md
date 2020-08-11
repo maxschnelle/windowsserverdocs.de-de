@@ -1,19 +1,17 @@
 ---
 title: Settings
 description: Weitere Informationen zu Einstellungen im Windows Admin Center (Projekt Honolulu). Mit den Benutzereinstellungen können Benutzer ihre Sprache/Region und andere Einstellungen ändern. Mit den Gatewayeinstellungen können Administratoren das Gateway konfigurieren.
-ms.technology: manage
 ms.topic: article
 author: haley-rowland
 ms.author: harowl
 ms.date: 04/12/2018
 ms.localizationpriority: medium
-ms.prod: windows-server
-ms.openlocfilehash: e0fd6618f275058d4e22fe9abb9e484d4752ac9a
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: ff06a19d85858b8332412a51c029c9aeeba2af50
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "71407054"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87997442"
 ---
 # <a name="windows-admin-center-settings"></a>Windows Admin Center – Einstellungen
 
@@ -56,6 +54,6 @@ Auf der Registerkarte **Erweiterungen** können Administratoren Gatewayerweiteru
 
 Auf der Registerkarte **Zugriff** können Administratoren konfigurieren, wer auf das Windows Admin Center-Gateway zugreifen kann und welcher Identitätsanbieter zum Authentifizieren von Benutzern verwendet wird. [Erfahren Sie mehr über das Steuern des Zugriffs auf das Gateway.](user-access-control.md)
 
-Auf der Registerkarte **Azure** können Administratoren das Gateway bei Azure registrieren, um [Azure-Integrationsfeatures](azure-integration.md) im Windows Admin Center zu aktivieren.
+Auf der Registerkarte **Azure** können Administratoren das Gateway bei Azure registrieren, um [Azure-Integrationsfeatures](../azure/azure-integration.md) im Windows Admin Center zu aktivieren.
 
 Mithilfe der Registerkarte **Gemeinsam genutzte Verbindungen** können Administratoren eine Liste von Verbindungen konfigurieren, die für alle Benutzer des Windows Admin Center-Gateways freigegeben werden. [Erfahren Sie mehr über das einmalige Konfigurieren von Verbindungen für alle Benutzer eines Gateways.](shared-connections.md)

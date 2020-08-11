@@ -1,19 +1,17 @@
 ---
 title: Benutzerzugriffsoptionen mit Windows Admin Center
 description: Benutzerzugriffsoptionen und Identitätsanbieter mit Windows Admin Center (Projekt Honolulu)
-ms.technology: manage
 ms.topic: article
 author: haley-rowland
 ms.author: harowl
 ms.date: 03/07/2019
 ms.localizationpriority: medium
-ms.prod: windows-server
-ms.openlocfilehash: 084cdae0bf8ca0eb3aff1f4679d30978b860efef
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 3c96968f55a06c7ccffd9f7919001f21bff6a75c
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "71356918"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87996991"
 ---
 # <a name="user-access-options-with-windows-admin-center"></a>Benutzerzugriffsoptionen mit Windows Admin Center
 
@@ -33,7 +31,7 @@ Windows Admin Center definiert zwei Rollen für den Zugriff auf den Gatewaydiens
 **Gatewayadministratoren** können konfigurieren, wer Zugriff erhält und wie sich Benutzer beim Gateway authentifizieren.
 
 >[!NOTE]
-> Wenn in Windows Admin Center keine Zugriffsgruppen definiert sind, spiegeln die Rollen den Windows-Kontozugriff auf den Gatewayserver wider. 
+> Wenn in Windows Admin Center keine Zugriffsgruppen definiert sind, spiegeln die Rollen den Windows-Kontozugriff auf den Gatewayserver wider.
 
 [Konfiguriere den Gatewaybenutzer- und -administratorzugriff in Windows Admin Center.](../configure/user-access-control.md)
 
@@ -51,7 +49,7 @@ Wenn Active Directory oder lokale Computergruppen als Identitätsanbieter verwen
 
 ### <a name="conditional-access-and-multi-factor-authentication"></a>Bedingter Zugriff und mehrstufige Authentifizierung
 
-Durch die Anforderung der Azure AD-Authentifizierung für das Gateway kannst du zusätzliche Sicherheitsfeatures wie den bedingten Zugriff und die mehrstufige Authentifizierung nutzen, die von Azure AD bereitgestellt werden. [Weitere Informationen zum Konfigurieren des bedingten Zugriffs mit Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal-get-started).
+Durch die Anforderung der Azure AD-Authentifizierung für das Gateway kannst du zusätzliche Sicherheitsfeatures wie den bedingten Zugriff und die mehrstufige Authentifizierung nutzen, die von Azure AD bereitgestellt werden. [Weitere Informationen zum Konfigurieren des bedingten Zugriffs mit Azure Active Directory](/azure/active-directory/active-directory-conditional-access-azure-portal-get-started).
 
 ## <a name="role-based-access-control"></a>Rollenbasierte Zugriffsteuerung
 

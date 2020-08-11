@@ -1,19 +1,17 @@
 ---
 title: 'Anmerkungen zu dieser Version: Wichtige Probleme in Windows Server 2016'
 description: Nachfolgend sind wichtige Probleme aufgeführt, für die eine Problemumgehung erforderlich ist, um einen Absturz, das Aufhängen des Systems, einen Installationsfehler oder Datenverlust zu verhindern.
-ms.prod: windows-server
 ms.date: 11/13/2018
-ms.technology: server-general
 ms.topic: article
 ms.assetid: 134aab85-664f-4d44-87ef-9e5fd389071f
 author: jaimeo
 ms.author: jaimeo
-ms.openlocfilehash: 8ceff837c2b85466f5583eed03f39e73f32fd4a4
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: b7e86b0841023548b1df1937bdf0820d59e12292
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80826383"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87990509"
 ---
 # <a name="release-notes-important-issues-in-windows-server-2016"></a>Versionshinweise: Wichtige Probleme in Windows Server 2016
 
@@ -62,7 +60,7 @@ Führen Sie für den Clientcomputer ein Upgrade auf Windows 10 Anniversary Updat
 
 ## <a name="shielded-virtual-machines"></a>Abgeschirmte VMs
 
-[comment]: # (ID: 369; Übermittler: nirb; Status: abgemeldet)  
+[comment]: # (ID: 369; Übermittler: nirb; Status: abgemeldet)
 - Stellen Sie sicher, dass Sie alle verfügbaren Updates installiert haben, bevor Sie abgeschirmte virtuelle Computer in der Produktion bereitstellen.
 
 - Beachten Sie bei Verwendung von virtualisierungsbasiertem Schutz der Codeintegrität oder abgeschirmten virtuellen Computern (die virtualisierungsbasierten Schutz der Codeintegrität verwenden), dass diese Technologien mit einigen Geräten und Anwendungen u. U. nicht kompatibel sind. Solche Konfigurationen sollten Sie vor der Aktivierung der Features in Produktionssystemen in Ihrem Labor testen. Andernfalls kann es zu unerwarteten Datenverlusten oder Abbruchfehlern kommen.
@@ -74,22 +72,22 @@ Dieses Problem betrifft Windows Server 2016, installiert mit der Option „Serve
 
 Wenn du Anwendungen installierst, die Verknüpfungselemente in einem Ordner im **Startmenü** hinzufügen, funktionieren die Verknüpfungen erst, nachdem du dich abgemeldet und wieder angemeldet hast.
 
-Wechseln Sie zurück zum Haupthub von [Windows Server 2016](Windows-Server-2016.md).
+Wechseln Sie zurück zum Haupthub von [Windows Server 2016](../index.yml).
 
 ## <a name="storport-performance"></a>StorPort-Leistung
 
-Einige Systeme besitzen unter einer neuen Installation von Windows Server 2016 möglicherweise eine geringere Speicherleistung als unter Windows Server 2012 R2.  Bei der Entwicklung von Windows Server 2016 wurde eine Reihe von Änderungen zur Verbesserung der Sicherheit und Zuverlässigkeit der Plattform vorgenommen. Einige Änderungen wie etwa die standardmäßige Aktivierung von Windows Defender führen zu längeren E/A-Pfaden, was die E/A-Leistung bei bestimmten Workloads und Mustern beeinträchtigen kann. Microsoft rät davon ab, Windows Defender zu deaktivieren, da es sich dabei um eine wichtige Schutzebene für Ihre Systeme handelt.  
+Einige Systeme besitzen unter einer neuen Installation von Windows Server 2016 möglicherweise eine geringere Speicherleistung als unter Windows Server 2012 R2.  Bei der Entwicklung von Windows Server 2016 wurde eine Reihe von Änderungen zur Verbesserung der Sicherheit und Zuverlässigkeit der Plattform vorgenommen. Einige Änderungen wie etwa die standardmäßige Aktivierung von Windows Defender führen zu längeren E/A-Pfaden, was die E/A-Leistung bei bestimmten Workloads und Mustern beeinträchtigen kann. Microsoft rät davon ab, Windows Defender zu deaktivieren, da es sich dabei um eine wichtige Schutzebene für Ihre Systeme handelt. 
 
 ## <a name="copyright"></a>Copyright
 
-Dieses Dokument wird ohne Gewähr zur Verfügung gestellt. Die in diesem Dokument enthaltenen Informationen und Ansichten, einschließlich URLs und andere Verweise auf Internetwebsites, können ohne vorherige Ankündigung geändert werden.  
+Dieses Dokument wird ohne Gewähr zur Verfügung gestellt. Die in diesem Dokument enthaltenen Informationen und Ansichten, einschließlich URLs und andere Verweise auf Internetwebsites, können ohne vorherige Ankündigung geändert werden.
 
-Dieses Dokument stellt Ihnen keinerlei Rechte am geistigen Eigentum eines beliebigen Microsoft-Produkts zur Verfügung. Dieses Dokument darf für interne Referenzzwecke kopiert und verwendet werden.  
+Dieses Dokument stellt Ihnen keinerlei Rechte am geistigen Eigentum eines beliebigen Microsoft-Produkts zur Verfügung. Dieses Dokument darf für interne Referenzzwecke kopiert und verwendet werden.
 
-&copy; 2016 Microsoft Corporation. Alle Rechte vorbehalten.  
+&copy; 2016 Microsoft Corporation. Alle Rechte vorbehalten.
 
-Microsoft, Active Directory, Hyper-V, Windows, und Windows Server sind entweder eingetragene Marken oder Marken der Microsoft Corporation in den USA und/oder anderen Ländern oder Regionen.  
+Microsoft, Active Directory, Hyper-V, Windows, und Windows Server sind entweder eingetragene Marken oder Marken der Microsoft Corporation in den USA und/oder anderen Ländern oder Regionen.
 
-Dieses Produkt enthält Grafikfiltersoftware; diese Software basiert zum Teil auf der Arbeit der Independent JPEG Group.  
+Dieses Produkt enthält Grafikfiltersoftware; diese Software basiert zum Teil auf der Arbeit der Independent JPEG Group.
 
 1.0

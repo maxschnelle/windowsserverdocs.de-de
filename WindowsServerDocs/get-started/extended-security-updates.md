@@ -1,20 +1,18 @@
 ---
 title: Erweiterte Sicherheitsupdates für Windows Server 2008 und 2008 R2
 description: Erfahre, wie du erweiterte Sicherheitsupdates (Extended Security Updates, ESU) für Windows Server 2008 und 2008 R2 nach dem Ende des Supportlebenszyklus verwenden kannst.
-ms.prod: windows-server
-ms.technology: server-general
 ms.mktglfcycl: manage
 author: iainfoulds
 ms.author: iainfou
 ms.topic: get-started-article
 ms.localizationpriority: high
 ms.date: 02/21/2020
-ms.openlocfilehash: 19a65f2a254fe14f7cddfbda2a84e9d00f47da56
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: c74c8a278612d2ca47346ad95105f1258761494a
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87181846"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87990479"
 ---
 # <a name="how-to-use-windows-server-2008-and-2008-r2-extended-security-updates-esu"></a>Verwenden der erweiterten Sicherheitsupdates (ESU) für Windows Server 2008 und 2008 R2
 
@@ -101,7 +99,7 @@ Um Ihre VM für erweiterte Sicherheitsupdates zu registrieren und einen Schlüss
 
     Wenn das Team Ihre Anforderung nicht genehmigt, wird der folgende Fehler angezeigt:
 
-    [Der Ressourcentyp konnte nicht im Namespace "Microsoft.WindowsESU" gefunden werden](https://docs.microsoft.com/windows-server/get-started/extended-security-updates)
+    [Der Ressourcentyp konnte nicht im Namespace "Microsoft.WindowsESU" gefunden werden]()
 
 6. Wähle unter **Azure-Details** dein Azure-Abonnement, eine Ressourcengruppe und einen Speicherort für deinen Schlüssel aus.
 
