@@ -72,6 +72,7 @@
 ## [Domain Name System (DNS)](dns/dns-top.md)
 ### [Neues im DNS-Client unter Windows Server](dns/What-s-New-in-DNS-Client.md)
 ### [Neues im DNS-Server unter Windows Server](dns/What-s-New-in-DNS-Server.md)
+### [Anycast-DNS](dns/deploy/anycast.md)
 ### [Anleitung zu DNS-Richtlinienszenarien](dns/deploy/DNS-Policy-Scenario-Guide.md)
 #### [DNS-Richtlinien (Übersicht)](dns/deploy/DNS-Policies-Overview.md)
 #### [Verwenden von DNS-Richtlinien für Geolocation-Datenverkehrsverwaltung mit Primärservern](dns/deploy/primary-geo-location.md)
