@@ -1,17 +1,15 @@
 ---
 title: Netsh-Befehle für das mobile Breitbandnetzwerk (MBN)
 description: Verwendet „netsh mbn“, um Einstellungen und Parameter für mobiles Breitband abzufragen und zu konfigurieren.
-ms.prod: windows-server
-ms.technology: networking
 ms.topic: article
 author: apdutta
 ms.date: 02/20/2020
-ms.openlocfilehash: 478f87db4d520a133b3d70c0ed2dbb4e91db60d9
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 50c0bbf441e3109189117cbfd8df9ee597712bcd
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80853733"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87953986"
 ---
 # <a name="netsh-mbn-commands"></a>„netsh mbn“-Befehle
 
@@ -19,7 +17,7 @@ ms.locfileid: "80853733"
 Verwendet **netsh mbn**, um Einstellungen und Parameter für mobiles Breitband abzufragen und zu konfigurieren.
 
 > [!TIP]
-> Hilfe zum Befehl „netsh mbn“ erhalten Sie,durch Verwenden von 
+> Hilfe zum Befehl „netsh mbn“ erhalten Sie,durch Verwenden von
 >
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;netsh mbn /?
 
@@ -227,7 +225,7 @@ disconnect interface="Cellular"
 
 ## <a name="dump"></a>dump
 
-Zeigt ein Konfigurationsskript an. 
+Zeigt ein Konfigurationsskript an.
 
 Erstellt ein Skript, das die aktuelle Konfiguration enthält.  Wird dieses Skript in einer Datei gespeichert, kann es verwendet werden, um geänderte Konfigurationseinstellungen wiederherzustellen.
 
@@ -529,7 +527,7 @@ Die verfügbaren „netsh mbn set“-Befehle sind:
 - [tracing](#tracing)
 - [visibleproviders](#visibleproviders)
 
-### <a name="acstate"></a>acstate  
+### <a name="acstate"></a>acstate
 
 Zeigt den automatischen Verbindungsstatus für mobile Breitbanddaten für die angegebene Schnittstelle an.
 
@@ -667,7 +665,7 @@ show dmprofiles [[name=]<string>] [[interface=]<string>]
 | **interface** | Schnittstellenname. Dies ist einer der durch den Befehl „netsh mbn show interfaces“ angezeigten Schnittstellennamen. | Optional |
 
 **Anmerkungen**
-    
+
 Zeigt die Profildaten an oder listet die Profile auf dem System auf.
 
 Wird ein Profilname angegeben, wird der Inhalt des Profils angezeigt. Andernfalls werden Profile für die Schnittstelle aufgelistet.
@@ -789,7 +787,7 @@ show netlteattachinfo [interface=]<string>
 show netlteattachinfo interface="Cellular"
 ```
 
-### <a name="pin"></a>pin      
+### <a name="pin"></a>pin
 
 Zeigt die PIN-Informationen für die angegebene Schnittstelle an.
 
@@ -813,7 +811,7 @@ show pin interface="Cellular"
 ```
 
 
-### <a name="pinlist"></a>pinlist  
+### <a name="pinlist"></a>pinlist
 
 Zeigt die PIN-Listeninformationen für die angegebene Schnittstelle an.
 
@@ -861,7 +859,7 @@ show preferredproviders interface="Cellular"
 ```
 
 
-### <a name="profiles"></a>profiles 
+### <a name="profiles"></a>profiles
 
 Zeigt eine Liste der auf dem System konfigurierten Profile an.
 
@@ -886,7 +884,7 @@ Wird ein Profilname angegeben, wird der Inhalt des Profils angezeigt. Andernfall
 Wird ein Schnittstellenname angegeben, wird nur das angegebene Profil auf der angegebenen Schnittstelle aufgelistet. Andernfalls wird das erste übereinstimmende Profil angezeigt.
 
 Wird der Zweck angegeben, werden nur Profile mit der passenden Zweck-GUID angezeigt.  Andernfalls werden die Profile nicht nach dem Zweck gefiltert.  Die Zeichenfolge kann entweder eine GUID mit geschweiften Klammern oder eine der folgenden Zeichenfolgen sein: „internet“, „supl“, „mms“, „ims“ oder „allhost“.
-    
+
 **Beispiel**
 
 ```powershell
@@ -943,7 +941,7 @@ show provisionedcontexts interface="Cellular"
 ```
 
 
-### <a name="purpose"></a>purpose  
+### <a name="purpose"></a>purpose
 
 Zeigt die Zweckgruppen-GUIDs an, die zum Filtern von Profilen auf dem Gerät verwendet werden können. Für diesen Befehl gebt es keine Parameter.
 
@@ -954,7 +952,7 @@ show purpose
 ```
 
 
-### <a name="radio"></a>radio    
+### <a name="radio"></a>radio
 
 Zeigt die Funkzustandsinformationen für die angegebene Schnittstelle an.
 
@@ -1002,7 +1000,7 @@ show readyinfo interface="Cellular"
 ```
 
 
-### <a name="signal"></a>signal   
+### <a name="signal"></a>signal
 
 Zeigt die Signalinformationen für die angegebene Schnittstelle an.
 
@@ -1098,14 +1096,14 @@ show smsconfig interface="Cellular"
 ```
 
 
-### <a name="tracing"></a>tracing  
+### <a name="tracing"></a>tracing
 
 Zeigt an, ob die Ablaufverfolgung für mobiles Breitband aktiviert oder deaktiviert ist.
 
 **Syntax**
 
 ```powershell
-show tracing 
+show tracing
 ```
 
 

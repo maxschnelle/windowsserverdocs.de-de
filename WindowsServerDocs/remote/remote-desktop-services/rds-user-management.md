@@ -1,20 +1,18 @@
 ---
 title: Verwalten von Benutzern in Ihrer RDS-Sammlung
 description: Erfahren Sie, wie Sie Benutzer in Remotedesktopdiensten verwalten.
-ms.prod: windows-server
-ms.technology: remote-desktop-services
 ms.topic: article
 ms.assetid: 2727e1ab-69b8-46f3-9f6d-2540324fe596
 author: christianmontoya
 ms.author: chrimo
 ms.date: 03/27/2018
 manager: scottman
-ms.openlocfilehash: 430c38f98dd9aec3034e023d737952e3015622eb
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: a0ddb8ddc26df58e130315a3e1e0b70953c61dc4
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80858683"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87954807"
 ---
 # <a name="manage-users-in-your-rds-collection"></a>Verwalten von Benutzern in Ihrer RDS-Sammlung
 
@@ -82,7 +80,7 @@ Jetzt, da Sie die Benutzer und Gruppen in Active Directory erstellt haben, könn
    1. Klicken Sie im Server-Manager auf **Remotedesktopdienste > Übersicht**, und klicken Sie dann auf eine bestimmte Sammlung.
    2. Klicken Sie unter **Eigenschaften** auf **Aufgaben > Eigenschaften bearbeiten**.
    3. Klicken Sie auf **Benutzergruppen**.
-   4. Klicken Sie auf **Hinzufügen**, und geben Sie den Benutzer oder die Gruppe ein, dem bzw. der Sie Zugriff auf die Sammlung erteilen möchten. In diesem Fenster können Sie auch Benutzer und Gruppen entfernen, indem Sie den zu entfernenden Benutzer oder die zu entfernende Gruppe auswählen und dann auf **Entfernen** klicken. 
-   
-   >[!NOTE] 
+   4. Klicken Sie auf **Hinzufügen**, und geben Sie den Benutzer oder die Gruppe ein, dem bzw. der Sie Zugriff auf die Sammlung erteilen möchten. In diesem Fenster können Sie auch Benutzer und Gruppen entfernen, indem Sie den zu entfernenden Benutzer oder die zu entfernende Gruppe auswählen und dann auf **Entfernen** klicken.
+
+   >[!NOTE]
    > Das Fenster „Benutzergruppen“ darf nie leer sein. Um den Bereich der Benutzer einzuschränken, die Zugriff auf die Sammlung haben, müssen Sie zuerst bestimmte Benutzer oder Gruppen hinzufügen, bevor Sie breitere Gruppen entfernen.

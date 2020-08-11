@@ -1,19 +1,17 @@
 ---
 title: SMB-Sicherheitsfunktionen
 description: Eine Erläuterung der SMB-Verschlüsselungsfunktion in Windows Server 2012 R2, Windows Server 2012 und Windows Server 2016.
-ms.prod: windows-server
 ms.topic: article
 author: JasonGerend
 ms.author: jgerend
-ms.technology: storage
 ms.date: 07/09/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 9052e9e6a1327b67fd75b07ab2ee6fc56b1190ac
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: e81b5ca5d28c33187b90fbabebc3d3f36073124c
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86962134"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87954697"
 ---
 # <a name="smb-security-enhancements"></a>SMB-Sicherheitsfunktionen
 
@@ -43,17 +41,17 @@ Sie können SMB-Verschlüsselung für den gesamten Dateiserver oder nur für bes
 ### <a name="enable-smb-encryption-with-windows-powershell"></a>Aktivieren von SMB-Verschlüsselung mit Windows PowerShell
 
 1. Geben Sie das folgende Skript auf dem Server ein, um SMB-Verschlüsselung für eine einzelne Dateifreigabe zu aktivieren:
-    
+
     ```PowerShell
     Set-SmbShare –Name <sharename> -EncryptData $true
     ```
 2. Geben Sie das folgende Skript auf dem Server ein, um SMB-Verschlüsselung für den gesamten Dateiserver zu aktivieren:
-    
+
     ```PowerShell
     Set-SmbServerConfiguration –EncryptData $true
     ```
 3. Geben Sie das folgende Skript ein, um eine neue SMB-Dateifreigabe mit aktivierter SMB-Verschlüsselung zu erstellen:
-    
+
     ```PowerShell
     New-SmbShare –Name <sharename> -Path <pathname> –EncryptData $true
     ```

@@ -6,21 +6,19 @@ author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 08/07/2018
 ms.topic: article
-ms.prod: windows-server
-ms.technology: identity-adds
-ms.openlocfilehash: 4880145d385498e6191937272495ddf8def07ba5
-ms.sourcegitcommit: 599162b515c50106fd910f5c180e1a30bbc389b9
+ms.openlocfilehash: a920b1b6abfb109aacb2de91bf18cb24066a0d60
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83775338"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87938756"
 ---
 # <a name="ad-ds-getting-started"></a>Erste Schritte mit AD DS
 
 >Gilt für: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-In Active Directory werden Informationen zu Objekten im Netzwerk gespeichert, sodass sie von Administratoren und Benutzern leicht gefunden und verwendet werden können. Für Active Directory wird ein strukturierter Datenspeicher als Basis für eine logische, hierarchische Organisation von Verzeichnisinformationen eingesetzt.  
-  
+In Active Directory werden Informationen zu Objekten im Netzwerk gespeichert, sodass sie von Administratoren und Benutzern leicht gefunden und verwendet werden können. Für Active Directory wird ein strukturierter Datenspeicher als Basis für eine logische, hierarchische Organisation von Verzeichnisinformationen eingesetzt.
+
 | Thema | Beschreibung |
 | --------- | --------- |
 | [Übersicht über die Active Directory Domain Services](../ad-ds/get-started/virtual-dc/Active-Directory-Domain-Services-Overview.md) | Enthält Informationen zu grundlegenden AD DS-Features. Enthält Informationen zu technischen Begriffen und Links zur Planung und zur Bereitstellung.|

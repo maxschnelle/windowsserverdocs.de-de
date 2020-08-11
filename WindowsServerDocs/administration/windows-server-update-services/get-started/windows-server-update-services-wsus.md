@@ -1,20 +1,18 @@
 ---
 title: Erste Schritte mit Windows Server Update Services (WSUS)
 description: 'WSUS-Thema (Windows Server Update Services): Übersicht über die Serverrolle und praktische Anwendungsfälle'
-ms.prod: windows-server
-ms.technology: manage-wsus
 ms.topic: get-started article
 ms.assetid: 90e3464c-49d8-4861-96db-ee6f8a09ec5b
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 5/22/2017
-ms.openlocfilehash: 07095fbbe16464645564f07434285c76b8cfd4a1
-ms.sourcegitcommit: fb808a6fc851a3e5c47e6a7654366145d2f19554
+ms.openlocfilehash: 45f88b9295bfc2d48d8e1a599b33bea05717ef0f
+ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84740633"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87881058"
 ---
 # <a name="windows-server-update-services-wsus"></a>Windows Server Update Services (WSUS)
 
@@ -38,9 +36,9 @@ In den folgenden Szenarien kann Ihr Unternehmen von WSUS profitieren:
 
 > [!NOTE]
 > Wenn du ein Upgrade von einer beliebigen Windows Server-Version mit WSUS 3.2-Unterstützung auf Windows Server 2012 R2 ausführen möchtest, musst du zuerst WSUS 3.2 deinstallieren.
-> 
+>
 > In Windows Server 2012 wird das Upgraden von einer beliebigen Version von Windows Server mit WSUS 3.2-Installation während des Installationsvorgangs blockiert, falls WSUS 3.2 erkannt wird. In diesem Fall wirst du aufgefordert, zunächst Windows Server Update Services zu deinstallieren, bevor du das Update für den Server durchführst.
-> 
+>
 > Aufgrund von Änderungen in diesem Release von Windows Server und Windows Server 2012 R2 wird die Installation beim Upgraden einer beliebigen Version von Windows Server und WSUS 3.2 nicht blockiert. Wenn du WSUS 3.2 vor dem Windows Server 2012 R2-Upgrade nicht deinstallierst, können die Aufgaben nach der Installation für WSUS unter Windows Server 2012 R2 nicht erfolgreich ausgeführt werden. In diesem Fall kannst du nur noch die Festplatte formatieren und Windows Server neu installieren.
 
 Windows Server Update Services (WSUS) ist eine integrierte Serverrolle mit den folgenden Verbesserungen:

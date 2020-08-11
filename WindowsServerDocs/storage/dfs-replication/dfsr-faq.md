@@ -1,17 +1,15 @@
 ---
 title: 'DFS-Replikation: Häufig gestellte Fragen (FAQ)'
 ms.date: 06/18/2014
-ms.prod: windows-server
-ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: 4c4d5310fa6cf47945483c9ee7a3f89afd313da9
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 0a19bdd00000e466f2a2af92116356a9ad2a6428
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86966132"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87950785"
 ---
 # <a name="dfs-replication-frequently-asked-questions-faq"></a>DFS-Replikation: Häufig gestellte Fragen
 
@@ -26,16 +24,16 @@ Informationen zu DFS-Namespaces finden Sie unter [DFS-Namespaces: Häufig gestel
 
 Informationen zu den Neuerungen bei der DFS-Replikation findest du in den folgenden Themen:
 
-  - [Übersicht über DFS-Namespaces und DFS-Replikation](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj127250(v=ws.11)) (in Windows Server 2012)  
-      
-  - Thema [Neues im verteilten Dateisystem](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee307957(v=ws.10)) unter [Änderungen an der Funktionalität zwischen Windows Server 2008 und Windows Server 2008 R2](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd391932(v=ws.10))  
-      
-  - Thema [Verteiltes Dateisystem](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753479(v=ws.10)) unter [Änderungen an der Funktionalität zwischen Windows Server 2003 SP1 und Windows Server 2008](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753208(v=ws.10))  
-      
+  - [Übersicht über DFS-Namespaces und DFS-Replikation](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj127250(v=ws.11)) (in Windows Server 2012)
+
+  - Thema [Neues im verteilten Dateisystem](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee307957(v=ws.10)) unter [Änderungen an der Funktionalität zwischen Windows Server 2008 und Windows Server 2008 R2](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd391932(v=ws.10))
+
+  - Thema [Verteiltes Dateisystem](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753479(v=ws.10)) unter [Änderungen an der Funktionalität zwischen Windows Server 2003 SP1 und Windows Server 2008](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753208(v=ws.10))
+
 
 Eine Liste der zuletzt vorgenommenen Änderungen an diesem Thema finden Sie im Abschnitt [Änderungsverlauf](#change-history) dieses Themas.
 
-      
+
 
 ## <a name="interoperability"></a>Interoperabilität
 
@@ -53,10 +51,10 @@ Weitere Informationen zum Replizieren von SYSVOL mithilfe der DFS-Replikation fi
 
 Ja. In den folgenden Dokumenten wird erläutert, wie die Replikation von FRS zur DFS-Replikation migriert wird:
 
-  - Informationen zum Migrieren der Replikation von Ordnern außer dem SYSVOL-Ordner findest du im [DFS-Betriebshandbuch: Migration von der FRS- zur DFS-Replikation](https://go.microsoft.com/fwlink/?linkid=192776) und [FRS2DFSR – Hilfsprogramm für die FRS-zu-DFSR-Migration](https://go.microsoft.com/fwlink/?linkid=195437) (https://go.microsoft.com/fwlink/?LinkID=195437).  
-      
-  - Informationen zum Migrieren der Replikation des SYSVOL-Ordners zur DFS-Replikation findest du in der [Anleitung für die Migration der SYSVOL-Replikation: FRS-zu-DFS-Replikation](./migrate-sysvol-to-dfsr.md).  
-      
+  - Informationen zum Migrieren der Replikation von Ordnern außer dem SYSVOL-Ordner findest du im [DFS-Betriebshandbuch: Migration von der FRS- zur DFS-Replikation](https://go.microsoft.com/fwlink/?linkid=192776) und [FRS2DFSR – Hilfsprogramm für die FRS-zu-DFSR-Migration](https://go.microsoft.com/fwlink/?linkid=195437) (https://go.microsoft.com/fwlink/?LinkID=195437).
+
+  - Informationen zum Migrieren der Replikation des SYSVOL-Ordners zur DFS-Replikation findest du in der [Anleitung für die Migration der SYSVOL-Replikation: FRS-zu-DFS-Replikation](./migrate-sysvol-to-dfsr.md).
+
 
 ### <a name="can-i-use-dfs-replication-in-a-mixed-windowsunix-environment"></a>Kann ich die DFS-Replikation in einer gemischten Windows-/UNIX-Umgebung verwenden?
 
@@ -90,14 +88,14 @@ Ja. Allerdings müssen die Dateiprüfungseinstellungen des Ressourcen-Managers f
 
 Im Folgenden einige Best Practices für die Implementierung von Dateiprüfungen oder Kontingenten:
 
-  - Der verborgene Ordner „DfsrPrivate“ darf keinen Kontingenten oder Dateiprüfungen unterliegen.  
-      
-  - Bevor die Prüfung aktiviert wird, dürfen in den replizierten Ordnern keine geprüften Dateien enthalten sein.  
-      
-  - Bevor das Kontingent aktiviert wird, darf das Kontingent von keinem Ordner überschritten werden.  
-      
-  - Harte Kontingentgrenzen sollten mit Vorsicht verwendet werden. Einzelne Mitglieder einer Replikationsgruppe können vor der Replikation eine Kontingentgrenze einhalten, diese nach der Replikation der Dateien jedoch überschreiten. Beispiel: Wenn ein Benutzer eine Datei mit einer Größe von 10 MB auf Server A kopiert (der dann die harte Kontingentgrenze erreicht hat) und ein anderer Benutzer eine Datei von 5 MB auf Server B kopiert, überschreiten beide Server bei der nächsten Replikation das Kontingent um 5 MB. Dies kann dazu führen, dass von der DFS-Replikation fortlaufend versucht wird, die Dateien zu replizieren, wodurch Lücken im Versionsvektor und mögliche Leistungsprobleme auftreten.  
-      
+  - Der verborgene Ordner „DfsrPrivate“ darf keinen Kontingenten oder Dateiprüfungen unterliegen.
+
+  - Bevor die Prüfung aktiviert wird, dürfen in den replizierten Ordnern keine geprüften Dateien enthalten sein.
+
+  - Bevor das Kontingent aktiviert wird, darf das Kontingent von keinem Ordner überschritten werden.
+
+  - Harte Kontingentgrenzen sollten mit Vorsicht verwendet werden. Einzelne Mitglieder einer Replikationsgruppe können vor der Replikation eine Kontingentgrenze einhalten, diese nach der Replikation der Dateien jedoch überschreiten. Beispiel: Wenn ein Benutzer eine Datei mit einer Größe von 10 MB auf Server A kopiert (der dann die harte Kontingentgrenze erreicht hat) und ein anderer Benutzer eine Datei von 5 MB auf Server B kopiert, überschreiten beide Server bei der nächsten Replikation das Kontingent um 5 MB. Dies kann dazu führen, dass von der DFS-Replikation fortlaufend versucht wird, die Dateien zu replizieren, wodurch Lücken im Versionsvektor und mögliche Leistungsprobleme auftreten.
+
 
 ### <a name="is-dfs-replication-cluster-aware"></a>Ist die DFS-Replikation clusterfähig?
 
@@ -105,7 +103,7 @@ Ja. Die DFS-Replikation in Windows Server 2012 R2, Windows Server 2012 und Win
 
 
 > [!NOTE]
-> Die DFS-Replikation unterstützt keine Dateireplikation auf freigegebenen Clustervolumes. 
+> Die DFS-Replikation unterstützt keine Dateireplikation auf freigegebenen Clustervolumes.
 <br>
 
 
@@ -145,10 +143,10 @@ Nein Von der DFS-Replikation werden keine Dateien oder Ordner repliziert, die mi
 
 Mit der DFS-Replikation können Dateien im persönlichen Ordner von Microsoft Outlook (PST-Dateien) und Microsoft Access-Dateien nur dann sicher repliziert werden, wenn sie zu Archivierungszwecken gespeichert werden und nicht über das Netzwerk über einen Client wie Outlook oder Access darauf zugegriffen wird. (Zum Öffnen von PST- oder Access-Dateien müssen diese zunächst auf eine lokale Speichervorrichtung kopiert werden.) Dafür gibt es folgende Gründe:
 
-  - Das Öffnen von PST-Dateien über Netzwerkverbindungen kann zu Datenbeschädigungen in den PST-Dateien führen. Weitere Informationen dazu, warum über ein Netzwerk kein sicherer Zugriff auf PST-Dateien möglich ist, findest du in [Artikel 297019](https://go.microsoft.com/fwlink/?linkid=125363) in der Microsoft Knowledge Base (https://go.microsoft.com/fwlink/?LinkId=125363).  
-      
-  - PST- und Access-Dateien bleiben häufig über einen längeren Zeitraum geöffnet, während über einen Client wie Outlook oder Office Access darauf zugegriffen wird. Dadurch wird verhindert, dass die Dateien von der DFS-Replikation repliziert werden, weil sie erst geschlossen werden müssen.  
-      
+  - Das Öffnen von PST-Dateien über Netzwerkverbindungen kann zu Datenbeschädigungen in den PST-Dateien führen. Weitere Informationen dazu, warum über ein Netzwerk kein sicherer Zugriff auf PST-Dateien möglich ist, findest du in [Artikel 297019](https://go.microsoft.com/fwlink/?linkid=125363) in der Microsoft Knowledge Base (https://go.microsoft.com/fwlink/?LinkId=125363).
+
+  - PST- und Access-Dateien bleiben häufig über einen längeren Zeitraum geöffnet, während über einen Client wie Outlook oder Office Access darauf zugegriffen wird. Dadurch wird verhindert, dass die Dateien von der DFS-Replikation repliziert werden, weil sie erst geschlossen werden müssen.
+
 
 ### <a name="can-i-use-dfs-replication-in-a-workgroup"></a>Kann ich die DFS-Replikation in einer Arbeitsgruppe verwenden?
 
@@ -170,12 +168,12 @@ Nein Die DFS-Replikation erfordert nicht explizit eine Zeitsynchronisierung zwis
 
 Ja. Du musst du jedoch zuerst Windows Server 2003 Service Pack 2 oder den Hotfix installieren. Weitere Informationen findest du im [Artikel 920335](https://go.microsoft.com/fwlink/?linkid=76776) in der Microsoft Knowledge Base (https://go.microsoft.com/fwlink/?LinkId=76776). Darüber hinaus kann die Replikation eines vollständigen Volumes folgende Probleme verursachen:
 
-  - Wenn das Volume eine Windows-Auslagerungsdatei enthält, schlägt die Replikation fehl, und im Systemereignisprotokoll wird das DFSR-Ereignis 4312 protokolliert.  
-      
-  - Von der DFS-Replikation werden das System- und Hidden-Attribut für den replizierten Ordner auf den Zielservern festgelegt. Dies geschieht, weil Windows das System- und Hidden-Attribut standardmäßig auf den Volumestammordner anwendet. Wenn es sich bei dem lokalen Pfad des replizierten Ordners auf den Zielservern ebenfalls um einen Volumestamm handelt, werden keine weiteren Änderungen an den Ordnerattributen vorgenommen.  
-      
-  - Beim Replizieren eines Volumes, das den Windows-Systemordner enthält, wird der Ordner %WINDIR% von der DFS-Replikation erkannt und nicht repliziert. Allerdings werden von der DFS-Replikation Ordner repliziert, die von Nicht-Microsoft-Anwendungen verwendet werden, was zu Fehlern bei den Anwendungen auf den Zielservern führen kann, wenn die Anwendungen Interoperabilitätsprobleme mit der DFS-Replikation haben.  
-      
+  - Wenn das Volume eine Windows-Auslagerungsdatei enthält, schlägt die Replikation fehl, und im Systemereignisprotokoll wird das DFSR-Ereignis 4312 protokolliert.
+
+  - Von der DFS-Replikation werden das System- und Hidden-Attribut für den replizierten Ordner auf den Zielservern festgelegt. Dies geschieht, weil Windows das System- und Hidden-Attribut standardmäßig auf den Volumestammordner anwendet. Wenn es sich bei dem lokalen Pfad des replizierten Ordners auf den Zielservern ebenfalls um einen Volumestamm handelt, werden keine weiteren Änderungen an den Ordnerattributen vorgenommen.
+
+  - Beim Replizieren eines Volumes, das den Windows-Systemordner enthält, wird der Ordner %WINDIR% von der DFS-Replikation erkannt und nicht repliziert. Allerdings werden von der DFS-Replikation Ordner repliziert, die von Nicht-Microsoft-Anwendungen verwendet werden, was zu Fehlern bei den Anwendungen auf den Zielservern führen kann, wenn die Anwendungen Interoperabilitätsprobleme mit der DFS-Replikation haben.
+
 
 ### <a name="does-dfs-replication-support-rpc-over-http"></a>Unterstützt die DFS-Replikation RPC über HTTP?
 
@@ -219,31 +217,31 @@ Nein Replikationsgruppen können auf Domänen innerhalb einer einzelnen Gesamtst
 
 Die folgende Liste enthält eine Reihe von Skalierbarkeitsrichtlinien, die von Microsoft getestet wurden und für Windows Server 2012 R2, Windows Server 2016 und Windows Server 2019 gelten.
 
-  - Größe aller replizierten Dateien auf einem Server: 100 Terabytes  
-      
-  - Anzahl der replizierten Dateien auf einem Volume: 70 Millionen  
-      
-  - Maximale Dateigröße: 250 Gigabytes  
-      
+  - Größe aller replizierten Dateien auf einem Server: 100 Terabytes
+
+  - Anzahl der replizierten Dateien auf einem Volume: 70 Millionen
+
+  - Maximale Dateigröße: 250 Gigabytes
+
 
 
 > [!IMPORTANT]
-> Bei der Erstellung von Replikationsgruppen mit einer hohen Dateianzahl oder -größe empfehlen wir, einen Datenbankklon zu exportieren und Vorab-Seedingverfahren zu nutzen, um die Dauer der ersten Replikation zu minimieren. Weitere Informationen findest du unter [DFS Replication Initial Sync in Windows Server 2012 R2: Attack of the Clones](https://techcommunity.microsoft.com/t5/Storage-at-Microsoft/DFS-Replication-Initial-Sync-in-Windows-Server-2012-R2-Attack-of/ba-p/424877) (Erste Synchronisierung bei der DFS-Replikation in Windows Server 2012 R2: Angriff der Klone). 
+> Bei der Erstellung von Replikationsgruppen mit einer hohen Dateianzahl oder -größe empfehlen wir, einen Datenbankklon zu exportieren und Vorab-Seedingverfahren zu nutzen, um die Dauer der ersten Replikation zu minimieren. Weitere Informationen findest du unter [DFS Replication Initial Sync in Windows Server 2012 R2: Attack of the Clones](https://techcommunity.microsoft.com/t5/Storage-at-Microsoft/DFS-Replication-Initial-Sync-in-Windows-Server-2012-R2-Attack-of/ba-p/424877) (Erste Synchronisierung bei der DFS-Replikation in Windows Server 2012 R2: Angriff der Klone).
 <br>
 
 
 Die folgende Liste enthält eine Reihe von Skalierbarkeitsrichtlinien, die von Microsoft unter Windows Server 2012, Windows Server 2008 R2 und Windows Server 2008 getestet wurden:
 
-  - Größe aller replizierten Dateien auf einem Server: 10 Terabytes  
-      
-  - Anzahl der replizierten Dateien auf einem Volume: 11 Millionen  
-      
-  - Maximale Dateigröße: 64 Gigabytes  
-      
+  - Größe aller replizierten Dateien auf einem Server: 10 Terabytes
+
+  - Anzahl der replizierten Dateien auf einem Volume: 11 Millionen
+
+  - Maximale Dateigröße: 64 Gigabytes
+
 
 
 > [!NOTE]
-> Die Anzahl von Replikationsgruppen, replizierten Ordnern, Verbindungen oder Mitgliedern von Replikationsgruppen ist nicht mehr begrenzt. 
+> Die Anzahl von Replikationsgruppen, replizierten Ordnern, Verbindungen oder Mitgliedern von Replikationsgruppen ist nicht mehr begrenzt.
 <br>
 
 
@@ -265,12 +263,12 @@ Bei der DFS-Replikation werden neue Objekte im Domänennamenkontext von Active D
 
 Ja. Es gibt drei Möglichkeiten, Integritätsberichte zu automatisieren:
 
-  - Verwende das in Windows Server 2012 R2 enthaltene DFSR Windows PowerShell-Modul oder „DfsrAdmin.exe“ zusammen mit „Geplante Aufgaben“, um regelmäßig Integritätsberichte zu generieren. Weitere Informationen findest du im Thema zum [Automatisieren von Integritätsberichten der DFS-Replikation](https://go.microsoft.com/fwlink/?linkid=74010) (https://go.microsoft.com/fwlink/?LinkId=74010).  
-      
-  - Verwende das DFS Replication Management Pack für System Center Operations Manager, um Warnungen zu erstellen, die auf bestimmten Bedingungen basieren.  
-      
-  - Verwende den WMI-Anbieter für die DFS-Replikation, um Skripts für Warnungen zu schreiben.  
-      
+  - Verwende das in Windows Server 2012 R2 enthaltene DFSR Windows PowerShell-Modul oder „DfsrAdmin.exe“ zusammen mit „Geplante Aufgaben“, um regelmäßig Integritätsberichte zu generieren. Weitere Informationen findest du im Thema zum [Automatisieren von Integritätsberichten der DFS-Replikation](https://go.microsoft.com/fwlink/?linkid=74010) (https://go.microsoft.com/fwlink/?LinkId=74010).
+
+  - Verwende das DFS Replication Management Pack für System Center Operations Manager, um Warnungen zu erstellen, die auf bestimmten Bedingungen basieren.
+
+  - Verwende den WMI-Anbieter für die DFS-Replikation, um Skripts für Warnungen zu schreiben.
+
 
 ### <a name="can-i-use-microsoft-system-center-operations-manager-to-monitor-dfs-replication"></a>Kann ich die DFS-Replikation mit Microsoft System Center Operations Manager überwachen?
 
@@ -284,7 +282,7 @@ Die DFS-Verwaltung ist in Windows Server 2012 R2, Windows Server 2012, Windows
 
 
 > [!IMPORTANT]
-> Zum Anzeigen oder Verwalten von Replikationsgruppen, die schreibgeschützte replizierte Ordner oder Mitglieder enthalten, die Failovercluster sind, musst du die Version der DFS-Verwaltung verwenden, die in Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, den <a href="https://go.microsoft.com/fwlink/p/?linkid=238560">Remoteserver-Verwaltungstools für Windows 8</a> oder den <a href="https://technet.microsoft.com/library/ee449475">Remoteserver-Verwaltungstools für Windows 7</a> enthalten ist. 
+> Zum Anzeigen oder Verwalten von Replikationsgruppen, die schreibgeschützte replizierte Ordner oder Mitglieder enthalten, die Failovercluster sind, musst du die Version der DFS-Verwaltung verwenden, die in Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, den <a href="https://go.microsoft.com/fwlink/p/?linkid=238560">Remoteserver-Verwaltungstools für Windows 8</a> oder den <a href="https://technet.microsoft.com/library/ee449475">Remoteserver-Verwaltungstools für Windows 7</a> enthalten ist.
 <br>
 
 
@@ -300,16 +298,16 @@ Um verlorene Dateien wiederherzustellen, müssen sie aus dem Dateisystemordner o
 
 Ja. Es gibt eine Reihe von Möglichkeiten, die Replikation zu überwachen:
 
-  - Die DFS-Replikation verfügt über ein Management Pack für System Center Operations Manager, das eine proaktive Überwachung ermöglicht.  
-      
-  - Die DFS-Verwaltung verfügt über einen integrierten Diagnosebericht, der Aufschluss über das Replikations-Rückstandsprotokoll, die Replikationseffizienz und die Anzahl der Dateien und Ordner in einer bestimmten Replikationsgruppe gibt.  
-      
-  - Das DFSR Windows PowerShell-Modul in Windows Server 2012 R2 umfasst Cmdlets zum Starten von Propagierungstests und zum Schreiben von Propagierungs- und Integritätsberichten. Weitere Informationen findest du im Thema zu [DFSR (Distributed File System Replication)-Cmdlets in Windows PowerShell](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee449475(v=ws.10)).  
-      
-  - „Dfsrdiag.exe“ ist ein Befehlszeilentool, mit dem die Anzahl der noch nicht verarbeiteten Dateien generiert oder ein Propagierungstest ausgelöst werden kann. In beiden Fällen wird der Status der Replikation angegeben. An der Propagierung ist erkennbar, ob Dateien auf alle Knoten repliziert werden. Im Rückstandsprotokoll ist angegeben, wie viele Dateien noch repliziert werden müssen, bis zwei Computer synchron sind. Die Anzahl im Rückstandsprotokoll entspricht der Anzahl von Aktualisierungen, die von einem Mitglied einer Replikationsgruppe noch nicht verarbeitet wurden. Auf Computern mit Windows Server 2012 R2, Windows Server 2012 oder Windows Server 2008 R2 können mithilfe von „Dfsrdiag.exe“ auch die Aktualisierungen angezeigt werden, die von der DFS-Replikation momentan repliziert werden.  
-      
-  - Mithilfe von WMI können Rückstandsprotokollinformationen – manuell oder über MOM – in Skripts erfasst werden.  
-      
+  - Die DFS-Replikation verfügt über ein Management Pack für System Center Operations Manager, das eine proaktive Überwachung ermöglicht.
+
+  - Die DFS-Verwaltung verfügt über einen integrierten Diagnosebericht, der Aufschluss über das Replikations-Rückstandsprotokoll, die Replikationseffizienz und die Anzahl der Dateien und Ordner in einer bestimmten Replikationsgruppe gibt.
+
+  - Das DFSR Windows PowerShell-Modul in Windows Server 2012 R2 umfasst Cmdlets zum Starten von Propagierungstests und zum Schreiben von Propagierungs- und Integritätsberichten. Weitere Informationen findest du im Thema zu [DFSR (Distributed File System Replication)-Cmdlets in Windows PowerShell](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee449475(v=ws.10)).
+
+  - „Dfsrdiag.exe“ ist ein Befehlszeilentool, mit dem die Anzahl der noch nicht verarbeiteten Dateien generiert oder ein Propagierungstest ausgelöst werden kann. In beiden Fällen wird der Status der Replikation angegeben. An der Propagierung ist erkennbar, ob Dateien auf alle Knoten repliziert werden. Im Rückstandsprotokoll ist angegeben, wie viele Dateien noch repliziert werden müssen, bis zwei Computer synchron sind. Die Anzahl im Rückstandsprotokoll entspricht der Anzahl von Aktualisierungen, die von einem Mitglied einer Replikationsgruppe noch nicht verarbeitet wurden. Auf Computern mit Windows Server 2012 R2, Windows Server 2012 oder Windows Server 2008 R2 können mithilfe von „Dfsrdiag.exe“ auch die Aktualisierungen angezeigt werden, die von der DFS-Replikation momentan repliziert werden.
+
+  - Mithilfe von WMI können Rückstandsprotokollinformationen – manuell oder über MOM – in Skripts erfasst werden.
+
 
 ## <a name="performance"></a>Leistung
 
@@ -478,46 +476,46 @@ Eine Liste der Attributwerte und deren Beschreibungen findest du unter [Dateiatt
 
 Die folgenden Attributwerte werden mithilfe der `SetFileAttributes dwFileAttributes`-Funktion festgelegt und durch die DFS-Replikation repliziert. Durch Änderungen an diesen Attributwerten wird die Replikation der Attribute ausgelöst. Der Inhalt der Datei wird erst repliziert, wenn sich der Inhalt ebenfalls ändert. Weitere Informationen findest du unter der [SetFileAttributes-Funktion](https://go.microsoft.com/fwlink/?linkid=182269) in der MSDN Library (https://go.microsoft.com/fwlink/?LinkId=182269).
 
-  - FILE\_ATTRIBUTE\_HIDDEN  
-      
-  - FILE\_ATTRIBUTE\_READONLY  
-      
-  - FILE\_ATTRIBUTE\_SYSTEM  
-      
-  - FILE\_ATTRIBUTE\_NOT\_CONTENT\_INDEXED  
-      
-  - FILE\_ATTRIBUTE\_OFFLINE  
-      
+  - FILE\_ATTRIBUTE\_HIDDEN
+
+  - FILE\_ATTRIBUTE\_READONLY
+
+  - FILE\_ATTRIBUTE\_SYSTEM
+
+  - FILE\_ATTRIBUTE\_NOT\_CONTENT\_INDEXED
+
+  - FILE\_ATTRIBUTE\_OFFLINE
+
 
 Die folgenden Attributwerte werden durch die DFS-Replikation repliziert, lösen aber keine Replikation aus.
 
-  - FILE\_ATTRIBUTE\_ARCHIVE  
-      
-  - FILE\_ATTRIBUTE\_NORMAL  
-      
+  - FILE\_ATTRIBUTE\_ARCHIVE
+
+  - FILE\_ATTRIBUTE\_NORMAL
+
 
 Die folgenden Dateiattributwerte lösen ebenfalls eine Replikation aus, obwohl sie nicht mit der `SetFileAttributes`-Funktion festgelegt werden können. (Verwende die `GetFileAttributes`-Funktion, um die Attributwerte anzuzeigen.)
 
-  - FILE\_ATTRIBUTE\_REPARSE\_POINT  
-      
+  - FILE\_ATTRIBUTE\_REPARSE\_POINT
+
 
 > [!NOTE]
-> Von der DFS-Replikation werden keine Analysepunkt-Attributwerte repliziert, es sei denn, die Analysenkennung lautet IO_REPARSE_TAG_SYMLINK. Dateien mit den Analysenkennungen IO_REPARSE_TAG_DEDUP, IO_REPARSE_TAG_SIS oder IO_REPARSE_TAG_HSM werden als normale Dateien repliziert. Die Analysenkennung und die Analysedatenpuffer werden jedoch nicht auf andere Server repliziert, da der Analysepunkt nur auf dem lokalen System funktioniert. 
+> Von der DFS-Replikation werden keine Analysepunkt-Attributwerte repliziert, es sei denn, die Analysenkennung lautet IO_REPARSE_TAG_SYMLINK. Dateien mit den Analysenkennungen IO_REPARSE_TAG_DEDUP, IO_REPARSE_TAG_SIS oder IO_REPARSE_TAG_HSM werden als normale Dateien repliziert. Die Analysenkennung und die Analysedatenpuffer werden jedoch nicht auf andere Server repliziert, da der Analysepunkt nur auf dem lokalen System funktioniert.
 <br>
 
-  - FILE\_ATTRIBUTE\_COMPRESSED  
-      
-  - FILE\_ATTRIBUTE\_ENCRYPTED  
-      
+  - FILE\_ATTRIBUTE\_COMPRESSED
+
+  - FILE\_ATTRIBUTE\_ENCRYPTED
+
 
 > [!NOTE]
-> Von der DFS-Replikation werden keine Dateien repliziert, die mit dem verschlüsselnden Dateisystem (Encrypting File System, EFS) verschlüsselt wurden. Von der DFS-Replikation werden Dateien repliziert, die mit einer Software verschlüsselt wurden, die nicht von Microsoft stammt. Dies trifft jedoch nur zu, wenn kein Attributwert FILE_ATTRIBUTE_ENCRYPTED für die Datei festgelegt wird. 
+> Von der DFS-Replikation werden keine Dateien repliziert, die mit dem verschlüsselnden Dateisystem (Encrypting File System, EFS) verschlüsselt wurden. Von der DFS-Replikation werden Dateien repliziert, die mit einer Software verschlüsselt wurden, die nicht von Microsoft stammt. Dies trifft jedoch nur zu, wenn kein Attributwert FILE_ATTRIBUTE_ENCRYPTED für die Datei festgelegt wird.
 <br>
 
-  - FILE\_ATTRIBUTE\_SPARSE\_FILE  
-      
-  - FILE\_ATTRIBUTE\_DIRECTORY  
-      
+  - FILE\_ATTRIBUTE\_SPARSE\_FILE
+
+  - FILE\_ATTRIBUTE\_DIRECTORY
+
 
 Der Wert FILE\_ATTRIBUTE\_TEMPORARY wird von der DFS-Replikation nicht repliziert.
 
@@ -541,12 +539,12 @@ Weitere Informationen zur ersten Replikation findest du unter [Erstellen einer R
 
 Ja. Die DFS-Replikation hilft, drei häufige FRS-Probleme zu lösen:
 
-  - Journalumbrüche: Die DFS-Replikation wird nach Journalumbrüchen zeitnah wiederhergestellt. Jede vorhandene Datei oder jeder vorhandene Ordner wird als „journalWrap“ gekennzeichnet und gegenüber dem Dateisystem überprüft, bevor die Replikation erneut aktiviert wird. Während der Wiederherstellung ist dieses Volume für die Replikation in keiner Richtung verfügbar.  
-      
-  - Übermäßige Replikation: Zur Vermeidung einer übermäßigen Replikation verwendet die DFS-Replikation ein Guthabensystem.  
-      
-  - Änderung von Ordnernamen: Um die Änderung von Ordnernamen zu verhindern, werden in Konflikt stehende Daten von der DFS-Replikation in einem ausgeblendeten Ordner namens „DfsrPrivate\\ConflictandDeleted“ (unter dem lokalen Pfad des replizierten Ordners) gespeichert. Beispiel: Wenn gleichzeitig mehrere Ordner mit identischen Namen auf unterschiedlichen Servern erstellt werden, die mit FRS repliziert werden, werden die älteren Ordner durch FRS umbenannt. Bei der DFS-Replikation werden die älteren Ordner stattdessen in den lokalen Ordner „ConflictandDeleted“ verschoben.  
-      
+  - Journalumbrüche: Die DFS-Replikation wird nach Journalumbrüchen zeitnah wiederhergestellt. Jede vorhandene Datei oder jeder vorhandene Ordner wird als „journalWrap“ gekennzeichnet und gegenüber dem Dateisystem überprüft, bevor die Replikation erneut aktiviert wird. Während der Wiederherstellung ist dieses Volume für die Replikation in keiner Richtung verfügbar.
+
+  - Übermäßige Replikation: Zur Vermeidung einer übermäßigen Replikation verwendet die DFS-Replikation ein Guthabensystem.
+
+  - Änderung von Ordnernamen: Um die Änderung von Ordnernamen zu verhindern, werden in Konflikt stehende Daten von der DFS-Replikation in einem ausgeblendeten Ordner namens „DfsrPrivate\\ConflictandDeleted“ (unter dem lokalen Pfad des replizierten Ordners) gespeichert. Beispiel: Wenn gleichzeitig mehrere Ordner mit identischen Namen auf unterschiedlichen Servern erstellt werden, die mit FRS repliziert werden, werden die älteren Ordner durch FRS umbenannt. Bei der DFS-Replikation werden die älteren Ordner stattdessen in den lokalen Ordner „ConflictandDeleted“ verschoben.
+
 
 ### <a name="does-dfs-replication-replicate-files-in-chronological-order"></a>Werden Dateien von der DFS-Replikation in chronologischer Reihenfolge repliziert?
 
@@ -558,14 +556,14 @@ Wenn eine Datei von einer Anwendung geöffnet und gesperrt wird (um zu verhinder
 
 ### <a name="does-dfs-replication-replicate-ntfs-file-permissions-alternate-data-streams-hard-links-and-reparse-points"></a>Werden von der DFS-Replikation NTFS-Dateiberechtigungen, alternative Datenströme, feste Links und Analysepunkte repliziert?
 
-  - Die DFS-Replikation repliziert NTFS-Dateiberechtigungen und alternative Datenströme.  
-      
-  - Microsoft bietet keine Unterstützung für das Erstellen fester NTFS-Links zu oder von Dateien in einem replizierten Ordner. Dies kann zu Replikationsproblemen bei den betroffenen Dateien führen. Fest verknüpfte Dateien werden von der DFS-Replikation ignoriert und nicht repliziert. Verknüpfungspunkte werden auch nicht repliziert, und bei der DFS-Replikation wird für jeden gefundenen Verknüpfungspunkt das Ereignis 4406 protokolliert.  
-      
-  - Die einzigen von der DFS-Replikation replizierten Analysepunkte sind diejenigen, die die Kennung IO\_REPARSE\_TAG\_SYMLINK verwenden. Die DFS-Replikation gewährleistet jedoch nicht, dass das Ziel eines Symlinks ebenfalls repliziert wird. Weitere Informationen findest du im Blog [Ask the Directory Services Team](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc725893(v=ws.11)).  
-      
-  - Dateien mit der Analysenkennung IO\_REPARSE\_TAG\_DEDUP, IO\_REPARSE\_TAG\_SIS oder IO\_REPARSE\_TAG\_HSM werden als normale Dateien repliziert. Die Analysenkennung und die Analysedatenpuffer werden nicht auf andere Server repliziert, da der Analysepunkt nur auf dem lokalen System funktioniert. Im eigentlichen Sinne können mit der DFS-Replikation Ordner auf Volumes repliziert werden, die die Datendeduplizierung in Windows Server 2012 oder die Einzelinstanz-Speicherung (Single Instance Storage, SIS) verwenden. Allerdings werden Informationen zur Datendeduplizierung von jedem Server, auf dem der Rollendienst aktiviert ist, separat verwaltet.  
-      
+  - Die DFS-Replikation repliziert NTFS-Dateiberechtigungen und alternative Datenströme.
+
+  - Microsoft bietet keine Unterstützung für das Erstellen fester NTFS-Links zu oder von Dateien in einem replizierten Ordner. Dies kann zu Replikationsproblemen bei den betroffenen Dateien führen. Fest verknüpfte Dateien werden von der DFS-Replikation ignoriert und nicht repliziert. Verknüpfungspunkte werden auch nicht repliziert, und bei der DFS-Replikation wird für jeden gefundenen Verknüpfungspunkt das Ereignis 4406 protokolliert.
+
+  - Die einzigen von der DFS-Replikation replizierten Analysepunkte sind diejenigen, die die Kennung IO\_REPARSE\_TAG\_SYMLINK verwenden. Die DFS-Replikation gewährleistet jedoch nicht, dass das Ziel eines Symlinks ebenfalls repliziert wird. Weitere Informationen findest du im Blog [Ask the Directory Services Team](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc725893(v=ws.11)).
+
+  - Dateien mit der Analysenkennung IO\_REPARSE\_TAG\_DEDUP, IO\_REPARSE\_TAG\_SIS oder IO\_REPARSE\_TAG\_HSM werden als normale Dateien repliziert. Die Analysenkennung und die Analysedatenpuffer werden nicht auf andere Server repliziert, da der Analysepunkt nur auf dem lokalen System funktioniert. Im eigentlichen Sinne können mit der DFS-Replikation Ordner auf Volumes repliziert werden, die die Datendeduplizierung in Windows Server 2012 oder die Einzelinstanz-Speicherung (Single Instance Storage, SIS) verwenden. Allerdings werden Informationen zur Datendeduplizierung von jedem Server, auf dem der Rollendienst aktiviert ist, separat verwaltet.
+
 
 ### <a name="does-dfs-replication-replicate-timestamp-changes-if-no-other-changes-are-made-to-the-file"></a>Werden Zeitstempeländerungen von der DFS-Replikation repliziert, wenn keine anderen Änderungen an der Datei vorgenommen wurden?
 
@@ -577,7 +575,7 @@ Ja. Bei der DFS-Replikation werden geänderte Berechtigungen für Dateien und Or
 
 
 > [!NOTE]
-> Die Änderung von ACLs für eine große Anzahl von Dateien kann sich auf die Replikationsleistung auswirken. Bei Verwendung von RDC verhält sich die übertragene Datenmenge jedoch proportional zur Größe der ACLs und nicht zur Größe der gesamten Datei. Der Datenverkehr auf dem Datenträger verhält sich nach wie vor proportional zur Größe der Dateien, da die Dateien in den und aus dem Stagingordner gelesen werden müssen. 
+> Die Änderung von ACLs für eine große Anzahl von Dateien kann sich auf die Replikationsleistung auswirken. Bei Verwendung von RDC verhält sich die übertragene Datenmenge jedoch proportional zur Größe der ACLs und nicht zur Größe der gesamten Datei. Der Datenverkehr auf dem Datenträger verhält sich nach wie vor proportional zur Größe der Dateien, da die Dateien in den und aus dem Stagingordner gelesen werden müssen.
 <br>
 
 
@@ -595,12 +593,12 @@ Nein Der DFS-Replikationsdienst verwendet Remoteprozeduraufrufe über TCP, um Da
 
 Weitere Informationen findest du auf den folgenden Microsoft-Websites:
 
-  - [Technische Referenz zu RPC](https://go.microsoft.com/fwlink/?linkid=182278)  
-      
-  - [Informationen zur Remotedifferenzialkomprimierung](https://go.microsoft.com/fwlink/?linkid=182279)  
-      
-  - [Konstanten auf Authentifizierungsebene](https://go.microsoft.com/fwlink/?linkid=182280)  
-      
+  - [Technische Referenz zu RPC](https://go.microsoft.com/fwlink/?linkid=182278)
+
+  - [Informationen zur Remotedifferenzialkomprimierung](https://go.microsoft.com/fwlink/?linkid=182279)
+
+  - [Konstanten auf Authentifizierungsebene](https://go.microsoft.com/fwlink/?linkid=182280)
+
 
 ### <a name="how-are-simultaneous-replications-handled"></a>Wie werden gleichzeitige Replikationen verarbeitet?
 
@@ -624,10 +622,10 @@ Das Erstellen einer unidirektionalen Replikationsverbindung bei Verwendung der D
 
 Bei Verwendung von Windows Server 2008 oder Windows Server 2003 R2 lässt sich mithilfe der folgenden Schritte eine unidirektionale Verbindung simulieren:
 
-  - Weise Administratoren an, Änderungen nur auf den Servern vorzunehmen, die als primäre Server fungieren sollen. Lasse die Änderungen dann auf die Zielserver replizieren.  
-      
-  - Konfiguriere die Freigabeberechtigungen auf den Zielservern so, dass Endbenutzer keine Schreibberechtigungen besitzen. Wenn auf den Teilstrukturservern keine Änderungen zulässig sind, müssen sie nicht zurück repliziert werden, wodurch eine unidirektionale Verbindung simuliert wird und die WAN-Auslastung gering bleibt.  
-      
+  - Weise Administratoren an, Änderungen nur auf den Servern vorzunehmen, die als primäre Server fungieren sollen. Lasse die Änderungen dann auf die Zielserver replizieren.
+
+  - Konfiguriere die Freigabeberechtigungen auf den Zielservern so, dass Endbenutzer keine Schreibberechtigungen besitzen. Wenn auf den Teilstrukturservern keine Änderungen zulässig sind, müssen sie nicht zurück repliziert werden, wodurch eine unidirektionale Verbindung simuliert wird und die WAN-Auslastung gering bleibt.
+
 
 ### <a name="is-there-a-way-to-force-a-complete-replication-of-all-files-including-unchanged-files"></a>Gibt es eine Möglichkeit, eine vollständige Replikation aller Dateien, einschließlich unveränderter Dateien, zu erzwingen?
 
@@ -643,7 +641,7 @@ Weitere Informationen zur ersten Replikation findest du unter [Erstellen einer R
 
 
 > [!WARNING]
-> Die Definition des primären Mitglieds wird nur während des ersten Replikationsprozesses verwendet. Wenn du den Befehl <STRONG>Dfsradmin</STRONG> verwendest, um nach Abschluss der Replikation ein primäres Mitglied für einen replizierten Ordner anzugeben, wird der Server von der DFS-Replikation in Active Directory Domain Services nicht als primäres Mitglied definiert. Wenn in der DFS-Replikationsdatenbank auf dem Server später jedoch eine unumkehrbare Beschädigung oder ein Datenverlust auftritt, versucht der Server, eine erste Replikation als primäres Mitglied auszuführen, anstatt seine Daten von einem anderen Mitglied der Replikationsgruppe wiederherzustellen. Dabei wird der Server im Wesentlichen zu einem nicht autorisierten primären Server, der Konflikte verursachen kann. Aus diesem Grund sollte das primäre Mitglied nur dann manuell angegeben werden, wenn du sicher bist, dass bei der ersten Replikation ein nicht behebbarer Fehler aufgetreten ist. 
+> Die Definition des primären Mitglieds wird nur während des ersten Replikationsprozesses verwendet. Wenn du den Befehl <STRONG>Dfsradmin</STRONG> verwendest, um nach Abschluss der Replikation ein primäres Mitglied für einen replizierten Ordner anzugeben, wird der Server von der DFS-Replikation in Active Directory Domain Services nicht als primäres Mitglied definiert. Wenn in der DFS-Replikationsdatenbank auf dem Server später jedoch eine unumkehrbare Beschädigung oder ein Datenverlust auftritt, versucht der Server, eine erste Replikation als primäres Mitglied auszuführen, anstatt seine Daten von einem anderen Mitglied der Replikationsgruppe wiederherzustellen. Dabei wird der Server im Wesentlichen zu einem nicht autorisierten primären Server, der Konflikte verursachen kann. Aus diesem Grund sollte das primäre Mitglied nur dann manuell angegeben werden, wenn du sicher bist, dass bei der ersten Replikation ein nicht behebbarer Fehler aufgetreten ist.
 <br>
 
 
@@ -659,12 +657,12 @@ Wenn die DFS-Replikation einen Konflikt erkennt, wird die zuletzt gespeicherte V
 
 Wenn ein Konflikt auftritt, wird von der DFS-Replikation zu Informationszwecken ein Ereignis im Ereignisprotokoll der DFS-Replikation protokolliert. Für dieses Ereignis ist aus den folgenden Gründen kein Benutzereingriff erforderlich:
 
-  - Es ist für Benutzer nicht sichtbar (sondern nur für Serveradministratoren).  
-      
-  - Der Ordner „ConflictandDeleted“ wird von der DFS-Replikation als Cache behandelt. Wenn ein Kontingentschwellenwert erreicht wird, werden einige dieser Dateien bereinigt. Es gibt keine Garantie, dass in Konflikt stehende Dateien gespeichert werden.  
-      
-  - Der Konflikt kann auf einem anderen Server als dem Ursprungsserver des Konflikts aufgetreten sein.  
-      
+  - Es ist für Benutzer nicht sichtbar (sondern nur für Serveradministratoren).
+
+  - Der Ordner „ConflictandDeleted“ wird von der DFS-Replikation als Cache behandelt. Wenn ein Kontingentschwellenwert erreicht wird, werden einige dieser Dateien bereinigt. Es gibt keine Garantie, dass in Konflikt stehende Dateien gespeichert werden.
+
+  - Der Konflikt kann auf einem anderen Server als dem Ursprungsserver des Konflikts aufgetreten sein.
+
 
 ## <a name="staging"></a>Wird bereitgestellt
 

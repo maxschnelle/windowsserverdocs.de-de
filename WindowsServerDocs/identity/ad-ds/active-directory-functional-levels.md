@@ -6,16 +6,14 @@ author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 10/29/2018
 ms.topic: article
-ms.prod: windows-server
 ms.custom: it-pro
 ms.reviewer: maheshu
-ms.technology: identity-adds
-ms.openlocfilehash: b6a9a5c08e24f5c7bb7ac50ac1c72386ef8a6d0f
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 75ba30502c7de1b0a88886f42c3a8ef9a84a7e18
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86963052"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87938629"
 ---
 # <a name="forest-and-domain-functional-levels"></a>Gesamtstruktur- und Domänenfunktionsebenen
 
@@ -133,7 +131,7 @@ Unterstützte Betriebssysteme des Domänencontrollers:
 
 ### <a name="windows-server-2008-forest-functional-level-features"></a>Features für die Windows Server 2008-Gesamtstrukturfunktionsebene
 
-* Es sind alle auf der Windows Server 2003-Gesamtstrukturfunktionsebene verfügbaren Features, jedoch keine zusätzlichen Features verfügbar. 
+* Es sind alle auf der Windows Server 2003-Gesamtstrukturfunktionsebene verfügbaren Features, jedoch keine zusätzlichen Features verfügbar.
 
 ### <a name="windows-server-2008-domain-functional-level-features"></a>Features für die Windows Server 2008-Domänenfunktionsebene
 
@@ -145,7 +143,7 @@ Unterstützte Betriebssysteme des Domänencontrollers:
       > Ab Windows Server 2012 R2 ist der Dateireplikationsdienst (File Replication Service, FRS) veraltet. Eine neue Domäne, die auf einem Domänencontroller erstellt wird, auf dem mindestens Windows Server 2012 R2 ausgeführt wird, muss auf die Windows Server 2008-Domänenfunktionsebene (oder höher) festgelegt werden.
 
   * Es sind im Windows Server 2008-Modus ausgeführte domänenbasierte DFS-Namespaces einschließlich der Unterstützung für die zugriffsbasierte Aufzählung und bessere Skalierbarkeit verfügbar. Domänenbasierte Namespaces im Windows Server 2008-Modus erfordern außerdem die Gesamtstruktur, um die Windows Server 2003-Gesamtstrukturfunktionsebene nutzen zu können. Weitere Informationen finden Sie unter [Auswählen eines Namespacetyps](https://go.microsoft.com/fwlink/?LinkId=180400).
-  * Advanced Encryption Standard-Unterstützung (AES 128 und AES 256) für das Kerberos-Protokoll: Damit TGTs mithilfe von AES ausgestellt werden können, muss die Domänenfunktionsebene Windows Server 2008 oder höher sein und das Domänenkennwort geändert werden. 
+  * Advanced Encryption Standard-Unterstützung (AES 128 und AES 256) für das Kerberos-Protokoll: Damit TGTs mithilfe von AES ausgestellt werden können, muss die Domänenfunktionsebene Windows Server 2008 oder höher sein und das Domänenkennwort geändert werden.
     * Weitere Informationen finden Sie unter [Kerberos-Erweiterungen](/previous-versions/windows/it-pro/windows-vista/cc749438(v=ws.10)).
 
       > [!NOTE]
@@ -182,7 +180,7 @@ Unterstützte Betriebssysteme des Domänencontrollers:
       - Der Generator für standortübergreifende Topologie (Intersite Topology Generator, ISTG) verwendet verbesserte Algorithmen für die Unterstützung von Gesamtstrukturen mit einer größeren Anzahl von Standorten als AD DS auf Windows 2000-Gesamtstrukturfunktionsebene unterstützen kann. Der verbesserte ISTG-Wahlalgorithmus ist ein weniger intrusiver Mechanismus zur Auswahl des ISTG auf der Windows 2000-Gesamtstrukturfunktionsebene.
    * Möglichkeit zum Erstellen von Instanzen der dynamischen Erweiterungsklasse namens **dynamicObject** in einer Domänenverzeichnispartition
    * Möglichkeit zum Konvertieren einer **inetOrgPerson**-Objektinstanz zu einer **User**-Objektinstanz bzw. in umgekehrter Richtung
-   * Möglichkeit zum Erstellen von Instanzen von neuen Gruppentypen für die Unterstützung der rollenbasierten Autorisierung 
+   * Möglichkeit zum Erstellen von Instanzen von neuen Gruppentypen für die Unterstützung der rollenbasierten Autorisierung
       - Diese Typen werden als „Anwendungsbasisgruppen“ und „LDAP-Abfragegruppen“ bezeichnet.
    * Deaktivierung und Neudefinition von Attributen und Klassen im Schema Die folgenden Attribute können wieder verwendet werden: ldapDisplayName, schemaIdGuid, OID und mapiID.
    * Es sind im Windows Server 2008-Modus ausgeführte domänenbasierte DFS-Namespaces einschließlich der Unterstützung für die zugriffsbasierte Aufzählung und bessere Skalierbarkeit verfügbar. Weitere Informationen finden Sie unter [Auswählen eines Namespacetyps](https://go.microsoft.com/fwlink/?LinkId=180400).
@@ -226,5 +224,5 @@ Unterstützte Betriebssysteme des Domänencontrollers:
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* [Heraufstufen der Domänenfunktionsebene](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753104(v=ws.11))  
+* [Heraufstufen der Domänenfunktionsebene](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753104(v=ws.11))
 * [Heraufstufen der Gesamtstrukturfunktionsebene](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc730985(v=ws.11))

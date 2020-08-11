@@ -1,23 +1,21 @@
 ---
 title: Netsh-Befehle für HTTP (Hypertext Transfer Protocol)
 description: Verwende „netsh http“, um HTTP.sys-Einstellungen und -Parameter abzufragen und zu konfigurieren.
-ms.prod: windows-server
-ms.technology: networking
 ms.topic: article
 manager: dougkim
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 81053e71040d2a0cd125af9fb7f3802dfd535781
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: a2bf580dff85463306767b6a129819b82f4fc85c
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80853753"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87946984"
 ---
 # <a name="netsh-http-commands"></a>Netsh http-Befehle
 
 
-Verwende **netsh http**, um HTTP.sys-Einstellungen und -Parameter abzufragen und zu konfigurieren.  
+Verwende **netsh http**, um HTTP.sys-Einstellungen und -Parameter abzufragen und zu konfigurieren.
 
 >[!TIP]
 >Wenn du Windows PowerShell auf einem Computer mit Windows Server 2016 oder Windows 10 verwendest, gib **netsh** ein und drücke die EINGABETASTE. Gib an der Netsh-Eingabeaufforderung **http** ein und drücke die EINGABETASTE, um die „netsh http“-Eingabeaufforderung zu erhalten.
@@ -115,7 +113,7 @@ add sslcert ipport=1.1.1.1:443 certhash=0102030405060708090A0B0C0D0E0F1011121314
 
 Fügt dem Dienst eine globale Zeitüberschreitung hinzu.
 
-**Syntax** 
+**Syntax**
 
 ```powershell
 add timeout [ timeouttype= ] IdleConnectionTimeout | HeaderWaitTimeout [ value=] U-Short

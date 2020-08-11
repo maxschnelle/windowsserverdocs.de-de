@@ -6,27 +6,25 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server
-ms.technology: identity-adds
-ms.openlocfilehash: 6151c5a2582d15ac57c5bc824206a6f9c51a58ab
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 22cc87fae61973d120ed6b10315015a7a2c88911
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80825553"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87938704"
 ---
 # <a name="active-directory-domain-services"></a>Active Directory-Domänendienste (AD DS)
 
 >Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-  
-Links zu Active Directory Domain Services-Inhalten findest du auf dieser Seite.   
+
+Links zu Active Directory Domain Services-Inhalten findest du auf dieser Seite.
 
 
-* [Neues in den Active Directory Domain Services](../whats-new-active-directory-domain-services.md)  
-* [Erste Schritte mit AD DS](../ad-ds/AD-DS-Getting-Started.md)   
-* [AD DS-Entwurf und -Planung](../ad-ds/plan/AD-DS-Design-and-Planning.md)  
-* [AD DS-Bereitstellung](../ad-ds/deploy/AD-DS-Deployment.md)  
-* [AD DS-Vorgänge](../ad-ds/manage/component-updates/AD-DS-Operations.md)   
-* [Virtualisierung der Active Directory Domain Services](../ad-ds/get-started/virtual-dc/Active-Directory-Domain-Services-Virtualization.md)  
+* [Neues in den Active Directory Domain Services](../whats-new-active-directory-domain-services.md)
+* [Erste Schritte mit AD DS](../ad-ds/AD-DS-Getting-Started.md)
+* [AD DS-Entwurf und -Planung](../ad-ds/plan/AD-DS-Design-and-Planning.md)
+* [AD DS-Bereitstellung](../ad-ds/deploy/AD-DS-Deployment.md)
+* [AD DS-Vorgänge](../ad-ds/manage/component-updates/AD-DS-Operations.md)
+* [Virtualisierung der Active Directory Domain Services](../ad-ds/get-started/virtual-dc/Active-Directory-Domain-Services-Virtualization.md)
 * [Behandeln von AD DS-Problemen](../ad-ds/manage/AD-DS-Troubleshooting.md)

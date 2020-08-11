@@ -1,20 +1,18 @@
 ---
 title: Nachverfolgen deiner Remotedesktopdienste-Clientzugriffslizenzen (RDS-CALs)
 description: Erfahren Sie, wie Sie Clientzugriffslizenzen (CALs) in Ihrer RDS-Bereitstellung verfolgen können.
-ms.prod: windows-server
-ms.technology: remote-desktop-services
 ms.topic: article
 ms.assetid: 80d82d30-3ad0-4a8c-9a9b-2773c47eee19
 author: lizap
 ms.author: elizapo
 ms.date: 05/11/2017
 manager: dongill
-ms.openlocfilehash: 7e5793427b4a294d90c7b9ebeb66bb27578be190
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 7804b0339a9c086a6e68dd83d63b0da5ff292665
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80857333"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87954817"
 ---
 # <a name="track-your-remote-desktop-services-client-access-licenses-rds-cals"></a>Nachverfolgen deiner Remotedesktopdienste-Clientzugriffslizenzen (RDS-CALs)
 
@@ -23,7 +21,7 @@ ms.locfileid: "80857333"
 Sie können mit dem Remotedesktoplizenzierungs-Manager Berichte erstellen, um die Pro Benutzer-Clientzugriffslizenzen für Remotedesktopdienste (Pro Benutzer-RDS-CALs) zu verfolgen, die von einem Remotedesktop-Lizenzserver ausgegeben wurden.
 
 > [!NOTE]
->  Wenn Sie Azure AD Domain Services in Ihrer Umgebung verwenden, funktioniert das Remotedesktoplizenzierungs-Manager-Tool nicht, um Clientzugriffslizenzen pro Benutzer zu erhalten. Stattdessen müssen Sie die Lizenzierung manuell verfolgen, entweder durch Anmeldeereignisse, das Abrufen aktiver Remotedesktopverbindungen über den Verbindungsbroker oder einen anderen Mechanismus, der für Sie geeignet ist. 
+>  Wenn Sie Azure AD Domain Services in Ihrer Umgebung verwenden, funktioniert das Remotedesktoplizenzierungs-Manager-Tool nicht, um Clientzugriffslizenzen pro Benutzer zu erhalten. Stattdessen müssen Sie die Lizenzierung manuell verfolgen, entweder durch Anmeldeereignisse, das Abrufen aktiver Remotedesktopverbindungen über den Verbindungsbroker oder einen anderen Mechanismus, der für Sie geeignet ist.
 
 Führen Sie die folgenden Schritte aus, um einen Bericht für die Clientzugriffslizenz vom Typ „Pro Benutzer“ zu erstellen:
 

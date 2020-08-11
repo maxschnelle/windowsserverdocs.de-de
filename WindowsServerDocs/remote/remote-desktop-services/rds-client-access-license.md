@@ -1,26 +1,24 @@
 ---
 title: Lizenzieren deiner RDS-Bereitstellung mit Clientzugriffslizenzen (CALs)
 description: Hier findest du eine Übersicht über die Clientlizenzierung in den Remotedesktopdiensten.
-ms.prod: windows-server
-ms.technology: remote-desktop-services
 ms.topic: article
 ms.assetid: 5be6546b-df16-4475-bcba-aa75aabef3e3
 author: lizap
 ms.author: elizapo
 ms.date: 02/12/2020
 manager: dongill
-ms.openlocfilehash: a11820b9c75bbcb928da562f3f74e4130e9c8096
-ms.sourcegitcommit: 599162b515c50106fd910f5c180e1a30bbc389b9
+ms.openlocfilehash: d257893e19286ab2a4c8293a2cf2b2e6697898ce
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83775313"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87936989"
 ---
 # <a name="license-your-rds-deployment-with-client-access-licenses-cals"></a>Lizenzieren deiner RDS-Bereitstellung mit Clientzugriffslizenzen (CALs)
 
 >Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016
 
-Jeder Benutzer und jedes Gerät, der bzw. das eine Verbindung mit einem Remotedesktop-Sitzungshost herstellt, benötigt eine Clientzugriffslizenz (Client Access License, CAL). Zum Installieren, Ausstellen und Nachverfolgen der RDS-CALs verwendest du die RD-Lizenzierung.  
+Jeder Benutzer und jedes Gerät, der bzw. das eine Verbindung mit einem Remotedesktop-Sitzungshost herstellt, benötigt eine Clientzugriffslizenz (Client Access License, CAL). Zum Installieren, Ausstellen und Nachverfolgen der RDS-CALs verwendest du die RD-Lizenzierung.
 
 Wenn ein Benutzer oder ein Gerät eine Verbindung mit einem RD-Sitzungshostserver herstellt, bestimmt der RD-Sitzungshostserver, ob eine RDS-CAL benötigt wird. Der RD-Sitzungshostserver fordert dann eine RDS-CAL vom Remotedesktop-Lizenzserver an. Wenn eine geeignete RDS-CAL auf einem Lizenzserver verfügbar ist, wird die RDS-CAL für den Client ausgestellt, und der Client kann eine Verbindung mit dem RD-Sitzungshostserver und von dort aus mit den Desktops oder Apps herstellen, die verwendet werden sollen.
 

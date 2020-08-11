@@ -1,27 +1,25 @@
 ---
 title: Einrichten von Notfallwiederherstellung für RDS mithilfe von Azure Disaster Recovery
 description: Erfahren Sie, wie Sie Azure Disaster Recovery zur Notfallwiederherstellung für eine RDS-Bereitstellung verwenden
-ms.prod: windows-server
-ms.technology: remote-desktop-services
 ms.author: elizapo
 ms.date: 06/12/2017
 ms.topic: article
 author: lizap
 manager: dongill
-ms.openlocfilehash: 68fa7026a3198b7800c4855f8472f4a0bec62009
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 6c0e9b97a436f51babf679d6ce0aa67c09bcfe26
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80858993"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87936905"
 ---
 # <a name="set-up-disaster-recovery-for-rds-using-azure-site-recovery"></a>Einrichten von Notfallwiederherstellung für RDS mithilfe von Azure Site Recovery
 
 >Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016
 
-Sie können Azure Site Recovery verwenden, um eine Lösung zur Notfallwiederherstellung für Ihre Remotedesktopdienste-Bereitstellung zu erstellen. 
+Sie können Azure Site Recovery verwenden, um eine Lösung zur Notfallwiederherstellung für Ihre Remotedesktopdienste-Bereitstellung zu erstellen.
 
-[Azure Site Recovery](/azure/site-recovery/site-recovery-overview) ist ein Azure-basierter Dienst, der Funktionen zur Notfallwiederherstellung bietet, indem er Replikation, Failover und Wiederherstellung von virtuellen Computern orchestriert. Azure Site Recovery unterstützt eine Reihe von Replikationstechnologien, um konsistente Replikation, Schutz und nahtloses Failover von virtuellen Computern und Anwendungen in private/öffentliche oder von Hostanbietern betriebene Clouds zu ermöglichen. 
+[Azure Site Recovery](/azure/site-recovery/site-recovery-overview) ist ein Azure-basierter Dienst, der Funktionen zur Notfallwiederherstellung bietet, indem er Replikation, Failover und Wiederherstellung von virtuellen Computern orchestriert. Azure Site Recovery unterstützt eine Reihe von Replikationstechnologien, um konsistente Replikation, Schutz und nahtloses Failover von virtuellen Computern und Anwendungen in private/öffentliche oder von Hostanbietern betriebene Clouds zu ermöglichen.
 
 Verwenden Sie die folgenden Informationen zum Erstellen und Überprüfen der Lösung zur Notfallwiederherstellung.
 
@@ -42,7 +40,7 @@ Bevor Sie Azure Site Recovery für Ihre Bereitstellung konfigurieren können, ac
 - Erstellen Sie eine [lokale RDS-Bereitstellung](rds-deploy-infrastructure.md).
 - Fügen Sie Ihrem Microsoft Azure-Abonnement den [Azure Site Recovery Services-Tresor](/azure/site-recovery/site-recovery-vmm-to-azure#create-a-recovery-services-vault) hinzu.
 - Wenn Sie Azure als Ihren Wiederherstellungsstandort verwenden, führen Sie das [Azure Virtual Machine Readiness Assessment-Tool](https://azure.microsoft.com/downloads/vm-readiness-assessment/) auf Ihren VMs aus, um sicherzustellen, dass sie mit Azure-VMs und Azure Site Recovery-Diensten kompatibel sind.
- 
+
 ## <a name="implementation-checklist"></a>Checkliste für die Implementierung
 
 Wir behandeln die verschiedenen Schritte zum Aktivieren der Azure Site Recovery-Dienste für Ihre RDS-Bereitstellung noch ausführlicher, dies sind zunächst mal die allgemeinen Implementierungsschritte.

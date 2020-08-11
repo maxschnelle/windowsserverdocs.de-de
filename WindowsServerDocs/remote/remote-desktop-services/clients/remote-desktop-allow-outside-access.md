@@ -1,20 +1,18 @@
 ---
 title: Remotedesktop – Gewähren des Zugriffs auf Ihren PC von außerhalb Ihres Netzwerks
 description: Informationen zu den Optionen für den Remotezugriff auf Ihren PC von außerhalb des Computernetzwerks
-ms.prod: windows-server
-ms.technology: remote-desktop-services
 ms.topic: article
 author: haley-rowland
 manager: dongill
 ms.author: elizapo
 ms.date: 04/04/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 9cc1b7568006ef9e32132d772702212c5fd78ec4
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 109f60ec099606dfc031fc07a8f457287f8fb50d
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80857423"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87946433"
 ---
 # <a name="remote-desktop---allow-access-to-your-pc-from-outside-your-pcs-network"></a>Remotedesktop – Gewähren des Zugriffs auf Ihren PC von außerhalb des Computernetzwerks
 
@@ -24,7 +22,7 @@ Wenn Sie mithilfe eines Remotedesktopclients eine Verbindung mit Ihrem PC herste
 
 ## <a name="enable-port-forwarding-on-your-router"></a>Aktivieren der Portweiterleitung auf Ihrem Router
 
-Die Portweiterleitung ordnet den Port der IP-Adresse Ihres Routers (Ihre öffentliche IP-Adresse) einfach dem Port und der IP-Adresse des PCs zu, auf den Sie zugreifen möchten. 
+Die Portweiterleitung ordnet den Port der IP-Adresse Ihres Routers (Ihre öffentliche IP-Adresse) einfach dem Port und der IP-Adresse des PCs zu, auf den Sie zugreifen möchten.
 
 Die jeweiligen Schritte zum Aktivieren der Portweiterleitung hängen vom verwendeten Router ab. Daher müssen Sie online nach den Anweisungen für Ihren Router suchen. Eine allgemeine Erläuterung der Schritte finden Sie im wikiHow-Artikel [How to Set Up Port Forwarding on a Router](https://www.wikihow.com/Set-Up-Port-Forwarding-on-a-Router) (Eine Portweiterleitung einrichten).
 
@@ -36,7 +34,7 @@ Bevor Sie den Port zuordnen, benötigen Sie Folgendes:
 
 - Ihre öffentliche IP-Adresse (die IP-Adresse des Routers). Es gibt viele Möglichkeiten, diese zu ermitteln. Sie können (in Bing oder Google) nach „Meine IP-Adresse“ suchen oder die [WLAN-Netzwerkeigenschaften](https://binged.it/2Gwob34) (Windows 10) anzeigen.
 - Die Nummer des Ports, der zugeordnet wird. In den meisten Fällen ist dies 3389. Das ist der von Remotedesktopverbindungen verwendete Standardport.
-- Administratorzugriff auf Ihren Router.  
+- Administratorzugriff auf Ihren Router.
 
    >[!WARNING]
    > Sie öffnen Ihren PC für das Internet. Stellen Sie sicher, dass ein sicheres Kennwort für Ihren PC festgelegt ist.

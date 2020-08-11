@@ -2,18 +2,16 @@
 title: Initialisieren neuer Datenträger
 description: Hier erfährst du, wie du neue Datenträger mit der Datenträgerverwaltung initialisierst und damit für die Verwendung vorbereitest. Darüber hinaus findest du hier Links zur Problembehandlung.
 ms.date: 12/20/2019
-ms.prod: windows-server
-ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 68e51cff5b70ed0b11488e44cebba057e7432d99
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: adfc298c460bfa55516898df1781217dfe55d129
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86965272"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87942295"
 ---
 # <a name="initialize-new-disks"></a>Initialisieren neuer Datenträger
 
@@ -29,7 +27,7 @@ Wenn du einen ganz neuen Datenträger zu deinem PC hinzufügst und er nicht im D
 Hier wird erläutert, wie du einen neuen Datenträger mit der Datenträgerverwaltung initialisierst. Wenn du PowerShell bevorzugst, verwende stattdessen das Cmdlet [initialize-disk](/powershell/module/storage/initialize-disk).
 
 1. Öffne die Datenträgerverwaltung mit Administratorberechtigungen.
- 
+
     Gib dazu ins Suchfeld auf der Taskleiste **Datenträgerverwaltung** ein, halte **Datenträgerverwaltung** gedrückt (oder klicke mit der rechten Maustaste darauf), und wähle anschließend **Als Administrator ausführen** > **Ja** aus. Falls das Öffnen als Administrator nicht funktioniert, gib stattdessen **Computerverwaltung** ein, und navigiere anschließend zu **Speicher** > **Datenträgerverwaltung**.
 1. Klicke in der Datenträgerverwaltung mit der rechten Maustaste auf den zu initialisierenden Datenträger, und klicke dann auf **Datenträgerinitialisierung** (siehe Abbildung unten). Wird der Datenträger als *Offline* angezeigt, klicke zunächst mit der rechten Maustaste darauf, und wähle dann **Online** aus.
 

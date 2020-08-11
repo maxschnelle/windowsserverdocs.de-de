@@ -1,26 +1,24 @@
 ---
 title: Migrieren von Remotedesktopdienste-Clientzugriffslizenzen (RDS-CALs)
 description: In diesem Artikel erfährst du, wie du deine Remotedesktopdienste-Clientzugriffslizenzen zu neuen Windows Server 2016-Lizenzservern migrierst.
-ms.prod: windows-server
-ms.technology: remote-desktop-services
 ms.author: chrimo
 ms.date: 11/01/2016
 ms.topic: article
 ms.assetid: 91bdedce-6145-469f-b72e-7e113c4391e9
 author: christianmontoya
 manager: scottman
-ms.openlocfilehash: 5d95c2bc3a92a8cdcba4b308c88d94cb9af6d2a5
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: b3f1fb102f08e8947feba0c522cd43c462154c36
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80855993"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87936999"
 ---
 # <a name="migrate-your-remote-desktop-services-client-access-licenses-rds-cals"></a>Migrieren von Remotedesktopdienste-Clientzugriffslizenzen (RDS-CALs)
 
 RDS-CALs können auf drei Arten migriert werden:
-1. Automatische Verbindungsmethode: Bei dieser empfohlenen Methode wird über das Internet direkt mit dem Microsoft Clearinghouse (ausgehende Verbindung über den TCP-Port 443) kommuniziert.  
-2. Webbrowser: Diese Migrationsmethode kann verwendet werden, wenn der Server, auf dem der Remotedesktoplizenzierungs-Manager ausgeführt wird, nicht mit dem Internet verbunden ist und der Administrator über ein separates Gerät auf das Internet zugreifen kann. Die URL für die Webmigrationsmethode wird im Assistenten zum Verwalten von RDS-CALs angezeigt. 
+1. Automatische Verbindungsmethode: Bei dieser empfohlenen Methode wird über das Internet direkt mit dem Microsoft Clearinghouse (ausgehende Verbindung über den TCP-Port 443) kommuniziert.
+2. Webbrowser: Diese Migrationsmethode kann verwendet werden, wenn der Server, auf dem der Remotedesktoplizenzierungs-Manager ausgeführt wird, nicht mit dem Internet verbunden ist und der Administrator über ein separates Gerät auf das Internet zugreifen kann. Die URL für die Webmigrationsmethode wird im Assistenten zum Verwalten von RDS-CALs angezeigt.
 3. Telefon: Bei dieser Methode kann der Administrator den Migrationsprozess telefonisch mit einem Microsoft-Mitarbeiter durchführen. Die Telefonnummer hängt davon ab, welches Land/welche Region du im Serveraktivierungs-Assistenten ausgewählt hast, und wird im Assistenten zum Verwalten von RDS-CALs angezeigt.
 
 In diesem Artikel werden unter [Einrichten der RDS-CAL-Migrationsmethode](#establish-rds-cal-migration-method) zunächst die allgemeinen Schritte erläutert, die bei allen RDS-CAL-Migrationsmethoden ausgeführt werden müssen. Die spezifischen Schritte für die jeweilige Migrationsmethode werden dann unter [Migrieren von RDS-CALs](#migrate-rds-cals) beschrieben.
@@ -38,7 +36,7 @@ Unabhängig von der Migrationsmethode musst du mindestens der lokalen Gruppe „
     - Der Quelllizenzserver kann nicht mehr ausgeführt werden.
 7. Die nächste Seite des Assistenten hängt vom ausgewählten Migrationsgrund ab.
     - Wenn du als Grund für die Migration der RDS-CALs die Option **Der Quelllizenzserver wird durch diesen Lizenzserver ersetzt.** ausgewählt hast, wird die Seite **Informationen zum Quelllizenzserver** angezeigt.
-    
+
        Gib auf der Seite „Informationen zum Quelllizenzserver“ den Namen oder die IP-Adresse des Quelllizenzservers ein.
 
        Wenn der Quelllizenzserver im Netzwerk verfügbar ist, klicke auf **Weiter**. Der Assistent kontaktiert den Quelllizenzserver. Wenn auf dem Quelllizenzserver ein Betriebssystem vor Windows Server 2008 R2 ausgeführt wird oder der Quelllizenzserver deaktiviert ist, wirst du daran erinnert, dass du die RDS-CALs nach Abschluss des Assistenten manuell vom Quelllizenzserver entfernen musst. Nach Bestätigung dieser Information wird die Seite **Schlüsselpaket für die Clientlizenz anfordern** angezeigt.
@@ -66,7 +64,7 @@ Lizenzen können auf drei Arten zum Ziellizenzserver migriert werden. Fahre mit 
 
 ### <a name="using-a-web-browser"></a>Webbrowser
 1. Klicke auf der Seite **Schlüsselpaket für die Clientlizenz anfordern** auf den Link, um eine Verbindung mit der Lizenzierungswebsite für Remotedesktopdienste herzustellen.
-   Wenn du den Remotedesktoplizenzierungs-Manager auf einem Computer ohne Internetkonnektivität ausführst, notiere dir die Adresse der Lizenzierungswebsite für Remotedesktopdienste, und stelle anschließend auf einem Computer mit Internetkonnektivität eine Verbindung mit der Website her. 
+   Wenn du den Remotedesktoplizenzierungs-Manager auf einem Computer ohne Internetkonnektivität ausführst, notiere dir die Adresse der Lizenzierungswebsite für Remotedesktopdienste, und stelle anschließend auf einem Computer mit Internetkonnektivität eine Verbindung mit der Website her.
 2. Wähle auf der Lizenzierungswebsite für Remotedesktopdienste unter **Option auswählen** die Option **CALs verwalten** aus, und klicke anschließend auf **Weiter**.
 3. Gib die folgenden erforderlichen Informationen an, und klicke anschließend auf **Weiter**:
     - **ID des Ziellizenzservers**: Eine 35-stellige, in Fünfergruppen unterteilte Nummer, die im Assistenten zum Verwalten von RDS-CALs auf der Seite **Schlüsselpaket für die Clientlizenz anfordern** angezeigt wird.
@@ -84,7 +82,7 @@ Lizenzen können auf drei Arten zum Ziellizenzserver migriert werden. Fahre mit 
 6. Klicken Sie, nachdem Sie die erforderlichen Informationen eingegeben haben, auf **Weiter**.
 7. Vergewissere dich, dass alle eingegebenen Informationen korrekt sind, und klicke anschließend auf **Weiter**, um deine Anforderung an das Microsoft Clearinghouse zu übermitteln. Daraufhin wird auf der Webseite eine vom Microsoft Clearinghouse generierte Lizenzschlüsselpaket-ID angezeigt.
 
-   > [!IMPORTANT] 
+   > [!IMPORTANT]
    > Bewahre eine Kopie der Lizenzschlüsselpaket-ID auf. Diese Information erleichtert die Kommunikation mit dem Microsoft Clearinghouse, falls du Unterstützung bei der Wiederherstellung der RDS-CALs benötigst.
 
 8. Gib auf der Seite **Schlüsselpaket für die Clientlizenz anfordern** die Lizenzschlüsselpaket-ID ein, und klicke anschließend auf **Weiter**, um die RDS-CALs zu deinem Lizenzserver zu migrieren.

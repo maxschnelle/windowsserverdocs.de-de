@@ -3,17 +3,16 @@ title: Neuerstellen der Tokens.dat-Datei
 description: Informationen zum Neuerstellen der Tokens.dat-Datei bei der Behandlung von Windows-Aktivierungsproblemen
 ms.topic: troubleshooting
 ms.date: 09/18/2019
-ms.technology: server-general
 author: Teresa-Motiv
 ms.author: v-tea
 manager: dcscontentpm
 ms.localizationpriority: medium
-ms.openlocfilehash: 8a5835cd601b2eb327c8605d70bf075e6c8e8414
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: bc44dae97422e4d9d9e55b32004f806bbb7860f7
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "71962996"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87941782"
 ---
 # <a name="rebuild-the-tokensdat-file"></a>Neuerstellen der Tokens.dat-Datei
 
@@ -23,11 +22,10 @@ Wenn Sie Probleme bei der Windows-Aktivierung behandeln, müssen Sie möglicherw
 
 Führen Sie die folgenden Schritte aus, um die Tokens.dat-Datei neu zu erstellen:
 
-1. Öffnen Sie ein Eingabeaufforderungsfenster mit erhöhten Rechten:  
-   **Für Windows 10**
+1. Öffnen Sie ein Eingabeaufforderungsfenster mit erhöhten Rechten: **Für Windows 10**
 
    1. Öffnen Sie das **Startmenü**, und geben Sie **cmd** ein.
-   1. Klicken Sie in den Suchergebnissen mit der rechten Maustaste auf **Eingabeaufforderung**, und wählen Sie dann **Als Administrator ausführen** aus.  
+   1. Klicken Sie in den Suchergebnissen mit der rechten Maustaste auf **Eingabeaufforderung**, und wählen Sie dann **Als Administrator ausführen** aus.
 
    **Für Windows 8.1**
    1. Wischen Sie vom rechten Bildschirmrand aus nach innen, und tippen Sie dann auf **Suchen**. Wenn Sie eine Maus verwenden, zeigen Sie auf die untere rechte Ecke des Bildschirms, und wählen Sie dann **Suchen** aus.
@@ -39,7 +37,7 @@ Führen Sie die folgenden Schritte aus, um die Tokens.dat-Datei neu zu erstellen
    1. Öffnen Sie das **Startmenü**, und geben Sie **cmd** ein.
    1. Klicken Sie in den Suchergebnissen mit der rechten Maustaste auf **cmd.exe**, und wählen Sie **Als Administrator ausführen** aus.
 
-1. Geben Sie die Liste der Befehle ein, die für Ihr Betriebssystem geeignet sind.  
+1. Geben Sie die Liste der Befehle ein, die für Ihr Betriebssystem geeignet sind.
 
    Geben Sie für Windows 10, Windows Server 2016 und höhere Versionen von Windows nacheinander die folgenden Befehle ein:
    ```cmd

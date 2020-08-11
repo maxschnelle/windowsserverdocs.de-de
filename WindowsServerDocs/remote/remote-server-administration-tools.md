@@ -1,19 +1,17 @@
 ---
 title: Remoteserver-Verwaltungstools
 description: Thema der obersten Ebene für Remoteserver-Verwaltungstools
-ms.prod: windows-server
-ms.technology: manage-rsat
 ms.topic: get-started-article
 ms.assetid: d54a1f5e-af68-497e-99be-97775769a7a7
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dansimp
-ms.openlocfilehash: 75ebb12962e213887f1827992aff3fdf3c1df305
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 49a86a24b3637a701d6857af246eaa2852f1c73f
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86963132"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87948773"
 ---
 # <a name="remote-server-administration-tools"></a>Remoteserver-Verwaltungstools
 
@@ -47,20 +45,20 @@ Remoteserver-Verwaltungstools für Windows 10 können unter x86- und x64-basier
 > Es ist nicht ratsam, Remoteserver-Verwaltungstools für Windows 10 auf einem Computer zu installieren, auf dem Verwaltungsprogramme für Windows 8.1, Windows 8, Windows Server 2008 R2, Windows Server 2008, Windows Server 2003 oder Windows 2000 Server ausgeführt werden. Entfernen Sie alle älteren Versionen von Verwaltungsprogrammen oder Remoteserver-Verwaltungstools – einschließlich ältere Vorabversionen und Versionen der Tools für unterschiedliche Sprachen oder Gebietsschemas – vom Computer, bevor Sie die Remoteserver-Verwaltungstools für Windows 10 installieren.
 
 Um diese Version von Server-Manager für den Zugriff auf und die Verwaltung von Remoteservern mit Windows Server 2012 R2 , Windows Server 2012 oder Windows Server 2008 R2 zu verwenden, müssen Sie mehrere Updates installieren, um die älteren Windows Server-Betriebssysteme mit Hilfe von Server-Manager verwaltbar zu machen. Ausführliche Informationen dazu, wie Sie Windows Server 2012 R2, Windows Server 2012 und Windows Server 2008 R2 für die Verwaltung mit dem Server-Manager in den Remoteserver-Verwaltungstools für Windows 10 vorbereiten können, finden Sie unter [Verwalten von mehreren Remoteservern mit dem Server-Manager](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831456(v=ws.11)).
-        
+
 Die Windows PowerShell- und Server-Manager-Remoteverwaltung muss auf Remoteservern aktiviert werden, um diese mithilfe von Tools verwalten zu können, die Teil der Remoteserver-Verwaltungstools für Windows 10 sind. Remoteverwaltung ist auf Servern mit Windows Server 2016, Windows Server 2012 R2 und Windows Server 2012 standardmäßig aktiviert. Weitere Informationen zum Aktivieren der deaktivierten Remoteverwaltung finden Sie unter [Verwalten von mehreren Remoteservern mit dem Server-Manager](https://go.microsoft.com/fwlink/p/?LinkId=241358).
-        
-## <a name="install-uninstall-and-turn-offon-rsat-tools"></a>Installieren, Deinstallieren und Aktivieren/Deaktivieren der RSAT-Tools        
+
+## <a name="install-uninstall-and-turn-offon-rsat-tools"></a>Installieren, Deinstallieren und Aktivieren/Deaktivieren der RSAT-Tools
 
 ### <a name="use-features-on-demand-fod-to-install-specific-rsat-tools-on-windows-10-october-2018-update-or-later"></a>Verwenden von FoD (Features on Demand, Features bei Bedarf), um bestimmte RSAT-Tools unter dem Windows 10 October 2018 Update oder höher zu installieren
 
 Ab dem Windows 10-Update vom Oktober 2018 ist RSAT als Sammlung von **Features bei Bedarf** in Windows 10 selbst enthalten. Anstatt ein RSAT-Paket herunterzuladen, können Sie jetzt einfach zu **Optionale Features verwalten** unter **Einstellungen** navigieren und auf **Feature hinzufügen** klicken, um die Liste der verfügbaren RSAT-Tools anzuzeigen. Wählen Sie die gewünschten RSAT-Tools aus, und installieren Sie sie. Um den Installationsfortschritt anzuzeigen, klicken Sie auf die Schaltfläche **Zurück**, um den Status auf der Seite **Optionale Features verwalten** anzuzeigen.
-        
+
 Weitere Informationen finden Sie in der [Liste der RSAT-Tools, die über **Features bei Bedarf** verfügbar ist](/windows-hardware/manufacture/desktop/features-on-demand-non-language-fod#remote-server-administration-tools-rsat). Zusätzlich zur Installation über die grafische App für **Einstellungen** können Sie auch bestimmte RSAT-Tools über die Befehlszeile oder über Automatisierung mithilfe von [**DISM/Add-Capability**](/windows-hardware/manufacture/desktop/features-on-demand-v2--capabilities#using-dism-add-capability-to-add-or-remove-fods) installieren.
 
-Ein Vorteil von Features bei Bedarf besteht darin, dass die installierten Features über Windows 10-Versionsupgrades hinweg bestehen bleiben.        
-        
-#### <a name="to-uninstall-specific-rsat-tools-on-windows-10-october-2018-update-or-later-after-installing-with-fod"></a>So deinstallieren Sie bestimmte RSAT-Tools unter dem Windows 10-Update vom Oktober 2018 oder höher (nach der Installation mit FoD)        
+Ein Vorteil von Features bei Bedarf besteht darin, dass die installierten Features über Windows 10-Versionsupgrades hinweg bestehen bleiben.
+
+#### <a name="to-uninstall-specific-rsat-tools-on-windows-10-october-2018-update-or-later-after-installing-with-fod"></a>So deinstallieren Sie bestimmte RSAT-Tools unter dem Windows 10-Update vom Oktober 2018 oder höher (nach der Installation mit FoD)
 
 Öffnen Sie unter Windows 10 die App **Einstellungen**, navigieren Sie zu **Optionale Features verwalten**, wählen Sie die gewünschten RSAT-Tools aus, die Sie entfernen möchten, und deinstallieren Sie sie dann. Beachten Sie, dass Abhängigkeiten in einigen Fällen manuell deinstalliert werden müssen. Insbesondere wenn das RSAT-Tool A vom RSAT-Tool B benötigt wird, tritt bei der Deinstallation von RSAT-Tool A ein Fehler auf, wenn RSAT-Tool B noch installiert ist. Deinstallieren Sie in diesem Fall zuerst das RSAT-Tool B, und deinstallieren Sie dann das RSAT-Tool A. Beachten Sie auch, dass das Deinstallieren eines RSAT-Tools in einigen Fällen möglicherweise zu gelingen scheint, auch wenn das Tool noch installiert ist. In diesem Fall wird das Tool durch das Neustarten des PCs entfernt.
 
@@ -89,10 +87,10 @@ Wenn Sie eine Version von Windows 10 vor dem Update vom Oktober 2018 (1809) ve
 
 4.  Lesen Sie die Lizenzbedingungen, und akzeptieren Sie sie. Klicken Sie auf **Ich stimme zu**.
 
-5.  Es dauert einige Minuten, bis die Installation beendet ist.    
-        
+5.  Es dauert einige Minuten, bis die Installation beendet ist.
+
 ##### <a name="to-uninstall-remote-server-administration-tools-for-windows-10-after-rsat-package-install"></a>So deinstallierst du die Remoteserver-Verwaltungstools für Windows 10 (nach der Installation des RSAT-Pakets)
-        
+
 1. Klicken Sie auf dem Desktop auf **Start**, **Alle Apps**, **Windows System**und **Systemsteuerung**.
 
 2. Klicken Sie unter **Programme**auf **Programm deinstallieren**.
@@ -104,7 +102,7 @@ Wenn Sie eine Version von Windows 10 vor dem Update vom Oktober 2018 (1809) ve
 5. Wenn Sie gefragt werden, ob Sie das Update wirklich deinstallieren möchten, klicken Sie auf **Ja**.
    E
    ##### <a name="to-turn-off-specific-tools-after-rsat-package-install"></a>So deaktivieren Sie bestimmte Tools (nach der Installation des RSAT-Pakets)
-        
+
 6. Klicken Sie auf dem Desktop auf **Start**, **Alle Apps**, **Windows System**und **Systemsteuerung**.
 
 7. Klicken Sie auf **Programme**und dann unter **Programme und Features** auf **Windows-Features ein- oder ausschalten**.
@@ -115,7 +113,7 @@ Wenn Sie eine Version von Windows 10 vor dem Update vom Oktober 2018 (1809) ve
 
    > [!NOTE]
    > Wenn Sie Server-Manager deaktivieren, muss der Computer neu gestartet werden, und Tools, auf die über das Menü **Extras** von Server-Manager zugegriffen werden konnte, müssen über den Ordner **Verwaltungstools** geöffnet werden.
-        
+
 10. Klicken Sie auf **OK**, wenn Sie alle Tools deaktiviert haben, die Sie nicht verwenden möchten.
 
 ### <a name="run-remote-server-administration-tools"></a>Ausführen der Remoteserver-Verwaltungstools
@@ -147,14 +145,14 @@ Obwohl sie im Menü **Extras** der Server-Manager-Konsole nicht aufgeführt sind
 
 > [!NOTE]
 > Sie können eine Windows PowerShell-Sitzung starten, die einen bestimmten Server als Ziel verwendet, indem Sie mit der rechten Maustaste auf einer Rollen- oder Gruppenseite von Server-Manager auf einen verwalteten Server klicken und dann auf **Windows PowerShell** klicken.
-        
+
 
 ## <a name="known-issues"></a>Bekannte Probleme
 
 ### <a name="issue-rsat-fod-installation-fails-with-error-code-0x800f0954"></a>**Problem**: RSAT-FoD-Installation schlägt mit Fehlercode 0x800f0954 fehl
 
 > **Auswirkungen**: RSAT-FoDs unter Windows 10, Version 1809 (Update vom Oktober 2018) in WSUS-/Configuration Manager-Umgebungen
-> 
+>
 > **Lösung**: Zum Installieren von FoDs auf einem in die Domäne eingebundenen PC, der Updates über WSUS oder Configuration Manager erhält, müssen Sie eine Gruppenrichtlinieneinstellungen ändern, um das Herunterladen von FoDs direkt von Windows Update oder aus einer lokalen Freigabe zu aktivieren. Weitere Informationen und Anweisungen zum Ändern dieser Einstellung finden Sie unter [Vorgehensweise: Verfügbarmachen von Features on Demand und Language Packs bei Verwendung von WSUS/SCCM](/windows/deployment/update/fod-and-lang-packs).
 
 ---
@@ -162,7 +160,7 @@ Obwohl sie im Menü **Extras** der Server-Manager-Konsole nicht aufgeführt sind
 ### <a name="issue-rsat-fod-installation-via-settings-app-does-not-show-statusprogress"></a>**Problem**: RSAT-FoD-Installation über die App „Einstellungen“ zeigt Status/Fortschritt nicht an
 
 > **Auswirkungen**: RSAT-FoDs unter Windows 10, Version 1809 (Update vom Oktober 2018)
-> 
+>
 > **Lösung**: Um den Installationsfortschritt anzuzeigen, klicken Sie auf die Schaltfläche **Zurück**, um den Status auf der Seite **Optionale Features verwalten** anzuzeigen.
 
 ---
@@ -170,7 +168,7 @@ Obwohl sie im Menü **Extras** der Server-Manager-Konsole nicht aufgeführt sind
 ### <a name="issue-rsat-fod-uninstallation-via-settings-app-may-fail"></a>**Problem**: RSAT-FoD-Deinstallation über die App „Einstellungen“ schlägt möglicherweise fehl
 
 > **Auswirkungen**: RSAT-FoDs unter Windows 10, Version 1809 (Update vom Oktober 2018)
-> 
+>
 > **Lösung**: In einigen Fällen sind Deinstallationsfehler darauf zurückzuführen, dass Abhängigkeiten manuell deinstalliert werden müssen. Insbesondere wenn das RSAT-Tool A vom RSAT-Tool B benötigt wird, tritt bei der Deinstallation von RSAT-Tool A ein Fehler auf, wenn RSAT-Tool B noch installiert ist. Deinstallieren Sie in diesem Fall zuerst das RSAT-Tool B, und deinstallieren Sie dann das RSAT-Tool A. Weitere Informationen finden Sie in der Liste der RSAT-FoDs einschließlich ihrer Abhängigkeiten.
 
 ---
@@ -178,7 +176,7 @@ Obwohl sie im Menü **Extras** der Server-Manager-Konsole nicht aufgeführt sind
 ### <a name="issue-rsat-fod-uninstallation-appears-to-succeed-but-the-tool-is-still-installed"></a>**Problem**: Die RSAT-FoD-Installation ist anscheinend erfolgreich, aber das Tool ist weiterhin installiert.
 
 > **Auswirkungen**: RSAT-FoDs unter Windows 10, Version 1809 (Update vom Oktober 2018)
-> 
+>
 > **Lösung**: Das Tool wird durch Neustarten des PCs entfernt.
 
 ---
@@ -186,9 +184,9 @@ Obwohl sie im Menü **Extras** der Server-Manager-Konsole nicht aufgeführt sind
 ### <a name="issue-rsat-missing-after-windows-10-upgrade"></a>**Problem**: RSAT fehlt nach dem Windows 10-Upgrade
 
 > **Auswirkungen**: Beliebige RSAT .MSU-Paketinstallation (vor RSAT-FoDs) wird nicht automatisch neu installiert.
-> 
+>
 > **Lösung**: Eine RSAT-Installation kann über Betriebssystemupgrades hinweg nicht beibehalten werden, weil RSAT .MSU als Windows Update-Paket übermittelt wird. Installieren Sie RSAT nach dem Upgrade von Windows 10 erneut. Beachten Sie, dass diese Einschränkung einer der Gründe für die Umstellung auf FoDs ab Windows 10, Version 1809 ist. Die installierten RSAT-FoDs bleiben in zukünftigen Windows 10-Versionsupgrades erhalten.
 
 ## <a name="see-also"></a>Weitere Informationen
 >- [Remoteserver-Verwaltungstools für Windows 10](https://go.microsoft.com/fwlink/?LinkID=404281)
->- [Remoteserver-Verwaltungstools (Remote Server Administration Tools, RSAT) für Windows Vista, Windows 7, Windows 8, Windows Server 2008, Windows Server 2008 R2, Windows Server 2012 und Windows Server 2012 R2](https://go.microsoft.com/fwlink/p/?LinkID=221055)                                                                                                                                                                                                                                                                                                                                                                                    
+>- [Remoteserver-Verwaltungstools (Remote Server Administration Tools, RSAT) für Windows Vista, Windows 7, Windows 8, Windows Server 2008, Windows Server 2008 R2, Windows Server 2012 und Windows Server 2012 R2](https://go.microsoft.com/fwlink/p/?LinkID=221055)

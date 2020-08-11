@@ -1,20 +1,18 @@
 ---
 title: Remotedesktopdienste – Hochverfügbarkeit
 description: Planen der Informationen für die Einrichtung einer hoch verfügbaren RDS-Bereitstellung.
-ms.prod: windows-server
-ms.technology: remote-desktop-services
 ms.topic: article
 ms.assetid: ec630ea0-ab80-4dfe-a25f-f4f601651f72
 author: lizap
 ms.author: elizapo
 ms.date: 09/07/2016
 manager: dongill
-ms.openlocfilehash: 36996d7f69c33198587dbe5297650c16ffeb1da2
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: c50c66bee8f9f387497ef2f5971dbee5e1b402c6
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86959322"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87955007"
 ---
 # <a name="remote-desktop-services---high-availability"></a>Remotedesktopdienste – Hochverfügbarkeit
 

@@ -1,20 +1,18 @@
 ---
 title: Remotedesktopdienste – Mehrstufige Authentifizierung
 description: Informationen zur Planung für die Verwendung von MFA mit RDS.
-ms.prod: windows-server
-ms.technology: remote-desktop-services
 ms.topic: article
 ms.assetid: 09ea784e-5644-417a-a3d9-bdbcebc313f9
 author: lizap
 ms.author: elizapo
 ms.date: 09/07/2016
 manager: dongill
-ms.openlocfilehash: 179feca4870e62f81ed71fabb7b8fd1cb418d391
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 8d1edf1db673c70895e228a059bef753c617f617
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86962182"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87954967"
 ---
 # <a name="remote-desktop-services---multi-factor-authentication"></a>Remotedesktopdienste – Mehrstufige Authentifizierung
 

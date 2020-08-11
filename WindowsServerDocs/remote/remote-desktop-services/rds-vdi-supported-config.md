@@ -1,20 +1,18 @@
 ---
 title: Unterstützte Windows 10-Sicherheitskonfigurationen für Remotedesktopdienste-VDI
 description: Enthält Informationen zu unterstützten Konfigurationen für Windows 10-VDI mit RDS in Windows Server 2016.
-ms.prod: windows-server
-ms.technology: remote-desktop-services
 ms.author: elizapo
 ms.date: 10/27/2016
 ms.topic: article
 ms.assetid: 8f164f5d-a498-4f91-a12f-3e01d554f810
 author: lizap
 manager: dongill
-ms.openlocfilehash: 4ecd290a910ddbb1aba85b26764fb86e30731172
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 7fd8de56d02dfe83add67b740405265a232747d9
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86963352"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87946343"
 ---
 # <a name="supported-windows-10-security-configurations-for-remote-desktop-services-vdi"></a>Unterstützte Windows 10-Sicherheitskonfigurationen für Remotedesktopdienste-VDI
 
@@ -40,10 +38,10 @@ Remote Credential Guard wird nur für direkte Verbindungen mit den Zielcomputern
 > [!NOTE]
 > Wenn Sie einen Verbindungsbroker in einer Einzelinstanzumgebung betreiben und der DNS-Name mit dem Computernamen übereinstimmt, sind Sie möglicherweise in der Lage, Remote Credential Guard zu verwenden, jedoch wird dies nicht unterstützt.
 
-## <a name="shielded-vms-and-encryption-supported-vms"></a>Abgeschirmte VMs und VMs mit Verschlüsselungsunterstützung: 
+## <a name="shielded-vms-and-encryption-supported-vms"></a>Abgeschirmte VMs und VMs mit Verschlüsselungsunterstützung:
 
-- Abgeschirmte VMs werden in Remotedesktopdienste-VDI nicht unterstützt 
+- Abgeschirmte VMs werden in Remotedesktopdienste-VDI nicht unterstützt
 
 Um VMs mit Verschlüsselungsunterstützung zu nutzen:
-- Verwenden Sie eine nicht verwaltete Sammlung und eine Bereitstellungstechnologie außerhalb des Prozesses zur Sammlungserstellung in den Remotedesktopdiensten, um die virtuellen Computer bereitzustellen. 
-- Benutzerprofil-Datenträger werden nicht unterstützt, da sie differenzielle Datenträger benötigen 
+- Verwenden Sie eine nicht verwaltete Sammlung und eine Bereitstellungstechnologie außerhalb des Prozesses zur Sammlungserstellung in den Remotedesktopdiensten, um die virtuellen Computer bereitzustellen.
+- Benutzerprofil-Datenträger werden nicht unterstützt, da sie differenzielle Datenträger benötigen

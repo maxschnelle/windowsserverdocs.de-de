@@ -1,19 +1,17 @@
 ---
 title: Windows Admin Center – Fallstudien
 description: Windows Admin Center – Fallstudien (Projekt Honolulu)
-ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
 ms.author: niwashbu
 ms.date: 06/18/2018
 ms.localizationpriority: medium
-ms.prod: windows-server
-ms.openlocfilehash: b0707f8aa7a09fdd18c2107e375ad06d3909955e
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: a2a027840c092696b03813de35cb3085f494266a
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "71356895"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87937559"
 ---
 # <a name="windows-admin-center-case-studies"></a>Windows Admin Center – Fallstudien
 
@@ -34,7 +32,7 @@ ms.locfileid: "71356895"
 
 [Ava6](http://www.avassys.com/) ist ein Consulting IT-Unternehmen, das sich auf Entwurf, Evaluierung und Integration von IT-Infrastruktur spezialisiert, insbesondere Virtualisierung, Netzwerk, Speicher, Backup und Cloud Computing.
 
-Ava6 verwendet Windows Server 2016 Core, Hyper-V, Failoverclustering und S2D. 
+Ava6 verwendet Windows Server 2016 Core, Hyper-V, Failoverclustering und S2D.
 
 ### <a name="the-challenge"></a>**Die Herausforderung**
 
@@ -82,7 +80,7 @@ Convergent Computing hat drei unterschiedliche Umgebungen: gehostet, gesichert u
 
 Convergent Computing verwendet Windows Admin Center zur Verwaltung von drei Umgebungen mit mehr als 40 Hosts und mehr als 200 Workloads.
 
-Vor Windows Admin Center verwendete Convergent Computing eine Reihe von Tools und Technologien zum Ausführen von Verwaltungsaufgaben, einschließlich System Center und benutzerdefinierter Skripts.  Mit dem Ziel, den Overhead und den Aufwand für die Verwaltung ihrer Serverfarmen zu minimieren, stellte Convergent Computing fest, dass eine Verwaltungsebene, je „dünner“ sie wurde, umso komplexer wurde, sodass in der Regel am Ende um der Einfachheit willen ein höherer Overhead erforderlich war.  Mit Windows Admin Center konnten mehr als 20 Stunden pro Monat zum „Verwalten der Verwaltungssysteme“ eingespart werden, eine Reduzierung von Zeit und Mühe um 75%, sodass ihre Betriebsteams sich auf wichtigere Aufgaben einschließlich Sicherheit, Compliance, Kapazitätsplanung und die allgemeine Systemoptimierung konzentrieren konnten. 
+Vor Windows Admin Center verwendete Convergent Computing eine Reihe von Tools und Technologien zum Ausführen von Verwaltungsaufgaben, einschließlich System Center und benutzerdefinierter Skripts.  Mit dem Ziel, den Overhead und den Aufwand für die Verwaltung ihrer Serverfarmen zu minimieren, stellte Convergent Computing fest, dass eine Verwaltungsebene, je „dünner“ sie wurde, umso komplexer wurde, sodass in der Regel am Ende um der Einfachheit willen ein höherer Overhead erforderlich war.  Mit Windows Admin Center konnten mehr als 20 Stunden pro Monat zum „Verwalten der Verwaltungssysteme“ eingespart werden, eine Reduzierung von Zeit und Mühe um 75%, sodass ihre Betriebsteams sich auf wichtigere Aufgaben einschließlich Sicherheit, Compliance, Kapazitätsplanung und die allgemeine Systemoptimierung konzentrieren konnten.
 
 ## <a name="fzi-research-center-for-information-technology"></a>FZI Research Center for Information Technology
 
@@ -141,7 +139,7 @@ Inside Technologies verwendet Windows Admin Center, um Kunden mit erhöhter Sich
 ## <a name="secureguard--copa-data"></a><a id="secureguard-copa-data"></a>SecureGUARD/COPA-DATA
 
 [SecureGUARD GmbH](http://www.secureguard.at/) unterstützt Unternehmen bei komplexen IT-Problemen in Sicherheits- und Cloudinfrastrukturen durch eine Reihe von Produkten und Diensten für benutzerdefiniertes Engineering. SecureGUARD erstellt Appliances für IT-Sicherheit und Microsoft Windows Server-basierte Appliances sowie seit kurzem zusammengeführte Appliances auf Rackebene für Cloudinfrastrukturen. SecureGUARD ist ein Microsoft Gold Partner für Anwendungsentwicklung und Datacenter.
- 
+
 [COPA-DATA](https://www.copadata.com) entwickelt die Softwarelösung „Zenon“ für gewerbliche End-to-End-IoT-Lösungen – von Feldebene bis zu Cloud und Mobilgeräten. COPA-DATA hat weltweit Systeme für Unternehmen aus den Branchen Essen und Trinken, Energie und Infrastruktur, Automobilindustrie und Pharmazie bereitgestellt.
 
 ### <a name="the-challenge"></a>**Die Herausforderung**

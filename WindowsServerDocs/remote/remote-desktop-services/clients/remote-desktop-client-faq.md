@@ -1,8 +1,6 @@
 ---
 title: 'Remotedesktopclients: Häufig gestellte Fragen'
 description: Häufig gestellte Fragen zu Remotedesktopclients
-ms.prod: windows-server
-ms.technology: remote-desktop-services
 ms.topic: article
 ms.assetid: 785a18cf-a5d0-4bc2-95e4-9ef53ee8f65a
 author: lizap
@@ -10,18 +8,18 @@ manager: dongill
 ms.author: elizapo
 ms.date: 07/16/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: a91980477b34bb529e3e6f3c6ff66da9ea7f3c84
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 672a9d1b33137d9559d88b8773d3c7ccd2493ddc
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80856053"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87955057"
 ---
 # <a name="frequently-asked-questions-about-the-remote-desktop-clients"></a>Häufig gestellte Fragen zu Remotedesktopclients
 
 >Gilt für: Windows 10, Windows 8.1, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2
 
-Es kann sein, dass Fragen auftauchen, nachdem du den Remotedesktopclient auf deinem Gerät (Android, Mac, iOS oder Windows) eingerichtet hast. Hier erhältst du Antworten auf die am häufigsten gestellten Fragen zu Remotedesktopclients. 
+Es kann sein, dass Fragen auftauchen, nachdem du den Remotedesktopclient auf deinem Gerät (Android, Mac, iOS oder Windows) eingerichtet hast. Hier erhältst du Antworten auf die am häufigsten gestellten Fragen zu Remotedesktopclients.
 
 - [Einrichten](#setting-up)
 - [Verbindungen, Gateway und Netzwerke](#connection-gateway-and-networks)
@@ -44,7 +42,7 @@ Informationen dazu, mit welchen PCs du eine Verbindung herstellen kannst, findes
 
 Ich habe mein Gerät eingerichtet, aber ich glaube, der PC ist noch nicht bereit. Hilfe?
 
-Kennst du den Setup-Assistenten für Remotedesktop? Darin wird Schritt für Schritt beschrieben, wie du deinen PC für den Remotezugriff einrichtest. Lade dieses Tool herunter, und führe es auf deinem PC aus, um alles einzurichten. 
+Kennst du den Setup-Assistenten für Remotedesktop? Darin wird Schritt für Schritt beschrieben, wie du deinen PC für den Remotezugriff einrichtest. Lade dieses Tool herunter, und führe es auf deinem PC aus, um alles einzurichten.
 
 Lies weiter, falls du manuell vorgehen möchtest.
 
@@ -74,17 +72,17 @@ Befolge für Windows 8.1 die Anleitung zum Zulassen von Remoteverbindungen unte
 Hier sind einige mögliche Lösungen für häufige Probleme angegeben, die ggf. auftreten, wenn du versuchst, eine Verbindung mit einem Remote-PC herzustellen. Wenn diese Lösungen nicht funktionieren, helfen die Informationen auf der [Website der Microsoft-Community](https://go.microsoft.com/fwlink/p/?LinkId=242079) weiter.
 
 - **Der Remote-PC kann nicht gefunden werden.** Stelle sicher, dass du über den richtigen PC-Namen verfügst. Prüfe anschließend, ob du den Namen richtig eingegeben hast. Versuche, anstelle des PC-Namens die IP-Adresse des Remote-PC zu verwenden, falls die Verbindungsherstellung immer noch nicht möglich ist.
-- **Es liegt ein Netzwerkproblem vor.** Stelle sicher, dass du über eine Internetverbindung verfügst. 
+- **Es liegt ein Netzwerkproblem vor.** Stelle sicher, dass du über eine Internetverbindung verfügst.
 - **Unter Umständen wird der Remotedesktopport von der Firewall blockiert.** Führe diese Schritte aus, wenn du die Windows-Firewall verwendest:
 
-  1. Öffnen Sie Windows-Firewall. 
-  2. Klicke auf **Eine App oder ein Feature durch die Windows-Firewall zulassen** . 
+  1. Öffnen Sie Windows-Firewall.
+  2. Klicke auf **Eine App oder ein Feature durch die Windows-Firewall zulassen** .
   3. Klicke auf **Einstellungen ändern**. Unter Umständen wirst du aufgefordert, ein Administratorkennwort einzugeben oder deine Auswahl zu bestätigen.
   4. Wähle unter **Zugelassene Apps und Features** die Option **Remotedesktop**, und tippe oder klicke dann auf **OK**.
 
      Stelle bei Verwendung einer anderen Firewall sicher, dass der Port für Remotedesktop geöffnet ist (normalerweise 3389).
 - **Unter Umständen können auf dem Remote-PC keine Remoteverbindungen eingerichtet werden.** Scrolle in diesem Thema zurück zur Frage [Wie richte ich einen PC für Remotedesktop ein?](#how-do-i-set-up-a-pc-for-remote-desktop), um Informationen zur Behebung zu erhalten.
-- **Der Remote-PC lässt die Verbindungsherstellung ggf. nur für PCs zu, für die die Authentifizierung auf Netzwerkebene eingerichtet ist.** 
+- **Der Remote-PC lässt die Verbindungsherstellung ggf. nur für PCs zu, für die die Authentifizierung auf Netzwerkebene eingerichtet ist.**
 - **Unter Umständen ist der Remote-PC ausgeschaltet.** Du kannst keine Verbindung mit einem PC herstellen, der ausgeschaltet ist oder sich im Standbymodus oder Ruhezustand befindet. Stelle daher sicher, dass die Einstellung für den Standbymodus und Ruhezustand auf dem Remote-PC jeweils auf **Nie** festgelegt ist (Ruhezustand ist nicht auf allen PCs verfügbar).
 
 ### <a name="why-cant-i-find-or-connect-to-my-pc"></a>Warum kann ich meinen PC nicht finden oder eine Verbindung damit herstellen?
@@ -97,7 +95,7 @@ Hier sind einige mögliche Lösungen für häufige Probleme angegeben, die ggf. 
    > [!IMPORTANT]
    > Für die Verwendung des PC-Namens muss dein Netzwerk den Namen per DNS richtig auflösen. In vielen Heimnetzwerken musst du für die Verbindungsherstellung anstelle des Hostnamens die IP-Adresse verwenden.
 - Befindet sich der PC in einem anderen Netzwerk? Hast du den PC so konfiguriert, dass externe Verbindungen zulässig sind?  Hilfreiche Informationen findest du unter [Zulassen des Zugriffs auf den PC von außerhalb des Netzwerks](remote-desktop-allow-outside-access.md).
-- Stellst du eine Verbindung mit einer unterstützten Windows-Version her? 
+- Stellst du eine Verbindung mit einer unterstützten Windows-Version her?
 
    > [!NOTE]
    > Windows XP Home, Windows Media Center Edition, Windows Vista Home und Windows 7 Home oder Starter werden ohne Drittanbietersoftware nicht unterstützt.
@@ -192,7 +190,7 @@ Dies kann in den folgenden Situationen passieren:
 Du kannst dieses Problem beheben, indem du die Tastatursprache für die Remotesitzung manuell festlegst. Siehe die Schritte im nächsten Abschnitt.
 
 ### <a name="how-do-language-settings-affect-keyboards-in-a-remote-session"></a>Wie wirken sich Spracheinstellungen auf Tastaturen in einer Remotesitzung aus?
-Es gibt viele Arten von Macintosh-Tastaturlayouts. Bei einigen davon handelt es sich um Mac-spezifische oder benutzerdefinierte Layouts, für die unter der Windows-Version, mit der du eine Remoteverbindung herstellst, ggf. keine genaue Übereinstimmung vorhanden ist. Von der Remotesitzung wird deine Tastatur der am ehesten übereinstimmenden Tastatursprache zugeordnet, die auf dem Remote-PC verfügbar ist. 
+Es gibt viele Arten von Macintosh-Tastaturlayouts. Bei einigen davon handelt es sich um Mac-spezifische oder benutzerdefinierte Layouts, für die unter der Windows-Version, mit der du eine Remoteverbindung herstellst, ggf. keine genaue Übereinstimmung vorhanden ist. Von der Remotesitzung wird deine Tastatur der am ehesten übereinstimmenden Tastatursprache zugeordnet, die auf dem Remote-PC verfügbar ist.
 
 Wenn dein Macintosh-Tastaturlayout auf die PC-Version der Tastatursprache festgelegt ist (z. B. Französisch – PC), sollten alle Tasten richtig zugeordnet sein, und die Tastatur sollte normal funktionieren.
 
