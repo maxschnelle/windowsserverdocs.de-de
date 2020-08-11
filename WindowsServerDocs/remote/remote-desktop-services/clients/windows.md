@@ -1,8 +1,6 @@
 ---
 title: Erste Schritte mit dem Windows Store-Client
 description: Enthält grundlegende Einrichtungsschritte für den Remotedesktopclient für Windows Store.
-ms.prod: windows-server
-ms.technology: remote-desktop-services
 ms.topic: article
 ms.assetid: 64f038e1-40ec-4c67-938b-72edea49e5d8
 author: lizap
@@ -10,12 +8,12 @@ manager: dongill
 ms.author: elizapo
 ms.date: 06/01/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 6ed87f2d03ef725c3efdfc2453b53201017e66e0
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: 05e32c05aaafb941958e025253e67c856d81257d
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87181946"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87990365"
 ---
 # <a name="get-started-with-the-windows-store-client"></a>Erste Schritte mit dem Windows Store-Client
 
@@ -203,4 +201,4 @@ Für die Interaktion mit der Sitzung sind zwei Mausmodi verfügbar.
 | Mauszeiger | Zoom                 | Zwei Finger zusammenführen, um die Ansicht zu vergrößern, oder auseinander bewegen, um sie zu verkleinern |
 
 > [!TIP]
-> Fragen und Kommentare sind immer willkommen. Wenn Sie Supportanfragen oder Produktfeedback jedoch im Kommentarbereich dieses Artikels posten, können wir nicht auf Ihr Feedback reagieren. Wenn Sie Hilfe benötigen oder Probleme mit Ihrem Client beheben möchten, empfehlen wir Ihnen dringend, das [Remotedesktopclient-Forum](https://docs.microsoft.com/answers/topics/windows-remote-desktop-client.html) zu besuchen und einen neuen Thread zu starten. Wenn Sie eine Featureempfehlung geben möchten, können Sie uns dies im [Feedback-Hub](feedback-hub://?tabid=2&contextid=605) mitteilen.
+> Fragen und Kommentare sind immer willkommen. Wenn Sie Supportanfragen oder Produktfeedback jedoch im Kommentarbereich dieses Artikels posten, können wir nicht auf Ihr Feedback reagieren. Wenn Sie Hilfe benötigen oder Probleme mit Ihrem Client beheben möchten, empfehlen wir Ihnen dringend, das [Remotedesktopclient-Forum](/answers/topics/windows-remote-desktop-client.html) zu besuchen und einen neuen Thread zu starten. Wenn Sie eine Featureempfehlung geben möchten, können Sie uns dies im [Feedback-Hub](feedback-hub://?tabid=2&contextid=605) mitteilen.

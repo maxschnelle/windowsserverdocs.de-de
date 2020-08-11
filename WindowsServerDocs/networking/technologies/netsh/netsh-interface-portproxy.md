@@ -1,19 +1,17 @@
 ---
 title: Netsh-Befehle für Interface-Portproxy
 description: Verwende die Netsh-Befehle für Interface-Portproxy, um als Proxy zwischen IPv4- und IPv6-Netzwerken und -Anwendungen zu fungieren.
-ms.prod: windows-server
-ms.technology: networking
 ms.topic: article
 manager: dougkim
 ms.author: lizross
 author: eross-msft
 ms.date: 08/30/2018
-ms.openlocfilehash: e9c4cff4d1424c244857cf75be41d445b299f1f2
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 2b05db55ef914130a337b38ea92b41e0cef81dc9
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80853743"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87964026"
 ---
 # <a name="netsh-interface-portproxy-commands"></a>Netsh Interface-Portproxybefehle
 
@@ -175,7 +173,7 @@ Der Portproxyserver löscht einen IPv4-Port und eine IPv4-Adresse aus der Liste 
 
 ### <a name="syntax"></a>Syntax
 
-```PowerShell 
+```PowerShell
 delete v4tov6 listenport= {Integer | ServiceName} [[listenaddress=] {IPv4Address | HostName} [[protocol=]tcp]
 ```
 
@@ -297,7 +295,7 @@ set v6tov4 listenport= {Integer | ServiceName} [[connectaddress=] {IPv4Address |
 
 ### <a name="syntax"></a>Syntax
 
-```PowerShell 
+```PowerShell
 set v6tov6 listenport= {Integer | ServiceName} [[connectaddress=] {IPv6Address | HostName} [[connectport=] {Integer | ServiceName}] [[listenaddress=] {IPv6Address | HostName} [[protocol=]tcp]
 ```
 

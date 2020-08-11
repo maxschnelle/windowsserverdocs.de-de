@@ -1,8 +1,6 @@
 ---
 title: Willkommen bei den Remotedesktopdiensten in Windows Server 2016
 description: Bietet eine Übersicht der Remotedesktopdienste
-ms.prod: windows-server
-ms.technology: remote-desktop-services
 ms.author: chrimo
 ms.date: 02/22/2017
 ms.topic: article
@@ -10,14 +8,14 @@ ms.assetid: 52b9e09f-39e0-41a9-9d3b-4d5f4eacf3e0
 author: christianmontoya
 manager: scottman
 ms.localizationpriority: medium
-ms.openlocfilehash: 70979eae2ad9f54ab895572f97d9b5968cff31d9
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 6d856c6f751b9c8aa6c0f6547dd56d6ee36afb35
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80854683"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87961954"
 ---
-# <a name="welcome-to-remote-desktop-services"></a>Willkommen bei den Remotedesktopdiensten 
+# <a name="welcome-to-remote-desktop-services"></a>Willkommen bei den Remotedesktopdiensten
 
 Remotedesktopdienste (RDS) sind die Plattform der Wahl zum Erstellen von Virtualisierungslösungen für jede Anforderung von Endbenutzern, einschließlich der Bereitstellung individueller virtualisierter Anwendungen, sicherem mobilem und Remote-Desktopzugriff und der Möglichkeit für Endbenutzer, ihre Anwendungen und Desktops in der Cloud auszuführen.
 
@@ -35,7 +33,7 @@ Innerhalb dieser Virtualisierungsumgebungen besitzen Sie zusätzliche Flexibilit
 - **Desktops**: Bieten Sie Ihren Benutzern eine vollständige Desktoperfahrung mit einer Vielzahl von Anwendungen, die Sie installieren und verwalten. Ideal für Benutzer, die diese Computer als primäre Arbeitsstationen nutzen oder von Thin Clients umsteigen, wie etwa von MultiPoint-Diensten.
 - **RemoteApps**: Geben Sie einzelne Anwendungen an, die auf dem virtuellen Computer gehostet/ausgeführt werden, sich aber verhalten, als würden sie wie lokale Anwendungen auf dem Desktop des Benutzers ausgeführt. Die Apps haben einen eigenen Eintrag in der Taskleiste, ihre Größe lässt sich verändern, und sie können zwischen Monitoren verschoben werden. Ideal zum Bereitstellen und Verwalten von wichtigen Anwendungen in der sicheren Remoteumgebung, trotzdem können Benutzer an ihren eigenen Desktops arbeiten und sie anpassen.
 
-Für Umgebungen, in denen Kosteneffizienz kritisch ist und Sie die Vorzüge der Bereitstellung von vollständigen Desktops in einer sitzungsbasierten Virtualisierungsumgebung ausweiten möchten, können Sie [MultiPoint-Dienste](../multipoint-services/multipoint-services.md) verwenden, um den besten Wert zu realisieren. 
+Für Umgebungen, in denen Kosteneffizienz kritisch ist und Sie die Vorzüge der Bereitstellung von vollständigen Desktops in einer sitzungsbasierten Virtualisierungsumgebung ausweiten möchten, können Sie [MultiPoint-Dienste](../multipoint-services/multipoint-services.md) verwenden, um den besten Wert zu realisieren.
 
 Dank dieser Optionen und Konfiguration haben Sie die Flexibilität, die von Ihren Benutzern benötigten Desktops und Anwendungen remote, sicher und kostengünstig bereitzustellen.
 

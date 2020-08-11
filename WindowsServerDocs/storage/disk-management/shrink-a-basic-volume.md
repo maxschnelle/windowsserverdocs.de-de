@@ -2,24 +2,22 @@
 title: Verkleinern eines Basisvolumes
 description: Dieser Artikel beschreibt das Verkleinern eines Basisvolumes.
 ms.date: 06/07/2019
-ms.prod: windows-server
-ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 2baf24ed656ef06d44dff93180701d25e6852500
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 652e5c85e0e094dd463302bffa8922ef5548dd6b
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "71385857"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87971177"
 ---
 # <a name="shrink-a-basic-volume"></a>Verkleinern eines Basisvolumes
 
 > **Gilt für:** Windows 10, Windows 8.1, Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Du kannst den von primären Partitionen und logischen Laufwerken verwendeten Speicherplatz verringern, indem du sie auf angrenzenden, zusammenhängenden Speicherplatz auf dem gleichen Datenträger verkleinerst. Wenn du beispielsweise feststellst, dass du eine weitere Partition benötigst, jedoch nicht über weitere Datenträger verfügst, kannst du die vorhandene Partition am Ende des Volumes verkleinern, um neuen, verfügbaren Speicher für eine neue Partition zu erstellen. Der Verkleinerungsvorgang kann durch bestimmte Dateitypen blockiert werden. Weitere Informationen findest du unter [Weitere Überlegungen](#additional-considerations). 
+Du kannst den von primären Partitionen und logischen Laufwerken verwendeten Speicherplatz verringern, indem du sie auf angrenzenden, zusammenhängenden Speicherplatz auf dem gleichen Datenträger verkleinerst. Wenn du beispielsweise feststellst, dass du eine weitere Partition benötigst, jedoch nicht über weitere Datenträger verfügst, kannst du die vorhandene Partition am Ende des Volumes verkleinern, um neuen, verfügbaren Speicher für eine neue Partition zu erstellen. Der Verkleinerungsvorgang kann durch bestimmte Dateitypen blockiert werden. Weitere Informationen findest du unter [Weitere Überlegungen](#additional-considerations).
 
 Wenn du eine Partition verkleinerst, werden alle normalen Dateien automatisch auf dem Datenträger verschoben, um den neuen, verfügbaren Speicher zu erstellen. Es ist nicht erforderlich, den Datenträger neu zu formatieren, um die Partition zu verkleinern.
 
@@ -63,7 +61,8 @@ Wenn du eine Partition verkleinerst, werden alle normalen Dateien automatisch au
 
 ## <a name="additional-considerations"></a>Weitere Überlegungen
 
--   Beim Verkleinern einer Partition können bestimmte Dateien (z. B. die Auslagerungsdatei und der Schattenkopiespeicherbereich) nicht automatisch verschoben werden, und du kannst den zugewiesenen Speicherplatz nur bis zu dem Punkt verkleinern, an dem sich die Systemdateien befinden. Sollte der Verkleinerungsvorgang nicht erfolgreich sein, suche im Anwendungsprotokoll nach dem Ereignis 259, das die nicht verschiebbare Datei identifiziert. Falls du die Cluster kennst, die der Datei zugeordnet sind, durch die der Verkleinerungsvorgang verhindert wird, kannst du an der Eingabeaufforderung auch den Befehl **fsutil** ausführen. (Gib **fsutil volume querycluster /?** ein, um die Syntax anzuzeigen.) Bei Angabe des Parameters **querycluster** identifiziert der Ausgabebefehl die nicht verschiebbare Datei, die den Verkleinerungsvorgang verhindert.
+-   Beim Verkleinern einer Partition können bestimmte Dateien (z. B. die Auslagerungsdatei und der Schattenkopiespeicherbereich) nicht automatisch verschoben werden, und du kannst den zugewiesenen Speicherplatz nur bis zu dem Punkt verkleinern, an dem sich die Systemdateien befinden.
+Sollte der Verkleinerungsvorgang nicht erfolgreich sein, suche im Anwendungsprotokoll nach dem Ereignis 259, das die nicht verschiebbare Datei identifiziert. Falls du die Cluster kennst, die der Datei zugeordnet sind, durch die der Verkleinerungsvorgang verhindert wird, kannst du an der Eingabeaufforderung auch den Befehl **fsutil** ausführen. (Gib **fsutil volume querycluster /?** ein, um die Syntax anzuzeigen.) Bei Angabe des Parameters **querycluster** identifiziert der Ausgabebefehl die nicht verschiebbare Datei, die den Verkleinerungsvorgang verhindert.
 Manchmal lässt sich die Datei vorübergehend verschieben. Wenn du beispielsweise die Partition weiter verkleinern musst, kannst du die Auslagerungsdatei oder die gespeicherten Schattenkopien über die Systemsteuerung auf einen anderen Datenträger verschieben, die gespeicherten Schattenkopien löschen, das Volume verkleinern und die Auslagerungsdatei wieder auf den Datenträger verschieben. Wenn von der dynamischen erneuten Zuordnung eine zu hohe Anzahl fehlerhafter Cluster erkannt wird, kann die Partition nicht verkleinert werden. In diesem Fall empfiehlt es sich, die Daten zu verschieben und den Datenträger auszutauschen.
 
 -  Übertrage die Daten nicht mit einer Kopie auf Blockebene. Dadurch wird auch die Tabelle mit den beschädigten Sektoren kopiert, und der neue Datenträger behandelt die gleichen Sektoren als fehlerhaft, obwohl sie nicht fehlerhaft sind.

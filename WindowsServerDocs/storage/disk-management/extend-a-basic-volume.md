@@ -2,18 +2,16 @@
 title: Erweitern eines Basisvolumes
 description: Du kannst einem vorhandenen Volume in Windows Speicherplatz hinzufügen, indem du es auf leeren Speicherplatz auf dem Laufwerk erweiterst. Dies ist allerdings nur möglich, wenn der leere Speicherplatz kein Volume enthält (nicht zugeordnet ist) und unmittelbar an das zu erweiternde Volume angrenzt, ohne dass sich dazwischen weitere Volumes befinden. Dieser Artikel beschreibt die Vorgehensweise.
 ms.date: 12/19/2019
-ms.prod: windows-server
-ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 19b48bd74dad4e20780b41852afbee15f5ec1ade
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: d0cd4c0c2bd6909c82ee39c97b58909e85aeef9f
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86966102"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87961614"
 ---
 # <a name="extend-a-basic-volume"></a>Erweitern eines Basisvolumes
 

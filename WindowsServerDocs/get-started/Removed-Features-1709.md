@@ -1,26 +1,24 @@
 ---
 title: Entfernte oder für den Austausch geplante Features ab Windows Server (Version 1709)
 description: Features und Funktionen, die entfernt wurden bzw. deren Entfernung aus künftigen Versionen geplant ist.
-ms.prod: windows-server
-ms.technology: server-general
 ms.topic: article
 ms.date: 08/22/2019
 author: jasongerend
 ms.author: jgerend
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: 98632ee7147c3041b0f13d0a0e90bf8115268d36
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: ad9c64083ec07bd8fc5d1db56978f2b469da9953
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86959472"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87959438"
 ---
 # <a name="features-removed-or-planned-for-replacement-starting-with-windows-server-version-1709"></a>Entfernte oder für den Austausch geplante Features ab Windows Server (Version 1709)
 
 >Gilt für: Windows Server, Version 1709
 
-Die folgende Liste enthält Features und Funktionen der Version 1709 von Windows Server, die entweder in diesem Release aus dem Produkt entfernt wurden oder potenziell in künftigen Releases ersetzt werden. Sie ist für IT-Experten vorgesehen, die Betriebssysteme in einer kommerziellen Umgebung aktualisieren. **Für diese Liste sind Änderungen in zukünftigen Releases vorbehalten. Zudem enthält sie möglicherweise nicht alle betroffenen Features oder Funktionen.** 
+Die folgende Liste enthält Features und Funktionen der Version 1709 von Windows Server, die entweder in diesem Release aus dem Produkt entfernt wurden oder potenziell in künftigen Releases ersetzt werden. Sie ist für IT-Experten vorgesehen, die Betriebssysteme in einer kommerziellen Umgebung aktualisieren. **Für diese Liste sind Änderungen in zukünftigen Releases vorbehalten. Zudem enthält sie möglicherweise nicht alle betroffenen Features oder Funktionen.**
 
 > [!TIP]
 > - Sie können frühzeitig Zugriff auf Windows Server-Builds erhalten, indem Sie am [Windows-Insider-Programm](https://insider.windows.com) teilnehmen – das ist eine hervorragende Möglichkeit, Änderungen an Features zu testen.
@@ -60,7 +58,7 @@ Diese Authentifizierungsmethode wird voraussichtlich ersetzt. Beginne stattdesse
 ### <a name="internet-storage-name-service-isns"></a>iSNS (Internet Storage Name Service)
 iSNS wird möglicherweise ersetzt. Das SMB-Feature (Server Message Block) bietet im Wesentlichen die gleichen Funktionen sowie zusätzliche Features. Hintergrundinformationen zu diesem Feature findest du in der [Übersicht über Server Message Block](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831795(v=ws.11)).
 
-### <a name="rsaaes-encryption-for-iis"></a>RSA/AES-Verschlüsselung für IIS 
+### <a name="rsaaes-encryption-for-iis"></a>RSA/AES-Verschlüsselung für IIS
 Diese Verschlüsselungsmethode wird möglicherweise ersetzt, da die bessere CNG-Methode (Cryptography API: Next Generation) bereits verfügbar ist. Weitere Informationen zur CNG-Verschlüsselung findest du in der [Übersicht über CNG](/windows/win32/seccng/about-cng).
 
 ### <a name="windows-powershell-20"></a>Windows PowerShell 2.0

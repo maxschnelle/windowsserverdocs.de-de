@@ -1,35 +1,33 @@
 ---
 title: 'Anmerkungen zu dieser Version: Wichtige Probleme in Windows Server, Version 1803'
 description: Erfahren Sie mehr über bekannte Probleme, Einschränkungen oder andere Informationen, die Sie vor der Installation von Windows Server, Version 1803, benötigen
-ms.prod: windows-server
 ms.date: 05/07/2018
-ms.technology: server-general
 ms.topic: article
 author: lizap
 ms.author: elizapo
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: 7dc63afba827e2a58ba28d2c4398f1ba80d7e7b5
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: b9e1032c61d633b57d16068b11aab36c792ce9fc
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86962492"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87967857"
 ---
 # <a name="release-notes-important-issues-in-windows-server-version-1803"></a>Versionshinweise: Wichtige Probleme in Windows Server, Version 1803
 
 >Gilt für: Windows Server (Halbjährlicher Kanal)
 
-In diesen Anmerkungen zur Version sind die wichtigsten Probleme zusammengefasst, die im Windows Server-Betriebssystem auftreten können, und Sie erfahren, wie Sie diese Probleme gegebenenfalls umgehen können. Weitere Informationen zu neuen Features in diesem Release finden Sie unter [Neuerungen in Windows Server, Version 1803](whats-new-in-windows-server-1803.md). Ziehen Sie die [Informationen zu Windows-Containern](/virtualization/windowscontainers/about/) zurate, wenn Sie daran interessiert sind, einen Windows Server-Container, Version 1803, auszuführen. 
+In diesen Anmerkungen zur Version sind die wichtigsten Probleme zusammengefasst, die im Windows Server-Betriebssystem auftreten können, und Sie erfahren, wie Sie diese Probleme gegebenenfalls umgehen können. Weitere Informationen zu neuen Features in diesem Release finden Sie unter [Neuerungen in Windows Server, Version 1803](whats-new-in-windows-server-1803.md). Ziehen Sie die [Informationen zu Windows-Containern](/virtualization/windowscontainers/about/) zurate, wenn Sie daran interessiert sind, einen Windows Server-Container, Version 1803, auszuführen.
 
-Sofern es nicht anders angegeben ist, gelten alle aufgeführten Probleme für alle Editionen und Installationsoptionen von Windows Server, Version 1803.  
+Sofern es nicht anders angegeben ist, gelten alle aufgeführten Probleme für alle Editionen und Installationsoptionen von Windows Server, Version 1803.
 
-Dieser Artikel wird fortlaufend aktualisiert. Wenn Probleme bekannt werden, werden diese hier dokumentiert. 
+Dieser Artikel wird fortlaufend aktualisiert. Wenn Probleme bekannt werden, werden diese hier dokumentiert.
 
 
 ## <a name="software-defined-datacenter"></a>Softwaredefiniertes Rechenzentrum
 
-Features des softwaredefinierten Rechenzentrums, wie z.B. „Direkte Speicherplätze“, Software-Defined Networking und geschützte virtuelle Computer, sind in Windows Server, Version 1803, nicht enthalten. Wie unter [Update für Windows Server (halbjährlicher Kanal)](https://cloudblogs.microsoft.com/windowsserver/2018/03/29/windows-server-semi-annual-channel-update/) beschrieben, konzentriert sich der halbjährliche Kanal von Windows Server auf Container- und Anwendungsszenarien, die von schnelleren Innovationen profitieren. 
+Features des softwaredefinierten Rechenzentrums, wie z.B. „Direkte Speicherplätze“, Software-Defined Networking und geschützte virtuelle Computer, sind in Windows Server, Version 1803, nicht enthalten. Wie unter [Update für Windows Server (halbjährlicher Kanal)](https://cloudblogs.microsoft.com/windowsserver/2018/03/29/windows-server-semi-annual-channel-update/) beschrieben, konzentriert sich der halbjährliche Kanal von Windows Server auf Container- und Anwendungsszenarien, die von schnelleren Innovationen profitieren.
 
 Wenn Sie die Infrastrukturrollen benötigen, verwenden Sie ein Long Term Servicing Channel-Release: Windows Server 2016 (jetzt verfügbar) oder [Windows Server-2019](https://cloudblogs.microsoft.com/windowsserver/2018/03/20/introducing-windows-server-2019-now-available-in-preview) (später in diesem Jahr verfügbar).
 

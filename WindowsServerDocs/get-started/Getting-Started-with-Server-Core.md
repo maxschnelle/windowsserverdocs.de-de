@@ -1,26 +1,24 @@
 ---
 title: Installieren von Server Core
 description: Abrufen und Installieren einer Server Core-Installation unter Windows Server 2019, Windows Server 2016 oder Windows Server (halbjährlicher Kanal).
-ms.prod: windows-server
 ms.date: 05/21/2019
-ms.technology: server-general
 ms.topic: article
 ms.assetid: 2d22818c-fbb7-487a-bb82-81ef0a3f7ede
 author: jasongerend
 ms.author: jgerend
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: 13d36c233094511216483f0fb37dc6a004212a50
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 93b4cb477ce31543e67dd9f973637e830e0fd478
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80826973"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87959788"
 ---
 # <a name="install-server-core"></a>Installieren von Server Core
 
 > Gilt für: Windows Server 2019, Windows Server 2016, Windows Server (halbjährlicher Kanal)
-  
+
 Wenn du Windows Server zum ersten Mal installierst, stehen dir folgende Installationsoptionen zur Verfügung:
 
 >[!NOTE]
@@ -33,10 +31,10 @@ Wenn du Windows Server zum ersten Mal installierst, stehen dir folgende Installa
 
 Wenn du Windows Server (halbjährlicher Kanal) installierst, stehen dir folgende Installationsoptionen zur Verfügung:
 
--    Windows Server Standard 
+-    Windows Server Standard
 -    Windows Server Datacenter
 
-Die Option „Server Core“ erfordert weniger Speicherplatz auf dem Datenträger und reduziert die potenzielle Angriffsfläche. Daher empfiehlt es sich, die Server Core-Installation auszuwählen, sofern du die zusätzlichen Benutzeroberflächenelemente oder grafischen Verwaltungstools, die in der Option „Server mit Desktopdarstellung“ enthalten sind, nicht unbedingt benötigst. Wenn du die zusätzlichen Benutzeroberflächenelemente benötigst, findest du Informationen dazu unter [Installieren des Servers mit Desktopdarstellung](Getting-Started-with-Server-with-Desktop-Experience.md). 
+Die Option „Server Core“ erfordert weniger Speicherplatz auf dem Datenträger und reduziert die potenzielle Angriffsfläche. Daher empfiehlt es sich, die Server Core-Installation auszuwählen, sofern du die zusätzlichen Benutzeroberflächenelemente oder grafischen Verwaltungstools, die in der Option „Server mit Desktopdarstellung“ enthalten sind, nicht unbedingt benötigst. Wenn du die zusätzlichen Benutzeroberflächenelemente benötigst, findest du Informationen dazu unter [Installieren des Servers mit Desktopdarstellung](Getting-Started-with-Server-with-Desktop-Experience.md).
 
 Bei der Server Core-Option wird die Standardbenutzeroberfläche (die Desktopdarstellung) nicht installiert. Du verwaltest den Server per Befehlszeile, Windows PowerShell oder Remotemethoden.
 

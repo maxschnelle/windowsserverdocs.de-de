@@ -1,20 +1,18 @@
 ---
 title: Migrieren von Remotedesktopdienste-Bereitstellungen zu Windows Server 2016
 description: In diesem Artikel wird beschrieben, wie eine Remotedesktopdienste-Bereitstellung zu neuen Windows Server 2016-Servern migriert wird.
-ms.prod: windows-server
-ms.technology: remote-desktop-services
 ms.author: chrimo
 ms.date: 11/01/2016
 ms.topic: article
 ms.assetid: 9b1fa833-4325-48a8-bf34-46265f40c001
 author: christianmontoya
 manager: scottman
-ms.openlocfilehash: 2e4628e9ec7b5d75b88bb07282e2183a2f16fff2
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 62c2cc99277b3cf74f6bde5be59b69569c27a31b
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86959152"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87961814"
 ---
 # <a name="migrate-your-remote-desktop-services-deployment-to-windows-server-2016"></a>Migrieren von Remotedesktopdienste-Bereitstellungen zu Windows Server 2016
 
@@ -53,8 +51,9 @@ Dies ist der erste und wichtigste Schritte bei der Migration deines Remotedeskto
 
 3. Füge Windows Server 2016-RD-Verbindungsbrokerserver in der Hochverfügbarkeitsbereitstellung hinzu.
 
-> [!NOTE] 
-> Eine Mischkonfiguration für hohe Verfügbarkeit mit Windows Server 2016 und Windows Server 2012 R2 wird für RD-Verbindungsbrokerserver nicht unterstützt. Ein RD-Verbindungsbroker unter Windows Server 2016 kann für Sitzungssammlungen mit RD-Sitzungshostservern unter Windows Server 2012 R2 und für Sammlungen virtueller Desktops mit RD-Virtualisierungshostservern unter Windows Server 2012 R2 verwendet werden.
+> [!NOTE]
+> Eine Mischkonfiguration für hohe Verfügbarkeit mit Windows Server 2016 und Windows Server 2012 R2 wird für RD-Verbindungsbrokerserver nicht unterstützt.
+> Ein RD-Verbindungsbroker unter Windows Server 2016 kann für Sitzungssammlungen mit RD-Sitzungshostservern unter Windows Server 2012 R2 und für Sammlungen virtueller Desktops mit RD-Virtualisierungshostservern unter Windows Server 2012 R2 verwendet werden.
 
 ## <a name="migrate-session-collections"></a>Migrieren von Sitzungssammlungen
 

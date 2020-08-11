@@ -2,18 +2,16 @@
 title: Verschieben von Datenträgern auf einen anderen Computer
 description: In diesem Artikel wird beschrieben, wie du Datenträger auf einen anderen Computer verschiebst.
 ms.date: 10/12/2017
-ms.prod: windows-server
-ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 6db73f963766e480f8ec478657354a51bcb1f456
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 1527dbd567eb72e407023ecdcfade04856a3127a
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "71385819"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87971187"
 ---
 # <a name="move-disks-to-another-computer"></a>Verschieben von Datenträgern auf einen anderen Computer
 
@@ -58,14 +56,14 @@ Deinstalliere mithilfe des Geräte-Managers die Datenträger, die verschoben wer
 
 ## <a name="detect-new-disks"></a>Erkennen neuer Datenträger
 
-1. Öffne die Datenträgerverwaltung auf dem neuen Computer. 
+1. Öffne die Datenträgerverwaltung auf dem neuen Computer.
 2. Klicke auf **Aktion** und anschließend auf **Datenträger neu einlesen**.
-3. Klicke mit der rechten Maustaste auf einen Datenträger mit der Kennzeichnung **Fremd**. 
+3. Klicke mit der rechten Maustaste auf einen Datenträger mit der Kennzeichnung **Fremd**.
 4. Klicke auf **Fremde Datenträger importieren**, und befolge die Bildschirmanweisungen.
 
 ## <a name="additional-considerations"></a>Weitere Überlegungen
 
--   Beim Verschieben auf einen anderen Computer erhalten Basisvolumes den nächsten verfügbaren Laufwerkbuchstaben auf dem Computer. 
+-   Beim Verschieben auf einen anderen Computer erhalten Basisvolumes den nächsten verfügbaren Laufwerkbuchstaben auf dem Computer.
 -   Dynamische Volumes behalten den Laufwerkbuchstaben, den sie auf dem vorherigen Computer hatten. War einem dynamischen Volume auf dem vorherigen Computer kein Laufwerkbuchstabe zugewiesen, erhält es beim Verschieben auf einen anderen Computer keinen Laufwerkbuchstaben. Wird der Laufwerkbuchstabe auf dem Computer bereits verwendet, auf den das Volume verschoben wird, erhält das Volume den nächsten verfügbaren Laufwerkbuchstaben.
 
 -   Wenn ein Administrator den Befehl **mountvol /n** oder **diskpart automount** ausgeführt hat, um zu verhindern, dass dem System neue Volumes hinzugefügt werden, können von einem anderen Computer verschobene Volumes nicht eingebunden werden, und sie erhalten auch keinen Laufwerkbuchstaben. Wenn du das Volume verwenden möchtest, musst du es mit der Datenträgerverwaltung oder den Befehlen **DiskPart** und **mountvol** manuell einbinden und ihm einen Laufwerkbuchstaben zuweisen.

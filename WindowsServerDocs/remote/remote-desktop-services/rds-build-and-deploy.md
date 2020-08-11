@@ -1,24 +1,22 @@
 ---
 title: 'RDS: Erstellen und Bereitstellen'
 description: Schritte zum Erstellen einer Remotedesktopbereitstellung
-ms.prod: windows-server
-ms.technology: remote-desktop-services
 ms.author: elizapo
 ms.date: 04/18/2017
 ms.topic: article
 ms.assetid: 176ae424-96e9-4c78-88f5-da418e76c3d7
 author: lizap
 manager: dongill
-ms.openlocfilehash: c0a2676cc5e7043cd1f96d6c1d393d7b0e443fe8
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: be58880108f84aa6141157dbe730e18fcff4c6c2
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86961212"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87961804"
 ---
 # <a name="build-and-deploy-your-remote-desktop-services-deployment"></a>Erstellen und Bereitstellen deiner Remotedesktopdienste-Bereitstellung
 
-Bei einer Remotedesktopdienste-Bereitstellung handelt es sich um die Infrastruktur, die zum Freigeben von Apps und Ressourcen für deine Benutzer verwendet wird. Abhängig von der bereitzustellenden Umgebung kannst du die Infrastruktur nach Bedarf einfach oder komplex gestalten. Remotedesktopbereitstellungen können mühelos skaliert werden. Du kannst nach Belieben Webzugriffs-, Gateway-, Verbindungsbroker- und Sitzungshostserver für Remotedesktop hinzufügen und entfernen. Du kannst den Remotedesktop-Verbindungsbroker zum Verteilen von Workloads verwenden. Dank Active Directory-basierter Authentifizierung wird eine äußerst sichere Umgebung bereitgestellt. 
+Bei einer Remotedesktopdienste-Bereitstellung handelt es sich um die Infrastruktur, die zum Freigeben von Apps und Ressourcen für deine Benutzer verwendet wird. Abhängig von der bereitzustellenden Umgebung kannst du die Infrastruktur nach Bedarf einfach oder komplex gestalten. Remotedesktopbereitstellungen können mühelos skaliert werden. Du kannst nach Belieben Webzugriffs-, Gateway-, Verbindungsbroker- und Sitzungshostserver für Remotedesktop hinzufügen und entfernen. Du kannst den Remotedesktop-Verbindungsbroker zum Verteilen von Workloads verwenden. Dank Active Directory-basierter Authentifizierung wird eine äußerst sichere Umgebung bereitgestellt.
 
 [Remotedesktopclients](clients/remote-desktop-clients.md) ermöglichen Zugriff von jedem Windows-, Apple- oder Android-Computer, Tablet oder Smartphone aus.
 
@@ -34,7 +32,7 @@ Du möchtest eine neue Remotedesktopbereitstellung erstellen? Du kannst Remotede
 - [Deploy the Remote Desktop Services infrastructure](rds-deploy-infrastructure.md) (Bereitstellen der Remotedesktopdienste-Infrastruktur)
 - [Create a session collection to hold the apps and resources you want to share](rds-create-collection.md) (Erstellen einer Sitzungssammlung für die freizugebenden Apps und Ressourcen)
 - [License your RDS deployment with client access licenses (CALs)](rds-client-access-license.md) (Lizenzieren deiner RDS-Bereitstellung mit Clientzugriffslizenzen (CALs))
-- Fordere deine Benutzer auf, einen [Remotedesktopclient](clients/remote-desktop-clients.md) zu installieren, sodass sie auf die Apps und Ressourcen zugreifen können. 
+- Fordere deine Benutzer auf, einen [Remotedesktopclient](clients/remote-desktop-clients.md) zu installieren, sodass sie auf die Apps und Ressourcen zugreifen können.
 - Ermögliche Hochverfügbarkeit, indem du zusätzliche Verbindungsbroker und Sitzungshosts hinzufügst:
    - [Horizontales Skalieren einer vorhandenen RDS-Sammlung mit einer RD-Sitzungshostfarm](rds-scale-rdsh-farm.md)
    - [Hinzufügen von hoher Verfügbarkeit zur RD Connection Broker-Infrastruktur](rds-connection-broker-cluster.md)

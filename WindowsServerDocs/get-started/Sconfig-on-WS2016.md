@@ -1,21 +1,19 @@
 ---
 title: Konfigurieren einer Server Core-Installation von Windows Server mit „Sconfig.cmd“
 description: Erläutert die Verwendung von „Sconfig.cmd“
-ms.prod: windows-server
 ms.date: 10/17/2017
-ms.technology: server-general
 ms.topic: article
 ms.assetid: e6cac074-c6fc-46dd-9664-fa0342c0a5e8
 author: jaimeo
 ms.author: jaimeo
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: db1a4fe48460a957369c2ca3ced24e0ccb54fef7
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 727525d426a8417e642485be51db7206f3efa64a
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86959122"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87959468"
 ---
 # <a name="configure-a-server-core-installation-of-windows-server-2016-or-windows-server-version-1709-with-sconfigcmd"></a>Konfigurieren einer Server Core-Installation von Windows Server 2016 oder Windows Server, Version 1709, mit „Sconfig.cmd“
 
@@ -100,12 +98,12 @@ Sie können verschiedene Remoteverwaltungsszenarien über die Option **Remotever
 
 - Windows PowerShell
 
-- Server-Manager  
+- Server-Manager
 
 ## <a name="to-log-off-restart-or-shut-down-the-server"></a>So können Sie den Server abmelden, neu starten oder herunterfahren
 
-Greifen Sie zum Abmelden, Neustarten oder Herunterfahren des Servers auf das entsprechende Menüelement im Hauptmenü zu. Diese Optionen sind auch über das Menü **Windows-Sicherheit** verfügbar, auf das Sie jederzeit aus einer Anwendung zugreifen können, indem Sie STRG+ALT+ENTF drücken.  
+Greifen Sie zum Abmelden, Neustarten oder Herunterfahren des Servers auf das entsprechende Menüelement im Hauptmenü zu. Diese Optionen sind auch über das Menü **Windows-Sicherheit** verfügbar, auf das Sie jederzeit aus einer Anwendung zugreifen können, indem Sie STRG+ALT+ENTF drücken.
 
 ## <a name="to-exit-to-the-command-line"></a>So wechseln Sie zur Befehlszeile
-  
+
 Wählen Sie die Option **Zur Befehlszeile wechseln** aus, und drücken Sie die EINGABETASTE, um zur Befehlszeile zu wechseln. Um zum Serverkonfigurationstool zurückzukehren, geben Sie **Sconfig.cmd** ein, und drücken Sie die EINGABETASTE.

@@ -5,14 +5,12 @@ author: Teresa-Motiv
 ms.author: v-tea
 ms.date: 02/24/2020
 ms.topic: article
-ms.prod: windows-server
-ms.technology: networking
-ms.openlocfilehash: b73b6bf2150b8c97b858f41d7a4864a5d6fd5546
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: cb549f951865a065c70a6bfbfa9d49faf71ffd97
+ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87182116"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87989796"
 ---
 # <a name="windows-time-service-tools-and-settings"></a>Windows-Zeitdienst: Tools und Einstellungen
 
@@ -255,7 +253,7 @@ In den folgenden Tabellen bezieht sich „Alle Versionen“ auf Windows-Versione
 > Einige der Parameter in der Registrierung werden in Zeiteinheiten und andere in Sekunden gemessen. Verwende die folgenden Konvertierungsfaktoren, um die Zeit von Zeiteinheiten in Sekunden umzuwandeln:
 > - 1 Minute = 60 Sek.
 > - 1 Sek. = 1.000 ms
-> - 1 ms = 10.000 Zeiteinheiten bei einem Windows-System, wie unter [DateTime.Ticks-Eigenschaft](https://docs.microsoft.com/dotnet/api/system.datetime.ticks) beschrieben.
+> - 1 ms = 10.000 Zeiteinheiten bei einem Windows-System, wie unter [DateTime.Ticks-Eigenschaft](/dotnet/api/system.datetime.ticks) beschrieben.
 >
 > Beispielsweise werden 5 Minuten zu 5 &times; 60 &times; 1000 &times; 10000 = 3.000.000.000 Zeiteinheiten.
 

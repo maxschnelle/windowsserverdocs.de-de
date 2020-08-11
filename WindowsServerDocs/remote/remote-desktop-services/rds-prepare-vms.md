@@ -1,66 +1,64 @@
 ---
 title: Vorbereiten von virtuellen Computern für Remotedesktop
 description: Vorbereiten deiner virtuellen Computer für Remotedesktopkomponenten
-ms.prod: windows-server
-ms.technology: remote-desktop-services
 ms.author: elizapo
 ms.date: 07/21/2017
 ms.topic: article
 ms.assetid: 2fc39dff-61ca-4eba-81ab-52289081bead
 author: lizap
 manager: dongill
-ms.openlocfilehash: 5aec90275db1e09906e051419929086a40a34800
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 19aa4547df44b5b99de9385e0b9cbe697d4c51f9
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80858133"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87971537"
 ---
-# <a name="create-virtual-machines-for-remote-desktop"></a>Erstellen virtueller Computer für Remotedesktop
+# <a name="prepare-your-virtual-machines-for-remote-desktop"></a>Vorbereiten von virtuellen Computern für Remotedesktop
 
 >Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016
 
-Du kannst Remotedesktopdienste-Komponenten auf physischen Servern oder auf virtuellen Computern installieren. 
+Du kannst Remotedesktopdienste-Komponenten auf physischen Servern oder auf virtuellen Computern installieren.
 
 Als Erstes musst du [virtuelle Windows Server-Computer in Azure erstellen](/azure/virtual-machines/windows/quick-create-portal). Es empfiehlt sich, drei virtuelle Computer zu erstellen: einen für den RD-Sitzungshost, einen für den Verbindungsbroker und einen für die RD-Web- und RD-Gatewaykomponenten. Erstelle eine Verfügbarkeitsgruppe (bei der VM-Erstellung unter **Hochverfügbarkeit**), und fasse mehrere virtuelle Computer in dieser Verfügbarkeitsgruppe zusammen, um die Verfügbarkeit deiner RDS-Bereitstellung zu gewährleisten.
- 
+
 Führe nach der Erstellung deiner virtuellen Computer die folgenden Schritte aus, um sie für RDS vorzubereiten.
 
-1.  Stelle unter Verwendung des RDC-Clients (Remote Desktop Connection, Remotedesktopverbindung) eine Verbindung mit dem virtuellen Computer her:  
-    1.  Öffne im Azure-Portal die Ansicht „Ressourcengruppen“, und klicke dann auf die für die Bereitstellung zu verwendende Ressourcengruppe.  
-    2.  Wähle den neuen virtuellen RDSH-Computer aus (z. B. Contoso-Sh1).  
-    3.  Klicke auf **Verbinden > Öffnen**, um den Remotedesktopclient zu öffnen.  
-    4.  Klicke auf dem Client auf **Verbinden** und dann auf **Use another user account** (Anderes Benutzerkonto verwenden). Gib den Benutzernamen und das Kennwort für das lokale Administratorkonto ein.  
-    5.  Klicke in der Zertifikatwarnung auf **Ja**.  
-2.  Aktiviere die Remoteverwaltung:  
-    1.  Klicke im Server-Manager auf **Lokaler Server > Remote management current setting (disabled)** (Aktuelle Remoteverwaltungseinstellung (deaktiviert)).  
-    2.  Wähle **Enable remote management for this server** (Remoteverwaltung für diesen Server aktivieren) aus.  
-    3.  Klicken Sie auf **OK**.  
-3.  Optional: Sie können vorübergehend festlegen, dass Updates von Windows Update nicht automatisch heruntergeladen und installiert werden. Dadurch werden während der Bereitstellung des RDSH-Servers Änderungen und Systemneustarts vermieden.  
-    1.  Klicke im Server-Manager auf **Lokaler Server > Windows Update current setting** (Aktuelle Windows Update-Einstellung).  
-    2.  Wähle **Erweiterte Optionen > Upgrades zurückstellen** aus.   
-4.  Füge den Server zur Domäne hinzu:  
-    1.  Klicke im Server-Manager auf **Lokaler Server > Workgroup current setting** (Aktuelle Arbeitsgruppeneinstellung).  
-    2.  Klicken Sie auf **Ändern > Domäne**, und geben Sie dann den Domänennamen ein (z. B. „Contoso.com“).  
-    3.  Gib die Anmeldeinformationen des Domänenadministrators ein.  
-    4.  Starten Sie den virtuellen Computer neu.  
-5.  Wiederhole die Schritte 1 bis 4 für den virtuellen Web- und GW-Computer für RD.  
-6.  Wiederhole die Schritte 1 bis 4 für den virtuellen Computer des Verbindungsbrokers.  
-7.  Initialisiere und formatiere den angefügten Datenträger auf dem virtuellen Computer des RD-Verbindungsbrokers:  
-    1.  Stelle eine Verbindung mit dem virtuellen Computer des RD-Verbindungsbrokers her (Schritt 1 oben).  
-    2.  Klicke im Server-Manager auf **Tools > Computerverwaltung**.  
-    3.  Klicke auf **Datenträgerverwaltung**.  
-    4.  Wähle den angefügten Datenträger und dann **MBR (Master Boot Record)** aus, und klicke auf **OK**.  
-    5.  Klicke mit der rechten Maustaste auf den neuen Datenträger (als **Nicht zugeordnet** markiert), und klicke auf **Neues einfaches Volume**.  
-    6.  Übernimm im **Assistenten für neue einfache Volumes** die Standardwerte, aber gib einen passenden Namen für **Volumebezeichnung** (etwa „Freigaben“) ein.  
-8.  Erstelle auf dem virtuellen Computer des RD-Verbindungsbrokers Dateifreigaben für die Benutzerprofil-Datenträger und Zertifikate:   
-    1.  Öffne den Datei-Explorer, klicke auf **Dieser PC**, und öffne den Datenträger, den du für Dateifreigaben hinzugefügt hast.  
-    2.  Klicke auf **Start** und **Neuer Ordner**.  
-    3.  Gib einen Namen für den Benutzerdatenträger-Ordner ein, etwa **UserDisks**.  
-    4.  Klicke mit der rechten Maustaste auf den neuen Ordner, und klicke dann auf **Eigenschaften > Freigabe > Erweiterte Freigabe**.  
-    5.  Wähle **Diesen Ordner freigeben** aus, und klicke auf **Berechtigungen**.  
-    6.  Wähle **Jeder** aus, und klicke auf **Entfernen**. Klicke nun auf **Hinzufügen**, gib **Domänen-Admins** ein, und klicke auf **OK**.  
-    7.  Wähle **Allow Full Control** (Vollzugriff zulassen) aus, und klicke dann auf **OK > OK > Schließen**.  
-    8.  Wiederhole die Schritte c bis g, um einen freigegebenen Ordner für Zertifikate zu erstellen.   
+1.  Stelle unter Verwendung des RDC-Clients (Remote Desktop Connection, Remotedesktopverbindung) eine Verbindung mit dem virtuellen Computer her:
+    1.  Öffne im Azure-Portal die Ansicht „Ressourcengruppen“, und klicke dann auf die für die Bereitstellung zu verwendende Ressourcengruppe.
+    2.  Wähle den neuen virtuellen RDSH-Computer aus (z. B. Contoso-Sh1).
+    3.  Klicke auf **Verbinden > Öffnen**, um den Remotedesktopclient zu öffnen.
+    4.  Klicke auf dem Client auf **Verbinden** und dann auf **Use another user account** (Anderes Benutzerkonto verwenden). Gib den Benutzernamen und das Kennwort für das lokale Administratorkonto ein.
+    5.  Klicke in der Zertifikatwarnung auf **Ja**.
+2.  Aktiviere die Remoteverwaltung:
+    1.  Klicke im Server-Manager auf **Lokaler Server > Remote management current setting (disabled)** (Aktuelle Remoteverwaltungseinstellung (deaktiviert)).
+    2.  Wähle **Enable remote management for this server** (Remoteverwaltung für diesen Server aktivieren) aus.
+    3.  Klicken Sie auf **OK**.
+3.  Optional: Sie können vorübergehend festlegen, dass Updates von Windows Update nicht automatisch heruntergeladen und installiert werden. Dadurch werden während der Bereitstellung des RDSH-Servers Änderungen und Systemneustarts vermieden.
+    1.  Klicke im Server-Manager auf **Lokaler Server > Windows Update current setting** (Aktuelle Windows Update-Einstellung).
+    2.  Wähle **Erweiterte Optionen > Upgrades zurückstellen** aus.
+4.  Füge den Server zur Domäne hinzu:
+    1.  Klicke im Server-Manager auf **Lokaler Server > Workgroup current setting** (Aktuelle Arbeitsgruppeneinstellung).
+    2.  Klicken Sie auf **Ändern > Domäne**, und geben Sie dann den Domänennamen ein (z. B. „Contoso.com“).
+    3.  Gib die Anmeldeinformationen des Domänenadministrators ein.
+    4.  Starten Sie den virtuellen Computer neu.
+5.  Wiederhole die Schritte 1 bis 4 für den virtuellen Web- und GW-Computer für RD.
+6.  Wiederhole die Schritte 1 bis 4 für den virtuellen Computer des Verbindungsbrokers.
+7.  Initialisiere und formatiere den angefügten Datenträger auf dem virtuellen Computer des RD-Verbindungsbrokers:
+    1.  Stelle eine Verbindung mit dem virtuellen Computer des RD-Verbindungsbrokers her (Schritt 1 oben).
+    2.  Klicke im Server-Manager auf **Tools > Computerverwaltung**.
+    3.  Klicke auf **Datenträgerverwaltung**.
+    4.  Wähle den angefügten Datenträger und dann **MBR (Master Boot Record)** aus, und klicke auf **OK**.
+    5.  Klicke mit der rechten Maustaste auf den neuen Datenträger (als **Nicht zugeordnet** markiert), und klicke auf **Neues einfaches Volume**.
+    6.  Übernimm im **Assistenten für neue einfache Volumes** die Standardwerte, aber gib einen passenden Namen für **Volumebezeichnung** (etwa „Freigaben“) ein.
+8.  Erstelle auf dem virtuellen Computer des RD-Verbindungsbrokers Dateifreigaben für die Benutzerprofil-Datenträger und Zertifikate:
+    1.  Öffne den Datei-Explorer, klicke auf **Dieser PC**, und öffne den Datenträger, den du für Dateifreigaben hinzugefügt hast.
+    2.  Klicke auf **Start** und **Neuer Ordner**.
+    3.  Gib einen Namen für den Benutzerdatenträger-Ordner ein, etwa **UserDisks**.
+    4.  Klicke mit der rechten Maustaste auf den neuen Ordner, und klicke dann auf **Eigenschaften > Freigabe > Erweiterte Freigabe**.
+    5.  Wähle **Diesen Ordner freigeben** aus, und klicke auf **Berechtigungen**.
+    6.  Wähle **Jeder** aus, und klicke auf **Entfernen**. Klicke nun auf **Hinzufügen**, gib **Domänen-Admins** ein, und klicke auf **OK**.
+    7.  Wähle **Allow Full Control** (Vollzugriff zulassen) aus, und klicke dann auf **OK > OK > Schließen**.
+    8.  Wiederhole die Schritte c bis g, um einen freigegebenen Ordner für Zertifikate zu erstellen.
 
 

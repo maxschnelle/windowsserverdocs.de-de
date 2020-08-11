@@ -1,19 +1,17 @@
 ---
 title: Aktivieren der Notfallwiederherstellung von RDS mithilfe von Azure Site Recovery
 description: Hier erfährst du, wie du die Notfallwiederherstellung von RDS mithilfe von Azure Site Recovery aktivierst.
-ms.prod: windows-server
-ms.technology: remote-desktop-services
 ms.author: elizapo
 ms.date: 05/05/2017
 ms.topic: article
 author: lizap
 manager: dongill
-ms.openlocfilehash: 0c7af18be4aa767009f1dd0b82f145ffe6874768
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: bd8731b05c995e261a720ca1557e58176fba5a0f
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80861403"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87961674"
 ---
 # <a name="enable-disaster-recovery-of-rds-using-azure-site-recovery"></a>Aktivieren der Notfallwiederherstellung von RDS mithilfe von Azure Site Recovery
 

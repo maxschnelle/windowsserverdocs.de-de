@@ -1,7 +1,6 @@
 ---
 title: KMS-Clientsetupschlüssel
 description: Schlüssel zur Aktivierung von Windows-Produkten durch einen KMS-Server
-ms.prod: windows-server
 ms.mktglfcycl: manage
 ms.sitesec: library
 author: jasongerend
@@ -9,12 +8,12 @@ ms.author: jgerend
 ms.localizationpriority: medium
 ms.date: 11/12/2019
 ms.topic: get-started-article
-ms.openlocfilehash: 1eeaa76af345d3f05effe2afe35c40d594adfc3a
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: 399a79588c91be0ab5cf553fc29636e5ab768c16
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86959622"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87959698"
 ---
 # <a name="kms-client-setup-keys"></a>KMS-Clientsetupschlüssel
 
@@ -23,7 +22,7 @@ ms.locfileid: "86959622"
 Computer, auf denen Volumenlizenzeditionen von Windows Server, Windows 10, Windows 8.1, Windows Server 2012 R2, Windows 8, Windows Server 2012, Windows 7, Windows Server 2008 R2, Windows Vista und Windows Server 2008 ausgeführt werden, sind standardmäßig KMS-Clients und benötigen keine zusätzliche Konfiguration.
 
 > [!NOTE]
-> In den folgenden Tabellen steht „LTSC“ für „Long-Term Servicing Channel“, während „LTSB“ für „Long-Term Servicing Branch“ steht. 
+> In den folgenden Tabellen steht „LTSC“ für „Long-Term Servicing Channel“, während „LTSB“ für „Long-Term Servicing Branch“ steht.
 
 **Um die hier aufgeführten Setupschlüssel (GVLKs) zu verwenden**, musst du zuerst einen KMS-Host in deiner Umgebung ausführen. Wenn Sie noch keinen KMS-Host konfiguriert haben, befolgen Sie die Anweisungen unter [Deploy KMS Activation](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn502531(v=ws.11)) , um einen einzurichten.
 
@@ -57,7 +56,7 @@ Wenn Sie für einen Computer die Umstellung von einem KMS-Host, einer MAK-Versio
 ### <a name="windows-server-2019"></a>Windows Server 2019
 | Betriebssystemedition       | KMS-Clientsetupschlüssel          |
 |--------------------------------|-------------------------------|
-| Windows Server 2019 Datacenter | WMDGN-G9PQG-XVVXX-R3X43-63DFG | 
+| Windows Server 2019 Datacenter | WMDGN-G9PQG-XVVXX-R3X43-63DFG |
 | Windows Server 2019 Standard   | N69G4-B89J2-4G8F4-WWYCC-J464C |
 | Windows Server 2019 Essentials | WVDHN-86M7X-466P6-VHXV7-YY726 |
 
@@ -104,7 +103,7 @@ Informationen zu unterstützten Versionen und Dienstendedaten findest du im [Inf
 | Windows 10 Enterprise LTSB 2016   | DCPHK-NFMTC-H88MJ-PFHPY-QJ4BJ |
 | Windows 10 Enterprise N LTSB 2016 | QFFDN-GRT3P-VKWWX-X7T3R-8B639 |
 
-### <a name="windows-10-ltsb-2015"></a>Windows 10 LTSB 2015 
+### <a name="windows-10-ltsb-2015"></a>Windows 10 LTSB 2015
 
 | Betriebssystemedition          | KMS-Clientsetupschlüssel          |
 |-----------------------------------|-------------------------------|
@@ -117,14 +116,14 @@ Informationen zu unterstützten Versionen und Dienstendedaten findest du im [Inf
 
 | Betriebssystemedition  | KMS-Clientsetupschlüssel          |
 |---------------------------|-------------------------------|
-| Windows Server Datacenter | 2HXDN-KRXHB-GPYC7-YCKFJ-7FVDG | 
+| Windows Server Datacenter | 2HXDN-KRXHB-GPYC7-YCKFJ-7FVDG |
 | Windows Server Standard   | PTXN8-JFHJM-4WC78-MPCBR-9W4KR |
 
 ### <a name="windows-server-version-1709"></a>Windows Server, Version 1709
 
 | Betriebssystemedition  | KMS-Clientsetupschlüssel          |
 |---------------------------|-------------------------------|
-| Windows Server Datacenter | 6Y6KB-N82V8-D8CQV-23MJW-BWTG6 | 
+| Windows Server Datacenter | 6Y6KB-N82V8-D8CQV-23MJW-BWTG6 |
 | Windows Server Standard   | DPCNP-XQFKJ-BJF7R-FRC8D-GF6G4 |
 
 ### <a name="windows-server-2012-r2"></a>Windows Server 2012 R2
@@ -195,7 +194,7 @@ Informationen zu unterstützten Versionen und Dienstendedaten findest du im [Inf
 | Windows 8 Enterprise N   | JMNMF-RHW7P-DMY6X-RF3DR-X2BQT |
 
 
-### <a name="windows-7"></a>Windows 7 
+### <a name="windows-7"></a>Windows 7
 
 | Betriebssystemedition | KMS-Clientsetupschlüssel          |
 |--------------------------|-------------------------------|

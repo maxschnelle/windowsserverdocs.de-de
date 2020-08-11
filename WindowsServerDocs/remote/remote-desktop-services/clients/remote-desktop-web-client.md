@@ -1,19 +1,17 @@
 ---
 title: Erste Schritte mit dem Webclient
 description: Hier wird beschrieben, wie du dich beim Remotedesktop-Webclient anmeldest.
-ms.prod: windows-server
-ms.technology: remote-desktop-services
 ms.author: helohr
 ms.date: 08/27/2019
 ms.topic: article
 author: Heidilohr
 ms.localizationpriority: medium
-ms.openlocfilehash: 6c37c28fded08ba68e46a10a534ee0269c714938
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 6d408c70d75de0e2a14260f951209348e2aea63e
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "74189470"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87961874"
 ---
 # <a name="get-started-with-the-web-client"></a>Erste Schritte mit dem Webclient
 
@@ -61,7 +59,7 @@ Der Webclient unterstützt derzeit nur das Kopieren und Einfügen von Text. Date
 
 ## <a name="use-an-input-method-editor-ime-in-the-remote-session"></a>Verwenden eines Eingabemethoden-Editors in der Remotesitzung
 
-Zur Verwendung eines Eingabemethoden-Editors (IME), um komplexe Zeichen in der Remotesitzung einzugeben, klicken Sie auf das Zahnradsymbol in der Navigationsleiste, um die Seitenleiste **Einstellungen** zu öffnen, und legen Sie die Option **Enable Input Method Editor** (Eingabemethoden-Editor aktivieren) auf **Ein** fest. Sie müssen den Eingabemethoden-Editor in der Remotesitzung installiert und aktiviert haben. 
+Zur Verwendung eines Eingabemethoden-Editors (IME), um komplexe Zeichen in der Remotesitzung einzugeben, klicken Sie auf das Zahnradsymbol in der Navigationsleiste, um die Seitenleiste **Einstellungen** zu öffnen, und legen Sie die Option **Enable Input Method Editor** (Eingabemethoden-Editor aktivieren) auf **Ein** fest. Sie müssen den Eingabemethoden-Editor in der Remotesitzung installiert und aktiviert haben.
 
 ## <a name="get-help-with-the-web-client"></a>Anfordern von Hilfe zum Webclient
 

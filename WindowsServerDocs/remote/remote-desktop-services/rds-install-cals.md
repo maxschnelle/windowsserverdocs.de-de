@@ -1,19 +1,17 @@
 ---
 title: Installieren von RDS-Clientzugriffslizenzen
 description: Hier erfährst du, wie du Clientzugriffslizenzen (Client Access Licenses, CALs) für Remotedesktopclients installierst.
-ms.prod: windows-server
-ms.technology: remote-desktop-services
 ms.topic: article
 author: lizap
 ms.author: elizapo
 ms.date: 09/20/2016
 manager: dongill
-ms.openlocfilehash: 3a9f73418bd4da67c97db30a3272588afc287b95
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 848ca4ae9edd414173bbfd5822011b93d044e394
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80860443"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87961664"
 ---
 # <a name="install-rds-client-access-licenses-on-the-remote-desktop-license-server"></a>Installieren von RDS-Clientzugriffslizenzen auf dem Remotedesktop-Lizenzserver
 

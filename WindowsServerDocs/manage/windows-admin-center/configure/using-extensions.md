@@ -1,18 +1,16 @@
 ---
 title: Installieren und Verwalten von Erweiterungen
 description: Installieren und Verwalten von Erweiterungen im Windows Admin Center (Projekt „Honolulu“)
-ms.technology: manage
 ms.topic: article
 author: daniellee-msft
 ms.author: jol
 ms.localizationpriority: medium
-ms.prod: windows-server
-ms.openlocfilehash: 4ba2e760d57f1c3f59e40b78b449a8831b8093d2
-ms.sourcegitcommit: fe89b8001ad664b3618708b013490de93501db05
+ms.openlocfilehash: c2feaaff614d00afeaf5d132c446eebe5fdf0989
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84942309"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87966777"
 ---
 # <a name="install-and-manage-extensions"></a>Installieren und Verwalten von Erweiterungen
 
@@ -24,7 +22,7 @@ Windows Admin Center ist als erweiterbare Plattform ausgelegt, bei der jeder Ver
 
 Windows Admin Center zeigt die im angegebenen NuGet-Feed verfügbaren Erweiterungen an. Das Windows Admin Center verweist standardmäßig auf den offiziellen NuGet-Feed von Microsoft, der von Microsoft und anderen Entwicklern veröffentlichte Erweiterungen hostet.
 
-1. Klicke oben rechts auf die Schaltfläche **Einstellungen**, und klicke im linken Bereich auf **Erweiterungen**. 
+1. Klicke oben rechts auf die Schaltfläche **Einstellungen**, und klicke im linken Bereich auf **Erweiterungen**.
 2. Auf der Registerkarte **Verfügbare Erweiterungen** werden die Erweiterungen des Feeds aufgelistet, die zur Installation verfügbar sind.
 3. Klicke auf eine Erweiterung, um die Erweiterungsbeschreibung, die Version, den Herausgeber und weitere Informationen im Bereich **Details** anzuzeigen.
 4. Klicke auf **Installieren**, um eine Erweiterung zu installieren. Wenn das Gateway im Modus mit erhöhten Rechten ausgeführt werden muss, um diese Änderung vorzunehmen, wird dir eine Eingabeaufforderung der Benutzerkontensteuerung (UAC) für erhöhte Rechte angezeigt. Nach Abschluss der Installation wird dein Browser automatisch aktualisiert, und das Windows Admin Center wird mit der installierten neuen Erweiterung erneut geladen. Wenn die Erweiterung, die du installieren möchtest, ein Update einer zuvor installierten Erweiterung ist, kannst du auf die Schaltfläche **Auf neueste Version aktualisieren** klicken, um das Update zu installieren. Du kannst auch zur Registerkarte **Installierte Erweiterungen** wechseln, um installierte Erweiterungen anzuzeigen und in der Spalte **Status** zu überprüfen, ob ein Update verfügbar ist.
@@ -44,7 +42,7 @@ In der Liste **Verfügbare Erweiterungen** werden Erweiterungen aus allen regist
 
 Du kannst alle Erweiterungen deinstallieren, die du zuvor installiert hast, oder sogar alle Tools deinstallieren, die im Rahmen der Installation des Windows Admin Centers vorinstalliert wurden.
 
-1. Klicke oben rechts auf die Schaltfläche **Einstellungen**, und klicke im linken Bereich auf **Erweiterungen**. 
+1. Klicke oben rechts auf die Schaltfläche **Einstellungen**, und klicke im linken Bereich auf **Erweiterungen**.
 2. Klicke auf die Registerkarte **Installierte Erweiterungen**, um alle installierten Erweiterungen anzuzeigen.
 3. Wähle eine zu deinstallierende Erweiterung aus, und klicke auf **Deinstallieren**.
 
@@ -56,7 +54,7 @@ Wenn das Windows Admin Center auf einem Computer installiert ist, der nicht mit 
 
 ### <a name="manually-downloading-extension-packages"></a>Manuelles Herunterladen von Erweiterungspaketen
 
-1. Öffne auf einem anderen Computer mit Internetverbindung einen Webbrowser, und navigiere zur folgenden URL: [https://dev.azure.com/WindowsAdminCenter/Windows%20Admin%20Center%20Feed/_packaging?_a=feed&feed=WAC](https://dev.azure.com/WindowsAdminCenter/Windows%20Admin%20Center%20Feed/_packaging?_a=feed&feed=WAC). 
+1. Öffne auf einem anderen Computer mit Internetverbindung einen Webbrowser, und navigiere zur folgenden URL: [https://dev.azure.com/WindowsAdminCenter/Windows%20Admin%20Center%20Feed/_packaging?_a=feed&feed=WAC](https://dev.azure.com/WindowsAdminCenter/Windows%20Admin%20Center%20Feed/_packaging?_a=feed&feed=WAC).
 
    * Möglicherweise müssen Sie ein Microsoft-Konto erstellen und sich anmelden, um die Erweiterungspakete anzeigen zu können.
 

@@ -2,24 +2,22 @@
 title: Verwalten virtueller Festplatten (Virtual Hard Disk, VHD)
 description: Dieser Artikel beschreibt die Vorgehensweise beim Verwalten virtueller Festplatten.
 ms.date: 10/12/2017
-ms.prod: windows-server
-ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 6ffa7e9dc769b8d8c892d0af1ceae5246df62d3e
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: c00fcec3e27f3c91b429419fe25b5dc84125a720
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "71385809"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87957668"
 ---
 # <a name="manage-virtual-hard-disks-vhd"></a>Verwalten virtueller Festplatten (Virtual Hard Disk, VHD)
 
 > **Gilt für:** Windows 10, Windows 8.1, Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Dieses Thema beschreibt die Vorgehensweise beim Erstellen, Hinzufügen und Trennen virtueller Festplatten mit der Datenträgerverwaltung. Virtuelle Festplatten (VHDs) sind virtuelle Festplattendateien, die nach ihrer Einbindung in etwa wie eine physische Festplatte angezeigt und verwendet werden. Sie werden am häufigsten mit virtuellen Hyper-V-Computern verwendet. 
+Dieses Thema beschreibt die Vorgehensweise beim Erstellen, Hinzufügen und Trennen virtueller Festplatten mit der Datenträgerverwaltung. Virtuelle Festplatten (VHDs) sind virtuelle Festplattendateien, die nach ihrer Einbindung in etwa wie eine physische Festplatte angezeigt und verwendet werden. Sie werden am häufigsten mit virtuellen Hyper-V-Computern verwendet.
 
 ## <a name="viewing-vhds-in-disk-management"></a>Anzeigen von VHDs in der Datenträgerverwaltung
 
@@ -40,7 +38,7 @@ VHDs werden in der Datenträgerverwaltung genau wie physische Datenträger angez
 
 ## <a name="attaching-and-detaching-a-vhd"></a>Anfügen und Trennen einer VHD
 
-So machst du eine virtuelle Festplatte für die Verwendung verfügbar (entweder eine soeben erstellte oder eine andere vorhandene virtuelle Festplatte): 
+So machst du eine virtuelle Festplatte für die Verwendung verfügbar (entweder eine soeben erstellte oder eine andere vorhandene virtuelle Festplatte):
 
 1. Wähle im Menü **Aktion** die Option **Virtuelle Festplatte anfügen** aus.
 

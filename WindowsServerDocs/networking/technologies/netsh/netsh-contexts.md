@@ -1,19 +1,17 @@
 ---
 title: Netsh-Befehlssyntax, Kontexte und Formatierung
 description: Du kannst in diesem Thema erfahren, wie du Netsh-Kontexte und Unterkontexte eingibst, die Syntax und Befehlsformatierung von Netsh-Dateien verstehst und wie du Netsh-Befehle auf lokalen und Remotecomputern mit Windows Server 2016 oder Windows 10 ausführen kannst.
-ms.prod: windows-server
-ms.technology: networking
 ms.topic: article
 ms.assetid: 8cb9b59f-0255-4261-b49a-562c5ea50ee0
 manager: brianlic
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 061d7252d5a7bbe09d3dca245d9b77ed20a4dedf
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: f72d3dfc3cd6f54b123cb00baf9ba75e4faeb906
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80854763"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87969467"
 ---
 # <a name="netsh-command-syntax-contexts-and-formatting"></a>Netsh-Befehlssyntax, Kontexte und Formatierung
 
@@ -27,7 +25,7 @@ Netsh bietet auch eine Skriptingfunktion, mit der Sie eine Gruppe von Befehlen i
 
 ## <a name="netsh-contexts"></a>Netsh-Kontexte
 
-Netsh interagiert mit anderen Betriebssystemkomponenten unter Verwendung von Dateien der Dynamic\-Link Library \(DLL\). 
+Netsh interagiert mit anderen Betriebssystemkomponenten unter Verwendung von Dateien der Dynamic\-Link Library \(DLL\).
 
 Jede DLL des Netsh-Hilfsprogramms bietet einen umfangreichen Satz von Features, die als *Kontext* bezeichnet werden, d. h. eine Gruppe von Befehlen, die für eine Netzwerkserverrolle oder -funktion spezifisch sind. Diese Kontexte erweitern die Funktionalität von Netsh durch die Bereitstellung von Konfigurations- und Überwachungsunterstützung für mindestens einen Dienst, ein Hilfsprogramm oder Protokoll. So stellt z. B. „Dhcpmon.dll“ Netsh den Kontext und den Satz von Befehlen zur Verfügung, die zur Konfiguration und Verwaltung von DHCP-Servern erforderlich sind.
 
@@ -40,9 +38,9 @@ Es folgt eine Beispielausgabe für diese Befehle auf einem Computer mit Windows 
 >    ```
 >   PS C:\Windows\system32> netsh
 >   netsh>/?
->    
+>
 >    The following commands are available:
->    
+>
 >    Commands in this context:
 >    ..            - Goes up one context level.
 >    ?             - Displays a list of commands.
@@ -83,10 +81,10 @@ Es folgt eine Beispielausgabe für diese Befehle auf einem Computer mit Windows 
 >    wfp           - Changes to the `netsh wfp' context.
 >    winhttp       - Changes to the `netsh winhttp' context.
 >    winsock       - Changes to the `netsh winsock' context.
->    
+>
 >    The following sub-contexts are available:
 >     advfirewall branchcache bridge dhcpclient dnsclient firewall http interface ipsec ipsecdosprotection lan namespace netio ras rpc trace wfp winhttp winsock
->    
+>
 >    To view help for a command, type the command, followed by a space, and then type ?.
 >    ```
 
@@ -149,7 +147,7 @@ Optional. Gibt an, dass Netsh in den angegebenen **Netsh**-Kontext wechselt.
 
 **`Context`**
 
-Optional. Gibt den **Netsh-** Kontext an, der eingegeben werden soll. 
+Optional. Gibt den **Netsh-** Kontext an, der eingegeben werden soll.
 
 **`-r`**
 

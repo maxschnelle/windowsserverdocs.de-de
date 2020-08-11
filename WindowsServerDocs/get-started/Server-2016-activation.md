@@ -1,21 +1,19 @@
 ---
 title: Microsoft Server-Aktivierung
 description: So wird Windows Server 2016 aktiviert.
-ms.prod: windows-server
 ms.date: 09/19/2018
-ms.technology: server-general
 ms.topic: article
 ms.assetid: 99f7daa4-30ce-4d13-be65-0a45d5cc7a54
 author: jaimeo
 ms.author: jaimeo
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: d95d02dc9aa4adb2f64e88d2307efd0143225bba
-ms.sourcegitcommit: d5e27c1f2f168a71ae272bebf8f50e1b3ccbcca3
+ms.openlocfilehash: ad46c72b664bd1cb6b0a74e353d300dfd01e9d82
+ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86959042"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87959418"
 ---
 # <a name="windows-server-2016-activation"></a>Windows Server 2016-Aktivierung
 
@@ -31,18 +29,18 @@ Die folgende Tabelle fasst die Anforderungen an KMS-Hosts und Clients für Netzw
 > [!NOTE]
 > Auf dem KMS-Server sind möglicherweise Updates erforderlich, um die Aktivierung dieser neueren Clients zu unterstützen. Wenn Sie Aktivierungsfehler erhalten, überprüfen Sie, ob die entsprechenden, unter dieser Tabelle aufgelisteten Updates vorhanden sind.
 
-|Product Key-Gruppe|KMS kann gehostet werden auf|Windows-Versionen, die von diesem KMS-Host aktiviert wurden|  
-|-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------|  
-|Volumenlizenz für Windows Server 2016|Windows Server 2012<p>Windows Server 2012 R2<p>Windows Server 2016<p>|Windows Server (Halbjährlicher Kanal) <br><br>Windows Server 2016 (alle Editionen)<p>Windows 10 LTSB (2015 und 2016)<p>Windows 10 Professional<p>Windows 10 Enterprise<p>Windows 10 Pro for Workstations<br><br>Windows 10 Education<br><br>Windows Server 2012 R2 (alle Editionen)<p>Windows 8.1 Professional<p>Windows 8.1 Enterprise<p>Windows Server 2012 (alle Editionen)<p>Windows Server 2008 R2 (alle Editionen)<p>Windows Server 2008 (alle Editionen)<p>Windows 7 Professional<p>Windows 7 Enterprise| 
-|Volumenlizenz für Windows 10|Windows 7<p>Windows 8.1<p> Windows 10|Windows 10 Professional<p> Windows 10 Professional N<p> Windows 10 Enterprise<p> Windows 10 Enterprise N<p> Windows 10 Education<p> Windows 10 Education N<p> Windows 10 Enterprise LTSB (2015)<p> Windows 10 Enterprise LTSB N (2015)<p> Windows 10 Pro for Workstations<br><br>Windows 8.1 Professional<p> Windows 8.1 Enterprise<p> Windows 7 Professional<p> Windows 7 Enterprise<p>|  
+|Product Key-Gruppe|KMS kann gehostet werden auf|Windows-Versionen, die von diesem KMS-Host aktiviert wurden|
+|-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------|
+|Volumenlizenz für Windows Server 2016|Windows Server 2012<p>Windows Server 2012 R2<p>Windows Server 2016<p>|Windows Server (Halbjährlicher Kanal) <br><br>Windows Server 2016 (alle Editionen)<p>Windows 10 LTSB (2015 und 2016)<p>Windows 10 Professional<p>Windows 10 Enterprise<p>Windows 10 Pro for Workstations<br><br>Windows 10 Education<br><br>Windows Server 2012 R2 (alle Editionen)<p>Windows 8.1 Professional<p>Windows 8.1 Enterprise<p>Windows Server 2012 (alle Editionen)<p>Windows Server 2008 R2 (alle Editionen)<p>Windows Server 2008 (alle Editionen)<p>Windows 7 Professional<p>Windows 7 Enterprise|
+|Volumenlizenz für Windows 10|Windows 7<p>Windows 8.1<p> Windows 10|Windows 10 Professional<p> Windows 10 Professional N<p> Windows 10 Enterprise<p> Windows 10 Enterprise N<p> Windows 10 Education<p> Windows 10 Education N<p> Windows 10 Enterprise LTSB (2015)<p> Windows 10 Enterprise LTSB N (2015)<p> Windows 10 Pro for Workstations<br><br>Windows 8.1 Professional<p> Windows 8.1 Enterprise<p> Windows 7 Professional<p> Windows 7 Enterprise<p>|
 |Volumenlizenz für Windows Server 2012 R2 für Windows 10|Windows Server 2008 R2<p> Windows Server 2012 Standard<p> Windows Server 2012 Datacenter<p> Windows Server 2012 R2 Standard<p>Windows Server 2012 R2 Datacenter|Windows 10 Professional<p> Windows 10 Enterprise<p>Windows 10 Enterprise LTSB (2015)<br><br>Windows 10 Pro for Workstations<br><br>Windows 10 Education<br><br> Windows Server 2012 R2 (alle Editionen)<p> Windows 8.1 Professional<p> Windows 8.1 Enterprise<p> Windows Server 2012 (alle Editionen)<p> Windows Server 2008 R2 (alle Editionen)<p>Windows Server 2008 (alle Editionen)<p> Windows 7 Professional<p> Windows 7 Enterprise|
 
-> [!NOTE]  
+> [!NOTE]
 > Abhängig vom Betriebssystem Ihres KMS-Servers und abhängig davon, welches Betriebssystem Sie aktivieren möchten, müssen Sie möglicherweise eines oder mehrere der folgenden Updates installieren:
-> - Installationen von KMS unter Windows 7 oder Windows Server 2008 R2 müssen aktualisiert werden, um die Aktivierung von Clients zu unterstützen, auf denen Windows 10 ausgeführt wird. Weitere Informationen findest du unter  [Update, mit dem Windows 7- und Windows Server 2008 R2-KMS-Hosts Windows 10 aktivieren können](https://support.microsoft.com/help/3079821/update-that-enables-windows-7-and-windows-server-2008-r2-kms-hosts-to-activate-windows-10).  
-> - Installationen von KMS unter Windows Server 2012 müssen aktualisiert werden, um die Aktivierung von Clients mit Windows 10 und Windows Server 2016 oder neueren Client- oder Serverbetriebssystemen zu unterstützen. Weitere Informationen findest du unter  [Updaterollup für Windows Server 2012 vom Juli 2016](https://support.microsoft.com/help/3172615/july-2016-update-rollup-for-windows-server-2012). 
-> - Installationen von KMS unter Windows 8.1 oder Windows Server 2012 R2 müssen aktualisiert werden, um die Aktivierung von Clients mit Windows 10 und Windows Server 2016 oder neueren Client- oder Serverbetriebssystemen zu unterstützen. Weitere Informationen findest du unter  [Updaterollup für Windows 8.1 und Windows Server 2012 R2 vom Juli 2016](https://support.microsoft.com/help/3172614/july-2016-update-rollup-for-windows-8.1-and-windows-server-2012-r2).  
-> - Windows Server 2008 R2 kann nicht aktualisiert werden, um die Aktivierung von Clients mit Windows Server 2016 oder neueren Betriebssystemen zu unterstützen. 
+> - Installationen von KMS unter Windows 7 oder Windows Server 2008 R2 müssen aktualisiert werden, um die Aktivierung von Clients zu unterstützen, auf denen Windows 10 ausgeführt wird. Weitere Informationen findest du unter  [Update, mit dem Windows 7- und Windows Server 2008 R2-KMS-Hosts Windows 10 aktivieren können](https://support.microsoft.com/help/3079821/update-that-enables-windows-7-and-windows-server-2008-r2-kms-hosts-to-activate-windows-10). 
+> - Installationen von KMS unter Windows Server 2012 müssen aktualisiert werden, um die Aktivierung von Clients mit Windows 10 und Windows Server 2016 oder neueren Client- oder Serverbetriebssystemen zu unterstützen. Weitere Informationen findest du unter  [Updaterollup für Windows Server 2012 vom Juli 2016](https://support.microsoft.com/help/3172615/july-2016-update-rollup-for-windows-server-2012).
+> - Installationen von KMS unter Windows 8.1 oder Windows Server 2012 R2 müssen aktualisiert werden, um die Aktivierung von Clients mit Windows 10 und Windows Server 2016 oder neueren Client- oder Serverbetriebssystemen zu unterstützen. Weitere Informationen findest du unter  [Updaterollup für Windows 8.1 und Windows Server 2012 R2 vom Juli 2016](https://support.microsoft.com/help/3172614/july-2016-update-rollup-for-windows-8.1-and-windows-server-2012-r2). 
+> - Windows Server 2008 R2 kann nicht aktualisiert werden, um die Aktivierung von Clients mit Windows Server 2016 oder neueren Betriebssystemen zu unterstützen.
 
 Ein einzelner KMS-Host kann eine unbegrenzte Anzahl von KMS-Clients unterstützen. Bei mehr als 50 Clients empfehlen wir, mindestens zwei KMS-Hosts einzusetzen, für den Fall, dass einer der KMS-Hosts nicht verfügbar ist. Für die meisten Organisationen sind nicht mehr als zwei KMS-Hosts für die gesamte Infrastruktur erforderlich.
 
@@ -61,7 +59,7 @@ Nach dem Aktivieren des ersten KMS-Hosts, kann der dazu verwendete KMS-Schlüsse
 
 Wenn Ihre Organisation mehr als sechs KMS-Hosts benötigt, sollten Sie zusätzliche Aktivierungen für den KMS-Schlüssel Ihrer Organisation anfordern, z. B. wenn Sie über zehn physische Standorte und einen Volumenlizenzvertrag verfügen und möchten, dass für jeden Standort ein lokaler KMS-Host vorhanden ist.
 
-> [!NOTE] 
+> [!NOTE]
 > Wenden Sie sich an Ihr Activation Call Center, um diese Ausnahme anzufordern. Weitere Informationen finden Sie unter [Microsoft Volume Licensing]( https://www.microsoft.com/licensing).
 
 Computer, auf denen Volumenlizenzeditionen von Windows 10, Windows Server 2016, Windows 8.1, Windows Server 2012 R2, Windows Server 2012, Windows 7 oder Windows Server 2008 R2 ausgeführt werden, sind standardmäßig KMS-Clients und benötigen keine zusätzliche Konfiguration.
