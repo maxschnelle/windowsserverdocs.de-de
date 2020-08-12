@@ -6,12 +6,12 @@ author: JasonGerend
 ms.author: jgerend
 ms.date: 07/09/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 7f98ec982601281d5b16a5ec369ca275de189c85
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 5eddc639fd07516b95b23684ec4137f328b7c105
+ms.sourcegitcommit: 08da40966c5d633f8748c8ae348f12656a54d3b2
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87996479"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88140297"
 ---
 # <a name="deploy-storage-spaces-on-a-stand-alone-server"></a>Bereitstellen von Speicherplätzen auf einem eigenständigen Server
 
@@ -44,7 +44,7 @@ Wenn Sie Speicherplätze auf einem eigenständigen Windows Server 2012-basierten
 > [!IMPORTANT]
 > Weitere Informationen zum Bereitstellen von Speicherplätzen auf einem Failovercluster finden Sie unter Bereitstellen [eines Speicherplätze-Clusters unter Windows Server 2012 R2](</previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/mt270997(v%3dws.11)>). Für eine failoverclusterbereitstellung gelten andere Voraussetzungen, z. b. unterstützte Daten trägerbus Typen, unterstützte resilienztypen und die erforderliche Mindestanzahl von Datenträgern
 
-|Bereich|Anforderung|Hinweise|
+|Bereich|Anforderung|Notizen|
 |---|---|---|
 |Datenträgerbustypen|-Serial Attached SCSI (SAS)<br>-Serial Advanced Technology Attachment (SATA)<br>-iSCSI-und Fibre Channel Controller. |Sie können auch USB-Laufwerke verwenden. Es ist jedoch nicht optimal, USB-Laufwerke in einer Serverumgebung zu verwenden.<br>Speicherplätze werden auf iSCSI-und Fibre Channel (FC)-Controllern unterstützt, solange die darauf erstellten virtuellen Datenträger nicht stabil sind (einfach mit einer beliebigen Anzahl von Spalten).<br>|
 |Datenträgerkonfiguration|-Der physische Datenträger muss mindestens 4 GB groß sein.<br>-Datenträger müssen leer und nicht formatiert sein. Erstellen Sie keine Volumes||
@@ -100,19 +100,19 @@ Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vor
 Im folgenden Beispiel sehen Sie, welche physischen Datenträger im ursprünglichen Pool verfügbar sind.
 
 ```PowerShell
-Get-StoragePool -IsPrimordial $true | Get-PhysicalDisk | Where-Object CanPool -eq $True
+Get-StoragePool -IsPrimordial $true | Get-PhysicalDisk -CanPool $True
 ```
 
 Im folgenden Beispiel wird ein neuer Speicherpool mit dem Namen *StoragePool1* erstellt, der alle verfügbaren Datenträger verwendet.
 
 ```PowerShell
-New-StoragePool –FriendlyName StoragePool1 –StorageSubsystemFriendlyName “Storage Spaces*” –PhysicalDisks (Get-PhysicalDisk –CanPool $True)
+New-StoragePool –FriendlyName StoragePool1 –StorageSubsystemFriendlyName "Windows Storage*" –PhysicalDisks (Get-PhysicalDisk –CanPool $True)
 ```
 
 Im folgenden Beispiel wird ein neuer Speicherpool, *StoragePool1*, erstellt, der vier der verfügbaren Datenträger verwendet.
 
 ```PowerShell
-New-StoragePool –FriendlyName StoragePool1 –StorageSubsystemFriendlyName “Storage Spaces*” –PhysicalDisks (Get-PhysicalDisk PhysicalDisk1, PhysicalDisk2, PhysicalDisk3, PhysicalDisk4)
+New-StoragePool –FriendlyName StoragePool1 –StorageSubsystemFriendlyName "Windows Storage*" –PhysicalDisks (Get-PhysicalDisk PhysicalDisk1, PhysicalDisk2, PhysicalDisk3, PhysicalDisk4)
 ```
 
 Die folgende Cmdlet-Beispielsequenz zeigt, wie der verfügbare physische Datenträger *PhysicalDisk5* als Hotspare zum Speicherpool *StoragePool1* hinzugefügt wird.
