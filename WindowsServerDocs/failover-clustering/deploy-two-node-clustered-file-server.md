@@ -6,12 +6,12 @@ ms.topic: article
 author: johnmarlin-msft
 ms.author: johnmar
 ms.date: 02/01/2019
-ms.openlocfilehash: b91aeadcce645797f42a029f7a8c82371b42d618
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 56130833ca2c3de8752fb79f5acdf30a1fafae2f
+ms.sourcegitcommit: 67a486b4fb3937a457eb00d21a2e33b753489fd8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87968007"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88149554"
 ---
 # <a name="deploying-a-two-node-clustered-file-server"></a>Bereitstellen eines Cluster Dateiservers mit zwei Knoten
 
@@ -321,28 +321,31 @@ Führen Sie die folgenden Schritte aus, um einen Dateiserver-Failovercluster zu 
    > [!NOTE]
    > Wenn Sie statische IP-Adressen verwenden, müssen Sie das zu verwendende Netzwerk auswählen und die IP-Adresse eingeben, die für den Cluster Namen verwendet werden soll.  Wenn Sie DHCP für Ihre IP-Adressen verwenden, wird die IP-Adresse automatisch für Sie konfiguriert.
 
-6. Wählen Sie **Weiter** aus.
+9. Wählen Sie **Weiter** aus.
 
-7. Wählen Sie im Fenster **Speicher auswählen** das zusätzliche Laufwerk (nicht den Zeugen) aus, auf dem sich die Freigaben **befinden.**
+10. Wählen Sie im Fenster **Speicher auswählen** das zusätzliche Laufwerk (nicht den Zeugen) aus, das Ihre Freigaben enthalten soll, und klicken Sie auf **weiter**.
 
-8. Überprüfen Sie auf der Seite **Bestätigung** Ihre Konfiguration, und wählen Sie **weiter**aus.
+11. Überprüfen Sie auf der Seite **Bestätigung** Ihre Konfiguration, und wählen Sie **weiter**aus.
 
-9. Auf der Seite **Zusammenfassung** erhalten Sie die Konfiguration, die Sie erstellt hat.  Sie können Bericht anzeigen auswählen, um den Bericht zur Erstellung der Dateiserver Rolle anzuzeigen.
+12. Auf der Seite **Zusammenfassung** erhalten Sie die Konfiguration, die Sie erstellt hat.  Sie können Bericht anzeigen auswählen, um den Bericht zur Erstellung der Dateiserver Rolle anzuzeigen.
 
-10. Unter **Rollen** in der Konsolen Struktur sehen Sie, dass die neu erstellte Rolle als der von Ihnen erstellte Name aufgeführt wird.  Wählen Sie unter dem Bereich **Aktionen** auf der rechten Seite die Option **Freigabe hinzufügen**aus.
+   > [!NOTE]
+   > Wenn die Rolle nicht ordnungsgemäß hinzugefügt oder gestartet wird, verfügt das CNO (Cluster Namen Objekt) möglicherweise nicht über die Berechtigung zum Erstellen von Objekten in Active Directory. Die Datei Server Rolle erfordert ein Computer Objekt mit dem gleichen Namen wie der "Client Zugriffspunkt", der in Schritt 8 bereitgestellt wurde.
 
-11. Führen Sie den Freigabe-Assistenten aus, und geben Sie Folgendes ein:
+13. Unter **Rollen** in der Konsolen Struktur sehen Sie, dass die neu erstellte Rolle als der von Ihnen erstellte Name aufgeführt wird.  Wählen Sie unter dem Bereich **Aktionen** auf der rechten Seite die Option **Freigabe hinzufügen**aus.
+
+14. Führen Sie den Freigabe-Assistenten aus, und geben Sie Folgendes ein:
 
     - Typ der Freigabe
     - Speicherort/Pfad des freigegebenen Ordners
     - Der Name der Freigabe, mit der Benutzer eine Verbindung herstellen.
-    - Zusätzliche Einstellungen wie z. b. Zugriffs basierte Aufzählung, Caching, Verschlüsselung usw.
+    - Weitere Einstellungen, wie z. b. Zugriffs basierte Aufzählung, Caching, Verschlüsselung usw.
     - Berechtigungen auf Dateiebene, wenn Sie nicht die Standardwerte sind
 
-12. Überprüfen Sie auf der Seite **Bestätigung** , was Sie konfiguriert haben, und wählen Sie **Erstellen** aus, um die Dateiserver Freigabe zu erstellen.
+15. Überprüfen Sie auf der Seite **Bestätigung** , was Sie konfiguriert haben, und wählen Sie **Erstellen** aus, um die Dateiserver Freigabe zu erstellen.
 
-13. Wählen Sie auf der Seite **Ergebnisse** die Option schließen aus, wenn die Freigabe erstellt wurde.  Wenn die Freigabe nicht erstellt werden konnte, erhalten Sie die Fehler.
+16. Wählen Sie auf der Seite **Ergebnisse** die Option schließen aus, wenn die Freigabe erstellt wurde.  Wenn die Freigabe nicht erstellt werden konnte, erhalten Sie die Fehler.
 
-14. Klicken Sie auf **Schließen**.
+17. Klicken Sie auf **Schließen**.
 
-15. Wiederholen Sie diesen Vorgang für alle weiteren Freigaben.
+18. Wiederholen Sie diesen Vorgang für alle weiteren Freigaben.
