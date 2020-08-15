@@ -6,19 +6,19 @@ ms.author: billmath
 manager: daveba
 ms.date: 08/09/2019
 ms.topic: article
-ms.openlocfilehash: 46e78e74781f4a85f279299745d841fd0bcaf7c3
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 18e480200bf2d22c5f46dd67d1ee6a704f566d55
+ms.sourcegitcommit: b18effcba95c85d6e08e7d29808b576491a5352e
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87964857"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88243202"
 ---
 # <a name="ad-fs-openid-connectoauth-concepts"></a>AD FS OpenID Connect/OAuth: Konzepte
 Gilt für Active Directory-Verbunddienste (AD FS) 2016 und höher
 
 ## <a name="modern-authentication-actors"></a>Moderne Authentifizierungs Akteure
 
-|Akteur| BESCHREIBUNG|
+|Akteur| Beschreibung|
 |-----|-----|
 |Endbenutzer|Dies ist der Sicherheits Prinzipal (Benutzer, Anwendungen, Dienste und Gruppen), der auf die Ressource zugreifen muss.|
 |Client|Dies ist Ihre Webanwendung, die durch die Client-ID identifiziert wird. Der Client ist in der Regel die Partei, mit der der Endbenutzer interagiert, und fordert Token vom autorisierungsserver an.
@@ -79,7 +79,7 @@ Sicherheits Token (Zugriffs-und ID-Token), die von AD FS ausgegeben werden, enth
 
  2. AD FS überprüft die Client-ID in der Authentifizierungsanforderung mit der Client-ID, die bei der Client-und Ressourcen Registrierung in AD FS abgerufen wurde. Wenn Sie den vertraulichen Client verwenden, überprüft AD FS auch den geheimen Client Schlüssel, der in der Authentifizierungsanforderung angegeben ist. AD FS auch den Umleitungs-URI des Clients überprüfen.
 
- 3. AD FS identifiziert die Ressource, auf die der Client über den in der Authentifizierungsanforderung übergebenen Ressourcen Parameter zugreifen möchte. Wenn Sie die msal-Client Bibliothek verwenden, wird der Ressourcen Parameter nicht gesendet. Stattdessen wird die Ressourcen-URL als Teil des Bereichs Parameters gesendet: *Scope = [resource URL]//[Bereichs Werte, z. b. OpenID]*.
+ 3. AD FS identifiziert die Ressource, auf die der Client über den in der Authentifizierungsanforderung übergebenen Ressourcen Parameter zugreifen möchte. Wenn Sie die msal-Client Bibliothek verwenden, wird der Ressourcen Parameter nicht gesendet. Stattdessen wird die Ressourcen-URL als Teil des Bereichs Parameters gesendet: *Scope = [resource URL]/[Scope Values, z. b. OpenID]*.
 
     Wenn die Ressource nicht mit dem Resource-oder Scope-Parameter übergeben wird, verwendet ADFS einen Standard Ressourcen-urn: Microsoft: userinfo, deren Richtlinien (z. b. MFA, Ausstellung oder Autorisierungs Richtlinie) nicht konfiguriert werden können.
 
@@ -138,7 +138,7 @@ Die einmalige Abmeldung führt dazu, dass alle Client Sitzungen mithilfe der Sit
 
 ## <a name="ad-fs-endpoints"></a>AD FS Endpunkte
 
-|AD FS-Endpunkt|BESCHREIBUNG|
+|AD FS-Endpunkt|Beschreibung|
 |-----|-----|
 |/Authorize-Endpunkt|AD FS gibt einen Autorisierungs Code zurück, der zum Abrufen des Zugriffs Tokens verwendet werden kann.|
 |/Token|AD FS gibt ein Zugriffs Token zurück, das für den Zugriff auf die Ressource (Web-API) verwendet werden kann.|

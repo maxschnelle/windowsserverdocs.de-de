@@ -6,14 +6,14 @@ ms.assetid: da58f312-bd3b-4bb6-98ca-6177869dd6ad
 manager: brianlic
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 646660c1371b592670737b7d7d208b62208bfec9
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 81c35d1a5673793220ec860266d129a4ecdb4046
+ms.sourcegitcommit: b18effcba95c85d6e08e7d29808b576491a5352e
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87993940"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88243192"
 ---
-# <a name="data-center-bridging-dcb"></a>Data Center Bridging \( DCB\)
+# <a name="data-center-bridging-dcb"></a>Data Center Bridging \(DCB\)
 
 >Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
@@ -38,7 +38,7 @@ Die Prioritäts \- basierte Fluss Steuerung ist unverzichtbar, wenn das Protokol
 DCB besteht aus folgendem Satz von Protokollen.
 
 - Enhanced Transmission Service \( ETS \) – IEEE 802.1 QAZ, das auf den Standards 802.1 p und 802.1 q aufbaut
-- Prioritäts Fluss Steuerung \( PFS \) , IEEE 802.1 qbb
+- Prioritäts Fluss Steuerung \( PFC \) , IEEE 802.1 qbb
 - DCB Exchange-Protokoll \( dcbx \) , IEEE 802.1 ab, wie im 802.1 QAZ-Standard erweitert.
 
 Mit dem dcbx-Protokoll können Sie DCB auf einem Switch konfigurieren, der dann automatisch ein Endgerät konfigurieren kann, z. b. einen Computer mit Windows Server 2016.
