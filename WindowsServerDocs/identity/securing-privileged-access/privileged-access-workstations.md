@@ -8,12 +8,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: mas
-ms.openlocfilehash: 6a7e916c78ad7b2711268f02bcf028dfb2621303
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 014e19088394135c00d1df63a46ba74f400fa411
+ms.sourcegitcommit: 08da40966c5d633f8748c8ae348f12656a54d3b2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87991868"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88140307"
 ---
 # <a name="privileged-access-workstations"></a>Arbeitsstationen mit privilegiertem Zugriff
 
@@ -28,7 +28,7 @@ Einfach gesagt ist eine Arbeitsstation mit privilegiertem Zugriff (Privileged Ac
 > [!NOTE]
 > Die PAW-Architektur erfordert keine 1:1-Zuordnung von Konten zu Arbeitsstation, obwohl dies eine häufige Konfiguration ist. Mit einer PAW wird eine vertrauenswürdige Arbeitsstationsumgebung erstellt, die von einem oder mehreren Konten verwendet werden kann.
 
-Zur Erzielung der größtmöglichen Sicherheit sollte auf Arbeitsstationen mit privilegiertem Zugriff immer das aktuellste und sicherste verfügbare Betriebssystem ausgeführt werden: Microsoft empfiehlt dringend die Verwendung von Windows 10 Enterprise. Dieses Betriebssystem verfügt über mehrere zusätzliche Sicherheitsfeatures, die in anderen Editionen nicht enthalten sind (z. B. [Credential Guard](/windows/security/identity-protection/credential-guard/credential-guard) und [Device Guard](/windows/security/threat-protection/device-guard/introduction-to-device-guard-virtualization-based-security-and-windows-defender-application-control).
+Zur Erzielung der größtmöglichen Sicherheit sollte auf Arbeitsstationen mit privilegiertem Zugriff immer das aktuellste und sicherste verfügbare Betriebssystem ausgeführt werden: Microsoft empfiehlt dringend die Verwendung von Windows 10 Enterprise. Dieses Betriebssystem verfügt über mehrere zusätzliche Sicherheitsfeatures, die in anderen Editionen nicht enthalten sind (z. B. [Credential Guard](/windows/security/identity-protection/credential-guard/credential-guard) und [Device Guard](/windows/security/threat-protection/device-guard/introduction-to-device-guard-virtualization-based-security-and-windows-defender-application-control)).
 
 > [!NOTE]
 > Organisationen, in denen Windows 10 nicht zur Verfügung steht, können Windows 10 Pro verwenden. Diese Edition enthält viele der wichtigen grundlegenden Technologien für PAWs, wie z.B. vertrauenswürdiger Start, BitLocker und Remotedesktop.  Kunden im Bildungswesen können Windows 10 Education verwenden.  Windows 10 Home sollte für eine PAW nicht verwendet werden.
