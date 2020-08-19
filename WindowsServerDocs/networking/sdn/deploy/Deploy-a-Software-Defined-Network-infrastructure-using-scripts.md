@@ -7,12 +7,12 @@ ms.assetid: 5ba5bb37-ece0-45cb-971b-f7149f658d19
 ms.author: anpaul
 author: AnirbanPaul
 ms.date: 08/23/2018
-ms.openlocfilehash: 7fcf8b095479ec21c045a60244917b09883a6162
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 84b96e724706db49945c2e4936d0b4d8691d8daa
+ms.sourcegitcommit: 3d59c2aaebcd190b20d24bc8a449eee0681b6a3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87993766"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88583325"
 ---
 # <a name="deploy-a-software-defined-network-infrastructure-using-scripts"></a>Bereitstellen einer Software-Defined Networking-Infrastruktur mithilfe von Skripts
 
@@ -87,7 +87,7 @@ Beginnen Sie, indem Sie den virtuellen Hyper-v-Switch und die IP-Adresszuweisung
    e. Geben Sie bei entsprechender Aufforderung den Benutzernamen und das Kennwort ein.
    f. Starten Sie den Server neu.
 
-### <a name="validation"></a>Überprüfung
+### <a name="validation"></a>Validierung
 Mithilfe der folgenden Schritte können Sie überprüfen, ob das Host Netzwerk ordnungsgemäß eingerichtet ist.
 
 1. Stellen Sie sicher, dass der virtuelle Computer erfolgreich erstellt wurde:
@@ -113,21 +113,6 @@ Mithilfe der folgenden Schritte können Sie überprüfen, ob das Host Netzwerk o
 4. Führen Sie den folgenden Befehl auf dem Bereitstellungs Host aus, und geben Sie den FQDN jedes Hyper-V-Hosts an, um sicherzustellen, dass die verwendeten Kerberos-Anmelde Informationen Zugriff auf alle Server bieten.
 
    ``winrm id -r:<Hyper-V Host FQDN>``
-
-### <a name="nano-installation-requirements-and-notes"></a>Nano-Installationsanforderungen und-Hinweise
-
-Wenn Sie nano als Hyper-V-Hosts (physische Server) für die Bereitstellung verwenden, müssen die folgenden zusätzlichen Anforderungen erfüllt sein:
-
-1. Alle Nano-Knoten müssen das DSC-Paket mit dem Language Pack installiert haben:
-
-   - Microsoft-NanoServer-DSC-Package.cab
-   - Microsoft-NanoServer-DSC-Package_en-us.cab
-
-     ``dism /online /add-package /packagepath:<Path> /loglevel:4``
-
-2. Die Sdn Express-Skripts müssen von einem nicht-Nano-Host (Windows Server Core oder Windows Server w/GUI) ausgeführt werden. PowerShell-Workflows werden unter Nano nicht unterstützt.
-
-3. Das Aufrufen der Northbound-API des Netzwerk Controllers mithilfe von PowerShell oder NC-Rest-Wrapper (die auf "aufrufen-WebRequest" und "aufrufen-restmethod" basieren) muss von einem nicht-Nano-Host aus erfolgen.
 
 ### <a name="run-sdn-express-scripts"></a>Ausführen von Sdn Express-Skripts
 
@@ -167,7 +152,7 @@ Wenn Sie nano als Hyper-V-Hosts (physische Server) für die Bereitstellung verwe
 
     ``SDNExpress\scripts\SDNExpressUndo.ps1 -ConfigurationDataFile FabricConfig.psd1 -Verbose``
 
-#### <a name="validation"></a>Überprüfung
+#### <a name="validation"></a>Validierung
 
 Vorausgesetzt, dass das Sdn Express-Skript bis zum Abschluss ausgeführt wurde, ohne Fehler zu melden, können Sie den folgenden Schritt ausführen, um sicherzustellen, dass die fabricressourcen ordnungsgemäß bereitgestellt und für die Mandanten Bereitstellung
 
@@ -182,15 +167,15 @@ Nachdem nun Fabric-Ressourcen bereitgestellt wurden, können Sie die End-to-End-
 
 1.  Passen Sie die Datei SDNExpress\scripts\TenantConfig.psd1 an, indem Sie die **<< ersetzen >>** Tags durch bestimmte Werte (z. b. VHD-Abbild Name, Netzwerk Controller-Rest-Name, vswitchname usw.) ändern, wie zuvor in der FabricConfig.psd1-Datei definiert).
 
-2.  Führen Sie das Skript aus. Zum Beispiel:
+2.  Führen Sie das Skript aus. Beispiel:
 
     ``SDNExpress\scripts\SDNExpressTenant.ps1 -ConfigurationDataFile TenantConfig.psd1 -Verbose``
 
-3.  Um die Konfiguration rückgängig zu machen, führen Sie das gleiche Skript mit dem Parameter **Rückgängig** aus. Zum Beispiel:
+3.  Um die Konfiguration rückgängig zu machen, führen Sie das gleiche Skript mit dem Parameter **Rückgängig** aus. Beispiel:
 
     ``SDNExpress\scripts\SDNExpressTenant.ps1 -Undo -ConfigurationDataFile TenantConfig.psd1 -Verbose``
 
-#### <a name="validation"></a>Überprüfung
+#### <a name="validation"></a>Validierung
 
 Gehen Sie folgendermaßen vor, um zu überprüfen, ob die Mandanten Bereitstellung erfolgreich war:
 
