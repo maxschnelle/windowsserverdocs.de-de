@@ -5,14 +5,14 @@ ms.topic: article
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 06/30/2020
+ms.date: 08/07/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 5303bb696131d4e122da11c2d72152bf304716b4
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 65a2a767e89af6d64893de1b8c7949bedd9e7625
+ms.sourcegitcommit: 9f2e04cd7e52c29fa2fbc64f67dcafbd021015ab
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87961934"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88051844"
 ---
 # <a name="supported-remote-desktop-rdp-file-settings"></a>Unterstützte RDP-Dateieinstellungen für Remotedesktop
 
@@ -59,7 +59,9 @@ In der Tabelle werden auch die Einstellungen gezeigt, die als benutzerdefinierte
 | camerastoredirect:s:value | Kameraumleitung:</br>Konfiguriert, welche Kameras umgeleitet werden sollen. Für diese Einstellung wird eine durch Semikolons getrennte Liste der KSCATEGORY_VIDEO_CAMERA-Schnittstellen von Kameras verwendet, deren Umleitung aktiviert ist. | - * : Alle Kameras umleiten</br> - Liste der Kameras, z. B.: camerastoredirect:s:\\?\usb#vid_0bda&pid_58b0&mi</br>- Der Ausschluss einer bestimmten Kamera erfolgt durch Hinzufügen von „-“ vor der Zeichenfolge der symbolischen Verknüpfung. | Es wird nicht empfohlen, Kameras umzuleiten. | Ja |
 | devicestoredirect:s:value | Umleitung von Plug & Play-Geräten:</br>Legt fest, welche Geräte auf dem lokalen Computer umgeleitet werden und in der Remotesitzung verfügbar sind. | - *: Alle unterstützten Geräte umleiten, einschließlich der, die später verbunden werden</br> – Gültige Hardware-ID für ein oder mehrere Geräte</br> - DynamicDevices: Alle unterstützten Geräte umleiten, die später verbunden werden | Es wird nicht empfohlen, Geräte umzuleiten. | Ja |
 | drivestoredirect:s:value | Laufwerk-/Speicherumleitung:</br>Legt fest, welche Datenträgerlaufwerke auf dem lokalen Computer umgeleitet werden und in der Remotesitzung verfügbar sind. | - Kein Wert angegeben: keine Laufwerke umleiten</br>- * : Alle Datenträgerlaufwerke umleiten, einschließlich aller Laufwerke, die später verbunden werden</br>- DynamicDrives: alle Laufwerke umleiten, die später verbunden werden</br>- Laufwerk und Bezeichnungen für ein oder mehrere Laufwerke, wie etwa "drivestoredirect:s:C:;E:;": das angegebene Laufwerk bzw. die angegebenen Laufwerke umleiten | Es wird nicht empfohlen, Laufwerke umzuleiten. | Ja |
+| keyboardhook:i:value | Bestimmt, wann Windows-Tastenkombinationen (WINDOWS-TASTE, ALT+TAB) bei Desktopverbindungen auf die Remotesitzung angewendet werden. | - 0: Windows-Tastenkombinationen werden auf dem lokalen Computer angewendet.</br>- 1: Windows-Tastenkombinationen werden auf dem Remotecomputer angewendet, wenn er den Fokus hat.</br>- 2: Windows-Tastenkombinationen werden nur im Vollbildmodus auf den Remotecomputer angewendet. | 2 | Ja |
 | redirectclipboard:i:value | Umleitung der Zwischenablage:</br>Bestimmt, ob die Umleitung der Zwischenablage aktiviert ist. | - 0: Zwischenablage auf dem lokalen Computer ist in Remotesitzung nicht verfügbar</br>- 1: Zwischenablage auf dem lokalen Computer ist in Remotesitzung verfügbar | 1 | Ja |
+| redirectcomports:i:value | Umleitung von COM-Ports:</br>Bestimmt, ob COM-Ports (serielle Ports) auf dem lokalen Computer umgeleitet werden und in der Remotesitzung verfügbar sind. | - 0: Die COM-Ports auf dem lokalen Computer sind in der Remotesitzung nicht verfügbar.</br>- 1: Die COM-Ports auf dem lokalen Computer sind in der Remotesitzung verfügbar. | 0 | Ja |
 | redirectprinters:i:value | Druckerumleitung:</br>Legt fest, ob die auf dem lokalen Computer konfigurierten Drucker umgeleitet werden und in der Remotesitzung verfügbar sind. | - 0: Die Drucker auf dem lokalen Computer sind in der Remotesitzung nicht verfügbar</br>- 1: Die Drucker auf dem lokalen Computer sind in der Remotesitzung verfügbar | 1 | Ja |
 | redirectsmartcards:i:value | Smartcardumleitung:</br>Legt fest, ob Smartcardgeräte auf dem lokalen Computer umgeleitet werden und in der Remotesitzung verfügbar sind. |- 0: Das Smartcardgerät auf dem lokalen Computer ist in der Remotesitzung nicht verfügbar</br>- 1: Das Smartcardgerät auf dem lokalen Computer ist in der Remotesitzung verfügbar | 1 | Ja |
 | usbdevicestoredirect:s:value | USB-Umleitung | - *: Alle USB-Geräte umleiten, die nicht bereits von einer anderen übergeordneten Umleitung umgeleitet werden</br> - {Device Setup Class GUID}: Alle Geräte umleiten, die Mitglieder der angegebenen [Gerätesetupklasse](/windows-hardware/drivers/install/system-defined-device-setup-classes-available-to-vendors/) sind</br> - USBInstanceID: Ein bestimmtes, von der Instanz-ID identifizierten USB-Gerät umleiten| USB-Geräte nicht umleiten | Ja |

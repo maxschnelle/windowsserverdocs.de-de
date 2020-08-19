@@ -5,14 +5,14 @@ ms.topic: article
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 07/28/2020
+ms.date: 08/11/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 0077837fc03fbff37ed2a152ee68bfa4f1e24fa8
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 5f3a2ff6268cbccc2d354227b577441a270faf9f
+ms.sourcegitcommit: f3a72c06e739d9ee9d8cd7e8259ccee8db7c7523
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87961824"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88089969"
 ---
 # <a name="whats-new-in-the-windows-desktop-client"></a>Neuigkeiten im Windows-Desktopclient
 
@@ -25,7 +25,19 @@ Der Client kann für verschiedene [Benutzergruppen](windowsdesktop-admin.md#conf
 |Benutzergruppe |Version  |
 |-----------|---------|
 |Öffentlich     |1.2.1186 |
-|Insider    |1.2.1186 |
+|Insider    |1.2.1272 |
+
+## <a name="updates-for-version-121272-insider"></a>Updates für Version 1.2.1272 [INSIDER]
+
+*Veröffentlicht am: 11.08.2020*
+
+Download: [Windows 64-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4D7LK), [Windows 32-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4D5aF), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4Dan3)
+
+- Es wurden Funktionen zum automatischen Erkennen von unabhängigen Clouds aus der Identität des Benutzers hinzugefügt.
+- Es wurden Funktionen zum Aktivieren benutzerdefinierter URL-Abonnements für alle Benutzer hinzugefügt.
+- Ein Problem beim Anheften von Apps auf der Feed-Taskleiste wurde behoben.
+- Ein Absturzproblem beim Abonnieren von URLs wurde behoben.
+- Verbesserte Benutzererfahrung beim Ziehen der Fenster von Remote-Apps mit Toucheingabe oder Stift.
 
 ## <a name="updates-for-version-121186"></a>Updates für Version 1.2.1186
 

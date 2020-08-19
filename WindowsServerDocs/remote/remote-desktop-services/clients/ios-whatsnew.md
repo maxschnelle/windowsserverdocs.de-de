@@ -5,14 +5,14 @@ ms.topic: article
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 05/06/2020
+ms.date: 08/17/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 16e142a299b43ac6167fa4bf34d5782899f28846
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 0afb5a64a86d3b33ea5d78756abe09bf87564928
+ms.sourcegitcommit: 3ed5dd72451b494e17d508fed82fdc5559ba4ef0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87970157"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88270142"
 ---
 # <a name="whats-new-in-the-ios-client"></a>Neues beim iOS-Client
 
@@ -21,6 +21,15 @@ Der [Remotedesktopclient für iOS](remote-desktop-ios.md) wird regelmäßig mit 
 ## <a name="how-to-report-issues"></a>Melden von Problemen
 
 Wir sind bestrebt, den Remotedesktopclient für iOS bestmöglich zu gestalten, und wissen dein Feedback zu schätzen. Du kannst Probleme unter **Hilfe** > **Problem melden** melden.
+
+## <a name="updates-for-version-1012"></a>Updates für Version 10.1.2
+
+*Veröffentlicht am 17.08.2020*
+
+In diesem Update haben wir uns mit Problemen befasst, die für das Update auf Version 10.1.1 gemeldet wurden.
+
+- Es wurde ein Absturz korrigiert, der bei einigen Benutzern auftrat, wenn ein Windows Virtual Desktop-Feed nicht mit Broker Authentifizierung abonniert wurde.
+- Das Layout der Arbeitsbereichssymbole auf iPhone X, iPhone XS und iPhone 11 Pro wurde berichtigt.
 
 ## <a name="updates-for-version-1007"></a>Updates für Version 10.0.7
 
