@@ -6,12 +6,12 @@ ms.topic: article
 ms.assetid: 31f3fa4e-cd25-4bf3-89e9-a01a6cec7893
 ms.author: anpaul
 author: AnirbanPaul
-ms.openlocfilehash: 2bf49dbd17e1724782b27f8b306c04346f194242
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 9623ce4e5e31b905c1c18e9359811389d8d75f23
+ms.sourcegitcommit: 1eaad076ea74e72b36e8893aaa15f3e5f4237bd6
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87991363"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88659385"
 ---
 # <a name="network-controller"></a>Netzwerkcontroller
 
@@ -28,7 +28,7 @@ Mithilfe von Netzwerkcontroller können Sie die Konfiguration der Netzwerkinfras
 > - [Bereitstellen des Netzwerkcontrollers mithilfe von Windows PowerShell](../../deploy/Deploy-Network-Controller-using-Windows-PowerShell.md)
 > - [Installieren der Serverrolle „Netzwerkcontroller“ mit Server-Manager](Install-the-Network-Controller-server-role-using-Server-Manager.md)
 > - [Schritte nach der Bereitstellung für den Netzwerk Controller](post-deploy-steps-nc.md)
-> - [Cmdlets für Netzwerk Controller](https://technet.microsoft.com/library/mt576401.aspx)
+> - [Cmdlets für Netzwerk Controller](https://docs.microsoft.com/powershell/module/networkcontroller/?view=win10-ps)
 
 ## <a name="network-controller-overview"></a><a name="bkmk_overview"></a>Netzwerkcontroller – Übersicht
 
