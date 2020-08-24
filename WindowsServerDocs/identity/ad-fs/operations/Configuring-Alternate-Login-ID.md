@@ -6,12 +6,12 @@ ms.author: billmath
 manager: mtillman
 ms.date: 11/14/2018
 ms.topic: article
-ms.openlocfilehash: 9d3e37f92482f7352ccb07ef9528783d7e693565
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 549ba062a30ce3b2d1a9f06d60357c0199766d84
+ms.sourcegitcommit: c6e2e545100bbbc4864088fd0d103bafc147fcbb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87967497"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88785062"
 ---
 # <a name="configuring-alternate-login-id"></a>Konfigurieren von alternativen Anmelde-ID
 
@@ -19,30 +19,19 @@ ms.locfileid: "87967497"
 ## <a name="what-is-alternate-login-id"></a>Was ist eine Alternative Anmelde-ID?
 In den meisten Szenarien verwenden Benutzer ihren UPN (Benutzer Prinzipal Namen), um sich bei ihren Konten anzumelden. In einigen Umgebungen kann es jedoch sein, dass Benutzer aufgrund von Unternehmensrichtlinien oder lokalen Anwendungsabhängigkeiten eine andere Art von Anmeldung verwenden.
 
->[!NOTE]
->Die empfohlenen Best Practices von Microsoft sind die Anpassung des UPN an die primäre SMTP-Adresse. In diesem Artikel wird der kleine Prozentsatz der Kunden behandelt, die die UPN nicht wiederherstellen können.
+> [!NOTE]
+> Die empfohlenen Best Practices von Microsoft sind die Anpassung des UPN an die primäre SMTP-Adresse. In diesem Artikel wird der kleine Prozentsatz der Kunden behandelt, die die UPN nicht wiederherstellen können.
 
 Sie können z. b. Ihre e-Mail-ID für die Anmeldung verwenden und sich vom UPN unterscheiden. Dies ist vor allem ein häufiges Vorkommen in Szenarien, in denen der UPN nicht Routing fähig ist. Nehmen Sie an, dass sich ein Benutzer Jane Doe mit UPN jdoe@contoso.local und e-Mail- jdoe@contoso.com Jane kennt den UPN möglicherweise nicht, da Sie Ihre e-Mail-ID für die Anmeldung immer verwendet hat. Die Verwendung einer anderen Anmelde Methode anstelle des UPN bildet eine Alternative ID. Weitere Informationen zur Erstellung des UPN finden Sie unter [Azure AD userPrincipalName Population](/azure/active-directory/connect/active-directory-aadconnect-userprincipalname).
 
 Mit Active Directory-Verbunddienste (AD FS) (AD FS) können Verbund Anwendungen, die AD FS verwenden, mithilfe der alternativen ID anmelden. Dadurch können Administratoren eine Alternative zum Standard-UPN angeben, die für die Anmeldung verwendet werden soll. AD FS unterstützt bereits die Verwendung einer beliebigen Art von Benutzer-ID, die von Active Directory Domain Services (AD DS) akzeptiert wird. Bei der Konfiguration für die Alternative ID ermöglicht AD FS Benutzern, sich mit dem konfigurierten alternativen ID-Wert anzumelden, z. h. e-Mail-ID. Mithilfe der alternativen ID können Sie SaaS-Anbieter, wie z. b. Office 365, übernehmen, ohne Ihre lokalen UPNs zu ändern. Sie ermöglicht außerdem die Unterstützung von Line-of-Business-Dienst Anwendungen mit von Kunden bereitgestellten Identitäten.
 
 ## <a name="alternate-id-in-azure-ad"></a>Alternative ID in Azure AD
+
 Möglicherweise muss eine Organisation eine Alternative ID in den folgenden Szenarien verwenden:
 1. Der lokale Domänen Name ist nicht Routing fähig, z. b.. "" Von "" in "" von "" in " jdoe@contoso.local ". Vorhandener UPN kann aufgrund lokaler Anwendungsabhängigkeiten oder Unternehmensrichtlinien nicht geändert werden. Azure AD und Office 365 erfordern, dass alle dem Azure AD Verzeichnis zugeordneten Domänen Suffixe vollständig über das Internet Routing fähig sind.
 2. Der lokale UPN ist nicht mit der e-Mail-Adresse des Benutzers identisch. um sich bei Office 365 anzumelden, verwenden Benutzer eine e-Mail-Adresse, und der UPN kann aufgrund von Einschränkungen der Organisation nicht verwendet werden.
    In den oben erwähnten Szenarios ermöglicht die Alternative ID mit AD FS Benutzern das Anmelden bei Azure AD, ohne Ihre lokalen UPNs zu ändern.
-
-## <a name="end-user-experience-with-alternate-login-id"></a>Endbenutzer mit alternativer Anmelde-ID
-Die Endbenutzer-Benutzer Leistung variiert abhängig von der Authentifizierungsmethode, die mit der alternativen Anmelde-ID verwendet wird.  Derzeit gibt es drei verschiedene Möglichkeiten, wie eine Alternative Anmelde-ID verwendet werden kann.  Sie lauten wie folgt:
-
-- **Reguläre Authentifizierung (Legacy)**: verwendet das Standard Authentifizierungsprotokoll.
-- **Moderne Authentifizierung** : Active Directory-Authentifizierungsbibliothek (Adal)-basierte Anmeldung bei Anwendungen. Dies ermöglicht Anmelde Funktionen wie Multi-Factor Authentication (MFA), SAML-basierte Identitäts Anbieter von Drittanbietern mit Office-Client Anwendungen, Smartcard-und Zertifikat basierte Authentifizierung.
-- **Hybride Hybrid Authentifizierung** : bietet alle Vorteile der modernen Authentifizierung und bietet Benutzern die Möglichkeit, mithilfe von Autorisierungs Token aus der Cloud auf lokale Anwendungen zuzugreifen.
-
->[!NOTE]
-> Um die bestmögliche Leistung zu erzielen, empfiehlt Microsoft dringend die hybride Hybrid Authentifizierung.
-
-
 
 ## <a name="configure-alternate-logon-id"></a>Alternative Anmelde-ID konfigurieren
 Mithilfe Azure AD Connect empfiehlt sich die Verwendung Azure AD Connect, um eine Alternative Anmelde-ID für Ihre Umgebung zu konfigurieren.
@@ -52,7 +41,7 @@ Mithilfe Azure AD Connect empfiehlt sich die Verwendung Azure AD Connect, um ein
 
 Wenn Azure AD Connect Details zur AD FS Umgebung bereitgestellt wird, wird automatisch geprüft, ob die richtige KB in Ihrem AD FS vorhanden ist, und AD FS für eine Alternative ID konfiguriert, einschließlich aller erforderlichen richtigen Anspruchs Regeln für Azure AD Verbund Vertrauensstellung. Es ist kein zusätzlicher Schritt erforderlich, der außerhalb des Assistenten zum Konfigurieren der alternativen ID erforderlich ist.
 
->[!NOTE]
+> [!NOTE]
 > Microsoft empfiehlt die Verwendung von Azure AD Connect zum Konfigurieren einer alternativen Anmelde-ID.
 
 ### <a name="manually-configure-alternate-id"></a>Alternative ID manuell konfigurieren
@@ -86,14 +75,14 @@ Set-AdfsClaimsProviderTrust -TargetIdentifier "AD AUTHORITY" -AlternateLoginID $
 
 ## <a name="hybrid-modern-authentication-with-alternate-id"></a>Hybride moderne Authentifizierung mit alternativer ID
 
->[!IMPORTANT]
->Folgendes wurde nur für AD FS und nicht für Identitäts Anbieter von Drittanbietern getestet.
+> [!IMPORTANT]
+> Folgendes wurde nur für AD FS und nicht für Identitäts Anbieter von Drittanbietern getestet.
 
 ### <a name="exchange-and-skype-for-business"></a>Exchange und Skype for Business
 Wenn Sie eine Alternative Anmelde-ID mit Exchange und Skype for Business verwenden, variiert die Benutzer Leistung abhängig davon, ob Sie HMA verwenden oder nicht.
 
->[!NOTE]
->Um die beste Endbenutzer Leistung zu erzielen, empfiehlt Microsoft die Verwendung der Hybriden modernen Authentifizierung.
+> [!NOTE]
+> Um die beste Endbenutzer Leistung zu erzielen, empfiehlt Microsoft die Verwendung der Hybriden modernen Authentifizierung.
 
 Weitere Informationen finden Sie unter [Übersicht über die hybride moderne Authentifizierung](https://support.office.com/article/Hybrid-Modern-Authentication-overview-and-prerequisites-for-using-it-with-on-premises-Skype-for-Business-and-Exchange-servers-ef753b32-7251-4c9e-b442-1a5aec14e58d) .
 
@@ -113,10 +102,6 @@ Die folgenden Voraussetzungen müssen erfüllt sein, damit einmaliges Anmelden (
 - Exchange-Clients, die moderne Authentifizierungs fähig sind und die Unterstützung für "altid"
     - Nur Office Pro Plus 2016
 
-
-
-
-
 #### <a name="supported-office-version"></a>Unterstützte Office-Version
 
 Wenn Sie Ihr Verzeichnis für einmaliges Anmelden mit alternativer ID mithilfe von Alternate-ID konfigurieren, können Sie zusätzliche Eingabe Aufforderungen für die Authentifizierung auslösen, wenn diese zusätzlichen Konfigurationen nicht abgeschlossen sind. Informationen zu möglichen Auswirkungen auf die Benutzer Darstellung mit alternativer ID finden Sie in diesem Artikel.
@@ -129,10 +114,10 @@ Office-Version 1712 (Build No 8827,2148) und höher hat die Authentifizierungs L
 ##### <a name="step-2-update-to-required-windows-version"></a>Schritt 2: Update auf erforderliche Windows-Version
 Windows Version 1709 und höher hat die Authentifizierungs Logik aktualisiert, um das alternatives-ID-Szenario zu verarbeiten. Um die neue Logik nutzen zu können, müssen die Client Computer auf Windows, Version 1709 und höher, aktualisiert werden.
 
-##### <a name="step-3-configure-registry-for-impacted-users-using-group-policy"></a>Schritt 3: Konfigurieren der Registrierung für betroffene Benutzer mithilfe von Gruppenrichtlinien
+##### <a name="step-3-configure-registry-for-impacted-users-using-group-policy"></a>Schritt 3: Konfigurieren der Registrierung für betroffene Benutzer mithilfe von Gruppenrichtlinien
 Die Office-Anwendungen basieren auf Informationen, die vom Verzeichnis Administrator zur Identifizierung der alternativen-ID-Umgebung übermittelt wurden. Die folgenden Registrierungsschlüssel müssen konfiguriert werden, damit Office-Anwendungen den Benutzer mit alternativer ID authentifizieren können, ohne dass zusätzliche Eingabe Aufforderungen angezeigt werden.
 
-|Hinzu zufügende RegKey|Name, Typ und Wert von RegKey|Windows 7/8|Windows 10|BESCHREIBUNG|
+|Hinzu zufügende RegKey|Name, Typ und Wert von RegKey|Windows 7/8|Windows 10|Beschreibung|
 |-----|-----|-----|-----|-----|
 |HKEY_CURRENT_USER \software\microsoft\authn|DomainHint</br>REG_SZ</br>contoso.com|Erforderlich|Erforderlich|Der Wert dieses RegKey ist ein verifizierter benutzerdefinierter Domänen Name im Mandanten der Organisation. So kann z. b. der Wert contoso.com in diesem Registrierungsschlüssel von "Configuration Manager" bereitgestellt werden, wenn "contoso.com" einer der überprüften benutzerdefinierten Domänen Namen im Mandanten contoso.onmicrosoft.com ist.|
 HKEY_CURRENT_USER \software\microsoft\office\16.0\common\identity|Enablealternative eidunterstützung</br>REG_DWORD</br>1|Erforderlich für Outlook 2016 ProPlus|Erforderlich für Outlook 2016 ProPlus|Der Wert dieses RegKey kann 1/0 sein, um der Outlook-Anwendung mitzuteilen, ob Sie die verbesserte Authentifizierungs Logik der alternativen ID einsetzen soll.|
@@ -153,7 +138,7 @@ HKEY_CURRENT_USER \software\microsoft\windows\currentversion\internet settings\z
 
 ### <a name="non-exchange-and-skype-for-business-clients"></a>Nicht-Exchange-und Skype for Business-Clients
 
-|Client|Supporthinweis|Hinweise|
+|Client|Supporthinweis|Bemerkungen|
 | ----- | -----|-----|
 |Microsoft Teams|Unterstützt|<li>Microsoft Teams unterstützt AD FS (SAML-P, WS-Fed, WS-Trust und OAuth) und die moderne Authentifizierung.</li><li> Wichtige Microsoft-Teams, wie z. b. Kanäle, Chats und Dateien, funktionieren mit einer alternativen Anmelde-ID.</li><li>Drittanbieter-apps müssen separat vom Kunden untersucht werden. Dies liegt daran, dass jede Anwendung über eigene Authentifizierungsprotokolle für die Unterstützung verfügt.</li>|
 |OneDrive for Business|Unterstützt-Client seitiger Registrierungsschlüssel empfohlen |Wenn eine Alternative ID konfiguriert ist, sehen Sie, dass der lokale UPN im Feld Überprüfung vorab ausgefüllt ist. Dies muss in die alternative Identität geändert werden, die verwendet wird. Es wird empfohlen, den Client seitigen Registrierungsschlüssel zu verwenden, der in diesem Artikel angegeben ist: Office 2013 und lync 2013 werden regelmäßig zur Eingabe von Anmelde Informationen für SharePoint Online, onedrive und lync Online aufgefordert.|
@@ -174,36 +159,36 @@ HKEY_CURRENT_USER \software\microsoft\windows\currentversion\internet settings\z
 
 ## <a name="additional-details--considerations"></a>Weitere Details & Überlegungen
 
--   Die Alternative Anmelde-ID ist für Verbund Umgebungen mit AD FS bereitgestellt.  Dies wird in den folgenden Szenarien nicht unterstützt:
-    -   Nicht Routing fähige Domänen (z. b. Conto so. local), die nicht von Azure AD überprüft werden können.
-    -   Verwaltete Umgebungen, für die keine AD FS bereitgestellt wurde.
+- Die Alternative Anmelde-ID ist für Verbund Umgebungen mit AD FS bereitgestellt.  Dies wird in den folgenden Szenarien nicht unterstützt:
+    - Nicht Routing fähige Domänen (z. b. Conto so. local), die nicht von Azure AD überprüft werden können.
+    - Verwaltete Umgebungen, für die keine AD FS bereitgestellt wurde.
 
 
--   Wenn diese Option aktiviert ist, ist die Alternative Anmelde-ID nur für die Benutzernamen-/Kennwort-Authentifizierung über alle von AD FS (SAML-P, WS-Fed, WS-Trust und OAuth) unterstützten Benutzernamen-/Kennwort-authentifizierungprotokolle verfügbar.
+- Wenn diese Option aktiviert ist, ist die Alternative Anmelde-ID nur für die Benutzernamen-/Kennwort-Authentifizierung über alle von AD FS (SAML-P, WS-Fed, WS-Trust und OAuth) unterstützten Benutzernamen-/Kennwort-authentifizierungprotokolle verfügbar.
 
 
--   Wenn die integrierte Windows-Authentifizierung (WIA) ausgeführt wird (z. b. Wenn Benutzer versuchen, über das Intranet auf eine Unternehmens Anwendung auf einem in eine Domäne eingebundenen Computer zuzugreifen, und AD FS Administrator die Authentifizierungs Richtlinie für die Verwendung von WIA für das Intranet konfiguriert hat), wird der UPN für die Authentifizierung verwendet. Wenn Sie Anspruchs Regeln für die vertrauende Seite für die Alternative Anmelde-ID-Funktion konfiguriert haben, sollten Sie sicherstellen, dass diese Regeln im Fall von WIA weiterhin gültig sind.
+- Wenn die integrierte Windows-Authentifizierung (WIA) ausgeführt wird (z. b. Wenn Benutzer versuchen, über das Intranet auf eine Unternehmens Anwendung auf einem in eine Domäne eingebundenen Computer zuzugreifen, und AD FS Administrator die Authentifizierungs Richtlinie für die Verwendung von WIA für das Intranet konfiguriert hat), wird der UPN für die Authentifizierung verwendet. Wenn Sie Anspruchs Regeln für die vertrauende Seite für die Alternative Anmelde-ID-Funktion konfiguriert haben, sollten Sie sicherstellen, dass diese Regeln im Fall von WIA weiterhin gültig sind.
 
--   Wenn diese Funktion aktiviert ist, erfordert die Alternative Anmelde-ID mindestens einen globalen Katalogserver, der vom AD FS Server für jede von AD FS unterstützte Benutzerkonto Gesamtstruktur erreichbar ist. Wenn ein globaler Katalogserver in der Gesamtstruktur des Benutzerkontos nicht erreicht wird, führt AD FS zur Verwendung des UPN zurück. Standardmäßig sind alle Domänen Controller globale Katalogserver.
+- Wenn diese Funktion aktiviert ist, erfordert die Alternative Anmelde-ID mindestens einen globalen Katalogserver, der vom AD FS Server für jede von AD FS unterstützte Benutzerkonto Gesamtstruktur erreichbar ist. Wenn ein globaler Katalogserver in der Gesamtstruktur des Benutzerkontos nicht erreicht wird, führt AD FS zur Verwendung des UPN zurück. Standardmäßig sind alle Domänen Controller globale Katalogserver.
 
--   Wenn auf dem AD FS Server mehr als ein Benutzerobjekt mit demselben Alternativen Anmelde-ID-Wert gefunden wird, der in allen konfigurierten Benutzerkonten Gesamtstrukturen angegeben ist, schlägt die Anmeldung fehl.
+- Wenn auf dem AD FS Server mehr als ein Benutzerobjekt mit demselben Alternativen Anmelde-ID-Wert gefunden wird, der in allen konfigurierten Benutzerkonten Gesamtstrukturen angegeben ist, schlägt die Anmeldung fehl.
 
--   Wenn das Feature für die Alternative Anmelde-ID aktiviert ist, versucht AD FS zuerst den Endbenutzer mit einer alternativen Anmelde-ID zu authentifizieren und dann auf den UPN zurückzugreifen, wenn kein Konto gefunden werden kann, das durch die Alternative Anmelde-ID identifiziert werden kann. Stellen Sie sicher, dass keine Konflikte zwischen der alternativen Anmelde-ID und dem UPN bestehen, wenn Sie die UPN-Anmeldung weiterhin unterstützen möchten. Wenn Sie z. b. ein e-Mail-Attribut mit dem UPN des anderen festlegen, wird der andere Benutzer daran gehindert, sich mit seinem UPN anzumelden.
+- Wenn das Feature für die Alternative Anmelde-ID aktiviert ist, versucht AD FS zuerst den Endbenutzer mit einer alternativen Anmelde-ID zu authentifizieren und dann auf den UPN zurückzugreifen, wenn kein Konto gefunden werden kann, das durch die Alternative Anmelde-ID identifiziert werden kann. Stellen Sie sicher, dass keine Konflikte zwischen der alternativen Anmelde-ID und dem UPN bestehen, wenn Sie die UPN-Anmeldung weiterhin unterstützen möchten. Wenn Sie z. b. ein e-Mail-Attribut mit dem UPN des anderen festlegen, wird der andere Benutzer daran gehindert, sich mit seinem UPN anzumelden.
 
--   Wenn eine der vom Administrator konfigurierten Gesamtstrukturen nicht aktiv ist, werden AD FS weiterhin ein Benutzerkonto mit alternativer Anmelde-ID in anderen Gesamtstrukturen suchen, die konfiguriert sind. Wenn AD FS Server in den Gesamtstrukturen, die durchsucht wurden, nach einem eindeutigen Benutzerobjekt sucht, meldet sich der Benutzer erfolgreich an.
+- Wenn eine der vom Administrator konfigurierten Gesamtstrukturen nicht aktiv ist, werden AD FS weiterhin ein Benutzerkonto mit alternativer Anmelde-ID in anderen Gesamtstrukturen suchen, die konfiguriert sind. Wenn AD FS Server in den Gesamtstrukturen, die durchsucht wurden, nach einem eindeutigen Benutzerobjekt sucht, meldet sich der Benutzer erfolgreich an.
 
--   Sie können außerdem die AD FS Anmeldeseite anpassen, um Endbenutzern einen Hinweis zur alternativen Anmelde-ID zu senden. Hierzu können Sie entweder die angepasste Anmelde Seiten Beschreibung hinzufügen (Weitere Informationen finden Sie unter [Anpassen der AD FS Anmelde Seiten](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn280950(v=ws.11)) oder Anpassen der Zeichenfolge "Anmelden mit dem Organisations Konto" über das Feld "Benutzername" (Weitere Informationen finden Sie unter [Erweiterte Anpassung der AD FS Anmelde Seiten](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn636121(v=ws.11)).
+- Sie können außerdem die AD FS Anmeldeseite anpassen, um Endbenutzern einen Hinweis zur alternativen Anmelde-ID zu senden. Hierzu können Sie entweder die angepasste Anmelde Seiten Beschreibung hinzufügen (Weitere Informationen finden Sie unter [Anpassen der AD FS Anmelde Seiten](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn280950(v=ws.11)) oder Anpassen der Zeichenfolge "Anmelden mit dem Organisations Konto" über das Feld "Benutzername" (Weitere Informationen finden Sie unter [Erweiterte Anpassung der AD FS Anmelde Seiten](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn636121(v=ws.11)).
 
--   Der neue Anspruchstyp, der den alternativen Anmelde-ID-Wert enthält, ist **http:schemas. Microsoft. com/WS/2013/11/Alternate eloginid**
+- Der neue Anspruchstyp, der den alternativen Anmelde-ID-Wert enthält, ist **http:schemas. Microsoft. com/WS/2013/11/Alternate eloginid**
 
 ## <a name="events-and-performance-counters"></a>Ereignisse und Leistungsindikatoren
 Die folgenden Leistungsindikatoren wurden hinzugefügt, um die Leistung von AD FS Servern zu messen, wenn eine Alternative Anmelde-ID aktiviert ist:
 
--   Alternative Anmelde-ID-Authentifizierungen: Anzahl der Authentifizierungen, die mithilfe einer alternativen Anmelde-ID ausgeführt wurden
+- Alternative Anmelde-ID-Authentifizierungen: Anzahl der Authentifizierungen, die mithilfe einer alternativen Anmelde-ID ausgeführt wurden
 
--   Alternative Anmelde-ID-Authentifizierungen/Sek.: die Anzahl der Authentifizierungen, die mit alternativer Anmelde-ID pro Sekunde ausgeführt wurden.
+- Alternative Anmelde-ID-Authentifizierungen/Sek.: die Anzahl der Authentifizierungen, die mit alternativer Anmelde-ID pro Sekunde ausgeführt wurden.
 
--   Durchschnittliche Such Wartezeit für alternative Anmelde-ID: durchschnittliche Such Latenz in den Gesamtstrukturen, die ein Administrator für die Alternative Anmelde-ID konfiguriert hat.
+- Durchschnittliche Such Wartezeit für alternative Anmelde-ID: durchschnittliche Such Latenz in den Gesamtstrukturen, die ein Administrator für die Alternative Anmelde-ID konfiguriert hat.
 
 Im folgenden finden Sie verschiedene Fehlerfälle und die entsprechenden Auswirkungen auf die Benutzeranmeldung bei Ereignissen, die von AD FS protokolliert werden:
 
@@ -213,8 +198,8 @@ Im folgenden finden Sie verschiedene Fehlerfälle und die entsprechenden Auswirk
 |--------------------------------------------------------------|----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
 | Es konnte kein Wert für "samAccountName" für das Benutzerobjekt "" erhalten werden. |          Anmeldefehler           |                  Ereignis-ID 364 mit Ausnahme Meldung MSIS8012: der sAMAccountName für den Benutzer wurde nicht gefunden: " {0} ".                   |
 |        Auf das CanonicalName-Attribut kann nicht zugegriffen werden.         |          Anmeldefehler           |               Ereignis-ID 364 mit Ausnahme Meldung MSIS8013: CanonicalName: ' {0} ' des Benutzers: ' ' weist ein ungültiges {1} Format auf.                |
-|        Es wurden mehrere Benutzer Objekte in einer Gesamtstruktur gefunden.        |          Anmeldefehler           | Ereignis-ID 364 mit Ausnahme Meldung MSIS8015: Es wurden mehrere Benutzerkonten mit {0} der Identität "" in der Gesamtstruktur " {1} " mit Identitäten gefunden:{2} |
-|   Mehrere Benutzer Objekte werden in mehreren Gesamtstrukturen gefunden.    |          Anmeldefehler           |           Ereignis-ID 364 mit Ausnahme Meldung MSIS8014: Es wurden mehrere Benutzerkonten mit der Identität ' ' in Gesamtstrukturen gefunden {0} :{1}            |
+|        Es wurden mehrere Benutzer Objekte in einer Gesamtstruktur gefunden.        |          Anmeldefehler           | Ereignis-ID 364 mit Ausnahme Meldung MSIS8015: Es wurden mehrere Benutzerkonten mit {0} der Identität "" in der Gesamtstruktur " {1} " mit Identitäten gefunden: {2} |
+|   Mehrere Benutzer Objekte werden in mehreren Gesamtstrukturen gefunden.    |          Anmeldefehler           |           Ereignis-ID 364 mit Ausnahme Meldung MSIS8014: Es wurden mehrere Benutzerkonten mit der Identität ' ' in Gesamtstrukturen gefunden {0} : {1}            |
 
 ## <a name="see-also"></a>Weitere Informationen
 [AD FS-Vorgänge](../ad-fs-operations.md)

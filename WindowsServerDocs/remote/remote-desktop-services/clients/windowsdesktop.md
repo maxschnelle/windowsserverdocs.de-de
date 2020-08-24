@@ -5,14 +5,14 @@ ms.topic: article
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 05/26/2020
+ms.date: 08/20/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: fa1c713b06e63c919bc2e42e8d4ba3c14eecf8f0
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 5bd3e1d5f06e5c415b4f300d9a2c8a9b390e5051
+ms.sourcegitcommit: 8e5530ba7f7d3e2569590949e1f443d908683a17
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87971607"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88702829"
 ---
 # <a name="get-started-with-the-windows-desktop-client"></a>Erste Schritte mit dem Windows-Desktopclient
 
@@ -70,8 +70,8 @@ Es gibt zwei Möglichkeiten zum Abonnieren eines Arbeitsbereichs. Der Client kan
 1. Tippe auf der Hauptseite des Clients auf **Mit URL abonnieren**.
 2. Gib die Arbeitsbereichs-URL oder deine E-Mail-Adresse ein:
    - Verwende im Fall einer **Arbeitsbereichs-URL** diejenige, die du vom Administrator erhalten hast. Wenn du auf Ressourcen von Windows Virtual Desktop zugreifst, kannst du eine der folgenden URLs verwenden:
-     - Windows Virtual Desktop Fall 2019: `https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx`
-     - Windows Virtual Desktop Spring 2020: `https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery`
+     - Windows Virtual Desktop (klassisch): `https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx`
+     - Windows Virtual Desktop: `https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery`
    - Um **E-Mail** zu verwenden, gib deine E-Mail-Adresse ein. Dies weist den Client an, nach einer URL zu suchen, die deiner E-Mail-Adresse zugeordnet ist, sofern der Administrator die [E-Mail-Ermittlung](../rds-email-discovery.md) eingerichtet hat.
 3. Tippen Sie auf **Weiter**.
 4. Melde dich bei entsprechender Aufforderung mit deinem Benutzerkonto an.
