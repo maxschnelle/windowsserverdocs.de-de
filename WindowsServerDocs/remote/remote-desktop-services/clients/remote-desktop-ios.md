@@ -6,14 +6,14 @@ ms.assetid: 03ec5a3d-d3f2-4afd-9405-ae58b6ecc91c
 author: Heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 07/16/2020
+ms.date: 08/20/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 723fa40e1c2d446381b333eee1289a25adefd5d8
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: fd8e1da0edd1e49ad0f43420e662a79871ee28f0
+ms.sourcegitcommit: 8e5530ba7f7d3e2569590949e1f443d908683a17
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87997367"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88702849"
 ---
 # <a name="get-started-with-the-ios-client"></a>Erste Schritte mit dem iOS-Client
 
@@ -72,8 +72,8 @@ So fügst du einen Arbeitsbereich hinzu
 2. Gib im Feld „Feed-URL“ die URL für den Feed ein, den du hinzufügen möchtest. Diese URL kann eine URL oder eine E-Mail-Adresse sein.
    - Verwende im Fall einer URL die vom Administrator erhaltene.
       - Diese URL ist normalerweise eine Windows Virtual Desktop-URL. Welche Sie verwenden, hängt davon ab, welche Version von Windows Virtual Desktop Sie verwenden.
-        - Für die Fall 2019-Version verwenden Sie `https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx`.
-        - Für die Spring 2020-Version verwenden Sie `https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery`.
+        - Verwenden Sie `https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx` für Windows Virtual Desktop (klassisch).
+        - Verwenden Sie `https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery` für Windows Virtual Desktop.
    - Gib im Fall einer E-Mail-Adresse deine E-Mail-Adresse ein. Durch Eingeben Ihrer E-Mail-Adresse wird der Client angewiesen, nach einer URL zu suchen, die Ihrer E-Mail-Adresse zugeordnet ist, sofern der Administrator dies entsprechend konfiguriert hat.
 3. Tippen Sie auf **Weiter**.
 4. Gib bei einer entsprechenden Aufforderung deine Anmeldeinformationen an.

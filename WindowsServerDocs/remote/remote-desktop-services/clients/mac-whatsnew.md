@@ -5,20 +5,64 @@ ms.topic: article
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 04/08/2020
+ms.date: 08/19/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: e8769dd5784bcbac5c5384316564150801c1eb0e
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 72d828099d8dfe29639789f526533a7bb1ba159d
+ms.sourcegitcommit: 8e5530ba7f7d3e2569590949e1f443d908683a17
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87946513"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88702859"
 ---
 # <a name="whats-new-in-the-macos-client"></a>Neues beim macOS-Client
 
 Der [Remotedesktopclient für macOS](remote-desktop-mac.md) wird regelmäßig mit neuen Features und Problembehebungen aktualisiert. Hier findest du die neuesten Updates.
 
 Bei Problemen kannst du dich jederzeit gern über **Hilfe** > **Problem melden** an uns wenden.
+
+## <a name="updates-for-version-1040"></a>Updates für Version 10.4.0
+
+*Veröffentlicht am: 20.8.20*
+
+In dieser Version wurde der zugrundeliegende Code zur Unterstützung der Remotedesktopumgebung bei allen Clients erheblich aktualisiert. Wir haben außerdem einige neue Features hinzugefügt sowie Fehler und Abstürze behoben, die bei der Fehlerberichterstattung auftraten. Hier sind einige Änderungen aufgeführt, die Sie möglicherweise bemerken:
+
+- Mit PC Quick Connect (CMD+K) können Sie eine Verbindung zu einem PC herstellen, ohne ein Lesezeichen zu erstellen.
+- Die automatische Verbindungswiederherstellung erfolgt jetzt bei vorübergehenden Netzwerkstörungen bei PC-Verbindungen.
+- Beim Fortsetzen eines angehaltenen MacBook können Sie die automatische Verbindungswiederherstellung verwenden, um alle getrennten PC-Verbindungen wiederherzustellen.
+- Unterstützung für HTTP-Proxys beim Abonnieren und Verbinden mit Windows Virtual Desktop-Ressourcen wurde hinzugefügt.
+- Unterstützung für die automatische HTTP-Proxykonfiguration mit PAC-Dateien wurde implementiert.
+- Unterstützung für die NetBIOS-Namensauflösung wurde integriert, um das Herstellen einer Verbindung mit PCs in Ihrem lokalen Netzwerk erleichtert wird.
+- Ein Problem wurde behoben, bei dem die Systemmenüleiste nicht reagierte, wenn die App den Fokus hielt.
+- Eine clientseitige Racebedingung wurde korrigiert, die Entschlüsselungsfehler auf dem Server verursachen konnte.
+- Verbesserungen an Monitorlayout und Geometrieheuristik für Multimon-Szenarien mit Monitoren der Retina-Klasse wurden vorgenommen.
+- Multimon-Layoutkonfigurationen werden nun über Sitzungsumleitungsszenarien hinweg beibehalten.
+- Ein Problem wurde behoben, das verhinderte, dass die Menüleiste in Multimon-Szenarien geöffnet wurde.
+- Die Benutzerkonto-Benutzeroberfläche, die mit dem macOS-Schlüsselbund interagiert, zeigt nun Fehler beim Schlüsselbundzugriff an.
+- Wenn Sie während des Arbeitsbereichabonnements auf „Abbrechen“ klicken, wird dem Connection Center jetzt nichts mehr hinzugefügt.
+- Tastenzuordnungen für CMD+Z sowie CMD+F wurden entsprechend zu STRG+Z bzw. STRG+F hinzugefügt.
+- Es wurde ein Fehler behoben, der dazu führte, dass Remote-Apps beim Start hinter dem Connection Center geöffnet wurden.
+- Ein Problem wurde behoben, bei dem die AAC-Audiowiedergabe auf macOS 10.15 zu Verzögerungen beim Client führte.
+- UMSCHALT+Linksklick funktioniert nun im Unicode-Modus.
+- Es wurde ein Fehler behoben, bei dem mit der UMSCHALTTASTE im Unicode-Modus die „Einrastfunktion“-Warnung ausgelöst wurde.
+- Eine Überprüfung auf Netzwerkverfügbarkeit vor der Initiierung der Verbindung wurde hinzugefügt.
+- Das Pulsieren von PC-Miniaturansichten, das manchmal während der Verbindungssequenz auftrat, wurde behoben.
+- Es wurde ein Fehler behoben, durch den das Kennwortfeld auf dem Blatt „Benutzerkonto hinzufügen/bearbeiten“ mit mehreren Zeilen angezeigt wurde.
+- Die Option „Alle reduzieren“ ist jetzt ausgegraut, wenn alle Arbeitsbereiche reduziert sind.
+- Die Option „Alle erweitern“ ist jetzt ausgegraut, wenn alle Arbeitsbereiche erweitert sind.
+- Die Benutzeroberfläche für die Berechtigungen für die Erstausführung wird in High Sierra nicht mehr angezeigt.
+- Es wurde ein Problem behoben, bei dem Benutzer mit gespeicherten Anmeldeinformationen im Format DOMÄNE\BENUTZERNAME keine Verbindung zu Windows Virtual Desktop-Endpunkten herstellen konnten.
+- Das Feld „Benutzername“ in der Eingabeaufforderung für Anmeldeinformationen ist nun für virtuelle Windows Virtual Desktop-Verbindungen immer vorab aufgefüllt.
+- Es wurde ein Fehler behoben, durch den die Schaltflächen „Bearbeiten“, „Löschen“ und „Aktualisieren“ für Arbeitsbereiche abgeschnitten wurden, wenn das Connection Center nicht breit genug war.
+- Das Feld „E-Mail- oder Arbeitsbereich-URL“ im Blatt „Arbeitsbereich hinzufügen“ unterscheidet nicht mehr zwischen Groß- und Kleinschreibung.
+- Es wurden mehrere Barrierefreiheitsprobleme behoben, die sich auf VoiceOver und Tastaturnavigation auswirkten.
+- Es wurden viele Updates vorgenommen, um die Interoperabilität mit aktuellen und bevorstehenden Features im Windows Virtual Desktop-Dienst zu verbessern.
+- Sie können jetzt die vom Client über eine Terminaleingabeaufforderung angekündigte AVC-Unterstützungsebene konfigurieren. Folgende Unterstützungsgrade können Sie konfigurieren:
+  
+   - Keine AVC-Unterstützung für den Server ankündigen: `defaults write com.microsoft.rdc.macos AvcSupportLevel disabled`
+   - AVC420-Unterstützung für den Server ankündigen: `defaults write com.microsoft.rdc.macos AvcSupportLevel avc420`
+   - AVC444-Unterstützung für den Server ankündigen: `defaults write com.microsoft.rdc.macos AvcSupportLevel avc444`
+
+Nochmals vielen Dank an alle, die Fehler gemeldet und sich die Zeit genommen haben, Probleme zu diagnostizieren!
 
 ## <a name="updates-for-version-1039"></a>Updates für Version 10.3.9
 
@@ -332,8 +376,8 @@ Seit der letzten Aktualisierung sind einige Wochen vergangen, aber wir haben in 
 - Ein Problem wurde behoben, das dazu führte, dass RemoteApp-Fenster hinter dem Connection Center angezeigt wurden.
 - Ein Problem wurde behoben, das beim Bearbeiten von lokalen Ressourcen nach dem Importieren aus Remotedesktop 8 auftrat.
 - Du kannst jetzt eine Verbindung starten, indem du auf einer Desktopkachel die EINGABETASTE drückst.
-- Im Vollbildmodus wird BEFEHLSTASTE+M jetzt ordnungsgemäß zu WINDOWS-TASTE+M zugeordnet.
-- Die Fenster „Connection Center“, „Einstellungen“ und „Info“ reagieren jetzt auf BEFEHLSTASTE+M.
+- Im Vollbildmodus wird CMD+M jetzt ordnungsgemäß zu WINDOWS-TASTE+M zugeordnet.
+- Die Fenster „Connection Center“, „Einstellungen“ und „Info“ reagieren jetzt auf CMD+M.
 - Du kannst mit dem Erkunden von Feeds beginnen, indem du auf der Seite „*Remoteressourcen hinzufügen*- die EINGABETASTE drückst.
 - Ein Fehler wurde behoben, der dazu führte, dass ein neuer Remoteressourcenfeed im Connection Center leer war, bis die Anzeige aktualisiert wurde.
 

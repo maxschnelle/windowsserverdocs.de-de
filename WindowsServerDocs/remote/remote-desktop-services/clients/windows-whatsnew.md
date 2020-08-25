@@ -5,18 +5,34 @@ ms.topic: article
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 04/20/2020
+ms.date: 08/19/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 985d7b015c2ff3fe1d117e8277b445744f6a51e6
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: dbaaafe2c01d41a9786d6718bad850dc08deaa81
+ms.sourcegitcommit: 6d991b16a6d9129e1f5d1ca7d688bd621b72d586
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87961854"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88638877"
 ---
 # <a name="whats-new-in-the-windows-store-client"></a>Neuigkeiten zum Windows Store-Client
 
 Der [Windows-Store-Client](windows.md) wird regelmäßig mit neuen Features und Problembehebungen aktualisiert. Hier findest du die neuesten Updates.
+
+## <a name="updates-for-version-1021519-insider"></a>Updates für Version 10.2.1519 (Insider)
+
+*Veröffentlicht am: 19.8.2020*
+
+- Client wurde neu geschrieben, um dasselbe zugrunde liegende RDP-Kernmodul wie die iOS-, macOS- und Android-Clients zu verwenden.
+- Unterstützung für die in Azure Resource Manager integrierte Version von Windows Virtual Desktop wurde hinzugefügt.
+- Unterstützung für x64 und ARM64 wurde hinzugefügt.
+- Das Seitenbereich-Design wurde auf den Vollbildschirm aktualisiert.
+- Unterstützung für den hellen und dunklen Modus wurde hinzugefügt.
+- Funktionen zum Abonnieren und Verbinden mit Sovereign Cloudbereitstellungen wurden hinzugefügt.
+- Funktionen zum Aktivieren der Sicherung und Wiederherstellung von Arbeitsbereichen (Lesezeichen) in Release to Manufacturing (RTM) wurden hinzugefügt.
+- Funktionen zur Verwendung vorhandener Azure Active Directory (Azure AD)-Token während des Abonnementprozesses wurden aktualisiert, damit sich Benutzer nicht mehr so oft anmelden müssen.
+- Ein aktualisiertes Abonnement kann jetzt erkennen, ob Sie Windows Virtual Desktop oder Windows Virtual Desktop (klassisch) verwenden.
+- Problem beim Kopieren von Dateien auf Remote-PCs wurde behoben.
+- Häufig gemeldete Barrierefreiheitsprobleme mit Schaltflächen wurde behoben.
 
 ## <a name="updates-for-version-1011215"></a>Updates für Version 10.1.1215
 

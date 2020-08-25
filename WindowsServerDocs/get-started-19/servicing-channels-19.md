@@ -1,17 +1,17 @@
 ---
-title: Wartungskanäle
-description: 'Erläuterung der Windows Server-Servicekanäle: LTSC und SAC'
+title: Windows Server-Wartungskanäle
+description: Erläuterung der Windows Server-Servicekanäle – LTSC und SAC
 ms.topic: article
 author: jasongerend
 ms.author: jgerend
 ms.localizationpriority: high
 ms.date: 05/21/2019
-ms.openlocfilehash: 47fd1d50e9f90fb6617e2ded4bff3efeab5cd117
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 49de69c5a21a9c16012d79609784ff89395358db
+ms.sourcegitcommit: 893b9a24fd2efe30f5af909e3aa1f25907a17427
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87969967"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88681281"
 ---
 # <a name="windows-server-servicing-channels-ltsc-and-sac"></a>Windows Server-Wartungskanäle: LTSC und SAC
 
@@ -36,8 +36,8 @@ Die meisten der im halbjährlichen Kanal eingeführten Features werden in der n�
 
 Der halbjährliche Kanal steht Kunden mit Volumenlizenz mit [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default.aspx) zur Verfügung sowie über den Azure Marketplace oder andere Cloud/Hosting-Dienstanbieter und Treueprogramme wie z.B. Visual Studio-Abonnements.
 
-> [!NOTE]
-> **Die aktuelle Version des Semi-Annual Channel ist Windows Server, Version 1909**. Wenn Sie Server in diesen Kanal übertragen möchten, sollten Sie die Version 1909 von Windows Server installieren, die im Server Core-Modus oder als Nanoserver in einem Container installiert werden kann. Direkte Upgrades von einer Release aus dem Long-Term Servicing Channel werden nicht unterstützt, da sie sich in **verschiedenen Releasekanälen** befinden. Releases im halbjährlichen Kanal stellen keine Updates dar – bei ihnen handelt es sich um das nächste Release von Windows Server im halbjährlichen Kanal.
+> [!Note]
+> **Die aktuelle Version des Semi-Annual Channel ist Windows Server, Version 2004**. Wenn Sie Server in diesen Kanal übertragen möchten, sollten Sie die Version 2004 von Windows Server installieren, die im Server Core-Modus oder als Nanoserver in einem Container installiert werden kann. Direkte Upgrades von einer Release aus dem Long-Term Servicing Channel werden nicht unterstützt, da sie sich in **verschiedenen Releasekanälen** befinden. Releases im halbjährlichen Kanal stellen keine Updates dar – bei ihnen handelt es sich um das nächste Release von Windows Server im halbjährlichen Kanal.
 
 In diesem neuen Modell werden Windows Server-Versionen je nach Jahr und Monat der Veröffentlichung gekennzeichnet: z.B. wird eine Version aus dem 9. Monat im Jahr 2017 (September) als **Version 1709** bezeichnet. Im halbjährlichen Kanal werden zweimal pro Jahr neue Versionen von Windows Server bereitgestellt. Der Supportlebenszyklus für jede Version beträgt 18 Monate.
 
@@ -45,7 +45,8 @@ In diesem neuen Modell werden Windows Server-Versionen je nach Jahr und Monat de
 
 Diese wichtigen Unterschiede sind zu berücksichtigen:
 
-- Müssen Sie die neuen Technologien für DevOps, Container und Microservices steigern? Wenn ja, sollten Sie dem **Halbjährlichen Kanal beitreten**, indem Sie **Windows Server, Version 1909** installieren. Wie in diesem Thema beschrieben, erhalten Sie zweimal pro Jahr neue Versionen mit 18 Monaten Mainstream-Support für Produktionsumgebungen pro Release. Sie erhalten diese über Volumenlizenzierung, Azure oder Visual Studio-Abonnementdienste. Derzeit erfordern Versionen im halbjährlichen Kanal Volumenlizenzierung und Software Assurance, wenn Sie beabsichtigen, das Produkt in Produktionsumgebungen einzusetzen.
+- Müssen Sie schnell innovativ sein? Benötigen Sie frühzeitig Zugriff auf die neuesten Windows Server-Features? Müssen Sie in schneller Folge Hybrid-Anwendungen, Dev-Ops und Hyper-V-Fabrics unterstützen? Wenn ja, sollten Sie dem **Halbjährlichen Kanal beitreten**, indem Sie **Windows Server, Version 2004** installieren. Wie in diesem Thema beschrieben, erhalten Sie zweimal pro Jahr neue Versionen mit 18 Monaten Mainstream-Support für Produktionsumgebungen pro Release. Sie erhalten diese über Volumenlizenzierung, Azure oder Visual Studio-Abonnementdienste. Derzeit erfordern Versionen im halbjährlichen Kanal Volumenlizenzierung und Software Assurance, wenn Sie beabsichtigen, das Produkt in Produktionsumgebungen einzusetzen.
+
 - Benötigen Sie Stabilität und Vorhersagbarkeit? Müssen Sie virtuelle Computer und herkömmliche Workloads auf physischen Servern ausführen? Wenn ja, sollten Sie **diese Server im Long-Term Servicing Channel belassen**. Die aktuelle LTSC-Version ist **Windows Server 2019**. Wie in diesem Thema beschrieben, haben Sie alle 2 bis 3 Jahre Zugriff auf neue Versionen, mit 5 Jahren Mainstream-Support, auf die 5 Jahre erweiterter Support pro Version folgen. LTSC-Versionen stehen über alle Releasemechanismen zur Verfügung. Versionen im LTSC sind für alle Benutzer verfügbar, unabhängig vom verwendeten Lizenzierungsmodell.
 
 In der folgenden Tabelle sind die wichtigsten Unterschiede zwischen den Kanälen zusammengefasst:
@@ -170,12 +171,12 @@ State   :     Installed
 
 ## <a name="additional-references"></a>Weitere Verweise
 
-[Änderungen bei Nano Server in Windows Server Semi-Annual Channel](../get-started/nano-in-semi-annual-channel.md)
+- [Änderungen bei Nano Server in Windows Server Semi-Annual Channel](../get-started/nano-in-semi-annual-channel.md)
 
-[Supportlebenszyklus für Windows Server](https://support.microsoft.com/lifecycle)
+- [Supportlebenszyklus für Windows Server](https://support.microsoft.com/lifecycle)
 
-[Ermitteln, ob Server Core ausgeführt wird](/previous-versions/windows/desktop/legacy/hh846315(v=vs.85)?f=255&MSPPError=-2147217396)
+- [Ermitteln, ob Server Core ausgeführt wird](https://msdn.microsoft.com/library/hh846315%28v=vs.85%29.aspx?f=255&MSPPError=-2147217396)
 
-[GetProductInfo-Funktion](/windows/desktop/api/sysinfoapi/nf-sysinfoapi-getproductinfo)
+- [GetProductInfo-Funktion](https://docs.microsoft.com/windows/desktop/api/sysinfoapi/nf-sysinfoapi-getproductinfo)
 
-[Cmdlets zur Protokollierung des Softwarebestands](/powershell/module/softwareinventorylogging/?view=winserver2012R2-ps)
+- [Cmdlets zur Protokollierung des Softwarebestands](https://docs.microsoft.com/powershell/module/softwareinventorylogging/?view=winserver2012R2-ps)

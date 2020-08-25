@@ -6,14 +6,14 @@ ms.assetid: 64f038e1-40ec-4c67-938b-72edea49e5d8
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 07/16/2020
+ms.date: 08/20/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 70d334aa13b96a210a2b168129119d09b0297f20
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 90a0796818a2beb7e592eae1556999729b2d9ab2
+ms.sourcegitcommit: 8e5530ba7f7d3e2569590949e1f443d908683a17
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87970147"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88702869"
 ---
 # <a name="get-started-with-the-android-client"></a>Erste Schritte mit dem Android-Client
 
@@ -75,8 +75,8 @@ Bei Remoteressourcen handelt es sich um RemoteApp-Programme, sitzungsbasierte De
 1. Tippe im Verbindungscenter auf **+** , und tippe dann auf **Remoteressourcenfeed**.
 2. Geben Sie die **Feed-URL** ein. Dies kann eine URL oder eine E-Mail-Adresse sein:
    - Die **URL** ist der RD-Webzugriffsserver, der dir von deinem Administrator zur Verfügung gestellt wird. Wenn Sie auf Ressourcen von Windows Virtual Desktop zugreifen, können Sie eine der folgenden URLs verwenden, je nachdem, welche Version Sie verwenden:
-     - Für die Fall 2019-Version verwenden Sie `https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx`.
-     - Für die Spring 2020-Version verwenden Sie `https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery`.
+     - Verwenden Sie `https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx` für Windows Virtual Desktop (klassisch).
+     - Verwenden Sie `https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery` für Windows Virtual Desktop.
    - Wenn Sie **E-Mail** verwenden möchten, geben Sie in diesem Feld Ihre E-Mail-Adresse ein. Dies weist den Client an, nach einem RD-Webzugriffsserver zu suchen, der Ihrer E-Mail-Adresse zugeordnet ist, wenn dies von Ihrem Administrator konfiguriert wurde.
 3. Tippen Sie auf **Weiter**.
 4. Geben Sie auf Aufforderung Ihre Anmeldeinformationen ein. Diese können sich je nach Bereitstellung unterscheiden und können Folgendes beinhalten:

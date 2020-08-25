@@ -6,14 +6,14 @@ ms.assetid: 7afc65f8-3158-49c9-9d48-4dab1c69afba
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.date: 07/16/2020
+ms.date: 08/20/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 2a0c93ddc6bf891a3f8157d36b67f60241d4d41b
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: e0ce10cbdc1dfe70156d36a96978222395afaa94
+ms.sourcegitcommit: 8e5530ba7f7d3e2569590949e1f443d908683a17
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87991597"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88702819"
 ---
 # <a name="get-started-with-the-macos-client"></a>Erste Schritte mit dem macOS-Client
 
@@ -49,8 +49,8 @@ So abonnierst du einen Feed
 1. Wähle auf der Hauptseite **Feed hinzufügen** aus, um eine Verbindung mit dem Dienst herzustellen und deine Ressourcen abzurufen.
 2. Gib die Feed-URL ein. Dies kann eine URL oder eine E-Mail-Adresse sein:
    - Diese URL ist normalerweise eine Windows Virtual Desktop-URL. Welche URL Sie verwenden, hängt von Ihrer Windows Virtual Desktop-Version ab.
-      - Für die Fall 2019-Version verwenden Sie `https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx`.
-      - Für die Spring 2020-Version verwenden Sie `https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery`.
+      - Verwenden Sie `https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx` für Windows Virtual Desktop (klassisch).
+      - Verwenden Sie `https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery` für Windows Virtual Desktop.
    - Um E-Mail zu verwenden, gib deine E-Mail-Adresse ein. Dies weist den Client an, nach einer URL zu suchen, die deiner E-Mail-Adresse zugeordnet ist, sofern der Administrator dies entsprechend konfiguriert hat.
 3. Wähle **Abonnieren** aus.
 4. Melde dich bei entsprechender Aufforderung mit deinem Benutzerkonto an.

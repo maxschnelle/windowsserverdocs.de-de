@@ -5,14 +5,14 @@ ms.topic: article
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 08/11/2020
+ms.date: 08/20/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 5f3a2ff6268cbccc2d354227b577441a270faf9f
-ms.sourcegitcommit: f3a72c06e739d9ee9d8cd7e8259ccee8db7c7523
+ms.openlocfilehash: b23c19304aa7773dbb3c4e1406e065fb68947c5d
+ms.sourcegitcommit: 8e5530ba7f7d3e2569590949e1f443d908683a17
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88089969"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88702839"
 ---
 # <a name="whats-new-in-the-windows-desktop-client"></a>Neuigkeiten im Windows-Desktopclient
 
@@ -57,7 +57,7 @@ Download: [Windows 64-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/b
 
 Download: [Windows 64-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4zeHS), [Windows 32-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4zrAd), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4zeHR)
 
-- Die automatische Ermittlungslogik für die Option „**Subscribe**“ wurde aktualisiert, um das Windows Virtual Desktop Spring 2020-Update zu unterstützen. Kunden, die nur über Ressourcen des Spring-Updates verfügen, sollten für das Fall 2019-Release keine Zustimmung mehr geben müssen.
+- Die automatische Ermittlungslogik für die Option „**Subscribe**“ wurde aktualisiert, um die in Azure Resource Manager integrierte Version von Windows Virtual Desktop zu unterstützen. Kunden, die nur über Windows Virtual Desktop-Ressourcen verfügen, sollten nicht länger die Zustimmung für Windows Virtual Desktop (klassisch) erteilen müssen.
 - Verbesserte Unterstützung für Geräte mit hohen DPI-Werten und einem Skalierungsfaktor von bis zu 400 %.
 - Ein Problem wurde behoben, bei dem das Dialogfeld zum Trennen nicht angezeigt wurde.
 - Ein Problem wurde behoben, bei dem die QuickInfos der Befehlsleiste länger als erwartet sichtbar blieben.
@@ -71,7 +71,7 @@ Download: [Windows 64-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/b
 Download: [Windows 64-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xsGB), [Windows 32-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xd8P), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xq7m)
 
 - Beim Abonnieren kannst du nun dein Konto auswählen, anstatt deine E-Mail-Adresse einzugeben.
-- Es wurde eine neue Option **Mit URL abonnieren** hinzugefügt, die es dir ermöglicht, die URL des Arbeitsbereichs anzugeben, den du abonnierst, oder in Fällen, in denen deine Ressourcen nicht automatisch gefunden werden, die [E-Mail-Ermittlung](../rds-email-discovery.md) zu nutzen. Dieses Verfahren ähnelt dem Abonnementprozess auf den anderen Remotedesktopclients. Es kann verwendet werden, um die Arbeitsbereiche des WVD Spring 2020-Updates direkt zu abonnieren.
+- Es wurde eine neue Option **Mit URL abonnieren** hinzugefügt, die es dir ermöglicht, die URL des Arbeitsbereichs anzugeben, den du abonnierst, oder in Fällen, in denen deine Ressourcen nicht automatisch gefunden werden, die [E-Mail-Ermittlung](../rds-email-discovery.md) zu nutzen. Dieses Verfahren ähnelt dem Abonnementprozess auf den anderen Remotedesktopclients. Es kann verwendet werden, um die Windows Virtual Desktop-Arbeitsbereiche direkt zu abonnieren.
 - Es wurde Unterstützung für das Abonnieren eines Arbeitsbereichs mit einem neuen [URI-Schema](remote-desktop-uri.md) hinzugefügt, das in einer E-Mail an Benutzer gesendet oder zu einer Supportwebsite hinzugefügt werden kann.
 - Es wurde das neue Dialogfeld **Verbindungsinformationen** hinzugefügt, das Client-, Netzwerk- und Serverdetails für Desktop- und App-Sitzungen bereitstellt. Du kannst auf das Dialogfeld im Vollbildmodus über die Verbindungsleiste und im Fenstermodus über das Menüsystem zugreifen.
 - Im Fenstermodus gestartete Desktopsitzungen werden nun immer maximiert, anstatt beim Maximieren des Fensters in den Vollbildmodus zu wechseln. Verwende die Option **Vollbild** im Systemmenü, um in den Vollbildmodus zu gelangen.
