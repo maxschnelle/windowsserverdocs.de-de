@@ -1,17 +1,17 @@
 ---
 ms.assetid: 45a65504-70b5-46ea-b2e0-db45263fabaa
 title: Unterstützung für Hyper-V-Replikate als virtualisierte Domänencontroller
-author: MicrosoftGuyJFlo
-ms.author: joflore
-manager: mtillman
+author: iainfoulds
+ms.author: iainfou
+manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: a751e8d6f170a83027f417855da1bdaa471de01b
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 8c4d96bbf23e9f25a0ed38f6ca9d6e4c33cdb7b7
+ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87954416"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88938190"
 ---
 # <a name="support-for-using-hyper-v-replica-for-virtualized-domain-controllers"></a>Unterstützung für Hyper-V-Replikate als virtualisierte Domänencontroller
 

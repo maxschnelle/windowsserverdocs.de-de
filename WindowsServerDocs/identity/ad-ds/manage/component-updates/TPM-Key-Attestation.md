@@ -1,17 +1,17 @@
 ---
 ms.assetid: 16a344a9-f9a6-4ae2-9bea-c79a0075fd04
 title: TPM-Schlüsselnachweis
-author: MicrosoftGuyJFlo
-ms.author: joflore
-manager: mtillman
+author: iainfoulds
+ms.author: iainfou
+manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: e2f0df3ab3310bcf62e98e61aee4ea447d37c456
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: aa23d8df4391514d08ff1ef065af14275274dfa9
+ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87943358"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88939900"
 ---
 # <a name="tpm-key-attestation"></a>TPM-Schlüsselnachweis
 
@@ -64,7 +64,7 @@ Im allgemeinen basiert der TPM-Schlüssel Nachweis auf folgenden Säulen:
 
 4.  Die Zertifizierungsstelle gibt ein Zertifikat mit einer speziellen Ausstellungs Richtlinien-OID aus, um anzugeben, dass der Schlüssel nun von einem TPM geschützt wird.
 
-## <a name="deployment-overview"></a><a name="BKMK_DeploymentOverview"></a>Übersicht über die Bereitstellung
+## <a name="deployment-overview"></a><a name="BKMK_DeploymentOverview"></a>Bereitstellungs Übersicht
 Bei dieser Bereitstellung wird davon ausgegangen, dass eine Windows Server 2012 R2-Unternehmens Zertifizierungsstelle eingerichtet ist. Außerdem werden-Clients (Windows 8.1) für die Registrierung für die Unternehmens Zertifizierungsstelle mithilfe von Zertifikat Vorlagen konfiguriert.
 
 Zum Bereitstellen eines TPM-Schlüssel Attestation sind drei Schritte erforderlich:
@@ -141,7 +141,7 @@ Führen Sie die folgenden Konfigurationsschritte aus, um die Zertifikat Vorlage 
 
     -   **Anmelde Informationen des Benutzers:** Ermöglicht einem authentifizier enden Benutzer, für ein gültiges TPM zu bürgen, indem seine Domänen Anmelde Informationen angegeben werden.
 
-    -   **Endorsement Certificate:** Das ekcert des Geräts muss mithilfe von Administratoren verwalteten TPM-zwischen Zertifizierungsstellen-Zertifikaten für ein vom Administrator verwaltetes Stamm Zertifizierungsstellen-Zertifikat überprüft werden. Wenn Sie diese Option auswählen, müssen Sie für die ausstellende Zertifizierungsstelle ekca-und ekroot-Zertifikat Speicher wie im Abschnitt [ca Configuration](../../../ad-ds/manage/component-updates/TPM-Key-Attestation.md#BKMK_CAConfig) in diesem Thema beschrieben einrichten.
+    -   **Endorsement Certificate:** Das ekcert des Geräts muss mithilfe von Administratoren verwalteten TPM-zwischen Zertifizierungsstellen-Zertifikaten für ein vom Administrator verwaltetes Stamm Zertifizierungsstellen-Zertifikat überprüft werden. Wenn Sie diese Option auswählen, müssen Sie für die ausstellende Zertifizierungsstelle ekca-und ekroot-Zertifikat Speicher wie im Abschnitt  [ca Configuration](../../../ad-ds/manage/component-updates/TPM-Key-Attestation.md#BKMK_CAConfig) in diesem Thema beschrieben einrichten.
 
     -   **Endorsement Key:** Der ekpub des Geräts muss in der vom Administrator verwalteten PKI-Liste angezeigt werden. Diese Option bietet die höchste Sicherheitsstufe, erfordert jedoch mehr Verwaltungsaufwand. Wenn Sie diese Option auswählen, müssen Sie eine ekpub-Liste auf der ausstellenden Zertifizierungsstelle einrichten, wie im Abschnitt [ca Configuration](../../../ad-ds/manage/component-updates/TPM-Key-Attestation.md#BKMK_CAConfig) in diesem Thema beschrieben.
 
@@ -151,7 +151,7 @@ Führen Sie die folgenden Konfigurationsschritte aus, um die Zertifikat Vorlage 
 
     |OID|Typ des Schlüssel Nachweis|BESCHREIBUNG|Zuverlässigkeits Stufe|
     |-------|------------------------|---------------|-------------------|
-    |1.3.6.1.4.1.311.21.30|'|"EK verifiziert": für die vom Administrator verwaltete Liste von EK|Hoch|
+    |1.3.6.1.4.1.311.21.30|'|"EK verifiziert": für die vom Administrator verwaltete Liste von EK|High|
     |1.3.6.1.4.1.311.21.31|Endorsement Certificate|"EK-Zertifikat überprüft": Wenn die EK-Zertifikat Kette überprüft wird|Medium|
     |1.3.6.1.4.1.311.21.32|Benutzeranmeldeinformationen|"Bei Verwendung von EK vertrauenswürdig": für Benutzer attetestek|Niedrig|
 

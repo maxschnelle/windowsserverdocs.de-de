@@ -1,16 +1,16 @@
 ---
 title: 'AD-Gesamtstruktur Wiederherstellung: Konfigurieren des DNS-Server'
-ms.author: joflore
-author: MicrosoftGuyJFlo
-manager: mtillman
+ms.author: iainfou
+author: iainfoulds
+manager: daveba
 ms.date: 08/09/2018
 ms.topic: article
-ms.openlocfilehash: bc8adeb09685e19fc5b6cf01463e748edee2a16f
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 5ed2c279dec2fc6599c46488a0147092b5259364
+ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87956787"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88938950"
 ---
 # <a name="ad-forest-recovery---configuring-the-dns-server-service"></a>AD-Gesamtstruktur Wiederherstellung: Konfigurieren des DNS-Server Dienstes
 
@@ -44,7 +44,7 @@ Führen Sie die folgenden Schritte zur Installation und Konfiguration aus.
 1. Öffnen Sie Server-Manager, klicken Sie auf **Extras und dann auf** **DNS**.
    ![DNS-Server](media/AD-Forest-Recovery-Configure-DNS/dns2.png)
 2. Erstellen Sie DNS-Zonen für die gleichen DNS-Domänen Namen, die vor dem kritischen Funktionsfehler auf den DNS-Servern gehostet wurden. Weitere Informationen finden Sie unter Hinzufügen einer Forward-Lookupzone ( [https://go.microsoft.com/fwlink/?LinkId=74574](https://go.microsoft.com/fwlink/?LinkId=74574) ).
-3. Konfigurieren Sie die DNS-Daten so, wie Sie vor den kritischen Fehlern vorhanden waren. Zum Beispiel:
+3. Konfigurieren Sie die DNS-Daten so, wie Sie vor den kritischen Fehlern vorhanden waren. Beispiel:
 
    - Konfigurieren Sie DNS-Zonen, die in AD DS gespeichert werden sollen. Weitere Informationen finden Sie unter Ändern des Zonen Typs ( [https://go.microsoft.com/fwlink/?LinkId=74579](https://go.microsoft.com/fwlink/?LinkId=74579) ).
    - Konfigurieren Sie die DNS-Zone, die für Domänen Controller-Serverlocatorpunkt-Ressourcen Einträge (DC Serverlocatorpunkt) autorisierend ist, um sicheres dynamisches Update zuzulassen. Weitere Informationen finden Sie unter nur sichere dynamische Updates zulassen ( [https://go.microsoft.com/fwlink/?LinkId=74580](https://go.microsoft.com/fwlink/?LinkId=74580) ).

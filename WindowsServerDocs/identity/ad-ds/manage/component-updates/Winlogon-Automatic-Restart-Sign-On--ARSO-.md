@@ -2,24 +2,24 @@
 ms.assetid: cb834273-828a-4141-9387-37dd8270e932
 title: Automatische Winlogon-Neustart Anmeldung (ARSO)
 description: Wie Sie mit dem automatischen Neustart von Windows die Benutzerproduktivität steigern können.
-author: MicrosoftGuyJFlo
-ms.author: joflore
-manager: mtillman
+author: iainfoulds
+ms.author: iainfou
+manager: daveba
 ms.reviewer: cahick
 ms.date: 08/20/2019
 ms.topic: article
-ms.openlocfilehash: 711a3fc22977d7aa9751c8e200524f4cd295110b
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 3f2957d2290934505f67edbcb8a49733452939e2
+ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87943307"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88939870"
 ---
 # <a name="winlogon-automatic-restart-sign-on-arso"></a>Automatische Winlogon-Neustart Anmeldung (ARSO)
 
 Während eines Windows Update müssen benutzerspezifische Prozesse ausgeführt werden, damit das Update fertiggestellt wird. Diese Prozesse erfordern, dass der Benutzer bei seinem Gerät angemeldet ist. Bei der ersten Anmeldung nach dem Initiieren eines Updates müssen die Benutzer warten, bis diese benutzerspezifischen Prozesse abgeschlossen sind, bevor Sie mit der Verwendung Ihres Geräts beginnen können.
 
-## <a name="how-does-it-work"></a>Wie funktioniert sie?
+## <a name="how-does-it-work"></a>Wie funktioniert dies?
 
 Wenn Windows Update einen automatischen Neustart initiiert, extrahiert ARSO die abgeleiteten Anmelde Informationen des aktuell angemeldeten Benutzers, speichert Sie auf dem Datenträger und konfiguriert die automatische Anmeldung für den Benutzer. Windows Update, das als System mit TCB-Berechtigung ausgeführt wird, wird der RPC-Aufruf zu diesem Zweck initiiert.
 
@@ -167,6 +167,6 @@ Die Anmeldezeiten und die Steuerelement-Steuerelemente können verhindern, dass 
 
 Wenn für ein Gerät Credential Guard aktiviert ist, werden die abgeleiteten geheimen Schlüssel eines Benutzers mit einem Schlüssel verschlüsselt, der für die aktuelle Start Sitzung spezifisch ist. Daher wird ARSO derzeit nicht auf Geräten unterstützt, auf denen Credential Guard aktiviert ist.
 
-## <a name="additional-resources"></a>Weitere Ressourcen
+## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
 Autologon ist ein Feature, das in Windows für mehrere Versionen vorhanden ist. Dabei handelt es sich um ein dokumentiertes Feature von Windows, das auch Tools wie Autologon für Windows [http:/technet. Microsoft. com/Sysinternals/bb963905. aspx](/sysinternals/downloads/autologon)enthält. Dadurch kann sich ein einzelner Benutzer des Geräts automatisch anmelden, ohne Anmelde Informationen einzugeben. Die Anmelde Informationen werden konfiguriert und als verschlüsselter LSA-Schlüssel in der Registrierung gespeichert. Dies könnte für viele untergeordnete Fälle problematisch sein, bei denen eine Kontosperrung zwischen der Zeit des Abrufs und der Reaktivierung auftreten kann, insbesondere, wenn das Wartungsfenster in der Regel während dieser Zeit liegt.

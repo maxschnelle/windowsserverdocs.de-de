@@ -1,17 +1,17 @@
 ---
 ms.assetid: d7a4d2e1-217d-4ffc-93f0-817149bd9e7f
 title: Wege der Gefährdung
-author: MicrosoftGuyJFlo
-ms.author: joflore
-manager: mtillman
+author: iainfoulds
+ms.author: iainfou
+manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: adf73ed7e6b003d6622c09dcc1a5dc0c85a6fe71
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 31d936647be758c3f9cf2cd6d922f00ec5554e98
+ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87994331"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88938210"
 ---
 # <a name="avenues-to-compromise"></a>Wege der Gefährdung
 
@@ -129,7 +129,7 @@ Solange ein anderer Computer über ein lokales Konto mit dem gleichen Benutzerna
 
 Unabhängig davon, ob eine Organisation konsistente Baseline-Einstellungen auf allen Servern bereitstellt, sollte die Installation von Anwendungen, die nicht Teil der definierten Rolle eines Servers sind, nicht zulässig sein. Durch die Installation von Software, die nicht Teil der von einem Server festgelegten Funktionalität ist, werden die Server versehentlich oder böswilliger Software Software zur Verfügung gestellt, die die Angriffsfläche des Servers erhöht, Anwendungs Sicherheitslücken auslöst oder eine System Instabilität verursacht.
 
-#### <a name="applications"></a>Applications
+#### <a name="applications"></a>Anwendungen
 Wie bereits beschrieben, werden Anwendungen häufig installiert und konfiguriert, um Konten zu verwenden, denen mehr Berechtigungen erteilt werden, als die Anwendung tatsächlich benötigt. In einigen Fällen gibt die Dokumentation der Anwendung an, dass Dienst Konten Mitglieder der lokalen Administrator Gruppe eines Servers sein müssen oder für die Verwendung im Kontext des localsystems konfiguriert werden müssen. Dies liegt häufig daran, dass die Anwendung diese Rechte erfordert, aber da die Bestimmung der Rechte und Berechtigungen, die für die Dienst Konten einer Anwendung erforderlich sind, zusätzliche Zeit und Mühe erfordert. Wenn eine Anwendung nicht mit den minimalen Berechtigungen installiert wird, die für die Funktionsweise der Anwendung und der konfigurierten Funktionen erforderlich sind, ist das System für Angriffe verfügbar, die Anwendungs Privilegien ohne Angriffe gegen das Betriebssystem selbst nutzen.
 
 ### <a name="lack-of-secure-application-development-practices"></a>Fehlende sichere Anwendungs Entwicklungsverfahren

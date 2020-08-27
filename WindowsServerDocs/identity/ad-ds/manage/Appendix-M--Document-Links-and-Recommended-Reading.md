@@ -1,17 +1,17 @@
 ---
 ms.assetid: 6785de86-4f7d-4ed1-9055-8de0871d59b5
 title: 'Anhang M: Dokument Verknüpfungen und empfohlene Lesevorgänge'
-author: MicrosoftGuyJFlo
-ms.author: joflore
-manager: mtillman
+author: iainfoulds
+ms.author: iainfou
+manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: 977ea36fefaa05b49034367594e1d952d712adb2
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 891ddf584fb8dc2936d51051aef63f2a7cbab8a2
+ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87994478"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88938750"
 ---
 # <a name="appendix-m-document-links-and-recommended-reading"></a>Anhang M: Links zu Dokumenten und empfohlene Lektüre
 
@@ -35,7 +35,7 @@ Die folgende Tabelle enthält eine Liste mit Links zu externen Dokumenten und de
 | [Microsoft-Support Artikel 814777](https://support.microsoft.com/kb/814777) | [https://support.microsoft.com/kb/814777](https://support.microsoft.com/kb/814777) |
 | [Webanwendungs Sicherheitsprojekt (OWASP) öffnen](https://www.owasp.org/index.php/Main_Page) | [https://www.owasp.org/index.php/Main_Page](https://www.owasp.org/index.php/Main_Page) |
 | [Microsoft Security Development Lifecycle](https://www.microsoft.com/security/sdl/default.aspx) | [https://www.microsoft.com/security/sdl/default.aspx](https://www.microsoft.com/security/sdl/default.aspx) |
-| [Abmildern von Pass-the-Hash-Angriffen (PTH) und anderen Verfahren zum Diebstahl von Anmelde Informationen](https://download.microsoft.com/download/7/7/A/77ABC5BD-8320-41AF-863C-6ECFB10CB4B9/Mitigating%20Pass-the-Hash%20(PtH)%20Attacks%20and%20Other%20Credential%20Theft%20Techniques_English.pdf) | [https://download.microsoft.com/download/7/7/A/77ABC5BD-8320-41AF-863C-6ECFB10CB4B9/MitigatingPass-the-Hash-Angriffe (PTH) und andere Diebstahl von Anmelde Informationen Techniques_English.pdf](https://download.microsoft.com/download/7/7/A/77ABC5BD-8320-41AF-863C-6ECFB10CB4B9/Mitigating%20Pass-the-Hash%20(PtH)%20Attacks%20and%20Other%20Credential%20Theft%20Techniques_English.pdf) |
+| [Abmildern von Pass-the-Hash-Angriffen (PTH) und anderen Verfahren zum Diebstahl von Anmelde Informationen](https://download.microsoft.com/download/7/7/A/77ABC5BD-8320-41AF-863C-6ECFB10CB4B9/Mitigating%20Pass-the-Hash%20(PtH)%20Attacks%20and%20Other%20Credential%20Theft%20Techniques_English.pdf) | [https://download.microsoft.com/download/7/7/A/77ABC5BD-8320-41AF-863C-6ECFB10CB4B9/Mitigating Pass-the-Hash-Angriffe (PTH) und andere Diebstahl von Anmelde Informationen Techniques_English.pdf](https://download.microsoft.com/download/7/7/A/77ABC5BD-8320-41AF-863C-6ECFB10CB4B9/Mitigating%20Pass-the-Hash%20(PtH)%20Attacks%20and%20Other%20Credential%20Theft%20Techniques_English.pdf) |
 | [Ermittelte Angreifer und gezielte Angriffe](https://www.microsoft.com/download/details.aspx?id=34793) | [https://www.microsoft.com/download/details.aspx?id=34793](https://www.microsoft.com/download/details.aspx?id=34793) |
 | [Lösung für die Verwaltung des integrierten Administrator Konto Kennworts über GPO](https://code.msdn.microsoft.com/windowsdesktop/Solution-for-management-of-ae44e789) | [https://code.msdn.microsoft.com/windowsdesktop/Solution-for-management-of-ae44e789](https://code.msdn.microsoft.com/windowsdesktop/Solution-for-management-of-ae44e789) |
 | [Microsoft-Support Artikel 817433](https://support.microsoft.com/?id=817433) | [https://support.microsoft.com/?id=817433](https://support.microsoft.com/?id=817433) |
@@ -131,7 +131,7 @@ Die folgende Tabelle enthält eine Liste mit Links zu externen Dokumenten und de
 | [Herunterfahren des Systems](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd349804(v=ws.10)#BKMK_41) | [https://technet.microsoft.com/library/db585464-a2be-41b1-b781-e9845182f4b6(v=ws.10)#BKMK_41](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd349804(v=ws.10)#BKMK_41) |
 | [Synchronisieren von Verzeichnisdienstdaten](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd349804(v=ws.10)#BKMK_42) | [https://technet.microsoft.com/library/db585464-a2be-41b1-b781-e9845182f4b6(v=ws.10)#BKMK_42](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd349804(v=ws.10)#BKMK_42) |
 | [Übernehmen des Besitzes an Dateien und Objekten](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd349804(v=ws.10)#BKMK_43) | [https://technet.microsoft.com/library/db585464-a2be-41b1-b781-e9845182f4b6(v=ws.10)#BKMK_43](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd349804(v=ws.10)#BKMK_43) |
-| [Access Control](/windows/win32/secauthz/access-control) | [https://msdn.microsoft.com/library/aa374860(v=VS.85).aspx](/windows/win32/secauthz/access-control) |
+| [Zugriffssteuerung](/windows/win32/secauthz/access-control) | [https://msdn.microsoft.com/library/aa374860(v=VS.85).aspx](/windows/win32/secauthz/access-control) |
 | [Microsoft-Support Artikel 251343](https://support.microsoft.com/kb/251343) | [https://support.microsoft.com/kb/251343](https://support.microsoft.com/kb/251343) |
 | [RootDSE-Änderungs Vorgänge](/openspecs/windows_protocols/ms-adts/fc74972f-b267-4c1a-8716-0f5b48cf52b9) | [https://msdn.microsoft.com/library/cc223297.aspx](/openspecs/windows_protocols/ms-adts/fc74972f-b267-4c1a-8716-0f5b48cf52b9) |
 | [Schritt-für-Schritt-Anleitung zur AD DS Sicherung und Wiederherstellung](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771290(v=ws.10)) | [https://technet.microsoft.com/library/cc771290(v=ws.10).aspx](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771290(v=ws.10)) |

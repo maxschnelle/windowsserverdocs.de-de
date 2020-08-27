@@ -1,17 +1,17 @@
 ---
 ms.assetid: 0abe0976-4b49-45d6-a7b3-81d28bdb8210
 title: Audit Policy Recommendations
-author: MicrosoftGuyJFlo
-ms.author: joflore
-manager: mtillman
+author: iainfoulds
+ms.author: iainfou
+manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: 5b5ce5e7b53c7b82732613022c8309efe044143f
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 33ce3713f95b995fdab63b9e3bd27650fae58347
+ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87972227"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88938230"
 ---
 # <a name="audit-policy-recommendations"></a>Audit Policy Recommendations
 
@@ -54,7 +54,7 @@ Diese Tabellen enthalten die Windows-Standardeinstellung, die grundlegenden Empf
 |YES|In allgemeinen Szenarien aktivieren|
 |Nein|**Nicht** in allgemeinen Szenarien aktivieren|
 |IF|Aktivieren Sie bei Bedarf für ein bestimmtes Szenario oder, wenn eine Rolle oder ein Feature, für das die Überwachung gewünscht ist, auf dem Computer installiert ist.|
-|SL|Aktivieren auf Domänen Controllern|
+|DC|Aktivieren auf Domänen Controllern|
 |Blitz|Keine Empfehlung|
 
 **Empfehlungen zu Überwachungs Einstellungen für Windows 10, Windows 8 und Windows 7**

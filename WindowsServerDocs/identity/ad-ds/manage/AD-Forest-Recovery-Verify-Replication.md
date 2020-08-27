@@ -1,17 +1,17 @@
 ---
 title: Wiederherstellung der AD-Gesamtstruktur-Replikation
-ms.author: joflore
-author: MicrosoftGuyJFlo
-manager: mtillman
+ms.author: iainfou
+author: iainfoulds
+manager: daveba
 ms.date: 08/09/2018
 ms.topic: article
 ms.assetid: 302e522a-fb40-43bc-bc63-83dcc87ebde5
-ms.openlocfilehash: b0dcbc06f5ca116096a2ff4a2a3ec0210d9ccb48
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: beb7968dee3b2948aed695864015a02f0aa3b47e
+ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87943681"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88938150"
 ---
 # <a name="resources-to-verify-replication-is-working"></a>Ressourcen zum Überprüfen, ob die Replikation funktioniert
 

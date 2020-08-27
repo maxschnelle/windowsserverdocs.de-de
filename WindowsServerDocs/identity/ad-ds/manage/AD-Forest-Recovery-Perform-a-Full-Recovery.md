@@ -1,17 +1,17 @@
 ---
 title: 'AD-Gesamtstruktur Wiederherstellung: Ausführen einer vollständigen Server Wiederherstellung'
-ms.author: joflore
-author: MicrosoftGuyJFlo
-manager: mtillman
+ms.author: iainfou
+author: iainfoulds
+manager: daveba
 ms.date: 08/09/2018
 ms.topic: article
 ms.assetid: 1a1182a6-4462-4a13-806e-0e642a0d5db2
-ms.openlocfilehash: 9cc0ff1d015c1f12d076a4645a192474a5d274ef
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 189cbf826af3f5cf32eb799d86c04c6d0f03d051
+ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87969957"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88939740"
 ---
 # <a name="ad-forest-recovery---performing-a-full-server-recovery"></a>AD-Gesamtstruktur Wiederherstellung: Ausführen einer vollständigen Server Wiederherstellung
 
@@ -21,7 +21,7 @@ Verwenden Sie das folgende Verfahren, um eine vollständige Server Wiederherstel
 
 ## <a name="active-directory-full-server-recovery"></a>Active Directory vollständige Server Wiederherstellung
 
-Eine vollständige Server Wiederherstellung ist erforderlich, wenn Sie auf einer anderen Hardware oder einer anderen Betriebssystem Instanz wiederherstellen. Beachten Sie Folgendes:
+Eine vollständige Server Wiederherstellung ist erforderlich, wenn Sie auf einer anderen Hardware oder einer anderen Betriebssystem Instanz wiederherstellen. Berücksichtigen Sie dabei Folgendes:
 
 - Die Anzahl der Laufwerke auf dem Zielserver muss gleich der Anzahl in der Sicherung sein, und Sie müssen dieselbe Größe oder höher aufweisen.
 - Der Zielserver muss über die DVD des Betriebssystems gestartet werden, um auf die Option **Computer reparieren** zugreifen zu können.
@@ -117,7 +117,7 @@ Wenn Sie einen Netzwerkadapter von der Eingabeaufforderung aus für die Wiederhe
    set address "Name of Network Adapter" static IPv4 Address SubnetMask IPv4 Gateway Address 1
    ```
 
-   Zum Beispiel:
+   Beispiel:
 
    ```
    set address "Local Area Connection" static 192.168.1.2 255.0.0.0 192.168.1.1 1

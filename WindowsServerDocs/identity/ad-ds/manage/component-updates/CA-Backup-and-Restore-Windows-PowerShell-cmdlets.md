@@ -1,17 +1,17 @@
 ---
 ms.assetid: 7e195f5b-b194-40f3-a26d-5cf4ade5fc4d
 title: Windows PowerShell-Cmdlets zum Sichern und Wiederherstellen von Zertifizierungsstellen
-author: MicrosoftGuyJFlo
-ms.author: joflore
-manager: mtillman
+author: iainfoulds
+ms.author: iainfou
+manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: 817a4c117bfd39799a5147d657262eb208c9a79b
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: b008ec74adfc3a4b6c63ec29f719c45483412b1d
+ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87943445"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88939560"
 ---
 # <a name="ca-backup-and-restore-windows-powershell-cmdlets"></a>Windows PowerShell-Cmdlets zum Sichern und Wiederherstellen von Zertifizierungsstellen
 
@@ -44,7 +44,7 @@ Das Windows PowerShell-Modul adcsadministration wurde in Windows Server 2012 ein
 |Inkrementell|-Ausführen einer inkrementellen Sicherung<p>Backup-caroleservice c:\adcsbackup7-inkrementell|
 |-Keeplog|1. weist den Befehl an, Protokolldateien beizubehalten. Wenn der Schalter nicht angegeben ist, werden Protokolldateien mit Ausnahme des inkrementellen Szenarios standardmäßig abgeschnitten.<p>Backup-caroleservice c:\adcsbackup7-keeplog|
 
-### <a name="-password-secure-string"></a>-Kennwort<Secure String>
+### <a name="-password-secure-string"></a>-Kennwort <Secure String>
 Wenn der-password-Parameter verwendet wird, muss das angegebene Kennwort eine sichere Zeichenfolge sein.  Verwenden Sie das Cmdlet " **Read-Host** ", um eine interaktive Eingabeaufforderung für einen sicheren Kenn Wort Eintrag zu starten, oder verwenden Sie das Cmdlet **ConvertTo-SecureString** , um das Kennwort Inline anzugeben.
 
 Überprüfen Sie die folgenden Beispiele.
@@ -72,7 +72,7 @@ Backup-CARoleService c:\adcsbackup5 -Password (ConvertTo-SecureString "Pa55w0rd!
 |-DatabaseOnly|-Wiederherstellen der Datenbank ohne das Zertifizierungsstellen Zertifikat<p>Restore-caroleservice c:\adcsbackup6-DatabaseOnly|
 |-Force|: Hiermit können Sie die bereits vorhandenen Schlüssel überschreiben.<br />-Ist ein optionaler Parameter, aber wenn er direkt wieder hergestellt wird, ist es wahrscheinlich erforderlich<p>Restore-caroleservice c:\adcsbackup1-Force|
 
-### <a name="issues"></a>Probleme
+### <a name="issues"></a>Issues
 Eine nicht Kenn Wort geschützte Sicherung wird durchgeführt, wenn die ConvertTo-SecureString-Funktion bei Verwendung von Backup-caroleservice mit dem-password-Parameter fehlschlägt.
 
 ![Sichern und Wiederherstellen von Zertifizierungsstellen](media/CA-Backup-and-Restore-Windows-PowerShell-cmdlets/GTR_ADDS_BackupCARole.gif)

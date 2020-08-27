@@ -1,17 +1,17 @@
 ---
 ms.assetid: 13fe87d9-75cf-45bc-a954-ef75d4423839
 title: 'Anhang I: Erstellen von Verwaltungs Konten für geschützte Konten und Gruppen in Active Directory'
-author: MicrosoftGuyJFlo
-ms.author: joflore
-manager: mtillman
+author: iainfoulds
+ms.author: iainfou
+manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: 944e71b546f6e5a7484f533b5c6dc86840484e46
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: c77abee124f67f28ae94ab4969d145fac64e8154
+ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87994915"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88939990"
 ---
 # <a name="appendix-i-creating-management-accounts-for-protected-accounts-and-groups-in-active-directory"></a>Anhang I: Erstellen von Verwaltungskonten für geschützte Konten und Gruppen in Active Directory
 
@@ -86,7 +86,7 @@ Führen Sie die folgenden Schritte aus, um eine Gruppe zum Aktivieren und Deakti
 
     -   Organisationsadministratoren
 
-    -   Administrators
+    -   Administratoren
 
     -   Windows-Autorisierungs Zugriffs Gruppe (falls zutreffend)
 
@@ -275,7 +275,7 @@ In diesem Fall erteilen Sie die neu erstellten Verwaltungs Konten, damit Sie das
 
    - /G gibt an, dass ein Grant-ACE konfiguriert wird.
 
-   - PIM001@tailspintoys.msftder Benutzer Prinzipal Name (User Principal Name, UPN) des Sicherheits Prinzipals, dem die ACEs erteilt werden.
+   - PIM001@tailspintoys.msft der Benutzer Prinzipal Name (User Principal Name, UPN) des Sicherheits Prinzipals, dem die ACEs erteilt werden.
 
    - Rpwp erteilt Berechtigungen für Lese-und Schreib Eigenschaften
 

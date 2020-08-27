@@ -1,17 +1,17 @@
 ---
 title: 'AD-Gesamtstruktur Wiederherstellung: Bestimmen der Wiederherstellung der Gesamtstruktur'
-ms.author: joflore
-author: MicrosoftGuyJFlo
-manager: mtillman
+ms.author: iainfou
+author: iainfoulds
+manager: daveba
 ms.date: 08/09/2018
 ms.topic: article
 ms.assetid: 5a291f65-794e-4fc3-996e-094c5845a383
-ms.openlocfilehash: fcc344010f25a11051bed5afc6bc6632729f7f4e
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: dda621c8b567822a882e8230aba604ce0a115835
+ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87949934"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88939790"
 ---
 # <a name="determine-how-to-recover-the-forest"></a>Festlegen der Wiederherstellung der Gesamtstruktur
 
@@ -95,7 +95,7 @@ Bereiten Sie eine Tabelle vor, die die Funktionen der einzelnen Domänen Control
 |DC_4|Windows Server 2012|PDC-Emulator, RID-Master|Ja|Nein|Nein|Nein|Nein|Ja|Nein|
 |DC_5|Windows Server 2012|Keine|Nein|Nein|Ja|Ja|Nein|Ja|Ja|
 |RODC_1|Windows Server 2008 R2|Keine|Ja|Ja|Ja|Ja|Ja|Ja|Nein|
-|RODC_2|WindowsServer 2008|Keine|Ja|Ja|Nein|Ja|Ja|Ja|Nein|
+|RODC_2|Windows Server 2008|Keine|Ja|Ja|Nein|Ja|Ja|Ja|Nein|
 
 Identifizieren Sie für jede Domäne in der Gesamtstruktur einen einzelnen beschreibbaren DC, der über eine vertrauenswürdige Sicherung der Active Directory-Datenbank für diese Domäne verfügt. Gehen Sie vorsichtig vor, wenn Sie eine Sicherung zum Wiederherstellen eines Domänen Controllers auswählen. Wenn der Tag und die Ursache des Fehlers ungefähr bekannt sind, empfiehlt es sich, eine Sicherung zu verwenden, die ein paar Tage vor diesem Datum erstellt wurde.
 
