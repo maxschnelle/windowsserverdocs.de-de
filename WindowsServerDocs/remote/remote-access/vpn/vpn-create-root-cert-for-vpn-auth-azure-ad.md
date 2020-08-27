@@ -7,16 +7,16 @@ ms.author: v-tea
 author: Teresa-MOTIV
 ms.localizationpriority: medium
 ms.reviewer: deverette
-ms.openlocfilehash: 098d2f2c17555c3e4375e4b54b676ef67a40dc4d
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: dfcdea3b719cee685222fdf5919ce5e674ca1e64
+ms.sourcegitcommit: 52a8d5d7e969eaa07fd3a45ed6d3cb5a5173b6d1
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87946573"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88970637"
 ---
 # <a name="step-72-create-conditional-access-root-certificates-for-vpn-authentication-with-azure-ad"></a>Schritt 7.2: Erstellen von Stamm Zertifikaten für den bedingten Zugriff für die VPN-Authentifizierung mit Azure AD
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows 10
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
 - [**Vorheriges:** Schritt 7,1. Konfigurieren von EAP-TLS zum Ignorieren der CRL-Überprüfung (Zertifikat Sperr Liste)](vpn-config-eap-tls-to-ignore-crl-checking.md)
 - [**Weiter:** Schritt 7,3. Konfigurieren der Richtlinie für bedingten Zugriff](vpn-config-conditional-access-policy.md)
@@ -32,7 +32,7 @@ In diesem Schritt konfigurieren Sie die Stamm Zertifikate für den bedingten Zug
 
 Wenn ein Benutzer versucht, eine VPN-Verbindung herzustellen, ruft der VPN-Client den Webkonto-Manager (WAM) auf dem Windows 10-Client auf. WAM Ruft die VPN-Server-Cloud-App auf. Wenn die Bedingungen und Steuerelemente in der Richtlinie für bedingten Zugriff erfüllt sind, stellt Azure AD ein Token in Form eines kurzlebigen Zertifikats (1 Stunde) für das WAM aus. Das Zertifikat wird vom WAM in den Zertifikat Speicher des Benutzers eingefügt, und die Steuerung wird an den VPN-Client weitergeleitet. 
 
-Der VPN-Client sendet die Zertifikat Probleme dann an das VPN, um die Überprüfung der Anmelde Informationen durch Azure AD. 
+Der VPN-Client sendet dann das von Azure AD ausgestellte Zertifikat zur Überprüfung der Anmelde Informationen an das VPN. 
 
 > [!NOTE]
 > Azure AD verwendet das zuletzt erstellte Zertifikat auf dem Blatt VPN-Konnektivität als Aussteller.
@@ -43,10 +43,10 @@ Der VPN-Client sendet die Zertifikat Probleme dann an das VPN, um die Überprüf
 2. Klicken Sie im linken Menü auf **Azure Active Directory**.
 3. Klicken Sie auf der Seite **Azure Active Directory** im Abschnitt **Verwalten** auf **Sicherheit**.
 4. Klicken Sie auf der Seite **Sicherheit** im Abschnitt **Schutz** auf **bedingter Zugriff**.
-5. Bei **bedingtem Zugriff | **Auf der Seite Richtlinien im Abschnitt **Verwalten** auf **VPN-Konnektivität**.
+5. Bei **bedingtem Zugriff | ** Auf der Seite Richtlinien im Abschnitt **Verwalten** auf **VPN-Konnektivität**.
 5. Klicken Sie auf der Seite **VPN-Konnektivität** auf **Neues Zertifikat**.
 6. Führen Sie auf der Seite **neu** die folgenden Schritte aus: a. Wählen Sie für **Select Duration**entweder 1, 2 oder 3 Jahre aus.
-   b. Klicken Sie auf **Erstellen**.
+    b. Klicken Sie auf **Erstellen**.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

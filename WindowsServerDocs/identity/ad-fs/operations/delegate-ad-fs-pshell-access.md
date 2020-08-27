@@ -7,12 +7,12 @@ manager: daveba
 ms.reviewer: zhvolosh
 ms.date: 01/31/2019
 ms.topic: article
-ms.openlocfilehash: 151c212017b32f865d9ae4be5e3263305919d08f
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 836a40ffa9df8fa308d1005fbac3a9e087488949
+ms.sourcegitcommit: 52a8d5d7e969eaa07fd3a45ed6d3cb5a5173b6d1
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87949734"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88970627"
 ---
 # <a name="delegate-ad-fs-powershell-commandlet-access-to-non-admin-users"></a>Delegieren des AD FS-PowerShell-Cmdlet-Zugriffs an Benutzer ohne Administratorrechte
 Standardmäßig kann AD FS Verwaltung über PowerShell nur AD FS Administratoren durchgeführt werden. Für viele große Organisationen ist dies möglicherweise kein funktionierendes Betriebsmodell, wenn Sie mit anderen Personen wie einem Helpdeskpersonal beschäftigt sind.
@@ -62,7 +62,7 @@ Wenn die Farm keine delegierte Administration verwendet, erteilen Sie dem GMSA-K
 
 ### <a name="create-the-jea-role-file"></a>Erstellen der Jea-Rollen Datei
 
-Erstellen Sie auf dem AD FS Server die Jea-Rolle in einer Editor-Datei. Anweisungen zum Erstellen der Rolle werden für [Jea-Rollen Funktionen](/powershell/jea/role-capabilities)bereitgestellt.
+Erstellen Sie auf dem AD FS Server die Jea-Rolle in einer Editor-Datei. Anweisungen zum Erstellen der Rolle werden für [Jea-Rollen Funktionen](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/role-capabilities)bereitgestellt.
 
 Die in diesem Beispiel Delegierten Cmdlets sind `Reset-AdfsAccountLockout, Get-ADFSAccountActivity, and Set-ADFSAccountActivity` .
 
@@ -78,7 +78,7 @@ VisibleCmdlets = 'Reset-AdfsAccountLockout', 'Get-ADFSAccountActivity', 'Set-ADF
 
 
 ### <a name="create-the-jea-session-configuration-file"></a>Erstellen der Jea-Sitzungs Konfigurationsdatei
-Befolgen Sie die Anweisungen zum Erstellen der [Jea-Sitzungs Konfigurationsdatei](/powershell/jea/session-configurations) . Die Konfigurationsdatei bestimmt, wer den Jea-Endpunkt verwenden kann und auf welche Funktionen Sie zugreifen können.
+Befolgen Sie die Anweisungen zum Erstellen der [Jea-Sitzungs Konfigurationsdatei](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/session-configurations) . Die Konfigurationsdatei bestimmt, wer den Jea-Endpunkt verwenden kann und auf welche Funktionen Sie zugreifen können.
 
 Auf Rollen Funktionen wird durch den flachen Namen (Dateiname ohne Erweiterung) der Rollen Funktions Datei verwiesen. Wenn mehrere Rollen Funktionen auf dem System mit dem gleichen flatname verfügbar sind, verwendet PowerShell die implizite Such Reihenfolge, um die effektive Rollen Funktions Datei auszuwählen. Er gewährt keinen Zugriff auf alle Rollen Funktions Dateien mit demselben Namen.
 
@@ -98,7 +98,7 @@ RoleDefinitions = @{ JEAcontoso = @{ RoleCapabilityFiles = 'C:\Program Files\Win
 
 Speichern Sie die Sitzungs Konfigurationsdatei.
 
-Es wird dringend empfohlen, die [Sitzungs Konfigurationsdatei zu testen](/powershell/module/microsoft.powershell.core/test-pssessionconfigurationfile?view=powershell-5.1) , wenn Sie die PSSC-Datei manuell mithilfe eines Text-Editors bearbeitet haben, um sicherzustellen, dass die Syntax korrekt ist. Wenn eine Sitzungs Konfigurationsdatei den Test nicht bestanden hat, wird Sie nicht erfolgreich auf dem System registriert.
+Es wird dringend empfohlen, die [Sitzungs Konfigurationsdatei zu testen](/powershell/module/microsoft.powershell.core/test-pssessionconfigurationfile) , wenn Sie die PSSC-Datei manuell mithilfe eines Text-Editors bearbeitet haben, um sicherzustellen, dass die Syntax korrekt ist. Wenn eine Sitzungs Konfigurationsdatei den Test nicht bestanden hat, wird Sie nicht erfolgreich auf dem System registriert.
 
 ### <a name="install-the-jea-session-configuration-on-the-ad-fs-server"></a>Installieren der Jea-Sitzungs Konfiguration auf dem AD FS Server
 
