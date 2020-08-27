@@ -1,17 +1,17 @@
 ---
 ms.assetid: ba7f2b9f-7351-4680-b7d8-a5f270614f1c
 title: Neues beim Installieren und Entfernen der Active Directory-Domänendienste
-ms.author: joflore
-author: MicrosoftGuyJFlo
-manager: mtillman
+ms.author: iainfou
+author: iainfoulds
+manager: daveba
 ms.date: 08/09/2018
 ms.topic: article
-ms.openlocfilehash: 09863123a69eec72b3d8bfaaf138bb2d2562f687
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 9658fe8ea7c9c11cda10989bfe9d1568c21d9704
+ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87994504"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88940590"
 ---
 # <a name="whats-new-in-active-directory-domain-services-installation-and-removal"></a>Neues beim Installieren und Entfernen der Active Directory-Domänendienste
 
@@ -57,7 +57,7 @@ Die Windows Server 2012-Version von adprep.exe kann auf jedem Server ausgeführt
 >
 > %%amp;quot;Adprep.exe ist keine gültige Win32-Anwendung.%%amp;quot;
 
-![Neues](media/What-s-New-in-Active-Directory-Domain-Services-Installation-and-Removal/AdprepNotValid.gif)
+![Neuigkeiten](media/What-s-New-in-Active-Directory-Domain-Services-Installation-and-Removal/AdprepNotValid.gif)
 
 Informationen zum Auflösen weitere Fehler, die von %%amp;quot;Adprep.exe%%amp;quot; zurückgegeben werden, finden Sie unter [Bekannte Probleme](../../ad-ds/deploy/What-s-New-in-Active-Directory-Domain-Services-Installation-and-Removal.md#BKMK_KnownIssues).
 
@@ -119,7 +119,7 @@ Weitere Voraussetzungsprüfungen, die aus dem alten Installations-Assistenten f�
 - Überprüfung des Namens der untergeordneten Domäne: stellt sicher, dass die Namen der übergeordneten und neuen untergeordneten Domäne gültig sind und dass sie nicht mit vorhandenen Domänen in Konflikt stehen.
 - Überprüfung des Strukturdomänennamens: stellt sicher, dass der angegebene Strukturname gültig und derzeit nicht vorhanden ist.
 
-## <a name="system-requirements"></a><a name="BKMK_SystemReqs"></a>Systemanforderungen
+## <a name="system-requirements"></a><a name="BKMK_SystemReqs"></a>System Anforderungen
 
 Die System Anforderungen für Windows Server 2012 sind von Windows Server 2008 R2 unverändert. Weitere Informationen finden Sie unter [Windows Server 2008 R2 mit SP1 System Requirements](https://www.microsoft.com/windowsserver2008/en/us/system-requirements.aspx) ( https://www.microsoft.com/windowsserver2008/en/us/system-requirements.aspx) .
 

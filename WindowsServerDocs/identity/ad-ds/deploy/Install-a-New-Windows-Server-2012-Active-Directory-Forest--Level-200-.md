@@ -1,17 +1,17 @@
 ---
 ms.assetid: b3d6fb87-c4d4-451c-b3de-a53d2402d295
 title: Installieren einer neuen Active Directory-Gesamtstrukturdomäne in Windows Server 2012 (Stufe 200)
-author: MicrosoftGuyJFlo
-ms.author: joflore
-manager: mtillman
+author: iainfoulds
+ms.author: iainfou
+manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: 0b83588268e6a6c8dd685082b3862520fcbd80d5
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 50fd78a480a369030e8874054f583dc163a3a0b3
+ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87968257"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88941030"
 ---
 # <a name="install-a-new-windows-server-2012-active-directory-forest-level-200"></a>Installieren einer neuen Active Directory-Gesamtstrukturdomäne in Windows Server 2012 (Stufe 200)
 
@@ -88,11 +88,11 @@ Diese neuen Features sind nicht abwärtskompatibel mit Windows Server 2008 R2 od
 > [!IMPORTANT]
 > Dcpromo.exe enthält nun keinen grafischen Assistenten und installiert keine Binärdateien für Rollen oder Feature. Beim Ausführen von Dcpromo.exe aus der Explorer-Shell wird Folgendes zurückgegeben:
 >
-> "Die Assistent zum Installieren von Active Directory Domain Services wird in Server-Manager verschoben. Weitere Informationen finden Sie unter <https://go.microsoft.com/fwlink/?LinkId=220921> .
+> "Die Assistent zum Installieren von Active Directory Domain Services wird in Server-Manager verschoben. Weitere Informationen finden Sie unter <https://go.microsoft.com/fwlink/?LinkId=220921>.“
 >
 > Bei der Ausführung von Dcpromo.exe /unattend werden die Binärdateien wie in älteren Betriebssystemen weiterhin installiert, allerdings wird eine Warnung ausgegeben:
 >
-> "Der unbeaufsichtigte Vorgang" Dcpromo "wird durch das addsdeployment-Modul für Windows PowerShell ersetzt. Weitere Informationen finden Sie unter <https://go.microsoft.com/fwlink/?LinkId=220924> .
+> "Der unbeaufsichtigte Vorgang" Dcpromo "wird durch das addsdeployment-Modul für Windows PowerShell ersetzt. Weitere Informationen finden Sie unter <https://go.microsoft.com/fwlink/?LinkId=220924>.“
 >
 > dcpromo.exe ist in Windows Server 2012 veraltet und wird in zukünftigen Windows-Versionen nicht enthalten sein und in diesem Betriebssystem auch nicht mehr erweitert werden. Administratoren sollten dessen Verwendung einstellen und stattdessen die unterstützten Windows PowerShell-Module verwenden, wenn sie Domänencontroller per Befehlszeile erstellen möchten.
 
@@ -284,7 +284,7 @@ Auf der Seite **Pfade** können Sie die standardmäßigen Ordnerpfade der AD DS-
 
 Auf der Seite **Optionen prüfen** können Sie vor dem Starten der Installation Ihre Einstellungen überprüfen und sicherstellen, dass Ihre Anforderungen erfüllt werden. Dies ist jedoch nicht die letzte Möglichkeit, um die Installation mit Server-Manager zu stoppen. Dies ist lediglich eine Option zum Bestätigen Ihrer Einstellungen, bevor Sie die Konfiguration fortsetze
 
-Die Seite **Optionen prüfen** im Server-Manager bietet zudem die optionale Schaltfläche **Skript anzeigen** zum Erstellen einer Unicode-Textdatei, die die aktuelle ADDSDeployment-Konfiguration als einzelnes Windows PowerShell-Skript enthält. Dies ermöglicht Ihnen die Verwendung der grafischen Oberfläche von Server-Manager als Windows PowerShell-Bereitstellungsstudio. Mithilfe des Konfigurations-Assistenten für die Active Directory-Domänendienste können Sie Optionen konfigurieren, die Konfiguration exportieren und den Assistenten abbrechen. Bei diesem Prozess wird ein gültiges und syntaktisch korrektes Muster zur weiteren Änderung oder direkten Verwendung erstellt. Zum Beispiel:
+Die Seite **Optionen prüfen** im Server-Manager bietet zudem die optionale Schaltfläche **Skript anzeigen** zum Erstellen einer Unicode-Textdatei, die die aktuelle ADDSDeployment-Konfiguration als einzelnes Windows PowerShell-Skript enthält. Dies ermöglicht Ihnen die Verwendung der grafischen Oberfläche von Server-Manager als Windows PowerShell-Bereitstellungsstudio. Mithilfe des Konfigurations-Assistenten für die Active Directory-Domänendienste können Sie Optionen konfigurieren, die Konfiguration exportieren und den Assistenten abbrechen. Bei diesem Prozess wird ein gültiges und syntaktisch korrektes Muster zur weiteren Änderung oder direkten Verwendung erstellt. Beispiel:
 
 ```powershell
 #
@@ -363,7 +363,7 @@ Verwenden Sie **Get-Command**, um Aliase und Cmdlets in ServerManager zu exporti
 Get-Command -module ServerManager
 ```
 
-Zum Beispiel:
+Beispiel:
 
 ![Neue Gesamtstruktur installieren](media/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-/ADDS_PSGetCommand.png)
 
@@ -379,7 +379,7 @@ Falls Sie die AD DS-Management-Tools installieren möchten - was sehr zu empfehl
 Install-WindowsFeature -name AD-Domain-Services -IncludeManagementTools
 ```
 
-Zum Beispiel:
+Beispiel:
 
 ![Neue Gesamtstruktur installieren](media/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-/ADDS_PSInstallWinFeature.png)
 
@@ -413,7 +413,7 @@ Windows PowerShell 3.0 hat die für diese Pipeline-Operation benötigten Befehls
 Get-WindowsFeature | where {$_.displayname - like "*active dir*"}
 ```
 
-Mit der Windows PowerShell-Pipeline können Sie lesbare Ergebnisse erzielen. Zum Beispiel:
+Mit der Windows PowerShell-Pipeline können Sie lesbare Ergebnisse erzielen. Beispiel:
 
 ```powershell
 Install-WindowsFeature | Format-List
@@ -491,7 +491,7 @@ Sie können eine sichere Zeichenfolge auch als konvertierte Klartextvariable ang
 -safemodeadministratorpassword (convertto-securestring "Password1" -asplaintext -force)
 ```
 
-Zuletzt sollten Sie das verborgene Kennwort in einer Datei speichern und später wiederverwenden, ohne dass jemals das Klartextkennwort erscheint. Zum Beispiel:
+Zuletzt sollten Sie das verborgene Kennwort in einer Datei speichern und später wiederverwenden, ohne dass jemals das Klartextkennwort erscheint. Beispiel:
 
 ```powershell
 $file = "c:\pw.txt"
@@ -538,7 +538,7 @@ Die entsprechenden Server-Manager-**Pfade** für die ADDSDeployment-Cmdlet-Argum
 
 Verwenden Sie das optionale **Whatif**-Argument für das Cmdlet **Install-ADDSForest**, um die Konfigurationsinformationen zu überprüfen. Auf diese Weise können Sie die expliziten und impliziten Werte der Argumente eines Cmdlets anzeigen.
 
-Zum Beispiel:
+Beispiel:
 
 ![Neue Gesamtstruktur installieren](media/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-/ADDS_PSPaths.png)
 

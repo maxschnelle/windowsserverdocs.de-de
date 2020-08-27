@@ -1,17 +1,17 @@
 ---
 ms.assetid: 864ad4bc-8428-4a8b-8671-cb93b68b0c03
 title: Reduzieren der Angriffsfläche für Active Directory
-author: MicrosoftGuyJFlo
-ms.author: joflore
-manager: mtillman
+author: iainfoulds
+ms.author: iainfou
+manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: 5016dc3d98bc56dd38b1e1c41f4ead5a37cc00cc
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 5c151f0b152fadc4c86fc7bc0a414e9a190c0080
+ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87958858"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88941390"
 ---
 # <a name="reducing-the-active-directory-attack-surface"></a>Reduzieren der Angriffsfläche für Active Directory
 
@@ -42,7 +42,7 @@ Enterprise Admins (EA) ist eine Gruppe, die nur in der Stamm Domäne der Gesamts
 
 Jede Domäne in einer Gesamtstruktur verfügt über eine eigene Domänen-Admins-Gruppe, die Mitglied der Administratoren Gruppe dieser Domäne und Mitglied der lokalen Administratoren Gruppe auf allen Computern ist, die der Domäne hinzugefügt werden. Das einzige Standard Mitglied der Gruppe "da" für eine Domäne ist das integrierte Administrator Konto für diese Domäne. Das ist in ihren Domänen "All-leistenfähig", während EAS über eine Gesamtstruktur weite Berechtigung verfügt. In einem ordnungsgemäß entworfenen und implementierten Delegierungs Modell sollten Domänen-Admins nur in Szenarios mit Unterbrechung erforderlich sein (z. b. in Situationen, in denen ein Konto mit hohen Berechtigungsstufen auf jedem Computer in der Domäne erforderlich ist). Obwohl die systemeigene Active Directory Delegierungs Mechanismen die Delegierung in den Genuss der Verwendung von da-Konten nur in Notfallszenarien ermöglichen, kann das Erstellen eines effektiven Delegierungs Modells sehr zeitaufwändig sein, und viele Organisationen nutzen Tools von Drittanbietern, um den Prozess zu beschleunigen.
 
-##### <a name="administrators"></a>Administrators
+##### <a name="administrators"></a>Administratoren
 Die dritte Gruppe ist die integrierte Domänen lokale Administratoren Gruppe (BA), in der die und EAS gruppiert sind. Dieser Gruppe werden viele direkte Rechte und Berechtigungen im Verzeichnis und auf Domänen Controllern erteilt. Die Gruppe "Administratoren" für eine Domäne hat jedoch keine Berechtigungen für Mitglieds Server oder Arbeitsstationen. Dies erfolgt über die Mitgliedschaft in der lokalen Administrator Gruppe der Computer, der die Berechtigung local gewährt wird.
 
 > [!NOTE]
@@ -69,9 +69,9 @@ In der folgenden Tabelle sind die standardmäßigen geschützten Konten und Grup
 
 |**Windows 2000 <SP4**|**Windows 2000 SP4-Windows Server 2003**|**Windows Server 2003 SP1 und höher**|**Windows Server 2008-Windows Server 2012**|
 |--|--|--|--|
-|Administrators|Konten-Operatoren|Konten-Operatoren|Konten-Operatoren|
+|Administratoren|Konten-Operatoren|Konten-Operatoren|Konten-Operatoren|
 ||Administrator|Administrator|Administrator|
-||Administrators|Administrators|Administrators|
+||Administratoren|Administratoren|Administratoren|
 |Domänenadministratoren|Sicherungsoperatoren|Sicherungsoperatoren|Sicherungsoperatoren|
 ||Zertifikatherausgeber|||
 ||Domänenadministratoren|Domänenadministratoren|Domänenadministratoren|

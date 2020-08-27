@@ -1,17 +1,17 @@
 ---
 ms.assetid: fe05e52c-cbf8-428b-8176-63407991042f
 title: Erweiterte Active Directory-Replikation und Topologieverwaltung mithilfe von Windows PowerShell (Level 200)
-author: MicrosoftGuyJFlo
-ms.author: joflore
-manager: mtillman
+author: iainfoulds
+ms.author: iainfou
+manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: 058e1ba1cd68c1d33aee6e85dfb0de572a480d26
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: dd63784bd61a374ca92419c6bfa38a3f81b7f8c2
+ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87967977"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88941550"
 ---
 # <a name="advanced-active-directory-replication-and-topology-management-using-windows-powershell-level-200"></a>Erweiterte Active Directory-Replikation und Topologieverwaltung mithilfe von Windows PowerShell (Level 200)
 
@@ -19,7 +19,7 @@ ms.locfileid: "87967977"
 
 Dieser Artikel enthält Details zu den neuen AD DS-Replikations- und Topologieverwaltungs-Cmdlets und liefert zusätzliche Beispiele. Eine Einführung finden Sie unter [Einführung in Active Directory Replikation und Topologieverwaltung mithilfe von Windows PowerShell &#40;Level 100&#41;](../../../ad-ds/manage/powershell/Introduction-to-Active-Directory-Replication-and-Topology-Management-Using-Windows-PowerShell--Level-100-.md).
 
-1. [Einführung](../../../ad-ds/manage/powershell/Advanced-Active-Directory-Replication-and-Topology-Management-Using-Windows-PowerShell--Level-200-.md#BKMK_Intro)
+1. [Introduction (Einführung)](../../../ad-ds/manage/powershell/Advanced-Active-Directory-Replication-and-Topology-Management-Using-Windows-PowerShell--Level-200-.md#BKMK_Intro)
 
 2. [Replikation und Metadaten](../../../ad-ds/manage/powershell/Advanced-Active-Directory-Replication-and-Topology-Management-Using-Windows-PowerShell--Level-200-.md#BKMK_Repl)
 
@@ -78,7 +78,7 @@ Eine vollständige Liste aller Active Directory Windows PowerShell-Cmdlets erhal
 Get-command -module ActiveDirectory
 ```
 
-Eine vollständige Liste der Argumente aller Active Directory Windows PowerShell-Cmdlets finden Sie im jeweiligen Hilfeartikel. Zum Beispiel:
+Eine vollständige Liste der Argumente aller Active Directory Windows PowerShell-Cmdlets finden Sie im jeweiligen Hilfeartikel. Beispiel:
 
 ```
 Get-help New-ADReplicationSite

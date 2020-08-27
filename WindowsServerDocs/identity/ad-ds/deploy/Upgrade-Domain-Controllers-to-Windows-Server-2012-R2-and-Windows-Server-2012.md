@@ -1,17 +1,17 @@
 ---
 ms.assetid: e4c31187-f15f-410b-bb79-8d63e2f2b421
 title: Aktualisieren von Domänencontrollern auf Windows Server 2012 R2 und Windows Server 2012
-ms.author: joflore
-author: MicrosoftGuyJFlo
-manager: mtillman
+ms.author: iainfou
+author: iainfoulds
+manager: daveba
 ms.date: 08/09/2018
 ms.topic: article
-ms.openlocfilehash: ae0aa44dba50c467dd1bd2423e9eb67104387cd3
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 4034ea96fbe1f758d6948b2bc52ba9786158b0ba
+ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87994490"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88940560"
 ---
 # <a name="upgrade-domain-controllers-to-windows-server-2012-r2-and-windows-server-2012"></a>Aktualisieren von Domänencontrollern auf Windows Server 2012 R2 und Windows Server 2012
 
@@ -69,7 +69,7 @@ Da Windows Update ein Teil der automatischen Wartung in Windows 8 und Windows Se
 
 In der folgenden Tabelle sind die neuen Features für AD DS in Windows Server 2012 R2 zusammengefasst, und es ist ein Link zu ausführlicheren Informationen angegeben, sofern diese verfügbar sind. Eine ausführlichere Erläuterung einiger Features und ihrer Anforderungen finden Sie unter [What's New in Active Directory in Windows Server 2012 R2](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn268294(v=ws.11)).
 
-|Feature|BESCHREIBUNG|
+|Funktion|BESCHREIBUNG|
 |-----------|---------------|
 |[In den Arbeitsplatz eingebunden](../../ad-fs/operations/join-to-workplace-from-any-device-for-sso-and-seamless-second-factor-authentication-across-company-applications.md)|Mit diesem Feature können Information-Worker ihre persönlichen Geräte mit der Firma verknüpfen, um Zugang zu Ressourcen und Diensten zu erhalten.|
 |[Webanwendungsproxy](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn280942(v=ws.11))|Bietet Zugang zu Webanwendungen mit einem neuen Remotezugriffsrollendienst.|
@@ -88,10 +88,10 @@ In der folgenden Tabelle sind die neuen Features für AD DS in Windows Server 20
 
 In der folgenden Tabelle sind die neuen Features für AD DS in Windows Server 2012 zusammengefasst, und es ist ein Link zu ausführlicheren Informationen angegeben, sofern diese verfügbar sind. Eine ausführlichere Erläuterung einiger Features, einschließlich Ihrer Anforderungen, finden Sie unter [What es New in Active Directory Domain Services (AD DS)](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831477(v=ws.11)).
 
-|Feature|BESCHREIBUNG|
+|Funktion|BESCHREIBUNG|
 |-----------|---------------|
 |Aktivierung über Active Directory (AD BA); siehe [Volume Activation Overview](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831612(v=ws.11))|Vereinfacht das Konfigurieren der Verteilung und Verwaltung von Volumenlizenzen für Software.|
-|[Active Directory-Verbunddienste (Active Directory Federation Services, AD FS)](../../active-directory-federation-services.md)|Fügt die Installation von Rollen über den Server-Manager, die einfachere Einrichtung von Vertrauensstellungen, die automatische Verwaltung von Vertrauensstellungen, Unterstützung des SAML-Protokolls und mehr hinzu.|
+|[Active Directory-Verbunddienste (AD FS)](../../active-directory-federation-services.md)|Fügt die Installation von Rollen über den Server-Manager, die einfachere Einrichtung von Vertrauensstellungen, die automatische Verwaltung von Vertrauensstellungen, Unterstützung des SAML-Protokolls und mehr hinzu.|
 |Verlorene Page Flush-Ereignisse in Active Directory|NTDS-ISAM-Ereignis 530 mit Jet-Fehler -1119 wird protokolliert, um verlorene Page Flush-Ereignisse für Active Directory-Datenbanken zu ermitteln.|
 |[Papierkorb-Benutzeroberfläche in Active Directory](../get-started/adac/introduction-to-active-directory-administrative-center-enhancements--level-100-.md#ad_recycle_bin_mgmt)|Active Directory-Verwaltungscenter (ADAC) ermöglicht GUI-Verwaltung der Papierkorbfunktion, die ursprünglich unter Windows Server 2008 R2 eingeführt wurde.|
 |[Active Directory-Replikation und Windows PowerShell-Topologie-Cmdlets](../manage/powershell/introduction-to-active-directory-replication-and-topology-management-using-windows-powershell--level-100-.md)|Unterstützt die Erstellung und Verwaltung von Active Directory-Standorten, Standortverknüpfungen, Verbindungsobjekten und mehr mithilfe von Windows PowerShell.|
@@ -156,14 +156,14 @@ Ab Windows Server 2008 verfügen Domänen Controller im Vergleich zu Domänen Co
 |--|--|--|--|
 | AllowNT4Crypto | Disabled | Disabled | SMB-Clients (Server Message Block) von Drittanbietern sind möglicherweise nicht mit den sicheren Standardeinstellungen auf Domänencontrollern kompatibel. Um Interoperabilität zu erreichen, können diese Einstellungen jeweils auch gelockert werden, jedoch nur auf Kosten der Sicherheit. Weitere Informationen finden Sie im [Artikel 942564](https://go.microsoft.com/fwlink/?LinkId=164558) in der Microsoft Knowledge Base ( https://go.microsoft.com/fwlink/?LinkId=164558) . |
 | DES | Aktiviert | Disabled | [Artikel 977321](https://go.microsoft.com/fwlink/?LinkId=177717) in der Microsoft Knowledge Base (https://go.microsoft.com/fwlink/?LinkId=177717) |
-| CBT/Erweiterter Schutz für integrierte Authentifizierung | Nicht zutreffend | Aktiviert | Weitere Informationen finden Sie in der [Microsoft-Sicherheitsempfehlung (937811)](https://go.microsoft.com/fwlink/?LinkId=164559) ( https://go.microsoft.com/fwlink/?LinkId=164559) und im [Artikel 976918](https://go.microsoft.com/fwlink/?LinkId=178251) der Microsoft Knowledge Base) ( https://go.microsoft.com/fwlink/?LinkId=178251) .<p>Überprüfen und installieren Sie den Hotfix im [Artikel 977073](https://go.microsoft.com/fwlink/?LinkId=186394) ( https://go.microsoft.com/fwlink/?LinkId=186394) in der Microsoft Knowledge Base nach Bedarf). |
+| CBT/Erweiterter Schutz für integrierte Authentifizierung | – | Aktiviert | Weitere Informationen finden Sie in der [Microsoft-Sicherheitsempfehlung (937811)](https://go.microsoft.com/fwlink/?LinkId=164559) ( https://go.microsoft.com/fwlink/?LinkId=164559) und im [Artikel 976918](https://go.microsoft.com/fwlink/?LinkId=178251) der Microsoft Knowledge Base) ( https://go.microsoft.com/fwlink/?LinkId=178251) .<p>Überprüfen und installieren Sie den Hotfix im [Artikel 977073](https://go.microsoft.com/fwlink/?LinkId=186394) ( https://go.microsoft.com/fwlink/?LinkId=186394) in der Microsoft Knowledge Base nach Bedarf). |
 | LMv2 | Aktiviert | Disabled | [Artikel 976918](https://go.microsoft.com/fwlink/?LinkId=178251) in der Microsoft Knowledge Base (https://go.microsoft.com/fwlink/?LinkId=178251) |
 
 ## <a name="operating-system-requirements"></a><a name="BKMK_SysReqs"></a>Betriebssystemanforderungen
 
 Die Mindestsystemanforderungen für Windows Server 2012 sind in der folgenden Tabelle aufgeführt. Weitere Informationen zu Systemanforderungen und Informationen zur Installationsvorbereitung finden Sie unter [Installing Windows Server 2012](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj134246(v=ws.11)). Für die Installation einer neuen Active Directory-Gesamtstruktur gelten keine weiteren Systemanforderungen. Sie sollten jedoch ausreichend Arbeitsspeicher zum Zwischenspeichern des Inhalts der Active Directory-Datenbank hinzufügen, um die Leistung für Domänencontroller, LDAP-Clientanforderungen und Active Directory-fähige Anwendungen zu verbessern. Wenn Sie einen vorhandenen Domänencontroller aktualisieren oder einen neuen Domänencontroller zu einer vorhandenen Gesamtstruktur hinzufügen, können Sie mithilfe der Informationen im nächsten Abschnitt sicherstellen, dass der Server die Speicherplatzanforderungen erfüllt.
 
-| Anforderung | Wert |
+| Anforderung | value |
 |--|--|
 | Prozessor | 1,4-GHz-Prozessor mit 64 Bit |
 | RAM | 512 MB |
@@ -273,7 +273,7 @@ Verwenden Sie den [Remoteserver-Verwaltungstools für Windows 8](https://www.mic
 
 In der folgenden Tabelle sind die allgemeinen Microsoft-Anwendungen mit Active Directory-Integration zusammengefasst. Es ist angegeben, unter welchen Versionen von Windows Server die Anwendungen installiert werden können und ob sich die Einführung von Windows Server 2012-Domänencontrollern auf die Anwendungskompatibilität auswirkt.
 
-|Produkt|Hinweise|
+|Produkt|Notizen|
 |-----------|---------|
 |[Microsoft SharePoint 2010](https://support.microsoft.com/kb/2724471)|SharePoint 2010 Service Pack 2 ist für die Installation und den Betrieb erforderlich. <br />SharePoint 2010 auf Windows Server 2012-Servern<p>SharePoint 2010 Foundation Service Pack 2 ist für die Installation und den Betrieb vonSharePoint 2010 Foundation auf Windows Server 2012-Servern erforderlich.<p>Beim Installationsvorgang von SharePoint Server 2010 (ohne Service Packs) tritt unter Windows Server 2012 ein Fehler auf.<p>Das Installationsprogramm für die erforderlichen Komponenten für SharePoint Server 2010 (PrerequisiteInstaller.exe) schlägt mit der Fehlermeldung "dieses Programm weist Kompatibilitätsprobleme auf. Wenn Sie auf "Programm ohne Hilfe erhalten" klicken, wird die Fehlermeldung "Es wird überprüft, ob SharePoint installiert werden kann &#124; SharePoint Server 2010 (ohne Service Packs)" nicht unter Windows Server 2012 installiert werden kann angezeigt.|
 |[Microsoft SharePoint 2013](/SharePoint/install/hardware-and-software-requirements-0)|Mindestanforderungen für einen Datenbankserver in einer Farm:<p>64-Bit-Edition von Windows Server 2008 R2 Service Pack 1 (SP1) Standard, Enterprise oder Datacenter oder 64-Bit-Edition von Windows Server 2012 Standard oder Datacenter<p>Mindestanforderungen für einen Einzelserver mit integrierter Datenbank:<p>64-Bit-Edition von Windows Server 2008 R2 Service Pack 1 (SP1) Standard, Enterprise oder Datacenter oder 64-Bit-Edition von Windows Server 2012 Standard oder Datacenter<p>Mindestanforderungen für Front-End-Webserver und Anwendungsserver in einer Farm:<p>64-Bit-Edition von Windows Server 2008 R2 Service Pack 1 (SP1) Standard, Enterprise oder Datacenter oder 64-Bit-Edition von Windows Server 2012 Standard oder Datacenter|

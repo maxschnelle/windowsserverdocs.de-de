@@ -1,17 +1,17 @@
 ---
 ms.assetid: 5ab76733-804d-4f30-bee6-cb672ad5075a
 title: Problembehandlung der Domänencontrollerbereitstellung
-author: MicrosoftGuyJFlo
-ms.author: joflore
-manager: mtillman
+author: iainfoulds
+ms.author: iainfou
+manager: daveba
 ms.date: 03/20/2019
 ms.topic: article
-ms.openlocfilehash: 3615d7a0a536a0bb54efee2e8982f9b4e3686c8d
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 8c850a9a09af97d9aa377b79aaa87d06aa0d916c
+ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87953329"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88940610"
 ---
 # <a name="troubleshooting-domain-controller-deployment"></a>Problembehandlung der Domänencontrollerbereitstellung
 
@@ -27,7 +27,7 @@ Dieser Artikel behandelt detaillierte Methoden für die Problembehandlung bei Ko
 
 Die integrierten Protokolle sind das wichtigste Hilfsmittel für die Fehlerbehebung bei Herauf- und Herabstufung von Domänencontrollern. All diese Protokolle sind standardmäßig aktiviert und für maximale Ausführlichkeit konfiguriert.
 
-| Phase | Log |
+| Phase | Protokoll |
 |--|--|
 | Server-Manager- bzw. ADDSDeployment-Windows PowerShell-Operationen | -%systemroot%\debug\dcpromoui.log<p>-%systemroot%\debug\dcpromoui *. log |
 | Installation/Heraufstufung des Domänencontrollers | -%systemroot%\debug\dcpromo.log<p>-%systemroot%\debug\dcpromo *. log<p>-Ereignisviewer\windows-Protokolle\System<p>-Ereignisviewer\windows-Protokolle\Anwendung<p>-Ereignisviewer\anwendungs-und dienstprotokolle\verzeichnisdienst<p>-Ereignisviewer\anwendungs-und dienstprotokolle\datei Replikations Dienst<p>-Ereignisviewer\anwendungs-und dienstprotokolle\dfs-Replikation |
@@ -93,13 +93,13 @@ Bei der Herauf- und Herabstufung von Domänencontrollern wird am Ende der Operat
 
 1. Wenn Sie Server-Manager verwenden, wird das Heraufstufungsergebnis in den zehn Sekunden vor dem automatischen Neustart angezeigt.
 
-2. Wenn Sie ADDSDeployment Windows PowerShell verwenden, wird das Heraufstufungsergebnis in den zehn Sekunden vor dem automatischen Neustart angezeigt. Alternativ können Sie sich entscheiden, nach Abschluss keinen automatischen Neustart durchzuführen. Sie sollten die **Format-List**-Pipeline hinzufügen, um die Ausgabe leichter lesbar zu machen. Zum Beispiel:
+2. Wenn Sie ADDSDeployment Windows PowerShell verwenden, wird das Heraufstufungsergebnis in den zehn Sekunden vor dem automatischen Neustart angezeigt. Alternativ können Sie sich entscheiden, nach Abschluss keinen automatischen Neustart durchzuführen. Sie sollten die **Format-List**-Pipeline hinzufügen, um die Ausgabe leichter lesbar zu machen. Beispiel:
 
    ```
    Install-addsdomaincontroller <options> -norebootoncompletion:$true | format-list
    ```
 
-   Im Fehlerfall bei der Voraussetzungsprüfung wird kein Neustart durchgeführt, daher sind diese Fehler in jedem Fall sichtbar. Zum Beispiel:
+   Im Fehlerfall bei der Voraussetzungsprüfung wird kein Neustart durchgeführt, daher sind diese Fehler in jedem Fall sichtbar. Beispiel:
 
    ![Problembehandlung](media/Troubleshooting-Domain-Controller-Deployment/ADDS_PSPrereqError.png)
 
@@ -292,7 +292,7 @@ Im Folgenden sind bekannte Probleme aufgeführt, die während des Windows Server
 
 | Problem | Bei der adprep-Voraussetzungsprüfung wird der Fehler "Für die Domäne konnte keine Exchange-Schemakonfliktüberprüfung ausgeführt werden" angezeigt |
 |--|--|
-| Symptome | Beim Versuch, einen Windows Server 2012-Domänencontroller in eine existierende Windows Server 2003, Windows Server 2008 oder Windows Server 2008 R2-Gesamtstruktur heraufzustufen, wird bei der Voraussetzungsprüfung der folgende Fehler angezeigt:<p>Code-Überprüfung der Voraussetzungen für AD prep fehlgeschlagen. Die Exchange-Schema Konflikt Überprüfung für die Domäne kann nicht ausgeführt werden *<domain name>* (Ausnahme: der RPC-Server ist nicht verfügbar).<p>adprep.log enthält den folgenden Fehler:<p>Code-Adprep konnte keine Daten vom Server abrufen.*<domain controller>*<p>über Windows-Verwaltungsinstrumentation (WMI). |
+| Symptome | Beim Versuch, einen Windows Server 2012-Domänencontroller in eine existierende Windows Server 2003, Windows Server 2008 oder Windows Server 2008 R2-Gesamtstruktur heraufzustufen, wird bei der Voraussetzungsprüfung der folgende Fehler angezeigt:<p>Code-Überprüfung der Voraussetzungen für AD prep fehlgeschlagen. Die Exchange-Schema Konflikt Überprüfung für die Domäne kann nicht ausgeführt werden  *<domain name>* (Ausnahme: der RPC-Server ist nicht verfügbar).<p>adprep.log enthält den folgenden Fehler:<p>Code-Adprep konnte keine Daten vom Server abrufen. *<domain controller>*<p>über Windows-Verwaltungsinstrumentation (WMI). |
 | Lösung und Hinweise | Der neue Domänencontroller hat keinen Zugriff auf WMI über die DCOM/RPC-Protokolle für die existierenden Domänencontroller. Aktuell existieren drei Ursachen für diesen Fehler:<p>-Eine Firewallregel blockiert den Zugriff auf die vorhandenen Domänen Controller.<p>-Das Netzwerkdienst Konto fehlt in der Berechtigung "Anmelden als Dienst" (SeServiceLogonRight) auf den vorhandenen Domänen Controllern.<p>-NTLM ist auf Domänen Controllern mithilfe von Sicherheitsrichtlinien, [die in Einführung der Einschränkung der NTLM-Authentifizierung](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd560653(v=ws.10)) beschrieben werden, deaktiviert. |
 
 | Problem | Beim Erstellen einer neuen Gesamtstruktur wird immer eine DNS-Warnung angezeigt |

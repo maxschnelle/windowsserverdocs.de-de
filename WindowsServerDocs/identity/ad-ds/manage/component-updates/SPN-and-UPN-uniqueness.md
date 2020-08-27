@@ -1,17 +1,17 @@
 ---
 ms.assetid: 40bc24b1-2e7d-4e77-bd0f-794743250888
 title: SPN- und UPN-Eindeutigkeit
-author: MicrosoftGuyJFlo
-ms.author: joflore
-manager: mtillman
+author: iainfoulds
+ms.author: iainfou
+manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: c3e2cac6cb4d7cb5e76c4c59bfa2b8431f2401c6
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: cafbc577bd025fc30f409385f51f6981fb3ab81d
+ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87972377"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88941380"
 ---
 # <a name="spn-and-upn-uniqueness"></a>SPN- und UPN-Eindeutigkeit
 
@@ -34,7 +34,7 @@ Doppelte UPN-Werte unterbrechen die Synchronisierung zwischen lokalem AD und Off
 
 **Tabelle \\ \* : Tabelle Arabisch 1: UPN-und SPN-Eindeutigkeit**
 
-|Feature|Comment|
+|Funktion|Comment|
 |-----------|-----------|
 |UPN-Eindeutigkeit|Doppelte UPNs unterbrechen die Synchronisierung von lokalen AD-Konten mit Windows Azure AD-basierten Diensten wie z. b. Office 365.|
 |SPN-Eindeutigkeit|Kerberos erfordert SPNs für die gegenseitige Authentifizierung.  Doppelte SPNs führen zu Authentifizierungs Fehlern.|
@@ -48,7 +48,7 @@ Fehlercodes 8467 oder 8468 oder Ihre hexadezimalen, symbolischen oder Zeichen fo
 
 **Tabelle, Tabelle \\ \* Arabisch 2: Fehlercodes der UPN-und SPN-Eindeutigkeit**
 
-|Decimal|Hex|Trächtigsten|String|
+|Dezimal|Hex|Trächtigsten|String|
 |-----------|-------|------------|----------|
 |8467|21c7|ERROR_DS_SPN_VALUE_NOT_UNIQUE_IN_FOREST|Der Vorgang ist fehlgeschlagen, weil der für Addition/Änderung angegebene SPN-Wert nicht eindeutig Gesamtstruktur weit ist.|
 |8648|21c8|ERROR_DS_UPN_VALUE_NOT_UNIQUE_IN_FOREST|Der Vorgang ist fehlgeschlagen, weil der für die Hinzufügung/Änderung angegebene Wert für den Benutzerprinzipalnamen (User Principal Name, UPN) in der Gesamtstruktur nicht eindeutig ist.|

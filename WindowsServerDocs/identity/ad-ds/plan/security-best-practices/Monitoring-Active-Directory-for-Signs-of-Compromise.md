@@ -1,17 +1,17 @@
 ---
 ms.assetid: a7ef2fba-b05c-4be2-93b2-b9456244c3ad
 title: Überwachen von Active Directory auf Anzeichen für einen Kompromiss
-author: MicrosoftGuyJFlo
-ms.author: joflore
-manager: mtillman
+author: iainfoulds
+ms.author: iainfou
+manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: 8b28d412411336062187a842912b6f4a41957eba
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 9b7aafb92b354181957c6c304ad9b366b4413e65
+ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87994345"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88941420"
 ---
 # <a name="monitoring-active-directory-for-signs-of-compromise"></a>Überwachen von Active Directory auf Anzeichen für einen Kompromiss
 
@@ -298,7 +298,7 @@ Diese Unterkategorie meldet Änderungen im Sicherheitszustand des Systems, z. b.
 ##### <a name="security-system-extension"></a>Sicherheits System Erweiterung
 Diese Unterkategorie meldet das Laden von Erweiterungs Code, wie z. b. Authentifizierungs Pakete, durch das Sicherheits Subsystem.
 
-##### <a name="system-integrity"></a>System Integrität
+##### <a name="system-integrity"></a>Systemintegrität
 Diese Unterkategorie berichtet über Verstöße gegen die Integrität des Sicherheits Subsystems.
 
 IPSec-Treiber
@@ -333,7 +333,7 @@ Erweiterte Überwachungs Richtlinien können mithilfe von Active Directory oder 
 
 Auditpol.exe (für das Festlegen der Windows-Überwachungsrichtlinie) wurde in Windows Server 2008 und Windows Vista eingeführt. Anfänglich konnten nur auditpol.exe verwendet werden, um die erweiterte Überwachungsrichtlinie festzulegen, aber Gruppenrichtlinie kann in Windows Server 2012, Windows Server 2008 R2 oder Windows Server 2008, Windows 8 und Windows 7 verwendet werden.
 
-Auditpol.exe ist ein Befehlszeilen-Hilfsprogramm. Die Syntax lautet wie folgt:
+Auditpol.exe ist ein Befehlszeilen-Hilfsprogramm. Die Syntax ist wie folgt:
 
 `auditpol /set /<Category|Subcategory>:<audit category> /<success|failure:> /<enable|disable>`
 
@@ -358,19 +358,19 @@ Microsoft stellt ein [Beispielskript](https://support.microsoft.com/kb/921469) f
 
 Auditpol.exe können zum Speichern und Wiederherstellen einer lokalen Überwachungsrichtlinie sowie zum Anzeigen anderer Überwachungs bezogener Befehle verwendet werden. Hier sind die anderen **Auditpol** -Befehle aufgeführt.
 
-`auditpol /clear`-Dient zum Löschen und Zurücksetzen von lokalen Überwachungs Richtlinien
+`auditpol /clear` -Dient zum Löschen und Zurücksetzen von lokalen Überwachungs Richtlinien
 
-`auditpol /backup /file:<filename>`-Wird verwendet, um eine aktuelle lokale Überwachungsrichtlinie in einer Binärdatei zu sichern.
+`auditpol /backup /file:<filename>` -Wird verwendet, um eine aktuelle lokale Überwachungsrichtlinie in einer Binärdatei zu sichern.
 
-`auditpol /restore /file:<filename>`-Wird verwendet, um eine zuvor gespeicherte Überwachungs Richtlinien Datei in eine lokale Überwachungsrichtlinie zu importieren.
+`auditpol /restore /file:<filename>` -Wird verwendet, um eine zuvor gespeicherte Überwachungs Richtlinien Datei in eine lokale Überwachungsrichtlinie zu importieren.
 
-`auditpol /<get/set> /option:<CrashOnAuditFail> /<enable/disable>`Wenn diese Überwachungs Richtlinien Einstellung aktiviert ist, bewirkt dies, dass das System sofort beendet wird (mit der Meldung "Pause: C0000244 {Audit failed}"), wenn eine Sicherheitsüberprüfung aus irgendeinem Grund nicht protokolliert werden kann. In der Regel kann ein Ereignis nicht protokolliert werden, wenn das Sicherheits Überwachungs Protokoll voll ist, und die für das Sicherheitsprotokoll angegebene Beibehaltungs Methode **nicht Ereignisse überschreiben** oder **Ereignisse nach Tagen überschreiben**. Sie wird in der Regel nur von Umgebungen aktiviert, die höhere Sicherheit bei der Protokollierung des Sicherheitsprotokolls erfordern. Wenn diese Option aktiviert ist, müssen Administratoren die Größe des Sicherheitsprotokolls genau beobachten und Protokolle nach Bedarf rotieren. Er kann auch mit Gruppenrichtlinie festgelegt werden, indem die Sicherheitsoption Überwachung **: Herunterfahren des Systems sofort geändert wird, wenn Sicherheits Überwachungen nicht protokolliert** werden können (Standardeinstellung = deaktiviert).
+`auditpol /<get/set> /option:<CrashOnAuditFail> /<enable/disable>` Wenn diese Überwachungs Richtlinien Einstellung aktiviert ist, bewirkt dies, dass das System sofort beendet wird (mit der Meldung "Pause: C0000244 {Audit failed}"), wenn eine Sicherheitsüberprüfung aus irgendeinem Grund nicht protokolliert werden kann. In der Regel kann ein Ereignis nicht protokolliert werden, wenn das Sicherheits Überwachungs Protokoll voll ist, und die für das Sicherheitsprotokoll angegebene Beibehaltungs Methode **nicht Ereignisse überschreiben** oder **Ereignisse nach Tagen überschreiben**. Sie wird in der Regel nur von Umgebungen aktiviert, die höhere Sicherheit bei der Protokollierung des Sicherheitsprotokolls erfordern. Wenn diese Option aktiviert ist, müssen Administratoren die Größe des Sicherheitsprotokolls genau beobachten und Protokolle nach Bedarf rotieren. Er kann auch mit Gruppenrichtlinie festgelegt werden, indem die Sicherheitsoption Überwachung **: Herunterfahren des Systems sofort geändert wird, wenn Sicherheits Überwachungen nicht protokolliert** werden können (Standardeinstellung = deaktiviert).
 
-`auditpol /<get/set> /option:<AuditBaseObjects> /<enable/disable>`-Diese Überwachungs Richtlinien Einstellung bestimmt, ob der Zugriff auf globale Systemobjekte überprüft werden soll. Wenn diese Richtlinie aktiviert ist, bewirkt dies, dass Systemobjekte, z. b. Mutexes, Ereignisse, Semaphore und DOS-Geräte, mit einer Standard-System Zugriffs Steuerungs Liste (SACL) erstellt werden. Die meisten Administratoren sollten globale Systemobjekte so überwachen, dass Sie zu "unschädlich" werden, und Sie werden nur aktiviert, wenn böswillige Hacker vermutet werden. Nur benannte Objekte erhalten eine SACL. Wenn die Überwachungsrichtlinie für Überwachungs Objektzugriff (oder die Unterkategorie "Kernel Objektüberwachung") ebenfalls aktiviert ist, wird der Zugriff auf diese Systemobjekte überprüft. Wenn Sie diese Sicherheitseinstellung konfigurieren, werden die Änderungen erst wirksam, wenn Sie Windows neu starten. Diese Richtlinie kann auch mit Gruppenrichtlinie festgelegt werden, indem Sie die Sicherheitsoption Überwachen des Zugriffs globaler Systemobjekte (Standardeinstellung = deaktiviert) ändern.
+`auditpol /<get/set> /option:<AuditBaseObjects> /<enable/disable>` -Diese Überwachungs Richtlinien Einstellung bestimmt, ob der Zugriff auf globale Systemobjekte überprüft werden soll. Wenn diese Richtlinie aktiviert ist, bewirkt dies, dass Systemobjekte, z. b. Mutexes, Ereignisse, Semaphore und DOS-Geräte, mit einer Standard-System Zugriffs Steuerungs Liste (SACL) erstellt werden. Die meisten Administratoren sollten globale Systemobjekte so überwachen, dass Sie zu "unschädlich" werden, und Sie werden nur aktiviert, wenn böswillige Hacker vermutet werden. Nur benannte Objekte erhalten eine SACL. Wenn die Überwachungsrichtlinie für Überwachungs Objektzugriff (oder die Unterkategorie "Kernel Objektüberwachung") ebenfalls aktiviert ist, wird der Zugriff auf diese Systemobjekte überprüft. Wenn Sie diese Sicherheitseinstellung konfigurieren, werden die Änderungen erst wirksam, wenn Sie Windows neu starten. Diese Richtlinie kann auch mit Gruppenrichtlinie festgelegt werden, indem Sie die Sicherheitsoption Überwachen des Zugriffs globaler Systemobjekte (Standardeinstellung = deaktiviert) ändern.
 
-`auditpol /<get/set> /option:<AuditBaseDirectories> /<enable/disable>`-Diese Überwachungs Richtlinien Einstellung gibt an, dass benannte Kernel Objekte (z. b. Mutexen und Semaphore) bei der Erstellung mit SACLs versehen werden sollen. Auditbasedirectories wirkt sich auf Containerobjekte aus, während auditbaseobjects sich auf Objekte auswirkt, die keine anderen Objekte enthalten können.
+`auditpol /<get/set> /option:<AuditBaseDirectories> /<enable/disable>` -Diese Überwachungs Richtlinien Einstellung gibt an, dass benannte Kernel Objekte (z. b. Mutexen und Semaphore) bei der Erstellung mit SACLs versehen werden sollen. Auditbasedirectories wirkt sich auf Containerobjekte aus, während auditbaseobjects sich auf Objekte auswirkt, die keine anderen Objekte enthalten können.
 
-`auditpol /<get/set> /option:<FullPrivilegeAuditing> /<enable/disable>`-Diese Überwachungs Richtlinien Einstellung gibt an, ob der Client ein Ereignis generiert, wenn mindestens eine dieser Berechtigungen einem Benutzer Sicherheits Token zugewiesen ist: Zuordnungen von "zukenprivilege", "auditprivilege", "backupprivilege", "comatetokenprivilege", "Debug Privilege", "enabledelegationprivilege", "Identität", "loaddriverprivilege", "restoreprivilege", "securityprivilege", "systemumgebprivilege", "takebesitzshipprivilege" Wenn diese Option nicht aktiviert ist (Standardeinstellung = deaktiviert), werden die Berechtigungen backupprivilege und restoreprivilege nicht aufgezeichnet. Wenn Sie diese Option aktivieren, kann das Sicherheitsprotokoll während eines Sicherungs Vorgangs äußerst laut (manchmal Hunderte von Ereignissen pro Sekunde) werden. Diese Richtlinie kann auch mit Gruppenrichtlinie festgelegt werden, indem Sie die Sicherheitsoption Überwachung: überwachen **der Verwendung von Sicherungs-und Wiederherstellungs Berechtigungen**ändern.
+`auditpol /<get/set> /option:<FullPrivilegeAuditing> /<enable/disable>` -Diese Überwachungs Richtlinien Einstellung gibt an, ob der Client ein Ereignis generiert, wenn mindestens eine dieser Berechtigungen einem Benutzer Sicherheits Token zugewiesen ist: Zuordnungen von "zukenprivilege", "auditprivilege", "backupprivilege", "comatetokenprivilege", "Debug Privilege", "enabledelegationprivilege", "Identität", "loaddriverprivilege", "restoreprivilege", "securityprivilege", "systemumgebprivilege", "takebesitzshipprivilege" Wenn diese Option nicht aktiviert ist (Standardeinstellung = deaktiviert), werden die Berechtigungen backupprivilege und restoreprivilege nicht aufgezeichnet. Wenn Sie diese Option aktivieren, kann das Sicherheitsprotokoll während eines Sicherungs Vorgangs äußerst laut (manchmal Hunderte von Ereignissen pro Sekunde) werden. Diese Richtlinie kann auch mit Gruppenrichtlinie festgelegt werden, indem Sie die Sicherheitsoption Überwachung: überwachen **der Verwendung von Sicherungs-und Wiederherstellungs Berechtigungen**ändern.
 
 > [!NOTE]
 > Einige der hier bereitgestellten Informationen stammen aus dem Microsoft [Audit-Optionstyp](/openspecs/windows_protocols/ms-gpac/262a2bed-93d4-4c04-abec-cf06e9ec72fd) und dem Microsoft SCM-Tool.

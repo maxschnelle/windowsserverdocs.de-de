@@ -1,17 +1,17 @@
 ---
 ms.assetid: 4d21d27d-5523-4993-ad4f-fbaa43df7576
 title: Advanced AD DS Management Using Active Directory Administrative Center (Level 200)
-ms.author: joflore
-author: MicrosoftGuyJFlo
-manager: mtillman
+ms.author: iainfou
+author: iainfoulds
+manager: daveba
 ms.date: 08/07/2018
 ms.topic: article
-ms.openlocfilehash: 56792ce9c5a98e923627be4d98eba8404e046b46
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 567798afaa50604df737fe4ad119ff1cd13d31ae
+ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87971137"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88940380"
 ---
 # <a name="advanced-ad-ds-management-using-active-directory-administrative-center-level-200"></a>Advanced AD DS Management Using Active Directory Administrative Center (Level 200)
 
@@ -119,7 +119,7 @@ Die Wiederherstellung unterstützt alle Standardoptionen für Filterkriterien, w
 - Name
 - Löschdatum
 - Letztes bekanntes übergeordnetes Element
-- Typ
+- type
 - BESCHREIBUNG
 - City
 - Land/Region

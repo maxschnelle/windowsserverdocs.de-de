@@ -1,17 +1,17 @@
 ---
 ms.assetid: 8f994e2e-6c07-43f0-aef4-75f8b2c9a144
 title: Beibehalten einer sicheren Umgebung
-author: MicrosoftGuyJFlo
-ms.author: joflore
-manager: mtillman
+author: iainfoulds
+ms.author: iainfou
+manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: d4ddefda4ce9488320927542dcd24b9ac092bdb4
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 7cde4344a28888c997cfb751b2943429fbc4e686
+ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87994317"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88941410"
 ---
 # <a name="maintaining-a-more-secure-environment"></a>Beibehalten einer sicheren Umgebung
 
@@ -60,7 +60,7 @@ In Ihrem Daten Klassifizierungs Modell sollten Sie die Klassifizierung für AD D
 ### <a name="systems"></a>Systeme
 Sie sollten nicht nur Daten klassifizieren, sondern auch deren Server Population. Sie sollten für jeden Server wissen, welches Betriebssystem installiert ist, welche allgemeinen Rollen der Server bereitstellt, welche Anwendungen auf dem Server ausgeführt werden, der IT-Besitzer des Datensatzes und den Geschäftsinhaber des Datensatzes (falls zutreffend). Für alle Daten oder Anwendungen, die auf dem Server ausgeführt werden, benötigen Sie eine Klassifizierung, und der Server sollte gemäß den Anforderungen für die unterstützten Workloads und die auf das System und die Daten geltenden Klassifizierungen gesichert werden. Sie können Server auch nach der Klassifizierung ihrer Arbeits Auslastungen gruppieren, sodass Sie schnell die Server identifizieren können, die am ehesten überwacht und am ehesten konfiguriert werden sollen.
 
-### <a name="applications"></a>Applications
+### <a name="applications"></a>Anwendungen
 Sie sollten Anwendungen nach Funktionalität klassifizieren (was Sie tun), Benutzerbasis (die die Anwendungen verwendet) und das Betriebssystem, auf dem Sie ausgeführt werden. Sie sollten Datensätze verwalten, die Versionsinformationen, den Patchstatus und andere relevante Informationen enthalten. Sie sollten Anwendungen auch nach den Typen von Daten klassifizieren, die Sie verarbeiten, wie zuvor beschrieben.
 
 ### <a name="users"></a>Benutzer

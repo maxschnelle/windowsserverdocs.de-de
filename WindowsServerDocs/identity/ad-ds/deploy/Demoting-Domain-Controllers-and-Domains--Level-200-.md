@@ -1,17 +1,17 @@
 ---
 ms.assetid: 65ed5956-6140-4e06-8d99-8771553637d1
 title: Herabstufen von Domänencontrollern und Domänen (Stufe 200)
-author: MicrosoftGuyJFlo
-ms.author: joflore
-manager: mtillman
+author: iainfoulds
+ms.author: iainfou
+manager: daveba
 ms.date: 11/14/2018
 ms.topic: article
-ms.openlocfilehash: d9be9555c3e72b13fb86509289ee7459f4d1b687
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 5a450d37c3dcd5f92e6685c1a7f0393d764b8e55
+ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87959388"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88940960"
 ---
 # <a name="demoting-domain-controllers-and-domains"></a>Herabstufen von Domänen Controllern und Domänen
 
@@ -166,7 +166,7 @@ Beispielsweise können Sie manuell mithilfe des Cmdlets **Read-Host** nach einem
 > [!WARNING]
 > Da mit den beiden vorherigen Optionen das Kennwort nicht bestätigt wird, gehen Sie äußerst vorsichtig vor: das Kennwort ist nicht sichtbar.
 
-Sie können eine sichere Zeichenfolge auch als konvertierte Klartextvariable angeben, obwohl davon dringend abgeraten wird. Zum Beispiel:
+Sie können eine sichere Zeichenfolge auch als konvertierte Klartextvariable angeben, obwohl davon dringend abgeraten wird. Beispiel:
 
 ```
 -localadministratorpassword (convertto-securestring "Password1" -asplaintext -force)
@@ -189,7 +189,7 @@ Uninstall-ADDSDomainController
 
 Verwenden Sie das optionale **Whatif**-Argument für das **Uninstall-ADDSDomainController**-Cmdlet, um die Konfigurationsinformationen zu überprüfen. Auf diese Weise können Sie die expliziten und impliziten Werte der Argumente eines Cmdlets anzeigen.
 
-Zum Beispiel:
+Beispiel:
 
 ![PowerShell Uninstall-addsdomaincontroller-Beispiel](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_PSUninstall.png)
 

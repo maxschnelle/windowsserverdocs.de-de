@@ -1,17 +1,17 @@
 ---
 ms.assetid: e3d55565-ad45-4504-ad73-8103d1a92170
 title: Installieren einer neuen untergeordneten oder Active Directory-Gesamtstrukturdomäne in Windows Server 2012 (Stufe 200)
-author: MicrosoftGuyJFlo
-ms.author: joflore
-manager: mtillman
+author: iainfoulds
+ms.author: iainfou
+manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: a20b58b6d32f3b69106bcaa7716b4f86a750ce6b
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 98c2226fac7d280745a065cefab5b5e5bb5e1707
+ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87970017"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88940860"
 ---
 # <a name="install-a-new-windows-server-2012-active-directory-child-or-tree-domain-level-200"></a>Installieren einer neuen untergeordneten oder Active Directory-Gesamtstrukturdomäne in Windows Server 2012 (Stufe 200)
 
@@ -39,7 +39,7 @@ Das folgende Diagramm zeigt den Konfigurationsprozess für Active Directory-Dom�
 > [!NOTE]
 > Das Argument **-credential** ist nur erforderlich, wenn Sie derzeit nicht als Mitglied der Gruppe "Organisations-Admins" angemeldet sind. Das Argument **-NewDomainNetBIOSName** ist erforderlich, wenn Sie den automatisch generierten 15-stelligen Namen, der auf dem DNS-Domänennamenspräfix basiert, ändern möchten oder wenn der Name mehr als 15 Zeichen enthält.
 
-## <a name="deployment"></a><a name="BKMK_Deployment"></a>Bereitstellung
+## <a name="deployment"></a><a name="BKMK_Deployment"></a>Nutzung
 
 ### <a name="deployment-configuration"></a>Bereitstellungskonfiguration
 Der folgende Screenshot zeigt die Optionen beim Hinzufügen einer untergeordneten Domäne:
@@ -131,7 +131,7 @@ Sie können eine sichere Zeichenfolge auch als konvertierte Klartextvariable ang
 
 ```
 
-Zuletzt sollten Sie das verborgene Kennwort in einer Datei speichern und später wiederverwenden, ohne dass jemals das Klartextkennwort erscheint. Zum Beispiel:
+Zuletzt sollten Sie das verborgene Kennwort in einer Datei speichern und später wiederverwenden, ohne dass jemals das Klartextkennwort erscheint. Beispiel:
 
 ```
 $file = "c:\pw.txt"
@@ -211,7 +211,7 @@ Die ADDSDeployment Windows PowerShell-Argumente für **Pfade** sind:
 
 Auf der Seite **Optionen prüfen** können Sie vor dem Starten der Installation Ihre Einstellungen überprüfen und sicherstellen, dass Ihre Anforderungen erfüllt werden. Dies ist jedoch nicht die letzte Möglichkeit, um die Installation mit Server-Manager zu stoppen. Dies ist lediglich eine Option zum Bestätigen Ihrer Einstellungen, bevor Sie die Konfiguration fortsetze
 
-Die Seite **Optionen prüfen** im Server-Manager bietet zudem die optionale Schaltfläche **Skript anzeigen** zum Erstellen einer Unicode-Textdatei, die die aktuelle ADDSDeployment-Konfiguration als einzelnes Windows PowerShell-Skript enthält. Dies ermöglicht Ihnen die Verwendung der grafischen Oberfläche von Server-Manager als Windows PowerShell-Bereitstellungsstudio. Mithilfe des Konfigurations-Assistenten für die Active Directory-Domänendienste können Sie Optionen konfigurieren, die Konfiguration exportieren und den Assistenten abbrechen.  Bei diesem Prozess wird ein gültiges und syntaktisch korrektes Muster zur weiteren Änderung oder direkten Verwendung erstellt. Zum Beispiel:
+Die Seite **Optionen prüfen** im Server-Manager bietet zudem die optionale Schaltfläche **Skript anzeigen** zum Erstellen einer Unicode-Textdatei, die die aktuelle ADDSDeployment-Konfiguration als einzelnes Windows PowerShell-Skript enthält. Dies ermöglicht Ihnen die Verwendung der grafischen Oberfläche von Server-Manager als Windows PowerShell-Bereitstellungsstudio. Mithilfe des Konfigurations-Assistenten für die Active Directory-Domänendienste können Sie Optionen konfigurieren, die Konfiguration exportieren und den Assistenten abbrechen.  Bei diesem Prozess wird ein gültiges und syntaktisch korrektes Muster zur weiteren Änderung oder direkten Verwendung erstellt. Beispiel:
 
 ```
 #

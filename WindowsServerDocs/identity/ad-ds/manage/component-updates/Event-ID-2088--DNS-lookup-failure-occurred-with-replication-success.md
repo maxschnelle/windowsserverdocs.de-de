@@ -1,17 +1,17 @@
 ---
 ms.assetid: 0fd7b6aa-3e50-45a3-a3a6-56982844363e
 title: 'Ereignis-ID 2088: DNS-Suche-Fehler bei erfolgreicher Replikation'
-author: MicrosoftGuyJFlo
-ms.author: joflore
-manager: mtillman
+author: iainfoulds
+ms.author: iainfou
+manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: 9dbb7debbca8d1625ebe975a051ed8b607d1ddd0
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: a6e78c458f92e477ddeaf156370f5e254caf4679
+ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87943285"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88941340"
 ---
 # <a name="event-id-2088-dns-lookup-failure-occurred-with-replication-success"></a>Ereignis-ID 2088: DNS-Lookup-Problem bei erfolgreicher Replikation aufgetreten
 
@@ -51,7 +51,7 @@ Benutzeraktion:
 
 2) Vergewissern Sie sich, dass auf dem Quell Domänen Controller Active Directory ausgeführt wird und der Zugriff auf das Netzwerk möglich ist, indem Sie "net View \\ <source DC name> " oder "ping <source DC name> " eingeben.
 
-3) Vergewissern Sie sich, dass der Quell Domänen Controller einen gültigen DNS-Server für DNS-Dienste verwendet und dass der Host Datensatz und der CNAME-Datensatz des Quell Domänen Controllers ordnungsgemäß registriert sind. verwenden Sie dazu die erweiterte DNS-Version von DCDIAG.EXE verfügbar auf<https://www.microsoft.com/dns>
+3) Vergewissern Sie sich, dass der Quell Domänen Controller einen gültigen DNS-Server für DNS-Dienste verwendet und dass der Host Datensatz und der CNAME-Datensatz des Quell Domänen Controllers ordnungsgemäß registriert sind. verwenden Sie dazu die erweiterte DNS-Version von DCDIAG.EXE verfügbar auf <https://www.microsoft.com/dns>
 
 Dcdiag/Test: DNS
 
@@ -59,9 +59,9 @@ Dcdiag/Test: DNS
 
 Dcdiag/Test: DNS
 
-5) Informationen zur weiteren Analyse von DNS-Fehler Fehlern finden Sie in KB 824449:<https://support.microsoft.com/?kbid=824449>
+5) Informationen zur weiteren Analyse von DNS-Fehler Fehlern finden Sie in KB 824449: <https://support.microsoft.com/?kbid=824449>
 
-Zusätzlicher Datenfehler Wert: 11004 der angeforderte Name ist gültig, aber es wurden keine Daten vom angeforderten Typ gefunden </code> .</introduction>
+Zusätzlicher Datenfehler Wert: 11004 der angeforderte Name ist gültig, aber es wurden keine Daten vom angeforderten Typ gefunden </code> . </introduction>
   <section>
     <title>Diagnosis</title>
     <content>

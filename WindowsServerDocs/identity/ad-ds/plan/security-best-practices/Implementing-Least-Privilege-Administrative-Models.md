@@ -1,17 +1,17 @@
 ---
 ms.assetid: 7a7ab95c-9cb3-4a7b-985a-3fc08334cf4f
 title: Implementieren von Verwaltungsmodellen der geringste Rechte
-ms.author: joflore
-author: MicrosoftGuyJFlo
-manager: mtillman
+ms.author: iainfou
+author: iainfoulds
+manager: daveba
 ms.date: 08/09/2018
 ms.topic: article
-ms.openlocfilehash: e66986651e9661a3854804fe85f307f22b17d518
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: ab4d6f282de88b7d55256ecd3a9ff4a82a7881fb
+ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87994371"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88941450"
 ---
 # <a name="implementing-least-privilege-administrative-models"></a>Implementieren von Verwaltungsmodellen der geringste Rechte
 

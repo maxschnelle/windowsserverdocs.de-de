@@ -1,17 +1,17 @@
 ---
 ms.assetid: ef63d40c-a262-4a18-938d-b95c10680c0b
 title: Autonomie im Vergleich zur Isolation
-author: MicrosoftGuyJFlo
-ms.author: joflore
-manager: mtillman
+author: iainfoulds
+ms.author: iainfou
+manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: 8a24ad5301c9dcf67f01baf1b6893688af664fa2
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: eccbfc7767821a15d32d6aabef156861cb409f40
+ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87969817"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88941210"
 ---
 # <a name="autonomy-vs-isolation"></a>Autonomie im Vergleich zur Isolation
 
@@ -41,7 +41,7 @@ Die Anzahl der Gesamtstrukturen, die Sie bereitstellen müssen, basiert auf den 
 ### <a name="data-isolation"></a>Datenisolation
 Die Daten Isolation umfasst die exklusive Kontrolle über Daten durch die Gruppe oder Organisation, die die Daten besitzt. Es ist wichtig zu beachten, dass Dienst Administratoren die Möglichkeit haben, die Kontrolle über eine Ressource von Daten Administratoren zu entfernen. -Und-Daten Administratoren können nicht verhindern, dass Dienst Administratoren auf die von Ihnen kontrollierten Ressourcen zugreifen können. Daher können Sie keine Daten Isolation erreichen, wenn eine andere Gruppe innerhalb des Unternehmens für die Dienst Verwaltung verantwortlich ist. Wenn eine Gruppe eine Daten Isolation erfordert, muss diese Gruppe auch für die Dienst Verwaltung verantwortlich sein.
 
-Da Daten, die in AD DS und auf mit AD DS verbundenen Computern gespeichert sind, nicht von Dienst Administratoren isoliert werden können, besteht die einzige Möglichkeit für eine Gruppe innerhalb einer Organisation darin, eine separate Gesamtstruktur für diese Daten zu erstellen. Organisationen, für die die Konsequenzen eines Angriffs durch Schadsoftware oder einen erzwungenen Dienst Administrator beträchtlich sind, können eine separate Gesamtstruktur erstellen, um die Daten Isolation zu erreichen. Gesetzliche Anforderungen machen in der Regel einen Bedarf an dieser Art von Daten Isolation. Zum Beispiel:
+Da Daten, die in AD DS und auf mit AD DS verbundenen Computern gespeichert sind, nicht von Dienst Administratoren isoliert werden können, besteht die einzige Möglichkeit für eine Gruppe innerhalb einer Organisation darin, eine separate Gesamtstruktur für diese Daten zu erstellen. Organisationen, für die die Konsequenzen eines Angriffs durch Schadsoftware oder einen erzwungenen Dienst Administrator beträchtlich sind, können eine separate Gesamtstruktur erstellen, um die Daten Isolation zu erreichen. Gesetzliche Anforderungen machen in der Regel einen Bedarf an dieser Art von Daten Isolation. Beispiel:
 
 -   Ein Finanzinstitut ist gesetzlich vorgeschrieben, um den Zugriff auf Daten zu beschränken, die zu Clients in einem bestimmten Zuständigkeitsbereich gehören, und zwar für Benutzer, Computer und Administratoren, die sich in diesem Bereich befinden. Obwohl die-Einrichtung Dienst Administratoren vertraut, die außerhalb des geschützten Bereichs arbeiten, kann die Einrichtung bei Verstößen gegen die Zugriffsbeschränkung nicht mehr Unternehmen in diesem Zuständigkeitsbereich durchführen. Daher muss die Finanz Einrichtung Daten von Dienst Administratoren außerhalb dieses Gerichts nicht isolieren. Beachten Sie, dass die Verschlüsselung nicht immer eine Alternative zu dieser Lösung ist. Bei der Verschlüsselung werden Daten von Dienst Administratoren möglicherweise nicht geschützt.
 
@@ -58,7 +58,7 @@ Durch die Daten Autonomie wird nicht verhindert, dass Dienst Administratoren in 
 ### <a name="service-isolation"></a>Dienstisolierung
 Die Dienst Isolation umfasst die exklusive Kontrolle der Active Directory Infrastruktur. Für Gruppen, die eine Dienst Isolation erfordern, ist es erforderlich, dass kein Administrator außerhalb der Gruppe den Betrieb des Verzeichnis Dienstanbieter beeinträchtigt.
 
-Betriebliche oder gesetzliche Anforderungen bilden in der Regel einen Bedarf an Dienst Isolation. Zum Beispiel:
+Betriebliche oder gesetzliche Anforderungen bilden in der Regel einen Bedarf an Dienst Isolation. Beispiel:
 
 -   Ein Fertigungsunternehmen verfügt über eine wichtige Anwendung, die die Geräte auf dem Werks Niveau steuert. Unterbrechungen im Dienst in anderen Teilen des Netzwerks der Organisation dürfen den Betrieb des werksbodens nicht beeinträchtigen.
 

@@ -1,17 +1,17 @@
 ---
 ms.assetid: 3acaa977-ed63-4e38-ac81-229908c47208
 title: Behandlung von LDAP-Server-Cookies
-author: MicrosoftGuyJFlo
-ms.author: joflore
-manager: mtillman
+author: iainfoulds
+ms.author: iainfou
+manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: 077c40d6ed61da1d36bdfd792af41ea5067421fc
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 7e01afeeef7bb9751b4c23839569a9395fbd9c51
+ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87943594"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88941350"
 ---
 # <a name="how-ldap-server-cookies-are-handled"></a>Behandlung von LDAP-Server-Cookies
 
@@ -125,7 +125,7 @@ Erhalten Sie auf Ihrem DC/LDAP-Server Ereignis 2898, empfiehlt sich eine Erhöhu
 
 Wenn Sie bei einem Pool mit dieser Größe nach wie vor 2899-Ereignisse erhalten, ist zu vermuten, dass auf dicht aufeinander folgende Abfragen sehr vieler Clients große Mengen an Objekten in kürzester Folge zurückgegeben werden. Die Daten, die Sie mit dem [Datensammler Satz Active Directory](/archive/blogs/askds/son-of-spa-ad-data-collector-sets-in-win2008-and-beyond) erfassen können, können Sie dabei unterstützen, sich wiederholende auslagerbare Abfragen zu finden, die Ihre LDAP-Server Diese Abfragen werden alle mit der Anzahl der zurückgegebenen Einträge angezeigt, die mit der Größe der verwendeten Seite übereinstimmen.
 
-Überprüfen Sie nach Möglichkeit den Anwendungs Entwurf, und implementieren Sie einen anderen Ansatz mit niedrigerer Häufigkeit, Datenvolumen und/oder weniger Client Instanzen, die diese Daten Abfragen. Im Fall der Anwendungen, für die Sie über Zugriff auf den Quell Code verfügen, können Sie diese Anleitung zum [Erstellen von effizienten AD-fähigen Anwendungen](/previous-versions/ms808539(v=msdn.10)) dabei unterstützen, die optimale Methode für den Zugriff auf AD-Anwendungen zu verstehen.
+Überprüfen Sie nach Möglichkeit den Anwendungs Entwurf, und implementieren Sie einen anderen Ansatz mit niedrigerer Häufigkeit, Datenvolumen und/oder weniger Client Instanzen, die diese Daten Abfragen. Im Fall der Anwendungen, für die Sie über Zugriff auf den Quell Code verfügen, können Sie diese Anleitung zum  [Erstellen von effizienten AD-fähigen Anwendungen](/previous-versions/ms808539(v=msdn.10)) dabei unterstützen, die optimale Methode für den Zugriff auf AD-Anwendungen zu verstehen.
 
 Wenn das Abfrage Verhalten nicht geändert werden kann, besteht ein Ansatz darin, auch weitere replizierte Instanzen der benötigten Namenskontexte hinzuzufügen und die Clients neu zu verteilen und schließlich die Last auf den einzelnen LDAP-Servern zu verringern.
 

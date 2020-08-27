@@ -1,17 +1,17 @@
 ---
 title: 'AD-Gesamtstruktur Wiederherstellung: Entfernen des globalen Katalogs'
-ms.author: joflore
-author: MicrosoftGuyJFlo
-manager: mtillman
+ms.author: iainfou
+author: iainfoulds
+manager: daveba
 ms.date: 08/09/2018
 ms.topic: article
 ms.assetid: 60087a62-11e6-4750-a70e-510f35315688
-ms.openlocfilehash: b05415e73faef73831cccbbd9785dd1cf2d1cf9e
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: e24449f2debdeeaf1e0ccdaf51a44d041c7dcc61
+ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87969847"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88941580"
 ---
 # <a name="ad-forest-recovery---removing-the-global-catalog"></a>AD-Gesamtstruktur Wiederherstellung: Entfernen des globalen Katalogs
 
@@ -29,7 +29,7 @@ ms.locfileid: "87969847"
 4. Klicken Sie mit der rechten Maustaste auf **NTDS-Einstellungen**, und klicken Sie auf **Eigenschaften**.
 5. Deaktivieren Sie das Kontrollkästchen **globaler Katalog** .
    ![GC entfernen](media/AD-Forest-Recovery-Remove-GC/removegc1.png)
-6. Klicken Sie auf **Übernehmen**.
+6. Klicken Sie auf **Anwenden**.
 
 ## <a name="to-remove-the-global-catalog-using-repadmin"></a>So entfernen Sie den globalen Katalog mithilfe von "repadmin"
 

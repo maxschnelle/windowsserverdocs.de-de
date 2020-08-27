@@ -1,17 +1,17 @@
 ---
 ms.assetid: 4cc9c16c-1928-4dce-a3a8-6229be28eb65
 title: Active Directory-Replikationskonzepte
-author: MicrosoftGuyJFlo
-ms.author: joflore
-manager: mtillman
+author: iainfoulds
+ms.author: iainfou
+manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: c1392d813497980d6060cc22fe35afa17c4043e0
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 403a8be3d6b7fc6330395bf6e4d20141e01b76ba
+ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87969947"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88940320"
 ---
 # <a name="active-directory-replication-concepts"></a>Active Directory-Replikationskonzepte
 

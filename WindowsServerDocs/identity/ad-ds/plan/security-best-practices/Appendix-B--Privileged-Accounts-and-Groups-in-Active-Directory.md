@@ -1,17 +1,17 @@
 ---
 ms.assetid: 79b9c912-ea3e-4679-ab41-893e096c4d09
 title: 'Anhang B: privilegierte Konten und Gruppen in Active Directory'
-author: MicrosoftGuyJFlo
-ms.author: joflore
-manager: mtillman
+author: iainfoulds
+ms.author: iainfou
+manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: dbccc8f7adac03815c6ced2ceee22210d44dbce9
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 22bcea1426502af83fdeeecb0005324de2d54e64
+ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87963258"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88941570"
 ---
 # <a name="appendix-b-privileged-accounts-and-groups-in-active-directory"></a>Anhang B: Privilegierte Konten und Gruppen in Active Directory
 
@@ -120,7 +120,7 @@ Die sind in ihren Domänen vollständig leistungsfähig, während EAS über Gesa
 
 Die Gruppe "da" ist eine globale Sicherheitsgruppe, die sich im Container "Benutzer" der Domäne befindet. Für jede Domäne in der Gesamtstruktur ist eine da-Gruppe vorhanden, und das einzige Standard Mitglied einer da-Gruppe ist das integrierte Administrator Konto der Domäne. Da die da-Gruppe einer Domäne in der BA-Gruppe der Domäne und in der lokalen Administratoren Gruppe eines in die Domäne eingebundenen Systems eingebettet ist, verfügen die nicht nur über Berechtigungen, die speziell für Domänen Administratoren erteilt wurden, sondern Erben auch alle Rechte und Berechtigungen, die der Administratoren Gruppe der Domäne und der lokalen Administratoren Gruppe auf allen Systemen erteilt wurden, die mit der Domäne verknüpft sind.
 
-#### <a name="administrators"></a>Administrators
+#### <a name="administrators"></a>Administratoren
 Die integrierte Administratoren Gruppe (BA) ist eine lokale Gruppe der Domäne in dem integrierten Container einer Domäne, in der sich die und EAS befinden, und es handelt sich um diese Gruppe, der viele direkte Rechte und Berechtigungen im Verzeichnis und auf Domänen Controllern erteilt werden. Die Gruppe "Administratoren" für eine Domäne verfügt jedoch nicht über Berechtigungen für Mitglieds Server oder Arbeitsstationen. Bei der Mitgliedschaft in der lokalen Administrator Gruppe der in die Domäne eingebundenen Computer werden lokale Rechte gewährt. und der erörterten Gruppen sind standardmäßig nur die Mitglieder der lokalen Administratoren Gruppen der in die Domäne eingebundenen Computer.
 
 Die Gruppe "Administratoren" ist eine Domänen lokale Gruppe im integrierten Container der Domäne. Standardmäßig enthält die BAS-Gruppe jeder Domäne das integrierte Administrator Konto der lokalen Domäne, die-da-Gruppe der lokalen Domäne und die EA-Gruppe der Stamm Domäne der Gesamtstruktur. Viele Benutzerrechte in Active Directory und auf Domänen Controllern werden speziell für die Administratoren Gruppe, nicht für EAS oder das erteilt. Der BA-Gruppe einer Domäne werden voll Zugriffsberechtigungen für die meisten Verzeichnisobjekte gewährt und können den Besitz von Verzeichnis Objekten übernehmen. Obwohl EA-und da-Gruppen bestimmte objektspezifische Berechtigungen in der Gesamtstruktur und den Domänen erteilt werden, wird ein Großteil der Gruppenleistung tatsächlich von der Mitgliedschaft in BA-Gruppen geerbt.

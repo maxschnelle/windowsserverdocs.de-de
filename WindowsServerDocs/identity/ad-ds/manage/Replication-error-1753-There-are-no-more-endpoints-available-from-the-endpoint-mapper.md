@@ -1,17 +1,17 @@
 ---
 ms.assetid: 0f21951c-b1bf-43bb-a329-bbb40c58c876
 title: 'Replikationsfehler 1753: Die Endpunktzuordnung hat keine weiteren Endpunkte verfügbar'
-author: MicrosoftGuyJFlo
-ms.author: joflore
-manager: mtillman
+author: iainfoulds
+ms.author: iainfou
+manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: 23bab1ff39cf5097f7b6face4886c6be59a7e5d5
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 9752425c0732c2290642d62239151f20acb99ad0
+ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87943520"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88940480"
 ---
 # <a name="replication-error-1753-there-are-no-more-endpoints-available-from-the-endpoint-mapper"></a>Replikationsfehler 1753: Die Endpunktzuordnung hat keine weiteren Endpunkte verfügbar
 
@@ -147,7 +147,7 @@ Der Fehler 1753 wird nicht durch Folgendes verursacht:
 
 Überprüfen, ob der RPC-Client (Ziel-DC) mit dem gewünschten RPC-Server (Quell Domänen Controller)
 
-Alle DCS in einer allgemeinen Active Directory Gesamtstruktur registrieren einen Domänen Controller-CNAME-Datensatz im _msdcs. \<forest root domain>DNS-Zone unabhängig davon, in welcher Domäne Sie sich innerhalb der Gesamtstruktur befinden. Der DC CNAME-Datensatz wird vom objectGUID-Attribut des NTDS-Einstellungs Objekts für jeden Domänen Controller abgeleitet.
+Alle DCS in einer allgemeinen Active Directory Gesamtstruktur registrieren einen Domänen Controller-CNAME-Datensatz im _msdcs. \<forest root domain> DNS-Zone unabhängig davon, in welcher Domäne Sie sich innerhalb der Gesamtstruktur befinden. Der DC CNAME-Datensatz wird vom objectGUID-Attribut des NTDS-Einstellungs Objekts für jeden Domänen Controller abgeleitet.
 
 Beim Ausführen von Replikations basierten Vorgängen fragt ein Ziel-DC DNS nach dem CNAME-Datensatz des Quell-DCS ab. Der CNAME-Datensatz enthält den voll qualifizierten Domänen Namen des Quell Domänen Controllers, der verwendet wird, um die IP-Adresse des Quell Domänen Controllers über DNS-Client Cache Suche, Host/Lmhost-Dateisuche, Host A/AAAA-Datensatz in DNS oder WINS zu ableiten.
 

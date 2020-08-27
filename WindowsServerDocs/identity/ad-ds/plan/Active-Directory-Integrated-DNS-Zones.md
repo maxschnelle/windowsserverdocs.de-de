@@ -1,17 +1,17 @@
 ---
 ms.assetid: 39c0126d-af5e-4dcb-88c1-aa38f888e973
 title: In Active Directory integrierte DNS-Zonen
-author: MicrosoftGuyJFlo
-ms.author: joflore
-manager: mtillman
+author: iainfoulds
+ms.author: iainfou
+manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: a10fb5f15579b223540ffcff1ca004c78d6e71ef
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 4f313b09954697f4b54c31a1721311ea0a017dd5
+ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87941445"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88941270"
 ---
 # <a name="active-directory-integrated-dns-zones"></a>In Active Directory integrierte DNS-Zonen
 

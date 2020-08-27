@@ -1,17 +1,17 @@
 ---
 title: Aktualisieren von Domänencontrollern auf Windows Server 2016
 description: In diesem Dokument wird beschrieben, wie Sie ein Upgrade von Windows Server 2012 R2 auf Windows Server 2016 durchführen.
-ms.author: joflore
-author: MicrosoftGuyJFlo
-manager: mtillman
+ms.author: iainfou
+author: iainfoulds
+manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: 78e245767857111f71a6252094ef0e74fda7f714
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 747c71d3c0b3dd7afb0fb1dda1b922ac58330e02
+ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87965267"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88940240"
 ---
 # <a name="upgrade-domain-controllers-to-windows-server-2016"></a>Aktualisieren von Domänencontrollern auf Windows Server 2016
 

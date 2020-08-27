@@ -1,17 +1,17 @@
 ---
 ms.assetid: 074e63e9-976c-49da-8cba-9ae0b3325e34
 title: Introduction to Active Directory Administrative Center Enhancements (Level 100)
-ms.author: joflore
-author: MicrosoftGuyJFlo
-manager: mtillman
+ms.author: iainfou
+author: iainfoulds
+manager: daveba
 ms.date: 08/07/2018
 ms.topic: article
-ms.openlocfilehash: f494fc09027b17d2110731d73d3d8de6d0496342
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: a7639fccf472d3b23b06a64dc0e621cfa4f8bb37
+ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87957027"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88940110"
 ---
 # <a name="introduction-to-active-directory-administrative-center-enhancements-level-100"></a>Introduction to Active Directory Administrative Center Enhancements (Level 100)
 
@@ -35,7 +35,7 @@ Der Active Directory-Papierkorb baut ab Windows Server 2008 R2 auf der vorhanden
 
 Wenn Sie den Active Directory-Papierkorb aktivieren, bleiben alle Attribute mit verknüpften Werten und mit nicht verknüpften Werten der gelöschten Active Directory-Objekte erhalten, und die Objekte werden vollständig in ihrem durchgängig logischen Zustand, den sie vor dem Löschen aufwiesen, wiederhergestellt. So erhalten beispielsweise wiederhergestellte Benutzerkonten automatisch alle Gruppenmitgliedschaften und entsprechenden Zugriffsrechte zurück, die sie unmittelbar vor dem Löschen sowohl innerhalb als auch zwischen den Domänen innehatten. Der Active Directory-Papierkorb kann in AD DS- und in AD LDS-Umgebungen verwendet werden. Eine ausführliche Beschreibung des Active Directory-Papierkorbs finden Sie unter [What's New in AD DS: Active Directory Recycle Bin](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd391916(v=ws.10)).
 
-**Was ist neu?** In Windows Server 2012 und höher wurde die Active Directory Papierkorb Funktion mit einer neuen grafischen Benutzeroberfläche erweitert, damit Benutzer gelöschte Objekte verwalten und wiederherstellen können. Benutzer können gelöschte Objekte jetzt in einer Liste anzeigen und an ihren ursprünglichen oder an neuen Standorten wiederherstellen.
+**Neuigkeiten** In Windows Server 2012 und höher wurde die Active Directory Papierkorb Funktion mit einer neuen grafischen Benutzeroberfläche erweitert, damit Benutzer gelöschte Objekte verwalten und wiederherstellen können. Benutzer können gelöschte Objekte jetzt in einer Liste anzeigen und an ihren ursprünglichen oder an neuen Standorten wiederherstellen.
 
 Wenn Sie planen, Active Directory Papierkorb in Windows Server zu aktivieren, berücksichtigen Sie Folgendes:
 
@@ -123,7 +123,7 @@ Mit den folgenden Schritten erstellen Sie zwei Testbenutzer. Anschließend werde
    - Vollständiger Name: test1
    - SamAccountName-Benutzeranmeldung: test1
    - Kennwort: p@ssword1
-   - Kennwort bestätigen:p@ssword1
+   - Kennwort bestätigen: p@ssword1
 
 5. Wiederholen Sie diese Schritte, um den Benutzer %%amp;quot;test2%%amp;quot; zu erstellen.
 
@@ -229,7 +229,7 @@ Windows Server 2008 bietet Organisationen die Möglichkeit, für verschiedene Gr
 
 Mithilfe differenzierter Kennwortrichtlinien können mehrere Kennwortrichtlinien innerhalb einer einzigen Domäne festgelegt und für verschiedene Gruppen von Benutzern in einer Domäne unterschiedliche Einschränkungen bei Kennwort- und Kontosperrungsrichtlinien angewendet werden. So könnten zum Beispiel für privilegierte Konten strengere Einstellungen und für die Konten der anderen Benutzer weniger strenge Einstellungen gelten. In anderen Fällen könnte es für Konten, deren Kennwörter mit anderen Datenquellen synchronisiert werden, eine spezielle Kennwortrichtlinie geben. Eine ausführliche Beschreibung differenzierter Kennwortrichtlinien finden Sie unter [AD DS: Differenzierte Kennwortrichtlinien](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770394(v=ws.10))
 
-**Was ist neu?**
+**Neuigkeiten**
 
 In Windows Server 2012 und höher wird die differenzierte Kenn Wort Richtlinien Verwaltung einfacher und visueller, indem eine Benutzeroberfläche für AD DS Administratoren bereitgestellt wird, die Sie in ADAC verwalten möchten. Administratoren können jetzt die resultierende Richtlinie eines bestimmten Benutzers anzeigen, alle Kenn Wort Richtlinien innerhalb einer bestimmten Domäne anzeigen und sortieren sowie einzelne Kenn Wort Richtlinien visuell verwalten.
 

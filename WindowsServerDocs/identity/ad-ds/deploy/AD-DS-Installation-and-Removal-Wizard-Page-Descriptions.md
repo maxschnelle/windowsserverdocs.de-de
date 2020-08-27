@@ -1,17 +1,17 @@
 ---
 ms.assetid: ac727bd1-a892-47ed-a7ba-439b34187d4e
 title: Seitenbeschreibungen für den Assistenten zum Installieren und Entfernen von AD DS
-author: MicrosoftGuyJFlo
-ms.author: joflore
-manager: mtillman
+author: iainfoulds
+ms.author: iainfou
+manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: 39d41b605db94931731f29aa25990672332c8056
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 0eab71426d282bbd1c0411b13286a9cc93dc38ab
+ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87959428"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88941020"
 ---
 # <a name="ad-ds-installation-and-removal-wizard-page-descriptions"></a>Seitenbeschreibungen für den Assistenten zum Installieren und Entfernen von AD DS
 
@@ -29,7 +29,7 @@ Dieses Thema enthält Beschreibungen zu den Steuerelementen auf den folgenden As
 
 -   [Zusätzliche Optionen](../../ad-ds/deploy/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions.md#BKMK_AdditionalOptionsPage)
 
--   [Pfade](../../ad-ds/deploy/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions.md#BKMK_Paths)
+-   [Tramp](../../ad-ds/deploy/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions.md#BKMK_Paths)
 
 -   [Vorbereitungsoptionen](../../ad-ds/deploy/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions.md#BKMK_AdprepCreds)
 
@@ -195,7 +195,7 @@ Die folgenden Optionen werden auf der Seite **Zusätzliche Optionen** angezeigt,
 
 Weitere Informationen zum Erstellen einer Domäne finden Sie unter [install a New Windows Server 2012 Active Directory child or Tree Domain &#40;Level 200&#41;](../../ad-ds/deploy/../../ad-ds/deploy/../../ad-ds/deploy/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-.md). Weitere Informationen zum Hinzufügen eines Domänen Controllers zu einer vorhandenen Domäne finden Sie unter [Installieren eines Windows Server 2012-Replikat Domänen Controllers in einer vorhandenen Domäne &#40;Ebene 200&#41;](../../ad-ds/deploy/../../ad-ds/deploy/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-.md).
 
-## <a name="paths"></a><a name="BKMK_Paths"></a>Pfade
+## <a name="paths"></a><a name="BKMK_Paths"></a>Tramp
 Auf der Seite **Pfade** werden die folgenden Optionen angezeigt.
 
 ![AD DS Installation](media/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions/ADDS_SMI_Paths.gif)

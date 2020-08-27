@@ -1,17 +1,17 @@
 ---
 ms.assetid: 84754c23-f039-4de4-a378-853942e662df
 title: Einführung
-author: MicrosoftGuyJFlo
-ms.author: joflore
-manager: mtillman
+author: iainfoulds
+ms.author: iainfou
+manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: 8dc05c31f4b53b73766de1b63c2e2da47bb95131
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: ecfede36e855ed942d5d3f47be6dbe6bc4520a53
+ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87972297"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88941290"
 ---
 # <a name="introduction"></a>Einführung
 
@@ -31,11 +31,11 @@ Die folgende Tabelle enthält eine Anleitung zu den Benennungs Konventionen, die
 |**Konto-/gruppenspeicherort**|**Name des Kontos/der Gruppe**|**Referenziert in diesem Dokument**|
 | --- | --- | --- |
 |Active Directory-jede Domäne|Administrator|Integriertes Administrator Konto|
-|Active Directory-jede Domäne|Administrators|Gruppe integrierter Administratoren (BA)|
+|Active Directory-jede Domäne|Administratoren|Gruppe integrierter Administratoren (BA)|
 |Active Directory-jede Domäne|Domänenadministratoren|Gruppe "Domänen-Admins" (da)|
 |Stamm Domäne der Active Directory-Gesamtstruktur|Organisationsadministratoren|Organisations-Admins (EA)-Gruppe|
 |Security Accounts Manager (Sam)-Datenbank auf Computern, auf denen Windows Server ausgeführt wird, und Arbeitsstationen, die keine Domänen Controller sind|Administrator|Lokales Administrator Konto|
-|Security Accounts Manager (Sam)-Datenbank auf Computern, auf denen Windows Server ausgeführt wird, und Arbeitsstationen, die keine Domänen Controller sind|Administrators|Lokale Administratoren Gruppe|
+|Security Accounts Manager (Sam)-Datenbank auf Computern, auf denen Windows Server ausgeführt wird, und Arbeitsstationen, die keine Domänen Controller sind|Administratoren|Lokale Administratoren Gruppe|
 
 ## <a name="about-this-document"></a>Informationen zu diesem Dokument
 Die Organisation Microsoft Information Security and Risk Management (isrm), die Teil von Microsoft Information Technology (MSIT) ist, arbeitet mit internen Geschäftseinheiten, externen Kunden und Branchen Peers zusammen, um Richtlinien, Verfahren und Steuerelemente zu erfassen, zu verteilen und zu definieren. Diese Informationen können von Microsoft und unseren Kunden verwendet werden, um die Sicherheit zu erhöhen und die Angriffsfläche Ihrer IT-Infrastrukturen zu verringern. Die Empfehlungen in diesem Dokument basieren auf einer Reihe von Informationsquellen und-Methoden, die in MSIT und isrm verwendet werden. Die folgenden Abschnitte enthalten weitere Informationen zu den Ursprüngen dieses Dokuments.

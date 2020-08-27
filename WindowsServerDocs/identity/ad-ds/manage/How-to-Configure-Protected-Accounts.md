@@ -1,17 +1,17 @@
 ---
 ms.assetid: 70c99703-ff0d-4278-9629-b8493b43c833
 title: Leitfaden zum Konfigurieren geschützter Konten
-author: MicrosoftGuyJFlo
-ms.author: joflore
-manager: mtillman
+author: iainfoulds
+ms.author: iainfou
+manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: 7e69a808a48c3dedcc29d8876dc460559157f191
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: e8d16d1d33e8e0bd55457daa98b4aad454dafe3f
+ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87994828"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88940760"
 ---
 # <a name="guidance-about-how-to-configure-protected-accounts"></a>Leitfaden zum Konfigurieren geschützter Konten
 
@@ -21,7 +21,7 @@ Bei Pass-the-hash (PtH)-Angriffen können Angreifer den zugrunde liegenden NTLM-
 
 -   [Geschützte Benutzer](../../ad-ds/manage/How-to-Configure-Protected-Accounts.md#BKMK_AddtoProtectedUsers)
 
--   [Authentifizierungs Richtlinien](../../ad-ds/manage/How-to-Configure-Protected-Accounts.md#BKMK_CreateAuthNPolicies)
+-   [Authentifizierungsrichtlinien](../../ad-ds/manage/How-to-Configure-Protected-Accounts.md#BKMK_CreateAuthNPolicies)
 
 -   [Authentifizierungs Richtlinien Silos](../../ad-ds/manage/How-to-Configure-Protected-Accounts.md#BKMK_CreateAuthNPolicySilos)
 
@@ -169,7 +169,7 @@ Sie können Dienstticket-Anfragen über den Ticket-Granting Service (TGS) einsch
 
 ### <a name="requirements-for-using-authentication-policies"></a><a name="BKMK_ReqForAuthnPolicies"></a>Anforderungen für die Verwendung von Authentifizierungsrichtlinien
 
-|Richtlinie|Anforderungen|
+|Richtlinie|Requirements (Anforderungen)|
 |----------|----------------|
 |Benutzerdefinierte TGT-Lebensdauer| Konto Domänen auf Domänen Funktionsebene auf Windows Server 2012 R2|
 |Benutzeranmeldung beschränken|-Windows Server 2012 R2 Domänen Funktionsebene Konto Domänen mit dynamischer Access Control Unterstützung<br />-Windows 8-, Windows 8.1-, Windows Server 2012-oder Windows Server 2012 R2-Geräte mit dynamischer Access Control Unterstützung|

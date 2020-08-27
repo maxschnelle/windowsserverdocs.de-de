@@ -1,17 +1,17 @@
 ---
 ms.assetid: b11f7a65-ec7b-4c11-8dc4-d7cabb54cd94
 title: Problembehandlung für Active Directory-Replikationsprobleme
-author: MicrosoftGuyJFlo
-ms.author: joflore
-manager: mtillman
+author: iainfoulds
+ms.author: iainfou
+manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: 630ba90cd2e5c00753b707754d32530b38c8db8d
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 2ceb13e3729310e01063c0c5c3694806b1565363
+ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87941619"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88941490"
 ---
 # <a name="troubleshooting-active-directory-replication-problems"></a>Problembehandlung für Active Directory-Replikationsprobleme
 
@@ -114,7 +114,7 @@ Verwenden Sie Repadmin, um den Replikations Status täglich zu überwachen, inde
 
 Mit dem folgenden Verfahren können Sie den Replikations Status aller Domänen Controller in der Gesamtstruktur abrufen.
 
-Anforderungen
+Requirements (Anforderungen)
 
 Um dieses Verfahren auszuführen, ist mindestens die Mitgliedschaft in **Unternehmensadministratoren** oder eine entsprechende Berechtigung erforderlich.
 
@@ -126,7 +126,7 @@ Tools:
 ### <a name="to-generate-a-repadmin-showrepl-spreadsheet-for-domain-controllers"></a>So generieren Sie ein repadmin/showrepl-Arbeitsblatt für Domänen Controller
 
 1. Öffnen Sie eine Eingabeaufforderung als Administrator: Klicken Sie im Startmenü mit der rechten Maustaste auf Eingabeaufforderung, und klicken Sie dann auf als Administrator ausführen. Wenn das Dialogfeld Benutzerkontensteuerung angezeigt wird, geben Sie bei Bedarf Anmelde Informationen für Enterprise Admins an, und klicken Sie dann auf Weiter.
-2. Geben Sie an der Eingabeaufforderung den folgenden Befehl ein, und drücken Sie dann die EINGABETASTE:`repadmin /showrepl * /csv > showrepl.csv`
+2. Geben Sie an der Eingabeaufforderung den folgenden Befehl ein, und drücken Sie dann die EINGABETASTE: `repadmin /showrepl * /csv > showrepl.csv`
 3. Öffnen Sie Excel.
 4. Klicken Sie auf die Schaltfläche Office, klicken Sie auf öffnen, navigieren Sie zu showrepl.csv und klicken Sie dann auf Öffnen.
 5. Blenden Sie die Spalte A und die Spalte Transporttyp wie folgt aus, oder löschen Sie Sie:

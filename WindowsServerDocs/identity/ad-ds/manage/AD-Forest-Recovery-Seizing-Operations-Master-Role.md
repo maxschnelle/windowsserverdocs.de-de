@@ -1,17 +1,17 @@
 ---
 title: 'AD-Gesamtstruktur Wiederherstellung: Übernahme einer Betriebs Master Rolle'
-ms.author: joflore
-author: MicrosoftGuyJFlo
-manager: mtillman
+ms.author: iainfou
+author: iainfoulds
+manager: daveba
 ms.date: 08/09/2018
 ms.topic: article
 ms.assetid: 7e6bb370-f840-4416-b5e2-86b0ba715f4f
-ms.openlocfilehash: dc9c435d45e15af627a259c73dcdd81a7689cbe6
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 7d7b1abfaf7e3ed4f3780ff2d819340ba8fe98c0
+ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87943723"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88941530"
 ---
 # <a name="ad-forest-recovery---seizing-an-operations-master-role"></a>AD-Gesamtstruktur Wiederherstellung: Übernahme einer Betriebs Master Rolle
 
@@ -57,11 +57,11 @@ Mithilfe des folgenden Verfahrens können Sie eine Betriebs Master Rolle (auch a
 
 6. Geben Sie in Abhängigkeit von der Rolle, die Sie übernehmen möchten, den entsprechenden Befehl **in der folgenden** Tabelle ein, und drücken Sie dann die EINGABETASTE.
 
-|Role|Anmeldeinformationen|Befehl|
+|Role|Anmeldeinformationen|Get-Help|
 |----------|-----------------|-------------|
 |Domänen Namen Master|Organisationsadministratoren|**Benennungs Master**|
 |Schema Master|Schema-Admins|**Schema Master übernehmen**|
-|Infrastruktur Master **Hinweis:** nachdem Sie die Infrastruktur Master Rolle übernommen haben, erhalten Sie möglicherweise später eine Fehlermeldung, wenn Sie adprep/rodcprep. ausführen müssen. Weitere Informationen finden Sie im KB-Artikel [949257](https://support.microsoft.com/kb/949257).|Domänenadministratoren|**Infrastruktur Master übernehmen**|
+|Infrastruktur Master **Hinweis:**  nachdem Sie die Infrastruktur Master Rolle übernommen haben, erhalten Sie möglicherweise später eine Fehlermeldung, wenn Sie adprep/rodcprep. ausführen müssen. Weitere Informationen finden Sie im KB-Artikel [949257](https://support.microsoft.com/kb/949257).|Domänenadministratoren|**Infrastruktur Master übernehmen**|
 |PDC-Emulator-Master|Domänenadministratoren|**PDC übernehmen**|
 |-RID-Master|Domänenadministratoren|**RID-Master übernehmen**|
 

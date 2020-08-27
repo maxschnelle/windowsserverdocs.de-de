@@ -2,17 +2,17 @@
 ms.assetid: 66fa945e-598d-4f18-b603-97a39ce0d836
 title: Installieren eines schreibgeschützten Domänencontrollers (RODC) in Windows Server 2012 (Stufe 200)
 description: In diesem Thema erfahren Sie, wie Sie ein gestaffeltes RODC-Konto erstellen und anschließend bei der RODC-Installation einen Server an dieses Konto anfügen können. Außerdem wird die Installation eines RODC ohne gestaffelte Installation beschrieben.
-author: MicrosoftGuyJFlo
-ms.author: joflore
-manager: mtillman
+author: iainfoulds
+ms.author: iainfou
+manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: a46d18a0d2f589cb0ae7ee5915af0c84b0c8982f
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: a0c800d975b36f92d5b4bcf1801d06897cbefac3
+ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87950404"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88941600"
 ---
 # <a name="install-a-windows-server-2012-active-directory-read-only-domain-controller-rodc-level-200"></a>Installieren eines schreibgeschützten Domänencontrollers (RODC) in Windows Server 2012 (Stufe 200)
 
@@ -274,7 +274,7 @@ Sie können eine sichere Zeichenfolge auch als konvertierte Klartextvariable ang
 -safemodeadministratorpassword (convertto-securestring Password1 -asplaintext -force)
 ```
 
-Zuletzt sollten Sie das verborgene Kennwort in einer Datei speichern und später wiederverwenden, ohne dass jemals das Klartextkennwort erscheint. Zum Beispiel:
+Zuletzt sollten Sie das verborgene Kennwort in einer Datei speichern und später wiederverwenden, ohne dass jemals das Klartextkennwort erscheint. Beispiel:
 
 ```
 $file = c:\pw.txt
@@ -325,7 +325,7 @@ Auf der Seite **Pfade** können Sie die standardmäßigen Ordnerpfade der AD DS-
 ### <a name="review-options-and-view-script"></a>Optionen prüfen und Skript anzeigen
 ![RODC installieren](media/Install-a-Windows-Server-2012-Active-Directory-Read-Only-Domain-Controller--RODC---Level-200-/ADDS_SMI_TR_Stage2ReviewOptions.png)
 
-Auf der Seite **Optionen prüfen** können Sie vor dem Starten der Installation Ihre Einstellungen validieren und sicherstellen, dass Ihre Anforderungen erfüllt werden. Dies ist jedoch nicht die letzte Möglichkeit, um die Installation mit Server-Manager zu stoppen. Diese Seite ermöglicht Ihnen lediglich das Überprüfen und Bestätigen Ihrer Einstellungen, bevor Sie die Konfiguration fortsetzen. Die Seite **Optionen prüfen** im Server-Manager bietet zudem die optionale Schaltfläche **Skript anzeigen** zum Erstellen einer Unicode-Textdatei, die die aktuelle ADDSDeployment-Konfiguration als einzelnes Windows PowerShell-Skript enthält. Dies ermöglicht Ihnen die Verwendung der grafischen Oberfläche von Server-Manager als Windows PowerShell-Bereitstellungsstudio. Mithilfe des Konfigurations-Assistenten für die Active Directory-Domänendienste können Sie Optionen konfigurieren, die Konfiguration exportieren und den Assistenten abbrechen. Bei diesem Prozess wird ein gültiges und syntaktisch korrektes Muster zur weiteren Änderung oder direkten Verwendung erstellt. Zum Beispiel:
+Auf der Seite **Optionen prüfen** können Sie vor dem Starten der Installation Ihre Einstellungen validieren und sicherstellen, dass Ihre Anforderungen erfüllt werden. Dies ist jedoch nicht die letzte Möglichkeit, um die Installation mit Server-Manager zu stoppen. Diese Seite ermöglicht Ihnen lediglich das Überprüfen und Bestätigen Ihrer Einstellungen, bevor Sie die Konfiguration fortsetzen. Die Seite **Optionen prüfen** im Server-Manager bietet zudem die optionale Schaltfläche **Skript anzeigen** zum Erstellen einer Unicode-Textdatei, die die aktuelle ADDSDeployment-Konfiguration als einzelnes Windows PowerShell-Skript enthält. Dies ermöglicht Ihnen die Verwendung der grafischen Oberfläche von Server-Manager als Windows PowerShell-Bereitstellungsstudio. Mithilfe des Konfigurations-Assistenten für die Active Directory-Domänendienste können Sie Optionen konfigurieren, die Konfiguration exportieren und den Assistenten abbrechen. Bei diesem Prozess wird ein gültiges und syntaktisch korrektes Muster zur weiteren Änderung oder direkten Verwendung erstellt. Beispiel:
 
 ```
 #
@@ -491,7 +491,7 @@ Sie können eine sichere Zeichenfolge auch als konvertierte Klartextvariable ang
 -safemodeadministratorpassword (convertto-securestring Password1 -asplaintext -force)
 ```
 
-Zuletzt sollten Sie das verborgene Kennwort in einer Datei speichern und später wiederverwenden, ohne dass jemals das Klartextkennwort erscheint. Zum Beispiel:
+Zuletzt sollten Sie das verborgene Kennwort in einer Datei speichern und später wiederverwenden, ohne dass jemals das Klartextkennwort erscheint. Beispiel:
 
 ```
 $file = c:\pw.txt
@@ -604,7 +604,7 @@ Das Argument für das Cmdlet "ADDSDeployment" für "Zusätzliche Optionen" ist:
 
 Auf der Seite **Optionen prüfen** können Sie vor dem Starten der Installation Ihre Einstellungen validieren und sicherstellen, dass Ihre Anforderungen erfüllt werden. Dies ist jedoch nicht die letzte Möglichkeit, um die Installation mit Server-Manager zu stoppen. Diese Seite ermöglicht Ihnen lediglich das Überprüfen und Bestätigen Ihrer Einstellungen, bevor Sie die Konfiguration fortsetzen.
 
-Die Seite **Optionen prüfen** im Server-Manager bietet zudem die optionale Schaltfläche **Skript anzeigen** zum Erstellen einer Unicode-Textdatei, die die aktuelle ADDSDeployment-Konfiguration als einzelnes Windows PowerShell-Skript enthält. Dies ermöglicht Ihnen die Verwendung der grafischen Oberfläche von Server-Manager als Windows PowerShell-Bereitstellungsstudio. Mithilfe des Konfigurations-Assistenten für die Active Directory-Domänendienste können Sie Optionen konfigurieren, die Konfiguration exportieren und den Assistenten abbrechen. Bei diesem Prozess wird ein gültiges und syntaktisch korrektes Muster zur weiteren Änderung oder direkten Verwendung erstellt. Zum Beispiel:
+Die Seite **Optionen prüfen** im Server-Manager bietet zudem die optionale Schaltfläche **Skript anzeigen** zum Erstellen einer Unicode-Textdatei, die die aktuelle ADDSDeployment-Konfiguration als einzelnes Windows PowerShell-Skript enthält. Dies ermöglicht Ihnen die Verwendung der grafischen Oberfläche von Server-Manager als Windows PowerShell-Bereitstellungsstudio. Mithilfe des Konfigurations-Assistenten für die Active Directory-Domänendienste können Sie Optionen konfigurieren, die Konfiguration exportieren und den Assistenten abbrechen. Bei diesem Prozess wird ein gültiges und syntaktisch korrektes Muster zur weiteren Änderung oder direkten Verwendung erstellt. Beispiel:
 
 ```
 #

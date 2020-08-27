@@ -1,17 +1,17 @@
 ---
 ms.assetid: aac117a7-aa7a-4322-96ae-e3cc22ada036
 title: Verwalten der RID-Ausstellung
-author: MicrosoftGuyJFlo
-ms.author: joflore
-manager: mtillman
+author: iainfoulds
+ms.author: iainfou
+manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: 4d3e242bf151650144f8350a4665196672425530
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: fdf4d5c89dfb8d7c4237551a8a67a9e4f63991a7
+ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87943604"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88940550"
 ---
 # <a name="managing-rid-issuance"></a>Verwalten der RID-Ausstellung
 
@@ -82,7 +82,7 @@ Dcdiag.exe /TEST:RidManager /v | find /i "Available RID Pool for the Domain"
 
 ```
 
-Wenn Sie den globalen RID-Pool vergrößern, wächst dieser vom Standardwert 1.073.741.823 auf 2.147.483.647. Zum Beispiel:
+Wenn Sie den globalen RID-Pool vergrößern, wächst dieser vom Standardwert 1.073.741.823 auf 2.147.483.647. Beispiel:
 
 ![Rid-Ausstellung](media/Managing-RID-Issuance/ADDS_RID_TR_Dcdiag.png)
 
@@ -253,44 +253,44 @@ Die folgenden neuen Nachrichten werden in das Systemereignisprotokoll in Windows
 
 | Ereignis-ID | 16653 |
 |--|--|
-| Quelle | Verzeichnisdienst-SAM |
-| Schweregrad | Warnung |
-| Meldung | Eine Poolgröße für Kontobezeichner (RIDs), die ein Administrator konfiguriert hat, übersteigt das unterstützte Maximum. Der maximale Wert "%1" wird verwendet, wenn der Domänencontroller der RID-Master ist.<p>Weitere Informationen finden Sie unter [Größenbeschränkungen der RID-Blockgröße](../../ad-ds/manage/../../ad-ds/manage/../../ad-ds/manage/../../ad-ds/manage/Managing-RID-Issuance.md#BKMK_RIDBlockMaxSize). |
+| `Source` | Verzeichnisdienst-SAM |
+| severity | Warnung |
+| `Message` | Eine Poolgröße für Kontobezeichner (RIDs), die ein Administrator konfiguriert hat, übersteigt das unterstützte Maximum. Der maximale Wert "%1" wird verwendet, wenn der Domänencontroller der RID-Master ist.<p>Weitere Informationen finden Sie unter [Größenbeschränkungen der RID-Blockgröße](../../ad-ds/manage/../../ad-ds/manage/../../ad-ds/manage/../../ad-ds/manage/Managing-RID-Issuance.md#BKMK_RIDBlockMaxSize). |
 | Hinweise und Lösung | Der maximale Wert für die RID-Blockgröße ist nun 15.000 dezimal (3A98 hexadezimal). Domänencontroller können nicht mehr als 15.000 RIDs anfordern. Dieses Ereignis wird bei jedem Neustart protokolliert, bis der Wert auf das Maximum oder darunter gesetzt wurde. |
 
 | Ereignis-ID | 16654 |
 |--|--|
-| Quelle | Verzeichnisdienst-SAM |
-| Schweregrad | Informational |
-| Meldung | Ein Pool aus Kontobezeichnern (RIDs) wurde ungültig gemacht. Dies kann in folgenden erwarteten Fällen vorkommen:<p>1. ein Domänen Controller wird aus der Sicherung wieder hergestellt.<p>2. ein Domänen Controller, der auf einer virtuellen Maschine ausgeführt wird, wird aus einer Momentaufnahme wieder hergestellt<p>3. ein Administrator hat den Pool manuell ungültig gemacht.<p>Weitere Informationen finden Sie unter https://go.microsoft.com/fwlink/?LinkId=226247. |
+| `Source` | Verzeichnisdienst-SAM |
+| severity | Informational |
+| `Message` | Ein Pool aus Kontobezeichnern (RIDs) wurde ungültig gemacht. Dies kann in folgenden erwarteten Fällen vorkommen:<p>1. ein Domänen Controller wird aus der Sicherung wieder hergestellt.<p>2. ein Domänen Controller, der auf einer virtuellen Maschine ausgeführt wird, wird aus einer Momentaufnahme wieder hergestellt<p>3. ein Administrator hat den Pool manuell ungültig gemacht.<p>Weitere Informationen finden Sie unter https://go.microsoft.com/fwlink/?LinkId=226247. |
 | Hinweise und Lösung | Wenn dieses Ereignis unerwartet auftritt, sollten Sie alle Domänenadministratoren kontaktieren und herausfinden, wer diese Aktion ausgeführt hat. Das Verzeichnisdienste-Ereignisprotokoll enthält außerdem weitere Informationen zum Zeitpunkt, zu dem einer dieser Schritte ausgeführt wurde. |
 
 | Ereignis-ID | 16655 |
 |--|--|
-| Quelle | Verzeichnisdienst-SAM |
-| Schweregrad | Informational |
-| Meldung | Das globale Maximum für Kontobezeichner (RIDs) wurde auf "%1" erhöht. |
+| `Source` | Verzeichnisdienst-SAM |
+| severity | Informational |
+| `Message` | Das globale Maximum für Kontobezeichner (RIDs) wurde auf "%1" erhöht. |
 | Hinweise und Lösung | Wenn dieses Ereignis unerwartet auftritt, sollten Sie alle Domänenadministratoren kontaktieren und herausfinden, wer diese Aktion ausgeführt hat. Dieses Ereignis deutet auf die Erhöhung der Gesamtgröße des RID-Pools jenseits der Standardgrenze von 2<sup>30</sup> und tritt nicht automatisch auf, sondern nur durch Verwaltungsaktionen. |
 
 | Ereignis-ID | 16656 |
 |--|--|
-| Quelle | Verzeichnisdienst-SAM |
-| Schweregrad | Warnung |
-| Meldung | Das globale Maximum für Kontobezeichner (RIDs) wurde auf "%1" erhöht. |
+| `Source` | Verzeichnisdienst-SAM |
+| severity | Warnung |
+| `Message` | Das globale Maximum für Kontobezeichner (RIDs) wurde auf "%1" erhöht. |
 | Hinweise und Lösung | Es ist eine Aktion erforderlich! Diesem Domänencontroller wurde ein Pool aus Kontobezeichnern (RIDs) zugeordnet. Dem Poolwert ist zu entnehmen, dass diese Domäne einen erheblichen Teil der insgesamt verfügbaren Konto-IDs beansprucht.<p>Ein Schutzmechanismus wird aktiviert, wenn die Domäne den folgenden Schwellenwert der insgesamt verfügbaren Konto-IDs erreicht: %1. Der Schutzmechanismus verhindert die Kontoerstellung, bis Sie die Zuweisung von Kontobezeichnern auf dem RID-Master-Domänencontroller manuell aktivieren.<p>Weitere Informationen finden Sie unter https://go.microsoft.com/fwlink/?LinkId=228610. |
 
 | Ereignis-ID | 16657 |
 |--|--|
-| Quelle | Verzeichnisdienst-SAM |
-| Schweregrad | Fehler |
+| `Source` | Verzeichnisdienst-SAM |
+| severity | Fehler |
 | `Message` | Es ist eine Aktion erforderlich! In dieser Domäne ist ein erheblicher Teil der grundsätzlich verfügbaren Kontobezeichner (RIDs) vergeben. Ein Schutzmechanismus wurde aktiviert, weil die verfügbaren verfügbaren Konto-IDs kleiner als: X% [künstliche Ceiling-Argument] sind.<p>Der Schutzmechanismus verhindert die Kontoerstellung, bis Sie die Zuweisung von Kontobezeichnern auf dem RID-Master-Domänencontroller manuell aktivieren.<p>Vor der erneuten Aktivierung der Kontoerstellung müssen unbedingt bestimmte Diagnosemaßnahmen durchgeführt werden, um sicherzustellen, dass die RIDs der Domäne nicht übermäßig schnell verbraucht werden. Alle identifizierten Probleme sollten vor der erneuten Aktivierung der Kontoerstellung behoben werden.<p>Wenn die Probleme, die zum übermäßig schnellen Verbrauch der RIDs führen, nicht behoben werden, können die RIDs der Domäne erschöpft werden, was zur permanenten Deaktivierung der Kontoerstellung in der Domäne führt.<p>Weitere Informationen finden Sie unter https://go.microsoft.com/fwlink/?LinkId=228610. |
 | Hinweise und Lösung | Kontaktieren Sie alle Domänenadministratoren und informieren Sie diese darüber, dass keine weiteren Sicherheitsprinzipale erstellt werden können, bis dieser Schutz außer Kraft gesetzt wird. Weitere Informationen zum Außerkraftsetzen des Schutzes und zur Vergrößerung des RID-Gesamtpools finden Sie unter [Freischalten des globalen RID-Raums](../../ad-ds/manage/../../ad-ds/manage/../../ad-ds/manage/../../ad-ds/manage/Managing-RID-Issuance.md#BKMK_GlobalRidSpaceUnlock). |
 
 | Ereignis-ID | 16658 |
 |--|--|
-| Quelle | Verzeichnisdienst-SAM |
-| Schweregrad | Warnung |
-| Meldung | Dieses Ereignis ist eine regelmäßige Aktualisierung der Anzahl von verbliebenen verfügbaren Kontobezeichnern (RIDs). Die Anzahl der verbleibenden Konto Bezeichner beträgt ungefähr: %1.<p>Kontobezeichner werden verwendet, wenn Konten erstellt werden. Wenn keine Kontobezeichner mehr verfügbar sind, können in der Domäne keine neuen Konten mehr erstellt werden.<p>Weitere Informationen finden Sie unter https://go.microsoft.com/fwlink/?LinkId=228745. |
+| `Source` | Verzeichnisdienst-SAM |
+| severity | Warnung |
+| `Message` | Dieses Ereignis ist eine regelmäßige Aktualisierung der Anzahl von verbliebenen verfügbaren Kontobezeichnern (RIDs). Die Anzahl der verbleibenden Konto Bezeichner beträgt ungefähr: %1.<p>Kontobezeichner werden verwendet, wenn Konten erstellt werden. Wenn keine Kontobezeichner mehr verfügbar sind, können in der Domäne keine neuen Konten mehr erstellt werden.<p>Weitere Informationen finden Sie unter https://go.microsoft.com/fwlink/?LinkId=228745. |
 | Hinweise und Lösung | Kontaktieren Sie alle Domänenadministratoren und informieren Sie diese darüber, dass der RID-Verbrauch einen wichtigen Meilenstein überschritten hat. Ermitteln Sie, ob dieses Verhalten zu erwarten ist, indem Sie die Erstellungsmuster für Objekte prüfen. Dieses Ereignis sollte nur in den seltensten Fällen auftreten und deutet darauf hin, dass mindestens ~100 Millionen RIDs verbraucht wurden. |
 
 ## <a name="see-also"></a>Weitere Informationen

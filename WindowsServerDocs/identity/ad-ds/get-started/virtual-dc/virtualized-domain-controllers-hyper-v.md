@@ -1,16 +1,16 @@
 ---
 title: Virtualisieren von Domänen Controllern mithilfe von Hyper-V
 description: Überlegungen zur Virtualisierung von Windows Server Active Directory-Domäne-Controllern in Hyper-V
-author: MicrosoftGuyJFlo
-ms.author: joflore
+author: iainfoulds
+ms.author: iainfou
 ms.date: 04/19/2018
 ms.topic: article
-ms.openlocfilehash: ad40b5e5049c8b4f29dab4ffac8246a73e5b2fcd
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 55895a86521cc7d093c474fb8e4d3c53e4132894
+ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87956987"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88940070"
 ---
 # <a name="virtualizing-domain-controllers-using-hyper-v"></a>Virtualisieren von Domänen Controllern mithilfe von Hyper-V
 
@@ -30,7 +30,7 @@ Zum Installieren und Verwenden der Hyper-V-Rolle benötigen Sie Folgendes:
 
    - **Ein x64-Prozessor**
       - Hyper-V ist in x64-basierten Versionen von Windows Server 2008 oder höher verfügbar.
-   - **Hardwareunterstützte Virtualisierung**
+   - **Hardware gestützte Virtualisierung**
       - Dieses Feature ist für Prozessoren mit Virtualisierungsoption (Intel Virtualization Technology (Intel VT) oder AMD Virtualization (AMD-V)) verfügbar.
    - **Hardware-Datenausführungsschutz (DEP)**
       - Die Hardware-DEP muss verfügbar und aktiviert sein. Das heißt, Sie müssen Intel XD-Bit (Execute Disable Bit) oder AMD NX-Bit (No Execute Bit) aktivieren.
@@ -44,7 +44,7 @@ Bei der Planung für die Bereitstellung virtualisierter Domänencontroller sollt
 3. Domänencontroller sollten möglichst auf Hardware ausgeführt werden, die sich in unterschiedlichen geografischen Regionen befindet. Dies verringert die Auswirkungen von Notfällen oder Fehlern an einem bestimmten Standort, an dem Domänencontroller gehostet werden.
 4. Versehen Sie all Ihre Domänen mit physischen Domänencontrollern. Dies verringert die Auswirkungen einer Fehlfunktion einer Virtualisierungsplattform (von der auch die von der Plattform abhängigen Hostsysteme betroffen wären).
 
-## <a name="security-considerations"></a>Sicherheitshinweise
+## <a name="security-considerations"></a>Sicherheitsüberlegungen
 
 Der Hostcomputer, auf dem die virtuellen Domänencontroller ausgeführt werden, muss ebenso sorgfältig wie ein beschreibbarer Domänencontroller verwaltet werden, selbst wenn es sich nur um ein Domänenmitglied oder einen Arbeitsgruppencomputer handelt. Dies ist ein wichtiger Sicherheitsaspekt. Ein unzureichend verwalteter Host ist anfällig für Rechteerweiterungsangriffe (d. h., ein böswilliger Benutzer verschafft sich Zugriff und erlangt Systemberechtigungen, die nicht autorisiert oder nicht ordnungsgemäß zugewiesen wurden). Durch einen solchen Angriff können alle vom betroffenen Computer gehosteten virtuellen Computer, Domänen und Gesamtstrukturen gefährdet werden.
 

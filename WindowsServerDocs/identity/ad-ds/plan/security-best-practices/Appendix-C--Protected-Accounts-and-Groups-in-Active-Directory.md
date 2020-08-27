@@ -1,17 +1,17 @@
 ---
 ms.assetid: 5b2876ac-fe7d-4054-bfba-b692e57bc0d2
 title: 'Anhang C: geschützte Konten und Gruppen in Active Directory'
-author: MicrosoftGuyJFlo
-ms.author: joflore
-manager: mtillman
+author: iainfoulds
+ms.author: iainfou
+manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: e539a91e4d844074c76f6d1f41eb4e6824db242a
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 7a62ad9ecd14d4f4a3126d0294c56082e8a5f701
+ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87963354"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88941616"
 ---
 # <a name="appendix-c-protected-accounts-and-groups-in-active-directory"></a>Anhang C: Geschützte Konten und Gruppen in Active Directory
 
@@ -29,11 +29,11 @@ In der folgenden Tabelle sind die geschützten Gruppen in Active Directory aufge
 
 #### <a name="protected-accounts-and-groups-in-active-directory-by-operating-system"></a>Geschützte Konten und Gruppen in Active Directory nach Betriebs System
 
-| Windows Server 2003 RTM | Windows Server 2003 SP1 und höher | Windows Server 2012, <br> Windows Server 2008 R2 <br> WindowsServer 2008 | Windows Server 2016 |
+| Windows Server 2003 RTM | Windows Server 2003 SP1 und höher | Windows Server 2012, <br> Windows Server 2008 R2 <br> Windows Server 2008 | Windows Server 2016 |
 | --- | --- | --- | --- |
 |Konten-Operatoren|Konten-Operatoren|Konten-Operatoren|Konten-Operatoren|
 |Administrator|Administrator|Administrator|Administrator|
-|Administrators|Administrators|Administrators|Administratoren|
+|Administratoren|Administratoren|Administratoren|Administratoren|
 |Sicherungsoperatoren|Sicherungsoperatoren|Sicherungsoperatoren|Sicherungsoperatoren|
 |Zertifikatherausgeber|||
 |Domänenadministratoren|Domänenadministratoren|Domänenadministratoren|Domänenadministratoren|
