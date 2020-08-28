@@ -1,18 +1,18 @@
 ---
 title: msiexec
 description: Referenz Artikel für den Befehl "msiexec", der die Möglichkeit bietet, Windows Installer über die Befehlszeile zu installieren, zu ändern und auszuführen.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 122eb0ce-ecbc-4909-a52a-15c3413619af
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a72798d7bdd94b3315d54e866e78145af4db1d79
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 1255cf26ac4dd3f9c28189ce7df76d63c875ee64
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87886178"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89025284"
 ---
 # <a name="msiexec"></a>msiexec
 
@@ -30,7 +30,7 @@ msiexec.exe [/i][/a][/j{u|m|/g|/t}][/x] <path_to_package>
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ------- | -------- |
 | /i | Gibt die normale Installation an. |
 | /a | Gibt die administrative Installation an. |
@@ -61,7 +61,7 @@ msiexec.exe /i <path_to_package> [/quiet][/passive][/q{n|b|r|f}]
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ------- | -------- |
 | `<path_to_package>` | Gibt den Speicherort und den Namen der Installationspaket Datei an. |
 | /quiet | Gibt den stillen Modus an. Dies bedeutet, dass keine Benutzerinteraktion erforderlich ist. |
@@ -97,7 +97,7 @@ msiexec.exe /i <path_to_package> [/norestart][/promptrestart][/forcerestart]
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ------- | -------- |
 | `<path_to_package>` | Gibt den Speicherort und den Namen der Installationspaket Datei an. |
 | /norestart | Beendet das Starten des Geräts nach Abschluss der Installation. |
@@ -124,7 +124,7 @@ msiexec.exe [/i][/x] <path_to_package> [/L{i|w|e|a|r|u|c|m|o|p|v|x+|!|*}] <path_
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ------- | -------- |
 | /i | Gibt die normale Installation an. |
 | /x | Deinstalliert das Paket. |
@@ -168,7 +168,7 @@ msiexec.exe [/p][/update][/uninstall[/package<product_code_of_package>]] <path_t
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ------- | -------- |
 | /p | Installiert einen Patch. Wenn Sie eine unbeaufsichtigte Installation durcharbeiten, müssen Sie auch die Eigenschaft REINSTALLMODE auf *ecmus* festlegen und auf *alle*neu installieren. Andernfalls aktualisiert der Patch nur die MSI-Datei, die auf dem Zielgerät zwischengespeichert ist. |
 | /update | Option zum Installieren von Patches. Wenn Sie mehrere Updates anwenden, müssen Sie Sie mit einem Semikolon (;)) trennen. |
@@ -200,7 +200,7 @@ msiexec.exe [/f{p|o|e|d|c|a|u|m|s|v}] <product_code>
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ------- | -------- |
 | /fp | Repariert das Paket, wenn eine Datei fehlt. |
 | /fo | Repariert das Paket, wenn eine Datei nicht vorhanden ist, oder wenn eine ältere Version installiert ist. |

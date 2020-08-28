@@ -1,18 +1,18 @@
 ---
 title: Ausführlich festlegen
 description: Referenz Artikel für Set ausführliche, der angibt, ob die ausführliche Ausgabe während der Erstellung von Schatten Kopien bereitgestellt wird.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 93cb93c9-666f-4c74-814b-1c404a949935
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1b3e406de89b392782fcf81d43b34046ca7f96bd
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 823c43e1ee6f42b36a922473b870c80d392e1f6c
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87882582"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89024904"
 ---
 # <a name="set-verbose"></a>Ausführlich festlegen
 
@@ -26,7 +26,7 @@ set verbose {on | off}
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 |-----------|-------------|
 |    {on    |    off}     |
 

@@ -1,18 +1,18 @@
 ---
 title: beim
 description: Referenz Artikel für den at-Befehl, der Befehle und Programme plant, die auf einem Computer zu einem bestimmten Zeitpunkt (Datum und Uhrzeit) ausgeführt werden.
-ms.topic: article
+ms.topic: reference
 ms.assetid: ff18fd16-9437-4c53-8794-bfc67f5256b3
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e8bd4ba389d072ca1f8054d9f691f434063a8df4
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 017e6bb59b891fddfff9e695f8e3040f678bd611
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87895545"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89029288"
 ---
 # <a name="at"></a>beim
 
@@ -29,7 +29,7 @@ at [\computername] <time> [/interactive] [/every:date[,...] | /next:date[,...]] 
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `\<computername\>` | Gibt einen Remotecomputer an. Wenn Sie diesen Parameter weglassen, plant die Befehle und **Programme auf dem** lokalen Computer. |
 | `<id>` | Gibt die Identifikationsnummer an, die einem geplanten Befehl zugewiesen ist. |
@@ -39,7 +39,7 @@ at [\computername] <time> [/interactive] [/every:date[,...] | /next:date[,...]] 
 | Interaktiv | Ermöglicht dem *Befehl* , mit dem Desktop des Benutzers zu interagieren, der beim Ausführen des *Befehls* angemeldet ist. |
 | jeden | Führt den *Befehl* an allen angegebenen Tages-oder Wochentagen (z. b. jeden Donnerstag oder am dritten Tag jedes Monats) aus. |
 | `<date>` | Gibt das Datum an, an dem der Befehl ausgeführt werden soll. Sie können einen oder mehrere Wochentage angeben (d. h. den Typ **M**,**T**,**W**,**th**,**F**,**S**,**su**) oder mindestens einen Tag des Monats (d. h. den Typ 1 bis 31). Trennen Sie mehrere Datums Einträge durch Kommas. Wenn Sie *Date*weglassen, verwendet **an** den aktuellen Tag des Monats. |
-| weiter | Führt den *Befehl* beim nächsten Vorkommen des Tages aus (z. b. nächster Donnerstag). |
+| weiter | Führt den *Befehl*  beim nächsten Vorkommen des Tages aus (z. b. nächster Donnerstag). |
 | `<command>` | Gibt den Windows-Befehl, das Programm (d. h. eine exe-oder com-Datei) oder ein Batch Programm (also bat-oder cmd-Datei) an, das Sie ausführen möchten. Wenn der Befehl einen Pfad als Argument erfordert, verwenden Sie den absoluten Pfad (d. h. den gesamten Pfad, der mit dem Laufwerk Buchstaben beginnt). Wenn sich der Befehl auf einem Remote Computer befindet, geben Sie Universal Naming Convention (UNC)-Notation für den Server und den Freigabe Namen anstelle eines Remote Laufwerk Buchstabens an. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
@@ -107,7 +107,7 @@ at [\computername] <time> [/interactive] [/every:date[,...] | /next:date[,...]] 
 
     1. Starten Sie den Registrierungs-Editor (regedit.exe).
 
-    2. Suchen Sie den folgenden Schlüssel in der Registrierung, und klicken Sie darauf:`HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Schedule`
+    2. Suchen Sie den folgenden Schlüssel in der Registrierung, und klicken Sie darauf: `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Schedule`
 
     3. Klicken Sie im Menü **Bearbeiten** auf **Wert hinzufügen**, und fügen Sie dann die folgenden Registrierungs Werte hinzu:
 
@@ -115,7 +115,7 @@ at [\computername] <time> [/interactive] [/every:date[,...] | /next:date[,...]] 
 
         - **Datentyp.** reg_DWOrd
 
-        - **Basis.** Decimal
+        - **Basis.** Dezimal
 
         - **Wertdaten:** 1,0. Der Wert **0** (null) im **Datenfeld Wert** gibt an, dass keine Begrenzung fest steht und nicht angehalten wird. Werte von 1 bis 99 gibt die Anzahl der Stunden an.
 

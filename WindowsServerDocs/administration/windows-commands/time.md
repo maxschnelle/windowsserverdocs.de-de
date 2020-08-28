@@ -1,18 +1,18 @@
 ---
 title: time
 description: Erfahren Sie, wie Sie die Systemzeit festlegen und anzeigen.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 1276a257-7283-41da-ae80-fb4cfb311f9d
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1548952c7fcd6d3edcc2dcc0fb3459e27cd0efbb
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: ca279bfacbc3fab3c1a4b56f33f5000fcab9d589
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87881426"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89024534"
 ---
 # <a name="time"></a>time
 
@@ -30,7 +30,7 @@ time [/t | [<HH>[:<MM>[:<SS>]] [am|pm]]]
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |---------|-----------|
 |\<HH>[:\<MM> [:\<SS> [.\<NN>]]] [am \| pm]|Legt die Systemzeit auf die neue angegebene Uhrzeit fest, wobei *HH* in Stunden (erforderlich), *mm* in Minuten und *SS* in Sekunden angegeben wird. *NN* kann verwendet werden, um Hundertstel Sekunden anzugeben. Wenn **am** oder **pm** nicht angegeben ist, verwendet die **Zeit** standardmäßig das 24-Stunden-Format.|
 |/t|Zeigt die aktuelle Zeit an, ohne Sie zur Eingabe eines neuen Zeitraums aufzufordern.|

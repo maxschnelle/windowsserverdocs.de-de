@@ -1,18 +1,18 @@
 ---
 title: Update-Server Files
 description: Referenz Artikel zu Update-serverfiles, mit dem Dateien im freigegebenen Ordner "REMINST" mithilfe der neuesten Dateien aktualisiert werden, die im Ordner "%windir%\system32\reminst" des Servers gespeichert sind.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 23aa79df-38c6-401e-91bd-cd23811b30b4
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f60e5b5c5208d5718a287fd2d012368d13fad9f9
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 4ba2ed4129f1575d5057d2fc88500c0c47e291fc
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87881459"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89036108"
 ---
 # <a name="update-serverfiles"></a>Update-Server Files
 
@@ -26,7 +26,7 @@ WDSUTIL [Options] /Update-ServerFiles [/Server:<Server name>]
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |---------|-----------|
 |[/Server:\<Server name>]|Gibt den Namen des Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.|
 

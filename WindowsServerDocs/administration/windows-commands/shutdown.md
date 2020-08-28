@@ -1,18 +1,18 @@
 ---
 title: shutdown
 description: Referenz Artikel zum Herunterfahren, mit dem Sie lokale oder Remote Computer einzeln Herunterfahren oder neu starten können.
-ms.topic: article
+ms.topic: reference
 ms.assetid: c432f5cf-c5aa-4665-83af-0ec52c87112e
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8dff8150cb6ccfea24238567581320a9b11650d3
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 44ee776ec2ec199fe39cfd17a05dfc3b8ba4502c
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87882359"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89036448"
 ---
 # <a name="shutdown"></a>shutdown
 
@@ -28,7 +28,7 @@ shutdown [/i | /l | /s | /r | /a | /p | /h | /e] [/f] [/m \\<ComputerName>] [/t 
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |---------|-----------|
 |/i|Zeigt das **Dialog Feld Remote herunter** fahren an. Die **/i** -Option muss der erste Parameter sein, der dem Befehl folgt. Wenn **/i** angegeben wird, werden alle anderen Optionen ignoriert.|
 |/l|Meldet den aktuellen Benutzer sofort und ohne Timeout Zeitraum ab. **/L** kann nicht mit **/m** oder **/t**verwendet werden.|
@@ -39,16 +39,16 @@ shutdown [/i | /l | /s | /r | /a | /p | /h | /e] [/f] [/m \\<ComputerName>] [/t 
 |/h|Versetzt den lokalen Computer in den Ruhezustand, wenn der Ruhezustand aktiviert ist. Sie können **/h** nur mit **/f**verwenden.|
 |/e|Hiermit können Sie den Grund für das unerwartete Herunterfahren auf dem Bereitstellungs Zielcomputer dokumentieren.|
 |/f|Erzwingt das Schließen der Ausführung von Anwendungen ohne Warn Benutzer.</br>Vorsicht: Wenn Sie die **/f** -Option verwenden, kann dies zu einem Verlust nicht gespeicherter Daten führen.|
-|/m\\\\\<ComputerName>|Gibt den Zielcomputer an. Kann nicht mit der **/l** -Option verwendet werden.|
-|/t\<XXX>|Legt den Timeout Zeitraum oder die Verzögerung auf *xxx* Sekunden vor einem Neustart oder Herunterfahren fest. Dies bewirkt, dass eine Warnung in der lokalen Konsole angezeigt wird. Sie können 0-600 Sekunden angeben. Wenn Sie **/t**nicht verwenden, beträgt der Timeout Zeitraum standardmäßig 30 Sekunden.|
+|/m \\\\\<ComputerName>|Gibt den Zielcomputer an. Kann nicht mit der **/l** -Option verwendet werden.|
+|/t \<XXX>|Legt den Timeout Zeitraum oder die Verzögerung auf *xxx* Sekunden vor einem Neustart oder Herunterfahren fest. Dies bewirkt, dass eine Warnung in der lokalen Konsole angezeigt wird. Sie können 0-600 Sekunden angeben. Wenn Sie **/t**nicht verwenden, beträgt der Timeout Zeitraum standardmäßig 30 Sekunden.|
 |/d [p \| u:] \<XX> :\<YY>|Listet den Grund für den Neustart oder das Herunterfahren des Systems auf. Im folgenden werden die Parameterwerte aufgeführt:</br>**p** gibt an, dass der Neustart oder das Herunterfahren geplant ist.</br>**u** gibt an, dass der Grund Benutzer definiert ist.</br>Hinweis: Wenn **p** oder **u** nicht angegeben wird, ist der Neustart oder das Herunterfahren nicht geplant.</br>*Xx* gibt die Hauptgrund Zahl an (positive ganze Zahl kleiner als 256).</br>*J* Gibt die neben Grund Nummer an (positive Ganzzahl kleiner als 65536).|
-|/c\<Comment>|Hier können Sie detaillierte Kommentare zum Grund für das Herunterfahren eingeben. Sie müssen zuerst einen Grund angeben, indem Sie die Option **/d** verwenden. Sie müssen Kommentare in Anführungszeichen einschließen. Sie können maximal 511 Zeichen verwenden.|
+|/c \<Comment>|Hier können Sie detaillierte Kommentare zum Grund für das Herunterfahren eingeben. Sie müssen zuerst einen Grund angeben, indem Sie die Option **/d** verwenden. Sie müssen Kommentare in Anführungszeichen einschließen. Sie können maximal 511 Zeichen verwenden.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an, einschließlich einer Liste der Haupt-und neben Gründe, die auf dem lokalen Computer definiert sind.|
 
 ## <a name="remarks"></a>Bemerkungen
 
 -   Benutzern muss das **System** Benutzerrecht Herunterfahren zugewiesen werden, um einen lokalen oder remote verwalteten Computer zu beenden, der den Befehl **Shutdown** verwendet.
--   Benutzer müssen Mitglied der Gruppe "Administratoren" sein, um ein unerwartetes Herunterfahren eines lokalen oder remote verwalteten Computers zu kommentieren. Wenn der Zielcomputer einer Domäne angehört, können Mitglieder der Gruppe "Domänen-Admins" dieses Verfahren möglicherweise ausführen. Weitere Informationen finden Sie unter:
+-   Benutzer müssen Mitglied der Gruppe "Administratoren" sein, um ein unerwartetes Herunterfahren eines lokalen oder remote verwalteten Computers zu kommentieren. Wenn der Zielcomputer einer Domäne angehört, können Mitglieder der Gruppe "Domänen-Admins" dieses Verfahren möglicherweise ausführen. Weitere Informationen finden Sie unter
     -   [Lokale Standardgruppen](/previous-versions/windows/it-pro/windows-server-2003/cc785098(v=ws.10))
     -   [Standardgruppen](/previous-versions/windows/it-pro/windows-server-2003/cc756898(v=ws.10))
 -   Wenn Sie mehrere Computer gleichzeitig Herunterfahren möchten, können Sie das **herunter** fahren für jeden Computer mithilfe eines Skripts aufrufen, oder Sie können **Shutdown** **/i** verwenden, um das Dialog Feld Remote Herunterfahren anzuzeigen.

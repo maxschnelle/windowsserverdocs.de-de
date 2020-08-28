@@ -1,18 +1,18 @@
 ---
 title: reg restore
 description: Referenz Artikel für den Befehl "reg Restore", mit dem gespeicherte Unterschlüssel und Einträge in die Registrierung zurückgeschrieben werden.
-ms.topic: article
+ms.topic: reference
 ms.assetid: a51f1c0c-969b-4b76-930a-c8bb14dea26e
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9642c0973968b3092f6f988017e8c4ad1ef16b09
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: c3f1d864ce0a9d4fc6f244b3affe4b762f95d145
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87884027"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89025074"
 ---
 # <a name="reg-restore"></a>reg restore
 
@@ -26,7 +26,7 @@ reg restore <keyname> <filename>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 |--|--|
 | `<keyname>` | Gibt den vollständigen Pfad des unter Schlüssels an, der wieder hergestellt werden soll. Der Wiederherstellungs Vorgang funktioniert nur mit dem lokalen Computer. Der *keyName* muss einen gültigen Stamm Schlüssel enthalten. Gültige Stamm Schlüssel für den lokalen Computer sind: **HKLM**, **HKCU**, **HKCR**, **HKU**und **HKCC**. Wenn der Registrierungsschlüssel Name ein Leerzeichen enthält, müssen Sie den Schlüsselnamen in Anführungszeichen einschließen. |
 | `<filename>` | Gibt den Namen und Pfad der Datei mit Inhalt an, der in die Registrierung geschrieben werden soll. Diese Datei muss im Voraus mit dem Befehl **reg Save** erstellt werden, und Sie muss über die Erweiterung. HIV verfügen. |
@@ -38,7 +38,7 @@ reg restore <keyname> <filename>
 
 - Die Rückgabewerte für den **reg-Wiederherstellungs** Vorgang lauten:
 
-    | Wert | BESCHREIBUNG |
+    | Wert | Beschreibung |
     |--|--|
     | 0 | Erfolgreich |
     | 1 | Fehler |

@@ -1,18 +1,18 @@
 ---
 title: attach vdisk
 description: Referenz Artikel zum Anfügen eines Vdisk-Befehls, der eine virtuelle Festplatte (manchmal auch als Bereitstellung oder Oberfläche bezeichnet) anfügt, sodass Sie auf dem Host Computer als lokales Festplattenlaufwerk angezeigt wird.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 882ab875-0c14-4eb3-98ef-fd0e8fa40d9c
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 30ef29b0a8bbfed550cfa8c09a94c7b64c09b699
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: bf2b5bb435be441410eeb39ca84ad9a2bd2e0736
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87993040"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89029258"
 ---
 # <a name="attach-vdisk"></a>attach vdisk
 
@@ -31,10 +31,10 @@ attach vdisk [readonly] { [sd=<SDDL>] | [usefilesd] } [noerr]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | readonly | Fügt die VHD als schreibgeschützt an. Bei jedem Schreibvorgang wird ein Fehler zurückgegeben. |
-| `sd=<SDDL string>` | Legt den Benutzer Filter auf der VHD fest. Die Filter Zeichenfolge muss im SDDL-Format (Security Descriptor Definition Language) vorliegen. Standardmäßig ermöglicht der Benutzer Filter den Zugriff wie auf einem physischen Datenträger. SDDL-Zeichen folgen können komplex sein, aber in ihrer einfachsten Form wird eine Sicherheits Beschreibung, die den Zugriff schützt, als freigegebene Zugriffs Steuerungs Liste (DACL) bezeichnet. Dabei wird das folgende Format verwendet: `D:<dacl_flags><string_ace1><string_ace2>` ...`<string_acen>`<p>Allgemeine DACL-Flags sind:<ul><li>**A**. Zugriff zulassen</li><li>**D**. Zugriff verweigern</li></ul>Allgemeine Rechte:<ul><li>Allgemein **verfügbar.** Alle Zugriffe</li><li>**Gr**. Lesezugriff</li><li> **GW**. Schreibzugriff</li></ul>Allgemeine Benutzerkonten:<ul><li>**BA**. Integrierte Administratoren</li><li>**Au**. Authentifizierte Benutzer</li><li>**Co**. Ersteller-Besitzer</li><li>**WD**. Jeder</li></ul>Beispiele:<ul><li>**d:p: (A;; Gr;;; Au**. Bietet Lesezugriff für alle authentifizierten Benutzer.</li><li>**d:p: (A;; GA;;; WD**. Ermöglicht allen Benutzern Vollzugriff.</li></ul> |
+| `sd=<SDDL string>` | Legt den Benutzer Filter auf der VHD fest. Die Filter Zeichenfolge muss im SDDL-Format (Security Descriptor Definition Language) vorliegen. Standardmäßig ermöglicht der Benutzer Filter den Zugriff wie auf einem physischen Datenträger. SDDL-Zeichen folgen können komplex sein, aber in ihrer einfachsten Form wird eine Sicherheits Beschreibung, die den Zugriff schützt, als freigegebene Zugriffs Steuerungs Liste (DACL) bezeichnet. Dabei wird das folgende Format verwendet: `D:<dacl_flags><string_ace1><string_ace2>` ... `<string_acen>`<p>Allgemeine DACL-Flags sind:<ul><li>**A**. Zugriff zulassen</li><li>**D**. Zugriff verweigern</li></ul>Allgemeine Rechte:<ul><li>Allgemein **verfügbar.** Alle Zugriffe</li><li>**Gr**. Lesezugriff</li><li> **GW**. Schreibzugriff</li></ul>Allgemeine Benutzerkonten:<ul><li>**BA**. Integrierte Administratoren</li><li>**Au**. Authentifizierte Benutzer</li><li>**CO**. Ersteller-Besitzer</li><li>**WD**. allen Beteiligten</li></ul>Beispiele:<ul><li>**d:p: (A;; Gr;;; Au**. Bietet Lesezugriff für alle authentifizierten Benutzer.</li><li>**d:p: (A;; GA;;; WD**. Ermöglicht allen Benutzern Vollzugriff.</li></ul> |
 | usefilesd | Gibt an, dass die Sicherheits Beschreibung der VHD-Datei auf der virtuellen Festplatte verwendet werden soll. Wenn der **usefilesd-** Parameter nicht angegeben wird, verfügt die VHD nicht über eine explizite Sicherheits Beschreibung, es sei denn, Sie wird mit dem **SD** -Parameter angegeben. |
 | Noerr | Wird nur für die Skripterstellung verwendet. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird. |
 

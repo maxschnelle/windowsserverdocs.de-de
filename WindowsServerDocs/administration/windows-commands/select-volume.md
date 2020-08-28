@@ -1,18 +1,18 @@
 ---
 title: select volume
 description: Referenz Artikel für * * * *-
-ms.topic: article
+ms.topic: reference
 ms.assetid: 5d70d776-80ad-4f20-8288-a7997fb1df28
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 394afbc4cb046968d9b1e1d88a272598dc23d3b9
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: d2737a25eb9095b70fd6939a4f38b751868323f3
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87882796"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89024984"
 ---
 # <a name="select-volume"></a>select volume
 
@@ -30,7 +30,7 @@ select volume={<n>|<d>}
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter |                                                                               BESCHREIBUNG                                                                                |
+| Parameter |                                                                               Beschreibung                                                                                |
 |-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |    <n>    | Die Nummer des Volumes, das den Fokus erhalten soll. Sie können die Zahlen für alle Volumes auf dem aktuell ausgewählten Datenträger anzeigen, indem Sie den Befehl **Volume auflisten** in DiskPart verwenden. |
 |    <d>    |                                                 Der Laufwerk Buchstabe oder der einstellungspunktpfad des Volumes, das den Fokus erhalten soll.                                                 |

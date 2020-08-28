@@ -1,18 +1,18 @@
 ---
 title: Metadaten festlegen
 description: Referenz Artikel für Set Metadata, der den Namen und den Speicherort der Metadatendatei für die Schatten Erstellung festlegt, die zum Übertragen von Schatten Kopien von einem Computer auf einen anderen verwendet wird.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 67e6f60a-b42a-451a-95cf-b22ace7d50c2
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 02af8f98cbea8ca32d61c474a804b7ba9c0e2e36
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: dabec963b84a5c8d5acfd5e214b8d62d4740d9b3
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87882618"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89024944"
 ---
 # <a name="set-metadata"></a>Metadaten festlegen
 
@@ -26,7 +26,7 @@ set metadata [<Drive>:][<Path>]<MetaData.cab>
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |---------|-----------|
 |[\<Drive>:][<Path>]|Gibt den Speicherort zum Erstellen der Metadatendatei an.|
 |\<MetaData.cab>|Gibt den Namen der CAB-Datei zum Speichern von Metadaten für die Schatten Erstellung an.|

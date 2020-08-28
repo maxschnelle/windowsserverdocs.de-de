@@ -1,18 +1,18 @@
 ---
 title: setx
 description: Referenz Artikel für SETX, mit dem Umgebungsvariablen in der Benutzer-oder Systemumgebung erstellt oder geändert werden, ohne dass Programmieren oder Skripts erforderlich sind.
-ms.topic: article
+ms.topic: reference
 ms.assetid: ef37482f-f8a8-4765-951a-2518faac3f44
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0edab4ce56d3e43e26c1d14b32403a2954cbbce6
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 256f19453edd0c211215a0e161d7d60098ae9cc9
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87882520"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89024894"
 ---
 # <a name="setx"></a>setx
 
@@ -30,20 +30,20 @@ setx [/s <Computer> [/u [<Domain>\]<User name> [/p [<Password>]]]] /f <FileName>
 
 ### <a name="parameters"></a>Parameter
 
-|         Parameter          |                                                                                                                                              BESCHREIBUNG                                                                                                                                              |
+|         Parameter          |                                                                                                                                              Beschreibung                                                                                                                                              |
 |----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|       /s\<Computer>       |                                                                                  Gibt den Namen oder die IP-Adresse eines Remote Computers an. Verwenden Sie keine umgekehrten Schrägstriche. Der Standardwert ist der Name des lokalen Computers.                                                                                  |
+|       /s \<Computer>       |                                                                                  Gibt den Namen oder die IP-Adresse eines Remote Computers an. Verwenden Sie keine umgekehrten Schrägstriche. Der Standardwert ist der Name des lokalen Computers.                                                                                  |
 | u\<Domain>\]<User name> |                                                                                           Führt das Skript mit den Anmelde Informationen des angegebenen Benutzerkontos aus. Der Standardwert ist die System Berechtigungen.                                                                                            |
 |      /p [ \<Password> ]      |                                                                                                         Gibt das Kennwort des Benutzerkontos an, das im **/u** -Parameter angegeben ist.                                                                                                         |
 |        \<Variable>         |                                                                                                                 Gibt den Namen der Umgebungsvariablen an, die Sie festlegen möchten.                                                                                                                  |
 |          \<Value>          |                                                                                                                Gibt den Wert an, auf den die Umgebungsvariable festgelegt werden soll.                                                                                                                 |
-|         /k\<Path>         | Gibt an, dass die Variable auf der Grundlage von Informationen aus einem Registrierungsschlüssel festgelegt wird. Der p-*ATH* verwendet die folgende Syntax:</br>`\\<HIVE>\<KEY>\...\<Value>`</br>Sie können z. b. den folgenden Pfad angeben:</br>`HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\TimeZoneInformation\StandardName` |
+|         /k \<Path>         | Gibt an, dass die Variable auf der Grundlage von Informationen aus einem Registrierungsschlüssel festgelegt wird. Der p-*ATH* verwendet die folgende Syntax:</br>`\\<HIVE>\<KEY>\...\<Value>`</br>Sie können z. b. den folgenden Pfad angeben:</br>`HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\TimeZoneInformation\StandardName` |
 |      /f \<File name>       |                                                                                                                               Gibt die Datei an, die Sie verwenden möchten.                                                                                                                                |
 |        /a \<X> ,<Y>         |                                                                                                                    Gibt absolute Koordinaten und einen Offset als Suchparameter an.                                                                                                                    |
 |   /r \<X> , <Y><String>   |                                                                                                            Gibt relative Koordinaten und einen Offset von der **Zeichenfolge** als Suchparameter an.                                                                                                            |
 |             /m             |                                                                                                Gibt an, dass die Variable in der Systemumgebung festgelegt wird. Die Standardeinstellung ist die lokale Umgebung.                                                                                                 |
 |             /x             |                                                                                                       Zeigt Datei Koordinaten an, wobei die Befehlszeilenoptionen **/a**, **/r**und **/d** ignoriert werden.                                                                                                        |
-|      /d\<Delimiters>      |                    Gibt Trennzeichen wie oder an **,** **\\** die zusätzlich zu den vier integrierten Trennzeichen verwendet werden können – Leerzeichen, Tabstopps, EINGABETASTE und Zeilenvorschub. Gültige Trennzeichen sind beliebige ASCII-Zeichen. Die maximale Anzahl von Trennzeichen beträgt 15, einschließlich integrierter Trennzeichen.                    |
+|      /d \<Delimiters>      |                    Gibt Trennzeichen wie oder an **,** **\\** die zusätzlich zu den vier integrierten Trennzeichen verwendet werden können – Leerzeichen, Tabstopps, EINGABETASTE und Zeilenvorschub. Gültige Trennzeichen sind beliebige ASCII-Zeichen. Die maximale Anzahl von Trennzeichen beträgt 15, einschließlich integrierter Trennzeichen.                    |
 |             /?             |                                                                                                                                 Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                                  |
 
 ## <a name="remarks"></a>Bemerkungen

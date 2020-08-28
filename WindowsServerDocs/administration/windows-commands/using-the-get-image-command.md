@@ -1,18 +1,18 @@
 ---
 title: Get-Image
 description: Referenz Artikel zu Get-Image, das Informationen zu einem Image abruft.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 0ecaa999-72ad-4191-adb5-a418de42a001
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5b97e13441d883a683515222774194c1fb75ecbc
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 9c3e8a25725f939c6a7a7692d192b63bac9ffd41
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87879361"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89029618"
 ---
 # <a name="get-image"></a>Get-Image
 
@@ -30,7 +30,7 @@ für Installations Images:
 wdsutil [Options] /Get-Imagmedia:<Image name> [/Server:<Server name>mediatype:InstallmediaGroup:<Image group name>] [/Filename:<File name>]
 ```
 ### <a name="parameters"></a>Parameter
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |-------|--------|
 Medien<Image name>|Gibt den Namen des Images an.|
 |[/Server:<Server name>]|Gibt den Namen des Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.|

@@ -1,18 +1,18 @@
 ---
 title: rmdir
 description: Referenz Artikel zum rmdir-Befehl, mit dem ein Verzeichnis gelöscht wird.
-ms.topic: article
+ms.topic: reference
 ms.assetid: e4d7162b-7132-413c-a416-6eb3dc032a26
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2351014e07d79baa0e8e5ec07b31f04c9226613e
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: d67c0bb16ad47457cfb6eb927ba9dc5cf167b20c
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87883505"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89036238"
 ---
 # <a name="rmdir"></a>rmdir
 
@@ -31,7 +31,7 @@ rmdir [<drive>:]<path> [/s [/q]]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 |--|--|
 | `[<drive>:]<path>` | Gibt den Speicherort und den Namen des Verzeichnisses an, das Sie löschen möchten. Der *Pfad* ist erforderlich. Wenn Sie einen umgekehrten Schrägstrich ( \) am Anfang des angegebenen *Pfads*) einschließen, wird der *Pfad* im Stammverzeichnis (unabhängig vom aktuellen Verzeichnis) gestartet. |
 | /s | Löscht eine Verzeichnisstruktur (das angegebene Verzeichnis und alle Unterverzeichnisse einschließlich aller Dateien). |
@@ -52,7 +52,7 @@ rmdir [<drive>:]<path> [/s [/q]]
 
     Wenn Sie diese Fehlermeldung erhalten, müssen Sie in ein anderes Verzeichnis wechseln (kein Unterverzeichnis des aktuellen Verzeichnisses), und wiederholen Sie dann den Vorgang.
 
-### <a name="examples"></a>Beispiele
+## <a name="examples"></a>Beispiele
 
 Um zum übergeordneten Verzeichnis zu wechseln, damit Sie das gewünschte Verzeichnis sicher entfernen können, geben Sie Folgendes ein:
 

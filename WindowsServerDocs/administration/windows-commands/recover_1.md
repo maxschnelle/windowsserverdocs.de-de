@@ -1,18 +1,18 @@
 ---
 title: Wiederherstellen (DiskPart)
 description: Referenz Artikel für den Wiederherstellungs Befehl DiskPart, mit dem der Status aller Datenträger in einer Datenträger Gruppe aktualisiert wird, Datenträger in einer ungültigen Datenträger Gruppe wieder hergestellt werden und gespiegelte Volumes und RAID-5-Volumes mit veralteten Daten neu synchronisiert werden.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 8cc3a73d-9456-41a0-b375-2b4cc37c3992
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d768ae658d7ab25e27cd657e9bdf66ff4b754a9b
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 8074fa6ce5edb87911d4c2f774cb0402cd6f41d9
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87884220"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89025094"
 ---
 # <a name="recover-diskpart"></a>Wiederherstellen (DiskPart)
 
@@ -31,7 +31,7 @@ recover [noerr]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 |--|--|
 | Noerr | Nur für Skripterstellung. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird. |
 

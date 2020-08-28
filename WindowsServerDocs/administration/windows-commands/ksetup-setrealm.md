@@ -1,18 +1,18 @@
 ---
 title: ksetup setrealm
 description: Referenz Artikel für den Ksetup setrealm-Befehl, mit dem der Name eines Kerberos-Bereichs festgelegt wird.
-ms.topic: article
+ms.topic: reference
 ms.assetid: ab268c40-276b-46ef-ab16-d5ce7667fbed
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 501660d072cdb651a26098f8ac63cee21dfcba88
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 53de8c94e20f496a6f3078d3ad03a817f23e326a
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87887727"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89025364"
 ---
 # <a name="ksetup-setrealm"></a>ksetup setrealm
 
@@ -29,7 +29,7 @@ ksetup /setrealm <DNSdomainname>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<DNSdomainname>` | Gibt den Großbuchstaben-DNS-Namen an, z. b. Corp. CONTOSO.com. Sie können den voll qualifizierten Domänen Namen oder eine einfache Form des Namens verwenden. Wenn Sie den DNS-Namen nicht in Großbuchstaben verwenden, werden Sie zur Überprüfung aufgefordert, um den Vorgang fortzusetzen. |
 

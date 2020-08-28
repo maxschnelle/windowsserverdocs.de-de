@@ -1,18 +1,18 @@
 ---
 title: Unterbefehl "Ende-Transportserver"
 description: Referenz Artikel für "Ende-Transportserver"
-ms.topic: article
+ms.topic: reference
 ms.assetid: dc1b1eec-6893-445e-81dc-16b3fae287fa
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 49e7c0c61a110fc7a7aa687ff30d60eb8f51a543
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 2981743f422e7d5e8442f26935dbb4afdc97b923
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87881964"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89024634"
 ---
 # <a name="subcommand-stop-transportserver"></a>Unterbefehl: "beendet-Transportserver"
 
@@ -24,7 +24,7 @@ Beendet alle Dienste auf einem Transport Server.
 wdsutil [Options] /Stop-TransportServer [/Server:<Server name>]
 ```
 ### <a name="parameters"></a>Parameter
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |-------|--------|
 |[/Server:<Server name>]|Gibt den Namen des Transport Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn kein Transport Server angegeben ist, wird der lokale Server verwendet.|
 ## <a name="examples"></a><a name="BKMK_examples"></a>Beispiele

@@ -1,18 +1,18 @@
 ---
 title: Scwcmd konfigurieren
 description: Referenz Artikel für * * * *-
-ms.topic: article
+ms.topic: reference
 ms.assetid: 6528b9dc-3d82-4228-b734-ed717458d74c
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7556d28826b422b7693ba0770f1e4fa2e4a3a76d
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 54faae6fd24aac91a94ec9ab1f373737569dda78
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87883212"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89036188"
 ---
 # <a name="scwcmd-configure"></a>Scwcmd: Konfigurieren
 
@@ -28,7 +28,7 @@ scwcmd configure [[[/m:<ComputerName> | /ou:<OuName>] /p:<Policy>] | /i:<Compute
 
 #### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |---------|-----------|
 |/m\<ComputerName>|Gibt den NetBIOS-Namen, den DNS-Namen oder die IP-Adresse des zu konfigurierenden Computers an. Wenn der **/m** -Parameter angegeben wird, muss auch der **/p** -Parameter angegeben werden.|
 |/ou\<OuName>|Gibt den voll qualifizierten Domänen Namen (Fully Qualified Domain Name, FQDN) einer Organisationseinheit (OE) in Active Directory Domain Services an. Wenn der **/OU** -Parameter angegeben wird, muss auch der **/p** -Parameter angegeben werden. Alle Computer in der Organisationseinheit werden gemäß der angegebenen Richtlinie analysiert.|

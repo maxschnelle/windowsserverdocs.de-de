@@ -1,18 +1,18 @@
 ---
 title: shadow
 description: Referenz Artikel zu Schatten, mit dem Sie eine aktive Sitzung eines anderen Benutzers auf einem Remotedesktop-Sitzungshost Server remote steuern können.
-ms.topic: article
+ms.topic: reference
 ms.assetid: f81d9717-6883-4e14-9508-4b2a87e48ea7 Lizap
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 225d85d777c7c6785d2d07916aef1b7d88b6ae53
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 0db1150ac8e0b6382e07e032f780a9cab28bf870
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87882462"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89024864"
 ---
 # <a name="shadow"></a>shadow
 
@@ -28,7 +28,7 @@ shadow {<SessionName> | <SessionID>} [/server:<ServerName>] [/v]
 ```
 
 #### <a name="parameters"></a>Parameter
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |-------|--------|
 |\<SessionName>|Gibt den Namen der Sitzung an, die Sie remote steuern möchten.|
 |\<SessionID>|Gibt die ID der Sitzung an, die Sie remote steuern möchten. Verwenden Sie den **Abfrage Benutzer** , um die Liste der Sitzungen und ihre Sitzungs-IDs anzuzeigen.|

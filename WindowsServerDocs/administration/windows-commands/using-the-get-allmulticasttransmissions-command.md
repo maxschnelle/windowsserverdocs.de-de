@@ -1,18 +1,18 @@
 ---
 title: Get-allmulticastübertragungen
 description: Referenz Artikel zu Get-allmulticasttransmissions, der Informationen zu allen Multicast Übertragungen auf einem Server anzeigt.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 95b8fb79-7a8a-4f0c-88f4-92bc1111c67f
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c732559e1f302278f21044884ef93f7efdf05ce7
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: c0c7c4e77c2ad23fab864839cde03ed4f4806c80
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87879847"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89035958"
 ---
 # <a name="get-allmulticasttransmissions"></a>Get-allmulticastübertragungen
 
@@ -41,10 +41,10 @@ wdsutil /Get-AllMulticastTransmissions [/Server:<Server name>] [/Show:{Boot | In
 
 ## <a name="examples"></a>Beispiele
 Geben Sie Folgendes ein, um Informationen zu allen Übertragungen anzuzeigen:
-- Windows Server 2008:`wdsutil /Get-AllMulticastTransmissions`
+- Windows Server 2008: `wdsutil /Get-AllMulticastTransmissions`
 - Windows Server 2008 R2: `wdsutil /Get-AllMulticastTransmissions /Show:All` Geben Sie Folgendes ein, um Informationen zu allen Übertragungen außer deaktivierten Übertragungen anzuzeigen:
-- Windows Server 2008:`wdsutil /Get-AllMulticastTransmissions /Server:MyWDSServer /Show:Clients /ExcludedeletePending`
-- Windows Server 2008 R2:`wdsutil /Get-AllMulticastTransmissions /Server:MyWDSServer /Show:All /details:Clients /ExcludedeletePending`
+- Windows Server 2008: `wdsutil /Get-AllMulticastTransmissions /Server:MyWDSServer /Show:Clients /ExcludedeletePending`
+- Windows Server 2008 R2: `wdsutil /Get-AllMulticastTransmissions /Server:MyWDSServer /Show:All /details:Clients /ExcludedeletePending`
   ## <a name="additional-references"></a>Weitere Verweise
   - [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md) 
    [Verwenden des Befehls](using-the-get-multicasttransmission-command.md) 

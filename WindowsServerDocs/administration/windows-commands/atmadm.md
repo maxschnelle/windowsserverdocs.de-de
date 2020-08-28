@@ -1,18 +1,18 @@
 ---
 title: atmadm
 description: Referenz Artikel für den atmadm-Befehl, der die Verbindungen und Adressen überwacht, die vom ATM-Telefon-Manager in einem Netzwerk mit einem asynchronen Übertragungsmodus (ATM) registriert werden.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 37156c2e-c4d4-4fd8-a03d-245fb60bf996
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 608783d393aa3df97d1c1a5f524c1e1e3ed1856e
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: b79ecdad00872cb67beb38b7cfe35bbd2c45379e
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87895528"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89029268"
 ---
 # <a name="atmadm"></a>atmadm
 
@@ -28,7 +28,7 @@ atmadm [/c][/a][/s]
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ------- | -------- |
 | /C | Zeigt die Telefon Informationen für alle aktuellen Verbindungen mit dem auf diesem Computer installierten atM-Netzwerkadapter an. |
 | /a | Zeigt die registrierte Netzwerkdienst-Netzwerkdienst-Netzwerkadresse (Network Service Access Point, NSAP) für jeden auf diesem Computer installierten Adapter an. |
@@ -72,7 +72,7 @@ atmadm [/c][/a][/s]
 
     Die folgende Tabelle enthält Beschreibungen der einzelnen Elemente in der/c-Beispielausgabe von **atmadm** .
 
-    | Datentyp | Bildschirm Anzeige | BESCHREIBUNG |
+    | Datentyp | Bildschirm Anzeige | Beschreibung |
     | -------- | --------- | -------- |
     | Verbindungsinformationen | Ein/Aus | Die Richtung des Aufrufes. **In** ist der atM-Netzwerkadapter von einem anderen Gerät aus.  **Out** ist vom atM-Netzwerkadapter auf ein anderes Gerät. |
     | PMP | Punkt-zu-Multipoint-Aufrufe. |
@@ -110,7 +110,7 @@ atmadm [/c][/a][/s]
 
     Die folgende Tabelle enthält Beschreibungen der einzelnen Elemente in der/s-Beispielausgabe von **atmadm** .
 
-    | Statistik zum CallManager | BESCHREIBUNG |
+    | Statistik zum CallManager | Beschreibung |
     | ------------- | -------- |
     | Aktuelle aktive Aufrufe | Aufrufe, die zurzeit auf dem auf diesem Computer installierten atM-Adapter aktiv sind. |
     | Gesamtanzahl erfolgreicher eingehender Aufrufe | Aufrufe, die von anderen Geräten in diesem atM-Netzwerk erfolgreich empfangen wurden. |

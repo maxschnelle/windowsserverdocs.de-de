@@ -1,18 +1,18 @@
 ---
 title: mstsc
 description: Referenz Artikel für den mstsc-Befehl, der Verbindungen mit Remotedesktop-Sitzungshost Servern oder anderen Remote Computern erstellt, eine vorhandene Remotedesktopverbindung (RDP-Konfigurationsdatei) bearbeitet und ältere Verbindungs Dateien, die mit dem Clientverbindungs-Manager erstellt wurden, in neue RDP-Verbindungs Dateien migriert.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 59801227-1e7e-4dbd-96e6-f54102a3ce92
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: abf4824c50b931944c96307f6c9df42e6924b638
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 684ab29a9e1ded85443a2ec2d05ad4f55ec2cd5c
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87886149"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89025214"
 ---
 # <a name="mstsc"></a>mstsc
 
@@ -30,7 +30,7 @@ mstsc.exe /migrate
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ------------|
 | `<connectionfile>` | Gibt den Namen einer RDP-Datei für die Verbindung an. |
 | /v:`<server>[:<port>]` | Gibt den Remote Computer und optional die Portnummer an, mit der Sie eine Verbindung herstellen möchten. |
@@ -40,7 +40,7 @@ mstsc.exe /migrate
 | /h`<height>` | Gibt die Höhe des Remotedesktop Fensters an. |
 | /Public | Führt Remotedesktop im öffentlichen Modus aus. Im öffentlichen Modus werden Kenn Wörter und Bitmaps nicht zwischengespeichert. |
 | /Span | Entspricht der Remotedesktop Breite und-Höhe mit dem lokalen virtuellen Desktop, bei Bedarf über mehrere Monitore hinweg. |
-| /Edit`<connectionfile>` | Öffnet die angegebene RDP-Datei zum Bearbeiten. |
+| /Edit `<connectionfile>` | Öffnet die angegebene RDP-Datei zum Bearbeiten. |
 | /migrate | Migriert Legacy-Verbindungs Dateien, die mit dem Clientverbindungs-Manager erstellt wurden, in neue RDP-Verbindungs Dateien. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 

@@ -1,18 +1,18 @@
 ---
 title: Initialize-Server
 description: Referenz Artikel zu Initialize-Server, mit dem ein Windows-Bereitstellungsdiensteserver für die erstmalige Verwendung nach der Installation der Server Rolle konfiguriert wird.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 68a26ad9-5eb2-4490-b782-b7cd46b8000d
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ac0cf322818f433df4f5f0751656d9eb66bf2fd4
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: e751ad7b035c82481eed29dcad36b33a64895d57
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87896917"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89036418"
 ---
 # <a name="initialize-server"></a>Initialize-Server
 
@@ -24,7 +24,7 @@ Konfiguriert einen Windows-Bereitstellungsdiensteserver für die erstmalige Verw
 wdsutil /Initialize-Server [/Server:<Server name>] /remInst:<Full path> [/Authorize]
 ```
 ### <a name="parameters"></a>Parameter
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |-------|--------|
 |[/Server:<Server name>]|Gibt den Namen des Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.|
 |remInst<Full path>|Gibt den vollständigen Pfad und den Namen des Ordners "RemoteInstall" an. Wenn der angegebene Ordner nicht bereits vorhanden ist, wird er durch diese Option erstellt, wenn der Befehl ausgeführt wird. Sie sollten immer einen lokalen Pfad eingeben, auch wenn es sich um einen Remote Computer handelt. Beispiel: **d:\RemoteInstall**.|

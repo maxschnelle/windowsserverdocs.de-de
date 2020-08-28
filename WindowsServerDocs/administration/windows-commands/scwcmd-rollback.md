@@ -1,18 +1,18 @@
 ---
 title: Scwcmd-Rollback
 description: Referenz Artikel für * * * *-
-ms.topic: article
+ms.topic: reference
 ms.assetid: 4fd9f89b-0420-420a-ad20-4a328636b1e7
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8e0fc158584c15c021b14c96829fe0266c3193be
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 25c726b649028f66ca97ebc0280175d1713b7ef7
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87883126"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89036178"
 ---
 # <a name="scwcmd-rollback"></a>Scwcmd: Rollback
 
@@ -28,7 +28,7 @@ scwcmd rollback /m:<ComputerName> [/u:<UserName>] [/pw:<Password>]
 
 #### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |---------|-----------|
 |/m\<ComputerName>|Gibt den NetBIOS-Namen, den DNS-Namen oder die IP-Adresse eines Computers an, auf dem der Rollback-Vorgang ausgeführt werden soll.|
 |/u\<UserName>|Gibt ein alternatives Benutzerkonto an, das beim Ausführen eines Remote Rollbacks verwendet werden soll. Der Standardwert ist der angemeldete Benutzer.|

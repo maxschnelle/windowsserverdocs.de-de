@@ -1,18 +1,18 @@
 ---
 title: nslookup set recurse
 description: Referenz Artikel für den Befehl "nslookup set recurse", der den Domain Name System (DNS)-Namen Server anweist, andere Server abzufragen, wenn die Informationen auf dem angegebenen Server nicht gefunden werden können.
-ms.topic: article
+ms.topic: reference
 ms.assetid: d1b7a93f-dfb0-4ccd-b230-e0953057fada
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 26a98e646f0915a684129d4b0205384f10c31d49
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 57c881dc101df2ebf8d659f29340a9fcb574cce6
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87885578"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89025204"
 ---
 # <a name="nslookup-set-recurse"></a>nslookup set recurse
 
@@ -26,7 +26,7 @@ set [no]recurse
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ---------- | ---------- |
 | norecurse | Hält den Domain Name System (DNS)-Namen Server daran, andere Server abzufragen, wenn die Informationen auf dem angegebenen Server nicht gefunden werden können. |
 | recurse | Weist den Domain Name System (DNS)-Namen Server an, andere Server abzufragen, wenn die Informationen auf dem angegebenen Server nicht gefunden werden können. Dies ist der Standardwert. |

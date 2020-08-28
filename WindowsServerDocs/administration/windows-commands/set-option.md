@@ -1,18 +1,18 @@
 ---
 title: SET-Option
 description: Referenz Artikel für die Set-Option, mit der die Optionen für die Erstellung von Schatten Kopien festgelegt werden.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 4d8d4921-9fdd-4a3c-bb0f-9df5458c4b84
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 148efa02509678de65af7b2555094fbcb2a3fb55
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 0569e93ee5c732369b9bc07e4452d27558412b81
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87882608"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89036508"
 ---
 # <a name="set-option"></a>SET-Option
 
@@ -26,7 +26,7 @@ set option {[differential | plex] [transportable] [[rollbackrecover] [txfrecover
 
 ### <a name="parameters"></a>Parameter
 
-|     Parameter     |                                                                                                  BESCHREIBUNG                                                                                                  |
+|     Parameter     |                                                                                                  Beschreibung                                                                                                  |
 |-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |   [differenziell   |                                                                                                     Plex                                                                                                     |
 |  austauschen  |                       Gibt an, dass die Schatten Kopie noch nicht importiert werden soll. Die Datei "Metadata. cab" kann später verwendet werden, um die Schatten Kopie auf denselben oder einen anderen Computer zu importieren.                       |

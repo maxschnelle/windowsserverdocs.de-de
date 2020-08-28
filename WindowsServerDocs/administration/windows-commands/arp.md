@@ -1,18 +1,18 @@
 ---
 title: arp
 description: Referenz Artikel für den ARP-Befehl, der Einträge im ARP-Cache (Address Resolution Protocol), die zum Speichern von IP-Adressen und deren aufgelösten physischen Adressen verwendet werden, anzeigt und ändert.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 827e96eb-1945-483f-980f-714703456f7c
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c3e44d471fc31b14bf37b1c4911c0f465e31b3ac
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: b97c285f36bac3fd8587abddaf0a70423eb26155
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87895563"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89029388"
 ---
 # <a name="arp"></a>arp
 
@@ -28,7 +28,7 @@ arp [/a [<inetaddr>] [/n <ifaceaddr>]] [/g [<inetaddr>] [-n <ifaceaddr>]] [/d <i
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `[/a [<inetaddr>] [/n <ifaceaddr>]` | Zeigt die aktuellen ARP-Cache Tabellen für alle Schnittstellen an. Beim Parameter **/n** wird die Groß-/Kleinschreibung beachtet. Wenn Sie den ARP-Cache Eintrag für eine bestimmte IP-Adresse anzeigen möchten, verwenden Sie **ARP/a** mit dem **inetaddr** -Parameter, wobei **inetaddr** eine IP-Adresse ist. Wenn **inetaddr** nicht angegeben wird, wird die erste anwendbare Schnittstelle verwendet. Zum Anzeigen der ARP-Cache Tabelle für eine bestimmte Schnittstelle verwenden Sie den **/n ifaceaddr** -Parameter in Verbindung mit dem **/a** -Parameter, wobei **inetaddr** die der Schnittstelle zugewiesene IP-Adresse ist. |
 | `[/g [<inetaddr>] [/n <ifaceaddr>]` | Identisch mit **/a**. |

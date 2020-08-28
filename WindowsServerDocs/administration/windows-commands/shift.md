@@ -1,18 +1,18 @@
 ---
 title: Schiebeoperatoren
 description: Referenz Artikel für Shift, der die Position von Batch Parametern in einer Batchdatei ändert.
-ms.topic: article
+ms.topic: reference
 ms.assetid: b56574e8-570a-4cc9-bbac-1b94fbf6a47a
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 985c1271a1da8f486e2313ba9aeb266803664b93
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 21e27db00b76945fa24b4e46e4f08c74d090d49f
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87882394"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89024804"
 ---
 # <a name="shift"></a>Schiebeoperatoren
 
@@ -28,9 +28,9 @@ shift [/n <N>]
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |---------|-----------|
-|/n\<N>|Gibt an, dass die Verschiebung beim *n*-ten Argument gestartet werden soll, wobei *N* ein beliebiger Wert zwischen 0 und 8 ist. Erfordert Befehls Erweiterungen, die standardmäßig aktiviert sind.|
+|/n \<N>|Gibt an, dass die Verschiebung beim *n*-ten Argument gestartet werden soll, wobei *N* ein beliebiger Wert zwischen 0 und 8 ist. Erfordert Befehls Erweiterungen, die standardmäßig aktiviert sind.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Bemerkungen

@@ -1,18 +1,18 @@
 ---
 title: get-allnamespaces
 description: Referenz Artikel zu get-allnamespaces, in dem Informationen zu allen Namespaces auf einem Server angezeigt werden.
-ms.topic: article
+ms.topic: reference
 ms.assetid: e8fe896d-a69a-4180-923b-9f18185f5941
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 470aab904f9404b8dbe99409445b0533fa83fedd
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 9cd6010e759c5b33abe011263abf3464e3d7a356
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87896392"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89035968"
 ---
 # <a name="get-allnamespaces"></a>get-allnamespaces
 
@@ -31,7 +31,7 @@ wdsutil /Get-AllNamespaces [/Server:<Server name>] [/ContentProvider:<name>] [/d
 ```
 ### <a name="parameters"></a>Parameter
 
-|         Parameter         |                                                                               WindowsServer 2008                                                                               | Windows Server 2008 R2 |
+|         Parameter         |                                                                               Windows Server 2008                                                                               | Windows Server 2008 R2 |
 |---------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------|
 |  [/Server:<Server name>]  | Gibt den Namen des Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet. |                        |
 | [/Contentprovider: <name> ] |                                                        Zeigt nur die Namespaces für den angegebenen Inhaltsanbieter an.                                                         |                        |
@@ -45,7 +45,7 @@ Wenn Sie alle Namespaces anzeigen möchten, geben Sie Folgendes ein:
 wdsutil /Get-AllNamespaces
 ```
 Wenn Sie alle Namespaces außer den deaktivierten anzeigen möchten, geben Sie Folgendes ein:
-- WindowsServer 2008
+- Windows Server 2008
   ```
   wdsutil /Get-AllNamespaces /Server:MyWDSServer /ContentProvider:MyContentProv /Show:Clients /ExcludedeletePending
   ```

@@ -1,18 +1,18 @@
 ---
 title: shrink
 description: Referenz Artikel zum Verkleinern von Diskpart, wodurch die Größe des ausgewählten Volumes um den von Ihnen angegebenen Betrag verringert wird.
-ms.topic: article
+ms.topic: reference
 ms.assetid: ec87cc7c-9846-465e-a10d-4ee10db4f4e6
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ccae64b5f54c197f8eb1cd684a74c44945b3d069
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 1e0c995323e1f417e139be05d2ea662015c9e70c
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87882382"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89036478"
 ---
 # <a name="shrink"></a>shrink
 
@@ -27,7 +27,7 @@ shrink querymax [noerr]
 ```
 ### <a name="parameters"></a>Parameter
 
-|  Parameter  |                                                                                             BESCHREIBUNG                                                                                              |
+|  Parameter  |                                                                                             Beschreibung                                                                                              |
 |-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | gewünscht =<n> |                                                     Gibt die gewünschte Menge an Speicherplatz in Megabyte (MB) an, um die Größe des Volumes um zu verringern.                                                     |
 | minimal =<n> |                                                           Gibt den minimalen Speicherplatz in MB an, um die Größe des Volumes zu verringern.                                                           |

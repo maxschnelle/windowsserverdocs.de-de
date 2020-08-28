@@ -1,18 +1,18 @@
 ---
 title: reg save
 description: Referenz Artikel für den Befehl reg Save, mit dem eine Kopie der angegebenen Unterschlüssel, Einträge und Werte der Registrierung in einer angegebenen Datei gespeichert wird.
-ms.topic: article
+ms.topic: reference
 ms.assetid: b326482b-c8af-467d-a20c-0481eeda3d5c
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 187811b277ca109ac3f3e1517aeb169bd8baca15
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 17c1bd3439d98ee2e0aa64cb3000f94dfbab41f4
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87884009"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89025004"
 ---
 # <a name="reg-save"></a>reg save
 
@@ -26,7 +26,7 @@ reg save <keyname> <filename> [/y]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 |--|--|
 | `<keyname>` | Gibt den vollständigen Pfad des unter Schlüssels an. Wenn Sie einen Remote Computer angeben möchten, schließen Sie den Computernamen (im Format `\\<computername>\` ) als Teil des *keyName*-Steuerelement ein. Das Weglassen bewirkt, dass `\\<computername>\` der Vorgang standardmäßig auf dem lokalen Computer durchgesetzt wird. Der *keyName* muss einen gültigen Stamm Schlüssel enthalten. Gültige Stamm Schlüssel für den lokalen Computer sind: **HKLM**, **HKCU**, **HKCR**, **HKU**und **HKCC**. Wenn ein Remote Computer angegeben ist, lauten gültige Stamm Schlüssel: **HKLM** und **HKU**. Wenn der Registrierungsschlüssel Name ein Leerzeichen enthält, müssen Sie den Schlüsselnamen in Anführungszeichen einschließen. |
 | `<filename>` | Gibt den Namen und den Pfad der erstellten Datei an. Wenn kein Pfad angegeben ist, wird der aktuelle Pfad verwendet. |
@@ -39,7 +39,7 @@ reg save <keyname> <filename> [/y]
 
 - Die Rückgabewerte für den **reg-Speicher** Vorgang lauten:
 
-    | Wert | BESCHREIBUNG |
+    | Wert | Beschreibung |
     |--|--|
     | 0 | Erfolgreich |
     | 1 | Fehler |
