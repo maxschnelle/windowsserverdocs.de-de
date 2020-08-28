@@ -1,18 +1,18 @@
 ---
 title: manage-bde forcerecovery
 description: Referenz Artikel für den Befehl manage-bde forcerecovery, der beim Neustart ein durch BitLocker geschütztes Laufwerk in den Wiederherstellungs Modus erzwingt.
-ms.topic: article
+ms.topic: reference
 ms.assetid: eecae37c-c9a3-46c5-b615-a0ace1f1d778
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 407ec574c66c057664d517bda35b82da908e0291
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 11dd4754ffebbd204e7ad463c56bce47f2a15714
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87886881"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89037688"
 ---
 # <a name="manage-bde-forcerecovery"></a>manage-bde forcerecovery
 
@@ -26,7 +26,7 @@ manage-bde –forcerecovery <drive> [-computername <name>] [{-?|/?}] [{-help|-h}
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<drive>` | Stellt einen von einem Doppelpunkt gefolgten Laufwerkbuchstaben dar. |
 | -Computername | Gibt an, dass manage-bde.exe zum Ändern des BitLocker-Schutzes auf einem anderen Computer verwendet wird. Sie können auch **-CN** als abgekürzte Version dieses Befehls verwenden. |

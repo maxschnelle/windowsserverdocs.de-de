@@ -1,18 +1,18 @@
 ---
 title: perfmon
 description: Referenz Artikel für den Perfmon-Befehl, der den Windows-Zuverlässigkeits-und Leistungs Monitor in einem bestimmten eigenständigen Modus startet.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 9a8d5eca-8473-463e-a6e0-7bbd590b18e1
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/25/2018
-ms.openlocfilehash: bc8216c87076d619617a4f4639ae44039a00063a
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 331a3e1550c2b3b5fcba47e5eddd2e58e5c5c23d
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87884979"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89037618"
 ---
 # <a name="perfmon"></a>perfmon
 
@@ -26,7 +26,7 @@ perfmon </res|report|rel|sys>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 |--|--|
 | /res | Startet die Ressourcenansicht. |
 | /Report ein | Startet den Datensammler Satz für die System Diagnose und zeigt einen Bericht der Ergebnisse an. |

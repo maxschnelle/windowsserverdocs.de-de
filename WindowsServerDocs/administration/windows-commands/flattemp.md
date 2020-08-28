@@ -1,18 +1,18 @@
 ---
 title: flattemp
 description: Referenz Artikel für den Befehl "flattemp", mit dem flattemporäre Ordner aktiviert oder deaktiviert werden.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 059a0960-1fd9-4382-87fe-a85d5dccdaea
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b90bfdf06fad151ab92ea82782a4171877e6d0ad
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: ac9a3ec390318d52d17f8e537eb10aad4bb1540c
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87890195"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89030619"
 ---
 # <a name="flattemp"></a>flattemp
 
@@ -31,7 +31,7 @@ flattemp {/query | /enable | /disable}
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | /Query "aus | Fragt die aktuelle-Einstellung ab. |
 | /enable | Aktiviert flattemporäre Ordner. Benutzer geben den temporären Ordner frei, es sei denn, der temporäre Ordner befindet sich im Basisordner des Benutzers. |

@@ -1,18 +1,18 @@
 ---
 title: ntfrsutl
 description: Referenz Artikel zum NTFRSUTL-Befehl, der die internen Tabellen, den Thread und die Arbeitsspeicher Informationen für den NT-Datei Replikations Dienst (NTFRS) absichert.
-ms.topic: article
+ms.topic: reference
 ms.assetid: d7721a19-5a87-4ab6-b816-65d2da2c811f
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2676e4cc4d920d766f9cc122f127d3d5e8c9548a
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 6fdbb82322e2aaa130d396b4917f01e7b4391a31
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87885291"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89037258"
 ---
 # <a name="ntfrsutl"></a>ntfrsutl
 
@@ -33,7 +33,7 @@ ntfrsutl poll[/quickly[=[<n>]]][/slowly[=[<n>]]][/now][<computer>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | IDtable | Gibt die ID-Tabelle an. |
 | ConfigTable | Gibt die FRS-Konfigurations Tabelle an. |
@@ -46,7 +46,7 @@ ntfrsutl poll[/quickly[=[<n>]]][/slowly[=[<n>]]][/now][<computer>]
 | ds | Listet die Ansicht der DS des NTFRS-dienstanders auf. |
 | Mengen | Gibt die aktiven Replikat Sätze an. |
 | version | Gibt die API-und NtFrs-Dienst Versionen an. |
-| Umfrage | Gibt die aktuellen Abruf Intervalle an.<ul><li>`/quickly`-Ruft schnell ab, bis eine stabile Konfiguration abgerufen wird.</li><li>`/quickly=`-Ruft schnell jede Standard Anzahl von Minuten ab.</li><li>`/quickly=<n>`-Ruft schnell alle *n* Minuten ab.</li><li>`/slowly`-Ruft langsam ab, bis eine stabile Konfiguration abgerufen wird.</li><li>`/slowly=`-Ruft langsam jede Standard Anzahl von Minuten ab.</li><li>`/slowly=<n>`-Ruft alle *n* Minuten langsam ab.</li><li>`/now`-Ruft jetzt ab.</li></ul>|
+| Umfrage | Gibt die aktuellen Abruf Intervalle an.<ul><li>`/quickly` -Ruft schnell ab, bis eine stabile Konfiguration abgerufen wird.</li><li>`/quickly=` -Ruft schnell jede Standard Anzahl von Minuten ab.</li><li>`/quickly=<n>` -Ruft schnell alle *n* Minuten ab.</li><li>`/slowly` -Ruft langsam ab, bis eine stabile Konfiguration abgerufen wird.</li><li>`/slowly=` -Ruft langsam jede Standard Anzahl von Minuten ab.</li><li>`/slowly=<n>` -Ruft alle *n* Minuten langsam ab.</li><li>`/now` -Ruft jetzt ab.</li></ul>|
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
 ### <a name="examples"></a>Beispiele

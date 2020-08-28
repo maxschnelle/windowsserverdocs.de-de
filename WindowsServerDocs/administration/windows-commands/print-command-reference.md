@@ -1,18 +1,18 @@
 ---
 title: Referenz zum Befehlszeilen Tool drucken
 description: Referenz Artikel zum Verwenden der Befehlszeilen Tools für den Druck.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 88d8fa87-6fa8-4774-9294-080b0157ea8d
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5f5d093393908cfcd81909d0a522f2ee423bcbad
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: c0bad2d62add29da39cc7e2b5569f96fd0cfbd08
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87884849"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89037608"
 ---
 # <a name="print-command-line-tool-reference"></a>Referenz zum Befehlszeilen Tool drucken
 
@@ -20,7 +20,7 @@ ms.locfileid: "87884849"
 
 Informationen und Links zu den zugehörigen Befehlszeilen Tools für den Druck.
 
-| Get-Help | BESCHREIBUNG |
+| Befehl | Beschreibung |
 |--|--|
 | [lpq](lpq.md) | Zeigt den Status einer Druck Warteschlange auf einem Computer an, auf dem der Line Printer Daemon (LPD) ausgeführt wird. |
 | [lpr](lpr.md) | Sendet eine Datei an einen Computer oder ein Druckerfreigabe Gerät, auf dem der LPD-Dienst (Line Printer Daemon) ausgeführt wird, um den Druck vorzubereiten. |

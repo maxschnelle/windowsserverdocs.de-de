@@ -1,18 +1,18 @@
 ---
 title: ftp pwd
 description: Referenz Artikel für den FTP-Befehl pwd, der das aktuelle Remote Computer Verzeichnis anzeigt.
-ms.topic: article
+ms.topic: reference
 ms.assetid: bf40dede-5dd8-4d06-bfe4-17c8bada681f
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c229db2b7b245b2b6e5dd252015ec22ab223d73f
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 5d4ec8f922488b872106ca37de9b0998780e7483
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87889102"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89037728"
 ---
 # <a name="ftp-pwd"></a>ftp pwd
 

@@ -1,18 +1,18 @@
 ---
 title: bitsadmin getminretrydelay
 description: Referenz Artikel für den bizadmin getminretrydelay-Befehl, der die Zeitspanne (in Sekunden) abruft, die der Dienst nach einem vorübergehenden Fehler wartet, bevor er versucht, die Datei zu übertragen.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 54f0abab-c129-40ed-a603-50f464d26011
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 89e925dd8db3932e273552a82a497d99fd3bdb95
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 1f5bc6d69e7dbc46bc7e0df3a34ac97f37fda252
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87894200"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89030308"
 ---
 # <a name="bitsadmin-getminretrydelay"></a>bitsadmin getminretrydelay
 
@@ -26,7 +26,7 @@ bitsadmin /getminretrydelay <job>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | -------------- | -------------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 

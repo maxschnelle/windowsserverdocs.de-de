@@ -1,18 +1,18 @@
 ---
 title: "\"Get-alldrivergroups\""
 description: Referenz Artikel zu Get-alldrivergroups, in dem Informationen zu allen Treiber Gruppen auf einem Server angezeigt werden.
-ms.topic: article
+ms.topic: reference
 ms.assetid: f245ba53-f150-41b1-8418-38dcf0410a05
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3a8ab0e97247900c3f9503863a3d4256c1248a8b
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: ed6c58a07d9a9efc5cebea64409a2566b3c0aa04
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87896408"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89026758"
 ---
 # <a name="get-alldrivergroups"></a>"Get-alldrivergroups"
 
@@ -25,7 +25,7 @@ Zeigt Informationen zu allen Treiber Gruppen auf einem Server an.
 wdsutil /Get-AllDriverGroups [/Server:<Server name>] [/Show:{PackageMetaData | Filters | All}]
 ```
 ### <a name="parameters"></a>Parameter
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |-------|--------|
 |[/Server:<Server name>]|Gibt den Namen des Servers an. Dabei kann es sich um den NetBIOS-Namen oder den voll qualifizierten Namen handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.|
 |[/Show: {packagemetadata &#124; Filter &#124; all}]|Zeigt die Metadaten für alle Treiber Pakete in der angegebenen Gruppe an. **Packagemetadata** zeigt Informationen zu allen Filtern für die Treiber Gruppe an. **Filter** zeigt die Metadaten für alle Treiber Pakete und Filter für die Gruppe an.|

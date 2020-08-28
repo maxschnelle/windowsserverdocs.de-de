@@ -1,18 +1,18 @@
 ---
 title: Abmelden
 description: Referenz Artikel für den Befehl "Abmelden", bei dem ein Benutzer von einer Sitzung auf einem Remotedesktop-Sitzungshost Server abgemeldet und die Sitzung gelöscht wird.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 939f09cc-de8c-436c-a05d-aca5f2a06371
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b8eb1b13d7eeddc03ead24bcda10062aea5e1cfe
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 249b63e5b98d17b67c6d00fe6d2f8a634d67de6f
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87887075"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89030528"
 ---
 # <a name="logoff"></a>Abmelden
 
@@ -27,7 +27,7 @@ logoff [<sessionname> | <sessionID>] [/server:<servername>] [/v]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<sessionname>` | Gibt den Namen der Sitzung an. Dabei muss es sich um eine aktive Sitzung handeln.|
 | `<sessionID>` | Gibt die numerische ID an, die die Sitzung mit dem Server identifiziert. |

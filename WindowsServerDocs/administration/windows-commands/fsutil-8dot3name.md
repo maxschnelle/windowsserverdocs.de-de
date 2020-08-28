@@ -5,14 +5,14 @@ manager: dmoss
 ms.author: toklima
 author: toklima
 ms.assetid: a0c6dbfe-d898-496d-9356-825f7fbd90ec
-ms.topic: article
+ms.topic: reference
 ms.date: 10/16/2017
-ms.openlocfilehash: 15d6b323248a51102b2ddcd6b2620722f22ae47a
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 7b5be73c47b419733e29e949327fd57c77967561
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87890083"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89030608"
 ---
 # <a name="fsutil-8dot3name"></a>fsutil 8dot3name
 
@@ -42,15 +42,15 @@ fsutil 8dot3name [strip] [/t] [/s] [/f] [/l [<log file.] ] [/v] <directorypath>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
-| Such`[<volumepath>]` | Fragt das Dateisystem nach dem Status des "8.3 Short Name Creation"-Verhaltens ab.<p>Wenn ein *volumepath* nicht als Parameter angegeben wird, wird die Standardeinstellung "8dot3name Creation Behavior" für alle Volumes angezeigt. |
-| fein`<directorypath>` | Scannt die Dateien im angegebenen *directerypath* nach Registrierungs Schlüsseln, die möglicherweise betroffen sind, wenn 8.3-Kurznamen aus den Dateinamen entfernt wurden. |
-| Set`<defaultvalue> | <volumepath>}` | Ändert das Dateisystem Verhalten für die 8.3-namens Erstellung in den folgenden Instanzen:<ul><li>Wenn *DefaultValue* angegeben wird, wird der Registrierungsschlüssel " **hklm\system\currentcontrolset\control\filesystem\ntfsdisable8dot3namecreationntfsdisable8dot3namecreationntfsdisable8dot3namecreation**" auf " *DefaultValue*" festgelegt.<p>Der *DefaultValue* kann die folgenden Werte aufweisen:<ul><li>**0**: aktiviert die Erstellung von 8.3-Namen für alle Volumes im System.</li><li>**1**: Hiermit wird die Erstellung von 8.3-Namen für alle Volumes im System deaktiviert.</li><li>**2**: legt die Erstellung eines 8.3-namens auf pro Volume fest.</li><li>**3**: Hiermit wird die Erstellung von 8.3-Namen für alle Volumes mit Ausnahme des System Volumes deaktiviert.</li></ul><li>Wenn ein *volumepath* angegeben wird, werden die angegebenen Volumes auf dem datenträgerflag 8dot3name-Eigenschaften so festgelegt, dass die Erstellung von 8.3-Namen für ein angegebenes**Volume (****0**) aktiviert wird.<p>Sie müssen das standardmäßige Dateisystem Verhalten für die Erstellung von 8.3-Namen auf den Wert **2** festlegen, bevor Sie die Erstellung von 8.3-Namen für ein bestimmtes Volume aktivieren oder deaktivieren können.</li></ul> |
-| Platz`<directorypath>` | Entfernt die 8.3-Dateinamen für alle Dateien, die sich im angegebenen *Directoren Pfad*befinden. Der Dateiname 8.3 wird für keine Dateien entfernt, in denen *directoriypath* in Kombination mit dem Dateinamen mehr als 260 Zeichen enthält.<p>Dieser Befehl listet die Registrierungsschlüssel auf, die auf die Dateien verweisen, die 8.3-Dateinamen dauerhaft entfernt haben, jedoch nicht. |
+| Such `[<volumepath>]` | Fragt das Dateisystem nach dem Status des "8.3 Short Name Creation"-Verhaltens ab.<p>Wenn ein *volumepath* nicht als Parameter angegeben wird, wird die Standardeinstellung "8dot3name Creation Behavior" für alle Volumes angezeigt. |
+| fein `<directorypath>` | Scannt die Dateien im angegebenen *directerypath* nach Registrierungs Schlüsseln, die möglicherweise betroffen sind, wenn 8.3-Kurznamen aus den Dateinamen entfernt wurden. |
+| Set `<defaultvalue> | <volumepath>}` | Ändert das Dateisystem Verhalten für die 8.3-namens Erstellung in den folgenden Instanzen:<ul><li>Wenn *DefaultValue* angegeben wird, wird der Registrierungsschlüssel " **hklm\system\currentcontrolset\control\filesystem\ntfsdisable8dot3namecreationntfsdisable8dot3namecreationntfsdisable8dot3namecreation**" auf " *DefaultValue*" festgelegt.<p>Der *DefaultValue* kann die folgenden Werte aufweisen:<ul><li>**0**: aktiviert die Erstellung von 8.3-Namen für alle Volumes im System.</li><li>**1**: Hiermit wird die Erstellung von 8.3-Namen für alle Volumes im System deaktiviert.</li><li>**2**: legt die Erstellung eines 8.3-namens auf pro Volume fest.</li><li>**3**: Hiermit wird die Erstellung von 8.3-Namen für alle Volumes mit Ausnahme des System Volumes deaktiviert.</li></ul><li>Wenn ein *volumepath* angegeben wird, werden die angegebenen Volumes auf dem datenträgerflag 8dot3name-Eigenschaften so festgelegt, dass die Erstellung von 8.3-Namen für ein angegebenes**Volume (****0**) aktiviert wird.<p>Sie müssen das standardmäßige Dateisystem Verhalten für die Erstellung von 8.3-Namen auf den Wert **2** festlegen, bevor Sie die Erstellung von 8.3-Namen für ein bestimmtes Volume aktivieren oder deaktivieren können.</li></ul> |
+| Platz `<directorypath>` | Entfernt die 8.3-Dateinamen für alle Dateien, die sich im angegebenen *Directoren Pfad*befinden. Der Dateiname 8.3 wird für keine Dateien entfernt, in denen *directoriypath* in Kombination mit dem Dateinamen mehr als 260 Zeichen enthält.<p>Dieser Befehl listet die Registrierungsschlüssel auf, die auf die Dateien verweisen, die 8.3-Dateinamen dauerhaft entfernt haben, jedoch nicht. |
 | `<volumepath>` | Gibt den Namen des Laufwerks gefolgt von einem Doppelpunkt oder der GUID im Format an `volume{GUID}` . |
 | /f | Gibt an, dass alle Dateien, die sich im angegebenen *directerypath* befinden, die 8.3-Dateinamen entfernt haben, auch wenn Registrierungsschlüssel vorhanden sind, die auf Dateien mit dem Dateinamen 8.3 verweisen. In diesem Fall entfernt der Vorgang die 8.3-Dateinamen, ändert jedoch keine Registrierungsschlüssel, die auf die Dateien verweisen, die die 8.3-Dateinamen verwenden. **Warnung:** Es wird empfohlen, dass Sie vor der Verwendung des Parameters **/f** das Verzeichnis oder das Volume sichern, da dies zu unerwarteten Anwendungsfehlern führen kann, einschließlich der Unfähigkeit, Programme zu deinstallieren. |
-| /l`[<log file>]` | Gibt eine Protokolldatei an, in der Informationen geschrieben werden.<p>Wenn der **/l** -Parameter nicht angegeben wird, werden alle Informationen in die Standardprotokoll Datei geschrieben: `%temp%\8dot3_removal_log@(GMT YYYY-MM-DD HH-MM-SS)` . log * * |
+| /l `[<log file>]` | Gibt eine Protokolldatei an, in der Informationen geschrieben werden.<p>Wenn der **/l** -Parameter nicht angegeben wird, werden alle Informationen in die Standardprotokoll Datei geschrieben: `%temp%\8dot3_removal_log@(GMT YYYY-MM-DD HH-MM-SS)` . log * * |
 | /s | Gibt an, dass der Vorgang auf die Unterverzeichnisse des angegebenen *directoryPath*angewendet werden soll. |
 | /t | Gibt an, dass das Entfernen von 8 DOT3-Dateinamen im Testmodus ausgeführt werden soll. Alle Vorgänge außer dem tatsächlichen Entfernen der 8.3-Dateinamen werden ausgeführt. Sie können den Testmodus verwenden, um zu ermitteln, welche Registrierungsschlüssel auf Dateien verweisen, die die 8.3-Dateinamen verwenden. |
 | /v | Gibt an, dass alle Informationen, die in die Protokolldatei geschrieben werden, auch in der Befehlszeile angezeigt werden. |

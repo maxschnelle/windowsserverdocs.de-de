@@ -1,18 +1,18 @@
 ---
 title: chcp
 description: Referenz Artikel für den CHCP-Befehl, durch den die Codepage der aktiven Konsole geändert wird.
-ms.topic: article
+ms.topic: reference
 ms.assetid: dc7b1c71-7b80-443d-9cf1-9bcf305aa1fd
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 21dcdc1e663656439bece576287877653d0dcd8c
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 8e725bb3220546864642b2e6a39ddcc0163b1b98
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87892820"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89031088"
 ---
 # <a name="chcp"></a>chcp
 
@@ -26,7 +26,7 @@ chcp [<nnn>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<nnn>` | Gibt die Codepage an. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
@@ -64,7 +64,7 @@ Geben Sie Folgendes ein, um die Einstellung der aktiven Codepage anzuzeigen:
 chcp
 ```
 
-Eine Meldung ähnlich der folgenden wird angezeigt:`Active code page: 437`
+Eine Meldung ähnlich der folgenden wird angezeigt: `Active code page: 437`
 
 Um die aktive Codepage in 850 (mehrsprachig) zu ändern, geben Sie Folgendes ein:
 
@@ -72,7 +72,7 @@ Um die aktive Codepage in 850 (mehrsprachig) zu ändern, geben Sie Folgendes ein
 chcp 850
 ```
 
-Wenn die angegebene Codepage ungültig ist, wird die folgende Fehlermeldung angezeigt:`Invalid code page`
+Wenn die angegebene Codepage ungültig ist, wird die folgende Fehlermeldung angezeigt: `Invalid code page`
 
 ## <a name="additional-references"></a>Weitere Verweise
 

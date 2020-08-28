@@ -1,18 +1,18 @@
 ---
 title: cmd
 description: Referenz Artikel zum CMD-Befehl, der eine neue Instanz des Befehls Interpreters startet, Cmd.exe.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 6ec588db-31a9-4a73-a970-65a2c6f4abbe
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0c4e651a4f88ffa1d85d5be225b3ae6e5d1676dd
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: b782a93d4c61f43bbe45497871fe66f29ef972a4
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87880096"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89030978"
 ---
 # <a name="cmd"></a>cmd
 
@@ -26,7 +26,7 @@ cmd [/c|/k] [/s] [/q] [/d] [/a|/u] [/t:{<b><f> | <f>}] [/e:{on | off}] [/f:{on |
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | /C | Führt den durch die *Zeichenfolge* angegebenen Befehl aus und wird dann beendet. |
 | /k | Führt den durch die *Zeichenfolge* angegebenen Befehl aus und wird fortgesetzt. |
@@ -47,13 +47,13 @@ cmd [/c|/k] [/s] [/q] [/d] [/a|/u] [/t:{<b><f> | <f>}] [/e:{on | off}] [/f:{on |
 
 In der folgenden Tabelle werden gültige hexadezimale Ziffern aufgelistet, die Sie als Werte für und verwenden können `<b>` `<f>` :
 
-| Wert | Color |
+| Wert | Farbe |
 | ----- | ----- |
 | 0 | Schwarz |
 | 1 | Blau |
 | 2 | Grün |
 | 3 | Aqua |
-| 4 | Red |
+| 4 | Rot |
 | 5 | Purple |
 | 6 | Gelb |
 | 7 | White |

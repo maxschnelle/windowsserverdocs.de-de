@@ -1,18 +1,18 @@
 ---
 title: driverquery
 description: Referenz Artikel für den Befehl "driverquery", der es einem Administrator ermöglicht, eine Liste der installierten Gerätetreiber und deren Eigenschaften anzuzeigen.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 92ca4b84-e4e2-405b-9f31-bf6db9f66839
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a996d48927215f8304e5a16f9da67419cbf7de65
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: dbd8ca2de7f15a5b5fb8682dae3a3aa2e105d7cd
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87890759"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89030798"
 ---
 # <a name="driverquery"></a>driverquery
 
@@ -26,12 +26,12 @@ driverquery [/s <system> [/u [<domain>\]<username> [/p <password>]]] [/fo {table
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- |------------ |
-| /s`<system>` | Gibt den Namen oder die IP-Adresse eines Remote Computers an. Verwenden Sie keine umgekehrten Schrägstriche. Die Standardeinstellung ist der lokale Computer. |
-| /u`[<domain>]<username>` | Führt den Befehl mit den Anmelde Informationen des Benutzerkontos aus, wie von " *User* " oder " *Domäne \ Benutzer*" angegeben. Standardmäßig verwendet */s* die Anmelde Informationen des Benutzers, der zurzeit auf dem Computer angemeldet ist, von dem der Befehl ausgegeben wird. **/u** kann nur verwendet werden, wenn **/s** angegeben wird. |
-| /p`<password>` | Gibt das Kennwort des Benutzerkontos an, das im **/u** -Parameter angegeben ist. **/p** kann nur verwendet werden, wenn **/u** angegeben wird. |
-| /FO-Tabelle | Formatiert die Ausgabe als Tabelle. Dies ist die Standardeinstellung. |
+| /s `<system>` | Gibt den Namen oder die IP-Adresse eines Remote Computers an. Verwenden Sie keine umgekehrten Schrägstriche. Die Standardeinstellung ist der lokale Computer. |
+| /u `[<domain>]<username>` | Führt den Befehl mit den Anmelde Informationen des Benutzerkontos aus, wie von " *User* " oder " *Domäne \ Benutzer*" angegeben. Standardmäßig verwendet */s* die Anmelde Informationen des Benutzers, der zurzeit auf dem Computer angemeldet ist, von dem der Befehl ausgegeben wird. **/u** kann nur verwendet werden, wenn **/s** angegeben wird. |
+| /p `<password>` | Gibt das Kennwort des Benutzerkontos an, das im **/u** -Parameter angegeben ist. **/p** kann nur verwendet werden, wenn **/u** angegeben wird. |
+| /FO-Tabelle | Formatiert die Ausgabe als Tabelle. Dies ist die Standardoption. |
 | /FO-Liste | Formatiert die Ausgabe als Liste. |
 | CSV/FO | Formatiert die Ausgabe mit durch Trennzeichen getrennten Werten. |
 | /nh | Lässt die Kopfzeile der angezeigten Treiber Informationen aus. Ungültig, wenn der **/FO** -Parameter auf **List**festgelegt ist. |

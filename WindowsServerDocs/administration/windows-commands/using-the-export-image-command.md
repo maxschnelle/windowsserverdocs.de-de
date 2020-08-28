@@ -1,18 +1,18 @@
 ---
 title: Export-Image
 description: Referenz Artikel für Export-Image, mit dem ein vorhandenes Image aus dem Image Speicher in eine andere Windows-Abbild Datei (WIM-Datei) exportiert wird.
-ms.topic: article
+ms.topic: reference
 ms.assetid: a9b8b467-0f2d-4754-8998-55503a262778
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1f06ded887cf7fcd134ffb8d5b9bfbe588a584e1
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: f31159d0cfaeb135bf1e5db6f1dec48352fbcf48
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87896987"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89026778"
 ---
 # <a name="export-image"></a>Export-Image
 
@@ -43,7 +43,7 @@ wdsutil [Options] /Export-Imagmedia:<Image name> [/Server:<Server name>]
      [/Overwrite:{Yes | No | append}]
 ```
 ### <a name="parameters"></a>Parameter
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |-------|--------|
 Medien<Image name>|Gibt den Namen des zu exportierenden Bilds an.|
 |[/Server:<Server name>]|Gibt den Namen des Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.|

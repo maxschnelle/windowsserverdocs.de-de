@@ -1,18 +1,18 @@
 ---
 title: nslookup set srchlist
 description: Referenz Artikel für den Befehl nslookup set srchlist, der den Domain Name System Standard-DNS-Domänen Namen und die Suchliste ändert.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 8486266d-22ac-4ce5-aad6-1cd0c08110a2
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: de02663ce43b9f3f24f1addd739438a0796be0ea
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 45f829337cca347b1503aca0fb02a1c77359914a
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87885492"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89037288"
 ---
 # <a name="nslookup-set-srchlist"></a>nslookup set srchlist
 
@@ -28,7 +28,7 @@ set srchlist=<domainname>[/...]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<domainname>` | Gibt neue Namen für die DNS-Standard Domäne und-Suchliste an. Der Standardwert für den Domänen Namen basiert auf dem Hostnamen. Sie können maximal sechs Namen angeben, die durch Schrägstriche (/) getrennt sind. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |

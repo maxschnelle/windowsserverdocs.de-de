@@ -1,18 +1,18 @@
 ---
 title: dnscmd
 description: Referenz Artikel für den Befehl dnscmd, bei dem es sich um eine Befehlszeilenschnittstelle zum Verwalten von DNS-Servern handelt.
-ms.topic: article
+ms.topic: reference
 ms.assetid: e7f31cb5-a426-4e25-b714-88712b8defd5
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bc034b86cc095b8bd23a8c0fd71f9da515474068
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 0e79d2cc2d5d014db197ab4bbeb0b24ff70fd145
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87890788"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89030808"
 ---
 # <a name="dnscmd"></a>Dnscmd
 
@@ -28,7 +28,7 @@ dnscmd <servername> <command> [<command parameters>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<servername>` | Die IP-Adresse oder der Hostname eines Remote-oder lokalen DNS-Servers. |
 
@@ -44,7 +44,7 @@ dnscmd [<servername>] /ageallrecords <zonename>[<nodename>] | [/tree]|[/f]
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ---------- | ----------- |
 | `<servername>` | Gibt den DNS-Server an, der vom Administrator verwaltet werden soll, dargestellt durch IP-Adresse, voll qualifizierten Domänen Namen (FQDN) oder Hostname. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<zonename>` | Gibt den voll qualifizierten Namen der Zone an. |
@@ -80,7 +80,7 @@ dnscmd [<servername>] /clearcache
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 
@@ -105,7 +105,7 @@ dnscmd [<servername>] /config <parameter>
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ---------- | ----------- |
 | `<servername>` | Gibt den DNS-Server an, den Sie verwalten möchten, dargestellt durch lokale Computer Syntax, IP-Adresse, FQDN oder Hostname. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<parameter>` | Geben Sie eine Einstellung und als Option einen Wert an. Parameterwerte verwenden diese Syntax: *Parameter* [*value*]. |
@@ -114,45 +114,45 @@ dnscmd [<servername>] /config <parameter>
 | /bootmethod`[0|1|2|3]` | Bestimmt die Quelle, aus der der DNS-Server seine Konfigurationsinformationen erhält. Akzeptiert die Werte:<ul><li>**0** -löscht die Quelle der Konfigurationsinformationen.</li><li>**1** : lädt aus der Bindungs Datei, die sich im DNS-Verzeichnis befindet ( `%systemroot%\System32\DNS` standardmäßig).</li><li>**2** : lädt aus der Registrierung.</li><li>**3** : lädt aus AD DS und der Registrierung. Dies ist die Standardeinstellung.</li></ul> |
 | /defaultagingstate`[0|1]` | Bestimmt, ob das DNS-Bereinigung-Feature für neu erstellte Zonen standardmäßig aktiviert ist. Akzeptiert die Werte:<ul><li>**0** -deaktiviert das Scavenging. Dies ist die Standardeinstellung.</li><li>**1** : aktiviert das scräging.</li></ul> |
 | /defaultnorefreshinterval`[0x1-0xFFFFFFFF|0xA8]` | Legt einen Zeitraum fest, in dem keine Aktualisierungen für dynamisch aktualisierte Datensätze akzeptiert werden. Zonen auf dem Server erben diesen Wert automatisch.<p>Um den Standardwert zu ändern, geben Sie einen Wert im Bereich von **0x1-0xFFFFFFFF**ein. Der Standardwert des Servers ist **0xa8**. |
-| /defaultrefreshinterval`[0x1-0xFFFFFFFF|0xA8]` | Legt einen Zeitraum fest, der für dynamische Updates für DNS-Einträge zulässig ist. Zonen auf dem Server erben diesen Wert automatisch.<p>Um den Standardwert zu ändern, geben Sie einen Wert im Bereich von **0x1-0xFFFFFFFF**ein. Der Standardwert des Servers ist **0xa8**. |
-| /disableautoreversezones`[0|1]` | Aktiviert oder deaktiviert die automatische Erstellung von Reverse-Lookupzonen. Reverse-Lookupzonen bieten die Auflösung von IP-Adressen (Internet Protocol) für DNS-Domänen Namen. Akzeptiert die Werte:<ul><li>**0** : aktiviert die automatische Erstellung von Reverse-Lookupzonen. Dies ist die Standardeinstellung.</li><li>**1** : deaktiviert die automatische Erstellung von Reverse-Lookupzonen.</li></ul> |
-| /disablensrecordsautocreation`[0|1]` | Gibt an, ob der DNS-Server automatisch Namen Server-Ressourcen Einträge (NS) für die von ihm gehosteten Zonen erstellt. Akzeptiert die Werte:<ul><li>**0** -erstellt automatisch Namen Server-Ressourcen Einträge für Zonen, die vom DNS-Server gehostet werden.</li><li>**1** : Es werden nicht automatisch Namen Server-Ressourcen Einträge für Zonen erstellt, die vom DNS-Server gehostet werden.</li></ul> |
-| /dspollinginterval`[0-30]` | Gibt an, wie oft der DNS-Server AD DS nach Änderungen in den in Active Directory integrierten Zonen abruft. |
-| /dstombstoneinterval`[1-30]` |Der Zeitraum in Sekunden, in dem gelöschte Datensätze in AD DS beibehalten werden. |
-| /ednscachetimeout`[3600-15724800]` | Gibt die Anzahl der Sekunden an, für die erweiterte DNS-Informationen (EDNS) zwischengespeichert werden. Der Minimalwert ist **3600**, und der Höchstwert ist **15.724.800**. Der Standardwert ist **604.800** Sekunden (eine Woche). |
-| /enableednsprobes`[0|1]` | Aktiviert oder deaktiviert den Server zum Prüfen anderer Server, um zu bestimmen, ob EDNS unterstützt werden. Akzeptiert die Werte:<ul><li>**0** -deaktiviert die aktive Unterstützung für EDNS-Tests.</li><li>**1** : aktiviert die aktive Unterstützung für EDNS-Tests.</li></ul> |
-| /enablednssec`[0|1]` | Aktiviert oder deaktiviert die Unterstützung für DNS-Sicherheitserweiterungen (DNSSEC). Akzeptiert die Werte:<ul><li>**0** -deaktiviert DNSSEC.</li><li>**1** : aktiviert DNSSEC.</li></ul> |
-| /enableglobalnamessupport`[0|1]` | Aktiviert oder deaktiviert die Unterstützung für die GlobalNames-Zone. Die GlobalNames-Zone unterstützt die Auflösung von DNS-Namen mit einer einzelnen Bezeichnung in einer Gesamtstruktur. Akzeptiert die Werte:<ul><li>**0** -deaktiviert die Unterstützung für die GlobalNames-Zone. Wenn Sie den Wert dieses Befehls auf 0 festlegen, werden die Namen mit einer einzelnen Bezeichnung in der GlobalNames-Zone nicht durch den DNS-Server Dienst aufgelöst.</li><li>**1** : aktiviert die Unterstützung für die GlobalNames-Zone. Wenn Sie den Wert dieses Befehls auf 1 festlegen, löst der DNS-Server Dienstnamen mit einer einzelnen Bezeichnung in der GlobalNames-Zone auf.</li></ul> |
-| /enableglobalqueryblocklist`[0|1]` | Aktiviert oder deaktiviert die Unterstützung für die globale Abfrage Sperr Liste, die die Namensauflösung für Namen in der Liste blockiert. Der DNS-Server Dienst erstellt und aktiviert die globale Abfrage Sperr Liste standardmäßig, wenn der Dienst erstmalig gestartet wird. Verwenden Sie den Befehl dnscmd/Info **/globalqueryblocklist** , um die aktuelle Liste der globalen Abfrage Blöcke anzuzeigen. Akzeptiert die Werte:<ul><li>**0** -deaktiviert die Unterstützung für die globale Abfrage Sperr Liste. Wenn Sie den Wert dieses Befehls auf 0 festlegen, antwortet der DNS-Server Dienst auf Abfragen für Namen in der Sperr Liste.</li><li>**1** : aktiviert die Unterstützung für die globale Abfrage Sperr Liste. Wenn Sie den Wert dieses Befehls auf 1 festlegen, antwortet der DNS-Server Dienst nicht auf Abfragen für Namen in der Sperr Liste.</li></ul> |
-| /eventloglevel`[0|1|2|4]` | Bestimmt, welche Ereignisse im DNS-Server Protokoll in Ereignisanzeige protokolliert werden. Akzeptiert die Werte:<ul><li>**0** -keine Ereignisse werden protokolliert.</li><li>**1** -nur Fehler werden protokolliert.</li><li>**2** : nur Fehler und Warnungen werden protokolliert.</li><li>**4** : protokolliert Fehler, Warnungen und Informations Ereignisse. Dies ist die Standardeinstellung.</li></ul> |
-| /forwarddelegations`[0|1]` | Bestimmt, wie der DNS-Server eine Abfrage für eine delegierte unter Zone behandelt. Diese Abfragen können entweder an die unter Zone gesendet werden, auf die in der Abfrage verwiesen wird, oder an die Liste der Weiterleitungen, die für den DNS-Server benannt werden. Einträge in der-Einstellung werden nur verwendet, wenn die Weiterleitung aktiviert ist. Akzeptiert die Werte:<ul><li>**0** -sendet automatisch Abfragen, die auf delegierte Subzonen verweisen, auf die entsprechende unter Zone. Dies ist die Standardeinstellung.</li><li>**1** : leitet Abfragen, die auf die Delegierte teilzone verweisen, auf die vorhandenen Weiterleitungen weiter.</li></ul> |
-| /forwardingtimeout`[<seconds>]` | Bestimmt, wie viele Sekunden (**0x1-0xFFFFFFFF**) ein DNS-Server darauf wartet, dass eine Weiterleitung antwortet, bevor versucht wird, eine andere Weiterleitung zu versuchen. Der Standardwert ist **0x5**. der Standardwert ist 5 Sekunden. |
-| /globalneamesqueryorder`[0|1]` | Gibt an, ob der DNS-Server Dienst beim Auflösen von Namen zuerst in der GlobalNames-Zone oder in lokalen Zonen sucht. Akzeptiert die Werte:<ul><li>**0** -der DNS-Server Dienst versucht, Namen aufzulösen, indem er die GlobalNames-Zone abfragt, bevor er die Zonen abfragt, für die er autorisierend ist.</li><li>**1** -der DNS-Server Dienst versucht, Namen aufzulösen, indem er die Zonen abfragt, für die er autorisierend ist, bevor er die GlobalNames-Zone abfragt.</li></ul> |
+| /defaultrefreshinterval `[0x1-0xFFFFFFFF|0xA8]` | Legt einen Zeitraum fest, der für dynamische Updates für DNS-Einträge zulässig ist. Zonen auf dem Server erben diesen Wert automatisch.<p>Um den Standardwert zu ändern, geben Sie einen Wert im Bereich von **0x1-0xFFFFFFFF**ein. Der Standardwert des Servers ist **0xa8**. |
+| /disableautoreversezones `[0|1]` | Aktiviert oder deaktiviert die automatische Erstellung von Reverse-Lookupzonen. Reverse-Lookupzonen bieten die Auflösung von IP-Adressen (Internet Protocol) für DNS-Domänen Namen. Akzeptiert die Werte:<ul><li>**0** : aktiviert die automatische Erstellung von Reverse-Lookupzonen. Dies ist die Standardeinstellung.</li><li>**1** : deaktiviert die automatische Erstellung von Reverse-Lookupzonen.</li></ul> |
+| /disablensrecordsautocreation `[0|1]` | Gibt an, ob der DNS-Server automatisch Namen Server-Ressourcen Einträge (NS) für die von ihm gehosteten Zonen erstellt. Akzeptiert die Werte:<ul><li>**0** -erstellt automatisch Namen Server-Ressourcen Einträge für Zonen, die vom DNS-Server gehostet werden.</li><li>**1** : Es werden nicht automatisch Namen Server-Ressourcen Einträge für Zonen erstellt, die vom DNS-Server gehostet werden.</li></ul> |
+| /dspollinginterval `[0-30]` | Gibt an, wie oft der DNS-Server AD DS nach Änderungen in den in Active Directory integrierten Zonen abruft. |
+| /dstombstoneinterval `[1-30]` |Der Zeitraum in Sekunden, in dem gelöschte Datensätze in AD DS beibehalten werden. |
+| /ednscachetimeout `[3600-15724800]` | Gibt die Anzahl der Sekunden an, für die erweiterte DNS-Informationen (EDNS) zwischengespeichert werden. Der Minimalwert ist **3600**, und der Höchstwert ist **15.724.800**. Der Standardwert ist **604.800** Sekunden (eine Woche). |
+| /enableednsprobes `[0|1]` | Aktiviert oder deaktiviert den Server zum Prüfen anderer Server, um zu bestimmen, ob EDNS unterstützt werden. Akzeptiert die Werte:<ul><li>**0** -deaktiviert die aktive Unterstützung für EDNS-Tests.</li><li>**1** : aktiviert die aktive Unterstützung für EDNS-Tests.</li></ul> |
+| /enablednssec `[0|1]` | Aktiviert oder deaktiviert die Unterstützung für DNS-Sicherheitserweiterungen (DNSSEC). Akzeptiert die Werte:<ul><li>**0** -deaktiviert DNSSEC.</li><li>**1** : aktiviert DNSSEC.</li></ul> |
+| /enableglobalnamessupport `[0|1]` | Aktiviert oder deaktiviert die Unterstützung für die GlobalNames-Zone. Die GlobalNames-Zone unterstützt die Auflösung von DNS-Namen mit einer einzelnen Bezeichnung in einer Gesamtstruktur. Akzeptiert die Werte:<ul><li>**0** -deaktiviert die Unterstützung für die GlobalNames-Zone. Wenn Sie den Wert dieses Befehls auf 0 festlegen, werden die Namen mit einer einzelnen Bezeichnung in der GlobalNames-Zone nicht durch den DNS-Server Dienst aufgelöst.</li><li>**1** : aktiviert die Unterstützung für die GlobalNames-Zone. Wenn Sie den Wert dieses Befehls auf 1 festlegen, löst der DNS-Server Dienstnamen mit einer einzelnen Bezeichnung in der GlobalNames-Zone auf.</li></ul> |
+| /enableglobalqueryblocklist `[0|1]` | Aktiviert oder deaktiviert die Unterstützung für die globale Abfrage Sperr Liste, die die Namensauflösung für Namen in der Liste blockiert. Der DNS-Server Dienst erstellt und aktiviert die globale Abfrage Sperr Liste standardmäßig, wenn der Dienst erstmalig gestartet wird. Verwenden Sie den Befehl dnscmd/Info **/globalqueryblocklist** , um die aktuelle Liste der globalen Abfrage Blöcke anzuzeigen. Akzeptiert die Werte:<ul><li>**0** -deaktiviert die Unterstützung für die globale Abfrage Sperr Liste. Wenn Sie den Wert dieses Befehls auf 0 festlegen, antwortet der DNS-Server Dienst auf Abfragen für Namen in der Sperr Liste.</li><li>**1** : aktiviert die Unterstützung für die globale Abfrage Sperr Liste. Wenn Sie den Wert dieses Befehls auf 1 festlegen, antwortet der DNS-Server Dienst nicht auf Abfragen für Namen in der Sperr Liste.</li></ul> |
+| /eventloglevel `[0|1|2|4]` | Bestimmt, welche Ereignisse im DNS-Server Protokoll in Ereignisanzeige protokolliert werden. Akzeptiert die Werte:<ul><li>**0** -keine Ereignisse werden protokolliert.</li><li>**1** -nur Fehler werden protokolliert.</li><li>**2** : nur Fehler und Warnungen werden protokolliert.</li><li>**4** : protokolliert Fehler, Warnungen und Informations Ereignisse. Dies ist die Standardeinstellung.</li></ul> |
+| /forwarddelegations `[0|1]` | Bestimmt, wie der DNS-Server eine Abfrage für eine delegierte unter Zone behandelt. Diese Abfragen können entweder an die unter Zone gesendet werden, auf die in der Abfrage verwiesen wird, oder an die Liste der Weiterleitungen, die für den DNS-Server benannt werden. Einträge in der-Einstellung werden nur verwendet, wenn die Weiterleitung aktiviert ist. Akzeptiert die Werte:<ul><li>**0** -sendet automatisch Abfragen, die auf delegierte Subzonen verweisen, auf die entsprechende unter Zone. Dies ist die Standardeinstellung.</li><li>**1** : leitet Abfragen, die auf die Delegierte teilzone verweisen, auf die vorhandenen Weiterleitungen weiter.</li></ul> |
+| /forwardingtimeout `[<seconds>]` | Bestimmt, wie viele Sekunden (**0x1-0xFFFFFFFF**) ein DNS-Server darauf wartet, dass eine Weiterleitung antwortet, bevor versucht wird, eine andere Weiterleitung zu versuchen. Der Standardwert ist **0x5**. der Standardwert ist 5 Sekunden. |
+| /globalneamesqueryorder `[0|1]` | Gibt an, ob der DNS-Server Dienst beim Auflösen von Namen zuerst in der GlobalNames-Zone oder in lokalen Zonen sucht. Akzeptiert die Werte:<ul><li>**0** -der DNS-Server Dienst versucht, Namen aufzulösen, indem er die GlobalNames-Zone abfragt, bevor er die Zonen abfragt, für die er autorisierend ist.</li><li>**1** -der DNS-Server Dienst versucht, Namen aufzulösen, indem er die Zonen abfragt, für die er autorisierend ist, bevor er die GlobalNames-Zone abfragt.</li></ul> |
 | /globalqueryblocklist`[[<name> [<name>]...]` | Ersetzt die aktuelle globale Abfrage Sperr Liste durch eine Liste der Namen, die Sie angeben. Wenn Sie keine Namen angeben, löscht dieser Befehl die Sperr Liste. Standardmäßig enthält die globale Abfrage Sperr Liste die folgenden Elemente:<ul><li>ISATAP</li><li>WPAD</li></ul>Der DNS-Server Dienst kann einen oder beide dieser Namen beim ersten Start entfernen, wenn er diese Namen in einer vorhandenen Zone findet. |
-| /isslave`[0|1]` | Bestimmt, wie der DNS-Server antwortet, wenn von ihm weiterleiten Abfragen keine Antwort erhalten. Akzeptiert die Werte:<ul><li>**0** -gibt an, dass der DNS-Server keine untergeordnete ist. Wenn die Weiterleitung nicht antwortet, versucht der DNS-Server, die Abfrage selbst aufzulösen. Dies ist die Standardeinstellung.</li><li>**1** : gibt an, dass der DNS-Server untergeordnet ist. Wenn die Weiterleitung nicht antwortet, beendet der DNS-Server die Suche und sendet eine Fehlermeldung an den Resolver.</li></ul> |
-| /localnetpriority`[0|1]` | Legt die Reihenfolge fest, in der die Host Datensätze zurückgegeben werden, wenn der DNS-Server über mehrere Host Einträge für denselben Namen verfügt. Akzeptiert die Werte:<ul><li>**0** -gibt die Datensätze in der Reihenfolge zurück, in der Sie in der DNS-Datenbank aufgelistet sind.</li><li>**1** : gibt die Datensätze zurück, die über ähnliche IP-Netzwerkadressen verfügen. Dies ist die Standardeinstellung.</li></ul> |
-| /logfilemaxsize`[<size>]` | Gibt die maximale Größe in Bytes (**0x10000-0xFFFFFFFF**) der Datei "DNS. log" an. Wenn die maximale Größe der Datei erreicht wird, werden die ältesten Ereignisse von DNS überschrieben. Die Standardgröße ist **0x400000**, d. h. 4 Megabyte (MB). |
-| /LogFilePath`[<path+logfilename>]` | Gibt den Pfad der Datei "DNS. log" an. Der Standardpfad lautet `%systemroot%\System32\Dns\Dns.log`. Sie können einen anderen Pfad angeben, indem Sie das Format verwenden `path+logfilename` . |
-| /logipfilterlist`<IPaddress> [,<IPaddress>...]` | Gibt an, welche Pakete in der Debug-Protokolldatei protokolliert werden. Bei den Einträgen handelt es sich um eine Liste von IP-Adressen. Es werden nur Pakete protokolliert, die an die IP-Adressen in der Liste geleitet werden. |
-| /loglevel`[<eventtype>]` | Bestimmt, welche Ereignis Typen in der Datei "DNS. log" aufgezeichnet werden. Jeder Ereignistyp wird durch eine hexadezimale Zahl dargestellt. Wenn Sie mehr als ein Ereignis im Protokoll verwenden möchten, fügen Sie die Werte mithilfe der hexadezimalen Addition hinzu, und geben Sie dann die Summe ein. Akzeptiert die Werte:<ul><li>**0x0** -der DNS-Server erstellt kein Protokoll. Dies ist der Standardeintrag.</li><li>**0x10** -protokolliert Abfragen und Benachrichtigungen.</li><li>**0x20** : protokolliert Updates.</li><li>**0xFE** -protokolliert Transaktionen, die nicht abgefragt werden.</li><li>**0x100** -protokolliert Frage Transaktionen.</li><li>**0x200** : protokolliert Antworten.</li><li>**0x1000** -protokolliert Sende Pakete.</li><li>**0x2000** -protokolliert Pakete.</li><li>**0x4000** : protokolliert UDP (User Datagram Protocol)-Pakete.</li><li>**0X8000** -protokolliert TCP (Transmission Control Protocol)-Pakete.</li><li>**0xFFFF** -protokolliert alle Pakete.</li><li>**0x10000** -protokolliert Active Directory-Schreib Transaktionen.</li><li>**0x20000** -protokolliert Active Directory-Update Transaktionen.</li><li>**0x1000000** -protokolliert vollständige Pakete.</li><li>**0x80000000** : protokolliert Schreib Transaktionen.</li><li></ul> |
+| /isslave `[0|1]` | Bestimmt, wie der DNS-Server antwortet, wenn von ihm weiterleiten Abfragen keine Antwort erhalten. Akzeptiert die Werte:<ul><li>**0** -gibt an, dass der DNS-Server keine untergeordnete ist. Wenn die Weiterleitung nicht antwortet, versucht der DNS-Server, die Abfrage selbst aufzulösen. Dies ist die Standardeinstellung.</li><li>**1** : gibt an, dass der DNS-Server untergeordnet ist. Wenn die Weiterleitung nicht antwortet, beendet der DNS-Server die Suche und sendet eine Fehlermeldung an den Resolver.</li></ul> |
+| /localnetpriority `[0|1]` | Legt die Reihenfolge fest, in der die Host Datensätze zurückgegeben werden, wenn der DNS-Server über mehrere Host Einträge für denselben Namen verfügt. Akzeptiert die Werte:<ul><li>**0** -gibt die Datensätze in der Reihenfolge zurück, in der Sie in der DNS-Datenbank aufgelistet sind.</li><li>**1** : gibt die Datensätze zurück, die über ähnliche IP-Netzwerkadressen verfügen. Dies ist die Standardeinstellung.</li></ul> |
+| /logfilemaxsize `[<size>]` | Gibt die maximale Größe in Bytes (**0x10000-0xFFFFFFFF**) der Datei "DNS. log" an. Wenn die maximale Größe der Datei erreicht wird, werden die ältesten Ereignisse von DNS überschrieben. Die Standardgröße ist **0x400000**, d. h. 4 Megabyte (MB). |
+| /LogFilePath `[<path+logfilename>]` | Gibt den Pfad der Datei "DNS. log" an. Der Standardpfad lautet `%systemroot%\System32\Dns\Dns.log`. Sie können einen anderen Pfad angeben, indem Sie das Format verwenden `path+logfilename` . |
+| /logipfilterlist `<IPaddress> [,<IPaddress>...]` | Gibt an, welche Pakete in der Debug-Protokolldatei protokolliert werden. Bei den Einträgen handelt es sich um eine Liste von IP-Adressen. Es werden nur Pakete protokolliert, die an die IP-Adressen in der Liste geleitet werden. |
+| /loglevel `[<eventtype>]` | Bestimmt, welche Ereignis Typen in der Datei "DNS. log" aufgezeichnet werden. Jeder Ereignistyp wird durch eine hexadezimale Zahl dargestellt. Wenn Sie mehr als ein Ereignis im Protokoll verwenden möchten, fügen Sie die Werte mithilfe der hexadezimalen Addition hinzu, und geben Sie dann die Summe ein. Akzeptiert die Werte:<ul><li>**0x0** -der DNS-Server erstellt kein Protokoll. Dies ist der Standardeintrag.</li><li>**0x10** -protokolliert Abfragen und Benachrichtigungen.</li><li>**0x20** : protokolliert Updates.</li><li>**0xFE** -protokolliert Transaktionen, die nicht abgefragt werden.</li><li>**0x100** -protokolliert Frage Transaktionen.</li><li>**0x200** : protokolliert Antworten.</li><li>**0x1000** -protokolliert Sende Pakete.</li><li>**0x2000** -protokolliert Pakete.</li><li>**0x4000** : protokolliert UDP (User Datagram Protocol)-Pakete.</li><li>**0X8000** -protokolliert TCP (Transmission Control Protocol)-Pakete.</li><li>**0xFFFF** -protokolliert alle Pakete.</li><li>**0x10000** -protokolliert Active Directory-Schreib Transaktionen.</li><li>**0x20000** -protokolliert Active Directory-Update Transaktionen.</li><li>**0x1000000** -protokolliert vollständige Pakete.</li><li>**0x80000000** : protokolliert Schreib Transaktionen.</li><li></ul> |
 | /maxcachesize | Gibt die maximale Größe des Arbeitsspeicher Caches des DNS-Servers in Kilobyte (KB) an. |
-| /maxcachettl`[<seconds>]` | Bestimmt, wie viele Sekunden (**0x0-0xFFFFFFFF**) ein Datensatz im Cache gespeichert wird. Wenn die **0x0** -Einstellung verwendet wird, speichert der DNS-Server keine Datensätze zwischen. Die Standardeinstellung ist **0x15180** (86.400 Sekunden oder 1 Tag). |
-| /maxnegativecachettl`[<seconds>]` | Gibt an, wie viele Sekunden (**0x1-0xFFFFFFFF**) ein Eintrag, der eine negative Antwort auf eine Abfrage aufzeichnet, weiterhin im DNS-Cache gespeichert wird. Die Standardeinstellung ist **0x384** (900 Sekunden). |
-| /namecheckflag`[0|1|2|3]` | Gibt an, welcher Zeichen Standard beim Überprüfen von DNS-Namen verwendet wird. Akzeptiert die Werte:<ul><li>**0** -verwendet ANSI-Zeichen, die die IETF (Internet Engineering Task Force)-Anforderung für Kommentare (RFCs) erfüllen.</li><li>**1** : verwendet ANSI-Zeichen, die nicht notwendigerweise mit IETF-RFCs übereinstimmen.</li><li>**2** : verwendet Multibytezeichen-UCS-Transformations Format 8 (UTF-8). Dies ist die Standardeinstellung.</li><li>**3** -verwendet alle Zeichen.</li></ul> |
-| /norecursion`[0|1]` | Bestimmt, ob ein DNS-Server eine rekursive Namensauflösung ausführt. Akzeptiert die Werte:<ul><li>**0** -der DNS-Server führt eine rekursive Namensauflösung aus, wenn er in einer Abfrage angefordert wird. Dies ist die Standardeinstellung.</li><li>**1** -der DNS-Server führt keine rekursive Namensauflösung aus.</li></ul> |
+| /maxcachettl `[<seconds>]` | Bestimmt, wie viele Sekunden (**0x0-0xFFFFFFFF**) ein Datensatz im Cache gespeichert wird. Wenn die **0x0** -Einstellung verwendet wird, speichert der DNS-Server keine Datensätze zwischen. Die Standardeinstellung ist **0x15180** (86.400 Sekunden oder 1 Tag). |
+| /maxnegativecachettl `[<seconds>]` | Gibt an, wie viele Sekunden (**0x1-0xFFFFFFFF**) ein Eintrag, der eine negative Antwort auf eine Abfrage aufzeichnet, weiterhin im DNS-Cache gespeichert wird. Die Standardeinstellung ist **0x384** (900 Sekunden). |
+| /namecheckflag `[0|1|2|3]` | Gibt an, welcher Zeichen Standard beim Überprüfen von DNS-Namen verwendet wird. Akzeptiert die Werte:<ul><li>**0** -verwendet ANSI-Zeichen, die die IETF (Internet Engineering Task Force)-Anforderung für Kommentare (RFCs) erfüllen.</li><li>**1** : verwendet ANSI-Zeichen, die nicht notwendigerweise mit IETF-RFCs übereinstimmen.</li><li>**2** : verwendet Multibytezeichen-UCS-Transformations Format 8 (UTF-8). Dies ist die Standardeinstellung.</li><li>**3** -verwendet alle Zeichen.</li></ul> |
+| /norecursion `[0|1]` | Bestimmt, ob ein DNS-Server eine rekursive Namensauflösung ausführt. Akzeptiert die Werte:<ul><li>**0** -der DNS-Server führt eine rekursive Namensauflösung aus, wenn er in einer Abfrage angefordert wird. Dies ist die Standardeinstellung.</li><li>**1** -der DNS-Server führt keine rekursive Namensauflösung aus.</li></ul> |
 | /notcp | Dieser Parameter ist veraltet und hat keine Auswirkung auf die aktuellen Versionen von Windows Server. |
-| /recursionretry`[<seconds>]` | Bestimmt die Anzahl von Sekunden (**0x1-0xFFFFFFFF**), die ein DNS-Server wartet, bevor er erneut versucht, eine Verbindung mit einem Remote Server herzustellen. Die Standardeinstellung ist **0x3** (drei Sekunden). Dieser Wert sollte angehoben werden, wenn die Rekursion über eine langsame WAN-Verbindung (Wide Area Network) erfolgt. |
-| /recursiontimeout`[<seconds>]` | Bestimmt die Anzahl von Sekunden (**0x1-0xFFFFFFFF**), die ein DNS-Server wartet, bevor versucht wird, einen Remote Server zu kontaktieren. Die Einstellungen liegen zwischen **0x1** und **0xFFFFFFFF**. Die Standardeinstellung ist **0xF** (15 Sekunden). Dieser Wert sollte angehoben werden, wenn die Rekursion über eine langsame WAN-Verbindung erfolgt. |
-| /roundrobin`[0|1]` | Bestimmt die Reihenfolge, in der Host Datensätze zurückgegeben werden, wenn ein Server über mehrere Host Einträge für denselben Namen verfügt. Akzeptiert die Werte:<ul><li>**0** -der DNS-Server verwendet kein Roundrobin. Stattdessen wird der erste Datensatz an jede Abfrage zurückgegeben.</li><li>**1** -der DNS-Server wechselt zwischen den Datensätzen, die von oben nach unten in der Liste der übereinstimmenden Datensätze zurückgegeben werden. Dies ist die Standardeinstellung.</li></ul> |
-| /rpcprotocol`[0x0|0x1|0x2|0x4|0xFFFFFFFF]` | Gibt das Protokoll an, das vom Remote Prozedur Aufruf (RPC) verwendet wird, wenn eine Verbindung vom DNS-Server hergestellt wird. Akzeptiert die Werte:<ul><li>**0x0** : deaktiviert RPC für DNS.</li><li>**0x01** : verwendet TCP/IP.</li><li>**0x2** -verwendet Named Pipes.</li><li>**0x4** -verwendet Local Procedure Call(LPC).</li><li>**0xFFFFFFFF** -alle Protokolle. Dies ist die Standardeinstellung.</li></ul> |
-| /scavenginginterval`[<hours>]` | Bestimmt, ob das Bereinigung-Feature für den DNS-Server aktiviert ist, und legt die Anzahl von Stunden (**0x0-0xFFFFFFFF**) zwischen den Bereinigung-Zyklen fest. Die Standardeinstellung ist **0x0**, wodurch das Bereinigung für den DNS-Server deaktiviert wird. Eine Einstellung, die größer als **0x0** ist, ermöglicht das Bereinigung für den Server und legt die Anzahl von Stunden zwischen den Schleifen Zyklen fest. |
-| /secureresponses`[0|1]` | Bestimmt, ob DNS Datensätze filtert, die in einem Cache gespeichert werden. Akzeptiert die Werte:<ul><li>**0** -speichert alle Antworten, um Abfragen in einem Cache zu benennen. Dies ist die Standardeinstellung.</li><li>**1** : speichert nur die Datensätze, die zur gleichen DNS-Unterstruktur gehören, in einem Cache.</li></ul> |
-| /sendport`[<port>]` | Gibt die Portnummer (**0x0-0xFFFFFFFF**) an, die von DNS verwendet wird, um rekursive Abfragen an andere DNS-Server zu senden. Die Standardeinstellung ist **0x0**. Dies bedeutet, dass die Portnummer nach dem Zufallsprinzip ausgewählt wird. |
+| /recursionretry `[<seconds>]` | Bestimmt die Anzahl von Sekunden (**0x1-0xFFFFFFFF**), die ein DNS-Server wartet, bevor er erneut versucht, eine Verbindung mit einem Remote Server herzustellen. Die Standardeinstellung ist **0x3** (drei Sekunden). Dieser Wert sollte angehoben werden, wenn die Rekursion über eine langsame WAN-Verbindung (Wide Area Network) erfolgt. |
+| /recursiontimeout `[<seconds>]` | Bestimmt die Anzahl von Sekunden (**0x1-0xFFFFFFFF**), die ein DNS-Server wartet, bevor versucht wird, einen Remote Server zu kontaktieren. Die Einstellungen liegen zwischen **0x1** und **0xFFFFFFFF**. Die Standardeinstellung ist **0xF** (15 Sekunden). Dieser Wert sollte angehoben werden, wenn die Rekursion über eine langsame WAN-Verbindung erfolgt. |
+| /roundrobin `[0|1]` | Bestimmt die Reihenfolge, in der Host Datensätze zurückgegeben werden, wenn ein Server über mehrere Host Einträge für denselben Namen verfügt. Akzeptiert die Werte:<ul><li>**0** -der DNS-Server verwendet kein Roundrobin. Stattdessen wird der erste Datensatz an jede Abfrage zurückgegeben.</li><li>**1** -der DNS-Server wechselt zwischen den Datensätzen, die von oben nach unten in der Liste der übereinstimmenden Datensätze zurückgegeben werden. Dies ist die Standardeinstellung.</li></ul> |
+| /rpcprotocol `[0x0|0x1|0x2|0x4|0xFFFFFFFF]` | Gibt das Protokoll an, das vom Remote Prozedur Aufruf (RPC) verwendet wird, wenn eine Verbindung vom DNS-Server hergestellt wird. Akzeptiert die Werte:<ul><li>**0x0** : deaktiviert RPC für DNS.</li><li>**0x01** : verwendet TCP/IP.</li><li>**0x2** -verwendet Named Pipes.</li><li>**0x4** -verwendet Local Procedure Call(LPC).</li><li>**0xFFFFFFFF** -alle Protokolle. Dies ist die Standardeinstellung.</li></ul> |
+| /scavenginginterval `[<hours>]` | Bestimmt, ob das Bereinigung-Feature für den DNS-Server aktiviert ist, und legt die Anzahl von Stunden (**0x0-0xFFFFFFFF**) zwischen den Bereinigung-Zyklen fest. Die Standardeinstellung ist **0x0**, wodurch das Bereinigung für den DNS-Server deaktiviert wird. Eine Einstellung, die größer als **0x0** ist, ermöglicht das Bereinigung für den Server und legt die Anzahl von Stunden zwischen den Schleifen Zyklen fest. |
+| /secureresponses `[0|1]` | Bestimmt, ob DNS Datensätze filtert, die in einem Cache gespeichert werden. Akzeptiert die Werte:<ul><li>**0** -speichert alle Antworten, um Abfragen in einem Cache zu benennen. Dies ist die Standardeinstellung.</li><li>**1** : speichert nur die Datensätze, die zur gleichen DNS-Unterstruktur gehören, in einem Cache.</li></ul> |
+| /sendport `[<port>]` | Gibt die Portnummer (**0x0-0xFFFFFFFF**) an, die von DNS verwendet wird, um rekursive Abfragen an andere DNS-Server zu senden. Die Standardeinstellung ist **0x0**. Dies bedeutet, dass die Portnummer nach dem Zufallsprinzip ausgewählt wird. |
 | /config-/serverlevelplugindll`[<dllpath>]` | Gibt den Pfad eines benutzerdefinierten Plug-ins an. Wenn DllPath den voll qualifizierten Pfadnamen eines gültigen DNS-Server-Plug-ins angibt, ruft der DNS-Serverfunktionen im Plug-in auf, um Namens Abfragen aufzulösen, die außerhalb des Bereichs aller lokal gehosteten Zonen liegen. Wenn ein abgefragten Name außerhalb des Gültigkeits Bereichs des Plug-ins liegt, führt der DNS-Server die Namensauflösung mithilfe der Weiterleitungs-oder Rekursion gemäß der Konfiguration aus. Wenn DllPath nicht angegeben ist, verwendet der DNS-Server kein benutzerdefiniertes Plug-in, wenn zuvor ein benutzerdefiniertes Plug-in konfiguriert wurde. |
-| /strictfileparsing`[0|1]` | Bestimmt das Verhalten eines DNS-Servers, wenn beim Laden einer Zone ein fehlerhafter Datensatz auftritt. Akzeptiert die Werte:<ul><li>**0** -der DNS-Server lädt weiterhin die Zone, auch wenn auf dem Server ein fehlerhafter Datensatz auftritt. Der Fehler wird im DNS-Protokoll aufgezeichnet. Dies ist die Standardeinstellung.</li><li>**1** -der DNS-Server beendet das Laden der Zone und zeichnet den Fehler im DNS-Protokoll auf.</li></ul> |
-| /updateoptions`<RecordValue>` | Untersagt dynamische Updates der angegebenen Daten Satz Typen. Wenn Sie möchten, dass im Protokoll mehrere Daten Satz Typen nicht zulässig sind, fügen Sie die Werte mit der hexadezimalen Addition hinzu, und geben Sie dann die Summe ein. Akzeptiert die Werte:<ul><li>**0x0** -beschränkt keine Daten Satz Typen.</li><li>**0x1** -schließt den Start der Autoritäts Ressourcen Einträge (SOA) aus.</li><li>**0x2** -schließt Namen Server-Ressourcen Einträge (NS) aus.</li><li>**0x4** -schließt die Delegierung von Namen Server-Ressourcen Einträgen (NS) aus.</li><li>**0x8** -schließt Server Host Einträge aus.</li><li>**0x100** : während des sicheren dynamischen Updates werden die Ressourcen Einträge für die Start-of-Authority (SOA) ausgeschlossen.</li><li>**0x200** : während des sicheren dynamischen Updates schließt Stamm Namen Server-Ressourcen Einträge (NS) aus.</li><li>**0x30f** : bei einem standardmäßigen dynamischen Update werden Namen Server Ressourcen Einträge (NS), Ressourcen Einträge für die Autoritäts Quelle (Start of Authority, SOA) und Server Host Einträge ausgeschlossen. Während des sicheren dynamischen Updates schließt Root Nameserver (NS)-Ressourcen Einträge und Ressourcen Einträge für den Start von Authority (SOA) aus. Ermöglicht Delegierungen und Server Host Updates.</li><li>**0x400** : beim sicheren dynamischen Update werden die NS-Ressourcen Einträge (Delegierungs Nameserver) ausgeschlossen.</li><li>**0x800** : während des sicheren dynamischen Updates schließt Server Host Einträge aus.</li><li>**0x1000000** -schließt Delegierungs Signatur Geber (DS)-Einträge aus.</li><li>**0x80000000** : deaktiviert das dynamische DNS-Update.</li></ul> |
-| /writeauthorityns`[0|1]` | Bestimmt, wann der DNS-Servernamen Server-Ressourcen Einträge (NS) im Autorisierungs Abschnitt einer Antwort schreibt. Akzeptiert die Werte:<ul><li>**0** -Schreibvorgänge für Namen Server (NS)-Ressourcen Einträge werden nur im Autorisierungs Abschnitt der Verweise geschrieben. Diese Einstellung entspricht den Konzepten und Funktionen von RFC 1034, den Domänen Namen und RFC 2181 und erläutert die DNS-Spezifikation. Dies ist die Standardeinstellung.</li><li>**1** : schreibt Namen Server-Ressourcen Einträge (Nameserver, NS) im Autorisierungs Abschnitt aller erfolgreichen autorisierenden Antworten.</li></ul> |
-| /xfrconnecttimeout`[<seconds>]` | Bestimmt die Anzahl von Sekunden (**0x0-0xFFFFFFFF**), die ein primärer DNS-Server auf eine Übertragungs Antwort vom sekundären Server wartet. Der Standardwert ist **0x1E** (30 Sekunden). Nachdem der Timeout Wert abgelaufen ist, wird die Verbindung beendet. |
+| /strictfileparsing `[0|1]` | Bestimmt das Verhalten eines DNS-Servers, wenn beim Laden einer Zone ein fehlerhafter Datensatz auftritt. Akzeptiert die Werte:<ul><li>**0** -der DNS-Server lädt weiterhin die Zone, auch wenn auf dem Server ein fehlerhafter Datensatz auftritt. Der Fehler wird im DNS-Protokoll aufgezeichnet. Dies ist die Standardeinstellung.</li><li>**1** -der DNS-Server beendet das Laden der Zone und zeichnet den Fehler im DNS-Protokoll auf.</li></ul> |
+| /updateoptions `<RecordValue>` | Untersagt dynamische Updates der angegebenen Daten Satz Typen. Wenn Sie möchten, dass im Protokoll mehrere Daten Satz Typen nicht zulässig sind, fügen Sie die Werte mit der hexadezimalen Addition hinzu, und geben Sie dann die Summe ein. Akzeptiert die Werte:<ul><li>**0x0** -beschränkt keine Daten Satz Typen.</li><li>**0x1** -schließt den Start der Autoritäts Ressourcen Einträge (SOA) aus.</li><li>**0x2** -schließt Namen Server-Ressourcen Einträge (NS) aus.</li><li>**0x4** -schließt die Delegierung von Namen Server-Ressourcen Einträgen (NS) aus.</li><li>**0x8** -schließt Server Host Einträge aus.</li><li>**0x100** : während des sicheren dynamischen Updates werden die Ressourcen Einträge für die Start-of-Authority (SOA) ausgeschlossen.</li><li>**0x200** : während des sicheren dynamischen Updates schließt Stamm Namen Server-Ressourcen Einträge (NS) aus.</li><li>**0x30f** : bei einem standardmäßigen dynamischen Update werden Namen Server Ressourcen Einträge (NS), Ressourcen Einträge für die Autoritäts Quelle (Start of Authority, SOA) und Server Host Einträge ausgeschlossen. Während des sicheren dynamischen Updates schließt Root Nameserver (NS)-Ressourcen Einträge und Ressourcen Einträge für den Start von Authority (SOA) aus. Ermöglicht Delegierungen und Server Host Updates.</li><li>**0x400** : beim sicheren dynamischen Update werden die NS-Ressourcen Einträge (Delegierungs Nameserver) ausgeschlossen.</li><li>**0x800** : während des sicheren dynamischen Updates schließt Server Host Einträge aus.</li><li>**0x1000000** -schließt Delegierungs Signatur Geber (DS)-Einträge aus.</li><li>**0x80000000** : deaktiviert das dynamische DNS-Update.</li></ul> |
+| /writeauthorityns `[0|1]` | Bestimmt, wann der DNS-Servernamen Server-Ressourcen Einträge (NS) im Autorisierungs Abschnitt einer Antwort schreibt. Akzeptiert die Werte:<ul><li>**0** -Schreibvorgänge für Namen Server (NS)-Ressourcen Einträge werden nur im Autorisierungs Abschnitt der Verweise geschrieben. Diese Einstellung entspricht den Konzepten und Funktionen von RFC 1034, den Domänen Namen und RFC 2181 und erläutert die DNS-Spezifikation. Dies ist die Standardeinstellung.</li><li>**1** : schreibt Namen Server-Ressourcen Einträge (Nameserver, NS) im Autorisierungs Abschnitt aller erfolgreichen autorisierenden Antworten.</li></ul> |
+| /xfrconnecttimeout `[<seconds>]` | Bestimmt die Anzahl von Sekunden (**0x0-0xFFFFFFFF**), die ein primärer DNS-Server auf eine Übertragungs Antwort vom sekundären Server wartet. Der Standardwert ist **0x1E** (30 Sekunden). Nachdem der Timeout Wert abgelaufen ist, wird die Verbindung beendet. |
 
 ### <a name="zone-level-syntax"></a>Syntax auf Zonenebene
 
@@ -164,17 +164,17 @@ dnscmd /config <parameters>
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ---------- | ----------- |
 | `<parameter>` | Geben Sie eine Einstellung, einen Zonen Namen und als Option einen Wert an. Parameter Werte verwenden diese Syntax: `zonename parameter [value]` . |
-| /aging`<zonename>`| Aktiviert oder deaktiviert das Bereinigung in einer bestimmten Zone. |
+| /aging `<zonename>`| Aktiviert oder deaktiviert das Bereinigung in einer bestimmten Zone. |
 | /AllowNSRecordsAutoCreation `<zonename>``[value]` | Überschreibt die Einstellung für die automatische Erstellung des Namensserver-Ressourceneinsatzes des DNS-Servers. Name Server (NS)-Ressourcen Einträge, die zuvor für diese Zone registriert wurden, sind nicht betroffen. Daher müssen Sie Sie manuell entfernen, wenn Sie Sie nicht möchten. |
-| /allowupdate`<zonename>` | Bestimmt, ob die angegebene Zone dynamische Updates akzeptiert. |
-| /forwarderslave`<zonename>` | Überschreibt die **/isslave** -Einstellung des DNS-Servers. |
-| /forwardertimeout`<zonename>` | Bestimmt, wie viele Sekunden eine DNS-Zone darauf wartet, dass eine Weiterleitung antwortet, bevor eine andere Weiterleitung versucht wird. Dieser Wert überschreibt den Wert, der auf Serverebene festgelegt wird. |
-| /norefreshinterval`<zonename>` | Legt ein Zeitintervall für eine Zone fest, in der keine Aktualisierungen DNS-Einträge in einer angegebenen Zone dynamisch aktualisieren können. |
-| /refreshinterval`<zonename>` | Legt ein Zeitintervall für eine Zone fest, in der Aktualisierungen DNS-Einträge in einer angegebenen Zone dynamisch aktualisieren können. |
-| /securesecondaries`<zonename>` | Bestimmt, welche sekundären Server Zonen Aktualisierungen vom Master Server für diese Zone empfangen können. |
+| /allowupdate `<zonename>` | Bestimmt, ob die angegebene Zone dynamische Updates akzeptiert. |
+| /forwarderslave `<zonename>` | Überschreibt die **/isslave** -Einstellung des DNS-Servers. |
+| /forwardertimeout `<zonename>` | Bestimmt, wie viele Sekunden eine DNS-Zone darauf wartet, dass eine Weiterleitung antwortet, bevor eine andere Weiterleitung versucht wird. Dieser Wert überschreibt den Wert, der auf Serverebene festgelegt wird. |
+| /norefreshinterval `<zonename>` | Legt ein Zeitintervall für eine Zone fest, in der keine Aktualisierungen DNS-Einträge in einer angegebenen Zone dynamisch aktualisieren können. |
+| /refreshinterval `<zonename>` | Legt ein Zeitintervall für eine Zone fest, in der Aktualisierungen DNS-Einträge in einer angegebenen Zone dynamisch aktualisieren können. |
+| /securesecondaries `<zonename>` | Bestimmt, welche sekundären Server Zonen Aktualisierungen vom Master Server für diese Zone empfangen können. |
 
 ## <a name="dnscmd-createbuiltindirectorypartitions-command"></a>dnscmd/createbuiltindirectorypartitions-Befehl
 
@@ -188,7 +188,7 @@ dnscmd [<servername>] /createbuiltindirectorypartitions [/forest] [/alldomains]
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | /forest | Erstellt eine DNS-Verzeichnis Partition für die Gesamtstruktur. |
@@ -206,7 +206,7 @@ dnscmd [<servername>] /createdirectorypartition <partitionFQDN>
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<partitionFQDN>` | Der voll qualifizierte Name der DNS-Anwendungsverzeichnis Partition, die erstellt wird. |
@@ -223,7 +223,7 @@ dnscmd [<servername>] /deletedirectorypartition <partitionFQDN>
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<partitionFQDN>` | Der voll qualifizierte Name der DNS-Anwendungsverzeichnis Partition, die entfernt werden soll. |
@@ -240,7 +240,7 @@ dnscmd [<servername>] /directorypartitioninfo <partitionFQDN> [/detail]
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<partitionFQDN>` | Der voll qualifizierte Name der DNS-Anwendungsverzeichnis Partition. |
@@ -258,7 +258,7 @@ dnscmd [<servername>] /enlistdirectorypartition <partitionFQDN>
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<partitionFQDN>` | Der voll qualifizierte Name der DNS-Anwendungsverzeichnis Partition. |
@@ -275,7 +275,7 @@ dnscmd [<servername>] /enumdirectorypartitions [/custom]
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | /custom | Listet nur von Benutzern erstellte Verzeichnis Partitionen auf. |
@@ -292,13 +292,13 @@ dnscmd [<servername>] /enumrecords <zonename> <nodename> [/type <rrtype> <rrdata
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | /enumrecords | Listet die Ressourcen Einträge in der angegebenen Zone auf. |
 | `<zonename>` | Gibt den Namen der Zone an, zu der die Ressourcen Einträge gehören. |
 | `<nodename>` | Gibt den Namen des Knotens der Ressourcen Datensätze an. |
-| `[/type <rrtype> <rrdata>]` | Gibt den Typ der aufzurufenden Ressourcen Einträge und den Typ der erwarteten Daten an. Akzeptiert die Werte:<ul><li>`<rrtype>`: Gibt den Typ der Ressourcen Datensätze an, die aufgelistet werden sollen.</li><li>`<rrdata>`: Gibt den Typ der Daten an, die als Datensatz erwartet werden.</li></ul> |
+| `[/type <rrtype> <rrdata>]` | Gibt den Typ der aufzurufenden Ressourcen Einträge und den Typ der erwarteten Daten an. Akzeptiert die Werte:<ul><li>`<rrtype>` : Gibt den Typ der Ressourcen Datensätze an, die aufgelistet werden sollen.</li><li>`<rrdata>` : Gibt den Typ der Daten an, die als Datensatz erwartet werden.</li></ul> |
 | /authority | Schließt autorisierende Daten ein. |
 | /glue | Enthält die Daten der Daten. |
 | /additional | Enthält alle zusätzlichen Informationen über die aufgelisteten Ressourcen Einträge. |
@@ -326,7 +326,7 @@ dnscmd [<servername>] /enumzones [/primary | /secondary | /forwarder | /stub | /
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | /primary | Listet alle Zonen auf, bei denen es sich entweder um Standard primäre Zonen oder integrierte Active Directory-Zonen handelt. |
@@ -343,7 +343,7 @@ dnscmd [<servername>] /enumzones [/primary | /secondary | /forwarder | /stub | /
 | /forestdirectorypartition | Listet Zonen auf, die in der DNS-Anwendungsverzeichnis Partition der Gesamtstruktur gespeichert sind. |
 | /customdirectorypartition | Listet alle Zonen auf, die in einer benutzerdefinierten Anwendungsverzeichnis Partition gespeichert sind. |
 | /legacydirectorypartition | Listet alle Zonen auf, die in der Domänen Verzeichnis Partition gespeichert sind. |
-| /directorypartition`<partitionFQDN>` | Listet alle Zonen auf, die in der angegebenen Verzeichnis Partition gespeichert sind. |
+| /directorypartition `<partitionFQDN>` | Listet alle Zonen auf, die in der angegebenen Verzeichnis Partition gespeichert sind. |
 
 #### <a name="examples"></a>Beispiele
 
@@ -363,7 +363,7 @@ dnscmd [<servername>] /exportsettings
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 
@@ -379,7 +379,7 @@ dnscmd [<servername>] /info [<settings>]
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<settings>` | Jede Einstellung, die der **Info** -Befehl zurückgibt, kann einzeln angegeben werden. Wenn keine Einstellung angegeben ist, wird ein Bericht mit allgemeinen Einstellungen zurückgegeben. |
@@ -402,7 +402,7 @@ dnscmd [<servername>] /ipvalidate <context> [<zonename>] [[<IPaddress>]]
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<context>` | Gibt den Typ des auszuführenden Tests an. Sie können einen der folgenden Tests angeben:<ul><li>**/DnsServers** : testet, ob die Computer mit den von Ihnen angegebenen Adressen funktionsfähige DNS-Server sind.</li><li>**/Forwarders** : testet, ob die von Ihnen angegebenen Adressen DNS-Server identifizieren, die als Weiterleitungen fungieren können.</li><li>**/roothints** : testet, ob die von Ihnen angegebenen Adressen DNS-Server identifizieren, die als Stamm Hinweis Server fungieren können.</li><li>**/zonemasters** : testet, ob die von Ihnen angegebenen Adressen DNS-Server identifizieren, die Master Server für *zonename*sind. |
@@ -428,7 +428,7 @@ dnscmd [<servername>] /nodedelete <zonename> <nodename> [/tree] [/f]
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<zonename>` | Gibt den Namen der Zone an. |
@@ -452,7 +452,7 @@ dnscmd [<servername>] /recordadd <zonename> <nodename> <rrtype> <rrdata>
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<zonename>` | Gibt die Zone an, in der sich der Datensatz befindet. |
@@ -482,7 +482,7 @@ dnscmd [<servername>] /recorddelete <zonename> <nodename> <rrtype> <rrdata> [/f]
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<zonename>` | Gibt die Zone an, in der sich der Ressourcen Daten Satz befindet. |
@@ -509,11 +509,11 @@ dnscmd [<servername>] /resetforwarders <IPaddress> [,<IPaddress>]...][/timeout <
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<IPaddress>` | Listet die IP-Adressen, an die der DNS-Server nicht aufgelöste Abfragen weiterleitet. |
-| /Timeout`<timeout>` | Legt die Anzahl von Sekunden fest, die der DNS-Server auf eine Antwort von der Weiterleitung wartet. Standardmäßig beträgt dieser Wert fünf Sekunden. |
+| /Timeout `<timeout>` | Legt die Anzahl von Sekunden fest, die der DNS-Server auf eine Antwort von der Weiterleitung wartet. Standardmäßig beträgt dieser Wert fünf Sekunden. |
 | /slave | Verhindert, dass der DNS-Server seine eigenen iterativen Abfragen ausführt, wenn die Weiterleitung eine Abfrage nicht auflösen kann. |
 | /noslave | Ermöglicht dem DNS-Server das Ausführen eigener iterativer Abfragen, wenn die Weiterleitung eine Abfrage nicht auflösen kann. Dies ist die Standardeinstellung. |
 | /f | Führt den Befehl aus, ohne zur Bestätigung aufzufordern. Da Knoten mehr als einen Ressourcen Daten Satz aufweisen können, erfordert dieser Befehl, dass Sie sehr spezifisch für den Typ des Ressourcen Datensatzes sind, den Sie löschen möchten. Wenn Sie einen Datentyp angeben und keinen Typ von Ressourcen Daten Satz Daten angeben, werden alle Datensätze mit diesem spezifischen Datentyp für den angegebenen Knoten gelöscht. |
@@ -547,7 +547,7 @@ dnscmd [<servername>] /resetlistenaddresses <listenaddress>
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<listenaddress>` | Gibt eine IP-Adresse auf dem DNS-Server an, die auf DNS-Client Anforderungen lauscht. Wenn keine Abhör Adresse angegeben ist, lauschen alle IP-Adressen auf dem Server auf Client Anforderungen. |
@@ -570,7 +570,7 @@ dnscmd [<servername>] /startscavenging
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 
@@ -612,14 +612,14 @@ dnscmd [<servername>] /statistics [<statid>] [/clear]
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<statid>` | Gibt an, welche Statistik oder Kombination von Statistiken angezeigt werden soll. Der Befehl **Statistics** zeigt Indikatoren an, die beim Starten oder Fortsetzen des DNS-Servers beginnen. Eine Identifikationsnummer wird verwendet, um eine Statistik zu identifizieren. Wenn keine Statistik-ID-Nummer angegeben ist, werden alle Statistiken angezeigt. Die Zahlen, die angegeben werden können, sowie die entsprechende Statistik, die anzeigt, können Folgendes enthalten:<ul><li>**00000001** Zeit</li><li>**00000002** -Abfrage</li><li>**00000004** -query2</li><li>**00000008** -recurse</li><li>**00000010** -Master</li><li>**00000020** -Sekundär</li><li>**00000040** -WINS</li><li>**00000100** -Update</li><li>**00000200** -skwansec</li><li>**00000400** -DS</li><li>**00010000** -Arbeitsspeicher</li><li>**00100000** -packetmem</li><li>**00040000** -dBASE</li><li>**00080000** -Datensätze</li><li>**00200000** -nbstatus</li><li>**/Clear** : setzt den angegebenen Statistik Zählers auf NULL zurück.</li></ul> |
 
 #### <a name="examples"></a>Beispiele
 
-- [Beispiel 7:](/previous-versions/windows/it-pro/windows-server-2003/cc784399(v=ws.10)#example-7-display-time-statistics-for-a-dns-server)
+- [Beispiel 7: ](/previous-versions/windows/it-pro/windows-server-2003/cc784399(v=ws.10)#example-7-display-time-statistics-for-a-dns-server)
 
 - [Beispiel 8: Anzeigen von nbstatus-Statistiken für einen DNS-Server](/previous-versions/windows/it-pro/windows-server-2003/cc784399(v=ws.10)#example-8-display-nbstatmem-statistics-for-a-dns-server)
 
@@ -635,7 +635,7 @@ dnscmd [<servername>] /unenlistdirectorypartition <partitionFQDN>
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<partitionFQDN>` | Der voll qualifizierte Name der DNS-Anwendungsverzeichnis Partition, die entfernt werden soll. |
@@ -652,7 +652,7 @@ dnscmd [<servername>] /writebackfiles <zonename>
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<zonename>` | Gibt den Namen der zu aktualisierenden Zone an. |
@@ -675,7 +675,7 @@ dnscmd [<servername>] /zoneadd <zonename> <zonetype> [/dp <FQDN> | {/domain | en
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<zonename>` | Gibt den Namen der Zone an. |
@@ -704,7 +704,7 @@ dnscmd [<servername>] /zonechangedirectorypartition <zonename> {[<newpartitionna
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<zonename>` | Der voll qualifizierte Name der aktuellen Verzeichnis Partition, auf der sich die Zone befindet. |
@@ -726,7 +726,7 @@ dnscmd [<servername>] /zonedelete <zonename> [/dsdel] [/f]
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<zonename>` | Gibt den Namen der zu löschenden Zone an. |
@@ -749,7 +749,7 @@ dnscmd [<servername>] /zoneexport <zonename> <zoneexportfile>
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<zonename>` | Gibt den Namen der Zone an. |
@@ -761,7 +761,7 @@ dnscmd [<servername>] /zoneexport <zonename> <zoneexportfile>
 
 ## <a name="dnscmd-zoneinfo"></a>dnscmd/zoneinfo
 
-Zeigt Einstellungen aus dem Abschnitt der Registrierung der angegebenen Zone an:`HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DNS\Parameters\Zones\<zonename>`
+Zeigt Einstellungen aus dem Abschnitt der Registrierung der angegebenen Zone an: `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DNS\Parameters\Zones\<zonename>`
 
 ### <a name="syntax"></a>Syntax
 
@@ -771,7 +771,7 @@ dnscmd [<servername>] /zoneinfo <zonename> [<setting>]
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<zonename>` | Gibt den Namen der Zone an. |
@@ -801,7 +801,7 @@ dnscmd [<servername>] /zonepause <zonename>
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<zonename>` | Gibt den Namen der Zone an, die angehalten werden soll. |
@@ -828,7 +828,7 @@ dnscmd [<servername>] /zoneprint <zonename>
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<zonename>` | Gibt den Namen der Zone an, die aufgelistet werden soll. |
@@ -851,7 +851,7 @@ dnscmd [<servername>] /zonerefresh <zonename>
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<zonename>` | Gibt den Namen der zu aktualisierenden Zone an. |
@@ -880,7 +880,7 @@ dnscmd [<servername>] /zonereload <zonename>
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<zonename>` | Gibt den Namen der Zone an, die erneut geladen werden soll. |
@@ -909,7 +909,7 @@ dnscmd [<servername>] /zoneresetmasters <zonename> [/local] [<IPaddress> [<IPadd
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<zonename>` | Gibt den Namen der zurück zusetzenden Zone an. |
@@ -939,7 +939,7 @@ dnscmd [<servername>] /zoneresetscavengeservers <zonename> [/local] [<IPaddress>
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<zonename>` | Gibt die zu Scavenge Zone an. |
@@ -972,7 +972,7 @@ dnscmd [<servername>] /zoneresetsecondaries <zonename> {/noxfr | /nonsecure | /s
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<zonename>` | Gibt den Namen der Zone an, deren sekundäre Server zurückgesetzt werden sollen. |
@@ -1010,7 +1010,7 @@ dnscmd [<servername>] /zoneresettype <zonename> <zonetype> [/overwrite_mem | /ov
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<zonename>` | Identifiziert die Zone, in der der Typ geändert wird. |
@@ -1041,7 +1041,7 @@ dnscmd [<servername>] /zoneresume <zonename>
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<zonename>` | Gibt den Namen der fort zusetzenden Zone an. |
@@ -1068,7 +1068,7 @@ dnscmd [<servername>] /zoneupdatefromds <zonename>
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<zonename>` | Gibt den Namen der zu aktualisierenden Zone an. |
@@ -1095,7 +1095,7 @@ dnscmd [<servername>] /zonewriteback <zonename>
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<zonename>` | Gibt den Namen der zu aktualisierenden Zone an. |

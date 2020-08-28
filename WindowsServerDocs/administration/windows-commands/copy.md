@@ -1,18 +1,18 @@
 ---
 title: copy
 description: Referenz Artikel für den Kopier Befehl, mit dem eine oder mehrere Dateien von einem Speicherort in einen anderen kopiert werden.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 9624d4a1-349a-4693-ad00-1d1d4e59e9ac
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: cb48cbc4ccc9a0d68bfc6f5cdda8ac5e7f1a6c87
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 993fedf3b088ee5d06967c767c00aa9e11165cc3
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87892501"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89030278"
 ---
 # <a name="copy"></a>copy
 
@@ -29,7 +29,7 @@ copy [/d] [/v] [/n] [/y | /-y] [/z] [/a | /b] <source> [/a | /b] [+<source> [/a 
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | /d | Ermöglicht, dass verschlüsselte Dateien, die kopiert werden, als entschlüsselte Dateien am Ziel gespeichert werden. |
 | /v | Überprüft, ob neue Dateien ordnungsgemäß geschrieben werden. |

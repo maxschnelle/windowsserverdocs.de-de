@@ -1,18 +1,18 @@
 ---
 title: cmstp
 description: Referenz Artikel für Cmstp, bei dem ein Verbindungs-Manager-Dienst Profil installiert oder entfernt wird.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 34aad544-11c3-4e85-8bbf-5bc5a971da93
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 36f07fd6215159c1b4e6384f93725e26e2d22ebc
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 99e5e3d81855069b8a4465d554e7d9699c4bc08e
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87880055"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89030958"
 ---
 # <a name="cmstp"></a>cmstp
 
@@ -34,11 +34,11 @@ cmstp.exe [/nf] [/s] [/u] [drive:][path]serviceprofilefilename.inf
 ```
 
 #### <a name="parameters"></a>Parameter
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<serviceprofilefilename>.exe` | Gibt anhand des Namens das Installationspaket an, das das zu installierende Profil enthält.<p>Erforderlich für Syntax 1, aber nicht gültig für Syntax 2. |
 | /q:a | Gibt an, dass das Profil installiert werden soll, ohne den Benutzer aufzufordern. Die Überprüfungs Meldung, dass die Installation erfolgreich war, wird weiterhin angezeigt.<p>Erforderlich für Syntax 1, aber nicht gültig für Syntax 2. |
-| [Laufwerk:] ADS`<serviceprofilefilename>.inf` | Erforderlich. Gibt den Namen der Konfigurationsdatei an, die bestimmt, wie das Profil installiert werden soll.<p>Der [Laufwerk:] [Pfad]-Parameter ist für Syntax 1 ungültig. |
+| [Laufwerk:] ADS `<serviceprofilefilename>.inf` | Erforderlich. Gibt den Namen der Konfigurationsdatei an, die bestimmt, wie das Profil installiert werden soll.<p>Der [Laufwerk:] [Pfad]-Parameter ist für Syntax 1 ungültig. |
 | /nf | Gibt an, dass die Unterstützungs Dateien nicht installiert werden sollen. |
 | /s | Gibt an, dass das Dienst Profil im Hintergrund installiert oder deinstalliert werden soll (ohne Aufforderung zur Eingabe eines Benutzers oder zum Anzeigen der Überprüfungs Meldung). Dies ist der einzige Parameter, den Sie in Kombination mit **/u**verwenden können.|
 | /U | Gibt an, dass das Dienst Profil deinstalliert werden soll. |

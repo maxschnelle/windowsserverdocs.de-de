@@ -1,18 +1,18 @@
 ---
 title: bitsadmin reset
 description: Referenz Artikel für den Befehl bizadmin Reset, der alle Aufträge in der Übertragungs Warteschlange des aktuellen Benutzers abbricht.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 0e4f9d1d-072c-493f-8d7a-f6d713c3ef29
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b28ad601a40a9646ad64268aaca0320ea5165efd
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 6ab8c1e81fa2ede43897e05778b974b0ff094311
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87893334"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89026318"
 ---
 # <a name="bitsadmin-reset"></a>bitsadmin reset
 
@@ -29,7 +29,7 @@ bitsadmin /reset [/allusers]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | -------------- | -------------- |
 | /ALLUSERS | Optional. Bricht alle Aufträge in der Warteschlange ab, die sich im Besitz des aktuellen Benutzers befinden. Sie müssen über Administratorrechte verfügen, um diesen Parameter zu verwenden. |
 

@@ -1,18 +1,18 @@
 ---
 title: doskey
 description: Referenz Artikel für den Doskey-Befehl und Doskey.exe, der zuvor eingegebene Befehlszeilen Befehle, bearbeitbare Befehlszeilen und Makros erstellt.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 4874fd43-d5ea-45f3-ae24-388ae925ed76
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f945c0b73509e0a936bf4de1cae9bb721b77e5c3
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 8cda337419253ebdb9a390e5d8ba3bfa07fd1a91
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87890770"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89030788"
 ---
 # <a name="doskey"></a>doskey
 
@@ -26,7 +26,7 @@ doskey [/reinstall] [/listsize=<size>] [/macros:[all | <exename>] [/history] [/i
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | /REINSTALL | Installiert eine neue Kopie von Doskey.exe und löscht den Puffer für den Befehlsverlauf. |
 | /ListSize =`<size>` | Gibt die maximale Anzahl der Befehle im Verlaufs Puffer an. |
@@ -60,7 +60,7 @@ doskey [/reinstall] [/listsize=<size>] [/macros:[all | <exename>] [/history] [/i
 
 - In der folgenden Tabelle sind die **doskey** -Bearbeitungs Schlüssel und ihre Funktionen aufgeführt:
 
-  | Schlüssel-oder Schlüssel Kombination | BESCHREIBUNG |
+  | Schlüssel-oder Schlüssel Kombination | Beschreibung |
   | ---------------------- | ----------- |
   | NACH-LINKS-TASTE | Verschiebt die Einfügemarke um ein Zeichen zurück. |
   | NACH-RECHTS-TASTE | Verschiebt die Einfügemarke um ein Zeichen vorwärts. |
@@ -97,7 +97,7 @@ doskey [/reinstall] [/listsize=<size>] [/macros:[all | <exename>] [/history] [/i
   | `$B` oder `$b` | Sendet die Makro Ausgabe an einen Befehl. Diese Sonderzeichen entsprechen der Verwendung der Pipe `(` und `*` . |
   | `$T` oder `$t` | Trennt Befehle. Verwenden Sie eines dieser Sonderzeichen zum Trennen von Befehlen, wenn Sie Makros erstellen oder Befehle in der **doskey** -Befehlszeile eingeben. Diese Sonderzeichen entsprechen der Verwendung des kaufmännischen und-Zeichens ( `&` ) in einer Befehlszeile. |
   | `$$` | Gibt das Dollarzeichen () an `$` . |
-  | `$1`Laufe`$9` | Stellen Sie alle Befehlszeilen Informationen dar, die Sie angeben möchten, wenn Sie das Makro ausführen. Die Sonderzeichen `$1` bis `$9` sind Batch Parameter, mit denen Sie bei jedem Ausführen des Makros andere Daten in der Befehlszeile verwenden können. Das `$1` Zeichen in einem **doskey** -Befehl ähnelt dem- `%1` Zeichen in einem Batch-Programm. |
+  | `$1` Laufe `$9` | Stellen Sie alle Befehlszeilen Informationen dar, die Sie angeben möchten, wenn Sie das Makro ausführen. Die Sonderzeichen `$1` bis `$9` sind Batch Parameter, mit denen Sie bei jedem Ausführen des Makros andere Daten in der Befehlszeile verwenden können. Das `$1` Zeichen in einem **doskey** -Befehl ähnelt dem- `%1` Zeichen in einem Batch-Programm. |
   | `$*` | Stellt alle Befehlszeilen Informationen dar, die Sie angeben möchten, wenn Sie den Makronamen eingeben. Das Sonderzeichen `$*` ist ein ersetzbarer Parameter, der den Batch Parametern `$1` durch ähnelt `$9` , mit einem wichtigen Unterschied: alles, was Sie in der Befehlszeile eingeben, nachdem der Makroname für das `$*` im Makro ersetzt wurde. |
 
 - Um ein Makro auszuführen, geben Sie den Namen des Makros an der Eingabeaufforderung ein, beginnend an der ersten Position. Wenn das Makro mit `$*` oder einem der Batch Parameter über definiert wurde `$1` `$9` , verwenden Sie ein Leerzeichen, um die Parameter zu trennen. Ein **doskey** -Makro kann nicht aus einem Batch Programm ausgeführt werden.

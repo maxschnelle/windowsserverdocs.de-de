@@ -1,18 +1,18 @@
 ---
 title: rwinsta
 description: Erfahren Sie, wie Sie RDSH sessionf von der Befehlszeile zurücksetzen.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 82bee0e4-1c2c-43fe-afd3-04a6ce0f4518
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5fc263f2d3e104994ad95ed73dab18a4c3f00237
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: db344bb36f2967cb78b4fb97eb5143ff14275d5e
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87883323"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89037568"
 ---
 # <a name="rwinsta"></a>rwinsta
 
@@ -21,7 +21,7 @@ ms.locfileid: "87883323"
 Ermöglicht das Zurücksetzen (Löschen) einer Sitzung auf einem Remotedesktop-Sitzungshost Server (RD-Sitzungs Host).
 
 > [!NOTE]
-> In Windows Server 2008 R2 heißen die Terminaldienste nun Remotedesktopdienste. Informationen zu den Neuerungen in der neuesten Version finden Sie unter [What es New in Remotedesktopdienste in Windows Server 2012](/previous-versions/orphan-topics/ws.11/hh831527(v=ws.11)) in der TechNet-Bibliothek für Windows Server.
+> Informationen zu den Neuerungen in der neuesten Version finden Sie unter [What es New in Remotedesktopdienste in Windows Server 2012](/previous-versions/orphan-topics/ws.11/hh831527(v=ws.11)) in der TechNet-Bibliothek für Windows Server.
 
 ## <a name="remarks"></a>Bemerkungen
 Dieser Befehl ist mit dem Befehl zum **Zurücksetzen der Sitzung** identisch.

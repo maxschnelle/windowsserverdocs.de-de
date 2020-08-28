@@ -1,18 +1,18 @@
 ---
 title: ftp cd
 description: Referenz Artikel für den Befehl FTP CD, der das Arbeitsverzeichnis auf dem Remote Computer ändert.
-ms.topic: article
+ms.topic: reference
 ms.assetid: a574855a-31b4-45c6-bce2-581c7231c99b
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f38e8ff306bfcdf200c260df6cb4160f27c316d0
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 7ab8992bfcbd10d487b5a460ecd25a0dad349ffc
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87889565"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89037308"
 ---
 # <a name="ftp-cd"></a>ftp cd
 
@@ -28,7 +28,7 @@ cd <remotedirectory>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | <remotedirectory> | Gibt das Verzeichnis auf dem Remote Computer an, das Sie ändern möchten. |
 

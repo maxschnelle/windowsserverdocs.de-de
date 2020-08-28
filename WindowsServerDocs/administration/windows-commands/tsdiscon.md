@@ -1,18 +1,18 @@
 ---
 title: tsdiscon
 description: Referenz Artikel zu "zdiscon", der eine Sitzung von einem Remote Desktop-Sitzungs Host Server trennt.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 13139674-7dee-4965-8cac-32f4928e8b9a
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e81a1c7f68af0bb1d16ce64bb4985e3ddb8d18f2
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 9fd0292ab1bd53a424c0acaa4b6a2dc98cb1f0a0
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87897072"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89026858"
 ---
 # <a name="tsdiscon"></a>tsdiscon
 
@@ -23,7 +23,7 @@ Trennt eine Sitzung von einem Remotedesktop-Sitzungshost Server.
 
 
 > [!NOTE]
-> In Windows Server 2008 R2 heißen die Terminaldienste nun Remotedesktopdienste. Weitere Informationen zu den Neuerungen in der neuesten Version finden Sie unter [What es New in Remotedesktopdienste in Windows Server 2012](/previous-versions/orphan-topics/ws.11/hh831527(v=ws.11)) in der TechNet-Bibliothek für Windows Server.
+> Weitere Informationen zu den Neuerungen in der neuesten Version finden Sie unter [What es New in Remotedesktopdienste in Windows Server 2012](/previous-versions/orphan-topics/ws.11/hh831527(v=ws.11)) in der TechNet-Bibliothek für Windows Server.
 
 ## <a name="syntax"></a>Syntax
 ```
@@ -32,7 +32,7 @@ tsdiscon [<SessionID> | <SessionName>] [/server:<ServerName>] [/v]
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |-------|--------|
 |\<SessionId>|Gibt die ID der Sitzung an, die getrennt werden soll.|
 |\<SessionName>|Gibt den Namen der Sitzung an, die getrennt werden soll.|
