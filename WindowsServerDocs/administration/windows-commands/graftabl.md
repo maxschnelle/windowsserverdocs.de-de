@@ -1,18 +1,18 @@
 ---
 title: graftabl
 description: Referenz Artikel für den graftabl-Befehl, mit dem Windows-Betriebssysteme einen erweiterten Zeichensatz im Grafikmodus anzeigen können.
-ms.topic: article
+ms.topic: reference
 ms.assetid: b08351d4-3d24-490c-86f6-1252da11d923
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: cd20baaca94c13e725cf3121ba7a9f4f9f5524b1
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 8b92cc0501b69127bb8dd9e3faba5591a48542ea
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87888504"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89035488"
 ---
 # <a name="graftabl"></a>graftabl
 
@@ -27,7 +27,7 @@ graftabl /status
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<codepage>` | Gibt eine Codepage an, um die Darstellung erweiterter Zeichen im Grafikmodus zu definieren. Gültige Codepage-Identifikationsnummern sind:<ul><li>**437** -USA</li><li>**850** -mehrsprachig (lateinisch I)</li><li>**852** -slawisch (Lateinisch II)</li><li>**855** -Kyrillisch (Russisch)</li><li>**857** -Türkisch</li><li>**860** -Portugiesisch</li><li>**861** -Isländisch</li><li>**863** -Französisch (Kanada)</li><li>**865** -Nordisch</li><li>**866** -Russisch</li><li>**869** -modern Griechisch</li></ul> |
 | /status | Zeigt die aktuelle Codepage an, die von diesem Befehl verwendet wird. |

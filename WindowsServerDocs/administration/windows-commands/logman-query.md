@@ -1,18 +1,18 @@
 ---
 title: logman query
 description: Referenz Artikel für den Logman Query-Befehl, der die Eigenschaften des Daten Sammlers oder des Datensammler Satzes abfragt.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 1116a0f0-5415-4369-a045-12f79f8f66de
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2cb324651001f071e45acf0821f402458ed838d8
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: e7d3d9da5b5885c15135b764454bd68818c4aded
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87887287"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89023784"
 ---
 # <a name="logman-query"></a>logman query
 
@@ -28,11 +28,11 @@ logman query [providers|Data Collector Set name] [options]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | -s `<computer name>` | Führen Sie den Befehl auf dem angegebenen Remote Computer aus. |
-| -config`<value>` | Gibt die Einstellungsdatei an, die Befehlsoptionen enthält. |
-| [-n]`<name>` | Name des Zielobjekts |
+| -config `<value>` | Gibt die Einstellungsdatei an, die Befehlsoptionen enthält. |
+| [-n] `<name>` | Name des Zielobjekts |
 | -ETS | Sendet Befehle direkt an Ereignis Ablauf Verfolgungs Sitzungen, ohne zu speichern oder zu planen. |
 | /? | Zeigt die kontextbezogene Hilfe an. |
 

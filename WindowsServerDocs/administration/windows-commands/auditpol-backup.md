@@ -1,18 +1,18 @@
 ---
 title: auditpol backup
 description: Referenz Artikel für den Befehl Auditpol Backup, mit dem die Richtlinien Einstellungen für die Systemüberwachung, Überwachungs Richtlinien Einstellungen pro Benutzer für alle Benutzer und alle Überwachungs Optionen für eine CSV-Textdatei (Comma-Separated Value, Komma getrennte Werte) gesichert werden.
-ms.topic: article
+ms.topic: reference
 ms.assetid: dc84e581-aa0f-4c91-b13b-1d970bad5517
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6f1ddca1dc141e4905ae4b1cd6e9041d9c8c1ce0
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 4c5dc71ef737c3c939d895a0693ff8213105caa1
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87895465"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89029148"
 ---
 # <a name="auditpol-backup"></a>auditpol backup
 
@@ -30,7 +30,7 @@ auditpol /backup /file:<filename>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 |-----------|------------- |
 | /file | Gibt den Namen der Datei an, in der die Überwachungsrichtlinie gesichert wird. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |

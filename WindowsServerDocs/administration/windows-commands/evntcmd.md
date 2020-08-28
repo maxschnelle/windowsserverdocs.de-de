@@ -1,18 +1,18 @@
 ---
 title: evntcmd
 description: Referenz Artikel für den evntcmd-Befehl, der die Übersetzung von Ereignissen in Traps, Trap Ziele oder beides basierend auf Informationen in einer Konfigurationsdatei konfiguriert.
-ms.topic: article
+ms.topic: reference
 ms.assetid: c1aabb74-76e7-4304-95a6-50ad87e92fd9
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9610608000ce106ec321f721a4181658453d6348
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 173cb9c2f1528748986daf753a9d213c5060e5d4
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87890542"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89035868"
 ---
 # <a name="evntcmd"></a>evntcmd
 
@@ -28,10 +28,10 @@ evntcmd [/s <computername>] [/v <verbositylevel>] [/n] <filename>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
-| /s`<computername>` | Gibt anhand des Namens den Computer an, auf dem Sie die Übersetzung von Ereignissen in Traps, Trap Ziele oder beides konfigurieren möchten. Wenn Sie keinen Computer angeben, erfolgt die Konfiguration auf dem lokalen Computer. |
-| /v`<verbositylevel>` | Gibt an, welche Arten von Statusmeldungen als Traps angezeigt werden und welche Trap Ziele konfiguriert werden. Dieser Parameter muss eine ganze Zahl zwischen 0 und 10 sein. Wenn Sie 10 angeben, werden alle Arten von Meldungen angezeigt, einschließlich der Ablauf Verfolgung von Nachrichten und Warnungen darüber, ob die Trap-Konfiguration erfolgreich war. Wenn Sie 0 angeben, werden keine Meldungen angezeigt. |
+| /s `<computername>` | Gibt anhand des Namens den Computer an, auf dem Sie die Übersetzung von Ereignissen in Traps, Trap Ziele oder beides konfigurieren möchten. Wenn Sie keinen Computer angeben, erfolgt die Konfiguration auf dem lokalen Computer. |
+| /v `<verbositylevel>` | Gibt an, welche Arten von Statusmeldungen als Traps angezeigt werden und welche Trap Ziele konfiguriert werden. Dieser Parameter muss eine ganze Zahl zwischen 0 und 10 sein. Wenn Sie 10 angeben, werden alle Arten von Meldungen angezeigt, einschließlich der Ablauf Verfolgung von Nachrichten und Warnungen darüber, ob die Trap-Konfiguration erfolgreich war. Wenn Sie 0 angeben, werden keine Meldungen angezeigt. |
 | /n | Gibt an, dass der SNMP-Dienst nicht neu gestartet werden soll, wenn dieser Computer Trap-Konfigurationsänderungen empfängt. |
 | `<filename>` | Gibt nach Name die Konfigurationsdatei an, die Informationen über die Übersetzung von Ereignissen in Traps und Trap Ziele enthält, die Sie konfigurieren möchten. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |

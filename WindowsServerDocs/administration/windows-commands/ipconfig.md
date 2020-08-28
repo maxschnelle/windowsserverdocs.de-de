@@ -1,18 +1,18 @@
 ---
 title: ipconfig
 description: Referenz Artikel für den Befehl "ipconfig", in dem alle aktuellen TCP/IP-Netzwerk Konfigurationswerte angezeigt werden und Einstellungen für das Dynamic Host Configuration-Protokoll (DHCP) und die Domain Name System (DNS) aktualisiert werden.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 15071c2c-4815-4893-93b2-ab30232e312e
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a0cff8ef691eb9b7adf04b9928a962cda760fdf9
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: d683053c1a696ec2aa0f0f2441fdde22eccb479d
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87888262"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89035448"
 ---
 # <a name="ipconfig"></a>ipconfig
 
@@ -26,18 +26,18 @@ ipconfig [/allcompartments] [/all] [/renew [<adapter>]] [/release [<adapter>]] [
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | /all | Zeigt die vollständige TCP/IP-Konfiguration für alle Adapter an. Adapter können für physikalische Schnittstellen, z. B. installierte Netzwerkadapter, oder logische Schnittstellen stehen, z. B. DFÜ-Verbindungen. |
 | /displaydns | Zeigt den Inhalt des DNS-Client Auflösungs Caches an. dieser enthält sowohl Einträge, die vorab aus der lokalen Hostdatei geladen wurden, als auch alle zuletzt erhaltenen Ressourcen Einträge für namens Abfragen, die vom Computer aufgelöst wurden. Der DNS-Client Dienst verwendet diese Informationen, um häufig abgefragte Namen schnell zu beheben, bevor die konfigurierten DNS-Server abgefragt werden. |
 | /flushdns | Leert den Inhalt des DNS-Client Auflösungs Caches und setzt ihn zurück. Bei der DNS-Problembehandlung können Sie mithilfe dieses Verfahrens negative Cache Einträge aus dem Cache sowie alle anderen Einträge, die dynamisch hinzugefügt wurden, verwerfen. |
 | /registerdns | Initiiert die manuelle dynamische Registrierung für die DNS-Namen und IP-Adressen, die auf einem Computer konfiguriert sind. Sie können diesen Parameter verwenden, um Probleme mit einer fehlgeschlagenen DNS-Namens Registrierung zu beheben oder ein dynamisches Update Problem zwischen einem Client und dem DNS-Server aufzulösen, ohne den Client Computer neu starten zu müssen. Die DNS-Einstellungen in den erweiterten Eigenschaften des TCP/IP-Protokolls bestimmen, welche Namen in DNS registriert sind. |
-| /Release`[<adapter>]` | Sendet eine DHCPRELEASE-Meldung an den DHCP-Server, um die aktuelle DHCP-Konfiguration freizugeben und die IP-Adress Konfiguration für alle Adapter (wenn kein Adapter angegeben ist) oder für einen bestimmten Adapter zu verwerfen, wenn der *Adapter* Parameter enthalten ist. Dieser Parameter deaktiviert TCP/IP für Adapter, die so konfiguriert sind, dass eine IP-Adresse automatisch abgerufen wird. Wenn Sie einen Adapter Namen angeben möchten, geben Sie den Namen des Adapters ein, der angezeigt wird, wenn Sie **ipconfig** ohne Parameter verwenden. |
+| /Release `[<adapter>]` | Sendet eine DHCPRELEASE-Meldung an den DHCP-Server, um die aktuelle DHCP-Konfiguration freizugeben und die IP-Adress Konfiguration für alle Adapter (wenn kein Adapter angegeben ist) oder für einen bestimmten Adapter zu verwerfen, wenn der *Adapter* Parameter enthalten ist. Dieser Parameter deaktiviert TCP/IP für Adapter, die so konfiguriert sind, dass eine IP-Adresse automatisch abgerufen wird. Wenn Sie einen Adapter Namen angeben möchten, geben Sie den Namen des Adapters ein, der angezeigt wird, wenn Sie **ipconfig** ohne Parameter verwenden. |
 | /release6`[<adapter>]` | Sendet eine DHCPRELEASE-Meldung an den DHCPv6-Server zum Freigeben der aktuellen DHCP-Konfiguration und verwerfen der IPv6-Adress Konfiguration für alle Adapter (wenn kein Adapter angegeben ist) oder für einen bestimmten Adapter, wenn der *Adapter* Parameter enthalten ist. Dieser Parameter deaktiviert TCP/IP für Adapter, die so konfiguriert sind, dass eine IP-Adresse automatisch abgerufen wird. Wenn Sie einen Adapter Namen angeben möchten, geben Sie den Namen des Adapters ein, der angezeigt wird, wenn Sie **ipconfig** ohne Parameter verwenden. |
-| /Renew`[<adapter>]` | Erneuert die DHCP-Konfiguration für alle Adapter (wenn kein Adapter angegeben ist) oder für einen bestimmten Adapter, wenn der *Adapter* Parameter enthalten ist. Dieser Parameter ist nur auf Computern mit Adaptern verfügbar, die so konfiguriert sind, dass eine IP-Adresse automatisch abgerufen wird. Wenn Sie einen Adapter Namen angeben möchten, geben Sie den Namen des Adapters ein, der angezeigt wird, wenn Sie **ipconfig** ohne Parameter verwenden. |
-| /renew6`[<adapter>]` | Erneuert die DHCPv6-Konfiguration für alle Adapter (wenn kein Adapter angegeben ist) oder für einen bestimmten Adapter, wenn der *Adapter* Parameter enthalten ist. Dieser Parameter ist nur auf Computern mit Adaptern verfügbar, die so konfiguriert sind, dass eine IPv6-Adresse automatisch abgerufen wird. Wenn Sie einen Adapter Namen angeben möchten, geben Sie den Namen des Adapters ein, der angezeigt wird, wenn Sie **ipconfig** ohne Parameter verwenden. |
-| /setclassid`<adapter>[<classID>]` | Konfiguriert die DHCP-Klassen-ID für einen angegebenen Adapter. Um die DHCP-Klassen-ID für alle Adapter festzulegen, verwenden Sie das Platzhalter Zeichen (**&#42;**) anstelle des- *Adapters*. Dieser Parameter ist nur auf Computern mit Adaptern verfügbar, die so konfiguriert sind, dass eine IP-Adresse automatisch abgerufen wird. Wenn keine DHCP-Klassen-ID angegeben ist, wird die aktuelle Klassen-ID entfernt. |
-| /showclassid`<adapter>` | Zeigt die DHCP-Klassen-ID für einen angegebenen Adapter an. Um die DHCP-Klassen-ID für alle Adapter anzuzeigen, verwenden Sie das Platzhalter Zeichen (**&#42;**) anstelle des *Adapters*. Dieser Parameter ist nur auf Computern mit Adaptern verfügbar, die so konfiguriert sind, dass eine IP-Adresse automatisch abgerufen wird. |
+| /Renew `[<adapter>]` | Erneuert die DHCP-Konfiguration für alle Adapter (wenn kein Adapter angegeben ist) oder für einen bestimmten Adapter, wenn der *Adapter* Parameter enthalten ist. Dieser Parameter ist nur auf Computern mit Adaptern verfügbar, die so konfiguriert sind, dass eine IP-Adresse automatisch abgerufen wird. Wenn Sie einen Adapter Namen angeben möchten, geben Sie den Namen des Adapters ein, der angezeigt wird, wenn Sie **ipconfig** ohne Parameter verwenden. |
+| /renew6 `[<adapter>]` | Erneuert die DHCPv6-Konfiguration für alle Adapter (wenn kein Adapter angegeben ist) oder für einen bestimmten Adapter, wenn der *Adapter* Parameter enthalten ist. Dieser Parameter ist nur auf Computern mit Adaptern verfügbar, die so konfiguriert sind, dass eine IPv6-Adresse automatisch abgerufen wird. Wenn Sie einen Adapter Namen angeben möchten, geben Sie den Namen des Adapters ein, der angezeigt wird, wenn Sie **ipconfig** ohne Parameter verwenden. |
+| /setclassid `<adapter>[<classID>]` | Konfiguriert die DHCP-Klassen-ID für einen angegebenen Adapter. Um die DHCP-Klassen-ID für alle Adapter festzulegen, verwenden Sie das Platzhalter Zeichen (**&#42;**) anstelle des- *Adapters*. Dieser Parameter ist nur auf Computern mit Adaptern verfügbar, die so konfiguriert sind, dass eine IP-Adresse automatisch abgerufen wird. Wenn keine DHCP-Klassen-ID angegeben ist, wird die aktuelle Klassen-ID entfernt. |
+| /showclassid `<adapter>` | Zeigt die DHCP-Klassen-ID für einen angegebenen Adapter an. Um die DHCP-Klassen-ID für alle Adapter anzuzeigen, verwenden Sie das Platzhalter Zeichen (**&#42;**) anstelle des *Adapters*. Dieser Parameter ist nur auf Computern mit Adaptern verfügbar, die so konfiguriert sind, dass eine IP-Adresse automatisch abgerufen wird. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
 #### <a name="remarks"></a>Bemerkungen

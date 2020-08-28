@@ -1,18 +1,18 @@
 ---
 title: ftp literal
 description: Referenz Artikel für den FTP-literalbefehl, der ausführliche Argumente an den Remote-FTP-Server sendet.
-ms.topic: article
+ms.topic: reference
 ms.assetid: fb81aa2d-07fa-4e79-bf44-1fb5526fdf14
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bafa2626481941b91d501e4fd6df52aa1f8f05d1
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: ff0f322d3b2ff63705077165ad73f58830cee216
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87889360"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89023864"
 ---
 # <a name="ftp-literal"></a>ftp literal
 
@@ -31,7 +31,7 @@ literal <argument> [ ]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<argument>` | Gibt das Argument an, das an den FTP-Server gesendet werden soll. |
 

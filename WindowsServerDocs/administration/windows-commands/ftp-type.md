@@ -1,18 +1,18 @@
 ---
 title: ftp type
 description: Referenz Artikel für den Befehl FTP Type, mit dem der Datei Übertragungstyp festgelegt oder angezeigt wird.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 6e96dcd4-08f8-4e7b-90b7-1e1761fea4c7
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2188c6114b708845486dd091ff222d2d46ece075
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: f97c7959fcc0788298055b989433eec572d61584
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87888806"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89035688"
 ---
 # <a name="ftp-type"></a>ftp type
 
@@ -32,7 +32,7 @@ type [<typename>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `[<typename>]` | Gibt den Dateiübertragungstyp an. Wenn Sie diesen Parameter nicht angeben, wird der aktuelle Typ angezeigt.|
 

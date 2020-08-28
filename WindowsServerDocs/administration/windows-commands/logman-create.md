@@ -1,18 +1,18 @@
 ---
 title: logman create
 description: Referenz Artikel für den Befehl logman Create, der einen Counter, eine Ablauf Verfolgung, einen Konfigurationsdaten Sammler oder eine API erstellt.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 972f0126-7bc4-4b14-9265-062864f3ffd4
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bd236b7ad78921c9f32094b5e595b4125fe2ec74
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 8635bfef8e9a82175348bdc06b5b722c8a1e733d
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87887343"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89023814"
 ---
 # <a name="logman-create"></a>logman create
 
@@ -28,7 +28,7 @@ logman create <counter | trace | alert | cfg | api> <[-n] <name>> [options]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | [logman create counter](logman-create-counter.md) | Erstellt einen Counter-Datensammler. |
 | [logman create trace](logman-create-trace.md) | Erstellt einen Ablauf Verfolgungs Datensammler. |

@@ -1,18 +1,18 @@
 ---
 title: autoconv
 description: Referenz Artikel für den autoenv-Befehl, mit dem Datei Zuordnungs Tabellen-(FAT) und FAT32-Volumes in das NTFS-Dateisystem konvertiert werden.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 17281e54-0b18-4e84-94ac-24586c82df4e
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9f4c7ed1a2c370de46e02130fd06e1b9326207e9
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 3d69d70200b4885404486bc4956903a17b329630
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87895267"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89028938"
 ---
 # <a name="autoconv"></a>autoconv
 

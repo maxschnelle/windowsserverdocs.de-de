@@ -1,18 +1,18 @@
 ---
 title: defrag
 description: Referenz Artikel für den Defragmentierung-Befehl, der fragmentierte Dateien auf lokalen Volumes sucht und konsolidiert, um die Systemleistung zu verbessern.
-ms.topic: article
+ms.topic: reference
 ms.assetid: aaf1d1ac-996a-4282-9b4d-1e8245ff162c
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c68edbb4511df12912adbc666201d5a381c06fe3
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 45bf8f07a44432eac45f4a5ccaf43697c5de17fe
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87891481"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89024234"
 ---
 # <a name="defrag"></a>defrag
 
@@ -33,7 +33,7 @@ defrag <volume> [<parameters>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<volume>` | Gibt den Laufwerk Buchstaben oder den Bereitstellungspunktpfad des Volumes an, das zerlegt oder analysiert werden soll. |
 | /a | Führt eine Analyse der angegebenen Volumes aus. |

@@ -1,18 +1,18 @@
 ---
 title: jetpack
 description: Referenz Artikel für den Jetpack-Befehl, der eine Windows Internet Name Service (WINS)-oder DHCP-Datenbank (Dynamic Host Configuration Protocol) komprimiert.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 82a2b7ef-0db5-4575-a028-8acb0bf6c7ba
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6850c7d00f11278bbc904f7ad7d2e7edaf30d229
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: bf2664c142a169982acc0d11c34a53aea193d030
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87888196"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89035418"
 ---
 # <a name="jetpack"></a>jetpack
 
@@ -36,7 +36,7 @@ jetpack.exe <database_name> <temp_database_name>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ------- | -------- |
 | `<database_name>` | Gibt den Namen der ursprünglichen Datenbankdatei an. |
 | `<temp_database_name>` | Gibt den Namen der temporären Datenbankdatei an, die von jetpack.exe erstellt werden soll.<p>Hinweis: Diese temporäre Datei wird entfernt, wenn der Compact-Prozess beendet ist. Damit dieser Befehl ordnungsgemäß funktioniert, müssen Sie sicherstellen, dass der temporäre Dateiname eindeutig ist und dass eine Datei mit diesem Namen nicht bereits vorhanden ist. |

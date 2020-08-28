@@ -1,18 +1,18 @@
 ---
 title: bitsadmin cache and help
 description: Referenz Artikel für den bizadmin-Cache und den Help-Befehl, der die Befehlszeilen Verwendung für die **Cache** Switches anzeigt.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 0b14db49-84ac-4c2f-bf1f-f65e13cbfb35
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a7290a8033d0e48df05991d506c5851cc0a04f05
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 1a043be0a8cb5acae6f793bcb57dd3947bc2d93d
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87894752"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89028898"
 ---
 # <a name="bitsadmin-cache-and-help"></a>bitsadmin cache and help
 

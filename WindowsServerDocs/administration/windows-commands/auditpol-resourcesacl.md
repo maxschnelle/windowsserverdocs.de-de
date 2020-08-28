@@ -1,18 +1,18 @@
 ---
 title: resourcesacl für Auditpol
 description: Referenz Artikel für den Befehl Auditpol resourcesacl, der globale Ressourcensystem-Zugriffs Steuerungs Listen (SACLs) konfiguriert.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 28771ba7-967a-45e9-9bf0-b2a2673070f0
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b20c97fce42bb57613ac421eabc5ac7acf7a921d
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 408dadfd29fb1dd6227d4d27651da400d1ede333
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87895353"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89028998"
 ---
 # <a name="auditpol-resourcesacl"></a>resourcesacl für Auditpol
 
@@ -34,7 +34,7 @@ auditpol /resourceSACL
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | /Set | Fügt einen neuen Eintrag zu oder aktualisiert einen vorhandenen Eintrag in der Ressourcen-SACL für den angegebenen Ressourcentyp. |
 | /remove | Entfernt alle Einträge für den angegebenen Benutzer in der Liste der globalen Objekt Zugriffs Überwachung. |
@@ -44,7 +44,7 @@ auditpol /resourceSACL
 
 ### <a name="arguments"></a>Argumente
 
-| Argument | BESCHREIBUNG |
+| Argument | Beschreibung |
 | -------- | ----------- |
 | /type | Die Ressource, für die die Objekt Zugriffs Überwachung konfiguriert wird. Die unterstützten, Unterscheidung nach Groß-/Kleinschreibung, Argument Werte sind *File* (für Verzeichnisse und Dateien) und *Key* (für Registrierungsschlüssel). |
 | /Success | Gibt die erfolgreiche Überwachung an. |

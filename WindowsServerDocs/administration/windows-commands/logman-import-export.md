@@ -1,18 +1,18 @@
 ---
 title: logman import and logman export
 description: Referenz Artikel zu logman Import und logman Export, der einen Datensammler Satz aus einer XML-Datei importiert oder einen Datensammler Satz in eine XML-Datei exportiert.
-ms.topic: article
+ms.topic: reference
 ms.assetid: c258daba-fb93-47c0-a53b-2fe83ed2c743
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0d09d0e517acf19ba1cbb167eb24b16aea3ff2bc
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 5fb750b2ba514c28b05b7b7817994aef3b83eb62
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87887289"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89023794"
 ---
 # <a name="logman-import-and-logman-export"></a>logman import and logman export
 
@@ -29,14 +29,14 @@ logman export <[-n] <name> <-xml <name> [options]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | -s `<computer name>` | Führen Sie den Befehl auf dem angegebenen Remote Computer aus. |
-| -config`<value>` | Gibt die Einstellungsdatei an, die Befehlsoptionen enthält. |
-| [-n]`<name>` | Name des Zielobjekts |
-| -XML`<name>` | Der Name der XML-Datei, die importiert oder exportiert werden soll. |
+| -config `<value>` | Gibt die Einstellungsdatei an, die Befehlsoptionen enthält. |
+| [-n] `<name>` | Name des Zielobjekts |
+| -XML `<name>` | Der Name der XML-Datei, die importiert oder exportiert werden soll. |
 | -ETS | Sendet Befehle direkt an Ereignis Ablauf Verfolgungs Sitzungen, ohne zu speichern oder zu planen. |
-| -[-] u`<user [password]>` | Gibt den Benutzer an, der als ausgeführt werden soll. Wenn Sie `*` für das Kennwort eingeben, wird eine Eingabeaufforderung für das Kennwort ausgegeben. Das Kennwort wird nicht angezeigt, während Sie es an der Eingabeaufforderung eingeben. |
+| -[-] u `<user [password]>` | Gibt den Benutzer an, der als ausgeführt werden soll. Wenn Sie `*` für das Kennwort eingeben, wird eine Eingabeaufforderung für das Kennwort ausgegeben. Das Kennwort wird nicht angezeigt, während Sie es an der Eingabeaufforderung eingeben. |
 | -y | Antworten auf Ja für alle Fragen ohne Aufforderung. |
 | /? | Zeigt die kontextbezogene Hilfe an. |
 

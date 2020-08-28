@@ -1,18 +1,18 @@
 ---
 title: auditpol restore
 description: Referenz Artikel für den Befehl Auditpol Restore, der Systemüberwachungs-Richtlinien Einstellungen, Überwachungs Richtlinien Einstellungen pro Benutzer für alle Benutzer und alle Überwachungs Optionen aus einer Datei, die syntaktisch konsistent mit dem von der Option/Backup verwendeten CSV-Dateiformat (Comma-Separated Value) ist, wiederherstellt.
-ms.topic: article
+ms.topic: reference
 ms.assetid: ad73e520-484f-4cf1-a7f9-ae7488e9edf6
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3a9f5b159280631c42cc22c6b59fd571a5550835
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: dcf4f85da5955f49e644962de82a66a4dedaea64
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87895313"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89029008"
 ---
 # <a name="auditpol-restore"></a>auditpol restore
 
@@ -30,7 +30,7 @@ auditpol /restore /file:<filename>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ------- | -------- |
 | /file | Gibt die Datei an, aus der die Überwachungsrichtlinie wieder hergestellt werden soll. Die Datei muss mithilfe der/Backup-Option erstellt worden sein oder muss syntaktisch konsistent mit dem CSV-Dateiformat sein, das von der/Backup-Option verwendet wird. |
 | /? |Zeigt die Hilfe an der Eingabeaufforderung an. |

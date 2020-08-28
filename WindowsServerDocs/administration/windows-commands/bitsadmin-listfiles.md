@@ -1,18 +1,18 @@
 ---
 title: bitsadmin listfiles
 description: Referenz Artikel für den Befehl bizadmin listFiles, der die Dateien im angegebenen Auftrag auflistet.
-ms.topic: article
+ms.topic: reference
 ms.assetid: ad0d1eaa-3bd8-45e5-8f72-4da7366f0d59
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a5dcd9092f2d9a8d150496e4cf89595537885d62
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: b6afadf78acd187b336484db47b128afb49e27fe
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87893681"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89024304"
 ---
 # <a name="bitsadmin-listfiles"></a>bitsadmin listfiles
 
@@ -26,7 +26,7 @@ bitsadmin /listfiles <job>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | -------------- | -------------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 

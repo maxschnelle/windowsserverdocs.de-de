@@ -1,18 +1,18 @@
 ---
 title: auditpol get
 description: Referenz Artikel für den Befehl Auditpol Get, der die System Richtlinie, die Richtlinie für benutzerspezifische Richtlinien, Überwachungs Optionen und das Überwachungs Sicherheits Deskriptor-Objekt abruft.
-ms.topic: article
+ms.topic: reference
 ms.assetid: fe13de4e-836c-4207-b47c-64b6272d6c41
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: edb6619ed551de481b77009c320240951cdca06e
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 23de44ebc9bc91ad4db52ee7362b14d9c93648d8
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87895436"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89029088"
 ---
 # <a name="auditpol-get"></a>auditpol get
 
@@ -36,7 +36,7 @@ auditpol /get
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | /User | Zeigt den Sicherheits Prinzipal an, für den die Überwachungsrichtlinie pro Benutzer abgefragt wird. Der/Category-Parameter oder der/SubCategory-Parameter muss angegeben werden. Der Benutzer kann als Sicherheits-ID (SID) oder Name angegeben werden. Wenn kein Benutzerkonto angegeben ist, wird die System Überwachungsrichtlinie abgefragt. |
 | /category | Eine oder mehrere Überwachungs Kategorien, die durch Globally Unique Identifier (GUID) oder den Namen angegeben werden. Ein Sternchen (*) kann verwendet werden, um anzugeben, dass alle Überwachungs Kategorien abgefragt werden sollen. |
