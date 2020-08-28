@@ -1,18 +1,18 @@
 ---
 title: prnjobs
 description: Referenz Artikel zum prnjobs-Befehl, der Druckaufträge anhält, fortsetzt, abbricht und auflistet.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 5ad34199-7a5a-40c1-8053-bccd5929df43
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: d955f50761e1229e0a1acf21a9f2179525bd7ee4
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: d25a6d5e6163465cf20304b0651e842afb77458f
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87884742"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89038711"
 ---
 # <a name="prnjobs"></a>prnjobs
 
@@ -28,16 +28,16 @@ cscript prnjobs {-z | -m | -x | -l | -?} [-s <Servername>] [-p <Printername>] [-
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 |--|--|
 | -Z | Hält den Druckauftrag an, der durch den **-j-** Parameter angegeben wird. |
 | -M | Setzt den Druckauftrag fort, der durch den **-j-** Parameter angegeben wird. |
 | -X | Bricht den Druckauftrag ab, der durch den **-j-** Parameter angegeben wird. |
 | -l | Listet alle Druckaufträge in einer Druck Warteschlange auf. |
 | -s `<Servername>` | Gibt den Namen des Remote Computers an, der den Drucker hostet, den Sie verwalten möchten. Wenn Sie keinen Computer angeben, wird der lokale Computer verwendet. |
-| -p`<Printername>` | Erforderlich. Gibt den Namen des Druckers an, den Sie verwalten möchten. |
-| -j`<JobID>` | Gibt (nach ID-Nummer) den Druckauftrag an, den Sie abbrechen möchten. |
-| -u `<Username>` -w`<password>` | Gibt ein Konto mit Berechtigungen zum Herstellen einer Verbindung mit dem Computer an, der den zu verwaltenden Drucker hostet. Alle Mitglieder der lokalen Administratoren Gruppe des Ziel Computers verfügen über diese Berechtigungen, die Berechtigungen können jedoch auch anderen Benutzern erteilt werden. Wenn Sie kein Konto angeben, müssen Sie unter einem Konto mit diesen Berechtigungen angemeldet sein, damit der Befehl funktioniert. |
+| -p `<Printername>` | Erforderlich. Gibt den Namen des Druckers an, den Sie verwalten möchten. |
+| -j `<JobID>` | Gibt (nach ID-Nummer) den Druckauftrag an, den Sie abbrechen möchten. |
+| -u `<Username>` -w `<password>` | Gibt ein Konto mit Berechtigungen zum Herstellen einer Verbindung mit dem Computer an, der den zu verwaltenden Drucker hostet. Alle Mitglieder der lokalen Administratoren Gruppe des Ziel Computers verfügen über diese Berechtigungen, die Berechtigungen können jedoch auch anderen Benutzern erteilt werden. Wenn Sie kein Konto angeben, müssen Sie unter einem Konto mit diesen Berechtigungen angemeldet sein, damit der Befehl funktioniert. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
 #### <a name="remarks"></a>Bemerkungen

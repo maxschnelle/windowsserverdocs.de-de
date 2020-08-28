@@ -1,18 +1,18 @@
 ---
 title: bitsadmin takeownership
 description: Referenz Artikel für den Befehl bizadmin TakeOwnership, mit dem ein Benutzer mit Administratorrechten den Besitz des angegebenen Auftrags übernimmt.
-ms.topic: article
+ms.topic: reference
 ms.assetid: ea0ce7cb-440a-498f-a3ef-8368fa43e399
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b7e37b4508681af58ab07458507101647a0906ff
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: b0df40e336ecc282e4b1a1774d7b5848f37a1a7a
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87880983"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89033378"
 ---
 # <a name="bitsadmin-takeownership"></a>bitsadmin takeownership
 
@@ -26,7 +26,7 @@ bitsadmin /takeownership <job>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ---------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 

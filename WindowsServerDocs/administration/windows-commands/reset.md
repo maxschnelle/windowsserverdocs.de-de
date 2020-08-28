@@ -1,24 +1,24 @@
 ---
 title: reset
-description: Referenz Artikel für * * * *-
-ms.topic: article
+description: Referenz Artikel für den Reset-Befehl, der DiskShadow.exe auf den Standardzustand zurücksetzt.
+ms.topic: reference
 ms.assetid: afbdab44-199c-4e11-884f-e96804965c21
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f491a3d8c805ac6b3558f3778f6eba91a7551b82
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 9ca1b0574fae1e0d00bc1f2cbec17ff9572ed253
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87883651"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89038338"
 ---
 # <a name="reset"></a>reset
 
+Setzt DiskShadow.exe auf den Standardzustand zurück. Dieser Befehl ist besonders nützlich bei der Trennung von zusammengesetzten DiskShadow-Vorgängen, wie z. b. **Erstellen**, **importieren**, **sichern**oder **Wiederherstellen**.
 
-
-Setzt DiskShadow.exe auf den Standardzustand zurück. **Reset** ist besonders nützlich, wenn Sie zusammengesetzte DiskShadow-Vorgänge wie **Create**, **Import**, **Backup**oder **Restore**voneinander trennen.
+> [! Wichtig: Nachdem Sie diesen Befehl ausgeführt haben, verlieren Sie Statusinformationen von Befehlen, z. b. **Hinzufügen**, **festlegen**, **Laden**oder **Writer**. Dieser Befehl gibt auch ivssbackupcomponent-Schnittstellen frei und verliert nicht persistente Schatten Kopien.
 
 ## <a name="syntax"></a>Syntax
 
@@ -26,10 +26,22 @@ Setzt DiskShadow.exe auf den Standardzustand zurück. **Reset** ist besonders n�
 reset
 ```
 
-## <a name="remarks"></a>Bemerkungen
-
--   Wenn Sie den **Reset** -Befehl verwenden, verlieren Sie den Status von Befehlen wie " **Add**", " **set**", " **Load**" oder " **Writer**". **Reset** gibt auch ivssbackupcomponent-Schnittstellen frei und verliert nicht persistente Schatten Kopien.
-
 ## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Create-Befehl](create.md)
+
+- [Import Befehl](import_1.md)
+
+- [Backup-Befehl](begin-backup.md)
+
+- [Restore-Befehl](begin-restore.md)
+
+- [Befehl hinzufügen](add.md)
+
+- [SET-Befehl](set_2.md)
+
+- [Befehl "Laden"](reg-load.md)
+
+- [Writer-Befehl](writer.md)

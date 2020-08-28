@@ -1,18 +1,18 @@
 ---
 title: netstat
 description: Referenz Artikel für den netstat-Befehl, in dem aktive TCP-Verbindungen, Ports, die der Computer überwacht, Ethernet-Statistiken, die IP-Routing Tabelle, IPv4-Statistiken und IPv6-Statistiken angezeigt werden.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 60e2718f-93cc-4ceb-bf0e-58a6a6e4fc8b
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9fe7fc15e86df884fb9610ba5d6e72ab52e2d129
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 4d68ec2e21c4248769973b3409896ba9d5bd15e5
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87886010"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89038801"
 ---
 # <a name="netstat"></a>netstat
 
@@ -31,14 +31,14 @@ netstat [-a] [-b] [-e] [-n] [-o] [-p <Protocol>] [-r] [-s] [<interval>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | -a | Zeigt alle aktiven TCP-Verbindungen und die TCP-und UDP-Ports an, die der Computer abhört. |
 | -b | Zeigt die ausführbare Datei an, die zum Erstellen der einzelnen Verbindungen oder des Überwachungsports gehört In einigen Fällen hosten bekannte ausführbare Dateien mehrere unabhängige Komponenten, und in diesen Fällen wird die Abfolge der Komponenten, die beim Erstellen der Verbindung oder des Überwachungsports beteiligt sind, angezeigt. In diesem Fall befindet sich der Name der ausführbaren Datei unten in [], oben ist die Komponente, die Sie aufgerufen hat, und so weiter, bis TCP/IP erreicht wurde. Beachten Sie, dass diese Option zeitaufwändig sein kann und fehlschlägt, es sei denn, Sie verfügen über ausreichende Berechtigungen.
 | -E | Zeigt Ethernet-Statistiken an, z. b. die Anzahl der gesendeten und empfangenen Bytes. Dieser Parameter kann mit **-s**kombiniert werden. |
 | -n | Zeigt aktive TCP-Verbindungen an. Adressen und Portnummern werden jedoch numerisch ausgedrückt, und es wird kein Versuch unternommen, Namen zu ermitteln. |
 | -o | Zeigt aktive TCP-Verbindungen an und schließt die Prozess-ID (PID) für jede Verbindung ein. Sie finden die Anwendung auf der Grundlage der PID auf der Registerkarte "Prozesse" im Windows Task-Manager. Dieser Parameter kann mit **-a**, **-n**und **-p**kombiniert werden. |
-| -p`<Protocol>` | Zeigt Verbindungen für das Protokoll an, das durch das *Protokoll*angegeben wird. In diesem Fall kann das *Protokoll* TCP, UDP, TCPv6 oder UDPv6 sein. Wenn dieser Parameter mit **-s** verwendet wird, um Statistiken nach Protokoll anzuzeigen, kann das *Protokoll* TCP, UDP, ICMP, IP, TCPv6, UDPv6, ICMPv6 oder IPv6 sein. |
+| -p `<Protocol>` | Zeigt Verbindungen für das Protokoll an, das durch das *Protokoll*angegeben wird. In diesem Fall kann das *Protokoll* TCP, UDP, TCPv6 oder UDPv6 sein. Wenn dieser Parameter mit **-s** verwendet wird, um Statistiken nach Protokoll anzuzeigen, kann das *Protokoll* TCP, UDP, ICMP, IP, TCPv6, UDPv6, ICMPv6 oder IPv6 sein. |
 | -S | Zeigt Statistiken nach Protokoll an. Standardmäßig werden Statistiken für die Protokolle TCP, UDP, ICMP und IP angezeigt. Wenn das IPv6-Protokoll installiert ist, werden Statistiken für die Protokolle TCP Over IPv6, UDP Over IPv6, ICMPv6 und IPv6 angezeigt. Der **-p-** Parameter kann verwendet werden, um einen Satz von Protokollen anzugeben. |
 | -r | Zeigt den Inhalt der IP-Routing Tabelle an. Dies entspricht dem Befehl route print. |
 | `<interval>` | Zeigt die ausgewählten Informationen jedes *Intervall* in Sekunden neu an. Drücken Sie STRG + C, um die erneute Anzeige zu verhindern. Wenn dieser Parameter ausgelassen wird, druckt dieser Befehl die ausgewählten Informationen nur einmal. |
@@ -48,7 +48,7 @@ netstat [-a] [-b] [-e] [-n] [-o] [-p <Protocol>] [-r] [-s] [<interval>]
 
 - Der **netstat** -Befehl stellt Statistiken für Folgendes bereit:
 
-    | Parameter | BESCHREIBUNG |
+    | Parameter | Beschreibung |
     | --------- | ----------- |
     | Proto | Der Name des Protokolls (TCP oder UDP). |
     | Lokale Adresse | Die IP-Adresse des lokalen Computers und die verwendete Portnummer. Der Name des lokalen Computers, der der IP-Adresse und dem Namen des Ports entspricht, wird angezeigt, es sei denn, der Parameter " **-n** " wird angegeben. Wenn der Port noch nicht festgelegt ist, wird die Portnummer als Sternchen (*) angezeigt. |

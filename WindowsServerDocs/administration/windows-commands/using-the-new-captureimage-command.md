@@ -1,18 +1,18 @@
 ---
 title: New-CaptureImage
 description: Referenz Artikel für "New-CaptureImage", mit dem ein neues Erfassungs Image aus einem vorhandenen Start Abbild erstellt wird.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 2dfd08f0-be59-4715-96e6-c498305873f4
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 25e0fe9b11984fe7814b577de4ac8b18d5b62ccb
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 5e98b0b52df39f20b9c84a55aa96c569943b556e
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87892428"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89038168"
 ---
 # <a name="new-captureimage"></a>New-CaptureImage
 
@@ -35,7 +35,7 @@ WDSUTIL [Options] /New-CaptureImage [/Server:<Server name>]
 
 ### <a name="parameters"></a>Parameter
 
-|        Parameter         |                                                                                                                                                                                                                         BESCHREIBUNG                                                                                                                                                                                                                          |
+|        Parameter         |                                                                                                                                                                                                                         Beschreibung                                                                                                                                                                                                                          |
 |--------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [/Server:\<Server name>] |                                                                                                                                       Gibt den Namen des Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.                                                                                                                                        |
 |   /Image:\<Image name>   |                                                                                                                                                                                                         Gibt den Namen des Quell Start Abbilds an.                                                                                                                                                                                                         |

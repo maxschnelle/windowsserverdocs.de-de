@@ -1,18 +1,18 @@
 ---
 title: bitsadmin transfer
 description: Referenz Artikel für den Befehl bizadmin Transfer, mit dem eine oder mehrere Dateien übertragen werden.
-ms.topic: article
+ms.topic: reference
 ms.assetid: fe302141-b33a-4a05-835e-dc4fc4db7d5a
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 06496dffa417bb611700a9d6cec2262fd4d6e690
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 989c2ace5aa8cb0f123dec6f2ad490c1c8c778cd
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87880978"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89033348"
 ---
 # <a name="bitsadmin-transfer"></a>bitsadmin transfer
 
@@ -31,7 +31,7 @@ bitsadmin /transfer <name> [<type>] [/priority <job_priority>] [/ACLflags <flags
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | name | Der Name des Auftrags. Dieser Befehl darf keine GUID sein. |
 | type | Optional. Legt den Typ des Auftrags fest, einschließlich:<ul><li>**Downloaden.** Der Standardwert. Wählen Sie diesen Typ für Download Aufträge aus.</li><li>**Uploads.** Wählen Sie diesen Typ für hochgeladene Aufträge aus.</li></ul> |

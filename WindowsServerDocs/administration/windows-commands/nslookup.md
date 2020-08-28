@@ -1,18 +1,18 @@
 ---
 title: nslookup
 description: Referenz Artikel für den Befehl "nslookup", in dem Informationen angezeigt werden, die Sie verwenden können, um die DNS-Infrastruktur (Domain Name System) zu diagnostizieren.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 41516932-7833-434a-aa92-b4cf0f9a7ef7
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7d01f167a198803db269e97e806a6d2867074d60
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: c06121384ec18a879eaccbb34c926ce68cff9f49
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87885322"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89032778"
 ---
 # <a name="nslookup"></a>nslookup
 
@@ -40,7 +40,7 @@ nslookup [exit | finger | help | ls | lserver | root | server | set | view] [opt
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | [Nslookup beenden](nslookup-exit-command.md) | Beendet das Befehlszeilen Tool Nslookup. |
 | [Nslookup-Finger](nslookup-finger-command.md) | Stellt eine Verbindung mit dem Finger Server auf dem aktuellen Computer her. |

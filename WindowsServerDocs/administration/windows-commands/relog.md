@@ -1,18 +1,18 @@
 ---
 title: relog
 description: Referenz Artikel für den Befehl erneut aufzuzeichnen, mit dem Leistungsdaten aus den Leistungsdaten-Protokolldateien extrahiert werden.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 7480f6c0-9953-4d70-9b1c-b27e09d8db13
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: c3c60503cf725d05afd4b21ceef5f36c64c2b155
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 563bd7a460ee8809ca4020f9a83f28df435127b8
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87883861"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89027423"
 ---
 # <a name="relog"></a>relog
 
@@ -31,18 +31,18 @@ relog [<filename> [<filename> ...]] [/a] [/c <path> [<path> ...]] [/cf <filename
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 |--|--|
 | `filename [filename ...]` | Gibt den Pfadnamen eines vorhandenen Leistungs Protokoll Protokolls an. Sie können mehrere Eingabedateien angeben. |
 | -a | Fügt die Ausgabedatei an, anstatt überschrieben zu werden. Diese Option gilt nicht für das SQL-Format, bei dem standardmäßig immer angefügt wird. |
-| -c`path [path ...]` | Gibt den zu protokolferenden Leistungsdaten Wert Pfad an. Wenn Sie mehrere Counter-Pfade angeben möchten, trennen Sie diese durch ein Leerzeichen, und schließen Sie die Zählers in Anführungszeichen (z `"path1 path2"` . b.) ein. |
+| -c `path [path ...]` | Gibt den zu protokolferenden Leistungsdaten Wert Pfad an. Wenn Sie mehrere Counter-Pfade angeben möchten, trennen Sie diese durch ein Leerzeichen, und schließen Sie die Zählers in Anführungszeichen (z `"path1 path2"` . b.) ein. |
 | -CF Dateiname | Gibt den Pfadnamen der Textdatei an, in der die Leistungsindikatoren aufgelistet werden, die in einer erneuten Protokolldatei enthalten sein sollen. Verwenden Sie diese Option, um die zählige Pfade in einer Eingabedatei aufzulisten, eine pro Zeile. Die Standardeinstellung ist, dass alle Zähler in der ursprünglichen Protokolldatei erneut protokolliert werden. |
-| -f`{bin | csv | tsv | SQL}` | Gibt den Pfadnamen des Ausgabedatei Formats an. Das Standardformat ist **bin**. Für eine SQL-Datenbank wird in der Ausgabedatei angegeben `DSN!CounterLog` . Sie können den Daten Bank Speicherort angeben, indem Sie den ODBC-Manager verwenden, um den DSN (Name des Datenbanksystems) zu konfigurieren. |
+| -f `{bin | csv | tsv | SQL}` | Gibt den Pfadnamen des Ausgabedatei Formats an. Das Standardformat ist **bin**. Für eine SQL-Datenbank wird in der Ausgabedatei angegeben `DSN!CounterLog` . Sie können den Daten Bank Speicherort angeben, indem Sie den ODBC-Manager verwenden, um den DSN (Name des Datenbanksystems) zu konfigurieren. |
 | -t-Wert | Gibt Beispiel Intervalle in *n* Datensätzen an. Schließt jeden ten-Datenpunkt in die erneut aufzuzeichnen-Datei ein. Der Standardwert ist jeder Datenpunkt. |
-| -o`{Outputfile | SQL:DSN!Counter_Log}` | Gibt den Pfadnamen der Ausgabedatei oder der SQL-Datenbank an, in die die Leistungsindikatoren geschrieben werden. <P>**Hinweis:** Für die 64-Bit-und 32-Bit-Versionen von relog.exe müssen Sie einen DSN in der ODBC-Datenquelle (64-Bit bzw. 32-Bit) auf dem System definieren. Verwenden Sie den ODBC-Treiber "SQL Server", um einen DSN zu definieren. |
-| -b`<M/D/YYYY> [[<HH>:]<MM>:]<SS>]` | Gibt die Anfangszeit zum Kopieren des ersten Datensatzes aus der Eingabedatei an. Datum und Uhrzeit müssen das genaue Format M/D/yyyyhh: mm: SS aufweisen. |
+| -o `{Outputfile | SQL:DSN!Counter_Log}` | Gibt den Pfadnamen der Ausgabedatei oder der SQL-Datenbank an, in die die Leistungsindikatoren geschrieben werden. <P>**Hinweis:** Für die 64-Bit-und 32-Bit-Versionen von relog.exe müssen Sie einen DSN in der ODBC-Datenquelle (64-Bit bzw. 32-Bit) auf dem System definieren. Verwenden Sie den ODBC-Treiber "SQL Server", um einen DSN zu definieren. |
+| -b `<M/D/YYYY> [[<HH>:]<MM>:]<SS>]` | Gibt die Anfangszeit zum Kopieren des ersten Datensatzes aus der Eingabedatei an. Datum und Uhrzeit müssen das genaue Format M/D/yyyyhh: mm: SS aufweisen. |
 | -e `<M/D/YYYY> [[<HH>:]<MM>:]<SS>]` | Gibt die Endzeit an, zu der der letzte Datensatz aus der Eingabedatei kopiert werden soll. Datum und Uhrzeit müssen das genaue Format M/D/yyyyhh: mm: SS aufweisen. |
-| -config`{filename | i}` | Gibt den Pfadnamen der Einstellungsdatei an, die Befehlszeilenparameter enthält. Wenn Sie eine Konfigurationsdatei verwenden, können Sie **-i** als Platzhalter für eine Liste von Eingabedateien verwenden, die in der Befehlszeile abgelegt werden können. Verwenden Sie **-i**nicht, wenn Sie die Befehlszeile verwenden. Sie können auch Platzhalter verwenden, z `*.blg` . b., um mehrere Eingabe Dateinamen gleichzeitig anzugeben. |
+| -config `{filename | i}` | Gibt den Pfadnamen der Einstellungsdatei an, die Befehlszeilenparameter enthält. Wenn Sie eine Konfigurationsdatei verwenden, können Sie **-i** als Platzhalter für eine Liste von Eingabedateien verwenden, die in der Befehlszeile abgelegt werden können. Verwenden Sie **-i**nicht, wenn Sie die Befehlszeile verwenden. Sie können auch Platzhalter verwenden, z `*.blg` . b., um mehrere Eingabe Dateinamen gleichzeitig anzugeben. |
 | -q | Zeigt die Leistungsindikatoren und die Zeit Bereiche der Protokolldateien an, die in der Eingabedatei angegeben sind. |
 | -y | Umgeht die Aufforderung, indem für alle Fragen "Ja" beantwortet wird. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |

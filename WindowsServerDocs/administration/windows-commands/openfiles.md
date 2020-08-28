@@ -1,18 +1,18 @@
 ---
 title: openfiles
 description: Referenz Artikel für den openfiles-Befehl, der es einem Administrator ermöglicht, Dateien und Verzeichnisse, die auf einem System geöffnet wurden, abzufragen, anzuzeigen oder zu trennen.
-ms.topic: article
+ms.topic: reference
 ms.assetid: c3be561d-a11f-4bf1-9835-8e4e96fe98ec
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 79163a717746cfb43d0195cf30c7bbf7e1766623
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: d2f148ef753e264256461b1135d84d325c1e1b70
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87885126"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89032628"
 ---
 # <a name="openfiles"></a>openfiles
 
@@ -30,15 +30,15 @@ openfiles /disconnect [/s <system> [/u [<domain>\]<username> [/p [<password>]]]]
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 |--|--|
-| /s`<system>` | Gibt das Remote System an, mit dem eine Verbindung hergestellt werden soll (nach Name oder IP-Adresse). Verwenden Sie keine umgekehrten Schrägstriche. Wenn Sie die Option **/s** nicht verwenden, wird der Befehl standardmäßig auf dem lokalen Computer ausgeführt. Dieser Parameter gilt für alle Dateien und Ordner, die im Befehl angegeben sind. |
-| /u`[<domain>\]<username>` | Führt den Befehl mit den Berechtigungen des angegebenen Benutzerkontos aus. Wenn Sie die Option **/u** nicht verwenden, werden standardmäßig System Berechtigungen verwendet. |
-| /p`[<password>]` | Gibt das Kennwort des Benutzerkontos an, das in der **/u** -Option angegeben ist. Wenn Sie die Option **/p** nicht verwenden, wird beim Ausführen des Befehls eine Kenn Wort Eingabeaufforderung angezeigt. |
-| /ID`<openfileID>` | Trennt geöffnete Dateien mit der angegebenen Datei-ID. Mit diesem Parameter können Sie das Platzhalter Zeichen (**&#42;**) verwenden.<p>Hinweis: Sie können den Befehl **openfiles/Query "aus** verwenden, um die Datei-ID zu suchen. |
-| /a`<accessedby>` | Trennt alle geöffneten Dateien, die mit dem im *Access sedby* -Parameter angegebenen Benutzernamen verknüpft sind. Mit diesem Parameter können Sie das Platzhalter Zeichen (**&#42;**) verwenden. |
-| /o`{read | write | read/write}` | Trennt alle geöffneten Dateien mit dem angegebenen Wert für den offenen Modus. Gültige Werte sind **Lese**-, **Schreib** **-oder Lese-/Schreibzugriff**. Mit diesem Parameter können Sie das Platzhalter Zeichen (**&#42;**) verwenden. |
-| /op`<openfile>` | Trennt alle geöffneten Datei Verbindungen, die mit einem bestimmten geöffneten Dateinamen erstellt werden. Mit diesem Parameter können Sie das Platzhalter Zeichen (**&#42;**) verwenden. |
+| /s `<system>` | Gibt das Remote System an, mit dem eine Verbindung hergestellt werden soll (nach Name oder IP-Adresse). Verwenden Sie keine umgekehrten Schrägstriche. Wenn Sie die Option **/s** nicht verwenden, wird der Befehl standardmäßig auf dem lokalen Computer ausgeführt. Dieser Parameter gilt für alle Dateien und Ordner, die im Befehl angegeben sind. |
+| /u `[<domain>\]<username>` | Führt den Befehl mit den Berechtigungen des angegebenen Benutzerkontos aus. Wenn Sie die Option **/u** nicht verwenden, werden standardmäßig System Berechtigungen verwendet. |
+| /p `[<password>]` | Gibt das Kennwort des Benutzerkontos an, das in der **/u** -Option angegeben ist. Wenn Sie die Option **/p** nicht verwenden, wird beim Ausführen des Befehls eine Kenn Wort Eingabeaufforderung angezeigt. |
+| /ID `<openfileID>` | Trennt geöffnete Dateien mit der angegebenen Datei-ID. Mit diesem Parameter können Sie das Platzhalter Zeichen (**&#42;**) verwenden.<p>Hinweis: Sie können den Befehl **openfiles/Query "aus** verwenden, um die Datei-ID zu suchen. |
+| /a `<accessedby>` | Trennt alle geöffneten Dateien, die mit dem im *Access sedby* -Parameter angegebenen Benutzernamen verknüpft sind. Mit diesem Parameter können Sie das Platzhalter Zeichen (**&#42;**) verwenden. |
+| /o `{read | write | read/write}` | Trennt alle geöffneten Dateien mit dem angegebenen Wert für den offenen Modus. Gültige Werte sind **Lese**-, **Schreib** **-oder Lese-/Schreibzugriff**. Mit diesem Parameter können Sie das Platzhalter Zeichen (**&#42;**) verwenden. |
+| /op `<openfile>` | Trennt alle geöffneten Datei Verbindungen, die mit einem bestimmten geöffneten Dateinamen erstellt werden. Mit diesem Parameter können Sie das Platzhalter Zeichen (**&#42;**) verwenden. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
 ### <a name="examples"></a>Beispiele
@@ -86,11 +86,11 @@ openfiles /query [/s <system> [/u [<domain>\]<username> [/p [<password>]]]] [/fo
 #### <a name="parameters"></a>Parameter
 
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 |--|--|
-| /s`<system>` | Gibt das Remote System an, mit dem eine Verbindung hergestellt werden soll (nach Name oder IP-Adresse). Verwenden Sie keine umgekehrten Schrägstriche. Wenn Sie die Option **/s** nicht verwenden, wird der Befehl standardmäßig auf dem lokalen Computer ausgeführt. Dieser Parameter gilt für alle Dateien und Ordner, die im Befehl angegeben sind. |
-| /u`[<domain>\]<username>` | Führt den Befehl mit den Berechtigungen des angegebenen Benutzerkontos aus. Wenn Sie die Option **/u** nicht verwenden, werden standardmäßig System Berechtigungen verwendet. |
-| /p`[<password>]` | Gibt das Kennwort des Benutzerkontos an, das in der **/u** -Option angegeben ist. Wenn Sie die Option **/p** nicht verwenden, wird beim Ausführen des Befehls eine Kenn Wort Eingabeaufforderung angezeigt. |
+| /s `<system>` | Gibt das Remote System an, mit dem eine Verbindung hergestellt werden soll (nach Name oder IP-Adresse). Verwenden Sie keine umgekehrten Schrägstriche. Wenn Sie die Option **/s** nicht verwenden, wird der Befehl standardmäßig auf dem lokalen Computer ausgeführt. Dieser Parameter gilt für alle Dateien und Ordner, die im Befehl angegeben sind. |
+| /u `[<domain>\]<username>` | Führt den Befehl mit den Berechtigungen des angegebenen Benutzerkontos aus. Wenn Sie die Option **/u** nicht verwenden, werden standardmäßig System Berechtigungen verwendet. |
+| /p `[<password>]` | Gibt das Kennwort des Benutzerkontos an, das in der **/u** -Option angegeben ist. Wenn Sie die Option **/p** nicht verwenden, wird beim Ausführen des Befehls eine Kenn Wort Eingabeaufforderung angezeigt. |
 | [/FO `{TABLE | LIST | CSV}` ] | Zeigt die Ausgabe im angegebenen Format an. Gültige Werte:<ul><li>**Tabelle** : zeigt die Ausgabe in einer Tabelle an.</li><li>**List** : zeigt die Ausgabe in einer Liste an.</li><li>**CSV** : zeigt die Ausgabe im CSV-Format (Komma getrennte Werte) an.</li></ul> |
 | /nh | Unterdrückt die Spaltenüberschriften in der Ausgabe. Nur gültig, wenn der **/FO** -Parameter auf **Table** oder **CSV**festgelegt ist. |
 | /v | Gibt an, dass detaillierte (ausführliche) Informationen in der Ausgabe angezeigt werden. |
@@ -140,7 +140,7 @@ openfiles /local [on | off]
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 |--|--|
 | `[on | off]` | Aktiviert oder deaktiviert das globale Flag für die Liste der System verwalteten **Objekte** , das lokale Datei Handles nachverfolgt. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
@@ -153,7 +153,7 @@ Geben Sie Folgendes ein, um den aktuellen Status des globalen Flags für die Lis
 openfiles /local
 ```
 
-Standardmäßig ist das Flag zum **Auflisten von Objekten** in der Liste deaktiviert, und die folgende Meldung wird angezeigt:`INFO: The system global flag 'maintain objects list' is currently disabled.`
+Standardmäßig ist das Flag zum **Auflisten von Objekten** in der Liste deaktiviert, und die folgende Meldung wird angezeigt: `INFO: The system global flag 'maintain objects list' is currently disabled.`
 
 Geben Sie Folgendes ein, um das globale Flag " **Objekte auflisten** " zu aktivieren:
 
@@ -161,7 +161,7 @@ Geben Sie Folgendes ein, um das globale Flag " **Objekte auflisten** " zu aktivi
 openfiles /local on
 ```
 
-Die folgende Meldung wird angezeigt, wenn das globale Flag aktiviert ist.`SUCCESS: The system global flag 'maintain objects list' is enabled. This will take effect after the system is restarted.`
+Die folgende Meldung wird angezeigt, wenn das globale Flag aktiviert ist. `SUCCESS: The system global flag 'maintain objects list' is enabled. This will take effect after the system is restarted.`
 
 Geben Sie Folgendes ein, um das globale Flag zum Verwalten von **Objekten** zu deaktivieren:
 

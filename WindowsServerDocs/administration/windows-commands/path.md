@@ -1,18 +1,18 @@
 ---
 title: path
 description: Referenz Artikel zum Festlegen des Befehls Pfads in der PATH-Umgebungsvariablen, der den Satz von Verzeichnissen angibt, die für die Suche nach ausführbaren Dateien (. exe) verwendet werden.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 1bfa1349-e79a-472b-a9e6-d7a91149ae8f
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4c81dfef09b4c9a411db9469ec851d4f92180f1d
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: fe60518a70f4fdc9992f70b3b561b067404a31f1
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87885106"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89032507"
 ---
 # <a name="path"></a>path
 
@@ -27,7 +27,7 @@ path ;
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 |--|--|
 | `[<drive>:]<path>` | Gibt das Laufwerk und das Verzeichnis an, die im Befehlspfad festgelegt werden sollen. Das aktuelle Verzeichnis wird immer vor den im Befehlspfad angegebenen Verzeichnissen durchsucht. |
 | ; | Trennt Verzeichnisse im Befehlspfad. Wenn es ohne andere Parameter verwendet wird, löscht die vorhandenen Befehls Pfade aus der PATH-Umgebungsvariablen und leitet **Cmd.exe, nur** im aktuellen Verzeichnis zu suchen. |

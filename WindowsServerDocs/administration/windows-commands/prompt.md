@@ -1,18 +1,18 @@
 ---
 title: prompt
 description: Referenz Artikel für den Prompt-Befehl, mit dem die Cmd.exe Eingabeaufforderung angepasst wird.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 3d98e965-02eb-46ad-9d0a-5dc44830373e
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: df849e70da973276360da6e81390466f0484f4b5
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: b674f219147471c872f5fa8db0d266e3f664c302
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87884627"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89032408"
 ---
 # <a name="prompt"></a>prompt
 
@@ -26,7 +26,7 @@ prompt [<text>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 |--|--|
 | `<text>` | Gibt den Text und die Informationen an, die Sie in die Eingabeaufforderung einschließen möchten. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
@@ -46,7 +46,7 @@ prompt [<text>]
     | $n | Aktuelles Laufwerk |
     | $g | > (größer als-Zeichen) |
     | $l | < (kleiner als Vorzeichen) |
-    | $b | `|`(Pipe-Symbol) |
+    | $b | `|` (Pipe-Symbol) |
     | $_ | Eingabe-Zeilenvorschub |
     | $e | ANSI-Escapecode (Code 27) |
     | $h | Rücktaste (zum Löschen eines Zeichens, das in die Befehlszeile geschrieben wurde) |

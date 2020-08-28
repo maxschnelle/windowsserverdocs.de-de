@@ -1,18 +1,18 @@
 ---
 title: online volume
 description: Referenz Artikel für den Online Volume-Befehl, bei dem das Offline Volume in den Online Status versetzt wird.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 5da073fd-578d-4691-ad0f-605ba66e0c7e
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b09730d3cc0cfe758c90c3ca57fd039282ba3fce
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 8847f340ebe3e295946550c46fd86bd59de300af
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87885225"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89032688"
 ---
 # <a name="online-volume"></a>online volume
 
@@ -32,7 +32,7 @@ online volume [noerr]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 |--|--|
 | Noerr | Nur für Skripterstellung. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird. |
 

@@ -1,18 +1,18 @@
 ---
 title: cscript
 description: Referenz Artikel zum cscript-Befehl, der ein Skript startet, sodass es in einer Befehlszeilen Umgebung ausgeführt wird.
-ms.topic: article
+ms.topic: reference
 ms.assetid: fba3cbca-594e-4663-bb22-4ee0f63a1ac6
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3f6e27cae1531e0c10e8721d7f7fe11487406e35
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 6b5c711d59f69267f8e2de51f34cb1c450e95fab
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87891539"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89033028"
 ---
 # <a name="cscript"></a>cscript
 
@@ -31,14 +31,14 @@ cscript <scriptname.extension> [/b] [/d] [/e:<engine>] [{/h:cscript | /h:wscript
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | ScriptName. Extension | Gibt den Pfad und den Dateinamen der Skriptdatei mit der optionalen Dateinamenerweiterung an. |
 | /b | Gibt den Batch Modus an, in dem keine Warnungen, Skript Fehler oder Eingabe Aufforderungen angezeigt werden. |
 | /d | Startet den Debugger. |
 | /e:`<engine>` | Gibt die Engine an, die zum Ausführen des Skripts verwendet wird. |
 | /h: cscript | Registriert cscript.exe als Standardskript Host für das Ausführen von Skripts. |
-| /h: WScript | Registriert wscript.exe als Standardskript Host für das Ausführen von Skripts. Dies ist die Standardeinstellung. |
+| /h: WScript | Registriert wscript.exe als Standardskript Host für das Ausführen von Skripts. Dies ist die Standardoption. |
 | /i | Gibt den interaktiven Modus an, in dem Warnungen, Skript Fehler und Eingabe Aufforderungen angezeigt werden. Dies ist die Standardeinstellung und das Gegenteil von `/b` . |
 | /Auftrag<identifier> | Führt den durch den *Bezeichner* identifizierten Auftrag in einer WSF-Skriptdatei aus. |
 | /logo | Gibt an, dass das Windows Script Host-Banner in der-Konsole angezeigt wird, bevor das Skript ausgeführt wird. Dies ist die Standardeinstellung und das Gegenteil von `/nologo` . |

@@ -1,18 +1,18 @@
 ---
 title: telnet unset
 description: Referenz Artikel für die Unmenge von Telnet, die zuvor festgelegte Optionen deaktiviert.
-ms.topic: article
+ms.topic: reference
 ms.assetid: da9a0d99-1930-4858-93c7-0e9c3797ee09
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e90c6696ec4dd2883d4627862c4ad2db638b1c6e
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 8e6e15e3f4b5a74c77f4a184c6641d0c14a18662
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87881634"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89038297"
 ---
 # <a name="telnet-unset"></a>Telnet: nicht festgelegt
 
@@ -25,14 +25,14 @@ Deaktiviert zuvor festgelegte Optionen.
 u[nset] {bsasdel | crlf | delasbs | escape | localecho | logging | ntlm} [?]
 ```
 #### <a name="parameters"></a>Parameter
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |-------|--------|
 |bsasdel|Sendet **Rückraum** als **RÜCKTASTE**.|
 |CRLF|Sendet die **Eingabe** Taste als CR. Wird auch als Zeilenvorschub Modus bezeichnet.|
 |Delta-|Sendet **Delete** als **Delete**.|
 |Escape|entfernt die Einstellung für das Escapezeichen.|
 |LOCALECHO|Deaktiviert LOCALECHO.|
-|logging|Schaltet die Protokollierung aus.|
+|Protokollierung|Schaltet die Protokollierung aus.|
 |ntlm|Deaktiviert die NTLM-Authentifizierung.|
 |?|Zeigt die Hilfe für diesen Befehl an.|
 ## <a name="examples"></a>Beispiele

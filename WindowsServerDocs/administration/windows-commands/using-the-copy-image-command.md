@@ -1,18 +1,18 @@
 ---
 title: Kopieren/Abbild
 description: Referenz Artikel für Copy-Image, mit dem Bilder kopiert werden, die sich in derselben Abbild Gruppe befinden.
-ms.topic: article
+ms.topic: reference
 ms.assetid: bea41cf4-36e6-4181-afa5-00170ebd4fdc
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4995d45de3897c590dd232b316756330081b13ee
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 4907aa76e17059b101a3bbeb793eb159dcf24b91
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87892191"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89038208"
 ---
 # <a name="copy-image"></a>Kopieren/Abbild
 
@@ -32,7 +32,7 @@ wdsutil [Options] /copy-Imagmedia:<Image name> [/Server:<Server name>]
          [/Description:<Description>]
 ```
 ### <a name="parameters"></a>Parameter
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |-------|--------|
 Medien<Image name>|Gibt den Namen des zu kopierenden Bilds an.|
 |[/Server:<Server name>]|Gibt den Namen des Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.|

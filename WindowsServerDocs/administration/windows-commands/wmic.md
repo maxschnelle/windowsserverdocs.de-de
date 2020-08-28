@@ -1,18 +1,18 @@
 ---
 title: wmic
 description: Referenz Artikel für WMIC, in dem WMI-Informationen in einer interaktiven Befehlsshell angezeigt werden.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 76397c72-d06f-4cea-88cf-c7603315a983
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1b585cb968aa3165397b61acb1f974b2fafbd2b7
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 6396f3e6ebc39722c3f1a79d32d629b206cceba2
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87896468"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89038088"
 ---
 # <a name="wmic"></a>wmic
 

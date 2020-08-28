@@ -1,18 +1,18 @@
 ---
 title: prncnfg
 description: Referenz Artikel zum prncnfg-Befehl, mit dem Konfigurationsinformationen zu einem Drucker konfiguriert oder angezeigt werden.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 38a4e8fa-3122-495b-a125-35b926bc6415
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 4f7329d4f5c7441232efffbc40dcc1177f083e1e
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: ba5d465a46a23261942428761d11ef279b78a62e
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87884768"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89038721"
 ---
 # <a name="prncnfg"></a>prncnfg
 
@@ -28,25 +28,25 @@ cscript prncnfg {-g | -t | -x | -?} [-S <Servername>] [-P <Printername>] [-z <ne
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 |--|--|
 | -g | Zeigt Konfigurationsinformationen zu einem Drucker an. |
 | -t | Konfiguriert einen Drucker. |
 | -X | Benennt einen Drucker um. |
-| -S`<Servername>` | Gibt den Namen des Remote Computers an, der den Drucker hostet, den Sie verwalten möchten. Wenn Sie keinen Computer angeben, wird der lokale Computer verwendet. |
-| -P`<Printername>` | Gibt den Namen des Druckers an, den Sie verwalten möchten. Erforderlich. |
-| -z`<newprintername>` | Gibt den neuen Drucker Namen an. Erfordert die Parameter **-x** und **-P** . |
-| -u `<Username>` -w`<password>` | Gibt ein Konto mit Berechtigungen zum Herstellen einer Verbindung mit dem Computer an, der den zu verwaltenden Drucker hostet. Alle Mitglieder der lokalen Administratoren Gruppe des Ziel Computers verfügen über diese Berechtigungen, die Berechtigungen können jedoch auch anderen Benutzern erteilt werden. Wenn Sie kein Konto angeben, müssen Sie unter einem Konto mit diesen Berechtigungen angemeldet sein, damit der Befehl funktioniert. |
-| -r`<portname>` | Gibt den Port an, mit dem der Drucker verbunden ist. Wenn es sich um einen parallelen oder seriellen Anschluss handelt, verwenden Sie die ID des Ports (z. b. LPT1 oder COM1). Wenn dies ein TCP/IP-Port ist, verwenden Sie den Portnamen, der beim Hinzufügen des Ports angegeben wurde. |
-| -l`<location>` | Gibt den Drucker Speicherort an, z. b. **copyroom**. Wenn der Speicherort Leerzeichen enthält, setzen Sie den Text in Anführungszeichen, z. b. **"Raum kopieren"**.|
-| -h`<sharename>` | Gibt den Freigabe Namen des Druckers an. |
+| -S `<Servername>` | Gibt den Namen des Remote Computers an, der den Drucker hostet, den Sie verwalten möchten. Wenn Sie keinen Computer angeben, wird der lokale Computer verwendet. |
+| -P `<Printername>` | Gibt den Namen des Druckers an, den Sie verwalten möchten. Erforderlich. |
+| -z `<newprintername>` | Gibt den neuen Drucker Namen an. Erfordert die Parameter **-x** und **-P** . |
+| -u `<Username>` -w `<password>` | Gibt ein Konto mit Berechtigungen zum Herstellen einer Verbindung mit dem Computer an, der den zu verwaltenden Drucker hostet. Alle Mitglieder der lokalen Administratoren Gruppe des Ziel Computers verfügen über diese Berechtigungen, die Berechtigungen können jedoch auch anderen Benutzern erteilt werden. Wenn Sie kein Konto angeben, müssen Sie unter einem Konto mit diesen Berechtigungen angemeldet sein, damit der Befehl funktioniert. |
+| -r `<portname>` | Gibt den Port an, mit dem der Drucker verbunden ist. Wenn es sich um einen parallelen oder seriellen Anschluss handelt, verwenden Sie die ID des Ports (z. b. LPT1 oder COM1). Wenn dies ein TCP/IP-Port ist, verwenden Sie den Portnamen, der beim Hinzufügen des Ports angegeben wurde. |
+| -l `<location>` | Gibt den Drucker Speicherort an, z. b. **copyroom**. Wenn der Speicherort Leerzeichen enthält, setzen Sie den Text in Anführungszeichen, z. b. **"Raum kopieren"**.|
+| -h `<sharename>` | Gibt den Freigabe Namen des Druckers an. |
 | -m `<comment>` | Gibt die Kommentar Zeichenfolge des Druckers an. |
-| -f`<separatorfilename>` | Gibt eine Datei an, die den Text enthält, der auf der Trenn Seite angezeigt wird. |
-| -y`<datatype>` | Gibt die Datentypen an, die der Drucker annehmen kann. |
-| -St`<starttime>` | Konfiguriert den Drucker für eingeschränkte Verfügbarkeit. Gibt die Uhrzeit an, zu der der Drucker verfügbar ist. Wenn Sie ein Dokument an einen Drucker senden, wenn es nicht verfügbar ist, wird das Dokument gespeichert (Spoolvorgang), bis der Drucker verfügbar ist. Sie müssen die Uhrzeit als 24-Stunden-Format angeben. Wenn Sie z. b. 11:00 Uhr angeben möchten, geben Sie **2300**ein. |
-| -UT`<endtime>` | Konfiguriert den Drucker für eingeschränkte Verfügbarkeit. Gibt die Uhrzeit an, zu der der Drucker nicht mehr verfügbar ist. Wenn Sie ein Dokument an einen Drucker senden, wenn es nicht verfügbar ist, wird das Dokument gespeichert (Spoolvorgang), bis der Drucker verfügbar ist. Sie müssen die Uhrzeit als 24-Stunden-Format angeben. Wenn Sie z. b. 11:00 Uhr angeben möchten, geben Sie **2300**ein. |
-| -o`<priority>` | Gibt eine Priorität an, die der Spooler zum Weiterleiten von Druckaufträgen in der Druck Warteschlange verwendet. Eine Druck Warteschlange mit höherer Priorität empfängt alle zugehörigen Aufträge vor jeder Warteschlange mit niedrigerer Priorität. |
-| -i`<defaultpriority>` | Gibt die Standardpriorität an, die jedem Druckauftrag zugewiesen ist. |
+| -f `<separatorfilename>` | Gibt eine Datei an, die den Text enthält, der auf der Trenn Seite angezeigt wird. |
+| -y `<datatype>` | Gibt die Datentypen an, die der Drucker annehmen kann. |
+| -St `<starttime>` | Konfiguriert den Drucker für eingeschränkte Verfügbarkeit. Gibt die Uhrzeit an, zu der der Drucker verfügbar ist. Wenn Sie ein Dokument an einen Drucker senden, wenn es nicht verfügbar ist, wird das Dokument gespeichert (Spoolvorgang), bis der Drucker verfügbar ist. Sie müssen die Uhrzeit als 24-Stunden-Format angeben. Wenn Sie z. b. 11:00 Uhr angeben möchten, geben Sie **2300**ein. |
+| -UT `<endtime>` | Konfiguriert den Drucker für eingeschränkte Verfügbarkeit. Gibt die Uhrzeit an, zu der der Drucker nicht mehr verfügbar ist. Wenn Sie ein Dokument an einen Drucker senden, wenn es nicht verfügbar ist, wird das Dokument gespeichert (Spoolvorgang), bis der Drucker verfügbar ist. Sie müssen die Uhrzeit als 24-Stunden-Format angeben. Wenn Sie z. b. 11:00 Uhr angeben möchten, geben Sie **2300**ein. |
+| -o `<priority>` | Gibt eine Priorität an, die der Spooler zum Weiterleiten von Druckaufträgen in der Druck Warteschlange verwendet. Eine Druck Warteschlange mit höherer Priorität empfängt alle zugehörigen Aufträge vor jeder Warteschlange mit niedrigerer Priorität. |
+| -i `<defaultpriority>` | Gibt die Standardpriorität an, die jedem Druckauftrag zugewiesen ist. |
 | `{+|-}`Genu | Gibt an, ob dieser Drucker im Netzwerk freigegeben ist. |
 | `{+|-}`unmittelbaren | Gibt an, ob das Dokument direkt an den Drucker gesendet werden soll, ohne dass es gespoolte ist. |
 | `{+|-}`enes | Gibt an, ob dieser Drucker in Active Directory veröffentlicht werden soll. Wenn Sie den Drucker veröffentlichen, können andere Benutzer basierend auf dem Speicherort und den Funktionen (z. b. Farb Druck und Heftung) danach suchen. |

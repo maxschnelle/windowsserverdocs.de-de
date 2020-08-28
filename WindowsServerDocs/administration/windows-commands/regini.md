@@ -1,18 +1,18 @@
 ---
 title: regini
 description: Referenz Artikel für den "Regini-Befehl, der die Registrierung über die Befehlszeile oder ein Skript ändert und Änderungen anwendet, die in einer oder mehreren Textdateien voreingestellt wurden.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 5ff18dc3-5bd8-400a-b311-fd73a3267e8c
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: d0653ca97ca4401cb24250bbce1c627b6c683982
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: a779c41dba46e86f862982de0b203a09dd6c8384
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87883962"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89027438"
 ---
 # <a name="regini"></a>regini
 
@@ -28,12 +28,12 @@ regini [-m \\machinename | -h hivefile hiveroot][-i n] [-o outputwidth][-b] text
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 |--|--|
 | -m `<\\computername>` | Gibt den Namen des Remote Computers mit einer Registrierung an, die geändert werden soll. Verwenden Sie das Format ** \\ Computername**. |
-| -h`<hivefile hiveroot>` | Gibt die zu ändernde lokale Registrierungs Struktur an. Sie müssen den Namen der Hive-Datei und den Stamm der Struktur im Format **hivefile hiveroot**angeben. |
-| -i`<n>` | Gibt die Ebene des Einzugs an, der verwendet wird, um die Struktur der Registrierungsschlüssel in der Befehlsausgabe anzugeben. Das **regdmp.exe** Tool (das die aktuellen Berechtigungen eines Registrierungsschlüssels im Binärformat abruft) verwendet den Einzug in Vielfachen von vier, sodass der Standardwert **4**ist. |
-| -o`<outputwidth>` | Gibt die Breite der Befehlsausgabe in Zeichen an. Wenn die Ausgabe im Befehlsfenster angezeigt wird, ist der Standardwert die Breite des Fensters. Wenn die Ausgabe an eine Datei weitergeleitet wird, ist der Standardwert **240** Zeichen. |
+| -h `<hivefile hiveroot>` | Gibt die zu ändernde lokale Registrierungs Struktur an. Sie müssen den Namen der Hive-Datei und den Stamm der Struktur im Format **hivefile hiveroot**angeben. |
+| -i `<n>` | Gibt die Ebene des Einzugs an, der verwendet wird, um die Struktur der Registrierungsschlüssel in der Befehlsausgabe anzugeben. Das **regdmp.exe** Tool (das die aktuellen Berechtigungen eines Registrierungsschlüssels im Binärformat abruft) verwendet den Einzug in Vielfachen von vier, sodass der Standardwert **4**ist. |
+| -o `<outputwidth>` | Gibt die Breite der Befehlsausgabe in Zeichen an. Wenn die Ausgabe im Befehlsfenster angezeigt wird, ist der Standardwert die Breite des Fensters. Wenn die Ausgabe an eine Datei weitergeleitet wird, ist der Standardwert **240** Zeichen. |
 | -b | Gibt an, dass **regini.exe** Ausgabe abwärts kompatibel mit früheren Versionen von **regini.exe**ist. |
 | TextFiles | Gibt den Namen einer oder mehrerer Textdateien an, die Registrierungsdaten enthalten. Eine beliebige Anzahl von ANSI-oder Unicode-Textdateien kann aufgelistet werden. |
 

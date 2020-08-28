@@ -1,18 +1,18 @@
 ---
 title: create partition msr
 description: Referenz Artikel zu CREATE Partition MSR, mit dem eine Microsoft Reserved-Partition (MSR) auf einem GPT-Datenträger (GUID-Partitionstabelle) erstellt wird.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 04fba033-23cb-4521-bd5d-db96131f2e73
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b697aa278849e2cd084ef7e9378b7997032a820c
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 1df792001cf48d9d5fce69de6dc9bc6bdd09a1f8
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87879880"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89033228"
 ---
 # <a name="create-partition-msr"></a>create partition msr
 
@@ -33,7 +33,7 @@ create partition msr [size=<n>] [offset=<n>] [noerr]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | Größe =`<n>` | Die Größe der Partition in Megabyte (MB). Die Partition ist mindestens so lang wie die Zahl, die durch angegeben wird `<n>` . Wenn keine Größe angegeben wird, wird die Partition so lange fortgesetzt, bis in der aktuellen Region kein freier Speicherplatz mehr verfügbar ist. |
 | Offset =`<n>` | Gibt den Offset in Kilobyte (KB) an, bei dem die Partition erstellt wird. Der Offset wird aufgerundet, um alle verwendeten Sektorgrößen vollständig auszufüllen. Wenn kein Offset angegeben wird, wird die Partition in den ersten Datenträger Block eingefügt, der groß genug ist, um Sie zu speichern. |

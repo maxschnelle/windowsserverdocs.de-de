@@ -1,18 +1,18 @@
 ---
 title: ftp
 description: Referenz Artikel für den FTP-Befehl, der Dateien an einen Computer überträgt, auf dem ein Dateiübertragungsprotokoll (FTP)-Server Dienst ausgeführt wird.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 758335e1-fd8d-448c-a654-993126239dd9
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 369a41cf6ad803a4fce939da58228997410cf177
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 9f5cb70e6b42e390f8e279152e736b0226e74f9d
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87888786"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89038901"
 ---
 # <a name="ftp"></a>ftp
 
@@ -28,7 +28,7 @@ ftp [-v] [-d] [-i] [-n] [-g] [-s:<filename>] [-a] [-A] [-x:<sendbuffer>] [-r:<re
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ----------| ----------- |
 | -v | Unterdrückt die Anzeige von Remote Server Antworten. |
 | -d | Aktiviert das Debuggen und zeigt alle Befehle an, die zwischen dem FTP-Client und dem FTP-Server |

@@ -1,18 +1,18 @@
 ---
 title: pathping
 description: Referenz Artikel für den Befehl "pathping", der Informationen zu Netzwerk Latenz und Netzwerk Verlust bei zwischen Hops zwischen einer Quelle und einem Ziel abruft.
-ms.topic: article
+ms.topic: reference
 ms.assetid: ec430125-b1dc-4aad-a7c9-b70f486d9e3c
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: d5ce12d950356c5ebb5ad671de09aaebbc91b9fb
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 3ae867d0b4ea53aaa807fb461f7a32726efefc2e
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87885090"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89032487"
 ---
 # <a name="pathping"></a>pathping
 
@@ -33,17 +33,17 @@ pathping [/n] [/h <maximumhops>] [/g <hostlist>] [/p <Period>] [/q <numqueries> 
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 |--|--|
 | /n | Verhindert, dass der **pfadping** versucht, die IP-Adressen der zwischen Router in ihre Namen aufzulösen. Dadurch wird möglicherweise die Anzeige von **pathping** -Ergebnissen beschleunigt. |
-| /h`<maximumhops>` | Gibt die maximale Anzahl von Hops in dem Pfad an, der nach dem Ziel (Ziel) gesucht werden soll. Der Standardwert ist 30 Hops. |
-| /g`<hostlist>` | Gibt an, dass die Echo Anforderungs Nachrichten die Option **lose Quell Route** im IP-Header mit dem Satz von zwischen Zielen verwenden, die in der *Hostliste*angegeben sind. Beim losen Quell Routing können aufeinander folgende Zwischenziele durch einen oder mehrere Router getrennt werden. Die maximale Anzahl von Adressen oder Namen in der Hostliste beträgt **9**. Die *Hostliste* ist eine Reihe von IP-Adressen (in punktierter Dezimal Schreibweise), getrennt durch Leerzeichen. |
-| /p`<period>` | Gibt die Anzahl von Millisekunden an, die zwischen aufeinander folgenden Pings gewartet werden soll. Der Standardwert ist 250 Millisekunden (1/4 Sekunde). Dieser Parameter sendet individuelle Pings an jeden Zwischenhop. Aus diesem Grund wird das Intervall zwischen zwei an denselben Hop gesendeten Pings mit der Anzahl der *Hops multipliziert.* |
-| /q`<numqueries>` | Gibt die Anzahl der Echo Request-Meldungen an, die an jeden Router im Pfad gesendet werden. Der Standardwert ist 100-Abfragen. |
-| /w`<timeout>` | Gibt die Anzahl der Millisekunden an, die auf jede Antwort gewartet werden soll. Der Standardwert ist 3000 Millisekunden (3 Sekunden). Dieser Parameter sendet mehrere Pings parallel. Aus diesem Grund ist die im *Timeout* -Parameter angegebene Zeitspanne nicht durch die Zeitspanne begrenzt, die im *Period* -Parameter für das warten zwischen Pings angegeben ist. |
-| /i`<IPaddress>` | Gibt die Quelladresse an. |
-| /4`<IPv4>` | Gibt an, dass pathping ausschließlich IPv4 verwendet. |
-| /6`<IPv6>` | Gibt an, dass für pathping nur IPv6 verwendet wird. |
+| /h `<maximumhops>` | Gibt die maximale Anzahl von Hops in dem Pfad an, der nach dem Ziel (Ziel) gesucht werden soll. Der Standardwert ist 30 Hops. |
+| /g `<hostlist>` | Gibt an, dass die Echo Anforderungs Nachrichten die Option **lose Quell Route** im IP-Header mit dem Satz von zwischen Zielen verwenden, die in der *Hostliste*angegeben sind. Beim losen Quell Routing können aufeinander folgende Zwischenziele durch einen oder mehrere Router getrennt werden. Die maximale Anzahl von Adressen oder Namen in der Hostliste beträgt **9**. Die *Hostliste* ist eine Reihe von IP-Adressen (in punktierter Dezimal Schreibweise), getrennt durch Leerzeichen. |
+| /p `<period>` | Gibt die Anzahl von Millisekunden an, die zwischen aufeinander folgenden Pings gewartet werden soll. Der Standardwert ist 250 Millisekunden (1/4 Sekunde). Dieser Parameter sendet individuelle Pings an jeden Zwischenhop. Aus diesem Grund wird das Intervall zwischen zwei an denselben Hop gesendeten Pings mit der Anzahl der *Hops multipliziert.* |
+| /q `<numqueries>` | Gibt die Anzahl der Echo Request-Meldungen an, die an jeden Router im Pfad gesendet werden. Der Standardwert ist 100-Abfragen. |
+| /w `<timeout>` | Gibt die Anzahl der Millisekunden an, die auf jede Antwort gewartet werden soll. Der Standardwert ist 3000 Millisekunden (3 Sekunden). Dieser Parameter sendet mehrere Pings parallel. Aus diesem Grund ist die im *Timeout* -Parameter angegebene Zeitspanne nicht durch die Zeitspanne begrenzt, die im *Period* -Parameter für das warten zwischen Pings angegeben ist. |
+| /i `<IPaddress>` | Gibt die Quelladresse an. |
+| /4 `<IPv4>` | Gibt an, dass pathping ausschließlich IPv4 verwendet. |
+| /6 `<IPv6>` | Gibt an, dass für pathping nur IPv6 verwendet wird. |
 | `<targetname>` | Gibt das Ziel an, das entweder durch die IP-Adresse oder den Hostnamen identifiziert wird. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 

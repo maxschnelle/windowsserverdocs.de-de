@@ -5,14 +5,14 @@ manager: dmoss
 ms.author: toklima
 author: toklima
 ms.assetid: b198d8ca-a5b7-430f-8911-5cbb9f50484c
-ms.topic: article
+ms.topic: reference
 ms.date: 10/16/2017
-ms.openlocfilehash: 85b52c1ad124ac47617948f1683038108214e2e3
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: a39bb99e570f09b57962d8b3d64ec783611ac04b
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87889879"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89033018"
 ---
 # <a name="fsutil-resource"></a>fsutil resource
 
@@ -53,11 +53,11 @@ fsutil resource [stop] <rmrootpathname>
 | "einstellbare" | Gibt an, dass eine transaktionale Ressourcen-Manager die Verfügbarkeit gegenüber Konsistenz bevorzugt. |
 | setkonsistent | Gibt an, dass eine transaktionale Ressourcen-Manager die Konsistenz gegenüber der Verfügbarkeit bevorzugen. |
 | Setlog | Ändert die Eigenschaften eines transaktionalen Ressourcen-Manager, der bereits ausgeführt wird. |
-| growth | Gibt den Betrag an, um den die transaktionale Ressourcen-Manager Protokoll vergrößert werden kann.<p>Der Parameter "Growth" kann wie folgt angegeben werden:<ul><li>Anzahl von Containern unter Verwendung des folgenden Formats:`<containers> containers`</li><li>Prozentsatz mit dem folgenden Format:`<percent> percent`</li></ul> |
+| growth | Gibt den Betrag an, um den die transaktionale Ressourcen-Manager Protokoll vergrößert werden kann.<p>Der Parameter "Growth" kann wie folgt angegeben werden:<ul><li>Anzahl von Containern unter Verwendung des folgenden Formats: `<containers> containers`</li><li>Prozentsatz mit dem folgenden Format: `<percent> percent`</li></ul> |
 | `<containers>` | Gibt die Datenobjekte an, die vom transaktionalen Ressourcen-Manager verwendet werden. |
 | maxblock | Gibt die maximale Anzahl von Containern für die angegebene Transaktions Ressourcen-Manager an. |
 | minblock | Gibt die Mindestanzahl von Containern für die angegebene Transaktions Ressourcen-Manager an. |
-| Spar`{full|undo}` | Gibt an, ob alle Transaktionen protokolliert ( **Full**) oder nur Rollback-Ereignisse protokolliert (**Rückgängig**) werden. |
+| Spar `{full|undo}` | Gibt an, ob alle Transaktionen protokolliert ( **Full**) oder nur Rollback-Ereignisse protokolliert (**Rückgängig**) werden. |
 | rename | Ändert die GUID für die transaktionale Ressourcen-Manager. |
 | shrink | Gibt den Prozentsatz an, um den sich das Transaktions Ressourcen-Manager Protokoll automatisch verringern kann. |
 | size | Gibt die Größe des transaktionalen Ressourcen-Manager als angegebene Anzahl von *Containern*an. |

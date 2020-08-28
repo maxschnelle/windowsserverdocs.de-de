@@ -1,18 +1,18 @@
 ---
 title: bitsadmin util and getieproxy
 description: Referenz Artikel für den Befehl bizadmin util und GETIEPROXY, der die Proxy Verwendung für das angegebene Dienst Konto abruft.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 6d50c7e3-f4eb-4ca5-9f0c-4ed396087db6
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 78d24395a22d41369127b115971597598b69ec05
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 87a67dbdf1495b3cb8398fdbc0cc3cfed1c4e577
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87880923"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89033258"
 ---
 # <a name="bitsadmin-util-and-getieproxy"></a>bitsadmin util and getieproxy
 
@@ -28,7 +28,7 @@ bitsadmin /util /getieproxy <account> [/conn <connectionname>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ---------- |
 | account | Gibt das Dienst Konto an, dessen Proxy Einstellungen Sie abrufen möchten. Mögliche Werte sind:<ul><li>LOCALSYSTEM</li><li>   Network Service</li><li>LOCALSERVICE.</li></ul> |
 | ConnectionName | Optional. Wird zusammen mit dem **/conn** -Parameter verwendet, um anzugeben, welche Modemverbindung verwendet werden soll. Wenn Sie den **/conn** -Parameter nicht angeben, verwendet Bits die LAN-Verbindung. |

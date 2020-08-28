@@ -1,18 +1,18 @@
 ---
 title: date
 description: Referenz Artikel zum Date-Befehl, mit dem das Systemdatum angezeigt oder festgelegt wird. Bei Verwendung ohne Parameter
-ms.topic: article
+ms.topic: reference
 ms.assetid: ce6700fb-32f9-4350-a1af-5aee61d4448c
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8966f02a6902b6b2bccc6fdc6931485a86bd39fe
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 78c8ca51882b2559e78cc457d1fd7fa5ec8e87b8
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87891520"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89033038"
 ---
 # <a name="date"></a>date
 
@@ -29,7 +29,7 @@ date [/t | <month-day-year>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<month-day-year>` | Legt das angegebene Datum fest, wobei *Month* der Monat ist (eine oder zwei Ziffern, einschließlich der Werte 1 bis 12), *Day* der Tag (eine oder zwei Ziffern, einschließlich der Werte 1 bis 31) und *year* das Jahr (zwei oder vier Ziffern, einschließlich der Werte 00 bis 99 oder 1980 bis 2099). Sie müssen Werte für " *Month*", " *Day*" und " *year* " durch Punkte (.), Bindestriche (-) oder Schrägstriche (/) aufteilen.<p>**Hinweis:** Beachten Sie, dass bei Verwendung von 2 Ziffern zur Darstellung des Jahres die Werte 80-99 1980 bis 1999 entsprechen. |
 | /t | Zeigt das aktuelle Datum an, ohne Sie zur Eingabe eines neuen Datums aufzufordern. |

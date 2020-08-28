@@ -1,18 +1,18 @@
 ---
 title: telnet
 description: Referenz Artikel für Telnet, der mit einem Computer kommuniziert, auf dem der Telnet-Server Dienst ausgeführt wird.
-ms.topic: article
+ms.topic: reference
 ms.assetid: b70a6156-9413-4300-84ce-a34c467e2b4e
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: fd270011dfa3a0cfcef3cbdc41eb8140f409ff2d
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: fdf379a8d827ced295f1c36ac6c44ab5e167e66f
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87881605"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89038289"
 ---
 # <a name="telnet"></a>telnet
 
@@ -25,12 +25,12 @@ Kommuniziert mit einem Computer, auf dem der Telnet-Server Dienst ausgeführt wi
 telnet [/a] [/e <EscapeChar>] [/f <FileName>] [/l <UserName>] [/t {vt100 | vt52 | ansi | vtnt}] [<Host> [<Port>]] [/?]
 ```
 #### <a name="parameters"></a>Parameter
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |-------|--------|
 |/a|versuchen Sie die automatische Anmeldung. Identisch mit der Option/l, mit der Ausnahme, dass der Name des aktuell angemeldeten Benutzers verwendet wird.|
-|/e\<EscapeChar>|Escapezeichen für die Eingabe der Telnet-Client Eingabeaufforderung.|
+|/e \<EscapeChar>|Escapezeichen für die Eingabe der Telnet-Client Eingabeaufforderung.|
 |/f \<FileName>|Der für die Client seitige Protokollierung verwendete Dateiname.|
-|/l\<UserName>|Gibt den Benutzernamen für die Anmeldung auf dem Remote Computer an.|
+|/l \<UserName>|Gibt den Benutzernamen für die Anmeldung auf dem Remote Computer an.|
 |/t {VT100 &#124; VT52 &#124; ANSI &#124; VTNT}|Gibt den Terminaltyp an. Unterstützte Terminal Typen sind VT100, vt52, ANSI und VTNT.|
 |\<Host> [\<Port>]|Gibt den Hostnamen oder die IP-Adresse des Remote Computers an, mit dem eine Verbindung hergestellt werden soll, und optional den zu verwendenden TCP-Port (standardmäßig TCP-Port 23).|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an. Alternativ können Sie/h. eingeben.|

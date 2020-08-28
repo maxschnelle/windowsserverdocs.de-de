@@ -1,18 +1,18 @@
 ---
 title: )
 description: Referenz Artikel für den weiteren Befehl, der einen Bildschirm der Ausgabe gleichzeitig anzeigt.
-ms.topic: article
+ms.topic: reference
 ms.assetid: ded14f6a-d82f-4aeb-a2d8-7ec1c94dfb8f
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/26/2019
-ms.openlocfilehash: 198f3f3f3b80282d876e4fdda9e7cde649a8c7da
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 2c8d7a21220701bf46685d4c87ca02a4810aff1b
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87886375"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89038841"
 ---
 # <a name="more"></a>)
 
@@ -31,7 +31,7 @@ more [/c] [/p] [/s] [/t<n>] [+<n>] [<files>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<command>` | Gibt einen Befehl an, für den die Ausgabe angezeigt werden soll. |
 | /C | Löscht den Bildschirm, bevor eine Seite angezeigt wird. |
@@ -54,8 +54,8 @@ more [/c] [/p] [/s] [/t<n>] [+<n>] [<files>]
     | f | Drücken Sie **F** , um die nächste Datei anzuzeigen, die in der Befehlszeile aufgelistet ist. |
     | q | Drücken Sie **Q** , um den Befehl **Weitere** zu beenden. |
     | = | Zeigt die Zeilennummer an. |
-    | cker`<n>` | Drücken Sie **P** , um die nächsten *n* Zeilen anzuzeigen. |
-    | Hymnen`<n>` | Drücken Sie **S** , um die nächsten *n* Zeilen zu überspringen. |
+    | cker `<n>` | Drücken Sie **P** , um die nächsten *n* Zeilen anzuzeigen. |
+    | Hymnen `<n>` | Drücken Sie **S** , um die nächsten *n* Zeilen zu überspringen. |
     | ? | Drücken **?** , um die Befehle anzuzeigen, die an der **ausführlicheren** Eingabeaufforderung verfügbar sind.|
 
 - Wenn Sie das-Umleitungs Zeichen ( `<` ) verwenden, müssen Sie auch einen Dateinamen als Quelle angeben.
