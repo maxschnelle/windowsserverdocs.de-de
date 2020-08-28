@@ -1,18 +1,18 @@
 ---
 title: dir
 description: Referenz Artikel für den Befehl dir, mit dem eine Liste der Dateien und Unterverzeichnisse eines Verzeichnisses angezeigt wird.
-ms.topic: article
+ms.topic: reference
 ms.assetid: edcbf69b-eaa4-466e-b210-3dd8892f4d93
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 51d36f0f5498c5c853df2d6663f52411037c13d4
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: b3a37675d0ac93274c62792478267cfa25db375a
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87890985"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89028348"
 ---
 # <a name="dir"></a>dir
 
@@ -28,7 +28,7 @@ dir [<drive>:][<path>][<filename>] [...] [/p] [/q] [/w] [/d] [/a[[:]<attributes>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `[<drive>:][<path>]` | Gibt das Laufwerk und das Verzeichnis an, für die eine Auflistung angezeigt werden soll. |
 | `[<filename>]` | Gibt eine bestimmte Datei oder Gruppe von Dateien an, für die eine Auflistung angezeigt werden soll. |
@@ -57,11 +57,11 @@ dir [<drive>:][<path>][<filename>] [...] [/p] [/q] [/w] [/d] [/a[[:]<attributes>
 
 - Sie können das Platzhalter Zeichen **&#42;** verwenden, um eine beliebige Zeichenfolge zu ersetzen, z. b.:
 
-  - `dir *.txt`Listet alle Dateien im aktuellen Verzeichnis mit Erweiterungen auf, die mit ". txt" beginnen, z. b. txt,. txt1,. txt_old.
+  - `dir *.txt` Listet alle Dateien im aktuellen Verzeichnis mit Erweiterungen auf, die mit ". txt" beginnen, z. b. txt,. txt1,. txt_old.
 
-  - `dir read *.txt`Listet alle Dateien im aktuellen Verzeichnis auf, die mit "lesen" beginnen, und mit Erweiterungen, die mit ". txt" beginnen, z. b. txt,. txt1 oder. txt_old.
+  - `dir read *.txt` Listet alle Dateien im aktuellen Verzeichnis auf, die mit "lesen" beginnen, und mit Erweiterungen, die mit ". txt" beginnen, z. b. txt,. txt1 oder. txt_old.
 
-  - `dir read *.*`Listet alle Dateien im aktuellen Verzeichnis auf, die mit dem Lesen mit einer beliebigen Erweiterung beginnen.
+  - `dir read *.*` Listet alle Dateien im aktuellen Verzeichnis auf, die mit dem Lesen mit einer beliebigen Erweiterung beginnen.
 
   Der Platzhalter Platzhalter verwendet immer eine kurze Zuordnung von Dateinamen, sodass Sie möglicherweise unerwartete Ergebnisse erhalten. Das folgende Verzeichnis enthält z. b. zwei Dateien (t.txt2 und t97.txt):
 

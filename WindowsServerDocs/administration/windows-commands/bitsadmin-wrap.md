@@ -1,18 +1,18 @@
 ---
 title: bitsadmin wrap
 description: Referenz Artikel für den Befehl bizadmin Wrap, der jede Zeile von Ausgabetext umschließt, die über den rechten Rand des Befehls Fensters zur nächsten Zeile hinausgeht.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 14e57522-539d-4621-ad15-09f7a44ccab7
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5d17678ec735f9e7d6319368b0b35a67b47ea576
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 14ea78a09af0ba4dedce8438c5ec80cc39fcec9a
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87880761"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89034638"
 ---
 # <a name="bitsadmin-wrap"></a>bitsadmin wrap
 
@@ -30,7 +30,7 @@ bitsadmin /wrap <job>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ---------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 

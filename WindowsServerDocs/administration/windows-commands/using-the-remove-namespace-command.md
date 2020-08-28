@@ -1,18 +1,18 @@
 ---
 title: Remove-Namespace
 description: Referenz Artikel für Remove-Namespace, mit dem ein benutzerdefinierter Namespace entfernt wird.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 4eb758b6-8519-4e26-9fe0-2e19bb0e8702
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a85552109f85e0c4de5f3d09c9c0335dccc5af1f
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 3bef563a91ed4eb445cdf3c555025873078d2716
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87891910"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89023084"
 ---
 # <a name="using-the-remove-namespace-command"></a>Verwenden des Remove-Namespace-Befehls
 
@@ -25,7 +25,7 @@ Entfernt einen benutzerdefinierten Namespace.
 wdsutil /remove-Namespace /Namespace:<Namespace name> [/Server:<Server name>] [/force]
 ```
 ### <a name="parameters"></a>Parameter
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |-------|--------|
 |Namespace<Namespace name>|Gibt den Namen des Namespace an. Dies ist nicht der Anzeige Name, und er muss eindeutig sein.<p>-   **Rollen Dienst "Bereitstellungs Server**": die Syntax für den Namespace Namen lautet/Namespace: WDS: <ImageGroup> / <ImageName> / <Index> . Beispiel: **WDS: ImageGroup1/install. wim/1**<br />-   **Transport Server-Rollen Dienst**: dieser Wert muss dem Namen entsprechen, der für den Namespace angegeben wurde, als er auf dem Server erstellt wurde.|
 |[/Server:<Server name>]|Gibt den Namen des Servers an. Dabei kann es sich um den NetBIOS-Namen oder den voll qualifizierten Domänen Namen (FQDN) handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.|

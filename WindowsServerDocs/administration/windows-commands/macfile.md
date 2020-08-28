@@ -1,18 +1,18 @@
 ---
 title: macfile
 description: Referenz Artikel für den MacFile-Befehl, der den Datei Server für Macintosh-Server, Volumes, Verzeichnisse und Dateien verwaltet.
-ms.topic: article
+ms.topic: reference
 ms.assetid: e2ce586c-b316-41d3-90f8-4be0d074cc0e
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d3b450241ee3f8a765f9ac93ec09b0450d8c28e5
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 06095d99c6cfbdc51fd28f51f9bc06f08d959edf
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87887048"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89023694"
 ---
 # <a name="macfile"></a>macfile
 
@@ -32,7 +32,7 @@ macfile directory[/server:\\<computername>] /path:<directory> [/owner:<ownername
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | /server:`\\<computername>` | Gibt den Server an, auf dem ein Verzeichnis geändert werden soll. Wenn der Vorgang nicht weggelassen wird, wird der Vorgang auf dem lokalen Computer ausgeführt. |
 | /Path`<directory>` | Gibt den Pfad zu dem Verzeichnis an, das Sie ändern möchten. Dieser Parameter ist erforderlich. **Hinweis:** Das Verzeichnis muss vorhanden sein, und das Verzeichnis " **MacFile** " erstellt keine Verzeichnisse. |
@@ -89,7 +89,7 @@ macfile forkize[/server:\\<computername>] [/creator:<creatorname>] [/type:<typen
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | /server:`\\<computername>` | Gibt den Server an, auf dem Dateien verknüpft werden sollen. Wenn der Vorgang nicht weggelassen wird, wird der Vorgang auf dem lokalen Computer ausgeführt. |
 | Hersteller`<creatorname>` | Gibt den Ersteller der Datei an. Der Macintosh-Finder verwendet die Befehlszeilenoption **/Creator** , um die Anwendung zu ermitteln, die die Datei erstellt hat. |
@@ -129,7 +129,7 @@ macfile server [/server:\\<computername>] [/maxsessions:{number | unlimited}] [/
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- |------------ |
 | /server:`\\<computername>` | Gibt den Server an, auf dem die Parameter geändert werden sollen. Wenn der Vorgang nicht weggelassen wird, wird der Vorgang auf dem lokalen Computer ausgeführt. |
 | MaxSessions`{number | unlimited}` | Gibt die maximale Anzahl von Benutzern an, die gleichzeitig Datei-und Druckserver für Macintosh verwenden können. Wenn der Wert nicht angegeben wird, bleibt die **MaxSessions** -Einstellung für den Server unverändert. |
@@ -161,7 +161,7 @@ macfile volume /remove[/server:\\<computername>] /name:<volumename>
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `{/add | /set}` | Erforderlich, wenn ein auf Macintosh zugängliches Volume hinzugefügt oder geändert wird. Fügt das angegebene Volume hinzu oder ändert es. |
 | /server:`\\<computername>` | Gibt den Server an, auf dem ein Volume hinzugefügt, geändert oder entfernt werden soll. Wenn der Vorgang nicht weggelassen wird, wird der Vorgang auf dem lokalen Computer ausgeführt. |

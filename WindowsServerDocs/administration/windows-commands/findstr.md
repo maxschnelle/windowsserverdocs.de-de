@@ -1,18 +1,18 @@
 ---
 title: findstr
 description: Referenz Artikel für den findstr-Befehl, der in Dateien nach Textmustern sucht.
-ms.topic: article
+ms.topic: reference
 ms.assetid: c2d803fb-4cd2-46a1-a1b7-6f5e0249c418
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1b1ef8139208397361a8c787686d2bc4c3b5ab43
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: bdd268c3b2ddde1b42527968252770e6903bacc4
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87890231"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89035128"
 ---
 # <a name="findstr"></a>findstr
 
@@ -26,7 +26,7 @@ findstr [/b] [/e] [/l | /r] [/s] [/i] [/x] [/v] [/n] [/m] [/o] [/p] [/f:<file>] 
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | /b | Entspricht dem Textmuster, wenn es sich am Anfang einer Zeile befindet. |
 | /e | Entspricht dem Textmuster, wenn es sich am Ende einer Zeile befindet. |
@@ -75,7 +75,7 @@ findstr [/b] [/e] [/l | /r] [/s] [/i] [/x] [/v] [/n] [/m] [/o] [/p] [/f:<file>] 
     | `<string` | **Beginn der Wort Position** -Anfang des Worts. |
     | `string>` | Ende der **Wort Position** -Ende des Worts. |
 
-    Die Sonderzeichen in der Syntax regulärer Ausdrücke haben die größte Potenz, wenn Sie Sie gleichzeitig verwenden. Verwenden Sie z. b. die Kombination aus dem Platzhalter Zeichen ( `.` ) und dem Wiederholungs Zeichen ( `*` ), um eine beliebige Zeichenfolge abzugleichen:`.*`
+    Die Sonderzeichen in der Syntax regulärer Ausdrücke haben die größte Potenz, wenn Sie Sie gleichzeitig verwenden. Verwenden Sie z. b. die Kombination aus dem Platzhalter Zeichen ( `.` ) und dem Wiederholungs Zeichen ( `*` ), um eine beliebige Zeichenfolge abzugleichen: `.*`
 
     Verwenden Sie den folgenden Ausdruck als Teil eines größeren Ausdrucks, um eine beliebige Zeichenfolge abzugleichen, die *mit "* *b* " beginnt und mit "" endet`b.*ing`
 

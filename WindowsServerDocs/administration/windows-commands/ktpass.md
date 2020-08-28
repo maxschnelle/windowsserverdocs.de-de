@@ -1,18 +1,18 @@
 ---
 title: ktpass
 description: Referenz Artikel für den Befehl "ktpass", mit dem der Server Prinzipal Name für den Host oder Dienst in AD DS konfiguriert wird und eine keytab-Datei generiert wird, die den gemeinsamen geheimen Schlüssel des Diensts enthält.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 47087676-311e-41f1-8414-199740d01444
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3bb523d35a1bbf2d15895201855a58e96ebb7772
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 3ef7e2ba1aa84faa44cf4bf77e842e8d3bcdc235
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87887646"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89028238"
 ---
 # <a name="ktpass"></a>ktpass
 
@@ -42,22 +42,22 @@ ktpass
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ------------|
-| /Out`<filename>` | Gibt den Namen der zu generierenden Datei "Kerberos 5. keytab" an. **Hinweis:** Dies ist die Datei ". keytab", die Sie auf einen Computer übertragen, auf dem das Windows-Betriebssystem nicht ausgeführt wird, und dann ersetzen oder Zusammenführen mit der vorhandenen Keytab-Datei, */etc/krb5.keytab*. |
+| /Out `<filename>` | Gibt den Namen der zu generierenden Datei "Kerberos 5. keytab" an. **Hinweis:** Dies ist die Datei ". keytab", die Sie auf einen Computer übertragen, auf dem das Windows-Betriebssystem nicht ausgeführt wird, und dann ersetzen oder Zusammenführen mit der vorhandenen Keytab-Datei, */etc/krb5.keytab*. |
 | /princ `<principalname>` | Gibt den Prinzipal Namen im Formular an host/computer.contoso.com@CONTOSO.COM . **Warnung:** Bei diesem Parameter wird die Groß-/Kleinschreibung beachtet. |
 | /mapuser `<useraccount>` | Ordnet den Namen des Kerberos-Prinzipals, der vom **princ** -Parameter angegeben wird, dem angegebenen Domänen Konto zu. |
-| /mapop`{add|set}` | Gibt an, wie das Mapping-Attribut festgelegt wird.<ul><li>**Add** -addiert den Wert des angegebenen lokalen Benutzernamens. Dies ist die Standardeinstellung.</li><li>**Set** : legt den Wert für die reine Daten Verschlüsselungs Standard-Verschlüsselung für den angegebenen lokalen Benutzernamen fest.</li></ul> |
+| /mapop `{add|set}` | Gibt an, wie das Mapping-Attribut festgelegt wird.<ul><li>**Add** -addiert den Wert des angegebenen lokalen Benutzernamens. Dies ist die Standardoption.</li><li>**Set** : legt den Wert für die reine Daten Verschlüsselungs Standard-Verschlüsselung für den angegebenen lokalen Benutzernamen fest.</li></ul> |
 | `{-|+}`nicht ordnungsgemäß | Die nur-der-Verschlüsselung wird standardmäßig festgelegt.<ul><li>**+** Legt ein Konto für die reine des-Verschlüsselung fest.</li><li>**-** Gibt die Einschränkung für ein Konto für die reine des-Verschlüsselung frei. **Wichtig:** Der Standardwert von Windows wird von Windows nicht unterstützt.</li></ul> |
-| /in`<filename>` | Gibt die Keytab-Datei an, die von einem Host Computer gelesen werden soll, auf dem das Windows-Betriebssystem nicht ausgeführt wird. |
-| /pass`{password|*|{-|+}rndpass}` | Gibt ein Kennwort für den Prinzipal Benutzernamen an, der durch den **princ** -Parameter angegeben wird. Verwenden `*` Sie, um ein Kennwort einzugeben. |
+| /in `<filename>` | Gibt die Keytab-Datei an, die von einem Host Computer gelesen werden soll, auf dem das Windows-Betriebssystem nicht ausgeführt wird. |
+| /pass `{password|*|{-|+}rndpass}` | Gibt ein Kennwort für den Prinzipal Benutzernamen an, der durch den **princ** -Parameter angegeben wird. Verwenden `*` Sie, um ein Kennwort einzugeben. |
 | /minpass | Legt die minimale Länge des Zufalls Kennworts auf 15 Zeichen fest. |
 | /maxpass | Legt die maximale Länge des Zufalls Kennworts auf 256 Zeichen fest. |
-| /crypto`{DES-CBC-CRC|DES-CBC-MD5|RC4-HMAC-NT|AES256-SHA1|AES128-SHA1|All}` | Gibt die Schlüssel an, die in der Schlüssel Tabellendatei-Datei generiert werden:<ul><li>**Des-CBC-CRC** -verwendet aus Kompatibilitätsgründen.</li><li>**Des-CBC-MD5** -hält die mit-Implementierung genauer an und wird aus Kompatibilitätsgründen verwendet.</li><li>**RC4-HMAC-NT** : verwendet die 128-Bit-Verschlüsselung.</li><li>**AES256-SHA1** : verwendet AES256-CTS-HMAC-SHA1-96-Verschlüsselung.</li><li>   **AES128-SHA1** : verwendet AES128-CTS-HMAC-SHA1-96-Verschlüsselung.</li><li>**Alle** -Zustände, die alle unterstützten kryptografietypen verwenden können.</li></ul><p>**Hinweis:** Da die Standardeinstellungen auf älteren mit-Versionen basieren, sollten Sie immer den- `/crypto` Parameter verwenden. |
+| /crypto `{DES-CBC-CRC|DES-CBC-MD5|RC4-HMAC-NT|AES256-SHA1|AES128-SHA1|All}` | Gibt die Schlüssel an, die in der Schlüssel Tabellendatei-Datei generiert werden:<ul><li>**Des-CBC-CRC** -verwendet aus Kompatibilitätsgründen.</li><li>**Des-CBC-MD5** -hält die mit-Implementierung genauer an und wird aus Kompatibilitätsgründen verwendet.</li><li>**RC4-HMAC-NT** : verwendet die 128-Bit-Verschlüsselung.</li><li>**AES256-SHA1** : verwendet AES256-CTS-HMAC-SHA1-96-Verschlüsselung.</li><li>   **AES128-SHA1** : verwendet AES128-CTS-HMAC-SHA1-96-Verschlüsselung.</li><li>**Alle** -Zustände, die alle unterstützten kryptografietypen verwenden können.</li></ul><p>**Hinweis:** Da die Standardeinstellungen auf älteren mit-Versionen basieren, sollten Sie immer den- `/crypto` Parameter verwenden. |
 | /itercount | Gibt die Anzahl der Iterationen an, die für die AES-Verschlüsselung verwendet wird. Der Standardwert ignoriert **itercount** für die nicht-AES-Verschlüsselung und legt die AES-Verschlüsselung auf 4.096 fest. |
-| /ptype`{KRB5_NT_PRINCIPAL|KRB5_NT_SRV_INST|KRB5_NT_SRV_HST}` | Gibt den Prinzipaltyp an.<ul><li>**KRB5_NT_PRINCIPAL** : der allgemeine Prinzipaltyp (empfohlen).</li><li>**KRB5_NT_SRV_INST** : die Instanz des Benutzer Dienstanbieter</li><li>  **KRB5_NT_SRV_HST** -die Host Dienst Instanz</li></ul> |
-| /kvno`<keyversionnum>` | Gibt die Versionsnummer des Schlüssels an. Der Standardwert ist 1. |
-| /Answer`{-|+}` | Legt den Hintergrund Antwortmodus fest:<ul><li>**-** Antworten auf Kenn Wort Zurücksetzungen automatisch zurücksetzen, **ohne**.</li><li>**+** Antworten Zurücksetzen von Kenn Wort Eingabe Aufforderungen mit **Ja**.</li></ul> |
+| /ptype `{KRB5_NT_PRINCIPAL|KRB5_NT_SRV_INST|KRB5_NT_SRV_HST}` | Gibt den Prinzipaltyp an.<ul><li>**KRB5_NT_PRINCIPAL** : der allgemeine Prinzipaltyp (empfohlen).</li><li>**KRB5_NT_SRV_INST** : die Instanz des Benutzer Dienstanbieter</li><li>  **KRB5_NT_SRV_HST** -die Host Dienst Instanz</li></ul> |
+| /kvno `<keyversionnum>` | Gibt die Versionsnummer des Schlüssels an. Der Standardwert ist 1. |
+| /Answer `{-|+}` | Legt den Hintergrund Antwortmodus fest:<ul><li>**-** Antworten auf Kenn Wort Zurücksetzungen automatisch zurücksetzen, **ohne**.</li><li>**+** Antworten Zurücksetzen von Kenn Wort Eingabe Aufforderungen mit **Ja**.</li></ul> |
 | /target | Legt fest, welcher Domänen Controller verwendet werden soll. Standardmäßig wird der Domänen Controller basierend auf dem Prinzipal Namen erkannt. Wenn der Domänen Controller Name nicht aufgelöst wird, werden Sie in einem Dialogfeld zur Eingabe eines gültigen Domänen Controllers aufgefordert. |
 | /rawsalt | erzwingt, dass "ktpass" den rawsalt-Algorithmus beim Erzeugen des Schlüssels verwendet. Dieser Parameter ist optional. |
 | `{-|+}dumpsalt` | Die Ausgabe dieses Parameters zeigt den mit Salt-Algorithmus, der verwendet wird, um den Schlüssel zu generieren. |

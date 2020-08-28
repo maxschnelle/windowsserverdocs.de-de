@@ -1,18 +1,18 @@
 ---
 title: DiskPart-Skripts und-Beispiele
 description: Referenz Artikel zu DiskPart-Skripts und Beispielen für die Automatisierung von Datenträger bezogenen Aufgaben, z. b. das Erstellen von Volumes oder das Umstellen von Datenträgern in dynamische Datenträger.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 319c0795-11df-47c8-b203-eadb0577ee0d
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1ff62c18c567af3ab064683663f5112090250307
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 94dbcba1ff88cc265e8006511bb3831ac7d12831
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87890938"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89028278"
 ---
 # <a name="diskpart-scripts-and-examples"></a>DiskPart-Skripts und-Beispiele
 

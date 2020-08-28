@@ -1,18 +1,18 @@
 ---
 title: Replace-Image
 description: Referenz Artikel zu Replace-Image, mit dem ein vorhandenes Image durch eine neue Version dieses Images ersetzt wird.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 68ded3df-e309-420f-9f5d-caeb609385a5
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 599b1141d857d1fe5e70eab879af0f456dc13bea
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 405a8465c043250ee3177febc2ceab9b50b924b4
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87891900"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89023064"
 ---
 # <a name="using-the-replace-image-command"></a>Verwenden des "Replace-Image"-Befehls
 
@@ -44,7 +44,7 @@ wdsutil [Options] /replace-Imagmedia:<Image name> [/Server:<Server name>]
          [/Description:<Image description>]
 ```
 ### <a name="parameters"></a>Parameter
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |-------|--------|
 Medien<Image name>|Gibt den Namen des zu ersetzenden Bilds an.|
 |[/Server:<Server name>]|Gibt den Namen des Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.|

@@ -1,18 +1,18 @@
 ---
 title: New-DiscoverImage
 description: Referenz Artikel zu New-DiscoverImage, mit dem ein neues Ermittlungs Image aus einem vorhandenen Start Abbild erstellt wird.
-ms.topic: article
+ms.topic: reference
 ms.assetid: ede9fbbb-0bba-4309-8c21-3cc13e1dc3cd
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b6c84735b868af92c6a3f2f16dc872e12c9f38c1
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 94860a992dcc781cfdbf07916cc383526a12202b
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87892401"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89023274"
 ---
 # <a name="new-discoverimage"></a>New-DiscoverImage
 
@@ -35,7 +35,7 @@ WDSUTIL [Options] /New-DiscoverImage [/Server:<Server name>]
 
 ### <a name="parameters"></a>Parameter
 
-|        Parameter         |                                                                                                                                                                                                                                                                                                                                                                                                                       BESCHREIBUNG                                                                                                                                                                                                                                                                                                                                                                                                                       |
+|        Parameter         |                                                                                                                                                                                                                                                                                                                                                                                                                       Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                                       |
 |--------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [/Server:\<Server name>] |                                                                                                                                                                                                                                                                                                                                     Gibt den Namen des Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.                                                                                                                                                                                                                                                                                                                                     |
 |   /Image:\<Image name>   |                                                                                                                                                                                                                                                                                                                                                                                                      Gibt den Namen des Quell Start Abbilds an.                                                                                                                                                                                                                                                                                                                                                                                                       |

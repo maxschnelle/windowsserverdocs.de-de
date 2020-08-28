@@ -1,18 +1,18 @@
 ---
 title: Remove-MulticastTransmission
 description: Referenz Artikel zu Remove-MulticastTransmission, der die Multicast Übertragung für ein Bild deaktiviert.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 9a7f5c31-bfbf-425d-9129-a6f9173fe83d
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8c3de852ab09b2cc17badf9b3aefcca9b7f4d069
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: cfb3a83c975aa14752e2a9538079f67a5dd94b8e
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87891919"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89023124"
 ---
 # <a name="using-the-remove-multicasttransmission-command"></a>Verwenden des Remove-MulticastTransmission-Befehls
 
@@ -42,7 +42,7 @@ wdsutil [Options] /remove-MulticastTransmissiomedia:<Image name>
         [/Filename:<File name>]
 ```
 ### <a name="parameters"></a>Parameter
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |-------|--------|
 Medien<Image name>|Gibt den Namen des Images an.|
 |[/Server:<Server name>]|Gibt den Namen des Servers an. Dabei kann es sich um den NetBIOS-Namen oder den voll qualifizierten Domänen Namen (FQDN) handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.|

@@ -1,17 +1,17 @@
 ---
 title: bitsadmin sethelpertoken
 description: Referenz Artikel für den BITSAdmin sethelpertoken-Befehl, mit dem das primäre Token der aktuellen Eingabeaufforderung (oder ggf. ein beliebiges Token des lokalen Benutzerkontos) als Hilfsobjekt für das Bits-Übertragungs Auftrag festgelegt wird.
-ms.topic: article
+ms.topic: reference
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 03/01/2019
-ms.openlocfilehash: 15d0288919b16c038c3b310b6ea42c184b11b5a8
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 37adfc2145089a871dca819745160794ed93a68e
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87893157"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89028528"
 ---
 # <a name="bitsadmin-sethelpertoken"></a>bitsadmin sethelpertoken
 
@@ -28,7 +28,7 @@ bitsadmin /sethelpertoken <job> [<user_name@domain> <password>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 | `<username@domain>` `<password>` | Optional. Die Anmelde Informationen des lokalen Benutzerkontos, für die das Token verwendet werden soll. |

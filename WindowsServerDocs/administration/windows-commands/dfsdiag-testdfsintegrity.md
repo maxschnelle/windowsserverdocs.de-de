@@ -1,18 +1,18 @@
 ---
 title: dfsdiag testdfsintegrity
 description: Referenz Artikel für den Dfsdiag testdfsintegrity-Befehl, der die Integrität des DFS-Namespace (verteiltes Dateisystem) überprüft.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 173ee832-26e1-4ec8-a23a-38a7d6229ac3
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: da30b85acfccee47f976a932c71c2a8906f45a4f
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 7bcfbe7f35965322a347651133a90e6806a5bb95
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87891146"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89028418"
 ---
 # <a name="dfsdiag-testdfsintegrity"></a>dfsdiag testdfsintegrity
 
@@ -34,9 +34,9 @@ dfsdiag /testdfsintegrity /DFSroot: <DFS root path> [/recurse] [/full]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
-| /DFSroot:`<DFS root path>` | Der zu diagnostizieren DFS-Namespace. |
+| /DFSroot: `<DFS root path>` | Der zu diagnostizieren DFS-Namespace. |
 | /recurse | Führt die Tests aus, einschließlich aller Namespace-Interlinks. |
 | /full | Überprüft die Konsistenz der Freigabe und NTFS-ACLs sowie die Client seitige Konfiguration für alle Ordner Ziele. Außerdem wird überprüft, ob die Online-Eigenschaft festgelegt ist. |
 

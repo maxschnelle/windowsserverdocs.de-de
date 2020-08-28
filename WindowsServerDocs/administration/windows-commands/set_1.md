@@ -1,18 +1,18 @@
 ---
 title: set
 description: Referenz Artikel für Set, mit dem cmd.exe-Umgebungsvariablen angezeigt, festgelegt oder entfernt werden.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 5fdd60d6-addf-4574-8c92-8aa53fa73d76
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 64d9668e3ff0b0b366a2009cdaa4f2eaf52edfa0
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 30240d4ae286c472cfbce932201435097df33ddb
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87882542"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89023434"
 ---
 # <a name="set"></a>set
 
@@ -28,7 +28,7 @@ set /a <Variable>=<Expression>
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |---------|-----------|
 |\<Variable>|Gibt die Umgebungsvariable an, die festgelegt oder geändert werden soll.|
 |\<String>|Gibt die Zeichenfolge an, die der angegebenen Umgebungsvariablen zugeordnet werden soll.|
@@ -61,7 +61,7 @@ set /a <Variable>=<Expression>
 
   In der folgenden Tabelle sind die Operatoren aufgeführt, die für **/a** in absteigender Rangfolge unterstützt werden.
 
-  |        Betreiber         | Ausgeführte Operation  |
+  |        Operator         | Ausgeführte Operation  |
   |-------------------------|----------------------|
   |           ( )           |       Gruppierung       |
   |          ! ~ -          |        Unär         |

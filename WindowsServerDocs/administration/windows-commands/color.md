@@ -1,18 +1,18 @@
 ---
 title: color
 description: Referenz Artikel für den Color-Befehl, mit dem die Vordergrund-und Hintergrundfarben im Eingabe Aufforderungs Fenster für die aktuelle Sitzung geändert werden.
-ms.topic: article
+ms.topic: reference
 ms.assetid: f5b67131-d196-45ec-a3f9-b5d9f091fd86
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2534273eebe7f8596b0e8f2ab3c90cfdcf824d00
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 3ce7aa8e927e3796917d2720495f394636d9c240
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87892678"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89028458"
 ---
 # <a name="color"></a>color
 
@@ -26,7 +26,7 @@ color [[<b>]<f>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<b>` | Gibt die Hintergrundfarbe an. |
 | `<f>` | Gibt die Vordergrundfarbe an. |
@@ -36,13 +36,13 @@ Hierbei gilt:
 
 In der folgenden Tabelle werden gültige hexadezimale Ziffern aufgelistet, die Sie als Werte für und verwenden können `<b>` `<f>` :
 
-| Wert | Color |
+| Wert | Farbe |
 | ----- | ----- |
 | 0 | Schwarz |
 | 1 | Blau |
 | 2 | Grün |
 | 3 | Aqua |
-| 4 | Red |
+| 4 | Rot |
 | 5 | Purple |
 | 6 | Gelb |
 | 7 | White |

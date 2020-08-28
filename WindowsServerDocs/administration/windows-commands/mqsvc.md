@@ -1,18 +1,18 @@
 ---
 title: mqsvc
 description: Referenz Artikel zum mqsvc-Befehl, mit dem apps, die zu unterschiedlichen Zeiten ausgeführt werden, über heterogene Netzwerke und Systeme hinweg kommunizieren können, die möglicherweise vorübergehend offline sind.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 8bfd7874-ccb4-453f-b908-3a5b9aee0ad6
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c7d96de7749e2f77394fa9d58deb4c733d58bff9
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 1c89ca33c46212cb29cf35bed3c3cca80419e04e
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87886250"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89034978"
 ---
 # <a name="mqsvc"></a>mqsvc
 

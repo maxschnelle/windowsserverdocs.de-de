@@ -1,18 +1,18 @@
 ---
 title: nslookup ls
 description: Referenz Artikel für den Befehl nslookup ls, der DNS-Domänen Informationen auflistet.
-ms.topic: article
+ms.topic: reference
 ms.assetid: f15f06fe-67e7-41a9-93b5-192ab14ab380
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d7046a9bcbb91c223299535f6b3b93ed2639a511
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: c37054002edcebe1551ef9d6aed4210978e52832
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87885865"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89023484"
 ---
 # <a name="nslookup-ls"></a>nslookup ls
 
@@ -28,7 +28,7 @@ ls [<option>] <DNSdomain> [{[>] <filename>|[>>] <filename>}]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<option>` | Folgende Optionen sind gültig:<ul><li>**-t:** Listet alle Datensätze des angegebenen Typs auf. Weitere Informationen finden Sie unter [nslookup Set QueryType](nslookup-set-querytype.md).</li><li>**-a:** Listet die Aliase von Computern in der DNS-Domäne auf. Dieser Parameter entspricht dem Wert **-t CNAME** .</li><li>**-d:** Listet alle Datensätze für die DNS-Domäne auf. Dieser Parameter entspricht dem Wert **-t any** .</li><li>**-h:** Listet die CPU-und Betriebssysteminformationen für die DNS-Domäne auf. Dieser Parameter ist identisch mit " **-t hinfo** ".</li><li>**-s:** Listet bekannte Dienste von Computern in der DNS-Domäne auf. Dieser Parameter entspricht dem **-t-Wi**. |
 | `<DNSdomain>` | Gibt die DNS-Domäne an, für die Sie Informationen wünschen. |

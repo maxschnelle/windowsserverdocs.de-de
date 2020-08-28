@@ -1,18 +1,18 @@
 ---
 title: list shadows
 description: Referenz Artikel für den Befehl list shadows, der permanente und vorhandene, nicht persistente Schatten Kopien auflistet, die sich auf dem System befinden.
-ms.topic: article
+ms.topic: reference
 ms.assetid: fe568423-00ae-4ede-a1e7-07977cb50ad1
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d06c529740d7137fb1bdc4cb8d7661eb3f69ffb7
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 1a0b3298d242e90b520489ce956db2e09e5da097
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87887569"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89028168"
 ---
 # <a name="list-shadows"></a>list shadows
 
@@ -26,11 +26,11 @@ list shadows {all | set <setID> | id <shadowID>}
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ---------- | ---------- |
 | alle | Listet alle Schatten Kopien auf. |
-| Set`<setID>` | Listet Schatten Kopien auf, die zur angegebenen Schattenkopiesatz-ID gehören. |
-| Name`<shadowID>` | Listet eine beliebige Schatten Kopie mit der angegebenen Schattenkopiekennung auf. |
+| Set `<setID>` | Listet Schatten Kopien auf, die zur angegebenen Schattenkopiesatz-ID gehören. |
+| Name `<shadowID>` | Listet eine beliebige Schatten Kopie mit der angegebenen Schattenkopiekennung auf. |
 
 ## <a name="additional-references"></a>Weitere Verweise
 

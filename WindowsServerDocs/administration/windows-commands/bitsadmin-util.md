@@ -1,18 +1,18 @@
 ---
 title: bitsadmin util
 description: Referenz Artikel zum util-Befehl bizadmin, der die util-Switches auflistet.
-ms.topic: article
+ms.topic: reference
 ms.assetid: e8278a28-1ecc-42be-92e2-c93dee59751d
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9ef79ffc523e34f1e09c083aac4e10b8e03e9773
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 4e48b5919bb51da14e17e692603dbe28faa69aa9
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87880785"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89034648"
 ---
 # <a name="bitsadmin-util"></a>bitsadmin util
 
@@ -34,7 +34,7 @@ bitsadmin /util /version
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | [bitsadmin util and help](bitsadmin-util-and-help.md) | Zeigt die Verwendung der Befehlszeile für die/util-Switches an. Sie können auch/? angeben. |
 | [bitsadmin util and getieproxy](bitsadmin-util-and-getieproxy.md) | Ruft die Proxy Verwendung für das angegebene Dienst Konto ab. |

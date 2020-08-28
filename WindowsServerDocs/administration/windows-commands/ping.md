@@ -1,18 +1,18 @@
 ---
 title: ping
 description: Referenz Artikel zum Ping-Befehl, mit dem die Netzwerk Konnektivität überprüft wird.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 49272671-2eec-4fa5-881f-65c24cfbef52
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 999e8e80c85a85e2bbc2f933e1985c732ae85328
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 14f9ca67d2b4c8bd19c8ef9c67a464bc4e038387
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87884989"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89035268"
 ---
 # <a name="ping"></a>ping
 
@@ -33,22 +33,22 @@ ping [/t] [/a] [/n <count>] [/l <size>] [/f] [/I <TTL>] [/v <TOS>] [/r <count>] 
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 |--|--|
 | /t | Gibt an, dass der Ping das Senden von Echo Request-Nachrichten an das Ziel fortsetzen soll Drücken Sie Strg + Eingabe, um die Statistiken zu unterbrechen und anzuzeigen. Um diesen Befehl zu unterbrechen und zu beenden, drücken Sie STRG + C. |
 | /a | Gibt an, dass die umgekehrte Namensauflösung für die Ziel-IP-Adresse ausgeführt wird. Wenn dies erfolgreich ist, zeigt Ping den entsprechenden Hostnamen an. |
-| /n`<count>` | Gibt die Anzahl der gesendeten Echo Request-Meldungen an. Der Standardwert ist 4. |
-| /l`<size>` | Gibt die Länge des **Daten** Felds in den gesendeten Echo Anforderungs Nachrichten in Bytes an. Der Standard ist 32. Die maximale Größe beträgt 65.527. |
+| /n `<count>` | Gibt die Anzahl der gesendeten Echo Request-Meldungen an. Der Standardwert ist 4. |
+| /l `<size>` | Gibt die Länge des **Daten** Felds in den gesendeten Echo Anforderungs Nachrichten in Bytes an. Der Standard ist 32. Die maximale Größe beträgt 65.527. |
 | /f | Gibt an, dass Echo Request-Nachrichten mit dem Flag **do not Fragment** im IP-Header, der auf 1 festgelegt ist, gesendet werden (nur auf IPv4 verfügbar). Die Echo Anforderungs Nachricht kann nicht von Routern im Pfad zum Ziel fragmentiert werden. Dieser Parameter ist für die Problembehandlung bei PMTU-Problemen (maximale Übertragungseinheit) nützlich. |
-| /I`<TTL>` | Gibt den Wert des TTL-Felds im IP-Header für gesendete Echo Anforderungs Nachrichten an. Der Standardwert ist der standardmäßige TTL-Wert für den Host. Die maximale *TTL* Gültigkeitsdauer beträgt 255. |
-| /v`<TOS>` | Gibt den Wert des Felds Type of Service (TOS) im IP-Header für gesendete Echo Anforderungs Nachrichten an (nur auf IPv4 verfügbar). Die Standardeinstellung ist 0. " *TOS* " wird als Dezimalwert zwischen 0 und 255 angegeben. |
-| /r`<count>` | Gibt an, dass die **Daten Satz-Routen** Option im IP-Header verwendet wird, um den Pfad aufzuzeichnen, der von der Echo Anforderungs Nachricht und der entsprechenden Echo Antwortnachricht (nur auf IPv4 verfügbar) verwendet wird. Jeder Hop im Pfad verwendet einen Eintrag in der **Daten Satz-Routen** Option. Geben Sie nach *Möglichkeit eine Anzahl an, die* gleich oder größer als die Anzahl der Hops zwischen Quelle und Ziel ist. Die *Anzahl* muss mindestens 1 und maximal 9 betragen. |
-| /s`<count>` | Gibt an, dass die Option **Internet Zeitstempel** im IP-Header verwendet wird, um die Ankunftszeit für die Echo Anforderungs Nachricht und die entsprechende Echo Antwortnachricht für jeden Hop aufzuzeichnen. Die *Anzahl* muss mindestens 1 und maximal 4 betragen. Dies ist für Verbindungs lokale Zieladressen erforderlich. |
-| /j`<hostlist>` | Gibt an, dass die Echo Anforderungs Nachrichten die Option **lose Quell Route** im IP-Header mit dem Satz von zwischen Zielen verwenden, die in der *Hostliste* angegeben sind (nur auf IPv4 verfügbar). Beim losen Quell Routing können aufeinander folgende Zwischenziele durch einen oder mehrere Router getrennt werden. Die maximale Anzahl von Adressen oder Namen in der Hostliste beträgt 9. Die Hostliste ist eine Reihe von IP-Adressen (in punktierter Dezimal Schreibweise), getrennt durch Leerzeichen. |
-| /k`<hostlist>` | Gibt an, dass die Echo Request-Nachrichten die **strikte Quell Route** -Option im IP-Header mit dem Satz von zwischen Zielen verwenden, die in der *Hostliste* angegeben sind (nur auf IPv4 verfügbar). Beim strengen Quell Routing muss das nächste Zwischenziel direkt erreichbar sein (es muss ein Nachbar auf einer Schnittstelle des Routers sein). Die maximale Anzahl von Adressen oder Namen in der Hostliste beträgt 9. Die Hostliste ist eine Reihe von IP-Adressen (in punktierter Dezimal Schreibweise), getrennt durch Leerzeichen. |
-| /w`<timeout>` | Gibt die Zeitspanne in Millisekunden an, die auf die Antwortnachricht gewartet werden soll, die einer bestimmten Echo Anforderungs Nachricht entspricht. Wenn die Echo-Antwortnachricht nicht innerhalb des Timeouts empfangen wird, wird die Fehlermeldung "Timeout der Anforderung" angezeigt. Das Standard Timeout beträgt 4000 (4 Sekunden). |
+| /I `<TTL>` | Gibt den Wert des TTL-Felds im IP-Header für gesendete Echo Anforderungs Nachrichten an. Der Standardwert ist der standardmäßige TTL-Wert für den Host. Die maximale *TTL* Gültigkeitsdauer beträgt 255. |
+| /v `<TOS>` | Gibt den Wert des Felds Type of Service (TOS) im IP-Header für gesendete Echo Anforderungs Nachrichten an (nur auf IPv4 verfügbar). Die Standardeinstellung ist 0. " *TOS* " wird als Dezimalwert zwischen 0 und 255 angegeben. |
+| /r `<count>` | Gibt an, dass die **Daten Satz-Routen** Option im IP-Header verwendet wird, um den Pfad aufzuzeichnen, der von der Echo Anforderungs Nachricht und der entsprechenden Echo Antwortnachricht (nur auf IPv4 verfügbar) verwendet wird. Jeder Hop im Pfad verwendet einen Eintrag in der **Daten Satz-Routen** Option. Geben Sie nach *Möglichkeit eine Anzahl an, die* gleich oder größer als die Anzahl der Hops zwischen Quelle und Ziel ist. Die *Anzahl* muss mindestens 1 und maximal 9 betragen. |
+| /s `<count>` | Gibt an, dass die Option **Internet Zeitstempel** im IP-Header verwendet wird, um die Ankunftszeit für die Echo Anforderungs Nachricht und die entsprechende Echo Antwortnachricht für jeden Hop aufzuzeichnen. Die *Anzahl* muss mindestens 1 und maximal 4 betragen. Dies ist für Verbindungs lokale Zieladressen erforderlich. |
+| /j `<hostlist>` | Gibt an, dass die Echo Anforderungs Nachrichten die Option **lose Quell Route** im IP-Header mit dem Satz von zwischen Zielen verwenden, die in der *Hostliste* angegeben sind (nur auf IPv4 verfügbar). Beim losen Quell Routing können aufeinander folgende Zwischenziele durch einen oder mehrere Router getrennt werden. Die maximale Anzahl von Adressen oder Namen in der Hostliste beträgt 9. Die Hostliste ist eine Reihe von IP-Adressen (in punktierter Dezimal Schreibweise), getrennt durch Leerzeichen. |
+| /k `<hostlist>` | Gibt an, dass die Echo Request-Nachrichten die **strikte Quell Route** -Option im IP-Header mit dem Satz von zwischen Zielen verwenden, die in der *Hostliste* angegeben sind (nur auf IPv4 verfügbar). Beim strengen Quell Routing muss das nächste Zwischenziel direkt erreichbar sein (es muss ein Nachbar auf einer Schnittstelle des Routers sein). Die maximale Anzahl von Adressen oder Namen in der Hostliste beträgt 9. Die Hostliste ist eine Reihe von IP-Adressen (in punktierter Dezimal Schreibweise), getrennt durch Leerzeichen. |
+| /w `<timeout>` | Gibt die Zeitspanne in Millisekunden an, die auf die Antwortnachricht gewartet werden soll, die einer bestimmten Echo Anforderungs Nachricht entspricht. Wenn die Echo-Antwortnachricht nicht innerhalb des Timeouts empfangen wird, wird die Fehlermeldung "Timeout der Anforderung" angezeigt. Das Standard Timeout beträgt 4000 (4 Sekunden). |
 | /R | Gibt an, dass der Roundtrip-Pfad verfolgt wird (nur auf IPv6 verfügbar). |
-| /S`<Srcaddr>` | Gibt die zu verwendende Quelladresse an (nur auf IPv6 verfügbar). |
+| /S `<Srcaddr>` | Gibt die zu verwendende Quelladresse an (nur auf IPv6 verfügbar). |
 | /4 | Gibt an, dass IPv4 zum Pingen verwendet wird. Dieser Parameter ist nicht erforderlich, um den Zielhost mit einer IPv4-Adresse zu identifizieren. Der Zielhost muss nur anhand des Namens identifiziert werden. |
 | /6 | Gibt an, dass IPv6 zum Pingen verwendet wird. Dieser Parameter ist nicht erforderlich, um den Zielhost mit einer IPv6-Adresse zu identifizieren. Der Zielhost muss nur anhand des Namens identifiziert werden. |
 | `<targetname>` | Gibt den Hostnamen oder die IP-Adresse des Ziels an. |

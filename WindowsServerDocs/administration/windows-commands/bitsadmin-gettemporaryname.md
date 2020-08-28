@@ -1,18 +1,18 @@
 ---
 title: bitsadmin gettemporaryname
 description: Referenz Artikel für den bizadmin gettemporaryname-Befehl, der den temporären Dateinamen der angegebenen Datei innerhalb des Auftrags meldet.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 68925edc-a801-4292-a812-7471c4f60fdd
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5b5919d45f2b8497bb6e8fa6cf3650f49e27cd48
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: d9e03b00fa1885b89f25dab2781ce988aa0c5df8
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87893833"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89034808"
 ---
 # <a name="bitsadmin-gettemporaryname"></a>bitsadmin gettemporaryname
 
@@ -26,7 +26,7 @@ bitsadmin /gettemporaryname <job> <file_index>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | -------------- | -------------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 | file_index | Beginnt bei 0. |

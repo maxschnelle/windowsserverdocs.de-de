@@ -1,18 +1,18 @@
 ---
 title: Dfsutil
 description: Referenz Artikel für den Dfsutil-Befehl, der DFS-Namespaces, Server und Clients verwaltet.
-ms.topic: article
+ms.topic: reference
 ms.assetid: ef5093a4-0d24-4b21-9d04-59933ad98e2c
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f31af9f557271182980a367ebf5e2233788fcc31
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: a622a9647b438ed2748ed42b28395bebe361f50b
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87891027"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89028368"
 ---
 # <a name="dfsutil"></a>Dfsutil
 
@@ -24,7 +24,7 @@ Der Dfsutil-Befehl verwaltet DFS-Namespaces,-Server und-Clients.
 
 Das [DFSN](/powershell/module/dfsn/?view=win10-ps) -PowerShell-Modul bietet entsprechende Funktionen für die folgenden Dfsutil-Parameter.
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | root | Zeigt, erstellt, entfernt, importiert und exportiert Namespace Stämme. |
 | link | Hiermit werden Ordner angezeigt, erstellt, entfernt oder verschoben (links). |
@@ -37,7 +37,7 @@ Das [DFSN](/powershell/module/dfsn/?view=win10-ps) -PowerShell-Modul bietet ents
 
 Die folgende Funktionalität ist nur als Dfsutil-Parameter verfügbar:
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | Client | Zeigt Client Informationen oder Registrierungsschlüssel an oder ändert Sie. |
 | Diag | Ausführen von Diagnosen oder Anzeigen von dfsdirs/dfspath. |

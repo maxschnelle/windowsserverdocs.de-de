@@ -1,18 +1,18 @@
 ---
 title: nslookup set domain
 description: Referenz Artikel für den Befehl nslookup Set Domain, der den Domain Name System Standard-DNS-Domänen Namen (DNS) in den angegebenen Namen ändert.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 9d4d28e8-6e88-42cc-801f-94e9d8e051f4
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: fbf2602f387af9a1f389bdcccc50b19a5b25c2ce
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: ed002a7a6278d9bcd11a59c5708c723d7ffe91ef
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87885670"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89023444"
 ---
 # <a name="nslookup-set-domain"></a>nslookup set domain
 
@@ -28,7 +28,7 @@ set domain=<domainname>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<domainname>` | Gibt einen neuen Namen für den Standard-DNS-Domänen Namen an. Der Standardwert ist der Name des Hosts. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |

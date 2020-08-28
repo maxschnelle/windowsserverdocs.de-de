@@ -1,18 +1,18 @@
 ---
 title: Remove-ImageGroup
 description: Referenz Artikel zu Remove-ImageGroup, mit dem eine Abbild Gruppe von einem Server entfernt wird.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 5b2c9813-5df2-4272-8449-26f3bb16f82b
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3398c5aeee09179bad519cdbe7fe5db6aea62cb9
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: d6ff54e3b595ac53109bd08701ec96bdb6b712c7
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87881235"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89023154"
 ---
 # <a name="using-the-remove-imagegroup-command"></a>Verwenden des Remove-ImageGroup-Befehls
 
@@ -25,7 +25,7 @@ Entfernt eine Abbild Gruppe von einem Server.
 wdsutil [Options] /remove-ImageGroumediaGroup:<Image group name> [/Server:<Server name>]
 ```
 ### <a name="parameters"></a>Parameter
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |-------|--------|
 mediagroup:<Image group name>|Gibt den Namen der zu entfernenden Abbild Gruppe an.|
 |[/Server:<Server name>]|Gibt den Namen des Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.|

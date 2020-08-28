@@ -1,18 +1,18 @@
 ---
 title: nfsshare
 description: Referenz Artikel für den nfsshare-Befehl, der NFS-Freigaben (Network File System) steuert.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 437a2615-335a-442f-9713-d50d5f3983a3
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 492b405468987f91f72019c710b8ae4eae4ff6fa
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 7fb0531f571e204877f6f905a60a08ef35f6ea58
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87885983"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89023614"
 ---
 # <a name="nfsshare"></a>nfsshare
 
@@ -27,7 +27,7 @@ nfsshare {<sharename> | <drive>:<path> | * } /delete
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | -o anon =`{yes|no}` | Gibt an, ob anonyme (nicht zugeordnete) Benutzer auf das Freigabe Verzeichnis zugreifen können. |
 | -o RW =`[<host>[:<host>]...]` | Bietet Lese-/Schreibzugriff auf das freigegebene Verzeichnis durch die Hosts oder Client Gruppen, die vom *Host*angegeben werden. Host-und Gruppennamen müssen mit einem Doppelpunkt (**:**) getrennt werden. Wenn der *Host* nicht angegeben wird, erhalten alle Hosts und Client Gruppen (außer den mit der Option **RO** angegebenen) Lese-/Schreibzugriff. Wenn weder die **RO** -noch die **RW** -Option festgelegt ist, haben alle Clients Lese-/Schreibzugriff auf das freigegebene Verzeichnis. |

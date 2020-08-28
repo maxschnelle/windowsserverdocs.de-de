@@ -1,18 +1,18 @@
 ---
 title: nslookup lserver
 description: Referenz Artikel für den nslookup lserver-Befehl, der den ursprünglichen Server in die angegebene Domain Name System Domäne (DNS) ändert.
-ms.topic: article
+ms.topic: reference
 ms.assetid: aee5ea0b-bb17-4c14-bde7-2f7a91f2f22b
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ab7c478b6c9f3ae299559a556629e53f9eb852ee
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 99d3dbeac4073b35abd540c185e4cf69b723b61e
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87885794"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89023474"
 ---
 # <a name="nslookup-lserver"></a>nslookup lserver
 
@@ -30,7 +30,7 @@ lserver <DNSdomain>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<DNSdomain>` | Gibt die DNS-Domäne für den ursprünglichen Server an. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
