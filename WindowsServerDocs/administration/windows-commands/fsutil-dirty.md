@@ -5,14 +5,14 @@ manager: dmoss
 ms.author: toklima
 author: toklima
 ms.assetid: 385a2a7c-d6bd-4f11-9c18-fca0413f9e97
-ms.topic: article
+ms.topic: reference
 ms.date: 10/16/2017
-ms.openlocfilehash: 00fd11e577957e45bb8b2491b54cf1548effedc3
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: fa63ec550821f99dffa59f092bb0f0523bfb948b
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87890004"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89030148"
 ---
 # <a name="fsutil-dirty"></a>fsutil dirty
 
@@ -28,7 +28,7 @@ fsutil dirty {query | set} <volumepath>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | Abfrage | Fragt das geänderte Bit des angegebenen Volumes ab. |
 | set | Legt das geänderte Bit des angegebenen Volumes fest. |
@@ -54,9 +54,9 @@ Geben Sie Folgendes ein, um das geänderte Bit auf Laufwerk C abzufragen:
 fsutil dirty query c:
 ```
 
-- Wenn das Volume geändert wird, wird die folgende Ausgabe angezeigt:`Volume C: is dirty`
+- Wenn das Volume geändert wird, wird die folgende Ausgabe angezeigt: `Volume C: is dirty`
 
-- Wenn das Volume nicht geändert wird, wird die folgende Ausgabe angezeigt:`Volume C: is not dirty`
+- Wenn das Volume nicht geändert wird, wird die folgende Ausgabe angezeigt: `Volume C: is not dirty`
 
 Geben Sie Folgendes ein, um das Dirty Bit auf Laufwerk C festzulegen:
 

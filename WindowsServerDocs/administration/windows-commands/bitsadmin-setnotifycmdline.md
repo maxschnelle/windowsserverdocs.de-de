@@ -1,18 +1,18 @@
 ---
 title: bitsadmin setnotifycmdline
 description: Referenz Artikel für den Befehl "bitadmin setnotifycmdline", mit dem der Befehlszeilen Befehl festgelegt wird, der ausgeführt wird, wenn die Übertragung von Daten durch den Auftrag abgeschlossen ist, oder wenn ein Auftrag in einen Zustand wechselt.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 415ae6ef-8549-48b2-9693-2368a6e24075
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a81b4521d8c765d85e6b4a92d0429b128f43198e
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 7f486efcbaef5f68d6f8be7cab1caba204c77c7a
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87893007"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89026228"
 ---
 # <a name="bitsadmin-setnotifycmdline"></a>bitsadmin setnotifycmdline
 
@@ -29,7 +29,7 @@ bitsadmin /setnotifycmdline <job> <program_name> [program_parameters]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 | program_name | Der Name des Befehls, der ausgeführt werden soll, wenn der Auftrag abgeschlossen ist. Sie können diesen Wert als Null festlegen, aber wenn Sie dies tun, müssen *program_parameters* auch auf NULL festgelegt werden. |

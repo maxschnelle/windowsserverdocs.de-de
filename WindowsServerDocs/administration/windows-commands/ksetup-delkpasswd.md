@@ -1,18 +1,18 @@
 ---
 title: ksetup delkpasswd
 description: Referenz Artikel für den Ksetup-Befehl "Delta Password", bei dem ein Kerberos-Kenn Wort Server (kpasswd) für einen Bereich entfernt wird.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 2db0bfcd-bc08-48e3-9f30-65b6411839c6
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f507b259b77e8be15ade8d01f3666221e94f9192
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: c8918b429bc29cd2eec88f5c32d1e0c358fa2610
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87887963"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89025564"
 ---
 # <a name="ksetup-delkpasswd"></a>ksetup delkpasswd
 
@@ -28,7 +28,7 @@ ksetup /delkpasswd <realmname> <kpasswdname>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<realmname>` |  Gibt den Großbuchstaben-DNS-Namen an, z. b. Corp. CONTOSO.com, und wird als Standardbereich bzw. **Bereich** angezeigt, wenn **Ksetup** ausgeführt wird. |
 | `<kpasswdname>` | Gibt den Kerberos-Kenn Wort Server an. Sie wird als voll qualifizierter Domänen Name, wie z. b. mitkdc.contoso.com, als Nichtbeachtung der Groß-/Kleinschreibung angegeben. Wenn der KDC-Name weggelassen wird, kann DNS verwendet werden, um nach KDCs zu suchen. |

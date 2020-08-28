@@ -1,60 +1,64 @@
 ---
 title: reset session
-description: Referenz Artikel für * * * *-
-ms.topic: article
+description: Referenz Artikel zum Befehl zum Zurücksetzen der Sitzung, mit dem Sie eine Sitzung auf einem Remotedesktop-Sitzungshost Server zurücksetzen können.
+ms.topic: reference
 ms.assetid: 4f029ecc-874e-415a-95a8-8b731bae35f9
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 2f910dfc1c13b0e8555078acfb4e7ad830049592
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: a154ffb27ac8ead093c0e41f9a50d0952b736abc
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87883659"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89037028"
 ---
 # <a name="reset-session"></a>reset session
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Ermöglicht das Zurücksetzen (Löschen) einer Sitzung auf einem Remotedesktop-Sitzungshost Server (RD-Sitzungs Host).
-
+Ermöglicht das Zurücksetzen (Löschen) einer Sitzung auf einem Remotedesktop-Sitzungshost Server. Sie sollten eine Sitzung nur dann zurücksetzen, wenn Sie nicht mehr reagiert oder anscheinend nicht mehr reagiert.
 
 > [!NOTE]
-> In Windows Server 2008 R2 heißen die Terminaldienste nun Remotedesktopdienste. Weitere Informationen zu den Neuerungen in der neuesten Version finden Sie unter [What es New in Remotedesktopdienste in Windows Server 2012](/previous-versions/orphan-topics/ws.11/hh831527(v=ws.11)) in der TechNet-Bibliothek für Windows Server.
+> Weitere Informationen zu den Neuerungen in der neuesten Version finden Sie unter [What es New in Remotedesktopdienste in Windows Server](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn283323(v=ws.11)).
 
 ## <a name="syntax"></a>Syntax
+
 ```
-reset session {<SessionName> | <SessionID>} [/server:<ServerName>] [/v]
+reset session {<sessionname> | <sessionID>} [/server:<servername>] [/v]
 ```
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
-|-------|--------|
-|\<SessionName>|Gibt den Namen der Sitzung an, die Sie zurücksetzen möchten. Um den Namen der Sitzung zu ermitteln, verwenden Sie den Befehl **Abfrage Sitzung** .|
-|\<SessionID>|Gibt die ID der zurück zusetzenden Sitzung an.|
-|/server:\<ServerName>|Gibt den Terminal Server mit der Sitzung an, die Sie zurücksetzen möchten. Andernfalls wird der aktuelle RD-Sitzungs Host Server verwendet.|
-|/v|Zeigt Informationen zu den Aktionen an, die ausgeführt werden.|
-|/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
+| Parameter | Beschreibung |
+|--|--|
+| `<sessionname>` | Gibt den Namen der Sitzung an, die Sie zurücksetzen möchten. Um den Namen der Sitzung zu ermitteln, verwenden Sie den [Befehl Abfrage Sitzung](query-session.md). |
+| `<sessionID>` | Gibt die ID der zurück zusetzenden Sitzung an. |
+| /server:`<servername>` | Gibt den Terminal Server mit der Sitzung an, die Sie zurücksetzen möchten. Andernfalls wird der aktuelle Remotedesktop-Sitzungshost Server verwendet. Dieser Parameter ist nur erforderlich, wenn Sie diesen Befehl von einem Remote Server aus verwenden. |
+| /v | Zeigt Informationen zu den Aktionen an, die ausgeführt werden. |
+| /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-## <a name="remarks"></a>Bemerkungen
--   Sie können jederzeit eigene Sitzungen zurücksetzen, aber Sie müssen über die Berechtigung "Vollzugriff" verfügen, um die Sitzung eines anderen Benutzers zurückzusetzen.
--   Beachten Sie, dass das Zurücksetzen der Sitzung eines Benutzers ohne Warnung den Benutzer zum Verlust von Daten in der Sitzung führen kann.
--   Sie sollten eine Sitzung nur dann zurücksetzen, wenn Sie nicht mehr reagiert oder anscheinend nicht mehr reagiert.
--   Der **/Server** -Parameter ist nur erforderlich, wenn Sie die **Reset-Sitzung** von einem Remote Server aus verwenden.
+### <a name="remarks"></a>Bemerkungen
+
+- Sie können jederzeit eigene Sitzungen zurücksetzen, aber Sie müssen über die Berechtigung " **voll** Zugriff" verfügen, um die Sitzung eines anderen Benutzers zurückzusetzen. Beachten Sie, dass das Zurücksetzen der Sitzung eines Benutzers ohne Warnung den Benutzer zum Verlust von Daten in der Sitzung führen kann.
 
 ## <a name="examples"></a>Beispiele
-- Geben Sie Folgendes ein, um die für RDP-TCP # 6 vorgesehene Sitzung zurückzusetzen:
-  ```
-  reset session rdp-tcp#6
-  ```
-- Um die Sitzung zurückzusetzen, die Sitzungs-ID 3 verwendet, geben Sie Folgendes ein:
-  ```
-  reset session 3
-  ```
+
+Geben Sie Folgendes ein, um die für *RDP-TCP # 6*vorgesehene Sitzung zurückzusetzen:
+
+```
+reset session rdp-tcp#6
+```
+
+Um die Sitzung zurückzusetzen, die *Sitzungs-ID 3*verwendet, geben Sie Folgendes ein:
+
+```
+reset session 3
+```
 
 ## <a name="additional-references"></a>Weitere Verweise
-- [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md) 
- [Befehlsreferenz für Remotedesktopdienste (Terminal Dienste)](remote-desktop-services-terminal-services-command-reference.md)
+
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Remotedesktopdienste Befehlsreferenz](remote-desktop-services-terminal-services-command-reference.md)

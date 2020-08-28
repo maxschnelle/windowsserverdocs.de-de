@@ -7,12 +7,12 @@ manager: dougkim
 ms.author: jgerend
 ms.date: 06/15/2020
 description: 'Eine Übersicht über Arbeitsordner: eine Server Rolle in Windows Server, die Benutzern eine konsistente Möglichkeit bietet, auf Arbeitsdateien von PCs und Geräten zuzugreifen.'
-ms.openlocfilehash: adc03d9bcb4289896b996984ebb53b185008f3fb
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: d8dcd07cd9a511cd0283030d048dff93ed02d6f1
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87994109"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89036728"
 ---
 # <a name="work-folders-overview"></a>Übersicht über Arbeitsordner
 
@@ -54,7 +54,7 @@ Wenn Sie Arbeitsordner auf Windows 10, Windows 7 oder einem Android-oder IOS-Ger
 
  Arbeitsordner beinhalten die folgenden Funktionen.
 
-| Funktionalität | Verfügbarkeit | BESCHREIBUNG |
+| Funktionalität | Verfügbarkeit | Beschreibung |
 | ------------------- | ------------------ | ----------------- |
 | Rollen Dienst "Arbeitsordner" in Server-Manager | Windows Server 2019, Windows Server 2016 oder Windows Server 2012 R2 | Datei-und Speicherdienste bieten eine Möglichkeit, Synchronisierungs Freigaben (Ordner, in denen die Arbeitsdateien des Benutzers gespeichert sind) einzurichten, Arbeitsordner zu überwachen und Synchronisierungs Freigaben und den Benutzer Zugriff zu verwalten |
 | Arbeitsordner-Cmdlets | Windows Server 2019, Windows Server 2016 oder Windows Server 2012 R2 | Ein Windows PowerShell-Modul, das umfassende Cmdlets zum Verwalten von Arbeitsordner Servern enthält |
@@ -115,7 +115,7 @@ Für Arbeitsordner gelten die folgenden Softwareanforderungen für Clientcompute
 
 -   Computer mit Windows 7 müssen eine der folgenden Versionen von Windows ausführen:
 
-    -   Windows 7 Professional
+    -   Windows 7 Professional
 
     -   Windows 7 Ultimate
 
@@ -137,9 +137,9 @@ In der folgenden Tabelle wird erläutert, wie verschiedene Microsoft Sync-Techno
 
 | | Arbeitsordner | Offlinedateien | OneDrive for Business | OneDrive |
 | - | ------------------ | ------------------- | -------------------------- | -------------- |
-| **Zusammenfassung der Technologie** | Synchronisieren von Dateien, die auf einem Dateiserver gespeichert sind, mit PCs und Geräten | Synchronisiert Dateien, die auf einem Dateiserver gespeichert sind, mit PCs, die Zugriff auf das Unternehmensnetzwerk haben (kann durch Arbeitsordner ersetzt werden). | Synchronisiert Dateien, die in Office 365 oder in SharePoint gespeichert sind, mit PCs und Geräten innerhalb oder außerhalb eines Unternehmensnetzwerks und bietet Funktionen für die Zusammenarbeit in Dokumenten. | Synchronisieren persönlicher Dateien, die in onedrive gespeichert sind, mit PCs, Macintosh-Computern und Geräten |
+| **Zusammenfassung der Technologie** | Synchronisieren von Dateien, die auf einem Dateiserver gespeichert sind, mit PCs und Geräten | Synchronisiert Dateien, die auf einem Dateiserver gespeichert sind, mit PCs, die Zugriff auf das Unternehmensnetzwerk haben (kann durch Arbeitsordner ersetzt werden). | Synchronisiert Dateien, die in Microsoft 365 oder in SharePoint gespeichert sind, mit PCs und Geräten innerhalb oder außerhalb eines Unternehmensnetzwerks und bietet Funktionen für die Zusammenarbeit in Dokumenten. | Synchronisieren persönlicher Dateien, die in onedrive gespeichert sind, mit PCs, Macintosh-Computern und Geräten |
 | **Bereitstellen des Benutzer Zugriffs auf Arbeitsdateien** | Ja | Ja | Ja | Nein |
-| **Clouddienst** | Keine | Keine | Office 365 | Microsoft OneDrive |
+| **Clouddienst** | Keine | Keine | Microsoft 365 | Microsoft OneDrive |
 | **Interne Netzwerkserver** | Dateiserver unter Windows Server 2012 R2, Windows Server 2016 und Windows Server 2019 | Dateiserver | SharePoint Server (optional) | Keine |
 | **Unterstützte Clients** | PCs, Ios, Android | PCs in einem Unternehmensnetzwerk oder über DirectAccess, VPNs oder andere Remote Zugriffs Technologien | PCs, Ios, Android, Windows Phone | PCs, Mac-Computer, Windows Phone, Ios, Android |
 

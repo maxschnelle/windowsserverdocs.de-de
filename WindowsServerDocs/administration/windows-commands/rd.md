@@ -1,18 +1,18 @@
 ---
 title: rd
 description: Referenz Artikel für den RD-Befehl, mit dem ein Verzeichnis gelöscht wird.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 42e672f6-5bc2-4c16-af25-18e7ed2dd555
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f1baacb12a0169d9915897a3d6672870c6a21927
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 360283cbc71e2d9e78acddb4e529c66535f8aa7d
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87884358"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89037188"
 ---
 # <a name="rd"></a>rd
 
@@ -31,7 +31,7 @@ rd [<drive>:]<path> [/s [/q]]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 |--|--|
 | `[<drive>:]<path>` | Gibt den Speicherort und den Namen des Verzeichnisses an, das Sie löschen möchten. Der *Pfad* ist erforderlich. Wenn Sie einen umgekehrten Schrägstrich ( \) am Anfang des angegebenen *Pfads*) einschließen, wird der *Pfad* im Stammverzeichnis (unabhängig vom aktuellen Verzeichnis) gestartet. |
 | /s | Löscht eine Verzeichnisstruktur (das angegebene Verzeichnis und alle Unterverzeichnisse einschließlich aller Dateien). |

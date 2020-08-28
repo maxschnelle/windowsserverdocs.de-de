@@ -1,18 +1,18 @@
 ---
 title: sort
 description: Referenz Artikel für Sort, bei dem die Eingabe gelesen, Daten sortiert und die Ergebnisse auf den Bildschirm, in eine Datei oder auf ein anderes Gerät geschrieben werden.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 77116469-4790-4442-8a21-9fa73b65ef9f
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ec95133af8e9c2c617fedc3bf6a3085a6663b104
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 092fe9d7ce96b172237bb44c2ce4a460bfc1a8e4
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87882358"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89036948"
 ---
 # <a name="sort"></a>sort
 
@@ -28,13 +28,13 @@ sort [/r] [/+<N>] [/m <Kilobytes>] [/l <Locale>] [/rec <Characters>] [[<Drive1>:
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |---------|-----------|
 |/r|Kehrt die Sortierreihenfolge um (d. h., sortiert von Z bis A und zwischen 9 und 0).|
 |/+\<N>|Gibt die Zeichen Positionsnummer an, an der der **Sortier** Vorgang beginnt. *N* kann eine beliebige gültige ganze Zahl sein.|
-|/m\<Kilobytes>|Gibt die Größe des Hauptspeichers an, der für die Sortierung in Kilobyte (KB) verwendet werden soll.|
-|/l\<Locale>|Überschreibt die Sortierreihenfolge von Zeichen, die vom Standard Gebiets Schema des Systems definiert werden (d. h. die Sprache und das Land/die Region, die während der Installation ausgewählt wurden)|
-|/rec\<Characters>|Gibt die maximale Anzahl von Zeichen in einem Datensatz oder eine Zeile der Eingabedatei an (der Standardwert ist 4.096 und der Höchstwert 65.535).|
+|/m \<Kilobytes>|Gibt die Größe des Hauptspeichers an, der für die Sortierung in Kilobyte (KB) verwendet werden soll.|
+|/l \<Locale>|Überschreibt die Sortierreihenfolge von Zeichen, die vom Standard Gebiets Schema des Systems definiert werden (d. h. die Sprache und das Land/die Region, die während der Installation ausgewählt wurden)|
+|/rec \<Characters>|Gibt die maximale Anzahl von Zeichen in einem Datensatz oder eine Zeile der Eingabedatei an (der Standardwert ist 4.096 und der Höchstwert 65.535).|
 |[\<Drive1>:][\<Path1>]\<FileName1>|Gibt die Datei an, die sortiert werden soll. Wenn kein Dateiname angegeben wird, wird die Standardeingabe sortiert. Die Angabe der Eingabedatei ist schneller als das Umleiten derselben Datei als Standardeingabe.|
 |/t [ \<Drive2> :] [ \<Path2> ]|Gibt den Pfad des Verzeichnisses an, in dem der Arbeitsspeicher des **Sortier** Befehls enthalten sein soll, wenn die Daten nicht in den Hauptspeicher passen. Standardmäßig wird das temporäre System Verzeichnis verwendet.|
 |/o [ \<Drive3> :] [ \<Path3> ]\<FileName3>|Gibt die Datei an, in der die sortierte Eingabe gespeichert werden soll. Wenn kein Wert angegeben ist, werden die Daten in die Standardausgabe geschrieben. Die Angabe der Ausgabedatei ist schneller als das Umleiten der Standardausgabe in dieselbe Datei.|
@@ -44,7 +44,7 @@ sort [/r] [/+<N>] [/m <Kilobytes>] [/l <Locale>] [/rec <Characters>] [[<Drive1>:
 
 -   Verwenden der **/+** Befehlszeilenoption
 
-    Standardmäßig beginnen Vergleiche mit dem ersten Zeichen jeder Zeile. Die **/+** Befehlszeilenoption startet Vergleiche mit dem durch *N*angegebenen Zeichen. `/+3`Gibt z. b. an, dass jeder Vergleich mit dem dritten Zeichen jeder Zeile beginnen soll. Zeilen mit weniger als *N* Zeichen, die vor anderen Zeilen sortiert werden.
+    Standardmäßig beginnen Vergleiche mit dem ersten Zeichen jeder Zeile. Die **/+** Befehlszeilenoption startet Vergleiche mit dem durch *N*angegebenen Zeichen. `/+3` Gibt z. b. an, dass jeder Vergleich mit dem dritten Zeichen jeder Zeile beginnen soll. Zeilen mit weniger als *N* Zeichen, die vor anderen Zeilen sortiert werden.
 -   Verwenden der Befehlszeilenoption **/m**
 
     Der verwendete Arbeitsspeicher beträgt immer mindestens 160 KB. Wenn die Arbeitsspeicher Größe angegeben wird, wird der genaue angegebene Betrag für die Sortierung verwendet (muss mindestens 160 KB betragen), unabhängig davon, wie viel Hauptspeicher verfügbar ist.

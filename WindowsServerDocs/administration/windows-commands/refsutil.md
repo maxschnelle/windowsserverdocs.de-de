@@ -4,13 +4,13 @@ description: Referenz Artikel für das refsutil-Tool, das versucht, stark besch�
 author: laknight5
 ms.author: laknight
 ms.date: 6/29/2020
-ms.topic: article
-ms.openlocfilehash: d40faa165666a5836dc6e87589d27f8eb643479e
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.topic: reference
+ms.openlocfilehash: 8d72c025fcca7c7cb294b8a5053f8d77cc97d140
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87884209"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89037118"
 ---
 # <a name="refsutil"></a>Ref
 
@@ -22,14 +22,14 @@ Refs-Rettung ist die primäre Funktion von ref und eignet sich für die Wiederhe
 
 ## <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 |--|--|
 | `<source volume>` | Gibt das zu verarbeitende Refs-Volume an. Der Laufwerk Buchstabe muss als "L:" formatiert sein, oder Sie müssen einen Pfad zum volumeeinstellungspunkt angeben. |
 | `<working directory>` | Gibt den Speicherort an, an dem temporäre Informationen und Protokolle gespeichert werden. Er darf sich **nicht** im befinden `<source volume>` . |
 | `<target directory>` | Gibt den Speicherort an, in den identifizierte Dateien kopiert werden. Er darf sich **nicht** im befinden `<source volume>` . |
 | \- Min. | Stellt alle möglichen Dateien einschließlich gelöschter Dateien wieder her.<p>**Warnung:** Dieser Parameter bewirkt nicht nur, dass die Ausführung des Prozesses länger dauert, sondern auch zu unerwarteten Ergebnissen führen kann. |
 | \-Ramelow | Gibt an, dass der ausführliche Modus verwendet werden soll. |
-| \-x | Erzwingt, dass das Volume bei Bedarf zuerst entfernt wird. Alle geöffneten Handles für das Volume sind dann ungültig. Beispielsweise `refsutil salvage -QA R: N:\WORKING N:\DATA -x`. |
+| \-Stuben | Erzwingt, dass das Volume bei Bedarf zuerst entfernt wird. Alle geöffneten Handles für das Volume sind dann ungültig. Beispielsweise `refsutil salvage -QA R: N:\WORKING N:\DATA -x`. |
 
 ## <a name="usage-and-available-options"></a>Verwendungs-und verfügbare Optionen
 

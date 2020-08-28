@@ -1,18 +1,18 @@
 ---
 title: ftp mget
 description: Referenz Artikel für den FTP-mget-Befehl, mit dem Remote Dateien mit dem aktuellen Datei Übertragungstyp auf den lokalen Computer kopiert werden.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 6c85ae96-ec51-48a9-a227-7f02c7332c69
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9074df66e70961c74ef1b479f31ac316e34ff051
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: e72d253fec35f366e2ab80a491c256e0de6c948f
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87889335"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89025744"
 ---
 # <a name="ftp-mget"></a>ftp mget
 
@@ -28,7 +28,7 @@ mget <remotefile>[ ]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<remotefile>` | Gibt die Remote Dateien an, die auf den lokalen Computer kopiert werden sollen. |
 

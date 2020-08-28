@@ -1,18 +1,18 @@
 ---
 title: recover
 description: Referenz Artikel für den Wiederherstellungs Befehl, der lesbare Informationen von einem fehlerhaften oder fehlerhaften Datenträger wiederherstellt.
-ms.topic: article
+ms.topic: reference
 ms.assetid: cf9be2e3-90c8-4773-a201-dc503b91948e
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0c3d709d76743df4c1a653f0f0a19e8319b0e0f1
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: ad9d2f665bccca1413830e29c082c05a37d93a26
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87884315"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89037138"
 ---
 # <a name="recover"></a>recover
 
@@ -28,7 +28,7 @@ recover [<drive>:][<path>]<filename>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 |--|--|
 | `[<drive>:][<path>]<filename>` | Gibt den Dateinamen (und den Speicherort der Datei an, wenn er sich nicht im aktuellen Verzeichnis befindet), die Sie wiederherstellen möchten. *Dateiname* ist erforderlich, und Platzhalter werden nicht unterstützt. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |

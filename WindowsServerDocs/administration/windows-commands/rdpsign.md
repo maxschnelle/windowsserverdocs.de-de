@@ -1,18 +1,18 @@
 ---
 title: rdpsign
 description: Referenz Artikel zum rdpsign-Befehl, mit dem Sie eine Remotedesktopprotokoll Datei (. RDP) digital signieren können.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 4a6fa8ce-3d32-49a5-b056-bcc1a23391f5
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: f937cd0bebd2c57c4eef44c9dbf803176f285c2f
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: ecd80969f42a440bfd583223779fe67c27c5c310
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87884323"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89037148"
 ---
 # <a name="rdpsign"></a>rdpsign
 
@@ -31,10 +31,10 @@ rdpsign /sha1 <hash> [/q | /v |] [/l] <file_name.rdp>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 |--|--|
-| /sha1`<hash>` | Gibt den Fingerabdruck an. Hierbei handelt es sich um den Secure-Hash-Algorithmus 1 (SHA1)-Hash des Signatur Zertifikats, das im Zertifikat Speicher enthalten ist. Wird in Windows Server 2012 R2 und älteren Versionen verwendet. |
-| /sha256`<hash>` | Gibt den Fingerabdruck an, bei dem es sich um den Secure Hash Algorithmus 256 (SHA256)-Hash des Signatur Zertifikats handelt, das im Zertifikat Speicher enthalten ist. Ersetzt/SHA1 in Windows Server 2016 und höher. |
+| /sha1 `<hash>` | Gibt den Fingerabdruck an. Hierbei handelt es sich um den Secure-Hash-Algorithmus 1 (SHA1)-Hash des Signatur Zertifikats, das im Zertifikat Speicher enthalten ist. Wird in Windows Server 2012 R2 und älteren Versionen verwendet. |
+| /sha256 `<hash>` | Gibt den Fingerabdruck an, bei dem es sich um den Secure Hash Algorithmus 256 (SHA256)-Hash des Signatur Zertifikats handelt, das im Zertifikat Speicher enthalten ist. Ersetzt/SHA1 in Windows Server 2016 und höher. |
 | /q | Stiller Modus. Keine Ausgabe, wenn der Befehl erfolgreich ausgeführt wird, und minimale Ausgabe, wenn der Befehl fehlschlägt. |
 | /v | Ausführliche-Modus. Zeigt alle Warnungen, Meldungen und den Status an. |
 | /l | Testet die Signierungs-und Ausgabe Ergebnisse, ohne tatsächlich eine der Eingabedateien zu ersetzen. |

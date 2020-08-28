@@ -1,18 +1,18 @@
 ---
 title: Get-drivergroup
 description: Referenz Artikel zu "Get-drivergroup", der Informationen zu den Treiber Gruppen auf einem Server anzeigt.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 7cfe10c3-a63f-48e7-bef9-f6b474b4ddbe
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 95981c1821117f6a4a634df001b901ee76816b75
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 545bf634382e562221438295e5d015f7dbb97bf3
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87896957"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89029678"
 ---
 # <a name="get-drivergroup"></a>Get-drivergroup
 
@@ -25,7 +25,7 @@ Zeigt Informationen zu den Treiber Gruppen auf einem Server an.
 wdsutil /Get-DriverGroup /DriverGroup:<Group Name> [/Server:<Server name>]
 ```
 ### <a name="parameters"></a>Parameter
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |-------|--------|
 |/DriverGroup:<Group Name>|Gibt den Namen der Treiber Gruppe an.|
 |[/Server:<Server name>]|Gibt den Namen des Servers an. Dabei kann es sich um den NetBIOS-Namen oder den voll qualifizierten Namen handeln.  Wenn kein Servername angegeben ist, wird der lokale Server verwendet.|

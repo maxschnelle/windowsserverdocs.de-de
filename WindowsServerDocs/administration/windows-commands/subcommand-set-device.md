@@ -1,18 +1,18 @@
 ---
 title: Unterbefehls Satz-Gerät
 description: Referenz Artikel für den Unterbefehl Set-Device, mit dem die Attribute eines vorab bereitgestellten Computers geändert werden.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 401567f8-eaeb-4a2d-b811-140bb007028d
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9593769d77d10eaff80b9d369e1f681f02c5d1fe
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 8d259a06918e5cf0f8983f84533a37d42f146ece
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87882275"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89036888"
 ---
 # <a name="subcommand-set-device"></a>Unterbefehl: Set-Device
 
@@ -26,7 +26,7 @@ wdsutil [Options] /Set-Device /Device:<Device name> [/ID:<UUID | MAC address>] [
 [/WdsClientUnattend:<Relative path>] [/User:<Domain\User | User@Domain>] [/JoinRights:{JoinOnly | Full}] [/JoinDomain:{Yes | No}] [/BootImagepath:<Relative path>] [/Domain:<Domain>] [/resetAccount]
 ```
 ### <a name="parameters"></a>Parameter
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |-------|--------|
 |Schutz<computer name>|Gibt den Namen des Computers an (Sam-Account-Name).|
 |[/ID: <UUID &#124; Mac-Adresse>]|Gibt entweder die GUID/UUID oder die Mac-Adresse des Computers an. Dieser Wert muss einem der folgenden drei Formate aufweisen:<p>-Binäre Zeichenfolge: **/ID: ACEFA3E81F20694E953EB2DAA1E8B1B6**<br />-GUID/UUID-Zeichenfolge:/ID:**E8A3EFAC-201F-4E69-953E-B2DAA1E8B1B6**<br />-Mac-Adresse: **00b056882(** keine Bindestriche) oder **00-B0-56-88-2F-DC** (mit Bindestrichen)|

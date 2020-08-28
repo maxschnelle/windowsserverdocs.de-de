@@ -1,18 +1,18 @@
 ---
 title: chkdsk
 description: Referenz Artikel zum chkdsk-Befehl, mit dem das Dateisystem und die Dateisystem Metadaten eines Volumes auf logische und physische Fehler überprüft werden.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 62912a3c-d2cc-4ef6-9679-43709a286035
 author: jasongerend
 ms.author: jgerend
 manager: lizapo
 ms.date: 10/09/2019
-ms.openlocfilehash: 34a32e22224168e92386408901571850973e6503
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 610b7fe54387e54a49b2bd4a3ee0086c5d7adaa2
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87892744"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89026188"
 ---
 # <a name="chkdsk"></a>chkdsk
 
@@ -35,7 +35,7 @@ chkdsk [<volume>[[<path>]<filename>]] [/f] [/v] [/r] [/x] [/i] [/c] [/l[:<size>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<volume>` | Gibt den Laufwerk Buchstaben (gefolgt von einem Doppelpunkt), einen Einfügepunkt oder einen Volumenamen an. |
 | [ `[<path>]<filename>` | Verwenden Sie nur mit der Datei Zuordnungs Tabelle (FAT) und FAT32. Gibt den Speicherort und den Namen einer Datei oder einer Gruppe von Dateien an, die von **chkdsk** auf Fragmentierung überprüft werden soll. Sie können den **?** und **&#42;** Platzhalter Zeichen zum Angeben mehrerer Dateien. |

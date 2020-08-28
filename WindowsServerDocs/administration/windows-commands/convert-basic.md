@@ -1,18 +1,18 @@
 ---
 title: convert basic
 description: Referenz Artikel zum Convert Basic-Befehl, der einen leeren dynamischen Datenträger in einen Basis Datenträger konvertiert.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 61329896-3b56-4959-8d58-45cbe18ba860
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 88ad686cd47bc9c347469697511a81f6cf4ae835
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: a094da440bb898f67178c18a3408567cee7eab3d
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87892597"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89025934"
 ---
 # <a name="convert-basic"></a>convert basic
 
@@ -32,7 +32,7 @@ convert basic [noerr]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | Noerr | Nur für Skripterstellung. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird. |
 

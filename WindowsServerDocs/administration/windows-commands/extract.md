@@ -1,18 +1,18 @@
 ---
 title: extract
 description: Referenz Artikel für den Extract-Befehl, mit dem Dateien aus einem Quell Speicherort extrahiert werden.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 20dab03e-f6e1-4eb8-b8a1-fd6f1d97ee83
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 130f9ee22e0603deaa50dfde267df1c39342e38c
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 557ee765a40703d2781613549992c7668753f5a9
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87890377"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89036638"
 ---
 # <a name="extract"></a>extract
 
@@ -28,7 +28,7 @@ extract [/y] /c source destination
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | KEs | Verwenden Sie, wenn Sie zwei oder mehr Dateien extrahieren möchten. |
 | filename | Der Name der Datei, die aus der CAB-Datei extrahiert werden soll. Platzhalter und mehrere Dateinamen (durch Leerzeichen getrennt) können verwendet werden. |

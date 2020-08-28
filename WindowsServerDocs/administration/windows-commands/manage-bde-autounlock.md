@@ -1,18 +1,18 @@
 ---
 title: manage-bde Entsperrens
 description: Referenz Artikel für den Befehl manage-bde Entsperrens, der das automatische Entsperren von mit BitLocker geschützten Daten Laufwerken verwaltet.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 063528bf-d235-4b44-887a-52a7d983e01a
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 976f7f4034c9c373d6d5cd347b0807c7a82ea97f
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 35aadb406a2f5d9e10bd7b796dd07ae79a8286a7
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87886966"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89036548"
 ---
 # <a name="manage-bde-autounlock"></a>manage-bde Entsperrens
 
@@ -26,7 +26,7 @@ manage-bde -autounlock [{-enable|-disable|-clearallkeys}] <drive> [-computername
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | -enable | Aktiviert das automatische Entsperren für ein Daten Laufwerk. |
 | -disable | Deaktiviert das automatische Entsperren für ein Daten Laufwerk. |

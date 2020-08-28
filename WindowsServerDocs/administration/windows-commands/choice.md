@@ -1,18 +1,18 @@
 ---
 title: choice
 description: Referenz Artikel für den Choice-Befehl, der den Benutzer auffordert, ein Element aus einer Liste von Einzelzeichen in einem Batch Programm auszuwählen, und dann den Index der ausgewählten Auswahl zurückgibt.
-ms.topic: article
+ms.topic: reference
 ms.assetid: c65a9119-410b-4dcf-9fa7-4e07d2a7238b
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6aec3af1966d0b7952f0bbb5880e373356117e42
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 367f52ee41e72fe1c4c94c37a07e3a4227dec8a7
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87880252"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89026044"
 ---
 # <a name="choice"></a>choice
 
@@ -26,14 +26,14 @@ choice [/c [<choice1><choice2><…>]] [/n] [/cs] [/t <timeout> /d <choice>] [/m 
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
-| /c`<choice1><choice2><…>` | Gibt die Liste der zu erstellenden Optionen an. Gültige Optionen sind a-z, a-z, 0-9 und erweiterte ASCII-Zeichen (128-254). Die Standardliste ist yn, das als angezeigt wird `[Y,N]?` . |
+| /c `<choice1><choice2><…>` | Gibt die Liste der zu erstellenden Optionen an. Gültige Optionen sind a-z, a-z, 0-9 und erweiterte ASCII-Zeichen (128-254). Die Standardliste ist yn, das als angezeigt wird `[Y,N]?` . |
 | /n | Blendet die Liste der Auswahlmöglichkeiten aus, obwohl die Auswahl weiterhin aktiviert ist und der Meldungs Text (falls durch **/m**angegeben) weiterhin angezeigt wird. |
 | /CS | Gibt an, dass die Groß-/Kleinschreibung beachtet werden soll. Standardmäßig wird die Groß-/Kleinschreibung nicht beachtet. |
-| /t`<timeout>` | Gibt die Anzahl der Sekunden an, die angehalten werden soll, bevor die von **/d**angegebene Standardauswahl verwendet wird. Zulässige Werte liegen zwischen **0** und **9999**. Wenn **/t** auf **0**festgelegt ist, wird die **Auswahl** nicht angehalten, bevor die Standardauswahl zurückgegeben wird. |
-| /d`<choice>` | Gibt die Standardauswahl an, die nach der Wartezeit der von **/t**angegebenen Anzahl von Sekunden verwendet werden soll. Die Standardauswahl muss in der Liste der von **/c**angegebenen Optionen stehen. |
-| /m`<text>` | Gibt eine Meldung an, die vor der Auswahlliste angezeigt werden soll. Wenn **/m** nicht angegeben ist, wird nur die Auswahl Aufforderung angezeigt. |
+| /t `<timeout>` | Gibt die Anzahl der Sekunden an, die angehalten werden soll, bevor die von **/d**angegebene Standardauswahl verwendet wird. Zulässige Werte liegen zwischen **0** und **9999**. Wenn **/t** auf **0**festgelegt ist, wird die **Auswahl** nicht angehalten, bevor die Standardauswahl zurückgegeben wird. |
+| /d `<choice>` | Gibt die Standardauswahl an, die nach der Wartezeit der von **/t**angegebenen Anzahl von Sekunden verwendet werden soll. Die Standardauswahl muss in der Liste der von **/c**angegebenen Optionen stehen. |
+| /m `<text>` | Gibt eine Meldung an, die vor der Auswahlliste angezeigt werden soll. Wenn **/m** nicht angegeben ist, wird nur die Auswahl Aufforderung angezeigt. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
 ## <a name="remarks"></a>Bemerkungen

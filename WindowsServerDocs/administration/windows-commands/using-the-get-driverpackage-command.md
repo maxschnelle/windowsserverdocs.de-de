@@ -1,18 +1,18 @@
 ---
 title: Get-DriverPackage
 description: Referenz Artikel zu Get-DriverPackage, in dem Informationen zu einem Treiber Paket auf dem Server angezeigt werden.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 94d231e4-ff01-48e7-9bc8-7b0d97a4339e
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 95dbc43df5feb7bd07e2dfe3d9e74e81d94dd612
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 914effe6e2776f3bc66537beff5ea9e4bed65f3e
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87879789"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89029668"
 ---
 # <a name="get-driverpackage"></a>Get-DriverPackage
 
@@ -26,7 +26,7 @@ WDSUTIL /Get-DriverPackage [/Server:<Server name>] {/DriverPackage:<Package Name
 
 ### <a name="parameters"></a>Parameter
 
-|        Parameter         |                                                                           BESCHREIBUNG                                                                            |
+|        Parameter         |                                                                           Beschreibung                                                                            |
 |--------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [/Server:\<Server name>] |              Gibt den Namen des Servers an. Dabei kann es sich um den NetBIOS-Namen oder den voll qualifizierten Namen handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.               |
 | [/DriverPackage: \<Name> ] |                                                        Gibt den Namen des anzuzeigenden Treiber Pakets an.                                                         |

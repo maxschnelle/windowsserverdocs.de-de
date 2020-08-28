@@ -1,18 +1,18 @@
 ---
 title: gpresult
 description: Referenz Artikel für den Gpresult-Befehl, der die Richtlinien Ergebnissatz-Informationen (RSoP) für einen Remote Benutzer und-Computer anzeigt.
-ms.topic: article
+ms.topic: reference
 ms.assetid: dfaa3adf-2c83-486c-86d6-23f93c5c883c
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5c65dd4799441dca44db24f532be66349b1249a5
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 5ef5de0c8e4e4c4f75d8ccd680e20b8cf00385f5
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87888574"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89025674"
 ---
 # <a name="gpresult"></a>gpresult
 
@@ -31,13 +31,13 @@ gpresult [/s <system> [/u <username> [/p [<password>]]]] [/user [<targetdomain>\
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
-| /s`<system>` | Gibt den Namen oder die IP-Adresse eines Remote Computers an. Verwenden Sie keine umgekehrten Schrägstriche. Die Standardeinstellung ist der lokale Computer. |
-| /u`<username>` | Verwendet die Anmelde Informationen des angegebenen Benutzers, um den Befehl auszuführen. Der Standardbenutzer ist der Benutzer, der auf dem Computer angemeldet ist, der den Befehl ausgibt. |
-| /p`[<password>]` | Gibt das Kennwort des Benutzerkontos an, das im **/u** -Parameter angegeben wird. Wenn **/p** ausgelassen wird, fordert **gpresult** das Kennwort an. Der **/p** -Parameter kann nicht mit **/x** oder **/h**verwendet werden. |
-| /User`[<targetdomain>\]<targetuser>]` | Gibt den Remote Benutzer an, dessen RSOP-Daten angezeigt werden sollen. |
-| /Scope`{user | computer}` | Zeigt die RSoP-Daten für den Benutzer oder den Computer an. Wenn **/Scope** ausgelassen wird, zeigt **gpresult** RSOP-Daten sowohl für den Benutzer als auch für den Computer an. |
+| /s `<system>` | Gibt den Namen oder die IP-Adresse eines Remote Computers an. Verwenden Sie keine umgekehrten Schrägstriche. Die Standardeinstellung ist der lokale Computer. |
+| /u `<username>` | Verwendet die Anmelde Informationen des angegebenen Benutzers, um den Befehl auszuführen. Der Standardbenutzer ist der Benutzer, der auf dem Computer angemeldet ist, der den Befehl ausgibt. |
+| /p `[<password>]` | Gibt das Kennwort des Benutzerkontos an, das im **/u** -Parameter angegeben wird. Wenn **/p** ausgelassen wird, fordert **gpresult** das Kennwort an. Der **/p** -Parameter kann nicht mit **/x** oder **/h**verwendet werden. |
+| /User `[<targetdomain>\]<targetuser>]` | Gibt den Remote Benutzer an, dessen RSOP-Daten angezeigt werden sollen. |
+| /Scope `{user | computer}` | Zeigt die RSoP-Daten für den Benutzer oder den Computer an. Wenn **/Scope** ausgelassen wird, zeigt **gpresult** RSOP-Daten sowohl für den Benutzer als auch für den Computer an. |
 | `[/x | /h] <filename>` | Speichert den Bericht im XML-Format (**/x**) oder im HTML-Format (**/h**) am Speicherort und mit dem Dateinamen, der durch den *filename* -Parameter angegeben wird. Kann nicht mit **/u**, **/p**, **/r**, **/v**oder **"/z**verwendet werden. |
 | /f | Erzwingt **gpresult** , den Dateinamen zu überschreiben, der in der **/x** -Option oder der **/h** -Option angegeben ist. |
 | /r | Zeigt RSoP-Zusammenfassungs Daten an. |

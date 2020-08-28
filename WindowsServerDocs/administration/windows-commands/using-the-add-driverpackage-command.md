@@ -1,18 +1,18 @@
 ---
 title: Add-DriverPackage
 description: Referenz Artikel für Add-DriverPackage, mit dem dem Server ein Treiber Paket hinzugefügt wird.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 3ac9e8d5-63ec-4ce8-86fc-85d28011050b
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bd7ba7897006a4db144fc8bd92317fb07a34b55f
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 0a1876727d4d79cf4ce3c86c654a9be0b7c6795d
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87881270"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89029848"
 ---
 # <a name="add-driverpackage"></a>Add-DriverPackage
 
@@ -26,7 +26,7 @@ WDSUTIL /Add-DriverPackage /InfFile:<Inf File path> [/Server:<Server name>] [/Ar
 
 ### <a name="parameters"></a>Parameter
 
-|          Parameter           |                                                              BESCHREIBUNG                                                              |
+|          Parameter           |                                                              Beschreibung                                                              |
 |------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
 |   InfFile:\<Inf File path>   |                                           Gibt den vollständigen Pfad der hinzu zufügenden INF-Datei an.                                            |
 |    Servers\<Server name>    | Gibt den Namen des Servers an. Dabei kann es sich um den NetBIOS-Namen oder den voll qualifizierten Namen handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet. |

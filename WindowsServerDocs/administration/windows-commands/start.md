@@ -1,18 +1,18 @@
 ---
 title: start
 description: Referenz Artikel zu Start, mit dem ein separates Eingabe Aufforderungs Fenster zum Ausführen eines bestimmten Programms oder Befehls gestartet wird.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 0173f9b3-5cd7-4edb-b01e-d02193b4fadc
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 54ec76cf6162cd887b21f99b6579fc123f4f614c
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 5f17b4093bbe82d869ad561dce45437389dc347e
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87882298"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89036928"
 ---
 # <a name="start"></a>start
 
@@ -28,15 +28,15 @@ start [<Title>] [/d <Path>] [/i] [{/min | /max}] [{/separate | /shared}] [{/low 
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |---------|-----------|
 |\<Title>|Gibt den Titel an, der in der Titelleiste des Eingabe Aufforderungs Fensters angezeigt werden soll.|
-|/d\<Path>|Gibt das Start Verzeichnis an.|
+|/d \<Path>|Gibt das Start Verzeichnis an.|
 |/i|Übergibt die Cmd.exe Start Umgebung an das neue Eingabe Aufforderungs Fenster. Wenn **/i** nicht angegeben ist, wird die aktuelle Umgebung verwendet.|
 |/Min \| /Max|Gibt an, dass das neue Eingabe Aufforderungs Fenster minimiert (**/Min**) oder maximiert (**/Max**) werden soll.|
 |/separate \| /Shared|Startet 16-Bit-Programme in einem separaten Speicherbereich (**/separate**) oder gemeinsam genutzten Speicherplatz (**/Shared**). Diese Optionen werden auf 64-Bit-Plattformen nicht unterstützt.|
 |/Low \| /Normal \| /High \| /Realtime \| /AboveNormal \| /BelowNormal|Startet eine Anwendung in der angegebenen Prioritäts Klasse. Gültige Werte für die Prioritäts Klasse sind **/Low**, **/Normal**, **/High**, **/Realtime**, **/AboveNormal**und **/BelowNormal**.|
-|/affinity\<HexAffinity>|Wendet die angegebene Prozessor Affinitäts Maske (als hexadezimal Zahl ausgedrückt) auf die neue Anwendung an.|
+|/affinity \<HexAffinity>|Wendet die angegebene Prozessor Affinitäts Maske (als hexadezimal Zahl ausgedrückt) auf die neue Anwendung an.|
 |/Wait|Startet eine Anwendung und wartet darauf, dass Sie beendet wird.|
 |/elevate|Führt die Anwendung als Administrator aus.|
 |/b|Startet eine Anwendung, ohne ein neues Eingabe Aufforderungs Fenster zu öffnen. Strg + c-Behandlung wird ignoriert, es sei denn, die Anwendung aktiviert die Strg + c-Verarbeitung. Verwenden Sie Strg + Pause, um die Anwendung zu unterbrechen.|

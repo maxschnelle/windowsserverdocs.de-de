@@ -1,18 +1,18 @@
 ---
 title: expose
 description: Referenz Artikel für den Befehl "verfügbar machen", der eine persistente Schatten Kopie als Laufwerk Buchstabe, Freigabe oder Einstellungspunkt verfügbar macht.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 9b0a21cf-3bef-4ade-b8f1-ac42f9203947
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b4b9e45013c928e2a65e86b21c37f2f10b215056
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 67e6b230b780e6ae84ea1ff30804c5722ca2337d
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87890403"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89036688"
 ---
 # <a name="expose"></a>expose
 
@@ -26,7 +26,7 @@ expose <shadowID> {<drive:> | <share> | <mountpoint>}
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | shadowid | Gibt die Schatten-ID der Schatten Kopie an, die Sie verfügbar machen möchten. Sie können auch einen vorhandenen Alias oder eine Umgebungsvariable anstelle von *shadowid*verwenden. Verwenden **Sie hinzufügen** ohne Parameter, um vorhandene Aliase anzuzeigen. |
 | `<drive:>` | Macht die angegebene Schatten Kopie als Laufwerk Buchstaben verfügbar (z. b `p:` .). |

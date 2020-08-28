@@ -1,18 +1,18 @@
 ---
 title: Get-DriverPackageFile
 description: Referenz Artikel zu Get-DriverPackageFile, in dem Informationen zu einem Treiber Paket einschließlich der darin enthaltenen Treiber und Dateien angezeigt werden.
-ms.topic: article
+ms.topic: reference
 ms.assetid: f01a2c67-7e9c-4aad-b625-383f5a1fca25
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6c80267f90608dca36ef9460eb23b66689022517
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 5d1990cd307aaf5a378eaf55ac95247fe5b92405
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87879752"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89029658"
 ---
 # <a name="get-driverpackagefile"></a>Get-DriverPackageFile
 
@@ -26,7 +26,7 @@ WDSUTIL /Get-DriverPackageFile /InfFile:<Inf File path> [/Architecture:{x86 | ia
 
 ### <a name="parameters"></a>Parameter
 
-|         Parameter         |                              BESCHREIBUNG                               |
+|         Parameter         |                              Beschreibung                               |
 |---------------------------|------------------------------------------------------------------------|
 | /InfFile:\<Inf File path> | Gibt den vollständigen Pfad und den Dateinamen der INF-Datei des Treiber Pakets an. |
 |    [/Architecture: {x86    |                                  ia64                                  |

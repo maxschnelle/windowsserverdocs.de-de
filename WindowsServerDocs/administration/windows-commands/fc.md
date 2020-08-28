@@ -1,20 +1,20 @@
 ---
-title: fc
+title: FC
 description: Referenz Artikel für den FC-Befehl, der zwei Dateien oder Datei Sätze vergleicht und die Unterschiede zwischen Ihnen anzeigt.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 485fc3d8-b7c5-496d-87be-0011112f27d5
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 72c71a76b168b96164ea6739adff974ba37a2308
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: eb4bd745ec9c1a9dfe066fd5eeefdc2d5517d7cb
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87890367"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89036628"
 ---
-# <a name="fc"></a>fc
+# <a name="fc"></a>FC
 
 Vergleicht zwei Dateien oder Sätze von Dateien und zeigt die Unterschiede zwischen diesen an.
 
@@ -27,7 +27,7 @@ fc /b [<drive1:>][<path1>]<filename1> [<drive2:>][<path2>]<filename2>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | /a | Kürzt die Ausgabe eines ASCII-Vergleichs. Anstatt alle Zeilen anzuzeigen, die unterschiedlich sind, zeigt **FC** nur die erste und letzte Zeile für jeden Satz von Unterschieden an. |
 | /b | Vergleicht die beiden Dateien im binären Modus, Byte nach Byte, und versucht nicht, die Dateien erneut zu synchronisieren, nachdem eine Übereinstimmung gefunden wurde. Dies ist der Standardmodus zum Vergleichen von Dateien, die die folgenden Dateierweiterungen aufweisen:. exe,. com,. sys,. obj,. lib oder. bin. |

@@ -1,18 +1,18 @@
 ---
 title: Add-imagedriverpackage
 description: Referenz Artikel zu Add-imagedriverpackage, mit dem ein Treiber Paket im Treiber Speicher einem vorhandenen Start Abbild auf dem Server hinzugefügt wird.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 6c2a4833-6427-47f8-9ffb-20b3786cb406
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 01fdcb2fda0bbfd793071009d09b813084fe8a68
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 1aca048fe3a9d7d3307c0a860d2dbd6edda0400a
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87897004"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89029838"
 ---
 # <a name="add-imagedriverpackage"></a>Add-imagedriverpackage
 
@@ -29,7 +29,7 @@ wdsutil /add-ImageDriverPackage [/Server:<Server name>media:<Image namemediatype
 ```
 ### <a name="parameters"></a>Parameter
 
-|                 Parameter                  |                                                                                                                                                                                                            BESCHREIBUNG                                                                                                                                                                                                             |
+|                 Parameter                  |                                                                                                                                                                                                            Beschreibung                                                                                                                                                                                                             |
 |--------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |           /Server<Server name>           |                                                                                                                                               Gibt den Namen des Servers an. Dabei kann es sich um den NetBIOS-Namen oder den voll qualifizierten Namen handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.                                                                                                                                                |
 |             Medien<Image name>             |                                                                                                                                                                                       Gibt den Namen des Bilds an, dem der Treiber hinzugefügt werden soll.                                                                                                                                                                                        |

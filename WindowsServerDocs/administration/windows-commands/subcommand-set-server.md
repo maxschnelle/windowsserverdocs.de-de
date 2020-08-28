@@ -1,18 +1,18 @@
 ---
 title: Unterbefehls Satz-Server
 description: Referenz Artikel für den Unterbefehl set-Server, der die Einstellungen für einen Windows-Bereitstellungsdiensteserver konfiguriert hat.
-ms.topic: article
+ms.topic: reference
 ms.assetid: da55c29d-a94a-4d73-877b-af480f906ca0
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: aa9a40be9b2af534ddf80b03e2c56ac06b533a75
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 9199fc06733724ba14415efd938488e7558ceb1c
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87882135"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89036738"
 ---
 # <a name="subcommand-set-server"></a>Unterbefehl: Set-Server
 
@@ -113,7 +113,7 @@ wdsutil [Options] /Set-Server [/Server:<Server name>]
         [/forceNative]
 ```
 ### <a name="parameters"></a>Parameter
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |-------|--------|
 |[/Server:<Server name>]|Gibt den Namen des Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.|
 |[/Authorize-Endpunkt: {yes &#124; No}]|Gibt an, ob dieser Server in Dynamic Host Control Protocol (DHCP) autorisiert werden soll.|
@@ -134,7 +134,7 @@ wdsutil [Options] /Set-Server [/Server:<Server name>]
 |[/PreferredDC: <DC Name> ]|Gibt den Namen des Domänen Controllers an, den die Windows-Bereitstellungs Dienste verwenden sollen. Dabei kann es sich entweder um den NetBIOS-Namen oder den voll qualifizierten Namen handeln.|
 |[/PreferredGC: <GC Name> ]|Gibt den Namen des globalen Katalog Servers an, der von den Windows-Bereitstellungs Diensten verwendet werden soll. Dabei kann es sich entweder um den NetBIOS-Namen oder den voll qualifizierten Namen handeln.|
 |[/PrestageUsingMAC: {yes &#124; No}]|Gibt an, ob die Windows-Bereitstellungs Dienste beim Erstellen von Computer Konten in AD DS die Mac-Adresse anstelle der GUID/UUID verwenden sollten, um den Computer zu identifizieren.|
-|[/NewMachineNamingPolicy: <Policy> ]|Gibt das Format an, das beim Erstellen von Computernamen für Clients verwendet werden soll. Informationen zu dem für zu verwendenden Format erhalten <policy> Sie, indem Sie im MMC-Snap-in mit der rechten Maustaste auf den Server klicken, auf **Eigenschaften**klicken und die Registerkarte **Verzeichnisdienste** anzeigen. Beispiel **:/NewMachineNamingPolicy:% 61Username% #**.|
+|[/NewMachineNamingPolicy: <Policy> ]|Gibt das Format an, das beim Erstellen von Computernamen für Clients verwendet werden soll. Informationen zu dem für zu verwendenden Format erhalten <policy> Sie, indem Sie im MMC-Snap-in mit der rechten Maustaste auf den Server klicken, auf  **Eigenschaften**klicken und die Registerkarte **Verzeichnisdienste** anzeigen. Beispiel **:/NewMachineNamingPolicy:% 61Username% #**.|
 |[/NewMachineOU]|Wird verwendet, um den Speicherort in AD DS anzugeben, auf dem Client Computer Konten erstellt werden. Sie geben den Speicherort mit den folgenden Optionen an.<p>-[/Type: ServerDomain &#124; UserDomain &#124; UserOU &#124; Custom] gibt den Typ des Speicher Orts an. Server **Domain** erstellt Konten in derselben Domäne wie der Windows-Bereitstellungsdiensteserver. **User Domain** erstellt Konten in derselben Domäne wie der Benutzer, der die Installation ausführt. **UserOU** erstellt Konten in der Organisationseinheit des Benutzers, der die Installation ausführt. Mit **Custom** können Sie einen benutzerdefinierten Speicherort angeben (Sie müssen auch mit dieser Option einen Wert für **/OU** angeben).<br />-[/Ou: <Domain name of OU> ]: Wenn Sie für die **/Type** -Option **Benutzer** definiert angeben, gibt diese Option die Organisationseinheit an, in der Computer Konten erstellt werden sollen.|
 |[/DomainSearchOrder: {ginly &#124; DCFirst}]|Gibt die Richtlinie zum Durchsuchen von Computer Konten in AD DS an (globaler Katalog oder Domänen Controller).|
 |[/NewMachineDomainJoin: {yes &#124; No}]|Gibt an, ob ein Computer, der nicht bereits in AD DS vorab bereitgestellt ist, während der Installation der Domäne beitreten soll. Der Standardwert für diese Einstellung ist **Ja**.|

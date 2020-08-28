@@ -1,18 +1,18 @@
 ---
 title: nicht initialisieren-Server
 description: Referenz Artikel für "Uninitialize-Server", mit dem die Änderungen auf dem Server während der anfänglichen Server Konfiguration wieder hergestellt werden.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 015efb04-fe84-469f-bd81-49d0046296b2
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 954c56d8a9c901431859e7a424c5df436ab6858a
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 4ce98df7fa7c094970474432dd8fdedc56e302c6
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87881452"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89029978"
 ---
 # <a name="uninitialize-server"></a>nicht initialisieren-Server
 
@@ -25,7 +25,7 @@ Kehrt die Änderungen zurück, die während der anfänglichen Serverkonfiguratio
 wdsutil [Options] /Uninitialize-Server [/Server:<Server name>]
 ```
 ### <a name="parameters"></a>Parameter
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |-------|--------|
 |[/Server:<Server name>]|Gibt den Namen des Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.|
 ## <a name="examples"></a>Beispiele

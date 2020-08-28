@@ -1,18 +1,18 @@
 ---
 title: manage-bde-Upgrade
 description: Referenz Artikel für den Befehl manage-bde Upgrade, mit dem die BitLocker-Version aktualisiert wird.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 23bfa824-6ff0-44cc-9b8b-b199a769fb8d
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 33f4e243d14465d2bc89b5723a0d92a98489dc59
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 82eccafe9b875cbfbbccbde999c57d1d0977f78a
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87886617"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89030088"
 ---
 # <a name="manage-bde-upgrade"></a>manage-bde-Upgrade
 
@@ -26,7 +26,7 @@ manage-bde -upgrade [<drive>] [-computername <name>] [{-?|/?}] [{-help|-h}]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<drive>` | Stellt einen von einem Doppelpunkt gefolgten Laufwerkbuchstaben dar. |
 | -Computername | Gibt an, dass manage-bde.exe zum Ändern des BitLocker-Schutzes auf einem anderen Computer verwendet wird. Sie können auch **-CN** als abgekürzte Version dieses Befehls verwenden. |

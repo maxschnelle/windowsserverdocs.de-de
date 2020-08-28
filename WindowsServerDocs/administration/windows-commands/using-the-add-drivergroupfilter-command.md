@@ -1,18 +1,18 @@
 ---
 title: Add-drivergroupfilter
 description: Referenz Artikel zu "Add-drivergroupfilter", mit dem einer Treiber Gruppe auf einem Server ein Filter hinzugefügt wird.
-ms.topic: article
+ms.topic: reference
 ms.assetid: a66c5e68-99ea-4e47-b68d-8109633ae336
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 20630b959d7a9e9a919d3531aa82fd5cf5ba8150
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 36dda96018b66c7ce2b6c2e408bfd74b5ca98312
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87896612"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89029898"
 ---
 # <a name="add-drivergroupfilter"></a>Add-drivergroupfilter
 
@@ -26,7 +26,7 @@ WDSUTIL /Add-DriverGroupFilter /DriverGroup:<Group Name> [/Server:<Server name>]
 
 ### <a name="parameters"></a>Parameter
 
-|         Parameter          |                                                                                                                                                                                                                                                                                                                                                                                                                                                                            BESCHREIBUNG                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+|         Parameter          |                                                                                                                                                                                                                                                                                                                                                                                                                                                                            Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 |----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | /DriverGroup:\<Group Name> |                                                                                                                                                                                                                                                                                                                                                                                                                                                              Gibt den Namen der Treiber Gruppe an.                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 |  [/Server:\<Server name>]  |                                                                                                                                                                                                                                                                                                                                                                                                               Gibt den Namen des Servers an. Dabei kann es sich um den NetBIOS-Namen oder den voll qualifizierten Namen handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.                                                                                                                                                                                                                                                                                                                                                                                                               |
