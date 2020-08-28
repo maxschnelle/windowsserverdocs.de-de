@@ -1,18 +1,18 @@
 ---
 title: ren
 description: Referenz Artikel für den Befehl "ren", der eine Datei oder ein Verzeichnis umbenennt.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 60398e12-a05d-4524-a73a-0a925943e21d
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: e21b521947ed02307c470932fffcf466016bae8b
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 0254eca7d68f653f8f8a8ab9099f535c4635f8a4
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87883804"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89027298"
 ---
 # <a name="ren"></a>ren
 
@@ -31,7 +31,7 @@ ren [<drive>:][<path>]<filename1> <filename2>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 |--|--|
 | `[<drive>:][<path>]<filename1>` | Gibt den Speicherort und den Namen der Datei oder des Satzes von Dateien an, die Sie umbenennen möchten. *Filename1* kann Platzhalter Zeichen (**&#42;** und **?**) enthalten. |
 | `<filename2>` | Gibt den neuen Namen für die Datei an. Mit Platzhalter Zeichen können Sie neue Namen für mehrere Dateien angeben. |

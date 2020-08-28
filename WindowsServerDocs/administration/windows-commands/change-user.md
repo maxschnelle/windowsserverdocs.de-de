@@ -1,18 +1,18 @@
 ---
 title: change user
 description: Referenz Artikel für den Befehl "Benutzer ändern", mit dem der Installationsmodus für den Remotedesktop-Sitzungshost Server geändert wird.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 6202f024-8cf5-411e-89b1-ee37ff46499d
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ca78126095b11ca7bf900d10c253cd7ad19fcc12
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 7c473349b75a5963cb66997ea568f5634eea194d
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87892899"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89031148"
 ---
 # <a name="change-user"></a>change user
 
@@ -21,7 +21,7 @@ ms.locfileid: "87892899"
 Ändert den Installationsmodus für den Remotedesktop-Sitzungshost-Server.
 
 > [!NOTE]
-> In Windows Server 2008 R2 heißen die Terminaldienste nun Remotedesktopdienste. Weitere Informationen zu den Neuerungen in der neuesten Version finden Sie unter [What es New in Remotedesktopdienste in Windows Server](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn283323(v=ws.11)).
+> Weitere Informationen zu den Neuerungen in der neuesten Version finden Sie unter [What es New in Remotedesktopdienste in Windows Server](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn283323(v=ws.11)).
 
 ## <a name="syntax"></a>Syntax
 
@@ -31,7 +31,7 @@ change user {/execute | /install | /query}
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | /execute | Ermöglicht die Zuordnung von INI-Dateien zum Basisverzeichnis. Dies ist die Standardeinstellung. |
 | /install | Deaktiviert die Zuordnung der INI-Datei zum Basisverzeichnis. Alle INI-Dateien werden gelesen und in das System Verzeichnis geschrieben. Sie müssen die INI-Datei Zuordnung deaktivieren, wenn Sie Anwendungen auf einem Remotedesktop-Sitzungshost Server installieren. |

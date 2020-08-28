@@ -1,20 +1,20 @@
 ---
-title: 'Hierbei gilt:'
+title: where
 description: Referenz Artikel für WHERE, in dem der Speicherort der Dateien angezeigt wird, die dem angegebenen Suchmuster entsprechen.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 0b3486a5-896b-4d92-84b8-e463a0b76487
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e8f54309035f017c193638d6d6c59ce6a337c04f
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 58fa70d1635035321a7ffac1779dc3ad02e0a35d
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87896502"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89031718"
 ---
-# <a name="where"></a>Hierbei gilt:
+# <a name="where"></a>where
 
 
 
@@ -30,9 +30,9 @@ where [/r <Dir>] [/q] [/f] [/t] [$<ENV>:|<Path>:]<Pattern>[ ...]
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |---------|-----------|
-|/r\<Dir>|Gibt eine rekursive Suche an, beginnend mit dem angegebenen Verzeichnis.|
+|/r \<Dir>|Gibt eine rekursive Suche an, beginnend mit dem angegebenen Verzeichnis.|
 |/q|Gibt einen Exitcode zurück (**0** für Erfolg, **1** für Fehler), ohne die Liste der übereinstimmenden Dateien anzuzeigen.|
 |/f|Zeigt die Ergebnisse des Befehls **Where** in Anführungszeichen an.|
 |/t|Zeigt die Dateigröße und das Datum und die Uhrzeit der letzten Änderung für jede übereinstimmende Datei an.|

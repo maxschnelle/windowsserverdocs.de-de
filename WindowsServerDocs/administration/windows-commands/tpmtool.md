@@ -1,17 +1,17 @@
 ---
 title: tpmtool
 description: Referenz Artikel für das tpmtool, das Informationen zum Trusted Platform Module abruft.
-ms.topic: article
+ms.topic: reference
 author: ashleytqy
 ms.author: ashleytqy
 manager: ronaldai
 ms.date: 05/07/2019
-ms.openlocfilehash: f34e577a87acd79f343f06bb81486d50339cdb54
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: b0f234755eefdca15f214dad428f02631592e8c2
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87897133"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89026998"
 ---
 # <a name="tpmtool"></a>tpmtool
 
@@ -29,7 +29,7 @@ tpmtool /parameter [<arguments>]
 ```
 ### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |---------|-----------|
 |getde viceinformation|Zeigt die grundlegenden Informationen für das TPM an. Die Bedeutung der informationsflagwerte finden Sie [hier](/windows/desktop/secprov/win32-tpm-isreadyinformation#parameters).|
 |GatherLogs [Ausgabeverzeichnis Pfad]|Sammelt TPM-Protokolle und platziert Sie im angegebenen Verzeichnis. Wenn dieses Verzeichnis nicht vorhanden ist, wird es erstellt. Standardmäßig werden Sie im aktuellen Verzeichnis abgelegt. Die folgenden Dateien können generiert werden: </br>-Tpmevents. evtx</br>-TpmInformation.txt</br>-Srtmboot. dat</br>-Srtmresume. dat</br>-Drtmboot. dat</br>-Drtmresume. dat</br>|

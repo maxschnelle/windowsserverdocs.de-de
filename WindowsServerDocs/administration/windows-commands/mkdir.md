@@ -1,18 +1,18 @@
 ---
 title: mkdir
 description: Referenz Artikel für den mkdir-Befehl, der ein Verzeichnis oder ein Unterverzeichnis erstellt.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 033a57a2-5deb-4c98-aa78-61ce8df2a330
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: afff7a7985c5934a8566162da7307ad8676a50f9
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 3ded16e2befe952541dfaac754b0d10c7c128f0a
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87886450"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89037838"
 ---
 # <a name="mkdir"></a>mkdir
 
@@ -29,7 +29,7 @@ mkdir [<drive>:]<path>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<drive>`: | Gibt das Laufwerk an, auf dem das neue Verzeichnis erstellt werden soll. |
 | `<path>` | Gibt den Namen und den Speicherort des neuen Verzeichnisses an. Die maximale Länge eines einzelnen Pfads wird vom Dateisystem festgelegt. Dies ist ein erforderlicher Parameter. |

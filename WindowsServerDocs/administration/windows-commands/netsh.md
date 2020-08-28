@@ -1,18 +1,18 @@
 ---
 title: Netsh
 description: Referenz Artikel für den Befehl netsh, bei dem es sich um ein Befehlszeilen-Skript Programm handelt, mit dem Sie die Netzwerkkonfiguration eines derzeit ausgelaufenden Computers entweder lokal oder Remote anzeigen oder ändern können.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 96fc069d-53c0-4d0a-9f7f-f9f3d49a02bd carmonmills
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 366c7a21f44dc6545de7ba81cba8fe152c245b6b
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: fc8f6aff94494422150643fed6ce6681dfe54036
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87886032"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89037778"
 ---
 # <a name="netsh"></a>Netsh
 
@@ -28,15 +28,15 @@ netsh [-a <Aliasfile>][-c <Context>][-r <Remotecomputer>][-u [<domainname>\<user
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | -a `<Aliasfile>` | Gibt an, dass Sie nach dem Ausführen von aliasfile und dem Namen der Textdatei, die mindestens einen netsh-Befehl enthält, an die Netsh-Eingabeaufforderung zurückgegeben werden. |
-| -c`<Context>` | Gibt an, dass netsh den angegebenen Netsh-Kontext und den Netsh-Kontext für die Eingabe eingibt. |
-| -r`<Remotecomputer>` | Gibt den zu konfigurier-Remote Computer an.<p>**Wichtig:** Wenn Sie diesen Parameter verwenden, müssen Sie sicherstellen, dass der Remote Registrierungsdienst auf dem Remote Computer ausgeführt wird. Wenn er nicht ausgeführt wird, zeigt Windows die Fehlermeldung "Netzwerkpfad nicht gefunden" an. |
-| -u`<domainname>\<username>` | Gibt den Domänen-und Benutzerkonto Namen an, der beim Ausführen des Netsh-Befehls unter einem Benutzerkonto verwendet werden soll. Wenn Sie die Domäne weglassen, wird die lokale Domäne standardmäßig verwendet. |
-| -p`<Password>` | Gibt das Kennwort für das Benutzerkonto an, das durch den-Parameter angegeben wird `-u <username>` . |
+| -c `<Context>` | Gibt an, dass netsh den angegebenen Netsh-Kontext und den Netsh-Kontext für die Eingabe eingibt. |
+| -r `<Remotecomputer>` | Gibt den zu konfigurier-Remote Computer an.<p>**Wichtig:** Wenn Sie diesen Parameter verwenden, müssen Sie sicherstellen, dass der Remote Registrierungsdienst auf dem Remote Computer ausgeführt wird. Wenn er nicht ausgeführt wird, zeigt Windows die Fehlermeldung "Netzwerkpfad nicht gefunden" an. |
+| -u `<domainname>\<username>` | Gibt den Domänen-und Benutzerkonto Namen an, der beim Ausführen des Netsh-Befehls unter einem Benutzerkonto verwendet werden soll. Wenn Sie die Domäne weglassen, wird die lokale Domäne standardmäßig verwendet. |
+| -p `<Password>` | Gibt das Kennwort für das Benutzerkonto an, das durch den-Parameter angegeben wird `-u <username>` . |
 | `<NetshCommand>` | Gibt den Befehl netsh an, der ausgeführt werden soll. |
-| -f`<scriptfile>` | Beendet den Netsh-Befehl, nachdem die angegebene Skriptdatei ausgeführt wurde. |
+| -f `<scriptfile>` | Beendet den Netsh-Befehl, nachdem die angegebene Skriptdatei ausgeführt wurde. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
 #### <a name="remarks"></a>Bemerkungen

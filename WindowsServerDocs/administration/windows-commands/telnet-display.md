@@ -1,18 +1,18 @@
 ---
 title: telnet display
 description: Referenz Artikel für die Telnet-Anzeige, in der die Betriebsparameter angezeigt werden.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 9272086c-3aaa-405d-ac71-652f25e2eb34
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2345602981fd0ae02fa4ef7668a2edda16d68915
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: f1ae8cd4b16457297e5f29854e44bc984ff0209a
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87881720"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89027058"
 ---
 # <a name="telnet-display"></a>Telnet: Anzeige
 
@@ -25,7 +25,7 @@ Zeigt Betriebsparameter an.
 d[isplay]
 ```
 #### <a name="parameters"></a>Parameter
-none
+Keine
 ## <a name="examples"></a>Beispiele
 Anzeigen von Betriebsparametern.
 ```

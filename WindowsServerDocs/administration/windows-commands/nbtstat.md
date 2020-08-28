@@ -1,18 +1,18 @@
 ---
 title: nbtstat
 description: Referenz Artikel für den nbtstat-Befehl, der NetBT-Protokoll Statistiken (NetBIOS over TCP/IP), NetBIOS-Namens Tabellen sowohl für den lokalen Computer als auch für die Remote Computer und den NetBIOS-Namen Cache anzeigt.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 1d2ea99e-72f1-471f-9525-d2c49bf3be82
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3367190fb751a0cb5081724c6ea8ad2b7f2c95ff
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 273aaadcf537864512d6dc7aedff0c9872c3cd05
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87886118"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89037798"
 ---
 # <a name="nbtstat"></a>nbtstat
 
@@ -30,10 +30,10 @@ nbtstat [/a <remotename>] [/A <IPaddress>] [/c] [/n] [/r] [/R] [/RR] [/s] [/S] [
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
-| /a`<remotename>` | Zeigt die NetBIOS-Namen Tabelle eines Remote Computers an, wobei *Remote Name* der NetBIOS-Computername des Remote Computers ist. Die NetBIOS-Namens Tabelle ist die Liste der NetBIOS-Namen, die NetBIOS-Anwendungen entsprechen, die auf diesem Computer ausgeführt werden. |
-| /A`<IPaddress>` | Zeigt die NetBIOS-Namen Tabelle eines Remote Computers an, der durch die IP-Adresse (in punktierter Dezimal Schreibweise) des Remote Computers angegeben wird. |
+| /a `<remotename>` | Zeigt die NetBIOS-Namen Tabelle eines Remote Computers an, wobei *Remote Name* der NetBIOS-Computername des Remote Computers ist. Die NetBIOS-Namens Tabelle ist die Liste der NetBIOS-Namen, die NetBIOS-Anwendungen entsprechen, die auf diesem Computer ausgeführt werden. |
+| /A `<IPaddress>` | Zeigt die NetBIOS-Namen Tabelle eines Remote Computers an, der durch die IP-Adresse (in punktierter Dezimal Schreibweise) des Remote Computers angegeben wird. |
 | /C | Zeigt den Inhalt des NetBIOS-Namens Caches, die Tabelle mit den NetBIOS-Namen und ihre aufgelösten IP-Adressen an. |
 | /n | Zeigt die NetBIOS-Namen Tabelle des lokalen Computers an. Der Status **registriert** gibt an, dass der Name entweder durch Broadcast oder einen WINS-Server registriert wird. |
 | /r | Zeigt Statistiken für die NetBIOS-Namensauflösung an. |
@@ -65,7 +65,7 @@ nbtstat [/a <remotename>] [/A <IPaddress>] [/c] [/n] [/r] [/R] [/RR] [/s] [/S] [
 
 - Folgende NetBIOS-Verbindungszustände sind möglich:
 
-    | State | BESCHREIBUNG |
+    | State | Beschreibung |
     | ------- | ----------- |
     | Verbunden | Eine Sitzung wurde eingerichtet. |
     | Raum | Dieser Endpunkt ist für eine eingehende Verbindung verfügbar. |
@@ -74,7 +74,7 @@ nbtstat [/a <remotename>] [/A <IPaddress>] [/c] [/n] [/r] [/R] [/RR] [/s] [/S] [
     | Verantwortung | Eine eingehende Sitzung wird derzeit akzeptiert und wird in Kürze verbunden. |
     | Verbindung | Eine Sitzung versucht, erneut eine Verbindung herzustellen (beim ersten Versuch konnte keine Verbindung hergestellt werden). |
     | Ausgehend | Eine Sitzung befindet sich in der Verbindungs Phase, und die TCP-Verbindung wird gerade erstellt. |
-    | Eingehend | Eine eingehende Sitzung befindet sich in der Verbindungs Phase. |
+    | Eingehende Verbindungen | Eine eingehende Sitzung befindet sich in der Verbindungs Phase. |
     | Verbindung wird getrennt | Eine Sitzung wird gerade getrennt. |
     | Getrennt | Der lokale Computer hat eine Verbindung getrennt und wartet auf eine Bestätigung vom Remote System. |
 

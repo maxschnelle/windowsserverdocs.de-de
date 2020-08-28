@@ -1,18 +1,18 @@
 ---
 title: tsecimp
 description: Referenz Artikel für t-CIMP, der Zuweisungs Informationen aus einer Extensible Markup Language (XML)-Datei in die TAPI-Server Sicherheits Datei (Tsec.ini) importiert.
-ms.topic: article
+ms.topic: reference
 ms.assetid: d7488ec6-0eff-45ff-89ee-9cbe752416bf
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 641e9724211034fa6e5bd76d0d3705b175a18b4c
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: f8ad2f4f29537c2f575ba96d172c9405d9680187
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87896687"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89026868"
 ---
 # <a name="tsecimp"></a>tsecimp
 
@@ -27,7 +27,7 @@ tsecimp /d
 
 #### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |---------|-----------|
 |/f \<Filename>|Erforderlich. Gibt den Namen der XML-Datei an, die die Zuweisungs Informationen enthält, die Sie importieren möchten.|
 |/v|Überprüft die Struktur der XML-Datei, ohne die Informationen in die Tsec.ini Datei zu importieren.|

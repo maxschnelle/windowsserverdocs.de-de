@@ -1,18 +1,18 @@
 ---
 title: tcmsetup
 description: Erfahren Sie, wie Sie den TAPI-Client einrichten und deaktivieren.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 15e0c10f-996f-4301-92e5-943f7ee8212d
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e078439fcb9889f075efd364ea9530bdfb8db26a
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: b2d148a273aaf6de917cec546f487fab5e8ebea0
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87881801"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89027088"
 ---
 # <a name="tcmsetup"></a>tcmsetup
 
@@ -29,7 +29,7 @@ tcmsetup  [/q] /c /d
 
 #### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |---------|-----------|
 |/q|Verhindert die Anzeige von Meldungs Feldern.|
 |/x|Gibt an, dass Verbindungs orientierte Rückrufe für große Verkehrs Netzwerke verwendet werden, bei denen der Paketverlust hoch ist. Wenn dieser Parameter ausgelassen wird, werden verbindungslose Rückrufe verwendet.|

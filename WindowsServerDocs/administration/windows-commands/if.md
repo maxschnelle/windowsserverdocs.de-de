@@ -1,18 +1,18 @@
 ---
 title: if
 description: Referenz Artikel zum if-Befehl, der die bedingte Verarbeitung in Batch Programmen ausführt.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 698b3fb9-532b-4c2b-af7f-179f8dc57131
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3644c64d4159d9232ec58e747efc542dd903791e
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: ea7b823c0060b1fb9ff474ae0330eb789a1da0d1
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87888376"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89038008"
 ---
 # <a name="if"></a>if
 
@@ -36,16 +36,16 @@ if defined <variable> <command> [else <expression>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- |------------ |
 | not | Gibt an, dass der Befehl nur ausgeführt werden soll, wenn die Bedingung false ist. |
-| ERRORLEVEL`<number>` | Gibt eine echte Bedingung nur dann an, wenn das vorherige Programm, das von Cmd.exe ausgeführt wird, einen Exitcode zurückgegeben hat, der gleich oder *größer als* |
+| ERRORLEVEL `<number>` | Gibt eine echte Bedingung nur dann an, wenn das vorherige Programm, das von Cmd.exe ausgeführt wird, einen Exitcode zurückgegeben hat, der gleich oder *größer als* |
 | `<command>` | Gibt den Befehl an, der ausgeführt werden soll, wenn die vorangehende Bedingung erfüllt ist. |
 | `<string1>==<string2>` | Gibt eine echte Bedingung nur an, wenn *Zeichenfolge1* und *Zeichenfolge2* identisch sind. Diese Werte können Literalzeichenfolgen oder Batch Variablen (z `%1` . b.) sein. Sie müssen keine Literalzeichenfolgen in Anführungszeichen einschließen. |
-| existierten`<filename>` | Gibt eine echte Bedingung an, wenn der angegebene Dateiname vorhanden ist. |
+| existierten `<filename>` | Gibt eine echte Bedingung an, wenn der angegebene Dateiname vorhanden ist. |
 | `<compareop>` | Gibt einen Vergleichs Operator mit drei Buchstaben an, einschließlich:<ul><li>**EQU** -gleich</li><li>**NEQ** Nicht gleich</li><li>**LSS** -kleiner als</li><li>**Leq** -kleiner als oder gleich</li><li>**GTR** (größer als)</li><li>**GEQ** -größer als oder gleich</li></ul> |
 | /i | Erzwingt die Groß-/Kleinschreibung von Zeichen folgen vergleichen Sie können **/i** im Format verwenden, `string1==string2` **Wenn**. Diese Vergleiche sind generisch, d. h., wenn sowohl *Zeichenfolge1* als auch *Zeichenfolge2* nur aus numerischen Ziffern bestehen, werden die Zeichen folgen in Zahlen konvertiert, und es wird ein numerischer Vergleich ausgeführt. |
-| cmdextversion`<number>` | Gibt eine echte Bedingung nur an, wenn die interne Versionsnummer, die dem Befehls Erweiterungs Feature von Cmd.exe zugeordnet ist, größer oder gleich der angegebenen Zahl ist. Die erste Version ist 1. Sie vergrößert sich um einen Schritt von 1, wenn den Befehls Erweiterungen bedeutende Erweiterungen hinzugefügt werden. Die bedingte **cmdextversion** ist nie true, wenn Befehls Erweiterungen deaktiviert sind (Standardmäßig sind die Befehls Erweiterungen aktiviert). |
+| cmdextversion `<number>` | Gibt eine echte Bedingung nur an, wenn die interne Versionsnummer, die dem Befehls Erweiterungs Feature von Cmd.exe zugeordnet ist, größer oder gleich der angegebenen Zahl ist. Die erste Version ist 1. Sie vergrößert sich um einen Schritt von 1, wenn den Befehls Erweiterungen bedeutende Erweiterungen hinzugefügt werden. Die bedingte **cmdextversion** ist nie true, wenn Befehls Erweiterungen deaktiviert sind (Standardmäßig sind die Befehls Erweiterungen aktiviert). |
 | defined `<variable>` | Gibt eine echte Bedingung an, wenn *Variable* definiert ist. |
 | `<expression>` | Gibt einen Befehlszeilen Befehl und alle Parameter an, die an den Befehl in einer **else** -Klausel weitergegeben werden sollen. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |

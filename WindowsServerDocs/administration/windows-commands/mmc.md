@@ -1,18 +1,18 @@
 ---
 title: mmc
 description: Referenz Artikel für den MMC-Befehl, mit dem Sie eine bestimmte MMC-Konsole öffnen, MMC im Autoren Modus öffnen oder angeben können, um die 32-Bit-oder 64-Bit-Version von MMC zu öffnen.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 7bfa4030-ce42-40fb-922f-2f5145a80872
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f118259bde62d6a9cc193c7451489aebd709d884
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 8705cf2e2cd7eced344bcc412283dc88c829849a
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87886421"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89037808"
 ---
 # <a name="mmc"></a>mmc
 
@@ -28,7 +28,7 @@ mmc <path>\<filename>.msc [/a] [/64] [/32]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<path>\<filename>.msc` | startet die **MMC** und öffnet eine gespeicherte Konsole. Sie müssen den gesamten Pfad und den Dateinamen für die gespeicherte Konsolen Datei angeben. Wenn Sie keine Konsolen Datei angeben, öffnet **MMC** eine neue Konsole. |
 | /a | Öffnet eine gespeicherte Konsole im Autoren Modus.  Wird zum vornehmen von Änderungen an gespeicherten Konsolen verwendet. |

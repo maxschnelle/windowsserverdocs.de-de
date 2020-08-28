@@ -1,18 +1,18 @@
 ---
 title: ksetup addrealmflags
 description: Referenz Artikel für den Ksetup-Befehl "adressalmflags", mit dem dem angegebenen Bereich weitere bereichsflags hinzugefügt werden.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 80ca1e16-8871-494b-b9be-6bc9d63de860
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a834d6ce69fede20ed544d858c4f4c46abdf0d68
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 34f9067e95a0632fd1f22de604545fe2a5417727
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87888075"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89037958"
 ---
 # <a name="ksetup-addrealmflags"></a>ksetup addrealmflags
 
@@ -26,7 +26,7 @@ ksetup /addrealmflags <realmname> [sendaddress] [tcpsupported] [delegate] [ncsup
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<realmname>` | Gibt den Großbuchstaben-DNS-Namen an, z. b. Corp. CONTOSO.com. |
 
@@ -34,9 +34,9 @@ ksetup /addrealmflags <realmname> [sendaddress] [tcpsupported] [delegate] [ncsup
 
 - Die bereichsflags geben zusätzliche Features eines Kerberos-Bereichs an, die nicht auf dem Windows Server-Betriebssystem basieren. Computer, auf denen Windows Server ausgeführt wird, können einen Kerberos-Server verwenden, um die Authentifizierung im Kerberos-Bereich zu verwalten, anstatt eine Domäne zu verwenden, die ein Windows Server-Betriebssystem ausgeführt wird. Mit diesem Eintrag werden die Funktionen des Bereichs festgelegt, und es gibt folgende Möglichkeiten:
 
-| Wert | Bereichsflag | BESCHREIBUNG |
+| Wert | Bereichsflag | Beschreibung |
 | ----- | ---------- | ----------- |
-| 0xF | Alles | Alle bereichflags werden festgelegt. |
+| 0xF | All | Alle bereichflags werden festgelegt. |
 | 0x00 | Keine | Es wurden keine bereichflags festgelegt, und es sind keine weiteren Funktionen aktiviert. |
 | 0x01 | Element sendaddress | Die IP-Adresse wird in den Tickets für Ticket Gewährung enthalten sein. |
 | 0x02 | tcpsupported | In diesem Bereich werden sowohl das Transmission Control Protocol (TCP) als auch das User Datagram-Protokoll (UDP) unterstützt. |

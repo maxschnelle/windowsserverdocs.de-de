@@ -1,18 +1,18 @@
 ---
 title: tracert
 description: Referenz Artikel zu tracert, der den Pfad zu einem Ziel bestimmt, indem ICMP-Echo Anforderungen (Internet Control Message Protocol) oder ICMPv6-Nachrichten an das Ziel gesendet werden, wobei die Werte für die Gültigkeitsdauer (Time to Live, TTL) inkrementell erhöht werden.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 9032a032-2e5e-49d4-9e86-f821600e4ba6
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f73c9df4a72b0c28976e25bc2970da372275ea8b
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 7316daf691ff6f95ca4eb1608caea382885024ce
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87897107"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89026898"
 ---
 # <a name="tracert"></a>tracert
 
@@ -29,14 +29,14 @@ tracert [/d] [/h <MaximumHops>] [/j <Hostlist>] [/w <timeout>] [/R] [/S <Srcaddr
 
 #### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |-------|--------|
 |/d|Verhindert, dass **tracert** versucht, die IP-Adressen der zwischen Router in ihre Namen aufzulösen. Dadurch kann die Anzeige von **tracert** -Ergebnissen beschleunigt werden.|
-|/h\<MaximumHops>|Gibt die maximale Anzahl von Hops in dem Pfad an, der nach dem Ziel (Ziel) gesucht werden soll. Der Standardwert ist 30 Hops.|
-|/j\<Hostlist>|Gibt an, dass Echo Request-Nachrichten die lose Quell Route-Option im IP-Header mit dem Satz von zwischen Zielen verwenden, die in der *Hostliste*angegeben sind. Beim losen Quell Routing können aufeinander folgende Zwischenziele durch einen oder mehrere Router getrennt werden. Die maximale Anzahl von Adressen oder Namen in der Hostliste beträgt 9. Die *Hostliste* ist eine Reihe von IP-Adressen (in punktierter Dezimal Schreibweise), getrennt durch Leerzeichen. Verwenden Sie diesen Parameter nur bei der Ablauf Verfolgung von IPv4-Adressen.|
-|/w\<timeout>|Gibt die Zeit in Millisekunden an, die auf die überschreiten der ICMP-Zeit gewartet wird, oder eine Echo Antwortnachricht, die einer gegebenen Echo Anforderungs Nachricht entspricht, die empfangen werden soll. Wenn Sie nicht innerhalb des Timeouts empfangen werden, wird ein Sternchen (*) angezeigt. Das Standard Timeout beträgt 4000 (4 Sekunden).|
+|/h \<MaximumHops>|Gibt die maximale Anzahl von Hops in dem Pfad an, der nach dem Ziel (Ziel) gesucht werden soll. Der Standardwert ist 30 Hops.|
+|/j \<Hostlist>|Gibt an, dass Echo Request-Nachrichten die lose Quell Route-Option im IP-Header mit dem Satz von zwischen Zielen verwenden, die in der *Hostliste*angegeben sind. Beim losen Quell Routing können aufeinander folgende Zwischenziele durch einen oder mehrere Router getrennt werden. Die maximale Anzahl von Adressen oder Namen in der Hostliste beträgt 9. Die *Hostliste* ist eine Reihe von IP-Adressen (in punktierter Dezimal Schreibweise), getrennt durch Leerzeichen. Verwenden Sie diesen Parameter nur bei der Ablauf Verfolgung von IPv4-Adressen.|
+|/w \<timeout>|Gibt die Zeit in Millisekunden an, die auf die überschreiten der ICMP-Zeit gewartet wird, oder eine Echo Antwortnachricht, die einer gegebenen Echo Anforderungs Nachricht entspricht, die empfangen werden soll. Wenn Sie nicht innerhalb des Timeouts empfangen werden, wird ein Sternchen (*) angezeigt. Das Standard Timeout beträgt 4000 (4 Sekunden).|
 |/R|Gibt an, dass der IPv6-Routing Erweiterungs Header verwendet wird, um eine Echo Anforderungs Nachricht an den lokalen Host zu senden, wobei das Ziel als Zwischenziel verwendet und die umgekehrte Route getestet wird.|
-|/S\<Srcaddr>|Gibt die Quelladresse an, die in den Echo Anforderungs Nachrichten verwendet werden soll. Verwenden Sie diesen Parameter nur bei der Ablauf Verfolgung von IPv6-Adressen.|
+|/S \<Srcaddr>|Gibt die Quelladresse an, die in den Echo Anforderungs Nachrichten verwendet werden soll. Verwenden Sie diesen Parameter nur bei der Ablauf Verfolgung von IPv6-Adressen.|
 |/4|Gibt an, dass tracert.exe für diese Ablauf Verfolgung nur IPv4 verwenden darf.|
 |/6|Gibt an, dass tracert.exe für diese Ablauf Verfolgung nur IPv6 verwenden kann.|
 |\<TargetName>|Gibt das Ziel an, das entweder durch die IP-Adresse oder den Hostnamen identifiziert wird.|

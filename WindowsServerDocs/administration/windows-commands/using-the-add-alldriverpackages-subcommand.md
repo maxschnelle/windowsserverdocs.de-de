@@ -1,18 +1,18 @@
 ---
 title: Verwenden des Add-AllDriverPackages-Unterbefehls
 description: Referenz Artikel für Add-AllDriverPackages, mit dem alle Treiber Pakete, die in einem Ordner gespeichert sind, einem Server hinzugefügt werden.
-ms.topic: article
+ms.topic: reference
 ms.assetid: ba6641c1-d7e9-43a9-9819-702dad5484ed
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 301842cce5306c8f7922660f49c9475fbbf70cc3
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: ccdd132687fdc65336aeb49d317f9ccf5fbcd968
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87897031"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89032185"
 ---
 # <a name="add-alldriverpackages"></a>Add-AllDriverPackages
 
@@ -26,7 +26,7 @@ WDSUTIL /Add-AllDriverPackages /FolderPath:<Folder Path> [/Server:<Server name>]
 
 ### <a name="parameters"></a>Parameter
 
-|          Parameter           |                                                              BESCHREIBUNG                                                              |
+|          Parameter           |                                                              Beschreibung                                                              |
 |------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
 |  FolderPath\<Folder Path>  |                      Gibt den vollständigen Pfad zum Ordner an, der die INF-Dateien für die Treiber Pakete enthält.                      |
 |   [/Server:\<Server name>]   | Gibt den Namen des Servers an. Dabei kann es sich um den NetBIOS-Namen oder den voll qualifizierten Namen handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet. |

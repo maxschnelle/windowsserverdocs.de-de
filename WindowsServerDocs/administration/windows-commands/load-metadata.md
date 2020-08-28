@@ -1,18 +1,18 @@
 ---
 title: load metadata
 description: Referenz Artikel für den Befehl "Metadaten laden", der vor dem Importieren einer austauschen-Schatten Kopie eine Datei vom Typ "Metadata. cab" lädt oder die Writer-Metadaten bei einer Wiederherstellung lädt.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 2c535487-668b-44fc-babb-ff59cf7d190e
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4b0f5412ee189814fcdf1f020f238e19dc308b7d
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 9953b06b46b82466dbf4fcba97c2d902c88d301c
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87887484"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89037888"
 ---
 # <a name="load-metadata"></a>Metadaten laden
 
@@ -26,7 +26,7 @@ load metadata [<drive>:][<path>]<metadata.cab>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `[<drive>:][<path>]` | Gibt den Speicherort der Metadatendatei an. |
 | metadata.cab | Gibt die zu ladende Datei "Metadata. cab" an. |

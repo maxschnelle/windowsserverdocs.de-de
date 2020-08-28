@@ -1,18 +1,18 @@
 ---
 title: bcdedit
 description: Referenz Artikel für den bcdedit-Befehl, mit dem neue Speicher erstellt, vorhandene Speicher geändert und Start Menü Parameter hinzugefügt werden.
-ms.topic: article
+ms.topic: reference
 ms.assetid: ab2da47d-3aac-44a0-b7fd-bd9561d61553
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 03/27/2018
-ms.openlocfilehash: 0a24ce7f2503d06ce6c57270027328600d93e217
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 81ce7f6964b4ffebdc64056b1bb630bc3eb6d0f7
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87895165"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89031608"
 ---
 # <a name="bcdedit"></a>bcdedit
 
@@ -47,7 +47,7 @@ bcdedit /command [<argument1>] [<argument2>] ...
 
 #### <a name="parameters-that-operate-on-a-store"></a>Parameter, die in einem Speicher betrieben werden
 
-| Option | BESCHREIBUNG |
+| Option | Beschreibung |
 | ------ | ----------- |
 | /createstore | Erstellt einen neuen leeren Start Konfigurationsdaten Speicher. Der erstellte Speicher ist kein Systemspeicher. |
 | /Export | Exportiert den Inhalt des System Stores in eine Datei. Diese Datei kann später verwendet werden, um den Status des System Stores wiederherzustellen. Dieser Befehl ist nur für den Systemspeicher gültig. |
@@ -56,7 +56,7 @@ bcdedit /command [<argument1>] [<argument2>] ...
 
 #### <a name="parameters-that-operate-on-entries-in-a-store"></a>Parameter, die für Einträge in einem Speicher ausgeführt werden
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ------ | ----------- |
 | /Copy | Erstellt eine Kopie eines angegebenen Start Eintrags in demselben Systemspeicher. |
 | /Create | Erstellt einen neuen Eintrag im Datenspeicher für die Startkonfiguration. Wenn ein bekannter Bezeichner angegeben wird, können die Parameter **/Anwendungs-**, **/inherit**und **/Device** nicht angegeben werden. Wenn ein Bezeichner nicht angegeben oder nicht bekannt ist, muss eine **/Anwendungs-**-, **/inherit**-oder **/Device** -Option angegeben werden. |
@@ -64,21 +64,21 @@ bcdedit /command [<argument1>] [<argument2>] ...
 
 #### <a name="parameters-that-operate-on-entry-options"></a>Parameter, die mit Eingabeoptionen arbeiten
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ------ | ----------- |
 | /deletevalue | Löscht ein angegebenes Element aus einem Start Eintrag. |
 | /Set | Legt einen Einstiegs Optionswert fest. |
 
 #### <a name="parameters-that-control-output"></a>Parameter, die die Ausgabe steuern
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ------ | ----------- |
 | /Enum | Listet Einträge in einem Speicher auf. Die **/enum** -Option ist der Standardwert für bcedit, sodass das Ausführen des **Bcdedit** -Befehls ohne Parameter dem Ausführen des Befehls **bcdedit/enum Active** entspricht. |
 | /v | Ausführlicher Modus. Üblicherweise werden alle bekannten Eintrags Bezeichner durch ihre benutzerfreundliche Kurzform dargestellt. Wenn Sie **/v** als Befehlszeilenoption angeben, werden alle Bezeichner vollständig angezeigt. Das Ausführen des Befehls **Bcdedit/v** mit sich selbst entspricht dem Ausführen des Befehls **bcdedit/enum Active/v** . |
 
 #### <a name="parameters-that-control-the-boot-manager"></a>Parameter zum Steuern des Start-Managers
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ------ | ----------- |
 | /bootsequence | Gibt eine einmalige Anzeigereihenfolge an, die für den nächsten Start verwendet werden soll. Dieser Befehl ähnelt der **/displayorder** -Option, mit dem Unterschied, dass er nur beim nächsten Start des Computers verwendet wird. Anschließend wird der Computer auf die ursprüngliche Anzeigereihenfolge zurückgesetzt. |
 | /Standard: | Gibt den Standardeintrag an, den der Start-Manager auswählt, wenn das Timeout abläuft. |
@@ -88,7 +88,7 @@ bcdedit /command [<argument1>] [<argument2>] ...
 
 #### <a name="parameters-that-control-emergency-management-services"></a>Parameter zur Steuerung der Notfall Verwaltungsdienste
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ------ | ----------- |
 | /bootems | Aktiviert oder deaktiviert die Notfall Verwaltungsdienste (EMS) für den angegebenen Eintrag. |
 | /ems | Aktiviert oder deaktiviert EMS für den angegebenen Betriebssystem-Start Eintrag. |
@@ -96,7 +96,7 @@ bcdedit /command [<argument1>] [<argument2>] ...
 
 #### <a name="parameters-that-control-debugging"></a>Parameter zum Steuern des Debuggens
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | ------ | ----------- |
 | /bootdebug | Aktiviert oder deaktiviert den Start Debugger für einen angegebenen Start Eintrag. Obwohl dieser Befehl für jeden Start Eintrag funktioniert, ist er nur für Start Anwendungen wirksam. |
 | /dbgsettings | Gibt die globalen Debuggereinstellungen für das System an oder zeigt diese an. Dieser Befehl ist nicht enablepose. Zum Festlegen einer einzelnen globalen Debuggereinstellung verwenden Sie den Befehl **bcdedit/set** `<dbgsettings> <type> <value>` . |

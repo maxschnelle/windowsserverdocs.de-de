@@ -1,18 +1,18 @@
 ---
 title: Referenz zu den Befehlszeilen Tools für Remotedesktopdienste (Terminal Dienste)
 description: Referenz Artikel zu den Befehlszeilen Tools für Remotedesktopdienste (RDS).
-ms.topic: article
+ms.topic: reference
 ms.assetid: 2f371848-5c48-470c-908c-afbc95d3a805
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ae8156298c9b5108748afa114e1e3cabc0180441
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 5657ab1d0018f7bc854ebfa5dbd2985f8399d1af
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87883843"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89027358"
 ---
 # <a name="remote-desktop-services-terminal-services-command-line-tools-reference"></a>Referenz zu den Befehlszeilen Tools für Remotedesktopdienste (Terminal Dienste)
 
@@ -21,9 +21,9 @@ ms.locfileid: "87883843"
 Informieren Sie sich über die verfügbaren Remotedesktopdienste Befehlszeilen Tools (Terminal Dienste) mit Beschreibungen und Links, um ausführlichere Informationen zu erhalten.
 
 > [!NOTE]
-> In Windows Server 2008 R2 heißen die Terminaldienste nun Remotedesktopdienste. Weitere Informationen zu den Neuerungen in der neuesten Version finden Sie unter [What es New in Remotedesktopdienste in Windows Server](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn283323(v=ws.11)).
+> Weitere Informationen zu den Neuerungen in der neuesten Version finden Sie unter [What es New in Remotedesktopdienste in Windows Server](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn283323(v=ws.11)).
 
-| Get-Help | BESCHREIBUNG |
+| Befehl | Beschreibung |
 |--|--|--|
 | [change](change.md) | Ändert die Remotedesktop-Sitzungshost Servereinstellungen für Anmeldung, com-Port Zuordnungen und Installationsmodus. |
 | [change logon](change-logon.md) | Aktiviert oder deaktiviert Anmeldungen von Client Sitzungen auf einem Remotedesktop-Sitzungshost Server oder zeigt den aktuellen Anmeldestatus an. |

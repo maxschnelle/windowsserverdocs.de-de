@@ -1,18 +1,18 @@
 ---
 title: tasklist
 description: Erfahren Sie, wie Sie eine Liste der Prozesse anzeigen, die auf dem lokalen Computer oder Remote Computer ausgeführt werden.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 8dbe30ee-1484-46be-917b-5ca3ff4fdc9c
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a4f87c4cc2dc80c67e2004c929fa23aea8791fb9
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 8250828310b42646a48a5dbf454a01643fbb8ef3
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87881809"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89027108"
 ---
 # <a name="tasklist"></a>tasklist
 
@@ -28,17 +28,17 @@ tasklist [/s <Computer> [/u [<Domain>\]<UserName> [/p <Password>]]] [{/m <Module
 
 ### <a name="parameters"></a>Parameter
 
-|          Parameter           |                                                                                                                                            BESCHREIBUNG                                                                                                                                             |
+|          Parameter           |                                                                                                                                            Beschreibung                                                                                                                                             |
 |------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|        /s\<Computer>        |                                                                                         Gibt den Namen oder die IP-Adresse eines Remote Computers an (verwenden Sie keine umgekehrten Schrägstriche). Die Standardeinstellung ist der lokale Computer.                                                                                         |
+|        /s \<Computer>        |                                                                                         Gibt den Namen oder die IP-Adresse eines Remote Computers an (verwenden Sie keine umgekehrten Schrägstriche). Die Standardeinstellung ist der lokale Computer.                                                                                         |
 | u\<Domain>\\\]\<UserName> | Führt den Befehl mit den Konto Berechtigungen des Benutzers aus, der durch *Benutzername* oder *Domäne* \* Benutzername angegeben ist<em>. \* \* /u</em> \* kann nur angegeben werden, wenn **/s** angegeben wird. Der Standardwert sind die Berechtigungen des Benutzers, der zurzeit an dem Computer angemeldet ist, der den Befehl ausgibt. |
-|        /p\<Password>        |                                                                                                       Gibt das Kennwort des Benutzerkontos an, das im **/u** -Parameter angegeben ist.                                                                                                        |
-|         /m\<Module>         |                                                               Listet alle Tasks mit geladenen DLL-Modulen auf, die mit dem angegebenen Muster Namen identisch sind. Wenn der Modulname nicht angegeben ist, zeigt diese Option Alle Module an, die von den einzelnen Tasks geladen werden.                                                                |
+|        /p \<Password>        |                                                                                                       Gibt das Kennwort des Benutzerkontos an, das im **/u** -Parameter angegeben ist.                                                                                                        |
+|         /m \<Module>         |                                                               Listet alle Tasks mit geladenen DLL-Modulen auf, die mit dem angegebenen Muster Namen identisch sind. Wenn der Modulname nicht angegeben ist, zeigt diese Option Alle Module an, die von den einzelnen Tasks geladen werden.                                                                |
 |             /SVC ein             |                                                                                    Listet alle Dienst Informationen für jeden Prozess ohne Abschneiden auf. Gültig, wenn der **/FO** -Parameter auf **Table**festgelegt ist.                                                                                    |
 |              /v              |                                                                                 Zeigt ausführliche Aufgabeninformationen in der Ausgabe an. Verwenden Sie **/v** und **/svc ein** , um die ausführliche Ausgabe ohne Abschneiden zu vervollständigen.                                                                                 |
 |  /FO {Table \| List \| CSV}  |                                                                             Gibt das Format an, das für die Ausgabe verwendet werden soll. Gültige Werte sind " **Table**", " **List**" und " **CSV**". Das Standardformat für die Ausgabe ist **Table**.                                                                             |
 |             /nh              |                                                                                             Unterdrückt die Spaltenüberschriften in der Ausgabe. Gültig, wenn der **/FO** -Parameter auf **Table** oder **CSV**festgelegt ist.                                                                                              |
-|        /fi\<Filter>         |                                                                          Gibt die Typen von Prozessen an, die in die Abfrage eingeschlossen bzw. von dieser ausgeschlossen werden sollen. Gültige Filternamen, Operatoren und Werte finden Sie in der folgenden Tabelle.                                                                          |
+|        /fi \<Filter>         |                                                                          Gibt die Typen von Prozessen an, die in die Abfrage eingeschlossen bzw. von dieser ausgeschlossen werden sollen. Gültige Filternamen, Operatoren und Werte finden Sie in der folgenden Tabelle.                                                                          |
 |              /?              |                                                                                                                                Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                                |
 
 ### <a name="filter-names-operators-and-values"></a>Filter Namen, Operatoren und Werte

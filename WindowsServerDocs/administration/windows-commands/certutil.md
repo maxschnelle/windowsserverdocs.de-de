@@ -1,18 +1,18 @@
 ---
 title: certutil
 description: Referenz Artikel für den certutil-Befehl, bei dem es sich um ein Befehlszeilenprogramm handelt, das die Konfigurationsinformationen der Zertifizierungsstelle absichert und anzeigt, Zertifikat Dienste konfiguriert, Zertifizierungsstellen-und Wiederherstellungs Zertifizierungsstellen-Komponenten konfiguriert und Zertifikate, Schlüsselpaare und Zertifikat Ketten überprüft.
-ms.topic: article
+ms.topic: reference
 ms.assetid: c264ccf0-ba1e-412b-9dd3-d77dd9345ad9
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: afaf0c75350cfb4121d0ebc664469f4494afe8c7
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 99c9d0ddca6ce1b91d86733995c30c46b747b7af
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87992950"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89031208"
 ---
 # <a name="certutil"></a>certutil
 
@@ -128,7 +128,7 @@ Hierbei gilt:
 [-config Machine\CAName]
 ```
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Namen und Werte müssen durch Doppelpunkte getrennt sein, während mehrere Name-Wert-Paare zeilenweise getrennt sein müssen. Beispiel: `CertificateTemplate:User\nEMail:User@Domain.com` `\n` gibt an, wo die Sequenz in ein Zeilen Trennzeichen konvertiert wird.
 
@@ -146,13 +146,13 @@ Hierbei gilt:
 
 - **ExtensionName** ist die ObjectID-Zeichenfolge für die Erweiterung.
 
-- **Flags** legt die Priorität der Erweiterung fest. `0`wird empfohlen, während `1` die Erweiterung auf kritisch festlegt, `2` die Erweiterung deaktiviert und beides bewirkt `3` .
+- **Flags** legt die Priorität der Erweiterung fest. `0` wird empfohlen, während `1` die Erweiterung auf kritisch festlegt, `2` die Erweiterung deaktiviert und beides bewirkt `3` .
 
 ```
 [-config Machine\CAName]
 ```
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Wenn der letzte Parameter numerisch ist, wird er als **Long**-Wert angenommen.
 
@@ -517,19 +517,19 @@ Hierbei gilt:
 [-silent] [-split] [-config Machine\CAName] [-restrict RestrictionList] [-out ColumnList]
 ```
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
-- Wenn Sie die Spalte **Statuscode** für alle Einträge anzeigen möchten, geben Sie ein.`-out StatusCode`
+- Wenn Sie die Spalte **Statuscode** für alle Einträge anzeigen möchten, geben Sie ein. `-out StatusCode`
 
-- Wenn Sie alle Spalten für den letzten Eintrag anzeigen möchten, geben Sie Folgendes ein:`-restrict RequestId==$`
+- Wenn Sie alle Spalten für den letzten Eintrag anzeigen möchten, geben Sie Folgendes ein: `-restrict RequestId==$`
 
-- Geben Sie Folgendes ein, um die **RequestId** und **Disposition** für drei Anforderungen anzuzeigen:`-restrict requestID>37,requestID<40 -out requestID,disposition`
+- Geben Sie Folgendes ein, um die **RequestId** und **Disposition** für drei Anforderungen anzuzeigen: `-restrict requestID>37,requestID<40 -out requestID,disposition`
 
-- Geben Sie Folgendes ein, um Zeilen-**IDs** und **CRL-Nummern** für Zeilen-IDs für alle Basis Sperr Listen anzuzeigen:`-restrict crlminbase=0 -out crlrowID,crlnumber crl`
+- Geben Sie Folgendes ein, um Zeilen-**IDs** und **CRL-Nummern** für Zeilen-IDs für alle Basis Sperr Listen anzuzeigen: `-restrict crlminbase=0 -out crlrowID,crlnumber crl`
 
-- Geben Sie zum Anzeigen von Folgendes ein:`-v -restrict crlminbase=0,crlnumber=3 -out crlrawcrl crl`
+- Geben Sie zum Anzeigen von Folgendes ein: `-v -restrict crlminbase=0,crlnumber=3 -out crlrawcrl crl`
 
-- Geben Sie Folgendes ein, um die gesamte CRL-Tabelle anzuzeigen:`CRL`
+- Geben Sie Folgendes ein, um die gesamte CRL-Tabelle anzuzeigen: `CRL`
 
 - Verwenden Sie `Date[+|-dd:hh]` für Datums Einschränkungen.
 
@@ -573,13 +573,13 @@ Hierbei gilt:
 
 #### <a name="examples"></a>Beispiele
 
-- Geben Sie Folgendes ein, um fehlerhafte und ausstehende Anforderungen zu löschen, die vom 22. Januar 2001`1/22/2001 request`
+- Geben Sie Folgendes ein, um fehlerhafte und ausstehende Anforderungen zu löschen, die vom 22. Januar 2001 `1/22/2001 request`
 
-- Geben Sie Folgendes ein, um alle Zertifikate zu löschen, die bis zum 22. Januar 2001 ablaufen:`1/22/2001 cert`
+- Geben Sie Folgendes ein, um alle Zertifikate zu löschen, die bis zum 22. Januar 2001 ablaufen: `1/22/2001 cert`
 
-- Geben Sie Folgendes ein, um die Zertifikat Zeile, Attribute und Erweiterungen für RequestId 37 zu löschen:`37`
+- Geben Sie Folgendes ein, um die Zertifikat Zeile, Attribute und Erweiterungen für RequestId 37 zu löschen: `37`
 
-- Zum Löschen von CRLs, die bis zum 22. Januar 2001 ablaufen, geben Sie Folgendes ein:`1/22/2001 crl`
+- Zum Löschen von CRLs, die bis zum 22. Januar 2001 ablaufen, geben Sie Folgendes ein: `1/22/2001 crl`
 
 ### <a name="-backup"></a>-backup
 
@@ -719,7 +719,7 @@ Hierbei gilt:
 [-f] [-user] [-p password] [-csp provider]
 ```
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Der Standardwert ist der persönliche Computerspeicher.
 
@@ -765,7 +765,7 @@ certutil [options] -store [certificatestorename [certID [outputfile]]]
 
 Hierbei gilt:
 
-- **certifikatestorename** ist der Name des Zertifikat Speichers. Zum Beispiel:
+- **certifikatestorename** ist der Name des Zertifikat Speichers. Beispiel:
 
   - `My, CA (default), Root,`
 
@@ -799,7 +799,7 @@ Hierbei gilt:
 
 - Die `-grouppolicy` Option greift auf einen Computer Gruppenrichtlinien Speicher zu.
 
-Zum Beispiel:
+Beispiel:
 
 - `-enterprise NTAuth`
 
@@ -936,7 +936,7 @@ Hierbei gilt:
 
 - Die `-grouppolicy` Option greift auf einen Computer Gruppenrichtlinien Speicher zu.
 
-Zum Beispiel:
+Beispiel:
 
 - `-enterprise NTAuth`
 
@@ -976,7 +976,7 @@ Hierbei gilt:
 
 - Die `-grouppolicy` Option greift auf einen Computer Gruppenrichtlinien Speicher zu.
 
-Zum Beispiel:
+Beispiel:
 
 - `-enterprise NTAuth`
 
@@ -1094,7 +1094,7 @@ Hierbei gilt:
 [-f] [-config Machine\CAName] [-dc DCName]
 ```
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Die `-config` Option ist für eine einzelne Zertifizierungsstelle vorgesehen (standardmäßig alle Zertifizierungsstellen).
 
@@ -1283,7 +1283,7 @@ certutil [options] -DCInfo [domain] [verify | deletebad | deleteall]
 > [!TIP]
 > Die Möglichkeit, eine Active Directory Domain Services (AD DS)-Domäne **[Domäne]** anzugeben und einen Domänen Controller (**-DC**) anzugeben, wurde in Windows Server 2012 hinzugefügt. Um den Befehl erfolgreich auszuführen, müssen Sie ein Konto verwenden, das Mitglied der Gruppe " **Domänen-Admins** " oder "Organisations- **Admins**" ist. Die Verhaltensänderungen dieses Befehls lauten wie folgt:<ol><li>1. wenn keine Domäne angegeben ist und kein bestimmter Domänen Controller angegeben ist, gibt diese Option eine Liste der Domänen Controller zurück, die vom Standard Domänen Controller verarbeitet werden sollen.</li><li>2. wenn keine Domäne angegeben ist, aber ein Domänen Controller angegeben ist, wird ein Bericht der Zertifikate auf dem angegebenen Domänen Controller generiert.</li><li>3. Wenn eine Domäne angegeben ist, jedoch kein Domänen Controller angegeben ist, wird eine Liste mit Domänen Controllern zusammen mit Berichten zu den Zertifikaten für die einzelnen Domänen Controller in der Liste generiert.</li><li>4. wenn die Domäne und der Domänen Controller angegeben sind, wird eine Liste der Domänen Controller vom Zieldomänen Controller generiert. Ein Bericht der Zertifikate für jeden Domänen Controller in der Liste wird ebenfalls generiert.</li></ol>
 >
->Nehmen wir beispielsweise an, dass eine Domäne mit dem Namen CPANDL mit einem Domänen Controller namens CPANDL-DC1 vorhanden ist. Sie können den folgenden Befehl ausführen, um eine Liste der Domänen Controller und ihrer Zertifikate abzurufen, die von CPANDL-DC1:`certutil -dc cpandl-dc1 -DCInfo cpandl`
+>Nehmen wir beispielsweise an, dass eine Domäne mit dem Namen CPANDL mit einem Domänen Controller namens CPANDL-DC1 vorhanden ist. Sie können den folgenden Befehl ausführen, um eine Liste der Domänen Controller und ihrer Zertifikate abzurufen, die von CPANDL-DC1: `certutil -dc cpandl-dc1 -DCInfo cpandl`
 
 ### <a name="-entinfo"></a>-entinfo
 
@@ -1358,7 +1358,7 @@ Hierbei gilt:
 [-f] [-user] [-silent] [-config Machine\CAName]
 ```
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Wenn keine Argumente angegeben werden, wird jedes Signatur Zertifizierungsstellen Zertifikat anhand des privaten Schlüssels überprüft.
 
@@ -1397,13 +1397,13 @@ Hierbei gilt:
 [-f] [-enterprise] [-user] [-silent] [-split] [-urlfetch] [-t timeout]
 ```
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Die Verwendung von **applicationpolicylist** schränkt die Ketten Bildung auf die für die angegebenen Anwendungsrichtlinien gültigen Ketten ein.
 
 - Die Verwendung von **issuancepolicylist** schränkt die Ketten Erstellung auf die für die angegebenen Ausstellungs Richtlinien gültigen Ketten ein.
 
-- Durch die Verwendung von **CACertFile** werden die Felder in der Datei mit " **CertFile** " oder " **crlfile**" überprüft.
+- Durch die Verwendung von **CACertFile**  werden die Felder in der Datei mit " **CertFile** " oder " **crlfile**" überprüft.
 
 - Durch die Verwendung von **issuedcertfile** werden die Felder in der Datei mit **crlfile**überprüft.
 
@@ -1474,7 +1474,7 @@ Hierbei gilt:
 
 - **objectidlist** ist die durch Trennzeichen getrennte Erweiterung ObjectID der Dateien, die entfernt werden sollen.
 
-- ** \@ extensionfile** ist die INF-Datei mit den zu aktualisierenden oder zu entfernenden Erweiterungen. Zum Beispiel:
+- ** \@ extensionfile** ist die INF-Datei mit den zu aktualisierenden oder zu entfernenden Erweiterungen. Beispiel:
 
   ```
   [Extensions]
@@ -1491,7 +1491,7 @@ Hierbei gilt:
 [-nullsign] [-f] [-silent] [-cert certID]
 ```
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Wenn Sie das Minuszeichen (-) verwenden, werden Seriennummern und Erweiterungen entfernt.
 
@@ -1631,13 +1631,13 @@ Hierbei gilt:
 
 - **Typ** ist der Typ des zu erstellenden DS-Objekts, einschließlich:
 
-  - `1`-Vorlage (Standard)
+  - `1` -Vorlage (Standard)
 
-  - `2`-Ausstellungs Richtlinie
+  - `2` -Ausstellungs Richtlinie
 
-  - `3`-Anwendungs Richtlinie
+  - `3` -Anwendungs Richtlinie
 
-- `-f`erstellt ein DS-Objekt.
+- `-f` erstellt ein DS-Objekt.
 
 ### <a name="-error"></a>-Fehler
 
@@ -1683,7 +1683,7 @@ Hierbei gilt:
 [-f] [-user] [-grouppolicy] [-config Machine\CAName]
 ```
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Wenn ein Zeichen folgen Wert mit `+` oder beginnt `-` und der vorhandene Wert ein `REG_MULTI_SZ` Wert ist, wird die Zeichenfolge dem vorhandenen Registrierungs Wert hinzugefügt oder daraus entfernt. Um das Erstellen eines Werts zu erzwingen `REG_MULTI_SZ` , fügen Sie am `\n` Ende des Zeichen folgen Werts ein.
 
@@ -1727,7 +1727,7 @@ Hierbei gilt:
 [-f] [-user] [-grouppolicy] [-config Machine\CAName]
 ```
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Wenn ein Zeichen folgen Wert mit `+` oder beginnt `-` und der vorhandene Wert ein `REG_MULTI_SZ` Wert ist, wird die Zeichenfolge dem vorhandenen Registrierungs Wert hinzugefügt oder daraus entfernt. Um das Erstellen eines Werts zu erzwingen `REG_MULTI_SZ` , fügen Sie am `\n` Ende des Zeichen folgen Werts ein.
 
@@ -1771,7 +1771,7 @@ Hierbei gilt:
 [-f] [-user] [-grouppolicy] [-config Machine\CAName]
 ```
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Wenn ein Zeichen folgen Wert mit `+` oder beginnt `-` und der vorhandene Wert ein `REG_MULTI_SZ` Wert ist, wird die Zeichenfolge dem vorhandenen Registrierungs Wert hinzugefügt oder daraus entfernt. Um das Erstellen eines Werts zu erzwingen `REG_MULTI_SZ` , fügen Sie am `\n` Ende des Zeichen folgen Werts ein.
 
@@ -1797,7 +1797,7 @@ Hierbei gilt:
 
 - CertID ist ein abgleichstoken für die Zuordnung von KMS-Export Dateien. Weitere Informationen finden Sie `-store` in diesem Artikel unter dem-Parameter.
 
-- `-f`importiert Zertifikate, die nicht von der Zertifizierungsstelle ausgestellt wurden.
+- `-f` importiert Zertifikate, die nicht von der Zertifizierungsstelle ausgestellt wurden.
 
 ```
 [-f] [-silent] [-split] [-config Machine\CAName] [-p password] [-symkeyalg symmetrickeyalgorithm[,keylength]]
@@ -1815,13 +1815,13 @@ Hierbei gilt:
 
 - **existingrow** importiert das Zertifikat anstelle einer ausstehenden Anforderung für denselben Schlüssel.
 
-- `-f`importiert Zertifikate, die nicht von der Zertifizierungsstelle ausgestellt wurden.
+- `-f` importiert Zertifikate, die nicht von der Zertifizierungsstelle ausgestellt wurden.
 
 ```
 [-f] [-config Machine\CAName]
 ```
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 Die Zertifizierungsstelle muss möglicherweise auch für die Unterstützung von fremd Zertifikaten konfiguriert werden. Geben Sie hierzu ein `import - certutil -setreg ca\KRAFlags +KRAF_ENABLEFOREIGN` .
 
@@ -1899,7 +1899,7 @@ Hierbei gilt:
 [-f] [-user] [-split] [-p password] [-protectto SAMnameAndSIDlist] [-csp provider]
 ```
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Das in der Befehlszeile angegebene Kennwort muss eine durch Trennzeichen getrennte Kenn Wort Liste sein.
 
@@ -1934,7 +1934,7 @@ Hierbei gilt:
 [-f] [-silent] [-split] [-dc DCName] [-p password] [-csp provider]
 ```
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Das in der Befehlszeile angegebene Kennwort muss eine durch Trennzeichen getrennte Kenn Wort Liste sein.
 
@@ -1962,7 +1962,7 @@ Hierbei gilt:
 
 Dieser Abschnitt definiert alle Optionen, die Sie basierend auf dem Befehl angeben können. Jeder Parameter enthält Informationen darüber, welche Optionen für die Verwendung gültig sind.
 
-| Optionen | BESCHREIBUNG |
+| Optionen | Beschreibung |
 | ------- | ----------- |
 | -nullsign | Verwenden Sie den Hash der Daten als Signatur. |
 | -f | Erzwingen von überschreiben. |
@@ -1982,7 +1982,7 @@ Dieser Abschnitt definiert alle Optionen, die Sie basierend auf dem Befehl angeb
 | -PIN anheften | Smartcard-PIN. |
 | -urlfetch | Abrufen und Überprüfen von AIA certs und CDP-CRLs. |
 | -config machine\caname | Zertifizierungsstelle und Computer namens Zeichenfolge. |
-| -policyserver urlorid | URL oder ID des Richtlinien Servers. Verwenden Sie für Auswahl-U/I `-policyserver` . Verwenden Sie für alle Richtlinien Server`-policyserver *`|
+| -policyserver urlorid | URL oder ID des Richtlinien Servers. Verwenden Sie für Auswahl-U/I `-policyserver` . Verwenden Sie für alle Richtlinien Server `-policyserver *`|
 | -Anonym | Anonyme SSL-Anmelde Informationen verwenden. |
 | -Kerberos | Verwenden Sie die Kerberos-SSL-Anmelde Informationen. |
 | -ClientCertificate clientcertid | SSL-Anmelde Informationen des X. 509-Zertifikats verwenden. Verwenden Sie für Auswahl-U/I `-clientcertificate` . |

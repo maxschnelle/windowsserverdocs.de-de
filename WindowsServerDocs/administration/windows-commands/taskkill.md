@@ -1,18 +1,18 @@
 ---
 title: taskkill
 description: Referenz Artikel für taskkill, mit dem eine oder mehrere Tasks oder Prozesse beendet werden.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 2b71e792-08b6-46d4-95a5-cb6336a79524
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a89aa5a3014168aa9d2bd69b9197c899e02a186d
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: b3b0a2727116ca2a073e5ad5b17c4fe065453ab6
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87881838"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89027118"
 ---
 # <a name="taskkill"></a>taskkill
 
@@ -30,14 +30,14 @@ taskkill [/s <computer> [/u [<Domain>\]<UserName> [/p [<Password>]]]] {[/fi <Fil
 
 ### <a name="parameters"></a>Parameter
 
-|         Parameter         |                                                                                                                                        BESCHREIBUNG                                                                                                                                        |
+|         Parameter         |                                                                                                                                        Beschreibung                                                                                                                                        |
 |---------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|      /s\<computer>       |                                                                                    Gibt den Namen oder die IP-Adresse eines Remote Computers an (verwenden Sie keine umgekehrten Schrägstriche). Die Standardeinstellung ist der lokale Computer.                                                                                     |
-| /u\<Domain>\\\<UserName> | Führt den Befehl mit den Konto Berechtigungen des Benutzers aus, der durch *Benutzername* oder *Domäne* \\ *Benutzername*angegeben ist. **/u** kann nur angegeben werden, wenn **/s** angegeben wird. Der Standardwert sind die Berechtigungen des Benutzers, der zurzeit an dem Computer angemeldet ist, der den Befehl ausgibt. |
-|      /p\<Password>       |                                                                                                   Gibt das Kennwort des Benutzerkontos an, das im **/u** -Parameter angegeben ist.                                                                                                   |
-|       /fi\<Filter>       |          Wendet einen Filter an, um einen Satz von Tasks auszuwählen. Sie können mehr als einen Filter verwenden oder das Platzhalter Zeichen ( **\\** \* ) verwenden, um alle Aufgaben oder Bildnamen anzugeben. [Gültige Filternamen](#filter-names-operators-and-values), Operatoren und Werte finden Sie in der folgenden Tabelle.           |
-|     /PID\<ProcessID>     |                                                                                                                 Gibt die Prozess-ID des Prozesses an, der beendet werden soll.                                                                                                                 |
-|     /im-Befehl\<ImageName>      |                                                                                Gibt den Bildnamen des Prozesses an, der beendet werden soll. Verwenden Sie das Platzhalter Zeichen ( **\\** \* ), um alle Bildnamen anzugeben.                                                                                |
+|      /s \<computer>       |                                                                                    Gibt den Namen oder die IP-Adresse eines Remote Computers an (verwenden Sie keine umgekehrten Schrägstriche). Die Standardeinstellung ist der lokale Computer.                                                                                     |
+| /u \<Domain>\\\<UserName> | Führt den Befehl mit den Konto Berechtigungen des Benutzers aus, der durch *Benutzername* oder *Domäne* \\ *Benutzername*angegeben ist. **/u** kann nur angegeben werden, wenn **/s** angegeben wird. Der Standardwert sind die Berechtigungen des Benutzers, der zurzeit an dem Computer angemeldet ist, der den Befehl ausgibt. |
+|      /p \<Password>       |                                                                                                   Gibt das Kennwort des Benutzerkontos an, das im **/u** -Parameter angegeben ist.                                                                                                   |
+|       /fi \<Filter>       |          Wendet einen Filter an, um einen Satz von Tasks auszuwählen. Sie können mehr als einen Filter verwenden oder das Platzhalter Zeichen ( **\\** \* ) verwenden, um alle Aufgaben oder Bildnamen anzugeben. [Gültige Filternamen](#filter-names-operators-and-values), Operatoren und Werte finden Sie in der folgenden Tabelle.           |
+|     /PID \<ProcessID>     |                                                                                                                 Gibt die Prozess-ID des Prozesses an, der beendet werden soll.                                                                                                                 |
+|     /im-Befehl \<ImageName>      |                                                                                Gibt den Bildnamen des Prozesses an, der beendet werden soll. Verwenden Sie das Platzhalter Zeichen ( **\\** \* ), um alle Bildnamen anzugeben.                                                                                |
 |            /f             |                                                                    Gibt an, dass Prozesse erzwungen werden. Dieser Parameter wird bei Remote Prozessen ignoriert. Alle Remote Prozesse werden erzwungen.                                                                     |
 |            /t             |                                                                                                          Beendet den angegebenen Prozess und alle von ihm gestarteten untergeordneten Prozesse.                                                                                                          |
 

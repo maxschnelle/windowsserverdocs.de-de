@@ -1,18 +1,18 @@
 ---
 title: bitsadmin setcustomheaders
 description: Referenz Artikel für den Befehl "bizadmin setcustomheaders", mit dem eine GET-Anforderung mit einem benutzerdefinierten HTTP-Header hinzugefügt wird.
-ms.topic: article
+ms.topic: reference
 ms.assetid: ed926410-80d0-46ed-9a90-f752c164bb9a
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 407e4aa85d8413167add716cd63fe620f73b0e12
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 84622cba8bb2bcb6a9ebfe782fdadc33a388fdb2
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87893187"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89031278"
 ---
 # <a name="bitsadmin-setcustomheaders"></a>bitsadmin setcustomheaders
 
@@ -26,10 +26,10 @@ bitsadmin /setcustomheaders <job> <header1> <header2> <...>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
-| `<header1> <header2>`Und so weiter | Die benutzerdefinierten Header für den Auftrag. |
+| `<header1> <header2>` Und so weiter | Die benutzerdefinierten Header für den Auftrag. |
 
 ## <a name="examples"></a>Beispiele
 

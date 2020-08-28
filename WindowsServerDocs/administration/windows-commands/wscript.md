@@ -1,18 +1,18 @@
 ---
 title: wscript
 description: Referenz Artikel für WScript, der eine Umgebung bereitstellt, in der Benutzer Skripts in einer Vielzahl von Sprachen ausführen können, die eine Vielzahl von Objekt Modellen zum Ausführen von Aufgaben verwenden.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 2fbaf193-cdbd-414c-84c9-bb5720f84c29
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 08/21/2018
-ms.openlocfilehash: 4d3ab5d04423a093b280b8468c7e85aad3519dcb
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 689775951f1c97b7cc704801cd39691033005afe
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87896448"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89038068"
 ---
 # <a name="wscript"></a>wscript
 
@@ -28,7 +28,7 @@ wscript [<scriptname>] [/b] [/d] [/e:<engine>] [{/h:cscript|/h:wscript}] [/i] [/
 
 #### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |---------|-----------|
 |ScriptName|Gibt den Pfad und den Dateinamen der Skriptdatei an.|
 |/b|Gibt den Batch Modus an, in dem keine Warnungen, Skript Fehler oder Eingabe Aufforderungen angezeigt werden. Dies ist das Gegenteil von **/i**.|
