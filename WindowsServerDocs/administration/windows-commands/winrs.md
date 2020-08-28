@@ -1,18 +1,18 @@
 ---
 title: winrs
 description: Referenz Artikel für Winrs, mit dem Sie Programme remote verwalten und ausführen können.
-ms.topic: article
+ms.topic: reference
 ms.assetid: c370de31-5651-400a-872d-ef229aae2309
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 54accc21cbacc6471840d1bd83e3c05d9052a0eb
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 2cf659e06f43a26ae95e4ff218758c21d3cf78e9
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87896811"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022634"
 ---
 # <a name="winrs"></a>winrs
 
@@ -25,7 +25,7 @@ winrs [/<parameter>[:<value>]] <command>
 ```
 #### <a name="parameters"></a>Parameter
 
-|           Parameter            |                                                                                                                                                                                    BESCHREIBUNG                                                                                                                                                                                     |
+|           Parameter            |                                                                                                                                                                                    Beschreibung                                                                                                                                                                                     |
 |--------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |      /Remote\<endpoint>       |                                                                                          Gibt den Ziel Endpunkt mithilfe eines NetBIOS-Namens oder der Standardverbindung an:<p>-   <url>: [\<transport>://]\<target>[:\<port>]<p>Wenn nicht angegeben, wird **/r: localhost** verwendet.                                                                                          |
 |          /unencrypted          | Gibt an, dass die Nachrichten an die Remoteshell nicht verschlüsselt werden. Dies ist nützlich für die Problembehandlung oder den Fall, dass der Netzwerk Datenverkehr bereits mit **IPSec**verschlüsselt ist oder wenn die physische Sicherheit erzwungen wird.<p>Standardmäßig werden die Nachrichten mithilfe von Kerberos-oder NTLM-Schlüsseln verschlüsselt.<p>Diese Befehlszeilenoption wird ignoriert, wenn HTTPS-Transport ausgewählt wird. |

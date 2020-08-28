@@ -3,16 +3,16 @@ title: format
 description: Referenz Artikel für den Format-Befehl, der einen Datenträger für die Annahme von Windows-Dateien formatiert.
 manager: dongill
 ms.author: jgerend
-ms.topic: article
+ms.topic: reference
 ms.assetid: 51ec7423-9a01-4219-868a-25d69cdcc832
 author: jasongerend
 ms.date: 10/16/2017
-ms.openlocfilehash: a923706252e6094cf12dcdf2632366ee7b2401f8
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 99faab9a9f2f6a70e142408c4b2a81b623db7d1f
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87890121"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89027618"
 ---
 # <a name="format"></a>Format
 
@@ -35,7 +35,7 @@ format <volume> [/q]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<volume>` | Gibt den Einfügepunkt, den Volumenamen oder den Laufwerk Buchstaben (gefolgt von einem Doppelpunkt) des Laufwerks an, das Sie formatieren möchten. Wenn Sie keine der folgenden Befehlszeilenoptionen angeben, verwendet **Format** den Volumentyp, um das Standardformat für den Datenträger festzulegen. |
 | /FS: {FAT | FAT32 | NTFS | Gibt den Typ des Dateisystems an (FAT, FAT32, NTFS). |

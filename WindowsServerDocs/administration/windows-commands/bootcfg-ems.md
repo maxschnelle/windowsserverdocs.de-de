@@ -1,18 +1,18 @@
 ---
 title: bootcfg ems
 description: Referenz Artikel zum Befehl "bootcfg EMS", der es dem Benutzer ermöglicht, die Einstellungen für die Umleitung der Konsole der Notfall Verwaltungsdienste zu einem Remote Computer hinzuzufügen oder zu ändern.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 57abdc50-c64a-45f1-8470-3f8c3a51f743
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b3f703eefe9f9300d6576a9f4349d2fb275b2d57
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: da374cc5b901be72c8ef3fed2a16d7d56c5d53fe
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87880578"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89034458"
 ---
 # <a name="bootcfg-ems"></a>bootcfg ems
 
@@ -28,7 +28,7 @@ bootcfg /ems {on | off | edit}[/s <computer> [/u <domain>\<user> /p <password>]]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `{on | off | edit}` | Gibt den Wert für die Umleitung der Notfall Verwaltungsdienste an, einschließlich:<ul><li>**auf.** Aktiviert die Remote Ausgabe für die angegebene `<osentrylinenum>` . Fügt dem angegebenen außerdem eine/Redirect-Option <osentrylinenum> und eine `redirect=com<X>` Einstellung zum [Boot Loader]-Abschnitt hinzu. Der Wert von `com<X>` wird durch den **/Port** -Parameter festgelegt.</li><li>**abgeschrieben.** Deaktiviert die Ausgabe auf einem Remote Computer. Entfernt auch die Option/Redirect für die angegebene <osentrylinenum> und die `redirect=com<X>` Einstellung aus dem Abschnitt [Boot Loader].</li><li>**Bearbeiten.** Ermöglicht Änderungen an den Port Einstellungen durch Ändern der `redirect=com<X>` Einstellung im Abschnitt [Boot Loader]. Der Wert von `com<X>` wird durch den **/Port** -Parameter festgelegt.</li></ul> |
 | `/s <computer>` | Gibt den Namen oder die IP-Adresse eines Remote Computers an (verwenden Sie keine umgekehrten Schrägstriche). Die Standardeinstellung ist der lokale Computer. |

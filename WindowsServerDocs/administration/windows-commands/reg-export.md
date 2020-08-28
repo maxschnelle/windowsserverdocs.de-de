@@ -1,18 +1,18 @@
 ---
 title: reg export
 description: Referenz Artikel für den Befehl "reg Export", bei dem die angegebenen Unterschlüssel, Einträge und Werte des lokalen Computers in eine Datei für die Übertragung an andere Server kopiert werden.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 0ad9526f-1e29-4fa5-9d2d-feaa92f12d7c
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 31f59aca51b74150682a5ba3085b7ffcef058d29
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 258fde37c886335073c7eac660297e1dcce083c0
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87884133"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89028058"
 ---
 # <a name="reg-export"></a>reg export
 
@@ -26,7 +26,7 @@ reg export <keyname> <filename> [/y]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 |--|--|
 | `<keyname>` | Gibt den vollständigen Pfad des unter Schlüssels an. Der Export Vorgang funktioniert nur mit dem lokalen Computer. Der *keyName* muss einen gültigen Stamm Schlüssel enthalten. Gültige Stamm Schlüssel für den lokalen Computer sind: **HKLM**, **HKCU**, **HKCR**, **HKU**und **HKCC**. Wenn der Registrierungsschlüssel Name ein Leerzeichen enthält, müssen Sie den Schlüsselnamen in Anführungszeichen einschließen. |
 | `<filename>` | Gibt den Namen und Pfad der Datei an, die während des Vorgangs erstellt werden soll. Die Datei muss die Erweiterung ". reg" aufweisen. |
@@ -37,7 +37,7 @@ reg export <keyname> <filename> [/y]
 
 - Die Rückgabewerte für den **reg-Export** Vorgang lauten:
 
-    | Wert | BESCHREIBUNG |
+    | Wert | Beschreibung |
     |--|--|
     | 0 | Erfolgreich |
     | 1 | Fehler |

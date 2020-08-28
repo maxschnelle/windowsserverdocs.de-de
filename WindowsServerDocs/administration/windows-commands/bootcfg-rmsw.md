@@ -1,18 +1,18 @@
 ---
 title: bootcfg rmsw
 description: Referenz Artikel zum Befehl "bootcfg Rmsw", bei dem die Lade Optionen für das Betriebssystem für einen angegebenen Betriebssystem Eintrag entfernt werden.
-ms.topic: article
+ms.topic: reference
 ms.assetid: fd7e4248-880e-4e2b-929e-87f8d44b9a63
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2ffe80c6a95421a66a1aebd119664c9e4f68952d
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: ad27ae706709467c693e008955bd2b1021ed972b
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87880541"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89034358"
 ---
 # <a name="bootcfg-rmsw"></a>bootcfg rmsw
 
@@ -28,7 +28,7 @@ bootcfg /rmsw [/s <computer> [/u <domain>\<user> /p <password>]] [/mm] [/bv] [/s
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `/s <computer>` | Gibt den Namen oder die IP-Adresse eines Remote Computers an (verwenden Sie keine umgekehrten Schrägstriche). Die Standardeinstellung ist der lokale Computer. |
 | `/u <domain>\<user>`  | Führt den Befehl mit den Konto Berechtigungen des Benutzers aus, der von oder angegeben wird `<user>` `<domain>\<user>` . Der Standardwert sind die Berechtigungen des aktuell angemeldeten Benutzers auf dem Computer, von dem der Befehl ausgegeben wird. |

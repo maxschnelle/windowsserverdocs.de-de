@@ -1,17 +1,17 @@
 ---
 title: Löschen von Schatten durch vssadmin
 description: Eine Beschreibung des Befehls "vssadmin DELETE Shadows".
-ms.topic: article
+ms.topic: reference
 author: JasonGerend
 ms.author: jgerend
 ms.date: 05/18/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 884407cee82926b3b258afba5ab2e47dc640e10f
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 667aaa7477666c6128aaed4ddb10a9f3695e571a
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87891801"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022864"
 ---
 # <a name="vssadmin-delete-shadows"></a>Löschen von Schatten durch vssadmin
 
@@ -27,7 +27,7 @@ vssadmin delete shadows /for=<ForVolumeSpec> [/oldest | /all | /shadow=<ShadowID
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |---|---|
 |/for =\<ForVolumeSpec>|Gibt an, welche Schattenkopie des Volumes gelöscht wird.|
 |/oldest|Löscht nur die älteste Schatten Kopie.|

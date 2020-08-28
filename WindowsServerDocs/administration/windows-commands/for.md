@@ -1,20 +1,20 @@
 ---
-title: für
+title: for
 description: Referenz Artikel für den for-Befehl, der einen angegebenen Befehl für jede Datei in einem Satz von Dateien ausführt.
-ms.topic: article
+ms.topic: reference
 ms.assetid: e275726c-035f-4a74-8062-013c37f5ded1
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7e964c502d012648f6633b099688781a8d4f22cf
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 7120ed613595b5b90334e49b0865c3e598f3cabb
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87890171"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89027638"
 ---
-# <a name="for"></a>für
+# <a name="for"></a>for
 
 Führt einen angegebenen Befehl für jede Datei in einem Satz von Dateien aus.
 
@@ -26,7 +26,7 @@ for {%% | %}<variable> in (<set>) do <command> [<commandlineoptions>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `{%% | %}<variable>` | Erforderlich. Stellt einen austauschbaren Parameter dar. Verwenden Sie ein einzelnes Prozentzeichen ( `%` ), um den **for** -Befehl an der Eingabeaufforderung auszuführen. Verwenden Sie doppelte Prozentzeichen ( `%%` ), um den **for** -Befehl in einer Batchdatei auszuführen. Bei Variablen wird die Groß-/Kleinschreibung beachtet, und Sie müssen mit einem alphabetischen Wert wie **% a**, **% b**oder **% c**dargestellt werden. |
 | (`<set>`) | Erforderlich. Gibt eine oder mehrere Dateien, Verzeichnisse oder Text Zeichenfolgen oder einen Wertebereich an, für den der Befehl ausgeführt werden soll. Die Klammern sind erforderlich. |
@@ -105,7 +105,7 @@ for {%% | %}<variable> in (<set>) do <command> [<commandlineoptions>]
 
     In der folgenden Tabelle sind die Schlüsselwörter aufgeführt, die Sie für die Verwendung von *para*Metern verwenden können.
 
-    | Stichwort | BESCHREIBUNG |
+    | Schlüsselwort | Beschreibung |
     | ------- | ----------- |
     | EOL =`<c>` | Gibt ein Zeilenendezeichen an (nur ein Zeichen). |
     | Skip =`<n>` | Gibt die Anzahl der Zeilen an, die am Anfang der Datei übersprungen werden sollen. |
@@ -115,7 +115,7 @@ for {%% | %}<variable> in (<set>) do <command> [<commandlineoptions>]
 
   - **Variablen Ersetzung:** In der folgenden Tabelle ist die optionale Syntax (für jede Variable **I**) aufgelistet:
 
-    | Variable mit Modifizierer | BESCHREIBUNG |
+    | Variable mit Modifizierer | Beschreibung |
     | ---------------------- | ----------- |
     |` %~I` | Erweitert `%I` , wodurch alle umgebenden Anführungszeichen entfernt werden. |
     | `%~fI `| Wird `%I` zu einem voll qualifizierten Pfadnamen erweitert. |
@@ -131,7 +131,7 @@ for {%% | %}<variable> in (<set>) do <command> [<commandlineoptions>]
 
     In der folgenden Tabelle sind Modifiziererkombinationen aufgelistet, die Sie verwenden können, um zusammengesetzte Ergebnisse zu erhalten.
 
-    | Variable mit kombinierten modifizierervariablen | BESCHREIBUNG |
+    | Variable mit kombinierten modifizierervariablen | Beschreibung |
     | -------------------------------- | ----------- |
     | `%~dpI `| Wird `%I` nur zu einem Laufwerk Buchstaben und-Pfad erweitert. |
     | `%~nxI` | Wird `%I` nur auf einen Dateinamen und eine Erweiterung erweitert. |
@@ -143,7 +143,7 @@ for {%% | %}<variable> in (<set>) do <command> [<commandlineoptions>]
 
     Mithilfe von Großbuchstaben, wie z `%I` . b., können Sie den Code besser lesbar machen und Verwirrung mit den Modifizierer vermeiden, bei denen die Groß-/Kleinschreibung nicht beachtet wird.
 
-- **Eine Zeichenfolge** wird verarbeitet: Sie können die- `for /f` parameterlogik für eine sofortige Zeichenfolge verwenden `<literalstring>` , indem Sie entweder doppelte Anführungszeichen (*ohne* usebackq) oder in einfache Anführungszeichen (*mit* usebackq) einschließen, z. b. (myString) oder (' myString '). `<literalstring>`wird als eine einzelne Zeile der Eingabe aus einer Datei behandelt. Beim Auswerten `<literalstring>` in doppelten Anführungszeichen werden Befehls Symbole (z. b. `\ & | > < ^` ) als normale Zeichen behandelt.
+- **Eine Zeichenfolge** wird verarbeitet: Sie können die- `for /f` parameterlogik für eine sofortige Zeichenfolge verwenden `<literalstring>` , indem Sie entweder doppelte Anführungszeichen (*ohne* usebackq) oder in einfache Anführungszeichen (*mit* usebackq) einschließen, z. b. (myString) oder (' myString '). `<literalstring>` wird als eine einzelne Zeile der Eingabe aus einer Datei behandelt. Beim Auswerten `<literalstring>` in doppelten Anführungszeichen werden Befehls Symbole (z. b. `\ & | > < ^` ) als normale Zeichen behandelt.
 
 - **Ausgabe der Ausgabe:** Sie können den `for /f` Befehl verwenden, um die Ausgabe eines Befehls zu analysieren, indem Sie eine backanführungs Zeichen `<command>` zwischen den Klammern platzieren. Sie wird als Befehlszeile behandelt, die an eine untergeordnete Cmd.exe geleitet wird. Die Ausgabe wird im Arbeitsspeicher aufgezeichnet und so analysiert, als ob es sich um eine Datei handelt.
 

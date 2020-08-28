@@ -1,18 +1,18 @@
 ---
 title: bootcfg raw
 description: Referenz Artikel zum Befehl "unformatierte bootcfg", mit dem Betriebssystem-Lade Optionen, die als Zeichenfolge angegeben werden, einem Betriebssystem Eintrag im Abschnitt "Betriebssystem" der Boot.ini Datei hinzugefügt werden.
-ms.topic: article
+ms.topic: reference
 ms.assetid: e3458749-b0a0-460f-a022-3ff199a71f27
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9cba66ccebeacd21d337e04c97d935bd2c260b24
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: d0ca0d6a4201ae292998de420a80b781c9bb1b6c
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87880554"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89034408"
 ---
 # <a name="bootcfg-raw"></a>bootcfg raw
 
@@ -28,7 +28,7 @@ bootcfg /raw [/s <computer> [/u <domain>\<user> /p <password>]] <osloadoptionsst
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `/s <computer>` | Gibt den Namen oder die IP-Adresse eines Remote Computers an (verwenden Sie keine umgekehrten Schrägstriche). Die Standardeinstellung ist der lokale Computer. |
 | `/u <domain>\<user>`  | Führt den Befehl mit den Konto Berechtigungen des Benutzers aus, der von oder angegeben wird `<user>` `<domain>\<user>` . Der Standardwert sind die Berechtigungen des aktuell angemeldeten Benutzers auf dem Computer, von dem der Befehl ausgegeben wird. |

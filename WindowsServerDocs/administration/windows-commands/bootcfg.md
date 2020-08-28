@@ -1,18 +1,18 @@
 ---
 title: bootcfg
 description: Referenz Artikel für den bootcfg-Befehl, mit dem Boot.ini Datei Einstellungen konfiguriert, abgefragt oder geändert werden.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 3deb354c-5717-4066-bc79-b9323d559e44
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: edab8bc0b4e63544282e53f0a7b6e1fc255a4be7
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 1c87b7d7c8b113f06ad3ab93b81ea75a6c0ad27e
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87880525"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89034338"
 ---
 # <a name="bootcfg"></a>bootcfg
 
@@ -28,7 +28,7 @@ bootcfg <parameter> [arguments...]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | [bootcfg addsw](bootcfg-addsw.md) | Fügt Optionen für das Laden von Betriebssystemen für einen angegebenen Betriebssystem Eintrag hinzu. |
 | [bootcfg copy](bootcfg-copy.md) | Erstellt eine Kopie eines vorhandenen Start Eintrags, dem Sie Befehlszeilenoptionen hinzufügen können. |

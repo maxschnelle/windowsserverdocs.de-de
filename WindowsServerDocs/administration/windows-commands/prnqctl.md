@@ -1,18 +1,18 @@
 ---
 title: prnqctl
 description: Referenz Artikel für den prnqctl-Befehl, der eine Testseite ausgibt und einen Drucker anhält oder fortsetzt.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 8df9dfa7-984c-4276-bb7d-e7675e7c399e
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 9ab7c6e8302ebd2c94daee98d8bbef87ecfd4854
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: fd5eb91f280df80685d07c0b809e16edeae3d893
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87884697"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89033858"
 ---
 # <a name="prnqctl"></a>prnqctl
 
@@ -28,15 +28,15 @@ cscript Prnqctl {-z | -m | -e | -x | -?} [-s <Servername>] [-p <Printername>] [-
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 |--|--|
 | -Z | Hält den Druck auf dem Drucker an, der durch den **-p-** Parameter angegeben wird. |
 | -M | Setzt den Druckvorgang auf dem Drucker fort, der durch den **-p-** Parameter angegeben wird. |
 | -E | Druckt eine Testseite auf dem Drucker, der durch den **-p-** Parameter angegeben wird. |
 | -X | Bricht alle Druckaufträge auf dem Drucker ab, der durch den **-p-** Parameter angegeben wird. |
 | -s `<Servername>` | Gibt den Namen des Remote Computers an, der den Drucker hostet, den Sie verwalten möchten. Wenn Sie keinen Computer angeben, wird der lokale Computer verwendet. |
-| -p`<Printername>` | Erforderlich. Gibt den Namen des Druckers an, den Sie verwalten möchten. |
-| -u `<Username>` -w`<password>` | Gibt ein Konto mit Berechtigungen zum Herstellen einer Verbindung mit dem Computer an, der den zu verwaltenden Drucker hostet. Alle Mitglieder der lokalen Administratoren Gruppe des Ziel Computers verfügen über diese Berechtigungen, die Berechtigungen können jedoch auch anderen Benutzern erteilt werden. Wenn Sie kein Konto angeben, müssen Sie unter einem Konto mit diesen Berechtigungen angemeldet sein, damit der Befehl funktioniert. |
+| -p `<Printername>` | Erforderlich. Gibt den Namen des Druckers an, den Sie verwalten möchten. |
+| -u `<Username>` -w `<password>` | Gibt ein Konto mit Berechtigungen zum Herstellen einer Verbindung mit dem Computer an, der den zu verwaltenden Drucker hostet. Alle Mitglieder der lokalen Administratoren Gruppe des Ziel Computers verfügen über diese Berechtigungen, die Berechtigungen können jedoch auch anderen Benutzern erteilt werden. Wenn Sie kein Konto angeben, müssen Sie unter einem Konto mit diesen Berechtigungen angemeldet sein, damit der Befehl funktioniert. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
 #### <a name="remarks"></a>Bemerkungen

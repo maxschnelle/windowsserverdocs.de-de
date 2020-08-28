@@ -1,18 +1,18 @@
 ---
 title: comp
 description: Referenz Artikel für den Comp-Befehl, der den Inhalt von zwei Dateien oder Datei Sätzen Byte für Byte vergleicht.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 40319d23-704d-4da1-be93-8259547275d0
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 18bd39483957959c746913a4ee18014be40c9eaa
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: bd796aef8ef5794e4d8c09a995cb39a9756fb444
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87880038"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89027778"
 ---
 # <a name="comp"></a>comp
 
@@ -26,7 +26,7 @@ comp [<data1>] [<data2>] [/d] [/a] [/l] [/n=<number>] [/c]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<data1>` | Gibt den Speicherort und den Namen der ersten Datei oder Gruppe von Dateien an, die Sie vergleichen möchten. Sie können Platzhalter Zeichen (**&#42;** und **?**) verwenden, um mehrere Dateien anzugeben. |
 | `<data2>` | Gibt den Speicherort und den Namen der zweiten Datei oder Gruppe von Dateien an, die Sie vergleichen möchten. Sie können Platzhalter Zeichen (**&#42;** und **?**) verwenden, um mehrere Dateien anzugeben. |

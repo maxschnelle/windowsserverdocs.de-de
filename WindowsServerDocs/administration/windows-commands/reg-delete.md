@@ -1,18 +1,18 @@
 ---
 title: reg delete
 description: Referenz Artikel für den Befehl reg DELETE, mit dem ein Unterschlüssel oder Einträge aus der Registrierung gelöscht werden.
-ms.topic: article
+ms.topic: reference
 ms.assetid: cee05071-1607-4ab1-b8ab-65caebeb85c3
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: da541f55117e287df81b53a45c923ed2ed3ae028
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 08eea4b5cf330dda64406704fee390868c96c7a4
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87884157"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89033778"
 ---
 # <a name="reg-delete"></a>reg delete
 
@@ -26,10 +26,10 @@ reg delete <keyname> [{/v Valuename | /ve | /va}] [/f]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 |--|--|
 | `<keyname1>` | Gibt den vollständigen Pfad des hinzu zufügenden unter Schlüssels oder Eintrags an. Wenn Sie einen Remote Computer angeben möchten, schließen Sie den Computernamen (im Format `\\<computername>\` ) als Teil des *keyName*-Steuerelement ein. Das Weglassen bewirkt, dass `\\<computername>\` der Vorgang standardmäßig auf dem lokalen Computer durchgesetzt wird. Der *keyName* muss einen gültigen Stamm Schlüssel enthalten. Gültige Stamm Schlüssel für den lokalen Computer sind: **HKLM**, **HKCU**, **HKCR**, **HKU**und **HKCC**. Wenn ein Remote Computer angegeben ist, lauten gültige Stamm Schlüssel: **HKLM** und **HKU**. Wenn der Registrierungsschlüssel Name ein Leerzeichen enthält, müssen Sie den Schlüsselnamen in Anführungszeichen einschließen. |
-| /v`<Valuename>` | Löscht einen bestimmten Eintrag unter dem Unterschlüssel. Wenn kein Eintrag angegeben wird, werden alle Einträge und Unterschlüssel unter dem Unterschlüssel gelöscht. |
+| /v `<Valuename>` | Löscht einen bestimmten Eintrag unter dem Unterschlüssel. Wenn kein Eintrag angegeben wird, werden alle Einträge und Unterschlüssel unter dem Unterschlüssel gelöscht. |
 | /ve | Gibt an, dass nur Einträge, für die kein Wert vorhanden ist, gelöscht werden. |
 | /va | Löscht alle Einträge unter dem angegebenen Unterschlüssel. Unterschlüssel unter dem angegebenen Unterschlüssel werden nicht gelöscht. |
 | /f | Löscht den vorhandenen Registrierungs Unterschlüssel oder Eintrag, ohne zur Bestätigung aufzufordern. |
@@ -39,7 +39,7 @@ reg delete <keyname> [{/v Valuename | /ve | /va}] [/f]
 
 - Die Rückgabewerte für den **reg-Lösch** Vorgang lauten:
 
-    | Wert | BESCHREIBUNG |
+    | Wert | Beschreibung |
     |--|--|
     | 0 | Erfolgreich |
     | 1 | Fehler |

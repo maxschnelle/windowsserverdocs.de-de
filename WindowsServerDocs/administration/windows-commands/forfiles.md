@@ -1,18 +1,18 @@
 ---
 title: forfiles
 description: Referenz Artikel zum forfiles-Befehl, mit dem ein Befehl für eine Datei oder einen Satz von Dateien ausgewählt und ausgeführt wird.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 43f6b004-446d-4fdd-91c5-5653613524a4
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 05/20/2020
-ms.openlocfilehash: 004c27b841629e18eac4d94f7fe0816b42762107
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: c79aeddec4a2ea74eb79c7d807428b6bc5955ce2
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87890149"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89027628"
 ---
 # <a name="forfiles"></a>forfiles
 
@@ -26,13 +26,13 @@ forfiles [/P pathname] [/M searchmask] [/S] [/C command] [/D [+ | -] [{<date> | 
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
-| /P`<pathname>` | Gibt den Pfad an, aus dem die Suche gestartet werden soll. Standardmäßig beginnt die Suche im aktuellen Arbeitsverzeichnis. |
-| /M`<searchmask>` | Durchsucht Dateien entsprechend der angegebenen Such Maske. Die standardmäßige searchmask ist `*` . |
+| /P `<pathname>` | Gibt den Pfad an, aus dem die Suche gestartet werden soll. Standardmäßig beginnt die Suche im aktuellen Arbeitsverzeichnis. |
+| /M `<searchmask>` | Durchsucht Dateien entsprechend der angegebenen Such Maske. Die standardmäßige searchmask ist `*` . |
 | /S | Weist den **forfiles** -Befehl an, in Unterverzeichnissen rekursiv zu suchen. |
-| /C`<command>` | Führt den angegebenen Befehl für jede Datei aus. Befehls Zeichenfolgen sollten in doppelte Anführungszeichen eingeschlossen werden. Der Standardbefehl ist `"cmd /c echo @file"` . |
-| /D`[{+\|-}][{<date> | <days>}]` | Wählt Dateien mit dem Datum der letzten Änderung innerhalb des angegebenen Zeitraums aus:<ul><li>Wählt Dateien mit dem Datum der letzten Änderung, das später als oder gleich ( **+** ) oder früher als oder gleich ( **-** ) dem angegebenen Datum ist, wobei *Date* das Format mm/dd/yyyy hat.</li><li>Wählt Dateien mit dem Datum der letzten Änderung, das später oder gleich ( **+** ) dem aktuellen Datum plus der angegebenen Anzahl von Tagen entspricht, oder früher oder gleich ( **-** ) dem aktuellen Datum abzüglich der angegebenen Anzahl von Tagen aus.</li><li>Gültige Werte für *Tage* sind eine beliebige Zahl im Bereich 0 – 32768. Wenn kein Vorzeichen angegeben ist, **+** wird standardmäßig verwendet.</li></ul> |
+| /C `<command>` | Führt den angegebenen Befehl für jede Datei aus. Befehls Zeichenfolgen sollten in doppelte Anführungszeichen eingeschlossen werden. Der Standardbefehl ist `"cmd /c echo @file"` . |
+| /D `[{+\|-}][{<date> | <days>}]` | Wählt Dateien mit dem Datum der letzten Änderung innerhalb des angegebenen Zeitraums aus:<ul><li>Wählt Dateien mit dem Datum der letzten Änderung, das später als oder gleich ( **+** ) oder früher als oder gleich ( **-** ) dem angegebenen Datum ist, wobei *Date* das Format mm/dd/yyyy hat.</li><li>Wählt Dateien mit dem Datum der letzten Änderung, das später oder gleich ( **+** ) dem aktuellen Datum plus der angegebenen Anzahl von Tagen entspricht, oder früher oder gleich ( **-** ) dem aktuellen Datum abzüglich der angegebenen Anzahl von Tagen aus.</li><li>Gültige Werte für *Tage* sind eine beliebige Zahl im Bereich 0 – 32768. Wenn kein Vorzeichen angegeben ist, **+** wird standardmäßig verwendet.</li></ul> |
 | /? | Zeigt den Hilfetext im Fenster "cmd" an. |
 
 #### <a name="remarks"></a>Bemerkungen
@@ -41,7 +41,7 @@ forfiles [/P pathname] [/M searchmask] [/S] [/C command] [/D [+ | -] [{<date> | 
 
 - Sie können die folgenden Variablen in der Befehls Zeichenfolge verwenden, wie in der **/C** -Befehlszeilenoption angegeben:
 
-    | Variable | BESCHREIBUNG |
+    | Variable | Beschreibung |
     | -------- | ----------- |
     | @FILE | Dateiname |
     | @FNAME | Dateiname ohne Erweiterung. |

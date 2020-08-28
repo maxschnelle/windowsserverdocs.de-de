@@ -1,18 +1,18 @@
 ---
 title: manage-bde-Spezifizierer
 description: Referenz Artikel für den Befehl manage-bde setidentifier, mit dem das Feld Laufwerks-ID auf dem Laufwerk auf den Wert festgelegt wird, der im Feld Geben Sie die eindeutigen Bezeichner für Ihre Organisation Gruppenrichtlinie festgelegt ist.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 7092d18f-4ac9-4c73-a20f-1246ca60e75e
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 836f8a0cb1842dcae276ccd8c2cca8f831056099
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: f790efb56ddb3c8785d89930069c5be42e7a5b0c
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87886705"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89027488"
 ---
 # <a name="manage-bde-setidentifier"></a>manage-bde-Spezifizierer
 
@@ -26,7 +26,7 @@ manage-bde –setidentifier <drive> [-computername <name>] [{-?|/?}] [{-help|-h}
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<drive>` | Stellt einen von einem Doppelpunkt gefolgten Laufwerkbuchstaben dar. |
 | -Computername | Gibt an, dass manage-bde.exe zum Ändern des BitLocker-Schutzes auf einem anderen Computer verwendet wird. Sie können auch **-CN** als abgekürzte Version dieses Befehls verwenden. |

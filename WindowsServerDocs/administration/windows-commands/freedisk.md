@@ -1,18 +1,18 @@
 ---
 title: freedisk
 description: Referenz Artikel für den Befehl "frei Platte", mit dem überprüft wird, ob die angegebene Menge an Speicherplatz verfügbar ist, bevor der Installationsvorgang fortgesetzt wird.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 91c15166-5baa-4b80-9e0c-4cd815d00530
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a6c5c09e35f852be9229180ae894356e127f8a03
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 6a3f8543e6fd2cff9a4e086068155d84526d9377
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87890091"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89027608"
 ---
 # <a name="freedisk"></a>freedisk
 
@@ -28,12 +28,12 @@ freedisk [/s <computer> [/u [<domain>\]<user> [/p [<password>]]]] [/d <drive>] [
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
-| /s`<computer>` | Gibt den Namen oder die IP-Adresse eines Remote Computers an (verwenden Sie keine umgekehrten Schrägstriche). Die Standardeinstellung ist der lokale Computer. Dieser Parameter gilt für alle Dateien und Ordner, die im Befehl angegeben sind. |
-| /u`[<domain>\]<user>` | Führt das Skript mit den Berechtigungen des angegebenen Benutzerkontos aus. Der Standardwert sind System Berechtigungen. |
+| /s `<computer>` | Gibt den Namen oder die IP-Adresse eines Remote Computers an (verwenden Sie keine umgekehrten Schrägstriche). Die Standardeinstellung ist der lokale Computer. Dieser Parameter gilt für alle Dateien und Ordner, die im Befehl angegeben sind. |
+| /u `[<domain>\]<user>` | Führt das Skript mit den Berechtigungen des angegebenen Benutzerkontos aus. Der Standardwert sind System Berechtigungen. |
 | /p [ <password> ] | Gibt das Kennwort des Benutzerkontos an, das in **/u**angegeben ist. |
-| /d`<drive>` | Gibt das Laufwerk an, für das Sie die Verfügbarkeit von freiem Speicherplatz ermitteln möchten. Sie müssen `<drive>` für einen Remote Computer angeben. |
+| /d `<drive>` | Gibt das Laufwerk an, für das Sie die Verfügbarkeit von freiem Speicherplatz ermitteln möchten. Sie müssen `<drive>` für einen Remote Computer angeben. |
 | `<value>` | Prüft, ob eine bestimmte Menge an freiem Speicherplatz verfügbar ist. Sie können `<value>` in Bytes, KB, MB, GB, TB, PB, EB, zB oder YB angeben. |
 
 #### <a name="remarks"></a>Bemerkungen

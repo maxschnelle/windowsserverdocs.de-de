@@ -1,17 +1,17 @@
 ---
 title: Schatten der vssadmin-Liste
 description: Eine Beschreibung des Befehls "vssadmin List Shadows".
-ms.topic: article
+ms.topic: reference
 author: JasonGerend
 ms.author: jgerend
 ms.date: 05/18/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: d3616902fa0b971969e5e906d6dbb200c633d15a
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: ee35fd65a6fdab68b8f4e4155d52182980b2d0c9
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87891792"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022905"
 ---
 # <a name="vssadmin-list-shadows"></a>Schatten der vssadmin-Liste
 
@@ -27,7 +27,7 @@ vssadmin list shadows [/for=<ForVolumeSpec>] [/shadow=<ShadowID>]
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |---|---|
 |/for =\<ForVolumeSpec>|Gibt an, für welches Volume die Schatten Kopien aufgeführt werden.|
 |/Shadow =\<ShadowID>|Listet die von shadowid angegebene Schatten Kopie auf. Verwenden Sie den Befehl " **vssadmin list shadows** ", um die Schattenkopiekennung zu erhalten. Wenn Sie eine schattenkopienkennung eingeben, verwenden Sie das folgende Format, wobei jedes *X* ein hexadezimales Zeichen darstellt:<br><br>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|

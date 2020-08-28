@@ -1,18 +1,18 @@
 ---
 title: bootcfg query
 description: Referenz Artikel für den bootcfg-Abfragebefehl, mit dem die Start Lade-und Betriebssystem Abschnitts Einträge von Boot.ini abgefragt und angezeigt werden.
-ms.topic: article
+ms.topic: reference
 ms.assetid: a4cacfd1-10a6-4a11-b0c5-f8abde72bfc8
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bb4ff06e8c0e5f31c0132f7fbc4fad49be53dd62
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 9e6b5a34a0af467c12549f4921d8d5c99e79aaa9
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87880566"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89034438"
 ---
 # <a name="bootcfg-query"></a>bootcfg query
 
@@ -28,7 +28,7 @@ bootcfg /query [/s <computer> [/u <domain>\<user> /p <password>]]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `/s <computer>` | Gibt den Namen oder die IP-Adresse eines Remote Computers an (verwenden Sie keine umgekehrten Schrägstriche). Die Standardeinstellung ist der lokale Computer. |
 | `/u <domain>\<user>`  | Führt den Befehl mit den Konto Berechtigungen des Benutzers aus, der von oder angegeben wird `<user>` `<domain>\<user>` . Der Standardwert sind die Berechtigungen des aktuell angemeldeten Benutzers auf dem Computer, von dem der Befehl ausgegeben wird. |

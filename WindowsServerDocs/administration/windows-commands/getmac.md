@@ -1,18 +1,18 @@
 ---
 title: getmac
 description: Referenz Artikel für den Befehl getmac, der die Media Access Control (Mac)-Adresse und die Liste der Netzwerkprotokolle zurückgibt, die jeweils lokal oder über ein Netzwerk verknüpft sind.
-ms.topic: article
+ms.topic: reference
 ms.assetid: a749a348-7cd1-4336-9f33-bb42dd0e31e1
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0ffc11e4aad7336e11cf65f8e51cdc155703c2dc
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 901777744b98095e4e19ff39d9965d144ee1f1c8
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87888637"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89034078"
 ---
 # <a name="getmac"></a>getmac
 
@@ -28,11 +28,11 @@ getmac[.exe][/s <computer> [/u <domain\<user> [/p <password>]]][/fo {table | lis
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- |------------ |
-| /s`<computer>` | Gibt den Namen oder die IP-Adresse eines Remote Computers an (verwenden Sie keine umgekehrten Schrägstriche). Die Standardeinstellung ist der lokale Computer. |
-| /u`<domain>\<user>` | Führt den Befehl mit den Konto Berechtigungen des Benutzers aus, der von " *User* " oder " *Domäne \ Benutzer*" angegeben wurde. Der Standardwert sind die Berechtigungen des aktuell angemeldeten Benutzers auf dem Computer, von dem der Befehl ausgegeben wird. |
-| /p`<password>` | Gibt das Kennwort des Benutzerkontos an, das im **/u** -Parameter angegeben ist. |
+| /s `<computer>` | Gibt den Namen oder die IP-Adresse eines Remote Computers an (verwenden Sie keine umgekehrten Schrägstriche). Die Standardeinstellung ist der lokale Computer. |
+| /u `<domain>\<user>` | Führt den Befehl mit den Konto Berechtigungen des Benutzers aus, der von " *User* " oder " *Domäne \ Benutzer*" angegeben wurde. Der Standardwert sind die Berechtigungen des aktuell angemeldeten Benutzers auf dem Computer, von dem der Befehl ausgegeben wird. |
+| /p `<password>` | Gibt das Kennwort des Benutzerkontos an, das im **/u** -Parameter angegeben ist. |
 | /FO {Table | list | CSV | Gibt das Format an, das für die Abfrageausgabe verwendet werden soll. Gültige Werte sind " **Table**", " **List**" und " **CSV**". Das Standardformat für die Ausgabe ist **Table**. |
 | /nh | Unterdrückt die Spalten Kopfzeile in der Ausgabe. Gültig, wenn der **/FO** -Parameter auf **Table** oder **CSV**festgelegt ist. |
 | /v | Gibt an, dass in der Ausgabe ausführliche Informationen angezeigt werden. |

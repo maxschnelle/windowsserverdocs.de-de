@@ -1,18 +1,18 @@
 ---
 title: bootcfg default
 description: Referenz Artikel zum Standardbefehl "bootcfg", der den Betriebssystem Eintrag angibt, der als Standard festgelegt werden soll.
-ms.topic: article
+ms.topic: reference
 ms.assetid: e21824d7-8278-41d7-a2c5-ce09803d513a
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 150cf8c2656b7abf3ebfdf3276ebf03b52781552
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 500a55e152d72cb9d7f0bc9eeeb91cfed3dfac1d
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87880626"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89034478"
 ---
 # <a name="bootcfg-default"></a>bootcfg default
 
@@ -28,7 +28,7 @@ bootcfg /default [/s <computer> [/u <domain>\<user> /p <password>]] [/id <osentr
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `/s <computer>` | Gibt den Namen oder die IP-Adresse eines Remote Computers an (verwenden Sie keine umgekehrten Schrägstriche). Die Standardeinstellung ist der lokale Computer. |
 | `/u <domain>\<user>`  | Führt den Befehl mit den Konto Berechtigungen des Benutzers aus, der von oder angegeben wird `<user>` `<domain>\<user>` . Der Standardwert sind die Berechtigungen des aktuell angemeldeten Benutzers auf dem Computer, von dem der Befehl ausgegeben wird. |

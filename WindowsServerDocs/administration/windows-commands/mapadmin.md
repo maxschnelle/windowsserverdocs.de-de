@@ -1,18 +1,18 @@
 ---
 title: mapadmin
 description: Referenz Artikel zum mapadmin-Befehl, der Benutzernamenzuordnung für Microsoft-Dienste für das Netzwerkdatei System verwaltet.
-ms.topic: article
+ms.topic: reference
 ms.assetid: b17332c7-8622-4223-9c43-2fb9cf4d992d
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3334ae31b3abb85dcc3df046d8199c9b72ea3944
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 8b62e31dbe53c5e2b16093bb222b8129d3cca087
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87886576"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89033948"
 ---
 # <a name="mapadmin"></a>mapadmin
 
@@ -40,11 +40,11 @@ mapadmin [<computer>] [-u <user> [-p <password>]] listdomainmaps
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<computer>` | Gibt den Remote Computer an, auf dem der Benutzernamenzuordnung-Dienst ausgeführt wird, den Sie verwalten möchten. Sie können den Computer mithilfe eines WINS-Namens (Windows Internet Name Service) oder eines Domain Name System (DNS) oder über eine IP-Adresse (Internet Protocol) angeben. |
-| -u`<user>` | Gibt den Benutzernamen des Benutzers an, dessen Anmelde Informationen verwendet werden sollen. Möglicherweise ist es erforderlich, den Domänen Namen dem Benutzernamen im Format "Domäne *\ Benutzer*Name" hinzuzufügen. |
-| -p`<password>` | Gibt das Kennwort des Benutzers an. Wenn Sie die Option "- **u** " angeben, aber die Option " **-p** " weglassen, werden Sie zur Eingabe des Benutzer Kennworts aufgefordert. |
+| -u `<user>` | Gibt den Benutzernamen des Benutzers an, dessen Anmelde Informationen verwendet werden sollen. Möglicherweise ist es erforderlich, den Domänen Namen dem Benutzernamen im Format "Domäne *\ Benutzer*Name" hinzuzufügen. |
+| -p `<password>` | Gibt das Kennwort des Benutzers an. Wenn Sie die Option "- **u** " angeben, aber die Option " **-p** " weglassen, werden Sie zur Eingabe des Benutzer Kennworts aufgefordert. |
 | `start | stop` | Startet oder beendet den Benutzernamenzuordnung-Dienst. |
 | config | Gibt allgemeine Einstellungen für Benutzernamenzuordnung an. Die folgenden Optionen sind für diesen Parameter verfügbar:<ul><li>**-r `<dddd>:<hh>:<mm>` :** Hiermit wird das Aktualisierungs Intervall für die Aktualisierung aus den Windows-und NIS-Datenbanken in Tagen, Stunden und Minuten angegeben. Das Mindestintervall beträgt 5 Minuten.</li><li>**-i `{yes | no}` :** schaltet die einfache Zuordnung ein (**Ja**) oder aus (**Nein**). Standardmäßig ist die Zuordnung aktiviert.</li></ul> |
 | add | Erstellt eine neue Zuordnung für einen Benutzer oder eine Gruppe. Die folgenden Optionen sind für diesen Parameter verfügbar:<ul><li>**-Wu `<name>` :** gibt den Namen des Windows-Benutzers an, für den eine neue Zuordnung erstellt wird.</li><li>**-UU `<name>` :** gibt den Namen des UNIX-Benutzers an, für den eine neue Zuordnung erstellt wird.</li><li>**-WG `<group>` :** gibt den Namen der Windows-Gruppe an, für die eine neue Zuordnung erstellt wird.</li><li>**-UG `<group>` :** gibt den Namen der UNIX-Gruppe an, für die eine neue Zuordnung erstellt wird.</li><li>**-setprimary:** Gibt an, dass die neue Zuordnung die primäre Zuordnung ist.</li></ul> |
@@ -63,13 +63,13 @@ mapadmin [<computer>] [-u <user> [-p <password>]] listdomainmaps
 
 - Für alle Optionen, die einen Benutzer-oder Gruppennamen angeben, können die folgenden Formate verwendet werden:
 
-    - Verwenden Sie für Windows-Benutzer die folgenden Formate: `<domain>\<username>` , `\\<computer>\<username>` , `\<computer>\<username>` oder`<computer>\<username>`
+    - Verwenden Sie für Windows-Benutzer die folgenden Formate: `<domain>\<username>` , `\\<computer>\<username>` , `\<computer>\<username>` oder `<computer>\<username>`
 
-    - Verwenden Sie für Windows-Gruppen die folgenden Formate: `<domain>\<groupname>` , `\\<computer>\<groupname>` , `\<computer>\<groupname>` oder`<computer>\<groupname>`
+    - Verwenden Sie für Windows-Gruppen die folgenden Formate: `<domain>\<groupname>` , `\\<computer>\<groupname>` , `\<computer>\<groupname>` oder `<computer>\<groupname>`
 
-    - Verwenden Sie für UNIX-Benutzer die folgenden Formate: `<NISdomain>\<username>` , `<username>@<NISdomain>` , `<username>@PCNFS` oder`PCNFS\<username>`
+    - Verwenden Sie für UNIX-Benutzer die folgenden Formate: `<NISdomain>\<username>` , `<username>@<NISdomain>` , `<username>@PCNFS` oder `PCNFS\<username>`
 
-    - Verwenden Sie für UNIX-Gruppen die folgenden Formate: `<NISdomain>\<groupname>` , `<groupname>@<NISdomain>` , `<groupname>@PCNFS` oder`PCNFS\<groupname>`
+    - Verwenden Sie für UNIX-Gruppen die folgenden Formate: `<NISdomain>\<groupname>` , `<groupname>@<NISdomain>` , `<groupname>@PCNFS` oder `PCNFS\<groupname>`
 
 ## <a name="additional-references"></a>Weitere Verweise
 

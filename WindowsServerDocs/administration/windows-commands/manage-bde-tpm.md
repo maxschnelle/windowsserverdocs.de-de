@@ -1,18 +1,18 @@
 ---
 title: manage-bde TPM
 description: Referenz Artikel für den Befehl manage-bde TPM, der die Trusted Platform Module des Computers (TPM) konfiguriert.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 11a8530d-edd7-4fe3-ae81-b943766760fe
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d5a41ccff889fc729ce812523d64b9404378d32c
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 1aa9653b77a72c90449234e39891fa457deca82d
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87886657"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89033968"
 ---
 # <a name="manage-bde-tpm"></a>manage-bde TPM
 
@@ -28,7 +28,7 @@ manage-bde -tpm [-turnon] [-takeownership <ownerpassword>] [-computername <name>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | -turnon | Aktiviert und aktiviert das TPM, sodass das TPM-Besitzer Kennwort festgelegt werden kann. Sie können auch **-t** als abgekürzte Version dieses Befehls verwenden. |
 | -Take Ownership | Übernimmt den Besitz des TPM durch Festlegen eines Besitzer Kennworts. Sie können **-o** auch als abgekürzte Version dieses Befehls verwenden. |

@@ -1,18 +1,18 @@
 ---
 title: select disk
 description: Referenz Artikel für * * * *-
-ms.topic: article
+ms.topic: reference
 ms.assetid: a0da614b-09d9-433b-b4eb-9127f84431cb
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b1aa57e2ad077c1f109ecb68ecde3c0433664dae
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 91763fc3dd55046cf04d171bf6add1bc798a2bb2
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87882873"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89027918"
 ---
 # <a name="select-disk"></a>select disk
 
@@ -33,7 +33,7 @@ select disk={ <n> | <disk path> | system | next }
 
 ### <a name="parameters"></a>Parameter
 
-|  Parameter  |                                                                                                                                                                                                            BESCHREIBUNG                                                                                                                                                                                                            |
+|  Parameter  |                                                                                                                                                                                                            Beschreibung                                                                                                                                                                                                            |
 |-------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |     <n>     | Gibt die Nummer des Datenträgers an, der den Fokus erhalten soll. Sie können die Zahlen für alle Datenträger auf dem Computer anzeigen, indem Sie den Befehl Datenträger **auflisten** in DiskPart verwenden. **Hinweis:** Wenn Sie Systeme mit mehreren Datenträgern konfigurieren, dürfen Sie den System Datenträger nicht mithilfe von **select disk \= 0** angeben. Der Computer kann die Datenträger Nummern beim Neustart neu zuweisen, und verschiedene Computer mit der gleichen Datenträger Konfiguration können über unterschiedliche Datenträger Nummern verfügen. |
 | <disk path> |                                                                                                                 Gibt den Speicherort des Datenträgers an, der den Fokus erhält, z. b. **pciroot \( 0 \) \# PCI \( 0f02 \) \# atA \( C00T00L00 \) **. Zum Anzeigen des Speicher Orts eines Datenträgers wählen Sie diesen aus, und geben Sie dann **Detail**Datenträger ein.                                                                                                                  |

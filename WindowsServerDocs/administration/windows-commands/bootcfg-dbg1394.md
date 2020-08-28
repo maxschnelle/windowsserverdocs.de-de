@@ -1,18 +1,18 @@
 ---
 title: bootcfg dbg1394
 description: Referenz Artikel für den Befehl Bootcfg dbg1394, der 1394-Port-Debugging für einen angegebenen Betriebssystem Eintrag konfiguriert
-ms.topic: article
+ms.topic: reference
 ms.assetid: 35724697-90dd-4dbe-85b0-337fbd369dcc
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 334a6f280c3e9de529ed7cbf8d1430177ca09f33
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: f24561751d3a41bf1bf12148dc550f0a56c159c6
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87880710"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89034528"
 ---
 # <a name="bootcfg-dbg1394"></a>bootcfg dbg1394
 
@@ -28,7 +28,7 @@ bootcfg /dbg1394 {on | off}[/s <computer> [/u <domain>\<user> /p <password>]] [/
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `{on | off}` | Gibt den Wert für 1394-Port Debugging an, einschließlich:<ul><li>**auf.** Aktiviert die Unterstützung für Remote Debugging durch Hinzufügen der/dbg1394-Option zum angegebenen `<osentrylinenum>` .</li><li>**abgeschrieben.** Deaktiviert die Unterstützung für Remote Debugging, indem die/dbg1394-Option aus dem angegebenen entfernt wird <osentrylinenum> .</li></ul> |
 | `/s <computer>` | Gibt den Namen oder die IP-Adresse eines Remote Computers an (verwenden Sie keine umgekehrten Schrägstriche). Die Standardeinstellung ist der lokale Computer. |

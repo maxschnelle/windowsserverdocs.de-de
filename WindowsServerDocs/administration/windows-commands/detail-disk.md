@@ -1,18 +1,18 @@
 ---
 title: detail disk
 description: Referenz Artikel für den Befehl "Detail Datenträger", mit dem die Eigenschaften des ausgewählten Datenträgers und die Volumes auf diesem Datenträger angezeigt werden.
-ms.topic: article
+ms.topic: reference
 ms.assetid: 6b09cf40-8d93-452b-b449-5242e62a4102
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 82ce9aaa1a53ff27b03e72430c896b9b18a86e7f
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: f0cff2685bf75989baf9af16091f134ee8655ac4
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87891288"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89027668"
 ---
 # <a name="detail-disk"></a>detail disk
 
