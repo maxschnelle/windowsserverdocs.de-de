@@ -7,12 +7,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 684ab29a9e1ded85443a2ec2d05ad4f55ec2cd5c
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 0a9c1eb46e2d6802c50dfc89e4a3085e6a6afca2
+ms.sourcegitcommit: fe356f95188b7ce8e719765f44c0789c065832fb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89025214"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89057562"
 ---
 # <a name="mstsc"></a>mstsc
 
@@ -44,7 +44,7 @@ mstsc.exe /migrate
 | /migrate | Migriert Legacy-Verbindungs Dateien, die mit dem Clientverbindungs-Manager erstellt wurden, in neue RDP-Verbindungs Dateien. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - "Default. RDP" wird für jeden Benutzer als versteckte Datei im Ordner " **Dokumente** " des Benutzers gespeichert.
 
@@ -59,7 +59,15 @@ Zum Herstellen einer Verbindung mit einer Sitzung im Vollbildmodus geben Sie Fol
 ```
 mstsc /f
 ```
+oder
+```
+mstsc /v:computer1 /f
+```
+Um Breite/Höhe zuzuweisen, geben Sie Folgendes ein:
 
+```
+mstsc /v:computer1 /w:1920 /h:1080
+```
 Um eine Datei namens *filename. RDP* zum Bearbeiten zu öffnen, geben Sie Folgendes ein:
 
 ```

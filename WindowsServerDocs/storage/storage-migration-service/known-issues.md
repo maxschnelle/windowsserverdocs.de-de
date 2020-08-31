@@ -6,12 +6,12 @@ ms.author: nedpyle
 manager: tiaascs
 ms.date: 07/29/2020
 ms.topic: article
-ms.openlocfilehash: 0dc49603099427fb00507db021c391500a7c42f2
-ms.sourcegitcommit: 3d59c2aaebcd190b20d24bc8a449eee0681b6a3c
+ms.openlocfilehash: ea138d8bb0b804ae4d08ed6ffe330e9714af43f3
+ms.sourcegitcommit: 2b1a12c85acff137e5ac84cd0e62d8353fcdde31
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88583315"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89087483"
 ---
 # <a name="storage-migration-service-known-issues"></a>Bekannte Probleme bei Storage Migration Service
 
@@ -83,7 +83,7 @@ So umgehen Sie dieses Problem:
 
 3. Starten Sie auf dem Orchestrator-Computer Regedit.exe
 
-4. Suchen Sie den folgenden Registrierungsunterschlüssel, und klicken Sie darauf:
+4. Erstellen Sie den folgenden Registrierungs Unterschlüssel, falls er nicht bereits vorhanden ist:
 
     `HKEY_LOCAL_MACHINE\Software\Microsoft\SMSPowershell`
 
@@ -101,7 +101,7 @@ So umgehen Sie dieses Problem:
 
 11. Es wird erneut versucht, die CSV-Datei mit Fehlern herunterzuladen.
 
-Wir beabsichtigen, dieses Verhalten in einer späteren Version von Windows Server 2019 zu ändern.
+Wenn Sie eine extrem große Anzahl von Dateien migrieren, müssen Sie dieses Timeout möglicherweise auf mehr als 10 Minuten erhöhen. 
 
 ## <a name="validation-warnings-for-destination-proxy-and-credential-administrative-privileges"></a>Validierungs Warnungen für den Ziel Proxy und Administratorrechte für Anmelde Informationen
 
