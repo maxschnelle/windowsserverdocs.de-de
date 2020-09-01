@@ -7,12 +7,12 @@ ms.topic: article
 author: heidilohr
 manager: lizross
 ms.date: 02/19/2020
-ms.openlocfilehash: 7b9500c11ca5dba7ed2f51d1d6b32b7cf689f070
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: eeadbdea10f08372cd927808b4b433d8ba7ee85f
+ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87997129"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89037828"
 ---
 # <a name="optimizing-windows-10-version-1909-for-a-virtual-desktop-infrastructure-vdi-role"></a>Optimieren von Windows 10, Version 1909, für eine VDI-Rolle (Virtual Desktop Infrastructure)
 
@@ -666,7 +666,7 @@ Ein sehr wichtiger Aspekt für nicht dauerhafte VDI-VMs sind Sicherheitsupdates,
 Für Windows Defender kann es am besten sein, die Updates auch in einer nicht dauerhaften VDI zuzulassen. Die Updates werden in fast jeder Anmeldesitzung angewendet, aber sie sind klein und sollten kein Problem sein. Außerdem gelangen die VMs bei Updates nicht in Rückstand, da nur die neuesten verfügbaren Updates angewendet werden. Dasselbe gilt möglicherweise für Definitionsdateien von Drittanbietern.
 
 > [!NOTE]
-> Store-Apps (UWP-Apps) werden über den Windows Store aktualisiert. Moderne Versionen von Office wie Office 365 werden über ihre eigenen Mechanismen aktualisiert, wenn sie direkt mit dem Internet verbunden sind, oder andernfalls über Management-Technologien.
+> Store-Apps (UWP-Apps) werden über den Windows Store aktualisiert. Moderne Versionen von Office wie Microsoft 365 werden über ihre eigenen Mechanismen aktualisiert, wenn sie direkt mit dem Internet verbunden sind, oder andernfalls über Management-Technologien.
 
 ### <a name="windows-system-startup-event-traces"></a>Ablaufverfolgungen für Ereignisse des Windows-Systemstarts
 

@@ -5,22 +5,22 @@ ms.topic: article
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 08/19/2020
+ms.date: 08/26/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: dbaaafe2c01d41a9786d6718bad850dc08deaa81
-ms.sourcegitcommit: 6d991b16a6d9129e1f5d1ca7d688bd621b72d586
+ms.openlocfilehash: 56e2a5f91983f8fe64382e162ecf18b30e75b41d
+ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88638877"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88938790"
 ---
 # <a name="whats-new-in-the-windows-store-client"></a>Neuigkeiten zum Windows Store-Client
 
 Der [Windows-Store-Client](windows.md) wird regelmäßig mit neuen Features und Problembehebungen aktualisiert. Hier findest du die neuesten Updates.
 
-## <a name="updates-for-version-1021519-insider"></a>Updates für Version 10.2.1519 (Insider)
+## <a name="updates-for-version-1021522"></a>Updates für Version 10.2.1522
 
-*Veröffentlicht am: 19.8.2020*
+*Veröffentlicht am: 26.08.2020*
 
 - Client wurde neu geschrieben, um dasselbe zugrunde liegende RDP-Kernmodul wie die iOS-, macOS- und Android-Clients zu verwenden.
 - Unterstützung für die in Azure Resource Manager integrierte Version von Windows Virtual Desktop wurde hinzugefügt.

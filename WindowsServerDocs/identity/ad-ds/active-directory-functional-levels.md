@@ -1,19 +1,19 @@
 ---
 ms.assetid: f964d056-11bf-4d9b-b5ab-dceaad8bfbc3
 title: Windows Server 2016-Funktionsebenen
-ms.author: joflore
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.date: 10/29/2018
+ms.author: iainfou
+author: iainfoulds
+manager: daveba
+ms.date: 08/25/2020
 ms.topic: article
 ms.custom: it-pro
 ms.reviewer: maheshu
-ms.openlocfilehash: 75ba30502c7de1b0a88886f42c3a8ef9a84a7e18
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: e82dccb79a4fc3452d528581beb43ef32d52ecfc
+ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87938629"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88940940"
 ---
 # <a name="forest-and-domain-functional-levels"></a>Gesamtstruktur- und Domänenfunktionsebenen
 
@@ -23,9 +23,9 @@ Funktionsebenen bestimmen die verfügbaren AD DS-Domänen- oder Gesamtstrukturfu
 
 Legen Sie bei der Bereitstellung von AD DS die Domänen- und Gesamtstrukturfunktionsebenen auf den höchsten Wert fest, den die Umgebung unterstützen kann. Auf diese Weise können Sie so viele AD DS-Features wie möglich verwenden. Wenn Sie eine neue Gesamtstruktur bereitstellen, werden Sie aufgefordert, zunächst die Gesamtstrukturfunktionsebene und anschließend die Domänenfunktionsebene festzulegen. Sie können die Domänenfunktionsebene auf einen Wert festlegen, der höher als die Gesamtstrukturfunktionsebene ist. Sie können die Domänenfunktionsebene jedoch nicht auf einen niedrigeren Wert als die Gesamtstrukturfunktionsebene festlegen.
 
-Mit dem Ende der Lebensdauer von Windows 2003 müssen Windows 2003-Domänencontrollern (DCs) auf Windows Server 2008, 2008 R2, 2012, 2012 R2, 2016 oder 2019 aktualisiert werden. Daher sollten alle Domänencontroller, die auf Windows Server 2003 ausgeführt werden, aus der Domäne entfernt werden.
+Mit dem Ende der Lebensdauer von Windows Server 2003, 2008 und 2008 R2 müssen diese Domänencontrollern (DCs) auf Windows Server 2012, 2012 R2, 2016 bzw. 2019 aktualisiert werden. Daher sollten alle Domänencontroller, die auf Windows Server 2008 R2 und älter ausgeführt werden, aus der Domäne entfernt werden.
 
-Bei Windows Server 2008-Domänenfunktionsebenen (und höher) wird die DFS-Replikation (Distributed File Service) zum Replizieren von SYSVOL-Ordnerinhalten zwischen Domänencontrollern verwendet. Wenn Sie auf der Windows Server 2008-Domänenfunktionsebene (oder höher) eine neue Domäne erstellen, wird die DFS-Replikation automatisch zum Replizieren von SYSVOL verwendet. Wenn Sie die Domäne auf einer niedrigeren Funktionsebene erstellt haben, müssen Sie für SYSVOL anstatt des Dateireplikationsdiensts die DFS-Replikation verwenden. Für die Migrationsschritte können Sie entweder die [Anweisungen auf TechNet](../../storage/dfs-replication/migrate-sysvol-to-dfsr.md) oder die [optimierten Schritte im Storage Team File Cabinet-Blog](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB) befolgen.
+Bei Windows Server 2008-Domänenfunktionsebenen (und höher) wird die DFS-Replikation (Distributed File Service) zum Replizieren von SYSVOL-Ordnerinhalten zwischen Domänencontrollern verwendet. Wenn Sie auf der Windows Server 2008-Domänenfunktionsebene (oder höher) eine neue Domäne erstellen, wird die DFS-Replikation automatisch zum Replizieren von SYSVOL verwendet. Wenn Sie die Domäne auf einer niedrigeren Funktionsebene erstellt haben, müssen Sie für SYSVOL anstatt des Dateireplikationsdiensts die DFS-Replikation verwenden. Für die Migrationsschritte können Sie entweder die [Anweisungen auf TechNet](https://technet.microsoft.com/library/dd640019(v=WS.10).aspx) oder die [optimierten Schritte im Storage Team File Cabinet-Blog](https://blogs.technet.com/b/filecab/archive/2014/06/25/streamlined-migration-of-frs-to-dfsr-sysvol.aspx) befolgen. Windows Server 2016 RS1 ist das letzte Windows Server-Release, das FRS umfasst.
 
 ## <a name="windows-server-2019"></a>Windows Server 2019
 
@@ -162,6 +162,7 @@ Unterstützte Betriebssysteme des Domänencontrollers:
 
 Unterstützte Betriebssysteme des Domänencontrollers:
 
+* Windows Server 2016
 * Windows Server 2012 R2
 * Windows Server 2012
 * Windows Server 2008 R2
