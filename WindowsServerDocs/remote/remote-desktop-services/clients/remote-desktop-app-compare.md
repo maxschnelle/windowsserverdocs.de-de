@@ -6,14 +6,14 @@ ms.assetid: 12efe858-6b76-4e08-9f72-b9603aceb0fc
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 04/06/2020
+ms.date: 08/25/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 524b90965ca1dfca726294d4518fcefa4a470cf2
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: a44926d50fae9dea38e3f5c46db423991a414a87
+ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87970107"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88941510"
 ---
 # <a name="compare-the-clients"></a>Vergleichen der Clients
 
@@ -34,7 +34,7 @@ Wenn Sie remote auf Ihren persönlichen Desktop zugreifen, stehen zusätzliche U
 | Tastatur    | X                         | X                           | X             | X       | X   | X     | X             |
 | Maus       | X                         | X                           | X             | X       | X\* | X     | X             |
 | Touch       | X                         | X                           | X             | X       | X   |       | X (außer IE) |
-| Stift         | X                         | X                           |               |         |     |       |               |
+| Stift         | X                         | X                           |               | X (als Touch) |  X (als Touch)  |       |               |
 
 *Sehen Sie sich die Liste der [unterstützten Eingabegeräte](remote-desktop-ios.md#supported-input-devices) für den Remotedesktopclient für iOS an.
 
@@ -51,7 +51,7 @@ Wenn Sie die USB-Anschlussumleitung aktivieren, werden alle am USB-Anschluss ang
 
 | Umleitung         | Windows-Posteingang</br>(MSTSC) | Windows Desktop</br>(MSRDC) | Windows Store | Android | iOS         | macOS                           | Webclient    |
 |---------------------|---------------------------|-----------------------------|---------------|---------|-------------|---------------------------------|---------------|
-| Kameras             | X                         | X                           |               |         |   X         | X                               |               |
+| Kameras             | X                         | X                           |               |     X    |   X         | X                               |               |
 | Zwischenablage           | X                         | X                           | X             | Text    | Text, Bilder | X                               | Text          |
 | Lokales Laufwerk/lokaler Speicher | X                         | X                           |               | X       |   X        | X                               |               |
 | Speicherort            | X                         | X                           |               |         |             |                                 |               |
