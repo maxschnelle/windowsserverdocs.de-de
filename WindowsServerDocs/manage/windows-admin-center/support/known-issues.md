@@ -6,12 +6,12 @@ author: jwwool
 ms.author: jeffrew
 ms.localizationpriority: medium
 ms.date: 06/07/2019
-ms.openlocfilehash: 91e14b5ac023f6726ffc508f945567b83311d7a4
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: b4d7d039c775b85321d168f8de7415de6b92e784
+ms.sourcegitcommit: 97a65d8f52514848963e8917021bd9a1f6ee3b19
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87997019"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89287822"
 ---
 # <a name="windows-admin-center-known-issues"></a>Bekannte Probleme im Windows Admin Center
 
@@ -19,7 +19,7 @@ ms.locfileid: "87997019"
 
 Wenn Sie ein Problem feststellen, das nicht auf dieser Seite beschrieben wird, [informieren Sie uns](https://aka.ms/WACfeedback)bitte.
 
-## <a name="installer"></a>Installationsprogramm
+## <a name="installer"></a>Installer
 
 - Beachten Sie beim Installieren des Windows Admin Centers mithilfe Ihres eigenen Zertifikats, dass Sie beim Kopieren des Fingerabdrucks aus dem Zertifikat-Manager-MMC-Tool [ein ungültiges Zeichen am Anfang enthalten.](https://support.microsoft.com/help/2023835/certificate-thumbprint-displayed-in-mmc-certificate-snap-in-has-extra) Um dieses Problem zu umgehen, geben Sie das erste Zeichen des Fingerabdrucks ein, kopieren Sie den Rest, und fügen Sie ihn ein.
 
@@ -96,13 +96,13 @@ Wenn dies nicht der Fall ist, kannst du [herunterladen und WMF 5.1 installieren
 
 - Importieren nicht möglich. PFX-verschlüsseltes Zertifikat in den Speicher des aktuellen Benutzers. [11818622]
 
-### <a name="events"></a>Ereignisse
+### <a name="events"></a>Events
 
 - Ereignisse werden von der [WebSocket-Kompatibilität bei der Verwendung eines Proxy Dienstanbieter beeinflusst.](#websocket-compatibility-when-using-a-proxy-service)
 
 - Wenn Sie große Protokolldateien exportieren, erhalten Sie möglicherweise eine Fehlermeldung, die auf "Paketgröße" verweist.
 
-  - Um dieses Problem zu beheben, verwenden Sie den folgenden Befehl an einer Eingabeaufforderung mit erhöhten Rechten auf dem Gatewaycomputer:```winrm set winrm/config @{MaxEnvelopeSizekb="8192"}```
+  - Um dieses Problem zu beheben, verwenden Sie den folgenden Befehl an einer Eingabeaufforderung mit erhöhten Rechten auf dem Gatewaycomputer: ```winrm set winrm/config @{MaxEnvelopeSizekb="8192"}```
 
 ### <a name="files"></a>Dateien
 
@@ -130,7 +130,7 @@ Wenn dies nicht der Fall ist, kannst du [herunterladen und WMF 5.1 installieren
 
 - Wenn Sie die Remotedesktop zum Herstellen einer Verbindung mit einem Computer verwenden, der keiner Domäne beigetreten ist, müssen Sie Ihr Konto im ```MACHINENAME\USERNAME``` Format eingeben.
 
-- Einige Konfigurationen können den Remote Desktop Client des Windows Admin Centers mit der Gruppenrichtlinie blockieren. Wenn dies der gibt, aktivieren Sie ```Allow users to connect remotely by using Remote Desktop Services``` unter```Computer Configuration/Policies/Administrative Templates/Windows Components/Remote Desktop Services/Remote Desktop Session Host/Connections```
+- Einige Konfigurationen können den Remote Desktop Client des Windows Admin Centers mit der Gruppenrichtlinie blockieren. Wenn dies der gibt, aktivieren Sie ```Allow users to connect remotely by using Remote Desktop Services``` unter ```Computer Configuration/Policies/Administrative Templates/Windows Components/Remote Desktop Services/Remote Desktop Session Host/Connections```
 
 - Remotedesktop wird von der [WebSocket-Kompatibilität beeinflusst.](#websocket-compatibility-when-using-a-proxy-service)
 
@@ -160,7 +160,7 @@ Wenn dies nicht der Fall ist, kannst du [herunterladen und WMF 5.1 installieren
 
 - Herabstufen: Wenn Sie ein neues Volume erstellen, unterstützt Refs nur die Größe der Zuordnungs Einheiten von 64 KB auf Computern mit Windows 2012 und 2012 R2. Wenn ein Refs-Volume mit einer geringeren Zuordnungs Einheitsgröße für Ziele auf niedrigerer Ebene erstellt wird, schlägt die Formatierung des Dateisystems fehl. Das neue Volume kann nicht verwendet werden. Die Lösung besteht darin, das Volume zu löschen und die Größe der Zuordnungs Einheiten von 64K zu verwenden.
 
-### <a name="updates"></a>Aktualisierungen
+### <a name="updates"></a>Updates
 
 - Nach der Installation von Updates kann der Installationsstatus zwischengespeichert werden und eine Browser Aktualisierung erfordern.
 
@@ -210,7 +210,7 @@ Hyper-V muss auf virtuellen Computern installiert werden, auf denen das Azure St
 Führen Sie den folgenden Befehl aus, um Hyper-V auf virtuellen Computern zu installieren, auf denen die Azure Stack HCI OS ausgeführt wird:
 
 ```PowerShell
-Enable-windowsoptionalfeature -online -featurename Microsoft-hyper-v
+Enable-WindowsOptionalFeature -Online -FeatureName 'Microsoft-Hyper-V'
 ```
 
 ### <a name="step-17"></a>Schritt 1,7
