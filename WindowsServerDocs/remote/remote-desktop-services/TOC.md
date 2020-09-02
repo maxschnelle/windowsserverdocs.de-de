@@ -72,9 +72,9 @@
 #### [Erste Schritte mit dem Windows-Desktop-Client](clients/windowsdesktop.md)
 #### [Windows-Desktop-Client für Administratoren](clients/windowsdesktop-admin.md)
 #### [Neuigkeiten im Windows-Desktop-Client](clients/windowsdesktop-whatsnew.md)
-### Windows Store-Client
-#### [Erste Schritte mit dem Windows Store-Client](clients/windows.md)
-#### [Neuigkeiten zum Windows Store-Client](clients/windows-whatsnew.md)
+### Microsoft Store-Client
+#### [Erste Schritte mit dem Microsoft Store-Client](clients/windows.md)
+#### [Neuerungen im Microsoft Store-Client](clients/windows-whatsnew.md)
 ### Android-Client
 #### [Erste Schritte mit dem Android-Client](clients/remote-desktop-android.md)
 #### [Neues beim Android-Client](clients/android-whatsnew.md)
