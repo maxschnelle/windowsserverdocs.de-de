@@ -6,12 +6,12 @@ manager: dongill
 author: rpsqrd
 ms.author: ryanpu
 ms.date: 09/25/2019
-ms.openlocfilehash: 995a115b9e611500732e4674880ee4ca4b204e14
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 0f9499402a5788cd3dc9ad9cd262d65636f9284c
+ms.sourcegitcommit: 076504a92cddbd4b84bfcd89da1bf1c8c9e79495
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87989117"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89427492"
 ---
 # <a name="obtain-certificates-for-hgs"></a>Zertifikate für HGS abrufen
 
@@ -38,7 +38,7 @@ Schlüssel Algorithmus                 | RSA
 Minimale Schlüsselgröße              | 2.048 Bits
 Signaturalgorithmus           | Empfohlen: SHA256
 Schlüsselverwendung                     | Digitale Signatur *und* Datenverschlüsselung
-Erweiterte Schlüssel Verwendung            | Serverauthentifizierung
+Erweiterte Schlüsselverwendung            | Serverauthentifizierung
 Richtlinie zur Schlüssel Erneuerung            | Erneuern Sie mit demselben Schlüssel. Durch das Erneuern von HGS-Zertifikaten mit unterschiedlichen Schlüsseln wird verhindert, dass abgeschirmte VMS gestartet werden.
 Antragstellername                  | Empfohlen: Name oder Webadresse Ihres Unternehmens. Diese Informationen werden den VM-Besitzern im Assistenten für die Schutz Datendatei angezeigt.
 
@@ -61,11 +61,11 @@ Führen Sie die folgenden Befehle in PowerShell aus, um selbst signierte Zertifi
 ```powershell
 $certificatePassword = Read-Host -AsSecureString -Prompt "Enter a password for the PFX file"
 
-$signCert = New-SelfSignedCertificate -Subject "CN=HGS Signing Certificate"
+$signCert = New-SelfSignedCertificate -Subject "CN=HGS Signing Certificate" -KeyUsage DataEncipherment, DigitalSignature
 Export-PfxCertificate -FilePath .\signCert.pfx -Password $certificatePassword -Cert $signCert
 Remove-Item $signCert.PSPath
 
-$encCert = New-SelfSignedCertificate -Subject "CN=HGS Encryption Certificate"
+$encCert = New-SelfSignedCertificate -Subject "CN=HGS Encryption Certificate" -KeyUsage DataEncipherment, DigitalSignature
 Export-PfxCertificate -FilePath .\encCert.pfx -Password $certificatePassword -Cert $encCert
 Remove-Item $encCert.PSPath
 ```
