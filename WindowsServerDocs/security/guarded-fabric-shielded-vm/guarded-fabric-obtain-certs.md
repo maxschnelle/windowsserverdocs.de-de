@@ -6,12 +6,12 @@ manager: dongill
 author: rpsqrd
 ms.author: ryanpu
 ms.date: 09/25/2019
-ms.openlocfilehash: 0f9499402a5788cd3dc9ad9cd262d65636f9284c
-ms.sourcegitcommit: 076504a92cddbd4b84bfcd89da1bf1c8c9e79495
+ms.openlocfilehash: 392065ac9fe9e32e84550e14cd9ef39349ac8d67
+ms.sourcegitcommit: 664ed9bb0bbac2c9c0727fc2416d8c437f2d5cbe
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89427492"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89472020"
 ---
 # <a name="obtain-certificates-for-hgs"></a>Zertifikate für HGS abrufen
 
@@ -59,15 +59,23 @@ Beim Importieren der Zertifikat Informationen im Assistenten für Schutz Datenda
 Führen Sie die folgenden Befehle in PowerShell aus, um selbst signierte Zertifikate zu erstellen und in eine PFX-Datei zu exportieren:
 
 ```powershell
-$certificatePassword = Read-Host -AsSecureString -Prompt "Enter a password for the PFX file"
+$certificatePassword = Read-Host -AsSecureString -Prompt 'Enter a password for the PFX file'
 
-$signCert = New-SelfSignedCertificate -Subject "CN=HGS Signing Certificate" -KeyUsage DataEncipherment, DigitalSignature
-Export-PfxCertificate -FilePath .\signCert.pfx -Password $certificatePassword -Cert $signCert
+$signCert = New-SelfSignedCertificate -Subject 'CN=HGS Signing Certificate' -KeyUsage DataEncipherment, DigitalSignature
+Export-PfxCertificate -FilePath '.\signCert.pfx' -Password $certificatePassword -Cert $signCert
+
+# Remove the certificate from "Personal" container
 Remove-Item $signCert.PSPath
+# Remove the certificate from "Intermediate certification authorities" container
+Remove-Item -Path "Cert:\LocalMachine\CA\$($signCert.Thumbprint)"
 
-$encCert = New-SelfSignedCertificate -Subject "CN=HGS Encryption Certificate" -KeyUsage DataEncipherment, DigitalSignature
-Export-PfxCertificate -FilePath .\encCert.pfx -Password $certificatePassword -Cert $encCert
+$encCert = New-SelfSignedCertificate -Subject 'CN=HGS Encryption Certificate' -KeyUsage DataEncipherment, DigitalSignature
+Export-PfxCertificate -FilePath '.\encCert.pfx' -Password $certificatePassword -Cert $encCert
+
+# Remove the certificate from "Personal" container
 Remove-Item $encCert.PSPath
+# Remove the certificate from "Intermediate certification authorities" container
+Remove-Item -Path "Cert:\LocalMachine\CA\$($encCert.Thumbprint)"
 ```
 
 ## <a name="request-an-ssl-certificate"></a>Anfordern eines SSL-Zertifikats
@@ -79,8 +87,8 @@ Die Hyper-V-Hosts und HGS-Knoten müssen das von Ihnen bereitgestellte SSL-Zerti
 
 SSL-Zertifikat Eigenschaft | Erforderlicher Wert
 -------------------------|---------------
-Antragstellername             | Der Name des HGS-Clusters (als Name des verteilten Netzwerks oder des FQDN des virtuellen Computer Objekts bezeichnet). Dabei handelt es sich um die Verkettung Ihres für bereitgestellten HGS-Dienst namens `Initialize-HgsServer` und ihren HGS-Domänen Namen.
-Alternativer Antragstellername | Wenn Sie einen anderen DNS-Namen verwenden, um Ihren HGS-Cluster zu erreichen (z. b. wenn er sich hinter einem Load Balancer befindet), müssen Sie diese DNS-Namen in das Feld San ihrer Zertifikat Anforderung einschließen.
+Antragstellername             | Adressieren Sie, dass HGS-Clients (d. h. mit der Verwendung von mit einem Mandanten) auf den HGS-Server zugreifen. Dabei handelt es sich in der Regel um die DNS-Adresse Ihres HGS-Clusters, die als verteilter Netzwerkname oder VCO (Virtual Computer Object) bezeichnet wird. Dabei handelt es sich um die Verkettung Ihres für bereitgestellten HGS-Dienst namens `Initialize-HgsServer` und ihren HGS-Domänen Namen.
+Alternativer Antragstellername | Wenn Sie einen anderen DNS-Namen verwenden, um Ihren HGS-Cluster zu erreichen (z. b. wenn er sich hinter einem Load Balancer befindet oder Sie unterschiedliche Adressen für eine Teilmenge der Knoten in der komplexen Topologie verwenden), müssen Sie diese DNS-Namen in das Feld San ihrer Zertifikat Anforderung einschließen. Beachten Sie Folgendes: Wenn die SAN-Erweiterung aufgefüllt ist, wird der Antragsteller Name ignoriert. Daher sollte San alle Werte einschließen, einschließlich derjenigen, die normalerweise in den Antragsteller Namen eingefügt werden.
 
 Die Optionen zum Angeben dieses Zertifikats beim Initialisieren des HGS-Servers finden Sie unter [Konfigurieren des ersten HGS-Knotens](guarded-fabric-initialize-hgs.md).
 Sie können das SSL-Zertifikat auch zu einem späteren Zeitpunkt mit dem Cmdlet [Set-hgsserver](/powershell/module/hgsserver/set-hgsserver?view=win10-ps) hinzufügen oder ändern.
