@@ -6,12 +6,12 @@ manager: dongill
 author: rpsqrd
 ms.author: ryanpu
 ms.date: 09/25/2019
-ms.openlocfilehash: 8c3f28b544db7a41c15c4f12b58c58c1f750cb54
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: cda60c65772a41322a20b7277a7d7c80a4daf9e1
+ms.sourcegitcommit: a640c2d7f2d21d7cd10a9be4496e1574e5e955f0
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87997506"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89446773"
 ---
 # <a name="confirm-guarded-hosts-can-attest"></a>Bestätigen, dass geschützte Hosts bestätigen können
 
@@ -37,7 +37,7 @@ Ein fabricadministrator muss bestätigen, dass Hyper-V-Hosts als geschützte Hos
 
         Um einen Fall Back-HGS-Server zu konfigurieren, wiederholen Sie diesen Befehl, und geben Sie die Fall Back-URLs für die Schlüsselschutz-und Nachweis Dienste an. Weitere Informationen finden Sie unter [Fall Back Konfiguration](guarded-fabric-manage-branch-office.md#fallback-configuration).
 
-    - **Über VMM**: Wenn Sie System Center 2016-Virtual Machine Manager (VMM) verwenden, können Sie die URLs für den Nachweis und den Schlüsselschutz in VMM konfigurieren. Weitere Informationen finden Sie unter [Konfigurieren globaler HGS-Einstellungen](/system-center/vmm/guarded-deploy-host?view=sc-vmm-2019#configure-global-hgs-settings) in Bereitstellen von über **wachten Hosts in VMM**.
+    - **Über VMM**: Wenn Sie System Center Virtual Machine Manager (VMM) verwenden, können Sie die URLs für den Nachweis und den Schlüsselschutz in VMM konfigurieren. Weitere Informationen finden Sie unter [Konfigurieren globaler HGS-Einstellungen](/system-center/vmm/guarded-deploy-host?view=sc-vmm-2019#configure-global-hgs-settings) in Bereitstellen von über **wachten Hosts in VMM**.
 
     >**Hinweise**
     > - Wenn der HGS-Administrator [https auf dem HGS-Server aktiviert](guarded-fabric-configure-hgs-https.md)hat, beginnen Sie mit den URLs `https://` .
@@ -60,7 +60,7 @@ Ein fabricadministrator muss bestätigen, dass Hyper-V-Hosts als geschützte Hos
     ```
 
     > [!IMPORTANT]
-    > Wenn Sie Windows Server 2019 oder Windows 10, Version 1809, verwenden und Code Integritäts Richtlinien verwenden, sollten Sie `Get-HgsTrace` einen Fehler für die aktive Diagnose der **Code Integritätsrichtlinie** zurückgeben.
+    > Wenn Sie Windows Server 2019 oder Windows 10, Version 1809 oder höher, verwenden und Code Integritäts Richtlinien verwenden, sollten Sie `Get-HgsTrace` einen Fehler für die **aktive Diagnose der Code Integritätsrichtlinie** zurückgeben.
     > Sie können dieses Ergebnis gefahrlos ignorieren, wenn es die einzige Fehlerdiagnose ist.
 
 ## <a name="next-step"></a>Nächster Schritt
