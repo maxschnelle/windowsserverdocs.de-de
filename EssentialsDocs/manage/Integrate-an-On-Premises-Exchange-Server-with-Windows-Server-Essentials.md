@@ -7,12 +7,12 @@ ms.assetid: b56a21e2-c9e3-4ba9-97d9-719ea6a0854b
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: cef547570c58c405ac563a1c2215feda120350f4
-ms.sourcegitcommit: 04637054de2bfbac66b9c78bad7bf3e7bae5ffb4
+ms.openlocfilehash: 7975f70d75a33549d0a3c7616b5260064d5cb323
+ms.sourcegitcommit: 34f9577ef32cbdc7ef96040caabc9d83517f9b79
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87837879"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89554423"
 ---
 # <a name="integrate-an-on-premises-exchange-server-with-windows-server-essentials"></a>Integration eines lokalen Exchange-Servers mit Windows Server Essentials
 
@@ -34,10 +34,10 @@ Diese Anleitung enthält Informationen und grundlegende Anweisungen zur Einricht
 
 -   [Konfigurieren des Internetdomänennamens](Integrate-an-On-Premises-Exchange-Server-with-Windows-Server-Essentials.md#BKMK_DomainNames)
 
-###  <a name="set-up-a-server-that-is-running-windows-server-essentials"></a><a name="BKMK_SetUpSBS8"></a>Einrichten eines Servers, auf dem Windows Server Essentials ausgeführt wird
+###  <a name="set-up-a-server-that-is-running-windows-server-essentials"></a><a name="BKMK_SetUpSBS8"></a> Einrichten eines Servers, auf dem Windows Server Essentials ausgeführt wird
  Es muss bereits ein Server eingerichtet worden sein, auf dem Windows Server Essentials ausgeführt wird. Dies ist der Domänencontroller für den Server, auf dem Exchange Server ausgeführt wird. Weitere Informationen zum Einrichten von Windows Server Essentials finden Sie unter [Installieren von Windows Server Essentials](../install/Install-Windows-Server-Essentials.md).
 
-###  <a name="prepare-a-second-server-on-which-to-install-exchange-server"></a><a name="BKMK_SecondServer"></a>Vorbereiten eines zweiten Servers, auf dem Exchange Server installiert werden soll
+###  <a name="prepare-a-second-server-on-which-to-install-exchange-server"></a><a name="BKMK_SecondServer"></a> Vorbereiten eines zweiten Servers, auf dem Exchange Server installiert werden soll
  Sie müssen Exchange Server auf einem zweiten Server mit einer Version des Windows Server-Betriebssystems installieren, von dem die Ausführung von Exchange Server 2010 oder Exchange Server 2013 offiziell unterstützt wird. Anschließend müssen Sie für den zweiten Server den Beitritt zur Windows Server Essentials-Domäne durchführen.
 
  Informationen dazu, wie Sie einen zweiten Server der Windows Server Essentials-Domäne hinzufügen, finden Sie unter Verbinden eines zweiten Servers mit dem Netzwerk in " [Verbindung](../use/Get-Connected-in-Windows-Server-Essentials.md)herstellen".
@@ -45,13 +45,13 @@ Diese Anleitung enthält Informationen und grundlegende Anweisungen zur Einricht
 > [!NOTE]
 >  Von Microsoft wird das Installieren von Exchange Server auf einem Server, auf dem Windows Server Essentials ausgeführt wird, nicht unterstützt.
 
-###  <a name="configure-your-internet-domain-name"></a><a name="BKMK_DomainNames"></a>Konfigurieren des Internet Domänen Namens
+###  <a name="configure-your-internet-domain-name"></a><a name="BKMK_DomainNames"></a> Konfigurieren des Internet Domänen Namens
  Zum Integrieren eines lokalen Servers, auf dem Exchange Server mit Windows Server Essentials ausgeführt wird, müssen Sie für Ihr Unternehmen bereits einen gültigen Internetdomänennamen (z. B. *contoso.com*) registriert haben. Außerdem müssen Sie in Zusammenarbeit mit Ihrem Domänennamenanbieter die DNS-Ressourceneinträge erstellen, die für Exchange Server erforderlich sind.
 
  Wenn der Internetdomänenname Ihres Unternehmens z. B. %%amp;quot;contoso.com%%amp;quot; lautet und Sie den vollqualifizierten Domänennamen (FQDN) *mail.contoso.com* zum Verweisen auf den lokalen Server mit Exchange Server verwenden möchten, sollten Sie sich wegen der Erstellung der in der folgenden Tabelle aufgeführten DNS-Ressourceneinträge an Ihren Domänennamenanbieter wenden.
 
 
-| Name des Ressourceneintrags |     Eintragstyp     |                                                                         Einstellung des Eintrags                                                                          |                                                                                                                                                                                                                                                              Beschreibung                                                                                                                                                                                                                                                              |
+| Name des Ressourceneintrags |     Eintragstyp     |                                                                         Einstellung des Eintrags                                                                          |                                                                                                                                                                                                                                                              BESCHREIBUNG                                                                                                                                                                                                                                                              |
 |----------------------|---------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |         mail         |      Host (A)       |                                                        Address=*Vom Anbieter (ISP) zugewiesene öffentliche IP-Adresse*                                                         |                                                                                                                                                                                                   An %%amp;quot;mail.contoso.com%%amp;quot; adressierte E-Mails werden von Exchange Server empfangen.<br /><br /> Sie können auch einen anderen Namen wählen.                                                                                                                                                                                                    |
 |          MX          | Mail-Exchanger (MX) |                                            Hostname=@<br /><br /> Address=mail.contoso.com<br /><br /> Preference=0                                             |                                                                                                                                                                                                      Ermöglicht das Senden von e-Mail-Nachrichten für email@contoso.com Ihren lokalen Server, auf dem Exchange Server ausgeführt wird.                                                                                                                                                                                                       |
@@ -426,7 +426,7 @@ New-SendConnector -Name "WSE Internet SendConnector" -Usage "Internet" -AddressS
  Wenn Sie die Integration in einen lokalen Exchange-Server deaktivieren, können Sie das Windows Server Essentials-Dashboard nicht länger verwenden, um die Exchange Server-Postfächer anzuzeigen, zu erstellen oder zu verwalten.
 
 ### <a name="what-do-i-need-to-know-about-email-accounts"></a>Was muss ich über E-Mail-Konten wissen?
- Eine gehostete E-Mail-Lösung wird auf dem Server konfiguriert. Eine Lösung von einem gehosteten e-Mail-Anbieter wie Microsoft Office 365 kann einzelne e-Mail-Konten für Netzwerk Benutzer bereitstellen. Wenn Sie den Assistenten zum Hinzufügen eines Benutzerkontos in Windows Server Essentials ausführen, um ein Benutzerkonto zu erstellen, versucht der Assistent das Benutzerkonto zu der verfügbaren gehosteten E-Mail-Lösung hinzuzufügen. Zur gleichen Zeit weist der Assistent dem Benutzer einen E-Mail-Namen (Alias) zu und legt die maximale Größe der Mailbox (Quote) fest. Die maximale Größe des Postfachs variiert je nach E-Mail-Anbieter, den Sie nutzen. Nachdem das Benutzerkonto hinzugefügt wurde, können Sie die Mailbox-Alias- und Kontingent-Informationen auf der Eigenschaftenseite für den Benutzer weiterhin verwalten. Verwenden Sie für eine umfassende Verwaltung der Benutzerkonten und des gehosteten E-Mail-Anbieters die Verwaltungskonsole des gehosteten Anbieters. Je nach Anbieter können Sie auf die Verwaltungskonsole über ein webbasiertes Portal oder über eine Registerkarte im Serverdashboard zugreifen.
+ Eine gehostete E-Mail-Lösung wird auf dem Server konfiguriert. Eine Lösung von einem gehosteten e-Mail-Anbieter wie Microsoft 365 kann einzelne e-Mail-Konten für Netzwerk Benutzer bereitstellen. Wenn Sie den Assistenten zum Hinzufügen eines Benutzerkontos in Windows Server Essentials ausführen, um ein Benutzerkonto zu erstellen, versucht der Assistent das Benutzerkonto zu der verfügbaren gehosteten E-Mail-Lösung hinzuzufügen. Zur gleichen Zeit weist der Assistent dem Benutzer einen E-Mail-Namen (Alias) zu und legt die maximale Größe der Mailbox (Quote) fest. Die maximale Größe des Postfachs variiert je nach E-Mail-Anbieter, den Sie nutzen. Nachdem das Benutzerkonto hinzugefügt wurde, können Sie die Mailbox-Alias- und Kontingent-Informationen auf der Eigenschaftenseite für den Benutzer weiterhin verwalten. Verwenden Sie für eine umfassende Verwaltung der Benutzerkonten und des gehosteten E-Mail-Anbieters die Verwaltungskonsole des gehosteten Anbieters. Je nach Anbieter können Sie auf die Verwaltungskonsole über ein webbasiertes Portal oder über eine Registerkarte im Serverdashboard zugreifen.
 
  Der Alias, den Sie beim Ausführen des Assistenten zum Hinzufügen eines Benutzerkontos bereitstellen, wird als vorgeschlagener Name für den Benutzeralias an den gehosteten E-Mail-Anbieter gesendet. Wenn der Benutzeralias beispielsweise *FrankM*ist, kann die e-Mail-Adresse des Benutzers lauten <em>FrankM@Contoso.com</em> .
 

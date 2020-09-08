@@ -7,12 +7,12 @@ ms.assetid: 07d0c4c6-3e92-4969-82b8-105e46ab8d97
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: d98ab8b203bc73da4129d63b5a2b7518742a3667
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: 9013d63d0fbedfd679b8d717b9501f4af567b6f5
+ms.sourcegitcommit: 34f9577ef32cbdc7ef96040caabc9d83517f9b79
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87181646"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89554413"
 ---
 # <a name="support-for-larger-deployments"></a>Unterstützung für größere Bereitstellungen
 
@@ -35,7 +35,7 @@ Windows Server 2012 R2 Essentials unterstützt nur eine Domäne pro Server, was 
 
 ## <a name="support-for-multiple-domain-controllers"></a>Unterstützung für mehrere Domänen Controller
 
- Windows Server Essentials 2012 R2 blockiert alle Dienste, die Azure Active Directory nutzen, wie z. b. Office 365, bei denen mehr als ein Domänen Controller bereitgestellt wird. Der Grund hierfür ist, dass die Konto-und Kenn Wort Synchronisierung zwischen den lokalen Domänen Controllern und Azure Active Directory zu Konto Anmelde Informationen mit Kenn Wörtern führen kann, die nicht synchron sind. Diese Einschränkung wurde in Windows Server 2016 Essentials entfernt.
+ Windows Server Essentials 2012 R2 blockiert alle Dienste, die Azure Active Directory nutzen, z. b. Microsoft 365, bei denen mehr als ein Domänen Controller bereitgestellt wird. Der Grund hierfür ist, dass die Konto-und Kenn Wort Synchronisierung zwischen den lokalen Domänen Controllern und Azure Active Directory zu Konto Anmelde Informationen mit Kenn Wörtern führen kann, die nicht synchron sind. Diese Einschränkung wurde in Windows Server 2016 Essentials entfernt.
 
 ## <a name="ability-to-specify-a-designated-domain-controller"></a>Möglichkeit zum Angeben eines bestimmten Domänen Controllers
 

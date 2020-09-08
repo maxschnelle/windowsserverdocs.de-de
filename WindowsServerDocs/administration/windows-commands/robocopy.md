@@ -7,12 +7,12 @@ author: jasongerend
 ms.author: jgerend
 manager: lizapo
 ms.date: 06/07/2020
-ms.openlocfilehash: 48d9d564c7badf8ea34c77ce7004d0ce642b78cb
-ms.sourcegitcommit: fe356f95188b7ce8e719765f44c0789c065832fb
+ms.openlocfilehash: d08e969d0296c9ca1efc34bfd0ac6ad7e42519cf
+ms.sourcegitcommit: 34f9577ef32cbdc7ef96040caabc9d83517f9b79
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89057582"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89554543"
 ---
 # <a name="robocopy"></a>Robocopy
 
@@ -32,7 +32,7 @@ robocopy c:\reports '\\marketing\videos' yearly-report.mov /mt /z
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 |--|--|
 | `<source>` | Gibt den Pfad zum Quellverzeichnis an. |
 | `<destination>` | Gibt den Pfad zum Zielverzeichnis an. |
@@ -41,7 +41,7 @@ robocopy c:\reports '\\marketing\videos' yearly-report.mov /mt /z
 
 #### <a name="copy-options"></a>Kopier Optionen
 
-| Option | Beschreibung |
+| Option | BESCHREIBUNG |
 |--|--|
 | /s | Kopiert Unterverzeichnisse. Mit dieser Option werden leere Verzeichnisse automatisch ausgeschlossen. |
 | /e | Kopiert Unterverzeichnisse. Diese Option enthält automatisch leere Verzeichnisse. |
@@ -61,8 +61,8 @@ robocopy c:\reports '\\marketing\videos' yearly-report.mov /mt /z
 | /mir | Spiegelt eine Verzeichnisstruktur wider (äquivalent zu **/e** und **/Purge**). Wenn Sie diese Option mit der Option **/e** und einem Zielverzeichnis verwenden, werden die Sicherheitseinstellungen für das Zielverzeichnis überschrieben. |
 | /mov | Verschiebt Dateien und löscht sie aus der Quelle, nachdem Sie kopiert wurden. |
 | "/Move | Verschiebt Dateien und Verzeichnisse und löscht sie aus der Quelle, nachdem Sie kopiert wurden. |
-| /a +: [RASHCNET] | Fügt die angegebenen Attribute den kopierten Dateien hinzu. |
-| /a--Befehl: [RASHCNET] | Entfernt die angegebenen Attribute aus den kopierten Dateien. |
+| /a +: [RASHCNET] | Fügt die angegebenen Attribute den kopierten Dateien hinzu.  Gültige Werte für diese Option: <ul><li>**R** -schreibgeschützt</li><li>**A** -Archive</li><li>**S** -System</li><li>**H** -ausgeblendet</li><li>**C** -komprimiert</li><li>**N** -kein Inhalt indiziert</li><li>**E** -verschlüsselt</li><li>**T** -temporär</li></ul> |
+| /a--Befehl: [RASHCNET] | Entfernt die angegebenen Attribute aus den kopierten Dateien. Gültige Werte für diese Option: <ul><li>**R** -schreibgeschützt</li><li>**A** -Archive</li><li>**S** -System</li><li>**H** -ausgeblendet</li><li>**C** -komprimiert</li><li>**N** -kein Inhalt indiziert</li><li>**E** -verschlüsselt</li><li>**T** -temporär</li></ul> |
 | /Create | Erstellt nur eine Verzeichnisstruktur und Dateien der Länge 0 (null). |
 | /fat | Erstellt Zieldateien mit nur-FAT-Dateinamen mit einer Länge von 8,3 Zeichen. |
 | /256 | Deaktiviert die Unterstützung für Pfade, die länger als 256 Zeichen sind. |
@@ -85,12 +85,12 @@ robocopy c:\reports '\\marketing\videos' yearly-report.mov /mt /z
 
 #### <a name="file-selection-options"></a>Optionen für die Dateiauswahl
 
-| Option | Beschreibung |
+| Option | BESCHREIBUNG |
 |--|--|
 | /a | Kopiert nur Dateien, für die das **Archive** -Attribut festgelegt ist. |
 | /m | Kopiert nur Dateien, für die das **Archive** -Attribut festgelegt ist, und setzt das **Archiv** Attribut zurück. |
-| /IA`[RASHCNETO]` | Enthält nur Dateien, für die eines der angegebenen Attribute festgelegt ist. |
-| geleitet`[RASHCNETO]` | Schließt Dateien aus, für die eines der angegebenen Attribute festgelegt ist. |
+| /IA`[RASHCNETO]` | Enthält nur Dateien, für die eines der angegebenen Attribute festgelegt ist.  Gültige Werte für diese Option: <ul><li>**R** -schreibgeschützt</li><li>**A** -Archive</li><li>**S** -System</li><li>**H** -ausgeblendet</li><li>**C** -komprimiert</li><li>**N** -kein Inhalt indiziert</li><li>**E** -verschlüsselt</li><li>**T** -temporär</li><li>**O** Offline schalten</li></ul> |
+| geleitet`[RASHCNETO]` | Schließt Dateien aus, für die eines der angegebenen Attribute festgelegt ist. Gültige Werte für diese Option: <ul><li>**R** -schreibgeschützt</li><li>**A** -Archive</li><li>**S** -System</li><li>**H** -ausgeblendet</li><li>**C** -komprimiert</li><li>**N** -kein Inhalt indiziert</li><li>**E** -verschlüsselt</li><li>**T** -temporär</li><li>**O** Offline schalten</li></ul> |
 | /xf `<filename>[ ...]` | Schließt Dateien aus, die den angegebenen Namen oder Pfaden entsprechen. Platzhalter Zeichen (**&#42;** und **?**) werden unterstützt. |
 | /xd `<directory>[ ...]` | Schließt Verzeichnisse aus, die den angegebenen Namen und Pfaden entsprechen. |
 | /xc | Schließt geänderte Dateien aus. |
@@ -114,7 +114,7 @@ robocopy c:\reports '\\marketing\videos' yearly-report.mov /mt /z
 
 #### <a name="retry-options"></a>Wiederholungs Optionen
 
-| Option | Beschreibung |
+| Option | BESCHREIBUNG |
 |--|--|
 | /r:`<n>` | Gibt die Anzahl von Wiederholungsversuchen für fehlerhafte Kopiervorgänge an. Der Standardwert von *n* ist 1 Million (1 Million Wiederholungen). |
 | /w:`<n>` | Gibt die Wartezeit zwischen Wiederholungen in Sekunden an. Der Standardwert von *n* ist 30 (Wartezeit 30 Sekunden). |
@@ -123,7 +123,7 @@ robocopy c:\reports '\\marketing\videos' yearly-report.mov /mt /z
 
 #### <a name="logging-options"></a>Protokollierungsoptionen
 
-| Option | Beschreibung |
+| Option | BESCHREIBUNG |
 |--|--|
 | /l | Gibt an, dass Dateien nur aufgelistet werden sollen (nicht kopiert, gelöscht oder Zeitstempel). |
 | /x | Meldet alle zusätzlichen Dateien, nicht nur die, die ausgewählt sind. |
@@ -148,7 +148,7 @@ robocopy c:\reports '\\marketing\videos' yearly-report.mov /mt /z
 
 #### <a name="job-options"></a>Auftrags Optionen
 
-| Option | Beschreibung |
+| Option | BESCHREIBUNG |
 |--|--|
 | /Auftrag`<jobname>` | Gibt an, dass Parameter von der benannten Auftragsdatei abgeleitet werden sollen. |
 | sicher`<jobname>` | Gibt an, dass Parameter in der benannten Auftragsdatei gespeichert werden sollen. |
@@ -159,7 +159,7 @@ robocopy c:\reports '\\marketing\videos' yearly-report.mov /mt /z
 
 ### <a name="exit-return-codes"></a>Exit-Codes (Return)
 
-| Wert | Beschreibung |
+| Wert | BESCHREIBUNG |
 |--|--|
 | 0 | Es wurden keine Dateien kopiert. Es wurde kein Fehler gefunden. Keine Dateien stimmen nicht überein. Die Dateien sind bereits im Zielverzeichnis vorhanden. Daher wurde der Kopiervorgang übersprungen. |
 | 1 | Alle Dateien wurden erfolgreich kopiert. |

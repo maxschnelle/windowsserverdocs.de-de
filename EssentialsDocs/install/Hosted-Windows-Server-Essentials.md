@@ -7,12 +7,12 @@ ms.assetid: fda5628c-ad23-49de-8d94-430a4f253802
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 73ac5bb39280277a50af84f489e3a9c5ccb0db05
-ms.sourcegitcommit: 04637054de2bfbac66b9c78bad7bf3e7bae5ffb4
+ms.openlocfilehash: 6fa3f4c013e91fdf9015d106575af832720c1db8
+ms.sourcegitcommit: 34f9577ef32cbdc7ef96040caabc9d83517f9b79
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87837999"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89554493"
 ---
 # <a name="hosted-windows-server-essentials"></a>Gehostete Windows Server Essentials-Lösung
 
@@ -29,7 +29,7 @@ Dieses Dokument enthält spezifische Informationen für Hoster, die Windows Serv
 
  **Zugriff überall:** Remotewebzugriff bietet optimale, für die Toucheingabe geeignete Browserfunktionen, um von nahezu allen Orten mit Internetverbindung und über fast alle Geräte auf Anwendungen und Daten zuzugreifen. Windows Server Essentials bietet außerdem eine aktualisierte Windows Phone-APP und eine neue APP für Windows 8.1 Client Computer, sodass Benutzer intuitiv eine Verbindung mit Dateien und Ordnern auf dem Server herstellen, diese durchsuchen und auf diese zugreifen können. Dateien werden automatisch für den Offlinezugriff zwischengespeichert und synchronisiert, sobald eine Verbindung mit dem Server verfügbar wird. Windows Server Essentials schaltet die Einrichtung von virtuellen privaten Netzwerken (VPN) in einen einfach zu einem Assistenten gesteuerten Prozess mit wenigen Klicks um und vereinfacht die Verwaltung von VPN-Zugriff für Benutzer. Clientcomputer können eine VPN-Verbindung nutzen, um remote auf die Windows SBS-Umgebung zuzugreifen, sodass der Weg ins Büro nicht mehr erforderlich ist.
 
- **Flexibilität der Arbeitsauslastung:** Windows Server Essentials wurde entwickelt, damit Kunden flexibel auswählen können, welche Anwendungen und Dienste lokal und welche in der Cloud ausgeführt werden. In früheren Versionen enthielt Windows Small Business Server Standard als Komponentenprodukt Exchange Server, wodurch Kunden, die cloudbasierte Dienste für Messaging und Zusammenarbeit nutzen wollten, nicht nur mehr Kosten entstanden, sondern auch eine größere Komplexität zu bewältigen hatten. Mit Windows Server Essentials können Kunden die gleiche Art integrierter Verwaltungsfunktionen nutzen, unabhängig davon, ob Sie eine lokale Kopie von Exchange Server ausführen, einen gehosteten Exchange-Dienst abonnieren oder Microsoft Office 365 abonnieren.
+ **Flexibilität der Arbeitsauslastung:** Windows Server Essentials wurde entwickelt, damit Kunden flexibel auswählen können, welche Anwendungen und Dienste lokal und welche in der Cloud ausgeführt werden. In früheren Versionen enthielt Windows Small Business Server Standard als Komponentenprodukt Exchange Server, wodurch Kunden, die cloudbasierte Dienste für Messaging und Zusammenarbeit nutzen wollten, nicht nur mehr Kosten entstanden, sondern auch eine größere Komplexität zu bewältigen hatten. Mit Windows Server Essentials können Kunden die gleiche Art integrierter Verwaltungsfunktionen nutzen, unabhängig davon, ob Sie eine lokale Kopie von Exchange Server ausführen, einen gehosteten Exchange-Dienst abonnieren oder Microsoft 365 abonnieren.
 
  System **Überwachung:** Windows Server Essentials überwacht seinen eigenen Integritäts Status und den Status von Client Computern, auf denen Windows 8.1, Windows 7 und Mac OS X Version 10,5 und höher ausgeführt wird. Der Integritätsstatus benachrichtigt Sie u. a. bei Problemen im Zusammenhang mit Computersicherungen, dem Serverspeicher und wenig Speicherplatz.
 
@@ -52,10 +52,10 @@ Dieses Dokument enthält spezifische Informationen für Hoster, die Windows Serv
 
    Wenn Sie Virtual Machine Manager verwenden, können Sie eine Vorlage mithilfe der ausgeführten Instanz erstellen. Durch das Erstellen einer Vorlage wird für die Instanz eine Systemvorbereitung durchgeführt und der Server heruntergefahren. Nachdem Sie die Instanz in Ihrer Bibliothek gespeichert haben, können Sie sie bei Bedarf jederzeit aufrufen.
 
-##  <a name="how-do-i-automate-the-deployment"></a><a name="BKMK_automatedeployment"></a>Gewusst wie die Bereitstellung automatisieren?
+##  <a name="how-do-i-automate-the-deployment"></a><a name="BKMK_automatedeployment"></a> Gewusst wie die Bereitstellung automatisieren?
  Nachdem Sie das angepasste Abbild aufgezeichnet haben, können Sie die Bereitstellung mit dem eigenen Abbild ausführen. Damit Sie eine teilweise unbeaufsichtigte Installation ausführen können, müssen Sie die Datei "unattend.xml" für WinPE-Setup angeben/bereitstellen. Um eine vollständig unbeaufsichtigte Installation durchzuführen, müssen Sie auch die cfg.ini Datei für die Erstkonfiguration von Windows Server Essentials bereitstellen.
 
-1. Führen Sie nur ein unbeaufsichtigtes WinPE-Setup aus. Dadurch wird nur das WinPE-Setup automatisiert, und die Installation wird vor der Erstkonfiguration angehalten, sodass die Endbenutzer nach dem Herstellen einer RDP-Verbindung mit der Serversitzung Informationen zum Unternehmen, zur Domäne und zum Administrator selbst angeben können. Gehen Sie dazu folgendermaßen vor:
+1. Führen Sie nur ein unbeaufsichtigtes WinPE-Setup aus. Dadurch wird nur das WinPE-Setup automatisiert, und die Installation wird vor der Erstkonfiguration angehalten, sodass die Endbenutzer nach dem Herstellen einer RDP-Verbindung mit der Serversitzung Informationen zum Unternehmen, zur Domäne und zum Administrator selbst angeben können. Dazu ist Folgendes erforderlich:
 
    1.  Geben Sie die Windows-Datei "unattend.xml" an. Führen Sie die [Windows 8.1 ADK](https://go.microsoft.com/fwlink/?LinkId=248694) aus, um die Datei zu generieren, und geben Sie alle erforderlichen Informationen einschließlich Servername, Product Keys und Administrator Kennwort an. Geben Sie im Abschnitt Microsoft-Windows-Setup der Datei unattend.xml die folgenden Informationen an.
 
@@ -79,7 +79,7 @@ Dieses Dokument enthält spezifische Informationen für Hoster, die Windows Serv
 
    Wenn Sie Virtual Machine Manager verwenden, können Sie das Administratorkennwort in der Konsole angeben, wenn Sie aus der Vorlage eine neue Instanz erstellen.
 
-2. Führen Sie ein vollständig unbeaufsichtigtes Setup einschließlich einer unbeaufsichtigten Erstkonfiguration aus. Gehen Sie dazu folgendermaßen vor:
+2. Führen Sie ein vollständig unbeaufsichtigtes Setup einschließlich einer unbeaufsichtigten Erstkonfiguration aus. Dazu ist Folgendes erforderlich:
 
    1.  Geben Sie die Datei "unattend.xml" wie zuvor an, wenn die Bereitstellung von WinPE-Setup aus startet.
 
@@ -251,7 +251,7 @@ $Add-WssFolder -Name "MyTestFolder" -Path "C:\ServerFolders\MyTestFolder"
  Da Windows Server Essentials ein Domänen Controller ist, können Sie einen zweiten Server standardmäßig der Domäne hinzufügen.
 
 ## <a name="which-email-solutions-can-be-integrated"></a>Welche E-Mail-Lösungen können integriert werden?
- Windows Server Essentials unterstützt die Integration mit zwei Standard-e-Mail-Lösungen: Office 365 und lokales Exchange. Wenn Sie Ihre eigene gehostete e-Mail-Lösung ausführen, müssen Sie ein Add-in entwickeln, um Windows Server Essentials in Ihre gehostete e-Mail-Lösung zu integrieren.
+ Windows Server Essentials unterstützt die Integration mit zwei Standard-e-Mail-Lösungen: Microsoft 365 und lokales Exchange. Wenn Sie Ihre eigene gehostete e-Mail-Lösung ausführen, müssen Sie ein Add-in entwickeln, um Windows Server Essentials in Ihre gehostete e-Mail-Lösung zu integrieren.
 
 ## <a name="how-do-i-migrate-on-premises-windows-sbs-201120082003-to-the-hosted-windows-server-essentials"></a>Gewusst wie Migrieren von lokalen Windows SSB (2011/2008/2003) zu der gehosteten Windows Server Essentials-Instanz
  Migrations Handbücher sind für die Migration von lokalen Windows Small Business Server (Windows SSB) zu Windows Server Essentials verfügbar. Manche der darin beschriebenen Schritte entsprechen ggf. nicht genau Ihrer gehosteten Umgebung. Die allgemeinen Aufgaben und die Arbeitsauslastungen, die zu migrieren sind, sollten jedoch die gleichen sein. Es wird empfohlen, auf die [Migrationshandbücher](https://go.microsoft.com/fwlink/p/?LinkID=254292) zurückzugreifen und die erforderlichen Anpassungen entsprechend Ihrer Hostingumgebung vorzunehmen.
@@ -363,7 +363,7 @@ $Add-WssFolder -Name "MyTestFolder" -Path "C:\ServerFolders\MyTestFolder"
 
 - (Falls zutreffend) Konfigurieren und Verwalten von Speicherplätzen
 
-- (Falls zutreffend) Konfigurieren der Integration der E-Mail-Lösung (Office 365, gehosteter Exchange-Dienst usw.)
+- (Falls zutreffend) Konfigurieren der Integration der e-Mail-Lösung (Microsoft 365, gehosteten Exchange-Dienst usw.).
 
 - (Falls zutreffend) Konfigurieren des Medienservers
 

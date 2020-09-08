@@ -7,12 +7,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 44ee776ec2ec199fe39cfd17a05dfc3b8ba4502c
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: f83788b4d8e8f92ea1375b9a0f245f9bfa63bc85
+ms.sourcegitcommit: 34f9577ef32cbdc7ef96040caabc9d83517f9b79
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89036448"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89554383"
 ---
 # <a name="shutdown"></a>shutdown
 
@@ -23,12 +23,12 @@ Ermöglicht das Herunterfahren oder Neustarten von jeweils einem lokalen Compute
 ## <a name="syntax"></a>Syntax
 
 ```
-shutdown [/i | /l | /s | /r | /a | /p | /h | /e] [/f] [/m \\<ComputerName>] [/t <XXX>] [/d [p|u:]<XX>:<YY> [/c comment]]
+shutdown [/i | /l | /s | /r | /a | /p | /h | /e] [/f] [/m \\<ComputerName>] [/t <XXX>] [/d [p|u:]<XX>:<YY> [/c "descriptive comment"]]
 ```
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
 |/i|Zeigt das **Dialog Feld Remote herunter** fahren an. Die **/i** -Option muss der erste Parameter sein, der dem Befehl folgt. Wenn **/i** angegeben wird, werden alle anderen Optionen ignoriert.|
 |/l|Meldet den aktuellen Benutzer sofort und ohne Timeout Zeitraum ab. **/L** kann nicht mit **/m** oder **/t**verwendet werden.|
@@ -45,25 +45,25 @@ shutdown [/i | /l | /s | /r | /a | /p | /h | /e] [/f] [/m \\<ComputerName>] [/t 
 |/c \<Comment>|Hier können Sie detaillierte Kommentare zum Grund für das Herunterfahren eingeben. Sie müssen zuerst einen Grund angeben, indem Sie die Option **/d** verwenden. Sie müssen Kommentare in Anführungszeichen einschließen. Sie können maximal 511 Zeichen verwenden.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an, einschließlich einer Liste der Haupt-und neben Gründe, die auf dem lokalen Computer definiert sind.|
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 
--   Benutzern muss das **System** Benutzerrecht Herunterfahren zugewiesen werden, um einen lokalen oder remote verwalteten Computer zu beenden, der den Befehl **Shutdown** verwendet.
--   Benutzer müssen Mitglied der Gruppe "Administratoren" sein, um ein unerwartetes Herunterfahren eines lokalen oder remote verwalteten Computers zu kommentieren. Wenn der Zielcomputer einer Domäne angehört, können Mitglieder der Gruppe "Domänen-Admins" dieses Verfahren möglicherweise ausführen. Weitere Informationen finden Sie unter
-    -   [Lokale Standardgruppen](/previous-versions/windows/it-pro/windows-server-2003/cc785098(v=ws.10))
-    -   [Standardgruppen](/previous-versions/windows/it-pro/windows-server-2003/cc756898(v=ws.10))
--   Wenn Sie mehrere Computer gleichzeitig Herunterfahren möchten, können Sie das **herunter** fahren für jeden Computer mithilfe eines Skripts aufrufen, oder Sie können **Shutdown** **/i** verwenden, um das Dialog Feld Remote Herunterfahren anzuzeigen.
--   Wenn Sie Haupt-und Nebengrund Codes angeben, müssen Sie diese Ursachen Codes zunächst auf jedem Computer definieren, auf dem Sie die Gründe verwenden möchten. Wenn die Ursachen Codes nicht auf dem Zielcomputer definiert sind, kann die Shutdown-Ereignisprotokollierung den richtigen Grund Text nicht protokollieren.
--   Denken Sie daran, dass ein Herunterfahren mithilfe des Parameters " **p:** " geplant ist. **P:** gibt an, dass ein Herunterfahren nicht geplant ist. Wenn Sie **p:** gefolgt von dem Ursachen Code für ein ungeplantes Herunterfahren eingeben, führt der Befehl das Herunterfahren nicht aus. Wenn Sie hingegen **p:** weglassen und den Grund Code für ein geplantes Herunterfahren eingeben, führt der Befehl das Herunterfahren nicht aus.
+- Benutzern muss das **System** Benutzerrecht Herunterfahren zugewiesen werden, um einen lokalen oder remote verwalteten Computer zu beenden, der den Befehl **Shutdown** verwendet.
+- Benutzer müssen Mitglied der Gruppe "Administratoren" sein, um ein unerwartetes Herunterfahren eines lokalen oder remote verwalteten Computers zu kommentieren. Wenn der Zielcomputer einer Domäne angehört, können Mitglieder der Gruppe "Domänen-Admins" dieses Verfahren möglicherweise ausführen. Weitere Informationen finden Sie unter:
+    - [Lokale Standardgruppen](/previous-versions/windows/it-pro/windows-server-2003/cc785098(v=ws.10))
+    - [Standardgruppen](/previous-versions/windows/it-pro/windows-server-2003/cc756898(v=ws.10))
+- Wenn Sie mehrere Computer gleichzeitig Herunterfahren möchten, können Sie das **herunter** fahren für jeden Computer mithilfe eines Skripts aufrufen, oder Sie können **Shutdown** **/i** verwenden, um das Dialog Feld Remote Herunterfahren anzuzeigen.
+- Wenn Sie Haupt-und Nebengrund Codes angeben, müssen Sie diese Ursachen Codes zunächst auf jedem Computer definieren, auf dem Sie die Gründe verwenden möchten. Wenn die Ursachen Codes nicht auf dem Zielcomputer definiert sind, kann die Shutdown-Ereignisprotokollierung den richtigen Grund Text nicht protokollieren.
+- Denken Sie daran, dass ein Herunterfahren mithilfe des Parameters " **p:** " geplant ist. **P:** gibt an, dass ein Herunterfahren nicht geplant ist. Wenn Sie **p:** gefolgt von dem Ursachen Code für ein ungeplantes Herunterfahren eingeben, führt der Befehl das Herunterfahren nicht aus. Wenn Sie hingegen **p:** weglassen und den Grund Code für ein geplantes Herunterfahren eingeben, führt der Befehl das Herunterfahren nicht aus.
 
 ## <a name="examples"></a>Beispiele
 
 So erzwingen Sie das Schließen und Neustarten des lokalen Computers nach einer Verzögerung von einer Minute mit dem Grund für die Anwendung: Wartung (geplant) und den Kommentar Neukonfiguration myapp.exe Typs:
 ```
-shutdown /r /t 60 /c Reconfiguring myapp.exe /f /d p:4:1
+shutdown /r /t 60 /c "Reconfiguring myapp.exe" /f /d p:4:1
 ```
 Um den Remote Computer \\ \\ Servername mit denselben Parametern neu zu starten, geben Sie Folgendes ein:
 ```
-shutdown /r /m \\servername /t 60 /c Reconfiguring myapp.exe /f /d p:4:1
+shutdown /r /m \\servername /t 60 /c "Reconfiguring myapp.exe" /f /d p:4:1
 ```
 
 ## <a name="additional-references"></a>Weitere Verweise
