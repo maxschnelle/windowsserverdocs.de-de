@@ -8,12 +8,12 @@ manager: lizross
 ms.author: helohr
 ms.date: 01/07/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 69e453e6e65dc0850b7e872f655eda28a6e319c5
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: a51e21877cc0e0e066765d9f73e74103f3a96245
+ms.sourcegitcommit: 9a59e00db5e68b1a12769b5cd5523b8c501776ad
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87958048"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89282092"
 ---
 # <a name="remote-desktop-clients"></a>Remotedesktopclients
 
@@ -28,7 +28,7 @@ Die folgenden Client-Apps sind verfügbar:
 | Gerät          | Abrufen der App                                                                                                  | Setupanleitung                                                                |
 |-----------------|-----------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
 | Windows Desktop | [Windows Desktop-Client](windowsdesktop.md#install-the-client)                                               | [Erste Schritte mit dem Windows-Desktop-Client](windowsdesktop.md) |
-| Windows Store   | [Windows 10-Client im Microsoft Store](https://go.microsoft.com/fwlink/?LinkID=616709)                   | [Erste Schritte mit dem Windows Store-Client](windows.md)          |
+| Windows Store   | [Windows 10-Client im Microsoft Store](https://go.microsoft.com/fwlink/?LinkID=616709)                   | [Erste Schritte mit dem Microsoft Store-Client](windows.md)          |
 | Android         | [Android-Client in Google Play](https://play.google.com/store/apps/details?id=com.microsoft.rdc.android)     | [Erste Schritte mit dem Android-Client](remote-desktop-android.md) |
 | iOS             | [iOS-Client im iTunes Store](https://itunes.apple.com/app/microsoft-remote-desktop/id714464092?mt=8)     | [Erste Schritte mit dem iOS-Client](remote-desktop-ios.md)         |
 | macOS           | [macOS-Client im iTunes Store](https://itunes.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) | [Erste Schritte mit dem macOS-Client](remote-desktop-mac.md)       |
