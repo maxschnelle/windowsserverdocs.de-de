@@ -1,5 +1,5 @@
 ---
-title: Erste Schritte mit dem Windows Store-Client
+title: Erste Schritte mit dem Microsoft Store-Client
 description: Enthält grundlegende Einrichtungsschritte für den Remotedesktopclient für Windows Store.
 ms.topic: article
 ms.assetid: 64f038e1-40ec-4c67-938b-72edea49e5d8
@@ -8,14 +8,14 @@ manager: dongill
 ms.author: elizapo
 ms.date: 06/01/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 05e32c05aaafb941958e025253e67c856d81257d
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: c28ccbe0cfd49f1cf774031b002bf7b6142d0a00
+ms.sourcegitcommit: 9a59e00db5e68b1a12769b5cd5523b8c501776ad
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87990365"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89282112"
 ---
-# <a name="get-started-with-the-windows-store-client"></a>Erste Schritte mit dem Windows Store-Client
+# <a name="get-started-with-the-microsoft-store-client"></a>Erste Schritte mit dem Microsoft Store-Client
 
 >Gilt für: Windows 10
 
@@ -24,7 +24,7 @@ Du kannst den Remotedesktopclient für Windows verwenden, um Windows-Apps und -D
 Verwende die folgenden Informationen für die ersten Schritte. Lesen Sie unbedingt die [häufig gestellten Fragen](remote-desktop-client-faq.md), wenn Sie Fragen haben.
 
 > [!NOTE]
-> - Möchtest du mehr über die neuen Versionen für den Windows-Client erfahren? [Neuigkeiten im Windows Store-Client](windows-whatsnew.md) ansehen
+> - Möchtest du mehr über die neuen Versionen für den Microsoft Store-Client erfahren? Lesen Sie [Neuerungen im Microsoft Store-Client](windows-whatsnew.md).
 > - Du kannst den Client unter jeder unterstützten Version von Windows 10 ausführen.
 
 ## <a name="get-the-rd-client-and-start-using-it"></a>Abrufen des Remotedesktopclients und Ausführen der ersten Schritte

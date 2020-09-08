@@ -5,14 +5,14 @@ ms.topic: article
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 11/15/2019
+ms.date: 09/02/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 80663da151137d093634c36a25d4d061c8038e60
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 18142988108e1eafe59ca7fd83a29dd4dfb87720
+ms.sourcegitcommit: 664ed9bb0bbac2c9c0727fc2416d8c437f2d5cbe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87961864"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89472030"
 ---
 # <a name="whats-new-in-the-web-client"></a>Neues beim Webclient
 
@@ -20,6 +20,17 @@ Der [Remotedesktop-Webclient](remote-desktop-web-client.md) wird regelmäßig mi
 
 > [!NOTE]
 > Wir haben das Versionsverwaltungssystem für den Webclient geändert. Ab Version 1.0.18.0 enthalten alle Releaseversionen des Webclients Zahlen (im Format „W.X.Y.Z“). Releasenummern für den Remotedesktop-Webclient enden immer mit einer Null (Beispiel: W.X.Y.0). Mit jedem Windows Virtual Desktop-Webclientrelease ändert sich die letzte Stelle bis zum nächsten Remotedesktop-Webclientrelease (Beispiel: 1.0.18.1).
+
+## <a name="updates-for-10220"></a>Updates für 1.0.22.0
+*Veröffentlicht am: 2.9.2020*
+
+- Benutzer können nun das minimierte Menü verschieben.
+- Die Unterstützung für 4K- und Ultra-Wide-Monitore wurde verbessert, und ein Problem wurde behoben, bei dem das Kopieren großer Datenmengen zum Absturz von Sitzungen führte.
+- Die Unterstützung für die Verwendung eines Eingabemethoden-Editors in der Remotesitzung wurde verbessert. Weitere Informationen zur Verwendung eines Eingabemethoden-Editors mit dem Webclient finden Sie unter [Herstellen der Verbindung zu Windows Virtual Desktop mit dem Webclient](/azure-docs/articles/virtual-desktop/connect-web.md).
+- Die UI der Seite **Alle Ressourcen** wurde geändert.
+- Mehrere Fehler in der Verbindungssequenz wurden behoben, bei denen der Webclient einen *allgemeinen Protokollfehler* zurückgab.
+- Es wurden Probleme bei der Tastatureingabe behoben, bei denen bestimmte Tastenfolgen nicht richtig verarbeitet wurden.
+- Barrierefreiheitsverbesserungen
 
 ## <a name="updates-for-version-10210"></a>Updates für Version 1.0.21.0
 *Veröffentlicht am: 15.11.2019*
