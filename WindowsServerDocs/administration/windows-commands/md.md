@@ -3,16 +3,16 @@ title: md
 description: Referenz Artikel für den MD-Befehl, der ein Verzeichnis oder ein Unterverzeichnis erstellt.
 ms.topic: reference
 ms.assetid: 82162d00-cc34-4776-9e55-4b4836dbd6a9
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: f3da07c6e9d2e6fd7499f74e8ef10fdf3ba85586
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 1026d14c39b4058ba3e775356d27f3be8d4e8bf9
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89037848"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89633703"
 ---
 # <a name="md"></a>md
 
@@ -29,7 +29,7 @@ md [<drive>:]<path>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `<drive>`: | Gibt das Laufwerk an, auf dem das neue Verzeichnis erstellt werden soll. |
 | `<path>` | Gibt den Namen und den Speicherort des neuen Verzeichnisses an. Die maximale Länge eines einzelnen Pfads wird vom Dateisystem festgelegt. Dies ist ein erforderlicher Parameter. |

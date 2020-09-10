@@ -3,16 +3,16 @@ title: add
 description: Referenz Artikel für den Befehl "hinzufügen", mit dem Volumes zu der Gruppe von Volumes hinzugefügt werden, die als Schatten kopiert werden sollen, oder um Aliase zur Alias Umgebung hinzuzufügen.
 ms.topic: reference
 ms.assetid: 47efce7a-86d2-4872-ae31-baa108757afd
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: e2a4d8e73799c2e2f2f93af4e85ebbeb6af4c69a
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: ddd090323b45caa0cc7afa4c07c568793f2e268d
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89029418"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89633490"
 ---
 # <a name="add"></a>add
 
@@ -31,7 +31,7 @@ add alias <aliasname> <aliasvalue>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ---------- | ----------- |
 | Volume | Fügt ein Volume zum Schattenkopiesatz hinzu. Dies ist der Satz von Volumes, auf die Schatten kopiert werden soll. Syntax und Parameter finden [Sie unter Volume hinzufügen](add-volume.md) . |
 | alias | Fügt der Alias Umgebung den angegebenen Namen und Wert hinzu. Informationen finden [Sie unter Add-Alias](add-alias.md) für Syntax und Parameter. |

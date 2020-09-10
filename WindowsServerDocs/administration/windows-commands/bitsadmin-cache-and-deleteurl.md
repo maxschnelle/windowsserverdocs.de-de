@@ -3,16 +3,16 @@ title: biout admin Cache und DeleteUrl
 description: Referenz Artikel für den bizadmin-Cache und den DeleteUrl-Befehl, der alle Cache Einträge für die angegebene URL löscht.
 ms.topic: reference
 ms.assetid: e108b76b-fae9-4c16-bf4c-d74c9f025953
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: ed804580c4435b612b91875ef59cf6eb8ca4275b
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 6e1c3af4cfbb6c1ef21a86ead6d3975bf1f44cf6
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89026708"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89632620"
 ---
 # <a name="bitsadmin-cache-and-deleteurl"></a>biout admin Cache und DeleteUrl
 
@@ -26,7 +26,7 @@ bitsadmin /deleteURL URL
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | -------------- | -------------- |
 | URL | Der Uniform Resource Locator, der eine Remote Datei identifiziert. |
 

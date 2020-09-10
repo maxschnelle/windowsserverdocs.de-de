@@ -3,16 +3,16 @@ title: bdehdcfg
 description: Referenz Artikel für den Befehl "bdehdcfg", der eine Festplatte mit den für BitLocker-Laufwerkverschlüsselung erforderlichen Partitionen vorbereitet.
 ms.topic: reference
 ms.assetid: 4c92cd74-188e-4fec-b7c4-fe4e8903e032
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: ea7806fc75d01e3b261296ff6fd462473ca5683b
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: e14a361fc0cb163466519ef2ccdefed642ca5632
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89031458"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89632796"
 ---
 # <a name="bdehdcfg"></a>bdehdcfg
 
@@ -39,7 +39,7 @@ bdehdcfg [–driveinfo <drive_letter>] [-target {default|unallocated|<drive_lett
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- |----------- |
 | [bdehdcfg: DriveInfo](bdehdcfg-driveinfo.md) | Zeigt den Laufwerk Buchstaben, die Gesamtgröße, den maximalen freien Speicherplatz und die Partitions Merkmale der Partitionen auf dem angegebenen Laufwerk an. Nur gültige Partitionen sind aufgeführt. Verfügbarer Speicher ist nicht aufgeführt, wenn bereits vier primäre oder erweiterte Partitionen vorhanden sind. |
 | [bdehdcfg: Ziel](bdehdcfg-target.md) | Definiert, welcher Teil eines Laufwerks als Systemlaufwerk verwendet werden soll, und macht den Teil aktiv. |

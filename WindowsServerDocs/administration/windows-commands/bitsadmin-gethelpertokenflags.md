@@ -2,16 +2,16 @@
 title: bitsadmin gethelpertokenflags
 description: Referenz Artikel für den BITSAdmin gethelpertokenflags-Befehl, der die nutzungsflags für ein Hilfsobjekt zurückgibt, das einem Bits-Übertragungs Auftrag zugeordnet ist.
 ms.topic: reference
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 03/01/2019
-ms.openlocfilehash: 59c6f2913c3c0f9bde3bbd591cf4a887e50af801
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 244dee15e201c877bdf3c17a219e190bee9a5821
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89033558"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89632052"
 ---
 # <a name="bitsadmin-gethelpertokenflags"></a>bitsadmin gethelpertokenflags
 
@@ -28,11 +28,11 @@ bitsadmin /gethelpertokenflags <job>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | -------------- | -------------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 
-### <a name="remarks"></a>Bemerkungen
+### <a name="remarks"></a>Hinweise
 
 Mögliche Rückgabewerte, einschließlich:
 

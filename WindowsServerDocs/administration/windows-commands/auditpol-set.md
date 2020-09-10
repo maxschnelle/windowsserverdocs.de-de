@@ -3,16 +3,16 @@ title: auditpol set
 description: Referenz Artikel für den Befehl Auditpol Set, mit dem die Überwachungsrichtlinie pro Benutzer, die System Überwachungsrichtlinie oder die Überwachungs Optionen festgelegt werden.
 ms.topic: reference
 ms.assetid: f4947486-87bd-48cb-ba81-7230c8e70895
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 674de256eba3ee4b55f2b889717b7c2ed2defa3d
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: ac9baa7a8936e4b664cb767f7eb626f4f69fafed
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89028968"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89633104"
 ---
 # <a name="auditpol-set"></a>auditpol set
 
@@ -36,7 +36,7 @@ auditpol /set
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | /User | Der Sicherheits Prinzipal, für den die von der Kategorie oder Unterkategorie angegebene Überwachungsrichtlinie pro Benutzer festgelegt ist. Die Option Category oder SubCategory muss als Sicherheits-ID (SID) oder Name angegeben werden. |
 | /include | Angegeben mit/User; Gibt an, dass die Richtlinie pro Benutzer des Benutzers bewirkt, dass eine Überwachung generiert wird, auch wenn Sie nicht von der System Überwachungsrichtlinie angegeben wird. Diese Einstellung ist die Standardeinstellung und wird automatisch angewendet, wenn weder der/include-noch der/Exclude-Parameter explizit angegeben wird. |

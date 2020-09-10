@@ -3,16 +3,16 @@ title: auditpol get
 description: Referenz Artikel für den Befehl Auditpol Get, der die System Richtlinie, die Richtlinie für benutzerspezifische Richtlinien, Überwachungs Optionen und das Überwachungs Sicherheits Deskriptor-Objekt abruft.
 ms.topic: reference
 ms.assetid: fe13de4e-836c-4207-b47c-64b6272d6c41
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 23de44ebc9bc91ad4db52ee7362b14d9c93648d8
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 309e54170b7a154629a17e5fde1ed4943d0b180c
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89029088"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89633236"
 ---
 # <a name="auditpol-get"></a>auditpol get
 
@@ -36,7 +36,7 @@ auditpol /get
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | /User | Zeigt den Sicherheits Prinzipal an, für den die Überwachungsrichtlinie pro Benutzer abgefragt wird. Der/Category-Parameter oder der/SubCategory-Parameter muss angegeben werden. Der Benutzer kann als Sicherheits-ID (SID) oder Name angegeben werden. Wenn kein Benutzerkonto angegeben ist, wird die System Überwachungsrichtlinie abgefragt. |
 | /category | Eine oder mehrere Überwachungs Kategorien, die durch Globally Unique Identifier (GUID) oder den Namen angegeben werden. Ein Sternchen (*) kann verwendet werden, um anzugeben, dass alle Überwachungs Kategorien abgefragt werden sollen. |
@@ -46,7 +46,7 @@ auditpol /get
 | /r | Zeigt die Ausgabe im Berichtsformat an, durch Kommas getrennte Werte (CSV). |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-### <a name="remarks"></a>Bemerkungen
+### <a name="remarks"></a>Hinweise
 
 Alle Kategorien und Unterkategorien können durch die GUID oder den Namen angegeben werden, die in Anführungszeichen (") eingeschlossen ist. Benutzer können nach SID oder Name angegeben werden.
 

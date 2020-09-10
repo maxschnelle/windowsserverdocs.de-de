@@ -3,16 +3,16 @@ title: bdehdcfg driveinfo
 description: Referenz Artikel für den Befehl bdehdcfg DriveInfo, der den Laufwerk Buchstaben, die Gesamtgröße, den maximalen freien Speicherplatz und die Partitions Merkmale anzeigt.
 ms.topic: reference
 ms.assetid: f2d065e7-eced-4509-a1a0-ee2521a7f02e
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 016733e2a10bd942b04a77af3d8e01577d4fff86
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: fb474e40e92979f5f2cf73d90a553bbf785c0312
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89031558"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89632964"
 ---
 # <a name="bdehdcfg-driveinfo"></a>bdehdcfg: DriveInfo
 
@@ -31,7 +31,7 @@ bdehdcfg -driveinfo <drive_letter>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | <drive_letter> | Gibt einen Laufwerk Buchstaben gefolgt von einem Doppelpunkt an. |
 

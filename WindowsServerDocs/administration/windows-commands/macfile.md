@@ -3,16 +3,16 @@ title: macfile
 description: Referenz Artikel für den MacFile-Befehl, der den Datei Server für Macintosh-Server, Volumes, Verzeichnisse und Dateien verwaltet.
 ms.topic: reference
 ms.assetid: e2ce586c-b316-41d3-90f8-4be0d074cc0e
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 06095d99c6cfbdc51fd28f51f9bc06f08d959edf
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 6ed5af42108d56016a4b5793993cf19c80a87ff3
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89023694"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89633833"
 ---
 # <a name="macfile"></a>macfile
 
@@ -32,7 +32,7 @@ macfile directory[/server:\\<computername>] /path:<directory> [/owner:<ownername
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | /server:`\\<computername>` | Gibt den Server an, auf dem ein Verzeichnis geändert werden soll. Wenn der Vorgang nicht weggelassen wird, wird der Vorgang auf dem lokalen Computer ausgeführt. |
 | /Path`<directory>` | Gibt den Pfad zu dem Verzeichnis an, das Sie ändern möchten. Dieser Parameter ist erforderlich. **Hinweis:** Das Verzeichnis muss vorhanden sein, und das Verzeichnis " **MacFile** " erstellt keine Verzeichnisse. |
@@ -59,7 +59,7 @@ Die Position der Berechtigungs Ziffer bestimmt, welche Berechtigung festgelegt w
 | Zehnten | Das Verzeichnis kann nicht umbenannt, verschoben oder gelöscht werden. |
 | Stündigen | Die Änderungen gelten für das aktuelle Verzeichnis und alle Unterverzeichnisse. |
 
-##### <a name="remarks"></a>Bemerkungen
+##### <a name="remarks"></a>Hinweise
 
 - Wenn die Informationen, die Sie angeben, Leerzeichen oder Sonderzeichen enthalten, verwenden Sie Anführungszeichen um den Text (z `<computer name>` . b. "").
 
@@ -89,7 +89,7 @@ macfile forkize[/server:\\<computername>] [/creator:<creatorname>] [/type:<typen
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | /server:`\\<computername>` | Gibt den Server an, auf dem Dateien verknüpft werden sollen. Wenn der Vorgang nicht weggelassen wird, wird der Vorgang auf dem lokalen Computer ausgeführt. |
 | Hersteller`<creatorname>` | Gibt den Ersteller der Datei an. Der Macintosh-Finder verwendet die Befehlszeilenoption **/Creator** , um die Anwendung zu ermitteln, die die Datei erstellt hat. |
@@ -99,7 +99,7 @@ macfile forkize[/server:\\<computername>] [/creator:<creatorname>] [/type:<typen
 | targetfile`<filepath>` | Gibt den Speicherort der Datei an, die durch den Beitritt zu einer Daten Verzweigung und einer Ressourcen Verzweigung erstellt wird, oder gibt den Speicherort der Datei an, deren Typ oder Ersteller Sie ändern. Die Datei muss sich auf dem angegebenen Server befinden. Dieser Parameter ist erforderlich. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-##### <a name="remarks"></a>Bemerkungen
+##### <a name="remarks"></a>Hinweise
 
 - Wenn die Informationen, die Sie angeben, Leerzeichen oder Sonderzeichen enthalten, verwenden Sie Anführungszeichen um den Text (z `<computer name>` . b. "").
 
@@ -129,14 +129,14 @@ macfile server [/server:\\<computername>] [/maxsessions:{number | unlimited}] [/
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- |------------ |
 | /server:`\\<computername>` | Gibt den Server an, auf dem die Parameter geändert werden sollen. Wenn der Vorgang nicht weggelassen wird, wird der Vorgang auf dem lokalen Computer ausgeführt. |
 | MaxSessions`{number | unlimited}` | Gibt die maximale Anzahl von Benutzern an, die gleichzeitig Datei-und Druckserver für Macintosh verwenden können. Wenn der Wert nicht angegeben wird, bleibt die **MaxSessions** -Einstellung für den Server unverändert. |
 | /loginmessage:`<message>` | Ändert die Nachricht, die Macintosh-Benutzer bei der Anmeldung beim Datei Server für Macintosh-Server sehen. Die maximale Anzahl von Zeichen für die Anmelde Nachricht beträgt 199. Wenn der Wert nicht ausgelassen wird, bleibt die **loginmessage** -Nachricht für den Server unverändert. Wenn Sie eine vorhandene Anmelde Nachricht entfernen möchten, schließen Sie den **/loginmessage** -Parameter ein, lassen Sie die *Nachrichten* Variable jedoch leer. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-##### <a name="remarks"></a>Bemerkungen
+##### <a name="remarks"></a>Hinweise
 
 - Wenn die Informationen, die Sie angeben, Leerzeichen oder Sonderzeichen enthalten, verwenden Sie Anführungszeichen um den Text (z `<computer name>` . b. "").
 
@@ -161,7 +161,7 @@ macfile volume /remove[/server:\\<computername>] /name:<volumename>
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `{/add | /set}` | Erforderlich, wenn ein auf Macintosh zugängliches Volume hinzugefügt oder geändert wird. Fügt das angegebene Volume hinzu oder ändert es. |
 | /server:`\\<computername>` | Gibt den Server an, auf dem ein Volume hinzugefügt, geändert oder entfernt werden soll. Wenn der Vorgang nicht weggelassen wird, wird der Vorgang auf dem lokalen Computer ausgeführt. |
@@ -174,7 +174,7 @@ macfile volume /remove[/server:\\<computername>] /name:<volumename>
 | /remove | Erforderlich, wenn Sie ein auf Macintosh zugängliches Volume entfernen. entfernt das angegebene Volume. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-##### <a name="remarks"></a>Bemerkungen
+##### <a name="remarks"></a>Hinweise
 
 - Wenn die Informationen, die Sie angeben, Leerzeichen oder Sonderzeichen enthalten, verwenden Sie Anführungszeichen um den Text (z `<computer name>` . b. "").
 

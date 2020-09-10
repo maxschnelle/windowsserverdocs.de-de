@@ -3,16 +3,16 @@ title: automount
 description: Referenz Artikel für den automatischen Bereitstellung-Befehl, der die Funktion "automatischen Bereitstellung" aktiviert oder deaktiviert.
 ms.topic: reference
 ms.assetid: 4635fc91-a477-4f17-8dcc-aa08854bfe45
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 92fa9f66db510d887af793882a2400b31a1517c4
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 0f4be54f7610929627e0cc0332a7f5d65eafc8b2
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89031638"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89632996"
 ---
 # <a name="automount"></a>automount
 
@@ -29,7 +29,7 @@ automatischen Bereitstellung [{Enable | enable | scru}] [noerr]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | enable | Ermöglicht Windows das automatische Einbinden neuer grundlegender und dynamischer Volumes, die dem System hinzugefügt werden, und das Zuweisen von Laufwerk Buchstaben. |
 | disable | Verhindert, dass Windows neue grundlegende und dynamische Volumes, die dem System hinzugefügt werden, automatisch bereitstellen.<p>**Hinweis**: durch das Deaktivieren der automatischen Problem Umgehung können Failovercluster den Speicher Teil des Konfigurationsüberprüfungs-Assistenten nicht beeinträchtigen. |

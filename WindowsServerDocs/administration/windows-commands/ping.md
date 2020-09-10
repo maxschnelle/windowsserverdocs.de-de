@@ -3,16 +3,16 @@ title: ping
 description: Referenz Artikel zum Ping-Befehl, mit dem die Netzwerk Konnektivität überprüft wird.
 ms.topic: reference
 ms.assetid: 49272671-2eec-4fa5-881f-65c24cfbef52
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 07/11/2018
-ms.openlocfilehash: 14f9ca67d2b4c8bd19c8ef9c67a464bc4e038387
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 903bf25f228adaf3634ffc2cd8da988acd9be8af
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89035268"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89633661"
 ---
 # <a name="ping"></a>ping
 
@@ -33,7 +33,7 @@ ping [/t] [/a] [/n <count>] [/l <size>] [/f] [/I <TTL>] [/v <TOS>] [/r <count>] 
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 |--|--|
 | /t | Gibt an, dass der Ping das Senden von Echo Request-Nachrichten an das Ziel fortsetzen soll Drücken Sie Strg + Eingabe, um die Statistiken zu unterbrechen und anzuzeigen. Um diesen Befehl zu unterbrechen und zu beenden, drücken Sie STRG + C. |
 | /a | Gibt an, dass die umgekehrte Namensauflösung für die Ziel-IP-Adresse ausgeführt wird. Wenn dies erfolgreich ist, zeigt Ping den entsprechenden Hostnamen an. |

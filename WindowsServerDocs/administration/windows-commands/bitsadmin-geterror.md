@@ -3,16 +3,16 @@ title: bitsadmin geterror
 description: Referenz Artikel für den bizadmin getError-Befehl, mit dem ausführliche Fehlerinformationen für den angegebenen Auftrag abgerufen werden.
 ms.topic: reference
 ms.assetid: cbe5bca1-d2dd-4ce6-903f-f85de4a2ec6a
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: a7ebb554b269dd31ce96943097c7888a8836580b
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 1cfa4c5a7d0899e2d5eb34fd089944f2b801993a
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89030358"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89632124"
 ---
 # <a name="bitsadmin-geterror"></a>bitsadmin geterror
 
@@ -26,7 +26,7 @@ bitsadmin /geterror <job>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | -------------- | -------------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 

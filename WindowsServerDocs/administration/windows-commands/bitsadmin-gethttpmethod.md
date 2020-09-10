@@ -2,16 +2,16 @@
 title: bitsadmin gethttpmethod
 description: Referenz Artikel für den bizadmin gethttpmethod-Befehl, der das HTTP-Verb abruft, das mit dem Auftrag verwendet wird.
 ms.topic: reference
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 03/01/2019
-ms.openlocfilehash: 5bbd2509cabea7ae68240a31cee78d9ffd3ac5e0
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 0d96c85aa99330b133954a77ca5584fe2d02cd43
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89033528"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89632031"
 ---
 # <a name="bitsadmin-gethttpmethod"></a>bitsadmin gethttpmethod
 
@@ -25,7 +25,7 @@ bitsadmin /gethttpmethod <Job>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | -------------- | -------------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 

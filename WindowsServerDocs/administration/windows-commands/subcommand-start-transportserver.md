@@ -3,16 +3,16 @@ title: Unterbefehl Start-TransportServer
 description: Referenz Artikel für den Unterbefehl Start-TransportServer, mit dem alle Dienste für einen Transport Server gestartet werden.
 ms.topic: reference
 ms.assetid: 0e93bc84-5b9e-4f9d-8cf0-1634417da0f6
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: af74aedd80a9102edccff53d92037e4826750b74
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 635013a5f45d1014c24074728c5ecb951d5dccb2
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89024684"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89633873"
 ---
 # <a name="subcommand-start-transportserver"></a>Unterbefehl: Start-TransportServer
 
@@ -25,7 +25,7 @@ Startet alle Dienste für einen Transport Server.
 wdsutil [Options] /start-TransportServer [/Server:<Server name>]
 ```
 ### <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |-------|--------|
 |[/Server:<Server name>]|Gibt den Namen des Transport Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.|
 ## <a name="examples"></a>Beispiele

@@ -3,16 +3,16 @@ title: attributes volume
 description: Referenz Artikel für den Befehl Attribut Volume, in dem die Attribute eines Volumes angezeigt, festgelegt oder gelöscht werden.
 ms.topic: reference
 ms.assetid: e40e8284-3d57-4de8-a46c-e4ade34a0d53
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 71f11eb692676cec4121e2ea24aed123f6a7d7d5
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: dd651732dbf537da31ae5f5343c687868ffb2741
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89029188"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89633279"
 ---
 # <a name="attributes-volume"></a>attributes volume
 
@@ -28,7 +28,7 @@ attributes volume [{set | clear}] [{hidden | readonly | nodefaultdriveletter | s
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ------- | -------- |
 | set | Legt das angegebene Attribut des Volumes mit dem Fokus fest. |
 | clear | Löscht das angegebene Attribut des Volumes mit dem Fokus. |
@@ -38,7 +38,7 @@ attributes volume [{set | clear}] [{hidden | readonly | nodefaultdriveletter | s
 | "Shadowcopy | Gibt an, dass das Volume ein Schattenkopievolume ist. |
 | Noerr | Nur für Skripterstellung. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird. |
 
-### <a name="remarks"></a>Bemerkungen
+### <a name="remarks"></a>Hinweise
 
 - Auf den MBR-Datenträgern (Basic Master Boot Record) gelten die Parameter **Hidden**, Read **only**und **nodefaultdriveletter** für alle Volumes auf dem Datenträger.
 

@@ -3,16 +3,16 @@ title: assign
 description: Referenz Artikel für den Assign-Befehl, der dem Volume einen Laufwerk Buchstaben oder einen Einfügepunkt mit Fokus zuweist.
 ms.topic: reference
 ms.assetid: 57912b73-622e-489b-b053-a369021ba8e1
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: a453790b3622804138794b9656b18ed160e6f676
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: ff5f911fdaa4fc3703cbef2374b7431925a44fcf
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89029318"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89633466"
 ---
 # <a name="assign"></a>assign
 
@@ -33,7 +33,7 @@ assign [{letter=<d> | mount=<path>}] [noerr]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `letter=<d>` | Der Laufwerk Buchstabe, der dem Volume zugewiesen werden soll. |
 | `mount=<path>` | Der Pfad des einstellungspunkts, der dem Volume zugewiesen werden soll. Anweisungen zur Verwendung dieses Befehls finden [Sie unter Zuweisen eines Ordners für einen einstellungspunktpfad zu einem Laufwerk](../../storage/disk-management/assign-a-mount-point-folder-path-to-a-drive.md). |

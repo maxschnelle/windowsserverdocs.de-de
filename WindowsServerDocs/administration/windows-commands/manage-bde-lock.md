@@ -3,16 +3,16 @@ title: manage-bde-Sperre
 description: Referenz Artikel für den Befehl manage-bde Lock, mit dem ein durch BitLocker geschütztes Laufwerk gesperrt wird, um den Zugriff darauf zu verhindern, sofern der entsperrungs Schlüssel nicht verfügbar ist.
 ms.topic: reference
 ms.assetid: b8858e61-3a7e-4d03-8c98-5c09853f35e8
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: db92258ed4aa96402c59f5073784bf01cc82b911
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: e9b8dfdac7bc8b833a89c9ba447b99984a923f86
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89037668"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89633748"
 ---
 # <a name="manage-bde-lock"></a>manage-bde-Sperre
 
@@ -26,7 +26,7 @@ manage-bde -lock [<drive>] [-computername <name>] [{-?|/?}] [{-help|-h}]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `<drive>` | Stellt einen von einem Doppelpunkt gefolgten Laufwerkbuchstaben dar. |
 | -Computername | Gibt an, dass manage-bde.exe zum Ändern des BitLocker-Schutzes auf einem anderen Computer verwendet wird. Sie können auch **-CN** als abgekürzte Version dieses Befehls verwenden. |

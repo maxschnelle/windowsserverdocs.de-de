@@ -3,16 +3,16 @@ title: bitsadmin getcreationtime
 description: Referenz Artikel für den bizadmin getkreationtime-Befehl, der die Erstellungszeit für den angegebenen Auftrag abruft.
 ms.topic: reference
 ms.assetid: be409cb5-ce72-41d9-aafa-edd4e230fd14
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 1175b148e0169f5b8f76d66ae3358a1069f5c4f7
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 780f7124248bd38f0c3d7cc9e7cb14b1a9decc03
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89030428"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89632238"
 ---
 # <a name="bitsadmin-getcreationtime"></a>bitsadmin getcreationtime
 
@@ -26,7 +26,7 @@ bitsadmin /getcreationtime <job>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | -------------- | -------------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 
