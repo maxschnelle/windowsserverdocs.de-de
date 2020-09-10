@@ -3,16 +3,16 @@ title: shadow
 description: Referenz Artikel zu Schatten, mit dem Sie eine aktive Sitzung eines anderen Benutzers auf einem Remotedesktop-Sitzungshost Server remote steuern können.
 ms.topic: reference
 ms.assetid: f81d9717-6883-4e14-9508-4b2a87e48ea7 Lizap
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 0db1150ac8e0b6382e07e032f780a9cab28bf870
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: de11fe6b6db44d21bd289f7158f7cdacc6bc9706
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89024864"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89640986"
 ---
 # <a name="shadow"></a>shadow
 
@@ -28,7 +28,7 @@ shadow {<SessionName> | <SessionID>} [/server:<ServerName>] [/v]
 ```
 
 #### <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |-------|--------|
 |\<SessionName>|Gibt den Namen der Sitzung an, die Sie remote steuern möchten.|
 |\<SessionID>|Gibt die ID der Sitzung an, die Sie remote steuern möchten. Verwenden Sie den **Abfrage Benutzer** , um die Liste der Sitzungen und ihre Sitzungs-IDs anzuzeigen.|
@@ -36,7 +36,7 @@ shadow {<SessionName> | <SessionID>} [/server:<ServerName>] [/v]
 |/v|Zeigt Informationen zu den Aktionen an, die ausgeführt werden.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 -   Sie können die Sitzung entweder anzeigen oder aktiv steuern. Wenn Sie die Sitzung eines Benutzers aktiv steuern möchten, können Sie Tastatur-und Mausaktionen für die Sitzung eingeben.
 -   Sie können Ihre eigenen Sitzungen (außer der aktuellen Sitzung) jederzeit Remote steuern. Sie müssen jedoch über die Berechtigung "Vollzugriff" oder "Remote Steuerung" verfügen, um eine andere Sitzung Remote zu steuern.
 -   Sie können die Remote Steuerung auch mithilfe von Remotedesktopdienste-Manager initiieren.

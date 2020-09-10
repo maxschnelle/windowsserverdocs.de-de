@@ -3,16 +3,16 @@ title: Unterbefehls Satz-Image
 description: Referenz Artikel für den Unterbefehl set-Image, mit dem die Attribute eines Bilds geändert werden.
 ms.topic: reference
 ms.assetid: 2ae03c86-7a13-4e38-9182-32e55fffd504
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: ecb35deed9f938a7498aa282701034b5d9455233
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 3b0df9dd062c537bbfcdb0436fcf8dafe0ce3905
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89036818"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89640864"
 ---
 # <a name="subcommand-set-image"></a>Unterbefehl: Set-Image
 
@@ -39,7 +39,7 @@ wdsutil /Set-Imagmedia:<Image name> [/Server:<Server name>]
          [/OverwriteUnattend:{Yes | No}]
 ```
 ### <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |-------|--------|
 Medien<Image name>|Gibt den Namen des Images an.|
 |[/Server:<Server name>]|Gibt den Namen des Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.|

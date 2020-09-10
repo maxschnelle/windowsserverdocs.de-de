@@ -3,16 +3,16 @@ title: shrink
 description: Referenz Artikel zum Verkleinern von Diskpart, wodurch die Größe des ausgewählten Volumes um den von Ihnen angegebenen Betrag verringert wird.
 ms.topic: reference
 ms.assetid: ec87cc7c-9846-465e-a10d-4ee10db4f4e6
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 1e0c995323e1f417e139be05d2ea662015c9e70c
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 2fdfc8ba34f4e91bfafa1f8bf5341f9e4186cb5d
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89036478"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89640949"
 ---
 # <a name="shrink"></a>shrink
 
@@ -27,7 +27,7 @@ shrink querymax [noerr]
 ```
 ### <a name="parameters"></a>Parameter
 
-|  Parameter  |                                                                                             Beschreibung                                                                                              |
+|  Parameter  |                                                                                             BESCHREIBUNG                                                                                              |
 |-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | gewünscht =<n> |                                                     Gibt die gewünschte Menge an Speicherplatz in Megabyte (MB) an, um die Größe des Volumes um zu verringern.                                                     |
 | minimal =<n> |                                                           Gibt den minimalen Speicherplatz in MB an, um die Größe des Volumes zu verringern.                                                           |
@@ -35,7 +35,7 @@ shrink querymax [noerr]
 |   nowait    |                                                       erzwingt, dass der Befehl sofort zurückgegeben wird, während der Verkleinerungs Prozess noch ausgeführt wird.                                                        |
 |    Noerr    | nur für Skripterstellung. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird. |
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 - Sie können die Größe eines Volumes nur verringern, wenn er mit dem NTFS-Dateisystem formatiert ist oder wenn kein Dateisystem vorhanden ist.
 - Dieser Befehl funktioniert auf grundlegenden Volumes und auf einfachen oder übergreifenden dynamischen Volumes.
 - Wenn ein gewünschter Betrag nicht angegeben wird, wird das Volume um den minimalen Betrag (sofern angegeben) reduziert.

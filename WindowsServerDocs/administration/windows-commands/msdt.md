@@ -3,16 +3,16 @@ title: msdt
 description: Referenz Artikel für den MSDT-Befehl, der ein Problem Behandlungspaket in der Befehlszeile oder als Teil eines automatisierten Skripts aufruft und zusätzliche Optionen ohne Benutzereingaben ermöglicht.
 ms.topic: reference
 ms.assetid: ead1b672-a120-4e16-94aa-a8e13602c1d0
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: fd61fd80f6b1a0249c506bcaa5ff2cda99c49820
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 3e2a28ce747df9223e609392ab46abe2e947bb92
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89030068"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89640619"
 ---
 # <a name="msdt"></a>msdt
 
@@ -26,7 +26,7 @@ msdt </id <name> | /path <name> | /cab < name>> <</parameter> [options] … <par
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | /ID `<packagename>` | Gibt an, welches Diagnosepaket ausgeführt werden soll. Eine Liste der verfügbaren Pakete finden Sie unter [Verfügbare Problem Behandlungspakete](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/ee424379(v=ws.11)#available-troubleshooting-packs). |
 | /Path `<directory|.diagpkg file|.diagcfg file>` | Gibt den vollständigen Pfad zu einem Diagnosepaket an. Wenn Sie ein Verzeichnis angeben, muss das Verzeichnis ein Diagnosepaket enthalten. Der **/path** -Parameter kann nicht in Verbindung mit den Parametern * */ID * *, **/DCI**oder **/CAB** verwendet werden. |                                                                                   |

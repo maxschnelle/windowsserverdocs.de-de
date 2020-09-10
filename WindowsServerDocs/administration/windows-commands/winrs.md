@@ -3,16 +3,16 @@ title: winrs
 description: Referenz Artikel für Winrs, mit dem Sie Programme remote verwalten und ausführen können.
 ms.topic: reference
 ms.assetid: c370de31-5651-400a-872d-ef229aae2309
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 2cf659e06f43a26ae95e4ff218758c21d3cf78e9
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: a2a92a20a924e36686fb555b90da4fa7d6ef67fd
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022634"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89641122"
 ---
 # <a name="winrs"></a>winrs
 
@@ -25,7 +25,7 @@ winrs [/<parameter>[:<value>]] <command>
 ```
 #### <a name="parameters"></a>Parameter
 
-|           Parameter            |                                                                                                                                                                                    Beschreibung                                                                                                                                                                                     |
+|           Parameter            |                                                                                                                                                                                    BESCHREIBUNG                                                                                                                                                                                     |
 |--------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |      /Remote\<endpoint>       |                                                                                          Gibt den Ziel Endpunkt mithilfe eines NetBIOS-Namens oder der Standardverbindung an:<p>-   <url>: [\<transport>://]\<target>[:\<port>]<p>Wenn nicht angegeben, wird **/r: localhost** verwendet.                                                                                          |
 |          /unencrypted          | Gibt an, dass die Nachrichten an die Remoteshell nicht verschlüsselt werden. Dies ist nützlich für die Problembehandlung oder den Fall, dass der Netzwerk Datenverkehr bereits mit **IPSec**verschlüsselt ist oder wenn die physische Sicherheit erzwungen wird.<p>Standardmäßig werden die Nachrichten mithilfe von Kerberos-oder NTLM-Schlüsseln verschlüsselt.<p>Diese Befehlszeilenoption wird ignoriert, wenn HTTPS-Transport ausgewählt wird. |
@@ -41,7 +41,7 @@ winrs [/<parameter>[:<value>]] <command>
 |            /usessl             |                                                                                                               Verwenden Sie eine SSL-Verbindung, wenn Sie einen Remote Endpunkt verwenden.  Diese Angabe anstelle des Transport- **https:** verwendet den standardmäßigen **WinRM** -Standardport.                                                                                                                |
 |               /?               |                                                                                                                                                                        Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                                                                        |
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 -   Alle Befehlszeilenoptionen akzeptieren entweder eine Kurzform oder eine lange Form. Beispielsweise sind sowohl **/r** als auch **/Remote** gültig.
 -   Um den **/Remote** -Befehl zu beenden, kann der Benutzer **STRG + C** oder STRG + **Pause**eingeben, das an die Remoteshell gesendet wird. Mit dem zweiten **STRG + C** wird die Beendigung von **winrs.exe**erzwungen.
 -   Verwenden Sie das WinRM-Tool, um aktive Remoteshells oder Winrs-Konfigurationen zu verwalten.  Der URI-Alias zum Verwalten aktiver Shells ist **Shell/cmd**.  Der URI-Alias für die Winrs **-Konfiguration ist WinRM/config/Winrs**.

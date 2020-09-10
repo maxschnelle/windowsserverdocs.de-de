@@ -3,16 +3,16 @@ title: pubprn
 description: Referenz Artikel für den Pubprn-Befehl, mit dem ein Drucker im Active Directory Domain Services veröffentlicht wird.
 ms.topic: reference
 ms.assetid: 0bc7f7e3-84e1-4359-b477-7b1a1a0bd639
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 969c8ab91e954db869560e4d5e4fb6fc4345b26f
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 36366e91f390ee8afb4884e31951cd5efde9251a
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89032380"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89640610"
 ---
 # <a name="pubprn"></a>pubprn
 
@@ -28,14 +28,14 @@ cscript pubprn {<servername> | <UNCprinterpath>} LDAP://CN=<container>,DC=<conta
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 |--|--|
 | `<servername>` | Gibt den Namen des Windows-Servers an, der den zu veröffentlichenden Drucker hostet. Wenn Sie keinen Computer angeben, wird der lokale Computer verwendet. |
 | `<UNCprinterpath>` | Der UNC-Pfad (Universal Naming Convention) zu dem freigegebenen Drucker, den Sie veröffentlichen möchten. |
 | `LDAP://CN=<Container>,DC=<Container>` | Gibt den Pfad zum Container in Active Directory Domain Services an, in dem Sie den Drucker veröffentlichen möchten. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Wenn die Informationen, die Sie angeben, Leerzeichen enthalten, verwenden Sie den Text in Anführungszeichen (z. b. "Computer Name").
 

@@ -3,16 +3,16 @@ title: logman create counter
 description: Referenz Artikel für den Befehl logman Create Counter, mit dem ein Datensammler für den-Wert erstellt wird.
 ms.topic: reference
 ms.assetid: 1e214c32-b704-43c1-b548-e1cf43b583c3
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 560b6d29fc3957e60fbdd5d569d10bbda4dc634a
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 6e0d30cc175d2450a77a747985281cb8d9a8558f
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89032788"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89640188"
 ---
 # <a name="logman-create-counter"></a>logman create counter
 
@@ -28,7 +28,7 @@ logman create counter <[-n] <name>> [options]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | -s `<computer name>` | Führen Sie den Befehl auf dem angegebenen Remote Computer aus. |
 | -config `<value>` | Gibt die Einstellungsdatei an, die Befehlsoptionen enthält. |
@@ -54,7 +54,7 @@ logman create counter <[-n] <name>> [options]
 | -SC `<value>` | Gibt die maximale Anzahl von Stichproben an, die mit einem Leistungsdaten Sammler erfasst werden sollen. |
 | /? | Zeigt die kontextbezogene Hilfe an. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Wenn [-] aufgeführt ist, wird durch das Hinzufügen eines zusätzlichen Bindestrichs (-) die Option negiert.
 

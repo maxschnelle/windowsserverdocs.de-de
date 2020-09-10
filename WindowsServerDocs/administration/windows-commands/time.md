@@ -3,16 +3,16 @@ title: time
 description: Erfahren Sie, wie Sie die Systemzeit festlegen und anzeigen.
 ms.topic: reference
 ms.assetid: 1276a257-7283-41da-ae80-fb4cfb311f9d
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: ca279bfacbc3fab3c1a4b56f33f5000fcab9d589
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 4faa12cef8485be6b76b16ff2ab545d0eae06cb7
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89024534"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89640447"
 ---
 # <a name="time"></a>time
 
@@ -30,13 +30,13 @@ time [/t | [<HH>[:<MM>[:<SS>]] [am|pm]]]
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
 |\<HH>[:\<MM> [:\<SS> [.\<NN>]]] [am \| pm]|Legt die Systemzeit auf die neue angegebene Uhrzeit fest, wobei *HH* in Stunden (erforderlich), *mm* in Minuten und *SS* in Sekunden angegeben wird. *NN* kann verwendet werden, um Hundertstel Sekunden anzugeben. Wenn **am** oder **pm** nicht angegeben ist, verwendet die **Zeit** standardmäßig das 24-Stunden-Format.|
 |/t|Zeigt die aktuelle Zeit an, ohne Sie zur Eingabe eines neuen Zeitraums aufzufordern.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 
 -   Zum Ändern der aktuellen Zeit müssen Sie über Administrator Anmelde Informationen verfügen.
 -   Sie müssen die Werte für *HH*, *mm*und *SS* mit Doppelpunkten (:). *SS* und *NN* müssen durch einen Zeitraum (.) getrennt werden.

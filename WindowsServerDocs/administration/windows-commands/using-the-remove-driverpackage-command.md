@@ -3,16 +3,16 @@ title: Remove-DriverPackage
 description: Referenz Artikel zu Remove-DriverPackage, mit dem ein Treiber Paket von einem Server entfernt wird.
 ms.topic: reference
 ms.assetid: 6b201e91-0d44-4e4a-8252-8b0235df1002
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 5745b83fdb817f90a835fe2243aff21f9892be47
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: d1c43e2d9297fc7ababdf4c4e44200bb0e5ba551
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89023204"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89640572"
 ---
 # <a name="remove-driverpackage"></a>Remove-DriverPackage
 
@@ -26,7 +26,7 @@ wdsutil /remove-DriverPackage [/Server:<Server name>] {/DriverPackage:<Package N
 ```
 ### <a name="parameters"></a>Parameter
 
-|        Parameter        |                                                                            Beschreibung                                                                             |
+|        Parameter        |                                                                            BESCHREIBUNG                                                                             |
 |-------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [/Server:<Server name>] |              Gibt den Namen des Servers an. Dabei kann es sich um den NetBIOS-Namen oder den voll qualifizierten Namen handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.              |
 | [/DriverPackage: <Name> ] |                                                        Gibt den Namen des zu entfernenden Treiber Pakets an.                                                         |

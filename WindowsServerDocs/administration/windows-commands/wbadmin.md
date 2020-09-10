@@ -3,16 +3,16 @@ title: wbadmin
 description: Referenz Artikel für Wbadmin, mit dem Sie das Betriebssystem, die Volumes, Dateien, Ordner und Anwendungen über eine Eingabeaufforderung sichern und wiederherstellen können.
 ms.topic: reference
 ms.assetid: 4b0b3f32-d21f-4861-84bb-b2eadbf1e7b8
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 9eef9eb53c38d97f4ab69268632f642583aa8acf
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 8041497fb3ac9b1ae1d564948afc749870a8e12d
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89031788"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89640682"
 ---
 # <a name="wbadmin"></a>wbadmin
 

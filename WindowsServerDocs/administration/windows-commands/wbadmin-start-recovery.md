@@ -3,16 +3,16 @@ title: wbadmin start recovery
 description: Referenz Artikel für die Wbadmin-start Wiederherstellung, mit der ein Wiederherstellungs Vorgang basierend auf den von Ihnen angegebenen Parametern ausgeführt wird.
 ms.topic: reference
 ms.assetid: 52381316-a0fa-459f-b6a6-01e31fb21612
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: bf0afcd4999bb74efd2ce4e2ec3e146cbbe2141c
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 96c38a74f0a7f10e761ce1478e207666741eecc9
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89031908"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89640259"
 ---
 # <a name="wbadmin-start-recovery"></a>wbadmin start recovery
 
@@ -43,7 +43,7 @@ wbadmin start recovery
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 |--|--|
 | -version | Gibt den Versions Bezeichner der wiederherzustellenden Sicherung im Format mm/dd/yyyy-HH: mm an. Wenn Sie den Versions Bezeichner nicht kennen, geben Sie **Wbadmin Get Versions**ein. |
 | -Elemente | Gibt eine durch Trennzeichen getrennte Liste von Volumes, Anwendungen, Dateien oder Ordnern an, die wieder hergestellt werden sollen.</br>Wenn **-ItemType** ein **Volume**ist, können Sie nur ein einzelnes Volume angeben – indem Sie den volumedatenträger, den volumeeinstellungspunkt oder den GUID-basierten Volumenamen angeben.</br>-Wenn **-ItemType** eine **App**ist, können Sie nur eine einzige Anwendung angeben. Damit die Anwendung wieder hergestellt werden kann, muss Sie bei Windows Server-Sicherung registriert sein. Sie können auch den Wert **adifm** verwenden, um eine Installation von Active Directory wiederherzustellen. Weitere Informationen finden Sie in den Hinweisen unter.</br>Wenn **-ItemType** auf **File**festgelegt ist, können Sie Dateien oder Ordner angeben, aber Sie sollten Teil desselben Volumes sein, und Sie sollten sich im selben übergeordneten Ordner befinden. |
@@ -58,7 +58,7 @@ wbadmin start recovery
 | -norollforward | Nur beim Wiederherstellen von Anwendungen gültig. Ermöglicht die vorherige Wiederherstellung einer Anwendung zu einem bestimmten Zeitpunkt, wenn die neueste Version aus den Sicherungen ausgewählt ist. Bei anderen Versionen der Anwendung, bei denen es sich nicht um die neuesten handelt, wird die vorherige Zeit Punkt Wiederherstellung als Standardeinstellung ausgeführt. |
 | -quiet | Führt den Unterbefehl ohne Aufforderungen an den Benutzer aus. |
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 
 -   Verwenden Sie zum Anzeigen einer Liste von Elementen, die von einer bestimmten Sicherungs Version für die Wiederherstellung verfügbar sind, **Wbadmin Get Items**. Wenn ein Volume zum Zeitpunkt der Sicherung keinen Einfügepunkt oder Laufwerk Buchstabe enthielt, gibt dieser Unterbefehl einen GUID-basierten Volumenamen zurück, der für die Wiederherstellung des Volumes verwendet werden soll.
 -   Wenn " **-ItemType** " eine **App**ist, können Sie den Wert " **adifm** for **-Item** " verwenden, um eine Installation von einem Medien Vorgang auszuführen, um alle zugehörigen Daten wiederherzustellen, die für die Active Directory Domain Services benötigt werden. **Adifm** erstellt eine Kopie der Active Directory Datenbank-, Registrierungs-und SYSVOL-Status und speichert diese Informationen dann an dem Speicherort, der von **-Wiederherstellungsziel**angegeben wird. Verwenden Sie diesen Parameter nur, wenn " **-herstellytarget** " angegeben wird.

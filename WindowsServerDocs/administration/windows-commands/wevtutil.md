@@ -3,16 +3,16 @@ title: wevtutil
 description: Referenz Artikel zu wevtutil, mit dem Sie Informationen über Ereignisprotokolle und Herausgeber abrufen können.
 ms.topic: reference
 ms.assetid: d4c791e0-7e59-45c5-aa55-0223b77a4822
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 8b36619def02434a253f0e6e97ef47cb78190b8a
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 4679c8b8245b0db2e4dff7cf179e198201d4910d
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89031728"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89641233"
 ---
 # <a name="wevtutil"></a>wevtutil
 
@@ -36,7 +36,7 @@ wevtutil [{el | enum-logs}] [{gl | get-log} <Logname> [/f:<Format>]]
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
 |{El \| -Aufzählungs Protokolle}|Zeigt die Namen aller Protokolle an.|
 |{GL \| Get-Log} \<Logname> [/f: \<Format> ]|Zeigt die Konfigurationsinformationen für das angegebene Protokoll an, das enthält, ob das Protokoll aktiviert ist oder nicht, die aktuelle maximale Größenbeschränkung des Protokolls und den Pfad zu der Datei, in der das Protokoll gespeichert ist.|
@@ -51,9 +51,9 @@ wevtutil [{el | enum-logs}] [{gl | get-log} <Logname> [/f:<Format>]]
 |{Al \| Archive-log} \<Logpath> [/l: \<Locale> ]|Archiviert die angegebene Protokolldatei in einem eigenständigen Format. Ein Unterverzeichnis mit dem Namen des Gebiets Schemas wird erstellt, und alle Gebiets Schema spezifischen Informationen werden in diesem Unterverzeichnis gespeichert. Nachdem das Verzeichnis und die Protokolldatei durch Ausführen von **wevtutil Al**erstellt wurden, können Ereignisse in der Datei unabhängig davon gelesen werden, ob der Verleger installiert ist oder nicht.|
 |{cl \| Clear-log} \<Logname> [/BU: \<Backup> ]|Löscht Ereignisse aus dem angegebenen Ereignisprotokoll. Die Option **/BU** kann verwendet werden, um die gelöschten Ereignisse zu sichern.|
 
-## <a name="options"></a>Optionen
+## <a name="options"></a>Tastatur
 
-|       Option       |                                                                                                                                                                                                                                                                 Beschreibung                                                                                                                                                                                                                                                                  |
+|       Option       |                                                                                                                                                                                                                                                                 BESCHREIBUNG                                                                                                                                                                                                                                                                  |
 |--------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |    /f\<Format>    |                                                                                                                                                               Gibt an, dass die Ausgabe entweder ein XML-oder Textformat sein soll. Wenn \<Format> XML ist, wird die Ausgabe im XML-Format angezeigt. Wenn \<Format> Text ist, wird die Ausgabe ohne XML-Tags angezeigt. Der Standardwert ist Text.                                                                                                                                                                |
 |   /e:\<Enabled>    |                                                                                                                                                                                                                                         Aktiviert oder deaktiviert ein Protokoll. \<Enabled> kann "true" oder "false" sein.                                                                                                                                                                                                                                          |
@@ -85,7 +85,7 @@ wevtutil [{el | enum-logs}] [{gl | get-log} <Logname> [/f:<Format>]]
 |     /a\<Auth>     |                                                                                                                                                                                             Definiert den Authentifizierungstyp zum Herstellen einer Verbindung mit einem Remote Computer. \<Auth> kann Default, Aushandlungs, Kerberos oder NTLM sein. Der Standardwert ist "aushandeln".                                                                                                                                                                                              |
 |  unidirektionale\<Unicode>   |                                                                                                                                                                                                             Zeigt die Ausgabe in Unicode an. \<Unicode> kann "true" oder "false" sein. Wenn <Unicode> den Wert true hat, erfolgt die Ausgabe in Unicode.                                                                                                                                                                                                             |
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 
 -   Verwenden einer Konfigurationsdatei mit dem SL-Parameter
 

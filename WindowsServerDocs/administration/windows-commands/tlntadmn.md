@@ -3,16 +3,16 @@ title: tlntadmn
 description: Referenz Artikel zu tlntadmn, bei dem ein lokaler Computer oder ein Remote Computer verwaltet wird, auf dem der Telnet-Server Dienst ausgeführt wird.
 ms.topic: reference
 ms.assetid: 78b61e8d-b953-44bb-8d57-f3b42da9e7a8
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 2293db2da93dfbac301cac516cd03a882e112a4a
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: d7cadac684b8cba2ea0120946f174d2cba0342f7
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89027018"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89640412"
 ---
 # <a name="tlntadmn"></a>tlntadmn
 
@@ -26,7 +26,7 @@ tlntadmn [<computerName>] [-u <UserName>] [-p <Password>] [{start | stop | pause
 ```
 #### <a name="parameters"></a>Parameter
 
-|                   Parameter                    |                                                                                                                                                       Beschreibung                                                                                                                                                        |
+|                   Parameter                    |                                                                                                                                                       BESCHREIBUNG                                                                                                                                                        |
 |------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |                \<computerName>                 |                                                                                                                    Gibt den Namen des Servers an, mit dem eine Verbindung hergestellt werden soll. Die Standardeinstellung ist der lokale Computer.                                                                                                                    |
 |         -u \<UserName> -p \<Password>          |                                                Gibt administrative Anmelde Informationen für einen Remote Server an, den Sie verwalten möchten. Dieser Parameter ist erforderlich, wenn Sie einen Remote Server verwalten möchten, für den Sie nicht mit administrativen Anmelde Informationen angemeldet sind.                                                |
@@ -48,7 +48,7 @@ tlntadmn [<computerName>] [-u <UserName>] [-p <Password>] [{start | stop | pause
 |     config Mode = {Console &#124; Stream}      |                                                                                                                                             Gibt den Modus des Vorgangs an.                                                                                                                                             |
 |                       -?                       |                                                                                                                                           Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                                           |
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 -   Zum Anzeigen der Servereinstellungen geben Sie **tlntadmn** ohne Parameter ein.
 -   Wenn Sie den Befehl " **tlntadmn** " verwenden möchten, müssen Sie sich mit Administrator Anmelde Informationen am lokalen Computer anmelden. Um einen Remote Computer zu verwalten, müssen Sie auch administrative Anmelde Informationen für den Remote Computer angeben. Melden Sie sich auf dem lokalen Computer mit einem Konto an, das über Administrator Anmelde Informationen für den lokalen Computer und den Remote Computer verfügt. Wenn Sie diese Methode nicht verwenden können, können Sie die Parameter **-u** und **-p** verwenden, um administrative Anmelde Informationen für den Remote Computer bereitzustellen.
 

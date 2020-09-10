@@ -3,16 +3,16 @@ title: nslookup set type
 description: Referenz Artikel für den Befehl "nslookup Set Type", der den Ressourcen Daten Satz für die Abfrage ändert.
 ms.topic: reference
 ms.assetid: 5248e314-fac1-413e-81dc-bbe0a0873ba5
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: e2e4d5466880991f79d58bd8553932309595da7a
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 4cf39c1751434705920573c704429f3dad1914d2
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89033898"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89640513"
 ---
 # <a name="nslookup-set-type"></a>nslookup set type
 
@@ -31,7 +31,7 @@ set type=<resourcerecordtype>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `<resourcerecordtype>` | Gibt einen DNS-Ressourcen eingabentyp an. Der Standard Ressourcen Daten Satz-Typ ist **ein**, aber Sie können einen der folgenden Werte verwenden:<ul><li>**A:** Gibt die IP-Adresse eines Computers an.</li><li>**Beliebig:** Gibt die IP-Adresse eines Computers an.</li><li>**CNAME:** Gibt einen kanonischen Namen für einen Alias an.</li><li>**Gid** Gibt einen Gruppen Bezeichner eines Gruppennamens an.</li><li>**Hinfo:** Gibt die CPU und den Typ des Betriebssystems eines Computers an.</li><li>**MB:** Gibt einen Post Fach Domänen Namen an.</li><li>**Mg:** Gibt ein e-Mail-Gruppenmitglied an.</li><li>**MINFO:** Gibt Postfach-oder e-Mail-Listen Informationen an.</li><li>**Mr:** Gibt den Namen der Umbenennungs Domäne an.</li><li>**MX:** Gibt den e-Mail-Austausch an</li><li>**NS:** Gibt einen DNS-Namen Server für die benannte Zone an.</li><li>**PTR:** Gibt einen Computernamen an, wenn die Abfrage eine IP-Adresse ist. Andernfalls gibt den Zeiger auf andere Informationen an.</li><li>**SOA:** Gibt den Autorisierungs Anfang für eine DNS-Zone an.</li><li>**Txt:** Gibt die Textinformationen an.</li><li>**UID:** Gibt die Benutzer-ID an.</li><li>**Uinfo:** Gibt die Benutzerinformationen an.</li><li>**Wert:** Beschreibt einen bekannten Dienst.</li></ul> |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |

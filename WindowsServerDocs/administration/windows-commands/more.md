@@ -3,16 +3,16 @@ title: )
 description: Referenz Artikel für den weiteren Befehl, der einen Bildschirm der Ausgabe gleichzeitig anzeigt.
 ms.topic: reference
 ms.assetid: ded14f6a-d82f-4aeb-a2d8-7ec1c94dfb8f
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 07/26/2019
-ms.openlocfilehash: 2c8d7a21220701bf46685d4c87ca02a4810aff1b
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 18e40ff1f3281967e05b47e41f3de405d7009691
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89038841"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89640156"
 ---
 # <a name="more"></a>)
 
@@ -31,7 +31,7 @@ more [/c] [/p] [/s] [/t<n>] [+<n>] [<files>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `<command>` | Gibt einen Befehl an, für den die Ausgabe angezeigt werden soll. |
 | /C | Löscht den Bildschirm, bevor eine Seite angezeigt wird. |
@@ -43,7 +43,7 @@ more [/c] [/p] [/s] [/t<n>] [+<n>] [<files>]
 | `<files>` | Gibt eine Liste der anzuzeigenden Dateien an. Dateien müssen mithilfe von Leerzeichen getrennt werden. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Die folgenden Unterbefehle werden an der **ausführlicheren** Eingabeaufforderung ( `-- More --` ) akzeptiert, einschließlich:
 

@@ -3,16 +3,16 @@ title: Referenz zu den Befehlszeilen Tools für Remotedesktopdienste (Terminal D
 description: Referenz Artikel zu den Befehlszeilen Tools für Remotedesktopdienste (RDS).
 ms.topic: reference
 ms.assetid: 2f371848-5c48-470c-908c-afbc95d3a805
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 5657ab1d0018f7bc854ebfa5dbd2985f8399d1af
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 3c857345e196d2ea4c3389fc9c97b620d20cd642
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89027358"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89641049"
 ---
 # <a name="remote-desktop-services-terminal-services-command-line-tools-reference"></a>Referenz zu den Befehlszeilen Tools für Remotedesktopdienste (Terminal Dienste)
 
@@ -23,7 +23,7 @@ Informieren Sie sich über die verfügbaren Remotedesktopdienste Befehlszeilen T
 > [!NOTE]
 > Weitere Informationen zu den Neuerungen in der neuesten Version finden Sie unter [What es New in Remotedesktopdienste in Windows Server](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn283323(v=ws.11)).
 
-| Befehl | Beschreibung |
+| Get-Help | BESCHREIBUNG |
 |--|--|--|
 | [change](change.md) | Ändert die Remotedesktop-Sitzungshost Servereinstellungen für Anmeldung, com-Port Zuordnungen und Installationsmodus. |
 | [change logon](change-logon.md) | Aktiviert oder deaktiviert Anmeldungen von Client Sitzungen auf einem Remotedesktop-Sitzungshost Server oder zeigt den aktuellen Anmeldestatus an. |

@@ -3,16 +3,16 @@ title: remove
 description: Referenz Artikel für den remove-Befehl, mit dem ein Laufwerk Buchstabe oder ein Einstellungspunkt von einem Volume entfernt wird.
 ms.topic: reference
 ms.assetid: b0886140-da8b-4231-8cb2-f280874d99c0
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 5b8e2fc967a4ebe22ba1f7932be9d14a00511ddb
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: ba7d625c5908af4a209266293495e6d472cb730b
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89027318"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89641040"
 ---
 # <a name="remove"></a>remove
 
@@ -31,7 +31,7 @@ remove [{letter=<drive> | mount=<path> [all]}] [noerr]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | Buchstabe =`<drive>` | Der Laufwerk Buchstabe, der entfernt werden soll. |
 | einbinden =`<path>` | Der zu entfern gende Pfad für den Einstellungspunkt. |

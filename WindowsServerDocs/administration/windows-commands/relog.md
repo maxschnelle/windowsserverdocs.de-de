@@ -3,16 +3,16 @@ title: relog
 description: Referenz Artikel für den Befehl erneut aufzuzeichnen, mit dem Leistungsdaten aus den Leistungsdaten-Protokolldateien extrahiert werden.
 ms.topic: reference
 ms.assetid: 7480f6c0-9953-4d70-9b1c-b27e09d8db13
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 07/11/2018
-ms.openlocfilehash: 563bd7a460ee8809ca4020f9a83f28df435127b8
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 9ced8c1c4f0eb2cabaf65c98f5a9c4ecb0135c11
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89027423"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89640291"
 ---
 # <a name="relog"></a>relog
 
@@ -31,7 +31,7 @@ relog [<filename> [<filename> ...]] [/a] [/c <path> [<path> ...]] [/cf <filename
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 |--|--|
 | `filename [filename ...]` | Gibt den Pfadnamen eines vorhandenen Leistungs Protokoll Protokolls an. Sie können mehrere Eingabedateien angeben. |
 | -a | Fügt die Ausgabedatei an, anstatt überschrieben zu werden. Diese Option gilt nicht für das SQL-Format, bei dem standardmäßig immer angefügt wird. |
@@ -47,7 +47,7 @@ relog [<filename> [<filename> ...]] [/a] [/c <path> [<path> ...]] [/cf <filename
 | -y | Umgeht die Aufforderung, indem für alle Fragen "Ja" beantwortet wird. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Das allgemeine Format für Indikator Pfade lautet wie folgt: `[\<computer>] \<object>[<parent>\<instance#index>] \<counter>]` wo die übergeordneten, Instanzen-, Index-und Indikator Komponenten des Formats entweder einen gültigen Namen oder ein Platzhalter Zeichen enthalten können. Die Computer-, übergeordneten, Instanz-und Indexkomponenten sind für alle Leistungsindikatoren nicht erforderlich.
 

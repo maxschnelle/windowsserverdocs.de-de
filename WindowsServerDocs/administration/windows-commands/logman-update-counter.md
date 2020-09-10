@@ -3,16 +3,16 @@ title: logman update counter
 description: Referenz Artikel für den Befehl logman update Counter, mit dem die Eigenschaften eines vorhandenen Counter-Daten Sammlers aktualisiert werden.
 ms.topic: reference
 ms.assetid: 607df6d5-876c-428d-a0b3-f59cb244e2ce
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 9bf7563e0f6dd225057fe0db909bbde99e951554
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: c164fdaf8e9a22b6072555a893fb6c41c69f177b
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89035008"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89640367"
 ---
 # <a name="logman-update-counter"></a>logman update counter
 
@@ -29,7 +29,7 @@ logman update counter <[-n] <name>> [options]
 ### <a name="parameters"></a>Parameter
 
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | -s `<computer name>` | Führen Sie den Befehl auf dem angegebenen Remote Computer aus. |
 | -config `<value>` | Gibt die Einstellungsdatei an, die Befehlsoptionen enthält. |
@@ -55,7 +55,7 @@ logman update counter <[-n] <name>> [options]
 | -SC `<value>` | Gibt die maximale Anzahl von Stichproben an, die mit einem Leistungsdaten Sammler erfasst werden sollen. |
 | /? | Zeigt die kontextbezogene Hilfe an. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Wenn [-] aufgeführt ist, wird durch das Hinzufügen eines zusätzlichen Bindestrichs (-) die Option negiert.
 

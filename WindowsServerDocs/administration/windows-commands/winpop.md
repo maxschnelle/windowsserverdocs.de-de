@@ -3,16 +3,16 @@ title: winpop
 description: Referenz Artikel für winpop, der veraltet ist und in zukünftigen Versionen von Windows nicht mehr unterstützt wird.
 ms.topic: reference
 ms.assetid: 52d2c6b1-971e-4a0e-9e6d-0713f1a74937
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 9176fbe64bdc3a66c3865608fc2e7d5606400bd8
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: eb1c84c2ac7b3470deefc14b046d0a87e6ca2ea4
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022644"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89641134"
 ---
 # <a name="winpop"></a>winpop
 

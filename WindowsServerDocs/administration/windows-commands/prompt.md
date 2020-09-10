@@ -3,16 +3,16 @@ title: prompt
 description: Referenz Artikel für den Prompt-Befehl, mit dem die Cmd.exe Eingabeaufforderung angepasst wird.
 ms.topic: reference
 ms.assetid: 3d98e965-02eb-46ad-9d0a-5dc44830373e
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 07/11/2018
-ms.openlocfilehash: b674f219147471c872f5fa8db0d266e3f664c302
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 8cf91a2a2e78191f035545bc897eceae4c897457
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89032408"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89640327"
 ---
 # <a name="prompt"></a>prompt
 
@@ -26,16 +26,16 @@ prompt [<text>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 |--|--|
 | `<text>` | Gibt den Text und die Informationen an, die Sie in die Eingabeaufforderung einschließen möchten. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Die Zeichenkombinationen, die Sie anstelle von oder zusätzlich zu einer oder mehreren Zeichen folgen im *Text* Parameter einschließen können:
 
-    | Zeichen | Beschreibung |
+    | Zeichen | BESCHREIBUNG |
     |--|--|
     | $q | = (Gleichheitszeichen) |
     | $$ | $ (Dollar Zeichen) |
@@ -57,7 +57,7 @@ prompt [<text>]
 
 - Wenn Befehls Erweiterungen aktiviert sind, unterstützt der **prompt** -Befehl die folgenden Formatierungszeichen:
 
-    | Zeichen | Beschreibung |
+    | Zeichen | BESCHREIBUNG |
     |--|--|
     | $+ | 0 (null) oder mehr Pluszeichen ( **+** ), abhängig von der Tiefe des **pushd-** Verzeichnis Stapels (ein Zeichen für jede Ebene wird per Push abgelegt). |
     | $m | Der Remote Name, der dem aktuellen Laufwerk Buchstaben oder der leeren Zeichenfolge zugeordnet ist, wenn das aktuelle Laufwerk kein Netzwerklaufwerk ist. |

@@ -3,16 +3,16 @@ title: wbadmin delete systemstatebackup
 description: Referenz Artikel für Wbadmin delete systemstatebackup, mit dem die von Ihnen angegebenen Systemstatus Sicherungen gelöscht werden.
 ms.topic: reference
 ms.assetid: 707d37cb-448d-4542-b6ac-1fc89e749788
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: c54fa768251ecc450e36e65bc845067c3b96115b
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 439268af61b3e7477711ce6402cce2470eea01cf
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022934"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89640770"
 ---
 # <a name="wbadmin-delete-systemstatebackup"></a>wbadmin delete systemstatebackup
 
@@ -40,7 +40,7 @@ wbadmin delete systemstatebackup
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
 |-keepversions|Gibt die Anzahl der aktuellen Sicherungen des Systemstatus an, die aufbewahrt werden sollen. Der Wert muss eine positive ganze Zahl sein. Mit dem Parameterwert **-keepversions: 0** werden alle Systemstatus Sicherungen gelöscht.|
 |-version|Gibt den Versions Bezeichner der Sicherung im Format mm/dd/yyyy-HH: mm an. Wenn Sie den Versions Bezeichner nicht kennen, geben Sie **Wbadmin Get Versions**ein.</br>Versionen, die ausschließlich Systemstatus Sicherungen sind, können mit diesem Befehl gelöscht werden. Verwenden Sie **Wbadmin Get Items** , um den Versionstyp anzuzeigen.|

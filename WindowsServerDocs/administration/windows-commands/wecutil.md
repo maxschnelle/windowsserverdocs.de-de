@@ -3,15 +3,15 @@ title: wecutil
 description: Referenz Artikel zu wecutil, mit dem Sie Abonnements für Ereignisse erstellen und verwalten können, die von Remote Computern weitergeleitet werden.
 ms.topic: reference
 ms.assetid: 0c82a6cb-d652-429c-9c3d-0f568c78d54b
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dansimps
-ms.openlocfilehash: e7cfa4a093277afece0722538ca33914d1609ec1
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.author: lizross
+author: eross-msft
+manager: mtillman
+ms.openlocfilehash: fbf236082b710ef5f4319b1924856fe98784b1ce
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89031738"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89641246"
 ---
 # <a name="wecutil"></a>wecutil
 
@@ -35,7 +35,7 @@ wecutil  [{es | enum-subscription}]
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
 |{es \| enum-Abonnement}|Zeigt die Namen aller vorhandenen Remote Ereignis Abonnements an.|
 |{GS \| Get-Abonnement} \<Subid> [/f: \<Format> ] [/Uni: \<Unicode> ]|Zeigt Konfigurationsinformationen für Remote Abonnements an. \<Subid> ist eine Zeichenfolge, die ein Abonnement eindeutig identifiziert. \<Subid> ist identisch mit der Zeichenfolge, die im- \<SubscriptionId> Tag der XML-Konfigurationsdatei angegeben wurde, die zum Erstellen des Abonnements verwendet wurde.|
@@ -46,9 +46,9 @@ wecutil  [{es | enum-subscription}]
 |{RS \| Retry-Abonnement} \<Subid> [ \<Eventsource> ...]|Es wird erneut versucht, eine Verbindung herzustellen und eine Remote Abonnement Anforderung an ein inaktives Abonnement zu senden. Versucht, alle Ereignis Quellen oder angegebenen Ereignis Quellen erneut zu aktivieren. Deaktivierte Quellen werden nicht wiederholt. \<Subid> ist eine Zeichenfolge, die ein Abonnement eindeutig identifiziert. \<Subid> ist identisch mit der Zeichenfolge, die im- \<SubscriptionId> Tag der XML-Konfigurationsdatei angegeben wurde, die zum Erstellen des Abonnements verwendet wurde. \<Eventsource> ist eine Zeichenfolge, die einen Computer identifiziert, der als Quelle für Ereignisse fungiert. \<Eventsource> muss ein voll qualifizierter Domänen Name, ein NetBIOS-Name oder eine IP-Adresse sein.|
 |{QC \| Quick-config} [/q: [ \<Quiet> ]]|Konfiguriert den Windows-Ereignis Sammlungs Dienst, um sicherzustellen, dass ein Abonnement durch Neustarts erstellt und aufrechterhalten werden kann. Dies umfasst die folgenden Schritte:</br>1. Aktivieren Sie den Kanal ForwardedEvents, wenn er deaktiviert ist.</br>2. Legen Sie den Windows-Ereignis Sammlungs Dienst auf verzögerten Start fest.</br>3. Starten Sie den Windows-Ereignis Sammler Dienst, wenn er nicht ausgeführt wird.|
 
-## <a name="options"></a>Optionen
+## <a name="options"></a>Tastatur
 
-|Option|Beschreibung|
+|Option|BESCHREIBUNG|
 |------|-----------|
 |/f\<Format>|Gibt das Format der angezeigten Informationen an. \<Format> kann "XML" oder "Terse" sein. Wenn <Format> XML ist, wird die Ausgabe im XML-Format angezeigt. Wenn \<Format> Terse ist, wird die Ausgabe in Name-Wert-Paaren angezeigt. Der Standardwert ist "Terse".|
 |/c\<Configfile>|Gibt den Pfad zur XML-Datei an, die eine Abonnement Konfiguration enthält. Der Pfad kann absolut oder relativ zum aktuellen Verzeichnis sein. Diese Option kann nur mit den Optionen **/Cun** und **/Cup** verwendet werden und schließt sich gegenseitig mit allen anderen Optionen aus.|
@@ -83,7 +83,7 @@ wecutil  [{es | enum-subscription}]
 |Pokalsieg\<Compassword>|Legt das Benutzer Kennwort für die freigegebenen Benutzer Anmelde Informationen fest. Wenn \<Compassword> auf * (Sternchen) festgelegt ist, wird das Kennwort aus der Konsole gelesen. Diese Option ist nur gültig, wenn die **/Cun** -Option angegeben wird.|
 |/q: [ \<Quiet> ]|Gibt an, ob die Konfigurations Prozedur zur Bestätigung aufgefordert wird. \<Quiet> kann "true" oder "false" sein. Wenn <Quiet> den Wert true hat, wird die Konfigurations Prozedur nicht zur Bestätigung aufgefordert. Der Standardwert dieser Option ist false.|
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 
 > [!IMPORTANT]
 > Wenn Sie die Meldung erhalten, dass der RPC-Server nicht verfügbar ist? Wenn Sie versuchen, wecutil auszuführen, müssen Sie den Windows-Ereignis Sammlungs Dienst (Wecsvc) starten. Um Wecsvc zu starten, geben Sie an einer Eingabeaufforderung mit erhöhten Rechten net Start Wecsvc ein.

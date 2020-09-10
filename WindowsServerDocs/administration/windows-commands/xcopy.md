@@ -3,16 +3,16 @@ title: xcopy
 description: Referenz Artikel für xcopy, der Dateien und Verzeichnisse einschließlich Unterverzeichnissen kopiert.
 ms.topic: reference
 ms.assetid: 76a310d7-9925-4571-a252-0e28960d5f89
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 01/05/2019
-ms.openlocfilehash: 05bc7b2d146a9c0d7e981d3e5bee13e60ffb57b5
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: a3925843b80c60c689050c9a28236903e1912b3a
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89038038"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89640672"
 ---
 # <a name="xcopy"></a>xcopy
 
@@ -28,7 +28,7 @@ Xcopy <Source> [<Destination>] [/w] [/p] [/c] [/v] [/q] [/f] [/l] [/g] [/d [:MM-
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
 |\<Source>|Erforderlich. Gibt den Speicherort und die Namen der Dateien an, die Sie kopieren möchten. Dieser Parameter muss entweder ein Laufwerk oder einen Pfad enthalten.|
 |[\<Destination>]|Gibt das Ziel der Dateien an, die Sie kopieren möchten. Dieser Parameter kann einen Laufwerk Buchstaben, einen Doppelpunkt, einen Verzeichnisnamen, einen Dateinamen oder eine Kombination dieser Parameter enthalten.|
@@ -62,7 +62,7 @@ Xcopy <Source> [<Destination>] [/w] [/p] [/c] [/v] [/q] [/f] [/l] [/g] [/d [:MM-
 |/j|Kopiert Dateien ohne Pufferung. Empfohlen für sehr große Dateien. Dieser Parameter wurde in Windows Server 2008 R2 hinzugefügt.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 
 - Verwenden von **"/z**
 

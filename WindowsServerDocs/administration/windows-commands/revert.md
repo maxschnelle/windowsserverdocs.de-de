@@ -3,16 +3,16 @@ title: umzukehren
 description: Referenz Artikel für den revert-Befehl, mit dem ein Volume auf eine angegebene Schatten Kopie zurückgesetzt wird.
 ms.topic: reference
 ms.assetid: 75ad40e4-502a-401e-b11e-8b31e00424b5
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: cc80890604b5ad1a308d1cd4df9cd23465c970d2
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 3c909cec1e503552f68cad55489529585a5eaf51
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89027278"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89640622"
 ---
 # <a name="revert"></a>umzukehren
 
@@ -26,7 +26,7 @@ revert <shadowcopyID>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 |--|--|
 | `<shadowcopyID>` | Gibt die Schattenkopiekennung an, auf der das Volume wieder hergestellt wird Wenn Sie diesen Parameter nicht verwenden, zeigt der Befehl die Hilfe an der Eingabeaufforderung an. |
 

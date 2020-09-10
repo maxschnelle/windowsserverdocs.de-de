@@ -3,16 +3,16 @@ title: mount
 description: Referenz Artikel für den Mount-Befehl, der NFS (Network File System)-Netzwerkfreigaben bereitstellt.
 ms.topic: reference
 ms.assetid: dd9d7ecb-ef00-4aaa-bcd0-423fa636e34a
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 1a5ef3a621f34cf2abc0350c8ccc61accdd58557
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: cb4f3ce9d6e15aa7c6a504c1bb8e936b49f56267
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89038831"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89640141"
 ---
 # <a name="mount"></a>mount
 
@@ -29,7 +29,7 @@ mount [-o <option>[...]] [-u:<username>] [-p:{<password> | *}] {\\<computername>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter  | Beschreibung |
+| Parameter  | BESCHREIBUNG |
 | ---------- | ----------- |
 | -o rsize =`<buffersize>` | Legt die Größe des Lese Puffers in Kilobyte fest. Zulässige Werte sind 1, 2, 4, 8, 16 und 32; der Standardwert ist 32 KB. |
 | -o wsize =`<buffersize>` | Legt die Größe des Schreib Puffers in Kilobyte fest. Zulässige Werte sind 1, 2, 4, 8, 16 und 32; der Standardwert ist 32 KB. |

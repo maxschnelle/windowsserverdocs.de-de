@@ -3,16 +3,16 @@ title: pause
 description: Referenz Artikel für den anhaltebefehl, der die Verarbeitung von Batch-Programmen anhält.
 ms.topic: reference
 ms.assetid: cab3afc3-d046-432f-a0bf-6282f0099032
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 0da314b5b73935fa895b613b827f832492428cc7
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 4611980b0f805843b1f93c20450163f01e362cf8
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89032477"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89640651"
 ---
 # <a name="pause"></a>pause
 
@@ -30,7 +30,7 @@ pause
 |--|--|
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 
 - Wenn Sie STRG + C drücken, um ein Batch-Programm anzuhalten, wird die folgende Meldung angezeigt: `Terminate batch job (Y/N)?` . Wenn Sie als Antwort auf diese Meldung **Y** (für ja) drücken, wird das Batch Programm beendet, und die Steuerung wird an das Betriebssystem zurückgegeben.
 

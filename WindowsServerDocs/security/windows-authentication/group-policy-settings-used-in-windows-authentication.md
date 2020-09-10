@@ -3,16 +3,16 @@ title: In der Windows-Authentifizierung verwendete Gruppenrichtlinien
 description: Windows Server-Sicherheit
 ms.topic: article
 ms.assetid: 9e237f89-45b1-4a4e-9b72-11dc7d6a470b
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/12/2016
-ms.openlocfilehash: 912850e8203627f4cc7106731ac28cf9e914cc46
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: b26d9a454361c5487ceac408f0ab78db1657fa4b
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87997640"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89640068"
 ---
 # <a name="group-policy-settings-used-in-windows-authentication"></a>In der Windows-Authentifizierung verwendete Gruppenrichtlinien
 
@@ -37,7 +37,7 @@ Beispielsweise können Sie die folgenden Richtlinien auf Grundlage ihrer Funktio
 
 In der folgenden Tabelle sind die für die-Authentifizierung relevanten Richtlinien Gruppen aufgeführt. es enthält Links zu Dokumentationen, mit denen Sie diese Richtlinien konfigurieren können.
 
-|Richtlinien Gruppe|Standort|BESCHREIBUNG|
+|Richtlinien Gruppe|Position|BESCHREIBUNG|
 |--------|------|--------|
 |**Kennwortrichtlinie**|Lokaler Computer policy\computerkonfiguration\windows-einstellungen\sicherheitseinstellungen\konto Richtlinien|Kenn Wort Richtlinien beeinflussen die Merkmale und das Verhalten von Kenn Wörtern. Kenn Wort Richtlinien werden für Domänen Konten oder lokale Benutzerkonten verwendet. Sie bestimmen Einstellungen für Kenn Wörter, z. b. Erzwingung und Lebensdauer.<p>Informationen zu bestimmten Einstellungen finden Sie unter Kenn [Wort Richtlinie](/windows/security/threat-protection/security-policy-settings/password-policy).|
 |**Konto Sperr Richtlinie**|Lokaler Computer policy\computerkonfiguration\windows-einstellungen\sicherheitseinstellungen\konto Richtlinien|Optionen für die Konto Sperrungs Richtlinie deaktivieren Sie Konten nach einer festgelegten Anzahl fehlerhafter Anmeldeversuche. Mithilfe dieser Optionen können Sie Versuche zum Unterbrechen von Kenn Wörtern erkennen und blockieren.<p>Informationen zu den Optionen für die Konto Sperrungs Richtlinie finden Sie unter [Konto Sperr Richtlinie](/windows/security/threat-protection/security-policy-settings/account-lockout-policy).|

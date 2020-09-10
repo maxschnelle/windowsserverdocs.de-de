@@ -3,16 +3,16 @@ title: rem
 description: Referenz Artikel für den REM-Befehl, der Kommentare in einem Skript, in einem Batch oder in einer config.sys Datei aufzeichnet.
 ms.topic: reference
 ms.assetid: 1a45b585-a83c-4ff6-badd-ff40f34cec23
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 741b3e8930188957fde0efc66b7d5584233f6877
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: c56595a45eba3fd841f1f455c189164b240191e8
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89027408"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89640650"
 ---
 # <a name="rem"></a>rem
 
@@ -26,12 +26,12 @@ rem [<comment>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 |--|--|
 | `<comment>` | Gibt eine Zeichenfolge an, die als Kommentar eingeschlossen werden soll. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Der **REM** -Befehl zeigt keine Kommentare auf dem Bildschirm an. Wenn Sie Kommentare auf dem Bildschirm anzeigen möchten, müssen Sie den Befehl **Echo on** in Ihre Datei einschließen.
 

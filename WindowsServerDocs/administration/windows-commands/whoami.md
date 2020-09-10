@@ -3,16 +3,16 @@ title: whoami
 description: Referenz Artikel zu whoami, der Benutzer-, Gruppen-und Berechtigungsinformationen für den Benutzer anzeigt, der zurzeit am lokalen System angemeldet ist.
 ms.topic: reference
 ms.assetid: 6e3f4d5c-f1f5-4429-b602-afad2b3488bf
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: f3b66a8f8e45edc540745a210ef42b49740052e0
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: baeb3781cb35f7066224dc19e9ce3ae4edf714ec
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89031708"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89641217"
 ---
 # <a name="whoami"></a>whoami
 
@@ -32,7 +32,7 @@ whoami /all [/fo <Format>] [/nh]
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
 |/upn|Zeigt den Benutzernamen im UPN-Format (User Principal Name) an.|
 |/fqdn|Zeigt den Benutzernamen im voll qualifizierten Domänen Namen (FQDN)-Format an.|

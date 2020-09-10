@@ -3,16 +3,16 @@ title: Kerberos Constrained Delegation Overview
 description: Windows Server-Sicherheit
 ms.topic: article
 ms.assetid: 51923b0a-0c1a-47b2-93a0-d36f8e295589
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/12/2016
-ms.openlocfilehash: fb0c35d51c0aa2a0f63f61c0be48099bb6aa5269
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 2cc0a18b3b6de66f5992eb4584c95696e297e858
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87996177"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89641089"
 ---
 # <a name="kerberos-constrained-delegation-overview"></a>Kerberos Constrained Delegation Overview
 
@@ -20,7 +20,7 @@ ms.locfileid: "87996177"
 
 In diesem Übersichts Thema für IT-Experten werden neue Funktionen für die eingeschränkte Kerberos-Delegierung in Windows Server 2012 R2 und Windows Server 2012 beschrieben.
 
-**Featurebeschreibung**
+**Funktionsbeschreibung**
 
 Die eingeschränkte Kerberos-Delegierung wurde in Windows Server 2003 eingeführt, um eine sicherere Form der Delegierung bereitzustellen, die von Diensten verwendet werden kann. Wenn dieses Feature konfiguriert ist, beschränkt die eingeschränkte Delegierung die Dienste, für die ein angegebener Server im Auftrag eines Benutzers agieren kann. Dies erfordert Domänenadministratorrechte zum Konfigurieren eines Domänenkontos für einen Dienst und beschränkt das Konto auf eine einzige Domäne. In den heutigen Unternehmen sind Front-End-Dienste nicht auf die Integration in Dienste in Ihrer Domäne beschränkt.
 

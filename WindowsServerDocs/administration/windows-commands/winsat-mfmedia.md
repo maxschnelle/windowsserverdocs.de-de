@@ -3,16 +3,16 @@ title: winsat mfmedia
 description: Verweis für WinSAT-MF-Medien, mit dem die Leistung der Video Decodierung (Wiedergabe) mithilfe des Media Foundation Frameworks gemessen wird.
 ms.topic: reference
 ms.assetid: 09a3b3dd-f746-4e6e-b684-76a9bde0c78d
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 889ef018e5803f9905100b5ae0b65f1bc0c4093e
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: fca6bbce2bca22f4fcb7907fff2a4818fd0a5fb9
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89038098"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89641099"
 ---
 # <a name="winsat-mfmedia"></a>winsat mfmedia
 
@@ -30,7 +30,7 @@ winsat mfmedia <parameters>
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |----------|-----------|
 |-Eingabe \<file name>|Erforderlich: Geben Sie die Datei an, die den Video Clip enthält, der abgespielt oder codiert werden soll. Die Datei kann in einem beliebigen Format vorliegen, das von Media Foundation gerendert werden kann.|
 |-dumpgraph|Geben Sie an, dass das Filter Diagramm in einer mit GraphEdit kompatiblen Datei gespeichert werden soll, bevor die Bewertung beginnt.|
@@ -53,7 +53,7 @@ winsat mfmedia <parameters>
   winsat mfmedia -input c:\windows\performance\winsat\winsat.wmv -nopmp
   ```
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 
 -   Sie müssen mindestens Mitglied der lokalen Gruppe Administratoren oder einer entsprechenden Gruppe sein, um **WinSAT**verwenden zu können. Der Befehl muss von einem Eingabe Aufforderungs Fenster mit erhöhten Rechten ausgeführt werden.
 -   Klicken Sie zum Öffnen einer Eingabeaufforderung mit erhöhten Rechten auf **Start**und auf **Zubehör**, klicken Sie mit der rechten Maustaste auf **Eingabeaufforderung**, und klicken Sie dann auf **als Administrator ausführen**.

@@ -3,16 +3,16 @@ title: Verschieben
 description: Referenz Artikel für den Move-Befehl, mit dem eine oder mehrere Dateien aus einem Verzeichnis in ein anderes Verzeichnis verschoben werden.
 ms.topic: reference
 ms.assetid: fde290a8-d385-450f-8987-ee837fed667d
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: d2bfef9099a2ef590f94dd4effbd011bbc424a5d
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: cd68c7bcfa1f33eeb977a46a1687bbbab678420f
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89035318"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89640565"
 ---
 # <a name="move"></a>Verschieben
 
@@ -29,7 +29,7 @@ move [{/y|-y}] [<source>] [<target>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | /y | Beendet die Aufforderung zur Bestätigung, dass Sie eine vorhandene Zieldatei überschreiben möchten. Dieser Parameter kann in der COPYCMD-Umgebungsvariablen voreingestellt sein. Sie können diese Voreinstellung überschreiben, indem Sie den **-y-** Parameter verwenden. Der Standardwert ist die Eingabeaufforderung vor dem Überschreiben von Dateien, es sei denn, der Befehl wird innerhalb eines Batch Skripts ausgeführt. |
 | -y | Startet die Aufforderung zur Bestätigung, dass Sie eine vorhandene Zieldatei überschreiben möchten. |

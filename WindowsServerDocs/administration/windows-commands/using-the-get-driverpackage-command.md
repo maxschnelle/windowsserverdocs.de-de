@@ -3,16 +3,16 @@ title: Get-DriverPackage
 description: Referenz Artikel zu Get-DriverPackage, in dem Informationen zu einem Treiber Paket auf dem Server angezeigt werden.
 ms.topic: reference
 ms.assetid: 94d231e4-ff01-48e7-9bc8-7b0d97a4339e
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 914effe6e2776f3bc66537beff5ea9e4bed65f3e
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: aa8ce1a8a989dd5e3551a3beccd11944f237c6b5
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89029668"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89640096"
 ---
 # <a name="get-driverpackage"></a>Get-DriverPackage
 
@@ -26,12 +26,12 @@ WDSUTIL /Get-DriverPackage [/Server:<Server name>] {/DriverPackage:<Package Name
 
 ### <a name="parameters"></a>Parameter
 
-|        Parameter         |                                                                           Beschreibung                                                                            |
+|        Parameter         |                                                                           BESCHREIBUNG                                                                            |
 |--------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [/Server:\<Server name>] |              Gibt den Namen des Servers an. Dabei kann es sich um den NetBIOS-Namen oder den voll qualifizierten Namen handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.               |
 | [/DriverPackage: \<Name> ] |                                                        Gibt den Namen des anzuzeigenden Treiber Pakets an.                                                         |
 |    [/PackageId: \<ID> ]    | Gibt die ID der Windows-Bereitstellungs Dienste des Treiber Pakets an, das angezeigt werden soll. Sie müssen die ID angeben, wenn das Treiber Paket nicht anhand des Namens eindeutig identifiziert werden kann. |
-|     [/Show: {Drivers     |                                                                              Dateien                                                                               |
+|     [/Show: {Drivers     |                                                                              Files                                                                               |
 
 ## <a name="examples"></a>Beispiele
 

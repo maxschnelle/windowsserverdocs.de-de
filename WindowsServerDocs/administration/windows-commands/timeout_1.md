@@ -3,16 +3,16 @@ title: timeout
 description: Referenz Artikel für Timeout, bei dem der Befehlsprozessor für die angegebene Anzahl von Sekunden angehalten wird.
 ms.topic: reference
 ms.assetid: e26b4a84-0e30-46e1-aa10-0667b7d3cb4c
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 4905eaadc745fc5499cb393b1808794e2f803361
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 9a4a1a0a352361e901a7344baeb2c92f36e41870
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89038258"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89640437"
 ---
 # <a name="timeout"></a>timeout
 
@@ -28,13 +28,13 @@ timeout /t <TimeoutInSeconds> [/nobreak]
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
 |/t \<TimeoutInSeconds>|Gibt die Dezimalzahl von Sekunden (zwischen-1 und 99999) an, die gewartet wird, bevor der Befehlsprozessor die Verarbeitung fortsetzt. Der Wert-1 bewirkt, dass der Computer unbegrenzt auf eine Tastenkombination wartet.|
 |/nobreak|Gibt an, dass Benutzer Tastatur Striche ignoriert werden.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 
 -   Der **Timeout** -Befehl wird in der Regel in Batch Dateien verwendet.
 -   Eine Benutzer Tastatur wird die Ausführung des Befehls Prozessors sofort fortsetzen, auch wenn der Timeout Zeitraum nicht abgelaufen ist.

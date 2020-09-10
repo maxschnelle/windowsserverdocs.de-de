@@ -3,16 +3,16 @@ title: winsat mem
 description: Referenz Artikel für WinSAT-Arbeitsspeicher, der die Systemspeicher Bandbreite auf eine Weise überprüft, die den umfangreichen Arbeitsspeichers und Speicherpuffer Kopien widerspiegelt, wie bei der Multimedia-Verarbeitung verwendet.
 winms.topic: reference
 ms.assetid: cda017bf-6193-43c1-b71f-e379c23e1152
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 0ba9896b6c07d412e00209e708b4b10e6421907e
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 88a8ff7bf8cac5197532950d59d8c736d229f846
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89035878"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89641106"
 ---
 # <a name="winsat-mem"></a>winsat mem
 
@@ -30,7 +30,7 @@ winsat mem <parameters>
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
 |nach oben|Erzwingen Sie Speichertests nur mit einem einzigen Thread. Der Standardwert besteht darin, einen Thread pro physischer CPU oder Kern auszuführen.|
 |-RN|Geben Sie an, dass die Threads der Bewertung mit normaler Priorität ausgeführt werden sollen. Der Standardwert besteht darin, mit der Priorität 15 auszuführen.|
@@ -54,7 +54,7 @@ winsat mem <parameters>
   winsat mem -mint 4.0 -maxt 12.0 -buffersize 32MB -xml memtest.xml
   ```
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 
 -   Sie müssen mindestens Mitglied der lokalen Gruppe Administratoren oder einer entsprechenden Gruppe sein, um **WinSAT**verwenden zu können. Der Befehl muss von einem Eingabe Aufforderungs Fenster mit erhöhten Rechten ausgeführt werden.
 -   Klicken Sie zum Öffnen einer Eingabeaufforderung mit erhöhten Rechten auf **Start**und auf **Zubehör**, klicken Sie mit der rechten Maustaste auf **Eingabeaufforderung**, und klicken Sie dann auf **als Administrator ausführen**.

@@ -3,16 +3,16 @@ title: Richtlinien zur Softwareeinschränkung (Software Restriction Policies, SR
 description: Windows Server-Sicherheit
 ms.topic: article
 ms.assetid: dc7013b0-0efd-40fd-bd6d-75128adbd0b8
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/12/2016
-ms.openlocfilehash: f98075cd8e662b3344f426bd8d69181994096a5f
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 49d0f32d1634a37f5ddda71f8147017e9863b1e6
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87953049"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89640250"
 ---
 # <a name="software-restriction-policies-technical-overview"></a>Richtlinien zur Softwareeinschränkung (Software Restriction Policies, SRP) –  Technische Übersicht
 
@@ -82,7 +82,7 @@ In der folgenden Tabelle werden die Features und Funktionen von AppLocker und de
 
 |Anwendungssteuerungsfunktion|SRP|AppLocker|
 |----------------|----|-------|
-|`Scope`|Richtlinien für Softwareeinschränkung können auf allen Windows-Betriebssystemen ab Windows XP und Windows Server 2003 angewendet werden.|AppLocker-Richtlinien gelten nur für Windows Server 2008 R2, Windows Server 2012, Windows 7 und Windows 8.|
+|Bereich|Richtlinien für Softwareeinschränkung können auf allen Windows-Betriebssystemen ab Windows XP und Windows Server 2003 angewendet werden.|AppLocker-Richtlinien gelten nur für Windows Server 2008 R2, Windows Server 2012, Windows 7 und Windows 8.|
 |Richtlinienerstellung|SRP-Richtlinien werden mithilfe von Gruppenrichtlinien verwaltet, und nur der Administrator des GPO kann die SRP-Richtlinie aktualisieren. Der Administrator auf dem lokalen Computer kann die im lokalen GPO definierten SRP-Richtlinien ändern.|AppLocker-Richtlinien werden mithilfe von Gruppenrichtlinien verwaltet, und nur der Administrator des GPO kann die Richtlinie aktualisieren. Der Administrator auf dem lokalen Computer kann die im lokalen GPO definierten AppLocker-Richtlinien ändern.<p>Mit AppLocker können Fehlermeldungen so angepasst werden, dass Benutzer auf eine Webseite für Hilfe verwiesen werden.|
 |Richtlinienwartung|SRP-Richtlinien müssen mithilfe des Snap-Ins „Lokale Sicherheitsrichtlinie“ (bei lokal erstellten Richtlinien) oder der Gruppenrichtlinien-Verwaltungskonsole (GPMC) aktualisiert werden.|AppLocker-Richtlinien können mithilfe des Snap-Ins „Lokale Sicherheitsrichtlinie“ (bei lokal erstellten Richtlinien), der GPMC oder den Windows PowerShell-Cmdlets für AppLocker aktualisiert werden.|
 |Richtlinienanwendung|SRP-Richtlinien werden über eine Gruppenrichtlinie verteilt.|AppLocker-Richtlinien werden über eine Gruppenrichtlinie verteilt.|
@@ -167,7 +167,7 @@ Weitere Informationen zur SRP-Architektur und zur Verwaltung von Regeln, Prozess
 
 -   Das Verknüpfen mit einem Gruppenrichtlinien Objekt in einer anderen Domäne oder Website kann zu einer schlechten Leistung führen.
 
-## <a name="additional-resources"></a>Weitere Ressourcen
+## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
 |Inhaltstyp|Referenzen|
 |--------|-------|

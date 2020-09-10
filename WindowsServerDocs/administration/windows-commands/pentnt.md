@@ -3,16 +3,16 @@ title: pentnt
 description: Referenz Artikel für den Befehl "pentnt". Dieser Befehl ist veraltet und wird in zukünftigen Versionen von Windows nicht mehr unterstützt.
 ms.topic: reference
 ms.assetid: 4911e640-aa7f-4afb-abc2-5eefc7010204
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 6f4f244f5f66034ff93981bbf774e9f4b604d209
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 1ff0e8da2dd50a790cb942d5e446e1907b947076
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89037628"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89640707"
 ---
 # <a name="pentnt"></a>pentnt
 

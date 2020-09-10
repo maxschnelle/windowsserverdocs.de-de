@@ -3,16 +3,16 @@ title: tftp
 description: Übertragen von Dateien auf und von einem Remote Computer.
 ms.topic: reference
 ms.assetid: 772f19a8-dafe-45cd-878a-f5691f6568ef
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 94884e2ae992441bb0031e25f9aeebe5984c207d
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 0d2d7c0c62cb0285347e1309f8dadf48a8ef27dc
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89038278"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89640802"
 ---
 # <a name="tftp"></a>tftp
 
@@ -26,7 +26,7 @@ tftp [-i] [<Host>] [{get | put}] <Source> [<Destination>]
 ```
 
 #### <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |-------|--------|
 |-i|Gibt den binären Bild Übertragungsmodus (auch als Octett-Modus bezeichnet) an. Im binären Bild Modus wird die Datei in 1-Byte-Einheiten übertragen. Verwenden Sie diesen Modus beim Übertragen von Binärdateien. Wenn **-i** weggelassen wird, wird die Datei im ASCII-Modus übertragen. Dies ist der Standard Übertragungsmodus. In diesem Modus werden die Zeilenende (EOL)-Zeichen in ein entsprechendes Format für den angegebenen Computer konvertiert. Verwenden Sie diesen Modus beim Übertragen von Textdateien. Wenn eine Dateiübertragung erfolgreich ist, wird die Datenübertragungsrate angezeigt.|
 |\<Host\>|Gibt den lokalen oder Remote Computer an.|
@@ -35,7 +35,7 @@ tftp [-i] [<Host>] [{get | put}] <Source> [<Destination>]
 |\<Source\>|Gibt die zu übertragenden Datei an.|
 |\<Destination\>|Gibt an, wohin die Datei übertragen werden soll.|
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 -   Der TFTP-Client kann mithilfe des Assistenten zum Hinzufügen von Features installiert werden.
 -   Das TFTP-Protokoll unterstützt keinen Authentifizierungs-oder Verschlüsselungsmechanismus und kann daher ein Sicherheitsrisiko darstellen, wenn es vorhanden ist. Die Installation des TFTP-Clients wird für Systeme, die mit dem Internet verbunden sind, nicht empfohlen.
 -   Der TFTP-Client ist optionale Software und wird unter Windows Vista und höheren Versionen des Windows-Betriebssystems als veraltet markiert. Ein TFTP-Server Dienst wird von Microsoft aus Sicherheitsgründen nicht mehr bereitgestellt.

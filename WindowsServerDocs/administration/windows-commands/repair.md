@@ -3,16 +3,16 @@ title: Reparieren
 description: Referenz Artikel für den Repair-Befehl, mit dem RAID-5-Volumes repariert werden, indem der fehlerhafte Datenträger Bereich durch einen angegebenen dynamischen Datenträger ersetzt wird.
 ms.topic: reference
 ms.assetid: 9f84f661-f3cd-48c8-bf08-87819cf626fe
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: a0768a82f2de22a424b4979aa8844e9fbb4f67e5
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 969a677f72af9ab5e99770983308db6e88c28c29
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89027288"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89641000"
 ---
 # <a name="repair"></a>Reparieren
 
@@ -30,7 +30,7 @@ repair disk=<n> [align=<n>] [noerr]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 |--|--|
 | Festplatte =`<n>` | Gibt den dynamischen Datenträger an, durch den der fehlerhafte Datenträger Bereich ersetzt wird. Dabei muss *n* über einen freien Speicherplatz verfügen, der größer oder gleich der Gesamtgröße des fehlerhaften Datenträger Bereichs im RAID-5-Volume ist. |
 | ausrichten =`<n>` | Richtet alle Volumes oder Partitions Blöcke an der nächstgelegenen Ausrichtungs Grenze aus. Dabei steht *n* für die Anzahl der Kilobyte (KB) vom Anfang des Datenträgers bis zur nächsten Ausrichtungs Grenze. |

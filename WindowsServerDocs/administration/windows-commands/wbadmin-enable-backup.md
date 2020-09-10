@@ -3,16 +3,16 @@ title: wbadmin enable backup
 description: Referenz Artikel für Wbadmin enable Backup, bei dem ein täglicher Sicherungs Zeitplan erstellt und aktiviert oder ein vorhandener Sicherungs Zeitplan geändert wird.
 ms.topic: reference
 ms.assetid: c0e57f8a-70fa-4c60-9754-e762e8ad8772
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 6be32f6134bacf698d6e28998cbed76e8b50155f
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: bcca3c46b4e1314e89626e2ed9c333a2945927bd
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89032068"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89640746"
 ---
 # <a name="wbadmin-enable-backup"></a>wbadmin enable backup
 
@@ -72,7 +72,7 @@ wbadmin enable backup
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
 |-addTarget|Für Windows Server 2008 gibt den Speicherort für Sicherungen an. Erfordert, dass Sie ein Ziel für Sicherungen als Datenträger Bezeichner angeben (siehe Hinweise). Der Datenträger wird vor der Verwendung formatiert, und alle vorhandenen Daten werden dauerhaft gelöscht.</br>Gibt für Windows Server 2008 R2 und höher den Speicherort für Sicherungen an. Erfordert die Angabe des Speicher Orts als Datenträger, Volume oder Universal Naming Convention Pfad (UNC-Pfad) zu einem freigegebenen Remote Ordner ( \\ \\ \<servername> \<sharename> \) . Standardmäßig wird die Sicherung unter: \\ \\ <servername> \<sharename> \WindowsImageBackup gespeichert.\<ComputerBackedUp>\. Wenn Sie einen Datenträger angeben, wird der Datenträger vor der Verwendung formatiert, und alle vorhandenen Daten werden dauerhaft gelöscht. Wenn Sie einen freigegebenen Ordner angeben, können Sie keine weiteren Speicherorte hinzufügen. Sie können jeweils nur einen freigegebenen Ordner als Speicherort angeben.</br>Wichtig: Wenn Sie eine Sicherung in einem freigegebenen Remote Ordner speichern, wird diese Sicherung überschrieben, wenn Sie denselben Ordner zum erneuten sichern desselben Computers verwenden. Wenn der Sicherungs Vorgang fehlschlägt, können Sie darüber hinaus keine Sicherung erstellen, da die ältere Sicherung überschrieben wird, aber die neuere Sicherung nicht verwendbar ist. Sie können dies vermeiden, indem Sie Unterordner im freigegebenen Remote Ordner erstellen, um die Sicherungen zu organisieren. Wenn Sie dies tun, benötigen die Unterordner den doppelten Speicherplatz des übergeordneten Ordners.</br>Nur ein Speicherort kann in einem einzelnen Befehl angegeben werden. Mehrere Speicherorte für Volumes und Datenträger Sicherungen können hinzugefügt werden, indem der Befehl erneut ausgeführt wird.|
 |-removetarget|Gibt den Speicherort an, den Sie aus dem vorhandenen Sicherungs Zeitplan entfernen möchten. Erfordert die Angabe des Speicher Orts als Datenträger Bezeichner (siehe Hinweise).|
@@ -91,7 +91,7 @@ wbadmin enable backup
 |-quiet|Führt den Unterbefehl ohne Aufforderungen an den Benutzer aus.|
 |-allowdeleteoldbackups|Überschreibt alle Sicherungen, die vor dem Upgrade des Computers durchgeführt wurden.|
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 
 Um den datenträgerbezeichnerwert für Ihre Datenträger anzuzeigen, geben **Sie Wbadmin Get Disks**ein.
 

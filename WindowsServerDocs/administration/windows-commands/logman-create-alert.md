@@ -3,16 +3,16 @@ title: logman create alert
 description: Referenz Artikel für den Befehl logman Create Alert, mit dem ein Warnungs Datensammler erstellt wird.
 ms.topic: reference
 ms.assetid: 93e6fc2b-5bf5-413b-84b4-be8b9dd3a57d
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: f9b21a9e9a633518a1d7b7a51915ee0a8af8f47c
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 6309f5ee868ac3bebed6edd8ddbca5493584abce
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89025314"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89640001"
 ---
 # <a name="logman-create-alert"></a>logman create alert
 
@@ -28,7 +28,7 @@ logman create alert <[-n] <name>> [options]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | -s `<computer name>` | Führen Sie den Befehl auf dem angegebenen Remote Computer aus. |
 | -config `<value>` | Gibt die Einstellungsdatei an, die Befehlsoptionen enthält. |
@@ -56,7 +56,7 @@ logman create alert <[-n] <name>> [options]
 | -[-] Targ `<argument>` | Gibt die Task Argumente an, die für die mit-TN angegebene Aufgabe verwendet werden sollen. |
 | /? | Zeigt die kontextbezogene Hilfe an. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Wenn [-] aufgeführt ist, wird durch das Hinzufügen eines zusätzlichen Bindestrichs (-) die Option negiert.
 

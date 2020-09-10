@@ -3,16 +3,16 @@ title: reg unload
 description: Referenz Artikel für den Befehl reg entladen, mit dem ein Abschnitt der Registrierung entfernt wird, der mit dem reg Load-Vorgang geladen wurde.
 ms.topic: reference
 ms.assetid: 1d07791d-ca27-454e-9797-27d7e84c5048
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: e4f0ba24fd2d6dead3ff4f224584b56adbfd8425
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 5a94f4c3193a7096bd99d83a927ccb0b694d7faa
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89024994"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89640310"
 ---
 # <a name="reg-unload"></a>reg unload
 
@@ -26,16 +26,16 @@ reg unload <keyname>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 |--|--|
 | `<keyname>` | Gibt den vollständigen Pfad des unter Schlüssels an. Wenn Sie einen Remote Computer angeben möchten, schließen Sie den Computernamen (im Format `\\<computername>\` ) als Teil des *keyName*-Steuerelement ein. Das Weglassen bewirkt, dass `\\<computername>\` der Vorgang standardmäßig auf dem lokalen Computer durchgesetzt wird. Der *keyName* muss einen gültigen Stamm Schlüssel enthalten. Gültige Stamm Schlüssel für den lokalen Computer sind: **HKLM**, **HKCU**, **HKCR**, **HKU**und **HKCC**. Wenn ein Remote Computer angegeben ist, lauten gültige Stamm Schlüssel: **HKLM** und **HKU**. Wenn der Registrierungsschlüssel Name ein Leerzeichen enthält, müssen Sie den Schlüsselnamen in Anführungszeichen einschließen. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Die Rückgabewerte für den **reg-Entlade** Vorgang lauten wie folgt:
 
-    | Wert | Beschreibung |
+    | Wert | BESCHREIBUNG |
     |--|--|
     | 0 | Erfolgreich |
     | 1 | Fehler |

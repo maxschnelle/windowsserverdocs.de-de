@@ -3,16 +3,16 @@ title: Anmeldeinformationen-Prozesse in der Windows-Authentifizierung
 description: Windows Server-Sicherheit
 ms.topic: article
 ms.assetid: 48c60816-fb8b-447c-9c8e-800c2e05b14f
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/12/2016
-ms.openlocfilehash: ace3310b14a6a0ca049c30b165d40b244e042e02
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 3d2948c632697e6278b716784f68c7a0085eab07
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87942439"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89640085"
 ---
 # <a name="credentials-processes-in-windows-authentication"></a>Anmeldeinformationen-Prozesse in der Windows-Authentifizierung
 
@@ -159,7 +159,7 @@ Anwendungen können im Benutzermodus ausgeführt werden, in dem die Anwendung al
 
 SSPI ist über das Modul Secur32.dll verfügbar, das eine API zum Abrufen integrierter Sicherheitsdienste für Authentifizierung, Nachrichten Integrität und Nachrichten Schutz ist. Es stellt eine Abstraktions Ebene zwischen Protokollen auf Anwendungsebene und Sicherheitsprotokollen bereit. Da für verschiedene Anwendungen unterschiedliche Methoden zum identifizieren oder Authentifizieren von Benutzern und zum Verschlüsseln von Daten während der Übertragung über ein Netzwerk erforderlich sind, bietet SSPI eine Möglichkeit für den Zugriff auf DLLs (Dynamic-Link Libraries), die unterschiedliche Authentifizierungs-und Kryptografiefunktionen enthalten. Diese DLLs werden als Security Support Provider (SSPs) bezeichnet.
 
-Verwaltete Dienst Konten und virtuelle Konten wurden in Windows Server 2008 R2 und Windows 7 eingeführt, um wichtige Anwendungen, wie z. b. Microsoft SQL Server und Internetinformationsdienste (IIS), mit der Isolation ihrer eigenen Domänen Konten bereitzustellen. gleichzeitig entfällt die Notwendigkeit, dass ein Administrator den Dienst Prinzipal Namen (SPN) und die Anmelde Informationen für diese Konten manuell verwaltet. Weitere Informationen zu diesen Features und deren Rolle bei der Authentifizierung finden Sie in der [Dokumentation zu verwalteten Dienst Konten für Windows 7 und Windows Server 2008 R2](https://technet.microsoft.com/library/ff641731(v=ws.10).aspx) und [Übersicht über Gruppen verwaltete Dienst Konten](../group-managed-service-accounts/group-managed-service-accounts-overview.md).
+Verwaltete Dienst Konten und virtuelle Konten wurden in Windows Server 2008 R2 und Windows 7 eingeführt, um wichtige Anwendungen, wie z. b. Microsoft SQL Server und Internetinformationsdienste (IIS), mit der Isolation ihrer eigenen Domänen Konten bereitzustellen. gleichzeitig entfällt die Notwendigkeit, dass ein Administrator den Dienst Prinzipal Namen (SPN) und die Anmelde Informationen für diese Konten manuell verwaltet. Weitere Informationen zu diesen Features und deren Rolle bei der Authentifizierung finden Sie in der [Dokumentation zu verwalteten Dienst Konten für Windows 7 und Windows Server 2008 R2](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ff641731(v=ws.10)) und [Übersicht über Gruppen verwaltete Dienst Konten](../group-managed-service-accounts/group-managed-service-accounts-overview.md).
 
 **Dienste und Kernel Modus**
 
@@ -286,7 +286,7 @@ Wenn eine Vertrauensstellung zwischen zwei Domänen vorhanden ist, basieren die 
 
 Wie eine bestimmte Vertrauensstellung Authentifizierungsanforderungen übergibt, hängt von der Konfiguration ab. Vertrauens Stellungen können unidirektional sein, indem der Zugriff von der vertrauenswürdigen Domäne auf Ressourcen in der vertrauenden Domäne bereitgestellt wird (oder bidirektional), indem der Zugriff von jeder Domäne auf Ressourcen in der anderen Domäne gewährt wird. Vertrauens Stellungen sind auch nicht transitiv. in diesem Fall besteht nur eine Vertrauensstellung zwischen den beiden vertrauenswürdigen Partner Domänen oder transitiv. in diesem Fall wird eine Vertrauensstellung automatisch auf alle anderen Domänen ausgedehnt, denen beide Partner vertraut sind.
 
-Informationen zu Domänen-und Gesamtstruktur-Vertrauens Stellungen hinsichtlich der Authentifizierung finden Sie unter [Delegierte Authentifizierung und Vertrauens](https://technet.microsoft.com/library/dn169022.aspx)Stellungen.
+Informationen zu Domänen-und Gesamtstruktur-Vertrauens Stellungen hinsichtlich der Authentifizierung finden Sie unter [Delegierte Authentifizierung und Vertrauens](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dn169022(v=ws.10))Stellungen.
 
 ## <a name="certificates-in-windows-authentication"></a><a name="BKMK_CertificatesInWindowsAuthentication"></a>Zertifikate in der Windows-Authentifizierung
 Bei einer Public Key-Infrastruktur (PKI) handelt es sich um eine Kombination aus Software, Verschlüsselungstechnologien, Prozessen und Diensten, mit deren Hilfe die Kommunikation und Geschäftstransaktionen einer Organisation gesichert werden können. Die Fähigkeit einer PKI zum Sichern von Kommunikation und Geschäftstransaktionen basiert auf dem Austausch digitaler Zertifikate zwischen authentifizierten Benutzern und vertrauenswürdigen Ressourcen.
@@ -308,7 +308,7 @@ Um ein Zertifikat zu erhalten, werden die Authentifizierungsdaten durch Hash Alg
 
 Die Smartcard-Technologie ist ein Beispiel für eine Zertifikat basierte Authentifizierung. Die Anmeldung bei einem Netzwerk mit einer Smartcard bietet eine starke Form der Authentifizierung, da Sie eine kryptografiebasierte Identifikation und einen Nachweis des Besitzes verwendet, wenn ein Benutzer bei einer Domäne authentifiziert wird. Active Directory Zertifikat Dienste (AD CS) bieten die kryptografiebasierte Identifikation durch die Ausstellung eines Anmelde Zertifikats für jede Smartcard.
 
-Informationen zur Smartcardauthentifizierung finden Sie in der [technischen Referenz für die Windows-Smartcard](https://technet.microsoft.com/library/ff404297.aspx).
+Informationen zur Smartcardauthentifizierung finden Sie in der [technischen Referenz für die Windows-Smartcard](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ff404297(v=ws.10)).
 
 Die Technologie für virtuelle Smartcards wurde in Windows 8 eingeführt. Er speichert das Zertifikat der Smartcard auf dem PC und schützt es dann mithilfe des Sicherheitstokendiensts für den Geräte Manipulations Trusted Platform Module (TPM). Auf diese Weise wird der PC tatsächlich zur Smartcard, die die PIN des Benutzers erhalten muss, damit Sie authentifiziert werden kann.
 
@@ -316,9 +316,7 @@ Die Technologie für virtuelle Smartcards wurde in Windows 8 eingeführt. Er spe
 
 Die Authentifizierung von Remote-und Drahtlos Netzwerken ist eine andere Technologie, die Zertifikate für die Authentifizierung verwendet. Der Internet Authentifizierungsdienst (IAS) und die virtuellen privaten Netzwerkserver verwenden das Extensible Authentication Protocol-Transport Level Security (EAP-TLS), PEAP (Protected Extensible Authentication Protocol) oder IPSec (Internet Protocol Security), um eine Zertifikat basierte Authentifizierung für viele Arten von Netzwerk Zugriff durchzuführen, einschließlich VPN (virtuelles privates Netzwerk) und Drahtlos Verbindungen.
 
-Informationen zur Zertifikat basierten Authentifizierung im Netzwerk finden Sie unter [Netzwerk Zugriffs Authentifizierung und-Zertifikate](https://technet.microsoft.com/library/cc759575(WS.10).aspx).
+Informationen zur Zertifikat basierten Authentifizierung im Netzwerk finden Sie unter [Netzwerk Zugriffs Authentifizierung und-Zertifikate](/previous-versions/windows/it-pro/windows-server-2003/cc759575(v=ws.10)).
 
 ## <a name="see-also"></a><a name="BKMK_SeeAlso"></a>Siehe auch
-[Windows-Authentifizierungskonzepte](https://docs.microsoft.com/windows-server/security/windows-authentication/windows-authentication-concepts)
-
-
+[Windows-Authentifizierungskonzepte](./windows-authentication-concepts.md)
