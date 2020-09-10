@@ -4,15 +4,15 @@ desctription: Describes the User Access Logging feature and how to start using i
 ms.topic: article
 ms.assetid: 5c395b8b-3b35-4042-b9cc-07e438f86d50
 author: brentfor
-ms.author: coreyp
-manager: dongill
+ms.author: brentf
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: da8bb60ea455578eff96aed6173e4662fffd6ade
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 24471aca151a59306e8bf51119232f08dacdc606
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87991759"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89628152"
 ---
 # <a name="get-started-with-user-access-logging"></a>Einstieg in die Benutzer Zugriffs Protokollierung
 

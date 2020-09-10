@@ -3,16 +3,16 @@ title: Detail
 description: Referenz Artikel für den Detail Befehl, der Informationen über den ausgewählten Datenträger, die Partition, das Volume oder die virtuelle Festplatte (VHD) anzeigt.
 ms.topic: reference
 ms.assetid: 305755bd-1a51-486b-8515-62d3f227c291
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: a63af5f137cb7456d73a1c9b9e03552eafd53b35
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 728e411840cb2583fd746f17c6e0e2a8ffba82b5
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89024034"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89628645"
 ---
 # <a name="detail"></a>Detail
 
@@ -29,7 +29,7 @@ detail vdisk
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | [Detail Festplatte](detail-disk.md) | Zeigt die Eigenschaften des ausgewählten Datenträgers und der Volumes auf dem Datenträger an. |
 | [Detail Partition](detail-partition.md) | Zeigt die Eigenschaften der ausgewählten Partition an. |

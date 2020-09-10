@@ -3,16 +3,16 @@ title: delete volume
 description: Referenz Artikel für den Befehl Volume löschen, mit dem das ausgewählte Volume gelöscht wird.
 ms.topic: reference
 ms.assetid: f625933d-0f47-409e-93b2-a3e234049a5d
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 7c88834b800414bcf3ff246272ec187fb98d47db
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 66793e9d7c22b337164807bf76ee82c10d70547c
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89024154"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89628802"
 ---
 # <a name="delete-volume"></a>delete volume
 
@@ -29,7 +29,7 @@ delete volume [noerr]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | Noerr | Nur für Skripterstellung. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird. |
 

@@ -3,16 +3,16 @@ title: create volume mirror
 description: Referenz Artikel für den Befehl Volume-Spiegelung erstellen, mit dem eine volumespiegelung mithilfe der beiden angegebenen dynamischen Datenträger erstellt wird.
 ms.topic: reference
 ms.assetid: 48776917-783a-47ff-8da4-1cab77cea34b
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: ae8e05eea873ebb8c3ff12df43b60f14cc5804e6
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 8002896bdd84c0fba7dc8eaf2680c100b62ebda9
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89033178"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89629093"
 ---
 # <a name="create-volume-mirror"></a>create volume mirror
 
@@ -28,7 +28,7 @@ create volume mirror [size=<n>] disk=<n>,<n>[,<n>,...] [align=<n>] [noerr]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | Größe =`<n>` | Gibt die Menge des Speicherplatzes in Megabyte (MB) an, die das Volume auf den einzelnen Datenträgern einnimmt. Wenn keine Größe angegeben ist, nimmt das neue Volume den verbleibenden freien Speicherplatz auf dem kleinsten Datenträger und den gleichen Speicherplatz auf jedem nachfolgenden Datenträger an. |
 | Disk = `<n>` , `<n>` [ `,<n>,...` ] | Gibt die dynamischen Datenträger an, auf denen das Spiegelungs Volume erstellt wird. Zum Erstellen eines Spiegelungs Volumes benötigen Sie zwei dynamische Datenträger. Eine Menge an Speicherplatz, die der Größe entspricht, die mit dem **size** -Parameter angegeben wird, wird auf jedem Datenträger zugeordnet. |

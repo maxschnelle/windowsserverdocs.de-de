@@ -3,16 +3,16 @@ title: color
 description: Referenz Artikel für den Color-Befehl, mit dem die Vordergrund-und Hintergrundfarben im Eingabe Aufforderungs Fenster für die aktuelle Sitzung geändert werden.
 ms.topic: reference
 ms.assetid: f5b67131-d196-45ec-a3f9-b5d9f091fd86
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 3ce7aa8e927e3796917d2720495f394636d9c240
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: feb4d4a2de9491636a1c96b7a16c80e2e18f5865
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89028458"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89629507"
 ---
 # <a name="color"></a>color
 
@@ -26,7 +26,7 @@ color [[<b>]<f>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `<b>` | Gibt die Hintergrundfarbe an. |
 | `<f>` | Gibt die Vordergrundfarbe an. |
@@ -36,7 +36,7 @@ Hierbei gilt:
 
 In der folgenden Tabelle werden gültige hexadezimale Ziffern aufgelistet, die Sie als Werte für und verwenden können `<b>` `<f>` :
 
-| Wert | Farbe |
+| Wert | Color |
 | ----- | ----- |
 | 0 | Schwarz |
 | 1 | Blau |
@@ -49,13 +49,13 @@ In der folgenden Tabelle werden gültige hexadezimale Ziffern aufgelistet, die S
 | 8 | Grau |
 | 9 | Hellblau |
 | a | Hellgrün |
-| b | Hell Aqua |
+| k | Hell Aqua |
 | c | Hellrot |
-| d | Hell lila |
+| T | Hell lila |
 | e | Hellgelb |
 | f | Helles Weiß |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Verwenden Sie keine Leerzeichen zwischen `<b>` und `<f>` .
 

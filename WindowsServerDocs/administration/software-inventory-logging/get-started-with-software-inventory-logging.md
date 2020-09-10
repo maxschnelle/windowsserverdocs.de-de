@@ -4,15 +4,15 @@ description: Beschreibt, wie die Protokollierung des Software Bestands installie
 ms.topic: article
 ms.assetid: ed51c13c-7cbf-4144-a675-011fd29379d4
 author: brentfor
-ms.author: coreyp
-manager: dongill
+ms.author: brentf
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: a8584b5e2cf1048e0bba5c217aa3e6031600839a
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 76a8f0c55a604fd3f17963ec18df31ed6faf340a
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87993050"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89628273"
 ---
 # <a name="get-started-with-software-inventory-logging"></a>Beginnen Sie mit der Protokollierung des Software Bestands
 
@@ -20,7 +20,7 @@ ms.locfileid: "87993050"
 
  Bei der Protokollierung des Software Bestands werden Microsoft-Software Inventur Daten pro Server erfasst. Bevor Sie die Protokollierung des Software Bestands mit Windows Server 2012 R2 verwenden, stellen Sie sicher, dass Windows Update [KB 3000850](https://support.microsoft.com/kb/3000850) und [KB 3060681](https://support.microsoft.com/kb/3060681) auf jedem System installiert sind, das inventarisiert wird. Für Windows Server 2016 ist keine Windows Update erforderlich. Wenn Sie die Funktion von SIL zum Weiterleiten von Daten an einen Aggregations Server verwenden möchten, stellen Sie sicher, dass Sie über SSL-Zertifikate für Ihr Netzwerk verfügen.
 
-## <a name="feature-description"></a><a name="BKMK_OVER"></a>Featurebeschreibung
+## <a name="feature-description"></a><a name="BKMK_OVER"></a>Funktionsbeschreibung
 Die Protokollierung des Softwarebestands in Windows Server ist ein Feature mit einer Reihe einfacher PowerShell-Cmdlets, über die Serveradministratoren eine Liste der auf Servern installierten Microsoft-Software abrufen können. Darüber hinaus bietet sie die Möglichkeit, diese Daten für die Aggregation in regelmäßigen Abständen mithilfe des HTTPS-Protokolls über das Netzwerk zu sammeln und an einen Zielwebserver weiterzuleiten. Zum Verwalten des Features – in erster Linie zum stündlichen Sammeln und Weiterleiten – werden ebenfalls PowerShell-Befehle verwendet.
 
 > [!NOTE]

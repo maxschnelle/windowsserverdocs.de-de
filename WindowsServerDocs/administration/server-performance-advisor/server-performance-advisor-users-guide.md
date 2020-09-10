@@ -2,17 +2,17 @@
 title: Server Performance Advisor-Benutzerhandbuch
 description: Server Performance Advisor-Benutzerhandbuch
 ms.assetid: be99a5a9-b9c0-436b-912c-e5c5839a533d
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
 ms.topic: article
-ms.openlocfilehash: 1a7ea3b902793f281156930a8e666c1d32d05cbe
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: e09f4cbdd30aed8f14be449ed98fbc649ca58888
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87993118"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89628328"
 ---
 # <a name="server-performance-advisor-users-guide"></a>Server Performance Advisor-Benutzerhandbuch
 
@@ -155,7 +155,7 @@ Das folgende Diagramm zeigt die allgemeine Architektur des Spa-Systems. Der Proz
 ## <a name="getting-started-with-spa"></a>Einstieg in die Spa
 
 
-### <a name="requirements"></a>Anforderungen
+### <a name="requirements"></a>Requirements (Anforderungen)
 
 Die Spa-Konsole kann auf Windows 8.1, Windows 8, Windows 7, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 und Windows Server 2008 installiert werden. Das Ausführen von Spa unter früheren Versionen des Windows Server-Betriebssystems wird nicht unterstützt. Spa wird auf x86 oder x64 ausgeführt, unterstützt jedoch keine ia64-oder ARM-Architekturen.
 

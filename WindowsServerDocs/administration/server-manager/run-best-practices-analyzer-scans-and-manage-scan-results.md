@@ -3,16 +3,16 @@ title: Ausführen Best Practices Analyzer Scans und Verwalten der Scan Results_1
 description: Server-Manager
 ms.topic: article
 ms.assetid: 232f1c80-88ef-4a39-8014-14be788c2766
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: f8c0440da49e6e78afece1af3ee8357ddf846e7e
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 8b8ef48e81daa9c673f42d43b2f95abadec619a8
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87895737"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89627799"
 ---
 # <a name="run-best-practices-analyzer-scans-and-manage-scan-results"></a>Ausführen von Best Practices Analyzer-Scans und Verwalten der Scanergebnisse
 
@@ -54,7 +54,7 @@ In der folgenden Tabelle werden die Kategorien der Best Practices-Regeln beschri
 |Sicherheit|Sicherheitsregeln werden angewendet, um das relative Risiko einer Rolle für Bedrohungen wie nicht autorisierte oder böswillige Benutzer oder den Verlust oder Diebstahl vertraulicher oder proprietärer Daten zu messen.|
 |Leistung|Leistungs Regeln werden angewendet, um die Fähigkeit einer Rolle zum Verarbeiten von Anforderungen und zum Ausführen der vorgeschriebenen Aufgaben im Unternehmen innerhalb der erwarteten Zeitspanne in der Arbeitsauslastung der Rolle zu messen.|
 |Konfiguration|Mit Konfigurationsregeln werden die Einstellungen einer Rolle identifiziert, die für eine optimale Leistung ggf. Änderungen erfordern. Konfigurationsregeln können Konflikte bei Einstellungen vermeiden, die Fehlermeldungen verursachen oder verhindern können, dass eine Rolle ihre zugewiesenen Aufgaben im Unternehmen erfüllt.|
-|Richtlinie|Richtlinien Regeln werden angewendet, um Gruppenrichtlinie oder Windows-Registrierungs Einstellungen zu identifizieren, die möglicherweise geändert werden müssen, damit eine Rolle optimal und sicher funktioniert.|
+|Policy|Richtlinien Regeln werden angewendet, um Gruppenrichtlinie oder Windows-Registrierungs Einstellungen zu identifizieren, die möglicherweise geändert werden müssen, damit eine Rolle optimal und sicher funktioniert.|
 |Vorgang|Mit Vorgangsregeln werden mögliche Fehler einer Rolle beim Ausführen der vorgeschriebenen Aufgaben im Unternehmen identifiziert.|
 |Vor der Bereitstellung|Regeln vor der Bereitstellung werden vor dem Bereitstellen einer installierten Rolle im Unternehmen angewendet. Damit können Administratoren auswerten, ob die bewährten Methoden erfüllt werden, bevor die Rolle in der Produktion verwendet wird.|
 |Nach der Bereitstellung|Regeln nach der Bereitstellung werden angewendet, nachdem alle erforderlichen Dienste für eine Rolle gestartet wurden und die Rolle im Unternehmen ausgeführt wird.|

@@ -3,16 +3,16 @@ title: cmd
 description: Referenz Artikel zum CMD-Befehl, der eine neue Instanz des Befehls Interpreters startet, Cmd.exe.
 ms.topic: reference
 ms.assetid: 6ec588db-31a9-4a73-a970-65a2c6f4abbe
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: b782a93d4c61f43bbe45497871fe66f29ef972a4
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 96af9d997d9163631f3da364d960a83edb7bfe5a
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89030978"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89629589"
 ---
 # <a name="cmd"></a>cmd
 
@@ -26,7 +26,7 @@ cmd [/c|/k] [/s] [/q] [/d] [/a|/u] [/t:{<b><f> | <f>}] [/e:{on | off}] [/f:{on |
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | /C | Führt den durch die *Zeichenfolge* angegebenen Befehl aus und wird dann beendet. |
 | /k | Führt den durch die *Zeichenfolge* angegebenen Befehl aus und wird fortgesetzt. |
@@ -47,7 +47,7 @@ cmd [/c|/k] [/s] [/q] [/d] [/a|/u] [/t:{<b><f> | <f>}] [/e:{on | off}] [/f:{on |
 
 In der folgenden Tabelle werden gültige hexadezimale Ziffern aufgelistet, die Sie als Werte für und verwenden können `<b>` `<f>` :
 
-| Wert | Farbe |
+| Wert | Color |
 | ----- | ----- |
 | 0 | Schwarz |
 | 1 | Blau |
@@ -60,13 +60,13 @@ In der folgenden Tabelle werden gültige hexadezimale Ziffern aufgelistet, die S
 | 8 | Grau |
 | 9 | Hellblau |
 | a | Hellgrün |
-| b | Hell Aqua |
+| k | Hell Aqua |
 | c | Hellrot |
-| d | Hell lila |
+| T | Hell lila |
 | e | Hellgelb |
 | f | Helles Weiß |
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 
 - Wenn Sie mehrere Befehle für verwenden möchten `<string>` , trennen Sie diese durch das Befehls **&&** Trennzeichen, und schließen Sie Sie in Anführungszeichen ein. Beispiel:
 

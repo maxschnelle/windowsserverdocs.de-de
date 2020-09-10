@@ -3,16 +3,16 @@ title: comp
 description: Referenz Artikel für den Comp-Befehl, der den Inhalt von zwei Dateien oder Datei Sätzen Byte für Byte vergleicht.
 ms.topic: reference
 ms.assetid: 40319d23-704d-4da1-be93-8259547275d0
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: bd796aef8ef5794e4d8c09a995cb39a9756fb444
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 15859b06ffb402feb05bf3dee3bad5462093a888
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89027778"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89629430"
 ---
 # <a name="comp"></a>comp
 
@@ -26,7 +26,7 @@ comp [<data1>] [<data2>] [/d] [/a] [/l] [/n=<number>] [/c]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `<data1>` | Gibt den Speicherort und den Namen der ersten Datei oder Gruppe von Dateien an, die Sie vergleichen möchten. Sie können Platzhalter Zeichen (**&#42;** und **?**) verwenden, um mehrere Dateien anzugeben. |
 | `<data2>` | Gibt den Speicherort und den Namen der zweiten Datei oder Gruppe von Dateien an, die Sie vergleichen möchten. Sie können Platzhalter Zeichen (**&#42;** und **?**) verwenden, um mehrere Dateien anzugeben. |
@@ -38,7 +38,7 @@ comp [<data1>] [<data2>] [/d] [/a] [/l] [/n=<number>] [/c]
 | /Off [Zeile] | Verarbeitet Dateien mit dem Offline-Attribut Satz. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 
 - Während des Vergleichs zeigt **Comp** Meldungen an, die die Positionen der ungleichen Informationen zwischen den Dateien identifizieren. Jede Meldung gibt die Offset-Speicheradresse der ungleichen Bytes und den Inhalt der Bytes an (in Hexadezimal Schreibweise, es sei denn, der **/a** -oder **/d** -Befehlszeilenparameter wird angegeben). Nachrichten werden im folgenden Format angezeigt:
 

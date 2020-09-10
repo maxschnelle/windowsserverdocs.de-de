@@ -3,16 +3,16 @@ title: Verwalten des lokalen Servers und der Server-Manager-Konsole
 description: Server-Manager
 ms.topic: article
 ms.assetid: eeb32f65-d588-4ed5-82ba-1ca37f517139
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 7892ec8f4102c8baadd8cded8982b6b92702afa8
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: c999e599d565f82f8f1d9f38dfb8ba84ffb3bb9b
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87895742"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89627827"
 ---
 # <a name="manage-the-local-server-and-the-server-manager-console"></a>Verwalten des lokalen Servers und der Server-Manager-Konsole
 
@@ -64,7 +64,7 @@ Auf der Kachel **Eigenschaften** auf der Seite **Lokaler Server** können Sie di
 |Betriebssystemversion|In diesem schreibgeschützten Feld wird die Versionsnummer des Windows-Betriebssystems angezeigt, das auf dem lokalen Server ausgeführt wird.|
 |Hardwareinformationen|In diesem schreibgeschützten Feld werden Hersteller, Modellname und -nummer der Serverhardware angezeigt.|
 |Zuletzt installierte Updates|Zeigt den Tag und die Uhrzeit der letzten Installation von Windows-Updates an. Öffnet **Systemsteuerung\System und Sicherheit\Windows Update**.|
-|Windows-Update|Zeigt die Windows Update-Einstellungen für den lokalen Server an. Öffnet **Systemsteuerung\System und Sicherheit\Windows Update**.|
+|Windows Update|Zeigt die Windows Update-Einstellungen für den lokalen Server an. Öffnet **Systemsteuerung\System und Sicherheit\Windows Update**.|
 |Zuletzt auf Updates geprüft|Zeigt den Tag und die Uhrzeit der letzten Überprüfung des Servers auf verfügbare Windows-Updates an. Öffnet **Systemsteuerung\System und Sicherheit\Windows Update**.|
 |Windows-Fehlerberichterstattung|Zeigt den den Anmeldestatus der Windows-Fehlerberichterstattung an. Öffnet das Dialogfeld **Windows-Fehlerberichterstattungs-Konfiguration**. Weitere Informationen zur Windows-Fehlerberichterstattung, zu den Vorteilen, Datenschutzbestimmungen und Anmeldeeinstellungen finden Sie unter [Windows-Fehlerberichterstattung](https://go.microsoft.com/fwlink/?LinkID=245991).|
 |Programm zur Verbesserung der Benutzerfreundlichkeit|Zeigt den Anmeldestatus des Programms zur Verbesserung der Benutzerfreundlichkeit von Windows an. Öffnet das Dialogfeld **Konfiguration des Programms zur Verbesserung der Benutzerfreundlichkeit**. Weitere Informationen zum Programm zur Verbesserung der Benutzerfreundlichkeit von Windows, zu den Vorteilen und Anmeldeeinstellungen finden Sie unter [Programm zur Verbesserung der Benutzerfreundlichkeit von Windows](https://go.microsoft.com/fwlink/?LinkID=245992).|
@@ -112,7 +112,7 @@ Mit dem Kontrollkästchen **Server-Manager nicht automatisch bei der Anmeldung s
 Wenn Sie die Ansicht der Server-Manager Konsole vergrößern oder verkleinern möchten, können Sie entweder die **Zoom** -Befehle im Menü **Ansicht** verwenden oder **Strg + Plus (+)** drücken, um zu vergrößern und **STRG + minus (-)** zu verkleinern.
 
 ## <a name="customize-tools-that-are-displayed-in-the-tools-menu"></a><a name=BKMK_tools></a>Anpassen von Tools, die im Menü "Extras" angezeigt werden
-Das **Menü Extras** in Server-Manager enthält weiche Links zu Verknüpfungen im Ordner **Verwaltung** unter **Systemsteuerung/System und Sicherheit**. Der Ordner **Verwaltung** enthält eine Liste mit Verknüpfungen oder LNK-Dateien zu verfügbaren Verwaltungs Tools wie MMC-Snap-Ins. Server-Manager füllt das **Menü Extras** mit Links zu diesen Verknüpfungen auf und **kopiert die Ordner** Struktur des Ordners **Verwaltung** in das Menü Extras. Die Tools im Ordner "Verwaltung" werden standardmäßig in einer flachen Liste angeordnet und nach Typ und nach Name sortiert. Im**Menü Server-Manager** Extras werden Elemente nur nach Name, nicht nach Typ sortiert.
+Das **Menü Extras** in Server-Manager enthält weiche Links zu Verknüpfungen im Ordner **Verwaltung** unter **Systemsteuerung/System und Sicherheit**. Der Ordner **Verwaltung** enthält eine Liste mit Verknüpfungen oder LNK-Dateien zu verfügbaren Verwaltungs Tools, z. b. MMC-Snap-Ins. Server-Manager füllt das Menü Extras mit Links zu diesen Verknüpfungen auf und **kopiert die Ordner** Struktur des Ordners **Verwaltung** in **das Menü Extras** . Die Tools im Ordner "Verwaltung" werden standardmäßig in einer flachen Liste angeordnet und nach Typ und nach Name sortiert. Im**Menü Server-Manager** Extras werden Elemente nur nach Name, nicht nach Typ sortiert.
 
 Wenn Sie das Menü **Tools** anpassen möchten, kopieren Sie die gewünschten Tool- oder Skriptverknüpfungen in den Ordner **Verwaltung**. Sie können Ihre Verknüpfungen auch in Ordnern organisieren, die im Menü **Tools** hierarchische Menüs bilden. Wenn Sie den Zugriff auf die benutzerdefinierten Tools **im Menü Extras** einschränken möchten, können Sie außerdem Benutzer Zugriffsrechte für Ihre benutzerdefinierten Tool Ordner in "Verwaltung" oder direkt auf dem ursprünglichen Tool bzw. in den Skriptdateien festlegen.
 

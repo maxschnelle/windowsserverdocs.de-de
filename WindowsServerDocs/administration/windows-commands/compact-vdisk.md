@@ -3,16 +3,16 @@ title: compact vdisk
 description: Referenz Artikel für den Compact Vdisk-Befehl, mit dem die physische Größe einer dynamisch erweiterbaren virtuellen Festplatten Datei (VHD) reduziert wird.
 ms.topic: reference
 ms.assetid: 40ca0820-67de-4160-b62a-e9bf63fe2790
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 505d04cea68a3b005490a264c8c9e77f60e22a35
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 459ffb1940d6e4b7fcce5c3fa97a89c5c938b205
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89027748"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89629409"
 ---
 # <a name="compact-vdisk"></a>compact vdisk
 
@@ -26,7 +26,7 @@ Verringert die physische Größe einer dynamisch erweiterbaren virtuellen Festpl
 compact vdisk
 ```
 
-### <a name="remarks"></a>Bemerkungen
+### <a name="remarks"></a>Hinweise
 
 - Eine dynamisch erweiterbare virtuelle Festplatte muss ausgewählt werden, damit dieser Vorgang erfolgreich ausgeführt wird. Wählen Sie mit dem [Befehl Vdisk auswählen](select-vdisk.md) eine VHD aus, und verschieben Sie den Fokus darauf.
 

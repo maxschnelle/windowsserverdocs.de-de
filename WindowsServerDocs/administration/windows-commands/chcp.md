@@ -3,16 +3,16 @@ title: chcp
 description: Referenz Artikel für den CHCP-Befehl, durch den die Codepage der aktiven Konsole geändert wird.
 ms.topic: reference
 ms.assetid: dc7b1c71-7b80-443d-9cf1-9bcf305aa1fd
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 8e725bb3220546864642b2e6a39ddcc0163b1b98
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: ef70d73253782528bcd54f7cfd6f98de9d941702
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89031088"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89629829"
 ---
 # <a name="chcp"></a>chcp
 
@@ -26,7 +26,7 @@ chcp [<nnn>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `<nnn>` | Gibt die Codepage an. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
@@ -48,7 +48,7 @@ In der folgenden Tabelle werden die einzelnen unterstützten Codeseiten und dere
 | 869 | Modernes Griechisch |
 | 936 | Chinesisch |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Nur die mit Windows installierte OEM-Codepage (Original Equipment Manufacturer) wird in einem Eingabe Aufforderungs Fenster, in dem Raster Schriftarten verwendet werden, ordnungsgemäß angezeigt. Andere Codepages werden im Vollbildmodus oder in Eingabe Aufforderungs Fenstern, die TrueType-Schriftarten verwenden, ordnungsgemäß angezeigt.
 

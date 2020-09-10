@@ -3,16 +3,16 @@ title: Erstellen einer Partition erweitert
 description: Referenz Artikel für den erweiterten Befehl "Partition erstellen", mit dem eine erweiterte Partition auf dem Datenträger mit dem Fokus erstellt wird.
 ms.topic: reference
 ms.assetid: 4ad7cb66-9c66-4153-b94e-1030a7225070
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 0d60438d634309d93a2d8446e4d86ff909db27e4
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: b04e9ad75161dbde02046ad0a0c5392b19473fa9
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89030218"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89629191"
 ---
 # <a name="create-partition-extended"></a>Erstellen einer Partition erweitert
 
@@ -33,7 +33,7 @@ create partition extended [size=<n>] [offset=<n>] [align=<n>] [noerr]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | Größe =`<n>` | Gibt die Größe der Partition in Megabyte (MB) an. Wenn keine Größe angegeben wird, wird die Partition so lange fortgesetzt, bis der freie Speicherplatz in der erweiterten Partition nicht mehr verfügbar ist. |
 | Offset =`<n>` | Gibt den Offset in Kilobyte (KB) an, bei dem die Partition erstellt wird. Wenn kein Offset angegeben wird, wird die Partition am Anfang des freien Speicherplatzes auf dem Datenträger gestartet, der groß genug ist, um die neue Partition zu speichern. |

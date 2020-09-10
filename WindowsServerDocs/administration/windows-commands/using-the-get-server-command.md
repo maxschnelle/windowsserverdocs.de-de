@@ -3,16 +3,16 @@ title: Get-Server
 description: Referenz Artikel zu Get-Server, der Informationen vom angegebenen Windows-Bereitstellungsdiensteserver abruft.
 ms.topic: reference
 ms.assetid: bef60db4-d58d-4304-ab4b-be53dd3271c3
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 13bceebfb619fc93cbab7b2b45d3dd34838760ed
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: fe55e707dda58e65d2b86fe553910d010f8b2586
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89029498"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89628506"
 ---
 # <a name="get-server"></a>Get-Server
 
@@ -25,7 +25,7 @@ Ruft Informationen vom angegebenen Windows-Bereitstellungsdiensteserver ab.
 wdsutil [Options] /Get-Server [/Server:<Server name>] /Show:{Config | Images | All} [/detailed]
 ```
 ### <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |-------|--------|
 |[/Server:<Server name>]|Gibt den Namen des Servers an. Dabei kann es sich um den NetBIOS-Namen oder den voll qualifizierten Domänen Namen (FQDN) handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.|
 |/Show: {config &#124; Images &#124; alle}|Gibt den Typ der zurück zugebende Informationen an.<p>-   **Config** gibt Konfigurationsinformationen zurück.<br />-   **Images** gibt Informationen zu Bildgruppen, Start Abbildern und Installations Abbildern zurück.<br />-   **Alle** gibt Konfigurationsinformationen und Bild Informationen zurück.|

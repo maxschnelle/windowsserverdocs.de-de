@@ -3,15 +3,15 @@ title: Problembehandlung der Protokollierung des Software Bestands
 description: Beschreibt, wie häufige Bereitstellungs Probleme bei der Protokollierung des Software Bestands gelöst werden
 ms.topic: article
 author: brentfor
-ms.author: coreyp
-manager: lizapo
+ms.author: brentf
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: c2c00f9b3981f35e30b794d778ecc32ad712ae54
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 71a6c4a04a0a9da45d020f71b3bb0685cd5c0c59
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87895643"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89628173"
 ---
 # <a name="troubleshoot-software-inventory-logging"></a>Problembehandlung der Protokollierung des Software Bestands
 

@@ -3,16 +3,16 @@ title: Verwalten mehrerer Remote Server mit Server-Manager
 description: Server-Manager
 ms.topic: article
 ms.assetid: 3a17e686-e7f2-47e2-b7af-733777c38b5f
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 480b03f49b806ca0096c64d824679473b02695c5
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: c85e9bd4525cc40ddc7e5c77aacb9fd2ab9cf124
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87991849"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89627829"
 ---
 # <a name="manage-multiple-remote-servers-with-server-manager"></a>Verwalten mehrerer Remote Server mit Server-Manager
 

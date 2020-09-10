@@ -3,16 +3,16 @@ title: wscript
 description: Referenz Artikel für WScript, der eine Umgebung bereitstellt, in der Benutzer Skripts in einer Vielzahl von Sprachen ausführen können, die eine Vielzahl von Objekt Modellen zum Ausführen von Aufgaben verwenden.
 ms.topic: reference
 ms.assetid: 2fbaf193-cdbd-414c-84c9-bb5720f84c29
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 08/21/2018
-ms.openlocfilehash: 689775951f1c97b7cc704801cd39691033005afe
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: af39abab4d493e0bd4a5ed9227c68e2e2e34dc2b
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89038068"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89628468"
 ---
 # <a name="wscript"></a>wscript
 
@@ -28,7 +28,7 @@ wscript [<scriptname>] [/b] [/d] [/e:<engine>] [{/h:cscript|/h:wscript}] [/i] [/
 
 #### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
 |ScriptName|Gibt den Pfad und den Dateinamen der Skriptdatei an.|
 |/b|Gibt den Batch Modus an, in dem keine Warnungen, Skript Fehler oder Eingabe Aufforderungen angezeigt werden. Dies ist das Gegenteil von **/i**.|
@@ -46,7 +46,7 @@ wscript [<scriptname>] [/b] [/d] [/e:<engine>] [{/h:cscript|/h:wscript}] [/i] [/
 |Scriptarguments|Gibt die Argumente an, die an das Skript geleitet werden. Jedem Skript Argument muss ein Schrägstrich (/) vorangestellt werden.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 
 -   Zum Ausführen dieser Aufgabe benötigen Sie keine Administratorrechte. Daher sollten Sie als Best Practice für die Sicherheit diese Aufgabe als Benutzer ohne Administratorrechte ausführen.
 -   Geben Sie zum Öffnen einer Eingabeaufforderung auf dem **Startbildschirm****cmd** ein, und klicken Sie auf **Eingabeaufforderung**.

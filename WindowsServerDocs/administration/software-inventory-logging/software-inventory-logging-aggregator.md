@@ -4,15 +4,15 @@ description: Beschreibt das Installieren und Verwalten des Aggregators der Proto
 ms.topic: article
 ms.assetid: e4230a75-6bcd-47d9-ba92-a052a90a6abc
 author: brentfor
-ms.author: coreyp
-manager: dongill
+ms.author: brentf
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 4f8e7743e51a5316df474ad97768cf01292db668
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: d533480c18919933d3581901dd8377556c6571c7
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87991919"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89628226"
 ---
 # <a name="software-inventory-logging-aggregator"></a>Aggregator der Protokollierung des Softwarebestands
 
@@ -158,7 +158,7 @@ Es gibt einige Dinge, die Sie vor der Installation des SIL-Aggregators auf einem
 
 -   Sie sind bei **dem Server mit einem Konto angemeldet, das auf dem SQL Server über sysadmin-Berechtigungen verfügt**, wenn Windows-Authentifizierung gewünscht ist.
 
-    ODER
+    oder
 
     Wenn SQL-Authentifizierung gewünscht ist, **haben Sie das Kennwort für ein Konto mit SQL-Administratorrechten**.
 
@@ -502,7 +502,7 @@ Mit dem `Set-SilAggregator`-Cmdlet können Sie Folgendes:
 
     -   Stellen Sie sicher, dass der **targetUri** den Wert **https://** im Eintrag enthält.
 
-    -   Stellen Sie sicher, dass alle erforderlichen Updates für Windows Server installiert sind (siehe „Voraussetzungen für SIL“).  Eine schnelle Möglichkeit zum Überprüfen besteht darin, diese mithilfe des folgenden Cmdlets zu suchen:`Get-SilWindowsUpdate *3060*, *3000*`
+    -   Stellen Sie sicher, dass alle erforderlichen Updates für Windows Server installiert sind (siehe „Voraussetzungen für SIL“).  Eine schnelle Möglichkeit zum Überprüfen besteht darin, diese mithilfe des folgenden Cmdlets zu suchen:   `Get-SilWindowsUpdate *3060*, *3000*`
 
     -   Stellen Sie sicher, dass das zur Authentifizierung bei dem Aggregator verwendete Zertifikat im richtigen Speicher auf dem lokalen Server installiert ist, der mithilfe von „SilLogging“ inventarisiert werden soll (siehe im Abschnitt „Erste Schritte“).
 
