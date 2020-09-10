@@ -5,14 +5,14 @@ ms.date: 10/03/2016
 ms.topic: article
 ms.assetid: ecf19216-7aac-4aca-839a-342ac28f5329
 author: nnamuhcs
-ms.author: coreyp
-manager: dongill
-ms.openlocfilehash: 4afba33d105f0348aaf7c130ccbe5a3b87fc1cb2
-ms.sourcegitcommit: 04637054de2bfbac66b9c78bad7bf3e7bae5ffb4
+ms.author: geschuma
+manager: mtillman
+ms.openlocfilehash: d46e760fd168d44cb8f036d6b1b28180db2ffce2
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87838309"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89625113"
 ---
 # <a name="troubleshoot-windows-server-essentials-installation"></a>Problembehandlung bei der Windows Server Essentials-Installation
 
@@ -33,7 +33,7 @@ Dieses Thema enthält Informationen zur Problembehandlung bei Problemen, die bei
 > [!NOTE]
 >  Die aktuellsten Informationen zur Problembehandlung aus der Windows Server Essentials-Community finden Sie im [Windows Server Essentials-Forum](/answers/topics/windows-server-essentials.html/threads). Das Windows Server Essentials-Forum eignet sich optimal, um nach Hilfe zu suchen oder um Fragen zu stellen.
 
-##  <a name="general-troubleshooting-steps"></a><a name="BKMK_GeneralTroubleshootingSteps"></a>Allgemeine Schritte zur Problembehandlung
+##  <a name="general-troubleshooting-steps"></a><a name="BKMK_GeneralTroubleshootingSteps"></a> Allgemeine Schritte zur Problembehandlung
  Wenn die Installation von Windows Server Essentials fehlschlägt, führen Sie diese Schritte aus, um das Problem zu identifizieren, das den Fehler verursacht hat.
 
 > [!IMPORTANT]
@@ -56,12 +56,12 @@ Dieses Thema enthält Informationen zur Problembehandlung bei Problemen, die bei
 
 6.  Wenn Sie die Fehlermeldung erhalten, dass beim Einrichten des Servers während der Installation ein Fehler aufgetreten ist, verwenden Sie die serverwiederherstellungs-DVD und die Anweisungen des Herstellers der Hardware, um den Server auf die Werkseinstellungen wiederherzustellen.
 
-##  <a name="troubleshoot-driver-issues"></a><a name="BKMK_TroubleshootDrivers"></a>Beheben von Treiber Problemen
+##  <a name="troubleshoot-driver-issues"></a><a name="BKMK_TroubleshootDrivers"></a> Beheben von Treiber Problemen
  Das häufigste Problem bei der Installation von Windows Server Essentials sind Speichercontroller, für die Treiber manuell installiert werden müssen. Windows bietet Treiber für viele Speichercontroller, jedoch möglicherweise keine Treiber für Ihre bestimmte Hardware.
 
  Sie müssen möglicherweise auch Netzwerkkartentreiber für Ihre bestimmte Hardware manuell installieren.
 
-###  <a name="adding-drivers-for-storage-controllers"></a><a name="BKMK_StorageDrivers"></a>Hinzufügen von Treibern für Speichercontroller
+###  <a name="adding-drivers-for-storage-controllers"></a><a name="BKMK_StorageDrivers"></a> Hinzufügen von Treibern für Speichercontroller
  Wenn Ihre Hardware Speicher Treiber erfordert, die nicht in Windows Server Essentials enthalten sind, verwenden Sie die folgenden Informationen, um das Setup abzuschließen.
 
  Wenn während der Installation die folgende Meldung angezeigt wird, müssen Sie für Ihren Speichercontroller manuell Treiber hinzufügen:
@@ -95,7 +95,7 @@ Dieses Thema enthält Informationen zur Problembehandlung bei Problemen, die bei
 
    Das Setup sollte nun normal fortgesetzt werden.
 
-###  <a name="adding-drivers-for-network-adapters"></a><a name="BKMK_AddingNICdrivers"></a>Hinzufügen von Treibern für Netzwerkadapter
+###  <a name="adding-drivers-for-network-adapters"></a><a name="BKMK_AddingNICdrivers"></a> Hinzufügen von Treibern für Netzwerkadapter
  Wenn ein Netzwerkadapter auf dem Computer nicht von Windows Server Essentials unterstützt wird, hat der Server nach Abschluss des Setups keine Netzwerkverbindung, und Sie können keine Computer mit dem Server verbinden.
 
  Am Ende der Windows Server Essentials-Installation werden Sie informiert, wenn ein Netzwerkadapter Treiber nicht automatisch installiert wurde. Sie können auch **Netzwerkverbindungen** in der Systemsteuerung auf einen fehlenden Netzwerkadaptertreiber überprüfen. Wenn dem Netzwerkadapter auf dem Server keine Netzwerkverbindung zugeordnet ist, müssen Sie einen Treiber installieren.

@@ -3,16 +3,16 @@ title: beim
 description: Referenz Artikel für den at-Befehl, der Befehle und Programme plant, die auf einem Computer zu einem bestimmten Zeitpunkt (Datum und Uhrzeit) ausgeführt werden.
 ms.topic: reference
 ms.assetid: ff18fd16-9437-4c53-8794-bfc67f5256b3
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 017e6bb59b891fddfff9e695f8e3040f678bd611
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 8cd6762c6a88e24b6092dcce519582a0f627c77f
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89029288"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89633422"
 ---
 # <a name="at"></a>beim
 
@@ -29,7 +29,7 @@ at [\computername] <time> [/interactive] [/every:date[,...] | /next:date[,...]] 
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `\<computername\>` | Gibt einen Remotecomputer an. Wenn Sie diesen Parameter weglassen, plant die Befehle und **Programme auf dem** lokalen Computer. |
 | `<id>` | Gibt die Identifikationsnummer an, die einem geplanten Befehl zugewiesen ist. |
@@ -43,7 +43,7 @@ at [\computername] <time> [/interactive] [/every:date[,...] | /next:date[,...]] 
 | `<command>` | Gibt den Windows-Befehl, das Programm (d. h. eine exe-oder com-Datei) oder ein Batch Programm (also bat-oder cmd-Datei) an, das Sie ausführen möchten. Wenn der Befehl einen Pfad als Argument erfordert, verwenden Sie den absoluten Pfad (d. h. den gesamten Pfad, der mit dem Laufwerk Buchstaben beginnt). Wenn sich der Befehl auf einem Remote Computer befindet, geben Sie Universal Naming Convention (UNC)-Notation für den Server und den Freigabe Namen anstelle eines Remote Laufwerk Buchstabens an. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-### <a name="remarks"></a>Bemerkungen
+### <a name="remarks"></a>Hinweise
 
 - Mit diesem Befehl werden cmd.exe vor dem Ausführen von Befehlen nicht automatisch geladen. Wenn Sie keine ausführbare Datei (exe-Datei) ausführen, müssen Sie cmd.exe am Anfang des Befehls wie folgt explizit laden:
 
@@ -115,7 +115,7 @@ at [\computername] <time> [/interactive] [/every:date[,...] | /next:date[,...]] 
 
         - **Datentyp.** reg_DWOrd
 
-        - **Basis.** Dezimal
+        - **Basis.** Decimal
 
         - **Wertdaten:** 1,0. Der Wert **0** (null) im **Datenfeld Wert** gibt an, dass keine Begrenzung fest steht und nicht angehalten wird. Werte von 1 bis 99 gibt die Anzahl der Stunden an.
 

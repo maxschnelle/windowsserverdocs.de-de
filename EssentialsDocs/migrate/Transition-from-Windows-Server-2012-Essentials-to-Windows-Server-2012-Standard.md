@@ -5,14 +5,14 @@ ms.date: 10/03/2016
 ms.topic: article
 ms.assetid: 51bcf124-c215-4e9d-9fa8-a90fa2c2fa22
 author: nnamuhcs
-ms.author: coreyp
-manager: dongill
-ms.openlocfilehash: 4cc616c0e23c58ab1298526784574f6bc8f65f23
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.author: geschuma
+manager: mtillman
+ms.openlocfilehash: 3a73b744ca0b28802617881cbb64420f9f033dab
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87180386"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89625309"
 ---
 # <a name="transition-from-windows-server-essentials-to-windows-server-2012-standard"></a>Umstellung von Windows Server Essentials auf Windows Server 2012 Standard
 
@@ -102,7 +102,7 @@ ms.locfileid: "87180386"
 
    **%SYSTEMDRIVE%\Programme\Windows Server\Bin\TurnOffFeaturesWizard.exe**
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 
 -   [Umstellung auf Windows Server 2012 R2 Standard](Transition-from-Windows-Server-2012-R2-Essentials-to-Windows-Server-2012-R2-Standard.md)

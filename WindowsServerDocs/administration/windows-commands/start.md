@@ -3,16 +3,16 @@ title: start
 description: Referenz Artikel zu Start, mit dem ein separates Eingabe Aufforderungs Fenster zum Ausführen eines bestimmten Programms oder Befehls gestartet wird.
 ms.topic: reference
 ms.assetid: 0173f9b3-5cd7-4edb-b01e-d02193b4fadc
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 5f17b4093bbe82d869ad561dce45437389dc347e
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 3276374d13854e865755a7a87b9d35af2f4e6f46
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89036928"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89634189"
 ---
 # <a name="start"></a>start
 
@@ -28,7 +28,7 @@ start [<Title>] [/d <Path>] [/i] [{/min | /max}] [{/separate | /shared}] [{/low 
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
 |\<Title>|Gibt den Titel an, der in der Titelleiste des Eingabe Aufforderungs Fensters angezeigt werden soll.|
 |/d \<Path>|Gibt das Start Verzeichnis an.|
@@ -44,7 +44,7 @@ start [<Title>] [/d <Path>] [/i] [{/min | /max}] [{/separate | /shared}] [{/low 
 |\<Parameter>...|Gibt Parameter an, die an den Befehl oder das Programm übergeben werden sollen.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 
 - Sie können nicht ausführbare Dateien durch Ihre Datei Zuordnung ausführen, indem Sie den Namen der Datei als Befehl eingeben.
 - Wenn Sie einen Befehl ausführen, der die Zeichenfolge cmd als erstes Token ohne Erweiterung oder Pfad Qualifizierer enthält, wird cmd durch den Wert der COMSPEC-Variablen ersetzt. Dadurch wird verhindert, dass Benutzer **cmd** aus dem aktuellen Verzeichnis auswählen.

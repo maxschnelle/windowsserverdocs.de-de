@@ -3,16 +3,16 @@ title: openfiles
 description: Referenz Artikel für den openfiles-Befehl, der es einem Administrator ermöglicht, Dateien und Verzeichnisse, die auf einem System geöffnet wurden, abzufragen, anzuzeigen oder zu trennen.
 ms.topic: reference
 ms.assetid: c3be561d-a11f-4bf1-9835-8e4e96fe98ec
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: d2f148ef753e264256461b1135d84d325c1e1b70
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: eb7d67d082c948c5f91d7551033143a2aac79f2a
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89032628"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89633679"
 ---
 # <a name="openfiles"></a>openfiles
 
@@ -30,7 +30,7 @@ openfiles /disconnect [/s <system> [/u [<domain>\]<username> [/p [<password>]]]]
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 |--|--|
 | /s `<system>` | Gibt das Remote System an, mit dem eine Verbindung hergestellt werden soll (nach Name oder IP-Adresse). Verwenden Sie keine umgekehrten Schrägstriche. Wenn Sie die Option **/s** nicht verwenden, wird der Befehl standardmäßig auf dem lokalen Computer ausgeführt. Dieser Parameter gilt für alle Dateien und Ordner, die im Befehl angegeben sind. |
 | /u `[<domain>\]<username>` | Führt den Befehl mit den Berechtigungen des angegebenen Benutzerkontos aus. Wenn Sie die Option **/u** nicht verwenden, werden standardmäßig System Berechtigungen verwendet. |
@@ -86,7 +86,7 @@ openfiles /query [/s <system> [/u [<domain>\]<username> [/p [<password>]]]] [/fo
 #### <a name="parameters"></a>Parameter
 
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 |--|--|
 | /s `<system>` | Gibt das Remote System an, mit dem eine Verbindung hergestellt werden soll (nach Name oder IP-Adresse). Verwenden Sie keine umgekehrten Schrägstriche. Wenn Sie die Option **/s** nicht verwenden, wird der Befehl standardmäßig auf dem lokalen Computer ausgeführt. Dieser Parameter gilt für alle Dateien und Ordner, die im Befehl angegeben sind. |
 | /u `[<domain>\]<username>` | Führt den Befehl mit den Berechtigungen des angegebenen Benutzerkontos aus. Wenn Sie die Option **/u** nicht verwenden, werden standardmäßig System Berechtigungen verwendet. |
@@ -140,7 +140,7 @@ openfiles /local [on | off]
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 |--|--|
 | `[on | off]` | Aktiviert oder deaktiviert das globale Flag für die Liste der System verwalteten **Objekte** , das lokale Datei Handles nachverfolgt. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |

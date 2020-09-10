@@ -3,16 +3,16 @@ title: findstr
 description: Referenz Artikel für den findstr-Befehl, der in Dateien nach Textmustern sucht.
 ms.topic: reference
 ms.assetid: c2d803fb-4cd2-46a1-a1b7-6f5e0249c418
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: bdd268c3b2ddde1b42527968252770e6903bacc4
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 65223132d4577a5e90929073cb964851f1ab67ce
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89035128"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89637549"
 ---
 # <a name="findstr"></a>findstr
 
@@ -26,7 +26,7 @@ findstr [/b] [/e] [/l | /r] [/s] [/i] [/x] [/v] [/n] [/m] [/o] [/p] [/f:<file>] 
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | /b | Entspricht dem Textmuster, wenn es sich am Anfang einer Zeile befindet. |
 | /e | Entspricht dem Textmuster, wenn es sich am Ende einer Zeile befindet. |
@@ -50,7 +50,7 @@ findstr [/b] [/e] [/l | /r] [/s] [/i] [/x] [/v] [/n] [/m] [/o] [/p] [/f:<file>] 
 | `[\<drive>:][<path>]<filename>[ ...]` | Gibt den Speicherort und die Datei an, die durchsucht werden sollen. Mindestens ein Dateiname ist erforderlich. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Alle **findstr** -Befehlszeilenoptionen müssen den Zeichen *folgen* und *filename* in der Befehls Zeichenfolge vorangestellt sein.
 

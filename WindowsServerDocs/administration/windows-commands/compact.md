@@ -3,16 +3,16 @@ title: compact
 description: Referenz Artikel für den Compact-Befehl, der die Komprimierung von Dateien oder Verzeichnissen auf NTFS-Partitionen anzeigt oder ändert.
 ms.topic: reference
 ms.assetid: 429b3752-df0a-43a4-a210-df2f3ad03c3b
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 210aaf8c20741659bb29d4855ae39099c964a400
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: a0d43fce44b7de6ecc5b435b7ed5f2de88ed0b9f
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89025944"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89629383"
 ---
 # <a name="compact"></a>compact
 
@@ -26,7 +26,7 @@ compact [/c | /u] [/s[:<dir>]] [/a] [/i] [/f] [/q] [<filename>[...]]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | /C | Komprimiert das angegebene Verzeichnis oder die angegebene Datei. |
 | /U | Deinstalkomprimiert das angegebene Verzeichnis oder die angegebene Datei. |
@@ -38,7 +38,7 @@ compact [/c | /u] [/s[:<dir>]] [/a] [/i] [/f] [/q] [<filename>[...]]
 | `<filename>` | Gibt die Datei oder das Verzeichnis an. Sie können mehrere Dateinamen verwenden, und die **&#42;** und **?** Platzhalter Zeichen. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Dieser Befehl ist die Befehlszeilenversion des NTFS-Dateisystem Komprimierungs Features. Der Komprimierungs Status eines Verzeichnisses gibt an, ob Dateien automatisch komprimiert werden, wenn Sie dem Verzeichnis hinzugefügt werden. Wenn Sie den Komprimierungs Status eines Verzeichnisses festlegen, wird der Komprimierungs Status von Dateien, die sich bereits im Verzeichnis befinden, nicht notwendigerweise geändert.
 

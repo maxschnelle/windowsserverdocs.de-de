@@ -3,16 +3,16 @@ title: prnport
 description: Referenz Artikel zum prnport-Befehl, der die TCP/IP-Standarddrucker Anschlüsse erstellt, löscht und auflistet, zusätzlich zum Anzeigen und Ändern der Port Konfiguration.
 ms.topic: reference
 ms.assetid: 6a0ec638-a21e-4a34-be5c-bd0f7ca89ffe
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 4723d266ed70c7e9bf56fd65216dcce0bab1188c
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 8535290d84566b5241e7f3279ce38029180b8432
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89033888"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89635138"
 ---
 # <a name="prnport"></a>prnport
 
@@ -28,7 +28,7 @@ cscript prnport {-a | -d | -l | -g | -t | -?} [-r <portname>] [-s <Servername>] 
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 |--|--|
 | -a | Erstellt einen standardmäßigen TCP/IP-Druckerport. |
 | -d | Löscht einen standardmäßigen TCP/IP-Druckerport. |
@@ -48,7 +48,7 @@ cscript prnport {-a | -d | -l | -g | -t | -?} [-r <portname>] [-s <Servername>] 
 | -2`{e|-d}` | Gibt an, ob doppelte Spool (auch als "respoolung" bezeichnet) für TCP LPR-Ports aktiviert sind. Doppelte Spool sind erforderlich, da TCP LPR eine genaue Byte Anzahl in der Steuerungs Datei enthalten muss, die an den Drucker gesendet wird, aber das Protokoll kann die Anzahl nicht vom lokalen Druckanbieter erhalten. Wenn eine Datei in eine TCP LPR-Druck Warteschlange gestellt wird, wird Sie daher auch als temporäre Datei im Verzeichnis "System32" gespoolt. TCP LPR bestimmt die Größe der temporären Datei und sendet die Größe an den Server, auf dem LPD ausgeführt wird. Der Parameter **e** aktiviert doppelte spools. Der Parameter **d** deaktiviert doppelte spools. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Wenn die Informationen, die Sie angeben, Leerzeichen enthalten, verwenden Sie den Text in Anführungszeichen (z. b. "Computer Name").
 

@@ -3,16 +3,16 @@ title: New-MulticastTransmission
 description: Referenz Artikel für New-MulticastTransmission, mit dem eine neue Multicast Übertragung für ein Abbild erstellt wird.
 ms.topic: reference
 ms.assetid: c1f1dc46-dd50-4eb9-9f72-cf0e5d71bd3d
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 30988ad23151f12533b75323f9376859a4c5d2a5
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: ae5c3056fb6a5d2259a630c114ec7a24fc8d0b71
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89038148"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89627935"
 ---
 # <a name="new-multicasttransmission"></a>New-MulticastTransmission
 
@@ -47,7 +47,7 @@ wdsutil [Options] /New-MulticastTransmissiomedia:<Image name>
         [/Filename:<File name>]
 ```
 ### <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |-------|--------|
 Medien<Image name>|Gibt den Namen des Abbilds an, das mithilfe von Multicasting übertragen werden soll.|
 |[/Server:<Server name>]|Gibt den Namen des Servers an. Dabei kann es sich um den NetBIOS-Namen oder den voll qualifizierten Domänen Namen (FQDN) handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.|

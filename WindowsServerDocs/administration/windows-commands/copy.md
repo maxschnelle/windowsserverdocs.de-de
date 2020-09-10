@@ -3,16 +3,16 @@ title: copy
 description: Referenz Artikel für den Kopier Befehl, mit dem eine oder mehrere Dateien von einem Speicherort in einen anderen kopiert werden.
 ms.topic: reference
 ms.assetid: 9624d4a1-349a-4693-ad00-1d1d4e59e9ac
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 993fedf3b088ee5d06967c767c00aa9e11165cc3
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 129a6e4575be47ab876ef6943aeca803269ac529
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89030278"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89629232"
 ---
 # <a name="copy"></a>copy
 
@@ -29,7 +29,7 @@ copy [/d] [/v] [/n] [/y | /-y] [/z] [/a | /b] <source> [/a | /b] [+<source> [/a 
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | /d | Ermöglicht, dass verschlüsselte Dateien, die kopiert werden, als entschlüsselte Dateien am Ziel gespeichert werden. |
 | /v | Überprüft, ob neue Dateien ordnungsgemäß geschrieben werden. |
@@ -43,7 +43,7 @@ copy [/d] [/v] [/n] [/y | /-y] [/z] [/a | /b] <source> [/a | /b] [+<source> [/a 
 | `<destination>` | Erforderlich. Gibt den Speicherort an, an den Sie eine Datei oder einen Satz von Dateien kopieren möchten. Das *Ziel* kann aus einem Laufwerk Buchstaben und einem Doppelpunkt, einem Verzeichnisnamen, einem Dateinamen oder einer Kombination aus diesen bestehen. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Sie können eine ASCII-Textdatei mit einem Dateiendezeichen (STRG + Z) kopieren, um das Ende der Datei anzugeben.
 

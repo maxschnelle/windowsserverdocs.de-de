@@ -3,16 +3,16 @@ title: gpupdate
 description: Referenz Artikel zum gpupdate-Befehl, der Gruppenrichtlinie Einstellungen aktualisiert.
 ms.topic: reference
 ms.assetid: 2fd4e567-2ce1-4637-b611-c2f0895e5708
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 42f04a87d6f567f81b2fa8a4fc91b24a46510711
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 76bf70a617f2b87c042946faea27235f16af1533
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89035508"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89634698"
 ---
 # <a name="gpupdate"></a>gpupdate
 
@@ -26,7 +26,7 @@ gpupdate [/target:{computer | user}] [/force] [/wait:<VALUE>] [/logoff] [/boot] 
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- |------------ |
 | /target:`{computer|user}` | Gibt an, dass nur Benutzer-oder nur Computer Richtlinien Einstellungen aktualisiert werden. Standardmäßig werden die Benutzer-und Computer Richtlinien Einstellungen aktualisiert. |
 | /Force | Wendet alle Richtlinien Einstellungen erneut an. Standardmäßig werden nur Richtlinien Einstellungen angewendet, die geändert wurden. |

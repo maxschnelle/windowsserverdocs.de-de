@@ -3,16 +3,16 @@ title: auditpol list
 description: Referenz Artikel für den Befehl auditpol list, der Überwachungs Richtlinien Kategorien und Unterkategorien auflistet oder Benutzer auflistet, für die eine Überwachungsrichtlinie pro Benutzer definiert ist.
 ms.topic: reference
 ms.assetid: 45502abe-3d6e-4e13-94f0-8e6fcb6db860
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: b49b138de8f25f25b00e593d6bd02620a3f2f624
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 0f37586835f58a99fd75697acc0daad3ec4a2cf2
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89029078"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89633207"
 ---
 # <a name="auditpol-list"></a>auditpol list
 
@@ -32,7 +32,7 @@ auditpol /list
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ------- | -------- |
 | /User | Ruft alle Benutzer ab, für die die Überwachungsrichtlinie pro Benutzer definiert wurde. Wenn Sie mit dem/v-Parameter verwendet wird, wird auch die Sicherheits-ID (SID) des Benutzers angezeigt. |
 | /category | Zeigt die Namen der Kategorien an, die vom System interpretiert werden. Wenn Sie mit dem/v-Parameter verwendet wird, wird auch die Kategorie Globally Unique Identifier (GUID) angezeigt. |

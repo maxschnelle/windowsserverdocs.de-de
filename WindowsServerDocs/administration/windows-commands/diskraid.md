@@ -3,16 +3,16 @@ title: Diskraid
 description: Referenz Artikel für das Befehlszeilen Tool Diskraid, mit dem Sie redundante Arrays unabhängiger (oder kostengünstiger) Speicher Subsysteme (oder kostengünstiger) konfigurieren und verwalten können.
 ms.topic: reference
 ms.assetid: 20aef1e5-7641-47cf-b4eb-cda117f65b6e
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: b153d0ab1ec52f023c12b240518c6304d76e9093
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 49d190f257c93a026f29188fa26af7409c611f44
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89030918"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89627166"
 ---
 # <a name="diskraid"></a>Diskraid
 
@@ -44,7 +44,7 @@ add tpgroup tportal=n [noerr]
 
 ##### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | Plex-LUN =`<n>` | Gibt die LUN-Nummer an, die der aktuell ausgewählten LUN als Plex hinzugefügt werden soll. Vorsicht: alle Daten auf der LUN, die als Plex hinzugefügt werden, werden gelöscht. |
 | TPGROUP TPORTAL =`<n>` | Gibt die iSCSI-Zielportal-Nummer an, die der aktuell ausgewählten iSCSI-Zielportal Gruppe hinzugefügt werden soll. |
@@ -64,7 +64,7 @@ associate targets [add] <n>[,<n> [,…]]
 
 ##### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | Controller | Fügt der Liste der Controller, die der aktuell ausgewählten LUN zugeordnet sind, hinzu oder ersetzt Sie. Nur mit VDS 1,0-Anbietern verwenden. |
 | ports | Fügt die Liste der Controllerports hinzu, die der aktuell ausgewählten LUN zugeordnet sind, oder ersetzt Sie. Nur mit VDS 1,1-Anbietern verwenden. |
@@ -102,7 +102,7 @@ automagic {set | clear | apply} all <flag=value> [<flag=value> [...]]
 
 ##### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | set | Legt die angegebenen Flags auf die angegebenen Werte fest. |
 | clear | Löscht die angegebenen Flags. Mit dem **all** -Schlüsselwort werden alle automagflags gelöscht. |
@@ -124,7 +124,7 @@ break plex=<plex_number> [noerr]
 
 ##### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | Plex | Gibt die Nummer des zu entfernenden Plex an. Der Plex und die darin enthaltenen Daten werden nicht beibehalten, und die von diesem Plex verwendeten Ressourcen werden freigegeben. Es ist nicht garantiert, dass die in der LUN enthaltenen Daten konsistent sind. Wenn Sie diesen Plex beibehalten möchten, verwenden Sie den Volumeschattenkopie-Dienst (VSS). |
 | Noerr | Nur für Skripterstellung. Wenn ein Fehler auftritt, verarbeitet Diskraid weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. |
@@ -144,7 +144,7 @@ chap target remember secret=[<secret>] initiator=<initiatorname>
 
 ##### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | initiatorsatz | Legt den gemeinsamen geheimen Schlüssel im lokalen iSCSI-Initiatordienst für die gegenseitige CHAP-Authentifizierung fest, wenn der Initiator das Ziel authentifiziert. |
 | Erinnerung an Initiator | Kommuniziert das CHAP-Geheimnis eines iSCSI-Ziels mit dem lokalen iSCSI-Initiatordienst, sodass der Initiatordienst das Geheimnis verwenden kann, um sich bei der CHAP-Authentifizierung beim Ziel zu authentifizieren. |
@@ -172,7 +172,7 @@ create tpgroup [noerr]
 
 ##### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | Einfach | Erstellt eine einfache LUN. |
 | Bereichsstreifen | Erstellt eine stripesetlun. |
@@ -183,7 +183,7 @@ create tpgroup [noerr]
 | Laufwerke = | Gibt die *drive_number* für die Laufwerke an, die zum Erstellen einer LUN verwendet werden sollen. Entweder der **size**=-Parameter oder der **Drives**=-Parameter muss angegeben werden. Sie können auch gleichzeitig verwendet werden. Wenn der **size =** -Parameter nicht angegeben wird, ist die LUN, die für alle angegebenen Laufwerke zulässig ist, die größtmögliche Größe. Wenn der **size =** -Parameter angegeben wird, wählen die Anbieter Laufwerke aus der angegebenen Laufwerks Liste aus, um die LUN zu erstellen. Anbieter versuchen, die Laufwerke nach Möglichkeit in der angegebenen Reihenfolge zu verwenden. |
 | stripesize = | Gibt die Größe für eine *Stripe* -oder *RAID* -LUN in Megabyte an. Die stripesize kann nicht geändert werden, nachdem die LUN erstellt wurde. Um die Größe mit anderen Einheiten anzugeben, verwenden Sie eines der folgenden erkannten Suffixe direkt nach der Größe:<ul><li>**B** -Byte</li><li>**KB** -KB</li><li>**MB** -Megabyte</li><li>**GB** -Gigabyte</li><li>**TB** -Terabyte</li><li>**PB** -Peer tabyte.</li></ul> |
 | target | Erstellt ein neues iSCSI-Ziel für das derzeit ausgewählte Subsystem. |
-| name | Gibt den anzeigen Amen für das Ziel an. |
+| Name | Gibt den anzeigen Amen für das Ziel an. |
 | iscsiname | Gibt den iSCSI-Namen für das Ziel an und kann weggelassen werden, damit der Anbieter einen Namen generiert. |
 | TPGROUP | Erstellt eine neue iSCSI-Zielportal Gruppe für das aktuell ausgewählte Ziel. |
 | Noerr | Nur für Skripterstellung. Wenn ein Fehler auftritt, verarbeitet Diskraid weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. |
@@ -202,7 +202,7 @@ delete tpgroup [noerr]
 
 ##### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | lun | Löscht die derzeit ausgewählte LUN und alle darin ausgewählten Daten. |
 | uninstall | Gibt an, dass der Datenträger auf dem lokalen System, der der LUN zugeordnet ist, bereinigt wird, bevor die LUN gelöscht wird. |
@@ -222,7 +222,7 @@ detail {hbaport | iadapter | iportal | provider | subsystem | controller | port 
 
 ##### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | HBAPORT | Listet ausführliche Informationen zum aktuell ausgewählten HBA-Port (Hostbus Adapter) auf. |
 | IADAPTER | Listet ausführliche Informationen zum aktuell ausgewählten iSCSI-Initiator-Adapter auf. |
@@ -252,7 +252,7 @@ dissociate targets <n> [,<n> [,…]]
 
 ##### <a name="parameter"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | Controller | Entfernt Controller aus der Liste der Controller, die der aktuell ausgewählten LUN zugeordnet sind. Nur mit VDS 1,0-Anbietern verwenden. |
 | ports | Entfernt Controller Anschlüsse aus der Liste der Controllerports, die der aktuell ausgewählten LUN zugeordnet sind. Nur mit VDS 1,1-Anbietern verwenden. |
@@ -301,7 +301,7 @@ extend lun [size=<LUN_size>] [drives=<drive_number>, [<drive_number>, ...]] [noe
 
 ##### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | size | Gibt die Größe in Megabyte an, um die LUN zu erweitern. Es muss entweder die *Größe* oder der- `<drive>` Parameter angegeben werden. Sie können auch gleichzeitig verwendet werden. Wenn der **size =** -Parameter nicht angegeben wird, wird die LUN um die größtmögliche Größe erweitert, die von allen angegebenen Laufwerken zugelassen wird. Wenn der **size =** -Parameter angegeben wird, wählen Anbieter Laufwerke aus der Liste aus, die durch den **Laufwerke =** -Parameter angegeben wird, um die LUN zu erstellen. Um die Größe mit anderen Einheiten anzugeben, verwenden Sie eines der folgenden erkannten Suffixe direkt nach der Größe:<ul><li>**B** -Byte</li><li>**KB** -KB</li><li>**MB** -Megabyte</li><li>**GB** -Gigabyte</li><li>**TB** -Terabyte</li><li>**PB** -Peer tabyte.</li></ul> |
 | Laufwerke = | Gibt den `<drive_number>` für die Laufwerke an, die beim Erstellen einer LUN verwendet werden sollen. Es muss entweder die *Größe* oder der- `<drive>` Parameter angegeben werden. Sie können auch gleichzeitig verwendet werden. Wenn der **size =** -Parameter nicht angegeben wird, ist die LUN, die für alle angegebenen Laufwerke zulässig ist, die größtmögliche Größe. Anbieter verwenden die Laufwerke in der angegebenen Reihenfolge, wenn möglich. |
@@ -339,7 +339,7 @@ importtarget subsystem [set target]
 
 ##### <a name="parameter"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | Ziel festlegen | Bei Angabe dieser Option wird das aktuell ausgewählte Ziel auf das VSS-Import Ziel für das aktuell ausgewählte Subsystem festgelegt. Wenn nicht angegeben, ruft der Befehl das aktuelle VSS-Import Ziel ab, das für das aktuell ausgewählte Subsystem festgelegt ist. |
 
@@ -393,7 +393,7 @@ list {hbaports | iadapters | iportals | providers | subsystems | controllers | p
 
 ##### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | hbapbrüche | Listet zusammenfassende Informationen zu allen HBA-Ports auf, die VDS bekannt sind. Der aktuell ausgewählte HBA-Port wird durch ein Sternchen (*) markiert. |
 | IADAPTERS | Listet Zusammenfassungs Informationen zu allen iSCSI-Initiator-Adaptern, die VDS bekannt sind. Der aktuell ausgewählte Initiatoradapter wird durch ein Sternchen (*) markiert. |
@@ -442,7 +442,7 @@ logout target iadapter= <iadapter>
 
 ##### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | IADAPTER | Gibt den Initiator-Adapter mit einer Anmelde Sitzung an, von der abgemeldet werden soll. |
 
@@ -458,13 +458,13 @@ maintenance <object operation> [count=<iteration>]
 
 ##### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `<object>` | Gibt den Objekttyp an, für den der Vorgang durchgeführt werden soll. Der *Objekttyp* kann ein **Subsystem**, ein **Controller**, ein **Port, ein Laufwerk** oder eine **LUN**sein. |
 | `<operation>` | Gibt den auszuführenden Wartungs Vorgang an. Der *operation* Vorgangstyp kann **SpinUp**, **Spindown**, **Blink**, **Signal Tons** oder **Ping**sein. Es muss ein *Vorgang* angegeben werden. |
 | Anzahl = | Gibt an, wie oft der *Vorgang*wiederholt werden soll. Dies wird in der Regel mit **Blink**, **Signal Tons**oder **Ping**verwendet. |
 
-### <a name="name"></a>name
+### <a name="name"></a>Name
 
 Legt den anzeigen amen des derzeit ausgewählten Subsystems, LUN oder iSCSI-Ziels auf den angegebenen Namen fest.
 
@@ -476,7 +476,7 @@ name {subsystem | lun | target} [<name>]
 
 ##### <a name="parameter"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `<name>` | Gibt einen Namen für das Subsystem, die LUN oder das Ziel an. Der Name muss eine Länge von weniger als 64 Zeichen aufweisen. Wenn kein Name angegeben wird, wird der vorhandene Name (sofern vorhanden) gelöscht. |
 
@@ -492,7 +492,7 @@ offline <object>
 
 ##### <a name="parameter"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `<object>` | Gibt den Objekttyp an, für den dieser Vorgang durchgeführt werden soll. Der Typ kann sein: **Subsystem**, **Controller**, **Laufwerk**, **LUN**oder **Portal – Entitäten**. |
 
@@ -508,7 +508,7 @@ online <object>
 
 ##### <a name="parameter"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `<object>` | Gibt den Objekttyp an, für den dieser Vorgang durchgeführt werden soll. Der Typ kann lauten: **HBAPORT**, **Subsystem**, **Controller**, **Laufwerk**, **LUN**oder **Portal – Entitäten**. |
 
@@ -534,7 +534,7 @@ reenumerate {subsystems | drives}
 
 ##### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | Subsysteme | Fragt den Anbieter ab, um alle neuen Subsysteme zu ermitteln, die dem aktuell ausgewählten Anbieter hinzugefügt wurden. |
 | Laufwerke | Fragt die internen e/a-Busse ab, um neue Laufwerke zu ermitteln, die im derzeit ausgewählten Subsystem hinzugefügt wurden. |
@@ -571,7 +571,7 @@ remove tpgroup tportal=<tportal> [noerr]
 
 ##### <a name="parameter"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | TPGROUP TPORTAL =`<tportal>` | Gibt das zu entfernende iSCSI-Zielportal an. |
 | Noerr | Nur für Skripterstellung. Wenn ein Fehler auftritt, verarbeitet Diskraid weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. |
@@ -588,7 +588,7 @@ replace drive=<drive_number>
 
 ##### <a name="parameter"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | Laufwerk = | Gibt den `<drive_number>` für das zu ersetzende Laufwerk an. |
 
@@ -604,7 +604,7 @@ reset {controller | port}
 
 ##### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | Controller | Setzt den Controller zurück. |
 | port | Setzt den Port zurück. |
@@ -667,7 +667,7 @@ shrink lun size=<n> [noerr]
 
 ##### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | size | Gibt die gewünschte Menge an Speicherplatz in Megabyte (MB) an, um die Größe der LUN um zu verringern. Um die Größe mit anderen Einheiten anzugeben, verwenden Sie eines der folgenden erkannten Suffixe direkt nach der Größe:<ul><li>**B** -Byte</li><li>**KB** -KB</li><li>**MB** -Megabyte</li><li>**GB** -Gigabyte</li><li>**TB** -Terabyte</li><li>**PB** -Peer tabyte. |
 | Noerr | Nur für Skripterstellung. Wenn ein Fehler auftritt, verarbeitet Diskraid weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. |
@@ -684,7 +684,7 @@ standby hbaport
 
 ##### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | HBAPORT | Ändert den Status der Pfade zum aktuell ausgewählten Port des Hostbus Adapters (HBA) in den Standbymodus. |
 
@@ -700,7 +700,7 @@ unmask lun {all | none | [add] wwn=<hexadecimal_number> [;<hexadecimal_number> [
 
 ##### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | alle | Gibt an, dass die LUN von allen Hosts zugänglich gemacht werden soll. Allerdings können Sie die LUN nicht für alle Ziele in einem iSCSI-Subsystem aufheben.<P>Bevor Sie den Befehl ausführen, müssen Sie sich vom Ziel abmelden `unmask lun all` . |
 | Keine | Gibt an, dass der Zugriff auf die LUN für jeden Host nicht möglich sein soll.<P>Bevor Sie den Befehl ausführen, müssen Sie sich vom Ziel abmelden `unmask lun none` . |

@@ -3,16 +3,16 @@ title: gpresult
 description: Referenz Artikel für den Gpresult-Befehl, der die Richtlinien Ergebnissatz-Informationen (RSoP) für einen Remote Benutzer und-Computer anzeigt.
 ms.topic: reference
 ms.assetid: dfaa3adf-2c83-486c-86d6-23f93c5c883c
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 5ef5de0c8e4e4c4f75d8ccd680e20b8cf00385f5
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: a608f94a0239dd2e2d7eff2cc5aba5bfc7e918e8
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89025674"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89634741"
 ---
 # <a name="gpresult"></a>gpresult
 
@@ -31,7 +31,7 @@ gpresult [/s <system> [/u <username> [/p [<password>]]]] [/user [<targetdomain>\
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | /s `<system>` | Gibt den Namen oder die IP-Adresse eines Remote Computers an. Verwenden Sie keine umgekehrten Schrägstriche. Die Standardeinstellung ist der lokale Computer. |
 | /u `<username>` | Verwendet die Anmelde Informationen des angegebenen Benutzers, um den Befehl auszuführen. Der Standardbenutzer ist der Benutzer, der auf dem Computer angemeldet ist, der den Befehl ausgibt. |
@@ -45,7 +45,7 @@ gpresult [/s <system> [/u <username> [/p [<password>]]]] [/user [<targetdomain>\
 | /z | Zeigt alle verfügbaren Informationen zu Gruppenrichtlinie an. Dies schließt detaillierte Einstellungen ein, die mit einer Rangfolge von 1 und höher angewendet wurden. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Gruppenrichtlinie ist das primäre Verwaltungs Tool zum Definieren und Steuern, wie Programme, Netzwerkressourcen und das Betriebssystem für Benutzer und Computer in einer Organisation ausgeführt werden. In einer Active Directory-Umgebung wird Gruppenrichtlinie auf Benutzer oder Computer basierend auf der Mitgliedschaft in Standorten, Domänen oder Organisationseinheiten angewendet.
 
