@@ -3,16 +3,16 @@ title: tskill
 description: Referenz Artikel zu tskills, der einen Prozess beendet, der in einer Sitzung auf einem Remotedesktop-Sitzungshost Server ausgeführt wird.
 ms.topic: reference
 ms.assetid: 08986e6a-6900-4ece-85a1-8f73b14db1b3 Lizap
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 357523ce9806910bfddc8ed8992a7ac7be388d3f
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 24785d10cc09d494850bad5442f72111260dd261
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89026808"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89626718"
 ---
 # <a name="tskill"></a>tskill
 
@@ -31,7 +31,7 @@ tskill {<ProcessID> | <ProcessName>} [/server:<ServerName>] [/id:<SessionID> | /
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |-------|--------|
 |\<ProcessID>|Gibt die ID des Prozesses an, den Sie beenden möchten.|
 |\<ProcessName>|Gibt den Namen des Prozesses an, den Sie beenden möchten. Dieser Parameter kann Platzhalter Zeichen enthalten.|
@@ -41,7 +41,7 @@ tskill {<ProcessID> | <ProcessName>} [/server:<ServerName>] [/id:<SessionID> | /
 |/v|Zeigt Informationen zu den Aktionen an, die ausgeführt werden.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 - Sie können **tskills** verwenden, um nur die Prozesse zu beenden, die Ihnen angehören, es sei denn, Sie sind ein Administrator. Administratoren haben Vollzugriff auf alle **tskills** -Funktionen und können Prozesse beenden, die in anderen Benutzersitzungen ausgeführt werden.
 - Wenn alle Prozesse, die in einer Sitzung ausgeführt werden, beendet werden, wird die Sitzung ebenfalls beendet.
 - Wenn Sie die Parameter " *ProcessName* " und " **/Server:**<em>Servername</em> " verwenden, müssen Sie auch den Parameter " **/ID:**<em>SessionID</em> " oder " **/a** " angeben.

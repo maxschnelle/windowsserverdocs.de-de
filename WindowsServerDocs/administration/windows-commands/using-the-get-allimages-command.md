@@ -3,16 +3,16 @@ title: Get-allimages
 description: Referenz Artikel zu Get-allimages, der Informationen zu allen Images auf einem Server abruft.
 ms.topic: reference
 ms.assetid: 19de3720-4315-415a-8dc6-486caa0b2100
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: c4ebc0b36d832b6ce35168f6160b36c1c2ff896e
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 79b28d3649e18b192504bf6eb012984cb43218e2
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89035988"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89626386"
 ---
 # <a name="get-allimages"></a>Get-allimages
 
@@ -25,7 +25,7 @@ Ruft Informationen zu allen Images auf einem Server ab.
 wdsutil /Get-AllImages [/Server:<Server name>] /Show:{Boot | Install | LegacyRis | All} [/detailed]
 ```
 ### <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |-------|--------|
 |[/Server:<Server name>]|Gibt den Namen des Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.|
 |/Show: {Boot &#124; Installation &#124; legacyris &#124; alle}|-   Beim **Start** werden nur Start Abbilder zurückgegeben.<br />-   Bei der **Installation** werden Installations Images sowie Informationen zu den Abbild Gruppen zurückgegeben, in denen Sie enthalten sind.<br />-   **Legacyris** gibt nur Remoteinstallations Dienste (Remote Installation Services, RIS) zurück.<br />-   **Alle** gibt Informationen zum Start Abbild zurück, zum Installieren von Image Informationen (einschließlich Informationen zu den Abbild Gruppen) und zum RIS-Image.|

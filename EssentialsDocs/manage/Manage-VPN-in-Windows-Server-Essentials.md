@@ -5,14 +5,14 @@ ms.date: 10/03/2016
 ms.topic: article
 ms.assetid: cc2b264a-b9a8-4114-9f7b-8604f77096e5
 author: nnamuhcs
-ms.author: coreyp
-manager: dongill
-ms.openlocfilehash: bb221a0ef80388fa8b5bffbc38f7cbec56d3f61c
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.author: geschuma
+manager: mtillman
+ms.openlocfilehash: a4e2d87787c3c7e9ebcb8dc216de725f7cb13a1f
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87180866"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89626002"
 ---
 # <a name="manage-vpn-in-windows-server-essentials"></a>Verwalten des VPN in Windows Server Essentials
 
@@ -28,7 +28,7 @@ ms.locfileid: "87180866"
 
 -   [Verwenden von VPN für die Verbindung mit Windows Server Essentials](Manage-VPN-in-Windows-Server-Essentials.md#BKMK_3)
 
-##  <a name="enable-vpn-for-remote-access-on-the-server"></a><a name="BKMK_1"></a>Aktivieren von VPN für den Remote Zugriff auf dem Server
+##  <a name="enable-vpn-for-remote-access-on-the-server"></a><a name="BKMK_1"></a> Aktivieren von VPN für den Remote Zugriff auf dem Server
  Führen Sie das folgende Verfahren aus, um das VPN in Windows Server Essentials für das Aktivieren des Remotezugriffs zu konfigurieren.
 
 #### <a name="to-enable-vpn-in-windows-server-essentials"></a>So aktivieren Sie das VPN in Windows Server Essentials
@@ -43,7 +43,7 @@ ms.locfileid: "87180866"
 
 5.  Folgen Sie den Anweisungen, um den Assistenten fertigzustellen.
 
-##  <a name="set-vpn-permissions-for-network-users"></a><a name="BKMK_2"></a>Festlegen von VPN-Berechtigungen für Netzwerk Benutzer
+##  <a name="set-vpn-permissions-for-network-users"></a><a name="BKMK_2"></a> Festlegen von VPN-Berechtigungen für Netzwerk Benutzer
  Sie können eine Verbindung mit Windows Server Essentials über VPN herstellen und auf alle Ressourcen zugreifen, die auf dem Server gespeichert sind. Dies ist besonders dann nützlich, wenn auf Ihrem Clientcomputer Netzwerkkonten eingerichtet sind, die verwendet werden können, um eine Verbindung mit einem gehosteten Windows Server Essentials-Server über eine VPN-Verbindung herzustellen. Alle auf dem gehosteten Windows Server Essentials-Server neu erstellten Benutzerkonten müssen bei der ersten Anmeldung am Clientcomputer VPN verwenden.
 
 #### <a name="to-set-vpn-permissions-for-network-users"></a>So legen Sie die VPN-Berechtigungen für Netzwerkbenutzer fest
@@ -62,10 +62,10 @@ ms.locfileid: "87180866"
 
 7.  Klicken Sie auf **Übernehmen**, und klicken Sie anschließend auf **OK**.
 
-##  <a name="connect-client-computers-to-the-server"></a><a name="BKMK_Connect"></a>Verbinden von Client Computern mit dem Server
+##  <a name="connect-client-computers-to-the-server"></a><a name="BKMK_Connect"></a> Verbinden von Client Computern mit dem Server
  Sobald VPN auf einem Server mit ausgeführten Windows Server Essentials für den Remotezugriff aktiviert ist, können Sie eine VPN-Verbindung verwenden, um eine Verbindung mit allen auf dem Server gespeicherten Ressourcen herzustellen und darauf zuzugreifen. Zuvor müssen Sie jedoch den Computer mit dem Server verbinden. Wenn Sie den Computer mithilfe des entsprechenden Assistenten mit dem Server verbinden, wird auf dem Clientcomputer automatisch eine VPN-Netzwerkverbindung erstellt, die zuhause oder unterwegs für den Zugriff auf Serverressourcen verwendet werden kann. Schrittweise Anweisungen zum Verbinden Ihres Computers mit dem Server finden Sie unter [Connect computers to the server](../use/Get-Connected-in-Windows-Server-Essentials.md#BKMK_9).
 
-##  <a name="use-vpn-to-connect-to-windows-server-essentials"></a><a name="BKMK_3"></a>Herstellen einer Verbindung mit Windows Server Essentials mithilfe von VPN
+##  <a name="use-vpn-to-connect-to-windows-server-essentials"></a><a name="BKMK_3"></a> Herstellen einer Verbindung mit Windows Server Essentials mithilfe von VPN
  Angenommen, Sie verfügen über einen Clientcomputer, der mit Netzwerkkonten eingerichtet wurde, über die mithilfe eines VPNs eine Verbindung mit einem gehosteten Server unter Windows Server Essentials hergestellt werden kann. In diesem Fall müssen alle neu erstellten Benutzerkonten auf dem gehosteten Server ein VPN verwenden, wenn sie sich erstmalig beim Clientcomputer anmelden. Führen Sie das folgende Verfahren auf dem Clientcomputer aus, der mit dem Server verbunden ist.
 
 #### <a name="to-use-vpn-to-remotely-access-server-resources"></a>So verwenden Sie ein VPN für den Remotezugriff auf Serverressourcen
@@ -78,7 +78,7 @@ ms.locfileid: "87180866"
 
 4.  Melden Sie sich mit Ihrem Netzwerk-Benutzernamen und -Kennwort beim Windows Server Essentials-Netzwerk an.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Remote arbeiten](../use/Work-Remotely-in-Windows-Server-Essentials.md)
 

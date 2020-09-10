@@ -3,16 +3,16 @@ title: Get-AutoAddDevices
 description: Referenz Artikel zu Get-AutoAddDevices, in dem alle Computer angezeigt werden, die sich in der Datenbank zum automatischen Hinzufügen auf einem Windows-Bereitstellungsdiensteserver befinden.
 ms.topic: reference
 ms.assetid: 24b4b688-55b0-4bd9-a2f5-7ef4b3dfe2f2
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: f449ddb58bb4e5f28a3cee02e9c769d363baf3b7
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: f186d36fbdc4ccfac26eae9092c8bb89973d8835
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89035898"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89626345"
 ---
 # <a name="get-autoadddevices"></a>Get-AutoAddDevices
 
@@ -25,7 +25,7 @@ Zeigt alle Computer an, die sich auf einem Windows-Bereitstellungsdiensteserver 
 wdsutil [Options] /Get-AutoaddDevices [/Server:<Server name>] /Devicetype:{PendingDevices | RejectedDevices | ApprovedDevices}
 ```
 ### <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |-------|--------|
 |[/Server:<Server name>]|Gibt den Namen des Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.|
 |/DeviceType: {pdingdevices &#124; rejecteddevices &#124; approveddevices}|Gibt den Typ des zurück zugebende Computers an.<p>-   Mit " **pdingdevices** " werden alle Computer in der Datenbank mit dem Status "Ausstehend" zurückgegeben.<br />-   **Rejecteddevices** gibt alle Computer in der Datenbank zurück, die den Status "abgelehnt" aufweisen.<br />-   **Approveddevices** gibt alle Computer in der Datenbank zurück, die den Status "genehmigt" aufweisen.|

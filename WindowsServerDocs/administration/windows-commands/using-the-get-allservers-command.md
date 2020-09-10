@@ -3,16 +3,16 @@ title: "\"Get-allservers\""
 description: Referenz Artikel zu Get-allservers, der Informationen zu allen Windows-Bereitstellungsdiensteserver abruft.
 ms.topic: reference
 ms.assetid: fe2e3c69-8f2e-457d-af55-d249ebf70f53
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 3cd70245754ff544524ed9511f1b6cc5c9574e2f
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: b60fb7710699c4fff6656a0e2a34684a538b116d
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89035888"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89626352"
 ---
 # <a name="get-allservers"></a>"Get-allservers"
 
@@ -29,7 +29,7 @@ WDSUTIL [Options] /Get-AllServers /Show:{Config | Images | All} [/Detailed] [/Fo
 
 ### <a name="parameters"></a>Parameter
 
-|   Parameter   |                                                                                                                 Beschreibung                                                                                                                  |
+|   Parameter   |                                                                                                                 BESCHREIBUNG                                                                                                                  |
 |---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | /Show: {config |                                                                                                                    Bilder                                                                                                                    |
 |  /Detailed  | Wenn Sie in Verbindung mit **/Show: Images** oder **/Show: all**verwendet wird, gibt alle Bild Metadaten aus jedem Bild zurück. Wenn die **/detailed** -Option nicht angegeben ist, besteht das Standardverhalten darin, den Image Namen, die Beschreibung und den Dateinamen zurückzugeben. |

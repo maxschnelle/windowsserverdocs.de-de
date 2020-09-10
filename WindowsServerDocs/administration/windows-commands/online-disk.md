@@ -3,16 +3,16 @@ title: online disk
 description: Referenz Artikel für den Online-Datenträger Befehl, bei dem der Offline Datenträger in den Online Status versetzt wird.
 ms.topic: reference
 ms.assetid: bc44a783-eaa4-40ca-be01-5703b5bf4eb3
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 934e6bb1d7d5b52b00ac7eadea35e6f022906e5b
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: a2c33a85a8217963a220495e75efebf0c6999309
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89032698"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89627321"
 ---
 # <a name="online-disk"></a>online disk
 
@@ -36,7 +36,7 @@ online disk [noerr]
 
 Anweisungen zur Verwendung dieses Befehls finden Sie unter Erneutes [Aktivieren eines fehlenden oder offline](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc732026(v=ws.11))geschalteten dynamischen Datenträgers.
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 |--|--|
 | Noerr | Nur für Skripterstellung. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird. |
 

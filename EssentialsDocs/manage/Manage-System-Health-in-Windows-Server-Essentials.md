@@ -5,14 +5,14 @@ ms.date: 10/03/2016
 ms.topic: article
 ms.assetid: 3043f83b-389c-4f37-a1ff-85afe99314fa
 author: nnamuhcs
-ms.author: coreyp
-manager: dongill
-ms.openlocfilehash: 98a4b154a9b3cea9ebc92da1eb807bc73e98d5d2
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.author: geschuma
+manager: mtillman
+ms.openlocfilehash: 78b0b9f8cb2056bc307fd66b9fa70f3d128012cf
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87180886"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89626039"
 ---
 # <a name="manage-system-health-in-windows-server-essentials"></a>Verwalten der Systemintegrität in Windows Server Essentials
 
@@ -39,7 +39,7 @@ ms.locfileid: "87180886"
 
 -   [Potenzielle Computerwarnungen](Manage-System-Health-in-Windows-Server-Essentials.md#BKMK_Potential)
 
-##  <a name="about-the-health-report-add-in"></a><a name="BKMK_AddIn"></a>Informationen zum Integritäts Bericht-Add-in
+##  <a name="about-the-health-report-add-in"></a><a name="BKMK_AddIn"></a> Informationen zum Integritäts Bericht-Add-in
  Das Add-In für den Integritätsbericht für Windows Server Essentials stellt Ihnen konsolidierte Informationen über das Windows Server Essentials-Netzwerk bereit und ermöglicht die Verteilung dieser Informationen an andere Personen. Diese Informationen können auf der Registerkarte **Berichte** auf dem Dashboard angezeigt werden. Auf der Registerkarte **Berichte** können Sie Folgendes durchführen:
 
 -   [Erstellen eines Berichts auf Anforderung oder nach Zeitplan](Manage-System-Health-in-Windows-Server-Essentials.md#BKMK_Generate)
@@ -53,14 +53,14 @@ ms.locfileid: "87180886"
 >
 >  **Windows Server Essentials:** Standardmäßig ist das Add-in für den Integritäts Bericht in Windows Server Essentials oder Windows Server 2012 R2 mit installierter Windows Server Essentials-Rolle integriert, und die Integritäts Berichte werden auf der Registerkarte Integritäts **Berichte** auf der **Start** Seite des Dashboards angezeigt.
 
-###  <a name="generate-a-report-on-demand-or-on-schedule"></a><a name="BKMK_Generate"></a>Bericht bei Bedarf oder nach Zeitplan generieren
+###  <a name="generate-a-report-on-demand-or-on-schedule"></a><a name="BKMK_Generate"></a> Bericht bei Bedarf oder nach Zeitplan generieren
  Nach dem Installieren des Add-ins für den Statusbericht und dem erneuten Start des Dashboards wird eine neue Registerkarte, **Berichte**, zum Dashboard hinzugefügt. Sie können einen Statusbericht jederzeit auf Anforderung erstellen, indem Sie auf die Aufgabe **Statusbericht erstellen** auf der Registerkarte **Berichte** klicken.
 
  Nach der Erstellung eines Statusberichts wird im Listenbereich ein neues Element erstellt, das durch das Datum und die Uhrzeit der Berichterstellung gekennzeichnet ist. Sie öffnen ein Element, indem Sie im Listenbereich darauf doppelklicken, oder Sie können es auswählen und dann im Listenbereich auf **Statusbericht öffnen** klicken. Der Bericht wird in einem neuen Fenster im HTML-Format angezeigt.
 
  Zusätzlich zur manuellen Erstellung eines Berichts können Sie den Bericht auch nach einem Zeitplan täglich oder stündlich automatisch generieren. Klicken Sie hierzu im Aufgabenbereich auf Einstellungen für den Integritäts **Bericht anpassen**, und klicken Sie dann auf die Registerkarte **Zeitplan und e-Mail-Adresse** . Die Zeit **Plan** Funktion ist standardmäßig deaktiviert, und Sie können Sie aktivieren, indem Sie das Kontrollkästchen Integritäts **Bericht zum geplanten Zeitpunkt generieren** aktivieren.
 
-###  <a name="customize-the-content-of-the-report"></a><a name="BKMK_Customize"></a>Anpassen des Inhalts des Berichts
+###  <a name="customize-the-content-of-the-report"></a><a name="BKMK_Customize"></a> Anpassen des Inhalts des Berichts
  Der Integritätsbericht enthält Folgendes:
 
 - **Kritische Warnungen** Diese entsprechen den kritischen Warnungen, die in der Meldungsanzeige auf dem Dashboard angezeigt werden. Informationsmeldungen sind im Integritätsbericht nicht enthalten.
@@ -77,16 +77,16 @@ ms.locfileid: "87180886"
 
   Zeigen Sie im Integritätsbericht zunächst die **Zusammenfassung** an, und klicken Sie dann bei den Elementen mit einem roten Fehlersymbol oder einem gelben Warnsymbol auf den Link **Details** auf derselben Zeile, um die Details zum Element anzuzeigen.
 
-  Wenn Sie für einige der Datenpunkte, die standardmäßig im Bericht enthalten sind, nicht interessiert sind, können Sie den Inhalt des Berichts anpassen, indem Sie im Aufgabenbereich auf Einstellungen für den Integritäts **Bericht anpassen** und dann auf die Registerkarte **Inhalt** klicken. deaktivieren Sie die Kontrollkästchen für den Inhalt, der im Bericht nicht angezeigt werden soll. Wenn Sie z. b. über einen eigenen Server Sicherungs Plan verfügen und keine Warnungen zu Server Sicherungen sehen möchten, können Sie Server Sicherungen aus dem Bericht ausschließen, indem Sie das Kontrollkästchen **Server Sicherung** deaktivieren.
+  Wenn Sie für einige der Datenpunkte, die standardmäßig im Bericht enthalten sind, nicht interessiert sind, können Sie den Inhalt des Berichts anpassen, indem Sie im Aufgabenbereich auf Einstellungen für den Integritäts **Bericht anpassen** und dann auf die Registerkarte **Inhalt** klicken. Deaktivieren Sie die Kontrollkästchen für den Inhalt, der im Bericht nicht angezeigt werden soll. Wenn Sie z. b. über einen eigenen Server Sicherungs Plan verfügen und keine Warnungen zu Server Sicherungen sehen möchten, können Sie Server Sicherungen aus dem Bericht ausschließen, indem Sie das Kontrollkästchen **Server Sicherung** deaktivieren.
 
-###  <a name="email-the-report"></a><a name="BKMK_emailreport"></a>Bericht per e-Mail senden
+###  <a name="email-the-report"></a><a name="BKMK_emailreport"></a> Bericht per e-Mail senden
  Sich beim Dashboard anmelden zu müssen, um Berichte zu lesen, ist für einige Administratoren immer noch unpraktisch, vor allem wenn sie mehr als nur einen Server verwalten. Wenn die E-Mail-Funktion aktiviert ist, wird nach der Berichterstellung eine E-Mail an eine Liste von definierten E-Mail-Adressen mit dem Inhalt des Berichts gesendet. Der Administrator kann diesen Bericht von jedem Gerät oder jeder Clientanwendung aus öffnen und sicherstellen, dass der Server im bestmöglichen Zustand ausgeführt wird.
 
  Nachdem Sie die E-Mail-Funktion aktiviert haben, ändern Sie im Dialogfeld **Einstellungen für den Integritätsbericht anpassen** die SMTP-Einstellungen, und geben Sie eine Liste der E-Mail-Empfänger an. Sie werden feststellen, dass im Aufgabenbereich eine neue Aufgabe angezeigt wird: **Integritätsbericht senden**. Weitere Informationen zu SMTP-Einstellungen finden Sie unter [Einrichtung von E-Mail-Benachrichtigungen für Warnungen](Manage-System-Health-in-Windows-Server-Essentials.md#BKMK_Email).
 
  Sie können einen vorhandenen Bericht auswählen und dann auf **Integritätsbericht senden** klicken. Sie können auch einen neuen Bericht erstellen und einstellen, dass er automatisch an Ihr Postfach gesendet wird. Wenn Sie einen Zeitplan für die automatische Berichterstellung konfiguriert haben, wird der Bericht automatisch an Ihr Postfach gesendet, nachdem er wie konfiguriert täglich (oder stündlich) erstellt wird.
 
-##  <a name="view-alerts-by-using-the-alert-viewer"></a><a name="BKMK_View"></a>Anzeigen von Warnungen mithilfe der Meldungs Anzeige
+##  <a name="view-alerts-by-using-the-alert-viewer"></a><a name="BKMK_View"></a> Anzeigen von Warnungen mithilfe der Meldungs Anzeige
  In diesem Abschnitt wird die Verwendung des Dashboards oder des Launchpads zum Öffnen der Meldungsanzeige erläutert, um den Integritätsstatus aller Computer auf dem Servernetzwerk anzuzeigen.
 
 #### <a name="to-open-the-alert-viewer-by-using-the-dashboard"></a>So öffnen Sie die Meldungsanzeige über das Dashboard
@@ -101,7 +101,7 @@ ms.locfileid: "87180886"
 
 2.  Klicken Sie auf eines der angezeigten Warnsymbole (Kritisch, Warnung oder Information) unten im Launchpad, um die Meldungsanzeige zu öffnen, und befolgen Sie dann die Anweisungen im Detailbereich der Meldungsanzeige, um die Warnung zu beheben.
 
-##  <a name="organize-alerts-in-the-alert-viewer"></a><a name="BKMK_Organize"></a>Organisieren von Warnungen in der Meldungs Anzeige
+##  <a name="organize-alerts-in-the-alert-viewer"></a><a name="BKMK_Organize"></a> Organisieren von Warnungen in der Meldungs Anzeige
  Sie können Warnungen in der Meldungsanzeige organisieren, sodass sie nach Schweregrad (Kritisch, Warnung oder Information) oder nach Computernamen angezeigt werden.
 
 #### <a name="to-organize-alerts-in-the-alert-viewer"></a>Organisation von Warnungen in der Meldungsanzeige
@@ -116,7 +116,7 @@ ms.locfileid: "87180886"
 
     2.  Wählen Sie **Nach Warnungstyp filtern** aus, und klicken Sie auf den Warnungstyp (Kritisch, Warnung oder Information), für den Sie die Warnungen anzeigen möchten. Dadurch werden in der Meldungsanzeige nur die ausgewählten Warnungstypen angezeigt.
 
-##  <a name="respond-to-alerts"></a><a name="BKMK_Respond"></a>Reagieren auf Warnungen
+##  <a name="respond-to-alerts"></a><a name="BKMK_Respond"></a> Reagieren auf Warnungen
  Wenn eine Warnung vorliegt, können Sie wie folgt vorgehen:
 
 -   [Warnung beheben](Manage-System-Health-in-Windows-Server-Essentials.md#BKMK_Resolve)
@@ -127,10 +127,10 @@ ms.locfileid: "87180886"
 
 -   [Löschen einer Warnung](Manage-System-Health-in-Windows-Server-Essentials.md#BKMK_4)
 
-###  <a name="resolve-an-alert"></a><a name="BKMK_Resolve"></a>Auflösen einer Warnung
+###  <a name="resolve-an-alert"></a><a name="BKMK_Resolve"></a> Auflösen einer Warnung
  Befolgen Sie die Anweisungen in der Meldungsanzeige, um die Warnung zu beheben. Nach ihrer Behebung wird eine Warnung so lange in der Meldungsanzeige angezeigt, bis sie aktualisiert wird.
 
-###  <a name="ignore-an-alert"></a><a name="BKMK_3"></a>Warnung ignorieren
+###  <a name="ignore-an-alert"></a><a name="BKMK_3"></a> Warnung ignorieren
  Sie haben die Möglichkeit, eine Warnung zu ignorieren und später darauf zu reagieren. Wenn Sie eine Warnung ignorieren, wird sie weiterhin in der Meldungsanzeige angezeigt, doch sie wird deaktiviert und abgeblendet. Eine ignorierte Warnung wird in die Gesamtbewertung der Computerintegrität nicht einbezogen. Um eine ignorierte Warnung zu behandeln, müssen Sie sie zuerst aktivieren.
 
 ##### <a name="to-ignore-an-alert"></a>So ignorieren Sie eine Warnung
@@ -143,7 +143,7 @@ ms.locfileid: "87180886"
 
    Um eine deaktivierte Warnung zu behandeln, müssen Sie sie zuerst aktivieren.
 
-###  <a name="enable-an-alert"></a><a name="BKMK_5"></a>Aktivieren einer Warnung
+###  <a name="enable-an-alert"></a><a name="BKMK_5"></a> Aktivieren einer Warnung
  Sie können eine Warnung, die Sie zuvor ignoriert haben, aktivieren. Nachdem die Warnung aktiviert ist, können Sie sie beheben oder ggf. löschen. Eine Warnung wird als deaktiviert angezeigt, wenn sie ignoriert und entsprechend gekennzeichnet wurde. Wenn Sie eine zuvor deaktivierte Warnung aktivieren, wird sie wieder in die Gesamtbewertung der Computerintegrität einbezogen.
 
 ##### <a name="to-enable-an-alert"></a>So aktivieren Sie eine Warnung
@@ -154,7 +154,7 @@ ms.locfileid: "87180886"
 
 3.  Klicken Sie in der Meldungsanzeige mit der rechten Maustaste auf die Warnung, die Sie aktivieren möchten, und klicken Sie dann auf **Warnung aktivieren**.
 
-###  <a name="delete-an-alert"></a><a name="BKMK_4"></a>Löschen einer Warnung
+###  <a name="delete-an-alert"></a><a name="BKMK_4"></a> Löschen einer Warnung
  Sie können eine Warnung löschen, wenn sie nicht behoben oder ignoriert werden soll. Verwenden Sie die Meldungsanzeige auf dem Launchpad, um Warnungen zu löschen, die für Ihren Computer erstellt wurden. Wenn Sie eine Warnung löschen und der Server das Problem im nächsten Evaluierungszyklus für die Netzwerkintegrität erneut erkennt, erstellt er eine neue Warnung.
 
 ##### <a name="to-delete-an-alert"></a>So löschen Sie eine Warnung
@@ -165,14 +165,14 @@ ms.locfileid: "87180886"
 
 3.  Klicken Sie in der Meldungsanzeige mit der rechten Maustaste auf die Warnung, die Sie löschen möchten, und klicken Sie dann auf **Warnung löschen**.
 
-##  <a name="set-up-email-notifications-for-alerts"></a><a name="BKMK_Email"></a>Einrichten von e-Mail-Benachrichtigungen für Warnungen
+##  <a name="set-up-email-notifications-for-alerts"></a><a name="BKMK_Email"></a> Einrichten von e-Mail-Benachrichtigungen für Warnungen
  Sie können Ihren Server so konfigurieren, dass Sie über E-Mail über das Auftreten von Warnungen benachrichtigt werden. Die E-Mail-Benachrichtigungen für diese Warnungen enthalten Informationen zu Netzwerkproblemen und die Schritte zu ihrer Behebung, die mit den in der Meldungsanzeige aufgeführten Informationen identisch sind. Einige der Bewertungen der Netzwerkintegrität erfolgen programmgesteuert.
 
  Wenn Sie Ihren Server konfigurieren, sodass Benachrichtigungen über E-Mail gesendet werden, wird eine E-Mail-Benachrichtigung für Warnungen gesendet, die bei einer Bewertung der Netzwerkintegrität auftreten. Es werden jedoch nicht alle Warnungen, die in der Meldungsanzeige protokolliert werden, in E-Mails protokolliert.
 
  Alle 30 Minuten wird auf dem Server eine Aufgabe zur Bewertung von Warnungs-E-Mails ausgeführt, bei der das Netzwerk auf Warnungen überprüft wird. Eine E-Mail-Benachrichtigung wird gesendet, wenn eine Warnung auftritt, die für E-Mail-Benachrichtigungen konfiguriert wurde. Eine zweite E-Mail wird nicht gesendet, wenn die Warnung im nächsten Bewertungszyklus noch aktiv ist. So wird eine Überflutung Ihres Postfach verhindert. Wenn eine Warnung jedoch in einem künftigen Bewertungszyklus erkannt wird, enthält die daraufhin gesendete E-Mail-Benachrichtigung sowohl die neuen als auch die vorherigen Warnungen.
 
-###  <a name="alerts-that-result-in-email-notifications"></a><a name="BKMK_list"></a>Warnungen, die zu e-Mail-Benachrichtigungen führen
+###  <a name="alerts-that-result-in-email-notifications"></a><a name="BKMK_list"></a> Warnungen, die zu e-Mail-Benachrichtigungen führen
  Die folgenden Warnungen in der Meldungsanzeige führen zu E-Mail-Benachrichtigungen, wenn Sie Ihren Server für das Senden von E-Mail-Benachrichtigungen für Warnungen einrichten:
 
 -   Fehler sind in einer Clientcomputersicherung vorhanden.
@@ -221,17 +221,17 @@ ms.locfileid: "87180886"
 
 -   Lizenzfehler: Active Directory-Domänendienste.
 
--   Ihr Office 365-Abonnement ist abgelaufen.
+-   Ihr Microsoft 365 Abonnement ist abgelaufen.
 
--   Office 365-Authentifizierung fehlgeschlagen.
+-   Die Microsoft 365 Authentifizierung war nicht erfolgreich.
 
 -   Die Kennwortrichtlinie ist falsch.
 
--   Der Dienst für die Kennwortsynchronisierung kann ein Benutzerkennwort mit Office 365 nicht synchronisieren.
+-   Der Kenn Wort Synchronisierungs Dienst kann ein Benutzer Kennwort nicht mit Microsoft 365 synchronisieren.
 
 -   Eigenes Windows-Kennwort ändern.
 
--   Ihr Office 365-Kennwort ist mit Ihrem Windows-Kennwort nicht identisch.
+-   Ihr Microsoft 365 Kennwort entspricht nicht dem Windows-Kennwort.
 
 -   Es kann keine Verbindung mit dem Exchange-Server hergestellt werden.
 
@@ -255,7 +255,7 @@ ms.locfileid: "87180886"
 
 -   Mindestens ein Laufwerk funktioniert nicht und ist offline.
 
-###  <a name="configuring-smtp-on-your-server-to-send-alert-notifications-by-email-in-windows-server-essentials"></a><a name="BKMK_SMTP"></a>Konfigurieren von SMTP auf Ihrem Server zum Senden von Warn Benachrichtigungen per e-Mail in Windows Server Essentials
+###  <a name="configuring-smtp-on-your-server-to-send-alert-notifications-by-email-in-windows-server-essentials"></a><a name="BKMK_SMTP"></a> Konfigurieren von SMTP auf Ihrem Server zum Senden von Warn Benachrichtigungen per e-Mail in Windows Server Essentials
  In diesem Abschnitt wird erläutert, wie Sie Ihren Server konfigurieren, sodass bei Warnungen E-Mail-Benachrichtigungen gesendet werden.
 
 > [!NOTE]
@@ -347,7 +347,7 @@ ms.locfileid: "87180886"
 
 7.  Um zu überprüfen, dass Sie die SMTP-Servereinstellungen zum Senden von Integritätsberichten per E-Mail richtig konfiguriert haben, wählen Sie auf der Registerkarte für Integritätsberichte im Dashboard einen Bericht aus, und klicken Sie im Aufgabenfenster auf **Integritätsbericht senden**.
 
-##  <a name="potential-computer-alerts"></a><a name="BKMK_Potential"></a>Potenzielle Computer Warnungen
+##  <a name="potential-computer-alerts"></a><a name="BKMK_Potential"></a> Potenzielle Computer Warnungen
  In diesem Abschnitt werden Warnungen sowie die Verwaltung von Warnungen erläutert, die sich speziell auf den mit dem Server verbundenen Computer beziehen, und die im Launchpad des Computers angezeigt werden.
 
  Die folgende Tabelle enthält einige der Computerwarnungen, die generiert und in der Meldungsanzeige angezeigt werden können, wenn sie sich auf Ihren Computer beziehen.
@@ -364,9 +364,9 @@ ms.locfileid: "87180886"
 |Der **Dateiversionsverlauf**-Agent auf dem Server ist für die Ausführung auf diesem Computer nicht ordnungsgemäß konfiguriert.|Dateiversionsverlauf-Sicherungen können nicht erstellt werden.|
 |Mindestens ein Dienst wird nicht ausgeführt.||
 |Eigenes Windows-Kennwort ändern.||
-|Ihr Office 365-Kennwort ist mit Ihrem Windows-Kennwort nicht identisch.||
+|Ihr Microsoft Microsoft 365-Kennwort ist nicht mit dem Windows-Kennwort identisch.||
 
-###  <a name="to-protect-your-computer"></a><a name="BKMK_Protect"></a>So schützen Sie Ihren Computer
+###  <a name="to-protect-your-computer"></a><a name="BKMK_Protect"></a> So schützen Sie Ihren Computer
 
 1.  Öffnen Sie das Sicherheitscenter.
 
@@ -380,7 +380,7 @@ ms.locfileid: "87180886"
 
     -   Wenn kein Virenschutz installiert ist, sollten Sie ihn installieren.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Verwenden von Windows Server Essentials](../use/Use-Windows-Server-Essentials.md)
 

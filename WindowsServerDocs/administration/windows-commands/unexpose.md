@@ -3,16 +3,16 @@ title: unexpose
 description: Referenz Artikel zum nicht verfügbar machen, das eine Schatten Kopie zurückgibt, die mit dem verfügbar gemachten Befehl verfügbar gemacht wurde.
 ms.topic: reference
 ms.assetid: 58dc7d0f-52e9-4587-9487-d3b4c3e52640
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 13e14941e2c67aa0361dcc0af2cdb1a36bf7e651
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 76e1666bd87a3304dcbe8de3025a0ec790cf83d7
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89036408"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89626579"
 ---
 # <a name="unexpose"></a>unexpose
 
@@ -28,14 +28,14 @@ unexpose {<ShadowID> | <Drive:> | <Share> | <MountPoint>}
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
 |\<ShadowID>|Macht die von der angegebenen Schatten-ID angegebene Schatten Kopie nicht verfügbar.|
 |\<Drive:>|Macht die Schatten Kopie verfügbar, die dem angegebenen Laufwerk Buchstaben zugeordnet ist (z. b. Laufwerk P).|
 |\<Share>|Macht die der angegebenen Freigabe zugeordnete Schatten Kopie (z \\ \\ . b. *MachineName*) nicht verfügbar \) .|
 |\<MountPoint>|Macht die für den angegebenen Einstellungspunkt zugeordnete Schatten Kopie (z. b. c:\shadowcopy) nicht verfügbar \) .|
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 
 -   Anstelle von *shadowid*können Sie einen vorhandenen Alias oder eine Umgebungsvariable verwenden. Verwenden **Sie hinzufügen** ohne Parameter, um vorhandene Aliase anzuzeigen.
 

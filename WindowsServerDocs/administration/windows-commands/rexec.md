@@ -3,16 +3,16 @@ title: rexec
 description: Referenz Artikel für den Befehl "rexec", der einen angegebenen Befehl auf einem Remote Host ausführt. Dieser Befehl ist veraltet und wird in zukünftigen Versionen von Windows nicht mehr unterstützt.
 ms.topic: reference
 ms.assetid: 7c637fb3-c92f-40bf-ad06-6330daaa3b5f
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 56a2e96b7c5b8b87895554ffdcc54c634931653f
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 6313be2755b990746be9b8ead168df21ed4f2d49
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89027248"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89626892"
 ---
 # <a name="rexec"></a>rexec
 

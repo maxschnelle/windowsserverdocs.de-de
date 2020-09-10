@@ -1,16 +1,16 @@
 ---
 title: Server Performance Advisor Pack-Entwicklungsleitfaden
 description: Server Performance Advisor Pack-Entwicklungsleitfaden
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 46daa58e6a13f0cf0f71131b05def481f42a594c
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 7f3174e203aca130b06b410066ec714254a7f125
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87993093"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89627740"
 ---
 # <a name="server-performance-advisor-pack-development-guide"></a>Server Performance Advisor Pack-Entwicklungsleitfaden
 
@@ -277,7 +277,7 @@ Wert | Nvarchar (4000) nicht NULL | Alle Werte
 
 Die **keytypeid** -Spalte kann einen der folgenden Typen aufweisen:
 
-id | Typ
+id | type
 --- | ---
 1 | String
 2 | ExpandString
@@ -301,7 +301,7 @@ Sie können eine beliebige WMI-Abfrage hinzufügen. Weitere Informationen zum Sc
 
 Die Abfrage im obigen Beispiel gibt einen Datensatz zurück:
 
-Caption | Name | Peer Usage
+Caption | name | Peer Usage
 ----- | ----- | -----
 C:\pagefile.sys | C:\pagefile.sys | 215
 
@@ -340,7 +340,7 @@ Wmiqueryid | Int not NULL | Korrelieren Sie den Schlüssel #WmiQueries
 Spaltenname | SQL-Datentyp | BESCHREIBUNG
 --- | --- | ---
 SequenceId | Int not NULL | Korrelieren der Zeile und ihrer Eigenschaften
-Name | Nvarchar (1000) nicht NULL | Eigenschaftenname
+name | Nvarchar (1000) nicht NULL | Eigenschaftenname
 Wert | Nvarchar (4000) NULL | Der Wert der aktuellen Eigenschaft.
 
 **\#Wmiqueries-Tabellen Schema**
@@ -414,7 +414,7 @@ Hier ist ein Beispiel, das die **applicationHost.config** Datei abfragt:
 
 Die Ergebnisse finden Sie in einer Tabelle mit dem Namen ** \# Files**, z. b.:
 
-querypath | FullPath | Element Pfad | FileName | Inhalt
+querypath | FullPath | Element Pfad | FileName | Content
 ----- | ----- | ----- | ----- | -----
 % windir% \...\applicationHost.config |C:\Windows<br>\...\applicationHost.config | C:\Windows<br>\... \Config | ApplicationHost. | 0x3c3f
 
@@ -426,7 +426,7 @@ querypath | Nvarchar (300) nicht NULL | Ursprüngliche Abfrage Anweisung
 FullPath | Nvarchar (300) nicht NULL | Absoluter Dateipfad und Dateiname
 Element Pfad | Nvarchar (300) nicht NULL | Dateipfad
 FileName | Nvarchar (300) nicht NULL | Dateiname
-Inhalt | Varbinary (max) NULL | Dateiinhalt in Binärdatei
+Content | Varbinary (max) NULL | Dateiinhalt in Binärdatei
 
 ### <a name="defining-rules"></a>Definieren von Regeln
 
@@ -516,7 +516,7 @@ Nachdem die Regeln definiert wurden, können Systemadministratoren die Berichts 
 
 Wenn Sie mit dem vorherigen Beispiel fortfahren, weiß der Benutzer, ob genügend freier Speicherplatz auf dem Systemlaufwerk vorhanden ist. Benutzer sind möglicherweise auch an der tatsächlichen Größe des freien Speicherplatzes interessiert. Eine einzelne Wert Gruppe wird zum Speichern und anzeigen derartiger Ergebnisse verwendet. Mehrere einzelne Werte können gruppiert und in einer Tabelle in der Spa-Konsole angezeigt werden. Die Tabelle hat nur zwei Spalten, Name und Wert, wie hier gezeigt.
 
-Name | Wert
+name | Wert
 ---- | ----
 Freie Datenträger Größe auf System Laufwerk (GB) | 100
 Gesamte installierte Datenträger Größe (GB) | 500 
@@ -673,7 +673,7 @@ Sie können einen Datentyp für jeden einzelnen Wert definieren. Die zulässige 
 
 **Fakten**
 
-Name | Wert
+name | Wert
 --- | ---
 Betriebssystem | &lt;_ein Wert wird durch das Berichts Skript festgelegt._&gt;
 Betriebssystemversion | &lt;_ein Wert wird durch das Berichts Skript festgelegt._&gt;
@@ -697,13 +697,13 @@ Die Definition eines Listen Werts entspricht dem Definieren einer Tabelle.
 
 Der Name des Listen Werts muss global eindeutig sein. Dieser Name wird zum Namen einer temporären Tabelle. Im vorherigen Beispiel wird die Tabelle mit dem Namen \# networkadapterinformation in der Initialisierungsphase der Ausführungsumgebung erstellt, in der alle beschriebenen Spalten enthalten sind. Ähnlich wie bei einem einzelnen Wertnamen wird auch ein Listen Wert Name als Teil des benutzerdefinierten Ansichts namens verwendet, z.b. vwnetworkadapterinformation.
 
-@typeder &lt; Spalte/ &gt; wird durch &lt; DataType/definiert.&gt;
+@type der &lt; Spalte/ &gt; wird durch &lt; DataType/definiert.&gt;
 
 Die Mock-Benutzeroberfläche des letzten Berichts könnte wie folgt aussehen:
 
 **Informationen zum physischen Netzwerkadapter**
 
-id | Name | Typ | Geschwindigkeit (Mbit/s) | MAC-Adresse
+id | Name | type | Geschwindigkeit (Mbit/s) | MAC-Adresse
 --- | --- | --- | --- | ---
  | <br> | | |
  | | | |
@@ -866,11 +866,11 @@ Alle gesammelten Daten werden in die folgenden entsprechenden Tabellen importier
 
 * Datei
 
-    * \#Audiodateien
+    * \#Files
 
 * ETW
 
-    * \#Fall
+    * \#Events
 
     * \#EventProperties
 
@@ -878,9 +878,9 @@ Alle gesammelten Daten werden in die folgenden entsprechenden Tabellen importier
 
 Der \[ dbo \] . \[ Die setnotification- \] API legt den Regel Status fest, sodass Sie ein Symbol für **Erfolg** oder **Warnung** in der Benutzeroberfläche sehen können.
 
-* @ruleNamenvarchar (50)
+* @ruleName nvarchar (50)
 
-* @adviceNamenvarchar (50)
+* @adviceName nvarchar (50)
 
 Die Warn-und Empfehlungs Nachrichten werden in der XML-Datei mit den Bereitstellungs Metadaten gespeichert. Dadurch wird das Berichts Skript einfacher zu verwalten.
 
@@ -912,9 +912,9 @@ END
 
 Der \[ dbo \] . \[ Die getthreshold- \] API ruft die Schwellenwerte ab:
 
-* @keynvarchar (50)
+* @key nvarchar (50)
 
-* @valuefloat-Ausgabe
+* @value float-Ausgabe
 
 > [!NOTE]
 > Die Schwellenwerte sind Name-Wert-Paare, auf die in beliebigen Regeln verwiesen werden kann. Die Systemadministratoren können die-Konsole verwenden, um die Schwellenwerte zu ändern.
@@ -949,9 +949,9 @@ if (@freediskSizeInGB < @freediskSize)
 
 Der \[ dbo \] . \[ Setsinglevalue- \] API legt den einzelnen Wert fest:
 
-* @keynvarchar (50)
+* @key nvarchar (50)
 
-* @valueSQL- \_ Variante
+* @value SQL- \_ Variante
 
 Dieser Wert kann mehrmals für den gleichen Einzelwert Schlüssel ausgeführt werden. Der letzte Wert wird gespeichert.
 
@@ -975,7 +975,7 @@ exec dbo.SetSingleValue N OsLocation ,  c:\
 
 In seltenen Fällen möchten Sie möglicherweise das zuvor festgelegte Ergebnis mithilfe von \[ dbo entfernen \] . \[ removesinglevalue- \] API.
 
-* @keynvarchar (50)
+* @key nvarchar (50)
 
 Sie können das folgende Skript verwenden, um den zuvor festgelegten Wert zu entfernen.
 
@@ -987,7 +987,7 @@ exec dbo.removeSingleValue N Osversion
 
 Der \[ dbo \] . \[ Die getduration- \] API ruft die vom Benutzer festgelegte Dauer in Sekunden für die Datensammlung ab:
 
-* @durationint-Ausgabe
+* @duration int-Ausgabe
 
 Hier ist ein Beispiel für ein Berichts Skript:
 
@@ -998,7 +998,7 @@ exec dbo.GetDuration @duration output
 
 Der \[ dbo \] . \[ Getinternal \] API ruft das Intervall eines Leistungs Zählers ab. Der Wert kann NULL zurückgeben, wenn der aktuelle Bericht keine Leistungsdaten des Leistungs Zählers enthält.
 
-* @intervalint-Ausgabe
+* @interval int-Ausgabe
 
 Hier ist ein Beispiel für ein Berichts Skript:
 
@@ -1132,7 +1132,7 @@ Ausführen von \[ dbo \] . \[ Debugreportscript \] gibt mehrere Resultsets zurü
 
 * Schließen Sie die Hauptversionsnummer immer in den Anzeige Namen des Advisor-Pakets ein.
 
-## <a name="advanced-topics"></a><a href="" id="bkmk-advancedtopics"></a>Erweiterte Themen
+## <a name="advanced-topics"></a><a href="" id="bkmk-advancedtopics"></a>Weiterführende Themen
 
 ### <a name="run-multiple-advisor-packs-simultaneously"></a>Gleichzeitiges Ausführen mehrerer Advisor-Pakete
 
@@ -1319,7 +1319,7 @@ session | Zeichenfolge | Etw-Sitzungsname (optional, nur für Kernel Ereignisse 
 keywordsany | Hex | Beliebige Schlüsselwörter (optional, kein 0x-Präfix)
 keywordsall | Hex | Alle Schlüsselwörter (optional)
 properties | Hex | Eigenschaften (optional)
-level | Hex | Ebene (optional)
+Level | Hex | Ebene (optional)
 bufferSize | Int | Puffergröße (optional)
 flushtime | Int | Leerungs Zeit (optional)
 maxBuffer | Int | Maximaler Puffer (optional)
@@ -1344,7 +1344,7 @@ Usertime | Bigint not NULL | Benutzer Zeit
 Spaltenname | SQL-Datentyp | BESCHREIBUNG
 --- | --- | ---
 SequenceID | Int not NULL | Korrelations Sequenz-ID
-Name | Nvarchar (100) | Eigenschaftenname
+name | Nvarchar (100) | Eigenschaftenname
 Wert | Nvarchar(4000) | Wert
 
 ### <a name="etw-schema"></a>Etw-Schema

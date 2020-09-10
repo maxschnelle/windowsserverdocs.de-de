@@ -3,16 +3,16 @@ title: Anzeigen und Konfigurieren von Leistungs Ereignis-und Dienst Daten
 description: Server-Manager
 ms.topic: article
 ms.assetid: ccd59c35-4dbf-48e7-88a4-c519c00184d1
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: e7fbf4c96213d7db042143c1da8065f87e642f47
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 8489c50c66bdba84078c7e5d75338af3eeeea56f
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87993170"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89627760"
 ---
 # <a name="view-and-configure-performance-event-and-service-data"></a>Anzeigen und Konfigurieren von Leistungs-, Ereignis- und Dienstdaten
 
@@ -48,7 +48,7 @@ Die Miniaturansicht zeigt eine kurze Übersicht über den Status und die Verwalt
 |Miniaturansichtszeile|BESCHREIBUNG|
 |---------|--------|
 |Verwaltbarkeit|Die Verwaltbarkeit eines Servers umfasst mehrere Measures: ob der Server Online oder offline ist, ob auf ihn zugegriffen werden kann und welche Daten Server-Manager werden, ob der Benutzer, der am lokalen Computer angemeldet ist, über ausreichende Benutzerrechte für den Zugriff auf den Remote Server verfügt und ob auf dem Remote Server die gesamte für die Remote Verwaltung erforderliche Software verfügbar ist. oder, ob der Server so konfiguriert wurde, dass er mit Server-Manager abgefragt und verwaltet werden kann. Die einzigen verwaltbarkeitsdaten, die Server-Manager von einem Server, auf dem Windows Server 2003 ausgeführt wird, erfassen können, ist, ob der Server Online oder offline ist. Ausführliche Informationen zu verwaltbarkeitsstatusfehlern und deren Behebung finden Sie im [Server-Manager Forum](/answers/topics/windows-server-manager.html).|
-|Ereignisse|Sie können die Zeile **Ereignisse** einer Miniaturansicht so konfigurieren, dass Benachrichtigungen angezeigt werden, wenn Ereignisse mit den von Ihnen angegebenen Schweregraden, Quellen, Zeiträumen, Servern oder Ereignis-IDs protokolliert werden. Zeigen Sie Details zu Ereignissen an, und ändern Sie die Warnungen, die Sie anzeigen möchten, indem Sie auf die Zeile **Ereignisse** klicken und das Dialogfeld **Detailansicht Ereignisse** für die Rolle oder Server Gruppe öffnen.|
+|Events|Sie können die Zeile **Ereignisse** einer Miniaturansicht so konfigurieren, dass Benachrichtigungen angezeigt werden, wenn Ereignisse mit den von Ihnen angegebenen Schweregraden, Quellen, Zeiträumen, Servern oder Ereignis-IDs protokolliert werden. Zeigen Sie Details zu Ereignissen an, und ändern Sie die Warnungen, die Sie anzeigen möchten, indem Sie auf die Zeile **Ereignisse** klicken und das Dialogfeld **Detailansicht Ereignisse** für die Rolle oder Server Gruppe öffnen.|
 |Dienste|Sie können die Zeile **Dienste** so konfigurieren, dass Warnungen angezeigt werden, wenn Dienste in einer Rolle oder Server Gruppe gefunden werden, die Start Typen, Dienststatus, Dienstnamen und Servern entsprechen, die Sie im Dialogfeld **Dienst Detailansicht** angeben.<p>Nachdem ein Server dem Server-Manager-Server Pool hinzugefügt wurde, können Dienst Warnungen zum Dienst für die Shellhardwareerkennung angezeigt werden, wenn keine Benutzer am verwalteten Server angemeldet sind. Dies geschieht, weil der Dienst für die Shellhardwareerkennung nur ausgeführt wird, wenn Benutzer am verwalteten Server angemeldet oder mit einer Remotedesktopsitzung auf dem verwalteten Server verbunden sind. Damit in diesem Fall keine Shellhardwareerkennung-Dienstwarnungen angezeigt werden, klicken Sie in den Miniaturansichten für Servergruppen, einschließlich der Gruppe **Alle Server**, auf **Dienste**. Deaktivieren Sie im Dialogfeld **Dienst Detailansicht** in der Dropdown Liste **Dienste** das Kontrollkästchen für **Shellhardwareerkennung**, und klicken Sie dann auf **OK**.|
 |Leistung|Sie können die Zeile **Leistung** so konfigurieren, dass Warnungen für eine Rolle oder Server Gruppe angezeigt werden, wenn Leistungs Warnungen auftreten, die Ressourcentypen, Servern oder Zeiträumen entsprechen, die Sie im Dialogfeld **Leistungs Detailansicht** angeben.<p>Leistungsindikatoren sind standardmäßig deaktiviert. Verwaltete Server, auf denen Betriebssysteme ausgeführt werden, die neuer als Windows Server 2003 sind und für die keine Leistungsindikatoren gestartet wurden, zeigen normalerweise verwaltbarkeitsstatusfehler von **Online-Leistungsindikatoren** , die auf der Kachel **Server** der Rollen-oder Gruppen Seiten nicht gestartet sind, an. Um die Leistungsindikatoren für verwaltete Server zu aktivieren, klicken Sie auf der Seite **alle Server** mit der rechten Maustaste auf Einträge auf der Kachel **Leistung** , die den Indikator **Status** Wert **aus**anzeigt, und klicken Sie dann auf **Leistungsindikatoren starten**. Sie können Leistungsindikatoren auch starten, indem Sie in der Kachel **Server** der Rollen-oder Gruppen Seiten mit der rechten Maustaste auf Einträge für Server klicken und dann auf **Leistungsindikatoren starten**klicken.|
 |BPA-Ergebnisse|Sie können die Zeile **BPA-Ergebnisse** so konfigurieren, dass Warnungen für eine Rolle oder Server Gruppe angezeigt werden, wenn BPA-Scanergebnisse gefunden werden, die Schweregraden, Servern oder BPA-Kategorien entsprechen, die Sie im Dialogfeld mit der **BPA-Ergebnis Detailansicht** angeben.|

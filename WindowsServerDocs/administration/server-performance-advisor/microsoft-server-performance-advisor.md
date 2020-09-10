@@ -2,17 +2,17 @@
 title: Microsoft Server Performance Advisor
 description: Microsoft Server Performance Advisor
 ms.assetid: 468ebcb3-9eaf-477c-ab10-e3f1b3ce63dc
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
 ms.topic: article
-ms.openlocfilehash: 4ec0190c97c5afc761c27c7c3156380441951544
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: bd359e71cfb48ecd8aab24a8538369622dd1d271
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87895686"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89627700"
 ---
 # <a name="microsoft-server-performance-advisor"></a>Microsoft Server Performance Advisor
 
@@ -69,9 +69,9 @@ Verwenden Sie die folgenden Links zum Herunterladen von Server Performance Advis
 
 Sie können die Dateien in der CAB-Datei mit den folgenden Befehlen extrahieren:
 
--   für die x86-Version:`extrac32.exe /e /a /l  d:\SPA   d:\SPA\SPAPlus\_x86.cab`
+-   für die x86-Version: `extrac32.exe /e /a /l  d:\SPA   d:\SPA\SPAPlus\_x86.cab`
 
--   für die x64-Version:`extrac32.exe /e /a /l  d:\SPA   d:\SPA\SPAPlus\_amd64.cab`
+-   für die x64-Version: `extrac32.exe /e /a /l  d:\SPA   d:\SPA\SPAPlus\_amd64.cab`
 
 **Vorsicht** Wenn Sie die CAB-Datei extrahieren, muss Spa die hierarchische Verzeichnisstruktur beibehalten, damit Sie ordnungsgemäß funktioniert. Abhängig von den CAB-Tools, die auf dem Server installiert sind, kann die Extraktion zu einer nicht operativen Verzeichnisstruktur führen. Um die hierarchische Verzeichnisstruktur beizubehalten, können Sie ein Tool zum Extrahieren von Hilfsprogramm verwenden, das eine Datei Verzeichnisstruktur extrahiert.
 

@@ -3,16 +3,16 @@ title: tzutil
 description: Referenz Artikel zu "TZUtil", in dem das Windows-Zeit Zonen Dienstprogramm angezeigt wird.
 ms.topic: reference
 ms.assetid: bcf6e007-c9b6-4df5-83c5-ed7b4b1b5913
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 1d8eae64faf58d404c49afa5b469c61d44807ae0
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 4ed266c0a8f8b8e45c6da76958a770dec5328db6
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89029938"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89626605"
 ---
 # <a name="tzutil"></a>tzutil
 
@@ -32,7 +32,7 @@ tzutil [/?] [/g] [/s <timeZoneID>[_dstoff]] [/l]
 |/s \<timeZoneID> [_dstoff]|Legt die aktuelle Zeitzone mithilfe der angegebenen Zeit Zonen-ID fest. Mit dem **_dstoff** Suffix werden die Anpassungen der Sommerzeit für die Zeitzone deaktiviert (falls zutreffend).|
 |/l|Listet alle gültigen Zeit Zonen-IDs und anzeigen Amen auf. Ausgabe:<p>-   \<display name><br />-   \<time zone ID>|
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 Der Exitcode **0** gibt an, dass der Befehl erfolgreich abgeschlossen wurde.
 
 ## <a name="examples"></a>Beispiele

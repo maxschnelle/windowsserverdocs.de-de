@@ -5,14 +5,14 @@ ms.date: 10/03/2016
 ms.topic: article
 ms.assetid: 9153ac90-bb0c-4b8d-93b2-e2121ed13636
 author: nnamuhcs
-ms.author: coreyp
-manager: dongill
-ms.openlocfilehash: 275024e1c3209e33edda79a685b9d45002369398
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.author: geschuma
+manager: mtillman
+ms.openlocfilehash: 79ffa14cfabc26afd87c0771f7412c98e661421d
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87181146"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89626153"
 ---
 # <a name="preconfiguring-a-router"></a>Vorkonfigurieren eines Routers
 
@@ -26,7 +26,7 @@ Normalerweise erfordert eine neue Installation des Betriebssystems einen interne
 
 |Konfigurationseinstellung|Details|
 |---------------------------|-------------|
-|DHCP|Aktiviert|
+|DHCP|Ein|
 |Portweiterleitung|Sie sollten die folgenden Ports an die Adresse des Servers weiterleiten:<br /><br /> -80 (bei gehosteter Konfiguration nur 443 verwenden)<br />-443|
 |UPnP-Unterstützung|Sie sollten die UPnP-Unterstützung aktivieren, um die einfachste Routerkonfiguration für den Kunden und die beste Kundenfreundlichkeit bei der Installation bereitzustellen.<br /><br /> **Warnung:** Die UPnP-Architektur kann ein Sicherheitsrisiko darstellen, wenn Sie aktiviert ist.|
 

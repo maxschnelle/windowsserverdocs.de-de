@@ -3,16 +3,16 @@ title: reg compare
 description: Referenz Artikel für den Befehl "reg Compare", der die angegebenen Registrierungs Unterschlüssel oder Einträge vergleicht.
 ms.topic: reference
 ms.assetid: 177dc6a3-034e-4846-a394-330d03c14e0b
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 3541ac56a59725d966e726301796f4467044cf6b
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 51c385b9a051574602c2508b8efd8f657c62ec7c
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89037058"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89627099"
 ---
 # <a name="reg-compare"></a>reg compare
 
@@ -26,7 +26,7 @@ reg compare <keyname1> <keyname2> [{/v Valuename | /ve}] [{/oa | /od | /os | on}
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 |--|--|
 | `<keyname1>` | Gibt den vollständigen Pfad des hinzu zufügenden unter Schlüssels oder Eintrags an. Wenn Sie einen Remote Computer angeben möchten, schließen Sie den Computernamen (im Format `\\<computername>\` ) als Teil des *keyName*-Steuerelement ein. Das Weglassen bewirkt, dass `\\<computername>\` der Vorgang standardmäßig auf dem lokalen Computer durchgesetzt wird. Der *keyName* muss einen gültigen Stamm Schlüssel enthalten. Gültige Stamm Schlüssel für den lokalen Computer sind: **HKLM**, **HKCU**, **HKCR**, **HKU**und **HKCC**. Wenn ein Remote Computer angegeben ist, lauten gültige Stamm Schlüssel: **HKLM** und **HKU**. Wenn der Registrierungsschlüssel Name ein Leerzeichen enthält, müssen Sie den Schlüsselnamen in Anführungszeichen einschließen. |
 | `<keyname2>` | Gibt den vollständigen Pfad des zweiten unter Schlüssels an, der verglichen werden soll. Wenn Sie einen Remote Computer angeben möchten, schließen Sie den Computernamen (im Format `\\<computername>\` ) als Teil des *keyName*-Steuerelement ein. Das Weglassen bewirkt, dass `\\<computername>\` der Vorgang standardmäßig auf dem lokalen Computer durchgesetzt wird. Wenn Sie nur den Computernamen in *keyname2* angeben, wird vom-Vorgang der Pfad zum Unterschlüssel verwendet, der in *keyname1*angegeben ist. Der *keyName* muss einen gültigen Stamm Schlüssel enthalten. Gültige Stamm Schlüssel für den lokalen Computer sind: **HKLM**, **HKCU**, **HKCR**, **HKU**und **HKCC**. Wenn ein Remote Computer angegeben ist, lauten gültige Stamm Schlüssel: **HKLM** und **HKU**. Wenn der Registrierungsschlüssel Name ein Leerzeichen enthält, müssen Sie den Schlüsselnamen in Anführungszeichen einschließen. |
@@ -39,11 +39,11 @@ reg compare <keyname1> <keyname2> [{/v Valuename | /ve}] [{/oa | /od | /os | on}
 | /s | Vergleicht alle Unterschlüssel und Einträge rekursiv. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Die Rückgabewerte für den **reg-Vergleichs** Vorgang lauten wie folgt:
 
-    | Wert | Beschreibung |
+    | Wert | BESCHREIBUNG |
     |--|--|
     | 0 | Der Vergleich ist erfolgreich, und das Ergebnis ist identisch. |
     | 1 | Der Vergleich ist fehlgeschlagen. |
@@ -51,7 +51,7 @@ reg compare <keyname1> <keyname2> [{/v Valuename | /ve}] [{/oa | /od | /os | on}
 
 - Zu den Symbolen, die in den Ergebnissen angezeigt werden, gehören:
 
-    | Symbol | Beschreibung |
+    | Symbol | BESCHREIBUNG |
     |--|--|
     | = | *KeyName1* -Daten sind gleich *KeyName2* -Daten. |
     | < | *KeyName1* -Daten sind kleiner als *KeyName2* -Daten. |

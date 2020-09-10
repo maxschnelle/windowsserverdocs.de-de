@@ -5,14 +5,14 @@ ms.date: 10/03/2016
 ms.topic: article
 ms.assetid: 95a9f593-fad7-4335-bd4d-c7bb8c033efb
 author: nnamuhcs
-ms.author: coreyp
-manager: dongill
-ms.openlocfilehash: e5c8a274a8e012ffd24ce6c6c819fa240c9f1095
-ms.sourcegitcommit: 04637054de2bfbac66b9c78bad7bf3e7bae5ffb4
+ms.author: geschuma
+manager: mtillman
+ms.openlocfilehash: fd43b528c9528f531d2de72b0c401358019e2216
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87837889"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89626167"
 ---
 # <a name="manage-online-backup-in-windows-server-essentials"></a>Verwalten der Onlinesicherung in Windows Server Essentials
 
@@ -52,7 +52,7 @@ ms.locfileid: "87837889"
 
 -   [Serverregistrierung aufheben](Manage-Online-Backup-in-Windows-Server-Essentials.md#BKMK_6)
 
-###  <a name="upload-a-certificate-to-the-azure-backup-vault"></a><a name="BKMK_1"></a>Hochladen eines Zertifikats in den Azure Backup Tresor
+###  <a name="upload-a-certificate-to-the-azure-backup-vault"></a><a name="BKMK_1"></a> Hochladen eines Zertifikats in den Azure Backup Tresor
  Bevor Sie Azure Backup für Online Sicherungen in Windows Server Essentials verwenden können, müssen Sie ein öffentliches Zertifikat hochladen, um sich beim Sicherungs Tresor zu registrieren. Das Zertifikat wird verwendet, um die Azure Backup Bereitstellung (den Agent) zu authentifizieren, die im Auftrag des Microsoft Online Services-Abonnement Besitzers fungiert, um die dem Abonnement zugeordneten Ressourcen zu verwalten.
 
 > [!NOTE]
@@ -96,7 +96,7 @@ ms.locfileid: "87837889"
 
 10. Konfigurieren Sie die Onlinesicherung des Servers. Weitere Informationen finden Sie unter [Konfigurieren einer Onlinesicherung](Manage-Online-Backup-in-Windows-Server-Essentials.md#BKMK_2).
 
-###  <a name="configure-online-backup"></a><a name="BKMK_2"></a>Konfigurieren der Online Sicherung
+###  <a name="configure-online-backup"></a><a name="BKMK_2"></a> Konfigurieren der Online Sicherung
  Nachdem Sie den Server bei Azure Backup registriert haben, können Sie die Einstellungen für die Online Sicherung in Windows Server Essentials konfigurieren.
 
 ##### <a name="to-configure-online-backup"></a>So konfigurieren Sie die Onlinesicherung
@@ -131,7 +131,7 @@ ms.locfileid: "87837889"
     > [!TIP]
     >  Nach einer erfolgreichen Konfiguration der Sicherung wird auf der Seite **Onlinesicherung** der Status der letzten Onlinesicherung und die vom Sicherungstresor belegte Speicherkapazität angezeigt. Um den Status früherer Sicherungen anzuzeigen, klicken Sie auf **Sicherungsverlauf**.
 
-###  <a name="start-an-online-backup"></a><a name="BKMK_3"></a>Starten einer Online Sicherung
+###  <a name="start-an-online-backup"></a><a name="BKMK_3"></a> Starten einer Online Sicherung
 
 > [!NOTE]
 >  Bevor eine Onlinesicherung gestartet werden kann, müssen Sie zuerst die Schritte unter [Registrieren Ihres Servers für die Sicherung](Manage-Online-Backup-in-Windows-Server-Essentials.md#BKMK_5) und dann [Konfigurieren einer Onlinesicherung](Manage-Online-Backup-in-Windows-Server-Essentials.md#BKMK_2) ausführen.
@@ -144,7 +144,7 @@ ms.locfileid: "87837889"
 
 3.  Klicken Sie im Bereich **Aufgaben für die Onlinesicherung** auf **Sicherung jetzt starten**.
 
-###  <a name="restore-files-and-folders-from-an-online-backup"></a><a name="BKMK_4"></a>Wiederherstellen von Dateien und Ordnern aus einer Online Sicherung
+###  <a name="restore-files-and-folders-from-an-online-backup"></a><a name="BKMK_4"></a> Wiederherstellen von Dateien und Ordnern aus einer Online Sicherung
  Der Assistent zum Wiederherstellen von Dateien und Ordnern führt Sie durch die Suche, Auswahl und Wiederherstellung von Dateien und Ordnern, die online gesichert sind. Im Assistenten führen Sie die folgenden Aufgaben aus:
 
 1.  **Auswählen einer Onlinesicherung, aus der Dateien und Ordner wiederhergestellt werden sollen**
@@ -177,7 +177,7 @@ ms.locfileid: "87837889"
 
      Die Seite **Wiederherstellungsinformationen bestätigen** enthält eine Zusammenfassung der Wiederherstellungsanweisungen, die Sie angegeben haben. Um die Wiederherstellung der Datei fortzusetzen, müssen Sie die richtige Passphrase für Ihr Onlinesicherungskonto eingeben.
 
-###  <a name="register-this-server-for-backup"></a><a name="BKMK_5"></a>Diesen Server für die Sicherung registrieren
+###  <a name="register-this-server-for-backup"></a><a name="BKMK_5"></a> Diesen Server für die Sicherung registrieren
  Zum Sichern oder Wiederherstellen von Dateien, Ordnern und Datei Versions Verläufen auf dem Windows Server Essentials-Server für Azure Backup müssen Sie zuerst den Server beim Microsoft Azure Backup-Dienst registrieren.
 
 > [!NOTE]
@@ -195,7 +195,7 @@ ms.locfileid: "87837889"
 
 5.  Folgen Sie den Anweisungen im Assistenten, um eine Passphrase zu erstellen, und schließen Sie dann die Registrierung ab.
 
-###  <a name="unregister-server"></a><a name="BKMK_6"></a>Aufheben der Registrierung des Servers
+###  <a name="unregister-server"></a><a name="BKMK_6"></a> Aufheben der Registrierung des Servers
 
 > [!CAUTION]
 >  Wenn Sie die Registrierung Ihres Windows Server Essentials-Servers beim Microsoft Azure Backup-Dienst aufheben, kann Azure Backup den Server nicht mehr sichern. Darüber hinaus werden die zuvor hochgeladenen Serverdaten gelöscht. Um Onlinesicherungen fortzusetzen, müssen Sie den Server erneut registrieren.
@@ -240,7 +240,7 @@ ms.locfileid: "87837889"
 
 -   [Verlauf der Online Sicherung in Windows Server Essentials](Manage-Online-Backup-in-Windows-Server-Essentials.md#BKMK_19)
 
-###  <a name="change-the-online-backup-policy"></a><a name="BKMK_7"></a>Ändern der Richtlinie für die Online Sicherung
+###  <a name="change-the-online-backup-policy"></a><a name="BKMK_7"></a> Ändern der Richtlinie für die Online Sicherung
  Im Windows Server Essentials-Dashboard können Sie die Richtlinie für die Onlinesicherung ganz einfach ändern.
 
 ##### <a name="to-change-the-online-backup-policy"></a>So ändern Sie die Richtlinie für die Onlinesicherung
@@ -255,7 +255,7 @@ ms.locfileid: "87837889"
 
    Ausführlichere Informationen zu den Einstellungen, die Sie anpassen können, finden Sie unter [Konfigurieren einer Onlinesicherung](Manage-Online-Backup-in-Windows-Server-Essentials.md#BKMK_2).
 
-###  <a name="view-online-backup-storage-usage"></a><a name="BKMK_8"></a>Anzeigen der Speicherauslastung für die Online Sicherung
+###  <a name="view-online-backup-storage-usage"></a><a name="BKMK_8"></a> Anzeigen der Speicherauslastung für die Online Sicherung
 
 ##### <a name="to-view-the-amount-of-storage-space-that-online-backup-uses"></a>So zeigen Sie die Menge des von der Onlinesicherung verwendeten Speicherplatzes an
 
@@ -265,7 +265,7 @@ ms.locfileid: "87837889"
 
 3.  Auf der Registerkarte **Onlinesicherung** wird der **Speicherstatus** im Informationsbereich angezeigt.
 
-###  <a name="include-a-new-folder-in-online-backup"></a><a name="BKMK_9"></a>Einschließen eines neuen Ordners in die Online Sicherung
+###  <a name="include-a-new-folder-in-online-backup"></a><a name="BKMK_9"></a> Einschließen eines neuen Ordners in die Online Sicherung
 
 ##### <a name="to-include-a-new-folder-in-the-online-backup-policy"></a>So schließen Sie einen neuen Ordner in die Richtlinie für die Onlinesicherung ein
 
@@ -287,7 +287,7 @@ ms.locfileid: "87837889"
 
    Ausführlichere Informationen zu weiteren Einstellungen, die Sie anpassen können, finden Sie unter [Konfigurieren einer Onlinesicherung](Manage-Online-Backup-in-Windows-Server-Essentials.md#BKMK_2).
 
-###  <a name="remove-or-exclude-file-history-backups-from-the-online-backup-policy"></a><a name="BKMK_10"></a>Entfernen oder Ausschließen von Datei Versions Verlaufs Sicherungen aus der Online Sicherungs Richtlinie
+###  <a name="remove-or-exclude-file-history-backups-from-the-online-backup-policy"></a><a name="BKMK_10"></a> Entfernen oder Ausschließen von Datei Versions Verlaufs Sicherungen aus der Online Sicherungs Richtlinie
 
 ##### <a name="to-remove-or-exclude-a-folder-from-the-online-backup-policy"></a>So entfernen oder schließen Sie einen Ordner aus der Richtlinie für die Onlinesicherung aus
 
@@ -299,12 +299,12 @@ ms.locfileid: "87837889"
 
 4.  Wählen Sie den Ordner, den Sie aus der Richtlinie für die Onlinesicherung ausschließen möchten, aus, und klicken Sie dann im Aufgabenbereich auf **Ordner aus Onlinesicherung entfernen**.
 
-###  <a name="disable-or-re-enable-online-server-backup"></a><a name="BKMK_11"></a>Deaktivieren oder erneutes Aktivieren der Online Server Sicherung
+###  <a name="disable-or-re-enable-online-server-backup"></a><a name="BKMK_11"></a> Deaktivieren oder erneutes Aktivieren der Online Server Sicherung
  Anweisungen zum Verwenden von Azure Backup zum Sichern oder Wiederherstellen von Serverdaten finden Sie unter [Registrieren des Servers für die Sicherung](Manage-Online-Backup-in-Windows-Server-Essentials.md#BKMK_5).
 
  Anweisungen zum Deaktivieren der Verwendung von Azure Backup zum Sichern oder Wiederherstellen von Serverdaten finden Sie unter Aufheben der [Registrierung des Servers](Manage-Online-Backup-in-Windows-Server-Essentials.md#BKMK_6).
 
-###  <a name="stop-an-online-server-backup-in-progress"></a><a name="BKMK_12"></a>Beenden einer laufenden Online Server Sicherung
+###  <a name="stop-an-online-server-backup-in-progress"></a><a name="BKMK_12"></a> Beenden einer laufenden Online Server Sicherung
 
 ##### <a name="to-stop-an-online-server-backup-in-progress"></a>So beenden Sie eine laufende Onlineserversicherung
 
@@ -316,7 +316,7 @@ ms.locfileid: "87837889"
 
      Nachdem Sie die Sicherung beendet haben, wird in der Liste **Sicherungsverlauf** der Status **Abgebrochen** für die Sicherung angezeigt.
 
-###  <a name="view-online-backup-status"></a><a name="BKMK_13"></a>Anzeigen des Status der Online Sicherung
+###  <a name="view-online-backup-status"></a><a name="BKMK_13"></a> Anzeigen des Status der Online Sicherung
 
 ##### <a name="to-view-the-backup-status"></a>So zeigen Sie den Sicherungsstatus an
 
@@ -326,14 +326,14 @@ ms.locfileid: "87837889"
 
 3.  Klicken Sie auf die Registerkarte **Sicherungs Verlauf** . Die Listenansicht zeigt den Status jedes Sicherungsauftrags an. Wählen Sie einen Sicherungsauftrag aus, um weitere Details zum Auftrag anzuzeigen.
 
-###  <a name="view-and-manage-online-backup-alerts"></a><a name="BKMK_14"></a>Anzeigen und Verwalten von Warnungen für die Online Sicherung
+###  <a name="view-and-manage-online-backup-alerts"></a><a name="BKMK_14"></a> Anzeigen und Verwalten von Warnungen für die Online Sicherung
  Wie viele andere Warnungen werden Warnungen für Azure Backup in der Meldungs Anzeige angezeigt.
 
 ##### <a name="to-view-online-backup-alerts-in-the-alert-viewer"></a>So zeigen Sie Warnungen für die Onlinesicherung in der Meldungsanzeige an
 
 1. Öffnen Sie das Dashboard.
 
-2. Führen Sie einen der folgenden Schritte aus:
+2. Führen Sie eines der folgenden Verfahren aus:
 
      Windows Server Essentials: Klicken Sie im Navigationsbereich auf das Symbol Warnungen \( möglicherweise auf kritisch, Warnung oder Information \) . Daraufhin wird die Meldungsanzeige geöffnet.
 
@@ -343,10 +343,10 @@ ms.locfileid: "87837889"
 
    Weitere Informationen zum Verwalten von Warnungen mithilfe der Meldungs Anzeige oder der Registerkarte "System Überwachung" finden Sie unter [Verwalten der System](Manage-System-Health-in-Windows-Server-Essentials.md)Integrität.
 
-###  <a name="reset-online-backup-to-default-settings"></a><a name="BKMK_15"></a>Zurücksetzen der Online Sicherung auf die Standardeinstellungen
+###  <a name="reset-online-backup-to-default-settings"></a><a name="BKMK_15"></a> Zurücksetzen der Online Sicherung auf die Standardeinstellungen
  Windows Server Essentials enthält einen Assistenten, mit dem Sie die Einstellungen für die Onlinesicherung konfigurieren können. Wenn Sie die Standardeinstellungen wiederherstellen möchten, führen Sie die Aufgabe **Onlinesicherung konfigurieren** aus, und wählen Sie die Option **Richtlinie für die Onlinesicherung entfernen** aus. Führen Sie dann die Aufgabe **Onlinesicherung konfigurieren** erneut aus. Die zuvor hochgeladenen Daten bleiben unverändert.
 
-###  <a name="sign-up-for-azure-backup-service"></a><a name="BKMK_16"></a>Registrieren für Azure Backup-Dienst
+###  <a name="sign-up-for-azure-backup-service"></a><a name="BKMK_16"></a> Registrieren für Azure Backup-Dienst
  Um die Integration von Microsoft Azure Backup in Windows Server Essentials vorzubereiten, melden Sie sich mit Ihrem Microsoft Online Services-Konto bei der Azure-Verwaltungsportal an, und erstellen Sie dann einen Sicherungs Tresor, in dem Ihre Online Sicherungen in Azure gespeichert werden. Anschließend laden Sie das Azure Backup-Integrationsmodul herunter und verwenden die heruntergeladene Datei, um das Azure Backup-Add-in auf Ihrem Windows Server Essentials-Server zu installieren. Wenn Sie nicht über ein Microsoft-Konto verfügen, können Sie sich für eine kostenlose Testversion registrieren.
 
  Zum Ausführen von Setup führen Sie die folgenden Aufgaben aus:
@@ -359,7 +359,7 @@ ms.locfileid: "87837889"
 
 4.  Installieren Sie das Azure Backup-Add-in auf dem Server.
 
-####  <a name="sign-up-for-a-microsoft-online-services-account-and-the-backup-preview"></a><a name="BKMK_SignupforaMicrosoftOnlineServiceAccount"></a>Registrieren für ein Microsoft Online Services-Konto und die Backup-Vorschau
+####  <a name="sign-up-for-a-microsoft-online-services-account-and-the-backup-preview"></a><a name="BKMK_SignupforaMicrosoftOnlineServiceAccount"></a> Registrieren für ein Microsoft Online Services-Konto und die Backup-Vorschau
 
 1.  Melden Sie sich beim Windows Server Essentials-Dashboard an.
 
@@ -373,7 +373,7 @@ ms.locfileid: "87837889"
 
 5.  Auf der Seite Azure-Verwaltungsportal werden **Recovery Services** im linken Bereich angezeigt. Hier verwalten Sie die Sicherungs Tresore, in denen Ihre Online Sicherungen aus Windows Server Essentials gespeichert werden.
 
-####  <a name="create-a-backup-vault-to-store-online-backups"></a><a name="BKMK_Createabackupvaulttostoreonlinebackups"></a>Erstellen eines Sicherungs Tresors zum Speichern von Online Sicherungen
+####  <a name="create-a-backup-vault-to-store-online-backups"></a><a name="BKMK_Createabackupvaulttostoreonlinebackups"></a> Erstellen eines Sicherungs Tresors zum Speichern von Online Sicherungen
 
 1.  Melden Sie sich über den Webbrowser Ihres Windows Server Essentials-Servers beim [Azure-Verwaltungsportal](https://manage.windowsazure.com)an.
 
@@ -383,13 +383,13 @@ ms.locfileid: "87837889"
 
      Der Bereich **Recovery Services** wird mit dem neuen Sicherungstresor geöffnet.
 
-####  <a name="download-the-azure-backup-agent"></a><a name="BKMK_DownloadtheWindowsAzureBackupAgent"></a>Herunterladen des Azure Backup-Agents
+####  <a name="download-the-azure-backup-agent"></a><a name="BKMK_DownloadtheWindowsAzureBackupAgent"></a> Herunterladen des Azure Backup-Agents
 
 1.  Öffnen Sie das Windows Server Essentials-Dashboard.
 
 2.  Klicken Sie auf der **Startseite** des Dashboards auf die Registerkarte **Erste Schritte**, auf die Kategorie **ADD-INS**, auf **In Azure Backup integrieren** und auf **Zum Herunterladen des Azure Backup-Integrationsmoduls klicken**.
 
-####  <a name="install-the-azure-backup-add-in-on-the-server"></a><a name="BKMK_InstalltheWindowsAzureBackupAddIn"></a>Installieren des Azure Backup-Add-Ins auf dem Server
+####  <a name="install-the-azure-backup-add-in-on-the-server"></a><a name="BKMK_InstalltheWindowsAzureBackupAddIn"></a> Installieren des Azure Backup-Add-Ins auf dem Server
 
 1. Melden Sie sich mit einem Administratorkonto bei Ihrem Server an, und führen Sie die Datei **OnlineBackupAddin.wssx** aus, die Sie im vorherigen Schritt heruntergeladen haben.
 
@@ -416,7 +416,7 @@ ms.locfileid: "87837889"
 
 8. Konfigurieren Sie die Onlinesicherung des Servers. Weitere Informationen finden Sie unter [Konfigurieren einer Onlinesicherung](Manage-Online-Backup-in-Windows-Server-Essentials.md#BKMK_2).
 
-###  <a name="integrate-azure-backup-with-windows-server-essentials"></a><a name="BKMK_17"></a>Integrieren von Azure Backup in Windows Server Essentials
+###  <a name="integrate-azure-backup-with-windows-server-essentials"></a><a name="BKMK_17"></a> Integrieren von Azure Backup in Windows Server Essentials
  Das Microsoft Azure Backup-Integrationsmodul ist ein neues Feature von Windows Server Essentials, mit dem Sie Dateien und Ordner auf Ihrem Server in einem von Microsoft bereitgestellten, von Azure gehosteten Speichersystem verschlüsseln und sichern können. Wenn Sie Azure Backup zum Verschlüsseln und Sichern von Daten auf dem Server verwenden, können Sie einen schwerwiegenden Verlust wichtiger Geschäftsdaten aufgrund von Feuer, Überschwemmungen, Diebstahl oder anderen Notfällen verhindern. Wenn Sie Azure Backup zum Sichern von Serverdaten verwenden, werden die Informationen mithilfe Ihrer Passphrase verschlüsselt, bevor Sie in ein sicheres Daten Center im Internet hochgeladen werden. Um auf Daten aus einer Onlinesicherung zuzugreifen, benötigen Sie einen Server, der durch ein Zertifikat authentifiziert wird, und Sie müssen die Passphrase angeben.
 
  Nachdem Sie den Server in Azure Backup integriert und registriert haben, können Sie die Einstellungen für die Online Sicherung konfigurieren, um regelmäßig geplante Sicherungen auszuführen. Sie können eine Onlinesicherung auch jederzeit initiieren, indem Sie im Dashboard für die Onlinesicherung auf die Aufgabe **Backup jetzt starten** klicken.
@@ -434,19 +434,19 @@ ms.locfileid: "87837889"
 > [!NOTE]
 >   Azure Backup verwendet die Passphrase zum Verschlüsseln von Dateien und Ordnern für die Online Sicherung. Indem Sie die Verschlüsselungs-Passphrase ändern, ersetzen Sie die Passphrase, die Sie bei der Registrierung des Servers angegeben haben. Für die Passphrase werden nur ASCII-codierte Zeichen akzeptiert.
 
-###  <a name="protect-folders-for-online-backup-in-windows-server-essentials"></a><a name="BKMK_18"></a>Schützen von Ordnern für die Online Sicherung in Windows Server Essentials
+###  <a name="protect-folders-for-online-backup-in-windows-server-essentials"></a><a name="BKMK_18"></a> Schützen von Ordnern für die Online Sicherung in Windows Server Essentials
  Der Unterabschnitt **Geschützte Ordner** im Abschnitt „Onlinesicherung“ des Dashboards enthält eine Liste aller freigegebenen Ordner auf dem Server. Die folgende Tabelle beschreibt die Informationen, die in der Liste enthalten sind.
 
-|Column|Beschreibung|
+|Column|BESCHREIBUNG|
 |------------|-----------------|
 |**Ordner Name:**|Der Name des Ordners, der in die Onlinesicherung eingeschlossen wurde.<br /><br /> Führen Sie zum Hinzufügen oder Ausschließen eines Ordners die Aufgabe **Onlinesicherung konfigurieren** aus.|
 |**Ordner Pfad:**|Der Speicherort des Ordners.|
 |**Status:**|Es gibt drei Typen von Status **geschützt**, **nicht geschützt**und **unbekannt**.|
 
-###  <a name="online-backup-history-in-windows-server-essentials"></a><a name="BKMK_19"></a>Verlauf der Online Sicherung in Windows Server Essentials
+###  <a name="online-backup-history-in-windows-server-essentials"></a><a name="BKMK_19"></a> Verlauf der Online Sicherung in Windows Server Essentials
  Der Unterabschnitt **Sicherungsverlauf** des Abschnitts „Onlinesicherung“ im Dashboard enthält eine Liste der zuletzt erstellten Onlinesicherungen. Erfolgreiche Sicherungen können zum Wiederherstellen von Dateien und Ordnern verwendet werden. Die folgende Tabelle beschreibt die Informationen, die in der Liste enthalten sind.
 
-|Column|Beschreibung|
+|Column|BESCHREIBUNG|
 |------------|-----------------|
 |**Betriebs**|Es gibt zwei Arten von Vorgängen - **Sichern** und **Wiederherstellen**.|
 |**Zeit**|Dies ist die für den letzten Status protokollierte Uhrzeit.|

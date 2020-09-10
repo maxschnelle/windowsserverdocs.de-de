@@ -3,16 +3,16 @@ title: tsecimp
 description: Referenz Artikel für t-CIMP, der Zuweisungs Informationen aus einer Extensible Markup Language (XML)-Datei in die TAPI-Server Sicherheits Datei (Tsec.ini) importiert.
 ms.topic: reference
 ms.assetid: d7488ec6-0eff-45ff-89ee-9cbe752416bf
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: f8ad2f4f29537c2f575ba96d172c9405d9680187
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 3ddc56b959f716840d033508ea253efbc446d74f
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89026868"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89626705"
 ---
 # <a name="tsecimp"></a>tsecimp
 
@@ -27,7 +27,7 @@ tsecimp /d
 
 #### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
 |/f \<Filename>|Erforderlich. Gibt den Namen der XML-Datei an, die die Zuweisungs Informationen enthält, die Sie importieren möchten.|
 |/v|Überprüft die Struktur der XML-Datei, ohne die Informationen in die Tsec.ini Datei zu importieren.|
@@ -35,7 +35,7 @@ tsecimp /d
 |/d|Zeigt eine Liste installierter Telefonieanbieter an. Für jeden Telefonieanbieter werden die zugeordneten liniengeräte sowie die den einzelnen Zeilen Geräten zugeordneten Adressen und Benutzer aufgelistet.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 
 -   Die XML-Datei, aus der Sie Zuweisungs Informationen importieren möchten, muss der unten beschriebenen Struktur folgen.
     -   **Userlist** -Element

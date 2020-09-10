@@ -5,14 +5,14 @@ ms.date: 10/03/2016
 ms.topic: article
 ms.assetid: 2974fb3a-5150-43fd-a73f-3e5074eb5d03
 author: nnamuhcs
-ms.author: coreyp
-manager: dongill
-ms.openlocfilehash: 4ba2bad257a7c2d56b878a8061053f7af206d40e
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.author: geschuma
+manager: mtillman
+ms.openlocfilehash: ac59e41aab7c5085f9a9acdb781582c9cdecea54
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87180596"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89625738"
 ---
 # <a name="migrate-from-previous-versions-to-windows-server-essentials-or-windows-server-essentials-experience"></a>Migrieren von früheren Versionen nach Windows Server Essentials oder Windows Server Essentials Experience
 
@@ -53,7 +53,7 @@ In diesem Leitfaden wird beschrieben, wie Sie von früheren Versionen von Window
 
    Mehrere der Migrationsverfahren erfordern das Öffnen einer Eingabeaufforderung als Administrator. In den folgenden Verfahren wird erläutert, wie hierbei vorzugehen ist.
 
-###  <a name="to-open-a-command-prompt-window-on-the-source-server-as-an-administrator"></a><a name="BKMK_OpenACommandPromptAsAdmin"></a>So öffnen Sie ein Eingabe Aufforderungs Fenster auf dem Quell Server als Administrator
+###  <a name="to-open-a-command-prompt-window-on-the-source-server-as-an-administrator"></a><a name="BKMK_OpenACommandPromptAsAdmin"></a> So öffnen Sie ein Eingabe Aufforderungs Fenster auf dem Quell Server als Administrator
 
 1.  Klicken Sie auf **Start**.
 
@@ -67,7 +67,7 @@ In diesem Leitfaden wird beschrieben, wie Sie von früheren Versionen von Window
 
 2.  Klicken Sie in der Ergebnisliste mit der rechten Maustaste auf **cmd**, und klicken Sie dann auf **Als Administrator ausführen**.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Migrieren von Serverdaten zu Windows Server Essentials](Migrate-Server-Data-to-Windows-Server-Essentials.md)
 

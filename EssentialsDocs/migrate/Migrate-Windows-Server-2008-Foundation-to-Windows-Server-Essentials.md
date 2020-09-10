@@ -5,14 +5,14 @@ ms.date: 10/03/2016
 ms.topic: article
 ms.assetid: f22fc0a4-cb82-4e60-afe6-2d03145745e7
 author: nnamuhcs
-ms.author: coreyp
-manager: dongill
-ms.openlocfilehash: 74b79e3306ee34708b079b09f445a00ddfc15fdb
-ms.sourcegitcommit: 04637054de2bfbac66b9c78bad7bf3e7bae5ffb4
+ms.author: geschuma
+manager: mtillman
+ms.openlocfilehash: 7ccb0e79094c5d3393b9548fc733224fd8fa9cbf
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87838378"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89625875"
 ---
 # <a name="migrate-windows-server-2008-foundation-to-windows-server-essentials"></a>Migration von Windows Server 2008 Foundation zu Windows Server Essentials
 
@@ -23,7 +23,7 @@ In diesem Leitfaden wird beschrieben, wie Sie eine vorhandene Windows Server 200
 > [!NOTE]
 >  Um Probleme während der Migration zu vermeiden, empfiehlt das Windows Server Essentials-Produktentwicklungsteam dringend, dieses Dokument zu lesen, bevor Sie mit der Migration beginnen.
 
-## <a name="additional-resources"></a>Weitere Ressourcen
+## <a name="additional-resources"></a>Zusätzliche Ressourcen
  Links zu weiteren Informationen, Tools und Communityressourcen, die Ihnen beim Migrationsprozess behilflich sein können, finden Sie unter [Windows Small Business Server Migration](https://go.microsoft.com/fwlink/?LinkId=217520).
 
 ## <a name="terms-and-definitions"></a>Begriffe und Definitionen
@@ -52,7 +52,7 @@ In diesem Leitfaden wird beschrieben, wie Sie eine vorhandene Windows Server 200
 
  Mehrere der Migrationsverfahren erfordern, dass Sie ein Eingabeaufforderungsfenster als Administrator öffnen.
 
-###  <a name="to-open-a-command-prompt-window-on-the-source-server-as-an-administrator"></a><a name="BKMK_OpenACommandPromptAsAdmin"></a>So öffnen Sie ein Eingabe Aufforderungs Fenster auf dem Quell Server als Administrator
+###  <a name="to-open-a-command-prompt-window-on-the-source-server-as-an-administrator"></a><a name="BKMK_OpenACommandPromptAsAdmin"></a> So öffnen Sie ein Eingabe Aufforderungs Fenster auf dem Quell Server als Administrator
 
 1.  Klicken Sie auf **Start**.
 

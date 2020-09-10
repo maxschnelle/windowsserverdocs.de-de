@@ -3,16 +3,16 @@ title: reg delete
 description: Referenz Artikel für den Befehl reg DELETE, mit dem ein Unterschlüssel oder Einträge aus der Registrierung gelöscht werden.
 ms.topic: reference
 ms.assetid: cee05071-1607-4ab1-b8ab-65caebeb85c3
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 08eea4b5cf330dda64406704fee390868c96c7a4
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: e7c132be937fab973bee0f5bb81bf6377128e483
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89033778"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89627042"
 ---
 # <a name="reg-delete"></a>reg delete
 
@@ -26,7 +26,7 @@ reg delete <keyname> [{/v Valuename | /ve | /va}] [/f]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 |--|--|
 | `<keyname1>` | Gibt den vollständigen Pfad des hinzu zufügenden unter Schlüssels oder Eintrags an. Wenn Sie einen Remote Computer angeben möchten, schließen Sie den Computernamen (im Format `\\<computername>\` ) als Teil des *keyName*-Steuerelement ein. Das Weglassen bewirkt, dass `\\<computername>\` der Vorgang standardmäßig auf dem lokalen Computer durchgesetzt wird. Der *keyName* muss einen gültigen Stamm Schlüssel enthalten. Gültige Stamm Schlüssel für den lokalen Computer sind: **HKLM**, **HKCU**, **HKCR**, **HKU**und **HKCC**. Wenn ein Remote Computer angegeben ist, lauten gültige Stamm Schlüssel: **HKLM** und **HKU**. Wenn der Registrierungsschlüssel Name ein Leerzeichen enthält, müssen Sie den Schlüsselnamen in Anführungszeichen einschließen. |
 | /v `<Valuename>` | Löscht einen bestimmten Eintrag unter dem Unterschlüssel. Wenn kein Eintrag angegeben wird, werden alle Einträge und Unterschlüssel unter dem Unterschlüssel gelöscht. |
@@ -35,11 +35,11 @@ reg delete <keyname> [{/v Valuename | /ve | /va}] [/f]
 | /f | Löscht den vorhandenen Registrierungs Unterschlüssel oder Eintrag, ohne zur Bestätigung aufzufordern. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Die Rückgabewerte für den **reg-Lösch** Vorgang lauten:
 
-    | Wert | Beschreibung |
+    | Wert | BESCHREIBUNG |
     |--|--|
     | 0 | Erfolgreich |
     | 1 | Fehler |

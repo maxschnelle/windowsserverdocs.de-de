@@ -5,14 +5,14 @@ ms.date: 10/03/2016
 ms.topic: article
 ms.assetid: c8325f87-fd79-471b-bf70-3f052692c383
 author: nnamuhcs
-ms.author: coreyp
-manager: dongill
-ms.openlocfilehash: 6dbc809ebba6da361923136f6b74351baba06728
-ms.sourcegitcommit: 04637054de2bfbac66b9c78bad7bf3e7bae5ffb4
+ms.author: geschuma
+manager: mtillman
+ms.openlocfilehash: 799b4f2cd5b48dcc7754059498684af4a11764ad
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87838369"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89625778"
 ---
 # <a name="migrate-windows-small-business-server-2011-standard-to-windows-server-essentials"></a>Migration von Windows Small Business Server 2011 Standard zu Windows Server Essentials
 
@@ -28,7 +28,7 @@ In diesem Leitfaden wird beschrieben, wie Sie eine vorhandene Windows Small Busi
 >  Informationen zum Migrieren der Serverdaten zur neuesten Version von Windows Server Essentials finden Sie unter [Migrieren zu Windows Server Essentials](Migrate-from-Previous-Versions-to-Windows-Server-Essentials-or-Windows-Server-Essentials-Experience.md).
 
 
-## <a name="additional-resources"></a>Weitere Ressourcen
+## <a name="additional-resources"></a>Zusätzliche Ressourcen
  Links zu weiteren Informationen, Tools und Communityressourcen, die Ihnen beim Migrationsprozess behilflich sein können, finden Sie unter [Windows Small Business Server Migration](https://go.microsoft.com/fwlink/?LinkId=217520).
 
 ## <a name="terms-and-definitions"></a>Begriffe und Definitionen
@@ -58,7 +58,7 @@ In diesem Leitfaden wird beschrieben, wie Sie eine vorhandene Windows Small Busi
 
  Mehrere der Migrationsverfahren erfordern, dass Sie ein Eingabeaufforderungsfenster als Administrator öffnen.
 
-###  <a name="to-open-a-command-prompt-window-on-the-source-server-as-an-administrator"></a><a name="BKMK_OpenACommandPromptAsAdmin"></a>So öffnen Sie ein Eingabe Aufforderungs Fenster auf dem Quell Server als Administrator
+###  <a name="to-open-a-command-prompt-window-on-the-source-server-as-an-administrator"></a><a name="BKMK_OpenACommandPromptAsAdmin"></a> So öffnen Sie ein Eingabe Aufforderungs Fenster auf dem Quell Server als Administrator
 
 1.  Klicken Sie auf **Start**.
 

@@ -3,16 +3,16 @@ title: subst
 description: Erfahren Sie, wie Sie einen Pfad mit einem Laufwerk Buchstaben verknüpfen.
 ms.topic: reference
 ms.assetid: 3e69234c-2312-4343-868b-afc1017c622a
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 680a3118d284d18946980ff8dc246ce08b5ea727
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: f5fd87c01f305201cfd9db50cd454da56bc99c53
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89024614"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89626849"
 ---
 # <a name="subst"></a>subst
 
@@ -31,14 +31,14 @@ subst <Drive1>: /d
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
 |\<Drive1>:|Gibt das virtuelle Laufwerk an, dem Sie einen Pfad zuweisen möchten.|
 |[\<Drive2>:]\<Path>|Gibt das physische Laufwerk und den Pfad an, die einem virtuellen Laufwerk zugewiesen werden sollen.|
 |/d|Löscht ein ersetzes (virtuelles) Laufwerk.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 
 -   Die folgenden Befehle funktionieren nicht und dürfen nicht auf Laufwerken verwendet werden, die im **subst** -Befehl angegeben sind:
 

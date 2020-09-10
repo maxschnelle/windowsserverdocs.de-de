@@ -5,14 +5,14 @@ ms.date: 10/03/2016
 ms.topic: article
 ms.assetid: f70a79de-9c56-4496-89b5-20a1bff2293e
 author: nnamuhcs
-ms.author: coreyp
-manager: dongill
-ms.openlocfilehash: f1d9beed01d17abfd88a135fb5ade48d0b6178ab
-ms.sourcegitcommit: 34f9577ef32cbdc7ef96040caabc9d83517f9b79
+ms.author: geschuma
+manager: mtillman
+ms.openlocfilehash: 50f610bec8573916edffd3efb5e551a45fc6e72a
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89554513"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89625949"
 ---
 # <a name="overview-of-the-dashboard-in-windows-server-essentials"></a>Übersicht über das Dashboard in Windows Server Essentials
 
@@ -93,8 +93,8 @@ ms.locfileid: "89554513"
 |Verteilergruppen|**Hinweis:** Diese Funktion ist nur in Windows Server Essentials und Windows Server 2012 R2 Standard mit aktivierter Windows Server Essentials-Rolle verfügbar. Diese Registerkarte wird nur angezeigt, wenn Windows Server Essentials in Microsoft 365 integriert ist.<br /><br /> Aufgaben, die Sie auf dieser Seite ausführen können:<br /><br /> -Anzeigen einer Liste von Verteiler Gruppen.<br /><br /> -Hinzufügen oder Entfernen von Verteiler Gruppen|
 |Geräte|Wenn Sie Computer mit dem Windows Server Essentials-Netzwerk verbunden haben, können Sie die Computer über die Seite **Geräte** des Dashboards verwalten. Aufgaben, die Sie auf dieser Seite ausführen können:<br /><br /> -Anzeigen einer Liste von Computern, die mit Ihrem Netzwerk verknüpft sind.<br /><br /> -Verwalten von mobilen Geräten mithilfe des Microsoft 365 Verwaltungsfunktionen für mobile Geräte.<br /><br /> **Hinweis:** Diese Funktion ist nur in Windows Server Essentials und Windows Server 2012 R2 Standard mit aktivierter Windows Server Essentials-Rolle verfügbar.<br /><br /> -Zeigen Sie die Computer Eigenschaften und die Integritäts Warnungen für jeden Computer an.<br /><br /> -Einrichten und Verwalten von Computer Sicherungen.<br /><br /> -Wiederherstellen von Dateien und Ordnern auf Computern.<br /><br /> -Herstellen einer Remotedesktop Verbindung mit einem Computer<br /><br /> -Einstellungen für Computer Sicherung und Datei Versionsverlauf anpassen<br /><br /> Informationen zum Verwalten von Computern und Sicherungen finden Sie unter [Verwalten von Geräten](Manage-Devices-in-Windows-Server-Essentials.md).|
 |Storage|Je nach Version von Windows Server Essentials, die Sie ausführen, enthält der Abschnitt **Speicher** des Dashboards standardmäßig die folgenden Abschnitte.<br /><br /> -Der unter Abschnitt **Server Ordner** enthält Tasks, die Ihnen helfen, die Eigenschaften für Server Ordner anzuzeigen und zu verwalten. Die Seite enthält auch Aufgaben, um Serverordner zu öffnen und hinzuzufügen.<br /><br /> -Die Seite **Festplatten** enthält Tasks, die Ihnen helfen, die Integrität der Laufwerke anzuzeigen und zu überprüfen, die an den Server angefügt sind.<br /><br /> In Windows Server Essentials und Windows Server 2012 R2 Standard mit aktivierter Windows Server Essentials-Rolle enthält die Seite **SharePoint-Bibliotheken** Aufgaben, mit denen Sie die SharePoint-Bibliotheken in Microsoft 365 Dienst verwalten können.<br /><br /> Weitere Informationen zum Verwalten von Server Ordnern finden Sie unter [Verwalten von Server Ordnern](Manage-Server-Folders-in-Windows-Server-Essentials.md).<br /><br /> Informationen zum Verwalten von Festplatten finden Sie unter [Verwalten des Server Speichers](Manage-Server-Storage-in-Windows-Server-Essentials.md).|
-|Applications|-Der Abschnitt **Anwendungen** des Windows Server Essentials-Dashboards enthält standardmäßig zwei Unterabschnitte.<br /><br /> Weitere Informationen zum Verwalten von Add-in-Anwendungen finden Sie unter [Verwalten von Anwendungen](Manage-Applications-in-Windows-Server-Essentials.md).<br /><br /> -Der unter Abschnitt " **Add-ins** " zeigt eine Liste der installierten Add-Ins an und stellt Aufgaben bereit, die es Ihnen ermöglichen, ein Add-in zu entfernen und auf zusätzliche Informationen über ein ausgewähltes Add-in zuzugreifen.<br /><br /> -Der **Microsoft PinPoint** -unter Abschnitt zeigt eine Liste der Anwendungen an, die über Microsoft PinPoint verfügbar sind.|
-|Office 365|Die Registerkarte **Office 365** wird nur angezeigt, wenn Windows Server Essentials in Microsoft 365 integriert ist. Dieser Abschnitt enthält Informationen zum Office 365-Abonnement und zum Administratorkonto.|
+|Anwendungen|-Der Abschnitt **Anwendungen** des Windows Server Essentials-Dashboards enthält standardmäßig zwei Unterabschnitte.<br /><br /> Weitere Informationen zum Verwalten von Add-in-Anwendungen finden Sie unter [Verwalten von Anwendungen](Manage-Applications-in-Windows-Server-Essentials.md).<br /><br /> -Der unter Abschnitt " **Add-ins** " zeigt eine Liste der installierten Add-Ins an und stellt Aufgaben bereit, die es Ihnen ermöglichen, ein Add-in zu entfernen und auf zusätzliche Informationen über ein ausgewähltes Add-in zuzugreifen.<br /><br /> -Der **Microsoft PinPoint** -unter Abschnitt zeigt eine Liste der Anwendungen an, die über Microsoft PinPoint verfügbar sind.|
+|Microsoft 365|Die Registerkarte **Microsoft 365** wird nur angezeigt, wenn Windows Server Essentials in Microsoft 365 integriert ist. Dieser Abschnitt enthält Microsoft 365 Abonnement und Administrator Kontoinformationen.|
 
 > [!NOTE]
 >  Wenn Sie ein Add-In für das Windows Server Essentials-Dashboard installieren, kann das Add-In zusätzliche Administrationsabschnitte erstellen. Diese Abschnitte werden möglicherweise auf der Hauptnavigationsleiste oder auf einer Unterabschnittsregisterkarte angezeigt.

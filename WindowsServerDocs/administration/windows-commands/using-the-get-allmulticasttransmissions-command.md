@@ -3,16 +3,16 @@ title: Get-allmulticastübertragungen
 description: Referenz Artikel zu Get-allmulticasttransmissions, der Informationen zu allen Multicast Übertragungen auf einem Server anzeigt.
 ms.topic: reference
 ms.assetid: 95b8fb79-7a8a-4f0c-88f4-92bc1111c67f
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: c0c7c4e77c2ad23fab864839cde03ed4f4806c80
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 6bae5e1487c78091149b04fd2f8a67de9e8bbd93
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89035958"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89626397"
 ---
 # <a name="get-allmulticasttransmissions"></a>Get-allmulticastübertragungen
 
@@ -34,7 +34,7 @@ wdsutil /Get-AllMulticastTransmissions [/Server:<Server name>] [/Show:{Boot | In
 |        Parameter        |                                                                                                                                                                                                                                                                   Erklärung                                                                                                                                                                                                                                                                    |
 |-------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [/Server:<Server name>] |                                                                                                                                                                                 Gibt den Namen des Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.                                                                                                                                                                                  |
-|         [/Show]         | **Windows Server 2008**<p>/Show: Clients: zeigt Informationen zu Client Computern an, die mit den Multicast Übertragungen verbunden sind.<p>**Windows Server 2008 R2**<p>Anzeigen: {Boot &#124; install &#124; all}-der Typ des Abbilds, das zurückgegeben werden soll.                                Beim **Start** werden nur Start Abbild Übertragungen zurückgegeben.                                  **Install** gibt nur Installations Abbild Übertragungen zurück. **Alle** gibt beide Bild Typen zurück. |
+|         [/Show]         | **Windows Server 2008**<p>/Show: Clients: zeigt Informationen zu Client Computern an, die mit den Multicast Übertragungen verbunden sind.<p>**Windows Server 2008 R2**<p>Anzeigen: {Boot &#124; install &#124; all}-der Typ des Abbilds, das zurückgegeben werden soll.                                Beim **Start** werden nur Start Abbild Übertragungen zurückgegeben.                                  **Install** gibt nur Installations Abbild Übertragungen zurück. **Alle** gibt beide Bild Typen zurück. |
 |                         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 |    /Details: Clients     |                                                                                                                                                                                              Wird nur für Windows Server 2008 R2 unterstützt. Falls vorhanden, werden Clients angezeigt, die mit der Übertragung verbunden sind.                                                                                                                                                                                               |
 | [/ExcludedeletePending] |                                                                                                                                                                                                                                              Schließt alle deaktivierten Übertragungen aus der Liste aus.                                                                                                                                                                                                                                               |

@@ -3,16 +3,16 @@ title: replace
 description: Referenz Artikel für den Replace-Befehl, der vorhandene Dateien ersetzen oder neue Dateien zu einem Verzeichnis hinzufügen kann.
 ms.topic: reference
 ms.assetid: 6143661e-d90f-4812-b265-6669b567dd1f
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 07/11/2018
-ms.openlocfilehash: 5dfab76427a8f91339c29ac37607ce422d4f7e39
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 44ece657b87b61bc9be6333644d05b8201061014
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89037018"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89626988"
 ---
 # <a name="replace"></a>replace
 
@@ -27,7 +27,7 @@ replace [<drive1>:][<path1>]<filename> [<drive2>:][<path2>] [/p] [/r] [/s] [/w] 
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 |--|--|
 | `[<drive1>:][<path1>]<filename>` | Gibt den Speicherort und den Namen der Quelldatei oder des Satzes von Dateien an. Die *filename* -Option ist erforderlich und kann Platzhalter Zeichen (**&#42;** und **?**) enthalten. |
 | `[<drive2>:][<path2>]` | Gibt den Speicherort der Zieldatei an. Sie können keinen Dateinamen für die Dateien angeben, die Sie ersetzen. Wenn Sie kein Laufwerk oder einen Pfad angeben, verwendet dieser Befehl das aktuelle Laufwerk und Verzeichnis als Ziel. |
@@ -39,7 +39,7 @@ replace [<drive1>:][<path1>]<filename> [<drive2>:][<path2>] [/p] [/r] [/s] [/w] 
 | /U | Ersetzt nur die Dateien im Zielverzeichnis, die älter sind als die im Quellverzeichnis. **/U** kann nicht mit der Befehlszeilenoption **/a** verwendet werden. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Da mit diesem Befehl Dateien hinzugefügt oder ersetzt werden, werden die Dateinamen auf dem Bildschirm angezeigt. Nachdem dieser Befehl ausgeführt wurde, wird eine Zusammenfassungs Zeile in einem der folgenden Formate angezeigt:
 

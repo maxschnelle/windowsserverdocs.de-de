@@ -3,16 +3,16 @@ title: unlodctr
 description: Referenz Artikel zu unlodctr, mit dem Leistungs Leistungsdaten und der Text für einen Dienst oder einen Gerätetreiber aus der Systemregistrierung entfernt werden
 ms.topic: reference
 ms.assetid: fc8aa6f0-c1d9-47ea-937a-28152148e774
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 732f64d97b55084153cbb16840f53498a50ebae4
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: e0494d0b4509c4b75af9ca8473e3ae65353e02c1
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89029928"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89626567"
 ---
 # <a name="unlodctr"></a>unlodctr
 
@@ -25,12 +25,12 @@ Entfernt die Namen von **Leistungs Zählern** und **erläutert** den Text für e
 Unlodctr <DriverName>
 ```
 #### <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |-------|--------|
 |\<DriverName>|entfernt die Namen Einstellungen des Leistungs Zählers und den erläuternden Text für Treiber oder Dienst <DriverName> aus der Windows Server 2003-Registrierung.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 > [!WARNING]
 > Durch eine fehlerhafte Bearbeitung der Registrierung können schwerwiegende Schäden am System verursacht werden. Bevor Sie Änderungen an der Registrierung vornehmen, sollten Sie alle wichtigen Computerdaten sichern.
 

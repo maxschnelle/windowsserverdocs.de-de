@@ -5,14 +5,14 @@ ms.date: 10/03/2016
 ms.topic: article
 ms.assetid: 0302d070-c58a-40f2-b56d-7e7842813d02
 author: nnamuhcs
-ms.author: coreyp
-manager: dongill
-ms.openlocfilehash: 611f3824493acd6047c55f83cf17ba81daf8c923
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.author: geschuma
+manager: mtillman
+ms.openlocfilehash: f2b1e0205578cbf629418a2b78d6b27199cf694a
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87180926"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89626147"
 ---
 # <a name="manage-server-backup-in-windows-server-essentials"></a>Verwalten der Serversicherung in Windows Server Essentials
 
@@ -36,7 +36,7 @@ ms.locfileid: "87180926"
 
 -   [Wiederherstellen von Dateien und Ordnern über eine Server-Sicherung](Manage-Server-Backup-in-Windows-Server-Essentials.md#BKMK_7)
 
-##  <a name="which-backup-should-i-choose"></a><a name="BKMK_WhichBackup"></a>Welche Sicherung soll ausgewählt werden?
+##  <a name="which-backup-should-i-choose"></a><a name="BKMK_WhichBackup"></a> Welche Sicherung soll ausgewählt werden?
  Die Auswahl einer Sicherung kann ganz einfach sein, wenn eine aktuelle, erfolgreich ausgeführte Datensicherung mit allen wichtigen Daten vorliegt. Wenn Sie versuchen, eine Wiederherstellung aus einer älteren Sicherung auf dem Server oder einem Computer auszuführen, erfordert die Auswahl einer geeigneten Sicherung für die Wiederherstellung einige Ermittlungen und möglicherweise einige Kompromisse.
 
 #### <a name="to-choose-a-backup"></a>So wählen Sie eine Sicherung aus
@@ -49,10 +49,10 @@ ms.locfileid: "87180926"
 
 4.  Als bewährte Methode können Sie Dateien und Ordner an einem anderen Speicherort wiederherstellen. Die erforderlichen Dateien und Ordner lassen Sie dann von ihrem Besitzer an den ursprünglichen Speicherort verschieben. Wenn der Vorgang abgeschlossen ist, können die am alternativen Speicherort verbleibenden Dateien und Ordner gelöscht werden.
 
-##  <a name="set-up-or-customize-server-backup"></a><a name="BKMK_1"></a>Einrichten oder Anpassen der Server Sicherung
+##  <a name="set-up-or-customize-server-backup"></a><a name="BKMK_1"></a> Einrichten oder Anpassen der Server Sicherung
  Die Serversicherung wird während der Installation nicht automatisch konfiguriert. Sie sollten den Server und dessen Daten automatisch schützen, indem Sie tägliche Sicherungen planen. Es wird empfohlen, einen täglichen Sicherungsplan zu verwalten, da die meisten Organisationen es sich nicht leisten können, die im Verlauf von mehreren Tagen erstellten Daten zu verlieren. Weitere Informationen finden Sie unter [Einrichten oder Anpassen der Serversicherung](Set-up-or-customize-server-backup.md).
 
-##  <a name="stop-server-backup-in-progress"></a><a name="BKMK_2"></a>Die Server Sicherung wird beendet.
+##  <a name="stop-server-backup-in-progress"></a><a name="BKMK_2"></a> Die Server Sicherung wird beendet.
  Unabhängig davon, ob eine Serversicherung regelmäßig zu einem geplanten Zeitpunkt erfolgt oder Sie die Serversicherung manuell starten, können Sie die aktive Sicherung beenden.
 
 #### <a name="to-stop-a-backup-in-progress"></a>So beenden Sie eine laufende Sicherung
@@ -65,7 +65,7 @@ ms.locfileid: "87180926"
 
 4.  Klicken Sie auf **Ja**, um die Aktion zu bestätigen.
 
-##  <a name="remotely-manage-your-backups"></a><a name="BKMK_3"></a>Remote Verwaltung Ihrer Sicherungen
+##  <a name="remotely-manage-your-backups"></a><a name="BKMK_3"></a> Remote Verwaltung Ihrer Sicherungen
  Wenn Sie nicht im Büro sind, können Sie den Windows Server Essentials-Remotewebzugriff verwenden, um zur Verwaltung der Server auf das Windows Server Essentials-Dashboard zuzugreifen.
 
 #### <a name="to-use-remote-web-access-to-manage-your-server"></a>So verwalten Sie den Server mithilfe des Remotewebzugriffs
@@ -82,7 +82,7 @@ ms.locfileid: "87180926"
 
    Weitere Informationen zu Remote Webzugriff finden Sie unter [Übersicht über Remote Webzugriff](Manage-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_Overview).
 
-##  <a name="disable-server-backup"></a><a name="BKMK_4"></a>Deaktivieren der Server Sicherung
+##  <a name="disable-server-backup"></a><a name="BKMK_4"></a> Deaktivieren der Server Sicherung
  Sie sollten den Server und dessen Daten automatisch schützen, indem Sie tägliche Sicherungen planen. Es wird empfohlen, einen täglichen Sicherungsplan zu verwalten, da die meisten Organisationen es sich nicht leisten können, die im Verlauf von mehreren Tagen erstellten Daten zu verlieren.
 
  Wenn Sie die Serversicherung bereits konfiguriert haben und später eine Drittanbieteranwendung für die Sicherung des Servers verwenden möchten, können Sie die Windows Server Essentials-Serversicherung deaktivieren.
@@ -102,13 +102,13 @@ ms.locfileid: "87180926"
 
 5.  Klicken Sie auf der Seite **Konfigurationsoptionen** auf **Serversicherung deaktivieren**. Befolgen Sie die Anweisungen im Assistenten.
 
-##  <a name="learn-more-about-setting-up-server-backup"></a><a name="BKMK_5"></a>Weitere Informationen zum Einrichten der Server Sicherung
+##  <a name="learn-more-about-setting-up-server-backup"></a><a name="BKMK_5"></a> Weitere Informationen zum Einrichten der Server Sicherung
  Die Serversicherung ist während der Einrichtung des Servers nicht aktiviert.
 
 > [!NOTE]
 >  Beim Konfigurieren der Serversicherung sollten Sie mindestens eine externe Festplatte an den Server anschließen, die Sie als Sicherungsziel verwenden.
 
-###  <a name="backup-destination-drive"></a><a name="BKMK_Target"></a>Sicherungs Ziellaufwerk
+###  <a name="backup-destination-drive"></a><a name="BKMK_Target"></a> Sicherungs Ziellaufwerk
  Sie können zahlreiche externe Speicherlaufwerke für Sicherungen verwenden, und Sie können bei den Laufwerken zwischen internen und externen Speicherorten wechseln. Dadurch können Sie Ihre Vorbereitung auf Notfälle besser planen und sind in der Lage, die Daten wiederherzustellen, wenn die Hardware vor Ort physische Schäden erleidet.
 
  Bei der Auswahl eines Speicherlaufwerks für die Serversicherung ist Folgendes zu berücksichtigen:
@@ -154,7 +154,7 @@ ms.locfileid: "87180926"
 
  So können Sie beispielsweise über einen Ordner verfügen, der aufgezeichnete Fernsehsendungen enthält und viel Festplattenspeicherplatz belegt. Sie können festlegen, dass diese Dateien nicht gesichert werden, da sie normalerweise nach einmaliger Wiedergabe ohnehin gelöscht werden. Alternativ verfügen Sie möglicherweise über einen Ordner, der temporäre Dateien enthält, die Sie nicht behalten möchten.
 
-##  <a name="repartition-a-hard-drive-on-the-server"></a><a name="BKMK_6"></a>Neupartitionieren einer Festplatte auf dem Server
+##  <a name="repartition-a-hard-drive-on-the-server"></a><a name="BKMK_6"></a> Neupartitionieren einer Festplatte auf dem Server
  Wenn eine unformatierte interne Festplatte auf dem Windows Server Essentials-Server erkannt wird, wird eine Integritätsstatuswarnung ausgelöst, die eine Verknüpfung zum Assistenten zum Hinzufügen neuer Festplatten enthält. Der Assistent zum Hinzufügen neuer Festplatten führt Sie durch die verschiedenen Optionen zur Formatierung der Festplatte. Nachdem der Assistent abgeschlossen ist, werden eine oder mehrere (in Abhängigkeit von der Laufwerksgröße) logische formatierte Festplatten auf der Festplatte erstellt und mit NTFS formatiert.
 
  Wenn ein Festplattenlaufwerk neu partitioniert werden muss, gehen Sie wie folgt vor:
@@ -177,7 +177,7 @@ ms.locfileid: "87180926"
     > [!NOTE]
     >  Wiederholen Sie diesen Schritt, bis sämtlicher nicht zugeordneter Speicherplatz auf der Festplatte verwendet wird.
 
-##  <a name="restore-files-and-folders-from-a-server-backup"></a><a name="BKMK_7"></a>Wiederherstellen von Dateien und Ordnern aus einer Server Sicherung
+##  <a name="restore-files-and-folders-from-a-server-backup"></a><a name="BKMK_7"></a> Wiederherstellen von Dateien und Ordnern aus einer Server Sicherung
  Sie können einzelne Dateien und Ordner in einer Serversicherung suchen und wiederherstellen.
 
 #### <a name="to-restore-files-and-folders-from-a-server-backup"></a>So stellen Sie Dateien und Ordner über eine Server-Sicherung wieder her
@@ -188,7 +188,7 @@ ms.locfileid: "87180926"
 
 3.  Der Assistent zum Wiederherstellen von Dateien oder Ordnern wird geöffnet. Befolgen Sie die Anweisungen im Assistenten, um die Dateien oder Ordner wiederherzustellen.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Verwalten der Sicherung und Wiederherstellung](Manage-Backup-and-Restore-in-Windows-Server-Essentials.md)
 

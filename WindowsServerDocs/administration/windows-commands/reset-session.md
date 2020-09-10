@@ -3,16 +3,16 @@ title: reset session
 description: Referenz Artikel zum Befehl zum Zurücksetzen der Sitzung, mit dem Sie eine Sitzung auf einem Remotedesktop-Sitzungshost Server zurücksetzen können.
 ms.topic: reference
 ms.assetid: 4f029ecc-874e-415a-95a8-8b731bae35f9
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 07/11/2018
-ms.openlocfilehash: a154ffb27ac8ead093c0e41f9a50d0952b736abc
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 745a3ba51714ad3f5431dedbe9cebedf77e4ae72
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89037028"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89626913"
 ---
 # <a name="reset-session"></a>reset session
 
@@ -31,7 +31,7 @@ reset session {<sessionname> | <sessionID>} [/server:<servername>] [/v]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 |--|--|
 | `<sessionname>` | Gibt den Namen der Sitzung an, die Sie zurücksetzen möchten. Um den Namen der Sitzung zu ermitteln, verwenden Sie den [Befehl Abfrage Sitzung](query-session.md). |
 | `<sessionID>` | Gibt die ID der zurück zusetzenden Sitzung an. |
@@ -39,7 +39,7 @@ reset session {<sessionname> | <sessionID>} [/server:<servername>] [/v]
 | /v | Zeigt Informationen zu den Aktionen an, die ausgeführt werden. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-### <a name="remarks"></a>Bemerkungen
+### <a name="remarks"></a>Hinweise
 
 - Sie können jederzeit eigene Sitzungen zurücksetzen, aber Sie müssen über die Berechtigung " **voll** Zugriff" verfügen, um die Sitzung eines anderen Benutzers zurückzusetzen. Beachten Sie, dass das Zurücksetzen der Sitzung eines Benutzers ohne Warnung den Benutzer zum Verlust von Daten in der Sitzung führen kann.
 
