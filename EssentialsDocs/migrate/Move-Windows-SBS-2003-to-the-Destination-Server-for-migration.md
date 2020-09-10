@@ -5,14 +5,14 @@ ms.date: 10/03/2016
 ms.topic: article
 ms.assetid: 67087ccb-d820-4642-8ca2-7d2d38714014
 author: nnamuhcs
-ms.author: coreyp
-manager: dongill
-ms.openlocfilehash: 427f695b36f7a062bdc570ba816560a6a1721b90
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.author: geschuma
+manager: mtillman
+ms.openlocfilehash: f2fe4a1bb9277ae5b314aa02ee5c94896d1eefd9
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87180586"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89625719"
 ---
 # <a name="move-windows-sbs-2003-settings-and-data-to-the-destination-server-for-windows-server-essentials-migration"></a>Verschieben von Windows SBS 2003-Einstellungen und -Daten auf den Zielserver für die Migration zu Windows Server Essentials
 
@@ -28,7 +28,7 @@ Verschieben von Einstellungen und Daten auf den Zielserver:
 
 4. [Entfernen von älteren Active Directory-Gruppenrichtlinienobjekten (optional)](#remove-legacy-active-directory-group-policy-objects)
 
-5. [Konfigurieren des Netzwerks](#configure-the-network)
+5. [Netzwerk konfigurieren](#configure-the-network)
 
 6. [Zuordnen zugelassener Computer zu Benutzerkonten](#map-permitted-computers-to-user-accounts)
 
@@ -51,11 +51,11 @@ Führen Sie die folgenden Aufgaben aus, bevor Sie Daten vom Quellserver zum Ziel
 
     `robocopy \\<SourceServerName> \<SharedSourceFolderName> \\<DestinationServerName> \<SharedDestinationFolderName> /E /B /COPY:DATSOU /LOG:C:\Copyresults.txt`
 
-Hierbei gilt Folgendes:
+Hierbei gilt:
  - \<SourceServerName\> ist der Name des Quellservers
  - \<SharedSourceFolderName\> ist der Name des freigegebenen Ordners auf dem Quellserver
- - \<DestinationServerName\>ist der Name des Zielservers.
- - \<SharedDestinationFolderName\>der freigegebene Ordner auf dem Ziel Server, in den die Daten kopiert werden.
+ - \<DestinationServerName\> ist der Name des Zielservers.
+ - \<SharedDestinationFolderName\> der freigegebene Ordner auf dem Ziel Server, in den die Daten kopiert werden.
 
 4. Wiederholen Sie den vorherigen Schritt für jeden freigegebenen Ordner, zu dem Sie die Migration vom Quellserver aus vornehmen.
 

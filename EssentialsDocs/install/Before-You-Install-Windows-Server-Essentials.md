@@ -5,20 +5,20 @@ ms.date: 10/03/2016
 ms.topic: article
 ms.assetid: 8d0893bd-e2b7-4494-9537-02b1cbbcd57a
 author: nnamuhcs
-ms.author: coreyp
-manager: dongill
-ms.openlocfilehash: d3dde053a47dbc45a05486ed89b0484c297a132e
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.author: geschuma
+manager: mtillman
+ms.openlocfilehash: ceb5d81490b46513b540901413d8923d61d87e40
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87181496"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89623948"
 ---
 # <a name="before-you-install-windows-server-essentials"></a>Vor der Installation von Windows Server Essentials
 
 >Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-##  <a name="before-you-begin-your-installation-of--windows-server-essentials-perform-the-following-tasks"></a><a name="BKMK_BeforeYouBegin"></a>Bevor Sie mit der Installation von Windows Server Essentials beginnen, führen Sie die folgenden Aufgaben aus:
+##  <a name="before-you-begin-your-installation-of--windows-server-essentials-perform-the-following-tasks"></a><a name="BKMK_BeforeYouBegin"></a> Bevor Sie mit der Installation von Windows Server Essentials beginnen, führen Sie die folgenden Aufgaben aus:
 
 -   **Stellen Sie sicher, dass Ihr Computer die Mindesthardwareanforderungen erfüllt**. Dies umfasst die Bestimmung, ob zusätzliche Hardware erforderlich ist und ob die Treiber für Ihre Hardware von Windows Server Essentials unterstützt werden. Weitere Informationen finden Sie unter [System Anforderungen für Windows Server Essentials](../get-started/system-requirements.md).
 
@@ -52,7 +52,7 @@ ms.locfileid: "87181496"
 
 - **Lesen Sie die Dokumentation zur Windows Server Essentials-Version**. Die releasedokumentation enthält die neuesten Informationen, die für eine ordnungsgemäße Installation und Konfiguration von Windows Server Essentials von entscheidender Bedeutung sein können. Informationen zum Anzeigen oder Drucken der releasedokumentation finden Sie in der Versions [Dokumentation für Windows Server Essentials](../get-started/release-notes.md).
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Installieren von Windows Server Essentials](Install-Windows-Server-Essentials.md)
 

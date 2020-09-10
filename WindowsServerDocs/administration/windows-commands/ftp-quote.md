@@ -3,16 +3,16 @@ title: ftp quote
 description: Referenz Artikel für den Befehl FTP-Anführungszeichen, mit dem wörtliche Argumente an den Remote-FTP-Server gesendet werden.
 ms.topic: reference
 ms.assetid: 4500a1d3-c091-42c7-a909-f61df7f2e993
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 5e70c93e7a8fe5c32038eec08c7115aa1fec80bf
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 985e32342aea9cee7a658709fb83c7efac281308
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89035798"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89624645"
 ---
 # <a name="ftp-quote"></a>ftp quote
 
@@ -31,7 +31,7 @@ quote <argument>[ ]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `<argument>` | Gibt das Argument an, das an den FTP-Server gesendet werden soll. |
 

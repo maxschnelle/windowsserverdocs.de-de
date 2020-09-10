@@ -3,16 +3,16 @@ title: Anzeigen und Verwalten von Updates
 description: 'Thema zu Windows Server Update Service (WSUS): anzeigen und Verwalten von Updates in der WSUS-Konsole'
 ms.topic: article
 ms.assetid: ac70192b-0309-4385-b697-2e8eda51911c
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 8da092fc64b46a192dd9f40816721d639af795cb
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: ded1b6741829fb74d3be9b33828c89b8091faf1a
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87896793"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89624382"
 ---
 # <a name="viewing-and-managing-updates"></a>Anzeigen und Verwalten von Updates
 

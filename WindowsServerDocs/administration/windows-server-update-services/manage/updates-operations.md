@@ -3,16 +3,16 @@ title: Vorgänge für Updates
 description: 'Windows Server Update Service (WSUS)-Thema: Verwalten von Updates, einschließlich des Genehmigungsprozesses'
 ms.topic: article
 ms.assetid: 4cb7ff54-3014-4e91-842a-a7b831ea59ff
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 32e6aa39dec354aeb7b3277d68c3bf07ef8a0161
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: f4ce19a8cfcfdb427cb332daf95b43feb157abba
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87896810"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89624319"
 ---
 # <a name="updates-operations"></a>Vorgänge für Updates
 
@@ -131,7 +131,7 @@ Es ist wichtig zu erwähnen, dass nicht alle Updates entfernt werden. Sie könne
 6.  Wenn Sie ein Update entfernen möchten, sobald die Client Computer den Server kontaktieren, klicken Sie auf **Benutzer**definiert, und legen Sie ein Datum in der Vergangenheit fest.
 
 ## <a name="approving-updates-automatically"></a>Automatisches genehmigen von Updates
-Sie können den WSUS-Server für die automatische Genehmigung bestimmter Updates konfigurieren. Sie können auch die automatische Genehmigung von Revisionen vorhandener Updates angeben, sobald diese verfügbar sind. Diese Option ist standardmäßig aktiviert. Eine Revision ist eine Version eines Updates, bei der Änderungen vorgenommen wurden (z. b. Wenn Sie abgelaufen ist oder die anwendbarkeits Regeln geändert wurden). Wenn Sie die überarbeitete Version eines Updates nicht automatisch genehmigen, wird die ältere Version von WSUS verwendet, und Sie müssen die Update Revision manuell genehmigen.
+Sie können den WSUS-Server für die automatische Genehmigung bestimmter Updates konfigurieren. Sie können auch die automatische Genehmigung von Revisionen vorhandener Updates angeben, sobald diese verfügbar sind. Diese Option ist standardmäßig ausgewählt. Eine Revision ist eine Version eines Updates, bei der Änderungen vorgenommen wurden (z. b. Wenn Sie abgelaufen ist oder die anwendbarkeits Regeln geändert wurden). Wenn Sie die überarbeitete Version eines Updates nicht automatisch genehmigen, wird die ältere Version von WSUS verwendet, und Sie müssen die Update Revision manuell genehmigen.
 
 Sie können Regeln erstellen, die auf dem WSUS-Server automatisch während der Synchronisierung angewendet werden. Sie geben an, welche Updates Sie automatisch für die Installation genehmigen möchten, indem Sie die Update Klassifizierung, das Produkt und die Computergruppe durchsuchen. Dies gilt nur für neue Updates und nicht für überarbeitete Updates. Sie können auch einen Stichtag für die Genehmigung von Updates angeben, mit dem eine Anzahl von Tagen und eine bestimmte Zeitspanne festgelegt wird, bevor das genehmigte Update Stichtag installiert wird. Diese Einstellungen sind im Bereich **Optionen** unter **Automatische Genehmigungen**verfügbar.
 

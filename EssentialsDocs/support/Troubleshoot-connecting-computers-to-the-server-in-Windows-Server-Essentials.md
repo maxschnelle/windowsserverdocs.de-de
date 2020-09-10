@@ -5,14 +5,14 @@ ms.date: 10/03/2016
 ms.topic: article
 ms.assetid: e45b3d89-c057-4c70-a627-86fb06dd22aa
 author: nnamuhcs
-ms.author: coreyp
-manager: dongill
-ms.openlocfilehash: e832957a5d44851131cb622e4c3bf9d99d4e4a7f
-ms.sourcegitcommit: 04637054de2bfbac66b9c78bad7bf3e7bae5ffb4
+ms.author: geschuma
+manager: mtillman
+ms.openlocfilehash: 6314ef0baa92f6e6fe0d6a4bb2b49c3fcee6f893
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87838269"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89625064"
 ---
 # <a name="troubleshoot-connecting-computers-to-the-server-in-windows-server-essentials"></a>Problembehandlung beim Verbinden von Computern mit dem Server in Windows Server Essentials
 
@@ -49,7 +49,7 @@ ms.locfileid: "87838269"
 -   Problem 11: [Problem 11](Troubleshoot-connecting-computers-to-the-server-in-Windows-Server-Essentials.md#BKMK_UpgradeClientOS)
 
 
-##  <a name="issue-1"></a><a name="BMRK_Package"></a>Problem 1
+##  <a name="issue-1"></a><a name="BMRK_Package"></a> Problem 1
  **Problem**
 
  Ich erhalte, dass eine Paketinstallation nicht erfolgreich war. Versuchen Sie, den Windows Server Essentials-Connector erneut zu installieren. Wenn das Problem weiterhin besteht, wenden Sie sich an den Netzwerkadministrator, wenn Sie einen Computer mit dem Server verbinden.
@@ -62,7 +62,7 @@ ms.locfileid: "87838269"
 
  Schließen Sie alle anderen Updates und Anwendungsinstallationen ab. Starten Sie den Computer bei entsprechender Aufforderung neu.
 
-##  <a name="issue-2"></a><a name="BKMK_ConnectorIssue2"></a>Problem 2
+##  <a name="issue-2"></a><a name="BKMK_ConnectorIssue2"></a> Problem 2
  **Problem**
 
  Ein Computer kann nicht mit Windows Server Essentials verknüpft werden.
@@ -75,7 +75,7 @@ ms.locfileid: "87838269"
 
  Benennen Sie den Client Computer mit einem Namen um, der nur ASCII-Zeichen enthält, und versuchen Sie, den Computer erneut zu Windows Server Essentials hinzuzufügen.
 
-##  <a name="issue-3"></a><a name="BKMK_ConnectorIssue2a"></a>Problem 3
+##  <a name="issue-3"></a><a name="BKMK_ConnectorIssue2a"></a> Problem 3
  **Problem**
 
  Ich erhalte den Fehler "die Installation der Connector-Software wird abgebrochen" beim Verbinden eines Computers mit dem Server.
@@ -106,7 +106,7 @@ ms.locfileid: "87838269"
 
 8.  Klicken Sie zweimal auf **OK**, um die Berechtigungen zu aktualisieren, und schließen Sie **Eigenschaften**.
 
-##  <a name="issue-4"></a><a name="BKMK_ConnectorIssueNetFramework"></a>Problem 4
+##  <a name="issue-4"></a><a name="BKMK_ConnectorIssueNetFramework"></a> Problem 4
  **Problem**
 
  Zum Ausführen dieser Anwendung erhalte ich eine der folgenden Versionen des .NET Framework: v 4.5.50709 "Fehler beim Verbinden eines Computers mit dem Server.
@@ -129,7 +129,7 @@ ms.locfileid: "87838269"
 
 4.  Nach der erfolgreichen Deinstallation von .NET Framework 4.5 verbinden Sie den Computer mit dem Server. Die richtige Version von .NET Framework 4.5 wird zusammen mit der Connectorsoftware installiert.
 
-##  <a name="issue-5"></a><a name="BKMK_Time"></a>Problem 5
+##  <a name="issue-5"></a><a name="BKMK_Time"></a> Problem 5
  **Problem**
 
  Ich erhalte, dass der Server nicht verfügbar ist. Wenden Sie sich an die für Ihr Netzwerk verantwortliche Person, um dieses Problem zu beheben. wenn sich ein Computer mit dem Server verbindet.
@@ -181,7 +181,7 @@ ms.locfileid: "87838269"
 
 6.  Versuchen Sie auf dem Clientcomputer erneut, diesen mit dem Server zu verbinden. Anleitungen finden Sie unter "Verbinden von Computern mit dem Server".
 
-##  <a name="issue-6"></a><a name="BKMK_ServiceStopped"></a>Problem 6
+##  <a name="issue-6"></a><a name="BKMK_ServiceStopped"></a> Problem 6
  **Problem**
 
  Es ist ein unerwarteter Fehler aufgetreten. Wenden Sie sich an die für Ihr Netzwerk verantwortliche Person, um dieses Problem zu beheben. wenn sich ein Computer mit dem Server verbindet.
@@ -204,7 +204,7 @@ ms.locfileid: "87838269"
 
 3.  Klicken Sie im Bereich **Aktionen** auf **Starten**.
 
-##  <a name="issue-7"></a><a name="BKMK_ConnectorIssueReconnect"></a>Problem 7
+##  <a name="issue-7"></a><a name="BKMK_ConnectorIssueReconnect"></a> Problem 7
  **Problem**
 
  Wenn ich versuche, einen Computer nach einem erfolglosen Verbindungsversuch erneut mit dem Server zu verbinden, erhalte ich die Warnung, dass ein Computer mit diesem Namen bereits mit dem Server verbunden ist.
@@ -215,7 +215,7 @@ ms.locfileid: "87838269"
 
  **Lösung** Wenn Sie sicher sind, dass keine anderer Computer mit demselben Namen bereits mit dem Server verbunden ist, klicken Sie auf **Weiter** und befolgen dann die Anweisungen im Assistenten **Computer mit dem Server verbinden**.
 
-##  <a name="issue-8"></a><a name="BKMK_JoinWin7"></a>Problem 8
+##  <a name="issue-8"></a><a name="BKMK_JoinWin7"></a> Problem 8
  **Problem**
 
  Beim Versuch, einen Clientcomputer mit Windows 7 Home mit dem Server zu verbinden, wird die Webseite für die Ausführung der Connectorsoftware geöffnet, aber der Clientcomputer kann keine Verbindung mit dem Server herstellen.
@@ -228,7 +228,7 @@ ms.locfileid: "87838269"
 
  Deaktivieren Sie Multicast auf dem Router. Bei einigen Routern schließt dies ggf. das Deaktivieren des Routingprotokolls RIP-2M ein. Weitere Informationen finden Sie in der Dokumentation des Routerherstellers.
 
-##  <a name="issue-9"></a><a name="BKMK_ConnectorIssueAutologon"></a>Problem 9
+##  <a name="issue-9"></a><a name="BKMK_ConnectorIssueAutologon"></a> Problem 9
  **Problem**
 
  Die automatische Anmeldung wurde beendet, nachdem ich den Computer mit dem Server verbunden habe.
@@ -242,7 +242,7 @@ ms.locfileid: "87838269"
 > [!NOTE]
 >  Das Windows Server Essentials-Domänen Konto erfordert ein Kennwort, das den Standardanforderungen für die Kenn Wort Richtlinien entspricht.
 
-##  <a name="issue-10"></a><a name="BKMK_ConnectorIssueOldLogs"></a>Problem 10
+##  <a name="issue-10"></a><a name="BKMK_ConnectorIssueOldLogs"></a> Problem 10
  **Problem**
 
  Beim Deinstallieren einer Vorabversion der Connectorsoftware werden vorhandene Protokolle nicht entfernt.
@@ -263,7 +263,7 @@ ms.locfileid: "87838269"
 
 3.  Verbinden Sie den Computer erneut mit dem Server. Hierdurch wird die Connectorsoftware in der endgültigen Produktversion installiert, wobei ein neuer Ordner "Logs" und Protokolldateien erstellt werden.
 
-##  <a name="issue-11"></a><a name="BKMK_UpgradeClientOS"></a>Problem 11
+##  <a name="issue-11"></a><a name="BKMK_UpgradeClientOS"></a> Problem 11
  **Problem**
 
  Ich möchte ein Upgrade des Betriebssystems auf einem Clientcomputer ausführen.

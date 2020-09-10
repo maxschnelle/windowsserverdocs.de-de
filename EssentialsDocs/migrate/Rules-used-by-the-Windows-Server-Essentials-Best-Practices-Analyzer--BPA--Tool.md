@@ -5,14 +5,14 @@ ms.date: 10/03/2016
 ms.topic: article
 ms.assetid: 37e1dae7-586c-4dd7-bf83-7e14a9567c8f
 author: nnamuhcs
-ms.author: coreyp
-manager: dongill
-ms.openlocfilehash: eea437a5867a602a84483a41fe129d64425bcb88
-ms.sourcegitcommit: 04637054de2bfbac66b9c78bad7bf3e7bae5ffb4
+ms.author: geschuma
+manager: mtillman
+ms.openlocfilehash: 231fad84ecb5ac5831d4d638af7bd8fbe0281b04
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87838439"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89625539"
 ---
 # <a name="rules-used-by-the-windows-server-essentials-best-practices-analyzer-bpa-tool"></a>Von Windows Server Essentials Best Practices Analyzer (BPA) verwendete Regeln
 
@@ -1065,18 +1065,18 @@ In diesem Artikel werden die Regeln beschrieben, die vom Windows Server Essentia
 
 5.  Starten Sie den Dienst neu.
 
-### <a name="the-windows-server-office-365-integration-service-is-not-set-to-use-the-local-system-account"></a>Der Windows Server Office 365-Integrationsdienst ist nicht auf die Verwendung des lokalen Systemkontos festgelegt
- **Problem:**  Der Windows Server Office 365-Integrations Dienst ist nicht auf die Verwendung des lokalen System Kontos als Standard Anmelde Konto festgelegt.
+### <a name="the-windows-server-microsoft-365-integration-service-is-not-set-to-use-the-local-system-account"></a>Der Windows Server Microsoft 365 Integration Service ist nicht für die Verwendung des lokalen System Kontos festgelegt.
+ **Problem:**  Der Windows Server Microsoft 365 Integration Service ist nicht auf die Verwendung des lokalen System Kontos als Standard Anmelde Konto festgelegt.
 
- **Auswirkung:**  Wenn Windows Server Office 365 Integration Service nicht das lokale System als Standard Anmelde Konto verwendet, funktionieren einige Features von Office 365 möglicherweise nicht ordnungsgemäß. Es können zudem Fehler in Bezug auf Berechtigungen auftreten.
+ **Auswirkung:**  Wenn Windows Server Microsoft 365 Integration Service nicht das lokale System als Standard Anmelde Konto verwendet, funktionieren einige Funktionen von Microsoft 365 möglicherweise nicht ordnungsgemäß. Es können zudem Fehler in Bezug auf Berechtigungen auftreten.
 
  **Lösung:**
 
-##### <a name="to-configure-the-office-365-integration-service-to-use-local-system-as-the-default-logon-account"></a>So konfigurieren Sie "Lokales System" als Standardanmeldekonto für den Office 365-Integrationsdienst
+##### <a name="to-configure-the-microsoft-365-integration-service-to-use-local-system-as-the-default-logon-account"></a>So konfigurieren Sie den Microsoft 365 Integration Service für die Verwendung von "Lokales System" als Standard Anmelde Konto
 
 1.  Öffnen Sie die Konsole "Dienste".
 
-2.  Doppelklicken Sie in der Liste der Dienste auf **Windows Server Office 365-Integrationsdienst**.
+2.  Doppelklicken Sie in der Liste der Dienste auf **Windows Server Microsoft 365 Integration Service**.
 
 3.  Klicken Sie auf der Seite **Diensteigenschaften** auf die Registerkarte **Anmelden**.
 
@@ -1084,33 +1084,33 @@ In diesem Artikel werden die Regeln beschrieben, die vom Windows Server Essentia
 
 5.  Starten Sie den Dienst neu.
 
-### <a name="the-windows-server-office-365-integration-service-is-not-running"></a>Der Windows Server Office 365-Integrationsdienst wird nicht ausgeführt
- **Problem:**  Der Windows Server Office 365-Integrations Dienst wird zurzeit nicht ausgeführt.
+### <a name="the-windows-server-microsoft-365-integration-service-is-not-running"></a>Der Windows Server Microsoft 365 Integration Service wird nicht ausgeführt.
+ **Problem:**  Der Windows Server Microsoft 365 Integration Service wird zurzeit nicht ausgeführt.
 
- **Auswirkung:**  Wenn der Windows Server Office 365-Integrations Dienst nicht ausgeführt wird, sind die cloudbasierten Features von Office 365 nicht verfügbar.
+ **Auswirkung:**  Wenn der Windows Server Microsoft 365 Integration Service nicht ausgeführt wird, sind die cloudbasierten Features von Microsoft 365 nicht verfügbar.
 
  **Lösung:**
 
-##### <a name="to-start-the-windows-server-office-365-integration-service"></a>So starten Sie den Windows Server Office 365-Integrationsdienst
+##### <a name="to-start-the-windows-server-microsoft-365-integration-service"></a>So starten Sie den Windows Server Microsoft 365 Integration Service
 
 1.  Öffnen Sie die Konsole "Dienste".
 
-2.  Doppelklicken Sie in der Liste der Dienste auf **Windows Server Office 365-Integrationsdienst**.
+2.  Doppelklicken Sie in der Liste der Dienste auf **Windows Server Microsoft 365 Integration Service**.
 
 3.  Klicken Sie auf **Start**.
 
-### <a name="the-startup-type-for-the-windows-server-office-365-integration-service-is-not-set-to-automatic"></a>Der Starttyp für den Windows Server Office 365-Integrationsdienst ist nicht auf "Automatisch" festgelegt
- **Problem:**  Der Windows Server Office 365-Integrations Dienst wird möglicherweise nicht gestartet, wenn der Starttyp nicht auf den Standardwert "automatisch" festgelegt ist.
+### <a name="the-startup-type-for-the-windows-server-microsoft-365-integration-service-is-not-set-to-automatic"></a>Der Starttyp für den Windows Server Microsoft 365 Integration Service ist nicht auf "automatisch" festgelegt.
+ **Problem:**  Der Windows Server Microsoft 365 Integration Service wird möglicherweise nicht gestartet, wenn der Starttyp nicht auf den Standardwert "automatisch" festgelegt ist.
 
- **Auswirkung:**  Wenn der Windows Server Office 365-Integrations Dienst nicht ausgeführt wird, sind die cloudbasierten Features von Office 365 nicht verfügbar.
+ **Auswirkung:**  Wenn der Windows Server Microsoft 365 Integration Service nicht ausgeführt wird, sind die cloudbasierten Features von Microsoft 365 nicht verfügbar.
 
  **Lösung:**
 
-##### <a name="to-configure-the-office-365-integration-service-for-automatic-startup"></a>So konfigurieren Sie den Office 365-Integrationsdienst für den automatischen Start
+##### <a name="to-configure-the-microsoft-365-integration-service-for-automatic-startup"></a>So konfigurieren Sie den Microsoft 365 Integration Service für den automatischen Start
 
 1.  Öffnen Sie die Konsole "Dienste".
 
-2.  Doppelklicken Sie in der Liste der Dienste auf **Windows Server Office 365-Integrationsdienst**.
+2.  Doppelklicken Sie in der Liste der Dienste auf **Windows Server Microsoft 365 Integration Service**.
 
 3.  Wählen Sie für **Starttyp** die Option **Automatisch** aus, und klicken Sie dann auf **Übernehmen**.
 

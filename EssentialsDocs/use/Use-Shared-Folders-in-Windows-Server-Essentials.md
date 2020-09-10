@@ -5,14 +5,14 @@ ms.date: 10/03/2016
 ms.topic: article
 ms.assetid: cb7f3d7d-4225-409a-9f6b-34a106e8dd24
 author: nnamuhcs
-ms.author: coreyp
-manager: dongill
-ms.openlocfilehash: c7f042a47dd6f350b79ec17f69ffb87ab7b99259
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.author: geschuma
+manager: mtillman
+ms.openlocfilehash: 8c2b906d1484f0f681325cccc36fe3446760a175
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87179456"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89624879"
 ---
 # <a name="use-shared-folders-in-windows-server-essentials"></a>Verwenden von freigegebenen Ordnern in Windows Server Essentials
 
@@ -31,7 +31,7 @@ ms.locfileid: "87179456"
 
 -   [Verwenden der My Server-App für Windows 8](Use-Shared-Folders-in-Windows-Server-Essentials.md#BKMK_App)
 
-##  <a name="using-the-windows-server-essentials-launchpad"></a><a name="BKMK_UsingLaunchpad"></a>Verwenden des Windows Server Essentials-LaunchPads
+##  <a name="using-the-windows-server-essentials-launchpad"></a><a name="BKMK_UsingLaunchpad"></a> Verwenden des Windows Server Essentials-LaunchPads
  Sie können das Launchpad von einem beliebigen Computer aus verwenden, der mit dem Server mithilfe des Assistenten zum Verbinden eines Computers verbunden ist. Weitere Informationen zum Verbinden eines Computers mit dem Server finden Sie unter [Verbinden von Computern mit dem Server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_9).
 
 -   [Verwenden des Windows Server Essentials-Launchpads](../use/Use-Shared-Folders-in-Windows-Server-Essentials.md#BKMK_UsingLaunchpad)
@@ -42,7 +42,7 @@ ms.locfileid: "87179456"
 
 -   [Verwenden der My Server-App für Windows 8](../use/Use-Shared-Folders-in-Windows-Server-Essentials.md#BKMK_App)
 
-##  <a name="using-the-windows-server-essentials-launchpad"></a><a name="BKMK_UsingLaunchpad"></a>Verwenden des Windows Server Essentials-LaunchPads
+##  <a name="using-the-windows-server-essentials-launchpad"></a><a name="BKMK_UsingLaunchpad"></a> Verwenden des Windows Server Essentials-LaunchPads
  Sie können das Launchpad von einem beliebigen Computer aus verwenden, der mit dem Server mithilfe des Assistenten zum Verbinden eines Computers verbunden ist. Weitere Informationen zum Verbinden eines Computers mit dem Server finden Sie unter [Verbinden von Computern mit dem Server](../use/Get-Connected-in-Windows-Server-Essentials.md#BKMK_9).
 
 
@@ -50,7 +50,7 @@ ms.locfileid: "87179456"
 
  Weitere Informationen zum Launchpad finden Sie unter [Launchpad Overview (Übersicht über Launchpad](../manage/Overview-of-the-Launchpad-in-Windows-Server-Essentials.md)).
 
-###  <a name="copy-or-move-shared-files-or-folders-using-the-launchpad"></a><a name="BKMK_Launchpad"></a>Kopieren oder Verschieben von freigegebenen Dateien oder Ordnern mit dem launchpad
+###  <a name="copy-or-move-shared-files-or-folders-using-the-launchpad"></a><a name="BKMK_Launchpad"></a> Kopieren oder Verschieben von freigegebenen Dateien oder Ordnern mit dem launchpad
  Wenn Sie freigegebene Dateien in Windows Server Essentials mit dem Launchpad kopieren oder verschieben möchten, klicken Sie auf dem Launchpad auf die Registerkarte **Freigegebene Ordner**.
 
  Wenn Sie eine Datei oder einen Ordner in **Freigegebene Ordner** von einem Speicherort zum anderen verschieben möchten, können Sie die Drag & Drop-Methode auf die gleiche Weise wie beim Verschieben von Dateien und Ordnern auf dem Computer verwenden. Öffnen Sie den Ordner, der die Datei oder den Ordner enthält, die Sie verschieben möchten. Öffnen Sie dann den Ordner, in den die Datei oder der Ordner verschoben werden sollen, in einem anderen Fenster. Positionieren Sie die Fenster nebeneinander auf dem Desktop, sodass Sie den Inhalt beider Fenster sehen können, und ziehen Sie dann die Datei oder den Ordner aus dem ersten Ordner in den zweiten Ordner.
@@ -60,7 +60,7 @@ ms.locfileid: "87179456"
 
  Wenn Sie Dateien oder Ordner in **Freigegebene Ordner** von einem Speicherort an einen anderen kopieren möchten, können Sie sie wie Dateien auf dem Computer kopieren und einfügen. Öffnen Sie den Ordner mit den Dateien, die Sie kopieren möchten. Klicken Sie mit der rechten Maustaste auf die zu kopierenden Dateien, und klicken Sie dann auf **Kopieren**. Klicken Sie mit der rechten Maustaste auf den Ordner, in den Sie die kopierten Dateien einfügen möchten, und klicken Sie dann auf **Einfügen**.
 
-##  <a name="using-remote-web-access"></a><a name="BKMK_UsingRWA"></a>Verwenden von Remote Webzugriff
+##  <a name="using-remote-web-access"></a><a name="BKMK_UsingRWA"></a> Verwenden von Remote Webzugriff
 
  Mithilfe der Remotewebzugriff-Website können Sie auf freigegebene Dateien und Ordner über einen Remotecomputer zugreifen. Öffnen Sie auf einem Computer innerhalb des Server Netzwerks den Internet Browser, und geben Sie https://<Servername/Remote. ein, um auf die Remote Webzugriff-Website zuzugreifen. \> Mit Remotewebzugriff können Sie Dateien in freigegebenen Ordnern anzeigen und verwalten. Schritt-für-Schritt-Anweisungen finden Sie unter [Verwenden von Remote Webzugriff](Use-Remote-Web-Access-in-Windows-Server-Essentials.md).
 
@@ -70,23 +70,23 @@ ms.locfileid: "87179456"
 > [!NOTE]
 >  Um auf die Remotewebzugriff-Website zugreifen zu können, muss der Remotewebzugriff auf dem Server eingeschaltet sein. Weitere Informationen zum Verwalten von Remote Webzugriff finden Sie unter [Manage Remote Webzugriff](../manage/Manage-Remote-Web-Access-in-Windows-Server-Essentials.md).
 
-###  <a name="create-rename-move-delete-or-copy-files-and-folders-in-remote-web-access"></a><a name="BKMK_2"></a>Erstellen, umbenennen, verschieben, löschen oder Kopieren von Dateien und Ordnern in Remote Webzugriff
+###  <a name="create-rename-move-delete-or-copy-files-and-folders-in-remote-web-access"></a><a name="BKMK_2"></a> Erstellen, umbenennen, verschieben, löschen oder Kopieren von Dateien und Ordnern in Remote Webzugriff
 
  Mit Remotewebzugriff können Sie neue Ordner in einem vorhandenen freigegebenen Ordner erstellen, Dateien und Ordner umbenennen, Dateien und Ordner verschieben oder kopieren und Dateien und Ordner auf dem Server löschen. Weitere Informationen finden Sie im Abschnitt erstellen, umbenennen, verschieben, löschen oder Kopieren von Dateien und Ordnern in Remote Webzugriff. im Thema [Verwenden von Remote Webzugriff](Use-Remote-Web-Access-in-Windows-Server-Essentials.md).
 
-###  <a name="upload-and-download-files-in-remote-web-access"></a><a name="BKMK_3"></a>Hochladen und Herunterladen von Dateien in Remote Webzugriff
+###  <a name="upload-and-download-files-in-remote-web-access"></a><a name="BKMK_3"></a> Hochladen und Herunterladen von Dateien in Remote Webzugriff
  Auf der Remotewebzugriff-Registerkarte **Freigegebene Ordner** können Sie Dateien hoch- und herunterladen. Weitere Informationen finden Sie im Abschnitt hochladen und Herunterladen von Dateien in Remote Webzugriff. im Thema [Verwenden von Remote Webzugriff](Use-Remote-Web-Access-in-Windows-Server-Essentials.md).
 
  Mit Remotewebzugriff können Sie neue Ordner in einem vorhandenen freigegebenen Ordner erstellen, Dateien und Ordner umbenennen, Dateien und Ordner verschieben oder kopieren und Dateien und Ordner auf dem Server löschen. Weitere Informationen finden Sie im Abschnitt erstellen, umbenennen, verschieben, löschen oder Kopieren von Dateien und Ordnern in Remote Webzugriff. im Thema [Verwenden von Remote Webzugriff](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md).
 
-###  <a name="upload-and-download-files-in-remote-web-access"></a><a name="BKMK_3"></a>Hochladen und Herunterladen von Dateien in Remote Webzugriff
+###  <a name="upload-and-download-files-in-remote-web-access"></a><a name="BKMK_3"></a> Hochladen und Herunterladen von Dateien in Remote Webzugriff
  Auf der Remotewebzugriff-Registerkarte **Freigegebene Ordner** können Sie Dateien hoch- und herunterladen. Weitere Informationen finden Sie im Abschnitt hochladen und Herunterladen von Dateien in Remote Webzugriff. im Thema [Verwenden von Remote Webzugriff](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md).
 
 
-##  <a name="using-my-server-app-for-windows-phone"></a><a name="BKMK_Phone"></a>Verwenden der My Server-App für Windows Phone
+##  <a name="using-my-server-app-for-windows-phone"></a><a name="BKMK_Phone"></a> Verwenden der My Server-App für Windows Phone
  Mithilfe der My Server-App für Windows Phone können Sie auf freigegebene Ordner über Windows Phone zugreifen. Sie können diese App aus dem [Marketplace für Windows Phone](http://www.windowsphone.com/apps/6c2f98d5-6fcf-4e1d-b8b1-cde62ea1a94a)herunterladen.
 
-##  <a name="using-my-server-app-for-windows-8"></a><a name="BKMK_App"></a>Verwenden der My Server-App für Windows 8
+##  <a name="using-my-server-app-for-windows-8"></a><a name="BKMK_App"></a> Verwenden der My Server-App für Windows 8
  Mithilfe der My Server-App für Windows 8 können Sie auf freigegebene Ordner über Windows 8 zugreifen. Sie können diese App aus dem [Windows 8-App-Store](https://windows.microsoft.com/windows-8/apps)herunterladen.
 
 ## <a name="see-also"></a>Weitere Informationen

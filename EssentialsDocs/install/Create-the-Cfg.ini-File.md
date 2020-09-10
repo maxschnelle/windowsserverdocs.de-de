@@ -5,14 +5,14 @@ ms.date: 10/03/2016
 ms.topic: article
 ms.assetid: 93a73556-22ef-402d-b8d4-582b74c22bcf
 author: nnamuhcs
-ms.author: coreyp
-manager: dongill
-ms.openlocfilehash: d6294fd14c395be2b25f4b9bb46c93ecf7721928
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.author: geschuma
+manager: mtillman
+ms.openlocfilehash: 597f6349d96d29f06f06034504d5800e7e207eae
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87181376"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89623787"
 ---
 # <a name="create-the-cfgini-file"></a>Erstellen der Datei "Cfg.ini"
 
@@ -22,7 +22,7 @@ Die Datei "cfg.ini" dient zum automatischen Installieren des Betriebssystems in 
 
 -   Beim Testen der Benutzerfreundlichkeit bei einem vorinstallierten Abbild auf dem Zielcomputer wird der Abschnitt "InitialConfiguration" verwendet, um die Installation in einem beaufsichtigten oder unbeaufsichtigten Modus zu durchlaufen. Informationen zur Vorgehensweise finden Sie unter [Erstellen des Abschnitts "InitialConfiguration"](Create-the-Cfg.ini-File.md#BKMK_CreateInit2).
 
-##  <a name="create-the-initial-configuration-section"></a><a name="BKMK_CreateInit2"></a>Erstellen des Abschnitts "anfängliche Konfiguration"
+##  <a name="create-the-initial-configuration-section"></a><a name="BKMK_CreateInit2"></a> Erstellen des Abschnitts "anfängliche Konfiguration"
  Verwenden Sie den Abschnitt "InitialConfiguration" in der Datei "Cfg.ini", um die Installation in einem beaufsichtigten oder unbeaufsichtigten Modus zu durchlaufen.
 
 #### <a name="to-define-the-initial-configuration-section"></a>So definieren Sie den Abschnitt "InitialConfiguration"
@@ -129,7 +129,7 @@ Die Datei "cfg.ini" dient zum automatischen Installieren des Betriebssystems in 
     |StaticIPv6Gateway|(Optional) Geben Sie die Standardgatewayadresse an, wenn Sie statt einer dynamischen eine statische IP-Adresse konfigurieren möchten.|
     |ClientBackupOn|(Optional) Aktivieren Sie standardmäßig die Clientsicherung, die ausgeführt wird, wenn dem Server neue Clients hinzugefügt werden.|
     |FileHistoryOn|(Optional) Deaktivieren Sie standardmäßig die Sicherung des Dateiverlaufs, die ausgeführt wird, wenn dem Server neue Clients mit Windows 8 Consumer Preview hinzugefügt werden.|
-    |EnableRWA|Bei der Installation von Windows Server Essentials wird Remote Webzugriff aktiviert, die Routerkonfiguration wird jedoch übersprungen. Dies wird nur bei einer Neuinstallation des Produkts unterstützt. Der Standardwert ist false.|
+    |EnableRWA|Bei der Installation von Windows Server Essentials wird Remote Webzugriff aktiviert, die Routerkonfiguration wird jedoch übersprungen. Dies wird nur bei einer Neuinstallation des Produkts unterstützt. Der Standardwert ist „FALSE“.|
     |IPv4DNSForwarder|Legen Sie die IPv4-DNS-Weiterleitung fest.|
     |IPv6DNSForwarder|Legen Sie die IPv6-DNS-Weiterleitung fest.|
     |LaunchPadHiddenTasks|-(Optional) Sie können den Eintrag "Sicherungs Eintrag" oder "/und Administrator Dashboard" in Launchpad ausblenden.<br /><br /> -So deaktivieren Sie das Dashboard: launchpadhiddentasks = Microsoft. launchpad. admindashboard<br /><br /> -So deaktivieren Sie die Sicherung: launchpadhiddentasks = Microsoft. launchpad. Backup<br /><br /> -So deaktivieren Sie die Sicherung und das Dashboard: launchpadhiddentasks = Microsoft. launchpad. Backup, Microsoft. launchpad. admindashboard|

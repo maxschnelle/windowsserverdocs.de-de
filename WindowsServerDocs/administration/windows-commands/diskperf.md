@@ -3,16 +3,16 @@ title: diskperf
 description: Referenz Artikel für den diskperf-Befehl, der verwendet werden kann, um Leistungsindikatoren für physische oder logische Datenträger auf Windows-Computern Remote zu aktivieren oder zu deaktivieren.
 ms.topic: reference
 ms.assetid: f06916e8-069b-4ec8-a6eb-59f1d9f77111
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 09f095f5e6184b7961d02c05da4c2ca0c56a0482
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: f0e7700b3fbe1cec79aa9cf2b5c93eab9bd8372d
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89034118"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89624814"
 ---
 # <a name="diskperf"></a>diskperf
 
@@ -26,7 +26,7 @@ diskperf [-y[d|v] | -n[d|v]] [\\computername]
 
 ## <a name="options"></a>Tastatur
 
-| Option | Beschreibung |
+| Option | BESCHREIBUNG |
 | ------ | ----------- |
 | -y | Startet alle Datenträger Leistungsindikatoren, wenn der Computer neu gestartet wird. |
 | -Yd | Aktiviert Datenträger-Leistungsindikatoren für physische Laufwerke, wenn der Computer neu gestartet wird. |

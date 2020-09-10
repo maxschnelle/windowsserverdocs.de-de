@@ -3,16 +3,16 @@ title: Migrieren der WSUS-Datenbank von (interne Windows-Datenbank) zu SQL
 description: 'Thema zu Windows Server Update Service (WSUS): Migrieren der WSUS-Datenbank (SUSDB) von einer internen Windows-Daten Bank Instanz zu einer lokalen oder Remote Instanz von SQL Server.'
 ms.topic: get-started article
 ms.assetid: 90e3464c-49d8-4861-96db-ee6f8a09g7dr
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dougkim
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 07/25/2018
-ms.openlocfilehash: 7a5102ab622d051e87ca735e5a03f131d583838a
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 54f7eb0464d4454bd2929aace44eb37567973154
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87991130"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89624459"
 ---
 # <a name="migrating-the-wsus-database-from-wid-to-sql"></a>Migrieren der WSUS-Datenbank von wid zu SQL
 
@@ -145,8 +145,8 @@ Das Konto **NT-Autorität \ Netzwerkdienst** sollte aufgeführt werden.
     > ![Bild11](images/image11.png)
 
 4. Wählen Sie auf der Seite **Benutzer Zuordnung** unter Benutzer, die **dieser Anmeldung zugeordnet** sind die **SUSDB** -Datenbank aus.
-5. Überprüfen Sie den **Webdienst** unter der **Mitgliedschaft in Daten Bank Rolle für: SUSDB**: ![ image12](images/image12.png)
-6. Klicken Sie auf **OK** , um Einstellungen zu speichern.
+5. Überprüfen Sie den **Webdienst** unter der **Mitgliedschaft in Daten Bank Rolle für: SUSDB**:  ![ image12](images/image12.png)
+6. Klicken Sie auf  **OK** , um Einstellungen zu speichern.
     > [!NOTE]
     > Möglicherweise müssen Sie den SQL-Dienst neu starten, damit die Änderungen wirksam werden.
 

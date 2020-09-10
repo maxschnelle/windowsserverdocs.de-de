@@ -5,14 +5,14 @@ ms.date: 10/03/2016
 ms.topic: article
 ms.assetid: 47bc4986-14eb-4a29-9930-83a25704a3a0
 author: nnamuhcs
-ms.author: coreyp
-manager: dongill
-ms.openlocfilehash: f6b5de8ea45ea219f55b04ef675a3853b403fafb
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.author: geschuma
+manager: mtillman
+ms.openlocfilehash: c1a6276199964ac7fd2eb3953cb3fac828063dfc
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87181316"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89623669"
 ---
 # <a name="customize-shared-folders"></a>Anpassen freigegebener Ordner
 
@@ -48,7 +48,7 @@ Standardmäßig werden Serverordner auf der größten Datenpartition auf Datentr
 
    Optional können Partner die Datenordner auf dem Laufwerk "C" belassen. So kann der Endbenutzer oder der Handelspartner das Layout der Datenordner auf den Datenlaufwerken bestimmen.
 
-###  <a name="example-1-create-a-custom-folder-and-move-the-default-folders-to-a-new-location-from-posticcmd-by-using-windows-powershell"></a><a name="BKMK_Example1"></a>Beispiel 1: Erstellen eines benutzerdefinierten Ordners und Verschieben der Standardordner von "postic. cmd" an einen neuen Speicherort mithilfe von Windows PowerShell
+###  <a name="example-1-create-a-custom-folder-and-move-the-default-folders-to-a-new-location-from-posticcmd-by-using-windows-powershell"></a><a name="BKMK_Example1"></a> Beispiel 1: Erstellen eines benutzerdefinierten Ordners und Verschieben der Standardordner von "postic. cmd" an einen neuen Speicherort mithilfe von Windows PowerShell
 
 1.  Erstellen Sie die Datei "PostIC.cmd" zum Ausführen von Aufgaben nach der Erstkonfiguration, wie im Abschnitt [Erstellen der Datei "PostIC.cmd" zum Ausführen von Aufgaben nach der Erstkonfiguration](Create-the-PostIC.cmd-File-for-Running-Post-Initial-Configuration-Tasks.md) erläutert.
 
@@ -94,7 +94,7 @@ Standardmäßig werden Serverordner auf der größten Datenpartition auf Datentr
     Set ERRORLEVEL=%error_level%
     ```
 
-###  <a name="example-2-create-a-custom-folder-and-move-an-existing-folder-by-using-the-windows-server-solutions-sdk"></a><a name="BKMK_Example2"></a>Beispiel 2: Erstellen eines benutzerdefinierten Ordners und Verschieben eines vorhandenen Ordners mit dem SDK für Windows Server-Lösungen
+###  <a name="example-2-create-a-custom-folder-and-move-an-existing-folder-by-using-the-windows-server-solutions-sdk"></a><a name="BKMK_Example2"></a> Beispiel 2: Erstellen eines benutzerdefinierten Ordners und Verschieben eines vorhandenen Ordners mit dem SDK für Windows Server-Lösungen
  Der von Ihnen erstellte Code kann als ausführbare Datei kompiliert werden und dann von der Datei "PostIC.cmd" oder direkt von einem installierten Add-In aufgerufen werden.
 
 ```

@@ -3,16 +3,16 @@ title: wbadmin get status
 description: Referenz Artikel zum Abrufen des Status von Wbadmin, mit dem der Status des Sicherungs-oder Wiederherstellungs Vorgangs gemeldet wird, der derzeit ausgeführt wird.
 ms.topic: reference
 ms.assetid: 2911b944-7b95-46aa-8c1e-1d55a2fcc94c
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 3245a6c92bf8a3ebde070f2f85e484dc9a317ce1
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 7dcb1b59de6827500311cfd55245ac6c94a171b0
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89031988"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89624598"
 ---
 # <a name="wbadmin-get-status"></a>wbadmin get status
 
@@ -32,7 +32,7 @@ wbadmin get status
 
 Dieser Unterbefehl weist keine Parameter auf.
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 
 -   Dieser Unterbefehl wird erst beendet, wenn der aktuelle Sicherungs-oder Wiederherstellungs Vorgang abgeschlossen ist – der Unterbefehl wird weiterhin ausgeführt, auch wenn Sie das Befehlsfenster schließen.
 -   Wenn Sie den aktuellen Sicherungs-oder Wiederherstellungs Vorgang abbrechen möchten, verwenden Sie den Unterbefehl zum Abbrechen des Auftrags unter " **Wbadmin** ".

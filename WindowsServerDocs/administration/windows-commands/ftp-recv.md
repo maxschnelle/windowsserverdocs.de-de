@@ -3,16 +3,16 @@ title: ftp recv
 description: Referenz Artikel für den Befehl FTP empfangener, bei dem eine Remote Datei mit dem aktuellen Datei Übertragungstyp auf den lokalen Computer kopiert wird.
 ms.topic: reference
 ms.assetid: f249ce61-247d-421b-9b93-48bce5108800
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 2a80c00c99df3466fc1077c3a09cab29f9e59860
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 65acf6bae09d9b1cad1bf89028b4a51232116c60
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89038911"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89624649"
 ---
 # <a name="ftp-recv"></a>ftp recv
 
@@ -31,7 +31,7 @@ recv <remotefile> [<localfile>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `<remotefile>` | Gibt die zu Kopier-Remote Datei an. |
 | `[<localfile>]` | Gibt den Namen der Datei an, die auf dem lokalen Computer verwendet werden soll. Wenn *LocalFile* nicht angegeben wird, erhält die Datei den Namen der *remotefile*. |

@@ -5,14 +5,14 @@ ms.date: 10/03/2016
 ms.topic: article
 ms.assetid: aac6b7f3-9020-46c3-a83f-b81542300385
 author: nnamuhcs
-ms.author: coreyp
-manager: dongill
-ms.openlocfilehash: d974f4dc53b9ce389254b162a3305b277181ceed
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.author: geschuma
+manager: mtillman
+ms.openlocfilehash: 17f2d7c8a409ed49ea0f9bfa50952467e4694243
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87181536"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89623992"
 ---
 # <a name="add-a-tab-to-settings"></a>Hinzufügen einer Registerkarte zu "Einstellungen"
 
@@ -29,7 +29,7 @@ Sie können eine Registerkarte zu "Einstellungen" auf dem Dashboard hinzufügen.
 
 -   [Installieren der Assembly auf dem Referenzcomputer](Add-a-Tab-to-Settings.md#BKMK_InstallAssembly).
 
-###  <a name="add-an-implementation-of-the-isettingsdata-interface-to-the-assembly"></a><a name="BKMK_ISettingsData"></a>Hinzufügen einer Implementierung der isettingsdata-Schnittstelle zur Assembly
+###  <a name="add-an-implementation-of-the-isettingsdata-interface-to-the-assembly"></a><a name="BKMK_ISettingsData"></a> Hinzufügen einer Implementierung der isettingsdata-Schnittstelle zur Assembly
  Die ISettingsData-Schnittstelle ist im Namespace "Microsoft.WindowsServerSolutions.Settings" der Assembly "AdminCommon.dll" enthalten, die sich im Ordner "\Programme\Windows Server\Bin" befindet.
 
 ##### <a name="to-add-the-isettingsdata-code-to-the-assembly"></a>So fügen Sie der Assembly den Code für "ISettingsData" hinzu
@@ -144,10 +144,10 @@ Sie können eine Registerkarte zu "Einstellungen" auf dem Dashboard hinzufügen.
 
 16. Speichern und erstellen Sie die Projektmappe.
 
-###  <a name="sign-the-assembly-with-an-authenticode-signature"></a><a name="BKMK_SignAssembly"></a>Signieren der Assembly mit einer Authenticode-Signatur
+###  <a name="sign-the-assembly-with-an-authenticode-signature"></a><a name="BKMK_SignAssembly"></a> Signieren der Assembly mit einer Authenticode-Signatur
  Sie müssen die Assembly mit Authenticode signieren, damit sie im Betriebssystem verwendet werden kann. Weitere Informationen zum Signieren der Assembly finden Sie unter [Signieren und Überprüfen von Code mit Authenticode](https://msdn.microsoft.com/library/ms537364\(VS.85\).aspx#SignCode).
 
-###  <a name="install-the-assembly-on-the-reference-computer"></a><a name="BKMK_InstallAssembly"></a>Installieren der Assembly auf dem Referenz Computer
+###  <a name="install-the-assembly-on-the-reference-computer"></a><a name="BKMK_InstallAssembly"></a> Installieren der Assembly auf dem Referenz Computer
  Platzieren Sie nach der erfolgreichen Erstellung der Projektmappe eine Kopie der Datei "DashboardSettingsPage.dll" im folgenden Ordner auf dem Referenzcomputer:
 
  **%Programfiles%\Windows Server\Bin\OEM**

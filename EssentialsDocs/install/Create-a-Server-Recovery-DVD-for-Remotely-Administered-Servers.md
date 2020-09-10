@@ -5,20 +5,20 @@ ms.date: 10/03/2016
 ms.topic: article
 ms.assetid: 6141fa69-5952-4e3c-a868-40ef3f4badd2
 author: nnamuhcs
-ms.author: coreyp
-manager: dongill
-ms.openlocfilehash: 3f9bfeb2dbadd4d3d6cadd0200f05759d75f5519
-ms.sourcegitcommit: 145cf75f89f4e7460e737861b7407b5cee7c6645
+ms.author: geschuma
+manager: mtillman
+ms.openlocfilehash: fda6cf3ef25a2127aa0982674ff0f7d0960bfb08
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87409550"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89623845"
 ---
 # <a name="create-a-server-recovery-dvd-for-remotely-administered-servers"></a>Erstellen einer Serverwiederherstellungs-DVD für remote verwaltete Server
 
 >Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-##  <a name="create-a-server-recovery-dvd-for-remotely-administered-servers"></a><a name="BKMK_HeadlessRecovery"></a>Erstellen einer serverwiederherstellungs-DVD für Remote verwaltete Server
+##  <a name="create-a-server-recovery-dvd-for-remotely-administered-servers"></a><a name="BKMK_HeadlessRecovery"></a> Erstellen einer serverwiederherstellungs-DVD für Remote verwaltete Server
  Es gibt zwei Modelle für die Wiederherstellung der Herstellerstandards und die Serverwiederherstellung. Sie sind von der Hardware abhängig, die der Kunde erhalten hat.
 
  **Remote verwalteter Server**
@@ -70,12 +70,12 @@ ms.locfileid: "87409550"
 
 6.  [Testen der Wiederherstellungs-DVD](Create-a-Server-Recovery-DVD-for-Remotely-Administered-Servers.md#BKMK_Testing)
 
-####  <a name="step-1-optional-update-winpe"></a><a name="BKMK_Updating"></a>Schritt 1: (optional) Aktualisieren von WinPE
+####  <a name="step-1-optional-update-winpe"></a><a name="BKMK_Updating"></a> Schritt 1: (optional) Aktualisieren von WinPE
  Das ADK umfasst eine angepasste Kopie von Windows PE. Beim Starten des Abbilds wird automatisch das Signal gestartet, mit dem die Anwendung für die Clientwiederherstellung eine Verbindung mit einem Server im Wiederherstellungsmodus herstellt.
 
  Windows PE muss weiter angepasst werden, indem hardwarespezifische Treiber wie Treiber für das Netzwerk oder für Festplattencontroller hinzugefügt werden. Nach dem Start über WinPE müssen die Festplatten im System erkannt werden können, und das Netzwerk muss funktionieren.
 
-####  <a name="step-2-collect-the-factory-reset-images-and-xml-files"></a><a name="BKMK_Collecting"></a>Schritt 2: Erfassen der zurückgesetzten Images und XML-Dateien der Factory
+####  <a name="step-2-collect-the-factory-reset-images-and-xml-files"></a><a name="BKMK_Collecting"></a> Schritt 2: Erfassen der zurückgesetzten Images und XML-Dateien der Factory
  Die folgenden beiden Abbilder müssen aufgezeichnet werden, um einen Server auf die Herstellerstandards zurückzusetzen:
 
 - Das Abbild des Systemlaufwerks
@@ -91,7 +91,7 @@ ms.locfileid: "87409550"
     > [!NOTE]
     >  Die WIM-Datei des Systems wird geteilt, damit die FAT32-Anforderung, dass Dateien höchstens 4 GB aufweisen dürfen, erfüllt wird. Dabei muss die erforderliche Kapazität des Ziels, mit dem die WIM-Dateien aufgezeichnet werden, mehr als 8 GB betragen, damit die Teilung vorgenommen werden kann.
 
-####  <a name="step-3-create-the-server-recovery-dvd"></a><a name="BKMK_Creating"></a>Schritt 3: Erstellen der serverwiederherstellungs-DVD
+####  <a name="step-3-create-the-server-recovery-dvd"></a><a name="BKMK_Creating"></a> Schritt 3: Erstellen der serverwiederherstellungs-DVD
  Zu jedem vom Hersteller ausgelieferten Server muss eine Serverwiederherstellungs-DVD gehören. Auf Ihrer DVD mit den ADK-Tools finden Sie die für die Erstellung der DVD erforderlichen Dateien.
 
 ##### <a name="to-create-the-server-recovery-dvd"></a>So erstellen Sie die Serverwiederherstellungs-DVD
@@ -106,7 +106,7 @@ ms.locfileid: "87409550"
 
 5.  Entfernen Sie "GenDiskXML.exe" aus dem Ordner. Diese Datei ist nur für werkseitige Arbeiten vorgesehen und sollte nicht auf der DVD enthalten sein, die an den Kunden geliefert wird.
 
-####  <a name="step-4-customize-the-wizard"></a><a name="BKMK_Customizing"></a>Schritt 4: Anpassen des Assistenten
+####  <a name="step-4-customize-the-wizard"></a><a name="BKMK_Customizing"></a> Schritt 4: Anpassen des Assistenten
  Die Anwendung für die Serverwiederherstellung muss mit einem Abbild des Geräts sowie mit einer Beschreibung für den Start des speziellen Geräts im Wiederherstellungsmodus angepasst werden. Da diese Seite des Assistenten für die Dateien- und Ordnerwiederherstellung hardwarespezifisch ist, variieren die Schritte für den Start des Servers im Wiederherstellungsmodus.
 
 > [!NOTE]
@@ -156,10 +156,10 @@ ms.locfileid: "87409550"
    - zh-HK
    - zh-TW
 
-####  <a name="step-5-create-the-iso-file"></a><a name="BKMK_CreatingISO"></a>Schritt 5: Erstellen der ISO-Datei
+####  <a name="step-5-create-the-iso-file"></a><a name="BKMK_CreatingISO"></a> Schritt 5: Erstellen der ISO-Datei
  Der Ordner, der erstellt wurde, kann mit seinem kompletten Inhalt auf eine DVD gebrannt werden. Dies ist die DVD, die Kunden zusammen mit einem neuen Server bereitgestellt wird.
 
-####  <a name="step-6-test-the-recovery-dvd"></a><a name="BKMK_Testing"></a>Schritt 6: Testen der Wiederherstellungs-DVD
+####  <a name="step-6-test-the-recovery-dvd"></a><a name="BKMK_Testing"></a> Schritt 6: Testen der Wiederherstellungs-DVD
  Wenn die Serverinstallation abgeschlossen ist, konfigurieren Sie die Serversicherung, führen eine Serversicherung aus und testen dann die Wiederherstellungs-DVD.
 
 ###### <a name="to-configure-and-run-a-server-backup"></a>So konfigurieren Sie eine Serversicherung und führen sie aus

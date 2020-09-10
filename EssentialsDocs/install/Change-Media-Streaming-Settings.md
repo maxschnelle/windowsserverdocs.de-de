@@ -5,14 +5,14 @@ ms.date: 10/03/2016
 ms.topic: article
 ms.assetid: dec690d2-f80c-4b09-99d6-3bba41331972
 author: nnamuhcs
-ms.author: coreyp
-manager: dongill
-ms.openlocfilehash: 5001d16a3bcdfbb02e7578c61298108ef84c8536
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.author: geschuma
+manager: mtillman
+ms.openlocfilehash: 041a7f53b02d9b6b6368bd2b2f4ac991a14a61fa
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87181476"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89623884"
 ---
 # <a name="change-media-streaming-settings"></a>Ändern der Einstellungen für Medienstreaming
 
@@ -28,7 +28,7 @@ Für das Ändern der Einstellungen für Medienstreaming sind mehrere Optionen m�
 
 -   [Programmgesteuertes Aktivieren oder Deaktivieren von Medienstreaming](Change-Media-Streaming-Settings.md#BKMK_Program)
 
-##  <a name="hide-remote-media-streaming-add-in"></a><a name="BKMK_DisableRemote"></a>Remote-Medien Streaming-Add-in ausblenden
+##  <a name="hide-remote-media-streaming-add-in"></a><a name="BKMK_DisableRemote"></a> Remote-Medien Streaming-Add-in ausblenden
  Sie können das Remote-Medienstreaming-Add-In ausblenden, indem Sie der Registrierung einen Eintrag hinzufügen.
 
 #### <a name="to-hide-the-remote-media-streaming-add-in"></a>So blenden Sie das Remote-Medienstreaming-Add-In aus
@@ -49,7 +49,7 @@ Für das Ändern der Einstellungen für Medienstreaming sind mehrere Optionen m�
 
 7.  Geben Sie **1** für die Wertdaten ein, und klicken Sie anschließend auf **OK**.
 
-##  <a name="set-the-media-library-name"></a><a name="BKMK_LibraryName"></a>Festlegen des Namens der Medienbibliothek
+##  <a name="set-the-media-library-name"></a><a name="BKMK_LibraryName"></a> Festlegen des Namens der Medienbibliothek
  Sie können den Namen der Medienbibliothek mithilfe einer Klasse im SDK für Windows Server-Lösungen festlegen. Zum Festlegen des Namens können Sie die **SetMediaLibraryName**-Methode der Klasse **MediaStreamingManager** im Namespace **Microsoft.WindowsServerSolutions.MediaStreaming** verwenden. Im folgenden Beispiel wird der Name der Medienbibliothek festgelegt:
 
 ```c#
@@ -62,10 +62,10 @@ mediaStreamingManager.SetMediaLibraryName(mediaLibraryName);
 
  Weitere Informationen finden Sie unter [SDK für Windows Server-Lösungen](https://go.microsoft.com/fwlink/?LinkID=248648).
 
-##  <a name="set-video-streaming-quality"></a><a name="BKMK_StreamingQuality"></a>Festlegen der videostreamingqualität
+##  <a name="set-video-streaming-quality"></a><a name="BKMK_StreamingQuality"></a> Festlegen der videostreamingqualität
  Sie legen die Videostreamingqualität fest, indem Sie die WinSAT-CPU-Bewertung abrufen und dann die XML-Datei, die Informationen zur WinSAT-Bewertung enthält, erstellen und installieren. Wenn die XML-Datei, die die Informationen zur WinSAT-Bewertung enthält, vor dem Ausführen der Erstkonfiguration installiert wird, wird dem Kunden die Benutzeroberfläche für das Festlegen der Videoqualität nicht angezeigt. Weitere Informationen finden Sie unter [Festlegen der WinSAT-Bewertung auf dem Server](Set-the-WinSAT-Score-on-the-Server.md).
 
-##  <a name="programmatically-enable-or-disable-media-streaming"></a><a name="BKMK_Program"></a>Programm gesteuertes aktivieren oder Deaktivieren von Medien Streaming
+##  <a name="programmatically-enable-or-disable-media-streaming"></a><a name="BKMK_Program"></a> Programm gesteuertes aktivieren oder Deaktivieren von Medien Streaming
  Sie können Medienstreaming mithilfe einer Klasse im SDK für Windows Server-Lösungen programmgesteuert aktivieren oder deaktivieren. Zum Aktivieren oder Deaktivieren von Medienstreaming können Sie die **SetMediaStreamingEnabled**-Methode der Klasse **MediaStreamingManager** im Namespace **Microsoft.WindowsServerSolutions.MediaStreaming** verwenden. Im folgenden Codebeispiel wird Medienstreaming aktiviert:
 
 ```c#

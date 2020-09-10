@@ -5,14 +5,14 @@ ms.date: 10/03/2016
 ms.topic: article
 ms.assetid: d382e3fd-d393-4bd0-883f-db50104a969f
 author: nnamuhcs
-ms.author: coreyp
-manager: dongill
-ms.openlocfilehash: b8819b654d05a1e63c7f30b4359cabcc2906c7b8
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.author: geschuma
+manager: mtillman
+ms.openlocfilehash: 5186cc808b46aa334dc994186e3d7d8d898f9d96
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87180406"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89625366"
 ---
 # <a name="step-7-perform-post-migration-tasks-for-the-windows-server-essentials-migration"></a>Schritt 7: Ausführen von Aufgaben nach der Migration zu Windows Server Essentials
 
@@ -24,7 +24,7 @@ Die folgenden Aufgaben helfen Ihnen bei der Einrichtung der Zielserver mit einig
 
 2.  [Freigeben von Branchen- und anderen Anwendungsordnern für Daten](Step-7--Perform-post-migration-tasks-for-the-Windows-Server-Essentials-migration.md#BKMK_ShareLineOfBusinessAndOtherApplications)
 
-##  <a name="delete-dns-entries-for-the-source-server"></a><a name="BKMK_DeleteDNSEntries"></a>Löschen von DNS-Einträgen für den Quell Server
+##  <a name="delete-dns-entries-for-the-source-server"></a><a name="BKMK_DeleteDNSEntries"></a> Löschen von DNS-Einträgen für den Quell Server
  Nachdem Sie den Quellserver außer Betrieb nehmen, kann der Domain Name Service (DNS)-Server weiterhin Einträge enthalten, die auf den Quellserver verweisen. Löschen Sie diese DNS-Einträge.
 
 #### <a name="to-delete-dns-entries-that-point-to-the-source-server"></a>So löschen Sie DNS-Einträge, die auf den Quellserver verweisen
@@ -49,7 +49,7 @@ Die folgenden Aufgaben helfen Ihnen bei der Einrichtung der Zielserver mit einig
 
 10. Wiederholen Sie die Schritte 6 bis 9, um alle Reverse-Lookupzonen zu entfernen, die auf den Quellserver verweisen.
 
-##  <a name="share-line-of-business-and-other-application-data-folders"></a><a name="BKMK_ShareLineOfBusinessAndOtherApplications"></a>Freigeben von Branchen-und anderen Anwendungsdaten Ordnern
+##  <a name="share-line-of-business-and-other-application-data-folders"></a><a name="BKMK_ShareLineOfBusinessAndOtherApplications"></a> Freigeben von Branchen-und anderen Anwendungsdaten Ordnern
  Sie müssen die Berechtigungen für freigegebene Ordner und NTFS-Berechtigungen für die Branchen- und andere Anwendungsordner für Daten, die Sie auf den Zielserver kopiert haben, festlegen. Nachdem Sie die Berechtigungen festgelegt haben, werden die freigegebenen Ordner auf dem Dashboard in der Registerkarte**Speicher** angezeigt.
 
  Wenn Sie ein Anmeldeskript zum Zuordnen von Laufwerken für die freigegebenen Ordner verwenden, müssen Sie das Skript zum Zuordnen der Laufwerke auf dem Zielserver aktualisieren.

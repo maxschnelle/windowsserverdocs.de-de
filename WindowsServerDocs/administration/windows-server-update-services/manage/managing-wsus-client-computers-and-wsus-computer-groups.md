@@ -3,16 +3,16 @@ title: Verwalten von WSUS-Clientcomputern und WSUS-Computergruppen
 description: 'Thema zu Windows Server Update Service (WSUS): Verwalten von Client Computern und-Gruppen'
 ms.topic: article
 ms.assetid: 4b1ea915-0f9f-4f0e-8913-a1dd460d07ab
-author: coreyp-at-msft
-ms.author: coreyp
-manager: lizapo
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 02aa39bda56d6b160a3600201ea8920823ce5f4d
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: f5045df7ec213e459b5f3d2aa1b8b2dedb76b8f4
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87879339"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89624435"
 ---
 # <a name="managing-wsus-client-computers-and-wsus-computer-groups"></a>Verwalten von WSUS-Clientcomputern und WSUS-Computergruppen
 

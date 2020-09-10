@@ -5,14 +5,14 @@ ms.date: 10/03/2016
 ms.topic: article
 ms.assetid: 2b882e87-347a-4010-b7fd-9599d61198dd
 author: nnamuhcs
-ms.author: coreyp
-manager: dongill
-ms.openlocfilehash: a3e80eb391f913b4d62d8224afb7745eb2671289
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.author: geschuma
+manager: mtillman
+ms.openlocfilehash: 4a37d8e39dde95a143c15a5573be0deb0291d827
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87180536"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89625656"
 ---
 # <a name="move-settings-and-data-to-the-destination-server-for-windows-server-essentials-migration"></a>Verschieben von Einstellungen und Daten auf den Zielserver für die Migration zu Windows Server Essentials
 
@@ -22,7 +22,7 @@ Verschieben von Einstellungen und Daten auf den Zielserver:
 
 1. [Kopieren von Daten auf den Zielserver.](#copy-data-to-the-destination-server)
 
-2. [Konfigurieren des Netzwerks](#configure-the-network)
+2. [Netzwerk konfigurieren](#configure-the-network)
 
 3. [Zuordnen zugelassener Computer zu Benutzerkonten](#map-permitted-computers-to-user-accounts)
 
@@ -43,11 +43,11 @@ Verschieben von Einstellungen und Daten auf den Zielserver:
 
  `robocopy \\<SourceServerName> \<SharedSourceFolderName> \\<DestinationServerName> \<SharedDestinationFolderName> /E /B /COPY:DATSOU /LOG:C:\Copyresults.txt`
 
- Hierbei gilt Folgendes:
+ Hierbei gilt:
  - \<SourceServerName\> ist der Name des Quellservers
  - \<SharedSourceFolderName\> ist der Name des freigegebenen Ordners auf dem Quellserver
- - \<DestinationServerName\>ist der Name des Zielservers.
- - \<SharedDestinationFolderName\>der freigegebene Ordner auf dem Ziel Server, in den die Daten kopiert werden.
+ - \<DestinationServerName\> ist der Name des Zielservers.
+ - \<SharedDestinationFolderName\> der freigegebene Ordner auf dem Ziel Server, in den die Daten kopiert werden.
 
 3. Wiederholen Sie den vorherigen Schritt für jeden freigegebenen Ordner, zu dem Sie die Migration vom Quellserver aus vornehmen.
 

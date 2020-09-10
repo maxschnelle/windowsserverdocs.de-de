@@ -5,14 +5,14 @@ ms.date: 10/03/2016
 ms.topic: article
 ms.assetid: 0d340223-fa24-4c75-ba8e-b654feb120ab
 author: nnamuhcs
-ms.author: coreyp
-manager: dongill
-ms.openlocfilehash: 10871d4b0fef4e3d0271d0d94ef114cc5d882abf
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.author: geschuma
+manager: mtillman
+ms.openlocfilehash: 34c853abb19424d94fa768c70fcb6c9d8d8feea8
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87180356"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89625285"
 ---
 # <a name="run-the-windows-server-essentials-log-collector"></a>Ausführen des Windows Server Essentials-Protokollsammlers
 Sie können den Windows Server Essentials Log Collector auf dem Server oder einem Computer im Netzwerk ausführen. Wenn Sie den Log Collector vom Server ausführen, können nur Protokolle vom Server erfasst werden. Wenn Sie den Log Collector von einem Computer im Netzwerk ausführen, können Sie auswählen, ob Protokolle von dem Server, zusätzlich zu den Protokollen für diesen Computer, erfasst werden sollen.

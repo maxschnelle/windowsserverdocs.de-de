@@ -5,14 +5,14 @@ ms.date: 10/03/2016
 ms.topic: article
 ms.assetid: 86f158a5-c807-4242-b73d-e97b604adb5f
 author: nnamuhcs
-ms.author: coreyp
-manager: dongill
-ms.openlocfilehash: 6d563a825d7d0e1b202d3b55c8917bfccbfd6e53
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.author: geschuma
+manager: mtillman
+ms.openlocfilehash: 457af96dc78af60903cace1dca42509f0eb5c7db
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87179406"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89624860"
 ---
 # <a name="use-windows-server-essentials"></a>Verwenden von Windows Server Essentials
 
@@ -28,7 +28,7 @@ Die folgenden Themen enthalten Informationen, die Sie bei den ersten Schritten m
 
 -   [Wiedergeben von digitalen Medien](Play-Digital-Media-in-Windows-Server-Essentials.md)
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Installieren von Windows Server Essentials](../install/Install-Windows-Server-Essentials.md)
 

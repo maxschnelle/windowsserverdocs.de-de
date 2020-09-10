@@ -5,14 +5,14 @@ ms.date: 10/03/2016
 ms.topic: article
 ms.assetid: 47548994-9fa0-42e0-afa4-c2ccbd063acb
 author: nnamuhcs
-ms.author: coreyp
-manager: dongill
-ms.openlocfilehash: a5f4aa55cb7c17568c97c933a9eed8f18ce03bd1
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.author: geschuma
+manager: mtillman
+ms.openlocfilehash: 5ab8e54fe94fa2f733e28dd461b7d35988589864
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87180566"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89625695"
 ---
 # <a name="move-windows-sbs-2011-essentials-settings-and-data-to-the-destination-server-for-windows-server-essentials-migration"></a>Verschieben von Windows SBS 2011 Essentials-Einstellungen und -Daten auf den Zielserver für die Migration zu Windows Server Essentials
 
@@ -25,11 +25,11 @@ Verschieben von Einstellungen und Daten auf den Zielserver:
 
 2.  [Importieren von Active Directory Benutzerkonten in das Windows Server Essentials-Dashboard (optional)](Move-Windows-SBS-2011-Essentials-to-the-Destination-Server-for-migration.md#BKMK_ImportADaccounts)
 
-3.  [Konfigurieren des Netzwerks](Move-Windows-SBS-2011-Essentials-to-the-Destination-Server-for-migration.md#BKMK_Network)
+3.  [Netzwerk konfigurieren](Move-Windows-SBS-2011-Essentials-to-the-Destination-Server-for-migration.md#BKMK_Network)
 
 4.  [Zuordnen zugelassener Computer zu Benutzerkonten](Move-Windows-SBS-2011-Essentials-to-the-Destination-Server-for-migration.md#BKMK_MapPermittedComputers)
 
-##  <a name="copy-data-to-the-destination-server"></a><a name="BKMK_CopyData"></a>Kopieren von Daten auf den Ziel Server
+##  <a name="copy-data-to-the-destination-server"></a><a name="BKMK_CopyData"></a> Kopieren von Daten auf den Ziel Server
  Führen Sie die folgenden Aufgaben aus, bevor Sie Daten vom Quellserver zum Zielserver kopieren:
 
 -   Prüfen Sie die Liste der freigegebenen Ordner auf dem Quellserver, einschließlich der Berechtigungen für jeden Ordner. Erstellen Sie die Ordner auf dem Zielserver so bzw. passen Sie diese so an, dass sie der Ordnerstruktur entsprechen, die Sie vom Quellserver migrieren.
@@ -46,15 +46,15 @@ Verschieben von Einstellungen und Daten auf den Zielserver:
 
     `robocopy \\<SourceServerName> \<SharedSourceFolderName> \\<DestinationServerName> \<SharedDestinationFolderName> /E /B /COPY:DATSOU /LOG:C:\Copyresults.txt`
 
-     Hierbei gilt Folgendes:
+     Hierbei gilt:
      - \<SourceServerName\> ist der Name des Quellservers
      - \<SharedSourceFolderName\> ist der Name des freigegebenen Ordners auf dem Quellserver
-     - \<DestinationServerName\>ist der Name des Zielservers.
-     - \<SharedDestinationFolderName\>der freigegebene Ordner auf dem Ziel Server, in den die Daten kopiert werden.
+     - \<DestinationServerName\> ist der Name des Zielservers.
+     - \<SharedDestinationFolderName\> der freigegebene Ordner auf dem Ziel Server, in den die Daten kopiert werden.
 
 3.  Wiederholen Sie den vorherigen Schritt für jeden freigegebenen Ordner, zu dem Sie die Migration vom Quellserver aus vornehmen.
 
-##  <a name="import-active-directory-user-accounts-to-the-windows-server-essentials-dashboard-optional"></a><a name="BKMK_ImportADaccounts"></a>Importieren von Active Directory Benutzerkonten in das Windows Server Essentials-Dashboard (optional)
+##  <a name="import-active-directory-user-accounts-to-the-windows-server-essentials-dashboard-optional"></a><a name="BKMK_ImportADaccounts"></a> Importieren von Active Directory Benutzerkonten in das Windows Server Essentials-Dashboard (optional)
  Standardmäßig werden alle auf dem Quell Server erstellten Benutzerkonten automatisch auf das Dashboard in Windows Server Essentials migriert. Die automatische Migration eines Active Directory-Benutzerkontos schlägt jedoch fehl, wenn nicht alle Eigenschaften die Migrationsanforderungen erfüllen. Sie können das folgende Windows PowerShell-Cmdlet verwenden, um Active Directory-Benutzer zu importieren.
 
 #### <a name="to-import-an-active-directory-user-account-to-the-windows-server-essentials-dashboard"></a>So importieren Sie ein Active Directory Benutzerkonto in das Windows Server Essentials-Dashboard
@@ -67,7 +67,7 @@ Verschieben von Einstellungen und Daten auf den Zielserver:
 
      `Import-WssUser  SamAccountName [AD username]`
 
-##  <a name="configure-the-network"></a><a name="BKMK_Network"></a>Netzwerk konfigurieren
+##  <a name="configure-the-network"></a><a name="BKMK_Network"></a> Netzwerk konfigurieren
 
 #### <a name="to-configure-the-network"></a>So konfigurieren Sie das Netzwerk
 
@@ -83,7 +83,7 @@ Verschieben von Einstellungen und Daten auf den Zielserver:
 
 -   Port 443: HTTPS-Webdatenverkehr
 
-##  <a name="map-permitted-computers-to-user-accounts"></a><a name="BKMK_MapPermittedComputers"></a>Zuordnen zulässiger Computer zu Benutzerkonten
+##  <a name="map-permitted-computers-to-user-accounts"></a><a name="BKMK_MapPermittedComputers"></a> Zuordnen zulässiger Computer zu Benutzerkonten
  Jedes Benutzerkonto, das von Windows Small Business Server 2011 Essentials migriert wird, muss einem oder mehreren Computern zugeordnet werden.
 
 #### <a name="to-map-user-accounts-to-computers"></a>So weisen Sie Benutzerkonten Computern zu

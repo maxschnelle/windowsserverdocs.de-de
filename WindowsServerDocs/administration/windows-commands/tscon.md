@@ -3,16 +3,16 @@ title: tscon
 description: Referenz Artikel zu tscon, der eine Verbindung mit einer anderen Sitzung auf einem Remotedesktop-Sitzungshost Server (RD-Sitzungs Host) herstellt.
 ms.topic: reference
 ms.assetid: 315a9793-cd10-4987-bb68-89a9d13f7fce
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: d0acb75411cae8c4d844e8ff2b113c6a9c638a9b
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 2ba6df3a8878c42ac8ce8ac88671bb645bfedf86
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89026878"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89624601"
 ---
 # <a name="tscon"></a>tscon
 
@@ -31,7 +31,7 @@ tscon {<SessionID> | <SessionName>} [/dest:<SessionName>] [/password:<pw> | /pas
 ```
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |-------|--------|
 |\<SessionID>|Gibt die ID der Sitzung an, mit der Sie eine Verbindung herstellen möchten. Wenn Sie den optionalen Parameter **/dest:** < *Sessionname*> verwenden, ist dies die ID der Sitzung, mit der Sie eine Verbindung herstellen möchten.|
 |\<SessionName>|Gibt den Namen der Sitzung an, mit der Sie eine Verbindung herstellen möchten.|
@@ -41,7 +41,7 @@ tscon {<SessionID> | <SessionName>} [/dest:<SessionName>] [/password:<pw> | /pas
 |/v|Zeigt Informationen zu den Aktionen an, die ausgeführt werden.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 -   Zum Herstellen einer Verbindung mit einer anderen Sitzung müssen Sie über die Berechtigung "Vollzugriff" verfügen oder eine spezielle Zugriffsberechtigung herstellen.
 -   Mit dem Parameter " **/dest:** < *Sessionname*>" können Sie die Sitzung eines anderen Benutzers mit einer anderen Sitzung verbinden.
 -   Wenn Sie im <*Password*>-Parameter kein Kennwort angeben und die Ziel Sitzung zu einem anderen Benutzer als dem aktuellen gehört, schlägt **tscon** fehl.

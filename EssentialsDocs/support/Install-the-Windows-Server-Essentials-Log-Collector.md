@@ -5,14 +5,14 @@ ms.date: 10/03/2016
 ms.topic: article
 ms.assetid: d271c54f-1ffa-464e-afa5-27b8df61854e
 author: nnamuhcs
-ms.author: coreyp
-manager: dongill
-ms.openlocfilehash: ead1f75ce459523fbb2678ed369949f679fb3124
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.author: geschuma
+manager: mtillman
+ms.openlocfilehash: 7e10da0d87b98ef84f8b8b7ea2ec74bdd02a909e
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87180366"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89625319"
 ---
 # <a name="install-the-windows-server-essentials-log-collector"></a>Installieren des Windows Server Essentials-Protokollsammlers
 
@@ -20,7 +20,7 @@ ms.locfileid: "87180366"
 
 Der Installations-Assistent für den Windows Server Essentials Log Collector installiert den Log Collector als Launchpad-Add-in. Sie können den Log Collector auf Computern im Netzwerk oder dem Server oder beidem installieren und verwenden. Nach der Installation wird der Log Collector auf dem Dashboard angezeigt.
 
-###  <a name="to-install-the-log-collector"></a><a name="BKMK_ToInstall"></a>So installieren Sie den Log Collector
+###  <a name="to-install-the-log-collector"></a><a name="BKMK_ToInstall"></a> So installieren Sie den Log Collector
 
 1.  Laden Sie das Log Collector -Installationspaket auf einen beliebigen Server oder einen Computer im Netzwerk herunter.
 
@@ -37,7 +37,7 @@ Der Installations-Assistent für den Windows Server Essentials Log Collector ins
 
 6.  Klicken Sie auf **Add-in installieren**.
 
-###  <a name="reinstalling-the-log-collector"></a><a name="BKMK_Reinstall"></a>Erneutes Installieren des Protokoll Sammlers
+###  <a name="reinstalling-the-log-collector"></a><a name="BKMK_Reinstall"></a> Erneutes Installieren des Protokoll Sammlers
  Wenn der Log Collector neu installiert werden muss, müssen Sie den Log Collector auf dem Server und den Netzwerkcomputern im Netzwerk deinstallieren und neu installieren. Durch Deinstallieren des Log Collectors auf dem Server über das Dashboard, wird der Log Collector auf allen Netzwerk-Computern automatisch deinstalliert.
 
 ##### <a name="to-uninstall-and-reinstall-the-log-collector"></a>So deinstallieren Sie den Log Collector und installieren ihn neu

@@ -5,14 +5,14 @@ ms.date: 10/03/2016
 ms.topic: article
 ms.assetid: e143df43-e227-4629-a4ab-9f70d9bf6e84
 author: nnamuhcs
-ms.author: coreyp
-manager: dongill
-ms.openlocfilehash: 73a2d714b80a414fbe6c3716d8e73393877a7aa4
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.author: geschuma
+manager: mtillman
+ms.openlocfilehash: 888ecc5c5ab8fd609264f0f184686a144e2f8ce8
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87180456"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89625472"
 ---
 # <a name="step-4-move-settings-and-data-to-the-destination-server-for-windows-server-essentials-migration"></a>Schritt 4: Verschieben von Einstellungen und Daten auf den Zielserver für die Migration zu Windows Server Essentials
 
@@ -22,11 +22,11 @@ Dieser Abschnitt enthält Informationen zum Migrieren von Daten und Einstellunge
 
 -   [Kopieren von Daten auf den Zielserver.](Step-4--Move-settings-and-data-to-the-Destination-Server-for-Windows-Server-Essentials-migration.md#BKMK_CopyData)
 
--   [Konfigurieren des Netzwerks](Step-4--Move-settings-and-data-to-the-Destination-Server-for-Windows-Server-Essentials-migration.md#BKMK_Network)
+-   [Netzwerk konfigurieren](Step-4--Move-settings-and-data-to-the-Destination-Server-for-Windows-Server-Essentials-migration.md#BKMK_Network)
 
 -   [Zuordnen zugelassener Computer zu Benutzerkonten](Step-4--Move-settings-and-data-to-the-Destination-Server-for-Windows-Server-Essentials-migration.md#BKMK_MapPermittedComputers)
 
-##  <a name="copy-data-to-the-destination-server"></a><a name="BKMK_CopyData"></a>Kopieren von Daten auf den Ziel Server
+##  <a name="copy-data-to-the-destination-server"></a><a name="BKMK_CopyData"></a> Kopieren von Daten auf den Ziel Server
  Führen Sie die folgenden Aufgaben aus, bevor Sie Daten vom Quellserver zum Zielserver kopieren:
 
 -   Prüfen Sie die Liste der freigegebenen Ordner auf dem Quellserver, einschließlich der Berechtigungen für jeden Ordner. Erstellen Sie die Ordner auf dem Zielserver so bzw. passen Sie diese so an, dass sie der Ordnerstruktur entsprechen, die Sie vom Quellserver migrieren.
@@ -53,7 +53,7 @@ Dieser Abschnitt enthält Informationen zum Migrieren von Daten und Einstellunge
 
    - \<SharedSourceFolderName\> ist der Name des freigegebenen Ordners auf dem Quellserver
 
-   - \<PathOfTheDestination\>ist der absolute Pfad, in dem Sie den Ordner verschieben möchten
+   - \<PathOfTheDestination\> ist der absolute Pfad, in dem Sie den Ordner verschieben möchten
 
    - \<SharedDestinationFolderName\> ist der Ordner auf dem Zielserver, auf den die Daten kopiert werden
 
@@ -65,7 +65,7 @@ Dieser Abschnitt enthält Informationen zum Migrieren von Daten und Einstellunge
 
 4. Wiederholen Sie diesen Vorgang für jeden freigegebenen Ordner, den Sie vom Quellserver migrieren.
 
-##  <a name="configure-the-network"></a><a name="BKMK_Network"></a>Netzwerk konfigurieren
+##  <a name="configure-the-network"></a><a name="BKMK_Network"></a> Netzwerk konfigurieren
 
 #### <a name="to-configure-the-network"></a>So konfigurieren Sie das Netzwerk
 
@@ -84,7 +84,7 @@ Dieser Abschnitt enthält Informationen zum Migrieren von Daten und Einstellunge
 > [!NOTE]
 >  Wenn Sie einen öffentlichen Domänennamen auf dem Zielserver konfigurieren möchten, müssen Sie den Domänennamen vom Quellserver zur Vermeidung einer Störung durch das dynamische DNS-Update freigeben.
 
-##  <a name="map-permitted-computers-to-user-accounts"></a><a name="BKMK_MapPermittedComputers"></a>Zuordnen zulässiger Computer zu Benutzerkonten
+##  <a name="map-permitted-computers-to-user-accounts"></a><a name="BKMK_MapPermittedComputers"></a> Zuordnen zulässiger Computer zu Benutzerkonten
  Jedes Benutzerkonto, das von früheren Versionen von Windows Small Business Server oder Windows Server Essentials migriert wird, muss einem oder mehreren Computern zugeordnet werden.
 
 #### <a name="to-map-user-accounts-to-computers"></a>So weisen Sie Benutzerkonten Computern zu

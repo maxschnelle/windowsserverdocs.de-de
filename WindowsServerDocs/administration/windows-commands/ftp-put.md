@@ -3,16 +3,16 @@ title: ftp put
 description: Referenz Artikel für den Befehl FTP PUT, bei dem eine lokale Datei mit dem aktuellen Datei Übertragungstyp auf den Remote Computer kopiert wird.
 ms.topic: reference
 ms.assetid: 95cc1e3f-523d-4374-98b8-16e6c276b2ca
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 03/30/2020
-ms.openlocfilehash: 518ef051b0e515351a14a0d6895ad50100f1dbd8
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 24877dc154d7e88796eb3fc685351eee0c38c377
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89030568"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89624729"
 ---
 # <a name="ftp-put"></a>ftp put
 
@@ -31,7 +31,7 @@ put <localfile> [<remotefile>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `<localfile>` | Gibt die zu Kopier lokale Datei an. |
 | `[<remotefile>]` | Gibt den Namen an, der auf dem Remote Computer verwendet werden soll. Wenn Sie keine *remotefile*-Datei angeben, gibt die Datei den Namen der *LocalFile* an.|

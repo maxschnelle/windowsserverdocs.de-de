@@ -5,14 +5,14 @@ ms.date: 10/03/2016
 ms.topic: article
 ms.assetid: f5861ae9-77cb-4d37-b4c5-8f0757213385
 author: nnamuhcs
-ms.author: coreyp
-manager: dongill
-ms.openlocfilehash: bc672a3f2d9b74ff4ed283e826312f6661ba63f6
-ms.sourcegitcommit: 04637054de2bfbac66b9c78bad7bf3e7bae5ffb4
+ms.author: geschuma
+manager: mtillman
+ms.openlocfilehash: fa465e96d66e88e0561a5a6151d07d9950d226f1
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87838399"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89625601"
 ---
 # <a name="prepare-your-source-server-for-windows-server-essentials-migration1"></a>Vorbereiten des Quell Servers für Windows Server Essentials Migration1
 
@@ -33,7 +33,7 @@ Führen Sie vorab folgende Schritte aus, um sicherzustellen, dass eine erfolgrei
 
 5.  [Aufstellen eines Plans für die Migration von Branchenanwendungen](Prepare-your-Source-Server-for-Windows-Server-Essentials-migration.md#BKMK_PlanToMigrateLineOfBusinessApplications)
 
-###  <a name="back-up-your-source-server"></a><a name="BKMK_BackUpYourSourceServerToPrepareForMigration"></a>Sichern des Quell Servers
+###  <a name="back-up-your-source-server"></a><a name="BKMK_BackUpYourSourceServerToPrepareForMigration"></a> Sichern des Quell Servers
  Sichern Sie den Quellserver, bevor Sie mit dem Migrationsprozess beginnen. Durch diese Sicherung schützen Sie sich vor Datenverlusten, wenn während der Migration ein nicht behebbarer Fehler auftritt.
 
 
@@ -43,10 +43,10 @@ Führen Sie vorab folgende Schritte aus, um sicherzustellen, dass eine erfolgrei
 
 2.  Überprüfen Sie, ob die Sicherung erfolgreich ausgeführt wurde. Zum Prüfen der Integrität der Sicherung wählen Sie beliebige Dateien der Sicherung aus und stellen diese an einem anderen Speicherort wieder her. Überprüfen Sie dann, ob die wiederhergestellten Dateien mit den Originaldateien identisch sind.
 
-###  <a name="install-the-most-recent-service-packs"></a><a name="BKMK_InstallTheMostRecentServicePacksToPrepareForMigration"></a>Installieren der aktuellsten Service Packs
+###  <a name="install-the-most-recent-service-packs"></a><a name="BKMK_InstallTheMostRecentServicePacksToPrepareForMigration"></a> Installieren der aktuellsten Service Packs
  Sie müssen vor der Migration die neuesten Updates und Service Packs auf dem Quellserver installieren.
 
-###  <a name="evaluate-the-health-of-the-source-server"></a><a name="BKMK_UseWindowsBestPracticeAnalyzer"></a>Auswerten der Integrität des Quell Servers
+###  <a name="evaluate-the-health-of-the-source-server"></a><a name="BKMK_UseWindowsBestPracticeAnalyzer"></a> Auswerten der Integrität des Quell Servers
  Es ist wichtig, dass Sie die Integrität des Quellservers auswerten, bevor Sie mit der Migration beginnen. Verwenden Sie die folgenden Verfahren, um sicherzustellen, dass die Updates aktuell sind, um einen Systemintegritätsbericht zu generieren und das Windows Server Solutions Best Practice Analyzer (BPA) auszuführen.
 
 #### <a name="download-and-install-critical-and-security-updates"></a>Laden Sie kritische und Sicherheits-Updates herunter und installieren sie sie.
@@ -89,7 +89,7 @@ Führen Sie vorab folgende Schritte aus, um sicherzustellen, dass eine erfolgrei
 
    Nach dem Sammeln von Informationen zur Server-Konfiguration überprüft der Windows Server Solutions BPA, ob die Informationen korrekt sind und wird dann Administratoren eine Liste von Informationen und Problemen nach Schweregrad sortiert anzeigen. Die Liste beschreibt jedes Problem und bietet eine Empfehlung oder eine mögliche Lösung. Folgende drei Berichtstypen sind verfügbar:
 
-|Berichttyp|Beschreibung|
+|Berichttyp|BESCHREIBUNG|
 |-----------------|-----------------|
 |Listenberichte|Zeigt Berichte in einer eindimensionalen Liste an.|
 |Strukturberichte|Zeigt Berichte in einer hierarchischen Liste an.|
@@ -97,7 +97,7 @@ Führen Sie vorab folgende Schritte aus, um sicherzustellen, dass eine erfolgrei
 
  Wenn Sie die Beschreibung und Lösungen für ein Problem anzeigen möchten, klicken Sie im Bericht auf das betreffende Problem. Nicht alle von BPA für Windows SBS 2011 Essentials erfassten Probleme wirken sich auf die Migration aus, Sie sollten jedoch möglichst viele der Probleme beheben, um eine erfolgreiche Migration sicherzustellen.
 
-####  <a name="synchronize-the-source-server-time-with-an-external-time-source"></a><a name="BKMK_SynchronizeTheSourceServerTimeWithAnExternalTimeSource"></a>Synchronisieren der Quell Server Uhrzeit mit einer externen Zeit Quelle
+####  <a name="synchronize-the-source-server-time-with-an-external-time-source"></a><a name="BKMK_SynchronizeTheSourceServerTimeWithAnExternalTimeSource"></a> Synchronisieren der Quell Server Uhrzeit mit einer externen Zeit Quelle
  Die Uhrzeit auf dem Quellserver darf maximal fünf Minuten von der Uhrzeit auf dem Zielserver abweichen, und die Datums- und Zeitzone muss auf beiden Servern gleich sein. Wenn der Quellserver einen virtuellen Computer ausführt, müssen das Datum, die Uhrzeit und die Zeitzone auf dem Hostserver diesen Angaben auf dem Quell- und dem Zielserver entsprechen. Um sicherzustellen, dass Windows Server Essentials erfolgreich installiert wurde, müssen Sie die Uhrzeit des Quell Servers mit dem NTP-Server (Network Time Protocol) im Internet synchronisieren.
 
 ###### <a name="to-synchronize-the-source-server-time-with-the-ntp-server"></a>So synchronisieren Sie die Uhrzeit des Quellservers mit dem NTP-Server
@@ -115,7 +115,7 @@ Führen Sie vorab folgende Schritte aus, um sicherzustellen, dass eine erfolgrei
 > [!IMPORTANT]
 >  Während der Installation von Windows Server Essentials haben Sie die Möglichkeit, die Uhrzeit auf dem Ziel Server zu überprüfen und ggf. zu ändern. Stellen Sie sicher, dass die Uhrzeit höchstens fünf Minuten von der Uhrzeit auf dem Quellserver abweicht. Nachdem die Installation abgeschlossen ist, wird der Zielserver mit dem NTP-Server synchronisiert. Alle Computer, die Mitglied der Domäne sind (einschließlich des Quellservers) werden mit dem Zielserver synchronisiert, der die Rolle des Betriebsmasters für den PDC-Emulator (Primary Domain Controller, primärer Domänencontroller) ausübt.
 
-###  <a name="run-the-migration-preparation-tool-on-the-source-server"></a><a name="BKMK_MPT"></a>Ausführen des Tools zum Vorbereiten der Migration auf dem Quell Server
+###  <a name="run-the-migration-preparation-tool-on-the-source-server"></a><a name="BKMK_MPT"></a> Ausführen des Tools zum Vorbereiten der Migration auf dem Quell Server
  Sie können keine Installation im Migrationsmodus durchführen, ohne zuerst auf dem Quellserver das Tool zum Vorbereiten der Migration auszuführen. Mit diesem Tool können Sie den Quell Server und die Domäne für die Migration zu Windows Server Essentials vorbereiten.
 
 > [!IMPORTANT]
@@ -185,7 +185,7 @@ Führen Sie vorab folgende Schritte aus, um sicherzustellen, dass eine erfolgrei
 > [!NOTE]
 >  Sie müssen das Tool zum Vorbereiten der Migration innerhalb von zwei Wochen nach der Installation von Windows Server Essentials auf dem Zielserver erfolgreich auf dem Quell Server ausführen. Andernfalls wird die Installation von Windows Server Essentials auf dem Ziel Server blockiert. In diesem Fall müssen Sie das Tool zum Vorbereiten der Migration erneut auf dem Quellserver ausführen.
 
-###  <a name="create-a-plan-to-migrate-line-of-business-applications"></a><a name="BKMK_PlanToMigrateLineOfBusinessApplications"></a>Erstellen eines Plans für die Migration von Branchen Anwendungen
+###  <a name="create-a-plan-to-migrate-line-of-business-applications"></a><a name="BKMK_PlanToMigrateLineOfBusinessApplications"></a> Erstellen eines Plans für die Migration von Branchen Anwendungen
  Eine Branchenanwendung ist eine wichtige Computeranwendung, die für den Geschäftsbetrieb unabdingbar ist. Dabei kann es sich z. B. um Buchhaltungs-, Supply Chain Management- oder Ressourcenplanungsanwendungen handeln.
 
  Wenn Sie die Migration Ihrer Branchenanwendungen planen, beraten Sie sich mit dem Branchenanwendungsanbieter, um die geeignete Methode zum Migrieren der einzelnen Anwendungen zu ermitteln. Außerdem müssen Sie das Medium ermitteln, das zum Installieren der Branchenanwendungen auf dem Zielserver verwendet wird.

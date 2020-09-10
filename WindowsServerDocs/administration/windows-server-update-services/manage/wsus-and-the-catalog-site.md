@@ -3,16 +3,16 @@ title: WSUS und Katalog-Website
 description: 'Windows Server Update Service (WSUS)-Thema: Importieren von Hotfixes in WSUS durch Zugriff auf die Microsoft Update-Katalog Website'
 ms.topic: article
 ms.assetid: f19a8659-5a96-4fdd-a052-29e4547fe51a
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 25a9852935c47e0c005d78ae7ea24d14c7c1a546
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 7e0d3c76e66275fe052d5d337dd30c67d7980638
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87896784"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89624276"
 ---
 # <a name="wsus-and-the-catalog-site"></a>WSUS und Katalog-Website
 
@@ -25,7 +25,7 @@ Um Hotfixes in WSUS zu importieren, müssen Sie von einem WSUS-Computer aus auf 
 
 #### <a name="to-access-the-microsoft-update-catalog-site"></a>So greifen Sie auf die Microsoft Update Katalog-Website zu
 
-1.  Wählen Sie in der WSUS-Verwaltungskonsole entweder den obersten Server Knoten oder **Updates**aus, und klicken Sie im **Aktions** Bereich auf **Updates importieren**. Ein Browserfenster wird auf der Microsoft Update Katalog-Website geöffnet.
+1.  Wählen Sie in der WSUS-Verwaltungskonsole entweder den obersten Server Knoten oder  **Updates**aus, und klicken Sie im **Aktions** Bereich auf **Updates importieren**. Ein Browserfenster wird auf der Microsoft Update Katalog-Website geöffnet.
 
 2.  Um auf die Updates an diesem Standort zuzugreifen, müssen Sie das Microsoft Update Catalog-ActiveX-Steuerelement installieren.
 

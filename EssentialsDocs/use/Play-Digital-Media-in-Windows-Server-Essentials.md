@@ -5,14 +5,14 @@ ms.date: 10/03/2016
 ms.topic: article
 ms.assetid: 5f570492-ee21-471b-92c1-3fd9bfb84f55
 author: nnamuhcs
-ms.author: coreyp
-manager: dongill
-ms.openlocfilehash: 1ce7359929cb1658cc84418231fb7d65efce8692
-ms.sourcegitcommit: 04637054de2bfbac66b9c78bad7bf3e7bae5ffb4
+ms.author: geschuma
+manager: mtillman
+ms.openlocfilehash: 77246642e7f011768742a30ed517d63b12c47ee4
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87838219"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89624944"
 ---
 # <a name="play-digital-media-in-windows-server-essentials"></a>Wiedergeben von digitalen Medien in Windows Server Essentials
 
@@ -38,7 +38,7 @@ Digitale Medien sind Audio-, Video- und Fotoinhalte, die digital komprimiert wur
 -   [Anzeigen und Durchsuchen von freigegebenen digitalen Medien](Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_7)
 
 
-##  <a name="digital-media-overview"></a><a name="BKMK_1"></a>Übersicht über digitale Medien
+##  <a name="digital-media-overview"></a><a name="BKMK_1"></a> Übersicht über digitale Medien
  Digitale Medien sind Audio-, Video- und Fotoinhalte, die codiert (digital komprimiert) wurden. Beim Codieren von Inhalten werden Audio- und Videoeingaben in eine digitale Mediendatei, z. B. eine Windows Media-Datei, konvertiert. Nach der Codierung können digitale Medien einfach bearbeitet, verteilt, von Computern wiedergegeben und über Computernetzwerke übertragen werden.
 
  Beispiele für digitale Medien sind: Windows Media Audio (WMA), Windows Media Video (WMV), MP3, JPEG und AVI. Informationen zu den digitalen Medientypen, die von Windows Media Player unterstützt werden, finden Sie unter [Von Windows Media Player unterstützte Dateitypen](https://support.microsoft.com/kb/316992).
@@ -57,7 +57,7 @@ Digitale Medien sind Audio-, Video- und Fotoinhalte, die digital komprimiert wur
 
  Kopiergeschützte Medien können nur auf dem Computer oder Gerät wiedergegeben werden, über den bzw. das sie erworben wurden. Der Kopierschutz verhindert, dass Sie Medien auf mehr als einem Computer oder Gerät abspielen, auch wenn Sie das Medium auf den Server kopieren und dort wiedergeben. Sie können das kopiergeschützte Medium jedoch in Windows Server Essentials speichern und die Medien weiterhin auf dem Computer oder Gerät wiedergeben, den bzw. das Sie für den Erwerb verwendet haben.
 
-##  <a name="play-and-share-digital-media"></a><a name="BKMK_2"></a>Wiedergeben und Freigeben digitaler Medien
+##  <a name="play-and-share-digital-media"></a><a name="BKMK_2"></a> Wiedergeben und Freigeben digitaler Medien
  Nachdem Sie Ihr Netzwerk eingerichtet und die Computer und Mediengeräte erfolgreich mit dem Servernetzwerk verbunden haben, können Sie digitale Mediendateien suchen, die Sie auf dem Server speichern und freigeben.
 
 > [!NOTE]
@@ -70,7 +70,7 @@ Digitale Medien sind Audio-, Video- und Fotoinhalte, die digital komprimiert wur
 -   [Senden von Mediendateien in Windows Server Essentials an Windows Media Player, Xbox 360 oder an einen vernetzten Digital Media-Player im Netzwerk](Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_SendToDevice)
 
 
-###  <a name="search-for-and-play-media-files-on-windows-server-essentials-from-a-computer-or-digital-media-player-on-the-network"></a><a name="BKMK_2.1"></a>Suchen und Wiedergeben von Mediendateien in Windows Server Essentials auf einem Computer oder Digital Media-Player im Netzwerk
+###  <a name="search-for-and-play-media-files-on-windows-server-essentials-from-a-computer-or-digital-media-player-on-the-network"></a><a name="BKMK_2.1"></a> Suchen und Wiedergeben von Mediendateien in Windows Server Essentials auf einem Computer oder Digital Media-Player im Netzwerk
  Wenn Ihr Gerät mit dem Windows Server Essentials-Netzwerk verbunden ist, können Sie digitale Mediendateien auf folgende Weise suchen und wiedergeben:
 
 
@@ -87,7 +87,7 @@ Digitale Medien sind Audio-, Video- und Fotoinhalte, die digital komprimiert wur
 -   [Suchen und Wiedergeben freigegebener Medien mithilfe von Remotewebzugriff](Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_RWA2)
 
 
-####  <a name="search-for-and-play-media-files-from-a-computer-that-is-running-windows-media-center"></a><a name="BKMK_WMC"></a>Suchen und Wiedergeben von Mediendateien auf einem Computer, auf dem Windows Media Center ausgeführt wird
+####  <a name="search-for-and-play-media-files-from-a-computer-that-is-running-windows-media-center"></a><a name="BKMK_WMC"></a> Suchen und Wiedergeben von Mediendateien auf einem Computer, auf dem Windows Media Center ausgeführt wird
 
 1.  Klicken Sie auf **Start**, **Alle Programme** und dann auf **Windows Media Center**.
 
@@ -97,14 +97,14 @@ Digitale Medien sind Audio-, Video- und Fotoinhalte, die digital komprimiert wur
 
 4.  Klicken Sie auf das Bild der Mediendatei, um sie anzuzeigen oder wiederzugeben.
 
-####  <a name="search-for-and-play-media-files-from-a-computer-that-is-running-windows-by-using-windows-media-player"></a><a name="BKMK_MWP"></a>Suchen und Wiedergeben von Mediendateien auf einem Computer unter Windows mithilfe von Windows Media Player
+####  <a name="search-for-and-play-media-files-from-a-computer-that-is-running-windows-by-using-windows-media-player"></a><a name="BKMK_MWP"></a> Suchen und Wiedergeben von Mediendateien auf einem Computer unter Windows mithilfe von Windows Media Player
 
 -   Öffnen Sie auf dem Computer oder Mediengerät **Windows Media Player**, und suchen Sie die Medienbibliothek.
 
     > [!NOTE]
     >  Die Schritte der Suche variieren je nach der verwendeten Version von Windows Media Player. Ausführliche Informationen finden Sie in der Hilfe zu Ihrer Version.
 
-####  <a name="search-for-and-play-media-files-by-using-xbox-360"></a><a name="BKMK_Xbox"></a>Suchen und Wiedergeben von Mediendateien mithilfe von Xbox 360
+####  <a name="search-for-and-play-media-files-by-using-xbox-360"></a><a name="BKMK_Xbox"></a> Suchen und Wiedergeben von Mediendateien mithilfe von Xbox 360
 
 1.  Verbinden Sie die Xbox 360-Konsole über eine kabelgebundene oder kabellose Verbindung mit Ihrem Heimnetzwerk.
 
@@ -121,13 +121,13 @@ Digitale Medien sind Audio-, Video- und Fotoinhalte, die digital komprimiert wur
 
     3.  Durchsuchen Sie die Dateiliste, und wählen Sie das Element aus, das Sie wiedergeben möchten.
 
-####  <a name="search-for-and-play-media-files-by-using-other-digital-media-players-or-receivers-that-are-compatible-with-windows-server-essentials"></a><a name="BKMK_Other"></a>Suchen und Wiedergeben von Mediendateien mit anderen Digital Media-Playern oder Empfängern, die mit Windows Server Essentials kompatibel sind
+####  <a name="search-for-and-play-media-files-by-using-other-digital-media-players-or-receivers-that-are-compatible-with-windows-server-essentials"></a><a name="BKMK_Other"></a> Suchen und Wiedergeben von Mediendateien mit anderen Digital Media-Playern oder Empfängern, die mit Windows Server Essentials kompatibel sind
 
 1.  Wechseln Sie zum [Windows-Kompatibilitätscenter](https://www.microsoft.com/windows/compatibility/CompatCenter/Home) , und stellen Sie sicher, dass Ihr Digital Media-Player oder Empfänger für digitale Medien in der Liste kompatibler Geräte aufgeführt wird.
 
 2.  Die Suchschritte variieren abhängig vom verwendeten Digital Media-Player. Ausführliche Anweisungen finden Sie in der Hilfe zu Ihrem Gerät.
 
-####  <a name="search-for-and-play-media-files-by-using-the-shared-folders-feature-of-the-launchpad"></a><a name="BKMK_SharedFolders"></a>Suchen und Wiedergeben von Mediendateien mit der Funktion "freigegebene Ordner" des Launchpad
+####  <a name="search-for-and-play-media-files-by-using-the-shared-folders-feature-of-the-launchpad"></a><a name="BKMK_SharedFolders"></a> Suchen und Wiedergeben von Mediendateien mit der Funktion "freigegebene Ordner" des Launchpad
 
 1.  Melden Sie sich beim Windows Server Essentials-Launchpad an.
 
@@ -138,7 +138,7 @@ Digitale Medien sind Audio-, Video- und Fotoinhalte, die digital komprimiert wur
     > [!NOTE]
     >  Optional können Sie auch auf einen freigegebenen Ordner doppelklicken, um den Ordnerinhalt zu durchsuchen.
 
-####  <a name="search-for-and-play-shared-media-by-using-remote-web-access"></a><a name="BKMK_RWA2"></a>Suchen und wiedergeben frei gegebener Medien mithilfe von Remote Webzugriff
+####  <a name="search-for-and-play-shared-media-by-using-remote-web-access"></a><a name="BKMK_RWA2"></a> Suchen und wiedergeben frei gegebener Medien mithilfe von Remote Webzugriff
 
 1.  Melden Sie sich bei Remotewebzugriff an.
 
@@ -146,10 +146,10 @@ Digitale Medien sind Audio-, Video- und Fotoinhalte, die digital komprimiert wur
 
 3.  Doppelklicken Sie auf einen Ordner, um dessen Inhalt anzuzeigen.
 
-###  <a name="send-media-files-on-windows-server-essentials-to-windows-media-player-xbox-360-or-to-a-networked-digital-media-player-in-the-network"></a><a name="BKMK_SendToDevice"></a>Senden von Mediendateien in Windows Server Essentials an Windows Media Player, Xbox 360 oder an einen vernetzten Digital Media-Player im Netzwerk
+###  <a name="send-media-files-on-windows-server-essentials-to-windows-media-player-xbox-360-or-to-a-networked-digital-media-player-in-the-network"></a><a name="BKMK_SendToDevice"></a> Senden von Mediendateien in Windows Server Essentials an Windows Media Player, Xbox 360 oder an einen vernetzten Digital Media-Player im Netzwerk
  Verwenden Sie **Windows Media Player**, um die gewünschte Mediendatei zu suchen. Klicken Sie mit der rechten Maustaste auf die Mediendatei, und klicken Sie dann auf **Wiedergeben auf**, um die Mediendatei an ein Mediengerät im Netzwerk zu senden.
 
-##  <a name="play-shared-digital-media-files-from-a-remote-location"></a><a name="BKMK_3"></a>Wiedergeben frei gegebener digitaler Mediendateien von einem Remote Standort aus
+##  <a name="play-shared-digital-media-files-from-a-remote-location"></a><a name="BKMK_3"></a> Wiedergeben frei gegebener digitaler Mediendateien von einem Remote Standort aus
  Sie können Ihre Mediendateien wiedergeben, wenn Sie das Windows Server Essentials-Netzwerk mithilfe von Remote Webzugriff nicht mehr verwenden. Zum Suchen und Wiedergeben der auf Ihrem Server gespeicherten freigegebenen Mediendateien können Sie ein Mobiltelefon, einen Remotecomputer oder einen Digital Media-Player verwenden.
 
 #### <a name="to-play-shared-media-files-when-you-are-away-from-the-network"></a>So geben Sie freigegebene Mediendateien wieder, wenn Sie keinen Zugriff auf Ihr Netzwerk haben
@@ -174,7 +174,7 @@ Digitale Medien sind Audio-, Video- und Fotoinhalte, die digital komprimiert wur
 
 5. Sobald der Name der Mediendatei angezeigt wird, klicken Sie auf den Dateinamen, um das Medium wiederzugeben.
 
-##  <a name="add-digital-media-files-to-the-server"></a><a name="BKMK_4"></a>Hinzufügen digitaler Mediendateien zum Server
+##  <a name="add-digital-media-files-to-the-server"></a><a name="BKMK_4"></a> Hinzufügen digitaler Mediendateien zum Server
 
  Der Server Administrator kann freigegebenen Ordnern in der Medienbibliothek digitale Medien hinzufügen, indem er direkt auf den Server zugreift oder sich über den Remote Webzugriff-Standort bei dem Dashboard anmeldet. Andere Benutzer können dem Server Mediendateien mithilfe der Verbindung frei **gegebene Ordner** auf dem Launchpad, mithilfe der Remote Webzugriff-Website oder mithilfe der My Server-App für Windows Phone hinzufügen. Informationen zum Wiedergeben von Medien finden Sie unter [Wiedergeben und Freigeben digitaler Medien](Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_2).
 
@@ -200,7 +200,7 @@ Digitale Medien sind Audio-, Video- und Fotoinhalte, die digital komprimiert wur
 
 3.  Kopieren Sie die gewünschten Mediendateien, und fügen Sie sie in den entsprechenden freigegebenen Ordner auf dem Server ein. Sie können sie auch mit Drag & Drop verschieben.
 
-##  <a name="download-format-options"></a><a name="BKMK_5"></a>Download Formatoptionen
+##  <a name="download-format-options"></a><a name="BKMK_5"></a> Download Formatoptionen
  Es gibt zwei Optionen zum Herunterladen von Dateien. Diese Optionen sind nur verfügbar, wenn Sie mehrere Dateien oder einen Ordner auf einen Windows-basierten Computer herunterladen.
 
  Wählen Sie im Folgenden die Option, die Ihre Downloadanforderungen erfüllt:
@@ -221,10 +221,10 @@ Digitale Medien sind Audio-, Video- und Fotoinhalte, die digital komprimiert wur
 
   Vor Beginn des eigentlichen Downloads wird die EXE- oder ZIP-Datei erstellt. Abhängig von der Anzahl der Dateien und der Gesamtgröße der Downloaddateien kann dies einige Minuten dauern. Nachdem die Downloaddatei erstellt wurde, erfolgt das Herunterladen der Datei im Hintergrund. Dadurch können Sie weiterarbeiten, während der Downloadvorgang ausgeführt wird.
 
-##  <a name="easy-file-upload-tool"></a><a name="BKMK_6"></a>Einfaches Tool zum Hochladen von Dateien
+##  <a name="easy-file-upload-tool"></a><a name="BKMK_6"></a> Einfaches Tool zum Hochladen von Dateien
  Das Tool "einfacher Datei Upload" optimiert das Hochladen von Dateien auf Ihren Windows Server Essentials-Server. Sie können dem Tool "einfacher Datei Upload" beliebig viele Dateien hinzufügen und Sie dann in einem einzigen Batch in die freigegebenen Ordner auf dem Windows Server Essentials-Server hochladen. Weitere Informationen finden Sie im Blogbeitrag [Grundlegendes zur Dateifreigabe mit Remotewebzugriff](/archive/blogs/sbs/understanding-remote-web-access-file-sharing).
 
-##  <a name="view-and-browse-shared-digital-media"></a><a name="BKMK_7"></a>Anzeigen und Durchsuchen von freigegebenen digitalen Medien
+##  <a name="view-and-browse-shared-digital-media"></a><a name="BKMK_7"></a> Anzeigen und Durchsuchen von freigegebenen digitalen Medien
  Sie können Ressourcen entweder über das Dashboard, das Launchpad, die Website für Remotewebzugriff oder die My Server-App für Windows Phone anzeigen oder durchsuchen.
 
 #### <a name="to-view-and-browse-shared-media-from-the-dashboard"></a>So können Sie freigegebene Medien über das Dashboard anzeigen und durchsuchen

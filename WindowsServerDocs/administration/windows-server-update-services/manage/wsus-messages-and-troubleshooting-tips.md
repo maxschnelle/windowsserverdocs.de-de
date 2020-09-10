@@ -3,16 +3,16 @@ title: WSUS-Nachrichten und Tipps zur Problembehandlung
 description: 'Windows Server Update Service (WSUS)-Thema: Problembehandlung bei Verwendung von WSUS-Nachrichten'
 ms.topic: article
 ms.assetid: 9f6317f7-bfe0-42d9-87ce-d8f038c728ca
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: cf3d0337dfa7360bdf8304c587c4ea31b7607e27
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 8abb77727139652f7d3d1ef2e4ce8dd8320db47a
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87990962"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89624229"
 ---
 # <a name="wsus-messages-and-troubleshooting-tips"></a>WSUS-Nachrichten und Tipps zur Problembehandlung
 
@@ -71,7 +71,7 @@ Um dieses Problem zu beheben, erteilen Sie System Administrator Berechtigungen f
 
 - **SelfUpdate:** Weitere Informationen zur Problembehandlung beim SelfUpdate-Dienst finden Sie unter [Automatische Updates muss aktualisiert werden](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc708554(v=ws.10)) .
 
-- **WSSUService.exe:** Dieser Dienst vereinfacht die Synchronisierung. Wenn bei der Synchronisierung Probleme auftreten WSUSService.exe, klicken Sie auf " **Start**", zeigen Sie auf " **Verwaltung**", klicken Sie auf **Dienste**, und suchen Sie dann in der Liste der Dienste nach **Windows Server Update Service** . Gehen Sie folgendermaßen vor:
+- **WSSUService.exe:** Dieser Dienst vereinfacht die Synchronisierung. Wenn bei der Synchronisierung Probleme auftreten WSUSService.exe, klicken Sie auf " **Start**", zeigen Sie auf " **Verwaltung**", klicken Sie auf **Dienste**, und suchen Sie dann in der Liste der Dienste nach **Windows Server Update Service** . Gehen Sie wie folgt vor:
 
     -   Überprüfen Sie, ob dieser Dienst ausgeführt wird. Klicken Sie auf **starten** , wenn es beendet oder **neu gestartet** wird, um den Dienst zu aktualisieren.
 

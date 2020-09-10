@@ -5,14 +5,14 @@ ms.date: 10/03/2016
 ms.topic: article
 ms.assetid: 244c8a06-04c6-4863-8b52-974786455373
 author: nnamuhcs
-ms.author: coreyp
-manager: dongill
-ms.openlocfilehash: c2007160c294074287437bedb7e94b318432a9b4
-ms.sourcegitcommit: 04637054de2bfbac66b9c78bad7bf3e7bae5ffb4
+ms.author: geschuma
+manager: mtillman
+ms.openlocfilehash: 2be09665c0a2361938226b10be0ef058b8aa0ee6
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87838349"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89625499"
 ---
 # <a name="step-1-prepare-your-source-server-for-windows-server-essentials-migration"></a>Schritt 1: Vorbereiten des Quellservers für die Migration zu Windows Server Essentials
 
@@ -33,7 +33,7 @@ In diesem Thema wird erläutert, wie Sie den Quellserver sichern, die Systeminte
 
 5.  [Aufstellen eines Plans für die Migration von Branchenanwendungen](Step-1--Prepare-your-Source-Server-for-Windows-Server-Essentials-migration.md#BKMK_MigrateLOB)
 
-###  <a name="back-up-your-source-server"></a><a name="BKMK_BackUpYourSourceServerToPrepareForMigration"></a>Sichern des Quell Servers
+###  <a name="back-up-your-source-server"></a><a name="BKMK_BackUpYourSourceServerToPrepareForMigration"></a> Sichern des Quell Servers
  Sichern Sie den Quellserver, bevor Sie mit dem Migrationsprozess beginnen. Durch diese Sicherung schützen Sie sich vor Datenverlusten, wenn während der Migration ein nicht behebbarer Fehler auftritt.
 
 ##### <a name="to-back-up-the-source-server"></a>So sichern Sie den Zielserver
@@ -51,10 +51,10 @@ In diesem Thema wird erläutert, wie Sie den Quellserver sichern, die Systeminte
    |Windows Small Business Server 2011 Standard|[Verwalten der Serversicherung](/previous-versions/windows/it-pro/windows-server-essentials-sbs/cc527488(v=ws.11))
    |Windows Server Essentials|[Verwalten der Sicherung und Wiederherstellung in Windows Server Essentials](/previous-versions/windows/it-pro/windows-server-essentials-sbs/cc514417(v=msdn.10))
 
-###  <a name="install-the-most-recent-service-packs"></a><a name="BKMK_InstallTheMostRecentServicePacksToPrepareForMigration"></a>Installieren der aktuellsten Service Packs
+###  <a name="install-the-most-recent-service-packs"></a><a name="BKMK_InstallTheMostRecentServicePacksToPrepareForMigration"></a> Installieren der aktuellsten Service Packs
  Sie müssen vor der Migration die neuesten Updates und Service Packs auf dem Quellserver installieren.
 
-###  <a name="delete-the-log-on-as-a-service-account-setting"></a><a name="BKMK_DeleteSvcAcctSetting"></a>Einstellung "Anmelden als Dienst Konto" Löschen
+###  <a name="delete-the-log-on-as-a-service-account-setting"></a><a name="BKMK_DeleteSvcAcctSetting"></a> Einstellung "Anmelden als Dienst Konto" Löschen
  Wenn Sie von Windows Small Business Server 2003 oder Windows Server 2003 migrieren, löschen Sie die Kontoeinstellung **Anmelden als Dienst** aus der Gruppenrichtlinie.
 
 ##### <a name="to-delete-the-log-on-as-a-service-account-setting"></a>So löschen Sie die Einstellung "Anmelden als Dienst Konto"
@@ -71,7 +71,7 @@ In diesem Thema wird erläutert, wie Sie den Quellserver sichern, die Systeminte
 
 6.  Löschen Sie \\ \localhost\sysvol \\<Domain Name \>\scripts\SBS_LOGIN_SCRIPT.bat.
 
-###  <a name="evaluate-the-health-of-the-source-server"></a><a name="BKMK_EvaluateHealth"></a>Auswerten der Integrität des Quell Servers
+###  <a name="evaluate-the-health-of-the-source-server"></a><a name="BKMK_EvaluateHealth"></a> Auswerten der Integrität des Quell Servers
  Es ist wichtig, dass Sie die Integrität des Quellservers auswerten, bevor Sie mit der Migration beginnen. Verwenden Sie die folgenden Verfahren, um sicherzustellen, dass die Updates aktuell sind, um einen Systemintegritätsbericht zu generieren und das Windows Server Solutions Best Practice Analyzer (BPA) auszuführen.
 
 #### <a name="download-and-install-critical-and-security-updates"></a>Laden Sie kritische und Sicherheits-Updates herunter und installieren sie sie.
@@ -92,7 +92,7 @@ In diesem Thema wird erläutert, wie Sie den Quellserver sichern, die Systeminte
 
 -   Registrierung
 
--   IIS (Internet Information Services)
+-   Internetinformationsdienste (IIS)
 
 ###### <a name="to-use-the-bpa-to-analyze-your-source-server"></a>So verwenden Sie den BPA zum Analysieren des Quellservers
 
@@ -128,14 +128,14 @@ In diesem Thema wird erläutert, wie Sie den Quellserver sichern, die Systeminte
 
    Nachdem das BPA-Tool Informationen zur Serverkonfiguration gesammelt hat, überprüft es, ob die Informationen korrekt sind, und legt dann den Administratoren eine Liste der Informationen und Probleme nach Schweregrad sortiert vor. Die Liste beschreibt jedes Problem und bietet eine Empfehlung oder eine mögliche Lösung. Folgende drei Berichtstypen sind verfügbar:
 
-|Berichtstyp|Beschreibung
+|Berichtstyp|BESCHREIBUNG
 |-----------------|-----------------
 |Listenberichte|Zeigt Berichte in einer eindimensionalen Liste an.
 |Strukturberichte|Zeigt Berichte in einer hierarchischen Liste an.
 
 Wenn Sie die Beschreibung und Lösungen für ein Problem anzeigen möchten, klicken Sie im Bericht auf das betreffende Problem. Nicht alle vom BPA-Tool erfassten Probleme wirken sich auf die Migration aus, Sie sollten jedoch möglichst viele der Probleme beheben, um eine erfolgreiche Migration sicherzustellen.
 
-####  <a name="synchronize-the-source-server-time-with-an-external-time-source"></a><a name="BKMK_SynchronizeTheSourceServerTimeWithAnExternalTimeSource"></a>Synchronisieren der Quell Server Uhrzeit mit einer externen Zeit Quelle
+####  <a name="synchronize-the-source-server-time-with-an-external-time-source"></a><a name="BKMK_SynchronizeTheSourceServerTimeWithAnExternalTimeSource"></a> Synchronisieren der Quell Server Uhrzeit mit einer externen Zeit Quelle
  Die Uhrzeit auf dem Quellserver darf maximal fünf Minuten von der Uhrzeit auf dem Zielserver abweichen, und die Datums- und Zeitzone muss auf beiden Servern gleich sein. Wenn der Quellserver einen virtuellen Computer ausführt, müssen das Datum, die Uhrzeit und die Zeitzone auf dem Hostserver diesen Angaben auf dem Quell- und dem Zielserver entsprechen. Um sicherzustellen, dass Windows Server Essentials erfolgreich installiert wurde, müssen Sie die Uhrzeit des Quell Servers mit dem NTP-Server (Network Time Protocol) im Internet synchronisieren.
 
 ###### <a name="to-synchronize-the-source-server-time-with-the-ntp-server"></a>So synchronisieren Sie die Uhrzeit des Quellservers mit dem NTP-Server
@@ -153,7 +153,7 @@ Wenn Sie die Beschreibung und Lösungen für ein Problem anzeigen möchten, klic
 > [!IMPORTANT]
 >  Während der Installation von Windows Server Essentials haben Sie die Möglichkeit, die Uhrzeit auf dem Ziel Server zu überprüfen und ggf. zu ändern. Stellen Sie sicher, dass die Uhrzeit höchstens fünf Minuten von der Uhrzeit auf dem Quellserver abweicht. Nachdem die Installation abgeschlossen ist, wird der Zielserver mit dem NTP-Server synchronisiert. Alle Computer, die Mitglied der Domäne sind (einschließlich des Quellservers) werden mit dem Zielserver synchronisiert, der die Rolle des Betriebsmasters für den PDC-Emulator (Primary Domain Controller, primärer Domänencontroller) ausübt.
 
-###  <a name="create-a-plan-to-migrate-line-of-business-applications"></a><a name="BKMK_MigrateLOB"></a>Erstellen eines Plans für die Migration von Branchen Anwendungen
+###  <a name="create-a-plan-to-migrate-line-of-business-applications"></a><a name="BKMK_MigrateLOB"></a> Erstellen eines Plans für die Migration von Branchen Anwendungen
  Eine Branchenanwendung ist eine wichtige Computeranwendung, die für den Geschäftsbetrieb unabdingbar ist. Dabei kann es sich z. B. um Buchhaltungs-, Supply Chain Management- oder Ressourcenplanungsanwendungen handeln.
 
  Wenn Sie die Migration Ihrer Branchenanwendungen planen, beraten Sie sich mit dem Branchenanwendungsanbieter, um die geeignete Methode zum Migrieren der einzelnen Anwendungen zu ermitteln. Außerdem müssen Sie das Medium ermitteln, das zum Installieren der Branchenanwendungen auf dem Zielserver verwendet wird.
@@ -168,16 +168,16 @@ Wenn Sie die Beschreibung und Lösungen für ein Problem anzeigen möchten, klic
 > [!NOTE]
 >  Nachdem Sie den Quellserver aktualisiert und für die Migration vorbereitet haben, ist es empfehlenswert, eine Sicherung des aktualisierten Servers zu erstellen, bevor Sie mit der Migration fortfahren.
 
-#### <a name="migrate-email-to-microsoft-office-365"></a>Migrieren von E-Mails zu Microsoft Office 365
- Wenn Sie sich für Microsoft Office 365 als E-Mail-Lösung für Ihre Domäne entschieden haben, folgen Sie den Anweisungen unter [Migrieren aller Postfächer zur Cloud mit einer Exchange-Übernahmemigration](https://help.outlook.com/140/ms.exch.ecp.emailmigrationwizardexchangelearnmore.aspx) , um die E-Mail-Migration zu Office 365 zu starten. Es wird empfohlen, die e-Mail-Migration abzuschließen, bevor Sie Windows Server Essentials installieren.
+#### <a name="migrate-email-to-microsoft-365"></a>Migrieren von e-Mails zu Microsoft 365
+ Wenn Sie sich für die Verwendung von Microsoft 365 als e-Mail-Lösung für Ihre Domäne entschieden haben, befolgen Sie die Anweisungen unter [Migrieren aller Postfächer zur Cloud mit einer Exchange-Austausch Migration](https://help.outlook.com/140/ms.exch.ecp.emailmigrationwizardexchangelearnmore.aspx) , um die e-Mail-Migration zu Microsoft 365 zu starten. Es wird empfohlen, die e-Mail-Migration abzuschließen, bevor Sie Windows Server Essentials installieren.
 
 > [!NOTE]
->  Der Schritt zum Entfernen des lokalen Exchange-Servers auf dem Quell Server ist obligatorisch, wenn Sie Windows Server Essentials in Office 365 integrieren möchten. Informationen zum Migrieren der öffentlichen Ordner von Exchange Server zu Office 365 finden Sie im Blogbeitrag [Microsoft Exchange 2013 Public Folders Migration Scripts for Office 365](/archive/blogs/fmustafa/microsoft-exchange-2013-public-folders-migration-scripts-for-office-365).
+>  Der Schritt zum Entfernen des lokalen Exchange-Servers auf dem Quell Server ist obligatorisch, wenn Sie Windows Server Essentials in Microsoft 365 integrieren möchten. Informationen dazu, wie Sie öffentliche Ordner von Exchange Server zu Microsoft 365 migrieren, finden Sie im Blogbeitrag [Migrations Skripts für Öffentliche Ordner von Microsoft Exchange 2013 für Microsoft 365](/archive/blogs/fmustafa/microsoft-exchange-2013-public-folders-migration-scripts-for-office-365).
 >
->  Nachdem Sie die Installation durchgeführt haben, sollten Sie das Office 365-Integrations Feature in Windows Server Essentials aktivieren, indem Sie den Task " **in Microsoft Office 365 integrieren** " ausführen.
+>  Nachdem Sie die Installation durchgeführt haben, müssen Sie das Microsoft 365-Integrations Feature in Windows Server Essentials aktivieren, indem Sie die Aufgabe " **in Microsoft 365 integrieren** " ausführen.
 
 > [!IMPORTANT]
->  Um eine Verbindung des Office 365-Migrationstools mit Exchange Server auf dem Quellserver zu ermöglichen, müssen Sie auf dem Quellserver RPC über HTTP aktivieren. Informationen zum Aktivieren von RPC über HTTP finden Sie unter [Erstmaliges Bereitstellen von RPC über HTTP in Small Business Server 2003 (Standard oder Premium)](/previous-versions/tn-archive/bb123622(v=exchg.65)). Wenn das Office 365-Migrationstool nach dem Aktivieren von RPC über HTTP nicht ordnungsgemäß ausgeführt werden kann, zeigen Sie die Einstellung **ValidPorts** in der Registrierung unter HKEY_LOCAL_MACHINE\Software\Microsoft\Rpc\RpcProxy an, und stellen sicher, dass der vollqualifizierte Domänenname (Fully Qualified Domain Name, FQDN) für den Quellserver dort aufgeführt ist. Wenn der FQDN nicht aufgeführt ist, fügen Sie ihn anhand des folgenden Beispiels manuell hinzu:
+>  Damit das Microsoft 365 Migrationstool eine Verbindung mit dem Exchange-Server herstellen kann, der auf dem Quell Server ausgeführt wird, müssen Sie auf dem Quell Server RPC über HTTP aktivieren. Informationen zum Aktivieren von RPC über HTTP finden Sie unter [Erstmaliges Bereitstellen von RPC über HTTP in Small Business Server 2003 (Standard oder Premium)](/previous-versions/tn-archive/bb123622(v=exchg.65)). Wenn Sie das Microsoft 365 Migrationstool nach dem Aktivieren von RPC über HTTP nicht erfolgreich ausführen können, können Sie die Einstellung **ValidPorts** in der Registrierung unter HKEY_LOCAL_MACHINE \Software\Microsoft\Rpc\RpcProxy anzeigen und sicherstellen, dass der voll qualifizierte Domänen Name (Fully Qualified Domain Name, FQDN) für den Quell Server aufgeführt ist. Wenn der FQDN nicht aufgeführt ist, fügen Sie ihn anhand des folgenden Beispiels manuell hinzu:
 >
 >  remote. *contoso*.com:6001-6002;remote. *contoso*.com:6004 (ersetzen Sie *contoso* durch den Namen Ihrer Domäne).
 

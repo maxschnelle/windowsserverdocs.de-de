@@ -5,14 +5,14 @@ ms.date: 10/03/2016
 ms.topic: article
 ms.assetid: c6985518-b42d-4cfb-9761-eaa75306b6d7
 author: nnamuhcs
-ms.author: coreyp
-manager: dongill
-ms.openlocfilehash: 2a3e4d55addc493beb4a7561f2db11a41dc49e30
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.author: geschuma
+manager: mtillman
+ms.openlocfilehash: 07e849fa8db3cdc4204de402c6fc0cb823881480
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87180006"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89624989"
 ---
 # <a name="use-the-windows-server-essentials-log-collector"></a>Verwenden des Windows Server Essentials-Protokollsammlers
 
@@ -46,7 +46,7 @@ Bei der Behandlung von Computerproblemen werden Sie möglicherweise von einem Ve
 
 -   Netzwerkadapter, die an TCP/IP gebunden sind
 
--   Gebietsschema
+-   Locale
 
 -   Prozesse
 
