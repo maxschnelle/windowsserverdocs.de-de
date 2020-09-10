@@ -3,16 +3,16 @@ title: cacls
 description: Referenz Artikel für den Befehl cacls. Dieser Befehl ist veraltet und wird in zukünftigen Versionen von Windows nicht mehr unterstützt.
 ms.topic: reference
 ms.assetid: b5bdbaaa-4557-48b8-80df-e75ee0d2f27d
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 8261e9711cee85ad1d59ff71f9cd8ac55e63fab8
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 32be46658f47b534c80a9d9a712914aa6d878792
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89034278"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89630019"
 ---
 # <a name="cacls"></a>cacls
 
@@ -29,7 +29,7 @@ cacls <filename> [/t] [/m] [/l] [/s[:sddl]] [/e] [/c] [/g user:<perm>] [/r user 
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `<filename>` | Erforderlich. Zeigt ACLs der angegebenen Dateien an. |
 | /t | Ändert ACLs der angegebenen Dateien im aktuellen Verzeichnis und allen Unterverzeichnissen. |
@@ -57,7 +57,7 @@ cacls <filename> [/t] [/m] [/l] [/s[:sddl]] [/e] [/c] [/g user:<perm>] [/r user 
 | RKI Brasilianer | Nur Unterordner. |
 | Zählen Brasilianer | Nur Dateien. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Sie können Platzhalter verwenden (**?** und **&#42;**), um mehrere Dateien anzugeben.
 

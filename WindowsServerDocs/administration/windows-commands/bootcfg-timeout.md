@@ -3,16 +3,16 @@ title: bootcfg timeout
 description: Referenz Artikel für den bootcfg-Timeout-Befehl, der den Timeout Wert des Betriebssystems ändert.
 ms.topic: reference
 ms.assetid: aa858eac-2bb7-4a27-a9bc-3e4a6eb8b2c6
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: ed3e94447dba6cb09be986c2c482a42e9d83fe22
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 520889fce38eb48fe56b9b4c0a38277b5c7f8c8c
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89034348"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89630117"
 ---
 # <a name="bootcfg-timeout"></a>bootcfg timeout
 
@@ -28,7 +28,7 @@ bootcfg /timeout <timeoutvalue> [/s <computer> [/u <domain>\<user> /p <password>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `/timeout <timeoutvalue>` | Gibt den Timeout Wert im Abschnitt [Boot Loader] an. `<timeoutvalue>`Gibt an, wie viele Sekunden der Benutzer ein Betriebssystem auf dem Start Lade Ladebildschirm auswählen muss, bevor NTLDR den Standardwert lädt. Der gültige Bereich für `<timeoutvalue>` ist 0-999. Wenn der Wert 0 ist, startet NTLDR sofort das Standardbetriebssystem, ohne dass der Bildschirm des Start Lade Programms angezeigt wird. |
 | `/s <computer>` | Gibt den Namen oder die IP-Adresse eines Remote Computers an (verwenden Sie keine umgekehrten Schrägstriche). Die Standardeinstellung ist der lokale Computer. |

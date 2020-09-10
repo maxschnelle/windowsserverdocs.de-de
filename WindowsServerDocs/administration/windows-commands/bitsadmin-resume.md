@@ -3,16 +3,16 @@ title: bitsadmin resume
 description: Referenz Artikel für den Befehl bizadmin Resume, der einen neuen oder angehaltenen Auftrag in der Übertragungs Warteschlange aktiviert.
 ms.topic: reference
 ms.assetid: 7c7540a9-a11a-4910-923a-2a2a61cbf11d
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: dbbd4f322f416dd76e9c2fca6e3539f199ac1ed6
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 2ccab242034af3e0b5e01f0efec60d5309879516
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89026308"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89631107"
 ---
 # <a name="bitsadmin-resume"></a>bitsadmin resume
 
@@ -26,7 +26,7 @@ bitsadmin /resume <job>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | -------------- | -------------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 

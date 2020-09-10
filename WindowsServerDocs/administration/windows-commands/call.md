@@ -3,16 +3,16 @@ title: Aufruf
 description: Referenz Artikel für den Aufruf Befehl, der ein Batch Programm von einem anderen aufruft, ohne das übergeordnete Batch Programm zu beenden.
 ms.topic: reference
 ms.assetid: d34a41dc-e6c7-4467-bf6a-15cec704833e
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 06/05/2018
-ms.openlocfilehash: 749f073fa3f96f51aec5bf47e4e09ce7263d3205
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: ff00048be6cc44b91d2a2a67bd186a39b13e2ac7
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89034258"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89630009"
 ---
 # <a name="call"></a>Aufruf
 
@@ -29,7 +29,7 @@ call [drive:][path]<filename> [<batchparameters>] [:<label> [<arguments>]]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `[<drive>:][<path>]<filename>` | Gibt den Speicherort und den Namen des aufzurufenden Batch Programms an. Der `<filename>` -Parameter ist erforderlich und muss über die Erweiterung ". bat" oder ". cmd" verfügen. |
 | `<batchparameters>` | Gibt alle Befehlszeilen Informationen an, die vom Batch Programm benötigt werden. |
@@ -45,7 +45,7 @@ Die Verwendung des Werts " **% &#42;** " in einem Batch Skript bezieht sich auf 
 
 Sie können die folgenden optionalen Syntaxen als Ersatz für Batch Parameter (**% n**) verwenden:
 
-| Batch-Parameter | Beschreibung |
+| Batch-Parameter | BESCHREIBUNG |
 | --------------- | ----------- |
 | % ~ 1 | Erweitert **%1** und entfernt umgebende Anführungszeichen. |
 | % ~ F1 | " **%1** " wird in einen voll qualifizierten Pfad erweitert. |
@@ -61,7 +61,7 @@ Sie können die folgenden optionalen Syntaxen als Ersatz für Batch Parameter (*
 
 In der folgenden Tabelle wird gezeigt, wie Modifizierern mit den Batch Parametern für Verbund Ergebnisse kombiniert werden können:
 
-| Batch-Parameter mit Modifizierer | Beschreibung |
+| Batch-Parameter mit Modifizierer | BESCHREIBUNG |
 | ----------------------------- | ----------- |
 | % ~ DP1 | " **%1** " wird nur auf einen Laufwerk Buchstaben und einen Pfad erweitert. |
 | % ~ NX1 | " **%1** " wird nur in einen Dateinamen und eine Erweiterung erweitert. |
@@ -70,7 +70,7 @@ In der folgenden Tabelle wird gezeigt, wie Modifizierern mit den Batch Parameter
 
 In den obigen Beispielen können **%1** und path durch andere gültige Werte ersetzt werden. Die **%~** Syntax wird mit einer gültigen Argument Nummer beendet. Die **%~** modifiziererer können nicht mit **% #b0 **verwendet werden.
 
-### <a name="remarks"></a>Bemerkungen
+### <a name="remarks"></a>Hinweise
 
 - Verwenden von Batch-Parametern:
 

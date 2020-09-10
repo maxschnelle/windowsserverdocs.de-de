@@ -3,16 +3,16 @@ title: bitsadmin peercaching and getconfigurationflags
 description: Referenz Artikel zum Befehl BITSAdmin-Peer Caching und getconfigurationflags, der die Konfigurationsflags abruft, die bestimmen, ob der Computer Inhalt für Peers bereitstellt und Inhalt von Peers herunterladen kann.
 ms.topic: reference
 ms.assetid: 124ddc15-3444-4bd5-96e5-c6bfabe4f9c2
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: ab2a03a4b4dd7aa63abf0285808009a7b9cd04e6
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 3fe1adfb44ab845ecdb73222131191782f83c075
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89026568"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89631372"
 ---
 # <a name="bitsadmin-peercaching-and-getconfigurationflags"></a>bitsadmin peercaching and getconfigurationflags
 
@@ -26,7 +26,7 @@ bitsadmin /peercaching /getconfigurationflags <job>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | -------------- | -------------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 

@@ -3,16 +3,16 @@ title: change (Ändern)
 description: Referenz Artikel für den Change-Befehl, der Remotedesktop-Sitzungshost Servereinstellungen für Anmeldungen, com-Port Zuordnungen und Installationsmodus ändert.
 ms.topic: reference
 ms.assetid: 90012116-0fb3-4f34-a819-cf4d4b4f8981
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: f1dc7af27d1ada36013e5d8d44237a1d2b07f926
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: bda2f4507b4ad6b6bcca7cc0ab58efcc91a8cc02
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89031138"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89629842"
 ---
 # <a name="change"></a>change (Ändern)
 
@@ -33,7 +33,7 @@ ms.locfileid: "89031138"
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | [Anmelde Befehl ändern](change-logon.md) | Aktiviert oder deaktiviert Anmeldungen von Client Sitzungen auf einem Remotedesktop-Sitzungshost Server oder zeigt den aktuellen Anmeldestatus an. |
 | [Befehl "Port ändern"](change-port.md) | Listet die COM-Port Zuordnungen auf, die mit MS-DOS-Anwendungen kompatibel sind, oder ändert Sie. |

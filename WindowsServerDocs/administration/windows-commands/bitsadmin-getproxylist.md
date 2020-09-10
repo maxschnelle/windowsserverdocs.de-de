@@ -3,16 +3,16 @@ title: 'BI-admin getproxylist: Ruft die Proxy Liste für den angegebenen Auftrag
 description: Referenz Artikel für den bizadmin getproxylist-Befehl, der die Proxy Liste für den angegebenen Auftrag abruft.
 ms.topic: reference
 ms.assetid: eebfa727-d8f1-4ae3-9382-6d8ffe8c3df3
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 9038f9faaedce30bfdf6025a40e3f6369805ac2a
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 4d4cefcb27a9aa18b06bc588d08aba2f2f810636
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89024414"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89631744"
 ---
 # <a name="bitsadmin-getproxylist"></a>bitsadmin getproxylist
 
@@ -26,7 +26,7 @@ bitsadmin /getproxylist <job>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | -------------- | -------------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 

@@ -3,16 +3,16 @@ title: change user
 description: Referenz Artikel für den Befehl "Benutzer ändern", mit dem der Installationsmodus für den Remotedesktop-Sitzungshost Server geändert wird.
 ms.topic: reference
 ms.assetid: 6202f024-8cf5-411e-89b1-ee37ff46499d
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 7c473349b75a5963cb66997ea568f5634eea194d
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 59e290b3c80bfb85e5cef9ae3cffb20c121f71b6
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89031148"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89629853"
 ---
 # <a name="change-user"></a>change user
 
@@ -31,14 +31,14 @@ change user {/execute | /install | /query}
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | /execute | Ermöglicht die Zuordnung von INI-Dateien zum Basisverzeichnis. Dies ist die Standardeinstellung. |
 | /install | Deaktiviert die Zuordnung der INI-Datei zum Basisverzeichnis. Alle INI-Dateien werden gelesen und in das System Verzeichnis geschrieben. Sie müssen die INI-Datei Zuordnung deaktivieren, wenn Sie Anwendungen auf einem Remotedesktop-Sitzungshost Server installieren. |
 | /Query "aus | Zeigt die aktuelle Einstellung für die INI-Datei Zuordnung an. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Verwenden Sie **Benutzer ändern/install** , bevor Sie eine Anwendung installieren, um INI-Dateien für die Anwendung im System Verzeichnis zu erstellen. Diese Dateien werden als Quelle verwendet, wenn benutzerspezifische ini-Dateien erstellt werden. Verwenden Sie nach der Installation der Anwendung **Change user/execute** , um die Datei Zuordnung der Standard-INI-Datei wiederherzustellen.
 

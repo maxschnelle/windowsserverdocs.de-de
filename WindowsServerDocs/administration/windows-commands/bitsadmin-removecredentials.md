@@ -3,16 +3,16 @@ title: bitsadmin removecredentials
 description: Referenz Artikel für den Befehl "bizadmin removecredenseins", mit dem Anmelde Informationen aus einem Auftrag entfernt werden.
 ms.topic: reference
 ms.assetid: 4a78ce9a-1feb-4811-a000-cce81287b22b
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 4db9ddba312aba0d0fdd1dc63cbbf3c964afd043
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: c380aeba07d3dbbe3278003fdffb48dbb4fce913
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89026338"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89631155"
 ---
 # <a name="bitsadmin-removecredentials"></a>bitsadmin removecredentials
 
@@ -29,7 +29,7 @@ bitsadmin /removecredentials <job> <target> <scheme>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | -------------- | -------------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 | target | Verwenden Sie entweder den **Server** oder den **Proxy**. |

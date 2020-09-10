@@ -3,16 +3,16 @@ title: change port
 description: Referenz Artikel für den Befehl Port ändern, mit dem die COM-Port Zuordnungen aufgelistet oder geändert werden, die mit MS-DOS-Anwendungen kompatibel sind.
 ms.topic: article
 ms.assetid: 3d772c90-e849-4e74-b9ec-b6cae1159336 Lizap
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 8014ba67b2c4383aa56a6fce5eb486bbccfba7e7
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: a38f4f4885ac13c40a7e2a340bf94623bcbdd77d
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89031158"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89629893"
 ---
 # <a name="change-port"></a>change port
 
@@ -31,14 +31,14 @@ change port [<portX>=<portY| /d <portX | /query]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 |-----------------|----------------------------------------|
 | <portX>=<portY> | Ordnet com `<*portX*>` zu zu `<*portY*>` |
 | /d <portX> | Löscht die Zuordnung für com. `<*portX*>` |
 | /Query "aus | Zeigt die aktuellen Port Zuordnungen an. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Die meisten MS-DOS-Anwendungen unterstützen nur die seriellen Anschlüsse COM1 bis COM4. Der Befehl **Port ändern** ordnet einen seriellen Anschluss einer anderen Portnummer zu, sodass apps, die High-nummerierte com-Anschlüsse nicht unterstützen, auf den seriellen Anschluss zugreifen können. Die Neuzuordnung funktioniert nur für die aktuelle Sitzung und wird nicht beibehalten, wenn Sie sich von einer Sitzung abmelden und dann wieder anmelden.
 

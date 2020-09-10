@@ -3,16 +3,16 @@ title: certutil
 description: Referenz Artikel für den certutil-Befehl, bei dem es sich um ein Befehlszeilenprogramm handelt, das die Konfigurationsinformationen der Zertifizierungsstelle absichert und anzeigt, Zertifikat Dienste konfiguriert, Zertifizierungsstellen-und Wiederherstellungs Zertifizierungsstellen-Komponenten konfiguriert und Zertifikate, Schlüsselpaare und Zertifikat Ketten überprüft.
 ms.topic: reference
 ms.assetid: c264ccf0-ba1e-412b-9dd3-d77dd9345ad9
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 99c9d0ddca6ce1b91d86733995c30c46b747b7af
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: fc1065ab3853f6098c725f4ccaaafc483cb6015d
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89031208"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89629911"
 ---
 # <a name="certutil"></a>certutil
 
@@ -128,7 +128,7 @@ Hierbei gilt:
 [-config Machine\CAName]
 ```
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Namen und Werte müssen durch Doppelpunkte getrennt sein, während mehrere Name-Wert-Paare zeilenweise getrennt sein müssen. Beispiel: `CertificateTemplate:User\nEMail:User@Domain.com` `\n` gibt an, wo die Sequenz in ein Zeilen Trennzeichen konvertiert wird.
 
@@ -152,7 +152,7 @@ Hierbei gilt:
 [-config Machine\CAName]
 ```
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Wenn der letzte Parameter numerisch ist, wird er als **Long**-Wert angenommen.
 
@@ -517,7 +517,7 @@ Hierbei gilt:
 [-silent] [-split] [-config Machine\CAName] [-restrict RestrictionList] [-out ColumnList]
 ```
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Wenn Sie die Spalte **Statuscode** für alle Einträge anzeigen möchten, geben Sie ein. `-out StatusCode`
 
@@ -719,7 +719,7 @@ Hierbei gilt:
 [-f] [-user] [-p password] [-csp provider]
 ```
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Der Standardwert ist der persönliche Computerspeicher.
 
@@ -789,7 +789,7 @@ Hierbei gilt:
 [-f] [-user] [-enterprise] [-service] [-grouppolicy] [-silent] [-split] [-dc DCName]
 ```
 
-#### <a name="options"></a>Optionen
+#### <a name="options"></a>Tastatur
 
 - Die `-user` Option greift auf einen Benutzerspeicher anstelle eines Computerspeicher zu.
 
@@ -926,7 +926,7 @@ Hierbei gilt:
 [-f] [-user] [-enterprise] [-service] [-grouppolicy] [-dc DCName]
 ```
 
-#### <a name="options"></a>Optionen
+#### <a name="options"></a>Tastatur
 
 - Die `-user` Option greift auf einen Benutzerspeicher anstelle eines Computerspeicher zu.
 
@@ -966,7 +966,7 @@ Hierbei gilt:
 [-f] [-user] [-enterprise] [-service] [-grouppolicy] [-dc DCName]
 ```
 
-#### <a name="options"></a>Optionen
+#### <a name="options"></a>Tastatur
 
 - Die `-user` Option greift auf einen Benutzerspeicher anstelle eines Computerspeicher zu.
 
@@ -1094,7 +1094,7 @@ Hierbei gilt:
 [-f] [-config Machine\CAName] [-dc DCName]
 ```
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Die `-config` Option ist für eine einzelne Zertifizierungsstelle vorgesehen (standardmäßig alle Zertifizierungsstellen).
 
@@ -1358,7 +1358,7 @@ Hierbei gilt:
 [-f] [-user] [-silent] [-config Machine\CAName]
 ```
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Wenn keine Argumente angegeben werden, wird jedes Signatur Zertifizierungsstellen Zertifikat anhand des privaten Schlüssels überprüft.
 
@@ -1397,7 +1397,7 @@ Hierbei gilt:
 [-f] [-enterprise] [-user] [-silent] [-split] [-urlfetch] [-t timeout]
 ```
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Die Verwendung von **applicationpolicylist** schränkt die Ketten Bildung auf die für die angegebenen Anwendungsrichtlinien gültigen Ketten ein.
 
@@ -1491,7 +1491,7 @@ Hierbei gilt:
 [-nullsign] [-f] [-silent] [-cert certID]
 ```
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Wenn Sie das Minuszeichen (-) verwenden, werden Seriennummern und Erweiterungen entfernt.
 
@@ -1683,7 +1683,7 @@ Hierbei gilt:
 [-f] [-user] [-grouppolicy] [-config Machine\CAName]
 ```
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Wenn ein Zeichen folgen Wert mit `+` oder beginnt `-` und der vorhandene Wert ein `REG_MULTI_SZ` Wert ist, wird die Zeichenfolge dem vorhandenen Registrierungs Wert hinzugefügt oder daraus entfernt. Um das Erstellen eines Werts zu erzwingen `REG_MULTI_SZ` , fügen Sie am `\n` Ende des Zeichen folgen Werts ein.
 
@@ -1727,7 +1727,7 @@ Hierbei gilt:
 [-f] [-user] [-grouppolicy] [-config Machine\CAName]
 ```
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Wenn ein Zeichen folgen Wert mit `+` oder beginnt `-` und der vorhandene Wert ein `REG_MULTI_SZ` Wert ist, wird die Zeichenfolge dem vorhandenen Registrierungs Wert hinzugefügt oder daraus entfernt. Um das Erstellen eines Werts zu erzwingen `REG_MULTI_SZ` , fügen Sie am `\n` Ende des Zeichen folgen Werts ein.
 
@@ -1771,7 +1771,7 @@ Hierbei gilt:
 [-f] [-user] [-grouppolicy] [-config Machine\CAName]
 ```
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Wenn ein Zeichen folgen Wert mit `+` oder beginnt `-` und der vorhandene Wert ein `REG_MULTI_SZ` Wert ist, wird die Zeichenfolge dem vorhandenen Registrierungs Wert hinzugefügt oder daraus entfernt. Um das Erstellen eines Werts zu erzwingen `REG_MULTI_SZ` , fügen Sie am `\n` Ende des Zeichen folgen Werts ein.
 
@@ -1821,7 +1821,7 @@ Hierbei gilt:
 [-f] [-config Machine\CAName]
 ```
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 Die Zertifizierungsstelle muss möglicherweise auch für die Unterstützung von fremd Zertifikaten konfiguriert werden. Geben Sie hierzu ein `import - certutil -setreg ca\KRAFlags +KRAF_ENABLEFOREIGN` .
 
@@ -1899,7 +1899,7 @@ Hierbei gilt:
 [-f] [-user] [-split] [-p password] [-protectto SAMnameAndSIDlist] [-csp provider]
 ```
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Das in der Befehlszeile angegebene Kennwort muss eine durch Trennzeichen getrennte Kenn Wort Liste sein.
 
@@ -1934,7 +1934,7 @@ Hierbei gilt:
 [-f] [-silent] [-split] [-dc DCName] [-p password] [-csp provider]
 ```
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Das in der Befehlszeile angegebene Kennwort muss eine durch Trennzeichen getrennte Kenn Wort Liste sein.
 
@@ -1958,11 +1958,11 @@ Hierbei gilt:
 
 - **-?-v** zeigt eine vollständige Liste der Parameter und Optionen an.
 
-## <a name="options"></a>Optionen
+## <a name="options"></a>Tastatur
 
 Dieser Abschnitt definiert alle Optionen, die Sie basierend auf dem Befehl angeben können. Jeder Parameter enthält Informationen darüber, welche Optionen für die Verwendung gültig sind.
 
-| Optionen | Beschreibung |
+| Tastatur | BESCHREIBUNG |
 | ------- | ----------- |
 | -nullsign | Verwenden Sie den Hash der Daten als Signatur. |
 | -f | Erzwingen von überschreiben. |
