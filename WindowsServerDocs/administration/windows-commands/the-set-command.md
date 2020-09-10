@@ -3,16 +3,16 @@ title: Verwenden des SET-Befehls
 description: Referenz Artikel für Set, mit dem Eigenschaften und Attribute für Windows-Bereitstellungsdiensteserver, vorab bereitgestellte Computer, Images, Abbild Gruppen und Transport Server festgelegt werden.
 ms.topic: reference
 ms.assetid: 5def6be0-83b9-4133-bc1b-bbe6d407eca7
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 580d094b6d8a030e5e7d8649fa2d7dd67009c052
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 365c46eb45b0b571dcb8ca87f01fccfbbb79cd8c
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89038268"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89639410"
 ---
 # <a name="using-the-set-command"></a>Verwenden des SET-Befehls
 

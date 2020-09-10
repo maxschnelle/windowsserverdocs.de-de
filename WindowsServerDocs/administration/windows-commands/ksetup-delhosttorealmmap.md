@@ -3,16 +3,16 @@ title: ksetup delhosttorealmmap
 description: Referenz Artikel für den Befehl "Ksetup Delta Host Map", der eine Dienst Prinzipal Namen-Zuordnung (Service Principal Name, SPN) zwischen dem angegebenen Host und dem Bereich entfernt.
 ms.topic: reference
 ms.assetid: 3faee482-a96c-4614-86fd-aaa446643ec4
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 4401bc186a2471fdd300279b42d4eb1375fc1aa0
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 321d468169005d5b183e3b3d4149872a731b8cfa
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89033988"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89639698"
 ---
 # <a name="ksetup-delhosttorealmmap"></a>ksetup delhosttorealmmap
 
@@ -28,7 +28,7 @@ ksetup /delhosttorealmmap <hostname> <realmname>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `<hostname>` | Gibt den voll qualifizierten Domänen Namen des Computers an. |
 | `<realmname>` | Gibt den Großbuchstaben-DNS-Namen an, z. b. Corp. CONTOSO.com. |

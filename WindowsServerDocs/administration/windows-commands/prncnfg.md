@@ -3,16 +3,16 @@ title: prncnfg
 description: Referenz Artikel zum prncnfg-Befehl, mit dem Konfigurationsinformationen zu einem Drucker konfiguriert oder angezeigt werden.
 ms.topic: reference
 ms.assetid: 38a4e8fa-3122-495b-a125-35b926bc6415
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 07/11/2018
-ms.openlocfilehash: ba5d465a46a23261942428761d11ef279b78a62e
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 2b72f453b016428537800997fc0a7056c211a3b2
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89038721"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89638367"
 ---
 # <a name="prncnfg"></a>prncnfg
 
@@ -28,7 +28,7 @@ cscript prncnfg {-g | -t | -x | -?} [-S <Servername>] [-P <Printername>] [-z <ne
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 |--|--|
 | -g | Zeigt Konfigurationsinformationen zu einem Drucker an. |
 | -t | Konfiguriert einen Drucker. |
@@ -50,7 +50,7 @@ cscript prncnfg {-g | -t | -x | -?} [-S <Servername>] [-P <Printername>] [-z <ne
 | `{+|-}`Genu | Gibt an, ob dieser Drucker im Netzwerk freigegeben ist. |
 | `{+|-}`unmittelbaren | Gibt an, ob das Dokument direkt an den Drucker gesendet werden soll, ohne dass es gespoolte ist. |
 | `{+|-}`enes | Gibt an, ob dieser Drucker in Active Directory veröffentlicht werden soll. Wenn Sie den Drucker veröffentlichen, können andere Benutzer basierend auf dem Speicherort und den Funktionen (z. b. Farb Druck und Heftung) danach suchen. |
-| `{+|-}`verbirgt | Reservierte Funktion. |
+| `{+|-}`hidden | Reservierte Funktion. |
 | `{+|-}`raweinzierl | Gibt an, ob in dieser Warteschlange nur unformatierte Datendruck Aufträge gespoziert werden können. |
 | `{+|-}`} in der Warteschlange | Gibt an, dass der Drucker erst nach dem Spoolvorgang der letzten Seite des Dokuments gedruckt werden soll. Das Druckprogramm ist nicht verfügbar, bis das Drucken des Dokuments abgeschlossen ist. Durch die Verwendung dieses Parameters wird jedoch sichergestellt, dass das gesamte Dokument für den Drucker verfügbar ist. |
 | `{+|-}`KeepPrintedJobs | Gibt an, ob der Spooler Dokumente nach dem Drucken aufbewahren soll. Wenn Sie diese Option aktivieren, kann ein Benutzer ein Dokument aus der Druck Warteschlange und nicht aus dem Druckprogramm erneut an den Drucker übermitteln. |

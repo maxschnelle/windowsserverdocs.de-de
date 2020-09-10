@@ -3,16 +3,16 @@ title: ipconfig
 description: Referenz Artikel für den Befehl "ipconfig", in dem alle aktuellen TCP/IP-Netzwerk Konfigurationswerte angezeigt werden und Einstellungen für das Dynamic Host Configuration-Protokoll (DHCP) und die Domain Name System (DNS) aktualisiert werden.
 ms.topic: reference
 ms.assetid: 15071c2c-4815-4893-93b2-ab30232e312e
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: d683053c1a696ec2aa0f0f2441fdde22eccb479d
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 20005fff04df421e5f3699600278d51b8711337d
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89035448"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89639583"
 ---
 # <a name="ipconfig"></a>ipconfig
 
@@ -26,7 +26,7 @@ ipconfig [/allcompartments] [/all] [/renew [<adapter>]] [/release [<adapter>]] [
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | /all | Zeigt die vollständige TCP/IP-Konfiguration für alle Adapter an. Adapter können für physikalische Schnittstellen, z. B. installierte Netzwerkadapter, oder logische Schnittstellen stehen, z. B. DFÜ-Verbindungen. |
 | /displaydns | Zeigt den Inhalt des DNS-Client Auflösungs Caches an. dieser enthält sowohl Einträge, die vorab aus der lokalen Hostdatei geladen wurden, als auch alle zuletzt erhaltenen Ressourcen Einträge für namens Abfragen, die vom Computer aufgelöst wurden. Der DNS-Client Dienst verwendet diese Informationen, um häufig abgefragte Namen schnell zu beheben, bevor die konfigurierten DNS-Server abgefragt werden. |
@@ -40,7 +40,7 @@ ipconfig [/allcompartments] [/all] [/renew [<adapter>]] [/release [<adapter>]] [
 | /showclassid `<adapter>` | Zeigt die DHCP-Klassen-ID für einen angegebenen Adapter an. Um die DHCP-Klassen-ID für alle Adapter anzuzeigen, verwenden Sie das Platzhalter Zeichen (**&#42;**) anstelle des *Adapters*. Dieser Parameter ist nur auf Computern mit Adaptern verfügbar, die so konfiguriert sind, dass eine IP-Adresse automatisch abgerufen wird. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Dieser Befehl ist besonders nützlich auf Computern, die so konfiguriert sind, dass eine IP-Adresse automatisch abgerufen wird. Dadurch können Benutzer bestimmen, welche TCP/IP-Konfigurationswerte von DHCP, der automatischen privaten IP-Adressierung (APIPA) oder einer alternativen Konfiguration konfiguriert wurden.
 

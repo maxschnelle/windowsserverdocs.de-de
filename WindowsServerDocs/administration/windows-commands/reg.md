@@ -3,16 +3,16 @@ title: abgewickelt
 description: Referenz Artikel zu den reg-Befehlen, mit denen Vorgänge für Registrierungs Unterschlüssel Informationen und Werte in Registrierungs Einträgen durchgeführt werden.
 ms.topic: reference
 ms.assetid: c97496b2-d1ff-4887-b5d2-6e1524be465a
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: a71cbb0bd6b6b902407cd4e6bea92d6e5d7dd967
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: a39fc22c2fe845d8cbbb64cf751455316bdc8747
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89038368"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89639491"
 ---
 # <a name="reg"></a>abgewickelt
 
@@ -41,7 +41,7 @@ reg unload
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 |--|--|
 | [reg add](reg-add.md) | Fügt der Registrierung einen neuen Unterschlüssel oder Eintrag hinzu. |
 | [reg compare](reg-compare.md) | Vergleicht die angegebenen Registrierungs Unterschlüssel oder-Einträge. |

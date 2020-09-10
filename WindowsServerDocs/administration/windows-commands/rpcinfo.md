@@ -3,16 +3,16 @@ title: rpcinfo
 description: Referenz Artikel für den Befehl rpcinfo, der die Programme auf einem Remote Computer auflistet.
 ms.topic: reference
 ms.assetid: 7c342232-a8f0-42ff-8f11-d18c4981f5ca
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 07/11/2018
-ms.openlocfilehash: 87f362083e828c5e4378841efd4f084ce84705a6
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 3e5865bb976f71b9fbb90e4dd77008f00056a455
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89033748"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89639830"
 ---
 # <a name="rpcinfo"></a>rpcinfo
 
@@ -28,7 +28,7 @@ rpcinfo [/p [<node>]] [/b <program version>] [/t <node program> [<version>]] [/u
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 |--|--|
 | /p `[<node>]` | Listet alle Programme auf, die bei der Port Zuordnung auf dem angegebenen Host registriert sind. Wenn Sie keinen Knoten Namen (Computer) angeben, fragt das Programm die Port Zuordnung auf dem lokalen Host ab. |
 | /b `<program version>` | Fordert eine Antwort von allen Netzwerkknoten an, für die das angegebene Programm und die angegebene Version beim Port-Mapper registriert sind. Sie müssen einen Programmnamen oder eine Nummer und eine Versionsnummer angeben. |

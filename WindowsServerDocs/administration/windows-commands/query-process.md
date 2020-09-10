@@ -3,16 +3,16 @@ title: query process
 description: Referenz Artikel für den Abfrageprozess Befehl, der Informationen zu Prozessen anzeigt, die auf einem Remotedesktop-Sitzungshost Server ausgeführt werden.
 ms.topic: reference
 ms.assetid: 36ce3ffc-0092-4eb1-a374-28e6616ca946
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: c0cf1952be3e7885c4631c229061b4630ef4598c
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: eb2deaeac012eba4dad06ae6084474942536adfd
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89037228"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89639899"
 ---
 # <a name="query-process"></a>query process
 
@@ -41,7 +41,7 @@ query process [*|<processID>|<username>|<sessionname>|/id:<nn>|<programname>] [/
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 |--|--|
 | * | Listet die Prozesse für alle Sitzungen auf. |
 | `<processID>` | Gibt die numerische ID an, die den Prozess identifiziert, den Sie Abfragen möchten. |
@@ -52,7 +52,7 @@ query process [*|<processID>|<username>|<sessionname>|/id:<nn>|<programname>] [/
 | /server:`<servername>` | Gibt den Remotedesktop-Sitzungshost Server an, dessen Prozesse Sie auflisten möchten. Wenn keine Angabe erfolgt, wird der Server verwendet, auf dem Sie zurzeit angemeldet sind. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Administratoren haben Vollzugriff auf alle **Abfrageprozess** Funktionen.
 

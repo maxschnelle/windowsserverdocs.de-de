@@ -3,16 +3,16 @@ title: list writers
 description: Referenz Artikel für den Befehl auflisten von Writer, in dem die Writer aufgelistet sind, die sich auf dem System befinden.
 ms.topic: reference
 ms.assetid: 1c30cbc4-f568-4fa7-b564-66c41d3ca82d
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 2fd3f035db63281b75ab2232503587dd535ef8d9
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: b6e8fd300b2592a0ffee317f7d325482250fcfc6
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89037908"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89639559"
 ---
 # <a name="list-writers"></a>list writers
 
@@ -26,7 +26,7 @@ list writers [metadata | detailed | status]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | metadata | Listet die Identität und den Status von Writern auf und zeigt Metadaten wie z. b. Komponenten Details und ausgeschlossene Dateien an. Dies ist der Standardparameter. |
 | Details | Listet die gleichen Informationen wie **Metadaten**auf, enthält jedoch auch die vollständige Datei Liste für alle Komponenten. |

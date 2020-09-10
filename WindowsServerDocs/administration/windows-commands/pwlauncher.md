@@ -3,16 +3,16 @@ title: pwlauncher
 description: Referenz Artikel für den pwlauncher-Befehl, der die Windows to go-Startoptionen (pwlauncher) aktiviert oder deaktiviert.
 ms.topic: reference
 ms.assetid: 0917bb7b-408a-40f7-a1c5-20e94c10d38b
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 0e59182378aa8277a0ff68b31be29c9c315b174b
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 8bdc4f7b3b5c91cb804f6760a60ec421652d1642
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89028148"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89639927"
 ---
 # <a name="pwlauncher"></a>pwlauncher
 
@@ -28,7 +28,7 @@ pwlauncher {/enable | /disable}
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 |--|--|
 | /enable | Aktiviert die Windows to go-Startoptionen, sodass der Computer automatisch von einem USB-Gerät gestartet wird, wenn es vorhanden ist. |
 | /Disable | Deaktiviert die Windows to go-Startoptionen, sodass der Computer nicht von einem USB-Gerät gestartet werden kann, es sei denn, er ist manuell in der Firmware konfiguriert. |

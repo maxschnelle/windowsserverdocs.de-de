@@ -3,16 +3,16 @@ title: ksetup server
 description: Referenz Artikel für den Befehl "Ksetup Server", mit dem Sie einen Namen für einen Computer angeben können, auf dem das Windows-Betriebssystem ausgeführt wird, sodass die vom Ksetup-Befehl vorgenommenen Änderungen den Zielcomputer aktualisieren.
 ms.topic: reference
 ms.assetid: e3407111-ac92-457f-aa1f-a04fe9109d59
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 13ee60d6bcf4dfb0e4955aa47f6ecd9b39243a87
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 4be82315bc0d683b5399350c618aa87e615067ba
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89025384"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89639577"
 ---
 # <a name="ksetup-server"></a>ksetup server
 
@@ -31,7 +31,7 @@ ksetup /server <servername>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `<servername>` | Gibt den vollständigen Computernamen an, auf dem die Konfiguration wirksam wird, z. b. *IPops897.Corp.contoso.com*.<p>Wenn ein unvollständiger voll qualifizierter Domänen Computername angegeben wird, tritt bei dem Befehl ein Fehler auf. |
 

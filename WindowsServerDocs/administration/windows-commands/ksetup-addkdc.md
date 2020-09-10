@@ -3,16 +3,16 @@ title: ksetup addkdc
 description: Referenz Artikel für den Befehl "Ksetup addkdc", der eine Schlüsselverteilungscenter (KDC)-Adresse für den angegebenen Kerberos-Bereich anzeigen kann.
 ms.topic: reference
 ms.assetid: 98bfc23a-14c4-401c-bcb3-9903c5cdde64
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 79f279ddaa32c0b3411ca024b5d0b7f6d511d132
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: d86c494f3326f2d1fbc74eb81670b791004669fc
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89034048"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89639744"
 ---
 # <a name="ksetup-addkdc"></a>ksetup addkdc
 
@@ -31,7 +31,7 @@ ksetup /addkdc <realmname> [<KDCname>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `<realmname>` | Gibt den Großbuchstaben-DNS-Namen an, z. b. Corp. CONTOSO.com. Dieser Wert wird auch als Standardbereich angezeigt, wenn **Ksetup** ausgeführt wird, und ist der Bereich, dem Sie den anderen KDC hinzufügen möchten. |
 | `<KDCname>` | Gibt den voll qualifizierten Domänen Namen der Groß-/Kleinschreibung an, z. b. mitkdc.contoso.com. Wenn der KDC-Name ausgelassen wird, sucht DNS nach KDCs. |

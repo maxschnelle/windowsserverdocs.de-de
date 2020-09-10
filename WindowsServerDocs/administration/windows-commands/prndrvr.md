@@ -3,16 +3,16 @@ title: prndrvr
 description: Referenz Artikel zum prndrvr-Befehl, der Druckertreiber hinzufügt, löscht und auflistet.
 ms.topic: reference
 ms.assetid: 82b09e3e-bd38-4df1-9953-b0e9ee2565a3
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 36ad4a4206e26065dfad9ff2d970da11e4efaa66
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 6fd276adb02281ab488c31db75563552f8495008
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89038701"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89638358"
 ---
 # <a name="prndrvr"></a>prndrvr
 
@@ -30,7 +30,7 @@ cscript prndrvr {-a | -d | -l | -x | -?} [-m <model>] [-v {0|1|2|3}] [-e <enviro
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 |--|--|
 | -a | Installiert einen Treiber. |
 | -d | Löscht einen Treiber. |
@@ -45,7 +45,7 @@ cscript prndrvr {-a | -d | -l | -x | -?} [-m <model>] [-v {0|1|2|3}] [-e <enviro
 | -i `<filename.inf>` | Gibt den kompletten Pfad und den Dateinamen für den Treiber an, den Sie installieren möchten. Wenn Sie keinen Dateinamen angeben, verwendet das Skript eine der INF-Posteingangs Dateien im INF-Unterverzeichnis des Windows-Verzeichnisses.<p>Wenn der Treiber Pfad nicht angegeben ist, sucht das Skript in der driver.cab-Datei nach Treiberdateien. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Wenn die Informationen, die Sie angeben, Leerzeichen enthalten, verwenden Sie den Text in Anführungszeichen (z. b. "Computer Name").
 

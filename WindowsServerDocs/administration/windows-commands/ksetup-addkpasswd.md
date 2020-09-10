@@ -3,16 +3,16 @@ title: ksetup addkpasswd
 description: Referenz Artikel für den Befehl "Ksetup addkpasswd", mit dem ein Kerberos-Kennwort (kpasswd)-Server Adresse für einen Bereich hinzugefügt wird.
 ms.topic: reference
 ms.assetid: d3196995-1b38-48ff-ba08-911cfab77317
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 62123fc8a04006078c42894ee53f11346dec0e59
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 21cbbfeeedccc54dc81121502a858e9418bec07d
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89037948"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89639735"
 ---
 # <a name="ksetup-addkpasswd"></a>ksetup addkpasswd
 
@@ -26,12 +26,12 @@ ksetup /addkpasswd <realmname> [<kpasswdname>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `<realmname>` | Gibt den Großbuchstaben-DNS-Namen an, z. b. Corp. CONTOSO.com, und wird als Standardbereich bzw. **Bereich** angezeigt, wenn **Ksetup** ausgeführt wird. |
 | `<kpasswdname>` | Gibt den Kerberos-Kenn Wort Server an. Sie wird als voll qualifizierter Domänen Name, wie z. b. mitkdc.contoso.com, als Nichtbeachtung der Groß-/Kleinschreibung angegeben. Wenn der KDC-Name weggelassen wird, kann DNS verwendet werden, um nach KDCs zu suchen. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Wenn der Kerberos-Bereich, bei dem die Arbeitsstation authentifiziert wird, das Kerberos-Änderungs Kennwort-Protokoll unterstützt, können Sie einen Client Computer mit dem Windows-Betriebssystem für die Verwendung eines Kerberos-Kenn Wort Servers konfigurieren.
 

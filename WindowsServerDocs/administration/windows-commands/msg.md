@@ -3,16 +3,16 @@ title: mldg
 description: Referenz Artikel für den Befehl "msg", der eine Nachricht an einen Benutzer auf einem Remotedesktop-Sitzungshost Server sendet
 ms.topic: reference
 ms.assetid: 9501cf3e-568e-4982-9987-8daecc6c17ff
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: c2f26e12b10d0eb10197018d10d21f34f0da9cb5
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 34b51bb82fdac6b847d69b4d59a345777054839f
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89037648"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89639637"
 ---
 # <a name="msg"></a>mldg
 
@@ -31,7 +31,7 @@ msg {<username> | <sessionname> | <sessionID>| @<filename> | *} [/server:<server
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `<username>` | Gibt den Namen des Benutzers an, der die Nachricht empfangen soll. Wenn Sie keinen Benutzer oder eine Sitzung angeben, wird mit diesem Befehl eine Fehlermeldung angezeigt. Wenn eine Sitzung angegeben wird, muss Sie aktiv sein. |
 | `<sessionname>` | Gibt den Namen der Sitzung an, die die Nachricht empfangen soll. Wenn Sie keinen Benutzer oder eine Sitzung angeben, wird mit diesem Befehl eine Fehlermeldung angezeigt. Wenn eine Sitzung angegeben wird, muss Sie aktiv sein. |

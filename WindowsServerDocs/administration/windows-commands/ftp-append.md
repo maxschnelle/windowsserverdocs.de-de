@@ -3,16 +3,16 @@ title: ftp append
 description: Referenz Artikel für den Befehl FTP anfügen, bei dem eine lokale Datei mithilfe der aktuellen Dateityp Einstellung an eine Datei auf dem Remote Computer angefügt wird.
 ms.topic: reference
 ms.assetid: 7c1a133c-31dc-41a4-9eb9-258efd79804d
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 58f85a99eed60bffafaa71d9b0af1cc67462453b
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 42270b8f3633158e12d472a234fcf1904cee86de
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89037748"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89638574"
 ---
 # <a name="ftp-append"></a>ftp append
 
@@ -28,7 +28,7 @@ append <localfile> [remotefile]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `<localfile>` | Gibt die hinzu zufügende lokale Datei an. |
 | [remotefile] | Gibt die Datei auf dem Remote Computer an, der <localfile> hinzugefügt wird. Wenn Sie diesen Parameter nicht verwenden, `<localfile>` wird der Name anstelle des Remote Dateinamens verwendet. |

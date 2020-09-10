@@ -3,16 +3,16 @@ title: Get-ImageGroup
 description: Referenz Artikel zu Get-ImageGroup, der Informationen zu einer Abbild Gruppe und den darin abgerufenen Images abruft.
 ms.topic: reference
 ms.assetid: 0fc25aca-a529-44ee-bc8e-96bc8affb458
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 4ebf7ba1e207fddcef61952158d770fcfbd6df66
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: c135072be3ff8ccf0993ed72ddf8f079f1d88c05
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89029598"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89638092"
 ---
 # <a name="get-imagegroup"></a>Get-ImageGroup
 
@@ -25,7 +25,7 @@ Ruft Informationen zu einer Abbild Gruppe und den darin enthaltenen Bildern ab.
 wdsutil [Options] /Get-ImageGroumediaGroup:<Image group name> [/Server:<Server name>] [/detailed]
 ```
 ### <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |-------|--------|
 mediagroup:<Image group name>|Gibt den Namen der Abbildgruppe an.|
 |[/Server:<Server name>]|Gibt den Namen des Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.|

@@ -3,16 +3,16 @@ title: Kerberos Authentication Overview
 description: Windows Server-Sicherheit
 ms.topic: article
 ms.assetid: 646c6309-e865-4be2-b415-44dd125af5c2
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/12/2016
-ms.openlocfilehash: e56fd874e300e42b8ae1e5608a488123b7e37d29
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: e01085558750b601186e8134cd81c09a3e644414
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87943940"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89639785"
 ---
 # <a name="kerberos-authentication-overview"></a>Kerberos Authentication Overview
 
@@ -20,7 +20,7 @@ ms.locfileid: "87943940"
 
 Kerberos ist ein Authentifizierungsprotokoll, das zum Überprüfen der Identität eines Benutzers oder Hosts verwendet wird. Dieses Thema enthält Informationen zur Kerberos-Authentifizierung in Windows Server 2012 und Windows 8.
 
-## <a name="feature-description"></a><a name="BKMK_OVER"></a>Featurebeschreibung
+## <a name="feature-description"></a><a name="BKMK_OVER"></a>Funktionsbeschreibung
 Mit dem Betriebssystem Windows Server werden das Authentifizierungsprotokoll Kerberos, Version 5, sowie Erweiterungen für die Authentifizierung mit öffentlichen Schlüsseln, den Transport von Autorisierungsdaten und die Delegierung implementiert. Der Kerberos-Authentifizierungs Client wird als Security Support Provider \( SSP implementiert \) , und er kann über die Security Support Provider-Schnittstelle (SSPI) aufgerufen werden \( \) . Die anfängliche Benutzerauthentifizierung ist in die Winlogon-Architektur für einmaliges Anmelden integriert \- .
 
 Der Kerberos-Schlüsselverteilungscenter \( KDC \) ist in andere Windows Server-Sicherheitsdienste integriert, die auf dem Domänen Controller ausgeführt werden. Der KDC verwendet die Active Directory Domain Services Datenbank der Domäne als Sicherheits Konten Datenbank. AD DS ist für Kerberos-Standardimplementierungen innerhalb der Domäne oder Gesamtstruktur erforderlich.

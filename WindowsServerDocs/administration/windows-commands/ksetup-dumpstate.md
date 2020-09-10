@@ -3,16 +3,16 @@ title: ksetup dumpstate
 description: Referenz Artikel für den Ksetup-dumpstate-Befehl, der den aktuellen Status der Bereichs Einstellungen für alle auf dem Computer definierten Bereiche anzeigt.
 ms.topic: reference
 ms.assetid: 3ef2f7b8-97af-4f42-9542-cff324840637
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 8723eac23cc2444bf4c16a661b13cc8cef4798dc
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 5f9d16a094dd3d3bbcdd5e9cb740e1bca5203a6d
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89025524"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89639666"
 ---
 # <a name="ksetup-dumpstate"></a>ksetup dumpstate
 
@@ -24,7 +24,7 @@ Zeigt den aktuellen Status der Bereichs Einstellungen für alle Bereiche an, die
 ksetup /dumpstate
 ```
 
-### <a name="remarks"></a>Bemerkungen
+### <a name="remarks"></a>Hinweise
 
 - Die Ausgabe dieses Befehls enthält den Standardbereich (die Domäne, in der der Computer Mitglied ist) und alle Bereiche, die auf diesem Computer definiert sind. Folgendes ist für jeden Bereich enthalten:
 

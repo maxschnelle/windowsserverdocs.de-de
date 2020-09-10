@@ -3,16 +3,16 @@ title: Getting Started with Group Managed Service Accounts
 description: Windows Server-Sicherheit
 ms.topic: article
 ms.assetid: 7130ad73-9688-4f64-aca1-46a9187a46cf
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/12/2016
-ms.openlocfilehash: 979a6cf1e0b5e2d68c05f6285a9d745eabe41fa4
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 19da2b6ec2a7a3ca31c479388c087850c77d9c23
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87991521"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89638055"
 ---
 # <a name="getting-started-with-group-managed-service-accounts"></a>Getting Started with Group Managed Service Accounts
 
@@ -50,7 +50,7 @@ Wenn sich ein Clientcomputer mit einem auf einer Serverfarm gehosteten Dienst mi
 
 Dienste verfügen über die folgenden Prinzipale, aus denen ausgewählt werden kann, und jeder hat bestimmte Begrenzungen.
 
-|Principals|`Scope`|Unterstützte Dienste|Kennwortverwaltung|
+|Principals|Bereich|Unterstützte Dienste|Kennwortverwaltung|
 |-------|-----|-----------|------------|
 |Computerkonto von Windows-System|Domain|Auf einen mit einer Domäne verbundenen Server|Vom Computer verwaltet|
 |Computerkonto ohne Windows-System|Domain|Jeder mit einer Domäne verbundene Server|Keine|
@@ -210,7 +210,7 @@ Informationen zum Konfigurieren der Dienste in Windows Server 2012 finden Sie in
 
     Weitere Informationen finden Sie unter [Dienste](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc772408(v=ws.11)).
 
--   Tasks
+-   Aufgaben
 
     Weitere Informationen finden Sie unter [Aufgabenplanung (Übersicht)](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc721871(v=ws.11)).
 

@@ -2,16 +2,16 @@
 title: Verwalten unterschiedlicher Domänen in Active Directory-Verwaltungscenter
 description: Windows Server-Sicherheit
 ms.assetid: 166351c3-4076-48be-aa8f-797adf1e9d68
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/12/2016
-ms.openlocfilehash: 8ccd183e3450fd6c520790d9130d27b99b06a5ed
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: c793c30c6637a050d2b2cbb055ec289e3c3e8f20
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87971447"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89638038"
 ---
 # <a name="manage-different-domains-in-active-directory-administrative-center"></a>Verwalten unterschiedlicher Domänen in Active Directory-Verwaltungscenter
 

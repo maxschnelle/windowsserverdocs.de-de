@@ -3,16 +3,16 @@ title: setlocal
 description: Referenz Artikel für SETLOCAL, mit dem die Lokalisierung von Umgebungsvariablen in einer Batchdatei gestartet wird.
 ms.topic: reference
 ms.assetid: e4e4b6d3-3f1a-4851-a782-25ee2470e16e
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: b82b6027dfe10817a78708c426f934d6543da345
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 807bcb1d5694617f9632e88a4bc200a714048cc9
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89023404"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89639470"
 ---
 # <a name="setlocal"></a>setlocal
 
@@ -28,7 +28,7 @@ setlocal [enableextensions | disableextensions] [enabledelayedexpansion | disabl
 
 ## <a name="arguments"></a>Argumente
 
-|Argument|Beschreibung|
+|Argument|BESCHREIBUNG|
 |--------|-----------|
 |ENABLEEXTENSIONS|Aktiviert die Befehls Erweiterungen, bis der entsprechende **endlocal** -Befehl gefunden wird, unabhängig von der Einstellung, bevor der Befehl " **setlocal** " ausgeführt wurde.|
 |DISABLEEXTENSIONS|Deaktiviert die Befehls Erweiterungen, bis der entsprechende **endlocal** -Befehl gefunden wird, unabhängig von der Einstellung, bevor der Befehl " **setlocal** " ausgeführt wurde.|
@@ -36,7 +36,7 @@ setlocal [enableextensions | disableextensions] [enabledelayedexpansion | disabl
 |disabledelayedexpansion|Deaktiviert die Erweiterung der verzögerten Umgebungsvariablen, bis der entsprechende **endlocal** -Befehl gefunden wird, unabhängig von der Einstellung, bevor der Befehl " **setlocal** " ausgeführt wurde.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 
 -   Verwenden von **setlocal**
 

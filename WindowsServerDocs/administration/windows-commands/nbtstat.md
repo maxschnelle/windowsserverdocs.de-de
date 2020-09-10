@@ -3,16 +3,16 @@ title: nbtstat
 description: Referenz Artikel für den nbtstat-Befehl, der NetBT-Protokoll Statistiken (NetBIOS over TCP/IP), NetBIOS-Namens Tabellen sowohl für den lokalen Computer als auch für die Remote Computer und den NetBIOS-Namen Cache anzeigt.
 ms.topic: reference
 ms.assetid: 1d2ea99e-72f1-471f-9525-d2c49bf3be82
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 273aaadcf537864512d6dc7aedff0c9872c3cd05
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: f56068baab8832cb25f62e43f550fdcf7c4e1092
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89037798"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89637971"
 ---
 # <a name="nbtstat"></a>nbtstat
 
@@ -30,7 +30,7 @@ nbtstat [/a <remotename>] [/A <IPaddress>] [/c] [/n] [/r] [/R] [/RR] [/s] [/S] [
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | /a `<remotename>` | Zeigt die NetBIOS-Namen Tabelle eines Remote Computers an, wobei *Remote Name* der NetBIOS-Computername des Remote Computers ist. Die NetBIOS-Namens Tabelle ist die Liste der NetBIOS-Namen, die NetBIOS-Anwendungen entsprechen, die auf diesem Computer ausgeführt werden. |
 | /A `<IPaddress>` | Zeigt die NetBIOS-Namen Tabelle eines Remote Computers an, der durch die IP-Adresse (in punktierter Dezimal Schreibweise) des Remote Computers angegeben wird. |
@@ -44,7 +44,7 @@ nbtstat [/a <remotename>] [/A <IPaddress>] [/c] [/n] [/r] [/R] [/RR] [/s] [/S] [
 | `<interval>` | Zeigt die ausgewählte Statistik an und hält die Anzahl der Sekunden an, die im *Intervall* zwischen den einzelnen anzeigen angegeben sind. Drücken Sie STRG + C, um die Anzeige von Statistiken zu verhindern. Wenn dieser Parameter ausgelassen wird, druckt **nbtstat** die aktuellen Konfigurationsinformationen nur einmal. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Bei den **nbtstat** -Befehlszeilen Parametern wird die Groß-/Kleinschreibung beachtet.
 
@@ -59,13 +59,13 @@ nbtstat [/a <remotename>] [/A <IPaddress>] [/c] [/n] [/r] [/R] [/RR] [/s] [/S] [
     | Lokaler Name | Der lokale NetBIOS-Name, der der Verbindung zugeordnet ist. |
     | Remote Host | Der Name oder die IP-Adresse, die dem Remote Computer zugeordnet ist. |
     | `<03>` | Das letzte Byte eines NetBIOS-Namens, das in Hexadezimal konvertiert wurde. Jeder NetBIOS-Name hat eine Länge von 16 Zeichen. Das letzte Byte hat häufig eine besondere Bedeutung, da derselbe Name mehrmals auf einem Computer vorhanden sein kann, der sich nur im letzten Byte unterscheidet. Beispielsweise `<20>` ist ein Leerzeichen im ASCII-Text. |
-    | type | Der Typ des Namens. Ein Name kann entweder ein eindeutiger Name oder ein Gruppenname sein. |
+    | Typ | Der Typ des Namens. Ein Name kann entweder ein eindeutiger Name oder ein Gruppenname sein. |
     | Status | Gibt an, ob der NetBIOS-Dienst auf dem Remote Computer ausgeführt wird (registriert ist) oder ob ein doppelter Computername denselben Dienst registriert hat (Konflikt). |
     | State | Der Status von NetBIOS-Verbindungen. |
 
 - Folgende NetBIOS-Verbindungszustände sind möglich:
 
-    | State | Beschreibung |
+    | State | BESCHREIBUNG |
     | ------- | ----------- |
     | Verbunden | Eine Sitzung wurde eingerichtet. |
     | Raum | Dieser Endpunkt ist für eine eingehende Verbindung verfügbar. |

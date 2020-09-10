@@ -3,16 +3,16 @@ title: klist
 description: Referenz Artikel für den klist-Befehl, der eine Liste der derzeit zwischengespeicherten Kerberos-Tickets anzeigt.
 ms.topic: reference
 ms.assetid: 4689b4a9-1740-47dd-9240-02105efca428
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: d5284feae5da9c8c7fcdab90dd34ce7855128d5f
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: abb088230e37eb2806380ec65e12bd3b5017e5a2
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89037718"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89639776"
 ---
 # <a name="klist"></a>klist
 
@@ -29,7 +29,7 @@ klist [-lh <logonID.highpart>] [-li <logonID.lowpart>] tickets | tgt | purge | s
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | -LH | Gibt den hohen Teil des lokalen eindeutigen Bezeichners (LUID) des Benutzers an, ausgedrückt als hexadezimal. Wenn weder **– LH** noch **– Li** vorhanden ist, wird für den Befehl standardmäßig die LUID des aktuell angemeldeten Benutzers verwendet. |
 | -Li | Gibt den unteren Teil des lokalen eindeutigen Bezeichners (LUID) des Benutzers an, ausgedrückt als hexadezimal. Wenn weder **– LH** noch **– Li** vorhanden ist, wird für den Befehl standardmäßig die LUID des aktuell angemeldeten Benutzers verwendet. |
@@ -45,7 +45,7 @@ klist [-lh <logonID.highpart>] [-li <logonID.lowpart>] tickets | tgt | purge | s
 | kdcoptions | Zeigt die in RFC 4120 angegebenen Optionen für das Schlüsselverteilungscenter (KDC) an. |
 | /? | Zeigt die Hilfe für diesen Befehl an. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Wenn keine Parameter angegeben werden, ruft **klist** alle Tickets für den aktuell angemeldeten Benutzer ab.
 

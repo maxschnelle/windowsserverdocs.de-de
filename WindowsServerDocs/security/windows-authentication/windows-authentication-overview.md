@@ -3,16 +3,16 @@ title: 'Windows-Authentifizierung: Übersicht'
 description: Windows Server-Sicherheit
 ms.topic: article
 ms.assetid: 485a0774-0785-457f-a964-0e9403c12bb1
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/12/2016
-ms.openlocfilehash: bb35516e16e4b7d27ab2a5b68c61fce69a0e7670
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 4a2b5e6b48a56a1a2148df262d2785640ac6054d
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87989965"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89638697"
 ---
 # <a name="windows-authentication-overview"></a>Windows-Authentifizierung: Übersicht
 
@@ -50,7 +50,7 @@ Weitere Informationen finden Sie unter [Technische Übersicht zur Windows-Authen
 ## <a name="practical-applications"></a>Praktische Anwendung
 Mithilfe der Windows-Authentifizierung wird überprüft, ob die Informationen von einer vertrauenswürdigen Quelle stammen, ungeachtet dessen, ob es sich um eine Person oder ein Computerobjekt, beispielsweise einen anderen Computer, handelt. Windows stellt viele verschiedene Methoden bereit, um dies zu erreichen. Im Folgenden werden diese Methoden beschrieben.
 
-|An...|Feature|BESCHREIBUNG|
+|An...|Funktion|BESCHREIBUNG|
 |----|------|--------|
 |Authentifizieren innerhalb einer Active Directory-Domäne|Kerberos|Die Microsoft Windows &nbsp; Server-Betriebssysteme implementieren das Kerberos Version 5-Authentifizierungsprotokoll und Erweiterungen für die Authentifizierung mit öffentlichem Schlüssel. Der Kerberos-Authentifizierungs Client wird als Security Support Provider \( SSP implementiert \) und kann über die Security Support Provider-Schnittstelle (SSPI) aufgerufen werden \( \) . Die anfängliche Benutzerauthentifizierung ist in die Winlogon-Architektur für einmaliges Anmelden integriert \- . Der Kerberos-Schlüsselverteilungscenter \( KDC \) ist in andere Windows Server-Sicherheitsdienste integriert, die auf dem Domänen Controller ausgeführt werden. Der KDC verwendet die Active Directory Verzeichnisdienst-Datenbank der Domäne als Sicherheits Konto Datenbank. Active Directory ist für Standardimplementierungen von Kerberos erforderlich.<p>Weitere Ressourcen finden Sie unter [Kerberos-Authentifizierung: Übersicht](../kerberos/kerberos-authentication-overview.md).|
 |Sichere Authentifizierung im Web|TLS- \/ SSL wie im SChannel Security Support Provider implementiert|Die Transport Layer Security \( TLS \) -Protokoll Versionen 1,0, 1,1 und 1,2, Secure Sockets Layer \( SSL \) -Protokoll, Versionen 2,0 und 3,0, Datagram Transport Layer Security Protokollversion 1,0 und das private Communications Transport \( PCT- \) Protokoll, Version 1,0, basieren auf Kryptografie mit öffentlichem Schlüssel. Die \( Authentifizierungsprotokoll Suite des Secure Channel SChannel- \) Anbieters stellt diese Protokolle bereit. Alle Schannel-Protokolle verwenden ein Client- und Servermodell.<p>Weitere Ressourcen finden Sie unter [TLS-SSL &#40;Schannel SSP&#41; Übersicht](../tls/tls-ssl-schannel-ssp-overview.md).|

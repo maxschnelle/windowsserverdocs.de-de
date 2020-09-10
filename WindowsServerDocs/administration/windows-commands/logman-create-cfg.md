@@ -3,16 +3,16 @@ title: logman create cfg
 description: Referenz Artikel für den Befehl logman Create cfg, mit dem ein Konfigurationsdaten Sammler erstellt wird.
 ms.topic: reference
 ms.assetid: bfc87093-3ff5-4e19-aa93-d185fb8e2239
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: fcdd724896b48c40d88c79b5f2081cadf05acf80
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: b102866fce3f529ac6a409d41e88c0c38569405f
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89034988"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89639525"
 ---
 # <a name="logman-create-cfg"></a>logman create cfg
 
@@ -28,7 +28,7 @@ logman create cfg <[-n] <name>> [options]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | -s `<computer name>` | Führt den Befehl auf dem angegebenen Remote Computer aus. |
 | -config `<value>` | Gibt die Einstellungsdatei an, die Befehlsoptionen enthält. |
@@ -54,7 +54,7 @@ logman create cfg <[-n] <name>> [options]
 | -FTC `<path [path [...]]>` | Gibt den vollständigen Pfad zu den Dateien an, die gesammelt werden sollen. |
 | /? | Zeigt die kontextbezogene Hilfe an. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Wenn [-] aufgeführt ist, wird durch das Hinzufügen eines zusätzlichen Bindestrichs (-) die Option negiert.
 

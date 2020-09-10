@@ -3,16 +3,16 @@ title: print
 description: Referenz Artikel für den Print-Befehl, der eine Textdatei an einen Drucker sendet.
 ms.topic: reference
 ms.assetid: aa2325d5-a993-4ed3-b996-255165452db8
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: ecd679a3891a073bd73c0526c395dc67c2cf0933
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 7155056219fd080674885146f62a5aa4a033366d
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89035218"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89638374"
 ---
 # <a name="print"></a>print
 
@@ -29,7 +29,7 @@ print [/d:<printername>] [<drive>:][<path>]<filename>[ ...]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 |--|--|
 | /d`<printername>` | Gibt den Drucker an, den Sie den Auftrag drucken möchten. Geben Sie den Port auf dem Computer an, auf dem der Drucker angeschlossen ist, um auf einem lokal verbundenen Drucker zu drucken. Gültige Werte für parallele Ports sind **LPT1**, **LPT2**und **LPT3**. Gültige Werte für serielle Ports sind **COM1**, **COM2**, **COM3**und **COM4**. Sie können auch einen Netzwerkdrucker angeben, indem Sie den Warteschlangen Namen ( `\\server_name\printer_name` ) verwenden. Wenn Sie keinen Drucker angeben, wird der Druckauftrag standardmäßig an **LPT1** gesendet. |
 | `<drive>`: | Gibt das logische oder physische Laufwerk an, auf dem sich die Datei befindet, die Sie drucken möchten. Dieser Parameter ist nicht erforderlich, wenn sich die Datei, die Sie drucken möchten, auf dem aktuellen Laufwerk befindet. |

@@ -3,16 +3,16 @@ title: ksetup changepassword
 description: Referenz Artikel für den Befehl "Ksetup ChangePassword", bei dem das Kennwort für den Schlüsselverteilungscenter (KDC)-Kennwort (kpasswd) verwendet wird, um das Kennwort des angemeldeten Benutzers zu ändern.
 ms.topic: reference
 ms.assetid: 283078e7-a88f-4875-90e6-f8605e6b7ea7
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 89a01291d1f766f5d3235f0029ed84198531116a
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: ff88136c51b9790867c76d54467996e9305cbc93
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89037938"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89639717"
 ---
 # <a name="ksetup-changepassword"></a>ksetup changepassword
 
@@ -29,12 +29,12 @@ ksetup /changepassword <oldpassword> <newpassword>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `<oldpassword>` | Gibt das vorhandene Kennwort des angemeldeten Benutzers an. |
 | `<newpassword>` | Gibt das neue Kennwort des angemeldeten Benutzers an. Dieses Kennwort muss alle Kenn Wort Anforderungen erfüllen, die auf diesem Computer festgelegt sind. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Wenn das Benutzerkonto in der aktuellen Domäne nicht gefunden wird, werden Sie vom System aufgefordert, den Domänen Namen anzugeben, in dem sich das Benutzerkonto befindet.
 

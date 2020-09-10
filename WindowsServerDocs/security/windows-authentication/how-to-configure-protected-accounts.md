@@ -1,16 +1,16 @@
 ---
 title: Konfigurieren geschützter Benutzerkonten
 ms.topic: article
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/12/2016
-ms.openlocfilehash: 319f6b167ff16ea53250c549bd6f8d94b5c8f37b
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: f50e5494210c349a1438570140d6733dce17dcb9
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87991832"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89639040"
 ---
 # <a name="how-to-configure-protected-accounts"></a>Konfigurieren geschützter Benutzerkonten
 
@@ -20,7 +20,7 @@ Bei Pass-the-hash (PtH)-Angriffen können Angreifer den zugrunde liegenden NTLM-
 
 -   [Geschützte Benutzer](#protected-users)
 
--   [Authentifizierungs Richtlinien](#authentication-policies)
+-   [Authentifizierungsrichtlinien](#authentication-policies)
 
 -   [Authentifizierungs Richtlinien Silos](#authentication-policy-silos)
 
@@ -167,7 +167,7 @@ Sie können Dienstticket-Anfragen über den Ticket-Granting Service (TGS) einsch
 
 ### <a name="requirements-for-using-authentication-policies"></a>Anforderungen für die Verwendung von Authentifizierungsrichtlinien
 
-|Richtlinie|Anforderungen|
+|Policy|Requirements (Anforderungen)|
 |-----|--------|
 |Benutzerdefinierte TGT-Lebensdauer| Konto Domänen auf Domänen Funktionsebene auf Windows Server 2012 R2|
 |Benutzeranmeldung beschränken|-Windows Server 2012 R2 Domänen Funktionsebene Konto Domänen mit dynamischer Access Control Unterstützung<br />-Windows 8-, Windows 8.1-, Windows Server 2012-oder Windows Server 2012 R2-Geräte mit dynamischer Access Control Unterstützung|

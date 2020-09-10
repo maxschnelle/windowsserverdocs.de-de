@@ -3,16 +3,16 @@ title: logman import and logman export
 description: Referenz Artikel zu logman Import und logman Export, der einen Datensammler Satz aus einer XML-Datei importiert oder einen Datensammler Satz in eine XML-Datei exportiert.
 ms.topic: reference
 ms.assetid: c258daba-fb93-47c0-a53b-2fe83ed2c743
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 5fb750b2ba514c28b05b7b7817994aef3b83eb62
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: eeb0c30011b70a6fa72bffca18b16ec11e27b958
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89023794"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89639985"
 ---
 # <a name="logman-import-and-logman-export"></a>logman import and logman export
 
@@ -29,7 +29,7 @@ logman export <[-n] <name> <-xml <name> [options]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | -s `<computer name>` | Führen Sie den Befehl auf dem angegebenen Remote Computer aus. |
 | -config `<value>` | Gibt die Einstellungsdatei an, die Befehlsoptionen enthält. |

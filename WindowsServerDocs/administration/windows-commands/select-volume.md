@@ -3,16 +3,16 @@ title: select volume
 description: Referenz Artikel für * * * *-
 ms.topic: reference
 ms.assetid: 5d70d776-80ad-4f20-8288-a7997fb1df28
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: d2737a25eb9095b70fd6939a4f38b751868323f3
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 14162cc594011352ea43c6732bdb3365ea6c5fa4
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89024984"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89639018"
 ---
 # <a name="select-volume"></a>select volume
 
@@ -30,12 +30,12 @@ select volume={<n>|<d>}
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter |                                                                               Beschreibung                                                                                |
+| Parameter |                                                                               BESCHREIBUNG                                                                                |
 |-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |    <n>    | Die Nummer des Volumes, das den Fokus erhalten soll. Sie können die Zahlen für alle Volumes auf dem aktuell ausgewählten Datenträger anzeigen, indem Sie den Befehl **Volume auflisten** in DiskPart verwenden. |
 |    <d>    |                                                 Der Laufwerk Buchstabe oder der einstellungspunktpfad des Volumes, das den Fokus erhalten soll.                                                 |
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 
 -   Wenn kein Volume angegeben ist, zeigt dieser Befehl das Volume an, das derzeit den Fokus auf dem ausgewählten Datenträger hat.
 

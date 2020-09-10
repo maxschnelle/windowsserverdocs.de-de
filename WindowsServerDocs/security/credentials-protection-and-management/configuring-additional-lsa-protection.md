@@ -3,16 +3,16 @@ title: Konfigurieren von zusätzlichem LSA-Schutz
 description: Windows Server-Sicherheit
 ms.topic: article
 ms.assetid: 038e7c2b-c032-491f-8727-6f3f01116ef9
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/12/2016
-ms.openlocfilehash: bfb40249dffa08e1c05aa1dc7cbc26fad6f7885d
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 54bc100c935df2ff0cc7086b258fb395458f259f
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87995891"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89638082"
 ---
 # <a name="configuring-additional-lsa-protection"></a>Konfigurieren von zusätzlichem LSA-Schutz
 
@@ -190,7 +190,7 @@ Wenn Sie ermitteln möchten, ob LSA beim Starten von Windows im geschützten Mod
 
 -   12: "LSASS.exe" wurde als geschützter Prozess mit folgender Stufe gestartet: 4
 
-## <a name="additional-resources"></a>Weitere Ressourcen
+## <a name="additional-resources"></a>Zusätzliche Ressourcen
 [Schutz und Verwaltung von Anmeldeinformationen](credentials-protection-and-management.md)
 
 [Dateisignierdiensts für LSA](https://go.microsoft.com/fwlink/?LinkId=392590)

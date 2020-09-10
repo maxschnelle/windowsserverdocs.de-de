@@ -3,16 +3,16 @@ title: pushprinterconnections
 description: Referenz Artikel zum pushprconnections-Befehl, der die bereitgestellten Drucker Verbindungseinstellungen aus Gruppenrichtlinie liest und Drucker Verbindungen bei Bedarf bereitstellt bzw. entfernt.
 ms.topic: reference
 ms.assetid: c30afb97-b149-478f-a4b9-2cbc25361818
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 41ed8af3b4d70058887de10215f36e1aa530e912
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: ef1cfc110d446da461251b9c7e28a4595edee291
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89032370"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89639931"
 ---
 # <a name="pushprinterconnections"></a>pushprinterconnections
 
@@ -29,7 +29,7 @@ pushprinterconnections <-log> <-?>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 |--|--|
 | < Protokoll> | Schreibt eine pro-Benutzer-Debug-Protokolldatei in *% Temp*oder schreibt ein pro-Computer-Debugprotokoll in " *%WINDIR%\Temp*". |
 | <-? > | Zeigt die Hilfe an der Eingabeaufforderung an. |

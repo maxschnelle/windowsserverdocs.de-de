@@ -3,16 +3,16 @@ title: route
 description: Referenz Artikel für den Befehl Route, der Einträge in der lokalen IP-Routing Tabelle ändert und anzeigt.
 ms.topic: reference
 ms.assetid: afcd666c-0cef-47c2-9bcc-02d202b983b3
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 07/11/2018
-ms.openlocfilehash: a15e9190ac135a49cfacfd259a7058765cafa8a4
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 3c38c1946c49318fc9aae901758eef412a8a586a
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89033758"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89639840"
 ---
 # <a name="route"></a>route
 
@@ -31,7 +31,7 @@ route [/f] [/p] [<command> [<destination>] [mask <netmask>] [<gateway>] [metric 
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 |--|--|
 | /f | Löscht die Routing Tabelle aller Einträge, die keine Host Routen sind (Routen mit einer Netzmaske von 255.255.255.255), der Loopback-Netzwerk Route (Routen mit dem Ziel 127.0.0.0 und einer Netzmaske von 255.0.0.0) oder einer Multicast Route (Routen mit dem Ziel 224.0.0.0 und einer Netzmaske von 240.0.0.0). Wenn dies in Verbindung mit einem der Befehle (z. b. "hinzufügen", "ändern" oder "Löschen") verwendet wird, wird die Tabelle vor dem Ausführen des Befehls gelöscht. |
 | /p | Bei Verwendung mit dem Add-Befehl wird die angegebene Route der Registrierung hinzugefügt und zum Initialisieren der IP-Routing Tabelle verwendet, wenn das TCP/IP-Protokoll gestartet wird. Standardmäßig werden hinzugefügte Routen nicht beibehalten, wenn das TCP/IP-Protokoll gestartet wird. Bei Verwendung mit dem Print-Befehl wird die Liste der persistenten Routen angezeigt. Dieser Parameter wird für alle anderen Befehle ignoriert. Persistente Routen werden am Registrierungs Speicherort **HKEY_LOCAL_MACHINE \system\currentcontrolset\services\tcpip\parameters\persistentroutes**gespeichert. |
@@ -43,7 +43,7 @@ route [/f] [/p] [<command> [<destination>] [mask <netmask>] [<gateway>] [metric 
 | sei `<interface>` | Gibt den Schnittstellen Index für die Schnittstelle an, über die das Ziel erreichbar ist. Eine Liste der Schnittstellen und der zugehörigen Schnittstellen Indizes finden Sie in der Anzeige des Befehls Route Print. Sie können für den Schnittstellen Index entweder Dezimal-oder hexadezimale Werte verwenden. Stellen Sie bei hexadezimalen Werten der hexadezimalen Zahl 0x voran. Wenn der if-Parameter weggelassen wird, wird die-Schnittstelle von der Gatewayadresse bestimmt. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Große Werte in der Spalte **Metrik** der Routing Tabelle sind das Ergebnis, dass TCP/IP die Metrik für Routen in der Routing Tabelle basierend auf der Konfiguration von IP-Adresse, Subnetzmaske und Standard Gateway für jede LAN-Schnittstelle automatisch ermitteln kann. Die automatische Bestimmung der Schnittstellen Metrik, die standardmäßig aktiviert ist, bestimmt die Geschwindigkeit der einzelnen Schnittstellen und passt die Metriken der Routen für jede Schnittstelle an, sodass mit der schnellsten Schnittstelle die Routen mit der niedrigsten Metrik erstellt werden. Deaktivieren Sie zum Entfernen der großen Metriken die automatische Ermittlung der Schnittstellen Metrik aus den erweiterten Eigenschaften des TCP/IP-Protokolls für jede LAN-Verbindung.
 

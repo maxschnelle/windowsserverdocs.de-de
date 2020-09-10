@@ -3,16 +3,16 @@ title: set
 description: Referenz Artikel für Set, mit dem cmd.exe-Umgebungsvariablen angezeigt, festgelegt oder entfernt werden.
 ms.topic: reference
 ms.assetid: 5fdd60d6-addf-4574-8c92-8aa53fa73d76
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 30240d4ae286c472cfbce932201435097df33ddb
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 70ce8bf85bbafc68e4ffe09170d9e21738315560
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89023434"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89639487"
 ---
 # <a name="set"></a>set
 
@@ -28,17 +28,17 @@ set /a <Variable>=<Expression>
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
 |\<Variable>|Gibt die Umgebungsvariable an, die festgelegt oder geändert werden soll.|
 |\<String>|Gibt die Zeichenfolge an, die der angegebenen Umgebungsvariablen zugeordnet werden soll.|
 |/p|Legt den Wert der *Variablen* auf eine Zeile der Eingabe fest, die vom Benutzer eingegeben wurde.|
-|\<PromptString>|Optional. Gibt eine Meldung an, mit der der Benutzer zur Eingabe aufgefordert wird. Dieser Parameter wird mit der Befehlszeilenoption **/p** verwendet.|
+|\<PromptString>|(Optional) Gibt eine Meldung an, mit der der Benutzer zur Eingabe aufgefordert wird. Dieser Parameter wird mit der Befehlszeilenoption **/p** verwendet.|
 |/a|Legt die *Zeichenfolge* auf einen numerischen Ausdruck fest, der ausgewertet wird.|
 |\<Expression>|Gibt einen numerischen Ausdruck an. Informationen zu gültigen Operatoren, die in *Ausdrücken*verwendet werden können, finden Sie unter Hinweise.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 
 - Verwenden von **Set** mit aktivierten Befehls Erweiterungen
 

@@ -3,16 +3,16 @@ title: logman update api
 description: Referenz Artikel für den Befehl logman Update API, mit dem die Eigenschaften eines vorhandenen API-Überwachungsdaten Sammlers aktualisiert werden.
 ms.topic: reference
 ms.assetid: 6f322e52-0f9f-42b1-bd64-8b8f8fe086fc
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 9b95c69b4e4b334155c1a22327b1acb8f756c7cd
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 016a6728d032393990e1ff1fd0cb5e4e9a20df94
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89035338"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89639945"
 ---
 # <a name="logman-update-api"></a>logman update api
 
@@ -28,7 +28,7 @@ logman update api <[-n] <name>> [options]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | -s `<computer name>` | Führt den Befehl auf dem angegebenen Remote Computer aus. |
 | -config `<value>` | Gibt die Einstellungsdatei an, die Befehlsoptionen enthält. |
@@ -57,7 +57,7 @@ logman update api <[-n] <name>> [options]
 | -exe `<value>` | Gibt den vollständigen Pfad einer ausführbaren Datei für die API-Ablauf Verfolgung an |
 | /? | Zeigt die kontextbezogene Hilfe an. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Wenn [-] aufgeführt ist, wird durch das Hinzufügen eines zusätzlichen Bindestrichs (-) die Option negiert.
 

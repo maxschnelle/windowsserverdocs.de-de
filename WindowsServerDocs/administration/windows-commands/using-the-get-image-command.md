@@ -3,16 +3,16 @@ title: Get-Image
 description: Referenz Artikel zu Get-Image, das Informationen zu einem Image abruft.
 ms.topic: reference
 ms.assetid: 0ecaa999-72ad-4191-adb5-a418de42a001
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 9c3e8a25725f939c6a7a7692d192b63bac9ffd41
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: a39741cb7b728b83e965fe59760973bac8d573d7
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89029618"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89638178"
 ---
 # <a name="get-image"></a>Get-Image
 
@@ -30,7 +30,7 @@ für Installations Images:
 wdsutil [Options] /Get-Imagmedia:<Image name> [/Server:<Server name>mediatype:InstallmediaGroup:<Image group name>] [/Filename:<File name>]
 ```
 ### <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |-------|--------|
 Medien<Image name>|Gibt den Namen des Images an.|
 |[/Server:<Server name>]|Gibt den Namen des Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.|

@@ -3,16 +3,16 @@ title: logman
 description: Referenz Artikel für den Befehl logman, der Ereignis Ablauf Verfolgungs Sitzung und Leistungs Protokolle erstellt und verwaltet und viele Funktionen des System Monitors von der Befehlszeile aus unterstützt.
 ms.topic: reference
 ms.assetid: 574a5203-5b3b-4759-a678-f26d00dde447
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: b155e3cca0b9f5e35c1c817cfee4e96ca79b6610
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: ac3e541436ca6f3b0e9d7c0dc03154ffefdfda0d
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89030548"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89639511"
 ---
 # <a name="logman"></a>logman
 
@@ -28,7 +28,7 @@ logman [create | query | start | stop | delete| update | import | export | /?] [
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | [logman create](logman-create.md) | Erstellt einen Counter, eine Ablauf Verfolgung, einen Konfigurationsdaten Sammler oder eine API. |
 | [logman query](logman-query.md) | Fragt Datensammler Eigenschaften ab. |
