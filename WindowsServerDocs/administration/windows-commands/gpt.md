@@ -3,16 +3,16 @@ title: gpt
 description: Referenz Artikel für den GPT-Befehl, der die GPT-Attribute der Partition mit dem Fokus zuweist.
 ms.topic: reference
 ms.assetid: 1d6f9029-807f-4420-a336-36669b5361bc
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: ce16138ec968451b68f7324cefd6097f2351a274
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 72260c00830d2d85fbe4324203dcfefe90154c7e
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89035518"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89634723"
 ---
 # <a name="gpt"></a>gpt
 
@@ -33,11 +33,11 @@ gpt attributes=<n>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | Attribute =`<n>` | Gibt den Wert für das Attribut an, das Sie auf die Partition mit dem Fokus anwenden möchten. Das GPT-Attribut Feld ist ein 64-Bit-Feld, das zwei Unterfelder enthält. Das höhere Feld wird nur im Kontext der Partitions-ID interpretiert, während das untere Feld allen Partitions-IDs gemeinsam ist. Akzeptierte Werte sind:<ul><li>**0x0000000000000001** : gibt an, dass die Partition für die ordnungsgemäße Funktion des Computers erforderlich ist.</li><li>**0x8000000000000000** : gibt an, dass die Partition standardmäßig keinen Laufwerk Buchstaben erhält, wenn der Datenträger auf einen anderen Computer verschoben wird oder wenn der Datenträger zum ersten Mal von einem Computer angezeigt wird.</li><li>**0x4000000000000000** : Blendet das Volume einer Partition aus, sodass es vom Mount Manager nicht erkannt wird.</li><li>**0x2000000000000000** : gibt an, dass die Partition eine Schatten Kopie einer anderen Partition ist.</li><li>**0x1000000000000000** : gibt an, dass die Partition schreibgeschützt ist. Dieses Attribut verhindert, dass das Volume in geschrieben wird.</li></ul><p>Weitere Informationen zu diesen Attributen finden Sie im Abschnitt "Attribute" unter [create_PARTITION_PARAMETERS Struktur](/windows/win32/api/vds/ns-vds-create_partition_parameters). |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Die EFI-System Partition enthält nur die Binärdateien, die zum Starten des Betriebssystems erforderlich sind. Dies vereinfacht das Platzieren von OEM-Binärdateien oder Binärdateien, die für ein betriebssystemspezifisch sind, auf anderen Partitionen.
 

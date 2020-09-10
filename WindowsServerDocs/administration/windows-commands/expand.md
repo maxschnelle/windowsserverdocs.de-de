@@ -3,16 +3,16 @@ title: Erweitern
 description: Referenz Artikel für den Expand-Befehl, mit dem eine oder mehrere komprimierte Dateien erweitert werden.
 ms.topic: reference
 ms.assetid: 66de0488-a0c4-40c2-9b03-e40c107ba343
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 53443eb5aa593c43345dee4014efac0bd2e7be4b
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: b64303d2a7cd38c86d8f5c99d319e46f837f2970
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89036708"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89635889"
 ---
 # <a name="expand"></a>Erweitern
 
@@ -34,7 +34,7 @@ expand <source>.cab /f:<files> <destination>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | /r | Benennt Erweiterte Dateien um. |
 | source | Gibt die Dateien an, die erweitert werden sollen. Die *Quelle* kann aus einem Laufwerk Buchstaben und einem Doppelpunkt, einem Verzeichnisnamen, einem Dateinamen oder einer Kombination aus diesen bestehen. Sie können Platzhalter (**&#42;** oder **?**) verwenden. |

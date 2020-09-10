@@ -3,16 +3,16 @@ title: Dfsutil
 description: Referenz Artikel für den Dfsutil-Befehl, der DFS-Namespaces, Server und Clients verwaltet.
 ms.topic: reference
 ms.assetid: ef5093a4-0d24-4b21-9d04-59933ad98e2c
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: a622a9647b438ed2748ed42b28395bebe361f50b
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 9fb3883403dd0f4a88b612655247c4f4a2df7de7
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89028368"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89635043"
 ---
 # <a name="dfsutil"></a>Dfsutil
 
@@ -37,7 +37,7 @@ Das [DFSN](/powershell/module/dfsn/?view=win10-ps) -PowerShell-Modul bietet ents
 
 Die folgende Funktionalität ist nur als Dfsutil-Parameter verfügbar:
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | Client | Zeigt Client Informationen oder Registrierungsschlüssel an oder ändert Sie. |
 | Diag | Ausführen von Diagnosen oder Anzeigen von dfsdirs/dfspath. |

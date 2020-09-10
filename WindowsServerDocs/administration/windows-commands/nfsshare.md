@@ -3,16 +3,16 @@ title: nfsshare
 description: Referenz Artikel für den nfsshare-Befehl, der NFS-Freigaben (Network File System) steuert.
 ms.topic: reference
 ms.assetid: 437a2615-335a-442f-9713-d50d5f3983a3
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 7fb0531f571e204877f6f905a60a08ef35f6ea58
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: f41c9e4dfd14219ceac9c42741d372beb8defb9b
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89023614"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89635815"
 ---
 # <a name="nfsshare"></a>nfsshare
 
@@ -27,7 +27,7 @@ nfsshare {<sharename> | <drive>:<path> | * } /delete
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | -o anon =`{yes|no}` | Gibt an, ob anonyme (nicht zugeordnete) Benutzer auf das Freigabe Verzeichnis zugreifen können. |
 | -o RW =`[<host>[:<host>]...]` | Bietet Lese-/Schreibzugriff auf das freigegebene Verzeichnis durch die Hosts oder Client Gruppen, die vom *Host*angegeben werden. Host-und Gruppennamen müssen mit einem Doppelpunkt (**:**) getrennt werden. Wenn der *Host* nicht angegeben wird, erhalten alle Hosts und Client Gruppen (außer den mit der Option **RO** angegebenen) Lese-/Schreibzugriff. Wenn weder die **RO** -noch die **RW** -Option festgelegt ist, haben alle Clients Lese-/Schreibzugriff auf das freigegebene Verzeichnis. |
@@ -39,7 +39,7 @@ nfsshare {<sharename> | <drive>:<path> | * } /delete
 | /delete | Wenn *ShareName* oder `<drive>:<path>` angegeben wird, löscht dieser Parameter die angegebene Freigabe. Wenn ein Platzhalter (*) angegeben wird, löscht dieser Parameter alle NFS-Freigaben. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Wenn *ShareName* als einziger Parameter angegeben ist, werden mit diesem Befehl die Eigenschaften der von *ShareName*identifizierten NFS-Freigabe aufgelistet.
 

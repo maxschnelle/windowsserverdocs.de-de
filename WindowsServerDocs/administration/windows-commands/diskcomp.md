@@ -3,16 +3,16 @@ title: diskcomp
 description: Referenz Artikel für den diskcomp-Befehl, der den Inhalt von zwei Disketten vergleicht.
 ms.topic: reference
 ms.assetid: 4f56f534-a356-4daa-8b4f-38e089341e42
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 058092595e106fdc60663ec81e68523c609d34c7
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 99cb90fd6932e097e88c106bf93bd66e68fef6f4
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89028318"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89634312"
 ---
 # <a name="diskcomp"></a>diskcomp
 
@@ -26,12 +26,12 @@ diskcomp [<drive1>: [<drive2>:]]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `<drive1>` | Gibt das Laufwerk an, das eine der Disketten enthält. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Der **diskcomp** -Befehl kann nur mit Disketten verwendet werden. **Diskcomp** kann nicht mit einer Festplatte verwendet werden. Wenn Sie ein Festplattenlaufwerk für *drive1* oder *drive2*angeben, zeigt **diskcomp** die folgende Fehlermeldung an:
 

@@ -3,16 +3,16 @@ title: flattemp
 description: Referenz Artikel für den Befehl "flattemp", mit dem flattemporäre Ordner aktiviert oder deaktiviert werden.
 ms.topic: reference
 ms.assetid: 059a0960-1fd9-4382-87fe-a85d5dccdaea
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: ac9a3ec390318d52d17f8e537eb10aad4bb1540c
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 86fcad8a22c73aa8682059f657966c9ac20b8793
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89030619"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89634873"
 ---
 # <a name="flattemp"></a>flattemp
 
@@ -31,14 +31,14 @@ flattemp {/query | /enable | /disable}
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | /Query "aus | Fragt die aktuelle-Einstellung ab. |
 | /enable | Aktiviert flattemporäre Ordner. Benutzer geben den temporären Ordner frei, es sei denn, der temporäre Ordner befindet sich im Basisordner des Benutzers. |
 | /Disable | Deaktiviert flache temporäre Ordner. Der temporäre Ordner jedes Benutzers befindet sich in einem separaten Ordner (festgelegt durch die Sitzungs-ID des Benutzers). |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Nachdem jeder Benutzer über einen eindeutigen temporären Ordner verfügt, verwenden `flattemp /enable` Sie, um flache temporäre Ordner zu aktivieren.
 

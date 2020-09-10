@@ -3,16 +3,16 @@ title: Netsh
 description: Referenz Artikel für den Befehl netsh, bei dem es sich um ein Befehlszeilen-Skript Programm handelt, mit dem Sie die Netzwerkkonfiguration eines derzeit ausgelaufenden Computers entweder lokal oder Remote anzeigen oder ändern können.
 ms.topic: reference
 ms.assetid: 96fc069d-53c0-4d0a-9f7f-f9f3d49a02bd carmonmills
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: fc8f6aff94494422150643fed6ce6681dfe54036
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: e848003ced9161f0ae07778a2a16d50b7e97d51c
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89037778"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89635859"
 ---
 # <a name="netsh"></a>Netsh
 
@@ -28,7 +28,7 @@ netsh [-a <Aliasfile>][-c <Context>][-r <Remotecomputer>][-u [<domainname>\<user
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | -a `<Aliasfile>` | Gibt an, dass Sie nach dem Ausführen von aliasfile und dem Namen der Textdatei, die mindestens einen netsh-Befehl enthält, an die Netsh-Eingabeaufforderung zurückgegeben werden. |
 | -c `<Context>` | Gibt an, dass netsh den angegebenen Netsh-Kontext und den Netsh-Kontext für die Eingabe eingibt. |
@@ -39,7 +39,7 @@ netsh [-a <Aliasfile>][-c <Context>][-r <Remotecomputer>][-u [<domainname>\<user
 | -f `<scriptfile>` | Beendet den Netsh-Befehl, nachdem die angegebene Skriptdatei ausgeführt wurde. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Wenn Sie **-r** angeben, gefolgt von einem anderen Befehl, führt netsh den Befehl auf dem Remote Computer aus und kehrt dann zur Cmd.exe Eingabeaufforderung zurück. Wenn Sie **-r** ohne einen anderen Befehl angeben, wird Netsh im Remote Modus geöffnet. Das Verfahren ist ähnlich wie die Verwendung von **set machine** an der Netsh-Eingabeaufforderung. Wenn Sie **-r**verwenden, legen Sie den Bereitstellungs Zielcomputer nur für die aktuelle Instanz von netsh fest. Nachdem du Netsh beendet und erneut eingegeben hast, wird der Zielcomputer als lokaler Computer zurückgesetzt. Du kannst Netsh-Befehle auf einem Remotecomputer ausführen, indem du einen in WINS gespeicherten Computernamen, einen UNC-Namen, einen vom DNS-Server aufzulösenden Internetnamen oder eine IP-Adresse angibst.
 

@@ -3,16 +3,16 @@ title: Unterbefehl Start-MulticastTransmission
 description: Referenz Artikel für den Unterbefehl Start-MulticastTransmission, bei dem eine Übertragung eines Bilds mit einem geplanten Cast gestartet wird.
 ms.topic: reference
 ms.assetid: a1b2d459-1ece-49d4-997c-9d206c463b61
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 91637f402fda0784672583a500f283bdde45e075
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: c6af2887e69b88d5c253ea2c9e8632f2493ea19f
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89024764"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89633917"
 ---
 # <a name="subcommand-start-multicasttransmission"></a>Unterbefehl: Start-MulticastTransmission
 
@@ -42,7 +42,7 @@ wdsutil [Options] /start-MulticastTransmissiomedia:<Image name>
         [/Filename:<File name>]
 ```
 ### <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |-------|--------|
 Medien<Image name>|Gibt den Namen des Images an.|
 |[/Server:<Server name>]|Gibt den Namen des Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.|

@@ -3,16 +3,16 @@ title: help
 description: Referenz Artikel für den Help-Befehl, der eine Liste der verfügbaren Befehle oder ausführliche Hilfe Informationen zu einem angegebenen Befehl anzeigt.
 ms.topic: reference
 ms.assetid: c65b5ac3-711a-4368-95b8-ba82e2d00713
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 701b3a1840ac56e399bb4febf0765c2f69a84633
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 5e1ee94be773d546b2ef441d370c7cb91ee6c167
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89035458"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89634624"
 ---
 # <a name="help"></a>help
 
@@ -28,7 +28,7 @@ help [<command>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `<command>` | Gibt den Befehl an, für den ausführliche Hilfe Informationen angezeigt werden sollen. |
 

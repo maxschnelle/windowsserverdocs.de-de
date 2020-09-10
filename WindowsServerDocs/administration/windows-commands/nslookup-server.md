@@ -3,16 +3,16 @@ title: nslookup server
 description: Referenz Artikel zum nslookup-Server-Befehl, der den Standard Server in die angegebene Domain Name System Domäne (DNS) ändert.
 ms.topic: reference
 ms.assetid: 608267f8-f7b4-412a-8dcd-e08b5ffc2085
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 32450197fe7d3c04258b7fb3f77f8e17cd1c113e
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 64d1383dd5c4fa86a62fad91bae0ed5e4eb1454b
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89038761"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89635625"
 ---
 # <a name="nslookup-server"></a>nslookup server
 
@@ -30,7 +30,7 @@ server <DNSdomain>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `<DNSdomain>` | Gibt die DNS-Domäne für den Standard Server an. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |

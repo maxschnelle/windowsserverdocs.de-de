@@ -3,16 +3,16 @@ title: dir
 description: Referenz Artikel für den Befehl dir, mit dem eine Liste der Dateien und Unterverzeichnisse eines Verzeichnisses angezeigt wird.
 ms.topic: reference
 ms.assetid: edcbf69b-eaa4-466e-b210-3dd8892f4d93
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: b3a37675d0ac93274c62792478267cfa25db375a
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: c5edcbaac04d6f87721644fb4943e75456a21f66
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89028348"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89634990"
 ---
 # <a name="dir"></a>dir
 
@@ -28,7 +28,7 @@ dir [<drive>:][<path>][<filename>] [...] [/p] [/q] [/w] [/d] [/a[[:]<attributes>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `[<drive>:][<path>]` | Gibt das Laufwerk und das Verzeichnis an, für die eine Auflistung angezeigt werden soll. |
 | `[<filename>]` | Gibt eine bestimmte Datei oder Gruppe von Dateien an, für die eine Auflistung angezeigt werden soll. |
@@ -49,7 +49,7 @@ dir [<drive>:][<path>][<filename>] [...] [/p] [/q] [/w] [/d] [/a[[:]<attributes>
 | /r | Zeigt Alternative Datenströme der Datei an. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Wenn *Sie mehrere Dateinamen Parameter* verwenden möchten, trennen Sie die einzelnen Dateinamen durch ein Leerzeichen, Komma oder Semikolon.
 

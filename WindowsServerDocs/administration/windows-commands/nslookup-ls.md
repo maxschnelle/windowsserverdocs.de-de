@@ -3,16 +3,16 @@ title: nslookup ls
 description: Referenz Artikel für den Befehl nslookup ls, der DNS-Domänen Informationen auflistet.
 ms.topic: reference
 ms.assetid: f15f06fe-67e7-41a9-93b5-192ab14ab380
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: c37054002edcebe1551ef9d6aed4210978e52832
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 6910fa753ff394416f1cbf201db690647cebe9a0
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89023484"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89635679"
 ---
 # <a name="nslookup-ls"></a>nslookup ls
 
@@ -28,7 +28,7 @@ ls [<option>] <DNSdomain> [{[>] <filename>|[>>] <filename>}]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `<option>` | Folgende Optionen sind gültig:<ul><li>**-t:** Listet alle Datensätze des angegebenen Typs auf. Weitere Informationen finden Sie unter [nslookup Set QueryType](nslookup-set-querytype.md).</li><li>**-a:** Listet die Aliase von Computern in der DNS-Domäne auf. Dieser Parameter entspricht dem Wert **-t CNAME** .</li><li>**-d:** Listet alle Datensätze für die DNS-Domäne auf. Dieser Parameter entspricht dem Wert **-t any** .</li><li>**-h:** Listet die CPU-und Betriebssysteminformationen für die DNS-Domäne auf. Dieser Parameter ist identisch mit " **-t hinfo** ".</li><li>**-s:** Listet bekannte Dienste von Computern in der DNS-Domäne auf. Dieser Parameter entspricht dem **-t-Wi**. |
 | `<DNSdomain>` | Gibt die DNS-Domäne an, für die Sie Informationen wünschen. |
@@ -36,7 +36,7 @@ ls [<option>] <DNSdomain> [{[>] <filename>|[>>] <filename>}]
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 | /help | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Die Standardausgabe dieses Befehls enthält Computernamen und die zugehörigen IP-Adressen.
 

@@ -3,16 +3,16 @@ title: tree
 description: Referenz Artikel für Tree, der die Verzeichnisstruktur eines Pfads oder des Datenträgers auf einem Laufwerk grafisch anzeigt.
 ms.topic: reference
 ms.assetid: 345d3192-401e-4a3b-a8ac-36a85c7be79d
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: c164fe8999313ffd40ec12b29c7ad8cf2bd7c7a5
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: e75e0048855a5c30bc90e04433301d5df6d177ae
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89026888"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89634165"
 ---
 # <a name="tree"></a>tree
 
@@ -28,7 +28,7 @@ tree [<Drive>:][<Path>] [/f] [/a]
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
 |\<Drive>:|Gibt das Laufwerk an, das den Datenträger enthält, für den Sie die Verzeichnisstruktur anzeigen möchten.|
 |\<Path>|Gibt das Verzeichnis an, für das Sie die Verzeichnisstruktur anzeigen möchten.|
@@ -36,7 +36,7 @@ tree [<Drive>:][<Path>] [/f] [/a]
 |/a|Gibt an **, dass die** Struktur Textzeichen anstelle von Grafikzeichen verwendet, um die Zeilen anzuzeigen, die Unterverzeichnisse verknüpfen.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 
 Die Struktur, die von **Tree** angezeigt wird, hängt von den Parametern ab, die Sie an der Eingabeaufforderung angeben. Wenn Sie kein Laufwerk oder einen Pfad angeben, wird die Baumstruktur von **Tree** beginnend mit dem aktuellen Verzeichnis des aktuellen Laufwerks angezeigt.
 

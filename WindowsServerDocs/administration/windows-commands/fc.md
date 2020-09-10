@@ -3,16 +3,16 @@ title: FC
 description: Referenz Artikel für den FC-Befehl, der zwei Dateien oder Datei Sätze vergleicht und die Unterschiede zwischen Ihnen anzeigt.
 ms.topic: reference
 ms.assetid: 485fc3d8-b7c5-496d-87be-0011112f27d5
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: eb4bd745ec9c1a9dfe066fd5eeefdc2d5517d7cb
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 54a148ae7e722d891c3d8912c50c904839ddbf67
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89036628"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89634933"
 ---
 # <a name="fc"></a>FC
 
@@ -27,7 +27,7 @@ fc /b [<drive1:>][<path1>]<filename1> [<drive2:>][<path2>]<filename2>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | /a | Kürzt die Ausgabe eines ASCII-Vergleichs. Anstatt alle Zeilen anzuzeigen, die unterschiedlich sind, zeigt **FC** nur die erste und letzte Zeile für jeden Satz von Unterschieden an. |
 | /b | Vergleicht die beiden Dateien im binären Modus, Byte nach Byte, und versucht nicht, die Dateien erneut zu synchronisieren, nachdem eine Übereinstimmung gefunden wurde. Dies ist der Standardmodus zum Vergleichen von Dateien, die die folgenden Dateierweiterungen aufweisen:. exe,. com,. sys,. obj,. lib oder. bin. |
@@ -44,7 +44,7 @@ fc /b [<drive1:>][<path1>]<filename1> [<drive2:>][<path2>]<filename2>
 | `[<drive2>:][<path2>]<filename2>` | Gibt den Speicherort und den Namen der zweiten Datei oder Gruppe von Dateien an, die verglichen werden sollen. *filename2* ist erforderlich. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Dieser Befehl wird durch c:\WINDOWS\fc.exe implementiert. Sie können diesen Befehl in PowerShell verwenden, aber achten Sie darauf, die vollständige ausführbare Datei (fc.exe) zu benennen, da "FC" auch ein Alias für Format-Custom ist.
 

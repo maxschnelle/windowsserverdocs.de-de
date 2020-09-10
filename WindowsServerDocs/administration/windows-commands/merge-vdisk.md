@@ -3,16 +3,16 @@ title: merge vdisk
 description: Referenz Artikel zum Merge-Vdisk-Befehl, der eine differenzierende virtuelle Festplatte (VHD) mit der entsprechenden übergeordneten VHD zusammenfasst.
 ms.topic: reference
 ms.assetid: 5865bb08-89a3-406c-8328-0ef8868d03e8
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: d57f4919fbc253149343660f7239cd3405910711
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 99a51b422c0e4bb19be4227b43fba6a5ef430628
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89037858"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89635166"
 ---
 # <a name="merge-vdisk"></a>merge vdisk
 
@@ -31,7 +31,7 @@ merge vdisk depth=<n>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | Tiefe =`<n>` | Gibt die Anzahl der übergeordneten VHD-Dateien an, die zusammengeführt werden sollen. `depth=1`Gibt z. b. an, dass die differenzierende VHD mit einer Ebene der differenzierenden Kette zusammengeführt wird. |
 

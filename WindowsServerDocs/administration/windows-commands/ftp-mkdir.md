@@ -3,16 +3,16 @@ title: ftp mkdir
 description: Referenz Artikel für den FTP-Befehl "mkdir", mit dem ein Verzeichnis auf dem Remote Computer erstellt wird.
 ms.topic: reference
 ms.assetid: 5fac19fb-6835-4011-93cc-ac62f484d5d4
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 95858c10ea3ed1aeda90c08773ab973f541af987
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 5a1449bb593582b8c7044b15672fe3c1f9547779
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89025734"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89635375"
 ---
 # <a name="ftp-mkdir"></a>ftp mkdir
 
@@ -28,7 +28,7 @@ mkdir <directory>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `<directory>` | Gibt den Namen des neuen Remote Verzeichnisses an. |
 

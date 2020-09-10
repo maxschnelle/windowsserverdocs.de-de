@@ -3,16 +3,16 @@ title: netstat
 description: Referenz Artikel für den netstat-Befehl, in dem aktive TCP-Verbindungen, Ports, die der Computer überwacht, Ethernet-Statistiken, die IP-Routing Tabelle, IPv4-Statistiken und IPv6-Statistiken angezeigt werden.
 ms.topic: reference
 ms.assetid: 60e2718f-93cc-4ceb-bf0e-58a6a6e4fc8b
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 4d68ec2e21c4248769973b3409896ba9d5bd15e5
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 17c2251fd493041b0b39665a785d6aad8010e1d9
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89038801"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89635834"
 ---
 # <a name="netstat"></a>netstat
 
@@ -31,7 +31,7 @@ netstat [-a] [-b] [-e] [-n] [-o] [-p <Protocol>] [-r] [-s] [<interval>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | -a | Zeigt alle aktiven TCP-Verbindungen und die TCP-und UDP-Ports an, die der Computer abhört. |
 | -b | Zeigt die ausführbare Datei an, die zum Erstellen der einzelnen Verbindungen oder des Überwachungsports gehört In einigen Fällen hosten bekannte ausführbare Dateien mehrere unabhängige Komponenten, und in diesen Fällen wird die Abfolge der Komponenten, die beim Erstellen der Verbindung oder des Überwachungsports beteiligt sind, angezeigt. In diesem Fall befindet sich der Name der ausführbaren Datei unten in [], oben ist die Komponente, die Sie aufgerufen hat, und so weiter, bis TCP/IP erreicht wurde. Beachten Sie, dass diese Option zeitaufwändig sein kann und fehlschlägt, es sei denn, Sie verfügen über ausreichende Berechtigungen.
@@ -44,11 +44,11 @@ netstat [-a] [-b] [-e] [-n] [-o] [-p <Protocol>] [-r] [-s] [<interval>]
 | `<interval>` | Zeigt die ausgewählten Informationen jedes *Intervall* in Sekunden neu an. Drücken Sie STRG + C, um die erneute Anzeige zu verhindern. Wenn dieser Parameter ausgelassen wird, druckt dieser Befehl die ausgewählten Informationen nur einmal. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Der **netstat** -Befehl stellt Statistiken für Folgendes bereit:
 
-    | Parameter | Beschreibung |
+    | Parameter | BESCHREIBUNG |
     | --------- | ----------- |
     | Proto | Der Name des Protokolls (TCP oder UDP). |
     | Lokale Adresse | Die IP-Adresse des lokalen Computers und die verwendete Portnummer. Der Name des lokalen Computers, der der IP-Adresse und dem Namen des Ports entspricht, wird angezeigt, es sei denn, der Parameter " **-n** " wird angegeben. Wenn der Port noch nicht festgelegt ist, wird die Portnummer als Sternchen (*) angezeigt. |

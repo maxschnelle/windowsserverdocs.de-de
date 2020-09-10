@@ -3,16 +3,16 @@ title: DiskPart-Skripts und-Beispiele
 description: Referenz Artikel zu DiskPart-Skripts und Beispielen für die Automatisierung von Datenträger bezogenen Aufgaben, z. b. das Erstellen von Volumes oder das Umstellen von Datenträgern in dynamische Datenträger.
 ms.topic: reference
 ms.assetid: 319c0795-11df-47c8-b203-eadb0577ee0d
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 94dbcba1ff88cc265e8006511bb3831ac7d12831
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 820b83ab9c6c70c24c10c16678da9bf90892135f
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89028278"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89635148"
 ---
 # <a name="diskpart-scripts-and-examples"></a>DiskPart-Skripts und-Beispiele
 
@@ -45,7 +45,7 @@ diskpart /s scriptname.txt
 diskpart /s scriptname.txt > logfile.txt
 ```
 
-### <a name="remarks"></a>Bemerkungen
+### <a name="remarks"></a>Hinweise
 
 - Wenn Sie den **DiskPart** -Befehl als Teil eines Skripts verwenden, empfiehlt es sich, alle DiskPart-Vorgänge zusammen als Teil eines einzelnen DiskPart-Skripts abzuschließen. Sie können aufeinander folgende DiskPart-Skripts ausführen. Sie müssen jedoch mindestens 15 Sekunden zwischen den einzelnen Skripts für das vollständige Herunterfahren der vorherigen Ausführung zulassen, bevor Sie den **DiskPart** -Befehl erneut in aufeinander folgenden Skripts ausführen. Andernfalls können die nachfolgenden Skripts fehlschlagen. Sie können eine Pause zwischen aufeinander folgenden DiskPart-Skripts hinzufügen, indem Sie den `timeout /t 15` Befehl der Batchdatei zusammen mit den DiskPart-Skripts hinzufügen.
 

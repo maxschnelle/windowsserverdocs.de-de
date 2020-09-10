@@ -3,16 +3,16 @@ title: Importieren von DiskShadow
 description: Referenz Artikel für den Import-Befehl, der eine austauschen-Schatten Kopie aus einer geladenen Metadatendatei in das System importiert.
 ms.topic: reference
 ms.assetid: 7bd78d76-0560-4d47-944c-fe960be2c10b
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 96f55be187b540151c23c84ae414575f20dcbe8f
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: bf86c069bf0f5de4d6fa773d319bdd75beeb93eb
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89037998"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89634528"
 ---
 # <a name="import-diskshadow"></a>Importieren (DiskShadow)
 
@@ -26,7 +26,7 @@ Importiert eine austauschen-Schatten Kopie aus einer geladenen Metadatendatei in
 import
 ```
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Transportable-Schatten Kopien werden nicht sofort im System gespeichert. Die Details werden in einer XML-Datei des Sicherungs Komponenten Dokuments gespeichert, die von DiskShadow automatisch in einer CAB-Metadatendatei im Arbeitsverzeichnis angefordert und gespeichert wird. Verwenden Sie den [Befehl Set Metadata](set-metadata.md) , um den Pfad und den Namen dieser XML-Datei zu ändern.
 

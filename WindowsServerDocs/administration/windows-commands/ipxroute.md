@@ -3,16 +3,16 @@ title: ipxroute
 description: Referenz Artikel für den ipxroute-Befehl, der Informationen zu den vom IPX-Protokoll verwendeten Routing Tabellen anzeigt und ändert.
 ms.topic: reference
 ms.assetid: 3a30304f-655e-43d2-a4ac-7568abf8975c
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 2f8e9e8c376ad2b7997160b6add2b84e655a84d9
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: dbfc2df421429d4265cbcb425d189c4fd69de99d
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89037968"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89634419"
 ---
 # <a name="ipxroute"></a>ipxroute
 
@@ -31,7 +31,7 @@ ipxroute config
 ```
 
 ### <a name="parameters"></a>Parameter
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ------- | -------- |
 | Webserver`[/type=x]` | Zeigt die Tabelle für den Dienst Zugriffspunkt (SAP) für den angegebenen Servertyp an. **x** muss eine ganze Zahl sein. Zeigt beispielsweise `/type=4` alle Dateiserver an. Wenn Sie **/Type**nicht angeben, werden `ipxroute servers` alle Server Typen angezeigt, die nach Servernamen aufgelistet sind. |
 | Auflösen `{GUID | name}``{GUID | adaptername}` | Löst den Namen der GUID in ihren anzeigen Amen oder den anzeigen Amen für die GUID auf. |

@@ -3,16 +3,16 @@ title: ftp open
 description: Referenz Artikel für den Befehl FTP Open, der eine Verbindung mit dem angegebenen FTP-Server herstellt.
 ms.topic: reference
 ms.assetid: 4b61926a-dc60-4b4c-96d3-64e5c91c18ba
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: a7599eb4728a46655b4c3274a9d7708061c3a9ee
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 24fabf61e57a0dda00837a15702dfe9ef5ee6862
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89032818"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89635280"
 ---
 # <a name="ftp-open"></a>ftp open
 
@@ -28,7 +28,7 @@ open <computer> [<port>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `<computer>` | Gibt den Remote Computer an, mit dem Sie eine Verbindung herstellen möchten. Sie können eine IP-Adresse oder einen Computernamen verwenden (in diesem Fall muss ein DNS-Server oder eine Datei mit Hosts verfügbar sein). |
 | `[<port>]` | Gibt eine TCP-Portnummer an, die für die Verbindung mit einem FTP-Server verwendet wird. Standardmäßig wird TCP-Port 21 verwendet. |

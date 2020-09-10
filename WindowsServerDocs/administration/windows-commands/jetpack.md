@@ -3,16 +3,16 @@ title: jetpack
 description: Referenz Artikel für den Jetpack-Befehl, der eine Windows Internet Name Service (WINS)-oder DHCP-Datenbank (Dynamic Host Configuration Protocol) komprimiert.
 ms.topic: reference
 ms.assetid: 82a2b7ef-0db5-4575-a028-8acb0bf6c7ba
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: bf2664c142a169982acc0d11c34a53aea193d030
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 300218e6eb98e2cf5ab7adeda1b31bc0da0b026b
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89035418"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89634405"
 ---
 # <a name="jetpack"></a>jetpack
 
@@ -36,7 +36,7 @@ jetpack.exe <database_name> <temp_database_name>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ------- | -------- |
 | `<database_name>` | Gibt den Namen der ursprünglichen Datenbankdatei an. |
 | `<temp_database_name>` | Gibt den Namen der temporären Datenbankdatei an, die von jetpack.exe erstellt werden soll.<p>Hinweis: Diese temporäre Datei wird entfernt, wenn der Compact-Prozess beendet ist. Damit dieser Befehl ordnungsgemäß funktioniert, müssen Sie sicherstellen, dass der temporäre Dateiname eindeutig ist und dass eine Datei mit diesem Namen nicht bereits vorhanden ist. |

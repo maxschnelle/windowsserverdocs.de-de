@@ -3,16 +3,16 @@ title: Unterbefehl Start-Namespace
 description: Referenz Artikel für den Unterbefehl Start-Namespace, der einen scheduled-Cast-Namespace startet.
 ms.topic: reference
 ms.assetid: 2dd1c11e-6ab7-4129-9e3a-3f80e0ba59c0
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 38a0dd1b4988977d14a2be68966a6eb53df71ce8
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 9d37921024c1f92f97687c7b0a4a0714192fe564
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89024754"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89633924"
 ---
 # <a name="subcommand-start-namespace"></a>Unterbefehl: Start-Namespace
 
@@ -26,7 +26,7 @@ wdsutil /start-Namespace /Namespace:<Namespace name[/Server:<Server name>]
 ```
 ### <a name="parameters"></a>Parameter
 
-|          Parameter          |                                                                                                                                                                                             Beschreibung                                                                                                                                                                                             |
+|          Parameter          |                                                                                                                                                                                             BESCHREIBUNG                                                                                                                                                                                             |
 |-----------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | /Namespace: <Namespace Name| Gibt den Namen des Namespace an. Beachten Sie, dass dies nicht der Anzeige Name ist und eindeutig sein muss.<p>-   **Bereitstellungs Server**: die Syntax für den Namespace Namen lautet/Namspace: WDS: <Image group> / <Image name> / <Index> . Beispiel: **WDS: ImageGroup1/install. wim/1**<br />-   **Transport Server**: dieser Name muss dem Namen entsprechen, der für den Namespace angegeben wurde, als er auf dem Server erstellt wurde. |
 |   [/Server:<Server name>]   |                                                                                                           Gibt den Namen des Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.                                                                                                           |

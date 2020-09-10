@@ -3,16 +3,16 @@ title: "\"manage-bde Unlock\""
 description: Referenz Artikel für den Befehl manage-bde Unlock, mit dem ein durch BitLocker geschütztes Laufwerk mithilfe eines Wiederherstellungs Kennworts oder eines Wiederherstellungs Schlüssels entsperrt wird.
 ms.topic: reference
 ms.assetid: 7852bf7d-9102-40be-adcb-71e8f4dfde72
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: e1d1566ee348b10efe2212c2e0004c72470944fe
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 23b7a593b450265b2547acd6fea0bbe8241e993b
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89030098"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89635248"
 ---
 # <a name="manage-bde-unlock"></a>"manage-bde Unlock"
 
@@ -26,7 +26,7 @@ manage-bde -unlock {-recoverypassword <password>|-recoverykey <pathtoexternalkey
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | -wiederherstellungkennwort | Gibt an, dass ein Wiederherstellungs Kennwort verwendet wird, um das Laufwerk zu entsperren. Sie können auch **-RP** als abgekürzte Version dieses Befehls verwenden. |
 | `<password>` | Stellt das Wiederherstellungs Kennwort dar, das verwendet werden kann, um das Laufwerk zu entsperren. |

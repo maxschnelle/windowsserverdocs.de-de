@@ -3,16 +3,16 @@ title: dfsdiag
 description: Referenz Artikel für den Dfsdiag-Befehl, der Diagnoseinformationen für DFS-Namespaces bereitstellt.
 ms.topic: reference
 ms.assetid: c0891e67-0187-4f18-923d-5623e6127f90
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: da34cc9b4c2cfcb30d2f8ff3161d6777ae9d0275
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 05ca89a2ad2984ec7e47002489f26968e7d2d69b
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89034148"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89635032"
 ---
 # <a name="dfsdiag"></a>dfsdiag
 
@@ -30,7 +30,7 @@ dfsdiag /testreferral /DFSpath:<DFS path to get referrals> [/full]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | [dfsdiag testdcs](dfsdiag-testdcs.md) | Überprüft die Konfiguration des Domänen Controllers. |
 | [dfsdiag testsites](dfsdiag-testsites.md) | Überprüft Site Zuordnungen. |

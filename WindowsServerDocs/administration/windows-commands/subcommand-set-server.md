@@ -3,16 +3,16 @@ title: Unterbefehls Satz-Server
 description: Referenz Artikel für den Unterbefehl set-Server, der die Einstellungen für einen Windows-Bereitstellungsdiensteserver konfiguriert hat.
 ms.topic: reference
 ms.assetid: da55c29d-a94a-4d73-877b-af480f906ca0
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 9199fc06733724ba14415efd938488e7558ceb1c
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 33ebdc4e411c7ff550b9686459e7440007d2ae63
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89036738"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89635476"
 ---
 # <a name="subcommand-set-server"></a>Unterbefehl: Set-Server
 
@@ -113,7 +113,7 @@ wdsutil [Options] /Set-Server [/Server:<Server name>]
         [/forceNative]
 ```
 ### <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |-------|--------|
 |[/Server:<Server name>]|Gibt den Namen des Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.|
 |[/Authorize-Endpunkt: {yes &#124; No}]|Gibt an, ob dieser Server in Dynamic Host Control Protocol (DHCP) autorisiert werden soll.|
