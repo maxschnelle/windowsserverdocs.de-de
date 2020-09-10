@@ -5,14 +5,14 @@ ms.date: 10/03/2016
 ms.topic: article
 ms.assetid: 47e498a6-1b71-47de-88f6-8c13c221d108
 author: nnamuhcs
-ms.author: coreyp
-manager: dongill
-ms.openlocfilehash: 885a10ee9b5a684c385de9baa0ebcdfac61f2c0e
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.author: geschuma
+manager: mtillman
+ms.openlocfilehash: 6b93e0e31c592a11d44aca74029012a1b6229227
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87180826"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89622984"
 ---
 # <a name="restore-a-full-system-from-an-existing-client-computer-backup"></a>Wiederherstellen eines vollständigen Systems aus einer vorhandenen Clientcomputersicherung
 
@@ -32,7 +32,7 @@ ms.locfileid: "87180826"
 
 -   [Wo finde ich die Treiber für die Hardware?](Restore-a-full-system-from-an-existing-client-computer-backup.md#BKMK_FindDrivers)
 
-##  <a name="what-is-computer-full-system-restore"></a><a name="BKMK_WhatIs"></a>Was ist die vollständige Systemwiederherstellung des Computers?
+##  <a name="what-is-computer-full-system-restore"></a><a name="BKMK_WhatIs"></a> Was ist die vollständige Systemwiederherstellung des Computers?
  Wenn Sie ein Festplattenlaufwerk austauschen oder auf dem Computer ein Fehler auftritt, der dazu führt, dass der Computer nicht mehr verwendet oder gestartet werden kann, können Sie das System aus einer früheren Sicherung des Computers wiederherstellen. Bei einer vollständigen Systemwiederherstellung wird das System wieder in den Zustand versetzt, in dem es sich zum Zeitpunkt der Sicherung befand.
 
 > [!IMPORTANT]
@@ -85,7 +85,7 @@ ms.locfileid: "87180826"
 ### <a name="raid-and-dynamic-disks"></a>RAID- und dynamische Datenträger
  Das Sichern von RAID-Datenträgern (Redundant Array of Independent Disks) und dynamischen Datenträgern wird nicht unterstützt.
 
-##  <a name="how-does-the-system-restore-environment-work"></a><a name="BKMK_HowDoes"></a>Wie funktioniert die Umgebung für die Systemwiederherstellung?
+##  <a name="how-does-the-system-restore-environment-work"></a><a name="BKMK_HowDoes"></a> Wie funktioniert die Umgebung für die Systemwiederherstellung?
  Das mit Windows Server 2012 Essentials bereitgestellte System Wiederherstellungs Medium &reg; installiert Windows Preinstallation Environment (Windows PE) auf dem Computer. Windows PE hat die MS-DOS-Umgebung abgelöst und enthält die wichtigen Programmdateien für Windows. In Windows Server Essentials gibt es zwei unterstützte Methoden zum Wiederherstellen eines Systems: mit dem Client Wiederherstellungs Dienst, der ein Netzwerk verwendet und nicht von einem Medium abhängig ist, oder über den USB-Speicherstick.
 
 > [!NOTE]
@@ -97,7 +97,7 @@ ms.locfileid: "87180826"
 
  In den meisten Fällen reichen die in der Umgebung für die Systemwiederherstellung enthaltenen Programmdateien und Treiber aus, um den neuen oder wiederhergestellten Computer neu zu starten. Je nach der Hardware des neuen bzw. wiederhergestellten Computers enthält die Umgebung für die Systemwiederherstellung möglicherweise nicht alle Treiber für die Speicher- und Netzwerkadapter, die erforderlich sind, wenn Sie den neuen oder wiederhergestellten Computer neu starten. Der Assistent für die vollständige Systemwiederherstellung bietet Ihnen bei Bedarf die Gelegenheit zum Installieren von Treibern. Informationen dazu, wie Sie die Treiber für Ihre Hardware finden können, finden Sie unter [Wo finde ich die Treiber für die Hardware?](Restore-a-full-system-from-an-existing-client-computer-backup.md#BKMK_FindDrivers). Informationen zur Verwendung des Mediums für die Systemwiederherstellung finden Sie unter [Verwenden des Assistenten für die vollständige Systemwiederherstellung](Restore-a-full-system-from-an-existing-client-computer-backup.md#BKMK_Using).
 
-##  <a name="create-a-bootable-usb-flash-drive-to-restore-a-client-computer"></a><a name="BKMK_CreateBootable"></a>Erstellen eines Start baren USB-Speicherstick zum Wiederherstellen eines Client Computers
+##  <a name="create-a-bootable-usb-flash-drive-to-restore-a-client-computer"></a><a name="BKMK_CreateBootable"></a> Erstellen eines Start baren USB-Speicherstick zum Wiederherstellen eines Client Computers
  Wenn Sie einen Client Computer aus einer vorhandenen Sicherung wiederherstellen müssen, aber die auf dem Server (in Windows Server Essentials) vorhandene Wiederherstellungs-CD nicht finden können, oder wenn Sie den Client Wiederherstellungs Dienst auf dem Server (in Windows Server Essentials) nicht einrichten möchten, können Sie einen Start fähigen USB-Speicherstick erstellen. Sie können den USB-Speicherstick dann verwenden, um den Clientcomputer zu starten und das System wiederherzustellen. Der verwendetet USB-Speicherstick muss über mindestens 1 GB verfügen.
 
 #### <a name="to-create-a-bootable-usb-flash-drive"></a>So erstellen Sie einen startfähigen USB-Speicherstick
@@ -118,7 +118,7 @@ ms.locfileid: "87180826"
     > [!CAUTION]
     >  Alle Daten auf dem USB-Speicherstick werden gelöscht.
 
-##  <a name="using-the-full-system-restore-wizard"></a><a name="BKMK_Using"></a>Verwenden des Assistenten für die vollständige System Wiederherstellung
+##  <a name="using-the-full-system-restore-wizard"></a><a name="BKMK_Using"></a> Verwenden des Assistenten für die vollständige System Wiederherstellung
  Nachdem Sie den Computer mit dem Wiederherstellungsmedium, Clientwiederherstellungsdienst oder USB-Speicherstick erfolgreich gestartet und überprüft haben, ob alle Hardwaretreiber auf dem wiederhergestellten oder neuen Clientcomputer geladen wurden, wird der Assistent für die vollständige Systemwiederherstellung angezeigt. Mithilfe dieses Assistenten können Sie auf den Server, die Computersicherung und die Quellvolumes zugreifen, die Sie auf dem Computer wiederherstellen möchten. Außerdem wird der Wiederherstellungsvorgang ausgeführt.
 
 > [!NOTE]
@@ -144,7 +144,7 @@ ms.locfileid: "87180826"
 
 #### <a name="to-use-the-full-system-restore-wizard"></a>So verwenden Sie den Assistenten für die vollständige Systemwiederherstellung
 
-1. Führen Sie einen der folgenden Schritte aus:
+1. Führen Sie eines der folgenden Verfahren aus:
 
    -   Windows Server Essentials: Schalten Sie den Client Computer ein, den Sie wiederherstellen möchten, legen Sie das Wiederherstellungs Medium ein, und schalten Sie den Computer dann aus.
 
@@ -161,7 +161,7 @@ ms.locfileid: "87180826"
 
 3. Wählen Sie im Fenster **Assistent für die vollständige Systemwiederherstellung** die gewünschte Sprache aus, und klicken Sie dann auf den Pfeil.
 
-4. Wählen Sie für den Computer die gewünschten Optionen für **Zeit- und Währungsformat** und **Tastatur oder Eingabemethode** aus. Klicken Sie auf **Continue**(Weiter).
+4. Wählen Sie für den Computer die gewünschten Optionen für **Zeit- und Währungsformat** und **Tastatur oder Eingabemethode** aus. Klicken Sie auf **Weiter**.
 
 5. Wenn Treiber fehlen, kann die Meldung vom Wiederherstellungsprozess nicht überprüft werden, ob die Treiber angezeigt werden. Klicken Sie auf **Schließen**, und klicken Sie dann im Dialogfeld "Willkommen" auf **Treiber laden**.
 
@@ -268,7 +268,7 @@ ms.locfileid: "87180826"
     > [!IMPORTANT]
     >  Wenn vor der Wiederherstellung auf dem Computer BitLocker-Laufwerkverschlüsselung aktiviert war, müssen Sie BitLocker nach dem Neustart des Computers manuell aktivieren.
 
-##  <a name="where-can-i-find-the-drivers-for-my-hardware"></a><a name="BKMK_FindDrivers"></a>Wo finde ich die Treiber für die Hardware?
+##  <a name="where-can-i-find-the-drivers-for-my-hardware"></a><a name="BKMK_FindDrivers"></a> Wo finde ich die Treiber für die Hardware?
  Je nach der Hardware des neuen bzw. wiederhergestellten Computers enthält das Wiederherstellungsmedium möglicherweise nicht alle Treiber für die Speicher- und Netzwerkadapter, die erforderlich sind, wenn Sie den wiederhergestellten Computer neu starten. Sie müssen bestimmen, welche Treiber fehlen, diese Treiber auf vorhandenen Medien oder auf der Website des Herstellers suchen, Sie auf einen Speicherstick kopieren und dann vom Flash Laufwerk auf den neuen oder wiederhergestellten Computer kopieren, wenn Sie den Assistenten für die vollständige System Wiederherstellung ausführen.
 
  Wenn ein Computer gesichert wird, werden die Treiber für den Computer in der Sicherung gespeichert. Wenn das Wiederherstellungsmedium nicht alle benötigten Treiber enthält, können Sie eine Sicherung für den Computer öffnen und die Treiber dann auf einen USB-Speicherstick kopieren.
@@ -294,7 +294,7 @@ ms.locfileid: "87180826"
 
    Sie können den USB-Speicherstick verwenden, um die Treiber für den Computer zu installieren, wenn Sie diesen wiederherstellen. Der Assistent für die Wiederherstellung von Dateien oder Ordnern sucht nach weiteren Treibern auf diesem USB-Speicherstick, während der Assistent für die vollständige Systemwiederherstellung ausgeführt wird. Sie werden auf jeden Fall den Treiber für den Netzwerkadapter und die Treiber für die Speichergeräte benötigen.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Verwalten der Sicherung und Wiederherstellung](Manage-Backup-and-Restore-in-Windows-Server-Essentials.md)
 

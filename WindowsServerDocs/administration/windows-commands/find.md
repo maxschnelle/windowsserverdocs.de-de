@@ -3,16 +3,16 @@ title: Suchen
 description: Referenz Artikel für den Find-Befehl, der nach einer Text Zeichenfolge in Dateien sucht und die angegebene Text Zeichenfolge in der Datei anzeigt.
 ms.topic: reference
 ms.assetid: 2ca66b22-3b7c-4166-8503-eb75fc53ab46
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 34eb1f1cf3071147878f421307a91de921678cfc
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: b0317e856153c014df2656f0a98452b0c6428e82
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89036537"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89622374"
 ---
 # <a name="find"></a>Suchen
 
@@ -26,7 +26,7 @@ find [/v] [/c] [/n] [/i] [/off[line]] <string> [[<drive>:][<path>]<filename>[...
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | /v | Zeigt alle Zeilen an, die das angegebene nicht enthalten `<string>` . |
 | /C | Zählt die Zeilen, die das angegebene enthalten, `<string>` und zeigt die Summe an. |
@@ -37,7 +37,7 @@ find [/v] [/c] [/n] [/i] [/off[line]] <string> [[<drive>:][<path>]<filename>[...
 | `[<drive>:][<path>]<filename>` | Gibt den Speicherort und den Namen der Datei an, in der nach der angegebenen Zeichenfolge gesucht werden soll. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Wenn Sie **/i**nicht verwenden, sucht dieser Befehl nach genau dem, was Sie für die *Zeichenfolge*angeben. Dieser Befehl behandelt z. b. die Zeichen `a` und `A` anders. Wenn Sie **/i**verwenden, wird die Suche jedoch nicht zwischen Groß-und Kleinschreibung unterschieden, und Sie behandelt `a` und `A` als dasselbe Zeichen.
 

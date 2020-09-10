@@ -5,14 +5,14 @@ ms.date: 10/03/2016
 ms.topic: article
 ms.assetid: c369c317-f94d-4179-a735-e74bf6f62692
 author: nnamuhcs
-ms.author: coreyp
-manager: dongill
-ms.openlocfilehash: a52c604aa9d79fe95d4e34673a94ff91c5cc4b7a
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.author: geschuma
+manager: mtillman
+ms.openlocfilehash: 1bd8f498cef17edc73569077dc03d4b7b4e26d66
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87181056"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89623294"
 ---
 # <a name="manage-anywhere-access-in-windows-server-essentials"></a>Verwalten von Zugriff überall in Windows Server 2012 Essentials
 
@@ -32,6 +32,6 @@ Wenn Sie die Funktionen für "Zugriff überall", "Remote Webzugriff", "virtuelle
 
      Mithilfe von DirectAccess können Sie nahtlos eine Verbindung mit dem Netzwerk Ihrer Organisation von einem beliebigen Remote Standort mit Internet Anschluss aus herstellen, ohne eine VPN-Verbindung (virtuelles privates Netzwerk) herstellen zu müssen. DirectAccess bietet eine größere Produktivität für Ihre Organisation "Personal Personal", indem die gleiche Konnektivität innerhalb und außerhalb des Büros geboten wird.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Verwalten von Windows Server Essentials](Manage-Windows-Server-Essentials.md)

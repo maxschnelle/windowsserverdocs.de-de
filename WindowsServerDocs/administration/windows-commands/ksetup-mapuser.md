@@ -3,16 +3,16 @@ title: ksetup mapuser
 description: Referenz Artikel für den Ksetup mapuser-Befehl, der den Namen eines Kerberos-Prinzipals einem Konto zuordnet.
 ms.topic: reference
 ms.assetid: 84113e6e-89ff-488a-9cd0-f14bbf23b543
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: de3eeafdcd1ef94bf1e6c50009742b2981d0d7dc
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: e8e676218455147e68f84b42bcbad2dcd7285a01
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89025464"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89622792"
 ---
 # <a name="ksetup-mapuser"></a>ksetup mapuser
 
@@ -26,12 +26,12 @@ ksetup /mapuser <principal> <account>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
-| `<principal>` | Gibt den voll qualifizierten Domänen Namen eines Prinzipal Benutzers an. Beispielsweise mike@corp.CONTOSO.COM. Wenn Sie keinen Konto Parameter angeben, wird die Zuordnung für den angegebenen Prinzipal gelöscht. |
+| `<principal>` | Gibt den voll qualifizierten Domänen Namen eines Prinzipal Benutzers an. Beispiel: mike@corp.CONTOSO.COM. Wenn Sie keinen Konto Parameter angeben, wird die Zuordnung für den angegebenen Prinzipal gelöscht. |
 | `<account>` | Gibt einen beliebigen Konto-oder Sicherheitsgruppen Namen an, der auf diesem Computer vorhanden ist, z. b. **Gast**, **Domänen Benutzer**oder **Administrator**. Wenn dieser Parameter ausgelassen wird, wird die Zuordnung für den angegebenen Prinzipal gelöscht. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Ein Konto kann speziell identifiziert werden, z. b. **Domänen Gäste**, oder Sie können ein Platzhalter Zeichen (*) verwenden, um alle Konten einzubeziehen.
 

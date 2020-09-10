@@ -5,14 +5,14 @@ ms.date: 10/03/2016
 ms.topic: article
 ms.assetid: 9378bffa-487c-43ca-9ec3-7e7864d2dd9a
 author: nnamuhcs
-ms.author: coreyp
-manager: dongill
-ms.openlocfilehash: c59fd121fdf628fc0943214b699599f2f20625b3
-ms.sourcegitcommit: 04637054de2bfbac66b9c78bad7bf3e7bae5ffb4
+ms.author: geschuma
+manager: mtillman
+ms.openlocfilehash: b5788495a2d622a74d5099d3e7c91e62c8d84a6f
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87837829"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89623130"
 ---
 # <a name="manage-digital-media-in-windows-server-essentials"></a>Verwalten von digitalen Medien in Windows Server Essentials
 
@@ -45,7 +45,7 @@ In den folgenden Themen werden die Medienstreaming-Funktionen des Servers und da
 
 -   [Bekannte Probleme bei Mediendateitypen](Manage-Digital-Media-in-Windows-Server-Essentials.md#BKMK_KnownIssues)
 
-##  <a name="digital-media-overview"></a><a name="BKMK_1"></a>Übersicht über digitale Medien
+##  <a name="digital-media-overview"></a><a name="BKMK_1"></a> Übersicht über digitale Medien
  Digitale Medien sind Audio-, Video- und Fotoinhalte, die codiert (digital komprimiert) wurden. Beim Codieren von Inhalten werden Audio- und Videoeingaben in eine digitale Mediendatei, z. B. eine Windows Media-Datei, konvertiert. Nach der Codierung können digitale Medien einfach bearbeitet, verteilt, von Computern wiedergegeben und über Computernetzwerke übertragen werden.
 
  Beispiele für digitale Medien sind: Windows Media Audio (WMA), Windows Media Video (WMV), MP3, JPEG und AVI. Informationen zu den digitalen Medientypen, die von Windows Media Player unterstützt werden, finden Sie unter [Von Windows Media Player unterstützte Dateitypen](https://support.microsoft.com/kb/316992).
@@ -59,15 +59,15 @@ In den folgenden Themen werden die Medienstreaming-Funktionen des Servers und da
 
 -   **Fotodiashow präsentieren**. Sie können Ihre digitalen Fotos im freigegebenen Ordner **Fotos** auf dem Server speichern und anschließend von jedem Computer oder von einer Xbox 360 darauf zugreifen, die mit einem Fernsehgerät bei Ihnen zuhause oder im Büro verbunden ist. Sie können Fotodiashows ansehen und Ihr Fernsehgerät praktisch in einen großen Bilderrahmen verwandeln.
 
-###  <a name="sharing-copy-protected-media"></a><a name="BKMK_1.5"></a>Freigeben Kopier geschützter Medien
+###  <a name="sharing-copy-protected-media"></a><a name="BKMK_1.5"></a> Freigeben Kopier geschützter Medien
   Windows Server Essentials unterstützt das Freigeben von kopiergeschützten Medien nicht. Dazu gehört auch Musik, die über einen Online-Music Store gekauft wurde.
 
  Kopiergeschützte Medien können nur auf dem Computer oder Gerät wiedergegeben werden, über den bzw. das sie erworben wurden. Der Kopierschutz verhindert, dass Sie Medien auf mehr als einem Computer oder Gerät abspielen, auch wenn Sie das Medium auf den Server kopieren und dort wiedergeben. Sie können das kopiergeschützte Medium jedoch in Windows Server Essentials speichern und die Medien weiterhin auf dem Computer oder Gerät wiedergeben, den bzw. das Sie für den Erwerb verwendet haben.
 
-##  <a name="manage-media-server-using-the-dashboard"></a><a name="BKMK_2"></a>Verwalten des Medienservers mithilfe des Dashboards
+##  <a name="manage-media-server-using-the-dashboard"></a><a name="BKMK_2"></a> Verwalten des Medienservers mithilfe des Dashboards
   Windows Server Essentials ermöglicht das Ausführen allgemeiner administrativer Aufgaben mithilfe des Windows Server Essentials-Dashboards. Die Registerkarte **Medien** der Seite **Einstellungen** des Serverdashboards bietet folgende Optionen:
 
-|`Section`|Funktionalität|
+|Abschnitt|Funktionalität|
 |-------------|-------------------|
 |Medienserver|Mit der Schaltfläche **Einschalten/Ausschalten** können Sie das Medienstreaming aktivieren oder deaktivieren.|
 |Videostreamingqualität|Der Dropdownpfeil ermöglicht die Auswahl der Videostreamingqualität für die Videos, die vom Server wiedergegeben werden.|
@@ -75,7 +75,7 @@ In den folgenden Themen werden die Medienstreaming-Funktionen des Servers und da
 
  Weitere Informationen finden Sie unter [Zulassen oder Beschränken des Zugriffs auf eine Medienbibliothek auf dem Server](Manage-Digital-Media-in-Windows-Server-Essentials.md#BKMK_6) und [Freigeben kopiergeschützter Medien](Manage-Digital-Media-in-Windows-Server-Essentials.md#BKMK_1.5).
 
-##  <a name="how-media-streaming-works"></a><a name="BKMK_3"></a>Funktionsweise des Medien Streamings
+##  <a name="how-media-streaming-works"></a><a name="BKMK_3"></a> Funktionsweise des Medien Streamings
  Das medienstreamingfeature in Windows Server Essentials ermöglicht Netzwerkcomputern und einigen digitalen Mediengeräten, die auf dem Server gespeichert sind, digitale Mediendateien wiederzugeben.
 
  Wenn Sie den Medienserver aktivieren, können Inhalte, die Sie in den Medienbibliotheken freigeben, auf Geräten im Netzwerk wiedergegeben werden, die in der Lage sind, Streamingmedien vom Server zu empfangen. Sie können die meisten Arten von digitalen Mediendateien streamen. Zu den häufiger verwendeten streamingfähigen Dateitypen gehören:
@@ -100,7 +100,7 @@ In den folgenden Themen werden die Medienstreaming-Funktionen des Servers und da
 
   Weitere Informationen finden Sie unter Aktivieren [oder Deaktivieren des Medien Streamings](Manage-Digital-Media-in-Windows-Server-Essentials.md#BKMK_4).
 
-##  <a name="turn-media-streaming-on-or-off"></a><a name="BKMK_4"></a>Aktivieren oder Deaktivieren des Medien Streamings
+##  <a name="turn-media-streaming-on-or-off"></a><a name="BKMK_4"></a> Aktivieren oder Deaktivieren des Medien Streamings
  Sie können Musik, Videos und Bilder von Windows Server Essentials gemeinsam nutzen, indem Sie Dateien auf einen beliebigen unterstützten Digital Media-Empfänger (DMR), z. b. Computer, Mobiltelefone, Fernsehgeräte, Empfänger für digitale Medien, Extender für Windows Media Center (einschließlich Xbox 360) und andere persönliche elektronische Geräte, streamen.
 
  Eine aktuelle Liste der digitalen Mediengeräte, die mit Windows Server Essentials kompatibel sind, finden Sie im [Windows-Kompatibilitäts Center](https://www.microsoft.com/windows/compatibility/CompatCenter/Home).
@@ -108,7 +108,7 @@ In den folgenden Themen werden die Medienstreaming-Funktionen des Servers und da
 ### <a name="enabling-media-sharing"></a>Aktivieren der Medienfreigabe
  Um die in Windows Server Essentials gespeicherten Medien freizugeben, müssen Sie das Medien Streaming aktivieren. Das Medienstreaming ist standardmäßig deaktiviert.
 
-####  <a name="to-turn-media-streaming-on-or-off"></a><a name="BKMK_2.5"></a>So aktivieren oder deaktivieren Sie das Medien Streaming
+####  <a name="to-turn-media-streaming-on-or-off"></a><a name="BKMK_2.5"></a> So aktivieren oder deaktivieren Sie das Medien Streaming
 
 1. Öffnen Sie das Windows Server Essentials-Dashboard.
 
@@ -126,7 +126,7 @@ In den folgenden Themen werden die Medienstreaming-Funktionen des Servers und da
 
    Weitere Informationen finden Sie unter [Zulassen oder Beschränken des Zugriffs auf eine Medienbibliothek auf dem Server](Manage-Digital-Media-in-Windows-Server-Essentials.md#BKMK_6).
 
-##  <a name="add-digital-media-files-to-the-server"></a><a name="BKMK_5"></a>Hinzufügen digitaler Mediendateien zum Server
+##  <a name="add-digital-media-files-to-the-server"></a><a name="BKMK_5"></a> Hinzufügen digitaler Mediendateien zum Server
  Der Server Administrator kann freigegebenen Ordnern in der Medienbibliothek digitale Medien hinzufügen, indem er direkt auf den Server zugreift oder sich über den Remote Webzugriff-Standort bei dem Dashboard anmeldet. Andere Benutzer können dem Server Mediendateien mithilfe der Verbindung frei **gegebene Ordner** auf dem Launchpad, mithilfe der Remote Webzugriff-Website oder mithilfe der My Server-App für Windows Phone hinzufügen. Weitere Informationen zum Wiedergeben von Medien finden Sie unter Wiedergeben von [digitalen Medien](../use/Play-Digital-Media-in-Windows-Server-Essentials.md).
 
 > [!NOTE]
@@ -144,7 +144,7 @@ In den folgenden Themen werden die Medienstreaming-Funktionen des Servers und da
 
 3.  Kopieren Sie die gewünschten Mediendateien, und fügen Sie sie in den entsprechenden freigegebenen Ordner auf dem Server ein. Sie können sie auch mit Drag & Drop verschieben.
 
-##  <a name="allow-or-restrict-access-to-a-media-library-on-the-server"></a><a name="BKMK_6"></a>Zulassen oder beschränken des Zugriffs auf eine Medienbibliothek auf dem Server
+##  <a name="allow-or-restrict-access-to-a-media-library-on-the-server"></a><a name="BKMK_6"></a> Zulassen oder beschränken des Zugriffs auf eine Medienbibliothek auf dem Server
 
 -   Wenn Sie die Medienfreigabe aktivieren, werden die vier vordefinierten Ordner für Musik, Bilder, Videos und TV-Aufzeichnungen erstellt. Wenn einer dieser Ordner bereits auf dem Server vorhanden ist, wird der bestehende Ordner für die Medienfreigabe als freigegebener Ordner wiederverwendet. Alle Medieninhalte und Benutzerberechtigungen des vorhandenen Ordners werden beibehalten und für alle Netzwerk Benutzer freigegeben.
 
@@ -152,7 +152,7 @@ In den folgenden Themen werden die Medienstreaming-Funktionen des Servers und da
 
 -   Wenn Sie die Medienbibliothek Freigabe für einen freigegebenen Ordner aktivieren, können alle unterstützten Digital Media-Player oder DMR, die auf Ihr Windows Server Essentials-Netzwerk zugreifen können, auch auf Ihre digitalen Medien in diesem freigegebenen Ordner zugreifen. Wenn Sie beispielsweise über ein Drahtlosnetzwerk verfügen, das nicht gesichert ist, hat jeder im Bereich des Drahtlosnetzwerks die Möglichkeit, auf die digitalen Medien in diesem Ordner zuzugreifen. Bevor Sie die Medienbibliothekfreigabe aktivieren, stellen Sie sicher, dass Ihr Drahtlosnetzwerk geschützt ist. Weitere Informationen finden Sie in der Dokumentation zu Ihrem Funkzugriffspunkt.
 
-##  <a name="rename-the-media-library"></a><a name="BKMK_8"></a>Umbenennen der Medienbibliothek
+##  <a name="rename-the-media-library"></a><a name="BKMK_8"></a> Umbenennen der Medienbibliothek
  Der Standardname der Medienbibliothek ist **Digital Media-Server**. Sie wird erstellt, wenn Sie das Medien Streaming in Windows Server Essentials aktivieren. Weitere Informationen zum Aktivieren oder Deaktivieren des Medien Streamings finden [Sie unter](Manage-Digital-Media-in-Windows-Server-Essentials.md#BKMK_2.5). Mithilfe des Serverdashboards können Sie den Namen der Medienbibliothek jederzeit ändern.
 
 #### <a name="to-rename-the-media-library"></a>So benennen Sie die Medienbibliothek um
@@ -167,7 +167,7 @@ In den folgenden Themen werden die Medienstreaming-Funktionen des Servers und da
 
 5.  Geben Sie im Dialogfeld **Namen der Medienbibliothek ändern** einen neuen Namen für die Medienbibliothek ein, und klicken Sie dann auf **OK**.
 
-##  <a name="stop-sharing-digital-media"></a><a name="BKMK_9"></a>Freigabe digitaler Medien aufheben
+##  <a name="stop-sharing-digital-media"></a><a name="BKMK_9"></a> Freigabe digitaler Medien aufheben
  Der Server Administrator kann die Freigabe digitaler Medien aufheben, die in freigegebenen Ordnern auf einem Server gespeichert sind, auf dem Windows Server Essentials ausgeführt wird.
 
 #### <a name="to-stop-sharing-media-in-shared-folders"></a>So heben Sie die Freigabe von Medien in freigegebenen Ordnern auf
@@ -184,13 +184,13 @@ In den folgenden Themen werden die Medienstreaming-Funktionen des Servers und da
 
 4.  Klicken Sie auf **Übernehmen** oder **OK**, um die Änderungen zu speichern.
 
-##  <a name="enable-media-devices-that-use-the-server-message-block-smb-protocol-to-access-shared-files-on-the-server"></a><a name="BKMK_10"></a>Aktivieren von Mediengeräten, die das SMB-Protokoll (Server Message Block) verwenden, um auf freigegebene Dateien auf dem Server zuzugreifen
+##  <a name="enable-media-devices-that-use-the-server-message-block-smb-protocol-to-access-shared-files-on-the-server"></a><a name="BKMK_10"></a> Aktivieren von Mediengeräten, die das SMB-Protokoll (Server Message Block) verwenden, um auf freigegebene Dateien auf dem Server zuzugreifen
  Für Geräte, die anstatt DLNA (für das Medienstreaming) SMB (Server Message Block) für den Zugriff auf Netzwerkdateien und -freigaben verwenden, muss das Gastkonto aktiviert werden. Dadurch kann jedes Gerät oder jeder Benutzer im Netzwerk ohne Authentifizierung den Inhalt freigegebener Ordner anzeigen.
 
 > [!CAUTION]
 >  Wenn Sie das Gastkonto aktivieren, kann standardmäßig jeder auf die freigegebenen Ressourcen auf dem Server zugreifen.
 
-##  <a name="common-processors-and-the-video-profiles-they-support"></a><a name="BKMK_CommonProcessors"></a>Allgemeine Prozessoren und die von Ihnen unterstützten Video profile
+##  <a name="common-processors-and-the-video-profiles-they-support"></a><a name="BKMK_CommonProcessors"></a> Allgemeine Prozessoren und die von Ihnen unterstützten Video profile
  Um Medien vom Windows Server Essentials-Server zu streamen, können Sie einen Computer verwenden, auf dem das Betriebssystem Windows 7 oder Windows 8 oder andere Netzwerkgeräte (z. b. Digital Media-Player) oder Media Center Extender (z. b. Xbox 360) ausgeführt werden. Wenn Sie sich nicht in Reichweite Ihres Netzwerks befinden, verwenden Sie einen Media Player für den Remotewebzugriff zum Wiedergeben von Dateien, die auf dem Server gespeichert sind.
 
  Sie benötigen eine Datenübertragungsrate zwischen 200 Kbit/s und 10 Mbit/s. Sie müssen Medienformate verwenden, die vom Computer und den Geräten erkannt und wiedergegeben werden können. Da nicht alle Geräte dieselben Medienformate unterstützen, müssen Sie sicherstellen, dass Ihre Mediendateien vom Computer und den Geräten wiedergegeben werden können.
@@ -218,7 +218,7 @@ In den folgenden Themen werden die Medienstreaming-Funktionen des Servers und da
 > [!NOTE]
 >  Zum Streamen von High Definition-Videos über den Remotewebzugriff benötigen Sie einen Prozessor, der mindestens mit 6,0 bewertet wurde.
 
-##  <a name="known-issues-with-media-file-types"></a><a name="BKMK_KnownIssues"></a>Bekannte Probleme bei Medien Dateitypen
+##  <a name="known-issues-with-media-file-types"></a><a name="BKMK_KnownIssues"></a> Bekannte Probleme bei Medien Dateitypen
  Die Medienstreaming-Funktion in Remotewebzugriff verwendet den Windows Media Player 12-Netzwerkfreigabedienst. Das Medienstreaming mit Remotewebzugriff unterstützt die Audio-, Video- und Bilddateitypen, die von Windows Media Player 12 und Silverlight 4 unterstützt werden.
 
  In der folgende Tabelle sind die Dateitypen (Formate) aufgeführt, die beim Medienstreaming mit Remotewebzugriff unterstützt werden. Wenn auf Ihrem Server Mediendateitypen enthalten sind, die nicht in der Tabelle aufgelistet sind, ist es nicht möglich, sie über das Medienstreaming mit Remotewebzugriff zu streamen.

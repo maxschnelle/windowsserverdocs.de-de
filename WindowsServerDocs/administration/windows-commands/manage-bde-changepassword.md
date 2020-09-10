@@ -3,16 +3,16 @@ title: manage-bde ChangePassword
 description: Referenz Artikel für den Befehl manage-bde ChangePassword, der das Kennwort für ein Daten Laufwerk ändert.
 ms.topic: reference
 ms.assetid: b174e152-8442-4fba-8b33-56a81ff4f547
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 97bae4c10756818ec8475a114aa048a4cae58617
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 8c262b6ca123d76af6ebdca09e5546f41350686d
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89030538"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89622704"
 ---
 # <a name="manage-bde-changepassword"></a>manage-bde ChangePassword
 
@@ -26,7 +26,7 @@ manage-bde -changepassword [<drive>] [-computername <name>] [{-?|/?}] [{-help|-h
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `<drive>` | Stellt einen von einem Doppelpunkt gefolgten Laufwerkbuchstaben dar. |
 | -Computername | Gibt an, dass manage-bde.exe zum Ändern des BitLocker-Schutzes auf einem anderen Computer verwendet wird. Sie können auch **-CN** als abgekürzte Version dieses Befehls verwenden. |

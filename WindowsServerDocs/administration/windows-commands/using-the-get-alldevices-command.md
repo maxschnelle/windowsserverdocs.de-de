@@ -3,16 +3,16 @@ title: "\"Get-alldevices\""
 description: Referenz Artikel zu "Get-alldevices", in dem die Eigenschaften der Windows-Bereitstellungs Dienste aller vorab bereitgestellten Computer angezeigt werden.
 ms.topic: reference
 ms.assetid: 5824b3d2-2df1-4ed6-a289-e6c47c13fea2
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 8b0f1d17bf79628ca330302de1c8a53c9605f956
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 5087b67c15b3969085d3c8c66072f09396165614
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89026768"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89621972"
 ---
 # <a name="get-alldevices"></a>"Get-alldevices"
 
@@ -25,7 +25,7 @@ Zeigt die Eigenschaften der Windows-Bereitstellungs Dienste aller vorab bereitge
 wdsutil [Options] /Get-AllDevices [/forest:{Yes | No}] [/ReferralServer:<Server name>]
 ```
 ### <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |-------|--------|
 |[/Forest: {yes &#124; No}]|Gibt an, ob die Windows-Bereitstellungs Dienste Computer in der Gesamtstruktur oder in der lokalen Domäne zurückgeben sollen. Die Standardeinstellung ist " **Nein**". Dies bedeutet, dass nur die Computer in der lokalen Domäne zurückgegeben werden.|
 |[/ReferralServer: <Server name> ]|Gibt nur die Computer zurück, die für den angegebenen Server vorab bereitgestellt werden.|

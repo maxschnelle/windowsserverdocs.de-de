@@ -3,16 +3,16 @@ title: Verwenden des Get-Befehls
 description: Referenz Artikel für Get, der Eigenschaften oder Attribute zum angegebenen Objekt abruft.
 ms.topic: reference
 ms.assetid: fbd44c67-0670-4dfe-a1c0-2ab8abe327b5
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 43633a8fe0bc91892b584277dd5d59feaee00c50
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 78e4aba693cb60e4cce4240e0c4fd205baefdeac
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89029708"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89622607"
 ---
 # <a name="using-the-get-command"></a>Verwenden des Get-Befehls
 

@@ -3,16 +3,16 @@ title: Add-Image
 description: Referenz Artikel für Add-Image, mit dem einem Windows-Bereitstellungsdiensteserver Images hinzugefügt werden.
 ms.topic: reference
 ms.assetid: d5b6f4da-90ba-4b0e-9423-66c8ef5172e2
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 03f7a024b2d396f54db66a48353557f776552db1
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 6239cab5d4da67c5a115a0261bc0446022a1080c
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89029828"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89622260"
 ---
 # <a name="add-image"></a>Add-Image
 
@@ -40,7 +40,7 @@ wdsutil /add-ImagmediaFile:<wim file path>
      [/UnattendFile:<Unattend file path>]
 ```
 ### <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |-------|--------|
 mediafile: <. wim-Dateipfad>|Gibt den vollständigen Pfad und den Dateinamen der Windows-Abbild Datei (WIM-Datei) an, die die hinzu zufügenden Bilder enthält.|
 |[/Server:<Server name>]|Gibt den Namen des Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn Sie keinen Servernamen angeben, wird der lokale Server verwendet.|

@@ -3,16 +3,16 @@ title: logman create trace
 description: Referenz Artikel für den Befehl logman Create Trace, der einen Ereignis Ablauf Verfolgungs Datensammler erstellt.
 ms.topic: reference
 ms.assetid: 1b4dfecd-6f56-4c51-b622-c2054b4aabd7
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: ac0f8350e6dd42995c5d066201e1338f6d014a6d
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 31a286d90873d76ad604de27ac94a0668939d8da
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89023834"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89622757"
 ---
 # <a name="logman-create-trace"></a>logman create trace
 
@@ -28,7 +28,7 @@ logman create trace <[-n] <name>> [options]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | -s `<computer name>` | Führt den Befehl auf dem angegebenen Remote Computer aus. |
 | -config `<value>` | Gibt die Einstellungsdatei an, die Befehlsoptionen enthält. |
@@ -61,7 +61,7 @@ logman create trace <[-n] <name>> [options]
 | -Modus `<globalsequence|localsequence|pagedmemory>` | Gibt den Protokollierungs Modus der Ereignis Ablauf Verfolgungs Sitzung an, einschließlich:<ul><li>**Globalsequence** : gibt an, dass die Ereignisüberwachung jedem empfangenen Ereignis eine Sequenznummer hinzufügt, unabhängig davon, welche Ablauf Verfolgungs Sitzung das Ereignis empfangen hat.</li><li>**Localsequence** : gibt an, dass der Ereignis Überwachungs Sequenznummern für Ereignisse hinzufügt, die bei einer bestimmten Ablauf Verfolgungs Sitzung empfangen werden. Wenn diese Option verwendet wird, können doppelte Sequenznummern über alle Sitzungen hinweg vorhanden sein, in jeder Ablauf Verfolgungs Sitzung jedoch eindeutig sein.</li><li>**Pgedmemory** : gibt an, dass die Ereignisüberwachung einen ausgelagerten Speicher anstelle des nicht ausgelagerten Standard Speicherpools für interne Puffer Belegungen verwendet.</li></ul> |
 | /? | Zeigt die kontextbezogene Hilfe an. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Wenn [-] aufgeführt ist, wird durch das Hinzufügen eines zusätzlichen Bindestrichs (-) die Option negiert.
 

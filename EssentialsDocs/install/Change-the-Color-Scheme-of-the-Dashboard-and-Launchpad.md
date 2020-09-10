@@ -5,14 +5,14 @@ ms.date: 10/03/2016
 ms.topic: article
 ms.assetid: b2913e51-7979-4d48-a431-d2ec5f1042be
 author: nnamuhcs
-ms.author: coreyp
-manager: dongill
-ms.openlocfilehash: 47d29fd8960de3f85031e59552219166946474f7
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.author: geschuma
+manager: mtillman
+ms.openlocfilehash: 8450d96caede5a08d123f9bf5844953735d4c2b4
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87181466"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89621909"
 ---
 # <a name="change-the-color-scheme-of-the-dashboard-and-launchpad"></a>Ändern des Farbschemas für das Dashboard und das Launchpad
 
@@ -137,30 +137,30 @@ Sie können das Farbschema für das Dashboard und das Launchpad ändern, indem S
 
 8.  Kopieren Sie die Datei nach "%programFiles%\Windows Server\Bin\OEM". Wenn das Verzeichnis "OEM" nicht vorhanden ist, erstellen Sie es.
 
-##  <a name="dashboard-and-launchpad-areas-that-can-be-changed"></a><a name="BKMK_Dashboard"></a>Bereiche von Dashboard und Launchpad, die geändert werden können
+##  <a name="dashboard-and-launchpad-areas-that-can-be-changed"></a><a name="BKMK_Dashboard"></a> Bereiche von Dashboard und Launchpad, die geändert werden können
  In diesem Abschnitt werden Beispiele für anpassbare Bereiche des Dashboards und des Launchpads aufgeführt.
 
 ### <a name="examples"></a>Beispiele
 
-####  <a name="figure-1-sign-in-page-of-the-dashboard"></a><a name="BKMK_Figure1"></a>Abbildung 1: Anmeldeseite des Dashboards
+####  <a name="figure-1-sign-in-page-of-the-dashboard"></a><a name="BKMK_Figure1"></a> Abbildung 1: Anmeldeseite des Dashboards
  ![Windows Server Essentials-Dashboard](media/SBS8_ADK_Dashboard_Signin_RC.png "SBS8_ADK_Dashboard_Signin_RC")
 
-####  <a name="figure-2-launchpad"></a><a name="BKMK_Figure2"></a>Abbildung 2: launchpad
+####  <a name="figure-2-launchpad"></a><a name="BKMK_Figure2"></a> Abbildung 2: launchpad
  ![Windows SSB-Launchpad-Anmelde&#45;in](media/SBS8_ADK_LaunchpadSignin2.png "SBS8_ADK_LaunchpadSignin2")
 
-####  <a name="figure-3-sign-in-page-of-the-launchpad"></a><a name="BKMK_Figure3"></a>Abbildung 3: Anmeldeseite des Launchpad
+####  <a name="figure-3-sign-in-page-of-the-launchpad"></a><a name="BKMK_Figure3"></a> Abbildung 3: Anmeldeseite des Launchpad
  ![Windows Server Essentials-Launchpad](media/SBS8_ADK_Launchpad_Signin_RC.png "SBS8_ADK_Launchpad_Signin_RC")
 
-####  <a name="figure-4-dashboard-text"></a><a name="BKMK_Figure4"></a>Abbildung 4: dashboardtext
+####  <a name="figure-4-dashboard-text"></a><a name="BKMK_Figure4"></a> Abbildung 4: dashboardtext
  ![Windows Server Essentials-Navigationsbereich](media/SBS8_ADK_Navigation_RC.png "SBS8_ADK_Navigation_RC")
 
-####  <a name="figure-5-subtab-border"></a><a name="BKMK_Figure5"></a>Abbildung 5: Rahmen für untergeordnete Registerkarten
+####  <a name="figure-5-subtab-border"></a><a name="BKMK_Figure5"></a> Abbildung 5: Rahmen für untergeordnete Registerkarten
  ![Windows SBS-Dashboard-Unterregisterkartenrahmen](media/SBS8_ADK_DashboardSubtabborder.png "SBS8_ADK_DashboardSubtabborder")
 
-####  <a name="figure-6-task-pane"></a><a name="BKMK_Figure6"></a>Abbildung 6: Aufgabenbereich
+####  <a name="figure-6-task-pane"></a><a name="BKMK_Figure6"></a> Abbildung 6: Aufgabenbereich
  ![Windows SBS-Dashboard-Aufgabenbereich](media/SBS8_ADK_DashboardTaskPane.png "SBS8_ADK_DashboardTaskPane")
 
-####  <a name="figure-7a-product-splash-screen"></a><a name="BKMK_Figure9"></a>Abbildung 7a: Begrüßungsbildschirm des Produkts
+####  <a name="figure-7a-product-splash-screen"></a><a name="BKMK_Figure9"></a> Abbildung 7a: Begrüßungsbildschirm des Produkts
  ![Windows Server Essentials-Begrüßungsbildschirm](media/SBS8_ADK_productspalshscreen_RC.png "SBS8_ADK_productspalshscreen_RC")
 
 #### <a name="figure-7b-home-page"></a>Abbildung 7b: Startseite

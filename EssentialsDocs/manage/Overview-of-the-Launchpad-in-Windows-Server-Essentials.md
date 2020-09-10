@@ -5,14 +5,14 @@ ms.date: 10/03/2016
 ms.topic: article
 ms.assetid: 198d16cb-3d07-4706-be89-ad14a5f7dc47
 author: nnamuhcs
-ms.author: coreyp
-manager: dongill
-ms.openlocfilehash: c648ab5921d50a2b1178b44104977b8bb3abd692
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.author: geschuma
+manager: mtillman
+ms.openlocfilehash: c20fd35a1a90e6d635891cd2257913c669273735
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87180836"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89623011"
 ---
 # <a name="overview-of-the-launchpad-in-windows-server-essentials"></a>Übersicht über das Launchpad in Windows Server Essentials
 
@@ -39,7 +39,7 @@ Beim Windows Server Essentials-Launchpad handelt es sich um eine kleine Anwendun
 
 - [Verwenden des Launchpads mit einem Macintosh-Computer](Overview-of-the-Launchpad-in-Windows-Server-Essentials.md#BKMK_Mac)
 
-##  <a name="use-the-launchpad"></a><a name="BKMK_Launchpad"></a>Verwenden des Launchpad
+##  <a name="use-the-launchpad"></a><a name="BKMK_Launchpad"></a> Verwenden des Launchpad
  Die folgenden Links und Informationen sind auf dem Windows Server Essentials-Launchpad verfügbar.
 
 ### <a name="backup"></a>Backup
@@ -65,13 +65,13 @@ Beim Windows Server Essentials-Launchpad handelt es sich um eine kleine Anwendun
 > [!NOTE]
 >  Um dieses Feature verwenden zu können, müssen Sie über die entsprechenden Berechtigungen verfügen, um sich auf dem Server anmelden zu können.
 
-### <a name="microsoft-office-365"></a>Microsoft Office 365
- Der **Microsoft Office 365** -Link wird nur auf dem Launchpad angezeigt, wenn der Benutzer über ein Office 365-Konto verfügt. Klicken Sie auf  **Microsoft Office 365** , um auf weitere Links zu Office 365-Ressourcen zuzugreifen. Weitere Informationen finden Sie unter [Schnellstarthandbuch to using Microsoft Office 365](../use/Quick-Start-Guide-to-Using-Microsoft-Office-365-with-Windows-Server-Essentials.md).
+### <a name="microsoft-365"></a>Microsoft 365
+ Der **Microsoft 365** Link wird nur auf dem Launchpad angezeigt, wenn der Benutzer über ein Microsoft 365 Konto verfügt. Klicken Sie auf  **Microsoft 365** , um auf zusätzliche Links zu den Microsoft 365 Ressourcen zuzugreifen. Weitere Informationen finden Sie unter [Schnellstarthandbuch to using Microsoft 365](../use/Quick-Start-Guide-to-Using-Microsoft-Office-365-with-Windows-Server-Essentials.md).
 
 ### <a name="computer-health-alerts"></a>Computer-Integritätswarnungen
  Warnungen, die auf dem Launchpad angezeigt werden, bieten einen schnellen Überblick hinsichtlich der aktuellen Integrität des Computers. Klicken Sie zum Anzeigen von Informationen zu einer Integritätswarnung auf ein Warnsymbol, um die Meldungsanzeige zu öffnen. Integritätswarnungen erscheinen basierend auf dem Schweregrad in der Anzeige. Die schwerwiegendsten Warnungen werden zuerst in der Liste angezeigt. Weniger schwerwiegende Warnungen werden weiter unten in der Liste angezeigt. Weitere Informationen zu Integritäts Warnungen für Computer finden Sie unter [Verwalten der System](Manage-System-Health-in-Windows-Server-Essentials.md)Integrität.
 
-##  <a name="use-the-launchpad-with-a-mac-computer"></a><a name="BKMK_Mac"></a>Verwenden des LaunchPads mit einem Macintosh-Computer
+##  <a name="use-the-launchpad-with-a-mac-computer"></a><a name="BKMK_Mac"></a> Verwenden des LaunchPads mit einem Macintosh-Computer
  Sie können einen Macintosh- &reg; Computer &reg; , auf dem Mac OS X 10,5 oder höher ausgeführt wird, mit Windows Server Essentials, Windows Server Essentials oder Windows Server 2012 R2 verbinden oder die Connector-Software herunterladen und installieren. Wenn Sie die Installation der Connector-Software beendet haben, können Sie auswählen, dass das Launchpad beim Systemstart automatisch gestartet wird.
 
  Beim Launchpad handelt es sich um eine kleine Anwendung, die authentifizierten Benutzern Zugriff auf die wichtigsten Features des Servers bietet, dazu zählen u. a. freigegebene Dateien und Medien, Add-Ins und der Remotewebzugriff. Das Launchpad bietet auch Echtzeitinformationen und Benachrichtigungen über den Zustand des Computers.
@@ -91,7 +91,7 @@ Beim Windows Server Essentials-Launchpad handelt es sich um eine kleine Anwendun
 ### <a name="computer-health-alerts"></a>Computer-Integritätswarnungen
  Warnungen, die auf dem Launchpad angezeigt werden, bieten einen schnellen Überblick hinsichtlich der aktuellen Integrität des Computers. Klicken Sie zum Anzeigen von Informationen zu einer Integritätswarnung auf ein Warnsymbol, um die Meldungsanzeige zu öffnen. Integritätswarnungen erscheinen basierend auf dem Schweregrad in der Anzeige. Die schwerwiegendsten Warnungen werden zuerst in der Liste angezeigt. Weniger schwerwiegende Warnungen werden weiter unten in der Liste angezeigt.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Verbindung herstellen](../use/Get-Connected-in-Windows-Server-Essentials.md)
 

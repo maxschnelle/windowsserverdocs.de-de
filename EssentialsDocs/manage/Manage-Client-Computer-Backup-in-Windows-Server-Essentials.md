@@ -5,14 +5,14 @@ ms.date: 10/03/2016
 ms.topic: article
 ms.assetid: 1b4776e8-9504-4b98-ae80-11da797d9819
 author: nnamuhcs
-ms.author: coreyp
-manager: dongill
-ms.openlocfilehash: ba0c7a6e9adf4700754d01800ec80a805e10c9d5
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.author: geschuma
+manager: mtillman
+ms.openlocfilehash: c743e0a30796eac374052787f7c47b0af6e656b6
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87181016"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89623167"
 ---
 # <a name="manage-client-computer-backup-in-windows-server-essentials"></a>Verwalten der Clientcomputersicherung in Windows Server Essentials
 
@@ -56,7 +56,7 @@ ms.locfileid: "87181016"
 
 -   [Grundlegendes zum Dateiversionsverlauf](Manage-Client-Computer-Backup-in-Windows-Server-Essentials.md#BKMK_FileHistory)
 
-##  <a name="how-the-repair-the-backup-database-wizard-works"></a><a name="BKMK_1"></a>Funktionsweise des Assistenten zum Reparieren der Sicherungs Datenbank
+##  <a name="how-the-repair-the-backup-database-wizard-works"></a><a name="BKMK_1"></a> Funktionsweise des Assistenten zum Reparieren der Sicherungs Datenbank
  Wenn Windows Server Essentials einen Fehler in der Sicherungsdatenbank erkennt, erhalten Sie eine Integritätsbenachrichtigung, und der Warnstatus ändert sich in Rot, womit eine kritische Bedingung gekennzeichnet wird.
 
  Klicken Sie im Windows Server Essentials-Dashboard auf das Warnstatus-Symbol, um die Benachrichtigung über einen Fehler der Sicherungsdatenbank anzuzeigen. Die Benachrichtigung enthält eine Schaltfläche **Reparieren**, über die der Assistent "Die Sicherungsdatenbank reparieren" gestartet werden kann. Es kann möglicherweise mehrere Stunden dauern, bis der Assistent abgeschlossen ist.
@@ -66,7 +66,7 @@ ms.locfileid: "87181016"
 > [!CAUTION]
 >  Sie sollten die Datenbank sichern, bevor Sie versuchen, sie zu reparieren. Je nach Fehlertyp in der Sicherungsdatenbank kann der Assistent unter Umständen einige Sicherungen nicht wiederherstellen. Einige oder alle Sicherungen sind möglicherweise dauerhaft beschädigt.
 
-##  <a name="understand-the-computer-backup-settings"></a><a name="BKMK_2"></a>Informationen zu den Einstellungen für die Computer Sicherung
+##  <a name="understand-the-computer-backup-settings"></a><a name="BKMK_2"></a> Informationen zu den Einstellungen für die Computer Sicherung
  Nachdem die Sicherung für Clientcomputer konfiguriert wurde, können Sie für die Ausführung der Sicherung ein anderes Zeitfenster festlegen. Gleichermaßen können Sie eine längere oder kürzere Aufbewahrungszeit als die Standardzeit festlegen.
 
  Mithilfe der Option **Standard wiederherstellen** können Sie das Sicherungsfenster und die Aufbewahrungsrichtlinie während der anfänglichen Sicherungskonfiguration auf die Standardeinstellungen zurücksetzen.
@@ -81,7 +81,7 @@ ms.locfileid: "87181016"
 |Wöchentliche Sicherungen aufbewahren|4 Wochen|Gibt die Anzahl an Wochen an, die die letzte Sicherung der Woche aufbewahrt wird. Wenn Sie beispielsweise die Standardeinstellung verwenden, werden 4 wöchentliche Sicherungen aufbewahrt. In der fünften Woche und jede Woche danach wird die jeweils älteste wöchentliche Sicherung gelöscht.|
 |Monatliche Sicherungen aufbewahren|6 Monate|Gibt die Anzahl an Monaten an, die die letzte Sicherung des Monats aufbewahrt wird. Wenn Sie beispielsweise die Standardeinstellung verwenden, werden 6 monatliche Sicherungen aufbewahrt. Im siebten Monat und jeden Monat danach wird die jeweils älteste monatliche Sicherung gelöscht.|
 
-##  <a name="set-up-backup-for-a-client-computer"></a><a name="BKMK_3"></a>Einrichten der Sicherung für einen Client Computer
+##  <a name="set-up-backup-for-a-client-computer"></a><a name="BKMK_3"></a> Einrichten der Sicherung für einen Client Computer
  Wenn die Sicherung deaktiviert ist, können Sie die Sicherung für den Computer über das Dashboard festlegen. Beim Einrichten der Sicherung für einen Computer können Sie festlegen, dass der gesamte Computer oder einzelne Volumes und Ordner gesichert werden sollen.
 
 > [!NOTE]
@@ -129,7 +129,7 @@ ms.locfileid: "87181016"
 > [!IMPORTANT]
 >  Der Volumeschattenkopie-Dienst (Volume Shadow Copy Service, VSS) unterstützt nicht das Erstellen einer Schattenkopie eines virtuellen Volumes und des Hostvolumes in demselben Snapshotsatz. VSS unterstützt das Erstellen von Snapshots von Volumes auf einer virtuellen Festplatte (VHD), wenn eine Sicherung des virtuellen Volumes erforderlich ist. Weitere Informationen finden Sie unter [Warten und Sichern virtueller Festplatten](https://go.microsoft.com/fwlink/p/?LinkId=256577).
 
-##  <a name="change-the-time-that-backup-is-scheduled-to-run"></a><a name="BKMK_4"></a>Ändern der Zeit, zu der die Ausführung der Sicherung geplant ist
+##  <a name="change-the-time-that-backup-is-scheduled-to-run"></a><a name="BKMK_4"></a> Ändern der Zeit, zu der die Ausführung der Sicherung geplant ist
  Der Sicherungsprozess sollte für eine Zeit geplant werden, wenn möglichst wenige Personen ihren Netzwerkcomputer verwenden. Dies ist in der Regel am späten Abend oder frühen Morgen der Fall. Die Standardzeit für die Sicherung liegt zwischen 18:00 Uhr und 9:00 Uhr. Der Server versucht, die Clientcomputer nur während des geplanten Zeitfensters zu sichern.
 
  Wenn es während dieser Zeiten, die normalerweise außerhalb der normalen Arbeitszeiten liegen, jedoch Aktivitäten in Ihrem Unternehmen gibt, sollten Sie die Standardeinstellung ändern.
@@ -147,7 +147,7 @@ ms.locfileid: "87181016"
 
 4.  Klicken Sie auf **Übernehmen**, und klicken Sie anschließend auf **OK**.
 
-##  <a name="change-the-computer-backup-retention-policy"></a><a name="BKMK_5"></a>Ändern der Aufbewahrungs Richtlinie für die Computer Sicherung
+##  <a name="change-the-computer-backup-retention-policy"></a><a name="BKMK_5"></a> Ändern der Aufbewahrungs Richtlinie für die Computer Sicherung
  Tägliche Sicherungen von allen Computern sammeln sich mit der Zeit auf Ihrem Server an. Windows Server Essentials hilft Ihnen bei der Verwaltung der Datenbank mit Computersicherungen, um auf diese Weise die Sicherungen zu verwalten. Sie können festlegen, wie viele Sicherungen für alle Computer aufbewahrt werden sollen.
 
  Die Sicherungsaufbewahrungsrichtlinie bestimmt, wie lange eine Sicherung gespeichert wird, bevor sie während des Bereinigungsvorgangs gelöscht wird. Die Sicherungsbereinigung wird jeden Samstag um 23:59 Uhr ausgeführt. Dabei werden alle Sicherungen gelöscht, die außerhalb der Sicherungsaufbewahrungsrichtlinie liegen. Standardeinstellungen für die Sicherungsaufbewahrungsrichtlinie:
@@ -176,7 +176,7 @@ ms.locfileid: "87181016"
     > [!NOTE]
     >  Die aktualisierte Aufbewahrungsrichtlinie gilt für alle Clientcomputer in Ihrem Netzwerk, die für die Sicherung konfiguriert wurden.
 
-##  <a name="reset-backup-to-default-settings"></a><a name="BKMK_6"></a>Sicherung auf Standardeinstellungen zurücksetzen
+##  <a name="reset-backup-to-default-settings"></a><a name="BKMK_6"></a> Sicherung auf Standardeinstellungen zurücksetzen
  Nachdem die Sicherung für Clientcomputer konfiguriert wurde, kann der Netzwerkadministrator ein anderes Zeitfenster angeben. Gleichermaßen kann der Administrator eine längere oder kürzere Aufbewahrungszeit als die Standardzeit festlegen. Mithilfe der Schaltfläche **Standards wiederherstellen** können Sie das Sicherungsfenster und die Aufbewahrungsrichtlinie während der anfänglichen Sicherungskonfiguration auf die Standardeinstellungen zurücksetzen.
 
  Die Standardwerte sind:
@@ -207,7 +207,7 @@ ms.locfileid: "87181016"
 
 4.  Klicken Sie auf **Übernehmen**, und klicken Sie anschließend auf **OK**.
 
-##  <a name="use-repair-and-recovery-tools"></a><a name="BKMK_7"></a>Verwenden von Reparatur-und Wiederherstellungs Tools
+##  <a name="use-repair-and-recovery-tools"></a><a name="BKMK_7"></a> Verwenden von Reparatur-und Wiederherstellungs Tools
  **Sicherungen reparieren:** Wenn die Datenbank mit Computersicherungen aus irgendeinem Grund beschädigt oder unbrauchbar wird, können Sie versuchen, die Datenbank zu reparieren, indem Sie den Assistenten für die Reparatur der Sicherungsdatenbank verwenden. Der Assistent analysiert die Sicherungsdateien, um festzustellen, ob es Probleme gibt, die repariert werden können. Der Assistent versucht anschließend, die gefundenen Probleme zu beheben.
 
 > [!WARNING]
@@ -215,7 +215,7 @@ ms.locfileid: "87181016"
 
  **Computerwiederherstellung:** Sie können einen startbaren USB-Speicherstick anlegen, um einen Computer aus einer vorhandenen Sicherung wiederherzustellen. Sie müssen einen USB-Speicherstick mit mindestens 1 GB verwenden. Nachdem der startfähige USB-Speicherstick angelegt wurde, stecken Sie ihn in den Computer, den Sie wiederherstellen möchten, und führen Sie dann einen Bootvorgang zum USB-Speicherstick durch, um eine vollständige Systemwiederherstellung zu starten.
 
-##  <a name="repair-the-backup-database"></a><a name="BKMK_8"></a>Reparieren der Sicherungs Datenbank
+##  <a name="repair-the-backup-database"></a><a name="BKMK_8"></a> Reparieren der Sicherungs Datenbank
  Wenn Sie eine Warnung erhalten, in der Sie auf Probleme mit der Computersicherungsdatenbank hingewiesen werden, können Sie versuchen, sie zu reparieren.
 
 #### <a name="to-repair-the-backup-database"></a>So reparieren Sie die Sicherungsdatenbank
@@ -255,7 +255,7 @@ ms.locfileid: "87181016"
 
 5.  Die Ergebnisse werden im Abschnitt **Sicherungen reparieren** angezeigt.
 
-##  <a name="disable-backup-for-a-computer"></a><a name="BKMK_9"></a>Deaktivieren der Sicherung für einen Computer
+##  <a name="disable-backup-for-a-computer"></a><a name="BKMK_9"></a> Deaktivieren der Sicherung für einen Computer
  Verwenden Sie das Dashboard, um Sicherungen für Computer in Ihrem Netzwerk schnell zu deaktivieren.
 
 #### <a name="to-disable-backup-for-a-computer"></a>So deaktivieren Sie die Sicherung für einen Computer
@@ -274,7 +274,7 @@ ms.locfileid: "87181016"
 
    Weitere Informationen dazu, wie Sie eine Sicherung für einen Computer aktivieren, nachdem die Sicherung deaktiviert wurde, finden Sie unter [Einrichten der Sicherung für einen Clientcomputer](Manage-Client-Computer-Backup-in-Windows-Server-Essentials.md#BKMK_3).
 
-##  <a name="run-the-backup-cleanup-task"></a><a name="BKMK_10"></a>Ausführen der Sicherungs Bereinigungs Aufgabe
+##  <a name="run-the-backup-cleanup-task"></a><a name="BKMK_10"></a> Ausführen der Sicherungs Bereinigungs Aufgabe
  Die Bereinigungsaufgabe der Clientcomputersicherung ist für 11:59 Uhr jeden Samstag geplant, nachdem alle Sicherungen durchgeführt wurden. Die Bereinigungsaufgabe löscht Sicherungen aus der Datenbank mit Clientcomputersicherungen gemäß der Sicherungsaufbewahrungsrichtlinie. Standardeinstellungen für die Sicherungsaufbewahrungsrichtlinie:
 
 - Anzahl von Tagen, die tägliche Sicherungen aufbewahrt werden: 5 Tage
@@ -295,7 +295,7 @@ ms.locfileid: "87181016"
 
 4.  Klicken Sie auf die Aufgabe **Sicherungsbereinigung** und dann im Bereich **Aktionen** auf **Ausführen**. Der Status ändert sich in **Wird ausgeführt**, bis die Aufgabe abgeschlossen ist.
 
-##  <a name="view-alerts-in-the-task-bar-on-a-client-computer"></a><a name="BKMK_11"></a>Anzeigen von Warnungen in der Taskleiste auf einem Client Computer
+##  <a name="view-alerts-in-the-task-bar-on-a-client-computer"></a><a name="BKMK_11"></a> Anzeigen von Warnungen in der Taskleiste auf einem Client Computer
  In der Taskleiste Ihres Computer wird aus folgenden Gründen ein Hinweis in Bezug auf die Sicherung angezeigt:
 
 -   Eine Sicherung wurde gestartet.
@@ -306,7 +306,7 @@ ms.locfileid: "87181016"
 
 -    Nur Windows Server Essentials: Ihrem Computer wird ein neues Volume hinzugefügt. Die Person, die das Netzwerk verwaltet, muss den Assistenten zum Anpassen der Sicherung ausführen, um das Volume in zukünftige Sicherungen einzuschließen bzw. davon auszuschließen.
 
-##  <a name="view-backup-status-from-the-launchpad"></a><a name="BKMK_12"></a>Anzeigen des Sicherungs Status über das launchpad
+##  <a name="view-backup-status-from-the-launchpad"></a><a name="BKMK_12"></a> Anzeigen des Sicherungs Status über das launchpad
  Verwenden Sie das Launchpad, um schnell den Sicherungsstatus Ihres Computer anzuzeigen.
 
 > [!TIP]
@@ -343,7 +343,7 @@ ms.locfileid: "87181016"
 
 4.  Klicken Sie auf **OK**, um das Dialogfeld **Eigenschaften der Sicherung** zu schließen.
 
-##  <a name="stop-a-backup-in-progress-from-the-launchpad"></a><a name="BKMK_13"></a>Beendet eine laufende Sicherung aus dem launchpad.
+##  <a name="stop-a-backup-in-progress-from-the-launchpad"></a><a name="BKMK_13"></a> Beendet eine laufende Sicherung aus dem launchpad.
  Sie können eine Sicherung problemlos beenden, die gerade ausgeführt wird.
 
 #### <a name="to-stop-a-backup-in-progress"></a>So beenden Sie eine laufende Sicherung
@@ -361,7 +361,7 @@ ms.locfileid: "87181016"
 
 5.  Klicken Sie auf **OK**, um das Dialogfeld **Eigenschaften der Sicherung** zu schließen.
 
-##  <a name="start-a-backup-from-the-launchpad"></a><a name="BKMK_14"></a>Starten einer Sicherung über das launchpad
+##  <a name="start-a-backup-from-the-launchpad"></a><a name="BKMK_14"></a> Starten einer Sicherung über das launchpad
  Möglicherweise gibt es Zeiten, wenn Sie Ihre Dateien und Ordner vor der eigentlich geplanten, auf dem Server festgelegten Sicherung sichern möchten. Über das Launchpad können Sie die Sicherung des Computers manuell initiieren.
 
 #### <a name="to-start-a-backup"></a>So starten Sie eine Sicherung
@@ -383,7 +383,7 @@ ms.locfileid: "87181016"
 
 7.  Klicken Sie auf **OK**, um das Dialogfeld **Eigenschaften der Sicherung** zu schließen.
 
-##  <a name="how-computer-backup-works"></a><a name="BKMK_15"></a>Funktionsweise der Computer Sicherung
+##  <a name="how-computer-backup-works"></a><a name="BKMK_15"></a> Funktionsweise der Computer Sicherung
  Bei der täglichen Sicherung werden die folgenden Aufgaben durchgeführt:
 
 -   Die Netzwerkcomputer werden nacheinander gesichert.
@@ -397,7 +397,7 @@ ms.locfileid: "87181016"
 > [!IMPORTANT]
 >  Der Volumeschattenkopie-Dienst (Volume Shadow Copy Service, VSS) unterstützt nicht das Erstellen einer Schattenkopie eines virtuellen Volumes und des Hostvolumes in demselben Snapshotsatz. VSS unterstützt das Erstellen von Snapshots von Volumes auf einer virtuellen Festplatte (VHD), wenn eine Sicherung des virtuellen Volumes erforderlich ist. Weitere Informationen finden Sie unter [Warten und Sichern virtueller Festplatten](https://go.microsoft.com/fwlink/p/?LinkId=256577).
 
-##  <a name="tips-to-help-prevent-data-loss-due-to-corruption-of-the-client-backup-database"></a><a name="BKMK_16"></a>Tipps zur Vermeidung von Datenverlusten aufgrund einer Beschädigung der Client Sicherungs Datenbank
+##  <a name="tips-to-help-prevent-data-loss-due-to-corruption-of-the-client-backup-database"></a><a name="BKMK_16"></a> Tipps zur Vermeidung von Datenverlusten aufgrund einer Beschädigung der Client Sicherungs Datenbank
  Wenn die Clientsicherungsdatenbank beschädigt wird, können Sie wichtige Daten verlieren.
 
  Beachten Sie Folgendes, um einen Datenverlust aufgrund einer Beschädigung der Clientsicherungsdatenbank zu vermeiden:
@@ -417,7 +417,7 @@ ms.locfileid: "87181016"
 
      Nach Abschluss des Wiederherstellungsvorgangs müssen Sie den Dienst neu starten.
 
-##  <a name="restore-files-or-folders-from-a-client-computer-backup"></a><a name="BKMK_17"></a>Wiederherstellen von Dateien oder Ordnern aus einer Client Computer Sicherung
+##  <a name="restore-files-or-folders-from-a-client-computer-backup"></a><a name="BKMK_17"></a> Wiederherstellen von Dateien oder Ordnern aus einer Client Computer Sicherung
  Sie können zu einzelnen Dateien und Ordnern navigieren und sie aus einer Sicherungsdatei wiederherstellen.
 
 > [!NOTE]
@@ -436,7 +436,7 @@ ms.locfileid: "87181016"
 
 4.  Befolgen Sie die Anweisungen im Assistenten.
 
-##  <a name="understanding-file-history"></a><a name="BKMK_FileHistory"></a>Grundlegendes zum Datei Verlauf
+##  <a name="understanding-file-history"></a><a name="BKMK_FileHistory"></a> Grundlegendes zum Datei Verlauf
  Die Dateiversionsverlauf-Funktion von Windows Server Essentials sichert automatisch Dateien, die sich in den Ordnern "Bibliotheken", "Kontakte", "Desktop" und "Favoriten" auf Netzwerkcomputern befinden, für die die Dateiversionsverlauf-Funktion aktiviert wurde. Wenn ursprüngliche Dateien verloren gegangen sind, beschädigt oder gelöscht wurden, können Sie sie wiederherstellen. Es gibt auch verschiedene Versionen der Dateien von unterschiedlichen Zeitpunkten. Im Laufe der Zeit erhalten Sie einen vollständigen Verlauf der Dateien.
 
  In Windows Server Essentials können Sie die Einstellungen des Datei Versions Verlaufs auf der Seite **Datei Versionsverlauf** unter **Einstellungen und Tools für die Client Computer Sicherung**anpassen.
@@ -447,14 +447,14 @@ ms.locfileid: "87181016"
 
 |Sicherungseinstellung|Standard|BESCHREIBUNG|
 |--------------------|-------------|-----------------|
-|Einschalten/Ausschalten|Aktiviert|Der Dateiversionsverlauf ist bei der Installation von Windows Server Essentials standardmäßig aktiviert.|
+|Einschalten/Ausschalten|Ein|Der Dateiversionsverlauf ist bei der Installation von Windows Server Essentials standardmäßig aktiviert.|
 |Sicherungsdaten|Dokumente und Desktop|Es gibt drei vorkonfigurierte Einstellungen, mit denen Sie eine Vielzahl von Sicherungslösungen festlegen können. Sie können eine der folgenden Optionen auswählen:<br /><br /> -Dokumente und Desktop<br /><br /> -Alle Bibliotheken, Desktop, Kontakte und Favoriten<br /><br /> -Alle Daten in Bibliotheken, Desktops, Kontakten und Favoriten ohne Daten in den Bibliotheken Musik, Video und Bilder|
 |Sicherungshäufigkeit|Jede Stunde|Gibt an, wie oft der Dateiversionsverlauf eine Sicherung der ausgewählten Daten erstellt. Sie können aus verschiedenen Optionen wählen, von "Jede 10 Minuten" bis hin zu "Täglich".|
 |Aufbewahrungsdauer der Kopien|1 Jahr|Gibt die Dauer an, die eine Sicherungskopie im Dateiversionsverlauf aufbewahrt wird.|
 
  Informationen zu Problemen mit dem Dateiversionsverlauf finden Sie unter [Problembehandlung für den Dateiversionsverlauf](../support/Troubleshoot-File-History-in-Windows-Server-Essentials.md) (womöglich nur in englischer Sprache).
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Verwalten der Sicherung und Wiederherstellung](Manage-Backup-and-Restore-in-Windows-Server-Essentials.md)
 

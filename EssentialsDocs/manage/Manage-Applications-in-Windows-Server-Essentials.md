@@ -5,14 +5,14 @@ ms.date: 10/03/2016
 ms.topic: article
 ms.assetid: ae89c46a-0afd-4858-9150-ec97650f45a4
 author: nnamuhcs
-ms.author: coreyp
-manager: dongill
-ms.openlocfilehash: 7f83d595b56c1c6e2ae0e2565dd607a403b429b0
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.author: geschuma
+manager: mtillman
+ms.openlocfilehash: 30b8dfa2087e76cc80011eb359715c95564ec1b6
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87181046"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89623276"
 ---
 # <a name="manage-applications-in-windows-server-essentials"></a>Verwalten von Anwendungen in Windows Server 2012 Essentials
 
@@ -24,7 +24,7 @@ ms.locfileid: "87181046"
 
 -   [Installieren und Entfernen von Add-Ins mithilfe des Dashboards](Manage-Applications-in-Windows-Server-Essentials.md#BKMK_2)
 
-##  <a name="application-management-tasks-in-the-dashboard"></a><a name="BKMK_1"></a>Anwendungs Verwaltungsaufgaben im Dashboard
+##  <a name="application-management-tasks-in-the-dashboard"></a><a name="BKMK_1"></a> Anwendungs Verwaltungsaufgaben im Dashboard
  Die Verwaltungsseite **Anwendungen** im Dashboard bietet Folgendes:
 
 - Eine Liste der installierten Add-Ins, wobei Folgendes angezeigt wird:
@@ -53,7 +53,7 @@ ms.locfileid: "87181046"
 |Datenschutzbestimmungen für das Add-In lesen|Öffnet eine Website im Internetbrowser, auf der Sie die Datenschutzbestimmungen anzeigen können.|
 |Wie werden Add-Ins installiert oder entfernt?|Öffnet eine Website im Internetbrowser mit Hilfethemen.|
 
-##  <a name="install-or-remove-add-ins-using-the-dashboard"></a><a name="BKMK_2"></a>Installieren oder Entfernen von Add-Ins mithilfe des Dashboards
+##  <a name="install-or-remove-add-ins-using-the-dashboard"></a><a name="BKMK_2"></a> Installieren oder Entfernen von Add-Ins mithilfe des Dashboards
  Ein Add-In ist eine Softwareanwendung, die zusätzliche Funktionen für den Server bereitstellt. Eine wachsende Zahl von Add-Ins wird von Microsoft und anderen unabhängigen Softwareanbietern (ISVs) zur Verfügung gestellt.
 
  Bevor Sie die erweiterten Funktionen nutzen können, die ein Add-In Ihnen bietet, müssen Sie zuerst das Add-In auf dem Server installieren.
@@ -93,7 +93,7 @@ ms.locfileid: "87181046"
     > [!NOTE]
     >  Möglicherweise müssen Sie das Dashboard neu starten, um das Add-In vollständig zu entfernen.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Übersicht über das Dashboard](Overview-of-the-Dashboard-in-Windows-Server-Essentials.md)
 

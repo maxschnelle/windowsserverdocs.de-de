@@ -3,16 +3,16 @@ title: Get-Device
 description: Referenz Artikel zu Get-Device, der Informationen zu den Windows-Bereitstellungs Diensten zu einem vorab bereitgestellten Computer abruft (d. h. ein physischer Computer, der mit einem Computer Konto in den Active Directory-Domänen Diensten angeordnet ist.
 ms.topic: reference
 ms.assetid: 1da79286-7e1d-45f2-aea2-d446e16a6911
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 118e14f738920527c61c8da25d19ab98126fc004
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 4fdbdfa843376b328cac0fe06e68a5a215ddd915
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89029698"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89622590"
 ---
 # <a name="get-device"></a>Get-Device
 
@@ -25,7 +25,7 @@ Ruft Informationen zu den Windows-Bereitstellungs Diensten zu einem vorab bereit
 wdsutil /Get-Device {/Device:<Device name> | /ID:<MAC or UUID>} [/Domain:<Domain>] [/forest:{Yes | No}]
 ```
 ### <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |-------|--------|
 |Schutz<Device name>|Gibt den Namen des Computers an (samAccountName).|
 |Name<MAC or UUID>|Gibt die Mac-Adresse oder die UUID (GUID) des Computers an, wie in den folgenden Beispielen gezeigt. Beachten Sie, dass eine gültige GUID in einem von zwei Formaten eine binäre Zeichenfolge oder eine GUID-Zeichenfolge sein muss.<p>-   **Binäre Zeichenfolge**:/ID: ACEFA3E81F20694E953EB2DAA1E8B1B6<br />-   **MAC-Adresse**: 00b056882(keine Bindestriche) oder 00-B0-56-88-2F-DC (mit Bindestrichen)<br />-   **GUID-Zeichenfolge**:/ID: E8A3EFAC-201F-4E69-953-B2DAA1E8B1B6|

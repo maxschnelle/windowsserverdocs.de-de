@@ -5,17 +5,17 @@ ms.date: 04/29/2020
 ms.topic: article
 ms.assetid: fd7196ac-cfa6-46a5-ba77-6962b47a825e
 author: nnamuhcs
-ms.author: coreyp
-manager: dongill
+ms.author: geschuma
+manager: mtillman
 ms.custom:
 - CI ID 117135
 - CSSTroubleshoot
-ms.openlocfilehash: 5e6db88b9888726fbec62d953b3510142ff1a699
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.openlocfilehash: ada3b5fa3b95fa6de45177513b26589c4180696d
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87180766"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89622831"
 ---
 # <a name="install-windows-server-essentials-in-migration-mode"></a>Installieren von Windows Server Essentials im Migrationsmodus
 
@@ -40,7 +40,7 @@ In Ihrem Netzwerk, auf dem Windows Server Essentials ausgeführt wird, kann nur 
 
 6.  Konfiguriert den Zielserver als den Standortlizenzserver.
 
-##  <a name="install-windows-server-essentials-on-the-destination-server"></a><a name="BKMK_Install"></a>Installieren von Windows Server Essentials auf dem Ziel Server
+##  <a name="install-windows-server-essentials-on-the-destination-server"></a><a name="BKMK_Install"></a> Installieren von Windows Server Essentials auf dem Ziel Server
  Führen Sie das folgende Verfahren aus, um Windows Server Essentials im Migrations Modus auf dem Ziel Server zu installieren und zu konfigurieren.
 
 #### <a name="to-install-windows-server-essentials-on-the-destination-server"></a>So installieren Sie Windows Server Essentials auf dem Ziel Server
@@ -68,7 +68,7 @@ In Ihrem Netzwerk, auf dem Windows Server Essentials ausgeführt wird, kann nur 
 > [!NOTE]
 >  Wenn Sie den Desktop bei der Installation von Windows Server Essentials entsperren möchten, verwenden Sie das integrierte Administrator Konto, und lassen Sie das Kennwort leer.
 
-##  <a name="verify-the-health-of-the-domain-controller"></a><a name="BKMK_VerifyTheHealthOfDC"></a>Überprüfen der Integrität des Domänen Controllers
+##  <a name="verify-the-health-of-the-domain-controller"></a><a name="BKMK_VerifyTheHealthOfDC"></a> Überprüfen der Integrität des Domänen Controllers
  Bevor Sie mit der Migration fortfahren, sollten Sie sicherstellen, dass der Domänen Controller und das Windows Server Essentials-Netzwerkfehler frei sind.
 
  Die folgende Tabelle listet die Tools auf, die Sie für die Diagnose von Problemen auf Ihrem Zielserver, im Netzwerk oder in der Domäne verwenden können:

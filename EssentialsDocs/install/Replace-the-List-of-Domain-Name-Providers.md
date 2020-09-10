@@ -5,14 +5,14 @@ ms.date: 10/03/2016
 ms.topic: article
 ms.assetid: 104d0412-2d77-4cd4-99f7-65a885522850
 author: nnamuhcs
-ms.author: coreyp
-manager: dongill
-ms.openlocfilehash: 736d7c2271752c79678c2d332ed450e6ba35b299
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.author: geschuma
+manager: mtillman
+ms.openlocfilehash: 74509a7d64e718fe1d2b62f806306235e7d827e4
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87181106"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89623364"
 ---
 # <a name="replace-the-list-of-domain-name-providers"></a>Ersetzen der Liste von Domänennamenanbietern
 
@@ -30,7 +30,7 @@ Mit den folgenden Schritten können Sie die Liste der Domänennamenanbieter erse
 -   [Hinzufügen eines Eintrags zur Registrierung auf dem Referenzcomputer](../install/Replace-the-List-of-Domain-Name-Providers.md#BKMK_AddRegistry)
 
 
-###  <a name="create-the-referral-service-files"></a><a name="BKMK_ReferralFiles"></a>Erstellen der Referenzdienst Dateien
+###  <a name="create-the-referral-service-files"></a><a name="BKMK_ReferralFiles"></a> Erstellen der Referenzdienst Dateien
  Das Verwaltungstool für den Referenzdienst erstellt eine Reihe von Dateien, mit denen die Liste der Domänennamenanbieter definiert wird, die im Assistenten zum Einrichten von Domänennamen angezeigt werden. Eine XML-formatierte Datei wird für jede Region weltweit erstellt und enthält Informationen für die Domänennamenanbieter, die Sie im Tool angeben. Die vom Tool erstellten Dateien müssen sich in einem Ordner befinden, auf den über eine sichere Verbindung (HTTPS) zugegriffen werden kann, die Sie über das Internet verwalten.
 
 ##### <a name="to-create-the-referral-files"></a>So erstellen Sie Referenzdateien
@@ -57,7 +57,7 @@ Mit den folgenden Schritten können Sie die Liste der Domänennamenanbieter erse
 
 11. Klicken Sie auf **Dateien für das Dateisystem generieren**.
 
-###  <a name="add-an-entry-to-the-registry-on-the-reference-computer"></a><a name="BKMK_AddRegistry"></a>Hinzufügen eines Eintrags zur Registrierung auf dem Referenz Computer
+###  <a name="add-an-entry-to-the-registry-on-the-reference-computer"></a><a name="BKMK_AddRegistry"></a> Hinzufügen eines Eintrags zur Registrierung auf dem Referenz Computer
  Ein Registrierungseintrag muss hinzugefügt werden, um anzugeben, wo das Betriebssystem die Referenzdienstdateien finden kann.
 
 ##### <a name="to-add-a-key-to-the-registry"></a>So fügen Sie einen Schlüssel zur Registrierung hinzu
@@ -83,7 +83,7 @@ Mit den folgenden Schritten können Sie die Liste der Domänennamenanbieter erse
 >  A slash (/) is required at the end of the URL.
 ~~~
 
-###  <a name="domain-name-status-issues"></a><a name="BKMK_ReplaceDomainNameProviders"></a>Domänen Namen-Status Probleme
+###  <a name="domain-name-status-issues"></a><a name="BKMK_ReplaceDomainNameProviders"></a> Domänen Namen-Status Probleme
  Wenn ein Partner Domänen Namen Anbieter hinzufügt und eine API (Application Programming Interface) im Windows Server Essentials SDK verwendet, um den Status "unknown", "failed" und "certificaterequestnotsubmitted" für das Zertifikat festzulegen, erhält der Kunde ein falsches Meldungs-und Konfigurations Ergebnis. Der Grund hierfür ist, dass die Fälle von Ausnahmen behandelt werden und kein Status zurückgegeben wird.
 
  Die folgenden Statusangaben für Domänen sind falsch und sollten als Fehler gemeldet werden:
@@ -104,7 +104,7 @@ Mit den folgenden Schritten können Sie die Liste der Domänennamenanbieter erse
 
 - Bereit
 
-- Ausstehend
+- Pending
 
 - InRenewal
 

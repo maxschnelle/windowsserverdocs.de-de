@@ -5,14 +5,14 @@ ms.date: 10/03/2016
 ms.topic: article
 ms.assetid: d9f18b29-8e03-439e-bdf0-1dac5e4f70c5
 author: nnamuhcs
-ms.author: coreyp
-manager: dongill
-ms.openlocfilehash: e55c717b1eeb5b8f75ebfb7b48abd656dd4ddaa3
-ms.sourcegitcommit: 04637054de2bfbac66b9c78bad7bf3e7bae5ffb4
+ms.author: geschuma
+manager: mtillman
+ms.openlocfilehash: 3e0902f99be96e3197b90b4892f78849a5c84125
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87838427"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89622879"
 ---
 # <a name="demote-and-remove-the-source-server-from-the-new-windows-server-essentials-network1"></a>Tiefer stufen und Entfernen des Quell Servers aus dem neuen Windows Server Essentials network1
 
@@ -32,7 +32,7 @@ Nachdem Sie die Installation von Windows Server Essentials abgeschlossen haben u
 5.  [Entfernen und Wiederverwenden des Quellserver](Demote-and-remove-the-Source-Server-from-the-new-Windows-Server-Essentials-network.md#BKMK_RemoveTheSourceServer).
 
 
-###  <a name="uninstall-exchange-server-2003"></a><a name="BKMK_UninstallExchangeServer2003"></a>Deinstallieren von Exchange Server 2003
+###  <a name="uninstall-exchange-server-2003"></a><a name="BKMK_UninstallExchangeServer2003"></a> Deinstallieren von Exchange Server 2003
 
 > [!IMPORTANT]
 >  Wenn Sie nach dem Verschieben von Postfächern auf den Zielserver, und vor der Deinstallation von Exchange Server 2003 vom Quellserver Benutzerkonten hinzufügen, werden die Postfächer auf dem Quellserver hinzugefügt. Dies ist beabsichtigt. Sie müssen die Postfächer auf den Zielserver für alle Benutzerkonten, die während dieser Zeit hinzugefügt werden, verschieben. Wiederholen Sie die Anweisungen unter Verschieben von Exchange Server-Postfächern und Einstellungen für die Windows Server Essentials-Migration, bevor Sie Exchange Server 2003 deinstallieren.
@@ -60,10 +60,10 @@ Nachdem Sie die Installation von Windows Server Essentials abgeschlossen haben u
 
 7. Wenn Sie aufgefordert werden, legen Sie Windows Small Business Server 2003-CD # ein und befolgen Sie die Anweisungen auf dem Bildschirm.
 
-###  <a name="disconnect-printers-that-are-directly-connected-to-the-source-server"></a><a name="BKMK_PhysicallyDisconnect"></a>Drucker trennen, die direkt mit dem Quell Server verbunden sind
+###  <a name="disconnect-printers-that-are-directly-connected-to-the-source-server"></a><a name="BKMK_PhysicallyDisconnect"></a> Drucker trennen, die direkt mit dem Quell Server verbunden sind
  Bevor Sie den Quellserver tiefer stufen, trennen Sie physisch alle Drucker, die direkt mit dem Quellserver verbunden sind und über den Quellserver freigegeben werden. Stellen Sie sicher, dass keine Active Directory-Objekte für den Drucker, die direkt mit dem Quellserver verbunden waren, verbleiben. Die Drucker können dann direkt mit dem Ziel Server verbunden und von Windows Server Essentials gemeinsam genutzt werden.
 
-###  <a name="demote-the-source-server"></a><a name="BKMK_DemoteTheSourceServer"></a>Herabstufen des Quell Servers
+###  <a name="demote-the-source-server"></a><a name="BKMK_DemoteTheSourceServer"></a> Herabstufen des Quell Servers
  Bevor Sie auf dem Quellserver von der Rolle des AD DS-Domänencontroller auf die Rolle des Mitgliedsservers einer Domäne herabstufen, stellen Sie sicher, dass Gruppenrichtlinieneinstellungen auf allen Clientcomputern angewendet werden, wie im folgenden Verfahren beschrieben.
 
 > [!IMPORTANT]
@@ -77,7 +77,7 @@ Nachdem Sie die Installation von Windows Server Essentials abgeschlossen haben u
 
 3.  Geben Sie an der Eingabeaufforderung **gpupdate /force**, und drücken Sie dann die EINGABETASTE.
 
-4.  Dafür müssen Sie sich möglicherweise ab-und wieder anmelden, um den Vorgang abzuschließen. Klicken Sie zur Bestätigung auf **Ja**.
+4.  Dafür müssen Sie sich möglicherweise ab-und wieder anmelden, um den Vorgang abzuschließen. Klicken Sie zum Bestätigen auf **Ja**.
 
 ##### <a name="to-demote-the-source-server"></a>So stufen Sie den Quellserver tiefer
 
@@ -108,7 +108,7 @@ Nachdem Sie die Installation von Windows Server Essentials abgeschlossen haben u
 
 4.  Überprüfen Sie, ob der Quellserver nicht aufgeführt wird und schließen Sie dann**Active Directory-Benutzer und-Computer**.
 
-###  <a name="move-the-dhcp-server-role-from-the-source-server-to-the-router"></a><a name="BKMK_MoveTheDHCPRole"></a>Verschieben der DHCP-Server Rolle vom Quell Server auf den Router
+###  <a name="move-the-dhcp-server-role-from-the-source-server-to-the-router"></a><a name="BKMK_MoveTheDHCPRole"></a> Verschieben der DHCP-Server Rolle vom Quell Server auf den Router
 
 > [!NOTE]
 >
@@ -138,7 +138,7 @@ Nachdem Sie die Installation von Windows Server Essentials abgeschlossen haben u
     > [!IMPORTANT]
     >  Wenn Sie keine statische IP oder DHCP-Reservierungen auf dem Router für den Zielserver eingerichtet haben, und der DHCP-Bereich nicht identisch mit dem Quellserver ist, ist es möglich, dass der Router eine neue IP-Adresse für den Zielserver ausstellt. Setzen Sie in diesem Fall die Portweiterleitungsregeln des Routers zum Weiterleiten auf die neue IP-Adresse des Zielservers zurück.
 
-###  <a name="remove-and-repurpose-the-source-server"></a><a name="BKMK_RemoveTheSourceServer"></a>Entfernen und Wiederherstellen des Quell Servers
+###  <a name="remove-and-repurpose-the-source-server"></a><a name="BKMK_RemoveTheSourceServer"></a> Entfernen und Wiederherstellen des Quell Servers
  Deaktivieren Sie den Quellserver, und trennen Sie ihn vom Netzwerk. Es wird empfohlen, den Quellserver für mindestens eine Woche nicht neu zu formatieren, um sicherzustellen, dass alle erforderlichen Daten auf den Zielserver migriert wurden. Nachdem Sie sichergestellt haben, dass alle Daten migriert wurden, können Sie, falls erforderlich, diesen Server im Netzwerk als sekundären Server für andere Aufgaben neu installieren.
 
 > [!NOTE]

@@ -3,16 +3,16 @@ title: wbadmin start sysrecovery
 description: Referenz Artikel für Wbadmin starten Sie sysrecovery, bei dem eine Systemwiederherstellung (Bare-Metal-Recovery) mit den von Ihnen angegebenen Parametern durchführt wird.
 ms.topic: reference
 ms.assetid: 95b8232f-7c42-452b-838e-15b0cf6faebe
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: c108636533b333224b925f22854622fff023abba
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: e9cac744465d2744217ec1da594f41c27ffe317d
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89031898"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89621503"
 ---
 # <a name="wbadmin-start-sysrecovery"></a>wbadmin start sysrecovery
 
@@ -41,7 +41,7 @@ wbadmin start sysrecovery
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
 |-version|Gibt den Versions Bezeichner für die wieder herzustellende Sicherung im Format mm/dd/yyyy-HH: mm an. Wenn Sie den Versions Bezeichner nicht kennen, geben Sie **Wbadmin Get Versions**ein.|
 |-backupTarget|Gibt den Speicherort an, der die Sicherung oder Sicherungen enthält, die Sie wiederherstellen möchten. Dieser Parameter ist hilfreich, wenn sich der Speicherort von dem Speicherort unterscheidet, in dem die Sicherungen dieses Computers normalerweise gespeichert werden.|

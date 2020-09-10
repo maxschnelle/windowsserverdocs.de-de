@@ -5,14 +5,14 @@ ms.date: 10/31/2013
 ms.topic: article
 ms.assetid: 0951a67d-492f-41ad-9ae5-8e4cd25e3041
 author: nnamuhcs
-ms.author: coreyp
-manager: dongill
-ms.openlocfilehash: 9e730ea3fe0deeca84759c546e3f4afa76e5c7d8
-ms.sourcegitcommit: 1eaad076ea74e72b36e8893aaa15f3e5f4237bd6
+ms.author: geschuma
+manager: mtillman
+ms.openlocfilehash: 39b74722b9f3036bab5face5d48c9a5a5af3da90
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88659375"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89622395"
 ---
 # <a name="system-requirements-for-windows-server-essentials"></a>Systemanforderungen für Windows Server Essentials
 
@@ -33,7 +33,7 @@ ms.locfileid: "88659375"
 
 ## <a name="table-2-additional-hardware-and-software-requirements-for-windows-server-essentials"></a>Tabelle 2: Zusätzliche Hardware-und Softwareanforderungen für Windows Server Essentials
 
-|Komponente|Beschreibung|
+|Komponente|BESCHREIBUNG|
 |---------------|-----------------|
 |Netzwerkadapter|Gigabit-Ethernet-Adapter (10/100/1000baseT PHY/MAC)|
 |Internet|Für einige Funktionen ist möglicherweise ein Internetzugang (ggf. kostenpflichtig) oder ein Microsoft-Konto erforderlich.|

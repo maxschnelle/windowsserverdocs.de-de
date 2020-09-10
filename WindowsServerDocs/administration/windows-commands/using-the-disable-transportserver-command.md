@@ -3,16 +3,16 @@ title: Deaktivieren-Transportserver
 description: Referenz Artikel zu "deaktivieren-Transportserver", mit dem alle Dienste für einen Transport Server deaktiviert werden.
 ms.topic: reference
 ms.assetid: a009706b-8e89-486b-8e3d-512cd9f4de74
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 361a963f1e2e7fd98d05dc288dbca06353ae22f0
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 2fd2ac1c346aca8132870edea2bf7696114089b2
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89032145"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89622008"
 ---
 # <a name="disable-transportserver"></a>Deaktivieren-Transportserver
 
@@ -25,7 +25,7 @@ Deaktiviert alle Dienste für einen Transport Server.
 wdsutil [Options] /Disable-TransportServer [/Server:<Server name>]
 ```
 ### <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |-------|--------|
 |[/Server:<Server name>]|Gibt den Namen des zu deaktivierenden Transport Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn kein Transport Servername angegeben ist, wird der lokale Server verwendet.|
 ## <a name="examples"></a>Beispiele

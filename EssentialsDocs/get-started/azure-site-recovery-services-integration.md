@@ -5,14 +5,14 @@ ms.date: 10/01/2016
 ms.topic: article
 ms.assetid: 262701a6-8a97-4c4e-bfbf-9f8007c308d6
 author: nnamuhcs
-ms.author: coreyp
-manager: dongill
-ms.openlocfilehash: 7c30d99bd1a0019130f7e39f70b289effd6935c4
-ms.sourcegitcommit: 04637054de2bfbac66b9c78bad7bf3e7bae5ffb4
+ms.author: geschuma
+manager: mtillman
+ms.openlocfilehash: aa84ae8f3d11631b76d2e85e6a50f309eb83dd74
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87838249"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89622583"
 ---
 # <a name="azure-site-recovery-services-integration"></a>Azure Site Recovery Services-Integration
 
@@ -62,6 +62,6 @@ In den drei oben genannten Fällen zeigt das Windows Server Essentials-Dashboard
 
 ![Ein Screenshot, der die Azure-Wiederherstellungs Seite des Windows Server Essentials-Dashboards anzeigt. Die Replikation in Azure wurde für einen Host mit dem Namen Essentials aktiviert, und ein virtueller Computer namens Essentials-Test wird in Azure ausgeführt und zeigt an, dass für den Host ein Failover zu Azure ausgeführt wurde.](media/azure-site-recovery-8.PNG)
 
-<a name="see-also"></a>Siehe auch
+<a name="see-also"></a>Weitere Informationen
 --------
 [Erste Schritte in Windows Server Essentials](get-started.md)

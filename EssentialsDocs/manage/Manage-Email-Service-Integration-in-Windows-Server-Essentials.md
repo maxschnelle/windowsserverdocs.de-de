@@ -5,14 +5,14 @@ ms.date: 10/03/2016
 ms.topic: article
 ms.assetid: 4c35d230-02ec-4374-b4c5-2da19fe151ee
 author: nnamuhcs
-ms.author: coreyp
-manager: dongill
-ms.openlocfilehash: f78c211cc227b753af63c4e15884f3bb760a1c0a
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.author: geschuma
+manager: mtillman
+ms.openlocfilehash: 4eefd2a041943b35c5e4ad9b484aa13ead47d111
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87180986"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89623098"
 ---
 # <a name="manage-email-service-integration-in-windows-server-essentials"></a>Verwalten der E-Mail-Dienstintegration in Windows Server Essentials
 
@@ -24,10 +24,10 @@ Im folgenden Thema finden Sie Informationen zum Einrichten einer E-Mail-Lösung 
 
      Enthält Informationen und grundlegende Anweisungen zur Einrichtung und Integration eines lokalen Servers, auf dem Exchange Server ausgeführt wird, und eines Servers, auf dem Windows Server Essentials ausgeführt wird.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
--   [Verwalten von Office 365](Manage-Office-365-in-Windows-Server-Essentials.md)
+-   [Verwalten von Microsoft 365](Manage-Office-365-in-Windows-Server-Essentials.md)
 
--   [Erste Schritte für die Verwendung von Microsoft Office 365](../use/Quick-Start-Guide-to-Using-Microsoft-Office-365-with-Windows-Server-Essentials.md)
+-   [Schnellstarthandbuch mit Microsoft 365](../use/Quick-Start-Guide-to-Using-Microsoft-Office-365-with-Windows-Server-Essentials.md)
 
 -   [Verwalten von Windows Server Essentials](Manage-Windows-Server-Essentials.md)

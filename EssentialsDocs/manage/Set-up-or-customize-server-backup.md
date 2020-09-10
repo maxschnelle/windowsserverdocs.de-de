@@ -5,14 +5,14 @@ ms.date: 10/03/2016
 ms.topic: article
 ms.assetid: 441c2d6c-435a-42cb-90f2-6d680d279d34
 author: nnamuhcs
-ms.author: coreyp
-manager: dongill
-ms.openlocfilehash: 8342c542861598411570c4e702aea5a94f992c79
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.author: geschuma
+manager: mtillman
+ms.openlocfilehash: 464b30d610dcf25dc53c12bf38f8ec3da8691e2a
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87180806"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89622941"
 ---
 # <a name="set-up-or-customize-server-backup"></a>Einrichten oder Anpassen der Serversicherung
 
@@ -30,7 +30,7 @@ ms.locfileid: "87180806"
 
 -   [Zu sichernde Elemente](Set-up-or-customize-server-backup.md#BKMK_4)
 
-##  <a name="set-up-or-change-server-backup-settings"></a><a name="BKMK_1"></a>Einrichten oder Ändern von Server Sicherungs Einstellungen
+##  <a name="set-up-or-change-server-backup-settings"></a><a name="BKMK_1"></a> Einrichten oder Ändern von Server Sicherungs Einstellungen
 
 #### <a name="to-set-up-or-change-server-backup-settings"></a>So richten Sie Serversicherungseinstellungen ein oder ändern sie
 
@@ -57,10 +57,10 @@ ms.locfileid: "87180806"
 >    4. Wählen Sie auf der Seite **Laufwerke optimieren** ein Laufwerk aus, und klicken Sie dann auf **Einstellungen ändern**.
 >    5. Deaktivieren Sie im Fenster **Optimierungszeitplan** das Kontrollkästchen **Nach Zeitplan ausführen (empfohlen)**, und klicken Sie dann auf **OK**, um die Änderung zu speichern.
 
-##  <a name="server-backup-schedule"></a><a name="BKMK_2"></a>Zeitplan für die Server Sicherung
+##  <a name="server-backup-schedule"></a><a name="BKMK_2"></a> Zeitplan für die Server Sicherung
  Wenn Sie den Assistenten zum Einrichten der Serversicherung oder den Assistenten zum Anpassen der Serversicherung verwenden, können Sie wählen, die Serverdaten zu verschiedenen Zeitpunkten täglich zu sichern. Da die Assistenten inkrementelle Sicherungen planen, werden die Sicherungen schnell ausgeführt und die Serverleistung nicht wesentlich beeinträchtigt. Standardmäßig wird von den Assistenten eine tägliche Sicherung um 12 Uhr und um 23 Uhr geplant. Sie können den Sicherungszeitplan jedoch entsprechend den Anforderungen Ihrer Organisation anpassen. Sie sollten von Zeit zu Zeit die Effektivität des Sicherungsplans bewerten und diesen nach Bedarf ändern.
 
-##  <a name="backup-target-drive"></a><a name="BKMK_Target"></a>Sicherungs Ziellaufwerk
+##  <a name="backup-target-drive"></a><a name="BKMK_Target"></a> Sicherungs Ziellaufwerk
  Sie können zahlreiche externe Speicherlaufwerke für Sicherungen verwenden, und Sie können bei den Laufwerken zwischen internen und externen Speicherorten wechseln. Dadurch können Sie Ihre Vorbereitung auf Notfälle besser planen und sind in der Lage, die Daten wiederherzustellen, wenn die Hardware vor Ort physische Schäden erleidet.
 
  Bei der Auswahl eines Speicherlaufwerks für die Serversicherung ist Folgendes zu berücksichtigen:
@@ -112,7 +112,7 @@ ms.locfileid: "87180806"
 >
 >    Das Laufwerk wird sofort auf dem Dashboard angezeigt.
 
-##  <a name="items-to-be-backed-up"></a><a name="BKMK_4"></a>Zu sichernde Elemente
+##  <a name="items-to-be-backed-up"></a><a name="BKMK_4"></a> Zu sichernde Elemente
  Sie können wählen, alle Laufwerke, Dateien und Ordner auf dem Server zu sichern oder nur einzelne Laufwerke, Dateien oder Ordner für die Sicherung auswählen.
 
  Wenn Sie ein Laufwerk oder freigegebene Dateien und Ordner hinzufügen oder entfernen, müssen Sie die Serversicherungskonfiguration erneut überprüfen, um sicherzustellen, dass diese Elemente der Sicherungskonfiguration hinzugefügt oder daraus entfernt wurden. Führen Sie einen der folgenden Schritte aus, um Elemente für die Sicherung hinzuzufügen oder zu entfernen:
@@ -128,7 +128,7 @@ ms.locfileid: "87180806"
 
   So können Sie beispielsweise über einen Ordner verfügen, der aufgezeichnete Fernsehsendungen enthält und viel Festplattenspeicherplatz belegt. Sie können festlegen, dass diese Dateien nicht gesichert werden, da sie normalerweise nach einmaliger Wiedergabe ohnehin gelöscht werden. Ein weiteres Beispiel ist ein Ordner mit temporären Dateien, die Sie nicht aufbewahren möchten.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Verwalten der Serversicherung](Manage-Server-Backup-in-Windows-Server-Essentials.md)
 

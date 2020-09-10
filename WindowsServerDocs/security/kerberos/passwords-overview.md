@@ -3,16 +3,16 @@ title: 'Kennwörter: Übersicht'
 description: Windows Server-Sicherheit
 ms.topic: article
 ms.assetid: f608960e-2039-4c91-9c8c-9b81053c675e
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/12/2016
-ms.openlocfilehash: 4f38ee2062b2c154cc99a22a398e02e823a47ca2
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 1b917691f931836605cfe044c725f5200925d2ca
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87996081"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89621885"
 ---
 # <a name="passwords-overview"></a>Kennwörter: Übersicht
 
@@ -20,7 +20,7 @@ ms.locfileid: "87996081"
 
 In diesem Thema für IT-Experten werden Kenn Wörter beschrieben, die in den Windows-Betriebssystemen verwendet werden, sowie Links zu Dokumentationen und Diskussionen über die Verwendung von Kenn Wörtern in einer Strategie zur Verwaltung von Anmelde Informationen.
 
-## <a name="feature-description"></a><a name="BKMK_OVER"></a>Featurebeschreibung
+## <a name="feature-description"></a><a name="BKMK_OVER"></a>Funktionsbeschreibung
 Betriebssysteme und Anwendungen sind heute mit Kenn Wörtern entworfen, und auch wenn Sie Smartcards oder biometrische Systeme verwenden, haben alle Konten weiterhin Kenn Wörter und können in einigen Fällen weiterhin verwendet werden. Einige Konten, insbesondere Konten, die zum Ausführen von Diensten verwendet werden, können nicht einmal Smartcards und biometrische Token verwenden und müssen daher ein Kennwort für die Authentifizierung verwenden. Windows schützt Kenn Wörter mithilfe kryptografischer Hashes.
 
 Weitere Informationen zu Windows-Kenn Wörtern finden Sie unter [Technische Übersicht](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/hh994558(v=ws.10))über Kenn Wörter.

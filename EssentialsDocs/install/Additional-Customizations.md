@@ -5,14 +5,14 @@ ms.date: 10/03/2016
 ms.topic: article
 ms.assetid: 65a195d5-0098-4c3c-b4ba-07f7319c8f1e
 author: nnamuhcs
-ms.author: coreyp
-manager: dongill
-ms.openlocfilehash: 7fc1c9d681ac283eab4810d2a7cc4f7c4223a0b7
-ms.sourcegitcommit: d99bc78524f1ca287b3e8fc06dba3c915a6e7a24
+ms.author: geschuma
+manager: mtillman
+ms.openlocfilehash: fef23f94e9a2a591b14e6e1c8457f07f0ecbdfc7
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87181526"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89621866"
 ---
 # <a name="additional-customizations"></a>Weitere Anpassungen
 
@@ -46,7 +46,7 @@ Zum Erstellen und Anpassen eines Images von Windows Server Essentials können Si
 
 -   [Hinzufügen von Informationen zum zuständigen Partner im Rahmen des Microsoft Online Services-Partnervertrags](../install/Add-Microsoft-Online-Service-Partner-Agreement-Partner-of-Record-Information.md)
 
--   [Ersetzen der Endpunkt-URLs des O365-Integrationsmoduls (Abonnement/Testabonnement) zur Unterstützung des Microsoft Online Services-Wiederverkäufervertrags](../install/Replace-O365-Integration-Module-Buy-Try-Endpoint-URL-in-Support-of-Microsoft-Online-Service-Reseller-Agreement.md)
+-   [Replace Microsoft 365 Integration Module kaufen-try-Endpunkt-URL zur Unterstützung der Microsoft Online Services Reseller Agreement](../install/Replace-O365-Integration-Module-Buy-Try-Endpoint-URL-in-Support-of-Microsoft-Online-Service-Reseller-Agreement.md)
 
 -   [Erstellen einer Serverwiederherstellungs-DVD für remote verwaltete Server](../install/Create-a-Server-Recovery-DVD-for-Remotely-Administered-Servers.md)
 

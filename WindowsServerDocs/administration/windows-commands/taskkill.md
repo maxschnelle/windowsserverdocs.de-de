@@ -3,16 +3,16 @@ title: taskkill
 description: Referenz Artikel für taskkill, mit dem eine oder mehrere Tasks oder Prozesse beendet werden.
 ms.topic: reference
 ms.assetid: 2b71e792-08b6-46d4-95a5-cb6336a79524
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: b3b0a2727116ca2a073e5ad5b17c4fe065453ab6
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: f750f7487e8220c93ea30a78ee185f28a74fd512
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89027118"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89622361"
 ---
 # <a name="taskkill"></a>taskkill
 
@@ -30,7 +30,7 @@ taskkill [/s <computer> [/u [<Domain>\]<UserName> [/p [<Password>]]]] {[/fi <Fil
 
 ### <a name="parameters"></a>Parameter
 
-|         Parameter         |                                                                                                                                        Beschreibung                                                                                                                                        |
+|         Parameter         |                                                                                                                                        BESCHREIBUNG                                                                                                                                        |
 |---------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |      /s \<computer>       |                                                                                    Gibt den Namen oder die IP-Adresse eines Remote Computers an (verwenden Sie keine umgekehrten Schrägstriche). Die Standardeinstellung ist der lokale Computer.                                                                                     |
 | /u \<Domain>\\\<UserName> | Führt den Befehl mit den Konto Berechtigungen des Benutzers aus, der durch *Benutzername* oder *Domäne* \\ *Benutzername*angegeben ist. **/u** kann nur angegeben werden, wenn **/s** angegeben wird. Der Standardwert sind die Berechtigungen des Benutzers, der zurzeit an dem Computer angemeldet ist, der den Befehl ausgibt. |
@@ -56,7 +56,7 @@ taskkill [/s <computer> [/u [<Domain>\]<UserName> [/p [<Password>]]]] {[/fi <Fil
 | WindowTitle |         eq, ne         |                                                                 Fenstertitel                                                                 |
 |   Modulen   |         eq, ne         |                                                                   DLL-Name                                                                   |
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 * Die Filter WindowTitle und Status werden nicht unterstützt, wenn ein Remote System angegeben wird.
 * Das Platzhalter Zeichen ( **\\** <em>) wird nur für die Option **/im-Befehl</em> akzeptiert* , wenn ein Filter angewendet wird.
 * Die Beendigung von Remote Prozessen wird immer erzwungen, unabhängig davon, ob die **/f** -Option angegeben ist.
